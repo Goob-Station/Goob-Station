@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseAction
   id: ActionActivateAutoinjector
-  name: Activate Auto-injector
-  description: Activate your auto injector to administer chemicals into your bloodstream.
+  name: Activer l'auto-injecteur
+  description: Activez votre auto-injecteur pour administrer des produits chimiques dans votre flux sanguin.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

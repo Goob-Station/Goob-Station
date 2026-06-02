@@ -103,10 +103,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: welding tool
+  name: Chalumeau
   parent: BaseItem
   id: Welder
-  description: "Melts anything as long as it's fueled, don't forget your eye protection!"
+  description: "Soude tout tant qu'il est alimenté, n'oubliez pas vos lunettes ! "
   components:
   # Goobstation edit start
   - type: EmitSoundOnPickup
@@ -238,10 +238,10 @@
     - WeldingTool # Einstein Engines
 
 - type: entity
-  name: industrial welding tool
+  name: Chalumeau industriel
   parent: Welder
   id: WelderIndustrial
-  description: "An industrial welder with over double the fuel capacity."
+  description: "Un chalumeau industriel avec plus du double de la capacité de carburant."
   components:
   - type: Sprite
     sprite: Objects/Tools/welder_industrial.rsi
@@ -256,10 +256,10 @@
         maxVol: 250
 
 - type: entity
-  name: advanced industrial welding tool
+  name: Chalumeau industriel avancé
   parent: WelderIndustrial
   id: WelderIndustrialAdvanced
-  description: "An advanced industrial welder with over double the fuel capacity and hotter flame."
+  description: "Un chalumeau industriel avancé avec plus du double de la capacité de carburant et une flamme plus chaude."
   components:
   - type: Sprite
     sprite: Objects/Tools/welder_industrialadv.rsi
@@ -276,10 +276,10 @@
     speedModifier: 1.3
 
 - type: entity
-  name: experimental welding tool
+  name: Chalumeau expérimental
   parent: Welder
   id: WelderExperimental
-  description: "An experimental welder capable of self-fuel generation and less harmful to the eyes."
+  description: "Un chalumeau expérimental capable d'auto-alimentation et moins nocif pour les yeux."
   components:
   - type: Sprite
     sprite: Objects/Tools/welder_experimental.rsi
@@ -314,10 +314,10 @@
     effect: EffectWeldingSparksExp
 
 - type: entity
-  name: emergency welding tool
+  name: Chalumeau d'urgence
   parent: Welder
   id: WelderMini
-  description: "A miniature welder used during emergencies."
+  description: "AUn chalumeau miniature utilisé en cas d'urgence."
   components:
   - type: Sprite
     sprite: Objects/Tools/welder_mini.rsi
@@ -343,8 +343,8 @@
 - type: entity
   parent: [ Welder, BaseXenoborgContraband ]
   id: RefuelingWelder
-  name: refuling welding tool
-  description: "An slow welder that can refuel itself over time."
+  name: Chalumeau auto-alimentant
+  description: "Un chalumeau lent qui peut s'auto-alimenter au fil du temps."
   components:
   - type: Tool
     speedModifier: 0.5

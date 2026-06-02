@@ -20,8 +20,8 @@
 - type: entity
   id: ActionEvolution
   parent: BaseAction
-  name: Evolve
-  description: Evolve into a higher xenomorph caste.
+  name: Évoluer
+  description: Évoluez vers une caste xénomorphe supérieure.
   components:
   - type: Action
     checkCanInteract: false
@@ -34,8 +34,8 @@
 - type: entity
   id: ActionEvolutionPraetorian
   parent: ActionEvolution
-  name: Evolve to praetorian (500)
-  description: Evolve into the main defender of the hive.
+  name: Évoluer en praetorien (500)
+  description: Évoluez en principal défenseur de la ruche.
   components:
   - type: Action
     icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: evolve_praetorian }
@@ -45,8 +45,8 @@
 - type: entity
   id: ActionEvolutionQueen
   parent: ActionEvolutionPraetorian
-  name: Evolve to queen (500)
-  description: Produce an internal egg sac capable of spawning children. Only one queen can exist at a time.
+  name: Évoluer en reine (500)
+  description: Produisez un sac à œufs interne capable de faire naître des enfants. Une seule reine peut exister à la fois.
   components:
   - type: Action
     icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: evolve_queen }
@@ -55,8 +55,8 @@
 - type: entity
   id: ActionSpawnResinWeedNode
   parent: BaseAction
-  name: Plant weeds (50)
-  description: Plants some xenomorph weeds.
+  name: Planter des herbes (50)
+  description: Plantez des herbes xénomorphes.
   components:
   - type: Action
     itemIconStyle: BigAction
@@ -76,8 +76,8 @@
 
 - type: entity
   id: ActionSpawnXenomorphEgg
-  name: Lay egg (75)
-  description: Lay an egg to produce facehuggers to impregnate prey with.
+  name: Pondre un œuf (75)
+  description: Pondez un œuf pour produire des facehuggers qui infecteront vos proies.
   components:
   - type: Action
     checkCanInteract: false
@@ -99,8 +99,8 @@
 - type: entity
   id: ActionSpawnWallResin
   parent: BaseAction
-  name: Build a resin wall (50)
-  description: Secrete tough malleable resin.
+  name: Construire un mur de résine (50)
+  description: Sécrétez de la résine malléable et résistante.
   components:
   - type: Action
     useDelay: 2 # Goobstation
@@ -145,8 +145,8 @@
 - type: entity # Goobstation - new action
   id: ActionSpawnResinDoor
   parent: BaseAction
-  name: Build a resin door (75)
-  description: Secrete tough malleable resin.
+  name: Construire une porte en résine (75)
+  description: Sécrétez de la résine malléable et résistante.
   components:
   - type: Action
     useDelay: 2
@@ -170,8 +170,8 @@
 - type: entity
   id: ActionSpawnResinNest
   parent: BaseAction
-  name: Build a resin nest (50)
-  description: Secrete tough malleable resin.
+  name: Construire un nid en résine (50)
+  description: Sécrétez de la résine malléable et résistante.
   components:
   - type: Action
     useDelay: 1
@@ -195,8 +195,8 @@
 - type: entity
   id: ActionTailLash
   parent: BaseAction
-  name: Tail lash
-  description: Hit your opponent with your tail.
+  name: Coup de queue
+  description: Frappez votre adversaire avec votre queue.
   components:
   - type: Action
     useDelay: 11
@@ -232,8 +232,8 @@
 - type: entity
   id: ActionJumpXenomorph
   parent: BaseAction
-  name: Jump
-  description: Stun your enemies with a quick jump.
+  name: Saut
+  description: Étourdissez vos ennemis avec un saut rapide.
   components:
   - type: Action
     priority: 0
@@ -249,8 +249,8 @@
 - type: entity
   id: ActionTransferPlasma
   parent: BaseAction
-  name: Transfer plasma (50)
-  description: Passes plasma to your friend.
+  name: Transférer du plasma (50)
+  description: Transmettez du plasma à votre allié.
   components:
   - type: Action
     priority: 0
@@ -266,8 +266,8 @@
 - type: entity
   id: ActionXenomorphPromotion
   parent: BaseAction
-  name: Promote to Praetorian (500) # Goobstation
-  description: Directly promote a xenomorph to Praetorian status. # Goobstation
+  name: Promouvoir en praetorien (500) # Goobstation
+  description: Promouvez directement un xénomorphe au rang de praetorien. # Goobstation
   components:
   - type: Action
     itemIconStyle: BigAction

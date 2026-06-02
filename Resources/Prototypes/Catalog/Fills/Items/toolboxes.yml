@@ -93,9 +93,9 @@
 
 - type: entity
   id: ToolboxEmergencyFilled
-  name: emergency toolbox
+  name: boîte à outils d'urgence
   parent: ToolboxEmergency
-  suffix: Filled
+  suffix: Rempli
   components:
   - type: StorageFill
     contents:
@@ -118,8 +118,8 @@
 
 - type: entity
   id: ToolboxElectricalFilled
-  name: electrical toolbox
-  suffix: Filled
+  name: boîte à outils électrique
+  suffix: Rempli
   parent: ToolboxElectrical
   components:
   - type: StorageFill
@@ -139,8 +139,8 @@
 
 - type: entity
   id: ToolboxElectricalTurretFilled
-  name: electrical toolbox
-  suffix: Syndicate, Turret, Filled
+  name: boîte à outils électrique
+  suffix: Syndicat, Tourelle, Rempli
   parent: ToolboxElectricalTurret
   components:
   - type: StorageFill
@@ -160,8 +160,8 @@
 
 - type: entity
   id: ToolboxArtisticFilled
-  name: artistic toolbox
-  suffix: Filled
+  name: boîte à outils artistique
+  suffix: Rempli
   parent: ToolboxArtistic
   components:
   - type: StorageFill
@@ -181,8 +181,8 @@
 
 - type: entity
   id: ToolboxMechanicalFilled
-  name: mechanical toolbox
-  suffix: Filled
+  name: boîte à outils mécanique
+  suffix: Rempli
   parent: ToolboxMechanical
   components:
   - type: StorageFill
@@ -200,8 +200,8 @@
 
 - type: entity
   id: ToolboxMechanicalFilledAllTools
-  name: mechanical toolbox
-  suffix: Filled, all tools
+  name: boîte à outils mécanique
+  suffix: Rempli, tous les outils
   parent: ToolboxMechanical
   components:
   - type: StorageFill
@@ -216,7 +216,7 @@
 - type: entity
   parent: ToolboxSyndicate
   id: ToolboxSyndicateFilled
-  suffix: Filled
+  suffix: Rempli
   components:
   - type: StorageFill
     contents:
@@ -233,9 +233,9 @@
 
 - type: entity
   id: ToolboxGoldFilled
-  name: golden toolbox
+  name: boîte à outils en or
   parent: ToolboxGolden
-  suffix: Filled
+  suffix: Rempli
   components:
   - type: StorageFill
     contents:

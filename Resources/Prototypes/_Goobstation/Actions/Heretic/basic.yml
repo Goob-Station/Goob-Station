@@ -12,8 +12,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticOpenStore
-  name: Open Knowledge Store
-  description: Open the Knowledge Store.
+  name: Ouvrir le Grimoire
+  description: Ouvre le Grimoire de Connaissances.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -29,8 +29,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticMansusGrasp
-  name: Mansus Grasp
-  description: Channel the power of the Old Gods through your grip.
+  name: Emprise du Mansus
+  description: Canalisez le pouvoir des Dieux Anciens à travers votre prise.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -46,8 +46,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticLivingHeart
-  name: Living Heart
-  description: Use your heart to get your sacrifice targets location.
+  name: Cœur Vivant
+  description: Utilisez votre cœur pour localiser vos cibles de sacrifice.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -64,8 +64,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticMansusLink
-  name: Manse Link
-  description: Pierce through reality and connect minds to one another. Default key is +m
+  name: Lien du Mansus
+  description: "Percez la réalité et connectez les esprits les uns aux autres. Touche par défaut : +m"
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -85,8 +85,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticShadowCloak
-  name: Cloak of Shadow
-  description: Completely conceals your identity, but does not make you invisible. Can be activated early to disable it. While cloaked, you move faster, but undergo actions much slower. Taking damage while cloaked may cause it to lift suddenly.
+  name: Manteau d'Ombre
+  description: Dissimule entièrement votre identité, mais ne vous rend pas invisible. Peut être activé à nouveau pour le désactiver. Sous le manteau, vous vous déplacez plus vite, mais effectuez des actions bien plus lentement. Subir des dégâts sous le manteau peut le faire se lever soudainement.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -109,8 +109,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticShapeshift
-  name: Shapechange
-  description: A spell that allows you to take on the form of another creature, gaining their abilities.
+  name: Métamorphose
+  description: Un sort vous permettant de prendre la forme d'une autre créature et d'acquérir ses capacités.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

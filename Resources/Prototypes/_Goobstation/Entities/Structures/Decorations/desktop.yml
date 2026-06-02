@@ -6,8 +6,8 @@
 - type: entity
   id: Desktop
   parent: BaseStructure
-  name: desktop computer
-  description: The screen says to hold for the OS to update. Though the progress bar never seems to move.
+  name: ordinateur de bureau
+  description: L'écran dit de maintenir pour la mise à jour de l'OS. Bien que la barre de progression ne semble jamais bouger.
   placement:
     mode: SnapgridCenter
   components:

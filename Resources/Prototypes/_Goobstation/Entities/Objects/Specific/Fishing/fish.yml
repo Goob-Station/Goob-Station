@@ -10,7 +10,7 @@
   parent: [SimpleMobBase, BaseItem]
   abstract: true
   name: fish
-  description: Water-born creature from the infinite sea... Or toilet.
+  description: Créature aquatique de la mer infinie... ou des toilettes.
   components:
   - type: Fish
     difficulty: 0.029
@@ -52,7 +52,7 @@
   parent: BaseFish
   abstract: true
   name: rare fish
-  description: Water-born creature from the infinite sea... Or toilet.
+  description: Créature aquatique de la mer infinie... ou des toilettes.
   components:
   - type: Fish
     difficulty: 0.038
@@ -87,7 +87,7 @@
   id: FishBass
   parent: BaseFish
   name: bass fish
-  description: Probably the most normal fish in existence. Unless you use it as bass guitar.
+  description: Probablement le poisson le plus normal qui existe. À moins que vous ne l'utilisiez comme guitare basse.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
@@ -111,7 +111,7 @@
   id: FishBlob
   parent: BaseFish
   name: blob fish
-  description: Unfortuantly, this is not a 5th level bio-hazard threat.
+  description: Malheureusement, ce n'est pas une menace biohazard de niveau 5.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
@@ -123,7 +123,7 @@
   id: FishBlueFintuna
   parent: BaseFish
   name: blue fintuna
-  description: It's looking straight to you...
+  description: Il vous regarde droit dans les yeux...
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
@@ -135,7 +135,7 @@
   id: FishBoyFisher
   parent: BaseFishRare
   name: boy fisher
-  description: You like kissing fish, don't you?
+  description: Vous aimez embrasser les poissons, n'est-ce pas ?
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
@@ -147,7 +147,7 @@
   id: FishCat
   parent: BaseFish
   name: cat fish
-  description: Ironically this looks nothing like a cat. And it doesn't meow.
+  description: Ironiquement, ça ne ressemble pas du tout à un chat. Et ça ne miaule pas.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
@@ -159,7 +159,7 @@
   id: FishTropicalClown
   parent: BaseFish
   name: clown clown fish
-  description: That is almost certanly some kind of joke.
+  description: C'est presque certainement une sorte de blague.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
@@ -198,7 +198,7 @@
   id: FishMutant
   parent: BaseFishRare
   name: mutant fish
-  description: Anomalous fish that looks like it ate some nuclear waste.
+  description: Un poisson anormal qui semble avoir mangé des déchets nucléaires.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
@@ -210,7 +210,7 @@
   id: FishNuker
   parent: BaseFishRare
   name: nuclear operative fish
-  description: Predator of the nuke disk fish.
+  description: Prédateur du poisson disque nucléaire.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
@@ -222,7 +222,7 @@
   id: FishPuffer
   parent: BaseFish
   name: puffer fish
-  description: It is poisonous... in many ways.
+  description: Il est vénéneux... de bien des façons.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
@@ -258,7 +258,7 @@
   id: FishToxic
   parent: BaseFishRare
   name: toxic waste fish
-  description: "Looking at this fish, you understand how much it was a bad idea to allow nuclear waste to be dumped into rivers."
+  description: "En regardant ce poisson, vous comprenez à quel point c'était une mauvaise idée d'autoriser le déversement de déchets nucléaires dans les rivières."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
@@ -270,7 +270,7 @@
   id: FishTropical
   parent: BaseFish
   name: clown fish
-  description: This fish is always searching for something... Or maybe someone?
+  description: Ce poisson cherche toujours quelque chose... Ou peut-être quelqu'un ?
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
@@ -285,7 +285,7 @@
   id: FishIan
   parent: BaseFishRare
   name: ian fish
-  description: Water-born ian from the sea.
+  description: Ian aquatique de la mer.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi

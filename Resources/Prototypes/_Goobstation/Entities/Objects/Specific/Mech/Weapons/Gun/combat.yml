@@ -9,7 +9,7 @@
 - type: entity
   id: WeaponMechCombatPulseRifle
   name: eZ-14 mk2 Heavy pulse rifle
-  description: Fires a heavy pulse laser.
+  description: Tire un laser à impulsions lourdes.
   suffix: Mech Weapon, Gun, Combat, Pulse
   parent: [ BaseMechWeaponRange, CombatMechEquipment ]
   components:
@@ -55,7 +55,7 @@
 - type: entity
   id: WeaponMechCombatSolarisLaser
   name: CH-LC "Solaris" laser cannon
-  description: An experimental combat mounted laser beam that fires far faster than the "Firedart" but at a much higer cost.
+  description: Un faisceau laser de combat monté expérimental qui tire bien plus vite que le "Firedart" mais à un coût bien plus élevé.
   suffix: Mech Weapon, Gun, Combat, Laser
   parent: [ BaseMechWeaponRange, CombatMechEquipment ]
   components:
@@ -78,7 +78,7 @@
 - type: entity
   id: WeaponMechCombatFiredartLaser
   name: CH-PS "Firedart" Laser
-  description: The standard combat armament of the mechs is a combat mounted laser.
+  description: L'armement de combat standard des mechs est un laser monté.
   suffix: Mech Weapon, Gun, Combat, Laser
   parent: [ BaseMechWeaponRange, CombatMechEquipment ]
   components:
@@ -265,7 +265,7 @@
 - type: entity
   id: WeaponMechCombatMissileRack6
   name: BRM-6 Missile Rack
-  description: Tubes must be reloaded from the outside.
+  description: Les tubes doivent être rechargés depuis l'extérieur.
   suffix: Mech Weapon, Gun, Combat, Missile
   parent: [ BaseMechWeaponRange, CombatMechEquipment ]
   components:

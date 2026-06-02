@@ -1,0 +1,5 @@
+- type: entity
+  save: false
+  name: Urist McPlasma
+  parent: BaseMobPlasmaman
+  id: MobPlasmaman

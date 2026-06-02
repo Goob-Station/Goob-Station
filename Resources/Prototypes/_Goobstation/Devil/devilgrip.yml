@@ -1,7 +1,7 @@
 - type: entity
   id: DevilGrip
-  name: devils grip
-  description: What little fraction of your power remains in this realm, channeled into your hands.
+  name: emprise du diable
+  description: La maigre fraction de votre pouvoir qui subsiste en ce monde, canalisée dans vos mains.
   categories: [ HideSpawnMenu ]
   components:
   - type: Unremoveable

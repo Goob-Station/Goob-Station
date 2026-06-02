@@ -6,10 +6,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: ore bag of holding
+  name: sac à minerai bluespace
   id: OreBagOfHolding
   parent: OreBagMagnetic # Lavaland Change
-  description: A robust bag of holding for salvage billionaires and rich miners alike to carry large amounts of ore. Magnetises any nearby ores when attached to a belt.
+  description: Un sac bluespace robuste pour spécialistes de la récupération et mineurs fortunés, permettant de transporter de grandes quantités de minerai. Magnétise les minerais à proximité lorsqu'il est attaché à une ceinture.
   components:
   - type: MagnetPickup
     range: 2

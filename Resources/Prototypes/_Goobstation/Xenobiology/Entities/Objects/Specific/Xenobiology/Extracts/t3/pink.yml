@@ -1,7 +1,7 @@
 - type: entity
   id: PinkSlimeExtract
   parent: BaseSlimeExtract
-  name: pink slime extract
+  name: extrait de slime rose
   components:
   - type: Sprite
     layers:

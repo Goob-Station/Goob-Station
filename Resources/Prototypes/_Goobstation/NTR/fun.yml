@@ -5,7 +5,7 @@
   parent: [BaseItem, BaseCentcommContraband]
   id: Marlen
   name: marlen
-  description: A stylish intricate souvenir made from tough hyper-woven durathread by "NanoFashion". Looks expensive.
+  description: Un souvenir stylé et complexe fabriqué en durathread hyper-tissé dur par « NanoFashion ». Semble coûteux.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/marlen.rsi
@@ -93,7 +93,7 @@
   parent: VendingMachineCigs
   id: VendingMachineCigsDeluxe
   name: ShadyCigs Ultra Premium Pro DLC Deluxe
-  description: If you dont have one of these in your home, you cant call yourself a smoker.
+  description: Si vous n'en avez pas un chez vous, vous ne pouvez pas vous appeler fumeur.
   components:
   - type: Sprite
     noRot: true
@@ -122,8 +122,8 @@
 
 - type: entity
   id: SoapGold
-  name: golden soap
-  description: Finally, you slipped 1000 people and unlocked a new golden soap. Smells like whiskey.
+  name: savon doré
+  description: Vous avez enfin fait glisser 1000 personnes et débloqué un nouveau savon doré. Sent le whisky.
   parent: TrashBananaPeel # because you can eat the soaps for some reason idk
   components:
   - type: Sprite
@@ -143,8 +143,8 @@
 - type: entity
   parent: SoapGold
   id: SoapCentcomm
-  description: They clearly should stop with the green theme on everything man. Smells like lube.
-  name: centcomm soap
+  description: Ils devraient vraiment arrêter avec le thème vert sur tout. Sent le lubrifiant.
+  name: savon CentComm
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/soap.rsi
@@ -152,10 +152,10 @@
 
 - type: entity
   id: WaterCoolerGold
-  name: executive water cooler
-  description: Your taxes were spent on this...
+  name: refroidisseur d'eau executive
+  description: Vos impôts ont servi à ça...
   parent: WaterCooler
-  suffix: full
+  suffix: plein
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Storage/watercooler.rsi

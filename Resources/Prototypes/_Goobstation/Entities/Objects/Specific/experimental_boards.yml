@@ -6,8 +6,8 @@
 - type: entity
   id: ExperimentalCircuitBoard
   parent: BaseElectronics
-  name: experimental law board
-  description: An electronics board containing experimental lawset. When installed, will give some research points after time has passed.
+  name: carte de lois expérimentale
+  description: Un circuit contenant un ensemble de lois expérimentales. Une fois installé, donnera des points de recherche après un certain temps.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -20,8 +20,8 @@
   id: ExperimentalCircuitBoardDebug
   parent: ExperimentalCircuitBoard
   name: experimental experimental law board # Lol
-  suffix: DEBUG
-  description: An electronics board containing experimental lawset. When installed, will give some research points after time has passed.
+  suffix: DÉBOGAGE
+  description: Un circuit contenant un ensemble de lois expérimentales. Une fois installé, donnera des points de recherche après un certain temps.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi

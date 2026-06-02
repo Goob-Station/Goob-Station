@@ -19,8 +19,8 @@
 
 - type: entity
   id: FloorLiquidPlasmaEntity
-  name: liquid plasma
-  description: Sweet, expensive nectar. Don't consume.
+  name: plasma liquide
+  description: Un nectar doux et précieux. Ne pas consommer.
   placement:
     mode: SnapgridCenter
     snap:

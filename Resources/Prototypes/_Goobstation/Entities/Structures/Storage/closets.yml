@@ -9,7 +9,7 @@
   name: H.E.V suit storage unit
   description: A fancy hi-tech storage unit made for storing H.E.V suit.
   parent: [ BaseItemCabinetGlass, BaseStructure ]
-  suffix: Empty
+  suffix: Vide
   components:
   - type: InteractionOutline
   - type: Lock
@@ -91,7 +91,7 @@
 - type: entity
   id: SuitStorageHEVFilled
   parent: SuitStorageHEV
-  suffix: Filled
+  suffix: Rempli
   components:
   - type: ContainerFill
     containers:

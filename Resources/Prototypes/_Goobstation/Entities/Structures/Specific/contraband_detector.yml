@@ -12,7 +12,7 @@
 
 - type: entity
   name: contraband detector
-  description: Walk in with confidence, walk out with security chasing you.
+  description: Entrez avec confiance, sortez avec la sécurité à vos trousses.
   parent: BaseMachinePowered
   id: ContrabandDetector
   placement:
@@ -139,7 +139,7 @@
   id: ContrabandDetectorCircuitboard
   parent: BaseElectronics
   name: contraband detector electronics
-  description: An electronics board used in contraband detector.
+  description: Un circuit électronique utilisé dans le détecteur de contrebande.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi

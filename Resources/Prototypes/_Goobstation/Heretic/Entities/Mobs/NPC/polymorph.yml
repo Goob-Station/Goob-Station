@@ -11,8 +11,8 @@
 
 - type: entity
   id: PolymorphAshJauntAnimation
-  name: Unknown
-  description: You can't figure out what that is.
+  name: Inconnu
+  description: Vous n'arrivez pas à identifier ce que c'est.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -26,8 +26,8 @@
 
 - type: entity
   id: PolymorphAshJauntEndAnimation
-  name: Unknown
-  description: You can't figure out what that is.
+  name: Inconnu
+  description: Vous n'arrivez pas à identifier ce que c'est.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -41,8 +41,8 @@
 
 - type: entity
   id: PolymorphAshJaunt
-  name: Unknown
-  description: You can't figure out what that is.
+  name: Inconnu
+  description: Vous n'arrivez pas à identifier ce que c'est.
   parent: BaseMobJaunt
   categories: [ HideSpawnMenu ]
   components:
@@ -54,9 +54,9 @@
 - type: entity
   parent: [ SimpleSpaceMobBase, FlyingMobBase ]
   id: MobHereticFleshAscend
-  name: eldritch horror
-  description: An incomprehensible mess of limbs and eyes. You can feel it's stare into your soul.
-  suffix: DO NOT MAP
+  name: horreur eldritch
+  description: Un enchevêtrement incompréhensible de membres et d'yeux. Vous sentez son regard vous transpercer l'âme.
+  suffix: NE PAS PLACER
   categories: [ DoNotMap ]
   components:
   - type: Bloodstream
@@ -194,8 +194,8 @@
   categories: [ HideSpawnMenu ]
   parent: BaseStructure
   id: VoidPrison
-  name: Void Prison
-  description: A Yawning void encases their mortal coil.
+  name: Prison du Vide
+  description: Un vide béant emprisonne leur enveloppe mortelle.
   components:
   - type: Sprite
     sprite: _Goobstation/Heretic/Effects/effects.rsi

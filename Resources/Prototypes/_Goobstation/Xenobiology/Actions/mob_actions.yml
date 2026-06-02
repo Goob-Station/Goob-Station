@@ -6,8 +6,8 @@
 - type: entity
   parent: BaseAction
   id: ActionSlimeLatch
-  name: Latch
-  description: Latch onto a target and begin digesting it! Or get off of an existing one if you're already latched onto something.
+  name: S'accrocher
+  description: Accrochez-vous à une cible et commencez à la digérer ! Ou décrochez-vous d'une cible existante si vous êtes déjà accroché à quelque chose.
   components:
   - type: Action
     itemIconStyle: NoItem

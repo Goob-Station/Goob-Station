@@ -1,8 +1,8 @@
 - type: entity
   parent: OxygenTank
   id: WaterVaporTank
-  name: water vapor tank
-  description: A standard cylindrical gas tank for water vapor. It can hold 5 L of gas.
+  name: réservoir de vapeur d'eau
+  description: Un réservoir de gaz cylindrique standard pour la vapeur d'eau. Il peut contenir 5 L de gaz.
   components:
   - type: Sprite
     sprite: _DV/Objects/Tanks/water_vapor.rsi
@@ -14,8 +14,8 @@
 - type: entity
   parent: EmergencyOxygenTank
   id: EmergencyWaterVaporTank
-  name: emergency water vapor tank
-  description: An easily portable tank for emergencies. Contains very little water vapor, rated for survival use only. It can hold 0.66 L of gas.
+  name: réservoir de vapeur d'eau de secours
+  description: Un réservoir facilement portable pour les urgences. Contient très peu de vapeur d'eau, homologué pour usage de survie uniquement. Il peut contenir 0,66 L de gaz.
   components:
   - type: Sprite
     sprite: _DV/Objects/Tanks/emergency_water_vapor.rsi
@@ -27,8 +27,8 @@
 - type: entity
   parent: ExtendedEmergencyOxygenTank
   id: ExtendedEmergencyWaterVaporTank
-  name: extended-capacity emergency water vapor tank
-  description: An emergency tank with extended capacity. Technically rated for prolonged use. It can hold 1.5 L of gas.
+  name: réservoir de vapeur d'eau de secours à capacité étendue
+  description: Un réservoir de secours à capacité étendue. Techniquement homologué pour un usage prolongé. Il peut contenir 1,5 L de gaz.
   components:
   - type: Sprite
     sprite: _DV/Objects/Tanks/emergency_extended_water_vapor.rsi
@@ -40,8 +40,8 @@
 - type: entity
   parent: DoubleEmergencyOxygenTank
   id: DoubleEmergencyWaterVaporTank
-  name: double emergency water vapor tank
-  description: A high-grade dual-tank emergency life support container. It holds a decent amount of water vapor for its small size. It can hold 2.5 L of gas.
+  name: réservoir de vapeur d'eau de secours double
+  description: Un conteneur de survie de haute qualité à double réservoir. Il contient une quantité décente de vapeur d'eau pour sa petite taille. Il peut contenir 2,5 L de gaz.
   components:
   - type: Sprite
     sprite: _DV/Objects/Tanks/emergency_double_water_vapor.rsi

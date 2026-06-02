@@ -25,7 +25,7 @@
 - type: entity
   parent: [PartKobold, BaseChest]
   id: ChestKobold
-  name: "kobold chest"
+  name: "torse de kobold"
   components:
   - type: Sprite
     state: "chest_m"
@@ -40,7 +40,7 @@
 - type: entity
   parent: [PartKobold, BaseGroin]
   id: GroinKobold
-  name: "kobold groin"
+  name: "aine de kobold"
   components:
   - type: Sprite
     state: "groin_m"
@@ -55,7 +55,7 @@
 - type: entity
   parent: [PartKobold, BaseHead]
   id: HeadKobold
-  name: "kobold head"
+  name: "tête de kobold"
   components:
   - type: Sprite
     state: "head_m"
@@ -70,7 +70,7 @@
 - type: entity
   parent: [PartKobold, BaseLeftArm]
   id: LeftArmKobold
-  name: "left kobold arm"
+  name: "bras gauche kobold"
   components:
   - type: Sprite
     state: "l_arm"
@@ -78,7 +78,7 @@
 - type: entity
   parent: [PartKobold, BaseRightArm]
   id: RightArmKobold
-  name: "right kobold arm"
+  name: "bras droit kobold"
   components:
   - type: Sprite
     state: "r_arm"
@@ -86,7 +86,7 @@
 - type: entity
   parent: [PartKobold, BaseLeftHand]
   id: LeftHandKobold
-  name: "left kobold hand"
+  name: "main gauche kobold"
   components:
   - type: Sprite
     state: "l_hand"
@@ -94,7 +94,7 @@
 - type: entity
   parent: [PartKobold, BaseRightHand]
   id: RightHandKobold
-  name: "right kobold hand"
+  name: "main droite kobold"
   components:
   - type: Sprite
     state: "r_hand"
@@ -102,7 +102,7 @@
 - type: entity
   parent: [PartKobold, BaseLeftLeg]
   id: LeftLegKobold
-  name: "left kobold leg"
+  name: "jambe gauche kobold"
   components:
   - type: Sprite
     state: "l_leg"
@@ -110,7 +110,7 @@
 - type: entity
   parent: [PartKobold, BaseRightLeg]
   id: RightLegKobold
-  name: "right kobold leg"
+  name: "jambe droite kobold"
   components:
   - type: Sprite
     state: "r_leg"
@@ -118,7 +118,7 @@
 - type: entity
   parent: [PartKobold, BaseLeftFoot]
   id: LeftFootKobold
-  name: "left kobold foot"
+  name: "pied gauche kobold"
   components:
   - type: Sprite
     state: "l_foot"
@@ -126,7 +126,7 @@
 - type: entity
   parent: [PartKobold, BaseRightFoot]
   id: RightFootKobold
-  name: "right kobold foot"
+  name: "pied droit kobold"
   components:
   - type: Sprite
     state: "r_foot"

@@ -6,7 +6,7 @@
 # SPDX-FileCopyrightText: 2020 Paul Ritter <ritter.paul1@googlemail.com>
 # SPDX-FileCopyrightText: 2020 Swept <jamesurquhartwebb@gmail.com>
 # SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 V&ctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 py01 <pyronetics01@gmail.com>
 # SPDX-FileCopyrightText: 2021 DmitriyRubetskoy <75271456+DmitriyRubetskoy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
@@ -152,8 +152,8 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltUtility
-  name: utility belt
-  description: Can hold various things.
+  name: ceinture d'outillage
+  description: Peut contenir diverses choses.
   components:
   - type: Sprite
     sprite: Clothing/Belt/utility.rsi
@@ -260,8 +260,8 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltChiefEngineer
-  name: chief engineer's toolbelt
-  description: Holds tools, looks snazzy.
+  name: ceinture à outils du chef ingénieur
+  description: Contient des outils, et fait fière allure.
   components:
   - type: Sprite
     sprite: Clothing/Belt/ce.rsi
@@ -363,8 +363,8 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltAssault
-  name: assault belt
-  description: A tactical assault belt.
+  name: ceinture d'assaut
+  description: Une ceinture d'assaut tactique.
   components:
   - type: Sprite
     sprite: Clothing/Belt/assault.rsi
@@ -408,8 +408,8 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltJanitor
-  name: janibelt
-  description: A belt used to hold most janitorial supplies.
+  name: ceinture de janitor
+  description: Une ceinture pour ranger la plupart des fournitures de nettoyage.
   components:
   - type: Sprite
     sprite: Clothing/Belt/janitor.rsi
@@ -459,8 +459,8 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltMedical
-  name: medical belt
-  description: Can hold various medical equipment.
+  name: ceinture médicale
+  description: Peut contenir divers équipements médicaux.
   components:
   - type: Sprite
     sprite: Clothing/Belt/medical.rsi
@@ -515,14 +515,6 @@
         whitelist:
           tags:
           - Spray
-      # spray_med:
-      #   whitelist:
-      #     tags:
-      #     - SprayMedical
-      # wrench_medical:
-      #   whitelist:
-      #     tags:
-      #     - WrenchMedical
       wrench:
         whitelist:
           tags:
@@ -533,8 +525,8 @@
 - type: entity
   parent: ClothingBeltMedical
   id: ClothingBeltMedicalEMT
-  name: EMT belt
-  description: Perfect for holding various equipment for medical emergencies.
+  name: ceinture SMU
+  description: Idéale pour transporter l'équipement nécessaire aux urgences médicales.
   components:
   - type: Sprite
     sprite: Clothing/Belt/emt.rsi
@@ -544,8 +536,8 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltPlant
-  name: botanical belt
-  description: A belt used to hold most hydroponics supplies. Suprisingly, not green.
+  name: ceinture botanique
+  description: Une ceinture pour ranger la plupart des fournitures d'hydroponique. Étonnamment, elle n'est pas verte.
   components:
   - type: Sprite
     sprite: Clothing/Belt/plant.rsi
@@ -575,15 +567,11 @@
         whitelist:
           tags:
           - BotanyHatchet
-      # hydro:
-      #   whitelist:
-      #     tags:
-      #     - PlantAnalyzer # Dunno what to put here, should be aight.
       hoe:
         whitelist:
           tags:
           - BotanyHoe
-      secateurs: # We don't have secateurs and this looks similar enough.
+      secateurs:
         whitelist:
           tags:
           - BotanyShovel
@@ -601,8 +589,8 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltChef
-  name: chef belt
-  description: A belt used to hold kitchen knives and condiments for quick access.
+  name: ceinture de cuisinier
+  description: Une ceinture pour ranger couteaux de cuisine et condiments à portée de main.
   components:
   - type: Sprite
     sprite: Clothing/Belt/chef.rsi
@@ -687,8 +675,8 @@
 - type: entity
   parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseSecurityContraband]
   id: ClothingBeltSecurity
-  name: security belt
-  description: Can hold security gear like handcuffs and flashes.
+  name: ceinture de sécurité
+  description: Peut contenir l'équipement de sécurité comme les menottes et les flashs.
   components:
   - type: Sprite
     sprite: Clothing/Belt/security.rsi
@@ -745,8 +733,8 @@
 - type: entity
   parent: [ClothingBeltBase, ClothingSlotBase, BaseCommandContraband]
   id: ClothingBeltSheath
-  name: sabre sheath
-  description: An ornate sheath designed to hold an officer's blade.
+  name: fourreau de sabre
+  description: Un fourreau orné conçu pour accueillir la lame d'un officier.
   components:
   - type: Sprite
     sprite: Clothing/Belt/sheath.rsi
@@ -777,8 +765,8 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltHolster
-  name: shoulder holster
-  description: 'A holster to carry a handgun and ammo. WARNING: Badasses only.'
+  name: holster d'épaule
+  description: 'Un holster pour transporter une arme de poing et des munitions. AVERTISSEMENT : réservé aux durs à cuire.'
   components:
   - type: Sprite
     sprite: Clothing/Belt/holster.rsi
@@ -802,7 +790,7 @@
   - type: ItemSlots
     slots:
       item:
-        name: Handgun
+        name: Arme de poing
         whitelist:
           tags:
           - Sidearm
@@ -810,8 +798,8 @@
 - type: entity
   parent: [ClothingBeltHolster, BaseSyndicateContraband] # Goobstation
   id: ClothingBeltSyndieHolster
-  name: syndicate shoulder holster
-  description: A deep shoulder holster capable of holding many types of ballistics.
+  name: holster d'épaule du syndicat
+  description: Un holster d'épaule profond capable de contenir de nombreux types d'armes balistiques.
   components:
   - type: Sprite
     sprite: Clothing/Belt/syndieholster.rsi
@@ -819,20 +807,10 @@
     sprite: Clothing/Belt/syndieholster.rsi
   - type: Item
     size: Ginormous
-  # Goobstation
-  #- type: Storage
-  #  maxItemSize: Huge
-  #  grid:
-  #  - 0,0,3,3
-  #  whitelist:
-  #    components:
-  #    - Gun
-  #    - BallisticAmmoProvider
-  #    - CartridgeAmmo
   - type: ItemSlots
     slots:
       item:
-        name: Gun
+        name: Arme
         whitelist:
           components:
           - Gun
@@ -842,8 +820,8 @@
 - type: entity
   parent: [ClothingBeltAmmoProviderBase, BaseSecurityBartenderContraband]
   id: ClothingBeltBandolier
-  name: bandolier
-  description: A bandolier for holding shotgun ammunition.
+  name: bandoulière
+  description: Une bandoulière pour transporter des munitions de fusil à pompe.
   components:
   - type: Sprite
     sprite: Clothing/Belt/bandolier.rsi
@@ -860,8 +838,8 @@
 - type: entity
   parent: ClothingBeltBase
   id: ClothingBeltChampion
-  name: championship belt
-  description: Proves to the world that you are the strongest!
+  name: ceinture de champion
+  description: Prouve au monde entier que vous êtes le plus fort !
   components:
   - type: Sprite
     sprite: Clothing/Belt/champion.rsi
@@ -875,8 +853,8 @@
 - type: entity
   parent: ClothingBeltSecurity
   id: ClothingBeltSecurityWebbing
-  name: security carrier
-  description: Unique and versatile chest rig, can hold security gear.
+  name: harnais de sécurité
+  description: Gilet tactique unique et polyvalent, peut contenir l'équipement de sécurité.
   components:
   - type: Sprite
     sprite: Clothing/Belt/securitywebbing.rsi
@@ -886,8 +864,8 @@
 - type: entity
   parent: [ ClothingBeltStorageBase, BaseSecurityCargoContraband ]
   id: ClothingBeltMercWebbing
-  name: mercenary webbing
-  description: Ideal for storing everything from ammo to weapons and combat essentials.
+  name: harnais de mercenaire
+  description: Idéal pour tout ranger, des munitions aux armes en passant par les essentiels du combat.
   components:
   - type: Sprite
     sprite: Clothing/Belt/mercwebbing.rsi
@@ -897,8 +875,8 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltSalvageWebbing
-  name: salvage rig
-  description: Universal unloading system for work in space.
+  name: harnais de récupération
+  description: Système de déchargement universel pour le travail dans l'espace.
   components:
   - type: Sprite
     sprite: Clothing/Belt/salvagewebbing.rsi
@@ -908,8 +886,8 @@
 - type: entity
   parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseSyndicateContraband]
   id: ClothingBeltMilitaryWebbing
-  name: chest rig
-  description: A set of tactical webbing worn by Syndicate boarding parties.
+  name: gilet tactique
+  description: Un ensemble de sangles tactiques porté par les groupes d'assaut du Syndicat.
   components:
   - type: Sprite
     sprite: Clothing/Belt/militarywebbing.rsi
@@ -923,8 +901,8 @@
 - type: entity
   parent: ClothingBeltMilitaryWebbing
   id: ClothingBeltMilitaryWebbingMed
-  name: medical chest rig
-  description: A set of tactical webbing worn by Gorlex Marauder medic operatives.
+  name: gilet tactique médical
+  description: Un ensemble de sangles tactiques porté par les agents médecins des Maraudeurs Gorlex.
   components:
   - type: Sprite
     sprite: Clothing/Belt/militarywebbingmed.rsi
@@ -938,8 +916,8 @@
 - type: entity
   parent: ClothingBeltBase
   id: ClothingBeltSuspendersRed
-  name: red suspenders
-  description: For holding your pants up.
+  name: bretelles rouges
+  description: Pour maintenir votre pantalon en place.
   components:
   - type: Tag
     tags:
@@ -954,7 +932,7 @@
 - type: entity
   parent: ClothingBeltSuspendersRed
   id: ClothingBeltSuspendersBlack
-  name: black suspenders
+  name: bretelles noires
   components:
   - type: Sprite
     sprite: Clothing/Belt/suspenders_black.rsi
@@ -964,8 +942,8 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltWand
-  name: wand belt
-  description: A belt designed to hold various rods of power. A veritable fanny pack of exotic magic.
+  name: ceinture à baguettes
+  description: Une ceinture conçue pour tenir divers bâtons de pouvoir. Un véritable sac banane de magie exotique.
   components:
   - type: Sprite
     sprite: Clothing/Belt/wand.rsi

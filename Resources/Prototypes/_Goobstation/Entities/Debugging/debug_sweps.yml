@@ -1,9 +1,9 @@
 - type: entity
-  name: holy blast stick 100dmg
+  name: bâton de souffle saint 100dmg
   parent: BaseItem
   id: MeleeDebugGibHoly100
-  description: Behold, the power of GOD!!
-  suffix: DEBUG
+  description: Contemplez, la puissance de DIEU !!
+  suffix: DÉBOGAGE
   components:
   - type: Tag
     tags:
@@ -20,11 +20,11 @@
     sprite: Objects/Weapons/Melee/debug.rsi
 
 - type: entity
-  name: holy blast stick 200dmg
+  name: bâton de souffle saint 200dmg
   parent: BaseItem
   id: MeleeDebugGibHoly200
-  description: Behold, the power of GOD!!
-  suffix: DEBUG
+  description: Contemplez, la puissance de DIEU !!
+  suffix: DÉBOGAGE
   components:
   - type: Tag
     tags:
@@ -41,11 +41,11 @@
     sprite: Objects/Weapons/Melee/debug.rsi
 
 - type: entity
-  name: holy smite stick # This ones just for fun
+  name: bâton de châtiment saint # Celui-ci est juste pour le fun
   parent: BaseItem
   id: MeleeDebugGibHoly200000
-  description: BEGONE SINNER
-  suffix: DEBUG
+  description: DISPARAIS PÉCHEUR
+  suffix: DÉBOGAGE
   components:
   - type: Tag
     tags:

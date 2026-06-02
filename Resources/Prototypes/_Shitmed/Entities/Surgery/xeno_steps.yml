@@ -17,7 +17,7 @@
 - type: entity
   parent: [ BaseSurgeryStepXeno, SurgeryStepOpenIncisionScalpel ]
   id: SurgeryStepXenoOpenIncision
-  name: Open an incision
+  name: Ouvrir une incision
   components:
   - type: SurgeryStep
     duration: 4
@@ -25,7 +25,7 @@
 - type: entity
   parent: [ BaseSurgeryStepXeno, SurgeryStepClampBleeders ]
   id: SurgeryStepXenoClampBleeders
-  name: Clamp the acid vessels
+  name: Suturer les vaisseaux acides
   components:
   - type: SurgeryStep
     duration: 6
@@ -37,7 +37,7 @@
 - type: entity
   parent: [ BaseSurgeryStepXeno, SurgeryStepSawBones ]
   id: SurgeryStepXenoSeverPlasma
-  name: Sever plasma connections
+  name: Sectionner les connexions plasma
   components:
   - type: SurgeryStep
     add:
@@ -47,7 +47,7 @@
 - type: entity
   parent: SurgeryStepBase # no damage from it duh
   id: SurgeryStepXenoNeutralizeAcid
-  name: Neutralize acid
+  name: Neutraliser l'acide
   components:
   - type: SurgeryStep
     tool:
@@ -64,7 +64,7 @@
 - type: entity
   parent: SurgeryStepXenoOpenIncision
   id: SurgeryStepXenoCutExoskeleton
-  name: Score the exoskeleton
+  name: Entailler l'exosquelette
   components:
   - type: SurgeryStep
     add:
@@ -73,7 +73,7 @@
 - type: entity
   parent: [ BaseSurgeryStepXeno, SurgeryStepPriseOpenBones ]
   id: SurgeryStepXenoRetractExoskeleton
-  name: Retract the exoskeleton
+  name: Rétracter l'exosquelette
   components:
   - type: SurgeryStep
     duration: 6
@@ -83,7 +83,7 @@
 - type: entity
   parent: [ BaseSurgeryStepXeno, SurgeryStepSawBones ]
   id: SurgeryStepXenoSawExoskeleton
-  name: Saw through the exoskeleton
+  name: Scier l'exosquelette
   components:
   - type: SurgeryStep
     duration: 8
@@ -93,7 +93,7 @@
 - type: entity
   parent: BaseSurgeryStepXeno
   id: SurgeryStepXenoMendExoskeleton
-  name: Reseal the exoskeleton
+  name: Resceller l'exosquelette
   components:
   - type: SurgeryStep
     tool:
@@ -110,7 +110,7 @@
 - type: entity
   parent: [ BaseSurgeryStepXeno, SurgeryStepCloseBones ]
   id: SurgeryStepXenoCloseExoskeleton
-  name: Close the exoskeleton
+  name: Fermer l'exosquelette
   components:
   - type: SurgeryStep
     duration: 4
@@ -122,7 +122,7 @@
 - type: entity
   parent: [ BaseSurgeryStepXeno, SurgeryStepPriseOpenBones ]
   id: SurgeryStepXenoRetractEndoskeleton
-  name: Retract the endoskeleton
+  name: Rétracter l'endosquelette
   components:
   - type: SurgeryStep
     duration: 4
@@ -130,7 +130,7 @@
 - type: entity
   parent: [ BaseSurgeryStepXeno, SurgeryStepSawBones ]
   id: SurgeryStepXenoSawEndoskeleton
-  name: Saw through the endoskeleton
+  name: Scier l'endosquelette
   components:
   - type: SurgeryStep
     duration: 8
@@ -138,7 +138,7 @@
 - type: entity
   parent: [ BaseSurgeryStepXeno, SurgeryStepSealRibcage ]
   id: SurgeryStepXenoMendEndoskeleton
-  name: Mend the endoskeleton
+  name: Réparer l'endosquelette
   components:
   - type: SurgeryStep
     duration: 4
@@ -146,7 +146,7 @@
 - type: entity
   parent: [ BaseSurgeryStepXeno, SurgeryStepCloseBones ]
   id: SurgeryStepXenoCloseEndoskeleton
-  name: Close the endoskeleton
+  name: Fermer l'endosquelette
   components:
   - type: SurgeryStep
     duration: 4
@@ -215,39 +215,39 @@
 - type: entity
   parent: SurgeryStepInsertOrgan
   id: SurgeryStepInsertHiveNode
-  name: Add hive node
+  name: Ajouter le nœud de ruche
 
 - type: entity
   parent: SurgeryStepInsertOrgan
   id: SurgeryStepInsertResinSpinner
-  name: Add resin spinner
+  name: Ajouter le fileur de résine
 
 - type: entity
   parent: SurgeryStepInsertOrgan
   id: SurgeryStepInsertNeurotoxinGland
-  name: Add neurotoxin gland
+  name: Ajouter la glande à neurotoxine
 
 - type: entity
   parent: SurgeryStepInsertOrgan
   id: SurgeryStepInsertAcidGland
-  name: Add acid gland
+  name: Ajouter la glande acide
 
 - type: entity
   parent: SurgeryStepInsertOrgan
   id: SurgeryStepInsertPlasmaVessel
-  name: Add plasma vessel
+  name: Ajouter le vaisseau à plasma
 
 - type: entity
   parent: SurgeryStepInsertOrgan
   id: SurgeryStepInsertEggSack
-  name: Add egg sack
+  name: Ajouter le sac à œufs
 
 # Shitty xenobio
 
 - type: entity
   parent: BaseSurgeryStepXeno
   id: SurgeryStepXenoTakeSample
-  name: Remove tissue sample
+  name: Retirer l'échantillon de tissu
   components:
   - type: SurgeryStep
     duration: 6
@@ -264,7 +264,7 @@
 - type: entity
   parent: SurgeryStepBase # this is a regular surgery
   id: SurgeryStepGraftXenoSample
-  name: Graft xeno tissue sample
+  name: Greffer un échantillon de tissu xéno
   components:
   - type: SurgeryStep
     duration: 8

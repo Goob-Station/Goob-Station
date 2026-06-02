@@ -1,7 +1,7 @@
 - type: entity
   id: TouchSpellStar
-  name: star touch
-  description: A sinister looking aura that distorts the flow of reality around it. Connects people with a star mark to you with a cosmic ray and forces them to sleep for 8 seconds after they have been connected for long enough. Causes people without a star mark to get one.
+  name: toucher des étoiles
+  description: Une aura sinistre qui distord le flux de la réalité autour d'elle. Relie les personnes portant une marque stellaire à vous via un rayon cosmique et les force à dormir 8 secondes après une connexion suffisamment longue. Marque d'une étoile cosmique ceux qui n'en ont pas encore.
   categories: [ HideSpawnMenu ]
   components:
   - type: Unremoveable

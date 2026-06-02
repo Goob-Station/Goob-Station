@@ -31,8 +31,8 @@
 - type: entity
   id: MechEquipmentGrabber
   parent: [ BaseMechEquipment, IndustrialMechEquipment ] # Goobstation
-  name: hydraulic clamp
-  description: Gives the mech the ability to grab things and drag them around.
+  name: pince hydraulique
+  description: Donne au mech la capacité de saisir et de déplacer des objets.
   components:
   - type: Sprite
     state: mecha_clamp
@@ -51,8 +51,8 @@
 - type: entity
   id: MechEquipmentGrabberSmall
   parent: BaseMechEquipment
-  name: small hydraulic clamp
-  description: Gives the mech the ability to grab things and drag them around.
+  name: petite pince hydraulique
+  description: Donne au mech la capacité de saisir et de déplacer des objets.
   components:
   - type: Sprite
     state: mecha_clamp_small
@@ -78,8 +78,8 @@
 - type: entity
   id: MechEquipmentHorn
   parent: [ BaseMechEquipment, SpecialMechEquipment ] # Goobstation
-  name: mech horn
-  description: An enhanced bike horn that plays a hilarious array of sounds for the enjoyment of the crew. HONK!
+  name: klaxon de mech
+  description: Un klaxon de vélo amélioré qui joue un florilège de sons hilarants pour le plaisir de l'équipage. HONK !
   components:
   - type: Sprite
     # TODO: use own sprite

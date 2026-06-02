@@ -2,8 +2,8 @@
   parent: BaseItem
   id: CrayonBlood
   categories: [ HideSpawnMenu ]
-  name: bloody crayon
-  description: A bloody crayon. Looks scary. Oooo...
+  name: crayon sanglant
+  description: Un crayon sanglant. Ça fait peur. Ouuuh...
   components:
   - type: Sprite
     sprite: Objects/Fun/crayons.rsi

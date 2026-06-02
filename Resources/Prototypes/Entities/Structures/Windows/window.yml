@@ -50,8 +50,8 @@
 - type: entity
   id: Window
   parent: BaseStructure
-  name: window
-  description: Don't smudge up the glass down there.
+  name: vitre
+  description: Ne salissez pas la vitre là-dessous. #réf à Portal 2, il faudrait que j'y rejoue pour vérifier le sous-titre officiel
   placement:
     mode: SnapgridCenter
     snap:
@@ -145,8 +145,8 @@
 - type: entity
   parent: Window
   id: TintedWindow
-  name: tinted window
-  description: Smart tinted window with state switching option.
+  name: vitre tintée
+  description: Vitres teintées intelligentes avec option de changement d'état.
   components:
   - type: Sprite
     drawdepth: WallTops
@@ -189,8 +189,8 @@
 - type: entity
   id: WindowDirectional
   parent: BaseStructure
-  name: directional window
-  description: Don't smudge up the glass down there.
+  name: vitre directionnelle
+  description: Ne salissez pas la vitre là-dessous.
   placement:
     mode: SnapgridCenter
     snap:
@@ -291,8 +291,8 @@
 - type: entity
   id: WindowFrostedDirectional
   parent: WindowDirectional
-  name: directional frosted window
-  description: Don't smudge up the glass down there.
+  name: vitre directionnelle dépolie 
+  description: Ne salissez pas la vitre là-dessous.
   placement:
     mode: SnapgridCenter
     snap:

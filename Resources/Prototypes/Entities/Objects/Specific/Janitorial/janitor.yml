@@ -137,9 +137,9 @@
 
 - type: entity
   parent: BaseItem
-  name: mop
+  name: serpillière
   id: MopItem
-  description: A mop that can't be stopped, viscera cleanup detail awaits.
+  description: Une serpillière imparable, le nettoyage des viscères vous attend.
   components:
   - type: Sprite
     sprite: Objects/Specific/Janitorial/mop.rsi
@@ -198,9 +198,9 @@
 
 - type: entity
   parent: BaseItem
-  name: advanced mop
+  name: serpillière avancée
   id: AdvMopItem
-  description: Motorized mop that has a bigger reservoir and quickly replaces reagents inside with water. Automatic Clown Countermeasure not included.
+  description: Serpillière motorisée avec un réservoir plus grand qui remplace rapidement les réactifs par de l'eau. Contre-mesure anti-clown automatique non incluse.
   components:
     - type: Sprite
       sprite: Objects/Specific/Janitorial/advmop.rsi
@@ -270,10 +270,10 @@
       cleanDelay: 6
 
 - type: entity
-  name: wet floor sign
+  name: panneau sol mouillé
   id: WetFloorSign
   parent: ClothingOuterBase
-  description: Caution! Wet Floor!
+  description: Attention ! Sol mouillé !
   components:
   - type: Sprite
     sprite: Objects/Specific/Janitorial/wet_floor_sign.rsi
@@ -358,10 +358,10 @@
     - WetFloorSign
 
 - type: entity
-  name: plunger
+  name: ventouse
   id: Plunger
   parent: BaseItem
-  description: A plunger with a red plastic suction-cup and a wooden handle. Used to unclog drains.
+  description: Une ventouse avec une ventouse en plastique rouge et un manche en bois. Utilisée pour déboucher les canalisations.
   components:
   - type: Tag
     tags:
@@ -423,10 +423,10 @@
       Wood: 100
 
 - type: entity
-  name: golden plunger
+  name: ventouse dorée
   id: GoldenPlunger
   parent: Plunger
-  description: A plunger with a plastic suction cup coated in a thin layer of gold given as a token of appreciation for years of service. Still used to unclog drains.
+  description: Une ventouse avec une ventouse en plastique recouverte d'une fine couche d'or, remise en signe de reconnaissance pour des années de service. Toujours utilisée pour déboucher les canalisations.
   components:
   - type: Tag
     tags:
@@ -467,9 +467,9 @@
 
 - type: entity
   parent: BaseItem
-  name: damp rag
+  name: chiffon humide
   id: RagItem
-  description: For cleaning up messes, you suppose.
+  description: Pour nettoyer les dégâts, supposément.
   components:
     - type: Sprite
       sprite: Objects/Specific/Janitorial/rag.rsi
@@ -520,8 +520,8 @@
 - type: entity
   parent: BaseItem
   id: WireBrush
-  name: wire brush
-  description: A bristly steel wire brush, perfect for scraping away even the toughest patches of rust.
+  name: brosse métallique
+  description: Une brosse en fil d'acier, parfaite pour gratter même les taches de rouille les plus tenaces.
   components:
   - type: Sprite
     sprite: Objects/Specific/Janitorial/wirebrush.rsi

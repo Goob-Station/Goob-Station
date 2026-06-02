@@ -23,7 +23,7 @@
   name: synth meat
   parent: FoodMeatRotten # you can, but you shouldn't eat this
   id: FoodMeatSynth
-  description: Artificially created chunk of... synthetic meat? Can it even be cooked? Better not to eat it.
+  description: Un morceau de... viande synthétique ? créé artificiellement. Peut-on même le cuisiner ? Mieux vaut ne pas le manger.
   components:
   - type: Sprite
     state: bear # looks pretty disgusting

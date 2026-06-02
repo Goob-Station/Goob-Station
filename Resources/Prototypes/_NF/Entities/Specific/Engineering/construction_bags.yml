@@ -7,8 +7,8 @@
 - type: entity
   parent: BaseStorageItem
   id: ConstructionBag
-  name: construction bag
-  description: A robust bag for construction specialists and engineers alike to carry large amounts of construction materials. Magnetises any nearby construction materials when attached to a belt.
+  name: sac de construction
+  description: Un sac robuste pour spécialistes de la construction et ingénieurs, permettant de transporter de grandes quantités de matériaux. Magnétise les matériaux à proximité lorsqu'il est attaché à une ceinture.
   components:
   - type: MagnetPickup
   - type: Sprite
@@ -66,8 +66,8 @@
 - type: entity
   parent: ConstructionBag
   id: ConstructionBagOfHolding
-  name: construction bag of holding
-  description: A robust bag of holding for rich construction specialists and engineers alike to carry large amounts of construction materials. Magnetises any nearby construction materials when attached to a belt.
+  name: sac de construction bluespace
+  description: Un sac bluespace robuste pour spécialistes de la construction et ingénieurs fortunés, permettant de transporter de grandes quantités de matériaux. Magnétise les matériaux à proximité lorsqu'il est attaché à une ceinture.
   components:
     - type: MagnetPickup
       range: 2

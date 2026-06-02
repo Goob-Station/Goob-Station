@@ -7,10 +7,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: pax syringe box
+  name: boîte de seringues pax
   parent: BoxCardboard
   id: BoxSyringePax
-  description: A box full of tranquilizer syringes.
+  description: Une boîte pleine de seringues tranquillisantes.
   components:
   - type: StorageFill
     contents:
@@ -22,10 +22,10 @@
       - state: syringe
 
 - type: entity
-  name: poison syringe box
+  name: boîte de seringues empoisonnées
   parent: BoxCardboard
   id: BoxSyringePoison
-  description: A box full of quick-acting poison syringes.
+  description: Une boîte pleine de seringues à poison à action rapide.
   components:
   - type: StorageFill
     contents:

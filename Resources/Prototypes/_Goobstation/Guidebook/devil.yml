@@ -1,11 +1,11 @@
 - type: guideEntry
   id: Devil
-  name: "Devil"
+  name: "Diable"
   text: "/ServerInfo/_Goobstation/Guidebook/Antagonist/Devil.xml"
   children:
   - DevilClauses
 
 - type: guideEntry
   id: DevilClauses
-  name: "Devil Clauses"
+  name: "Clauses du Diable"
   text: "/ServerInfo/_Goobstation/Guidebook/Antagonist/DevilClauses.xml"

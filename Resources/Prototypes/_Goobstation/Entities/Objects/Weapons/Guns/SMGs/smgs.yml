@@ -9,7 +9,7 @@
   name: M7S Ventilator
   parent: [BaseWeaponSubMachineGun, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponSubMachineGunM7S
-  description: For when you need to air out an entire hallway, forcibly. Feeds from side-loading 5x23mm magazines.
+  description: Pour quand vous devez aérer tout un couloir, de force. Se charge depuis des chargeurs latéraux 5x23mm.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/SMGs/M7S.rsi

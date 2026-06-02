@@ -63,8 +63,8 @@
 
 - type: entity
   id: ConveyorBelt
-  name: conveyor belt
-  description: A conveyor belt, commonly used to transport large numbers of items elsewhere quite quickly.
+  name: tapis roulant
+  description: Un tapis roulant, couramment utilisé pour transporter rapidement un grand nombre d'objets vers un autre endroit.
   placement:
     mode: SnapgridCenter
   components:
@@ -135,9 +135,9 @@
 - type: entity
   id: ConveyorBeltAssembly
   parent: BaseItem
-  name: conveyor belt
+  name: tapis roulant
   suffix: assembly
-  description: A conveyor belt assembly. Used to construct a conveyor belt.
+  description: Assemblage de tapis roulant. Utilisé pour la fabrication d'un tapis roulant.
   components:
   - type: Tag
     tags:

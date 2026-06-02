@@ -1,8 +1,8 @@
 - type: entity
   id: HolosignSecurityAdvanced
   parent: HolosignWetFloor
-  name: advanced holographic barrier
-  description: An advanced barrier of hard light that blocks movement. You can't crawl under this one.
+  name: barrière holographique avancée
+  description: Une barrière avancée de lumière dure qui bloque les mouvements. Impossible de ramper dessous.
   components:
   - type: Physics
     bodyType: Static

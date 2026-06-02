@@ -26,7 +26,7 @@
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitChronolegioneer
   name: futuristic hardsuit
-  description: A hardsuit covered in an unknown material that protects against most material and temporal damage.
+  description: Une combinaison rigide recouverte d'un matériau inconnu qui protège contre la plupart des dommages matériels et temporels.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/chronolegioneer.rsi
@@ -74,7 +74,7 @@
 - type: entity
   parent: ClothingOuterHardsuitChronolegioneer
   id: ClothingOuterHardsuitChronolegioneerUnremoveable
-  suffix: Unremoveable
+  suffix: Inamovible
   components:
   - type: Unremoveable
 
@@ -186,7 +186,7 @@
   parent: [ ClothingOuterHardsuitBase, BaseSyndicateAnchoredContraband ]
   id: ClothingOuterHardsuitCybersunDreadnought
   name: Cybersun dreadnought suit
-  description: The Syndicate places its glory on your shoulders, do not disappoint.
+  description: Le Syndicat place sa gloire sur vos épaules, ne décevez pas.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/dreadnought.rsi
@@ -291,7 +291,7 @@
   parent: ClothingOuterHardsuitSecurityRed
   id: ClothingOuterHardsuitHeadOfSecurityExperimental
   name: FI-52 "Honor Guard" parade hardsuit
-  description: A special hardsuit that protects against hazardous, low pressure environments. Has an experimental inbuilt stimulant autoinjector system.
+  description: Une combinaison rigide spéciale qui protège contre les environnements dangereux à basse pression. Possède un système auto-injecteur de stimulant expérimental intégré.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/hos-expi.rsi
@@ -372,7 +372,7 @@
   parent: ClothingOuterHardsuitCybersunStealth
   id: ClothingOuterHardsuitVoxRaiderStealth
   name: vox raider stealth suit
-  description: A sleek black suit. It seems to have a tail, and is very heavy.
+  description: Un élégant costume noir. Il semble avoir une queue, et est très lourd.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/vox-raiders-stealth.rsi

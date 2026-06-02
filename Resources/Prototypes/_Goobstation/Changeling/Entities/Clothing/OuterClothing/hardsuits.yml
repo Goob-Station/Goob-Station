@@ -13,9 +13,9 @@
 - type: entity
   parent: ClothingOuterBaseLarge
   id: ChangelingClothingOuterHardsuit
-  name: organic space suit
-  description: A spaceworthy biomass of pressure and temperature resistant tissue.
-  suffix: Unremoveable
+  name: combinaison spatiale organique
+  description: Une biomasse résistante à la pression et à la température, homologuée pour l'espace.
+  suffix: Inamovible
   components:
   - type: Sprite
     sprite: _Goobstation/Changeling/ling_spacesuit.rsi

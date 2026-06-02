@@ -25,8 +25,8 @@
 - type: entity
   parent: BaseCyberneticOrgan
   id: BasicCyberneticEyes
-  name: cybernetic eyes
-  description: A pair of cybernetic eyes that enhance your vision, and protect you from eye damage.
+  name: yeux cybernétiques
+  description: Une paire d'yeux cybernétiques qui améliorent votre vision et vous protègent des dommages oculaires.
   components:
   - type: Cybernetics
   - type: Sprite
@@ -51,8 +51,8 @@
 - type: entity
   parent: BasicCyberneticEyes
   id: SecurityCyberneticEyes
-  name: cybernetic security eyes
-  description: A pair of cybernetic eyes that enhance your vision, featuring an integrated SecHUD.
+  name: yeux cybernétiques de sécurité
+  description: Une paire d'yeux cybernétiques qui améliorent votre vision, dotée d'un SecHUD intégré.
   components:
   - type: Sprite
     state: eyes-sechud
@@ -67,8 +67,8 @@
 - type: entity
   parent: BasicCyberneticEyes
   id: MedicalCyberneticEyes
-  name: cybernetic medhud eyes
-  description: A pair of cybernetic eyes that enhance your vision, featuring an integrated MedHUD.
+  name: yeux cybernétiques medhud
+  description: Une paire d'yeux cybernétiques qui améliorent votre vision, dotée d'un MedHUD intégré.
   components:
   - type: Sprite
     state: eyes-medhud
@@ -84,8 +84,8 @@
 - type: entity
   parent: BasicCyberneticEyes
   id: DiagnosticCyberneticEyes
-  name: cybernetic diagnostic eyes
-  description: A pair of cybernetic eyes that enhance your vision, featuring an integrated diagnostic hud.
+  name: yeux cybernétiques de diagnostic
+  description: Une paire d'yeux cybernétiques qui améliorent votre vision, dotée d'un HUD de diagnostic intégré.
   components:
   - type: Sprite
     state: eyes-diagnostic
@@ -107,8 +107,8 @@
 - type: entity
   parent: BaseCyberneticOrgan
   id: BasicCyberneticHeart
-  name: cybernetic heart
-  description: A precision-tuned heart that slows down medicine absorption while hastening the absorption of poisons and narcotics resulting in weakened effects.
+  name: cœur cybernétique
+  description: Un cœur finement réglé qui ralentit l'absorption des médicaments tout en accélérant l'absorption des poisons et des narcotiques, résultant en des effets affaiblis.
   components:
   - type: Sprite
     state: heart-on
@@ -145,8 +145,8 @@
 - type: entity
   parent: BasicCyberneticHeart
   id: UpgradedCyberneticHeart
-  name: upgraded cybernetic heart
-  description: A next-gen circulatory core that slowly delivers medicine throughout the body providing much better healing while heavily accelerating and weakening toxins and narcotics.
+  name: cœur cybernétique amélioré
+  description: Un cœur circulatoire de nouvelle génération qui diffuse lentement les médicaments dans le corps offrant une bien meilleure guérison tout en accélérant fortement et affaiblissant les toxines et les narcotiques.
   components:
   - type: Sprite
     state: heart-u-on
@@ -177,8 +177,8 @@
 - type: entity
   parent: BaseCyberneticOrgan
   id: BasicCyberneticLiver
-  name: cybernetic liver
-  description: A high-efficiency synthetic liver that neutralizes all negative effects of alcohol while preserving the buzz.
+  name: foie cybernétique
+  description: Un foie synthétique haute efficacité qui neutralise tous les effets négatifs de l'alcool tout en préservant l'ivresse.
   components:
   - type: Liver
   - type: Organ
@@ -210,8 +210,8 @@
 - type: entity
   parent: BaseCyberneticOrgan
   id: BasicCyberneticLungs
-  name: cybernetic lungs
-  description: Advanced synthetic lungs that breathe oxygen and nitrogen, ignore CO2, and resist most other atmospheric hazards.
+  name: poumons cybernétiques
+  description: Poumons synthétiques avancés qui respirent l'oxygène et l'azote, ignorent le CO2 et résistent à la plupart des autres risques atmosphériques.
   components:
   - type: Sprite
     layers:
@@ -250,8 +250,8 @@
 - type: entity
   parent: BasicCyberneticLungs
   id: UpgradedCyberneticLungs
-  name: upgraded cybernetic lungs
-  description: A self-contained respiratory system that eliminates the need to breathe entirely and grants increased stamina recovery.
+  name: poumons cybernétiques améliorés
+  description: Un système respiratoire autonome qui élimine complètement le besoin de respirer et accorde une récupération d'endurance accrue.
   components:
   - type: Sprite
     layers:

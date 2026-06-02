@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseMobXenomorphAdult
   id: BaseMobXenomorphDrone
-  name: xenomorph drone
-  description: A specialized individual designed to build and maintain a hive. Less aggressive than other xenomorph forms, but still deadly when approached.
+  name: xénomorphe drone
+  description: Un individu spécialisé conçu pour construire et entretenir une ruche. Moins agressif que les autres formes xénomorphes, mais toujours mortel si l'on s'en approche.
   abstract: true
   components:
   - type: Sprite

@@ -10,7 +10,7 @@
   parent: ReinforcementRadio
   id: ReinforcementRadioSyndicateSyndiRoach
   name: syndiroach reinforcement radio
-  description: Calls in a faithfully trained mothroach with a microbomb to assist you.
+  description: Appelle un cafard-mite fidèlement entraîné avec une microbombe pour vous aider.
   components:
   - type: GhostRole
     name: ghost-role-information-SyndiRoach-name

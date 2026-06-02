@@ -13,8 +13,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesColorBlack
-  name: black shoes
-  description: Stylish black shoes.
+  name: chaussures noires
+  description: Des chaussures noires stylées.
   components:
   - type: Sprite
     sprite: Clothing/Shoes/color.rsi
@@ -44,8 +44,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesColorWhite
-  name: white shoes
-  description: Don't take them off at your office Christmas party.
+  name: chaussures blanches
+  description: Ne les enlevez pas lors de la fête de Noël de l'entreprise.
   components:
   - type: Sprite
     sprite: Clothing/Shoes/color.rsi
@@ -73,8 +73,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesColorBlue
-  name: blue shoes
-  description: Stylish blue shoes.
+  name: chaussures bleues
+  description: Des chaussures bleues stylées.
   components:
   - type: Sprite
     sprite: Clothing/Shoes/color.rsi
@@ -104,8 +104,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesColorBrown
-  name: brown shoes
-  description: A pair of brown shoes.
+  name: chaussures marron
+  description: Des chaussures marron stylées.
   components:
   - type: Sprite
     sprite: Clothing/Shoes/color.rsi
@@ -135,8 +135,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesColorGreen
-  name: green shoes
-  description: Stylish green shoes.
+  name: chaussures vertes
+  description: Des chaussures vertes stylées.
   components:
   - type: Sprite
     sprite: Clothing/Shoes/color.rsi
@@ -166,8 +166,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesColorOrange
-  name: orange shoes
-  description: Stylish orange shoes.
+  name: chaussures oranges
+  description: Des chaussures oranges stylées.
   components:
   - type: Sprite
     sprite: Clothing/Shoes/color.rsi
@@ -197,8 +197,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesColorRed
-  name: red shoes
-  description: Stylish red shoes.
+  name: chaussures rouges
+  description: Des chaussures rouges stylées.
   components:
   - type: Sprite
     sprite: Clothing/Shoes/color.rsi
@@ -228,8 +228,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesColorYellow
-  name: yellow shoes
-  description: Stylish yellow shoes.
+  name: chaussures jaunes
+  description: Des chaussures jaunes stylées.
   components:
   - type: Sprite
     sprite: Clothing/Shoes/color.rsi
@@ -259,8 +259,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesColorPurple
-  name: purple shoes
-  description: Stylish purple shoes.
+  name: chaussures violettes
+  description: Des chaussures violettes stylées.
   components:
   - type: Sprite
     sprite: Clothing/Shoes/color.rsi

@@ -5,7 +5,7 @@
 
 - type: entity
   id: LockerScienceFilledXenobiology # Make this a unique locker in the future
-  suffix: Filled, Xenobiology
+  suffix: Rempli, Xénobiologie
   parent: LockerScientist
   components:
   - type: StorageFill

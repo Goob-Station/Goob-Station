@@ -13,8 +13,8 @@
 - type: entity
   id: EngineeringTechFabCircuitboard
   parent: BaseMachineCircuitboard
-  name: engineering techfab machine board
-  description: A machine printed circuit board for a engineering techfab.
+  name: carte machine de techfab d'ingénierie
+  description: Un circuit imprimé de machine pour un techfab d'ingénierie.
   components:
   - type: Sprite
     state: engineering
@@ -30,8 +30,8 @@
 - type: entity
   id: CargoTechFabCircuitboard
   parent: BaseMachineCircuitboard
-  name: cargo techfab machine board
-  description: A machine printed circuit board for a cargo techfab.
+  name: carte machine de techfab de cargaison
+  description: Un circuit imprimé de machine pour un techfab de cargaison.
   components:
   - type: Sprite
     state: engineering
@@ -47,8 +47,8 @@
 - type: entity
   id: ScienceTechFabCircuitboard
   parent: BaseMachineCircuitboard
-  name: science techfab machine board
-  description: A machine printed circuit board for a science techfab.
+  name: carte machine de techfab de science
+  description: Un circuit imprimé de machine pour un techfab de science.
   components:
   - type: Sprite
     state: science
@@ -64,8 +64,8 @@
 - type: entity
   id: ServiceTechFabCircuitboard
   parent: BaseMachineCircuitboard
-  name: service techfab machine board
-  description: A machine printed circuit board for a service techfab.
+  name: carte machine de techfab de service
+  description: Un circuit imprimé de machine pour un techfab de service.
   components:
   - type: Sprite
     state: service
@@ -81,8 +81,8 @@
 - type: entity
   id: ERTTechFabCircuitboard
   parent: BaseMachineCircuitboard
-  name: ERT techfab machine board
-  description: A machine printed circuit board for a ERT techfab.
+  name: carte machine de techfab ERT
+  description: Un circuit imprimé de machine pour un techfab ERT.
   components:
   - type: Sprite
     state: ert
@@ -144,8 +144,8 @@
 - type: entity
   id: EnergyChemDispenserMachineCircuitboard
   parent: BaseMachineCircuitboard
-  name: energy chem dispenser machine board
-  description: A machine printed circuit board for an energy chem dispenser.
+  name: carte machine de distributeur chimique énergétique
+  description: Un circuit imprimé de machine pour un distributeur chimique énergétique.
   components:
     - type: Sprite
       state: medical
@@ -163,8 +163,8 @@
 - type: entity
   id: TelecomTransmitterCircuitboard
   parent: BaseMachineCircuitboard
-  name: telecommunication transmitter machine board
-  description: A machine printed circuit board for an telecommunication transmitter.
+  name: carte machine d'émetteur de télécommunications
+  description: Un circuit imprimé de machine pour un émetteur de télécommunications.
   components:
   - type: Sprite
     state: engineering

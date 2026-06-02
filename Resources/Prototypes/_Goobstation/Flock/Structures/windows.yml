@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseStructure
   id: FlockZoneWindow
-  name: Fibrewoven window
-  description: It's clearly glass, but it looks as if it was finely woven.
+  name: fenêtre fibreuse
+  description: C'est clairement du verre, mais on dirait qu'il a été finement tissé.
   components:
   - type: InteractionOutline
   - type: Sprite

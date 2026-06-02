@@ -23,8 +23,8 @@
 - type: entity
   id: ElectricalDisruptionKit
   parent: [BoxCardboard, BaseSyndicateContraband]
-  name: electrical disruption kit
-  suffix: Filled
+  name: kit de perturbation électrique
+  suffix: Rempli
   components:
     - type: StorageFill
       contents:
@@ -36,7 +36,7 @@
 - type: entity
   parent: [BoxVial, BaseSyndicateContraband]
   id: ChemicalSynthesisKit
-  name: chemical synthesis kit
+  name: kit de synthèse chimique
   description: A starter kit for the aspiring chemist, notably includes a chemical payload and timer, a hyperzine syringe, and two vials of vestine for all your criminal needs! # Goobstation
   components:
   - type: Storage
@@ -57,8 +57,8 @@
 - type: entity
   parent: [BoxCardboard, BaseSyndicateContraband]
   id: ThrowingKnivesKit
-  name: throwing knives kit
-  description: A set of 4 syndicate branded throwing knives, perfect for embedding into the body of your victims.
+  name: kit de couteaux de lancer
+  description: Un ensemble de 4 couteaux de lancer de marque Syndicat, parfaits pour s'enfoncer dans le corps de vos victimes.
   components:
   - type: Storage
     grid:
@@ -73,10 +73,10 @@
       - state: throwing_knives
 
 - type: entity
-  name: deathrattle implant box
+  name: boîte d'implants de râle de mort
   parent: [BoxCardboard, BaseSyndicateContraband]
   id: BoxDeathRattleImplants
-  description: Six deathrattle implants for the whole squad.
+  description: Six implants de râle de mort pour toute l'escouade.
   components:
   - type: Sprite
     layers:
@@ -93,8 +93,8 @@
 - type: entity
   parent: [BoxCardboard, BaseSyndicateContraband]
   id: CombatBakeryKit
-  name: combat bakery kit
-  description: A kit of clandestine baked weapons.
+  name: kit de boulangerie de combat
+  description: Un kit d'armes de boulangerie clandestines.
   components:
   - type: Storage
     grid:

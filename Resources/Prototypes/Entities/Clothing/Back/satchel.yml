@@ -37,8 +37,8 @@
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackSatchel
-  name: satchel
-  description: A trendy looking satchel.
+  name: sacoche
+  description: Une sacoche à l'air tendance.
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/satchel.rsi
@@ -51,8 +51,8 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelLeather
-  name: leather satchel
-  description: A trend-setting satchel from a bygone era.
+  name: sacoche en cuir
+  description: Une sacoche intemporelle venue d'une époque révolue.
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/leather.rsi
@@ -60,8 +60,8 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelEngineering
-  name: engineering satchel
-  description: A tough satchel with extra pockets.
+  name: sacoche d'ingénierie
+  description: Une sacoche robuste avec des poches supplémentaires.
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/engineering.rsi
@@ -69,8 +69,8 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelAtmospherics
-  name: atmospherics satchel
-  description: A tough satchel made of fire resistant fibers. Smells like plasma.
+  name: sacoche d'atmosphérique
+  description: Une sacoche robuste en fibres ignifuges. Elle sent le plasma.
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/atmospherics.rsi
@@ -78,8 +78,8 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelClown
-  name: clown satchel
-  description: For fast running from security.
+  name: sacoche de clown
+  description: Pour fuir la sécurité le plus vite possible.
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/clown.rsi
@@ -90,8 +90,8 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelMime
-  name: mime satchel
-  description: A satchel designed for the silent and expressive art of miming.
+  name: sacoche de mime
+  description: Une sacoche conçue pour l'art silencieux et expressif du mime.
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/mime.rsi
@@ -99,8 +99,8 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelMedical
-  name: medical satchel
-  description: A sterile satchel used in medical departments.
+  name: sacoche médicale
+  description: Une sacoche stérile utilisée dans les services médicaux.
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/medical.rsi
@@ -108,8 +108,8 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelChemistry
-  name: chemistry satchel
-  description: A sterile satchel with chemist colours.
+  name: sacoche de chimie
+  description: Une sacoche stérile aux couleurs du chimiste.
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/chemistry.rsi
@@ -117,8 +117,8 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelVirology
-  name: virology satchel
-  description: A satchel made of hypo-allergenic fibers. It's designed to help prevent the spread of disease. Smells like monkey.
+  name: sacoche de virologie
+  description: Une sacoche en fibres hypoallergéniques, conçue pour limiter la propagation des maladies. Elle sent le singe.
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/virology.rsi
@@ -126,8 +126,8 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelGenetics
-  name: genetics satchel
-  description: A sterile satchel with geneticist colours.
+  name: sacoche de génétique
+  description: Une sacoche stérile aux couleurs du généticien.
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/genetics.rsi
@@ -135,8 +135,8 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelScience
-  name: science satchel
-  description: Useful for holding research materials.
+  name: sacoche de science
+  description: Pratique pour transporter des documents de recherche.
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/science.rsi
@@ -144,8 +144,8 @@
 - type: entity
   parent: [ClothingBackpackSatchel, BaseSecurityContraband]
   id: ClothingBackpackSatchelSecurity
-  name: security satchel
-  description: A robust satchel for security related needs.
+  name: sacoche de sécurité
+  description: Une sacoche robuste pour les besoins liés à la sécurité.
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/security.rsi
@@ -153,8 +153,8 @@
 - type: entity
   parent: [ClothingBackpackSatchel, BaseSecurityContraband]
   id: ClothingBackpackSatchelBrigmedic
-  name: brigmedic satchel
-  description: A sterile satchel for medical related needs.
+  name: sacoche de médecin de brig
+  description: Une sacoche stérile pour les besoins médicaux.
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/brigmedic.rsi
@@ -162,8 +162,8 @@
 - type: entity
   parent: [ClothingBackpackSatchel, BaseCommandContraband]
   id: ClothingBackpackSatchelCaptain
-  name: captain's satchel
-  description: An exclusive satchel for Nanotrasen officers.
+  name: sacoche du capitaine
+  description: Une sacoche exclusive pour les officiers de Nanotrasen.
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/captain.rsi
@@ -171,8 +171,8 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelHydroponics
-  name: hydroponics satchel
-  description: A satchel made of all natural fibers.
+  name: sacoche d'hydroponique
+  description: Une sacoche en fibres entièrement naturelles.
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/hydroponics.rsi
@@ -180,16 +180,16 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelCargo
-  name: cargo satchel
-  description: A robust satchel for stealing cargo's loot.
+  name: sacoche de cargo
+  description: Une sacoche robuste pour voler le butin du cargo.
   components:
     - type: Sprite
       sprite: _Goobstation/Clothing/Back/Satchels/cargo.rsi
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelSalvage
-  name: salvage satchel
-  description: A robust satchel for stashing your loot.
+  name: sacoche de récupération
+  description: Une sacoche robuste pour planquer votre butin.
   components:
     - type: Sprite
       sprite: Clothing/Back/Satchels/salvage.rsi
@@ -197,8 +197,8 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelHolding
-  name: satchel of holding
-  description: A satchel that opens into a localized pocket of bluespace.
+  name: sacoche bluespace
+  description: Une sacoche qui s'ouvre sur une poche localisée de bluespace.
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/holding.rsi
@@ -217,9 +217,9 @@
 - type: entity
   parent: ClothingBackpackSatchelHolding
   id: ClothingBackpackSatchelAdmin
-  name: satchel of administration
+  name: sacoche d'administration
   suffix: Admin
-  description: If you are somehow seeing this, no you're not.
+  description: Si vous voyez ceci d'une façon ou d'une autre, non, vous ne le voyez pas.
   components:
   - type: ExplosionResistance
     damageCoefficient: 0

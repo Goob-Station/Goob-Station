@@ -1,8 +1,8 @@
 - type: entity
   id: BaseFlockPole
   parent: BaseStructure
-  name: fibrous pole
-  description: Huh. Weird.
+  name: poteau fibreux
+  description: Hm. Bizarre.
   components:
   - type: Sprite
     drawdepth: Walls

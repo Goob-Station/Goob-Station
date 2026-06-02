@@ -1,7 +1,7 @@
 - type: entity
   id: ActionFlipLights
-  name: Flip light switches
-  description: Light switches that are on turn off and off on.
+  name: Inverser les interrupteurs
+  description: Les interrupteurs allumés s'éteignent et les éteints s'allument.
   components:
   - type: Sprite
     sprite: _Goobstation/Wraith/UI/spook.rsi
@@ -16,8 +16,8 @@
 
 - type: entity
   id: ActionBurnLights
-  name: Burn lights
-  description: Breaks up to four light tubes and bulbs in the area, creating sparks that can ignite flammables.
+  name: Brûler les lumières
+  description: Détruit jusqu'à quatre tubes et ampoules dans la zone, créant des étincelles pouvant enflammer les matériaux inflammables.
   components:
   - type: Sprite
     sprite: _Goobstation/Wraith/UI/spook.rsi
@@ -32,8 +32,8 @@
 
 - type: entity
   id: ActionOpenDoors
-  name: Open doors, lockers, crates
-  description: Opens and closes a few random doors, lockers, and crates in the area.
+  name: Ouvrir portes, casiers et caisses
+  description: Ouvre et ferme quelques portes, casiers et caisses au hasard dans la zone.
   components:
   - type: Sprite
     sprite: _Goobstation/Wraith/UI/spook.rsi
@@ -48,8 +48,8 @@
 
 - type: entity
   id: ActionCreateSmoke
-  name: Create smoke
-  description: Creates multiple clouds of smoke near you that can completely obscure people's vision. Clouds persist for about a minute.
+  name: Créer de la fumée
+  description: Crée plusieurs nuages de fumée autour de vous pouvant obscurcir complètement la vision. Les nuages persistent environ une minute.
   components:
   - type: Sprite
     sprite: _Goobstation/Wraith/UI/spook.rsi
@@ -64,8 +64,8 @@
 
 - type: entity
   id: ActionCreateEctoplasm
-  name: Create ectoplasm
-  description: Spawns a few globs of ectoplasm in the area.
+  name: Créer de l'ectoplasme
+  description: Fait apparaître quelques globes d'ectoplasme dans la zone.
   components:
   - type: Sprite
     sprite: _Goobstation/Wraith/UI/spook.rsi
@@ -80,8 +80,8 @@
 
 - type: entity
   id: ActionSapApc
-  name: Sap APC
-  description: Drains a bit of power from the area's APC. The higher your WP regen rate, the more power drained. Cannot drain multiple APCs.
+  name: Siphonner l'APC
+  description: Draine un peu d'énergie de l'APC de la zone. Plus votre taux de régénération de PS est élevé, plus l'énergie drainée est importante. Impossible de drainer plusieurs APCs.
   components:
   - type: Sprite
     sprite: _Goobstation/Wraith/UI/spook.rsi
@@ -96,8 +96,8 @@
 
 - type: entity
   id: ActionSpookRandom
-  name: Random
-  description: Does one random action.
+  name: Aléatoire
+  description: Effectue une action aléatoire.
   components:
   - type: Sprite
     sprite: _Goobstation/Wraith/UI/spook.rsi

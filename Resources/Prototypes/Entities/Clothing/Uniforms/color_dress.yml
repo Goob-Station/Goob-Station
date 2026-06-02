@@ -6,7 +6,7 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtBlackElegantDress
-  name: black elegant dress
+  name: robe élégante noire
   description: Elegant dress with a beautiful bow.
   components:
   - type: Sprite
@@ -35,7 +35,7 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtRedElegantDress
-  name: red elegant dress
+  name: robe élégante rouge
   description: Elegant dress with a beautiful bow.
   components:
   - type: Sprite
@@ -64,7 +64,7 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtGreenElegantDress
-  name: green elegant dress
+  name: robe élégante verte
   description: Elegant dress with a beautiful bow.
   components:
   - type: Sprite
@@ -93,7 +93,7 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtBlueElegantDress
-  name: blue elegant dress
+  name: robe élégante bleue
   description: Elegant dress with a beautiful bow.
   components:
   - type: Sprite
@@ -122,7 +122,7 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtPurpleElegantDress
-  name: purple elegant dress
+  name: robe élégante violette
   description: Elegant dress with a beautiful bow.
   components:
   - type: Sprite
@@ -151,7 +151,7 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtCyanStripedDress
-  name: cyan striped dress
+  name: robe rayée cyan
   description: Cute striped dress.
   components:
   - type: Sprite
@@ -180,7 +180,7 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtRedStripedDress
-  name: red striped dress
+  name: robe rayée rouge
   description: Cute striped dress.
   components:
   - type: Sprite
@@ -209,7 +209,7 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtGreenStripedDress
-  name: green striped dress
+  name: robe rayée verte
   description: Cute striped dress.
   components:
   - type: Sprite
@@ -239,7 +239,7 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtPinkStripedDress
-  name: pink striped dress
+  name: robe rayée rose
   description: Cute striped dress.
   components:
   - type: Sprite
@@ -268,7 +268,7 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtOrangeStripedDress
-  name: orange striped dress
+  name: robe rayée orange
   description: Cute striped dress.
   components:
   - type: Sprite
@@ -297,7 +297,7 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtPurpleTurtleneckDress
-  name: purple turtleneck dress
+  name: robe à col roulé violette
   description: Turtleneck dress with a unique design.
   components:
   - type: Sprite
@@ -326,7 +326,7 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtRedTurtleneckDress
-  name: red turtleneck dress
+  name: robe à col roulé rouge
   description: Turtleneck dress with a unique design.
   components:
   - type: Sprite
@@ -355,7 +355,7 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtGreenTurtleneckDress
-  name: green turtleneck dress
+  name: robe à col roulé verte
   description: Turtleneck dress with a unique design.
   components:
   - type: Sprite
@@ -384,7 +384,7 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtBlueTurtleneckDress
-  name: blue turtleneck dress
+  name: robe à col roulé bleue
   description: Turtleneck dress with a unique design.
   components:
   - type: Sprite
@@ -413,7 +413,7 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtYellowTurtleneckDress
-  name: yellow turtleneck dress
+  name: robe à col roulé jaune
   description: Turtleneck dress with a unique design.
   components:
   - type: Sprite
@@ -442,7 +442,7 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtYellowOldDress
-  name: yellow old dress
+  name: vieille robe jaune
   description: Classic western dress.
   components:
   - type: Sprite

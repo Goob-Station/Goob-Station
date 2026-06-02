@@ -1,5 +1,5 @@
 - type: entity
-  name: random T1 xenobio slime spawner
+  name: générateur de slime T1 xénobio aléatoire
   id: XenobioSlimeBabySpawner
   parent: MarkerBase
   components:

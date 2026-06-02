@@ -3,8 +3,8 @@
 - type: entity
   parent: BaseItem
   id: AugmentPowerCellSlotCasing
-  name: augment power cell slot casing
-  description: Can be implanted into a body to provide power to other implants. This one is incomplete.
+  name: boîtier de logement de pile d'augment
+  description: Peut être implanté dans un corps pour alimenter d'autres implants. Celui-ci est incomplet.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Augments/power.rsi
@@ -19,8 +19,8 @@
 - type: entity
   parent: BaseItem
   id: AugmentPowerCellSlotCables
-  name: augment power cell slot casing with cables
-  description: Can be implanted into a body to provide power to other implants. This one is incomplete.
+  name: boîtier de logement de pile d'augment avec câbles
+  description: Peut être implanté dans un corps pour alimenter d'autres implants. Celui-ci est incomplet.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Augments/power.rsi
@@ -32,8 +32,8 @@
 - type: entity
   parent: BaseAugment
   id: AugmentPowerCellSlot
-  name: augment power cell slot
-  description: Can be implanted into a body to provide power to other implants.
+  name: logement de pile d'augment
+  description: Peut être implanté dans un corps pour alimenter d'autres implants.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Augments/power.rsi
@@ -82,8 +82,8 @@
 - type: entity
   parent: BaseItem
   id: AugmentRechargerCasing
-  name: augment recharger casing
-  description: Can be implanted into a body to recharge an internal power cell. This one is incomplete.
+  name: boîtier de rechargeur d'augment
+  description: Peut être implanté dans un corps pour recharger une pile interne. Celui-ci est incomplet.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Augments/power.rsi
@@ -97,8 +97,8 @@
 - type: entity
   parent: BaseItem
   id: AugmentRechargerCables
-  name: augment recharger casing with cables
-  description: Can be implanted into a body to recharge an internal power cell. This one is incomplete.
+  name: boîtier de rechargeur d'augment avec câbles
+  description: Peut être implanté dans un corps pour recharger une pile interne. Celui-ci est incomplet.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Augments/power.rsi
@@ -110,8 +110,8 @@
 - type: entity
   parent: BaseAugmentRecharger
   id: AugmentRechargerAPC
-  name: augment apc recharger
-  description: Allows the implantee to recharge their power cell via APCs.
+  name: rechargeur APC d'augment
+  description: Permet à l'implanté de recharger sa pile via les APCs.
   components:
   - type: Sprite
     state: apc
@@ -125,8 +125,8 @@
 - type: entity
   parent: BaseAugmentRecharger
   id: AugmentRechargerStation
-  name: augment station recharger
-  description: Allows the implantee to recharge their power cell via cyborg recharging stations.
+  name: rechargeur de station d'augment
+  description: Permet à l'implanté de recharger sa pile via les stations de recharge cyborg.
   components:
   - type: Sprite
     state: station

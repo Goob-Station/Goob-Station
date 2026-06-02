@@ -12,7 +12,7 @@
   name: raw gondola meat
   parent: FoodMeatRawBase
   id: FoodMeatGondola
-  description: You monster.
+  description: Monstre.
   components:
   - type: Sprite
     state: plain
@@ -115,7 +115,7 @@
   name: 'fried "chicken"'
   parent: FoodMeatBase
   id: FoodMeatVoxFried
-  description: A juicy hunk of chicken meat... I think...
+  description: Un morceau juteux de viande de poulet... je crois...
   components:
   - type: Tag
     tags:

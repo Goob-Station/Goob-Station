@@ -220,7 +220,7 @@
 - type: entity
   parent: [ClothingModsuitStandard, BaseCommandContraband]
   id: ClothingModsuitHeadOfSecurity
-  name: head of security's bulwark modsuit control unit
+  name: unité de contrôle de combinaison modulaire bulwark du chef de la sécurité
   description: A robust modular HARDERsuit control module unit for the head of security.
   components:
   - type: Appearance
@@ -433,7 +433,7 @@
   parent: [ClothingModsuitStandard, BaseCommandContraband]
   id: ClothingModsuitCaptain
   name: captain's magnate modsuit control unit
-  description: A gem-encrusted, mirror-shined and absolutely MAGNATE armored modsuit. The cooling fluid is dragons' blood watered down with Dr. Gibb. This shit is nothing to you, man. # goob edit - grammar
+  description: Une combinaison modulaire blindée incrustée de gemmes, brillante comme un miroir et absolument MAGNAT. Le liquide de refroidissement est du sang de dragon dilué avec du Dr. Gibb. C'est que dalle pour vous, mec. # goob edit - grammar
   components:
   - type: Appearance
   - type: Sprite

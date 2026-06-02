@@ -43,7 +43,7 @@
   suffix: fent
   parent: PrefilledSyringe
   name: used fent syringe
-  description: What the fuck?!
+  description: C'est quoi ce bordel ?!
   id: SyringePoisonFentUsed
   components:
   - type: Label
@@ -60,7 +60,7 @@
   suffix: fent
   parent: PrefilledSyringe
   name: fentanyl syringe
-  description: What the fuck?!
+  description: C'est quoi ce bordel ?!
   id: SyringePoisonFent
   components:
   - type: Label
@@ -76,7 +76,7 @@
 - type: entity
   parent: PrefilledSyringe
   name: syringe
-  description: A somewhat humane way to put down prisoners.
+  description: Une façon quelque peu humaine d'euthanasier les prisonniers.
   id: SyringePoisonLethalInjection
   suffix: lethal injection
   components:
@@ -194,7 +194,7 @@
 - type: entity
   parent: PrefilledSyringe
   name: syringe
-  description: A potent painkiller.
+  description: Un analgésique puissant.
   id: SyringeTramadol
   suffix: Tramadol 15u
   components:
@@ -211,7 +211,7 @@
 - type: entity
   parent: PrefilledSyringe
   name: syringe
-  description: A potent painkiller.
+  description: Un analgésique puissant.
   id: SyringeOxycodone
   suffix: Oxycodone 15u
   components:
@@ -228,7 +228,7 @@
 - type: entity
   parent: PrefilledSyringe
   name: syringe
-  description: A mild painkiller.
+  description: Un analgésique léger.
   id: SyringeIbuprofen
   suffix: Ibuprofen 15u
   components:
@@ -245,7 +245,7 @@
 - type: entity
   parent: PrefilledSyringe
   name: syringe
-  description: Damn.
+  description: Mince.
   id: SyringeHeroin
   suffix: heroin 15u
   components:
@@ -263,7 +263,7 @@
   suffix: microplastics
   parent: PrefilledSyringe
   id: SyringeMicroplastics
-  description: Humanity used to macrodose themselves with this. Now its just a medicine for vox.
+  description: L'humanité se macrodosait autrefois avec ça. Maintenant c'est juste un médicament pour les vox.
   components:
   - type: Label
     currentLabel: reagent-name-microplastics

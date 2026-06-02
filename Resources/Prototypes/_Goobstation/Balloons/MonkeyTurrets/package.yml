@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseItem
   id: DartMonkeyCube
-  name: dart monkey cube
-  description: A compressed cube, that when used, produces a stationary monkey that shoots darts at balloons.
+  name: cube de singe fléchettes
+  description: Un cube compressé qui, lorsqu'utilisé, produit un singe stationnaire tirant des fléchettes sur les ballons.
   components: 
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/Monkey_Turrets/dartmonkey.rsi
@@ -18,8 +18,8 @@
 - type: entity
   id: CrateDartMonkey
   parent: CratePlastic
-  name: dart monkey crate
-  description: A crate containing a highly compressed dart monkey. Perfect for popping balloons, just don't question the ethics of it...
+  name: caisse de singe fléchettes
+  description: Une caisse contenant un singe fléchettes hautement compressé. Parfait pour crever des ballons — ne questionnez juste pas l'éthique...
   components:
   - type: StorageFill
     contents:

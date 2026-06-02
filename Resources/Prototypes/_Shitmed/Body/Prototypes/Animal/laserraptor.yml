@@ -11,7 +11,7 @@
 
 - type: body
   id: LaserRaptor
-  name: "laser raptor"
+  name: "raptor laser"
   root: chest
   slots:
     head:

@@ -7,10 +7,10 @@
 # To be implemented: see #9072
 
 - type: entity
-  name: staff of healing
+  name: bâton de guérison
   parent: WeaponStaffBase
   id: WeaponStaffHealing
-  description: An artefact that spits bolts of restoring magic which can remove ailments of all kinds and even raise the dead. Effects are reversed on the undead. # Goobstation
+  description: Un artefact qui projette des éclairs de magie régénératrice capables de guérir toutes sortes d'affections et même de ressusciter les morts. Ses effets sont inversés sur les morts-vivants. # Goobstation
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Objects/Weapons/Staves/healing.rsi # Goobstation
@@ -30,10 +30,10 @@
   - type: PacifismAllowedGun
 
 - type: entity
-  name: staff of door creation
+  name: bâton de création de portes
   parent: WeaponStaffBase
   id: WeaponStaffPolymorphDoor
-  description: An artefact that spits bolts of transformative magic that can create doors in walls. # Goob station
+  description: Un artefact qui projette des éclairs de magie transformatrice capables de créer des portes dans les murs. # Goob station
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Objects/Weapons/Staves/door.rsi # Goobstation

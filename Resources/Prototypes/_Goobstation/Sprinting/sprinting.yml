@@ -1,8 +1,8 @@
 - type: entity
   id: SprintAnimation
   categories: [ HideSpawnMenu ]
-  name: Dust cloud
-  description: Whoa, watch out!
+  name: nuage de poussière
+  description: Attention, gare !
   components:
   - type: Sprite
     drawdepth: WallMountedItems
@@ -20,8 +20,8 @@
 
 - type: entity
   id: SmallSprintAnimation
-  name: Small dust cloud
-  description: Whoa, watch out!
+  name: petit nuage de poussière
+  description: Attention, gare !
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -40,8 +40,8 @@
 
 - type: entity
   id: TinySprintAnimation
-  name: Tiny dust cloud
-  description: Whoa, watch out!
+  name: minuscule nuage de poussière
+  description: Attention, gare !
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

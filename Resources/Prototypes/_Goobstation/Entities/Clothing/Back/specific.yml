@@ -45,7 +45,7 @@
 - type: entity
   parent: ClothingBackpackStasisBattery
   id: ClothingBackpackStasisBatteryUnremoveable
-  suffix: Unremoveable
+  suffix: Inamovible
   components:
   - type: Unremoveable
 
@@ -105,7 +105,7 @@
   parent: [Clothing, ClothingSlotBase]
   id: ClothingBackpackLMGBattery
   name: EL-20 storage
-  description: Accepts specialized car batteries to power the EL-20 HAMRR LMG.
+  description: Accepte des batteries de voiture spécialisées pour alimenter le LMG EL-20 HAMRR.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Backpacks/lmg_backpack.rsi

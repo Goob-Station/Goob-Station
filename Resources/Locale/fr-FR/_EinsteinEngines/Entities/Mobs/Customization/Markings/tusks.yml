@@ -1,0 +1,32 @@
+# SPDX-FileCopyrightText: 2024 ScyronX <166930367+ScyronX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: marking
+  id: GoblinTusksSmall
+  bodyPart: Face
+  markingCategory: Face
+  speciesRestriction: [Oni]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#d9d9d9"
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Customization/goblin_tusks.rsi
+    state: goblin_tusks_small
+
+- type: marking
+  id: GoblinTusksBig
+  bodyPart: Face
+  markingCategory: Face
+  speciesRestriction: [Oni]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#d9d9d9"
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Customization/goblin_tusks.rsi
+    state: goblin_tusks_big

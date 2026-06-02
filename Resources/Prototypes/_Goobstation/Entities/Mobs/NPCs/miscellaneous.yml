@@ -17,7 +17,7 @@
   id: MobRevenantToken
   parent: MobRevenant
   name: revenant
-  description: A spooky ghostie.
+  description: Un petit fantôme effrayant.
   components:
   - type: GhostRole
     makeSentient: true

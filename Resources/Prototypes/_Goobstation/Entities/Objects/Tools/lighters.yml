@@ -6,10 +6,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: blue flippo
+  name: briquet bleu flippo
   parent: [BaseItem, BaseCentcommContraband]
   id: FlippoLighterBlueshield
-  description: "A specialized blue lighter given only to specific officers. Great for a smoke after a long day."
+  description: "Un briquet bleu spécialisé donné uniquement à certains officiers. Idéal pour une cigarette après une longue journée."
   components:
   - type: Sprite
     sprite: /Textures/_Goobstation/Objects/Tools/lighters.rsi

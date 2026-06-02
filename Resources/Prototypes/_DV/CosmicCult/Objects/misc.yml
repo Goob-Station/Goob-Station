@@ -5,10 +5,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: ascendant's dendrite
+  name: dendrite d'ascendant
   parent: BaseAnimalOrgan
   id: AscendedDendrite
-  description: A bundle of semi-ephemeral tissue extracted from the unravelling husk of an astral ascendant. A faint malign light pulses within.
+  description: Un faisceau de tissu semi-éphémère extrait de l'enveloppe qui s'effiloche d'un ascendant astral. Une faible lumière maligne pulse en son sein.
   components:
   - type: RogueAscendedDendrite
   - type: Item
@@ -38,8 +38,8 @@
 - type: entity
   id: CosmicCultLawBoard
   parent: BaseElectronics
-  name: malign law board
-  description: An eerie circuit board, suited for slotting into an AI law upload console. Its circuitry is interwoven with phantasmal dendritic strands that twitch of their own accord.
+  name: plaquette de lois malignes
+  description: Un étrange circuit électronique, conçu pour être inséré dans une console de téléchargement de lois pour IA. Ses circuits sont entrelacés de filaments dendritiques fantomatiques qui frémissent d'eux-mêmes.
   components:
   - type: Sprite
     sprite: _DV/CosmicCult/Objects/lawboard.rsi

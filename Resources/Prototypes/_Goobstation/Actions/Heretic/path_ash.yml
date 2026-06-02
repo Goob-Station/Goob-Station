@@ -12,8 +12,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticJaunt
-  name: Ashen Passage
-  description: A short range spell that allows you to pass unimpeded through walls.
+  name: Passage Cendré
+  description: Un sort à courte portée vous permettant de traverser les murs sans entrave.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -33,8 +33,8 @@
 - type: entity
   parent: ActionHereticJaunt
   id: ActionHereticJauntLong
-  name: Ashen Passage
-  description: A long range spell that allows you to pass unimpeded through walls.
+  name: Passage Cendré
+  description: Un sort à longue portée vous permettant de traverser les murs sans entrave.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
@@ -44,8 +44,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticVolcanoBlast
-  name: Volcano Blast
-  description: Charge up a blast of fire that chains between nearby targets, setting them ablaze. Targets already on fire will take priority. If the target fails to catch ablaze, or extinguishes themselves before it bounces, the chain will stop.
+  name: Explosion Volcanique
+  description: Charge un souffle de feu qui se propage en chaîne entre les cibles proches, les embrasant. Les cibles déjà en feu sont prioritaires. Si la cible ne prend pas feu, ou s'éteint avant que la chaîne ne rebondisse, celle-ci s'arrête.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -68,8 +68,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticNightwatcherRebirth
-  name: Nightwatcher's Rebirth
-  description: Drains nearby heathens engulfed in flames of their life force.
+  name: Renaissance du Veilleur de Nuit
+  description: Draine la force vitale des mécréants environnants engloutis dans les flammes.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -92,8 +92,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticAscension1
-  name: Oath of Flame
-  description: Create a ring of fire around you.
+  name: Serment de Flamme
+  description: Crée un anneau de feu autour de vous.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -113,8 +113,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticAscension2
-  name: Fire Cascade
-  description: Burn everything in a large distance.
+  name: Cascade de Feu
+  description: Embrase tout dans un large rayon.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

@@ -104,7 +104,7 @@
   name: combat injector
   parent: [BaseItem, BaseCentcommContraband]
   id: CombatInjector
-  description: Injects stored chemicals on hit, has a low capacity due to its sturdy design.
+  description: Injecte des produits chimiques stockés à l'impact, faible capacité due à sa conception robuste.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/blueshield_knife.rsi

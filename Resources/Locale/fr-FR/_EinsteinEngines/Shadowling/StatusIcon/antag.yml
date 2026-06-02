@@ -1,0 +1,23 @@
+- type: factionIcon
+  id: ShadowlingFaction
+  priority: 11
+  showTo:
+    components:
+    - ShowAntagIcons
+    - Shadowling
+    - Thrall
+  icon:
+    sprite: /Textures/_EinsteinEngines/Interface/Misc/job_icons.rsi
+    state: Shadowling
+
+- type: factionIcon
+  id: ThrallFaction
+  priority: 11
+  showTo:
+    components:
+    - ShowAntagIcons
+    - Shadowling
+    - Thrall
+  icon:
+    sprite: /Textures/_EinsteinEngines/Interface/Misc/job_icons.rsi
+    state: Thrall

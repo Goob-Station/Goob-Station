@@ -1,7 +1,7 @@
 - type: entity
   id: TwoWayLever
-  name: two way lever
-  description: A two way lever.
+  name: levier bidirectionnel
+  description: Un levier bidirectionnel.
   placement:
     mode: SnapgridCenter
   components:

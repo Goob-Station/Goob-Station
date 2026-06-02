@@ -12,7 +12,7 @@
   parent: [ BaseCentcommContraband , ClothingBackpack ]
   id: ClothingBackpackCentcomm
   name: centcomm backpack
-  description: A luxurious backpack, smells like money.
+  description: Un sac à dos luxueux, qui sent l'argent.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Backpacks/centcom.rsi
@@ -21,7 +21,7 @@
   parent: [ClothingBackpack, BaseCentcommContraband]
   id: ClothingBackpackBlueshield
   name: blueshield backpack
-  description: A very protective backpack, smells like energy gun.
+  description: Un sac à dos très protecteur, qui sent le pistolet à énergie.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Backpacks/blueshield.rsi
@@ -29,16 +29,16 @@
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackUnremoveable
-  suffix: Unremoveable
+  suffix: Inamovible
   components:
   - type: Unremoveable
 
 - type: entity
-  name: Santa's sack of holding
-  description: All you need to spread christmas cheer is contained inside!
+  name: sac de Noël de Papa Noël
+  description: Tout ce qu'il faut pour répandre la joie de Noël se trouve à l'intérieur !
   parent: ClothingBackpackHolding
   id: ClothingBackpackSantasSack
-  suffix: Unremoveable
+  suffix: Inamovible
   components:
   - type: Unremoveable
   - type: StorageFill

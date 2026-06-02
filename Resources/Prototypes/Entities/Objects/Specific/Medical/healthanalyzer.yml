@@ -105,9 +105,9 @@
 - type: entity
   id: HandheldHealthAnalyzerUnpowered
   parent: BaseItem
-  name: health analyzer
+  name: analyseur de santé
   suffix: Always Powered
-  description: A hand-held body scanner capable of distinguishing vital signs of the subject.
+  description: Un scanner corporel portatif capable de distinguer les signes vitaux du sujet.
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/healthanalyzer.rsi

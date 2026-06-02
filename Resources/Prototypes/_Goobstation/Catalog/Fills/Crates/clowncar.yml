@@ -7,9 +7,9 @@
 - type: entity
   id: CrateFunClownCarUplink
   parent: CrateSyndicate
-  name: clown car crate
-  description: Contains one car, Clown not included
-  suffix: Uplink item
+  name: caisse de clown car
+  description: Contient une voiture. Clown non inclus.
+  suffix: Objet du marché noir
   components:
   - type: StorageFill
     contents:
@@ -19,9 +19,9 @@
 - type: entity
   id: CrateFunClownCarNukieUplink
   parent: CrateSyndicate
-  name: clown car crate
-  description: Contains one car, Clown not included
-  suffix: Uplink item
+  name: caisse de clown car
+  description: Contient une voiture. Clown non inclus.
+  suffix: Objet du marché noir
   components:
   - type: StorageFill
     contents:
@@ -32,9 +32,9 @@
 - type: entity
   id: CrateFunClownCarCargo
   parent: CrateLivestock
-  name: clown car crate
-  suffix: Cargo Order
-  description: Contains one car, Clown not included
+  name: caisse de clown car
+  suffix: Commande Cargo
+  description: Contient une voiture. Clown non inclus.
   components:
   - type: StorageFill
     contents:
@@ -44,9 +44,9 @@
 - type: entity
   id: CrateFunClownCarTesting
   parent: CrateLivestock
-  name: clown car crate
-  suffix: for testing
-  description: for the cursed clown
+  name: caisse de clown car
+  suffix: pour les tests
+  description: pour le clown maudit
   components:
   - type: StorageFill
     contents:

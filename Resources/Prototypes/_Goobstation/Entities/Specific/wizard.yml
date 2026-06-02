@@ -1,8 +1,8 @@
 - type: entity
   parent: [ BaseItem, BaseMagicalContraband ]
   id: HellRipScroll
-  name: hell ripte scroll
-  description: A dark scroll written in blood. Its text is brief, yet seems endless. You feel an urge to tear flesh and rip heads just by looking at it.
+  name: parchemin de déchirure infernale
+  description: Un parchemin sombre écrit en sang. Son texte est bref, mais semble infini. Vous ressentez une envie de déchirer la chair et d'arracher les têtes rien qu'en le regardant.
   components:
   - type: Sprite
     sprite: Objects/Misc/bureaucracy.rsi

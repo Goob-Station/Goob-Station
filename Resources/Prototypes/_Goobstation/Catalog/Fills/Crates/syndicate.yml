@@ -14,10 +14,10 @@
 
 - type: entity
   id: CrateCybersunDarkGygaxBundle
-  suffix: Filled
+  suffix: Remplie
   parent: CrateSyndicate
-  name: Cybersun gygax bundle
-  description: Contains a set of Cybersan light armored mechs.
+  name: paquet Cybersun gygax
+  description: Contient un ensemble de mechs légèrement blindés Cybersan.
   components:
   - type: StorageFill
     contents:
@@ -29,10 +29,10 @@
 
 - type: entity
   id: CrateCybersunMaulerBundle
-  suffix: Filled
+  suffix: Remplie
   parent: CrateSyndicate
-  name: Cybersun mauler bundle
-  description: Contains a set of Cybersan heavy armored mechs.
+  name: paquet Cybersun mauler
+  description: Contient un ensemble de mechs lourdement blindés Cybersan.
   components:
   - type: StorageFill
     contents:
@@ -44,10 +44,10 @@
 
 - type: entity
   id: CrateSyndicateBulkMosin
-  suffix: Filled
+  suffix: Remplie
   parent: CrateSyndicate
-  name: Syndicate bulk rifle crate
-  description: Just use more rifles, comrade.
+  name: caisse de fusils en vrac syndiqués
+  description: Utilise simplement plus de fusils, camarade.
   components:
     - type: StorageFill
       contents:
@@ -61,8 +61,8 @@
 - type: entity
   parent: CrateSyndicate
   id: CrateSyndicateDreadnought
-  name: cybersun dreadnought bundle
-  description: "An advanced cybersun dreadnought bundle."
+  name: paquet dreadnought Cybersun
+  description: "Un paquet dreadnought Cybersun avancé."
   components:
   - type: StorageFill
     contents:
@@ -75,9 +75,9 @@
 - type: entity
   id: CratePizzaParty
   parent: CratePlastic
-  name: disaster pizza delivery
-  description: In the ultimate event that all else has failed, Find comfort in that more pizza solves everything. Includes 16 pizzas.
-  suffix: "bombs"
+  name: livraison pizza catastrophe
+  description: Dans le cas ultime où tout a échoué, réconfortez-vous en sachant que plus de pizza résout tout. Inclut 16 pizzas.
+  suffix: "bombes"
   components:
   - type: StorageFill
     contents:     #to avoid them from being easily identifiable (8 pizza bomb + 8 regular pizzas)
@@ -109,8 +109,8 @@
 - type: entity
   parent: [ BaseStructureDynamic, BaseSetSelector, BaseSyndicateContraband ]
   id: CrateSyndicateUndetermined # Not actually a crate, just looks like one
-  name: undetermined Syndicate bundle crate
-  description: Contains a Syndicate bundle. Which one is yet to be determined.
+  name: caisse de paquet Syndiqué indéterminé
+  description: Contient un paquet Syndiqué. Lequel reste à déterminer.
   components:
   - type: Icon
     sprite: Structures/Storage/Crates/syndicate.rsi
@@ -122,12 +122,6 @@
     - state: icon
   - type: SetSelector
     possibleSets:
-    - SyndicateTunnelClownSet
-    - SyndicateLawyerSet
-    - SyndicateNoRussianSet
-    - SyndicatePirateCaptainSet
-    - SyndicateEngineerSet
-    - SyndicateDoorKickerSet
     - SyndicateWesternSet
     - SyndicateSpySet
     - SyndicateHitmanSet
@@ -166,9 +160,9 @@
 - type: entity
   parent: CrateSyndicate
   id: CrateSyndicateStarterKit
-  suffix: Filled
-  name: basic operative bundle
-  description: "Contains everything an operative needs to wreak havoc."
+  suffix: Remplie
+  name: paquet opératif de base
+  description: "Contient tout ce dont un opératif a besoin pour semer le chaos."
   components:
   - type: StorageFill
     contents:

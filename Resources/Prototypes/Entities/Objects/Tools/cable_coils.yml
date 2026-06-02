@@ -66,7 +66,7 @@
   id: CableStack
   abstract: true
   parent: BaseItem
-  name: cable stack
+  name: pile de câbles
   suffix: Full
   components:
   - type: Tag
@@ -121,9 +121,9 @@
 - type: entity
   id: CableHVStack
   parent: CableStack
-  name: HV cable coil
+  name: bobine de câbles HT
   suffix: Full
-  description: HV cables for connecting engines to heavy duty machinery, SMESes, and substations.
+  description: Câbles haute tension pour relier les moteurs aux machines lourdes, aux SMES et aux sous-stations.
   components:
   - type: Stack
     stackType: CableHV
@@ -188,9 +188,9 @@
 - type: entity
   parent: CableStack
   id: CableMVStack
-  name: MV cable coil
+  name: bobine de câbles MT
   suffix: Full
-  description: MV cables for connecting substations to APCs, and also powering a select few things like emitters.
+  description: Câbles moyenne tension pour relier les sous-stations aux APC, et pour alimenter quelques équipements comme les émetteurs.
   components:
   - type: Stack
     stackType: CableMV
@@ -253,8 +253,8 @@
 - type: entity
   parent: CableStack
   id: CableApcStack
-  name: LV cable coil
-  description: Low-Voltage stack of wires for connecting APCs to machines and other purposes.
+  name: bobine de câbles BT
+  description: Bobine de câbles basse tension pour relier les APC aux machines et à d'autres usages.
   suffix: Full
   components:
   - type: Sprite

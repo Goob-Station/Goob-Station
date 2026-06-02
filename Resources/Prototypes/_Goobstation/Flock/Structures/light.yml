@@ -1,8 +1,8 @@
 - type: entity
   id: AlwaysPoweredFlockLight
-  name: shining cabochon
-  description: "It pulses and flares to a strange rhythm."
-  suffix: Always powered
+  name: cabochon brillant
+  description: "Il pulse et scintille selon un rythme étrange."
+  suffix: Toujours alimenté
   components:
   - type: MeleeSound
     soundGroups:
@@ -71,8 +71,8 @@
 
 - type: entity
   id: FlockLight
-  name: shining cabochon
-  description: "It pulses and flares to a strange rhythm."
+  name: cabochon brillant
+  description: "Il pulse et scintille selon un rythme étrange."
   suffix: ""
   placement:
     mode: SnapgridCenter
@@ -131,7 +131,7 @@
 
 - type: entity
   id: AlwaysPoweredFlockFloorLight
-  suffix: Always powered
+  suffix: Toujours alimenté
   parent: AlwaysPoweredFlockLight
   placement:
     mode: SnapgridCenter

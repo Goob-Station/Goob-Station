@@ -5,8 +5,8 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: carving knife
-  description: A small knife made of cold steel, pure and perfect. Its sharpness can carve into titanium itself - but only few can evoke the dangers that lurk beneath reality.
+  name: couteau à sculpter
+  description: Un petit couteau d'acier froid, pur et parfait. Sa tranchant peut entailler le titane lui-même — mais seuls quelques-uns peuvent éveiller les dangers qui se tapis sous la réalité.
   parent: [ BaseKnife, BaseMagicalContraband ]
   id: CarvingKnife
   components:

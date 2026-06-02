@@ -18,7 +18,7 @@
 
 - type: entity
   id: WraithAbilities
-  name: Wraith Abilities
+  name: Capacités du Fantôme
   categories: [ HideSpawnMenu ]
   components:
   - type: Haunt
@@ -65,7 +65,7 @@
 
 - type: entity
   id: HarbingerAbilities
-  name: Harbinger Abilities
+  name: Capacités du Harbinger
   parent: WraithAbilities
   categories: [ HideSpawnMenu ]
   components:
@@ -84,7 +84,7 @@
 
 - type: entity
   id: PlaguebringerAbilities
-  name: Plaguebringer Abilities
+  name: Capacités du Porteur de Fléaux
   parent: WraithAbilities
   categories: [ HideSpawnMenu ]
   components:

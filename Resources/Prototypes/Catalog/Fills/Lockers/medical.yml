@@ -51,7 +51,7 @@
 - type: entity
   parent: LockerMedicine
   id: LockerMedicineFilled
-  suffix: Filled
+  suffix: Rempli
   components:
   - type: EntityTableContainerFill
     containers:
@@ -61,8 +61,8 @@
 - type: entity
   parent: LockerWallMedical
   id: LockerWallMedicalFilled
-  name: medicine wall locker
-  suffix: Filled
+  name: casier mural de médicaments
+  suffix: Rempli
   components:
   - type: EntityTableContainerFill
     containers:
@@ -101,7 +101,7 @@
 - type: entity
   parent: LockerMedical
   id: LockerMedicalFilled
-  suffix: Filled
+  suffix: Rempli
   components:
   - type: EntityTableContainerFill
     containers:
@@ -112,7 +112,7 @@
   parent: LockerWallMedical
   id: LockerWallMedicalDoctorFilled
   name: medical doctor's wall locker
-  suffix: Filled
+  suffix: Rempli
   components:
   - type: EntityTableContainerFill
     containers:
@@ -142,7 +142,7 @@
 - type: entity
   parent: LockerChemistry
   id: LockerChemistryFilled
-  suffix: Filled
+  suffix: Rempli
   components:
   - type: EntityTableContainerFill
     containers:
@@ -172,7 +172,7 @@
 - type: entity
   parent: LockerParamedic
   id: LockerParamedicFilled
-  suffix: Filled
+  suffix: Rempli
   components:
   - type: StorageFill
     contents:

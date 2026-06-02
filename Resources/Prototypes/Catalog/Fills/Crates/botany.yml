@@ -73,8 +73,8 @@
 - type: entity
   id: CrateHydroponicsSeedsExotic
   parent: CrateHydroSecure
-  name: exotic seeds crate
-  description: Any entrepreneuring botanist's dream. Contains many different exotic seeds. Requires Hydroponics access to open.
+  name: caisse de graines exotiques
+  description: Le rêve de tout botaniste ambitieux. Contient de nombreuses graines exotiques variées. Nécessite l'accès à l'hydroponique pour l'ouvrir.
   components:
   - type: StorageFill
     contents:
@@ -96,8 +96,8 @@
 - type: entity
   id: CrateHydroponicsSeedsMedicinal
   parent: CrateHydroSecure
-  name: medicinal seeds crate
-  description: The wannabe chemist's dream. The power of medicine is at your fingertips! Requires Hydroponics access to open.
+  name: caisse de graines médicinales
+  description: Le rêve du chimiste en herbe. Le pouvoir de la médecine est à portée de main ! Nécessite l'accès à l'hydroponique pour l'ouvrir.
   components:
   - type: StorageFill
     contents:
@@ -115,8 +115,8 @@
 - type: entity
   id: CrateHydroponicsTools
   parent: CrateHydroponics
-  name: hydroponics equipment crate
-  description: Supplies for growing a great garden! Contains some spray bottles of plant chemicals, a hatchet, a mini-hoe, scythe, as well as a pair of leather gloves and a botanist's apron.
+  name: caisse d'équipements hydroponiques
+  description: Fournitures pour cultiver un magnifique jardin ! Contient des vaporisateurs de produits chimiques pour plantes, une hachette, une mini-houe, une faucille, une paire de gants en cuir et un tablier de botaniste.
   components:
   - type: StorageFill
     contents:
@@ -136,8 +136,8 @@
 - type: entity
   id: CrateHydroponicsSeeds
   parent: CrateHydroponics
-  name: seeds crate
-  description: Big things have small beginnings. Contains twelve different seeds.
+  name: caisse de graines
+  description: Les grandes choses ont de petits commencements. Contient douze graines différentes.
   components:
   - type: StorageFill
     contents:
@@ -168,8 +168,8 @@
 - type: entity
   id: CrateHydroponicsTray
   parent: CrateHydroponics
-  name: hydroponics tray crate
-  description: Contains a hydroponics tray flatpack.
+  name: caisse de bacs hydroponiques
+  description: Contient un bac hydroponique en kit.
   components:
   - type: StorageFill
     contents:

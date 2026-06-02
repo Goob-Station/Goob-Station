@@ -6,8 +6,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineCosmicCultist
-  name: cosmic cultist figure
-  description: A figurine depicting an iridescent, alien looking hardsuit. You can feel the gaze of the abyss in its lack-of-a-face.
+  name: figurine de cultiste cosmique
+  description: Une figurine représentant une combinaison spatiale irisée et extraterrestre. Vous pouvez sentir le regard de l'abîsse dans son absence de visage.
   components:
   - type: Sprite
     sprite: _DV/Objects/Fun/figurines.rsi

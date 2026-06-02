@@ -30,7 +30,7 @@
   abstract: true
   parent: BaseItem
   id: BoxDonkSoftBase
-  name: foamdart box
+  name: boîte de fléchettes en mousse
   components:
   # Goobstation edit start
   - type: EmitSoundOnPickup
@@ -56,7 +56,7 @@
 - type: entity
   parent: BoxDonkSoftBase
   id: BoxDonkSoftBox
-  name: box of foam darts
+  name: boîte de fléchettes en mousse
   components:
   - type: BallisticAmmoProvider
     whitelist:
@@ -73,7 +73,7 @@
 - type: entity
   parent: BaseMagazineBoxMagnum
   id: BoxCartridgeCap
-  name: cap gun cartridge box
+  name: boîte de cartouches pour pistolet à amorces
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeCap

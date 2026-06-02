@@ -11,7 +11,7 @@
 - type: entity
   id: SuitStorageBlueshield
   parent: SuitStorageBase
-  suffix: BSO Hardsuit
+  suffix: Hardsuit BSO
   components:
   - type: StorageFill
     contents:
@@ -23,7 +23,7 @@
 - type: entity
   id: SuitStorageDetective
   parent: SuitStorageBase
-  suffix: Detective
+  suffix: Détective
   components:
   - type: EntityTableContainerFill
     containers:
@@ -36,7 +36,7 @@
 - type: entity
   id: SuitStorageHardsuitContractor
   parent: SuitStorageBase
-  suffix: Contractor Hardsuit
+  suffix: Hardsuit Contractuel
   components:
   - type: EntityTableContainerFill
     containers:

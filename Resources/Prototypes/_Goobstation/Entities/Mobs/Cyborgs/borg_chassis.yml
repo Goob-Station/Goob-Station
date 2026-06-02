@@ -14,7 +14,7 @@
   id: BorgChassisDerelictSyndicateAssault
   parent: BaseBorgChassisDerelict
   name: derelict syndicate assasult cyborg
-  description: A lean, mean killing machine with access to a variety of deadly modules. This one is in a state of great disrepair.
+  description: Une machine à tuer mince et redoutable avec accès à une variété de modules mortels. Celle-ci est en très mauvais état.
   components:
   - type: Sprite
     sprite: _Goobstation/Mobs/Silicon/chassis.rsi
@@ -63,7 +63,7 @@
   id: BorgChassisUrist
   parent: BaseBorgChassisDerelict
   name: Urist McBorg
-  description: An abomination that supposedly assists in station activity.
+  description: Une abomination qui est censée aider aux activités de la station.
   components:
   - type: Sprite
     layers:

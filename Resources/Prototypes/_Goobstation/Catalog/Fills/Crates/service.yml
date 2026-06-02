@@ -6,8 +6,8 @@
 - type: entity
   id: CrateFishingGoodies
   parent: CratePlastic
-  name: fishing goodies crate
-  description: A couple of fishing rods, a bear, and a hat. Everything you need to catch all fish on the station!
+  name: caisse de matériel de pêche
+  description: Quelques cannes à pêche, un ours et un chapeau. Tout ce qu'il faut pour attraper tous les poissons de la station !
   components:
   - type: StorageFill
     contents:
@@ -19,8 +19,8 @@
 - type: entity
   id: CrateSlotMachine
   parent: CrateGenericSteel
-  name: slot machine crate
-  description: A crate with a slot machine inside, Everything you need to start your own gambling addiction!
+  name: caisse de machine à sous
+  description: Une caisse avec une machine à sous à l'intérieur. Tout ce qu'il faut pour commencer votre propre addiction au jeu !
   components:
   - type: StorageFill
     contents:
@@ -29,8 +29,8 @@
 - type: entity
   id: CrateCoinFlipper
   parent: CrateGenericSteel
-  name: coin flipper crate
-  description: A crate with a coin flipper inside, 50/50 odds are good!
+  name: caisse de pile-ou-face
+  description: Une caisse avec un lanceur de pièce à l'intérieur. 50/50, les cotes sont bonnes !
   components:
   - type: StorageFill
     contents:
@@ -39,8 +39,8 @@
 - type: entity
   id: CrateClawMachine
   parent: CrateGenericSteel
-  name: claw machine crate
-  description: A crate with a claw machine inside, plushies included with every purchase!
+  name: caisse de machine à griffes
+  description: Une caisse avec une machine à griffes à l'intérieur. Peluches incluses avec chaque achat !
   components:
   - type: StorageFill
     contents:
@@ -49,8 +49,8 @@
 - type: entity
   id: CrateCargoForklift
   parent: CrateLivestock
-  name: Forklift crate
-  description: A perfect utility vehicle for cargo.
+  name: caisse de chariot élévateur
+  description: Un véhicule utilitaire parfait pour le cargo.
   components:
     - type: StorageFill
       contents:
@@ -60,8 +60,8 @@
 - type: entity
   id: CrateRadioStationAds
   parent: CrateGenericSteel
-  name: ads crate
-  description: A whole crate which sole purpose is to store 6 exclusive ads, aint capitalism great?
+  name: caisse de publicités
+  description: Une caisse dont le seul but est de contenir 6 publicités exclusives. N'est-ce pas merveilleux, le capitalisme ?
   components:
   - type: EntityTableContainerFill
     containers:
@@ -72,8 +72,8 @@
 - type: entity
   id: CrateRadioStationVinyls
   parent: CrateGenericSteel
-  name: vinyls crate
-  description: A crate with 12 vinyls so you'll NEVER play the same song twice, they come in sleeves!
+  name: caisse de vinyles
+  description: Une caisse avec 12 vinyles pour ne JAMAIS jouer deux fois la même chanson. Ils viennent dans des pochettes !
   components:
   - type: EntityTableContainerFill
     containers:
@@ -303,8 +303,8 @@
 - type: entity
   id: CrateHolySupplies
   parent: CratePlastic
-  name: holy supplies crate
-  description: Contains a Bible and 2 Jugs of holy water for religious needs
+  name: caisse de fournitures religieuses
+  description: Contient une Bible et 2 cruches d'eau bénite pour les besoins religieux.
   components:
     - type: StorageFill
       contents:

@@ -78,8 +78,8 @@
 - type: entity
   parent: Clothing
   id: PortableRecharger
-  name: portable recharger
-  description: High-tech recharger adapted for portability.
+  name: chargeur portable
+  description: Un chargeur haute technologie adapté pour être transporté.
   components:
   - type: Item
     size: Huge

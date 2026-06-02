@@ -13,7 +13,7 @@
   parent: ClothingOuterWinterCoat
   id: ClothingOuterWinterCoatMail
   name: mail carrier's winter coat
-  description: It'll keep away the cold but not the dogs.
+  description: Il tiendra le froid à distance, mais pas les chiens.
   components:
     - type: Sprite
       sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/mail_winter_coat.rsi
@@ -24,7 +24,7 @@
   parent: ClothingOuterWinterCoat
   id: ClothingOuterWinterCoatTrainer
   name: NCT's coat
-  description: A robust coat issued to Nanotrasen Career Trainers. Great for teaching newbies.
+  description: Un manteau robuste émis aux formateurs de carrière Nanotrasen. Idéal pour former les novices.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/trainer.rsi
@@ -35,7 +35,7 @@
   parent: [ClothingOuterArmorBase, ClothingOuterWinterCoatToggleable, BaseSecurityContraband]
   id: ClothingOuterWinterSecArmored
   name: security armored winter coat
-  description: A sturdy, utilitarian winter coat designed to protect security members from any threats and hypothermic events.
+  description: Un manteau d'hiver robuste et utilitaire conçu pour protéger les membres de la sécurité de toute menace et des événements hypothermiques.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/secvestcoat.rsi
@@ -60,7 +60,7 @@
   parent: ClothingOuterWinterSecArmored
   id: ClothingOuterWinterSeniorSecArmored
   name: senior security armored winter coat
-  description: A sturdy, utilitarian winter coat designed to protect senior security members from any threats and hypothermic events.
+  description: Un manteau d'hiver robuste et utilitaire conçu pour protéger les membres senior de la sécurité de toute menace et des événements hypothermiques.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/seniorsecvestcoat.rsi

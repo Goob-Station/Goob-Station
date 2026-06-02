@@ -9,7 +9,7 @@
   parent: [SpaceCash, BaseMajorContraband]
   id: SpaceCashCounterfeit
   name: suspicious spesos
-  description: This looks like painted-on paper.
+  description: Ça ressemble à du papier peint.
 
 - type: entity
   parent: SpaceCashCounterfeit

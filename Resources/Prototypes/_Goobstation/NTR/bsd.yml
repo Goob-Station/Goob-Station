@@ -3,8 +3,8 @@
 - type: entity
   id: BlueShieldDeputy
   parent: MobHuman
-  name: Blueshield deputy
-  suffix: Human
+  name: adjoint Bouclier Bleu
+  suffix: Humain
   components:
   - type: RandomHumanoidAppearance
     randomizeName: false
@@ -56,8 +56,8 @@
 # BSD spawn briefcase
 - type: entity
   id: BlueShieldDeputySpawnBriefcase
-  name: Blueshield Deputy Teleporter briefcase
-  description: A special device, that opens a bluespace portal that is linked to the nearest NanoTrasen Deputy office, when your local blueshield deputy is ready, he will be teleported to this location.
+  name: mallette téléporteur adjoint Bouclier Bleu
+  description: Un appareil spécial qui ouvre un portail bleuespace relié au bureau adjoint NanoTrasen le plus proche. Quand votre adjoint Bouclier Bleu local est prêt, il sera téléporté à cet endroit.
   parent: BaseItem
   components:
   - type: Sprite

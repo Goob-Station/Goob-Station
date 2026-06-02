@@ -19,7 +19,7 @@
   parent: BaseRipleyMKIIPart
   id: RipleyMKIIHarness
   name: ripley MK-II harness
-  description: The core of the Ripley MK-II.
+  description: Le cœur du Ripley MK-II.
   components:
   - type: Appearance
   - type: ItemMapper
@@ -64,7 +64,7 @@
   id: RipleyMKIIChassis
   parent: BaseRipleyMKIIPart
   name: ripley MK-II chassis
-  description: An in-progress construction of the Ripley MK-II mech.
+  description: Une construction en cours du mech Ripley MK-II.
   components:
   - type: Appearance
   - type: ContainerContainer
@@ -104,7 +104,7 @@
   parent: BaseClarkePart
   id: ClarkeHarness
   name: clarke harness
-  description: The core of the Clarke.
+  description: Le cœur du Clarke.
   components:
   - type: Appearance
   - type: ItemMapper
@@ -144,7 +144,7 @@
   parent: BaseClarkePartItem
   id: ClarkeHead
   name: clarke head
-  description: The head of the Clarke. It belongs on the chassis of the mech.
+  description: La tête du Clarke. Elle appartient au châssis du mech.
   components:
   - type: Sprite
     state: clarke_head
@@ -156,7 +156,7 @@
   parent: BaseClarkePartItem
   id: ClarkeRArm
   name: clarke right arm
-  description: The right arm of the Clarke. It belongs on the chassis of the mech.
+  description: Le bras droit du Clarke. Il appartient au châssis du mech.
   components:
   - type: Sprite
     state: clarke_l_arm
@@ -168,7 +168,7 @@
   parent: BaseClarkePartItem
   id: ClarkeLArm
   name: clarke left arm
-  description: The left arm of the Clarke. It belongs on the chassis of the mech.
+  description: Le bras gauche du Clarke. Il appartient au châssis du mech.
   components:
   - type: Sprite
     state: clarke_r_arm
@@ -180,7 +180,7 @@
   parent: BaseClarkePartItem
   id: ClarkeTreads
   name: clarke treads
-  description: The treads of the Clarke. It belongs on the chassis of the mech.
+  description: Les chenilles du Clarke. Elles appartiennent au châssis du mech.
   components:
   - type: Sprite
     state: clarke_treads
@@ -192,7 +192,7 @@
   id: ClarkeChassis
   parent: BaseClarkePart
   name: clarke chassis
-  description: An in-progress construction of the Clarke mech.
+  description: Une construction en cours du mech Clarke.
   components:
   - type: Appearance
   - type: ContainerContainer
@@ -232,7 +232,7 @@
   parent: BaseDurandPart
   id: DurandHarness
   name: durand harness
-  description: The core of the Durand.
+  description: Le cœur du Durand.
   components:
   - type: Appearance
   - type: ItemMapper
@@ -277,7 +277,7 @@
   parent: BaseDurandPartItem
   id: DurandHead
   name: durand head
-  description: The head of the Durand. It belongs on the chassis of the mech.
+  description: La tête du Durand. Elle appartient au châssis du mech.
   components:
   - type: Sprite
     state: durand_head
@@ -289,7 +289,7 @@
   parent: BaseDurandPartItem
   id: DurandLArm
   name: durand left arm
-  description: The left arm of the Durand. It belongs on the chassis of the mech.
+  description: Le bras gauche du Durand. Il appartient au châssis du mech.
   components:
   - type: Sprite
     state: durand_l_arm
@@ -301,7 +301,7 @@
   parent: BaseDurandPartItem
   id: DurandLLeg
   name: durand left leg
-  description: The left leg of the Durand. It belongs on the chassis of the mech.
+  description: La jambe gauche du Durand. Elle appartient au châssis du mech.
   components:
   - type: Sprite
     state: durand_l_leg
@@ -313,7 +313,7 @@
   parent: BaseDurandPartItem
   id: DurandRLeg
   name: durand right leg
-  description: The right leg of the Durand. It belongs on the chassis of the mech.
+  description: La jambe droite du Durand. Elle appartient au châssis du mech.
   components:
   - type: Sprite
     state: durand_r_leg
@@ -325,7 +325,7 @@
   parent: BaseDurandPartItem
   id: DurandRArm
   name: durand right arm
-  description: The right arm of the Durand. It belongs on the chassis of the mech.
+  description: Le bras droit du Durand. Il appartient au châssis du mech.
   components:
   - type: Sprite
     state: durand_r_arm
@@ -337,7 +337,7 @@
   id: DurandChassis
   parent: BaseDurandPart
   name: durand chassis
-  description: An in-progress construction of the Durand mech.
+  description: Une construction en cours du mech Durand.
   components:
   - type: Appearance
   - type: ContainerContainer
@@ -377,7 +377,7 @@
   parent: BaseGygaxPart
   id: GygaxHarness
   name: gygax harness
-  description: The core of the Gygax.
+  description: Le cœur du Gygax.
   components:
   - type: Appearance
   - type: ItemMapper
@@ -422,7 +422,7 @@
   parent: BaseGygaxPartItem
   id: GygaxHead
   name: gygax head
-  description: The head of the Gygax. It belongs on the chassis of the mech.
+  description: La tête du Gygax. Elle appartient au châssis du mech.
   components:
   - type: Sprite
     state: gygax_head
@@ -434,7 +434,7 @@
   parent: BaseGygaxPartItem
   id: GygaxLArm
   name: gygax left arm
-  description: The left arm of the Gygax. It belongs on the chassis of the mech.
+  description: Le bras gauche du Gygax. Il appartient au châssis du mech.
   components:
   - type: Sprite
     state: gygax_l_arm
@@ -446,7 +446,7 @@
   parent: BaseGygaxPartItem
   id: GygaxLLeg
   name: gygax left leg
-  description: The left leg of the Gygax. It belongs on the chassis of the mech.
+  description: La jambe gauche du Gygax. Elle appartient au châssis du mech.
   components:
   - type: Sprite
     state: gygax_l_leg
@@ -458,7 +458,7 @@
   parent: BaseGygaxPartItem
   id: GygaxRLeg
   name: gygax right leg
-  description: The right leg of the Gygax. It belongs on the chassis of the mech.
+  description: La jambe droite du Gygax. Elle appartient au châssis du mech.
   components:
   - type: Sprite
     state: gygax_r_leg
@@ -470,7 +470,7 @@
   parent: BaseGygaxPartItem
   id: GygaxRArm
   name: gygax right arm
-  description: The right arm of the Gygax. It belongs on the chassis of the mech.
+  description: Le bras droit du Gygax. Il appartient au châssis du mech.
   components:
   - type: Sprite
     state: gygax_r_arm
@@ -482,7 +482,7 @@
   id: GygaxChassis
   parent: BaseGygaxPart
   name: gygax chassis
-  description: An in-progress construction of the Gygax mech.
+  description: Une construction en cours du mech Gygax.
   components:
   - type: Appearance
   - type: ContainerContainer

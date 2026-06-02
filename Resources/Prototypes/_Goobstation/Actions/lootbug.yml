@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseAction
   id: ActionDevourLootbug
-  name: "[color=red]Devour[/color]"
-  description: Consume various materials to insides of your body.
+  name: "[color=red]Dévorer[/color]"
+  description: Consommez divers matériaux à l'intérieur de votre corps.
   components:
   - type: Action
     icon: { sprite : Interface/Actions/devour.rsi, state: icon }

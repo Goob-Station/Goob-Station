@@ -76,8 +76,8 @@
 
 - type: entity
   id: BarberScissors
-  name: barber scissors
-  description: Is able to reshape the hairstyle of any crew cut to your liking.
+  name: ciseaux de coiffeur
+  description: Capable de remodeler la coiffure de n'importe quel membre de l'équipage selon vos souhaits.
   parent: BaseItem
   components:
   - type: Sprite

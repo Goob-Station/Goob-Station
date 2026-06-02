@@ -1,0 +1,9 @@
+disease-type-viral = Viral
+disease-type-bacterial = Bactérien
+disease-type-owncells = Cancéreux
+disease-type-prion = Prion
+disease-type-parasite = Parasite
+disease-type-debug = Inconnu
+disease-spread-aerial = Aérien
+disease-spread-blood = Sanguin
+disease-spread-debug = Debug

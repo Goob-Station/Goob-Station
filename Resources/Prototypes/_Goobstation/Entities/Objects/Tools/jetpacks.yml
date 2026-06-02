@@ -7,8 +7,8 @@
 - type: entity
   id: JetpackChrono
   parent: BaseJetpack
-  name: futuristic jetpack
-  description: Magnetically attached jetpack that holds extreme amount of gas. It is used as an oxygen cylinder.
+  name: jetpack futuriste
+  description: Jetpack à fixation magnétique contenant une quantité extrême de gaz. Il est utilisé comme bouteille d'oxygène.
   components:
   - type: Item
     sprite: _Goobstation/Objects/Tanks/chronojet.rsi
@@ -36,7 +36,7 @@
 - type: entity
   id: JetpackChronoUnremoveable
   parent: JetpackChrono
-  suffix: Unremoveable
+  suffix: Inamovible
   components:
   - type: Unremoveable
 
@@ -44,8 +44,8 @@
 - type: entity
   id: JetpackContractor
   parent: BaseJetpack
-  name: contractor's jetpack
-  suffix: Empty
+  name: jetpack du contractant
+  suffix: Vide
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Tanks/contractorpack.rsi
@@ -62,8 +62,8 @@
 - type: entity
   id: JetpackContractorFilled
   parent: JetpackContractor
-  name: contractor's jetpack
-  suffix: Filled
+  name: jetpack du contractant
+  suffix: Rempli
   components:
   - type: GasTank
     outputPressure: 18

@@ -1,8 +1,8 @@
 - type: entity
   id: CameraElectronics
   parent: BaseElectronics
-  name: camera electronics
-  description: An electronics board used in cameras.
+  name: électronique de caméra
+  description: Un circuit électronique utilisé dans les caméras.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi

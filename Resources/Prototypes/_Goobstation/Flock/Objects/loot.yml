@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseItem
   id: MaterialFlockCube
-  name: strange glass cube
-  description: You're not sure what it is, but it looks very valuable!
+  name: cube de verre étrange
+  description: Vous ne savez pas ce que c'est, mais ça semble très précieux !
   components:
   - type: Appearance
   - type: StaticPrice
@@ -23,7 +23,7 @@
 - type: entity
   id: MaterialFlockOrb
   parent: MaterialFlockCube
-  name: strange glass orb
+  name: orbe de verre étrange
   components:
   - type: StaticPrice
     price: 5000

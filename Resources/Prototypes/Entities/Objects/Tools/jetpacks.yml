@@ -56,7 +56,7 @@
   abstract: true
   id: BaseJetpack
   name: jetpack
-  description: It's a jetpack. It can hold 5 L of gas.
+  description: C'est un jetpack. Il peut contenir 5 L de gaz.
   components:
   - type: Sprite
     sprite: Objects/Tanks/Jetpacks/blue.rsi
@@ -99,8 +99,8 @@
 - type: entity
   parent: BaseAction
   id: ActionToggleJetpack
-  name: Toggle jetpack
-  description: Toggles the jetpack, giving you movement outside the station.
+  name: Activer le jetpack
+  description: Active ou désactive le jetpack, vous permettant de vous déplacer à l'extérieur de la station.
   components:
   - type: Action
     icon:
@@ -183,7 +183,7 @@
 - type: entity
   id: JetpackCaptain
   parent: [BaseJetpack, BaseGrandTheftContraband]
-  name: captain's jetpack
+  name: jetpack du capitaine
   suffix: Empty
   components:
   - type: Sprite
@@ -206,7 +206,7 @@
 - type: entity
   id: JetpackCaptainFilled
   parent: JetpackCaptain
-  name: captain's jetpack
+  name: jetpack du capitaine
   suffix: Filled
   components:
   - type: GasTank
@@ -224,7 +224,7 @@
   id: JetpackMini
   parent: BaseJetpack
   name: mini jetpack
-  description: It's a jetpack. It can hold 1.5 L of gas.
+  description: C'est un jetpack. Il peut contenir 1,5 L de gaz.
   suffix: Empty
   components:
     - type: Item
@@ -264,7 +264,7 @@
 - type: entity
   id: JetpackSecurity
   parent: [BaseJetpack, BaseSecurityContraband]
-  name: security jetpack
+  name: jetpack de sécurité
   suffix: Empty
   components:
   - type: Item
@@ -280,7 +280,7 @@
 - type: entity
   id: JetpackSecurityFilled
   parent: JetpackSecurity
-  name: security jetpack
+  name: jetpack de sécurité
   suffix: Filled
   components:
   - type: GasTank
@@ -297,7 +297,7 @@
 - type: entity
   id: JetpackVoid
   parent: BaseJetpack
-  name: void jetpack
+  name: jetpack du vide
   suffix: Empty
   components:
   - type: Item
@@ -315,7 +315,7 @@
 - type: entity
   id: JetpackVoidFilled
   parent: JetpackVoid
-  name: void jetpack
+  name: jetpack du vide
   suffix: Filled
   components:
   - type: GasTank
@@ -332,7 +332,7 @@
 - type: entity
   parent: [ JetpackBlack, BaseXenoborgContraband ]
   id: JetpackXenoborg
-  name: xenoborg jetpack
+  name: jetpack xénoborg
   suffix: Infinite
   components:
   - type: GasTank

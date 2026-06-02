@@ -10,8 +10,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCancelEscape
-  name: Stop escaping
-  description: Calm down and sit peacefuly in your carrier's inventory
+  name: Arrêter de s'échapper
+  description: Calmez-vous et restez tranquillement dans l'inventaire de votre porteur
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseAnimalOrgan
   id: OrganMouseEggSack
-  name: mouse egg sack
-  description: This organ is what lets mice asexually reproduce. Its tissues seem... alien, could this really be from nature?
+  name: sac à œufs de souris
+  description: Cet organe est ce qui permet aux souris de se reproduire de manière asexuée. Ses tissus semblent... étrangers, est-ce que cela peut vraiment être naturel ?
   components:
   - type: Sprite
     sprite: _White/Mobs/Species/Xenomorph/organs.rsi

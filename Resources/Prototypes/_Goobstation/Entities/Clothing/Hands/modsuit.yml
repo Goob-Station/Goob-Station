@@ -38,7 +38,7 @@
   parent: ClothingHandModsuitBase
   id: ClothingModsuitGauntletsStandard
   name: standard modsuit gauntlets
-  description: Special modular suit gloves that protect wearer from electric shock.
+  description: Gants de combinaison modulaire spéciaux protégeant le porteur des chocs électriques.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -73,7 +73,7 @@
   parent: ClothingHandModsuitBase
   id: ClothingModsuitGauntletsSecurity
   name: soldat modsuit gauntlets
-  description: Robust modular suit gloves for gripping perps and guns tight.
+  description: Gants de combinaison modulaire robustes pour saisir fermement suspects et armes.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -110,7 +110,7 @@
   parent: ClothingHandModsuitBase
   id: ClothingModsuitGauntletsParamedic
   name: sanitater modsuit gauntlets
-  description: Black and white modular suit gloves for gripping percs and patients tight.
+  description: Gants de combinaison modulaire noir et blanc pour saisir fermement médicaments et patients.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -154,7 +154,7 @@
   parent: ClothingHandModsuitBase
   id: ClothingModsuitGauntletsHeadOfSecurity
   name: bulwark modsuit gauntlets
-  description: Robust modular suit gloves for gripping perps and guns tight. Insulated.
+  description: Gants de combinaison modulaire robustes pour saisir fermement suspects et armes. Isolants.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -200,7 +200,7 @@
   parent: ClothingHandModsuitBase
   id: ClothingModsuitGauntletsEngineer
   name: sapper modsuit gauntlets
-  description: Oil stained modular suit gloves for easily pushing buttons on an RCD.
+  description: Gants de combinaison modulaire tachés d'huile pour appuyer facilement sur les boutons d'un RCD.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -248,7 +248,7 @@
   parent: ClothingHandModsuitBase
   id: ClothingModsuitGauntletsAtmostech
   name: aeolus modsuit gauntlets
-  description: Asbestos-lined modular suit gloves for easily pushing buttons on an RPD.
+  description: Gants de combinaison modulaire doublés d'amiante pour appuyer facilement sur les boutons d'un RPD.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -297,7 +297,7 @@
   parent: ClothingHandModsuitBase
   id: ClothingModsuitGauntletsResearchDirector
   name: minerva modsuit gauntlets
-  description: For keeping your digits at 10 after the artifact goes thermonuclear on you.
+  description: Pour garder vos 10 doigts quand l'artefact vous explose en pleine figure.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -343,7 +343,7 @@
   parent: ClothingHandModsuitBase
   id: ClothingModsuitGauntletsCaptain
   name: magnate modsuit gauntlets
-  description: Has specialised grooves and cuts for holding dat fukn diiisskk easier.
+  description: Possède des rainures et découpes spéciales pour tenir plus facilement ce foutu disque.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance

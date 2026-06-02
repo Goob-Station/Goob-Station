@@ -284,8 +284,8 @@
 - type: entity
   parent: BaseItem
   id: BorgBeaker
-  name: integrated beaker
-  description: An internal compartment installed into a cyborg. Rated for 50 units of any liquid.
+  name: bécher intégré
+  description: Un compartiment interne installé dans un cyborg. Prévu pour 50 unités de tout liquide.
   components:
   # 3 morbillion components are to avoid inheriting breakable since borgs can't replace beakers.
   - type: Tag
@@ -404,9 +404,9 @@
   - type: DnaSubstanceTrace
 
 - type: entity
-  name: beaker
+  name: bécher
   parent: BaseBeaker
-  description: Used to contain a moderate amount of chemicals and solutions.
+  description: Utilisé pour contenir une quantité modérée de produits chimiques et de solutions.
   id: Beaker
   components:
   - type: Spillable
@@ -438,9 +438,9 @@
           Quantity: 50
 
 - type: entity
-  name: large beaker
+  name: grand bécher
   parent: BaseBeaker
-  description: Used to contain a large amount of chemicals or solutions.
+  description: Utilisé pour contenir une grande quantité de produits chimiques ou de solutions.
   id: LargeBeaker
   components:
   - type: Spillable
@@ -472,9 +472,9 @@
     price: 20
 
 - type: entity
-  name: cryostasis beaker
+  name: bécher de cryostase
   parent: BaseBeakerMetallic
-  description: Used to contain chemicals or solutions without reactions.
+  description: Utilisé pour contenir des produits chimiques ou des solutions sans réactions.
   id: CryostasisBeaker
   components:
   - type: Spillable
@@ -496,9 +496,9 @@
       Plastic: 12
 
 - type: entity
-  name: bluespace beaker
+  name: bécher de bluespace
   parent: BaseBeakerMetallic
-  description: Powered by experimental bluespace technology.
+  description: Alimenté par la technologie expérimentale du bluespace.
   id: BluespaceBeaker
   components:
   - type: Spillable
@@ -523,9 +523,9 @@
     price: 65
 
 - type: entity
-  name: dropper
+  name: compte-gouttes
   parent: BaseItem
-  description: Used to transfer small amounts of chemical solution between containers.
+  description: Utilisé pour transférer de petites quantités de solution chimique entre conteneurs.
   id: Dropper
   components:
   - type: Sprite
@@ -579,8 +579,8 @@
 - type: entity
   parent: Dropper
   id: BorgDropper
-  name: hydraulic pipette
-  description: State-of-the-art hydraulic dropper built for cyborgs. It features a higher capacity than hand-powered droppers, able to hold 15 units of liquid.
+  name: pipette hydraulique
+  description: Compte-gouttes hydraulique de pointe conçu pour les cyborgs. Il offre une capacité supérieure aux compte-gouttes manuels, pouvant contenir 15 unités de liquide.
   components:
   - type: Sprite
     sprite: Objects/Specific/Chemistry/dropper.rsi
@@ -597,9 +597,9 @@
     sprite: Objects/Specific/Chemistry/dropper.rsi
 
 - type: entity
-  name: syringe
+  name: seringue
   parent: BaseItem
-  description: Used to draw blood samples from mobs, or to inject them with reagents.
+  description: Utilisée pour prélever des échantillons de sang sur des créatures, ou pour les injecter avec des réactifs.
   id: BaseSyringe
   abstract: true
   components:
@@ -792,8 +792,8 @@
 - type: entity
   id: SyringeBluespace
   parent: BaseSyringe
-  name: bluespace syringe
-  description: Injecting with advanced bluespace technology.
+  name: seringue de bluespace
+  description: Injection avec la technologie avancée du bluespace.
   components:
   - type: Sprite
     layers:
@@ -833,8 +833,8 @@
 - type: entity
   id: SyringeCryostasis
   parent: BaseSyringe
-  name: cryostasis syringe
-  description: An improved syringe used to contain chemicals or solutions without reactions. # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
+  name: seringue de cryostase
+  description: Une seringue améliorée pour contenir des produits chimiques ou solutions sans réactions. # Goobstation
   components:
   - type: Sprite
     layers:
@@ -869,10 +869,10 @@
 
 
 - type: entity
-  name: pill
+  name: pilule
   parent: BaseItem
   id: Pill
-  description: It's not a suppository.
+  description: Ce n'est pas un suppositoire.
   components:
   - type: Sprite
     sprite: Objects/Specific/Chemistry/pills.rsi
@@ -918,10 +918,10 @@
     - Pill
 
 - type: entity
-  name: pill canister
+  name: boîte à pilules
   id: PillCanister
   parent: BaseStorageItem
-  description: Holds up to 15 pills. # Goobstation
+  description: Contient jusqu'à 15 pilules. # Goobstation
   components:
   - type: Item
     size: Tiny

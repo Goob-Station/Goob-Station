@@ -9,9 +9,9 @@
 - type: entity
   parent: ClothingHeadHardsuitBase
   id: ChangelingClothingHeadHelmetHardsuit
-  name: organic space helmet
-  description: A spaceworthy biomass of pressure and temperature resistant tissue.
-  suffix: Unremoveable
+  name: combinaison spatiale organique
+  description: Une biomasse résistante à la pression et à la température, homologuée pour l'espace.
+  suffix: Inamovible
   components:
   - type: Item
   - type: Sprite

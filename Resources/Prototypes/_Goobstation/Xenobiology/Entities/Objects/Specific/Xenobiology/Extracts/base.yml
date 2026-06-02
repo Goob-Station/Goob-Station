@@ -1,8 +1,8 @@
 - type: entity
   id: BaseSlimeExtract
   parent: BaseItem
-  name: slime extract
-  description: Goo extracted from a slime. Legends claim these to have "magical powers".
+  name: extrait de slime
+  description: Glu extraite d'un slime. La légende prétend que ces extraits possèdent des « pouvoirs magiques ».
   abstract: true
   components:
   - type: Item

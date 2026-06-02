@@ -11,7 +11,7 @@
 - type: entity
   parent: BaseAction
   id: ActionMimeMalaise
-  name: Mime Malaise
+  name: Malaise du Mime
   description: ...
   components:
   - type: Action
@@ -44,8 +44,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCluwneCurse
-  name: Curse of the Cluwne
-  description: It's time to start cluwning around.
+  name: Malédiction du Cluwne
+  description: Il est temps de faire le cluwne.
   components:
   - type: Action
     raiseOnUser: true
@@ -80,8 +80,8 @@
 - type: entity
   parent: BaseAction
   id: ActionBananaTouch
-  name: Banana Touch
-  description: It's time to start clowning around.
+  name: Toucher de Banane
+  description: Il est temps de faire le clown.
   components:
   - type: Action
     raiseOnUser: true
@@ -117,8 +117,8 @@
 - type: entity
   parent: BaseAction
   id: ActionMagicMissile
-  name: Magic Missile
-  description: Fires several stunning, slow moving, homing magic projectiles at nearby targets.
+  name: Missile Magique
+  description: Tire plusieurs projectiles magiques guidés, lents et étourdissants sur les cibles proches.
   components:
   - type: Action
     raiseOnUser: true
@@ -146,8 +146,8 @@
 - type: entity
   parent: BaseAction
   id: ActionDisableTech
-  name: Disable Technology
-  description: Disables all weapons, cameras and most other technology in range.
+  name: Désactiver la Technologie
+  description: Désactive toutes les armes, caméras et la plupart des autres technologies à portée.
   components:
   - type: Action
     raiseOnUser: true
@@ -177,8 +177,8 @@
 - type: entity
   parent: BaseAction
   id: ActionSmoke
-  name: Smoke
-  description: Spawns a cloud of choking smoke at your location.
+  name: Fumée
+  description: Fait apparaître un nuage de fumée suffocante à votre emplacement.
   components:
   - type: Action
     raiseOnUser: true
@@ -202,8 +202,8 @@
 - type: entity
   parent: BaseAction
   id: ActionRepulse
-  name: Repulse
-  description: Throws everything around the user away.
+  name: Répulsion
+  description: Propulse tout ce qui entoure l'utilisateur.
   components:
   - type: Action
     raiseOnUser: true
@@ -242,8 +242,8 @@
 - type: entity
   parent: BaseAction
   id: ActionStopTime
-  name: Stop Time
-  description: Stops time around you.
+  name: Arrêter le Temps
+  description: Arrête le temps autour de vous.
   components:
   - type: Action
     raiseOnUser: true
@@ -274,8 +274,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCorpseExplosion
-  name: Corpse Explosion
-  description: Fills a corpse with energy, causing it to explode violently.
+  name: Explosion de Cadavre
+  description: Remplit un cadavre d'énergie, le faisant exploser violemment.
   components:
   - type: Action
     raiseOnUser: true
@@ -307,8 +307,8 @@
 - type: entity
   parent: BaseAction
   id: ActionBlindSpell
-  name: Blind
-  description: Temporarily blinds a single target.
+  name: Cécité
+  description: Aveugle temporairement une seule cible.
   components:
   - type: Action
     raiseOnUser: true
@@ -344,8 +344,8 @@
 - type: entity
   parent: BaseAction
   id: ActionBindSoul
-  name: Bind Soul
-  description: Bind your soul to an item to resurrect after death. If your soul is already bound to an item and you are dead, attempt resurrecion.
+  name: Lier l'Âme
+  description: Liez votre âme à un objet pour ressusciter après la mort. Si votre âme est déjà liée à un objet et que vous êtes mort, tentez une résurrection.
   components:
   - type: Action
     raiseOnUser: true
@@ -388,8 +388,8 @@
 - type: entity
   parent: BaseAction
   id: ActionMutateSpell
-  name: Mutate
-  description: Causes you to turn into a hulk and gain laser vision for a short while.
+  name: Mutation
+  description: Vous transforme en hulk et vous donne une vision laser pendant un court moment.
   components:
   - type: Action
     raiseOnUser: true
@@ -416,8 +416,8 @@
 - type: entity
   parent: BaseAction
   id: ActionTeslaBlast
-  name: Tesla Blast
-  description: Charge up a tesla arc and release it at random nearby targets.
+  name: Explosion Tesla
+  description: Charge un arc tesla et le libère sur des cibles proches aléatoires.
   components:
   - type: Action
     raiseOnUser: true
@@ -447,8 +447,8 @@
 - type: entity
   parent: BaseAction
   id: ActionLightningBolt
-  name: Lightning Bolt
-  description: Fire a lightning bolt at your foes.
+  name: Éclair
+  description: Tire un éclair sur vos ennemis.
   components:
   - type: Action
     raiseOnUser: true
@@ -481,8 +481,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHomingToolbox
-  name: Homing Toolbox
-  description: Fires a magical homing toolbox at your opponent.
+  name: Boîte à Outils Guidée
+  description: Tire une boîte à outils magique guidée sur votre adversaire.
   components:
   - type: Action
     raiseOnUser: true
@@ -521,8 +521,8 @@
 - type: entity
   parent: BaseAction
   id: ActionSpellCards
-  name: Spell Cards
-  description: Fire up to six bursts of homing spell cards.
+  name: Cartes de Sort
+  description: Tire jusqu'à six rafales de cartes de sort guidées.
   components:
   - type: Action
     raiseOnUser: true
@@ -562,8 +562,8 @@
 - type: entity
   parent: BaseAction
   id: ActionArcaneBarrage
-  name: Arcane Barrage
-  description: Fire a torrent of arcane energy at your foes.
+  name: Barrage Arcanique
+  description: Tire un torrent d'énergie arcanique sur vos ennemis.
   components:
   - type: Action
     raiseOnUser: true
@@ -585,8 +585,8 @@
 - type: entity
   parent: BaseAction
   id: ActionLesserSummonGuns
-  name: Lesser Summon Guns
-  description: Summon an unending stream of bolt action rifles.
+  name: Invocation Mineure d'Armes
+  description: Invoque un flux incessant de fusils à verrou.
   components:
   - type: Sprite # For apprentices
     sprite: _Goobstation/Wizard/actions.rsi
@@ -611,8 +611,8 @@
 - type: entity
   parent: BaseAction
   id: ActionBarnyardCurse
-  name: Curse of the Barnyard
-  description: Dooms an unlucky soul to possess the speech and facial attributes of a barnyard animal.
+  name: Malédiction de la Basse-Cour
+  description: Condamne une âme malchanceuse à posséder la parole et les traits faciaux d'un animal de ferme.
   components:
   - type: Action
     raiseOnUser: true
@@ -669,8 +669,8 @@
 - type: entity
   parent: BaseAction
   id: ActionScreamForMe
-  name: Scream For Me
-  description: This wicked spell inflicts many severe wounds on your target, causing them to likely bleed to death unless they receive immediate medical attention.
+  name: Criez Pour Moi
+  description: Ce sort maléfique inflige de nombreuses blessures graves à votre cible, la faisant probablement saigner à mort sans soins médicaux immédiats.
   components:
   - type: Sprite # For apprentices
     sprite: _Goobstation/Wizard/actions.rsi
@@ -708,8 +708,8 @@
 - type: entity
   parent: BaseAction
   id: ActionInstantSummons
-  name: Instant Summons
-  description: Recalls a previously marked item to your hand from anywhere in the universe.
+  name: Invocation Instantanée
+  description: Rappelle un objet préalablement marqué dans votre main depuis n'importe où dans l'univers.
   components:
   - type: Action
     raiseOnUser: true
@@ -735,8 +735,8 @@
 - type: entity
   parent: BaseAction
   id: ActionTeleportWizard
-  name: Teleport
-  description: This spell teleports you to an area of your selection.
+  name: Téléportation
+  description: Ce sort vous téléporte vers une zone de votre choix.
   components:
   - type: Action
     raiseOnUser: true
@@ -760,8 +760,8 @@
 - type: entity
   parent: BaseAction
   id: ActionTrapsSpell
-  name: The Traps!
-  description: Summon a number of traps around you.
+  name: Les Pièges !
+  description: Invoque un certain nombre de pièges autour de vous.
   components:
   - type: Action
     raiseOnUser: true
@@ -791,8 +791,8 @@
 - type: entity
   parent: BaseAction
   id: ActionLesserSummonBees
-  name: Lesser Summon Bees
-  description: This spell magically kicks a transdimensional beehive, instantly summoning a swarm of bees to your location.
+  name: Invocation Mineure d'Abeilles
+  description: Ce sort donne magiquement un coup de pied dans une ruche transdimensionnelle, invoquant instantanément un essaim d'abeilles à votre emplacement.
   components:
   - type: Sprite # For apprentices
     sprite: _Goobstation/Wizard/actions.rsi
@@ -841,8 +841,8 @@
 - type: entity
   parent: BaseAction
   id: ActionSummonSimians
-  name: Summon Simians
-  description: This spell reaches deep into the elemental plane of bananas (the monkey one, not the clown one), and summons lesser monkeys and gorillas in front of you that will promptly flip out and attack everything in sight. Fun!
+  name: Invoquer des Simiens
+  description: Ce sort plonge dans le plan élémentaire des bananes (celui des singes, pas des clowns), et invoque des singes et gorilles devant vous qui vont aussitôt péter les plombs et attaquer tout ce qu'ils voient. Sympa !
   components:
   - type: Action
     raiseOnUser: true
@@ -874,8 +874,8 @@
 - type: entity
   parent: BaseAction
   id: ActionGorillaForm
-  name: Gorilla Form
-  description: Take on the shape of a powerful gorilla.
+  name: Forme Gorille
+  description: Prenez la forme d'un puissant gorille.
   components:
   - type: Action
     raiseOnUser: true
@@ -903,8 +903,8 @@
 - type: entity
   parent: BaseAction
   id: ActionSanguineStrike
-  name: Sanguine Strike
-  description: Enchants your next weapon strike to deal more damage, heal you for damage dealt, and refill blood.
+  name: Frappe Sanguine
+  description: Enchante votre prochain coup d'arme pour infliger plus de dégâts, vous soigner des dégâts infligés et reconstituer votre sang.
   components:
   - type: Action
     raiseOnUser: true
@@ -929,8 +929,8 @@
 - type: entity
   parent: BaseAction
   id: ActionChuuniInvocations
-  name: Chuuni Invocations
-  description: Makes all your spells shout invocations, and the invocations become... stupid. You heal slightly after casting a spell.
+  name: Invocations Chuuni
+  description: Fait crier des invocations à tous vos sorts, et les invocations deviennent... stupides. Vous vous soignez légèrement après avoir lancé un sort.
   components:
   - type: Action
     raiseOnUser: true
@@ -955,8 +955,8 @@
 - type: entity
   parent: BaseAction
   id: ActionSwapSpell
-  name: Swap
-  description: Allows you to swap locations with any living being.
+  name: Échange
+  description: Vous permet d'échanger votre position avec n'importe quel être vivant.
   components:
   - type: Action
     raiseOnUser: true
@@ -989,8 +989,8 @@
 - type: entity
   parent: BaseAction
   id: ActionSoulTap
-  name: Soul Tap
-  description: Fuel your spells using your own soul!
+  name: Puisage d'Âme
+  description: Alimentez vos sorts avec votre propre âme !
   components:
   - type: Action
     raiseOnUser: true
@@ -1012,8 +1012,8 @@
 - type: entity
   parent: BaseAction
   id: ActionThrownLightning
-  name: Thrown Lightning
-  description: Forged from eldritch energies, a packet of pure power, known as a spell packet will appear in your hand, that when thrown will deal a lot of stamina damage to your target.
+  name: Éclair Lancé
+  description: Forgé à partir d'énergies occultes, un paquet de puissance pure apparaît dans votre main ; lancé, il inflige d'importants dégâts d'endurance à votre cible.
   components:
   - type: Action
     raiseOnUser: true
@@ -1032,8 +1032,8 @@
 - type: entity
   parent: BaseAction
   id: ActionBlinkSpell
-  name: Blink
-  description: Randomly teleport a short distance.
+  name: Clignement
+  description: Se téléporte aléatoirement sur une courte distance.
   components:
   - type: Action
     raiseOnUser: true
@@ -1058,8 +1058,8 @@
 - type: entity
   parent: BaseAction
   id: ActionSummonStickmen
-  name: Summon Stick Minions
-  description: Allows you to summon faithful stickmen allies to aide you in battle.
+  name: Invoquer des Bonshommes en Bâton
+  description: Vous permet d'invoquer de fidèles alliés bonshommes en bâton pour vous aider au combat.
   components:
   - type: Action
     raiseOnUser: true
@@ -1087,8 +1087,8 @@
 - type: entity
   parent: BaseAction
   id: ActionTileToggle
-  name: Toggle tile movement
-  description: Toggle tile movement for the target.
+  name: Basculer le déplacement par tuile
+  description: Active ou désactive le déplacement par tuile pour la cible.
   components:
   - type: Action
     raiseOnUser: true
@@ -1118,8 +1118,8 @@
 
 #- type: entity
 #  id: ActionCurseOfByond
-#  name: Curse of Byond
-#  description: Curse the target, causing them to be unable to move properly.
+#  name: Malédiction de Byond
+#  description: Maudit la cible, l'empêchant de se déplacer correctement.
 #  components:
 #  - type: EntityTargetAction
 #    raiseOnUser: true
@@ -1148,8 +1148,8 @@
 - type: entity
   parent: BaseAction
   id: ActionRathenSpell
-  name: Rathen's Secret 
-  description: Blast off any nearby victims ass.
+  name: Le Secret de Rathen
+  description: Explose les fesses de toutes les victimes proches.
   components:
   - type: Action
     raiseOnUser: true

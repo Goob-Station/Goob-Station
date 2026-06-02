@@ -26,7 +26,7 @@
   parent: DrinkBasePlastic
   id: DrinkFitnessShakerBlack
   name: fitness shaker
-  description: Big enough to contain enough protein to get perfectly swole. Don't mind the bits.
+  description: Assez grand pour contenir suffisamment de protéines pour devenir parfaitement musclé. Ne faites pas attention aux grumeaux.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Consumable/Drinks/shakerblack.rsi

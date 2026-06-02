@@ -66,7 +66,7 @@
   parent: ClothingShoesBase
   id: ClothingModsuitBootsSecurity
   name: soldat modsuit boots
-  description: THE IRON BOOTS OF THE LAW.
+  description: LES BOTTES DE FER DE LA LOI.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -270,7 +270,7 @@
   parent: ClothingShoesBase
   id: ClothingModsuitBootsResearchDirector
   name: minerva modsuit boots
-  description: Won't stop you slipping on your own blood when the holocarp gets to you.
+  description: Ça ne vous empêchera pas de glisser sur votre propre sang quand la carpe holo vous aura.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -301,7 +301,7 @@
   parent: ClothingShoesBase
   id: ClothingModsuitBootsCaptain
   name: magnate modsuit boots
-  description: These boots were designed by THE Michael Jordan and crafted with ancient alloys, man.
+  description: Ces bottes ont été conçues par LE Michael Jordan et fabriquées avec des alliages anciens, mec.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance

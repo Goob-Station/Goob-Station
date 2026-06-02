@@ -1,9 +1,9 @@
 - type: entity
   id: AirlockFlock
   parent: BaseStructure
-  name: weird imposing wall
-  description: It sounds like it is hollow.
-  suffix: featherzone
+  name: mur imposant étrange
+  description: On dirait qu'il est creux.
+  suffix: zoneplumes
   placement:
     mode: SnapgridCenter
   components:

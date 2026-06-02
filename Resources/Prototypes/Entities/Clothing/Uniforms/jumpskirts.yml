@@ -121,8 +121,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtBartender
-  name: bartender's uniform
-  description: A nice and tidy uniform. Shame about the bar though.
+  name: uniforme de barman
+  description: Un uniforme bien soigné. Dommage pour le bar, par contre.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/bartender.rsi
@@ -132,8 +132,8 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase, BaseCommandContraband] # Goob
   id: ClothingUniformJumpskirtCaptain
-  name: captain's jumpskirt
-  description: It's a blue jumpskirt with some gold markings denoting the rank of "Captain".
+  name: unijupe de capitaine
+  description: C'est une unijupe bleue ornée de galons dorés indiquant le grade de "capitaine".
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Civilian/captain.rsi # Goob
@@ -143,8 +143,8 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] # Goob
   id: ClothingUniformJumpskirtCargo
-  name: cargo tech jumpskirt
-  description: A sturdy jumpskirt, issued to members of the Cargo department.
+  name: unijupe de cargo tech
+  description: Une unijupe robuste, remise aux membres du Cargo.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/cargotech.rsi # Goob
@@ -162,8 +162,8 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase, BaseCommandContraband] # Goob
   id: ClothingUniformJumpskirtChiefEngineer
-  name: chief engineer's jumpskirt
-  description: It's a high visibility jumpskirt given to those engineers insane enough to achieve the rank of Chief Engineer.
+  name: unijupe de chef ingénieur
+  description: C'est une unijupe très voyante remise aux ingénieurs assez fous pour avoir atteint le grade d'ingénieur en chef.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Engineering/ce.rsi # Goob
@@ -173,8 +173,8 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseCommandContraband]
   id: ClothingUniformJumpskirtChiefEngineerTurtle
-  name: chief engineer's turtleneck
-  description: A yellow turtleneck designed specifically for work in conditions of the engineering department.
+  name: unijupe à col roulé de chef ingénieur
+  description: Une unijupe à col roulé jaune spécialement conçue pour le travail dans les conditions propres au service d'ingénierie.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/ce_turtle.rsi
@@ -184,8 +184,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtChaplain
-  name: chaplain's jumpskirt
-  description: It's a black jumpskirt, often worn by religious folk.
+  name: unijupe du chapelain
+  description: C'est une unijupe noire, souvent portée par les religieux.
   components:
     - type: Sprite
       sprite: Clothing/Uniforms/Jumpskirt/chaplain.rsi
@@ -195,8 +195,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtChef
-  name: chef uniform
-  description: Can't cook without this.
+  name: unijupe de chef
+  description: Impossible de cuisiner sans ça.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/chef.rsi
@@ -206,8 +206,8 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] # Goob
   id: ClothingUniformJumpskirtChemistry
-  name: chemistry jumpskirt
-  description: There's some odd stains on this jumpskirt. Hm.
+  name: unijupe de chimiste
+  description: Il y a des taches bizarres sur cet uniforme. Hum.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Medical/chemistry.rsi # Goob
@@ -217,8 +217,8 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] # Goob
   id: ClothingUniformJumpskirtVirology
-  name: virology jumpskirt
-  description: It's made of a special fiber that gives special protection against biohazards. It has a virologist rank stripe on it.
+  name: unijupe de virologue
+  description: Elle est fabriquée dans une fibre spéciale qui offre une protection particulière contre les risques biologiques. Elle est orneé d'une bande indiquant le grade de virologue.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Medical/virology.rsi # Goob
@@ -228,8 +228,8 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] # Goob
   id: ClothingUniformJumpskirtGenetics
-  name: genetics jumpskirt
-  description: It's made of a special fiber that gives special protection against biohazards. It has a geneticist rank stripe on it.
+  name: unijupe de généticien
+  description: Elle est fabriquée dans une fibre spéciale qui offre une protection particulière contre les risques biologiques. Elle est ornée d'une bande indiquant le grade de généticien.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Medical/genetics.rsi # Goob
@@ -239,8 +239,8 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase, BaseCommandContraband] # Goob
   id: ClothingUniformJumpskirtCMO
-  name: chief medical officer's jumpskirt
-  description: It's a jumpskirt worn by those with the experience to be Chief Medical Officer. It provides minor biological protection.
+  name: unijupe de médecin-chef
+  description: C'est une unijupe portée par ceux qui ont l'expérience nécessaire pour occuper le poste de médecin-chef. Elle offre une protection biologique minimale.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Medical/cmo.rsi # Goob
@@ -250,8 +250,8 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseCommandContraband]
   id: ClothingUniformJumpskirtCMOTurtle
-  name: chief medical officer's turtleneck jumpskirt
-  description: It's a turtleneck worn by those with the experience to be Chief Medical Officer. It provides minor biological protection.
+  name: unijupe à col roulé de médecin-chef
+  description: C'est une unijupe à col roulé portée par ceux qui ont l'expérience nécessaire pour occuper le poste de médecin-chef. Elle offre une protection biologique minimale.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/cmo_turtle.rsi
@@ -261,8 +261,8 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase, BaseSecurityContraband] # Goob
   id: ClothingUniformJumpskirtDetective
-  name: hard-worn suitskirt
-  description: Someone who wears this means business.
+  name: costume-jupe aguerri
+  description: Celui qui porte ça ne plaisante pas.
   components:
     - type: Sprite
       sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Security/detective.rsi # Goob
@@ -272,8 +272,8 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase, BaseSecurityContraband] # Goob
   id: ClothingUniformJumpskirtDetectiveGrey
-  name: noir suitskirt
-  description: A hard-boiled private investigator's grey suit, complete with tie clip.
+  name: costume-jupe noir
+  description: Le costume-jupe gris d'un détective privé au caractère bien trempé, agrémentée d'une pince à cravate.
   components:
     - type: Sprite
       sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Security/detective_grey.rsi # Goob
@@ -283,8 +283,8 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] # Goob
   id: ClothingUniformJumpskirtEngineering
-  name: engineering jumpskirt
-  description: If this suit was non-conductive, maybe engineers would actually do their damn job.
+  name: unijupe d'ingénieur
+  description: Si cette combinaison était isolante, peut-être que les ingénieurs feraient enfin leur boulot.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Engineering/engineering.rsi # Goob
@@ -294,8 +294,8 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase, BaseCommandContraband] # Goob
   id: ClothingUniformJumpskirtHoP
-  name: head of personnel's jumpskirt
-  description: Rather bland and inoffensive. Perfect for vanishing off the face of the universe.
+  name: unijupe de chef du personnel
+  description: Plutôt fade et inoffensive. Parfait pour disparaître de la surface de l'univers.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Civilian/hop.rsi # Goob
@@ -305,8 +305,8 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase, BaseCommandContraband] # Goob
   id: ClothingUniformJumpskirtHoS
-  name: head of security's jumpskirt
-  description: It's bright red and rather crisp, much like security's victims tend to be.
+  name: unijupe de chef de la sécurité
+  description: Elle est d'un rouge vif et plutôt tendu, un peu comme le sont souvent les victimes de la sécurité.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Security/hos.rsi # Goob
@@ -330,8 +330,8 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase, BaseCommandContraband] # Goob
   id: ClothingUniformJumpskirtHoSAlt
-  name: head of security's turtleneck
-  description: It's a turtleneck worn by those strong and disciplined enough to achieve the position of Head of Security.
+  name: unijupe à col roulé de chef de la sécurité
+  description: C'est une unijupe à col roulé porté par ceux qui ont la force et la discipline nécessaires pour accéder au poste de chef de la sécurité.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Security/hos_alt.rsi # Goob
@@ -341,8 +341,8 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseCommandContraband]
   id: ClothingUniformJumpskirtHoSParadeMale
-  name: head of security's parade uniform
-  description: A head of security's luxury-wear, for special occasions.
+  name: unijupe de parade de chef de la sécurité
+  description: Une tenue de luxe de chef de la sécurité, destinée aux occasions spéciales.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/hos_parade.rsi
@@ -352,8 +352,8 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseCommandContraband]
   id: ClothingUniformJumpskirtCommandGeneric
-  name: command jumpskirt
-  description: A generic Command-colored jumpsuit not associated with any particular department.
+  name: unijupe du commandement
+  description: Une unijupe de la couleur standard du Commandement, non associé à un service particulier.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/commandgeneric.rsi
@@ -363,8 +363,8 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] # Goob
   id: ClothingUniformJumpskirtHydroponics
-  name: hydroponics jumpskirt
-  description: Has a strong earthy smell to it. Hopefully it's merely dirty as opposed to soiled.
+  name: unijupe de botaniste
+  description: Ça dégage une forte odeur de terre. Espérons que ce soit simplement de la saleté et pas quelque chose de plus grave...
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Civilian/hydro.rsi # Goob
@@ -374,8 +374,8 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] # Goob
   id: ClothingUniformJumpskirtJanitor
-  name: janitor jumpskirt
-  description: The jumpskirt for the poor sop with a mop.
+  name: unijupe de concierge
+  description: L'uniforme du pauvre bougre à la serpillière.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Civilian/janitor.rsi # Goob
@@ -385,8 +385,8 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] # Goob
   id: ClothingUniformJumpskirtMedicalDoctor
-  name: medical doctor jumpskirt
-  description: It's made of a special fiber that provides minor protection against biohazards. It has a cross on the chest denoting that the wearer is trained medical personnel.
+  name: unijupe de médecin
+  description: Elle est fabriquée dans une fibre spéciale qui offre une protection minimale contre les risques biologiques. Une croix sur la poitrine indique que la personne qui le porte est un professionnel de santé qualifié.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Medical/medical.rsi # Goob
@@ -396,7 +396,7 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] # Goob
   id: ClothingUniformJumpskirtMime
-  name: mime jumpskirt
+  name: unijupe de mime
   description: ...
   components:
   - type: Sprite
@@ -407,8 +407,8 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] # Goob
   id: ClothingUniformJumpskirtParamedic
-  name: paramedic jumpskirt
-  description: It's got a plus on it, that's a good thing right?
+  name: unijupe d'urgentiste
+  description: Il y a un plus dessus, c'est bon signe, non ?
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Medical/paramedic.rsi # Goob
@@ -426,8 +426,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtBrigmedic
-  name: brigmedic jumpskirt
-  description: This uniform is issued to qualified personnel who have been trained. No one cares that the training took half a day.
+  name: unijupe de médecin du brig
+  description: Cet unijupe est remise au personnel qualifié ayant suivi une formation. Personne ne se soucie du fait que cette formation n'ait duré qu'une demi-journée.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/brigmedic.rsi
@@ -437,8 +437,8 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] # Goob
   id: ClothingUniformJumpskirtPrisoner
-  name: prisoner jumpskirt
-  description: A jumpskirt used for prisoners. It has suit sensors automatically enabled at all times.
+  name: unijupe de prisonnier
+  description: Une unijupe destinée aux prisonniers. Ses capteurs s'activent automatiquement et en permanence.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/prisoner.rsi # Goob
@@ -478,8 +478,8 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase, BaseCommandContraband] # Goob
   id: ClothingUniformJumpskirtQM
-  name: quartermaster's jumpskirt
-  description: 'What can brown do for you?'
+  name: unijupe de quartier-maître
+  description: "'Y'a pas écrit la poste.'" # Remplacé pub connue d'USPS par slogan connu de La Poste
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/qm.rsi # Goob
@@ -497,8 +497,8 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase, BaseCommandContraband] # Goob
   id: ClothingUniformJumpskirtQMTurtleneck
-  name: quartermasters's turtleneck
-  description: A sharp turtleneck made for the hardy work environment of supply.
+  name: unijupe à col roulé de quartier-maître
+  description: Une unijupe à col roulé épaisse, conçue pour les conditions de travail difficiles du cargo.
   components:
     - type: Sprite
       sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/qmturtleskirt.rsi # Goob
@@ -516,8 +516,8 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseCommandContraband]
   id: ClothingUniformJumpskirtResearchDirector
-  name: research director's turtleneck
-  description: It's a turtleneck worn by those with the know-how to achieve the position of Research Director. Its fabric provides minor protection from biological contaminants.
+  name: unijupe à col roulé de directeur de la recherche
+  description: C'est une unijupe à col roulé portée par ceux qui possèdent les compétences nécessaires pour occuper le poste de directeur de recherche. Son tissu offre une protection minimale contre les contaminants biologiques.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/RND/rnd.rsi # Goob
@@ -527,8 +527,8 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] # Goob
   id: ClothingUniformJumpskirtScientist
-  name: scientist jumpskirt
-  description: It's made of a special fiber that increases perceived intelligence and decreases personal ethics. It has markings that denote the wearer as a scientist.
+  name: unijupe de scientifique
+  description: Elle est fabriquée à partir d'une fibre spéciale qui renforce l'impression d'intelligence et affaiblit le sens de l'éthique. Elle comporte des motifs qui indiquent que celui qui la porte est un scientifique.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/RND/scientist.rsi # Goob
@@ -538,8 +538,8 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] # Goob
   id: ClothingUniformJumpskirtRoboticist
-  name: roboticist jumpskirt
-  description: It's a slimming black with reinforced seams; great for industrial work.
+  name: unijupe de roboticien
+  description: C'est d'un noir amincissant avec des coutures renforcées ; idéal pour les travaux industriels.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/RND/roboticist.rsi # Goob
@@ -549,8 +549,8 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase, BaseSecurityContraband] # Goob
   id: ClothingUniformJumpskirtSec
-  name: security jumpskirt
-  description: A jumpskirt made of strong material, providing robust protection.
+  name: unijupe de sécurité
+  description: Une unijupe faite d'un matériau résistant, offrant une protection solide.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Security/security.rsi # Goob
@@ -575,8 +575,8 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase, BaseSecurityContraband]
   id: ClothingUniformJumpskirtWarden
-  name: warden's uniform
-  description: A formal security suit for officers complete with Nanotrasen belt buckle. # Goob
+  name: unijupe de gardien
+  description: Un costume formel de sécurité pour les agents, avec une boucle de ceinture Nanotrasen.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Security/warden.rsi # Goob
@@ -601,8 +601,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtLibrarian
-  name: librarian jumpskirt
-  description: A cosy green jumper fit for a curator of books.
+  name: unijupe de bibliothécaire
+  description: Un pull vert douillet, parfait pour un conservateur de bibliothèque.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/librarian.rsi
@@ -612,8 +612,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtCurator
-  name: sensible skirt
-  description: It's sensible. Too sensible...
+  name: costume-jupe raisonnable
+  description: C'est raisonnable. Trop raisonnable...
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/curator.rsi
@@ -623,8 +623,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtPerformer
-  name: performer's jumpskirt
-  description: Hi, I'm Scott, president of Donk Pizza. Have you heard of [FAMOUS VIRTUAL PERFORMER]?
+  name: unijupe d'artiste
+  description: Bonjour, je m'appelle Scott, je suis le président de Donk Pizza. Avez-vous déjà entendu parler de [CÉLÈBRE ARTISTE VIRTUEL] ?
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Civilian/performer.rsi
@@ -634,8 +634,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtCapFormalDress
-  name: captain's formal dress
-  description: A dress for special occasions.
+  name: robe formelle du capitaine
+  description: Une robe pour les grandes occasions.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/capformaldress.rsi
@@ -645,8 +645,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtCentcomFormalDress
-  name: central command formal dress
-  description: A dress for special occasions.
+  name: robe formelle de central command
+  description: Une robe pour les grandes occasions.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/centcomformaldress.rsi
@@ -656,8 +656,8 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseCommandContraband]
   id: ClothingUniformJumpskirtHosFormal
-  name: hos's formal dress
-  description: A dress for special occasions.
+  name: robe formelle du chef de la sécurité
+  description: Une robe pour les grandes occasions.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/hosformaldress.rsi
@@ -667,8 +667,8 @@
 - type: entity
   parent: [UnsensoredClothingUniformSkirtBase,ClothingUniformFoldableBase, BaseSyndicateContraband] # Goob
   id: ClothingUniformJumpskirtOperative
-  name: operative jumpskirt
-  description: Uniform for elite syndicate operatives performing tactical operations in deep space.
+  name: unijupe d'agent du syndicat
+  description: unijupe destinée aux agents d'élite du syndicat chargés de mener des opérations tactiques dans l'espace.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Syndicate/operative_s.rsi # Goob
@@ -680,8 +680,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtTacticool
-  name: tacticool jumpskirt
-  description: Uniform for subpar operative LARPers performing tactical insulated glove theft in deep space.
+  name: unijupe tacticool
+  description: unijupe destinée aux adeptes de GN médiocres qui se livrent à des vols tactiques de gants isolants dans l'espace.
   components:
     - type: Sprite
       sprite: Clothing/Uniforms/Jumpskirt/tacticool_s.rsi
@@ -695,8 +695,8 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] # Goob
   id: ClothingUniformJumpskirtAtmos
-  name: atmospheric technician jumpskirt
-  description: I am at work. I can't leave work. Work is breathing. I am testing air quality.
+  name: unijupe de technicien en atmosphériques
+  description: Je suis au travail. Je ne peux pas quitter mon travail. Le travail, c'est respirer. Je suis en train de tester la qualité de l'air.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Engineering/atmosf.rsi # Goob
@@ -706,8 +706,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtJanimaid
-  name: janitorial maid uniform
-  description: For professionals, not the posers.
+  name: unijupe de concierge maid
+  description: Pour les pros, pas pour les imposteurs.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/janimaid.rsi
@@ -717,8 +717,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtJanimaidmini
-  name: janitorial maid uniform with miniskirt
-  description: Elite service, not some candy wrappers.
+  name: unijupe de concierge maid avec minijupe
+  description: Un service d'élite.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/janimaidmini.rsi
@@ -728,8 +728,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtLawyerRed
-  name: red lawyer suitskirt
-  description: A flashy red suitskirt worn by lawyers and show-offs.
+  name: costume-jupe rouge d'avocat
+  description: Un costume-jupe rouge criard porté par les avocats et les frimeurs.
   components:
     - type: Sprite
       sprite: Clothing/Uniforms/Jumpskirt/lawyerred.rsi
@@ -739,8 +739,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtLawyerBlue
-  name: blue lawyer suitskirt
-  description: A flashy blue suitskirt worn by lawyers and show-offs.
+  name: costume-jupe bleu d'avocat
+  description: Un costume-jupe bleu criard porté par les avocats et les frimeurs.
   components:
     - type: Sprite
       sprite: Clothing/Uniforms/Jumpskirt/lawyerblue.rsi
@@ -750,8 +750,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtLawyerBlack
-  name: black lawyer suitskirt
-  description: A subtle black suitskirt worn by lawyers and gangsters.
+  name: costume-jupe noir d'avocat
+  description: Un costume-jupe noir sobre porté par les avocats et les gangsters.
   components:
     - type: Sprite
       sprite: Clothing/Uniforms/Jumpskirt/lawyerblack.rsi
@@ -761,8 +761,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtLawyerPurple
-  name: purple lawyer suitskirt
-  description: A stylish purple piece worn by lawyers and show people.
+  name: costume-jupe violet d'avocat
+  description: Un costume-jupe violet très chic porté par les avocats et les personnalités du show-business.
   components:
     - type: Sprite
       sprite: Clothing/Uniforms/Jumpskirt/lawyerpurple.rsi
@@ -772,8 +772,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtLawyerGood
-  name: good lawyer's suitskirt
-  description: A tacky suitskirt perfect for a CRIMINAL lawyer!
+  name: costume-jupe de bon avocat
+  description: Un costume-jupe de mauvais goût, parfait pour un avocat CRIMINEL !
   components:
     - type: Sprite
       sprite: Clothing/Uniforms/Jumpskirt/lawyergood.rsi
@@ -783,8 +783,8 @@
 - type: entity
   parent: [ ClothingUniformSkirtBase, BaseSyndicateContraband ]
   id: ClothingUniformJumpskirtSyndieFormalDress
-  name: syndicate formal dress
-  description: "The syndicate's uniform is made in an elegant style, it's even a pity to do dirty tricks in this."
+  name: robe formelle du syndicat
+  description: La robe du syndicat est d'une grande élégance, on aurait presque honte de s'en servir pour faire des magouilles.
   components:
     - type: Sprite
       sprite: Clothing/Uniforms/Jumpskirt/syndieformaldress.rsi
@@ -794,8 +794,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtTacticalMaid
-  name: tactical maid suitskirt
-  description: It is assumed that the best maids should have designer suits.
+  name: unijupe tactique de maid
+  description: On part du principe que les meilleures maids devraient avoir des tenues de créateurs.
   components:
     - type: Sprite
       sprite: Clothing/Uniforms/Jumpskirt/tacticalmaid.rsi
@@ -805,8 +805,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtOfLife
-  name: skirt of life
-  description: A skirt that symbolizes the joy and positivity of our life.
+  name: jupe de la vie
+  description: Une jupe qui symbolise la joie et l'optimisme de notre vie.
   components:
     - type: Sprite
       sprite: Clothing/Uniforms/Jumpskirt/skirtoflife.rsi
@@ -816,8 +816,8 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] # Goob
   id: ClothingUniformJumpskirtSeniorEngineer
-  name: senior engineer jumpskirt
-  description: A sign of skill and prestige within the engineering department.
+  name: unijupe d'ingénieur senior
+  description: Un gage de compétence et de prestige au sein du service d'ingénierie.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Engineering/senior_engineer.rsi # Goob
@@ -827,8 +827,8 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] # Goob
   id: ClothingUniformJumpskirtSeniorResearcher
-  name: senior researcher jumpskirt
-  description: A sign of skill and prestige within the science department.
+  name: unijupe de chercheur senior
+  description: Un gage de compétence et de prestige au sein du service de science.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/RND/senior_researcher.rsi # Goob
@@ -838,8 +838,8 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] # Goob
   id: ClothingUniformJumpskirtSeniorPhysician
-  name: senior physician jumpskirt
-  description: A sign of skill and prestige within the medical department.
+  name: unijupe de médecin senior
+  description: Un gage de compétence et de prestige au sein du service médical.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Medical/senior_physician.rsi # Goob
@@ -849,8 +849,8 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase, BaseSecurityContraband] # Goob
   id: ClothingUniformJumpskirtSeniorOfficer
-  name: senior officer jumpskirt
-  description: A sign of skill and prestige within the security department.
+  name: uniforme d'agent de sécurité senior
+  description: Un gage de compétence et de prestige au sein du service de sécurité.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Security/senior_officer.rsi # Goob
@@ -860,8 +860,8 @@
 - type: entity
   parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase, BaseSecurityContraband] # Goob
   id: ClothingUniformJumpskirtSecGrey
-  name: grey security jumpskirt
-  description: A tactical relic of years past before Nanotrasen decided it was cheaper to dye the suits red instead of washing out the blood.
+  name: unijupe grise de sécurité
+  description: Une relique tactique d'une époque révolue, avant que Nanotrasen ne décide qu'il était plus économique de teindre les combinaisons en rouge plutôt que d'en enlever les taches de sang.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Security/security_grey.rsi # Goob
@@ -871,8 +871,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtWeb
-  name: web jumpskirt
-  description: Makes it clear that you are one with the webs.
+  name: unijupe en toile
+  description: Cela montre clairement que vous ne faites qu'un avec les toiles.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/web.rsi
@@ -902,8 +902,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtCasualBlue
-  name: casual blue jumpskirt
-  description: A loose worn blue shirt with a grey skirt, perfect for someone looking to relax.
+  name: unijupe décontractée bleue
+  description: "Une chemise bleue ample et décontractée, associée à une jupe grise : l'idéal pour ceux qui veulent se détendre."
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/casual.rsi
@@ -932,8 +932,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtCasualPurple
-  name: casual purple jumpskirt
-  description: A loose worn purple shirt with a grey skirt, perfect for someone looking to relax.
+  name: unijupe décontractée violette
+  description: "Une chemise violette ample et décontractée, associée à une jupe grise : l'idéal pour ceux qui veulent se détendre."
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/casual.rsi
@@ -962,8 +962,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtCasualRed
-  name: casual red jumpskirt
-  description: A loose worn red shirt with a grey skirt, perfect for someone looking to relax.
+  name: unijupe décontractée rouge
+  description: "Une chemise rouge ample et décontractée, associée à une jupe grise : l'idéal pour ceux qui veulent se détendre."
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/casual.rsi
@@ -992,8 +992,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtCasualGreen
-  name: casual green jumpskirt
-  description: A loose worn green shirt with a grey skirt, perfect for someone looking to relax.
+  name: unijupe décontractée verte
+  description: "Une chemise verte ample et décontractée, associée à une jupe grise : l'idéal pour ceux qui veulent se détendre."
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/casual.rsi
@@ -1022,8 +1022,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtOldDress
-  name: old dress
-  description: A worn-looking dress from a very long time ago.
+  name: vieille robe
+  description: Une robe qui a l'air usée, datant d'il y a très longtemps.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/olddress.rsi
@@ -1033,8 +1033,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtMusician
-  name: musician's skirt
-  description: A fancy skirt for the musically inclined. Perfect for any lounge act!
+  name: costume-jupe quatre-pièce de mucisien
+  description: Un smoking chic pour les mélomanes. Idéal pour tout spectacle de cabaret !
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/musician.rsi
@@ -1044,8 +1044,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtPsychologist
-  name: psychologist suitskirt
-  description: I don't lose things. I place things in locations which later elude me.
+  name: costume-jupe de psychologue
+  description: "I don't lose things. I place things in locations which later elude me." # Réf à Psych (la série), même commentaire qu'en dessous
   components:
     - type: Sprite
       sprite: Clothing/Uniforms/Jumpskirt/psychologist.rsi
@@ -1055,7 +1055,7 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtClown
-  name: clown skirt
+  name: unijupe de clown
   description: HONK!
   components:
   - type: Sprite

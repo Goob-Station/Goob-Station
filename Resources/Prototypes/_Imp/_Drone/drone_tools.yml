@@ -14,7 +14,7 @@
 - type: entity
   parent: ClothingBackpackSatchelDrone
   id: DroneSatchelUnremovable
-  suffix: Unremoveable
+  suffix: Inamovible
   components:
   - type: Unremoveable
   - type: Sprite
@@ -23,21 +23,21 @@
 - type: entity
   parent: trayScanner
   id: trayScannerUnremoveable
-  suffix: Unremoveable
+  suffix: Inamovible
   components:
   - type: Unremoveable
 
 - type: entity
   parent: Omnitool
   id: OmnitoolUnremoveable
-  suffix: Unremoveable
+  suffix: Inamovible
   components:
   - type: Unremoveable
 
 - type: entity
   parent: WelderExperimental
   id: WelderExperimentalUnremoveable
-  suffix: Unremoveable
+  suffix: Inamovible
   components:
   - type: Unremoveable
 
@@ -45,22 +45,22 @@
 - type: entity
   parent: RCDRecharging
   id: RCDRechargingUnremoveable
-  suffix: Unremovable
+  suffix: Inamovible
   components:
   - type: Unremoveable
 
 - type: entity
   parent: NetworkConfigurator
   id: NetworkConfiguratorUnremoveable
-  suffix: Unremovable
+  suffix: Inamovible
   components:
   - type: Unremoveable
 
 - type: entity
   parent: PinpointerStationGoob
   id: PinpointerStationUnremoveable
-  description: You are the station. Find yourself. Press E to activate.
-  suffix: Unremoveable
+  description: Vous êtes la station. Trouvez-vous. Appuyez sur E pour activer.
+  suffix: Inamovible
   components:
   - type: Unremoveable
 

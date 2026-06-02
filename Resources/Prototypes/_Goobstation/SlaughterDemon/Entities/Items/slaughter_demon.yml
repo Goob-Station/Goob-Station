@@ -1,8 +1,8 @@
 - type: entity
-  name: vial of tickles
+  name: fiole de chatouilles
   id: BottleOfTickles
   parent: [BaseItem, BaseMagicalContraband]
-  description: A magically infused bottle of clown love, distilled from countless hugging attacks. Used in funny rituals to attract adorable creatures.
+  description: Une bouteille magiquement infusée d'amour de clown, distillée d'innombrables attaques de câlins. Utilisée dans de drôles de rituels pour attirer de mignonnes créatures.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Objects/vials.rsi
@@ -48,10 +48,10 @@
         acts: [ "Destruction" ]
 
 - type: entity
-  name: vial of blood
+  name: fiole de sang
   id: BottleOfBlood
   parent: BottleOfTickles
-  description: A magically infused bottle of blood, distilled from countless murder victims. Used in unholy rituals to attract horrifying creatures.
+  description: Une bouteille magiquement infusée de sang, distillée d'innombrables victimes de meurtre. Utilisée dans des rituels impies pour attirer des créatures horrifiques.
   components:
   - type: Sprite
     state: vial

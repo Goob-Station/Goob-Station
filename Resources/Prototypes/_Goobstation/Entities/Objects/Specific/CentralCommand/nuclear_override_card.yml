@@ -5,11 +5,11 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: nuclear override card
+  name: carte de remplacement nucléaire
   parent: [BaseItem, BaseCentcommContraband]
   id: NukeOverride
-  suffix: DO NOT MAP
-  description: A surprisingly cheaply made plastic card, capable of overriding a nuclear devices safety protocols.
+  suffix: NE PAS PLACER
+  description: Une carte en plastique étonnamment bon marché, capable de remplacer les protocoles de sécurité d'un dispositif nucléaire.
   components:
   - type: NukeDisk
     override: true

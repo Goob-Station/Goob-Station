@@ -7,7 +7,7 @@
 - type: entity
   parent: OrganAnimalRuminantStomach
   id: OrganAnimalRuminantStomach2
-  name: ruminant stomach 2
+  name: estomac de ruminant 2
   description: electric boogaloo
   components:
   - type: Organ

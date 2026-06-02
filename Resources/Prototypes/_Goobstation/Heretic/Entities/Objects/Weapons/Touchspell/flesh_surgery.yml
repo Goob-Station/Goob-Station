@@ -1,7 +1,7 @@
 - type: entity
   id: TouchSpellFleshSurgery
-  name: knit flesh
-  description: Let's go practice medicine.
+  name: chair suturée
+  description: Allons pratiquer la médecine.
   categories: [ HideSpawnMenu ]
   components:
   - type: Unremoveable

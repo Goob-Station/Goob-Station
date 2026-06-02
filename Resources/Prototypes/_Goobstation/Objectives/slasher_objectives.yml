@@ -16,8 +16,8 @@
 
 - type: entity
   id: SlasherSurviveObjective
-  name: Survive until the end
-  description: While death may be a foreign concept to you, getting banished is not.
+  name: Survivre jusqu'à la fin
+  description: Si la mort vous est peut-être étrangère, le bannissement ne l'est pas.
   components:
   - type: Objective
     difficulty: 1

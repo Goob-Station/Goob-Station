@@ -3,29 +3,29 @@
 - type: entity
   parent: StatusEffectSlowdown
   id: SlasherSlowdownStatusEffect
-  name: slasher slowdown
+  name: ralentissement slasher
 
 - type: entity
   parent: StatusEffectSlowdown
   id: TentacleSlowdownStatusEffect
-  name: tentacle slowdown
+  name: ralentissement tentacule
 
 - type: entity
   parent: StatusEffectSlowdown
   id: MartialArtsGenericSlowdownEffect
-  name: martial arts slowdown
+  name: ralentissement arts martiaux
 
 - type: entity
   parent: StatusEffectSlowdown
   id: OrgansDamagedSlowdownEffect
-  name: organ damage slowdown
+  name: ralentissement dégâts d'organes
 
 - type: entity
   parent: StatusEffectSlowdown
   id: ShadowCloakSlowdownEffect
-  name: shadow cloak slowdown
+  name: ralentissement cape d'ombre
 
 - type: entity
   parent: StatusEffectSlowdown
   id: ShadowlingGlareSlowdownEffect
-  name: shadow ling glare slowdown
+  name: ralentissement éblouissement shadowling

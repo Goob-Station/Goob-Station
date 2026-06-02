@@ -1,0 +1,21 @@
+dv-ascended-title-1 = Ascendant
+dv-ascended-title-2 = Apocryphe
+dv-ascended-title-3 = Sans Limites
+dv-ascended-title-4 = Transcendant
+
+dv-ascended-name-1 = Celui-Qui-Regarde,
+dv-ascended-name-2 = Celui-Qui-A-Fui,
+dv-ascended-name-3 = Celui-Qui-Attend,
+dv-ascended-name-4 = Celui-Qui-Chuchote,
+dv-ascended-name-5 = Celui-Qui-Observe,
+dv-ascended-name-6 = Celui-Qui-Désire,
+dv-ascended-name-7 = Celui-Qui-Était,
+dv-ascended-name-8 = Celui-Qui-Tend,
+dv-ascended-name-9 = Celui-Qui-Chasse,
+dv-ascended-name-10 = Celui-Qui-Creuse,
+dv-ascended-name-11 = Celui-Qui-Rôde,
+dv-ascended-name-12 = Ce-Qui-Désire,
+dv-ascended-name-13 = Ce-Qui-Attend,
+dv-ascended-name-14 = Ce-Qui-Observe,
+dv-ascended-name-15 = Ce-Qui-Chuchote,
+dv-ascended-name-16 = Ce-Qui-Était,

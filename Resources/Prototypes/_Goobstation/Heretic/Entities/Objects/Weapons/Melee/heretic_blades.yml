@@ -22,8 +22,8 @@
   parent: [ BaseItem, BaseMagicalContraband ]
   id: HereticBladeBaseNoTeleport
   abstract: true
-  name: eldritch blade
-  description: A sickly green crescent blade, decorated with an ornamental eye. You feel like you're being watched...
+  name: lame eldritch
+  description: Une lame en croissant d'un vert maladif, ornée d'un œil décoratif. Vous avez l'impression d'être observé...
   components:
   - type: UnholyItem
   - type: HereticBlade
@@ -73,9 +73,9 @@
 - type: entity
   parent: HereticBladeBase
   id: HereticBladeAsh
-  name: ashen blade
-  description: Molten and unwrought, a hunk of metal warped to cinders and slag. Unmade, it aspires to be more than it is, and shears soot-filled wounds with a blunt edge.
-  suffix: Ash
+  name: lame cendrée
+  description: Fondue et informe, une masse de métal tordu en cendres et en scories. Inachevée, elle aspire à être plus qu'elle n'est, et taille des blessures pleines de suie avec un tranchant émoussé.
+  suffix: Cendres
   components:
   - type: HereticBlade
     path: Ash
@@ -90,9 +90,9 @@
 - type: entity
   parent: HereticBladeBase
   id: HereticBladeBlade
-  name: sundered blade
-  description: A galliant blade, sundered and torn. Furiously, the blade cuts. Silver scars bind it forever to its dark purpose.
-  suffix: Blade
+  name: lame brisée
+  description: Une lame vaillante, brisée et déchirée. Furieusement, la lame taille. Des cicatrices d'argent la lient pour toujours à son sombre dessein.
+  suffix: Lame
   components:
   - type: HereticBlade
     path: Blade
@@ -129,9 +129,9 @@
 - type: entity
   parent: HereticBladeBaseNoTeleport
   id: HereticBladeFleshGhoul
-  name: ghoul blade
-  description: A crescent blade born from a fleshwarped creature. Keenly aware, it seeks to spread to others the suffering it has endured from its dreadful origins.
-  suffix: Flesh ghoul
+  name: lame goule
+  description: Une lame en croissant née d'une créature corrompue par la chair. Pleinement consciente, elle cherche à répandre aux autres la souffrance qu'elle a endurée lors de ses terribles origines.
+  suffix: Goule de Chair
   components:
   - type: HereticBlade
     path: Flesh
@@ -144,15 +144,15 @@
 - type: entity
   parent: [HereticBladeFleshGhoul, BaseRandomTeleportBlade]
   id: HereticBladeFlesh
-  name: bloody blade
-  suffix: Flesh
+  name: lame sanglante
+  suffix: Chair
 
 - type: entity
   parent: HereticBladeBase
   id: HereticBladeLock
-  name: key blade
-  description: A blade and a key, a key to what? What grand gates does it open?
-  suffix: Lock
+  name: lame-clé
+  description: Une lame et une clé — clé de quoi ? Quelles grandes portes ouvre-t-elle ?
+  suffix: Verrou
   components:
   - type: HereticBlade
     path: Lock
@@ -165,9 +165,9 @@
 - type: entity
   parent: HereticBladeBase
   id: HereticBladeRust
-  name: rusted blade
-  description: This crescent blade is decrepit, wasting to rust. Yet still it bites, ripping flesh and bone with jagged, rotten teeth.
-  suffix: Rust
+  name: lame rouillée
+  description: Cette lame en croissant est décrépite, rongée par la rouille. Pourtant elle mord encore, déchirant chair et os avec des dents dentelées et pourries.
+  suffix: Rouille
   components:
   - type: HereticBlade
     path: Rust
@@ -180,9 +180,9 @@
 - type: entity
   parent: HereticBladeBase
   id: HereticBladeVoid
-  name: void blade
-  description: Devoid of any substance, this blade reflects nothingness. It is a real depiction of purity, and chaos that ensues after its implementation.
-  suffix: Void
+  name: lame du vide
+  description: Dépourvue de toute substance, cette lame ne reflète que le néant. C'est une véritable incarnation de la pureté — et du chaos qui s'ensuit après son utilisation.
+  suffix: Vide
   components:
   - type: HereticBlade
     path: Void
@@ -195,8 +195,8 @@
 - type: entity
   parent: HereticBladeBase
   id: HereticBladeCosmos
-  name: cosmic blade
-  description: A mote of celestial resonance, shaped into a star-woven blade. An iridescent exile, carving radiant trails, desperately seeking unification.
+  name: lame cosmique
+  description: Une parcelle de résonance céleste, façonnée en lame tissée d'étoiles. Un exilé iridescent qui trace des sillons radieux, cherchant désespérément l'unification.
   suffix: Cosmos
   components:
   - type: HereticBlade

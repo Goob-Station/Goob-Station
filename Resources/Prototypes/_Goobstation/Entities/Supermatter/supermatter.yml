@@ -16,8 +16,8 @@
 
 - type: entity
   id: Supermatter
-  name: supermatter crystal
-  description: A strangely translucent and iridescent crystal.
+  name: cristal supermatter
+  description: Un cristal étrangement translucide et irisé.
   placement:
     mode: SnapgridCenter
   components:

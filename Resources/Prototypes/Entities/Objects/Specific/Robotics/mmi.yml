@@ -109,8 +109,8 @@
 - type: entity
   parent: BaseItem
   id: MMI
-  name: man-machine interface
-  description: A machine able to facilitate communication between a biological brain and electronics, enabling crew to continue to provide value after work-related incidents.
+  name: interface homme-machine
+  description: Une machine capable de faciliter la communication entre un cerveau biologique et l'électronique, permettant à l'équipage de continuer à apporter de la valeur après des incidents liés au travail.
   components:
   - type: Sprite
     sprite: Objects/Specific/Robotics/mmi.rsi
@@ -192,8 +192,8 @@
 - type: entity
   parent: BaseItem
   id: PositronicBrain
-  name: positronic brain
-  description: An artificial brain capable of spontaneous neural activity.
+  name: cerveau positronique
+  description: Un cerveau artificiel capable d'activité neurale spontanée.
   components:
     - type: Sprite
       sprite: Objects/Specific/Robotics/mmi.rsi

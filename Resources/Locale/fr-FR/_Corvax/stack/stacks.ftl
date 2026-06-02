@@ -1,0 +1,17 @@
+stack-black-wood-tile = parquet en bois noir
+stack-dark-wood-tile = parquet en bois sombre
+stack-light-wood-tile = parquet en bois clair
+stack-red-wood-tile = parquet en bois rouge
+stack-black-large-wood-tile = grand parquet en bois noir
+stack-dark-large-wood-tile = grand parquet en bois sombre
+stack-light-large-wood-tile = grand parquet en bois clair
+stack-red-large-wood-tile = grand parquet en bois rouge
+stack-black-parquet-wood-tile = parquet en parquet de bois noir
+stack-dark-parquet-wood-tile = parquet en parquet de bois sombre
+stack-light-parquet-wood-tile = parquet en parquet de bois clair
+stack-red-parquet-wood-tile = parquet en parquet de bois rouge
+stack-chess-wood-tile = parquet en bois style échiquier
+stack-black-chess-wood-tile = parquet en bois noir style échiquier
+stack-dark-chess-wood-tile = parquet en bois sombre style échiquier
+stack-light-chess-wood-tile = parquet en bois clair style échiquier
+stack-red-chess-wood-tile = parquet en bois rouge style échiquier

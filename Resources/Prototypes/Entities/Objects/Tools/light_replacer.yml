@@ -20,9 +20,9 @@
 
 - type: entity
   parent: BaseItem
-  name: light replacer
+  name: remplaceur d'ampoules
   id: LightReplacer
-  description: An item which uses magnets to easily replace broken lights. Refill by adding more lights into the replacer.
+  description: Un appareil utilisant des aimants pour remplacer facilement les ampoules cassées. Rechargez en ajoutant des ampoules supplémentaires dans le remplaceur.
   components:
   - type: Sprite
     sprite: Objects/Specific/Janitorial/light_replacer.rsi

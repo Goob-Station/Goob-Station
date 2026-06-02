@@ -138,10 +138,10 @@
 - type: entity
   parent: MobHumanDummy
   id: MobFeroxiDummy
-  name: Feroxi Dummy
+  name: Mannequin Feroxi
   save: false
   categories: [ HideSpawnMenu ]
-  description: A dummy feroxi meant to be used in character setup.
+  description: Un mannequin feroxi destiné à être utilisé dans la configuration du personnage.
   components:
   - type: HumanoidAppearance
     species: Feroxi

@@ -18,8 +18,8 @@
 - type: entity
   parent: [ BaseItem, BaseMinorContraband ]
   id: FireBomb
-  name: fire bomb
-  description: A weak, improvised incendiary device.
+  name: bombe incendiaire
+  description: Un engin incendiaire artisanal peu puissant.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Bombs/ied.rsi
@@ -74,9 +74,9 @@
 - type: entity
   parent: [ DrinkColaCanEmpty, BaseMinorContraband ]
   id: FireBombEmpty
-  name: fire bomb
+  name: bombe incendiaire
   suffix: empty
-  description: A weak, improvised incendiary device. This one has no fuel.
+  description: Un engin incendiaire artisanal peu puissant. Celui-ci ne contient pas de carburant.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Bombs/ied.rsi
@@ -103,7 +103,7 @@
   parent: FireBombEmpty
   id: FireBombFuel
   suffix: fuel
-  description: A weak, improvised incendiary device. This one is missing wires.
+  description: Un engin incendiaire artisanal peu puissant. Il lui manque des câbles.
   components:
   - type: Sprite
     layers:

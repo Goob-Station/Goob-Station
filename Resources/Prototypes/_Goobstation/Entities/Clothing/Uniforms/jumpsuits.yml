@@ -48,7 +48,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitResonant
   name: resonant jumpsuit
-  description: Lets not play too rough. Neither you nor I can reach it just yet…
+  description: Ne jouons pas trop brutalement. Ni vous ni moi ne pouvons encore l'atteindre…
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Syndicate/breverb.rsi
@@ -59,7 +59,7 @@
   parent: [ClothingUniformJumpsuitResonant, BaseMajorContraband]
   id: ClothingUniformJumpsuitWestern
   name: authentic cowboy's jumpsuit
-  description: Let's show the head of security how we used to do things out west.
+  description: Montrons au chef de la sécurité comment on faisait les choses dans l'Ouest.
   components:
   - type: Armor
     coverage:
@@ -78,7 +78,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitNanotrasenRepresentative
   name: nanotrasen representative suit
-  description: A black suit worn by officials.
+  description: Un costume noir porté par les officiels.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Centcom/nanotrasen_representative.rsi
@@ -89,7 +89,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitNanotrasenRepresentativeFancy
   name: fancy nanotrasen representative suit
-  description: A fancy black suit worn by officials, embellished with more golden threads than Normal.
+  description: Un costume noir élaboré porté par les officiels, orné de plus de fils dorés que d'habitude.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Centcom/fancy_nanotrasen_representative.rsi
@@ -155,7 +155,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitBlueshieldShirt
   name: blueshield officer blue shirt
-  description: An official security uniform. Pretty safe and pretty busy.
+  description: Un uniforme de sécurité officiel. Assez sûr et assez chargé.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Centcom/blueshield_shirt.rsi
@@ -166,7 +166,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformMailCarrier
   name: mail carrier's uniform
-  description: Enemy of dogs everywhere.
+  description: Ennemi des chiens partout.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Cargo/mailman.rsi
@@ -177,7 +177,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformHecu
   name: HECU uniform
-  description: Hunt down the Freeman.
+  description: Traque le Freeman.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Centcom/hecu.rsi
@@ -238,7 +238,7 @@
   parent: ClothingUniformJumpsuitNavyGold
   id: ClothingUniformJumpsuitDiplomat
   name: diplomat's jumpsuit
-  description: A suit worn by diplomacy focused Central Command workers.
+  description: Une combinaison portée par les agents du Commandement Central spécialisés en diplomatie.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Centcom/diplomat.rsi
@@ -264,7 +264,7 @@
   parent: [ ClothingUniformJumpsuitNavyGold, BaseCentcommContraband ]
   id: ClothingUniformJumpsuitCentralCommandLiaison
   name: CentComm Liaison Jumpsuit
-  description: Rumor has it, the CCO that first saw the Outer Command uniform was so jealous that they stained it green with their envy.
+  description: La rumeur dit que l'OCO qui a vu en premier l'uniforme du Commandement Extérieur était tellement jaloux qu'il l'a taché de vert avec son envie.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Centcom/centcomsuit_liaison.rsi
@@ -286,7 +286,7 @@
   parent: ClothingUniformJumpsuitNavyGold
   id: ClothingUniformJumpsuitTrainer
   name: NCT Jumpsuit
-  description: A jumpsuit issued to Nanotrasen Career Trainers. Fills you with a feeling of pride.
+  description: Une combinaison émise aux formateurs de carrière Nanotrasen. Vous remplit d'un sentiment de fierté.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Centcom/trainer.rsi
@@ -327,8 +327,8 @@
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitHoSSummer
-  name: head of security's summer shirt
-  description: The head of security's custom-commissioned summer outfit, for when chasing tiders gets hot.
+  name: chemise d'été du chef de la sécurité
+  description: La tenue d'été sur mesure du chef de la sécurité, pour quand la chasse aux grève-tards devient brûlante.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Casual/casualshirt_hos.rsi
@@ -339,7 +339,7 @@
   parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitRDSummer
   name: research director's summer shirt
-  description: The research director's custom-commissioned summer outfit, for when those fire anomalies are making you sweat.
+  description: La tenue d'été sur mesure du directeur de recherche, pour quand ces anomalies de feu vous font transpirer.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Casual/casualshirt_rd.rsi
@@ -350,7 +350,7 @@
   parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitQMSummer
   name: quartermaster's summer shirt
-  description: The quartermaster's custom-commissioned summer outfit, for when you want to show off your cash to the other departments.
+  description: La tenue d'été sur mesure du quartier-maître, pour quand vous voulez étaler votre argent devant les autres départements.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Casual/casualshirt_qm.rsi
@@ -361,7 +361,7 @@
   parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitCaptainSummer
   name: captain's summer shirt
-  description: The captain's custom-commissioned summer outfit, for when you've been in the green for a while.
+  description: La tenue d'été sur mesure du capitaine, pour quand vous avez été dans le vert un moment.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Casual/casualshirt_captain.rsi
@@ -371,8 +371,8 @@
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitHoPSummer
-  name: head of personnel's summer shirt
-  description: The head of personnel's custom-commissioned summer outfit, for when you want to comfortably do paperwork.
+  name: chemise d'été du chef du personnel
+  description: La tenue d'été sur mesure du chef du personnel, pour quand vous voulez faire de la paperasse confortablement.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Casual/casualshirt_hop.rsi
@@ -383,7 +383,7 @@
   parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitCESummer
   name: chief engineer's summer shirt
-  description: The chief engineer's custom-commissioned summer outfit, for when you just want to lay down and look at the tesla.
+  description: La tenue d'été sur mesure de l'ingénieur en chef, pour quand vous voulez juste vous allonger et regarder le tesla.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Casual/casualshirt_ce.rsi
@@ -394,7 +394,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitPassengerQuarterzip
   name: grey quarterzip
-  description: A quarterzip for the sophisticated assistant.
+  description: Un quart-zip pour l'assistant sophistiqué.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Civilian/passenger_quarterzip.rsi
@@ -404,7 +404,7 @@
 - type: entity
   parent: ClothingUniformJumpsuitAncient
   id: ClothingUniformJumpsuitAncientUnremoveable
-  suffix: Unremoveable
+  suffix: Inamovible
   components:
   - type: Unremoveable
 
@@ -426,7 +426,7 @@
   parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ClothingUniformJumpsuitShaftMiner
   name: shaft miner's jumpsuit
-  description: It's a snappy jumpsuit, looks a bit burnt.
+  description: C'est une combinaison élégante, qui a l'air un peu brûlée.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Cargo/shaft_miner.rsi
@@ -437,7 +437,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformOverallsCargo
   name: cargo tech's overalls
-  description: It's a sturdy set of overalls. It's a bit dusty.
+  description: C'est un solide ensemble de salopettes. Elles sont un peu poussiéreuses.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Other/Overalls/Cargo/cargotech.rsi
@@ -448,7 +448,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformOverallsSalvageSpecialist
   name: salvage specialist's overalls
-  description: It's a sturdy set of overalls. It's very dirty.
+  description: C'est un solide ensemble de salopettes. Elles sont très sales.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Other/Overalls/Cargo/salvage.rsi
@@ -459,7 +459,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformOverallsShaftMiner
   name: shaft miner's overalls
-  description: It's a sturdy set of overalls, looks a bit burnt.
+  description: C'est un solide ensemble de salopettes, qui a l'air un peu brûlé.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Other/Overalls/Cargo/shaft_miner.rsi
@@ -494,7 +494,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitVeteranSecurity
   name: Airy Security Jumpsuit
-  description: An airy version of the standard security jumpsuit, normally given on shifts with a lacking atmos department
+  description: Une version aérée de la combinaison de sécurité standard, normalement donnée lors des quarts avec un département Atmos défaillant.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Security/security_black.rsi

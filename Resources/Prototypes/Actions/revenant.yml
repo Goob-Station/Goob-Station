@@ -11,8 +11,8 @@
 - type: entity
   parent: BaseAction
   id: ActionRevenantShop
-  name: Shop
-  description: Opens the ability shop.
+  name: Boutique
+  description: Ouvre la boutique de capacités.
   components:
   - type: Action
     icon: Interface/Actions/shop.png
@@ -22,8 +22,8 @@
 - type: entity
   parent: BaseAction
   id: ActionRevenantDefile
-  name: Defile
-  description: Breaks windows, tiles, and opens nearby containers. Costs 30 Essence. #Goob edit
+  name: Profaner
+  description: Brise les fenêtres, les tuiles et ouvre les conteneurs à proximité. Coûte 30 Essence. #Goob edit
   components:
   - type: Action
     useDelay: 15
@@ -34,8 +34,8 @@
 - type: entity
   parent: BaseAction
   id: ActionRevenantOverloadLights
-  name: Overload Lights
-  description: Summons lightning from nearby lights. Costs 40 Essence. #Goob edit
+  name: Surcharger les lumières
+  description: Invoque des éclairs depuis les lumières à proximité. Coûte 40 Essence. #Goob edit
   components:
   - type: Action
     icon: Interface/Actions/overloadlight.png
@@ -58,8 +58,8 @@
 - type: entity
   parent: BaseAction
   id: ActionRevenantMalfunction
-  name: Malfunction
-  description: Causes nearby mechanisms to malfunction. Costs 60 Essence. #Goob edit
+  name: Dysfonctionnement
+  description: Provoque le dysfonctionnement des mécanismes à proximité. Coûte 60 Essence. #Goob edit
   components:
   - type: Action
     icon: Interface/Actions/malfunction.png

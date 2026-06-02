@@ -6,8 +6,8 @@
 - type: entity
   parent: BaseItem
   id: BalloonPackageBasic
-  name: balloon package
-  description: A package containing one random balloon.
+  name: paquet de ballons
+  description: Un paquet contenant un ballon aléatoire.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/balloon_package.rsi
@@ -52,8 +52,8 @@
 - type: entity
   parent: BaseItem
   id: BalloonPackagePremium
-  name: premium balloon package
-  description: A package containing one random balloon.
+  name: paquet de ballons premium
+  description: Un paquet contenant un ballon aléatoire.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/balloon_package.rsi
@@ -93,10 +93,10 @@
 
 
 - type: entity
-  name: balloon package box
+  name: boîte de paquets de ballons
   parent: BoxCardboard
   id: BoxBalloonPackage
-  description: A box full of soon to be balloons.
+  description: Une boîte pleine de futurs ballons.
   components:
   - type: StorageFill
     contents:
@@ -106,10 +106,10 @@
     sprite: _Goobstation/Objects/Storage/boxes.rsi
 
 - type: entity
-  name: premium balloon package box
+  name: boîte de paquets de ballons premium
   parent: BoxCardboard
   id: PremiumBoxBalloonPackage
-  description: A box full of soon to be balloons.
+  description: Une boîte pleine de futurs ballons.
   components:
   - type: StorageFill
     contents:
@@ -122,8 +122,8 @@
 - type: entity
   id: CrateBalloonPackage
   parent: CratePlastic
-  name: balloon popper's package
-  description: A crate containing 2 full balloon boxes and some additional popping equipment.
+  name: paquet du creveur de ballons
+  description: Une caisse contenant 2 boîtes complètes de ballons et du matériel supplémentaire pour les crever.
   components:
   - type: StorageFill
     contents:
@@ -143,8 +143,8 @@
 - type: entity
   id: PremiumCrateBalloonPackage
   parent: CratePirate
-  name: premium balloon warrior's package
-  description: Contains the most elite balloons and some additional popping equipment. WARNING! SEVERAL MOAB CLASS BALLOONS INCOMING!
+  name: paquet du guerrier de ballons premium
+  description: Contient les ballons les plus élites et du matériel supplémentaire pour les crever. ATTENTION ! PLUSIEURS BALLONS DE CLASSE MOAB EN APPROCHE !
   components:
   - type: StorageFill
     contents:

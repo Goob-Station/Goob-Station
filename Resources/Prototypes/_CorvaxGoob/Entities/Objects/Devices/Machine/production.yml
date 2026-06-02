@@ -1,8 +1,8 @@
 ﻿- type: entity
   parent: BaseMachineCircuitboard
   id: StasisOperatingTableCircuitboard
-  name: stasis operating table board
-  description: A machine board for a stasis operating table.
+  name: carte de table d'opération de stase
+  description: Une carte machine pour une table d'opération en stase.
   components:
   - type: Sprite
     state: medical

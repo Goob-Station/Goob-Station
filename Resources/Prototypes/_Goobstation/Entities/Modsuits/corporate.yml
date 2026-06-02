@@ -16,8 +16,8 @@
 - type: entity
   parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
   id: ClothingModsuitCorporate
-  name: Corporate modsuit control unit
-  description: The main controller for a Corporate modsuit.
+  name: unité de contrôle de combinaison modulaire Corporate
+  description: Le contrôleur principal pour une combinaison modulaire Corporate.
   components:
     - type: Sprite
       sprite: _Goobstation/Clothing/OuterClothing/Modsuits/corporate.rsi
@@ -51,8 +51,8 @@
 - type: entity
   parent: [ClothingModsuitGauntletsStandard, BaseCentcommContraband]
   id: ClothingModsuitGauntletsCorporate
-  name: Corporate modsuit gauntlets
-  description: A pair of gauntlets made for the Corporate modsuit.
+  name: gantelets de combinaison modulaire Corporate
+  description: Une paire de gantelets conçus pour la combinaison modulaire Corporate.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -80,8 +80,8 @@
 - type: entity
   parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons, BaseCentcommContraband]
   id: ClothingModsuitHelmetCorporate
-  name: Corporate modsuit helmet
-  description: A state-of-the-art helmet designed by NanoTrasen for the Corporate modsuit. It includes a built-in HUD.
+  name: casque de combinaison modulaire Corporate
+  description: Un casque de pointe conçu par NanoTrasen pour la combinaison modulaire Corporate. Il inclut un HUD intégré.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -168,8 +168,8 @@
 - type: entity
   parent: [ClothingModsuitChestplateStandard, BaseCentcommContraband]
   id: ClothingModsuitChestplateCorporate
-  name: Corporate modsuit chestplate
-  description: A state of the art chestplate designed by NanoTrasen for the Corporate modsuit. It incorporates powered servos to reduce the equipment load.
+  name: plastron de combinaison modulaire Corporate
+  description: Un plastron de pointe conçu par NanoTrasen pour la combinaison modulaire Corporate. Il incorpore des servos motorisés pour réduire la charge d'équipement.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -233,8 +233,8 @@
 - type: entity
   parent: [ClothingModsuitBootsStandard, BaseCentcommContraband]
   id: ClothingModsuitBootsCorporate
-  name: Corporate modsuit boots
-  description: A state-of-the-art pair of magboots for the Corporate modsuit. So long as the suit is powered, these will not slow the wearer down.
+  name: bottes de combinaison modulaire Corporate
+  description: Une paire de magboots de pointe pour la combinaison modulaire Corporate. Tant que la combinaison est alimentée, celles-ci ne ralentiront pas le porteur.
   categories: [HideSpawnMenu]
   components:
     - type: Appearance
@@ -282,7 +282,7 @@
 - type: entity
   id: ClothingModsuitCorporateFilled
   parent: ClothingModsuitCorporate
-  suffix: Filled
+  suffix: Rempli
   components:
     - type: StorageFill
       contents:
@@ -303,8 +303,8 @@
 - type: entity
   parent: [ClothingModsuitCorporate, ClothingModsuitStandard, BaseCentcommContraband]
   id: ClothingModsuitTrainer
-  name: Career Trainer modsuit control unit
-  description: The main controller for a Career Trainer modsuit.
+  name: unité de contrôle de combinaison modulaire Career Trainer
+  description: Le contrôleur principal pour une combinaison modulaire Career Trainer.
   components:
     - type: Sprite
       sprite: _Goobstation/Clothing/OuterClothing/Modsuits/nct.rsi
@@ -318,8 +318,8 @@
 - type: entity
   parent: [ClothingModsuitGauntletsCorporate, ClothingModsuitGauntletsStandard, BaseCentcommContraband]
   id: ClothingModsuitGauntletsTrainer
-  name: Corporate modsuit gauntlets
-  description: A pair of gauntlets made for the Career Trainer modsuit.
+  name: gantelets de combinaison modulaire Career Trainer
+  description: Une paire de gantelets conçus pour la combinaison modulaire Career Trainer.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -328,8 +328,8 @@
 - type: entity
   parent: [ClothingModsuitHelmetCorporate, ClothingModsuitHelmetStandard, ShowSecurityIcons, BaseCentcommContraband]
   id: ClothingModsuitHelmetTrainer
-  name: Corporate modsuit helmet
-  description: A state-of-the-art helmet designed by NanoTrasen for the Career Trainer modsuit. It includes a built-in HUD.
+  name: casque de combinaison modulaire Career Trainer
+  description: Un casque de pointe conçu par NanoTrasen pour la combinaison modulaire Career Trainer. Il inclut un HUD intégré.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -361,8 +361,8 @@
 - type: entity
   parent: [ClothingModsuitChestplateCorporate, ClothingModsuitChestplateStandard, BaseCentcommContraband]
   id: ClothingModsuitChestplateTrainer
-  name: Career Trainer modsuit chestplate
-  description: A state of the art chestplate designed by NanoTrasen for the Career Trainer modsuit. It incorporates powered servos to reduce the equipment load.
+  name: plastron de combinaison modulaire Career Trainer
+  description: Un plastron de pointe conçu par NanoTrasen pour la combinaison modulaire Career Trainer. Il incorpore des servos motorisés pour réduire la charge d'équipement.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -392,8 +392,8 @@
 - type: entity
   parent: [ClothingModsuitBootsCorporate, ClothingModsuitBootsStandard, BaseCentcommContraband]
   id: ClothingModsuitBootsTrainer
-  name: Career Trainer modsuit boots
-  description: A state-of-the-art pair of magboots for the Career Trainer modsuit. So long as the suit is powered, these will not slow the wearer down.
+  name: bottes de combinaison modulaire Career Trainer
+  description: Une paire de magboots de pointe pour la combinaison modulaire Career Trainer. Tant que la combinaison est alimentée, celles-ci ne ralentiront pas le porteur.
   categories: [HideSpawnMenu]
   components:
     - type: Appearance
@@ -414,7 +414,7 @@
 - type: entity
   id: ClothingModsuitTrainerFilled
   parent: ClothingModsuitTrainer
-  suffix: Filled
+  suffix: Rempli
   components:
     - type: StorageFill
       contents:

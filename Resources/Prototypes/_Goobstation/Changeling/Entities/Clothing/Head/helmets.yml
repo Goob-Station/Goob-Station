@@ -13,9 +13,9 @@
 - type: entity
   parent: ClothingHeadBase
   id: ChangelingClothingHeadHelmet
-  name: chitinous helmet
-  description: An all-consuming chitinous mass of armor.
-  suffix: Unremoveable
+  name: casque chitineux
+  description: Une masse chitineuse entièrement consumée d'armure.
+  suffix: Inamovible
   components:
   - type: Sprite
     sprite: _Goobstation/Changeling/ling_armor_helmet.rsi

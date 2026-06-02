@@ -83,7 +83,7 @@
   parent: FoodSnackBase
   id: FoodSnackProteinbar
   name: protein bar
-  description: SwoleMAX brand protein bars, guaranteed to get you feeling perfectly overconfident.
+  description: Barres protéinées de marque SwoleMAX, garanties pour vous faire vous sentir parfaitement trop confiant.
   components:
   - type: FlavorProfile
     flavors:
@@ -113,7 +113,7 @@
   name: mothdog
   parent: FoodMeatBase
   id: FoodSnackMothdog
-  description: He is in his prime.
+  description: Il est dans la fleur de l'âge.
   components:
   - type: Tag
     tags:
@@ -148,7 +148,7 @@
   parent: BaseItem
   id: FoodSnackLunacakeWrapped
   name: wrapped lunacake
-  description: Now with 20% less lawsuit enabling rhegolith!
+  description: Maintenant avec 20% moins de rhégolite permettant les poursuites judiciaires !
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Consumable/Food/bay_food.rsi
@@ -170,7 +170,7 @@
   parent: FoodSnackBase
   id: FoodSnackLunacake
   name: lunacake
-  description: Now with 20% less lawsuit enabling rhegolith!
+  description: Maintenant avec 20% moins de rhégolite permettant les poursuites judiciaires !
   components:
   - type: FlavorProfile
     flavors:
@@ -256,7 +256,7 @@
   parent: FoodSnackBase
   id: FoodSnackTidegobs
   name: tide gobs
-  description: Contains over 9000% of your daily recommended intake of salt.
+  description: Contient plus de 9000% de votre apport quotidien recommandé en sel.
   components:
   - type: FlavorProfile
     flavors:
@@ -273,7 +273,7 @@
   parent: FoodSnackBase
   id: FoodSnackSaturnos
   name: saturn-os
-  description: A day ration of salt, styrofoam and possibly sawdust.
+  description: Une ration journalière de sel, polystyrène et peut-être sciure de bois.
   components:
   - type: FlavorProfile
     flavors:
@@ -290,7 +290,7 @@
   parent: FoodSnackBase
   id: FoodSnackJoveGello
   name: jove gello
-  description: By Joove! It's some kind of gel.
+  description: Par Jupiter ! C'est une sorte de gel.
   components:
   - type: FlavorProfile
     flavors:
@@ -307,7 +307,7 @@
   parent: FoodSnackBase
   id: FoodSnackPlutoniumrods
   name: plutonium rods
-  description: Baseless tasteless nutrithick rods to get you through the day. Now even less rash inducing!
+  description: Des barres nutritives sans goût ni base pour passer la journée. Maintenant encore moins provoquantes d'éruptions cutanées !
   components:
   - type: FlavorProfile
     flavors:
@@ -324,7 +324,7 @@
   parent: FoodSnackBase
   id: FoodSnackMarsFrouka
   name: frouka
-  description: Celebrate founding day with a steaming self-heated bowl of sweet eggs and taters!
+  description: Célébrez le jour de la fondation avec un bol fumant à chauffage automatique d'œufs sucrés et de patates !
   components:
   - type: FlavorProfile
     flavors:
@@ -343,7 +343,7 @@
   parent: FoodSnackBase
   id: FoodSnackVenusianhotcakes
   name: venusian hot cakes
-  description: Hot takes on hot cakes, a timeless classic now finally fit for human consumption!
+  description: Des prises de position sur des crêpes chaudes, un classique intemporel enfin adapté à la consommation humaine !
   components:
   - type: FlavorProfile
     flavors:
@@ -379,7 +379,7 @@
   parent: FoodSnackBase
   id: FoodSnackRedalertnuts
   name: red alert nuts
-  description: A bag of Red Alert! brand spicy nuts. Goes well with your beer!
+  description: Un sachet de noix épicées de marque Alerte Rouge ! Va bien avec votre bière !
   components:
   - type: FlavorProfile
     flavors:
@@ -463,7 +463,7 @@
   id: FoodSnackAncientBurger
   name: space burger
   suffix: ancient
-  description: At some point in time this probably looked delicious.
+  description: À un moment donné, ça avait l'air délicieux.
   components:
   - type: FlavorProfile
     flavors:
@@ -487,7 +487,7 @@
   parent: FoodSnackAncientBurger
   id: FoodSnackAncientPizza
   name: space pizza
-  description: At some point in time this probably looked delicious.
+  description: À un moment donné, ça avait l'air délicieux.
   components:
   - type: Sprite
     state: ancient_pizza
@@ -505,7 +505,7 @@
   parent: FoodSnackAncientBurger
   id: FoodSnackAncientHotdog
   name: space dog
-  description: This one is probably only marginally less safe to eat than when it was first created..
+  description: Celui-ci est probablement marginalement moins sûr à manger que lors de sa création.
   components:
   - type: Sprite
     state: ancient_hotdog
@@ -514,7 +514,7 @@
   parent: FoodSnackAncientBurger
   id: FoodSnackAncientTaco
   name: space taco
-  description: Interestingly, the shell has gone soft and the contents have gone stale.
+  description: Curieusement, la coque est devenue molle et le contenu a rassi.
   components:
   - type: Sprite
     state: ancient_taco
@@ -626,7 +626,7 @@
   parent: FoodPacketTrash
   id: FoodSnackMothdogTrash
   name: mothdog stick
-  description: He is no longer in his prime.
+  description: Il n'est plus dans la fleur de l'âge.
   components:
   - type: Tag
     tags:

@@ -8,8 +8,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: LibrarianTranslatorImplant
-  name: librarian translator implant
-  description: An implant giving the ability to understand and speak most languages.
+  name: implant traducteur bibliothécaire
+  description: Un implant permettant de comprendre et de parler la plupart des langues.
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -94,8 +94,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: ChevalTranslatorImplant
-  name: cheval translator implant
-  description: An implant giving the ability to understand and speak Cheval.
+  name: implant traducteur cheval
+  description: Un implant permettant de comprendre et de parler le Cheval.
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -107,8 +107,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: BasicSpaceItalianTranslatorImplant
-  name: basic space italian translator implant
-  description: Provides you the ability to understand the residents of the kitchen.
+  name: implant traducteur d'italien spatial basique
+  description: Vous permet de comprendre les résidents de la cuisine.
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -118,8 +118,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: SpaceItalianTranslatorImplant
-  name: advanced space italian translator implant
-  description: Provides you the ability to speak the language of the kitchen.
+  name: implant traducteur d'italien spatial avancé
+  description: Vous permet de parler la langue de la cuisine.
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -131,8 +131,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: YowKriolTranslatorImplant
-  name: Yow Kriol translator implant
-  description: An implant giving the ability to understand and speak Yow Kriol.
+  name: implant traducteur Yow Kriol
+  description: Un implant permettant de comprendre et de parler le Yow Kriol.
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -146,8 +146,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: SignTranslatorImplant
-  name: sign translator implant
-  description: An implant giving the ability to understand and speak Sign Language.
+  name: implant traducteur en langue des signes
+  description: Un implant permettant de comprendre et de parler la langue des signes.
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant

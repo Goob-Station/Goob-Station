@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseItem
   id: Megaphone
-  name: megaphone
-  description: Testing!
+  name: mégaphone
+  description: Test !
   components:
   - type: Loudspeaker
     isActive: true
@@ -18,8 +18,8 @@
 - type: entity
   parent: Megaphone
   id: CargoMegaphone
-  name: cargo megaphone
-  description: Make money in silence and let the hustle make noise. Or something like that.
+  name: mégaphone du cargo
+  description: Faites de l'argent en silence et laissez l'effort faire le bruit. Ou quelque chose comme ça.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Tools/megaphones/cargo.rsi
@@ -30,8 +30,8 @@
 - type: entity
   parent: Megaphone
   id: CommandMegaphone
-  name: command megaphone
-  description: Turn shallow authority into loud shallow authority.
+  name: mégaphone du commandement
+  description: Transformez une autorité superficielle en autorité superficielle bruyante.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Tools/megaphones/command.rsi
@@ -42,8 +42,8 @@
 - type: entity
   parent: Megaphone
   id: SecurityMegaphone
-  name: security megaphone
-  description: Use to make suspects aware you're after them. Or to yell at prisoners you don't like.
+  name: mégaphone de la sécurité
+  description: Utilisez-le pour avertir les suspects que vous les pourchassez. Ou pour crier sur les prisonniers que vous n'appréciez pas.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Tools/megaphones/security.rsi
@@ -54,8 +54,8 @@
 - type: entity
   parent: Megaphone
   id: ClownMegaphone
-  name: clown megaphone
-  description: A comedian has to make their voice known.
+  name: mégaphone du clown
+  description: Un comédien doit se faire entendre.
   components:
   - type: Loudspeaker
     affectRadio: true # :trollface:

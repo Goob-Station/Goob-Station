@@ -1,8 +1,8 @@
 - type: entity
   id: FlockTelemarker
   parent: BasePortal
-  name: strange glowing marker
-  description: ...I got nothing.
+  name: marqueur lumineux étrange
+  description: ...Je sèche.
   placement:
     mode: SnapgridCenter
   components:

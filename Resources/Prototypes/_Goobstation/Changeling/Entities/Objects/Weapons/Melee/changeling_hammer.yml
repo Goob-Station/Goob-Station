@@ -18,9 +18,9 @@
 - type: entity
   parent: BaseItem
   id: ArmHammerChangeling
-  name: arm hammer
-  description: A hammer made out of flesh and bone, heavy enough to smash through structures and people alike.
-  suffix: Unremoveable
+  name: marteau de bras
+  description: Un marteau fait de chair et d'os, assez lourd pour fracasser structures et individus.
+  suffix: Inamovible
   components:
   - type: Sprite
     sprite: _Goobstation/Changeling/hammer.rsi

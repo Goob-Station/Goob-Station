@@ -13,10 +13,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: chemistry bag
+  name: sac de chimie
   id: ChemBag
   parent: [ BaseStorageItem , ContentsExplosionResistanceBase ] # Goobstation edit
-  description: A bag for storing chemistry products, such as pills, pill canisters, bottles, and syringes.
+  description: Un sac pour ranger les produits chimiques, tels que les pilules, boîtes de pilules, bouteilles et seringues.
   components:
   - type: Sprite
     sprite: Objects/Specific/Chemistry/chem_bag.rsi

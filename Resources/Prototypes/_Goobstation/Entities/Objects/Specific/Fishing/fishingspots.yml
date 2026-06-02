@@ -8,7 +8,7 @@
   id: BaseFishingSpot
   abstract: true
   name: suspicious waves
-  description: Something is floating here...
+  description: Quelque chose flotte ici...
   placement:
     mode: SnapgridCenter
   components:

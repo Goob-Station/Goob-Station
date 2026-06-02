@@ -27,10 +27,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: proto-kinetic accelerator
+  name: accélérateur proto-cinétique
   id: WeaponProtoKineticAccelerator
   parent: [WeaponProtoKineticAcceleratorBase, BaseCargoContraband]
-  description: Fires high-damage kinetic bolts at a short range.
+  description: Tire des décharges cinétiques infligeant d'importants dégâts à courte portée.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi

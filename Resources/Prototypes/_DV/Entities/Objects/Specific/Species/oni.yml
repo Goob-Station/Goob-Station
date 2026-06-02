@@ -1,8 +1,8 @@
 - type: entity
   parent: FlaskBase
   id: DrinkOniGourd
-  name: sake gourd
-  description: A traditional drinking vessel used by oni. It is said to be filled with the finest sake.
+  name: gourde à saké
+  description: Un récipient traditionnel utilisé par les oni. On dit qu'il est rempli du meilleur saké.
   components:
   - type: Sprite
     state: icon
@@ -24,8 +24,8 @@
 - type: entity
   parent: DrinkOniGourd
   id: BeastBloodGourd
-  name: beast's blood gourd
-  description: A modified drinking gourd from cybersun, this one produces a potent blend of stims and booze known as beast's blood.
+  name: gourde de sang de bête
+  description: Une gourde modifiée par Cybersun, celle-ci produit un mélange puissant de stimulants et d'alcool connu sous le nom de sang de bête.
   components:
   - type: Sprite
     state: icon

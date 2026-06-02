@@ -18,8 +18,8 @@
 - type: entity
   parent: PaintingBase
   id: PaintingEmpty
-  name: empty frame
-  description: An empty frame, waiting to be filled with art.
+  name: cadre vide
+  description: Un cadre vide, en attente d'être rempli d'art.
   components:
   - type: Sprite
     state: painting0
@@ -27,8 +27,8 @@
 - type: entity
   parent: PaintingBase
   id: PaintingMoony
-  name: Abstract No.1
-  description: An imposing abstract painting. It feels like it's pressuring you to do good.
+  name: Abstrait n°1
+  description: Une peinture abstraite imposante. On a l'impression qu'elle vous pousse à bien vous comporter.
   components:
   - type: Sprite
     state: painting1
@@ -36,8 +36,8 @@
 - type: entity
   parent: PaintingBase
   id: PaintingPersistenceOfMemory
-  name: The Persistence of Memory
-  description: This painting depicts a barren landscape. It's filled with various surreal objects.
+  name: La Persistance de la mémoire
+  description: Ce tableau représente un paysage aride. Il est rempli de divers objets surréalistes.
   components:
   - type: Sprite
     state: painting2
@@ -45,8 +45,8 @@
 - type: entity
   parent: PaintingBase
   id: PaintingTheSonOfMan
-  name: The Son of Man
-  description: This painting depicts a formal-looking man. His face is obscured by an apple.
+  name: Le Fils de l'homme
+  description: Ce tableau représente un homme à l'air solennel. Son visage est dissimulé par une pomme.
   components:
   - type: Sprite
     state: painting3
@@ -54,8 +54,8 @@
 - type: entity
   parent: PaintingBase
   id: PaintingTheKiss
-  name: The Kiss
-  description: This painting depicts a couple in tender embrace. It's covered in glittery gold ornamentation.
+  name: Le Baiser
+  description: Ce tableau représente un couple dans une tendre étreinte. Il est recouvert d'ornements dorés et scintillants.
   components:
   - type: Sprite
     state: painting4
@@ -63,8 +63,8 @@
 - type: entity
   parent: PaintingBase
   id: PaintingTheScream
-  name: The Scream
-  description: This painting depicts a distressed man standing on a bridge.
+  name: Le Cri
+  description: Ce tableau représente un homme angoissé debout sur un pont.
   components:
   - type: Sprite
     state: painting5
@@ -72,8 +72,8 @@
 - type: entity
   parent: PaintingBase
   id: PaintingTheGreatWave
-  name: The Great Wave off Kanagawa
-  description: This painting depicts a majestic wave. It's throwing around several small fishing boats.
+  name: La Grande Vague de Kanagawa
+  description: Ce tableau représente une vague majestueuse. Elle projette en tous sens plusieurs petits bateaux de pêche.
   components:
   - type: Sprite
     state: painting6
@@ -81,8 +81,8 @@
 - type: entity
   parent: PaintingBase
   id: PaintingCafeTerraceAtNight
-  name: Cafe Terrace at Night
-  description: This painting depicts lively night scene at a cafe.
+  name: Terrasse de café la nuit
+  description: Ce tableau représente une scène nocturne animée dans un café.
   components:
   - type: Sprite
     state: painting7
@@ -91,7 +91,7 @@
   parent: PaintingBase
   id: PaintingNightHawks
   name: Nighthawks
-  description: This painting depicts a lonely-looking diner. The patrons are sitting glumly at the counter.
+  description: Ce tableau représente un restaurant d'apparence solitaire. Les clients sont assis tristement au comptoir.
   components:
   - type: Sprite
     state: painting8
@@ -99,8 +99,8 @@
 - type: entity
   parent: PaintingBase
   id: PaintingSkeletonCigarette
-  name: Skull of a Skeleton with Burning Cigarette
-  description: This painting depicts an impressionist portrait of a skeleton. A lit cigarette is wedged between its teeth.
+  name: Crâne d'un squelette avec une cigarette allumée
+  description: Ce tableau représente un portrait impressionniste d'un squelette. Une cigarette allumée est coincée entre ses dents.
   components:
   - type: Sprite
     state: painting9
@@ -108,8 +108,8 @@
 - type: entity
   parent: PaintingBase
   id: PaintingSkeletonBoof
-  name: Skull of MLG Skeleton with Fat Boof
-  description: Painting goes hard. Feel free to screenshot.
+  name: Crâne du squelette MLG avec un gros pétard
+  description: Ce tableau est d'une violence rare. N'hésitez pas à faire une capture d'écran.
   components:
   - type: Sprite
     state: painting10
@@ -117,8 +117,8 @@
 - type: entity
   parent: PaintingBase
   id: PaintingPrayerHands
-  name: Study of the Hands of an Apostle
-  description: This painting depicts a pair of hands clasped in prayer.
+  name: Étude des mains d'un apôtre
+  description: Ce tableau représente une paire de mains jointes en prière.
   components:
   - type: Sprite
     state: painting11
@@ -126,8 +126,8 @@
 - type: entity
   parent: PaintingBase
   id: PaintingOldGuitarist
-  name: The Old Guitarist
-  description: This painting depicts an old, thin man clutching a guitar. His face looks shallow and sickly.
+  name: Le Vieux Guitariste
+  description: Ce tableau représente un vieil homme maigre serrant une guitare. Son visage semble creux et maladif.
   components:
   - type: Sprite
     state: painting12
@@ -136,7 +136,7 @@
   parent: PaintingBase
   id: PaintingOlympia
   name: Olympia
-  description: This painting depicts a nude woman lying on a bed. A servant is tending to her.
+  description: Ce tableau représente une femme nue allongée sur un lit. Une servante s'occupe d'elle.
   components:
   - type: Sprite
     state: painting13
@@ -144,8 +144,8 @@
 - type: entity
   parent: PaintingBase
   id: PaintingSaturn
-  name: Saturn Devouring His Son
-  description: This painting depicts giant devouring a human corpse. He has a frightening look in his eyes.
+  name: Saturne dévorant son fils
+  description: Ce tableau représente un géant dévorant un cadavre humain. Il a un regard terrifiant dans les yeux.
   components:
   - type: Sprite
     state: painting14
@@ -153,8 +153,8 @@
 - type: entity
   parent: PaintingBase
   id: PaintingSleepingGypsy
-  name: The Sleeping Gypsy
-  description: This painting depicts a gypsy sleeping among their belongings in the desert. A lion stands behind them.
+  name: La Bohémienne endormie
+  description: Ce tableau représente une bohémienne endormie parmi ses affaires dans le désert. Un lion se tient derrière elle.
   components:
   - type: Sprite
     state: painting15
@@ -162,8 +162,8 @@
 - type: entity
   parent: PaintingBase
   id: PaintingRedBlueYellow
-  name: Composition with Red Blue and Yellow
-  description: This painting is made up of several boxes. They are filled with flat shades of color.
+  name: Composition en rouge, bleu et jaune
+  description: Ce tableau est composé de plusieurs cases. Elles sont remplies de teintes de couleurs unies.
   components:
   - type: Sprite
     state: painting16
@@ -171,8 +171,8 @@
 - type: entity
   parent: PaintingBase
   id: PaintingAmogusTriptych
-  name: Amogus Triptych (Untitled.)
-  description: This painting is made up of 3 individual sections. Each depicts a religious figure.
+  name: Triptyque Amogus (Sans titre.)
+  description: Ce tableau est composé de 3 parties distinctes. Chacune représente une figure religieuse.
   components:
   - type: Sprite
     state: painting17
@@ -181,7 +181,7 @@
   parent: PaintingBase
   id: PaintingHelloWorld
   name: Hello World
-  description: This painting is made up of lots of multicolored squares arranged in a peculiar pattern. Perhaps it means something?
+  description: Ce tableau est composé de nombreux carrés multicolores disposés selon un motif singulier. Peut-être que ça veut dire quelque chose ?
   components:
   - type: Sprite
     state: painting18
@@ -189,8 +189,8 @@
 - type: entity
   parent: PaintingBase
   id: PaintingSadClown
-  name: Sad Clown
-  description: This painting is a sad clown! It sparks joy.
+  name: Clown triste
+  description: Ce tableau, c'est un clown triste ! Ça suscite de la joie.
   components:
   - type: Sprite
     state: painting19

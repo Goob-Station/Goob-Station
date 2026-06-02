@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseItem
   id: XenomorphInfection
-  name: xenomorph larva embryo
-  description: A parasitic life form in its early stages of development. It has a worm-like body shape, underdeveloped limbs, and a tail appendage.
+  name: embryon de larve xénomorphe
+  description: Une forme de vie parasitaire à un stade précoce de développement. Elle présente une forme de corps vermiculaire, des membres peu développés et un appendice caudal.
   components:
   - type: Sprite
     sprite: _White/Mobs/Species/Xenomorph/organs.rsi

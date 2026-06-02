@@ -7,7 +7,7 @@
 - type: entity
   parent: MobGorilla
   id: MobGorillaAngry
-  suffix: Angry
+  suffix: En Colère
   components:
   - type: NpcFactionMember
     factions:
@@ -16,7 +16,7 @@
 - type: entity
   parent: MobGorillaAngry
   id: MobGorillaAngryTemp
-  suffix: Angry, Lesser, Temporary
+  suffix: En Colère, Moindre, Temporaire
   components:
   - type: FadingTimedDespawn
     lifetime: 120
@@ -34,7 +34,7 @@
 - type: entity
   parent: MobGorillaAngry
   id: MobGorillaWizard
-  suffix: Wizard
+  suffix: Sorcier
   components:
   - type: NpcFactionMember
     factions:
@@ -71,11 +71,11 @@
   - type: Targeting
 
 - type: entity
-  name: monkey
+  name: singe
   id: MobMonkeyAngry
   parent: MobBaseAncestor
-  suffix: Angry
-  description: New church of neo-darwinists actually believe that EVERY animal evolved from a monkey. Tastes like pork, and killing them is both fun and relaxing.
+  suffix: En Colère
+  description: La nouvelle église des néo-darwinistes croit réellement que TOUS les animaux ont évolué à partir d'un singe. Goût de porc — les tuer est à la fois amusant et relaxant.
   components:
   - type: NameIdentifier
     group: Monkey
@@ -94,7 +94,7 @@
   name: kobold
   id: MobKoboldAngry
   parent: MobBaseKobold
-  description: Cousins to the sentient race of lizard people, kobolds blend in with their natural habitat and are as nasty as monkeys; ready to pull out your hair and stab you to death.
+  description: Cousins de la race sentiente des lézards, les kobolds se fondent dans leur habitat naturel et sont aussi vicieux que les singes ; prêts à vous arracher les cheveux et vous poignarder à mort.
   components:
   - type: NpcFactionMember
     factions:
@@ -106,7 +106,7 @@
 - type: entity
   parent: MobMonkeyAngry
   id: MobMonkeyAngryTemp
-  suffix: Angry, Lesser, Temporary
+  suffix: En Colère, Moindre, Temporaire
   components:
   - type: FadingTimedDespawn
     lifetime: 120

@@ -1,8 +1,8 @@
 - type: entity
   id: YowKriolTranslator
   parent: [ TranslatorPoweredBase ]
-  name: Yow Kriol translator
-  description: Translates speech between Yow Kriol and Basic. Nah, yeah, nah, like a true Earthman!
+  name: traducteur Yow Kriol
+  description: Traduit la parole entre le Yow Kriol et le Commun. Nah, ouais, nah, comme un vrai Terrien !
   components:
   - type: HandheldTranslator
     spoken:

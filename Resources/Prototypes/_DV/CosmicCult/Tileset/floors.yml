@@ -89,8 +89,8 @@
 
 - type: entity
   id: FloorCosmicDecay
-  name: entropic decay
-  description: Just one look at this sends a chill running down your spine.
+  name: délitement entropique
+  description: Rien qu'un regard suffit à faire courir un frisson dans votre dos.
   placement:
     mode: SnapgridCenter
     snap:

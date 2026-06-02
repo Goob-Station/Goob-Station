@@ -5,10 +5,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: creature
+  name: créature
   id: MobCreature
   parent: MobSpaceBasic
-  description: A sanity-destroying otherthing from the netherworld.
+  description: Un être venu d'un autre monde qui détruit la santé mentale.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -42,14 +42,14 @@
   name: Simmons
   id: MobCreatureWizard
   parent: MobCreature
-  description: He is hungry.
+  description: Il a faim.
   components:
   - type: NpcFactionMember
     factions:
     - Wizard
 
 - type: entity
-  name: Creature Spawner
+  name: Générateur de Créatures
   id: SpawnMobCreature
   parent: MarkerBase
   components:
@@ -63,7 +63,7 @@
     - MobCreature
 
 - type: entity
-  name: WIzard Creature Spawner
+  name: Générateur de Créatures du Sorcier
   id: SpawnMobCreatureWizard
   parent: SpawnMobCreature
   components:
@@ -79,9 +79,9 @@
   - MobAtmosExposed
   - MobPolymorphable
   id: MobStickman
-  name: angry stick man
-  description: A being from a realm with only 2 dimensions. At least it's trying to stay faced towards you.
-  suffix: AI
+  name: bonhomme allumette en colère
+  description: Un être venu d'un royaume à seulement 2 dimensions. Au moins il essaie de faire face.
+  suffix: IA
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -192,7 +192,7 @@
 - type: entity
   parent: MobStickman
   id: MobStickmanTemp
-  suffix: Temporary
+  suffix: Temporaire
   components:
   - type: FadingTimedDespawn
     lifetime: 60

@@ -12,8 +12,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticRealignment
-  name: Realignment
-  description: Recover from all stuns and knockdowns, gaining short term pacifism.
+  name: Réalignement
+  description: Récupérez de tous les étourdissements et renversements, et gagnez un pacifisme temporaire à court terme.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -34,8 +34,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticFuriousSteel
-  name: Furious steel
-  description: Summon three orbiting protecting blades around you.
+  name: Acier Furieux
+  description: Invoque trois lames protectrices en orbite autour de vous.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

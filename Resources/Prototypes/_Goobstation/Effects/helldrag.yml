@@ -1,8 +1,8 @@
 - type: entity
   id: HellHand
   parent: Pentagram
-  name: hell hand
-  description: A hellish hand from below!
+  name: main infernale
+  description: Une main infernale venue des profondeurs !
   components:
   - type: Sprite
     sprite: /Textures/_Goobstation/Effects/hellhand.rsi

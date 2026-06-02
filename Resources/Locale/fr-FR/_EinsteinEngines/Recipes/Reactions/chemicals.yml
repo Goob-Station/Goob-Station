@@ -1,0 +1,16 @@
+# SPDX-FileCopyrightText: 2025 GNUtopia <erainach14@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: reaction
+  id: Morphine
+  reactants:
+    Phenol:
+      amount: 2
+    Nitrogen:
+      amount: 1
+    Oxygen:
+      amount: 1
+  products:
+    Morphine: 4

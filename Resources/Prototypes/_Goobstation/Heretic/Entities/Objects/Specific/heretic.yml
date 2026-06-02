@@ -13,9 +13,9 @@
 - type: entity
   parent: [ BaseItem, BaseMagicalContraband ]
   id: CodexCicatrix
-  suffix: MagicItem
+  suffix: ObjetMagique
   name: codex cicatrix
-  description: This heavy tome is full of cryptic scribbles and impossible diagrams. According to legend, it can be deciphered to reveal the secrets of the veil between worlds.
+  description: Ce lourd tome est rempli de gribouillis cryptiques et de diagrammes impossibles. La légende dit qu'on peut le déchiffrer pour révéler les secrets du voile entre les mondes.
   components:
   - type: UnholyItem
   - type: Sprite
@@ -54,8 +54,8 @@
 - type: entity
   parent: [ DrinkBase, BaseMagicalContraband ]
   id: HereticEldritchFlask
-  name: eldritch flask
-  description: A flask filled with an unknown substance. Who knows what will happen when you take a sip from it.
+  name: fiole eldritch
+  description: Une fiole remplie d'une substance inconnue. Qui sait ce qui se passera si vous en prenez une gorgée.
   components:
   - type: UnholyItem
   - type: Sprite
@@ -80,8 +80,8 @@
 
 - type: entity
   id: HereticProtectiveBlade
-  name: eldritch blade
-  description: Maelstrom of razors flashing right before your eyes. Why are you stopping to look at it!?
+  name: lame eldritch
+  description: Un maelström de lames qui s'agitent devant vos yeux. Pourquoi vous arrêtez-vous pour la regarder !?
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -113,8 +113,8 @@
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   id: HereticProtectiveBladeProjectile
-  name: eldritch blade
-  description: Maelstrom of razors flashing right before your eyes. Why are you stopping to look at it!?
+  name: lame eldritch
+  description: Un maelström de lames qui s'agitent devant vos yeux. Pourquoi vous arrêtez-vous pour la regarder !?
   components:
   - type: Sprite
     sprite: _Goobstation/Heretic/items.rsi

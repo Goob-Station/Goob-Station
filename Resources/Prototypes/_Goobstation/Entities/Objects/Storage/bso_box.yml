@@ -11,9 +11,9 @@
 
 - type: entity
   id: BlueshieldAmmunitionBox
-  name: blueshield ammunition box
-  description: A box containing various ammunition and magazines for high caliber shotguns.
-  suffix: Unused
+  name: boîte à munitions du Bouclier Bleu
+  description: Une boîte contenant diverses munitions et chargeurs pour fusils à pompe de gros calibre.
+  suffix: Non utilisé
   parent: BaseStorageItem
   components:
   - type: Sprite

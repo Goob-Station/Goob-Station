@@ -4,10 +4,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: plant bag of holding
+  name: sac sans fond pour plantes
   id: PlantBagOfHolding
   parent: PlantBag
-  description: A robust bag of holding for fruitful botanists with more plants than pockets.
+  description: Un sac sans fond robuste pour les botanistes prolifiques qui ont plus de plantes que de poches.
   components:
   - type: Sprite
     sprite: DeltaV/Objects/Specific/Hydroponics/plant_bag_holding.rsi

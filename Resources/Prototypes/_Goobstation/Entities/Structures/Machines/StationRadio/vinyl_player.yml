@@ -2,7 +2,7 @@
   id: VinylPlayer
   name: vinyl player
   parent: [ BaseMachinePowered, SmallConstructibleMachine ]
-  description: An old school vinyl record player sat on a set of drawers.
+  description: Un vieux lecteur de disques vinyle posé sur un ensemble de tiroirs.
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Machines/StationRadio/vinylplayer.rsi

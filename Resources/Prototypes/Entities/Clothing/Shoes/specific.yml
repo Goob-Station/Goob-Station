@@ -52,8 +52,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesChef
-  name: chef shoes
-  description: Sturdy shoes that minimize injury from falling objects or knives.
+  name: chaussures de chef
+  description: Des chaussures robustes qui réduisent les risques de blessures causées par la chute d'objets ou par des couteaux.
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Specific/chef.rsi
@@ -82,8 +82,8 @@
 - type: entity
   parent: ClothingShoesClownBase
   id: ClothingShoesClown
-  name: clown shoes
-  description: "The prankster's standard-issue clowning shoes. Damn they're huge!"
+  name: chaussures de clown
+  description: "Les chaussures de clown standard. Bon sang, elles sont énormes !"
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Specific/clown.rsi
@@ -103,8 +103,8 @@
 - type: entity
   parent: ClothingShoesClown
   id: ClothingShoesClownBanana
-  name: banana clown shoes
-  description: "When humor and footwear combine into new levels of absurdity."
+  name: chaussures clown banane
+  description: "Quand l'humour et les chaussures s'associent pour atteindre de nouveaux sommets d'absurdité."
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Specific/clown_banana.rsi
@@ -126,8 +126,8 @@
 - type: entity
   parent: ClothingShoesClownBase
   id: ClothingShoesBling
-  name: bling clown shoes
-  description: Made of refined bananium and shined with the pulp of a fresh banana peel. These make a flashy statement.
+  name: chaussures de clown bling-bling
+  description: Fabriqués à partir de bananium raffiné et lustrés avec la pulpe d'une peau de banane fraîche. Elles ne passeront pas inaperçues.
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Specific/bling.rsi
@@ -148,8 +148,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesCult
-  name: cult shoes
-  description: A pair of boots worn by the followers of Nar'Sie.
+  name: chaussures de cultiste
+  description: Une paire de bottes portées par les disciples de Nar'Sie.
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Specific/cult.rsi
@@ -159,8 +159,8 @@
 - type: entity
   parent: [ ClothingShoesBase, BaseJanitorContraband ]
   id: ClothingShoesGaloshes
-  name: galoshes
-  description: Rubber boots.
+  name: bottes en caoutchouc
+  description: Des bottes en caoutchouc.
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Specific/galoshes.rsi
@@ -180,8 +180,8 @@
 - type: entity
   parent: [ClothingShoesBaseButcherable, BaseMajorContraband]
   id: ClothingShoesSpaceNinja
-  name: space ninja shoes
-  description: A pair of nano-enhanced boots with built-in magnetic suction cups.
+  name: chaussures de ninja de l'espace
+  description: Une paire de bottes dotées de nanotechnologies et équipées de ventouses magnétiques intégrées.
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Specific/spaceninja.rsi
@@ -199,8 +199,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesSwat
-  name: swat shoes
-  description: When you want to turn up the heat.
+  name: chaussures de CRS
+  description: Quand vous voulez monter d'un cran.
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Specific/swat.rsi
@@ -210,8 +210,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesWizard
-  name: wizard shoes
-  description: A pair of magic shoes.
+  name: chaussures de magicien
+  description: Une paire de chaussures magiques.
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Specific/wizard.rsi
@@ -221,9 +221,9 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingShoesChameleon
-  name: black shoes
-  suffix: Chameleon
-  description: Stylish black shoes.
+  name: chaussures noires
+  suffix: Chaméléon
+  description: Des chaussures noires stylées.
   components:
     - type: Tag
       tags: [] # ignore "WhitelistChameleon" tag
@@ -261,17 +261,17 @@
 - type: entity
   parent: ClothingShoesChameleon
   id: ClothingShoesChameleonNoSlips
-  name: black shoes #actual name and description in uplink_catalog.yml
-  suffix: No-slip, Chameleon
-  description: Stylish black shoes.
+  name: chaussures noires #actual name and description in uplink_catalog.yml
+  suffix: No-slip, Chaméléon
+  description: Des chaussures noires stylées.
   components:
   - type: NoSlip
 
 - type: entity
   parent: ClothingShoesClown
   id: ClothingShoesJester
-  name: jester shoes
-  description: A court jester's shoes, updated with modern squeaking technology.
+  name: chaussures de bouffon
+  description: Des chaussures de bouffon, revisitées avec une technologie moderne qui les fait couiner.
   components:
     - type: Sprite
       sprite: Clothing/Shoes/Specific/jester.rsi
@@ -286,9 +286,9 @@
 - type: entity
   parent: ClothingShoesClown
   id: ClothingShoesCluwne
-  name: cluwne shoes
+  name: chaussures de cluwne
   suffix: Unremoveable
-  description: "Cursed pair of cluwne shoes."
+  description: Une paire de chaussures de cluwne maudites.
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Specific/cluwne.rsi
@@ -299,8 +299,8 @@
 - type: entity
   parent: ClothingShoesClown
   id: ClothingShoesClownLarge
-  name: large clown shoes
-  description: "When you need to stand out in a room full of clowns!"
+  name: grandes chaussures de clown
+  description : "Pour se démarquer dans une pièce remplie de clowns !"
   components:
   - type: Sprite
     state: "icon"
@@ -323,8 +323,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesSkates
-  name: roller skates
-  description: "Get your skates on!"
+  name: patins à roulettes
+  description: "Get your skates on!" # Expression anglaise qui veut "magne-toi", intraduisible.
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Specific/skates.rsi

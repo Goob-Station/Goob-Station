@@ -5,7 +5,7 @@
 
 - type: entity
   id: SlaughterDemonJauntEffect
-  name: slaughter demon jaunt
+  name: jaunt du démon massacreur
   components:
   - type: TimedDespawn
     lifetime: 0.75
@@ -26,7 +26,7 @@
 
 - type: entity
   id: SlaughterDemonJauntUpEffect
-  name: slaughter demon jaunt up
+  name: jaunt vers le haut du démon massacreur
   components:
   - type: TimedDespawn
     lifetime: 0.9

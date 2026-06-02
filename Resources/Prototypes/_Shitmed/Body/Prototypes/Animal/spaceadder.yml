@@ -10,7 +10,7 @@
 
 - type: body
   id: SpaceAdder
-  name: "space adder"
+  name: "vipère spatiale"
   root: chest
   slots:
     chest:

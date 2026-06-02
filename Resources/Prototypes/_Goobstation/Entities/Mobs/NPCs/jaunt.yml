@@ -1,7 +1,7 @@
 - type: entity
   id: PolymorphShadowJauntAnimation
   name: Unknown
-  description: You can't figure out what that is.
+  description: Vous n'arrivez pas à comprendre ce que c'est.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -16,7 +16,7 @@
 - type: entity
   id: PolymorphShadowJauntEndAnimation
   name: Unknown
-  description: You can't figure out what that is.
+  description: Vous n'arrivez pas à comprendre ce que c'est.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -31,7 +31,7 @@
 - type: entity
   id: PolymorphShadowJaunt
   name: Unknown
-  description: You can't figure out what that is.
+  description: Vous n'arrivez pas à comprendre ce que c'est.
   parent: BaseMobJaunt
   categories: [ HideSpawnMenu ]
   components:

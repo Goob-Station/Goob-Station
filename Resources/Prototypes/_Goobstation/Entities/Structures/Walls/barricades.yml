@@ -106,14 +106,14 @@
 - type: entity
   parent: [BaseMetalBarricade, BaseBarricadeSteel]
   id: BarricadeSteel
-  name: steel barricade
-  description: A tough barricade built to keep the bad out.
+  name: barricade en acier
+  description: Une solide barricade construite pour tenir les malfaiteurs à l'écart.
 
 - type: entity
   parent: [BaseMetalBarricadeFolding, BaseBarricadeSteel]
   id: BarricadeSteelFolding
-  name: folding steel barricade
-  description: A tough barricade built to keep the bad out. This one can be opened with a latch.
+  name: barricade en acier pliante
+  description: Une solide barricade construite pour tenir les malfaiteurs à l'écart. Celle-ci peut être ouverte avec un loquet.
   components:
   - type: Damageable
     damageModifierSet: BarricadeSteelFolding
@@ -134,14 +134,14 @@
 - type: entity
   parent: [BaseMetalBarricade, BaseBarricadePlasteel]
   id: BarricadePlasteel
-  name: plasteel barricade
-  description: A hardened barricade built to keep the extra bad out.
+  name: barricade en plasteel
+  description: Une barricade durcie construite pour tenir les plus dangereux à l'écart.
 
 - type: entity
   parent: [BaseMetalBarricadeFolding, BaseBarricadePlasteel]
   id: BarricadePlasteelFolding
-  name: folding plasteel barricade
-  description: A hardened barricade built to keep the extra bad out. This one can be opened with a latch.
+  name: barricade en plasteel pliante
+  description: Une barricade durcie construite pour tenir les plus dangereux à l'écart. Celle-ci peut être ouverte avec un loquet.
   components:
   - type: Damageable
     damageModifierSet: BarricadePlasteelFolding

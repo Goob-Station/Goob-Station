@@ -15,8 +15,8 @@
 - type: entity
   parent: BookBase
   id: BookNarsieLegend
-  name: the legend of nar'sie
-  description: The book is an old, leather-bound tome with intricate engravings on the cover. The pages are yellowed and fragile with age, with the ink of the text faded in some places. It appears to have been well-read and well-loved, with dog-eared pages and marginalia scrawled in the margins. Despite its aged appearance, the book still exudes a sense of mystical power and wonder, hinting at the secrets and knowledge contained within its pages.
+  name: la légende de Nar'Sie
+  description: Le livre est un vieux tome relié de cuir, orné de gravures complexes sur la couverture. Les pages sont jaunies et fragiles avec l'âge, l'encre du texte ayant pâli par endroits. Il semble avoir été beaucoup lu et chéri, avec des pages cornées et des annotations griffonnées dans les marges. Malgré son apparence usée, le livre dégage toujours une impression de puissance mystique et d'émerveillement, laissant entrevoir les secrets et les connaissances contenus dans ses pages.
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -38,8 +38,8 @@
 - type: entity
   parent: BookBase
   id: BookTruth
-  name: exploring different philosophical perspectives on truth and the complexity of lying
-  description: A book exploring the different philosophical perspectives on truth and lying has a worn cover, with creases and marks indicating frequent use and thoughtful contemplation. The spine shows signs of wear from being pulled off the shelf again and again. The pages themselves are filled with underlines, notes in the margins, and highlighted passages as readers grapple with the nuances and complexities of the topic.
+  name: explorer différentes perspectives philosophiques sur la vérité et la complexité du mensonge
+  description: Un livre explorant les différentes perspectives philosophiques sur la vérité et le mensonge, à la couverture usée, avec des plis et des marques témoignant d'une utilisation fréquente et d'une réflexion approfondie. Le dos montre des signes d'usure d'avoir été retiré de l'étagère maintes et maintes fois. Les pages elles-mêmes sont remplies de soulignements, de notes dans les marges et de passages surlignés au fil des lecteurs qui se confrontent aux nuances et aux complexités du sujet.
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -60,8 +60,8 @@
 - type: entity
   parent: BookBase
   id: BookWorld
-  name: shaping the state of the world - interplay of forces and choices
-  description: The book is a well-preserved hardcover with a simple, elegant design on the cover, depicting the image of a world in motion. The pages are crisp and clean, with no signs of wear or tear, suggesting that it has been well-cared for and valued by its previous owner. The text is printed in a clear, legible font, and the chapters are organized in a logical and easy-to-follow manner, making it accessible to readers of all levels of expertise.
+  name: façonner l'état du monde - jeu de forces et de choix
+  description: Le livre est un bel ouvrage relié, bien conservé, avec un design simple et élégant sur la couverture représentant un monde en mouvement. Les pages sont nettes et propres, sans trace d'usure, suggérant qu'il a été bien entretenu et précieux pour son précédent propriétaire. Le texte est imprimé dans une police claire et lisible, et les chapitres sont organisés de manière logique et facile à suivre, le rendant accessible aux lecteurs de tous niveaux.
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -79,8 +79,8 @@
 - type: entity
   parent: BookBase
   id: BookIanAntarctica
-  name: adventures of robert & ian - exploring antarctica
-  description: The book is a small paperback in good condition, with an illustration of Ian the corgi and the colony of penguins on the cover. The title, "Ian and Robert's Antarctic Adventure", is written in bold white letters against a blue background. The back cover features a brief summary of the story, highlighting the themes of humility, resilience, and the beauty of nature.
+  name: les aventures de Robert et Ian - explorer l'Antarctique
+  description: Le livre est un petit livre de poche en bon état, avec une illustration d'Ian le corgi et de la colonie de pingouins en couverture. Le titre, « Ian et Robert's Antarctic Adventure », est écrit en lettres blanches et grasses sur fond bleu. La quatrième de couverture présente un bref résumé de l'histoire, mettant en avant les thèmes de l'humilité, de la résilience et de la beauté de la nature.
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -99,8 +99,8 @@
 - type: entity
   parent: BookBase
   id: BookSlothClownSSS
-  name: the sloth and the clown - space station shenanigans
-  description: The book looks new, with a glossy cover featuring Chuckles the clown and Snuggles the sloth floating in space with a backdrop of stars and planets. Chuckles is dressed in his banana costume and Snuggles is sleeping on a hammock made of space ropes. The title "The Sloth and the Clown - Space Station Shenanigans" is written in bold and colorful letters.
+  name: le paresseux et le clown - pitreries en station spatiale
+  description: Le livre semble neuf, avec une couverture brillante représentant Chuckles le clown et Snuggles le paresseux flottant dans l'espace sur un fond d'étoiles et de planètes. Chuckles est habillé de son costume de banane et Snuggles dort dans un hamac fait de cordes spatiales. Le titre « Le paresseux et le clown - Pitreries en station spatiale » est écrit en lettres grasses et colorées.
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -121,8 +121,8 @@
 - type: entity
   parent: BookBase
   id: BookSlothClownPranks
-  name: the sloth and the clown - pranks on zorgs
-  description: The book is in excellent condition, with crisp pages and a bright cover. The cover of the book features Chuckles and Snuggles, surrounded by the different species they encountered during their adventures in space. In the background, the Zorgs can be seen peeking out from behind a spaceship.
+  name: le paresseux et le clown - farces aux zorgs
+  description: Le livre est en excellent état, avec des pages nettes et une couverture vive. La couverture met en scène Chuckles et Snuggles, entourés des différentes espèces qu'ils ont rencontrées lors de leurs aventures dans l'espace. En arrière-plan, les Zorgs peuvent être vus en train d'épier depuis derrière un vaisseau spatial.
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -143,8 +143,8 @@
 - type: entity
   parent: BookBase
   id: BookSlothClownMMD
-  name: the sloth and the clown - maze maze danger
-  description: The book looks new and vibrant, with an image of Chuckles and Snuggles standing in front of the changing maze on the cover. The title "The Sloth and the Clown - Maze Maze Danger" is written in bold, colorful letters that pop against a background of space and stars.
+  name: le paresseux et le clown - labyrinthe, labyrinthe, danger
+  description: Le livre semble neuf et vibrant, avec une image de Chuckles et Snuggles devant le labyrinthe changeant en couverture. Le titre « Le paresseux et le clown - Labyrinthe, labyrinthe, danger » est écrit en lettres grasses et colorées qui ressortent sur un fond de l'espace et d'étoiles.
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -165,8 +165,8 @@
 - type: entity
   parent: BookBase
   id: BookStruck
-  name: the humbling and transformative experience of being struck by lightning
-  description: The cover of the book is an electrifying image of lightning striking the ground, with a silhouette of a person standing in the midst of it. The title is written in bold letters in white against a black background, conveying the power and intensity of the experience. The subtitle is written in smaller letters below the title, providing a hint of the philosophical and spiritual themes explored within.
+  name: l'expérience humiliante et transformatrice d'être frappé par la foudre
+  description: La couverture du livre est une image électrisante d'un éclair frappant le sol, avec la silhouette d'une personne debout au milieu. Le titre est écrit en lettres grasses en blanc sur fond noir, transmettant la puissance et l'intensité de l'expérience. Le sous-titre est écrit en plus petites lettres en dessous du titre, donnant un aperçu des thèmes philosophiques et spirituels explorés à l'intérieur.
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -190,8 +190,8 @@
 - type: entity
   parent: BookBase
   id: BookSun
-  name: reaching for the sun - a plant's quest for life
-  description: The book is new, with a bright and vibrant cover featuring a plant stretching its leaves towards the sun. The title, "Reaching for the Sun - A Plant's Quest for Life," is written in bold, green letters, with an image of the sun rising behind the plant. The cover evokes a sense of growth, energy, and the beauty of nature.
+  name: vers le soleil - la quête vitale d'une plante
+  description: Le livre est neuf, avec une couverture lumineuse et vibrante représentant une plante étirant ses feuilles vers le soleil. Le titre, « Vers le soleil - La quête vitale d'une plante », est écrit en lettres grasses et vertes, avec une image du soleil se levant derrière la plante. La couverture évoque un sentiment de croissance, d'énergie et de beauté de la nature.
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -214,8 +214,8 @@
 - type: entity
   parent: BookBase
   id: BookPossum
-  name: fallen ambitions - the tragic tale of morty the possum
-  description: The book is in good condition, with a hardcover and a dark green forest background. In the center of the cover, there is a sad looking possum sitting on a branch, with a distant and lonely expression on its face. The title, "Fallen Ambitions - The Tragic Tale of Morty the Possum," is written in bold, gold letters above the possum.
+  name: ambitions brisées - la tragique histoire de Morty l'opossum
+  description: Le livre est en bon état, avec une couverture rigide et un arrière-plan de forêt vert foncé. Au centre de la couverture, un opossum à l'air triste est assis sur une branche, avec une expression lointaine et solitaire. Le titre, « Ambitions brisées - La tragique histoire de Morty l'opossum », est écrit en lettres dorées et grasses au-dessus de l'opossum.
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -233,8 +233,8 @@
 - type: entity
   parent: BookBase
   id: BookCafe
-  name: the cafe possum
-  description: The book is in new condition, with a vibrant and whimsical cover that features a charming illustration of a tiny possum peeking out from behind a coffee cup, with a colorful and bustling cafe scene in the background. The title "The Cafe Possum" is written in bold, playful lettering, and the author's name is printed in a smaller font below it.
+  name: l'opossum du café
+  description: Le livre est en parfait état, avec une couverture vivante et fantaisiste représentant un charmant opossum miniature se faufilant derrière une tasse de café, sur un fond de café coloré et animé. Le titre « L'opossum du café » est écrit en lettres grasses et ludiques, et le nom de l'auteur est imprimé en plus petites lettres en dessous.
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -251,8 +251,8 @@
 - type: entity
   parent: BookBase
   id: BookFeather
-  name: a feather of magic - the wandering bird's journey to belonging
-  description: The book would be in new condition, with a glossy cover depicting the wandering bird surrounded by a glowing forest, with the magical feather at the center. The title, "A Feather of Magic," would be written in bold, glittering letters, while the subtitle, "The Wandering Bird's Journey to Belonging," would be written in smaller print underneath. The back cover would feature a brief summary of the story, along with reviews from critics praising the book's themes of hope and renewal.
+  name: une plume de magie - le voyage de l'oiseau errant vers son foyer
+  description: Le livre serait en parfait état, avec une couverture brillante représentant l'oiseau errant entouré d'une forêt lumineuse, avec la plume magique au centre. Le titre, « Une plume de magie », serait écrit en lettres grasses et scintillantes, tandis que le sous-titre, « Le voyage de l'oiseau errant vers son foyer », serait écrit en plus petits caractères en dessous. La quatrième de couverture présenterait un bref résumé de l'histoire, accompagné de critiques élogieuses sur les thèmes d'espoir et de renouveau du livre.
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -272,8 +272,8 @@
 - type: entity
   parent: BookBase
   id: BookIanLostWolfPup
-  name: the adventures of ian and renault - finding the lost wolf pup
-  description: The book is a new condition with a colorful cover, depicting Ian the corgi and Renault the fox on a journey through the forest, with the lost wolf pup to their feet. The title "The Adventures of Ian and Renault - Finding the Lost Wolf Pup" is prominently displayed at the top, with the author's name below. The cover has a whimsical and adventurous feel to it, attracting readers of all ages.
+  name: les aventures d'Ian et Renault - à la recherche du louveteau perdu
+  description: Le livre est en parfait état avec une couverture colorée, représentant Ian le corgi et Renault le renard en voyage dans la forêt, avec le louveteau perdu à leurs pieds. Le titre « Les aventures d'Ian et Renault - À la recherche du louveteau perdu » est affiché en évidence en haut, avec le nom de l'auteur en dessous. La couverture dégage une atmosphère fantaisiste et aventureuse, attirant les lecteurs de tout âge.
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -292,8 +292,8 @@
 - type: entity
   parent: BookBase
   id: BookIanRanch
-  name: the adventures of ian and renault - ranch expedition
-  description: The book appears to be new, with crisp pages and an unblemished cover. The cover features a colorful illustration of Ian and Renault, surrounded by various animals they encountered on the ranch, including horses, cows, and chickens. The title, "The Adventures of Ian and Renault - Ranch Expedition," is written in bold letters above the image, with the subtitle, "Helping Animals in Need," written below.
+  name: les aventures d'Ian et Renault - expédition au ranch
+  description: Le livre semble neuf, avec des pages nettes et une couverture impeccable. La couverture présente une illustration colorée d'Ian et Renault, entourés de divers animaux rencontrés au ranch, notamment des chevaux, des vaches et des poulets. Le titre, « Les aventures d'Ian et Renault - Expédition au ranch », est écrit en lettres grasses au-dessus de l'image, avec le sous-titre « Aider les animaux dans le besoin » écrit en dessous.
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -312,8 +312,8 @@
 - type: entity
   parent: BookBase
   id: BookIanOcean
-  name: the adventures of ian and renault - an ocean adventure
-  description: The book is new and in excellent condition. The cover shows Ian and Renault running and playing on the beach, with the blue ocean and golden sand in the background. The title is written in bold, playful letters, and the subtitle reads "An Ocean Adventure."
+  name: les aventures d'Ian et Renault - une aventure océanique
+  description: Le livre est neuf et en excellent état. La couverture montre Ian et Renault courant et jouant sur la plage, avec l'océan bleu et le sable doré en arrière-plan. Le titre est écrit en lettres grasses et ludiques, et le sous-titre dit « Une aventure océanique ».
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -332,8 +332,8 @@
 - type: entity
   parent: BookBase
   id: BookIanMountain
-  name: the adventures of ian and renault - a mountain expedition
-  description: The book is in new condition. The cover is a stunning mountain landscape with Ian and Renault in the foreground, looking out over the vista of the surrounding peaks and valleys. The title is written in bold, block letters at the top, with the subtitle, "A Mountain Expedition," written underneath.
+  name: les aventures d'Ian et Renault - une expédition en montagne
+  description: Le livre est en parfait état. La couverture est un superbe paysage de montagne avec Ian et Renault au premier plan, contemplant le panorama des sommets et des vallées alentour. Le titre est écrit en lettres grasses et carrées en haut, avec le sous-titre « Une expédition en montagne » écrit en dessous.
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -351,8 +351,8 @@
 - type: entity
   parent: BookBase
   id: BookIanCity
-  name: the adventures of ian and renault - exploring the city
-  description: The book is in new condition, with crisp pages and a glossy cover. The cover features a colorful illustration of Ian and Renault exploring the city, with tall buildings and bustling streets in the background. Ian is leading the way, with his tail wagging excitedly, while Renault follows close behind, her ears perked up and her eyes wide with wonder. The title, "The Adventures of Ian and Renault," is written in bold, playful letters, with the subtitle, "Exploring the City," written below in smaller font.
+  name: les aventures d'Ian et Renault - explorer la ville
+  description: Le livre est en parfait état, avec des pages nettes et une couverture brillante. La couverture présente une illustration colorée d'Ian et Renault explorant la ville, avec de grands immeubles et des rues animées en arrière-plan. Ian montre le chemin, la queue remuant avec enthousiasme, tandis que Renault suit de près, les oreilles dressées et les yeux grands ouverts d'émerveillement. Le titre, « Les aventures d'Ian et Renault », est écrit en lettres grasses et ludiques, avec le sous-titre « Explorer la ville » en dessous en plus petite police.
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -371,8 +371,8 @@
 - type: entity
   parent: BookBase
   id: BookIanArctic
-  name: the adventures of ian and renault - an arctic journey of courage and friendship
-  description: The book looks new and adventurous, with a picture of Ian and Renault standing in front of an icy landscape with snowflakes falling all around them. The title, "The Adventures of Ian and Renault," is written in bold letters at the top, with a subtitle that reads, "An Arctic Journey of Courage and Friendship."
+  name: les aventures d'Ian et Renault - un voyage arctique de courage et d'amitié
+  description: Le livre semble neuf et aventureux, avec une image d'Ian et Renault debout devant un paysage glacé sous une chute de flocons de neige. Le titre, « Les aventures d'Ian et Renault », est écrit en lettres grasses en haut, avec un sous-titre qui dit « Un voyage arctique de courage et d'amitié ».
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -391,8 +391,8 @@
 - type: entity
   parent: BookBase
   id: BookIanDesert
-  name: the adventures of ian and renault - exploring the mysterious desert
-  description: The book is in new condition and would have a colorful cover depicting Ian and Renault against a desert backdrop. The cover would feature images of various animals and plants that the two encountered on their adventure, such as a rattlesnake, coyotes, sand dunes, and an oasis. The title, "The Adventures of Ian and Renault" is prominently displayed on the cover in bold letters, while the subtitle "Exploring the Mysterious Desert" is written in smaller letters underneath.
+  name: les aventures d'Ian et Renault - explorer le mystérieux désert
+  description: Le livre est en parfait état et aurait une couverture colorée représentant Ian et Renault sur fond de désert. La couverture comporterait des images des divers animaux et plantes que les deux ont rencontrés au cours de leur aventure, comme un serpent à sonnette, des coyotes, des dunes de sable et une oasis. Le titre, « Les aventures d'Ian et Renault », est affiché en évidence sur la couverture en lettres grasses, tandis que le sous-titre « Explorer le mystérieux désert » est écrit en plus petites lettres en dessous.
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -411,8 +411,8 @@
 - type: entity
   parent: BookBase
   id: BookNames
-  name: the power of names - a philosophical exploration
-  description: The book is a gently used philosophy text, with a cover that features a close-up of a person's mouth, with the word "names" written on their lips. The title is "The Power of Names - A Philosophical Exploration," and the author's name is prominently displayed underneath. The overall design is simple and elegant, with the focus on the text rather than any flashy graphics or images.
+  name: le pouvoir des noms - une exploration philosophique
+  description: Le livre est un ouvrage de philosophie légèrement usagé, avec une couverture présentant un gros plan de la bouche d'une personne, avec le mot « noms » écrit sur ses lèvres. Le titre est « Le pouvoir des noms - Une exploration philosophique », et le nom de l'auteur est affiché en évidence en dessous. Le design général est simple et élégant, l'accent étant mis sur le texte plutôt que sur des graphiques ou des images tape-à-l'œil.
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -430,8 +430,8 @@
 - type: entity
   parent: BookBase
   id: BookEarth
-  name: earthly longing
-  description: The book is in good condition, with a slightly faded cover due to exposure to sunlight.  The cover of the book depicts a panoramic view of the Earth from space, with a bright blue ocean and green landmasses. In the foreground, a lone astronaut is seen sitting in front of a window, gazing wistfully at the Earth. The title of the book, "Earthly Longing," is written in bold white letters against a black background at the top of the cover.
+  name: nostalgie terrestre
+  description: Le livre est en bon état, avec une couverture légèrement décolorée par l'exposition au soleil. La couverture du livre représente une vue panoramique de la Terre depuis l'espace, avec un vaste océan bleu et des masses terrestres vertes. Au premier plan, un astronaute solitaire est assis devant un hublot, contemplant la Terre avec mélancolie. Le titre du livre, « Nostalgie terrestre », est écrit en lettres blanches et grasses sur fond noir en haut de la couverture.
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -453,8 +453,8 @@
 - type: entity
   parent: BookBase
   id: BookAurora
-  name: journey beyond - the starship aurora mission
-  description: The book is in excellent condition, with a shiny cover depicting a spaceship hovering above a planet, perhaps with the Earth in the background. The title "Journey Beyond - The Starship Aurora Mission" is written in bold, silver letters. The cover also features a quote from a review, "A breathtaking tale of human achievement and exploration" to entice potential readers.
+  name: voyage au-delà - la mission du Starship Aurora
+  description: "Le livre est en excellent état, avec une couverture brillante représentant un vaisseau spatial planant au-dessus d'une planète, avec peut-être la Terre en arrière-plan. Le titre « Voyage au-delà - La mission du Starship Aurora » est écrit en lettres argentées et grasses. La couverture comporte également une citation d'une critique : « Un récit à couper le souffle de l'accomplissement et de l'exploration humains », pour séduire les lecteurs potentiels."
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -478,8 +478,8 @@
 - type: entity
   parent: BookBase
   id: BookTemple
-  name: the nature of the divine - embracing the many gods
-  description: The book appears new with crisp pages and an uncreased spine. The cover features an image of a temple with a glowing, multicolored aura around it, symbolizing the various gods discussed in the book. The title is displayed prominently in gold lettering, with the author's name and a brief summary of the book written in smaller text below.
+  name: la nature du divin - embrasser les nombreux dieux
+  description: Le livre semble neuf avec des pages nettes et un dos sans pli. La couverture présente une image d'un temple entouré d'une aura multicolore et lumineuse, symbolisant les différents dieux abordés dans le livre. Le titre est affiché en évidence en lettres dorées, avec le nom de l'auteur et un bref résumé du livre écrits en plus petits caractères en dessous.
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -500,8 +500,8 @@
 - type: entity
   parent: BookBase
   id: BookWatched
-  name: watched
-  description: The book is in good condition, with a slightly worn cover that features a dark and ominous space station looming in the background. The title "Watched" is written in bold letters that seem to be staring back at the reader, conveying the feeling of being constantly observed. The blurb on the back cover hints at a thrilling and suspenseful tale of paranoia and danger in a confined setting.
+  name: surveillé
+  description: Le livre est en bon état, avec une couverture légèrement usée représentant une station spatiale sombre et menaçante se profilant en arrière-plan. Le titre « Surveillé » est écrit en lettres grasses qui semblent vous dévisager, transmettant la sensation d'être constamment observé. Le résumé en quatrième de couverture laisse entrevoir un récit haletant et plein de suspense sur la paranoïa et le danger dans un espace confiné.
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -522,8 +522,8 @@
 - type: entity
   parent: BookBase
   id: BookMedicalOfficer
-  name: horizon's battle - a medical officer's tale of trust and survival
-  description: The cover features Smith, the medical officer, in his uniform, looking determined and ready to face any challenge. The backdrop shows the SS Horizon under attack, with explosions and smoke filling the space station. In the foreground, a wizard with a staff can be seen, adding an element of mystery and intrigue to the scene. The title is prominently displayed in bold letters, with the author's name and a tagline indicating the book's action-packed and suspenseful nature.
+  name: la bataille de l'Horizon - le récit d'un officier médical sur la confiance et la survie
+  description: La couverture représente Smith, l'officier médical, en uniforme, l'air déterminé et prêt à affronter n'importe quel défi. L'arrière-plan montre le SS Horizon sous attaque, avec des explosions et de la fumée envahissant la station spatiale. Au premier plan, un mage avec un bâton peut être aperçu, ajoutant un élément de mystère et d'intrigue à la scène. Le titre est affiché en évidence en lettres grasses, avec le nom de l'auteur et un accroche soulignant la nature palpitante et haletante du livre.
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -543,8 +543,8 @@
 - type: entity
   parent: BookBase
   id: BookMorgue
-  name: the ghostly residents of the abandoned morgue
-  description: The book looks old and worn, with faded lettering on the cover. The cover depicts a dark and eerie morgue, with a full moon casting an ominous glow over the scene. In the foreground are Morty the possum and Morticia the raccoon, with mischievous expressions on their faces, peeking out from behind a metal shelf. The title is written in bold, spooky letters, with the subtitle "A Tale of Animal Spirits" written in smaller font below.
+  name: les résidents fantomatiques de la morgue abandonnée
+  description: Le livre semble vieux et usé, avec des lettres décolorées sur la couverture. Celle-ci représente une morgue sombre et lugubre, avec une pleine lune projetant une lueur sinistre sur la scène. Au premier plan se trouvent Morty l'opossum et Morticia le raton laveur, avec des expressions espiègles sur leurs visages, épiant depuis derrière une étagère métallique. Le titre est écrit en lettres grasses et effrayantes, avec le sous-titre « Un conte d'esprits animaux » écrit en plus petite police en dessous.
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -563,8 +563,8 @@
 - type: entity
   parent: BookBase
   id: BookRufus
-  name: rufus and the mischievous fairy
-  description: The book is in new condition, with vibrant colors and illustrations on the cover. The cover shows Rufus on his bicycle, with Blossom flying beside him in a playful manner. The title is written in bold, whimsical font, with the characters' names highlighted in a contrasting color. The overall aesthetic is charming and inviting, appealing to children and adults alike.
+  name: Rufus et la fée espiègle
+  description: Le livre est en parfait état, avec des couleurs vives et des illustrations sur la couverture. La couverture montre Rufus sur son vélo, avec Blossom qui vole à côté de lui de manière espiègle. Le titre est écrit dans une police grasse et fantaisiste, avec les noms des personnages mis en valeur dans une couleur contrastante. L'esthétique générale est charmante et accueillante, séduisant aussi bien les enfants que les adultes.
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -588,8 +588,8 @@
 - type: entity
   parent: BookBase
   id: BookMap
-  name: the map of adventure
-  description: The book is in a good condition, with a glossy cover depicting a jungle scene with vibrant colors and intricate details. The title "The Map of Adventure," is written in bold, gold lettering. The cover also features an image of a mysterious suitcase with the map spilling out of it.
+  name: la carte de l'aventure
+  description: Le livre est en bon état, avec une couverture brillante représentant une scène de jungle aux couleurs vives et aux détails complexes. Le titre « La carte de l'aventure » est écrit en lettres dorées et grasses. La couverture présente également l'image d'une mystérieuse valise d'où s'échappe la carte.
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -611,8 +611,8 @@
 - type: entity
   parent: BookBase
   id: BookJourney
-  name: a journey of music, mountains, and self-discovery
-  description: The book is in excellent condition, with crisp pages and a glossy cover. The cover features a striking image of a mountain range, with a silhouette of a climber with a guitar on their back in the foreground. The title is bold and eye-catching, with the subtitle "A Journey of Music, Mountains, and Self-Discovery."
+  name: un voyage de musique, de montagnes et de découverte de soi
+  description: Le livre est en excellent état, avec des pages nettes et une couverture brillante. La couverture présente une image saisissante d'une chaîne de montagnes, avec la silhouette d'un grimpeur portant une guitare sur le dos au premier plan. Le titre est gras et accrocheur, avec le sous-titre « Un voyage de musique, de montagnes et de découverte de soi ».
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -632,8 +632,8 @@
 - type: entity
   parent: BookBase
   id: BookInspiration
-  name: finding inspiration - a writer's journey through the woods
-  description: The book is in a new condition with a cover depicting a serene forest scene with a waterfall and colorful wildflowers. The title of the book "Finding Inspiration - A Writer's Journey Through the Woods" and the author's name are prominently displayed at the bottom.
+  name: trouver l'inspiration - le voyage d'un écrivain à travers les bois
+  description: Le livre est en parfait état avec une couverture représentant une paisible scène de forêt avec une cascade et des fleurs sauvages colorées. Le titre du livre « Trouver l'inspiration - Le voyage d'un écrivain à travers les bois » et le nom de l'auteur sont affichés en évidence en bas.
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -654,8 +654,8 @@
 - type: entity
   parent: BookBase
   id: BookJanitorTale
-  name: the tales of a tired janitor
-  description: A clean looking book, smelling vaguely of soap and bleach. 
+  name: les histoires d'un agent d'entretien épuisé
+  description: Un livre à l'aspect propre, qui sent vaguement le savon et la javel.
   components:
   - type: Sprite
     sprite: Objects/Misc/books.rsi

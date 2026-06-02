@@ -1,8 +1,8 @@
 - type: entity
-  name: machete
+  name: machette
   parent: [ BaseItem, BaseMajorContraband ]
   id: SlasherMachete
-  description: A large, vicious looking blade.
+  description: Une grande lame à l'air vicieux.
   components:
   - type: Sharp
   - type: Execution
@@ -49,8 +49,8 @@
 - type: entity
   parent: WeldingMaskBase
   id: ClothingHeadHatSlasherMask
-  name: slasher mask
-  description: A head-mounted face cover designed to protect the wearer completely from space-arc eye.
+  name: masque de slasher
+  description: Un cache-visage conçu pour protéger entièrement le porteur de l'arc électrique spatial.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Slasher/mask.rsi
@@ -89,8 +89,8 @@
 - type: entity
   parent: ClothingOuterStorageBase
   id: ClothingOuterSlasherApron
-  name: slasher apron
-  description: A fancy apron for a stylish person.
+  name: tablier de slasher
+  description: Un tablier élégant pour une personne stylée.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Slasher/apron.rsi
@@ -127,8 +127,8 @@
 - type: entity
   parent: ClothingHandsGlovesColorBlack
   id: ClothingHandsSlasherGloves
-  name: slasher gloves
-  description: Heavy black gloves, stained by time.
+  name: gants de slasher
+  description: De lourds gants noirs, tachés par le temps.
   components:
   - type: Armor
     coverage:
@@ -147,8 +147,8 @@
 - type: entity
   parent: ClothingShoesLeather
   id: ClothingShoesSlasher
-  name: slasher shoes
-  description: Old leather boots that have seen better days.
+  name: chaussures de slasher
+  description: De vieilles bottes en cuir qui ont connu de meilleurs jours.
   components:
   - type: Armor
     coverage:
@@ -765,8 +765,8 @@
 - type: entity
   id: SlasherMeatSpike
   parent: BaseStructure
-  name: Ominous Meat Spike
-  description: You might want to run.
+  name: Pic à Viande Sinistre
+  description: Vous feriez mieux de courir.
   components:
   - type: InteractionOutline
   - type: Sprite

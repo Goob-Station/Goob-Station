@@ -71,7 +71,7 @@
   parent: BaseSubdermalImplant
   id: PacifismImplant
   name: pacifism implant
-  description: Pacifism implant, given to life sentenced prisoners or such to prevent them from committing violence.
+  description: Implant de pacifisme, donné aux prisonniers condamnés à vie pour les empêcher de commettre de la violence.
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
@@ -84,7 +84,7 @@
   parent: BaseSubdermalImplant
   id: SmokeImplant
   name: smoke implant
-  description: This implant releases smoke cloud on activation.
+  description: Cet implant libère un nuage de fumée à l'activation.
   categories: [ HideSpawnMenu ]
   components:
     - type: SubdermalImplant
@@ -100,7 +100,7 @@
   parent: BaseSubdermalImplant
   id: KravMagaImplant
   name: krav maga implant
-  description: This implant allows the user to perform various Krav Maga moves.
+  description: Cet implant permet à l'utilisateur d'effectuer divers mouvements de Krav Maga.
   categories: [ HideSpawnMenu ]
   components:
   - type: ComponentsImplant
@@ -111,7 +111,7 @@
   parent: BaseSubdermalImplant
   id: AutoinjectorImplant
   name: autoinjector implant
-  description: This implant allows the user to inject themselves with a chemical on use. Ephedrine by default.
+  description: Cet implant permet à l'utilisateur de s'injecter un produit chimique à l'utilisation. Éphédrine par défaut.
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
@@ -125,7 +125,7 @@
   parent: BaseSubdermalImplant
   id: NutrimentPumpImplant
   name: nutriment pump implant
-  description: This implant allows prevents the user from getting hungry or thirsty.
+  description: Cet implant empêche l'utilisateur d'avoir faim ou soif.
   categories: [ HideSpawnMenu ]
   components:
   - type: NutrimentPumpImplant
@@ -147,7 +147,7 @@
   parent: BaseSubdermalImplant
   id: StypticStimulatorImplant
   name: styptic stimulator implant
-  description: This implant sends the users regeneration into overdrive.
+  description: Cet implant met la régénération de l'utilisateur en surrégime.
   categories: [ HideSpawnMenu ]
   components:
   - type: StypticStimulatorImplant
@@ -156,7 +156,7 @@
   parent: BaseSubdermalImplant
   id: BinaryImplant
   name: binary decoder implant
-  description: This implant allows the user to access Binary and communicate with silicons (use +b).
+  description: Cet implant permet à l'utilisateur d'accéder au Binaire et de communiquer avec les silicones (utiliser +b).
   categories: [ HideSpawnMenu ]
   components:
   - type: ImplantGrantCollectiveMind
@@ -166,7 +166,7 @@
   parent: BaseSubdermalImplant
   id: ClumsyImplant
   name: clumsy implant
-  description: This implant makes the user clumsy, allowing them to drive a certain vehicle.
+  description: Cet implant rend l'utilisateur maladroit, lui permettant de conduire un certain véhicule.
   categories: [ HideSpawnMenu ]
   components:
   - type: ComponentsImplant
@@ -177,7 +177,7 @@
   parent: BaseSubdermalImplant
   id: ShadowmindImplant
   name: shadowmind implant
-  description: This implant allows the user to access Shadowmind channel (use +q).
+  description: Cet implant permet à l'utilisateur d'accéder au canal Shadowmind (utiliser +q).
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
@@ -191,7 +191,7 @@
   parent: BaseSubdermalImplant
   id: BlinkImplant
   name: blink implant
-  description: This implant allows the user temporarily blink into a higher dimension.
+  description: Cet implant permet à l'utilisateur de se téléporter temporairement dans une dimension supérieure.
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
@@ -201,7 +201,7 @@
   parent: BaseSubdermalImplant
   id: VaporizeImplant
   name: vaporize implant
-  description: This implant allows the user to vaporize targets with the power of their mind.
+  description: Cet implant permet à l'utilisateur de vaporiser des cibles avec le pouvoir de son esprit.
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
@@ -211,7 +211,7 @@
   parent: BaseSubdermalImplant
   id: NaniteMenderImplant
   name: nanite mender implant
-  description: This implant allows the user to heal entities with microscopic nanites.
+  description: Cet implant permet à l'utilisateur de soigner des entités avec des nanites microscopiques.
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
@@ -221,7 +221,7 @@
   parent: BaseSubdermalImplant
   id: ShiftImplant
   name: shift implant
-  description: This implant allows the user to teleport to a point in range.
+  description: Cet implant permet à l'utilisateur de se téléporter vers un point à portée.
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
@@ -231,7 +231,7 @@
   parent: BaseSubdermalImplant
   id: StopTimeImplant
   name: stop time implant
-  description: This implant allows the user to stop time in an area briefly.
+  description: Cet implant permet à l'utilisateur d'arrêter le temps dans une zone brièvement.
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
@@ -243,7 +243,7 @@
   parent: BaseSubdermalImplant
   id: AntagImplantChangeling
   name: changeling implant
-  description: This implant allows the user to shift their bodies like a changeling
+  description: Cet implant permet à l'utilisateur de transformer son corps comme un changelin.
   categories: [ HideSpawnMenu ]
   components:
   - type: ComponentsImplant
@@ -271,7 +271,7 @@
   parent: BaseSubdermalImplant
   id: XenoCompatibilityImplant
   name: xeno compatibility implant
-  description: Allows a subject to have xeno organs transplanted.
+  description: Permet à un sujet de recevoir des organes xéno transplantés.
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant

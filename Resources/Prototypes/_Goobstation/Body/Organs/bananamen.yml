@@ -7,9 +7,9 @@
 - type: entity
   id: OrganBananaMenStomach
   parent: [ OrganHumanStomach, FoodBanana ]
-  name: banana
-  suffix: OrganStomach
-  description: "A very odd-looking banana, it looks like it's got room inside to store food ."
+  name: banane
+  suffix: OrganeEstomac
+  description: "Une banane très étrange, on dirait qu'elle a de la place à l'intérieur pour stocker de la nourriture."
   components:
   - type: Sprite
     sprite: _Goobstation/Mobs/Species/BananaMen/organs.rsi
@@ -18,9 +18,9 @@
 - type: entity
   id: OrganBananaMenLiver
   parent: [ OrganHumanLiver, FoodBanana ]
-  name: banana
-  suffix: OrganLiver
-  description: "A very odd-looking banana, it looks like if it has room inside to metabolize chemicals"
+  name: banane
+  suffix: OrganeFoie
+  description: "Une banane très étrange, on dirait qu'elle a de la place à l'intérieur pour métaboliser des produits chimiques."
   components:
   - type: Sprite
     sprite: _Goobstation/Mobs/Species/BananaMen/organs.rsi
@@ -31,9 +31,9 @@
 - type: entity
   id: OrganBananaMenHeart
   parent: [ OrganHumanHeart, FoodBanana ]
-  name: banana
-  suffix: OrganHeart
-  description: "A very odd-looking banana, it looks like its almost beating."
+  name: banane
+  suffix: OrganeCoeur
+  description: "Une banane très étrange, on dirait qu'elle bat presque."
   components:
   - type: Sprite
     sprite: _Goobstation/Mobs/Species/BananaMen/organs.rsi
@@ -44,9 +44,9 @@
 - type: entity
   id: OrganBananaMenLungs
   parent: [ OrganHumanLungs, FoodBanana ]
-  name: banana
-  suffix: OrganLungs
-  description: "A very odd-looking banana, it looks flabby enough to store air or something."
+  name: banane
+  suffix: OrganePoumons
+  description: "Une banane très étrange, elle semble assez molle pour stocker de l'air ou quelque chose du genre."
   components:
   - type: Sprite
     sprite: _Goobstation/Mobs/Species/BananaMen/organs.rsi
@@ -57,9 +57,9 @@
 - type: entity
   id: OrganBananaMenKidneys
   parent: [ OrganHumanKidneys, FoodBanana ]
-  name: banana
-  suffix: OrganKidneys
-  description:  "A very odd-looking banana, it looks like it could be used to filter contaminants."
+  name: banane
+  suffix: OrganeReins
+  description: "Une banane très étrange, on dirait qu'elle pourrait servir à filtrer des contaminants."
   components:
   - type: Sprite
     sprite: _Goobstation/Mobs/Species/BananaMen/organs.rsi

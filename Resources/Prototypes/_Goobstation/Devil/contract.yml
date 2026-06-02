@@ -9,8 +9,8 @@
   id: BaseDevilContract
   parent: [BaseItem, BaseMagicalContraband]
   abstract: true
-  name: contract from below
-  description: A devilish piece of black parchment detailing a contract. All ink that touches the page seems to turn to blood.
+  name: contrat des profondeurs
+  description: Un morceau de parchemin noir et diabolique détaillant un contrat. Toute encre qui touche la page semble se transformer en sang.
   components:
   - type: PaperLabelType
   - type: Paper
@@ -65,14 +65,14 @@
 
 - type: entity
   id: PaperDevilContractBlank
-  suffix: Blank
+  suffix: Vierge
   parent: BaseDevilContract
   components:
   - type: DevilContract
 
 - type: entity
   id: PaperDevilContract
-  suffix: "Devil Contract"
+  suffix: "Contrat du Diable"
   parent: BaseDevilContract
   components:
   - type: DevilContract
@@ -81,10 +81,10 @@
 
 - type: entity
   id: PaperDevilContractRevival
-  suffix: "Devil Contract, Revival"
+  suffix: "Contrat du Diable, Renaissance"
   parent: BaseDevilContract
-  name: contract from the depths
-  description: A devilish piece of black parchment detailing a contract of revival. All ink that touches the page seems to turn to blood.
+  name: contrat des abysses
+  description: Un morceau de parchemin noir et diabolique détaillant un contrat de renaissance. Toute encre qui touche la page semble se transformer en sang.
   components:
   - type: RevivalContract
   - type: Paper

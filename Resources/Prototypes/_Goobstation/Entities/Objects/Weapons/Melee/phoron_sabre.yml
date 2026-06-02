@@ -9,8 +9,8 @@
   name: phoron sabre
   parent: [BaseMeleeWeaponEnergy, BaseCentcommContraband]
   id: PhoronSabre
-  suffix: DO NOT MAP
-  description: The signature weapon of the dreaded deathsquads. It's mostly for show.
+  suffix: NE PAS PLACER
+  description: L'arme signature des agents du redoutable escadron de la mort. C'est surtout pour le spectacle.
   components:
   - type: ItemToggle
     # Goobstation start

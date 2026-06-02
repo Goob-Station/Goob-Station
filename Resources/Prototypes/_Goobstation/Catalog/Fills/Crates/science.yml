@@ -11,8 +11,8 @@
 - type: entity
   id: CrateScienceModsuitCoresFilled
   parent: CrateScienceSecure
-  name: MOD cores crate
-  description: Contains three MOD cores inside.
+  name: caisse de noyaux MOD
+  description: Contient trois noyaux MOD.
   components:
   - type: StorageFill
     contents:

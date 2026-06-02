@@ -30,7 +30,7 @@
 
 - type: combo
   id: BiteTheDust
-  name: Bite The Dust
+  name: Mord la Poussière
   martialArtsForm: Ninjutsu
   attacks:
   - Harm
@@ -43,7 +43,7 @@
 
 - type: combo
   id: DirtyKill
-  name: Dirty Kill
+  name: Meurtre Sournois
   martialArtsForm: Ninjutsu
   attacks:
   - Disarm

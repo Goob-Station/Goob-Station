@@ -65,8 +65,8 @@
 - type: entity
   parent: BaseRipleyPart
   id: RipleyHarness
-  name: ripley harness
-  description: The core of the Ripley APLU.
+  name: harnais Ripley
+  description: Le noyau du Ripley APLU.
   components:
   - type: Appearance
   - type: ItemMapper
@@ -105,8 +105,8 @@
 - type: entity
   parent: BaseRipleyPartItem
   id: RipleyLArm
-  name: ripley left arm
-  description: The left arm of the Ripley APLU. It belongs on the chassis of the mech.
+  name: bras gauche du Ripley
+  description: Le bras gauche du Ripley APLU. Il appartient au châssis du mech.
   components:
   - type: Sprite
     state: ripley_l_arm
@@ -117,8 +117,8 @@
 - type: entity
   parent: BaseRipleyPartItem
   id: RipleyLLeg
-  name: ripley left leg
-  description: The left leg of the Ripley APLU. It belongs on the chassis of the mech.
+  name: jambe gauche du Ripley
+  description: La jambe gauche du Ripley APLU. Elle appartient au châssis du mech.
   components:
   - type: Sprite
     state: ripley_l_leg
@@ -129,8 +129,8 @@
 - type: entity
   parent: BaseRipleyPartItem
   id: RipleyRLeg
-  name: ripley right leg
-  description: The right leg of the Ripley APLU. It belongs on the chassis of the mech.
+  name: jambe droite du Ripley
+  description: La jambe droite du Ripley APLU. Elle appartient au châssis du mech.
   components:
   - type: Sprite
     state: ripley_r_leg
@@ -141,8 +141,8 @@
 - type: entity
   parent: BaseRipleyPartItem
   id: RipleyRArm
-  name: ripley right arm
-  description: The right arm of the Ripley APLU. It belongs on the chassis of the mech.
+  name: bras droit du Ripley
+  description: Le bras droit du Ripley APLU. Il appartient au châssis du mech.
   components:
   - type: Sprite
     state: ripley_r_arm
@@ -153,8 +153,8 @@
 - type: entity
   id: RipleyChassis
   parent: BaseRipleyPart
-  name: ripley chassis
-  description: An in-progress construction of the Ripley APLU mech.
+  name: châssis du Ripley
+  description: Construction en cours du mech Ripley APLU.
   components:
   - type: Appearance
   - type: ContainerContainer
@@ -193,8 +193,8 @@
 - type: entity
   parent: BaseHonkerPart
   id: HonkerHarness
-  name: H.O.N.K. harness
-  description: The core of the H.O.N.K. mech
+  name: harnais H.O.N.K.
+  description: Le noyau du mech H.O.N.K.
   components:
   - type: Appearance
   - type: ItemMapper
@@ -233,8 +233,8 @@
 - type: entity
   parent: BaseHonkerPartItem
   id: HonkerLArm
-  name: H.O.N.K. left arm
-  description: A H.O.N.K. left arm, with unique sockets that accept odd weaponry designed by clown scientists.
+  name: bras gauche H.O.N.K.
+  description: Un bras gauche H.O.N.K., avec des prises uniques acceptant les armements étranges conçus par les scientifiques clowns.
   components:
   - type: Sprite
     state: honker_l_arm
@@ -245,8 +245,8 @@
 - type: entity
   parent: BaseHonkerPartItem
   id: HonkerLLeg
-  name: H.O.N.K. left leg
-  description: A H.O.N.K. left leg. The foot appears just large enough to fully accommodate a clown shoe.
+  name: jambe gauche H.O.N.K.
+  description: Une jambe gauche H.O.N.K. Le pied semble juste assez grand pour accueillir une chaussure de clown.
   components:
   - type: Sprite
     state: honker_l_leg
@@ -257,8 +257,8 @@
 - type: entity
   parent: BaseHonkerPartItem
   id: HonkerRLeg
-  name: H.O.N.K. right leg
-  description: A H.O.N.K. right leg. The foot appears just large enough to fully accommodate a clown shoe.
+  name: jambe droite H.O.N.K.
+  description: Une jambe droite H.O.N.K. Le pied semble juste assez grand pour accueillir une chaussure de clown.
   components:
   - type: Sprite
     state: honker_r_leg
@@ -269,8 +269,8 @@
 - type: entity
   parent: BaseHonkerPartItem
   id: HonkerRArm
-  name: H.O.N.K. right arm
-  description: A H.O.N.K. right arm, with unique sockets that accept odd weaponry designed by clown scientists.
+  name: bras droit H.O.N.K.
+  description: Un bras droit H.O.N.K., avec des prises uniques acceptant les armements étranges conçus par les scientifiques clowns.
   components:
   - type: Sprite
     state: honker_r_arm
@@ -281,8 +281,8 @@
 - type: entity
   id: HonkerChassis
   parent: BaseHonkerPart
-  name: H.O.N.K. chassis
-  description: An in-progress construction of a H.O.N.K. mech. Contains chuckle unit, bananium core and honk support systems.
+  name: châssis H.O.N.K.
+  description: Construction en cours d'un mech H.O.N.K. Contient une unité glousseur, un noyau bananium et des systèmes de soutien HONK.
   components:
   - type: Appearance
   - type: ContainerContainer
@@ -321,8 +321,8 @@
 - type: entity
   parent: BaseHamtrPart
   id: HamtrHarness
-  name: HAMTR harness
-  description: The core of the HAMTR.
+  name: harnais HAMTR
+  description: Le noyau du HAMTR.
   components:
   - type: Appearance
   - type: ItemMapper
@@ -361,8 +361,8 @@
 - type: entity
   parent: BaseHamtrPartItem
   id: HamtrLArm
-  name: HAMTR left arm
-  description: The left arm of the HAMTR. It belongs on the chassis of the mech.
+  name: bras gauche du HAMTR
+  description: Le bras gauche du HAMTR. Il appartient au châssis du mech.
   components:
   - type: Sprite
     state: hamtr_l_arm
@@ -373,8 +373,8 @@
 - type: entity
   parent: BaseHamtrPartItem
   id: HamtrLLeg
-  name: HAMTR left leg
-  description: The left leg of the HAMTR. It belongs on the chassis of the mech.
+  name: jambe gauche du HAMTR
+  description: La jambe gauche du HAMTR. Elle appartient au châssis du mech.
   components:
   - type: Sprite
     state: hamtr_l_leg
@@ -385,8 +385,8 @@
 - type: entity
   parent: BaseHamtrPartItem
   id: HamtrRLeg
-  name: HAMTR right leg
-  description: The right leg of the HAMTR. It belongs on the chassis of the mech.
+  name: jambe droite du HAMTR
+  description: La jambe droite du HAMTR. Elle appartient au châssis du mech.
   components:
   - type: Sprite
     state: hamtr_r_leg
@@ -397,8 +397,8 @@
 - type: entity
   parent: BaseHamtrPartItem
   id: HamtrRArm
-  name: HAMTR right arm
-  description: The right arm of the HAMTR. It belongs on the chassis of the mech.
+  name: bras droit du HAMTR
+  description: Le bras droit du HAMTR. Il appartient au châssis du mech.
   components:
   - type: Sprite
     state: hamtr_r_arm
@@ -409,8 +409,8 @@
 - type: entity
   id: HamtrChassis
   parent: BaseHamtrPart
-  name: HAMTR chassis
-  description: An in-progress construction of the HAMTR mech.
+  name: châssis du HAMTR
+  description: Construction en cours du mech HAMTR.
   components:
   - type: Appearance
   - type: ContainerContainer
@@ -449,8 +449,8 @@
 - type: entity
   parent: BaseVimPartItem
   id: VimHarness
-  name: vim harness
-  description: A small mounting bracket for vim parts.
+  name: harnais Vim
+  description: Un petit support de montage pour les pièces du Vim.
   components:
   - type: Appearance
   - type: ItemMapper
@@ -483,8 +483,8 @@
 - type: entity
   id: VimChassis
   parent: BaseVimPart
-  name: vim chassis
-  description: An in-progress construction of the Vim exosuit.
+  name: châssis du Vim
+  description: Construction en cours de l'exo-combinaison Vim.
   components:
   - type: Appearance
   - type: ContainerContainer

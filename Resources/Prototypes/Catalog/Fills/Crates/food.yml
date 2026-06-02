@@ -29,8 +29,8 @@
 - type: entity
   id: CrateFoodPizza
   parent: CratePlastic
-  name: emergency pizza delivery
-  description: Help do your part to end station hunger by distributing pizza to underfunded departments! Includes 4 pizzas.
+  name: livraison de pizza d'urgence
+  description: Aidez à mettre fin à la faim sur la station en distribuant des pizzas aux départements sous-financés ! Comprend 4 pizzas.
   components:
   - type: StorageFill
     contents:
@@ -43,8 +43,8 @@
 - type: entity
   id: CrateFoodPizzaLarge
   parent: CratePlastic
-  name: disaster pizza delivery
-  description: In the ultimate event that all else has failed, Find comfort in that more pizza solves everything. Includes 16 pizzas.
+  name: livraison de pizza catastrophe
+  description: Dans l'ultime cas où tout a échoué, trouvez du réconfort dans le fait que plus de pizza résout tout. Comprend 16 pizzas.
   components:
   - type: StorageFill
     contents:
@@ -57,8 +57,8 @@
 - type: entity
   id: CrateFoodMRE
   parent: CratePlastic
-  name: MRE crate
-  description: A military style meal fit to feed a whole department.
+  name: caisse de rations militaires
+  description: Un repas de style militaire de quoi nourrir tout un département.
   components:
   - type: StorageFill
     contents:
@@ -68,8 +68,8 @@
 - type: entity
   id: CrateFoodCooking
   parent: CratePlastic
-  name: kitchen supplies crate
-  description: Extra kitchen supplies, in case the botanists are absent.
+  name: caisse de fournitures de cuisine
+  description: Fournitures de cuisine supplémentaires, au cas où les botanistes seraient absents.
   components:
   - type: StorageFill
     contents:
@@ -95,8 +95,8 @@
 - type: entity
   id: CrateFoodDinnerware
   parent: CratePlastic
-  name: kitchen dinnerware crate
-  description: Extra kitchen supplies, in case the clown was allowed in the cafeteria unsupervised.
+  name: caisse de vaisselle de cuisine
+  description: Fournitures de cuisine supplémentaires, au cas où le clown aurait été laissé seul sans surveillance à la cafétéria.
   components:
   - type: StorageFill
     contents:
@@ -122,8 +122,8 @@
 - type: entity
   id: CrateFoodBarSupply
   parent: CratePlastic
-  name: bartending supplies crate
-  description: Extra Bar supplies, in case the clown was allowed in the bar unsupervised.
+  name: caisse de fournitures de bar
+  description: Fournitures de bar supplémentaires, au cas où le clown aurait été laissé seul sans surveillance au bar.
   components:
   - type: StorageFill
     contents:
@@ -149,8 +149,8 @@
 - type: entity
   id: CrateFoodSoftdrinks
   parent: CratePlastic
-  name: softdrinks crate
-  description: A variety of sodas to complement a small party, without having to empty the soda machines. Includes 14 sodas.
+  name: caisse de boissons non alcoolisées
+  description: Un assortiment de sodas pour accompagner une petite fête, sans avoir à vider les distributeurs. Comprend 14 sodas.
   components:
   - type: StorageFill
     contents:
@@ -172,8 +172,8 @@
 - type: entity
   id: CrateFoodSoftdrinksLarge
   parent: CratePlastic
-  name: softdrinks bulk crate
-  description: Lots of sodas taken straight out of Centcomm's own vending machines, because you just can't leave your department. Includes 32 sodas.
+  name: caisse de boissons non alcoolisées en gros
+  description: Des sodas en quantité tirés directement des distributeurs de Centcomm, parce que vous ne pouvez tout simplement pas quitter votre département. Comprend 32 sodas.
   components:
   - type: EntityStorage
     capacity: 32 # Slightly over-sized CratePlastic to accomodate over 30 drink cans at once.
@@ -197,8 +197,8 @@
 - type: entity
   id: CrateFoodGetMore
   parent: CratePlastic
-  name: Getmore Bakemore crate
-  description: Getmore branded snacks and baking supplies for the creative chef, all without the need of emptying your station's Getmore machines!
+  name: caisse Getmore Bakemore
+  description: Snacks de marque Getmore et fournitures de pâtisserie pour le chef créatif, sans avoir à vider les distributeurs Getmore de votre station !
   components:
   - type: StorageFill
     contents:
@@ -224,8 +224,8 @@
 - type: entity
   id: CrateFoodIceCream
   parent: CrateFreezer
-  name: ice cream delivery
-  description: An assortment of ice cream delights for any occasion! Includes 16 frozen treats.
+  name: livraison de glaces
+  description: Un assortiment de délices glacées pour toute occasion ! Comprend 16 gourmandises surgelées.
   components:
   - type: StorageFill
     contents:
@@ -247,8 +247,8 @@
 - type: entity
   id: CrateFoodSnowcone
   parent: CrateFreezer
-  name: snowcone delivery
-  description: A freezer packed with refreshing snowcones for a hard working crew, or even a lazy one! Includes 16 snowcones.
+  name: livraison de cônes de neige
+  description: Un congélateur rempli de cônes de neige rafraîchissants pour un équipage travailleur, ou même paresseux ! Comprend 16 cônes de neige.
   components:
   - type: StorageFill
     contents:
@@ -268,8 +268,8 @@
 - type: entity
   id: CrateFoodHappyHonkBigBite
   parent: CratePlastic
-  name: Happy Honk meal delivery
-  description: Two fully loaded Happy Honk Big Bite burger meals, complete with cheesy fries, a bottle of Space Cola, a slice of apple pie and a toy!
+  name: livraison de repas Happy Honk
+  description: Deux menus Happy Honk Big Bite entièrement garnis, avec frites au fromage, une bouteille de Space Cola, une part de tarte aux pommes et un jouet !
   components:
   - type: StorageFill
     contents:

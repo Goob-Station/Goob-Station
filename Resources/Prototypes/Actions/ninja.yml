@@ -10,8 +10,8 @@
 - type: entity
   parent: BaseToggleAction
   id: ActionToggleNinjaGloves
-  name: Toggle ninja gloves
-  description: Toggles all glove actions on left click. Includes your doorjack, draining power, stunning enemies and hacking certain computers.
+  name: Basculer les gants ninja
+  description: Bascule toutes les actions des gants au clic gauche. Inclut le forçage de portes, le drainage d'énergie, l'étourdissement d'ennemis et le piratage de certains ordinateurs.
   components:
   - type: Action
     priority: -13
@@ -20,8 +20,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCreateThrowingStar
-  name: Create throwing star
-  description: Channels suit power into creating a throwing star that deals extra stamina damage.
+  name: Créer une étoile de lancer
+  description: Canalise l'énergie de la combinaison pour créer une étoile de lancer infligeant des dégâts d'endurance supplémentaires.
   components:
   - type: Action
     useDelay: 0.5
@@ -36,8 +36,8 @@
 - type: entity
   parent: BaseAction
   id: ActionRecallKatana
-  name: Recall katana
-  description: Teleports the Energy Katana linked to this suit to its wearer, cost based on distance.
+  name: Rappeler le katana
+  description: Téléporte le Katana Énergétique lié à cette combinaison vers son porteur, le coût dépend de la distance.
   components:
   - type: Action
     useDelay: 1
@@ -52,8 +52,8 @@
 - type: entity
   parent: BaseAction
   id: ActionNinjaEmp
-  name: EM Burst
-  description: Disable any nearby technology with an electro-magnetic pulse.
+  name: Impulsion EM
+  description: Désactive toute technologie à proximité avec une impulsion électromagnétique.
   components:
   - type: Action
     icon:
@@ -67,8 +67,8 @@
 - type: entity
   parent: BaseAction
   id: ActionTogglePhaseCloak
-  name: Phase cloak
-  description: Toggles your suit's phase cloak. Beware that if you are hit, all abilities are disabled for 5 seconds, including your cloak!
+  name: Camouflage de phase
+  description: "Bascule le camouflage de phase de votre combinaison. Attention : si vous êtes touché, toutes les capacités sont désactivées pendant 5 secondes, y compris votre camouflage !"
   components:
   - type: Action
     # have to plan (un)cloaking ahead of time
@@ -81,8 +81,8 @@
 - type: entity
   parent: BaseAction
   id: ActionEnergyKatanaDash
-  name: Katana dash
-  description: Teleport to anywhere you can see, if your Energy Katana is in your hand.
+  name: Ruée du katana
+  description: Téléportez-vous n'importe où dans votre champ de vision, si votre Katana Énergétique est en main.
   components:
   - type: Action
     icon:

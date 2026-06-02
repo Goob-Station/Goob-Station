@@ -13,8 +13,8 @@
 - type: entity
   parent: [BaseWeaponBatterySmall, BaseMajorContraband]
   id: WeaponAlien
-  name: alien pistol
-  description: Is this a war crime? Probably.
+  name: pistolet extraterrestre
+  description: Est-ce un crime de guerre ? Probablement.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Weapons/Guns/Battery/alien.rsi
@@ -42,8 +42,8 @@
 - type: entity
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseMajorContraband]
   id: WeaponDecloner
-  name: decloner
-  description: Is this a war crime? Absolutely.
+  name: décloneur
+  description: Est-ce un crime de guerre ? Absolument.
   components:
   - type: Clothing
     sprite: _Shitmed/Objects/Weapons/Guns/Battery/decloner.rsi

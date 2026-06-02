@@ -43,7 +43,7 @@
       - DoorBumpOpener
 
 - type: entity
-  name: lone abductor
+  name: ravisseur solitaire
   parent: MobAbductorAntag
   id: MobLoneAbductor
   components:
@@ -71,7 +71,7 @@
       - LoneAbductorGear
 
 - type: entity
-  name: abductor scientist
+  name: scientifique ravisseur
   parent: MobAbductorAntag
   id: MobAbductorScientist
   components:
@@ -96,7 +96,7 @@
       - AbductorScientistGear
 
 - type: entity
-  name: abductor agent
+  name: agent ravisseur
   parent: MobAbductorAntag
   id: MobAbductorAgent
   components:
@@ -175,7 +175,7 @@
 # Spawners
 
 - type: entity
-  name: lone abductor spawner
+  name: spawner de ravisseur solitaire
   id: SpawnPointLoneAbductor
   parent: MarkerBase
   components:
@@ -217,7 +217,7 @@
         state: radiation
 
 - type: entity
-  name: abductor agent spawner
+  name: spawner d'agent ravisseur
   id: SpawnPointAbductorAgent
   parent: MarkerBase
   components:
@@ -256,7 +256,7 @@
         state: radiation
 
 - type: entity
-  name: abductor scientist spawner
+  name: spawner de scientifique ravisseur
   id: SpawnPointAbductorScientist
   parent: MarkerBase
   components:

@@ -71,7 +71,7 @@
   parent: [ClothingHeadHatArmoredCC, ClothingHeadBase, BaseCentcommContraband]
   id: ClothingHeadHatBeretEliteNavyOfficer
   name: elite navy officer's beret
-  description: A navy blue beret with the silver shield of the Nanotrasen security forces.
+  description: Un béret bleu marine avec le bouclier argenté des forces de sécurité Nanotrasen.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hats/navy_officer_beret.rsi
@@ -86,7 +86,7 @@
   parent: [ClothingHeadHatArmoredCC, ClothingHeadBase, BaseCentcommContraband]
   id: ClothingHeadHatBeretNavyOfficer
   name: navy officer's beret
-  description: A black beret with the silver shield of the Nanotrasen security forces.
+  description: Un béret noir avec le bouclier argenté des forces de sécurité Nanotrasen.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hats/officer_beret.rsi
@@ -101,7 +101,7 @@
   parent: [ClothingHeadHatArmoredCC, ClothingHeadBase, BaseCentcommContraband]
   id: ClothingHeadHatBeretNavyCaptain
   name: navy captain's beret
-  description: A starch white beret.
+  description: Un béret blanc empesé.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hats/navy_captain_beret.rsi
@@ -131,7 +131,7 @@
   parent: [ClothingHeadHatArmoredCC, ClothingHeadBase, BaseCentcommContraband]
   id: ClothingHeadHatCowboyBlueshield
   name: blueshield's armored cowboy hat
-  description: Sheriff's back in town, kids.
+  description: Le shérif est de retour en ville, les enfants.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hats/cowboyhatbso.rsi
@@ -146,7 +146,7 @@
   parent: [ClothingHeadHatArmoredCC, ClothingHeadBase, BaseFoldable, BaseCentcommContraband]
   id: ClothingHeadHatUshankaBlueshield
   name: blueshield's armored ushanka
-  description: Perfect for saving heads in Siberia, da?
+  description: Parfait pour sauver des têtes en Sibérie, da ?
   components:
   - type: Clothing
     sprite: _Goobstation/Clothing/Head/Hats/blueshield_ushanka.rsi
@@ -171,7 +171,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadMailCarrier
   name: mail carrier's hat
-  description: Smells like a good pension.
+  description: Sent la bonne retraite.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hats/mailman.rsi
@@ -224,7 +224,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatTrainer
   name: NCT's hat
-  description: A hat issued to Nanotrasen Career Trainers. Makes you feel stylish.
+  description: Une casquette émise aux formateurs de carrière Nanotrasen. Vous donne un air stylé.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hats/trainer.rsi
@@ -235,7 +235,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadBeretTrainer
   name: NCT's beret
-  description: A beret issued to Nanotrasen Career Trainers. Makes you feel stylish.
+  description: Un béret émis aux formateurs de carrière Nanotrasen. Vous donne un air stylé.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hats/trainer_beret.rsi
@@ -246,7 +246,7 @@
   parent: ClothingHeadHatBeretHoS
   id: ClothingHeadHatBeretHeadOfSecurityAdvanced
   name: head of security's parade beret
-  description: A particularly gilded beret, designed for the Head of Security.
+  description: Un béret particulièrement doré, conçu pour le chef de la sécurité.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hats/hos-expi.rsi
@@ -261,7 +261,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretSeniorBotanist
   name: botanical beret
-  description: A green beret featuring a small blue flower given to experienced botanists.
+  description: Un béret vert orné d'une petite fleur bleue, remis aux botanistes expérimentés.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hats/beret_botany.rsi
@@ -315,8 +315,8 @@
   parent: ClothingHeadHatCapcap
   id: ClothingHeadHatCapcapSenior
   name: cap cap senior
-  description: A grand, stylish cap worn by the Seniors Captains. Shows the station who's in charge.
-  suffix: DO NOT MAP
+  description: Une grande casquette élégante portée par les capitaines seniors. Montre à la station qui commande.
+  suffix: NE PAS PLACER
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hats/cap_senior.rsi
@@ -329,7 +329,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatTinfoilHat
   name: tinfoil hat
-  description: A high tech helmet crafted from aluminum foil.
+  description: Un casque haute technologie confectionné en papier d'aluminium.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hats/tinfoil_hat.rsi

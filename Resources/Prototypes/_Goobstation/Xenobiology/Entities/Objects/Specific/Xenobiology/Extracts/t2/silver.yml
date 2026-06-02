@@ -1,7 +1,7 @@
 - type: entity
   id: SilverSlimeExtract
   parent: BaseSlimeExtract
-  name: silver slime extract
+  name: extrait de slime argenté
   components:
   - type: Sprite
     layers:

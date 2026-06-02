@@ -4,13 +4,13 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-# Devil Specific
+# Spécifique au Diable
 
 - type: entity
   parent: BaseAction
   id: ActionCreateContract
-  name: Summon infernal contract
-  description: Creates an infernal contract in the Devil's hand.
+  name: Invoquer un contrat infernal
+  description: Crée un contrat infernal dans la main du Diable.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -25,8 +25,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCreateRevivalContract
-  name: Summon revival contract
-  description: Creates a revival contract in the Devil's hand.
+  name: Invoquer un contrat de résurrection
+  description: Crée un contrat de résurrection dans la main du Diable.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -41,8 +41,8 @@
 - type: entity
   parent: BaseAction
   id: ActionShadowJaunt
-  name: Shadow jaunt
-  description: Melt into the shadows.
+  name: Fuite dans l'ombre
+  description: Fondez dans les ombres.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -59,8 +59,8 @@
 - type: entity
   parent: BaseAction
   id: ActionDevilPossess
-  name: Possess target
-  description: Temporarily possess a target.
+  name: Posséder la cible
+  description: Possède temporairement une cible.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -81,8 +81,8 @@
 - type: entity
   parent: BaseAction
   id: ActionEndPossession
-  name: End possession
-  description: Cancel this possession early.
+  name: Terminer la possession
+  description: Annulez cette possession prématurément.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -98,8 +98,8 @@
 - type: entity
   parent: BaseAction
   id: ActionDevilGrip
-  name: Devils Grip
-  description: What little fraction of your power remains in this realm, channeled into your hands.
+  name: Emprise du Diable
+  description: Le peu de pouvoir qui vous reste dans ce monde, canalisé dans vos mains.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -110,13 +110,13 @@
   - type: InstantAction
     event: !type:DevilGripEvent {}
 
-# Deals
+# Pactes
 
 - type: entity
   parent: BaseAction
   id: ActionCheatDeath
-  name: Cheat Death
-  description: Laugh in the Grim Reapers face. You've still got time.
+  name: Tricher la Mort
+  description: Riez au nez de la Faucheuse. Vous avez encore du temps.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

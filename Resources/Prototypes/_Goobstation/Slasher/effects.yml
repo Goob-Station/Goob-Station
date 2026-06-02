@@ -1,7 +1,7 @@
 - type: entity
   id: SlasherRegenerateEffect
-  name: slasher regenerate effect
-  description: A dark, bloody aura surrounds the slasher as they regenerate.
+  name: effet de régénération du slasher
+  description: Une aura sombre et sanglante entoure le slasher pendant qu'il se régénère.
   components:
   - type: TimedDespawn
     lifetime: 0.85

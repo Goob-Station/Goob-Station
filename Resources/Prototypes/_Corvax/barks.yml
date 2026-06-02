@@ -22,7 +22,7 @@
 
 - type: bark
   id: Baritone
-  name: Baritone
+  name: Baryton
   volume: 1
   soundCollection:
     collection: BaritoneBark
@@ -37,7 +37,7 @@
 
 - type: bark
   id: Bass
-  name: Bass
+  name: Basse
   volume: 2
   soundCollection:
     collection: BassBark
@@ -52,7 +52,7 @@
 
 - type: bark
   id: Tenor
-  name: Tenor
+  name: Ténor
   volume: 1
   soundCollection:
     collection: TenorBark
@@ -67,7 +67,7 @@
 
 - type: bark
   id: Arachnid
-  name: Arachnid
+  name: Arachnide
   volume: 1
   soundCollection:
     collection: ArachnidBark
@@ -84,7 +84,7 @@
 
 - type: bark
   id: Lizard
-  name: Lizard
+  name: Lézard
   volume: 0.4
   soundCollection:
     collection: LizardBark
@@ -134,7 +134,7 @@
 
 - type: bark
   id: Harpy
-  name: Harpy
+  name: Harpie
   volume: 1
   soundCollection:
     collection: HarpyBark
@@ -166,7 +166,7 @@
 
 - type: bark
   id: Squeak
-  name: Squeak
+  name: Couinement
   frequency: 0.3
   minPitch: 0.8
   maxPitch: 1.1
@@ -185,7 +185,7 @@
 
 - type: bark
   id: MaleAvali
-  name: MaleAvali
+  name: Avali Mâle
   frequency: 0.5
   volume: 0.7
   soundCollection:
@@ -203,7 +203,7 @@
 
 - type: bark
   id: FemaleAvali
-  name: FemaleAvali
+  name: Avali Femelle
   volume: 0.7
   frequency: 0.5
   soundCollection:
@@ -257,7 +257,7 @@
 
 - type: bark
   id: BorgSyndie
-  name: BorgSyndie
+  name: Borg Syndie
   roundStart: false
   volume: 0.5
   frequency: 0.35
@@ -298,7 +298,7 @@
 
 - type: bark
   id: Aviu1
-  name: Impudent
+  name: Impertinent
   frequency: 0.7
   soundCollection:
     collection: Aviu1Bark
@@ -315,7 +315,7 @@
 
 - type: bark
   id: Aviu2
-  name: Strong
+  name: Puissant
   frequency: 0.7
   soundCollection:
     collection: Aviu2Bark
@@ -349,7 +349,7 @@
 
 - type: bark
   id: Aviu4
-  name: Ethereal
+  name: Éthéré
   frequency: 0.7
   soundCollection:
     collection: Aviu4Bark

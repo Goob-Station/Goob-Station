@@ -9,7 +9,7 @@
 - type: entity
   id: LibrarianTranslatorImplanter
   parent: [ BaseTranslatorImplanter ]
-  suffix: Librarian
+  suffix: Bibliothécaire
   components:
   - type: Implanter
     implant: LibrarianTranslatorImplant
@@ -26,7 +26,7 @@
 - type: entity
   id: BasicSpaceItalianTranslatorImplanter
   parent: BaseTranslatorImplanter
-  suffix: Basic Space Italian
+  suffix: Italien Spatial Basique
   components:
   - type: Implanter
     implant: BasicSpaceItalianTranslatorImplant
@@ -35,7 +35,7 @@
 - type: entity
   id: AdvancedSpaceItalianTranslatorImplanter
   parent: BaseTranslatorImplanter
-  suffix: Advanced Space Italian
+  suffix: Italien Spatial Avancé
   components:
   - type: Implanter
     implant: SpaceItalianTranslatorImplant
@@ -51,7 +51,7 @@
 - type: entity
   id: SignTranslatorImplanter
   parent: BaseTranslatorImplanter
-  suffix: Sign
+  suffix: Langue des Signes
   components:
   - type: Implanter
     implant: SignTranslatorImplant

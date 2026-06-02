@@ -9,10 +9,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: entropic blade
+  name: lame entropique
   parent: BaseSword
   id: SwordCosmicCult
-  description: An eerie greatsword wrought of indescribable material, forcibly extruded down into reality. Your instincts tell you that it does not belong here.
+  description: Un sinistre glaive forgé d'un matériau indescriptible, extrudé de force dans la réalité. Vos instincts vous disent qu'il n'a pas sa place ici.
   components:
   - type: CosmicEquipment
   - type: Sprite
@@ -87,10 +87,10 @@
   - type: UnholyItem # Goobstation Shitchap
 
 - type: entity
-  name: vacuous lance
+  name: lance du vide
   parent: BaseItem
   id: SpearCosmicCult
-  description: An unnerving spear, wrought of indescribable material. Being near it feels like a prickle of static spreading through your nerves.
+  description: Une lance inquiétante, forgée d'un matériau indescriptible. La proximité de cet objet donne une sensation de picotement statique se répandant dans vos nerfs.
   components:
   - type: CosmicEquipment
   - type: Sprite
@@ -186,7 +186,7 @@
   - type: UnholyItem # Goobstation Shitchap
 
 - type: entity
-  name: astral razor
+  name: rasoir astral
   parent: BaseItem
   id: ScytheCosmicCult
   components:

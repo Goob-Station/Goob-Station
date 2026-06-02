@@ -1,0 +1,48 @@
+# SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
+wires-panel-component-on-examine-open = Le panneau de [color=lightgray]maintenance[/color] est [color=red]ouvert[/color].
+wires-panel-component-on-examine-closed = Le panneau de [color=lightgray]maintenance[/color] est [color=darkgreen]fermé[/color].
+
+# wire colors
+
+wire-name-color-red = Rouge
+wire-name-color-blue = Bleu
+wire-name-color-green = Vert
+wire-name-color-orange = Orange
+wire-name-color-brown = Marron
+wire-name-color-gold = Or
+wire-name-color-gray = Gris
+wire-name-color-cyan = Cyan
+wire-name-color-navy = Marine
+wire-name-color-purple = Violet
+wire-name-color-pink = Rose
+wire-name-color-fuchsia = Fuchsia
+
+# letter names
+wire-letter-name-alpha = Alpha
+wire-letter-name-beta = Beta
+wire-letter-name-gamma = Gamma
+wire-letter-name-delta = Delta
+wire-letter-name-epsilon = Epsilon
+wire-letter-name-zeta = Zeta
+wire-letter-name-eta = Eta
+wire-letter-name-theta = Theta
+wire-letter-name-iota = Iota
+wire-letter-name-kappa = Kappa
+wire-letter-name-lambda = Lambda
+wire-letter-name-mu = Mu
+wire-letter-name-nu = Nu
+wire-letter-name-xi = Xi
+wire-letter-name-omicron = Omicron
+wire-letter-name-pi = Pi
+wire-letter-name-rho = Rho
+wire-letter-name-sigma = Sigma
+wire-letter-name-tau = Tau
+wire-letter-name-upsilon = Upsilon
+wire-letter-name-phi = Phi
+wire-letter-name-chi = Chi
+wire-letter-name-psi = Psi
+wire-letter-name-omega = Omega

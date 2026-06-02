@@ -90,7 +90,7 @@
   parent: BaseHealingItem
   id: BaseMedicalPatch
   name: base patch
-  description: A patch for applying medicine over time to patients.
+  description: Un patch pour appliquer des médicaments aux patients dans le temps.
   abstract: true
   components:
   - type: Item
@@ -130,7 +130,7 @@
   parent: BaseMedicalPatch
   id: MedicalPatchBasic
   name: patch
-  description: A basic patch for applying medicine over time to patients.
+  description: Un patch basique pour appliquer des médicaments aux patients dans le temps.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Medical/medical_patch.rsi
@@ -203,7 +203,7 @@
   parent: MedicalPatchBasic
   id: MedicalPatchTherapeutic
   name: therapeutic patch
-  description: A patch that applies a dose over a longer period of time than other patches.
+  description: Un patch qui applique une dose sur une période plus longue que les autres patchs.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Medical/medical_patch.rsi
@@ -221,7 +221,7 @@
   parent: MedicalPatchBasic
   id: MedicalPatchLarge
   name: large patch
-  description: A larger, higher-capacity patch, used for the really big boo-boos. Not recommended with easily-overdosed chemicals.
+  description: Un patch plus grand et à plus haute capacité, utilisé pour les vraiment grosses blessures. Non recommandé avec des produits chimiques facilement surdosés.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Medical/medical_patch.rsi
@@ -247,7 +247,7 @@
   parent: BaseMedicalPatch
   id: MedicalPatchMakeshift
   name: makeshift patch
-  description: This doesn't look hygienic. Hopefully it does the job.
+  description: Ça n'a pas l'air hygiénique. Espérons que ça fasse le travail.
   components:
   - type: Sprite
     state: MakeshiftPatch

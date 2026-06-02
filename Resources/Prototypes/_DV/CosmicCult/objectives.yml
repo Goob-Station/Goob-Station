@@ -90,8 +90,8 @@
 - type: entity
   parent: [BaseRogueAscendedObjective, BaseSurviveObjective]
   id: RogueAscendedSurviveObjective
-  name: Survive
-  description: Survive until the end of all things.
+  name: Survivre
+  description: Survivre jusqu'à la fin de toutes choses.
   components:
   - type: Objective
     icon:

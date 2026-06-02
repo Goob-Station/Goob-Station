@@ -8,9 +8,9 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: nail
+  name: clou
   parent: BaseItem
-  description: A tiny metal stick. It is probably used to fix walls.
+  description: Un petit bâton métallique. Il est probablement utilisé pour fixer les murs.
   id: Nail
   components:
   - type: Sprite
@@ -84,9 +84,9 @@
     reflective: NonEnergy
 
 - type: entity
-  name: nail (armor-piercing)
+  name: clou (perforant)
   parent: [ Nail, BaseSyndicateContraband ]
-  description: A heavy nail designed to pierce through hard surfaces. Looks just like a regular nail, until it suddenly kills you.
+  description: Un clou lourd conçu pour percer les surfaces dures. Ressemble à un clou ordinaire, jusqu'à ce qu'il vous tue soudainement.
   id: NailArmorPiercing
   components:
   - type: CartridgeAmmo

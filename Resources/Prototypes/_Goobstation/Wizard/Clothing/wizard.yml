@@ -19,9 +19,9 @@
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesEyepatchMedical
-  name: medical eyepatch
-  description: Used by space weeaboos to pretend their eye isn't there, and crewmembers who actually lost their eye to pretend their eye is there.
-  suffix: DO NOT MAP
+  name: cache-œil médical
+  description: Utilisé par les weeaboos spatiaux pour faire semblant qu'ils n'ont pas d'œil, et par les membres d'équipage qui ont réellement perdu leur œil pour faire semblant qu'ils en ont un.
+  suffix: NE PAS PLACER
   categories: [ DoNotMap ]
   save: false
   components:
@@ -49,7 +49,7 @@
 - type: entity
   abstract: true
   id: ClothingHeadHatWizardBaseArmor
-  suffix: Wizard Clothes
+  suffix: Vêtements de Sorcier
   components:
   - type: Armor
     traumaDeductions: # prevents traumas at all (kinda)
@@ -75,7 +75,7 @@
 - type: entity
   abstract: true
   id: ClothingOuterWizardBaseArmor
-  suffix: Wizard Clothes
+  suffix: Vêtements de Sorcier
   components:
   - type: Armor
     coverage: # full coverage, idk, magic
@@ -119,8 +119,8 @@
 - type: entity
   parent: [ClothingHeadHatWizardBaseArmor, ClothingHeadHatWizardBase]
   id: ClothingHeadHatBlackwizardReal
-  name: black wizard hat
-  description: Strange-looking black hat-wear that most certainly belongs to a real lich. Spooky.
+  name: chapeau de sorcier noir
+  description: Un chapeau noir à l'air étrange qui appartient certainement à un vrai liche. Effrayant.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/Head/blackwizard.rsi
@@ -130,8 +130,8 @@
 - type: entity
   parent: [ClothingOuterWizardBaseArmor, ClothingOuterWizardBase]
   id: ClothingOuterWizardBlackReal
-  name: black wizard robes
-  description: An unnerving black gem-lined robe that reeks of death and decay.
+  name: robes de sorcier noires
+  description: Des robes noires bordées de gemmes, inquiétantes et empestant la mort et la décomposition.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/OuterClothing/blackwizard.rsi
@@ -142,8 +142,8 @@
 - type: entity
   parent: [ClothingHeadHatWizardBaseArmor, ClothingHeadHatWizardBase]
   id: ClothingHeadHatYellowwizardReal
-  name: yellow wizard hat
-  description: Strange-looking yellow hat-wear that most certainly belongs to a powerful magic user.
+  name: chapeau de sorcier jaune
+  description: Un chapeau jaune à l'air étrange qui appartient certainement à un puissant utilisateur de magie.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/Head/yellowwizard.rsi
@@ -153,8 +153,8 @@
 - type: entity
   parent: [ClothingOuterWizardBaseArmor, ClothingOuterWizardBase]
   id: ClothingOuterWizardYellowReal
-  name: yellow wizard robes
-  description: A magnificent yellow gem-lined robe that seems to radiate power.
+  name: robes de sorcier jaunes
+  description: De magnifiques robes jaunes bordées de gemmes qui semblent rayonner de puissance.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/OuterClothing/yellowwizard.rsi
@@ -165,8 +165,8 @@
 - type: entity
   parent: [ClothingHeadHatWizardBaseArmor, ClothingHeadHatWizardBase]
   id: ClothingHeadHatTapewizardReal
-  name: tape hat
-  description: A magically attuned hat made exclusively from duct tape. You can barely see.
+  name: chapeau de ruban adhésif
+  description: Un chapeau magiquement accordé fabriqué exclusivement à partir de ruban adhésif. On voit à peine.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/Head/tapewizard.rsi
@@ -180,8 +180,8 @@
 - type: entity
   parent: [ClothingOuterWizardBaseArmor, ClothingOuterWizardBase]
   id: ClothingOuterWizardTapeReal
-  name: tape robes
-  description: A fine robe made from magically attuned duct tape.
+  name: robes de ruban adhésif
+  description: De belles robes fabriquées en ruban adhésif magiquement accordé.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/OuterClothing/tapewizard.rsi
@@ -192,8 +192,8 @@
 - type: entity
   parent: [ClothingHeadHatWizardBaseArmor, ClothingHeadHatWizardBase]
   id: ClothingHeadHatChanterelleReal
-  name: chanterelle hat
-  description: An oversized chanterelle with hollow out space to fit a head in. Kinda looks like wizard's hat.
+  name: chapeau chanterelle
+  description: Une chanterelle surdimensionnée avec un espace creux pour y loger une tête. Ressemble un peu au chapeau d'un sorcier.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/Head/chanterelle.rsi
@@ -205,7 +205,7 @@
   parent: [ClothingOuterWizardBaseArmor, ClothingOuterWizardBase]
   id: ClothingOuterWizardPaperReal
   name: papier-mâché robes
-  description: A robe held together by various bits of clear-tape and paste.
+  description: Des robes maintenues ensemble par divers morceaux de ruban transparent et de colle.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/OuterClothing/paperwizard.rsi
@@ -224,14 +224,14 @@
 - type: entity
   parent: [ClothingHeadHatWizardBaseArmor, ClothingHeadHatPaper, ClothingHeadHatWizardBase]
   id: ClothingHeadHatPaperWizard
-  name: paper magic hat
+  name: chapeau magique en papier
 
 # Mime
 - type: entity
   parent: [ClothingHeadHatWizardBaseArmor, ClothingHeadHatWizardBase]
   id: ClothingHeadHatMimeReal
-  name: magical beret
-  description: A magical red beret.
+  name: béret magique
+  description: Un béret rouge magique.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/Head/mimewizard.rsi
@@ -241,8 +241,8 @@
 - type: entity
   parent: [ClothingOuterWizardBaseArmor, ClothingOuterWizardBase]
   id: ClothingOuterWizardMimeReal
-  name: mime robes
-  description: Red, black, and white robes. There is not much else to say about them.
+  name: robes de mime
+  description: Des robes rouges, noires et blanches. Il n'y a pas grand-chose d'autre à dire à leur sujet.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/OuterClothing/mimewizard.rsi
@@ -253,8 +253,8 @@
 - type: entity
   parent: [ClothingHeadHatWizardBaseArmor, ClothingHeadHatWizardBase]
   id: ClothingHeadHatClownReal
-  name: purple wizard hat
-  description: Strange-looking purple hat-wear that most certainly belongs to a real magic user.
+  name: chapeau de sorcier violet
+  description: Un chapeau violet à l'air étrange qui appartient certainement à un vrai utilisateur de magie.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/Head/clownwizard.rsi
@@ -264,8 +264,8 @@
 - type: entity
   parent: [ClothingOuterWizardBaseArmor, ClothingOuterWizardBase]
   id: ClothingOuterWizardClownReal
-  name: clown robes
-  description: A set of armoured robes that seem to radiate a dark power. That, and bad fashion decisions.
+  name: robes de clown
+  description: Un ensemble de robes blindées qui semblent irradier un pouvoir sombre. Cela, et des choix de mode douteux.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/OuterClothing/clownwizard.rsi
@@ -276,8 +276,8 @@
 - type: entity
   parent: [ClothingHeadHatWizardBaseArmor, ClothingHeadHatWizardBase]
   id: ClothingHeadHatPsyReal
-  name: psychic amplifier
-  description: A crown-of-thorns psychic amplifier.
+  name: amplificateur psychique
+  description: Un amplificateur psychique en couronne d'épines.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/Head/psywizard.rsi
@@ -287,8 +287,8 @@
 - type: entity
   parent: [ClothingOuterWizardBaseArmor, ClothingOuterWizardBase]
   id: ClothingOuterWizardPsyReal
-  name: purple robes
-  description: Heavy, royal purple robes threaded with psychic amplifiers and weird, bulbous lenses. Do not machine wash.
+  name: robes violettes
+  description: De lourdes robes d'un violet royal, entrelacées d'amplificateurs psychiques et d'étranges lentilles bulbeuses. Ne pas laver en machine.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/OuterClothing/psywizard.rsi
@@ -299,8 +299,8 @@
 - type: entity
   parent: [ClothingHeadHatWizardBaseArmor, ClothingHeadHatWizardBase]
   id: ClothingHeadHatOblivionEnforcer
-  name: oblivion enforcer's hood
-  description: A hood worn by an Oblivion Enforcer.
+  name: capuche d'Exécuteur de l'Oubli
+  description: Une capuche portée par un Exécuteur de l'Oubli.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -317,8 +317,8 @@
 - type: entity
   parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor, ClothingOuterStorageToggleableBase]
   id: ClothingOuterOblivionEnforcer
-  name: oblivion enforcer's robes
-  description: A set of armored, radiation-proof robes worn by Oblivion Enforcers.
+  name: robes d'Exécuteur de l'Oubli
+  description: Un ensemble de robes blindées et résistantes aux radiations portées par les Exécuteurs de l'Oubli.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/OuterClothing/oblivionenforcer.rsi
@@ -351,9 +351,9 @@
 - type: entity
   parent: [ClothingMaskGas, BaseMagicalContraband]
   id: ClothingMaskGasOblivionEnforcer
-  suffix: Voice Mask, Wizard Clothes
-  name: oblivion enforcer's mask
-  description: The mask of an Oblivion Enforcer. Don't forget to turn it on before giving your one-liners!
+  suffix: Masque Vocal, Vêtements de Sorcier
+  name: masque d'Exécuteur de l'Oubli
+  description: Le masque d'un Exécuteur de l'Oubli. N'oubliez pas de l'activer avant de lancer vos répliques cultes !
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/Mask/oblivionenforcer.rsi
@@ -376,64 +376,64 @@
 - type: entity
   parent: [ClothingHeadHatWizardBaseArmor, ClothingHeadHatWizard, ClothingHeadHatWizardBase]
   id: ClothingHeadHatWizardReal
-  name: wizard hat
+  name: chapeau de sorcier
 
 - type: entity
   parent: [ClothingOuterWizardBaseArmor, ClothingOuterWizard, ClothingOuterWizardBase]
   id: ClothingOuterWizardReal
-  name: wizard robes
+  name: robes de sorcier
 
 # Red
 - type: entity
   parent: [ClothingHeadHatWizardBaseArmor, ClothingHeadHatRedwizard, ClothingHeadHatWizardBase]
   id: ClothingHeadHatRedwizardReal
-  name: red wizard hat
+  name: chapeau de sorcier rouge
 
 - type: entity
   parent: [ClothingOuterWizardBaseArmor, ClothingOuterWizardRed, ClothingOuterWizardBase]
   id: ClothingOuterWizardRedReal
-  name: red wizard robes
+  name: robes de sorcier rouges
 
 # Violet
 - type: entity
   parent: [ClothingHeadHatWizardBaseArmor, ClothingHeadHatVioletwizard, ClothingHeadHatWizardBase]
   id: ClothingHeadHatVioletwizardReal
-  name: violet wizard hat
+  name: chapeau de sorcier violet clair
 
 - type: entity
   parent: [ClothingOuterWizardBaseArmor, ClothingOuterWizardViolet, ClothingOuterWizardBase]
   id: ClothingOuterWizardVioletReal
-  name: violet wizard robes
+  name: robes de sorcier violettes
 
 # Witch
 - type: entity
   parent: [ClothingHeadHatWizardBaseArmor, ClothingHeadHatWitch1, ClothingHeadHatWizardBase]
   id: ClothingHeadHatWitchReal
-  name: witch hat
+  name: chapeau de sorcière
 
 - type: entity
   parent: [ClothingOuterWizardBaseArmor, ClothingOuterSuitWitchRobes, ClothingOuterWizardBase]
   id: ClothingOuterSuitWitchRobesReal
-  name: witch robes
+  name: robes de sorcière
 
 # Shrine maiden
 - type: entity
   parent: [ClothingHeadHatWizardBaseArmor, ClothingHeadHatShrineMaidenWig, ClothingHeadHatWizardBase]
   id: ClothingHeadHatShrineMaidenWigReal
-  name: shrine maiden's wig
+  name: perruque de prêtresse
 
 - type: entity
   parent: [ClothingOuterWizardBaseArmor, ClothingOuterSuitShrineMaiden, ClothingOuterWizardBase]
   id: ClothingOuterSuitShrineMaidenReal
-  name: shrine maiden outfit
+  name: tenue de prêtresse
 
 # Centcomm
 - type: entity
   parent: [ClothingHeadHatWizardBaseArmor, ClothingHeadHatWizardBase]
   id: ClothingHeadHatCentCommwizardReal
-  name: CentComm wizard hat
+  name: chapeau de sorcier CentComm
   suffix: ADMIN
-  description: A pristine green and gold wizard hat, regulation issue for Central Command's arcane operatives. Worn only by those authorized to wield classified thaumaturgic instruments.
+  description: Un chapeau de sorcier vert et or impeccable, délivré réglementairement aux opératives arcaniques de la Direction Centrale. Porté uniquement par ceux autorisés à manier des instruments thaumaturgiques classifiés.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/Head/comwizard.rsi
@@ -443,9 +443,9 @@
 - type: entity
   parent: [ClothingOuterWizardBaseArmor, ClothingOuterWizardBase]
   id: ClothingOuterWizardCentCommReal
-  name: CentComm wizard robes
+  name: robes de sorcier CentComm
   suffix: ADMIN
-  description: A pristine green and gold gem-lined robe, regulation issue for Central Command's arcane operatives. Worn only by those authorized to wield classified thaumaturgic instruments.
+  description: Des robes bordées de gemmes vertes et or impeccables, délivrées réglementairement aux opératives arcaniques de la Direction Centrale. Portées uniquement par ceux autorisés à manier des instruments thaumaturgiques classifiés.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/OuterClothing/comwizard.rsi
@@ -456,8 +456,8 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingHandsGlovesWizard
-  name: wizard gloves
-  description: A magnificent pair of blue gem-lined gloves that seem to be insulated.
+  name: gants de sorcier
+  description: Une magnifique paire de gants bleus bordés de gemmes qui semblent isolés.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/Hands/wizgloves.rsi
@@ -472,8 +472,8 @@
 - type: entity
   parent: [ClothingHeadHatWizardBaseArmor, ClothingHeadHatWizardBase]
   id: ClothingHeadHatCrimsonReal
-  name: crimson wizard hat
-  description: A wide-brimmed, pointy wizard hat adorned with a crimson band and a touch of theatrical flair. Feels... explosive.
+  name: chapeau de sorcier cramoisi
+  description: Un chapeau de sorcier à large bord et pointu orné d'un ruban cramoisi et d'une touche de flair théâtral. Il semble... explosif.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/Head/crimsonwizard.rsi
@@ -483,8 +483,8 @@
 - type: entity
   parent: [ClothingOuterWizardBaseArmor, ClothingOuterWizardBase]
   id: ClothingOuterWizardCrimsonReal
-  name: crimson wizard robes
-  description: A flowing set of red and gold-trimmed robes, made for dramatic spellcasting. You can feel the power flowing through you...
+  name: robes de sorcier cramoisies
+  description: Un ensemble de robes rouge et or pour le lancer de sorts dramatique. Vous sentez le pouvoir couler en vous...
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/OuterClothing/crimsonwizard.rsi
@@ -494,8 +494,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakCrimson
-  name: Crimson Cape
-  description: A black cape with a high collar and gold trim. Billows dramatically even when there's no wind.
+  name: Cape Cramoisie
+  description: Une cape noire à col haut et lisérés dorés. Elle ondule de manière dramatique même sans vent.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/Neck/crimsonwizard.rsi
@@ -503,8 +503,8 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingUnderShoesCrimson
-  name: crimson boots
-  description: Comes with a pair of mismatched thigh-high socks to bring out their full power!
+  name: bottes cramoisies
+  description: Livrées avec une paire de chaussettes montantes dépareillées pour révéler leur plein potentiel !
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/Shoes/crimson.rsi

@@ -13,8 +13,8 @@
   name: hypercharged flash
   parent: [BaseItem, BaseCentcommContraband]
   id: HyperFlash
-  suffix: DO NOT MAP
-  description: An ultrabright flashbulb with a trigger. This one seems to be much more potent than an ordinary one.
+  suffix: NE PAS PLACER
+  description: Un flashbulbe ultrabrillant avec un déclencheur. Celui-ci semble bien plus puissant qu'un ordinaire.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/flash.rsi
@@ -130,7 +130,7 @@
   name: pepperspray
   id: PepperSpray
   parent: [BaseItem, BaseSecurityContraband]
-  suffix: Filled
+  suffix: Rempli
   description: A small 50u canister of Oleoresin Capsaicin. Capable of blinding and stunning targets who aren't wearing protective gear.
   components:
   - type: Sprite

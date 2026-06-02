@@ -14,8 +14,8 @@
 - type: entity
   parent: [ ClothingHeadBase, BaseMagicalContraband ]
   id: ClothingHeadHatHoodHeretic
-  name: ominous hood
-  description: A torn, dust-caked hood. Strange eyes line the inside.
+  name: capuche sinistre
+  description: Une capuche déchirée, couverte de poussière. D'étranges yeux en tapissent l'intérieur.
   components:
   - type: HereticMagicItem
   - type: Sprite
@@ -105,8 +105,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatHoodVoidCloakHeretic
-  name: void hood
-  description: Black like tar, reflecting no light. Runic symbols line the outside. With each flash you lose comprehension of what you are seeing.
+  name: capuche du vide
+  description: Noire comme du goudron, ne réfléchissant aucune lumière. Des symboles runiques en ornent l'extérieur. À chaque flash, vous perdez toute compréhension de ce que vous voyez.
   components:
   - type: Sprite
     sprite: _Goobstation/Heretic/Clothing/Head/void_cloak_hood.rsi

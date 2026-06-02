@@ -1,8 +1,8 @@
 - type: entity
   id: DiseaseBehaviorCough
   parent: DiseaseBehaviorBase
-  name: Cough
-  description: Makes you cough. Infective.
+  name: Toux
+  description: Vous fait tousser. Contagieux.
   components:
   - type: DiseaseEffect
     complexity: 6

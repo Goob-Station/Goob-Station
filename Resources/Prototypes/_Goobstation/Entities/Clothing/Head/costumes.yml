@@ -18,7 +18,7 @@
   parent: ClothingHeadBase
   id: ClothingCostumeGingerbreadHead
   name: Gingerbread Mask
-  description: Remember what they took from us.
+  description: Souviens-toi de ce qu'ils nous ont pris.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hats/gingerbreadhead.rsi

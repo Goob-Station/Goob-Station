@@ -7,8 +7,8 @@
 - type: entity
   parent: BaseAction
   id: ToggleNightVision
-  name: Toggle Night Vision
-  description: Toggles night vision.
+  name: Basculer la Vision Nocturne
+  description: Active ou désactive la vision nocturne.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -24,8 +24,8 @@
 - type: entity
   parent: BaseAction
   id: ToggleThermalVision
-  name: Toggle Thermal Vision
-  description: Toggles thermal vision.
+  name: Basculer la Vision Thermique
+  description: Active ou désactive la vision thermique.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -41,8 +41,8 @@
 - type: entity
   id: PulseThermalVision
   parent: ToggleThermalVision
-  name: Pulse Thermal Vision
-  description: Activate thermal vision temporarily.
+  name: Vision Thermique Pulsée
+  description: Active temporairement la vision thermique.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

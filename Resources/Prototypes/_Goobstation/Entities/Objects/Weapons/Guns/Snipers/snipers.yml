@@ -8,7 +8,7 @@
   name: HE1S-G8
   parent: [ BaseItem, BaseGunWieldable, BaseSyndicateContraband ]
   id: WeaponSniperHE1SG8
-  description: High Energy One-Shell rifle. On its side, "leading us on and on" is written using a cheap black marker. Takes Gauss-8 cartridges.
+  description: Fusil haute énergie à une cartouche. Sur son flanc, "nous menant encore et toujours" est écrit au marqueur noir bon marché. Accepte des cartouches Gauss-8.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Snipers/heavensgate_icon_48x.rsi

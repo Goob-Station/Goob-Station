@@ -1,7 +1,7 @@
 - type: entity
   id: CigaretteMedical
   suffix: Medical
-  description: An extra absorbant chemlab cigarette, tastes kinda like asbestos.
+  description: Une cigarette de laboratoire chimique extra-absorbante, a un peu le goût de l'amiante.
   parent: Cigarette
   name: cigarette
   components:

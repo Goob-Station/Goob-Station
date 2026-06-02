@@ -25,8 +25,8 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: first aid kit
-  description: It's an emergency medical kit for those serious boo-boos.
+  name: trousse de premiers secours
+  description: Une trousse médicale d'urgence pour les blessures sérieuses.
   parent: BaseStorageItem
   id: Medkit
   components:
@@ -49,8 +49,8 @@
     - Medkit
 
 - type: entity
-  name: burn treatment kit
-  description: "A specialized medical kit for when the toxins lab spontaneously burns down."
+  name: trousse de traitement des brûlures
+  description: "Une trousse médicale spécialisée pour quand le laboratoire de toxines prend feu spontanément."
   parent: Medkit
   id: MedkitBurn
   components:
@@ -60,8 +60,8 @@
     heldPrefix: burnkit
 
 - type: entity
-  name: toxin treatment kit
-  description: "Used to treat toxic blood content."
+  name: trousse de traitement des toxines
+  description: "Utilisée pour traiter les toxines dans le sang."
   parent: Medkit
   id: MedkitToxin
   components:
@@ -71,8 +71,8 @@
     heldPrefix: toxinkit
 
 - type: entity
-  name: oxygen deprivation treatment kit
-  description: "A box full of oxygen goodies."
+  name: trousse de traitement du manque d'oxygène
+  description: "Une boîte pleine de bonnes choses pour l'oxygène."
   parent: Medkit
   id: MedkitO2
   components:
@@ -82,8 +82,8 @@
     heldPrefix: o2kit
 
 - type: entity
-  name: brute trauma treatment kit
-  description: "A first aid kit for when you get toolboxed."
+  name: trousse de traitement des traumatismes contondants
+  description: "Une trousse de premiers secours pour quand vous prenez une boîte à outils dans la tête."
   parent: Medkit
   id: MedkitBrute
   components:
@@ -93,8 +93,8 @@
     heldPrefix: brutekit
 
 - type: entity
-  name: advanced first aid kit
-  description: "An advanced kit to help deal with advanced wounds."
+  name: trousse de premiers secours avancée
+  description: "Une trousse avancée pour traiter les blessures graves."
   parent: Medkit
   id: MedkitAdvanced
   components:
@@ -108,8 +108,8 @@
     - 0,0,5,1
 
 - type: entity
-  name: radiation treatment kit
-  description: "If you took your Rad-X you wouldn't need this."
+  name: trousse de traitement des radiations
+  description: "Si vous aviez pris votre Rad-X, vous n'en auriez pas besoin."
   parent: Medkit
   id: MedkitRadiation
   components:
@@ -119,8 +119,8 @@
     heldPrefix: radkit
 
 - type: entity
-  name: combat medical kit
-  description: "For the big weapons among us."
+  name: trousse médicale de combat
+  description: "Pour les plus grandes armes d'entre nous."
   parent: Medkit
   id: MedkitCombat
   components:

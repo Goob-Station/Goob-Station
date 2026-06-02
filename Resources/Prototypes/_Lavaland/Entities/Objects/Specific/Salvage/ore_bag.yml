@@ -1,6 +1,6 @@
 - type: entity
-  name: high-capacity ore bag
-  description: A robust bag for salvage specialists and miners alike to carry large amounts of ore. Magnetises any nearby ores when attached to a belt.
+  name: sac à minerai
+  description: Un sac robuste pour spécialistes de la récupération et mineurs, permettant de transporter de grandes quantités de minerai. Magnétise les minerais à proximité lorsqu'il est attaché à une ceinture.
   id: OreBagMagnetic
   parent: OreBag
   components:

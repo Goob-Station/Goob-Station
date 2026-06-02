@@ -10,7 +10,7 @@
 - type: entity
   parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseSecurityCommandContraband]
   id: ClothingOuterArmorHoSExperimental
-  name: head of security's experimental armored trenchcoat
+  name: trench-coat blindé expérimental du chef de la sécurité
   description: A greatcoat enhanced with an experimental bluespace assisted alloy for some extra protection and style for those with a commanding presence.
   components:
   - type: Sprite
@@ -36,7 +36,7 @@
   parent: ClothingOuterStorageBase
   id: ClothingOuterDavidsJacket
   name: EMT jacket
-  description: A bright yellow signal jacket, beloved by paramedics of the end of the 21st century.
+  description: Une veste signal jaune vif, chérie par les ambulanciers de la fin du 21e siècle.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Coats/david_jacket.rsi
@@ -49,7 +49,7 @@
   parent: [ClothingOuterDavidsJacket, BaseMajorContraband]
   id: ClothingOuterDavidsJacketValid
   name: edgerunner jacket
-  description: You're right on the edge. Show 'em you got this.
+  description: Vous êtes juste sur le fil. Montrez-leur que vous maîtrisez.
   components:
   - type: Clothing
     clothingVisuals:
@@ -87,7 +87,7 @@
   parent: [ClothingOuterArmorWarden, ClothingOuterStorageBase, BaseWardenContraband]
   id: ClothingOuterCoatWardenBlue
   name: warden's blue jacket
-  description: A sturdy, utilitarian jacket for those familiar with the brig.
+  description: Une veste robuste et utilitaire pour ceux qui connaissent bien le brig.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Coats/wardenblue.rsi
@@ -99,7 +99,7 @@
   parent: [ClothingOuterStorageFoldableBase, ClothingOuterCoatRD]
   id: ClothingOuterCoatRDPurple
   name: research director's experimental lab coat
-  description: Woven with experimental technology... this labcoat seems no more protective than your usual one. At least it looks nice.
+  description: Tissée avec une technologie expérimentale... cette blouse ne semble pas plus protectrice que l'habituelle. Au moins elle est belle.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Coats/rdaltcoat.rsi
@@ -128,7 +128,7 @@
   parent: [ClothingOuterStorageBase, BaseCommandContraband]
   id: ClothingOuterCoatHoPLong
   name: hop's longcoat
-  description: A smart longcoat for the Head of Personnel.
+  description: Un élégant long manteau pour le chef du personnel.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Coats/hoplongcoat.rsi

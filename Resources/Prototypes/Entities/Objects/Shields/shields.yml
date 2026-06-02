@@ -126,10 +126,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: base shield
+  name: bouclier de base
   parent: BaseItem
   id: BaseShield
-  description: A shield!
+  description: Un bouclier !
   abstract: true
   components:
     - type: Sprite
@@ -205,10 +205,10 @@
 #Security Shields
 
 - type: entity
-  name: riot shield
+  name: bouclier anti-émeute
   parent: [ BaseShield, BaseSecurityContraband ]
   id: RiotShield
-  description: A large tower shield. Good for controlling crowds.
+  description: Un grand bouclier tour. Idéal pour le contrôle de foule.
   components:
     - type: StaticPrice
       price: 90
@@ -226,10 +226,10 @@
           Slash: 1
 
 - type: entity
-  name: laser shield
+  name: bouclier laser
   parent: [ BaseShield, BaseSecurityContraband ]
   id: RiotLaserShield
-  description: A shield built for withstanding lasers, but not much else.
+  description: Un bouclier conçu pour résister aux lasers, mais à peu de chose d'autre.
   components:
     - type: Sprite
       state: riot_laser-icon
@@ -246,10 +246,10 @@
           Heat: 1
 
 - type: entity
-  name: ballistic shield
+  name: bouclier balistique
   parent: [ BaseShield, BaseSecurityContraband ]
   id: RiotBulletShield
-  description: A shield built for protecting against ballistics, but not much else.
+  description: Un bouclier conçu pour se protéger des projectiles, mais à peu de chose d'autre.
   components:
     - type: Sprite
       sprite: _Goobstation/Objects/Shields/riotbulletshield.rsi # Goobstation
@@ -270,10 +270,10 @@
 #Craftable shields
 
 - type: entity
-  name: wooden buckler
+  name: rondache en bois
   parent: BaseShield
   id: WoodenBuckler
-  description: A small round wooden makeshift shield.
+  description: Un petit bouclier rond en bois fait maison.
   components:
     - type: Sprite
       state: buckler-icon
@@ -325,10 +325,10 @@
       price: 150
 
 - type: entity
-  name: cardboard shield
+  name: bouclier en carton
   parent: BaseShield
   id: CardShield
-  description: A shield that wont shield you from much.
+  description: Un bouclier qui ne vous protégera pas de grand-chose.
   components:
     - type: Sprite
       state: cardshield-icon
@@ -388,10 +388,10 @@
         path: /Audio/Items/Toys/card_tube_bonk.ogg #Goob end
 
 - type: entity
-  name: makeshift shield
+  name: bouclier de fortune
   parent: BaseShield
   id: MakeshiftShield
-  description: A rundown looking shield, not good for much.
+  description: Un bouclier d'aspect délabré, qui ne sert pas à grand-chose.
   components:
     - type: Tag #goobstation
       tags:
@@ -445,10 +445,10 @@
                   max: 2
 
 - type: entity
-  name: web shield
+  name: bouclier de toile
   parent: BaseShield
   id: WebShield
-  description: A stringy shield. It's weak, and doesn't seem to do well against heat.
+  description: Un bouclier filamenteux. Il est fragile et ne semble pas bien résister à la chaleur.
   components:
     - type: Sprite
       sprite: Objects/Weapons/Melee/web-shield.rsi
@@ -500,7 +500,7 @@
 #Magic/Cult Shields (give these to wizard for now)
 
 - type: entity
-  name: clockwork shield
+  name: bouclier mécanique
   parent: BaseShield
   id: ClockworkShield
   description: Ratvar oyrffrf lbh jvgu uvf cebgrpgvba.
@@ -529,10 +529,10 @@
       #Have it break into brass when clock cult is in
 
 - type: entity
-  name: mirror shield
+  name: bouclier miroir
   parent: [ BaseShield, BaseMagicalContraband ]
   id: MirrorShield
-  description: Eerily glows red... you hear the geometer whispering
+  description: Brille d'un rouge inquiétant... vous entendez le géomètre chuchoter
   components:
     - type: Sprite
       state: mirror-icon
@@ -577,10 +577,10 @@
                   max: 5
 
 - type: entity
-  name: energy shield
+  name: bouclier énergétique
   parent: [BaseItem, BaseSyndicateContraband]
   id: EnergyShield
-  description: Exotic energy shield, when folded, can even fit in your pocket.
+  description: Bouclier énergétique exotique qui, une fois plié, tient même dans votre poche.
   components:
     - type: ItemToggle
       predictable: false # WD EDIT
@@ -673,10 +673,10 @@
       # WD EDIT END
 
 - type: entity
-  name: broken energy shield
+  name: bouclier énergétique cassé
   parent: BaseItem
   id: BrokenEnergyShield
-  description: Something inside is burned out, it is no longer functional.
+  description: Quelque chose à l'intérieur a grillé, il n'est plus fonctionnel.
   components:
     - type: Sprite
       sprite: Objects/Weapons/Melee/e_shield.rsi
@@ -687,10 +687,10 @@
       heldPrefix: eshield
 
 - type: entity
-  name: telescopic shield
+  name: bouclier télescopique
   parent: BaseShield
   id: TelescopicShield
-  description: An advanced riot shield made of lightweight materials that collapses for easy storage.
+  description: Un bouclier anti-émeute avancé en matériaux légers qui se replie pour un rangement facile.
   components:
     - type: ItemToggle
       soundActivate:

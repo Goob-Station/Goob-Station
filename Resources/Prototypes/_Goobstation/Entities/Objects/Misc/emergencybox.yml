@@ -18,7 +18,7 @@
   id: BoxSurvivalSlots
   parent: BaseItem
   name: survival box
-  description: It's a box with basic internals inside.
+  description: C'est une boîte avec des équipements de base à l'intérieur.
   suffix: Standard
   components:
   - type: Sprite
@@ -208,7 +208,7 @@
   parent: BoxSurvivalSlots
   id: BoxSurvivalSlotsEngineering
   name: extended-capacity survival box
-  description: It's a box with basic internals inside. This one is labelled to contain an extended-capacity tank.
+  description: C'est une boîte avec des équipements de base à l'intérieur. Celle-ci est étiquetée pour contenir un réservoir à capacité étendue.
   suffix: Extended
   components:
   - type: ContainerFill
@@ -260,7 +260,7 @@
   parent: BoxSurvivalSlots
   id: BoxSurvivalSlotsSecurity
   name: survival box
-  description: It's a box with basic internals inside.
+  description: C'est une boîte avec des équipements de base à l'intérieur.
   suffix: Security
   components:
   - type: ContainerFill
@@ -312,7 +312,7 @@
   parent: BoxSurvivalSlots
   id: BoxSurvivalSlotsMedical
   name: survival box
-  description: It's a box with basic internals inside.
+  description: C'est une boîte avec des équipements de base à l'intérieur.
   suffix: Medical
   components:
   - type: ContainerFill
@@ -363,8 +363,8 @@
 - type: entity
   parent: BoxSurvivalSlots
   id: BoxHugSlots
-  name: box of hugs
-  description: A special box for sensitive people.
+  name: boîte de câlins
+  description: Une boîte spéciale pour les personnes sensibles.
   suffix: Emergency
   components:
   - type: ContainerFill
@@ -419,7 +419,7 @@
   parent: BoxSurvivalSlots
   id: BoxSurvivalSlotsSyndicate
   name: extended-capacity survival box
-  description: It's a box with basic internals inside. This one is labelled to contain an extended-capacity tank.
+  description: C'est une boîte avec des équipements de base à l'intérieur. Celle-ci est étiquetée pour contenir un réservoir à capacité étendue.
   suffix: Syndicate
   components:
   - type: ContainerFill
@@ -718,7 +718,7 @@
   parent: BoxSurvivalSlots
   id: BoxSurvivalSlotsSilicon
   name: silicon survival box
-  description: It's a box with basic tools for self-repair inside.
+  description: C'est une boîte avec des outils de base pour l'auto-réparation à l'intérieur.
   components:
   - type: ContainerContainer
     containers:

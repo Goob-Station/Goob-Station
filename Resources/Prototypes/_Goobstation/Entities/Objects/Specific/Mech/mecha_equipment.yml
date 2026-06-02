@@ -7,7 +7,7 @@
 - type: entity
   id: DebugMechEquipment
   abstract: true
-  suffix: DEBUG
+  suffix: DÉBOGAGE
   categories: [ HideSpawnMenu ]
   components:
   - type: Tag

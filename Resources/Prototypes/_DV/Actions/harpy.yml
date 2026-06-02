@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHarpyPlayMidi
-  name: Play MIDI
-  description: Sing your heart out! Right click yourself to set an instrument.
+  name: Jouer du MIDI
+  description: Chantez à perdre haleine ! Faites un clic droit sur vous-même pour choisir un instrument.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -15,8 +15,8 @@
 - type: entity
   parent: BaseAction
   id: ActionSyrinxChangeVoiceMask
-  name: Set name
-  description: Change the name others hear to something else.
+  name: Définir le nom
+  description: Changez le nom que les autres entendent.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -28,8 +28,8 @@
 - type: entity
   parent: BaseAction
   id: ActionToggleFlight
-  name: Fly
-  description: Make use of your wings to fly. Beat the flightless bird allegations.
+  name: Voler
+  description: Utilisez vos ailes pour voler. Réduisez au silence les accusations d'oiseau incapable de voler.
   components:
   - type: Action
     checkCanInteract: false

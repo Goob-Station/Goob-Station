@@ -7,7 +7,7 @@
   parent: [ClothingBackpackDuffel, BaseCentcommContraband]
   id: ClothingBackpackDuffelBlueshield
   name: blueshield duffel bag
-  description: A very protective duffel bag, smells like energy gun.
+  description: Un sac fourre-tout très protecteur, qui sent le pistolet à énergie.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Duffels/blueshield.rsi

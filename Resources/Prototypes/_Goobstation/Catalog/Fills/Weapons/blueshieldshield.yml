@@ -26,7 +26,7 @@
 - type: entity
   id: BlueShieldShieldFilled
   parent: BlueShieldShield
-  suffix: Filled, DO NOT MAP
+  suffix: Rempli, NE PAS PLACER
   components:
   - type: ContainerFill
     containers:
@@ -36,7 +36,7 @@
 - type: entity
   id: BlueShieldShieldEvilFilled
   parent: BlueShieldShieldEvil
-  suffix: Filled, Evil, DO NOT MAP
+  suffix: Rempli, Maléfique, NE PAS PLACER
   components:
   - type: ContainerFill
     containers:

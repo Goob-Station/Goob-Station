@@ -8,8 +8,8 @@
 - type: entity
   id: ClarkeCentralElectronics
   parent: BaseElectronics
-  name: clarke central control module
-  description: The electrical control center for the clarke mech.
+  name: module de contrôle central du Clarke
+  description: Le centre de contrôle électrique du mech Clarke.
   components:
     - type: Item
       storedRotation: 0
@@ -26,8 +26,8 @@
 - type: entity
   id: ClarkePeripheralsElectronics
   parent: BaseElectronics
-  name: clarke peripherals control module
-  description: The electrical peripherals control for the clarke mech.
+  name: module de contrôle des périphériques du Clarke
+  description: Le contrôle électrique des périphériques du mech Clarke.
   components:
     - type: Sprite
       sprite: Objects/Misc/module.rsi
@@ -44,8 +44,8 @@
 - type: entity
   id: GygaxCentralElectronics
   parent: BaseElectronics
-  name: gygax central control module
-  description: The electrical control center for the gygax mech.
+  name: module de contrôle central du Gygax
+  description: Le centre de contrôle électrique du mech Gygax.
   components:
     - type: Item
       storedRotation: 0
@@ -62,8 +62,8 @@
 - type: entity
   id: GygaxPeripheralsElectronics
   parent: BaseElectronics
-  name: gygax peripherals control module
-  description: The electrical peripherals control for the gygax mech.
+  name: module de contrôle des périphériques du Gygax
+  description: Le contrôle électrique des périphériques du mech Gygax.
   components:
     - type: Sprite
       sprite: Objects/Misc/module.rsi
@@ -78,8 +78,8 @@
 - type: entity
   id: GygaxTargetingElectronics
   parent: BaseElectronics
-  name: gygax weapon control and targeting module
-  description: The electrical targeting control for the gygax mech.
+  name: module de contrôle des armes et de ciblage du Gygax
+  description: Le contrôle électrique de ciblage du mech Gygax.
   components:
     - type: Sprite
       sprite: Objects/Misc/module.rsi
@@ -96,8 +96,8 @@
 - type: entity
   id: DurandCentralElectronics
   parent: BaseElectronics
-  name: durand central control module
-  description: The electrical control center for the durand mech.
+  name: module de contrôle central du Durand
+  description: Le centre de contrôle électrique du mech Durand.
   components:
     - type: Item
       storedRotation: 0
@@ -114,8 +114,8 @@
 - type: entity
   id: DurandPeripheralsElectronics
   parent: BaseElectronics
-  name: durand peripherals control module
-  description: The electrical peripherals control for the durand mech.
+  name: module de contrôle des périphériques du Durand
+  description: Le contrôle électrique des périphériques du mech Durand.
   components:
     - type: Sprite
       sprite: Objects/Misc/module.rsi
@@ -130,8 +130,8 @@
 - type: entity
   id: DurandTargetingElectronics
   parent: BaseElectronics
-  name: durand weapon control and targeting module
-  description: The electrical targeting control for the durand mech.
+  name: module de contrôle des armes et de ciblage du Durand
+  description: Le contrôle électrique de ciblage du mech Durand.
   components:
     - type: Sprite
       sprite: Objects/Misc/module.rsi

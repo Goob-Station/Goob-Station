@@ -6,8 +6,8 @@
 - type: entity
   parent: BaseAction
   id: MouseMultiply
-  name: Multiply
-  description: Uses hunger to multiply.
+  name: Se multiplier
+  description: Utilise la faim pour se multiplier.
   components:
   - type: Action
     icon:
@@ -23,8 +23,8 @@
 - type: entity
   parent: BaseAction
   id: ActionBodyPartBurst
-  name: burst free!
-  description: Dig your way out of the flesh you are trapped in!
+  name: Se libérer !
+  description: Creusez votre chemin hors de la chair dans laquelle vous êtes piégé !
   components:
   - type: Action
     useDelay: 15

@@ -8,8 +8,8 @@
 - type: entity
   id: OrganAnimalBrain
   parent: BaseAnimalOrganUnGibbable
-  name: animal brain
-  description: "Not so intelligence, not so honk."
+  name: cerveau animal
+  description: "Pas si intelligence, pas si klaxon."
   components:
   - type: Sprite
     state: brain
@@ -62,8 +62,8 @@
 - type: entity
   id: OrganAnimalEyes
   parent: BaseAnimalOrgan
-  name: animal eyes
-  description: "I see you!"
+  name: yeux animaux
+  description: "Je vous vois !"
   components:
   # start-backmen: surgery
   - type: Organ

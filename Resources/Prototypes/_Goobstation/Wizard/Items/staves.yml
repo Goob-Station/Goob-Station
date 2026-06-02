@@ -4,10 +4,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: staff of change
+  name: bâton de métamorphose
   parent: WeaponStaffBase
   id: WeaponStaffChange
-  description: An artefact that spits bolts of coruscating energy which cause the target's very form to reshape itself.
+  description: Un artefact qui crache des éclairs d'énergie coruscante qui font que la forme même de la cible se remodèle.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Objects/Weapons/Staves/change.rsi
@@ -26,10 +26,10 @@
     rechargeCooldown: 8
 
 - type: entity
-  name: staff of chaos
+  name: bâton du chaos
   parent: WeaponStaffBase
   id: WeaponStaffChaos
-  description: An artefact that spits bolts of chaotic magic that can potentially do anything.
+  description: Un artefact qui crache des éclairs de magie chaotique pouvant potentiellement faire n'importe quoi.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Objects/Weapons/Staves/chaos.rsi
@@ -50,10 +50,10 @@
     rechargeCooldown: 2
 
 - type: entity
-  name: staff of slipping
+  name: bâton du glissement
   parent: WeaponStaffBase
   id: WeaponStaffSlipping
-  description: An artefact that spits... bananas?
+  description: Un artefact qui crache... des bananes ?
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Objects/Weapons/Staves/slipping.rsi

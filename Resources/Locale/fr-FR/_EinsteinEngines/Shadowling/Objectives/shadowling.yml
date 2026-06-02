@@ -1,0 +1,14 @@
+- type: entity
+  parent: BaseCodeObjective
+  id: ShadowlingAscendObjective
+  description: "Je dois m'élever à tout prix."
+  components:
+  - type: Objective
+    issuer: objective-issuer-shadowling
+    unique: true
+    difficulty: 3
+    icon:
+      sprite: _EinsteinEngines/Shadowling/objectives.rsi
+      state: ascendance_icon
+
+

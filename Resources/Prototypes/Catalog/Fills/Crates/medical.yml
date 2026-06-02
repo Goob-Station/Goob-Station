@@ -26,8 +26,8 @@
 - type: entity
   id: CrateMedicalSupplies
   parent: CrateMedical
-  name: medical supplies crate
-  description: Basic medical supplies.
+  name: caisse de fournitures médicales
+  description: Fournitures médicales de base.
   components:
   - type: StorageFill
     contents:
@@ -44,8 +44,8 @@
 - type: entity
   id: CrateChemistrySupplies
   parent: CrateMedical
-  name: chemistry supplies crate
-  description: Basic chemistry supplies.
+  name: caisse de fournitures de chimie
+  description: Fournitures de chimie de base.
   components:
   - type: StorageFill
     contents:
@@ -60,8 +60,8 @@
 - type: entity
   id: CrateChemistryVials
   parent: CrateMedical
-  name: vial supply crate
-  description: Crate filled with a box of vials.
+  name: caisse de flacons
+  description: Caisse remplie d'une boîte de flacons.
   components:
   - type: StorageFill
     contents:
@@ -70,8 +70,8 @@
 - type: entity
   id: CrateMindShieldImplants
   parent: CrateMedical
-  name: MindShield implant crate
-  description: Crate filled with 3 MindShield implants.
+  name: caisse d'implants MindShield
+  description: Caisse remplie de 3 implants MindShield.
   components:
   - type: StorageFill
     contents:
@@ -81,8 +81,8 @@
 - type: entity
   id: CrateMedicalSurgery
   parent: CrateSurgery
-  name: surgical supplies crate
-  description: Surgical instruments.
+  name: caisse de fournitures chirurgicales
+  description: Instruments chirurgicaux.
   components:
   - type: StorageFill
     contents:
@@ -104,8 +104,8 @@
 - type: entity
   id: CrateMedicalScrubs
   parent: CrateMedical
-  name: medical scrubs crate
-  description: Medical clothings.
+  name: caisse de tenues médicales
+  description: Vêtements médicaux.
   components:
   - type: StorageFill
     contents:
@@ -121,8 +121,8 @@
 - type: entity
   id: CrateEmergencyBurnKit
   parent: CrateMedical
-  name: emergency burn kit
-  description: Crate filled with a burn treatment kit.
+  name: kit d'urgence pour brûlures
+  description: Caisse remplie d'un kit de traitement des brûlures.
   components:
   - type: StorageFill
     contents:
@@ -131,8 +131,8 @@
 - type: entity
   id: CrateEmergencyToxinKit
   parent: CrateMedical
-  name: emergency toxin kit
-  description: Crate filled with a toxin treatment kit.
+  name: kit d'urgence contre les toxines
+  description: Caisse remplie d'un kit de traitement des toxines.
   components:
   - type: StorageFill
     contents:
@@ -141,8 +141,8 @@
 - type: entity
   id: CrateEmergencyO2Kit
   parent: CrateMedical
-  name: emergency O2 kit
-  description: Crate filled with an O2 treatment kit.
+  name: kit d'urgence O2
+  description: Caisse remplie d'un kit de traitement O2.
   components:
   - type: StorageFill
     contents:
@@ -151,8 +151,8 @@
 - type: entity
   id: CrateEmergencyBruteKit
   parent: CrateMedical
-  name: emergency brute kit
-  description: Crate filled with a brute treatment kit.
+  name: kit d'urgence pour traumatismes
+  description: Caisse remplie d'un kit de traitement des traumatismes.
   components:
   - type: StorageFill
     contents:
@@ -161,8 +161,8 @@
 - type: entity
   id: CrateEmergencyAdvancedKit
   parent: CrateMedical
-  name: emergency advanced kit
-  description: Crate filled with an advanced treatment kit.
+  name: kit d'urgence avancé
+  description: Caisse remplie d'un kit de traitement avancé.
   components:
   - type: StorageFill
     contents:
@@ -171,8 +171,8 @@
 - type: entity
   id: CrateEmergencyRadiationKit
   parent: CrateMedical
-  name: emergency radiation kit
-  description: Crate filled with a radiation treatment kit.
+  name: kit d'urgence contre les radiations
+  description: Caisse remplie d'un kit de traitement contre les radiations.
   components:
   - type: StorageFill
     contents:
@@ -181,8 +181,8 @@
 - type: entity
   id: CrateBodyBags
   parent: CrateMedical
-  name: body bags crate
-  description: Contains ten body bags.
+  name: caisse de sacs mortuaires
+  description: Contient dix sacs mortuaires.
   components:
   - type: StorageFill
     contents:
@@ -192,8 +192,8 @@
 - type: entity
   id: CrateVirologyBiosuit
   parent: CrateMedicalSecure
-  name: virology bio suit crate
-  description: Contains 2 biohazard suits to ensure that no disease will distract you from treating the crew. Requires Medical access to open.
+  name: caisse de combinaisons biologiques de virologie
+  description: Contient 2 combinaisons biologiques pour qu'aucune maladie ne vous détourne du traitement de l'équipage. Nécessite l'accès médical pour l'ouvrir.
   components:
   - type: StorageFill
     contents:

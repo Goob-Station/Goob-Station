@@ -8,8 +8,8 @@
 - type: entity
   parent: BaseAction
   id: ActionJumpToCore
-  name: Jump to core
-  description: Sends your eye back to the core.
+  name: Sauter vers le noyau
+  description: Renvoie votre œil vers le noyau.
   components:
   - type: Action
     priority: -9
@@ -23,8 +23,8 @@
 - type: entity
   parent: BaseAction
   id: ActionSurvCameraLights
-  name: Toggle camera lights
-  description: Enable surveillance camera lights near wherever you're viewing.
+  name: Basculer les lumières des caméras
+  description: Active les lumières des caméras de surveillance près de l'endroit que vous observez.
   components:
   - type: Action
     priority: -5
@@ -51,8 +51,8 @@
 - type: entity
   parent: BaseMentalAction
   id: ActionAIViewLaws
-  name: View Laws
-  description: View the laws that you must follow.
+  name: Voir les lois
+  description: Voir les lois que vous devez respecter.
   components:
   - type: Action
     priority: -3

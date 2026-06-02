@@ -1,7 +1,7 @@
 - type: entity
   id: DeterrentCase
-  name: deterrent case
-  description: A small green case filled with a Central Command members best friends. Warm to the touch.
+  name: mallette de dissuasion
+  description: Une petite mallette verte remplie des meilleurs amis d'un membre du Commandement Central. Chaud au toucher.
   parent: [ BaseStorageItem, BaseBagOpenClose, BaseCentcommContraband ]
   components:
   - type: Sprite

@@ -1,0 +1,270 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com
+# SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: BasicTauCetiBasicTranslatorImplant
+  name: implant traducteur commun de base
+  description: Offre à vos amis illettrés la capacité de comprendre la langue galactique commune.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: TauCetiBasicTranslatorImplant
+  name: implant traducteur commun avancé
+  description: "Une version plus avancée de l'implant traducteur, enseigne à vos amis illettrés la capacité de parler et de comprendre la langue galactique !"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - TauCetiBasic
+    spoken:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: BubblishTranslatorImplant
+  name: implant traducteur Bulbeux
+  description: "Un implant qui vous aide à parler et à comprendre la langue des slimes ! Cordes vocales spéciales non incluses."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - Bubblish
+    spoken:
+    - Bubblish
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: NekomimeticTranslatorImplant
+  name: implant traducteur nékomimétique
+  description: "Un implant traducteur initialement conçu pour aider les propriétaires de chats domestiques à comprendre leurs animaux, accordant désormais la capacité de comprendre et de parler aux Félinidés !"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - Nekomimetic
+    spoken:
+    - Nekomimetic
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: DraconicTranslatorImplant
+  name: implant traducteur draconique
+  description: "Un implant traducteur donnant la capacité de parler aux dragons ! Permet également de communiquer avec les Unathi."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - Draconic
+    spoken:
+    - Draconic
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: CanilunztTranslatorImplant
+  name: implant traducteur Canilunzt
+  description: "Un implant traducteur qui vous aide à communiquer avec vos yeepers locaux. Yeep !"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - Canilunzt
+    spoken:
+    - Canilunzt
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: SolCommonTranslatorImplant
+  name: implant traducteur Sol-Commun
+  description: "Un implant donnant la capacité de comprendre et de parler le SolCommun. Raaagh !"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - SolCommon
+    spoken:
+    - SolCommon
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: NovuNedericTranslatorImplant
+  name: implant traducteur Novu-Nédérique
+  description: "Un implant donnant la capacité de comprendre et de parler le Novu-Nédérique. Hoezee !"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - NovuNederic
+    spoken:
+    - NovuNederic
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: RootSpeakTranslatorImplant
+  name: implant traducteur Langue-des-Racines
+  description: Un implant qui vous permet de parler au nom des arbres. Ou aux arbres.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - RootSpeak
+    spoken:
+    - RootSpeak
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: MofficTranslatorImplant
+  name: implant traducteur Moffique
+  description: Un implant conçu pour aider à domestiquer les papillons-cafards. Permet également de communiquer avec le peuple des papillons.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - Moffic
+    spoken:
+    - Moffic
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: ValyrianStandardTranslatorImplant
+  name: implant traducteur Standard Valyrien
+  description: "Un implant donnant la capacité de comprendre et de parler le Standard Valyrien. Piou !"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - ValyrianStandard
+    spoken:
+    - ValyrianStandard
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: AzazibaTranslatorImplant
+  name: implant traducteur Azaziba
+  description: "Un implant donnant la capacité de comprendre et de parler l'Azaziba." # Intended for Admins Only, this item is for lore reasons not obtainable.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - Azaziba
+    spoken:
+    - Azaziba
+    requires:
+    - Draconic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: ChittinTranslatorImplant
+  name: implant traducteur Chittin
+  description: Un implant donnant la capacité de comprendre et de parler le Chittin.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - Chittin
+    spoken:
+    - Chittin
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: SiikMaasTranslatorImplant
+  name: "implant traducteur Siik'maas"
+  description: "Un implant donnant la capacité de comprendre et de parler le Siik'maas."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - SiikMaas
+    spoken:
+    - SiikMaas
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: MarishTranslatorImplant
+  name: implant traducteur Marish
+  description: Un implant donnant la capacité de comprendre et de parler le Marish.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - Marish
+    spoken:
+    - Marish
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: SchechiTranslatorImplant
+  name: implant traducteur Schechi
+  description: Un implant donnant la capacité de comprendre et de parler le Schechi.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - Schechi
+    spoken:
+    - Schechi
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: NewKinPidginTranslatorImplant
+  name: "implant traducteur Ka'rakk"
+  description: "Un implant donnant la capacité de comprendre et de parler le Ka'rakk."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - NewKinPidgin
+    spoken:
+    - NewKinPidgin
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: GruntishTranslatorImplant
+  name: implant traducteur Grognish
+  description: Un implant donnant la capacité de comprendre et de parler le Grognish.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - Gruntish
+    spoken:
+    - Gruntish
+    requires:
+    - TauCetiBasic

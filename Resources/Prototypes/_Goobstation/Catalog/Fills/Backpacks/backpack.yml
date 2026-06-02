@@ -6,7 +6,7 @@
 - type: entity
   id: ClothingBackpackSyndicateFilledGrenadier
   parent: ClothingBackpackSyndicate
-  suffix: Grenadier bundle, filled
+  suffix: Paquet Grenadier, rempli
   components:         # How many nades do you want?
   - type: StorageFill # Yes.
     contents:         # If seriously this is like 100 TC worth of explosives.

@@ -1,6 +1,6 @@
 - type: entity
   id: TentacleHook
-  name: tentacle hook
+  name: crochet tentaculaire
   categories: [ HideSpawnMenu ]
   components:
   - type: TimedDespawn

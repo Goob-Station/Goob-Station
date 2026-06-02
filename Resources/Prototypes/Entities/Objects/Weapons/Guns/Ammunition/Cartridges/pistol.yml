@@ -35,7 +35,7 @@
 
 - type: entity
   id: BaseCartridgePistol
-  name: cartridge (.35 auto)
+  name: cartouche (.35 auto)
   parent: [ BaseCartridge, BaseSecurityContraband ]
   abstract: true
   components:
@@ -55,8 +55,8 @@
 
 - type: entity
   id: CartridgePistol
-  name: cartridge (.35 auto)
-  description: Arguably the most popular caliber on the market, used by all manner of pistols and submachine guns. Standard kinetic ammunition is common and useful in most situations.
+  name: cartouche (.35 auto)
+  description: Sans doute le calibre le plus répandu sur le marché, utilisé par toutes sortes de pistolets et de mitraillettes. Les munitions cinétiques standard sont courantes et utiles dans la plupart des situations.
   parent: BaseCartridgePistol
   components:
   - type: CartridgeAmmo
@@ -64,8 +64,8 @@
 
 - type: entity
   id: CartridgePistolPractice
-  name: cartridge (.35 auto practice)
-  description: Arguably the most popular caliber on the market, used by all manner of pistols and submachine guns. Chalk ammunition is generally non-harmful, used for practice.
+  name: cartouche (.35 auto entraînement)
+  description: Sans doute le calibre le plus répandu sur le marché, utilisé par toutes sortes de pistolets et de mitraillettes. Les munitions à craie sont généralement inoffensives, utilisées pour l'entraînement.
   parent: BaseCartridgePistol
   components:
   - type: CartridgeAmmo
@@ -80,8 +80,8 @@
 
 - type: entity
   id: CartridgePistolIncendiary
-  name: cartridge (.35 auto incendiary)
-  description: Arguably the most popular caliber on the market, used by all manner of pistols and submachine guns. Incendiary ammunition contains a self-igniting compound that sets the target ablaze.
+  name: cartouche (.35 auto incendiaire)
+  description: Sans doute le calibre le plus répandu sur le marché, utilisé par toutes sortes de pistolets et de mitraillettes. Les munitions incendiaires contiennent un composé à auto-allumage qui embrase la cible.
   parent: BaseCartridgePistol
   components:
   - type: CartridgeAmmo
@@ -96,8 +96,8 @@
 
 - type: entity
   id: CartridgePistolUranium
-  name: cartridge (.35 auto uranium)
-  description: Arguably the most popular caliber on the market, used by all manner of pistols and submachine guns. Uranium core ammunition features a load of fissile material, irradiating the target from the inside.
+  name: cartouche (.35 auto uranium)
+  description: Sans doute le calibre le plus répandu sur le marché, utilisé par toutes sortes de pistolets et de mitraillettes. Les munitions à noyau d'uranium comportent une charge de matériau fissile qui irradie la cible de l'intérieur.
   parent: BaseCartridgePistol
   components:
   - type: CartridgeAmmo
@@ -112,7 +112,7 @@
 
 - type: entity
   id: CartridgePistolSpent
-  name: cartridge (.35 auto)
+  name: cartouche (.35 auto)
   suffix: spent
   parent: BaseCartridgePistol
   components:

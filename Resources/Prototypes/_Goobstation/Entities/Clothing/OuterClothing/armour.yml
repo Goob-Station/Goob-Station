@@ -113,7 +113,7 @@
 - type: entity
   parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseSecurityCommandContraband]
   id: ClothingOuterArmorHoSVestWeb
-  name: head of security's web vest
+  name: gilet tactique du chef de la sécurité
   description: A high-quality armored vest made from a hard synthetic material. It is surprisingly flexible and light, despite formidable armor plating.
   components:
   - type: Sprite
@@ -126,7 +126,7 @@
   parent: [ ClothingOuterArmorCaptainCarapace, ClothingOuterStorageBase ]
   id: ClothingOuterCapJacket
   name: captain's armored jacket
-  description: An extremely expensive jacket with extra durathread protection at the chest.
+  description: Une veste extrêmement coûteuse avec une protection durathread supplémentaire au niveau du torse.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Armor/captain_jacket.rsi
@@ -185,7 +185,7 @@
   parent: ClothingBlueshieldArmourVest
   id: ClothingBlueshieldArmoredJacket
   name: blueshield's armored jacket
-  description: A jacket with sewn-in reinforcement layers.
+  description: Une veste avec des couches de renfort cousues.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Armor/blueshield_jacket.rsi
@@ -433,7 +433,7 @@
   parent: ClothingOuterArmorTemplar
   id: ClothingOuterArmorStudent
   name: student robe
-  description: The uniform of a bygone institute of learning.
+  description: L'uniforme d'un établissement d'enseignement révolu.
   components:
   - type: Sprite
     sprite: _ShitChap/Clothing/OuterClothing/Misc/student.rsi
@@ -444,7 +444,7 @@
   parent: ClothingOuterArmorTemplar
   id: ClothingOuterArmorWitchhunter
   name: witch hunter garb
-  description: This worn outfit saw much use back in the day.
+  description: Cette tenue usée a beaucoup servi en son temps.
   components:
   - type: Sprite
     sprite: _ShitChap/Clothing/OuterClothing/Misc/witchhunter.rsi
@@ -455,7 +455,7 @@
   parent: ClothingOuterArmorTemplar
   id: ClothingOuterArmorAncient
   name: ancient armour
-  description: Defend the treasure...
+  description: Défends le trésor...
   components:
   - type: Sprite
     sprite: _ShitChap/Clothing/OuterClothing/Misc/ancient.rsi
@@ -466,7 +466,7 @@
   parent: [ClothingOuterArmorTemplar, ClothingOuterBaseToggleable]
   id: ClothingOuterArmorAdept
   name: adept robes
-  description: The ideal outfit for burning the unfaithful.
+  description: La tenue idéale pour brûler les infidèles.
   components:
   - type: Sprite
     sprite: _ShitChap/Clothing/OuterClothing/Misc/adept.rsi
@@ -481,7 +481,7 @@
   parent: ClothingOuterArmorTemplar
   id: ClothingOuterArmorClock
   name: forgotten armour
-  description: It sounds like hissing steam, ticking cogs, gone silent, It looks like a dead machine, trying to tick with life.
+  description: On dirait de la vapeur qui siffle, des engrenages qui cliquettent, puis le silence. On dirait une machine morte essayant de battre la vie.
   components:
   - type: Sprite
     sprite: _ShitChap/Clothing/OuterClothing/Misc/clock.rsi
@@ -492,7 +492,7 @@
   parent: [ClothingOuterArmorTemplar, ClothingOuterBaseToggleable]
   id: ClothingOuterArmorMonk
   name: monk's habit
-  description: A few steps above rended sackcloth.
+  description: Quelques crans au-dessus du sac de toile déchiré.
   components:
   - type: Sprite
     sprite: _ShitChap/Clothing/OuterClothing/Misc/monkrobe.rsi
@@ -507,7 +507,7 @@
   parent: ClothingOuterArmorTemplar
   id: ClothingOuterArmorBishop
   name: bishop's robes
-  description: Glad to see the tithes you collected were well spent.
+  description: Heureux de voir que les dîmes que vous avez collectées ont été bien dépensées.
   components:
   - type: Sprite
     sprite: _ShitChap/Clothing/OuterClothing/Misc/bishop.rsi
@@ -545,7 +545,7 @@
   parent: ClothingOuterArmorTemplar
   id: ClothingOuterArmorInquisitor
   name: inquisitor armor
-  description: Bulky armor adorned with golden chains and patterns. Show heresy your might!
+  description: Une armure massive ornée de chaînes et de motifs dorés. Montrez votre puissance à l'hérésie !
   components:
   - type: Sprite
     sprite: _ShitChap/Clothing/OuterClothing/Misc/inquisitor.rsi

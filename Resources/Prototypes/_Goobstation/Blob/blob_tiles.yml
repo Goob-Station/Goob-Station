@@ -15,7 +15,7 @@
 - type: entity
   id: SpawnPointGhostBlob
   name: Blob
-  suffix: DONTMAP, spawner
+  suffix: NE PAS PLACER, spawner
   parent: MarkerBase
   components:
     - type: GhostRoleMobSpawner
@@ -41,8 +41,8 @@
 - type: entity
   parent: BaseBlob
   id: CoreBlobTile
-  name: Core Blob
-  description: The most important part of the Blob. This is the brain and heart of the Blob.
+  name: Blob Central
+  description: L'élément le plus important du Blob. C'est le cerveau et le cœur du Blob.
   save: false
   components:
   - type: Temperature
@@ -125,9 +125,9 @@
 - type: entity
   parent: BaseBlob
   id: NormalBlobTile
-  name: Normal Blob
+  name: Blob Normal
   categories: [ HideSpawnMenu ]
-  description: An ordinary part of yours required for the construction of more advanced tiles.
+  description: Une partie ordinaire de vous-même, nécessaire à la construction de tuiles plus avancées.
   components:
   - type: Temperature
     heatDamage:
@@ -189,8 +189,8 @@
 - type: entity
   parent: BaseBlob
   id: FactoryBlobTile
-  name: Factory Blob
-  description: The so-called BlobPods come out of the factory and attack passers-by and zombify the corpses of these same passers-by. One factory produces 3 of these BlobPods; they cannot be placed next to each other at a distance of 7 tiles; one factory can produce only one Blobbernaut.
+  name: Blob Usine
+  description: Les BlobNacelles sortent de l'usine et attaquent les passants, puis zombifient leurs cadavres. Une usine en produit 3 ; elles ne peuvent pas être placées à moins de 7 tuiles l'une de l'autre ; une usine ne peut produire qu'un seul Blobbernaut.
   categories: [ HideSpawnMenu ]
   components:
     - type: Temperature
@@ -228,7 +228,7 @@
 - type: entity
   parent: BaseBlob
   id: ResourceBlobTile
-  name: Resource Blob
+  name: Blob Ressource
   categories: [ HideSpawnMenu ]
   components:
     - type: Temperature
@@ -267,8 +267,8 @@
 - type: entity
   parent: BaseBlob
   id: NodeBlobTile
-  name: Node Blob
-  description: The second, but mini, Blob core, near which you can place factories and resource blobs. Required to split the core.
+  name: Blob Nœud
+  description: Le second noyau du Blob, mais en miniature, près duquel vous pouvez placer des usines et des blobs ressource. Nécessaire pour scinder le noyau.
   categories: [ HideSpawnMenu ]
   components:
     - type: Temperature
@@ -307,8 +307,8 @@
 - type: entity
   parent: BaseBlob
   id: StrongBlobTile
-  name: StrongBlobTile
-  description: The basis of defensive positions has not only a strength of 6 times, this tile is also capable of withstanding various gases in order to become an atmospheric technician to protect the core, for example, from plasma that the enemy can set on fire.
+  name: Tuile Blob Renforcée
+  description: La base des positions défensives possède non seulement une résistance six fois supérieure, mais cette tuile est aussi capable de résister à divers gaz pour protéger le noyau, par exemple du plasma que l'ennemi pourrait enflammer.
   categories: [ HideSpawnMenu ]
   components:
     - type: Airtight
@@ -335,8 +335,8 @@
 - type: entity
   parent: BaseBlob
   id: ReflectiveBlobTile
-  name: ReflectiveBlobTile
-  description: Upgrading a fortified cell in which they pay less strength for the ability to reflect only energy projectiles and lasers with a 90% chance.
+  name: Tuile Blob Réfléchissante
+  description: Amélioration d'une cellule fortifiée qui sacrifie une partie de résistance contre la capacité de réfléchir projectiles énergétiques et lasers avec 90 % de chance.
   categories: [ HideSpawnMenu ]
   components:
     - type: Airtight

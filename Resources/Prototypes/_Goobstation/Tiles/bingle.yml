@@ -28,7 +28,7 @@
 - type: entity
   id: FloorTileItemBingle
   parent: FloorTileItemBase
-  name: bingle floor
+  name: sol de bingle
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Tiles/bingle.rsi

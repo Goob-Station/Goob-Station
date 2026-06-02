@@ -10,7 +10,7 @@
 - type: entity
   id: DresserBlueshieldOfficerFilled
   parent: Dresser
-  suffix: Filled, Blueshield
+  suffix: Rempli, Bouclier Bleu
   components:
   - type: EntityTableContainerFill
     containers:
@@ -30,7 +30,7 @@
 - type: entity
   id: DresserNanorepFilled
   parent: Dresser
-  suffix: Filled, Nanorep
+  suffix: Rempli, Nanorep
   components:
   - type: EntityTableContainerFill
     containers:

@@ -34,8 +34,8 @@
 - type: entity
   parent: [BaseChangelingObjective, BaseSurviveObjective]
   id: ChangelingSurviveObjective
-  name: Survive
-  description: We must survive no matter what.
+  name: Survivre
+  description: Nous devons survivre coûte que coûte.
   components:
   - type: Objective
     icon:
@@ -91,7 +91,7 @@
 - type: entity
   parent: BaseChangelingObjective
   id: EscapeIdentityObjective
-  description: We need to escape on the evacuation shuttle. Undercover.
+  description: Nous devons fuir sur la navette d'évacuation. Discrètement.
   components:
   - type: Objective
     icon:
@@ -126,7 +126,7 @@
 - type: entity
   parent: [BaseChangelingSyndicateObjective, BaseKillObjective]
   id: LingKillRandomHeadObjective
-  description: Our worshippers requested we eliminate this high value target.
+  description: Nos fidèles ont demandé l'élimination de cette cible de haute valeur.
   components:
   - type: Objective
     unique: true

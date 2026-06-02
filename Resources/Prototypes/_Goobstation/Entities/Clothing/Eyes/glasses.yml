@@ -24,7 +24,7 @@
   parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons, BaseSecurityContraband, ClothingEyesGlassesSunglasses]
   id: ClothingEyesGlassesMedSec
   name: medical security glasses
-  description: Sunglasses with a medical and security hud
+  description: Lunettes de soleil avec un HUD médical et sécurité.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Eyes/Glasses/medsecglasses.rsi
@@ -77,7 +77,7 @@
   parent: ClothingEyesBase
   id: ClothingEyesGlassesBroken
   name: broken glasses
-  description: My glasses! I can't see without my glasses!
+  description: Mes lunettes ! Je n'y vois rien sans mes lunettes !
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Eyes/Glasses/brokenglasses.rsi
@@ -97,7 +97,7 @@
   parent: [ClothingEyesBase, ClothingEyesGlassesSunglasses]
   id: ClothingEyesGlassesDiag
   name: diagnostic glasses
-  description: Sunglasses with a diagnostic hud.
+  description: Lunettes de soleil avec un HUD de diagnostic.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Eyes/Glasses/diagglasses.rsi
@@ -116,7 +116,7 @@
   parent: [ClothingEyesBase, ShowMedicalIcons, ClothingEyesGlassesSunglasses]
   id: ClothingEyesGlassesMed
   name: medical glasses
-  description: Sunglasses with a medical hud.
+  description: Lunettes de soleil avec un HUD médical.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Eyes/Glasses/medglasses.rsi
@@ -129,9 +129,9 @@
 - type: entity
   parent: [ClothingEyesHudOmni, BaseCentcommContraband]
   id: ClothingEyesGlassesDeathsquad
-  suffix: DO NOT MAP
+  suffix: NE PAS PLACER
   name: central commander shades
-  description: Pride. Hubris. Wrath. It's not a sin if you're right.
+  description: Fierté. Hubris. Colère. Ce n'est pas un péché si vous avez raison.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Eyes/Glasses/deathsquad.rsi
@@ -162,7 +162,7 @@
 - type: entity
   parent: [ClothingEyesHudOmni, BaseCentcommContraband]
   id: ClothingEyesGlassesCentComm
-  suffix: DO NOT MAP
+  suffix: NE PAS PLACER
   name: central command shades
   description: A pair of shades designed for central command personnel. It's nothing personal. # *teleports behind you*, Nothing personnel, kid.
   components:
@@ -186,7 +186,7 @@
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons, BaseCentcommContraband]
   id: ClothingEyesGlassesCentCommNoThermal
-  suffix: No thermals, DO NOT MAP
+  suffix: Sans thermique, NE PAS PLACER
   name: central command shades
   description: A pair of shades designed for central command personnel. Comes with more features than you could imagine.
   components:
@@ -213,7 +213,7 @@
   parent: [ClothingEyesBase, ShowHealthRelatedIcons, BaseCentcommContraband, ClothingEyesGlassesSunglasses]
   id: ClothingEyesGlassesBSO
   name: blueshield officer glasses
-  description: Sunglasses with a medical, job and diagnostic hud.
+  description: Lunettes de soleil avec un HUD médical, professionnel et de diagnostic.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Eyes/Glasses/bsoglasses.rsi
@@ -227,7 +227,7 @@
   parent: [ClothingEyesBase, ClothingEyesGlassesSunglasses, ShowHealthRelatedIcons]
   id: ClothingEyesGlassesMedDiag
   name: meddiag glasses
-  description: Sunglasses with a medical and diagnostic hud.
+  description: Lunettes de soleil avec un HUD médical et de diagnostic.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Eyes/Glasses/meddiagglasses.rsi

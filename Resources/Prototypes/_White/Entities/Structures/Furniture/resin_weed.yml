@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseStructure
   id: ResinWeed
-  name: resin floor
-  description: A thick resin surface covers the floor.
+  name: sol de résine
+  description: Une épaisse surface de résine recouvre le sol.
   components:
   - type: Sprite
     noRot: true
@@ -80,8 +80,8 @@
 - type: entity
   parent: ResinWeed
   id: ResinWeedNode
-  name: glowing resin
-  description: Blue bioluminescence shines from beneath the surface.
+  name: résine lumineuse
+  description: Une bioluminescence bleue brille sous la surface.
   components:
   - type: Sprite
     sprite: _RMC14/Structures/Xenos/xeno_weeds.rsi # Goobstation new sprites

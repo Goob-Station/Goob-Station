@@ -5,7 +5,7 @@
 
 - type: entity
   id: Butt
-  name: "butt"
+  name: "fesses"
   parent: [BaseItem]
   components:
   - type: Sprite

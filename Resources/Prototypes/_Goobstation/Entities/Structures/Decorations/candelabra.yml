@@ -6,8 +6,8 @@
 - type: entity
   id: BaseCandelabra
   parent: BaseStructure
-  name: candelabra
-  description: Just don't try swinging from it!
+  name: candélabre
+  description: Juste n'essayez pas de vous balancer dessus !
   placement:
     mode: SnapgridCenter
   components:
@@ -37,8 +37,8 @@
 - type: entity
   id: CandelabraLit
   parent: BaseCandelabra
-  name: candelabra
-  description: Just don't try swinging from it!
+  name: candélabre
+  description: Juste n'essayez pas de vous balancer dessus !
   components:
   - type: Sprite
     noRot: true

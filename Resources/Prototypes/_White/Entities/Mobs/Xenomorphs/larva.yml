@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseMobXenomorph
   id: BaseMobXenomorphLarva
-  name: xenomorph larva
-  description: An early stage of development characterized by small size, a worm-like body shape, and the absence of distinct limbs.
+  name: xénomorphe larve
+  description: Un stade de développement précoce caractérisé par une petite taille, une forme de corps vermiculaire et l'absence de membres distincts.
   abstract: true
   components:
   - type: Sprite

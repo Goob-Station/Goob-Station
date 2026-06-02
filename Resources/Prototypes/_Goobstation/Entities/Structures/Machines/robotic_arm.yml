@@ -7,8 +7,8 @@
 - type: entity
   parent: [ ConstructibleMachine, BaseMachinePowered ]
   id: RoboticArm
-  name: robotic arm
-  description: A high-tech robotic arm capable of moving items to and from machines that have automation upgrades.
+  name: bras robotique
+  description: Un bras robotique de haute technologie capable de déplacer des objets vers et depuis des machines qui ont des améliorations d'automatisation.
   components:
   # Visuals
   - type: Sprite

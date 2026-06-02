@@ -12,10 +12,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: global positioning system
+  name: système de positionnement mondial
   parent: BaseItem
   id: HandheldGPSBasic
-  description: Helping lost spacemen find their way through the planets since 2016.
+  description: Aide les spationautes perdus à se repérer dans les planètes depuis 2016.
   components:
   - type: Sprite
     sprite: Objects/Devices/gps.rsi
@@ -42,7 +42,7 @@
         type: GpsBoundUserInterface
 
 - type: entity #why does this exist? Well, "global positioning system" is too long to fit in the cyborg's hand slot.
-  name: Integrated GPS
+  name: GPS intégré
   parent: HandheldGPSBasic
   id: BorgHandheldGPSBasic
-  description: A miniaturized Global Positioning System for use in cyborg units.
+  description: Un système de positionnement mondial miniaturisé pour une utilisation dans les unités cyborg.

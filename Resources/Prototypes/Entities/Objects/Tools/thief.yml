@@ -6,8 +6,8 @@
 - type: entity
   parent: BaseMinorContraband
   id: ThiefBeacon
-  name: thieving beacon
-  description: A device that will teleport everything around it to the thief's vault at the end of the shift.
+  name: balise de voleur
+  description: Un appareil qui téléporte tout ce qui l'entoure vers le coffre du voleur en fin de service.
   components:
     - type: ThiefBeacon
     - type: StealArea
@@ -46,8 +46,8 @@
 
 - type: entity
   id: ToolboxThief
-  name: undetermined thieving toolbox
-  description: This is where your favorite thief's supplies lie. Try to remember which ones.
+  name: boîte à outils de voleur indéterminée
+  description: Voici où se trouvent les fournitures de votre voleur préféré. Essayez de vous rappeler lesquelles.
   parent: [ BaseItem, BaseSetSelector, BaseMinorContraband ] # Goobstation edit
   components:
     - type: Sprite
@@ -84,8 +84,8 @@
 
 - type: entity
   id: SatchelThief
-  name: undetermined thieving satchel
-  description: This is where your favorite thief's supplies lie. Folded for your convenience.
+  name: sacoche de voleur indéterminée
+  description: Voici où se trouvent les fournitures de votre voleur préféré. Pliée pour votre commodité.
   parent: ToolboxThief
   components:
   - type: Sprite

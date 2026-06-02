@@ -1,0 +1,33 @@
+- type: entity
+  id: CratePlasmaInternals
+  parent: CrateInternals
+  name: "caisse d'approvisionnement interne (plasma)"
+  description: Contient quatre masques respiratoires et quatre réservoirs internes de plasma. Destiné aux Plasmamens.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingMaskGas
+        amount: 2
+      - id: ClothingMaskBreath
+        amount: 2
+      - id: ExtendedEmergencyPlasmaTankFilled # goob smaller tank
+        amount: 4
+
+- type: entity
+  id: CratePlasmamanEnvirosuit
+  parent: CrateInternals
+  name: "caisse d'envirocombinaison plasma"
+  description: "Contient deux ensembles complets d'envirocombinaisons, deux masques respiratoires et deux réservoirs internes de plasma. Destiné aux Plasmamens."
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingUniformEnvirosuit
+        amount: 2
+      - id: ClothingHeadEnvirohelmEmpty
+        amount: 2
+      - id: ClothingHandsGlovesEnvirogloves
+        amount: 2
+      - id: ClothingMaskBreath
+        amount: 2
+      - id: ExtendedEmergencyPlasmaTankFilled # goob smaller tank
+        amount: 2

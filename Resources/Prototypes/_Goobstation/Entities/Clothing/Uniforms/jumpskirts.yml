@@ -13,7 +13,7 @@
   parent: ClothingUniformSkirtBase
   id: CentcomAgentSkirt
   name: centcom agent skirt
-  description: A skirt worn by CentComs legal team. Smells of burnt coffee.
+  description: Une jupe portée par l'équipe juridique de CentComm. Sent le café brûlé.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Centcom/centcom_agent.rsi
@@ -24,7 +24,7 @@
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtNanotrasenRepresentative
   name: nanotrasen representative skirt
-  description: A black skirt worn by officials.
+  description: Une jupe noire portée par les officiels.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Centcom/nanotrasen_representative.rsi
@@ -46,7 +46,7 @@
   parent: ClothingUniformJumpsuitNavyGold
   id: ClothingUniformJumpskirtTrainer
   name: NCT Jumpskirt
-  description: A jumpskirt issued to Nanotrasen Career Trainers. Fills you with a feeling of pride.
+  description: Une combinaison-jupe émise aux formateurs de carrière Nanotrasen. Vous remplit d'un sentiment de fierté.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Centcom/trainer.rsi
@@ -57,7 +57,7 @@
   parent: ClothingUniformSkirtBase
   id: ClothingUniformSkirtMailCarrier
   name: mail carrier's jumpskirt
-  description: Enemy of dogs everywhere.
+  description: Ennemi des chiens partout.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/mailman.rsi
@@ -68,7 +68,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpskirtCommandMaid
   name: command maid uniform
-  description: A stylish maid uniform specially designed for elite Command Maids. Combines professionalism with a touch of elegance.
+  description: Un uniforme de femme de chambre élégant, spécialement conçu pour les femmes de chambre de commandement d'élite. Allie professionnalisme et touche d'élégance.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Other/command_maid.rsi
@@ -81,7 +81,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpskirtSalvageSpecialist
   name: salvage specialist's jumpskirt
-  description: It's a snappy jumpskirt with a sturdy set of overalls. It's very dirty.
+  description: C'est une combinaison-jupe élégante avec un solide ensemble de salopettes. Elle est très sale.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/salvage.rsi
@@ -92,7 +92,7 @@
   parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ClothingUniformJumpskirtShaftMiner
   name: shaft miner's jumpskirt
-  description: It's a snappy jumpskirt with a sturdy set of overalls. It looks burnt.
+  description: C'est une combinaison-jupe élégante avec un solide ensemble de salopettes. Elle semble brûlée.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/shaft_miner.rsi

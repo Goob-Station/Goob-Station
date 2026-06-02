@@ -21,7 +21,7 @@
 - type: entity
   parent: Bible
   name: Tanakh
-  description: "Choose life, that you and your offspring may live."
+  description: "Choisis la vie, afin que tu vives, toi et ta descendance."
   id: BibleTanakh
   components:
   - type: Sprite
@@ -41,7 +41,7 @@
 - type: entity
   parent: Bible
   name: clockwork slab
-  description: A strange metal tablet. A clock in the center turns around and around.
+  description: Une étrange tablette métallique. Une horloge en son centre tourne encore et encore.
   id: BibleSlabClockwork
   components:
   - type: Sprite

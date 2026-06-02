@@ -66,7 +66,7 @@
 - type: entity
   parent: BasePartSurgery
   id: SurgeryOpenIncision
-  name: Open Incision
+  name: Ouvrir l'incision
   components:
   - type: Surgery
     steps:
@@ -76,7 +76,7 @@
 - type: entity
   parent: BasePartSurgery
   id: SurgeryStopBloodOutput
-  name: Stop Constant Blood Output
+  name: Arrêter l'hémorragie
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -88,7 +88,7 @@
 - type: entity
   parent: BasePartSurgery
   id: SurgeryFixDismemberment
-  name: Fix Dismemberment Leftovers
+  name: Réparer les restes de démembrement
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -104,7 +104,7 @@
 - type: entity
   parent: BasePartSurgery
   id: SurgeryCloseIncision
-  name: Close Incision
+  name: Fermer l'incision
   components:
   - type: Surgery
     priority: 1
@@ -149,7 +149,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryOpenRibcage
-  name: Open Ribcage
+  name: Ouvrir la cage thoracique
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -162,7 +162,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryRemovePart
-  name: Amputate
+  name: Amputer
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -178,7 +178,7 @@
 - type: entity
   parent: BasePartSurgery
   id: SurgeryMendBones
-  name: Mend Bones
+  name: Réparer les os
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -194,7 +194,7 @@
 - type: entity
   parent: BasePartSurgery
   id: SurgeryHealOrgans
-  name: Heal Organs
+  name: Soigner les organes
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -212,7 +212,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryAttachHead
-  name: Attach Head
+  name: Attacher la tête
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -231,7 +231,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryAttachGroin
-  name: Attach Groin
+  name: Attacher l'aine
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -250,7 +250,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryAttachLeftArm
-  name: Attach Left Arm
+  name: Attacher le bras gauche
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -270,7 +270,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryAttachRightArm
-  name: Attach Right Arm
+  name: Attacher le bras droit
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -290,7 +290,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryAttachLeftLeg
-  name: Attach Left Leg
+  name: Attacher la jambe gauche
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -310,7 +310,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryAttachRightLeg
-  name: Attach Right Leg
+  name: Attacher la jambe droite
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -331,7 +331,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryAttachLeftHand
-  name: Attach Left Hand
+  name: Attacher la main gauche
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -352,7 +352,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryAttachRightHand
-  name: Attach Right Hand
+  name: Attacher la main droite
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -373,7 +373,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryAttachLeftFoot
-  name: Attach Left Foot
+  name: Attacher le pied gauche
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -394,7 +394,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryAttachRightFoot
-  name: Attach Right Foot
+  name: Attacher le pied droit
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -417,7 +417,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryAttachLegs
-  name: Attach Legs
+  name: Attacher les jambes
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -434,7 +434,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryAttachHands
-  name: Attach Hands
+  name: Attacher les mains
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -451,7 +451,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryAttachFeet
-  name: Attach Feet
+  name: Attacher les pieds
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -467,7 +467,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryAttachTail
-  name: Attach Tail
+  name: Attacher la queue
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -500,7 +500,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryTendWoundsBrute
-  name: Tend Bruise Wounds
+  name: Traiter les contusions
   components:
   - type: Surgery
     steps:
@@ -513,7 +513,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryTendWoundsBurn
-  name: Tend Burn Wounds
+  name: Traiter les brûlures
   components:
   - type: Surgery
     steps:
@@ -526,7 +526,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryInsertItem
-  name: Cavity Implant
+  name: Implant de cavité
   components:
   - type: Surgery
     requirement: SurgeryOpenRibcage
@@ -543,7 +543,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryRemoveBrain
-  name: Remove Brain
+  name: Retirer le cerveau
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -560,7 +560,7 @@
 - type: entity
   parent: BaseSurgeryRemoveOrgan
   id: SurgeryRemoveBorgBrain
-  name: Remove Positronic Brain
+  name: Retirer le cerveau positronique
   components:
   # TODO: ipc surgery steps
   - type: SurgeryPartCondition
@@ -572,7 +572,7 @@
 - type: entity
   parent: BaseSurgeryInsertOrgan
   id: SurgeryInsertBrain
-  name: Insert Brain
+  name: Insérer le cerveau
   components:
   - type: SurgeryOrganSlotCondition
     organSlot: brain
@@ -583,7 +583,7 @@
 - type: entity
   parent: BaseSurgeryInsertOrgan
   id: SurgeryInsertBorgBrain
-  name: Insert Positronic Brain
+  name: Insérer le cerveau positronique
   components:
   - type: SurgeryPartCondition
     parts: [ Chest ]
@@ -596,7 +596,7 @@
 - type: entity
   parent: BaseSurgeryRemoveOrgan
   id: SurgeryRemoveHeart
-  name: Remove Heart
+  name: Retirer le cœur
   components:
   - type: Surgery
     requirement: SurgeryOpenRibcage
@@ -611,7 +611,7 @@
 - type: entity
   parent: BaseSurgeryInsertOrgan
   id: SurgeryInsertHeart
-  name: Insert Heart
+  name: Insérer le cœur
   components:
   - type: Surgery
     requirement: SurgeryOpenRibcage
@@ -630,7 +630,7 @@
 - type: entity
   parent: BaseSurgeryRemoveOrgan
   id: SurgeryRemovePump
-  name: Remove Pump
+  name: Retirer la pompe
   components:
   - type: Surgery
     requirement: SurgeryOpenRibcage
@@ -645,7 +645,7 @@
 - type: entity
   parent: BaseSurgeryInsertOrgan
   id: SurgeryInsertPump
-  name: Insert Pump
+  name: Insérer la pompe
   components:
   - type: Surgery
     requirement: SurgeryOpenRibcage
@@ -664,7 +664,7 @@
 - type: entity
   parent: BaseSurgeryRemoveOrgan
   id: SurgeryRemoveLiver
-  name: Remove Liver
+  name: Retirer le foie
   components:
   - type: SurgeryPartCondition
     parts: [ Groin ]
@@ -675,7 +675,7 @@
 - type: entity
   parent: BaseSurgeryInsertOrgan
   id: SurgeryInsertLiver
-  name: Insert Liver
+  name: Insérer le foie
   components:
   - type: Surgery
     steps:
@@ -692,7 +692,7 @@
 - type: entity
   parent: BaseSurgeryRemoveOrgan
   id: SurgeryRemoveLungs
-  name: Remove Lungs
+  name: Retirer les poumons
   components:
   - type: Surgery
     requirement: SurgeryOpenRibcage
@@ -705,7 +705,7 @@
 - type: entity
   parent: BaseSurgeryInsertOrgan
   id: SurgeryInsertLungs
-  name: Insert Lungs
+  name: Insérer les poumons
   components:
   - type: Surgery
     requirement: SurgeryOpenRibcage
@@ -724,7 +724,7 @@
 - type: entity
   parent: BaseSurgeryRemoveOrgan
   id: SurgeryRemoveStomach
-  name: Remove Stomach
+  name: Retirer l'estomac
   components:
   - type: SurgeryPartCondition
     parts: [ Groin ]
@@ -735,7 +735,7 @@
 - type: entity
   parent: BaseSurgeryInsertOrgan
   id: SurgeryInsertStomach
-  name: Insert Stomach
+  name: Insérer l'estomac
   components:
   - type: Surgery
     steps:
@@ -752,7 +752,7 @@
 - type: entity
   parent: BaseSurgeryRemoveOrgan
   id: SurgeryRemoveEyes
-  name: Remove Eyes
+  name: Retirer les yeux
   components:
   - type: SurgeryOrganCondition
     organ:
@@ -761,7 +761,7 @@
 - type: entity
   parent: BaseSurgeryInsertOrgan
   id: SurgeryInsertEyes
-  name: Insert Eyes
+  name: Insérer les yeux
   components:
   - type: Surgery
     steps:
@@ -884,7 +884,7 @@
 - type: entity
   parent: SurgeryInstallAugmentBase
   id: SurgeryInsertPowerCellSlot
-  name: Insert Power Cell Slot
+  name: Insérer le logement de pile
   components:
   - type: Surgery
     steps:
@@ -902,7 +902,7 @@
 - type: entity
   parent: SurgeryOpenCavityBase
   id: SurgeryOpenPowerCellSlot
-  name: Open Cavity For Power Cell Slot
+  name: Ouvrir la cavité pour le logement de pile
   components:
   - type: SurgeryPartCondition
     parts: [ Chest ]
@@ -912,7 +912,7 @@
 - type: entity
   parent: SurgeryRemoveAugmentBase
   id: SurgeryRemovePowerCellSlot
-  name: Remove Power Cell Slot
+  name: Retirer le logement de pile
   components:
   - type: SurgeryPartCondition
     parts: [ Chest ]
@@ -925,7 +925,7 @@
 - type: entity
   parent: SurgeryInstallAugmentBase
   id: SurgeryInsertPowerCellCharger
-  name: Insert Internal Power Cell Charger
+  name: Insérer le chargeur de pile interne
   components:
   - type: Surgery
     steps:
@@ -943,7 +943,7 @@
 - type: entity
   parent: SurgeryOpenCavityBase
   id: SurgeryOpenPowerCellCharger
-  name: Open Cavity For Power Cell Charger
+  name: Ouvrir la cavité pour le chargeur de pile
   components:
   - type: SurgeryPartCondition
     parts: [ Chest ]
@@ -953,7 +953,7 @@
 - type: entity
   parent: SurgeryRemoveAugmentBase
   id: SurgeryRemovePowerCellCharger
-  name: Remove Internal Power Cell Charger
+  name: Retirer le chargeur de pile interne
   components:
   - type: SurgeryPartCondition
     parts: [ Chest ]
@@ -966,7 +966,7 @@
 - type: entity
   parent: SurgeryOpenCavityBase
   id: SurgeryOpenArmAugment
-  name: Open Cavity For Arm Augments
+  name: Ouvrir la cavité pour les augments de bras
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision # no ribcage
@@ -978,7 +978,7 @@
 - type: entity
   parent: SurgeryInstallAugmentBase
   id: SurgeryInsertArmAugment
-  name: Insert Arm Augment
+  name: Insérer l'augment de bras
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision # no ribcage
@@ -997,7 +997,7 @@
 - type: entity
   parent: SurgeryRemoveAugmentBase
   id: SurgeryRemoveArmAugment
-  name: Remove Arm Augment
+  name: Retirer l'augment de bras
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision # no ribcage
@@ -1011,7 +1011,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryLobotomize
-  name: Lobotomize
+  name: Lobotomiser
   categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
@@ -1035,7 +1035,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryMendBrainTissue
-  name: Mend brain tissue
+  name: Réparer le tissu cérébral
   categories: [ HideSpawnMenu ]
   components:
   - type: Surgery

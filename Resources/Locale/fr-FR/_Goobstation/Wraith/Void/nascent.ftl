@@ -1,0 +1,3 @@
+ghost-role-information-nascent-name = Cocon naissant
+ghost-role-information-nascent-description = Vous n'êtes qu'un cocon, invoqué du vide par le Spectre. Choisissez l'une des trois créatures à incarner : le commandant squelette, capable de rallier d'autres sbires et d'invoquer des squelettes mineurs ; le Limier du vide, capable de se camoufler et de bondir depuis les ombres ; ou le Piqueur du vide, une créature munie d'un tentacule crochet et d'un venin causant la somnolence.
+ghost-role-information-nascent-rules = Vous êtes une créature du vide, invoquée par le Spectre. Obéissez à ses ordres et semez autant de chaos que possible.

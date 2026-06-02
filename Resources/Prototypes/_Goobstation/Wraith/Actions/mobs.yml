@@ -1,8 +1,8 @@
 # Used for Skeleton Commander.
 - type: entity
   id: ActionRally
-  name: Rally
-  description: Buff all surrounding critters to help you fight.
+  name: Ralliement
+  description: Renforce toutes les créatures environnantes pour vous aider à combattre.
   components:
   - type: Action
     sound: !type:SoundPathSpecifier
@@ -16,8 +16,8 @@
 
 - type: entity
   id: ActionSummonLesserSkeleton
-  name: Summon lesser skeleton
-  description: Materialize a skeleton from the void to help you.
+  name: Invoquer un squelette mineur
+  description: Matérialisez un squelette depuis le vide pour vous aider.
   components:
   - type: Action
     itemIconStyle: BigAction
@@ -39,8 +39,8 @@
 # Used for Void Piker.
 - type: entity
   id: ActionTentacleHook
-  name: Tentacle Hook
-  description: Launch a tentacle at your target and drag it to you
+  name: Harpon tentaculaire
+  description: Lancez un tentacule sur votre cible et attirez-la vers vous.
   components:
   - type: Action
     useDelay: 30
@@ -61,8 +61,8 @@
 
 - type: entity
   id: ActionShuffle
-  name: Shuffle
-  description: Squish yourself down to cancel stuns, squeeze through doors and escape assailants.
+  name: Dérobade
+  description: Recroquevillez-vous pour annuler les étourdissements, vous faufiler à travers les portes et échapper à vos assaillants.
   components:
   - type: Action
     useDelay: 50
@@ -74,8 +74,8 @@
 
 - type: entity
   id: ActionLash
-  name: Lash
-  description: Go into a bloody frenzy on a target and rip them to shreds.
+  name: Lacération
+  description: Entrez dans une frénésie sanglante sur une cible et mettez-la en pièces.
   components:
   - type: Action
     useDelay: 50
@@ -93,8 +93,8 @@
 
 - type: entity
   id: ActionRushdown
-  name: Rushdown
-  description: Leap forward and knock down those in your way.
+  name: Ruée
+  description: Bondissez en avant et renversez ceux qui se trouvent sur votre chemin.
   components:
   - type: Action
     useDelay: 40
@@ -106,8 +106,8 @@
 
 - type: entity
   id: ActionCloak
-  name: Cloak
-  description: Slip into the void and make yourself hard to discern for a short time.
+  name: Camouflage
+  description: Glissez-vous dans le vide et rendez-vous difficile à percevoir pendant un court instant.
   components:
   - type: Action
     useDelay: 40
@@ -121,12 +121,12 @@
 
 - type: entity
   id: ActionEatFilth
-  name: Eat filth
-  description: Eat some filth, healing you a little bit and slowly growing.
+  name: Manger des immondices
+  description: Mangez des immondices, vous soignant légèrement et grandissant progressivement.
   components:
   - type: Action
     sound: !type:SoundPathSpecifier
-      path: /Audio/_Goobstation/Heretic/eatfood.ogg #Why is this generic eating sound stored in the heretic folder?
+      path: /Audio/_Goobstation/Heretic/eatfood.ogg #Pourquoi ce son de repas générique est-il dans le dossier hérétique ?
     useDelay: 2
     itemIconStyle: BigAction
     icon:
@@ -140,8 +140,8 @@
 
 - type: entity
   id: ActionRatBite
-  name: Bite
-  description: Bite a living creature, doing a little damage and injecting them with some rat poison.
+  name: Morsure
+  description: Mordez une créature vivante, lui infligeant un peu de dégâts et lui injectant un peu de poison de rat.
   components:
   - type: Action
     sound: !type:SoundPathSpecifier
@@ -162,8 +162,8 @@
 
 - type: entity
   id: ActionRatDen
-  name: Spawn rat den
-  description: Spawn your rat nest, healing you when in range and summoning some tiny diseased mice.
+  name: Créer un repaire de rats
+  description: Créez votre nid de rat, vous soignant à proximité et invoquant quelques petites souris malades.
   components:
   - type: Action
     itemIconStyle: BigAction
@@ -178,8 +178,8 @@
 
 - type: entity
   id: ActionRatSlam
-  name: Slam
-  description: Slam into something. Emits a powerful shockwave on collision.
+  name: Percutée
+  description: Percutez quelque chose. Émet une puissante onde de choc lors de la collision.
   components:
   - type: Action
     useDelay: 40
@@ -192,8 +192,8 @@
 # Used for summon void creature ghost entity
 - type: entity
   id: ActionChooseVoidCreature
-  name: Choose your fighter
-  description: Choose one of the three void creatures to spawn in.
+  name: Choisissez votre combattant
+  description: Choisissez l'une des trois créatures du vide pour vous incarner.
   components:
   - type: Action
     icon:

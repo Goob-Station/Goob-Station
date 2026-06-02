@@ -24,8 +24,8 @@
 - type: entity
   parent: ClothingBackpackMessengerBase
   id: ClothingBackpackMessenger
-  name: messenger bag
-  description: A robust bag for keeping small stuff.
+  name: sac bandoulière
+  description: Un sac robuste pour keeping small stuff.
   components:
   - type: Sprite
     sprite: _NF/Clothing/Back/Messenger/messenger.rsi
@@ -35,8 +35,8 @@
 - type: entity
   parent: [ BaseCommandContraband , ClothingBackpackMessengerBase ]
   id: ClothingBackpackMessengerCaptain
-  name: captain's messenger bag
-  description: A robust bag made exclusively for Nanotrasen officers.
+  name: sac bandoulière du capitaine
+  description: Un sac robuste conçu exclusivement pour les officiers de Nanotrasen.
   components:
   - type: Sprite
     layers:
@@ -71,8 +71,8 @@
 - type: entity
   parent: [ BaseCentcommContraband , ClothingBackpackMessengerBase ]
   id: ClothingBackpackMessengerCentcomm
-  name: centcomm messenger bag
-  description: A robust bag made for Nanotrasen high-ranking officials.
+  name: sac bandoulière centcomm
+  description: Un sac robuste conçu pour les hauts responsables de Nanotrasen.
   components:
   - type: Sprite
     layers:
@@ -107,8 +107,8 @@
 - type: entity
   parent: [ BaseCentcommContraband , ClothingBackpackMessengerBase ]
   id: ClothingBackpackMessengerBlueshield
-  name: blueshield officer messenger bag
-  description: A robust bag made of protective materials. Smells like emergy gun.
+  name: sac bandoulière d'officier blueshield
+  description: Un sac robuste fabriqué à partir de matériaux de protection. Il sent le pistolet laser.
   components:
   - type: Sprite
     layers:
@@ -144,8 +144,8 @@
 - type: entity
   parent: ClothingBackpackMessengerBase
   id: ClothingBackpackMessengerAtmospherics
-  name: atmospherics messenger bag
-  description: A robust bag made of fire resistant fibers. Smells like plasma.
+  name: sac bandoulière d'atmosien
+  description: Un sac robuste fabriqué à partir de fibres ignifuges. Il sent le plasma.
   components:
   - type: Sprite
     sprite: _NF/Clothing/Back/Messenger/atmospherics.rsi
@@ -153,8 +153,8 @@
 - type: entity
   parent: ClothingBackpackMessengerBase
   id: ClothingBackpackMessengerEngineering
-  name: engineering messenger bag
-  description: A robust bag for keeping extra tools.
+  name: sac bandoulière d'ingénieur
+  description: Un sac robuste ranger des outils supplémentaires.
   components:
   - type: Sprite
     layers:
@@ -190,8 +190,8 @@
 - type: entity
   parent: ClothingBackpackMessengerBase
   id: ClothingBackpackMessengerCargo
-  name: cargo messenger bag
-  description: A robust bag for keeping lots of spesos.
+  name: sac bandoulière du cargo
+  description: Un sac robuste pour ranger plein de spesos.
   components:
   - type: Sprite
     layers:
@@ -234,8 +234,8 @@
 - type: entity
   parent: ClothingBackpackMessengerBase
   id: ClothingBackpackMessengerSalvage
-  name: salvage messenger bag
-  description: A robust bag for stashing Lavaland loot.
+  name: sac bandoulière de récupérateur
+  description: Un sac robuste pour ranger du butin de Lavaland.
   components:
   - type: Sprite
     layers:
@@ -270,8 +270,8 @@
 - type: entity
   parent: ClothingBackpackMessengerBase
   id: ClothingBackpackMessengerMailman
-  name: mailman messenger bag
-  description: A robust bag for transportation of letters and parcels.
+  name: sac bandoulière de facteur
+  description: Un sac robuste destiné au transport de lettres et de colis.
   components:
   - type: Sprite
     sprite: _NF/Clothing/Back/Messenger/mailman.rsi
@@ -280,8 +280,8 @@
 - type: entity
   parent: ClothingBackpackMessengerBase
   id: ClothingBackpackMessengerMedical
-  name: medical messenger bag
-  description: A robust bag for keeping extra medicine.
+  name: sac bandoulière médical
+  description: Un sac robuste pour ranger des médicaments supplémentaires.
   components:
   - type: Sprite
     sprite: _NF/Clothing/Back/Messenger/medical.rsi
@@ -289,8 +289,8 @@
 - type: entity
   parent: ClothingBackpackMessengerBase
   id: ClothingBackpackMessengerChemistry
-  name: chemistry messenger bag
-  description: A robust bag for keeping extra beakers and vials.
+  name: sac bandoulière de chimiste
+  description: Un sac robuste pour ranger des béchers et des flacons supplémentaires.
   components:
   - type: Sprite
     sprite: _NF/Clothing/Back/Messenger/chemistry.rsi
@@ -298,8 +298,8 @@
 - type: entity
   parent: ClothingBackpackMessengerBase
   id: ClothingBackpackMessengerVirology
-  name: virology messenger bag
-  description: A robust bag made of hypo-allergenic fibers to prevent the spread of disease.
+  name: sac bandoulière de virologue
+  description: Un sac résistant fabriqué à partir de fibres hypoallergéniques pour prévenir la propagation des maladies.
   components:
   - type: Sprite
     sprite: _NF/Clothing/Back/Messenger/virology.rsi
@@ -307,8 +307,8 @@
 - type: entity
   parent: ClothingBackpackMessengerBase
   id: ClothingBackpackMessengerGenetics
-  name: genetics messenger bag
-  description: A robust sterile bag with geneticist colours.
+  name: sac bandoulière de généticien
+  description: Un sac stérile et résistant aux couleurs des généticiens.
   components:
   - type: Sprite
     sprite: _NF/Clothing/Back/Messenger/genetics.rsi
@@ -317,8 +317,8 @@
 - type: entity
   parent: ClothingBackpackMessengerBase
   id: ClothingBackpackMessengerScience
-  name: science messenger bag
-  description: A robust bag for holding research materials.
+  name: sac bandoulière de scientifique
+  description: Un sac robuste pour transporter du matériel de recherche.
   components:
   - type: Sprite
     sprite: _NF/Clothing/Back/Messenger/science.rsi
@@ -327,8 +327,8 @@
 - type: entity
   parent: ClothingBackpackMessengerBase
   id: ClothingBackpackMessengerClown
-  name: clown messenger bag
-  description: A robust bag for keeping extra pies.
+  name: sac bandoulière de clown
+  description: Un sac robuste pour ranger des tartes en plus.
   components:
   - type: Sprite
     sprite: _NF/Clothing/Back/Messenger/clown.rsi
@@ -339,8 +339,8 @@
 - type: entity
   parent: ClothingBackpackMessengerBase
   id: ClothingBackpackMessengerMime
-  name: mime messenger bag
-  description: A robust bag for keeping the vow of silence.
+  name: sac bandoulière de mime
+  description: Un sac robuste pour respecter le vœu de silence.
   components:
     - type: Sprite
       sprite: _NF/Clothing/Back/Messenger/mime.rsi
@@ -348,8 +348,8 @@
 - type: entity
   parent: ClothingBackpackMessengerBase
   id: ClothingBackpackMessengerHydroponics
-  name: hydroponics messenger bag
-  description: A robust bag made of all natural fibers. Smells like dirt.
+  name: sac bandoulière de botaniste
+  description: Un sac robuste fabriqué à partir de fibres entièrement naturelles. Il sent la terre.
   components:
   - type: Sprite
     layers:
@@ -393,8 +393,8 @@
 - type: entity
   parent: [ BaseSecurityContraband , ClothingBackpackMessengerBase ]
   id: ClothingBackpackMessengerSecurity
-  name: security messenger bag
-  description: A robust bag for storing extra arrest equipment.
+  name: sac bandoulière de sécurité
+  description: Un sac robuste pour ranger du matériel d'arrestation supplémentaire.
   components:
   - type: Sprite
     layers:
@@ -437,8 +437,8 @@
 - type: entity
   parent: [ BaseSecurityContraband , ClothingBackpackMessengerBase ]
   id: ClothingBackpackMessengerBrigmedic
-  name: brigmedic messenger bag
-  description: A robust bag for storing extra surgery tools for inmate tort... treating.
+  name: sac bandoulière de brigmedic
+  description: Un sac robuste pour ranger des instruments chirurgicaux supplémentaires pour tort... soigner les détenus.
   components:
   - type: Sprite
     layers:
@@ -482,8 +482,8 @@
 - type: entity
   parent: ClothingBackpackHolding
   id: ClothingBackpackMessengerHolding
-  name: messenger bag of holding
-  description: A messenger bag that opens into a localized pocket of bluespace.
+  name: sac bandoulière bluespace
+  description: Un sac bandoulière qui s'ouvre sur une poche localisée de bluespace.
   components:
   - type: Sprite
     sprite: _NF/Clothing/Back/Messenger/holding.rsi
@@ -514,8 +514,8 @@
 - type: entity
   parent: [ BaseSyndicateContraband , ClothingBackpackMessengerBase ]
   id: ClothingBackpackMessengerSyndicate
-  name: syndicate messenger bag
-  description: A robust bag for storing extra cartridges and explosives.
+  name: sac bandoulière du Syndicat
+  description: Un sac robuste pour ranger des munitions et des explosifs supplémentaires.
   components:
   - type: Sprite
     layers:

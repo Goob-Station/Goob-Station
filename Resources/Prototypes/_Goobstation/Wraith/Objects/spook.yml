@@ -1,8 +1,8 @@
 - type: entity
   id: SpookObject
   name: ???
-  suffix: DO NOT MAP
-  description: It can do various things by being interacted with.
+  suffix: NE PAS PLACER
+  description: Peut effectuer diverses choses lorsqu'on interagit avec lui.
   components:
   - type: Transform
     anchored: true
@@ -70,8 +70,8 @@
 - type: entity
   parent: Ectoplasm
   id: EctoplasmGoon
-  name: ectoplasm
-  description: A glob of who knows what. Just staring at it gives you the creeps.
+  name: ectoplasme
+  description: Un tas de sait-on-quoi. Rien que le regarder vous donne la chair de poule.
   components:
     - type: Sprite
       noRot: true

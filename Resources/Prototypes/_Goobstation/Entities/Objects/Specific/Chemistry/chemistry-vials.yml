@@ -130,7 +130,7 @@
 - type: entity
   name: bluespace vial
   parent: BaseBeakerMetallic
-  description: It's longer on the inside!
+  description: C'est plus long à l'intérieur !
   id: BluespaceChemistryVial
   components:
   - type: Tag

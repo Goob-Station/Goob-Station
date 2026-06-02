@@ -15,7 +15,7 @@
   name: greatshield
   parent: [BaseItem, ClothingSlotBase, BaseCentcommContraband]
   id: BlueShieldShield
-  description: The iconic namesake of these soldiers, the Blueshield. Known to take shots meant for high-ranking officials.
+  description: L'homonyme iconique de ces soldats, le Bouclier Bleu. Connu pour prendre des coups destinés aux hauts fonctionnaires.
   components:
     - type: ContainerContainer
     - type: ItemToggle
@@ -120,7 +120,7 @@
   parent: BlueShieldShield
   id: BlueShieldShieldEvil
   suffix: Deathsquad
-  description: The identification number on this shield has been scratched off. Something feels wrong.
+  description: Le numéro d'identification de ce bouclier a été gratté. Quelque chose semble anormal.
   components:
   - type: Battery
     maxCharge: 1800

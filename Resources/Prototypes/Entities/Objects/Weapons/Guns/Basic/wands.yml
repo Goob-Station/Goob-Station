@@ -28,10 +28,10 @@
     capacity: 5
 
 - type: entity
-  name: wand of carp polymorph
+  name: baguette de métamorphose en carpe
   parent: WeaponWandPolymorphBase
   id: WeaponWandPolymorphCarp
-  description: For when you need a carp filet quick and the clown is looking juicy.
+  description: Pour quand vous avez besoin d'un filet de carpe rapidement et que le clown a l'air bien juteux.
   components:
   - type: BasicEntityAmmoProvider
     proto: ProjectilePolyboltCarp
@@ -39,10 +39,10 @@
     count: 5
 
 - type: entity
-  name: wand of monkey polymorph
+  name: baguette de métamorphose en singe
   parent: WeaponWandPolymorphBase
   id: WeaponWandPolymorphMonkey
-  description: For when you need a monkey friend.
+  description: Pour quand vous avez besoin d'un ami singe.
   components:
   - type: BasicEntityAmmoProvider
     proto: ProjectilePolyboltMonkey
@@ -50,10 +50,10 @@
     count: 5
 
 - type: entity
-  name: wand of fireball
+  name: baguette de boule de feu
   parent: WeaponWandBase
   id: WeaponWandFireball
-  description: Great big balls of fire!
+  description: Énormes boules de feu !
   components:
   - type: Sprite
     layers:
@@ -70,8 +70,8 @@
     count: 5
 
 - type: entity
-  name: staff of the locker # Goob edit
-  description: An artefact that expells encapsulating bolts, for incapacitating thy enemy. # Goob edit
+  name: bâton du casier # Goob edit
+  description: Un artefact qui expelle des décharges encapsulantes, qui neutralisent vos ennemis. # Goob edit
   parent: WeaponStaffBase # Goob edit
   id: WeaponWandLocker
   components:
@@ -109,10 +109,10 @@
     rechargeCooldown: 4
 
 - type: entity
-  name: magical wand of instant death
+  name: baguette magique de mort instantanée
   parent: WeaponWandBase
   id: WeaponWandDeath
-  description: Only the best and brightest of the Space Wizards R&D team worked together to create this beauty.
+  description: Seuls les meilleurs éléments de l'équipe de R&D des Magiciens de l'Espace ont uni leurs forces pour créer cette petite merveille.
   components:
   - type: Sprite
     layers:
@@ -128,10 +128,10 @@
     count: 3
 
 - type: entity
-  name: wand of entrance
+  name: baguette d'entrée
   parent: WeaponWandBase
   id: WeaponWandPolymorphDoor
-  description: For when you need a get-away route.
+  description: Pour quand vous avez besoin d'une sortie.
   components:
   - type: Sprite
     layers:
@@ -147,10 +147,10 @@
     count: 10
 
 - type: entity
-  name: wand of cluwning
+  name: baguette de cluwnage
   parent: WeaponWandPolymorphBase
   id: WeaponWandCluwne
-  description: Make their situation worse by turning them into a cluwne.
+  description: Aggravez leur situation en les transformant en cluwne.
   components:
   - type: BasicEntityAmmoProvider
     proto: ProjectilePolyboltCluwne
@@ -160,8 +160,8 @@
 - type: entity
   parent: WeaponWandPolymorphBase
   id: WeaponWandPolymorphBread
-  name: magic bread wand
-  description: Turn all your friends into bread! Your boss! Your enemies! Your dog! Make everything bread!
+  name: baguette de pain magique
+  description: Changez tous vos amis en pain ! Votre patron ! Vos ennemis ! Votre chien ! Changez tout en pain !
   components:
   - type: BasicEntityAmmoProvider
     proto: ProjectilePolyboltBread

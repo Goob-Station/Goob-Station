@@ -1,9 +1,9 @@
 - type: entity
-  name: Phoron dagger
+  name: poignard en phoron
   parent: [ BaseMeleeWeaponEnergy, BaseCentcommContraband ]
   id: PhoronDagger
-  suffix: DO NOT MAP
-  description: A sleek dagger for grilling cheese and slaying tiders.
+  suffix: NE PAS PLACER
+  description: Un poignard élégant pour faire griller du fromage et occire des chaotiques.
   components:
     - type: ItemToggle
       soundFailToActivate:

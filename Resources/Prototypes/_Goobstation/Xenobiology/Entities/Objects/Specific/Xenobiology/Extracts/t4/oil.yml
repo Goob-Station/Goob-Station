@@ -1,7 +1,7 @@
 - type: entity
   id: OilSlimeExtract
   parent: BaseSlimeExtract
-  name: oil slime extract
+  name: extrait de slime huileux
   components:
   - type: Sprite
     layers:

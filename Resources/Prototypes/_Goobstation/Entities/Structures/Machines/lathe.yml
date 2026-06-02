@@ -22,7 +22,7 @@
   id: EngineeringTechFab
   parent: [BaseLatheLube, BaseSiloUtilizer]
   name: engineering techfab
-  description: Prints equipment and circuitboards for use by engineering department.
+  description: Imprime du matériel et des circuits pour le département d'ingénierie.
   components:
   - type: Sprite
     sprite: Structures/Machines/techfab.rsi
@@ -92,7 +92,7 @@
   id: CargoTechFab
   parent: [BaseLatheLube, BaseSiloUtilizer]
   name: cargo techfab
-  description: Prints equipment and circuitboards for use by cargo department.
+  description: Imprime du matériel et des circuits pour le département de cargaison.
   components:
   - type: Sprite
     sprite: Structures/Machines/techfab.rsi
@@ -310,7 +310,7 @@
   id: ERTTechFab
   parent: [BaseLatheLube, BaseSiloUtilizer]
   name: ERT techfab
-  description: Standard-issue ammunition and gear for Emergency Response Team deployments. Fast, basic, reliable.
+  description: Munitions et équipement standard pour les déploiements de l'Équipe de Réponse d'Urgence. Rapide, basique, fiable.
   components:
     - type: Sprite
       sprite: Structures/Machines/techfab.rsi

@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseAction
   id: ActionDebug
-  name: DEBUG
-  description: DEBUG
+  name: DÉBUG
+  description: DÉBUG
   components:
   - type: Action
     useDelay: 1

@@ -59,7 +59,7 @@
 - type: entity
   parent: BaseMagazineBoxRifle
   id: MagazineBoxRifleBig
-  name: ammunition box (.20 rifle)
+  name: boîte de munitions (.20 fusil)
   components:
   - type: BallisticAmmoProvider
     capacity: 200
@@ -79,7 +79,7 @@
 - type: entity
   parent: BaseMagazineBoxRifle
   id: MagazineBoxRifle
-  name: ammunition box (.20 rifle)
+  name: boîte de munitions (.20 fusil)
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeRifle
@@ -93,7 +93,7 @@
 - type: entity
   parent: BaseMagazineBoxRifle
   id: MagazineBoxRiflePractice
-  name: ammunition box (.20 rifle practice)
+  name: boîte de munitions (.20 fusil entraînement)
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeRiflePractice
@@ -108,7 +108,7 @@
 - type: entity
   id: MagazineBoxRifleIncendiary
   parent: BaseMagazineBoxRifle
-  name: ammunition box (.20 rifle incendiary)
+  name: boîte de munitions (.20 fusil incendiaire)
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeRifleIncendiary
@@ -123,7 +123,7 @@
 - type: entity
   id: MagazineBoxRifleUranium
   parent: BaseMagazineBoxRifle
-  name: ammunition box (.20 rifle uranium)
+  name: boîte de munitions (.20 fusil uranium)
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeRifleUranium

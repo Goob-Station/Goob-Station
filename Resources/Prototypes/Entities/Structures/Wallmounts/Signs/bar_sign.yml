@@ -42,7 +42,7 @@
 - type: entity
   id: BaseBarSign
   parent: [ BaseWallmountGlass, BaseWallmountMachine ]
-  name: bar sign
+  name: enseigne de bar
   abstract: true
   components:
   - type: WallMount
@@ -84,7 +84,7 @@
 - type: entity
   parent: BaseBarSign
   id: BarSign
-  name: bar sign
+  name: enseigne de bar
   suffix: Random
 
 # Missing appearance components & various other sprite issues.
@@ -107,7 +107,7 @@
   parent: BaseBarSign
   id: BarSignComboCafe
   name: Combo Cafe
-  description: Renowned system-wide for their utterly uncreative drink combinations.
+  description: Réputé dans tout le système pour ses combinaisons de boissons totalement dénuées de créativité.
   components:
   - type: BarSign
     current: ComboCafe
@@ -116,7 +116,7 @@
   parent: BaseBarSign
   id: BarSignEmergencyRumParty
   name: Emergency Rum Party
-  description: Recently relicensed after a long closure.
+  description: Récemment relicencié après une longue fermeture.
   components:
   - type: BarSign
     current: EmergencyRumParty
@@ -125,7 +125,7 @@
   parent: BaseBarSign
   id: BarSignLV426
   name: LV426
-  description: Drinking with fancy facemasks is clearly more important than going to medbay.
+  description: Boire avec de jolis masques faciaux est clairement plus important que d'aller à l'infirmerie.
   components:
   - type: BarSign
     current: LV426
@@ -134,7 +134,7 @@
   parent: BaseBarSign
   id: BarSignMaidCafe
   name: Maid Cafe
-  description: Welcome back, master!
+  description: Bienvenue, maître !
   components:
   - type: BarSign
     current: MaidCafe
@@ -143,7 +143,7 @@
   parent: BaseBarSign
   id: BarSignMalteseFalcon
   name: Maltese Falcon
-  description: Play it again, sam.
+  description: Rejoue-la, Sam.
   components:
   - type: BarSign
     current: MalteseFalcon
@@ -152,7 +152,7 @@
   parent: BaseBarSign
   id: BarSignOfficerBeersky
   name: Officer Beersky
-  description: Man eat a dong, these drinks are great.
+  description: Bon sang, ces boissons sont excellentes.
   components:
   - type: BarSign
     current: OfficerBeersky
@@ -161,7 +161,7 @@
   parent: BaseBarSign
   id: BarSignRobustaCafe
   name: Robusta Cafe
-  description: Holder of the 'Most Lethal Barfights' record 5 years uncontested.
+  description: Détenteur du record des « Bagarres les plus meurtrières » depuis 5 ans sans contestation.
   components:
   - type: BarSign
     current: RobustaCafe
@@ -170,7 +170,7 @@
   parent: BaseBarSign
   id: BarSignTheAleNath
   name: The Ale Nath
-  description: All right, buddy. I think you've had EI NATH. Time to get a cab.
+  description: Très bien, l'ami. Je crois que tu en as EI NATH assez. Il est temps d'appeler un taxi.
   components:
   - type: BarSign
     current: TheAleNath
@@ -179,7 +179,7 @@
   parent: BaseBarSign
   id: BarSignTheBirdCage
   name: The Bird Cage
-  description: Caw caw!
+  description: Croâ croâ !
   components:
   - type: BarSign
     current: TheBirdCage
@@ -188,7 +188,7 @@
   parent: BaseBarSign
   id: BarSignTheCoderbus
   name: The Coderbus
-  description: A very controversial bar known for its wide variety of constantly-changing drinks.
+  description: Un bar très controversé connu pour sa grande variété de boissons en constante évolution.
   components:
   - type: BarSign
     current: TheCoderbus
@@ -197,7 +197,7 @@
   parent: BaseBarSign
   id: BarSignTheDrunkCarp
   name: The Drunk Carp
-  description: Don't drink and swim.
+  description: Ne buvez pas et ne nagez pas.
   components:
   - type: BarSign
     current: TheDrunkCarp
@@ -206,7 +206,7 @@
   parent: BaseBarSign
   id: BarSignEngineChange
   name: The Engine Change
-  description: Still waiting.
+  description: On attend toujours.
   components:
   - type: BarSign
     current: EngineChange
@@ -215,7 +215,7 @@
   parent: BaseBarSign
   id: BarSignTheHarmbaton
   name: The Harmbaton
-  description: A great dining experience for both security members and passengers.
+  description: Une excellente expérience culinaire pour les membres de la sécurité comme pour les passagers.
   components:
   - type: BarSign
     current: Harmbaton
@@ -224,7 +224,7 @@
   parent: BaseBarSign
   id: BarSignTheLightbulb
   name: The Lightbulb
-  description: A cafe popular among moths and moffs. Once shut down for a week after the bartender used mothballs to protect her spare uniforms.
+  description: Un café populaire chez les papillons et les moffs. Fermé pendant une semaine après que la barmaid a utilisé des boules antimites pour protéger ses tenues de rechange.
   components:
   - type: BarSign
     current: TheLightbulb
@@ -233,7 +233,7 @@
   parent: BaseBarSign
   id: BarSignTheLooseGoose
   name: The Loose Goose
-  description: Drink till you puke and/or break the laws of reality!
+  description: Buvez jusqu'à vomir et/ou briser les lois de la réalité !
   components:
   - type: BarSign
     current: Goose
@@ -242,7 +242,7 @@
   parent: BaseBarSign
   id: BarSignTheNet
   name: The Net
-  description: You just seem to get caught up in it for hours.
+  description: On a l'impression de s'y faire prendre pendant des heures.
   components:
   - type: BarSign
     current: TheNet
@@ -251,7 +251,7 @@
   parent: BaseBarSign
   id: BarSignTheOuterSpess
   name: The Outer Spess
-  description: This bar isn't actually located in outer space.
+  description: Ce bar n'est pas réellement situé dans l'espace.
   components:
   - type: BarSign
     current: TheOuterSpess
@@ -260,7 +260,7 @@
   parent: BaseBarSign
   id: BarSignTheSingulo
   name: The Singulo
-  description: Where people go that'd rather not be called by their name.
+  description: L'endroit où vont ceux qui préfèrent ne pas être appelés par leur nom.
   components:
   - type: BarSign
     current: TheSingulo
@@ -269,7 +269,7 @@
   parent: BaseBarSign
   id: BarSignTheSun
   name: The Sun
-  description: Ironically bright for such a shady bar.
+  description: Ironiquement lumineux pour un bar aussi louche.
   components:
   - type: BarSign
     current: TheSun
@@ -278,7 +278,7 @@
   parent: BaseBarSign
   id: BarSignWiggleRoom
   name: Wiggle Room
-  description: MoMMIs got moves.
+  description: Les MoMMI ont du rythme.
   components:
   - type: BarSign
     current: WiggleRoom
@@ -296,7 +296,7 @@
   parent: BaseBarSign
   id: BarSignEmprah
   name: 4 The Emprah
-  description: Enjoyed by fanatics, heretics, and brain-damaged patrons alike.
+  description: Apprécié des fanatiques, des hérétiques et des clients à moitié lobotomisés.
   components:
   - type: BarSign
     current: Emprah
@@ -305,7 +305,7 @@
   parent: BaseBarSign
   id: BarSignSpacebucks
   name: Spacebucks
-  description: You can't get away from them, even in space, and even after we started calling them 'spesos' instead.
+  description: Impossible de leur échapper, même dans l'espace, et même après qu'on a commencé à les appeler « spesos ».
   components:
   - type: BarSign
     current: Spacebucks
@@ -314,7 +314,7 @@
   parent: BaseBarSign
   id: BarSignMaltroach
   name: The Maltroach
-  description: Squeak!
+  description: Couic !
   components:
   - type: BarSign
     current: Maltroach
@@ -323,7 +323,7 @@
   parent: BaseBarSign
   id: BarSignWhiskeyEchoes
   name: Whiskey Echoes
-  description: An elite bar for elite oper-wait, this is a Nanotrasen station. Why's this sign in the database?
+  description: Un bar d'élite pour les opérateurs d'élite- attendez, c'est une station Nanotrasen. Pourquoi cette enseigne est-elle dans la base de données ?
   components:
   - type: BarSign
     current: WhiskeyEchoes

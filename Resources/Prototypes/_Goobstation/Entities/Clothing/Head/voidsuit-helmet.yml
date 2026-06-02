@@ -18,7 +18,7 @@
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitChronolegioneer
   name: futuristic helmet
-  description: The helmet of the fighters of the future, designed for special timeflow operations.
+  description: Le casque des combattants du futur, conçu pour les opérations spéciales de flux temporel.
   components:
   - type: BreathMask
   - type: Sprite
@@ -62,7 +62,7 @@
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitBlueshield
   name: blueshield hardsuit helmet
-  description: The helmet of the captain's bodyguard's hardsuit.
+  description: Le casque de la combinaison rigide du garde du corps du capitaine.
   components:
   - type: BreathMask
   - type: Sprite
@@ -102,7 +102,7 @@
   id: ClothingHeadHelmetHardsuitCybersunStealth
   suffix: stealth
   name: cybersun stealth hardsuit helmet
-  description: A helmet with photo-reactive plating for stealth operations.
+  description: Un casque avec un revêtement photo-réactif pour les opérations furtives.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hardsuits/cybersunstealth.rsi
@@ -143,7 +143,7 @@
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitDreadnought
   name: Cybersun Dreadnought suit helmet
-  description: A helmet, looking at this you wonder if there anyone alive.
+  description: Un casque, en regardant cela vous vous demandez s'il y a quelqu'un de vivant.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hardsuits/dreadnought.rsi
@@ -179,7 +179,7 @@
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetVoidsuitSecurity
   name: security hardsuit helmet
-  description: A well-built faceplate attached to the security hardsuit.
+  description: Une visière robuste attachée à la combinaison rigide de sécurité.
   components:
   - type: BreathMask
   - type: Sprite
@@ -215,7 +215,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitHeadOfSecurityExperimental
-  name: head of security's advanced hardsuit helmet
+  name: casque de combinaison rigide avancée du chef de la sécurité
   description: Security hardsuit helmet with the latest top secret NT-HUD software. This one seems more durable than stand issue helmets.
   components:
   - type: Sprite
@@ -299,7 +299,7 @@
   parent: [ClothingHeadHelmetHardsuitBlueshield, BaseMagicalContraband]
   id: ClothingHeadSinguloth
   name: singuloth knight's helm
-  description: An adamantium helmet from the chapter of the Singuloth Knights. It shines with a holy aura
+  description: Un casque en adamantium du chapitre des Chevaliers Singuloth. Il brille d'une aura sacrée.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hardsuits/singulothhelm.rsi
@@ -333,7 +333,7 @@
   parent: ClothingHeadHelmetHardsuitCybersunStealth
   id: ClothingHeadHelmetHardsuitVoxRaiderStealth
   name: vox raider stealth helmet
-  description: A smoothly contoured, matte-black alien helmet.
+  description: Un casque alien lisse aux contours arrondis, noir mat.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hardsuits/vox-raiders-stealth-head.rsi
@@ -358,7 +358,7 @@
   parent: ClothingHeadHelmetVoidsuitSecurity
   id: ClothingHeadHelmetHardsuitDetective
   name: detective hardsuit helmet
-  description: A helmet with a built-in fedora for the detective's hardsuit.
+  description: Un casque avec un fedora intégré pour la combinaison rigide du détective.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hardsuits/detective.rsi
@@ -374,7 +374,7 @@
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitContractor
   name: contractor hardsuit helmet
-  description: A well-built faceplate attached to the contractor hardsuit.
+  description: Une visière robuste attachée à la combinaison rigide du contractant.
   categories: [HideSpawnMenu]
   components:
   - type: BreathMask

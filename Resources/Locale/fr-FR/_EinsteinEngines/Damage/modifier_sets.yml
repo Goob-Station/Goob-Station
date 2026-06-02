@@ -1,0 +1,47 @@
+# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: damageModifierSet
+  id: IPC
+  coefficients:
+    Blunt: 0.8
+    Slash: 0.8
+    Piercing: 0.8
+    Heat: 1.7
+    Shock: 2
+  # Goobstation
+    Radiation: 0.4
+    Ion: 0.8
+  ignoreArmorPierceFlags: All
+
+- type: damageModifierSet
+  id: Shadowkin
+  coefficients:
+    Blunt: 1.25
+    Slash: 1.25
+    Piercing: 1.25
+    Asphyxiation: 0.50
+    Heat: 1.4
+  ignoreArmorPierceFlags: All # Goobstation
+
+- type: damageModifierSet
+  id: Plasmaman
+  coefficients:
+    Blunt: 1.5
+    Slash: 0.8
+    Piercing: 0.6
+    Cold: 0
+    Heat: 1.5
+    Poison: 0.8
+    Radiation: 0
+    Bloodloss: 0.0 # Immune to weapons that directly deal bloodloss damage

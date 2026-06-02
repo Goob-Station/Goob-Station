@@ -37,7 +37,7 @@
 - type: entity
   parent: ClothingMaskGasChrono
   id: ClothingMaskGasChronoUnremoveable
-  suffix: Unremoveable
+  suffix: Inamovible
   components:
   - type: Unremoveable
 
@@ -84,7 +84,7 @@
   parent: ClothingMaskGas
   id: ClothingMaskGasHalf
   name: half gas mask
-  description: A gas mask... only the half of it.
+  description: Un masque à gaz... à moitié seulement.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Mask/gashalf.rsi
@@ -142,7 +142,7 @@
 - type: entity
   parent: ClothingMaskGas
   id: ClothingMaskGasUnremoveable
-  suffix: Unremoveable
+  suffix: Inamovible
   components:
   - type: Unremoveable
 
@@ -150,7 +150,7 @@
   parent: [ ClothingMaskGas, BaseCentcommContraband ]
   id: ClothingBSOMaskGasSwat
   name: Blueshield SWAT gas mask
-  description: A standard issue gas mask for BlueShield Officers
+  description: Un masque à gaz standard émis aux officiers du Bouclier Bleu.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Mask/bsoswat.rsi
@@ -184,8 +184,8 @@
   parent: ClothingMaskBase
   id: ClothingMaskGasThunderdome
   name: Thunderdome gas mask
-  suffix: DONT MAP
-  description: ARE YOU READY TO RUMBLEEEE?
+  suffix: NE PAS PLACER
+  description: ÊTES-VOUS PRÊTS À EN DÉCOUDRE ?
   components:
   - type: Item
     size: Tiny

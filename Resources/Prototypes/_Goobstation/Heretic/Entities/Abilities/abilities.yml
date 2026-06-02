@@ -6,7 +6,7 @@
 
 - type: entity
   id: EntropicPlume
-  name: entropic plume
+  name: panache entropique
   categories: [ HideSpawnMenu ]
   components:
   - type: MovementIgnoreGravity
@@ -125,8 +125,8 @@
 - type: entity
   id: ShadowCloakEntity
   save: false
-  name: a shadow?
-  description: Something is there! Against all reason, this shadow lurks at the corners of your vision. You close your eyes, but still, it is there. No matter how far you run, it is there. In pitchest black, it is there.
+  name: une ombre ?
+  description: Quelque chose est là ! Contre toute raison, cette ombre rôde aux coins de votre vision. Vous fermez les yeux, mais elle est toujours là. Peu importe jusqu'où vous courez, elle est là. Dans le noir le plus profond, elle est là.
   components:
   - type: TimedDespawn
     lifetime: 185 # Time of the cloak to wear off + time of particles to disappear
@@ -288,8 +288,8 @@
 
 - type: entity
   id: VoidConduit
-  name: Void Conduit
-  description: An open gate which leads to nothingness. Releases pulses which you do not want to get hit by.
+  name: Conduit du Vide
+  description: Un portail ouvert qui mène au néant. Il émet des impulsions que vous ne souhaitez pas recevoir.
   placement:
     mode: SnapgridCenter
   components:

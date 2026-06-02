@@ -66,10 +66,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: flashlight
+  name: lampe de poche
   parent: BaseItem
   id: FlashlightLantern
-  description: It lights the way to freedom.
+  description: Elle éclaire le chemin vers la liberté.
   components:
   - type: Tag
     tags:
@@ -156,10 +156,10 @@
   # Lavaland Change end
 
 - type: entity
-  name: seclite
+  name: lampe de sécurité
   parent: [FlashlightLantern, BaseSecurityCargoContraband] # Goob edit - Also allowed for Cargo
   id: FlashlightSeclite
-  description: A robust flashlight used by security.
+  description: Une lampe de poche robuste utilisée par la sécurité.
   components:
   - type: Tag
     tags:

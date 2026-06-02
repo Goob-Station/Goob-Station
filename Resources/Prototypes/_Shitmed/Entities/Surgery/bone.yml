@@ -8,7 +8,7 @@
   id: Bone
   parent: BaseItem
   name: bone
-  description: A real bone. Contains calcium, a lot of calcium.
+  description: Un vrai os. Contient du calcium, beaucoup de calcium.
   components:
   - type: Bone # backmen: wounding
   - type: Sprite
@@ -27,8 +27,8 @@
 - type: entity
   id: BoneNeck
   parent: Bone
-  name: neck bone
-  description: A bone from the neck. Contains a lot of calcium.
+  name: os du cou
+  description: Un os du cou. Contient beaucoup de calcium.
   components:
   - type: Bone
     integrityCap: 100 # Goob edit

@@ -5,8 +5,8 @@
 
 - type: entity
   id: ActionChangeIntrinsicVoiceModulator
-  name: Open voice modulator menu
-  description: Let's you change your voice and the way you speak.
+  name: Ouvrir le menu du modulateur vocal
+  description: Vous permet de changer votre voix et la façon dont vous parlez.
   components:
   - type: Action
     icon:

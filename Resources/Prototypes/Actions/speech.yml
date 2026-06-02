@@ -8,8 +8,8 @@
 - type: entity
   parent: BaseAction
   id: ActionConfigureMeleeSpeech
-  name: Set Battlecry
-  description: Set a custom battlecry for when you attack!
+  name: Définir le cri de guerre
+  description: Définissez un cri de guerre personnalisé pour quand vous attaquez !
   components:
   - type: Action
     itemIconStyle: BigItem

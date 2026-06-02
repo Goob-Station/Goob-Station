@@ -7,7 +7,7 @@
 - type: entity
   parent: CandyBowl
   id: CandyBowlFilledLollypopsMystery
-  suffix: mystery, good
+  suffix: mystère, bon
   components:
   - type: Bin
     initialContents:
@@ -33,7 +33,7 @@
 - type: entity
   id: DeterrentCaseFilled
   parent: DeterrentCase
-  suffix: Filled, CentComm
+  suffix: Rempli, CentComm
   components:
   - type: StorageFill
     contents:

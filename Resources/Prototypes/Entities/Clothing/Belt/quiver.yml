@@ -9,8 +9,8 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltQuiver
-  name: quiver
-  description: Can hold up to 15 arrows, and fits snug around your waist.
+  name: carquois
+  description: Peut contenir jusqu'à 15 flèches, et se porte confortablement autour de la taille.
   components:
   - type: Sprite
     sprite: Clothing/Belt/quiver.rsi

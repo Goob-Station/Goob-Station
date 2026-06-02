@@ -6,8 +6,8 @@
 - type: entity
   parent: BaseAction
   id: ActionEatMouse
-  name: Eat Mouse
-  description: Eat the mouse in your hand, gaining nutriment and a hairball charge.
+  name: Manger une Souris
+  description: Mangez la souris dans votre main, gagnant des nutriments et une charge de boule de poils.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -18,8 +18,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHairball
-  name: Cough Up Hairball
-  description: Purge some of your chemstream, and gain a cool hairball to throw at people.
+  name: Cracher une Boule de Poils
+  description: Purgez une partie de votre flux chimique et obtenez une superbe boule de poils à lancer sur les gens.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

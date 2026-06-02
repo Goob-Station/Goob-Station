@@ -207,8 +207,8 @@
 - type: entity
   id: CratePlants
   parent: CrateGenericSteel
-  name: plant crate
-  description: A variety pack of potted plants to spruce up your station!
+  name: caisse de plantes
+  description: Un assortiment de plantes en pot pour égayer votre station !
   components:
   - type: EntityTableContainerFill
     containers:
@@ -220,8 +220,8 @@
 - type: entity
   id: CrateFunPlushie
   parent: CrateGenericSteel
-  name: plushie crate
-  description: A buncha soft plushies. Throw them around and then wonder how you're gonna explain this purchase to NT.
+  name: caisse de peluches
+  description: Un tas de douces peluches. Lancez-les partout et demandez-vous ensuite comment vous allez expliquer cet achat à NT.
   components:
   - type: EntityTableContainerFill
     containers:
@@ -233,8 +233,8 @@
 - type: entity
   id: CrateFunLizardPlushieBulk
   parent: CrateGenericSteel
-  name: bulk lizard plushie crate
-  description: A buncha soft lizard plushies. Throw them around and then wonder how you're gonna explain this purchase to NT.
+  name: caisse de peluches lézard en gros
+  description: Un tas de douces peluches lézard. Lancez-les partout et demandez-vous ensuite comment vous allez expliquer cet achat à NT.
   components:
   - type: EntityTableContainerFill
     containers:
@@ -250,8 +250,8 @@
 - type: entity
   id: CrateFunSharkPlushieBulk
   parent: CrateGenericSteel
-  name: bulk soft toy shark crate
-  description: A crate filled with a variety of everyone's favorite finned friend. Rawr!
+  name: caisse de jouets requins en gros
+  description: Une caisse remplie d'une variété de l'ami aileron préféré de tous. Rawr !
   components:
   - type: EntityTableContainerFill
     containers:
@@ -270,8 +270,8 @@
 - type: entity
   id: CrateFunInstrumentsVariety
   parent: CrateGenericSteel
-  name: variety instrument collection
-  description: Get your sad station movin' and groovin' with this catch-all variety pack! Contains seven different instruments.
+  name: collection d'instruments variés
+  description: Mettez votre triste station en mouvement avec ce pack varié tout-en-un ! Contient sept instruments différents.
   components:
   - type: StorageFill
     contents:
@@ -286,8 +286,8 @@
 - type: entity
   id: CrateFunInstrumentsBrass
   parent: CrateGenericSteel
-  name: brass instrument ensemble crate
-  description: Bring some jazz to the station with the brass ensemble. Contains a variety of brass instruments for the whole station to play.
+  name: caisse d'ensemble d'instruments en cuivre
+  description: Apportez du jazz à la station avec l'ensemble de cuivres. Contient une variété d'instruments en cuivre pour que toute la station puisse jouer.
   components:
   - type: StorageFill
     contents:
@@ -303,8 +303,8 @@
 - type: entity
   id: CrateFunInstrumentsString
   parent: CrateGenericSteel
-  name: string instrument ensemble crate
-  description: Pluck or pick, slap or shred! Play a smooth melody or melt peoples' faces with this package of stringed instruments.
+  name: caisse d'ensemble d'instruments à cordes
+  description: Pincez, grattez, claquettez ou déchirez ! Jouez une mélodie douce ou faites fondre les visages avec ce lot d'instruments à cordes.
   components:
   - type: StorageFill
     contents:
@@ -321,8 +321,8 @@
 - type: entity
   id: CrateFunInstrumentsWoodwind
   parent: CrateGenericSteel
-  name: woodwind instrument ensemble crate
-  description: If atmos is good at their job, use air to play music with these woodwind instruments! Real wood not guaranteed with every item.
+  name: caisse d'ensemble d'instruments à vent
+  description: Si l'atmos fait bien son travail, utilisez l'air pour jouer de la musique avec ces instruments à vent ! Vrai bois non garanti pour chaque article.
   components:
   - type: StorageFill
     contents:
@@ -341,8 +341,8 @@
 - type: entity
   id: CrateFunInstrumentsKeyedPercussion
   parent: CrateGenericSteel
-  name: keyed/percussion instrument ensemble crate
-  description: Hit some keys with some sticks or your hands, with this Keyed and Percussion instrument ensemble crate.
+  name: caisse d'ensemble d'instruments à clavier et percussions
+  description: Frappez des touches avec des baguettes ou vos mains, avec cette caisse d'ensemble d'instruments à clavier et percussions.
   components:
   - type: StorageFill
     contents:
@@ -360,8 +360,8 @@
 - type: entity
   id: CrateFunInstrumentsSpecial
   parent: CrateGenericSteel
-  name: special instrument collector's crate
-  description: Create some noise with this special collection of arguably-instruments! Centcomm is not responsible for any trauma caused by the contents.
+  name: caisse de collection d'instruments spéciaux
+  description: Faites du bruit avec cette collection spéciale d'instruments discutables ! Centcomm n'est pas responsable des traumatismes causés par le contenu.
   components:
   - type: StorageFill
     contents:
@@ -379,8 +379,8 @@
 - type: entity
   id: CrateFunArtSupplies
   parent: CrateGenericSteel
-  name: art supplies
-  description: Make some happy little accidents with lots of crayons!
+  name: fournitures artistiques
+  description: Faites de joyeux petits accidents avec plein de crayons !
   components:
   - type: StorageFill
     contents:
@@ -389,8 +389,8 @@
 - type: entity
   id: CrateFunBoardGames
   parent: CrateGenericSteel
-  name: board game crate
-  description: Game nights have been proven to either decrease boredom or increase murderous rage depending on the game.
+  name: caisse de jeux de société
+  description: Il a été prouvé que les soirées jeux réduisent l'ennui ou augmentent la fureur meurtrière selon le jeu.
   components:
   - type: StorageFill
     contents:
@@ -411,8 +411,8 @@
 - type: entity
   id: CrateFunSadTromboneImplants
   parent: CrateGenericSteel
-  name: sad trombone implants
-  description: Death's never been so fun before! Implant these to make dying a bit more happy.
+  name: implants de trombone triste
+  description: La mort n'a jamais été aussi amusante ! Implantez-les pour rendre le décès un peu plus joyeux.
   components:
   - type: StorageFill
     contents:
@@ -422,8 +422,8 @@
 - type: entity
   id: CrateFunLightImplants
   parent: CrateGenericSteel
-  name: light implants
-  description: Light up your skin with these implants!
+  name: implants lumineux
+  description: Illuminez votre peau avec ces implants !
   components:
   - type: StorageFill
     contents:
@@ -433,8 +433,8 @@
 - type: entity
   id: CrateFunParty
   parent: CrateGenericSteel
-  name: party crate
-  description: An entire party just waiting for you to open it. Includes party favors, party beverages, and even a cake.
+  name: caisse de fête
+  description: Une fête entière qui n'attend que vous pour commencer. Comprend des cadeaux de fête, des boissons festives et même un gâteau.
   components:
   - type: StorageFill
     contents:
@@ -464,8 +464,8 @@
 - type: entity
   id: CrateFunWaterGuns
   parent: CratePlastic
-  name: water gun crate
-  description: A summer special with a variety of brightly colored water guns. Water not included.
+  name: caisse de pistolets à eau
+  description: Une spéciale estivale avec une variété de pistolets à eau aux couleurs vives. L'eau n'est pas incluse.
   components:
   - type: StorageFill
     contents:
@@ -477,8 +477,8 @@
 - type: entity
   id: CrateFunFoamGuns
   parent: CratePlastic
-  name: Foam Force crate
-  description: Contains four Foam Force rifles, some grenades, and extra ammo. It's [REDACTED] or nothing!
+  name: caisse Foam Force
+  description: Contient quatre fusils Foam Force, des grenades et des munitions supplémentaires. C'est [CENSURÉ] ou rien !
   components:
   - type: StorageFill
     contents:
@@ -492,8 +492,8 @@
 - type: entity
   id: CrateFunBoxing
   parent: CrateGenericSteel
-  name: boxing crate
-  description: Want to set up an underground fight club or host a tournament amongst station crew? This crate is for you!
+  name: caisse de boxe
+  description: Vous voulez créer un club de combat clandestin ou organiser un tournoi pour l'équipage ? Cette caisse est faite pour vous !
   components:
   - type: StorageFill
     contents:
@@ -509,7 +509,7 @@
 - type: entity
   id: CrateFunPirate
   parent: CratePirate
-  suffix: Filled
+  suffix: Rempli
   components:
   - type: StorageFill
     contents:
@@ -526,7 +526,7 @@
 - type: entity
   id: CrateFunToyBox
   parent: CrateToyBox
-  suffix: Filled
+  suffix: Rempli
   components:
   - type: StorageFill
     contents:
@@ -554,8 +554,8 @@
 - type: entity
   id: CrateFunBikeHornImplants
   parent: CrateGenericSteel
-  name: bike horn implants
-  description: A thousand honks a day keeps security officers away! Now with bike horns!
+  name: implants de klaxon de vélo
+  description: Mille coups de klaxon par jour éloignent les agents de sécurité ! Maintenant avec des klaxons de vélo !
   components:
   - type: StorageFill
     contents:
@@ -567,8 +567,8 @@
 - type: entity
   id: CrateFunMysteryFigurines
   parent: CratePlastic
-  name: mystery figure crate
-  description: A collection of 10 Mystery Figurine boxes. Duplicates non refundable.
+  name: caisse de figurines mystères
+  description: Une collection de 10 boîtes de figurines mystères. Les doublons ne sont pas remboursables.
   components:
   - type: StorageFill
     contents:
@@ -579,8 +579,8 @@
         prob: 0.05
 
 - type: entity
-  name: dartboard box set
-  description: A box with everything you need for a fun game of darts.
+  name: coffret jeu de fléchettes
+  description: Une boîte avec tout ce qu'il faut pour une partie de fléchettes amusante.
   id: CrateFunDartsSet
   parent: CratePlastic
   components:
@@ -595,8 +595,8 @@
         prob: 0.05
 
 - type: entity
-  name: hydrated scurret
-  description: Wait, what?
+  name: scurret hydraté
+  description: Attendez, quoi ?
   id: CrateFunScurret
   parent: CrateLivestock
   components:

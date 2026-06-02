@@ -72,8 +72,8 @@
 - type: entity
   parent: BaseDecoy
   id: BalloonOperative
-  name: operative balloon
-  description: Upon closer inspection, this Syndicate operative is actually a balloon.
+  name: ballon d'opérateur
+  description: En y regardant de plus près, cet opérateur du Syndicat est en réalité un ballon.
   components:
   - type: Sprite
     sprite: Objects/Tools/Decoys/operative_decoy.rsi
@@ -87,8 +87,8 @@
 - type: entity
   parent: BaseDecoy
   id: BalloonAgent
-  name: corpsman balloon
-  description: Upon closer inspection, this Syndicate corpsman is actually a balloon.
+  name: ballon de secouriste
+  description: En y regardant de plus près, ce secouriste du Syndicat est en réalité un ballon.
   components:
   - type: Sprite
     sprite: Objects/Tools/Decoys/agent_decoy.rsi
@@ -102,8 +102,8 @@
 - type: entity
   parent: BaseDecoy
   id: BalloonElite
-  name: elite operative balloon
-  description: Upon closer inspection, this Syndicate elite operative is actually a balloon.
+  name: ballon d'opérateur d'élite
+  description: En y regardant de plus près, cet opérateur d'élite du Syndicat est en réalité un ballon.
   components:
   - type: Sprite
     sprite: Objects/Tools/Decoys/elite_decoy.rsi
@@ -119,8 +119,8 @@
 - type: entity
   parent: BaseDecoy
   id: BalloonJuggernaut
-  name: juggernaut balloon
-  description: Upon closer inspection, this Syndicate juggernaut is actually a balloon.
+  name: ballon de colosse
+  description: En y regardant de plus près, ce colosse du Syndicat est en réalité un ballon.
   components:
   - type: Sprite
     sprite: Objects/Tools/Decoys/juggernaut_decoy.rsi
@@ -134,8 +134,8 @@
 - type: entity
   parent: BaseDecoy
   id: BalloonCommander
-  name: commander balloon
-  description: Upon closer inspection, this Syndicate commander is actually a balloon.
+  name: ballon de commandant
+  description: En y regardant de plus près, ce commandant du Syndicat est en réalité un ballon.
   components:
   - type: Sprite
     sprite: Objects/Tools/Decoys/commander_decoy.rsi

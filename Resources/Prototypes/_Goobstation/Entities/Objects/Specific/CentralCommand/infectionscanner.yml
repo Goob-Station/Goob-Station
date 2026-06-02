@@ -6,8 +6,8 @@
 - type: entity
   parent: [BaseItem, BaseCentcommContraband]
   id: InfectionScannerCburn
-  name: blood tester
-  description: A small device, typically utilized by CBURN agents. It's capable of detecting the presence of an infection in a targets bloodstream.
+  name: testeur de sang
+  description: Un petit appareil, généralement utilisé par les agents CBURN. Il est capable de détecter la présence d'une infection dans le sang d'une cible.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Devices/zedscanner.rsi

@@ -7,7 +7,7 @@
 - type: entity
   id: BaseExosuitParts
   parent: BaseItem
-  name: base components
+  name: composants de base
   abstract: true
   components:
   - type: Item
@@ -25,8 +25,8 @@
 - type: entity
   id: DurandArmorPlate
   parent: BaseExosuitParts
-  name: durand armor plates
-  description: Armor plates made of plasteel for Durand exosuit.
+  name: plaques d'armure du Durand
+  description: Plaques d'armure en plasteel pour l'exosuit Durand.
   components:
     - type: Item
       storedRotation: 0
@@ -43,8 +43,8 @@
 - type: entity
   id: GygaxArmorPlate
   parent: BaseExosuitParts
-  name: gygax armor plates
-  description: Armor plates made of steel for Gygax exosuit.
+  name: plaques d'armure du Gygax
+  description: Plaques d'armure en acier pour l'exosuit Gygax.
   components:
     - type: Item
       storedRotation: 0
@@ -61,8 +61,8 @@
 - type: entity
   id: RipleyUpgradeKit
   parent: BaseExosuitParts
-  name: exosuit upgrade kit
-  description: This kit allows you to assemble an exosuit Ripley MK-II.
+  name: kit d'amélioration d'exosuit
+  description: Ce kit vous permet d'assembler un exosuit Ripley MK-II.
   components:
     - type: Item
       storedRotation: 0
@@ -78,8 +78,8 @@
 - type: entity
   id: MechAirTank
   parent: BaseExosuitParts
-  name: exosuit air tank
-  description: A special air canister capable of holding a large amount of air.
+  name: réservoir d'air d'exosuit
+  description: Un canister d'air spécial capable de contenir une grande quantité d'air.
   components:
     - type: Item
       storedRotation: 0
@@ -95,8 +95,8 @@
 - type: entity
   id: MechThruster
   parent: BaseExosuitParts
-  name: exosuit thruster
-  description: A thruster with which the exosuit can safely move in the absence of gravity.
+  name: propulseur d'exosuit
+  description: Un propulseur avec lequel l'exosuit peut se déplacer en toute sécurité en l'absence de gravité.
   components:
     - type: Item
       storedRotation: 0

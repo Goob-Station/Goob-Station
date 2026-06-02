@@ -5,7 +5,7 @@
 
 - type: entity
   name: resonant scythe
-  description: The answer seems to be here… But the fruit isnt sweet enough just yet.
+  description: La réponse semble être ici… Mais le fruit n'est pas encore assez mûr.
   parent: BaseItem
   id: ReverbScythe
   components:

@@ -1,8 +1,8 @@
 - type: entity
   parent: [ BaseItem, BaseMajorContraband ]
   id: NinjutsuScroll
-  name: ninjutsu scroll
-  description: A green scroll containing some Japanese script. Its lessons are written for those who strike unseen.
+  name: parchemin de ninjutsu
+  description: Un parchemin vert contenant des écrits japonais. Ses leçons sont destinées à ceux qui frappent sans être vus.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/martial_arts.rsi

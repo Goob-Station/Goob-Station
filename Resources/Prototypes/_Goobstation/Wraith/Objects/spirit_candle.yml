@@ -1,8 +1,8 @@
 - type: entity
-  name: spirit candle
+  name: bougie des esprits
   parent: Candle
   id: SpiritCandle
-  description: Feels vaguely ominous!
+  description: Semble vaguement sinistre !
   components:
   - type: Item
     size: Small
@@ -63,8 +63,8 @@
 # In a live round, the wraith should be moving so its not gonna be a huge problem. Hopefully someone finds a solution tho
 - type: entity
   id: SpiritCandleRevealArea
-  name: spirit candle area
-  description: You shouldn't see this.
+  name: zone de bougie des esprits
+  description: Vous ne devriez pas voir ça.
   categories: [ HideSpawnMenu ]
   components:
   - type: SpiritCandleArea

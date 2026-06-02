@@ -18,10 +18,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: head slug
+  name: limace céphalique
   parent: [SimpleSpaceMobBase] # no dying in space
   id: MobHeadcrab
-  description: You don't want to touch it.
+  description: Vous ne voulez pas y toucher.
   components:
   - type: Sprite
     drawdepth: SmallMobs

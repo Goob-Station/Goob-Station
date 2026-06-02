@@ -1,0 +1,97 @@
+- type: entity
+  id: ShadowlingAbilitiesPostHatch
+  name: "capacités post-éclosion de l'ombrelin"
+  description: "Entité qui contient toutes les actions assignées après l'éclosion d'un ombrelin."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ShadowlingGlare
+  - type: ShadowlingEnthrall
+  - type: ShadowlingVeil
+  - type: ShadowlingRapidRehatch
+  - type: ShadowlingShadowWalk
+  - type: ShadowlingIcyVeins
+  - type: ShadowlingDestroyEngines
+  - type: ShadowlingCollectiveMind
+    availableAbilities:
+    - SonicScreech
+    - NullCharge
+    - BlackRecuperation
+    - BlindnessSmoke
+    - EmpoweredEnthrall
+    - NoxImperii
+    - Ascendance
+  - type: LightDetection
+  - type: LightDetectionDamage
+    # resistanceModifier: Todo: find why it doesn't work correctly
+
+- type: entity
+  id: ShadowlingAbilitiesObtainable
+  name: "capacités obtenables de l'ombrelin"
+  description: "Entité qui contient toutes les actions obtenables pour un ombrelin par la conversion de l'équipage."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ShadowlingSonicScreech
+  - type: ShadowlingBlindnessSmoke
+  - type: ShadowlingNullCharge
+  - type: ShadowlingBlackRecuperation
+  - type: ShadowlingEmpoweredEnthrall
+  - type: ShadowlingNoxImperii
+  - type: ShadowlingAscendance
+
+- type: entity
+  id: ShadowlingAbilitiesAscension
+  name: "capacités d'ascension de l'ombrelin"
+  description: "Entité qui contient toutes les actions obtenables pour un ombrelin par l'ascension."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ShadowlingAnnihilate
+  - type: ShadowlingPlaneShift
+  - type: ShadowlingLightningStorm
+  - type: ShadowlingAscendantBroadcast
+  - type: ShadowlingHypnosis
+  - type: ShadowlingVeil
+  - type: ShadowlingIcyVeins
+  - type: ShadowlingDestroyEngines
+  - type: ShadowlingBlindnessSmoke
+  - type: ShadowlingNullCharge
+  - type: ShadowlingSonicScreech
+  - type: ShadowlingBlackRecuperation
+
+- type: entity
+  id: NightmareAbilities
+  name: "capacités d'ascension de l'ombrelin"
+  description: Entité qui contient tous les composants pour les Cauchemars.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Nightmare
+  - type: LightDetection
+  - type: LightDetectionDamage
+  - type: LightEaterUser
+  - type: ShadowlingPlaneShift
+  - type: Reflect
+  - type: PressureImmunity
+
+- type: entity
+  id: LesserShadowlingAbilities
+  name: capacités du moindre ombrelin
+  description: Entité qui contient tous les composants pour les Moindres Ombrelins.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: LesserShadowling
+  - type: ShadowlingShadowWalk
+  - type: ShadowlingGlare
+    maxGlareStunTime: 4
+    muteTime: 2
+  - type: LightDetection
+  - type: LightDetectionDamage
+    maxDetection: 10
+
+- type: entity
+  id: ThrallAbilities
+  name: capacités du serviteur
+  description: Entité qui contient tous les composants pour les Serviteurs après Hypnose.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Thrall
+  - type: NightVision
+  - type: ThrallGuise

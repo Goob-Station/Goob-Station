@@ -49,8 +49,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimPaintObjective
-  name: Paint the station.
-  description: The station is hideous. You must color it all!
+  name: Repeignez la station.
+  description: La station est hideuse. Vous devez tout colorier !
   components:
   - type: Objective
     icon:
@@ -60,8 +60,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimPristine
-  name: Ensure the station is pristine.
-  description: The CEO of Nanotrasen is coming! Ensure the station is in absolutely pristine condition.
+  name: Assurez-vous que la station est impeccable.
+  description: Le PDG de Nanotrasen arrive ! Assurez-vous que la station est en parfait état.
   components:
   - type: Objective
     icon:
@@ -71,8 +71,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimBlingFloor
-  name: Replace the floor.
-  description: Replace all the floor tiles with wood, carpeting, grass or bling.
+  name: Remplacez le sol.
+  description: Remplacez tous les carreaux de sol par du bois, de la moquette, de l'herbe ou du bling.
   components:
   - type: Objective
     icon:
@@ -82,8 +82,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimCorpseCollector
-  name: Collect dead corpses.
-  description: Start a collection of corpses. Don't kill people to get these corpses.
+  name: Collectez des cadavres.
+  description: Commencez une collection de cadavres. Ne tuez pas des gens pour obtenir ces cadavres.
   components:
   - type: Objective
     icon:
@@ -93,8 +93,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimParaplegic
-  name: Paraplegic.
-  description: Convince the crew that you are paraplegic.
+  name: Paraplégique.
+  description: Convainquez l'équipage que vous êtes paraplégique.
   components:
   - type: Objective
     icon:
@@ -104,8 +104,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimHungry
-  name: Sate your hunger.
-  description: You are hungry. Eat as much food as you can find.
+  name: Rassasiez votre faim.
+  description: Vous avez faim. Mangez autant de nourriture que vous pouvez en trouver.
   components:
   - type: Objective
     icon:
@@ -115,8 +115,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimBlazeIt
-  name: Chemically improve your body.
-  description: Your body must be improved. Ingest as many drugs as you can.
+  name: Améliorez votre corps chimiquement.
+  description: Votre corps doit être amélioré. Ingérez autant de drogues que vous pouvez.
   components:
   - type: Objective
     icon:
@@ -126,8 +126,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimSocialExperiment
-  name: It's all a lie.
-  description: This is a secret social experiment conducted by Nanotrasen. Convince the crew that this is the truth.
+  name: Tout est un mensonge.
+  description: C'est une expérience sociale secrète menée par Nanotrasen. Convainquez l'équipage que c'est la vérité.
   components:
   - type: Objective
     icon:
@@ -137,8 +137,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimVirtualInsanity
-  name: NOTHING IS REAL.
-  description: It's all an entirely virtual simulation within an underground vault. Convince the crew to escape the shackles of VR.
+  name: RIEN N'EST RÉEL.
+  description: Tout ceci est une simulation entièrement virtuelle dans un bunker souterrain. Convainquez l'équipage de s'échapper des chaînes de la réalité virtuelle.
   components:
   - type: Objective
     icon:
@@ -148,8 +148,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimGame
-  name: Chat is this real?
-  description: Convince the crew that we are in a game, without explicitly telling them we are in a game.
+  name: Chat c'est réel ça ?
+  description: Convainquez l'équipage que nous sommes dans un jeu, sans le leur dire explicitement.
   components:
   - type: Objective
     icon:
@@ -159,8 +159,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimSaveAnimals
-  name: Save the animals.
-  description: Nanotrasen is abusing the animals! Save as many as you can!
+  name: Sauvez les animaux.
+  description: Nanotrasen maltraite les animaux ! Sauvez-en autant que vous pouvez !
   components:
   - type: Objective
     icon:
@@ -170,8 +170,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimMusic
-  name: Share your music.
-  description: You burn with passion for music. Share your vision. If anyone hates it, beat them on the head with your instrument!
+  name: Partagez votre musique.
+  description: Vous brûlez de passion pour la musique. Partagez votre vision. Si quelqu'un la déteste, frappez-le sur la tête avec votre instrument !
   components:
   - type: Objective
     icon:
@@ -181,8 +181,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimStalker
-  name: Stalk the crew.
-  description: Someone hired you to compile dossiers on all important members of the crew. Be sure they don't know you're doing it.
+  name: Espionnez l'équipage.
+  description: Quelqu'un vous a engagé pour constituer des dossiers sur tous les membres importants de l'équipage. Assurez-vous qu'ils ne sachent pas que vous le faites.
   components:
   - type: Objective
     icon:
@@ -192,8 +192,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimConspiracy
-  name: The conspiracy.
-  description: The leaders of this station are hiding a grand, evil conspiracy. Only you can learn what it is, and expose it to the people!
+  name: La conspiration.
+  description: Les dirigeants de cette station cachent une grande et malveillante conspiration. Vous seul pouvez découvrir ce que c'est et l'exposer au peuple !
   components:
   - type: Objective
     icon:
@@ -203,8 +203,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimNarrator
-  name: Narrate the story.
-  description: You're the narrator of this tale. Follow around the protagonists to tell their story.
+  name: Narrez l'histoire.
+  description: Vous êtes le narrateur de cette histoire. Suivez les protagonistes pour raconter leur histoire.
   components:
   - type: Objective
     icon:
@@ -214,8 +214,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimSixthsense
-  name: Are you really alive?
-  description: You died back there and went to heaven... or is it hell? No one here seems to know they're dead. Convince them, and maybe you can escape this limbo.
+  name: Êtes-vous vraiment vivant ?
+  description: Vous êtes mort là-bas et êtes allé au paradis... ou est-ce l'enfer ? Personne ici ne semble savoir qu'il est mort. Convainquez-les, et peut-être pourrez-vous échapper à ce purgatoire.
   components:
   - type: Objective
     icon:
@@ -225,8 +225,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimParty
-  name: PARTY!
-  description: You NEED to throw a huge rager. Make it as awesome as possible so the whole crew comes... OR ELSE!
+  name: FÊTE !
+  description: Vous DEVEZ organiser une énorme fête. Rendez-la aussi géniale que possible pour que tout l'équipage vienne... SINON !
   components:
   - type: Objective
     icon:
@@ -236,8 +236,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimDeadStationTheory
-  name: Only one other person exists.
-  description: There is only one other person in existence, they are just really good at pretending to be multiple people.
+  name: Il n'existe qu'une seule autre personne.
+  description: Il n'existe qu'une seule autre personne, elle est juste très douée pour prétendre être plusieurs personnes.
   components:
   - type: Objective
     icon:
@@ -247,8 +247,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimWeaknessOfMyFlesh
-  name: The flesh is rotting.
-  description: Your flesh is rotting from your body. Fight the inevitable, and replace your tainted limbs with entirely new ones.
+  name: La chair pourrit.
+  description: Votre chair pourrit sur votre corps. Combattez l'inévitable et remplacez vos membres souillés par de tout nouveaux.
   components:
   - type: Objective
     icon:
@@ -258,8 +258,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimInstructor
-  name: Military instructor.
-  description: You are a military instructor. You must make sure the crew is in top shape for the war against the syndicate!
+  name: Instructeur militaire.
+  description: Vous êtes un instructeur militaire. Vous devez vous assurer que l'équipage est en pleine forme pour la guerre contre le syndicat !
   components:
   - type: Objective
     icon:
@@ -269,8 +269,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimActor
-  name: Action movie.
-  description: You are in an action movie. You must say as many cheesy one-liners as possible.
+  name: Film d'action.
+  description: Vous êtes dans un film d'action. Vous devez dire autant de répliques accrocheuses que possible.
   components:
   - type: Objective
     icon:
@@ -282,8 +282,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimNations
-  name: Make your department prosper.
-  description: Ensure your department prospers over all else.
+  name: Faites prospérer votre département.
+  description: Assurez-vous que votre département prospère avant tout.
   components:
   - type: Objective
     icon:
@@ -293,8 +293,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimPowerUnlimited
-  name: Unlimited power.
-  description: Flood the station's powernet with as much electricity as you can.
+  name: Puissance illimitée.
+  description: Inondez le réseau électrique de la station avec autant d'électricité que possible.
   components:
   - type: Objective
     icon:
@@ -304,8 +304,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimBuild
-  name: Expand the station.
-  description: The station is too tiny, and you're going to fix that.
+  name: Agrandissez la station.
+  description: La station est trop petite, et vous allez y remédier.
   components:
   - type: Objective
     icon:
@@ -315,8 +315,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimDefect
-  name: Defect from the station.
-  description: Fuck the system! Defect from the station and start an independent colony in space, Mining Outpost or the derelict. Recruit crewmates if you can.
+  name: Désertez la station.
+  description: Merde au système ! Désertez la station et fondez une colonie indépendante dans l'espace, à l'avant-poste minier ou dans l'épave. Recrutez des membres d'équipage si vous pouvez.
   components:
   - type: Objective
     icon:
@@ -326,7 +326,7 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimMonkeyTakeover
-  name: Raise an army of monkeys.
+  name: Levez une armée de singes.
   description: OOK OOK AAH!!!
   components:
   - type: Objective
@@ -337,8 +337,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimAverageFrontierPirate
-  name: Steal shoes.
-  description: Steal as many shoes as you can.
+  name: Volez des chaussures.
+  description: Volez autant de chaussures que possible.
   components:
   - type: Objective
     icon:
@@ -348,8 +348,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimNoClown
-  name: The clown is not funny.
-  description: The clown is not funny. You can do better! Take over their role and make the crew laugh!
+  name: Le clown n'est pas drôle.
+  description: Le clown n'est pas drôle. Vous pouvez faire mieux ! Prenez leur rôle et faites rire l'équipage !
   components:
   - type: Objective
     icon:
@@ -359,8 +359,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimReplacePets
-  name: Replace the pets.
-  description: All the pets around here suck. You need to make them cooler. Replace them with exotic beasts!
+  name: Remplacez les animaux.
+  description: Tous les animaux ici sont nuls. Vous devez les rendre plus cool. Remplacez-les par des bêtes exotiques !
   components:
   - type: Objective
     icon:
@@ -370,8 +370,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimBald
-  name: Save people from the hair invasion.
-  description: There are alien parasites masquerading as people's hair. Save people from this invasion.
+  name: Sauvez les gens de l'invasion des cheveux.
+  description: Des parasites extraterrestres se font passer pour les cheveux des gens. Sauvez les gens de cette invasion.
   components:
   - type: Objective
     icon:
@@ -383,8 +383,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimNoWalls
-  name: Break down the walls.
-  description: The crew must get to know one another better. Break down the walls inside the station!
+  name: Démolissez les murs.
+  description: L'équipage doit mieux se connaître. Démolissez les murs à l'intérieur de la station !
   components:
   - type: Objective
     icon:
@@ -394,8 +394,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimAbductception
-  name: Take revenge.
-  description: You have been changed forever. Find the aliens that did this to you and give them a taste of their own medicine.
+  name: Prenez votre revanche.
+  description: Vous avez été changé pour toujours. Trouvez les extraterrestres qui vous ont fait ça et rendez-leur la pareille.
   components:
   - type: Objective
     icon:
@@ -405,8 +405,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimNoOxygen
-  name: OXYGEN IS KILLING EVERYONE.
-  description: The oxygen is killing them all and they don't even know it. Make sure no oxygen is on the station.
+  name: L'OXYGÈNE TUE TOUT LE MONDE.
+  description: L'oxygène les tue tous et ils ne le savent même pas. Assurez-vous qu'il n'y a plus d'oxygène sur la station.
   components:
   - type: NotJobRequirement
     job: AtmosphericTechnician # It would be too free for atmos techs :) CE is fair game though.
@@ -418,8 +418,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimEscapeStation
-  name: Escape the station.
-  description: You must escape the station! Get the shuttle called!
+  name: Échappez-vous de la station.
+  description: Vous devez vous échapper de la station ! Faites appeler la navette !
   components:
   - type: Objective
     icon:
@@ -430,8 +430,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimNoCloning
-  name: No cloning.
-  description: Don't allow anyone to be cloned.
+  name: Pas de clonage.
+  description: N'autorisez personne à être cloné.
   components:
   - type: Objective
     icon:
@@ -441,8 +441,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimStealWeapons
-  name: Steal weapons.
-  description: Steal as many weapons as you can fit on your person.
+  name: Volez des armes.
+  description: Volez autant d'armes que vous pouvez porter sur vous.
   components:
   - type: Objective
     icon:
@@ -452,8 +452,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimDismantleComputers
-  name: Steal computers.
-  description: The 7G waves coming off from the computers are killing the crew and they dont know it! Dismantle them!
+  name: Volez des ordinateurs.
+  description: Les ondes 7G émises par les ordinateurs tuent l'équipage et ils ne le savent pas ! Démontez-les !
   components:
   - type: Objective
     icon:
@@ -463,8 +463,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimFinality
-  name: No revival.
-  description: Death should be final and modern medicine disrupts the natural order. Don't allow anyone to be revived.
+  name: Pas de réanimation.
+  description: La mort devrait être définitive et la médecine moderne perturbe l'ordre naturel. N'autorisez personne à être réanimé.
   components:
   - type: Objective
     icon:
@@ -474,8 +474,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimHeretic
-  name: THE GATES HAVE OPENED MY MIND IS OPEN MY MIND IS OPEN MY MIND IS OPEN
-  description: You see you see what they cannot you see the open door you seeE you SEeEe you SEe yOU seEee SHOW THEM ALL.
+  name: LES PORTES SE SONT OUVERTES MON ESPRIT EST OUVERT MON ESPRIT EST OUVERT MON ESPRIT EST OUVERT
+  description: Vous voyez vous voyez ce qu'ils ne peuvent pas vous voyez la porte ouverte vous voyEZ vous VOYez vous VOYez vOus voyEz MONTREZ-LEUR TOUT.
   components:
   - type: ForceHereticObjective
   - type: Objective

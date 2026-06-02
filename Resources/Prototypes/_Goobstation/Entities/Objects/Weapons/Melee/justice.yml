@@ -13,7 +13,7 @@
   name: DT-2 'Justice'
   parent: [BaseItem, BaseGrandTheftContraband]
   id: Justice
-  description: An expensive & self-recharging energy sword, designed specifically for the Head of Security. If it were not for injustice, man would not know justice.
+  description: Une épée énergétique coûteuse et à recharge automatique, conçue spécifiquement pour le chef de la sécurité. Sans injustice, l'homme ne connaîtrait pas la justice.
   components:
   - type: Item
     sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi

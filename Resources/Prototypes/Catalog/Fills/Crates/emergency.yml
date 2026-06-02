@@ -25,8 +25,8 @@
 - type: entity
   id: CrateEmergencyExplosive
   parent: CrateSecgear
-  name: bomb suit crate
-  description: Science gone bonkers? Beeping behind the airlock? Buy now and be the hero the station des... I mean needs! (time not included)
+  name: caisse de combinaison de démineur
+  description: La science est devenue folle ? Un bip derrière le sas ? Achetez maintenant et devenez le héros que la station mé... je veux dire dont elle a besoin ! (le temps n'est pas inclus)
   components:
   - type: StorageFill
     contents:
@@ -40,8 +40,8 @@
 - type: entity
   id: CrateEmergencyFire
   parent: CrateGenericSteel
-  name: firefighting crate
-  description: Only you can prevent station fires. Partner up with two firefighter suits, gas masks, flashlights, large oxygen tanks, extinguishers, and hardhats!
+  name: caisse de lutte contre l'incendie
+  description: Vous seul pouvez prévenir les incendies de la station. Équipez-vous de deux combinaisons de pompier, masques à gaz, lampes de poche, grands réservoirs d'oxygène, extincteurs et casques de chantier !
   components:
   - type: StorageFill
     contents:
@@ -61,8 +61,8 @@
 - type: entity
   id: CrateEmergencyInternals
   parent: CrateInternals
-  name: internals crate
-  description: Master your life energy and control your breathing with 3 breath masks, emergency suits and large air tanks.
+  name: caisse de respirateurs
+  description: Maîtrisez votre énergie vitale et contrôlez votre respiration avec 3 masques respiratoires, des combinaisons d'urgence et de grands réservoirs d'air.
   components:
   - type: StorageFill
     contents:
@@ -80,8 +80,8 @@
 - type: entity
   id: CrateEmergencyInternalsLarge
   parent: CrateInternals
-  name: internals crate (large)
-  description: Master your life energy and control your breathing with 6 breath masks, emergency suits and large air tanks.
+  name: caisse de respirateurs (grande)
+  description: Maîtrisez votre énergie vitale et contrôlez votre respiration avec 6 masques respiratoires, des combinaisons d'urgence et de grands réservoirs d'air.
   components:
     - type: StorageFill
       contents:
@@ -99,8 +99,8 @@
 - type: entity
   id: CrateNitrogenInternals
   parent: CrateInternals
-  name: internals crate (nitrogen)
-  description: Contains four breath masks and four large nitrogen tanks. Intended for Slimepeople and Vox.
+  name: caisse de respirateurs (azote)
+  description: Contient quatre masques respiratoires et quatre grands réservoirs d'azote. Destiné aux Slimepersonnes et aux Vox.
   components:
   - type: StorageFill
     contents:
@@ -114,8 +114,8 @@
 - type: entity
   id: CrateEmergencyRadiation
   parent: CrateRadiation
-  name: radiation protection crate
-  description: Survive the Nuclear Apocalypse and Supermatter Engine alike with two sets of Radiation suits. Each set contains a helmet, suit, and Geiger counter. We'll even throw in a bottle of vodka and some glasses too, considering the life-expectancy of people who order this.
+  name: caisse de protection contre les radiations
+  description: Survivez à l'Apocalypse Nucléaire et au Moteur Supermatière avec deux ensembles de combinaisons anti-radiation. Chaque ensemble contient un casque, une combinaison et un compteur Geiger. On vous ajoute même une bouteille de vodka et des verres, vu l'espérance de vie des gens qui commandent ça.
   components:
   - type: StorageFill
     contents:
@@ -130,8 +130,8 @@
 - type: entity
   id: CrateEmergencyInflatablewall
   parent: CratePlastic
-  name: inflatable wall crate
-  description: Three stacks of inflatable walls for when the stations metal walls don't want to hold atmosphere anymore.
+  name: caisse de murs gonflables
+  description: Trois piles de murs gonflables pour quand les murs métalliques de la station refusent de retenir l'atmosphère.
   components:
   - type: StorageFill
     contents:
@@ -140,8 +140,8 @@
 - type: entity
   id: CrateGenericBiosuit
   parent: CratePlastic
-  name: emergency bio suit crate
-  description: Contains 2 biohazard suits to ensure that no disease will distract you from what you're doing there.
+  name: caisse de combinaisons biologiques d'urgence
+  description: Contient 2 combinaisons biologiques pour qu'aucune maladie ne vous détourne de ce que vous faites là.
   components:
   - type: StorageFill
     contents:

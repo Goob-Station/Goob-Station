@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseAction
   id: ActionInvisibleBlockade
-  name: Invisible Blockade
-  description: Form an invisible three tile wide blockade.
+  name: Barricade invisible
+  description: Formez une barricade invisible large de trois cases.
   components:
   - type: Action
     raiseOnUser: true
@@ -18,8 +18,8 @@
 - type: entity
   parent: BaseAction
   id: ActionFingerGuns
-  name: Finger Guns
-  description: Shoot up to three mimed bullets from your fingers that damage and mute their targets. Can't be used if you have something in your hands.
+  name: Pistolets à doigts
+  description: Tirez jusqu'à trois balles mimées depuis vos doigts qui endommagent et rendent muettes leurs cibles. Impossible à utiliser si vous avez quelque chose dans les mains.
   components:
   - type: Action
     raiseOnUser: true

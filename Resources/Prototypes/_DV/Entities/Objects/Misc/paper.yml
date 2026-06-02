@@ -4,10 +4,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: station warrant
+  name: mandat de station
   parent: Paper
   id: PaperStationWarrant
-  description: 'A paper warrant issued by the justice department.'
+  description: 'Un mandat papier émis par le département de justice.'
   components:
   - type: Sprite
     sprite: Objects/Misc/bureaucracy.rsi
@@ -33,11 +33,11 @@
 - type: entity
   parent: PaperStationWarrant
   id: PaperFugitiveReport
-  name: fugitive report
-  description: An arrest warrant for a space fugitive sent from GALPOL.
+  name: rapport de fugitif
+  description: Un mandat d'arrêt pour un fugitif spatial envoyé par GALPOL.
 
 - type: entity
   parent: Paper
   id: TapeRecorderTranscript
-  name: record transcript
+  name: retranscription d'enregistrement
   # TODO: could have a unique sprite in the future

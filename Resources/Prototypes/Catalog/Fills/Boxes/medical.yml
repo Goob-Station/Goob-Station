@@ -33,10 +33,10 @@
 # SPDX-License-Identifier: MIT
 
 - type: entity
-  name: syringe box
+  name: boîte de seringues
   parent: BoxCardboard
   id: BoxSyringe
-  description: A box full of syringes.
+  description: Une boîte pleine de seringues.
   components:
   - type: StorageFill
     contents:
@@ -48,10 +48,10 @@
       - state: syringe
 
 - type: entity
-  name: pill canister box
+  name: boîte de piluliers
   parent: BoxCardboard
   id: BoxPillCanister
-  description: A box full of pill canisters.
+  description: Une boîte pleine de piluliers.
   components:
   - type: StorageFill
     contents:
@@ -63,10 +63,10 @@
       - state: pillbox
 
 - type: entity
-  name: bottle box
+  name: boîte de flacons
   parent: BoxCardboard
   id: BoxBottle
-  description: A box full of bottles.
+  description: Une boîte pleine de flacons.
   components:
   - type: StorageFill
     contents:
@@ -78,10 +78,10 @@
       - state: bottle
 
 - type: entity
-  name: sterile mask box
+  name: boîte de masques stériles
   parent: BoxCardboard
   id: BoxSterileMask
-  description: This box contains sterile medical masks.
+  description: Cette boîte contient des masques médicaux stériles.
   components:
   - type: StorageFill
     contents:
@@ -93,10 +93,10 @@
       - state: sterile
 
 - type: entity
-  name: latex gloves box
+  name: boîte de gants en latex
   parent: BoxCardboard
   id: BoxLatexGloves
-  description: Contains sterile latex gloves.
+  description: Contient des gants en latex stériles.
   components:
   - type: StorageFill
     contents:
@@ -108,10 +108,10 @@
       - state: latex
 
 - type: entity
-  name: nitrile gloves box
+  name: boîte de gants en nitrile
   parent: BoxCardboard
   id: BoxNitrileGloves
-  description: Contains sterile nitrile gloves. Better than latex.
+  description: Contient des gants en nitrile stériles. Meilleur que le latex.
   components:
   - type: StorageFill
     contents:
@@ -123,10 +123,10 @@
       - state: nitrile
 
 - type: entity
-  name: body bag box
+  name: boîte de sacs mortuaires
   parent: BoxCardboard
   id: BoxBodyBag
-  description: Contains body bags.
+  description: Contient des sacs mortuaires.
   components:
   - type: StorageFill
     contents:
@@ -142,10 +142,10 @@
         - BodyBag
 
 - type: entity
-  name: vial box
+  name: boîte de fioles
   parent: BoxCardboard
   id: BoxVial
-  description: A box full of vials.
+  description: Une boîte pleine de fioles.
   components:
   - type: Storage
     grid:

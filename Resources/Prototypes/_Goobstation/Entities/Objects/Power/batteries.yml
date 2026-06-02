@@ -1,6 +1,6 @@
 - type: entity
-  name: disposable battery
-  description: Robots eat these, right?
+  name: batterie jetable
+  description: Les robots mangent ça, non ?
   id: BatteryDisposable
   parent: BaseItem
   components:

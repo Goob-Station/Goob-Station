@@ -5,8 +5,8 @@
 
 - type: entity
   id: BloodCrawlAction
-  name: Blood Crawl
-  description: JAUNT ANYWHERE WHENEVER YOU ARE ON BLOOD
+  name: Saut de Sang
+  description: SAUTEZ N'IMPORTE OÙ QUAND VOUS ÊTES SUR DU SANG
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -19,8 +19,8 @@
 
 - type: entity
   id: DemonicWhisperAction
-  name: Demonic Whisper
-  description: SEND A MESSAGE TO THEIR SOUL, FROM HELL
+  name: Chuchotement Démoniaque
+  description: ENVOYEZ UN MESSAGE À LEUR ÂME, DEPUIS L'ENFER
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -35,4 +35,3 @@
   - type: EntityTargetAction
     canTargetSelf: false
     event: !type:DemonicWhisperEvent
-

@@ -8,8 +8,8 @@
 - type: entity
   parent: ClothingBackpackDuffelAbductor
   id: ClothingBackpackDuffelAbductorFilled
-  name: alien surgery duffel bag
-  description: An ordinary surgical duffel bag woven from a durable fiber.
+  name: sac chirurgical extraterrestre
+  description: Un sac chirurgical ordinaire tissé en fibre résistante.
   components:
   - type: StorageFill
     contents:

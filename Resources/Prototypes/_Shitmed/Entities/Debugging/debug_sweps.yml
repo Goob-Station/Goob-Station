@@ -4,10 +4,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: bang severer
+  name: sectionneur bang
   parent: BaseItem
   id: MeleeDebugSever
-  description: sever yer parts a week from now
+  description: sectionner vos parties dans une semaine
   suffix: DEBUG
   components:
   - type: Tag
@@ -26,7 +26,7 @@
     sprite: Objects/Weapons/Melee/debug.rsi
 
 - type: entity
-  name: bang severer 100dmg
+  name: sectionneur bang 100dmg
   parent: MeleeDebugSever
   id: MeleeDebugSever100
   components:
@@ -39,7 +39,7 @@
         Slash: 100
 
 - type: entity
-  name: bang severer 200dmg
+  name: sectionneur bang 200dmg
   parent: MeleeDebugSever
   id: MeleeDebugSever200
   components:
@@ -52,10 +52,10 @@
         Slash: 200
 
 - type: entity
-  name: bang burner
+  name: brûleur bang
   parent: BaseItem
   id: MeleeDebugBurner
-  description: burn yer parts
+  description: brûler vos parties
   suffix: DEBUG
   components:
   - type: Tag
@@ -74,7 +74,7 @@
     sprite: Objects/Weapons/Melee/debug.rsi
 
 - type: entity
-  name: bang burner 200dmg
+  name: brûleur bang 200dmg
   parent: MeleeDebugBurner
   id: MeleeDebugBurner200
   components:

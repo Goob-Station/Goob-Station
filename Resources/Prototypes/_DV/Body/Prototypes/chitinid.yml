@@ -6,7 +6,7 @@
 
 - type: body
   id: Chitinid
-  name: "chitinid"
+  name: "chitinide"
   root: chest
   slots:
     head:

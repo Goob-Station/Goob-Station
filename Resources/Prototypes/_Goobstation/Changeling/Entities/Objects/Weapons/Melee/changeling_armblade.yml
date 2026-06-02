@@ -21,7 +21,7 @@
 - type: entity
   parent: ArmBlade
   id: ArmBladeChangeling
-  suffix: Unremoveable
+  suffix: Inamovible
   components:
   - type: Sharp
   - type: Sprite

@@ -5,9 +5,9 @@
 
 - type: entity
   id: FloraRockSolidFading
-  description: A volcanic rock. Pioneers used to ride these babies for miles.
+  description: Une roche volcanique. Les pionniers chevauchaient ces bébés sur des miles.
   parent: FloraRockSolid
-  suffix: Fading
+  suffix: En train de s'estomper
   components:
   - type: FadingTimedDespawn
     lifetime: 20

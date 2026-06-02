@@ -24,7 +24,7 @@
 
 - type: entity
   id: BaseCartridgeCap
-  name: cartridge (cap)
+  name: cartouche à amorce
   parent: BaseCartridge
   abstract: true
   components:
@@ -45,7 +45,7 @@
 
 - type: entity
   id: CartridgeCap
-  name: cap gun cartridge
+  name: cartouche pour pistolet à amorces
   parent: BaseCartridgeCap
   components:
   - type: CartridgeAmmo

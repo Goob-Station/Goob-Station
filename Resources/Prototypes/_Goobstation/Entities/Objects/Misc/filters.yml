@@ -9,7 +9,7 @@
   parent: BaseItem
   id: BaseAutomationFilter
   name: filter
-  description: A filter that can be installed in factory machines.
+  description: Un filtre pouvant être installé dans des machines d'usine.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/filter.rsi
@@ -37,7 +37,7 @@
   parent: BaseAutomationFilter
   id: AutomationFilterLabel
   name: label filter
-  description: A filter that can be installed in factory machines. This one scans labels of attached items.
+  description: Un filtre pouvant être installé dans des machines d'usine. Celui-ci scanne les étiquettes des objets attachés.
   components:
   - type: LabelFilter
   - type: ActivatableUI
@@ -53,7 +53,7 @@
   parent: BaseAutomationFilter
   id: AutomationFilterName
   name: name filter
-  description: A filter that can be installed in factory machines. This one uses complex AI vision technology to identify items.
+  description: Un filtre pouvant être installé dans des machines d'usine. Celui-ci utilise une technologie de vision IA complexe pour identifier les objets.
   components:
   - type: NameFilter
   - type: ActivatableUI
@@ -69,7 +69,7 @@
   parent: BaseAutomationFilter
   id: AutomationFilterStack
   name: stack filter
-  description: A filter that can be installed in factory machines. This one weighs items to compare it to a stack size.
+  description: Un filtre pouvant être installé dans des machines d'usine. Celui-ci pèse les objets pour les comparer à une taille de pile.
   components:
   - type: StackFilter
   - type: ActivatableUI
@@ -85,7 +85,7 @@
   parent: BaseAutomationFilter
   id: AutomationFilterPressure
   name: pressure filter
-  description: A filter that can be installed in factory machines. This one has a barometer to check the pressure of gases.
+  description: Un filtre pouvant être installé dans des machines d'usine. Celui-ci a un baromètre pour vérifier la pression des gaz.
   components:
   - type: PressureFilter
   - type: ActivatableUI
@@ -101,7 +101,7 @@
   parent: BaseAutomationFilter
   id: AutomationFilterCombined
   name: combined filter
-  description: A filter that can be installed in factory machines. This one uses a logic gate to combine 2 installed item filters.
+  description: Un filtre pouvant être installé dans des machines d'usine. Celui-ci utilise une porte logique pour combiner 2 filtres d'objets installés.
   components:
   - type: CombinedFilter
   - type: ItemSlots
@@ -140,7 +140,7 @@
   parent: BaseAutomationFilter
   id: AutomationFilterMob
   name: mob filter
-  description: A filter that can be installed in factory machines. This one detects living creatures and filters based on alive, critical or dead states.
+  description: Un filtre pouvant être installé dans des machines d'usine. Celui-ci détecte les créatures vivantes et filtre selon les états vivant, critique ou mort.
   components:
   - type: MobFilter
   - type: ActivatableUI

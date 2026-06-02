@@ -8,7 +8,7 @@
 - type: entity
   parent: [GunSafeBaseSecure, BaseSecurityContraband]
   id: GunSafeLauncherNonLethal
-  name: riot launcher safe
+  name: coffre-fort à lance-grenades anti-émeute
   components:
   - type: StorageFill
     contents:
@@ -30,7 +30,7 @@
 # Goobstation
 - type: entity
   id: LockerDetectiveFilledHardsuit
-  suffix: Filled, Hardsuit
+  suffix: Rempli, Hardsuit
   parent: LockerDetective
   components:
   - type: EntityTableContainerFill

@@ -1,0 +1,13 @@
+- type: entity
+  id: EffectFlashShadowkinShadeskip
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    radius: 5
+    energy: 3.5
+    color: "#7100bd"
+  - type: TimedDespawn
+    lifetime: 3
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/_EinsteinEngines/Effects/Shadowkin/shadeskip.ogg

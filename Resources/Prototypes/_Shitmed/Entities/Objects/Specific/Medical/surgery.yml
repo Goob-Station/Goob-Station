@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseToolSurgery
   id: Bonesetter
-  name: bone setter
-  description: Used for setting bones back into place.
+  name: réducteur d'os
+  description: Utilisé pour remettre les os en place.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/bonesetter.rsi
@@ -16,8 +16,8 @@
 - type: entity
   parent: BaseToolSurgery
   id: BoneGel
-  name: bottle of bone gel
-  description: A container for bone gel that often needs to be refilled from a specialized machine.
+  name: flacon de gel osseux
+  description: Un contenant de gel osseux qui doit souvent être rechargé depuis une machine spécialisée.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/bone-gel.rsi
@@ -27,8 +27,8 @@
 - type: entity
   parent: BaseToolSurgery
   id: MedicalStitches
-  name: medical stitches
-  description: A fine, curved needle with a length of absorbable polyglycolide suture thread.
+  name: sutures médicales
+  description: Une fine aiguille courbe avec un fil de suture en polyglycolide absorbable.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/stitches.rsi
@@ -39,10 +39,10 @@
   - type: Stitches
 
 - type: entity
-  name: tissue cutter
+  name: coupe-tissu
   id: EnergyScalpel
   parent: Scalpel
-  description: A scalpel which uses an energy blade, also serves as a drill in its powered state.
+  description: Un scalpel à lame énergétique, sert également de perceuse lorsqu'alimenté.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-scalpel.rsi
@@ -104,10 +104,10 @@
             volume: -5
 
 - type: entity
-  name: power pinches
+  name: pinces à puissance
   id: AdvancedRetractor
   parent: Retractor
-  description: A retractor with mechanical pinches, also serves as a hemostat in its powered state.
+  description: Un rétracteur à pinces mécaniques, sert également d'hémostat lorsqu'alimenté.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/adv-retractor.rsi
@@ -168,10 +168,10 @@
             volume: -5
 
 - type: entity
-  name: energy stapler
+  name: agrafeuse énergétique
   id: EnergyCautery
   parent: Cautery
-  description: A cautery with an energy tip, also serves as stitches in its powered state.
+  description: Un cautère à pointe énergétique, sert également de sutures lorsqu'alimenté.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-cautery.rsi
@@ -228,10 +228,10 @@
             volume: -5
 
 - type: entity
-  name: bone multitool
+  name: multioutil osseux
   id: AdvancedBoneGel
   parent: BoneGel
-  description: A mechanized bone healer, also serves as bone setter in its powered state.
+  description: Un réparateur osseux mécanique, sert également de reducteur d'os lorsqu'alimenté.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-bone-gel.rsi
@@ -259,7 +259,7 @@
     state: bonegel
     states:
       bonegel: !type:ItemSwitchState
-        verb: bone gel
+        verb: gel osseux
         sprite:
           sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-bone-gel.rsi
           state: e-bone-gel
@@ -273,7 +273,7 @@
             volume: -5
 
       bonesetter: !type:ItemSwitchState
-        verb: bone setter
+        verb: réducteur d'os
         sprite:
           sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-bone-gel.rsi
           state: e-bone-gel-on
@@ -287,10 +287,10 @@
             volume: -5
 
 - type: entity
-  name: surgical omnitool
+  name: omnioutil chirurgical
   id: OmnimedTool
   parent: BaseToolSurgery
-  description: A compact surgical omnitool conveniently packed like a Swiss Army knife.
+  description: Un omnioutil chirurgical compact pratiquement conçu comme un couteau suisse.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/omnimed.rsi
@@ -316,8 +316,8 @@
 - type: entity
   parent: [ OmnimedTool, BaseSyndicateContraband ]
   id: OmnimedToolSyndie
-  name: gorlex surgical omnitool
-  description: A compact surgical omnitool conveniently packed like a Swiss Army knife, except that its user has probably violated a couple of Swiss conventions. Can perform surgery through clothing.
+  name: omnioutil chirurgical gorlex
+  description: Un omnioutil chirurgical compact pratiquement conçu comme un couteau suisse, sauf que son utilisateur a probablement violé quelques conventions suisses. Peut effectuer des chirurgies à travers les vêtements.
   components:
   - type: Sprite
     state: evil
@@ -329,8 +329,8 @@
 - type: entity
   id: OmnimedToolDebug
   parent: OmnimedToolSyndie
-  suffix: Admeme
-  name: experimental surgical omnitool
+  suffix: Admème
+  name: omnioutil chirurgical expérimental
   components:
   - type: Hemostat
     speed: 10

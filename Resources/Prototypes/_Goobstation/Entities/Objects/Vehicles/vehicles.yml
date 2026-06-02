@@ -105,7 +105,7 @@
   id: VehicleSecway
   parent: [ BaseVehicle, BaseSecurityContraband ]
   name: secway
-  description: The future of transportation. Popularized by St. James, the patron saint of security officers and internet forum moderators.
+  description: L'avenir du transport. Popularisé par St. James, le saint patron des agents de sécurité et des modérateurs de forums internet.
   components:
   - type: Sprite
     sprite: Objects/Vehicles/secway.rsi
@@ -137,8 +137,8 @@
 - type: entity
   id: VehicleSyndicateSegway
   parent: [ BaseSyndicateContraband, VehicleSecway ]
-  name: syndicate segway
-  description: Be an enemy of the corporation, in style.
+  name: segway syndical
+  description: Soyez un ennemi de la corporation, avec style.
   components:
   - type: Sprite
     sprite: Objects/Vehicles/syndicatesegway.rsi
@@ -161,8 +161,8 @@
 - type: entity
   id: VehicleATV
   parent: BaseVehicle
-  name: ATV
-  description: All-Tile Vehicle.
+  name: VTT
+  description: Véhicule Toutes-Dalles.
   components:
   - type: Sprite
     sprite: Objects/Vehicles/atv.rsi
@@ -192,7 +192,7 @@
   id: VehicleJanicart
   parent: BaseVehicle
   name: janicart
-  description: The janitor's trusty steed.
+  description: La fidèle monture du janitor.
   components:
   - type: Sprite
     sprite: Objects/Vehicles/janicart.rsi
@@ -225,8 +225,8 @@
 - type: entity
   id: VehicleWheelchair
   parent: [ BaseVehicle, BaseFoldable, BaseItem ]
-  name: wheelchair
-  description: A chair with big wheels. It looks like you can move in these on your own.
+  name: fauteuil roulant
+  description: Une chaise avec de grandes roues. On dirait qu'on peut se déplacer seul dedans.
   components:
   - type: Sprite
     sprite: Objects/Vehicles/wheelchair.rsi
@@ -272,7 +272,7 @@
 - type: entity
   parent: VehicleWheelchair
   id: VehicleWheelchairFolded
-  suffix: folded
+  suffix: replié
   components:
     - type: Foldable
       folded: true
@@ -280,8 +280,8 @@
 - type: entity
   id: VehicleHoverchair
   parent: BaseVehicle
-  name: hoverchair
-  description: A luxury hoverchair, kick back and relax.
+  name: chaise lévitante
+  description: Une chaise lévitante de luxe, détendez-vous.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Vehicles/hoverchair.rsi
@@ -362,8 +362,8 @@
 - type: entity
   id: VehicleForklift
   parent: BaseVehicle
-  name: forklift
-  description: NanoTrasen approved Forklift Certification required.
+  name: chariot élévateur
+  description: Certification de chariot élévateur approuvée par NanoTrasen requise.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Vehicles/forklift.rsi

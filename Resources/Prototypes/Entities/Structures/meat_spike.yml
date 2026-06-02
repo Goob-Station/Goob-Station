@@ -90,8 +90,8 @@
 - type: entity
   id: KitchenSpike
   parent: BaseStructure
-  name: meat spike
-  description: A spike for collecting meat from animals.
+  name: pique à viande
+  description: Une pique servant à récolter la viande des animaux.
   components:
   - type: InteractionOutline
   - type: Sprite

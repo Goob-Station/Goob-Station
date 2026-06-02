@@ -108,8 +108,8 @@
     maxAmount: 360
 
 - type: entity
-  name: potato battery
-  description: Someone's stuck two nails and some wire in a large potato. Somehow it provides a little charge.
+  name: pile à pomme de terre
+  description: Quelqu'un a planté deux clous et du fil dans une grosse pomme de terre. Ça fournit quand même un peu de charge, d'une façon ou d'une autre.
   id: PowerCellPotato
   parent: BasePowerCell
   components:
@@ -149,8 +149,8 @@
     fireCost: 70
 
 - type: entity
-  name: small-capacity power cell
-  description: A rechargeable power cell. This is the cheapest kind you can find.
+  name: cellule d'énergie à faible capacité
+  description: Une cellule d'énergie rechargeable. C'est le modèle le moins cher que l'on puisse trouver.
   id: PowerCellSmall
   suffix: Full
   parent: BasePowerCell
@@ -198,8 +198,8 @@
 - type: entity
   parent: PowerCellSmall
   id: PowerCellSmallNuclear
-  name: small-capacity nuclear power cell
-  description: A self rechargeable power cell, designed for fast recharge rate at the expense of capacity.
+  name: cellule d'énergie nucléaire à faible capacité
+  description: Une cellule d'énergie à recharge autonome, conçue pour une vitesse de recharge rapide au détriment de la capacité.
   components:
   - type: BatterySelfRecharger
     autoRecharge: true
@@ -208,8 +208,8 @@
     autoRechargePauseTime: 30
 
 - type: entity
-  name: medium-capacity power cell
-  description: A rechargeable power cell. This is the popular and reliable version.
+  name: cellule d'énergie à capacité moyenne
+  description: Une cellule d'énergie rechargeable. C'est la version populaire et fiable.
   id: PowerCellMedium
   suffix: Full
   parent: BasePowerCell
@@ -254,8 +254,8 @@
     startingCharge: 0
 
 - type: entity
-  name: high-capacity power cell
-  description: A rechargeable standardized power cell. This premium brand stores up to 50% more energy than the competition.
+  name: cellule d'énergie à haute capacité
+  description: Une cellule d'énergie rechargeable standardisée. Cette marque haut de gamme stocke jusqu'à 50 % d'énergie de plus que la concurrence.
   id: PowerCellHigh
   suffix: Full
   parent: BasePowerCell
@@ -300,8 +300,8 @@
     startingCharge: 0
 
 - type: entity
-  name: hyper-capacity power cell
-  description: A rechargeable standardized power cell. This iteration pushes the upper limits of portable power storage, boasting 66% more capacity than its predecessor.
+  name: cellule d'énergie à hyper-capacité
+  description: Une cellule d'énergie rechargeable standardisée. Cette itération repousse les limites du stockage d'énergie portable, avec 66 % de capacité supplémentaire par rapport à son prédécesseur.
   id: PowerCellHyper
   suffix: Full
   parent: BasePowerCell
@@ -340,8 +340,8 @@
 - type: entity
   parent: BasePowerCell
   id: PowerCellMicroreactor
-  name: microreactor power cell
-  description: A rechargeable standardized microreactor cell. Has lower capacity but slowly recharges by itself.
+  name: cellule d'énergie à microréacteur
+  description: Une cellule à microréacteur rechargeable standardisée. Sa capacité est plus faible, mais elle se recharge lentement d'elle-même.
   suffix: Full
   components:
   - type: Sprite
@@ -388,8 +388,8 @@
     startingCharge: 0
 
 - type: entity
-  name: antique power cell prototype
-  description: A small cell that self recharges. Used in old laser arms research.
+  name: prototype de cellule d'énergie antique
+  description: Une petite cellule à recharge autonome. Utilisée dans d'anciennes recherches sur les armes laser.
   id: PowerCellAntiqueProto
   parent: BasePowerCell
   components:
@@ -440,8 +440,8 @@
 - type: entity
   id: PowerCageSmall
   parent: BasePowerCage
-  name: small-capacity power cage
-  description: A rechargeable power cage for big devices. This is the cheapest kind you can find.
+  name: cage d'énergie à faible capacité
+  description: Une cage d'énergie rechargeable pour les grands appareils. C'est le modèle le moins cher que l'on puisse trouver.
   components:
   - type: Sprite
     sprite: Objects/Power/power_cages.rsi
@@ -458,8 +458,8 @@
 - type: entity
   id: PowerCageMedium
   parent: BasePowerCage
-  name: medium-capacity power cage
-  description: A rechargeable power cage for big devices. The gold standard of capacity and cost.
+  name: cage d'énergie à capacité moyenne
+  description: Une cage d'énergie rechargeable pour les grands appareils. La référence en matière de capacité et de coût.
   components:
   - type: Sprite
     sprite: Objects/Power/power_cages.rsi
@@ -476,8 +476,8 @@
 - type: entity
   id: PowerCageHigh
   parent: BasePowerCage
-  name: high-capacity power cage
-  description: A rechargeable power cage for big devices. Increased capacity for increased power levels.
+  name: cage d'énergie à haute capacité
+  description: Une cage d'énergie rechargeable pour les grands appareils. Capacité accrue pour des niveaux d'énergie plus élevés.
   components:
   - type: Sprite
     sprite: Objects/Power/power_cages.rsi

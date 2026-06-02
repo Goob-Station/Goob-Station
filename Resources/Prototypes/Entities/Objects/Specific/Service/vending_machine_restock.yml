@@ -103,8 +103,8 @@
   parent: BaseItem
   id: BaseVendingMachineRestock
   abstract: true
-  name: vending machine restock box
-  description: A box for restocking vending machines with corporate goodies.
+  name: boîte de réapprovisionnement de distributeur
+  description: Une boîte pour réapprovisionner les distributeurs automatiques en produits de la société.
   components:
   - type: VendingMachineRestock
   - type: Sprite
@@ -148,8 +148,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockBooze
-  name: Booze-O-Mat restock box
-  description: Slot into your Booze-O-Mat to start the party! Not for sale to passengers below the legal age.
+  name: boîte de réapprovisionnement Booze-O-Mat
+  description: Insérez dans votre Booze-O-Mat pour démarrer la fête ! Interdit à la vente aux passagers mineurs.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -164,8 +164,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockChang
-  name: Mr. Chang's restock box
-  description: A box covered in white labels with bold red Chinese characters, ready to be loaded into the nearest Mr. Chang's vending machine.
+  name: boîte de réapprovisionnement de M. Chang
+  description: Une boîte couverte d'étiquettes blanches avec des caractères chinois rouges en gras, prête à être chargée dans le distributeur M. Chang le plus proche.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -180,8 +180,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockChefvend
-  name: ChefVend restock box
-  description: Refill the ChefVend. Just don't break any more of the eggs.
+  name: boîte de réapprovisionnement ChefVend
+  description: Rechargez le ChefVend. Ne cassez plus les œufs.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -196,8 +196,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockCondimentStation
-  name: condiment station restock box
-  description: Refill the condiment station. Mmmm, cold sauce.
+  name: boîte de réapprovisionnement de la station à condiments
+  description: Rechargez la station à condiments. Mmmm, sauce froide.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -212,8 +212,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockClothes
-  name: wardrobe restock box
-  description: It's time to step up your fashion! Place inside any clothes vendor restock slot to begin.
+  name: boîte de réapprovisionnement de la garde-robe
+  description: Il est temps d'élever votre style ! Placez à l'intérieur de n'importe quel distributeur de vêtements pour commencer.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -247,8 +247,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockCostumes
-  name: AutoDrobe restock box
-  description: A panoply of NanoTrasen employees are prancing about a colorful theater in a tragicomedy. You can join them too! Load this into your nearest AutoDrobe vending machine.
+  name: boîte de réapprovisionnement AutoDrobe
+  description: Une pléiade d'employés de NanoTrasen s'ébattent dans un théâtre coloré dans une tragi-comédie. Vous pouvez les rejoindre ! Chargez ceci dans votre distributeur AutoDrobe le plus proche.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -263,8 +263,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockDinnerware
-  name: Plasteel Chef's restock box
-  description: It's never raw in this kitchen! Drop into the restock slot on the Plasteel Chef to begin.
+  name: boîte de réapprovisionnement du Chef Plasteel
+  description: C'est jamais cru dans cette cuisine ! Déposez dans la fente de réapprovisionnement du Chef Plasteel pour commencer.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -279,8 +279,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockDiscountDans
-  name: Discount Dan's restock box
-  description: A box full of salt and starch. Why suffer Quality when you can have Quantity? Discount Dan's!
+  name: boîte de réapprovisionnement de Discount Dan
+  description: Une boîte pleine de sel et d'amidon. Pourquoi souffrir pour la Qualité quand vous pouvez avoir la Quantité ? Discount Dan !
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -295,8 +295,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockDonut
-  name: Robust Donuts restock box
-  description: A box full of toroidal bundles of fried dough for restocking a vending machine. Use only as directed by Robust Industries, LLC.
+  name: boîte de réapprovisionnement Robust Donuts
+  description: Une boîte pleine de beignets toroïdaux frits pour réapprovisionner un distributeur. À utiliser uniquement selon les instructions de Robust Industries, LLC.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -311,8 +311,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockEngineering
-  name: EngiVend restock box
-  description: Only to be used by certified professionals.
+  name: boîte de réapprovisionnement EngiVend
+  description: À utiliser uniquement par des professionnels certifiés.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -328,8 +328,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockGames
-  name: Good Clean Fun restock box
-  description: It's time to roll for initiative, dice dragons! Load up at the Good Clean Fun vending machine!
+  name: boîte de réapprovisionnement Good Clean Fun
+  description: Il est temps de lancer pour l'initiative, dragons des dés ! Rechargez au distributeur Good Clean Fun !
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -344,8 +344,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockGetmoreChocolateCorp
-  name: GetMore Chocolate restock box
-  description: A box loaded with the finest ersatz cacao. Only to be used in official Getmore Chocolate vending machines.
+  name: boîte de réapprovisionnement GetMore Chocolate
+  description: Une boîte chargée du meilleur ersatz de cacao. À utiliser uniquement dans les distributeurs officiels Getmore Chocolate.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -360,8 +360,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockHotDrinks
-  name: Solar's Best restock box
-  description: Toasty! For use in Solar's Best Hot Drinks or other affiliate vending machines.
+  name: boîte de réapprovisionnement Solar's Best
+  description: Bien chaud ! Pour utilisation dans les distributeurs Solar's Best Hot Drinks ou affiliés.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -376,8 +376,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockMedical
-  name: NanoMed restock box
-  description: Slot into your department's NanoMed or NanoMedPlus to dispense. Handle with care.
+  name: boîte de réapprovisionnement NanoMed
+  description: Insérez dans le NanoMed ou NanoMedPlus de votre département. Manipulez avec précaution.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -393,8 +393,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockNutriMax
-  name: NutriMax restock box
-  description: We'll make your thumbs green with our tools. Let's get to harvesting! Load into a NutriMax vending machine.
+  name: boîte de réapprovisionnement NutriMax
+  description: Nous verdirons vos pouces avec nos outils. Passons à la récolte ! Chargez dans un distributeur NutriMax.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -409,8 +409,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockPTech
-  name: PTech restock box
-  description: All the bureaucracy you can handle, and more! Load into the PTech vending machine to get started.
+  name: boîte de réapprovisionnement PTech
+  description: Toute la bureaucratie dont vous pouvez vous charger, et plus encore ! Chargez dans le distributeur PTech pour commencer.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -425,8 +425,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockRobustSoftdrinks
-  name: beverage restock box
-  description: A cold, clunky container of colliding chilly cylinders. Use only as directed by Robust Industries, LLC.
+  name: boîte de réapprovisionnement de boissons
+  description: Un conteneur froid et encombrant de cylindres froids s'entrechoquant. À utiliser uniquement selon les instructions de Robust Industries, LLC.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -449,8 +449,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockSecTech
-  name: SecTech restock box
-  description: "Communists beware: the reinforcements have arrived! A label reads SECURITY PERSONNEL ONLY."
+  name: boîte de réapprovisionnement SecTech
+  description: "Communistes, méfiez-vous : les renforts sont arrivés ! Une étiquette indique PERSONNEL DE SÉCURITÉ UNIQUEMENT."
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -466,8 +466,8 @@
   abstract: true # DeltaV: Salvage vendor doesn't have stock anymore
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockSalvageEquipment
-  name: Salvage Vendor restock box
-  description: Strike the earth ere the space carp nip your behind! Slam into a salvage vendor to begin.
+  name: boîte de réapprovisionnement Salvage Vendor
+  description: Frappez la terre avant que les carpes spatiales ne vous mordent ! Enfoncez dans un vendeur de récupération pour commencer.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -482,8 +482,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockSeeds
-  name: MegaSeed restock box
-  description: A label says they're heirloom seeds, passed down from our ancestors. Pack it into the MegaSeed Servitor!
+  name: boîte de réapprovisionnement MegaSeed
+  description: Une étiquette indique que ce sont des graines de patrimoine, transmises par nos ancêtres. Chargez-les dans le Serviteur MegaSeed !
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -498,8 +498,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockSmokes
-  name: ShadyCigs restock box
-  description: It's hard to see anything under all the Surgeon General warnings, but it mentions loading it into a vending machine.
+  name: boîte de réapprovisionnement ShadyCigs
+  description: C'est difficile de voir quoi que ce soit sous tous les avertissements du Médecin Général, mais cela mentionne de le charger dans un distributeur.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -514,8 +514,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockTankDispenser
-  name: tank dispenser restock box
-  description: Capable of replacing tanks in a gas tank dispenser. Handle with care.
+  name: boîte de réapprovisionnement du distributeur de réservoirs
+  description: Capable de remplacer les réservoirs dans un distributeur de réservoirs de gaz. Manipulez avec précaution.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -531,8 +531,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockVendomat
-  name: Vendomat restock box
-  description: A box full of parts for various machinery. Load it into a Vendomat to begin.
+  name: boîte de réapprovisionnement Vendomat
+  description: Une boîte pleine de pièces pour diverses machines. Chargez-la dans un Vendomat pour commencer.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -547,8 +547,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockRobotics
-  name: Robotech Deluxe restock box
-  description: A box full of tools for creating borgs. Load it into a Robotech Deluxe to begin.
+  name: boîte de réapprovisionnement Robotech Deluxe
+  description: Une boîte pleine d'outils pour créer des borgs. Chargez-la dans un Robotech Deluxe pour commencer.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -563,8 +563,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockHappyHonk
-  name: Happy Honk restock box
-  description: Place this box full of fun into the restock slot on the Happy Honk Dispenser to begin.
+  name: boîte de réapprovisionnement Happy Honk
+  description: Placez cette boîte pleine de fun dans la fente de réapprovisionnement du distributeur Happy Honk pour commencer.
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -579,8 +579,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockChemVend
-  name: ChemVend restock box
-  description: A box filled with chemicals and covered in dangerous-looking NFPA diamonds. Load it into a ChemVend to begin.
+  name: boîte de réapprovisionnement ChemVend
+  description: Une boîte remplie de produits chimiques et couverte de losanges NFPA d'aspect dangereux. Chargez-la dans un ChemVend pour commencer.
   components:
   - type: VendingMachineRestock
     canRestock:

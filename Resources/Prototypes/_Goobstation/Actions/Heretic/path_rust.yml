@@ -7,8 +7,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticRustConstruction
-  name: Rust Formation
-  description: Transforms a rusted floor into a full wall of rust. Creating a wall underneath a mob will harm it.
+  name: Formation de Rouille
+  description: Transforme un sol rouillé en un mur de rouille complet. Créer un mur sous un personnage lui inflige des dégâts.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -30,8 +30,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticAggressiveSpread
-  name: Aggressive Spread
-  description: Spreads rust onto nearby surfaces.
+  name: Propagation Agressive
+  description: Propage la rouille sur les surfaces environnantes.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -57,8 +57,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticEntropicPlume
-  name: Entropic Plume
-  description: Spews forth a disorienting plume that causes enemies to strike each other, briefly blinds them and poisons them. Also spreads rust in the path of the plume.
+  name: Panache Entropique
+  description: Projette un panache désorientant qui pousse les ennemis à se frapper mutuellement, les aveugle brièvement et les empoisonne. Propage également la rouille dans le sillage du panache.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -81,8 +81,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticRustCharge
-  name: Rust Charge
-  description: A charge that must be started on a rusted tile and will destroy any rusted objects you come into contact with, will deal high damage to others and rust around you during the charge. As it is the rust that empowers you with this ability, no focus is needed.
+  name: Charge Rouillée
+  description: Une charge qui doit être lancée depuis une dalle rouillée et qui détruira tout objet rouillé sur votre passage, infligera de lourds dégâts aux autres et propagera la rouille autour de vous pendant la charge. C'est la rouille qui vous confère cette capacité, aucun focalisateur n'est donc nécessaire.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -103,8 +103,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticRustWave
-  name: Patron's Reach
-  description: Release a toxic wave of rust.
+  name: Portée du Patron
+  description: Libère une vague toxique de rouille.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

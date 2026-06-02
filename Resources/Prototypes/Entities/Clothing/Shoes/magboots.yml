@@ -44,7 +44,7 @@
   parent: [ClothingShoesBase, BaseToggleClothing]
   id: ClothingShoesBootsMagBase
   name: magboots
-  description: Magnetic boots, often used during extravehicular activity to ensure the user remains safely attached to the vehicle.
+  description: Des bottes magnétiques, souvent utilisées lors des sorties extravéhiculaires pour garantir que l'utilisateur reste solidement attaché au véhicule.
   abstract: true
   components:
   - type: Sprite
@@ -93,8 +93,8 @@
 - type: entity
   parent: [ClothingShoesBootsMagBase, BaseGrandTheftContraband]
   id: ClothingShoesBootsMagAdv
-  name: advanced magboots
-  description: State-of-the-art magnetic boots that do not slow down their wearer.
+  name: magboots avancées
+  description: Des bottes magnétiques à la pointe de la technologie qui ne ralentissent pas celui qui les porte.
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Boots/magboots-advanced.rsi
@@ -129,8 +129,8 @@
 - type: entity
   parent: ClothingShoesBootsMagBase
   id: ClothingShoesBootsMagBlinding
-  name: magboots of blinding speed
-  description: These would look fetching on a fetcher like you.
+  name: magboots de vitesse fulgurante
+  description: Elles vous mettraient vraiment en valeur.
   components:
   - type: ClothingSpeedModifier
     walkModifier: 1.1 #PVS isn't too much of an issue when you are blind...
@@ -141,8 +141,8 @@
 - type: entity
   parent: [ClothingShoesBootsMagBase, BaseJetpack, BaseSyndicateContraband]
   id: ClothingShoesBootsMagSyndie
-  name: blood-red magboots
-  description: Reverse-engineered magnetic boots that have a heavy magnetic pull and integrated thrusters. It can hold 0.75 L of gas.
+  name: magboots rouge sang
+  description: Des bottes magnétiques issues d'une ingénierie inverse, dotées d'une forte attraction magnétique et de propulseurs intégrés. Elles peuvent contenir 0,75 L de gaz.
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Boots/magboots-syndicate.rsi
@@ -170,8 +170,8 @@
 - type: entity
   parent: BaseAction
   id: ActionToggleMagboots
-  name: Toggle Magboots
-  description: Toggles the magboots on and off.
+  name: Activer/désactiver les magboots
+  description: Permet d'activer ou de désactiver vos bottes magnétiques.
   components:
   - type: Action
     itemIconStyle: BigItem

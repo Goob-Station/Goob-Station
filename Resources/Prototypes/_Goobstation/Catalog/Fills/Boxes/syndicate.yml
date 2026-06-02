@@ -7,10 +7,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: box of lube & glue grenades
+  name: boîte de grenades lubrifiant & colle
   parent: BoxCardboard
   id: BoxReagentGrenades
-  description: A box full of lube & glue grenades.
+  description: Une boîte pleine de grenades lubrifiant & colle.
   components:
   - type: StorageFill
     contents:
@@ -24,10 +24,10 @@
     - state: flashbang
 
 - type: entity
-  name: box of lollypops
+  name: boîte de sucettes
   parent: [BoxCardboard, BaseSyndicateContraband]
   id: SyndicateLollypopBundle
-  description: A box full of Donk co. candy. What could be inside?
+  description: Une boîte pleine de bonbons Donk co. Qu'est-ce qu'il peut y avoir à l'intérieur ?
   components:
   - type: StorageFill
     contents:

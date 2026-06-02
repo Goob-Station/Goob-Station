@@ -42,7 +42,7 @@
   id: FitnessPunchingBagBopClown
   parent: BaseStructure
   name: clown bop bag
-  description: A fitness training bag with a clown printed on it.
+  description: Un sac de frappe avec un clown imprimé dessus.
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Specific/fitness.rsi
@@ -52,7 +52,7 @@
   id: FitnessPunchingBag
   parent: BaseStructure
   name: punching bag
-  description: A fitness training bag.
+  description: Un sac d'entraînement.
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Specific/fitness.rsi
@@ -62,7 +62,7 @@
   id: FitnessPunchingBagCaptain
   parent: FitnessPunchingBag
   suffix: captain
-  description: A fitness training bag with a captain printed on it.
+  description: Un sac de frappe avec un capitaine imprimé dessus.
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Specific/fitness.rsi
@@ -72,7 +72,7 @@
   id: FitnessPunchingBagSyndicate
   parent: FitnessPunchingBag
   suffix: syndicate
-  description: A fitness training bag with a syndicate agent printed on it.
+  description: Un sac de frappe avec un agent syndical imprimé dessus.
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Specific/fitness.rsi
@@ -82,7 +82,7 @@
   id: FitnessPunchingBagWizard
   parent: FitnessPunchingBag
   suffix: wizard
-  description: A fitness training bag with a wizard printed on it.
+  description: Un sac de frappe avec un sorcier imprimé dessus.
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Specific/fitness.rsi

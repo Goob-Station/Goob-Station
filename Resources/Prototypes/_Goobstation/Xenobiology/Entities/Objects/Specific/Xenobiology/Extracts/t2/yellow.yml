@@ -1,7 +1,7 @@
 - type: entity
   id: YellowSlimeExtract
   parent: BaseSlimeExtract
-  name: yellow slime extract
+  name: extrait de slime jaune
   components:
   - type: Sprite
     layers:

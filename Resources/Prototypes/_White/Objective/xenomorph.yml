@@ -13,7 +13,7 @@
 - type: entity
   parent: [BaseXenomorphObjective, BaseSurviveObjective]
   id: XenomorphSurviveObjective
-  name: Survive and advance the hive.
+  name: Survivre et faire progresser la ruche.
   components:
   - type: Objective
     icon:

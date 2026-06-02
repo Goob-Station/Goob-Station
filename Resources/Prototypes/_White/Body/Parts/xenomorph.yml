@@ -30,7 +30,7 @@
 
 - type: entity
   id: ChestXenomorph
-  name: xenomorph chest
+  name: torse xénomorphe
   parent: [PartXenomorph, BaseChest]
   components:
   - type: Extractable
@@ -52,7 +52,7 @@
 
 - type: entity
   id: GroinXenomorph
-  name: xenomorph groin
+  name: bassin xénomorphe
   parent: [PartXenomorph, BaseGroin]
   components:
   - type: Extractable
@@ -65,7 +65,7 @@
 
 - type: entity
   id: HeadXenomorph
-  name: xenomorph head
+  name: tête xénomorphe
   parent: [PartXenomorph, BaseHead]
   components:
   - type: Extractable
@@ -78,40 +78,40 @@
 
 - type: entity
   id: LeftArmXenomorph
-  name: left xenomorph arm
+  name: bras xénomorphe gauche
   parent: [PartXenomorph, BaseLeftArm]
 
 - type: entity
   id: RightArmXenomorph
-  name: right xenomorph arm
+  name: bras xénomorphe droit
   parent: [PartXenomorph, BaseRightArm]
 
 - type: entity
   id: LeftHandXenomorph
-  name: left xenomorph hand
+  name: main xénomorphe gauche
   parent: [PartXenomorph, BaseLeftHand]
 
 - type: entity
   id: RightHandXenomorph
-  name: right xenomorph hand
+  name: main xénomorphe droite
   parent: [PartXenomorph, BaseRightHand]
 
 - type: entity
   id: LeftLegXenomorph
-  name: left xenomorph leg
+  name: jambe xénomorphe gauche
   parent: [PartXenomorph, BaseLeftLeg]
 
 - type: entity
   id: RightLegXenomorph
-  name: right xenomorph leg
+  name: jambe xénomorphe droite
   parent: [PartXenomorph, BaseRightLeg]
 
 - type: entity
   id: LeftFootXenomorph
-  name: left xenomorph foot
+  name: pied xénomorphe gauche
   parent: [PartXenomorph, BaseLeftFoot]
 
 - type: entity
   id: RightFootXenomorph
-  name: right xenomorph foot
+  name: pied xénomorphe droit
   parent: [PartXenomorph, BaseRightFoot]

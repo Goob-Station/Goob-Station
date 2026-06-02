@@ -1,0 +1,2226 @@
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelm
+  name: "casque d'envirocombinaison plasma"
+  description: "Un casque de confinement spécial permettant aux formes de vie à base de plasma d'exister en toute sécurité dans un environnement oxygéné."
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/plain.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/plain.rsi
+  - type: ToggleableVisuals
+    spriteLayer: flash
+    inhandVisuals:
+      left:
+      - state: on-inhand-left
+        shader: unshaded
+      right:
+      - state: on-inhand-right
+        shader: unshaded
+
+- type: entity
+  parent: ClothingHeadEnvirohelm
+  id: ClothingHeadEnvirohelmEmpty
+  suffix: Vide
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmAtmos
+  name: "casque d'envirocombinaison atmosphérique"
+  description: "Un casque adapté à l'espace spécialement conçu pour les Plasmamens techniciens atmosphériques, les rayures violettes habituelles étant remplacées par le bleu atmosphérique."
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/atmos.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/atmos.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmCargo
+  name: "casque d'envirocombinaison de logistique"
+  description: Un envirohelmet Plasmaman conçu pour les techniciens de cargo.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/cargo.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/cargo.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmCaptain
+  name: "casque d'envirocombinaison du capitaine"
+  description: Un casque de confinement spécial conçu pour le Capitaine.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/captain.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/captain.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmChiefEngineer
+  name: "casque d'envirocombinaison de l'ingénieur en chef"
+  description: "Un casque de confinement spécial conçu pour l'Ingénieur en Chef, les rayures violettes habituelles étant remplacées par le vert du chef."
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/ce.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/ce.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmChaplain
+  name: "casque d'envirocombinaison de l'aumônier"
+  description: Un envirohelmet spécialement conçu pour les Plasmamens les plus pieux.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/chaplain.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/chaplain.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmEnviroslacksColorOrange
+  id: ClothingHeadEnvirohelmDetective
+  name: "casque d'envirocombinaison du détective"
+  description: "Un casque de confinement spécial conçu pour les détectives, les protégeant de brûler vifs, ainsi que d'autres indésirables."
+
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmChemist
+  name: "casque d'envirocombinaison de chimie"
+  description: Un envirocombinaison Plasmaman conçu pour les chimistes, avec deux rayures orange descendant sur le devant.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/chemist.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/chemist.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmClown
+  name: "casque d'envirocombinaison de clown"
+  description: "Le maquillage est peint dessus, c'est un miracle qu'il ne s'écaille pas. HONK !"
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/clown.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/clown.rsi
+  - type: PointLight
+    color: "#a777ff"
+
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmCMO
+  name: "casque d'envirocombinaison du médecin en chef"
+  description: Un casque de confinement spécial conçu pour le Médecin en Chef. La rayure dorée les différencie des autres membres du personnel médical.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/cmo.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/cmo.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmEngineering
+  name: "casque d'envirocombinaison d'ingénierie"
+  description: "Un casque adapté à l'espace spécialement conçu pour les Plasmamens ingénieurs, les rayures violettes habituelles étant remplacées par l'orange de l'ingénierie."
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/engineering.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/engineering.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmHoP
+  name: "casque d'envirocombinaison du chef du personnel"
+  description: Un casque de confinement spécial conçu pour le Chef du Personnel.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/hop.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/hop.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmHoS
+  name: "casque d'envirocombinaison du chef de la sécurité"
+  description: Un casque de confinement spécial conçu pour le Chef de la Sécurité. La paire de rayures dorées les différencie des autres membres de la sécurité.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/hos.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/hos.rsi
+  - type: Armor # Special beret ig
+    coverage:
+    - Head
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.8
+
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmHydroponics
+  name: "casque d'envirocombinaison d'hydroponique"
+  description: Un envirohelmet vert et bleu désignant son porteur comme botaniste.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/hydroponics.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/hydroponics.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmJanitor
+  name: "casque d'envirocombinaison de concierge"
+  description: Un casque gris portant une paire de rayures violettes, désignant le porteur comme concierge.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/janitor.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/janitor.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmAncientVoid
+  name: "casque d'envirocombinaison NTSRA"
+  description: "Fabriqué à partir d'un vacombinaison NTSRA modifiée, ce casque était le premier envirohelmet conçu par NanoTrasen pour les Plasmamens."
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/ancientvoid.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/ancientvoid.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+      - state: visor-equipped-HELMET
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: visor-equipped-HELMET
+        shader: unshaded
+  - type: PointLight
+    color: "#ffffff"
+
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmMedicalDoctor
+  name: "casque d'envirocombinaison médical"
+  description: Un envirohelmet conçu pour le personnel médical Plasmaman, comportant deux rayures sur toute sa longueur pour le désigner.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/medical.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/medical.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmGenitcs
+  name: "casque d'envirocombinaison de génétique"
+  description: Un envirohelmet Plasmaman conçu pour les généticiens.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/genetics.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/genetics.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmMime
+  name: "casque d'envirocombinaison de mime"
+  description: "Le maquillage est peint dessus, c'est un miracle qu'il ne s'écaille pas. Ce n'est pas très coloré."
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/mime.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/mime.rsi
+  - type: PointLight
+    color: "#ffffff"
+
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmParamedic
+  name: "casque d'envirocombinaison de paramédic"
+  description: Un envirohelmet conçu pour les paramédics Plasmamens, avec des rayures bleues plus foncées que le modèle médical.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/paramedic.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/paramedic.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmPrisoner
+  name: "casque d'envirocombinaison de prisonnier"
+  description: Un casque de confinement Plasmaman pour prisonniers.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#ff8300"
+    - state: accent-icon
+      color: "#3c3c3c"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#ff8300"
+      - state: accent-inhand-left
+        color: "#3c3c3c"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#ff8300"
+      - state: accent-inhand-right
+        color: "#3c3c3c"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#ff8300"
+      - state: accent-equipped-HELMET
+        color: "#3c3c3c"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmResearchDirector
+  name: "casque d'envirocombinaison du directeur de recherche"
+  description: Un casque de confinement spécial conçu pour le Directeur de Recherche. Un design brun clair est appliqué pour les différencier des autres scientifiques.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/rd.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/rd.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmRoboticist
+  name: "casque d'envirocombinaison de roboticiste"
+  description: Un envirohelmet Plasmaman conçu pour les roboticistes.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/roboticist.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/roboticist.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmSalvage
+  name: "casque d'envirocombinaison de récupération"
+  description: Un casque kaki donné aux techniciens de récupération Plasmamens.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/salvage.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/salvage.rsi
+  - type: PointLight
+    color: "#c77eff"
+
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmScientist
+  name: "casque d'envirocombinaison de science"
+  description: Un envirohelmet Plasmaman conçu pour les scientifiques.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/scientist.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/scientist.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmSec
+  name: "casque d'envirocombinaison de sécurité"
+  description: "Un casque de confinement Plasmaman conçu pour les agents de sécurité, les protégeant de brûler vifs, ainsi que d'autres indésirables."
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#8f3132"
+    - state: accent-icon
+      color: "#2e2e2e"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#8f3132"
+      - state: accent-inhand-left
+        color: "#2e2e2e"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#8f3132"
+      - state: accent-inhand-right
+        color: "#2e2e2e"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#8f3132"
+      - state: accent-equipped-HELMET
+        color: "#2e2e2e"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmSecBlue
+  name: "casque d'envirocombinaison de sécurité bleu"
+  description: "Un casque d'envirocombinaison bleu cool pour le personnel de sécurité Plasmaman."
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#b9c1d9"
+    - state: accent-icon
+      color: "#36476b"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#b9c1d9"
+      - state: accent-inhand-left
+        color: "#36476b"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#b9c1d9"
+      - state: accent-inhand-right
+        color: "#36476b"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#b9c1d9"
+      - state: accent-equipped-HELMET
+        color: "#36476b"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmSecGrey
+  name: "casque d'envirocombinaison de sécurité gris"
+  description: "Un casque d'envirocombinaison gris clair avec des reflets rouge vif pour le personnel de sécurité Plasmaman."
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#7e7e7e"
+    - state: accent-icon
+      color: "#a61d1d"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#7e7e7e"
+      - state: accent-inhand-left
+        color: "#a61d1d"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#7e7e7e"
+      - state: accent-inhand-right
+        color: "#a61d1d"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#7e7e7e"
+      - state: accent-equipped-HELMET
+        color: "#a61d1d"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmVirology
+  name: "casque d'envirocombinaison de virologie"
+  description: "Le casque porté par les personnes les plus en sécurité de la station, celles qui sont complètement immunisées contre les monstruosités qu'elles créent."
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/virology.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/virology.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmWarden
+  name: "casque d'envirocombinaison du gardien"
+  description: Un casque de confinement Plasmaman conçu pour le gardien. Une paire de rayures blanches est ajoutée pour les différencier des autres membres de la sécurité.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/warden.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/warden.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmOperative
+  name: "casque d'envirocombinaison d'opérateur"
+  description: Quiconque porte ça est redoutable et mérite au moins un signe de tête respectueux.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/tacticool.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/tacticool.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmTacticool
+  name: "casque d'envirocombinaison tacticool"
+  description: Sans aucun doute, ce casque vous place au-dessus de TOUS les autres Plasmamens.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/tacticool.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/tacticool.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmCentcomAgent
+  name: "casque d'envirocombinaison de l'agent CentCom"
+  description: "Un casque de confinement spécial conçu pour l'équipe juridique de CentCom. Vous savez, pour que les renversements de café ne tuent pas le pauvre bougre."
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/centcom_agent.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/centcom_agent.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmCentcomOfficial
+  name: "casque d'envirocombinaison de l'officiel CentCom"
+  description: Un casque de confinement spécial conçu pour le personnel de CentCom. Ils aiment vraiment leur vert.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/centcom_official.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/centcom_official.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmCentcomOfficer
+  name: "casque d'envirocombinaison de l'officier CentCom"
+  description: Un casque de confinement spécial conçu pour les officiers CentCom.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/centcom_officer.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/centcom_officer.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmCourier
+  name: "casque d'envirocombinaison du coursier"
+  description: "Un casque d'envirocombinaison pour le coursier."
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#4a281f"
+    - state: accent-icon
+      color: "#c2911e"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#4a281f"
+      - state: accent-inhand-left
+        color: "#c2911e"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#4a281f"
+      - state: accent-inhand-right
+        color: "#c2911e"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#4a281f"
+      - state: accent-equipped-HELMET
+        color: "#c2911e"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmMailCarrier
+  name: "casque d'envirocombinaison du facteur"
+  description: Ça sent comme une bonne retraite.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#394dc6"
+    - state: accent-icon
+      color: "#dcdcdc"
+    - state: midaccent-icon
+      color: "#d82927"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#394dc6"
+      - state: accent-inhand-left
+        color: "#dcdcdc"
+      - state: midaccent-inhand-left
+        color: "#d82927"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#394dc6"
+      - state: accent-inhand-right
+        color: "#dcdcdc"
+      - state: midaccent-inhand-right
+        color: "#d82927"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#394dc6"
+      - state: accent-equipped-HELMET
+        color: "#dcdcdc"
+      - state: midaccent-equipped-HELMET
+        color: "#d82927"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmMusician
+  name: "casque d'envirocombinaison du musicien"
+  description: Les experts sont perplexes quant à la façon dont les Plasmamens peuvent encore jouer de la trompette avec ce casque.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#3c335b"
+    - state: accent-icon
+      color: "#f3f5f4"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#3c335b"
+      - state: accent-inhand-left
+        color: "#f3f5f4"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#3c335b"
+      - state: accent-inhand-right
+        color: "#f3f5f4"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#3c335b"
+      - state: accent-equipped-HELMET
+        color: "#f3f5f4"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmReporter
+  name: "casque d'envirocombinaison de reporter"
+  description: "Un casque d'envirocombinaison pour le reporter."
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#112334"
+    - state: accent-icon
+      color: "#79121b"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#112334"
+      - state: accent-inhand-left
+        color: "#79121b"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#112334"
+      - state: accent-inhand-right
+        color: "#79121b"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#112334"
+      - state: accent-equipped-HELMET
+        color: "#79121b"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmGladiator
+  name: "casque d'envirocombinaison de gladiateur"
+  description: "Protège la tête des lances jouets et de l'oxygène toxique."
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#dab13b"
+    - state: accent-icon
+      color: "#a349a4"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#dab13b"
+      - state: accent-inhand-left
+        color: "#a349a4"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#dab13b"
+      - state: accent-inhand-right
+        color: "#a349a4"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#dab13b"
+      - state: accent-equipped-HELMET
+        color: "#a349a4"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmMantis
+  name: "casque d'envirocombinaison de la mante"
+  description: "Un casque d'envirocombinaison pour la mante forensique avec une élégante rayure dorée."
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#46566d"
+    - state: accent-icon
+      color: "#7d2322"
+    - state: midaccent-icon
+      color: "#d4af48"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#46566d"
+      - state: accent-inhand-left
+        color: "#7d2322"
+      - state: midaccent-inhand-left
+        color: "#d4af48"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#46566d"
+      - state: accent-inhand-right
+        color: "#7d2322"
+      - state: midaccent-inhand-right
+        color: "#d4af48"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#46566d"
+      - state: accent-equipped-HELMET
+        color: "#7d2322"
+      - state: midaccent-equipped-HELMET
+        color: "#d4af48"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmSafari
+  name: "casque d'envirocombinaison de safari"
+  description: Vous rend une cible pour les locaux.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#d3b986"
+    - state: accent-icon
+      color: "#a349a4"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#d3b986"
+      - state: accent-inhand-left
+        color: "#a349a4"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#d3b986"
+      - state: accent-inhand-right
+        color: "#a349a4"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#d3b986"
+      - state: accent-equipped-HELMET
+        color: "#a349a4"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmMartialGi
+  name: "casque d'envirocombinaison de gi"
+  description: "Un casque d'envirocombinaison blanc avec des rayures noires utilisé pour les arts martiaux."
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#ffffff"
+    - state: accent-icon
+      color: "#3b3b3b"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#ffffff"
+      - state: accent-inhand-left
+        color: "#3b3b3b"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#ffffff"
+      - state: accent-inhand-right
+        color: "#3b3b3b"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#ffffff"
+      - state: accent-equipped-HELMET
+        color: "#3b3b3b"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmQM
+  name: "casque d'envirocombinaison de l'officier de logistique"
+  description: "Un casque de confinement spécial conçu pour l'Officier de Logistique."
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#bb934b"
+    - state: accent-icon
+      color: "#ffc000"
+    - state: midaccent-icon
+      color: "#d08200"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#bb934b"
+      - state: accent-inhand-left
+        color: "#ffc000"
+      - state: midaccent-inhand-left
+        color: "#d08200"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#bb934b"
+      - state: accent-inhand-right
+        color: "#ffc000"
+      - state: midaccent-inhand-right
+        color: "#d08200"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#bb934b"
+      - state: accent-equipped-HELMET
+        color: "#ffc000"
+      - state: midaccent-equipped-HELMET
+        color: "#d08200"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmBoxing
+  name: "casque d'envirocombinaison de boxe"
+  description: "Un casque d'envirocombinaison blanc avec des rayures rouges."
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#eeeeee"
+    - state: accent-icon
+      color: "#a81818"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#eeeeee"
+      - state: accent-inhand-left
+        color: "#a81818"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#eeeeee"
+      - state: accent-inhand-right
+        color: "#a81818"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#eeeeee"
+      - state: accent-equipped-HELMET
+        color: "#a81818"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmAdminAssistant
+  name: "casque d'envirocombinaison de l'assistant administratif"
+  description: "Un casque d'envirocombinaison blanc avec des rayures bleu foncé."
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#ffffff"
+    - state: accent-icon
+      color: "#315266"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#ffffff"
+      - state: accent-inhand-left
+        color: "#315266"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#ffffff"
+      - state: accent-inhand-right
+        color: "#315266"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#ffffff"
+      - state: accent-equipped-HELMET
+        color: "#315266"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmBlackPink
+  name: "casque d'envirocombinaison noir rose"
+  description: "Comment vous trouvez ce casque d'envirocombinaison ?"
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#292929"
+    - state: accent-icon
+      color: "#f4a1b7"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#292929"
+      - state: accent-inhand-left
+        color: "#f4a1b7"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#292929"
+      - state: accent-inhand-right
+        color: "#f4a1b7"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#292929"
+      - state: accent-equipped-HELMET
+        color: "#f4a1b7"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmBlackPinkAlt
+  name: "casque d'envirocombinaison noir rose"
+  suffix: Alternative
+  description: "Ce casque d'envirocombinaison vous donne envie de tuer cet amour."
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#f4a1b7"
+    - state: accent-icon
+      color: "#292929"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#f4a1b7"
+      - state: accent-inhand-left
+        color: "#292929"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#f4a1b7"
+      - state: accent-inhand-right
+        color: "#292929"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#f4a1b7"
+      - state: accent-equipped-HELMET
+        color: "#292929"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmBlueshield
+  name: "casque d'envirocombinaison du bouclier bleu"
+  description: "Un casque d'envirocombinaison Plasmaman conçu pour le bouclier bleu."
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#535353"
+    - state: accent-icon
+      color: "#0044d4"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#535353"
+      - state: accent-inhand-left
+        color: "#0044d4"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#535353"
+      - state: accent-inhand-right
+        color: "#0044d4"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#535353"
+      - state: accent-equipped-HELMET
+        color: "#0044d4"
+      - state: visor-equipped-HELMET
+  - type: Armor
+    coverage:
+    - Head
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.3
+        Heat: 0.3
+        Radiation: 0.75
+        Caustic: 0.75
+  - type: ExplosionResistance
+    damageCoefficient: 0.75
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmTrans
+  name: "casque d'envirocombinaison trans"
+  description: "La coiffure préférée des Plasmamens transylvaniens pour éviter de brûler à cause de l'oxygène."
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#FFFFFF"
+    - state: accent-icon
+      color: "#ffb0c0"
+    - state: sideaccent-icon
+      color: "#5dd2ff"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#FFFFFF"
+      - state: accent-inhand-left
+        color: "#ffb0c0"
+      - state: sideaccent-inhand-left
+        color: "#5dd2ff"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#FFFFFF"
+      - state: accent-inhand-right
+        color: "#ffb0c0"
+      - state: sideaccent-inhand-right
+        color: "#5dd2ff"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#FFFFFF"
+      - state: accent-equipped-HELMET
+        color: "#ffb0c0"
+      - state: sideaccent-equipped-HELMET
+        color: "#5dd2ff"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmPrisonGuard
+  name: "casque d'envirocombinaison du gardien de prison"
+  description: "Espérons qu'un prisonnier ne vous l'arrache pas !"
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#d76b00"
+    - state: accent-icon
+      color: "#363636"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#d76b00"
+      - state: accent-inhand-left
+        color: "#363636"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#d76b00"
+      - state: accent-inhand-right
+        color: "#363636"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#d76b00"
+      - state: accent-equipped-HELMET
+        color: "#363636"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmBrigmedic
+  name: "casque d'envirocombinaison de médecin de combat"
+  description: Un casque fourni aux Plasmamens médecins de combat.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#486782"
+    - state: accent-icon
+      color: "#2e2e2e"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#486782"
+      - state: accent-inhand-left
+        color: "#2e2e2e"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#486782"
+      - state: accent-inhand-right
+        color: "#2e2e2e"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#486782"
+      - state: accent-equipped-HELMET
+        color: "#2e2e2e"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmNanotrasenRepresentative
+  name: "casque d'envirocombinaison du représentant NanoTrasen"
+  description: "Un casque d'envirocombinaison noir porté par le Représentant NanoTrasen, avec des accents noirs et dorés."
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#292929"
+    - state: accent-icon
+      color: "#ffce5b"
+    - state: midaccent-icon
+      color: "#266199"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#292929"
+      - state: accent-inhand-left
+        color: "#ffce5b"
+      - state: midaccent-inhand-left
+        color: "#266199"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#292929"
+      - state: accent-inhand-right
+        color: "#ffce5b"
+      - state: midaccent-inhand-right
+        color: "#266199"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#292929"
+      - state: accent-equipped-HELMET
+        color: "#ffce5b"
+      - state: midaccent-equipped-HELMET
+        color: "#266199"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmMagistrate
+  name: "casque d'envirocombinaison du magistrat"
+  description: Une envirocombinaison blanche simple avec des rayures jaunes.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#ebebeb"
+    - state: accent-icon
+      color: "#ffce5b"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#ebebeb"
+      - state: accent-inhand-left
+        color: "#ffce5b"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#ebebeb"
+      - state: accent-inhand-right
+        color: "#ffce5b"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#ebebeb"
+      - state: accent-equipped-HELMET
+        color: "#ffce5b"
+      - state: visor-equipped-HELMET
+
+# Color envirohelms
+- type: entity
+  parent: ClothingHeadEnvirohelmBase
+  id: ClothingHeadEnvirohelmColorWhite
+  name: "casque d'envirocombinaison blanc"
+  description: Un envirohelmet blanc générique.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/white.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Head/Envirohelms/white.rsi
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmColorGrey
+  name: "casque d'envirocombinaison gris"
+  description: "Un casque d'envirocombinaison gris."
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#b3b3b3"
+    - state: accent-icon
+      color: "#a349a4"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#b3b3b3"
+      - state: accent-inhand-left
+        color: "#a349a4"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#b3b3b3"
+      - state: accent-inhand-right
+        color: "#a349a4"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#b3b3b3"
+      - state: accent-equipped-HELMET
+        color: "#a349a4"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmColorBlack
+  name: "casque d'envirocombinaison noir"
+  description: "Un casque d'envirocombinaison noir."
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#3f3f3f"
+    - state: accent-icon
+      color: "#a349a4"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#3f3f3f"
+      - state: accent-inhand-left
+        color: "#a349a4"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#3f3f3f"
+      - state: accent-inhand-right
+        color: "#a349a4"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#3f3f3f"
+      - state: accent-equipped-HELMET
+        color: "#a349a4"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmColorRed
+  name: "casque d'envirocombinaison rouge"
+  description: "Un casque d'envirocombinaison rouge."
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#d1423f"
+    - state: accent-icon
+      color: "#a349a4"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#d1423f"
+      - state: accent-inhand-left
+        color: "#a349a4"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#d1423f"
+      - state: accent-inhand-right
+        color: "#a349a4"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#d1423f"
+      - state: accent-equipped-HELMET
+        color: "#a349a4"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmColorGreen
+  name: "casque d'envirocombinaison vert"
+  description: "Un casque d'envirocombinaison vert."
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#9ed63a"
+    - state: accent-icon
+      color: "#a349a4"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#9ed63a"
+      - state: accent-inhand-left
+        color: "#a349a4"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#9ed63a"
+      - state: accent-inhand-right
+        color: "#a349a4"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#9ed63a"
+      - state: accent-equipped-HELMET
+        color: "#a349a4"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmColorDarkGreen
+  name: "casque d'envirocombinaison vert foncé"
+  description: "Un casque d'envirocombinaison vert foncé."
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#79CC26"
+    - state: accent-icon
+      color: "#a349a4"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#79CC26"
+      - state: accent-inhand-left
+        color: "#a349a4"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#79CC26"
+      - state: accent-inhand-right
+        color: "#a349a4"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#79CC26"
+      - state: accent-equipped-HELMET
+        color: "#a349a4"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmColorBlue
+  name: "casque d'envirocombinaison bleu"
+  description: "Un casque d'envirocombinaison bleu."
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#52aecc"
+    - state: accent-icon
+      color: "#a349a4"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#52aecc"
+      - state: accent-inhand-left
+        color: "#a349a4"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#52aecc"
+      - state: accent-inhand-right
+        color: "#a349a4"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#52aecc"
+      - state: accent-equipped-HELMET
+        color: "#a349a4"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmColorDarkBlue
+  name: "casque d'envirocombinaison bleu foncé"
+  description: "Un casque d'envirocombinaison bleu foncé."
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#3285ba"
+    - state: accent-icon
+      color: "#a349a4"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#3285ba"
+      - state: accent-inhand-left
+        color: "#a349a4"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#3285ba"
+      - state: accent-inhand-right
+        color: "#a349a4"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#3285ba"
+      - state: accent-equipped-HELMET
+        color: "#a349a4"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmColorTeal
+  name: "casque d'envirocombinaison turquoise"
+  description: "Un casque d'envirocombinaison turquoise."
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#77f3b7"
+    - state: accent-icon
+      color: "#a349a4"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#77f3b7"
+      - state: accent-inhand-left
+        color: "#a349a4"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#77f3b7"
+      - state: accent-inhand-right
+        color: "#a349a4"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#77f3b7"
+      - state: accent-equipped-HELMET
+        color: "#a349a4"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmColorMaroon
+  name: "casque d'envirocombinaison bordeaux"
+  description: "Un casque d'envirocombinaison bordeaux."
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#cc295f"
+    - state: accent-icon
+      color: "#a349a4"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#cc295f"
+      - state: accent-inhand-left
+        color: "#a349a4"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#cc295f"
+      - state: accent-inhand-right
+        color: "#a349a4"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#cc295f"
+      - state: accent-equipped-HELMET
+        color: "#a349a4"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmColorPink
+  name: "casque d'envirocombinaison rose"
+  description: "Un casque d'envirocombinaison rose. Tellement canon !"
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#ff8cff"
+    - state: accent-icon
+      color: "#8b3e8c"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#ff8cff"
+      - state: accent-inhand-left
+        color: "#8b3e8c"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#ff8cff"
+      - state: accent-inhand-right
+        color: "#8b3e8c"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#ff8cff"
+      - state: accent-equipped-HELMET
+        color: "#8b3e8c"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmColorYellow
+  name: "casque d'envirocombinaison jaune"
+  description: "Un casque d'envirocombinaison jaune."
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#ffe14d"
+    - state: accent-icon
+      color: "#a349a4"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#ffe14d"
+      - state: accent-inhand-left
+        color: "#a349a4"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#ffe14d"
+      - state: accent-inhand-right
+        color: "#a349a4"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#ffe14d"
+      - state: accent-equipped-HELMET
+        color: "#a349a4"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmColorPurple
+  name: "casque d'envirocombinaison violet"
+  description: "Un casque d'envirocombinaison violet."
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#9f70cc"
+    - state: accent-icon
+      color: "#843b85"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#9f70cc"
+      - state: accent-inhand-left
+        color: "#843b85"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#9f70cc"
+      - state: accent-inhand-right
+        color: "#843b85"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#9f70cc"
+      - state: accent-equipped-HELMET
+        color: "#843b85"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmColorOrange
+  name: "casque d'envirocombinaison orange"
+  description: "Un casque d'envirocombinaison orange."
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#ff8c19"
+    - state: accent-icon
+      color: "#a349a4"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#ff8c19"
+      - state: accent-inhand-left
+        color: "#a349a4"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#ff8c19"
+      - state: accent-inhand-right
+        color: "#a349a4"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#ff8c19"
+      - state: accent-equipped-HELMET
+        color: "#a349a4"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmColorLightBrown
+  name: "casque d'envirocombinaison brun clair"
+  description: "Un casque d'envirocombinaison brun clair."
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#a17229"
+    - state: accent-icon
+      color: "#a349a4"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#a349a4"
+      - state: accent-inhand-left
+        color: "#a349a4"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#a17229"
+      - state: accent-inhand-right
+        color: "#a349a4"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#a17229"
+      - state: accent-equipped-HELMET
+        color: "#a349a4"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmColorBrown
+  name: "casque d'envirocombinaison brun"
+  description: "Un casque d'envirocombinaison brun."
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#543e1b"
+    - state: accent-icon
+      color: "#a349a4"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#543e1b"
+      - state: accent-inhand-left
+        color: "#a349a4"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#543e1b"
+      - state: accent-inhand-right
+        color: "#a349a4"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#543e1b"
+      - state: accent-equipped-HELMET
+        color: "#a349a4"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmEnviroslacksColorRed
+  name: casque enviroslacks rouge
+  description: "Le projet favori d'un Plasmaman particulièrement chic, cet envirohelmet vient avec des accents rouges. Élégant !"
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#ffffff"
+    - state: accent-icon
+      color: "#99211f"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#ffffff"
+      - state: accent-inhand-left
+        color: "#99211f"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#ffffff"
+      - state: accent-inhand-right
+        color: "#99211f"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#ffffff"
+      - state: accent-equipped-HELMET
+        color: "#99211f"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmEnviroslacksColorOrange
+  name: casque enviroslacks orange
+  description: "Le projet favori d'un Plasmaman particulièrement chic, cet envirohelmet vient avec des accents oranges. Pétillant !"
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#ffffff"
+    - state: accent-icon
+      color: "#c2680f"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#ffffff"
+      - state: accent-inhand-left
+        color: "#c2680f"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#ffffff"
+      - state: accent-inhand-right
+        color: "#c2680f"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#ffffff"
+      - state: accent-equipped-HELMET
+        color: "#c2680f"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmEnviroslacksColorGreen
+  name: casque enviroslacks vert
+  description: "Le projet favori d'un Plasmaman particulièrement chic, cet envirohelmet vient avec des accents verts. Feuillu !"
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#ffffff"
+    - state: accent-icon
+      color: "#5b991f"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#ffffff"
+      - state: accent-inhand-left
+        color: "#5b991f"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#ffffff"
+      - state: accent-inhand-right
+        color: "#5b991f"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#ffffff"
+      - state: accent-equipped-HELMET
+        color: "#5b991f"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmEnviroslacksColorBlue
+  name: casque enviroslacks bleu
+  description: "Le projet favori d'un Plasmaman particulièrement chic, cet envirohelmet vient avec des accents bleus. Cool !"
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#ffffff"
+    - state: accent-icon
+      color: "#2b5c99"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#ffffff"
+      - state: accent-inhand-left
+        color: "#2b5c99"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#ffffff"
+      - state: accent-inhand-right
+        color: "#2b5c99"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#ffffff"
+      - state: accent-equipped-HELMET
+        color: "#2b5c99"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmEnviroslacksMNK
+  name: casque enviroslacks MNK
+  description: "Un envirohelmet élégant proposé par MNK. Classique !"
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#ffffff"
+    - state: accent-icon
+      color: "#363636"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#ffffff"
+      - state: accent-inhand-left
+        color: "#363636"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#ffffff"
+      - state: accent-inhand-right
+        color: "#363636"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#ffffff"
+      - state: accent-equipped-HELMET
+        color: "#363636"
+      - state: visor-equipped-HELMET
+
+- type: entity
+  parent: ClothingHeadEnvirohelmCustomBase
+  id: ClothingHeadEnvirohelmEnviroslacksMNKAlt
+  name: casque enviroslacks monochrome
+  description: "Un envirohelmet élégant proposé par MNK. Noir !"
+  suffix: Alternative
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#3b3b3b"
+    - state: accent-icon
+      color: "#d6d6d6"
+    - state: visor-icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#3b3b3b"
+      - state: accent-inhand-left
+        color: "#d6d6d6"
+      - state: visor-inhand-left
+      right:
+      - state: inhand-right
+        color: "#3b3b3b"
+      - state: accent-inhand-right
+        color: "#d6d6d6"
+      - state: visor-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        color: "#3b3b3b"
+      - state: accent-equipped-HELMET
+        color: "#d6d6d6"
+      - state: visor-equipped-HELMET

@@ -9,8 +9,8 @@
 - type: entity
   parent: [ ClothingBackpackDuffel, BaseMajorContraband ]
   id: ClothingBackpackDuffelAbductor
-  name: alien duffel bag
-  description: An ordinary duffel bag woven from a durable fiber.
+  name: sac fourre-tout extraterrestre
+  description: Un sac fourre-tout ordinaire tissé en fibre résistante.
   components:
   - type: Sprite
     sprite: _Shitmed/Clothing/Back/Duffels/abductor.rsi

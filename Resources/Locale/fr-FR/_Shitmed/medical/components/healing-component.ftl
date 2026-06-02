@@ -1,0 +1,13 @@
+medical-item-cant-use-rebell = Vous ne pouvez pas aider { $target }. Il/elle saigne trop abondamment...
+cant-heal-damage-container-rebell = Vous ne pouvez pas aider { $target } avec le { $used }
+rebell-medical-item-stop-bleeding-fully = Vous avez complètement arrêté le saignement.
+rebell-medical-item-stop-bleeding-partially = Vous avez partiellement arrêté le saignement
+missing-body-part = La partie du corps est manquante.
+puts-on-a-tourniquet = { CAPITALIZE($user) } pose un garrot sur le { $part }.
+takes-off-a-tourniquet = { CAPITALIZE($user) } retire le garrot du { $part }.
+take-off-tourniquet = Retirer le garrot du { $part }
+already-tourniqueted = Poser un autre garrot serait fatal.
+cant-tourniquet = Il est impossible de poser un garrot ici...
+no-wounds-tourniquet = Il n'y a aucune blessure où poser un garrot.
+cant-put-tourniquet-here = Vous ne pouvez pas mettre un garrot ici.
+medical-item-requires-surgery-rebell = Vous avez fait tout ce que vous pouviez. { $target } a besoin d'une chirurgie.

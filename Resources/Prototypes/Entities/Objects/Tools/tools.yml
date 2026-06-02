@@ -155,10 +155,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: wirecutter
+  name: pince coupante
   parent: BaseItem
   id: Wirecutter
-  description: This kills the wire.
+  description: Ça coupe le câble.
   components:
   # Goobstation edit start
   - type: EmitSoundOnPickup
@@ -224,10 +224,10 @@
         variation: 0.125
 
 - type: entity
-  name: screwdriver
+  name: tournevis
   parent: BaseItem
   id: Screwdriver
-  description: Industrial grade torque in a small screwdriving package.
+  description: Un couple industriel dans un petit tournevis.
   components:
   # Goobstation edit start
   - type: EmitSoundOnPickup
@@ -287,10 +287,10 @@
       path: /Audio/_Shitmed/Medical/Surgery/retractor2.ogg
 
 - type: entity
-  name: wrench
+  name: clé à molette
   parent: BaseItem
   id: Wrench
-  description: 'A common tool for assembly and disassembly. Remember: lefty latchy, righty removey.'
+  description: "Un outil courant pour l'assemblage et le démontage. Rappel : à gauche on serre, à droite on desserre."
   components:
   # Goobstation edit start
   - type: EmitSoundOnPickup
@@ -343,10 +343,10 @@
     - Construction
 
 - type: entity
-  name: multitool
+  name: multioutil
   parent: BaseItem
   id: Multitool
-  description: An advanced tool to copy, store, and send electrical pulses and signals through wires and machines.
+  description: Un outil avancé pour copier, stocker et envoyer des impulsions et signaux électriques dans les câbles et machines.
   components:
   # Goobstation edit start
   - type: EmitSoundOnPickup
@@ -406,10 +406,10 @@
     - InspectingPower
 
 - type: entity
-  name: network configurator
+  name: configurateur réseau
   parent: BaseItem
   id: NetworkConfigurator
-  description: A tool for linking devices together. Has two modes, a list mode for mass linking devices and a linking mode for advanced device linking.
+  description: 'Un outil pour relier des appareils entre eux. Dispose de deux modes : un mode liste pour les liaisons en masse et un mode liaison pour les connexions avancées.'
   components:
     - type: EmitSoundOnLand
       sound:
@@ -463,10 +463,10 @@
 #Power tools
 #Later on these should switch probably switch damage when changing the tool behavior.
 - type: entity
-  name: power drill
+  name: perceuse électrique
   parent: BaseItem
   id: PowerDrill
-  description: A simple powered hand drill.
+  description: Une simple perceuse électrique portative.
   components:
   - type: Tag
     tags:
@@ -527,8 +527,8 @@
 - type: entity
   id: RCD
   parent: [ BaseItem, BaseEngineeringContraband ]
-  name: RCD
-  description: The rapid construction device can be used to quickly place and remove various station structures and fixtures. Requires compressed matter to function.
+  name: DCR
+  description: Le dispositif de construction rapide (DCR) permet de placer et retirer rapidement diverses structures et installations de la station. Nécessite de la matière compressée pour fonctionner.
   components:
   - type: RCD
     availablePrototypes:
@@ -583,8 +583,8 @@
 - type: entity
   id: RPD
   parent: RCD
-  name: RPD
-  description: The rapid piping device allows for the quick placement and removal of atmospheric-related buildings requires compressive matter to use.
+  name: DTP
+  description: Le dispositif de tuyauterie rapide (DTP) permet la pose et le retrait rapides des installations atmosphériques, nécessite de la matière compressive.
   components:
   - type: RCD
     isRpd: true
@@ -631,8 +631,8 @@
 - type: entity
   id: RCDRecharging
   parent: RCD
-  name: experimental RCD
-  description: Cyborg-mounted Rapid Construction Device which creates compressed matter on the fly using an internal fabricator.
+  name: DCR expérimental
+  description: Dispositif de construction rapide monté sur cyborg, qui génère de la matière compressée à la volée grâce à un fabricateur interne.
   suffix: AutoRecharge
   components:
   - type: LimitedCharges
@@ -644,17 +644,17 @@
   id: RCDExperimental
   parent: RCD
   suffix: Admeme
-  name: experimental RCD
-  description: A bluespace-enhanced rapid construction device that passively generates its own compressed matter.
+  name: DCR expérimental
+  description: Un dispositif de construction rapide amélioré par le bluespace qui génère passivement sa propre matière compressée.
   components:
   - type: AutoRecharge
     rechargeDuration: 1
 
 - type: entity
-  name: compressed matter
+  name: matière compressée
   parent: BaseItem
   id: RCDAmmo
-  description: A cartridge of raw matter compacted by bluespace technology. Used in rapid construction devices.
+  description: Une cartouche de matière brute compactée par la technologie bluespace. Utilisée dans les dispositifs de construction rapide.
   components:
   - type: RCDAmmo
   - type: Sprite
@@ -671,10 +671,10 @@
     price: 60
 
 - type: entity
-  name: omnitool
+  name: omnioutil
   parent: BaseItem
   id: Omnitool
-  description: A drone's best friend.
+  description: Le meilleur ami d'un drone.
   components:
   - type: Sprite
     sprite: Objects/Tools/omnitool.rsi
@@ -739,10 +739,10 @@
 
 #Other
 - type: entity
-  name: shovel
+  name: pelle
   parent: BaseItem
   id: Shovel
-  description: A large tool for digging and moving dirt.
+  description: Un grand outil pour creuser et déplacer de la terre.
   components:
   - type: Sprite
     sprite: Objects/Tools/shovel.rsi
@@ -769,8 +769,8 @@
 - type: entity
   parent: BaseItem
   id: RollingPin
-  name: rolling pin
-  description: A tool used to shape and flatten dough.
+  name: rouleau à pâtisserie
+  description: Un outil utilisé pour façonner et aplatir la pâte.
   components:
   - type: Sprite
     sprite: Objects/Tools/rolling_pin.rsi

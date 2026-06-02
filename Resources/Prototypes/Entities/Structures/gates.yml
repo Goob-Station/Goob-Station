@@ -12,8 +12,8 @@
 - type: entity
   parent: BaseItem
   id: LogicEmptyCircuit
-  name: empty circuit
-  description: Something seems to be missing.
+  name: circuit vide
+  description: Il semble manquer quelque chose.
   components:
   - type: Sprite
     drawdepth: ThinPipe
@@ -40,8 +40,8 @@
 - type: entity
   parent: BaseLogicItem
   id: LogicGateOr
-  name: logic gate
-  description: A logic gate with two inputs and one output. Technicians can change its mode of operation using a screwdriver.
+  name: porte logique
+  description: Une porte logique à deux entrées et une sortie. Les techniciens peuvent modifier son mode de fonctionnement à l'aide d'un tournevis.
   suffix: Or
   components:
   - type: Sprite
@@ -214,8 +214,8 @@
 - type: entity
   parent: BaseLogicItem
   id: EdgeDetector
-  name: edge detector
-  description: Splits rising and falling edges into unique pulses and detects how edgy you are.
+  name: détecteur d'edge
+  description: Sépare les edges montantes et descendantes en impulsions distinctes et détecte à quel point vous êtes edgy.
   components:
   - type: Sprite
     layers:
@@ -238,8 +238,8 @@
 - type: entity
   parent: BaseLogicItem
   id: PowerSensor
-  name: power sensor
-  description: Generates signals in response to powernet changes. Can be cycled between cable voltages.
+  name: capteur de courant
+  description: Génère des signaux en réponse aux variations du réseau électrique. Peut être basculé entre différentes tensions de câble.
   components:
   - type: Sprite
     layers:
@@ -285,8 +285,8 @@
 - type: entity
   parent: BaseLogicItem
   id: MemoryCell
-  name: memory cell
-  description: A D-Latch circuit that stores a signal which can be changed depending on input and enable ports.
+  name: cellule mémoire
+  description: Circuit à bascule D qui mémorise un signal pouvant être modifié en fonction des ports d'entrée et d'activation.
   components:
   - type: Sprite
     layers:

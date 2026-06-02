@@ -221,7 +221,7 @@
   parent: [BaseItem, BaseSecurityContraband, ClothingBeltBase]
   id: PoliceBaton
   name: police baton
-  description: A wooden truncheon for beating criminal scum.
+  description: Une matraque en bois pour battre la racaille criminelle.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/baton.rsi

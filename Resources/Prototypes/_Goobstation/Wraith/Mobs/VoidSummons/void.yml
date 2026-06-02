@@ -2,8 +2,8 @@
 - type: entity
   id: MobSkeletonCommander
   parent: [ BaseMob, MobCombat ]
-  name: skeleton commander
-  description: A bulky skeleton here to encourage his friends.
+  name: commandant squelette
+  description: Un solide squelette là pour encourager ses amis.
   components:
   - type: CollectiveMind
     defaultChannel: Wraithmind
@@ -110,10 +110,10 @@
     speedModifier: 2.5
 
 - type: entity
-  name: Tentacle fiend
+  name: démon tentaculaire
   parent: MobCorgiNarsi
   id: MobVoidSpiker
-  description: Standing still is probably not a good idea.
+  description: Rester immobile n'est probablement pas une bonne idée.
   components:
   - type: MindContainer
     showExamineInfo: true
@@ -209,10 +209,10 @@
     speedModifier: 2.5
 
 - type: entity
-  name: Voidhound
+  name: Chienhound du Vide
   parent: MobCorgiNarsi
   id: MobVoidHound
-  description: You probably shouldn't be staring at this thing.
+  description: Vous ne devriez probablement pas regarder cette chose.
   components:
   - type: MindContainer
     showExamineInfo: true
@@ -301,7 +301,7 @@
 
 - type: entity
   id: MobSkeletonCommanderWraith
-  suffix: Wraith
+  suffix: Revenant
   parent: MobSkeletonCommander
   components:
   - type: WraithMinion
@@ -315,7 +315,7 @@
 
 - type: entity
   id: MobVoidSpikerWraith
-  suffix: Wraith
+  suffix: Revenant
   parent: MobVoidSpiker
   components:
   - type: WraithMinion
@@ -329,7 +329,7 @@
 
 - type: entity
   id: MobVoidHoundWraith
-  suffix: Wraith
+  suffix: Revenant
   parent: MobVoidHound
   components:
   - type: WraithMinion

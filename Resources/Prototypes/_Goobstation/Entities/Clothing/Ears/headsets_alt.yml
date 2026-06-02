@@ -33,7 +33,7 @@
   parent: ClothingHeadset
   id: ClothingHeadsetChronolegioneer
   name: futuristic over-ear headset
-  description: A headset from the future that can pick up most station frequencies.
+  description: Un casque du futur capable de capter la plupart des fréquences de la station.
   components:
   - type: ContainerFill
     containers:
@@ -47,7 +47,7 @@
 - type: entity
   parent: ClothingHeadsetChronolegioneer
   id: ClothingHeadsetChronolegioneerUnremoveable
-  suffix: Unremoveable
+  suffix: Inamovible
   components:
   - type: Unremoveable
 
@@ -55,7 +55,7 @@
   parent: [ClothingHeadsetAlt, BaseSecurityContraband]
   id: ClothingHeadsetAltWarden
   name: warden's over-ear headset
-  description: An updated, modular intercom, allowing for rapid communication with command personnel.
+  description: Un intercom modulaire mis à jour, permettant des communications rapides avec le personnel de commandement.
   components:
   - type: ContainerFill
     containers:
@@ -133,7 +133,7 @@
   parent: ClothingHeadsetAlt
   id: ClothingHeadsetAltRadioHost
   name: Radio host's over-ear headset
-  description: An over-ear headset with extra foam padding around the ears.
+  description: Un casque supra-auriculaire avec une mousse supplémentaire autour des oreilles.
   components:
   - type: ContainerFill
     containers:

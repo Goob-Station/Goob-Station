@@ -2,7 +2,7 @@
   parent: [ BaseMachinePowered, ConstructibleMachine ]
   id: TelecomTransmitter
   name: telecommunication transmitter
-  description: When powered, it allows telecomunication servers to expand their signal.
+  description: Lorsqu'il est alimenté, il permet aux serveurs de télécommunications d'étendre leur signal.
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Machines/comms_transmitter.rsi

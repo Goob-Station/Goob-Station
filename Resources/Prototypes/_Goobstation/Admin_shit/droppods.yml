@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseItem
   id: DropPodspawner
-  name: drop pod
-  description: Place items you want players to recieve in the bag, activate it over where you want the pod to drop. Players cannot see the pod. To drop living beings, drag them into the pod (like strapping someone onto a chair).
+  name: nacelle de largage
+  description: Placez les objets que vous voulez distribuer aux joueurs dans le sac, puis activez-le au-dessus de l'endroit où vous voulez faire tomber la nacelle. Les joueurs ne peuvent pas voir la nacelle. Pour y faire entrer des êtres vivants, faites-les glisser dans la nacelle (comme pour attacher quelqu'un à une chaise).
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/DropPod/item.rsi

@@ -13,10 +13,10 @@
 - type: entity
   parent: [ ClothingOuterHardsuitBase, BaseSyndicateContraband ]
   id: ClothingOuterHardsuitSyndieStealthDebug
-  suffix: DEBUG, DO NOT MAP, stealth
+  suffix: DÉBOGAGE, NE PAS PLACER, furtif
   categories: [ DoNotMap ]
-  name: syndicate stealth hardsuit
-  description: A hardsuit with stealth plating for operations, the shielding doesn't work while you're moving though! Needs the helmet on to finish the stealth field.
+  name: combinaison hardue syndicat furtive
+  description: Une combinaison hardue avec un blindage furtif pour les opérations, le bouclier ne fonctionne pas quand vous bougez ! Le casque doit être mis pour activer le champ de furtivité.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/syndicate.rsi
@@ -67,10 +67,10 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSyndieStealthDebug
-  suffix: DEBUG, DO NOT MAP, stealth
+  suffix: DÉBOGAGE, NE PAS PLACER, furtif
   categories: [ DoNotMap ]
-  name: syndicate stealth hardsuit helmet
-  description: A helmet with plating for stealth operations.
+  name: casque de combinaison hardue syndicat furtive
+  description: Un casque avec un blindage pour les opérations furtives.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/syndicate.rsi

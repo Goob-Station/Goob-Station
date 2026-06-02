@@ -32,10 +32,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: mini hoe
+  name: mini binette
   parent: BaseItem
   id: HydroponicsToolMiniHoe
-  description: It's used for removing weeds or scratching your back.
+  description: Utilisée pour enlever les mauvaises herbes ou se gratter le dos.
   components:
   - type: Tag
     tags:
@@ -57,10 +57,10 @@
       Steel: 100
 
 - type: entity
-  name: plant clippers
+  name: sécateur
   parent: BaseItem
   id: HydroponicsToolClippers
-  description: A tool used to take samples from plants.
+  description: Un outil utilisé pour prélever des échantillons sur les plantes.
   components:
   - type: Tag
     tags:
@@ -98,10 +98,10 @@
     speedModifier: 0.25    
 
 - type: entity
-  name: scythe
+  name: faux
   parent: BaseItem
   id: HydroponicsToolScythe
-  description: A sharp and curved blade on a long fibremetal handle, this tool makes it easy to reap what you sow.
+  description: Une lame tranchante et courbée sur un long manche en fibremetal, cet outil facilite la récolte de ce que vous semez.
   components:
   - type: Sharp
   - type: Sprite
@@ -126,10 +126,10 @@
       Plastic: 100
 
 - type: entity
-  name: hatchet
+  name: hachette
   parent: BaseItem
   id: HydroponicsToolHatchet
-  description: A very sharp axe blade upon a short fibremetal handle. It has a long history of chopping things, but now it is used for chopping wood.
+  description: Une lame de hache très tranchante sur un court manche en fibremetal. Elle a une longue histoire de découpe, mais est désormais utilisée pour couper du bois.
   components:
   - type: Tag
     tags:
@@ -157,10 +157,10 @@
       Steel: 100
 
 - type: entity
-  name: spade
+  name: bêche
   parent: BaseItem
   id: HydroponicsToolSpade
-  description: A small tool for digging and moving dirt.
+  description: Un petit outil pour creuser et déplacer de la terre.
   components:
   - type: Tag
     tags:
@@ -185,10 +185,10 @@
       Steel: 100
 
 - type: entity
-  name: plant bag
+  name: sac à plantes
   id: PlantBag
   parent: BaseStorageItem
-  description: A bag for botanists to easily move their huge harvests.
+  description: Un sac permettant aux botanistes de transporter facilement leurs grandes récoltes.
   components:
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/Equipment/plant_bag.rsi

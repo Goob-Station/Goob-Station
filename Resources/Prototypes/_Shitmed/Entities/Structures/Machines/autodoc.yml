@@ -12,7 +12,7 @@
   parent: [ ConstructibleMachine, BaseMachinePowered, BaseAutomatedMachine ] # Goob: Automation
   id: Autodoc
   name: Autodoc Mk.XIV
-  description: A programmable robotic surgeon capable of automatically operating on patients.
+  description: Un chirurgien robotique programmable capable d'opérer automatiquement les patients.
   components:
   - type: Sprite
     sprite: _Shitmed/Structures/Machines/autodoc.rsi
@@ -117,7 +117,7 @@
 - type: entity
   parent: OmnimedTool
   id: OmnimedToolAutodoc
-  suffix: Unremoveable, Autodoc
+  suffix: Inamovible, Autodoc
   components:
   - type: Unremoveable
   - type: Hemostat

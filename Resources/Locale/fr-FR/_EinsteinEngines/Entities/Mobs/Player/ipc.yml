@@ -1,0 +1,209 @@
+# SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2024 HawkeyeBlade <hawkeyewarframexd@gmail.com>
+# SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aineias1 <142914808+Aineias1@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 JohnOakman <sremy2012@hotmail.fr>
+# SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: MobIPC
+  parent: PlayerSiliconHumanoidBase
+  name: Urist McPositronique
+  description: Un cerveau positronique dans un corps de métal.
+  components:
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - TauCetiBasic
+    - RobotTalk
+    understands:
+    - TauCetiBasic
+    - RobotTalk
+  - type: HarpySinger
+    ShutUpDamageThreshold: 5 # Punch does 5 damage
+  - type: Instrument
+    allowPercussion: true
+    allowProgramChange: true
+    program: 52
+  - type: SwappableInstrument
+    instrumentList:
+      "Daw": { 0: 0 }
+  - type: UserInterface
+    interfaces:
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+        requireInputValidation: false
+      enum.VoiceMaskUIKey.Key:
+        type: VoiceMaskBoundUserInterface
+      enum.HumanoidMarkingModifierKey.Key:
+        type: HumanoidMarkingModifierBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      # Goobstation - changelings (technically, IPCs cant be a ling, but whatever)
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+      enum.WizardTeleportUiKey.Key: # Goobstation - wizard
+        type: WizardTeleportBoundUserInterface
+        requireInputValidation: false
+      enum.SurgeryUIKey.Key: # Shitmed
+        type: SurgeryBui
+      enum.RadarConsoleUiKey.Key: #goob - contractor
+        type: RadarConsoleBoundUserInterface
+  # Goobstation Start - Energycrit
+  # - type: PowerCellSlot
+  #   cellSlotId: cell_slot
+  #   fitsInCharger: true
+  # - type: ItemSlots
+  #   slots:
+  #     cell_slot:
+  #       locked: true
+  #       name: power-cell-slot-component-slot-name-default
+  #       startingItem: PowerCellMedium
+  # - type: BatterySlotRequiresLock
+  #   itemSlot: cell_slot
+  - type: Battery # Power cell slot replaced with high capacity battery
+    maxCharge: 1080
+    startingCharge: 1080
+  # Goobstation End - Energycrit
+  - type: EncryptionHolderRequiresLock
+  #- Goobstation - Energycrit
+  #- type: SiliconEmitSoundOnDrained
+  #  sound: "/Audio/_Goobstation/Voice/IPC/energy_low.ogg" # Goobstation - ipc audio
+  #  minInterval: 8
+  #  maxInterval: 12
+  #  popUp: "silicon-power-low"
+  - type: Lock
+    locked: true
+    lockOnClick: false
+    unlockOnClick: false
+    lockTime: 5
+    unlockTime: 5
+  - type: InteractionPopup
+    successChance: 1
+    interactSuccessString: hugging-success-generic
+    interactSuccessSound: /Audio/Effects/thudswoosh.ogg
+    messagePerceivedByOthers: hugging-success-generic-others
+  - type: NpcFactionMember
+    factions:
+    - NanoTrasen
+  - type: StandingState
+  - type: Damageable
+    damageContainer: SiliconRadiation
+    damageModifierSet: IPC
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+    stateAlertDict:
+      Alive: BorgHealth
+      Dead: BorgDead
+  - type: TypingIndicator
+    proto: robot
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 400
+      behaviors:
+      - !type:GibBehavior { }
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      60: 0.7
+      80: 0.5
+  - type: SiliconDownOnDead
+  - type: Inventory
+    templateId: ipc
+  - type: GuideHelp
+    guides:
+    - IPC
+  - type: Silicon
+    entityType: enum.SiliconType.Player
+    batteryPowered: true
+    drainPerSecond: 1.5
+    chargeThresholdMid: 0.80
+    chargeThresholdLow: 0.35
+    chargeThresholdCritical: 0.10
+    speedModifierThresholds:
+      4: 1
+      3: 1
+      2: 0.80
+      1: 0.45
+      0: 0.10 # Goobstation - Energycrit
+  - type: BatteryDrinker
+    blacklist: # Goobstation - Energycrit
+      tags:
+      - IPCDrinkBlacklist
+  - type: EncryptionKeyHolder
+    keySlots: 4
+    examineWhileLocked: false
+    keysExtractionMethod: Cutting
+    keysUnlocked: false
+  - type: ActiveRadio
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+  - type: DeadStartupButton
+    sound:
+      path: /Audio/_EinsteinEngines/Effects/Silicon/startup.ogg
+  # Erro de linter
+  #   - type: Wires
+  #     layoutId: IPC
+  - type: EmitBuzzWhileDamaged
+  - type: CanHostGuardian
+  - type: Repairable #Goob edit
+    fuelCost: 5
+    doAfterDelay: 3
+    selfRepairPenalty: 2.0
+    damage:
+      types:
+        Blunt: -15
+        Piercing: -15
+        Slash: -15
+  - type: DamagedSiliconAccent
+  - type: Uncloneable
+  - type: OwnInteractionVerbs
+    allowedVerbs: []
+  - type: Sprinter # Goob Change: slight nerf to speed because heavy robot, mass contest when
+    sprintSpeedMultiplier: 1.2
+  - type: Tag
+    tags:
+    - SiliconMob
+    - SiliconEmotes
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
+    - IPCDrinkBlacklist # Goobstation - Energycrit: Don't let self antagging IPCs steal power from other ipcs.
+- type: entity
+  save: false
+  name: Urist McPositronique
+  parent: MobHumanDummy
+  id: MobIPCDummy
+  categories: [ HideSpawnMenu ] # Goobstation
+  description: Un IPC factice destiné à être utilisé lors de la création du personnage.
+  components:
+  - type: HumanoidAppearance
+    species: IPC
+  - type: Inventory
+    templateId: ipc

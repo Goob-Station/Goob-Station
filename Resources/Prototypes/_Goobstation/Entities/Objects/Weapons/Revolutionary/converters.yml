@@ -2,7 +2,7 @@
   name: flash
   id: RevFlash
   parent: [BaseItem, BaseSecurityScienceCommandContraband]
-  description: An ultrabright flashbulb with a trigger, which causes the victim to be dazed and lose their eyesight for a moment. Useless when burnt out. This one seems to have been tampered with.
+  description: Un flashbulbe ultrabrillant avec un déclencheur, qui fait étourdir la victime et perdre la vue un moment. Inutile quand il est grillé. Celui-ci semble avoir été modifié.
   suffix: Revolutionary
   components:
     - type: RevolutionaryConverter

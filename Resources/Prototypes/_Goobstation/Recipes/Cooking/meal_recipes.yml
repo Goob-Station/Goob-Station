@@ -8,7 +8,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeLollypop
-  name: lollypop recipe
+  name: recette de sucette
   result: FoodSnackLollypop
   time: 5
   solids:
@@ -18,7 +18,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeFreedomCheeseBlock
-  name: freedom cheese recipe
+  name: recette de fromage de la liberté
   result: FoodFreedomCheeseBlock
   time: 5
   solids:
@@ -27,7 +27,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeFriedVoxL
-  name: 'fried "chicken" recipe'
+  name: 'recette de "poulet" frit'
   result: FoodMeatVoxFried
   time: 10
   solids:
@@ -35,7 +35,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeFriedVoxR
-  name: 'fried "chicken" recipe'
+  name: 'recette de "poulet" frit'
   result: FoodMeatVoxFried
   time: 10
   solids:
@@ -43,7 +43,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeChudBurger
-  name: nothing burger recipe
+  name: recette de burger vide
   result: FoodBurgerChud
   time: 10
   group: Savory
@@ -55,7 +55,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeMothdog
-  name: mothdog recipe
+  name: recette de mothdog
   result: FoodSnackMothdog
   time: 5
   group: Savory

@@ -18,8 +18,8 @@
 - type: entity
   parent: BaseItem
   id: ResearchDisk
-  name: research point disk (1000)
-  description: A disk for the R&D server containing 1000 points.
+  name: disque de points de recherche (1000)
+  description: Un disque pour le serveur R&D contenant 1000 points.
   components:
   # Goobstation edit start
   - type: EmitSoundOnPickup
@@ -49,8 +49,8 @@
 - type: entity
   parent: ResearchDisk
   id: ResearchDisk5000
-  name: research point disk (5000)
-  description: A disk for the R&D server containing 5000 points.
+  name: disque de points de recherche (5000)
+  description: Un disque pour le serveur R&D contenant 5000 points.
   components:
   - type: ResearchDisk
     points: 5000
@@ -58,8 +58,8 @@
 - type: entity
   parent: ResearchDisk
   id: ResearchDisk10000
-  name: research point disk (10000)
-  description: A disk for the R&D server containing 10000 points.
+  name: disque de points de recherche (10000)
+  description: Un disque pour le serveur R&D contenant 10000 points.
   components:
   - type: ResearchDisk
     points: 10000
@@ -67,10 +67,10 @@
 - type: entity
   parent: ResearchDisk
   id: ResearchDiskDebug
-  name: research point disk
+  name: disque de points de recherche
   suffix: DEBUG, DO NOT MAP
   categories: [ DoNotMap ]
-  description: A disk for the R&D server containing all the points you could ever need.
+  description: Un disque pour le serveur R&D contenant tous les points dont vous pourrez jamais avoir besoin.
   components:
   - type: ResearchDisk
     unlockAllTech: true
@@ -78,8 +78,8 @@
 - type: entity
   parent: BaseItem
   id: TechnologyDisk
-  name: technology disk
-  description: A disk for the R&D server containing research technology.
+  name: disque technologique
+  description: Un disque pour le serveur R&D contenant une technologie de recherche.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi

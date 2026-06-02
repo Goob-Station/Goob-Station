@@ -11,7 +11,7 @@
 - type: entity
   id: BriefcaseSyndieDualettaBundleFilled
   parent: BriefcaseSyndie
-  suffix: Syndicate, Dualetta Bundle
+  suffix: Syndiqué, Paquet Dualetta
   components:
   - type: Item
     size: Ginormous
@@ -33,7 +33,7 @@
 - type: entity
   id: BriefcaseCentcomm
   parent: BriefcaseBrown
-  suffix: Admeme, DO NOT MAP
+  suffix: Admeme, NE PAS PLACER
   components:
   - type: Item
     size: Ginormous

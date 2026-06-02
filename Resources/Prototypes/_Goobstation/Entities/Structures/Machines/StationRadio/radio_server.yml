@@ -29,7 +29,7 @@
   id: StationRadioRig
   parent: [ BaseMachinePowered, ConstructibleMachine ]
   name: station radio rig
-  description: A collection of everything you need to play music over the station.
+  description: Une collection de tout ce qu'il vous faut pour diffuser de la musique sur la station.
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Machines/StationRadio/radiostationrig.rsi

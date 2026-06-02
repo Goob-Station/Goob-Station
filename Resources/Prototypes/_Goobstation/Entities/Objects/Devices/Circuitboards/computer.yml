@@ -1,8 +1,8 @@
 - type: entity
   id: XenobiologyBountyComputerCircuitboard
   parent: BaseComputerCircuitboard
-  name: xenobiological bounty console board
-  description: A computer printed circuit board for a xenobiological bounty console.
+  name: carte de console de primes xénobiologiques
+  description: Un circuit imprimé d'ordinateur pour une console de primes xénobiologiques.
   components:
   - type: Sprite
     state: cpu_science
@@ -13,8 +13,8 @@
 - type: entity
   parent: BaseComputerCircuitboard
   id: VirologyComputerCircuitboard
-  name: virology computer board
-  description: A computer printed circuit board for a virology console.
+  name: carte d'ordinateur de virologie
+  description: Un circuit imprimé d'ordinateur pour une console de virologie.
   components:
   - type: Sprite
     state: cpu_medical

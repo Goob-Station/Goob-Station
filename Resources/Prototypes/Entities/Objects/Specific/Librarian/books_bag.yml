@@ -77,10 +77,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: books bag
+  name: sac à livres
   id: BooksBag
   parent: BaseStorageItem
-  description: A refined bag to carry your own library.
+  description: Un sac raffiné pour transporter votre propre bibliothèque.
   components:
     - type: Sprite
       sprite: Objects/Specific/Library/Equipment/books_bag.rsi

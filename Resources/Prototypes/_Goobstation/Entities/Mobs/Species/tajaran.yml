@@ -136,7 +136,7 @@
   parent: MobHumanDummy
   id: MobTajaranDummy
   categories: [ HideSpawnMenu ]
-  description: A dummy tajaran meant to be used in character setup.
+  description: Un tajaran fictif destiné à être utilisé dans la configuration des personnages.
   components:
   - type: HumanoidAppearance
     species: Tajaran

@@ -1,9 +1,9 @@
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleCaptain
-  name: captain's ensemble
-  description: You're a hardened veteran, and you rule this station with an iron fist. That chess match? Never happened.
-  suffix: DO NOT MAP
+  name: ensemble du capitaine
+  description: Vous êtes un vétéran endurci, et vous dirigez cette station d'une main de fer. Cette partie d'échecs ? Elle n'a jamais eu lieu.
+  suffix: NE PAS PLACER
   components:
   - type: Item
     size: Small
@@ -45,9 +45,9 @@
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleChiefEngineerWhite 
-  name: chief engineer's white ensemble
-  description: In the event of a delamination, this won't protect you from the radiation. With how long you've been doing this, that wouldn't happen. Right?
-  suffix: DO NOT MAP
+  name: ensemble blanc du chef ingénieur
+  description: En cas de délamination, cela ne vous protégera pas des radiations. Vu depuis combien de temps vous faites ça, ça n'arriverait pas. N'est-ce pas ?
+  suffix: NE PAS PLACER
   components:
   - type: Item
     size: Small
@@ -89,9 +89,9 @@
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleChiefEngineerGreen
-  name: chief engineer's green ensemble
-  description: In the event of a delamination, this won't protect you from the radiation. With how long you've been doing this, that wouldn't happen. Right?
-  suffix: DO NOT MAP
+  name: ensemble vert du chef ingénieur
+  description: En cas de délamination, cela ne vous protégera pas des radiations. Vu depuis combien de temps vous faites ça, ça n'arriverait pas. N'est-ce pas ?
+  suffix: NE PAS PLACER
   components:
   - type: Item
     size: Small
@@ -133,9 +133,9 @@
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleChiefMedicalOfficer
-  name: chief medical officer's ensemble
-  description: With how many medbays you've seen, you're a real poly math-- unpacking people like packages, and mulching bodies like it's nothing. You WILL set up cloning, right?
-  suffix: DO NOT MAP
+  name: ensemble du médecin-chef
+  description: Avec le nombre d'infirmeries que vous avez vues, vous êtes un vrai polymathe — déballer les gens comme des colis et réduire les corps en bouillie comme si de rien n'était. Vous ALLEZ bien mettre en place le clonage, n'est-ce pas ?
+  suffix: NE PAS PLACER
   components:
   - type: Item
     size: Small
@@ -193,12 +193,13 @@
         sprite:
           sprite: _Goobstation/Clothing/Neck/Ensembles/cmo.rsi
           state: mantlewings-icon
+
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleHeadOfSecurity
-  name: head of security's ensemble
-  description: Stained with the blood of tiders, and the tears of cadets. The word "shitsec" brings you joy, a tear to your eye.
-  suffix: DO NOT MAP
+  name: ensemble du chef de la sécurité
+  description: Taché du sang des grève-tards et des larmes des cadets. Le mot « shitsec » vous apporte joie et larme à l'œil.
+  suffix: NE PAS PLACER
   components:
   - type: Item
     size: Small
@@ -240,9 +241,9 @@
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleResearchDirector
-  name: research director's ensemble
-  description: The endpoint of all research leads here. You truly are the pinnacle of science, a monument to Nanotrasens accomplishments and ability to glue you back together, must you explode so often?
-  suffix: DO NOT MAP
+  name: ensemble du directeur de recherche
+  description: L'aboutissement de toutes les recherches mène ici. Vous êtes véritablement le summum de la science, un monument aux accomplissements de Nanotrasen et à leur capacité à vous recoller après vos explosions — devez-vous vraiment exploser si souvent ?
+  suffix: NE PAS PLACER
   components:
   - type: Item
     size: Small
@@ -304,9 +305,9 @@
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleQuarterMaster
-  name: quartermaster's ensemble
-  description: Delicately crafted with the most premium materials purchaseable with spesos; a cloak that truly represents the Spirit of Cargonia... and your bank account.
-  suffix: DO NOT MAP
+  name: ensemble du quartier-maître
+  description: Confectionné avec soin à partir des matériaux les plus premium achetables en spesos ; une cape qui représente véritablement l'Esprit de Cargonia... et l'état de votre compte en banque.
+  suffix: NE PAS PLACER
   components:
   - type: Item
     size: Small
@@ -348,9 +349,9 @@
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleHeadOfPersonnel
-  name: head of personnel's ensemble
-  description: There's nothing sweeter in this world than the tears of someone who was made to fill out five paragraphs of paperwork. You denied them after, of course.
-  suffix: DO NOT MAP
+  name: ensemble du chef du personnel
+  description: Il n'y a rien de plus doux en ce monde que les larmes de quelqu'un contraint à remplir cinq paragraphes de paperasse. Vous avez refusé sa demande après, bien entendu.
+  suffix: NE PAS PLACER
   components:
   - type: Item
     size: Small
@@ -392,9 +393,9 @@
 - type: entity
   parent: [ClothingNeckBase, BaseCentcommCommandContraband]
   id: ClothingNeckEnsembleBlueshield
-  name: blueshield officer's ensemble
-  description: After fending off countless tiders in defense of command, Nanotrasen has finally granted you the ability to die in style. Now get out there and protect the NTR soldier!
-  suffix: DO NOT MAP
+  name: ensemble de l'officier blueshield
+  description: Après avoir repoussé d'innombrables grève-tards en défense du commandement, Nanotrasen vous a finalement accordé la possibilité de mourir avec style. Allez sauver le soldat NTR !
+  suffix: NE PAS PLACER
   components:
   - type: Item
     size: Small
@@ -444,9 +445,9 @@
 - type: entity
   parent: [ClothingNeckBase, BaseCentcommCommandContraband]
   id: ClothingNeckEnsembleNanotrasenRepresentative
-  name: nanotrasen representative's ensemble
-  description: After years of doing practically nothing, Central Command has gifted you this cloak. Now you can do nothing, while looking pretty!
-  suffix: DO NOT MAP
+  name: ensemble du représentant Nanotrasen
+  description: Après des années à ne pratiquement rien faire, le Commandement Central vous a offert cette cape. Vous pouvez désormais ne rien faire, tout en étant élégant !
+  suffix: NE PAS PLACER
   components:
   - type: Item
     size: Small
@@ -486,8 +487,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckEnsembleTrans
-  name: trans ensemble
-  description: Worn by high ranking vampires of the transylvanian society of vampires.
+  name: ensemble trans
+  description: Porté par les vampires de haut rang de la société transylvanienne des vampires.
   components:
   - type: Item
     size: Small
@@ -537,9 +538,9 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckEnsembleSalvager
-  name: salvager's ensemble
-  description: Who says you can't have style while slaying creatures beyond human comprehension?
-  suffix: DO NOT MAP
+  name: ensemble du récupérateur
+  description: Qui a dit qu'on ne peut pas avoir du style en terrassant des créatures qui dépassent la compréhension humaine ?
+  suffix: NE PAS PLACER
   components:
   - type: Item
     size: Small

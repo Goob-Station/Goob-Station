@@ -1,8 +1,8 @@
 - type: entity
   id: PollBooth
   parent: BaseStructure
-  name: polling booth
-  description: A booth for casting your vote on community polls. Activate to open the polls window.
+  name: isoloir
+  description: Un isoloir pour voter sur les sondages communautaires. Activez pour ouvrir la fenêtre des sondages.
   components:
   - type: Anchorable
   - type: Transform

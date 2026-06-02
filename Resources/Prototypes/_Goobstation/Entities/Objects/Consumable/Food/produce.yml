@@ -7,7 +7,7 @@
   name: strange berries
   parent: FoodProduceBase
   id: FoodStrangeBerries
-  description: A handful of strange berries.
+  description: Une poignée de baies étranges.
   components:
   - type: FlavorProfile
     flavors:
@@ -34,7 +34,7 @@
 
 - type: entity
   name: nevcotta log
-  description: When planted out of it's native habitat, it grows into an entirely different plant.
+  description: Lorsqu'il est planté hors de son habitat naturel, il pousse en une plante entièrement différente.
   id: Nevcotta
   parent: ProduceBase
   components:
@@ -50,7 +50,7 @@
 
 - type: entity
   name: nevcotta bark
-  description: The bark of a Nevcotta tree.
+  description: L'écorce d'un arbre Nevcotta.
   id: NevcottaBark
   parent: BaseItem
   components:
@@ -74,7 +74,7 @@
   name: bluespace tomato
   parent: FoodBlueTomato
   id: FoodBluespaceTomato
-  description: Be careful with it.
+  description: Faites attention avec ça.
   components:
   - type: SwapTeleportOnThrow
   - type: SolutionContainerManager

@@ -69,7 +69,7 @@
 
 - type: entity
   name: composition C-4
-  description: Used to put holes in specific areas without too much extra hole. A saboteur's favorite.
+  description: Utilisé pour percer des trous dans des zones précises sans trop de dégâts collatéraux. Le favori des saboteurs.
   parent: [BasePlasticExplosive, BaseMajorContraband]
   id: C4
   components:
@@ -153,8 +153,8 @@
     price: 625 # 5000 for a bundle of 8
 
 - type: entity
-  name: seismic charge
-  description: Concussion based explosive designed to destroy large amounts of rock.
+  name: charge sismique
+  description: Explosif à onde de choc conçu pour détruire de grandes quantités de roche.
   parent: [ BasePlasticExplosive, BaseSecurityCargoContraband ]
   id: SeismicCharge
   components:

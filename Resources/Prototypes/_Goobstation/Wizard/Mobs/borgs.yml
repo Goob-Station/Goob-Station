@@ -7,7 +7,7 @@
 - type: entity
   id: PlayerBorgGeneric
   parent: BorgChassisGeneric
-  suffix: Battery, Module
+  suffix: Batterie, Module
   components:
   - type: ItemSlots
     slots:
@@ -18,7 +18,7 @@
 - type: entity
   id: PlayerBorgMining
   parent: BorgChassisMining
-  suffix: Battery, Module
+  suffix: Batterie, Module
   components:
   - type: ItemSlots
     slots:
@@ -29,7 +29,7 @@
 - type: entity
   id: PlayerBorgEngineer
   parent: BorgChassisEngineer
-  suffix: Battery, Module
+  suffix: Batterie, Module
   components:
   - type: ItemSlots
     slots:
@@ -40,7 +40,7 @@
 - type: entity
   id: PlayerBorgJanitor
   parent: BorgChassisJanitor
-  suffix: Battery, Module
+  suffix: Batterie, Module
   components:
   - type: ItemSlots
     slots:
@@ -51,7 +51,7 @@
 - type: entity
   id: PlayerBorgMedical
   parent: BorgChassisMedical
-  suffix: Battery, Module
+  suffix: Batterie, Module
   components:
   - type: ItemSlots
     slots:
@@ -62,7 +62,7 @@
 - type: entity
   id: PlayerBorgService
   parent: BorgChassisService
-  suffix: Battery, Module
+  suffix: Batterie, Module
   components:
   - type: ItemSlots
     slots:
@@ -73,7 +73,7 @@
 - type: entity
   id: PlayerBorgSyndicateMedicalBattery
   parent: BorgChassisSyndicateMedical
-  suffix: Battery, Module, Operative
+  suffix: Batterie, Module, Opératif
   components:
   - type: NukeOperative
   - type: ContainerFill

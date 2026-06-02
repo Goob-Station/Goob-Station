@@ -116,7 +116,7 @@
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateSecurity
   name: soldat modsuit chestplate
-  description: A robust modular suit cover with ceramic inserts for extra protection.
+  description: Une coque de combinaison modulaire robuste avec inserts céramique pour une protection supplémentaire.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -193,7 +193,7 @@
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateHeadOfSecurity
   name: bulwark modsuit chestplate
-  description: A robust modular suit cover with EXTRA ceramic inserts for slightly more protection.
+  description: Une coque de combinaison modulaire robuste avec inserts céramique SUPPLÉMENTAIRES pour un peu plus de protection.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -353,7 +353,7 @@
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateEngineer
   name: sapper modsuit chestplate
-  description: A tough armor plate to defend against harsh atmospheric conditions and shockwaves.
+  description: Une plaque d'armure robuste pour se défendre contre les conditions atmosphériques difficiles et les ondes de choc.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -431,7 +431,7 @@
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateAtmostech
   name: aeolus modsuit chestplate
-  description: A fire-proof armor plate to defend against harsh atmospheric conditions.
+  description: Une plaque d'armure ignifuge pour se défendre contre les conditions atmosphériques difficiles.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -507,7 +507,7 @@
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateResearchDirector
   name: minerva modsuit chestplate
-  description: A bulky bomb and bat proof chunk of steel.
+  description: Un gros morceau d'acier résistant aux bombes et aux battes.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance

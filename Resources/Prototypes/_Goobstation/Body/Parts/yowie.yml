@@ -15,7 +15,7 @@
 
 - type: entity
   id: HeadYowie
-  name: "yowie head"
+  name: "tête de yowie"
   parent: [PartYowie, BaseHead]
   components:
   - type: Sprite
@@ -24,7 +24,7 @@
 
 - type: entity
   id: ChestYowie
-  name: "yowie chest"
+  name: "torse de yowie"
   parent: [PartYowie, BaseChest]
   components:
   - type: Sprite
@@ -33,7 +33,7 @@
 
 - type: entity
   id: GroinYowie
-  name: "yowie groin"
+  name: "bassin de yowie"
   parent: [PartYowie, BaseGroin]
   components:
   - type: Sprite
@@ -42,7 +42,7 @@
 
 - type: entity
   id: LeftArmYowie
-  name: "left yowie arm"
+  name: "bras gauche de yowie"
   parent: [PartYowie, BaseLeftArm]
   components:
   - type: Sprite
@@ -51,7 +51,7 @@
 
 - type: entity
   id: RightArmYowie
-  name: "right yowie arm"
+  name: "bras droit de yowie"
   parent: [PartYowie, BaseRightArm]
   components:
   - type: Sprite
@@ -60,7 +60,7 @@
 
 - type: entity
   id: LeftHandYowie
-  name: "left yowie hand"
+  name: "main gauche de yowie"
   parent: [PartYowie, BaseLeftHand]
   components:
   - type: Sprite
@@ -69,7 +69,7 @@
 
 - type: entity
   id: RightHandYowie
-  name: "right yowie hand"
+  name: "main droite de yowie"
   parent: [PartYowie, BaseRightHand]
   components:
   - type: Sprite
@@ -78,7 +78,7 @@
 
 - type: entity
   id: LeftLegYowie
-  name: "left yowie leg"
+  name: "jambe gauche de yowie"
   parent: [PartYowie, BaseLeftLeg]
   components:
   - type: Sprite
@@ -87,7 +87,7 @@
 
 - type: entity
   id: RightLegYowie
-  name: "right yowie leg"
+  name: "jambe droite de yowie"
   parent: [PartYowie, BaseRightLeg]
   components:
   - type: Sprite
@@ -96,7 +96,7 @@
 
 - type: entity
   id: LeftFootYowie
-  name: "left yowie foot"
+  name: "pied gauche de yowie"
   parent: [PartYowie, BaseLeftFoot]
   components:
   - type: Sprite
@@ -105,7 +105,7 @@
 
 - type: entity
   id: RightFootYowie
-  name: "right yowie foot"
+  name: "pied droit de yowie"
   parent: [PartYowie, BaseRightFoot]
   components:
   - type: Sprite

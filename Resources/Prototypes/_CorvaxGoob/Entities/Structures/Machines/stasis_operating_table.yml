@@ -1,8 +1,8 @@
 - type: entity
   id: StasisOperatingTable
-  name: stasis operating table
+  name: table d'opération de stase
   parent: [ StasisBed, OperatingTable ]
-  description: Used for advanced medical procedures. Massively slows down the patient's metabolism and prevents bodily decay.
+  description: Utilisée pour les procédures médicales avancées. Ralentit considérablement le métabolisme du patient et empêche la décomposition corporelle.
   components:
   - type: Sprite
     sprite: _CorvaxGoob/Structures/Machines/stasis_operation_table.rsi

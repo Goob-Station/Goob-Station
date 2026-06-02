@@ -14,7 +14,7 @@
   parent: BaseFoodCondimentPacket
   id: FoodCondimentPacketProtein
   name: protein powder packet
-  description: Contains 10u of powdered protein. Mix with 20u of water
+  description: Contient 10u de protéine en poudre. Mélanger avec 20u d'eau.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -31,7 +31,7 @@
     fillBaseName: packet-solid-
 
 - type: entity
-  name: block of freedom cheese
+  name: bloc de fromage de la liberté
   parent: FoodBakingBase
   id: FoodFreedomCheeseBlock
   description: A solid block of artery-clogging cheese based on an questionable old world recipe. Slice it for your buddies.. or just eat the entire block for yourself, you weirdo.

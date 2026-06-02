@@ -24,7 +24,7 @@
 - type: entity
   parent: [ BaseCartridge, BaseMajorContraband ]
   id: CartridgeAntiMateriel
-  name: cartridge (.60 anti-materiel)
+  name: cartouche (.60 anti-matériel)
   components:
   - type: Tag
     tags:

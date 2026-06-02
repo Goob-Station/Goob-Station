@@ -8,8 +8,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCreateBlobFactory
-  name: Place Factory Blob (80)
-  description: Turns selected normal blob into a factory blob, which will produce up to 3 spores and a blobbernaut if placed next to a core or a node.
+  name: Placer une Tuile Usine (80)
+  description: Transforme la tuile de blob normale sélectionnée en tuile usine, qui produira jusqu'à 3 spores et un blobbernaut si placée à côté d'un noyau ou d'un nœud.
   components:
   - type: Action
     icon:
@@ -27,8 +27,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCreateBlobResource
-  name: Place Resource Blob (60)
-  description: Turns selected normal blob into a resource blob which will generates resources if placed next to a core or a node.
+  name: Placer une Tuile Ressource (60)
+  description: Transforme la tuile de blob normale sélectionnée en tuile ressource qui génèrera des ressources si placée à côté d'un noyau ou d'un nœud.
   components:
   - type: Action
     icon:
@@ -46,8 +46,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCreateBlobNode
-  name: Place Node Blob (50)
-  description: Turns selected normal blob into a node blob. A node blob will activate effects of factory and resource blobs, heal other blobs and slowly expand, destroying walls and creating normal blobs.
+  name: Placer une Tuile Nœud (50)
+  description: Transforme la tuile de blob normale sélectionnée en tuile nœud. Une tuile nœud active les effets des tuiles usine et ressource, soigne les autres blobs et s'étend lentement, détruisant les murs et créant des blobs normaux.
   components:
   - type: Action
     icon:
@@ -65,8 +65,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCreateBlobbernaut
-  name: Produce a Blobbernaut (60)
-  description: Creates a blobbernaut on the selected factory. Each factory can only do this once. The blobbernaut will take damage outside of blob tiles and heal when close to nodes.
+  name: Produire un Blobbernaut (60)
+  description: Crée un blobbernaut sur l'usine sélectionnée. Chaque usine ne peut le faire qu'une seule fois. Le blobbernaut subira des dégâts en dehors des tuiles de blob et se soignera près des nœuds.
   components:
   - type: Action
     itemIconStyle: BigAction
@@ -82,8 +82,8 @@
 - type: entity
   parent: BaseAction
   id: ActionSplitBlobCore
-  name: Split Core (400)
-  description: You can only do this once. Turns selected node into an independent core that will act on its own.
+  name: Diviser le Noyau (400)
+  description: Vous ne pouvez le faire qu'une seule fois. Transforme le nœud sélectionné en noyau indépendant qui agira seul.
   components:
   - type: Action
     icon:
@@ -99,8 +99,8 @@
 - type: entity
   parent: BaseAction
   id: ActionSwapBlobCore
-  name: Relocate core (200)
-  description: Swaps the location of your core and the selected node.
+  name: Déplacer le Noyau (200)
+  description: Échange la position de votre noyau et du nœud sélectionné.
   components:
   - type: Action
     icon:
@@ -116,8 +116,8 @@
 - type: entity
   parent: BaseAction
   id: ActionTeleportBlobToCore
-  name: Jump to Core
-  description: Teleports you to your Blob Core.
+  name: Sauter au Noyau
+  description: Vous téléporte vers votre Noyau de Blob.
   components:
   - type: Action
     icon:
@@ -131,8 +131,8 @@
 - type: entity
   parent: BaseAction
   id: ActionSwapBlobChem
-  name: Swap chemicals (70)
-  description: Lets you swap your current chemical.
+  name: Changer de produit chimique (70)
+  description: Vous permet de changer votre produit chimique actuel.
   components:
   - type: Action
     icon:
@@ -145,8 +145,8 @@
 - type: entity
   parent: BaseAction
   id: ActionTransformToBlob
-  name: Transform into a blob
-  description: Instantly destoys your body and creates a blob core. Make sure to stand on a floor tile, otherwise you will simply disappear.
+  name: Se transformer en blob
+  description: Détruit instantanément votre corps et crée un noyau de blob. Assurez-vous d'être sur une tuile de sol, sinon vous disparaîtrez simplement.
   components:
   - type: Action
     icon:
@@ -158,8 +158,8 @@
 - type: entity
   parent: BaseAction
   id: ActionDowngradeBlob
-  name: Downgrade blob
-  description: Turns the selected tile back into a normal blob to install other types of cages.
+  name: Rétrograder le blob
+  description: Ramène la tuile sélectionnée à un blob normal pour installer d'autres types de structures.
   components:
   - type: Action
     icon:

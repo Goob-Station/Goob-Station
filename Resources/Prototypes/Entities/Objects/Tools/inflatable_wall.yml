@@ -18,8 +18,8 @@
 - type: entity
   id: InflatableWallStack
   parent: BaseItem
-  name: inflatable barricade
-  description: A folded membrane which rapidly expands into a large cubical shape on activation.
+  name: barricade gonflable
+  description: Une membrane repliée qui se déploie rapidement en une grande forme cubique à l'activation.
   suffix: Full
   components:
     - type: Stack
@@ -45,8 +45,8 @@
 - type: entity
   id: InflatableDoorStack
   parent: BaseItem
-  name: inflatable door
-  description: A folded membrane which rapidly expands into a large cubical shape on activation.
+  name: porte gonflable
+  description: Une membrane repliée qui se déploie rapidement en une grande forme cubique à l'activation.
   suffix: Full
   components:
     - type: Stack

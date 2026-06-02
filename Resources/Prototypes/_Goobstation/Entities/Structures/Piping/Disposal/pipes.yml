@@ -7,8 +7,8 @@
 - type: entity
   id: DisposalBlocker
   parent: DisposalPipeBase
-  name: disposal pipe blocker
-  description: A pipe that allows movement of objects on one side and blocks it on the other.
+  name: bloqueur de tuyau d'évacuation
+  description: Un tuyau qui permet le mouvement des objets d'un côté et le bloque de l'autre.
   components:
   - type: Sprite
     drawdepth: ThickPipe

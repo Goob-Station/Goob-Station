@@ -5,8 +5,8 @@
 
 - type: entity
   id: PolymorphBloodCrawlJaunt
-  name: Unknown
-  description: You can't figure out what that is.
+  name: Inconnu
+  description: Vous n'arrivez pas à identifier ce que c'est.
   parent: [ Incorporeal, BaseMob ]
   components:
   - type: Sprite

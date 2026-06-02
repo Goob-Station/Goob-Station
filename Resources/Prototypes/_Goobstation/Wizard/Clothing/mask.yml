@@ -6,8 +6,8 @@
 - type: entity
   parent: ClothingMaskBase
   id: ClothingMaskPig
-  name: pig mask
-  description: A rubber pig mask with a built-in voice modulator.
+  name: masque de cochon
+  description: Un masque de cochon en caoutchouc avec un modulateur de voix intégré.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/Mask/pig.rsi
@@ -28,8 +28,8 @@
 - type: entity
   parent: ClothingMaskBase
   id: ClothingMaskFrog
-  name: frog mask
-  description: An ancient mask carved in the shape of a frog. Sanity is like gravity, all it needs is a push.
+  name: masque de grenouille
+  description: Un masque ancien sculpté en forme de grenouille. La raison est comme la gravité, il suffit d'une légère poussée.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/Mask/frog.rsi
@@ -50,8 +50,8 @@
 - type: entity
   parent: ClothingMaskBase
   id: ClothingMaskCow
-  name: cow mask
-  description: A mask made of soft vinyl and latex, representing the head of a cow.
+  name: masque de vache
+  description: Un masque en vinyle souple et latex représentant la tête d'une vache.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/Mask/cow.rsi
@@ -72,8 +72,8 @@
 - type: entity
   parent: ClothingMaskBase
   id: ClothingMaskHorse
-  name: horse mask
-  description: A mask made of soft vinyl and latex, representing the head of a horse.
+  name: masque de cheval
+  description: Un masque en vinyle souple et latex représentant la tête d'un cheval.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/Mask/horse.rsi

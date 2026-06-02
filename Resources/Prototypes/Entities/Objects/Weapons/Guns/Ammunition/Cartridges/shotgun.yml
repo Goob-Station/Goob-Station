@@ -106,7 +106,7 @@
 
 - type: entity
   id: BaseShellShotgun
-  name: shell (12 Gauge) # Goobstation
+  name: cartouche (calibre 12) # Goobstation
   parent: BaseCartridge
   abstract: true
   components:
@@ -127,7 +127,7 @@
 
 - type: entity
   id: ShellShotgunBeanbag
-  name: shell (12 Gauge beanbag) # Goobstation
+  name: cartouche (calibre 12 sachet) # Goobstation
   parent: [ BaseShellShotgun, BaseSecurityBartenderContraband ]
   components:
   - type: Tag
@@ -146,7 +146,7 @@
 
 - type: entity
   id: ShellShotgunSlug
-  name: shell (12 Gauge slug) # Goobstation
+  name: cartouche (calibre 12 slug) # Goobstation
   parent: [ BaseShellShotgun, BaseSecurityContraband]
   components:
   - type: Sprite
@@ -160,7 +160,7 @@
 
 - type: entity
   id: ShellShotgunFlare
-  name: shell (12 Gauge flare) # Goobstation
+  name: cartouche (calibre 12 éclairante) # Goobstation
   parent: BaseShellShotgun
   components:
   - type: Tag
@@ -179,7 +179,7 @@
 
 - type: entity
   id: ShellShotgun
-  name: shell (12 Gauge) # Goobstation
+  name: cartouche (calibre 12 chevrotine) # Goobstation
   parent: [ BaseShellShotgun, BaseSecurityContraband ]
   components:
   - type: Sprite
@@ -191,7 +191,7 @@
 
 - type: entity
   id: ShellShotgunIncendiary
-  name: shell (12 Gauge incendiary) # Goobstation
+  name: cartouche (calibre 12 incendiaire) # Goobstation
   parent: [ BaseShellShotgun, BaseSecurityContraband ]
   components:
   - type: Sprite
@@ -205,7 +205,7 @@
 
 - type: entity
   id: ShellShotgunPractice
-  name: shell (12 Gauge practice) # Goobstation
+  name: cartouche (calibre 12 entraînement) # Goobstation
   parent: [ BaseShellShotgun, BaseSecurityContraband ]
   components:
   - type: Sprite
@@ -219,7 +219,7 @@
 
 - type: entity
   id: ShellTranquilizer
-  name: shell (12 Gauge tranquilizer) # Goobstation
+  name: cartouche (calibre 12 tranquilisant)  # Goobstation
   parent: [ BaseShellShotgun, BaseSecurityZookeeperContraband ] # Goobstation
   components:
   - type: Tag
@@ -247,8 +247,8 @@
 
 - type: entity
   id: ShellShotgunImprovised
-  name: improvised shotgun shell
-  description: A homemade shotgun shell that shoots painful glass shrapnel. The spread is so wide that it couldn't hit the broad side of a barn.
+  name: cartouche de fusil artisanale
+  description: Une cartouche de fusil artisanale qui projette des éclats de verre douloureux. La dispersion est si large qu\'elle ne pourrait pas atteindre un mur à bout portant.
   parent: [ BaseShellShotgun, BaseSecurityContraband ]
   components:
   - type: Tag
@@ -270,7 +270,7 @@
 
 - type: entity
   id: ShellShotgunUranium
-  name: uranium shotgun shell
+  name: cartouche (calibre 12 uranium)
   parent: [ BaseShellShotgun, BaseSecurityContraband ]
   components:
     - type: Sprite

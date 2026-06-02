@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseWall
   id: WallCosmicCult
-  name: malign wall
-  description: A strange-looking wall. Staring at it for too long instills a sense of discomfort.
+  name: mur malin
+  description: Un mur d'apparence étrange. Le regarder trop longtemps instille un sentiment de malaise.
   components:
   - type: CosmicCultExamine
     cultistText: cosmic-examine-text-forthecult
@@ -28,7 +28,7 @@
 - type: entity
   parent: WallCosmicCult
   id: WallCosmicCultTrimmed
-  name: malign wall
+  name: mur malin
   suffix: Trimmed
   components:
   - type: Icon
@@ -53,8 +53,8 @@
 
 - type: entity
   id: WindowCosmicCult
-  name: malign pane
-  description: An odd-looking window. Something about it unnerves you.
+  name: vitre maline
+  description: Une fenêtre d'apparence étrange. Quelque chose en elle vous perturbe.
   parent: WindowRCDResistant
   components:
   - type: Sprite
@@ -97,7 +97,7 @@
 
 - type: entity
   id: WindowCosmicCultDark
-  name: malign pane
+  name: vitre maline
   suffix: Tinted
   parent: WindowCosmicCult
   components:
@@ -112,9 +112,9 @@
 
 - type: entity
   parent: WallShuttleDiagonal
-  description: An odd-looking window. Something about it unnerves you.
+  description: Une fenêtre d'apparence étrange. Quelque chose en elle vous perturbe.
   id: WindowCosmicCultDiagonal
-  name: malign pane
+  name: vitre maline
   suffix: Diagonal
   placement:
     mode: SnapgridCenter
@@ -146,7 +146,7 @@
 - type: entity
   parent: WindowCosmicCultDiagonal
   id: WindowCosmicCultDiagonalDark
-  name: malign pane
+  name: vitre maline
   suffix: Diagonal, Tinted
   placement:
     mode: SnapgridCenter

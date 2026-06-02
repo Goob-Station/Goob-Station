@@ -28,7 +28,7 @@
   name: MIC bolt
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
-  description: Not too bad, but you still don't want to get hit by it.
+  description: Pas si mal, mais vous ne voulez quand même pas être touché par ça.
   components:
   - type: Sprite
     noRot: false
@@ -66,7 +66,7 @@
   name: cutter bolt
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
-  description: Not too bad, but you still don't want to get hit by it.
+  description: Pas si mal, mais vous ne voulez quand même pas être touché par ça.
   components:
   - type: Reflective
     reflective:
@@ -408,7 +408,7 @@
   name: holy bolt
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
-  description: Marks a target for additional holy damage.
+  description: Marque une cible pour des dégâts sacrés supplémentaires.
   components:
   - type: Reflective
     reflective:

@@ -1,9 +1,9 @@
 - type: entity
-  name: Executive briefcase
+  name: mallette executive
   parent: [BaseItem, StorePresetNTR, BaseGrandTheftContraband]
-  suffix: Empty
+  suffix: Vide
   id: ExecutiveBriefcaseEmpty
-  description: A standard-issue executive briefcase for secure NanoNeT access.
+  description: Une mallette executive standard pour l'accès sécurisé au NanoNet.
   components:
   - type: Item
     size: Ginormous
@@ -53,7 +53,7 @@
 - type: entity
   id: ExecutiveBriefcaseDebug
   parent: ExecutiveBriefcaseEmpty
-  suffix: Debug
+  suffix: Débogage
   components:
   - type: Store
     balance:
@@ -100,7 +100,7 @@
 
 - type: storeCategory
   id: NTREvil
-  name: Evil
+  name: Maléfique
   priority: 3
   evil: true # lol
 

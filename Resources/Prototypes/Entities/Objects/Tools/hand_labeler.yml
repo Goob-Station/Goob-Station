@@ -11,8 +11,8 @@
 - type: entity
   parent: BaseItem
   id: HandLabeler
-  name: hand labeler
-  description: A hand labeler, used to label items and objects.
+  name: étiqueteuse manuelle
+  description: Une étiqueteuse manuelle, utilisée pour étiqueter les objets et équipements.
   components:
     - type: Sprite
       sprite: Objects/Tools/hand_labeler.rsi

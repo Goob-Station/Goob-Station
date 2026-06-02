@@ -2,8 +2,8 @@
   abstract: true
   parent: BaseItem
   id: BaseWoodenHandle
-  name: wooden handle
-  description: A normal wooden handle that can be used in crafting.
+  name: manche en bois
+  description: Un manche en bois normal pouvant être utilisé dans l'artisanat.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/Crafting/wooden_handle.rsi
@@ -14,7 +14,7 @@
 - type: entity
   parent: BaseWoodenHandle
   id: WoodenHandleHammer
-  name: hammer handle
+  name: manche de marteau
   components:
   - type: Construction
     graph: Hammer

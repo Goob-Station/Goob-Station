@@ -24,8 +24,8 @@
 - type: entity
   id: CrateMaterialGlass
   parent: CrateGenericSteel
-  name: glass sheet crate
-  description: 90 sheets of glass, packed with care.
+  name: caisse de plaques de verre
+  description: 90 plaques de verre, emballées avec soin.
   components:
   - type: StorageFill
     contents:
@@ -35,8 +35,8 @@
 - type: entity
   id: CrateMaterialSteel
   parent: CrateGenericSteel
-  name: steel sheet crate
-  description: 90 sheets of steel.
+  name: caisse de plaques d'acier
+  description: 90 plaques d'acier.
   components:
   - type: StorageFill
     contents:
@@ -46,8 +46,8 @@
 - type: entity
   id: CrateMaterialTextiles
   parent: CrateGenericSteel
-  name: textiles crate
-  description: 60 pieces of cloth and 30 pieces of durathread.
+  name: caisse de textiles
+  description: 60 pièces de tissu et 30 pièces de durafibre.
   components:
   - type: StorageFill
     contents:
@@ -58,8 +58,8 @@
 - type: entity
   id: CrateMaterialPlastic
   parent: CrateGenericSteel
-  name: plastic sheet crate
-  description: 90 sheets of plastic.
+  name: caisse de plaques plastique
+  description: 90 plaques de plastique.
   components:
   - type: StorageFill
     contents:
@@ -69,8 +69,8 @@
 - type: entity
   id: CrateMaterialWood
   parent: CrateGenericSteel
-  name: wood crate
-  description: Bunch of wood planks.
+  name: caisse de bois
+  description: Un tas de planches en bois.
   components:
   - type: StorageFill
     contents:
@@ -79,8 +79,8 @@
 - type: entity
   id: CrateMaterialBrass
   parent: CrateGenericSteel
-  name: brass crate
-  description: 90 sheets of brass.
+  name: caisse de laiton
+  description: 90 plaques de laiton.
   components:
   - type: StorageFill
     contents:
@@ -90,8 +90,8 @@
 - type: entity
   id: CrateMaterialPlasteel
   parent: CrateGenericSteel
-  name: plasteel crate
-  description: 30 sheets of plasteel.
+  name: caisse de plastacier
+  description: 30 plaques de plastacier.
   components:
   - type: StorageFill
     contents:
@@ -100,8 +100,8 @@
 - type: entity
   id: CrateMaterialPlasma
   parent: CratePlasma
-  name: solid plasma crate
-  description: 30 sheets of plasma.
+  name: caisse de plasma solide
+  description: 30 plaques de plasma.
   components:
   - type: StorageFill
     contents:
@@ -110,8 +110,8 @@
 - type: entity
   id: CrateMaterialGold
   parent: CrateGenericSteel
-  name: gold crate
-  description: 30 bars of gold.
+  name: caisse d'or
+  description: 30 lingots d'or.
   components:
   - type: StorageFill
     contents:
@@ -120,8 +120,8 @@
 - type: entity
   id: CrateMaterialSilver
   parent: CrateGenericSteel
-  name: silver crate
-  description: 30 bars of silver.
+  name: caisse d'argent
+  description: 30 lingots d'argent.
   components:
   - type: StorageFill
     contents:
@@ -130,8 +130,8 @@
 - type: entity
   id: CrateMaterialCardboard
   parent: CrateGenericSteel
-  name: cardboard crate
-  description: 90 pieces of cardboard.
+  name: caisse de carton
+  description: 90 pièces de carton.
   components:
   - type: StorageFill
     contents:
@@ -141,8 +141,8 @@
 - type: entity
   id: CrateMaterialPaper
   parent: CrateGenericSteel
-  name: paper crate
-  description: 90 sheets of paper.
+  name: caisse de papier
+  description: 90 feuilles de papier.
   components:
   - type: StorageFill
     contents:
@@ -183,8 +183,8 @@
 - type: entity
   id: CrateMaterialRandom
   parent: CrateGenericSteel
-  name: surplus materials
-  description: Surplus materials from somewhere.
+  name: matériaux excédentaires
+  description: Matériaux excédentaires d'origine inconnue.
   components:
   - type: EntityTableContainerFill
     containers:
@@ -196,8 +196,8 @@
 - type: entity
   id: CrateMaterialSilo
   parent: CrateGenericSteel
-  name: material silo crate
-  description: A package including all the materials to create a material silo.
+  name: caisse pour silo à matériaux
+  description: Un colis contenant tous les matériaux nécessaires à la construction d'un silo à matériaux.
   components:
   - type: StorageFill
     contents:
@@ -212,8 +212,8 @@
 - type: entity
   id: CrateMaterialBasicResource
   parent: CrateGenericSteel
-  name: basic sheet crate
-  description: 30 sheets of steel, glass, and plastic.
+  name: caisse de plaques de base
+  description: 30 plaques d'acier, de verre et de plastique.
   components:
   - type: StorageFill
     contents:

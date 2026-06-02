@@ -1,0 +1,150 @@
+- type: entity
+  id: BasePlasmamanOrgan
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Mobs/Species/Plasmaman/organs.rsi
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5 # Not very nutritious
+        - ReagentId: Plasma
+          Quantity: 2.5
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Plasma
+          Quantity: 5
+  - type: Extractable
+    grindableSolutionName: food
+    juiceSolution:
+      reagents:
+      - ReagentId: Plasma
+        Quantity: 5
+  - type: FlavorProfile
+    flavors:
+      - plasma
+
+- type: entity
+  id: OrganPlasmamanLungs
+  parent: [ BasePlasmamanOrgan, OrganHumanLungs ]
+  name: poumons de plasmaman
+  description: "Les poumons aspirent au plasma. Seul le gaz plasma peut satisfaire ces poumons, et l'oxygène est létalement toxique."
+  components:
+  - type: Sprite
+    layers:
+    - state: lungs
+  - type: Metabolizer
+    metabolizerTypes: [ Plasmaman ]
+  - type: Lung
+    alert: LowPlasma
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Plasma
+          Quantity: 2.5
+      Lung:
+        maxVol: 100.0
+        canReact: false
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Plasma
+          Quantity: 5
+
+- type: entity
+  id: OrganPlasmamanStomach
+  parent: [ BasePlasmamanOrgan, OrganHumanStomach ]
+  name: estomac de plasmaman
+  description: "Pourquoi les plasmamens ont-ils des estomacs s'ils n'ont pas besoin de manger ?"
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Plasmaman ]
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Plasma
+          Quantity: 4
+      stomach:
+        maxVol: 50
+      food:
+        maxVol: 8
+        reagents:
+        - ReagentId: Plasma
+          Quantity: 8
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Plasma
+        Quantity: 8
+
+- type: entity
+  id: OrganPlasmamanEyes
+  parent: [ BasePlasmamanOrgan, OrganHumanEyes ]
+  name: yeux de plasmaman
+  components:
+  - type: Sprite
+    layers:
+    - state: eyes
+
+- type: entity
+  id: OrganPlasmamanLiver
+  parent: [ BasePlasmamanOrgan, OrganHumanLiver ]
+  name: foie de plasmaman
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Plasmaman ]
+
+- type: entity
+  id: OrganPlasmamanTongue
+  parent: [ BasePlasmamanOrgan, OrganHumanTongue ]
+  name: langue de plasmaman
+
+- type: entity
+  id: OrganPlasmamanKidneys
+  parent: [ BasePlasmamanOrgan, OrganHumanKidneys ]
+  name: reins de plasmaman
+  components:
+  - type: Sprite
+    layers:
+    - state: kidneys
+  - type: Metabolizer
+    metabolizerTypes: [ Plasmaman ]
+
+- type: entity
+  id: OrganPlasmamanHeart
+  parent: [ BasePlasmamanOrgan, OrganHumanHeart ]
+  name: cœur de plasmaman
+  description: Il pulse avec du plasma même en dehors du corps.
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Plasmaman ]
+
+- type: entity
+  id: OrganPlasmamanBrain
+  parent: [ BasePlasmamanOrgan, OrganHumanBrain ]
+  name: cerveau de plasmaman
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Plasma
+          Quantity: 2.5
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: GreyMatter
+          Quantity: 5
+        - ReagentId: Plasma
+          Quantity: 5

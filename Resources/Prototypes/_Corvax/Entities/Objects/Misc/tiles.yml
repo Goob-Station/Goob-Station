@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: wooden parquet
+  name: parquet en bois
   parent: FloorTileItemBase
   id: FloorTileItemWoodParquet
   components:
@@ -22,7 +22,7 @@
     stackType: FloorTileWood
 
 - type: entity
-  name: black wooden floor
+  name: parquet en bois noir
   parent: FloorTileItemBase
   id: FloorTileItemWoodBlack
   components:
@@ -40,7 +40,7 @@
     stackType: FloorTileItemWoodBlack
 
 - type: entity
-  name: dark wooden floor
+  name: parquet en bois foncé
   parent: FloorTileItemBase
   id: FloorTileItemWoodDark
   components:
@@ -58,7 +58,7 @@
     stackType: FloorTileItemWoodDark
 
 - type: entity
-  name: white wooden floor
+  name: parquet en bois blanc
   parent: FloorTileItemBase
   id: FloorTileItemWoodLight
   components:
@@ -76,7 +76,7 @@
     stackType: FloorTileItemWoodLight
 
 - type: entity
-  name: red wooden floor
+  name: parquet en bois rouge
   parent: FloorTileItemBase
   id: FloorTileItemWoodRed
   components:
@@ -94,7 +94,7 @@
     stackType: FloorTileItemWoodRed
 
 - type: entity
-  name: large black wood floor
+  name: grand parquet en bois noir
   parent: FloorTileItemBase
   id: FloorTileItemWoodLargeBlack
   components:
@@ -112,7 +112,7 @@
     stackType: FloorTileItemWoodLargeBlack
 
 - type: entity
-  name: large dark wood floor
+  name: grand parquet en bois foncé
   parent: FloorTileItemBase
   id: FloorTileItemWoodLargeDark
   components:
@@ -130,7 +130,7 @@
     stackType: FloorTileItemWoodLargeDark
 
 - type: entity
-  name: large light wood floor
+  name: grand parquet en bois clair
   parent: FloorTileItemBase
   id: FloorTileItemWoodLargeLight
   components:
@@ -148,7 +148,7 @@
     stackType: FloorTileItemWoodLargeLight
 
 - type: entity
-  name: large red wood floor
+  name: grand parquet en bois rouge
   parent: FloorTileItemBase
   id: FloorTileItemWoodLargeRed
   components:
@@ -166,7 +166,7 @@
     stackType: FloorTileItemWoodLargeRed
 
 - type: entity
-  name: parquet black wood floor
+  name: parquet en bois noir à chevrons
   parent: FloorTileItemBase
   id: FloorTileItemWoodParquetBlack
   components:
@@ -184,7 +184,7 @@
     stackType: FloorTileItemWoodParquetBlack
 
 - type: entity
-  name: parquet dark wood floor
+  name: parquet en bois foncé à chevrons
   parent: FloorTileItemBase
   id: FloorTileItemWoodParquetDark
   components:
@@ -202,7 +202,7 @@
     stackType: FloorTileItemWoodParquetDark
 
 - type: entity
-  name: parquet light wood floor
+  name: parquet en bois clair à chevrons
   parent: FloorTileItemBase
   id: FloorTileItemWoodParquetLight
   components:
@@ -220,7 +220,7 @@
     stackType: FloorTileItemWoodParquetLight
 
 - type: entity
-  name: parquet red wood floor
+  name: parquet en bois rouge à chevrons
   parent: FloorTileItemBase
   id: FloorTileItemWoodParquetRed
   components:
@@ -238,7 +238,7 @@
     stackType: FloorTileItemWoodParquetRed
 
 - type: entity
-  name: chess wood floor
+  name: parquet en bois damier
   parent: FloorTileItemBase
   id: FloorTileItemWoodChess
   components:
@@ -256,7 +256,7 @@
     stackType: FloorTileItemWoodChess
 
 - type: entity
-  name: chess black wood floor
+  name: parquet en bois noir damier
   parent: FloorTileItemBase
   id: FloorTileItemWoodChessBlack
   components:
@@ -274,7 +274,7 @@
     stackType: FloorTileItemWoodChessBlack
 
 - type: entity
-  name: chess dark wood floor
+  name: parquet en bois foncé damier
   parent: FloorTileItemBase
   id: FloorTileItemWoodChessDark
   components:
@@ -292,7 +292,7 @@
     stackType: FloorTileItemWoodChessDark
 
 - type: entity
-  name: chess light wood floor
+  name: parquet en bois clair damier
   parent: FloorTileItemBase
   id: FloorTileItemWoodChessLight
   components:
@@ -310,7 +310,7 @@
     stackType: FloorTileItemWoodChessLight
 
 - type: entity
-  name: chess red wood floor
+  name: parquet en bois rouge damier
   parent: FloorTileItemBase
   id: FloorTileItemWoodChessRed
   components:

@@ -1,7 +1,7 @@
 - type: entity
   id: ActionSlasherSummonMachete
-  name: Summon Machete
-  description: Summon your bound machete to your active hand, or create one if lost.
+  name: Invoquer la machette
+  description: Invoquez votre machette liée dans votre main active, ou créez-en une si elle est perdue.
   components:
   - type: Action
     raiseOnUser: true
@@ -13,8 +13,8 @@
 
 - type: entity
   id: ActionSlasherSummonMeatSpike
-  name: Meat Spike
-  description: Conjure a horrific meat spike beneath you to capture your victims.
+  name: Pique de chair
+  description: Faites surgir une horrible pique de chair sous vous pour capturer vos victimes.
   components:
   - type: Action
     raiseOnUser: true
@@ -27,8 +27,8 @@
 
 - type: entity
   id: ActionSlasherIncorporealize
-  name: Incorporealize
-  description: Become incorporeal, capable of moving through walls and being completely invisible, but unable to interact with the world. Can only be used when unseen.
+  name: S'incorporaliser
+  description: Devenez incorporel, capable de traverser les murs et d'être complètement invisible, mais incapable d'interagir avec le monde. Ne peut être utilisé que lorsque vous n'êtes pas vu.
   components:
   - type: Action
     raiseOnUser: true
@@ -40,8 +40,8 @@
 
 - type: entity
   id: ActionSlasherCorporealize
-  name: Corporealize
-  description: Manifest your being from your incorporeal state. Can only be used when incorporeal.
+  name: Se corporaliser
+  description: Manifestez votre être depuis votre état incorporel. Ne peut être utilisé que lorsque vous êtes incorporel.
   components:
   - type: Action
     raiseOnUser: true
@@ -53,8 +53,8 @@
 
 - type: entity
   id: ActionSlasherBloodTrail
-  name: Blood Trail
-  description: Begin trailing blood in your wake with some funky music. Spooky!
+  name: Traînée de sang
+  description: Commencez à laisser une traînée de sang sur votre passage avec une musique funky. Effrayant !
   components:
   - type: Action
     raiseOnUser: true
@@ -68,7 +68,7 @@
 - type: entity
   id: ActionSlasherPossession
   name: Possession
-  description: Use this on a person to begin to exact your control on them, giving you temporary control of their body for 45 seconds. Once time is up, both bodies return.
+  description: Utilisez ceci sur une personne pour prendre le contrôle d'elle, vous donnant le contrôle temporaire de son corps pendant 45 secondes. Une fois le temps écoulé, les deux corps reviennent.
   components:
   - type: Action
     raiseOnUser: true
@@ -88,8 +88,8 @@
 
 - type: entity
   id: ActionSlasherRegenerate
-  name: Regenerate
-  description: Quickly regenerate your being, restoring all lost health, repairing wounds, and removing all stuns. Must be recharged by stealing a soul after every use.
+  name: Régénérer
+  description: Régénérez rapidement votre être, restaurant toute la santé perdue, réparant les blessures et supprimant tous les étourdissements. Doit être rechargé en volant une âme après chaque utilisation.
   components:
   - type: Action
     raiseOnUser: true
@@ -103,8 +103,8 @@
 
 - type: entity
   id: ActionSlasherStaggerArea
-  name: Stagger Area
-  description: You exert your dark aura to people in range, slowing them down for a short time.
+  name: Zone de chancelage
+  description: Vous exercez votre aura sombre sur les personnes à portée, les ralentissant pendant un court instant.
   components:
   - type: Action
     raiseOnUser: true
@@ -118,7 +118,7 @@
 - type: entity
   id: ActionSlasherMassacre
   name: Massacre
-  description: Unleach a brutal chain of attacks. The more hits in a row you hit the more damage you deal. You decapitate your target after 13 hits.
+  description: Déchaînez une brutale série d'attaques. Plus vous enchaînez les coups, plus vous infligez de dégâts. Vous décapitez votre cible après 13 coups.
   components:
   - type: Action
     raiseOnUser: true
@@ -131,8 +131,8 @@
 
 - type: entity
   id: ActionSlasherSoulSteal
-  name: Soul Steal
-  description: Siphon a victims soul. Must be used on an incapicated living target (or dead body) to steal their soul, empowering your machete and increasing your health.
+  name: Vol d'âme
+  description: Siphonnez l'âme d'une victime. Doit être utilisé sur une cible vivante incapacitée (ou un cadavre) pour voler son âme, renforçant votre machette et augmentant votre santé.
   components:
   - type: Action
     raiseOnUser: true
@@ -152,8 +152,8 @@
 
 - type: entity
   id: ActionSlasherNightVision
-  name: Enhanced Vision
-  description: You see through the darkness.
+  name: Vision améliorée
+  description: Vous voyez à travers l'obscurité.
   components:
   - type: Action
     raiseOnUser: true
@@ -166,8 +166,8 @@
 
 - type: entity
   id: ActionSlasherRelentlessGrab
-  name: Relentless Grab
-  description: Your next melee attack will grab your target.
+  name: Saisie implacable
+  description: Votre prochaine attaque de mêlée saisira votre cible.
   components:
   - type: Action
     raiseOnUser: true

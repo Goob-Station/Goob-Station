@@ -6,8 +6,8 @@
 - type: entity
   parent: BaseAction
   id: ActionAnomalyPulse
-  name: Anomaly pulse
-  description: Release a pulse of energy of your abnormal nature
+  name: Impulsion d'anomalie
+  description: Libérez une impulsion d'énergie de votre nature anormale
   components:
   - type: Action
     useDelay: 30

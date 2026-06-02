@@ -74,7 +74,7 @@
   parent: [ BaseItem, BaseSyndicateContraband ]
   id: WeaponPistolAnaconda
   name: Anaconda
-  description: A bulky hand cannon with a built in fabricator in its grip. Slowly prints ammo for itself, though don't count on it being fast enough for sustained firefights.
+  description: Un gros canon à main avec un fabricateur intégré dans la poignée. Imprime lentement des munitions pour lui-même, mais ne comptez pas que ce soit assez rapide pour des échanges de tirs soutenus.
   components:
   - type: Item
     size: Small
@@ -125,7 +125,7 @@
   name: Contract Terminator
   parent: [BaseWeaponPistol, BaseCentcommContraband]
   id: WeaponPistolCentcommAgent
-  description: Necessity is the mother of deception.
+  description: La nécessité est la mère de la tromperie.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Pistols/agentpistol.rsi

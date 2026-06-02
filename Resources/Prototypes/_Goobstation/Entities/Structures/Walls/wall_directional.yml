@@ -10,8 +10,8 @@
 - type: entity
   id: WallDirectional
   parent: BaseStructure
-  name: directional wall
-  description: Cheap and cheerful metal plating.
+  name: mur directionnel
+  description: Un revêtement métallique bon marché et agréable.
   placement:
     mode: SnapgridCenter
     snap:

@@ -1,0 +1,95 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# PORTED FROM FLOOFSTATION
+# Resomi language
+- type: language
+  id: Schechi
+  isVisibleLanguage: true
+  speech:
+    color: "#4DBFD9"
+    fontId: Schoolbell
+    fontSize: 14
+  obfuscation:
+    !type:SyllableObfuscation
+    minSyllables: 1
+    maxSyllables: 4
+    replacement:
+    - mi
+    - mwi
+    - fi
+    - fwi
+    - vi
+    - vwi
+    - ni
+    - nwi
+    - ri
+    - rwi
+    - zi
+    - zwi
+    - si
+    - schi
+    - chi
+    - tsi
+    - twi
+    - wi
+    - i
+    - mee
+    - mwee
+    - fee
+    - fwee
+    - vee
+    - vwee
+    - nee
+    - nwee
+    - ree
+    - rwee
+    - zee
+    - zwee
+    - see
+    - schee
+    - chee
+    - tsee
+    - twee
+    - wee
+    - ee
+    - meh
+    - mweh
+    - feh
+    - fweh
+    - veh
+    - vweh
+    - neh
+    - nweh
+    - reh
+    - rweh
+    - zeh
+    - zweh
+    - seh
+    - scheh
+    - cheh
+    - tseh
+    - tweh
+    - weh
+    - eh
+    - ma
+    - mwa
+    - fa
+    - fwa
+    - va
+    - vwa
+    - na
+    - nwa
+    - ra
+    - rwa
+    - za
+    - zwa
+    - sa
+    - scha
+    - cha
+    - tsa
+    - twa
+    - wa
+    - a

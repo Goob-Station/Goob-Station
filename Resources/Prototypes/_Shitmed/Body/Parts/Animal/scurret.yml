@@ -16,7 +16,7 @@
 - type: entity
   parent: [PartScurret, BaseChest]
   id: ChestScurret
-  name: "scurret chest"
+  name: "torse de scurret"
   components:
   - type: Sprite
     state: "chest"
@@ -33,7 +33,7 @@
 - type: entity
   parent: [PartScurret, BaseGroin]
   id: GroinScurret
-  name: "scurret groin"
+  name: "aine de scurret"
   components:
   - type: Sprite
     state: "groin"
@@ -50,8 +50,8 @@
 - type: entity
   parent: [PartScurret, BaseHead]
   id: HeadScurret
-  name: "scurret head"
-  description: "It shall never wawa again."
+  name: "tête de scurret"
+  description: "Il ne fera plus jamais wawa."
   components:
   - type: Sprite
     state: "head"
@@ -68,7 +68,7 @@
 - type: entity
   parent: [PartScurret, BaseLeftArm]
   id: LeftArmScurret
-  name: "left scurret arm"
+  name: "bras gauche scurret"
   components:
   - type: Sprite
     state: "l_arm"
@@ -78,7 +78,7 @@
 - type: entity
   parent: [PartScurret, BaseRightArm]
   id: RightArmScurret
-  name: "right scurret arm"
+  name: "bras droit scurret"
   components:
   - type: Sprite
     state: "r_arm"
@@ -88,7 +88,7 @@
 - type: entity
   parent: [PartScurret, BaseLeftHand]
   id: LeftHandScurret
-  name: "left scurret hand"
+  name: "main gauche scurret"
   components:
   - type: Sprite
     state: "l_hand"
@@ -98,7 +98,7 @@
 - type: entity
   parent: [PartScurret, BaseRightHand]
   id: RightHandScurret
-  name: "right scurret hand"
+  name: "main droite scurret"
   components:
   - type: Sprite
     state: "r_hand"
@@ -108,7 +108,7 @@
 - type: entity
   parent: [PartScurret, BaseLeftLeg]
   id: LeftLegScurret
-  name: "left scurret leg"
+  name: "jambe gauche scurret"
   components:
   - type: Sprite
     state: "l_leg"
@@ -116,7 +116,7 @@
 - type: entity
   parent: [PartScurret, BaseRightLeg]
   id: RightLegScurret
-  name: "right scurret leg"
+  name: "jambe droite scurret"
   components:
   - type: Sprite
     state: "r_leg"
@@ -124,7 +124,7 @@
 - type: entity
   parent: [PartScurret, BaseLeftFoot]
   id: LeftFootScurret
-  name: "left scurret foot"
+  name: "pied gauche scurret"
   components:
   - type: Sprite
     state: "l_foot"
@@ -134,7 +134,7 @@
 - type: entity
   parent: [PartScurret, BaseRightFoot]
   id: RightFootScurret
-  name: "right scurret foot"
+  name: "pied droit scurret"
   components:
   - type: Sprite
     state: "r_foot"

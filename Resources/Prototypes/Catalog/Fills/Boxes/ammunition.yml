@@ -28,10 +28,10 @@
 # As opposed to MagazineBox these are boxes of magazines so BoxMagazine
 # CaselessRifle
 - type: entity
-  name: box of magazines
+  name: boîte de chargeurs
   parent: BoxCardboard
   id: BoxMagazine
-  description: A box full of magazines.
+  description: Une boîte pleine de chargeurs.
   components:
   - type: Sprite
     layers:
@@ -62,10 +62,10 @@
 
 # LightRifle
 - type: entity
-  name: box of .30 rifle magazines
+  name: boîte de chargeurs de fusil .30
   parent: BoxMagazine
   id: BoxMagazineLightRifle
-  description: A box full of .30 rifle magazines.
+  description: Une boîte pleine de chargeurs de fusil .30.
   components:
   - type: StorageFill
     contents:
@@ -73,10 +73,10 @@
         amount: 4
 
 - type: entity
-  name: box of .30 rifle (practice) magazines
+  name: boîte de chargeurs de fusil .30 (entraînement)
   parent: BoxMagazine
   id: BoxMagazineLightRiflePractice
-  description: A box full of .30 rifle (practice) magazines.
+  description: Une boîte pleine de chargeurs de fusil .30 (entraînement).
   components:
   - type: StorageFill
     contents:
@@ -85,10 +85,10 @@
 
 # Magnum
 - type: entity
-  name: box of SMG .45 magnum magazines
+  name: boîte de chargeurs SMG .45 magnum
   parent: BoxMagazine
   id: BoxMagazineMagnumSubMachineGun
-  description: A box full of SMG .45 magnum magazines.
+  description: Une boîte pleine de chargeurs SMG .45 magnum.
   components:
   - type: StorageFill
     contents:
@@ -96,10 +96,10 @@
         amount: 3
 
 - type: entity
-  name: box of SMG .45 magnum (practice) magazines
+  name: boîte de chargeurs SMG .45 magnum (entraînement)
   parent: BoxMagazine
   id: BoxMagazineMagnumSubMachineGunPractice
-  description: A box full of SMG .45 magnum (practice) magazines.
+  description: Une boîte pleine de chargeurs SMG .45 magnum (entraînement).
   components:
   - type: StorageFill
     contents:
@@ -108,10 +108,10 @@
 
 # Pistol
 - type: entity
-  name: box of WT550 .35 auto magazines
+  name: boîte de chargeurs WT550 .35 auto
   parent: BoxMagazine
   id: BoxMagazinePistolSubMachineGunTopMounted
-  description: A box full of WT550 .35 auto magazines.
+  description: Une boîte pleine de chargeurs WT550 .35 auto.
   components:
   - type: StorageFill
     contents:
@@ -119,10 +119,10 @@
         amount: 3
 
 - type: entity
-  name: box of pistol .35 auto magazines
+  name: boîte de chargeurs de pistolet .35 auto
   parent: BoxMagazine
   id: BoxMagazinePistol
-  description: A box full of pistol .35 auto magazines.
+  description: Une boîte pleine de chargeurs de pistolet .35 auto.
   components:
   - type: StorageFill
     contents:
@@ -130,10 +130,10 @@
         amount: 4
 
 - type: entity
-  name: box of pistol .35 auto (practice) magazines
+  name: boîte de chargeurs de pistolet .35 auto (entraînement)
   parent: BoxMagazine
   id: BoxMagazinePistolPractice
-  description: A box full of  magazines.
+  description: Une boîte pleine de chargeurs.
   components:
   - type: StorageFill
     contents:
@@ -141,10 +141,10 @@
         amount: 4
 
 - type: entity
-  name: box of machine pistol .35 auto magazines
+  name: boîte de chargeurs de pistolet-mitrailleur .35 auto
   parent: BoxMagazine
   id: BoxMagazinePistolHighCapacity
-  description: A box full of machine pistol .35 auto magazines.
+  description: Une boîte pleine de chargeurs de pistolet-mitrailleur .35 auto.
   components:
   - type: StorageFill
     contents:
@@ -152,10 +152,10 @@
         amount: 4
 
 - type: entity
-  name: box of machine pistol .35 auto (practice) magazines
+  name: boîte de chargeurs de pistolet-mitrailleur .35 auto (entraînement)
   parent: BoxMagazine
   id: BoxMagazinePistolHighCapacityPractice
-  description: A box full of machine pistol .35 auto (practice) magazines.
+  description: Une boîte pleine de chargeurs de pistolet-mitrailleur .35 auto (entraînement).
   components:
   - type: StorageFill
     contents:
@@ -163,10 +163,10 @@
         amount: 4
 
 - type: entity
-  name: box of SMG .35 auto magazines
+  name: boîte de chargeurs SMG .35 auto
   parent: BoxMagazine
   id: BoxMagazinePistolSubMachineGun
-  description: A box full of SMG .35 auto magazines.
+  description: Une boîte pleine de chargeurs SMG .35 auto.
   components:
   - type: StorageFill
     contents:
@@ -174,10 +174,10 @@
         amount: 3
 
 - type: entity
-  name: box of SMG .35 auto (practice) magazines
+  name: boîte de chargeurs SMG .35 auto (entraînement)
   parent: BoxMagazine
   id: BoxMagazinePistolSubMachineGunPractice
-  description: A box full of SMG .35 auto (practice) magazines.
+  description: Une boîte pleine de chargeurs SMG .35 auto (entraînement).
   components:
   - type: StorageFill
     contents:
@@ -186,10 +186,10 @@
 
 # Shotgun
 - type: entity
-  name: box of (.50 pellet) ammo drums
+  name: boîte de tambours de munitions (.50 chevrotine)
   parent: BoxMagazine
   id: BoxMagazineShotgun
-  description: A box full of (.50 pellet) ammo drums.
+  description: Une boîte pleine de tambours de munitions (.50 chevrotine).
   components:
   - type: StorageFill
     contents:
@@ -197,10 +197,10 @@
         amount: 4
 
 - type: entity
-  name: box of (.50 beanbag) ammo drums
+  name: boîte de tambours de munitions (.50 sac de sable)
   parent: BoxMagazine
   id: BoxMagazineShotgunBeanbag
-  description: A box full of (.50 beanbag) ammo drums.
+  description: Une boîte pleine de tambours de munitions (.50 sac de sable).
   components:
   - type: StorageFill
     contents:
@@ -208,10 +208,10 @@
         amount: 4
 
 - type: entity
-  name: box of (.50 slug) ammo drums
+  name: boîte de tambours de munitions (.50 slug)
   parent: BoxMagazine
   id: BoxMagazineShotgunSlug
-  description: A box full of (.50 slug) ammo drums.
+  description: Une boîte pleine de tambours de munitions (.50 slug).
   components:
   - type: StorageFill
     contents:
@@ -219,10 +219,10 @@
         amount: 4
 
 - type: entity
-  name: box of (.50 incendiary) ammo drums
+  name: boîte de tambours de munitions (.50 incendiaire)
   parent: BoxMagazine
   id: BoxMagazineShotgunIncendiary
-  description: A box full of (.50 incendiary) ammo drums.
+  description: Une boîte pleine de tambours de munitions (.50 incendiaire).
   components:
   - type: StorageFill
     contents:
@@ -231,10 +231,10 @@
 
 # Rifle
 - type: entity
-  name: box of .20 rifle magazines
+  name: boîte de chargeurs de fusil .20
   parent: BoxMagazine
   id: BoxMagazineRifle
-  description: A box full of .20 rifle magazines.
+  description: Une boîte pleine de chargeurs de fusil .20.
   components:
   - type: StorageFill
     contents:
@@ -242,10 +242,10 @@
         amount: 4
 
 - type: entity
-  name: box of .20 rifle (practice) magazines
+  name: boîte de chargeurs de fusil .20 (entraînement)
   parent: BoxMagazine
   id: BoxMagazineRiflePractice
-  description: A box full of .20 rifle (practice) magazines.
+  description: Une boîte pleine de chargeurs de fusil .20 (entraînement).
   components:
   - type: StorageFill
     contents:

@@ -7,8 +7,8 @@
 - type: entity
   parent: BaseAction
   id: ActionStartFishing
-  name: Throw fishing lure
-  description: Throw lure from the fishing rod to catch something!
+  name: Lancer le leurre
+  description: Lancez le leurre de la canne à pêche pour attraper quelque chose !
   components:
   - type: Action
     icon:
@@ -27,8 +27,8 @@
 - type: entity
   parent: BaseAction
   id: ActionStopFishing
-  name: Reel fishing rod
-  description: Reel your fishing rod to pull an object that it attached to, or stop fishing.
+  name: Mouliner la canne
+  description: Moulinez votre canne à pêche pour tirer un objet accroché, ou arrêtez de pêcher.
   components:
   - type: Action
     icon:

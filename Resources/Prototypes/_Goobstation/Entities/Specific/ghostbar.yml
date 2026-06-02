@@ -7,9 +7,9 @@
 
 - type: entity
   id: PlasticPit
-  name: plastic pit
-  description: Has plastic inside. Don't ask where from.
-  suffix: DO NOT MAP
+  name: fosse en plastique
+  description: Contient du plastique à l'intérieur. Ne demandez pas d'où ça vient.
+  suffix: NE PAS PLACER
   placement:
     mode: SnapgridCenter
     snap:
@@ -72,8 +72,8 @@
 - type: entity
   id: PlasteelPit
   parent: PlasticPit
-  name: plasteel pit
-  description: Has plasteel inside. Don't ask where from.
+  name: fosse en plasteel
+  description: Contient du plasteel à l'intérieur. Ne demandez pas d'où ça vient.
   components:
   - type: ItemMiner
     proto: SheetPlasteel
@@ -82,8 +82,8 @@
   id: Omnilathe
   parent: Autolathe
   name: omnilathe
-  description: Produces just about everything researchable and departmental.
-  suffix: DO NOT MAP
+  description: Produit pratiquement tout ce qui est recherchable et départemental.
+  suffix: NE PAS PLACER
   components:
   - type: Lathe
     staticPacks:

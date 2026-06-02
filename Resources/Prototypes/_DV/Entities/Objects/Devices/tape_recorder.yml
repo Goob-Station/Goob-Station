@@ -6,8 +6,8 @@
 - type: entity
   parent: BaseItem
   id: TapeRecorder
-  name: tape recorder
-  description: Anything said into this device can and will be used against you in a court of space law.
+  name: magnétophone
+  description: Tout ce qui est dit dans cet appareil pourra et sera utilisé contre vous devant un tribunal de droit spatial.
   components:
   - type: Sprite
     sprite: _DV/Objects/Devices/tape_recorder.rsi
@@ -59,7 +59,7 @@
 - type: entity
   parent: TapeRecorder
   id: TapeRecorderFilled
-  suffix: Filled
+  suffix: Rempli
   components:
   - type: ContainerFill
     containers:
@@ -69,8 +69,8 @@
 - type: entity
   parent: BaseItem
   id: CassetteTape
-  name: cassette tape
-  description: A magnetic tape that can hold up to two minutes of content on either side.
+  name: cassette
+  description: Une bande magnétique pouvant contenir jusqu'à deux minutes de contenu de chaque côté.
   components:
   - type: Sprite
     sprite: _DV/Objects/Devices/cassette_tapes.rsi
@@ -103,50 +103,50 @@
         tape_greyscale: Rainbow
 
 - type: entity
-  suffix: Interview with Garry Smosh
+  suffix: Entretien avec Garry Smosh
   parent: CassetteTape
   id: CassetteTapeInterview
   components:
   - type: Label
-    currentLabel: Interview with Garry Smosh
+    currentLabel: Entretien avec Garry Smosh
   - type: TapeCassette
     recordedData:
       - timestamp: 2
         name: Phil Dervin
-        message: "Its 11:43am, present in the room are Phil Dervin, Detective first class, Officer Belview and Grarry Smosh, Suspect of one count of secure tresspass, four counts of assault, two counts of theft and 85 counts of disturbing the peace."
+        message: "Il est 11h43, les personnes présentes dans la pièce sont Phil Dervin, Détective première classe, l'officier Belview et Grarry Smosh, suspect d'une intrusion en zone sécurisée, quatre agressions, deux vols et 85 troubles à l'ordre public."
       - timestamp: 6
         name: Phil Dervin
-        message: "Mr Smosh, do you understand the charges you have been accused of?"
+        message: "Monsieur Smosh, comprenez-vous les charges qui vous sont reprochées ?"
       - timestamp: 14
         name: Grarry Smosh
-        message: "I don't care what you say, i ain't done anything."
+        message: "J'en ai rien à faire de ce que vous dites, j'ai rien fait."
       - timestamp: 18
         name: Phil Dervin
-        message: "Sir, you were caught redhanded in the Captains bedroom. In the middle of an attempt at stealing his whiskey reserve no less."
+        message: "Monsieur, vous avez été pris en flagrant délit dans la chambre du Capitaine. En pleine tentative de vol de sa réserve de whisky, qui plus est."
       - timestamp: 23
         name: Phil Dervin
-        message: "You are lucky he didn't shoot you for that."
+        message: "Vous avez de la chance qu'il ne vous ait pas tiré dessus pour ça."
       - timestamp: 28
         name: Grarry Smosh
-        message: "I didn't see no signs saying i couldn't be there."
+        message: "J'ai vu aucun panneau disant que je pouvais pas être là."
       - timestamp: 34
         name: Phil Dervin
-        message: "The Captains bedroom? I don't think we need a sign telling people to stay out - it's common sense."
+        message: "La chambre du Capitaine ? Je ne pense pas qu'on ait besoin d'un panneau pour dire aux gens de rester dehors - c'est du bon sens."
       - timestamp: 38
         name: Phil Dervin
-        message: "Anyway that's besides the point, even if it were not off limits there is still the matter of the restricted items we found on your person and the subsequent attempt at evading arrest."
+        message: "Bref, ce n'est pas le sujet, même si ce n'était pas une zone interdite, il y a toujours la question des objets à accès restreint trouvés sur vous et la tentative de fuite lors de l'arrestation."
       - timestamp: 42
         name: Grarry Smosh
-        message: "I ain't done nothing."
+        message: "J'ai rien fait du tout."
       - timestamp: 46
         name: Officer Belview
-        message: "You slipped 3 officers, stole a stun baton and beat Ian with it. The HOP was very upset at that last part."
+        message: "Vous avez semé 3 officiers, volé une matraque paralysante et battu Ian avec. Le Chef du Personnel était très mécontent de cette dernière partie."
       - timestamp: 50
         name: Grarry Smosh
-        message: "Which one of you gave the HOP a disabler?"
+        message: "Qui parmi vous a donné un désactivateur au Chef du Personnel ?"
       - timestamp: 54
         name: Phil Dervin
-        message: "The Warden did, turned out to be a good idea eh?"
+        message: "C'est le Gardien, et c'était une bonne idée, non ?"
       - timestamp: 58
         name: Officer Belview
-        message: "I would say so."
+        message: "Je dirais que oui."

@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateFilledHushpup
-  name: Hushpup bundle
-  description: A duffel bag containing a Hushpup, quarter included.
+  name: Lot Hushpup
+  description: Un sac fourre-tout contenant un Hushpup, quarter inclus.
   components:
   - type: StorageFill
     contents:

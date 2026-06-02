@@ -2,7 +2,7 @@
   parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponShotgunHushpup
   name: Hushpup
-  description: An obscure modification of the Enforcer, fitted with a bulky suppressor. Great for those with a strict moral code. Loads 5 rounds of 12 Gauge. # Goobstation
+  description: "Une modification obscure de l'Enforcer, équipée d'un silencieux encombrant. Parfait pour ceux qui ont un code moral strict. Charge 5 cartouches de calibre 12. # Goobstation"
   components:
   - type: Sprite
     sprite: _Harmony/Objects/Weapons/Guns/Shotguns/hushpup.rsi

@@ -9,7 +9,7 @@
   parent: [ClothingShoesBase, BaseMinorContraband]
   id: ClothingShoesWizardSkates
   name: wizard skates
-  description: "A pair of Wizard Federation Roller Skates, imbued with a protection spell against collision."
+  description: "Une paire de patins à roulettes de la Fédération des Sorciers, imbibés d'un sort de protection contre les collisions."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Shoes/Specific/skateswizard.rsi

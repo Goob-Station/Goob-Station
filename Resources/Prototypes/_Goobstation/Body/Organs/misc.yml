@@ -7,58 +7,22 @@
   parent: [ OrganHumanHeart, BaseSyndicateContraband ]
   id: OrganHeartSandevistan
   name: Sandevistan
-  description: Illegal cyberware that replaces the user's heart and allows them to greatly increase their speed for the cost of the endurance.
+  description: Cyberware illégal qui remplace le cœur de l'utilisateur et lui permet d'augmenter considérablement sa vitesse au détriment de son endurance.
   components:
   - type: Cybernetics
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/sandevistan.rsi
     state: icon
     scale: 0.5, 0.5
-  - type: OrganActions
-    actions:
-    - ActionToggleSandevistan
   - type: Organ
     onAdd:
     - type: SandevistanUser
-      thresholds:
-        Warning: 15
-        Shaking: 30
-        Damage: 45
-        Disable: 60
-
-- type: entity
-  parent: [ OrganHumanHeart, BaseSyndicateContraband ]
-  id: OrganHeartStatvekaSandevistan
-  name: mi13 statveka sandevistan
-  description: A cybernetic heart implant that drastically improves the user's speed and reflexes for a short duration, at the cost of endurance. Once used by a certain mercenary.
-  components:
-  - type: Cybernetics
-  - type: Sprite
-    sprite: _Goobstation/Objects/Misc/sandevistan.rsi
-    layers:
-    - state: icon
-    scale: 0.5, 0.5
-  - type: OrganActions
-    actions:
-    - ActionToggleSandevistan
-  - type: Organ
-    onAdd:
-    - type: SandevistanUser
-      movementSpeedModifier: 1
-      attackSpeedModifier: 1
-      doAfterModifier: 1
-      slowfieldEnabled: true
-      thresholds:
-        Warning: 6
-        Shaking: 10
-        Damage: 20
-        Disable: 24
 
 - type: entity
   parent: [OrganHumanHeart, BaseSyndicateContraband]
   id: SyndicateBerserkerHeart
-  name: berserker heart
-  description: A next-gen combat circulatory core that allows the user to enter a berserk state, greatly increasing their speed and reflexes for a short time at the cost of endurance and some pain resistance. Highly illegal.
+  name: cœur berserker
+  description: Un noyau circulatoire de combat de nouvelle génération qui permet à l'utilisateur d'entrer en état de berserker, augmentant considérablement sa vitesse et ses réflexes pour un court moment au détriment de l'endurance et d'une partie de la résistance à la douleur. Hautement illégal.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/berserker_heart.rsi
@@ -71,8 +35,8 @@
 - type: entity
   parent: [OrganHumanHeart, BaseSyndicateContraband]
   id: SyndicateJumpstarterHeart
-  name: jumpstarter heart
-  description: A next-gen combat circulatory core that injects a large amount of omnizine into the user's bloodstream when they are critically injured, saving them from death. Highly illegal.
+  name: cœur propulseur
+  description: Un noyau circulatoire de combat de nouvelle génération qui injecte une grande quantité d'omnizine dans le flux sanguin de l'utilisateur lorsqu'il est gravement blessé, le sauvant de la mort. Hautement illégal.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/jumpstarter_heart.rsi

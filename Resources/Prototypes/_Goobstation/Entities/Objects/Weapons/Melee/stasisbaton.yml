@@ -8,7 +8,7 @@
   name: futuristic stunbaton
   parent: Stunbaton
   id: StasisBaton
-  description: An advanced security baton for shutting down interfering tiders
+  description: Un bâton de sécurité avancé pour neutraliser les grève-tards importuns.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/stasisbaton.rsi

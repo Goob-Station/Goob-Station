@@ -2,7 +2,7 @@
   id: MobXenomorphFaceHuggerLamarr
   parent: MobXenomorphFaceHugger
   name: Lamarr
-  description: A former nightmare candidate, now an exemplary pet.
+  description: Une ancienne candidate au cauchemar, désormais un animal de compagnie exemplaire.
   components:
   - type: Sprite
     sprite: _White/Mobs/Aliens/Xenomorphs/old_facehugger.rsi

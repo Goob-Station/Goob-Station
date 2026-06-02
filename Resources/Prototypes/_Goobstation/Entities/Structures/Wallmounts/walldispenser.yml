@@ -1,8 +1,8 @@
 - type: entity
   parent: CleanerDispenser
   id: CapsaicinDispenser
-  name: capsaicin dispenser
-  description: A wallmount dispenser capable of dispensing capsaicin. Refill your pepperspray here.
+  name: distributeur de capsaïcine
+  description: Un distributeur mural capable de distribuer de la capsaïcine. Rechargez votre spray au poivre ici.
   components:
   - type: Sprite
     sprite: Structures/Storage/tanks.rsi

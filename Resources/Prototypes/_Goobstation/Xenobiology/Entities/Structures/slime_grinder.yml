@@ -1,8 +1,8 @@
 - type: entity
   id: SlimeGrinder
   parent: [ BaseMachinePowered, ConstructibleMachine ]
-  name: slime grinder
-  description: Produces extracts from a slimes corpse.
+  name: broyeuse à slimes
+  description: Produit des extraits à partir du cadavre d'un slime.
   placement:
     mode: SnapgridCenter
   components:

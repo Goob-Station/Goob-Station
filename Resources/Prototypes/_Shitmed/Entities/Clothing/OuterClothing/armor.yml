@@ -12,7 +12,7 @@
 - type: entity
   parent: [ ClothingOuterBase, AllowSuitStorageClothing, BaseMajorContraband ]
   id: ClothingOuterArmorAbductor
-  name: agent vest
+  name: gilet d'agent
   components:
   - type: Sprite
     sprite: _Shitmed/Clothing/OuterClothing/Armor/abductor.rsi
@@ -25,7 +25,7 @@
     state: stealth
     states:
       Stealth: !type:ItemSwitchState
-        verb: Stealth
+        verb: Furtivité
         hidden: true
         sprite:
           sprite: _Shitmed/Clothing/OuterClothing/Armor/abductor.rsi
@@ -100,8 +100,8 @@
 - type: entity
   parent: [ ClothingOuterStorageBase, AllowSuitStorageClothing, BaseMajorContraband]
   id: ClothingOuterCoatAbductor
-  name: alien lab coat
-  description: A suit of alien origin that protects from various injuries, as well as from chemical spills.
+  name: blouse de laboratoire extraterrestre
+  description: Une combinaison d'origine extraterrestre protégeant de diverses blessures ainsi que des déversements chimiques.
   components:
   - type: Sprite
     sprite: _Shitmed/Clothing/OuterClothing/Coats/abductor.rsi

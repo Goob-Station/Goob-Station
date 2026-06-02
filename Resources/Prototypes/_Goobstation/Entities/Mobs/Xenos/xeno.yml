@@ -2,7 +2,7 @@
   name: ancient base xeno
   id: CMBaseXeno
   parent: SimpleSpaceMobBase
-  description: An alien drone.
+  description: Un drone alien.
   abstract: true
   components:
   - type: CombatMode
@@ -165,7 +165,7 @@
   name: ancient Burrower
   id: CMMobXenoBurrower
   parent: CMBaseXeno
-  description: A beefy alien with sharp claws.
+  description: Un alien costaud aux griffes acérées.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -198,7 +198,7 @@
   name: ancient warrior
   id: CMMobXenoWarrior
   parent: CMBaseXeno
-  description: A beefy alien with an armored carapace.
+  description: Un alien costaud avec une carapace blindée.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -239,7 +239,7 @@
   name: ancient crusher
   id: CMMobXenoCrusher
   parent: CMBaseXeno
-  description: A huge alien with an enormous armored crest.
+  description: Un énorme alien avec une immense crête blindée.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -280,7 +280,7 @@
   name: ancient ravager
   id: CMMobXenoRavager
   parent: CMBaseXeno
-  description: A huge, nasty red alien with enormous scythed claws.
+  description: Un énorme alien rouge et redoutable avec d'immenses griffes en faucille.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -320,7 +320,7 @@
   name: ancient king
   id: CMMobXenoKing
   parent: CMBaseXeno
-  description: A massive alien covered in spines and armoured plates.
+  description: Un alien massif couvert d'épines et de plaques blindées.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -377,7 +377,7 @@
   name: ancient queen
   id: CMMobXenoQueen
   parent: CMBaseXeno
-  description: The Queen, in all her glory.
+  description: La Reine, dans toute sa gloire.
   components:
   - type: Sprite
     drawdepth: Mobs

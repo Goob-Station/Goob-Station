@@ -1,6 +1,6 @@
 - type: diseaseSpread
   id: Debug
-  name: Debug
+  name: Débogage
 
 - type: entity
   abstract: true
@@ -13,7 +13,7 @@
   id: DiseaseBehaviorTurboCancer
   parent: DiseaseBehaviorDebug
   name: turbocancer
-  description: Deals genetic and blunt damage over time. A short time.
+  description: Inflige des dégâts génétiques et contondants dans le temps. En peu de temps.
   components:
   - type: DiseaseEffect
     complexity: 1000
@@ -29,8 +29,8 @@
 - type: entity
   id: DiseaseBehaviorSpreadDebug
   parent: DiseaseBehaviorDebug
-  name: debug spread
-  description: The plague.
+  name: propagation debug
+  description: La peste.
   components:
   - type: DiseaseEffect
     complexity: 1000
@@ -48,8 +48,8 @@
 - type: entity
   id: DiseaseBehaviorForceSpreadDebug
   parent: DiseaseBehaviorDebug
-  name: omega spread
-  description: Worlds will rot. # [x] sufficiently edgy description
+  name: propagation oméga
+  description: Les mondes vont pourrir. # [x] sufficiently edgy description
   components:
   - type: DiseaseEffect
     complexity: 1000
@@ -69,7 +69,7 @@
   id: DiseaseBehaviorTurboBlunt
   parent: DiseaseBehaviorBase
   name: poison
-  description: Deals lots of blunt damage over time.
+  description: Inflige beaucoup de dégâts contondants dans le temps.
   components:
   - type: DiseaseEffect
     complexity: 1000
@@ -84,8 +84,8 @@
 - type: entity
   id: DiseaseBehaviorDeconstructFloor
   parent: DiseaseBehaviorBase
-  name: tile prying
-  description: Deconstructs the floor.
+  name: arrachage de tuile
+  description: Déconstruit le sol.
   components:
   - type: DiseaseEffect
     complexity: 80
@@ -98,7 +98,7 @@
   id: DiseaseTurboCancer
   parent: DiseaseBase
   name: turbo cancer
-  description: Deals lots of genetic damage to the infected. Better prepare the funeral.
+  description: Inflige beaucoup de dégâts génétiques à l'infecté. Mieux vaut préparer les funérailles.
   components:
   - type: Disease
     infectionRate: 0.1
@@ -113,8 +113,8 @@
 - type: entity
   id: DiseaseTheRot
   parent: DiseaseBase
-  name: the rot
-  description: If you are reading this, you've invoked the gods' wrath.
+  name: la pourriture
+  description: Si vous lisez ceci, vous avez invoqué la colère des dieux.
   components:
   - type: Disease
     infectionRate: 0.003
@@ -132,8 +132,8 @@
 - type: entity
   id: MeleeDebugInfectTurboCancer
   parent: MeleeDebugGib
-  name: turbocancer stick
-  description: Need a taste of Chernobyl?
+  name: bâton de turbocancer
+  description: Besoin d'un avant-goût de Tchernobyl ?
   components:
   - type: Tag
     tags:
@@ -148,8 +148,8 @@
 - type: entity
   id: MeleeDebugInfectTheRot
   parent: MeleeDebugGib
-  name: the rot stick
-  description: Destroys everything. No, really.
+  name: bâton de la pourriture
+  description: Détruit tout. Non, vraiment.
   components:
   - type: Tag
     tags:
@@ -164,8 +164,8 @@
 - type: entity
   id: MeleeDebugInfectFlu
   parent: MeleeDebugGib
-  name: flu stick
-  description: Gives you the flu. And people wonder where it comes from.
+  name: bâton de grippe
+  description: Vous donne la grippe. Et les gens se demandent d'où ça vient.
   components:
   - type: Tag
     tags:
@@ -180,8 +180,8 @@
 - type: entity
   id: MeleeDebugInfectGravitosisA
   parent: MeleeDebugGib
-  name: gravitosis stick
-  description: Gives you gravitosis A.
+  name: bâton de gravitose
+  description: Vous donne la gravitose A.
   components:
   - type: Tag
     tags:
@@ -196,8 +196,8 @@
 - type: entity
   id: MeleeDebugInfectGunemia
   parent: MeleeDebugGib
-  name: gunemia stick
-  description: Gives you gunemia.
+  name: bâton de gunémie
+  description: Vous donne la gunémie.
   components:
   - type: Tag
     tags:

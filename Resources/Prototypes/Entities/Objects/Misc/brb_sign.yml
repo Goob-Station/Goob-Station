@@ -6,8 +6,8 @@
 - type: entity
   parent: BaseItem
   id: BrbSign
-  name: brb sign
-  description: Lets others know you are away.
+  name: panneau BRB
+  description: Indique aux autres que vous êtes absent.
   components:
   - type: Sprite
     sprite: Objects/Misc/brbsign.rsi

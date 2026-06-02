@@ -9,8 +9,8 @@
 - type: entity
   id: WeaponSprayNozzle
   parent: BaseItem
-  name: spray nozzle
-  description: A high-powered spray nozzle used in conjunction with a backpack-mounted water tank.
+  name: buse de pulvérisation
+  description: Une buse de pulvérisation à haut débit utilisée avec un réservoir d'eau monté sur un sac à dos.
   components:
   - type: Tag
     tags:

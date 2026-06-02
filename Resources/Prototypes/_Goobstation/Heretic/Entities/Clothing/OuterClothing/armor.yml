@@ -21,8 +21,8 @@
 - type: entity
   parent: [ ClothingOuterStorageToggleableBase, AllowSuitStorageClothing, BaseMagicalContraband ]
   id: ClothingOuterArmorHeretic
-  name: ominous armor
-  description: A ragged, dusty set of robes. Strange eyes line the inside.
+  name: armure sinistre
+  description: Un ensemble de robes usées et poussiéreuses. D'étranges yeux en tapissent l'intérieur.
   components:
   - type: UnholyItem
   - type: Sprite
@@ -75,7 +75,7 @@
 - type: entity
   parent: ClothingOuterArmorHeretic
   id: ClothingOuterArmorHereticVoid
-  suffix: Void
+  suffix: Vide
   components:
   - type: Sprite
     sprite: _Goobstation/Heretic/Clothing/OuterClothing/void_armor.rsi
@@ -89,7 +89,7 @@
 - type: entity
   parent: ClothingOuterArmorHeretic
   id: ClothingOuterArmorHereticAsh
-  suffix: Ash
+  suffix: Cendres
   components:
   - type: Sprite
     sprite: _Goobstation/Heretic/Clothing/OuterClothing/ashen_armor.rsi
@@ -103,7 +103,7 @@
 - type: entity
   parent: ClothingOuterArmorHeretic
   id: ClothingOuterArmorHereticFlesh
-  suffix: Flesh
+  suffix: Chair
   components:
   - type: Sprite
     sprite: _Goobstation/Heretic/Clothing/OuterClothing/flesh_armor.rsi
@@ -117,7 +117,7 @@
 - type: entity
   parent: ClothingOuterArmorHeretic
   id: ClothingOuterArmorHereticBlade
-  suffix: Blade
+  suffix: Lame
   components:
   - type: Sprite
     sprite: _Goobstation/Heretic/Clothing/OuterClothing/blade_armor.rsi
@@ -145,8 +145,8 @@
 - type: entity
   parent: [ ClothingOuterBaseMedium, ClothingOuterStorageToggleableBase, AllowSuitStorageClothing, BaseMagicalContraband ]
   id: ClothingOuterArmorCloakVoid
-  name: void cloak
-  description: Black like tar, reflecting no light. Runic symbols line the outside. With each flash you lose comprehension of what you are seeing.
+  name: manteau du vide
+  description: Noir comme du goudron, ne réfléchissant aucune lumière. Des symboles runiques en ornent l'extérieur. À chaque flash, vous perdez toute compréhension de ce que vous voyez.
   components:
   # - type: UnholyItem # This should only be active when cloak is visible. Can't simply ensure/remove this component on
   # cloak toggle due to goobmod. Should be done when heretic is mored to goobmod probably.

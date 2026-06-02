@@ -1,6 +1,6 @@
 - type: curse
   id: CurseWeakness
-  name: Curse of Enfeeblement
+  name: Malédiction d'Affaiblissement
   statusIcon: CurseWeaknessIcon
   update: 30 # how often this curse updates in seconds.
   effects:
@@ -31,7 +31,7 @@
 
 - type: curse
   id: CurseBlood
-  name: Curse of Blood
+  name: Malédiction de Sang
   statusIcon: CurseBloodIcon
   update: 25 #seconds
   effects:
@@ -53,7 +53,7 @@
 
 - type: curse # TO DO: Make them emote "blinks"
   id: CurseBlindness
-  name: Curse of Blindness
+  name: Malédiction d'Aveuglement
   statusIcon: CurseBlindnessIcon
   update: 90 #1.5 minutes
   effects:
@@ -67,7 +67,7 @@
 
 - type: curse
   id: CurseRot
-  name: Curse of Rot
+  name: Malédiction de Pourriture
   components:
   - type: UnableToEat
   statusIcon: CurseRotIcon
@@ -87,7 +87,7 @@
 
 - type: curse
   id: CurseDeath
-  name: Curse of Death
+  name: Malédiction de Mort
   update: 10 #seconds
   components:
   - type: CurseDeath

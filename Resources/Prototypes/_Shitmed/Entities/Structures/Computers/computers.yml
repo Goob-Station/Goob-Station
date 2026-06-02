@@ -8,8 +8,8 @@
 - type: entity
   parent: BaseComputer
   id: AbductorConsole
-  name: abductor console
-  description: A computer that is used for spying on the station.
+  name: console de ravisseur
+  description: Un ordinateur utilisé pour espionner la station.
   components:
   - type: AbductorConsole
   - type: Sprite
@@ -32,8 +32,8 @@
 - type: entity
   parent: ComputerComms
   id: CentCommSectoralConsole
-  name: centcomm sectoral console
-  description: Use this to annoy captains of all stations at once.
+  name: console sectorielle centcomm
+  description: Utilisez ceci pour agacer les capitaines de toutes les stations à la fois.
   components:
     - type: AccessReader
       access: [[ "Command" ]]
@@ -44,8 +44,8 @@
 - type: entity
   parent: BaseComputer
   id: AbductorHumanObservationConsole
-  name: human observation console
-  description: Use this to set teleporter destination or retrieve people marked by scientist tools. Also used for buying replacement gear and linking the agent's vest.
+  name: console d'observation humaine
+  description: Utilisez ceci pour définir la destination du téléporteur ou récupérer les personnes marquées par les outils du scientifique. Également utilisé pour acheter du matériel de remplacement et lier le gilet de l'agent.
   components:
   - type: Sprite
     sprite: _Shitmed/Structures/Machines/abductor_camera_console.rsi
@@ -70,8 +70,8 @@
   - Incorporeal
   - BaseMob
   id: AbductorHumanObservationConsoleEye
-  name: abductor eye
-  description: The abductor's viewer.
+  name: œil de ravisseur
+  description: Le visualiseur du ravisseur.
   categories: [ HideSpawnMenu, DoNotMap ]
   suffix: DO NOT MAP
   components:

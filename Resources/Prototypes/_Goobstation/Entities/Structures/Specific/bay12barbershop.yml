@@ -26,7 +26,7 @@
   parent: BaseSign
   id: BarberSignPole
   name: barber pole
-  description: Hypnotic.
+  description: Hypnotique.
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Specific/barbershop.rsi
@@ -36,8 +36,8 @@
 - type: entity
   parent: BarberSignPole
   id: BarberSignThesnip
-  name: the snip
-  description: Let's hope it's not a medical practice...
+  name: le coup de ciseaux
+  description: Espérons que ce n'est pas une pratique médicale...
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Specific/barbershop.rsi

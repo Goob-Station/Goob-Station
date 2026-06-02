@@ -8,7 +8,7 @@
 - type: entity
   parent: BaseEnchant
   id: EnchantUnslippable
-  name: Unslippable
+  name: Antidérapant
   components:
   - type: Enchant
     incompatible:

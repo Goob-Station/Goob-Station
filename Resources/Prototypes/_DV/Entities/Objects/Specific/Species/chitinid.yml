@@ -2,7 +2,7 @@
   parent: BaseItem
   id: Chitzite
   name: chitzite
-  description: A small radioactive stone formed in the chest cavity of a radioactive chitinid, gross.... but kinda pretty?
+  description: Une petite pierre radioactive formée dans la cavité thoracique d'un chitinide radioactif, dégoûtant... mais plutôt joli ?
   components:
   - type: Sprite
     sprite: _DV/Objects/Specific/Species/chitinid.rsi

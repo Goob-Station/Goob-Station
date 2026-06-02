@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseStructure
   id: XenomorphEgg
-  name: xenomorph egg
-  description: A large mottled egg.
+  name: œuf xénomorphe
+  description: Un grand œuf moucheté.
   components:
   - type: Sprite
     sprite: _White/Structures/Furniture/xenomorph_egg.rsi
@@ -72,7 +72,7 @@
 - type: entity
   parent: XenomorphEgg
   id: XenomorphEggGrown
-  suffix: Grown
+  suffix: Éclos
   components:
   - type: Sprite
     sprite: _White/Structures/Furniture/xenomorph_egg.rsi
@@ -89,7 +89,7 @@
 - type: entity
   parent: XenomorphEgg
   id: XenomorphEggBurst
-  suffix: Burst
+  suffix: Éclaté
   components:
   - type: Sprite
     sprite: _White/Structures/Furniture/xenomorph_egg.rsi

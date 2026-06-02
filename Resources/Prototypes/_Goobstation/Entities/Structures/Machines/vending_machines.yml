@@ -14,7 +14,7 @@
   id: VendingMachineFitness
   parent: VendingMachine
   name: SweatMAX
-  description: An exercise aid and nutrition supplement vendor that preys on your inadequacy.
+  description: Un distributeur d'aides à l'exercice et de suppléments nutritionnels qui profite de votre insuffisance.
   components:
   - type: Sprite
     noRot: true
@@ -57,8 +57,8 @@
 - type: entity
   id: VendingMachineHotfood
   parent: VendingMachine
-  name: hot foods
-  description: An old vending machine promising 'hot foods'. You doubt any of its contents are still edible.
+  name: aliments chauds
+  description: Un vieux distributeur promettant des 'aliments chauds'. Vous doutez qu'aucun de ses contenus soit encore comestible.
   components:
   - type: Sprite
     noRot: true
@@ -97,7 +97,7 @@
   id: VendingMachineSolsnack
   parent: VendingMachine
   name: Mars Mart
-  description: A SolCentric vending machine dispensing treats from home.
+  description: Un distributeur SolCentrique distribuant des friandises de chez soi.
   components:
   - type: Sprite
     noRot: true
@@ -137,7 +137,7 @@
   id: VendingMachineWeeb
   parent: VendingMachine
   name: Nippon-tan
-  description: A distressingly ethnic vending machine loaded with high sucrose low calorie for lack of better words snacks.
+  description: Un distributeur inquiétant ethnique chargé de snacks à haute teneur en saccharose et faibles calories, faute de meilleurs mots.
   components:
   - type: Sprite
     noRot: true
@@ -178,7 +178,7 @@
   parent: VendingMachine
   id: VendingMachineMailDrobe
   name: MailDrobe
-  description: Neither solar flares nor meteors nor plasma fire nor void of space stays these couriers from the swift completion of their appointed rounds.
+  description: Ni les éruptions solaires ni les météores ni le feu au plasma ni le vide de l'espace n'empêchent ces courriers d'accomplir rapidement leurs tournées assignées.
   components:
   - type: VendingMachine
     pack: MailDrobeInventory
@@ -208,7 +208,7 @@
   id: VendingMachineSweetToof
   parent: VendingMachine
   name: sweet-toof co. candy
-  description: A vending machine selling an unhealthy amount of candy. You'd have to have a 'sweet-tooth' to enjoy it.
+  description: Un distributeur vendant une quantité malsaine de bonbons. Il faudrait avoir une 'dent sucrée' pour en profiter.
   components:
   - type: Sprite
     noRot: true

@@ -34,12 +34,12 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: telecrystal
+  name: télécristal
   parent: [BaseItem, BaseSyndicateContraband]
   id: Telecrystal
   # Goobstation - Telecrystal rework
   suffix: 100 TC
-  description: It seems to be pulsing with suspiciously enticing energies.
+  description: Il semble pulser d'énergies suspectes et attrayantes.
   components:
   - type: Sprite
     sprite: Objects/Specific/Syndicate/telecrystal.rsi
@@ -92,8 +92,8 @@
 - type: entity
   parent: [BaseItem, StorePresetUplink, BaseSyndicateContraband]
   id: BaseUplinkRadio
-  name: syndicate uplink
-  description: Suspiciously looking old radio...
+  name: liaison du syndicat
+  description: Une vieille radio à l'air suspect...
   suffix: Empty
   components:
   - type: Sprite
@@ -193,8 +193,8 @@
 - type: entity
   parent: [BaseItem, StorePresetContractor, BaseSyndicateContraband]
   id: BaseUplinkContractor
-  name: contractor uplink
-  description: A handheld terminal providing access to the guild store and bounty board.
+  name: liaison entrepreneur
+  description: Un terminal portatif donnant accès au magasin de la guilde et au tableau des primes.
   suffix: Empty
   components:
   - type: Sprite

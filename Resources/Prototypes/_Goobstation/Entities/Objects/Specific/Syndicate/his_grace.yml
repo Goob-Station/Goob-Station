@@ -6,8 +6,8 @@
 
 - type: entity
   id: HisGrace
-  name: his grace
-  description: An otherworldly entity bound within the confines of a seemingly ordinary toolbox. Feed it, before it feeds on you.
+  name: sa grâce
+  description: Une entité d'un autre monde liée dans les limites d'une boîte à outils apparemment ordinaire. Nourrissez-la, avant qu'elle ne se nourrisse de vous.
   parent: [BaseItem, BaseSyndicateContraband]
   components:
   - type: HisGrace # easily editable for you YAML warriors

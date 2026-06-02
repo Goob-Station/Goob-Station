@@ -12,7 +12,7 @@
 - type: entity
   id: FloorFlockZone2
   name: tiles-flockzone-floor-light
-  description: It hums with power.
+  description: Il bourdonne d'énergie.
   placement:
     mode: SnapgridCenter
     snap:

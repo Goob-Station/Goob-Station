@@ -12,7 +12,7 @@
 - type: entity
   parent: [ ClothingHeadHelmetBase, BaseMajorContraband ]
   id: ClothingHeadHelmetAbductor
-  name: alien helmet
+  name: casque extraterrestre
   description: Zeep Glorp!
   components:
   - type: Armor

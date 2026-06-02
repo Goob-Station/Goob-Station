@@ -14,8 +14,8 @@
 
 - type: entity
   parent: BaseObjective
-  name: Protect maintenance.
-  description: This stations maintenance has been your home for as long as you can remember, hiding from the crew in lockers is all that you've known, until now. Thoses station goers have invaded your home for the last time, kill anyone who dares to distrupt your home.
+  name: Protéger la maintenance.
+  description: La maintenance de cette station est votre foyer depuis aussi longtemps que vous vous en souvenez. Vous vous cachez dans des casiers depuis toujours — jusqu'à maintenant. Ces envahisseurs ont violé votre domicile pour la dernière fois. Tuez quiconque ose perturber votre chez-vous.
   id: TunnelClownProtectMaintenanceObjective
   components:
   - type: Objective
@@ -28,8 +28,8 @@
 
 - type: entity
   parent: BaseObjective
-  name: Preach the word of Lord Singuloth!
-  description: Thou art to locateth this stations engineering department and conv'rt those folk into fellow followeth'rs of singuloth, if 't those gents refuseth those gents art to beest execut'd mercilessly.
+  name: Prêcher la parole du Seigneur Singuloth !
+  description: Tu dois trouver le département d'ingénierie de cette station et convertir ces gens en fidèles de Singuloth. S'ils refusent, ils doivent être exécutés sans merci.
   id: SingulothKnightPreachObjective
   components:
   - type: Objective
@@ -42,8 +42,8 @@
 
 - type: entity
   parent: BaseObjective
-  name: Expand the singularity
-  description: Thee wilt prithee lord singuloth, doth this by expanding (but nay loosing) the singularity, the bigger the better!
+  name: Agrandir la singularité
+  description: Tu dois honorer le seigneur Singuloth en agrandissant (sans lâcher) la singularité — plus c'est grand, mieux c'est !
   id: SingulothKnightSingularityObjective
   components:
   - type: Objective
@@ -56,8 +56,8 @@
 
 - type: entity
   parent: BaseObjective
-  name: Remove any tesla's from the station
-  description: If 't be true this station hast a tesla thou art to destroy it by any means and execute it's creator for yond affront to lord singuloth!
+  name: Supprimer tout tesla de la station
+  description: Si cette station possède un tesla, tu dois le détruire par tous les moyens et exécuter son créateur pour cette offense au seigneur Singuloth !
   id: SingulothKnightTeslaObjective
   components:
   - type: Objective
@@ -70,8 +70,8 @@
 
 - type: entity
   parent: BaseObjective
-  name: Have an epic duel!
-  description: Those's other syndicate agents don't take you seriously, prove them wrong by winning a duel against a worthy opponent!
+  name: Avoir un duel épique !
+  description: Ces autres agents du Syndicat ne te prennent pas au sérieux — prouve-leur le contraire en remportant un duel contre un adversaire digne !
   id: DarkLordDuelObjective
   components:
   - type: Objective
@@ -84,8 +84,8 @@
 
 - type: entity
   parent: BaseObjective
-  name: Kill the Dark Lord
-  description: You have been sent to this station by Nanotrasen to kill a Dark Lord, don't let them down!
+  name: Tuer le Seigneur des Ténèbres
+  description: Vous avez été envoyé sur cette station par Nanotrasen pour tuer un Seigneur des Ténèbres. Ne les décevez pas !
   id: ChosenOneKillDarkLordObjective
   components:
   - type: Objective
@@ -98,8 +98,8 @@
 
 - type: entity
   parent: BaseObjective
-  name: Hire an apprentice
-  description: You are in need of an apprentice hire one! this doesn't have to be the person you are protecting!
+  name: Engager un apprenti
+  description: Vous avez besoin d'un apprenti — engagez-en un ! Inutile que ce soit la personne que vous protégez !
   id: DarkPriestHireApprentice
   components:
   - type: Objective
@@ -113,8 +113,8 @@
 - type: entity
   parent: BaseKeepAliveObjective
   id: DarkPriestProtectObjective
-  name: Protect Crewmember
-  description: Protect a crewmember who has sparked your interest.
+  name: Protéger un Membre de l'Équipage
+  description: Protéger un membre de l'équipage qui a éveillé votre intérêt.
   components:
   - type: Objective
     difficulty: 2

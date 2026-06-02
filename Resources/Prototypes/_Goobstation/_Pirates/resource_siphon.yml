@@ -9,8 +9,8 @@
 - type: entity
   parent: BaseStructure
   id: DataSiphon
-  name: data siphon
-  description: Drains the station of it's valuables and stores valuables in expendable form.
+  name: siphon de données
+  description: Draine les objets de valeur de la station et les stocke sous forme utilisable.
   placement:
     mode: AlignTileAny
   components:

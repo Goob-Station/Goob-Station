@@ -2,7 +2,7 @@
   name: Foxhound
   parent: [BaseItem, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponShotgunBulldogLegallyDistinct # """legally distinct"""
-  description: A completely original NanoTrasen design, legally distinct from any other weapons that might be on the market. Feeds from 12 Gauge drum magazines.
+  description: Un design entièrement original de NanoTrasen, légalement distinct de toute autre arme sur le marché. Se charge depuis des chargeurs tambour de calibre 12.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi

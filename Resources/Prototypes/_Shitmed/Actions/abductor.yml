@@ -7,8 +7,8 @@
 - type: entity
   parent: BaseMentalAction
   id: ActionExitConsole
-  name: Exit console
-  description: Exit console.
+  name: Quitter la console
+  description: Quitter la console.
   components:
   - type: Action
     checkCanInteract: false
@@ -23,8 +23,8 @@
 - type: entity
   parent: BaseMentalAction
   id: ActionSendYourself
-  name: Send yourself
-  description: You need to FTL to the same map as the station to use this ability!
+  name: S'envoyer soi-même
+  description: Vous devez effectuer un saut FTL vers la même carte que la station pour utiliser cette capacité !
   components:
   - type: Action
     itemIconStyle: BigAction
@@ -43,8 +43,8 @@
 - type: entity
   parent: BaseAction
   id: ActionReturnToShip
-  name: return
-  description: return to the ship.
+  name: Retourner
+  description: Retourner au vaisseau.
   components:
   - type: Action
     useDelay: 30

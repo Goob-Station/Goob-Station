@@ -12,7 +12,7 @@
   name: X-8 "Station Sweeper"
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseCommandContraband]
   id: WeaponHeadOfSecurityRifle
-  description: An elaborately designed rifle, firing shots of pure phoron. Low fire rate, high damage.
+  description: Un fusil élaboré tirant des projectiles de phoron pur. Cadence de tir faible, dégâts élevés.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/rifle.rsi
@@ -51,7 +51,7 @@
   name: X-6 "Threadripper"
   parent: [BaseWeaponBattery, BaseCommandContraband]
   id: WeaponHeadOfSecuritySMG
-  description: An elaborately designed SMG, firing shots of pure phoron. Amazing for laying down suppressive fire.
+  description: Une mitraillette élaborée tirant des projectiles de phoron pur. Excellente pour le feu suppressif.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/smg.rsi
@@ -99,7 +99,7 @@
   name: X-12 "Flamberge"
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseCommandContraband]
   id: WeaponHeadOfSecurityShotgun
-  description: An elaborately designed shotgun, firing shots of pure phoron. Built to break down defenses, and it does that job well.
+  description: Un fusil à pompe élaboré tirant des projectiles de phoron pur. Conçu pour briser les défenses, et fait bien ce travail.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/shotgun.rsi
@@ -139,7 +139,7 @@
   name: X-18 "Ranought"
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseCommandContraband]
   id: WeaponHeadOfSecuritySniper
-  description: An elaborately designed sniper rifle, firing shots of pure phoron. You won't want to get hit by this.
+  description: Un fusil de sniper élaboré tirant des projectiles de phoron pur. Vous ne voudrez pas être touché par ça.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/sniper_icon_48x.rsi

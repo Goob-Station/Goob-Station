@@ -146,8 +146,8 @@
 - type: entity
   parent: GasFilterBase
   id: GasFilter
-  name: gas filter
-  description: Very useful for filtering gases.
+  name: filtre à gaz
+  description : Très utile pour filtrer les gaz.
   components:
   - type: Flippable
     mirrorEntity: GasFilterFlipped
@@ -183,8 +183,8 @@
 - type: entity
   parent: GasTrinaryBase
   id: GasMixer
-  name: gas mixer
-  description: Very useful for mixing gases.
+  name: mélangeur de gaz
+  description: Très utile pour mélanger des gaz.
   placement:
     mode: SnapgridCenter
   components:
@@ -245,8 +245,8 @@
 - type: entity
   parent: GasMixer
   id: GasMixerFlipped
-  name: gas mixer
-  suffix: Flipped
+  name: mélangeur de gaz
+  suffix: Inversé
   placement:
     mode: SnapgridCenter
   components:
@@ -298,8 +298,8 @@
 - type: entity
   parent: GasPipeBase
   id: PressureControlledValve
-  name: pneumatic valve
-  description: A bidirectional valve controlled by pressure. Opens if the output pipe is lower than the pressure of the control pipe by 101.325 kPa.
+  name: vanne pneumatique
+  description: Vanne bidirectionnelle commandée par la pression. Elle s'ouvre lorsque la pression dans le tuyau de sortie est inférieure de 101,325 kPa à celle du tuyau de contrôle.
   placement:
     mode: SnapgridCenter
   components:

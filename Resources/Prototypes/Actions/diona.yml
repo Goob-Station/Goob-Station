@@ -10,8 +10,8 @@
 - type: entity
   parent: BaseSuicideAction
   id: DionaGibAction
-  name: Gib Yourself!
-  description: Split apart into 3 nymphs.
+  name: Se fragmenter !
+  description: Se séparer en 3 nymphes.
   components:
   - type: Action
     icon:
@@ -24,8 +24,8 @@
 - type: entity
   parent: BaseAction
   id: DionaReformAction
-  name: Reform
-  description: Reform back into a whole Diona.
+  name: Se reformer
+  description: Se reformer en un Diona entier.
   components:
   - type: Action
     useDelay: 600 # Once every 10 minutes. Keep them dead for a fair bit before reforming

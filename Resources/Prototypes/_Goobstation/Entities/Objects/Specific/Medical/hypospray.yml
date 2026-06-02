@@ -91,8 +91,8 @@
   name: amnestic spray
   parent: [BaseItem, BaseCentcommContraband]
   id: AmnestizineHypospray
-  suffix: DO NOT MAP
-  description: A specialized cartridge injector intended for Central Command personnel. Primarily used to inject amnestics.
+  suffix: NE PAS PLACER
+  description: Un injecteur à cartouche spécialisé destiné au personnel du Commandement Central. Principalement utilisé pour injecter des amnésiques.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Medical/amnestic_hypo.rsi
@@ -130,7 +130,7 @@
 - type: entity
   name: autoinjector cartridge
   parent: BaseItem
-  description: Used in a cartridge autoinjector.
+  description: Utilisée dans un auto-injecteur à cartouche.
   id: BaseAutoinjectorCartridge
   abstract: true
   components:
@@ -154,7 +154,7 @@
 - type: entity
   name: adrenaline autoinjector cartridge
   parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
-  description: Contains 7u of epinephrine and 3u of tranexamic acid, used in a cartridge autoinjector.
+  description: Contient 7u d'épinéphrine et 3u d'acide tranexamique, utilisée dans un auto-injecteur à cartouche.
   id: CartridgeEpinephrine
   components:
   - type: Sprite
@@ -175,7 +175,7 @@
 - type: entity
   name: airloss autoinjector cartridge
   parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
-  description: Contains 7u of saline and 3u of dexalin plus, used in a cartridge autoinjector.
+  description: Contient 7u de solution saline et 3u de dexaline plus, utilisée dans un auto-injecteur à cartouche.
   id: CartridgeSaline
   components:
   - type: Sprite
@@ -196,7 +196,7 @@
 - type: entity
   name: brute autoinjector cartridge
   parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
-  description: Contains 4u of bicaridine, 4u of ibuprofen, 1 unit of salicylic acid and 1u of tranexamic acid, used in a cartridge autoinjector.
+  description: Contient 4u de bicaridine, 4u d'ibuprofène, 1u d'acide salicylique et 1u d'acide tranexamique, utilisée dans un auto-injecteur à cartouche.
   id: CartridgeBicaridine
   components:
   - type: Sprite
@@ -222,7 +222,7 @@
 - type: entity
   name: burn autoinjector cartridge
   parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
-  description: Contains 5u of kelotane, 4u of dermaline 1u of leporazine, used in a cartridge autoinjector.
+  description: Contient 5u de kélotane, 4u de dermaline, 1u de léporazine, utilisée dans un auto-injecteur à cartouche.
   id: CartridgeDermaline
   components:
   - type: Sprite
@@ -246,7 +246,7 @@
 - type: entity
   name: emergency autoinjector cartridge
   parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
-  description: Contains 10u of atropine, used in a cartridge autoinjector.
+  description: Contient 10u d'atropine, utilisée dans un auto-injecteur à cartouche.
   id: CartridgeAtropine
   components:
   - type: Sprite
@@ -265,7 +265,7 @@
 - type: entity
   name: piercing autoinjector cartridge
   parent: [ BaseSyndicateContraband , BaseAutoinjectorCartridge ]
-  description: Contains 10u of puncturase, used in a cartridge autoinjector.
+  description: Contient 10u de puncturase, utilisée dans un auto-injecteur à cartouche.
   id: CartridgePuncturase
   components:
   - type: Sprite
@@ -284,7 +284,7 @@
 - type: entity
   name: stimulant autoinjector cartridge
   parent: [ BaseSyndicateContraband , BaseAutoinjectorCartridge ]
-  description: Contains 10u of ephedrine, used in a cartridge autoinjector.
+  description: Contient 10u d'éphédrine, utilisée dans un auto-injecteur à cartouche.
   id: CartridgeEphedrine
   components:
   - type: Sprite
@@ -303,7 +303,7 @@
 - type: entity
   name: sedative autoinjector cartridge
   parent: [ BaseSyndicateContraband , BaseAutoinjectorCartridge ]
-  description: Contains 4u of tirizene, 3u of impedrezene and 3u of haloperidol, used in a cartridge autoinjector.
+  description: Contient 4u de tirizène, 3u d'impédrezène et 3u d'halopéridol, utilisée dans un auto-injecteur à cartouche.
   id: CartridgeTirizene
   components:
   - type: Sprite
@@ -328,7 +328,7 @@
 - type: entity
   name: amnestic autoinjector cartridge
   parent: [ BaseCentcommContraband , BaseAutoinjectorCartridge, EdibleBase ]
-  description: Contains 10u of dimtremethic-neuramincyl acid, used in a cartridge autoinjector.
+  description: Contient 10u d'acide dimtréméthique-neuraminyle, utilisée dans un auto-injecteur à cartouche.
   id: CartridgeAmnestic
   components:
   - type: Sprite
@@ -366,8 +366,8 @@
   name: futuristic medipen
   parent: ChemicalMedipen
   id: StasiziumAutoInjector
-  suffix: DO NOT MAP
-  description: A dose of medicinal substances from the future that can raise even the dead to their feet.
+  suffix: NE PAS PLACER
+  description: Une dose de substances médicinales du futur qui peut même remettre les morts sur pied.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Medical/stasipen.rsi
@@ -393,8 +393,8 @@
   name: centcomm advanced stimulant
   parent: [ChemicalMedipen, BaseCentcommContraband]
   id: CentcommStimpack
-  suffix: DO NOT MAP
-  description: According to a Nanotrasen funded study, it has zero addictive properties.
+  suffix: NE PAS PLACER
+  description: Selon une étude financée par Nanotrasen, il n'a aucune propriété addictive.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Medical/medipen.rsi
@@ -428,8 +428,8 @@
   name: biohazard medipen
   parent: ChemicalMedipen
   id: AmbuzolMedipen
-  suffix: DO NOT MAP
-  description: A safe and effective way to treat infections. Does not prevent re-infection.
+  suffix: NE PAS PLACER
+  description: Un moyen sûr et efficace de traiter les infections. Ne prévient pas la réinfection.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Medical/medipen.rsi
@@ -458,8 +458,8 @@
   name: advanced biohazard medipen
   parent: ChemicalMedipen
   id: AmbuzolPlusMedipen
-  suffix: DO NOT MAP
-  description: A safer and extremely effective way to treat any infections. Prevents re-infection.
+  suffix: NE PAS PLACER
+  description: Un moyen plus sûr et extrêmement efficace de traiter toutes les infections. Prévient la réinfection.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Medical/medipen.rsi

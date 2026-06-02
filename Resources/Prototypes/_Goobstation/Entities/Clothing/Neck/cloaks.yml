@@ -26,7 +26,7 @@
   parent: ClothingNeckBase
   id: ClothingNeckCloakResonant
   name: resonant cape
-  description: The stage calls for us. We should gladly play along.
+  description: La scène nous appelle. Nous devrions jouer le jeu avec plaisir.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Cloaks/breverb.rsi
@@ -37,7 +37,7 @@
   parent: [ ClothingNeckBase, BaseMagicalContraband ]
   id: ClothingNeckCloakCarp
   name: carp cloak
-  description: Getting up to some fishy business are we?
+  description: On s'occupe d'affaires douteuses, n'est-ce pas ?
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Cloaks/carpcloak.rsi
@@ -48,7 +48,7 @@
   parent: [ ClothingNeckBase, BaseMagicalContraband ]
   id: ClothingNeckCloakCarpAlt
   name: carp cloak
-  description: Restricted to extraterrestrial entities. That means NOT you.
+  description: Réservé aux entités extraterrestres. Ce qui signifie PAS vous.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Cloaks/carpcloakalt.rsi
@@ -59,7 +59,7 @@
   parent: ClothingNeckBase
   id: ClothingNeckCloakSanabi
   name: brigadier general cloak
-  description: A tattered, yet imposing cloak, worn by elite warriors.
+  description: Une cape en lambeaux mais imposante, portée par des guerriers d'élite.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Cloaks/sanabi.rsi
@@ -113,7 +113,7 @@
   parent: ClothingNeckBase
   id: ClothingNeckCloakInquisitor
   name: inquisitor cloak
-  description: A bulky cloak decorated with sacred writings and the symbol of the Inquisition.
+  description: Une lourde cape décorée d'écrits sacrés et du symbole de l'Inquisition.
   components:
   - type: Sprite
     sprite: _ShitChap/Clothing/Neck/Misc/inquisitor.rsi

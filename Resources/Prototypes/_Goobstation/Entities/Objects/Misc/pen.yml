@@ -11,7 +11,7 @@
   name: futuristic pen
   parent: PenCentcom
   id: PenFuture
-  description: Some theories claim that the apocalypse of 3024 happened because of the pens
+  description: Certaines théories affirment que l'apocalypse de 3024 s'est produite à cause des stylos.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/bureaucracy.rsi
@@ -24,7 +24,7 @@
   name: devilish pen
   parent: [BaseAdvancedPen, BaseMagicalContraband]
   id: PenDevil
-  description: A devilishly sharp pen with a strangely warm body. Not quite as sharp as a devils tongue, nor as silver coated.
+  description: Un stylo diaboliquement pointu avec un corps étrangement chaud. Pas aussi tranchant qu'une langue de diable, ni aussi enduit d'argent.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/bureaucracy.rsi

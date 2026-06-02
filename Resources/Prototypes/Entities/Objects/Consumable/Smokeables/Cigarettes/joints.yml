@@ -25,7 +25,7 @@
   id: Joint
   parent: BaseCigar
   name: joint
-  description: A roll of dried plant matter wrapped in thin paper.
+  description: Un rouleau de matière végétale séchée enveloppé dans du papier fin.
   components:
   - type: Sprite
     sprite: Objects/Consumable/Smokeables/Cannabis/joint.rsi
@@ -61,7 +61,7 @@
   parent: Joint
   name: joint
   suffix: Rainbow
-  description: A roll of dried plant matter wrapped in thin paper. Seems to be colorful inside.
+  description: Un rouleau de matière végétale séchée enveloppé dans du papier fin. Semble coloré à l'intérieur.
   components:
   - type: Construction
     graph: smokeableJointRainbow
@@ -90,7 +90,7 @@
   id: BluntCigar # Shitmed Change
   parent: BaseCigar
   name: blunt
-  description: A roll of dried plant matter wrapped in a dried tobacco leaf.
+  description: Un rouleau de matière végétale séchée enveloppé dans une feuille de tabac séchée.
   components:
   - type: Sprite
     sprite: Objects/Consumable/Smokeables/Cannabis/blunt.rsi
@@ -126,7 +126,7 @@
   parent: BluntCigar # Shitmed Change
   name: blunt
   suffix: Rainbow
-  description: A roll of dried plant matter wrapped in a dried tobacco leaf. Seems to be colorful inside.
+  description: Un rouleau de matière végétale séchée enveloppé dans une feuille de tabac séchée. Semble coloré à l'intérieur.
   components:
   - type: Construction
     graph: smokeableBluntRainbow

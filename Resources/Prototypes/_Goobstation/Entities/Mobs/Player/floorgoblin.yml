@@ -6,7 +6,7 @@
   name: floor goblin
   id: MobFloorGoblin
   parent: SimpleSpaceMobBase
-  description: Lives under the floor boards, steals shoes, bites ankles.
+  description: Vit sous les planchers, vole les chaussures, mord les chevilles.
   components:
   - type: Sprite
     drawdepth: SmallMobs

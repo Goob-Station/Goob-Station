@@ -3,9 +3,9 @@
     - SimpleSpaceMobBase
     - MobPolymorphable
   id: BaseMobSlaughterDemon
-  name: slaughter demon
+  name: démon massacreur
   suffix: ""
-  description: A large, menacing creature covered in armored black scales. You should run.
+  description: Une grande créature menaçante couverte d'écailles noires blindées. Vous feriez mieux de courir.
   components:
   - type: Sprite
     sprite: _Goobstation/SlaughterDemon/demon.rsi
@@ -193,8 +193,8 @@
 - type: entity
   parent: BaseMobSlaughterDemon
   id: MobLaughterDemon
-  name: laughter demon
-  description: A large, adorable creature covered in armor with pink bows.
+  name: démon rieur
+  description: Une grande et adorable créature couverte d'armure avec des nœuds roses.
   components:
   - type: Sprite
     sprite: _Goobstation/SlaughterDemon/demon.rsi
@@ -239,7 +239,7 @@
 - type: entity
   parent: BaseMobSlaughterDemon
   id: MobLesserSlaughterDemon
-  name: lesser slaughter demon
+  name: démon massacreur moindre
   components:
   - type: MobThresholds
     thresholds:

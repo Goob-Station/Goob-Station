@@ -2,9 +2,9 @@
 - type: entity
   parent: PartBase
   id: MaterialHexNut
-  name: steel hex nut
-  description: A roughly bent nut made of steel.
-  suffix: Full
+  name: écrou hexagonal en acier
+  description: Un écrou grossièrement courbé en acier.
+  suffix: Pleine
   components:
   - type: PhysicalComposition
     materialComposition:
@@ -42,7 +42,7 @@
 - type: entity
   id: MaterialHexNutSingle
   parent: MaterialHexNut
-  suffix: Single
+  suffix: Unique
   components:
   - type: Stack
     count: 1
@@ -51,9 +51,9 @@
 - type: entity
   parent: PartBase
   id: MaterialScrew
-  name: steel screw
-  description: "This screw is really rusty, you wouldn't want to get cut by it..."
-  suffix: Full
+  name: vis en acier
+  description: "Cette vis est vraiment rouillée, vous ne voudriez pas vous couper dessus..."
+  suffix: Pleine
   components:
   - type: PhysicalComposition
     materialComposition:
@@ -91,7 +91,7 @@
 - type: entity
   parent: MaterialScrew
   id: MaterialScrewSingle
-  suffix: Single
+  suffix: Unique
   components:
   - type: Stack
     count: 1

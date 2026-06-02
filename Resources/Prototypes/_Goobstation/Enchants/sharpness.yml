@@ -8,7 +8,7 @@
 - type: entity
   parent: BaseEnchant
   id: EnchantSharpness
-  name: Sharpness
+  name: Tranchant
   components:
   - type: Enchant
     whitelist:

@@ -13,7 +13,7 @@
   id: ClothingHeadHatHoodZeusHood
   categories: [ HideSpawnMenu ]
   name: zeus hood
-  description: Guaranteed to not fly off when leaping from skyscraper to skyscraper.
+  description: Garantie de ne pas s'envoler en sautant de gratte-ciel en gratte-ciel.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hoods/mercer_hood.rsi
@@ -53,7 +53,7 @@
   id: ClothingHeadHatHoodHereticCostume
   categories: [ HideSpawnMenu ]
   name: occult hood
-  description: A torn, dust-caked hood. Smudgy eyes line the inside.
+  description: Une capuche déchirée et couverte de poussière. Des yeux flous tapissent l'intérieur.
   components:
   - type: Sprite
     sprite: _Goobstation/Heretic/Clothing/Head/toy_hood.rsi
@@ -65,7 +65,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatHoodSchemaMonk
   categories: [ HideSpawnMenu ]
-  name: hood of a monastic vestments
+  name: capuche de vêtements monastiques
   description: Comfortable hood of monastic vestment.
   components:
   - type: Sprite

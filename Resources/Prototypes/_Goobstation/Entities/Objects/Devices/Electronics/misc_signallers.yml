@@ -25,8 +25,8 @@
 - type: entity
   parent: MiscSignallerBase
   id: VoiceSignaller
-  name: voice signaller
-  description: A device that transmits a signal when its activation word has been spoken. Comes with an inbuilt recorder.
+  name: signaleur vocal
+  description: Un dispositif qui transmet un signal quand son mot d'activation a été prononcé. Livré avec un enregistreur intégré.
   components:
    - type: Sprite
      sprite: _Goobstation/Objects/Devices/miscsignallers.rsi
@@ -49,8 +49,8 @@
 - type: entity
   parent: MiscSignallerBase
   id: ProximitySignaller
-  name: proximity signaller
-  description: A device that transmits a signal when something is nearby. You may be able not to trigger it if you move slowly enough. Needs to be anchored.
+  name: signaleur de proximité
+  description: Un dispositif qui transmet un signal quand quelque chose est à proximité. Vous pourriez ne pas le déclencher en vous déplaçant lentement. Doit être ancré.
   components:
     - type: Sprite
       sprite: _Goobstation/Objects/Devices/miscsignallers.rsi

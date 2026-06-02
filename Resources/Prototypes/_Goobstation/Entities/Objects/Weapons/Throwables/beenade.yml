@@ -11,7 +11,7 @@
   parent: [GrenadeBase, BaseSyndicateContraband]
   id: BeeGrenade
   name: Beenade
-  description: Not the bees!!!
+  description: Pas les abeilles !!!
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Grenades/beenades.rsi

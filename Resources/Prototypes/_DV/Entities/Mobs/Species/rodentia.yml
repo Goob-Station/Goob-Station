@@ -174,11 +174,11 @@
 
 - type: entity
   save: false
-  name: Rodentia Dummy
+  name: Mannequin Rodentia
   parent: MobHumanDummy
   id: MobRodentiaDummy
   categories: [ HideSpawnMenu ]
-  description: A dummy rodentia meant to be used in character setup.
+  description: Un mannequin rodentia destiné à être utilisé dans la configuration du personnage.
   components:
   - type: HumanoidAppearance
     species: Rodentia

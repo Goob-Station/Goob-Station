@@ -8,7 +8,7 @@
 - type: entity
   parent: BaseMindRoleAntag
   id: MindRoleWizard
-  name: Wizard Role
+  name: Rôle Sorcier
   components:
   - type: MindRole
     antagPrototype: Wizard
@@ -19,7 +19,7 @@
 - type: entity
   parent: BaseMindRoleAntag
   id: MindRoleApprentice
-  name: Apprentice Role
+  name: Rôle Apprenti
   components:
   - type: MindRole
     antagPrototype: Apprentice
@@ -70,7 +70,7 @@
 - type: entity
   id: SpawnPointMarkerWizard
   parent: MarkerBase
-  name: wizard
+  name: sorcier
   components:
   - type: SpawnPoint
   - type: Sprite

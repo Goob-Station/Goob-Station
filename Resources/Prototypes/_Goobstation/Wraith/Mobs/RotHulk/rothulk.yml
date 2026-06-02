@@ -1,9 +1,9 @@
 - type: entity
   id: MobRotHulk
-  suffix: Wraith
+  suffix: Revenant
   parent: [ BaseMob, MobCombat ]
-  name: Bloated abomination
-  description: A rotting, walking mass of flesh.
+  name: abomination boursouflée
+  description: Une masse de chair putréfiée en train de marcher.
   components:
   - type: DeleteOnTrigger
   - type: SpamEmitSound
@@ -105,9 +105,9 @@
 
 - type: entity
   id: MobRotHulkBuff
-  suffix: Wraith
+  suffix: Revenant
   parent: MobRotHulk
-  name: Huge plague-ridden goliath
+  name: Gigantesque goliath rongé par la peste
   components:
   - type: SmokeOnTrigger
     duration: 5

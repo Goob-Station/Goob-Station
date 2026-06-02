@@ -1,0 +1,40 @@
+interaction-HelpUp-name = Aider à se relever
+interaction-HelpUp-description = Aider la personne à se relever.
+interaction-HelpUp-delayed-self-popup = Vous essayez d'aider {THE($target)} à se relever...
+interaction-HelpUp-delayed-target-popup = {THE($user)} essaie de vous aider à vous relever...
+interaction-HelpUp-delayed-others-popup = {THE($user)} essaie d'aider {THE($target)} à se relever...
+interaction-HelpUp-success-self-popup = Vous aidez {THE($target)} à se relever.
+interaction-HelpUp-success-target-popup = {THE($user)} vous aide à vous relever.
+interaction-HelpUp-success-others-popup = {THE($user)} aide {THE($target)} à se relever.
+interaction-HelpUp-fail-self-popup = Vous ne parvenez pas à aider {THE($target)} à se relever.
+interaction-HelpUp-fail-target-popup = {THE($user)} ne parvient pas à vous aider à vous relever.
+
+interaction-ForceDown-name = Forcer à s'allonger
+interaction-ForceDown-description = Forcer la personne à s'allonger par terre.
+interaction-ForceDown-delayed-self-popup = Vous essayez de forcer {THE($target)} à s'allonger...
+interaction-ForceDown-delayed-target-popup = {THE($user)} essaie de vous forcer à vous allonger...
+interaction-ForceDown-delayed-others-popup = {THE($user)} essaie de forcer {THE($target)} à s'allonger...
+interaction-ForceDown-success-self-popup = Vous forcez {THE($target)} à s'allonger.
+interaction-ForceDown-success-target-popup = {THE($user)} vous force à vous allonger.
+interaction-ForceDown-success-others-popup = {THE($user)} force {THE($target)} à s'allonger.
+interaction-ForceDown-fail-self-popup = Vous ne parvenez pas à forcer {THE($target)} à s'allonger.
+interaction-ForceDown-fail-target-popup = {THE($user)} ne parvient pas à vous forcer à vous allonger.
+
+interaction-MakeSleepOther-name = Endormir
+interaction-MakeSleepOther-description = Endormir la cible.
+interaction-MakeSleepOther-delayed-self-popup = Vous essayez d'endormir {THE($target)}...
+interaction-MakeSleepOther-delayed-target-popup = {THE($user)} essaie de vous endormir...
+interaction-MakeSleepOther-delayed-others-popup = {THE($user)} essaie d'endormir {THE($target)}...
+interaction-MakeSleepOther-fail-self-popup = Vous ne parvenez pas à endormir {THE($target)}.
+interaction-MakeSleepOther-fail-target-popup = {THE($user)} ne parvient pas à vous endormir.
+interaction-MakeSleepOther-success-self-popup = Vous endormez {THE($target)}.
+interaction-MakeSleepOther-success-target-popup = {THE($user)} vous endort.
+interaction-MakeSleepOther-success-others-popup = {THE($user)} endort {THE($target)}.
+
+interaction-ShakeOther-name = Secouer
+interaction-ShakeOther-description = Secouer la cible.
+interaction-ShakeOther-fail-self-popup = Vous ne parvenez pas à secouer {THE($target)}.
+interaction-ShakeOther-fail-target-popup = {THE($user)} ne parvient pas à vous secouer.
+interaction-ShakeOther-success-self-popup = Vous saisissez et secouez {THE($target)}.
+interaction-ShakeOther-success-target-popup = {THE($user)} vous saisit et vous secoue.
+interaction-ShakeOther-success-others-popup = {THE($user)} saisit et secoue {THE($target)}.

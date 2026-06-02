@@ -3,7 +3,7 @@
   id: GuidebookCodexUmbra
   suffix: guidebook
   name: Codex Umbra
-  description: An old book tightly wound in dark leather. It details various contracts and their effects.
+  description: Un vieux livre étroitement enroulé dans du cuir sombre. Il détaille divers contrats et leurs effets.
   components:
   - type: Sprite # Change to a unique one
     layers:
@@ -25,7 +25,7 @@
   id: AdvMimeryVol1
   parent: [BaseSyndicateContraband, BaseSpellbook]
   name: Guide to Advanced Mimery Vol 1
-  description: The pages don't make any sound when turned.
+  description: Les pages ne font aucun son quand on les tourne.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/bookmime.rsi

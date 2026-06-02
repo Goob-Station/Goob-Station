@@ -60,7 +60,7 @@
 - type: entity
   id: MagazineShotgunLeverRifleEmpty
   parent: MagazineShotgunLeverRifle
-  suffix: Empty
+  suffix: Vide
   components:
   - type: BallisticAmmoProvider
     proto: null

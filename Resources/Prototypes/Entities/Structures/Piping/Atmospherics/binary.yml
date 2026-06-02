@@ -76,8 +76,8 @@
 - type: entity
   parent: GasBinaryBase
   id: GasPressurePump
-  name: gas pump
-  description: A pump that moves gas by pressure.
+  name: pompe à gaz
+  description: Une pompe qui déplace les gaz par pression.
   placement:
     mode: AlignAtmosPipeLayers
   components:
@@ -146,8 +146,8 @@
 - type: entity
   parent: GasBinaryBase
   id: GasVolumePump
-  name: volumetric gas pump
-  description: A pump that moves gas by volume.
+  name: pompe à gaz volumétrique
+  description: Une pompe qui déplace les gaz par volume.
   placement:
     mode: AlignAtmosPipeLayers
   components:
@@ -225,8 +225,8 @@
 - type: entity
   parent: GasBinaryBase
   id: GasPressureRegulator
-  name: inlet pressure regulator
-  description: A valve that releases gas when the inlet pressure exceeds a certain threshold.
+  name: régulateur de pression d'entrée
+  description: Une soupape qui évacue le gaz lorsque la pression d'entrée dépasse un certain seuil.
   placement:
     mode: AlignAtmosPipeLayers
   components:
@@ -286,8 +286,8 @@
 - type: entity
   parent: GasBinaryBase
   id: GasPassiveGate
-  name: passive gate
-  description: A one-way air valve that does not require power.
+  name: clapet passif
+  description: Un clapet anti-retour qui ne nécessite aucune alimentation électrique.
   placement:
     mode: AlignAtmosPipeLayers
   components:
@@ -334,8 +334,8 @@
 - type: entity
   parent: GasBinaryBase
   id: GasValve
-  name: manual valve
-  description: A pipe with a valve that can be used to disable the flow of gas through it.
+  name: vanne manuelle
+  description: Un tuyau muni d'une vanne permettant de couper l'arrivée de gaz.
   placement:
     mode: AlignAtmosPipeLayers
   components:
@@ -401,8 +401,8 @@
 - type: entity
   parent: GasBinaryBase
   id: SignalControlledValve
-  name: signal valve
-  description: A pipe with a valve that can be controlled with signals.
+  name: vanne signal
+  description: Un tuyau équipé d'une vanne pouvant être commandée par des signaux.
   placement:
     mode: AlignAtmosPipeLayers
   components:
@@ -479,8 +479,8 @@
 - type: entity
   parent: GasBinaryBase
   id: GasPort
-  name: connector port
-  description: For connecting portable devices related to atmospherics control.
+  name: port connecteur
+  description: Pour le raccordement d'appareils portables destinés au contrôle atmosphérique.
   placement:
     mode: SnapgridCenter
   components:
@@ -526,8 +526,8 @@
 - type: entity
   parent: GasVentPump
   id: GasDualPortVentPump
-  name: dual-port air vent
-  description: Has a valve and a pump attached to it. There are two ports, one is an input for releasing air, the other is an output when siphoning.
+  name: ventilation à double orifice
+  description: "Elle est équipée d'une vanne et d'une pompe. Elle comporte deux orifices : l'un sert à expirer les gaz, l'autre à aspirer les gaz lors du siphonnage."
   placement:
     mode: SnapgridCenter
   components:
@@ -592,8 +592,8 @@
 - type: entity
   parent: [ BaseMachine, ConstructibleMachine ]
   id: GasRecycler
-  name: gas recycler
-  description: Recycles carbon dioxide and nitrous oxide. Heater and compressor not included.
+  name: recycleur de gaz
+  description: Recycle le dioxyde de carbone et le protoxyde d'azote. Chauffage et compresseur non inclus.
   placement:
     mode: SnapgridCenter
   components:
@@ -662,8 +662,8 @@
 - type: entity
   parent: GasBinaryBase
   id: HeatExchanger
-  name: radiator
-  description: Transfers heat between the pipe and its surroundings.
+  name: radiateur
+  description: Transfère la chaleur entre le tuyau et son environnement.
   placement:
     mode: SnapgridCenter
   components:

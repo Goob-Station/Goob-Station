@@ -6,9 +6,9 @@
 
 - type: entity
   id: WizardMirror
-  name: magic mirror
-  description: 'Mirror mirror on the wall , who''s the most robust of them all?'
-  suffix: Wizard
+  name: miroir magique
+  description: 'Miroir, miroir sur le mur, qui est le plus robuste de tous ?'
+  suffix: Sorcier
   components:
   - type: WallMount
   - type: Sprite

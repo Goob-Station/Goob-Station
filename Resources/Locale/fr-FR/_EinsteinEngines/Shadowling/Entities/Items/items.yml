@@ -1,0 +1,26 @@
+# Anti Thrall Item
+- type: entity
+  parent: BaseItem
+  id: AntiMindControlDevice
+  name: dispositif anti-contrôle mental
+  description: Un dispositif spécial conçu pour inverser le contrôle mental.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Shadowling/anti_mind_control.rsi
+    state: anti-mind-control
+  - type: Item
+    size: Small
+    sprite: _EinsteinEngines/Shadowling/anti_mind_control.rsi
+  - type: LimitedCharges
+    maxCharges: 5
+  - type: AntiMindControlItem
+  - type: GuideHelp
+    guides: [ Shadowlings ]
+
+- type: entity
+  parent: ArmBladeChangeling
+  id: LightEaterArmBlade
+  name: Dévoreur de Lumière
+  description: Une lame de bras capable de traverser les lumières et de les réduire en cendres en un instant.
+  components:
+  - type: LightEater

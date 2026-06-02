@@ -20,9 +20,9 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: deployable barrier
+  name: barrière déployable
   id: DeployableBarrier
-  description: A deployable barrier. Swipe your ID card to lock/unlock it.
+  description: Une barrière déployable. Passez votre carte d'identité pour la verrouiller/déverrouiller.
   parent: BaseStructure
   components:
   - type: Transform

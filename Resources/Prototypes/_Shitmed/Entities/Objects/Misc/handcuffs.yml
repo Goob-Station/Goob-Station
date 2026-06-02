@@ -8,7 +8,7 @@
 
 - type: entity
   name: wondercuffs
-  description: Made out of a metal more durable than anything Nanotrasen could dream of.
+  description: Fabriqué dans un métal plus durable que tout ce que Nanotrasen pourrait imaginer.
   id: AbductorHandcuffs
   parent: [BaseMajorContraband, Handcuffs]
   components:

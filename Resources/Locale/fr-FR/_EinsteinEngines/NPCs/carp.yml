@@ -1,0 +1,157 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: poisson rouge spatial
+  parent: BaseMobCarp
+  id: MobCarpGoldfish
+  description: Une variété domestiquée de carpe spatiale, beaucoup plus petite mais tout aussi agressive.
+  components:
+    - type: HTN
+      rootTask:
+        task: IdleCompound
+    - type: GhostRole
+      allowMovement: true
+      allowSpeech: true
+      makeSentient: true
+      name: ghost-role-information-space-goldfish-name
+      description: ghost-role-information-space-goldfish-description
+      rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
+      mindRoles:
+      - MindRoleGhostRoleSentientAnimal # Goobstation Sentient Animal PR
+    - type: Tag #Goob edit start
+      tags:
+      - VimPilot
+      - Carp
+      - CannotSuicide #Goob edit end
+    - type: GhostTakeoverAvailable
+    - type: Sprite
+      drawdepth: Mobs
+      sprite: _EinsteinEngines/Mobs/Aliens/Carps/goldfish.rsi # goob edit - move sprites to EE
+      layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+      - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+        state: mouth
+        shader: unshaded
+      - map: [ "neck" ]
+        state: equipped-NECK
+        visible: false
+    - type: DamageStateVisuals
+      states:
+        Alive:
+          Base: alive
+          BaseUnshaded: mouth
+        Critical:
+          Base: critical
+          BaseUnshaded: critical_mouth
+        Dead:
+          Base: dead
+          BaseUnshaded: dead_mouth
+    - type: RandomSprite
+      available:
+      - enum.DamageStateVisualLayers.Base:
+          alive: "Rainbow"
+        enum.DamageStateVisualLayers.BaseUnshaded:
+          mouth: ""
+        neck:
+          equipped-NECK: Rainbow
+    - type: FireVisuals
+      sprite: Mobs/Effects/onfire.rsi
+      normalState: Mouse_burning
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.2
+          density: 1
+          mask:
+          - SmallMobMask # goob edit - flying > small mob layer
+          layer:
+          - SmallMobLayer # goob edit - flying > small mob layer
+    - type: Item
+      size: Tiny
+    - type: CanEscapeInventory
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        30: Critical
+        50: Dead
+    - type: Butcherable
+      spawned:
+        - id: FoodMeatFish
+          amount: 1
+    - type: MeleeWeapon
+      damage:
+        types:
+          Piercing: 2
+    - type: NightVision
+      toggleAction: ToggleNightVision # let ghost roles turn it off
+    - type: Destructible #shitmed
+      thresholds:
+      - trigger:
+          !type:DamageTypeTrigger
+          damageType: Blunt
+          damage: 100
+        behaviors:
+        - !type:GibBehavior
+          gibContents: Skip
+          recursive: false
+    - type: Body #shitmed
+      prototype: Animal # goob edits start
+    - type: MovementSpeedModifier
+      baseSprintSpeed : 5
+    - type: NpcFactionMember
+      factions:
+        - Mouse
+    - type: Food
+    - type: BadFood
+    - type: FlavorProfile
+      flavors:
+      - fishy
+    - type: Thirst
+      startingThirst: 25
+      thresholds:
+        OverHydrated: 35
+        Okay: 25
+        Thirsty: 15
+        Parched: 10
+        Dead: 0
+      baseDecayRate: 0.04
+    - type: Hunger
+      startingHunger: 25
+      thresholds:
+        Overfed: 35
+        Okay: 25
+        Peckish: 15
+        Starving: 10
+        Dead: 0
+      baseDecayRate: 0.04
+    - type: Extractable
+      grindableSolutionName: food
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          reagents:
+          - ReagentId: UncookedAnimalProteins
+            Quantity: 3
+          - ReagentId: CarpoToxin
+            Quantity: 3
+    - type: Clothing
+      quickEquip: false
+      clothingVisuals:
+        neck:
+        - map: [ "neck" ]
+          state: equipped-NECK
+        - state: mouth-equipped-NECK
+          shader: unshaded
+      slots:
+      - NECK
+    - type: AltClothingLayer
+      defaultLayer: neck
+      altLayer: pocket1 # makes it render over helmets
+      changeToAltMessage: alt-clothing-component-mask-default
+      changeToDefaultMessage: alt-clothing-component-mask-alt # goob edits end

@@ -7,8 +7,8 @@
 - type: entity
   parent: BaseAction
   id: ActionThankDriver
-  name: Thank Driver
-  description: Show the driver you enjoy being a passenger
+  name: Remercier le conducteur
+  description: Montrez au conducteur que vous appréciez être passager
   components:
   - type: Action
     itemIconStyle: NoItem
@@ -22,8 +22,8 @@
 - type: entity
   parent: BaseAction
   id: ActionQuietBackThere
-  name: Quiet back there
-  description: Tell the passengers to be quiet
+  name: Du calme là-derrière
+  description: Dites aux passagers de se taire
   components:
   - type: Action
     itemIconStyle: NoItem
@@ -38,7 +38,7 @@
   parent: BaseAction
   id: ActionDrivingWithStyle
   name: JukeBox
-  description: Drive with music
+  description: Conduisez avec de la musique
   components:
   - type: Action
     itemIconStyle: NoItem
@@ -48,4 +48,3 @@
     useDelay: 1
   - type: InstantAction
     event: !type:DrivingWithStyleActionEvent
-

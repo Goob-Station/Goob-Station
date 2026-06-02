@@ -2,7 +2,7 @@
   name: ????
   parent: [ SimpleSpaceMobBase, MobCombat ]
   id: MobHastur
-  description: He who must not be named...
+  description: Celui dont on ne doit pas prononcer le nom...
   components:
     - type: Omnipresence
       cloneDistance: 3.5
@@ -150,8 +150,8 @@
   name: ????
   parent: SimpleSpaceMobBase 
   id: MobHasturClone
-  suffix: DO NOT MAP
-  description: He who must not be named...
+  suffix: NE PAS PLACER
+  description: Celui dont on ne doit pas prononcer le nom...
   components:
     - type: Sprite
       sprite: _Goobstation/Hastur/hastur.rsi

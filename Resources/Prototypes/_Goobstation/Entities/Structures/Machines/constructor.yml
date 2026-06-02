@@ -9,7 +9,7 @@
   parent: StorageBin
   id: Constructor
   name: constructor
-  description: The machine putting assistants out of a job, it can build anything using supplied materials.
+  description: La machine qui met les assistants au chômage, elle peut construire n'importe quoi avec les matériaux fournis.
   components:
   # Appearance
   - type: Sprite

@@ -7,8 +7,8 @@
 - type: entity
   parent: BaseAction
   id: ActionGoliathTentacleCrew
-  name: "[color=red]Tentacle Slam[/color]"
-  description: Use your tentacles to grab and stun a target player!
+  name: "[color=red]Claque de Tentacule[/color]"
+  description: Utilisez vos tentacules pour attraper et étourdir un joueur cible !
   components:
   - type: Action
     useDelay: 80

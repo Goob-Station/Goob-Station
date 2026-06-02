@@ -1,0 +1,198 @@
+# SPDX-FileCopyrightText: 2025 CliveOcelot <165305605+Orion-416@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
+# SPDX-FileCopyrightText: 2025 NotActuallyMarty <martynashagriefer@gmail.com>
+# SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# The Modsuit Itself, This is just a ERT modsuit
+- type: entity
+  parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
+  id: ClothingModsuitResponsorySecurity
+  name: unité de contrôle de combimod Responsory de Sécurité
+  description: "Le contrôleur principal d'une combimod Responsory de Sécurité."
+  components:
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/security-responsory.rsi
+    - type: ToggleableClothing
+      clothingPrototypes:
+        head: ClothingModsuitHelmetResponsorySecurity
+        gloves: ClothingModsuitGauntletsResponsorySecurity
+        outerClothing: ClothingModsuitChestplateResponsorySecurity
+        shoes: ClothingModsuitBootsResponsorySecurity
+    - type: ItemSlots
+      slots:
+        cell_slot:
+          name: power-cell-slot-component-slot-name-default
+          startingItem: PowerCellMicroreactor # Since this is used by ERT they shouldnt need to stop to recharge.
+          whitelist:
+            components:
+              - PowerCell
+    - type: Storage
+      grid:
+        - 0,0,10,3
+    - type: SealableClothingVisuals
+      spriteLayer: sealed
+      clothingVisuals:
+        back:
+        - state: equipped-BACKPACK-sealed
+
+- type: entity
+  parent: ClothingModsuitGauntletsStandard
+  id: ClothingModsuitGauntletsResponsorySecurity
+  name: gantelets de combimod Responsory de Sécurité
+  description: Une paire de gantelets conçus pour la combimod Responsory de Sécurité.
+  categories: [HideSpawnMenu]
+  components:
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/security-responsory.rsi
+    - type: SealableClothingVisuals
+      spriteLayer: sealed
+      clothingVisuals:
+        gloves:
+        - state: equipped-HAND-sealed
+        - state: equipped-HAND-sealed-unshaded
+          shader: unshaded
+        gloves-vox:
+        - state: equipped-HAND-sealed-vox
+        - state: equipped-HAND-sealed-unshaded-vox
+          shader: unshaded          
+    - type: Insulated # Goob Edit (WHY IS IT NOT INSULATED??)
+
+- type: entity
+  parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons]
+  id: ClothingModsuitHelmetResponsorySecurity
+  name: casque de combimod Responsory de Sécurité
+  description: Un casque à la pointe de la technologie conçu par NanoTrasen pour la combimod Responsory de Sécurité. Il inclut un HUD intégré.
+  categories: [HideSpawnMenu]
+  components:
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/security-responsory.rsi
+    - type: PressureProtection
+      highPressureMultiplier: 0.08
+      lowPressureMultiplier: 1000
+    - type: Armor
+      traumaDeductions:
+        Dismemberment: 0.5
+        OrganDamage: 0.5
+        BoneDamage: 0.5
+        VeinsDamage: 0
+        NerveDamage: 0
+      modifiers:
+        coefficients:
+          Blunt: 0.5
+          Slash: 0.5
+          Piercing: 0.5
+          Heat: 0.5
+          Radiation: 0.45
+          Caustic: 0.45
+    - type: FlashImmunity # Goobstation
+    - type: FlashSoundSuppression # Goobstation
+      protectionRange: 0
+    - type: EyeProtection
+    - type: ShowHealthBars
+      damageContainers:
+        - Biological
+        - Inorganic
+        - Silicon
+    - type: PointLight
+      color: "#FFDF00"
+    - type: SealableClothingVisuals
+      spriteLayer: sealed
+      clothingVisuals:
+        head:
+        - state: equipped-HEAD-sealed
+        - state: equipped-HEAD-sealed-unshaded
+          shader: unshaded
+        head-vox:
+        - state: equipped-HEAD-sealed-vox
+        - state: equipped-HEAD-sealed-unshaded-vox
+          shader: unshaded
+- type: entity
+  parent: ClothingModsuitChestplateStandard
+  id: ClothingModsuitChestplateResponsorySecurity
+  name: plastron de combimod Responsory de Sécurité
+  description: "Un plastron à la pointe de la technologie conçu par NanoTrasen pour la combimod Responsory de Sécurité. Il intègre des servos motorisés pour réduire la charge de l'équipement."
+  categories: [HideSpawnMenu]
+  components:
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/security-responsory.rsi
+    - type: ClothingSpeedModifier
+      walkModifier: 0.95
+      sprintModifier: 0.95
+    - type: Armor
+      traumaDeductions:
+        Dismemberment: 0.5
+        OrganDamage: 0.5
+        BoneDamage: 0.5
+        VeinsDamage: 0
+        NerveDamage: 0
+      modifiers:
+        coefficients:
+          Blunt: 0.45
+          Slash: 0.45
+          Piercing: 0.45
+          Heat: 0.45
+          Radiation: 0.45
+          Caustic: 0.45
+    - type: ExplosionResistance
+      damageCoefficient: 0.45
+    - type: SealableClothingVisuals
+      spriteLayer: sealed
+      clothingVisuals:
+        outerClothing:
+        - state: equipped-OUTERCLOTHING-sealed
+        outerClothing-vox:
+        - state: equipped-OUTERCLOTHING-sealed-vox
+    - type: StaminaResistance
+      damageCoefficient: 0.45
+
+
+- type: entity
+  parent: ClothingModsuitBootsStandard
+  id: ClothingModsuitBootsResponsorySecurity
+  name: bottes de combimod Responsory de Sécurité
+  description: Une paire de magbottes à la pointe de la technologie pour la combimod Responsory de Sécurité.
+  categories: [HideSpawnMenu]
+  components:
+    - type: Appearance
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/security-responsory.rsi
+    - type: Tag
+      tags:
+        - WhitelistChameleon
+    - type: SealableClothingVisuals
+      spriteLayer: sealed
+      clothingVisuals:
+        shoes:
+        - state: equipped-FEET-sealed
+        shoes-vox:
+        - state: equipped-FEET-sealed-vox
+        - state: equipped-FEET-sealed-unshaded-vox
+          shader: unshaded
+    - type: ItemToggle
+    - type: ToggleClothing
+      action: ActionToggleMagboots
+    - type: ComponentToggler
+      components:
+      - type: NoSlip
+    - type: Magboots
+      enabledPrefix: null
+    - type: ClothingSpeedModifier
+      walkModifier: 0.95
+      sprintModifier: 0.95
+
+- type: entity
+  id: SuitStorageResponsorySecurity
+  parent: SuitStorageBase
+  suffix: Combimod Responsory de Sécurité
+  components:
+    - type: StorageFill
+      contents:
+        - id: OxygenTankFilled
+        - id: ClothingModsuitResponsorySecurity
+        - id: ClothingMaskBreath

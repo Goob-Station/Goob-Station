@@ -13,10 +13,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: tracker box
+  name: boîte de traceurs
   parent: [BoxCardboard, BaseSecurityContraband]
   id: BoxTracker
-  description: A box containing a couple trackers.
+  description: Une boîte contenant quelques traceurs.
   components:
   - type: StorageFill
     contents:
@@ -27,10 +27,10 @@
     - state: box
 
 - type: entity
-  name: lethal injections box
+  name: boîte d'injections létales
   parent: [BoxCardboard, BaseSecurityContraband]
   id: BoxLethalInjection
-  description: A box containing several lethal injection syringes.
+  description: Une boîte contenant plusieurs seringues d'injection létale.
   components:
   - type: StorageFill
     contents:
@@ -41,10 +41,10 @@
     - state: box
 
 - type: entity
-  name: 40mm baton grenade box
+  name: boîte de grenades matraque 40mm
   parent: [BoxCardboard, BaseSecurityContraband]
   id: BoxGrenadesBaton
-  description: A box containing eight 40mm baton grenades for single target stunning.
+  description: Une boîte contenant huit grenades matraque 40mm pour étourdir des cibles individuelles.
   components:
   - type: StorageFill
     contents:
@@ -58,10 +58,10 @@
       - Grenade
 
 - type: entity
-  name: 40mm flash grenade box
+  name: boîte de grenades flash 40mm
   parent: [BoxCardboard, BaseSecurityContraband]
   id: BoxGrenadesFlash
-  description: A box containing eight 40mm flashbang grenades for mass target stunning.
+  description: Une boîte contenant huit grenades flash 40mm pour étourdir des cibles en masse.
   components:
   - type: StorageFill
     contents:
@@ -75,10 +75,10 @@
       - Grenade
 
 - type: entity
-  name: 40mm tear gas grenade box
+  name: boîte de grenades lacrymogènes 40mm
   parent: [BoxCardboard, BaseSecurityContraband]
   id: BoxGrenadesTeargas
-  description: A box containing eight 40mm tear gas grenades for efficient riot dispersion.
+  description: Une boîte contenant huit grenades lacrymogènes 40mm pour disperser efficacement les émeutes.
   components:
   - type: StorageFill
     contents:

@@ -11,9 +11,9 @@
 - type: entity
   parent: BaseShield
   id: ChangelingShield
-  name: organic shield
-  description: A large, fleshy shield.
-  suffix: Unremoveable
+  name: bouclier organique
+  description: Un grand bouclier charnu.
+  suffix: Inamovible
   components:
     - type: Unremoveable
     - type: Sprite

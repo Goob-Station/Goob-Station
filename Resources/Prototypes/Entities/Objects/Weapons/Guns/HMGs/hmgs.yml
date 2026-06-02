@@ -131,7 +131,7 @@
   name: minigun
   id: WeaponMinigun
   parent: [ BaseWeaponHeavyMachineGun, BaseMajorContraband ]
-  description: Vzzzzzt! Rahrahrahrah! Vrrrrr! Uses .10 rifle ammo.
+  description: Vzzzzzt! Rahrahrahrah! Vrrrrr! Utilise des munitions .10 fusil.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/HMGs/minigun.rsi

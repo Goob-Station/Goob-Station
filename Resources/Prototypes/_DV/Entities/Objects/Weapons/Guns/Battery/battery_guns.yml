@@ -9,7 +9,7 @@
   name: X-01 Multiphase
   parent: [BaseWeaponBatterySmall, BaseGrandTheftContraband]
   id: WeaponEnergyGunMultiphase
-  description: This is an expensive, modern recreation of the antique laser gun. This gun has several unique firemodes, but lacks the ability to recharge over time.
+  description: Il s'agit d'une recréation moderne et coûteuse du pistolet laser antique. Cette arme possède plusieurs modes de tir uniques, mais ne peut pas se recharger avec le temps.
   components:
   - type: Sprite
     sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi

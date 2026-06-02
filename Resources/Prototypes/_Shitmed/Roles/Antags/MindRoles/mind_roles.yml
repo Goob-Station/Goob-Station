@@ -11,7 +11,7 @@
 - type: entity
   parent: BaseMindRoleAntag
   id: MindRoleLoneAbductor
-  name: Lone Abductor Role
+  name: Rôle de Ravisseur Solitaire
   components:
   - type: MindRole
     exclusiveAntag: true
@@ -23,7 +23,7 @@
 - type: entity
   parent: BaseMindRoleAntag
   id: MindRoleAbductorAgent
-  name: Lone Abductor Role
+  name: Rôle de Ravisseur Solitaire
   components:
   - type: MindRole
     exclusiveAntag: true
@@ -35,7 +35,7 @@
 - type: entity
   parent: BaseMindRoleAntag
   id: MindRoleAbductorScientist
-  name: Lone Abductor Role
+  name: Rôle de Ravisseur Solitaire
   components:
   - type: MindRole
     exclusiveAntag: true
@@ -47,7 +47,7 @@
 - type: entity
   parent: BaseMindRoleAntag
   id: MindRoleAbductorVictim
-  name: Abductee Role
+  name: Rôle d'Enlevé
   components:
   - type: MindRole
     roleType: AbductorVictimRole

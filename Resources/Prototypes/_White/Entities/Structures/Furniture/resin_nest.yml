@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseStructure
   id: ResinNest
-  name: resin nest
-  description: Slimy and sticky mass representing a bed?....
+  name: nid de résine
+  description: Une masse visqueuse et collante qui ressemble à un lit ?......
   components:
   - type: Sprite
     sprite: _White/Structures/Furniture/resin_nest.rsi

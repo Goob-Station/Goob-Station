@@ -152,8 +152,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitDeathSquad
-  name: death squad uniform
-  description: Advanced armored jumpsuit used by special forces in special operations.
+  name: uniforme de l'escadron de la mort
+  description: Un uniforme blindé avancé utilisé par les forces spéciales dans des opérations spéciales.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/deathsquad.rsi
@@ -165,8 +165,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase] # Goob
   id: ClothingUniformJumpsuitAncient
-  name: ancient jumpsuit
-  description: A terribly ragged and frayed grey jumpsuit. It looks like it hasn't been washed in over a decade.
+  name: uniforme ancient
+  description: Un uniforme gris terriblement usé et effiloché. On dirait qu'il n'a pas été lavé depuis plus de dix ans.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi # Goob
@@ -179,8 +179,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase] # Goob
   id: ClothingUniformJumpsuitBartender
-  name: bartender's uniform
-  description: A nice and tidy uniform. Shame about the bar though.
+  name: uniforme de barman
+  description: Un uniforme bien soigné. Dommage pour le bar, par contre.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Civilian/bartender.rsi # Goob
@@ -188,8 +188,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitJacketMonkey
-  name: bartender's jacket monkey
-  description: A decent jacket, for a decent monkey.
+  name: veste de barman singe
+  description: Une veste sympa, pour un singe sympa.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/punpun.rsi
@@ -203,8 +203,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitBartenderPurple
-  name: purple bartender's uniform
-  description: A special purple outfit to serve drinks.
+  name: uniforme de barman violet
+  description: Une tenue violette spéciale pour servir des boissons.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/bartender_purple.rsi
@@ -214,8 +214,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase, BaseCommandContraband] # Goob
   id: ClothingUniformJumpsuitCaptain
-  name: captain's jumpsuit
-  description: It's a blue jumpsuit with some gold markings denoting the rank of "Captain".
+  name: uniforme de capitaine
+  description: C'est un uniforme bleu orné de galons dorés indiquant le grade de "capitaine".
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Civilian/captain.rsi # Goob
@@ -225,8 +225,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase] # Goob
   id: ClothingUniformJumpsuitCargo
-  name: cargo tech jumpsuit
-  description: A sturdy jumpsuit, issued to members of the Cargo department.
+  name: uniforme de cargo tech
+  description: Un uniforme robuste, remis aux membres du Cargo.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Cargo/cargotech.rsi # Goob
@@ -242,8 +242,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase] # Goob
   id: ClothingUniformJumpsuitSalvageSpecialist
-  name: salvage specialist's jumpsuit
-  description: It's a snappy jumpsuit with a sturdy set of overalls. It's very dirty.
+  name: uniforme de spécialiste de la récupération
+  description: C'est un uniforme robuste avec une salopette solide. Il est très sale.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Cargo/salvage.rsi # Goob
@@ -253,8 +253,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase, BaseCommandContraband] # Goob
   id: ClothingUniformJumpsuitChiefEngineer
-  name: chief engineer's jumpsuit
-  description: It's a high visibility jumpsuit given to those engineers insane enough to achieve the rank of Chief Engineer.
+  name: uniforme de chef ingénieur
+  description: C'est un uniforme très voyant remis aux ingénieurs assez fous pour avoir atteint le grade d'ingénieur en chef.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Engineering/ce.rsi # Goob
@@ -262,8 +262,8 @@
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitChiefEngineerTurtle
-  name: chief engineer's turtleneck
-  description: A yellow turtleneck designed specifically for work in conditions of the engineering department.
+  name: pull à col roulé de chef ingénieur
+  description: Un pull à col roulé jaune spécialement conçu pour le travail dans les conditions propres au service d'ingénierie.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/ce_turtle.rsi
@@ -273,8 +273,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitChaplain
-  name: chaplain's jumpsuit
-  description: It's a black jumpsuit, often worn by religious folk.
+  name: uniforme du chapelain
+  description: C'est un uniforme noir, souvent porté par les religieux.
   components:
     - type: Sprite
       sprite: Clothing/Uniforms/Jumpsuit/chaplain.rsi
@@ -284,8 +284,8 @@
 - type: entity
   parent: [ ClothingUniformBase, BaseCentcommContraband ]
   id: ClothingUniformJumpsuitCentcomAgent
-  name: CentComm agent's jumpsuit
-  description: A suit worn by CentComm's legal team. Smells of burnt coffee.
+  name: uniforme d'agent CentComm
+  description: Un costume porté par l'équipe juridique de CentComm. Ça sent le café brûlé.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/centcom_agent.rsi
@@ -295,8 +295,8 @@
 - type: entity
   parent: [ ClothingUniformBase, BaseCentcommContraband ]
   id: ClothingUniformJumpsuitCentcomOfficial
-  name: CentComm official's jumpsuit
-  description: It's a jumpsuit worn by CentComm's officials.
+  name: uniforme d'officiel CentComm
+  description: C'est un uniforme porté par les officiels de CentComm.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/centcom_official.rsi
@@ -306,8 +306,8 @@
 - type: entity
   parent: [ ClothingUniformBase, BaseCentcommContraband ]
   id: ClothingUniformJumpsuitCentcomOfficer
-  name: CentComm officer's jumpsuit
-  description: It's a jumpsuit worn by CentComm Officers.
+  name: uniforme d'officier CentComm
+  description: C'est un uniforme porté par les officiers de CentComm.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/centcom_officer.rsi
@@ -317,8 +317,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase] # Goob
   id: ClothingUniformJumpsuitChef
-  name: chef uniform
-  description: Can't cook without this.
+  name: uniforme de chef
+  description: Impossible de cuisiner sans ça.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Civilian/chef.rsi # Goob
@@ -328,8 +328,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase] # Goob
   id: ClothingUniformJumpsuitChemistry
-  name: chemistry jumpsuit
-  description: There's some odd stains on this jumpsuit. Hm.
+  name: uniforme de chimiste
+  description: Il y a des taches bizarres sur cet uniforme. Hum.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Medical/chemistry.rsi # Goob
@@ -337,8 +337,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase] # Goob
   id: ClothingUniformJumpsuitVirology
-  name: virology jumpsuit
-  description: It's made of a special fiber that gives special protection against biohazards. It has a virologist rank stripe on it.
+  name: uniforme de virologue
+  description: Il est fabriqué dans une fibre spéciale qui offre une protection particulière contre les risques biologiques. Il est orné d'une bande indiquant le grade de virologue.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Medical/virology.rsi # Goob
@@ -348,8 +348,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase] # Goob
   id: ClothingUniformJumpsuitGenetics
-  name: genetics jumpsuit
-  description: It's made of a special fiber that gives special protection against biohazards. It has a geneticist rank stripe on it.
+  name: uniforme de généticien
+  description: Il est fabriqué dans une fibre spéciale qui offre une protection particulière contre les risques biologiques. Il est orné d'un galon indiquant le grade de généticien.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Medical/genetics.rsi # Goob
@@ -359,7 +359,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitClown
-  name: clown suit
+  name: costume de clown
   description: HONK!
   components:
   - type: Sprite
@@ -374,7 +374,7 @@
 - type: entity
   parent: ClothingUniformJumpsuitClown
   id: ClothingUniformJumpsuitClownBanana
-  name: banana clown suit
+  name: costume de clown banane
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/clown_banana.rsi
@@ -382,7 +382,7 @@
     sprite: Clothing/Uniforms/Jumpsuit/clown_banana.rsi
   - type: Construction
     graph: BananaClownJumpsuit
-    node: jumpsuit
+    node: uniforme
   - type: Armor
     coverage:
     - Chest
@@ -396,8 +396,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitJester
-  name: jester suit
-  description: A jolly dress, well suited to entertain your master, nuncle.
+  name: costume de bouffon
+  description: Un costume joyeux, parfait pour divertir votre maître. # Enlevé "nuncle", j'ai aucune idée de ce que ça peut vouloir dire.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/jester.rsi
@@ -416,8 +416,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase, BaseCommandContraband] # Goob
   id: ClothingUniformJumpsuitCMO
-  name: chief medical officer's jumpsuit
-  description: It's a jumpsuit worn by those with the experience to be Chief Medical Officer. It provides minor biological protection.
+  name: uniforme de médecin-chef
+  description: C'est un uniforme porté par ceux qui ont l'expérience nécessaire pour occuper le poste de médecin-chef. Il offre une protection biologique minimale.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Medical/cmo.rsi # Goob
@@ -425,8 +425,8 @@
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitCMOTurtle
-  name: chief medical officer's turtleneck jumpsuit
-  description: It's a turtleneck worn by those with the experience to be Chief Medical Officer. It provides minor biological protection.
+  name: pull à col roulé de médecin-chef
+  description: C'est un pull à col roulé porté par ceux qui ont l'expérience nécessaire pour occuper le poste de médecin-chef. Il offre une protection biologique minimale.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/cmo_turtle.rsi
@@ -436,8 +436,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase, BaseSecurityContraband] # Goob
   id: ClothingUniformJumpsuitDetective
-  name: hard-worn suit
-  description: Someone who wears this means business.
+  name: costume aguerri
+  description: Celui qui porte ça ne plaisante pas.
   components:
     - type: Sprite
       sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Security/detective.rsi # Goob
@@ -447,8 +447,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase, BaseSecurityContraband] # Goob
   id: ClothingUniformJumpsuitDetectiveGrey
-  name: noir suit
-  description: A hard-boiled private investigator's grey suit, complete with tie clip.
+  name: costume noir
+  description: Le costume gris d'un détective privé au caractère bien trempé, agrémenté d'une pince à cravate.
   components:
     - type: Sprite
       sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Security/detective_grey.rsi # Goob
@@ -458,8 +458,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase] # Goob
   id: ClothingUniformJumpsuitEngineering
-  name: engineering jumpsuit
-  description: If this suit was non-conductive, maybe engineers would actually do their damn job.
+  name: uniforme d'ingénieur
+  description: Si cette combinaison était isolante, peut-être que les ingénieurs feraient enfin leur boulot.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Engineering/engineering.rsi # Goob
@@ -467,8 +467,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase] # Goob
   id: ClothingUniformJumpsuitEngineeringHazard
-  name: hazard jumpsuit
-  description: Woven in a grungy, warm orange. Lets others around you know that you really mean business when it comes to work.
+  name: uniforme haute visibilité
+  description: Tissé dans un ton orange grunge et chaleureux. Il montre à tout le monde que vous prenez votre travail très au sérieux.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Engineering/engineering_hazard.rsi # Goob
@@ -476,8 +476,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase, BaseCommandContraband] # Goob
   id: ClothingUniformJumpsuitHoP
-  name: head of personnel's jumpsuit
-  description: Rather bland and inoffensive. Perfect for vanishing off the face of the universe.
+  name: uniforme de chef du personnel
+  description: Plutôt fade et inoffensif. Parfait pour disparaître de la surface de l'univers.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Civilian/hop.rsi # Goob
@@ -485,8 +485,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase, BaseCommandContraband] # Goob
   id: ClothingUniformJumpsuitHoS
-  name: head of security's jumpsuit
-  description: It's bright red and rather crisp, much like security's victims tend to be.
+  name: uniforme de chef de la sécurité
+  description: Il est d'un rouge vif et plutôt tendu, un peu comme le sont souvent les victimes de la sécurité.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Security/hos.rsi # Goob
@@ -508,8 +508,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase, BaseCommandContraband] # Goob
   id: ClothingUniformJumpsuitHoSAlt
-  name: head of security's turtleneck
-  description: It's a turtleneck worn by those strong and disciplined enough to achieve the position of Head of Security.
+  name: pull à col roulé de chef de la sécurité
+  description: C'est un pull à col roulé porté par ceux qui ont la force et la discipline nécessaires pour accéder au poste de chef de la sécurité.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Security/hos_alt.rsi # Goob
@@ -519,8 +519,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase, BaseCommandContraband] # Goob
   id: ClothingUniformJumpsuitHoSBlue
-  name: head of security's blue jumpsuit
-  description: A blue jumpsuit of Head of Security.
+  name: uniforme bleu de chef de la sécurité
+  description: Un uniforme bleu de chef de la sécurité.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Security/hos_blue.rsi # Goob
@@ -530,8 +530,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase, BaseCommandContraband] # Goob
   id: ClothingUniformJumpsuitHoSGrey
-  name: head of security's grey jumpsuit
-  description: A grey jumpsuit of Head of Security, which make him look somewhat like a passenger.
+  name: uniforme gris de chef de la sécurité
+  description: Un uniforme gris de chef de la sécurité, qui lui donne un peu l'air d'un passager.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Security/hos_grey.rsi # Goob
@@ -541,8 +541,8 @@
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitHoSParadeMale
-  name: head of security's parade uniform
-  description: A male head of security's luxury-wear, for special occasions.
+  name: uniforme de parade de chef de la sécurité
+  description: Une tenue de luxe de chef de la sécurité, destinée aux occasions spéciales.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/hos_parade.rsi
@@ -552,8 +552,8 @@
 - type: entity
   parent: [ ClothingUniformBase, BaseCommandContraband ]
   id: ClothingUniformJumpsuitCommandGeneric
-  name: command jumpsuit
-  description: A generic Command-colored jumpsuit not associated with any particular department.
+  name: uniforme du commandement
+  description: Un uniforme de la couleur standard du Commandement, non associé à un service particulier.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/commandgeneric.rsi
@@ -563,8 +563,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase] # Goob
   id: ClothingUniformJumpsuitHydroponics
-  name: hydroponics jumpsuit
-  description: Has a strong earthy smell to it. Hopefully it's merely dirty as opposed to soiled.
+  name: uniforme de botaniste
+  description: Ça dégage une forte odeur de terre. Espérons que ce soit simplement de la saleté et pas quelque chose de plus grave...
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Civilian/hydro.rsi # Goob
@@ -572,8 +572,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase]  # Goob
   id: ClothingUniformJumpsuitJanitor
-  name: janitor jumpsuit
-  description: The jumpsuit for the poor sop with a mop.
+  name: uniforme de concierge
+  description: L'uniforme du pauvre bougre à la serpillière.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Civilian/janitor.rsi # Goob
@@ -582,7 +582,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitKimono
   name: kimono
-  description: Traditional chinese clothing.
+  description: Vêtement traditionnel chinois.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Civilian/kimono.rsi # Goob
@@ -592,8 +592,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase] # Goob
   id: ClothingUniformJumpsuitMedicalDoctor
-  name: medical doctor jumpsuit
-  description: It's made of a special fiber that provides minor protection against biohazards. It has a cross on the chest denoting that the wearer is trained medical personnel.
+  name: uniforme de médecin
+  description: Il est fabriqué dans une fibre spéciale qui offre une protection minimale contre les risques biologiques. Une croix sur la poitrine indique que la personne qui le porte est un professionnel de santé qualifié.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Medical/medical.rsi # Goob
@@ -601,7 +601,7 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase] # Goob
   id: ClothingUniformJumpsuitMime
-  name: mime suit
+  name: costume de mime
   description: ...
   components:
   - type: Sprite
@@ -612,8 +612,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase] # Goob
   id: ClothingUniformJumpsuitParamedic
-  name: paramedic jumpsuit
-  description: It's got a plus on it, that's a good thing right?
+  name: uniforme d'urgentiste
+  description: Il y a un plus dessus, c'est bon signe, non ?
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Medical/paramedic.rsi # Goob
@@ -631,8 +631,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitBrigmedic
-  name: brigmedic jumpsuit
-  description: This uniform is issued to qualified personnel who have been trained. No one cares that the training took half a day.
+  name: uniforme de médecin du brig
+  description: Cet uniforme est remis au personnel qualifié ayant suivi une formation. Personne ne se soucie du fait que cette formation n'ait duré qu'une demi-journée.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/brigmedic.rsi
@@ -642,8 +642,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase] # Goob
   id: ClothingUniformJumpsuitPrisoner
-  name: prisoner jumpsuit
-  description: A jumpsuit used for prisoners. It has suit sensors automatically enabled at all times.
+  name: uniforme de prisonnier
+  description: Un uniforme destiné aux prisonniers. Ses capteurs s'activent automatiquement et en permanence.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/prisoner.rsi # Goob
@@ -677,8 +677,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase, BaseCommandContraband] # Goob
   id: ClothingUniformJumpsuitQM
-  name: quartermaster's jumpsuit
-  description: 'What can brown do for you?'
+  name: uniforme de quartier-maître
+  description: "'Y'a pas écrit la poste.'" # Remplacé pub connue d'USPS par slogan connu de La Poste
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Cargo/qm.rsi # Goob
@@ -696,8 +696,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase, BaseCommandContraband] # Goob
   id: ClothingUniformJumpsuitQMTurtleneck
-  name: quartermasters's turtleneck
-  description: A sharp turtleneck made for the hardy work environment of supply.
+  name: pull à col roulé de quartier-maître
+  description: Un pull à col roulé épais, conçu pour les conditions de travail difficiles du cargo.
   components:
     - type: Sprite
       sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Cargo/qmturtle.rsi # Goob
@@ -715,8 +715,8 @@
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitQMFormal
-  name: quartermasters's formal suit
-  description: Inspired by the quartermasters of military's past, the perfect outfit for supplying a formal occasion.
+  name: costume formel de quartier-maître
+  description: Inspirée des uniformes des quartiers-maîtres militaires d'autrefois, cette tenue est idéale pour les occasions formelles.
   components:
     - type: Sprite
       sprite: Clothing/Uniforms/Jumpsuit/qmformal.rsi
@@ -726,8 +726,8 @@
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitResearchDirector
-  name: research director's turtleneck
-  description: It's a turtleneck worn by those with the know-how to achieve the position of Research Director. Its fabric provides minor protection from biological contaminants.
+  name: pull à col roulé de directeur de la recherche
+  description: C'est un pull à col roulé porté par ceux qui possèdent les compétences nécessaires pour occuper le poste de directeur de recherche. Son tissu offre une protection minimale contre les contaminants biologiques.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/RND/rnd.rsi # Goob
@@ -737,8 +737,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase] # Goob
   id: ClothingUniformJumpsuitScientist
-  name: scientist jumpsuit
-  description: It's made of a special fiber that increases perceived intelligence and decreases personal ethics. It has markings that denote the wearer as a scientist.
+  name: uniforme de scientifique
+  description: Il est fabriqué à partir d'une fibre spéciale qui renforce l'impression d'intelligence et affaiblit le sens de l'éthique. Il comporte des motifs qui indiquent que celui qui le porte est un scientifique.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/RND/scientist.rsi
@@ -746,8 +746,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitScientistFormal
-  name: scientist's formal jumpsuit
-  description: A uniform for sophisticated scientists, best worn with its matching tie.
+  name: uniforme formel de scientifique
+  description: Un uniforme pour les scientifiques raffinés, à porter de préférence avec la cravate assortie.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/scientist_formal.rsi
@@ -757,8 +757,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase] # Goob
   id: ClothingUniformJumpsuitRoboticist
-  name: roboticist jumpsuit
-  description: It's a slimming black with reinforced seams; great for industrial work.
+  name: uniforme de roboticien
+  description: C'est d'un noir amincissant avec des coutures renforcées ; idéal pour les travaux industriels.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/RND/roboticist.rsi # Goob
@@ -766,8 +766,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase, BaseSecurityContraband] # Goob
   id: ClothingUniformJumpsuitSec
-  name: security jumpsuit
-  description: A jumpsuit made of strong material, providing robust protection.
+  name: uniforme de sécurité
+  description: Un uniforme fait d'un matériau résistant, offrant une protection solide.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Security/security.rsi # Goob
@@ -789,8 +789,8 @@
 - type: entity
   parent: [ClothingUniformBase, BaseSecurityContraband] # Goob
   id: ClothingUniformJumpsuitSecBlue
-  name: blue shirt and tie
-  description: I'm a little busy right now, Calhoun.
+  name: chemise bleue et cravate
+  description: "I'm a little busy right now, Calhoun." # Réf à Half-Life.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/security_blue.rsi
@@ -800,8 +800,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase, BaseSecurityContraband] # Goob
   id: ClothingUniformJumpsuitSecGrey
-  name: grey security jumpsuit
-  description: A tactical relic of years past before Nanotrasen decided it was cheaper to dye the suits red instead of washing out the blood.
+  name: uniforme gris de sécurité
+  description: Une relique tactique d'une époque révolue, avant que Nanotrasen ne décide qu'il était plus économique de teindre les combinaisons en rouge plutôt que d'en enlever les taches de sang.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Security/security_grey.rsi # Goob
@@ -811,8 +811,8 @@
 - type: entity
   parent: [ClothingUniformBase, BaseSecurityContraband]
   id: ClothingUniformSecurityTrooper
-  name: trooper uniform
-  description: A formal uniform issued to the Nanotrasen Troopers, usually it comes with a car.
+  name: uniforme de soldat
+  description: Un uniforme formel remis aux soldats de Nanotrasen, généralement fourni avec un véhicule.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/security_trooper.rsi
@@ -822,8 +822,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase, BaseSecurityContraband] # Goob
   id: ClothingUniformJumpsuitWarden
-  name: warden's uniform
-  description: A formal security suit for officers complete with Nanotrasen belt buckle.
+  name: uniforme de gardien
+  description: Un costume formel de sécurité pour les agents, avec une boucle de ceinture Nanotrasen.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Security/warden.rsi # Goob
@@ -845,8 +845,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformOveralls
-  name: overalls
-  description: Great for working outdoors.
+  name: salopette
+  description: Idéal pour travailler à l'extérieur.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/overalls.rsi
@@ -856,8 +856,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitLibrarian
-  name: librarian jumpsuit
-  description: A cosy green jumper fit for a curator of books.
+  name: uniforme de bibliothécaire
+  description: Un pull vert douillet, parfait pour un conservateur de bibliothèque.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/librarian.rsi
@@ -867,8 +867,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCurator
-  name: sensible suit
-  description: It's sensible. Too sensible...
+  name: costume raisonnable
+  description: C'est raisonnable. Trop raisonnable...
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/curator.rsi
@@ -878,8 +878,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitLawyerRed
-  name: red lawyer suit
-  description: A flashy red suit worn by lawyers and show-offs.
+  name: costume rouge d'avocat
+  description: Un costume rouge criard porté par les avocats et les frimeurs.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/lawyerred.rsi
@@ -889,8 +889,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitLawyerBlue
-  name: blue lawyer suit
-  description: A flashy blue suit worn by lawyers and show-offs.
+  name: costume bleu d'avocat
+  description: Un costume bleu criard porté par les avocats et les frimeurs.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/lawyerblue.rsi
@@ -900,8 +900,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitLawyerBlack
-  name: black lawyer suit
-  description: A subtle black suit worn by lawyers and gangsters.
+  name: costume noir d'avocat
+  description: Un costume noir sobre porté par les avocats et les gangsters.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/lawyerblack.rsi
@@ -911,8 +911,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitLawyerPurple
-  name: purple lawyer suit
-  description: A stylish purple piece worn by lawyers and show people.
+  name: costume violet d'avocat
+  description: Un costume violet très chic porté par les avocats et les personnalités du show-business.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/lawyerpurple.rsi
@@ -922,8 +922,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitLawyerGood
-  name: good lawyer's suit
-  description: A tacky suit perfect for a CRIMINAL lawyer!
+  name: costume de bon avocat
+  description: Un costume de mauvais goût, parfait pour un avocat CRIMINEL !
   components:
     - type: Sprite
       sprite: Clothing/Uniforms/Jumpsuit/lawyergood.rsi
@@ -933,8 +933,8 @@
 - type: entity
   parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]
   id: ClothingUniformJumpsuitPyjamaSyndicateBlack
-  name: black syndicate pyjamas
-  description: For those long nights in perma.
+  name: pyjama noir du syndicat
+  description: Pour ces longues nuits en prison.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/pyjamasyndicateblack.rsi
@@ -946,8 +946,8 @@
 - type: entity
   parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]
   id: ClothingUniformJumpsuitPyjamaSyndicatePink
-  name: pink syndicate pyjamas
-  description: For those long nights in perma.
+  name: pyjama rose du syndicat
+  description: Pour ces longues nuits en prison.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/pyjamasyndicatepink.rsi
@@ -959,8 +959,8 @@
 - type: entity
   parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]
   id: ClothingUniformJumpsuitPyjamaSyndicateRed
-  name: red syndicate pyjamas
-  description: For those long nights in perma.
+  name: pyjama rouge du syndicat
+  description: Pour ces longues nuits en prison.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/pyjamasyndicatered.rsi
@@ -972,8 +972,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitNanotrasen
-  name: nanotrasen jumpsuit
-  description: A stately blue jumpsuit to represent NanoTrasen.
+  name: uniforme nanotrasen
+  description: Un uniforme bleu majestueux pour représenter NanoTrasen.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/nanotrasen.rsi
@@ -983,8 +983,8 @@
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitCapFormal
-  name: captain's formal suit
-  description: A suit for special occasions.
+  name: costume formel du capitaine
+  description: Un costume pour les grandes occasions.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/capformal.rsi
@@ -994,8 +994,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCentcomFormal
-  name: central command formal suit
-  description: A suit for special occasions.
+  name: costume formel de central command
+  description: Un costume pour les grandes occasions.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/centcomformal.rsi
@@ -1005,8 +1005,8 @@
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
   id: ClothingUniformJumpsuitHosFormal
-  name: hos's formal suit
-  description: A suit for special occasions.
+  name: costume formel du chef de la sécurité
+  description: Un costume pour les grandes occasions.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/hosformal.rsi
@@ -1016,8 +1016,8 @@
 - type: entity
   parent: [UnsensoredClothingUniformBase, ClothingUniformFoldableBase, BaseSyndicateContraband] # Goob
   id: ClothingUniformJumpsuitOperative
-  name: operative jumpsuit
-  description: Uniform for elite syndicate operatives performing tactical operations in deep space.
+  name: uniforme d'agent du syndicat
+  description: uniforme destiné aux agents d'élite du syndicat chargés de mener des opérations tactiques dans l'espace.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Syndicate/operative.rsi # Goob
@@ -1029,8 +1029,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitTacticool
-  name: tacticool jumpsuit
-  description: Uniform for subpar operative LARPers performing tactical insulated glove theft in deep space.
+  name: uniforme tacticool
+  description: uniforme destiné aux adeptes de GN médiocres qui se livrent à des vols tactiques de gants isolants dans l'espace.
   components:
     - type: Sprite
       sprite: Clothing/Uniforms/Jumpsuit/tacticool.rsi
@@ -1044,8 +1044,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitMercenary
-  name: mercenary jumpsuit
-  description: Clothing for real mercenaries who have gone through fire, water and the jungle of planets flooded with dangerous monsters or targets for which a reward has been assigned.
+  name: uniforme de mercenaire
+  description: Des vêtements pour les vrais mercenaires qui ont traversé le feu, l'eau et la jungle de planètes grouillant de monstres dangereux ou de cibles pour lesquelles une récompense a été fixée.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Syndicate/mercenary.rsi # Goob
@@ -1055,8 +1055,8 @@
 - type: entity
   parent: UnsensoredClothingUniformBase
   id: ClothingUniformJumpsuitNinja
-  name: ninja jumpsuit
-  description: Comfortable ninja suit, for convenience when relaxing and when you need to practice.
+  name: uniforme de ninja
+  description: Une tenue de ninja confortable, idéale pour se détendre et pour s'entraîner.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/ninja.rsi
@@ -1066,8 +1066,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase] # Goob
   id: ClothingUniformJumpsuitAtmos
-  name: atmospheric technician jumpsuit
-  description: I am at work. I can't leave work. Work is breathing. I am testing air quality.
+  name: uniforme de technicien en atmosphériques
+  description: Je suis au travail. Je ne peux pas quitter mon travail. Le travail, c'est respirer. Je suis en train de tester la qualité de l'air.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Engineering/atmos.rsi # Goob
@@ -1075,8 +1075,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitAtmosCasual
-  name: atmospheric technician's casual jumpsuit
-  description: Might as well relax with a job as easy as yours.
+  name: uniforme décontracté de technicien atmosphérique
+  description: Vous pouvez vous détendre, vu que votre travail est si facile.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/atmos_casual.rsi
@@ -1084,8 +1084,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase] # Goob
   id: ClothingUniformJumpsuitPsychologist
-  name: psychologist suit
-  description: I don't lose things. I place things in locations which later elude me.
+  name: costume de psychologue
+  description: "I don't lose things. I place things in locations which later elude me." # Réf à Psych (la série), même commentaire qu'en dessous
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Medical/psychologist.rsi # Goob
@@ -1095,8 +1095,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitReporter
-  name: reporter suit
-  description: A good reporter remains a skeptic all their life.
+  name: costume de reporter
+  description: "A good reporter remains a skeptic all their life." # Citation de Jack Smith, pas sûr de comment le traduire, voire de le traduire tout court.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/reporter.rsi
@@ -1106,8 +1106,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSafari
-  name: safari suit
-  description: Perfect for a jungle excursion.
+  name: costume de safari
+  description: Idéal pour une excursion dans la jungle.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/safari.rsi
@@ -1117,8 +1117,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitJournalist
-  name: journalist suit
-  description: If journalism is good, it is controversial, by nature.
+  name: costume de journaliste
+  description: "If journalism is good, it is controversial, by nature." # Citation de Julian Assange, même commentaire qu'au dessus.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/journalist.rsi
@@ -1128,8 +1128,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitMonasticRobeDark
-  name: dark monastic robe
-  description: It's a dark robe, often worn by religious folk.
+  name: robe monastique sombre
+  description: C'est une robe sombre, souvent portée par les religieux.
   components:
     - type: Sprite
       sprite: Clothing/Uniforms/Jumpsuit/monastic_robe_dark.rsi
@@ -1139,8 +1139,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitMonasticRobeLight
-  name: light monastic robe
-  description: It's a light robe, often worn by religious folk.
+  name: robe monastique claire
+  description: C'est une robe claire, souvent portée par les religieux.
   components:
     - type: Sprite
       sprite: Clothing/Uniforms/Jumpsuit/monastic_robe_light.rsi
@@ -1150,8 +1150,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitMusician
-  name: musician's tuxedo
-  description: A fancy tuxedo for the musically inclined.  Perfect for any lounge act!
+  name: costume trois-pièce de mucisien
+  description: Un smoking chic pour les mélomanes. Idéal pour tout spectacle de cabaret !
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/musician.rsi
@@ -1161,8 +1161,8 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingUniformBase ]
   id: ClothingUniformJumpsuitERTChaplain
-  name: ERT chaplain uniform
-  description: A special suit made for Central Command's elite chaplain corps.
+  name: uniforme de chapelain ERT
+  description: Un uniforme spécial conçu pour le corps de chapelains d'élite de CentComm.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/ert_chaplain.rsi
@@ -1172,8 +1172,8 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingUniformBase ]
   id: ClothingUniformJumpsuitERTEngineer
-  name: ERT engineering uniform
-  description: A special suit made for the elite engineers under CentComm.
+  name: uniforme d'ingénieur ERT
+  description: Une combinaison spéciale conçue pour les ingénieurs d'élite de CentComm.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/ert_engineer.rsi
@@ -1183,8 +1183,8 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingUniformBase ]
   id: ClothingUniformJumpsuitERTJanitor
-  name: ERT janitorial uniform
-  description: A special suit made for the elite janitors under CentComm.
+  name: uniforme de concierge ERT
+  description: Une combinaison spéciale conçue pour les concierges d'élite relevant de CentComm.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/ert_janitor.rsi
@@ -1194,8 +1194,8 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingUniformBase ]
   id: ClothingUniformJumpsuitERTLeader
-  name: ERT leader uniform
-  description: A special suit made for the best of the elites under CentComm.
+  name: uniforme de chef ERT
+  description: Une combinaison spéciale conçue pour l'élite de l'élite relevant de CentComm.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/ert_leader.rsi
@@ -1205,8 +1205,8 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingUniformBase ]
   id: ClothingUniformJumpsuitERTMedic
-  name: ERT medical uniform
-  description: A special suit made for the elite medics under CentComm.
+  name: uniforme de médecin ERT
+  description: Une combinaison spéciale conçue pour les médecins d'élite relevant de CentComm.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/ert_medic.rsi
@@ -1216,8 +1216,8 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingUniformBase ]
   id: ClothingUniformJumpsuitERTSecurity
-  name: ERT security uniform
-  description: A special suit made for the elite security under CentComm.
+  name: uniforme de sécurité ERT
+  description: Une combinaison spéciale conçue pour les forces de sécurité d'élite relevant de CentComm.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/ert_security.rsi
@@ -1227,9 +1227,9 @@
 - type: entity
   parent: ClothingUniformJumpsuitClown
   id: ClothingUniformJumpsuitCluwne
-  name: cluwne suit
+  name: costume de cluwne
   suffix: Unremoveable
-  description: Cursed cluwne suit.
+  description: Costume de cluwne maudit.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/cluwne.rsi
@@ -1240,7 +1240,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitDameDane
-  name: yakuza outfit
+  name: costume de yakuza
   description: Baka mitai...
   components:
   - type: Sprite
@@ -1251,8 +1251,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitPirate
-  name: pirate slops
-  description: A pirate variation of a space sailor's jumpsuit.
+  name: fringues de pirate
+  description: Une version pirate de l'uniforme d'un marin de l'espace.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/pirate.rsi
@@ -1264,8 +1264,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCossack
-  name: cossack suit
-  description: The good old pants and brigantine.
+  name: costume de cosaque
+  description: Le bon vieux pantalon et la brigandine.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/cossack.rsi
@@ -1275,8 +1275,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitHawaiBlack
-  name: black hawaiian shirt
-  description: Black as a starry night.
+  name: chemise hawaïenne noire
+  description: Noir comme une nuit étoilée.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/hawaiblack.rsi
@@ -1286,8 +1286,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitHawaiBlue
-  name: blue hawaiian shirt
-  description: Blue as a huge ocean.
+  name: chemise hawaïenne bleue
+  description: Bleu comme un immense océan.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/hawaiblue.rsi
@@ -1297,8 +1297,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitHawaiRed
-  name: red hawaiian shirt
-  description: Red as a juicy watermelons.
+  name: chemise hawaïenne rouge
+  description: Rouge comme une pastèque juteuse.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/hawaired.rsi
@@ -1308,8 +1308,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitHawaiYellow
-  name: yellow hawaiian shirt
-  description: Yellow as a bright sun.
+  name: chemise hawaïenne jaune
+  description: Jaune comme un soleil radieux.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/hawaiyellow.rsi
@@ -1319,8 +1319,8 @@
 - type: entity
   parent: [ClothingUniformBase, BaseSyndicateContraband]
   id: ClothingUniformJumpsuitSyndieFormal
-  name: syndicate formal suit
-  description: "The syndicate's uniform is made in an elegant style, it's even a pity to do dirty tricks in this."
+  name: costume formel du syndicat
+  description: L'uniforme du syndicat est d'une grande élégance, on aurait presque honte de s'en servir pour faire des magouilles.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/syndieformal.rsi
@@ -1330,8 +1330,8 @@
 - type: entity
   parent:  ClothingUniformBase
   id: ClothingUniformJumpsuitFlannel
-  name: flannel jumpsuit
-  description: Smells like someones been grillin'.
+  name: uniforme en flanelle
+  description: On dirait que quelqu'un a fait un barbecue.
   components:
     - type: Sprite
       sprite: Clothing/Uniforms/Jumpsuit/flannel.rsi
@@ -1341,8 +1341,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase] # Goob
   id: ClothingUniformJumpsuitSeniorEngineer
-  name: senior engineer jumpsuit
-  description: A sign of skill and prestige within the engineering department.
+  name: uniforme d'ingénieur senior
+  description: Un gage de compétence et de prestige au sein du service d'ingénierie.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Engineering/senior_engineer.rsi # Goob
@@ -1352,8 +1352,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase] # Goob
   id: ClothingUniformJumpsuitSeniorResearcher
-  name: senior researcher jumpsuit
-  description: A sign of skill and prestige within the science department.
+  name: uniforme de chercheur senior
+  description: Un gage de compétence et de prestige au sein du service de science.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/RND/senior_researcher.rsi # Goob
@@ -1363,8 +1363,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase] # goob
   id: ClothingUniformJumpsuitSeniorPhysician
-  name: senior physician jumpsuit
-  description: A sign of skill and prestige within the medical department.
+  name: uniforme de médecin senior
+  description: AUn gage de compétence et de prestige au sein du service médical.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Medical/senior_physician.rsi # goob
@@ -1374,8 +1374,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase, BaseSecurityContraband] # Goob
   id: ClothingUniformJumpsuitSeniorOfficer
-  name: senior officer jumpsuit
-  description: A sign of skill and prestige within the security department.
+  name: uniforme d'agent de sécurité senior
+  description: Un gage de compétence et de prestige au sein du service de sécurité.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Security/senior_officer.rsi # goob
@@ -1385,8 +1385,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitWeb
-  name: web jumpsuit
-  description: Makes it clear that you are one with the webs.
+  name: uniforme en toile
+  description: Cela montre clairement que vous ne faites qu'un avec les toiles.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/web.rsi
@@ -1411,13 +1411,13 @@
           Quantity: 30
   - type: Construction
     graph: WebObjects
-    node: jumpsuit
+    node: uniforme
 
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitLoungewear
-  name: loungewear
-  description: A long stretch of fabric that wraps around your body for comfort.
+  name: vêtements décontractés
+  description: Une longue bande de tissu qui s'enroule autour de votre corps pour plus de confort.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/loungewear.rsi
@@ -1427,8 +1427,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitGladiator
-  name: gladiator uniform
-  description: Made for true gladiators (or Ash Walkers).
+  name: costume de gladiateur
+  description: Conçu pour les vrais gladiateurs (ou les Ash Walkers).
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/gladiator.rsi
@@ -1438,8 +1438,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCasualBlue
-  name: casual blue jumpsuit
-  description: A loose worn blue shirt with a grey pants, perfect for someone looking to relax.
+  name: uniforme décontracté bleu
+  description: "Une chemise bleue ample et décontractée, associée à un pantalon gris : l'idéal pour ceux qui veulent se détendre."
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/casual.rsi
@@ -1460,7 +1460,7 @@
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/casual.rsi
     clothingVisuals:
-      jumpsuit:
+      uniforme:
       - state: equipped-INNERCLOTHING-jumpsuit
       - state: equipped-INNERCLOTHING-shirt
         color: "#134fc1"
@@ -1468,8 +1468,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCasualPurple
-  name: casual purple jumpsuit
-  description: A loose worn purple shirt with a grey pants, perfect for someone looking to relax.
+  name: uniforme décontracté violet
+  description: "Une chemise violette ample et décontractée, associée à un pantalon gris : l'idéal pour ceux qui veulent se détendre."
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/casual.rsi
@@ -1490,7 +1490,7 @@
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/casual.rsi
     clothingVisuals:
-      jumpsuit:
+      uniforme:
       - state: equipped-INNERCLOTHING-jumpsuit
       - state: equipped-INNERCLOTHING-shirt
         color: "#9c0dff"
@@ -1498,8 +1498,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCasualRed
-  name: casual red jumpsuit
-  description: A loose worn red shirt with a grey pants, perfect for someone looking to relax.
+  name: uniforme décontracté rouge
+  description: "Une chemise rouge ample et décontractée, associée à un pantalon gris : l'idéal pour ceux qui veulent se détendre."
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/casual.rsi
@@ -1520,7 +1520,7 @@
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/casual.rsi
     clothingVisuals:
-      jumpsuit:
+      uniforme:
       - state: equipped-INNERCLOTHING-jumpsuit
       - state: equipped-INNERCLOTHING-shirt
         color: "#b30000"
@@ -1528,8 +1528,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCasualGreen
-  name: casual green jumpsuit
-  description: A loose worn green shirt with a grey pants, perfect for someone looking to relax.
+  name: uniforme décontracté vert
+  description: "Une chemise verte ample et décontractée, associée à un pantalon gris : l'idéal pour ceux qui veulent se détendre."
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/casual.rsi
@@ -1550,7 +1550,7 @@
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/casual.rsi
     clothingVisuals:
-      jumpsuit:
+      uniforme:
       - state: equipped-INNERCLOTHING-jumpsuit
       - state: equipped-INNERCLOTHING-shirt
         color: "#00661D"
@@ -1558,8 +1558,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitFamilyGuy
-  name: familiar garbs
-  description: Makes you remember the time you did something funny.
+  name: tenue familière
+  description: Ça vous rappelle cette fois où vous avez fait quelque chose de drôle.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/familiar_garbs.rsi

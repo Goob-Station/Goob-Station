@@ -46,7 +46,7 @@
   name: debug pow
   suffix: Mech Weapon, DEBUG, Laser
   parent: [ BaseMechWeaponRange, DebugMechEquipment ]
-  description: A weapon using light amplified by the stimulated emission of radiation.
+  description: Une arme utilisant la lumière amplifiée par émission stimulée de rayonnement.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/laser_retro.rsi
@@ -75,7 +75,7 @@
 - type: entity
   id: WeaponMechDebugDisabler
   name: debug tew
-  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
+  description: Une arme de défense personnelle qui épuise les cibles organiques, les affaiblissant jusqu'à l'effondrement.
   suffix: Mech Weapon, DEBUG, Disabler
   parent: [ BaseMechWeaponRange, DebugMechEquipment ]
   components:

@@ -9,7 +9,7 @@
   name: navy officer's sabre
   parent: [ BaseSword, BaseCentcommContraband ]
   id: NavyOfficerSabre
-  description: A ceremonial weapon belonging to a high ranking Central Command official.
+  description: Une arme cérémonielle appartenant à un haut officiel du Commandement Central.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/ccsabre.rsi

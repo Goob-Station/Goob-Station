@@ -8,8 +8,8 @@
 - type: entity
   id: CrateArmoryCombatHardsuit
   parent: [ CrateWeaponSecure, BaseSecurityContraband ]
-  name: Combat hardsuit crate
-  description: Contains an advanced security hardsuit. Requires Armory access to open.
+  name: caisse de hardsuit de combat
+  description: Contient un hardsuit de sécurité avancé. Nécessite l'accès à l'armurerie pour l'ouvrir.
   components:
   - type: StorageFill
     contents:
@@ -19,8 +19,8 @@
 - type: entity
   id: CrateArmoryCombatMedicalHardsuit
   parent: [ CrateWeaponSecure, BaseSecurityContraband ]
-  name: Combat medical hardsuit crate
-  description:  Contains an advanced medical security hardsuit, less defence but much less cumbersome. Requires Armory access to open.
+  name: caisse de hardsuit médical de combat
+  description: Contient un hardsuit médical de sécurité avancé, moins défensif mais bien moins encombrant. Nécessite l'accès à l'armurerie pour l'ouvrir.
   components:
   - type: StorageFill
     contents:
@@ -30,8 +30,8 @@
 - type: entity
   id: CrateArmoryCombatRiotHardsuit
   parent: [ CrateWeaponSecure, BaseSecurityContraband ]
-  name: Riot hardsuit crate
-  description: Contains an advanced riot security hardsuit, very high defence but much also very cumbersome. Requires Armory access to open.
+  name: caisse de hardsuit anti-émeute
+  description: Contient un hardsuit de sécurité anti-émeute avancé, très défensif mais aussi très encombrant. Nécessite l'accès à l'armurerie pour l'ouvrir.
   components:
   - type: StorageFill
     contents:

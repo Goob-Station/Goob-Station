@@ -23,7 +23,7 @@
 - type: entity
   parent: BaseStorageItem
   id: BriefcaseBase
-  description: Useful for carrying items in your hands.
+  description: Pratique pour transporter des objets dans les mains.
   abstract: true
   components:
   - type: Item
@@ -42,7 +42,7 @@
 - type: entity
   parent: BriefcaseBase
   id: BriefcaseBrown
-  name: brown briefcase
+  name: mallette marron
   components:
   - type: Sprite
     sprite: Objects/Storage/Briefcases/briefcase_brown.rsi

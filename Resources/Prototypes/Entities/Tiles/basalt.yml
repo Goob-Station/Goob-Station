@@ -76,7 +76,7 @@
 - type: entity
   id: BasaltOne
   name: basalt
-  description: Rock.
+  description: Roche.
   placement:
     mode: SnapgridCenter
   components:

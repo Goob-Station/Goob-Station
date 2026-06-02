@@ -82,7 +82,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: crowbar
+  name: pied-de-biche
   parent: BaseItem
   id: BaseCrowbar
   abstract: true
@@ -148,7 +148,7 @@
 - type: entity
   parent: BaseCrowbar
   id: Crowbar
-  description: A multipurpose tool to pry open doors and fight interdimensional invaders.
+  description: Un outil polyvalent pour forcer les portes et combattre les envahisseurs interdimensionnels.
   components:
   - type: Sprite
     state: icon
@@ -159,10 +159,10 @@
 
 # Emergency (red) Crowbar
 - type: entity
-  name: emergency crowbar
+  name: pied-de-biche d'urgence
   parent: BaseCrowbar
   id: CrowbarRed
-  description: An emergency crowbar designed to pry open doors and firelocks during power outages.
+  description: Un pied-de-biche d'urgence conçu pour forcer les portes et les coupe-feu lors des coupures de courant.
   components:
   - type: Tag
     tags:
@@ -197,7 +197,7 @@
 - type: entity
   parent: BaseCrowbar
   id: CrowbarGreen
-  description: A multipurpose tool to pry open doors and fight interdimensional invaders, printed from an autolathe.
+  description: Un outil polyvalent pour forcer les portes et combattre les envahisseurs interdimensionnels, imprimé par un autolathe.
   components:
   - type: Sprite
     layers:
@@ -228,7 +228,7 @@
 - type: entity
   parent: BaseCrowbar
   id: CrowbarOrange
-  description: A multipurpose tool to pry open doors and fight interdimensional invaders, found in toolboxes.
+  description: Un outil polyvalent pour forcer les portes et combattre les envahisseurs interdimensionnels, trouvé dans les boîtes à outils.
   components:
   - type: Sprite
     layers:
@@ -259,7 +259,7 @@
 - type: entity
   parent: BaseCrowbar
   id: CrowbarYellow
-  description: A multipurpose tool to pry open doors and fight interdimensional invaders, dispensed from Engineering.
+  description: Un outil polyvalent pour forcer les portes et combattre les envahisseurs interdimensionnels, distribué par le service technique.
   components:
   - type: Sprite
     layers:

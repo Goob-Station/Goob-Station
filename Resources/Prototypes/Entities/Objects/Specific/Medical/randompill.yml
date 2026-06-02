@@ -154,10 +154,10 @@
       - Lead
 
 - type: entity
-  name: strange pill
+  name: pilule étrange
   parent: Pill
   id: StrangePill
-  description: This unusual pill bears no markings. There's no telling what it contains.
+  description: Cette pilule inhabituelle ne porte aucune marque. Impossible de savoir ce qu'elle contient.
   components:
   - type: SolutionContainerManager
     solutions:

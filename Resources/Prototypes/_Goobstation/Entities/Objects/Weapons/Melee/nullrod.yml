@@ -34,7 +34,7 @@
   name: Null Rod
   parent: BaseNullrod
   id: Nullrod
-  description: The old classic. Does nothing special, really.
+  description: Le vieux classique. Ne fait rien de spécial, vraiment.
   components:
   - type: MeleeWeapon
     heavyStaminaCost: 2.5
@@ -131,7 +131,7 @@
 
 - type: entity
   name: rosary
-  description: Using these to pray near someone will heal them. They are surrounded by a holy aura.
+  description: Les utiliser pour prier près de quelqu'un les guérira. Ils sont entourés d'une aura sacrée.
   parent: BaseNullrod
   id: Rosary
   components:
@@ -179,9 +179,9 @@
 - type: entity
   parent: BaseNullrod
   id: GodHand
-  name: Hand of God
-  description: A holy, fiery gift from the gods. You won't drop this one.
-  suffix: Unremoveable
+  name: Main de Dieu
+  description: Un don sacré et ardent des dieux. Vous ne laisserez pas tomber celui-ci.
+  suffix: Inamovible
   components:
   - type: Item
     size: Ginormous
@@ -231,7 +231,7 @@
   parent: BaseNullrod
   id: ArrythmicKnife
   name: arrythmic knife
-  description: They say fear is the true mind killer, but stabbing them in the head works too. Slows you down and speeds you up randomly.
+  description: On dit que la peur est le vrai tueur de l'esprit, mais les poignarder à la tête marche aussi. Vous ralentit et vous accélère aléatoirement.
   components:
   - type: Nullrod
     DamageOnUntrainedUse:
@@ -356,7 +356,7 @@
   name: Bulwark
   parent: BaseNullrod
   id: Bulwark
-  description: An absolutely enormous two handed shield, very difficult to use if not planted in place.
+  description: Un bouclier à deux mains absolument énorme, très difficile à utiliser s'il n'est pas planté en place.
   components:
   - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
     DamageOnUntrainedUse:
@@ -421,7 +421,7 @@
   name: Honkmother's Maw
   parent: BaseNullrod
   id: HonkmotherMaw
-  description: a-HEAD of you lies a path most hilarious.
+  description: De-vant vous s'étend un chemin des plus hilarants.
   components:
   - type: Item
     size: Huge
@@ -462,7 +462,7 @@
   id: UristHand
   name: Grey Emperor's Glove
   description: The tide beckons.
-  suffix: Unremoveable
+  suffix: Inamovible
   components:
   - type: PointLight
     radius: 4
@@ -553,8 +553,8 @@
   name: his holy chainsaw
   parent: BaseNullrod
   id: HolyChainsaw
-  description: And because it's fuckin' FUN! AHAHA! AHAHAHA! AHAH-AAAAAAAA-MEN!
-  suffix: Unremoveable
+  description: Et parce que c'est putain de FUN ! AHAHA ! AHAHAHA ! AHAH-AAAAAAAA-MEN !
+  suffix: Inamovible
   components:
   - type: Wieldable
     wieldSound: !type:SoundPathSpecifier
@@ -687,7 +687,7 @@
       - WeaponPistolCasul
 
 - type: entity
-  name: blessing of the reaper
+  name: bénédiction du faucheur
   parent: [Nullrod, ArmBlade, BaseMajorContraband]
   id: BlessingOfTheReaper
   description: A special undroppable armblade nullrod, it's blessed by the dark gods.
@@ -799,7 +799,7 @@
   name: dragon's tail
   parent: BaseNullrod
   id: DragonsTail
-  description: A dragon's tail impaled on a stick. Still holds that deep fiery power within.
+  description: Une queue de dragon empalée sur un bâton. Recèle toujours ce profond pouvoir ardent.
   components:
   - type: Item
     size: Large
@@ -833,7 +833,7 @@
   id: InquisitorChainSword
   parent: BaseNullrod
   name: chain sword
-  description: The perfect weapon for purging the station of all heresy! Activated through prayer.
+  description: L'arme parfaite pour purger la station de toute hérésie ! Activée par la prière.
   components:
   - type: Nullrod
     DamageOnUntrainedUse:

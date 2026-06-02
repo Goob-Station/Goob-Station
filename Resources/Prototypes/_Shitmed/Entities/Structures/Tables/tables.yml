@@ -8,8 +8,8 @@
 - type: entity
   id: TableAbductor
   parent: TableBase
-  name: alien table
-  description: Literally the sturdiest thing you have ever seen. # Peak. No changes needed.
+  name: table extraterrestre
+  description: "Littéralement la chose la plus solide que vous ayez jamais vue." # Parfait. Aucune modification nécessaire.
   components:
   - type: Sprite
     sprite: _Shitmed/Structures/Tables/abductor_table.rsi

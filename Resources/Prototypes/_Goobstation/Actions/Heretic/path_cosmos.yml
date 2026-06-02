@@ -1,7 +1,7 @@
 - type: entity
   id: ActionHereticCosmicRune
-  name: Cosmic Rune
-  description: Creates a cosmic rune at your position, only two can exist at a time. Invoking one rune transports you to the other. Anyone with a star mark gets transported along with you.
+  name: Rune Cosmique
+  description: Crée une rune cosmique à votre position ; deux peuvent exister simultanément. Invoquer une rune vous transporte vers l'autre. Toute personne portant une marque d'étoile est transportée avec vous.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -23,8 +23,8 @@
 
 - type: entity
   id: ActionHereticStarTouch
-  name: Star Touch
-  description: Can be used to apply a star mark to a target. If your victim is already star marked, tethers you to your target with a cosmic ray. If the tether remains unbroken for 8 seconds, they will be put to sleep and teleported to you. Star Touch can also remove Cosmic Runes, or teleport you to your Star Gazer when used in hand.
+  name: Toucher des Étoiles
+  description: Peut être utilisé pour apposer une marque d'étoile sur une cible. Si votre victime est déjà marquée, vous lie à elle par un rayon cosmique. Si le lien reste intact pendant 8 secondes, elle s'endort et est téléportée vers vous. Le Toucher des Étoiles peut également supprimer des Runes Cosmiques, ou vous téléporter vers votre Contemplatrice d'Étoiles lorsqu'utilisé en main.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -40,8 +40,8 @@
 
 - type: entity
   id: ActionHereticStarBlast
-  name: Star Blast
-  description: This spell fires an unstoppable disk with cosmic energies at a target, spreading the star mark. When recasted, you will be teleported to the disk, and cosmic fields will generate from the disk and from the caster, pulling nearby heathens into it.
+  name: Éclat Stellaire
+  description: Ce sort tire un disque irrépressible chargé d'énergies cosmiques sur une cible, propageant la marque d'étoile. Lors du second lancement, vous êtes téléporté vers le disque, et des champs cosmiques se génèrent depuis le disque et depuis le lanceur, attirant les mécréants proches.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -66,8 +66,8 @@
 
 - type: entity
   id: ActionHereticCosmicExpansion
-  name: Cosmic Expansion
-  description: This spell generates a 5x5 domain of cosmic fields. Creatures up to 7 tiles away will also receive a star mark.
+  name: Expansion Cosmique
+  description: Ce sort génère un domaine cosmique de 5x5 cases. Les créatures jusqu'à 7 cases reçoivent également une marque d'étoile.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -88,8 +88,8 @@
 
 - type: entity
   id: ActionStarGaze
-  name: Star Gaze
-  description: Generates a massive death beam that eradicates everything in it's path. Has it's own gravitational pull, sucking in new victims.
+  name: Contemplation des Étoiles
+  description: Génère un immense rayon de la mort qui éradique tout sur son passage. Possède sa propre attraction gravitationnelle, aspirant de nouvelles victimes.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -107,8 +107,8 @@
 
 - type: entity
   id: ActionResetStarGazerConsciousness
-  name: Reset Star Gazer Consciousness
-  description: Replaces the mind of your summon with that of a different ghost.
+  name: Réinitialiser la Conscience de la Contemplatrice
+  description: Remplace l'esprit de votre invocation par celui d'un fantôme différent.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -125,8 +125,8 @@
 
 - type: entity
   id: ActionStarGazerSeekMaster
-  name: Seek Master
-  description: Teleports you to your master.
+  name: Rejoindre le Maître
+  description: Vous téléporte auprès de votre maître.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

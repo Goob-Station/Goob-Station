@@ -2,7 +2,7 @@
   id: DiseaseBehaviorCancer
   parent: DiseaseBehaviorBase
   name: Cancer
-  description: Deals genetic damage over time.
+  description: Inflige des dégâts génétiques dans le temps.
   components:
   - type: DiseaseEffect
     complexity: 40
@@ -18,7 +18,7 @@
   id: DiseaseBehaviorPoison
   parent: DiseaseBehaviorBase
   name: Poison
-  description: Deals poison damage over time.
+  description: Inflige des dégâts de poison dans le temps.
   components:
   - type: DiseaseEffect
     complexity: 20
@@ -33,8 +33,8 @@
 - type: entity
   id: DiseaseBehaviorBlunt
   parent: DiseaseBehaviorBase
-  name: Tissue degradation
-  description: Deals blunt damage over time.
+  name: Dégradation tissulaire
+  description: Inflige des dégâts contondants dans le temps.
   components:
   - type: DiseaseEffect
     complexity: 15
@@ -50,8 +50,8 @@
 - type: entity
   id: DiseaseBehaviorGunemia
   parent: DiseaseBehaviorBase
-  name: Gunemia
-  description: Makes you cough bullets. Mechanism unknown.
+  name: Gunémie
+  description: Vous fait tousser des balles. Mécanisme inconnu.
   components:
   - type: DiseaseEffect
     complexity: 30

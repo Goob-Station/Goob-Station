@@ -10,8 +10,8 @@
 - type: entity
   parent: BaseMachineCircuitboard
   id: RoboticArmCircuitboard
-  name: robotic arm machine board
-  description: A machine printed circuit board for a robotic arm.
+  name: carte machine de bras robotique
+  description: Un circuit imprimé de machine pour un bras robotique.
   components:
   - type: Sprite
     state: engineering
@@ -29,8 +29,8 @@
 - type: entity
   parent: BaseMachineCircuitboard
   id: ConstructorCircuitboard
-  name: constructor machine board
-  description: A machine printed circuit board for a constructor.
+  name: carte machine de constructeur
+  description: Un circuit imprimé de machine pour un constructeur.
   components:
   - type: Sprite
     state: engineering
@@ -48,8 +48,8 @@
 - type: entity
   parent: BaseMachineCircuitboard
   id: StorageBinCircuitboard
-  name: storage bin machine board
-  description: A machine printed circuit board for a storage bin.
+  name: carte machine de bac de stockage
+  description: Un circuit imprimé de machine pour un bac de stockage.
   components:
   - type: MachineBoard
     prototype: StorageBin
@@ -60,8 +60,8 @@
 - type: entity
   parent: BaseMachineCircuitboard
   id: InteractorCircuitboard
-  name: interactor machine board
-  description: A machine printed circuit board for an interactor.
+  name: carte machine d'interagisseur
+  description: Un circuit imprimé de machine pour un interagisseur.
   components:
   - type: Sprite
     state: engineering
@@ -79,8 +79,8 @@
 - type: entity
   parent: BaseMachineCircuitboard
   id: VinylPlayerCircuitboard
-  name: vinyl player machine board
-  description: A machine printed circuit board for a vinyl player.
+  name: carte machine de lecteur de vinyle
+  description: Un circuit imprimé de machine pour un lecteur de vinyle.
   components:
   - type: Sprite
     state: service
@@ -94,8 +94,8 @@
 - type: entity
   parent: BaseMachineCircuitboard
   id: TapeDeckCircuitboard
-  name: tape deck machine board
-  description: A machine printed circuit board for a tape deck.
+  name: carte machine de lecteur de cassettes
+  description: Un circuit imprimé de machine pour un lecteur de cassettes.
   components:
   - type: Sprite
     state: service
@@ -109,8 +109,8 @@
 - type: entity
   parent: BaseMachineCircuitboard
   id: StationRadioServerCircuitboard
-  name: station radio server machine board
-  description: A machine printed circuit board for a station radio server.
+  name: carte machine de serveur radio de station
+  description: Un circuit imprimé de machine pour un serveur radio de station.
   components:
   - type: Sprite
     state: service
@@ -126,8 +126,8 @@
 - type: entity
   parent: BaseMachineCircuitboard
   id: StationRadioRigCircuitboard
-  name: station radio rig machine board
-  description: A machine printed circuit board for a station radio rig.
+  name: carte machine d'équipement radio de station
+  description: Un circuit imprimé de machine pour un équipement radio de station.
   components:
   - type: Sprite
     state: service
@@ -142,8 +142,8 @@
 - type: entity
   parent: BaseMachineCircuitboard
   id: StationRadioCircuitboard
-  name: station radio machine board
-  description: A machine printed circuit board for a station radio receiver.
+  name: carte machine de radio de station
+  description: Un circuit imprimé de machine pour un récepteur radio de station.
   components:
   - type: Sprite
     state: service
@@ -156,8 +156,8 @@
 - type: entity
   id: VirologyServerMachineCircuitboard
   parent: BaseMachineCircuitboard
-  name: virology server machine board
-  description: A machine printed circuit board for a virology server.
+  name: carte machine de serveur de virologie
+  description: Un circuit imprimé de machine pour un serveur de virologie.
   components:
     - type: MachineBoard
       prototype: VirologyServer

@@ -4,8 +4,8 @@
   - MobCombat
   - FlyingMobBase
   id: MobStarGazer
-  name: star gazer
-  description: A creature that has been tasked to watch over the stars.
+  name: contemplateur d'étoiles
+  description: Une créature chargée de veiller sur les étoiles.
   components:
   - type: Sprite
     sprite: _Goobstation/Heretic/star_gazer.rsi

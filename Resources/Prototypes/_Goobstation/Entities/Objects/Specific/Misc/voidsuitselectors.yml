@@ -7,8 +7,8 @@
 # paramedic
 - type: entity
   id: UndeterminedVoidsuitParamedic
-  name: paramedic hardsuit selector
-  description: A small remote utilizing bluespace technology to drop in a hardsuit or modsuit of your choosing.
+  name: sélecteur de combinaison rigide de paramédic
+  description: Une petite télécommande utilisant la technologie bluespace pour vous livrer une combinaison de votre choix.
   parent: [ BaseItem, BaseSetSelector, BaseMedicalContraband ]
   components:
   - type: Sprite
@@ -22,8 +22,8 @@
 # security
 - type: entity
   id: UndeterminedVoidsuitSecurity
-  name: security hardsuit selector
-  description: A small remote utilizing bluespace technology to drop in a hardsuit or modsuit of your choosing.
+  name: sélecteur de combinaison rigide de sécurité
+  description: Une petite télécommande utilisant la technologie bluespace pour vous livrer une combinaison de votre choix.
   parent: [ BaseItem, BaseSetSelector, BaseSecurityContraband ]
   components:
   - type: Sprite
@@ -37,8 +37,8 @@
 # head of security
 - type: entity
   id: UndeterminedVoidsuitHeadOfSecurity
-  name: head of security hardsuit selector
-  description: A small remote utilizing bluespace technology to drop in a hardsuit or modsuit of your choosing.
+  name: sélecteur de combinaison rigide du chef de la sécurité
+  description: Une petite télécommande utilisant la technologie bluespace pour vous livrer une combinaison de votre choix.
   parent: [ BaseItem, BaseSetSelector, BaseSecurityContraband ]
   components:
   - type: Sprite
@@ -52,8 +52,8 @@
 # engineer
 - type: entity
   id: UndeterminedVoidsuitEngineer
-  name: engineer hardsuit selector
-  description: A small remote utilizing bluespace technology to drop in a hardsuit or modsuit of your choosing.
+  name: sélecteur de combinaison rigide d'ingénieur
+  description: Une petite télécommande utilisant la technologie bluespace pour vous livrer une combinaison de votre choix.
   parent: [ BaseItem, BaseSetSelector, BaseEngineeringContraband ]
   components:
   - type: Sprite
@@ -67,8 +67,8 @@
 # Cappy Suit
 - type: entity
   id: UndeterminedVoidsuitCaptain
-  name: captain hardsuit selector
-  description: A small remote utilizing bluespace technology to drop in a hardsuit or modsuit of your choosing.
+  name: sélecteur de combinaison rigide du capitaine
+  description: Une petite télécommande utilisant la technologie bluespace pour vous livrer une combinaison de votre choix.
   parent: [ BaseItem, BaseSetSelector, BaseCommandContraband ]
   components:
   - type: Sprite
@@ -82,8 +82,8 @@
 #Research Director RD suits
 - type: entity
   id: UndeterminedVoidsuitRD
-  name: research director hardsuit selector
-  description: A small remote utilizing bluespace technology to drop in a hardsuit or modsuit of your choosing.
+  name: sélecteur de combinaison rigide du directeur de recherche
+  description: Une petite télécommande utilisant la technologie bluespace pour vous livrer une combinaison de votre choix.
   parent: [ BaseItem, BaseSetSelector, BaseCommandContraband ]
   components:
   - type: Sprite

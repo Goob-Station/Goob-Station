@@ -41,8 +41,8 @@
   abstract: true
   parent: BaseItem
   id: SheetGlassBase
-  name: glass
-  description: A sheet of glass, used often on the station in various applications.
+  name: verre
+  description: Une plaque de verre, souvent utilisée dans la station pour diverses applications.
   components:
   - type: Sprite
     sprite: Objects/Materials/Sheets/glass.rsi
@@ -168,8 +168,8 @@
 - type: entity
   parent: SheetGlassBase
   id: SheetRGlass
-  name: reinforced glass
-  description: A reinforced sheet of glass.
+  name: verre renforcé
+  description: Une plaque de verre renforcé.
   suffix: Full
   components:
   - type: PhysicalComposition
@@ -223,7 +223,7 @@
 - type: entity
   parent: SheetRGlass
   id: SheetRGlass1
-  name: reinforced glass
+  name: verre renforcé
   suffix: Single
   components:
   - type: Sprite
@@ -257,8 +257,8 @@
 - type: entity
   parent: SheetGlassBase
   id: SheetPGlass
-  name: plasma glass
-  description: A sheet of translucent plasma.
+  name: verre au plasma
+  description: Une plaque de plasma translucide.
   suffix: Full
   components:
   - type: PhysicalComposition
@@ -309,7 +309,7 @@
 - type: entity
   parent: SheetPGlass
   id: SheetPGlass1
-  name: plasma glass
+  name: verre au plasma
   suffix: Single
   components:
   - type: Sprite
@@ -332,8 +332,8 @@
 - type: entity
   parent: SheetPGlass
   id: SheetRPGlass
-  name: reinforced plasma glass
-  description: A reinforced sheet of translucent plasma.
+  name: verre au plasma renforcé
+  description: Une plaque de plasma translucide renforcée.
   suffix: Full
   components:
   - type: PhysicalComposition
@@ -375,7 +375,7 @@
 - type: entity
   parent: SheetRPGlass
   id: SheetRPGlass1
-  name: reinforced plasma glass
+  name: verre au plasma renforcé
   suffix: Single
   components:
   - type: Sprite
@@ -396,8 +396,8 @@
 - type: entity
   parent: SheetGlassBase
   id: SheetUGlass
-  name: uranium glass
-  description: A sheet of uranium glass.
+  name: verre à l'uranium
+  description: Une plaque de verre à l'uranium.
   suffix: Full
   components:
   - type: PhysicalComposition
@@ -459,7 +459,7 @@
 - type: entity
   parent: SheetUGlass
   id: SheetUGlass1
-  name: uranium glass
+  name: verre à l'uranium
   suffix: Single
   components:
   - type: Sprite
@@ -471,8 +471,8 @@
 - type: entity
   parent: SheetUGlass
   id: SheetRUGlass
-  name: reinforced uranium glass
-  description: A reinforced sheet of uranium.
+  name: verre à l'uranium renforcé
+  description: Une plaque d'uranium renforcée.
   components:
   - type: PhysicalComposition
     materialComposition:
@@ -513,7 +513,7 @@
 - type: entity
   parent: SheetRUGlass
   id: SheetRUGlass1
-  name: reinforced uranium glass
+  name: verre à l'uranium renforcé
   suffix: Single
   components:
   - type: Sprite
@@ -525,8 +525,8 @@
 - type: entity
   parent: SheetGlassBase
   id: SheetClockworkGlass
-  name: clockwork glass
-  description: A sheet of brass-hardened glass, primarily used by clockwork enthusiasts and remnants of Ratvarian cults.
+  name: verre mécanique
+  description: Une plaque de verre durci au laiton, principalement utilisée par les passionnés d'horlogerie et les vestiges des cultes ratvariens.
   suffix: Full
   components:
   - type: PhysicalComposition
@@ -590,7 +590,7 @@
 - type: entity
   parent: SheetClockworkGlass
   id: SheetClockworkGlass1
-  name: clockwork glass
+  name: verre mécanique
   suffix: Single
   components:
   - type: Sprite

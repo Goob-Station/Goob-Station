@@ -13,8 +13,8 @@
 - type: entity
   parent: BaseAction
   id: ActionRevertPolymorph
-  name: Revert
-  description: Revert back into your original form.
+  name: Redevenir soi-même
+  description: Reprendre sa forme originale.
   components:
   - type: ConfirmableAction
     popup: revert-polymorph-action-popup
@@ -36,8 +36,8 @@
 - type: entity
   parent: BaseActionPolymorph
   id: ActionPolymorphWizardSpider
-  name: Spider Polymorph
-  description: Polymorphs you into a Spider.
+  name: Polymorphie araignée
+  description: Vous transforme en araignée.
   components:
   - type: Action
     icon:
@@ -50,8 +50,8 @@
 - type: entity
   parent: BaseActionPolymorph
   id: ActionPolymorphWizardRod
-  name: Rod Form
-  description: Take on the form of an immovable rod, destroying everything in your path.
+  name: Forme tige
+  description: Prendre la forme d'une tige inamovible, détruisant tout sur votre passage.
   components:
   - type: Action
     useDelay: 25 # Goob edit
@@ -78,8 +78,8 @@
 - type: entity
   parent: BaseActionPolymorph
   id: ActionPolymorphJaunt
-  name: Ethereal Jaunt
-  description: Melt into the Ethereal Plane for a quick getaway!
+  name: Escapade éthérée
+  description: Fondre dans le Plan Éthéré pour une fuite rapide !
   components:
   - type: Magic
     requiresClothes: true # Goobstation
@@ -104,8 +104,8 @@
 - type: entity
   parent: ActionPolymorphJaunt
   id: ActionPolymorphJauntII
-  name: Ethereal Jaunt II
-  description: Melt into the Ethereal Plane for an even quicker getaway!
+  name: Escapade éthérée II
+  description: Fondre dans le Plan Éthéré pour une fuite encore plus rapide !
   components:
   - type: Action
     useDelay: 22
@@ -113,8 +113,8 @@
 - type: entity
   parent: ActionPolymorphJaunt
   id: ActionPolymorphJauntIII
-  name: Ethereal Jaunt III
-  description: Are you even tangible anymore?
+  name: Escapade éthérée III
+  description: Êtes-vous seulement encore tangible ?
   components:
   - type: Action
     useDelay: 14

@@ -22,8 +22,8 @@
 - type: entity
   parent: [ ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseCommandContraband ]
   id: ClothingBeltMilitaryWebbingCMO
-  name: chief medical officer's chest rig
-  description: A medical chest rig with deep pockets, for use by health professionals.
+  name: harnais du chief medical officer
+  description: Un harnais médical doté de poches profondes, destiné aux professionnels de santé.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Belt/cmowebbing.rsi
@@ -66,9 +66,9 @@
 - type: entity
   parent: [ ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseCentcommContraband ]
   id: ClothingBeltDeathsquadWebbing
-  suffix: DO NOT MAP
-  name: deathsquad operative chestrig
-  description: A robust and durable chestrig, containing everything you need to keep you in the fight. You probably won't need to use it.
+  suffix: NE PAS PLACER
+  name: harnais d'agent de l'escadron de la mort
+  description: Un harnais robuste et durable, contenant tout ce dont vous avez besoin pour rester dans la course. Vous n'aurez probablement pas besoin de vous en servir.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Belt/deathsquadwebbing.rsi
@@ -81,8 +81,8 @@
 - type: entity
   parent: [ ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseCentcommContraband ]
   id: ClothingBeltSecurityWebbingMedical
-  name: ert doctor's chest rig
-  description: "A medical chest rig with deep pockets, for use by ERT operatives."
+  name: harnais du docteur ert
+  description: Un harnais médical doté de poches profondes, destiné aux agents ERT.
   components:
   - type: Sprite
     sprite: Clothing/Belt/securitywebbing.rsi
@@ -98,8 +98,8 @@
 - type: entity
   parent: ClothingBeltSecurity
   id: ClothingBeltCorporateJudo
-  name: Corporate Judo Belt
-  description: Teaches the wearer NT Corporate Judo.
+  name: Ceinture de Judo Corporate
+  description: Enseigne au porteur le Judo Corporate NT.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Belt/judobelt.rsi
@@ -143,8 +143,8 @@
 - type: entity
   parent: [ ChemBag, BaseSyndicateContraband ]
   id: ClothingBeltChemBagSyndi
-  name: syndicate medical pouch
-  description: A robust pouch for medical supplies worn by Gorlex Marauder operatives. It smells of desoxyephedrine.
+  name: sac médical du Syndicat
+  description: Un sac robuste de matériel médical porté par les opérateurs des Maraudeurs Gorlex. Il sent la désoxiéphédrine.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Belt/evil_chem_bag.rsi
@@ -178,8 +178,8 @@
 - type: entity
   parent: ClothingBeltSheath
   id: ClothingBeltSheathHeadOfSecurity
-  name: head of security's sheath
-  description: A rugged sheath, designed to hold the Head of Security's custom energy sword.
+  name: fourreau du chef de la sécurité
+  description: Un fourreau robuste, conçu pour accueillir le sabre énergétique sur mesure du chef de la sécurité.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Belt/hossheath.rsi
@@ -210,8 +210,8 @@
 - type: entity
   parent: [ ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseSyndicateContraband ]
   id: ClothingBeltMilitaryRigGrenadier # Rig instead of webbing to distinguish it from the upstream counterpart
-  name: grenadier belt
-  description: A specialised belt rig to hold so many grenades that your arm gets tired from throwing them all. Can also store a sidearm and magazines for it.
+  name: harnais de grenadier
+  description: Un harnais spécial conçu pour contenir tellement de grenades que vous en aurez mal au bras à force de toutes les lancer. Il permet également de ranger une arme de poing et ses chargeurs.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Belt/grenaderig.rsi
@@ -248,8 +248,8 @@
 - type: entity
   parent: ChemBag
   id: ClothingBeltChemBagXenobiology
-  name: xenobiology pouch
-  description: A slime-resistant pouch intended for use by Xenobiologists. Smells of.. plasma?
+  name: sac de xénobiologie
+  description: Un sac résistant aux slimes et destinée aux xénobiologistes. Sent... le plasma ?
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Belt/xenobag.rsi
@@ -269,8 +269,8 @@
 - type: entity
   parent: ClothingBeltChemBagXenobiology
   id: ClothingBeltChemBagXenobiologyHolding
-  name: xenobiology pouch of holding
-  description: A larger slime-resistant pouch intended for use by Xenobiologists. Smells of bluespace extract and monkey hair.
+  name: sac de xénobiologie bluspace
+  description: Un sac plus grand, résistant aux slimes et destiné aux xénobiologistes. Sent l'extrait de bluespace et de poil de singe.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Belt/xenobag_holding.rsi
@@ -283,8 +283,8 @@
 - type: entity
   parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseCentcommContraband]
   id: ClothingBeltMilitaryWebbingBSOFilled
-  name: blueshield chest rig
-  description: A set of tactical webbing worn by Central Command support units.
+  name: harnais blueshield
+  description: Un ensemble de sangles tactiques porté par les unités de soutien du Commandement Central.
   components:
   - type: Sprite
     sprite: Clothing/Belt/militarywebbing.rsi
@@ -310,15 +310,15 @@
 - type: entity
   parent: ClothingBeltUtilityFilled
   id: ClothingBeltUtilityFilledUnremoveable
-  suffix: Unremoveable
+  suffix: Inamovible
   components:
   - type: Unremoveable
 
 - type: entity
   parent: [ ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseSyndicateContraband ]
   id: ClothingBeltSecurityWebbingContractor
-  name: contractor's chest rig
-  description: "A chest rig with deep pockets and explosion resistance, often used by contractors and bounty hunters."
+  name: harnais du contractor
+  description: "Un harnais doté de poches profondes et résistant aux explosions, souvent utilisé par les contractor et les chasseurs de primes."
   components:
   - type: Sprite
     sprite: Clothing/Belt/securitywebbing.rsi
@@ -343,8 +343,8 @@
 - type: entity
   parent: ClothingBeltSecurityWebbingContractor
   id: ClothingBeltSecurityWebbingContractorFilled
-  name: contractor's chest rig
-  description: "A chest rig with deep pockets, often used by contractors and bounty hunters."
+  name: harnais du contractor
+  description: "Un harnais doté de poches profondes, souvent utilisé par les entrepreneurs et les chasseurs de primes."
   components:
   - type: StorageFill
     contents:
@@ -369,8 +369,8 @@
   parent: [ClothingBeltBase]
   id: ClothingBeltWhipping
   suffix: Admeme
-  name: whipping belt
-  description: Where there's a whip, there's a way
+  name: ceinture fouet
+  description: Là où il y a un fouet, il y a une voie.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Belt/whippingbelt.rsi

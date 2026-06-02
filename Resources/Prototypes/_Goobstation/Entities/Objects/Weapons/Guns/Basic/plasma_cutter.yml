@@ -11,7 +11,7 @@
   name: plasma cutter
   parent: BaseWeaponBatterySmall
   id: WeaponPlasmaCutter
-  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
+  description: Une arme de défense personnelle qui épuise les cibles organiques, les affaiblissant jusqu'à l'effondrement.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/cutter.rsi
@@ -42,7 +42,7 @@
 - type: entity
   parent: WeaponPlasmaCutter
   id: WeaponPlasmaCutterEmpty
-  suffix: Empty
+  suffix: Vide
   components:
   - type: Battery
     maxCharge: 1500

@@ -6,8 +6,8 @@
 
 - type: entity
   id: CosmicGlyphBase
-  name: base glyph
-  description: A strange, otherworldly marking.
+  name: glyphe de base
+  description: Un marquage étrange et surnaturel.
   abstract: true
   placement:
     mode: SnapgridCenter
@@ -38,7 +38,7 @@
 - type: entity
   parent: CosmicGlyphBase
   id: CosmicGlyphTruth
-  name: Glyph of Truth
+  name: Glyphe de Vérité
   components:
   - type: Sprite
     sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
@@ -58,7 +58,7 @@
 - type: entity
   parent: CosmicGlyphBase
   id: CosmicGlyphKnowledge
-  name: Glyph of Knowledge
+  name: Glyphe de Connaissance
   components:
   - type: Sprite
     sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
@@ -77,7 +77,7 @@
 - type: entity
   parent: CosmicGlyphBase
   id: CosmicGlyphCessation
-  name: Glyph of Cessation
+  name: Glyphe de Cessation
   components:
   - type: Sprite
     layers:
@@ -101,7 +101,7 @@
 - type: entity
   parent: CosmicGlyphBase
   id: CosmicGlyphBlades
-  name: Glyph of Blades
+  name: Glyphe des Lames
   components:
   - type: Sprite
     sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
@@ -127,7 +127,7 @@
 - type: entity
   parent: CosmicGlyphBase
   id: CosmicGlyphWarding
-  name: Glyph of Warding
+  name: Glyphe de Protection
   components:
   - type: Sprite
     sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
@@ -153,7 +153,7 @@
 - type: entity
   parent: CosmicGlyphBase
   id: CosmicGlyphProjection
-  name: Glyph of Projection
+  name: Glyphe de Projection
   components:
   - type: Sprite
     sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi

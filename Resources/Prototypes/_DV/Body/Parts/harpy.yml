@@ -37,7 +37,7 @@
 - type: entity
   parent: [ PartHarpyBase, BaseChest ]
   id: ChestHarpy
-  name: "harpy chest"
+  name: "poitrine de harpie"
   components:
   - type: Sprite
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
@@ -49,7 +49,7 @@
 - type: entity
   parent: [ PartHarpyBase, BaseGroin ]
   id: GroinHarpy
-  name: "harpy groin"
+  name: "aine de harpie"
   components:
   - type: Sprite
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
@@ -61,7 +61,7 @@
 - type: entity
   parent: [ PartHarpyBase, BaseHead ]
   id: HeadHarpy
-  name: "harpy head"
+  name: "tête de harpie"
   components:
   - type: Woundable # Goobstation
     boneEntity: BoneNeckWeak
@@ -69,12 +69,12 @@
 - type: entity
   parent: [ PartHarpyBase, BaseLeftArm ]
   id: LeftArmHarpy
-  name: "left harpy arm"
+  name: "bras gauche de harpie"
 
 - type: entity
   parent: [ PartHarpyBase, BaseRightArm ]
   id: RightArmHarpy
-  name: "right harpy arm"
+  name: "bras droit de harpie"
   components:
   - type: BodyPart
     onAdd: # Shitmed Change
@@ -89,17 +89,17 @@
 - type: entity
   parent: [ PartHarpyBase, BaseLeftHand ]
   id: LeftHandHarpy
-  name: "left harpy hand"
+  name: "main gauche de harpie"
 
 - type: entity
   parent: [ PartHarpyBase, BaseRightHand ]
   id: RightHandHarpy
-  name: "right harpy hand"
+  name: "main droite de harpie"
 
 - type: entity
   parent: [ PartHarpyBase, BaseLeftLeg ]
   id: LeftLegHarpy
-  name: "left harpy leg"
+  name: "jambe gauche de harpie"
   components:
   - type: MovementBodyPart # Goobstation
     sprintSpeed: 5
@@ -107,7 +107,7 @@
 - type: entity
   parent: [ PartHarpyBase, BaseRightLeg ]
   id: RightLegHarpy
-  name: "right harpy leg"
+  name: "jambe droite de harpie"
   components:
   - type: MovementBodyPart # Goobstation
     sprintSpeed: 5
@@ -115,9 +115,9 @@
 - type: entity
   parent: [ PartHarpyBase, BaseLeftFoot ]
   id: LeftFootHarpy
-  name: "left harpy foot"
+  name: "pied gauche de harpie"
 
 - type: entity
   parent: [ PartHarpyBase, BaseRightFoot ]
   id: RightFootHarpy
-  name: "right harpy foot"
+  name: "pied droit de harpie"

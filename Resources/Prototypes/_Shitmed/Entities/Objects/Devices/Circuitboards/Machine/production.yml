@@ -8,8 +8,8 @@
 - type: entity
   parent: BaseMachineCircuitboard
   id: AutodocCircuitboard
-  name: autodoc machine board
-  description: A machine printed circuit board for an autodoc.
+  name: carte de machine autodoc
+  description: Une carte de circuit imprimé pour autodoc.
   components:
   - type: MachineBoard
     prototype: Autodoc
@@ -33,8 +33,8 @@
 - type: entity
   parent: BaseMachineCircuitboard
   id: OperatingTableCircuitboard
-  name: operating table machine board
-  description: A machine printed circuit board for an operating table.
+  name: carte de machine de table d'opération
+  description: Une carte de circuit imprimé pour table d'opération.
   components:
   - type: MachineBoard
     prototype: OperatingTable

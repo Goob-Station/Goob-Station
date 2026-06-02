@@ -53,7 +53,7 @@
   abstract: true
   parent: BaseItem
   id: ShardBase
-  description: It's a shard of some unknown material.
+  description: C'est un éclat d'un matériau inconnu.
   components:
   - type: Sharp
   - type: Execution
@@ -147,8 +147,8 @@
 - type: entity
   parent: ShardBase
   id: ShardGlass
-  name: glass shard
-  description: A small piece of glass.
+  name: éclat de verre
+  description: Un petit morceau de verre.
   components:
   - type: Sprite
     color: "#bbeeff"
@@ -181,8 +181,8 @@
 - type: entity
   parent: ShardBase
   id: ShardGlassReinforced
-  name: reinforced glass shard
-  description: A small piece of reinforced glass.
+  name: éclat de verre renforcé
+  description: Un petit morceau de verre renforcé.
   components:
   - type: Sprite
     color: "#96cdef"
@@ -221,8 +221,8 @@
 - type: entity
   parent: ShardBase
   id: ShardGlassPlasma
-  name: plasma glass shard
-  description: A small piece of plasma glass.
+  name: éclat de verre au plasma
+  description: Un petit morceau de verre au plasma.
   components:
   - type: Sprite
     color: "#FF72E7"
@@ -263,8 +263,8 @@
 - type: entity
   parent: ShardBase
   id: ShardGlassUranium
-  name: uranium glass shard
-  description: A small piece of uranium glass.
+  name: éclat de verre à l'uranium
+  description: Un petit morceau de verre à l'uranium.
   components:
   - type: Sprite
     color: "#8eff7a"
@@ -307,8 +307,8 @@
 - type: entity
   parent: ShardBase
   id: ShardGlassClockwork
-  name: clockwork glass shard
-  description: A small piece of brass-infused glass.
+  name: éclat de verre mécanique
+  description: Un petit morceau de verre infusé au laiton.
   components:
   - type: Sprite
     color: "#e0aa36"

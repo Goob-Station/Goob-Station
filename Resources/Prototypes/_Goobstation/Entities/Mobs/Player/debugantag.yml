@@ -6,7 +6,7 @@
   parent: MobHuman
   id: MobHumanWizardDebug
   name: Wizard
-  suffix: DEBUG
+  suffix: DÉBOGAGE
   components:
   - type: Loadout
     prototypes: [ WizardGear ]
@@ -22,7 +22,7 @@
   parent: MobHumanWizardDebug
   id: MobHumanWizardDebugSuit
   name: Wizard Suit
-  suffix: DEBUG
+  suffix: DÉBOGAGE
   components:
   - type: Loadout
     prototypes: [ WizardHardsuitGearDebug ]
@@ -32,7 +32,7 @@
   parent: MobHuman
   id: MobHumanChangelingArmor
   name: Urist McChangeling
-  suffix: DEBUG
+  suffix: DÉBOGAGE
   components:
   - type: Loadout
     prototypes: [ ChangelingArmor ]
@@ -51,7 +51,7 @@
   parent: MobHuman
   id: MobHumanNinjaArmor
   name: Urist Ninja
-  suffix: DEBUG
+  suffix: DÉBOGAGE
   components:
   - type: Loadout
     prototypes: [ SpaceNinjaGear ]
@@ -70,7 +70,7 @@
   parent: MobHuman
   id: MobHumanHereticArmor
   name: Urist Heretic
-  suffix: DEBUG
+  suffix: DÉBOGAGE
   components:
   - type: Loadout
     prototypes: [ HereticArmor ]
@@ -86,7 +86,7 @@
   parent: MobHuman
   id: MobHumanCaptainHardsuit
   name: Urist McCaptain
-  suffix: DEBUG
+  suffix: DÉBOGAGE
   components:
   - type: Loadout
     prototypes: [ CaptainHardsuit ]
@@ -102,7 +102,7 @@
   parent: [ MobHuman, MobHumanCaptainHardsuit ]
   id: MobHumanCaptainModsuit
   name: Urist McCaptain Mogsuit
-  suffix: DEBUG
+  suffix: DÉBOGAGE
   components:
   - type: Loadout
     prototypes: [ CaptainModsuit ]
@@ -113,7 +113,7 @@
   parent: [ MobHuman, MobHumanCaptainHardsuit ]
   id: MobHumanCaptainDebug
   name: Urist McCaptain
-  suffix: DEBUG
+  suffix: DÉBOGAGE
   components:
   - type: Loadout
     prototypes: [ VisitorCaptain ]

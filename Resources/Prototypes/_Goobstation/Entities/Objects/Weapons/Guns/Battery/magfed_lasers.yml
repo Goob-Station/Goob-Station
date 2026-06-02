@@ -8,7 +8,7 @@
   name: ER-5 Torrent
   parent: [ BaseWeaponCustomCell, BaseSecurityContraband ]
   id: WeaponLaserCellSMG
-  description: A specialized laser SMG, designed to put down suppressive fire through cover and be reloaded on the fly. Takes SMG power cells.
+  description: Une mitraillette laser spécialisée, conçue pour tirer un feu suppressif à travers les abris et être rechargée à la volée. Accepte des cellules de puissance pour SMG.
   components:
   - type: Item
     size: Large
@@ -133,7 +133,7 @@
   name: EG-1 Taro
   parent: [ BaseWeaponCustomCellSmall, BaseSecurityContraband ]
   id: WeaponLaserCellRevolver
-  description: Originally designed as a sidearm for NanoTrasen security teams, the Taro is an obscure break action laser revolver platform. It was quickly scrapped due to an annoying firerate cap included to prevent overheating. Takes revolver power cells.
+  description: Conçu à l'origine comme arme de poing pour les équipes de sécurité NanoTrasen, le Taro est une obscure plateforme de revolver laser à action cassée. Il a été rapidement mis au rebut en raison d'un plafond de cadence de tir agaçant. Accepte des cellules de puissance pour revolver.
   components:
   - type: Item
     size: Small
@@ -207,7 +207,7 @@
   name: EL-20 HAMRR
   parent: [BaseItem, BaseSecurityContraband]
   id: WeaponLaserLMG
-  description: An unwieldy laser LMG that draws power from its dedicated backpack storage rig. The compromises taken to allow for its overwhelming firerate and onboard cooling system make it both heavy and inaccurate.
+  description: Une LMG laser peu maniable qui puise son énergie dans son sac à dos de stockage dédié. Les compromis pour permettre sa cadence de tir écrasante et son système de refroidissement embarqué la rendent à la fois lourde et imprécise.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/energy_lmg_icon_48x.rsi

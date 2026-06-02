@@ -17,8 +17,8 @@
 
 - type: entity
   id: BlueshieldUndeterminedWeapon
-  name: blueshield sets pack
-  description: A small box utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
+  name: pack d'équipements bouclier bleu
+  description: Une petite boîte utilisant la technologie bluespace pour déposer un équipement directement sur vous. Choisissez judicieusement.
   parent: [ BaseItem, BaseSetSelector, BaseCentcommContraband ]
   components:
   - type: Sprite
@@ -36,8 +36,8 @@
 
 - type: entity
   id: BlueshieldUndeterminedHardsuit
-  name: blueshield hardsuit pack
-  description: A small box utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
+  name: pack de combinaison hardue bouclier bleu
+  description: Une petite boîte utilisant la technologie bluespace pour déposer un équipement directement sur vous. Choisissez judicieusement.
   parent: [ BaseItem, BaseSetSelector, BaseCentcommContraband ]
   components:
   - type: Sprite
@@ -53,7 +53,7 @@
 
 - type: entity
   id: ERTSecurityUndeterminedWeapon
-  name: emergency response weaponry pack
+  name: pack d'armement de réponse d'urgence
   description: A small remote utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
   parent: [ BaseItem, BaseSetSelector, BaseCentcommContraband ]
   components:

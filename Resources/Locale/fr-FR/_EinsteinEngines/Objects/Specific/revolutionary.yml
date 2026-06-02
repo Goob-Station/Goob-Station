@@ -1,0 +1,29 @@
+- type: entity
+  name: manifeste révolutionnaire
+  parent: BaseItem
+  id: RevolutionaryManifesto
+  description: Un manifeste écrit par un leader révolutionnaire autoproclamé. Très critique envers NanoTrasen.
+  components:
+    - type: Sprite
+      sprite: Objects/Misc/books.rsi
+      layers:
+      - state: paper
+      - state: cover_base
+        color: "#ee0000"
+      - state: icon_manifesto
+      - state: detail_bookmark
+        color: "#aaaa24"
+    - type: RevolutionaryConverter
+      conversionDuration: 2
+    - type: Tag
+      tags:
+        - Book
+    - type: UseDelay
+      delay: 2
+    - type: Appearance
+    - type: GuideHelp
+      guides:
+      - Revolutionaries
+    - type: Construction
+      graph: RevolutionaryManifesto
+      node: revolutionaryManifesto

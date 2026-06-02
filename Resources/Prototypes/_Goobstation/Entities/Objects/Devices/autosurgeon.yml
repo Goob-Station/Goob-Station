@@ -6,7 +6,7 @@
 - type: entity
   parent: BaseStructure
   id: BaseAutosurgeon
-  description: A single-use autosurgeon for replacing or upgrading your parts with cybernetic implants. Rip that station apart and make it a part of you.
+  description: Un auto-chirurgien à usage unique pour remplacer ou améliorer vos parties avec des implants cybernétiques. Déchirez cette station et faites-en une partie de vous.
   abstract: true
   components:
   - type: Sprite
@@ -42,7 +42,7 @@
 - type: entity
   parent: BaseAutosurgeon
   id: BaseAutosurgeonSingle
-  description: A single-use autosurgeon for replacing or upgrading your parts with cybernetic implants. Rip that station apart and make it a part of you.
+  description: Un auto-chirurgien à usage unique pour remplacer ou améliorer vos parties avec des implants cybernétiques. Déchirez cette station et faites-en une partie de vous.
   abstract: true
   components:
   - type: AutoSurgeon
@@ -50,7 +50,7 @@
 - type: entity
   parent: BaseAutosurgeon
   id: BaseAutosurgeonMultiple
-  description: A single-use autosurgeon for replacing or upgrading your parts with cybernetic implants. Rip that station apart and make it a part of you.
+  description: Un auto-chirurgien à usage unique pour remplacer ou améliorer vos parties avec des implants cybernétiques. Déchirez cette station et faites-en une partie de vous.
   abstract: true
   components:
   - type: AutoSurgeonMultiple
@@ -126,16 +126,6 @@
     targetBodyPart: Chest
     targetOrgan: Skibidi
     newPartProto: OrganHeartSandevistan
-
-- type: entity
-  parent: BaseAutosurgeonSyndicateSingle
-  id: AutosurgeonStatvekaSandevistan
-  name: syndicate autosurgeon (statveka sandevistan)
-  components:
-  - type: AutoSurgeon
-    targetBodyPart: Chest
-    targetOrgan: Skibidi
-    newPartProto: OrganHeartStatvekaSandevistan
 
 - type: entity
   parent: BaseAutosurgeonSyndicateMultiple

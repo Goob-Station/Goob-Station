@@ -1,8 +1,12 @@
+# SPDX-FileCopyrightText: 2026 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: MobStatusEffectDebuff
   id: StatusEffectSlowdown
   abstract: true
-  name: slowdown
+  name: ralentissement
   components:
   - type: StatusEffect
     whitelist:
@@ -16,22 +20,22 @@
 - type: entity
   parent: StatusEffectSlowdown
   id: VomitingSlowdownStatusEffect
-  name: vomiting slowdown
+  name: vomissement ralenti
 
 - type: entity
   parent: StatusEffectSlowdown
   id: TaserSlowdownStatusEffect
-  name: shot by taser slowdown
+  name: tiré dessus par un taser ralenti
 
 - type: entity
   parent: StatusEffectSlowdown
   id: FlashSlowdownStatusEffect
-  name: affected by flash slowdown
+  name: affecté par un flash ralenti
 
 - type: entity
   parent: StatusEffectSlowdown
   id: StatusEffectStaminaLow
-  name: stamina low
+  name: endurance basse
 
 # Makes you more slippery, or perhaps less slippery.
 - type: entity
@@ -46,7 +50,7 @@
 - type: entity
   parent: MobStatusEffectDebuff
   id: StatusEffectStunned
-  name: stunned
+  name: étourdi
   components:
   - type: StatusEffect
     whitelist:

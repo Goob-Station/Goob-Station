@@ -25,7 +25,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: trash bag
+  name: sac poubelle
   id: TrashBag
   parent: BaseStorageItem
   components:
@@ -69,7 +69,7 @@
       Plastic: 25
 
 - type: entity
-  name: trash bag
+  name: sac poubelle
   id: TrashBagBlue
   parent: TrashBag
   components:
@@ -83,7 +83,7 @@
     fillBaseName: blue-icon
 
 - type: entity
-  name: spell of all-consuming cleanliness
+  name: sort de propreté absolue
   id: BagOfSummoningGarbage
   parent: TrashBagBlue
   components:
@@ -98,8 +98,8 @@
 - type: entity
   parent: TrashBag
   id: BorgTrashBag
-  name: internal trash bag
-  description: An upgraded trash bag with a larger internal volume, installed directly into a custodial cyborg.
+  name: sac poubelle interne
+  description: Un sac poubelle amélioré avec un volume interne plus grand, installé directement dans un cyborg de maintenance.
   components:
   - type: Storage
     maxItemSize: Huge

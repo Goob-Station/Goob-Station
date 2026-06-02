@@ -157,11 +157,11 @@
 
 - type: entity
   save: false
-  name: Vulpkanin Dummy
+  name: Mannequin Vulpkanin
   parent: MobHumanDummy
   id: MobVulpkaninDummy
   categories: [ HideSpawnMenu ]
-  description: A dummy vulpkanin meant to be used in character setup.
+  description: Un mannequin vulpkanin destiné à être utilisé dans la configuration du personnage.
   components:
   - type: HumanoidAppearance
     species: Vulpkanin

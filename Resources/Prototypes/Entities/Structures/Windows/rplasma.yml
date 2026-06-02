@@ -37,7 +37,7 @@
 
 - type: entity
   id: ReinforcedPlasmaWindow
-  name: reinforced plasma window
+  name: vitre plasma renforcée
   parent: WindowRCDResistant
   components:
   - type: Sprite
@@ -96,8 +96,8 @@
 - type: entity
   id: PlasmaReinforcedWindowDirectional
   parent: WindowDirectionalRCDResistant
-  name: directional reinforced plasma window
-  description: Don't smudge up the glass down there.
+  name: vitre plasma directionnelle renforcée
+  description: Ne salissez pas la vitre là-dessous.
   placement:
     mode: SnapgridCenter
     snap:

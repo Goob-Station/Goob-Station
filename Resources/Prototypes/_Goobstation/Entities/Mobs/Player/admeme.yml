@@ -59,7 +59,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerNavyOfficer
-  name: Navy Officer
+  name: Officier de la Marine
   suffix: CentComm
   components:
   - type: Sprite
@@ -99,8 +99,8 @@
 
 - type: entity
   id: RandomHumanoidSpawnerNavyCaptain
-  name: Navy Captain
-  suffix: ADMIN ONLY, DO FUCKING NOT
+  name: Capitaine de la Marine
+  suffix: ADMIN SEULEMENT, NE PAS FOUTRE
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Centcom/navy_gold.rsi
@@ -139,7 +139,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerNavyOfficerUndercover
-  name: Undercover Navy Officer
+  name: Officier de la Marine Infiltré
   suffix: CentComm
   components:
   - type: Sprite
@@ -179,7 +179,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerSpecialOperationsOfficers
-  name: Special Operations Officer
+  name: Officier des Opérations Spéciales
   suffix: CentComm
   components:
   - type: Sprite
@@ -219,7 +219,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerDiplomat
-  name: Diplomat
+  name: Diplomate
   suffix: CentComm
   components:
   - type: Sprite
@@ -259,7 +259,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerInspector
-  name: Inspector
+  name: Inspecteur
   suffix: CentComm
   components:
   - type: Sprite
@@ -301,7 +301,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerChronolegioneer
-  name: chrono legionnaire
+  name: légionnaire chronologique
   components:
   - type: Sprite
     sprite: Mobs/Species/Human/parts.rsi
@@ -327,7 +327,7 @@
 
 - type: entity
   id: RandomHumanoidHECUSpawner
-  name: HECU Operative
+  name: Opératif HECU
   suffix: ERTRole
   components:
   - type: Sprite
@@ -365,7 +365,7 @@
 
 - type: entity
   id: TheGmanSpawer
-  name: The G-Man
+  name: Le G-Man
   suffix: Admeme
   components:
   - type: Sprite
@@ -417,7 +417,7 @@
 
 - type: entity
   id: ConquestSpawner
-  name: Conquest
+  name: Conquête
   suffix: Admeme
   components:
   - type: Sprite

@@ -8,9 +8,9 @@
 - type: entity
   id: AirlockSealed
   parent: Airlock
-  name: sealed airlock
-  description: It opens, it closes, and maybe crushes you. Now it stops little creatures too!
-  suffix: DO NOT MAP
+  name: sas scellé
+  description: Il s'ouvre, il se ferme, et peut-être vous écrase. Maintenant il arrête aussi les petites créatures !
+  suffix: NE PAS PLACER
   components:
   - type: AnimationPlayer
   - type: Fixtures
@@ -41,9 +41,9 @@
 - type: entity
   id: AirlockSealedGlass
   parent: AirlockGlass
-  name: sealed glass airlock
-  description: It opens, it closes, and maybe crushes you. Now it stops little creatures too!
-  suffix: DO NOT MAP
+  name: sas en verre scellé
+  description: Il s'ouvre, il se ferme, et peut-être vous écrase. Maintenant il arrête aussi les petites créatures !
+  suffix: NE PAS PLACER
   components:
   - type: AnimationPlayer
   - type: Fixtures

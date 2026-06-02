@@ -3,8 +3,8 @@
 
 - type: entity
   id: ActionRevenantPush
-  name: Push
-  description: Pushes a target object or mob away from the revenant.
+  name: Poussée
+  description: Repousse un objet ou un personnage cible loin du revenant.
   components:
   - type: ActionWraithPoints
     wpConsume: 50
@@ -22,8 +22,8 @@
 
 - type: entity
   id: ActionMassCommand
-  name: Mass Command
-  description: Launch an assortment of nearby objects at a target location.
+  name: Commandement de Masse
+  description: Lance un assortiment d'objets environnants vers un emplacement cible.
   components:
   - type: ActionWraithPoints
     wpConsume: 300
@@ -44,8 +44,8 @@
 
 - type: entity
   id: ActionShockwave
-  name: Shockwave
-  description: Emit a shockwave, breaking nearby lights and walls, and stunning nearby humans for a short time.
+  name: Onde de Choc
+  description: Émet une onde de choc, brisant les lumières et les murs environnants, et étourdissant les humains proches pendant un court instant.
   components:
   - type: ActionWraithPoints
     wpConsume: 750
@@ -59,8 +59,8 @@
 
 - type: entity
   id: ActionTouchOfEvil
-  name: Touch of Evil
-  description: Empower your hand-to-hand attacks for a short time, causing additional damage and knockdown.
+  name: Toucher du Mal
+  description: Renforce vos attaques au corps à corps pendant un court instant, infligeant des dégâts supplémentaires et renversant les cibles.
   components:
   - type: ActionWraithPoints
     wpConsume: 1000
@@ -76,8 +76,8 @@
 
 - type: entity
   id: ActionCrush
-  name: Crush
-  description: Channel your telekinetic abilities at a human target, causing damage as long as you stand still. Casting any other spell will interrupt this!
+  name: Écrasement
+  description: Concentre vos capacités télékinétiques sur une cible humaine, infligeant des dégâts tant que vous restez immobile. Lancer un autre sort interrompra ceci !
   components:
   - type: ActionWraithPoints
     wpConsume: 2500

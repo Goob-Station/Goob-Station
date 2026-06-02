@@ -46,10 +46,10 @@
     size: Small
 
 - type: entity
-  name: match stick
+  name: allumette
   parent: BaseItem
   id: Matchstick
-  description: A simple match stick, used for lighting fine smokables.
+  description: Une simple allumette, utilisée pour allumer de bons fumables.
   components:
   - type: Tag
     tags:
@@ -100,10 +100,10 @@
     state: Burnt
 
 - type: entity
-  name: match box
+  name: boîte d'allumettes
   parent: [ SmallboxItem, BaseBagOpenClose ]
   id: Matchbox
-  description: A small box of Almost But Not Quite Plasma Premium Matches.
+  description: Une petite boîte d'allumettes Premium Plasma Presque Mais Pas Tout À Fait.
   components:
   # Goobstation edit start
   - type: EmitSoundOnPickup
@@ -166,8 +166,8 @@
 - type: entity
   parent: [Matchbox, BaseSyndicateContraband]
   id: GorlexMatchbox
-  name: Gorlex match box
-  description: "A pneumatic match box styled after the Gorlex Marauders' equipment. Contains 24 matches."
+  name: Boîte d'allumettes Gorlex
+  description: "Une boîte d'allumettes pneumatique dans le style de l'équipement des Maraudeurs Gorlex. Contient 24 allumettes."
   components:
   - type: Sprite
     sprite: Objects/Tools/Lighters/gorlex.rsi
@@ -183,10 +183,10 @@
   - type: Matchbox
 
 - type: entity
-  name: match stick
+  name: allumette
   parent: [Matchstick, BaseSyndicateContraband]
   id: GorlexMatchstick
-  description: A military grade match stick, used for lighting fine smokables and noncombatants alike.
+  description: Une allumette de qualité militaire, utilisée pour allumer de bons fumables et des non-combattants.
   components:
   - type: Sprite
     sprite: Objects/Tools/Lighters/gorlexmatch.rsi

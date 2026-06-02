@@ -8,7 +8,7 @@
 - type: entity
   id: ClothingAbductorBeltFilled
   parent: ClothingAbductorBelt
-  suffix: Filled
+  suffix: Remplie
   components:
   - type: StorageFill
     contents:

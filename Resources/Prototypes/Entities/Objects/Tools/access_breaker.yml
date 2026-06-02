@@ -13,8 +13,8 @@
   parent: [BaseItem, BaseSyndicateContraband]
   id: AccessBreakerUnlimited
   suffix: Unlimited
-  name: authentication disruptor
-  description: A hacked access configurator, specialized to unlock and erase access from digital locks.
+  name: perturbateur d'authentification
+  description: Un configurateur d'accès piraté, spécialisé dans le déverrouillage et l'effacement des accès des serrures numériques.
   components:
   - type: Emag
     emagType: Access

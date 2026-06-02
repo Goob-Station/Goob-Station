@@ -247,7 +247,7 @@
   id: MechDurand
   parent: [ BaseMech, CombatMech, BaseSecurityContraband ]
   name: Durand
-  description: A slow but beefy combat exosuit that is extra scary in confined spaces due to its punches. Xenos hate it!
+  description: Un exosuit de combat lent mais robuste qui est particulièrement effrayant dans les espaces confinés grâce à ses coups de poing. Les Xenos le détestent !
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -387,7 +387,7 @@
   id: MechSeraph
   parent: [ BaseMech, CombatMech, BaseCentcommContraband ]
   name: Seraph
-  description: That's the last thing you'll see. # Death Squad mech
+  description: C'est la dernière chose que vous verrez. # Mech de l'escouade de la mort
   components:
   - type: Sprite
     drawdepth: Mobs

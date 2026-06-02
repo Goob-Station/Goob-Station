@@ -1,9 +1,9 @@
 - type: entity
   id: SpaceLeviathan
   parent: [ SimpleSpaceMobBase, FlyingMobBase, MobCombat ]
-  name: space whale
-  description: When the space becomes too quiet, there is no hope, there is no escape, but there is this.
-  suffix: keeps tiles, no despawn
+  name: baleine spatiale
+  description: Quand l'espace devient trop silencieux, il n'y a plus d'espoir, plus d'échappatoire — mais il y a ça.
+  suffix: conserve les tuiles, pas de dépop
   components:
   - type: TailedEntity
     amount: 65
@@ -99,7 +99,7 @@
 - type: entity
   id: SpaceWhaleSegment
   parent: FlyingMobBase
-  suffix: do not spawn
+  suffix: ne pas spawner
   components:
   - type: RadarBlip
     scale: 2
@@ -118,7 +118,7 @@
 - type: entity
   id: SpaceLeviathanDespawn
   parent: SpaceLeviathan
-  suffix: despawns
+  suffix: dépop
   components:
   - type: TimedDespawn
     lifetime: 190 # to further prevent shitters from abusing it if something came up

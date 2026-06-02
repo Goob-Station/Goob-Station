@@ -1,6 +1,6 @@
 - type: entity
   name: armaments beacon
-  description: Summon a set of standard issue chaplain armaments, as dictated by I.C.R.A.
+  description: Invoquez un ensemble d'armement standard de chapelain, tel que dicté par l'I.C.R.A.
   parent: BaseItem
   id: ArmamentsBeacon
   components:

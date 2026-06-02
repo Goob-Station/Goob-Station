@@ -8,8 +8,8 @@
 - type: entity
   parent: BaseItem
   id: ProximitySensor
-  name: proximity sensor
-  description: Senses things in close proximity.
+  name: capteur de proximité
+  description: Détecte les objets à proximité immédiate.
   components:
   - type: Sprite
     sprite: Objects/Misc/proximity_sensor.rsi

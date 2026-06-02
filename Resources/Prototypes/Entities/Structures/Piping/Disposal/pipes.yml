@@ -164,7 +164,7 @@
 - type: entity
   id: DisposalHolder
   categories: [ HideSpawnMenu ]
-  name: disposal holder
+  name: disposal holder # je sais pas vraiment comment traduire, je le laisse je vois même pas où ça apparaît en jeu.
   components:
   - type: DisposalHolder
   - type: ContainerContainer
@@ -176,8 +176,8 @@
 - type: entity
   id: DisposalPipeBroken
   parent: DisposalPipeBase
-  name: broken disposal pipe
-  description: A BBP (big broken pipe).
+  name: tuyau d'évacuation cassé
+  description: Un gros tuyau cassé (GTC).
   components:
   - type: Sprite
     layers:
@@ -190,8 +190,8 @@
 - type: entity
   id: DisposalPipe
   parent: DisposalPipeBase
-  name: disposal pipe segment
-  description: A huge pipe segment used for constructing disposal systems.
+  name: section de tuyau d'évacuation
+  description: Une section de tuyau de grande taille utilisée pour la construction de réseaux d'évacuation.
   components:
   - type: Sprite
     layers:
@@ -218,8 +218,8 @@
 - type: entity
   id: DisposalTagger
   parent: DisposalPipeBase
-  name: disposal pipe tagger
-  description: A pipe that tags entities for routing.
+  name: tuyau marqueur
+  description: Un tuyau qui marque les entités en vue de leur routage.
   components:
   - type: Sprite
     layers:
@@ -252,8 +252,8 @@
 - type: entity
   id: DisposalSignaller
   parent: DisposalPipeBase
-  name: disposal signaller
-  description: A pipe that emits a signal when in item goes through it.
+  name: tuyau signalisateur
+  description: Un tuyau qui émet un signal lorsqu'un objet le traverse.
   components:
   - type: Sprite
     layers:
@@ -289,8 +289,8 @@
 - type: entity
   id: DisposalTrunk
   parent: DisposalPipeBase
-  name: disposal trunk
-  description: A pipe trunk used as an entry point for disposal systems.
+  name: tuyau d'évacuation
+  description: Tuyau servant de point d'entrée pour les systèmes d'évacuation.
   components:
   - type: Sprite
     layers:
@@ -325,8 +325,8 @@
 - type: entity
   id: DisposalRouter
   parent: DisposalPipeBase
-  name: disposal router
-  description: A three-way router. Entities with matching tags get routed to the side via configurable filters.
+  name: routeur d'évacuation
+  description: Routeur à trois voies. Les entités dont les marquages correspondent sont acheminées vers la sortie grâce à des filtres configurables.
   components:
   - type: Sprite
     layers:
@@ -414,8 +414,8 @@
 - type: entity
   id: DisposalJunction
   parent: DisposalPipeBase
-  name: disposal junction
-  description: A three-way junction. The arrow indicates where items exit.
+  name: jonction d'évacuation
+  description: Jonction à trois voies. La flèche indique la direction de sortie des objets.
   components:
   - type: Sprite
     layers:
@@ -499,8 +499,8 @@
 - type: entity
   id: DisposalYJunction
   parent: DisposalPipeBase
-  name: disposal y-junction
-  description: A three-way junction with another exit point.
+  name: jonction d'évacuation en y
+  description: Une jonction à trois voies avec un point de sortie supplémentaire.
   components:
   - type: Sprite
     layers:
@@ -539,8 +539,8 @@
 - type: entity
   id: DisposalXJunction
   parent: DisposalPipeBase
-  name: disposal x-junction
-  description: A four-way junction. The arrow indicates where items exit.
+  name: jonction d'évacuation en x
+  description: Carrefour à quatre branches. La flèche indique la direction de sortie des articles.
   components:
   - type: Sprite
     layers:
@@ -581,8 +581,8 @@
 - type: entity
   id: DisposalBend
   parent: DisposalPipeBase
-  name: disposal bend
-  description: A tube bent at a 90 degree angle.
+  name: tuyau coudé
+  description: un tuyau coudé à 90 degrés.
   components:
   - type: Sprite
     layers:
@@ -617,8 +617,8 @@
 - type: entity
   parent: DisposalJunction
   id: DisposalSignalRouter
-  name: disposal signal router
-  description: A signal-controlled three-way router.
+  name: routeur de signaux d'évacuation
+  description: Routeur à trois voies commandé par signal.
   components:
   - type: Sprite
     layers:

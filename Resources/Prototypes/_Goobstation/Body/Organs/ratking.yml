@@ -22,8 +22,8 @@
 - type: entity
   id: OrganRatKingStomach
   parent: OrganAnimalStomach
-  suffix: "ratking"
-  description: "How hungry?"
+  suffix: "ratkönig"
+  description: "Vous avez faim ?"
   components:
   - type: SolutionContainerManager
     solutions:

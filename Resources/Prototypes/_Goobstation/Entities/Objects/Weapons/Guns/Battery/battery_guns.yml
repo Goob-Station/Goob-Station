@@ -197,7 +197,7 @@
 - type: entity
   parent: WeaponPlasmaRifle
   id: WeaponPlasmaRifleEmpty
-  suffix: Empty
+  suffix: Vide
   components:
   - type: Battery
     maxCharge: 600
@@ -259,7 +259,7 @@
   name: advanced disabler
   parent: [ WeaponDisablerPractice, BaseCentcommContraband ]
   id: WeaponDisablerAdvanced
-  description: A self-defense weapon for corporate execs with money to burn. Slim, sturdy, and self-recharging for your convenience.
+  description: Une arme de défense personnelle pour les cadres d'entreprise avec de l'argent à brûler. Fine, robuste et à recharge automatique pour votre commodité.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Objects/Weapons/Guns/Battery/ccdisabler.rsi
@@ -326,7 +326,7 @@
   name: advanced pulse carbine
   parent: WeaponPulseCarbine
   id: WeaponPulseCarbineAdvanced
-  description: A state-of-the-art laser carbine that fires a rapidly pulsing beam. Expensive, though favoured by the Emergency Response corps due to its ability to self-recharge.
+  description: Une carabine laser de pointe qui tire un faisceau à impulsions rapides. Coûteuse, mais appréciée par le corps de réponse d'urgence pour sa capacité à se recharger automatiquement.
   components:
   - type: Tag
     tags:

@@ -7,7 +7,7 @@
   name: nanite swarm
   id: MobNanites
   parent: [ SimpleSpaceMobBase, MobCombat ]
-  description: A swarm of angry nanites.
+  description: Un essaim de nanites en colère.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -81,7 +81,7 @@
   id: MobGunbotBase
   abstract: true
   parent: [ BaseMob, MobCombat ]
-  description: A Security Robot, something seems a bit off.
+  description: Un robot de sécurité, quelque chose semble bizarre.
   components:
   - type: Sprite
     sprite: /Textures/_Goobstation/Mobs/Silicon/Bots/gunbot.rsi
@@ -165,7 +165,7 @@
   id: NukeBot
   parent: MobGunbotBase
   name: syndicate gunbot
-  description: An older model of the syndicate assault borg, specialized for close quarter combat.
+  description: Un ancien modèle du borg d'assaut syndical, spécialisé dans le combat rapproché.
   components:
   - type: Sprite
     sprite: /Textures/_Goobstation/Mobs/Silicon/Bots/gunbot.rsi

@@ -11,7 +11,7 @@
   name: silencer
   parent: [ BaseItem, BaseMajorContraband ]
   id: Silencer
-  description: Tool for silencing humans.
+  description: Outil pour réduire les humains au silence.
   components:
   - type: Item
     sprite: _Shitmed/Objects/Weapons/Melee/silencer.rsi

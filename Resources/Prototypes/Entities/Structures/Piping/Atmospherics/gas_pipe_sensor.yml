@@ -7,8 +7,8 @@
 - type: entity
   parent: [AirSensorBase, GasBinaryBase]
   id: GasPipeSensor
-  name: gas pipe sensor
-  description: Reports on the status of the gas in the attached pipe network.
+  name: capteur de tuyau de gaz
+  description : Indique l'état du gaz dans le réseau de tuyaux raccordé.
   placement:
     mode: AlignAtmosPipeLayers
   components:

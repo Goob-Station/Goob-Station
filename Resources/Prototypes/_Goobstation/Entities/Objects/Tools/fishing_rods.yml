@@ -8,8 +8,8 @@
 - type: entity
   id: FishingRod
   parent: BaseItem
-  name: fishing rod
-  description: It's time to go fishing!
+  name: canne à pêche
+  description: C'est l'heure d'aller pêcher !
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Fishing/fishing_rod.rsi
@@ -32,8 +32,8 @@
   id: FishingRodGoon
   suffix: Goon
   parent: FishingRod
-  name: fishing rod
-  description: It's time to go fishing!
+  name: canne à pêche
+  description: C'est l'heure d'aller pêcher !
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Fishing/goon_rod.rsi
@@ -46,8 +46,8 @@
 - type: entity
   id: FishingRodMakeshift
   parent: FishingRod
-  name: makeshift fishing rod
-  description: Probably would be hard to catch a fish using that.
+  name: canne à pêche improvisée
+  description: Ce serait probablement difficile d'attraper un poisson avec ça.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Fishing/makeshift_rod.rsi
@@ -66,8 +66,8 @@
 - type: entity
   id: FishingRodGolden
   parent: FishingRod
-  name: golden fishing rod
-  description: Finally, you caught 250 fishes. Here's your trophey.
+  name: canne à pêche dorée
+  description: Enfin, vous avez attrapé 250 poissons. Voici votre trophée.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Fishing/golden_rod.rsi
@@ -88,8 +88,8 @@
 - type: entity
   id: FishingLure
   parent: BaseItem
-  name: fishing lure
-  description: fish come here
+  name: leurre de pêche
+  description: les poissons viennent ici
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -104,8 +104,8 @@
 - type: entity
   id: FishingLureMakeshift
   parent: FishingLure
-  name: fishing lure
-  description: fish come here
+  name: leurre de pêche
+  description: les poissons viennent ici
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

@@ -112,7 +112,7 @@
 - type: entity
   id: ClothingBeltUtilityFilled
   parent: ClothingBeltUtility
-  suffix: Filled
+  suffix: Rempli
   components:
   - type: StorageFill
     contents:
@@ -126,7 +126,7 @@
 - type: entity
   id: ClothingBeltUtilityEngineering
   parent: ClothingBeltUtility
-  suffix: Engineering
+  suffix: Génie
   components:
   - type: StorageFill
     contents:
@@ -143,7 +143,7 @@
 - type: entity
   id: ClothingBeltChiefEngineerFilled
   parent: ClothingBeltChiefEngineer
-  suffix: Filled
+  suffix: Rempli
   components:
   - type: StorageFill
     contents:
@@ -169,7 +169,7 @@
 - type: entity
   id: ClothingBeltSecurityFilled
   parent: ClothingBeltSecurity
-  suffix: Filled
+  suffix: Rempli
   components:
   - type: EntityTableContainerFill
     containers:
@@ -179,7 +179,7 @@
 - type: entity
   id: ClothingBeltSecurityWebbingFilled
   parent: ClothingBeltSecurityWebbing
-  suffix: Filled
+  suffix: Rempli
   components:
   - type: EntityTableContainerFill
     containers:
@@ -189,7 +189,7 @@
 - type: entity
   id: ClothingBeltJanitorFilled
   parent: ClothingBeltJanitor
-  suffix: Filled
+  suffix: Rempli
   components:
   - type: StorageFill
     contents:
@@ -204,7 +204,7 @@
 - type: entity
   id: ClothingBeltMedicalFilled
   parent: ClothingBeltMedical
-  suffix: Filled
+  suffix: Rempli
   components:
   - type: StorageFill
     contents:
@@ -220,7 +220,7 @@
 - type: entity
   id: ClothingBeltMedicalEMTFilled
   parent: ClothingBeltMedicalEMT
-  suffix: Paramedic, Filled
+  suffix: Paramédic, Rempli
   components:
   - type: StorageFill
     contents:
@@ -240,7 +240,7 @@
 - type: entity
   id: ClothingBeltPlantFilled
   parent: ClothingBeltPlant
-  suffix: Filled
+  suffix: Rempli
   components:
   - type: StorageFill
     contents:
@@ -262,8 +262,8 @@
 - type: entity
   id: ClothingBeltMilitaryWebbingGrenadeFilled
   parent: ClothingBeltMilitaryWebbing
-  name: grenadier chest rig
-  suffix: Filled
+  name: harnais de grenadier
+  suffix: Rempli
   components:
   - type: Item
     size: Ginormous
@@ -283,7 +283,7 @@
 - type: entity
   id: ClothingBeltMilitaryWebbingMedFilled
   parent: ClothingBeltMilitaryWebbingMed
-  suffix: Filled
+  suffix: Rempli
   components:
   - type: StorageFill
     contents:
@@ -297,7 +297,7 @@
 - type: entity
   parent: ClothingBeltWand
   id: ClothingBeltWandFilled
-  suffix: Filled
+  suffix: Rempli
   components:
   - type: StorageFill
     contents:
@@ -323,7 +323,7 @@
 - type: entity
   id: ClothingBeltChefFilled
   parent: ClothingBeltChef
-  suffix: Filled
+  suffix: Rempli
   components:
   - type: StorageFill
     contents:

@@ -1,8 +1,8 @@
 - type: entity
   abstract: true
   id: MobCosmicGodBase
-  name: The Unknown
-  description: Your mind begins to fracture and break as it fails to comprehend what looms before you.
+  name: L'Inconnu
+  description: Votre esprit commence à se fissurer et à se briser en échouant à comprendre ce qui se dresse devant vous.
   components:
   - type: Sprite
     noRot: true
@@ -90,7 +90,7 @@
   - type: CanMoveInAir
   - type: WarpPoint
     follow: true
-    location: The Unknown
+    location: L'Inconnu
   - type: CosmicGod
   - type: CosmicCultExamine
     cultistText: cosmic-examine-text-god

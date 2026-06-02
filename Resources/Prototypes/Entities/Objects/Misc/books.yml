@@ -95,10 +95,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: book
+  name: livre
   parent: BaseItem
   id: BookBase
-  description: A hardcover book.
+  description: Un livre relié.
   components:
    # Goobstation edit start
   - type: EmitSoundOnPickup
@@ -226,8 +226,8 @@
 - type: entity
   id: BookSpaceEncyclopedia
   parent: BaseGuidebook
-  name: space encyclopedia
-  description: An encyclopedia containing all the knowledge. The author of this encyclopedia is unknown.
+  name: encyclopédie spatiale
+  description: Une encyclopédie contenant tout le savoir. L'auteur de cette encyclopédie est inconnu.
   components:
   - type: Sprite
     layers:
@@ -247,8 +247,8 @@
 - type: entity
   id: BookTheBookOfControl
   parent: BaseGuidebook
-  name: the book of control
-  description: Essential to become robust.
+  name: le livre du contrôle
+  description: Indispensable pour devenir redoutable.
   components:
   - type: Sprite
     layers:
@@ -268,8 +268,8 @@
 - type: entity
   id: BookBartendersManual
   parent: BaseGuidebook
-  name: bartender's manual
-  description: This manual is stained with beer.
+  name: manuel du barman
+  description: Ce manuel est taché de bière.
   components:
   - type: Sprite
     layers:
@@ -287,8 +287,8 @@
 - type: entity
   id: BookHowToCookForFortySpaceman
   parent: BaseGuidebook
-  name: How To Cook For Forty Spacemen
-  description: A book about cooking written by a space chef.
+  name: Comment cuisiner pour quarante hommes de l'espace
+  description: Un livre de cuisine écrit par un chef de l'espace.
   components:
   - type: Sprite
     layers:
@@ -305,8 +305,8 @@
 - type: entity
   id: BookLeafLoversSecret
   parent: BaseGuidebook
-  name: leaf lover's secret
-  description: It has a strong weed smell. It motivates you to feed and seed.
+  name: le secret de l'amateur de feuilles
+  description: Il sent fortement la mauvaise herbe. Il vous motive à nourrir et à semer.
   components:
   - type: Sprite
     layers:
@@ -326,8 +326,8 @@
 - type: entity
   id: BookEngineersHandbook
   parent: BaseGuidebook
-  name: engineer's handbook
-  description: A handbook about engineering written by Nanotrasen.
+  name: manuel de l'ingénieur
+  description: Un manuel sur l'ingénierie rédigé par Nanotrasen.
   components:
   - type: Sprite
     layers:
@@ -346,8 +346,8 @@
 - type: entity
   id: BookScientistsGuidebook
   parent: BaseGuidebook
-  name: scientist's guidebook
-  description: A guidebook about science written by Nanotrasen.
+  name: guide du scientifique
+  description: Un guide sur la science rédigé par Nanotrasen.
   components:
   - type: Sprite
     layers:
@@ -364,8 +364,8 @@
 - type: entity
   id: BookSecurity
   parent: BaseGuidebook
-  name: security 101
-  description: A book about security written by Nanotrasen. The book is stained with blood. It seems to have been used more as a weapon than reading material.
+  name: sécurité 101
+  description: Un livre sur la sécurité rédigé par Nanotrasen. Le livre est taché de sang. Il semble avoir été davantage utilisé comme arme que comme lecture.
   components:
   - type: Sprite
     layers:
@@ -388,8 +388,8 @@
 - type: entity
   id: BookHowToKeepStationClean
   parent: BaseGuidebook
-  name: how to keep station clean
-  description: This book is very clean.
+  name: comment garder la station propre
+  description: Ce livre est très propre.
   components:
   - type: Sprite
     layers:
@@ -405,8 +405,8 @@
 - type: entity
   id: BookHowToRockAndStone
   parent: BaseGuidebook
-  name: how to rock and stone
-  description: A very detailed guide about salvage written by Karl, a legendary space miner, however he's missing. It motivates you to rock and stone.
+  name: comment rocher et bomber
+  description: Un guide très détaillé sur la récupération écrit par Karl, un légendaire mineur spatial — il est cependant porté disparu. Il vous motive à rocher et bomber.
   components:
   - type: Sprite
     layers:
@@ -426,8 +426,8 @@
 - type: entity
   id: BookMedicalReferenceBook
   parent: BaseGuidebook
-  name: medical reference book
-  description: A reference book about medical written by an old doctor. The handwriting is barely comprehensible.
+  name: livre de référence médicale
+  description: Un livre de référence sur la médecine écrit par un vieux docteur. L'écriture est à peine lisible.
   components:
   - type: Sprite
     layers:
@@ -445,8 +445,8 @@
 - type: entity
   id: BookHowToSurvive
   parent: BaseGuidebook
-  name: how to survive
-  description: Ironically the author of this book is dead.
+  name: comment survivre
+  description: Ironiquement, l'auteur de ce livre est mort.
   components:
   - type: Sprite
     layers:
@@ -467,7 +467,7 @@
   id: BookChemicalCompendium
   parent: BaseGuidebook
   name: chempendium
-  description: A comprehensive guide written by some old skeleton of a professor about chemical synthesis.
+  description: Un guide complet rédigé par le vieux squelette d'un professeur sur la synthèse chimique.
   components:
   - type: Sprite
     layers:
@@ -485,8 +485,8 @@
 - type: entity
   id: BookSpaceLaw
   parent: BaseGuidebook
-  name: space law
-  description: A set of Nanotrasen guidelines for keeping law and order on their space stations.
+  name: droit spatial
+  description: Un ensemble de directives Nanotrasen pour maintenir l'ordre et la loi sur leurs stations spatiales.
   components:
   - type: Sprite
     layers:
@@ -503,7 +503,7 @@
   parent: BookBase
   id: BookRandom
   suffix: random visual
-  description: Each book is unique! What is hidden in this one?
+  description: Chaque livre est unique ! Qu'est-ce qui se cache dans celui-ci ?
   components:
   - type: RandomMetadata
     nameSegments:
@@ -575,8 +575,8 @@
 - type: entity
   parent: BookBase
   id: BookAtmosDistro
-  name: "Newton's Guide to Atmos: The Distro"
-  description: There are endless illegible notes scribbled in the margins. Most of the text is covered in handwritten question marks.
+  name: "Le guide de Newton sur l'Atmos : La Distrib"
+  description: D'innombrables notes illisibles sont griffonnées dans les marges. La majeure partie du texte est recouverte de points d'interrogation écrits à la main.
   components:
   - type: Sprite
     layers:
@@ -594,7 +594,7 @@
 - type: entity
   parent: BookBase
   id: BookAtmosWaste
-  name: "Newton's Guide to Atmos: Waste"
+  name: "Le guide de Newton sur l'Atmos : Les Déchets"
   description: There are endless illegible notes scribbled in the margins. Most of the text is covered in handwritten question marks.
   components:
   - type: Sprite
@@ -613,7 +613,7 @@
 - type: entity
   parent: BookBase
   id: BookAtmosAirAlarms
-  name: "Newton's Guide to Atmos: Air Alarms"
+  name: "Le guide de Newton sur l'Atmos : Les Alarmes d'Air"
   description: There are endless illegible notes scribbled in the margins. Most of the text is covered in handwritten question marks.
   components:
   - type: Sprite
@@ -632,7 +632,7 @@
 - type: entity
   parent: BookBase
   id: BookAtmosVentsMore
-  name: "Newton's Guide to Atmos: Vents and More"
+  name: "Le guide de Newton sur l'Atmos : Les Ventilations et Plus"
   description: There are endless illegible notes scribbled in the margins. Most of the text is covered in handwritten question marks.
   components:
   - type: Sprite

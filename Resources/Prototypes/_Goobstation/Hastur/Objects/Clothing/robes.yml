@@ -1,8 +1,8 @@
 - type: entity
   parent: [ ClothingNeckBase, BaseMagicalContraband ]
   id: ClothingOuterHasturRobes
-  name: yellow robes
-  description: It's calling to you...
+  name: robes jaunes
+  description: Ça vous appelle...
   components:
   - type: Sprite
     sprite: /Textures/_Goobstation/Hastur/clothing.rsi
@@ -44,9 +44,9 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHasturRobes
-  name: yellow hoodie
+  name: sweat jaune
   categories: [HideSpawnMenu]
-  description: It's hard to see who is wearing it under that...
+  description: Difficile de voir qui le porte là-dessous...
   components:
   - type: ClothingSpeedModifier
     walkModifier: 1.1

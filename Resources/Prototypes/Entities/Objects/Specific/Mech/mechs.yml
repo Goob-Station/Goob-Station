@@ -198,7 +198,7 @@
   id: MechRipley
   parent: [ BaseMech, IndustrialMech, BaseCargoContraband ] # Goobstation
   name: Ripley APLU
-  description: Versatile and lightly armored, the Ripley is useful for almost any heavy work scenario. The "APLU" stands for Autonomous Power Loading Unit.
+  description: Polyvalent et légèrement blindé, le Ripley est utile dans presque tous les scénarios de travaux lourds. Le sigle « APLU » signifie Autonomous Power Loading Unit.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -243,7 +243,7 @@
   parent: [ BaseMech, SpecialMech, BaseCivilianContraband ] # Goobstation
   id: MechHonker
   name: H.O.N.K.
-  description: "Produced by \"Tyranny of Honk, INC\", this exosuit is designed as heavy clown-support. Used to spread the fun and joy of life. HONK!"
+  description: "Produit par \"Tyranny of Honk, INC\", cet exo-combinaison est conçu comme soutien clown lourd. Utilisé pour répandre le fun et la joie de vivre. HONK !"
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -284,7 +284,7 @@
   parent: [ BaseMech, SmallMech ] # Goobstation
   id: MechHamtr
   name: HAMTR
-  description: "An experimental mech which uses a brain–computer interface to connect directly to a hamsters brain."
+  description: "Un mech expérimental utilisant une interface cerveau-ordinateur pour se connecter directement au cerveau d'un hamster."
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -333,7 +333,7 @@
   parent: BaseMech
   id: MechVim
   name: Vim
-  description: A miniature exosuit from Nanotrasen, developed to let the irreplaceable station pets live a little longer.
+  description: Un exo-combinaison miniature de Nanotrasen, développé pour permettre aux précieux animaux de la station de vivre un peu plus longtemps.
   components:
   - type: Sprite
     drawdepth: Mobs

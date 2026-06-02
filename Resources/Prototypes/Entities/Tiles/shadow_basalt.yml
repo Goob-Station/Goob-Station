@@ -8,8 +8,8 @@
 
 - type: entity
   id: ShadowBasaltOne
-  name: shadowstone
-  description: Glowing cracks in reality. It's probably fine.
+  name: pierre de l'ombre
+  description: Des fissures luminescentes dans la réalité. C'est sans doute pas grave.
   placement:
     mode: SnapgridCenter
   components:

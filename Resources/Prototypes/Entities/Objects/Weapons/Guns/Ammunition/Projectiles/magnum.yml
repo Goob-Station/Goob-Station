@@ -40,7 +40,7 @@
 
 - type: entity
   id: BulletMagnum
-  name: bullet (.45 magnum)
+  name: balle (.45 magnum)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -51,7 +51,7 @@
 
 - type: entity
   id: BulletMagnumPractice
-  name: bullet (.45 magnum practice)
+  name: balle (.45 magnum entraînement)
   parent: BaseBulletPractice
   categories: [ HideSpawnMenu ]
   components:
@@ -63,7 +63,7 @@
 - type: entity
   id: BulletMagnumIncendiary
   parent: BaseBulletIncendiary
-  name: bullet (.45 magnum incendiary)
+  name: balle (.45 magnum incendiaire)
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -74,7 +74,7 @@
 
 - type: entity
   id: BulletMagnumAP
-  name: bullet (.45 magnum armor-piercing)
+  name: balle (.45 magnum perforant)
   parent: BaseBullet # Goobstation edit
   categories: [ HideSpawnMenu ]
   components:
@@ -86,7 +86,7 @@
 
 - type: entity
   id: BulletMagnumUranium
-  name: bullet (.45 magnum uranium)
+  name: balle (.45 magnum uranium)
   parent: BaseBulletUranium
   categories: [ HideSpawnMenu ]
   components:

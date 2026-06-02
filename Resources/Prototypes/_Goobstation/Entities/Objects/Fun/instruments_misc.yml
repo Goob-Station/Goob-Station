@@ -54,7 +54,7 @@
   parent: BaseCassette
   id: CrewCassette
   name: cassette player
-  description: Regular old cassette player to enjoy your tunes on the go.
+  description: Un vieux lecteur de cassettes ordinaire pour profiter de vos morceaux en déplacement.
   components:
     - type: Sprite
       sprite: _Goobstation/Objects/Fun/crew_cassette_player.rsi
@@ -69,7 +69,7 @@
   parent: BaseCassette
   id: ExecutiveCassette
   name: executive cassette player
-  description: Perfect to make you look like you do mergers and acquisitions.
+  description: Parfait pour vous donner l'air de faire des fusions-acquisitions.
   components:
     - type: Sprite
       sprite: _Goobstation/Objects/Fun/executive_cassette_player.rsi

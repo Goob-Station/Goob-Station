@@ -6,8 +6,8 @@
 
 - type: entity
   id: BaseCarving
-  name: elder carving
-  description: Collection of unknown symbols, they remind you of days long gone...
+  name: gravure ancienne
+  description: Une collection de symboles inconnus qui vous rappellent des jours depuis longtemps oubliés...
   abstract: true
   placement:
     mode: SnapgridCenter
@@ -56,8 +56,8 @@
 - type: entity
   parent: BaseCarving
   id: GraspingCarving
-  name: grasping carving
-  description: When stepped on, causes heavy damage leg damage and stuns the victim for 5 seconds. Has 1 charge.
+  name: gravure tentaculaire
+  description: Quand on marche dessus, inflige de lourds dégâts aux jambes et étourdit la victime pendant 5 secondes. Possède 1 charge.
   placement:
     mode: SnapgridCenter
   components:
@@ -76,8 +76,8 @@
 - type: entity
   parent: BaseCarving
   id: MadCarving
-  name: mad carving
-  description: When stepped on, causes heavy stamina damage, blindness, and muteness the victim. Has 2 charges.
+  name: gravure folle
+  description: Quand on marche dessus, inflige de lourds dégâts d'endurance, aveugle et rend muet la victime. Possède 2 charges.
   placement:
     mode: SnapgridCenter
   components:
@@ -93,8 +93,8 @@
 - type: entity
   parent: BaseCarving
   id: AlertCarving
-  name: alert carving
-  description: A nearly invisible rune that, when stepped on, alerts the carver who triggered it and where and allows them to teleport to carving location.
+  name: gravure d'alerte
+  description: Une rune quasiment invisible qui, lorsqu'on marche dessus, alerte le sculpteur de son déclenchement et de sa localisation, et lui permet de se téléporter à l'emplacement de la gravure.
   placement:
     mode: SnapgridCenter
   components:

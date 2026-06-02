@@ -30,8 +30,8 @@
 
 - type: entity
   id: hydroponicsSoil
-  name: soil
-  description: A mix of organic matter and minerals creating a soil to grow your plant in space. Seems to be dry.
+  name: terreau
+  description: Un mélange de matière organique et de minéraux qui permet de créer un terreau pour faire pousser vos plantes dans l'espace. Il semble sec.
   placement:
     mode: SnapgridCenter
   components:
@@ -90,8 +90,8 @@
 - type: entity
   parent: hydroponicsSoil
   id: FungalSoil
-  name: fungal soil
-  description: A mix of organic matter and fungal root creating a soil to grow your plant in space. Seems to be dry.
+  name: terreau fongique
+  description: Un mélange de matière organique et de mycélium qui forme un terreau pour faire pousser vos plantes dans l'espace. Il semble sec.
   components:
   - type: Construction
     graph: Soil

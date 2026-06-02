@@ -7,7 +7,7 @@
   parent: MobArachnid
   id: MobArachnidRandom
   name: Urist McWeb
-  suffix: Random Appearance
+  suffix: Apparence Aléatoire
   components:
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
@@ -20,7 +20,7 @@
   parent: MobIPC
   id: MobIPCRandom
   name: Urist McPositronic
-  suffix: Random Appearance
+  suffix: Apparence Aléatoire
   components:
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
@@ -31,7 +31,7 @@
   parent: MobOni
   id: MobOniRandom
   name: Urist McOni
-  suffix: Random Appearance
+  suffix: Apparence Aléatoire
   components:
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
@@ -41,7 +41,7 @@
 - type: entity
   parent: MobCluwne
   id: MobCluwneRandom
-  suffix: Random Appearance
+  suffix: Apparence Aléatoire
   components:
   - type: RandomHumanoidAppearance
   - type: RandomMetadata

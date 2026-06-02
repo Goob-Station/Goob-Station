@@ -23,7 +23,7 @@
 
 - type: entity
   id: ChestResomi
-  name: "resomi chest"
+  name: "torse de resomi"
   parent: [PartResomi, BaseChest]
   components:
   - type: Sprite
@@ -32,7 +32,7 @@
 
 - type: entity
   id: GroinResomi
-  name: "resomi groin"
+  name: "bassin de resomi"
   parent: [PartResomi, BaseGroin]
   components:
   - type: Sprite
@@ -41,7 +41,7 @@
 
 - type: entity
   id: HeadResomi
-  name: "resomi head"
+  name: "tête de resomi"
   parent: [PartResomi, BaseHead, ]
   components:
   - type: Sprite
@@ -52,7 +52,7 @@
 
 - type: entity
   id: LeftArmResomi
-  name: "left resomi arm"
+  name: "bras gauche de resomi"
   parent: [PartResomi, BaseLeftArm]
   components:
   - type: Sprite
@@ -61,7 +61,7 @@
 
 - type: entity
   id: RightArmResomi
-  name: "right resomi arm"
+  name: "bras droit de resomi"
   parent: [PartResomi, BaseRightArm]
   components:
   - type: Sprite
@@ -70,7 +70,7 @@
 
 - type: entity
   id: LeftHandResomi
-  name: "left resomi hand"
+  name: "main gauche de resomi"
   parent: [PartResomi, BaseLeftHand]
   components:
   - type: Sprite
@@ -79,7 +79,7 @@
 
 - type: entity
   id: RightHandResomi
-  name: "right resomi hand"
+  name: "main droite de resomi"
   parent: [PartResomi, BaseRightHand]
   components:
   - type: Sprite
@@ -88,7 +88,7 @@
 
 - type: entity
   id: LeftLegResomi
-  name: "left resomi leg"
+  name: "jambe gauche de resomi"
   parent: [PartResomi, BaseLeftLeg]
   components:
   - type: Sprite
@@ -97,7 +97,7 @@
 
 - type: entity
   id: RightLegResomi
-  name: "right resomi leg"
+  name: "jambe droite de resomi"
   parent: [PartResomi, BaseRightLeg]
   components:
   - type: Sprite
@@ -106,7 +106,7 @@
 
 - type: entity
   id: LeftFootResomi
-  name: "left resomi foot"
+  name: "pied gauche de resomi"
   parent: [PartResomi, BaseLeftFoot]
   components:
   - type: Sprite
@@ -115,7 +115,7 @@
 
 - type: entity
   id: RightFootResomi
-  name: "right resomi foot"
+  name: "pied droit de resomi"
   parent: [PartResomi, BaseRightFoot]
   components:
   - type: Sprite

@@ -7,9 +7,9 @@
 
 - type: entity
   id: Stairs
-  name: stairs
+  name: escaliers
   suffix: Steel
-  description: The greatest invention since rocket-propelled grenades.
+  description: La plus grande invention depuis les lance-grenades à propulsion par fusée.
   placement:
     mode: SnapgridCenter
   components:

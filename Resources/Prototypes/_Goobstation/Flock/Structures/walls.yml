@@ -1,9 +1,9 @@
 - type: entity
   parent: BaseStructure
   id: WallFlockBase
-  name: strange glass wall
+  name: mur de verre étrange
   abstract: true
-  description: You can hear faint humming coming from within.
+  description: On entend un faible bourdonnement venant de l'intérieur.
   components:
   - type: InteractionOutline
   - type: Sprite
@@ -407,9 +407,9 @@
 - type: entity
   parent: BaseStructure
   id: WallDiagonalFeatherZone
-  suffix: Diagonal
-  name: strange glass wall
-  description: You can hear faint humming coming from within.
+  suffix: Diagonale
+  name: mur de verre étrange
+  description: On entend un faible bourdonnement venant de l'intérieur.
   components:
   - type: InteractionOutline
   - type: Sprite
@@ -491,7 +491,7 @@
 - type: entity
   parent: WallFlockBase
   id: WallFeatherZoneShuttle1
-  name: strange shuttle wall
+  name: mur de navette étrange
   components:
   - type: Sprite
     sprite: _Goobstation/Flock/Structures/Walls/shuttle.rsi
@@ -500,7 +500,7 @@
 - type: entity
   parent: WallFlockBase
   id: WallFeatherZoneShuttle2
-  name: strange shuttle wall
+  name: mur de navette étrange
   components:
   - type: Sprite
     sprite: _Goobstation/Flock/Structures/Walls/shuttle.rsi

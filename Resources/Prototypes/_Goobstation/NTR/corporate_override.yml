@@ -1,9 +1,9 @@
 - type: entity
   id: CorporateOverrideKey
-  name: Corporate Override Key
-  description: A black-market authentication dongle that bypasses NanoTrasen security protocols. When inserted into an executive briefcase, it unlocks restricted procurement channels.
+  name: Clé de Contournement Corporatif
+  description: Une clé d'authentification du marché noir qui contourne les protocoles de sécurité NanoTrasen. Insérée dans une mallette executive, elle déverrouille des canaux d'approvisionnement restreints.
   parent: [BaseItem, BaseSyndicateContraband]
-  suffix: Debug
+  suffix: Débogage
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/ntr_override.rsi

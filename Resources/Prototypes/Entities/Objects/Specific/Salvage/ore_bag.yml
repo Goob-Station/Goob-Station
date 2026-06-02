@@ -27,10 +27,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: ore bag
+  name: sac à minerai
   id: OreBag
   parent: BaseStorageItem
-  description: A robust bag for salvage specialists and miners alike to carry large amounts of ore. Magnetises any nearby ores when attached to a belt.
+  description: Un sac robuste permettant aux spécialistes de la récupération et aux mineurs de transporter de grandes quantités de minerai. Magnétise les minerais à proximité lorsqu'il est attaché à une ceinture.
   components:
   - type: MagnetPickup
   - type: Sprite
@@ -84,8 +84,8 @@
 - type: entity
   parent: OreBag
   id: BorgOreBag
-  name: integrated ore bag
-  description: A large ore bag built into the frame of a mining cyborg.
+  name: sac à minerai intégré
+  description: Un grand sac à minerai intégré dans le châssis d'un cyborg mineur.
   components:
     - type: Storage
       grid:

@@ -216,7 +216,7 @@
   parent: MobHumanDummy
   id: MobHarpyDummy
   categories: [ HideSpawnMenu ]
-  description: A dummy Harpy meant to be used in character setup.
+  description: Un mannequin harpie destiné à être utilisé dans la configuration du personnage.
   components:
   - type: HumanoidAppearance
     species: Harpy

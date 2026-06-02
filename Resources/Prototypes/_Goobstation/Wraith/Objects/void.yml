@@ -2,8 +2,8 @@
 - type: entity
   id: SummonVoidGhost
   name: ???
-  description: It looks unfinished.
-  suffix: DO NOT MAP
+  description: Il semble inachevé.
+  suffix: NE PAS PLACER
   components:
   - type: Sprite
     noRot: true

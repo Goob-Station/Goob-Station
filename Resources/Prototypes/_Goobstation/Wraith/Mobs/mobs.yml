@@ -3,8 +3,8 @@
 - type: entity
   id: MobSkeletonGoon
   parent: [ BaseMob, MobCombat]
-  name: malicious skeleton
-  description: A hostile skeleton summoned by a wraith.
+  name: squelette malveillant
+  description: Un squelette hostile invoqué par un revenant.
   components:
   - type: HTN
     rootTask:
@@ -96,8 +96,8 @@
 - type: entity
   id: MobCrunched
   parent: [ BaseMob, MobCombat ]
-  name: transposed scientist
-  description: A fellow who seems to have been shunted between dimensions. Not a good state to be in.
+  name: scientifique transposé
+  description: Un individu qui semble avoir été projeté entre des dimensions. Ce n'est pas un état agréable.
   components:
   - type: Advertise
     pack: CrunchedSpeech
@@ -169,8 +169,8 @@
 - type: entity
   id: MobShade
   parent: [ BaseMob, MobCombat ]
-  name: darkness
-  description: Oh god.
+  name: obscurité
+  description: Oh mon dieu.
   components:
   - type: Advertise
     pack: Shade
@@ -247,10 +247,10 @@
     - FootstepSound
 
 - type: entity
-  name: mechanical monstrosity
+  name: monstruosité mécanique
   id: MobMonstrosityHead
   parent: [ BaseMob, MobCombat ]
-  description: A severely disfigured human torso which is forcibly kept alive by the mechanical parts...
+  description: Un torse humain sévèrement défiguré maintenu en vie de force par des pièces mécaniques...
   components:
   - type: MindContainer
     showExamineInfo: true
@@ -310,8 +310,8 @@
 - type: entity
   id: MobMonstrosityBody
   parent: [ BaseMob, MobCombat ]
-  name: mechanical monstrosity
-  description: A severely disfigured human torso which is forcibly kept alive by the mechanical parts...
+  name: monstruosité mécanique
+  description: Un torse humain sévèrement défiguré maintenu en vie de force par des pièces mécaniques...
   components:
   - type: SpamEmitSound
     minInterval: 5
@@ -390,7 +390,7 @@
   name: lion
   id: MobLion
   parent: [ BaseMob, MobCombat ]
-  description: Oh christ.
+  description: Oh seigneur.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -438,8 +438,8 @@
 - type: entity
   id: MobAncientRepairBot # This mob is supposed to be a drone that auto-repairs stuff, but out of scope, and olny for adventure zones anyway.
   parent: [ BaseMob, MobCombat ]
-  name: strange robot  #This mob is also supposed to shoot lightning bolts instead of slicing in meelee range, but since we don't have AI capable of using mob skills, that is to be added.
-  description: It looks like some sort of floating repair bot or something?
+  name: robot étrange  #This mob is also supposed to shoot lightning bolts instead of slicing in meelee range, but since we don't have AI capable of using mob skills, that is to be added.
+  description: On dirait une sorte de bot de réparation flottant ou quelque chose comme ça ?
   components:
   - type: Advertise
     pack: Repairbot
@@ -522,8 +522,8 @@
 - type: entity
   id: MobAncientGuardBot
   parent: MobAncientRepairBot
-  name: strange robot
-  description: A Security Robot, something seems a bit off.
+  name: robot étrange
+  description: Un Robot de Sécurité, quelque chose semble un peu bizarre.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -555,7 +555,7 @@
   id: MobAncientRobot1
   parent: [ BaseMob, MobCombat ]
   name: ???
-  description: What the hell is that?
+  description: C'est quoi ce truc ?
   components:
   - type: HTN
     rootTask:
@@ -682,7 +682,7 @@
 
 - type: entity
   id: MobSkeletonGoonLesser
-  suffix: Lesser
+  suffix: Moindre
   parent: MobSkeletonGoon
   categories: [ Spawner ]
   components:
@@ -703,7 +703,7 @@
 
 - type: entity
   id: MobSkeletonGoonWraith
-  suffix: Wraith
+  suffix: Revenant
   parent: MobSkeletonGoon
   components:
   - type: GhostRole
@@ -721,7 +721,7 @@
 
 - type: entity
   id: MobCrunchedWraith
-  suffix: Wraith
+  suffix: Revenant
   parent: MobCrunched
   components:
   - type: GhostRole
@@ -742,7 +742,7 @@
 
 - type: entity
   id: MobShadeWraith
-  suffix: Wraith
+  suffix: Revenant
   parent: MobShade
   components:
   - type: GhostRole
@@ -760,7 +760,7 @@
 
 - type: entity
   id: MobMonstrosityHeadWraith
-  suffix: Wraith
+  suffix: Revenant
   parent: MobMonstrosityHead
   components:
   - type: GhostRole
@@ -778,7 +778,7 @@
 
 - type: entity
   id: MobMonstrosityBodyWraith
-  suffix: Wraith
+  suffix: Revenant
   parent: MobMonstrosityBody
   components:
   - type: GhostRole
@@ -796,7 +796,7 @@
 
 - type: entity
   id: MobLionWraith
-  suffix: Wraith
+  suffix: Revenant
   parent: MobLion
   components:
   - type: GhostRole
@@ -814,7 +814,7 @@
 
 - type: entity
   id: MobAncientRepairBotWraith
-  suffix: Wraith
+  suffix: Revenant
   parent: MobAncientRepairBot
   components:
   - type: GhostRole
@@ -832,7 +832,7 @@
 
 - type: entity
   id: MobAncientGuardBotWraith
-  suffix: Wraith
+  suffix: Revenant
   parent: MobAncientGuardBot
   components:
   - type: GhostRole
@@ -850,7 +850,7 @@
 
 - type: entity
   id: MobAncientRobot1Wraith
-  suffix: Wraith
+  suffix: Revenant
   parent: MobAncientRobot1
   components:
   - type: GhostRole
@@ -868,7 +868,7 @@
 
 - type: entity
   id: MobAncientRobot2Wraith
-  suffix: Wraith
+  suffix: Revenant
   parent: MobAncientRobot2
   components:
   - type: GhostRole
@@ -886,7 +886,7 @@
 
 - type: entity
   id: MobAncientRobot3Wraith
-  suffix: Wraith
+  suffix: Revenant
   parent: MobAncientRobot3
   components:
   - type: GhostRole
@@ -904,7 +904,7 @@
 
 - type: entity
   id: MobAncientLegsWraith
-  suffix: Wraith
+  suffix: Revenant
   parent: MobAncientLegs
   components:
   - type: GhostRole
@@ -922,7 +922,7 @@
 
 - type: entity
   id: MobBearGoonWraith
-  suffix: Wraith
+  suffix: Revenant
   parent: MobBearGoon
   components:
   - type: GhostRole
@@ -943,7 +943,7 @@
 
 - type: entity
   id: MobBrullbarWraith
-  suffix: Wraith
+  suffix: Revenant
   parent: MobBrullbar
   components:
   - type: GhostRole
@@ -964,7 +964,7 @@
 
 - type: entity
   id: MobBGunbotWraith
-  suffix: Wraith
+  suffix: Revenant
   parent: GunBot
   components:
   - type: GhostRole
@@ -1001,7 +1001,7 @@
 
 - type: entity
   id: MobNukebotWraith
-  suffix: Wraith
+  suffix: Revenant
   parent: NukeBot
   components:
   - type: GhostRole

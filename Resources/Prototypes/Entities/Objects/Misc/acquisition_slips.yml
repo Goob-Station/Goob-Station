@@ -2,8 +2,8 @@
   abstract: true
   parent: Paper
   id: PaperAcquisitionSlip
-  name: acquisition slip
-  description: A slip with order details on it. It can be given to Cargo to complete the order.
+  name: bon de commande
+  description: Un bon indiquant les détails d'une commande. Il peut être remis au service Fret pour finaliser la commande.
   components:
   - type: Sprite
     layers:

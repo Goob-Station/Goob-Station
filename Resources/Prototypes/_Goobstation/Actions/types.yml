@@ -16,8 +16,8 @@
 - type: entity
   parent: BaseSuicideAction
   id: ActionActivateBluespaceLifeline
-  name: Activate Bluespace Lifeline
-  description: Activates your bluespace lifeline implant, teleporting you far-far away from this station. You won't be able to come back.
+  name: Activer la Ligne de Vie Bleue
+  description: Active votre implant de ligne de vie bleue, vous téléportant très loin de cette station. Vous ne pourrez pas revenir.
   components:
   - type: Action
     checkCanInteract: false
@@ -33,8 +33,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHorn
-  name: Honk!
-  description: Beep the horn at whoever you will run over.
+  name: Klaxon !
+  description: Klaxonnez sur quiconque vous allez renverser.
   components:
   - type: Action
     useDelay: 1
@@ -45,8 +45,8 @@
 - type: entity
   parent: BaseAction
   id: ActionSiren
-  name: Siren
-  description: Alert your victim to your presence.
+  name: Sirène
+  description: Alertez votre victime de votre présence.
   components:
   - type: Action
     useDelay: 1
@@ -57,8 +57,8 @@
 - type: entity
   parent: BaseImplantAction
   id: ActivateSmokeImplant
-  name: Release a cloud of smoke
-  description: Releases a cloud of smoke around you.
+  name: Libérer un nuage de fumée
+  description: Libère un nuage de fumée autour de vous.
   components:
   - type: Action
     useDelay: 30
@@ -69,8 +69,8 @@
 - type: entity
   parent: BaseAction
   id: ActionDashMoth
-  name: Wing dash
-  description: Sharply flap your wings, dashing to the side!
+  name: Ruée alaire
+  description: Battez vivement des ailes pour vous élancer sur le côté !
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -91,9 +91,9 @@
 
 - type: entity
   id: ActionDashGeneric
-  name: Dash
+  name: Ruée
   parent: ActionDashMoth
-  description: Dash forward.
+  description: Ruez-vous vers l'avant.
   components:
   - type: Action
     useDelay: 6.5
@@ -107,8 +107,8 @@
 - type: entity
   parent: BaseAction
   id: ActionToggleRightMantisBlade
-  name: Toggle Right Mantis Blade
-  description: Extend or retract the mantis blade in your right arm.
+  name: Basculer la Lame Mantis Droite
+  description: Déployer ou rétracter la lame mantis dans votre bras droit.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -124,8 +124,8 @@
 - type: entity
   parent: ActionToggleRightMantisBlade
   id: ActionToggleLeftMantisBlade
-  name: Toggle Left Mantis Blade
-  description: Extend or retract the mantis blade in your left arm.
+  name: Basculer la Lame Mantis Gauche
+  description: Déployer ou rétracter la lame mantis dans votre bras gauche.
   components:
   - type: Action
     icon: { sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi, state: icon-mirrored }
@@ -133,23 +133,22 @@
 - type: entity
   parent: BaseAction
   id: ActionToggleSandevistan
-  name: Toggle Sandevistan
-  description: Enable or disable your improved reflexes provided by the Sandevistan.
+  name: Basculer le Sandevistan
+  description: Activer ou désactiver vos réflexes améliorés fournis par le Sandevistan.
   components:
   - type: Action
     checkCanInteract: false
     useDelay: 3
     icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
     itemIconStyle: NoItem
-    raiseOnUser: true
   - type: InstantAction
     event: !type:ToggleSandevistanEvent
 
 - type: entity
   parent: BaseMentalAction
   id: ActionShowStationMap
-  name: Station Map Interface
-  description: View a Station Map Interface.
+  name: Interface Carte de Station
+  description: Afficher une Interface de Carte de Station.
   components:
   - type: Action
     # TODO: Make a sprite for the station map interface.
@@ -163,8 +162,8 @@
 - type: entity
   parent: BaseAction
   id: ActionToggleFloorBoardsMode
-  name: Enter or Exit Floor
-  description: Crawl under the floor boards.
+  name: Entrer ou Quitter le Sol
+  description: Ramper sous les lames du plancher.
   components:
   - type: Action
     itemIconStyle: BigAction
@@ -178,8 +177,8 @@
 - type: entity
   parent: BaseAction
   id: ActionStealShoes
-  name: Steal Shoes
-  description: A tasty snack it will be!
+  name: Voler des Chaussures
+  description: Ça sera un délicieux en-cas !
   components:
   - type: Action
     checkCanInteract: false
@@ -198,8 +197,8 @@
 
 - type: entity
   id: ActionVehicleWallPush
-  name: Wall Launch
-  description: Launch yourself off the nearest surface, tiders count as surfaces.
+  name: Lancer de Mur
+  description: Élancez-vous depuis la surface la plus proche — les chaotiques comptent comme des surfaces.
   components:
   - type: Action
     itemIconStyle: NoItem
@@ -217,7 +216,7 @@
   id: ActionRocketChairBoost
   parent: BaseAction
   name: Boost
-  description: Spray water to launch forward.
+  description: Projetez de l'eau pour vous propulser vers l'avant.
   components:
   - type: Action
     itemIconStyle: NoItem
@@ -234,8 +233,8 @@
 - type: entity
   parent: BaseAction
   id: ActionActivateBerserkerImplant
-  name: Activate Berserker Implant
-  description: Activate your berserker implant, greatly increasing your melee damage and speed for a short duration. While in berserk mode, you will be unable to use ranged weapons.
+  name: Activer l'Implant Berserker
+  description: Active votre implant berserker, augmentant considérablement vos dégâts en mêlée et votre vitesse pour une courte durée. En mode berserker, vous ne pourrez pas utiliser d'armes à distance.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -251,8 +250,8 @@
 - type: entity
   parent: BaseSuicideAction
   id: ActionActivateRedspaceLifeline
-  name: Activate Redspace Lifeline
-  description: Activates your redspace lifeline implant, teleporting you far-far away from this station. You won't be able to come back.
+  name: Activer la Ligne de Vie Rouge
+  description: Active votre implant de ligne de vie rouge, vous téléportant très loin de cette station. Vous ne pourrez pas revenir.
   components:
     - type: Action
       checkCanInteract: false
@@ -268,8 +267,8 @@
 - type: entity
   parent: BaseAction
   id: ActionForklift
-  name: Activate Lift
-  description: Lift up crates in front of you.
+  name: Activer le Lift
+  description: Soulever les caisses devant vous.
   components:
   - type: Action
     useDelay: 3
@@ -289,8 +288,8 @@
 - type: entity
   parent: BaseAction
   id: ActionUnforklift
-  name: Drop Lift
-  description: Put down crates in front of you.
+  name: Poser le Lift
+  description: Poser les caisses devant vous.
   components:
   - type: Action
     useDelay: 1.5

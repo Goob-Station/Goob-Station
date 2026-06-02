@@ -3,7 +3,7 @@
   - Incorporeal
   - BaseMob
   id: MobCosmicAstralAscended
-  name: astral ascended
+  name: ascendant astral
   description: Transcendant, ascendant.
   components:
   - type: Input
@@ -49,8 +49,8 @@
 - type: entity
   parent: [ Incorporeal, BaseMob ]
   id: MobCosmicAstralProjection
-  name: astral projection
-  description: Neither here nor there.
+  name: projection astrale
+  description: Ni ici ni là.
   components:
   - type: ActionGrant
     actions:
@@ -114,9 +114,9 @@
   id: MobRogueAscended
   parent:
   - BaseMob
-  name: rogue ascended
+  name: ascendant renégat
   suffix: MidRoundAntag
-  description: An entity from beyond the borders of bluespace. Its contours continuously blur and blend together, unnerving to the eye.
+  description: Une entité venue d'au-delà des frontières du bleuespace. Ses contours se brouillent et se fondent continuellement, troublant le regard.
   components:
   - type: FTLSmashImmune
   - type: Physics
