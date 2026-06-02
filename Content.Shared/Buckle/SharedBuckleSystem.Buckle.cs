@@ -112,6 +112,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Movement.Events;
+using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Popups;
 using Content.Shared.Pulling.Events;
@@ -126,6 +127,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Shared.Movement.Pulling.Components;
 
 namespace Content.Shared.Buckle;
 
@@ -134,6 +136,7 @@ public abstract partial class SharedBuckleSystem
     public static ProtoId<AlertCategoryPrototype> BuckledAlertCategory = "Buckled";
 
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly PullingSystem _pullingSystem = default!; // goobstation
 
     private void InitializeBuckle()
     {
@@ -143,7 +146,7 @@ public abstract partial class SharedBuckleSystem
         SubscribeLocalEvent<BuckleComponent, EntGotInsertedIntoContainerMessage>(OnInserted);
 
         SubscribeLocalEvent<BuckleComponent, StartPullAttemptEvent>(OnPullAttempt);
-        SubscribeLocalEvent<BuckleComponent, BeingPulledAttemptEvent>(OnBeingPulledAttempt);
+        SubscribeLocalEvent<BuckleComponent, PullAttemptEvent>(OnBeingPulledAttempt);
         SubscribeLocalEvent<BuckleComponent, PullStartedMessage>(OnPullStarted);
         SubscribeLocalEvent<BuckleComponent, UnbuckleAlertEvent>(OnUnbuckleAlert);
 
@@ -177,24 +180,24 @@ public abstract partial class SharedBuckleSystem
             args.Cancel();
     }
 
-    private void OnBeingPulledAttempt(Entity<BuckleComponent> ent, ref BeingPulledAttemptEvent args)
+    private void OnBeingPulledAttempt(Entity<BuckleComponent> ent, ref PullAttemptEvent args)
     {
         if (args.Cancelled || !ent.Comp.Buckled)
             return;
 
-        if (!CanUnbuckle(ent!, args.Puller, false))
+        if (!CanUnbuckle(ent!, args.PullerUid, false))
         {
-            args.Cancel();
+            args.Cancelled = true;
             return;
         }
 
         // Goobstation - doafter for unbuckle by others
-        if (args.Puller != ent.Owner
+        if (args.PullerUid != ent.Owner
             && TryComp<StrapComponent>(ent.Comp.BuckledTo, out var strap)
             && strap.UnbuckleDoafterTime > 0)
         {
-            args.Cancel();
-            var doAfter = new DoAfterArgs(EntityManager, args.Puller, TimeSpan.FromSeconds(strap.UnbuckleDoafterTime), new UnbuckleDoAfterEvent(), ent.Owner, target: ent.Owner)
+            args.Cancelled = true;
+            var doAfter = new DoAfterArgs(EntityManager, args.PullerUid, TimeSpan.FromSeconds(strap.UnbuckleDoafterTime), new UnbuckleDoAfterEvent(true), ent.Owner, target: ent.Owner)
             {
                 BreakOnMove = true,
                 BreakOnDamage = true,
@@ -310,6 +313,10 @@ public abstract partial class SharedBuckleSystem
             return;
 
         Unbuckle((uid, component), strap, args.User); // Goobstation
+        if (args.PullIntent)
+        {
+            _pullingSystem.TryStartPull(args.User, uid);
+        }
     }
     // WD EDIT END
 

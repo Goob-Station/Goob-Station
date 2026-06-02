@@ -253,7 +253,16 @@ public readonly record struct UnbuckledEvent(Entity<StrapComponent> Strap, Entit
 
 // WD EDIT START
 [Serializable, NetSerializable]
-public sealed partial class UnbuckleDoAfterEvent : SimpleDoAfterEvent;
+public sealed partial class UnbuckleDoAfterEvent : SimpleDoAfterEvent
+{
+    public readonly bool PullIntent = false;
+
+    public UnbuckleDoAfterEvent(bool pullIntent = false)
+    {
+        PullIntent = pullIntent;
+    }
+
+}
 // WD EDIT END
 
 [Serializable, NetSerializable]
