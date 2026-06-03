@@ -177,7 +177,7 @@
   - type: MaterialEnergy
     materialWhiteList: [Plasma]
   - type: ProjectileBatteryAmmoProvider
-    proto: BulletPlasmaCutterStrong
+    proto: BulletPlasmaRifle
     fireCost: 100
   - type: WeaponRandomExplode
     explosionChance: 0.05 # 1d20 roll

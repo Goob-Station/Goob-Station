@@ -9,6 +9,7 @@
   cost: 15000
   recipeUnlocks:
   - MiningDrillSuper
+  - WeaponSuperPlasmaCutter
   # Goobstation R&D Console rework start
   position: 0,-7
   technologyPrerequisites:

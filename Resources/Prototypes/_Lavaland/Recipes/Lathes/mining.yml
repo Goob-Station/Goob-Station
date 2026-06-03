@@ -17,9 +17,24 @@
   completetime: 10
   materials:
     Gold: 1000
-    Plastic: 700
     Steel: 500
+    Plastic: 300
     Silver: 200
     Plasma: 200
+    BSCrystal: 200
+    Diamond: 100
+
+- type: latheRecipe
+  id: WeaponSuperPlasmaCutter
+  result: WeaponSuperPlasmaCutterEmpty
+  categories:
+  - Weapons
+  completetime: 9
+  materials:
+    Gold: 800
+    Steel: 400
+    Glass: 300
+    Plasma: 300
+    Silver: 200
     BSCrystal: 200
     Diamond: 100

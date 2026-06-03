@@ -94,7 +94,7 @@
     energy: 1
 
 - type: entity
-  id: BulletPlasmaCutterStrong
+  id: BulletPlasmaRifle
   parent: BulletPlasmaCutter
   components:
   - type: GatheringProjectile
@@ -109,6 +109,41 @@
     radius: 4
     color: purple
     energy: 2
+
+- type: entity
+  id: BulletSuperPlasmaCutter
+  name: super cutter bolt
+  parent: BulletPlasmaCutter
+  categories: [ HideSpawnMenu ]
+  description: Not too bad, but you still don't want to get hit by it.
+  components:
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        hard: false
+        mask:
+        - Opaque
+      fly-by:
+        shape: !type:PhysShapeCircle
+          radius: 2
+        layer:
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: False
+  - type: Projectile
+    deleteOnCollide: false
+    damage:
+      types:
+        Heat: 10
+  - type: StaminaDamageOnCollide
+    damage: 10
+  - type: TimedDespawn
+    lifetime: 0.25
 
 - type: entity
   categories: [ HideSpawnMenu ]
