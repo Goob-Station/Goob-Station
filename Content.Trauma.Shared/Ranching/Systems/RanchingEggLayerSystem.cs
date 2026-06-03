@@ -2,6 +2,7 @@
 
 using System.Linq;
 using Content.Shared.Body.Systems;
+using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.DoAfter;
@@ -247,7 +248,7 @@ public sealed partial class RanchingEggLayerSystem : EntitySystem
 
         foreach (var reagent in proto.ReagentsRequired)
         {
-            if (!HasComp<SolutionContainerManagerComponent>(ent.Owner))
+            if (!HasComp<SolutionComponent>(ent.Owner))
                 return false;
 
             if (!_solution.TryGetSolution(ent.Owner, ent.Comp.Solution, out var bloodstream, out _))

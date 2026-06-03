@@ -920,10 +920,9 @@
   components:
   - type: DealDamageOnPulled
   - type: ChickenChest
-  - type: SolutionContainerManager
-    solutions:
-      glasschicken:
-        maxVol: 30
+  - type: Solution
+    solution:
+      maxVol: 30
   - type: Destructible
     thresholds:
     - trigger:
@@ -1417,7 +1416,6 @@
   id: BaseChickenStone
   components:
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StoneChicken
   - type: Destructible
     thresholds:
@@ -1548,12 +1546,11 @@
       types:
         Piercing: 6
         Poison: 4
-  - type: SolutionContainerManager
-    solutions:
-      melee:
-        reagents:
-        - ReagentId: Hephaestium
-          Quantity: 90
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Hephaestium
+        Quantity: 90
   - type: MeleeChemicalInjector
     solution: melee
     transferAmount: 6

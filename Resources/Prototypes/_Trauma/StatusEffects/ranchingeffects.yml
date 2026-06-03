@@ -188,10 +188,6 @@
     key: BlurryVision
     component: BlurryVision
     time: 3
-  - !type:GenericStatusEffect
-    key: TemporaryBlindness
-    component: TemporaryBlindness
-    time: 2
   - !type:ModifyParalysis
     time: 2
 
