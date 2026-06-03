@@ -138,7 +138,7 @@
     potentialMutations:
     - MobSlimeXenobioBabyBlue
     - MobSlimeXenobioBabyPyrite
-    - MobSlimeXenobioBabySilver
+    - MobSlimeXenobioBabyMetal
 
 - type: entity
   parent: MobSlimeXenobioBaby
