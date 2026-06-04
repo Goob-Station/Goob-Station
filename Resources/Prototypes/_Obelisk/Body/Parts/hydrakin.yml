@@ -61,6 +61,10 @@
   id: GroinHydrakin
   name: hydrakin groin
   parent: [PartHydrakin, BaseGroin]
+  components:
+  - type: Sprite
+    sprite: _Obelisk/Mobs/Species/Hydrakin/parts.rsi
+    state: "groin_m"
 
 - type: entity
   id: LeftArmHydrakin
