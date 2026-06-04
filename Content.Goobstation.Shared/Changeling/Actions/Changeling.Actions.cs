@@ -35,8 +35,8 @@ public sealed partial class AbsorbBiomatterEvent : EntityTargetActionEvent { }
 public sealed partial class StingExtractDNAEvent : EntityTargetActionEvent { }
 public sealed partial class ChangelingTransformCycleEvent : InstantActionEvent { }
 public sealed partial class ChangelingTransformEvent : InstantActionEvent { }
-public sealed partial class EnterStasisEvent : InstantActionEvent { }
-public sealed partial class ExitStasisEvent : InstantActionEvent { }
+public sealed partial class ChangelingRegenerateEvent : InstantActionEvent { }
+public sealed partial class ChangelingStasisEvent : InstantActionEvent { }
 
 #endregion
 
@@ -74,6 +74,7 @@ public sealed partial class ActionAnatomicPanaceaEvent : InstantActionEvent
     [DataField]
     public float Duration = 10f;
 }
+public sealed partial class ActionAugmentedEyesightEvent : InstantActionEvent { }
 public sealed partial class ActionBiodegradeEvent : InstantActionEvent { }
 public sealed partial class ActionChameleonSkinEvent : InstantActionEvent { }
 public sealed partial class ActionAdrenalineReservesEvent : InstantActionEvent

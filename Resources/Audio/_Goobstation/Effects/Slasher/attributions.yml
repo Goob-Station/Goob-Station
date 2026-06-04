@@ -19,6 +19,11 @@
   copyright: "Created by Alban_Gogh, modified by loltart"
   source: "https://pixabay.com/sound-effects/panic-sound-effect-428440/"
 
+- files: ["MassacreEnd.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Created by SimpleSound, modified by loltart"
+  source: "https://pixabay.com/sound-effects/horror-piano-443326/"
+
 - files: ["SlasherSoulSteal.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Created by Freesound_community"

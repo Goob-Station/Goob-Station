@@ -6,12 +6,9 @@ using Content.Shared.StatusIcon;
 
 namespace Content.Shared._Shitcode.Heretic.Components;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class StarGazerComponent : Component
 {
-    [DataField, AutoNetworkedField]
-    public EntityUid Summoner;
-
     [DataField]
     public ProtoId<FactionIconPrototype> MasterIcon = "GhoulHereticMaster";
 

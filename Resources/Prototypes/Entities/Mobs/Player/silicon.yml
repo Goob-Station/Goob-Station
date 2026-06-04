@@ -327,6 +327,7 @@
     needsPower: false
   - type: StationAiCore
   - type: StationAiVision
+  - type: StationAiEarlyLeave # Goobstation
   - type: InteractionOutline
   - type: Sprite
     sprite: Mobs/Silicon/station_ai.rsi

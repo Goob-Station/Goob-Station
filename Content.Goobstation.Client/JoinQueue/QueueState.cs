@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Goobstation.Shared.JoinQueue;
 using Robust.Client.Audio;
 using Robust.Client.Console;
@@ -42,12 +37,12 @@ public sealed class QueueState : State
 
     public void OnQueueUpdate(QueueUpdateMessage msg)
     {
-        _gui?.UpdateInfo(msg.Total, msg.Position, msg.IsPatron);
+        _gui?.UpdateInfo(msg);
     }
 
     private void OnQuitPressed()
     {
-        _console.ExecuteCommand("quit");
+        _console.ExecuteCommand("disconnect");
     }
 
 

@@ -152,7 +152,7 @@
 
 # Western Undetermined Set
 - type: entity
-  parent: [ClothingHeadHatCowboyBrown, BaseMajorContraband]
+  parent: [ClothingHeadHatArmored, ClothingHeadHatCowboyBrown, BaseMajorContraband]
   id: ClothingHeadHatCowboyBrownRobust
   name: authentic brown cowboy hat
   description: "\"This station ain't big enough for the two of us.\""
@@ -331,3 +331,18 @@
     - WhitelistChameleon
   - type: HideLayerClothing
     layers: {}
+
+- type: entity
+  parent: ClothingHeadHatHelmetTemplar
+  id: ClothingHeadHatHelmetBrass
+  name: brass helmet
+  description: Brass helmet, like in the good old days.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Helmets/brass_helmet.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Helmets/brass_helmet.rsi
+  - type: Construction
+    graph: BrassHelm
+    node: brassHelmet

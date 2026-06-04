@@ -40,7 +40,8 @@
   - type: Climbable
   - type: Clickable
   - type: EnchantingTable # Goobstation
-
+  - type: RecallPrayable # Goobstation
+  
 - type: entity
   id: AltarNanotrasen
   parent: AltarBase
