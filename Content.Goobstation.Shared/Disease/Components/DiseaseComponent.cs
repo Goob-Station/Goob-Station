@@ -44,7 +44,7 @@ public sealed partial class DiseaseComponent : Component
     /// How much to increase <see cref="InfectionProgress"/> per second
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float InfectionRate = 0.01f;
+    public float InfectionRate = 0.00444444444444f;
 
     /// <summary>
     /// How much this disease mutates on spread
@@ -131,7 +131,7 @@ public sealed partial class DiseaseComponent : Component
     /// If <see cref="AffectsDead"/> is true, how to change infection progress per second in dead entities
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float DeadInfectionRate = -0.01f;
+    public float DeadInfectionRate = 0.00444444444444f;
 
     /// <summary>
     /// Determiens the effects this disease mutates

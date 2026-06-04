@@ -5,7 +5,7 @@ using Content.Server.SurveillanceCamera;
 using Content.Server.Light.Components;
 using Content.Server.Light.EntitySystems;
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Atmos.Components;
+using Content.Shared.Atmos.Components;
 using Content.Server.Atmos;
 using Content.Shared.Interaction;
 using Content.Shared.Physics;

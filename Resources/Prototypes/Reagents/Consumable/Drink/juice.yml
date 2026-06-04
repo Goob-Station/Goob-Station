@@ -131,9 +131,9 @@
       - !type:AdjustReagent
         reagent: Nutriment
         amount: 0.5
-      - !type:ImmunityModifier #Goobstation start
-        gainRateModifier: 0.0005 #1/3rd of immurin
-        strengthModifier: 0.01
+      - !type:ImmunityModifier # Goobstation start # 1/3 of immurin
+        gainRateModifier: 0.000211695098702 # sqrt(1/3) * immurin
+        strengthModifier: 0.00256600119637 # sqrt(1/3) * immurin
         statusLifetime: 3 # 3s per 1u #Goobstation end
 
 - type: reagent
@@ -163,9 +163,9 @@
     Medicine:
       effects:
       - !type:SatiateThirst
-      - !type:ImmunityModifier
-        gainRateModifier: 0.0005 #1/3rd of immurin
-        strengthModifier: 0.01
+      - !type:ImmunityModifier # 1/3 of immurin
+        gainRateModifier: 0.000211695098702 # sqrt(1/3) * immurin
+        strengthModifier: 0.00256600119637 # sqrt(1/3) * immurin
         statusLifetime: 3 # 3s per 1u
         #Goobstation end
 
@@ -181,9 +181,9 @@
     Medicine:
       effects:
       - !type:SatiateThirst
-      - !type:ImmunityModifier
-        gainRateModifier: 0.0005 #1/3rd of immurin
-        strengthModifier: 0.01
+      - !type:ImmunityModifier # 1/3 of immurin
+        gainRateModifier: 0.000211695098702 # sqrt(1/3) * immurin
+        strengthModifier: 0.00256600119637 # sqrt(1/3) * immurin
         statusLifetime: 3 # 3s per 1u
         #Goobstation end
 
@@ -213,9 +213,9 @@
     Medicine:
       effects:
       - !type:SatiateThirst
-      - !type:ImmunityModifier
-        gainRateModifier: 0.0005 #1/3rd of immurin
-        strengthModifier: 0.01
+      - !type:ImmunityModifier # 1/3 of immurin
+        gainRateModifier: 0.000211695098702 # sqrt(1/3) * immurin
+        strengthModifier: 0.00256600119637 # sqrt(1/3) * immurin
         statusLifetime: 3 # 3s per 1u
         #Goobstation end
 
@@ -231,9 +231,9 @@
     Medicine:
       effects:
       - !type:SatiateThirst
-      - !type:ImmunityModifier
-        gainRateModifier: 0.0005 #1/3rd of immurin
-        strengthModifier: 0.01
+      - !type:ImmunityModifier # 1/3 of immurin
+        gainRateModifier: 0.000211695098702 # sqrt(1/3) * immurin
+        strengthModifier: 0.00256600119637 # sqrt(1/3) * immurin
         statusLifetime: 3 # 3s per 1u
         #Goobstation end
 
