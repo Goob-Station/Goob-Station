@@ -921,6 +921,7 @@
   - type: DealDamageOnPulled
   - type: ChickenChest
   - type: Solution
+    id: GlassChicken
     solution:
       maxVol: 30
   - type: Destructible
