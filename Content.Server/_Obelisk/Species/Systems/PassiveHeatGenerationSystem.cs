@@ -18,7 +18,7 @@ public sealed class PassiveHeatGenerationSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        += curTime
+        _accumulator += frametime;
         if (_accumulator <= UpdateInterval)
             return;
 
