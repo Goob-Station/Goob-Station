@@ -12,10 +12,9 @@
       Steel: 100
   - type: Item
     size: Normal
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 300
+  - type: Solution
+    solution:
+      maxVol: 400
 
 - type: entity
   name: golden watering can

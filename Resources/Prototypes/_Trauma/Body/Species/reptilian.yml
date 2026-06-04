@@ -17,14 +17,13 @@
         Quantity: 3
       - ReagentId: Blood
         Quantity: 10
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 12
-        - ReagentId: Fat
-          Quantity: 3
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: UncookedAnimalProteins
+        Quantity: 12
+      - ReagentId: Fat
+        Quantity: 3
   - type: Edible
   - type: Tag
     tags:

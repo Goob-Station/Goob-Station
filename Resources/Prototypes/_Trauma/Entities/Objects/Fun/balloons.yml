@@ -6,12 +6,11 @@
   - type: Sprite
     sprite: _Trauma/Objects/Misc/eggs.rsi
     state: egg-balloon-blue
-  - type: SolutionContainerManager
-    solutions:
-      balloon:
-        reagents:
-        - ReagentId: Water
-          Quantity: 20
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Water
+        Quantity: 20
   - type: DamageOnLand
     ignoreResistances: true
     damage:

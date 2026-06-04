@@ -1547,6 +1547,7 @@
         Piercing: 6
         Poison: 4
   - type: Solution
+    id: melee
     solution:
       reagents:
       - ReagentId: Hephaestium
