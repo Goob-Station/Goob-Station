@@ -18,7 +18,7 @@ namespace Content.Server.Nutrition.Components
     public sealed partial class CigarComponent : Component
     {
         /// <summary>
-        ///     If a cigar can be ignited without a lighter by activating it (Goob)
+        ///     Goob - If a cigar can be ignited without a lighter by activating it
         /// </summary>
         [DataField("selfIgniting"), ViewVariables(VVAccess.ReadWrite)]
         public bool SelfIgniting { get; set; } = false;

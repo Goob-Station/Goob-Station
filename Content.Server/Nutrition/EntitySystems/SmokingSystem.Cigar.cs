@@ -44,7 +44,7 @@ namespace Content.Server.Nutrition.EntitySystems
 
             if (smokable.State != SmokableState.Lit)
             {
-                // This makes self igniting cigars re-ignitable, this is intentional. (goob)
+                // Goob - This makes self igniting cigars re-ignitable, this is intentional.
                 if (TryComp(entity, out CigarComponent? cigar) && cigar.SelfIgniting)
                 {
                     SetSmokableState(entity, SmokableState.Lit, smokable);
