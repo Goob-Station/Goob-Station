@@ -36,7 +36,7 @@ public sealed class StungBorgsOnHitSystem : EntitySystem
 
         foreach (var borg in args.HitEntities.Where(HasComp<BorgChassisComponent>))
         {
-            _stun.TryParalyze(borg, ent.Comp.ParalyzeDuration, true);
+            _stun.TryUpdateParalyzeDuration(borg, ent.Comp.ParalyzeDuration);
             _jitter.DoJitter(borg, ent.Comp.ParalyzeDuration, true);
         }
     }

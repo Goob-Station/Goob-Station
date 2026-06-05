@@ -87,7 +87,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
         DISCORD_WEBHOOK_URL: ${{ secrets.CHANGELOG_DISCORD_WEBHOOK }}
 
-    - name: Publish changelog (RSS)
-      run: Tools/actions_changelog_rss.py
-      env:
-        CHANGELOG_RSS_KEY: ${{ secrets.CHANGELOG_RSS_KEY }}
+#    - name: Publish changelog (RSS)
+#      run: Tools/actions_changelog_rss.py
+#      env:
+#        CHANGELOG_RSS_KEY: ${{ secrets.CHANGELOG_RSS_KEY }}

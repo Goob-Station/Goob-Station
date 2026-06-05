@@ -48,6 +48,6 @@
         - MedicalPatch
         - CigPack
         - Cigarette
-  #- type: Dumpable # Goobstation edit
+  - type: Dumpable
   - type: ExplosionResistance # Goob - end
     damageCoefficient: 0.25

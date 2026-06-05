@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/19/2025 12:38:01
-  entityCount: 91
+  time: 01/08/2026 12:11:07
+  entityCount: 92
 maps: []
 grids:
 - 1
@@ -77,6 +77,13 @@ entities:
     - type: RadiationGridResistance
     - type: ImplicitRoof
     - type: FTLDrive
+- proto: DefaultStationBeaconRuinHierophantArena
+  entities:
+  - uid: 92
+    components:
+    - type: Transform
+      pos: 0.5,2.5
+      parent: 1
 - proto: LavalandHierophantMarker
   entities:
   - uid: 91

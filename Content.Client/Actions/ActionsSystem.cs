@@ -293,7 +293,7 @@ namespace Content.Client.Actions
         }
 
         // Goobstation start
-        protected override void SaveActions(EntityUid performer)
+        public override void SaveActions(EntityUid performer)
         {
             if (_playerManager.LocalEntity != performer)
                 return;
@@ -301,7 +301,7 @@ namespace Content.Client.Actions
             ActionsSaved?.Invoke(performer);
         }
 
-        protected override void LoadActions(EntityUid performer)
+        public override void LoadActions(EntityUid performer)
         {
             if (_playerManager.LocalEntity != performer)
                 return;
@@ -495,20 +495,16 @@ namespace Content.Client.Actions
 
         private void OnEntityTargetAttempt(Entity<EntityTargetActionComponent> ent, ref ActionTargetAttemptEvent args)
         {
-            // Goob edit start
             if (args.Handled)
                 return;
 
-            var entity = args.Input.EntityUid;
-            if (!HasComp<LockOnMarkActionComponent>(ent) || !Exists(_mark.Target))
-            {
-                if (entity is not { Valid: true })
-                {
-                    args.Handled = true;
-                    return;
-                }
-            }
-            else
+            args.Handled = true;
+
+            if (args.Input.EntityUid is not { Valid: true } entity)
+                return;
+
+            // Goob edit start
+            if (HasComp<LockOnMarkActionComponent>(ent) && Exists(_mark.Target))
                 entity = _mark.Target.Value;
             // Goob edit end
 
@@ -519,8 +515,6 @@ namespace Content.Client.Actions
                 DebugTools.Assert(HasComp<WorldTargetActionComponent>(ent), $"Action {ToPrettyString(ent)} requires WorldTargetActionComponent for entity-world targeting");
                 return;
             }
-
-            args.Handled = true;
 
             var action = args.Action;
             var user = args.User;

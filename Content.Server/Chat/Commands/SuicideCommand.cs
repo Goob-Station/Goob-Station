@@ -113,6 +113,8 @@ namespace Content.Server.Chat.Commands
 
             if (suicideSystem.Suicide(victim))
                 return;
+            if (suicideSystem.Suicide(player.AttachedEntity.Value)) // Goobstation try on attached end too. For Visiting ents.
+                return;
 
             shell.WriteLine(Loc.GetString("ghost-command-denied"));
         }

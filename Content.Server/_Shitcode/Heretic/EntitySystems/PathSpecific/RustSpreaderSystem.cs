@@ -30,15 +30,6 @@ public sealed class RustSpreaderSystem : EntitySystem
         SubscribeLocalEvent<RustSpreaderComponent, MapInitEvent>(OnInit);
 
         SubscribeLocalEvent<RustbringerComponent, MobStateChangedEvent>(OnStateChanged);
-        SubscribeLocalEvent<RustbringerComponent, ComponentShutdown>(OnShutdown);
-    }
-
-    private void OnShutdown(Entity<RustbringerComponent> ent, ref ComponentShutdown args)
-    {
-        if (!Exists(ent.Comp.RustSpreader) || TerminatingOrDeleted(ent.Comp.RustSpreader))
-            return;
-
-        QueueDel(ent.Comp.RustSpreader);
     }
 
     private void OnStateChanged(Entity<RustbringerComponent> ent, ref MobStateChangedEvent args)

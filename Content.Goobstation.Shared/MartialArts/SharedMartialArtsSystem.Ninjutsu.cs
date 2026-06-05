@@ -20,6 +20,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffect;
+using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
@@ -121,8 +122,7 @@ public abstract partial class SharedMartialArtsSystem
         }
 
         var modifier = sneakAttack.TakedownSpeedModifier;
-
-        _stun.TrySlowdown(target, TimeSpan.FromSeconds(slowdownTime), true, modifier, modifier);
+        _movementMod.TryUpdateMovementSpeedModDuration(target, MartsGenericSlow, TimeSpan.FromSeconds(slowdownTime), modifier, modifier);
         _status.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(muteTime), true);
 
         _audio.PlayPvs(sneakAttack.AssassinateSoundUnarmed, target);
@@ -237,7 +237,7 @@ public abstract partial class SharedMartialArtsSystem
                     time = knockdownTime;
 
                 // We do not want to knockdown because it will stunlock the target
-                _stun.TryStun(target, time, true);
+                _stun.TryUpdateStunDuration(target, time);
             }
         }
 
@@ -262,7 +262,7 @@ public abstract partial class SharedMartialArtsSystem
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
 
-        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, proto.DropHeldItemsBehavior);
+        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, true, proto.DropItems);
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * GetDamageMultiplier(ent), out _);
         _audio.PlayPvs(args.Sound, target);
         ComboPopup(ent, target, proto.Name);

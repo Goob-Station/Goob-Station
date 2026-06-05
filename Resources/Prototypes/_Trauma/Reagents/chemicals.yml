@@ -1,0 +1,70 @@
+- type: reagent
+  id: SodiumBicarbonate
+  name: reagent-name-sodium-bicarbonate
+  desc: reagent-desc-sodium-bicarbonate
+  physicalDesc: reagent-physical-desc-powdery
+  color: white
+
+- type: reagent
+  id: SodiumAcetate
+  name: reagent-name-sodium-acetate
+  desc: reagent-desc-sodium-acetate
+  physicalDesc: reagent-physical-desc-powdery
+  color: white
+  flavor: salty
+  boilingPoint: 1154.4
+  meltingPoint: 597
+
+- type: reagent
+  id: Methane
+  name: reagent-name-methane
+  desc: reagent-desc-methane
+  physicalDesc: reagent-physical-desc-gaseous
+  flavor: bitter
+  color: "#c4f5ff"
+  boilingPoint: 111.5
+  meltingPoint: 90.5
+  metabolisms:
+    Poison:
+      metabolismRate: 0.5
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Asphyxiation: 1.5
+
+- type: reagent
+  id: Ethenone
+  name: reagent-name-ethenone
+  desc: reagent-desc-ethenone
+  physicalDesc: reagent-physical-desc-gaseous
+  flavor: bitter
+  color: "#c4f5ff"
+  boilingPoint: 223.9
+  meltingPoint: 199.5
+  metabolisms:
+    Poison:
+      metabolismRate: 0.5
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 1
+
+- type: reagent
+  id: AceticAnhydride
+  name: reagent-name-acetic-anhydride
+  desc: reagent-desc-acetic-anhydride
+  physicalDesc: reagent-physical-desc-sour
+  flavor: sour
+  color: tan
+  boilingPoint: 412.8
+  meltingPoint: 199.9
+  metabolisms:
+    Poison:
+      metabolismRate: 0.5
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 1

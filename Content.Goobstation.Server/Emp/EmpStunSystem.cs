@@ -33,6 +33,6 @@ public sealed class EmpStunSystem : EntitySystem
         var duration = args.Duration;
         if (duration > TimeSpan.FromSeconds(15))
             duration = TimeSpan.FromSeconds(15);
-        _stun.TryParalyze(uid, duration, true);
+        _stun.TryUpdateParalyzeDuration(uid, duration);
     }
 }

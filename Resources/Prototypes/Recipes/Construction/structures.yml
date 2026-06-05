@@ -395,6 +395,19 @@
   # Goobstation end
 
 - type: construction
+  id: Cardwall
+  graph: Cardwall
+  startNode: start
+  targetNode: cardwall
+  category: construction-category-structures
+  conditions:
+  - !type:TileNotBlocked
+    failIfSpace: false
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+
+- type: construction
   id: Grille
   graph: Grille
   startNode: start
@@ -1724,6 +1737,16 @@
   groups:
   - Doors
   # Goobstation end
+
+- type: construction
+  id: CardDoor
+  graph: DoorGraph
+  startNode: start
+  targetNode: cardDoor
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
 
 - type: construction
   id: PlasticFlapsClear

@@ -10,16 +10,14 @@
   id: Triclor
   impact: Medium
   reactants:
-    Ammonia:
-      amount: 1
-    SodiumHydroxide:
+    Amatoxin:
       amount: 1
     Ipecac:
       amount: 1
-    Chlorine:
+    Aluite:
       amount: 3
   products:
-    Triclor: 3
+    Triclor: 5
 
 - type: reaction
   id: Cyanide

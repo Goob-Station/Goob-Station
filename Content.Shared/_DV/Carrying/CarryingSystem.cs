@@ -79,7 +79,7 @@ public sealed class CarryingSystem : EntitySystem
         SubscribeLocalEvent<BeingCarriedComponent, UnbuckledEvent>(OnDrop);
         SubscribeLocalEvent<BeingCarriedComponent, StrappedEvent>(OnDrop);
         SubscribeLocalEvent<BeingCarriedComponent, UnstrappedEvent>(OnDrop);
-        SubscribeLocalEvent<BeingCarriedComponent, EscapeInventoryEvent>(OnDrop);
+        SubscribeLocalEvent<BeingCarriedComponent, EscapeInventoryEvent>(OnEscapeDrop); // Goob
         SubscribeLocalEvent<CarriableComponent, CarryDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<BeingCarriedComponent, EntityTerminatingEvent>(OnDelete);
     }
@@ -225,6 +225,14 @@ public sealed class CarryingSystem : EntitySystem
     private void OnDrop<TEvent>(Entity<BeingCarriedComponent> ent, ref TEvent args) // Augh
     {
         DropCarried(ent.Comp.Carrier, ent);
+    }
+
+    // Separate event so that cancels dont just drop the ent
+    private void OnEscapeDrop(Entity<BeingCarriedComponent> ent, ref EscapeInventoryEvent args)
+    {
+        if (args.Cancelled)
+            return;
+        DropCarried(ent.Comp.Carrier, ent.Owner);
     }
 
     private void OnDoAfter(Entity<CarriableComponent> ent, ref CarryDoAfterEvent args)

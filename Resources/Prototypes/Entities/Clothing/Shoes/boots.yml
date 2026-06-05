@@ -222,10 +222,9 @@
   name: cargo winter boots
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Boots/winterbootscargo.rsi
+    sprite: _Goobstation/Clothing/Shoes/Boots/winterbootscargo.rsi # Goob
   - type: Clothing
-    sprite: Clothing/Shoes/Boots/winterbootscargo.rsi
-
+    sprite: _Goobstation/Clothing/Shoes/Boots/winterbootscargo.rsi # Goob
 - type: entity
   parent: ClothingShoesBaseWinterBoots
   id: ClothingShoesBootsWinterEngi

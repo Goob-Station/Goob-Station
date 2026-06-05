@@ -8,6 +8,10 @@
   categories:
   - UplinkChemicals
   conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - ContractorUplink
   - !type:BuyerSpeciesCondition
     whitelist:
     - Oni

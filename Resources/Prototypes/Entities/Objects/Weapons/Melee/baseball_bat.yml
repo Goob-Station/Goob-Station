@@ -78,6 +78,11 @@
   - type: Item
     size: Large # Goob edit
     storedRotation: 90 # Goob
+    shape:
+    - 0,0,0,3
+    storedSprite:
+      state: storage
+      sprite: Objects/Weapons/Melee/baseball_bat.rsi
   - type: Tool
     qualities:
     - Rolling
@@ -110,6 +115,11 @@
     state: icon
   - type: Item
     size: Normal
+    shape:
+    - 0,0,0,3
+    storedSprite:
+      state: storage
+      sprite: Objects/Weapons/Melee/incomplete_bat.rsi
     sprite: Objects/Weapons/Melee/incomplete_bat.rsi
   - type: Construction
     graph: WoodenBat

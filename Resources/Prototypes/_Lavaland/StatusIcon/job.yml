@@ -1,0 +1,7 @@
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconLavaShaftMiner
+  icon:
+    sprite: /Textures/_Lavaland/Interface/Misc/job_icons.rsi
+    state: LavaShaftMiner
+  jobName: job-name-shaftminer

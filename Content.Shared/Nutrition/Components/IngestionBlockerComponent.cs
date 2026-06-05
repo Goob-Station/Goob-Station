@@ -12,6 +12,8 @@
 
 using Robust.Shared.GameStates;
 
+using Content.Shared.Nutrition.EntitySystems;
+
 namespace Content.Shared.Nutrition.Components;
 // WD EDIT: Moved from Server to Shared
 
@@ -22,15 +24,13 @@ namespace Content.Shared.Nutrition.Components;
 ///     In the event that more head-wear & mask functionality is added (like identity systems, or raising/lowering of
 ///     masks), then this component might become redundant.
 /// </remarks>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, Access(typeof(IngestionSystem))]
 public sealed partial class IngestionBlockerComponent : Component
 {
     /// <summary>
     ///     Is this component currently blocking consumption.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("enabled")]
-    [AutoNetworkedField]
+    [DataField]
     public bool Enabled { get; set; } = true;
 
     /// <summary>

@@ -251,7 +251,7 @@
   - BorgModuleTool
   - BorgModuleMusique
   - BorgModuleService
-  - BorgModuleClowning
+  # - BorgModuleClowning # goobedit
   - BorgModuleGardening
   - BorgModuleHarvesting
   - BorgModuleLollypop # Goobstation

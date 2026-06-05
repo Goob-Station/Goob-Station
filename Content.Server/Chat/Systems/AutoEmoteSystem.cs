@@ -60,11 +60,11 @@ public sealed class AutoEmoteSystem : EntitySystem
 
                 if (autoEmotePrototype.WithChat)
                 {
-                    _chatSystem.TryEmoteWithChat(uid, autoEmotePrototype.EmoteId, autoEmotePrototype.HiddenFromChatWindow ? ChatTransmitRange.HideChat : ChatTransmitRange.Normal);
+                    _chatSystem.TryEmoteWithChat(uid, autoEmotePrototype.EmoteId, autoEmotePrototype.HiddenFromChatWindow ? ChatTransmitRange.HideChat : ChatTransmitRange.Normal, forceEmote: true); // goob edit
                 }
                 else
                 {
-                    _chatSystem.TryEmoteWithoutChat(uid, autoEmotePrototype.EmoteId);
+                    _chatSystem.TryEmoteWithoutChat(uid, autoEmotePrototype.EmoteId, voluntary: false);
                 }
             }
         }

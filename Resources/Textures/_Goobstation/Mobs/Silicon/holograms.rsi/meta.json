@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-NC-SA-3.0",
-    "copyright": "Scurret sprite by Very-Soft and Hannah 'FairlySadPanda' Dawson (see scurret.rsi). Original creature concept by VIDEOCULT, and used with kind permission. AI hologram edit by SabreML.",
+    "copyright": "Scurret sprite by Very-Soft and Hannah 'FairlySadPanda' Dawson (see scurret.rsi). Original creature concept by VIDEOCULT, and used with kind permission. AI hologram edit by SabreML. Kobold/monkey sprites taken from SS14 Wizard's Den at https://github.com/space-wizards/space-station-14/tree/f574990b11db5936de3635a4273d5eb26217882e/Resources/Textures/Mobs/Animals, modified by Hitlinemoss",
     "size": {
         "x": 32,
         "y": 32
@@ -9,6 +9,12 @@
     "states": [
         {
             "name": "ai_scurret"
+        },
+        {
+            "name": "ai_monkey"
+        },
+        {
+            "name": "ai_kobold"
         }
     ]
 }

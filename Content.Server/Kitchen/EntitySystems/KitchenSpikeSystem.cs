@@ -334,7 +334,7 @@ namespace Content.Server.Kitchen.EntitySystems
             }
 
             // Goobstation - start
-            if (HasComp<ChangelingIdentityComponent>(victimUid))
+            if (HasComp<ChangelingComponent>(victimUid))
             {
                 _popupSystem.PopupEntity(Loc.GetString("comp-kitchen-spike-deny-changeling", ("victim", Identity.Entity(victimUid, EntityManager)), ("this", uid)), victimUid, userUid);
                 return false;

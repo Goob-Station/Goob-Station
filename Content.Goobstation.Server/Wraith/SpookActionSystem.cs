@@ -21,9 +21,10 @@ using Robust.Shared.Map;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Linq;
-using Content.Server.Atmos.Components;
+using Content.Shared.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Humanoid;
+using Content.Shared.Storage.Components;
 
 namespace Content.Goobstation.Server.Wraith;
 

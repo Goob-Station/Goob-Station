@@ -14,3 +14,34 @@
     Gold: 200
     Diamond: 100
 
+- type: latheRecipe
+  id: ClothingBackpackXenoBioTank
+  result: ClothingBackpackXenoBioTankFilled
+  completetime: 6
+  materials:
+    Steel: 1000
+    Glass: 200
+    Plastic: 500
+    Plasma: 100
+
+- type: latheRecipe
+  id: SlimeScannerXenobio
+  result: SlimeScannerXenobio
+  categories:
+  - Tools
+  completetime: 2
+  materials:
+    Plastic: 200
+    Glass: 150
+    Plasma: 50
+
+- type: latheRecipe
+  id: ClothingBeltChemBagXenobiologyHolding
+  result: ClothingBeltChemBagXenobiologyHolding
+  completetime: 5
+  materials:
+    Steel: 1500
+    Silver: 500
+    Plasma: 1500
+    Uranium: 100
+    BSCrystal: 100

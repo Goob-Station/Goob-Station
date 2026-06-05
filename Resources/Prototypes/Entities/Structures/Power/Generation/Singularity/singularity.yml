@@ -141,7 +141,6 @@
     falloffPower: 2.529822
     intensity: 3645
   - type: RadiationSource
-    slope: 0.2 # its emit really far away
     intensity: 6 # Goobstation - Radiation Overhaul
   - type: PointLight
     enabled: true

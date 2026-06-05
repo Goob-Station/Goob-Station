@@ -19,8 +19,11 @@ public sealed class DamageOnCollideSystem : EntitySystem
         SubscribeLocalEvent<DamageOnCollideComponent, PreventCollideEvent>(OnPreventCollide);
     }
 
-    private void OnStartCollide(Entity<DamageOnCollideComponent> ent, ref StartCollideEvent args) =>
-        _damageable.TryChangeDamage(ent.Owner, ent.Comp.Damage);
+    private void OnStartCollide(Entity<DamageOnCollideComponent> ent, ref StartCollideEvent args)
+    {
+        var target = ent.Comp.Inverted ? args.OtherEntity : ent.Owner;
+        _damageable.TryChangeDamage(target, ent.Comp.Damage);
+    }
 
     private void OnPreventCollide(Entity<DamageOnCollideComponent> ent, ref PreventCollideEvent args)
     {

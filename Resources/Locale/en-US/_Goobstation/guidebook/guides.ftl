@@ -69,6 +69,7 @@ guide-entry-sop-searches = Searches
 # - Cargo
 guide-entry-sop-cargotech = Cargo Tech
 guide-entry-sop-salvage = Salvage Specialist
+guide-entry-sop-shaft-miner = Shaft Miner
 # - Command
 guide-entry-sop-ntr = Nanotrasen Rep.
 guide-entry-sop-bso = Blueshield Officer

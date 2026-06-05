@@ -27,7 +27,7 @@
     overrideContainerOcclusion: true # Always show up regardless of where they're contained.
     drawdepth: Ghosts
   - type: Visibility
-    layer: 2
+    layer: 2 # Ghost visflag
   - type: Spectral
   - type: Spook
     actions:

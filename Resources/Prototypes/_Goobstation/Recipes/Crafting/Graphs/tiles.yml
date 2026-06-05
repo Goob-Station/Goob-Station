@@ -1,0 +1,17 @@
+- type: constructionGraph
+  id: TileCanvas
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: canvastile
+          completed:
+            - !type:SetStackCount
+              amount: 4
+          steps:
+            - material: WoodPlank
+              amount: 1
+            - material: Cloth
+              amount: 1
+    - node: canvastile
+      entity: FloorTileItemCanvas

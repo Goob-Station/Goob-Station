@@ -1,0 +1,10 @@
+- type: factionIcon
+  id: SleepingCarpFaction
+  priority: 7 # 6.5 rounded
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/faction_icons.rsi
+    state: carp
+  showTo:
+    components:
+    - Fauna # :trolled:
+    - ShowAntagIcons

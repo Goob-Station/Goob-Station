@@ -20,37 +20,171 @@ The Slasher is a relentless horror that stalks isolated crew, harvesting their s
 
   3. Repeat.
 
-  4. Once you gain enough souls you can really start embodying the 80's slasher vibes.
+  4. Once you reach 15 souls, an announcement warns the crew of your ascendance.
 
   ## Abilities
 
-  [bold]Machete Summon[/bold] – You can always call your signature weapon back. This is a great skill if you lose your weapon or want to throw it at someone for some quick damage.
+<Box>
+  [tex path="_Goobstation/Actions/slashericons.rsi" state="SummonMachete" scale="2"/]
+  <Box Orientation="Vertical">
+    ## Summon Machete
 
-  [bold]Soul Steal[/bold] – Can only be used on an incapicated or otherwise restrained target. For every soul stolen you gain more defense and increased damage. It is much more effective on alive targets. Victims become [italic]soulless[/italic] and receive a random negative devil clause.
+You can always call your signature weapon back to your active hand. If it's been destroyed, this will create a new one. Great for recovering your weapon or throwing it for quick damage.
 
-  [bold]Massacre[/bold] – An incredibly strong move that's tied to your special machete. When first used you deal much less damage but the more hits you deal the more damage you deal. After a certain point you will start chopping off the victims limbs and at the 13th hit you decapitate them. Missing resets the combo.
+[italic]Cooldown: 20 seconds.[/italic]
+  </Box>
+</Box>
 
-  [bold]Regeneration / Slasherium[/bold] – An incredibly robust source of healing. It rejuvanates you and takes off any restraints. It comes at the cost of an incredibly long cooldown. Once you use it you cannot use it again until you have stolen another soul.
+<Box>
+  [tex path="_Goobstation/Actions/slashericons.rsi" state="SoulSteal" scale="2"/]
+  <Box Orientation="Vertical">
+    ## Soul Steal
 
-  [bold]Blood Trail[/bold] – Leave a trail of blood in your wake. It also plays some music. Spooky!
+Can only be used on an incapacitated or restrained target within close range. For every soul stolen, you gain increased damage on your machete and armor. Living victims provide much greater bonuses than corpses. Victims become [italic]soulless[/italic] and receive a random negative devil clause. Releases a cloud of ammonia gas on success.
 
-  [bold]Incorporeal / Corporealization[/bold] – Dissappear and reappear from the material realm. This is your main source of traversal. You cannot use it while seen. Extremely limited but very powerful. Blocks cooldowns from going down while in jaunt.
+[italic]Cooldown: 2 seconds. Do-after time: 15 seconds.[/italic]
 
-  [bold]Possession[/bold] – Temporarily take control of a victims body. Mindshields block it.
+  - Living souls: +1.5 slash damage, +5% armor per soul
+  - Dead souls: +0.75 slash damage, +2.5% armor per soul
+  - Maximum armor: 70% damage reduction
+  - Unlocks [bold]Possession[/bold] after stealing 10 souls
+  - Triggers [bold]Ascendance[/bold] at 15 total souls (station-wide announcement)
+  - After ascending, lights periodically flicker and break around you
+  </Box>
+</Box>
 
-  [bold]Meat Spike[/bold] – You can summon a meatspike that you can use to trap your victims in. It is incredibly useful for stealing souls and preventing people from running away.
+<Box>
+  [tex path="_Goobstation/Actions/slashericons.rsi" state="RelentlessGrab" scale="2"/]
+  <Box Orientation="Vertical">
+    ## Relentless Grab
 
-  [bold]Stagger Area[/bold] – You slow down everyone that's near you for a short amount of time. Very useful for getting the jump on people.
+When activated, your next punch will instantly hard-grab your target. Perfect for securing your targets onto your meatspikes.
+
+[italic]Cooldown: 15 seconds.[/italic]
+  </Box>
+</Box>
+
+<Box>
+  [tex path="_Goobstation/Actions/slashericons.rsi" state="SummonMachete" scale="2"/]
+  <Box Orientation="Vertical">
+    ## Massacre
+
+An incredibly powerful attack mode tied to your machete. Activating this makes it so consecutive hits on the same humanoid target build a stronger combo the more you hit them:
+
+  - When activated it applies a damage penalty (-9 damage) and disables wideswings
+  - Each consecutive hit adds bonus damage (+3 per hit)
+  - Every 4th hit severs a random limb (arm or leg)
+  - The 13th consecutive hit decapitates your victim
+  - Missing or switching targets resets the combo
+  - Killing a victim with massacre grants a temporary speed boost and healing (scales with hit count)
+  - Chain ends automatically if 10 seconds pass without landing a hit
+
+[italic]Cooldown: 20 seconds.[/italic]
+  </Box>
+</Box>
+
+<Box>
+  [tex path="_Goobstation/Actions/slashericons.rsi" state="Regenerate" scale="2"/]
+  <Box Orientation="Vertical">
+    ## Regeneration
+
+An incredibly robust source of healing. Instantly rejuvenates you, removes all restraints, and cures all wounds. After every use you must recharge it by stealing another soul. Can be used while dead.
+
+[italic]Cooldown: 75 seconds.[/italic]
+  </Box>
+</Box>
+
+<Box>
+  [tex path="_Goobstation/Actions/slashericons.rsi" state="BloodTrail" scale="2"/]
+  <Box Orientation="Vertical">
+    ## Blood Trail
+
+Toggle to leave a trail of blood in your wake while playing some funky music. Spooky!
+
+[italic]No cooldown (toggle).[/italic]
+  </Box>
+</Box>
+
+<Box>
+  <Box Orientation="Vertical">
+    <Box>
+      [tex path="_Goobstation/Actions/slashericons.rsi" state="Incorporealize" scale="2"/]
+    </Box>
+    <Box>
+      [tex path="_Goobstation/Actions/slashericons.rsi" state="Corporealize" scale="2"/]
+    </Box>
+  </Box>
+  <Box Orientation="Vertical">
+    ## Incorporeal / Corporealization
+
+Your main traversal ability. Become incorporeal to phase through walls and become invisible while being unable to interact with anything. You can only enter this form when completely unseen. if anyone has line of sight to you, you cannot incorporealize. Similarly, you cannot exit incorporeal form if a camera can see your destination or if someone is nearby.
+
+[italic]Incorporeal do-after: 5 seconds. No cooldown (Toggle).[/italic]
+
+  - All ability cooldowns are frozen while incorporeal. They will not continue until you return to your physical form.
+  - Disables nearby lights (5 tile radius) when entering
+  - An alert shows whether you're currently being observed
+  </Box>
+</Box>
+
+<Box>
+  [tex path="_Goobstation/Actions/slashericons.rsi" state="Possession" scale="2"/]
+  <Box Orientation="Vertical">
+    ## Possession
+
+Unlocked after stealing 10 souls. Temporarily take control of a victim's body for 45 seconds. When the duration ends or you cancel early, both minds return to their original bodies. Mindshields and tinfoil hats block this ability.
+
+[italic]Cooldown: 180 seconds (3 minutes).[/italic]
+  </Box>
+</Box>
+
+<Box>
+  [tex path="_Goobstation/Actions/slashericons.rsi" state="Meatspike" scale="2"/]
+  <Box Orientation="Vertical">
+    ## Meat Spike
+
+Instantly summon an Ominious Meat Spike at your current position. Victims who get buckled to it become trapped, making them easy targets for soul steal.
+
+[italic]Cooldown: 15 seconds.[/italic]
+  </Box>
+</Box>
+
+<Box>
+  [tex path="_Goobstation/Actions/slashericons.rsi" state="StaggerArea" scale="2"/]
+  <Box Orientation="Vertical">
+    ## Stagger Area
+
+Release a wave of terror in a 3.5 tile radius around you, slowing all nearby enemies by 50% for 8 seconds. Very useful for catching fleeing victims.
+
+[italic]Cooldown: 20 seconds.[/italic]
+  </Box>
+</Box>
+
+<Box>
+  [tex path="_Goobstation/Actions/slashericons.rsi" state="SlasherVision" scale="2"/]
+  <Box Orientation="Vertical">
+    ## Enhanced Vision
+
+Toggleable night vision that allows you to see perfectly in darkness with a red tint.
+
+[italic]No cooldown (toggle).[/italic]
+  </Box>
+</Box>
 
   ## Crew Tips
-  [bold]Do not wander alone.[/bold].
-  - They are relatively weak when they first appear on the station.
-  - When they steal souls they become much more tankier and deal that much more damage.
-  - If you get the drop on them do not let them out of your sight. If you see them they can't escape.
-  - They are weak to holy. Get the chaplain to help out if you're running low on forces.
-  - Tinfoil hats and mindshields prevent possessions!
-  - Upon 15 souls stolen an announcement plays to warn the crew.
-  - They have no crit state.
+  [bold]Do not wander alone.[/bold]
+  - The Slasher is relatively weak when first appearing on station.
+  - As they steal souls, they become significantly tankier and deal much more damage.
+  - If you spot them, keep them in sight. they cannot escape to incorporeal form while observed.
+  - They are weak to holy damage. Coordinate with the chaplain if available.
+  - Tinfoil hats and mindshields prevent possession.
+  - Upon 15 souls stolen, an announcement warns the crew of their ascendance.
+  - Cameras can prevent them from exiting incorporeal form.
+  - Their cooldowns freeze while incorporeal.
+  - Group up and travel with others. the Slasher excels at picking off isolated targets.
+  - If they hard grab you and attempt to put you on a meatspike you can cancel it by shoving them.
+  - They cannot use guns.
+  - They have no critical state. They're either alive or dead.
 
-  [color=red][bold]You are the legend of the midnight massacre—make it feel like one.[/bold][/color]
+  [color=red][bold]You are the legend of the midnight massacre. make it feel like one.[/bold][/color]
 </Document>

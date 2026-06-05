@@ -59,7 +59,7 @@ public sealed partial class AlertLevelComponent : Component
                 return false;
             }
 
-            return level.Selectable && !level.DisableSelection && !IsLevelLocked;
+            return (level.Selectable || level.EmagSelectable) && !level.DisableSelection && !IsLevelLocked; // Goobstation - added EmagSelectable
         }
     }
 }

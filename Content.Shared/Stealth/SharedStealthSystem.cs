@@ -133,6 +133,10 @@ public abstract class SharedStealthSystem : EntitySystem
 
         var delta = component.MovementVisibilityRate * (args.NewPosition.Position - args.OldPosition.Position).Length();
 
+        // goobstation - stealth breaking on move
+        if (component.BreakOnMove)
+            delta = stealthComp.MaxVisibility;
+
         ModifyVisibility(uid, delta, stealthComp); // Goobstation - Fixing stealth suit resolve error
     }
 
@@ -236,6 +240,20 @@ public abstract class SharedStealthSystem : EntitySystem
         if (!Resolve(uid, ref comp))
             return;
         comp.ThermalsImmune = value;
+    }
+
+    public void SetRevealOnAttack(Entity<StealthComponent> ent, bool state)
+    {
+        ent.Comp.RevealOnAttack = state;
+
+        Dirty(ent);
+    }
+
+    public void SetRevealOnDamage(Entity<StealthComponent> ent, bool state)
+    {
+        ent.Comp.RevealOnDamage = state;
+
+        Dirty(ent);
     }
     // Goobstation end
 }

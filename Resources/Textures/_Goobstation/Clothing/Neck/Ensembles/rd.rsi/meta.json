@@ -1,0 +1,204 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprited by wyvernrer (Discord)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon",
+      "delays": [
+              [
+                  0.2,
+                  0.2,
+                  0.2,
+                  0.2
+              ]
+        ]
+    },
+    {
+      "name": "cloak-icon",
+      "delays": [
+              [
+                  0.2,
+                  0.2,
+                  0.2,
+                  0.2
+              ]
+        ]
+    },
+    {
+      "name": "mantle-icon"
+    },
+    {
+      "name": "wings-icon"
+    },
+    {
+      "name": "cloakwings-icon",
+      "delays": [
+              [
+                  0.2,
+                  0.2,
+                  0.2,
+                  0.2
+              ]
+        ]
+    },
+    {
+      "name": "cloakmantle-icon",
+      "delays": [
+              [
+                  0.2,
+                  0.2,
+                  0.2,
+                  0.2
+              ]
+        ]
+    },
+    {
+      "name": "mantlewings-icon"
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    },
+    {
+        "name": "all-equipped-NECK",
+        "directions": 4,
+        "delays": [
+            [
+                0.2,
+                0.2,
+                0.2,
+                0.2
+            ],
+            [
+                0.2,
+                0.2,
+                0.2,
+                0.2
+            ],
+            [
+                0.2,
+                0.2,
+                0.2,
+                0.2
+            ],
+            [
+                0.2,
+                0.2,
+                0.2,
+                0.2
+            ]
+        ]
+    },
+    {
+        "name": "cloak-equipped-NECK",
+        "directions": 4,
+        "delays": [
+            [
+                0.2,
+                0.2,
+                0.2,
+                0.2
+            ],
+            [
+                0.2,
+                0.2,
+                0.2,
+                0.2
+            ],
+            [
+                0.2,
+                0.2,
+                0.2,
+                0.2
+            ],
+            [
+                0.2,
+                0.2,
+                0.2,
+                0.2
+            ]
+        ]
+    },
+    {
+        "name": "cloakmantle-equipped-NECK",
+        "directions": 4,
+        "delays": [
+            [
+                0.2,
+                0.2,
+                0.2,
+                0.2
+            ],
+            [
+                0.2,
+                0.2,
+                0.2,
+                0.2
+            ],
+            [
+                0.2,
+                0.2,
+                0.2,
+                0.2
+            ],
+            [
+                0.2,
+                0.2,
+                0.2,
+                0.2
+            ]
+        ]
+    },
+    {
+        "name": "cloakwings-equipped-NECK",
+        "directions": 4,
+        "delays": [
+            [
+                0.2,
+                0.2,
+                0.2,
+                0.2
+            ],
+            [
+                0.2,
+                0.2,
+                0.2,
+                0.2
+            ],
+            [
+                0.2,
+                0.2,
+                0.2,
+                0.2
+            ],
+            [
+                0.2,
+                0.2,
+                0.2,
+                0.2
+            ]
+        ]
+    },
+    {
+      "name": "mantle-equipped-NECK",
+      "directions": 4
+    },
+    {
+      "name": "wings-equipped-NECK",
+      "directions": 4
+    },
+        {
+      "name": "mantlewings-equipped-NECK",
+      "directions": 4
+    }
+  ]
+}

@@ -3,7 +3,47 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- files: ["vox_deathgasp.ogg", "scream4.ogg", "scream3.ogg", "vox_cough.ogg", "vox_cry.ogg", "vox_gasp.ogg",  "vox_sigh.ogg", "vox_sneeze.ogg", "vox_snore.ogg", "vox_yawn.ogg"]
+- files: ["vox_deathgasp.ogg", "scream4.ogg", "scream3.ogg", "vox_cough.ogg", "vox_cry.ogg", "vox_gasp.ogg", "vox_sneeze.ogg", "vox_snore.ogg", "vox_yawn.ogg"]
   license: "CC0-1.0"
   copyright: "Shartmok made this dogwater, Prehistoric bird sounds by Mastersoundboy2005"
   source: "https://freesound.org/s/733528/"
+
+- files: ["vox_cough2.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Made by TrixxedHeart, modified from vox_laugh.ogg"
+  source: "https://github.com/space-wizards/space-station-14/pull/39914"
+
+- files: ["vox_sigh.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Made by TrixxedHeart, modified from shriek1.ogg"
+  source: "https://github.com/space-wizards/space-station-14/pull/39914"
+  
+- files: ["vox_cry.ogg"]
+  license: "CC0-1.0"
+  copyright: "raptorgoesextinct.wav by Nerdwizard78"
+  source: "https://freesound.org/people/Nerdwizard78/sounds/643928/"
+  
+- files: ["vox_chitter.ogg"]
+  license: "CC0-1.0"
+  copyright: "dinosaur.wav by JhennaSide"
+  source: "https://freesound.org/people/JhennaSide/sounds/455906/"
+
+- files: ["voxchitter1.ogg"]
+  license: "Custom"
+  copyright: "Recorded by June Hunter Images; modified by AvianMaiden."
+  source: "https://www.youtube.com/watch?v=8xybFI2Q-No"
+
+- files: ["voxchitter2.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "AlexTriceratops123"
+  source: "https://web.archive.org/web/20200223000457/https://www.youtube.com/watch?v=uA5yGyB_z5U"
+
+- files: ["voxhiss.ogg"]
+  license: "Custom"
+  copyright: "Recorded by John Naran; modified by AvianMaiden."
+  source: "https://www.youtube.com/watch?v=ETS5NGOankI"
+
+- files: ["vox_click.ogg"]
+  license: "CC0-1.0"
+  copyright: "Storks bill-clapping by Breviceps"
+  source: "https://freesound.org/people/Breviceps/sounds/705861/"

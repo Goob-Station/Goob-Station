@@ -41,6 +41,7 @@
     gloves: ClothingHandsGlovesColorYellow
     back: ClothingBackpackSatchelLeather
     belt: ClothingBeltUtilityFilled
+    suitstorage: OxygenTankFilled
   inhand:
   - SingulothsHammer
   storage:
@@ -72,6 +73,7 @@
     belt: ClothingBeltAssaultFilled
     id: CentcomPDA
   inhand:
+  - PinpointerDarkLord
   - EnergySwordBlue
 
 - type: startingGear
@@ -97,8 +99,6 @@
     - MagazinePistolCaselessRifle
     - ChemistryBottleNocturine
     - Syringe
-    - DeathAcidifierImplanter
-    - FreedomImplanter
 
 - type: startingGear
   id: DarkPriestAntagGear

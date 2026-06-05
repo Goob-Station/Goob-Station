@@ -48,7 +48,8 @@
     event: !type:EventHereticAggressiveSpread
   - type: HereticAction
     requireMagicItem: true
-    messageLoc: heretic-speech-rust-spread
+  - type: SpeakOnAction
+    sentence: heretic-speech-rust-spread
   - type: ChangeUseDelayOnAscension
     newUseDelay: 15
     requiredPath: Rust
@@ -74,7 +75,8 @@
     event: !type:EventHereticEntropicPlume
   - type: HereticAction
     requireMagicItem: true
-    messageLoc: heretic-speech-rust-plume
+  - type: SpeakOnAction
+    sentence: heretic-speech-rust-plume
 
 - type: entity
   parent: BaseAction

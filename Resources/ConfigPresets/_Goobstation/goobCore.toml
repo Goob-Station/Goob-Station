@@ -1,0 +1,91 @@
+[log]
+path = "logs"
+format = "log_%(date)s-%(time)s.txt"
+level = 2
+enabled = false
+
+[net]
+tickrate = 30
+max_connections = 2000
+lidgren_log_warning = false
+lidgren_log_error = false
+log_late_msg = false
+
+[status]
+enabled = true
+privacy_policy_link = "https://privacy.goobstation.com/"
+privacy_policy_identifier = "goob"
+privacy_policy_version = "2025-12-25"
+
+[game]
+soft_max_players = 85
+maxcharacterslots = 25
+round_end_pvs_overrides = false
+defaultpreset = "CombatDynamic"
+ipintel_enabled = true
+ipintel_contact_email = "administrator@goobstation.com"
+
+[movement]
+mob_pushing = 0
+
+[shuttle]
+emergency_early_launch_allowed = 1
+
+[worldgen]
+enabled = 1
+
+[admin]
+see_own_notes = 1
+deadmin_on_join = 1
+bypass_max_players = 1
+
+[hub]
+advertise = 1
+advertise_interval = 30
+use_dynamic_hostname = true
+hub_urls = "https://hub.spacestation14.com/,https://hub.singularity14.co.uk/"
+
+[infolinks]
+discord = "https://discord.gg/goobstation"
+forum = "https://forums.goobstation.com"
+github = "https://github.com/Goob-Station/Goob-Station"
+website = "https://goobstation.com"
+wiki = "https://wiki.goobstation.com"
+patreon = "https://www.patreon.com/goobstation14"
+bug_report = "https://github.com/Goob-Station/Goob-Station/issues/new"
+appeal = "https://forums.goobstation.com"
+
+[console]
+login_host_user = "GoobStation"
+loginlocal = true
+
+[auth]
+mode = 1
+
+[vote]
+restart_required_ratio = 0.7
+restart_enabled = false
+restart_ghost_percentage = 0
+map_enabled = false
+
+[chat]
+show_typing_indicator = true
+
+[ic]
+punctuation = true
+flavor_text = true
+
+[ban]
+hardware_ids = true
+
+[rmc]
+patron_lobby_message_time_seconds = 10
+
+[lavaland]
+enabled = true
+
+[queue]
+enabled = true
+
+[voice]
+barks_enabled = true

@@ -223,6 +223,7 @@
     - type: BlockMovement
     - type: Examiner
     - type: BorgBrain
+    - type: IntellicardableMind # Goobstation - intellicard on more AIs
     - type: IntrinsicRadioReceiver
     #- type: IntrinsicRadioTransmitter
     #  channels:

@@ -51,7 +51,6 @@
   - type: Wieldable
   - type: GunRequiresWield
   - type: MeleeRequiresWield
-    fumbleOnAttempt: true
   - type: Item
     size: Huge
     shape:

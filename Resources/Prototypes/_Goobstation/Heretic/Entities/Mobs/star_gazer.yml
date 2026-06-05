@@ -12,7 +12,7 @@
     layers:
     - state: star_gazer
       offset: 0, 1
-  - type: ActionsProvider
+  - type: ActionGrant
     actions:
     - ActionHereticCosmicExpansion
     - ActionHereticStarBlast
@@ -120,6 +120,9 @@
   - type: EventHorizonIgnore
   - type: SpacetimeSpellbladeEnchantment # It's not a spellblade, trust
     effect: EffectCosmicSlash
+  - type: HealingAura
+    componentHealMultipliers:
+      CosmosPassive: 2
   - type: Tag
     tags:
     - CannotSuicide

@@ -16,6 +16,11 @@
   category: construction-category-misc
   targetNode: stack
   objectType: Item
-  groups:
-  - SimpleHandmade
-  - Technological
+
+- type: construction
+  id: TileCanvas
+  graph: TileCanvas
+  category: construction-category-tiles
+  startNode: start
+  targetNode: canvastile
+  objectType: Item

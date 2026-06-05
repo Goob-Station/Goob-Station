@@ -17,7 +17,7 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/contractor_baton.rsi
     layers:
-    - state: icon
+    - state: icon-off
       map: [ "enum.ItemToggleVisuals.Layer" ]
   - type: Item
     sprite: _Goobstation/Objects/Weapons/Melee/contractor_baton.rsi

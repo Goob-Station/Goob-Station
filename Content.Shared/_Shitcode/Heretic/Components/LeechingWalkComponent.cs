@@ -16,6 +16,8 @@ namespace Content.Shared._Goobstation.Heretic.Components;
 [RegisterComponent]
 public sealed partial class LeechingWalkComponent : Component
 {
+    public override bool SessionSpecific => true;
+
     [DataField]
     public FixedPoint2 BoneHeal = -5;
 
@@ -44,7 +46,7 @@ public sealed partial class LeechingWalkComponent : Component
     public float StaminaHeal = 5f;
 
     [DataField]
-    public float ChemPurgeRate = 2f;
+    public float ChemPurgeRate = 3f;
 
     [DataField]
     public ProtoId<ReagentPrototype> ExcludedReagent = "EldritchEssence";

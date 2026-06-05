@@ -1,1 +1,3 @@
-internal-resources-action-no-resources = Not enough resources of {$type} type.
+internal-resources-action-generic-deficit = Not enough resources to perform this!
+
+internal-resources-action-changeling-deficit = Not enough chemicals!

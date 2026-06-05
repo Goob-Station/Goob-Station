@@ -5,4 +5,15 @@
   alert: ChangelingChemicals
   maxAmount: 100
   regenerationRate: 1
-  startingAmount: 50
+  startingAmount: 100
+  deficitPopup: "internal-resources-action-changeling-deficit"
+
+- type: internalResources
+  id: ChangelingBiomass
+  name: internal-resources-biomass-name
+  description: internal-resources-biomass-desc
+  alert: ChangelingBiomass
+  thresholds: ChangelingBiomass
+  maxAmount: 60
+  regenerationRate: -0.02 # 50 minutes until emptied by default
+  startingAmount: 60

@@ -121,7 +121,7 @@
   description: It's a space carp.
   abstract: true
   components:
-    - type: WeatherImmune
+    - type: WeatherImmune # Lavaland Change
     - type: InputMover
     - type: MobMover
     - type: HTN

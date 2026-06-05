@@ -14,7 +14,14 @@
         Base: goliath
       Dead:
         Base: goliath_dead
-  - type: WeatherImmune
+  - type: HTN
+    blackboard:
+      VisionRadius: !type:Single # Highly aggressive
+        8
+      AggroVisionRadius: !type:Single
+        9
+      NavSmash: !type:Bool
+        true
 
 - type: entity
   id: MobLavalandGoliathAncient
@@ -22,7 +29,6 @@
   name: ancient goliath
   suffix: Lavaland
   components:
-  - type: WeatherImmune
   - type: Sprite
     sprite: _Lavaland/Mobs/goliath.rsi
     layers:
@@ -52,12 +58,9 @@
   #    0: Alive
   #    400: Dead
   - type: HTN
-    constantlyReplan: false
-    rootTask:
-      task: GoliathCompound
     blackboard:
-      VisionRadius: !type:Single
-        6
+      VisionRadius: !type:Single # Extremely aggressive
+        9
       AggroVisionRadius: !type:Single
         10
       NavSmash: !type:Bool
@@ -67,4 +70,6 @@
     - id: FoodMeatGoliath
       amount: 3
     - id: MaterialGoliathHide1
+      amount: 3
+    - id: MaterialBones1
       amount: 3

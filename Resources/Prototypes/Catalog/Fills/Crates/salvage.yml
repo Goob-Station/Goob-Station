@@ -82,7 +82,7 @@
         prob: 0.1
       - id: WelderIndustrialAdvanced
         prob: 0.1
-      - id: ResearchDisk
+      - id: ResearchDisk5000 #Goob station
         prob: 0.1
       - id: SheetUranium
         prob: 0.1
@@ -100,6 +100,8 @@
       - id: SalvageHumanCorpse
         prob: 0.1
         # Interesting (1%)
+      - id: MaterialBSCrystal #Goob station
+        prob: 0.01
         #  - Ammo
       - id: MagazineBoxMagnum
         prob: 0.01
@@ -120,12 +122,18 @@
         prob: 0.01
       - id: ClothingHeadHatDogEars
         prob: 0.01
+      - id: FoodMango #Goob station
+        prob: 0.01
         # TRAITOR EQUIPMENT (0.01%)
       - id: Telecrystal50 # Goobstation - Telecrystal rework
         prob: 0.0001
       - id: WeaponRevolverPython
         prob: 0.0001
       - id: WeaponRevolverMateba
+        prob: 0.0001
+      - id: GatfruitSeeds # Goob station
+        prob: 0.0001
+      - id: DehydratedSpaceCarp #Goob station
         prob: 0.0001
 
 - type: entity
@@ -157,7 +165,7 @@
   parent: CrateGenericSteel
   id: CrateDoubleEmergencyTank
   name: double emergency tank crate
-  description: Contains 2 double emergency oxygen tanks and 2 double emergency nitrogen tanks
+  description: Contains 2 double emergency oxygen tanks, 2 double emergency nitrogen tanks and 2 double emergency water vapor tanks. #Goob station
   components:
   - type: EntityTableContainerFill
     containers:
@@ -166,6 +174,8 @@
         - id: DoubleEmergencyOxygenTankFilled
           amount: 2
         - id: DoubleEmergencyNitrogenTankFilled
+          amount: 2
+        - id: DoubleEmergencyWaterVaporTankFilled #Goob station
           amount: 2
 
 - type: entity

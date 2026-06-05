@@ -137,7 +137,7 @@ public sealed partial class FelinidSystem : EntitySystem
 
         if (hunger.CurrentThreshold == Shared.Nutrition.Components.HungerThreshold.Overfed)
         {
-            _popupSystem.PopupEntity(Loc.GetString("food-system-you-cannot-eat-any-more"), uid, uid, Shared.Popups.PopupType.SmallCaution);
+            _popupSystem.PopupEntity(Loc.GetString("ingestion-other-cannot-ingest-any-more"), uid, uid, Shared.Popups.PopupType.SmallCaution);
             return;
         }
 

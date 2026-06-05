@@ -194,9 +194,9 @@
         Slash: 15
         Heat: 15
         Structural: 20
-      woundSeverityMultipliers:
-        Slash: 4
-        Heat: 4
+      woundSeverityMultipliers: # Goobstation
+        Slash: 2
+        Heat: 2
   - type: MeleeWeapon
     animationRotation: -45 # WWDP
     heavyStaminaCost: 2.5 # goob edit
@@ -497,7 +497,7 @@
           Slash: 15   #Goob Station rebalance, was originally 12
           Heat: 15    #Goob Station rebalance, was originally 12
           Structural: 40 # Goob edit
-        woundSeverityMultipliers:
+        woundSeverityMultipliers: #Goob, Should be at least some reason to use this over eshield/base esword
           Slash: 7
           Heat: 7
   - type: ItemToggleActiveSound

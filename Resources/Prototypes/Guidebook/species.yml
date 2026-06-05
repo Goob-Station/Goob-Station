@@ -46,6 +46,7 @@
     - Chitinid
     - Plasmaman
     - Feroxi
+    - Shadowkin
 
 - type: guideEntry
   id: Arachnid
@@ -132,3 +133,8 @@
   id: Plasmaman
   name: species-name-plasmaman
   text: "/ServerInfo/Guidebook/Mobs/Plasmaman.xml"
+
+- type: guideEntry
+  id: Shadowkin
+  name: species-name-shadowkin
+  text: "/ServerInfo/Guidebook/Mobs/Shadowkin.xml"

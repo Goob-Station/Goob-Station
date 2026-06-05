@@ -12,7 +12,7 @@ using Content.Server.Actions;
 using Content.Server.Chat.Systems;
 using Content.Server.Pinpointer;
 using Content.Server.Popups;
-using Content.Server.Warps;
+using Content.Shared.Warps;
 using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
 using Content.Shared._Goobstation.Wizard.Teleport;
 using Content.Shared.Actions;

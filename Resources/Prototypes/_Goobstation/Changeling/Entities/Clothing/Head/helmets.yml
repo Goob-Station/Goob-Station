@@ -24,6 +24,9 @@
     equippedPrefix: transform
   - type: ChangePrefixAfterDelay
     delay: 1
+  - type: ChangelingEquipment
+    requiredSlot: OUTERCLOTHING
+    ## no modifier as the armor/torso is the actual "main" part
   - type: FireProtection
     reduction: 0.15
   - type: Armor
@@ -37,12 +40,11 @@
     - Head
     modifiers:
       coefficients:
-        Blunt: 0.55
-        Slash: 0.55
-        Piercing: 0.55
-        Heat: 0.55
+        Blunt: 0.45
+        Slash: 0.45
+        Piercing: 0.45
+        Heat: 0.65
         Caustic: 0.55
-  - type: Unremoveable
   - type: IdentityBlocker
   - type: IngestionBlocker
   - type: HideClothingLayerClothing

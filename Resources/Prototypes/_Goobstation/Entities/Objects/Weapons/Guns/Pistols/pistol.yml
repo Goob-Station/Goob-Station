@@ -16,7 +16,7 @@
   name: Dualetta
   parent: [BaseWeaponPistol, BaseSyndicateContraband]
   id: WeaponPistolDualetta
-  description: The coolest pistol in the sector. It is said that nobody is strong enough of will to tarnish this weapon's reputation by daring to fire it without its paired pistol.
+  description: The coolest pistol in the sector. It is said that nobody is strong enough of will to tarnish this weapon's reputation by daring to fire it without its paired pistol. Feeds from .35 Auto pistol magazines.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Pistols/Dualetta.rsi
@@ -74,7 +74,7 @@
   parent: [ BaseItem, BaseSyndicateContraband ]
   id: WeaponPistolAnaconda
   name: Anaconda
-  description: A heavy pistol capable of supplying itself with the ammo on the way using a built-in fabricator.
+  description: A bulky hand cannon with a built in fabricator in its grip. Slowly prints ammo for itself, though don't count on it being fast enough for sustained firefights.
   components:
   - type: Item
     size: Small
@@ -122,10 +122,10 @@
       ballistic-ammo: !type:Container
 
 - type: entity
-  name: contract terminator
+  name: Contract Terminator
   parent: [BaseWeaponPistol, BaseCentcommContraband]
   id: WeaponPistolCentcommAgent
-  description: A pistol specifically designed to fire neurotoxin laced bullets. It's capable concealing itself via bluespace technology.
+  description: Necessity is the mother of deception.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Pistols/agentpistol.rsi

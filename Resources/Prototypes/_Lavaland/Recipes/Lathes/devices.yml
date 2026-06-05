@@ -1,0 +1,34 @@
+- type: latheRecipe
+  id: WeaponProtoKineticRepeater
+  result: WeaponProtoKineticRepeater
+  categories:
+  - Weapons
+  completetime: 7
+  materials:
+    Steel: 1000
+    Glass: 500
+    Silver: 100
+
+- type: latheRecipe
+  id: WeaponProtoKineticPistol
+  result: WeaponProtoKineticPistol
+  categories:
+  - Weapons
+  completetime: 3
+  materials:
+    Steel: 500
+    Glass: 250
+    Silver: 50
+
+- type: latheRecipe
+  id: WeaponProtoKineticShotgun
+  result: WeaponProtoKineticShotgun
+  categories:
+  - Weapons
+  completetime: 14
+  materials: # Yes I just mess with you all right now by placing these numbers
+    Steel: 2000
+    Glass: 800
+    Silver: 500
+    Gold: 500
+    Plasma: 400

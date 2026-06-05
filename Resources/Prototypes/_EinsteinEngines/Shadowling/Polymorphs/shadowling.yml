@@ -9,6 +9,9 @@
     revertOnDeath: false
     revertOnCrit: false
     componentsToTransfer:
+    - component: LanguageKnowledge
+    - component: LanguageSpeaker
+    - component: Grammar
     - component: Shadowling
       mirror: true
 
@@ -23,6 +26,9 @@
     revertOnCrit: false
     revertOnDeath: false
     componentsToTransfer:
+    - component: LanguageKnowledge
+    - component: LanguageSpeaker
+    - component: Grammar
     - component: Shadowling
       mirror: true
 
@@ -39,5 +45,8 @@
     revertOnDeath: false
     inventory: Transfer
     componentsToTransfer:
+    - component: LanguageKnowledge
+    - component: LanguageSpeaker
+    - component: Grammar
     - component: Thrall
       mirror: true

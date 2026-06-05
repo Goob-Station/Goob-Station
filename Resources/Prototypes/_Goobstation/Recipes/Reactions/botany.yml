@@ -37,5 +37,5 @@
     Nitrogen:
       amount: 1
   products:
-    Saltpeter: 1
+    Saltpeter: 2 # Trauma - Can we all admit a 3:1 yield sucks? Also done to make nitric acid less painful to make
     Water: 1

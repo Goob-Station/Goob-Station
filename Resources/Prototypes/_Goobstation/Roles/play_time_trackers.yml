@@ -76,3 +76,6 @@
 
 - type: playTimeTracker
   id: JobVirologist
+  
+- type: playTimeTracker
+  id: JobOuterCommander

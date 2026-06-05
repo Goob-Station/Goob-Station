@@ -4,6 +4,9 @@
   filthRequired: 6
   entity: MobPlagueRatMedium
   transferComponents:
+  - component: LanguageKnowledge
+  - component: LanguageSpeaker
+  - component: Grammar
   - component: EatFilth
   - component: DiseasedRat
 
@@ -12,6 +15,9 @@
   filthRequired: 12
   entity: MobPlagueRatLarge
   transferComponents:
+  - component: LanguageKnowledge
+  - component: LanguageSpeaker
+  - component: Grammar
   - component: EatFilth
   - component: DiseasedRat
 

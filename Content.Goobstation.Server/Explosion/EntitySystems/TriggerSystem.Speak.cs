@@ -7,6 +7,9 @@ using Content.Goobstation.Server.Explosion.Components;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Speech;
 using Content.Server.Speech.Components;
+using Content.Shared.Speech;
+using Content.Shared.Speech.Components;
+using Content.Shared.Trigger.Systems;
 using Robust.Server.Containers;
 
 namespace Content.Goobstation.Server.Explosion.EntitySystems;

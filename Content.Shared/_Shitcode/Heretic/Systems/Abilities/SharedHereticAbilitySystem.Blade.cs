@@ -37,7 +37,7 @@ public abstract partial class SharedHereticAbilitySystem
         // SubscribeLocalEvent<SilverMaelstromComponent, BeforeHarmfulActionEvent>(OnBladeHarmfulAction);
 
         SubscribeLocalEvent<RealignmentComponent, BeforeStaminaDamageEvent>(OnBeforeBladeStaminaDamage);
-        SubscribeLocalEvent<RealignmentComponent, OldBeforeStatusEffectAddedEvent>(OnBeforeBladeStatusEffect);
+        SubscribeLocalEvent<RealignmentComponent, BeforeOldStatusEffectAddedEvent>(OnBeforeBladeStatusEffect);
         SubscribeLocalEvent<RealignmentComponent, SlipAttemptEvent>(OnBladeSlipAttempt);
         SubscribeLocalEvent<RealignmentComponent, BeforeHarmfulActionEvent>(OnBladeHarmfulAction);
         SubscribeLocalEvent<RealignmentComponent, StatusEffectEndedEvent>(OnStatusEnded);
@@ -79,9 +79,9 @@ public abstract partial class SharedHereticAbilitySystem
         args.NoSlip = true;
     }
 
-    private void OnBeforeBladeStatusEffect(EntityUid uid, Component component, ref OldBeforeStatusEffectAddedEvent args)
+    private void OnBeforeBladeStatusEffect(EntityUid uid, Component component, ref BeforeOldStatusEffectAddedEvent args)
     {
-        if (args.Key is not ("KnockedDown" or "Stun"))
+        if (args.EffectKey is not ("KnockedDown" or "Stun"))
             return;
 
         args.Cancelled = true;

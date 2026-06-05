@@ -37,7 +37,7 @@
     - type: WarDeclarator
       message: war-declarator-default-message
       sound: # Goobstation
-        path: /Audio/_Goobstation/Announcements/war.ogg
+        collection: war
     - type: AccessReader
       access: [["NuclearOperative"]]
 

@@ -127,7 +127,6 @@ using Content.Server.Speech.Prototypes;
 using Content.Server.Speech.Components;
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Speech.Prototypes;
-using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared._Goobstation.Wizard.Chuuni;
 using Content.Shared.ActionBlocker;
@@ -144,6 +143,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Players;
 using Content.Shared.Players.RateLimiting;
 using Content.Shared.Radio;
+using Content.Shared.Station.Components;
 using Content.Shared.Whitelist;
 using Content.Goobstation.Common.Chat;
 using Content.Goobstation.Common.Traits;
@@ -158,6 +158,12 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
+using Content.Shared._RMC14.CCVar;
+
+// Goob start - the blind dont see
+using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.Traits.Assorted;
+// Goob end
 
 namespace Content.Server.Chat.Systems;
 
@@ -206,6 +212,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     private bool _loocEnabled = true;
     private bool _deadLoocEnabled;
     private bool _critLoocEnabled;
+    private bool _DeadchatEnabled; // RMC14
     private readonly bool _adminLoocEnabled = true;
 
     public override void Initialize()
@@ -215,6 +222,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         Subs.CVar(_configurationManager, CCVars.LoocEnabled, OnLoocEnabledChanged, true);
         Subs.CVar(_configurationManager, CCVars.DeadLoocEnabled, OnDeadLoocEnabledChanged, true);
         Subs.CVar(_configurationManager, CCVars.CritLoocEnabled, OnCritLoocEnabledChanged, true);
+        Subs.CVar(_configurationManager, RMCCVars.RMCDeadChatEnabled, OnDeadChatEnabledChanged, true); // RMC14
 
         SubscribeLocalEvent<GameRunLevelChangedEvent>(OnGameChange);
     }
@@ -245,6 +253,16 @@ public sealed partial class ChatSystem : SharedChatSystem
         _critLoocEnabled = val;
         _chatManager.DispatchServerAnnouncement(
             Loc.GetString(val ? "chat-manager-crit-looc-chat-enabled-message" : "chat-manager-crit-looc-chat-disabled-message"));
+    }
+
+        private void OnDeadChatEnabledChanged(bool val)
+    {
+        if (_DeadchatEnabled == val)
+            return;
+
+        _DeadchatEnabled = val;
+        _chatManager.DispatchServerAnnouncement(
+            Loc.GetString(val ? "set-dchat-command-dchat-enabled" : "set-dchat-command-dchat-disabled"));
     }
 
     private void OnGameChange(GameRunLevelChangedEvent ev)
@@ -283,10 +301,11 @@ public sealed partial class ChatSystem : SharedChatSystem
         ICommonSession? player = null, string? nameOverride = null,
         bool checkRadioPrefix = true,
         bool ignoreActionBlocker = false,
-        Color? colorOverride = null // Goobstation
+        Color? colorOverride = null, // Goobstation
+        bool forced = false // goobstation
         )
     {
-        TrySendInGameICMessage(source, message, desiredType, hideChat ? ChatTransmitRange.HideChat : ChatTransmitRange.Normal, hideLog, shell, player, nameOverride, checkRadioPrefix, ignoreActionBlocker, colorOverride); // Goob edit
+        TrySendInGameICMessage(source, message, desiredType, hideChat ? ChatTransmitRange.HideChat : ChatTransmitRange.Normal, hideLog, shell, player, nameOverride, checkRadioPrefix, ignoreActionBlocker, colorOverride, forced: forced); // Goob edit
     }
 
     /// <summary>
@@ -312,7 +331,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         bool checkRadioPrefix = true,
         bool ignoreActionBlocker = false,
         Color? colorOverride = null, // Goobstation
-        LanguagePrototype? languageOverride = null // Einstein Engines - Language
+        LanguagePrototype? languageOverride = null, // Einstein Engines - Language
+        bool forced = false // goobstation
         )
     {
         if (HasComp<GhostComponent>(source))
@@ -373,7 +393,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         // Was there an emote in the message? If so, send it.
         if (player != null && emoteStr != message && emoteStr != null)
         {
-            SendEntityEmote(source, emoteStr, range, nameOverride, language, ignoreActionBlocker); // Einstein Engines - Language
+            SendEntityEmote(source, emoteStr, range, nameOverride, language, ignoreActionBlocker, forced: forced); // Einstein Engines - Language
         }
 
         // This can happen if the entire string is sanitized out.
@@ -428,7 +448,7 @@ public sealed partial class ChatSystem : SharedChatSystem
                 SendEntityWhisper(source, message, range, null, nameOverride, language, hideLog, ignoreActionBlocker, colorOverride); // Goob edit & Einstein Engines - Language
                 break;
             case InGameICChatType.Emote:
-                SendEntityEmote(source, message, range, nameOverride, language, hideLog: hideLog, ignoreActionBlocker: ignoreActionBlocker); // Einstein Engines - Language
+                SendEntityEmote(source, message, range, nameOverride, language, hideLog: hideLog, ignoreActionBlocker: ignoreActionBlocker, forced: forced); // Einstein Engines - Language
                 break;
             case InGameICChatType.Telepathic:
                 _telepath.SendTelepathicChat(source, message, range == ChatTransmitRange.HideChat);
@@ -829,6 +849,8 @@ public sealed partial class ChatSystem : SharedChatSystem
             // Goob edit start
             if (TryComp<DeafComponent>(listener, out var modifier) && language.SpeechOverride.RequireSpeech)
                 continue; // blocks anyone with the deaf component from hearing.
+            if (HasComp<PermanentBlindnessComponent>(listener) || HasComp<TemporaryBlindnessComponent>(listener))
+                continue; // block blind people from seeing subtle sign language gestures
             // Goob edit end
 
             // Einstein Engines - Language begin
@@ -901,7 +923,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         bool hideLog = false,
         bool checkEmote = true,
         bool ignoreActionBlocker = false,
-        NetUserId? author = null
+        NetUserId? author = null,
+        bool forced = false // goobstation
         )
     {
         if (!_actionBlocker.CanEmote(source) && !ignoreActionBlocker)
@@ -917,8 +940,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             ("entity", ent),
             ("message", FormattedMessage.RemoveMarkupOrThrow(action)));
 
-        if (checkEmote &&
-            !TryEmoteChatInput(source, action))
+        if (checkEmote && !TryEmoteChatInput(source, action, forced)) // goob edit
             return;
 
         SendInVoiceRange(
@@ -984,6 +1006,9 @@ public sealed partial class ChatSystem : SharedChatSystem
         string wrappedMessage;
 
         var speech = GetSpeechVerb(source, message); // Goobstation - Dead chat verbs
+
+        if (!_adminManager.IsAdmin(player) && !_DeadchatEnabled) // RMC14 - Check the status of the "rmc.dead_chat_enabled" CCvar before continuing.
+            return;
 
         if (_adminManager.IsAdmin(player))
         {
@@ -1090,11 +1115,10 @@ public sealed partial class ChatSystem : SharedChatSystem
             EntityUid listener = session.AttachedEntity.Value;
 
             // Goob edit start
-            // Raises a event for the deaf component
-            var ev = new ChatMessageOverrideInVoiceRange();
+            // Raises a event for the deaf and blind component
+            var ev = new ChatMessageOverrideInRange(language.SpeechOverride.RequireSpeech, language.SpeechOverride.RequireSight);
             RaiseLocalEvent(listener, ref ev);
             if (channel == ChatChannel.Local
-                && language.SpeechOverride.RequireSpeech // Check for whether speech is required.
                 && ev.Cancelled)
                 continue;
             //Goob edit end

@@ -7,6 +7,7 @@
 
 using Content.Server.DeviceLinking.Systems;
 using Content.Server.Explosion.EntitySystems;
+using Content.Shared.Trigger;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.MiscSignaller;

@@ -76,6 +76,13 @@
     toggleAction: ToggleThermalVision
   - type: IdentityBlocker
     coverage: EYES
+  - type: ChameleonClothing #Goobstation start
+    slot: [eyes]
+    default: ClothingEyesThermalVisionGogglesSyndie  
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface #Goobstation end
 
 - type: entity
   parent: ClothingEyesThermalVisionGogglesSyndie

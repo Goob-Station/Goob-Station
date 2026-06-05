@@ -72,7 +72,7 @@ public sealed class CosmicNovaSystem : EntitySystem
             return;
 
         if (uid.Comp.DoStun)
-            _stun.TryParalyze(args.OtherEntity, TimeSpan.FromSeconds(0.8f), false);
+            _stun.TryUpdateParalyzeDuration(args.OtherEntity, TimeSpan.FromSeconds(0.8f));
 
         _damageable.TryChangeDamage(args.OtherEntity, uid.Comp.CosmicNovaDamage); // This'll probably trigger two or three times because of how collision works. I'm not being lazy here, it's a feature (kinda /s)
         _color.RaiseEffect(Color.Red, new List<EntityUid>() { args.OtherEntity }, Filter.Pvs(args.OtherEntity, entityManager: EntityManager));

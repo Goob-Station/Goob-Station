@@ -1,5 +1,88 @@
 - type: reagent
-  parent: Slime
+  id: BaseXenobioReagent
+  abstract: true
+  group: Biological
+  flavor: horrible
+  physicalDesc: reagent-physical-desc-viscous
+  recognizable: false
+  viscosity: 0.25
+
+- type: reagent
+  parent: BaseXenobioReagent
+  id: XenobioSlimeToxin
+  name: xenobio-reagent-slime-toxin-name
+  desc: xenobio-reagent-slime-toxin-desc
+  color: "#3CB371"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.1
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        - !type:MobStateCondition
+          mobstate: Critical
+        damage:
+          types:
+            Asphyxiation: -2 # should keep target in crit
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        damage:
+          types:
+            Bloodloss: -7 # 20 bloodloss damage every 3 seconds when there are no blood in bloodsream
+    Narcotic:
+      metabolismRate: 0.1
+      effects:
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        effectProto: StatusEffectSeeingRainbow
+        type: Add
+        time: 5
+        refresh: false
+      - !type:Drunk
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        boozePower: 5
+    Poison:
+      metabolismRate: 0.1
+      effects:
+      - !type:Emote
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        emote: Yawn
+        showInChat: true
+        probability: 0.1
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        effectProto: StatusEffectDrowsiness
+        time: 2
+        type: Add
+        refresh: false
+
+
+- type: reagent
+  parent: BaseXenobioReagent
   id: XenobioJellyPurple
   name: xenobio-reagent-jelly-purple-name
   desc: xenobio-reagent-jelly-purple-desc
@@ -15,7 +98,7 @@
         extractBonus: 1
 
 - type: reagent
-  parent: Slime
+  parent: BaseXenobioReagent
   id: XenobioJellyBlue
   name: xenobio-reagent-jelly-blue-name
   desc: xenobio-reagent-jelly-blue-desc
@@ -31,7 +114,7 @@
         chanceModifier: -0.25
 
 - type: reagent
-  parent: Slime
+  parent: BaseXenobioReagent
   id: XenobioJellyDarkBlue
   name: xenobio-reagent-jelly-darkblue-name
   desc: xenobio-reagent-jelly-darkblue-desc
@@ -50,7 +133,7 @@
         refresh: false
 
 - type: reagent
-  parent: Slime
+  parent: BaseXenobioReagent
   id: XenobioJellyCerulean
   name: xenobio-reagent-jelly-cerulean-name
   desc: xenobio-reagent-jelly-cerulean-desc
@@ -66,7 +149,7 @@
         offspringBonus: 2
 
 - type: reagent
-  parent: Slime
+  parent: BaseXenobioReagent
   id: XenobioJellyRed
   name: xenobio-reagent-jelly-red-name
   desc: xenobio-reagent-jelly-red-desc
@@ -82,7 +165,7 @@
         chanceModifier: 0.25
 
 - type: reagent
-  parent: Slime
+  parent: BaseXenobioReagent
   id: XenobioJellyGreen
   name: xenobio-reagent-jelly-green-name
   desc: xenobio-reagent-jelly-green-desc
@@ -94,17 +177,17 @@
       - !type:SpeciesChange
         conditions:
         - !type:ReagentThreshold
-          min: 15
+          min: 10
         newSpecies: SlimePerson
       - !type:AdjustReagent
         reagent: XenobioJellyGreen
         amount: -50.0
         conditions:
         - !type:ReagentThreshold
-          min: 15
+          min: 10
 
 - type: reagent
-  parent: Slime
+  parent: BaseXenobioReagent
   id: XenobioHumanToxin
   name: xenobio-reagent-toxin-human-name
   desc: xenobio-reagent-toxin-human-desc
@@ -116,17 +199,17 @@
       - !type:SpeciesChange
         conditions:
         - !type:ReagentThreshold
-          min: 15
+          min: 10
         newSpecies: Human
       - !type:AdjustReagent
         reagent: XenobioHumanToxin
         amount: -50.0
         conditions:
         - !type:ReagentThreshold
-          min: 15
+          min: 10
 
 - type: reagent
-  parent: Slime
+  parent: BaseXenobioReagent
   id: XenobioJellyPink
   name: xenobio-reagent-jelly-pink-name
   desc: xenobio-reagent-jelly-pink-desc
@@ -142,7 +225,7 @@
         newFaction: Passive
 
 - type: reagent
-  parent: Slime
+  parent: BaseXenobioReagent
   id: AdvancedMutationToxin
   name: xenobio-reagent-toxin-advanced-name
   desc: xenobio-reagent-toxin-advanced-desc
@@ -152,18 +235,24 @@
       metabolismRate: 5 # hello hypospray users!
       effects:
       - !type:RandomSpeciesChange
+        speciesBlacklist:
+        - Skeleton # if he's dead it's GG
+        - IPC # do i have to explain this one
+        - Cyborg # why the fuck is this a thing?
+        - Shadowling # yeah.
+        # add more here
         conditions:
         - !type:ReagentThreshold
-          min: 15
+          min: 10
       - !type:AdjustReagent
         reagent: AdvancedMutationToxin
         amount: -50.0
         conditions:
         - !type:ReagentThreshold
-          min: 15
+          min: 10
 
 - type: reagent
-  parent: Slime
+  parent: BaseXenobioReagent
   id: XenobioFelinidToxin
   name: xenobio-reagent-toxin-felinid-name
   desc: xenobio-reagent-toxin-felinid-desc
@@ -175,17 +264,17 @@
       - !type:SpeciesChange
         conditions:
         - !type:ReagentThreshold
-          min: 15
+          min: 10
         newSpecies: Felinid
       - !type:AdjustReagent
         reagent: XenobioFelinidToxin
         amount: -50.0
         conditions:
         - !type:ReagentThreshold
-          min: 15
+          min: 10
 
 - type: reagent
-  parent: Slime
+  parent: BaseXenobioReagent
   id: XenobioGenderFluid
   name: xenobio-reagent-genderfluid-name
   desc: xenobio-reagent-genderfluid-desc
