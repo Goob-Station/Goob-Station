@@ -50,5 +50,7 @@ public sealed class ConstructionPackTest
 
         if (failed)
             Assert.Fail(errors.ToString());
+
+        await pair.CleanReturnAsync();
     }
 }
