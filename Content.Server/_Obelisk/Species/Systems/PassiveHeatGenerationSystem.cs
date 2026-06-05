@@ -2,25 +2,28 @@ using Content.Server._Obelisk.Species.Components;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Shared.Mobs.Components;
+using Robust.Shared.Timing;
 
 namespace Content.Server._Obelisk.Species.Systems;
 
 public sealed class PassiveHeatGenerationSystem : EntitySystem
 {
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly TemperatureSystem _temperature = default!;
 
-    // In seconds
-    private const float UpdateInterval = 1;
-    // How much time has passed since the last update in seconds
-    private float _accumulator;
+    private static readonly TimeSpan UpdateInterval = TimeSpan.FromSeconds(1);
+
+    private TimeSpan _lastUpdate;
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        _accumulator += frametime;
-        if (_accumulator <= UpdateInterval)
+        if (_lastUpdate + UpdateInterval >= _timing.CurTime)
             return;
+
+        var deltaTime = (float) (_timing.CurTime - _lastUpdate).TotalSeconds;
+        _lastUpdate = _timing.CurTime;
 
         var query = EntityQueryEnumerator<PassiveHeatGenerationComponent, TemperatureComponent>();
 
@@ -40,9 +43,7 @@ public sealed class PassiveHeatGenerationSystem : EntitySystem
                     watts *= modifier;
             }
 
-            _temperature.ChangeHeat(uid, watts * _accumulator, passiveHeatComp.IgnoreHeatResistance, tempComp);
+            _temperature.ChangeHeat(uid, watts * deltaTime, passiveHeatComp.IgnoreHeatResistance, tempComp);
         }
-
-        _accumulator = 0;
     }
 }
