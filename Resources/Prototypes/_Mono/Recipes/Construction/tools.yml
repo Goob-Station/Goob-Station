@@ -9,5 +9,3 @@
   targetNode: timer
   category: construction-category-tools
   objectType: Item
-  groups:
-  - Electronics

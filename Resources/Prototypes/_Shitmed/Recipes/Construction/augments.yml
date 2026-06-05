@@ -7,11 +7,6 @@
   targetNode: augment
   category: construction-category-utilities
   canBuildInImpassable: false
-  # Goobstation start
-  groups:
-  - Electronics
-  - Science
-  # Goobstation end
 
 - type: construction
   id: AugmentRechargerAPC
@@ -20,11 +15,6 @@
   targetNode: apc
   category: construction-category-utilities
   canBuildInImpassable: false
-  # Goobstation start
-  groups:
-  - Electronics
-  - Science
-  # Goobstation end
 
 - type: construction
   id: AugmentRechargerStation
@@ -33,11 +23,6 @@
   targetNode: station
   category: construction-category-utilities
   canBuildInImpassable: false
-  # Goobstation start
-  groups:
-  - Electronics
-  - Science
-  # Goobstation end
 
 # Arm
 
@@ -48,11 +33,6 @@
   targetNode: "utility tools panel"
   category: construction-category-utilities
   canBuildInImpassable: false
-  # Goobstation start
-  groups:
-  - Electronics
-  - Science
-  # Goobstation end
 
 - type: construction
   id: AugmentBotanyPanel
@@ -61,11 +41,6 @@
   targetNode: "botany tools panel"
   category: construction-category-utilities
   canBuildInImpassable: false
-  # Goobstation start
-  groups:
-  - Electronics
-  - Science
-  # Goobstation end
 
 - type: construction
   id: AugmentPaperworkPanel
@@ -74,11 +49,6 @@
   targetNode: "paperwork tools panel"
   category: construction-category-utilities
   canBuildInImpassable: false
-  # Goobstation start
-  groups:
-  - Electronics
-  - Science
-  # Goobstation end
 
 - type: construction
   id: AugmentSurgicalPanel
@@ -87,11 +57,6 @@
   targetNode: "surgery tools panel"
   category: construction-category-utilities
   canBuildInImpassable: false
-  # Goobstation start
-  groups:
-  - Electronics
-  - Science
-  # Goobstation end
 
 - type: construction
   id: AugmentStrength
@@ -100,8 +65,3 @@
   targetNode: augment
   category: construction-category-utilities
   canBuildInImpassable: false
-  # Goobstation start
-  groups:
-  - Electronics
-  - Science
-  # Goobstation end

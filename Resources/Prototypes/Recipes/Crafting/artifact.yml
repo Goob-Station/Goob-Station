@@ -10,7 +10,3 @@
   targetNode: done
   category: construction-category-misc
   objectType: Item
-  # Goobstation start
-  groups:
-  - Science
-  # Goobstation end

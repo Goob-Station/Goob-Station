@@ -24,10 +24,6 @@
   targetNode: MetalRod
   category: construction-category-materials
   objectType: Item
-  # Goobstation start
-  groups: # TODO should reqire tools to make
-  - Materials
-  # Goobstation end
 
 - type: construction
   id: SheetRGlass
@@ -36,10 +32,6 @@
   targetNode: SheetRGlass
   category: construction-category-materials
   objectType: Item
-  # Goobstation start
-  groups: # TODO should reqire tools to make
-  - Materials
-  # Goobstation end
 
 - type: construction
   id: SheetClockworkGlass
@@ -48,10 +40,6 @@
   targetNode: SheetClockworkGlass
   category: construction-category-materials
   objectType: Item
-  # Goobstation start
-  groups: # TODO should reqire tools to make
-  - Materials
-  # Goobstation end
 
 - type: construction
   id: SheetPGlass
@@ -60,10 +48,6 @@
   targetNode: SheetPGlass
   category: construction-category-materials
   objectType: Item
-  # Goobstation start
-  groups: # TODO should reqire tools to make
-  - Materials
-  # Goobstation end
 
 - type: construction
   id: SheetRPGlass
@@ -72,10 +56,6 @@
   targetNode: SheetRPGlass
   category: construction-category-materials
   objectType: Item
-  # Goobstation start
-  groups: # TODO should reqire tools to make
-  - Materials
-  # Goobstation end
 
 - type: construction
   id: SheetRPGlass0
@@ -84,10 +64,6 @@
   targetNode: SheetRPGlass0
   category: construction-category-materials
   objectType: Item
-  # Goobstation start
-  groups: # TODO should reqire tools to make
-  - Materials
-  # Goobstation end
 
 - type: construction
   id: SheetRPGlass1
@@ -96,10 +72,6 @@
   targetNode: SheetRPGlass1
   category: construction-category-materials
   objectType: Item
-  # Goobstation start
-  groups: # TODO should reqire tools to make
-  - Materials
-  # Goobstation end
 
 - type: construction
   id: MaterialDurathread
@@ -108,10 +80,6 @@
   targetNode: MaterialDurathread
   category: construction-category-materials
   objectType: Item
-  # Goobstation start
-  groups: # TODO should reqire tools to make
-  - Materials
-  # Goobstation end
 
 - type: construction
   id: SheetUGlass
@@ -120,10 +88,6 @@
   targetNode: SheetUGlass
   category: construction-category-materials
   objectType: Item
-  # Goobstation start
-  groups: # TODO should reqire tools to make
-  - Materials
-  # Goobstation end
 
 - type: construction
   id: SheetRUGlass
@@ -132,10 +96,6 @@
   targetNode: SheetRUGlass
   category: construction-category-materials
   objectType: Item
-  # Goobstation start
-  groups: # TODO should reqire tools to make
-  - Materials
-  # Goobstation end
 
 - type: construction
   id: SheetRUGlass0
@@ -144,10 +104,6 @@
   targetNode: SheetRUGlass0
   category: construction-category-materials
   objectType: Item
-  # Goobstation start
-  groups: # TODO should reqire tools to make
-  - Materials
-  # Goobstation end
 
 - type: construction
   id: SheetRUGlass1
@@ -156,7 +112,3 @@
   targetNode: SheetRUGlass1
   category: construction-category-materials
   objectType: Item
-  # Goobstation start
-  groups: # TODO should reqire tools to make
-  - Materials
-  # Goobstation end

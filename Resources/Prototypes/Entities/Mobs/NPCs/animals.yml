@@ -722,7 +722,7 @@
         gibContents: Skip # Shitmed Change
         recursive: false
   - type: NonSpreaderZombie
-  - type: LanguageKnowledge # Einstein Engines - Languages
+  - type: LanguageGrant # Einstein Engines - Languages
     speaks:
     - Hissing
     understands:
@@ -2760,7 +2760,7 @@
     heatDamage:
       types:
         Heat : 0.2 #per second, scales with temperature & other constants
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks:
     - Penguin
     understands:
@@ -2890,7 +2890,7 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Scale
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks:
     - Hissing
     understands:

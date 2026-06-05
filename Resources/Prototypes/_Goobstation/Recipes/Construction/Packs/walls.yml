@@ -1,0 +1,128 @@
+# Basically all types of walls that are made from a single material.
+- type: constructionPack
+  id: Walls
+  name: construction-pack-walls
+  recipes:
+  - Girder
+  - ReinforcedGirder
+  - ClockworkGirder
+  - Wall
+  - WallClock
+  - WoodWall
+  - MeatWall
+  - Cardwall
+  - Grille
+  - ClockGrille
+  - GrilleDiagonal
+  - ClockworkGrilleDiagonal
+  - Barricade
+  - BarricadeDirectional
+  - FenceMetal
+  - FenceMetalCorner
+  - FenceMetalEnd
+  - FenceMetalGate
+  - FenceWood
+  - FenceWoodEnd
+  - FenceWoodCorner
+  - FenceWoodTJunction
+  - FenceWoodGate
+  - FenceWoodSmall
+  - FenceWoodEndSmall
+  - FenceWoodCornerSmall
+  - FenceWoodTJunctionSmall
+  - FenceWoodGateSmall
+  - WallDirectional
+
+  # Walls that require multiple materials (or plasteel)
+- type: constructionPack
+  id: AdvancedWalls
+  name: construction-pack-walls-advanced
+  recipes:
+  - ReinforcedWall
+  - UraniumWall
+  - SilverWall
+  - PlasticWall
+  - PlasmaWall
+  - GoldWall
+  - ShuttleWall
+  - DiagonalShuttleWall
+  - ClownWall
+  - BarricadeSteel
+  - BarricadeSteelFolding
+  - BarricadePlasteel
+  - BarricadePlasteelFolding
+
+  # Windows from normal and reinforced glass.
+- type: constructionPack
+  id: Windows
+  name: construction-pack-windows
+  recipes:
+  - Window
+  - WindowDiagonal
+  - ReinforcedWindow
+  - ReinforcedWindowDiagonal
+  - TintedWindow
+  - ClockworkWindow
+  - ClockworkWindowDiagonal
+  - WindowDirectional
+  - WindowReinforcedDirectional
+  - WindowClockworkDirectional
+
+  # Windows from any other advanced type of glass.
+- type: constructionPack
+  id: AdvancedWindows
+  name: construction-pack-windows-advanced
+  recipes:
+  - PlasmaWindow
+  - ReinforcedPlasmaWindow
+  - ShuttleWindow
+  - PlasmaWindowDiagonal
+  - ReinforcedPlasmaWindowDiagonal
+  - PlasmaWindowDirectional
+  - PlasmaReinforcedWindowDirectional
+  - UraniumWindow
+  - ReinforcedUraniumWindow
+  - UraniumWindowDiagonal
+  - ReinforcedUraniumWindowDiagonal
+
+  # Simple doors that don't have any electronics in them.
+- type: constructionPack
+  id: Doors
+  name: construction-pack-doors
+  recipes:
+  - MetalDoor
+  - WoodDoor
+  - PlasmaDoor
+  - GoldDoor
+  - SilverDoor
+  - PaperDoor
+  - CardDoor
+
+  # All doors, including electric.
+- type: constructionPack
+  id: Airlocks
+  name: construction-pack-airlocks
+  recipes:
+  - Firelock
+  - FirelockGlass
+  - FirelockEdge
+  - Turnstile
+  - Shutters
+  - ShuttersWindow
+  - ShuttersRadiation
+  - BlastDoor
+  - Airlock
+  - AirlockGlass
+  - AirlockSealed
+  - AirlockSealedGlass
+  - PinionAirlock
+  - PinionAirlockGlass
+  - AirlockShuttle
+  - AirlockGlassShuttle
+  - Windoor
+  - SecureWindoor
+  - ClockworkWindoor
+  - SolidSecretDoor
+  - ReinforcedSecretDoor
+  - AirlockUranium
+  - AirlockUraniumGlass

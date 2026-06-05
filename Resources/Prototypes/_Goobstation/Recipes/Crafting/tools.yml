@@ -4,6 +4,3 @@
   category: construction-category-weapons
   targetNode: hammer
   objectType: Item
-  groups:
-  - AdvancedHandmade
-  - Technological

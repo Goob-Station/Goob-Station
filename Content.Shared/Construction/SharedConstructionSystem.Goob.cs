@@ -13,18 +13,24 @@ public abstract partial class SharedConstructionSystem
     /// Goobstation
     /// Returns all available construction groups for that entity.
     /// </summary>
-    public IEnumerable<ProtoId<ConstructionGroupPrototype>> AvailableConstructionGroups(EntityUid user)
+    public HashSet<ProtoId<ConstructionPrototype>> AvailableConstructionRecipes(EntityUid user)
     {
+        var set = new HashSet<ProtoId<ConstructionPrototype>>();
         if (!_knowledge.TryGetKnowledgeWithComp<ConstructionKnowledgeComponent>(user, out var knowledge))
-            yield break;
+            return set;
 
-        // Not doing any evil LINQ today. I am honest with my shitcode.
         foreach (var (_, construction, _) in knowledge)
         {
-            foreach (var protoId in construction.Groups)
+            foreach (var protoId in construction.Packs)
             {
-                yield return protoId;
+                var pack = PrototypeManager.Index(protoId);
+                foreach (var recipe in pack.Recipes)
+                {
+                    set.Add(recipe);
+                }
             }
         }
+
+        return set;
     }
 }

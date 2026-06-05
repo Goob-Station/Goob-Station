@@ -290,7 +290,7 @@
           32:
             sprite: Mobs/Species/Vox/displacement.rsi
             state: shoes
-      outerClothing: # Goob 
+      outerClothing: # Goob
         sizeMaps:
           32:
             sprite: Mobs/Species/Vox/displacement.rsi
@@ -358,7 +358,7 @@
   - type: Carriable # Goobstation
   - type: CPRTraining # Goobstation - Just give to everyone! This ain't MRP.
   - type: GrabIntent # wilted rose
-  - type: Grabbable 
+  - type: Grabbable
   # Goobstation end
   - type: Hands
     leftHandDisplacement:
@@ -372,13 +372,13 @@
           sprite: Mobs/Species/Vox/displacement.rsi
           state: hand_r
   - type: Wagging
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks:
-      - TauCetiBasic
-      - NewKinPidgin        # Vox language from Floofstation
+    - TauCetiBasic
+    - NewKinPidgin        # Vox language from Floofstation
     understands:
-      - TauCetiBasic
-      - NewKinPidgin        # Vox language from Floofstation
+    - TauCetiBasic
+    - NewKinPidgin        # Vox language from Floofstation
 
 - type: entity
   parent: BaseSpeciesDummy

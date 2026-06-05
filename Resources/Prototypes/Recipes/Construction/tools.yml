@@ -15,10 +15,6 @@
   targetNode: torch
   category: construction-category-tools
   objectType: Item
-  # Goobstation start
-  groups:
-  - Electronics
-  # Goobstation end
 
 - type: construction
   id: LogicGate
@@ -27,10 +23,6 @@
   targetNode: logic_gate
   category: construction-category-tools
   objectType: Item
-  # Goobstation start
-  groups:
-  - Electronics
-  # Goobstation end
 
 - type: construction
   id: EdgeDetector
@@ -39,10 +31,6 @@
   targetNode: edge_detector
   category: construction-category-tools
   objectType: Item
-  # Goobstation start
-  groups:
-  - Electronics
-  # Goobstation end
 
 - type: construction
   id: PowerSensor
@@ -51,10 +39,6 @@
   targetNode: power_sensor
   category: construction-category-tools
   objectType: Item
-  # Goobstation start
-  groups:
-  - Electronics
-  # Goobstation end
 
 - type: construction
   id: MemoryCell
@@ -63,7 +47,3 @@
   targetNode: memory_cell
   category: construction-category-tools
   objectType: Item
-  # Goobstation start
-  groups:
-  - Electronics
-  # Goobstation end

@@ -429,7 +429,7 @@
       state: ai_female
   - type: NameIdentifier
     group: StationAi
-  - type: LanguageKnowledge
+  - type: LanguageGrant
     speaks:
     - TauCetiBasic
     - Canilunzt

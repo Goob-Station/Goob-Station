@@ -62,7 +62,3 @@
   canBuildInImpassable: false
   conditions:
   - !type:TileNotBlocked
-  # Goobstation start
-  groups:
-  - SimpleFurniture
-  # Goobstation end

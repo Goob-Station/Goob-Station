@@ -31,14 +31,9 @@ using Content.Shared.Pointing;
 
 // Shitmed Change
 using Content.Shared.Body.Components;
-using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Common.Body;
 using Content.Shared.Body.Systems;
-using Content.Goobstation.Common.Changeling;
-using Content.Goobstation.Common.Knowledge;
-using Content.Goobstation.Shared.Changeling.Components;
-using Content.Server.Silicons.Borgs;
-using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared._Shitmed.Body.Organ;
 
 namespace Content.Server.Body.Systems
 {

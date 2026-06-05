@@ -41,11 +41,6 @@
   targetNode: icon
   category: construction-category-weapons
   objectType: Item
-  # Goobstation start
-  groups:
-  - SimpleHandmade
-  - Technological
-  # Goobstation end
 
 - type: construction
   id: BladedFlatcapBrown
@@ -54,11 +49,6 @@
   targetNode: icon
   category: construction-category-weapons
   objectType: Item
-  # Goobstation start
-  groups:
-  - SimpleHandmade
-  - Technological
-  # Goobstation end
 
 - type: construction
   id: Shiv
@@ -67,10 +57,6 @@
   targetNode: icon
   category: construction-category-weapons
   objectType: Item
-  # Goobstation start
-  groups:
-  - SimpleHandmade
-  # Goobstation end
 
 - type: construction
   id: ReinforcedShiv
@@ -79,10 +65,6 @@
   targetNode: icon
   category: construction-category-weapons
   objectType: Item
-  # Goobstation start
-  groups:
-  - SimpleHandmade
-  # Goobstation end
 
 - type: construction
   id: PlasmaShiv
@@ -91,10 +73,6 @@
   targetNode: icon
   category: construction-category-weapons
   objectType: Item
-  # Goobstation start
-  groups:
-  - SimpleHandmade
-  # Goobstation end
 
 - type: construction
   id: UraniumShiv
@@ -103,11 +81,6 @@
   targetNode: icon
   category: construction-category-weapons
   objectType: Item
-  # Goobstation start
-  groups:
-  - SimpleHandmade
-  - Technological
-  # Goobstation end
 
 - type: construction
   id: Spear
@@ -116,10 +89,6 @@
   targetNode: spear
   category: construction-category-weapons
   objectType: Item
-  # Goobstation start
-  groups:
-  - SurvivalWeaponsHandmade
-  # Goobstation end
 
 - type: construction
   id: SpearReinforced
@@ -128,10 +97,6 @@
   targetNode: spear
   category: construction-category-weapons
   objectType: Item
-  # Goobstation start
-  groups:
-  - SurvivalWeaponsHandmade
-  # Goobstation end
 
 - type: construction
   id: SpearPlasma
@@ -140,10 +105,6 @@
   targetNode: spear
   category: construction-category-weapons
   objectType: Item
-  # Goobstation start
-  groups:
-  - SurvivalWeaponsHandmade
-  # Goobstation end
 
 - type: construction
   id: SpearUranium
@@ -152,10 +113,6 @@
   targetNode: spear
   category: construction-category-weapons
   objectType: Item
-  # Goobstation start
-  groups:
-  - SurvivalWeaponsHandmade
-  # Goobstation end
 
 - type: construction
   id: SpearSharkMinnow
@@ -164,10 +121,6 @@
   targetNode: spear
   category: construction-category-weapons
   objectType: Item
-  # Goobstation start
-  groups:
-  - SurvivalWeaponsHandmade
-  # Goobstation end
 
 - type: construction
   id: Bola
@@ -176,11 +129,6 @@
   targetNode: bola
   category: construction-category-weapons
   objectType: Item
-  # Goobstation start
-  groups:
-  - SurvivalWeaponsHandmade
-  - Technological
-  # Goobstation end
 
 - type: construction
   id: WoodenBuckler
@@ -189,10 +137,6 @@
   targetNode: woodenBuckler
   category: construction-category-weapons
   objectType: Item
-  # Goobstation start
-  groups:
-  - SurvivalWeaponsHandmade
-  # Goobstation end
 
 - type: construction
   id: CardShield
@@ -209,10 +153,6 @@
   targetNode: makeshiftShield
   category: construction-category-weapons
   objectType: Item
-  # Goobstation start
-  groups:
-  - SurvivalWeaponsHandmade
-  # Goobstation end
 
 - type: construction
   id: ImprovisedArrow
@@ -221,10 +161,6 @@
   targetNode: ImprovisedArrow
   category: construction-category-weapons
   objectType: Item
-  # Goobstation start
-  groups:
-  - SurvivalWeaponsHandmade
-  # Goobstation end
 
 - type: construction
   id: ImprovisedArrowCarp
@@ -233,10 +169,6 @@
   targetNode: ImprovisedArrowCarp
   category: construction-category-weapons
   objectType: Item
-  # Goobstation start
-  groups:
-  - SurvivalWeaponsHandmade
-  # Goobstation end
 
 - type: construction
   id: ImprovisedArrowPlasma
@@ -245,10 +177,6 @@
   targetNode: ImprovisedArrowPlasma
   category: construction-category-weapons
   objectType: Item
-  # Goobstation start
-  groups:
-  - SurvivalWeaponsHandmade
-  # Goobstation end
 
 - type: construction
   id: ImprovisedArrowUranium
@@ -257,10 +185,6 @@
   targetNode: ImprovisedArrowUranium
   category: construction-category-weapons
   objectType: Item
-  # Goobstation start
-  groups:
-  - SurvivalWeaponsHandmade
-  # Goobstation end
 
 - type: construction
   id: CardArrow
@@ -277,10 +201,6 @@
   targetNode: ImprovisedBow
   category: construction-category-weapons
   objectType: Item
-  # Goobstation start
-  groups:
-  - SurvivalWeaponsHandmade
-  # Goobstation end
 
 - type: construction
   id: SpearBone
@@ -289,10 +209,6 @@
   targetNode: spear
   category: construction-category-weapons
   objectType: Item
-  # Goobstation start
-  groups:
-  - SurvivalWeaponsHandmadeAdvanced
-  # Goobstation end
 
 - type: construction
   id: ClothingHandsKnuckleDustersBrass

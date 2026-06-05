@@ -15,8 +15,6 @@
   placementMode: SnapgridCenter
   canRotate: true
   canBuildInImpassable: true
-  groups:
-  - Walls
 
 - type: construction
   id: SolarPanel
@@ -25,8 +23,6 @@
   category: construction-category-structures
   objectType: Structure
   placementMode: SnapgridCenter
-  groups:
-  - Electronics
 
 # Barricades
 
@@ -39,8 +35,6 @@
   placementMode: SnapgridCenter
   canRotate: true
   canBuildInImpassable: true
-  groups:
-  - AdvancedWalls
 
 - type: construction
   id: BarricadeSteelFolding
@@ -51,8 +45,6 @@
   placementMode: SnapgridCenter
   canRotate: true
   canBuildInImpassable: true
-  groups:
-  - AdvancedWalls
 
 - type: construction
   id: BarricadePlasteel
@@ -63,8 +55,6 @@
   placementMode: SnapgridCenter
   canRotate: true
   canBuildInImpassable: true
-  groups:
-  - AdvancedWalls
 
 - type: construction
   id: BarricadePlasteelFolding
@@ -75,5 +65,3 @@
   placementMode: SnapgridCenter
   canRotate: true
   canBuildInImpassable: true
-  groups:
-  - AdvancedWalls

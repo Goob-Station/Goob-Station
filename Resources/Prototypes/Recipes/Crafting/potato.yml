@@ -11,11 +11,6 @@
   targetNode: potatobattery
   category: construction-category-misc
   objectType: Item
-  # Goobstation start
-  groups:
-  - AdvancedHandmade
-  - Technological
-  # Goobstation end
 
 - type: construction
   id: PotatoAI
@@ -24,11 +19,6 @@
   targetNode: potatoai
   category: construction-category-misc
   objectType: Item
-  # Goobstation start
-  groups:
-  - AdvancedHandmade
-  - Technological
-  # Goobstation end
 
 - type: construction
   id: PotatoAIChip
@@ -37,8 +27,3 @@
   targetNode: potatoaichip
   category: construction-category-misc
   objectType: Item
-  # Goobstation start
-  groups:
-  - AdvancedHandmade
-  - Technological
-  # Goobstation end

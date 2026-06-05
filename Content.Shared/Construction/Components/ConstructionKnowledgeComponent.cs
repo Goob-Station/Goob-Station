@@ -15,6 +15,5 @@ public sealed partial class ConstructionKnowledgeComponent : Component
     /// Groups that this knowledge grants.
     /// </summary>
     [DataField(required: true)]
-    [AlwaysPushInheritance]
-    public HashSet<ProtoId<ConstructionGroupPrototype>> Groups;
+    public HashSet<ProtoId<ConstructionPackPrototype>> Packs;
 }

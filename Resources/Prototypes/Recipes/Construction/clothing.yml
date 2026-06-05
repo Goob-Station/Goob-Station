@@ -22,12 +22,6 @@
   targetNode: clownHardsuit
   category: construction-category-clothing
   objectType: Item
-  # Goobstation start
-  groups:
-  - AdvancedHandmade
-  - Technological
-  - Toys
-  # Goobstation end
 
 - type: construction
   id: MimeHardsuit
@@ -36,12 +30,6 @@
   targetNode: mimeHardsuit
   category: construction-category-clothing
   objectType: Item
-  # Goobstation start
-  groups:
-  - AdvancedHandmade
-  - Technological
-  - Toys
-  # Goobstation end
 
 - type: construction
   id: BoneArmor
@@ -50,10 +38,6 @@
   targetNode: armor
   category: construction-category-clothing
   objectType: Item
-  # Goobstation start
-  groups:
-  - SurvivalWeaponsHandmadeAdvanced
-  # Goobstation end
 
 - type: construction
   id: BoneHelmet
@@ -62,10 +46,6 @@
   targetNode: helmet
   category: construction-category-clothing
   objectType: Item
-  # Goobstation start
-  groups:
-  - SurvivalWeaponsHandmadeAdvanced
-  # Goobstation end
 
 - type: construction
   id: cardHelmet
@@ -90,10 +70,6 @@
   targetNode: mask
   category: construction-category-clothing
   objectType: Item
-  # Goobstation start
-  groups:
-  - Bananium
-  # Goobstation end
 
 - type: construction
   id: BananaClownJumpsuit
@@ -102,10 +78,6 @@
   targetNode: jumpsuit
   category: construction-category-clothing
   objectType: Item
-  # Goobstation start
-  groups:
-  - Bananium
-  # Goobstation end
 
 - type: construction
   id: BananaClownShoes
@@ -114,10 +86,6 @@
   targetNode: shoes
   category: construction-category-clothing
   objectType: Item
-  # Goobstation start
-  groups:
-  - Bananium
-  # Goobstation end
 
 - type: construction
   id: ClothingEyesHudMedSec
@@ -126,11 +94,6 @@
   targetNode: medsecHud
   category: construction-category-clothing
   objectType: Item
-  # Goobstation start
-  groups:
-  - SimpleHandmade
-  - Technological
-  # Goobstation end
 
 - type: construction
   id: ClothingShoeSlippersDuck
@@ -139,11 +102,6 @@
   targetNode: shoes
   category: construction-category-clothing
   objectType: Item
-  # Goobstation start
-  groups:
-  - SimpleHandmade
-  - Toys
-  # Goobstation end
 
 - type: construction
   id: ClothingShoeSlippersLizard
@@ -152,11 +110,6 @@
   targetNode: shoes
   category: construction-category-clothing
   objectType: Item
-  # Goobstation start
-  groups:
-  - SimpleHandmade
-  - Toys
-  # Goobstation end
 
 - type: construction
   id: ClothingEyesGlassesSecurity
@@ -165,11 +118,6 @@
   targetNode: glassesSec
   category: construction-category-clothing
   objectType: Item
-  # Goobstation start
-  groups:
-  - SimpleHandmade
-  - Technological
-  # Goobstation end
 
 - type: construction
   id: ClothingBeltQuiver
@@ -178,11 +126,6 @@
   targetNode: Quiver
   category: construction-category-clothing
   objectType: Item
-  # Goobstation start
-  groups:
-  - AdvancedHandmade
-  - Technological
-  # Goobstation end
 
 - type: construction
   id: ClothingHeadHelmetJustice
@@ -191,8 +134,3 @@
   targetNode: helmet
   category: construction-category-clothing
   objectType: Item
-  # Goobstation start
-  groups:
-  - AdvancedHandmade
-  - Technological
-  # Goobstation end

@@ -56,10 +56,6 @@
   category: construction-category-utilities
   objectType: Structure
   placementMode: SnapgridCenter
-  # Goobstation start
-  groups:
-  - Electronics
-  # Goobstation end
 
 - type: construction
   id: WallmountTelescreen
@@ -70,10 +66,6 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
-  # Goobstation start
-  groups:
-  - Electronics
-  # Goobstation end
 
 - type: construction
   id: StationMap
@@ -87,10 +79,6 @@
   canBuildInImpassable: true
   conditions:
   - !type:WallmountCondition {}
-  # Goobstation start
-  groups:
-  - Electronics
-  # Goobstation end
 
 # POWER
 - type: construction
@@ -102,10 +90,6 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
-  # Goobstation start
-  groups:
-  - Electronics
-  # Goobstation end
 
 - type: construction
   id: CableTerminal
@@ -116,10 +100,6 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
-  # Goobstation start
-  groups:
-  - Electronics
-  # Goobstation end
 
 - type: construction
   id: WallmountSubstation
@@ -130,10 +110,6 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
-  # Goobstation start
-  groups:
-  - Electronics
-  # Goobstation end
 
 - type: construction
   id: WallmountGenerator
@@ -144,10 +120,6 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
-  # Goobstation start
-  groups:
-  - Electronics
-  # Goobstation end
 
 - type: construction
   id: WallmountGeneratorAPU
@@ -158,10 +130,6 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
-  # Goobstation start
-  groups:
-  - Electronics
-  # Goobstation end
 
 # DISPOSALS
 - type: construction
@@ -172,11 +140,6 @@
   category: construction-category-utilities
   placementMode: SnapgridCenter
   canBuildInImpassable: false
-  # Goobstation start
-  groups:
-  - Electronics
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   id: MailingUnit
@@ -186,11 +149,6 @@
   category: construction-category-utilities
   placementMode: SnapgridCenter
   canBuildInImpassable: false
-  # Goobstation start
-  groups:
-  - Electronics
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   id: DisposalPipe
@@ -200,10 +158,6 @@
   category: construction-category-utilities
   placementMode: SnapgridCenter
   canBuildInImpassable: false
-  # Goobstation start
-  groups:
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   id: DisposalTagger
@@ -213,11 +167,6 @@
   category: construction-category-utilities
   placementMode: SnapgridCenter
   canBuildInImpassable: false
-  # Goobstation start
-  groups:
-  - Electronics
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   id: DisposalSignaller
@@ -227,11 +176,6 @@
   category: construction-category-utilities
   placementMode: SnapgridCenter
   canBuildInImpassable: false
-  # Goobstation start
-  groups:
-  - Electronics
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   id: DisposalTrunk
@@ -241,10 +185,6 @@
   category: construction-category-utilities
   placementMode: SnapgridCenter
   canBuildInImpassable: false
-  # Goobstation start
-  groups:
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   id: DisposalRouter
@@ -255,10 +195,6 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   mirror: DisposalRouterFlipped
-  # Goobstation start
-  groups:
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   hide: true
@@ -270,10 +206,6 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   mirror: DisposalRouter
-  # Goobstation start
-  groups:
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   id: DisposalSignalRouter
@@ -284,11 +216,6 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   mirror: DisposalSignalRouterFlipped
-  # Goobstation start
-  groups:
-  - Electronics
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   hide: true
@@ -300,11 +227,6 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   mirror: DisposalSignalRouter
-  # Goobstation start
-  groups:
-  - Electronics
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   id: DisposalJunction
@@ -315,10 +237,6 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   mirror: DisposalJunctionFlipped
-  # Goobstation start
-  groups:
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   hide: true
@@ -330,10 +248,6 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   mirror: DisposalJunction
-  # Goobstation start
-  groups:
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   id: DisposalYJunction
@@ -343,10 +257,6 @@
   category: construction-category-utilities
   placementMode: SnapgridCenter
   canBuildInImpassable: false
-  # Goobstation start
-  groups:
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   id: DisposalXJunction
@@ -356,10 +266,6 @@
   category: construction-category-utilities
   placementMode: SnapgridCenter
   canBuildInImpassable: false
-  # Goobstation start
-  groups:
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   id: DisposalBend
@@ -369,10 +275,6 @@
   category: construction-category-utilities
   placementMode: SnapgridCenter
   canBuildInImpassable: false
-  # Goobstation start
-  groups:
-  - Infrastructure
-  # Goobstation end
 
 # ATMOS
 - type: construction
@@ -387,10 +289,6 @@
   canBuildInImpassable: true
   conditions:
   - !type:WallmountCondition {}
-  # Goobstation start
-  groups:
-  - Electronics
-  # Goobstation end
 
 - type: construction
   id: FireAlarm
@@ -404,10 +302,6 @@
   canBuildInImpassable: true
   conditions:
   - !type:WallmountCondition {}
-  # Goobstation start
-  groups:
-  - Electronics
-  # Goobstation end
 
 - type: construction
   id: AirSensor
@@ -418,10 +312,6 @@
   placementMode: SnapgridCenter
   objectType: Structure
   canRotate: true
-  # Goobstation start
-  groups:
-  - Electronics
-  # Goobstation end
 
 - type: construction
   id: GasPipeSensor
@@ -436,11 +326,6 @@
   - GasPipeSensor
   - GasPipeSensorAlt1
   - GasPipeSensorAlt2
-  # Goobstation start
-  groups:
-  - Electronics
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   id: GasPipeSensorAlt1
@@ -456,11 +341,6 @@
   - GasPipeSensor
   - GasPipeSensorAlt1
   - GasPipeSensorAlt2
-  # Goobstation start
-  groups:
-  - Electronics
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   id: GasPipeSensorAlt2
@@ -476,11 +356,6 @@
   - GasPipeSensor
   - GasPipeSensorAlt1
   - GasPipeSensorAlt2
-  # Goobstation start
-  groups:
-  - Electronics
-  - Infrastructure
-  # Goobstation end
 
 # ATMOS PIPES
 - type: construction
@@ -496,10 +371,6 @@
   - GasPipeHalf
   - GasPipeHalfAlt1
   - GasPipeHalfAlt2
-  # Goobstation start
-  groups:
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   id: GasPipeHalfAlt1
@@ -514,10 +385,6 @@
   - GasPipeHalf
   - GasPipeHalfAlt1
   - GasPipeHalfAlt2
-  # Goobstation start
-  groups:
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   id: GasPipeHalfAlt2
@@ -532,10 +399,6 @@
   - GasPipeHalf
   - GasPipeHalfAlt1
   - GasPipeHalfAlt2
-  # Goobstation start
-  groups:
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   id: GasPipeStraight
@@ -549,10 +412,6 @@
   - GasPipeStraight
   - GasPipeStraightAlt1
   - GasPipeStraightAlt2
-  # Goobstation start
-  groups:
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   id: GasPipeStraightAlt1
@@ -567,10 +426,6 @@
   - GasPipeStraight
   - GasPipeStraightAlt1
   - GasPipeStraightAlt2
-  # Goobstation start
-  groups:
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   id: GasPipeStraightAlt2
@@ -585,10 +440,6 @@
   - GasPipeStraight
   - GasPipeStraightAlt1
   - GasPipeStraightAlt2
-  # Goobstation start
-  groups:
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   id: GasPipeBend
@@ -603,10 +454,6 @@
   - GasPipeBend
   - GasPipeBendAlt1
   - GasPipeBendAlt2
-  # Goobstation start
-  groups:
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   id: GasPipeBendAlt1
@@ -621,10 +468,6 @@
   - GasPipeBend
   - GasPipeBendAlt1
   - GasPipeBendAlt2
-  # Goobstation start
-  groups:
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   id: GasPipeBendAlt2
@@ -639,10 +482,6 @@
   - GasPipeBend
   - GasPipeBendAlt1
   - GasPipeBendAlt2
-  # Goobstation start
-  groups:
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   id: GasPipeTJunction
@@ -657,10 +496,6 @@
   - GasPipeTJunction
   - GasPipeTJunctionAlt1
   - GasPipeTJunctionAlt2
-  # Goobstation start
-  groups:
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   id: GasPipeTJunctionAlt1
@@ -675,10 +510,6 @@
   - GasPipeTJunction
   - GasPipeTJunctionAlt1
   - GasPipeTJunctionAlt2
-  # Goobstation start
-  groups:
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   id: GasPipeTJunctionAlt2
@@ -693,10 +524,6 @@
   - GasPipeTJunction
   - GasPipeTJunctionAlt1
   - GasPipeTJunctionAlt2
-  # Goobstation start
-  groups:
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   id: GasPipeFourway
@@ -711,10 +538,6 @@
   - GasPipeFourway
   - GasPipeFourwayAlt1
   - GasPipeFourwayAlt2
-  # Goobstation start
-  groups:
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   id: GasPipeFourwayAlt1
@@ -729,10 +552,6 @@
   - GasPipeFourway
   - GasPipeFourwayAlt1
   - GasPipeFourwayAlt2
-  # Goobstation start
-  groups:
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   id: GasPipeFourwayAlt2
@@ -747,10 +566,6 @@
   - GasPipeFourway
   - GasPipeFourwayAlt1
   - GasPipeFourwayAlt2
-  # Goobstation start
-  groups:
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   id: GasPipeManifold
@@ -760,10 +575,6 @@
   category: construction-category-utilities
   placementMode: SnapgridCenter
   canBuildInImpassable: true
-  # Goobstation start
-  groups:
-  - Infrastructure
-  # Goobstation end
 
 # ATMOS UNARY
 - type: construction
@@ -776,10 +587,6 @@
   canBuildInImpassable: false
   conditions:
   - !type:NoUnstackableInTile
-  # Goobstation start
-  groups:
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   id: GasPassiveVent
@@ -791,10 +598,6 @@
   canBuildInImpassable: false
   conditions:
   - !type:NoUnstackableInTile
-  # Goobstation start
-  groups:
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   id: GasVentScrubber
@@ -806,11 +609,6 @@
   canBuildInImpassable: false
   conditions:
   - !type:NoUnstackableInTile
-  # Goobstation start
-  groups:
-  - Infrastructure
-  - Electronics
-  # Goobstation end
 
 - type: construction
   id: GasOutletInjector
@@ -822,11 +620,6 @@
   canBuildInImpassable: false
   conditions:
   - !type:NoUnstackableInTile
-  # Goobstation start
-  groups:
-  - Infrastructure
-  - Electronics
-  # Goobstation end
 
 # ATMOS BINARY
 - type: construction
@@ -843,11 +636,6 @@
   - GasPressurePump
   - GasPressurePumpAlt1
   - GasPressurePumpAlt2
-  # Goobstation start
-  groups:
-  - Infrastructure
-  - Electronics
-  # Goobstation end
 
 - type: construction
   id: GasPressurePumpAlt1
@@ -864,11 +652,6 @@
   - GasPressurePump
   - GasPressurePumpAlt1
   - GasPressurePumpAlt2
-  # Goobstation start
-  groups:
-  - Infrastructure
-  - Electronics
-  # Goobstation end
 
 - type: construction
   id: GasPressurePumpAlt2
@@ -885,11 +668,6 @@
   - GasPressurePump
   - GasPressurePumpAlt1
   - GasPressurePumpAlt2
-  # Goobstation start
-  groups:
-  - Infrastructure
-  - Electronics
-  # Goobstation end
 
 - type: construction
   id: GasVolumePump
@@ -905,11 +683,6 @@
   - GasVolumePump
   - GasVolumePumpAlt1
   - GasVolumePumpAlt2
-  # Goobstation start
-  groups:
-  - Infrastructure
-  - Electronics
-  # Goobstation end
 
 - type: construction
   id: GasVolumePumpAlt1
@@ -926,11 +699,6 @@
   - GasVolumePump
   - GasVolumePumpAlt1
   - GasVolumePumpAlt2
-  # Goobstation start
-  groups:
-  - Infrastructure
-  - Electronics
-  # Goobstation end
 
 - type: construction
   id: GasVolumePumpAlt2
@@ -947,11 +715,6 @@
   - GasVolumePump
   - GasVolumePumpAlt1
   - GasVolumePumpAlt2
-  # Goobstation start
-  groups:
-  - Infrastructure
-  - Electronics
-  # Goobstation end
 
 - type: construction
   id: GasPassiveGate
@@ -967,10 +730,6 @@
   - GasPassiveGate
   - GasPassiveGateAlt1
   - GasPassiveGateAlt2
-  # Goobstation start
-  groups:
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   id: GasPassiveGateAlt1
@@ -987,10 +746,6 @@
   - GasPassiveGate
   - GasPassiveGateAlt1
   - GasPassiveGateAlt2
-  # Goobstation start
-  groups:
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   id: GasPassiveGateAlt2
@@ -1007,10 +762,6 @@
   - GasPassiveGate
   - GasPassiveGateAlt1
   - GasPassiveGateAlt2
-  # Goobstation start
-  groups:
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   id: GasPressureRegulator
@@ -1026,11 +777,6 @@
   - GasPressureRegulator
   - GasPressureRegulatorAlt1
   - GasPressureRegulatorAlt2
-  # Goobstation start
-  groups:
-  - Infrastructure
-  - Electronics
-  # Goobstation end
 
 - type: construction
   id: GasPressureRegulatorAlt1
@@ -1047,11 +793,6 @@
   - GasPressureRegulator
   - GasPressureRegulatorAlt1
   - GasPressureRegulatorAlt2
-  # Goobstation start
-  groups:
-  - Infrastructure
-  - Electronics
-  # Goobstation end
 
 - type: construction
   id: GasPressureRegulatorAlt2
@@ -1068,11 +809,6 @@
   - GasPressureRegulator
   - GasPressureRegulatorAlt1
   - GasPressureRegulatorAlt2
-  # Goobstation start
-  groups:
-  - Infrastructure
-  - Electronics
-  # Goobstation end
 
 - type: construction
   id: GasValve
@@ -1088,10 +824,6 @@
   - GasValve
   - GasValveAlt1
   - GasValveAlt2
-  # Goobstation start
-  groups:
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   id: GasValveAlt1
@@ -1108,10 +840,6 @@
   - GasValve
   - GasValveAlt1
   - GasValveAlt2
-  # Goobstation start
-  groups:
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   id: GasValveAlt2
@@ -1128,10 +856,6 @@
   - GasValve
   - GasValveAlt1
   - GasValveAlt2
-  # Goobstation start
-  groups:
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   id: SignalControlledValve
@@ -1147,11 +871,6 @@
   - SignalControlledValve
   - SignalControlledValveAlt1
   - SignalControlledValveAlt2
-  # Goobstation start
-  groups:
-  - Infrastructure
-  - Electronics
-  # Goobstation end
 
 - type: construction
   id: SignalControlledValveAlt1
@@ -1167,11 +886,6 @@
   - SignalControlledValve
   - SignalControlledValveAlt1
   - SignalControlledValveAlt2
-  # Goobstation start
-  groups:
-  - Infrastructure
-  - Electronics
-  # Goobstation end
 
 - type: construction
   id: SignalControlledValveAlt2
@@ -1187,11 +901,6 @@
   - SignalControlledValve
   - SignalControlledValveAlt1
   - SignalControlledValveAlt2
-  # Goobstation start
-  groups:
-  - Infrastructure
-  - Electronics
-  # Goobstation end
 
 - type: construction
   id: GasPort
@@ -1203,10 +912,6 @@
   canBuildInImpassable: false
   conditions:
     - !type:NoUnstackableInTile
-  # Goobstation start
-  groups:
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   id: GasDualPortVentPump
@@ -1216,10 +921,6 @@
   category: construction-category-utilities
   placementMode: SnapgridCenter
   canBuildInImpassable: false
-  # Goobstation start
-  groups:
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   id: HeatExchanger
@@ -1229,10 +930,6 @@
   category: construction-category-utilities
   placementMode: SnapgridCenter
   canBuildInImpassable: false
-  # Goobstation start
-  groups:
-  - Infrastructure
-  # Goobstation end
 
 - type: construction
   id: HeatExchangerBend
@@ -1243,10 +940,6 @@
   category: construction-category-utilities
   placementMode: SnapgridCenter
   canBuildInImpassable: false
-  # Goobstation start
-  groups:
-  - Infrastructure
-  # Goobstation end
 
 # ATMOS TRINARY
 - type: construction
@@ -1260,11 +953,6 @@
   mirror: GasFilterFlipped
   conditions:
     - !type:NoUnstackableInTile
-  # Goobstation start
-  groups:
-  - Infrastructure
-  - Electronics
-  # Goobstation end
 
 - type: construction
   id: GasFilterFlipped
@@ -1278,11 +966,6 @@
   mirror: GasFilter
   conditions:
     - !type:NoUnstackableInTile
-  # Goobstation start
-  groups:
-  - Infrastructure
-  - Electronics
-  # Goobstation end
 
 - type: construction
   id: GasMixer
@@ -1295,11 +978,6 @@
   mirror: GasMixerFlipped
   conditions:
     - !type:NoUnstackableInTile
-  # Goobstation start
-  groups:
-  - Infrastructure
-  - Electronics
-  # Goobstation end
 
 - type: construction
   id: GasMixerFlipped
@@ -1313,11 +991,6 @@
   mirror: GasMixer
   conditions:
     - !type:NoUnstackableInTile
-  # Goobstation start
-  groups:
-  - Infrastructure
-  - Electronics
-  # Goobstation end
 
 - type: construction
   id: PressureControlledValve
@@ -1329,11 +1002,6 @@
   canBuildInImpassable: false
   conditions:
     - !type:NoUnstackableInTile
-  # Goobstation start
-  groups:
-  - Infrastructure
-  - Electronics
-  # Goobstation end
 
 # INTERCOM
 - type: construction
@@ -1348,10 +1016,6 @@
   canBuildInImpassable: true
   conditions:
   - !type:WallmountCondition {}
-  # Goobstation start
-  groups:
-  - Electronics
-  # Goobstation end
 
 # TIMERS
 - type: construction
@@ -1365,10 +1029,6 @@
   canBuildInImpassable: true
   conditions:
   - !type:WallmountCondition
-  # Goobstation start
-  groups:
-  - Electronics
-  # Goobstation end
 
 - type: construction
   id: ScreenTimer
@@ -1382,10 +1042,6 @@
   canBuildInImpassable: true
   conditions:
   - !type:WallmountCondition
-  # Goobstation start
-  groups:
-  - Electronics
-  # Goobstation end
 
 - type: construction
   id: BrigTimer
@@ -1399,7 +1055,3 @@
   canBuildInImpassable: true
   conditions:
   - !type:WallmountCondition
-  # Goobstation start
-  groups:
-  - Electronics
-  # Goobstation end

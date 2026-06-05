@@ -10,9 +10,6 @@
   targetNode: label
   category: construction-category-misc
   objectType: Item
-  groups:
-  - Electronics
-  - Science
 
 - type: construction
   id: AutomationFilterName
@@ -20,9 +17,6 @@
   targetNode: name
   category: construction-category-misc
   objectType: Item
-  groups:
-  - Electronics
-  - Science
 
 - type: construction
   id: AutomationFilterStack
@@ -30,9 +24,6 @@
   targetNode: stack
   category: construction-category-misc
   objectType: Item
-  groups:
-  - Electronics
-  - Science
 
 - type: construction
   id: AutomationFilterPressure
@@ -40,9 +31,6 @@
   targetNode: pressure
   category: construction-category-misc
   objectType: Item
-  groups:
-  - Electronics
-  - Science
 
 - type: construction
   id: AutomationFilterCombined
@@ -50,9 +38,6 @@
   targetNode: combined
   category: construction-category-misc
   objectType: Item
-  groups:
-  - Electronics
-  - Science
 
 - type: construction
   id: AutomationFilterAnchor
@@ -60,9 +45,6 @@
   targetNode: anchor
   category: construction-category-misc
   objectType: Item
-  groups:
-  - Electronics
-  - Science
 
 - type: construction
   id: AutomationFilterMob
@@ -70,9 +52,6 @@
   targetNode: mob
   category: construction-category-misc
   objectType: Item
-  groups:
-  - Electronics
-  - Science
 
 - type: construction
   id: AutomationFilterCuff
@@ -80,6 +59,3 @@
   targetNode: cuff
   category: construction-category-misc
   objectType: Item
-  groups:
-  - Electronics
-  - Science

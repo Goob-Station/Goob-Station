@@ -1,22 +1,33 @@
-construction-group-handmade-simple = Simple handmades
-construction-group-handmade-advanced = Advanced handmades
-construction-group-survival-weapons = Survival weapons
-construction-group-survival-weapons-advanced = Advanced survival weapons
-construction-group-technological = Technological
-construction-group-materials = Materials
-construction-group-doors = Doors
-construction-group-airlocks = Airlocks
-construction-group-toys = Toys
-construction-group-bananium = Bananium
-construction-group-bots = Bots
-construction-group-furniture-simple = Simple furniture
-construction-group-furniture = Furniture
-construction-group-infrastructure = Infrastructure
-construction-group-electronics = Electronics
-construction-group-walls = Advanced walls
-construction-group-walls-advanced = Advanced walls
-construction-group-science = Science
-construction-group-windows = Windows
-construction-group-windows-advanced = Advanced windows
-construction-group-spider-craft = Spider craft
-construction-group-smokeables = Smokeables
+construction-pack-handmade = Handmade
+construction-pack-handmade-advanced = Advanced handmade
+construction-pack-technological = Technological handmade
+
+construction-pack-weapons-handmade = Handmade weapons
+construction-pack-weapons-advanced = Survival weapons
+construction-pack-weapons-technological = Technological weapons
+
+construction-pack-doors = Doors
+construction-pack-airlocks = Airlocks
+
+construction-pack-walls = Advanced walls
+construction-pack-walls-advanced = Advanced walls
+
+construction-pack-furniture-simple = Simple furniture
+construction-pack-furniture = Furniture
+
+construction-pack-windows = Windows
+construction-pack-windows-advanced = Advanced windows
+
+construction-pack-infrastructure = Infrastructure
+construction-pack-electronics = Electronics
+construction-pack-science = Science
+construction-pack-bots = Bots
+
+construction-pack-materials = Materials
+construction-pack-toys = Toys
+construction-pack-bananium = Bananium
+
+construction-pack-spider-craft = Spider craft
+construction-pack-smokeables = Smokeables
+
+construction-pack-all = All

@@ -14,10 +14,6 @@
   targetNode: grenade
   category: construction-category-weapons
   objectType: Item
-  # Goobstation start
-  groups:
-  - Science
-  # Goobstation end
 
 - type: construction
   id: ModularMineRecipe
@@ -26,7 +22,3 @@
   targetNode: mine
   category: construction-category-weapons
   objectType: Item
-  # Goobstation start
-  groups:
-  - Science
-  # Goobstation end
