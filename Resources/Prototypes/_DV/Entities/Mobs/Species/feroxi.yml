@@ -9,6 +9,7 @@
     species: Feroxi
     hideLayersOnEquip:
     - Snout
+    undergarmentBottom: UndergarmentBottomBoxersReptilian # todo marty doesn't fit needs adjusting
   - type: Hunger
   # - type: Carriable # ShibaStation - disabled because broken, for now.
   - type: Thirst

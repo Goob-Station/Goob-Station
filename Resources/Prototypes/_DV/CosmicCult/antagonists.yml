@@ -6,7 +6,7 @@
   objective: roles-antag-cosmiccult-description
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 86400 # 24h i really just want people to read the guidebook please please please
+    time: 24h # 24h i really just want people to read the guidebook please please please
   guides: [ CosmicCult ]
 
 - type: antag

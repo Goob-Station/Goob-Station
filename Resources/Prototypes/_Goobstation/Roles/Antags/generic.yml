@@ -5,7 +5,7 @@
   objective: never-shown
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 18000 #5 hours
+    time: 5h #5 hours
 
 - type: antag
   id: GenericFreeAgentGoob
@@ -14,4 +14,4 @@
   objective: never-shown
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 18000 #5 hours
+    time: 5h #5 hours

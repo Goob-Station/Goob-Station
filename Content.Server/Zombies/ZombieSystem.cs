@@ -100,6 +100,8 @@ using Content.Shared.CombatMode.Pacification;
 using Content.Server.Speech.Components;
 using Content.Goobstation.Shared.Sprinting;
 using Content.Shared.Prying.Components;
+using Content.Shared.Temperature.Components;
+
 // Goob end
 
 namespace Content.Server.Zombies

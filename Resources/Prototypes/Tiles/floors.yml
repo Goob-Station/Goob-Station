@@ -134,6 +134,7 @@
   footstepSounds:
     collection: FootstepFloor
   heatCapacity: 10000
+  tileRipResistance: 4500 # Goob
   baseTurf: Plating
   baseWhitelist:
   - PlatingBrass
@@ -150,6 +151,8 @@
   - FloorPlanetGrass
   - FloorSnow
   - FloorDirt
+  - PlatingRCD
+  - FloorHullReinforced
 
 - type: tile
   id: FloorSteel
@@ -318,6 +321,7 @@
   - 1.0
   - 1.0
   itemDrop: FloorTileItemSteel
+  tileRipResistance: 80 # Goob
 
 - type: tile
   id: FloorWood
@@ -335,6 +339,7 @@
   barestepSounds:
     collection: BarestepWood
   itemDrop: FloorTileItemWood
+  tileRipResistance: 80 # Goob
 
 - type: tile
   id: FloorWhite
@@ -350,6 +355,7 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemWhite
+  tileRipResistance: 80 # Goob
 
 - type: tile
   id: FloorWhiteMini
@@ -365,6 +371,7 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemWhiteMini
+  tileRipResistance: 80 # Goob
 
 - type: tile
   id: FloorWhitePavement
@@ -380,6 +387,7 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemWhitePavement
+  tileRipResistance: 80 # Goob
 
 - type: tile
   id: FloorWhiteDiagonal
@@ -395,6 +403,7 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemWhiteDiagonal
+  tileRipResistance: 80 # Goob
 
 - type: tile
   id: FloorWhiteOffset
@@ -404,6 +413,7 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemWhiteOffset
+  tileRipResistance: 80 # Goob
 
 - type: tile
   id: FloorWhiteMono
@@ -419,6 +429,7 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemWhiteMono
+  tileRipResistance: 80 # Goob
 
 - type: tile
   id: FloorWhitePavementVertical
@@ -434,6 +445,7 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemWhitePavementVertical
+  tileRipResistance: 80 # Goob
 
 - type: tile
   id: FloorWhiteHerringbone
@@ -449,6 +461,7 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemWhiteHerringbone
+  tileRipResistance: 80 # Goob
 
 - type: tile
   id: FloorWhiteDiagonalMini
@@ -464,6 +477,7 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemWhiteDiagonalMini
+  tileRipResistance: 80 # Goob
 
 - type: tile
   id: FloorWhitePlastic
@@ -479,6 +493,7 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemWhite
+  tileRipResistance: 80 # Goob
 
 - type: tile
   id: FloorDark
@@ -494,7 +509,7 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemDark
-
+  tileRipResistance: 100 # Goob
 - type: tile
   id: FloorDarkMini
   parent: BaseStationTile
@@ -524,6 +539,7 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemDarkPavement
+  tileRipResistance: 100 # Goob
 
 - type: tile
   id: FloorDarkDiagonal
@@ -539,6 +555,7 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemDarkDiagonal
+  tileRipResistance: 100 # Goob
 
 - type: tile
   id: FloorDarkOffset
@@ -548,6 +565,7 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemDarkOffset
+  tileRipResistance: 100 # Goob
 
 - type: tile
   id: FloorDarkMono
@@ -563,6 +581,7 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemDarkMono
+  tileRipResistance: 100 # Goob
 
 - type: tile
   id: FloorDarkPavementVertical
@@ -578,6 +597,7 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemDarkPavementVertical
+  tileRipResistance: 100 # Goob
 
 - type: tile
   id: FloorDarkHerringbone
@@ -593,6 +613,7 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemDarkHerringbone
+  tileRipResistance: 100 # Goob
 
 - type: tile
   id: FloorDarkDiagonalMini
@@ -608,6 +629,7 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemDarkDiagonalMini
+  tileRipResistance: 100 # Goob
 
 - type: tile
   id: FloorDarkPlastic
@@ -623,6 +645,7 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemDark
+  tileRipResistance: 50 # Goob
 
 - type: tile
   id: FloorTechMaint
@@ -632,6 +655,7 @@
   footstepSounds:
     collection: FootstepHull
   itemDrop: FloorTileItemTechmaint
+  tileRipResistance: 250 # Goob
 
 - type: tile
   id: FloorTechMaintDark
@@ -641,6 +665,7 @@
   footstepSounds:
     collection: FootstepHull
   itemDrop: FloorTileItemTechmaintDark
+  tileRipResistance: 250 # Goob
 
 - type: tile
   id: FloorReinforced
@@ -650,6 +675,7 @@
   footstepSounds:
     collection: FootstepHull
   itemDrop: PartRodMetal1
+  reinforced: true # Goob
 
 - type: tile
   id: FloorMono
@@ -659,6 +685,7 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemMono
+  tileRipResistance: 100 # Goob
 
 - type: tile
   id: FloorLino
@@ -668,18 +695,19 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemLino
+  tileRipResistance: 100 # Goob
 
 - type: tile
   id: FloorSteelDirty
   parent: BaseStationTile
   name: tiles-dirty-steel-floor
   sprite: /Textures/Tiles/steel_dirty.png
-  variants: 4
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
+  #variants: 4 # Trauma - no
+  ##placementVariants:
+  #- 1.0
+  #- 1.0
+  #- 1.0
+  #- 1.0
   footstepSounds:
     collection: FootstepPlating
   itemDrop: FloorTileItemDirty
@@ -710,6 +738,7 @@
   footstepSounds:
     collection: FootstepAsteroid
   itemDrop: FloorTileItemRockVault
+  tileRipResistance: 400 # Goob
 
 - type: tile
   id: FloorBlue
@@ -719,6 +748,7 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemBlue
+  tileRipResistance: 50 # Goob
 
 - type: tile
   id: FloorSteelLime
@@ -741,6 +771,7 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemMining
+  tileRipResistance: 250 # Goob
 
 - type: tile
   id: FloorMiningDark
@@ -750,6 +781,7 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemMiningDark
+  tileRipResistance: 250 # Goob
 
 - type: tile
   id: FloorMiningLight
@@ -759,6 +791,7 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemMiningLight
+  tileRipResistance: 250 # Goob
 
 # Departmental
 - type: tile
@@ -769,6 +802,7 @@
   footstepSounds:
     collection: FootstepHull
   itemDrop: FloorTileItemFreezer
+  tileRipResistance: 100 # Goob
 
 - type: tile
   id: FloorShowroom
@@ -776,6 +810,7 @@
   name: tiles-showroom-floor
   sprite: /Textures/Tiles/showroom.png
   itemDrop: FloorTileItemShowroom
+  tileRipResistance: 100 # Goob
 
 - type: tile
   id: FloorHydro
@@ -783,6 +818,7 @@
   name: tiles-hydro-floor
   sprite: /Textures/Tiles/hydro.png
   itemDrop: FloorTileItemHydro
+  tileRipResistance: 50 # Goob
 
 - type: tile
   id: FloorBar
@@ -796,6 +832,7 @@
   - 1.0
   - 1.0
   itemDrop: FloorTileItemBar
+  tileRipResistance: 100 # Goob
 
 - type: tile
   id: FloorClown
@@ -803,6 +840,7 @@
   name: tiles-clown-floor
   sprite: /Textures/Tiles/clown.png
   itemDrop: FloorTileItemClown
+  tileRipResistance: 50 # Goob
 
 - type: tile
   id: FloorMime
@@ -810,6 +848,7 @@
   name: tiles-mime-floor
   sprite: /Textures/Tiles/mime.png
   itemDrop: FloorTileItemMime
+  tileRipResistance: 50 # Goob
 
 - type: tile
   id: FloorKitchen
@@ -819,6 +858,7 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemKitchen
+  tileRipResistance: 50 # Goob
 
 - type: tile
   id: FloorLaundry
@@ -828,6 +868,7 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemLaundry
+  tileRipResistance: 50 # Goob
 
 - type: tile
   id: FloorSteelDamaged
@@ -842,6 +883,7 @@
   - 1.0
   - 1.0
   itemDrop: FloorTileItemSteel #This should probably be made null when it becomes possible to make it such, in SS13 prying destroyed tiles wouldn't give you anything.
+  tileRipResistance: 175 # Goob
 
 # Concrete
 - type: tile
@@ -858,6 +900,7 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemConcrete
+  tileRipResistance: 300 # Goob
 
 - type: tile
   id: FloorConcreteMono
@@ -873,6 +916,7 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemConcreteMono
+  tileRipResistance: 300 # Goob
 
 - type: tile
   id: FloorConcreteSmooth
@@ -888,6 +932,7 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemConcreteSmooth
+  tileRipResistance: 300 # Goob
 
 - type: tile
   id: FloorGrayConcrete
@@ -903,6 +948,7 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemGrayConcrete
+  tileRipResistance: 300 # Goob
 
 - type: tile
   id: FloorGrayConcreteMono
@@ -918,6 +964,7 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemGrayConcreteMono
+  tileRipResistance: 300 # Goob
 
 - type: tile
   id: FloorGrayConcreteSmooth
@@ -933,6 +980,7 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemGrayConcreteSmooth
+  tileRipResistance: 300 # Goob
 
 - type: tile
   id: FloorOldConcrete
@@ -948,6 +996,7 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemOldConcrete
+  tileRipResistance: 300 # Goob
 
 - type: tile
   id: FloorOldConcreteMono
@@ -963,6 +1012,7 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemOldConcreteMono
+  tileRipResistance: 300 # Goob
 
 - type: tile
   id: FloorOldConcreteSmooth
@@ -978,6 +1028,7 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemOldConcreteSmooth
+  tileRipResistance: 300 # Goob
 
 # Carpets (non smoothing)
 - type: tile
@@ -991,6 +1042,7 @@
     collection: BarestepCarpet
   friction: 1.25
   itemDrop: FloorTileItemArcadeBlue
+  tileRipResistance: 75 # Goob
 
 - type: tile
   id: FloorArcadeBlue2
@@ -1003,6 +1055,7 @@
     collection: BarestepCarpet
   friction: 1.25
   itemDrop: FloorTileItemArcadeBlue2
+  tileRipResistance: 75 # Goob
 
 - type: tile
   id: FloorArcadeRed
@@ -1015,6 +1068,7 @@
     collection: BarestepCarpet
   friction: 1.25
   itemDrop: FloorTileItemArcadeRed
+  tileRipResistance: 75 # Goob
 
 - type: tile
   id: FloorEighties
@@ -1027,6 +1081,7 @@
     collection: BarestepCarpet
   friction: 1.25
   itemDrop: FloorTileItemEighties
+  tileRipResistance: 75 # Goob
 
 - type: tile
   id: FloorCarpetClown
@@ -1039,6 +1094,7 @@
     collection: BarestepCarpet
   friction: 1.25
   itemDrop: FloorTileItemCarpetClown
+  tileRipResistance: 75 # Goob
 
 - type: tile
   id: FloorCarpetOffice
@@ -1051,6 +1107,7 @@
     collection: BarestepCarpet
   friction: 1.25
   itemDrop: FloorTileItemCarpetOffice
+  tileRipResistance: 75 # Goob
 
 - type: tile
   id: FloorBoxing
@@ -1065,6 +1122,7 @@
   - 1.0
   friction: 1.25
   itemDrop: FloorTileItemBoxing
+  tileRipResistance: 50 # Goob
 
 - type: tile
   id: FloorGym
@@ -1079,6 +1137,7 @@
   - 1.0
   friction: 1.25
   itemDrop: FloorTileItemGym
+  tileRipResistance: 50 # Goob
 
 # Shuttle
 - type: tile
@@ -1099,12 +1158,12 @@
   parent: BaseStationTile
   name: tiles-grey-shuttle-floor
   sprite: /Textures/Tiles/shuttlegrey.png
-  variants: 4
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
+  #variants: 4 # Trauma - no
+  #placementVariants:
+  #- 1.0
+  #- 1.0
+  #- 1.0
+  #- 1.0
   itemDrop: FloorTileItemShuttleGrey
 
 - type: tile
@@ -1112,12 +1171,12 @@
   parent: BaseStationTile
   name: tiles-black-shuttle-floor
   sprite: /Textures/Tiles/shuttleblack.png
-  variants: 4
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
+  #variants: 4 # Trauma - no
+  #placementVariants:
+  #- 1.0
+  #- 1.0
+  #- 1.0
+  #- 1.0
   itemDrop: FloorTileItemShuttleBlack
 
 - type: tile
@@ -1151,12 +1210,12 @@
   parent: BaseStationTile
   name: tiles-purple-shuttle-floor
   sprite: /Textures/Tiles/shuttlepurple.png
-  variants: 4
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
+  #variants: 4 # Trauma - no
+  #placementVariants:
+  #- 1.0
+  #- 1.0
+  #- 1.0
+  #- 1.0
   itemDrop: FloorTileItemShuttlePurple
 
 - type: tile
@@ -1164,12 +1223,12 @@
   parent: BaseStationTile
   name: tiles-red-shuttle-floor
   sprite: /Textures/Tiles/shuttlered.png
-  variants: 4
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
+  #variants: 4 # Trauma - no
+  #placementVariants:
+  #- 1.0
+  #- 1.0
+  #- 1.0
+  #- 1.0
   itemDrop: FloorTileItemShuttleRed
 
 
@@ -1182,6 +1241,7 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemGold
+  tileRipResistance: 600 # Goob
 
 - type: tile
   id: FloorSilver
@@ -1191,6 +1251,7 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemSilver
+  tileRipResistance: 500 # Goob
 
 - type: tile
   id: FloorGlass
@@ -1206,6 +1267,7 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: SheetGlass1
+  tileRipResistance: 150 # Goob
 
 - type: tile
   id: FloorRGlass
@@ -1221,6 +1283,7 @@
   footstepSounds:
     collection: FootstepTile
   itemDrop: SheetRGlass1
+  tileRipResistance: 175 # Goob
 
 - type: tile
   id: FloorMetalFoam
@@ -1243,6 +1306,7 @@
   footstepSounds:
     collection: FootstepHull
   itemDrop: FloorTileItemGCircuit
+  tileRipResistance: 225 # Goob
 
 - type: tile
   id: FloorBlueCircuit
@@ -1252,6 +1316,7 @@
   footstepSounds:
     collection: FootstepHull
   itemDrop: FloorTileItemBCircuit
+  tileRipResistance: 225 # Goob
 
 - type: tile
   id: FloorRedCircuit
@@ -1632,7 +1697,8 @@
   footstepSounds:
     collection: FootstepBlood
   itemDrop: FloorTileItemFlesh
-  #friction: 0.25 #slippy Goob station change, no longer slippery
+  #friction: 0.25 # Goob - not slippy
+  tileRipResistance: 80 # Goob
 
 - type: tile
   id: FloorTechMaint2
@@ -1642,6 +1708,7 @@
   footstepSounds:
     collection: FootstepHull
   itemDrop: FloorTileItemSteelMaint
+  tileRipResistance: 225 # Goob
 
 - type: tile
   id: FloorTechMaint3
@@ -1657,6 +1724,7 @@
   footstepSounds:
     collection: FootstepHull
   itemDrop: FloorTileItemGratingMaint
+  tileRipResistance: 225 # Goob
 
 - type: tile
   id: FloorWoodTile
@@ -1674,6 +1742,7 @@
   barestepSounds:
     collection: BarestepWood
   itemDrop: FloorTileItemWoodPattern
+  tileRipResistance: 75 # Goob
 
 - type: tile
   id: FloorBrokenWood
@@ -1694,6 +1763,7 @@
   barestepSounds:
     collection: BarestepWood
   itemDrop: MaterialWoodPlank1
+  tileRipResistance: 60 # Goob
 
 - type: tile
   id: FloorWebTile
@@ -1705,6 +1775,7 @@
   barestepSounds:
     collection: BarestepCarpet
   itemDrop: FloorTileItemWeb
+  tileRipResistance: 30 # Goob
 
 - type: tile
   id: FloorChromite
@@ -1734,23 +1805,7 @@
   footstepSounds:
     collection: FootstepHull
   itemDrop: FloorTileItemSteel #probably should not be normally obtainable, but the game shits itself and dies when you try to put null here
-
-- type: tile
-  id: FloorHullReinforced
-  parent: BaseStationTile
-  name: tiles-hull-reinforced
-  sprite: /Textures/Tiles/hull_reinforced.png
-  #goobstation start
-  baseTurf: Lattice
-  isSubfloor: true
-  friction: 1.5 #same as normal plating
-  #goobstation end
-  footstepSounds:
-    collection: FootstepHull
-  itemDrop: FloorTileItemSteel
-  heatCapacity: 100000 #/tg/ has this set as "INFINITY." I don't know if that exists here so I've just added an extra 0
-  indestructible: true
-  reinforced: true
+  tileRipResistance: 500 # Goob
 
 - type: tile
   id: FloorReinforcedHardened
@@ -1789,6 +1844,7 @@
   footstepSounds:
     collection: FootstepGrass
   itemDrop: FloorTileItemAstroGrass
+  tileRipResistance: 50 # Goob
 
 - type: tile
   id: FloorMowedAstroGrass
@@ -1912,6 +1968,7 @@
   barestepSounds:
     collection: BarestepWood
   itemDrop: FloorTileItemWoodLarge
+  tileRipResistance: 100 # Goob
 
 - type: tile
   id: FloorXenoborg

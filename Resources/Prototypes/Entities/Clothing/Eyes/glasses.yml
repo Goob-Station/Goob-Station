@@ -448,6 +448,7 @@
     - type: SolutionScanner
     - type: IdentityBlocker
       coverage: EYES
+    # Goob start
     - type: StaticPrice #Goobstation - Recycle update
       price: 50
     - type: PhysicalComposition #Goobstation - Recycle update

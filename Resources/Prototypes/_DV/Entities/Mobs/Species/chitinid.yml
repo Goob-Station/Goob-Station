@@ -9,6 +9,8 @@
     species: Chitinid
     hideLayersOnEquip:
     - HeadTop
+    #undergarmentTop:
+    #undergarmentBottom: todo marty bottom needs adjusting
   - type: Hunger
     baseDecayRate: 0.0467 #needs to eat more to survive
   - type: Thirst

@@ -53,6 +53,8 @@
     alternateState: Resomi_burning
   - type: HumanoidAppearance
     species: Resomi
+    undergarmentTop: null # none made, but they might not even need these too diff bodytype
+    undergarmentBottom: null
   - type: Icon
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
     state: full
@@ -299,6 +301,8 @@
   components:
   - type: HumanoidAppearance
     species: Resomi
+    undergarmentTop: null # none made, but they might not even need these too diff bodytype
+    undergarmentBottom: null
   - type: Hands
     handDisplacement:
       sizeMaps:
