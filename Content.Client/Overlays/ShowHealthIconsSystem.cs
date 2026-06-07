@@ -87,6 +87,7 @@ using Content.Shared.StatusIcon;
 using Content.Shared.StatusIcon.Components;
 using Robust.Shared.Prototypes;
 using System.Linq;
+using Content.Shared.Hands; // Goobstation
 
 namespace Content.Client.Overlays;
 
@@ -99,6 +100,8 @@ public sealed class ShowHealthIconsSystem : EquipmentHudSystem<ShowHealthIconsCo
 
     [ViewVariables]
     public HashSet<string> DamageContainers = new();
+
+    protected override bool WorksInHands => true; // Goobstation
 
     public override void Initialize()
     {
@@ -166,5 +169,13 @@ public sealed class ShowHealthIconsSystem : EquipmentHudSystem<ShowHealthIconsCo
         }
 
         return result;
+    }
+
+    // Goobstation
+    protected override void OnRefreshEquipmentHud(Entity<ShowHealthIconsComponent> ent,
+        ref HeldRelayedEvent<RefreshEquipmentHudEvent<ShowHealthIconsComponent>> args)
+    {
+        if (ent.Comp.WorksInHands)
+            base.OnRefreshEquipmentHud(ent, ref args);
     }
 }

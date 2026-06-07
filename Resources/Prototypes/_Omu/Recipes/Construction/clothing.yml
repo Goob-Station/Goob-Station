@@ -1,0 +1,15 @@
+- type: construction
+  id: GogglesMedChem
+  graph: GogglesMedChemHUD
+  startNode: start
+  targetNode: gogglesMedChem
+  category: construction-category-clothing
+  objectType: Item
+
+- type: construction
+  id: GlassesMedChem
+  graph: GlassesMedChemHUD
+  startNode: start
+  targetNode: glassesMedChem
+  category: construction-category-clothing
+  objectType: Item

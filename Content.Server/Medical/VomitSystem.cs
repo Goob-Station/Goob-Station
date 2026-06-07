@@ -89,19 +89,24 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Medical; // goob edit
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Forensics;
 using Content.Server.Popups;
-using Content.Server.Stunnable;
+using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Server.Stunnable;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
-using Content.Shared.StatusEffect;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
@@ -117,13 +122,12 @@ namespace Content.Server.Medical
         [Dependency] private readonly PopupSystem _popup = default!;
         [Dependency] private readonly PuddleSystem _puddle = default!;
         [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-        [Dependency] private readonly StunSystem _stun = default!;
+        [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
         [Dependency] private readonly ThirstSystem _thirst = default!;
         [Dependency] private readonly ForensicsSystem _forensics = default!;
         [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
 
-        [ValidatePrototypeId<SoundCollectionPrototype>]
-        private const string VomitCollection = "Vomit";
+        private static readonly ProtoId<SoundCollectionPrototype> VomitCollection = "Vomit";
 
         private readonly SoundSpecifier _vomitSound = new SoundCollectionSpecifier(VomitCollection,
             AudioParams.Default.WithVariation(0.2f).WithVolume(-4f));
@@ -138,6 +142,14 @@ namespace Content.Server.Medical
             if (stomachList.Count == 0)
                 return;
 
+            // goob start
+            var beforeEv = new BeforeVomitEvent();
+            RaiseLocalEvent(uid, ref beforeEv);
+
+            if (beforeEv.Cancelled)
+                return;
+            // goob end
+
             // Vomiting makes you hungrier and thirstier
             if (TryComp<HungerComponent>(uid, out var hunger))
                 _hunger.ModifyHunger(uid, hungerAdded, hunger);
@@ -148,8 +160,7 @@ namespace Content.Server.Medical
             // It fully empties the stomach, this amount from the chem stream is relatively small
             var solutionSize = (MathF.Abs(thirstAdded) + MathF.Abs(hungerAdded)) / 6;
             // Apply a bit of slowdown
-            if (TryComp<StatusEffectsComponent>(uid, out var status))
-                _stun.TrySlowdown(uid, TimeSpan.FromSeconds(solutionSize), true, 0.5f, 0.5f, status);
+            _movementMod.TryUpdateMovementSpeedModDuration(uid, MovementModStatusSystem.VomitingSlowdown, TimeSpan.FromSeconds(solutionSize),  0.5f);
 
             // TODO: Need decals
             var solution = new Solution();

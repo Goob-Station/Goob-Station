@@ -17,3 +17,20 @@
   id: ExperimentalScienceGoob
   recipes:
   - ExperimentalCircuitBoard
+
+- type: latheRecipePack
+  id: XenobioPack
+  recipes:
+  - ClothingBackpackXenoBioTank
+  - SlimeScannerXenobio
+
+- type: latheRecipePack
+  id: ScienceBoardsGoob
+  recipes:
+  - SlimeGrinderMachineCircuitboard
+  - XenobiologyBountyComputerCircuitboard
+
+- type: latheRecipePack
+  id: XenobagHoldingPack
+  recipes:
+  - ClothingBeltChemBagXenobiologyHolding

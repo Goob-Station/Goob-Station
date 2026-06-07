@@ -99,15 +99,28 @@ public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem // t
 
     private void OnGetState(EntityUid uid, TComp component, ref ComponentGetState args)
     {
+        var lightRadius = 0f;
+        string? thermalShader = null;
+
+        if (component is ThermalVisionComponent thermal)
+        {
+            lightRadius = thermal.LightRadius;
+            thermalShader = thermal.ThermalShader;
+        }
+
         args.State = new SwitchableVisionOverlayComponentState
         {
             Color = component.Color,
+            IsEquipment = component.IsEquipment,
             IsActive = component.IsActive,
             FlashDurationMultiplier = component.FlashDurationMultiplier,
             ActivateSound = component.ActivateSound,
             DeactivateSound = component.DeactivateSound,
             ToggleAction = component.ToggleAction,
-            LightRadius = component is ThermalVisionComponent thermal ? thermal.LightRadius : 0f,
+            LightRadius = lightRadius,
+            ThermalShader = thermalShader,
+            DrawOverlay = component.DrawOverlay,
+            OverlayOpacity = component.OverlayOpacity,
         };
     }
 
@@ -117,9 +130,12 @@ public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem // t
             return;
 
         component.Color = state.Color;
+        component.IsEquipment = state.IsEquipment;
         component.FlashDurationMultiplier = state.FlashDurationMultiplier;
         component.ActivateSound = state.ActivateSound;
         component.DeactivateSound = state.DeactivateSound;
+        component.DrawOverlay = state.DrawOverlay;
+        component.OverlayOpacity = state.OverlayOpacity;
 
         if (component.ToggleAction != state.ToggleAction)
         {
@@ -130,7 +146,10 @@ public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem // t
         }
 
         if (component is ThermalVisionComponent thermal)
+        {
             thermal.LightRadius = state.LightRadius;
+            thermal.ThermalShader = state.ThermalShader;
+        }
 
         if (component.IsActive == state.IsActive)
             return;

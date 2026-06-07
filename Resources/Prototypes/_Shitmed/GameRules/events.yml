@@ -23,15 +23,15 @@
   - type: StationEvent
     earliestStart: 15
     reoccurrenceDelay: 45
-    weight: 5 # Goobstation - 7.5 -> 5
+    weight: 3 # Goobstation - 7.5 -> 3
     minimumPlayers: 10
-    duration: 1
+    duration: null # Goobstation - chud
     chaos:
       Hostile: 75
       Medical: 75
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 300
+    chaosScore: 100
   - type: RuleGrids
   - type: LoadMapRule
     mapPath: /Maps/_Shitmed/Shuttles/ShuttleEvent/abductor_shuttle.yml
@@ -66,7 +66,7 @@
           settings: default
         requirements:
         - !type:OverallPlaytimeRequirement
-          time: 18000 #5 hours
+          time: 180000 #50 hours
         - !type:DepartmentTimeRequirement
           department: Medical
           time: 7200 #2 hours
@@ -123,15 +123,15 @@
   - type: StationEvent
     earliestStart: 15
     reoccurrenceDelay: 45
-    weight: 4.5 # Goobstation - 7.5 -> 4.5
+    weight: 3 # Goobstation - 7.5 -> 3
     minimumPlayers: 20
-    duration: 1
+    duration: null # Goobstation - chud
     chaos:
       Hostile: 150
       Medical: 150
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 450
+    chaosScore: 150
   - type: RuleGrids
   - type: LoadMapRule
     mapPath: /Maps/_Shitmed/Shuttles/ShuttleEvent/duo_abductor_shuttle.yml
@@ -166,7 +166,7 @@
           settings: default
         requirements:
         - !type:OverallPlaytimeRequirement
-          time: 18000 #5 hours
+          time: 180000 #50 hours
         - !type:DepartmentTimeRequirement
           department: Medical
           time: 10800 #3 hours

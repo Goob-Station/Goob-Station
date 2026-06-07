@@ -9,9 +9,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Common.Religion;
 using Content.Goobstation.Shared.Bible;
-using Content.Goobstation.Shared.Religion;
 using Content.Goobstation.Shared.Religion.Nullrod;
+using Content.Server.Heretic.EntitySystems;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Heretic;
@@ -22,9 +23,9 @@ using Robust.Shared.Timing;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Timing; // Shitmed Change
 using Content.Shared._Shitmed.Damage; // Shitmed Change
+
 namespace Content.Goobstation.Shared.Religion;
 
 public sealed class WeakToHolySystem : EntitySystem
@@ -36,6 +37,9 @@ public sealed class WeakToHolySystem : EntitySystem
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly WoundSystem _wound = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
+    [Dependency] private readonly HereticSystem _heretic = default!;
+
+
     public override void Initialize()
     {
         base.Initialize();
@@ -98,7 +102,13 @@ public sealed class WeakToHolySystem : EntitySystem
 
     private void OnUnholyItemDamage(Entity<WeakToHolyComponent> uid, ref DamageUnholyEvent args)
     {
-        if (uid.Comp.AlwaysTakeHoly || TryComp<HereticComponent>(uid, out var heretic) && heretic.Ascended)
+        if (uid.Comp.AlwaysTakeHoly)
+        {
+            args.ShouldTakeHoly = true;
+            return;
+        }
+
+        if (_heretic.TryGetHereticComponent(uid, out var heretic, out _) && heretic.Ascended)
         {
             args.ShouldTakeHoly = true;
             return;
@@ -139,24 +149,24 @@ public sealed class WeakToHolySystem : EntitySystem
         var query = EntityQueryEnumerator<WeakToHolyComponent, BodyComponent>();
         while (query.MoveNext(out var uid, out var weakToHoly, out var body))
         {
+            if (weakToHoly.NextPassiveHealTick > _timing.CurTime)
+                continue;
+            weakToHoly.NextPassiveHealTick = _timing.CurTime + weakToHoly.HealTickDelay;
+
             if (!TryComp<DamageableComponent>(uid, out var damageable))
-                return;
+                continue;
 
             if (TerminatingOrDeleted(uid)
                 || !_body.TryGetRootPart(uid, out var rootPart, body: body)
                 || !damageable.Damage.DamageDict.TryGetValue("Holy", out _))
-                return;
+                continue;
 
             // Rune healing.
-            if (weakToHoly.NextSpecialHealTick <= _timing.CurTime && weakToHoly.IsColliding)
-            {
+            if (weakToHoly.IsColliding)
                 _damageableSystem.TryChangeDamage(uid, weakToHoly.HealAmount, ignoreBlockers: true, targetPart: TargetBodyPart.All, splitDamage: SplitDamageBehavior.SplitEnsureAll);
-                weakToHoly.NextSpecialHealTick = _timing.CurTime + weakToHoly.HealTickDelay;
-            }
 
             // Passive healing.
             _damageableSystem.TryChangeDamage(uid, weakToHoly.PassiveAmount, ignoreBlockers: true, targetPart: TargetBodyPart.All, splitDamage: SplitDamageBehavior.SplitEnsureAll);
-            weakToHoly.NextPassiveHealTick = _timing.CurTime + weakToHoly.HealTickDelay;
         }
     }
 

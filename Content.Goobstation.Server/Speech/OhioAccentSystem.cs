@@ -6,8 +6,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Speech;
 using Content.Server.Speech.EntitySystems;
+using Content.Shared.Speech;
 using Robust.Shared.Random;
 
 namespace Content.Goobstation.Server.Speech;

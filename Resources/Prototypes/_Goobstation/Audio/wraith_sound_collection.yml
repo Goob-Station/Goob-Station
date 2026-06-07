@@ -1,0 +1,60 @@
+- type: soundCollection
+  id: Rev_Push
+  files:
+  - /Audio/_Goobstation/Wraith/revpush1.ogg
+  - /Audio/_Goobstation/Wraith/revpush2.ogg
+
+- type: soundCollection
+  id: Wraith_Raise
+  files:
+  - /Audio/_Goobstation/Wraith/wraithraise1.ogg
+  - /Audio/_Goobstation/Wraith/wraithraise2.ogg
+  - /Audio/_Goobstation/Wraith/wraithraise3.ogg
+
+- type: soundCollection
+  id: Wraith_SoulSucc
+  files:
+  - /Audio/_Goobstation/Wraith/wraithsoulsucc1.ogg
+  - /Audio/_Goobstation/Wraith/wraithsoulsucc2.ogg
+
+- type: soundCollection
+  id: Wraith_Spook
+  files:
+  - /Audio/_Goobstation/Wraith/wraithspook1.ogg
+  - /Audio/_Goobstation/Wraith/wraithspook2.ogg
+
+- type: soundCollection
+  id: Wraith_Whisper
+  files:
+  - /Audio/_Goobstation/Wraith/wraithwhisper1.ogg
+  - /Audio/_Goobstation/Wraith/wraithwhisper2.ogg
+  - /Audio/_Goobstation/Wraith/wraithwhisper3.ogg
+  - /Audio/_Goobstation/Wraith/wraithwhisper4.ogg
+
+- type: soundCollection
+  id: Repairbot
+  files:
+  - /Audio/_Goobstation/Wraith/Mobs/repairbot/cantanymore.ogg
+  - /Audio/_Goobstation/Wraith/Mobs/repairbot/brick.ogg
+  - /Audio/_Goobstation/Wraith/Mobs/repairbot/entropy.ogg
+  - /Audio/_Goobstation/Wraith/Mobs/repairbot/fixit.ogg
+  - /Audio/_Goobstation/Wraith/Mobs/repairbot/fixtouch.ogg
+  - /Audio/_Goobstation/Wraith/Mobs/repairbot/passionproject.ogg
+  - /Audio/_Goobstation/Wraith/Mobs/repairbot/patchingholes.ogg
+  - /Audio/_Goobstation/Wraith/Mobs/repairbot/pay.ogg
+  - /Audio/_Goobstation/Wraith/Mobs/repairbot/strings.ogg
+
+- type: soundCollection
+  id: CreepyWhisper
+  files:
+  - /Audio/_Goobstation/Wraith/Mobs/shade/creepywhisper_1.ogg
+  - /Audio/_Goobstation/Wraith/Mobs/shade/creepywhisper_2.ogg
+  - /Audio/_Goobstation/Wraith/Mobs/shade/creepywhisper_3.ogg
+
+- type: soundCollection
+  id: GoonZGroan
+  files:
+  - /Audio/_Goobstation/Wraith/Mobs/hulk/Zgroan1.ogg
+  - /Audio/_Goobstation/Wraith/Mobs/hulk/Zgroan2.ogg
+  - /Audio/_Goobstation/Wraith/Mobs/hulk/Zgroan3.ogg
+  - /Audio/_Goobstation/Wraith/Mobs/hulk/Zgroan4.ogg

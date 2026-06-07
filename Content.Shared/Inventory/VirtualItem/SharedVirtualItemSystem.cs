@@ -10,6 +10,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
+using Content.Goobstation.Common.Heretic;
 using Content.Shared.Hands;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
@@ -41,8 +42,7 @@ public abstract class SharedVirtualItemSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
-    [ValidatePrototypeId<EntityPrototype>]
-    private const string VirtualItem = "VirtualItem";
+    private static readonly EntProtoId VirtualItem = "VirtualItem";
 
     public override void Initialize()
     {
@@ -162,13 +162,13 @@ public abstract class SharedVirtualItemSystem : EntitySystem
     /// Scan the user's hands until we find the virtual entity, if the
     /// virtual entity is a copy of the matching entity, delete it
     /// </summary>
-    public void DeleteInHandsMatching(EntityUid user, EntityUid matching)
+    public void DeleteInHandsMatching(EntityUid user, EntityUid matching, bool queueDel = true) // Goob edit
     {
         foreach (var held in _handsSystem.EnumerateHeld(user))
         {
             if (TryComp(held, out VirtualItemComponent? virt) && virt.BlockingEntity == matching)
             {
-                DeleteVirtualItem((held, virt), user);
+                DeleteVirtualItem((held, virt), user, queueDel); // Goob edit
             }
         }
     }
@@ -244,6 +244,11 @@ public abstract class SharedVirtualItemSystem : EntitySystem
         var pos = Transform(user).Coordinates;
         virtualItem = PredictedSpawnAttachedTo(VirtualItem, pos);
         var virtualItemComp = EnsureComp<VirtualItemComponent>(virtualItem.Value);
+        // <Trauma>
+        var ev = new GetVirtualItemBlockingEntityEvent(blockingEnt);
+        RaiseLocalEvent(blockingEnt, ref ev);
+        blockingEnt = ev.Uid;
+        // </Trauma>
         virtualItemComp.BlockingEntity = blockingEnt;
         Dirty(virtualItem.Value, virtualItemComp);
         return true;
@@ -252,7 +257,7 @@ public abstract class SharedVirtualItemSystem : EntitySystem
     /// <summary>
     /// Queues a deletion for a virtual item and notifies the blocking entity and user.
     /// </summary>
-    public void DeleteVirtualItem(Entity<VirtualItemComponent> item, EntityUid user)
+    public void DeleteVirtualItem(Entity<VirtualItemComponent> item, EntityUid user, bool queueDel = true) // Goob edit
     {
         var userEv = new VirtualItemDeletedEvent(item.Comp.BlockingEntity, user, item.Owner); // Goobstation
         RaiseLocalEvent(user, userEv);
@@ -263,6 +268,11 @@ public abstract class SharedVirtualItemSystem : EntitySystem
         if (TerminatingOrDeleted(item))
             return;
 
-        PredictedQueueDel(item.Owner);
+        // Goob edit start
+        if (queueDel)
+            PredictedQueueDel(item.Owner);
+        else
+            PredictedDel(item.Owner);
+        // Goob edit end
     }
 }

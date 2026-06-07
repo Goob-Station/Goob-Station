@@ -1,0 +1,169 @@
+- type: listing
+  id: HereticCosmosPath1
+  name: knowledge-path-cosmos-s1-name
+  description: knowledge-path-cosmos-s1-desc
+  icon: { sprite: _Goobstation/Heretic/Blades/blade_cosmos.rsi, state: icon }
+  productHereticKnowledge: EternalGate
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathCosmos
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 0
+    # add every path here because you shouldn't be able to buy more starter knowledge
+    blacklist:
+    - Ash
+    - Blade
+    - Flesh
+    - Lock
+    - Void
+    - Rust
+    - Cosmos
+
+- type: listing
+  id: HereticCosmosPath2
+  name: knowledge-path-cosmos-s2-name
+  description: knowledge-path-cosmos-s2-desc
+  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
+  productHereticKnowledge: GraspOfCosmos
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathCosmos
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 1
+    whitelist:
+    - Cosmos
+
+- type: listing
+  id: HereticCosmosPath3
+  name: knowledge-path-cosmos-s3-name
+  description: knowledge-path-cosmos-s3-desc
+  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: cosmic_rune }
+  productHereticKnowledge: CosmicRunes
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathCosmos
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 2
+    whitelist:
+    - Cosmos
+
+- type: listing
+  id: HereticCosmosPath4
+  name: knowledge-path-cosmos-s4-name
+  description: knowledge-path-cosmos-s4-desc
+  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
+  productHereticKnowledge: MarkOfCosmos
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathCosmos
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 3
+    whitelist:
+    - Cosmos
+
+- type: listing
+  id: HereticCosmosPath5
+  name: knowledge-path-cosmos-s5-name
+  description: knowledge-path-cosmos-s5-desc
+  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: star_touch }
+  productHereticKnowledge: StarTouch
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathCosmos
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 4
+    whitelist:
+    - Cosmos
+
+- type: listing
+  id: HereticCosmosPath6
+  name: knowledge-path-cosmos-s6-name
+  description: knowledge-path-cosmos-s6-desc
+  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: star_blast }
+  productHereticKnowledge: StarBlast
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathCosmos
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 5
+    whitelist:
+    - Cosmos
+
+- type: listing
+  id: HereticCosmosPath7
+  name: knowledge-path-cosmos-s7-name
+  description: knowledge-path-cosmos-s7-desc
+  icon: { sprite: _Goobstation/Heretic/Blades/blade_cosmos.rsi, state: icon }
+  productHereticKnowledge: CosmicBlade
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathCosmos
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 6
+    whitelist:
+    - Cosmos
+
+- type: listing
+  id: HereticCosmosPath8
+  name: knowledge-path-cosmos-s8-name
+  description: knowledge-path-cosmos-s8-desc
+  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: cosmic_domain }
+  productHereticKnowledge: CosmicExpansion
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathCosmos
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 7
+    whitelist:
+    - Cosmos
+
+- type: listing
+  id: HereticCosmosPath9
+  name: knowledge-path-cosmos-s9-name
+  description: knowledge-path-cosmos-s9-desc
+  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: stargazer }
+  productHereticKnowledge: AscensionCosmos
+  cost:
+    KnowledgePoint: 3
+  categories:
+  - HereticPathCosmos
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    requiresCanAscend: true
+    stage: 8
+    whitelist:
+    - Cosmos

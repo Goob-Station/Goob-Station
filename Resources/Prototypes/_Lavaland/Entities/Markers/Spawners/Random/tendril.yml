@@ -24,7 +24,7 @@
   table: !type:GroupSelector
     children:
     - !type:GroupSelector
-      weight: 70
+      weight: 50
       children:
       - id: LavalandTendrilLavaWatcher
       - id: LavalandTendrilGoliath
@@ -33,11 +33,10 @@
         children:
         - id: LavalandTendrilSpaceCarp
     - !type:GroupSelector
-      weight: 10
+      weight: 30
       children:
       - id: LavalandTendrilIcewingWatcher
       - id: LavalandTendrilMagmawingWatcher
-      #- id: LavalandTendrilLegion
 
 - type: entity
   name: tendril spawner

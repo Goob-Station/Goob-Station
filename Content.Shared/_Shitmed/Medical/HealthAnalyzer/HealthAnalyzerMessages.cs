@@ -24,6 +24,7 @@ public abstract class HealthAnalyzerBaseMessage : BoundUserInterfaceMessage
     public readonly HealthAnalyzerMode ActiveMode;
     public Dictionary<TargetBodyPart, WoundableSeverity>? Body;
     public Dictionary<TargetBodyPart, bool> Bleeding;
+    public readonly FixedPoint2 VitalDamage; // Goobstation
 
     public HealthAnalyzerBaseMessage(
         NetEntity? targetEntity,
@@ -32,7 +33,8 @@ public abstract class HealthAnalyzerBaseMessage : BoundUserInterfaceMessage
         bool? scanMode,
         HealthAnalyzerMode activeMode,
         Dictionary<TargetBodyPart, WoundableSeverity>? body,
-        Dictionary<TargetBodyPart, bool> bleeding)
+        Dictionary<TargetBodyPart, bool> bleeding,
+        FixedPoint2 vitalDamage)  // Goobstation
     {
         TargetEntity = targetEntity;
         Temperature = temperature;
@@ -41,6 +43,7 @@ public abstract class HealthAnalyzerBaseMessage : BoundUserInterfaceMessage
         ActiveMode = activeMode;
         Body = body;
         Bleeding = bleeding;
+        VitalDamage = vitalDamage;  // Goobstation
     }
 }
 
@@ -61,10 +64,11 @@ public sealed class HealthAnalyzerBodyMessage : HealthAnalyzerBaseMessage
         bool? unrevivable,
         Dictionary<TargetBodyPart, WoundableSeverity>? body,
         Dictionary<TargetBodyPart, bool> bleeding,
+        FixedPoint2 vitalDamage,  // Goobstation
         Dictionary<NetEntity, List<WoundableTraumaData>> traumas,
         Dictionary<NetEntity, FixedPoint2> nervePainFeels,
         NetEntity? selectedPart = null)
-        : base(targetEntity, temperature, bloodLevel, scanMode, HealthAnalyzerMode.Body, body, bleeding)
+        : base(targetEntity, temperature, bloodLevel, scanMode, HealthAnalyzerMode.Body, body, bleeding, vitalDamage)  // Goobstation
     {
         Unrevivable = unrevivable;
         SelectedPart = selectedPart;
@@ -85,9 +89,10 @@ public sealed class HealthAnalyzerOrgansMessage : HealthAnalyzerBaseMessage
         float bloodLevel,
         bool? scanMode,
         Dictionary<TargetBodyPart, bool> bleeding,
+        FixedPoint2 vitalDamage, // Goobstation
         Dictionary<TargetBodyPart, WoundableSeverity>? body,
         Dictionary<NetEntity, OrganTraumaData> organs)
-        : base(targetEntity, temperature, bloodLevel, scanMode, HealthAnalyzerMode.Organs, body, bleeding)
+        : base(targetEntity, temperature, bloodLevel, scanMode, HealthAnalyzerMode.Organs, body, bleeding, vitalDamage) // Goobstation
     {
         Organs = organs;
     }
@@ -105,9 +110,10 @@ public sealed class HealthAnalyzerChemicalsMessage : HealthAnalyzerBaseMessage
         float bloodLevel,
         bool? scanMode,
         Dictionary<TargetBodyPart, bool> bleeding,
+        FixedPoint2 vitalDamage, // Goobstation
         Dictionary<TargetBodyPart, WoundableSeverity>? body,
         Dictionary<NetEntity, Solution> solutions)
-        : base(targetEntity, temperature, bloodLevel, scanMode, HealthAnalyzerMode.Chemicals, body, bleeding)
+        : base(targetEntity, temperature, bloodLevel, scanMode, HealthAnalyzerMode.Chemicals, body, bleeding, vitalDamage) // Goobstation
     {
         Solutions = solutions;
     }

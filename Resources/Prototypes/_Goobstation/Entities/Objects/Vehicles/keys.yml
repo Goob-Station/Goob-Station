@@ -75,3 +75,17 @@
     tags:
     - VehicleKey
     - JanicartKeys
+
+- type: entity
+  parent: BaseKey
+  id: VehicleKeyForklift
+  name: forklift keys
+  description: Keys to the lift!
+  components:
+  - type: Sprite
+    sprite: Objects/Vehicles/atv.rsi
+    state: keys
+  - type: Tag
+    tags:
+    - VehicleKey
+    - ForkliftKeys

@@ -1,0 +1,35 @@
+- type: reagent
+  id: Umbroxol
+  name: reagent-name-umbroxol
+  group: Medicine
+  desc: reagent-desc-umbroxol
+  physicalDesc: reagent-physical-desc-dark
+  flavor: medicine
+  color: "#211f3d"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Holy: -2
+      - !type:HealthChange
+        damage:
+          types:
+            Cold: 3
+
+- type: reagent
+  id: UnholyWater # going to be renamed later alongside holy water
+  name: reagent-name-unholy-water
+  group: Toxins
+  desc: reagent-desc-unholy-water
+  physicalDesc: reagent-physical-desc-menacing
+  flavor: UnholyWater
+  color: "#1614143d"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Cold: 1 # plan to change this when holy counterpart damage exists

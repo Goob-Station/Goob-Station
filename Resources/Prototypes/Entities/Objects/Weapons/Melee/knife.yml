@@ -280,7 +280,26 @@
   - type: ThrowingAngle
     angle: 225
   - type: ThrowableBlocked # Goobstation
-  - type: AttachmentBayonet # Lavaland Change
+  - type: GunUpgrade # Lavaland Change
+    name: gun-upgrade-bayonet-name
+    examineTextType: gun-upgrade-examine-type-can-use
+    insertedTextType: gun-upgrade-inserted-examine-type-attached
+  - type: GunUpgradeBayonet # Lavaland Change
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PolygonShape
+          radius: 0.01
+          vertices:
+          - -0.4,-0.2
+          - -0.2,-0.4
+          - 0.4,0.2
+          - 0.2,0.4
+        density: 20 # derived from base_item
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
 
 - type: entity
   name: survival knife
@@ -331,7 +350,7 @@
     attackRate: 1.2
     damage:
       types:
-        Slash: 5
+        Slash: 6 #goob - damage matches shiv
   - type: DamageOtherOnHit
     damage:
       types:
@@ -355,7 +374,7 @@
     sprite: Clothing/Head/Hats/brownflatcap.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/brownflatcap.rsi
-
+  
 - type: entity
   name: shiv
   parent: [BaseKnife, BaseMinorContraband]
@@ -477,3 +496,18 @@
     angle: 225
   - type: StaticPrice
     price: 500 # 2000 for a set of 4
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PolygonShape
+          radius: 0.01
+          vertices:
+          - -0.475,-0.225
+          - -0.225,-0.475
+          - 0.525,0.275
+          - 0.275,0.525
+        density: 20 # derived from base_item
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2

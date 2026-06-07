@@ -2804,7 +2804,7 @@ entities:
       angularDamping: 0
       linearDamping: 0
       canCollide: False
-- proto: LuxuryPen
+- proto: PenWiz
   entities:
   - uid: 368
     components:

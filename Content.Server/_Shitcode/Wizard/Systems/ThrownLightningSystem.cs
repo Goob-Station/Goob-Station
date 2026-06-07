@@ -5,10 +5,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Effects;
 using Content.Server._Goobstation.Wizard.Components;
 using Content.Server.Electrocution;
 using Content.Shared._Goobstation.Wizard.Projectiles;
-using Content.Shared._Goobstation.Wizard.Traps;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Magic.Components;
 using Content.Shared.StatusEffect;
@@ -72,8 +72,7 @@ public sealed class ThrownLightningSystem : EntitySystem
         if (!TryComp(args.Target, out StatusEffectsComponent? status))
             return;
 
-        _electrocution.TryDoElectrocution(args.Target, ent, 2, TimeSpan.Zero, true, 0.5f, status, true);
-        _stamina.TakeStaminaDamage(args.Target, ent.Comp.StaminaDamage);
+        _electrocution.TryDoElectrocution(args.Target, ent, 1, ent.Comp.StunTime, true, 1f, status, true);
         _sparks.DoSparks(Transform(ent).Coordinates);
     }
 

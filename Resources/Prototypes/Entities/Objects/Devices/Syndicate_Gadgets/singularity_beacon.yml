@@ -10,7 +10,7 @@
 
 - type: entity
   id: SingularityBeacon
-  parent: [BaseMachinePowered, BaseSyndicateContraband]
+  parent: [BaseMachinePowered, BaseSyndicateAnchoredContraband]
   name: singularity beacon
   description: A syndicate device that attracts the singularity. If it's loose and you're seeing this, run.
   components:

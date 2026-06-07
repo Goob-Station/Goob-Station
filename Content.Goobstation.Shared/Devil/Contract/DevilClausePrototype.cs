@@ -31,7 +31,7 @@ public sealed class DevilClausePrototype : IPrototype
     public BaseDevilContractEvent? Event;
 
     [DataField]
-    public List<string>? Implants;
+    public List<EntProtoId>? Implants;
 
     [DataField]
     public List<EntProtoId>? SpawnedItems;

@@ -20,13 +20,13 @@ using System.Linq;
 using System.Numerics;
 using Content.Server.Administration.Logs;
 using Content.Server.Decals;
-using Content.Server.Nutrition.EntitySystems;
 using Content.Server.Popups;
 using Content.Shared.Crayon;
 using Content.Shared.Database;
 using Content.Shared.Decals;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Nutrition.EntitySystems;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -58,7 +58,7 @@ public sealed class CrayonSystem : SharedCrayonSystem
 
     private static void OnCrayonGetState(EntityUid uid, CrayonComponent component, ref ComponentGetState args)
     {
-        args.State = new CrayonComponentState(component.Color, component.SelectedState, component.Charges, component.Capacity);
+        args.State = new CrayonComponentState(component.Color, component.SelectedState, component.Charges, component.Capacity, component.Infinite);
     }
 
     private void OnCrayonAfterInteract(EntityUid uid, CrayonComponent component, AfterInteractEvent args)
@@ -90,14 +90,17 @@ public sealed class CrayonSystem : SharedCrayonSystem
         if (component.UseSound != null)
             _audio.PlayPvs(component.UseSound, uid, AudioParams.Default.WithVariation(0.125f));
 
-        // Decrease "Ammo"
-        component.Charges--;
-        Dirty(uid, component);
+        if (!component.Infinite) // Goobstation
+        {
+            // Decrease "Ammo"
+            component.Charges--;
+            Dirty(uid, component);
+        }
 
         _adminLogger.Add(LogType.CrayonDraw, LogImpact.Low, $"{ToPrettyString(args.User):user} drew a {component.Color:color} {component.SelectedState}");
         args.Handled = true;
 
-        if (component.DeleteEmpty && component.Charges <= 0)
+        if (!component.Infinite && component.DeleteEmpty && component.Charges <= 0)
             UseUpCrayon(uid, args.User);
         else
             _uiSystem.ServerSendUiMessage(uid, SharedCrayonComponent.CrayonUiKey.Key, new CrayonUsedMessage(component.SelectedState));

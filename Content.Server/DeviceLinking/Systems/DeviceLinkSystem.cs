@@ -12,6 +12,8 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Server.DeviceLinking.Components;
+using Content.Server.DeviceNetwork;
+using Content.Server.DeviceNetwork.Components;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceLinking.Events;
@@ -101,23 +103,6 @@ public sealed class DeviceLinkSystem : SharedDeviceLinkSystem
         // force using wireless network so things like atmos devices are able to send signals
         var network = (int) DeviceNetworkComponent.DeviceNetIdDefaults.Wireless;
         _deviceNetworkSystem.QueuePacket(source, sinkNetwork.Address, payload, sinkNetwork.ReceiveFrequency, network);
-    }
-
-    /// <summary>
-    /// Helper function that invokes a port with a high/low binary logic signal.
-    /// </summary>
-    public void SendSignal(EntityUid uid, string port, bool signal, DeviceLinkSourceComponent? comp = null)
-    {
-        if (!Resolve(uid, ref comp))
-            return;
-
-        var data = new NetworkPayload
-        {
-            [DeviceNetworkConstants.LogicState] = signal ? SignalState.High : SignalState.Low
-        };
-        InvokePort(uid, port, data, comp);
-
-        comp.LastSignals[port] = signal;
     }
 
     /// <summary>

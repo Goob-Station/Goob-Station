@@ -83,6 +83,11 @@
   setPreference: false
   objective: roles-antag-space-ninja-objective
   guides: [ SpaceNinja ]
+  requirements:
+  - !type:SpeciesRequirement
+    inverted: true
+    species:
+    - Plasmaman
 
 #Ninja Gear
 - type: startingGear

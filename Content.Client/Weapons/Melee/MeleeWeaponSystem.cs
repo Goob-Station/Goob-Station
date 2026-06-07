@@ -60,6 +60,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Client.Gameplay;
+using Content.Goobstation.Common.Weapons;
 using Content.Goobstation.Common.Weapons.MeleeDash;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._White.Blink;
@@ -287,7 +288,8 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
     }
 
     /// <summary>
-    /// Raises a heavy attack event with the relevant attacked entities.
+    /// Raises a heavy 
+    event with the relevant attacked entities.
     /// This is to avoid lag effecting the client's perspective too much.
     /// </summary>
     private void ClientHeavyAttack(EntityUid user, EntityCoordinates coordinates, EntityUid meleeUid, MeleeWeaponComponent component)
@@ -336,11 +338,26 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         {
             var strategy = _attackStrategyFactory.CreateStrategy(fightActionComponent);
             strategy.ExecuteMainAttack(attacker, mousePos, coordinates, weaponUid, meleeComponent);
-            return;
+
+            var attackerPos = TransformSystem.GetMapCoordinates(attacker);
+
+            // Goob edit start
+            if (mousePos.MapId != attackerPos.MapId)
+                return;
         }
 
         // Если компонента нет, используем стандартную логику //TODO что то с этим сделать
+        EntityUid? target = null;
 
+        if (_stateManager.CurrentState is GameplayStateBase screen)
+            target = screen.GetDamageableClickedEntity(mousePos);
+
+        var ev = new GetLightAttackRangeEvent(target, attacker, meleeComponent.Range);
+        RaiseLocalEvent(weaponUid, ref ev);
+
+        if ((attackerPos.Position - mousePos.Position).Length() > ev.Range)
+            return;
+        // Goob edit end
         var target = GetTargetAsEntityUid(attacker, meleeComponent);
         // Don't light-attack if interaction will be handling this instead
         if (Interaction.CombatModeCanHandInteract(attacker, target))

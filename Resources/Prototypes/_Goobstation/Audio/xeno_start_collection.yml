@@ -1,0 +1,5 @@
+﻿- type: soundCollection
+  id: xeno_start
+  files:
+  - /Audio/_Goobstation/Music/Black_Swarm_Short.ogg
+  - /Audio/_Goobstation/Music/mind_crawler_short.ogg

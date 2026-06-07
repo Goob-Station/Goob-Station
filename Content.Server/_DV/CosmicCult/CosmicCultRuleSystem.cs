@@ -20,7 +20,6 @@ using Content.Server.Antag;
 using Content.Server.Atmos.Components;
 using Content.Server.Audio;
 using Content.Goobstation.Shared.Religion; // Goobstation - Shitchap
-using Content.Goobstation.Shared.Bible; // Goobstation - Bible
 using Content.Server.Chat.Systems;
 using Content.Server.EUI;
 using Content.Server.GameTicking.Rules;
@@ -70,11 +69,13 @@ using Robust.Shared.Enums;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Linq;
+using Content.Goobstation.Common.Religion;
 using Content.Server.Station.Systems;
+using Content.Shared.Cuffs.Components;
+using Content.Server.Cuffs;
 
 namespace Content.Server._DV.CosmicCult;
 
@@ -115,6 +116,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     [Dependency] private readonly VisibilitySystem _visibility = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly CuffableSystem _cuffable = default!; // goob edit
 
     private ISawmill _sawmill = default!;
     private TimeSpan _t3RevealDelay = default!;
@@ -322,10 +324,27 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         {
             EntityUid picked;
 
-            if (args.Winner == null)
-                picked = (EntityUid) _rand.Pick(args.Winners);
-            else
+            //Here to prevent deleted entitiy
+            if (args.Winner != null && !TerminatingOrDeleted((EntityUid) args.Winner))
+            {
                 picked = (EntityUid) args.Winner;
+            }
+            else
+            {
+                var actualWinners = new List<EntityUid>();
+
+                foreach (var winner in args.Winners)
+                {
+                    if (!TerminatingOrDeleted((EntityUid) winner))
+                        actualWinners.Add((EntityUid) winner);
+                }
+
+                //Just in case
+                if (actualWinners.Count == 0)
+                    return;
+
+                picked = _rand.Pick(actualWinners);
+            }
 
             EnsureComp<CosmicCultLeadComponent>(picked);
             RaiseLocalEvent(picked, new CosmicCultLeadChangedEvent());
@@ -402,8 +421,12 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     private bool CultistsAlive()
     {
         var query = EntityQueryEnumerator<CosmicCultComponent, MobStateComponent>();
-        while (query.MoveNext(out _, out var comp, out var mob))
+        while (query.MoveNext(out var ent, out var comp, out var mob)) // goob edit
         {
+
+            if (TryComp<CuffableComponent>(ent, out var cuffComp) && _cuffable.IsCuffed((ent, cuffComp))) // goob edit
+                continue; // dont count restrained cultists as counting towards objectives.
+
             if (!mob.Running
                 || mob.CurrentState != MobState.Alive)
                 continue;
@@ -770,7 +793,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
         var cosmicGamerule = cult.Comp;
 
-        _stun.TryKnockdown(uid, TimeSpan.FromSeconds(2), true);
+        _stun.TryKnockdown(uid.Owner, TimeSpan.FromSeconds(2), true);
         foreach (var actionEnt in uid.Comp.ActionEntities) _actions.RemoveAction(actionEnt);
 
         if (TryComp<IntrinsicRadioTransmitterComponent>(uid, out var transmitter))

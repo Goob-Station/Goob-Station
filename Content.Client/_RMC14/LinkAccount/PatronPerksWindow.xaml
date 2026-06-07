@@ -15,6 +15,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         <BoxContainer Name="LobbyMessageTab" Access="Public" Orientation="Vertical" Margin="5">
             <Label Text="{Loc 'rmc-ui-lobby-message-description'}" />
             <LineEdit Name="LobbyMessage" Access="Public" Margin="0 10 0 0" />
+            <Button Name="LobbyMessageSaveButton" Access="Public" Text="{Loc 'rmc-ui-save'}" />
         </BoxContainer>
         <BoxContainer Name="ShoutoutTab" Access="Public" Orientation="Vertical" Visible="False"
                       Margin="5">
@@ -23,6 +24,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                 <Label Text="{Loc 'rmc-ui-shoutout-nt-description'}" />
                 <RichTextLabel Name="NTShoutoutExample" Access="Public" />
                 <LineEdit Name="NTShoutout" Access="Public" Margin="0 10 0 0" />
+                <Button Name="NTShoutoutSaveButton" Access="Public" Text="{Loc 'rmc-ui-save'}" />
             </BoxContainer>
             <cc:HSeparator Margin="0 15" />
             <Label Text="{Loc 'rmc-ui-shoutout-info'}" />
@@ -30,10 +32,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         <BoxContainer Name="GhostColorTab" Access="Public" Orientation="Vertical" Margin="5">
             <Label Text="{Loc 'rmc-ui-ghost-color'}" />
             <ColorSelectorSliders Name="GhostColorSliders" Access="Public" Margin="0 10 0 0" />
-            <Button Name="GhostColorClearButton" Access="Public" Text="{Loc 'rmc-ui-ghost-color-clear'}"
-                    StyleClasses="OpenBoth" />
-            <Button Name="GhostColorSaveButton" Access="Public" Text="{Loc 'rmc-ui-ghost-color-save'}"
-                    StyleClasses="OpenBoth" Disabled="True" />
+            <Button Name="GhostColorClearButton" Access="Public" Text="{Loc 'rmc-ui-ghost-color-clear'}" />
+            <Button Name="GhostColorSaveButton" Access="Public" Text="{Loc 'rmc-ui-save'}"
+                    Disabled="True" />
         </BoxContainer>
     </TabContainer>
 </controls:PatronPerksWindow>

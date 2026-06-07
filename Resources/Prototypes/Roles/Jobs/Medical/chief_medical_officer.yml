@@ -138,10 +138,10 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobChemist
-      time: 9000 #2.5 hrs
+      time: 18000 #5 hrs
     - !type:RoleTimeRequirement
       role: JobMedicalDoctor
-      time: 18000 #5 hrs
+      time: 28000 #8 hrs
     - !type:DepartmentTimeRequirement
       department: Medical
       time: 36000 #10 hrs
@@ -153,7 +153,15 @@
   icon: "JobIconChiefMedicalOfficer"
   supervisors: job-supervisors-captain
   canBeAntag: false
+  guides: # goobstation
+  - Medical
+  - ChiefMedicalOfficerSOP
+  - MedicalSOP
+  - Command
+  - Chemicals
+  - Virology
   goobcoins: 40 #Goob content
+  weight: 10 #Goob Edit
   access:
   - Medical
   - Command
@@ -180,7 +188,7 @@
   equipment:
     id: CMOPDA
     ears: ClothingHeadsetAltMedical # Goobstation
-    eyes: ClothingEyesGlassesMed # Goobstation
+    eyes: ClothingEyesGlassesMedChemFlash #Omu
     belt: ClothingBeltMedicalFilled
   storage:
     back:
@@ -193,7 +201,7 @@
   hasMindShield: true
   equipment:
     head: ClothingHeadHatBeretCmo
-    eyes: ClothingEyesHudMedical
+    eyes: ClothingEyesGlassesMedChemFlash # Omu
     mask: ClothingMaskSterile
     neck: ClothingCloakCmo
     outerClothing: ClothingOuterCoatLabCmo

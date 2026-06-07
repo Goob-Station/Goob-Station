@@ -35,20 +35,17 @@ using Content.Shared.Mobs.Events;
 using Robust.Shared.GameStates;
 
 // Shitmed Change
-using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
-using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Robust.Shared.Serialization;
 using Robust.Shared.Network;
-using Robust.Shared.Utility;
 
 namespace Content.Shared.Mobs.Systems;
 
-public sealed class MobThresholdSystem : EntitySystem
+public sealed partial class MobThresholdSystem : EntitySystem
 {
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
@@ -403,7 +400,6 @@ public sealed class MobThresholdSystem : EntitySystem
         Dirty(uid, component);
         VerifyThresholds(uid, component);
     }
-
     #endregion
 
     #region Private Implementation
@@ -413,7 +409,7 @@ public sealed class MobThresholdSystem : EntitySystem
     {
         foreach (var (threshold, mobState) in thresholdsComponent.Thresholds.Reverse())
         {
-            if (damageableComponent.TotalDamage < threshold)
+            if (CheckVitalDamage(target, damageableComponent) < threshold) // GoobStation
                 continue;
 
             TriggerThreshold(target, mobState, mobStateComponent, thresholdsComponent, origin);
@@ -479,7 +475,7 @@ public sealed class MobThresholdSystem : EntitySystem
             }
 
             if (TryGetNextState(target, currentMobState, out var nextState, threshold) &&
-                TryGetPercentageForState(target, nextState.Value, damageable.TotalDamage, out var percentage))
+                TryGetPercentageForState(target, nextState.Value, CheckVitalDamage(target, damageable), out var percentage)) // Goobstation
             {
                 percentage = FixedPoint2.Clamp(percentage.Value, 0, 1);
 

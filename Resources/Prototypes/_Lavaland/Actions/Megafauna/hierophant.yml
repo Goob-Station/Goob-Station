@@ -1,0 +1,77 @@
+# Entity Shape Attacks
+- type: entity
+  id: ActionBaseHierophant
+  parent: BaseAction
+  name: hierophant action
+  abstract: true
+  components:
+  - type: Action
+    priority: -21
+    useDelay: 2
+    icon:
+      sprite: _Lavaland/Objects/Weapons/hierophant_club.rsi
+      state: icon
+    itemIconStyle: NoItem
+  - type: TargetAction
+    checkCanAccess: false
+    range: 30
+  - type: WorldTargetAction
+
+- type: entity
+  id: ActionHierophantBox
+  parent: ActionBaseHierophant
+  name: Expanding Box
+  description: Spawns an expanding box on the target position.
+  components:
+  - type: AngerDelayAction
+    minDelay: 1.5
+    maxDelay: 4.0
+    inverse: true
+  - type: WorldTargetAction
+    event: !type:SpawnEntityActionEvent
+      spawn: HierophantShapeBoxExpanding
+
+- type: entity
+  id: ActionHierophantCrosses
+  parent: ActionBaseHierophant
+  name: Sequence Crosses
+  description: Spawns a sequence of crosses on the target position.
+  components:
+  - type: AngerDelayAction
+    minDelay: 1.5
+    maxDelay: 4.0
+    inverse: true
+  - type: WorldTargetAction
+    event: !type:SpawnEntityActionEvent
+      spawn: HierophantShapeCrossSequence
+      attachToTarget: true
+
+- type: entity
+  id: ActionHierophantChasers
+  parent: ActionBaseHierophant
+  name: Spawn Chasers
+  description: Spawns hierophant tile chasers that move towards the target.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: AngerDelayAction
+    minDelay: 7.0
+    maxDelay: 20.0
+    inverse: true
+  - type: EntityTargetAction # Without a target it's pretty much useless?
+  - type: WorldTargetAction
+    event: !type:SpawnEntityActionEvent
+      spawn: LavalandHierophantChaser
+      spawnAtUser: true
+
+- type: entity
+  id: ActionHierophantBlink
+  parent: ActionBaseHierophant
+  name: Blink
+  description: Teleports you to the target position.
+  components:
+  - type: AngerDelayAction
+    minDelay: 3.0
+    maxDelay: 10.0
+    inverse: true
+  - type: WorldTargetAction
+    event: !type:MegafaunaBlinkActionEvent

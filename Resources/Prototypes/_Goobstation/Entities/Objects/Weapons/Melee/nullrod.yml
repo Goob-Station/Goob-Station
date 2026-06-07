@@ -22,6 +22,8 @@
     reflectProb: 1
     reflects:
     - Magic
+    slotFlags:
+    - NONE
   - type: DisarmMalus
     malus: 0
   - type: Tag
@@ -70,7 +72,6 @@
     fireRate: 0.5
     useKey: false
   - type: GunRequiresWield
-  - type: OniAllowedGun
   - type: MeleeWeapon
     animationRotation: -45
     wideAnimationRotation: -135
@@ -79,13 +80,11 @@
       types:
         Slash: 13
         Holy: 10
+      woundSeverityMultipliers:
+        Slash: 2.5
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Wieldable
-  - type: DamageBoostOnMarker
-    boost:
-      types:
-        Holy: 15
   - type: LeechOnMarker
     leech:
       groups:
@@ -123,6 +122,12 @@
   - type: Tag
     tags:
     - HolyClaymore
+  - type: Tool
+    qualities:
+      - Slicing
+    useSound:
+      path: /Audio/Items/Culinary/chop.ogg
+
 
 - type: entity
   name: rosary
@@ -204,6 +209,7 @@
     useSound:
       path: /Audio/Items/crowbar.ogg
   - type: Unremoveable
+  - type: AlwaysHot
   - type: Nullrod
     DamageOnUntrainedUse:
       types:
@@ -219,6 +225,7 @@
   - type: UseDelay
     delay: 1
   - type: Prying
+  - type: GrabbingItem
 
 - type: entity
   parent: BaseNullrod
@@ -305,6 +312,7 @@
       types:
         Slash: 20
     UntrainedUseString: nullrod-atheistfedora-untrained-usage-popup
+    recallType: Normal
   - type: LandAtCursor
   - type: Boomerang
   - type: DamageOtherOnHit
@@ -334,9 +342,80 @@
   - type: Sharp
   - type: Scalpel
     speed: 0.5
+  - type: DivineIntervention
+    validSpellDenialSlots:
+    - HEAD
+  - type: Reflect
+    slotFlags:
+    - HEAD
   - type: Tag
     tags:
     - AthiestsFedora
+
+- type: entity
+  name: Bulwark
+  parent: BaseNullrod
+  id: Bulwark
+  description: An absolutely enormous two handed shield, very difficult to use if not planted in place.
+  components:
+  - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
+    DamageOnUntrainedUse:
+      types:
+        Stamina: 200
+    UntrainedUseString: nullrod-bulwark-untrained-usage-popup
+  - type: MeleeWeapon
+    attackRate: 0.5
+    damage:
+      types:
+        Slash: 5
+        Holy: 10
+    soundHit:
+      collection: MetalThud
+  - type: MeleeThrowOnHit
+    distance: 5
+    speed: 10
+  - type: Item
+    size: Ginormous
+    sprite: _Goobstation/Objects/Shields/bulwark.rsi
+  - type: Sprite
+    sprite: _Goobstation/Objects/Shields/bulwark.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Objects/Shields/bulwark.rsi
+    quickEquip: false
+    slots:
+    - back
+    - suitstorage
+  - type: MeleeDash
+  - type: UseDelay
+    delay: 10
+  - type: Blocking
+    passiveBlockFraction: 0.15
+    activeBlockFraction: 1
+    passiveBlockModifier:
+      coefficients:
+        Blunt: 1
+        Slash: 1
+        Piercing: 1
+        Heat: 1
+    activeBlockModifier:
+      coefficients:
+        Blunt: 1
+        Slash: 1
+        Piercing: 1
+        Heat: 1
+  - type: Tag
+    tags:
+    - Bulwark
+  - type: DisarmMalus
+    malus: 1
+  - type: ClothingSpeedModifier
+    walkModifier: 0.75
+    sprintModifier: 0.75
+  - type: HeldSpeedModifier
+  - type: Damageable
+    damageContainer: Shield
+  - type: MultiHandedItem
 
 - type: entity
   name: Honkmother's Maw
@@ -368,7 +447,7 @@
         volume: 3
   - type: KnockdownOnHit
     duration: 0.2
-    dropHeldItemsBehavior: NoDrop
+    dropItems: false
   - type: UseDelay
     delay: 3
   - type: UseDelayBlockKnockdown
@@ -483,7 +562,6 @@
       params:
         volume: 1
   - type: MeleeRequiresWield
-    fumbleOnAttempt: true
   - type: Nullrod
     DamageOnUntrainedUse:
       types:
@@ -507,6 +585,9 @@
         Slash: 3
         Structural: 20
         Holy: 6
+      woundSeverityMultipliers:
+        Slash: 2
+        Blunt: 2
     soundHit:
       path: /Audio/Weapons/chainsaw.ogg
       params:
@@ -521,10 +602,13 @@
       path: /Audio/Weapons/chainsawwield.ogg
     endSound:
       path: /Audio/Weapons/chainsaw.ogg
+  - type: Tag
+    tags:
+      - HolyChainsaw
 
 # Casul & Jackal
 - type: entity
-  name: casul
+  name: Casul
   parent: BaseItem
   id: WeaponPistolCasul
   description: The first of two huge pistols, capable of firing regenerating silver bullets. Incapable of firing without its sister gun.
@@ -533,6 +617,7 @@
     DamageOnUntrainedUse:
       types:
         Heat: 20
+    recallType: DualWield
     UntrainedUseString: nullrod-pistol-untrained-usage-popup
   - type: Sprite
     sprite: _ShitChap/Objects/Weapons/Nullrod/casul.rsi
@@ -543,7 +628,6 @@
     slots:
     - suitStorage
     - Belt
-  - type: OniAllowedGun
   - type: Gun
     minAngle: 1
     maxAngle: 5
@@ -583,7 +667,7 @@
     prayDoAfterDuration: 3.5
 
 - type: entity
-  name: jackal
+  name: Jackal
   parent: WeaponPistolCasul
   id: WeaponPistolJackal
   description: The second of two huge pistols, capable of firing regenerating silver bullets. Incapable of firing without its sister gun.
@@ -601,3 +685,235 @@
     whitelist:
       tags:
       - WeaponPistolCasul
+
+- type: entity
+  name: blessing of the reaper
+  parent: [Nullrod, ArmBlade, BaseMajorContraband]
+  id: BlessingOfTheReaper
+  description: A special undroppable armblade nullrod, it's blessed by the dark gods.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/blessing_reaper.rsi
+    state: icon
+  - type: Item
+    size: Normal
+    sprite: _Goobstation/Objects/Weapons/Melee/blessing_reaper.rsi
+  - type: Unremoveable
+  - type: MeleeWeapon
+    wideAnimationRotation: 90
+    attackRate: 0.75
+    damage:
+      types:
+        Slash: 25
+        Piercing: 15
+        Holy: 10
+
+- type: entity
+  parent: BaseNullrod
+  id: RatvarianSpear
+  name: ancient spear
+  description: An ancient spear made of brass, I mean gold, I mean bronze. It looks highly mechanical.
+  components:
+  - type: Nullrod
+    DamageOnUntrainedUse:
+      types:
+        Piercing: 20
+    recallType: Embedded
+    UntrainedUseString: nullrod-spear-untrained-usage-popup
+  - type: Item
+    size: Large # Goob edit
+    shape: # Goob
+    - 0,0,8,0
+    storedRotation: 45 # Goob
+    sprite: _ShitChap/Objects/Weapons/Nullrod/ratvarian_spear.rsi
+  - type: Sprite
+    sprite: _ShitChap/Objects/Weapons/Nullrod/ratvarian_spear.rsi
+    state: icon
+  - type: Clothing
+    sprite: _ShitChap/Objects/Weapons/Nullrod/ratvarian_spear.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+    - back
+    - belt
+  - type: MeleeWeapon
+    range: 2.2 # Goob
+    attackRate: 0.8 # Goob
+    animationRotation: -135 # WWDP
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Piercing: 18
+        Holy: 10
+    angle: 0
+    animation: WeaponArcThrust
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Tag
+    tags:
+    - RatvarianSpear
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 25
+        Holy: 15
+  - type: EmbeddableProjectile
+    offset: -0.15,0.0
+  - type: ThrowingAngle
+    angle: 225
+  - type: LandAtCursor
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PolygonShape
+          vertices:
+            - -0.08,-0.06 # Goob edit
+            - -0.06,-0.08 # Goob edit
+            - 0.40,0.30
+            - 0.30,0.40
+        density: 20
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+  - type: Sharp
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 5 # Goobstation
+  - type: MeleeChemicalInjector
+    transferAmount: 1 # Goobstation
+    solution: melee
+  - type: RefillableSolution
+    solution: melee
+  - type: InjectableSolution
+    solution: melee
+  - type: SolutionInjectOnEmbed
+    transferAmount: 2
+    solution: melee
+  - type: SolutionTransfer
+    maxTransferAmount: 2
+  - type: ThrowableBlocked # Goobstation
+
+- type: entity
+  name: dragon's tail
+  parent: BaseNullrod
+  id: DragonsTail
+  description: A dragon's tail impaled on a stick. Still holds that deep fiery power within.
+  components:
+  - type: Item
+    size: Large
+    sprite: _ShitChap/Objects/Weapons/Nullrod/dragontail.rsi
+  - type: Nullrod
+    DamageOnUntrainedUse:
+      types:
+        Heat: 20
+    UntrainedUseString: nullrod-dragontail-untrained-usage-popup
+  - type: Sprite
+    sprite: _ShitChap/Objects/Weapons/Nullrod/dragontail.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1
+    animationRotation: -135
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Holy: 5
+        Heat: 5
+        Blunt: 5
+    soundHit:
+      path: /Audio/Weapons/slash.ogg
+  - type: IgniteOnMeleeHit
+    fireStacks: 1
+  - type: Tag
+    tags:
+    - DragonsTail
+
+- type: entity
+  id: InquisitorChainSword
+  parent: BaseNullrod
+  name: chain sword
+  description: The perfect weapon for purging the station of all heresy! Activated through prayer.
+  components:
+  - type: Nullrod
+    DamageOnUntrainedUse:
+      types:
+        Slash: 25
+    UntrainedUseString: nullrod-chainsword-untrained-usage-popup
+  - type: Sprite
+    sprite: _ShitChap/Objects/Weapons/Nullrod/chainsword.rsi
+    layers:
+    - state: chainsword
+    - state: chainsword_blade
+      visible: false
+      map: [ "blade" ]
+  - type: Clothing
+    sprite: _ShitChap/Objects/Weapons/Nullrod/chainsword.rsi
+    slots:
+    - belt
+  - type: TimedToggleOnPray
+    duration: 10
+    soundActivate:
+      collection: GeneratorTug
+      params:
+        volume: 3
+    soundDeactivate:
+      path: /Audio/_Goobstation/Weapons/ChainSword/chainEnd.ogg
+      params:
+        volume: 3
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/Weapons/chainsawidle.ogg
+      params:
+        volume: 3
+  - type: ComponentToggler
+    components:
+    - type: Sharp
+    - type: DisarmMalus
+      malus: 0.6
+    - type: Execution
+      doAfterDuration: 4.0
+    - type: BoneSaw # Shitmed
+      speed: 0.65
+    - type: SurgeryTool # Shitmed
+      startSound:
+        path: /Audio/Weapons/chainsawwield.ogg
+      endSound:
+        path: /Audio/Weapons/chainsaw.ogg
+  - type: Item
+    size: Large
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/Weapons/chainsaw.ogg
+      params:
+        volume: 3
+    activatedDamage:
+      types:
+        Slash: 20
+        Holy: 15
+        Structural: 20
+      woundSeverityMultipliers:
+        Slash: 2
+  - type: MeleeWeapon
+    animationRotation: -45
+    autoAttack: true
+    heavyStaminaCost: 10
+    wideAnimationRotation: -135
+    attackRate: 1.2
+    damage:
+      types:
+        Blunt: 7
+        Holy: 5
+  - type: UseDelay
+    delay: 180.0
+  - type: Appearance
+  - type: ToggleableVisuals
+    spriteLayer: blade
+    inhandVisuals:
+      left:
+      - state: inhand-left-blade
+      right:
+      - state: inhand-right-blade
+  - type: Tag
+    tags:
+    - InquisitorChainSword

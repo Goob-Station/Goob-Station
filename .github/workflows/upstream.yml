@@ -1,0 +1,59 @@
+name: Weekly Upstream Pull
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'
+  workflow_dispatch:
+
+jobs:
+  sync-and-pr:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write 
+
+    env:
+      REMOTE_URL: 'https://github.com/space-wizards/space-station-14.git'
+      REMOTE_BRANCH: 'stable'
+      TARGET_BRANCH: 'rebase'
+      SYNC_BRANCH: 'automated-upstream-branch'
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "GoobBot"
+          git config --global user.email "uristmchands@proton.me"
+
+      - name: Sync Branch and Create PR
+        env:
+          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+        run: |
+          git remote add upstream "$REMOTE_URL"
+
+          git fetch upstream "$REMOTE_BRANCH"
+
+          if git diff --quiet "origin/$TARGET_BRANCH"..."upstream/$REMOTE_BRANCH"; then
+            echo "No changes detected between upstream and local target. Exiting."
+            exit 0
+          fi
+
+          git checkout -B "$SYNC_BRANCH" "upstream/$REMOTE_BRANCH"
+
+          git push -f origin "$SYNC_BRANCH"
+          
+          EXISTING_PR=$(gh pr list --head "$SYNC_BRANCH" --base "$TARGET_BRANCH" --json state --jq '.[0].state')
+
+          if [ "$EXISTING_PR" = "OPEN" ]; then
+            echo "An open PR for this sync branch already exists. Updated the branch."
+          else
+            gh pr create \
+              --title "Automatic Upstream Merge" \
+              --body "This is an automated Pull Request to sync changes from $REMOTE_URL ($REMOTE_BRANCH) into $TARGET_BRANCH." \
+              --head "$SYNC_BRANCH" \
+              --base "$TARGET_BRANCH"
+          fi

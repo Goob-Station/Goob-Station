@@ -74,6 +74,19 @@
     wideAnimationRotation: 90 # -90 if it takes bayonets (hits with muzzle) 90 if not (hits with butt)
     soundHit:
       collection: MetalThud # Goobstation ^
+  - type: RestrictGunshotsByUserTag # Goobstation
+    doesntContain:
+    - Oni
+    messages:
+    - oni-cannot-shoot-guns-1
+    - oni-cannot-shoot-guns-2
+    - oni-cannot-shoot-guns-3
+  - type: BatteryDrinkerSource # Goobstation - Energycrit
+    maxAmount: 180
+  - type: Multishot # Goobstation V
+    missChance: 0.4
+    spreadMultiplier: 3
+    spreadAddition: 50 #very hard to hold two of these steady let alone steady while shooting them
 
 - type: entity
   id: BaseWeaponCustomCellSmall
@@ -103,10 +116,10 @@
       collection: MetalThud # Goobstation ^
 
 - type: entity
-  name: miniature energy crossbow
+  name: Miniature Energy Crossbow
   parent: [ BaseWeaponBatterySmall, BaseSyndicateContraband ]
   id: MiniatureEnergyCrossbow
-  description: The syndicate's energy crossbow, small, silent and deadly.
+  description: A signature design from Donk Co., this crossbow fires a thin dart loaded with sedatives and depressants designed to pierce even the heaviest of armor.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/miniature_ebow.rsi
@@ -135,6 +148,8 @@
   - type: Multishot
     missChance: 0
     spreadAddition: 10
+  - type: MeleeWeapon
+    resetOnHandSelected: false
 
 - type: entity
   name: plasma rifle
@@ -171,7 +186,7 @@
   - type: MagazineVisuals
     magState: mag
     steps: 5
-    zeroVisible: false
+    zeroVisible: true
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Steel: 100
@@ -192,7 +207,7 @@
   name: EG-4 Equalizer
   parent: [ BaseWeaponCustomCellSmall, BaseCentcommContraband ]
   id: WeaponEnergyRevolver
-  description: A highly advanced energy revolver capable of firing various bolts depending on the power cell.
+  description: In the face of death, everyone is equal. The right arm of the Blueshield corps, the Equalizer is a modular energy revolver platform designed for lethal and non-lethal target neutralization. Takes energy speedloaders.
   components:
   - type: Item
     heldPrefix: lethal
@@ -222,6 +237,13 @@
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
+  - type: RestrictGunshotsByUserTag # Goobstation
+    doesntContain:
+    - Oni
+    messages:
+    - oni-cannot-shoot-guns-1
+    - oni-cannot-shoot-guns-2
+    - oni-cannot-shoot-guns-3
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -234,64 +256,10 @@
             - EnergySpeedloader
 
 - type: entity
-  name: temperature gun
-  parent: [BaseWeaponBattery, BaseSecurityContraband]
-  id: WeaponTemperatureGun
-  description: An energy-efficient gun capable of modifying the temperature of creatures. Just point and click!
-  components:
-  - type: Appearance
-  - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/tempgun.rsi
-    layers:
-    - state: base
-      map: [ "enum.GunVisualLayers.Base" ]
-    - state: mode-cooling
-      shader: unshaded
-      map: [ "Firemode" ]
-    - state: mag-unshaded-4
-      map: [ "enum.GunVisualLayers.MagUnshaded" ]
-      shader: unshaded
-  - type: Item
-    size: Large
-  - type: Clothing
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/tempgun.rsi
-  - type: Gun
-    fireRate: 2
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-    soundEmpty:
-      path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
-  - type: ProjectileBatteryAmmoProvider
-    proto: BulletTemperatureHot
-  - type: EnergyGun
-    fireModes:
-    - proto: BulletTemperatureCold
-      fireCost: 100
-      name: cooling
-      state: cooling
-    - proto: BulletTemperatureHot
-      fireCost: 100
-      name: heating
-      state: heating
-  - type: GenericVisualizer
-    visuals:
-      enum.EnergyGunFireModeVisuals.State:
-        Firemode:
-          Cooling: { state: mode-cooling }
-          Heating: { state: mode-heating }
-  - type: Battery
-    maxCharge: 2500
-    startingCharge: 2500
-  - type: MagazineVisuals
-    magState: mag
-    steps: 5
-    zeroVisible: true
-
-- type: entity
-  name: centcomm disabler
+  name: advanced disabler
   parent: [ WeaponDisablerPractice, BaseCentcommContraband ]
   id: WeaponDisablerAdvanced
-  description: A non-lethal self-defense weapon for agents not trustable with traditional lethals. Recharges over time.
+  description: A self-defense weapon for corporate execs with money to burn. Slim, sturdy, and self-recharging for your convenience.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Objects/Weapons/Guns/Battery/ccdisabler.rsi
@@ -319,7 +287,7 @@
   name: syndicate disabler
   parent: [ WeaponDisablerPractice, BaseSyndicateContraband ]
   id: WeaponDisablerSyndicate
-  description: An advanced disabler built from a reverse-engineered Nanotrasen prototype. While it lacks a bit of stopping power, it makes up for it with a recharging cell.
+  description: A sleek disabler designed from a reverse-engineered NanoTrasen prototype. While it lacks stopping power, it makes up for it with a self-recharging cell.
   components:
     - type: Gun
       fireRate: 3
@@ -358,7 +326,7 @@
   name: advanced pulse carbine
   parent: WeaponPulseCarbine
   id: WeaponPulseCarbineAdvanced
-  description: A state-of-the-art pulse carbine. This particular one has an experimental recharging cell.
+  description: A state-of-the-art laser carbine that fires a rapidly pulsing beam. Expensive, though favoured by the Emergency Response corps due to its ability to self-recharge.
   components:
   - type: Tag
     tags:
@@ -368,10 +336,10 @@
     autoRechargeRate: 80
 
 - type: entity
-  name: CR-2 energy assault rifle
+  name: CR-2 Hera
   parent: [ BaseWeaponCustomCell, BaseGunWieldable, BaseSecurityContraband ]
   id: WeaponEnergyRifle
-  description: An advanced energy rifle capable of firing various bolts depending on the powercell magazine.
+  description: A versatile plasma assault rifle, iterated off of the now defunct energy gun. Loads from energy rifle magazines.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/energy_rifle.rsi
@@ -399,6 +367,13 @@
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
+  - type: RestrictGunshotsByUserTag # Goobstation
+    doesntContain:
+    - Oni
+    messages:
+    - oni-cannot-shoot-guns-1
+    - oni-cannot-shoot-guns-2
+    - oni-cannot-shoot-guns-3
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -411,10 +386,10 @@
             - EnergyMagAmmo
 
 - type: entity
-  name: DT-12 "Lawbringer"
+  name: DT-12 Lawbringer
   parent: [BaseWeaponBatterySmall, BaseGrandTheftContraband]
   id: WeaponEnergyGunLawbringer
-  description: A versatile energy gun, with many different modes. The owner of this gun embodies the law itself.
+  description: Sometimes rank is a function of firepower. A versatile energy gun with a myriad of firing modes designed for the Head of Security. Self-recharges after a 40 second delay.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/lawbringer.rsi
@@ -507,9 +482,9 @@
     autoRechargePauseTime: 40
 
 - type: entity
-  name: ion rifle
+  name: Ion Rifle
   id: WeaponEnergyIonRifle
-  description: An energy rifle that shoots ionized energy bolts designed to destroy mechanical targets.
+  description: A rifle that fires ion bolts designed to degrade mechanical targets. Ideal against combat mechs and silicons, though useless against pretty much everything else.
   parent: [BaseWeaponBattery, BaseSecurityContraband]
   components:
   - type: Sprite

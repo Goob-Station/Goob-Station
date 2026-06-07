@@ -1,0 +1,37 @@
+- type: entity
+  parent: MobMouse
+  id: MobMousePlague
+  suffix: Plague
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-plague-mouse-name
+    description: ghost-role-information-plague-mouse-description
+    rules: ghost-role-information-freeagent-rules
+  - type: GhostTakeoverAvailable
+  - type: GrantDisease
+    baseDisease: DiseaseBaseMouse
+    complexity: 30
+    possibleTypes:
+    - Bacterial
+    - Viral
+  - type: DiseaseOnHit
+    spreadParams:
+      chance: 0.2 # higher chance for plague mice
+      power: 1
+      spreadType: Blood
+
+- type: entity
+  parent: MobMousePlague
+  id: MobMousePandemic
+  suffix: Plague, Admeme
+  components:
+  - type: GrantDisease
+    complexity: 100
+  - type: DiseaseOnHit
+    spreadParams:
+      chance: 1
+      power: 2
+      spreadType: Blood

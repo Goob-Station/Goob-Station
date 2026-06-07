@@ -9,7 +9,7 @@
 # Autodocs
 
 - type: entity
-  parent: [ConstructibleMachine, BaseMachinePowered]
+  parent: [ ConstructibleMachine, BaseMachinePowered, BaseAutomatedMachine ] # Goob: Automation
   id: Autodoc
   name: Autodoc Mk.XIV
   description: A programmable robotic surgeon capable of automatically operating on patients.
@@ -92,7 +92,8 @@
     speechVerb: Robotic
     speechSounds: Pai
   - type: Storage
-    clickInsert: false # incredibly annoying
+    clickInsert: false # incredibly annoying for linking it
+    openOnActivate: false # use the verb, UI is higher priority
     grid:
     - 0,0,3,3
   - type: SurgerySpeedModifier

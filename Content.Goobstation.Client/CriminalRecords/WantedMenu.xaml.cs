@@ -71,7 +71,9 @@ public sealed partial class WantedMenu : FancyWindow
     {
         _access = _player.LocalSession?.AttachedEntity is {} player
                   && _accessReader.IsAllowed(player, _uid);
-        StatusOptionButton.Disabled = !_access;
+        if (!_access)
+            return;
+
         if (state is { CriminalRecord: not null, StationRecord: not null })
         {
             PopulateRecordContainer(state.StationRecord, state.CriminalRecord);
@@ -125,7 +127,8 @@ public sealed partial class WantedMenu : FancyWindow
         if (status == SecurityStatus.Wanted
             || status == SecurityStatus.Suspected
             || status == SecurityStatus.Search
-            || status == SecurityStatus.Dangerous)
+            || status == SecurityStatus.Dangerous
+            || status == SecurityStatus.Demote) // Goobstation
         {
             GetReason(status);
             return;
@@ -175,6 +178,7 @@ public sealed partial class WantedMenu : FancyWindow
             SecurityStatus.Search => "hud_search",
             SecurityStatus.Perma => "hud_perma",
             SecurityStatus.Dangerous => "hud_dangerous",
+            SecurityStatus.Demote => "hud_demote", // Goobstation
             _ => "SecurityIconNone"
         };
     }

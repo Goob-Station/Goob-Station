@@ -24,7 +24,7 @@ public sealed partial class ChuuniEyepatchComponent : Component
     public string FlippedPrefix = "flipped";
 
     [DataField]
-    public string MessagePostfix = "-chuuni";
+    public Color Color = Color.HotPink;
 
     [DataField, AutoNetworkedField]
     public bool IsFliped;

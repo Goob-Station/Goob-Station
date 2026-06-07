@@ -24,6 +24,7 @@ public sealed class LegsStartParalyzedSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<LegsStartParalyzedComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<LegsStartParalyzedComponent, ComponentRemove>(OnRemoved);
     }
 
     private void OnMapInit(EntityUid uid, LegsStartParalyzedComponent component, MapInitEvent args)
@@ -33,5 +34,14 @@ public sealed class LegsStartParalyzedSystem : EntitySystem
 
         foreach (var legEntity in body.LegEntities)
             EnsureComp<LimbParalyzedComponent>(legEntity);
+    }
+
+    private void OnRemoved(EntityUid uid, LegsStartParalyzedComponent component, ComponentRemove args)
+    {
+        if (!TryComp<BodyComponent>(uid, out var body))
+            return;
+
+        foreach (var legEntity in body.LegEntities)
+            RemComp<LimbParalyzedComponent>(legEntity);
     }
 }

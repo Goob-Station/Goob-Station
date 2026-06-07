@@ -8,21 +8,14 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
-using Content.Goobstation.Shared.Bible;
+using Content.Goobstation.Common.Religion;
 using Content.Goobstation.Shared.Religion.Nullrod.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
-using Content.Shared.Electrocution;
-using Content.Shared.Hands;
-using Content.Shared.Hands.Components;
-using Content.Shared.Heretic;
 using Content.Shared.Interaction.Events;
-using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Religion.Nullrod.Systems;

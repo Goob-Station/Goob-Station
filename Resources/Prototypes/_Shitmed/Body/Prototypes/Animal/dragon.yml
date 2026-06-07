@@ -21,7 +21,7 @@
       - groin
       organs:
         lungs: OrganDragonLungs # Fire breathing
-        heart: OrganSpaceAnimalHeart # Immunity to pressure
+        heart: OrganAnimalHeart
     groin:
       part: GroinDragon
       connections:

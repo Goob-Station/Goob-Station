@@ -45,7 +45,6 @@
       - state: icon_pentagramm
         color: "#f7e19f"
     - type: Spellbook
-    - type: EnchantingTool # Goobstation
     - type: Tag
       tags:
       - Spellbook
@@ -145,7 +144,7 @@
   components:
     - type: Spellbook
       spellActions:
-        ActionSpawnMagicarpSpell: -1
+        ActionSpawnMagicarpSpell: null
 
 - type: entity
   id: ForceWallSpellbook
@@ -168,7 +167,7 @@
         color: gold
     - type: Spellbook
       spellActions:
-        ActionForceWall: -1
+        ActionForceWall: null
 
 - type: entity
   id: BlinkBook
@@ -189,7 +188,7 @@
         color: gold
     - type: Spellbook
       spellActions:
-        ActionBlinkSpell: -1 # Goob edit
+        ActionBlinkSpell: null # Goob edit
 
 - type: entity
   id: SmiteBook
@@ -212,7 +211,7 @@
       - state: overlay_blood
     - type: Spellbook
       spellActions:
-        ActionSmite: -1
+        ActionSmite: null
 
 - type: entity
   id: KnockSpellbook
@@ -234,7 +233,7 @@
         color: "#98c495"
     - type: Spellbook
       spellActions:
-        ActionKnock: -1
+        ActionKnock: null
 
 - type: entity
   id: FireballSpellbook
@@ -258,7 +257,7 @@
         shader: unshaded
     - type: Spellbook
       spellActions:
-        ActionFireball: -1
+        ActionFireball: null
 
 - type: entity
   id: ScrollRunes
@@ -273,4 +272,4 @@
     - state: spell_default
   - type: Spellbook
     spellActions:
-      ActionTrapsSpell: -1 # Goob edit
+      ActionTrapsSpell: null # Goob edit

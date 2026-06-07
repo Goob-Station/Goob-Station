@@ -39,3 +39,36 @@
   suffix: Unremoveable
   components:
   - type: Unremoveable
+
+#Empty contractor
+- type: entity
+  id: JetpackContractor
+  parent: BaseJetpack
+  name: contractor's jetpack
+  suffix: Empty
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Tanks/contractorpack.rsi
+  - type: Clothing
+    sprite: _Goobstation/Objects/Tanks/contractorpack.rsi
+    slots:
+      - Back
+      - suitStorage
+  - type: Item
+    sprite: _Goobstation/Objects/Tanks/contractorpack.rsi
+    size: Normal
+
+# Filled contractor
+- type: entity
+  id: JetpackContractorFilled
+  parent: JetpackContractor
+  name: contractor's jetpack
+  suffix: Filled
+  components:
+  - type: GasTank
+    outputPressure: 18
+    air:
+      volume: 5
+      temperature: 293.15
+      moles:
+        - 2.05137905 # oxygen

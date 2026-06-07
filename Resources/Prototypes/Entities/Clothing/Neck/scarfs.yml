@@ -182,6 +182,8 @@
       sprite: Clothing/Neck/Scarfs/syndiegreen.rsi
     - type: StaticPrice
       price: 500
+    - type: ScannableForPoints # goob edit
+      points: 1
 
 - type: entity
   parent: [ ClothingScarfBase, BaseSyndicateContraband ]
@@ -195,6 +197,8 @@
       sprite: Clothing/Neck/Scarfs/syndiered.rsi
     - type: StaticPrice
       price: 500
+    - type: ScannableForPoints # goob edit
+      points: 1
 
 - type: entity
   parent: [ ClothingScarfBase, BaseCentcommContraband ]

@@ -54,6 +54,7 @@
   - type: Tag
     tags:
     - Sheet
+    - SheetGlass # Goobstation
     - DroneUsable # Goobstation
   - type: Material
   - type: Damageable
@@ -111,11 +112,6 @@
     - glass
     - glass_2
     - glass_3
-  # Goobstation - Custom stack splitting dialog
-  - type: UserInterface
-    interfaces:
-      enum.StackCustomSplitUiKey.Key:
-        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: glass_3
     layers:
@@ -186,11 +182,6 @@
     - rglass
     - rglass_2
     - rglass_3
-  # Goobstation - Custom stack splitting dialog
-  - type: UserInterface
-    interfaces:
-      enum.StackCustomSplitUiKey.Key:
-        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: rglass_3
     layers:
@@ -280,11 +271,6 @@
     - pglass
     - pglass_2
     - pglass_3
-  # Goobstation - Custom stack splitting dialog
-  - type: UserInterface
-    interfaces:
-      enum.StackCustomSplitUiKey.Key:
-        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: pglass_3
     layers:
@@ -424,11 +410,6 @@
     - uglass
     - uglass_2
     - uglass_3
-  # Goobstation - Custom stack splitting dialog
-  - type: UserInterface
-    interfaces:
-      enum.StackCustomSplitUiKey.Key:
-        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: uglass_3
     layers:
@@ -558,11 +539,6 @@
     - cglass
     - cglass_2
     - cglass_3
-  # Goobstation - Custom stack splitting dialog
-  - type: UserInterface
-    interfaces:
-      enum.StackCustomSplitUiKey.Key:
-        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: cglass_3
     layers:

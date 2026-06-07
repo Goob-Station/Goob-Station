@@ -10,14 +10,6 @@
 reagent-name-stasizium = Stasizium
 reagent-desc-stasizium = An unstable fluid of future capable of restoring the patient's body to its original state. However, an overdose can tear the body apart.
 
-reagent-name-panacea = Changeling Panacea
-reagent-desc-panacea = Tons of singlecell organisms focused soley on purging the changeling of toxic chemicals.
-reagent-popup-panacea = Our cells reconstruct.
-
-reagent-name-lingdrenaline = Changeling Adrenaline
-reagent-desc-lingdrenaline = A reserve of potent adrenaline stored in a gland capable of immediately recovering a changeling from any fatigue.
-reagent-popup-lingdrenaline = Our entire body violently jitters and shakes.
-
 reagent-name-probital = probital
 reagent-desc-probital = Forces patient's body to spend its energy creating more healing compounds. Overdose exhausts body, forcing what effectively amounts to power naps.
 
@@ -31,10 +23,10 @@ reagent-name-tirimol = tirimol
 reagent-desc-tirimol = Strong depressant used in healing asphyxiation damage. Vastly decreases oxygen consumption at the cost of weakened muscles.
 
 reagent-name-syriniver = syriniver
-reagent-desc-syriniver = Experimental drug, carries another medicine within and quickly dissolves upon injection. Best applied through healing patches or pills. Overdose causes organ rupture from overpressurization.
+reagent-desc-syriniver = An experimental antipoison that repairs toxin-based cell failure regardless of whether the patient is alive. Has a horribly low overdose and causes internal bleeding when injected even in trace quantities.
 
 reagent-name-musiver = musiver
-reagent-desc-musiver = Slower acting anti-poison medicine with uniquely tiny molecular footprint.
+reagent-desc-musiver = Fast-acting antitoxin deposited in the wake of Syriniver. Passively heals cell damage, while purging any and all other foreign reagents from the bloodstream.
 
 reagent-name-multiver = multiver
 reagent-desc-multiver = Drug purpose-built to cleanse dangerous chemical mixes. Can be used against simple poisonings, but it's recommended to mix it with other chemicals for higher efficiency.
@@ -85,7 +77,7 @@ reagent-name-procenyl-lazide = procenyl lazide
 reagent-desc-procenyl-lazide = Somewhat strong brute medicine with low overdose threshold, needs to be crystalized at low temperatures and separated out from its precursor solution.
 
 reagent-name-bozaide = bozaide
-reagent-desc-bozaide = Slow acting brute medicine, deals low amounts of radiation damage.
+reagent-desc-bozaide = A passive, slow acting brute medication that acts as a catalyst for natural tissue regeneration.
 
 reagent-name-genecide = genecide
 reagent-desc-genecide = Blows genetic damage away, literally. Make sure to monitor patients taking it.
@@ -104,3 +96,12 @@ reagent-desc-hercuri = Strong coolant, both serviceable for internal and externa
 
 reagent-name-herignis = herignis
 reagent-desc-herignis = Can thaw out most chilled of lizardmen, recommended to only use in small doses, as it can quickly heat up its metaboliser to dangerous levels.
+
+reagent-name-immurin = immurin
+reagent-desc-immurin = A chemical that boosts your immune system, making it work faster and harder. The boost remains for some time even after the chemical has metabolised. Tastes terrible.
+
+reagent-name-spaceacilin = spaceacilin
+reagent-desc-spaceacilin = Commonly used and effective anti-bacterial medicine. Slightly weakens your immunity.
+
+reagent-name-devirate = devirate
+reagent-desc-devirate = Anti-viral medicine. Slightly toxic.

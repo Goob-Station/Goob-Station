@@ -83,6 +83,7 @@
 # SPDX-FileCopyrightText: 2025 Thom <119594676+ItsMeThom@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Evaisa <mail@evaisa.dev>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -232,6 +233,14 @@
         - TableMask
   - type: StaticPrice
     price: 50
+  - type: VehicleWallPush # Goob - Ability to push yourself off walls.
+    actionProto: ActionVehicleWallPush
+    kickSpeed: 10
+    minDistance: 0
+    maxDistance: 1.5
+  - type: SprayPushableVehicle # Goob - Allows pushing yourself with a fire extinguisher
+    multiplier: 0.05
+    impulseDuration: 0.3
 
 #Starts anchored, can be rotated while anchored
 - type: entity
@@ -558,6 +567,40 @@
   - type: Construction
     graph: Seat
     node: chairSteelBench
+
+- type: entity
+  name: cardboard stool
+  id: CardStool
+  parent: UnanchoredChairBase
+  description: Make sure you sit *really* gently.
+  components:
+  - type: Sprite
+    state: card-stool
+  - type: Construction
+    graph: Seat
+    node: stoolCard
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Card
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 40
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialCardboard:
+            min: 1
+            max: 2
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
 
 - type: entity
   name: wooden bench

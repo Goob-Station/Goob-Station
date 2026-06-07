@@ -1,0 +1,149 @@
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MobHuman
+  id: MobHumanLoneNuclearOperativeSuit
+  name: Lone Operative Suit
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: NukeOperative
+  - type: Loadout
+    prototypes: [ SyndicateOperativeGearBaseSuit ]
+    roleLoadout: [ RoleSurvivalSyndicate ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesSyndicatePrefix
+    - NamesSyndicateNormal
+    nameFormat: name-format-nukie-generic
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MobHuman
+  id: MobHumanLoneNuclearOperativeSuitElite
+  name: Lone Operative Suit Elite
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: NukeOperative
+  - type: Loadout
+    prototypes: [ SyndicateOperativeGearEliteSuit ]
+    roleLoadout: [ RoleSurvivalSyndicate ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesSyndicatePrefix
+    - NamesSyndicateNormal
+    nameFormat: name-format-nukie-generic
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MobHuman
+  id: MobHumanLoneNuclearOperativeSuitJugg
+  name: Lone Operative Suit Juggernaut
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: NukeOperative
+  - type: Loadout
+    prototypes: [ SyndicateOperativeGearJuggSuit ]
+    roleLoadout: [ RoleSurvivalSyndicate ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesSyndicatePrefix
+    - NamesSyndicateNormal
+    nameFormat: name-format-nukie-generic
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MobHuman
+  id: MobHumanLoneNuclearOperativeSuitCommander
+  name: Lone Operative Suit Commander
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: NukeOperative
+  - type: Loadout
+    prototypes: [ SyndicateOperativeGearCommanderSuit ]
+    roleLoadout: [ RoleSurvivalSyndicate ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesSyndicatePrefix
+    - NamesSyndicateNormal
+    nameFormat: name-format-nukie-generic
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MobHuman
+  id: MobHumanLoneNuclearOperativeSuitStealth
+  name: Lone Operative Suit Stealth
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: NukeOperative
+  - type: Loadout
+    prototypes: [ SyndicateOperativeGearStealthSuit ]
+    roleLoadout: [ RoleSurvivalSyndicate ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesSyndicatePrefix
+    - NamesSyndicateNormal
+    nameFormat: name-format-nukie-generic
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MobHuman
+  id: MobHumanLoneNuclearOperativeSuitMedic
+  name: Lone Operative Suit Medic
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: NukeOperative
+  - type: Loadout
+    prototypes: [ SyndicateOperativeGearMedicSuit ]
+    roleLoadout: [ RoleSurvivalSyndicate ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesSyndicatePrefix
+    - NamesSyndicateNormal
+    nameFormat: name-format-nukie-generic
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: MobHuman
+  id: MobHumanLoneNuclearOperativeSuitDread
+  name: Lone Operative Suit Medic
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: NukeOperative
+  - type: Loadout
+    prototypes: [ SyndicateOperativeGearDreadSuit ]
+    roleLoadout: [ RoleSurvivalSyndicate ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesSyndicatePrefix
+    - NamesSyndicateNormal
+    nameFormat: name-format-nukie-generic
+  - type: NpcFactionMember
+    factions:
+    - Syndicate

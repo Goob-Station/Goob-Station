@@ -12,7 +12,7 @@
   - type: Sprite
     sprite: _RMC14/Structures/Xenos/xeno_weeds.rsi
     state: nest_overlay
-    drawdepth: OverMobs
+    drawdepth: Overdoors # Goobstation - render above most things
   - type: Fixtures
     fixtures:
       fix1:

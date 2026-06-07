@@ -18,7 +18,7 @@ namespace Content.Shared.Silicons.Laws.Components;
 /// <summary>
 /// This is used for an entity which grants laws to a <see cref="SiliconLawBoundComponent"/>
 /// </summary>
-[RegisterComponent, Access(typeof(SharedSiliconLawSystem))]
+[RegisterComponent] // Goobstation - Make this component not locked to SharedSiliconLawSystem
 public sealed partial class SiliconLawProviderComponent : Component
 {
     /// <summary>

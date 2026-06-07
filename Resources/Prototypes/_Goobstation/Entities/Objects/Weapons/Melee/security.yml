@@ -216,3 +216,42 @@
               setItemSwitch: off
           soundStateActivate:
             path: /Audio/_Goobstation/Misc/umbrella.ogg
+
+- type: entity
+  parent: [BaseItem, BaseSecurityContraband, ClothingBeltBase]
+  id: PoliceBaton
+  name: police baton
+  description: A wooden truncheon for beating criminal scum.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/baton.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Melee/baton.rsi
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,2
+  - type: MeleeWeapon
+    canWideSwing: false
+    attackRate: 0.8
+    damage:
+      types:
+        Blunt: 10
+    angle: 0
+    animation: WeaponArcThrust
+  - type: UseDelay
+    delays:
+      hit:
+        length: 2
+  - type: UseDelayBlockMelee
+    delays:
+    - hit
+  - type: TelescopicBaton # GOIDA, does nothing
+  - type: KnockdownOnHit
+    duration: 0.15
+  - type: StaminaDamageOnHit
+    damage: 35
+    sound: /Audio/_Goobstation/Weapons/Baton/woodhit.ogg
+  - type: StaticPrice
+    price: 65 # its a piece of wood

@@ -65,9 +65,9 @@
       Glass: 37
       Gold: 37
   - type: Scalpel
-    speed: 2
+    speed: 3
   - type: BoneSaw
-    speed: 2
+    speed: 3
   - type: ItemSwitch
     showLabel: true
     state: scalpel
@@ -80,9 +80,9 @@
           state: e-scalpel
         components:
           - type: Scalpel
-            speed: 2
+            speed: 3
           - type: BoneSaw
-            speed: 2
+            speed: 3
         soundStateActivate:
           collection: sparks
           params:
@@ -96,7 +96,7 @@
           state: e-scalpel-on
         components:
         - type: Drill
-          speed: 2
+          speed: 3
         soundStateActivate:
           collection: sparks
           params:
@@ -130,7 +130,7 @@
       Glass: 37
       Silver: 37
   - type: Retractor
-    speed: 2
+    speed: 3
   - type: ItemSwitch
     showLabel: true
     state: retractor
@@ -142,7 +142,7 @@
           state: adv-retractor
         components:
           - type: Retractor
-            speed: 2
+            speed: 3
         soundStateActivate:
           collection: sparks
           params:
@@ -156,11 +156,11 @@
           state: adv-retractor-on
         components:
           - type: Hemostat
-            speed: 2
+            speed: 3
           - type: Tweezers
-            speed: 2
+            speed: 3
           - type: Tending
-            speed: 2
+            speed: 3
         soundStateActivate:
           collection: sparks
           params:
@@ -194,7 +194,7 @@
       Glass: 37
       Plasma: 37
   - type: Cautery
-    speed: 2
+    speed: 3
   - type: ItemSwitch
     showLabel: true
     state: cautery
@@ -206,7 +206,7 @@
           state: e-cautery
         components:
         - type: Cautery
-          speed: 2
+          speed: 3
         soundStateActivate:
           collection: WelderOn
           params:
@@ -220,7 +220,7 @@
           state: e-cautery-on
         components:
         - type: Stitches # should be unlimited when the actual stitches become limited
-          speed: 2
+          speed: 3
         soundStateActivate:
           collection: sparks
           params:
@@ -253,7 +253,7 @@
       Glass: 37
       Plasma: 37
   - type: BoneGel # should be unlimited when the actual bone gel becomes limited
-    speed: 2
+    speed: 3
   - type: ItemSwitch
     showLabel: true
     state: bonegel
@@ -265,7 +265,7 @@
           state: e-bone-gel
         components:
         - type: BoneGel # should be unlimited when the actual bone gel becomes limited
-          speed: 2
+          speed: 3
         soundStateActivate:
           collection: sparks
           params:
@@ -279,7 +279,7 @@
           state: e-bone-gel-on
         components:
         - type: BoneSetter
-          speed: 2
+          speed: 3
         soundStateActivate:
           collection: sparks
           params:

@@ -123,6 +123,9 @@
     tags:
     - MindTransferTarget
     - Head
+  - type: Construction # Goobstation - Wraith
+    graph: SpiritCandle
+    node: start
 
 - type: entity
   parent: [ PartSkeletonBase, BaseLeftArm ]

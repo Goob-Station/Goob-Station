@@ -161,7 +161,9 @@
     sprite: Clothing/Belt/utility.rsi
   - type: Storage
     maxItemSize: Normal
-    # TODO: Fill this out more.
+    # Don't add more than absolutely needed to this whitelist!
+    # Utility belts shouldn't just be free extra storage.
+    # This is only intended for basic engineering equipment.
     whitelist:
       tags:
         - Powerdrill
@@ -181,12 +183,17 @@
         - JawsOfLife
         - GPS
         - WeldingMask
+        - RemoteSignaller
         - Hammer # Goobstation
         - Nailgun # Goobstation
         - MagazineNailgun # Goobstation
+        - WeldingMask # Goobstation
+        - GPS # Goobstation
+        - MesonGoggles # Goobstation
       components:
         - StationMap
         - SprayPainter
+        - SprayPainterAmmo
         - NetworkConfigurator
         - RCD
         - RCDAmmo
@@ -196,6 +203,7 @@
         - TrayScanner
         - GasAnalyzer
         - HandLabeler
+        - RadarConsole # Goobstation
   - type: ItemMapper
     mapLayers:
       drill:
@@ -230,6 +238,18 @@
         whitelist:
           tags:
             - Multitool
+      weldmask:
+        whitelist:
+          tags:
+            - WeldingMask
+      mass_scanner:
+        whitelist:
+          tags:
+           - GPS
+      meson:
+        whitelist:
+          tags:
+           - MesonGoggles
     sprite: Clothing/Belt/belt_overlay.rsi
   - type: Appearance
   - type: Tag
@@ -271,9 +291,13 @@
         - Hammer # Goobstation
         - Nailgun # Goobstation
         - MagazineNailgun # Goobstation
+        - WeldingMask # Goobstation
+        - GPS # Goobstation
+        - MesonGoggles #Goobstation
       components:
         - StationMap
         - SprayPainter
+        - SprayPainterAmmo
         - NetworkConfigurator
         - RCD
         - RCDAmmo
@@ -284,6 +308,7 @@
         - Geiger
         - TrayScanner
         - GasAnalyzer
+        - RadarConsole # Goobstation
   - type: ItemMapper
     mapLayers:
       drill:
@@ -318,6 +343,20 @@
         whitelist:
           tags:
           - Wrench
+      weldmask:
+        whitelist:
+          tags:
+          - WeldingMask
+      mass_scanner:
+        whitelist:
+          tags:
+          - GPS
+          components:
+          - RadarConsole
+      meson:
+        whitelist:
+          tags:
+          - MesonGoggles
     sprite: Clothing/Belt/belt_overlay.rsi
   - type: Appearance
 
@@ -390,6 +429,8 @@
         - HolosignProjector
         - Plunger
         - Keyring # Goobstation
+        - GoldenPlunger
+        - WireBrush
       components:
         - LightReplacer
         - SmokeOnTrigger
@@ -585,6 +626,15 @@
         - Skewer
         - MonkeyCube
         - Mayo
+        - Meat #Goobstation start
+        - Mouse
+        - Vegetable
+        - Fruit
+        - Slice
+        - Cake
+        - Pie
+        - Crayon #Its edible
+        - Bread #Goobstation end
       components:
         - Mousetrap
         - Smokable
@@ -661,6 +711,7 @@
         - BolaEnergy # Goobstation
         - EnergySpeedloader # Goobstation
         - MilitaryPowerCell # Goobstation
+        - EnergyMagAmmo # Goobstation
         - HandGrenade
       components:
         - Stunbaton

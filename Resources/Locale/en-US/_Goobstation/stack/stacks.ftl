@@ -12,3 +12,18 @@ stack-bingle-tile = {$amount ->
     [1] bingle tile
     *[other] bingle tiles
 }
+
+stack-hex-nut = hex {$amount ->
+    [1] nut
+    *[other] nuts
+}
+
+stack-screw = {$amount ->
+    [1] screw
+    *[other] screws
+}
+
+stack-canvas-tile = {$amount ->
+    [1] canvas tile
+    *[other] canvas tiles
+}

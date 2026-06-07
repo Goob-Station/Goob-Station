@@ -6,6 +6,7 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Speech.Components;
+using Content.Shared.Speech;
 
 namespace Content.Server.Speech.EntitySystems
 {

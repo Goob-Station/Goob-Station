@@ -1,0 +1,485 @@
+# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  name: Operative Spawner
+  id: SpawnMobHumanLoneNuclearOperative
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanLoneNuclearOperative
+
+- type: entity
+  name: Operative Suit Spawner
+  id: SpawnMobHumanLoneNuclearOperativeSuit
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanLoneNuclearOperativeSuitDebug
+
+- type: entity
+  name: Operative Suit Elite Spawner
+  id: SpawnMobHumanLoneNuclearOperativeSuitElite
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanLoneNuclearOperativeSuitEliteDebug
+
+- type: entity
+  name: Operative Suit Jugg Spawner
+  id: SpawnMobHumanLoneNuclearOperativeSuitJugg
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanLoneNuclearOperativeSuitJuggDebug
+
+- type: entity
+  name: Operative Suit Commander Spawner
+  id: SpawnMobHumanLoneNuclearOperativeSuitCommander
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanLoneNuclearOperativeSuitCommanderDebug
+
+- type: entity
+  name: Operative Suit Stealth Spawner
+  id: SpawnMobHumanLoneNuclearOperativeSuitStealth
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanLoneNuclearOperativeSuitStealthDebug
+
+- type: entity
+  name: Operative Suit Medic Spawner
+  id: SpawnMobHumanLoneNuclearOperativeSuitMedic
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanLoneNuclearOperativeSuitMedicDebug
+
+- type: entity
+  name: Operative Suit Dread Spawner
+  id: SpawnMobHumanLoneNuclearOperativeSuitDread
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanLoneNuclearOperativeSuitDreadDebug
+
+- type: entity
+  name: Security Officer Suit Spawner
+  id: SpawnMobHumanSecurityOfficerSuit
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanSecurityOfficerSuit
+
+- type: entity
+  name: Head of Security ModSuit Spawner
+  id: SpawnMobHumanHosModSuit
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanHosModSuit
+
+- type: entity
+  name: Security Officer ModSuit Spawner
+  id: SpawnMobHumanSecurityOfficerModSuit
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanSecurityOfficerModSuit
+
+- type: entity
+  name: Head of Security Suit Spawner
+  id: SpawnMobHumanHoSSuit
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanHoSSuit
+
+- type: entity
+  name: Warden Suit Spawner
+  id: SpawnMobHumanWardenSuit
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanWardenSuit
+
+- type: entity
+  name: Brigmedic Suit Spawner
+  id: SpawnMobHumanBrigmedicSuit
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanBrigmedicSuit
+
+- type: entity
+  name: Security Officer Bulletproof Armor Spawner
+  id: SpawnMobHumanSecurityOfficerBulletproofArmorHelmet
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanSecurityOfficerBulletproofArmorHelmet
+
+- type: entity
+  name: Security Officer Riot Armor Spawner
+  id: SpawnMobHumanSecurityOfficerRiotArmorHelmet
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanSecurityOfficerRiotArmorHelmet
+
+- type: entity
+  name: Security Officer Reflective Armor Spawner
+  id: SpawnMobHumanSecurityOfficerReflectiveArmorHelmet
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanSecurityOfficerReflectiveArmorHelmet
+
+- type: entity
+  name: Security Officer Basic Armor Spawner
+  id: SpawnMobHumanSecurityOfficerBasicArmorHelmet
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanSecurityOfficerBasicArmorHelmet
+
+- type: entity
+  name: Head of Security Spawner
+  id: SpawnMobHumanHos
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanHos
+
+- type: entity
+  name: Brigmedic Spawner
+  id: SpawnMobHumanBrigmedic
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanBrigmedic
+
+- type: entity
+  name: Warden Spawner
+  id: SpawnMobHumanWarden
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanWarden
+
+- type: entity
+  name: Blueshield Officer Base Spawner
+  id: SpawnMobHumanBSOBase
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanBSOBase
+
+- type: entity
+  name: Blueshield Officer Suit Spawner
+  id: SpawnMobHumanBSOSuit
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanBSOSuit
+
+- type: entity
+  name: Blueshield Officer ModSuit Spawner
+  id: SpawnMobHumanBSOModSuit
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanBSOModSuit
+
+- type: entity
+  name: Wizard Spawner
+  id: SpawnMobHumanWizardDebug
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanWizardDebug
+
+- type: entity
+  name: Wizard Suit Spawner
+  id: SpawnMobHumanWizardDebugSuit
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanWizardDebugSuit
+
+- type: entity
+  name: Changeling Armor Spawner
+  id: SpawnMobHumanChangelingArmor
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanChangelingArmor
+
+- type: entity
+  name: Space Ninja Armor Spawner
+  id: SpawnMobHumanNinjaArmor
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanNinjaArmor
+
+- type: entity
+  name: Heretic Armor Spawner
+  id: SpawnHumanHereticArmor
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanHereticArmor
+
+- type: entity
+  name: Captain Armor Spawner Hardsuit
+  id: SpawnMobHumanCaptainHardsuit
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanCaptainHardsuit
+
+- type: entity
+  name: Captain Armor Spawner Modsuit
+  id: SpawnMobHumanCaptainModsuit
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanCaptainModsuit
+
+- type: entity
+  name: Captain Armor Spawner
+  id: SpawnMobHumanCaptainDebug
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHumanCaptainDebug

@@ -1,0 +1,19 @@
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostWraith
+  components:
+  - type: GhostRole
+    name: ghost-role-information-wraith-name
+    description: ghost-role-information-wraith-description
+    rules: ghost-role-information-wraith-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 54000 # 15 hours
+    raffle:
+      settings: default
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Wraith/wraith.rsi
+    state: icon

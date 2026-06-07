@@ -1,0 +1,207 @@
+- type: entity
+  id: RitualCircleInact
+  name: Summoning portal
+  description: It hums and thrums as you stare at it. Dark shadows weave in and out of sight within.
+  categories: [ Spawner ]
+  components:
+  - type: Transform
+    anchored: True
+  - type: InteractionOutline
+  - type: Clickable
+  - type: Physics
+    bodyType: Static
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Wraith/Objects/ritualcircle.rsi
+    layers:
+    - state: harbinger_circle_inact
+  - type: Fixtures
+    fixtures:
+      portalFixture:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.48,0.25,0.48"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        hard: false
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: ManifestedSpirit
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 25
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: GlassBreak
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/_Goobstation/Wraith/wraithportal.ogg
+      params:
+          volume: -5
+          maxDistance: 10
+          variation: 0.01
+  - type: VoidPortal
+    mobEntries:
+    - prototype: VoidPortalSkeletonGoonWraith
+      cost: 3
+    - prototype: VoidPortalCrunchedWraith
+      cost: 4
+    - prototype: VoidPortalShadeWraith
+      cost: 4
+    - prototype: VoidPortalMonstrosityHeadWraith
+      cost: 4
+    - prototype: VoidPortalMonstrosityBodyWraith
+      cost: 4
+    - prototype: VoidPortalLionWraith
+      cost: 5
+    - prototype: VoidPortalAncientRepairBotWraith
+      cost: 6
+    - prototype: VoidPortalAncientGuardBotWraith
+      cost: 8
+    - prototype: VoidPortalAncientRobot1Wraith
+      cost: 7
+    - prototype: VoidPortalAncientRobot2Wraith
+      cost: 7
+    - prototype: VoidPortalAncientRobot3Wraith
+      cost: 7
+    - prototype: VoidPortalAncientLegsWraith
+      cost: 7
+    - prototype: VoidPortalBearGoonWraith
+      cost: 10
+    - prototype: VoidPortalBrullbarWraith
+      cost: 15
+    - prototype: VoidPortalBGunbotWraith
+      cost: 15
+    - prototype: VoidPortalNukebotWraith
+      cost: 15
+
+- type: entity
+  id: RitualCircle1
+  parent: RitualCircleInact
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Wraith/Objects/ritualcircle.rsi
+    layers:
+    - state: harbinger_circle_1
+  - type: PointLight
+    radius: 1
+    netsync: false
+    energy: 5
+    color: "#ebb02b"
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 30
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: GlassBreak
+
+- type: entity
+  id: RitualCircle2
+  parent: RitualCircleInact
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Wraith/Objects/ritualcircle.rsi
+    layers:
+    - state: harbinger_circle_2
+  - type: PointLight
+    radius: 2
+    netsync: false
+    energy: 5
+    color: "#ebb02b"
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 40
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: GlassBreak
+
+- type: entity
+  id: RitualCircle3
+  parent: RitualCircleInact
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Wraith/Objects/ritualcircle.rsi
+    layers:
+    - state: harbinger_circle_3
+  - type: PointLight
+    radius: 3
+    netsync: false
+    energy: 5
+    color: "#ebb02b"
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 50
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: GlassBreak
+
+- type: entity
+  id: RitualCircle4
+  parent: RitualCircleInact
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Wraith/Objects/ritualcircle.rsi
+    layers:
+    - state: harbinger_circle_4
+  - type: PointLight
+    radius: 4
+    netsync: false
+    energy: 5
+    color: "#ebb02b"
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 75
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: GlassBreak
+
+- type: entity
+  id: RitualCircle5
+  parent: RitualCircleInact
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Wraith/Objects/ritualcircle.rsi
+    layers:
+    - state: harbinger_circle_5
+  - type: PointLight
+    radius: 5
+    netsync: false
+    energy: 10
+    color: "#ebb02b"
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: GlassBreak

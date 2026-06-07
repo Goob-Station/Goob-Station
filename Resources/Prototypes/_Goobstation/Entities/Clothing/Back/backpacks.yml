@@ -25,3 +25,64 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Backpacks/blueshield.rsi
+
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackUnremoveable
+  suffix: Unremoveable
+  components:
+  - type: Unremoveable
+
+- type: entity
+  name: Santa's sack of holding
+  description: All you need to spread christmas cheer is contained inside!
+  parent: ClothingBackpackHolding
+  id: ClothingBackpackSantasSack
+  suffix: Unremoveable
+  components:
+  - type: Unremoveable
+  - type: StorageFill
+    contents: #:godo:
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: PresentRandomUnsafe
+    - id: OxygenTankFilled
+    - id: OxygenTankFilled

@@ -131,7 +131,7 @@ using Robust.Shared.Timing;
 namespace Content.Server.Pointing.EntitySystems
 {
     [UsedImplicitly]
-    internal sealed class PointingSystem : SharedPointingSystem
+    internal sealed partial class PointingSystem : SharedPointingSystem // Goobstation: Partial Class
     {
         [Dependency] private readonly IConfigurationManager _config = default!;
         [Dependency] private readonly IReplayRecordingManager _replay = default!;
@@ -248,6 +248,13 @@ namespace Content.Server.Pointing.EntitySystems
                 // this is a pointing arrow. no pointing here...
                 return false;
             }
+
+            // Goobstation Begin: Disallow pointing at stealthed entities.
+            if (!CanPointAtStealthedEntity(player, pointed))
+            {
+                return false;
+            }
+            // Goobstation End.
 
             if (!CanPoint(player))
             {

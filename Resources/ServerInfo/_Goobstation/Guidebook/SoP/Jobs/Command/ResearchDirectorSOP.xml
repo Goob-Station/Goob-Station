@@ -25,7 +25,11 @@ This is the list of procedures, responsibilities, and duties of the [color=#1b67
 4. The Research Director is permitted to carry/wear their Experimental Hardsuit on them, but should keep it inactive unless necessary, for personal safety.
 
 5. The Research Director is permitted to change the AI Unit's lawset, provided they receive general approval from the Captain and another Head of Staff.
-<Box>If there are no other Heads of Staff available, Captain approval will suffice.</Box>
+<Box Orientation="Vertical">
+  - If there are no other Heads of Staff available, Captain approval will suffice.
+  - To protect against tampering, the station AI is hard-coded to resist [color=#FF0000]any[/color] modification of its lawset.
+</Box>
+<!--Goob addition - AI can't allow law changes-->
 
 6. The Research Director must ensure the cyborg computer is kept safe and used appropriately, avoiding any unnecessary damage to crew or NanoTrasen property.
 

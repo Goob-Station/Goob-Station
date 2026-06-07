@@ -5,7 +5,6 @@
 
 - type: constructionGraph
   id: FishingRodMakeshift
-  start: start
   graph:
     - node: start
       edges:

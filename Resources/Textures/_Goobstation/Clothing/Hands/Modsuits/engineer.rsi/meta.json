@@ -28,6 +28,14 @@
 		{
 			"name": "equipped-HAND-sealed-resomi",
 			"directions": 4
+		},
+		{
+		  "name": "equipped-HAND-sealed-vox",
+		  "directions": 4
+		},
+		{
+		  "name": "equipped-HAND-vox",
+		  "directions": 4
 		}
   ]
 }

@@ -1,0 +1,22 @@
+- type: contrabandIcon
+  id: ContrabandIcon
+  abstract: true
+  priority: 4
+  offset: 1
+  locationPreference: Right
+  isShaded: true
+
+- type: contrabandIcon
+  parent: ContrabandIcon
+  id: ContrabandIconContraband
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/security_icons.rsi
+    state: hud_contraband
+    
+- type: contrabandIcon
+  parent: ContrabandIcon
+  id: ContrabandIconNone
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/security_icons.rsi
+    state: hud_none
+    

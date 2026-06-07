@@ -66,12 +66,12 @@ using Content.Server.Humanoid;
 using Content.Server.IdentityManagement;
 using Content.Server.Inventory;
 using Content.Server.Mind;
-using Content.Server.Mind.Commands;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
 using Content.Server.Speech.Components;
 using Content.Server.Temperature.Components;
+using Content.Shared.Body.Components;
 using Content.Shared.CombatMode;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Damage;
@@ -99,8 +99,11 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared.Roles;
 using Content.Server.Animals.Components;
+using Content.Shared.Mech.Components;
 using Content.Shared.Rejuvenate; // Shitmed Change
 using Content.Shared.NPC.Prototypes;
+using Content.Shared.Mech.EntitySystems; // Goobstation
+using Content.Server.Cloning; // Goob - zedcure
 
 namespace Content.Server.Zombies;
 
@@ -126,6 +129,8 @@ public sealed partial class ZombieSystem
     [Dependency] private readonly NameModifierSystem _nameMod = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
+    [Dependency] private readonly SharedMechSystem _mech = default!; // Goobstation
+    [Dependency] private readonly CloningSystem _cloning = default!; // Goob - zombie cure
 
     private static readonly ProtoId<TagPrototype> CannotSuicideTag = "CannotSuicide";
     private static readonly ProtoId<NpcFactionPrototype> ZombieFaction = "Zombie";
@@ -165,7 +170,19 @@ public sealed partial class ZombieSystem
 
         //you're a real zombie now, son.
         RaiseLocalEvent(target, new RejuvenateEvent(false, false)); // Shitmed Change
+
+        // Goob start
+        if (!_cloning.TryCloning(target, null, "Antag", out var clone))
+            Log.Error($"Unable to make a clone for zombification of entity {ToPrettyString(target)}");
+        else
+            RemComp<PendingZombieComponent>(clone.Value);
+        // Goob end
+
         var zombiecomp = AddComp<ZombieComponent>(target);
+
+        // Goob - reference to cloned entity, for curing later
+        if (clone is not null)
+            zombiecomp.BeforeZombificationReferenceEnt = clone;
 
         //we need to basically remove all of these because zombies shouldn't
         //get diseases, breath, be thirst, be hungry, die in space, have offspring or be paraplegic.
@@ -276,7 +293,7 @@ public sealed partial class ZombieSystem
         _popup.PopupEntity(Loc.GetString("zombie-transform", ("target", target)), target, PopupType.LargeCaution);
 
         //Make it sentient if it's an animal or something
-        MakeSentientCommand.MakeSentient(target, EntityManager);
+        _mind.MakeSentient(target);
 
         //Make the zombie not die in the cold. Good for space zombies
         if (TryComp<TemperatureComponent>(target, out var tempComp))
@@ -347,5 +364,7 @@ public sealed partial class ZombieSystem
         RaiseLocalEvent(target, ref ev, true);
         //zombies get slowdown once they convert
         _movementSpeedModifier.RefreshMovementSpeedModifiers(target);
+        if (TryComp<MechPilotComponent>(target, out var mechPilotComponent)) // Goobstation - kick out zombies from mechs on conversion
+            _mech.TryEject(mechPilotComponent.Mech, null, target);
     }
 }

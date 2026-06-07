@@ -206,7 +206,7 @@
     sprite: _Goobstation/Wizard/actions.rsi
     state: barn
   cost:
-    WizCoin: 2
+    WizCoin: 1
   categories:
   - SpellbookOffensive
   conditions:
@@ -289,6 +289,25 @@
   - !type:BuyBeforeCondition
     whitelist:
     - SpellbookSmite
+  - !type:ListingLimitedStockCondition
+    stock: 2
+
+- type: listing
+  id: SpellbookRathenUpgrade
+  productUpgradeId: SpellbookRathenUpgrade
+  name: spellbook-upgrade-rathen-name
+  description: spellbook-upgrade-rathen-desc
+  icon:
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: rathen
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookRathen
   - !type:ListingLimitedStockCondition
     stock: 2
 

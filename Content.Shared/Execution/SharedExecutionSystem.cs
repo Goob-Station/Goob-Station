@@ -26,7 +26,9 @@ using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Interaction.Events;
 using Robust.Shared.Player;
 using Robust.Shared.Audio.Systems;
-
+using Content.Shared.Body.Part; // Goobstation decapitation
+using Content.Shared.Body.Systems; // Goobstation decapitation
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems; // Goobstation decapitation
 namespace Content.Shared.Execution;
 
 /// <summary>
@@ -43,6 +45,8 @@ public sealed class SharedExecutionSystem : EntitySystem
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
     [Dependency] private readonly SharedExecutionSystem _execution = default!;
     [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
+    [Dependency] private readonly WoundSystem _wounds = default!; // Goobstation decapitation
+    [Dependency] private readonly SharedBodySystem _body = default!; // Goobstation decapitation
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -162,7 +166,7 @@ public sealed class SharedExecutionSystem : EntitySystem
         args.Handled = true;
     }
 
-    private void ShowExecutionInternalPopup(string locString, EntityUid attacker, EntityUid victim, EntityUid weapon, bool predict = true)
+    public void ShowExecutionInternalPopup(string locString, EntityUid attacker, EntityUid victim, EntityUid weapon, bool predict = true) // Made public by goobstation
     {
         if (predict)
         {
@@ -184,7 +188,7 @@ public sealed class SharedExecutionSystem : EntitySystem
         }
     }
 
-    private void ShowExecutionExternalPopup(string locString, EntityUid attacker, EntityUid victim, EntityUid weapon)
+    public void ShowExecutionExternalPopup(string locString, EntityUid attacker, EntityUid victim, EntityUid weapon) // Made public by goobstation
     {
         _popup.PopupEntity(
             Loc.GetString(locString, ("attacker", Identity.Entity(attacker, EntityManager)), ("victim", Identity.Entity(victim, EntityManager)), ("weapon", weapon)),
@@ -229,6 +233,8 @@ public sealed class SharedExecutionSystem : EntitySystem
         else
         {
             _melee.AttemptLightAttack(attacker, weapon, meleeWeaponComp, victim);
+            if (entity.Comp.Decapitation)// Goobstation Decapitation
+                Decapitation(victim);
         }
 
         _combat.SetInCombatMode(attacker, prev);
@@ -241,4 +247,26 @@ public sealed class SharedExecutionSystem : EntitySystem
             _execution.ShowExecutionExternalPopup(externalMsg, attacker, victim, entity);
         }
     }
+    // Goobatation  start Decapitation
+    private void Decapitation(EntityUid victim)
+    {
+        var bodyparts = _body.GetBodyChildren(victim);
+
+        var head = new EntityUid?();
+        var body = new EntityUid?();
+
+        foreach (var bodypart in bodyparts)
+        {
+            if (bodypart.Component.PartType == BodyPartType.Chest)
+                body = bodypart.Id;
+            if (bodypart.Component.PartType == BodyPartType.Head)
+                head = bodypart.Id;
+        }
+
+        if(!head.HasValue || !body.HasValue)
+            return;
+
+        _wounds.AmputateWoundable(body.Value,head.Value);
+    }
+    // Goobstation end
 }

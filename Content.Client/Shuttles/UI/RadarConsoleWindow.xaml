@@ -11,7 +11,7 @@ SPDX-License-Identifier: MIT
                       xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
                       xmlns:ui="clr-namespace:Content.Client.Shuttles.UI"
                       Title="{Loc 'radar-console-window-title'}"
-                      SetSize="648 648"
+                      SetSize="648 672"
                       MinSize="256 256">
     <ui:ShuttleNavControl Name="RadarScreen"
                      Margin="4"

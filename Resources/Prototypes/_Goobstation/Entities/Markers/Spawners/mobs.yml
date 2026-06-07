@@ -72,7 +72,19 @@
   - type: ConditionalSpawner
     prototypes:
     - MobLivingCurse
-
+    
+- type: entity
+  name: Fermid Large Spawner
+  id: SpawnMobFermidLarge
+  components:
+  - type: Sprite
+    layers:
+    - state: fermid_large
+      sprite: /Textures/_Goobstation/Mobs/Animals/Fermids/fermid.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobFermidLarge
+    
 - type: entity
   name: Fermid Small Spawner
   id: SpawnMobFermidSmall
@@ -80,26 +92,11 @@
   components:
   - type: Sprite
     layers:
-    - state: green
     - state: fermid_small
       sprite: /Textures/_Goobstation/Mobs/Animals/Fermids/fermid.rsi
   - type: ConditionalSpawner
     prototypes:
     - MobFermidSmall
-
-- type: entity
-  name: Fermid Large Spawner
-  id: SpawnMobFermidLarge
-  parent: MarkerBase
-  components:
-  - type: Sprite
-    layers:
-    - state: green
-    - state: fermid_large
-      sprite: /Textures/_Goobstation/Mobs/Animals/Fermids/fermid.rsi
-  - type: ConditionalSpawner
-    prototypes:
-    - MobFermidLarge
 
 - type: entity
   name: Fermid Warrior Spawner

@@ -27,7 +27,8 @@ using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Serialization;
-using Content.Shared.Whitelist; // Shitmed - Starlight Abductors
+using Content.Shared.Whitelist;
+using Content.Goobstation.Common.Effects; // Shitmed - Starlight Abductors
 
 namespace Content.Shared.Emag.Systems;
 
@@ -45,6 +46,7 @@ public sealed class EmagSystem : EntitySystem
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!; // DeltaV - Add a whitelist/blacklist to the Emag
+    [Dependency] private readonly SparksSystem _sparks = default!; // goob edit - sparks everywhere
 
     public override void Initialize()
     {
@@ -71,9 +73,9 @@ public sealed class EmagSystem : EntitySystem
     }
 
     /// <summary>
-    /// Does the emag effect on a specified entity
+    /// Does the emag effect on a specified entity with a specified EmagType. The optional field customEmagType can be used to override the emag type defined in the component.
     /// </summary>
-    public bool TryEmagEffect(Entity<EmagComponent?> ent, EntityUid user, EntityUid target)
+    public bool TryEmagEffect(Entity<EmagComponent?> ent, EntityUid user, EntityUid target, EmagType? customEmagType = null)
     {
         if (!Resolve(ent, ref ent.Comp, false))
             return false;
@@ -94,6 +96,9 @@ public sealed class EmagSystem : EntitySystem
             _popup.PopupClient(Loc.GetString("emag-attempt-failed", ("tool", ent)), user, user);
             return false;
         }
+        // Shitmed end
+
+        var typeToUse = customEmagType ?? ent.Comp.EmagType;
 
         var emaggedEvent = new GotEmaggedEvent(user, ent.Comp.EmagType, EmagUid: ent);
         RaiseLocalEvent(target, ref emaggedEvent);
@@ -103,8 +108,9 @@ public sealed class EmagSystem : EntitySystem
         _popup.PopupPredicted(Loc.GetString(ent.Comp.SuccessText, ("target", Identity.Entity(target, EntityManager))), user, user, PopupType.Medium); // Goobstation - Success text de-hardcoded
 
         _audio.PlayPredicted(ent.Comp.EmagSound, ent, ent);
+        _sparks.DoSparks(Transform(target).Coordinates); // goob edit - sparks everywhere
 
-        _adminLogger.Add(LogType.Emag, LogImpact.High, $"{ToPrettyString(user):player} emagged {ToPrettyString(target):target} with flag(s): {ent.Comp.EmagType}");
+        _adminLogger.Add(LogType.Emag, LogImpact.High, $"{ToPrettyString(user):player} emagged {ToPrettyString(target):target} with flag(s): {typeToUse}");
 
         if (emaggedEvent.Handled)
             _sharedCharges.TryUseCharge(chargesEnt);
@@ -113,7 +119,7 @@ public sealed class EmagSystem : EntitySystem
         {
             EnsureComp<EmaggedComponent>(target, out var emaggedComp);
 
-            emaggedComp.EmagType |= ent.Comp.EmagType;
+            emaggedComp.EmagType |= typeToUse;
             Dirty(target, emaggedComp);
         }
 
@@ -155,9 +161,10 @@ public sealed class EmagSystem : EntitySystem
 
 [Flags]
 [Serializable, NetSerializable]
-public enum EmagType : byte
+public enum EmagType
 {
     None = 0,
+    All = ~None,
     Interaction = 1 << 1,
     Access = 1 << 2
 }

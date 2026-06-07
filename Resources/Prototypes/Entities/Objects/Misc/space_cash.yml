@@ -58,11 +58,6 @@
     layerFunction: Threshold
   - type: StackLayerThreshold
     thresholds: [10, 100, 500, 1000, 5000, 10000, 25000, 50000, 100000, 1000000]
-  # Goobstation - Custom stack splitting dialog
-  - type: UserInterface
-    interfaces:
-      enum.StackCustomSplitUiKey.Key:
-        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     sprite: Objects/Economy/cash.rsi
     state: cash

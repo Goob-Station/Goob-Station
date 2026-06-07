@@ -1,0 +1,47 @@
+- type: reaction
+  id: BeastBlood
+  reactants:
+    Sake:
+      amount: 1
+    Blood:
+      amount: 1
+    Stimulants:
+      amount: 1
+  products:
+    BeastBlood: 2
+
+- type: reaction
+  id: BeastBloodInsect
+  reactants:
+    Sake:
+      amount: 1
+    InsectBlood:
+      amount: 1
+    Stimulants:
+      amount: 1
+  products:
+    BeastBlood: 2
+
+- type: reaction
+  id: BeastBloodCopper
+  reactants:
+    Sake:
+      amount: 1
+    CopperBlood:
+      amount: 1
+    Stimulants:
+      amount: 1
+  products:
+    BeastBlood: 2
+
+- type: reaction
+  id: BeastBloodVox
+  reactants:
+    Sake:
+      amount: 1
+    AmmoniaBlood:
+      amount: 1
+    Stimulants:
+      amount: 1
+  products:
+    BeastBlood: 2

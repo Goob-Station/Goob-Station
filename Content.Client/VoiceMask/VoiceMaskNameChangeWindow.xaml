@@ -20,5 +20,11 @@ SPDX-License-Identifier: MIT
             <Label Text="{Loc 'voice-mask-name-change-speech-style'}" />
             <OptionButton Name="SpeechVerbSelector" /> <!-- Populated in LoadVerbs -->
         </BoxContainer>
+        <!-- GabyStation -> Radio icons start -->
+		<Label Text="{Loc 'voice-mask-icon-label'}"/>
+		<GridContainer Name="IconGrid" Columns="10">
+			<!-- Job icon buttons are generated in the code -->
+		</GridContainer>
+        <!-- GabyStation -> Radio icons end -->
     </BoxContainer>
 </controls:FancyWindow>

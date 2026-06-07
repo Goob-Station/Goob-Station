@@ -1,0 +1,182 @@
+- type: species
+  id: Feroxi
+  name: species-name-feroxi
+  roundStart: true
+  prototype: MobFeroxi
+  sprites: MobFeroxiSprites
+  defaultSkinTone: "#8DB9D6"
+  markingLimits: MobFeroxiMarkingLimits
+  dollPrototype: MobFeroxiDummy
+  skinColoration: Hues
+  maleFirstNames: NamesFeroxiFirstMale
+  femaleFirstNames: NamesFeroxiFirstFemale
+  lastNames: NamesFeroxiLast
+
+- type: speciesBaseSprites
+  id: MobFeroxiSprites
+  sprites:
+    Head: MobFeroxiHead
+    Hair: MobHumanoidAnyMarking
+    FacialHair: MobHumanoidAnyMarking
+    Snout: MobHumanoidAnyMarking
+    Chest: MobFeroxiChest
+    Groin: MobFeroxiGroin
+    HeadTop: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
+    Eyes: MobHumanoidEyes
+    LArm: MobFeroxiLArm
+    RArm: MobFeroxiRArm
+    LHand: MobFeroxiLHand
+    RHand: MobFeroxiRHand
+    LLeg: MobFeroxiLLeg
+    RLeg: MobFeroxiRLeg
+    LFoot: MobFeroxiLFoot
+    RFoot: MobFeroxiRFoot
+
+- type: markingPoints
+  id: MobFeroxiMarkingLimits
+  points:
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 1
+      required: false
+    Head:
+      points: 3
+      required: false
+    HeadTop:
+      points: 1
+      required: true
+      defaultMarkings: [ FeroxiEars ]
+    Snout:
+      points: 1
+      required: true
+      defaultMarkings: [ FeroxiSnout ]
+    Chest:
+      points: 3
+      required: false
+    Arms:
+      points: 4
+      required: false
+    Legs:
+      points: 4
+      required: false
+    RightHand:
+      points: 2
+      required: false
+    LeftHand:
+      points: 2
+      required: false
+    RightFoot:
+      points: 2
+      required: false
+    LeftFoot:
+      points: 2
+      required: false
+    Tail:
+      points: 1
+      required: true
+      defaultMarkings: [ FeroxiTailAndDorsal ]
+
+- type: humanoidBaseSprite
+  id: MobFeroxiHead
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobFeroxiHeadMale
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobFeroxiHeadFemale
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: MobFeroxiChest
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
+    state: chest_m
+
+- type: humanoidBaseSprite
+  id: MobFeroxiChestMale
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
+    state: chest_m
+
+- type: humanoidBaseSprite
+  id: MobFeroxiChestFemale
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
+    state: chest_f
+
+- type: humanoidBaseSprite
+  id: MobFeroxiGroin
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobFeroxiGroinMale
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobFeroxiGroinFemale
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
+    state: groin_f
+
+- type: humanoidBaseSprite
+  id: MobFeroxiLLeg
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobFeroxiLHand
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobFeroxiLArm
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobFeroxiLFoot
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobFeroxiRLeg
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobFeroxiRHand
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobFeroxiRArm
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobFeroxiRFoot
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
+    state: r_foot

@@ -98,11 +98,11 @@
     threshold: 550 # HazardHighPressure from Atmospherics.cs
   lowerBound: !type:AlarmThresholdSetting
     # Actual low pressure damage threshold is at 20 kPa, but below ~85 kPa you can't breathe due to lack of oxygen.
-    threshold: 85
+    threshold: 40 # Goobstation - was 85
   upperWarnAround: !type:AlarmThresholdSetting
     threshold: 0.7 # 385 kPa, WarningHighPressure from Atmospherics.cs
   lowerWarnAround: !type:AlarmThresholdSetting
-    threshold: 1.05 # ~90 kPa
+    threshold: 2 # Goobstation - 80kPa, was 1.05 (90 kPa)
 
 # For gas concentrations, threshold=0.1 means 10%
 - type: alarmThreshold

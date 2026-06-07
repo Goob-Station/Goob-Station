@@ -34,13 +34,13 @@ public sealed partial class LavalandRuinPoolPrototype : IPrototype
     /// Distance in-between ruins.
     /// </summary>
     [DataField]
-    public int RuinDistance = 24;
+    public int RuinDistance = 16;
 
     /// <summary>
     /// Max distance that Ruins can generate.
     /// </summary>
     [DataField]
-    public int MaxDistance = 336;
+    public int MaxDistance = 256;
 
     /// <summary>
     /// List of all grid ruins and their count.
@@ -51,8 +51,15 @@ public sealed partial class LavalandRuinPoolPrototype : IPrototype
 
     /// <summary>
     /// List of all dungeon ruins and their count.
-    /// Used for ruins that are generated with Dungeon markers.
+    /// Used for ruins that are generated with Dungeon configs.
     /// </summary>
     [DataField]
     public Dictionary<ProtoId<LavalandDungeonRuinPrototype>, ushort> DungeonRuins = new();
+
+    /// <summary>
+    /// List of all marker ruins and their count.
+    /// Used for ruins that are generated with Dungeon markers.
+    /// </summary>
+    [DataField]
+    public Dictionary<ProtoId<LavalandMarkerRuinPrototype>, ushort> MarkerRuins = new();
 }

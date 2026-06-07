@@ -151,6 +151,9 @@
     containers:
       - entity_storage
   - type: RequireProjectileTarget
+  - type: Tag
+    tags:
+      - Crate
 
 - type: entity
   parent: CrateGeneric
@@ -215,3 +218,5 @@
     materialComposition:
       Steel: 125
   - type: RecyclableOnUnlock #Goobstation - Recycle update
+  - type: Paintable
+    group: CrateSecure

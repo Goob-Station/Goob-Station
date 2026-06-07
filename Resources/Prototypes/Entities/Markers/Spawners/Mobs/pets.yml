@@ -109,12 +109,21 @@
     layers:
     - state: green
     - state: ai
-  - type: ConditionalSpawner
-    prototypes:
-    - MobCorgiIan
-    - MobCorgiIanOld
-    - MobCorgiLisa
-    - MobCorgiIanPup
+  - type: EntityTableSpawner
+    offset: 0
+    deleteSpawnerAfterSpawn: false
+    table: !type:GroupSelector
+      children:
+      - id: MobCorgiIan
+        weight: 3
+      - id: MobCorgiIanOld
+        weight: 2.5
+      - id: MobCorgiLisa
+        weight: 2.25
+      - id: MobCorgiIanPup
+        weight: 2
+      - id: MobCorgiIanClown
+        weight: 0.25
 
 - type: entity
   parent: MarkerBase
@@ -217,6 +226,21 @@
   - type: ConditionalSpawner
     prototypes:
     - MobMonkeyPunpun
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobPollyParrot
+  name: Polly the parrot Spawner
+  suffix: CE Pet
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: parrot
+      sprite: Mobs/Animals/parrot/parrot.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobPollyParrot
 
 - type: entity
   parent: MarkerBase

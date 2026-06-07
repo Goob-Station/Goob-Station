@@ -6,6 +6,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Effects;
 using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
@@ -24,6 +25,7 @@ using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Events;
+using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._Goobstation.Wizard.Traps;
@@ -42,6 +44,7 @@ public abstract class SharedWizardTrapsSystem : EntitySystem
     [Dependency] private   readonly SharedAudioSystem _audio = default!;
     [Dependency] private   readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private   readonly INetManager _net = default!;
+    [Dependency] private   readonly ISharedPlayerManager _player = default!;
 
     public override void Initialize()
     {
@@ -105,6 +108,9 @@ public abstract class SharedWizardTrapsSystem : EntitySystem
         if (comp.Triggered)
             return;
 
+        if (_net.IsClient && _player.LocalEntity != args.OtherEntity)
+            return;
+
         if (HasComp<GodmodeComponent>(args.OtherEntity) || HasComp<IceCubeComponent>(args.OtherEntity))
             return;
 
@@ -126,7 +132,7 @@ public abstract class SharedWizardTrapsSystem : EntitySystem
             return;
 
         if (comp.StunTime > TimeSpan.Zero)
-            _stun.TryParalyze(args.OtherEntity, comp.StunTime, true);
+            _stun.TryUpdateParalyzeDuration(args.OtherEntity, comp.StunTime);
 
         RaiseLocalEvent(uid, new TrapTriggeredEvent(args.OtherEntity));
 

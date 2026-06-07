@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 262.0.0
+  engineVersion: 264.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/14/2025 09:21:30
-  entityCount: 211
+  time: 01/08/2026 11:43:47
+  entityCount: 219
 maps: []
 grids:
 - 1
@@ -49,6 +49,11 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
+      dampingModifiers:
+        Cruise: 0.0075
+        Dampen: 0.25
+        Anchor: 2
+        None: 0.25
       dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
@@ -260,6 +265,7 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: ImplicitRoof
+    - type: FTLDrive
 - proto: AirlockHatch
   entities:
   - uid: 2
@@ -311,17 +317,12 @@ entities:
     - type: Transform
       pos: 8.5,10.5
       parent: 1
-- proto: Beaker
+- proto: BorgBeaker
   entities:
-  - uid: 10
+  - uid: 38
     components:
     - type: Transform
-      pos: 9.869535,4.573121
-      parent: 1
-  - uid: 11
-    components:
-    - type: Transform
-      pos: 10.174223,4.5496836
+      pos: 9.6359005,4.559326
       parent: 1
 - proto: BoxAgrichem
   entities:
@@ -438,75 +439,19 @@ entities:
       linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
-- proto: ChemistryBottleEphedrine
-  entities:
-  - uid: 37
-    components:
-    - type: Transform
-      pos: 5.5725985,7.360077
-      parent: 1
-- proto: ChemistryBottleEpinephrine
-  entities:
-  - uid: 38
-    components:
-    - type: Transform
-      pos: 5.5725985,7.094452
-      parent: 1
-- proto: ChemistryBottleEthanol
-  entities:
-  - uid: 39
-    components:
-    - type: Transform
-      pos: 5.3538485,6.500702
-      parent: 1
-- proto: ChemistryBottleHydrogen
-  entities:
-  - uid: 42
-    components:
-    - type: Transform
-      pos: 5.6194735,6.500702
-      parent: 1
-- proto: ChemistryBottleLead
-  entities:
-  - uid: 47
-    components:
-    - type: Transform
-      pos: 5.3538485,6.641327
-      parent: 1
-- proto: ChemistryBottleNitrogen
-  entities:
-  - uid: 49
-    components:
-    - type: Transform
-      pos: 5.5882235,6.641327
-      parent: 1
-- proto: ChemistryBottlePax
-  entities:
-  - uid: 50
-    components:
-    - type: Transform
-      pos: 5.5882235,7.188202
-      parent: 1
-- proto: ChemistryBottlePhosphorus
-  entities:
-  - uid: 51
-    components:
-    - type: Transform
-      pos: 5.3694735,6.860077
-      parent: 1
-- proto: ChemistryBottlePotassium
-  entities:
-  - uid: 56
-    components:
-    - type: Transform
-      pos: 5.5882235,6.860077
-      parent: 1
 - proto: ChemistryHotplate
   entities:
   - uid: 33
     components:
     - type: Transform
       pos: 8.5,4.5
+      parent: 1
+- proto: CigPackSyndicate
+  entities:
+  - uid: 214
+    components:
+    - type: Transform
+      pos: 9.515194,15.715552
       parent: 1
 - proto: ClothingEyesGlassesChemical
   entities:
@@ -519,24 +464,26 @@ entities:
       linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
-- proto: DrinkPremiumVodkaBottleFull
+- proto: ClothingHeadHatSyndie
   entities:
-  - uid: 34
+  - uid: 213
     components:
     - type: Transform
-      pos: 10.525723,4.703827
+      pos: 9.502089,16.355793
       parent: 1
-- proto: DrinkWaterBottleFull
+- proto: ClothingNeckScarfStripedSyndieRed
   entities:
-  - uid: 35
-    components:
-    - type: Transform
-      pos: 5.2913485,7.063202
-      parent: 1
   - uid: 36
     components:
     - type: Transform
-      pos: 5.3069735,7.250702
+      pos: 10.465552,16.411768
+      parent: 1
+- proto: DefaultStationBeaconRuinChemistryLab
+  entities:
+  - uid: 56
+    components:
+    - type: Transform
+      pos: 8.5,6.5
       parent: 1
 - proto: Grille
   entities:
@@ -566,15 +513,10 @@ entities:
       parent: 1
 - proto: LargeBeaker
   entities:
-  - uid: 45
+  - uid: 39
     components:
     - type: Transform
-      pos: 9.025723,4.641327
-      parent: 1
-  - uid: 46
-    components:
-    - type: Transform
-      pos: 9.447598,4.672577
+      pos: 9.2765255,4.668701
       parent: 1
 - proto: LockerSyndicate
   entities:
@@ -611,20 +553,13 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 14
           - 13
           - 15
+          - 14
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
           ent: null
-- proto: MegaSprayBottle
-  entities:
-  - uid: 48
-    components:
-    - type: Transform
-      pos: 11.478848,4.610077
-      parent: 1
 - proto: PlastitaniumWindow
   entities:
   - uid: 52
@@ -659,12 +594,113 @@ entities:
       rot: 3.141592653589793 rad
       pos: 8.5,4.5
       parent: 1
-- proto: SheetPlasma1
+- proto: RandomChemistryBottleMedicalTier1Spawner
   entities:
+  - uid: 218
+    components:
+    - type: Transform
+      pos: 5.5,7.5
+      parent: 1
+  - uid: 219
+    components:
+    - type: Transform
+      pos: 5.5,6.5
+      parent: 1
+- proto: RandomChemistryBottleMedicalTier2Spawner
+  entities:
+  - uid: 216
+    components:
+    - type: Transform
+      pos: 5.5,7.5
+      parent: 1
+  - uid: 217
+    components:
+    - type: Transform
+      pos: 5.5,6.5
+      parent: 1
+- proto: SalvageMaterialCrateSpawner
+  entities:
+  - uid: 71
+    components:
+    - type: Transform
+      pos: 10.5,4.5
+      parent: 1
+  - uid: 72
+    components:
+    - type: Transform
+      pos: 11.5,4.5
+      parent: 1
+- proto: SalvageSpawnerScrapCommon75
+  entities:
+  - uid: 10
+    components:
+    - type: Transform
+      pos: 8.5,6.5
+      parent: 1
+  - uid: 11
+    components:
+    - type: Transform
+      pos: 7.5,6.5
+      parent: 1
+  - uid: 34
+    components:
+    - type: Transform
+      pos: 9.5,6.5
+      parent: 1
+  - uid: 35
+    components:
+    - type: Transform
+      pos: 10.5,5.5
+      parent: 1
+  - uid: 37
+    components:
+    - type: Transform
+      pos: 6.5,4.5
+      parent: 1
+  - uid: 42
+    components:
+    - type: Transform
+      pos: 8.5,5.5
+      parent: 1
+  - uid: 45
+    components:
+    - type: Transform
+      pos: 11.5,6.5
+      parent: 1
+  - uid: 46
+    components:
+    - type: Transform
+      pos: 5.5,5.5
+      parent: 1
+  - uid: 47
+    components:
+    - type: Transform
+      pos: 8.5,7.5
+      parent: 1
+  - uid: 48
+    components:
+    - type: Transform
+      pos: 11.5,5.5
+      parent: 1
+  - uid: 49
+    components:
+    - type: Transform
+      pos: 9.5,7.5
+      parent: 1
+  - uid: 50
+    components:
+    - type: Transform
+      pos: 9.5,5.5
+      parent: 1
+  - uid: 51
+    components:
+    - type: Transform
+      pos: 7.5,5.5
+      parent: 1
   - uid: 58
     components:
     - type: Transform
-      pos: 8.064848,4.573121
+      pos: 6.5,6.5
       parent: 1
 - proto: SheetPlasma10
   entities:
@@ -692,19 +728,31 @@ entities:
     - type: Transform
       pos: 9.5,7.5
       parent: 1
-- proto: SpawnMobCobraSalvage
+- proto: SpawnerRandomLightMobLavaland
   entities:
   - uid: 62
     components:
     - type: Transform
-      pos: 6.5,5.5
+      pos: 10.5,6.5
       parent: 1
-- proto: SpawnMobSpaceSpider
-  entities:
   - uid: 63
     components:
     - type: Transform
-      pos: 8.5,6.5
+      pos: 6.5,5.5
+      parent: 1
+- proto: SpawnerRandomMobLavaland
+  entities:
+  - uid: 215
+    components:
+    - type: Transform
+      pos: 9.5,12.5
+      parent: 1
+- proto: SyndieHandyFlag
+  entities:
+  - uid: 212
+    components:
+    - type: Transform
+      pos: 10.481177,15.485237
       parent: 1
 - proto: TableCounterMetal
   entities:
@@ -742,16 +790,6 @@ entities:
     components:
     - type: Transform
       pos: 9.5,4.5
-      parent: 1
-  - uid: 71
-    components:
-    - type: Transform
-      pos: 10.5,4.5
-      parent: 1
-  - uid: 72
-    components:
-    - type: Transform
-      pos: 11.5,4.5
       parent: 1
 - proto: Thruster
   entities:

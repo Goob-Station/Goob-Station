@@ -33,4 +33,4 @@ public sealed partial class AddGameRuleOnUseComponent : Component
 /// Raised when a gamerule gets added from the item
 /// </summary>
 [ByRefEvent]
-public record struct AddGameRuleItemEvent(EntityUid Initiator);
+public record struct AddGameRuleItemEvent(EntityUid? Initiator);

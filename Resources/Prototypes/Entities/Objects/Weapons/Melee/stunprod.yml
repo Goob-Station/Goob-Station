@@ -64,11 +64,11 @@
       types:
         Blunt: 9
     animation: WeaponArcThrust
-  # it was ~35 now it's 55 so it's a buff ig
   - type: StaminaDamageOnHit # goob edited
-    damage: 5
-    overtime: 1
-    lightAttackOvertimeDamageMultiplier: 40
+    damage: 15
+    overtime: 40
+    lightAttackDamageMultiplier: 4
+    lightAttackOvertimeDamageMultiplier: 0
     sound: /Audio/Weapons/egloves.ogg
   - type: DelayedKnockdownOnHit # Goobstation
     useDelay: stunbaton

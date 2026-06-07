@@ -1,0 +1,92 @@
+<Document>
+  # Void Summons
+
+  Void summons are special minions summoned by the Wraith with skills that can put even robust crewmembers to shame. Fighting one alone is generally never recommended.
+  While not entirely meant for being killing machines by themselves, together with the Wraith and their lesser minions, a void summon can easily become a major pain in the neck.
+
+  # Skeleton Commander
+  <Box>
+    <GuideEntityEmbed Entity="MobSkeletonCommander" Caption=""/>
+  </Box>
+
+  The tanky backbone of your army, skeleton commanders can hold the line and boost nearby minions.
+
+  ## Skills
+
+  Don't expect to do much yourself to the crewmembers. You actions mostly rely on sending others to do the work for you.
+
+  ### Rally
+
+  - Buffs all surrounding allied critters, giving them a temporary boost in combat.
+
+  Best used when multiple summons are grouped together to maximize your army’s impact.
+
+  ### Summon Lesser Skeleton
+
+  - Spawns in a singular lesser skeleton to help you in whatever you are doing. The skeleton is mindless, and should generally be used right before a scuffle.
+  - The lesser skeleton does not have a lot of health, but they can cause a lot of damage while rallied.
+
+  # Tentacle Fiend
+  <Box>
+    <GuideEntityEmbed Entity="MobVoidSpiker" Caption=""/>
+  </Box>
+
+  Fast, ranged, and unpredictable. These fiends excel at controlling space and abducting targets to secure an easy kill for the Wraith.
+  Their meelee attacks, while extremely weak damage wise, quickly cause the target to be knocked out.
+
+  ## Skills
+
+  You have the perfect set of tools for kidnapping. 
+
+  ### Tentacle Hook
+
+  - Launch a tentacle at a target and drag them toward the fiend.
+  - While the target can try and run from the hook, it will always, inevitable, drag them into the fiend.
+
+  ### Shuffle
+
+  - Compress your body to slip through doors, cancel stuns, and escape attacks.
+  - Prevents using other skills during the usage of this skill, so is generally only meant for evading rather than for engaging.
+
+  ### Lash
+
+  - Stun a target, cause them to bleed, and do considerable damage.
+  - Best used together with the tentacle hook. As soon as the target is within reach, lash them, and abduct them into maints, never to be seen again.
+
+  # Void Hound
+  <Box>
+    <GuideEntityEmbed Entity="MobVoidHound" Caption=""/>
+  </Box>
+
+  Stealthy, fast, and deadly in close quarters. Void hounds are ideal for hit-and-run attacks and disruption.
+  The only minion from the Wraith capable of sprinting.
+
+  ## Skills
+
+  Your actions are centered around catching people by surprise. 
+
+  ### Cloak
+
+  - Become partially invisible and difficult to detect.
+  - Doesn't last for very long, but is good for sneaking up on targets.
+  - Can be used for retreating into the shadows as well.
+
+  ### Rush Down
+
+  - Leap forward, knocking down the first person in your path and stunning in a large radius around where you land.
+  - Has a lenghthy cooldown, so use it to secure kills or to escape dire situations.
+
+  ### General Tips
+
+  Skeleton commanders are capable of soaking a lot of shots, but their rallying action is quite invaluable for the other minions. Choose wisely whether you wish to tank for them, or to stay behind buffing them from the backline.
+
+  Tentacle fiends excel at picking off targets from afar and killing them while they are incapable of fighting back. Once the deed is done, call over the Wraith to absorb the corpse, and rinse and repeat.
+
+  Void hounds are your mobile assassins, but not very tanky. While your stun is extremely potent, it can leave you right in the lion's den if unprepared.
+
+  Always consider positioning and timing. Summons can be fragile and die quickly if left unsupported.
+
+  The Wraith should aim to combine minions with portals to maintain constant pressure and cause death en masse.
+
+  [textlink="Back to Harbinger of the Void" link="Harbinger"]
+</Document>

@@ -1,0 +1,9 @@
+- type: reaction
+  id: AmmoniumNitrate
+  reactants:
+    Ammonia:
+      amount: 1
+    NitricAcid:
+      amount: 1
+  products:
+    AmmoniumNitrate: 2

@@ -1,0 +1,42 @@
+- type: body
+  id: MothershipCoreBody
+  name: "core"
+  root: torso
+  slots:
+    torso:
+      part: TorsoBorg
+      connections: # Goobstation - change this and you get russian fucking build errors.
+      - right arm # edit this shit is currently unused and will be killed <//fixborghands>
+      - right arm 2
+      - left arm
+      - left arm 2
+    right arm:
+      part: RightArmBorg
+      connections:
+      - right hand
+    right arm 2:
+      part: RightArmBorg
+      connections:
+      - right hand 2
+    left arm:
+      part: LeftArmBorg
+      connections:
+      - left hand
+    left arm 2:
+      part: LeftArmBorg
+      connections:
+      - left hand 2
+    right hand:
+      part: RightHandHuman
+    right hand 2:
+      part: RightHandHuman
+    left hand:
+      part: LeftHandHuman
+    left hand 2:
+      part: LeftHandHuman
+        # Goobstation end
+        # Basically shitcodes it to have hands at any cost
+        # If it doesnt have hands its loadout drops the items given on the floor
+        # Goobstation todo unshit xenoborgs so that they use a borg module or something rather than this shit
+        # Goobstation todo
+        # Goob todo

@@ -18,7 +18,8 @@
   setPreference: true
   objective: roles-antag-rev-head-objective
   requirements:
-    - !type:OverallPlaytimeRequirement
+  - !type:DepartmentTimeRequirement # was  - !type:OverallPlaytimeRequirement, Goob change
+      department: Command 
       time: 36000 # 10h
   guides: [ Revolutionaries ]
 

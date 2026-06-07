@@ -11,3 +11,13 @@ public sealed class FootprintChangedEvent(NetEntity entity) : EntityEventArgs
 {
     public NetEntity Entity = entity;
 }
+
+/// <summary>
+/// Raised on an entity just before it attempts to leave a footprint or interact with a puddle for footprints.
+/// </summary>
+// Slasher
+[ByRefEvent]
+public sealed class FootprintLeaveAttemptEvent(EntityUid uid) : CancellableEntityEventArgs
+{
+    public EntityUid Uid { get; } = uid;
+}

@@ -19,13 +19,48 @@
 # SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: OreBase
+  id: ArtifactFragmentOre
+  name: artifact fragment ore
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: ArtifactFragmentOre
+  - type: Sprite
+    sprite: _Lavaland/Objects/Materials/ore.rsi
+    state: artifact
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      RawArtifactFragment: 100
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Artifexium
+        Quantity: 10
+  - type: GuideHelp
+    guides:
+    - Xenoarchaeology
+  - type: Item
+    heldPrefix: artifact
+  - type: Tag
+    tags:
+    - Ore
+    - OreGold
+
+- type: entity
+  parent: ArtifactFragmentOre
+  id: ArtifactFragmentOre1
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
 # This is kinda shitty, but the other choice is fucking with StackSystem to allow it to track entities so I can keep tabs on which ore specifically has been clained.
 # Or cook some nasty shitcode to split the unclaimed value across all of the entities in the stack if there is any. But that feels fairly wonky.
 # Enjoy having to shove any new ores here.
-
-# The mining point values are a bit of a hodgepodge between 13s, and some small considerations taken here as well.
-# Iron, Quartz, Coal and Bananium are all analogues to their 13 values, while Gold, Plasma, Uranium and Silver are all cut by 1/4.
-# And since Diamond should be fairly rare, its value is still left on 100. Bananium was modified as a test :) All values are subject to adjustment.
 - type: entity
   parent: GoldOre
   id: GoldOreUnprocessed
@@ -55,7 +90,7 @@
   - type: Stack
     stackType: DiamondOreUnprocessed
   - type: UnclaimedOre
-    miningPoints: 1000 # rarest ore in the game, only 1 yield, used for endgame schematics 
+    miningPoints: 1000 # rarest ore in the game, only 1 yield, used for endgame schematics
 
 - type: entity
   parent: DiamondOreUnprocessed
@@ -70,7 +105,7 @@
   parent: SteelOre
   id: SteelOreUnprocessed
   name: unprocessed iron ore
-  suffix: Full
+  suffix: Thirty
   components:
   - type: Stack
     stackType: SteelOreUnprocessed
@@ -85,6 +120,24 @@
   components:
   - type: Stack
     count: 1
+
+- type: entity
+  id: SteelOre60Unprocessed
+  parent: SteelOreUnprocessed
+  name: unprocessed iron ore
+  suffix: Sixty
+  components:
+  - type: Stack
+    count: 60
+
+- type: entity
+  id: SteelOre90Unprocessed
+  parent: SteelOreUnprocessed
+  name: unprocessed iron ore
+  suffix: Full
+  components:
+  - type: Stack
+    count: 90
 
 - type: entity
   parent: PlasmaOre
@@ -130,7 +183,7 @@
   parent: SpaceQuartz
   id: SpaceQuartzUnprocessed
   name: unprocessed space quartz
-  suffix: Full
+  suffix: Thirty
   components:
   - type: Stack
     stackType: SpaceQuartzUnprocessed
@@ -145,6 +198,24 @@
   components:
   - type: Stack
     count: 1
+
+- type: entity
+  parent: SpaceQuartzUnprocessed
+  id: SpaceQuartz60Unprocessed
+  name: unprocessed space quartz
+  suffix: Sixty
+  components:
+  - type: Stack
+    count: 60
+
+- type: entity
+  parent: SpaceQuartzUnprocessed
+  id: SpaceQuartz90Unprocessed
+  name: unprocessed space quartz
+  suffix: Full
+  components:
+  - type: Stack
+    count: 90
 
 - type: entity
   parent: UraniumOre
@@ -190,7 +261,7 @@
   parent: Coal
   id: CoalUnprocessed
   name: unprocessed coal
-  suffix: Full
+  suffix: Thirty
   components:
   - type: Stack
     stackType: CoalUnprocessed
@@ -232,3 +303,41 @@
   components:
   - type: Stack
     count: 15
+
+- type: entity
+  parent: CoalUnprocessed
+  id: Coal60Unprocessed
+  name: unprocessed coal
+  suffix: Sixty
+  components:
+  - type: Stack
+    count: 60
+
+- type: entity
+  parent: CoalUnprocessed
+  id: Coal90Unprocessed
+  name: unprocessed coal
+  suffix: Full
+  components:
+  - type: Stack
+    count: 90
+
+- type: entity
+  parent: ArtifactFragmentOre
+  id: ArtifactFragmentOreUnprocessed
+  name: unprocessed artifact fragment ore
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: ArtifactFragmentOreUnprocessed
+  - type: UnclaimedOre
+    miningPoints: 200
+
+- type: entity
+  parent: ArtifactFragmentOreUnprocessed
+  id: ArtifactFragmentOre1Unprocessed
+  name: unprocessed artifact fragment ore
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1

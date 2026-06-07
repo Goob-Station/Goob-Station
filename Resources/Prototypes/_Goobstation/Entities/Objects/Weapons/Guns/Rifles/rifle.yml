@@ -18,7 +18,7 @@
   name: Burner
   parent: [BaseWeaponRifle, BaseSyndicateContraband]
   id: WeaponRifleBurner
-  description: A high caliber syndicate gun chambered in .50 caliber, capable of firing anti-materiel and high explosive rounds.
+  description: An obscene fully-automatic anti-materiel rifle that slings .50 downrange as long as you can shoulder it. You don't want to know how much it costs. Feeds from .50 Anti-Materiel magazines.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Rifles/burner.rsi
@@ -27,6 +27,8 @@
         map: ["enum.GunVisualLayers.Base"]
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/Rifles/burner.rsi
   - type: Gun
     fireRate: 3
     soundGunshot:
@@ -70,7 +72,7 @@
   name: M-90
   parent: [BaseWeaponRifle, BaseSyndicateContraband]
   id: WeaponRifleM90
-  description: A revision of the M-90gl that removes the inbuilt grenade launcher. Uses .20 rifle ammo.
+  description: A cheaper revision of the M-90GL that omits the integrated grenade launcher. Feeds from .20 Rifle magazines.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Rifles/m90.rsi
@@ -116,7 +118,7 @@
   name: Annie
   parent: [BaseCentcommContraband, BaseWeaponRifle]
   id: WeaponRifleAnnie
-  description: A beast designed to shoulder the weight of impossible missions. Uses .30 rifle ammo.
+  description: A beast designed to shoulder the weight of impossible missions, and the pride of the Emergency Response corps. Feeds from .30 Rifle magazines.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Rifles/annie.rsi
@@ -173,7 +175,7 @@
   name: WSPR
   parent: [BaseSyndicateContraband, BaseWeaponRifle]
   id: WeaponRifleWSPR
-  description: A cutting-edge rifle from Cybersun, versatile, reliable, and Syndicate-approved. Uses 9.5mm caseless magnum ammo.
+  description: An obscure rifle from Cybersun designed for covert missions in target-rich environments. Silenced, subsonic, and caseless, for the operative that leaves no trace. Feeds from 9.5mm SMG magazines.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Rifles/wspr.rsi

@@ -22,4 +22,24 @@ namespace Content.Shared._Imp.Drone;
             Off,
             On
         }
+
+        [Serializable, NetSerializable]
+        public sealed class DroneBuiState : BoundUserInterfaceState
+        {
+            public float ChargePercent;
+
+            public bool HasBattery;
+
+            public DroneBuiState(float chargePercent, bool hasBattery)
+            {
+                ChargePercent = chargePercent;
+                HasBattery = hasBattery;
+            }
+        }
+
+        [Serializable, NetSerializable]
+        public enum DroneUiKey : byte
+        {
+            Key
+        }
     }

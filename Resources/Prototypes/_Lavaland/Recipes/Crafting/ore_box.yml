@@ -1,0 +1,13 @@
+- type: construction
+  id: OreBox
+  graph: OreBox
+  targetNode: crate
+  category: construction-category-storage
+  objectType: Structure
+
+- type: construction
+  id: OreBoxAshwood
+  graph: OreBoxAshwood
+  targetNode: crate
+  category: construction-category-storage
+  objectType: Structure

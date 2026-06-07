@@ -9,12 +9,25 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Text.RegularExpressions;
+using Content.Goobstation.Common.Heretic;
+using Content.Server.Chat.Managers;
+using Content.Server.EntityEffects;
 using Content.Server.Heretic.Components;
+using Content.Server.Mind;
 using Content.Server.Popups;
 using Content.Shared._Goobstation.Heretic.Components;
+using Content.Shared._Goobstation.Wizard;
+using Content.Shared.Chat;
 using Content.Shared.DoAfter;
+using Content.Shared.EntityEffects;
+using Content.Shared.Examine;
+using Content.Shared.Ghost;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
+using Robust.Server.Player;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Random;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -23,6 +36,12 @@ public sealed class EldritchInfluenceSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doafter = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly HereticSystem _heretic = default!;
+    [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly IChatManager _chatMan = default!;
+    [Dependency] private readonly IPlayerManager _playerMan = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly SharedEntityEffectSystem _effect = default!;
 
     public override void Initialize()
     {
@@ -30,9 +49,41 @@ public sealed class EldritchInfluenceSystem : EntitySystem
         SubscribeLocalEvent<EldritchInfluenceComponent, InteractHandEvent>(OnInteract);
         SubscribeLocalEvent<EldritchInfluenceComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<EldritchInfluenceComponent, EldritchInfluenceDoAfterEvent>(OnDoAfter);
+        SubscribeLocalEvent<EldritchInfluenceComponent, ExaminedEvent>(OnExamine);
     }
 
-    public bool CollectInfluence(Entity<EldritchInfluenceComponent> influence, Entity<HereticComponent> user, EntityUid? used = null)
+    private void OnExamine(Entity<EldritchInfluenceComponent> ent, ref ExaminedEvent args)
+    {
+        if (HasComp<SpectralComponent>(args.Examiner) || HasComp<GhostComponent>(args.Examiner) ||
+            HasComp<WizardComponent>(args.Examiner) || HasComp<ApprenticeComponent>(args.Examiner) ||
+            _heretic.IsHereticOrGhoul(args.Examiner))
+            return;
+
+        if (!_mind.TryGetMind(args.Examiner, out _, out var mind))
+            return;
+
+        if (!_playerMan.TryGetSessionById(mind.UserId, out var session))
+            return;
+
+        _audio.PlayGlobal(ent.Comp.ExamineSound, session);
+
+        var baseMessage = ent.Comp.ExamineBaseMessage;
+        var message = Loc.GetString(_random.Pick(ent.Comp.HeathenExamineMessages));
+        var size = ent.Comp.FontSize;
+        var loc = Loc.GetString(baseMessage, ("size", size), ("text", message));
+        SharedChatSystem.UpdateFontSize(size, ref message, ref loc);
+        _chatMan.ChatMessageToOne(ChatChannel.Server, message, loc, default, false, session.Channel, canCoalesce: false);
+
+        var effectArgs = new EntityEffectBaseArgs(args.Examiner, EntityManager);
+        var effects = _random.Pick(ent.Comp.PossibleExamineEffects);
+        foreach (var effect in effects)
+        {
+            if (effect.ShouldApply(effectArgs, _random))
+                _effect.Effect(effect, effectArgs);
+        }
+    }
+
+    public bool CollectInfluence(Entity<EldritchInfluenceComponent> influence, EntityUid user, EntityUid? used = null)
     {
         if (influence.Comp.Spent)
             return false;
@@ -58,32 +109,28 @@ public sealed class EldritchInfluenceSystem : EntitySystem
 
     private void OnInteract(Entity<EldritchInfluenceComponent> ent, ref InteractHandEvent args)
     {
-        if (args.Handled
-        || !TryComp<HereticComponent>(args.User, out var heretic))
+        if (args.Handled || !_heretic.TryGetHereticComponent(args.User, out _, out _))
             return;
 
-        args.Handled = CollectInfluence(ent, (args.User, heretic));
+        args.Handled = CollectInfluence(ent, args.User);
     }
     private void OnInteractUsing(Entity<EldritchInfluenceComponent> ent, ref InteractUsingEvent args)
     {
-        if (args.Handled
-        || !TryComp<HereticComponent>(args.User, out var heretic))
+        if (args.Handled || !_heretic.TryGetHereticComponent(args.User, out _, out _))
             return;
 
-        args.Handled = CollectInfluence(ent, (args.User, heretic), args.Used);
+        args.Handled = CollectInfluence(ent, args.User, args.Used);
     }
     private void OnDoAfter(Entity<EldritchInfluenceComponent> ent, ref EldritchInfluenceDoAfterEvent args)
     {
-        if (args.Cancelled
-        || args.Target == null
-        || !TryComp<HereticComponent>(args.User, out var heretic))
+        if (args.Cancelled || args.Target == null || !_heretic.TryGetHereticComponent(args.User, out var heretic, out _))
             return;
 
         var knowledge = TryComp(args.Used, out EldritchInfluenceDrainerComponent? drainer)
             ? drainer.KnowledgePerInfluence
             : 1f;
 
-        _heretic.UpdateKnowledge(args.User, heretic, knowledge);
+        _heretic.UpdateKnowledge(args.User, knowledge);
 
         Spawn("EldritchInfluenceIntermediate", Transform(args.Target.Value).Coordinates);
         QueueDel(args.Target);

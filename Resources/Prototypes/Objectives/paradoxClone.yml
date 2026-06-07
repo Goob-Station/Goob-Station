@@ -18,7 +18,7 @@
   parent: [BaseParadoxCloneObjective, BaseLivingObjective]
   id: ParadoxCloneLivingObjective
   name: Escape to centcomm alive and unrestrained.
-  description: Return to your old life.
+  description: Return to your old life, via the evacuation shuttle. # Goobstation
   components:
   - type: Objective
     icon:

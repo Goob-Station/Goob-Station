@@ -10,7 +10,6 @@
 
 - type: constructionGraph
   id: GoliathCloak
-  start: start
   graph:
   - node: start
     edges:

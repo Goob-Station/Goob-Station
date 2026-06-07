@@ -69,6 +69,10 @@
         - state: equipped-HAND-sealed
         - state: equipped-HAND-sealed-unshaded
           shader: unshaded
+        gloves-vox:
+        - state: equipped-HAND-sealed-vox
+        - state: equipped-HAND-sealed-unshaded-vox
+          shader: unshaded
     - type: Insulated # Goob Edit (WHY IS IT NOT INSULATED??)
 
 - type: entity
@@ -84,6 +88,12 @@
         - state: equipped-HEAD
         head-resomi:
         - state: equipped-HEAD-resomi
+        head-vox:
+        - state: equipped-HEAD-vox
+        head-vulpkanin:
+        - state: equipped-HEAD-vulpkanin
+        head-reptilian:
+        - state: equipped-HEAD-reptilian
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/praetorian.rsi
     - type: PressureProtection
@@ -117,7 +127,18 @@
           shader: unshaded
         head-resomi:
         - state: equipped-HEAD-sealed-resomi
-
+        head-vox:
+        - state: equipped-HEAD-sealed-vox
+        - state: equipped-HEAD-sealed-unshaded-vox
+          shader: unshaded
+        head-vulpkanin:
+        - state: equipped-HEAD-sealed-vulpkanin
+        - state: equipped-HEAD-sealed-unshaded-vulpkanin
+          shader: unshaded
+        head-reptilian:
+        - state: equipped-HEAD-sealed-reptilian
+        - state: equipped-HEAD-sealed-unshaded-reptilian
+          shader: unshaded
 - type: entity
   parent: ClothingModsuitChestplateStandard
   id: ClothingModsuitChestplatePraetorian
@@ -152,6 +173,10 @@
         - state: equipped-OUTERCLOTHING-sealed
         outerClothing-resomi:
         - state: equipped-OUTERCLOTHING-sealed-resomi
+        outerClothing-vox:
+        - state: equipped-OUTERCLOTHING-sealed-vox
+        outerClothing-reptilian:
+        - state: equipped-OUTERCLOTHING-sealed-reptilian
     - type: ModifyDelayedKnockdown
       delayDelta: 2
       knockdownTimeDelta: -2
@@ -179,6 +204,10 @@
       clothingVisuals:
         shoes:
         - state: equipped-FEET-sealed
+        shoes-vox:
+        - state: equipped-FEET-sealed-vox
+        shoes-reptilian:
+        - state: equipped-FEET-sealed-reptilian
     - type: ItemToggle
     - type: ToggleClothing
       action: ActionToggleMagboots

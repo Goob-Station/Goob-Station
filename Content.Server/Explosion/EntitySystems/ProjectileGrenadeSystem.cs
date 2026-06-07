@@ -7,6 +7,7 @@
 
 using Content.Server.Explosion.Components;
 using Content.Server.Weapons.Ranged.Systems;
+using Content.Shared.Trigger;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -52,6 +53,14 @@ public sealed class ProjectileGrenadeSystem : EntitySystem
     /// </summary>
     private void OnFragTrigger(Entity<ProjectileGrenadeComponent> entity, ref TriggerEvent args)
     {
+        // Goob start - Shrapnel paylaods
+        if (args.Handled)
+            return;
+        // Goob end
+
+        if (args.Key != entity.Comp.TriggerKey)
+            return;
+
         FragmentIntoProjectiles(entity.Owner, entity.Comp);
         args.Handled = true;
     }
@@ -65,6 +74,11 @@ public sealed class ProjectileGrenadeSystem : EntitySystem
         var grenadeCoord = _transformSystem.GetMapCoordinates(uid);
         var shootCount = 0;
         var totalCount = component.Container.ContainedEntities.Count + component.UnspawnedCount;
+
+        // Just in case
+        if (totalCount == 0)
+            return;
+
         var segmentAngle = 360 / totalCount;
 
         while (TrySpawnContents(grenadeCoord, component, out var contentUid))

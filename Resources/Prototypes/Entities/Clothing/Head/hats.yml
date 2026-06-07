@@ -176,9 +176,12 @@
     sprite: Clothing/Head/Hats/beret.rsi
   - type: Tag
     tags:
+    - PetWearable
+    - CorgiWearable
     - ClothMade
     - Recyclable
     - HamsterWearable
+    - MouseWearable # Goobstation
     - WhitelistChameleon
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
@@ -198,12 +201,16 @@
     accent: FrenchAccent
   - type: Tag
     tags:
+    - PetWearable
+    - CorgiWearable
     - ClothMade
     - Recyclable
     - WhitelistChameleon
 
+# TODO: Make a single ClothingHeadHatArmored in goob namespace so all these items dont need to have armor values listed seperately, since they wont have seperate armor values ANYWAY!
+
 - type: entity
-  parent: [ClothingHeadHatBeret, BaseSecurityContraband] #goobstation - contraband marking
+  parent: [ClothingHeadHatArmored, BaseSecurityContraband] #goobstation - contraband marking
   id: ClothingHeadHatBeretSecurity
   name: security beret
   description: A beret with the security department's insignia. For officers that are more inclined towards style than safety.
@@ -216,26 +223,14 @@
     tags:
     - ClothMade
     - Recyclable
+    - PetWearable
+    - CorgiWearable
     - HamsterWearable
+    - MouseWearable # Goobstation
     - WhitelistChameleon
-  - type: Armor # Goob
-    coverage:
-    - Head
-    traumaDeductions:
-      Dismemberment: 0.2
-      OrganDamage: 0.2
-      BoneDamage: 0.2
-      VeinsDamage: 0
-      NerveDamage: 0
-    modifiers:
-      coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
-        Heat: 0.8
 
 - type: entity
-  parent: [ClothingHeadHatBeret, BaseSecurityContraband] #goobstation - contraband marking
+  parent: [ClothingHeadHatArmored, BaseSecurityContraband] #goobstation - contraband marking
   id: ClothingHeadHatSecurityTrooper
   name: trooper hat
   description: A campaign hat for the Nanotrasen Troopers. It's supposed to come with a case, too...
@@ -248,21 +243,6 @@
     tags:
     - ClothMade
     - WhitelistChameleon
-  - type: Armor # Goob
-    coverage:
-    - Head
-    traumaDeductions:
-      Dismemberment: 0.2
-      OrganDamage: 0.2
-      BoneDamage: 0.2
-      VeinsDamage: 0
-      NerveDamage: 0
-    modifiers:
-      coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
-        Heat: 0.8
 
 - type: entity
   parent: ClothingHeadHatBeret
@@ -274,6 +254,10 @@
       sprite: Clothing/Head/Hats/casa.rsi
     - type: Clothing
       sprite: Clothing/Head/Hats/casa.rsi
+    - type: Tag
+      tags:
+      - PetWearable
+      - CorgiWearable
 
 - type: entity
   parent: ClothingHeadHatBeret
@@ -287,9 +271,12 @@
     sprite: Clothing/Head/Hats/beret_rnd.rsi
   - type: Tag
     tags:
+    - PetWearable
+    - CorgiWearable
     - ClothMade
     - Recyclable
     - HamsterWearable
+    - MouseWearable # Goobstation
     - WhitelistChameleon
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
@@ -308,9 +295,12 @@
     sprite: Clothing/Head/Hats/beret_engineering.rsi
   - type: Tag
     tags:
+    - PetWearable
+    - CorgiWearable
     - ClothMade
     - Recyclable
     - HamsterWearable
+    - MouseWearable # Goobstation
     - WhitelistChameleon
 
 - type: entity
@@ -320,18 +310,21 @@
   description: A beret with the cargo department's insignia.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/beret_qm.rsi
+    sprite: _Goobstation/Clothing/Head/Hats/beret_qm.rsi # Goob Station - beret edit
   - type: Clothing
-    sprite: Clothing/Head/Hats/beret_qm.rsi
+    sprite: _Goobstation/Clothing/Head/Hats/beret_qm.rsi # Goob Station - beret edit
   - type: Tag
     tags:
+    - PetWearable
+    - CorgiWearable
     - ClothMade
     - Recyclable
     - HamsterWearable
+    - MouseWearable # Goobstation
     - WhitelistChameleon
 
 - type: entity
-  parent: [ClothingHeadHatBeretRND, BaseSecurityCommandContraband] # Goob edit
+  parent: [ClothingHeadHatArmored, ClothingHeadHatBeretRND, BaseSecurityCommandContraband] # Goob edit
   id: ClothingHeadHatBeretHoS
   name: head of security's beret
   description: A black beret with a commander's rank emblem. For officers that are more inclined towards style than safety.
@@ -342,28 +335,16 @@
     sprite: Clothing/Head/Hats/beret_hos.rsi
   - type: Tag
     tags:
+    - PetWearable
+    - CorgiWearable
     - ClothMade
     - Recyclable
     - HamsterWearable
+    - MouseWearable # Goobstation
     - WhitelistChameleon
-  - type: Armor # Goob
-    coverage:
-    - Head
-    traumaDeductions:
-      Dismemberment: 0.2
-      OrganDamage: 0.2
-      BoneDamage: 0.2
-      VeinsDamage: 0
-      NerveDamage: 0
-    modifiers:
-      coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
-        Heat: 0.8
 
 - type: entity
-  parent: [ClothingHeadHatBeretRND, BaseSecurityContraband] # Goob edit
+  parent: [ClothingHeadHatArmored, ClothingHeadHatBeretRND, BaseSecurityContraband] # Goob edit
   id: ClothingHeadHatBeretWarden
   name: warden's beret
   description: A corporate-blue beret with a warden's rank emblem. For officers that are more inclined towards style than safety.
@@ -372,21 +353,10 @@
     sprite: Clothing/Head/Hats/beret_warden.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/beret_warden.rsi
-  - type: Armor # Goob
-    coverage:
-    - Head
-    traumaDeductions:
-      Dismemberment: 0.2
-      OrganDamage: 0.2
-      BoneDamage: 0.2
-      VeinsDamage: 0
-      NerveDamage: 0
-    modifiers:
-      coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
-        Heat: 0.8
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
 
 - type: entity
   parent: ClothingHeadHatBeret
@@ -398,9 +368,13 @@
     sprite: Clothing/Head/Hats/beret_physician.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/beret_physician.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
 
 - type: entity
-  parent: [ClothingHeadHatBeret, BaseSecurityContraband] # Goob edit
+  parent: [ClothingHeadHatArmored, BaseSecurityContraband] # Goob edit
   id: ClothingHeadHatBeretBrigmedic
   name: brigmedical beret
   description: A white beret for brigmedics.
@@ -409,21 +383,10 @@
     sprite: Clothing/Head/Hats/beret_brigmedic.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/beret_brigmedic.rsi
-  - type: Armor # Goob
-    coverage:
-    - Head
-    traumaDeductions:
-      Dismemberment: 0.2
-      OrganDamage: 0.2
-      BoneDamage: 0.2
-      VeinsDamage: 0
-      NerveDamage: 0
-    modifiers:
-      coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
-        Heat: 0.8
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
 
 - type: entity
   parent: [ ClothingHeadBase ]
@@ -435,6 +398,10 @@
     sprite: Clothing/Head/Hats/beret_merc.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/beret_merc.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
 
 - type: entity
   parent: ClothingHeadBase
@@ -450,7 +417,10 @@
     tags:
     - ClothMade
     - HamsterWearable
+    - MouseWearable # Goobstation
     - WhitelistChameleon
+    - PetWearable
+    - CorgiWearable
 
 - type: entity
   parent: ClothingHeadBase
@@ -462,9 +432,13 @@
     sprite: Clothing/Head/Hats/bowler_hat.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/bowler_hat.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
 
 - type: entity
-  parent: [ ClothingHeadHatBeretRND, BaseCommandContraband ]
+  parent: [ ClothingHeadHatArmored, ClothingHeadHatBeretRND, BaseCommandContraband ] #goob
   id: ClothingHeadHatCaptain
   name: captain's hardhat
   description: Feels good being the king.
@@ -475,25 +449,13 @@
     sprite: Clothing/Head/Hats/captain.rsi
   - type: Tag
     tags:
+    - PetWearable
+    - CorgiWearable
     - ClothMade
     - Recyclable
     - HamsterWearable
+    - MouseWearable # Goobstation
     - WhitelistChameleon
-  - type: Armor # Goob
-    coverage:
-    - Head
-    traumaDeductions:
-      Dismemberment: 0.2
-      OrganDamage: 0.2
-      BoneDamage: 0.2
-      VeinsDamage: 0
-      NerveDamage: 0
-    modifiers:
-      coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
-        Heat: 0.8
 
 - type: entity
   parent: ClothingHeadBase
@@ -511,7 +473,7 @@
   - type: IngestionBlocker
 
 - type: entity
-  parent: [ ClothingHeadBase, BaseCentcommContraband ]
+  parent: [ ClothingHeadHatArmored, ClothingHeadBase, BaseCentcommContraband ] #goob
   id: ClothingHeadHatCentcom
   name: CentComm brand hat
   description: Feels good being the king's boss.
@@ -520,21 +482,10 @@
     sprite: Clothing/Head/Hats/centcom.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/centcom.rsi
-  - type: Armor # Goob
-    coverage:
-    - Head
-    traumaDeductions:
-      Dismemberment: 0.2
-      OrganDamage: 0.2
-      BoneDamage: 0.2
-      VeinsDamage: 0
-      NerveDamage: 0
-    modifiers:
-      coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
-        Heat: 0.8
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
 
 - type: entity
   parent: ClothingHeadBase
@@ -562,13 +513,16 @@
         - ChefPilot
   - type: Tag
     tags:
+    - PetWearable
+    - CorgiWearable
     - ClothMade
     - Recyclable
     - HamsterWearable
+    - MouseWearable # Goobstation
     - WhitelistChameleon
 
 - type: entity
-  parent: [ ClothingHeadBase, BaseSecurityContraband ] # Goob edit
+  parent: [ ClothingHeadHatArmored, ClothingHeadBase, BaseSecurityContraband ] # Goob edit
   id: ClothingHeadHatFedoraBrown
   name: brown fedora
   description: A brown fedora.
@@ -579,28 +533,16 @@
     sprite: Clothing/Head/Hats/brownfedora.rsi
   - type: Tag
     tags:
+    - PetWearable
+    - CorgiWearable
     - ClothMade
     - Recyclable
     - HamsterWearable
+    - MouseWearable # Goobstation
     - WhitelistChameleon
-  - type: Armor # Goob
-    coverage:
-    - Head
-    traumaDeductions:
-      Dismemberment: 0.2
-      OrganDamage: 0.2
-      BoneDamage: 0.2
-      VeinsDamage: 0
-      NerveDamage: 0
-    modifiers:
-      coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
-        Heat: 0.8
 
 - type: entity
-  parent: [ ClothingHeadBase, BaseSecurityContraband ] # Goob edit
+  parent: [ ClothingHeadHatArmored, ClothingHeadBase, BaseSecurityContraband ] # Goob edit
   id: ClothingHeadHatFedoraGrey
   name: grey fedora
   description: A grey fedora.
@@ -609,21 +551,10 @@
     sprite: Clothing/Head/Hats/greyfedora.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/greyfedora.rsi
-  - type: Armor # Goob
-    coverage:
-    - Head
-    traumaDeductions:
-      Dismemberment: 0.2
-      OrganDamage: 0.2
-      BoneDamage: 0.2
-      VeinsDamage: 0
-      NerveDamage: 0
-    modifiers:
-      coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
-        Heat: 0.8
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
 
 - type: entity
   parent: ClothingHeadBase
@@ -635,6 +566,10 @@
     sprite: Clothing/Head/Hats/fez.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/fez.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
 
 - type: entity
   parent: [ClothingHeadBase, BaseCommandContraband]
@@ -648,13 +583,16 @@
     sprite: Clothing/Head/Hats/hopcap.rsi
   - type: Tag
     tags:
+    - PetWearable
+    - CorgiWearable
     - ClothMade
     - Recyclable
     - HamsterWearable
+    - MouseWearable # Goobstation
     - WhitelistChameleon
 
 - type: entity
-  parent: [ClothingHeadBase, BaseCommandContraband]
+  parent: [ClothingHeadHatArmored, ClothingHeadBase, BaseCommandContraband] #goob
   id: ClothingHeadHatHoshat
   name: head of security cap
   description: A stylish cap worn by the Head of Security. Shows the officers who's in charge.
@@ -665,25 +603,13 @@
     sprite: Clothing/Head/Hats/hoshat.rsi
   - type: Tag
     tags:
+    - PetWearable
+    - CorgiWearable
     - ClothMade
     - Recyclable
     - HamsterWearable
+    - MouseWearable # Goobstation
     - WhitelistChameleon
-  - type: Armor # Goob
-    coverage:
-    - Head
-    traumaDeductions:
-      Dismemberment: 0.2
-      OrganDamage: 0.2
-      BoneDamage: 0.2
-      VeinsDamage: 0
-      NerveDamage: 0
-    modifiers:
-      coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
-        Heat: 0.8
 
 - type: entity
   parent: ClothingHeadBase
@@ -697,6 +623,10 @@
     sprite: Clothing/Head/Hats/outlawhat.rsi
   - type: StaticPrice
     price: 500
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
 
 - type: entity
   parent: ClothingHeadBase
@@ -708,6 +638,10 @@
     sprite: Clothing/Head/Hats/witchhat.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/witchhat.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
 
 - type: entity
   parent: ClothingHeadBase
@@ -719,6 +653,10 @@
     sprite: Clothing/Head/Hats/paper.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/paper.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
 
 - type: entity
   parent: ClothingHeadBase
@@ -730,6 +668,10 @@
     sprite: Clothing/Head/Hats/pirate.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/pirate.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
 
 - type: entity
   parent: ClothingHeadBase
@@ -764,6 +706,7 @@
     sprite: Clothing/Head/Hats/redwizard.rsi
   - type: Tag
     tags:
+    - PetWearable
     - CorgiWearable
     - ClothMade
     - WhitelistChameleon
@@ -796,8 +739,10 @@
     - state: icon-nobeard
       map: [ "foldedLayer" ]
       visible: true
-
-
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
 
 - type: entity
   parent: ClothingHeadBase
@@ -811,6 +756,10 @@
     sprite: Clothing/Head/Hats/sombrero.rsi
   - type: AddAccentClothing
     accent: SpanishAccent
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
 
 - type: entity
   parent: ClothingHeadBase
@@ -827,6 +776,7 @@
     - ClothMade
     - Recyclable
     - HamsterWearable
+    - MouseWearable # Goobstation
     - WhitelistChameleon
   - type: HideLayerClothing
     layers:
@@ -866,7 +816,6 @@
       HeadTop : HEAD
       HeadSide : HEAD
 
-
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatTophat
@@ -879,9 +828,12 @@
     sprite: Clothing/Head/Hats/tophat.rsi
   - type: Tag
     tags:
+    - PetWearable
+    - CorgiWearable
     - ClothMade
     - Recyclable
     - HamsterWearable
+    - MouseWearable # Goobstation
     - WhitelistChameleon
 
 - type: entity
@@ -914,6 +866,7 @@
     - WhitelistChameleon
     - DroneUsable
     - Ushanka
+    - MouseWearable # Goobstation
 
 - type: entity
   parent: ClothingHeadBase
@@ -965,12 +918,13 @@
     sprite: Clothing/Head/Hats/violetwizard.rsi
   - type: Tag
     tags:
+    - PetWearable
     - CorgiWearable
     - ClothMade
     - WhitelistChameleon
 
 - type: entity
-  parent: [ClothingHeadBase, BaseSecurityContraband] # Goob edit
+  parent: [ClothingHeadHatArmored, ClothingHeadBase, BaseSecurityContraband] # Goob edit
   id: ClothingHeadHatWarden
   name: warden's cap
   description: This hat emphasizes that you are THE LAW.
@@ -981,21 +935,10 @@
     sprite: Clothing/Head/Hats/warden.rsi
   - type: StealTarget
     stealGroup: ClothingHeadHatWarden
-  - type: Armor # Goob
-    coverage:
-    - Head
-    traumaDeductions:
-      Dismemberment: 0.2
-      OrganDamage: 0.2
-      BoneDamage: 0.2
-      VeinsDamage: 0
-      NerveDamage: 0
-    modifiers:
-      coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
-        Heat: 0.8
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
 
 - type: entity
   parent: ClothingHeadBase
@@ -1009,6 +952,8 @@
     sprite: Clothing/Head/Hats/witch.rsi
   - type: Tag
     tags:
+    - PetWearable
+    - CorgiWearable
     - WhitelistChameleon
     - ClothMade
     - Recyclable
@@ -1057,11 +1002,13 @@
     sprite: Clothing/Head/Hats/wizardhat.rsi
   - type: Tag
     tags:
+    - PetWearable
+    - CorgiWearable
     - ClothMade
     - Recyclable
     - HamsterWearable
+    - MouseWearable # Goobstation
     - WhitelistChameleon
-    - CorgiWearable
 
 - type: entity
   parent: ClothingHeadBase
@@ -1100,6 +1047,8 @@
       Hair: HEAD
       HeadTop : HEAD
       HeadSide : HEAD
+  - type: ScannableForPoints # goob edit
+    points: 1
 
 - type: entity
   parent: [ ClothingHeadBase, BaseSyndicateContraband ]
@@ -1116,6 +1065,8 @@
       Hair: HEAD
       HeadTop : HEAD
       HeadSide : HEAD
+  - type: ScannableForPoints # goob edit
+    points: 1
 
 - type: entity
   parent: [ ClothingHeadBase, BaseSyndicateContraband ]
@@ -1132,6 +1083,8 @@
       Hair: HEAD
       HeadTop : HEAD
       HeadSide : HEAD
+  - type: ScannableForPoints # goob edit
+    points: 1
 
 - type: entity
   parent: ClothingHeadBase
@@ -1204,6 +1157,7 @@
     - ClothMade
     - Recyclable
     - HamsterWearable
+    - MouseWearable # Goobstation
     - WhitelistChameleon
 
 - type: entity
@@ -1270,9 +1224,12 @@
     sprite: Clothing/Head/Hats/beret_cmo.rsi
   - type: Tag
     tags:
+    - PetWearable
+    - CorgiWearable
     - ClothMade
     - Recyclable
     - HamsterWearable
+    - MouseWearable # Goobstation
     - WhitelistChameleon
 
 - type: entity
@@ -1332,6 +1289,8 @@
     sprite: Clothing/Head/Hats/syndiecap.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/syndiecap.rsi
+  - type: ScannableForPoints # goob edit
+    points: 1
 
 - type: entity
   parent: ClothingHeadBase
@@ -1399,9 +1358,12 @@
     containers:
       storagebase: !type:Container
   - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: [ClothingHeadHatArmored, ClothingHeadBase] #goob
   id: ClothingHeadHatCapcap
   name: cap cap
   description: A grand, stylish cap worn by the Captain. Shows the station who's in charge.
@@ -1414,32 +1376,20 @@
     sprite: Clothing/Head/Hats/capcap.rsi
   - type: Tag
     tags:
+    - PetWearable
+    - CorgiWearable
     - ClothMade
     - Recyclable
     - WhitelistChameleon
     - HamsterWearable
+    - MouseWearable # Goobstation
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-inanimate
     weight: 0.0002 # 5,000 times less likely than 1 regular animal
   - type: BlockMovement
-  - type: Armor # Goob
-    coverage:
-    - Head
-    traumaDeductions:
-      Dismemberment: 0.2
-      OrganDamage: 0.2
-      BoneDamage: 0.2
-      VeinsDamage: 0
-      NerveDamage: 0
-    modifiers:
-      coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
-        Heat: 0.8
 
 - type: entity
-  parent: [ ClothingHeadBase, BaseCentcommContraband ]
+  parent: [ ClothingHeadHatArmored, ClothingHeadBase, BaseCentcommContraband ] #goob
   id: ClothingHeadHatCentcomcap
   name: CentComm cap
   description: An extravagant, stylish cap worn by CentComm officials. Shows the Captain who's in charge.
@@ -1452,25 +1402,14 @@
     sprite: Clothing/Head/Hats/comcap.rsi
   - type: Tag
     tags:
+    - PetWearable
+    - CorgiWearable
     - ClothMade
     - Recyclable
     - WhitelistChameleon
     - HamsterWearable
-  - type: Armor # Goob
-    coverage:
-    - Head
-    traumaDeductions:
-      Dismemberment: 0.2
-      OrganDamage: 0.2
-      BoneDamage: 0.2
-      VeinsDamage: 0
-      NerveDamage: 0
-    modifiers:
-      coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
-        Heat: 0.8
+    - MouseWearable # Goobstation
+
 
 - type: entity
   parent: ClothingHeadBase
@@ -1500,9 +1439,12 @@
     sprite: Clothing/Head/Hats/party_red.rsi
   - type: Tag
     tags:
-      - WhitelistChameleon
-      - HamsterWearable
-      - DroneUsable # Goobstation
+    - PetWearable
+    - CorgiWearable
+    - WhitelistChameleon
+    - HamsterWearable
+    - MouseWearable # Goobstation
+    - DroneUsable # Goobstation
 
 - type: entity
   parent: ClothingHeadHatPartyRed
@@ -1513,6 +1455,13 @@
     sprite: Clothing/Head/Hats/party_yellow.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/party_yellow.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - WhitelistChameleon
+    - HamsterWearable
+    - MouseWearable # Goobstation
 
 - type: entity
   parent: ClothingHeadHatPartyRed
@@ -1523,6 +1472,13 @@
     sprite: Clothing/Head/Hats/party_green.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/party_green.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - WhitelistChameleon
+    - HamsterWearable
+    - MouseWearable # Goobstation
 
 - type: entity
   parent: ClothingHeadHatPartyRed
@@ -1533,6 +1489,13 @@
     sprite: Clothing/Head/Hats/party_blue.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/party_blue.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - WhitelistChameleon
+    - HamsterWearable
+    - MouseWearable # Goobstation
 
 - type: entity
   parent: ClothingHeadHatPartyRed
@@ -1544,6 +1507,13 @@
     sprite: Clothing/Head/Hats/party_water_cup.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/party_water_cup.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - WhitelistChameleon
+    - HamsterWearable
+    - MouseWearable # Goobstation
 
 - type: entity
   parent: ClothingHeadBase
@@ -1586,6 +1556,13 @@
     - type: AddAccentClothing
       accent: ReplacementAccent
       replacement: cowboy
+    - type: Tag
+      tags:
+      - PetWearable
+      - CorgiWearable
+      - WhitelistChameleon
+      - HamsterWearable
+      - MouseWearable # Goobstation
 
 - type: entity
   parent: ClothingHeadHatCowboyBrown
@@ -1596,6 +1573,13 @@
       sprite: Clothing/Head/Hats/cowboyhatblack.rsi
     - type: Clothing
       sprite: Clothing/Head/Hats/cowboyhatblack.rsi
+    - type: Tag
+      tags:
+      - PetWearable
+      - CorgiWearable
+      - WhitelistChameleon
+      - HamsterWearable
+      - MouseWearable # Goobstation
 
 - type: entity
   parent: ClothingHeadHatCowboyBrown
@@ -1606,6 +1590,13 @@
       sprite: Clothing/Head/Hats/cowboyhatgrey.rsi
     - type: Clothing
       sprite: Clothing/Head/Hats/cowboyhatgrey.rsi
+    - type: Tag
+      tags:
+      - PetWearable
+      - CorgiWearable
+      - WhitelistChameleon
+      - HamsterWearable
+      - MouseWearable # Goobstation
 
 - type: entity
   parent: ClothingHeadHatCowboyBrown
@@ -1616,6 +1607,13 @@
       sprite: Clothing/Head/Hats/cowboyhatred.rsi
     - type: Clothing
       sprite: Clothing/Head/Hats/cowboyhatred.rsi
+    - type: Tag
+      tags:
+      - PetWearable
+      - CorgiWearable
+      - WhitelistChameleon
+      - HamsterWearable
+      - MouseWearable # Goobstation
 
 - type: entity
   parent: ClothingHeadHatCowboyBrown
@@ -1626,6 +1624,13 @@
       sprite: Clothing/Head/Hats/cowboyhatwhite.rsi
     - type: Clothing
       sprite: Clothing/Head/Hats/cowboyhatwhite.rsi
+    - type: Tag
+      tags:
+      - PetWearable
+      - CorgiWearable
+      - WhitelistChameleon
+      - HamsterWearable
+      - MouseWearable # Goobstation
 
 - type: entity
   parent: ClothingHeadHatCowboyBrown
@@ -1636,6 +1641,13 @@
       sprite: Clothing/Head/Hats/cowboyhatbountyhunter.rsi
     - type: Clothing
       sprite: Clothing/Head/Hats/cowboyhatbountyhunter.rsi
+    - type: Tag
+      tags:
+      - PetWearable
+      - CorgiWearable
+      - WhitelistChameleon
+      - HamsterWearable
+      - MouseWearable # Goobstation
 
 - type: entity
   parent: ClothingHeadBase
@@ -1652,7 +1664,10 @@
     node: strawhat
   - type: Tag
     tags:
+    - PetWearable
+    - CorgiWearable
     - HamsterWearable
+    - MouseWearable # Goobstation
   - type: Flammable
     fireSpread: true
     canResistFire: false
@@ -1691,6 +1706,10 @@
     sprite: Clothing/Head/Hats/beret_medic.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/beret_medic.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
 
 - type: entity
   parent: ClothingHeadBase
@@ -1702,6 +1721,10 @@
     sprite: Clothing/Head/Hats/solidheadband.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/solidheadband.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
 
 - type: entity
   parent: ClothingHeadBase
@@ -1735,20 +1758,7 @@
       path: /Audio/Items/flashlight_on.ogg
     soundDeactivate:
       path: /Audio/Items/flashlight_off.ogg
-
-- type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadHatBeretHop
-  name: head of personnel's beret
-  description: A dark blue beret with a ruby inserted in the center, for true connoisseurs of bureaucracy!
-  components:
-  - type: Sprite
-    sprite: Clothing/Head/Hats/beret_hop.rsi
-  - type: Clothing
-    sprite: Clothing/Head/Hats/beret_hop.rsi
   - type: Tag
     tags:
-    - HamsterWearable
-    - ClothMade
-    - Recyclable
-    - WhitelistChameleon
+    - PetWearable
+    - CorgiWearable

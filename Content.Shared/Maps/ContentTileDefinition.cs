@@ -61,8 +61,7 @@ namespace Content.Shared.Maps
     [Prototype("tile")]
     public sealed partial class ContentTileDefinition : IPrototype, IInheritingPrototype, ITileDefinition
     {
-        [ValidatePrototypeId<ToolQualityPrototype>]
-        public const string PryingToolQuality = "Prying";
+        public static readonly ProtoId<ToolQualityPrototype> PryingToolQuality = "Prying";
 
         public const string SpaceID = "Space";
 
@@ -186,5 +185,11 @@ namespace Content.Shared.Maps
 
         [DataField]
         public float TileRipResistance = 125f;
+
+        /// <summary>
+        /// If true, decals on this tile cannot be cleaned by mops or space cleaner.
+        /// </summary>
+        [DataField]
+        public bool ProtectDecals = false; // Goob
     }
 }

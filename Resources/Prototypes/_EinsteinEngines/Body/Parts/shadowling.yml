@@ -1,0 +1,110 @@
+- type: entity
+  id: PartShadowling
+  parent: PartHuman
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Mobs/Species/Shadowling/parts.rsi
+    state: "chest_m"
+  - type: BodyPart
+    species: Shadowling
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 5
+      - ReagentId: FluorosulfuricAcid
+        Quantity: 10
+
+- type: entity
+  id: ChestShadowling
+  name: "Shadowling chest"
+  parent: [BaseChest, PartShadowling]
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: FluorosulfuricAcid
+        Quantity: 20
+
+- type: entity
+  id: GroinShadowling
+  name: "Shadowling groin"
+  parent: [BaseGroin, PartShadowling]
+  components:
+  - type: Sprite
+    state: "groin_m"
+
+- type: entity
+  id: HeadShadowling
+  name: "Shadowling head"
+  parent: [BaseHead, PartShadowling]
+  components:
+  - type: Sprite
+    state: "head_m"
+
+- type: entity
+  id: LeftArmShadowling
+  name: "left Shadowling arm"
+  parent: [BaseLeftArm, PartShadowling]
+  components:
+  - type: Sprite
+    state: "l_arm"
+
+- type: entity
+  id: RightArmShadowling
+  name: "right Shadowling arm"
+  parent: [BaseRightArm, PartShadowling]
+  components:
+  - type: Sprite
+    state: "r_arm"
+
+- type: entity
+  id: LeftHandShadowling
+  name: "left Shadowling hand"
+  parent: [BaseLeftHand, PartShadowling]
+  components:
+  - type: Sprite
+    state: "l_hand"
+
+- type: entity
+  id: RightHandShadowling
+  name: "right Shadowling hand"
+  parent: [BaseRightHand, PartShadowling]
+  components:
+  - type: Sprite
+    state: "r_hand"
+
+- type: entity
+  id: LeftLegShadowling
+  name: "left Shadowling leg"
+  parent: [BaseLeftLeg, PartShadowling]
+  components:
+  - type: Sprite
+    state: "l_leg"
+
+- type: entity
+  id: RightLegShadowling
+  name: "right Shadowling leg"
+  parent: [BaseRightLeg, PartShadowling]
+  components:
+  - type: Sprite
+    state: "r_leg"
+
+- type: entity
+  id: LeftFootShadowling
+  name: "left Shadowling foot"
+  parent: [BaseLeftFoot, PartShadowling]
+  components:
+  - type: Sprite
+    state: "l_foot"
+
+- type: entity
+  id: RightFootShadowling
+  name: "right Shadowling foot"
+  parent: [BaseRightFoot, PartShadowling]
+  components:
+  - type: Sprite
+    state: "r_foot"

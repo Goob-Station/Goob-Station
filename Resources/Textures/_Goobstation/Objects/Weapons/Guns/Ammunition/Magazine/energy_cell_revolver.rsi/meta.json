@@ -22,7 +22,7 @@
             "name": "xray"
         },
         {
-            "name": "pulse_charge",
+            "name": "bluespace_charge",
             "delays": [
                 [
                     0.1,
@@ -33,7 +33,7 @@
             ]
         },
         {
-            "name": "pulse"
+            "name": "bluespace"
         },
         {
             "name": "overcharge_charge",
@@ -76,6 +76,9 @@
         },
         {
             "name": "ion"
+        },
+        {
+            "name": "bluespace_research"
         }
     ]
 }

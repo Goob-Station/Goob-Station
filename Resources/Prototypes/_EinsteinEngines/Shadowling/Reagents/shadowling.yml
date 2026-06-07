@@ -1,0 +1,26 @@
+- type: reagent
+  id: ShadowlingToxin
+  name: reagent-name-shadowling-toxin
+  desc: reagent-desc-shadowling-toxin
+  physicalDesc: reagent-physical-desc-syrupy
+  color: "#702963"
+  group: Narcotics
+  flavor: sharp
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealShadowling
+        damage:
+          groups: # goob edit
+            Burn: -12
+            Brute: -12
+          types:
+            Caustic: -12
+            Poison: -12
+            Bloodloss: -12
+    Narcotic:
+      effects:
+      - !type:BlindNonShadowling
+        conditions:
+        - !type:ReagentThreshold
+          min: 5

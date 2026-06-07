@@ -1,0 +1,8 @@
+- type: speechSounds
+  id: Hastur
+  saySound:
+    path: /Audio/_Goobstation/Misc/Hastur/growl.ogg
+  askSound:
+    path: /Audio/_Goobstation/Misc/Hastur/growl.ogg
+  exclaimSound:
+    path: /Audio/_Goobstation/Misc/Hastur/growl.ogg

@@ -1,0 +1,16 @@
+- type: tile
+  abstract: true
+  id: CMTileBase
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepFloor
+
+- type: tile
+  abstract: true
+  id: CMPlanetBase
+  isSubfloor: true
+  deconstructTools: [ ]
+  footstepSounds:
+    collection: FootstepGrass

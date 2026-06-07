@@ -87,6 +87,7 @@
   - MineralScannerEmpty
   - OreProcessorIndustrialMachineCircuitboard
   - ClothingMaskWeldingGas
+  - ClothingShoesBootsJump
   # Goobstation R&D Console rework start
   position: 0,-4
   technologyPrerequisites:
@@ -104,7 +105,7 @@
   cost: 5000
   recipeUnlocks:
   - RadarConsoleCircuitboard
-#  - HandHeldMassScanner - Removed by Lavaland
+  - HandHeldMassScanner
   # Goobstation R&D Console rework start
   position: 0,-3
   technologyPrerequisites:
@@ -167,7 +168,6 @@
   - LatheUpgradeKitCryo
   # End DeltaV Additions
   # Begin Goobstation Additions
-  - UpgradeKitAutomation
   - RoboticArmCircuitboard
   - ConstructorCircuitboard
   - StorageBinCircuitboard
@@ -256,6 +256,7 @@
   - ThrusterMachineCircuitboard
   - GyroscopeMachineCircuitboard
   - MiniGravityGeneratorCircuitboard
+  - MachineFTLDriveCircuitboard # Frontier
   # Goobstation R&D Console rework start
   position: 2,-4
   technologyPrerequisites:

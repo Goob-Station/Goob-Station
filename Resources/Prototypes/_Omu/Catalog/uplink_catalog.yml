@@ -1,0 +1,14 @@
+- type: listing
+  id: UplinkDislippler
+  name: uplink-dislippler-name
+  description: uplink-dislippler-desc
+  icon: { sprite: _Omu/Objects/Weapons/Guns/Battery/dislippler.rsi, state: base }
+  productEntity: WeaponDislippler
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Clown

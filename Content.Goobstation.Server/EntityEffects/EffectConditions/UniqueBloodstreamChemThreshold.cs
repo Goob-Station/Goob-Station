@@ -8,6 +8,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Body.Components;
+using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
@@ -27,7 +28,7 @@ public sealed partial class UniqueBloodstreamChemThreshold : EntityEffectConditi
         if (args.EntityManager.TryGetComponent<BloodstreamComponent>(args.TargetEntity, out var blood))
         {
             if (args.EntityManager.System<SharedSolutionContainerSystem>().ResolveSolution(args.TargetEntity, blood.ChemicalSolutionName, ref blood.ChemicalSolution, out var chemSolution))
-                return chemSolution.Contents.Count > Min && chemSolution.Contents.Count < Max;
+                return chemSolution.Contents.Count >= Min && chemSolution.Contents.Count <= Max;
             return false;
         }
         throw new NotImplementedException();

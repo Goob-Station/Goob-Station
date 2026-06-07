@@ -19,10 +19,11 @@ thief-role-greeting-animal =
 
 thief-role-greeting-equipment =
     You have a satchel of thieves'
-    tools and chameleon thieves' gloves.
+    tools and possess the innate
+    ability to steal without notice.
     Choose your starting equipment,
     and do your work stealthily.
 
 objective-issuer-thief = [color=#746694]Criminal[/color]
 
-thief-round-end-agent-name = thief
+thief-round-end-agent-name = a thief

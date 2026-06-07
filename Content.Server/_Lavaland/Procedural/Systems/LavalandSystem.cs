@@ -24,9 +24,10 @@
 using Content.Server._Lavaland.Procedural.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Decals;
+using Content.Server.GameTicking;
 using Content.Server.Parallax;
+using Content.Server.Procedural;
 using Content.Server.Shuttles.Systems;
-using Content.Shared._Lavaland.Procedural.Prototypes;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Content.Shared.Mobs.Components;
@@ -58,6 +59,7 @@ public sealed partial class LavalandSystem : EntitySystem
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
     [Dependency] private readonly BiomeSystem _biome = default!;
     [Dependency] private readonly DecalSystem _decals = default!;
+    [Dependency] private readonly DungeonSystem _dungeon = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
@@ -72,6 +74,7 @@ public sealed partial class LavalandSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<LoadingMapsEvent>(OnLoadingMaps);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
         SubscribeLocalEvent<MobStateComponent, EntParentChangedMessage>(OnPlayerParentChange);
 
@@ -80,6 +83,18 @@ public sealed partial class LavalandSystem : EntitySystem
         _fixtureQuery = GetEntityQuery<FixturesComponent>();
 
         Subs.CVar(_config, CCVars.LavalandEnabled, value => LavalandEnabled = value, true);
+    }
+
+    private void OnLoadingMaps(LoadingMapsEvent ev)
+    {
+        EnsurePreloaderMap();
+        foreach (var gameMap in ev.Maps)
+        {
+            foreach (var planetEntry in gameMap.Planets)
+            {
+                SetupLavalandPlanet(planetEntry, out _);
+            }
+        }
     }
 
     private void OnRoundRestart(RoundRestartCleanupEvent ev)
@@ -140,19 +155,5 @@ public sealed partial class LavalandSystem : EntitySystem
         }
 
         return lavalands;
-    }
-
-    /// <summary>
-    /// Setup ALL instances of LavalandMapPrototype.
-    /// </summary>
-    public void SetupLavalands()
-    {
-        foreach (var lavaland in _proto.EnumeratePrototypes<LavalandMapPrototype>())
-        {
-            if (!SetupLavalandPlanet(out _, lavaland))
-            {
-                Log.Error($"Failed to load lavaland planet: {lavaland.ID}");
-            }
-        }
     }
 }

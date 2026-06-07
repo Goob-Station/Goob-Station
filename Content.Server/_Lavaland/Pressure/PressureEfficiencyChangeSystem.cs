@@ -31,6 +31,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Projectiles;
+using Content.Shared.Wieldable;
 
 namespace Content.Server._Lavaland.Pressure;
 
@@ -44,7 +45,7 @@ public sealed class PressureEfficiencyChangeSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<PressureDamageChangeComponent, ExaminedEvent>(OnExamined);
-        SubscribeLocalEvent<PressureDamageChangeComponent, GetMeleeDamageEvent>(OnGetDamage);
+        SubscribeLocalEvent<PressureDamageChangeComponent, GetMeleeDamageEvent>(OnGetDamage, after: new []{typeof(SharedWieldableSystem)});
         SubscribeLocalEvent<PressureDamageChangeComponent, GunShotEvent>(OnGunShot);
         SubscribeLocalEvent<PressureDamageChangeComponent, ProjectileShotEvent>(OnProjectileShot);
 
@@ -67,8 +68,7 @@ public sealed class PressureEfficiencyChangeSystem : EntitySystem
     private void OnGetDamage(Entity<PressureDamageChangeComponent> ent, ref GetMeleeDamageEvent args)
     {
         if (!ApplyModifier(ent)
-            || !ent.Comp.ApplyToMelee
-            || !ent.Comp.Enabled)
+            || !ent.Comp.ApplyToMelee)
             return;
 
         args.Damage *= ent.Comp.AppliedModifier;
@@ -77,8 +77,7 @@ public sealed class PressureEfficiencyChangeSystem : EntitySystem
     private void OnGunShot(Entity<PressureDamageChangeComponent> ent, ref GunShotEvent args)
     {
         if (!ApplyModifier(ent)
-            || !ent.Comp.ApplyToProjectiles
-            || !ent.Comp.Enabled)
+            || !ent.Comp.ApplyToProjectiles)
             return;
 
         foreach (var (uid, _) in args.Ammo)
@@ -89,8 +88,8 @@ public sealed class PressureEfficiencyChangeSystem : EntitySystem
     private void OnProjectileShot(Entity<PressureDamageChangeComponent> ent, ref ProjectileShotEvent args)
     {
         if (!ApplyModifier(ent)
-            || !TryComp<ProjectileComponent>(args.FiredProjectile, out var projectile)
-            || !ent.Comp.ApplyToProjectiles)
+            || !ent.Comp.ApplyToProjectiles
+            || !TryComp<ProjectileComponent>(args.FiredProjectile, out var projectile))
             return;
 
         projectile.Damage *= ent.Comp.AppliedModifier;
@@ -99,8 +98,8 @@ public sealed class PressureEfficiencyChangeSystem : EntitySystem
     public bool ApplyModifier(Entity<PressureDamageChangeComponent> ent)
     {
         var pressure = _atmos.GetTileMixture((ent.Owner, Transform(ent)))?.Pressure ?? 0f;
-        return (pressure >= ent.Comp.LowerBound
-                && pressure <= ent.Comp.UpperBound) == ent.Comp.ApplyWhenInRange;
+        return ent.Comp.Enabled && ((pressure >= ent.Comp.LowerBound
+            && pressure <= ent.Comp.UpperBound) == ent.Comp.ApplyWhenInRange);
     }
 
     private void OnArmorExamined(Entity<PressureArmorChangeComponent> ent, ref ExaminedEvent args)

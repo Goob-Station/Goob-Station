@@ -113,8 +113,7 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
 
     public readonly EntityUid Console;
 
-    [ValidatePrototypeId<LocalizedDatasetPrototype>]
-    private const string ReasonPlaceholders = "CriminalRecordsWantedReasonPlaceholders";
+    private static readonly ProtoId<LocalizedDatasetPrototype> ReasonPlaceholders = "CriminalRecordsWantedReasonPlaceholders";
 
     public Action<uint?>? OnKeySelected;
     public Action<StationRecordFilterType, string>? OnFiltersChanged;
@@ -293,9 +292,10 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
             return;
         }
 
-        var entries = listing.Select(i => new ItemList.Item(RecordListing) {
-                Text = i.Value,
-                Metadata = i.Key
+        var entries = listing.Select(i => new ItemList.Item(RecordListing)
+        {
+            Text = i.Value,
+            Metadata = i.Key
         }).ToList();
         entries.Sort((a, b) => string.Compare(a.Text, b.Text, StringComparison.Ordinal));
         RecordListing.SetItems(entries, (a,b) => string.Compare(a.Text, b.Text));
@@ -356,7 +356,8 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
         if (status == SecurityStatus.Wanted
             || status == SecurityStatus.Suspected
             || status == SecurityStatus.Search
-            || status == SecurityStatus.Dangerous)
+            || status == SecurityStatus.Dangerous
+            || status == SecurityStatus.Demote) // Goobstation
         {
             GetReason(status);
             return;
@@ -375,7 +376,7 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
 
         var field = "reason";
         var title = Loc.GetString("criminal-records-status-" + status.ToString().ToLower());
-        var placeholders = _proto.Index<LocalizedDatasetPrototype>(ReasonPlaceholders);
+        var placeholders = _proto.Index(ReasonPlaceholders);
         var placeholder = Loc.GetString("criminal-records-console-reason-placeholder", ("placeholder", _random.Pick(placeholders))); // just funny it doesn't actually get used
         var prompt = Loc.GetString("criminal-records-console-reason");
         var entry = new QuickDialogEntry(field, QuickDialogEntryType.LongText, prompt, placeholder);
@@ -405,6 +406,7 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
             SecurityStatus.Search => "hud_search",
             SecurityStatus.Perma => "hud_perma",
             SecurityStatus.Dangerous => "hud_dangerous",
+            SecurityStatus.Demote => "hud_demote", // Goobstation
             _ => "SecurityIconNone"
         };
     }

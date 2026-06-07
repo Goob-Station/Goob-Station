@@ -13,6 +13,8 @@ namespace Content.Client._Shitcode.Wizard.Systems;
 
 public sealed class BindSoulSystem : SharedBindSoulSystem
 {
+    [Dependency] private readonly SpriteSystem _sprite = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -26,10 +28,14 @@ public sealed class BindSoulSystem : SharedBindSoulSystem
             return;
 
         var color = Color.FromHex("#003300");
+        var drawDepth = (int) Shared.DrawDepth.DrawDepth.Items;
+
+        if (sprite.DrawDepth < drawDepth)
+            _sprite.SetDrawDepth((ent.Owner, sprite), drawDepth);
 
         for (var i = 0; i < sprite.AllLayers.Count(); i++)
         {
-            sprite.LayerSetColor(i, color);
+            _sprite.LayerSetColor((ent.Owner, sprite), i, color);
         }
     }
 }

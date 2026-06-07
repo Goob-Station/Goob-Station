@@ -9,6 +9,7 @@ using Content.Server.IdentityManagement;
 using Content.Server.Popups;
 using Content.Server.Prayer;
 using Robust.Shared.Player;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Server.SlaughterDemon;
 
@@ -24,7 +25,7 @@ public sealed class DemonicWhisperSystem : EntitySystem
     [Dependency] private readonly IdentitySystem _identity = default!;
 
     private EntityQuery<ActorComponent> _actorQuery;
-    /// <inheritdoc/>
+
     public override void Initialize()
     {
         base.Initialize();
@@ -48,7 +49,7 @@ public sealed class DemonicWhisperSystem : EntitySystem
 
             _popup.PopupEntity(Loc.GetString("demonic-whisper-whisper",
                 ("name", _identity.GetEntityIdentity(target)),
-                ("message", message)),
+                ("message", FormattedMessage.EscapeText(message))),
                 ent.Owner);
         });
     }

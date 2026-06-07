@@ -78,11 +78,15 @@
       - Medical
       - Quartermaster
       - Research
+      - Robotics # goobstation
+      - Journalism # goobstation
       - ResearchDirector
       - Salvage
       - Security
       - Service
       - Theatre
+      - GenpopEnter
+      - GenpopLeave
       privilegedIdSlot:
         name: id-card-console-privileged-id
         ejectSound: /Audio/Machines/id_swipe.ogg
@@ -162,6 +166,8 @@
     - SyndicateAgent
     - NanotrasenRepresentative # goobstation
     - BlueshieldOfficer # goobstation
+    - Robotics # goobstation
+    - Journalism # goobstation
     - Wizard
     - Xenoborg
     - GenpopEnter

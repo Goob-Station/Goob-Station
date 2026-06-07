@@ -101,6 +101,7 @@
     - type: SurveillanceCamera
       setupAvailableNetworks:
         - SurveillanceCameraEntertainment
+      mobile: True  # Goobstation - mobile cameras fix
 
 - type: entity
   parent: SurveillanceWirelessCameraMovableBase
@@ -114,6 +115,7 @@
     - type: SurveillanceCamera
       setupAvailableNetworks:
         - SurveillanceCameraEntertainment
+      mobile: True  # Goobstation - mobile cameras fix
 
 - type: entity
   parent: SurveillanceWirelessCameraAnchoredBase
@@ -126,6 +128,7 @@
       transmitFrequencyId: SurveillanceCamera
     - type: SurveillanceCamera
       networkSet: true
+      mobile: True # Goobstation - mobile cameras fix
 
 - type: entity
   parent: SurveillanceWirelessCameraMovableBase
@@ -138,3 +141,4 @@
       transmitFrequencyId: SurveillanceCamera
     - type: SurveillanceCamera
       networkSet: true
+      mobile: True # Goobstation - mobile cameras fix

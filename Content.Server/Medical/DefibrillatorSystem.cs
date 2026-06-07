@@ -325,7 +325,7 @@ public sealed class DefibrillatorSystem : EntitySystem
             // Shitmed Change End
             if (_mobThreshold.TryGetThresholdForState(target, MobState.Dead, out var threshold) &&
                 TryComp<DamageableComponent>(target, out var damageableComponent) &&
-                damageableComponent.TotalDamage < threshold)
+                _mobThreshold.CheckVitalDamage(target, damageableComponent) < threshold) // GoobStation
             {
                 _mobState.ChangeMobState(target, MobState.Critical, mob, uid);
                 dead = false;

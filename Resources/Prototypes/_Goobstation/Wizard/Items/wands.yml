@@ -26,6 +26,7 @@
     size: Normal
   - type: AmmoCounter
   - type: Gun
+    projectileSpeed: 20
     soundEmpty: null
     soundMode: null
     clumsyProof: true

@@ -103,8 +103,8 @@
     behaviours:
      - !type:FadeBehaviour
        interpolate: Linear
-       minduration: 1.75
-       maxduration: 1.75
+       minDuration: 1.75
+       maxDuration: 1.75
        startValue: 0.5
        endValue: 12
        property: Energy

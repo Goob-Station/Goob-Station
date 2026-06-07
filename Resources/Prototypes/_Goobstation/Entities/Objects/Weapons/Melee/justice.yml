@@ -48,6 +48,8 @@
     damage:
       types:
         Slash: 12
+      woundSeverityMultipliers:
+        Slash: 2
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
     angle: 60
@@ -69,6 +71,11 @@
       - Alive
   - type: StealTarget
     stealGroup: WeaponSecHeadSword
+  - type: IntrinsicRadioReceiver
+  - type: ActiveRadio
+    channels:
+    - Common
+    - Security
   - type: ItemSwitch
     needsPower: true
     defaultState: off
@@ -88,6 +95,8 @@
           damage:
             types:
               Slash: 12
+            woundSeverityMultipliers:
+              Slash: 2
           soundHit:
             path: /Audio/Weapons/bladeslice.ogg
           angle: 60
@@ -155,6 +164,8 @@
             types:
               Slash: 6
               Heat: 12
+            woundSeverityMultipliers:
+              Slash: 2
           angle: 60
           animation: WeaponArcThrust
           soundHit:

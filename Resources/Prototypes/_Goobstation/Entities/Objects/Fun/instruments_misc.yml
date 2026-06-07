@@ -1,0 +1,81 @@
+# SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Clon clover <76759079+noudoit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Bandit <queenjess521@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+   #Goobstation
+- type: entity
+  parent: [BaseHandheldInstrument, Clothing]
+  id: BaseCassette
+  abstract: true
+  components:
+  - type: Instrument
+    program: 62
+  - type: SwappableInstrument
+    instrumentList:
+      "Synth": { 62: 0 }
+      "Friend": { 2: 0 }
+      "Overdriven": { 29: 0 }
+  - type: Item
+    size: Small
+  - type: Clothing
+    slots:
+    - neck
+  - type: ActivatableUI
+    inHandsOnly: false
+
+- type: entity
+  parent: [BaseCassette, BaseSyndicateContraband]
+  id: BloodredCassette
+  name: bloodred cassette player
+  description: The least subtle way to enjoy your favorite tunes.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/bloodred_cassette_player.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Objects/Fun/bloodred_cassette_player.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Goobstation/Objects/Fun/bloodred_cassette_player.rsi
+
+- type: entity
+  parent: BaseCassette
+  id: CrewCassette
+  name: cassette player
+  description: Regular old cassette player to enjoy your tunes on the go.
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Objects/Fun/crew_cassette_player.rsi
+      state: icon
+    - type: Item
+      sprite: _Goobstation/Objects/Fun/crew_cassette_player.rsi
+    - type: Clothing
+      quickEquip: false
+      sprite: _Goobstation/Objects/Fun/crew_cassette_player.rsi
+
+- type: entity
+  parent: BaseCassette
+  id: ExecutiveCassette
+  name: executive cassette player
+  description: Perfect to make you look like you do mergers and acquisitions.
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Objects/Fun/executive_cassette_player.rsi
+      state: icon
+    - type: Item
+      sprite: _Goobstation/Objects/Fun/executive_cassette_player.rsi
+    - type: Clothing
+      quickEquip: false
+      sprite: _Goobstation/Objects/Fun/executive_cassette_player.rsi

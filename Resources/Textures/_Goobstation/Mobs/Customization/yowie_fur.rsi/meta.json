@@ -1,7 +1,7 @@
 {
-    "version": 1,
+    "version": 2,
     "license": "CC-BY-SA-3.0",
-    "copyright": "BeeRobyn on discord & Github",
+    "copyright": "BeeRobyn on discord & Github, edited into individual limbs by gnusnotutopia",
     "size": {
         "x": 32,
         "y": 32
@@ -17,6 +17,34 @@
         },
         {
             "name": "yowie_fur_feet_left",
+            "directions": 4
+        },
+        {
+            "name": "yowie_fur_chest",
+            "directions": 4
+        },
+        {
+            "name": "yowie_fur_groin",
+            "directions": 4
+        },
+        {
+            "name": "yowie_fur_arm_right",
+            "directions": 4
+        },
+        {
+            "name": "yowie_fur_arm_left",
+            "directions": 4
+        },
+        {
+            "name": "yowie_fur_leg_right",
+            "directions": 4
+        },
+        {
+            "name": "yowie_fur_leg_left",
+            "directions": 4
+        },
+        {
+            "name": "yowie_fur_head",
             "directions": 4
         }
     ]

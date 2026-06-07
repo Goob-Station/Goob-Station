@@ -259,6 +259,21 @@
 # utility
 
 - type: listing
+  id: EvolutionMenuUtilityInstinct
+  name: evolutionmenu-utility-instinct-name
+  description: evolutionmenu-utility-instinct-desc
+  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: awakened_instinct }
+  productEvent: !type:AwakenedInstinctPurchasedEvent
+  raiseProductEventOnUser: true
+  cost:
+    EvolutionPoint: 0
+  categories:
+  - ChangelingAbilityUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
   id: EvolutionMenuUtilityPanacea
   name: evolutionmenu-utility-panacea-name
   description: evolutionmenu-utility-panacea-desc
@@ -277,7 +292,6 @@
   name: evolutionmenu-utility-eyesight-name
   description: evolutionmenu-utility-eyesight-desc
   icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: augmented_eyesight }
-  productAction: ActionAugmentedEyesight
   productEvent: !type:AugmentedEyesightPurchasedEvent
   raiseProductEventOnUser: true
   cost:
@@ -307,7 +321,8 @@
   name: evolutionmenu-utility-chameleon-name
   description: evolutionmenu-utility-chameleon-desc
   icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: chameleon_skin }
-  productAction: ActionChameleonSkin
+  productEvent: !type:ChameleonSkinPurchasedEvent
+  raiseProductEventOnUser: true
   cost:
     EvolutionPoint: 4
   categories:
@@ -317,11 +332,12 @@
     stock: 1
 
 - type: listing
-  id: EvolutionMenuUtilityAdaption
+  id: EvolutionMenuUtilityVoidAdaption
   name: evolutionmenu-utility-voidadapt-name
   description: evolutionmenu-utility-voidadapt-desc
   icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: void_adaptation }
-  productAction: ActionVoidAdapt
+  productEvent: !type:VoidAdaptionPurchasedEvent
+  raiseProductEventOnUser: true
   cost:
     EvolutionPoint: 4
   categories:

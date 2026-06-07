@@ -127,9 +127,25 @@ public partial class PainSystem
         if (!Resolve(uid, ref nerveSys, false))
             return false;
 
-        var modifier = new PainModifier(change, MetaData(nerveUid).EntityPrototype!.ID, painType, _timing.CurTime + time);
-        if (!nerveSys.Modifiers.TryAdd((nerveUid, identifier), modifier))
-            return false;
+        // Create a modifier for WoundPain
+        var woundModifier = new PainModifier(
+            change,
+            MetaData(nerveUid).EntityPrototype!.ID,
+            PainDamageTypes.WoundPain,
+            _timing.CurTime + time
+        );
+
+        // Create a modifier for TraumaticPain
+        var traumaModifier = new PainModifier(
+            change,
+            MetaData(nerveUid).EntityPrototype!.ID,
+            PainDamageTypes.TraumaticPain,
+            _timing.CurTime + time
+        );
+
+        // Add both modifiers
+        nerveSys.Modifiers[(nerveUid, $"{identifier}_wound")] = woundModifier;
+        nerveSys.Modifiers[(nerveUid, $"{identifier}_trauma")] = traumaModifier;
 
         var ev = new PainModifierAddedEvent(uid, nerveUid, change);
         RaiseLocalEvent(uid, ref ev);
@@ -647,7 +663,7 @@ public partial class PainSystem
 
             if (_timing.CurTime > nerveSys.ReactionUpdateTime)
                 UpdatePainThreshold(nerveSysEnt, nerveSys);
-            
+
             shouldUpdate = true;
         }
 
@@ -818,7 +834,7 @@ public partial class PainSystem
                     nerveSys,
                     nerveSys.Comp.PainShockAdrenalineTime);
 
-                _stun.TryParalyze(body, nerveSys.Comp.PainShockStunTime, true, standOnRemoval: false);
+                _stun.TryUpdateParalyzeDuration(body, nerveSys.Comp.PainShockStunTime);
                 _jitter.DoJitter(body, nerveSys.Comp.PainShockStunTime, true, 20f, 7f);
 
                 // For the funnies :3
@@ -834,7 +850,7 @@ public partial class PainSystem
                 var agonySpecifier = nerveSys.Comp.AgonyScreams[sex];
                 PlayPainSound(body, nerveSys, agonySpecifier, AudioParams.Default.WithVolume(12f), screamString: shockAgonyString);
 
-                _stun.TryParalyze(body, nerveSys.Comp.PainShockStunTime * 1.4, true, standOnRemoval: false);
+                _stun.TryUpdateParalyzeDuration(body, nerveSys.Comp.PainShockStunTime * 1.4);
                 _jitter.DoJitter(body, nerveSys.Comp.PainShockStunTime * 1.4, true, 20f, 7f);
 
                 _consciousness.ForceConscious(body, nerveSys.Comp.PainShockStunTime * 1.4);
@@ -879,7 +895,8 @@ public partial class PainSystem
 
         nerveSys.LastThresholdType = nearestReflex;
 
-        ApplyPainReflexesEffects(organ.Body.Value, (uid, nerveSys), nearestReflex);
+        //Disabled until better implementation
+        //ApplyPainReflexesEffects(organ.Body.Value, (uid, nerveSys), nearestReflex);
     }
 
     private FixedPoint2 ApplyModifiersToPain(

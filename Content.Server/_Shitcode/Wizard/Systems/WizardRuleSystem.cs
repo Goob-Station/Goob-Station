@@ -32,9 +32,11 @@ using Content.Shared.Humanoid;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Parallax;
+using Content.Shared.Station.Components;
 using Robust.Server.Audio;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -80,6 +82,12 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
         SubscribeLocalEvent<EntParentChangedMessage>(OnParentChanged);
 
         SubscribeLocalEvent<DimensionShiftEvent>(OnDimensionShift);
+        SubscribeLocalEvent<NpcFactionMemberComponent, GrantFactionsEvent>(OnGrantFactions);
+    }
+
+    private void OnGrantFactions(Entity<NpcFactionMemberComponent> ent, ref GrantFactionsEvent args)
+    {
+        _faction.AddFactions(ent.AsNullable(), args.Factions);
     }
 
     private void OnApprenticeClone(Entity<ApprenticeComponent> ent, ref CloningEvent args)
@@ -109,7 +117,7 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
                 map = GetRandomTargetMap();
             else
             {
-                var stationGrid = _station.GetLargestGrid(Comp<StationDataComponent>(ruleComp.TargetStation.Value));
+                var stationGrid = _station.GetLargestGrid(ruleComp.TargetStation.Value);
                 map = stationGrid == null ? GetRandomTargetMap() : Transform(stationGrid.Value).MapUid;
             }
         }
@@ -243,7 +251,7 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
 
     public IEnumerable<EntityUid?> GetWizardTargetStationGrids()
     {
-        return GetWizardTargetStations().Select(station => _station.GetLargestGrid(station.Comp));
+        return GetWizardTargetStations().Select(station => _station.GetLargestGrid(station.Owner));
     }
 
     public EntityUid? GetWizardTargetRandomStationGrid()

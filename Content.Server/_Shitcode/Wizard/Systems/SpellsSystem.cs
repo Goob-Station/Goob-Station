@@ -13,10 +13,12 @@ using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Actions;
 using Content.Goobstation.Common.Bloodstream;
+using Content.Goobstation.Maths.FixedPoint;
+using Content.Goobstation.Shared.Emoting;
+using Content.Goobstation.Shared.Teleportation.Systems;
+using Content.Goobstation.Shared.Religion;
 using Content.Server._Goobstation.Wizard.Components;
-using Content.Server.Abilities.Mime;
 using Content.Server.Antag;
-using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
@@ -32,33 +34,42 @@ using Content.Server.Singularity.EntitySystems;
 using Content.Server.Spreader;
 using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
-using Content.Server.Teleportation;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared._Goobstation.Wizard.Chuuni;
 using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
 using Content.Shared._Goobstation.Wizard.SpellCards;
-using Content.Shared._Shitmed.Targeting;
 using Content.Shared._Shitmed.Damage; // Shitmed Change
-using Content.Shared.Actions;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Actions.Components;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Part;
 using Content.Shared.Chat;
 using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Construction.Components;
 using Content.Shared.Coordinates.Helpers;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Friction;
 using Content.Shared.Gibbing.Events;
 using Content.Shared.Hands.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Item;
 using Content.Shared.Magic.Components;
 using Content.Shared.Maps;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Physics;
+using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Speech.Components;
+using Content.Shared.Tag;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Server.Player;
 using Robust.Shared.Enums;
@@ -72,9 +83,8 @@ using Robust.Shared.Random;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using Content.Shared.Actions.Components;
 
-namespace Content.Server._Goobstation.Wizard.Systems;
+namespace Content.Server._Goobstation.Wizard.Systems; //todo refactor wiz
 
 public sealed class SpellsSystem : SharedSpellsSystem
 {
@@ -92,10 +102,18 @@ public sealed class SpellsSystem : SharedSpellsSystem
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly IdentitySystem _identity = default!;
     [Dependency] private readonly BatterySystem _battery = default!;
-    [Dependency] private readonly TeleportSystem _teleport = default!;
+    [Dependency] private readonly SharedRandomTeleportSystem _teleport = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
+    [Dependency] private readonly SharedItemSystem _item = default!;
+    [Dependency] private readonly TileFrictionController _tileFriction = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly WoundSystem _wounds = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly PuddleSystem _puddle = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private readonly DivineInterventionSystem _divineIntervention = default!;
 
     public override void Initialize()
     {
@@ -165,13 +183,6 @@ public sealed class SpellsSystem : SharedSpellsSystem
             args.MessageColor);
     }
 
-    protected override void MakeMime(EntityUid uid)
-    {
-        base.MakeMime(uid);
-
-        EnsureComp<MimePowersComponent>(uid).CanBreakVow = false;
-    }
-
     protected override void Emp(DisableTechEvent ev)
     {
         base.Emp(ev);
@@ -180,8 +191,12 @@ public sealed class SpellsSystem : SharedSpellsSystem
         var coords = TransformSystem.GetMapCoordinates(ev.Performer);
         foreach (var uid in Lookup.GetEntitiesInRange(coords, ev.Range))
         {
+            if (_divineIntervention.TouchSpellDenied(uid))
+                continue;
+
             _emp.TryEmpEffects(uid, ev.EnergyConsumption, ev.DisableDuration);
         }
+
 
         Spawn(ev.Effect, coords);
     }
@@ -235,6 +250,9 @@ public sealed class SpellsSystem : SharedSpellsSystem
             if (entity == ev.Performer)
                 continue;
 
+            if (_divineIntervention.TouchSpellDenied(entity))
+                continue;
+
             if (!_gravityWell.CanGravPulseAffect(entity))
                 continue;
 
@@ -245,7 +263,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
             if (distance2 < minRange2)
                 continue;
 
-            Stun.TryParalyze(entity, ev.StunTime, true);
+            Stun.TryUpdateParalyzeDuration(entity, ev.StunTime);
 
             Spawn(ev.EffectProto, TransformSystem.GetMapCoordinates(entity, xform));
 
@@ -282,16 +300,17 @@ public sealed class SpellsSystem : SharedSpellsSystem
     {
         base.BindSoul(ev, item, mind, mindComponent);
 
-        var xform = Transform(ev.Performer);
-        var meta = MetaData(ev.Performer);
+        var oldEnt = ev.Performer;
+        var xform = Transform(oldEnt);
+        var meta = MetaData(oldEnt);
 
         var mapId = xform.MapUid;
 
         var newEntity = Spawn(ev.Entity,
-            TransformSystem.GetMapCoordinates(ev.Performer, xform),
-            rotation: TransformSystem.GetWorldRotation(ev.Performer));
+            TransformSystem.GetMapCoordinates(oldEnt, xform),
+            rotation: TransformSystem.GetWorldRotation(oldEnt));
 
-        if (Container.TryGetContainingContainer((ev.Performer, xform, meta), out var cont))
+        if (Container.TryGetContainingContainer((oldEnt, xform, meta), out var cont))
             Container.Insert(newEntity, cont);
 
         var name = meta.EntityName;
@@ -301,7 +320,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
         int? age = null;
         Gender? gender = null;
         Sex? sex = null;
-        if (TryComp(ev.Performer, out HumanoidAppearanceComponent? humanoid))
+        if (TryComp(oldEnt, out HumanoidAppearanceComponent? humanoid))
         {
             age = humanoid.Age;
             gender = humanoid.Gender;
@@ -330,7 +349,12 @@ public sealed class SpellsSystem : SharedSpellsSystem
         EnsureComp<WizardComponent>(newEntity);
         if (!Role.MindHasRole<WizardRoleComponent>(mind, out _))
             Role.MindAddRole(mind, WizardRuleSystem.Role.Id, mindComponent, true);
+
         EnsureComp<PhylacteryComponent>(item);
+        _item.SetSize(item, ev.PhylacterySize);
+        RemCompDeferred<TagComponent>(item);
+        RemCompDeferred<AnchorableComponent>(item);
+
         var soulBound = EntityManager.ComponentFactory.GetComponent<SoulBoundComponent>();
         soulBound.Name = name;
         soulBound.Item = item;
@@ -340,16 +364,24 @@ public sealed class SpellsSystem : SharedSpellsSystem
         soulBound.Sex = sex;
         AddComp(mind, soulBound, true);
 
-        _inventory.TransferEntityInventories(ev.Performer, newEntity);
-        foreach (var hand in Hands.EnumerateHeld(ev.Performer))
+        _inventory.TransferEntityInventories(oldEnt, newEntity);
+        foreach (var hand in Hands.EnumerateHeld(oldEnt))
         {
-            Hands.TryDrop(ev.Performer, hand, checkActionBlocker: false);
+            Hands.TryDrop(oldEnt, hand, checkActionBlocker: false);
             Hands.TryPickupAnyHand(newEntity, hand);
         }
 
         SetGear(newEntity, ev.Gear, false, false);
 
-        Body.GibBody(ev.Performer, contents: GibContentsOption.Gib);
+        if (TryComp(ev.Action.Owner, out SpeakOnActionComponent? speak))
+        {
+            DelayedSpeech(speak.Sentence == null ? null : Loc.GetString(speak.Sentence.Value),
+                newEntity,
+                oldEnt,
+                MagicSchool.Necromancy);
+        }
+
+        Body.GibBody(oldEnt, contents: GibContentsOption.Gib);
 
         if (!_player.TryGetSessionById(mindComponent.UserId, out var session))
             return;
@@ -384,6 +416,14 @@ public sealed class SpellsSystem : SharedSpellsSystem
         if (ev.LoadActions)
             RaiseNetworkEvent(new LoadActionsEvent(GetNetEntity(ev.Performer)), newEnt.Value);
 
+        if (TryComp(ev.Action.Owner, out SpeakOnActionComponent? speak))
+        {
+            DelayedSpeech(speak.Sentence == null ? null : Loc.GetString(speak.Sentence.Value),
+                newEnt.Value,
+                ev.Performer,
+                school);
+        }
+
         return true;
     }
     private void DelayedSpeech(string? speech, EntityUid speaker, EntityUid caster, MagicSchool school)
@@ -391,9 +431,6 @@ public sealed class SpellsSystem : SharedSpellsSystem
         Timer.Spawn(200,
             () =>
             {
-                if (!Exists(speaker) || !Exists(caster))
-                    return;
-
                 var toSpeak = speech == null ? string.Empty : Loc.GetString(speech);
                 SpeakSpell(speaker, caster, toSpeak, school);
             });
@@ -403,12 +440,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
     {
         base.ShootSpellCards(ev, proto);
 
-        MapCoordinates targetMap;
-
-        targetMap = TransformSystem.ToMapCoordinates(ev.Target);
-
-        if (TryComp(ev.Entity, out TransformComponent? xform))
-            targetMap = TransformSystem.GetMapCoordinates(ev.Entity.Value, xform);
+        var targetMap = TransformSystem.ToMapCoordinates(ev.Target);
 
         var (_, mapCoords, spawnCoords, velocity) = GetProjectileData(ev.Performer);
 
@@ -436,6 +468,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
                 false,
                 body: physics);
             Physics.SetLinearDamping(newUid, physics, linearDamping, false);
+            _tileFriction.SetModifier(newUid, linearDamping);
 
             var spellCard = EnsureComp<SpellCardComponent>(newUid);
             if (!setHoming)
@@ -469,8 +502,8 @@ public sealed class SpellsSystem : SharedSpellsSystem
 
         Spawn(ev.Effect, TransformSystem.GetMapCoordinates(ev.Target));
 
-        _bloodstream.SpillAllSolutions(ev.Target, bloodstream);
-        _bloodstream.TryModifyBleedAmount(ev.Target, bloodstream.MaxBleedAmount, bloodstream);
+        _bloodstream.SpillAllSolutions((ev.Target, bloodstream));
+        _bloodstream.TryModifyBleedAmount((ev.Target, bloodstream), bloodstream.MaxBleedAmount);
         EnsureComp<BloodlossDamageMultiplierComponent>(ev.Target);
 
         return true;
@@ -577,45 +610,51 @@ public sealed class SpellsSystem : SharedSpellsSystem
     {
         base.SpeakSpell(speakerUid, casterUid, speech, school);
 
-        var postfix = string.Empty;
+        if (!Exists(speakerUid))
+            return;
 
-        var invocationEv = new GetSpellInvocationEvent(school, casterUid);
-        RaiseLocalEvent(casterUid, invocationEv);
-        if (invocationEv.Invocation != null)
-            speech = Loc.GetString(invocationEv.Invocation);
-        if (invocationEv.ToHeal.GetTotal() > FixedPoint2.Zero)
+        Color? color = null;
+
+        if (Exists(casterUid))
         {
-            // Heal both caster and speaker
-            Damageable.TryChangeDamage(casterUid,
-                -invocationEv.ToHeal,
-                true,
-                false,
-                targetPart: TargetBodyPart.All,
-                splitDamage: SplitDamageBehavior.SplitEnsureAll);
-
-            if (speakerUid != casterUid)
+            var invocationEv = new GetSpellInvocationEvent(school, casterUid);
+            RaiseLocalEvent(casterUid, invocationEv);
+            if (invocationEv.Invocation != null)
+                speech = Loc.GetString(invocationEv.Invocation);
+            if (invocationEv.ToHeal.GetTotal() > FixedPoint2.Zero)
             {
-                Damageable.TryChangeDamage(speakerUid,
+                // Heal both caster and speaker
+                Damageable.TryChangeDamage(casterUid,
                     -invocationEv.ToHeal,
                     true,
                     false,
                     targetPart: TargetBodyPart.All,
                     splitDamage: SplitDamageBehavior.SplitEnsureAll);
-            }
-        }
 
-        if (speakerUid != casterUid)
-        {
-            var postfixEv = new GetMessagePostfixEvent();
-            RaiseLocalEvent(casterUid, postfixEv);
-            postfix = postfixEv.Postfix;
+                if (speakerUid != casterUid)
+                {
+                    Damageable.TryChangeDamage(speakerUid,
+                        -invocationEv.ToHeal,
+                        true,
+                        false,
+                        targetPart: TargetBodyPart.All,
+                        splitDamage: SplitDamageBehavior.SplitEnsureAll);
+                }
+            }
+
+            if (speakerUid != casterUid)
+            {
+                var colorEv = new GetMessageColorOverrideEvent();
+                RaiseLocalEvent(casterUid, colorEv);
+                color = colorEv.Color;
+            }
         }
 
         _chat.TrySendInGameICMessage(speakerUid,
             speech,
             InGameICChatType.Speak,
             false,
-            wrappedMessagePostfix: postfix);
+            colorOverride: color);
     }
 
     protected override bool ChargeItem(EntityUid uid, ChargeMagicEvent ev)
@@ -645,5 +684,64 @@ public sealed class SpellsSystem : SharedSpellsSystem
         base.Blink(ev);
 
         _teleport.RandomTeleport(ev.Performer, ev.Radius);
+    }
+
+    protected override void Rathen(RathenEvent ev)
+    {
+        base.Rathen(ev);
+
+        var mapPos = TransformSystem.GetMapCoordinates(ev.Performer);
+        var stunTime = ev.StunTime;
+
+        foreach (var (target, _) in Lookup.GetEntitiesInRange<FartComponent>(mapPos, ev.MaxRange))
+        {
+            if (target == ev.Performer)
+                continue;
+
+            if (_divineIntervention.TouchSpellDenied(target))
+                continue;
+
+            if (!TryComp<FartComponent>(target, out var fart)
+                || !TryComp<BodyComponent>(target, out var body)
+                || _mobState.IsDead(target))
+                continue;
+
+            Stun.KnockdownOrStun(target, stunTime, true);
+
+            if (!fart.SuperFarted)
+            {
+                fart.FartInhale = true;
+                _chat.TryEmoteWithChat(target, "FartSuper", ignoreActionBlocker: true, forceEmote: true);
+            }
+            else
+            {
+                _popup.PopupEntity(
+                Loc.GetString("spell-rathen-gut-popup"),
+                target,
+                target,
+                PopupType.LargeCaution);
+
+                Damageable.TryChangeDamage(target,
+                    ev.SuperFartDamage,
+                    true,
+                    origin: ev.Performer);
+
+                if (TryComp<BloodstreamComponent>(target, out var bloodstream)
+                    && _solutionContainer.ResolveSolution(target, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution))
+                {
+                    var toSpill = _solutionContainer.SplitSolution(bloodstream.BloodSolution.Value, 15);
+                    _puddle.TrySpillAt(target, toSpill, out _);
+                }
+
+                foreach (var limbType in new[] { BodyPartType.Arm, BodyPartType.Leg })
+                    foreach (var (partId, _) in Body.GetBodyChildrenOfType(target, limbType, body))
+                    {
+                        if (Random.Prob(ev.LimbTearChance)
+                            && TryComp<WoundableComponent>(partId, out var woundable)
+                            && woundable.ParentWoundable.HasValue)
+                            _wounds.AmputateWoundable(woundable.ParentWoundable.Value, partId, woundable);
+                    }
+            }
+        }
     }
 }

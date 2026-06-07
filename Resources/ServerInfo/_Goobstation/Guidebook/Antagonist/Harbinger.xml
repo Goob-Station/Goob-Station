@@ -1,0 +1,60 @@
+<Document>
+  # Harbinger of the Void
+  <Box>
+    <GuideEntityEmbed Entity="MobWraithHarbinger" Caption=""/>
+  </Box>
+
+  The Harbinger of the Void focuses on summoning and controlling the dead or otherworldly creatures. As a Harbinger, you summon minions to do the dirty work for you.
+  Your strength comes from the creatures you raise and the chaos they spread, so cry havoc, and let slip the dogs of war.
+
+  # Summoning
+
+  Your main tools revolve around summoning minions. These minions range from fragile skeletal servants to terrifying revenants, and they are your primary way to apply pressure to the crew while you remain safe.
+
+  ## Raise Skeleton
+
+  - Commands a skeleton inside a corpse to detach and join your army.
+  - Only works on fully decomposed corpses, or on closets as a fun alternative. The closet skeleton is even weaker than the already weak raised skeleton. However, both of them pack a punch.
+  - Best used right after absorbing a corpse to maximize your WP gain and your undead workforce.
+
+  ## Create Void Portal
+
+  - Opens a summoning circle that periodically spawns in portals from the Void with creatures inside them.
+  - The portals spawn a few tiles away from the circle in random locations.
+  - The summoning circle grows stronger the longer it remains, gaining access to much more powerful creatures.
+  - The circle can only have up to 10 minions at any given time, so it is best used in an area where your minions will frequently be dying, so they can be resummoned.
+  - The ritual circle itself is extremely fragile, don't place it somewhere too obvious.
+  - You can only ever have one active ritual circle.
+
+  Power increases slowly over time, starting at 10 points and growing in increments of 5. Timing and placement are key.
+  The ritual circle has the added benefit of increasing your WP regeneration while near it.
+
+  ## Summon Void Creature
+
+  Lets you summon one of three advanced minions from the Void with unique abilities. The summon will be a fragile cocoon that can be destroyed to prevent them from spawning in, so use this in a hidden place.
+
+  [textlink="Find out about the skills of each Void summon:" link="VoidSummons"]
+
+  The cocoon will be a ghost role, and whoever takes the role will be the one picking which Void creature to become. All of them will be useful to you, each with their own strenghts and weaknessess.
+
+  ## Raise Revenant
+
+  Possess a relatively fresh corpse, taking control of it and gaining extremely powerful abilities and increased WP regeneration.
+
+  [textlink="The revenant has its own set of skills and mechanics." link="Revenant"]
+
+  ## General tips
+
+  ### Your void portal
+
+  Position your portal wisely. Placing it near high-traffic areas can allow your minions to overwhelm the crew faster.
+
+  Your minions are, overall, extremely fragile. They can deal nasty damage to unprepared crew, but even as soon as security gets into the armory, most of them stand no chance. Use your summons to secure more bodies, rather than to try and take over the station.
+
+  Becoming a revenant is extremely expensive, but you'll be an unstopable killing machine during the short duration of your possesion. Amass lots of WP before using it, as activating this skill is already costly on its own.
+
+  Your end goal should always be to use your other skills to amass power to become a revenant.
+
+
+  [textlink="Back to Wraith Evolutions" link="Wraiths"]
+</Document>

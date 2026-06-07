@@ -48,6 +48,10 @@
       inverted: true
       species:
       - Felinid
+  guides:
+  - BlueshieldOfficerSOP
+  - Command
+  - Succession
   goobcoins: 45
   weight: 20
   startingGear: BlueshieldOfficerGear
@@ -78,9 +82,6 @@
       - type: CommandStaff
       - type: Condemned
         soulOwnedNotDevil: true
-  - !type:AddObjectiveSpecial
-    objectives:
-    - BlueshieldRandomCommandAliveObjective
 
 - type: startingGear
   id: BlueshieldOfficerGear
@@ -94,7 +95,7 @@
   storage:
     back:
     - Flash
-    - ClothingMaskGasSecurity
+    - ClothingBSOMaskGasSwat
     - CombatKnife
 
 - type: chameleonOutfit

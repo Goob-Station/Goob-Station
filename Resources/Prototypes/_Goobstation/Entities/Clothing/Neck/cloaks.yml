@@ -63,3 +63,57 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Cloaks/sanabi.rsi
+
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckCloakVetCap
+  name: Veteran Captain's cloak
+  description: Captains Aura Cloak
+  components:
+  - type: Item
+    size: Small
+    heldPrefix: auraless
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Cloaks/Veterancap.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Cloaks/Veterancap.rsi
+    quickEquip: false
+    equippedPrefix: auraless
+    slots:
+    - Neck
+  - type: ItemSwitch
+    state: auraless
+    showLabel: true
+    states:
+      auraless: !type:ItemSwitchState
+        verb: auraless
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Cloaks/Veterancap.rsi
+          state: icon
+      aura: !type:ItemSwitchState
+        verb: aura
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Cloaks/Veterancap.rsi
+          state: icon
+
+# outer command cloak
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckCloakOuterCommand
+  name: outer command cloak
+  description: A stylish purple cloak with Terra-Gov insignia.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Cloaks/outcommcloak.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Cloaks/outcommcloak.rsi
+#  Shitchap
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakInquisitor
+  name: inquisitor cloak
+  description: A bulky cloak decorated with sacred writings and the symbol of the Inquisition.
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Clothing/Neck/Misc/inquisitor.rsi

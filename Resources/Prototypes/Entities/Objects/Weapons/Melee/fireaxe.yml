@@ -60,6 +60,7 @@
   - type: Sharp
   - type: Execution
     doAfterDuration: 4.0
+    decapitation: true # Goobstation - Decapitation
   - type: Sprite
     sprite: Objects/Weapons/Melee/fireaxe.rsi
     state: icon
@@ -74,6 +75,9 @@
         Blunt: 5
         Slash: 10
         Structural: 10
+      woundSeverityMultipliers:
+        Blunt: 2
+        Slash: 2.5
     soundHit:
       collection: MetalThud
   - type: Wieldable
@@ -114,7 +118,7 @@
 - type: entity
   id: FireAxeFlaming
   name: fire axe
-  parent: [ BaseSyndicateContraband, FireAxe ]
+  parent: [BaseSyndicateContraband, FireAxe]
   description: Why fight fire with an axe when you can fight with fire and axe? Now featuring rugged rubberized handle!
   components:
   - type: MeleeWeapon
@@ -124,6 +128,9 @@
         Heat: 5
         Slash: 10
         Structural: 20
+      woundSeverityMultipliers:
+        Slash: 2.5
+        Heat: 2
   # Goobstation - fire axe buff
   - type: IncreaseDamageOnWield
     damage:

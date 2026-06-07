@@ -1,9 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared._Goobstation.Heretic.Components;
-using Content.Shared.Actions.Events;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
-using Content.Shared.Damage.Systems;
 using Content.Shared.Electrocution;
 using Content.Shared.Explosion;
 using Content.Shared.Maps;
@@ -21,7 +19,7 @@ public abstract partial class SharedHereticAbilitySystem
     protected virtual void SubscribeRust()
     {
         SubscribeLocalEvent<RustbringerComponent, BeforeStaminaDamageEvent>(OnBeforeStaminaDamage);
-        SubscribeLocalEvent<RustbringerComponent, OldBeforeStatusEffectAddedEvent>(OnBeforeStatusEffect);
+        SubscribeLocalEvent<RustbringerComponent, BeforeOldStatusEffectAddedEvent>(OnBeforeStatusEffect);
         SubscribeLocalEvent<RustbringerComponent, SlipAttemptEvent>(OnSlipAttempt);
         SubscribeLocalEvent<RustbringerComponent, GetExplosionResistanceEvent>(OnGetExplosionResists);
         SubscribeLocalEvent<RustbringerComponent, ElectrocutionAttemptEvent>(OnElectrocuteAttempt);
@@ -72,12 +70,12 @@ public abstract partial class SharedHereticAbilitySystem
         args.NoSlip = true;
     }
 
-    private void OnBeforeStatusEffect(Entity<RustbringerComponent> ent, ref OldBeforeStatusEffectAddedEvent args)
+    private void OnBeforeStatusEffect(Entity<RustbringerComponent> ent, ref BeforeOldStatusEffectAddedEvent args)
     {
         if (!IsTileRust(Transform(ent).Coordinates, out _))
             return;
 
-        if (args.Key is not ("KnockedDown" or "Stun"))
+        if (args.EffectKey is not ("KnockedDown" or "Stun"))
             return;
 
         args.Cancelled = true;

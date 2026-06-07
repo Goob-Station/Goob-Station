@@ -257,6 +257,10 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                             <Label Name="BloodLabel"/>
                             <Label Name="DamageLabelHeading" Text="{Loc 'health-analyzer-window-entity-damage-total-text'}"/>
                             <Label Name="DamageLabel"/>
+                            <!-- Goobstation start -->
+                            <Label Name="DamageLabelHeadingVital" Text="{Loc 'health-analyzer-window-entity-damage-vital-text'}"/>
+                            <Label Name="DamageLabelVital"/>
+                            <!-- Goobstation end -->
                         </GridContainer>
                     </BoxContainer>
 
@@ -280,6 +284,18 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                         Margin="0 5 0 5"
                         Orientation="Vertical">
                     </BoxContainer>
+
+                    <!-- Goobstation Change -->
+                    <PanelContainer Name="DiseasesDivider"
+                                    Visible="False"
+                                    StyleClasses="LowDivider"/>
+
+                    <BoxContainer Name="DiseasesContainer"
+                                Visible="False"
+                                Margin="0 5"
+                                Orientation="Vertical">
+                    </BoxContainer>
+                    <!-- Goobstation Change End -->
 
                 </BoxContainer>
             </ScrollContainer>

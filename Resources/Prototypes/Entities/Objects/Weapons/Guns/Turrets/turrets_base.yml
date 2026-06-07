@@ -84,7 +84,6 @@
   - type: NoRotateOnMove
   - type: Input
     context: "human"
-  - type: UnmannedWeaponry # Lavaland Change
 
 - type: entity
   parent: BaseWeaponTurret

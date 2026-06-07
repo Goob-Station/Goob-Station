@@ -1,0 +1,138 @@
+- type: species
+  id: Scurret
+  name: species-name-scurret
+  roundStart: false
+  prototype: MobScurret
+  sprites: MobScurretSprites
+  dollPrototype: MobScurretDummy
+  skinColoration: Hues
+  defaultSkinTone: "#ffffff"
+  markingLimits: MobScurretMarkingLimits
+
+- type: speciesBaseSprites
+  id: MobScurretSprites
+  sprites:
+    Head: MobScurretHead
+    Chest: MobScurretChest
+    Groin: MobScurretGroin
+    Tail: MobScurretTail
+    LArm: MobScurretLArm
+    RArm: MobScurretRArm
+    LHand: MobScurretLHand
+    RHand: MobScurretRHand
+    LLeg: MobScurretLLeg
+    RLeg: MobScurretRLeg
+    LFoot: MobScurretLFoot
+    RFoot: MobScurretRFoot
+
+- type: humanoidBaseSprite
+  id: MobScurretHead
+  baseSprite:
+    sprite: _Shitmed/Mobs/Species/Scurret/parts.rsi
+    state: head
+
+- type: humanoidBaseSprite
+  id: MobScurretHeadMale
+  baseSprite:
+    sprite: _Shitmed/Mobs/Species/Scurret/parts.rsi
+    state: head
+
+- type: humanoidBaseSprite
+  id: MobScurretHeadFemale
+  baseSprite:
+    sprite: _Shitmed/Mobs/Species/Scurret/parts.rsi
+    state: head
+
+- type: humanoidBaseSprite
+  id: MobScurretChest
+  baseSprite:
+    sprite: _Shitmed/Mobs/Species/Scurret/parts.rsi
+    state: chest
+
+- type: humanoidBaseSprite
+  id: MobScurretChestMale
+  baseSprite:
+    sprite: _Shitmed/Mobs/Species/Scurret/parts.rsi
+    state: chest
+
+- type: humanoidBaseSprite
+  id: MobScurretChestFemale
+  baseSprite:
+    sprite: _Shitmed/Mobs/Species/Scurret/parts.rsi
+    state: chest
+
+- type: humanoidBaseSprite
+  id: MobScurretGroin
+  baseSprite:
+    sprite: _Shitmed/Mobs/Species/Scurret/parts.rsi
+    state: groin
+
+- type: humanoidBaseSprite
+  id: MobScurretGroinMale
+  baseSprite:
+    sprite: _Shitmed/Mobs/Species/Scurret/parts.rsi
+    state: groin
+
+- type: humanoidBaseSprite
+  id: MobScurretGroinFemale
+  baseSprite:
+    sprite: _Shitmed/Mobs/Species/Scurret/parts.rsi
+    state: groin
+
+- type: humanoidBaseSprite
+  id: MobScurretTail
+  baseSprite:
+    sprite: _Shitmed/Mobs/Species/Scurret/parts.rsi
+    state: tail
+
+- type: humanoidBaseSprite
+  id: MobScurretLArm
+  baseSprite:
+    sprite: _Shitmed/Mobs/Species/Scurret/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobScurretRArm
+  baseSprite:
+    sprite: _Shitmed/Mobs/Species/Scurret/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobScurretLHand
+  baseSprite:
+    sprite: _Shitmed/Mobs/Species/Scurret/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobScurretRHand
+  baseSprite:
+    sprite: _Shitmed/Mobs/Species/Scurret/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobScurretLLeg
+  baseSprite:
+    sprite: _Shitmed/Mobs/Species/Scurret/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobScurretRLeg
+  baseSprite:
+    sprite: _Shitmed/Mobs/Species/Scurret/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobScurretLFoot
+  baseSprite:
+    sprite: _Shitmed/Mobs/Species/Scurret/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobScurretRFoot
+  baseSprite:
+    sprite: _Shitmed/Mobs/Species/Scurret/parts.rsi
+    state: r_foot
+
+- type: markingPoints
+  id: MobScurretMarkingLimits
+  points: {}

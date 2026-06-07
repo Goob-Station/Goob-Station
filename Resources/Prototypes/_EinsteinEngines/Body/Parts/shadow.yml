@@ -1,0 +1,117 @@
+- type: entity
+  id: PartShadow
+  parent: PartHuman
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Mobs/Species/Shadow/parts.rsi
+    state: "chest_m"
+  - type: BodyPart
+    species: Shadow
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 5
+      - ReagentId: FluorosulfuricAcid
+        Quantity: 10
+
+- type: entity
+  id: ChestShadow
+  name: "Shadow chest"
+  parent: [BaseChest, PartShadow]
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: FluorosulfuricAcid
+        Quantity: 20
+
+- type: entity
+  id: GroinShadow
+  name: "Shadow groin"
+  parent: [BaseGroin, PartShadow]
+  components:
+  - type: Sprite
+    state: "groin_m"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: FluorosulfuricAcid
+        Quantity: 20
+
+- type: entity
+  id: HeadShadow
+  name: "Shadow head"
+  parent: [BaseHead, PartShadow]
+  components:
+  - type: Sprite
+    state: "head_m"
+
+- type: entity
+  id: LeftArmShadow
+  name: "left Shadow arm"
+  parent: [BaseLeftArm, PartShadow]
+  components:
+  - type: Sprite
+    state: "l_arm"
+
+- type: entity
+  id: RightArmShadow
+  name: "right Shadow arm"
+  parent: [BaseRightArm, PartShadow]
+  components:
+  - type: Sprite
+    state: "r_arm"
+
+- type: entity
+  id: LeftHandShadow
+  name: "left Shadow hand"
+  parent: [BaseLeftHand, PartShadow]
+  components:
+  - type: Sprite
+    state: "l_hand"
+
+- type: entity
+  id: RightHandShadow
+  name: "right Shadow hand"
+  parent: [BaseRightHand, PartShadow]
+  components:
+  - type: Sprite
+    state: "r_hand"
+
+- type: entity
+  id: LeftLegShadow
+  name: "left Shadow leg"
+  parent: [BaseLeftLeg, PartShadow]
+  components:
+  - type: Sprite
+    state: "l_leg"
+
+- type: entity
+  id: RightLegShadow
+  name: "right Shadow leg"
+  parent: [BaseRightLeg, PartShadow]
+  components:
+  - type: Sprite
+    state: "r_leg"
+
+- type: entity
+  id: LeftFootShadow
+  name: "left Shadow foot"
+  parent: [BaseLeftFoot, PartShadow]
+  components:
+  - type: Sprite
+    state: "l_foot"
+
+- type: entity
+  id: RightFootShadow
+  name: "right Shadow foot"
+  parent: [BaseRightFoot, PartShadow]
+  components:
+  - type: Sprite
+    state: "r_foot"

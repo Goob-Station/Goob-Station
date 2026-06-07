@@ -1,0 +1,8 @@
+- type: soundCollection
+  id: SlasherBreathing
+  files:
+  - /Audio/_Goobstation/Effects/Slasher/SlasherBreathe1.ogg
+  - /Audio/_Goobstation/Effects/Slasher/SlasherBreathe2.ogg
+  - /Audio/_Goobstation/Effects/Slasher/SlasherBreathe3.ogg
+  - /Audio/_Goobstation/Effects/Slasher/SlasherBreathe4.ogg
+  - /Audio/_Goobstation/Effects/Slasher/SlasherBreathe5.ogg

@@ -21,7 +21,7 @@ evolutionmenu-combat-armhammer-desc =
 
 evolutionmenu-combat-armclaw-name = Arm Claw
 evolutionmenu-combat-armclaw-desc =
-    Reform one of your arms into a grotesque claw, composed of bone and flesh, able to inject long lasting poison on hit, muting and damaging them.
+    Reform one of your arms into a grotesque claw, composed of bone and flesh, able to grab your opponents on hit, immobilizing them. Hitting anything with it again relases the target.
     Costs 15 chemicals.
 
 evolutionmenu-combat-dartgun-name = Dart Gun
@@ -114,14 +114,25 @@ evolutionmenu-sting-armblade-desc =
 
 # utility
 
+evolutionmenu-utility-instinct-name = Awakened Instinct
+evolutionmenu-utility-instinct-desc =
+    Awaken a ravenous, insatiable hunger towards biomass - even your own.
+    Results in chemical regeneration being increased by a flat 25%.
+    Running out of biomass will result in self-consumption - your permanent demise.
+    Biomass is restored when absorbing compatible organisms.
+    Passive ability.
+
 evolutionmenu-utility-panacea-name = Anatomic Panacea
 evolutionmenu-utility-panacea-desc =
-    Cure yourself of diseases, disabilities, radiation, toxins, drunkenness, and brain damage. Generally covers the things that fleshmend doesn't.
+    Applies "anatomic panacea" status effect, rapidly healing all non-physical damage, as well as cleansing chemicals,
+    illness, and the influence of drugs. Will also remove xenomorph embryos.
+    Lasts 10 seconds.
+    Effects will cease while on fire or dead.
     Costs 30 chemicals.
 
 evolutionmenu-utility-eyesight-name = Augmented Eyesight
 evolutionmenu-utility-eyesight-desc =
-    Evolve additional features in your eyes, such toggleable thermal vision and flash protection. You become more vulnerable to flash-based devices while in thermal vision mode.
+    Evolve additional features in your eyes, such toggleable x-ray vision and flash protection. You become vulnerable to flash-based devices while in x-ray vision mode.
     Cost-free.
 
 evolutionmenu-utility-biodegrade-name = Biodegrade
@@ -132,29 +143,30 @@ evolutionmenu-utility-biodegrade-desc =
 
 evolutionmenu-utility-chameleon-name = Chameleon Skin
 evolutionmenu-utility-chameleon-desc =
-    Alter the pigment in your skin to match your surroundings, rendering you invisible.
-    Maintaining this chameleon state slows chemical generation.
+    Alter the pigment in your skin to match your surroundings, rendering you invisible when motionless.
     Costs 20 chemicals.
 
 evolutionmenu-utility-voidadapt-name = Void Adaption
 evolutionmenu-utility-voidadapt-desc =
-    Alter your cells and organs to resist cold, low pressure and the need for oxygen.
-    Maintaining this state slows chemical regeneration.
-    WARNING: Requires you to absorb at least 2 organics to use the ability.
-    Cost-free.
+    Allows you to adapt in reponse to any low extremes of temperature or pressure.
+    Removes the need for the presence of air to breathe.
+    Maintaining an active state slows chemical regeneration.
+    Works automatically.
+    Effects will cease while on fire.
 
 evolutionmenu-utility-stims-name = Adrenaline reserves
 evolutionmenu-utility-stims-desc =
-    Releases additional adrenaline into your bloodstream, making you nigh-impervious to fatigue, knockdown and stuns.
-    Continuous injection is poisonous.
+    Applies "adrenaline reserves" status effect, rendering stuns, stamina damage, and most incapacitation methods useless.
+    Gradually inflicts poison damage while in use.
+    Lasts 10 seconds.
     Costs 30 chemicals.
 
 evolutionmenu-utility-fleshmend-name = Fleshmend
 evolutionmenu-utility-fleshmend-desc =
     Applies "fleshmend" status effect, rapidly healing brute damage, as well as burn/asphyxiation at a lower amount.
-    Additionally, bleeding will gradually heal and blood volume will slowly be restored.
+    Additionally, bleeding will gradually heal.
     Lasts 10 seconds.
-    Healing will cease while on fire.
+    Effects will cease while on fire or dead.
     Costs 35 chemicals.
 
 evolutionmenu-utility-lastresort-name = Last Resort

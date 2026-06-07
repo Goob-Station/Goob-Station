@@ -24,6 +24,16 @@
     - Automation
 
 - type: entity
+  abstract: true
+  parent: BaseAutomationFilter
+  id: BaseAutomationFilterToggled
+  components:
+  - type: ItemToggle
+    soundActivate: /Audio/Machines/lightswitch.ogg
+    soundDeactivate: /Audio/Machines/lightswitch.ogg
+  - type: ToggleExamine
+
+- type: entity
   parent: BaseAutomationFilter
   id: AutomationFilterLabel
   name: label filter
@@ -112,3 +122,45 @@
       combined_filter_b: !type:ContainerSlot
   - type: Construction
     node: combined
+
+- type: entity
+  parent: BaseAutomationFilterToggled
+  id: AutomationFilterAnchor
+  name: anchor filter
+  description: A filter that can be installed in factory machines. This one detects an anchorable object, and it being anchored or not.
+  components:
+  - type: AnchorFilter
+  - type: ToggleExamine
+    enabled: anchor-filter-examine-enabled
+    disabled: anchor-filter-examine-disabled
+  - type: Construction
+    node: anchor
+
+- type: entity
+  parent: BaseAutomationFilter
+  id: AutomationFilterMob
+  name: mob filter
+  description: A filter that can be installed in factory machines. This one detects living creatures and filters based on alive, critical or dead states.
+  components:
+  - type: MobFilter
+  - type: ActivatableUI
+    key: enum.MobFilterUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.MobFilterUiKey.Key:
+        type: MobFilterBUI
+  - type: Construction
+    node: mob
+
+- type: entity
+  parent: BaseAutomationFilterToggled
+  id: AutomationFilterCuff
+  name: cuff filter
+  description: A filter that can be installed in factory machines. This one detects whether people are restrained... who made this!?
+  components:
+  - type: CuffFilter
+  - type: ToggleExamine
+    enabled: cuff-filter-examine-enabled
+    disabled: cuff-filter-examine-disabled
+  - type: Construction
+    node: cuff

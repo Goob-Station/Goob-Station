@@ -8,7 +8,7 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.DeviceNetwork;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.SurveillanceCamera;
 
@@ -52,6 +52,9 @@ public sealed partial class SurveillanceCameraComponent : Component
     public bool NetworkSet { get; set; }
 
     // This has to be device network frequency prototypes.
-    [DataField("setupAvailableNetworks", customTypeSerializer:typeof(PrototypeIdListSerializer<DeviceFrequencyPrototype>))]
-    public List<string> AvailableNetworks { get; private set; } = new();
+    [DataField("setupAvailableNetworks")]
+    public List<ProtoId<DeviceFrequencyPrototype>> AvailableNetworks { get; private set; } = new();
+
+    [DataField]
+    public bool Mobile { get; set; } = false; // Goobstation - a value to differentiate stationary cameras from mobile like bodycams
 }

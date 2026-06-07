@@ -5,20 +5,21 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Shared.Religion;
+using Content.Goobstation.Server.OnPray.HealNearOnPray;
 using Content.Goobstation.Shared.Religion.Nullrod;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
+using Content.Shared.Ghost;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
-using Microsoft.CodeAnalysis.Operations;
+using Content.Shared.Revenant.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 
-namespace Content.Goobstation.Server.OnPray.HealNearOnPray;
+namespace Content.Goobstation.Server.Religion.OnPray.HealNearOnPray;
 
 public sealed partial class HealNearOnPraySystem : EntitySystem
 {
@@ -28,9 +29,16 @@ public sealed partial class HealNearOnPraySystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly ExamineSystemShared _occlusion = default!;
 
+    private EntityQuery<SpectralComponent> _spectralQuery;
+    private EntityQuery<CorporealComponent> _corporealQuery;
+
     public override void Initialize()
     {
         base.Initialize();
+
+        _spectralQuery = GetEntityQuery<SpectralComponent>();
+        _corporealQuery = GetEntityQuery<CorporealComponent>();
+
         SubscribeLocalEvent<HealNearOnPrayComponent, AlternatePrayEvent>(OnPray);
     }
 
@@ -45,6 +53,10 @@ public sealed partial class HealNearOnPraySystem : EntitySystem
         {
             if (_mobState.IsDead(entity)
                 || HasComp<SiliconComponent>(entity))
+                continue;
+
+            // if its a ghost and its not in corporeal form then skip
+            if (_spectralQuery.HasComp(entity) && !_corporealQuery.HasComp(entity))
                 continue;
 
             var ev = new DamageUnholyEvent(entity, args.User);

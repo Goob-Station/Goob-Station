@@ -23,6 +23,25 @@
   - /Audio/Nyanotrasen/Voice/Felinid/cat_meow1.ogg
   - /Audio/Nyanotrasen/Voice/Felinid/cat_meow2.ogg
   - /Audio/Nyanotrasen/Voice/Felinid/cat_meow3.ogg
+  #GOOBSTATION GOIDAEDIT START - Wilhelm is hardcoded for screams only ouurgh
+  - /Audio/_Goobstation/Voice/Tajaran/deep_meow.ogg
+  - /Audio/Nyanotrasen/Voice/Felinid/cat_meow1.ogg
+  - /Audio/Nyanotrasen/Voice/Felinid/cat_meow2.ogg
+  - /Audio/Nyanotrasen/Voice/Felinid/cat_meow3.ogg
+  - /Audio/Nyanotrasen/Voice/Felinid/cat_meow1.ogg
+  - /Audio/Nyanotrasen/Voice/Felinid/cat_meow2.ogg
+  - /Audio/Nyanotrasen/Voice/Felinid/cat_meow3.ogg
+  - /Audio/Nyanotrasen/Voice/Felinid/cat_meow1.ogg
+  - /Audio/Nyanotrasen/Voice/Felinid/cat_meow2.ogg
+  - /Audio/Nyanotrasen/Voice/Felinid/cat_meow3.ogg
+  - /Audio/Nyanotrasen/Voice/Felinid/cat_meow1.ogg
+  - /Audio/Nyanotrasen/Voice/Felinid/cat_meow2.ogg
+  - /Audio/Nyanotrasen/Voice/Felinid/cat_meow3.ogg
+  - /Audio/Nyanotrasen/Voice/Felinid/cat_meow1.ogg
+  - /Audio/Nyanotrasen/Voice/Felinid/cat_meow2.ogg
+  - /Audio/Nyanotrasen/Voice/Felinid/cat_meow3.ogg
+  #GOOBSTATION GOIDAEDIT END
+
 
 - type: soundCollection
   id: FelinidMews

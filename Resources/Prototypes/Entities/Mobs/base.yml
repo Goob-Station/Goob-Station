@@ -137,6 +137,7 @@
   - type: Penetratable # Goobstation - Better snipers
     penetrateDamage: 15 # Kill million mices
     damagePenalty: 0.05
+  - type: StunVisuals
 
 - type: entity
   save: false
@@ -144,6 +145,8 @@
   abstract: true
   components:
   - type: Polymorphable
+  - type: OwnInteractionVerbs # Einstein Engines - Interaction Verbs.
+    allowedVerbs: [] # TODO: define something here, or don't.
 
 # Used for mobs that have health and can take damage.
 - type: entity
@@ -244,7 +247,7 @@
     specificHeat: 42
     heatDamage: #per second, scales with temperature & other constants
       types:
-        Heat : 1.5
+        Heat : 1.0 # Goob edit
   - type: ThermalRegulator
     metabolismHeat: 800
     radiatedHeat: 100
@@ -279,7 +282,7 @@
         Cold: 1 #per second, scales with temperature & other constants
     heatDamage:
       types:
-        Heat: 1.5 #per second, scales with temperature & other constants
+        Heat: 1.0 # Goob edit #per second, scales with temperature & other constants
   - type: Barotrauma
     damage:
       types:

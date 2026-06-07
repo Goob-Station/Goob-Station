@@ -9,13 +9,14 @@
 
 using Content.Shared.Destructible.Thresholds;
 using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
 
 namespace Content.Shared.Teleportation;
 
 /// <summary>
 ///     Component to store parameters for entities that teleport randomly.
 /// </summary>
-[RegisterComponent, Virtual]
+[RegisterComponent, Virtual, NetworkedComponent]
 public partial class RandomTeleportComponent : Component
 {
     /// <summary>
@@ -32,6 +33,8 @@ public partial class RandomTeleportComponent : Component
     ///     Will try harder to find a safe teleport.
     /// </summary>
     [DataField] public bool ForceSafeTeleport = true;
+    
+    [DataField] public bool TeleportPulledEntities = false;
 
     [DataField] public SoundSpecifier ArrivalSound = new SoundPathSpecifier("/Audio/Effects/teleport_arrival.ogg");
     [DataField] public SoundSpecifier DepartureSound = new SoundPathSpecifier("/Audio/Effects/teleport_departure.ogg");

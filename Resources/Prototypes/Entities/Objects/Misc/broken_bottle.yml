@@ -50,6 +50,7 @@
   - type: Tag
     tags:
     - Trash
+    - RotHulkTrash # Goobstation - Wraith
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Glass: 25

@@ -24,6 +24,7 @@ using Content.Server.Mind;
 using Content.Server.Nuke;
 using Content.Server.Objectives;
 using Content.Server.RoundEnd;
+using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.GameTicking.Components;
@@ -44,6 +45,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
     [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly EmergencyShuttleSystem _emergency = default!;
 
     public override void Initialize()
     {
@@ -124,7 +126,8 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
         var stationName = Name(stationUid);
 
         if (blobTilesCount >= (stationUid.Comp?.StageBegin ?? StationBlobConfigComponent.DefaultStageBegin)
-            && _roundEndSystem.ExpectedCountdownEnd != null)
+            && _roundEndSystem.ExpectedCountdownEnd != null
+            && !_emergency.EmergencyShuttleArrived)
         {
             _roundEndSystem.CancelRoundEndCountdown(checkCooldown: false);
             _chatSystem.DispatchStationAnnouncement(stationUid,
@@ -134,7 +137,17 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                 null,
                 Color.Red);
         }
-
+        else if (blobTilesCount >= (stationUid.Comp?.StageBegin ?? StationBlobConfigComponent.DefaultStageBegin)
+                 && _roundEndSystem.ExpectedCountdownEnd != null && _emergency.EmergencyShuttleArrived) 
+        {
+            _chatSystem.DispatchStationAnnouncement(stationUid,
+                Loc.GetString("blob-alert-shuttle-arrived"),
+                Loc.GetString("Station"),
+                false,
+                null,
+                Color.OrangeRed);
+        }
+        
         switch (blobRuleComp.Stage)
         {
             case BlobStage.Default when blobTilesCount >= (stationUid.Comp?.StageBegin ?? StationBlobConfigComponent.DefaultStageBegin):

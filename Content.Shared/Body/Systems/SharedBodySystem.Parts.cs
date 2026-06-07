@@ -95,13 +95,14 @@ using Content.Shared.Body.Organ;
 using Content.Shared.Body.Part;
 using Content.Shared.Movement.Components;
 using Robust.Shared.Containers;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 // Shitmed Change Start
 using Content.Shared._Shitmed.Body.Components;
-using Content.Shared._Shitmed.Body.Part;
 using Content.Shared._Shitmed.BodyEffects;
 using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Robust.Shared.Random;
@@ -110,6 +111,7 @@ namespace Content.Shared.Body.Systems;
 
 public partial class SharedBodySystem
 {
+    private static readonly ProtoId<DamageTypePrototype> BloodlossDamageType = "Bloodloss";
 
     private void InitializeParts()
     {
@@ -1019,6 +1021,27 @@ public partial class SharedBodySystem
         return !Resolve(bodyId, ref body, logMissing: false) ? 0 : GetBodyChildren(bodyId, body).Count(part => part.Component.PartType == partType);
     }
 
+    public float GetVitalBodyPartRatio(EntityUid bodyId, BodyComponent? body = null)
+    {
+        if (!Resolve(bodyId, ref body, logMissing: false))
+            return 1f;
+
+        var children = GetBodyChildren(bodyId, body);
+        var vitalCount = 0;
+        var count = 0;
+        foreach (var child in children)
+        {
+            count++;
+            if ((int) (child.Component.PartType & BodyPartType.Vital) != 0)
+                vitalCount++;
+        }
+
+        if (vitalCount == 0)
+            return 1f;
+
+        return (float) count / vitalCount;
+    }
+
     public string GetSlotFromBodyPart(BodyPartComponent? part)
     {
         var slotName = "";
@@ -1170,7 +1193,7 @@ public partial class SharedBodySystem
 
     public TargetBodyPart GetRandomBodyPart(EntityUid target)
     {
-        var children = GetBodyChildren(target).ToList();
+        var children = GetVitalBodyChildren(target).ToList(); // Goobstation
         if (children.Count == 0)
             return TargetBodyPart.Chest;
 

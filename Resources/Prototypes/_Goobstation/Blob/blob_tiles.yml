@@ -350,6 +350,9 @@
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
+    - type: Damageable
+      damageContainer: Blob
+      damageModifierSet: BlobReflective
     - type: Reflect
       reflectProb: 1
       spread: 20

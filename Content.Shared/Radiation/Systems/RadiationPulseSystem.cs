@@ -29,10 +29,15 @@ public sealed class RadiationPulseSystem : EntitySystem
         {
             component.VisualDuration = despawn.Lifetime;
         }
+        /*
+        goobstation - Long depricated wizden system, changes to RadiationSystem and RadiationSourceComponent
+        have changed how radiation range is calculated.
+        Fix/adjust if reimplementation occurs, default visual range is "fine" for now.
         // try to get radiation range or keep default visual range
         if (TryComp<RadiationSourceComponent>(uid, out var radSource))
         {
             component.VisualRange = radSource.Intensity / radSource.Slope;
         }
+        */
     }
 }

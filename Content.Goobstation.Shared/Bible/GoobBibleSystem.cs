@@ -5,6 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Religion;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Exorcism;
 using Content.Goobstation.Shared.Religion;
@@ -61,7 +62,7 @@ public sealed partial class GoobBibleSystem : EntitySystem
             _popupSystem.PopupPredicted(popup, target, performer, PopupType.LargeCaution);
             _audio.PlayPvs(bibleComp.SizzleSoundPath, target);
             _damageableSystem.TryChangeDamage(target, bibleComp.SmiteDamage * multiplier, true, origin: bible, targetPart: TargetBodyPart.All, ignoreBlockers: true);
-            _stun.TryParalyze(target, bibleComp.SmiteStunDuration * multiplier, false);
+            _stun.TryUpdateParalyzeDuration(target, bibleComp.SmiteStunDuration * multiplier);
             _delay.TryResetDelay((bible, useDelay));
         }
         else if (isDevil && HasComp<BibleUserComponent>(performer))
@@ -88,3 +89,9 @@ public sealed partial class GoobBibleSystem : EntitySystem
         return true;
     }
 }
+
+/// <summary>
+/// Raised on the target once bible smite gets used
+/// </summary>
+[ByRefEvent]
+public record struct BibleSmiteUsed;

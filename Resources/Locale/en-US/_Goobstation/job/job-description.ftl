@@ -12,6 +12,7 @@ job-description-navy-captain = Classified.
 job-description-navy-officer = Answer faxes and radio communications directed at Central Command. Perform investigations on the station and it's crew.
 job-description-diplomat = Represent Central Command, managing relationships with other factions aboard the station. Cleanup the issues the captain has likely caused.
 job-description-navy-special-operations-officer = Send, brief, and direct emergency response teams or other Nanotrasen forces. Release the nuclear codes, or don't.
+job-description-outercommander = An external observer who audits Central Command and applies bureaucratic pressure without direct authority.
 
 # Generic Nanotrasen
 
@@ -30,3 +31,8 @@ job-description-hecu = Fufill the orders of your supervisor, no matter the moral
 
 job-description-conquest = Stand ready for my arrival, worm.
 job-description-mercenarycaptain = Order other mercs around. Act as muscle for the highest bidder. Just because it's NT now, doesn't mean it won't change later.
+job-description-roboticist = Build and maintain borgs and mechs. Keep the AI in check.
+job-description-radiohost = Host the stations local radio station, play vinyls, interview the crew, take faxes and run ads to make the best radio show on the station.
+
+# Viro
+job-description-virologist = Study spreading viruses, produce cures for ailing crewmembers, experiment in creating beneficial viruses. Make sure pandemics don't spread.

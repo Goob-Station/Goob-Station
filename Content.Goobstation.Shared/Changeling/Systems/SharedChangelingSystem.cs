@@ -8,12 +8,15 @@
 
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.Overlays;
+using Content.Shared.Body.Systems;
 using Content.Shared.Eye.Blinding.Components;
 
 namespace Content.Goobstation.Shared.Changeling.Systems;
 
 public abstract class SharedChangelingSystem : EntitySystem
 {
+    [Dependency] protected readonly SharedBodySystem Body = default!;
+
     public override void Initialize()
     {
         base.Initialize();

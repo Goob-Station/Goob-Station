@@ -1,0 +1,88 @@
+- type: entity
+  name: ash drake
+  id: LavalandBossAshDrake
+  parent: LavalandMobBase
+  description: Guardian of the Necropolis.
+  components:
+  - type: Physics
+    bodyType: KinematicController
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1,-1,1,1"
+        density: 1000
+        mask:
+        - LargeMobMask
+        layer:
+        - LargeMobLayer
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/96x96.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: dragon
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: dragon
+      Dead:
+        Base: dragon_dead
+  - type: ProjectileBatteryAmmoProvider
+    proto: ProjectileFireball
+    fireCost: 50
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 50
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: Gun
+    projectileSpeed: 10
+    fireRate: 0.3
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot: /Audio/Magic/fireball.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+    damage:
+      types:
+        Slash: 20
+        Structural: 150
+  - type: Tag
+    tags:
+    - CannotSuicide
+  - type: CombatMode
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      2500: Dead
+  - type: Butcherable
+    spawned:
+    - id: FireballSpellbook
+      amount: 1
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Hierophant
+  - type: TileMovement
+  - type: BossMusic
+    soundId: AshDrake
+  - type: Aggressive # also required component for aggro checking
+    forgiveRange: 20.0
+  - type: CombatPower # Goobstation
+    factor: 25 # times more dangerous than a crew-member

@@ -1,17 +1,9 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 Sara Aldrete's Top Guy <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Server.IoC;
 using Content.Goobstation.Server.Voice;
 using Content.Goobstation.Common.JoinQueue;
 using Content.Goobstation.Common.ServerCurrency;
-using Content.Goobstation.Server.ServerCurrency;
 using Robust.Shared.ContentPack;
-using Robust.Shared.IoC;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Entry;
@@ -20,6 +12,7 @@ public sealed class EntryPoint : GameServer
 {
     private IVoiceChatServerManager _voiceManager = default!;
     private ICommonCurrencyManager _curr = default!;
+    private IJoinQueueManager _joinQueue = default!;
 
     public override void Init()
     {
@@ -31,15 +24,11 @@ public sealed class EntryPoint : GameServer
 
         _voiceManager = IoCManager.Resolve<IVoiceChatServerManager>();
 
-        IoCManager.Resolve<IJoinQueueManager>().Initialize();
+        _joinQueue = IoCManager.Resolve<IJoinQueueManager>();
+        _joinQueue.Initialize();
 
-        _curr = IoCManager.Resolve<ICommonCurrencyManager>(); // Goobstation
-        _curr.Initialize(); // Goobstation
-    }
-
-    public override void PostInit()
-    {
-        base.PostInit();
+        _curr = IoCManager.Resolve<ICommonCurrencyManager>();
+        _curr.Initialize();
     }
 
     public override void Update(ModUpdateLevel level, FrameEventArgs frameEventArgs)
@@ -50,8 +39,8 @@ public sealed class EntryPoint : GameServer
         {
             case ModUpdateLevel.PreEngine:
                 _voiceManager.Update();
+                _joinQueue.Update(frameEventArgs.DeltaSeconds);
                 break;
-
         }
     }
 
@@ -59,6 +48,7 @@ public sealed class EntryPoint : GameServer
     {
         base.Dispose(disposing);
 
-        _curr.Shutdown(); // Goobstation
+        _curr.Shutdown();
+        _voiceManager.Shutdown();
     }
 }

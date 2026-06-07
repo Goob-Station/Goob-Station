@@ -44,6 +44,8 @@ public sealed class SurgeryToolConditionsSystem : EntitySystem
     {
         var coords = Transform(args.User).Coordinates;
         var ev = new TakeAmmoEvent(1, new List<(EntityUid? Entity, IShootable Shootable)>(), coords, args.User);
+        RaiseLocalEvent(ent, ev);
+
         if (ev.Ammo.Count > 0)
             return;
 

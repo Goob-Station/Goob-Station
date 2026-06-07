@@ -11,7 +11,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   # I.P.C.
   <GuideEntityEmbed Entity="MobIPCDummy" Caption="I.P.C."/>
   An IPC (short for Integrated Positronic Chassis) is a type of sentient robot and is considered an [color=yellow]independent individual[/color], meaning [color=red]they are not guided by any laws of robotics[/color]. IPCs cannot be hacked by Emags because they do not have to follow any predefined directives in their system. [color=red]IPCs are silicon-based beings, so they are usually healed by Science or Engineering instead of Medical.[/color]
-  They take 20% less Brute damage, 70% more Heat damage and 100% more Shock damage. Contrary to cyborgs, they take Radiation damage, but 60% less than humans. They are made of a heavy alloy, which means they are harder to pull, though IPCs themselves can pull more lightweight species with ease.
+  They take 20% less Brute damage, 70% more Heat damage and 100% more Shock damage. Contrary to cyborgs, they take Radiation damage, but 60% less than humans.
+  They have no bones.
 
   <Box>
     <GuideEntityEmbed Entity="PositronicBrain" Caption="Positronic Brain"/>
@@ -22,7 +23,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
    <Box>
     <GuideEntityEmbed Entity="APCBasic" Caption="APC Terminal"/>
     <GuideEntityEmbed Entity="BorgCharger" Caption="Borg Charger"/>
-    <GuideEntityEmbed Entity="PowerCellMedium" Caption="Power Cell"/>
+    <GuideEntityEmbed Entity="PowerCellMedium" Caption="Power Cells"/>
   </Box>
   IPCs can be recharged in three different ways:
 
@@ -30,7 +31,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
   Borg Rechargers: IPCs can use borg rechargers to recharge. Always prioritize the ones outside of the Sci area to avoid headaches.
 
-  Power Cell: IPCs have an internal power cell that serves as their battery. They can simply swap it out by opening the hatch and manually replacing it.
+  Power Cells: IPCs can drink energy from power cells to charge their internal battery. [color=yellow]Right Click and select Drain[/color] on a power cell or battery powered device to drink from it.
 
   ## Integrated Radio
   <Box>
@@ -55,7 +56,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   </Box>
   <Box HorizontalAlignment="Stretch">
     In the event an IPC dies, after being fully repaired, it should be restarted using the [color=yellow]"Restart"[/color] button (located by right-clicking).
-
+  </Box>
+  <Box HorizontalAlignment="Stretch">
     [color=red]NEVER ELECTROCUTE AN IPC with a defibrillator or in any other way while it is dead, as this will cause the battery to discharge energy rays outward![/color]
   </Box>
 

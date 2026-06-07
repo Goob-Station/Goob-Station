@@ -1,9 +1,7 @@
 - type: constructionGraph
   id: LavaPortal
-  start: start
   graph:
     - node: start
-
     - node: Lavaportal
       entity: GatewayLavalandStation
       edges:

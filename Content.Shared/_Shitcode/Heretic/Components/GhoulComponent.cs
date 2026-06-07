@@ -18,18 +18,19 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Heretic;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class GhoulComponent : Component
 {
-    /// <summary>
-    ///     Indicates who ghouled the entity.
-    /// </summary>
-    [DataField, AutoNetworkedField] public NetEntity? BoundHeretic;
-
     /// <summary>
     ///     Total health for ghouls.
     /// </summary>
     [DataField] public FixedPoint2 TotalHealth = 50;
+
+    [DataField]
+    public bool DropOrgansOnDeath = true;
+
+    [DataField]
+    public EntProtoId? SpawnOnDeathPrototype;
 
     /// <summary>
     ///     Whether ghoul should be given a bloody blade
@@ -38,7 +39,10 @@ public sealed partial class GhoulComponent : Component
     public bool GiveBlade;
 
     [DataField]
-    public EntityUid? BoundBlade;
+    public LocId? ExamineMessage = "examine-system-cant-see-entity";
+
+    [DataField]
+    public EntityUid? BoundWeapon;
 
     [DataField]
     public EntProtoId BladeProto = "HereticBladeFleshGhoul";
@@ -46,8 +50,12 @@ public sealed partial class GhoulComponent : Component
     [DataField]
     public SoundSpecifier? BladeDeleteSound = new SoundCollectionSpecifier("gib");
 
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public ProtoId<FactionIconPrototype> MasterIcon { get; set; } = "GhoulHereticMaster";
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public ProtoId<FactionIconPrototype> GhoulIcon { get; set; } = "GhoulFaction";
+    [DataField]
+    public LocId GhostRoleName = "ghostrole-ghoul-name";
+
+    [DataField]
+    public LocId GhostRoleDesc = "ghostrole-ghoul-desc";
+
+    [DataField]
+    public LocId GhostRoleRules = "ghostrole-ghoul-rules";
 }

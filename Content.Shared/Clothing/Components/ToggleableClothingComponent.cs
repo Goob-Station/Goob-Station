@@ -66,6 +66,12 @@ public sealed partial class ToggleableClothingComponent : Component
     public Dictionary<string, EntProtoId> ClothingPrototypes = new();
 
     /// <summary>
+    /// slot -> prefix
+    /// </summary>
+    [DataField]
+    public Dictionary<string, string?> EquippedPrefixes = new();
+
+    /// <summary>
     ///     Dictionary of clothing uids and slots
     /// </summary>
     [DataField, AutoNetworkedField]

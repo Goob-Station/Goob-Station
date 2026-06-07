@@ -55,7 +55,9 @@ public sealed class SpreaderSystem : EntitySystem
 
     private EntityQuery<EdgeSpreaderComponent> _query;
 
-    public const float SpreadCooldownSeconds = 1;
+    // goob edit - faster smoke.
+    // it's funny how it's stored here and spreader prototype updates have 0 references.
+    public const float SpreadCooldownSeconds = .33f;
 
     private static readonly ProtoId<TagPrototype> IgnoredTag = "SpreaderIgnore";
 
@@ -229,6 +231,10 @@ public sealed class SpreaderSystem : EntitySystem
                 neighborTiles.Add((dockedXform.GridUid.Value, dockedGrid, _map.CoordinatesToTile(dockedXform.GridUid.Value, dockedGrid, dockedXform.Coordinates), xform.LocalRotation.ToAtmosDirection(), dockedXform.LocalRotation.ToAtmosDirection()));
             }
 
+            // Goobstation
+            if (spreaderPrototype.IgnoreBlockedTiles)
+                continue;
+
             // If we're on a blocked tile work out which directions we can go.
             if (!airtightQuery.TryGetComponent(ent, out var airtight) || !airtight.AirBlocked ||
                 _tag.HasTag(ent.Value, IgnoredTag))
@@ -268,27 +274,34 @@ public sealed class SpreaderSystem : EntitySystem
                 continue;
 
             var directionEnumerator = _map.GetAnchoredEntitiesEnumerator(neighborEnt, neighborGrid, neighborPos);
-            var occupied = false;
 
-            while (directionEnumerator.MoveNext(out var ent))
+            // Goob edit start
+            if (!spreaderPrototype.IgnoreBlockedTiles)
             {
-                if (!airtightQuery.TryGetComponent(ent, out var airtight) || !airtight.AirBlocked || _tag.HasTag(ent.Value, IgnoredTag))
+                var occupied = false;
+
+                while (directionEnumerator.MoveNext(out var ent))
                 {
-                    continue;
+                    if (!airtightQuery.TryGetComponent(ent, out var airtight) || !airtight.AirBlocked || _tag.HasTag(ent.Value, IgnoredTag))
+                    {
+                        continue;
+                    }
+
+                    if ((airtight.AirBlockedDirection & otherAtmosDir) == 0x0)
+                        continue;
+
+                    occupied = true;
+                    break;
                 }
 
-                if ((airtight.AirBlockedDirection & otherAtmosDir) == 0x0)
+                if (occupied)
                     continue;
 
-                occupied = true;
-                break;
+                directionEnumerator = _map.GetAnchoredEntitiesEnumerator(neighborEnt, neighborGrid, neighborPos);
             }
 
-            if (occupied)
-                continue;
-
             var oldCount = occupiedTiles.Count;
-            directionEnumerator = _map.GetAnchoredEntitiesEnumerator(neighborEnt, neighborGrid, neighborPos);
+            // Goob edit end
 
             while (directionEnumerator.MoveNext(out var ent))
             {

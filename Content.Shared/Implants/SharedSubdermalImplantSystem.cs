@@ -19,6 +19,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Shared.Actions;
 using Content.Shared.Implants.Components;
 using Content.Shared.Interaction;
@@ -27,9 +28,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Tag;
 using JetBrains.Annotations;
 using Robust.Shared.Containers;
-using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
-using System.Linq;
 
 namespace Content.Shared.Implants;
 
@@ -66,7 +65,8 @@ public abstract class SharedSubdermalImplantSystem : EntitySystem
             _actionsSystem.AddAction(component.ImplantedEntity.Value, ref component.Action, component.ImplantAction, uid);
         }
 
-        //replace micro bomb with macro bomb
+        // replace micro bomb with macro bomb
+        // TODO: this shouldn't be hardcoded here
         if (_container.TryGetContainer(component.ImplantedEntity.Value, ImplanterComponent.ImplantSlotId, out var implantContainer) && _tag.HasTag(uid, MacroBombTag))
         {
             foreach (var implant in implantContainer.ContainedEntities)
@@ -97,9 +97,10 @@ public abstract class SharedSubdermalImplantSystem : EntitySystem
         if (component.ImplantAction != null)
             _actionsSystem.RemoveProvidedActions(component.ImplantedEntity.Value, uid);
 
-        // GoobStation
-        var ev = new ImplantRemovedFromEvent(uid, component.ImplantedEntity.Value);
-        RaiseLocalEvent(component.ImplantedEntity.Value, ref ev);
+        // <GoobStation>
+        var ev = new ImplantRemovedEvent(uid, component.ImplantedEntity.Value);
+        RaiseLocalEvent(uid, ref ev);
+        // </GoobStation>
 
         if (!_container.TryGetContainer(uid, BaseStorageId, out var storageImplant))
             return;
@@ -116,7 +117,7 @@ public abstract class SharedSubdermalImplantSystem : EntitySystem
     /// Add a list of implants to a person.
     /// Logs any implant ids that don't have <see cref="SubdermalImplantComponent"/>.
     /// </summary>
-    public void AddImplants(EntityUid uid, IEnumerable<String> implants)
+    public void AddImplants(EntityUid uid, IEnumerable<EntProtoId> implants)
     {
         foreach (var id in implants)
         {
@@ -205,7 +206,7 @@ public abstract class SharedSubdermalImplantSystem : EntitySystem
         if (!_container.TryGetContainer(uid, ImplanterComponent.ImplantSlotId, out var implantContainer))
             return;
 
-        var relayEv = new ImplantRelayEvent<T>(args);
+        var relayEv = new ImplantRelayEvent<T>(args, uid);
         foreach (var implant in implantContainer.ContainedEntities)
         {
             if (args is HandledEntityEventArgs { Handled : true })
@@ -220,9 +221,12 @@ public sealed class ImplantRelayEvent<T> where T : notnull
 {
     public readonly T Event;
 
-    public ImplantRelayEvent(T ev)
+    public readonly EntityUid ImplantedEntity;
+
+    public ImplantRelayEvent(T ev, EntityUid implantedEntity)
     {
         Event = ev;
+        ImplantedEntity = implantedEntity;
     }
 }
 
@@ -246,21 +250,9 @@ public readonly struct ImplantImplantedEvent
     }
 }
 
-// GoobStation
-
 /// <summary>
-/// Event that is raised whenever removed implant from implanted entity.
-/// Raised on implanted entity.
+/// Goobstation - Event that is raised whenever an implant is removed from an implanted entity.
+/// Raised on the implant.
 /// </summary>
 [ByRefEvent]
-public readonly struct ImplantRemovedFromEvent
-{
-    public readonly EntityUid Implant;
-    public readonly EntityUid Implanted;
-
-    public ImplantRemovedFromEvent(EntityUid implant, EntityUid implanted)
-    {
-        Implant = implant;
-        Implanted = implanted;
-    }
-}
+public readonly record struct ImplantRemovedEvent(EntityUid Implant, EntityUid Implanted);

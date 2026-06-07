@@ -14,6 +14,7 @@
   desc: reagent-desc-blackpowder
   flavor: gunpowder
   physicalDesc: reagent-physical-desc-grainy
+# we havent upstreamed yet  contrabandSeverity: Major # explosive, with no other functions
   color: black
   metabolisms:
     Poison:

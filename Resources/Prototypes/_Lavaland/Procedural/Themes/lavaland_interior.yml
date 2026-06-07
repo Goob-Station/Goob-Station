@@ -131,7 +131,6 @@
   offset: 18,18
   tags: [LavalandInterior5x5]
 
-
 - type: entity
   id: LavalandInteriorRoomMarker
   parent: BaseRoomMarker

@@ -1,0 +1,59 @@
+- type: entity
+  id: MachineGCSLowCircuitboard
+  parent: BaseMachineCircuitboard
+  name: low-power gunnery control server board
+  description: A machine board for a GCS.
+  components:
+  - type: Sprite
+    state: security
+  - type: MachineBoard
+    prototype: GunneryServerLow
+    stackRequirements:
+      Glass: 10
+      Steel: 10
+      Manipulator: 4
+
+- type: entity
+  id: MachineGCSMediumCircuitboard
+  parent: BaseMachineCircuitboard
+  name: medium-power gunnery control server board
+  description: A machine board for a GCS.
+  components:
+  - type: Sprite
+    state: security
+  - type: MachineBoard
+    prototype: GunneryServerMedium
+    stackRequirements:
+      Glass: 10
+      Steel: 10
+      Manipulator: 4
+
+- type: entity
+  id: MachineGCSHighCircuitboard
+  parent: BaseMachineCircuitboard
+  name: high-power gunnery control server board
+  description: A machine board for a GCS.
+  components:
+  - type: Sprite
+    state: security
+  - type: MachineBoard
+    prototype: GunneryServerHigh
+    stackRequirements:
+      Glass: 10
+      Steel: 10
+      Manipulator: 4
+
+- type: entity
+  id: MachineGCSUltraCircuitboard
+  parent: BaseMachineCircuitboard
+  name: ultra-high-power gunnery control server board
+  description: A machine board for a GCS.
+  components:
+  - type: Sprite
+    state: security
+  - type: MachineBoard
+    prototype: GunneryServerUltra
+    stackRequirements:
+      Glass: 10
+      Steel: 10
+      Manipulator: 4

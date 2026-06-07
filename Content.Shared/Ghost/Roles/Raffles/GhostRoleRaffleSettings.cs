@@ -3,7 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Server.Ghost.Roles.Raffles;
+namespace Content.Shared.Ghost.Roles.Raffles;
 
 /// <summary>
 /// Defines settings for a ghost role raffle.

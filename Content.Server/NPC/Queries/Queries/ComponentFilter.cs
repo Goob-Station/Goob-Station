@@ -15,4 +15,8 @@ public sealed partial class ComponentFilter : UtilityQueryFilter
     /// </summary>
     [DataField("components", required: true)]
     public ComponentRegistry Components = new();
+
+    // Goobstation
+    [DataField]
+    public bool Invert;
 }

@@ -8,7 +8,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Body.Components;
+using Content.Shared.Body.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Mobs.Components;
 
@@ -20,12 +20,12 @@ public sealed partial class HereticAbilitySystem
     {
         base.SubscribeSide();
 
-        SubscribeLocalEvent<HereticComponent, EventHereticCleave>(OnCleave);
+        SubscribeLocalEvent<EventHereticCleave>(OnCleave);
     }
 
-    private void OnCleave(Entity<HereticComponent> ent, ref EventHereticCleave args)
+    private void OnCleave(EventHereticCleave args)
     {
-        if (!TryUseAbility(ent, args))
+        if (!TryUseAbility(args))
             return;
 
         args.Handled = true;
@@ -39,21 +39,21 @@ public sealed partial class HereticAbilitySystem
 
         var hasTargets = false;
 
-        var targets = _lookup.GetEntitiesInRange<MobStateComponent>(args.Target, args.Range, LookupFlags.Dynamic);
+        var targets = Lookup.GetEntitiesInRange<MobStateComponent>(args.Target, args.Range, LookupFlags.Dynamic);
         foreach (var (target, _) in targets)
         {
-            if (target == ent.Owner || HasComp<HereticComponent>(target) || HasComp<GhoulComponent>(target))
+            if (target == args.Performer)
                 continue;
 
             hasTargets = true;
 
-            _dmg.TryChangeDamage(target, args.Damage, true, origin: ent.Owner);
+            _dmg.TryChangeDamage(target, args.Damage, true, origin: args.Performer);
 
             if (!bloodQuery.TryComp(target, out var blood))
                 continue;
 
-            _blood.TryModifyBloodLevel(target, args.BloodModifyAmount, blood);
-            _blood.TryModifyBleedAmount(target, blood.MaxBleedAmount, blood);
+            _blood.TryModifyBloodLevel((target, blood), args.BloodModifyAmount);
+            _blood.TryModifyBleedAmount((target, blood), blood.MaxBleedAmount);
         }
 
         if (hasTargets)

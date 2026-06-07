@@ -197,12 +197,12 @@
         Cold : 0.1 #per second, scales with temperature & other constants
     heatDamage:
       types:
-        Heat : 1.5 #per second, scales with temperature & other constants
+        Heat : 1.0 # Goob edit #per second, scales with temperature & other constants
   - type: TemperatureSpeed
     thresholds:
-      301: 0.8
-      295: 0.6
-      285: 0.4
+      301: 0.9
+      295: 0.8
+      285: 0.7
   - type: Wagging
   - type: Inventory
     speciesId: reptilian

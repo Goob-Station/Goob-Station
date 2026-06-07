@@ -39,20 +39,22 @@ public sealed class AnomalyMetric : ChaosMetricSystem<Components.AnomalyMetricCo
         "game_director_metric_anomaly_chaos_calculated",
         "Calculated chaos value contributed by anomalies and kudzu.");
 
+    private const float KudzuChaosValue = 0.25f;
 
-    public override ChaosMetrics CalculateChaos(EntityUid metricUid,
+
+    protected override ChaosMetrics CalculateChaos(EntityUid metricUid,
         Components.AnomalyMetricComponent component,
         CalculateChaosEvent args)
     {
         double anomalyChaos = 0;
-        int anomalyCount = 0;
-        int severeAnomalyCount = 0;
-        int growingAnomalyCount = 0;
-        int kudzuCount = 0;
+        var anomalyCount = 0;
+        var severeAnomalyCount = 0;
+        var growingAnomalyCount = 0;
+        var kudzuCount = 0;
 
         // Consider each anomaly and add its stability and growth to the accumulator
         var anomalyQ = EntityQueryEnumerator<AnomalyComponent>();
-        while (anomalyQ.MoveNext(out var uid, out var anomaly))
+        while (anomalyQ.MoveNext(out _, out var anomaly))
         {
             anomalyCount++;
             if (anomaly.Severity > 0.8f)
@@ -71,10 +73,10 @@ public sealed class AnomalyMetric : ChaosMetricSystem<Components.AnomalyMetricCo
         }
 
         var kudzuQ = EntityQueryEnumerator<KudzuComponent>();
-        while (kudzuQ.MoveNext(out var uid, out var kudzu))
+        while (kudzuQ.MoveNext(out _, out _))
         {
             kudzuCount++;
-            anomalyChaos += 0.25f;
+            anomalyChaos += KudzuChaosValue;
         }
 
         AnomalyTotal.Set(anomalyCount);
@@ -83,7 +85,7 @@ public sealed class AnomalyMetric : ChaosMetricSystem<Components.AnomalyMetricCo
         KudzuTotal.Set(kudzuCount);
         AnomalyChaosCalculated.Set(anomalyChaos);
 
-        var chaos = new ChaosMetrics(new Dictionary<ChaosMetric, double>()
+        var chaos = new ChaosMetrics(new Dictionary<ChaosMetric, double>
         {
             {ChaosMetric.Anomaly, anomalyChaos},
         });

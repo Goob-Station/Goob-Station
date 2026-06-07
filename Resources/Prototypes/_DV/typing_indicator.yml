@@ -29,3 +29,10 @@
   typingState: chitinid0
   idleState: chitinid0
   offset: -0.2, 0.1 # 0625
+
+- type: typingIndicator
+  id: feroxi
+  spritePath: /Textures/_DV/Effects/speech.rsi
+  typingState: feroxi0
+  idleState: feroxi0
+  offset: 0, 0.2 # 0625

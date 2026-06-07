@@ -29,10 +29,10 @@
   lastNames: NamesOniLast
   naming: LastNoFirst
   # begin Goobstation: port EE height/width sliders
-  minHeight: 1.0
+  minHeight: 1.11
   defaultHeight: 1.2
   maxHeight: 1.35
-  minWidth: 1.05
+  minWidth: 1.1
   defaultWidth: 1.2
   maxWidth: 1.3
   # end Goobstation: port EE height/width sliders

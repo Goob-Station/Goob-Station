@@ -9,4 +9,8 @@ carving-knife-comp-close-to-another-carving = Too close to another carving!
 carving-knife-comp-runes-count = [color=yellow][bold]{$count} / 3[/bold] total carvings have been drawn.[/color]
 carving-knife-comp-runes-deleted = Destroyed all carvings!
 
-alert-carving-trigger-message = {$victim} has stepped foot on the alert rune near {$location}!
+alert-carving-trigger-message =
+    "{$victim}" has stepped foot on the alert rune near "{$location}"!
+    {" "}[button label="Teleport" timer={$timer} id="{$id}" uid={$uid} coords ="{$coords}"]
+    {" "}
+alert-carving-trigger-message-coords = {$uid}, {$x}, {$y}

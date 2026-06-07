@@ -1,0 +1,20 @@
+# language for carp and dragons (primarily made so goldfish can actually use translators)
+- type: language
+  id: Carptongue
+  isVisibleLanguage: true
+  speech:
+    color: "#e00d4c"
+  obfuscation:
+    !type:SyllableObfuscation
+    minSyllables: 2
+    maxSyllables: 4
+    replacement:
+      - r
+      - rr
+      - Rr
+      - gr
+      - sr
+      - ss
+      - sSs
+      - rer
+      - row

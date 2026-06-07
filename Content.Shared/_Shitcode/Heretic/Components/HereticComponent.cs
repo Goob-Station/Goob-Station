@@ -9,21 +9,25 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Heretic;
 using Content.Shared.Dataset;
 using Content.Shared.Heretic.Prototypes;
+using Content.Shared.Objectives.Components;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Content.Shared.Tag;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Heretic;
 
-// TODO: Move all of this to mind components, heretics should be safely polymorphable
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class HereticComponent : Component
 {
+    public override bool SessionSpecific => true;
+
     [DataField]
     public List<ProtoId<HereticKnowledgePrototype>> BaseKnowledge = new()
     {
@@ -88,16 +92,61 @@ public sealed partial class HereticComponent : Component
     ///     Used to prevent double casting mansus grasp.
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
-    public EntityUid MansusGrasp = EntityUid.Invalid;
+    public EntityUid MansusGraspAction = EntityUid.Invalid;
 
     [DataField]
-    public List<EntityUid> OurBlades = new();
+    public Dictionary<ProtoId<HereticRitualPrototype>, List<EntityUid>> LimitedTransmutations = new();
 
-    public int MaxBlades => CurrentPath switch
+    [DataField]
+    public SoundSpecifier? InfluenceGainSound = new SoundCollectionSpecifier("bloodCrawl");
+
+    [DataField]
+    public LocId InfluenceGainBaseMessage = "influence-base-message";
+
+    [DataField]
+    public int InfluenceGainTextFontSize = 22;
+
+    [DataField]
+    public List<LocId> InfluenceGainMessages = new()
     {
-        "Blade" => 4,
-        _ => 2,
+        "influence-gain-message-1",
+        "influence-gain-message-2",
+        "influence-gain-message-3",
+        "influence-gain-message-4",
+        "influence-gain-message-5",
+        "influence-gain-message-6",
+        "influence-gain-message-7",
+        "influence-gain-message-7",
+        "influence-gain-message-8",
+        "influence-gain-message-9",
+        "influence-gain-message-10",
+        "influence-gain-message-11",
+        "influence-gain-message-12",
+        "influence-gain-message-13",
+        "influence-gain-message-14",
+        "influence-gain-message-15",
+        "influence-gain-message-16",
     };
+
+    [DataField]
+    public List<EntProtoId<ObjectiveComponent>> AllObjectives = new()
+    {
+        "HereticKnowledgeObjective",
+        "HereticSacrificeObjective",
+        "HereticSacrificeHeadObjective",
+    };
+
+    /// <summary>
+    /// Events raised when on new body when mind gets transferred to it
+    /// </summary>
+    [DataField, NonSerialized]
+    public List<HereticKnowledgeEvent> KnowledgeEvents = new();
+
+    /// <summary>
+    /// Minions summoned by this heretic
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public HashSet<EntityUid> Minions = new();
 }
 
 [DataDefinition, Serializable, NetSerializable]

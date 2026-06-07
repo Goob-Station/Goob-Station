@@ -1,0 +1,20 @@
+# SPDX-FileCopyrightText: 2025 HungryCuban
+# SPDX-FileCopyrightText: 2025 ScyronX
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatCOG
+  name: Old robe
+  description: An ancient crimson draping from a now-defunct cult.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Head/Cloaks/cogcloak.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Head/Cloaks/cogcloak.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - HeadTop
+    - HeadSide

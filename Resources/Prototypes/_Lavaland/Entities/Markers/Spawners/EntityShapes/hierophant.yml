@@ -1,0 +1,117 @@
+# Base
+- type: entity
+  parent: MarkerBase
+  id: BaseHierophantShape
+  name: hierophant attack spawner
+  categories: [ HideSpawnMenu, Spawner ]
+  abstract: true
+  components:
+  - type: Sprite
+    state: red
+  - type: ShapeSpawner
+    spawn: LavalandHierophantSquare
+
+# Crosses
+- type: entity
+  parent: BaseHierophantShape
+  id: HierophantShapeCrossBishop
+  name: hierophant attack cross bishop spawner
+  categories: [ HideSpawnMenu, Spawner ]
+  components:
+  - type: ShapeSpawner
+    shape: !type:NestedEntityShape
+      id: BishopCross
+      size: 11
+
+- type: entity
+  parent: BaseHierophantShape
+  id: HierophantShapeCrossRook
+  name: hierophant attack cross rook spawner
+  categories: [ HideSpawnMenu, Spawner ]
+  components:
+  - type: ShapeSpawner
+    shape: !type:NestedEntityShape
+      id: RookCross
+      size: 11
+
+- type: entity
+  parent: BaseHierophantShape
+  id: HierophantShapeCrossQueen
+  name: hierophant attack cross queen spawner
+  categories: [ HideSpawnMenu, Spawner ]
+  components:
+  - type: ShapeSpawner
+    shape: !type:NestedEntityShape
+      id: QueenCross
+      size: 11
+
+# Blink
+- type: entity
+  parent: BaseHierophantShape
+  id: HierophantShapeBlink
+  name: hierophant attack blink spawner
+  categories: [ HideSpawnMenu, Spawner ]
+  components:
+  - type: ShapeSpawner
+    shape: !type:NestedEntityShape
+      id: BoxFilled
+      size: 3
+
+- type: entity
+  parent: HierophantShapeBlink
+  id: HierophantShapeBlinkSafe
+  name: hierophant attack safe blink spawner
+  categories: [ HideSpawnMenu, Spawner ]
+  components:
+  - type: ShapeSpawner
+    spawn: LavalandHierophantSquareSafe
+
+# Expanding box
+- type: entity
+  parent: MarkerBase
+  id: HierophantShapeBoxExpanding
+  name: hierophant attack box expanding spawner
+  suffix: Anger
+  categories: [ HideSpawnMenu, Spawner ]
+  components:
+  - type: Sprite
+    state: red
+  - type: ShapeSpawner
+    spawn: LavalandHierophantSquare
+    shape: !type:NestedEntityShape
+      id: BoxHollow
+  - type: ShapeSpawnerCounter
+  - type: AngerShapeSpawner
+    counterRange: 3,8
+    periodRange: 0.2,0.7
+    inversePeriod: true
+  - type: ExpandingShapeSpawner
+    counterSize: 1
+
+# Sequence crosses
+- type: entity
+  parent: MarkerBase
+  id: HierophantShapeCrossSequence
+  name: hierophant attack cross sequence spawner
+  suffix: Anger
+  categories: [ HideSpawnMenu, Spawner ]
+  components:
+  - type: Sprite
+    state: red
+  - type: ShapeSpawner
+    spawn: LavalandHierophantSquare
+    shape: !type:GroupEntityShape
+      children:
+      - id: BishopCross
+        size: 11
+      - id: RookCross
+        size: 11
+#      - id: QueenCross # TODO expand MobPhases for actions, so it can be "upgraded" to also have a chance to spawn a queen cross.
+#        size: 11
+#        weight: 0.3
+  - type: ShapeSpawnerCounter
+  - type: AngerShapeSpawner
+    counterRange: 2,4
+    periodRange: 0.7,1.2
+    inversePeriod: true
+  - type: ExpandingShapeSpawner

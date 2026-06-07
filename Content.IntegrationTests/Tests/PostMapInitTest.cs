@@ -168,7 +168,6 @@ namespace Content.IntegrationTests.Tests
         {
             "/Maps/centcomm.yml",
             "/Maps/bagel.yml", // Contains mime's rubber stamp --> Either fix this, remove the category, or remove this comment if intentional.
-            "/Maps/gate.yml", // Contains positronic brain and LSE-1200c "Perforator"
             "/Maps/meta.yml", // Contains warden's rubber stamp
             "/Maps/reach.yml", // Contains handheld crew monitor
             "/Maps/Shuttles/ShuttleEvent/cruiser.yml", // Contains LSE-1200c "Perforator"
@@ -183,59 +182,102 @@ namespace Content.IntegrationTests.Tests
             "/Maps/_Goobstation/kettle.yml",
             "/Maps/_Goobstation/lambda.yml",
             "/Maps/_Goobstation/leonid.yml",
-            "/Maps/_Goobstation/submarine.yml",
             "/Maps/_Goobstation/Nonstations/wizden.yml", // Obviously
             "/Maps/_Lavaland/Lavaland/ruin_toyshop.yml", // I think we might want to glob these, idk
             "/Maps/_Goobstation/loop.yml",
-            "/Maps/_Goobstation/gate.yml",
             "/Maps/_Goobstation/Shuttles/consul.yml", // Contains HEINOUS amounts of centcomm contraband. Obviously.
             "/Maps/_Goobstation/Shuttles/retort_assault.yml", // ERT ships
             "/Maps/_Goobstation/Shuttles/retort_medical.yml",
             "/Maps/_Goobstation/Shuttles/retort_engineering.yml",
             "/Maps/_Goobstation/Shuttles/retort_janitorial.yml",
-            "/Maps/_Goobstation/Shuttles/retort_cburn.yml",
+            "/Maps/_Goobstation/Shuttles/retort_cburn.yml"
         };
 
         private static readonly string[] GameMaps =
         {
-            "Dev",
-            "TestTeg",
-            "Fland",
-            "Meta",
-            "Packed",
-            "Cluster", // Goobstation - Readds Cluster
-            "Omega",
-            "Bagel",
-            "CentComm",
-            "Box",
-            "Europa", // Goobstation - Readds Europa
-            "Atlas", // Goobstation - Readds Atlas
-            "Core",
-            "Marathon",
-            "MeteorArena",
-            "Saltern",
-            "Reach",
-            "Origin", // Goobstation - Readds Origin
-            "Train",
-            "Oasis",
-            "Cog", // Goobstation - Readd Cog
-            "FlandHighPop", // Goobstation - add highpop maps
-            "OriginHighPop",
-            "OasisHighPop",
-            "Barratry", // Goobstation - add Barratry
-            "Kettle", // Goobstation - add Kettle
-            "Submarine", // Goobstation - add Submarine
-            "Lambda", // Goobstation - add Lambda
-            "Leonid", // Goobstation - add Leonid
+            // Goobstation edit:
+            // order this list alphabetically, mark dev maps
+            // if upstreaming take ours here and edit manually.
             "Amber",
-            "Gate", // Goobstation - goob changes
-            "Lavatest", // Lavaland Change
+            "Atlas",
+            "Bagel",
+            "Barratry",
+            "Box",            // Not in pool
+            "CentComm",       // CentComm
+            "Chloris",
+            "Cluster",
+            "Cog",
+            "Core",           // Not in pool.
+            "Delta",
+            "Dev",            // Dev map
+            "dm01-entryway",  // Deathmatch
+            "Europa",         // Not in pool.
+            "Fland",
+            "FlandHighPop",
+            "Kettle",
+            "Lambda",         // Not in pool
+            "Lavatest",       // Dev map
+            "Leonid",
             "Loop",
-            "Delta", // Goobstation - add Delta
-            "dm01-entryway",
-            "Chloris", // Goobstation
-            "Serpentcrest", // Goobstation
+            "Marathon",
+            "Meta",
+            "MeteorArena",    // Deathmatch
+            "Oasis",
+            "OasisHighPop",
+            "Omega",
+            "Origin",
+            "OriginHighPop",  // Not in pool
+            "Packed",
+            "Reach",
+            "Saltern",
+            "Serpentcrest",
+            "TestTeg",        // Dev map
+            "Train"           // Not in pool
+            // Goob end
         };
+        // Goobstation edit start, yeah i know, but this is easier and less load than loading protoman or something.
+        private static readonly string[] GameMapsInCurrentPool = // plus dev
+        {
+            // order this list alphabetically, mark dev maps
+              "Amber",
+              "Atlas",
+              "Bagel",
+              "Barratry",
+            //"Box",            // Not in pool
+              "CentComm",      // CentComm
+              "Chloris",
+              "Cluster",
+              "Cog",
+            //"Core",           // Not in pool.
+              "Delta",
+              "Dev",            // Dev map
+            //"dm01-entryway",  // Deathmatch
+            //"Europa",         // Not in pool.
+              "Fland",
+              "FlandHighPop",
+              "Kettle",
+            //"Lambda",         // Not in pool
+              "Lavatest",       //Dev map
+              "Leonid",
+              "Loop",
+              "Marathon",
+              "Meta",
+            //"MeteorArena",    // Deathmatch
+              "Oasis",
+              "OasisHighPop",
+              "Omega",
+              "Origin",
+            //"OriginHighPop",  //Not in pool
+              "TestTeg",        //Dev map
+            //"Train",          //Not in pool
+              "Packed",
+              "Reach",
+              "Saltern",
+              "Serpentcrest",
+        };
+        // Goobstation edit end
+
+        private static readonly ProtoId<EntityCategoryPrototype> DoNotMapCategory = "DoNotMap";
 
         /// <summary>
         /// Asserts that specific files have been saved as grids and not maps.
@@ -430,7 +472,7 @@ namespace Content.IntegrationTests.Tests
                 return;
 
             var yamlEntities = node["entities"];
-            if (!protoManager.TryIndex<EntityCategoryPrototype>("DoNotMap", out var dnmCategory))
+            if (!protoManager.TryIndex(DoNotMapCategory, out var dnmCategory))
                 return;
 
             Assert.Multiple(() =>
@@ -483,7 +525,7 @@ namespace Content.IntegrationTests.Tests
             return true;
         }
 
-        [Test, TestCaseSource(nameof(GameMaps))]
+        [Test, TestCaseSource(nameof(GameMapsInCurrentPool))] // Goob edit - GameMapsInCurrentPool only
         public async Task GameMapsLoadableTest(string mapProto)
         {
             await using var pair = await PoolManager.GetServerClient(new PoolSettings

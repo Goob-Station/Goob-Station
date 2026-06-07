@@ -1,0 +1,10 @@
+- type: construction
+  id: RevFlash
+  graph: RevFlash
+  targetNode: revFlash
+  category: construction-category-weapons
+  objectType: Item
+  entityWhitelist:
+    components:
+    - HeadRevolutionary
+    - Revolutionary

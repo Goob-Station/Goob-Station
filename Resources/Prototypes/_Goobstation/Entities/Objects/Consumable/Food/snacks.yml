@@ -109,6 +109,40 @@
         - ReagentId: Theobromine
           Quantity: 1
 
+- type: entity
+  name: mothdog
+  parent: FoodMeatBase
+  id: FoodSnackMothdog
+  description: He is in his prime.
+  components:
+  - type: Tag
+    tags:
+    - Cooked
+  - type: FlavorProfile
+    flavors:
+    - chuddy
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/mothdog.rsi
+    layers:
+    - state: mothdog-4
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 4
+    fillBaseName: mothdog-
+    changeColor: false
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Protein
+          Quantity: 10
+  - type: Appearance
+  - type: Food
+    trash:
+    - FoodSnackMothdogTrash
+
 # Sol Vend / Mars Mart
 - type: entity
   parent: BaseItem
@@ -586,6 +620,36 @@
   - type: Sprite
     state: oort
   - type: Item
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: FoodPacketTrash
+  id: FoodSnackMothdogTrash
+  name: mothdog stick
+  description: He is no longer in his prime.
+  components:
+  - type: Tag
+    tags:
+    - Trash
+    - ClothMade
+  - type: Item
+    sprite: _Goobstation/Objects/Consumable/Food/mothdog.rsi
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/mothdog.rsi
+    state: mothdognt
+  - type: Food
+    solution: food
+  - type: FlavorProfile
+    flavors:
+    - paper
+  - type: BadFood
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 1
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 5
 
 # weebo vend
 - type: entity

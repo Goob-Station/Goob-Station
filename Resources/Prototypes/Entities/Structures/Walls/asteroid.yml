@@ -176,6 +176,9 @@
         layer:
         - WallLayer
         density: 2000
+  - type: Gatherable # Lavaland Change
+    toolWhitelist:
+      tags: []
 
 - type: entity
   abstract: true
@@ -194,7 +197,7 @@
           Unprimed:
             state: gibtonite_inactive
             visible: false
-  - type: OnUseTimerTrigger
+  - type: TimerTrigger
     examinable: false
     beepInterval: 0.4
     beepSound:
@@ -203,6 +206,8 @@
     min: 8
     max: 10
   - type: ExplodeOnTrigger
+    keysIn:
+    - timer
   - type: Explosive
     explosionType: DemolitionCharge
     totalIntensity: 450
@@ -226,6 +231,7 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
       - !type:TriggerBehavior
+        keyOut: timer # explode immediately
 
 # Ore veins
 - type: entity
@@ -1213,7 +1219,7 @@
 - type: entity
   id: WallRockArtifactFragment
   parent: WallRock
-  description: A rock wall. What's that sticking out of it?
+  #description: A rock wall. What's that sticking out of it? # Lavaland Change
   suffix: Artifact Fragment
   components:
   - type: EntityRemap
@@ -2128,23 +2134,23 @@
   parent: WallRockChromite
   suffix: Coal
   components:
-    - type: OreVein
-      oreChance: 1.0
-      currentOre: OreCoal
-    - type: Sprite
-      layers:
-        - state: rock_chromite
-        - map: [ "enum.EdgeLayer.South" ]
-          state: rock_chromite_south
-        - map: [ "enum.EdgeLayer.East" ]
-          state: rock_chromite_east
-        - map: [ "enum.EdgeLayer.North" ]
-          state: rock_chromite_north
-        - map: [ "enum.EdgeLayer.West" ]
-          state: rock_chromite_west
-        - state: rock_coal
-          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
-          visible: false # Lavaland Change
+  - type: OreVein
+    oreChance: 1.0
+    currentOre: OreCoal
+  - type: Sprite
+    layers:
+    - state: rock_chromite
+    - map: [ "enum.EdgeLayer.South" ]
+      state: rock_chromite_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: rock_chromite_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: rock_chromite_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: rock_chromite_west
+    - state: rock_coal
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+      visible: false # Lavaland Change
 
 - type: entity
   id: WallRockChromiteGold

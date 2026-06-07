@@ -10,7 +10,8 @@ public abstract class SharedHereticCombatMarkSystem : EntitySystem
     public virtual bool ApplyMarkEffect(EntityUid target,
         HereticCombatMarkComponent mark,
         string? path,
-        EntityUid user)
+        EntityUid user,
+        HereticComponent heretic)
     {
         if (string.IsNullOrWhiteSpace(path))
             return false;

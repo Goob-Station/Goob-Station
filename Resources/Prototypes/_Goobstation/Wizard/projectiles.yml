@@ -52,7 +52,7 @@
       sprite: /Textures/Objects/Weapons/Guns/Projectiles/magic.rsi
       state: magicm
   - type: HomingProjectile
-    homingSpeed: 540
+    homingSpeed: 1620
   - type: Ammo
     muzzleFlash: null
 
@@ -96,7 +96,7 @@
   - type: HomingProjectile
     homingSpeed: 1080
   - type: KnockdownOnCollide
-    behavior: DropIfStanding
+    dropItems: true
   - type: Ammo
     muzzleFlash: null
 
@@ -140,6 +140,8 @@
         - BulletImpassable
   - type: Ammo
     muzzleFlash: null
+  - type: TileFrictionModifier # Thanks wizden for killing physics comp damping
+    modifier: 0
 
 - type: entity
   id: ProjectileSpellCardRed
@@ -301,12 +303,12 @@
       types:
         Heat: 0
   - type: PolymorphOnTrigger
+    targetUser: true
     polymorph: WizardWabbajack
-  - type: TriggerWhitelist
-    whitelist:
+  - type: WhitelistTriggerCondition
+    userWhitelist:
       components:
       - Body
-  - type: TriggerOnProjectileHit
   - type: Reflective
     reflective: Magic
   - type: Ammo
@@ -331,6 +333,8 @@
         - Impassable
         - BulletImpassable
         - Opaque # So that it can hit holographic mobs
+  - type: TriggerOnCollide
+    fixtureID: projectile
 
 - type: entity
   id: ProjectileDeathBolt
@@ -572,7 +576,8 @@
     reflective: Magic
   - type: Ammo
     muzzleFlash: null
-  - type: TriggerOnProjectileHit
+  - type: TriggerOnCollide
+    fixtureID: projectile
   - type: EmpOnTrigger
     range: 3
     energyConsumption: 50000
@@ -607,7 +612,7 @@
         Quantity: 25
   - type: Trail
     lerpTime: 0.05
-    frequency: 0.05
+    frequency: 0.02
     lifetime: 5
     alphaLerpAmount: 0
     color: "#28005B"
@@ -713,7 +718,7 @@
       types:
         Heat: 0
   - type: StaminaDamageOnCollide
-    damage: 60
+    damage: 90
   - type: Trail
     lerpTime: 0.05
     frequency: 0.02
@@ -752,7 +757,7 @@
   - type: Slippery
     slipData:
       slipOnStep: false
-      paralyzeTime: 10
+      stunTime: 10
       launchForwardsMultiplier: 1
   - type: ProjectileHitShooterAfterDelay
     delay: 0.5

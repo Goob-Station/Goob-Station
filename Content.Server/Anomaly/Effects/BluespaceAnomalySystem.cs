@@ -13,6 +13,7 @@
 
 using System.Linq;
 using System.Numerics;
+using Content.Goobstation.Common.BlockTeleport;
 using Content.Server.Anomaly.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Anomaly.Components;
@@ -51,7 +52,7 @@ public sealed class BluespaceAnomalySystem : EntitySystem
         // otherwise borg brains get removed from their body, or PAIs from a PDA
         var mobs = new HashSet<Entity<MobStateComponent>>();
         _lookup.GetEntitiesInRange(xform.Coordinates, range, mobs, flags: LookupFlags.Uncontained);
-        var allEnts = new ValueList<EntityUid>(mobs.Select(m => m.Owner)) { uid };
+        var allEnts = new ValueList<EntityUid>(mobs.Where(m => !HasComp<BlockTeleportComponent>(m)).Select(m => m.Owner)) { uid }; // Goob edit
         var coords = new ValueList<Vector2>();
         foreach (var ent in allEnts)
         {
@@ -75,7 +76,7 @@ public sealed class BluespaceAnomalySystem : EntitySystem
         var gridBounds = new Box2(mapPos - new Vector2(radius, radius), mapPos + new Vector2(radius, radius));
         var mobs = new HashSet<Entity<MobStateComponent>>();
         _lookup.GetEntitiesInRange(xform.Coordinates, component.MaxShuffleRadius, mobs, flags: LookupFlags.Uncontained);
-        foreach (var comp in mobs)
+        foreach (var comp in mobs.Where(x => !HasComp<BlockTeleportComponent>(x))) // Goob edit
         {
             var ent = comp.Owner;
             var randomX = _random.NextFloat(gridBounds.Left, gridBounds.Right);

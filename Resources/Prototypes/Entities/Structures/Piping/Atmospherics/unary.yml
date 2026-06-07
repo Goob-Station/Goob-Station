@@ -516,7 +516,7 @@
     board: HellfireHeaterMachineCircuitBoard
 
 - type: entity
-  parent: [ BaseMachinePowered, SmallConstructibleMachine ]
+  parent: [ BaseMachinePowered, SmallConstructibleMachine, BaseAutomatedMachine ] # Goob: Automation
   id: BaseGasCondenser
   name: condenser
   description: Condenses gases into liquids. Now we just need some plumbing.
@@ -607,6 +607,12 @@
   - type: PowerSwitch
   - type: AtmosMonitoringConsoleDevice
     navMapBlip: Thermoregulator
+  - type: AutomationSlots # Goobstation
+    slots:
+    - !type:AutomatedSolution
+      solutionName: tank
+      input: PlumbingInput
+      output: PlumbingOutput
   - type: GuideHelp
     guides:
     - GasCondensing

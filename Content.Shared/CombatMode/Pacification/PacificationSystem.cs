@@ -193,6 +193,9 @@ public sealed class PacificationSystem : EntitySystem
 
     private void OnBeforeThrow(Entity<PacifiedComponent> ent, ref BeforeThrowEvent args)
     {
+        if (ent.Owner != args.PlayerUid) // Goobstation
+            return;
+
         var thrownItem = args.ItemUid;
         var itemName = Identity.Entity(thrownItem, EntityManager);
 

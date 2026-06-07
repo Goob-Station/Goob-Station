@@ -1,0 +1,71 @@
+- type: entity
+  id: SaltLine
+  name: salt line
+  description: A line of salt. Keeps the spirits away, or so they say.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.3,0.3,0.3"
+        density: 1
+        hard: true
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Sprite
+    drawdepth: FloorObjects
+    sprite: _Goobstation/Wraith/salt_lines.rsi
+    state: salt_0
+    visible: true
+  - type: Appearance
+  - type: SaltLine
+  - type: SaltLineVisualizer
+    state: salt_
+  - type: Damageable
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/cig_snuff.ogg
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: TableSalt
+          Quantity: 1
+  - type: DamageOnCollide # takes damage when entities collide with it
+    whitelist:
+      tags:
+      - WeakToSalt
+    ignoreWhitelist:
+      components:
+      - Ghost
+      - Spectral
+    damage:
+      types:
+        Structural: 4
+  - type: StatusEffectOnCollideGhost
+    whitelist:
+      tags:
+      - WeakToSalt
+    statusEffect: Corporeal
+    duration: 10

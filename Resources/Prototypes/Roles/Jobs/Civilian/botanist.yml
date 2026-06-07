@@ -69,6 +69,7 @@
   startingGear: BotanistGear
   icon: "JobIconBotanist"
   supervisors: job-supervisors-hop
+  guides: [ Botany ] # goobstation
   goobcoins: 15 #Goob content
   access:
   - Service

@@ -45,6 +45,7 @@
   components:
     - type: TriggerOnCollide
       fixtureID: floortrap
+      maxTriggers: 1
     - type: ExplodeOnTrigger
     - type: Explosive
       explosionType: Default
@@ -60,6 +61,7 @@
   components:
     - type: TriggerOnCollide
       fixtureID: floortrap
+      maxTriggers: 1
     - type: EmpOnTrigger
       range: 2
       energyConsumption: 5000
@@ -72,6 +74,7 @@
   components:
     - type: TriggerOnCollide
       fixtureID: floortrap
+      maxTriggers: 1
     - type: SpawnOnTrigger
       proto: MobCarp
     - type: DeleteOnTrigger
@@ -83,6 +86,7 @@
   components:
     - type: TriggerOnCollide
       fixtureID: floortrap
+      maxTriggers: 1
     - type: SpawnOnTrigger
       proto: MobBearSpace
     - type: DeleteOnTrigger
@@ -94,6 +98,31 @@
   components:
     - type: TriggerOnCollide
       fixtureID: floortrap
+      maxTriggers: 1
     - type: SpawnOnTrigger
       proto: MobKangarooSpace
+    - type: DeleteOnTrigger
+
+- type: entity
+  parent: CollideFloorTrapSpawn
+  id: SpawnFloorTrapXenoDrone
+  suffix: Xeno. Drone
+  components:
+    - type: TriggerOnCollide
+      fixtureID: floortrap
+      maxTriggers: 1
+    - type: SpawnOnTrigger
+      proto: CMMobXenoDrone # goob CM xenos
+    - type: DeleteOnTrigger
+
+- type: entity
+  parent: CollideFloorTrapSpawn
+  id: SpawnFloorTrapXenoBurrower
+  suffix: Xeno. Burrower
+  components:
+    - type: TriggerOnCollide
+      fixtureID: floortrap
+      maxTriggers: 1
+    - type: SpawnOnTrigger
+      proto: CMMobXenoDrone # goob CM xenos
     - type: DeleteOnTrigger

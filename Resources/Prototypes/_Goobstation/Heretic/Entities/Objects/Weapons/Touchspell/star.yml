@@ -1,0 +1,17 @@
+- type: entity
+  id: TouchSpellStar
+  name: star touch
+  description: A sinister looking aura that distorts the flow of reality around it. Connects people with a star mark to you with a cosmic ray and forces them to sleep for 8 seconds after they have been connected for long enough. Causes people without a star mark to get one.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Unremoveable
+  - type: Item
+  - type: UnholyItem
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Entities/star_touch.rsi
+    state: icon
+  - type: PointLight
+    enabled: true
+    radius: 2
+    energy: 1
+    color: "#4E2952"

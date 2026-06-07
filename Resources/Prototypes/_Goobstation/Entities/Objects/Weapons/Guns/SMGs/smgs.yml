@@ -6,10 +6,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: M7S "Ventilator" submachine gun
+  name: M7S Ventilator
   parent: [BaseWeaponSubMachineGun, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponSubMachineGunM7S
-  description: You may or may not be green, but you are still very very mean. Takes proprietary side-loading 5x23mm rifle magazines.
+  description: For when you need to air out an entire hallway, forcibly. Feeds from side-loading 5x23mm magazines.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/SMGs/M7S.rsi
@@ -24,10 +24,10 @@
     shape:
     - 0,0,2,1
   - type: Gun
-    fireRate: 15
-    projectileSpeed: 20 # half regular bullet speed
-    minAngle: 23
-    maxAngle: 66
+    fireRate: 12.5 # Reduced fireRate and increased projectileSpeed
+    projectileSpeed: 30
+    minAngle: 15 # More controlled than before
+    maxAngle: 55
     angleDecay: -8 # Intentionally negative, loses accuracy while not shooting
     angleIncrease: -1.15 # Intentionally negative, gains accuracy while shooting
     availableModes:

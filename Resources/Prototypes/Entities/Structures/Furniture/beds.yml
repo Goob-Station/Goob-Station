@@ -119,7 +119,7 @@
     node: medicalbed
   - type: GuideHelp
     guides:
-    - Medical Doctor
+    - MedicalDoctor
 
 - type: entity
   parent: Bed

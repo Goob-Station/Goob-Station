@@ -50,7 +50,7 @@ public sealed class RaysSystem : EntitySystem
 
         void RandomizeLight(EntityUid ray)
         {
-            var hsv = Robust.Shared.Maths.Vector4.Lerp(Color.ToHsv(colorA), Color.ToHsv(colorB), _random.NextFloat());
+            var hsv = Vector4.Lerp(Color.ToHsv(colorA), Color.ToHsv(colorB), _random.NextFloat());
             _pointLight.SetColor(ray, Color.FromHsv(hsv));
             if (minMaxRadius != null && minMaxRadius.Value.X < minMaxRadius.Value.Y && minMaxRadius.Value.X >= 0)
                 _pointLight.SetRadius(ray, _random.NextFloat(minMaxRadius.Value.X, minMaxRadius.Value.Y));

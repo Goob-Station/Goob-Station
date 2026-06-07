@@ -2,7 +2,6 @@
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
@@ -10,6 +9,11 @@
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GabyChangelog <agentepanela2@gmail.com>
+// SPDX-FileCopyrightText: 2025 Kyoth25f <kyoth25f@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -27,7 +31,7 @@ namespace Content.Shared.Roles.Jobs;
 /// <summary>
 ///     Handles the job data on mind entities.
 /// </summary>
-public abstract class SharedJobSystem : EntitySystem
+public abstract partial class SharedJobSystem : EntitySystem
 {
     [Dependency] private readonly SharedPlayerSystem _playerSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
@@ -97,7 +101,8 @@ public abstract class SharedJobSystem : EntitySystem
     /// For example, with CE it will return Engineering but with captain it will
     /// not return anything, since Command is not a primary department.
     /// </summary>
-    public bool TryGetPrimaryDepartment(string jobProto, [NotNullWhen(true)] out DepartmentPrototype? departmentPrototype)
+    public bool TryGetPrimaryDepartment(string jobProto,
+        [NotNullWhen(true)] out DepartmentPrototype? departmentPrototype)
     {
         // not sorting it since there should only be 1 primary department for a job.
         // this is enforced by the job tests.
@@ -142,7 +147,8 @@ public abstract class SharedJobSystem : EntitySystem
     /// <summary>
     /// Try to get the lowest weighted department for the given job. If the job has no departments will return null.
     /// </summary>
-    public bool TryGetLowestWeightDepartment(string jobProto, [NotNullWhen(true)] out DepartmentPrototype? departmentPrototype)
+    public bool TryGetLowestWeightDepartment(string jobProto,
+        [NotNullWhen(true)] out DepartmentPrototype? departmentPrototype)
     {
         departmentPrototype = null;
 
@@ -234,15 +240,5 @@ public abstract class SharedJobSystem : EntitySystem
             return true;
 
         return prototype.CanBeAntag;
-    }
-
-    // Goobstation Change: Returns the amount of Goobcoins a player will receive when they finish a round as this job.
-    public int GetJobGoobcoins(ICommonSession player)
-    {
-        if (_playerSystem.ContentData(player) is not { Mind: { } mindId }
-            || !MindTryGetJob(mindId, out var prototype))
-            return 1;
-
-        return prototype.Goobcoins;
     }
 }

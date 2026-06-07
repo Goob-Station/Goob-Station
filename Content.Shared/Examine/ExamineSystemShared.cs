@@ -573,7 +573,7 @@ namespace Content.Shared.Examine
         public void PushText(string text, int priority=0)
         {
             var msg = new FormattedMessage();
-            msg.AddText(text);
+            msg.AddText(FormattedMessage.EscapeText(text)); // Goob Sanitize Text
             PushMessage(msg, priority);
         }
 
@@ -621,7 +621,7 @@ namespace Content.Shared.Examine
         public void AddText(string text, int priority=0)
         {
             var msg = new FormattedMessage();
-            msg.AddText(text);
+            msg.AddText(FormattedMessage.EscapeText(text)); // Goob Sanitize Text
             AddMessage(msg, priority);
         }
 

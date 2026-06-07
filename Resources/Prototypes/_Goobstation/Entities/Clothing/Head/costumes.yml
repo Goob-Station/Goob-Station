@@ -13,3 +13,19 @@
     sprite: _Shitmed/Clothing/Head/Helmets/abductor.rsi
   - type: Clothing
     sprite: _Shitmed/Clothing/Head/Helmets/abductor.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingCostumeGingerbreadHead
+  name: Gingerbread Mask
+  description: Remember what they took from us.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/gingerbreadhead.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/gingerbreadhead.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - HeadTop
+    - HeadSide

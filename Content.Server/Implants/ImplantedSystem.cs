@@ -9,7 +9,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Body.Components;
+using Content.Shared.Body.Events;
 using Content.Shared.Implants.Components;
 using Content.Shared.Storage;
 using Robust.Shared.Containers;

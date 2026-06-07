@@ -29,6 +29,19 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+# SubGamemodes
+
+- type: entity
+  parent: BaseGameRule
+  id: TraitorSubGamemodesRule
+  components:
+  - type: SubGamemodes
+    rules:
+    - id: SubgamemodeTraitor
+      prob: 0.5
+
+# GameModes
+
 - type: entity
   parent: BaseGameRule
   id: Changeling
@@ -284,7 +297,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: StationEvent
-    weight: 10
+    weight: 1
     duration: 1
     earliestStart: 50
     minimumPlayers: 20
@@ -306,6 +319,8 @@
   parent: BaseNukeopsRule
   id: Honkops
   components:
+  - type: GameRule
+    minPlayers: 20
   - type: RandomMetadata # this generates the random operation name cuz it's cool.
     nameSegments:
     - OperationPrefixHonkops
@@ -322,9 +337,13 @@
       fallbackRoles: [ Nukeops, NukeopsMedic ]
       spawnerPrototype: SpawnPointNukeopsCommander
       startingGear: SyndicateCommanderGearFullHonkops
+      chaosScore: 300
       roleLoadout:
       - RoleSurvivalNukieHonkops
       components:
+      - type: SleepEmitSound
+        snore: /Audio/Voice/Misc/silly_snore.ogg
+        interval: 10
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
@@ -343,6 +362,9 @@
       roleLoadout:
       - RoleSurvivalNukieHonkops
       components:
+      - type: SleepEmitSound
+        snore: /Audio/Voice/Misc/silly_snore.ogg
+        interval: 10
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
@@ -365,6 +387,9 @@
       roleLoadout:
       - RoleSurvivalNukieHonkops
       components:
+      - type: SleepEmitSound
+        snore: /Audio/Voice/Misc/silly_snore.ogg
+        interval: 10
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
@@ -394,7 +419,7 @@
     definitions:
     - prefRoles: [ Devil ]
       max: 1
-      playerRatio: 20
+      playerRatio: 40 # from 20 --> 40 , makes it less likely to spawn (Fuck devils)
       chaosScore: 150
       jobBlacklist: [ Chaplain, Mime, ChiefEngineer, ResearchDirector, Quartermaster ] #chaplain is obvious, mime can't write.
       mindRoles:
@@ -405,86 +430,28 @@
     - RoundstartAntag
 
 - type: entity
-  parent: DuoAbductorSpawn
-  id: DuoAbductorRoundstart
+  parent: Thief
+  id: OopsAllThieves
   components:
-  - type: StationEvent
-    earliestStart: 0 # its roundstart chud
-  # I LOVE GOIDA COPY PASTING THE ENTIRE THING
-  # this just has ghost roles removed, pref roles added and players are picked roundstart
+  - type: GameRule
+    minPlayers: 30
+    chaosScore: 1200
   - type: AntagSelection
-    selectionTime: PrePlayerSpawn
+    agentName: thief-round-end-agent-name
     definitions:
-    - spawnerPrototype: AbductorScientistSpawner
-      prefRoles: [ AbductorScientistAntag ]
-      fallbackRoles: [ AbductorAgentAntag ]
-      min: 1
-      max: 1
-      pickPlayer: true
-      unequipOldGear: true
-      startingGear: AbductorScientistGear
-      briefing:
-        text: abductor-role-greeting
-        color: Green
-        sound: /Audio/_Shitmed/Misc/abductor.ogg
+    - prefRoles: [ Thief ]
+      max: 10
+      playerRatio: 7
+      lateJoinAdditional: true
+      allowNonHumans: true
+      multiAntagSetting: NotExclusive
+      startingGear: ThiefGear
       components:
-      - type: Abductor
-      - type: ActionGrant
-        actions:
-          - ActionReturnToShip
-      - type: NpcFactionMember
-        factions:
-          - SimpleHostile
-      - type: RandomMetadata
-        nameSegments:
-          - AbductorScientistPrefix
-          - AbductorNames
-        nameFormat: name-format-standard
-      - type: Tag
-        tags:
-          - Abductor
-          - AbductorScientist
-          - CanPilot
-          - FootstepSound
-          - DoorBumpOpener
-      - type: AbductorScientist
-      - type: SurgeryIgnoreClothing
-      - type: Sanitized
-      - type: SurgerySpeedModifier
-        speedModifier: 1.5
+      - type: Pacified
+      - type: Thieving
+        stripTimeReduction: 2
+        stealthy: true
       mindRoles:
-      - MindRoleAbductorScientist
-    - spawnerPrototype: AbductorAgentSpawner
-      prefRoles: [ AbductorAgentAntag ]
-      fallbackRoles: [ AbductorScientistAntag ]
-      min: 1
-      max: 1
-      pickPlayer: true
-      unequipOldGear: true
-      startingGear: AbductorAgentGear
+      - MindRoleThief
       briefing:
-        text: abductor-role-greeting
-        color: Green
-        sound: /Audio/_Shitmed/Misc/abductor.ogg
-      components:
-      - type: Abductor
-      - type: ActionGrant
-        actions:
-          - ActionReturnToShip
-      - type: NpcFactionMember
-        factions:
-          - SimpleHostile
-      - type: RandomMetadata
-        nameSegments:
-          - AbductorAgentPrefix
-          - AbductorNames
-        nameFormat: name-format-standard
-      - type: Tag
-        tags:
-          - Abductor
-          - CanPilot
-          - FootstepSound
-          - DoorBumpOpener
-      - type: AbductorScientist # Should be removed when we have proper teleportation system
-      mindRoles:
-      - MindRoleAbductorAgent
+        sound: "/Audio/Misc/thief_greeting.ogg"

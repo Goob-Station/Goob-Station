@@ -1,0 +1,12 @@
+- type: entity
+  parent: RedspaceLifeline
+  id: RedspaceTeleportationEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: SpawnOnDespawn
+    prototype: AdminInstantEffectFlash
+  - type: Transform
+    anchored: False

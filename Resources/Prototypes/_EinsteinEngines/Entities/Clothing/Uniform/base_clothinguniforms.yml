@@ -114,6 +114,10 @@
     - PlasmamanSafe
   - type: GuideHelp # While the playerbase is getting introduced to Plasmamen, add their guidebook here
     guides: [ Plasmaman ]
+  - type: AllowSuitStorage # Goobstation - plasmamen can use the envirosuit as gasholder
+    whitelist:
+      tags:
+      - GasTank
 
 - type: entity
   abstract: true

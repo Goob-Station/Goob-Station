@@ -11,9 +11,11 @@ using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Shared.Emoting;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
-using Content.Shared._Shitmed.Targeting;
+using Content.Goobstation.Shared.Weapons.MeleeVulnerability;
+using Content.Goobstation.Shared.Sprinting;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Physics.Components;
@@ -63,6 +65,12 @@ public abstract partial class SharedMartialArtsSystem
         {
             ApplyMultiplier(ent, 1.2f, 0f, TimeSpan.FromSeconds(4), MartialArtModifierType.MoveSpeed);
             _modifier.RefreshMovementSpeedModifiers(ent);
+            if (!TryComp(args.Target, out SprinterComponent? sprinter))
+                return;
+
+            _sprinting.ToggleSprint(args.Target, sprinter, false, false);
+            sprinter.LastSprint = _timing.CurTime + TimeSpan.FromSeconds(2); // 5s sprinting delay
+            Dirty(args.Target, sprinter);
             return;
         }
 
@@ -82,8 +90,7 @@ public abstract partial class SharedMartialArtsSystem
             || target != ent.Owner)
             return;
 
-        _status.TryRemoveStatusEffect(ent, "KnockedDown");
-        _standingState.Stand(ent);
+        RemCompDeferred<KnockedDownComponent>(ent);
         //_stamina.TryTakeStamina(ent, args.StaminaToHeal);
         ent.Comp.LastAttacks.Clear();
     }
@@ -106,7 +113,8 @@ public abstract partial class SharedMartialArtsSystem
         _stun.TryKnockdown(target,
             TimeSpan.FromSeconds(proto.ParalyzeTime * power),
             true,
-            proto.DropHeldItemsBehavior);
+            true,
+            proto.DropItems);
 
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
@@ -137,7 +145,8 @@ public abstract partial class SharedMartialArtsSystem
         _stun.TryKnockdown(target,
             TimeSpan.FromSeconds(proto.ParalyzeTime * power),
             true,
-            proto.DropHeldItemsBehavior);
+            true,
+            proto.DropItems);
 
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * power, out _);
         _audio.PlayPvs(args.Sound, target);
@@ -156,7 +165,7 @@ public abstract partial class SharedMartialArtsSystem
             return;
 
         var speedMultiplier = 1f / MathF.Max(1f, power);
-        _stun.TrySlowdown(target, args.SlowDownTime * power, true, speedMultiplier, speedMultiplier);
+        _movementMod.TryUpdateMovementSpeedModDuration(target, MartsGenericSlow, args.SlowDownTime * power, speedMultiplier, speedMultiplier);
         _modifier.RefreshMovementSpeedModifiers(target);
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * power, out _);
         _audio.PlayPvs(args.Sound, target);
@@ -167,31 +176,45 @@ public abstract partial class SharedMartialArtsSystem
     private void OnPushKick(Entity<CanPerformComboComponent> ent, ref PushKickPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto, out var target, out _))
+            || !TryUseMartialArt(ent, proto, out var target, out var downed))
             return;
 
         if (!TryPerformCapoeiraMove(ent, args, out var power))
             return;
 
+        if (downed)
+        {
+            _popupSystem.PopupEntity(Loc.GetString("martial-arts-fail-target-down"), ent, ent);
+            return;
+        }
+
         var mapPos = _transform.GetMapCoordinates(ent).Position;
         var hitPos = _transform.GetMapCoordinates(target).Position;
         var dir = hitPos - mapPos;
+        var time = TimeSpan.FromSeconds(proto.ParalyzeTime * power);
 
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
 
+        if (_newStatus.TryUpdateStatusEffectDuration(target, args.StatusEffectProto, out var effect, time)
+            && TryComp(effect, out MeleeVulnerabilityStatusEffectComponent? effectComp))
+        {
+            effectComp.ModifierSets.Add(args.ModifierSet);
+            Dirty(effect.Value, effectComp);
+        }
+
         _stun.TryKnockdown(target,
-            TimeSpan.FromSeconds(proto.ParalyzeTime * power),
+            time,
             true,
-            proto.DropHeldItemsBehavior);
+            true,
+            proto.DropItems);
 
         _audio.PlayPvs(args.Sound, target);
-        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * power, out _);
         _grabThrowing.Throw(target,
             ent,
             dir.Normalized() * args.ThrowRange * power,
             proto.ThrownSpeed,
-            behavior: proto.DropHeldItemsBehavior);
+            behavior: proto.DropItems);
         ComboPopup(ent, target, proto.Name);
         ent.Comp.LastAttacks.Clear();
     }
@@ -233,7 +256,7 @@ public abstract partial class SharedMartialArtsSystem
         if (ev.MinVelocity <= velocity)
         {
             power = GetCapoeiraPower(ev, velocity);
-            //_stamina.TryTakeStamina(uid, ev.StaminaToHeal);
+            _stamina.TryTakeStamina(uid, ev.StaminaToHeal);
             return true;
         }
 

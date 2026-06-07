@@ -148,7 +148,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Dead
+      80: Dead
   - type: Stamina
     critThreshold: 150
   - type: MovementAlwaysTouching
@@ -299,6 +299,7 @@
     - Kangaroo
     understands:
     - Kangaroo
+    - TauCetiBasic
   - type: Butcherable
     spawned:
     - id: FoodMeat
@@ -306,6 +307,10 @@
   - type: Fauna # Lavaland Change
   - type: CombatPower # Goobstation
     factor: 1 # times more dangerous than a crew-member
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      120: Dead # Lavaland Change: 60 -> 120
 
 - type: entity
   id: MobKangarooSpaceSalvage
@@ -340,7 +345,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      90: Dead
+      45: Dead
   - type: Stamina
     critThreshold: 150
   - type: DamageStateVisuals
@@ -394,6 +399,7 @@
     - Xeno
     understands:
     - Xeno
+    - TauCetiBasic
   - type: InteractionPopup
     successChance: 0.20
     interactSuccessString: petting-success-tarantula
@@ -454,7 +460,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Dead
+      70: Dead # Lavaland Change: 40 -> 70
   - type: Stamina
     critThreshold: 150
   - type: DamageStateVisuals
@@ -487,6 +493,9 @@
         - MobMask
         layer:
         - MobLayer
+  - type: NpcFactionMember # Goobstation
+    factions:
+    - Xeno # Aligning them with Space Adders
   - type: MeleeWeapon
     hidden: true
     soundHit:
@@ -511,6 +520,7 @@
     - Xeno
     understands:
     - Xeno
+    - TauCetiBasic
   - type: InteractionPopup
     successChance: 0.2
     interactSuccessString: petting-success-snake
@@ -569,7 +579,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.2
-        density: 100
+        density: 10 # Goob edit
         mask:
         - SmallMobMask
         layer:
@@ -702,7 +712,7 @@
   - type: GhostRole
     name: ghost-role-information-snailspeed-name
     description: ghost-role-information-snailspeed-description
-    rules: ghost-role-information-freeagent-rules
+    rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
   - type: Sprite
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -731,7 +741,7 @@
   - type: GhostRole
     name: ghost-role-information-snoth-name
     description: ghost-role-information-snoth-description
-    rules: ghost-role-information-freeagent-rules
+    rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
   - type: Sprite
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]

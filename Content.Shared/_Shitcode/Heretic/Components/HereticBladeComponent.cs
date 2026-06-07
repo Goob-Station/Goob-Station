@@ -9,6 +9,7 @@
 
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Heretic.Components;
 
@@ -20,4 +21,10 @@ public sealed partial class HereticBladeComponent : Component
 
     [DataField]
     public SoundSpecifier? ShatterSound = new SoundCollectionSpecifier("GlassBreak");
+
+    [DataField]
+    public SoundSpecifier ArrivalSound = new SoundPathSpecifier("/Audio/Effects/teleport_arrival.ogg");
+
+    [DataField]
+    public SoundSpecifier DepartureSound = new SoundPathSpecifier("/Audio/Effects/teleport_departure.ogg");
 }

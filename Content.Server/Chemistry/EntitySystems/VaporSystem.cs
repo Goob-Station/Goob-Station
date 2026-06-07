@@ -89,6 +89,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 Evaisa <mail@evaisa.dev>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -115,7 +116,7 @@ using Content.Goobstation.Shared.Chemistry;
 namespace Content.Server.Chemistry.EntitySystems
 {
     [UsedImplicitly]
-    internal sealed class VaporSystem : EntitySystem
+    public sealed class VaporSystem : EntitySystem // Goobstation: Made this public instead of internal. Cry about it.
     {
         [Dependency] private readonly IPrototypeManager _protoManager = default!;
         [Dependency] private readonly SharedMapSystem _map = default!;
@@ -181,7 +182,7 @@ namespace Content.Server.Chemistry.EntitySystems
             }
         }
 
-        internal bool TryAddSolution(Entity<VaporComponent> vapor, Solution solution)
+        public bool TryAddSolution(Entity<VaporComponent> vapor, Solution solution) // Goobstation: Made this public instead of internal.
         {
             if (solution.Volume == 0)
             {

@@ -16,7 +16,6 @@
 using Content.Server.Chat.Systems;
 using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
-using Content.Server.Speech.Components;
 using Content.Server.Telephone;
 using Content.Shared.Access.Systems;
 using Content.Shared.Audio;
@@ -28,6 +27,7 @@ using Content.Shared.Labels.Components;
 using Content.Shared.Power;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.Speech;
+using Content.Shared.Speech.Components;
 using Content.Shared.Telephone;
 using Content.Shared.UserInterface;
 using Content.Shared.Verbs;

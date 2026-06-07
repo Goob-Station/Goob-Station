@@ -83,7 +83,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: BaseMachinePowered
+  parent: [ BaseMachinePowered, BaseAutomatedMachine ] # Goob: Automation
   id: FaxMachineBase
   name: long range fax machine
   description: Bluespace technologies on the application of bureaucracy.

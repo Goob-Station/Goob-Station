@@ -65,6 +65,6 @@
     icon:
       sprite: _DV/Objects/Specific/Species/chitinid.rsi
       state: chitzite
-    useDelay: 300
+    useDelay: 120
   - type: InstantAction
     event: !type:CoughItemActionEvent

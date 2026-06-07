@@ -1,0 +1,11 @@
+- type: stack
+  id: FloorTileItemBluespace
+  name: stack-bluespace-tile
+  spawn: FloorTileItemBluespace
+  maxCount: 30
+
+- type: stack
+  id: FloorTileItemSepia
+  name: stack-sepia-tile
+  spawn: FloorTileItemSepia
+  maxCount: 30

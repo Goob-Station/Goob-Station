@@ -48,9 +48,7 @@
     group: GenericNumber
   - type: StatusEffects
     allowed:
-    - SlowedDown
     - Stutter
-    - Stun
     - Electrocution
     - TemporaryBlindness
     - RadiationProtection
@@ -59,6 +57,7 @@
   - type: Tag
     tags:
     - DoorBumpOpener
+  - type: WeatherImmune # Lavaland Change
 
 - type: entity
   id: MobGoliath
@@ -95,6 +94,7 @@
       0: Alive
       350: Dead # Goob - 9 PKA shots, 4 crusher destabilised hits
   - type: MeleeWeapon
+    range: 1.3 # Lavaland Change
     soundHit:
       path: "/Audio/Weapons/smash.ogg"
     angle: 0
@@ -102,14 +102,13 @@
     animation: WeaponArcPunch
     damage:
       types:
-        Blunt: 35
+        Blunt: 10 # Lavaland Change 35 -> 10
         Slash: 15
-    range: 1.12 # Goob - Allows kinetic crushers to fight them without taking guaranteed damage.
   - type: NpcFactionMember
     factions:
-    - SimpleHostile
+    - Lavafauna
   - type: HTN
-    constantlyReplan: false
+    constantlyReplan: true # Lavaland Change
     rootTask:
       task: GoliathCompound
     blackboard:
@@ -133,7 +132,20 @@
       amount: 3
     - id: MaterialGoliathHide1
       amount: 1
+    - id: MaterialBones1 # Lavaland Change
+      maxAmount: 2
   - type: Fauna # Lavaland Change
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        density: 50
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
 
 - type: entity
   parent: BaseAction
@@ -274,7 +286,7 @@
     count: 1
   - type: NpcFactionMember
     factions:
-    - SimpleHostile
+    - Lavafauna # Goobedit - Lavaland
   - type: HTN
     rootTask:
       task: SimpleRangedHostileCompound
@@ -329,7 +341,7 @@
         acts: [ "Destruction" ]
   - type: NpcFactionMember
     factions:
-    - SimpleHostile
+    - Lavafauna
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
@@ -417,7 +429,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      75: Dead
+      45: Dead
   - type: MeleeWeapon
     angle: 0
     animation: WeaponArcBite

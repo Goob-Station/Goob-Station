@@ -1,0 +1,27 @@
+- type: diseaseIcon
+  id: DiseaseIcon
+  abstract: true
+  priority: 4
+  locationPreference: Right
+  isShaded: true
+
+- type: diseaseIcon
+  parent: DiseaseIcon
+  id: DiseaseIconLow
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/viro_icons.rsi
+    state: viro_low
+
+- type: diseaseIcon
+  parent: DiseaseIcon
+  id: DiseaseIconMedium
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/viro_icons.rsi
+    state: viro_med
+
+- type: diseaseIcon
+  parent: DiseaseIcon
+  id: DiseaseIconHigh
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/viro_icons.rsi
+    state: viro_high

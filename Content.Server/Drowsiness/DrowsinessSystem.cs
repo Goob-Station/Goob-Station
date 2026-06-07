@@ -3,7 +3,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.StatusEffectNew;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Drowsiness;
 using Content.Shared.StatusEffectNew;
@@ -35,7 +34,7 @@ public sealed class DrowsinessSystem : SharedDrowsinessSystem
         base.Update(frameTime);
 
         var query = EntityQueryEnumerator<DrowsinessStatusEffectComponent, StatusEffectComponent>();
-        while (query.MoveNext(out var uid, out var drowsiness, out var statusEffect))
+        while (query.MoveNext(out var drowsiness, out var statusEffect))
         {
             if (_timing.CurTime < drowsiness.NextIncidentTime)
                 continue;

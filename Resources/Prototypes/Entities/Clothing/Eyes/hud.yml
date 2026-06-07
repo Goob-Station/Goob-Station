@@ -80,16 +80,21 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Avalon <jfbentley1@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+# SPDX-FileCopyrightText: 2025 qrwas <aleksandr.vernigora93@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -110,6 +115,7 @@
   components:
   - type: ShowHealthBars
   - type: ShowHealthIcons
+  - type: ShowDiseaseIcons # Goobstation
 
 - type: entity
   parent: ClothingEyesBase
@@ -143,7 +149,7 @@
   - type: Tag
     tags:
     - HudMedical
-    - CorgiWearable
+    - PetWearable
     - WhitelistChameleon
 
 - type: entity
@@ -159,7 +165,7 @@
   - type: Tag
     tags:
     - HudSecurity
-    - CorgiWearable
+    - PetWearable
     - WhitelistChameleon
 
 - type: entity
@@ -175,7 +181,7 @@
   - type: ShowJobIcons
   - type: Tag
     tags:
-    - CorgiWearable
+    - PetWearable
     - WhitelistChameleon
 
 - type: entity
@@ -194,7 +200,7 @@
   - type: SolutionScanner
   - type: Tag
     tags:
-    - CorgiWearable
+    - PetWearable
     - WhitelistChameleon
 
 - type: entity
@@ -325,11 +331,11 @@
   - type: ShowMindShieldIcons # Goob
   - type: Tag
     tags:
-    - CorgiWearable
+    - PetWearable
     - WhitelistChameleon
 
 - type: entity
-  parent: [ClothingEyesBase, BaseSyndicateContraband] # Goob edit
+  parent: [ClothingEyesHudSyndicate, ShowMedicalIcons] # Goob edit
   id: ClothingEyesHudSyndicateAgent
   name: syndicate medical visor
   description: The Syndicate Corpsman's professional heads-up display, designed for quick diagnosis of their team's status.
@@ -338,17 +344,15 @@
     sprite: Clothing/Eyes/Hud/syndagent.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/syndagent.rsi
-  - type: ShowSyndicateIcons
-  - type: ShowHealthBars
-    damageContainers:
-    - Biological
-    - SiliconRadiation # Goobstation - IPCs
-  - type: ShowJobIcons # Goob
-  - type: ShowMindShieldIcons # Goob
-  - type: Tag
-    tags:
-    - CorgiWearable
-    - WhitelistChameleon
+  - type: SolutionScanner # Goob: For new players as a nukie medic
+#  - type: ShowSyndicateIcons # Goob remove: In parent
+#  - type: ShowHealthBars
+#    damageContainers:
+#    - Biological
+#  - type: Tag
+#    tags:
+#    - PetWearable
+#    - WhitelistChameleon
 
 - type: entity
   parent: [ClothingEyesGlassesSunglasses, ShowSecurityIcons]
@@ -367,7 +371,7 @@
     sprite: Clothing/Eyes/Hud/medpatch.rsi
   - type: Tag
     tags:
-    - CorgiWearable
+    - PetWearable
     - WhitelistChameleon
     - HudMedical
 
@@ -388,7 +392,7 @@
     sprite: Clothing/Eyes/Hud/secpatch.rsi
   - type: Tag
     tags:
-    - CorgiWearable
+    - PetWearable
     - WhitelistChameleon
     - HudSecurity
 

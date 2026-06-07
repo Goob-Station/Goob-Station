@@ -66,6 +66,16 @@
     Steel: 25
     Plastic: 25
 
+- type: latheRecipe
+  abstract: true
+  parent: BaseTileRecipe
+  id: BaseMarbleTileRecipe
+  categories:
+  - Marble
+  materials:
+    Steel: 25
+    Glass: 25
+
 ## Recipes
 
 # Steel tiles
@@ -331,3 +341,14 @@
   materials:
     Steel: 25
     Plastic: 25
+
+# Marble
+- type: latheRecipe
+  parent: BaseMarbleTileRecipe
+  id: FloorTileItemWhiteMarble
+  result: FloorTileItemWhiteMarble
+
+- type: latheRecipe
+  parent: BaseMarbleTileRecipe
+  id: FloorTileItemDarkMarble
+  result: FloorTileItemDarkMarble

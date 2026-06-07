@@ -52,7 +52,7 @@ public abstract class SharedSpellbladeSystem : EntitySystem
         SubscribeLocalEvent<ElectrocutionAttemptEvent>(OnElectrocutionAttempt);
 
         SubscribeLocalEvent<ShieldedComponent, BeforeStaminaDamageEvent>(OnBeforeStaminaDamage);
-        SubscribeLocalEvent<ShieldedComponent, OldBeforeStatusEffectAddedEvent>(OnBeforeStatusEffect);
+        SubscribeLocalEvent<ShieldedComponent, BeforeOldStatusEffectAddedEvent>(OnBeforeStatusEffect);
         SubscribeLocalEvent<ShieldedComponent, DamageModifyEvent>(OnDamageModify);
     }
 
@@ -62,9 +62,9 @@ public abstract class SharedSpellbladeSystem : EntitySystem
             DamageSpecifier.PenetrateArmor(ent.Comp.Resistances, args.Damage.ArmorPenetration));
     }
 
-    private void OnBeforeStatusEffect(Entity<ShieldedComponent> ent, ref OldBeforeStatusEffectAddedEvent args)
+    private void OnBeforeStatusEffect(Entity<ShieldedComponent> ent, ref BeforeOldStatusEffectAddedEvent args)
     {
-        if (!ent.Comp.AntiStun || args.Key is not ("Stun"))
+        if (!ent.Comp.AntiStun || args.EffectKey is not ("Stun"))
             return;
 
         args.Cancelled = true;

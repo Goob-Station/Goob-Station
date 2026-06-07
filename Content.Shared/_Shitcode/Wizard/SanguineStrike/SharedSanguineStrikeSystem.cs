@@ -15,13 +15,19 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
-using Content.Shared._Shitmed.Damage; // Shitmed Change
+using Content.Shared._Shitmed.Damage;
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness;
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Pain.Systems; // Shitmed Change
 
 namespace Content.Shared._Goobstation.Wizard.SanguineStrike;
 
 public abstract class SharedSanguineStrikeSystem : EntitySystem
 {
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly PainSystem _pain = default!;
+    [Dependency] private readonly ConsciousnessSystem _consciousness = default!;
 
     public override void Initialize()
     {
@@ -92,10 +98,55 @@ public abstract class SharedSanguineStrikeSystem : EntitySystem
     {
     }
 
-    public void LifeSteal(EntityUid uid, FixedPoint2 amount, DamageableComponent? damageable = null)
+    public void LifeSteal(EntityUid uid, FixedPoint2 amount, DamageableComponent? damageable = null, ConsciousnessComponent? consciousness = null)
     {
         if (!Resolve(uid, ref damageable, false))
             return;
+
+        if (Resolve(uid, ref consciousness, false))
+        {
+            if (consciousness.NerveSystem != default)
+            {
+                foreach (var painModifier in consciousness.NerveSystem.Comp.Modifiers)
+                {
+                    _pain.TryRemovePainModifier(consciousness.NerveSystem.Owner,
+                        painModifier.Key.Item1,
+                        painModifier.Key.Item2,
+                        consciousness.NerveSystem.Comp);
+                }
+
+                foreach (var painMultiplier in consciousness.NerveSystem.Comp.Multipliers)
+                {
+                    _pain.TryRemovePainMultiplier(consciousness.NerveSystem.Owner,
+                        painMultiplier.Key,
+                        consciousness.NerveSystem.Comp);
+                }
+
+
+                foreach (var nerve in consciousness.NerveSystem.Comp.Nerves)
+                {
+                    foreach (var painFeelsModifier in nerve.Value.PainFeelingModifiers)
+                    {
+                        _pain.TryRemovePainFeelsModifier(painFeelsModifier.Key.Item1,
+                            painFeelsModifier.Key.Item2,
+                            nerve.Key,
+                            nerve.Value);
+                    }
+                }
+            }
+
+            foreach (var multiplier in
+                     consciousness.Multipliers.Where(multiplier => multiplier.Value.Type == ConsciousnessModType.Pain))
+            {
+                _consciousness.RemoveConsciousnessMultiplier(uid, multiplier.Key.Item1, multiplier.Key.Item2, consciousness);
+            }
+
+            foreach (var modifier in
+                     consciousness.Modifiers.Where(modifier => modifier.Value.Type == ConsciousnessModType.Pain))
+            {
+                _consciousness.RemoveConsciousnessModifier(uid, modifier.Key.Item1, modifier.Key.Item2, consciousness);
+            }
+        }
 
         var totalUserDamage = damageable.TotalDamage;
         if (totalUserDamage <= FixedPoint2.Zero)

@@ -65,6 +65,11 @@ public sealed class SolutionInjectWhileEmbeddedSystem : EntitySystem
             if ((injectComponent.Injections ?? 0) >= injectComponent.MaxInjections)
                 continue;
 
+            var attemptEv = new InjectOverTimeAttemptEvent(projectileComponent.EmbeddedIntoUid.Value);
+            RaiseLocalEvent(uid, ref attemptEv);
+            if (attemptEv.Cancelled)
+                continue;
+
             if (injectComponent.Injections != null)
                 injectComponent.Injections += 1;
             // </Goobstation>

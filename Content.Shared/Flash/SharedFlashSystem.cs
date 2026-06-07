@@ -18,6 +18,10 @@ using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.Charges.Components;
+using Content.Shared.Charges.Systems;
+using Content.Shared.Examine;
+using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Flash.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
@@ -37,6 +41,11 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Linq;
 using Content.Goobstation.Common.Flash;
+using Content.Shared.Mobs.Components; // Goobstation
+using Content.Shared.Movement.Systems;
+using Robust.Shared.Random;
+using Robust.Shared.Timing;
+using System.Linq;
 
 namespace Content.Shared.Flash;
 
@@ -50,6 +59,7 @@ public abstract class SharedFlashSystem : EntitySystem
     [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -172,9 +182,13 @@ public abstract class SharedFlashSystem : EntitySystem
         TimeSpan? stunDuration = null)
     {
         // Goob edit start
+
+        var vulnerableEv = new CheckFlashVulnerable();
+        RaiseLocalEvent(target, ref vulnerableEv);
+
         if (used == null
             || !_tag.HasTag(used.Value, IgnoreResistancesTag)
-            && !HasComp<FlashVulnerableComponent>(target))
+            && !vulnerableEv.Vulnerable)
         {
             var attempt = new FlashAttemptEvent(target, user, used);
             RaiseLocalEvent(target, ref attempt, true);
@@ -195,9 +209,9 @@ public abstract class SharedFlashSystem : EntitySystem
             return;
 
         if (stunDuration != null)
-            _stun.TryParalyze(target, stunDuration.Value * multiplier, true); // Goob edit
+            _stun.TryUpdateParalyzeDuration(target, stunDuration.Value * multiplier);
         else
-            _stun.TrySlowdown(target, flashDuration * multiplier, true, slowTo, slowTo); // Goob edit
+            _movementMod.TryUpdateMovementSpeedModDuration(target, MovementModStatusSystem.FlashSlowdown, flashDuration * multiplier, slowTo);
 
         if (displayPopup && user != null && target != user && Exists(user.Value))
         {
@@ -295,6 +309,9 @@ public abstract class SharedFlashSystem : EntitySystem
 
     private void OnExamine(Entity<FlashImmunityComponent> ent, ref ExaminedEvent args)
     {
+        if (HasComp<MobStateComponent>(args.Examined)) // Goobstation - dont add exmained value to mobs whit flash protection
+            return;
+
         args.PushMarkup(Loc.GetString("flash-protection"));
     }
 }

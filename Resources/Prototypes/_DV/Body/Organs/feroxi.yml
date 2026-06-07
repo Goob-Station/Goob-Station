@@ -1,0 +1,84 @@
+# SPDX-FileCopyrightText: 2025 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: OrganAnimalStomach
+  id: OrganFeroxiStomach
+  name: feroxian stomach
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Stomach
+    specialDigestible:
+      tags:
+      - ReptilianFood
+      - Meat
+      - Pill
+      - Crayon
+      - Paper
+  - type: Metabolizer
+    metabolizerTypes: [ Feroxi, Animal ]
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 50
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+
+- type: entity
+  parent: BaseHumanOrgan
+  id: OrganFeroxiLungs
+  name: feroxian lungs and gills
+  description: "A pair of amphibious lungs along with gills, filtering oxygen out of the air continuously."
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+    layers:
+    - state: lung-l
+    - state: lung-r
+  - type: Organ
+    intCap: 17 # Goob start
+    integrity: 17
+    integrityThresholds:
+      Normal: 17
+      Damaged: 9
+      Destroyed: 0
+    slotId: lungs
+    removable: False # Goob end, make them actualy unremovable
+  - type: Lung
+  - type: Item # Goob
+    size: Small
+    heldPrefix: lungs
+  - type: Metabolizer
+    removeEmpty: true
+    solutionOnBody: false
+    solution: "Lung"
+    metabolizerTypes: [ Feroxi ]
+    groups:
+    - id: Gas
+      rateModifier: 100.0
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      Lung:
+        maxVol: 100
+        canReact: False
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: Tag # Goob
+    tags:
+      - Meat
+      - Organ
+      - Lungs

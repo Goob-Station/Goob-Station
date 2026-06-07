@@ -1,4 +1,4 @@
-﻿# Defines the scurret, a small, agile sapient species intended for players who want to play as something similar to an ewok.
+# Defines the scurret, a small, agile sapient species intended for players who want to play as something similar to an ewok.
 # Although based on MobBaseAncestor, this species does not have a "developed" playable species it is an ancestor to.
 
 - type: entity
@@ -10,25 +10,43 @@
   # Custom names
   - type: ReplacementAccent
     accent: scurret
+  # Shitmed Start
+  - type: HumanoidAppearance
+    species: Scurret
+  - type: Body
+    prototype: Scurret
+    bodyType: Complex
+    requiredLegs: 2
+  - type: AntagImmune # Goob, no evil wawa
   - type: Sprite
     layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
-      sprite: Mobs/Animals/scurret/scurret.rsi
-      state: scurret
+    - map: [ "enum.HumanoidVisualLayers.Chest" ]
+    - map: [ "enum.HumanoidVisualLayers.Groin" ]
+    - map: [ "enum.HumanoidVisualLayers.Head" ]
+    - map: [ "enum.HumanoidVisualLayers.RArm" ]
+    - map: [ "enum.HumanoidVisualLayers.LArm" ]
+    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.LFoot" ]
+    - map: [ "enum.HumanoidVisualLayers.RFoot" ]
+    - map: [ "enum.HumanoidVisualLayers.LHand" ]
+    - map: [ "enum.HumanoidVisualLayers.RHand" ]
     - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
       color: "#ffffff"
       sprite: Objects/Misc/handcuffs.rsi
       state: body-overlay-2
       visible: false
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
   # Custom visuals for dead scurrets; be aware these do not work well with equipment.
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: scurret
-      Critical:
-        Base: scurret_oof
-      Dead:
-        Base: scurret_rip
+  # - type: DamageStateVisuals
+  #   states:
+  #     Alive:
+  #       Base: scurret
+  #     Critical:
+  #       Base: scurret_oof
+  #     Dead:
+  #       Base: scurret_rip
+  # Shitmed End
   #  About as tough as a monkey
   - type: MobThresholds
     thresholds:
@@ -56,7 +74,7 @@
   - type: Speech
     speechVerb: Wawa
     speechSounds: Wawa
-    allowedEmotes: ['Thump'] # They're 80% tail
+    allowedEmotes: ["Thump"] # They're 80% tail
   - type: TypingIndicator
     proto: moth
   - type: InteractionPopup
@@ -104,12 +122,46 @@
           32:
             sprite: Mobs/Animals/scurret/displacement.rsi
             state: neck
+      ears:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/scurret/displacement.rsi
+            state: ears
+      eyes:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/scurret/displacement.rsi
+            state: eyes
+      head:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/scurret/displacement.rsi
+            state: head
+      mask:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/scurret/displacement.rsi
+            state: mask
+      back:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/scurret/displacement.rsi
+            state: back
+  - type: Hands
+    leftHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: Mobs/Animals/scurret/displacement.rsi
+          state: hand
+
   - type: InventorySlots
   - type: Food
   - type: Hunger
     baseDecayRate: 0.05 # They get a lil' hungy
   - type: BodyEmotes # Grants them clapping and so on.
-    soundsId: GeneralBodyEmotes
+    soundsId: Scurret
+  - type: Deathgasp
+    prototype: ScurretDeathgasp # You monster
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -117,6 +169,20 @@
     - CanPilot
     - VimPilot
     - AnomalyHost
+#goobstation edit - clumsy addition
+  - type: Clumsy
+    gunShootFailDamage:
+      types:
+        Blunt: 5
+        Piercing: 4
+      groups:
+        Burn: 3
+    catchingFailDamage:
+      types:
+        Blunt: 1
+    clumsySound:
+      path: /Audio/Animals/wawa_protest.ogg
+
 
 # Spawnable scurrets have a random name and colour.
 
@@ -133,10 +199,22 @@
     - NamesLastScurret
     nameFormat: name-format-standard
   # They come in a variety of colours
-  - type: RandomSprite
-    available:
-    - enum.DamageStateVisualLayers.Base:
-        scurret: ScurretColors
+  # Shitmed Start
+  # - type: RandomSprite
+  #   available:
+  #   - enum.HumanoidVisualLayers.Chest:
+  #       chest: ScurretColors
+  - type: RandomHumanoidSkinColor
+    palette: ScurretColors
+  # Shitmed End
+  # They are of a mysterious gender.
+  - type: Grammar
+    attributes:
+      gender: epicene
+      proper: true
+  # Strips the name identifier from them, so they're just "Confident Waters" rather than "Confident Waters (123)"
+  - type: NameIdentifier
+    group: null
 
 # Emotional Support Scurrets have a ghost role and equipment. At the moment, these are intended to be used for admemes, but
 # feel free to hook them into random content.
@@ -167,4 +245,4 @@
   name: Emotional Support Scurret
   id: MobEmotionalSupportScurret
   parent: [MobScurret, MobBaseEmotionalSupportScurret]
-  description: Commonly known as Wawa, from the wetlands of Planet Wawa, these critters make up the bulk of Arnolds's Pizza's "loyal workforce". This one is here as a temp.
+  description: Commonly known as Wawa, from the wetlands of Planet Wawa, these critters make up the bulk of Arnold's Pizza's "loyal workforce". This one is here as a temp.

@@ -1,0 +1,26 @@
+- type: entity
+  id: TaskVial
+  parent: BaseChemistryEmptyVial
+  description: A special vial, that could be inserted inside a NTRs task console.
+  components:
+  - type: Tag
+    tags:
+    - Vial
+
+- type: entity
+  id: TaskBottle
+  parent: DrinkGlass
+  components:
+  - type: Tag
+    tags:
+    - Vial
+  description: A normal bottle, that could be inserted inside a NTRs task console.
+
+- type: entity
+  id: TaskJug
+  parent: Jug
+  components:
+  - type: Tag
+    tags:
+    - Vial
+  description: A basic jug for sending a large ammount of chemicals to CentComm.

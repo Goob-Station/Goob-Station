@@ -570,22 +570,6 @@
     sprite: Clothing/OuterClothing/Coats/clownpriest.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/clownpriest.rsi
-  - type: Armor # GOOB
-    coverage:
-    - Chest
-    - Groin
-    - Tail
-    - Arm
-    modifiers:
-      coefficients:
-        Slash: 0.6
-        Heat: 1.2
-  - type: ModifyDelayedKnockdown # GOOB
-    delayDelta: 1
-    knockdownTimeDelta: -1
-  - type: TemperatureProtection # GOOB
-    heatingCoefficient: 1.1 # the robes keep you warm but lets go of heat poorly
-    coolingCoefficient: 0.5
 
 - type: entity
   parent: [ClothingOuterStorageBase, BaseMajorContraband]

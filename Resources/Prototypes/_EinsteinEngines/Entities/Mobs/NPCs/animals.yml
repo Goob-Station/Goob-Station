@@ -37,9 +37,9 @@
     allowMovement: true
     name: ghost-role-information-squackroach-name
     description: ghost-role-information-squackroach-description
-    rules: ghost-role-information-freeagent-rules
+    rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
     mindRoles:
-    - MindRoleGhostRoleFreeAgent
+    - MindRoleGhostRoleSentientAnimal # Goobstation Sentient Animal PR
   - type: Fixtures
     fixtures:
       fix1:
@@ -126,13 +126,13 @@
       Male: SoundsHarpyMale
       Female: SoundsHarpyFemale
       Unsexed: SoundsHarpyFemale
+    wilhelmProbability: 0.001
   - type: GenericVisualizer
     visuals:
       enum.HarpyVisualLayers.Singing:
         singingLayer:
           False: {visible: false}
           True: {visible: true}
-    wilhelmProbability: 0.001
   - type: MobPrice
     price: 150
   - type: Tag

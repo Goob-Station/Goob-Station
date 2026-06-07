@@ -34,3 +34,8 @@
   weights:
     LingKillRandomHeadObjective: 3
     ChangelingAbsorbOtherObjective: 1 # absorb another changeling
+
+- type: weightedRandom
+  id: ConctactorObjectiveGroupRansom
+  weights:
+    ContractorRansomObjective: 1

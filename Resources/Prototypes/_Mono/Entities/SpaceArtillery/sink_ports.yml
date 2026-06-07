@@ -1,0 +1,4 @@
+- type: sinkPort
+  id: SpaceArtilleryFire
+  name: signal-port-fire-armament-name
+  description: signal-port-fire-armament-description

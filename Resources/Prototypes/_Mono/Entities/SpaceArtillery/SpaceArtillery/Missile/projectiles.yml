@@ -1,0 +1,228 @@
+# VESPERA
+
+- type: entity
+  id: ShipMissileASM417
+  name: ASM-417 Mini Missile
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 550 #450
+        Blunt: 65
+        Heat: 10
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/mini_rocket.rsi
+    layers:
+    - state: mini-rocket
+  - type: Ammo
+    muzzleFlash: null
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    radarColor: "#FCBA03"
+    scale: 1
+    requireNoGrid: true
+    shape: triangle
+  - type: TimedDespawn
+    lifetime: 6
+  - type: PointLight
+    radius: 3.5
+    color: orange
+    energy: 0.5
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 125 #75
+    intensitySlope: 8
+    maxIntensity: 25
+  - type: GatheringProjectile
+  - type: TargetSeeking
+    acceleration: 150
+    detectionRange: 200
+    scanArc: 40
+    launchSpeed: 60
+    maxSpeed: 150
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100 # Lua
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+
+# ASM-302
+
+- type: entity
+  id: ShipMissileASM302
+  name: ASM-302 missile
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 1000
+        Blunt: 450
+        Heat: 50
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: frag
+  - type: Ammo
+    muzzleFlash: null
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    radarColor: "#FCBA03"
+    scale: 1.5
+    requireNoGrid: true
+    shape: triangle
+  - type: TimedDespawn
+    lifetime: 6
+  - type: PointLight
+    radius: 3.5
+    color: orange
+    energy: 0.5
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 150
+    intensitySlope: 10
+    maxIntensity: 55
+  - type: GatheringProjectile
+  - type: TargetSeeking
+    acceleration: 200
+    detectionRange: 300
+    scanArc: 40
+    launchSpeed: 100
+    maxSpeed: 180
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100 # Lua
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+
+# ASM-501
+
+- type: entity
+  id: ShipMissileASM501
+  name: ASM-501 missile
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 15000
+        Blunt: 2000
+        Heat: 500
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: frag
+  - type: Ammo
+    muzzleFlash: null
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    radarColor: "#FCBA03"
+    scale: 4
+    requireNoGrid: true
+    shape: triangle
+  - type: TimedDespawn
+    lifetime: 10
+  - type: PointLight
+    radius: 5
+    color: orange
+    energy: 2
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: DemolitionCharge
+    maxIntensity: 6000
+    intensitySlope: 15
+    totalIntensity: 1500
+  - type: GatheringProjectile
+  - type: TargetSeeking
+    acceleration: 50
+    detectionRange: 500
+    scanArc: 50
+    launchSpeed: 50
+    maxSpeed: 110
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 1000 # Lua
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+
+# TOVEK
+
+- type: entity
+  id: ShipMissileASM557
+  name: ASM-557 Hybrid EMP Missile
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 500 #7500
+        Heat: 30
+        Ion: 5000 #2500
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/hybrid_missile.rsi
+    layers:
+    - state: hybrid-missile
+  - type: Ammo
+    muzzleFlash: null
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    radarColor: "#FB00FF"
+    scale: 1
+    requireNoGrid: true
+    shape: triangle
+  - type: TimedDespawn
+    lifetime: 4.2
+  - type: PointLight
+    radius: 3.5
+    color: orange
+    energy: 0.5
+  - type: EmpOnTrigger
+    range: 5
+    energyConsumption: 2700000
+    disableDuration: 5
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 100
+    intensitySlope: 10
+    maxIntensity: 50
+    maxTileBreak: 1
+  - type: GatheringProjectile
+  - type: TargetSeeking
+    acceleration: 80
+    detectionRange: 300
+    scanArc: 50
+    launchSpeed: 100
+    maxSpeed: 300
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 150 # Lua
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]

@@ -1,0 +1,71 @@
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
+using Content.Shared.Popups;
+using Content.Shared.Silicons.Laws;
+using Content.Shared.Silicons.Laws.Components;
+using System.Linq;
+
+namespace Content.Goobstation.Shared.CustomLawboard;
+
+public abstract class SharedCustomLawboardSystem : EntitySystem
+{
+    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+
+    public static readonly int MaxLaws = 15;
+    public static readonly int MaxLawLength = 512; // These 2 are random arbitrary numbers (These don't seem like they're worth making cvars for)
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<CustomLawboardComponent, CustomLawboardChangeLawsMessage>(OnChangeLaws);
+    }
+
+    public static List<SiliconLaw> SanitizeLaws(List<SiliconLaw> listToSanitize)
+    {
+        var sanitizedLaws = new List<SiliconLaw>();
+        foreach (SiliconLaw law in listToSanitize.Take(MaxLaws)) // clamp to maxlaws  
+        {
+            var sanitizedLaw = law.LawString.Replace("\n", " "); // Remove newlines cause they mess chat up when the law is stated  
+
+            // clamp max law length
+            if (sanitizedLaw.Length > MaxLawLength)
+                sanitizedLaw = sanitizedLaw[..MaxLawLength];
+
+            sanitizedLaws.Add(new SiliconLaw()
+            {
+                LawString = sanitizedLaw,
+                Order = law.Order,
+                LawIdentifierOverride = law.LawIdentifierOverride
+            });
+        }
+        return sanitizedLaws;
+    }
+
+    public static SiliconLawset CreateLawset(List<SiliconLaw> laws)
+    {
+        var lawset = new SiliconLawset();
+        lawset.Laws = laws;
+
+        return lawset;
+    }
+
+    private void OnChangeLaws(EntityUid uid, CustomLawboardComponent customLawboard, CustomLawboardChangeLawsMessage args)
+    {
+        var provider = EnsureComp<SiliconLawProviderComponent>(uid);
+        var sanitizedLaws = SanitizeLaws(args.Laws);
+        var lawset = CreateLawset(sanitizedLaws);
+
+        customLawboard.Laws = sanitizedLaws;
+        provider.Lawset = lawset;
+        _adminLogger.Add(LogType.Action, $"{ToPrettyString(args.Actor)} changed laws on {ToPrettyString(uid)}");
+        Dirty(uid, customLawboard);
+
+        if (args.Popup)
+        {
+            _popup.PopupClient(Loc.GetString("custom-lawboard-updated"), args.Actor, args.Actor); // This is entirely to make the UI feel responsive
+        }
+    }
+
+    protected virtual void DirtyUI(EntityUid uid, CustomLawboardComponent? customLawboard, UserInterfaceComponent? ui = null) { }
+}

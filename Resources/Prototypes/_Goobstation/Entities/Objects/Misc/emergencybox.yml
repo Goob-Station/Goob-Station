@@ -59,6 +59,7 @@
           tags:
           - FoodSnack
           - BreadEmergency
+          - FoodTinMRE
       flare:
         ejectOnInteract: false
         whitelist:
@@ -75,6 +76,7 @@
           - ExtendedEmergencyNitrogenTank
           - EmergencyPlasmaTank
           - ExtendedEmergencyPlasmaTank
+          - EmergencyWaterVaporTank
       mask:
         ejectOnInteract: false
         whitelist:
@@ -115,6 +117,7 @@
           tags:
           - FoodSnack
           - BreadEmergency
+          - FoodTinMRE
       flare:
         whitelist:
           tags:
@@ -159,6 +162,10 @@
         whitelist:
           tags:
           - EmergencyNitrogenTank
+      vapor:
+        whitelist:
+          tags:
+          - EmergencyWaterVaporTank
       battery:
         whitelist:
           tags:
@@ -569,7 +576,7 @@
       flare:
       - Flare
       tank:
-      - ExtendedEmergencyPlasmaTankFilled
+      - EmergencyPlasmaTankFilled
       mask:
       - ClothingMaskBreath
       emergencypen:
@@ -595,7 +602,7 @@
       flare:
       - Flare
       tank:
-      - ExtendedEmergencyPlasmaTankFilled
+      - EmergencyPlasmaTankFilled
       mask:
       - ClothingMaskGasSecurity
       emergencypen:
@@ -671,7 +678,7 @@
       flare:
       - Flare
       tank:
-      - ExtendedEmergencyPlasmaTankFilled
+      - EmergencyPlasmaTankFilled
       mask:
       - ClothingMaskGasSyndicate
       emergencypen:

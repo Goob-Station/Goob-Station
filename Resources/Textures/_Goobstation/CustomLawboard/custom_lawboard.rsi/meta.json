@@ -1,0 +1,23 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Icon sprite (std_mod from module.rsi) taken from /tg/, resprited by thinkfast1337-2 (shoebill). Inhands made entirely by thinkfast1337-2 (shoebill).",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon",
+            "delays": [ [ 0.1, 0.1, 0.1, 0.3, 0.05, 0.1, 0.1, 0.1, 0.1, 0.3, 0.05, 0.1 ] ]
+        },
+        {
+            "name": "inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right",
+            "directions": 4
+        }
+    ]
+}

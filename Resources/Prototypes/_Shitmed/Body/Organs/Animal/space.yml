@@ -36,7 +36,7 @@
     - type: PressureImmunity
 
 - type: entity
-  parent: OrganAnimalHeart
+  parent: [ OrganAnimalHeart, BaseMajorContraband ]
   id: OrganGoliathHeart
   name: goliath heart
   components:
@@ -83,7 +83,7 @@
       soundGunshot: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
 
 - type: entity
-  parent: OrganAnimalHeart
+  parent: [ OrganAnimalHeart, BaseMajorContraband ]
   id: OrganCobraHeart
   name: cobra gland
   components:

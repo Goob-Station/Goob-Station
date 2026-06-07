@@ -1,0 +1,36 @@
+- type: entity
+  id: SlimeGrinder
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  name: slime grinder
+  description: Produces extracts from a slimes corpse.
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Xenobiology/Specific/Xenobiology/slime_processor.rsi
+      granularLayersRendering: true
+      layers:
+        - state: processor
+          map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+    - type: GenericVisualizer
+      visuals:
+        enum.PowerDeviceVisuals.Powered:
+          enum.PowerDeviceVisualLayers.Powered:
+            True: { state: processor_on }
+            False: { state: processor }
+    - type: Rotatable
+    - type: Appearance
+    - type: SlimeGrinder
+    - type: Climbable
+      delay: 1
+    - type: AmbientSound
+      enabled: false
+      volume: -5
+      range: 5
+      sound:
+        path: /Audio/Ambience/Objects/reclaimer_ambience.ogg
+    - type: Machine
+      board: SlimeGrinderMachineCircuitboard
+    - type: GuideHelp
+      guides:
+      - Xenobiology

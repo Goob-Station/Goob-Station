@@ -7,7 +7,7 @@
   id: WristBraceletRight
   bodyPart: RHand
   markingCategory: RightHand
-  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Diona, Felinid, Oni, Vulpkanin, Gingerbread, Arachne]
+  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Diona, Felinid, Oni, Vulpkanin, Gingerbread, Arachne, Yowie] # goob edit - yowies
   coloring:
     default:
       type:
@@ -22,7 +22,7 @@
   id: WristBraceletLeft
   bodyPart: LHand
   markingCategory: LeftHand
-  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Felinid, Oni, Vulpkanin, Gingerbread, Arachne]
+  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Felinid, Oni, Vulpkanin, Gingerbread, Arachne, Yowie] # goob edit - yowies
   coloring:
     default:
       type:
@@ -36,7 +36,7 @@
   id: WristBraceletArmRight
   bodyPart: RArm
   markingCategory: RightArm
-  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Diona, Felinid, Oni, Vulpkanin, Gingerbread, Arachne]
+  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Diona, Felinid, Oni, Vulpkanin, Gingerbread, Arachne, Yowie] # goob edit - yowies
   coloring:
     default:
       type:
@@ -50,7 +50,7 @@
   id: WristBraceletArmLeft
   bodyPart: LArm
   markingCategory: LeftArm
-  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Felinid, Oni, Vulpkanin, Gingerbread, Arachne]
+  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Felinid, Oni, Vulpkanin, Gingerbread, Arachne, Yowie] # goob edit - yowies
   coloring:
     default:
       type:
@@ -64,7 +64,7 @@
   id: WristWatchRight
   bodyPart: RHand
   markingCategory: RightHand
-  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Diona, Felinid, Oni, Vulpkanin, Gingerbread, Arachne]
+  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Diona, Felinid, Oni, Vulpkanin, Gingerbread, Arachne, Yowie] # goob edit - yowies
   coloring:
     default:
       type:
@@ -78,7 +78,7 @@
   id: WristWatchLeft
   bodyPart: LHand
   markingCategory: LeftHand
-  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Felinid, Oni, Vulpkanin, Gingerbread, Arachne]
+  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Felinid, Oni, Vulpkanin, Gingerbread, Arachne, Yowie] # goob edit - yowies
   coloring:
     default:
       type:
@@ -92,7 +92,7 @@
   id: WristWatchSilverRight
   bodyPart: RHand
   markingCategory: RightHand
-  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Diona, Felinid, Oni, Vulpkanin, Gingerbread, Arachne]
+  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Diona, Felinid, Oni, Vulpkanin, Gingerbread, Arachne, Yowie] # goob edit - yowies
   coloring:
     default:
       type:
@@ -106,7 +106,7 @@
   id: WristWatchSilverLeft
   bodyPart: LHand
   markingCategory: LeftHand
-  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Felinid, Oni, Vulpkanin, Gingerbread, Arachne]
+  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Felinid, Oni, Vulpkanin, Gingerbread, Arachne, Yowie] # goob edit - yowies
   coloring:
     default:
       type:
@@ -120,7 +120,7 @@
   id: WristWatchGoldRight
   bodyPart: RHand
   markingCategory: RightHand
-  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Diona, Felinid, Oni, Vulpkanin, Gingerbread, Arachne]
+  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Diona, Felinid, Oni, Vulpkanin, Gingerbread, Arachne, Yowie] # goob edit - yowies
   coloring:
     default:
       type:
@@ -134,7 +134,7 @@
   id: WristWatchGoldLeft
   bodyPart: LHand
   markingCategory: LeftHand
-  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Felinid, Oni, Vulpkanin, Gingerbread, Arachne]
+  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Felinid, Oni, Vulpkanin, Gingerbread, Arachne, Yowie] # goob edit - yowies
   coloring:
     default:
       type:
@@ -148,7 +148,7 @@
   id: WristWatchHoloRight
   bodyPart: RHand
   markingCategory: RightHand
-  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Diona, Felinid, Oni, Vulpkanin, Gingerbread, Arachne]
+  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Diona, Felinid, Oni, Vulpkanin, Gingerbread, Arachne, Yowie] # goob edit - yowies
   coloring:
     default:
       type:
@@ -162,7 +162,7 @@
   id: WristWatchHoloLeft
   bodyPart: LHand
   markingCategory: LeftHand
-  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Felinid, Oni, Vulpkanin, Gingerbread, Arachne]
+  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Felinid, Oni, Vulpkanin, Gingerbread, Arachne, Yowie] # goob edit - yowies
   coloring:
     default:
       type:
@@ -176,7 +176,7 @@
   id: WristWatchLeatherRight
   bodyPart: RHand
   markingCategory: RightHand
-  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Diona, Felinid, Oni, Vulpkanin, Gingerbread, Arachne]
+  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Diona, Felinid, Oni, Vulpkanin, Gingerbread, Arachne, Yowie] # goob edit - yowies
   coloring:
     default:
       type:
@@ -190,7 +190,7 @@
   id: WristWatchLeatherLeft
   bodyPart: LHand
   markingCategory: LeftHand
-  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Felinid, Oni, Vulpkanin, Gingerbread, Arachne]
+  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Felinid, Oni, Vulpkanin, Gingerbread, Arachne, Yowie] # goob edit - yowies
   coloring:
     default:
       type:
@@ -204,7 +204,7 @@
   id: WristWatchColorableRight
   bodyPart: RHand
   markingCategory: RightHand
-  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Diona, Felinid, Oni, Vulpkanin, Gingerbread, Arachne]
+  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Diona, Felinid, Oni, Vulpkanin, Gingerbread, Arachne, Yowie] # goob edit - yowies
   coloring:
     default:
       type:
@@ -220,7 +220,7 @@
   id: WristWatchColorableLeft
   bodyPart: LHand
   markingCategory: LeftHand
-  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Felinid, Oni, Vulpkanin, Gingerbread, Arachne]
+  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Felinid, Oni, Vulpkanin, Gingerbread, Arachne, Yowie] # goob edit - yowies
   coloring:
     default:
       type:

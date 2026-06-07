@@ -10,16 +10,14 @@
   id: Triclor
   impact: Medium
   reactants:
-    Ammonia:
-      amount: 1
-    SodiumHydroxide:
+    Amatoxin:
       amount: 1
     Ipecac:
       amount: 1
-    Chlorine:
+    Aluite:
       amount: 3
   products:
-    Triclor: 3
+    Triclor: 5
 
 - type: reaction
   id: Cyanide
@@ -87,3 +85,17 @@
       amount: 1
   products:
     Tirizene: 2
+
+- type: reaction
+  id: Honk
+  impact: Medium
+  minTemp: 420
+  reactants:
+    Uranium:
+      amount: 2
+    JuiceBanana:
+      amount: 1
+    SpaceLube:
+      amount: 1
+  products:
+    Honk: 4

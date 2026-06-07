@@ -1,0 +1,97 @@
+# Hex nut
+- type: entity
+  parent: PartBase
+  id: MaterialHexNut
+  name: steel hex nut
+  description: A roughly bent nut made of steel.
+  suffix: Full
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 10
+  - type: Stack
+    stackType: HexNut
+    count: 10
+    baseLayer: base
+    layerStates:
+    - hex_1
+    - hex_1 # todo
+    - hex_1
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
+  - type: Sprite
+    sprite: _Goobstation/Objects/Materials/materials.rsi
+    state: hex_1
+    layers:
+    - state: hex_1
+      map: ["base"]
+  - type: Item
+    size: Small
+    heldPrefix: hex
+  - type: Construction
+    graph: HexNutDouble
+    node: stack
+  - type: Appearance
+  - type: StaticPrice
+    price: 0
+  - type: StackPrice
+    price: 5
+
+- type: entity
+  id: MaterialHexNutSingle
+  parent: MaterialHexNut
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
+# Screw
+- type: entity
+  parent: PartBase
+  id: MaterialScrew
+  name: steel screw
+  description: "This screw is really rusty, you wouldn't want to get cut by it..."
+  suffix: Full
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 10
+  - type: Stack
+    stackType: Screw
+    count: 10
+    baseLayer: base
+    layerStates:
+    - screw_1
+    - screw_1 # todo
+    - screw_1
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
+  - type: Sprite
+    sprite: _Goobstation/Objects/Materials/materials.rsi
+    state: screw_1
+    layers:
+    - state: screw_1
+      map: ["base"]
+  - type: Item
+    size: Small
+    heldPrefix: screw
+  - type: Construction
+    graph: ScrewDouble
+    node: stack
+  - type: Appearance
+  - type: StaticPrice
+    price: 0
+  - type: StackPrice
+    price: 5
+
+- type: entity
+  parent: MaterialScrew
+  id: MaterialScrewSingle
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1

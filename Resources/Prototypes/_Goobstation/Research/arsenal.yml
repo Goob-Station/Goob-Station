@@ -104,12 +104,16 @@
   - GygaxLLeg
   - GygaxRArm
   - GygaxRLeg
-  - GygaxCentralElectronics
+#  - GygaxCentralElectronics
   - GygaxPeripheralsElectronics
   - GygaxTargetingElectronics
   - WeaponMechCombatUltraRifle
   technologyPrerequisites:
   - RipleyAPLU
+  - AdvancedRiotControl
+  - PortableMicrofusionWeaponry
+  - SmartWeaponry
+  - ThermalVisionTech
   position: 2,-1
 
 - type: technology
@@ -136,7 +140,7 @@
   id: WeaponLaserCellSniperTech
   name: research-technology-mag-fed-sniper
   icon:
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/cell_sniper.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/cell_sniper_icon_48x.rsi
     state: icon
   discipline: Arsenal
   tier: 3
@@ -153,7 +157,7 @@
   id: WeaponLaserCellLMGTech
   name: research-technology-mag-fed-lmg
   icon:
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/energy_lmg.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/energy_lmg_icon_48x.rsi
     state: icon
   discipline: Arsenal
   tier: 3
@@ -197,7 +201,7 @@
   - DurandLLeg
   - DurandRArm
   - DurandRLeg
-  - DurandCentralElectronics
+#  - DurandCentralElectronics
   - DurandPeripheralsElectronics
   - DurandTargetingElectronics
   - WeaponMechCombatShotgun
@@ -221,3 +225,22 @@
   technologyPrerequisites:
   - UraniumMunitions
   position: 4,2
+
+- type: technology
+  id: BlueSpaceMunitions
+  name: research-technology-bluespace-munitions
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_revolver.rsi
+    state: bluespace_research
+  discipline: Arsenal
+  tier: 3
+  cost: 25000
+  recipeUnlocks:
+  - PowerCellBluespaceRevolver
+  - PowerCellBluespaceSMG
+  - PowerCellBluespaceSniper
+  - MilitaryPowerCellBluespaceLMG
+  technologyPrerequisites:
+  - WeaponLaserCellLMGTech
+  - WeaponLaserCellSniperTech
+  position: 7, -1

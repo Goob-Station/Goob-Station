@@ -3,9 +3,11 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Kresny <krzeszny@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 floatingfeeling <karaadastra@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -103,7 +105,7 @@
       amount: 2
     Diphenhydramine: # check 2
       amount: 2
-    Fluorine:
+    Calomel:
       amount: 1
     Aluite:
       amount: 5
@@ -119,7 +121,7 @@
       amount: 2
     Sigynate: # check 2
       amount: 2
-    Silicon: 
+    Silicon:
       amount: 1
     Aluite:
       amount: 5
@@ -212,7 +214,7 @@
     Antihol: 3
 
 - type: reaction # This will do until we get molecular chemistry in
-  id: Ibuprofen 
+  id: Ibuprofen
   reactants:
     Charcoal:
       amount: 1
@@ -381,7 +383,7 @@
     PotassiumIodide:
       amount: 1
   products:
-    Hercuri: 5  
+    Hercuri: 5
 
 - type: reaction
   id: Herignis
@@ -421,3 +423,52 @@
       catalyst: true
   products:
     Oxycodone: 1
+
+# Wraith
+- type: reaction
+  id: Formaldehyde
+  minTemp: 357 # trauma - temp, reactants, and products adjusted with explosives PR
+  reactants:
+    Methanol:
+      amount: 1
+    Oxygen:
+      amount: 1
+    Silver:
+      amount: 1
+      catalyst: true
+  products:
+    Formaldehyde: 1
+    Water: 1
+
+# Viro
+- type: reaction
+  id: Immurin
+  reactants:
+    Sugar:
+      amount: 1
+    Inaprovaline:
+      amount: 1
+    Iron:
+      amount: 1
+  products:
+    Immurin: 3
+
+- type: reaction
+  id: Spaceacilin
+  reactants:
+    Immurin:
+      amount: 2
+    Dylovene:
+      amount: 1
+  products:
+    Spaceacilin: 3
+
+- type: reaction
+  id: Devirate
+  reactants:
+    Immurin:
+      amount: 2
+    Copper:
+      amount: 1
+  products:
+    Devirate: 2

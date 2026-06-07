@@ -1,0 +1,124 @@
+- files: ["ghostrespawn.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/tree/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/voice/wraith"
+
+- files: ["reveenter.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/tree/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/voice/wraith"
+
+- files: ["revfocus.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/tree/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/voice/wraith"
+
+- files: ["revleave.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/tree/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/voice/wraith"
+
+- files: ["revpush1.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/tree/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/voice/wraith"
+
+- files: ["revpush2.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/tree/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/voice/wraith"
+
+- files: ["revshock.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/tree/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/voice/wraith"
+
+- files: ["revtouch.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/tree/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/voice/wraith"
+
+- files: ["wraithhaunt.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/tree/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/voice/wraith"
+
+- files: ["wraithleaveobject.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/tree/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/voice/wraith"
+
+- files: ["wraithlivingobject.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/tree/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/voice/wraith"
+
+- files: ["wraithportal.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/tree/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/voice/wraith"
+
+- files: ["wraithpossesobject.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/tree/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/voice/wraith"
+
+- files: ["wraithraise1.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/tree/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/voice/wraith"
+
+- files: ["wraithraise2.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/tree/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/voice/wraith"
+
+- files: ["wraithraise3.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/tree/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/voice/wraith"
+
+- files: ["wraithsoulsucc1.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/tree/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/voice/wraith"
+
+- files: ["wraithsoulsucc2.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/tree/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/voice/wraith"
+
+- files: ["wraithspook1.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/tree/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/voice/wraith"
+
+- files: ["wraithstaminadrain.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/tree/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/voice/wraith"
+
+- files: ["wraithwhisper1.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/tree/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/voice/wraith"
+
+- files: ["wraithwhisper2.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/tree/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/voice/wraith"
+
+- files: ["wraithwhisper3.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/tree/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/voice/wraith"
+
+- files: ["wraithwhisper4.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/tree/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/voice/wraith"
+
+- files: ["flameswoosh.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation."
+  source: "https://github.com/goonstation/goonstation/blob/55eb154fe1f0d19ced59a1e13259d0a021ca8195/sound/effects/flameswoosh.ogg"

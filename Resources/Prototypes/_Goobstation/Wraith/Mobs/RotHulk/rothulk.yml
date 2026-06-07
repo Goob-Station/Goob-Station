@@ -1,0 +1,144 @@
+- type: entity
+  id: MobRotHulk
+  suffix: Wraith
+  parent: [ BaseMob, MobCombat ]
+  name: Bloated abomination
+  description: A rotting, walking mass of flesh.
+  components:
+  - type: DeleteOnTrigger
+  - type: SpamEmitSound
+    minInterval: 5
+    maxInterval: 25
+    sound:
+      collection: GoonZGroan
+      params:
+        volume: 3
+        maxDistance: 12
+        variation: 0.05
+  - type: TriggerOnMobstateChange
+    mobState:
+      - Dead
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Effects/gib2.ogg
+  - type: SmokeOnTrigger
+    duration: 5
+    spreadAmount: 25
+    solution:
+      reagents:
+        - ReagentId: Toxin
+          Quantity: 25
+  - type: EmitSoundOnSpawn
+    sound:
+      collection: Wraith_Raise
+      params:
+          volume: -5
+          maxDistance: 10
+          variation: 0.8
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/rothulk.rsi
+    layers:
+      - state: rot_hulk
+  - type: NpcFactionMember
+    factions:
+      - Wraith
+  - type: WraithMinion
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.3
+        density: 60
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+  - type: NoSlip
+  - type: Pullable
+  - type: ZombieImmune
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcFist
+    soundHit:
+      collection: Flesh_Tear
+    damage:
+      groups:
+        Brute: 10
+      types:
+        Structural: 50
+  - type: InputMover
+  - type: MobMover
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 4
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Diona # Weak to heat
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-rothulk-name
+    description: ghost-role-information-rothulk-description
+    rules: ghost-role-information-nascent-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: NightVision # Goobstation - Nigthvision
+    color: "#00FF00"
+    activateSound: null
+    deactivateSound: null
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+
+- type: entity
+  id: MobRotHulkBuff
+  suffix: Wraith
+  parent: MobRotHulk
+  name: Huge plague-ridden goliath
+  components:
+  - type: SmokeOnTrigger
+    duration: 5
+    spreadAmount: 40
+    solution:
+      reagents:
+        - ReagentId: Toxin
+          Quantity: 50
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Wraith/Mobs/rothulk.rsi
+    layers:
+      - state: rot_hulkbuff
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcClaw
+    soundHit:
+      collection: Flesh_Stab
+    damage:
+      types:
+        Slash: 10
+        Blunt: 10
+        Structural: 80
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 5
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Moth # Not as weak to heat, but still vulnerable
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Dead

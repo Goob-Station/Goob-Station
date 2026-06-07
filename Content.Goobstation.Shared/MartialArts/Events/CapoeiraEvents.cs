@@ -6,6 +6,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Chat.Prototypes;
+using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -16,13 +17,13 @@ namespace Content.Goobstation.Shared.MartialArts.Events;
 public abstract partial class BaseCapoeiraEvent : EntityEventArgs
 {
     [DataField]
-    public virtual float VelocityPowerMultiplier { get; set; } = 0.7f;
+    public virtual float VelocityPowerMultiplier { get; set; } = 0.6f;
 
     [DataField]
     public virtual float MinPower { get; set; } = 1f;
 
     [DataField]
-    public virtual float MaxPower { get; set; } = 2.5f;
+    public virtual float MaxPower { get; set; } = 4f;
 
     [DataField]
     public virtual float MinVelocity { get; set; }
@@ -42,6 +43,12 @@ public abstract partial class BaseCapoeiraEvent : EntityEventArgs
 
 public sealed partial class PushKickPerformedEvent : BaseCapoeiraEvent
 {
+    [DataField]
+    public EntProtoId StatusEffectProto = "StatusEffectMeleeVulnerability";
+
+    [DataField]
+    public DamageModifierSet ModifierSet = default!;
+
     [DataField]
     public float ThrowRange = 1f;
 }

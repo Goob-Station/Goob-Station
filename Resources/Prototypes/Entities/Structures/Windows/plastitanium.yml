@@ -141,6 +141,9 @@
   name: plastitanium window
   parent: PlastitaniumWindowSquareBase
   suffix: indestructible
+  components:
+  - type: ExaminableDamage
+    messages: null
 
 - type: entity
   id: PlastitaniumWindow
@@ -231,6 +234,9 @@
   name: plastitanium window
   parent: PlastitaniumWindowDiagonalBase
   suffix: diagonal, indestructible
+  components:
+  - type: ExaminableDamage
+    messages: null
 
 - type: entity
   id: PlastitaniumWindowDiagonal

@@ -1,0 +1,40 @@
+- type: entity
+  id: ComputerScienceXenobiologyBounty
+  parent: BaseComputerAiAccess
+  name: xenobiologicial bounty console
+  description: Used to manage currently active bounties for xenobiological goods.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: xenobiology
+    - map: ["computerLayerKeys"]
+      state: tech_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: ResearchClient
+  - type: XenobiologyBountyConsole
+  - type: ActivatableUI
+    key: enum.CargoConsoleUiKey.Bounty
+  - type: UserInterface
+    interfaces:
+      enum.CargoConsoleUiKey.Bounty:
+        type: XenobiologyBountyConsoleBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: Computer
+    board: XenobiologyBountyComputerCircuitboard
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#b89f25"
+  - type: AccessReader
+    access: [["Research"]]
+  - type: GuideHelp
+    guides:
+    - Xenobiology
+    - Science

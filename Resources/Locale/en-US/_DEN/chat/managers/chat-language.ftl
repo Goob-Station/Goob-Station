@@ -1,0 +1,1 @@
+chat-language-Nehina-name = Nēhina

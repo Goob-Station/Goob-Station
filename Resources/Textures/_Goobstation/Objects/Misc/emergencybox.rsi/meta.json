@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/cc65477c04f7403ca8a457bd5bae69a01abadbf0 modified by gtheglorious, aidenkrz, and gnusnotutopia",
+  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/cc65477c04f7403ca8a457bd5bae69a01abadbf0 modified by gtheglorious, aidenkrz, and gnusnotutopia, vapor made by modifying oxy by AstroDoge",
   "size": {
     "x": 32,
     "y": 32
@@ -77,6 +77,9 @@
     {
       "name": "nit"
     },
+	  {
+	    "name": "vapor"
+	  },
     {
       "name": "box_silicon"
     },

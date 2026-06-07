@@ -206,6 +206,7 @@
     - Welding
     - Axing # Goobstation
     - Ignition
+  - type: WeldingSparks # Goobstation
   - type: ToolTileCompatible # Goobstation
     delay: 2
   - type: Welder
@@ -224,15 +225,6 @@
     price: 40
   - type: IgnitionSource
     temperature: 700
-  - type: WeldingHealing # EE IPCs
-    damageContainers:
-      - SiliconRadiation # Goobstation - Make IPCs take radiation
-    fuelCost: 5
-    damage:
-      types:
-        Blunt: -20
-        Piercing: -20
-        Slash: -20
   - type: Cautery # Shitmed
     speed: 0.7
   - type: SurgeryTool # Shitmed
@@ -318,6 +310,8 @@
       Plasma: 50
   - type: StaticPrice #Goobstation - Recycle update
     price: 50
+  - type: WeldingSparks # Goobstation
+    effect: EffectWeldingSparksExp
 
 - type: entity
   name: emergency welding tool

@@ -132,3 +132,37 @@
       amount: 9
     - id: CartridgeG8Hypercharged
       amount: 9
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelContractorHardsuitBundle
+  name: Contractor Hardsuit bundle
+  description: "Contains the Guild approved Hardsuit suit."
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingOuterHardsuitContractor
+      - id: ClothingMaskGasSyndicate
+      - id: DoubleEmergencyOxygenTankFilled
+      - id: DoubleEmergencyNitrogenTankFilled
+      - id: DoubleEmergencyPlasmaTankFilled
+
+
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ClothingBackpackDuffelTennisGame
+  name: tennis game bundle
+  description: "Contains all you need to start a tennis match!"
+  components:
+  - type: StorageFill
+    contents:
+    - id: TennisBall
+      amount: 2
+    - id: BaseTennisRacket
+      amount: 2
+    - id: NTTennisRacket
+      amount: 2
+    - id: SyndicateTennisRacket
+      amount: 2
+    - id: CrayonRainbow
+      amount: 1

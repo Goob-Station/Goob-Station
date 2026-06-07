@@ -1,0 +1,15 @@
+- type: entity
+  id: SlasherRegenerateEffect
+  name: slasher regenerate effect
+  description: A dark, bloody aura surrounds the slasher as they regenerate.
+  components:
+  - type: TimedDespawn
+    lifetime: 0.85
+  - type: Transform
+    noRot: true
+  - type: PointLight
+    color: "#8B0000"
+    radius: 5
+    energy: 10
+  - type: LightFade
+    duration: 0.7

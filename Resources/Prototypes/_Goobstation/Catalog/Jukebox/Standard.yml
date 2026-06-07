@@ -301,3 +301,32 @@
   path:
     path: /Audio/_Goobstation/Music/Asgore_runs_over_dess_short.ogg
 
+- type: jukebox
+  id: the_final_battle
+  name: Bobik-music - The Final Battle
+  path:
+    path: /Audio/_Goobstation/Music/Colonial_Marines_The_Final_Battle.ogg
+
+- type: jukebox
+  id: graytide
+  name: Mrjajkes - The Greytide Song
+  path:
+    path: /Audio/_Goobstation/Music/the_gray_tide_song.ogg
+
+- type: jukebox
+  id: future_perception
+  name: Merct - Future Perception
+  path:
+    path: /Audio/_Goobstation/Music/future_perception.ogg
+
+- type: jukebox
+  id: mind_crawler
+  name: Merct - Mind Crawler
+  path:
+    path: /Audio/_Goobstation/Music/mind_crawler.ogg
+
+- type: jukebox
+  id: one_against_all
+  name: mrjajkes - One Against All
+  path:
+    path: /Audio/StationEvents/one_against_all.ogg

@@ -9,6 +9,7 @@
 # SPDX-FileCopyrightText: 2024 Nairod <110078045+Nairodian@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Nim <128169402+Nimfar11@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Evaisa <mail@evaisa.dev>
 #
 # SPDX-License-Identifier: MIT
 
@@ -81,6 +82,11 @@
           steps:
             - material: Steel
               amount: 2
+              doAfter: 1
+        - to: stoolCard
+          steps:
+            - material: Cardboard
+              amount: 3
               doAfter: 1
         - to: chairWoodBench
           steps:
@@ -157,6 +163,36 @@
           steps:
             - tool: Screwing
               doAfter: 1
+    # begin Goobstation - Rocket Chair Recipes
+        - to: chairOfficeRocket
+          steps:
+            - tag: FireExtinguisher
+              name: construction-graph-tag-fire-extinguisher
+              icon:
+                sprite: Objects/Misc/fire_extinguisher.rsi
+                state: fire_extinguisher_closed
+              doAfter: 1
+            - tag: FireExtinguisher
+              name: construction-graph-tag-fire-extinguisher
+              icon:
+                sprite: Objects/Misc/fire_extinguisher.rsi
+                state: fire_extinguisher_closed
+              doAfter: 1
+            - tool: Screwing
+              doAfter: 1
+
+    - node: chairOfficeRocket
+      entity: ChairOfficeWhiteRocket
+      edges:
+        - to: chairOffice
+          completed:
+            - !type:SpawnPrototype
+              prototype: FireExtinguisher
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 1
+    # end Goobstation - Rocket Chair Recipes
 
     - node: chairOfficeDark
       entity: ChairOfficeDark
@@ -169,6 +205,36 @@
           steps:
             - tool: Screwing
               doAfter: 1
+    # begin Goobstation - Rocket Chair Recipes
+        - to: chairOfficeDarkRocket
+          steps:
+            - tag: FireExtinguisher
+              name: construction-graph-tag-fire-extinguisher
+              icon:
+                sprite: Objects/Misc/fire_extinguisher.rsi
+                state: fire_extinguisher_closed
+              doAfter: 1
+            - tag: FireExtinguisher
+              name: construction-graph-tag-fire-extinguisher
+              icon:
+                sprite: Objects/Misc/fire_extinguisher.rsi
+                state: fire_extinguisher_closed
+              doAfter: 1
+            - tool: Screwing
+              doAfter: 1
+
+    - node: chairOfficeDarkRocket
+      entity: ChairOfficeDarkRocket
+      edges:
+        - to: chairOfficeDark
+          completed:
+            - !type:SpawnPrototype
+              prototype: FireExtinguisher
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 1
+    # end Goobstation - Rocket Chair Recipes
 
     - node: chairComfy
       entity: ComfyChair
@@ -243,6 +309,20 @@
               amount: 2
           steps:
             - tool: Screwing
+              doAfter: 1
+
+    - node: stoolCard
+      entity: CardStool
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialCardboard1
+              amount: 3
+            - !type:PlaySound
+              sound: /Audio/Items/Toys/ToyFall2.ogg
+          steps:
+            - tool: Slicing
               doAfter: 1
 
     - node: chairWoodBench

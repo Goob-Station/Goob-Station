@@ -64,7 +64,7 @@ public sealed class PassiveDamageSystem : EntitySystem
             // Damage them
             foreach (var allowedState in comp.AllowedStates)
                 if (allowedState == mobState.CurrentState)
-                    _damageable.TryChangeDamage(uid, comp.Damage, true, false, damage, targetPart: TargetBodyPart.All); // Shitmed Change
+                    _damageable.TryChangeDamage(uid, comp.Damage, true, false, damage, targetPart: TargetBodyPart.All, splitDamage: comp.SplitBehavior); // Shitmed Change
         }
     }
 }

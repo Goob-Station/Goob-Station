@@ -23,9 +23,9 @@ spellbook-everfull-mug-name = Everfull Mug
 spellbook-everfull-mug-desc =
     A magical mug that can be filled with omnizine at will. Great source of healing.
 
-spellbook-cryo-katana-name = Cryo Katana
-spellbook-cryo-katana-desc =
-    Modified Spider Clan energy katana, imbued with frost magic. Freezes the targets on hit, slowing them down. Able to dash a short distance, slicing anyone on your path. Can't dash while lying down.
+spellbook-echo-katana-name = Echo Katana
+spellbook-echo-katana-desc =
+    Modified Spider Clan energy katana, imbued with hyper-sonic magic. Able to dash a decent distance, slicing anyone on your path. Can't dash while lying down.
 
 spellbook-skates-name = Wizard Skates
 spellbook-skates-desc =
@@ -85,17 +85,28 @@ spellbook-ninjutsu-desc =
     A scroll that teaches one Ninjutsu, a martial art and set of tactics used by ninja in feudal Japan.
     Cannot be refunded.
 
+spellbook-hell-rip-name = Hell Ripte Scroll
+spellbook-hell-rip-desc =
+    A scroll that teaches one Hell Ripte, a martial art and set of tactics used by Slaughter Demons.
+    Buying this and Bottle of Blood unlocks purchasing a special slaughter demon heart.
+    Cannot be refunded.
+
+spellbook-demon-heart-name = Heart of the Demon
+spellbook-demon-heart-desc =
+    Upon use, implants itself in your body, granting you slaughter demon blood crawl demonic whisper and the ability to devour bodies to regenerate health.
+    Cannot be refunded.
+
 spellbook-staff-animate-name = Staff of Animation
 spellbook-staff-animate-desc =
     An arcane staff capable of infusing eldritch energy on contact which cause inanimate objects to come to life.
-    This magic doesn't affect machines.
-    Objects brought to life using this staff will have silly googly eyes but make no mistake, they are quite dangerous!
 
 spellbook-hammer-mjollnir-name = Mjollnir
-spellbook-hammer-mjollnir-description = Wield the power of THUNDER in your hands. Send foes flying with a mighty swing or by throwing it right at em!
+spellbook-hammer-mjollnir-description =
+    A mighty hammer on loan from Thor, God of Thunder. It crackles with barely contained power.
 
 spellbook-hammer-singularity-name = Singularity Hammer
-spellbook-hammer-singularity-description = Ever wonder what it'd be like to be the singularity? Swing this hammer to draw in your surroundings, even works if you miss!
+spellbook-hammer-singularity-description =
+    A hammer that creates an intensely powerful field of gravity where it strikes, pulling everything nearby to the point of impact.
 
 spellbook-crate-of-enchanting-name = Crate of Enchanting
 spellbook-crate-of-enchanting-description =

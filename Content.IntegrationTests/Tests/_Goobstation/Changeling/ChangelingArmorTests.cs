@@ -11,6 +11,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.Changeling.Components;
+using Content.Goobstation.Shared.InternalResources.Components;
+using Content.Goobstation.Shared.InternalResources.EntitySystems;
 using Content.Server.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.Inventory;
@@ -41,11 +43,13 @@ public sealed class ChangelingArmorTest
 
         var actionSys = entMan.System<ActionsSystem>();
         var invSys = entMan.System<InventorySystem>();
+        var resourceSys = entMan.System<SharedInternalResourcesSystem>();
 
         // Assert.That(ticker.RunLevel, Is.EqualTo(GameRunLevel.InRound));
 
         var urist = EntityUid.Invalid;
         ChangelingIdentityComponent changelingIdentity;
+        ChangelingChemicalComponent changelingChemical;
         Entity<ActionComponent> armorAction = (EntityUid.Invalid, null);
 
         await server.WaitPost(() =>
@@ -56,8 +60,11 @@ public sealed class ChangelingArmorTest
             // Make urist a changeling
             changelingIdentity = entMan.EnsureComponent<ChangelingIdentityComponent>(urist);
             changelingIdentity.TotalAbsorbedEntities += 10;
-            changelingIdentity.MaxChemicals = 1000;
-            changelingIdentity.Chemicals = 1000;
+
+            // set chemicals
+            changelingChemical = entMan.EnsureComponent<ChangelingChemicalComponent>(urist);
+            resourceSys.TrySetResourcesCapacity(urist, changelingChemical.ResourceData, 1000);
+            resourceSys.TryUpdateResourcesAmount(urist, changelingChemical.ResourceData, 1000);
 
             // Give urist chitinous armor action
             var armorActionEntityNullable = actionSys.AddAction(urist, actionProto);

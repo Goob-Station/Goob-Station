@@ -69,6 +69,10 @@
           shouldHave: false
         emote: Scream
         probability: 0.15
+      # Goobstation
+      - !type:DiseaseProgressChange
+        affectedType: Viral
+        progressModifier: -0.15 # extremely strong antiviral
 
 - type: reagent
   id: SpaceCleaner
@@ -132,8 +136,8 @@
   boilingPoint: 290.0 # Glycerin
   meltingPoint: 18.2
   tileReactions:
-    - !type:SpillTileReaction
-  friction: 0.0
+  - !type:SpillTileReaction
+  friction: 0.05
 
 - type: reagent
   id: SpaceGlue

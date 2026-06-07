@@ -1,0 +1,15 @@
+﻿- type: entity
+  parent: BaseMachineCircuitboard
+  id: StasisOperatingTableCircuitboard
+  name: stasis operating table board
+  description: A machine board for a stasis operating table.
+  components:
+  - type: Sprite
+    state: medical
+  - type: MachineBoard
+    prototype: StasisOperatingTable
+    stackRequirements:
+      Cable: 6
+      Silver: 2
+      Steel: 6
+      Manipulator: 2

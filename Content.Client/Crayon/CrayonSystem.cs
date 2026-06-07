@@ -36,6 +36,7 @@ public sealed class CrayonSystem : SharedCrayonSystem
         component.SelectedState = state.State;
         component.Charges = state.Charges;
         component.Capacity = state.Capacity;
+        component.Infinite = state.Infinite; // Impstation
 
         component.UIUpdateNeeded = true;
     }
@@ -68,7 +69,8 @@ public sealed class CrayonSystem : SharedCrayonSystem
                 ("color",_parent.Color),
                 ("state",_parent.SelectedState),
                 ("charges", _parent.Charges),
-                ("capacity",_parent.Capacity)));
+                ("capacity",_parent.Capacity),
+                ("infinite", _parent.Infinite))); // Impstation
         }
     }
 }

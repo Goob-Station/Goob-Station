@@ -1,0 +1,56 @@
+- type: entity
+  id: MetalSlimeExtract
+  parent: BaseSlimeExtract
+  name: metal slime extract
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
+      state: core
+      color: "#595959"
+      shader: XenoMetallic
+  - type: Reactive
+    oneUnitReaction: true
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:MakeUnreactiveEntityEffect
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:CreateEntityReactionEffect
+        entity: SheetGlass1
+        number: 15
+      - !type:CreateEntityReactionEffect
+        entity: SheetRGlass1
+        number: 5
+    - reagents: [ Plasma ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:MakeUnreactiveEntityEffect
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:CreateEntityReactionEffect
+        entity: SheetSteel1
+        number: 15
+      - !type:CreateEntityReactionEffect
+        entity: SheetPlasteel1
+        number: 5
+    - reagents: [ Blood ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:MakeUnreactiveEntityEffect
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-fail" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: Tag
+    tags:
+    - XenobiologyMetalExtract

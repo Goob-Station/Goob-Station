@@ -130,6 +130,7 @@ using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.Actions.Components;
 using Content.Shared.Charges.Systems;
+using Content.Shared.Heretic;
 using Content.Shared.Input;
 using Content.Shared.Mobs.Components;
 using Robust.Client.GameObjects;
@@ -144,6 +145,8 @@ using Robust.Shared.Input;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Robust.Shared.Configuration; // Goobstation
+using Content.Goobstation.Common.CCVar; // Goobstation
 using static Content.Client.Actions.ActionsSystem;
 using static Content.Client.UserInterface.Systems.Actions.Windows.ActionsWindow;
 using static Robust.Client.UserInterface.Control;
@@ -163,6 +166,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IInputManager _input = default!;
     [Dependency] private readonly IEyeManager _eye = default!; // Goobstation
+    [Dependency] private readonly IConfigurationManager _cfg = default!; // Goobstation
 
     [UISystemDependency] private readonly ActionsSystem? _actionsSystem = default;
     [UISystemDependency] private readonly InteractionOutlineSystem? _interactionOutline = default;
@@ -400,18 +404,18 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (_actionsSystem.GetAction(actionId) is not { } action)
             return false;
 
-        if (!EntityManager.TryGetComponent(user, out TargetActionComponent? targetComp))
+        if (!EntityManager.TryGetComponent(actionId, out TargetActionComponent? targetComp))
             return false;
 
         // Is the action currently valid?
-        if (!action.Comp.Enabled || action.Comp.Cooldown.HasValue && action.Comp.Cooldown.Value.End > _timing.CurTime)
+        if (!_actionsSystem.ValidAction(action))
         {
             // The user is targeting with this action, but it is not valid. Maybe mark this click as
             // handled and prevent further interactions.
             return !targetComp.InteractOnMiss;
         }
 
-        if (!EntityManager.TryGetComponent(user, out EntityTargetActionComponent? entityTarget))
+        if (!EntityManager.TryGetComponent(actionId, out EntityTargetActionComponent? entityTarget))
             return false;
 
         if (!EntityManager.TryGetComponent(actionId, out SwapSpellComponent? swap))
@@ -828,7 +832,9 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         args.Handle();
         if (button.Action != null)
         {
-            _menuDragHelper.MouseDown(button);
+            // Goobstation - only allow drag if lock setting is off or actions menu is open
+            if (!_cfg.GetCVar(GoobCVars.LockActionBarDrag) || _window is { IsOpen: true })
+                _menuDragHelper.MouseDown(button);
             return;
         }
 
@@ -1019,7 +1025,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             SearchAndDisplay();
 
         // Goobstation start
-        if (SelectingTargetFor.HasValue || _mark == null)
+        if (_mark == null)
             return;
 
         if (EntityManager.HasComponent<SwapSpellComponent>(SelectingTargetFor))
@@ -1121,6 +1127,11 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
         // If we were targeting something else we should stop
         StopTargeting();
+
+        // Goobstation
+        if (EntityManager.TryGetComponent(ent, out WorldTargetActionComponent? worldTarget) &&
+            worldTarget.Event is InstantWorldTargetActionEvent)
+            _actionsSystem?.TriggerAction(ent, true); // We just perform it and hope for the best :godo:
 
         SelectingTargetFor = uid;
         // TODO inform the server

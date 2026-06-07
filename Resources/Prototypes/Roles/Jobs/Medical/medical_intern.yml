@@ -66,11 +66,15 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 18000 # 5 hrs
+      time: 36000 # 10 hrs
       inverted: true # stop playing intern if you're good at med!
   startingGear: MedicalInternGear
   icon: "JobIconMedicalIntern"
   supervisors: job-supervisors-medicine
+  guides: # goobstation
+  - MedicalDoctor
+  - Cloning
+  - Medicine
   goobcoins: 20 #Goob content
   access:
   - Medical

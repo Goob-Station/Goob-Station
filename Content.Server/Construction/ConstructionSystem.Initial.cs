@@ -619,12 +619,11 @@ namespace Content.Server.Construction
             if(edge == null)
                 throw new InvalidDataException($"Can't find edge from starting node to the next node in pathfinding! Recipe: {prototypeName}");
 
-            if (_handsSystem.GetActiveItem((user, hands)) is {} holding
-                && senderSession != null) // Goobstation - don't check this for constructor machine
+            if (senderSession != null) // Goobstation - don't check this for constructor machine
             {
                 var valid = false;
 
-                if (entWith == null) // Goobstation - don't check for constructor machine
+                if (entWith is not {Valid: true} holding) // Goobstation - don't check for constructor machine
                 {
                     Cleanup();
                     return false;

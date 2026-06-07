@@ -23,6 +23,7 @@ using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Server.Medical;
 using Content.Server.Nutrition.Components;
 using Content.Server.Popups;
+using Content.Shared.Body.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Prototypes;
@@ -136,7 +137,7 @@ public sealed partial class FelinidSystem : EntitySystem
 
         if (hunger.CurrentThreshold == Shared.Nutrition.Components.HungerThreshold.Overfed)
         {
-            _popupSystem.PopupEntity(Loc.GetString("food-system-you-cannot-eat-any-more"), uid, uid, Shared.Popups.PopupType.SmallCaution);
+            _popupSystem.PopupEntity(Loc.GetString("ingestion-other-cannot-ingest-any-more"), uid, uid, Shared.Popups.PopupType.SmallCaution);
             return;
         }
 

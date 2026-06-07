@@ -16,6 +16,9 @@
 
 namespace Content.Server.Resist;
 
+/// <summary>
+///     Goobstation - indicates that an entity CAN escape from a locker or any other container after a lengthy delay.
+/// </summary>
 [RegisterComponent]
 [Access(typeof(ResistLockerSystem))]
 public sealed partial class ResistLockerComponent : Component

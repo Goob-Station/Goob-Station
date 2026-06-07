@@ -8,7 +8,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: ore
-  id: oreBSCrystal
+  id: OreBSCrystal
   oreEntity: MaterialBSCrystal1Unprocessed # Lavaland Change
   minOreYield: 1
-  maxOreYield: 1
+  maxOreYield: 2

@@ -1,0 +1,129 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from goonstation https://github.com/goonstation/goonstation/blob/master/icons/obj/radiostation.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+	  {
+      "name": "ai-vinyl-sleeve"
+    },
+    {
+      "name": "devil-vinyl-sleeve"
+    },
+    {
+      "name": "pizza-vinyl-sleeve"
+    },
+    {
+      "name": "fart-vinyl-sleeve"
+    },
+    {
+      "name": "sunnysideoflavaland-vinyl-sleeve"
+    },
+    {
+      "name": "hockey-vinyl-sleeve"
+    },
+    {
+      "name": "rat-vinyl-sleeve"
+    },
+    {
+      "name": "mgs-vinyl-sleeve"
+    },
+    {
+      "name": "questional-vinyl-sleeve"
+    },
+    {
+      "name": "janitor-vinyl-sleeve"
+    },
+    {
+      "name": "weird-vinyl-sleeve"
+    },
+    {
+      "name": "djclown-vinyl-sleeve"
+    },
+    {
+      "name": "vampire-vinyl-sleeve"
+    },
+    {
+      "name": "shulker-vinyl-sleeve"
+    },
+    {
+      "name": "redsun-vinyl-sleeve"
+    },
+    {
+      "name": "skull-vinyl-sleeve"
+    },
+    {
+      "name": "fisherman-vinyl-sleeve"
+    },
+    {
+      "name": "heisenbee-vinyl-sleeve"
+    },
+    {
+      "name": "station13-vinyl-sleeve"
+    },
+    {
+      "name": "station14-vinyl-sleeve"
+    },
+    {
+      "name": "reactor-vinyl-sleeve"
+    },
+    {
+      "name": "pda-vinyl-sleeve"
+    },
+    {
+      "name": "nukedisk-vinyl-sleeve"
+    },
+    {
+      "name": "blockycraft-vinyl-sleeve"
+    },
+    {
+      "name": "eye-vinyl-sleeve"
+    },
+    {
+      "name": "th-vinyl-sleeve"
+    },
+    {
+      "name": "clown-vinyl-sleeve"
+    },
+    {
+      "name": "newnanoyork-vinyl-sleeve"
+    },
+    {
+      "name": "djtider-vinyl-sleeve"
+    },
+    {
+      "name": "coffee-vinyl-sleeve"
+    },
+    {
+      "name": "welcometoss13-vinyl-sleeve"
+    },
+    {
+      "name": "peace-vinyl-sleeve"
+    },
+    {
+      "name": "japan-vinyl-sleeve"
+    },
+    {
+      "name": "christmas-vinyl-sleeve"
+    },
+    {
+      "name": "pickle-vinyl-sleeve"
+    },
+    {
+      "name": "flash-vinyl-sleeve"
+    },
+    {
+      "name": "plainbeige-vinyl-sleeve"
+    },
+    {
+      "name": "plainblack-vinyl-sleeve"
+    },
+    {
+      "name": "plainwhite-vinyl-sleeve"
+    }
+
+  ]
+}

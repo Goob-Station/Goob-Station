@@ -52,12 +52,14 @@
     - CablesStatic
     - MaterialsStatic
     - LightsStatic
+    - LatheMiscStatic
     - PowerCellsStatic
     - ElectronicsStatic
     - MiscSignallersStatic
     - NailgunStatic
     - NailsStatic
     dynamicPacks:
+    - ConstructionBagOfHolding
     - AdvancedTools
     - AtmosTools
     - EngineeringWeapons
@@ -69,6 +71,7 @@
     - SharedBoards
     - CameraBoards
     - ShuttleBoards
+    - ShuttleBoardsGoob
     - BluespaceTheory
     - ScienceClothing
     - UpgradeKits
@@ -114,6 +117,8 @@
     - SharedBoardsStatic
     - CargoBoardsStatic
     - CablesStatic
+    - PartsStatic
+    - LatheMiscStatic
     - PowerCellsStatic
     - MiningToolsStatic
     - MiscSignallersStatic
@@ -133,8 +138,10 @@
     - CargoBoards
     - SharedBoards
     - ShuttleBoards
+    - ShuttleBoardsGoob
     - BluespaceTheory
     - ScienceClothing
+    - ConstructionBagOfHolding
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SalvageExplosivesStatic # Seismic charges - they're pretty cheap in salvage vendor anyway so why not
@@ -177,8 +184,10 @@
     - CircuitFloorsStatic
     - MedicalBoardsStatic
     - MedicalBoardsStaticGoob
+    - ChemistryStatic
     - ToolsStatic
     - PartsStatic
+    - LatheMiscStatic
     - AtmosStatic
     - CablesStatic
     - MaterialsStatic
@@ -208,12 +217,17 @@
     - EngineeringBoards
     - SharedBoards
     - ScienceBoards
+    - ScienceBoardsGoob
     - ShuttleBoards
+    - ShuttleBoardsGoob
     - MedicalBoardsGoob
     - BluespaceTheory
     - ExperimentalScienceGoob
     - MechBoardsScience
     - Pinpointers
+    - Genetics
+    - XenobioPack
+    - XenobagHoldingPack
     # Einstein Engines Packs
     - Translators
     - TranslatorImplanters
@@ -255,13 +269,16 @@
     runningState: icon
     staticPacks:
     - ServiceBoardsStatic
+    - ServiceBoardsStaticGoob
     - MaterialsStatic
     - LightsStatic
     - ServiceStatic
     - PowerCellsStatic
     - LatheMiscStatic
+    - PartsStatic
     - ChemistryStatic
     - TapeRecorderStatic
+    - CondimentStatic
     dynamicPacks:
     - Janitor
     - Instruments
@@ -274,6 +291,8 @@
     - SharedBoards
     - CameraBoards
     - ServiceTools
+    - ServiceBoardsGoob # goob
+    - EntertainmentPack # goob
     # Einstein Engines Packs
     - Translators
   - type: EmagLatheRecipes
@@ -285,3 +304,40 @@
         - Sheet
         - RawMaterial
         - Ingot
+
+- type: entity
+  id: ERTTechFab
+  parent: [BaseLatheLube, BaseSiloUtilizer]
+  name: ERT techfab
+  description: Standard-issue ammunition and gear for Emergency Response Team deployments. Fast, basic, reliable.
+  components:
+    - type: Sprite
+      sprite: Structures/Machines/techfab.rsi
+      layers:
+        - state: icon
+          map: ["enum.LatheVisualLayers.IsRunning"]
+        - state: ert
+        - state: unlit
+          shader: unshaded
+          map: ["enum.PowerDeviceVisualLayers.Powered"]
+        - state: inserting
+          map: ["enum.MaterialStorageVisualLayers.Inserting"]
+        - state: panel
+          map: ["enum.WiresVisualLayers.MaintenancePanel"]
+    - type: Machine
+      board: ERTTechFabCircuitboard
+    - type: Lathe
+      idleState: icon
+      runningState: icon
+      staticPacks:
+      - SecurityAmmoStatic
+      - SecurityAmmoStaticGoob
+      - ERTAmmoStaticGoob
+      - SecurityHypoStatic
+      - SecurityEquipmentStaticGoob
+    - type: MaterialStorage
+      whitelist:
+        tags:
+          - Sheet
+          - RawMaterial
+          - Ingot

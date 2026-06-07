@@ -49,7 +49,6 @@ using Content.Server.Ghost.Roles.Components;
 using Content.Server.Ghost.Roles.Events;
 using Content.Shared.Ghost.Roles.Raffles;
 using Content.Server.Ghost.Roles.UI;
-using Content.Server.Mind.Commands;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
@@ -558,6 +557,11 @@ public sealed class GhostRoleSystem : EntitySystem
 
         DebugTools.AssertNotNull(player.ContentData());
 
+        // After taking a ghost role, the player cannot return to the original body, so wipe the player's current mind
+        // unless it is a visiting mind
+        if(_mindSystem.TryGetMind(player.UserId, out _, out var mind) && !mind.IsVisitingEntity)
+            _mindSystem.WipeMind(player);
+
         var newMind = _mindSystem.CreateMind(player.UserId,
             Comp<MetaDataComponent>(mob).EntityName);
 
@@ -576,7 +580,7 @@ public sealed class GhostRoleSystem : EntitySystem
     public int GetGhostRoleCount()
     {
         var metaQuery = GetEntityQuery<MetaDataComponent>();
-        return _ghostRoles.Count(pair => metaQuery.GetComponent(pair.Value.Owner).EntityPaused == false);
+        return _ghostRoles.Count(pair => metaQuery.CompOrNull(pair.Value.Owner)?.EntityPaused == false); // Goobstation - goidafix random test fail from deleted ghost roles
     }
 
     /// <summary>
@@ -634,6 +638,20 @@ public sealed class GhostRoleSystem : EntitySystem
         return roles.ToArray();
     }
 
+    /// <summary>
+    /// Goobstation - Add requirement to the ghost role
+    /// </summary>
+    /// <param name="ghostRole">The entity</param>
+    /// <param name="job">The job requirement</param>
+    public void AddRoleRequirements(Entity<GhostRoleComponent>? ghostRole, JobRequirement job)
+    {
+        if (ghostRole is not {} ghost)
+            return;
+
+        ghost.Comp.Requirements ??= [];
+        ghost.Comp.Requirements.Add(job);
+
+    }
     private void OnPlayerAttached(PlayerAttachedEvent message)
     {
         // Close the session of any player that has a ghost roles window open and isn't a ghost anymore.
@@ -741,7 +759,7 @@ public sealed class GhostRoleSystem : EntitySystem
         RaiseLocalEvent(mob, spawnedEvent, true); // Goob Edit: Broadcast
 
         if (ghostRole.MakeSentient)
-            MakeSentientCommand.MakeSentient(mob, EntityManager, ghostRole.AllowMovement, ghostRole.AllowSpeech);
+            _mindSystem.MakeSentient(mob, ghostRole.AllowMovement, ghostRole.AllowSpeech);
 
         EnsureComp<MindContainerComponent>(mob);
 
@@ -781,14 +799,14 @@ public sealed class GhostRoleSystem : EntitySystem
 
         var mind = EnsureComp<MindContainerComponent>(uid);
 
-        if (mind.HasMind)
+        if (mind.HasMind && !component.IgnoreMindCheck) // Goobstation edit
         {
             args.TookRole = false;
             return;
         }
 
         if (ghostRole.MakeSentient)
-            MakeSentientCommand.MakeSentient(uid, EntityManager, ghostRole.AllowMovement, ghostRole.AllowSpeech);
+            _mindSystem.MakeSentient(uid, ghostRole.AllowMovement, ghostRole.AllowSpeech);
 
         GhostRoleInternalCreateMindAndTransfer(args.Player, uid, uid, ghostRole);
         UnregisterGhostRole((uid, ghostRole));
@@ -866,6 +884,11 @@ public sealed class GhostRoleSystem : EntitySystem
         }
 
         SetMode(entity.Owner, ghostRoleProto, ghostRoleProto.Name, entity.Comp);
+    }
+
+    public void SetTaken(GhostRoleComponent role, bool taken) // Goobstation
+    {
+        role.Taken = taken;
     }
 }
 

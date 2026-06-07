@@ -6,12 +6,12 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Server.Standing;
 using Content.Server.Stunnable;
 using Content.Shared._EinsteinEngines.TelescopicBaton;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.StatusEffect;
+using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee.Events;
 
 namespace Content.Server._EinsteinEngines.TelescopicBaton;
@@ -19,7 +19,6 @@ namespace Content.Server._EinsteinEngines.TelescopicBaton;
 public sealed class KnockdownOnHitSystem : EntitySystem
 {
     [Dependency] private readonly StunSystem _stun = default!;
-    [Dependency] private readonly LayingDownSystem _laying = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!; // Goobstation
 
     public override void Initialize()
@@ -35,30 +34,23 @@ public sealed class KnockdownOnHitSystem : EntitySystem
         if (!entity.Comp.KnockdownOnHeavyAttack && args.Direction != null)
             return;
 
-        var ev = new KnockdownOnHitAttemptEvent(false, entity.Comp.DropHeldItemsBehavior); // Goob edit
+        var ev = new KnockdownOnHitAttemptEvent(false, entity.Comp.DropItems); // Goob edit
         RaiseLocalEvent(entity, ref ev);
         if (ev.Cancelled)
             return;
+
+        var dropItems = ev.DropItems;
 
         List<EntityUid> knockedDown = new(); // Goobstation
         foreach (var target in
                  args.HitEntities.Where(e => !HasComp<BorgChassisComponent>(e) && _mobState.IsAlive(e))) // Goob edit
         {
-            if (entity.Comp.Duration <= TimeSpan.Zero) // Goobstation
-            {
-                if (_laying.TryLieDown(target, null, null, ev.Behavior)) // Goobstation
-                    knockedDown.Add(target);
-                continue;
-            }
-
-            if (!TryComp(target, out StatusEffectsComponent? statusEffects))
-                continue;
-
             if (_stun.TryKnockdown(target,
                 entity.Comp.Duration,
                 entity.Comp.RefreshDuration,
-                ev.Behavior, // Goob edit
-                statusEffects)) // Goob edit
+                true,
+                dropItems,
+                entity.Comp.Autostand)) // goob edit
                 knockedDown.Add(target);
         }
 

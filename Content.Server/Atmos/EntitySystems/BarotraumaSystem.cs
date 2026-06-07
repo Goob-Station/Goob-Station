@@ -39,7 +39,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
-using Content.Goobstation.Shared.Atmos.Components;
+using Content.Goobstation.Shared.Atmos.Events; // goob edit
 using Content.Server._Goobstation.Wizard.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.Components;
@@ -55,10 +55,7 @@ using Robust.Shared.Containers;
 
 // Shitmed Change
 using Content.Shared._Shitmed.Targeting;
-using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
-using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
-using Content.Shared.Body.Components;
-using System.Linq;
+using Content.Goobstation.Common.Atmos;
 
 namespace Content.Server.Atmos.EntitySystems
 {
@@ -70,7 +67,6 @@ namespace Content.Server.Atmos.EntitySystems
         [Dependency] private readonly IAdminLogManager _adminLogger= default!;
         [Dependency] private readonly InventorySystem _inventorySystem = default!;
         [Dependency] private readonly SpellbladeSystem _spellblade = default!; // Goobstation
-        [Dependency] private readonly WoundSystem _wound = default!; // Shitmed Change
         private const float UpdateTimer = 1f;
         private float _timer;
 
@@ -319,6 +315,16 @@ namespace Content.Server.Atmos.EntitySystems
 
                 if (pressure <= Atmospherics.HazardLowPressure)
                 {
+
+                    // goob start
+                    var resistEv = new ResistPressureEvent();
+                    resistEv.Pressure = pressure;
+                    RaiseLocalEvent(uid, ref resistEv);
+
+                    if (resistEv.Cancelled)
+                        return;
+                    // goob end
+
                     // Deal damage and ignore resistances. Resistance to pressure damage should be done via pressure protection gear.
                     _damageableSystem.TryChangeDamage(uid, barotrauma.Damage * Atmospherics.LowPressureDamage, true, false, targetPart: TargetBodyPart.All); // Shitmed Change
 
@@ -332,6 +338,15 @@ namespace Content.Server.Atmos.EntitySystems
                 }
                 else if (pressure >= Atmospherics.HazardHighPressure && !_spellblade.IsHoldingItemWithComponent<FireSpellbladeEnchantmentComponent>(uid)) // Goob edit
                 {
+                    // goob start
+                    var resistEv = new ResistPressureEvent();
+                    resistEv.Pressure = pressure;
+                    RaiseLocalEvent(uid, ref resistEv);
+
+                    if (resistEv.Cancelled)
+                        return;
+                    // goob end
+
                     var damageScale = MathF.Min(((pressure / Atmospherics.HazardHighPressure) - 1) * Atmospherics.PressureDamageCoefficient, Atmospherics.MaxHighPressureDamage);
 
                     // Deal damage and ignore resistances. Resistance to pressure damage should be done via pressure protection gear.
@@ -347,6 +362,11 @@ namespace Content.Server.Atmos.EntitySystems
                 }
                 else
                 {
+                    // goob start
+                    var pressureEv = new SendSafePressureEvent(pressure);
+                    RaiseLocalEvent(uid, ref pressureEv);
+                    // goob end
+
                     // Within safe pressure limits
                     if (barotrauma.TakingDamage)
                     {

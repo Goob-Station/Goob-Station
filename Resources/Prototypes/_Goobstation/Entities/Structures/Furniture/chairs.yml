@@ -1,0 +1,65 @@
+# SPDX-FileCopyrightText: 2025 Evaisa <mail@evaisa.dev>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: ChairOfficeLight
+  id: ChairOfficeRocketBase
+  description: Launch from department to department because walking is for interns.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Furniture/rocket_chair.rsi
+    state: office-white
+  - type: RocketChair
+    actionProto: ActionRocketChairBoost
+    fuelSolution: fuel
+    fuelReagent: Water
+    fuelPerSecond: 3
+    thrustAcceleration: 50
+    boostDuration: 2.2
+    fuelCapacity: 100
+    startFuel: 100
+    vaporReagentPerPuff: 5
+    vaporVelocity: 4
+    vaporLifetime: 0.8
+    vaporCountPerEmit: 1
+    vaporSpread: 30
+    emitInterval: 0.3
+    emitMaxPerTick: 1
+    nozzleOffset: 0.1
+  - type: VehicleHitAndRun
+    minRunoverSpeed: 5
+    launchForceBase: 4
+    launchForceScale: 0.4
+    throwCooldown: 0.6
+    runoverRadius: 1
+    airTime: 1.2
+    canRunOver: false
+  - type: SolutionContainerManager
+    solutions:
+      fuel:
+        maxVol: 100
+        reagents:
+        - ReagentId: Water
+          Quantity: 100
+  - type: RefillableSolution
+    solution: fuel
+
+- type: entity
+  parent: ChairOfficeRocketBase
+  id: ChairOfficeWhiteRocket
+  name: white rocket chair
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Furniture/rocket_chair.rsi
+    state: office-white
+
+- type: entity
+  parent: ChairOfficeRocketBase
+  id: ChairOfficeDarkRocket
+  name: dark rocket chair
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Furniture/rocket_chair.rsi
+    state: office-dark

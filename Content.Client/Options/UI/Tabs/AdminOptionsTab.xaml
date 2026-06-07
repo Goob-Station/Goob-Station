@@ -20,6 +20,12 @@
                 <ui:OptionSlider Name="OverlayMergeDistanceSlider"  Title="{Loc 'ui-options-admin-overlay-merge-distance'}"/>
                 <ui:OptionSlider Name="OverlayGhostFadeSlider"  Title="{Loc 'ui-options-admin-overlay-ghost-fade-distance'}"/>
                 <ui:OptionSlider Name="OverlayGhostHideSlider"  Title="{Loc 'ui-options-admin-overlay-ghost-hide-distance'}"/>
+                <!-- Goobstation Start - Admin Notifications -->
+                <!-- Some may say this belongs in AudioTab. They're probably right. -->
+                <Label Text="{Loc 'ui-options-admin-notifications-title'}"
+                       StyleClasses="LabelKeyText"/>
+                <ui:OptionSlider Name="NotificationsVolumeSlider" Title="{Loc 'ui-options-admin-notifications-volume'}"/>
+                <!-- Goobstation End - Admin Notifications -->
             </BoxContainer>
         </ScrollContainer>
         <ui:OptionsTabControlRow Name="Control" Access="Public" />

@@ -65,6 +65,7 @@
   access:
   - Service
   - Maintenance
+  - Journalism # goob
 
 - type: startingGear
   id: ReporterGear

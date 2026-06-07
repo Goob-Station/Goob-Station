@@ -192,7 +192,7 @@
         Blunt: 2
         Heat: 2
   - type: IgniteOnCollide
-    fireStacks: 3
+    fireStacks: 2
 
 - type: entity
   id: BulletSleepshot
@@ -241,7 +241,7 @@
       ammo:
         reagents:
         - ReagentId: Haloperidol
-          Quantity: 2
+          Quantity: 1.5
   - type: BlurOnCollide
 
 - type: entity

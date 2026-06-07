@@ -17,13 +17,15 @@
   description: Create a magical barrier that only you can pass through. # Goob edit
   components:
   - type: Action
-    useDelay: 15
+    raiseOnUser: true # Goobstation
+    checkCanInteract: false # Goobstation
+    useDelay: 10 # Goob edit
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/forcewall.ogg
     icon:
-      sprite: Objects/Magic/magicactions.rsi
-      state: shield
+      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+      state: shield_greater # Goob edit
   - type: InstantAction
     event: !type:InstantSpawnSpellEvent
       prototype: WallForce

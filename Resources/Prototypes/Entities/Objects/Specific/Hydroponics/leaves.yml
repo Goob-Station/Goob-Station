@@ -104,15 +104,6 @@
         reagents:
         - ReagentId: THC
           Quantity: 15
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Specific/Hydroponics/cannabis.rsi
-      state: produce
-    entries:
-      burger:
-        name: food-sequence-burger-content-cannabis
-      taco:
-        name: food-sequence-content-cannabis
 
 
 - type: entity
@@ -124,11 +115,6 @@
   - type: Stack
     stackType: LeavesCannabisDried
     count: 1
-  # Goobstation - Custom stack splitting dialog
-  - type: UserInterface
-    interfaces:
-      enum.StackCustomSplitUiKey.Key:
-        type: StackCustomSplitBoundUserInterface
   - type: SolutionContainerManager
     solutions:
       food:
@@ -148,11 +134,6 @@
   - type: Stack
     stackType: GroundCannabis
     count: 1
-  # Goobstation - Custom stack splitting dialog
-  - type: UserInterface
-    interfaces:
-      enum.StackCustomSplitUiKey.Key:
-        type: StackCustomSplitBoundUserInterface
   - type: SolutionContainerManager
     solutions:
       food:
@@ -207,15 +188,6 @@
 #         Quantity: 1
         - ReagentId: Psicodine
           Quantity: 0.6
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Specific/Hydroponics/rainbow_cannabis.rsi
-      state: produce
-    entries:
-      burger:
-        name: food-sequence-burger-content-rainbow-cannabis
-      taco:
-        name: food-sequence-content-rainbow-cannabis
 
 - type: entity
   name: dried rainbow cannabis leaves
@@ -333,11 +305,6 @@
   - type: Stack
     stackType: LeavesTobaccoDried
     count: 1
-  # Goobstation - Custom stack splitting dialog
-  - type: UserInterface
-    interfaces:
-      enum.StackCustomSplitUiKey.Key:
-        type: StackCustomSplitBoundUserInterface
   - type: SolutionContainerManager
     solutions:
       food:
@@ -357,11 +324,6 @@
   - type: Stack
     stackType: GroundTobacco
     count: 1
-  # Goobstation - Custom stack splitting dialog
-  - type: UserInterface
-    interfaces:
-      enum.StackCustomSplitUiKey.Key:
-        type: StackCustomSplitBoundUserInterface
   - type: SolutionContainerManager
     solutions:
       food:

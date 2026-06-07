@@ -1,0 +1,16 @@
+# SPDX-FileCopyrightText: 2025 GabyChangelog <agentepanela2@gmail.com>
+# SPDX-FileCopyrightText: 2025 Kyoth25f <kyoth25f@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  id: ActionChangeIntrinsicVoiceModulator
+  name: Open voice modulator menu
+  description: Let's you change your voice and the way you speak.
+  components:
+  - type: Action
+    icon:
+      sprite: Interface/Actions/voice-mask.rsi
+      state: icon
+  - type: InstantAction
+    event: !type:OpenIntrinsicVoiceModulatorMenuEvent

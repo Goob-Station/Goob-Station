@@ -48,7 +48,8 @@
     event: !type:EventHereticAggressiveSpread
   - type: HereticAction
     requireMagicItem: true
-    messageLoc: heretic-speech-rust-spread
+  - type: SpeakOnAction
+    sentence: heretic-speech-rust-spread
   - type: ChangeUseDelayOnAscension
     newUseDelay: 15
     requiredPath: Rust
@@ -74,7 +75,30 @@
     event: !type:EventHereticEntropicPlume
   - type: HereticAction
     requireMagicItem: true
-    messageLoc: heretic-speech-rust-plume
+  - type: SpeakOnAction
+    sentence: heretic-speech-rust-plume
+
+- type: entity
+  parent: BaseAction
+  id: ActionHereticRustCharge
+  name: Rust Charge
+  description: A charge that must be started on a rusted tile and will destroy any rusted objects you come into contact with, will deal high damage to others and rust around you during the charge. As it is the rust that empowers you with this ability, no focus is needed.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 45
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: rust_charge
+  - type: TargetAction
+    range: 0
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:EventHereticRustCharge
+  - type: HereticAction
+    requireMagicItem: false
 
 - type: entity
   parent: BaseAction
@@ -95,6 +119,8 @@
   - type: TargetAction
     range: 0
     checkCanAccess: false
+  - type: EntityTargetAction
+    canTargetSelf: false
   - type: WorldTargetAction
     event: !type:ProjectileSpellEvent
       prototype: ProjectileWaveRust

@@ -17,7 +17,7 @@
 
 - type: alert
   id: Corporeal
-  icons: [ /Textures/Mobs/Ghosts/revenant.rsi/icon.png ]
+  icons: [ /Textures/_Goobstation/Wraith/wraith.rsi/icon.png ] # Goobstation sprite change, revenant is dead and we killed him. Glory to Goonstation Wraith!!!
   name: alerts-revenant-corporeal-name
   description: alerts-revenant-corporeal-desc
 

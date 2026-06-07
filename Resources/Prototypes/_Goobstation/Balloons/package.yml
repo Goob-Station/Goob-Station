@@ -5,10 +5,10 @@
 
 - type: entity
   parent: BaseItem
-  id: BalloonPackage
+  id: BalloonPackageBasic
   name: balloon package
   description: A package containing one random balloon.
-  components: 
+  components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/balloon_package.rsi
     state: icon
@@ -16,35 +16,82 @@
     size: Tiny
   - type: SpawnItemsOnUse
     items:
-    - id: redBalloon
+    - id: RedBalloon
       orGroup: BalloonRandom
-    - id: blueBalloon
+      prob: 0.33 # Lower tier rarer
+    - id: BlueBalloon
       orGroup: BalloonRandom
-    - id: greenBalloon
+      prob: 0.4
+    - id: GreenBalloon
       orGroup: BalloonRandom
-    - id: yellowBalloon
+    - id: YellowBalloon
       orGroup: BalloonRandom
-    - id: pinkBalloon
+    - id: PinkBalloon
       orGroup: BalloonRandom
-    - id: whiteBalloon
+    - id: WhiteBalloon
       orGroup: BalloonRandom # higher tier balloons are rarer
       prob: 0.4
-    - id: blackBalloon
+    - id: BlackBalloon
       orGroup: BalloonRandom
       prob: 0.4
-    - id: steelBalloon
+    - id: SteelBalloon
       orGroup: BalloonRandom
       prob: 0.33
-    - id: zebraBalloon
+    - id: ZebraBalloon
       orGroup: BalloonRandom
       prob: 0.33
-    - id: rainbowBalloon
+    - id: RainbowBalloon
       orGroup: BalloonRandom
       prob: 0.2
+    - id: CeramicBalloon
+      orGroup: BalloonRandom
+      prob: 0.1
     sound:
       path: /Audio/Effects/unwrap.ogg
-   
-   
+
+- type: entity
+  parent: BaseItem
+  id: BalloonPackagePremium
+  name: premium balloon package
+  description: A package containing one random balloon.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/balloon_package.rsi
+    state: gold
+  - type: Item
+    size: Tiny
+  - type: SpawnItemsOnUse
+    items:
+    - id: BlackBalloon
+      orGroup: BalloonRandom
+    - id: WhiteBalloon
+      orGroup: BalloonRandom
+    - id: SteelBalloon
+      orGroup: BalloonRandom
+      prob: 0.7
+    - id: ZebraBalloon
+      orGroup: BalloonRandom
+      prob: 0.65 #65 chance 65 65 65
+    - id: RainbowBalloon
+      orGroup: BalloonRandom
+      prob: 0.5
+    - id: CeramicBalloon
+      orGroup: BalloonRandom # higher tier balloons are rarer
+      prob: 0.4
+    # This fucking kills server performance
+    # - id: MoabBalloon
+    #   orGroup: BalloonRandom
+    #   prob: 0.10
+    # - id: BfbBalloon
+    #   orGroup: BalloonRandom
+    #   prob: 0.05
+    # - id: ZomgBalloon
+    #   orGroup: BalloonRandom
+    #   prob: 0.01
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+
 - type: entity
   name: balloon package box
   parent: BoxCardboard
@@ -53,12 +100,25 @@
   components:
   - type: StorageFill
     contents:
-      - id: BalloonPackage
+      - id: BalloonPackageBasic
         amount: 9
   - type: Sprite
     sprite: _Goobstation/Objects/Storage/boxes.rsi
-    
-    
+
+- type: entity
+  name: premium balloon package box
+  parent: BoxCardboard
+  id: PremiumBoxBalloonPackage
+  description: A box full of soon to be balloons.
+  components:
+  - type: StorageFill
+    contents:
+      - id: BalloonPackagePremium
+        amount: 9
+  - type: Sprite
+    sprite: _Goobstation/Objects/Storage/boxes.rsi
+
+
 - type: entity
   id: CrateBalloonPackage
   parent: CratePlastic
@@ -71,14 +131,32 @@
       amount: 2
     - id: ClothingOuterSuitMonkey
       amount: 1
-    - id: BoxDarts
+    - id: Dart
+      amount: 1
+    - id: MonkeyCube
+      prob: 0.7
+    # Extra
+    - id: MonkeyCube
+      prob: 0.4
+
+
+- type: entity
+  id: PremiumCrateBalloonPackage
+  parent: CratePirate
+  name: premium balloon warrior's package
+  description: Contains the most elite balloons and some additional popping equipment. WARNING! SEVERAL MOAB CLASS BALLOONS INCOMING!
+  components:
+  - type: StorageFill
+    contents:
+    - id: PremiumBoxBalloonPackage
+      amount: 1
+    - id: ClothingOuterSuitMonkey
+      amount: 1
+    - id: boomerang
       amount: 1
     - id: MonkeyCube
       prob: 0.7
     - id: ClothingOuterSuitMonkey   # Extra
-      amount: 1
-      prob: 0.4
-    - id: BoxDarts
       amount: 1
       prob: 0.4
     - id: MonkeyCube

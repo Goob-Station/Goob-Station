@@ -240,10 +240,27 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
-      # TODO this should go to the broken node first
+      # TODO this should go to the broken node first  < Solved but left wizden comment
       - !type:PlaySoundBehavior
         sound:
           collection: MetalSlam
+    # Goobstart
+    - trigger: !type:DamageTrigger
+        damage: 450
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 0
+            max: 2
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:ChangeConstructionNodeBehavior
+        node: assembly
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    # Goobend
   - type: Construction
     graph: Airlock
     node: airlock
@@ -251,9 +268,8 @@
     - board
   - type: PlacementReplacement
     key: walls
-  - type: PaintableAirlock
-    group: Standard
-    department: Civilian
+  - type: Paintable
+    group: AirlockStandard
   - type: StaticPrice
     price: 150
   - type: LightningTarget
@@ -272,6 +288,11 @@
   - type: Penetratable # Goobstation - Better snipers
     penetrateDamage: 75
     damagePenalty: 0.2
+  - type: InteractionVerbs
+    allowedVerbs:
+    - KnockOn
+  - type: WeldingSparksAnimation # Goobstation
+    startingOffset: 0, 0.5
   placement:
     mode: SnapgridCenter
 
@@ -316,8 +337,10 @@
   - type: Construction
     graph: Airlock
     node: glassAirlock
-  - type: PaintableAirlock
-    group: Glass
+  - type: Paintable
+    group: AirlockGlass
+  #- type: RadiationBlocker
+  #  resistance: 2
   - type: Tag
     tags:
       - GlassAirlock

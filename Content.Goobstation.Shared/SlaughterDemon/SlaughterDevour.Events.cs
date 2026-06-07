@@ -10,7 +10,7 @@ namespace Content.Goobstation.Shared.SlaughterDemon;
 [ByRefEvent]
 public record struct SlaughterDevourEvent(
     EntityUid pullingEnt,
-    EntityCoordinates PreviousCoordinates);
+    EntityUid pullerEnt);
 
 /// <summary>
 ///  Raised on the entity that gets devoured

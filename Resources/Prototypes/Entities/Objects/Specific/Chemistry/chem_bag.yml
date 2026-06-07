@@ -44,8 +44,10 @@
         - Bottle
         - Syringe
         - Dropper
-        - ChemDispensable # Goobstation
-        - MedicalPatch # Goobstation
-  #- type: Dumpable # Goobstation edit
-  - type: ExplosionResistance # Goobstation
+        - ChemDispensable # Goob - start
+        - MedicalPatch
+        - CigPack
+        - Cigarette
+  - type: Dumpable
+  - type: ExplosionResistance # Goob - end
     damageCoefficient: 0.25

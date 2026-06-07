@@ -113,10 +113,10 @@
     boardName: wires-board-name-computer
     layoutId: Computer
   - type: SpamEmitSound # Goobstation - random lathe sounds
-    minInterval: 300
-    maxInterval: 900
+    minInterval: 45
+    maxInterval: 120
     sound:
-      collection: RandomComputerSounds
+      collection: MonoComputerSFX
       params:
         volume: -12 # Ambient
         maxDistance: 10

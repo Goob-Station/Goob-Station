@@ -8,7 +8,10 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -49,6 +52,13 @@
     Plasma: 250
 
 - type: latheRecipe
+  id: TinfoilHats
+  result: ClothingHeadHatTinfoilHat
+  completetime: 5
+  materials:
+    Steel: 500
+
+- type: latheRecipe
   id: SyringeGun
   result: SyringeGun
   completetime: 5
@@ -64,10 +74,10 @@
   result: ParamedHypo
   completetime: 3
   materials:
-    Steel: 1500
-    Plastic: 800
-    Glass: 1200
-    Gold: 500
+    Steel: 500
+    Plastic: 500
+    Glass: 500
+    Gold: 300
 
 - type: latheRecipe
   id: HandheldCrewMonitor
@@ -97,3 +107,85 @@
     Glass: 250
     Plasma: 100
     Silver: 50
+
+- type: latheRecipe
+  id: XenoCompatibilityImplanter
+  result: XenoCompatibilityImplanter
+  completetime: 8
+  materials:
+    Steel: 500
+    Glass: 750
+    Plasma: 1500
+    Silver: 300
+
+- type: latheRecipe
+  id: MedicalPatchBasic
+  result: MedicalPatchBasic
+  completetime: 2
+  materials:
+    Plastic: 50 # might be fine as 1 cloth 1 plastic, one textile crate will let chem make like 120 patches.
+    Cloth: 50
+
+- type: latheRecipe
+  id: MedicalPatchRapid
+  result: MedicalPatchRapid
+  completetime: 2
+  materials:
+    Cloth: 50
+    Plastic: 50
+
+- type: latheRecipe
+  id: MedicalPatchTherapeutic
+  result: MedicalPatchTherapeutic
+  completetime: 2
+  materials:
+    Cloth: 50
+    Plastic: 50
+
+- type: latheRecipe
+  id: MedicalPatchLarge
+  result: MedicalPatchLarge
+  completetime: 2
+  materials:
+    Plastic: 50
+    Cloth: 50
+
+- type: latheRecipe
+  id: MedicalCigPack
+  result: CigPackMedical
+  completetime: 8 # slows down mass printing entities
+  materials:
+    Plastic: 500
+    Cloth: 500
+
+- type: latheRecipe
+  id: EnergyChemDispenserMachineCircuitboard
+  parent: BaseGoldCircuitboardRecipe
+  result: EnergyChemDispenserMachineCircuitboard
+  icon:
+    sprite: Structures/dispensers.rsi
+    state: industrial-working
+
+- type: latheRecipe
+  parent: [BaseGoldCircuitboardRecipe, BaseMedicalMachineRecipeCategory]
+  id: CloningPodMachineCircuitboardRecipe
+  icon:
+    sprite: Structures/Machines/cloning.rsi
+    state: pod_0
+  result: CloningPodMachineCircuitboard
+  completetime: 10
+
+- type: latheRecipe
+  parent: [BaseGoldCircuitboardRecipe, BaseMedicalMachineRecipeCategory]
+  id: MedicalScannerMachineCircuitboardRecipe
+  icon:
+    sprite: Structures/Machines/scanner.rsi
+    state: open
+  result: MedicalScannerMachineCircuitboard
+  completetime: 10
+
+- type: latheRecipe
+  parent: [BaseGoldCircuitboardRecipe, BaseMedicalMachineRecipeCategory]
+  id: CloningConsoleComputerCircuitboardRecipe
+  result: CloningConsoleComputerCircuitboard
+  completetime: 10

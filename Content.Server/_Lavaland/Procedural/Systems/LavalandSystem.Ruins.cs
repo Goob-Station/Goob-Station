@@ -3,6 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
 using Content.Server._Lavaland.Procedural.Components;
@@ -12,7 +13,6 @@ using Content.Shared.Decals;
 using Content.Shared.Maps;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -20,23 +20,21 @@ namespace Content.Server._Lavaland.Procedural.Systems;
 
 public sealed partial class LavalandSystem
 {
-    private void SetupRuins(LavalandRuinPoolPrototype pool, Entity<LavalandMapComponent> lavaland, Entity<LavalandPreloaderComponent> preloader)
+    private void SetupRuins(LavalandRuinPoolPrototype? pool, Entity<LavalandMapComponent> lavaland, Entity<LavalandPreloaderComponent> preloader)
     {
-        var random = new Random(lavaland.Comp.Seed);
-
-        var boundary = GetOutpostBoundary(lavaland);
-        if (boundary == null)
+        if (pool == null)
             return;
 
-        var coords = GetCoordinates(pool.RuinDistance, pool.MaxDistance);
-        random.Shuffle(coords);
-        var usedSpace = new List<Box2> { boundary.Value };
+        var random = new Random(lavaland.Comp.Seed);
 
-        // Load grid ruins
-        SetupHugeRuins(pool.GridRuins, lavaland, preloader, random, ref coords, ref usedSpace);
+        var usedSpace = GetOutpostBoundary(lavaland);
+        var coords = GetCoordinates(pool.RuinDistance, pool.MaxDistance);
+
+        random.Shuffle(coords);
+
+        SetupGridRuins(pool.GridRuins, lavaland, preloader, ref coords, ref usedSpace);
 
         // Create a new list that excludes all already used spaces that intersect with big ruins.
-        // Sweet optimization (another lag machine).
         var newCoords = coords.ToHashSet();
         foreach (var usedBox in usedSpace)
         {
@@ -46,16 +44,25 @@ public sealed partial class LavalandSystem
 
         coords = newCoords.ToList();
 
-        // Load dungeon ruins
-        // TODO: make it actual dungeons instead of spawning markers
-        SetupDungeonRuins(pool.DungeonRuins, lavaland, random, ref coords, ref usedSpace);
+        SetupDungeonRuins(pool.DungeonRuins, lavaland, preloader, random, ref coords, ref usedSpace);
+
+        // Do that again
+        newCoords = coords.ToHashSet();
+        foreach (var usedBox in usedSpace)
+        {
+            var list = coords.Where(coord => !usedBox.Contains(coord)).ToHashSet();
+            newCoords = newCoords.Concat(list).ToHashSet();
+        }
+
+        coords = newCoords.ToList();
+
+        SetupMarkerRuins(pool.MarkerRuins, lavaland, ref coords, ref usedSpace);
     }
 
-    private void SetupHugeRuins(
+    private void SetupGridRuins(
         Dictionary<ProtoId<LavalandGridRuinPrototype>, ushort> ruins,
         Entity<LavalandMapComponent> lavaland,
         Entity<LavalandPreloaderComponent> preloader,
-        Random random,
         ref List<Vector2i> coords,
         ref List<Box2> usedSpace)
     {
@@ -63,22 +70,17 @@ public sealed partial class LavalandSystem
         var list = GetGridRuinProtos(ruins);
         list.Sort((x, y) => x.Priority.CompareTo(y.Priority));
 
-        // Place them down randomly
+        Log.Debug($"Spawning {list.Count} Grid Ruins on {ToPrettyString(lavaland)} planet.");
         foreach (var ruin in list)
         {
-            var attempts = 0;
-            while (!LoadGridRuin(ruin, lavaland, preloader, random, ref usedSpace, ref coords))
-            {
-                attempts++;
-                if (attempts > ruin.SpawnAttemps)
-                    break;
-            }
+            LoadGridRuin(ruin, lavaland, preloader, ref usedSpace, ref coords);
         }
     }
 
     private void SetupDungeonRuins(
         Dictionary<ProtoId<LavalandDungeonRuinPrototype>, ushort> ruins,
         Entity<LavalandMapComponent> lavaland,
+        Entity<LavalandPreloaderComponent> preloader,
         Random random,
         ref List<Vector2i> coords,
         ref List<Box2> usedSpace)
@@ -87,79 +89,96 @@ public sealed partial class LavalandSystem
         var list = GetDungeonRuinProtos(ruins);
         list.Sort((x, y) => x.Priority.CompareTo(y.Priority));
 
-        // Place them down randomly
+        Log.Debug($"Spawning {list.Count} Dungeon Ruins on {ToPrettyString(lavaland)} planet.");
         foreach (var ruin in list)
         {
-            var attempts = 0;
-            while (!LoadDungeonRuin(ruin, lavaland, random, ref usedSpace, ref coords))
-            {
-                attempts++;
-                if (attempts > ruin.SpawnAttemps)
-                    break;
-            }
+            LoadDungeonRuin(ruin, lavaland, preloader, random, ref usedSpace, ref coords);
         }
     }
 
-    private Box2? GetOutpostBoundary(Entity<LavalandMapComponent> lavaland, FixturesComponent? manager = null, TransformComponent? xform = null)
+    private void SetupMarkerRuins(
+        Dictionary<ProtoId<LavalandMarkerRuinPrototype>, ushort> ruins,
+        Entity<LavalandMapComponent> lavaland,
+        ref List<Vector2i> coords,
+        ref List<Box2> usedSpace)
     {
-        var uid = lavaland.Comp.Outpost;
+        // Get and sort all ruins, because we can't sort dictionaries
+        var list = GetMarkerRuinProtos(ruins);
+        list.Sort((x, y) => x.Priority.CompareTo(y.Priority));
 
-        if (!Resolve(uid, ref manager, ref xform) || xform.MapUid != lavaland)
-            return null;
-
-        var aabbs = new Box2();
-
-        var transform = _physics.GetRelativePhysicsTransform((uid, xform), xform.MapUid.Value);
-        foreach (var fixture in manager.Fixtures.Values)
+        Log.Debug($"Spawning {list.Count} Marker Ruins on {ToPrettyString(lavaland)} planet.");
+        foreach (var ruin in list)
         {
-            if (!fixture.Hard)
-                return null;
-
-            var aabb = fixture.Shape.ComputeAABB(transform, 0);
-            aabbs = aabbs.Union(aabb);
+            LoadMarkerRuin(ruin, lavaland, ref usedSpace, ref coords);
         }
-
-        aabbs = aabbs.Enlarged(8f);
-        return aabbs;
     }
 
-    private bool LoadGridRuin(
+    private List<Box2> GetOutpostBoundary(Entity<LavalandMapComponent> lavaland)
+    {
+        var boundary = new List<Box2>();
+
+        foreach (var uid in lavaland.Comp.SpawnedGrids)
+        {
+            if (!_xformQuery.TryComp(uid, out var xform)
+                || !_fixtureQuery.TryComp(uid, out var fixtureComp)
+                || xform.MapUid != lavaland)
+                continue;
+
+            var aabbs = new Box2();
+
+            var transform = _physics.GetRelativePhysicsTransform((uid, xform), xform.MapUid.Value);
+            foreach (var fixture in fixtureComp.Fixtures.Values)
+            {
+                if (!fixture.Hard)
+                    continue;
+
+                var aabb = fixture.Shape.ComputeAABB(transform, 0);
+                aabbs = aabbs.Union(aabb);
+            }
+
+            aabbs = aabbs.Enlarged(8f);
+            boundary.Add(aabbs);
+        }
+
+        return boundary;
+    }
+
+    private void LoadGridRuin(
         LavalandGridRuinPrototype ruin,
         Entity<LavalandMapComponent> lavaland,
         Entity<LavalandPreloaderComponent> preloader,
-        Random random,
         ref List<Box2> usedSpace,
         ref List<Vector2i> coords)
     {
         if (coords.Count == 0)
-            return false;
+            return;
 
-        var coord = random.Pick(coords);
         var mapXform = Transform(preloader);
 
-        // Check if we already calculated that boundary before, and if we didn't then calculate it now
         if (!_mapLoader.TryLoadGrid(mapXform.MapID, ruin.Path, out var spawnedBoundedGrid))
         {
             Log.Error($"Failed to load ruin {ruin.ID} onto dummy map, on stage of loading! AAAAA!!");
-            return false;
+            return;
         }
 
-        // It's not useless!
         var spawned = spawnedBoundedGrid.Value;
-        var ruinBox = spawnedBoundedGrid.Value.Comp.LocalAABB.Translated(coord);
+        var ruinBox = spawned.Comp.LocalAABB;
+
+        if (!TryPlaceRuin(ruinBox, ruin.SpawnAttempts, coords, usedSpace, out var coord))
+        {
+            Log.Warning($"Failed to load ruin {ruin.ID} on {ToPrettyString(lavaland)} planet's surface: all attempts have failed and no eligible spot was found!");
+            Del(spawnedBoundedGrid);
+            return;
+        }
+
+        usedSpace.Add(ruinBox);
+        coords.Remove(coord.Value);
 
         // Teleport it into place on preloader map
-        _transform.SetCoordinates(spawned, new EntityCoordinates(preloader, coord));
-
-        // If any used boundary intersects with current boundary, return
-        if (usedSpace.Any(used => used.Intersects(ruinBox)))
-        {
-            Log.Debug("Ruin can't be placed on it's coordinates, skipping spawn");
-            return false;
-        }
+        _transform.SetCoordinates(spawned, new EntityCoordinates(preloader, coord.Value));
 
         if (ruin.PatchToPlanet)
-            GoidaMerge(spawned, (lavaland.Owner, _gridQuery.Comp(lavaland.Owner)), coord, out ruinBox);
+            PatchToPlanet(spawned, (lavaland.Owner, _gridQuery.Comp(lavaland.Owner)), coord.Value);
         else
         {
             var spawnedXForm = _xformQuery.GetComponent(spawned);
@@ -170,41 +189,95 @@ public sealed partial class LavalandSystem
 
             var componentsToGrant = EnsureComp<LavalandGridGrantComponent>(spawned);
             foreach (var (key, comp) in ruin.ComponentsToGrant)
+            {
                 componentsToGrant.ComponentsToGrant[key] = comp;
+            }
         }
 
-        usedSpace.Add(ruinBox);
-        coords.Remove(coord);
-        return true;
+        Log.Debug($"Successfully spawned ruin {ruin.ID} on {ToPrettyString(lavaland)} planet surface at coordinates {coord.ToString()}");
     }
 
-    private bool LoadDungeonRuin(
+    private void LoadDungeonRuin(
         LavalandDungeonRuinPrototype ruin,
         Entity<LavalandMapComponent> lavaland,
+        Entity<LavalandPreloaderComponent> preloader,
         Random random,
         ref List<Box2> usedSpace,
         ref List<Vector2i> coords)
     {
         if (coords.Count == 0)
-            return false;
+            return;
 
-        var coord = random.Pick(coords);
-        var box = Box2.CentredAroundZero(ruin.Boundary);
-        var ruinBox = box.Translated(coord);
+        var pos = random.Pick(coords);
+        _dungeon.GenerateDungeon(_proto.Index(ruin.Config),
+            lavaland.Owner,
+            Comp<MapGridComponent>(lavaland),
+            pos,
+            lavaland.Comp.Seed);
+    }
 
-        // If any used boundary intersects with current boundary, return
-        if (usedSpace.Any(used => used.Intersects(ruinBox)))
+    private void LoadMarkerRuin(
+        LavalandMarkerRuinPrototype ruin,
+        Entity<LavalandMapComponent> lavaland,
+        ref List<Box2> usedSpace,
+        ref List<Vector2i> coords)
+    {
+        if (coords.Count == 0)
+            return;
+
+        var ruinBox = Box2.CentredAroundZero(ruin.Boundary);
+
+        if (!TryPlaceRuin(ruinBox, ruin.SpawnAttempts, coords, usedSpace, out var coord))
         {
-            Log.Debug("Ruin can't be placed on it's coordinates, skipping spawn");
-            return false;
+            Log.Warning($"Failed to load ruin {ruin.ID} on {ToPrettyString(lavaland)} planet's surface: all attempts have failed and no eligible spot was found!");
+            return;
         }
 
-        // Spawn the marker
-        Spawn(ruin.SpawnedMarker, new EntityCoordinates(lavaland, coord));
+        Spawn(ruin.SpawnedMarker, new EntityCoordinates(lavaland, coord.Value));
 
         usedSpace.Add(ruinBox);
-        coords.Remove(coord);
-        return true;
+        coords.Remove(coord.Value);
+    }
+
+    /// <summary>
+    /// Tries to find a spot on a surface of a planet where a ruin can fit without intersecting other ruins.
+    /// </summary>
+    /// <param name="ruinBox">Boundaries of a ruin, confined inside a box</param>
+    /// <param name="spawnAttempts">The maximum amount of spawn attempts we make before giving up on generating that ruin.</param>
+    /// <param name="coords">A list of all eligible planet coordinates. Has to be shuffled to be as efficient as possible.</param>
+    /// <param name="usedSpace">A list of bounding boxes of already placed ruins, translated relative to their position.</param>
+    /// <param name="pickedCoord">Picked coordinates that we can safely put a ruin at.</param>
+    /// <returns></returns>
+    private bool TryPlaceRuin(
+        Box2 ruinBox,
+        int spawnAttempts,
+        List<Vector2i> coords,
+        List<Box2> usedSpace,
+        [NotNullWhen(true)] out Vector2i? pickedCoord)
+    {
+        pickedCoord = null;
+        for (var i = 0; i < coords.Count && i < spawnAttempts; i++)
+        {
+            var pos = coords[i];
+            bool intersects = false;
+            var translated = ruinBox.Translated(pos);
+            foreach (var used in usedSpace)
+            {
+                if (translated.Intersects(used))
+                {
+                    intersects = true;
+                    break;
+                }
+            }
+
+            if (intersects)
+                continue;
+
+            pickedCoord = pos;
+            return true;
+        }
+
+        return false;
     }
 
     private List<Vector2i> GetCoordinates(int distance, int maxDistance)
@@ -270,6 +343,21 @@ public sealed partial class LavalandSystem
         return list;
     }
 
+    private List<LavalandMarkerRuinPrototype> GetMarkerRuinProtos(Dictionary<ProtoId<LavalandMarkerRuinPrototype>, ushort> protos)
+    {
+        var list = new List<LavalandMarkerRuinPrototype>();
+        foreach (var (protoId, count) in protos)
+        {
+            var proto = _proto.Index(protoId);
+            for (var i = 0; i < count; i++)
+            {
+                list.Add(proto);
+            }
+        }
+
+        return list;
+    }
+
     private readonly List<(Vector2i, Tile)> _tiles = new();
 
     /// <summary>
@@ -277,15 +365,14 @@ public sealed partial class LavalandSystem
     /// by teleporting all entities and copying all tiles & decals.
     /// Of course, it deletes the grid right after.
     /// </summary>
-    private void GoidaMerge(
+    private void PatchToPlanet(
         Entity<MapGridComponent> grid,
         Entity<MapGridComponent> lavaland,
         Vector2i offset,
-        out Box2 usedSpace,
         HashSet<Vector2i>? reservedTiles = null)
     {
-        usedSpace = grid.Comp.LocalAABB.Translated(offset);
-        var center = usedSpace.Center;
+        var box = grid.Comp.LocalAABB.Translated(offset);
+        var center = box.Center;
         var roomTransform = Matrix3Helpers.CreateTranslation(center.X, center.Y);
 
         // Copy all tiles
@@ -317,7 +404,7 @@ public sealed partial class LavalandSystem
         if (TryComp<DecalGridComponent>(grid.Owner, out var loadedDecals))
         {
             EnsureComp<DecalGridComponent>(lavaland);
-            foreach (var (_, decal) in _decals.GetDecalsIntersecting(grid.Owner, usedSpace, loadedDecals))
+            foreach (var (_, decal) in _decals.GetDecalsIntersecting(grid.Owner, box, loadedDecals))
             {
                 // Offset by 0.5 because decals are offset from bot-left corner
                 // So we convert it to center of tile then convert it back again after transform.
@@ -382,5 +469,7 @@ public sealed partial class LavalandSystem
                     decal.Cleanable);
             }
         }
+
+        Del(grid);
     }
 }

@@ -339,6 +339,7 @@
     - Mouse
     understands:
     - Mouse
+    - TauCetiBasic
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Effects/bite.ogg
@@ -403,6 +404,7 @@
       5: Dead # Goob edit
   - type: Stamina
     critThreshold: 10
+    animationThreshold: 1
   - type: DamageStateVisuals
     states:
       Alive:
@@ -560,6 +562,7 @@
     - Chicken
     understands:
     - Chicken
+    - TauCetiBasic
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
   - type: NpcFactionMember
@@ -658,7 +661,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.2
-        density: 100
+        density: 2 # Goob edit
         mask:
         - SmallMobMask
         layer:
@@ -720,8 +723,11 @@
         recursive: false
   - type: NonSpreaderZombie
   - type: LanguageKnowledge # Einstein Engines - Languages
-    speaks: [Hissing]
-    understands: [Hissing]
+    speaks:
+    - Hissing
+    understands:
+    - Hissing
+    - TauCetiBasic
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
   - type: MeleeWeapon
@@ -778,16 +784,16 @@
     allowMovement: true
     name: ghost-role-information-mothroach-name
     description: ghost-role-information-mothroach-description
-    rules: ghost-role-information-freeagent-rules
+    rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
     mindRoles:
-    - MindRoleGhostRoleFreeAgentHarmless
+    - MindRoleGhostRoleSentientAnimal # Goobstation Sentient Animal PR
   - type: Fixtures
     fixtures:
       fix1:
         shape:
           !type:PhysShapeCircle
           radius: 0.2
-        density: 120
+        density: 12 # Goob edit
         mask:
         - SmallMobMask
         layer:
@@ -868,6 +874,7 @@
     - Moffic
     understands:
     - Moffic
+    - TauCetiBasic
   - type: ZombieAccentOverride
     accent: zombieMoth
   - type: Vocal
@@ -939,6 +946,9 @@
           32:
             sprite: Mobs/Animals/mothroach/displacement.rsi
             state: neck
+  - type: EatToGrow # Goobstation Eat To Grow System
+    growth: 0.05
+    maxGrowth: 2
 
 # Note that the mallard duck is actually a male drake mallard, with the brown duck being the female variant of the same species, however ss14 lacks sex specific textures
 # The white duck is more akin to a pekin or call duck.
@@ -1013,6 +1023,7 @@
     - Duck
     understands:
     - Duck
+    - TauCetiBasic
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
   - type: NpcFactionMember
@@ -1293,6 +1304,7 @@
     - Crab
     understands:
     - Crab
+    - TauCetiBasic
   - type: Bloodstream
     bloodMaxVolume: 50
     bloodReagent: CopperBlood
@@ -1365,10 +1377,10 @@
     growthDelay: 20
   - type: ExaminableHunger
   - type: Wooly
-  - type: Food
+  - type: Edible
+    destroyOnEmpty: false
     solution: wool
     requiresSpecialDigestion: true
-    # Wooly prevents eating wool deleting the goat so its fine
     requireDead: false
   - type: FlavorProfile
     flavors:
@@ -1559,6 +1571,7 @@
     - Kangaroo
     understands:
     - Kangaroo
+    - TauCetiBasic
   - type: Butcherable
     spawned:
     - id: FoodMeat
@@ -1579,7 +1592,7 @@
     prob: 0.25
     name: ghost-role-information-kangaroo-name
     description: ghost-role-information-kangaroo-description
-    rules: ghost-role-information-nonantagonist-rules
+    rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
   - type: GhostTakeoverAvailable
   - type: Vocal
     sounds:
@@ -1622,7 +1635,7 @@
 - type: entity
   name: genetic ancestor
   id: MobBaseAncestor
-  parent: [SimpleMobBase, StripableInventoryBase]
+  parent: [SimpleMobBase, StripableInventoryBase, BaseMobDisgust] # Goob edit
   description: The genetic bipedal ancestor of... Uh... Something. Yeah, there's definitely something on the station that descended from whatever this is.
   abstract: true
   components:
@@ -1714,7 +1727,6 @@
         enum.ToggleableVisuals.Layer:
           True: { visible: true }
           False: { visible: false }
-
   - type: Body # Shitmed Change
     bodyType: Complex
     prototype: Monkey
@@ -1777,7 +1789,6 @@
       methods: [ Touch ]
       effects:
       - !type:WashCreamPieReaction
-  - type: LayingDown # Goobstation
   - type: Vocal # Goobstation
     sounds:
       Male: MonkeyMode
@@ -1788,7 +1799,8 @@
     hasPainScreams: false
     threshold: 70
     cap: 140
-
+  - type: Crawler
+  - type: DiseaseCarrier # Goobstation
 
 - type: entity
   name: monkey
@@ -1807,6 +1819,8 @@
     understands:
     - Monkey
     - Kobold
+  #- type: SentienceTarget   # Goobstation - monkeys no longer randomly sentient outside of events
+  #  - TauCetiBasic
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-primate
   - type: AlwaysRevolutionaryConvertible
@@ -1815,9 +1829,9 @@
     makeSentient: true
     name: ghost-role-information-monkey-name
     description: ghost-role-information-monkey-description
-    rules: ghost-role-information-freeagent-rules # Goobstation - - remove: 1984
+    rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
     mindRoles:
-    - MindRoleGhostRoleFreeAgent
+    - MindRoleGhostRoleSentientAnimal # Goobstation Sentient Animal PR
   - type: GhostTakeoverAvailable
   - type: Skinnable # Goobstation - Fuck pun-pun
   - type: Clumsy
@@ -1827,6 +1841,9 @@
         Piercing: 4
       groups:
         Burn: 3
+    catchingFailDamage:
+      types:
+        Blunt: 1
     clumsySound:
       path: /Audio/Animals/monkey_scream.ogg
 
@@ -1903,6 +1920,7 @@
     understands:
     - Kobold
     - Monkey
+    - TauCetiBasic
   # Shitmed Change Start
   - type: HumanoidAppearance
     species: Kobold
@@ -1968,7 +1986,7 @@
     makeSentient: true
     name: ghost-role-information-kobold-name
     description: ghost-role-information-kobold-description
-    rules: ghost-role-information-nonantagonist-rules
+    rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
 
 - type: entity
   name: kobold
@@ -1983,6 +2001,9 @@
         Piercing: 7
       groups:
         Burn: 3
+    catchingFailDamage:
+      types:
+        Blunt: 1
     clumsySound:
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
 
@@ -2034,6 +2055,7 @@
   description: Squeak!
   components:
   - type: VentCrawler # goobstation - Ventcrawl
+    enterDelay: 0.5
   - type: Body
     prototype: Mouse
   - type: GhostRole
@@ -2042,9 +2064,9 @@
     allowMovement: true
     name: ghost-role-information-mouse-name
     description: ghost-role-information-mouse-description
-    rules: ghost-role-information-freeagent-rules
+    rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
     mindRoles:
-    - MindRoleGhostRoleFreeAgentHarmless
+    - MindRoleGhostRoleSentientAnimal # Goobstation Sentient Animal PR
   - type: GhostTakeoverAvailable
   - type: Speech
     speechSounds: Squeak
@@ -2088,7 +2110,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.2
-        density: 100
+        density: 10 # Goob eedit
         mask:
         - SmallMobMask
         layer:
@@ -2160,6 +2182,7 @@
     - Mouse
     understands:
     - Mouse
+    - TauCetiBasic
   - type: Tag
     tags:
     - Trash
@@ -2207,30 +2230,15 @@
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
   - type: FoodSequenceElement
-    sprite:
-      sprite: Mobs/Animals/mouse.rsi
-      state: dead-0
     entries:
-      burger:
-        name: food-sequence-burger-content-rat
-      taco:
-        name: food-sequence-content-rat
-      skewer:
-        name: food-sequence-content-rat
-        sprite:
-          sprite: Objects/Consumable/Food/skewer.rsi
-          state: skewer-rat
+      Taco: RatTaco
+      Burger: RatBurger
+      Skewer: RatSkewer
   # <Goobstation>
   - type: NightVision
     color: "#808080"
     activateSound: null
     deactivateSound: null
-  - type: EggLayer
-    eggSpawn:
-    - id: MobMouse
-    hungerUsage: 20
-    eggLayAction: MouseMultiply
-    hungerRequired: true
   - type: SolutionRegeneration
     solution: melee
     generated:
@@ -2247,7 +2255,8 @@
     staminaRatio: 1 # mice are small so can probably evade without much stamina drain
   - type: Stamina
     critThreshold: 20
-  - type: LayingDown
+    animationThreshold: 10 # Goob edit
+  - type: Crawler
   - type: NPCRetaliation
     attackMemoryLength: 5 # stop caring fast if you don't keep hitting
   - type: GroupRetaliation
@@ -2258,7 +2267,15 @@
     - Mousemind
   - type: FaxSlip
     slipChance: 0.3
-  # </Goobstation>
+  # does not infect you unless the mouse has any diseases, which it doesn't by default
+  - type: DiseaseOnHit
+    spreadParams:
+      chance: 0.05 # 1984 lower chance for normal mice so creating the turboplague horde is not as strong
+      power: 1
+      spreadType: Blood
+  - type: DiseaseCarrier
+    effectImmune: true
+  - type: ShowDiseaseIcons # they sense it
   - type: Destructible # Shitmed Change
     thresholds:
     - trigger:
@@ -2269,6 +2286,30 @@
       - !type:GibBehavior
         gibContents: Skip
         recursive: false
+  - type: ActionGrant
+    actions:
+    - ActionMouseCall
+  - type: MobCallSource
+    whitelist:
+      tags:
+      - Mouse
+  - type: MobCallable
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+  - type: InventorySlots
+  - type: Inventory
+    speciesId: mouse
+    templateId: mouse
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: _Goobstation/Mobs/Animals/mouse/displacement.rsi
+            state: head
+  # </Goobstation>
 
 - type: entity
   parent: MobMouse
@@ -2330,10 +2371,6 @@
   - type: Item
     size: Tiny
     heldPrefix: 1
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Mobs/Animals/mouse.rsi
-      state: dead-1
 
 - type: entity
   parent: MobMouse
@@ -2363,10 +2400,6 @@
   - type: Item
     size: Tiny
     heldPrefix: 2
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Mobs/Animals/mouse.rsi
-      state: dead-2
 
 - type: entity
   name: cancer mouse
@@ -2578,9 +2611,10 @@
 
 # Would be cool to have some functionality for the parrot to be able to sit on stuff
 - type: entity
-  name: parrot
   parent: [ SimpleMobBase, FlyingMobBase ]
-  id: MobParrot
+  id: MobParrotBase
+  name: parrot
+  abstract: true
   description: Infiltrates your domain, spies on you, and somehow still a cool pet.
   components:
   - type: MovementSpeedModifier
@@ -2591,7 +2625,7 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: parrot
-      sprite: Mobs/Animals/parrot.rsi
+      sprite: Mobs/Animals/parrot/parrot.rsi
   - type: Fixtures
     fixtures:
       fix1:
@@ -2627,6 +2661,29 @@
     - TauCetiBasic
     understands:
     - TauCetiBasic
+  - type: ActiveListener
+  - type: Vocalizer
+  - type: RadioVocalizer
+  - type: ParrotListener
+  - type: ParrotMemory
+  - type: Inventory
+    templateId: parrot
+    speciesId: parrot
+    # transparent displacement map to hide the headset. this should be an animated displacement map to follow the parrot
+    # as it bobs up and down, but this in turn needs some way to change the displacement map on inventory entities when
+    # the parrot dies, otherwise the visuals will be broken
+    displacements:
+      ears:
+        sizeMaps:
+          32:
+            sprite: Mobs/Animals/parrot/displacement.rsi
+            state: ears
+  - type: InventorySlots
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
   - type: InteractionPopup
     successChance: 0.6
     interactSuccessString: petting-success-bird
@@ -2636,6 +2693,12 @@
       path: /Audio/Animals/parrot_raught.ogg
   - type: Bloodstream
     bloodMaxVolume: 50
+
+- type: entity
+  parent: MobParrotBase
+  id: MobParrot
+  components:
+  - type: ParrotAccent # regular parrots have a parrotaccent. Polly is special and does not
 
 - type: entity
   name: penguin
@@ -2698,8 +2761,11 @@
       types:
         Heat : 0.2 #per second, scales with temperature & other constants
   - type: LanguageKnowledge # Einstein Engines - Language
-    speaks: [Penguin]
-    understands: [Penguin]
+    speaks:
+    - Penguin
+    understands:
+    - Penguin
+    - TauCetiBasic
 
 - type: entity
   name: grenade penguin
@@ -2752,7 +2818,8 @@
   - type: Item
     size: Normal
     sprite: Mobs/Animals/grenadepenguin.rsi
-  - type: OnUseTimerTrigger
+  - type: TriggerOnUse
+  - type: TimerTrigger
     delay: 10
     beepSound:
       path: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg #funny sfx use
@@ -2765,6 +2832,8 @@
     intensitySlope: 20
     totalIntensity: 225
   - type: ExplodeOnTrigger
+    keysIn:
+    - timer
   - type: Destructible
     thresholds:
     - trigger:
@@ -2822,8 +2891,11 @@
     damageContainer: Biological
     damageModifierSet: Scale
   - type: LanguageKnowledge # Einstein Engines - Language
-    speaks: [Hissing]
-    understands: [Hissing]
+    speaks:
+    - Hissing
+    understands:
+    - Hissing
+    - TauCetiBasic
 
 # Code unique spider prototypes or combine them all into one spider and get a
 # random sprite state when you spawn it.
@@ -2874,6 +2946,7 @@
     - Xeno
     understands:
     - Xeno
+    - TauCetiBasic
   - type: InteractionPopup
     successChance: 0.5
     interactSuccessString: petting-success-tarantula
@@ -3109,6 +3182,7 @@
     - Hissing
     understands:
     - Hissing
+    - TauCetiBasic
 
 - type: entity
   name: possum
@@ -3188,6 +3262,7 @@
     - Hissing
     understands:
     - Hissing
+    - TauCetiBasic
 
 - type: entity
   name: fox
@@ -3263,6 +3338,7 @@
   - type: HTN
     rootTask:
       task: RuminantHostileCompound
+  - type: MessyDrinker
   - type: Tag
     tags:
     - VimPilot
@@ -3271,6 +3347,7 @@
     - Fox
     understands:
     - Fox
+    - TauCetiBasic
 
 - type: entity
   abstract: true
@@ -3314,6 +3391,7 @@
       gender: epicene
   - type: MobPrice
     price: 200
+  - type: MessyDrinker
 
 - type: entity
   parent: MobCorgiBase
@@ -3336,6 +3414,7 @@
     - Dog
     understands:
     - Dog
+    - TauCetiBasic
   - type: InteractionPopup
     interactSuccessString: petting-success-dog
     interactFailureString: petting-failure-generic
@@ -3487,6 +3566,7 @@
     - Cat
     understands:
     - Cat
+    - TauCetiBasic
   - type: InteractionPopup
     successChance: 0.7
     interactSuccessString: petting-success-cat
@@ -3573,7 +3653,7 @@
     factions:
     - Syndicate
   - type: Access
-    tags: 
+    tags:
     - NuclearOperative
     - SyndicateAgent
   - type: MeleeWeapon
@@ -3746,6 +3826,7 @@
     - Hissing
     understands:
     - Hissing
+    - TauCetiBasic
 
 - type: entity
   name: ferret
@@ -3805,6 +3886,7 @@
     - Hissing
     understands:
     - Hissing
+    - TauCetiBasic
 
 - type: entity
   name: hamster
@@ -3819,7 +3901,7 @@
     allowMovement: true
     name: ghost-role-information-hamster-name
     description: ghost-role-information-hamster-description
-    rules: ghost-role-information-nonantagonist-rules
+    rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
   - type: GhostTakeoverAvailable
   - type: Speech
     speechVerb: SmallMob
@@ -3852,7 +3934,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.2
-        density: 120
+        density: 12 # Goob edit
         mask:
         - SmallMobMask
         layer:
@@ -3911,6 +3993,7 @@
     - Mouse
     understands:
     - Mouse
+    - TauCetiBasic
   - type: Tag
     tags:
     - VimPilot
@@ -3955,15 +4038,6 @@
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Mobs/Animals/hamster.rsi
-      state: dead-0
-    entries:
-      burger:
-        name: food-sequence-burger-content-hamster
-      taco:
-        name: food-sequence-content-hamster
   - type: Destructible
     thresholds:
     - trigger:
@@ -4039,6 +4113,7 @@
     - Pig
     understands:
     - Pig
+    - TauCetiBasic
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
   - type: NpcFactionMember
@@ -4054,6 +4129,10 @@
   id: MobDionaNymph
   description: It's like a cat, only.... branch-ier.
   components:
+  # Goobstation - Diona nymphs can also see through kudzu.
+  - type: SeeOverLayer
+    layers:
+    - kudzu
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -4209,6 +4288,7 @@
     - Deer
     understands:
     - Deer
+    - TauCetiBasic
 
 - type: entity
   name: reindeer doe
@@ -4272,13 +4352,18 @@
       belt:
         sizeMaps:
           32:
-            sprite: Mobs/Pets/corgi.rsi
-            state: belt_displacement
+            sprite: Mobs/Pets/displacements.rsi
+            state: corgi_belt_displacement
       ears:
         sizeMaps:
           32:
-            sprite: Mobs/Pets/corgi.rsi
-            state: belt_displacement
+            sprite: Mobs/Pets/displacements.rsi
+            state: corgi_belt_displacement
+      head:
+        sizeMaps:
+          32:
+            sprite: Mobs/Pets/displacements.rsi
+            state: corgi_head_displacement
   - type: Hands # HANDS!
   - type: Puller
   - type: Cuffable # bad dog!

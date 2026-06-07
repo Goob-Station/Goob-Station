@@ -435,10 +435,16 @@
   id: Bucket
 
 - type: Tag
+  id: Burger
+
+- type: Tag
   id: BulletFoam
 
 - type: Tag
   id: Burnt
+
+- type: Tag
+  id: Bun
 
 - type: Tag
   id: BypassDropChecks
@@ -466,7 +472,6 @@
 
 - type: Tag
   id: CanPilot
-
 
 - type: Tag
   id: CaptainSabre
@@ -525,6 +530,9 @@
 
 - type: Tag
   id: Chicken
+
+- type: Tag
+  id: Cheese
 
 # Allowed to control someone wearing a Chef's hat if inside their hat.
 - type: Tag
@@ -606,7 +614,13 @@
   id: CottonBoll
 
 - type: Tag
+  id: CottonBurger
+
+- type: Tag
   id: Cow
+
+- type: Tag
+  id: Crab
 
 - type: Tag
   id: Crayon
@@ -876,6 +890,9 @@
   id: Goat
 
 - type: Tag
+  id: GoldenPlunger
+
+- type: Tag
   id: Goliath
 
 - type: Tag
@@ -1053,6 +1070,9 @@
   id: Knife
 
 - type: Tag
+  id: KnockdownImmune
+
+- type: Tag
   id: LavaBrig
 
 - type: Tag
@@ -1066,6 +1086,9 @@
 
 - type: Tag
   id: Lime
+
+- type: Tag
+  id: LoneOpsUplink # Goob
 
 - type: Tag
   id: Machete
@@ -1138,6 +1161,9 @@
   id: Maints
 
 - type: Tag
+  id: MaintenanceCloset
+
+- type: Tag
   id: Matchstick
 
 - type: Tag
@@ -1151,6 +1177,9 @@
 
 - type: Tag
   id: Medkit
+
+- type: Tag
+  id: MesonGoggles # Goobstation - more toolbelt items
 
 - type: Tag
   id: Metal
@@ -1196,6 +1225,9 @@
 
 - type: Tag
   id: Mouse
+
+- type: Tag
+  id: MouseWearable # Goobstation - Mice hats
 
 - type: Tag
   id: Multitool
@@ -1330,6 +1362,12 @@
   id: PlushieCarp
 
 - type: Tag
+  id: PlushieCarpHolo
+
+- type: Tag
+  id: PlushieCarpMagi
+
+- type: Tag
   id: PlushieGhost
 
 - type: Tag
@@ -1388,6 +1426,9 @@
   id: ReinforcedGlassShard
 
 - type: Tag
+  id: RemoteSignaller
+
+- type: Tag
   id: ReptilianFood
 
 - type: Tag
@@ -1424,6 +1465,9 @@
   id: RollingPin
 
 - type: Tag
+  id: Ruminant
+
+- type: Tag
   id: SaltShaker
 
 - type: Tag
@@ -1437,6 +1481,9 @@
 
 - type: Tag
   id: Screwdriver
+
+- type: Tag # Flags items that scurrets can wear in their back and outerwear slots.
+  id: ScurretWearable
 
 - type: Tag
   id: SecBeltEquip
@@ -1481,6 +1528,9 @@
   id: SilentStorageUser # used in SharedStorageSystem, so the entity will do all silently
 
 - type: Tag
+  id: SiliconEmotes
+
+- type: Tag
   id: SkeletonMotorcycleKeys
 
 - type: Tag
@@ -1490,6 +1540,9 @@
   id: Slice # sliced fruit, vegetables, pizza etc.
 
 - type: Tag
+  id: SlowImmune
+
+- type: Tag
   id: SmallAIChip
 
 - type: Tag
@@ -1497,8 +1550,6 @@
 
 - type: Tag
   id: Smokable
-
-
 
 - type: Tag
   id: SnowyLabs
@@ -1561,6 +1612,9 @@
   id: Stunbaton
 
 - type: Tag
+  id: StunImmune
+
+- type: Tag
   id: SubdermalImplant
 
 - type: Tag
@@ -1592,6 +1646,9 @@
 
 - type: Tag
   id: TabletopBoard
+
+- type: Tag
+  id: Taco
 
 - type: Tag
   id: TabletopPiece
@@ -1711,6 +1768,9 @@
   id: Wine
 
 - type: Tag
+  id: WireBrush
+
+- type: Tag
   id: Wirecutter
 
 - type: Tag
@@ -1751,5 +1811,4 @@
 
 - type: Tag
   id: XenoborgModuleStealth
-
 # ALPHABETICAL
