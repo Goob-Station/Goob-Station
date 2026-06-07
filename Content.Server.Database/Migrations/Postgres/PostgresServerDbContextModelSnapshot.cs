@@ -1403,6 +1403,57 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.ToTable("rmc_patron_tiers", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.RecoveryPassword", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("recovery_password_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AlgoVersion")
+                        .HasColumnType("integer")
+                        .HasColumnName("algo_version");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("created_at");
+
+                    b.Property<byte[]>("Hash")
+                        .IsRequired()
+                        .HasColumnType("bytea")
+                        .HasColumnName("hash");
+
+                    b.Property<int>("Iterations")
+                        .HasColumnType("integer")
+                        .HasColumnName("iterations");
+
+                    b.Property<Guid>("PlayerUserId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("player_user_id");
+
+                    b.Property<byte[]>("Salt")
+                        .IsRequired()
+                        .HasColumnType("bytea")
+                        .HasColumnName("salt");
+
+                    b.Property<string>("UsernameAtCreation")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("character varying(64)")
+                        .HasColumnName("username_at_creation");
+
+                    b.HasKey("Id")
+                        .HasName("PK_recovery_password");
+
+                    b.HasIndex("PlayerUserId")
+                        .IsUnique()
+                        .HasDatabaseName("IX_recovery_password_player_user_id");
+
+                    b.ToTable("recovery_password", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.RoleWhitelist", b =>
                 {
                     b.Property<Guid>("PlayerUserId")
@@ -2371,6 +2422,19 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasConstraintName("FK_rmc_patron_round_end_nt_shoutouts_rmc_patrons_patron_id");
 
                     b.Navigation("Patron");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.RecoveryPassword", b =>
+                {
+                    b.HasOne("Content.Server.Database.Player", "Player")
+                        .WithOne()
+                        .HasForeignKey("Content.Server.Database.RecoveryPassword", "PlayerUserId")
+                        .HasPrincipalKey("Content.Server.Database.Player", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_recovery_password_player_player_user_id");
+
+                    b.Navigation("Player");
                 });
 
             modelBuilder.Entity("Content.Server.Database.RoleWhitelist", b =>

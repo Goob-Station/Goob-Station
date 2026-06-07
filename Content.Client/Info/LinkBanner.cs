@@ -38,15 +38,17 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Client.Changelog;
-﻿using Content.Client._RMC14.LinkAccount;
+using Content.Client._RMC14.LinkAccount;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Systems.EscapeMenu;
 using Content.Client.UserInterface.Systems.Guidebook;
+using Content.Goobstation.Common.RecoveryPassword; // Goobstation - account recovery password
 using Content.Shared.CCVar;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Collections;
 using Robust.Shared.Configuration;
+using Robust.Shared.Timing; // Goobstation - account recovery password
 
 namespace Content.Client.Info
 {
@@ -55,6 +57,11 @@ namespace Content.Client.Info
         private readonly IConfigurationManager _cfg;
 
         private ValueList<(CVarDef<string> cVar, Button button)> _infoLinks;
+
+        // Goobstation - account recovery password
+        private readonly IRecoveryPasswordManager _recovery;
+        private readonly Button _recoveryPasswordButton;
+        private float _recoveryPulse;
 
         public LinkBanner()
         {
@@ -85,6 +92,12 @@ namespace Content.Client.Info
             };
             linkAccountButton.OnPressed += _ => linkAccount.ToggleWindow();
             buttons.AddChild(linkAccountButton);
+
+            // Goobstation - account recovery password
+            _recovery = IoCManager.Resolve<IRecoveryPasswordManager>();
+            _recoveryPasswordButton = new Button { Text = Loc.GetString("recovery-password-lobby-button") };
+            _recoveryPasswordButton.OnPressed += _ => _recovery.ToggleWindow();
+            buttons.AddChild(_recoveryPasswordButton);
 
             var guidebookController = UserInterfaceManager.GetUIController<GuidebookUIController>();
             var guidebookButton = new Button() { Text = Loc.GetString("server-info-guidebook-button") };
@@ -118,6 +131,46 @@ namespace Content.Client.Info
             {
                 link.Visible = _cfg.GetCVar(cVar) != "";
             }
+
+            // Goobstation - account recovery password
+            _recovery.Updated += UpdateRecoveryPasswordButton;
+            UpdateRecoveryPasswordButton();
+        }
+
+        // Goobstation - account recovery password
+        protected override void ExitedTree()
+        {
+            base.ExitedTree();
+            _recovery.Updated -= UpdateRecoveryPasswordButton;
+        }
+
+        private void UpdateRecoveryPasswordButton()
+        {
+            _recoveryPasswordButton.Visible = _recovery.Enabled;
+
+            if (_recovery.HasPassword)
+            {
+                _recoveryPasswordButton.Disabled = true;
+                _recoveryPasswordButton.Modulate = Color.White;
+                _recoveryPasswordButton.Text = Loc.GetString("recovery-password-lobby-button-set");
+            }
+            else
+            {
+                _recoveryPasswordButton.Disabled = false;
+                _recoveryPasswordButton.Text = Loc.GetString("recovery-password-lobby-button");
+            }
+        }
+
+        protected override void FrameUpdate(FrameEventArgs args)
+        {
+            base.FrameUpdate(args);
+
+            if (!_recoveryPasswordButton.Visible || _recovery.HasPassword)
+                return;
+
+            _recoveryPulse += args.DeltaSeconds;
+            var t = 0.5f + 0.5f * MathF.Sin(_recoveryPulse * 5f);
+            _recoveryPasswordButton.Modulate = Color.InterpolateBetween(Color.White, Color.Gold, t);
         }
     }
 }

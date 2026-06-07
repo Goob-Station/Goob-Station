@@ -197,6 +197,9 @@ namespace Content.Server.Database
         public DbSet<PollVote> PollVotes { get; set; } = default!;
         public DbSet<PollSeen> PollSeen { get; set; } = default!;
 
+        // Goobstation - account recovery password
+        public DbSet<RecoveryPassword> RecoveryPasswords { get; set; } = default!;
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Preference>()
@@ -521,6 +524,14 @@ namespace Content.Server.Database
                 .OwnsOne(p => p.HWId)
                 .Property(p => p.Type)
                 .HasDefaultValue(HwidType.Legacy);
+
+            // Goobstation - account recovery password
+            modelBuilder.Entity<RecoveryPassword>()
+                .HasOne(r => r.Player)
+                .WithOne()
+                .HasForeignKey<RecoveryPassword>(r => r.PlayerUserId)
+                .HasPrincipalKey<Player>(p => p.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             // RMC14
             modelBuilder.Entity<RMCLinkedAccount>()

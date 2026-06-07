@@ -473,6 +473,14 @@ namespace Content.Server.Database
 
         #endregion
 
+        #region Goob Recovery Password
+
+        Task<bool> HasRecoveryPassword(Guid player, CancellationToken cancel);
+
+        Task<bool> SetRecoveryPassword(Guid player, string username, byte[] salt, byte[] hash, int iterations, int algoVersion);
+
+        #endregion
+
         #region DB Notifications
 
         void SubscribeToNotifications(Action<DatabaseNotification> handler);
@@ -1359,6 +1367,22 @@ namespace Content.Server.Database
         {
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.GetPollSeenCountAsync(pollId, cancel));
+        }
+
+        #endregion
+
+        #region Goob Recovery Password
+
+        public Task<bool> HasRecoveryPassword(Guid player, CancellationToken cancel)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.HasRecoveryPassword(player, cancel));
+        }
+
+        public Task<bool> SetRecoveryPassword(Guid player, string username, byte[] salt, byte[] hash, int iterations, int algoVersion)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.SetRecoveryPassword(player, username, salt, hash, iterations, algoVersion));
         }
 
         #endregion

@@ -1996,6 +1996,34 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             return patron;
         }
 
+        // Goob - account recovery password
+        public async Task<bool> HasRecoveryPassword(Guid player, CancellationToken cancel)
+        {
+            await using var db = await GetDb(cancel);
+            return await db.DbContext.RecoveryPasswords.AnyAsync(p => p.PlayerUserId == player, cancel);
+        }
+
+        // Goob - account recovery password
+        public async Task<bool> SetRecoveryPassword(Guid player, string username, byte[] salt, byte[] hash, int iterations, int algoVersion)
+        {
+            await using var db = await GetDb();
+            if (await db.DbContext.RecoveryPasswords.AnyAsync(p => p.PlayerUserId == player))
+                return false;
+
+            db.DbContext.RecoveryPasswords.Add(new RecoveryPassword
+            {
+                PlayerUserId = player,
+                UsernameAtCreation = username,
+                Salt = salt,
+                Hash = hash,
+                Iterations = iterations,
+                AlgoVersion = algoVersion,
+                CreatedAt = DateTime.UtcNow,
+            });
+            await db.DbContext.SaveChangesAsync();
+            return true;
+        }
+
         public async Task<List<RMCPatron>> GetAllPatrons()
         {
             await using var db = await GetDb();

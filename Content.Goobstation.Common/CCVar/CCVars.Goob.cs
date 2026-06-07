@@ -6,6 +6,18 @@ namespace Content.Goobstation.Common.CCVar;
 public sealed partial class GoobCVars
 {
     /// <summary>
+    ///     Whether players can set an account recovery password.
+    /// </summary>
+    public static readonly CVarDef<bool> RecoveryPasswordEnabled =
+        CVarDef.Create("recovery_password.enabled", true, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     Minimum length of an account recovery password.
+    /// </summary>
+    public static readonly CVarDef<int> RecoveryPasswordMinLength =
+        CVarDef.Create("recovery_password.min_length", 8, CVar.SERVERONLY);
+
+    /// <summary>
     ///     Whether pipes will unanchor on ANY conflicting connection. May break maps.
     ///     If false, allows you to stack pipes as long as new directions are added (i.e. in a new pipe rotation, layer or multi-Z link), otherwise unanchoring them.
     /// </summary>
