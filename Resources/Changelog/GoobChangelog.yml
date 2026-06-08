@@ -23241,3 +23241,9 @@ Entries:
       message: Now you can fight with branded lighters
   id: 2668
   time: '2026-06-08T03:40:18.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Fix
+      message: Captain's lollypop will no longer spawn infinite trash.
+  id: 2669
+  time: '2026-06-08T03:40:39.0000000+00:00'
