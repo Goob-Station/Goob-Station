@@ -23277,3 +23277,9 @@ Entries:
       message: Scrap armour has correct coverage and armour values.
   id: 2673
   time: '2026-06-08T03:42:34.0000000+00:00'
+- author: RedTerrorDark
+  changes:
+    - type: Tweak
+      message: Fire axe, flaming fire axe and mjollnir resprite
+  id: 2674
+  time: '2026-06-08T03:43:59.0000000+00:00'
