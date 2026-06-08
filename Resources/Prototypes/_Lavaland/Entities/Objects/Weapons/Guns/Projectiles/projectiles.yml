@@ -41,11 +41,11 @@
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
-        Blunt: 15
-        Structural: 20
+        Blunt: 10
+        Structural: 15
   # Short lifespan
   - type: TimedDespawn
-    lifetime: 0.18 # roughly 4 tiles
+    lifetime: 0.14 # roughly 3.5 tiles
 
 - type: entity
   id: BulletKineticShuttle
@@ -82,9 +82,8 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 8
-  - type: TimedDespawn
-    lifetime: 0.22 # roughly 5.5 tiles
+        Blunt: 6.5
+        Structural: 8
 
 - type: entity
   id: WeakBulletKinetic # Used for PK shotgun
@@ -94,15 +93,13 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 5
+        Blunt: 3
+        Structural: 5
 
 - type: entity
   id: PelletKinetic
   categories: [ HideSpawnMenu ]
   parent: WeakBulletKinetic
-  components:
-  - type: GatheringProjectile
-    probability: 0.5
 
 - type: entity
   id: PelletKineticSpread
