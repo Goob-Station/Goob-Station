@@ -23362,3 +23362,18 @@ Entries:
         thousands materials at once.
   id: 2684
   time: '2026-06-08T04:03:11.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Tweak
+      message: >-
+        All proto-kinetic weapons were rebalanced. Now they aren't as strong as
+        before and should be comparble in power with melee crusher weapons, but
+        have 4 upgrade slots and still can break stones.
+    - type: Tweak
+      message: >-
+        Buffed Rude Buster crusher upgrade, now it has a 2 second cooldown
+        instead of 10.
+    - type: Fix
+      message: Fixed proto-kinetic repeater being too loud.
+  id: 2685
+  time: '2026-06-08T04:04:42.0000000+00:00'
