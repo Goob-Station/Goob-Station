@@ -23229,3 +23229,9 @@ Entries:
       message: Fixed metal slimes being unobtainable.
   id: 2666
   time: '2026-06-08T03:39:25.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Fix
+      message: Fixed lathe upgrades not being installable.
+  id: 2667
+  time: '2026-06-08T03:39:32.0000000+00:00'
