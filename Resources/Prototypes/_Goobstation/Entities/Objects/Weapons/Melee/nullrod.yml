@@ -852,7 +852,7 @@
     slots:
     - belt
   - type: TimedToggleOnPray
-    duration: 10
+    duration: 20
     soundActivate:
       collection: GeneratorTug
       params:
