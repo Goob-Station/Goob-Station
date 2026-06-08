@@ -23223,3 +23223,9 @@ Entries:
       message: liquid pump did not allow setting a custom fluid flow rate
   id: 2665
   time: '2026-06-08T03:38:42.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Fix
+      message: Fixed metal slimes being unobtainable.
+  id: 2666
+  time: '2026-06-08T03:39:25.0000000+00:00'
