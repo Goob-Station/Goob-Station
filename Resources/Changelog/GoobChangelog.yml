@@ -23322,3 +23322,11 @@ Entries:
       message: Removed the Greytide antag
   id: 2679
   time: '2026-06-08T03:52:03.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Fix
+      message: >-
+        Fixed the nuclear operative that declares war appearing on screen
+        without any clothes.
+  id: 2680
+  time: '2026-06-08T03:52:24.0000000+00:00'
