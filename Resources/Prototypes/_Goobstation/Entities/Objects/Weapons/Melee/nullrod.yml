@@ -535,7 +535,7 @@
   - type: MeleeWeapon
     canWideSwing: false
     range: 3
-    attackRate: 0.7
+    attackRate: 0.9
     damage:
       types:
         Holy: 14
