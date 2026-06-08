@@ -904,7 +904,7 @@
         Blunt: 7
         Holy: 5
   - type: UseDelay
-    delay: 100.0
+    delay: 120.0
   - type: Appearance
   - type: ToggleableVisuals
     spriteLayer: blade
