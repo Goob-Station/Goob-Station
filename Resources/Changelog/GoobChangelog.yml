@@ -23472,3 +23472,9 @@ Entries:
       message: Fixed able to escape grabs while crit/dead/unconscious/stunned
   id: 2695
   time: '2026-06-08T11:58:01.0000000+00:00'
+- author: Baptr0b0t
+  changes:
+    - type: Fix
+      message: Fixed ingestion blocker info text does not show up.
+  id: 2696
+  time: '2026-06-08T11:58:25.0000000+00:00'
