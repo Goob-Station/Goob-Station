@@ -1,0 +1,13 @@
+# 
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: latheRecipe
+  id: DrinkShakerBluespace
+  result: DrinkShakerBluespace
+  completetime: 2
+  materials:
+    Steel: 500
+    Plastic: 500
+    Plasma: 150
+    Silver: 50

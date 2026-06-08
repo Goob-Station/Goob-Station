@@ -181,6 +181,7 @@
     - ClothMade
     - Recyclable
     - HamsterWearable
+    - MouseWearable # Goobstation
     - WhitelistChameleon
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
@@ -206,8 +207,10 @@
     - Recyclable
     - WhitelistChameleon
 
+# TODO: Make a single ClothingHeadHatArmored in goob namespace so all these items dont need to have armor values listed seperately, since they wont have seperate armor values ANYWAY!
+
 - type: entity
-  parent: [ClothingHeadHatBeret, BaseSecurityContraband] #goobstation - contraband marking
+  parent: [ClothingHeadHatArmored, BaseSecurityContraband] #goobstation - contraband marking
   id: ClothingHeadHatBeretSecurity
   name: security beret
   description: A beret with the security department's insignia. For officers that are more inclined towards style than safety.
@@ -223,10 +226,11 @@
     - PetWearable
     - CorgiWearable
     - HamsterWearable
+    - MouseWearable # Goobstation
     - WhitelistChameleon
 
 - type: entity
-  parent: [ClothingHeadHatBeret, BaseSecurityContraband] #goobstation - contraband marking
+  parent: [ClothingHeadHatArmored, BaseSecurityContraband] #goobstation - contraband marking
   id: ClothingHeadHatSecurityTrooper
   name: trooper hat
   description: A campaign hat for the Nanotrasen Troopers. It's supposed to come with a case, too...
@@ -272,6 +276,7 @@
     - ClothMade
     - Recyclable
     - HamsterWearable
+    - MouseWearable # Goobstation
     - WhitelistChameleon
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
@@ -295,6 +300,7 @@
     - ClothMade
     - Recyclable
     - HamsterWearable
+    - MouseWearable # Goobstation
     - WhitelistChameleon
 
 - type: entity
@@ -304,9 +310,9 @@
   description: A beret with the cargo department's insignia.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/beret_qm.rsi
+    sprite: _Goobstation/Clothing/Head/Hats/beret_qm.rsi # Goob Station - beret edit
   - type: Clothing
-    sprite: Clothing/Head/Hats/beret_qm.rsi
+    sprite: _Goobstation/Clothing/Head/Hats/beret_qm.rsi # Goob Station - beret edit
   - type: Tag
     tags:
     - PetWearable
@@ -314,10 +320,11 @@
     - ClothMade
     - Recyclable
     - HamsterWearable
+    - MouseWearable # Goobstation
     - WhitelistChameleon
 
 - type: entity
-  parent: [ClothingHeadHatBeretRND, BaseSecurityCommandContraband] # Goob edit
+  parent: [ClothingHeadHatArmored, ClothingHeadHatBeretRND, BaseSecurityCommandContraband] # Goob edit
   id: ClothingHeadHatBeretHoS
   name: head of security's beret
   description: A black beret with a commander's rank emblem. For officers that are more inclined towards style than safety.
@@ -333,10 +340,11 @@
     - ClothMade
     - Recyclable
     - HamsterWearable
+    - MouseWearable # Goobstation
     - WhitelistChameleon
 
 - type: entity
-  parent: [ClothingHeadHatBeretRND, BaseSecurityContraband] # Goob edit
+  parent: [ClothingHeadHatArmored, ClothingHeadHatBeretRND, BaseSecurityContraband] # Goob edit
   id: ClothingHeadHatBeretWarden
   name: warden's beret
   description: A corporate-blue beret with a warden's rank emblem. For officers that are more inclined towards style than safety.
@@ -366,7 +374,7 @@
     - CorgiWearable
 
 - type: entity
-  parent: [ClothingHeadHatBeret, BaseSecurityContraband] # Goob edit
+  parent: [ClothingHeadHatArmored, BaseSecurityContraband] # Goob edit
   id: ClothingHeadHatBeretBrigmedic
   name: brigmedical beret
   description: A white beret for brigmedics.
@@ -409,6 +417,7 @@
     tags:
     - ClothMade
     - HamsterWearable
+    - MouseWearable # Goobstation
     - WhitelistChameleon
     - PetWearable
     - CorgiWearable
@@ -429,7 +438,7 @@
     - CorgiWearable
 
 - type: entity
-  parent: [ ClothingHeadHatBeretRND, BaseCommandContraband ]
+  parent: [ ClothingHeadHatArmored, ClothingHeadHatBeretRND, BaseCommandContraband ] #goob
   id: ClothingHeadHatCaptain
   name: captain's hardhat
   description: Feels good being the king.
@@ -445,6 +454,7 @@
     - ClothMade
     - Recyclable
     - HamsterWearable
+    - MouseWearable # Goobstation
     - WhitelistChameleon
 
 - type: entity
@@ -463,7 +473,7 @@
   - type: IngestionBlocker
 
 - type: entity
-  parent: [ ClothingHeadBase, BaseCentcommContraband ]
+  parent: [ ClothingHeadHatArmored, ClothingHeadBase, BaseCentcommContraband ] #goob
   id: ClothingHeadHatCentcom
   name: CentComm brand hat
   description: Feels good being the king's boss.
@@ -508,10 +518,11 @@
     - ClothMade
     - Recyclable
     - HamsterWearable
+    - MouseWearable # Goobstation
     - WhitelistChameleon
 
 - type: entity
-  parent: [ ClothingHeadBase, BaseSecurityContraband ] # Goob edit
+  parent: [ ClothingHeadHatArmored, ClothingHeadBase, BaseSecurityContraband ] # Goob edit
   id: ClothingHeadHatFedoraBrown
   name: brown fedora
   description: A brown fedora.
@@ -527,10 +538,11 @@
     - ClothMade
     - Recyclable
     - HamsterWearable
+    - MouseWearable # Goobstation
     - WhitelistChameleon
 
 - type: entity
-  parent: [ ClothingHeadBase, BaseSecurityContraband ] # Goob edit
+  parent: [ ClothingHeadHatArmored, ClothingHeadBase, BaseSecurityContraband ] # Goob edit
   id: ClothingHeadHatFedoraGrey
   name: grey fedora
   description: A grey fedora.
@@ -576,10 +588,11 @@
     - ClothMade
     - Recyclable
     - HamsterWearable
+    - MouseWearable # Goobstation
     - WhitelistChameleon
 
 - type: entity
-  parent: [ClothingHeadBase, BaseCommandContraband]
+  parent: [ClothingHeadHatArmored, ClothingHeadBase, BaseCommandContraband] #goob
   id: ClothingHeadHatHoshat
   name: head of security cap
   description: A stylish cap worn by the Head of Security. Shows the officers who's in charge.
@@ -595,6 +608,7 @@
     - ClothMade
     - Recyclable
     - HamsterWearable
+    - MouseWearable # Goobstation
     - WhitelistChameleon
 
 - type: entity
@@ -762,6 +776,7 @@
     - ClothMade
     - Recyclable
     - HamsterWearable
+    - MouseWearable # Goobstation
     - WhitelistChameleon
   - type: HideLayerClothing
     layers:
@@ -818,6 +833,7 @@
     - ClothMade
     - Recyclable
     - HamsterWearable
+    - MouseWearable # Goobstation
     - WhitelistChameleon
 
 - type: entity
@@ -850,6 +866,7 @@
     - WhitelistChameleon
     - DroneUsable
     - Ushanka
+    - MouseWearable # Goobstation
 
 - type: entity
   parent: ClothingHeadBase
@@ -907,7 +924,7 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: [ClothingHeadBase, BaseSecurityContraband] # Goob edit
+  parent: [ClothingHeadHatArmored, ClothingHeadBase, BaseSecurityContraband] # Goob edit
   id: ClothingHeadHatWarden
   name: warden's cap
   description: This hat emphasizes that you are THE LAW.
@@ -990,6 +1007,7 @@
     - ClothMade
     - Recyclable
     - HamsterWearable
+    - MouseWearable # Goobstation
     - WhitelistChameleon
 
 - type: entity
@@ -1139,6 +1157,7 @@
     - ClothMade
     - Recyclable
     - HamsterWearable
+    - MouseWearable # Goobstation
     - WhitelistChameleon
 
 - type: entity
@@ -1210,6 +1229,7 @@
     - ClothMade
     - Recyclable
     - HamsterWearable
+    - MouseWearable # Goobstation
     - WhitelistChameleon
 
 - type: entity
@@ -1343,7 +1363,7 @@
     - CorgiWearable
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: [ClothingHeadHatArmored, ClothingHeadBase] #goob
   id: ClothingHeadHatCapcap
   name: cap cap
   description: A grand, stylish cap worn by the Captain. Shows the station who's in charge.
@@ -1362,13 +1382,14 @@
     - Recyclable
     - WhitelistChameleon
     - HamsterWearable
+    - MouseWearable # Goobstation
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-inanimate
     weight: 0.0002 # 5,000 times less likely than 1 regular animal
   - type: BlockMovement
 
 - type: entity
-  parent: [ ClothingHeadBase, BaseCentcommContraband ]
+  parent: [ ClothingHeadHatArmored, ClothingHeadBase, BaseCentcommContraband ] #goob
   id: ClothingHeadHatCentcomcap
   name: CentComm cap
   description: An extravagant, stylish cap worn by CentComm officials. Shows the Captain who's in charge.
@@ -1387,6 +1408,8 @@
     - Recyclable
     - WhitelistChameleon
     - HamsterWearable
+    - MouseWearable # Goobstation
+
 
 - type: entity
   parent: ClothingHeadBase
@@ -1420,6 +1443,7 @@
     - CorgiWearable
     - WhitelistChameleon
     - HamsterWearable
+    - MouseWearable # Goobstation
     - DroneUsable # Goobstation
 
 - type: entity
@@ -1437,6 +1461,7 @@
     - CorgiWearable
     - WhitelistChameleon
     - HamsterWearable
+    - MouseWearable # Goobstation
 
 - type: entity
   parent: ClothingHeadHatPartyRed
@@ -1453,6 +1478,7 @@
     - CorgiWearable
     - WhitelistChameleon
     - HamsterWearable
+    - MouseWearable # Goobstation
 
 - type: entity
   parent: ClothingHeadHatPartyRed
@@ -1469,6 +1495,7 @@
     - CorgiWearable
     - WhitelistChameleon
     - HamsterWearable
+    - MouseWearable # Goobstation
 
 - type: entity
   parent: ClothingHeadHatPartyRed
@@ -1486,6 +1513,7 @@
     - CorgiWearable
     - WhitelistChameleon
     - HamsterWearable
+    - MouseWearable # Goobstation
 
 - type: entity
   parent: ClothingHeadBase
@@ -1534,6 +1562,7 @@
       - CorgiWearable
       - WhitelistChameleon
       - HamsterWearable
+      - MouseWearable # Goobstation
 
 - type: entity
   parent: ClothingHeadHatCowboyBrown
@@ -1550,6 +1579,7 @@
       - CorgiWearable
       - WhitelistChameleon
       - HamsterWearable
+      - MouseWearable # Goobstation
 
 - type: entity
   parent: ClothingHeadHatCowboyBrown
@@ -1566,6 +1596,7 @@
       - CorgiWearable
       - WhitelistChameleon
       - HamsterWearable
+      - MouseWearable # Goobstation
 
 - type: entity
   parent: ClothingHeadHatCowboyBrown
@@ -1582,6 +1613,7 @@
       - CorgiWearable
       - WhitelistChameleon
       - HamsterWearable
+      - MouseWearable # Goobstation
 
 - type: entity
   parent: ClothingHeadHatCowboyBrown
@@ -1598,6 +1630,7 @@
       - CorgiWearable
       - WhitelistChameleon
       - HamsterWearable
+      - MouseWearable # Goobstation
 
 - type: entity
   parent: ClothingHeadHatCowboyBrown
@@ -1614,6 +1647,7 @@
       - CorgiWearable
       - WhitelistChameleon
       - HamsterWearable
+      - MouseWearable # Goobstation
 
 - type: entity
   parent: ClothingHeadBase
@@ -1633,6 +1667,7 @@
     - PetWearable
     - CorgiWearable
     - HamsterWearable
+    - MouseWearable # Goobstation
   - type: Flammable
     fireSpread: true
     canResistFire: false

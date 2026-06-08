@@ -1,6 +1,6 @@
 using Content.Goobstation.Server.Possession;
 using Content.Goobstation.Shared.Slasher.Components;
-using Content.Goobstation.Shared.Slasher.Events;
+using Content.Goobstation.Shared.Slasher;
 using Content.Server.Actions;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Mobs.Components;
@@ -52,7 +52,7 @@ public sealed class SlasherPossessionSystem : EntitySystem
         }
 
         // Posses Target
-        var ok = _possession.TryPossessTarget(args.Target,
+        _possession.TryPossessTarget(args.Target,
             ent.Owner,
             ent.Comp.PossessionDuration,
             pacifyPossessed: false,

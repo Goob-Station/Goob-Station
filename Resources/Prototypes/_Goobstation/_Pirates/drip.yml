@@ -41,7 +41,7 @@
       head: GoobClothingHeadHelmetHardsuitSpirate
 
 - type: entity
-  parent: ClothingHeadHelmetBase
+  parent: ClothingHeadHardsuitBase
   id: GoobClothingHeadHelmetHardsuitSpirate
   name: modified EVA helmet
   description: A modified helmet to allow space pirates to intimidate their customers whilst staying safe from the void. Comes with some additional protection.

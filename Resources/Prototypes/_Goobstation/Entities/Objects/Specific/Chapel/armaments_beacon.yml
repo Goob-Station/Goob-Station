@@ -59,5 +59,9 @@
       icon:
         sprite: _ShitChap/Clothing/Neck/Misc/inquisitor.rsi
         state: icon
+    - prototype: SpawnSchemaMonk
+      icon:
+        sprite: _Goobstation/Clothing/OuterClothing/Misc/schema_monk.rsi
+        state: icon
   - type: StaticPrice
     price: 500

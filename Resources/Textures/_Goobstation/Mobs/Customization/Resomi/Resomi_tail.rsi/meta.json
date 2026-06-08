@@ -1,0 +1,15 @@
+{
+    "version": 1,
+    "license": "CC-BY-NC-SA-3.0",
+    "copyright": "Made by Rouge2t7",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "resomibigtail",
+            "directions": 4
+        }
+    ]
+}

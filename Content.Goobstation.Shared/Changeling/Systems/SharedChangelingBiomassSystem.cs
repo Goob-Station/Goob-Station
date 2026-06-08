@@ -34,7 +34,6 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
 
     private EntityQuery<AbsorbedComponent> _absorbQuery;
     private EntityQuery<BloodstreamComponent> _bloodQuery;
-    private EntityQuery<ChangelingIdentityComponent> _lingQuery;
     private EntityQuery<InternalResourcesComponent> _resourceQuery;
 
     public override void Initialize()
@@ -50,7 +49,6 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
 
         _absorbQuery = GetEntityQuery<AbsorbedComponent>();
         _bloodQuery = GetEntityQuery<BloodstreamComponent>();
-        _lingQuery = GetEntityQuery<ChangelingIdentityComponent>();
         _resourceQuery = GetEntityQuery<InternalResourcesComponent>();
     }
 
@@ -140,9 +138,7 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
 
     private void OnRejuvenate(Entity<ChangelingBiomassComponent> ent, ref RejuvenateEvent args)
     {
-        if (ent.Comp.ResourceData == null
-            || _lingQuery.TryComp(ent, out var ling)
-            && ling.IsInStasis)
+        if (ent.Comp.ResourceData == null)
             return;
 
         _resource.TryUpdateResourcesAmount(ent, ent.Comp.ResourceData, ent.Comp.ResourceData.MaxAmount);

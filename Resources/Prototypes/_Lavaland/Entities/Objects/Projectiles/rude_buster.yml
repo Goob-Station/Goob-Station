@@ -17,10 +17,10 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 15
-        Heat: 15
+        Piercing: 40
+        Heat: 40
         Structural: 80
-    penetrationThreshold: 400 # Good for breaking rocks (and hordes of fauna)
+    penetrationThreshold: 500 # Good for breaking rocks (and hordes of fauna)
   - type: StaminaDamageOnCollide
     damage: 60
   - type: Trail
@@ -47,8 +47,14 @@
         - BulletImpassable
   - type: Ammo
     muzzleFlash: null
-  - type: TileFrictionModifier # Thanks wizden for killing physics comp damping
+  - type: TileFrictionModifier
     modifier: 0
   - type: HomingProjectile # TODO this doesn't work since it needs a target to be assigned by an action
     #homingTime: 0
     homingSpeed: 2160
+  - type: PointLight
+    radius: 1.5
+    energy: 5
+    color: "#ae00ff"
+  - type: TimedDespawn
+    lifetime: 2.0

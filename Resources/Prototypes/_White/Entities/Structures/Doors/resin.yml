@@ -53,10 +53,10 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Resin
-  - type: MeleeSound
+  - type: MeleeSound #omu
     soundGroups:
       Brute:
-        collection: blood
+        collection: XenoResinBreak
   - type: Destructible
     thresholds:
     - trigger:

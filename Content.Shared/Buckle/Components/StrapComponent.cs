@@ -225,6 +225,12 @@ public sealed partial class StrapComponent : Component
     /// </summary>
     [DataField]
     public bool BlockMovement = true;
+
+    /// <summary>
+    /// Whether buckling do-after should be cancelled when the user takes damage.
+    /// </summary>
+    [DataField]
+    public bool BuckleBreakOnDamage = true;
     // </Goobstation>
 
     // WD EDIT START
@@ -234,6 +240,14 @@ public sealed partial class StrapComponent : Component
     [DataField]
     public TimeSpan SelfUnBuckleDelay = TimeSpan.Zero;
     // WD EDIT END
+
+    // Goobstation
+    /// <summary>
+    /// How long it takes someone else to unbuckle a buckled entity.
+    /// </summary>
+    [DataField]
+    public float UnbuckleDoafterTime = 1f;
+    // Goobstation
 }
 
 public enum StrapPosition

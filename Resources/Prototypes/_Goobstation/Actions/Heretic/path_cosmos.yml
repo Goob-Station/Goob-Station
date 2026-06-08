@@ -6,7 +6,6 @@
   components:
   - type: Action
     checkCanInteract: false
-    raiseOnUser: true
     useDelay: 15
     itemIconStyle: NoItem
     sound:
@@ -18,7 +17,8 @@
     event: !type:EventHereticCosmicRune
   - type: HereticAction
     requireMagicItem: true
-    messageLoc: heretic-speech-cosmic-rune
+  - type: SpeakOnAction
+    sentence: heretic-speech-cosmic-rune
   - type: HereticCosmicRuneAction
 
 - type: entity
@@ -33,7 +33,6 @@
     icon:
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: star_touch
-    raiseOnUser: true
   - type: InstantAction
     event: !type:EventHereticStarTouch
   - type: HereticAction
@@ -47,7 +46,6 @@
   components:
   - type: Action
     checkCanInteract: false
-    raiseOnUser: true
     useDelay: 1
     itemIconStyle: NoItem
     sound:
@@ -62,7 +60,8 @@
     event: !type:EventHereticStarBlast
   - type: HereticAction
     requireMagicItem: true
-    messageLoc: heretic-speech-star-blast
+  - type: SpeakOnAction
+    sentence: heretic-speech-star-blast
   - type: StarBlastAction
 
 - type: entity
@@ -73,7 +72,6 @@
   components:
   - type: Action
     checkCanInteract: false
-    raiseOnUser: true
     useDelay: 15
     itemIconStyle: NoItem
     sound:
@@ -85,7 +83,8 @@
     event: !type:EventHereticCosmicExpansion
   - type: HereticAction
     requireMagicItem: true
-    messageLoc: heretic-speech-cosmic-expansion
+  - type: SpeakOnAction
+    sentence: heretic-speech-cosmic-expansion
 
 - type: entity
   id: ActionStarGaze
@@ -95,7 +94,6 @@
   components:
   - type: Action
     checkCanInteract: false
-    raiseOnUser: true
     useDelay: 30
     itemIconStyle: NoItem
     icon:
@@ -104,7 +102,8 @@
   - type: InstantAction
     event: !type:StarGazeEvent
   - type: HereticAction
-    messageLoc: heretic-speech-stargaze
+  - type: SpeakOnAction
+    sentence: heretic-speech-stargaze
 
 - type: entity
   id: ActionResetStarGazerConsciousness
@@ -114,7 +113,6 @@
   components:
   - type: Action
     checkCanInteract: false
-    raiseOnUser: true
     useDelay: 30
     itemIconStyle: NoItem
     icon:
@@ -133,7 +131,6 @@
   components:
   - type: Action
     checkCanInteract: false
-    raiseOnUser: true
     useDelay: 5
     itemIconStyle: NoItem
     icon:

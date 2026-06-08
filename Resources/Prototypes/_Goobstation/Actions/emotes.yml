@@ -18,6 +18,7 @@
 - type: emote
   id: Flip
   name: chat-emote-name-flip
+  icon: _Goobstation/Interface/Emotes/flip.png
   chatMessages: ["chat-emote-msg-flip"]
   chatTriggers:
   - flip
@@ -76,6 +77,7 @@
 - type: emote
   id: Jump
   name: chat-emote-name-jump
+  icon: _Goobstation/Interface/Emotes/jump.png
   chatMessages: ["chat-emote-msg-jump"]
   chatTriggers:
   - jump

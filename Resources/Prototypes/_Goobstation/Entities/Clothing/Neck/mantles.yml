@@ -19,3 +19,26 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Neck/Mantle/bsomantle.rsi
 
+#Senior Security mantle
+- type: entity
+  parent: [ ClothingNeckBase ]
+  id: ClothingNeckMantleVeteranSecurity
+  name: veteran security's mantle
+  description: Personally awarded by HOS for repealing a Syndicate attack, looking at it seems to boost your morale by a bit
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Mantle/veteran_security.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Mantle/veteran_security.rsi
+
+#Central command epaulettes
+- type: entity
+  parent: [ ClothingNeckBase, BaseCentcommContraband ]
+  id: ClothingNeckMantleEpaulettes
+  name: golden epaulettes
+  description: Exquisitely-crafted gold epaulettes symbolizing admiralty within Central Command.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Mantle/epaulettes.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Mantle/epaulettes.rsi

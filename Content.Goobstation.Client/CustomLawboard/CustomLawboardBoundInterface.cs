@@ -29,11 +29,11 @@ public sealed class CustomLawboardBoundInterface : BoundUserInterface
         _window.LawsChangedEvent += (laws, popup) => OnLawsChanged(laws, popup);
 
         _window.Entity = Owner;
-        var lawProvider = EntMan.EnsureComponent<SiliconLawProviderComponent>(Owner);
-        if (lawProvider.Lawset != null)
+        var customLawboard = EntMan.EnsureComponent<CustomLawboardComponent>(Owner);
+        if (customLawboard.Laws != null)
         {
-            _window.LawProvider = lawProvider;
-            _window.SetLaws(lawProvider.Lawset.Laws);
+            _window.LawboardComponent = customLawboard;
+            _window.SetLaws(customLawboard.Laws);
         }
         Update();
     }
