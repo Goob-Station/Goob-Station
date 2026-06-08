@@ -23199,3 +23199,9 @@ Entries:
         Ritual
   id: 2661
   time: '2026-06-08T03:35:55.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Add
+      message: Fixed mimes being punished for using sign even with a broken vow.
+  id: 2662
+  time: '2026-06-08T03:36:14.0000000+00:00'
