@@ -23466,3 +23466,9 @@ Entries:
       message: right-clicking a buckled entity no longer unbuckles it.
   id: 2694
   time: '2026-06-08T11:56:44.0000000+00:00'
+- author: Baptr0b0t
+  changes:
+    - type: Fix
+      message: Fixed able to escape grabs while crit/dead/unconscious/stunned
+  id: 2695
+  time: '2026-06-08T11:58:01.0000000+00:00'
