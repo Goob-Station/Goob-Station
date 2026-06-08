@@ -323,7 +323,7 @@ public sealed class NukeOpsTest
                 Assert.That(resp.SuffocationCycles, Is.LessThanOrEqualTo(resp.SuffocationCycleThreshold));
             }
             Assert.That(damage.TotalDamage, Is.
-                AtMost(1.0)); // Goobstation i cant believe you've done this
+                AtMost((FixedPoint2) 1.0)); // Goobstation i cant believe you've done this
         }
 
         // Check that the round does not end prematurely when agents are deleted in the outpost
