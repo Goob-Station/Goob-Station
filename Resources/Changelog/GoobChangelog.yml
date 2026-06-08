@@ -23291,3 +23291,12 @@ Entries:
       message: 'Some Resomi customisations '
   id: 2675
   time: '2026-06-08T03:45:23.0000000+00:00'
+- author: N0lim
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the utility of food and drinks for AI, this allows slimes, mice
+        and another animals to eat uncooked eggs, drink blood if they can digest
+        them and avoid toxic reagents. 
+  id: 2676
+  time: '2026-06-08T03:46:25.0000000+00:00'
