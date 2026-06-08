@@ -23377,3 +23377,9 @@ Entries:
       message: Fixed proto-kinetic repeater being too loud.
   id: 2685
   time: '2026-06-08T04:04:42.0000000+00:00'
+- author: seyriix
+  changes:
+    - type: Add
+      message: Added several new CentCom outfits.
+  id: 2686
+  time: '2026-06-08T04:05:26.0000000+00:00'
