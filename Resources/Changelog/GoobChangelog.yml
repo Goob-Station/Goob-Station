@@ -23346,3 +23346,11 @@ Entries:
       message: Body parts now drop their contents (for example, organs) when destroyed.
   id: 2682
   time: '2026-06-08T04:00:48.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Add
+      message: >-
+        New changeling ability - Darkness Adaption. Gives translucency and night
+        vision while shrouded in darkness. Works best with darker clothing.
+  id: 2683
+  time: '2026-06-08T04:02:17.0000000+00:00'
