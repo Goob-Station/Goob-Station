@@ -23259,3 +23259,15 @@ Entries:
       message: Fixed QM's mantle resprite not showing.
   id: 2671
   time: '2026-06-08T03:41:22.0000000+00:00'
+- author: shoebill
+  changes:
+    - type: Add
+      message: >-
+        Heretics' Living Hearts play the heartbeat to the target as well,
+        getting louder the closer the heretic is. Gulp!
+    - type: Remove
+      message: >-
+        Living Hearts only play the heartbeat to the user and the target. Nearby
+        people can't hear it anymore.
+  id: 2672
+  time: '2026-06-08T03:41:53.0000000+00:00'
