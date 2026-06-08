@@ -168,9 +168,7 @@
       - Bucket
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Plastic: 50
-  - type: StaticPrice # goobstation
-    price: 4
+      Plastic: 10
   - type: DnaSubstanceTrace
   - type: Armor #Goobstation
     coverage:
