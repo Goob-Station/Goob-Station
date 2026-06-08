@@ -162,7 +162,7 @@
 
 #central command ike
 - type: entity
-  parent: [ ClothingOuterStorageBase, BaseCentcommContraband ]
+  parent: [ ClothingOuterArmorCaptainCarapace, ClothingOuterStorageBase, BaseCentcommContraband ]
   id: ClothingOuterJacketCentralCommandIke
   name: central command ike jacket
   description: A utilitarian green-and-black jacket featuring a sharp, military-inspired design, worn within Central Command.
