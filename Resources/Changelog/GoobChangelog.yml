@@ -23300,3 +23300,11 @@ Entries:
         them and avoid toxic reagents. 
   id: 2676
   time: '2026-06-08T03:46:25.0000000+00:00'
+- author: shoebill
+  changes:
+    - type: Fix
+      message: >-
+        Syndicate SWAT helmets no longer show sec they're able to carry them
+        around.
+  id: 2677
+  time: '2026-06-08T03:48:08.0000000+00:00'
