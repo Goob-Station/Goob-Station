@@ -136,8 +136,6 @@ namespace Content.Server.Lathe
         [Dependency] private readonly StackSystem _stack = default!;
         [Dependency] private readonly TransformSystem _transform = default!;
         [Dependency] private readonly RadioSystem _radio = default!;
-        [Dependency] private readonly ChatSystem _chatSystem = default!; // Goobstation - New recipes message
-        [Dependency] private readonly IComponentFactory _factory = default!; // Goobstation - Output to material storage
 
         /// <summary>
         /// Per-tick cache
@@ -159,7 +157,6 @@ namespace Content.Server.Lathe
             SubscribeLocalEvent<LatheComponent, LatheDeleteRequestMessage>(OnLatheDeleteRequestMessage);
             SubscribeLocalEvent<LatheComponent, LatheMoveRequestMessage>(OnLatheMoveRequestMessage);
             SubscribeLocalEvent<LatheComponent, LatheAbortFabricationMessage>(OnLatheAbortFabricationMessage);
-            SubscribeLocalEvent<LatheComponent, LatheQueueResetMessage>(OnLatheQueueResetMessage); // Goobstation
 
             SubscribeLocalEvent<LatheComponent, BeforeActivatableUIOpenEvent>((u, c, _) => UpdateUserInterfaceState(u, c));
             SubscribeLocalEvent<LatheComponent, MaterialAmountChangedEvent>(OnMaterialAmountChanged);
@@ -470,6 +467,48 @@ namespace Content.Server.Lathe
             UpdateUserInterfaceState(uid, component);
         }
 
+        private void OnTechnologyDatabaseModified(Entity<LatheAnnouncingComponent> ent, ref TechnologyDatabaseModifiedEvent args)
+        {
+            if (args.NewlyUnlockedRecipes is null)
+                return;
+
+            if (!TryGetAvailableRecipes(ent.Owner, out var potentialRecipes))
+                return;
+
+            var recipeNames = new List<string>();
+            foreach (var recipeId in args.NewlyUnlockedRecipes)
+            {
+                if (!potentialRecipes.Contains(new(recipeId)))
+                    continue;
+
+                if (!_proto.TryIndex(recipeId, out LatheRecipePrototype? recipe))
+                    continue;
+
+                var itemName = GetRecipeName(recipe!);
+                recipeNames.Add(Loc.GetString("lathe-unlock-recipe-radio-broadcast-item", ("item", itemName)));
+            }
+
+            if (recipeNames.Count == 0)
+                return;
+
+            var message =
+                recipeNames.Count > ent.Comp.MaximumItems ?
+                    Loc.GetString(
+                        "lathe-unlock-recipe-radio-broadcast-overflow",
+                        ("items", ContentLocalizationManager.FormatList(recipeNames.GetRange(0, ent.Comp.MaximumItems))),
+                        ("count", recipeNames.Count)
+                    ) :
+                    Loc.GetString(
+                        "lathe-unlock-recipe-radio-broadcast",
+                        ("items", ContentLocalizationManager.FormatList(recipeNames))
+                    );
+
+            foreach (var channel in ent.Comp.Channels)
+            {
+                _radio.SendRadioMessage(ent.Owner, message, channel, ent.Owner, escapeMarkup: false);
+            }
+        }
+
         private void OnResearchRegistrationChanged(EntityUid uid, LatheComponent component, ref ResearchRegistrationChangedEvent args)
         {
             UpdateUserInterfaceState(uid, component);
@@ -650,12 +689,18 @@ namespace Content.Server.Lathe
 
         public void OnLatheAbortFabricationMessage(EntityUid uid, LatheComponent component, ref LatheAbortFabricationMessage args)
         {
+            AbortFabrication(uid, component, args.Actor); // Goobstation moved this method into the method below
+        }
+
+        public void AbortFabrication(EntityUid uid, LatheComponent component, EntityUid? actor) // goob moved this separately
+        {
             if (component.CurrentRecipe == null)
                 return;
 
-            _adminLogger.Add(LogType.Action,
-                LogImpact.Low,
-                $"{ToPrettyString(args.Actor):player} aborted printing {GetRecipeName(component.CurrentRecipe.Value)} at {ToPrettyString(uid):lathe}");
+            if (actor != null) // goob cause this is optional if you just want to stop fabricating
+                _adminLogger.Add(LogType.Action,
+                    LogImpact.Low,
+                    $"{ToPrettyString(actor):player} aborted printing {GetRecipeName(component.CurrentRecipe.Value)} at {ToPrettyString(uid):lathe}");
 
             RefundCurrentRecipe(uid, component);
             component.CurrentRecipe = null;
