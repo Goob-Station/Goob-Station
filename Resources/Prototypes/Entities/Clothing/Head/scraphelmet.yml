@@ -12,10 +12,27 @@
     state: construction-1
   - type: Item
     size: Normal
-    sprite: Clothing/Head/Helmets/scrap_helmet.rsi
+    sprite: Objects/Tools/bucket.rsi #Goobstation
   - type: Construction
     graph: scraphelmet
     node: wiredbucket
+  - type: Clothing # Goobstation
+    sprite: Objects/Tools/bucket.rsi
+    slots:
+    - HEAD
+    quickEquip: false
+  - type: Armor #Goobstation
+    coverage:
+    - Head
+    traumaDeductions:
+      Dismemberment: 0
+      OrganDamage: 0
+      BoneDamage: 0.05
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.95
 
 - type: entity
   name: sliced bucket
@@ -28,10 +45,28 @@
     state: construction-2
   - type: Item
     size: Normal
-    sprite: Clothing/Head/Helmets/scrap_helmet.rsi
+    sprite: Objects/Tools/bucket.rsi #Goobstation
   - type: Construction
     graph: scraphelmet
     node: slicedbucket
+  - type: Clothing # Goobstation
+    sprite: Objects/Tools/bucket.rsi
+    slots:
+    - HEAD
+    quickEquip: false
+  - type: Armor #Goobstation
+    coverage:
+    - Head
+    traumaDeductions:
+      Dismemberment: 0
+      OrganDamage: 0
+      BoneDamage: 0.05
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+
 
 - type: entity
   name: steel bucket
