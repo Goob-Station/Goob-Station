@@ -1,4 +1,4 @@
-﻿using Content.Goobstation.Maths.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 
@@ -6,15 +6,15 @@ public partial class WoundSystem
 {
     #region Data
 
-    private readonly Dictionary<WoundSeverity, FixedPoint2> _woundThresholds = new()
-    {
-        { WoundSeverity.Healed, 0 },
-        { WoundSeverity.Minor, 1 },
-        { WoundSeverity.Moderate, 25 },
-        { WoundSeverity.Severe, 50 },
-        { WoundSeverity.Critical, 80 },
-        { WoundSeverity.Loss, 100 },
-    };
+    private static readonly KeyValuePair<WoundSeverity, FixedPoint2>[] WoundThresholds =
+    [
+        new(WoundSeverity.Loss, 100),
+        new(WoundSeverity.Critical, 80),
+        new(WoundSeverity.Severe, 50),
+        new(WoundSeverity.Moderate, 25),
+        new(WoundSeverity.Minor, 1),
+        new(WoundSeverity.Healed, 0),
+    ];
 
     #endregion
 }

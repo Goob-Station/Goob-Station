@@ -235,7 +235,7 @@ public abstract partial class SharedSurgerySystem
 
     private void OnTendWoundsCheck(Entity<SurgeryTendWoundsEffectComponent> ent, ref SurgeryStepCompleteCheckEvent args)
     {
-        if (_wounds.HasDamageOfGroup(args.Part, ent.Comp.MainGroup, true))
+        if (_wounds.HasDamageOfGroup(args.Part, ent.Comp.MainGroup))
             args.Cancelled = true;
     }
 
