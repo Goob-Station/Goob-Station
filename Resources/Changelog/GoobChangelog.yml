@@ -23271,3 +23271,9 @@ Entries:
         people can't hear it anymore.
   id: 2672
   time: '2026-06-08T03:41:53.0000000+00:00'
+- author: archee1
+  changes:
+    - type: Fix
+      message: Scrap armour has correct coverage and armour values.
+  id: 2673
+  time: '2026-06-08T03:42:34.0000000+00:00'
