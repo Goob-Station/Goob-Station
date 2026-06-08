@@ -46,10 +46,10 @@
 
 - type: entity
   id: ChemDispenserEmpty
-  name: chemical dispenser
-  suffix: Empty
+  name: distributeur de produits chimiques
+  suffix: Vide
   parent: ReagentDispenserBase
-  description: An industrial grade chemical dispenser.
+  description: Un distributeur de produits chimiques de qualité industrielle.
   components:
   - type: Sprite
     sprite: Structures/dispensers.rsi
@@ -97,7 +97,7 @@
 
 - type: entity
   id: ChemDispenser
-  suffix: Filled
+  suffix: Rempli
   parent: ChemDispenserEmpty
   components:
   - type: ReagentDispenser
