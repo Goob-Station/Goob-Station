@@ -23191,3 +23191,11 @@ Entries:
       message: Removed Gate station.
   id: 2660
   time: '2026-06-02T15:06:06.0000000+00:00'
+- author: TileGrout
+  changes:
+    - type: Fix
+      message: >-
+        Heretics can now use all non-chameleon/voicemod gasmasks in the Armorer
+        Ritual
+  id: 2661
+  time: '2026-06-08T03:35:55.0000000+00:00'
