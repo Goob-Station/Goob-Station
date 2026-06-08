@@ -1096,6 +1096,12 @@
   id: EvilPlushieTwofish
   suffix: Evil
 
+- type: entity
+  name: evil LeoMalone plush
+  parent: PlushieLeoMalone
+  id: EvilPlushieLeoMalone
+  suffix: Evil
+
 
 - type: entity
   parent: BaseItem
@@ -1151,3 +1157,48 @@
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/Effects/Chemistry/bubbles.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieLeoMalone
+  name: LeoMalone plushie
+  description: PLACEHOLDER
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_leomalone
+  - type: Item
+    heldPrefix: plushieleomalone
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_bark1.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_bark1.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_bark1.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_bark1.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_bark1.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_bark1.ogg
+  - type: SpeciesAffinity
+    favoredSpecies:
+    - Vulpkanin
+    biteChance: 0.15
+    biteInterval: 15
+    biteDamage:
+      types:
+        Slash: 5
+    biteSounds:
+    - /Audio/_DV/Voice/Vulpkanin/dog_snarl1.ogg
+    - /Audio/_DV/Voice/Vulpkanin/dog_snarl2.ogg
+    - /Audio/_DV/Voice/Vulpkanin/dog_snarl3.ogg

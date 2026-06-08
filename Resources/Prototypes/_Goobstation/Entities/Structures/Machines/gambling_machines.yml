@@ -397,6 +397,7 @@
     - PlushieWachtel
     - PlushieLeguia
     - PlushiePasha
+    - PlushieLeoMalone
     evilRewards:
     - EvilPlushieXeve
     - EvilPlushieBoggle
@@ -411,4 +412,5 @@
     - EvilPlushieLeguia
     - EvilPlushiePasha
     - EvilPlushieTwofish
+    - EvilPlushieLeoMalone
   - type: DoAfter
