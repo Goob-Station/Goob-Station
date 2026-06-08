@@ -23407,3 +23407,41 @@ Entries:
       message: The Reclaimer returns!!! ...Where is it?
   id: 2690
   time: '2026-06-08T04:12:15.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: >-
+        Added a new slasher variant system. When you first spawn in you will be
+        asked which one you want to be.
+    - type: Add
+      message: Slasher Clown variant.
+    - type: Add
+      message: Slasher Billy variant.
+    - type: Add
+      message: Slasher Butcher (original) variant.
+    - type: Add
+      message: Slasher Maintenance variant.
+    - type: Add
+      message: Slasher Hockeymask variant.
+    - type: Add
+      message: Slasher Glutton variant.
+    - type: Add
+      message: Slasher Cannibal variant.
+    - type: Add
+      message: Slasher Cultist variant.
+    - type: Tweak
+      message: Slashers can now see who's soulless.
+    - type: Tweak
+      message: >-
+        Devils cannot take souls from people that have had their soul stolen by
+        a slasher and vice versa.
+    - type: Tweak
+      message: Slashers brains now reside in their torso.
+    - type: Fix
+      message: Fixed facehuggers latching onto slashers while incorporeal,
+    - type: Fix
+      message: Slashers can now wake up if they end up falling asleep while incorporeal
+    - type: Fix
+      message: Slashers no longer have infinite revives (lmao)
+  id: 2691
+  time: '2026-06-08T05:06:59.0000000+00:00'
