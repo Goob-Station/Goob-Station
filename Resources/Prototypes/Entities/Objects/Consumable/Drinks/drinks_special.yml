@@ -295,3 +295,27 @@
       Steel: 300
   - type: FitsInDispenser
     solution: drink
+
+- type: entity
+  name: bluespace shaker
+  parent: DrinkShaker
+  id: DrinkShakerBluespace
+  description: Mass-Mixing made easy!
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 1000
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Drinks/shaker_bluespace.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Objects/Consumable/Drinks/shaker_bluespace.rsi
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 125
+      Plastic: 125
+      Plasma: 37
+      Silver: 12
+  - type: StaticPrice #Goobstation - Recycle update
+    price: 65
