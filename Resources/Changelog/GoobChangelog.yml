@@ -23395,3 +23395,9 @@ Entries:
       message: Added the watch from Obra Dinn to the detective
   id: 2688
   time: '2026-06-08T04:07:42.0000000+00:00'
+- author: thegigglerofrats
+  changes:
+    - type: Add
+      message: Medical gets re-ignitable e-cigarettes and cryostasis cigarettes
+  id: 2689
+  time: '2026-06-08T04:09:16.0000000+00:00'
