@@ -500,3 +500,15 @@
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Security/security_black.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Security/security_black.rsi
+
+# Golden liaison jumpsuit
+- type: entity
+  parent: [ ClothingUniformBase, BaseCentcommContraband ]
+  id: ClothingUniformJumpsuitGoldenLiaison
+  name: Golden Liaison CentCom Jumpsuit
+  description: A finely-tailored white-and-gold uniform worn by senior officials of Central Command.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Centcom/golden_liaison.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Centcom/golden_liaison.rsi
