@@ -9,9 +9,9 @@
 - type: entity
   id: CrystalGreen
   parent: BaseStructure
-  suffix: green
-  name: crystal
-  description: A crystaline solid.
+  suffix: vert
+  name: cristal
+  description: Un solide cristallin.
   components:
     - type: Sprite
       sprite: Structures/Decoration/crystal.rsi
@@ -68,7 +68,7 @@
 - type: entity
   id: CrystalPink
   parent: CrystalGreen
-  suffix: pink
+  suffix: rose
   components:
     - type: Sprite
       color: "#ff66cc"
@@ -96,7 +96,7 @@
 - type: entity
   id: CrystalGrey
   parent: CrystalGreen
-  suffix: red
+  suffix: rouge
   components:
     - type: Sprite
       state: crystal_grey
@@ -151,7 +151,7 @@
 - type: entity
   id: CrystalBlack
   parent: CrystalGreen
-  suffix: black
+  suffix: noir
   components:
     - type: Sprite
       color: "#363636"
@@ -179,7 +179,7 @@
 - type: entity
   id: CrystalBlue
   parent: CrystalGreen
-  suffix: blue
+  suffix: bleu
   components:
     - type: Sprite
       color: "#39a1ff"
@@ -207,7 +207,7 @@
 - type: entity
   id: CrystalYellow
   parent: CrystalGreen
-  suffix: yellow
+  suffix: jaune
   components:
     - type: Sprite
       color: "#ffde46"

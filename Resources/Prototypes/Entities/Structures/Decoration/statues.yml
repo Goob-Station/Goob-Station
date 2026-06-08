@@ -10,9 +10,9 @@
 - type: entity
   id: StatueVenusRed
   parent: BaseStructure
-  name: statue of a pure maiden
-  suffix: Red
-  description: An ancient marble statue. The subject is depicted with a floor-length braid and is wielding a red toolbox.
+  name: statue d'une demoiselle pure
+  suffix: Rouge
+  description: Une ancienne statue de marbre. Le sujet est représenté avec une tresse jusqu'au sol et tient une boîte à outils rouge.
   components:
   - type: Sprite
     noRot: true
@@ -24,9 +24,9 @@
 - type: entity
   id: StatueVenusBlue
   parent: BaseStructure
-  name: statue of a pure maiden
-  suffix: Blue
-  description: An ancient marble statue. The subject is depicted with a floor-length braid and is wielding a blue toolbox.
+  name: statue d'une demoiselle pure
+  suffix: Bleue
+  description: Une ancienne statue de marbre. Le sujet est représenté avec une tresse jusqu'au sol et tient une boîte à outils bleue.
   components:
   - type: Sprite
     noRot: true
@@ -38,8 +38,8 @@
 - type: entity
   id: StatueBananiumClown
   parent: BaseStructure
-  name: bananium savior statue
-  description: A bananium statue. It portrays the return of the savior who will rise up and lead the clowns to the great honk.
+  name: statue du sauveur en bananium
+  description: Une statue en bananium. Elle représente le retour du sauveur qui se lèvera et mènera les clowns vers le grand honk.
   components:
   - type: Sprite
     noRot: true

@@ -6,8 +6,8 @@
 
 - type: entity
   id: Cobweb1
-  name: cobweb
-  description: Somebody should remove that.
+  name: toile d'araignée
+  description: Quelqu'un devrait enlever ça.
   placement:
     mode: SnapgridCenter
   components:

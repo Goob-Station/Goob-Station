@@ -17,8 +17,8 @@
 - type: entity
   id: BannerBase
   parent: BaseStructureDynamic
-  name: base banner
-  description: It's the concept of a banner, you shouldn't be seeing this.
+  name: bannière de base
+  description: C'est le concept d'une bannière, vous ne devriez pas voir ceci.
   abstract: true
   components:
   - type: Sprite
@@ -56,8 +56,8 @@
 - type: entity
   id: BannerNanotrasen
   parent: BannerBase
-  name: nanotrasen banner
-  description: A banner displaying the Nanotrasen logo. It looks rather cheap.
+  name: bannière Nanotrasen
+  description: Une bannière affichant le logo Nanotrasen. Elle a l'air plutôt bon marché.
   components:
   - type: Sprite
     sprite: Structures/Decoration/banner.rsi
@@ -69,8 +69,8 @@
 - type: entity
   id: BannerCargo
   parent: BannerBase
-  name: cargo banner
-  description: A banner displaying the colors of the cargo department. Not. Cargonia.
+  name: bannière du cargo
+  description: Une bannière affichant les couleurs du département cargo. Pas. Cargonia.
   components:
   - type: Sprite
     sprite: Structures/Decoration/banner.rsi
@@ -82,8 +82,8 @@
 - type: entity
   id: BannerEngineering
   parent: BannerBase
-  name: engineering banner
-  description: A banner displaying the colors of the engineering department. Scrungularty.
+  name: bannière de l'ingénierie
+  description: Une bannière affichant les couleurs du département d'ingénierie. Scrungularty.
   components:
   - type: Sprite
     sprite: Structures/Decoration/banner.rsi
@@ -95,8 +95,8 @@
 - type: entity
   id: BannerMedical
   parent: BannerBase
-  name: medical banner
-  description: A banner displaying the colors of the medical department. How sterile.
+  name: bannière médicale
+  description: Une bannière affichant les couleurs du département médical. Comme c'est stérile.
   components:
   - type: Sprite
     sprite: Structures/Decoration/banner.rsi
@@ -108,8 +108,8 @@
 - type: entity
   id: BannerRevolution
   parent: BannerBase
-  name: revolution banner
-  description: A banner displaying revolution. Viva!
+  name: bannière de la révolution
+  description: Une bannière affichant la révolution. Viva!
   components:
   - type: Sprite
     sprite: Structures/Decoration/banner.rsi
@@ -121,8 +121,8 @@
 - type: entity
   id: BannerSyndicate
   parent: BannerBase
-  name: syndicate banner
-  description: A banner from which, according to the syndicate, you should feel hatred for NT.
+  name: bannière du syndicat
+  description: Une bannière qui, selon le syndicat, devrait vous inspirer de la haine envers NT.
   components:
   - type: Sprite
     sprite: Structures/Decoration/banner.rsi
@@ -134,8 +134,8 @@
 - type: entity
   id: BannerScience
   parent: BannerBase
-  name: science banner
-  description: A banner displaying the colors of the science department. Where science has no bounds, and regulations are rarely followed.
+  name: bannière des sciences
+  description: Une bannière affichant les couleurs du département scientifique. Là où la science n'a pas de limites et les réglementations sont rarement respectées.
   components:
   - type: Sprite
     sprite: Structures/Decoration/banner.rsi
@@ -147,8 +147,8 @@
 - type: entity
   id: BannerSecurity
   parent: BannerBase
-  name: security banner
-  description: A banner displaying the colors of the security department. You're surprised it's not vandalised.
+  name: bannière de la sécurité
+  description: Une bannière affichant les couleurs du département de la sécurité. Vous êtes surpris qu'elle ne soit pas vandalisée.
   components:
   - type: Sprite
     sprite: Structures/Decoration/banner.rsi
@@ -160,8 +160,8 @@
 - type: entity
   id: BannerBlue
   parent: BannerBase
-  name: blue banner
-  description: A banner displaying the color blue. Dabudidabudai.
+  name: bannière bleue
+  description: Une bannière affichant la couleur bleue. Dabudidabudai.
   components:
   - type: Sprite
     sprite: Structures/Decoration/banner.rsi
@@ -173,8 +173,8 @@
 - type: entity
   id: BannerRed
   parent: BannerBase
-  name: red banner
-  description: A banner displaying the color red. The edgy one.
+  name: bannière rouge
+  description: Une bannière affichant la couleur rouge. La rebelle.
   components:
   - type: Sprite
     sprite: Structures/Decoration/banner.rsi
@@ -186,8 +186,8 @@
 - type: entity
   id: BannerYellow
   parent: BannerBase
-  name: yellow banner
-  description: A banner displaying the color yellow. Reminds you of ducks and lemon stands.
+  name: bannière jaune
+  description: Une bannière affichant la couleur jaune. Vous rappelle les canards et les stands de limonade.
   components:
   - type: Sprite
     sprite: Structures/Decoration/banner.rsi
@@ -199,8 +199,8 @@
 - type: entity
   id: BannerGreen
   parent: BannerBase
-  name: green banner
-  description: A banner displaying the color green. Grass, leaves, guacamole.
+  name: bannière verte
+  description: Une bannière affichant la couleur verte. L'herbe, les feuilles, le guacamole.
   components:
   - type: Sprite
     sprite: Structures/Decoration/banner.rsi

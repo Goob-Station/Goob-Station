@@ -19,8 +19,8 @@
 - type: entity
   id: BaseCurtains
   parent: BaseStructure
-  name: curtains
-  description: Hides what others shouldn't see.
+  name: rideaux
+  description: Cache ce que les autres ne devraient pas voir.
   abstract: true
   placement:
     mode: SnapgridCenter
@@ -80,8 +80,8 @@
 - type: entity
   id: HospitalCurtains
   parent: BaseCurtains
-  suffix: Hospital
-  description: Contains less than 1% mercury.
+  suffix: Hôpital
+  description: Contient moins de 1% de mercure.
   components:
   - type: Sprite
     snapCardinals: true
@@ -96,7 +96,7 @@
 - type: entity
   id: HospitalCurtainsOpen
   parent: HospitalCurtains
-  suffix: Open, Hospital
+  suffix: Ouvert, Hôpital
   components:
   - type: Door
     state: Open
@@ -111,7 +111,7 @@
 - type: entity
   id: CurtainsBlack
   parent: BaseCurtains
-  suffix: Fancy black
+  suffix: Noir élégant
   components:
   - type: Sprite
     snapCardinals: true
@@ -126,7 +126,7 @@
 - type: entity
   id: CurtainsBlackOpen
   parent: CurtainsBlack
-  suffix: Open, Fancy black
+  suffix: Ouvert, Noir élégant
   components:
   - type: Door
     state: Open
@@ -141,7 +141,7 @@
 - type: entity
   id: CurtainsBlue
   parent: BaseCurtains
-  suffix: Fancy blue
+  suffix: Bleu élégant
   components:
   - type: Sprite
     snapCardinals: true
@@ -156,7 +156,7 @@
 - type: entity
   id: CurtainsBlueOpen
   parent: CurtainsBlue
-  suffix: Open, Fancy blue
+  suffix: Ouvert, Bleu élégant
   components:
   - type: Door
     state: Open
@@ -171,7 +171,7 @@
 - type: entity
   id: CurtainsCyan
   parent: BaseCurtains
-  suffix: Fancy cyan
+  suffix: Cyan élégant
   components:
   - type: Sprite
     snapCardinals: true
@@ -186,7 +186,7 @@
 - type: entity
   id: CurtainsCyanOpen
   parent: CurtainsCyan
-  suffix: Open, Fancy cyan
+  suffix: Ouvert, Cyan élégant
   components:
   - type: Door
     state: Open
@@ -201,7 +201,7 @@
 - type: entity
   id: CurtainsGreen
   parent: BaseCurtains
-  suffix: Fancy green
+  suffix: Vert élégant
   components:
   - type: Sprite
     snapCardinals: true
@@ -216,7 +216,7 @@
 - type: entity
   id: CurtainsGreenOpen
   parent: CurtainsGreen
-  suffix: Open, Fancy green
+  suffix: Ouvert, Vert élégant
   components:
   - type: Door
     state: Open
@@ -231,7 +231,7 @@
 - type: entity
   id: CurtainsOrange
   parent: BaseCurtains
-  suffix: Fancy orange
+  suffix: Orange élégant
   components:
   - type: Sprite
     snapCardinals: true
@@ -246,7 +246,7 @@
 - type: entity
   id: CurtainsOrangeOpen
   parent: CurtainsOrange
-  suffix: Open, Fancy orange
+  suffix: Ouvert, Orange élégant
   components:
   - type: Door
     state: Open
@@ -261,7 +261,7 @@
 - type: entity
   id: CurtainsPink
   parent: BaseCurtains
-  suffix: Fancy pink
+  suffix: Rose élégant
   components:
   - type: Sprite
     snapCardinals: true
@@ -276,7 +276,7 @@
 - type: entity
   id: CurtainsPinkOpen
   parent: CurtainsPink
-  suffix: Open, Fancy pink
+  suffix: Ouvert, Rose élégant
   components:
   - type: Door
     state: Open
@@ -291,7 +291,7 @@
 - type: entity
   id: CurtainsPurple
   parent: BaseCurtains
-  suffix: Fancy purple
+  suffix: Violet élégant
   components:
   - type: Sprite
     snapCardinals: true
@@ -306,7 +306,7 @@
 - type: entity
   id: CurtainsPurpleOpen
   parent: CurtainsPurple
-  suffix: Open, Fancy purple
+  suffix: Ouvert, Violet élégant
   components:
   - type: Door
     state: Open
@@ -321,7 +321,7 @@
 - type: entity
   id: CurtainsRed
   parent: BaseCurtains
-  suffix: Fancy red
+  suffix: Rouge élégant
   components:
   - type: Sprite
     snapCardinals: true
@@ -336,7 +336,7 @@
 - type: entity
   id: CurtainsRedOpen
   parent: CurtainsRed
-  suffix: Open, Fancy red
+  suffix: Ouvert, Rouge élégant
   components:
   - type: Door
     state: Open
@@ -351,7 +351,7 @@
 - type: entity
   id: CurtainsWhite
   parent: BaseCurtains
-  suffix: Fancy white
+  suffix: Blanc élégant
   components:
   - type: Sprite
     snapCardinals: true
@@ -366,7 +366,7 @@
 - type: entity
   id: CurtainsWhiteOpen
   parent: CurtainsWhite
-  suffix: Open, Fancy white
+  suffix: Ouvert, Blanc élégant
   components:
   - type: Door
     state: Open
