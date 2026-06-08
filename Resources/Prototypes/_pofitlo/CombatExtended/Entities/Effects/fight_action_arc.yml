@@ -22,4 +22,4 @@
       sprite: _pofitlo/CombatExtended/Effects/arcs.rsi
       state: tail_alt
     - type: TimedDespawn
-      lifetime: 3
+      lifetime: 0.39

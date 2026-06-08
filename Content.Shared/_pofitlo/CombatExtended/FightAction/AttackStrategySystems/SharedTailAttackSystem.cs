@@ -8,6 +8,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared._pofitlo.CombatExtended.FightAction.Events;
+using Content.Shared._pofitlo.CombatExtended.FightAction.Prototypes;
 using Content.Shared.Weapons.Melee;
 using Content.Shared._pofitlo.CombatExtended.FightAction;
 
@@ -163,7 +164,7 @@ public abstract class SharedTailAttackSystem : EntitySystem
         DirtyField(weaponUid, weapon, nameof(MeleeWeaponComponent.NextAttack));
 
         // Do this AFTER attack so it doesn't spam every tick
-        var ev = new AttemptMeleeEvent(user, weaponUid, weapon); // Lavaland Change: WHY ARENT YOU FUCKS PASSING THE USER RAHHHHHHHHHHH
+        var ev = new AttemptMeleeEvent(user, weaponUid, weapon, attack is HeavyAttackEvent); // Goob edit
         RaiseLocalEvent(weaponUid, ref ev);
 
         //if (!MeleeWeaponSystem.DoHeavyAttack(user, heavy, weaponUid, weapon, session))
@@ -178,20 +179,26 @@ public abstract class SharedTailAttackSystem : EntitySystem
         weapon.Attacking = true;
         DirtyField(weaponUid, weapon, nameof(MeleeWeaponComponent.Attacking));
 
-        switch (attack){
+        ProtoId<CombatAnimationPrototype>? combatAnimProto;
+
+        switch (attack)
+        {
             case TailMainAttackEvent mainAttack:
                 DoMainAttack(user, weaponUid, weapon, fightAction, mainAttack);
+                animation = fightAction.Animation;
+                combatAnimProto = fightAction.CombatAnimationPrototype;
                 break;
             case TailAltAttackEvent altAttack:
                 DoAltAttack(user, weaponUid, weapon, altAttack);
+                animation = fightAction.AltAnimation;
+                combatAnimProto = fightAction.AltCombatAnimationPrototype;
                 break;
             default:
-                throw new NotImplementedException(); // TODO сделать менее критичный дифоулт
+                return false;
         }
 
-        animation = fightAction.Animation; // TODO сделать вариации анимаций для мэйна и альта
         spriteRotation = weapon.WideAnimationRotation;
-        DoLungeAnimation(user, weaponUid, TransformSystem.ToMapCoordinates(GetCoordinates(attack.Coordinates)), weapon.Range, animation, spriteRotation, weapon.FlipAnimation); // Goobstation - Edit
+        DoLungeAnimation(user, weaponUid, TransformSystem.ToMapCoordinates(GetCoordinates(attack.Coordinates)), weapon.Range, animation, spriteRotation, weapon.FlipAnimation, combatAnimProto);
 
         // TODO слишком раздутая система. Надо будет сократить
         return true;
@@ -258,9 +265,9 @@ public abstract class SharedTailAttackSystem : EntitySystem
         if (direction == Vector2.Zero)
             return;
 
-        _throwing.TryThrow(target, direction.Normalized() * -5f, 2f);
+        _throwing.TryThrow(target, direction.Normalized() * -1f, 2f, compensateFriction: true);
     }
-    private void DoLungeAnimation(EntityUid user, EntityUid weapon, MapCoordinates coordinates, float length, string? animation, Angle spriteRotation, bool flipAnimation)
+    private void DoLungeAnimation(EntityUid user, EntityUid weapon, MapCoordinates coordinates, float length, string? animation, Angle spriteRotation, bool flipAnimation, ProtoId<CombatAnimationPrototype>? combatAnimProto)
     {
         // TODO: Assert that offset eyes are still okay.
         if (!TryComp(user, out TransformComponent? userXform))
@@ -281,8 +288,8 @@ public abstract class SharedTailAttackSystem : EntitySystem
         if (localPos.Length() > visualLength)
             localPos = localPos.Normalized() * visualLength;
 
-        DoLunge(user, weapon, localPos, animation, spriteRotation, flipAnimation);
+        DoLunge(user, weapon, localPos, animation, spriteRotation, flipAnimation, combatAnimProto);
     }
 
-    public abstract void DoLunge(EntityUid user, EntityUid weapon, Vector2 localPos, string? animation, Angle spriteRotation, bool flipAnimation, bool predicted = true);
+    public abstract void DoLunge(EntityUid user, EntityUid weapon, Vector2 localPos, string? animation, Angle spriteRotation, bool flipAnimation, ProtoId<CombatAnimationPrototype>? combatAnimProto, bool predicted = true);
 }

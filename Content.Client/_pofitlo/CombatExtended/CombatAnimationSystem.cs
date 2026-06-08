@@ -36,6 +36,7 @@ public sealed class CombatStrategyAnimationSystem : EntitySystem
         Angle spriteRotation,
         bool flippedAnimation,
         FightActionComponent fightActionComponent,
+        ProtoId<CombatAnimationPrototype>? combatAnimProto,
         bool predicted = true)
     {
         if (!Timing.IsFirstTimePredicted)
@@ -55,44 +56,67 @@ public sealed class CombatStrategyAnimationSystem : EntitySystem
 
         var animationUid = Spawn(animationPrototype, userXform.Coordinates);
 
-
         if (!TryComp<SpriteComponent>(animationUid, out var sprite)
             || !TryComp<WeaponArcVisualsComponent>(animationUid, out var arcComponent))
         {
             return;
         }
 
-
         _sprite.SetRotation((animationUid, sprite), localPos.ToWorldAngle());
         var distance = Math.Clamp(localPos.Length() / 2f, 0.2f, 1f);
 
         var xform = Transform(animationUid);
-        TrackUserComponent track;
+        //TrackUserComponent track;
 
-        if (fightActionComponent.CombatAnimationPrototype == null)
+        if (combatAnimProto == null || !_prototypeManager.TryIndex(combatAnimProto, out var animPrototype))
             return;
 
-        if (!_prototypeManager.TryIndex(fightActionComponent.CombatAnimationPrototype, out CombatAnimationPrototype? animPrototype) && animPrototype == null)
-            return;
+        var animationType = animPrototype.AnimationType;
 
-        switch (fightActionComponent.Strategy)
+        SetAnimationType(animationType, user, animationUid, sprite, spriteRotation, animPrototype, arcComponent, localPos, userXform, xform);
+
+        // switch (fightActionComponent.Strategy)
+        // {
+        //     case AttackStrategy.TailAttack:
+        //         track = EnsureComp<TrackUserComponent>(animationUid);
+        //         track.User = user;
+        //         _animation.Play(animationUid, GetSlashAnimation(sprite, spriteRotation, animPrototype), SlashAnimationKey);
+        //         if (arcComponent.Fadeout && animPrototype?.UseFadeout != false)
+        //             _animation.Play(animationUid, GetFadeAnimation(sprite, animPrototype?.FadeoutStartTime ?? 0.065f, (animPrototype?.FadeoutStartTime ?? 0.065f) + (animPrototype?.FadeoutDuration ?? 0.05f)), FadeAnimationKey);
+        //         break;
+        //     case AttackStrategy.Punch:
+        //         var (mapPos, mapRot) = _transform.GetWorldPositionRotation(userXform);
+        //         var worldPos = mapPos + (mapRot - userXform.LocalRotation).RotateVec(localPos);
+        //         var newLocalPos = Vector2.Transform(worldPos, _transform.GetInvWorldMatrix(xform.ParentUid));
+        //         _transform.SetLocalPositionNoLerp(animationUid, newLocalPos, xform);
+        //         if (arcComponent.Fadeout && animPrototype?.UseFadeout != false)
+        //             _animation.Play(animationUid, GetFadeAnimation(sprite, animPrototype?.FadeoutStartTime ?? 0f, (animPrototype?.FadeoutStartTime ?? 0f) + (animPrototype?.FadeoutDuration ?? 0.15f)), FadeAnimationKey);
+        //         break;
+        // }
+    }
+
+    private void SetAnimationType(String animationType, EntityUid user, EntityUid animationUid, SpriteComponent sprite, Angle spriteRotation, CombatAnimationPrototype animPrototype, WeaponArcVisualsComponent arcComponent, Vector2 localPos, TransformComponent userXform, TransformComponent xform)
+    {
+        if (animationType == "Slash")
         {
-            case AttackStrategy.TailAttack:
-                track = EnsureComp<TrackUserComponent>(animationUid);
-                track.User = user;
-                _animation.Play(animationUid, GetSlashAnimation(sprite, spriteRotation, animPrototype), SlashAnimationKey);
-                if (arcComponent.Fadeout && animPrototype?.UseFadeout != false)
-                    _animation.Play(animationUid, GetFadeAnimation(sprite, animPrototype?.FadeoutStartTime ?? 0.065f, (animPrototype?.FadeoutStartTime ?? 0.065f) + (animPrototype?.FadeoutDuration ?? 0.05f)), FadeAnimationKey);
-                break;
-            case AttackStrategy.Punch:
-                var (mapPos, mapRot) = _transform.GetWorldPositionRotation(userXform);
-                var worldPos = mapPos + (mapRot - userXform.LocalRotation).RotateVec(localPos);
-                var newLocalPos = Vector2.Transform(worldPos, _transform.GetInvWorldMatrix(xform.ParentUid));
-                _transform.SetLocalPositionNoLerp(animationUid, newLocalPos, xform);
-                if (arcComponent.Fadeout && animPrototype?.UseFadeout != false)
-                    _animation.Play(animationUid, GetFadeAnimation(sprite, animPrototype?.FadeoutStartTime ?? 0f, (animPrototype?.FadeoutStartTime ?? 0f) + (animPrototype?.FadeoutDuration ?? 0.15f)), FadeAnimationKey);
-                break;
+            var track = EnsureComp<TrackUserComponent>(animationUid);
+            track.User = user;
+            _animation.Play(animationUid, GetSlashAnimation(sprite, spriteRotation, animPrototype), SlashAnimationKey);
+            if (arcComponent.Fadeout && animPrototype?.UseFadeout != false)
+                _animation.Play(animationUid, GetFadeAnimation(sprite, animPrototype?.FadeoutStartTime ?? 0.065f, (animPrototype?.FadeoutStartTime ?? 0.065f) + (animPrototype?.FadeoutDuration ?? 0.05f)), FadeAnimationKey);
+
+            return;
         }
+        if (animationType == "Thrust")
+        {
+            var (mapPos, mapRot) = _transform.GetWorldPositionRotation(userXform);
+            var worldPos = mapPos + (mapRot - userXform.LocalRotation).RotateVec(localPos);
+            var newLocalPos = Vector2.Transform(worldPos, _transform.GetInvWorldMatrix(xform.ParentUid));
+            _transform.SetLocalPositionNoLerp(animationUid, newLocalPos, xform);
+            if (arcComponent.Fadeout && animPrototype?.UseFadeout != false)
+                _animation.Play(animationUid, GetFadeAnimation(sprite, animPrototype?.FadeoutStartTime ?? 0f, (animPrototype?.FadeoutStartTime ?? 0f) + (animPrototype?.FadeoutDuration ?? 0.15f)), FadeAnimationKey);      //TODO
+        }
+
     }
 
     private Animation GetLungeAnimation(Vector2 direction)

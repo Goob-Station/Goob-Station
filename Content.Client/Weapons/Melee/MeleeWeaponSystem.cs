@@ -289,14 +289,14 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
     /// <summary>
     /// Raises a heavy 
-    event with the relevant attacked entities.
+    ///event with the relevant attacked entities.
     /// This is to avoid lag effecting the client's perspective too much.
     /// </summary>
     private void ClientHeavyAttack(EntityUid user, EntityCoordinates coordinates, EntityUid meleeUid, MeleeWeaponComponent component)
     {
         if (TryComp<FightActionComponent>(user, out var fightActionComponent) && meleeUid == user) // Сделать код более говорящим
         {
-            var strategy = _attackStrategyFactory.CreateStrategy(fightActionComponent);
+            var strategy = _attackStrategyFactory.GetStrategy(fightActionComponent);
             strategy.ExecuteAltAttack(user, coordinates, meleeUid, component);
             return;
         }
@@ -318,7 +318,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         // TODO убрать дизарм. мейби
         //if (TryComp<FightActionComponent>(attacker, out var fightActionComponent))
         //{
-        //    var strategy = _attackStrategyFactory.CreateStrategy(fightActionComponent);
+        //    var strategy = _attackStrategyFactory.GetStrategy(fightActionComponent);
         //    strategy.ExecuteDisarm(attacker, mousePos, coordinates);
         //    return;
         //}
@@ -336,17 +336,20 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         // Проверяем, есть ли компонент FightActionComponent для определения стратегии атаки
         if (TryComp<FightActionComponent>(attacker, out var fightActionComponent))
         {
-            var strategy = _attackStrategyFactory.CreateStrategy(fightActionComponent);
+            var strategy = _attackStrategyFactory.GetStrategy(fightActionComponent);
             strategy.ExecuteMainAttack(attacker, mousePos, coordinates, weaponUid, meleeComponent);
 
-            var attackerPos = TransformSystem.GetMapCoordinates(attacker);
-
-            // Goob edit start
-            if (mousePos.MapId != attackerPos.MapId)
-                return;
+            return; // We return here to avoid running the default light attack logic, as the strategy will handle it.
         }
 
         // Если компонента нет, используем стандартную логику //TODO что то с этим сделать
+
+        var attackerPos = TransformSystem.GetMapCoordinates(attacker);
+
+        // Goob edit start
+        if (mousePos.MapId != attackerPos.MapId)
+            return;
+
         EntityUid? target = null;
 
         if (_stateManager.CurrentState is GameplayStateBase screen)
@@ -358,7 +361,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         if ((attackerPos.Position - mousePos.Position).Length() > ev.Range)
             return;
         // Goob edit end
-        var target = GetTargetAsEntityUid(attacker, meleeComponent);
+
         // Don't light-attack if interaction will be handling this instead
         if (Interaction.CombatModeCanHandInteract(attacker, target))
             return;
@@ -398,13 +401,13 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         return entities;
     }
 
-    public EntityUid? GetTargetAsEntityUid(EntityUid attacker, MeleeWeaponComponent meleeComponent) // TODO можно избавиться от милии компонент
+    public EntityUid? GetTargetAsEntityUid(EntityUid attacker, float range)
     {
         var mousePos = _eyeManager.PixelToMap(_inputManager.MouseScreenPosition);
 
         var attackerPos = TransformSystem.GetMapCoordinates(attacker);
 
-        if (mousePos.MapId != attackerPos.MapId || (attackerPos.Position - mousePos.Position).Length() > meleeComponent.Range)
+        if (mousePos.MapId != attackerPos.MapId || (attackerPos.Position - mousePos.Position).Length() > range)
             return null;
 
         EntityUid? target = null;

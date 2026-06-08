@@ -22,10 +22,16 @@ public sealed partial class FightActionComponent : Component
     public AttackStrategy Strategy;
 
     [DataField, AutoNetworkedField]
-    public EntProtoId Animation = "FightActionArcTailAttack";
+    public EntProtoId Animation = "FightActionArcMainTailAttack";
+
+    [DataField, AutoNetworkedField]
+    public EntProtoId AltAnimation = "FightActionArcAltTailAttack";
 
     [DataField, AutoNetworkedField]
     public ProtoId<CombatAnimationPrototype>? CombatAnimationPrototype = "PunchAnimation";
+
+    [DataField, AutoNetworkedField]
+    public ProtoId<CombatAnimationPrototype>? AltCombatAnimationPrototype = "PunchAnimation";
 
     [DataField, AutoNetworkedField]
     public ProtoId<FightActionMeleeParametersPrototype>? FightActionMeleeParametersPrototype = "PunchMeleeParameters";

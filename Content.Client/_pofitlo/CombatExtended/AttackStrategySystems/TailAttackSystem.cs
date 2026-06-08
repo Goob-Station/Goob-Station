@@ -1,13 +1,9 @@
 using Content.Shared._pofitlo.CombatExtended.FightAction.AttackStrategySystems;
 using Content.Shared._pofitlo.CombatExtended.FightAction;
+using Content.Shared._pofitlo.CombatExtended.FightAction.Prototypes;
 using System.Numerics;
 using Content.Client._pofitlo.CombatExtended;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Content.Client._pofitlo.CombatExtended;
+using Robust.Shared.Prototypes;
 
 
 namespace Content.Client._pofitlo.CombatExtended.AttackStrategySystems;
@@ -21,9 +17,9 @@ public sealed class TailAttackSystem : SharedTailAttackSystem
         base.Initialize();
     }
 
-    public override void DoLunge(EntityUid user, EntityUid weapon, Vector2 localPos, string? animation, Angle spriteRotation, bool flippedAnimation, bool predicted = true)
+    public override void DoLunge(EntityUid user, EntityUid weapon, Vector2 localPos, string? animation, Angle spriteRotation, bool flippedAnimation, ProtoId<CombatAnimationPrototype>? combatAnimProto, bool predicted = true)
     {
-        if (!TryComp(user, out FightActionComponent? fightActionComponent) && fightActionComponent == null)
+        if (!TryComp(user, out FightActionComponent? fightActionComponent))
             return;
 
         _combatAnimation.DoCombatStrategyAnimation(
@@ -34,6 +30,7 @@ public sealed class TailAttackSystem : SharedTailAttackSystem
             spriteRotation,
             flippedAnimation,
             fightActionComponent,
+            combatAnimProto,
             predicted);
     }
 }

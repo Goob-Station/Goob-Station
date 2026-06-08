@@ -21,23 +21,29 @@ public sealed class FightActionSystem : SharedFightActionSystem
         if (!TryComp<FightActionComponent>(GetEntity(message.Uid), out var fightActionComp))
             return;
 
+        if (args.SenderSession.AttachedEntity != GetEntity(message.Uid))
+            return; //That help us avoid desync issues, as the client will only send this event for their own entity, but we check just in case.
+
         fightActionComp.Strategy = message.FightAction;
         fightActionComp.HasHigherPriorityThanWeapons = message.HasHigherPriorityThanWeapons;
         fightActionComp.CombatAnimationPrototype = message.CombatAnimationProto;
-        DirtyField(GetEntity(message.Uid), fightActionComp, nameof(FightActionComponent.Strategy));
-        DirtyField(GetEntity(message.Uid), fightActionComp, nameof(FightActionComponent.HasHigherPriorityThanWeapons));
-        DirtyField(GetEntity(message.Uid), fightActionComp, nameof(FightActionComponent.CombatAnimationPrototype));
+        fightActionComp.AltCombatAnimationPrototype = message.AltCombatAnimationProto;
+        var uid = GetEntity(message.Uid);
+        DirtyField(uid, fightActionComp, nameof(FightActionComponent.Strategy));
+        DirtyField(uid, fightActionComp, nameof(FightActionComponent.HasHigherPriorityThanWeapons));
+        DirtyField(uid, fightActionComp, nameof(FightActionComponent.CombatAnimationPrototype));
+        DirtyField(uid, fightActionComp, nameof(FightActionComponent.AltCombatAnimationPrototype));
 
         SetMeleeParametersFromPrototypeToComponent(GetEntity(message.Uid), message.FightActionMeleeParametersProto);
     }
 
     private void SetMeleeParametersFromPrototypeToComponent(EntityUid user, ProtoId<FightActionMeleeParametersPrototype> prototypeId)
     {
-        if (!TryComp<MeleeWeaponComponent>(user, out var meleeComp))
+        if (!TryComp<MeleeWeaponComponent>(user, out var meleeComp) ||
+            !_prototypeManager.TryIndex(prototypeId, out var meleeParametersProto))
             return;
 
-        if (_prototypeManager.TryIndex(prototypeId, out var meleeParametersProto))
-
-            meleeComp.AltDisarm = meleeParametersProto.HasDisarm;
+        meleeComp.AltDisarm = meleeParametersProto.HasDisarm;
+        DirtyField(user, meleeComp, nameof(MeleeWeaponComponent.AltDisarm));
     }
 }

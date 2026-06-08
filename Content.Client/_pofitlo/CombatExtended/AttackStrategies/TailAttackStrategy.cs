@@ -59,7 +59,9 @@ public sealed class TailAttackStrategy : IAttackStrategy
     public void ExecuteMainAttack(EntityUid attacker, MapCoordinates mousePos, EntityCoordinates coordinates, EntityUid weaponUid, MeleeWeaponComponent meleeComponent)
     {
 
-        var target = _meleeWeaponSystem.GetTargetAsEntityUid(attacker, meleeComponent); // TODO быть может, можно избавиться от таргета
+        var range = 2f;
+
+        var target = _meleeWeaponSystem.GetTargetAsEntityUid(attacker, range);
 
         // TODO решить куда это выносить
         if (!_entityManager.TryGetComponent<FightActionComponent>(attacker, out var fightActionComp))
@@ -68,9 +70,9 @@ public sealed class TailAttackStrategy : IAttackStrategy
         if (!_prototypeManager.TryIndex(fightActionComp.CombatAnimationPrototype, out CombatAnimationPrototype? animPrototype) && animPrototype == null)
             return;
 
-        var angle = animPrototype.AngleEnd - animPrototype.AngleStart;
+        var angle = Angle.FromDegrees(animPrototype.AngleEnd - animPrototype.AngleStart);
 
-        var entities = _meleeWeaponSystem.GetListOfNetEntitiesInArea(attacker, coordinates, 2f, angle); // TODO настройки вынести в прототип
+        var entities = _meleeWeaponSystem.GetListOfNetEntitiesInArea(attacker, coordinates, 1f, angle); // TODO настройки вынести в прототип
 
         // Don't light-attack if interaction will be handling this instead // TODO разобраться что это делает
         if (_interaction.CombatModeCanHandInteract(attacker, target))
@@ -85,7 +87,7 @@ public sealed class TailAttackStrategy : IAttackStrategy
 
     public void ExecuteAltAttack(EntityUid attacker, EntityCoordinates coordinates, EntityUid weaponUid, MeleeWeaponComponent meleeComponent)
     {
-        var target = _meleeWeaponSystem.GetTargetAsEntityUid(attacker, meleeComponent);
+        var target = _meleeWeaponSystem.GetTargetAsEntityUid(attacker, 2f);
 
         _entityManager.RaisePredictiveEvent(new TailAltAttackEvent(
         _entityManager.GetNetEntity(weaponUid),

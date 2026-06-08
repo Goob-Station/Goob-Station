@@ -10,6 +10,7 @@ public sealed partial class CombatAnimationPrototype : IPrototype, ICloneable
 {
     [IdDataField] public string ID { get; private set; } = default!;
 
+    [DataField] public string AnimationType { get; private set; } = "slash";
     [DataField] public float AnimationDuration = 0.15f;
 
     [DataField] public float FadeoutDuration = 0.05f;
@@ -29,6 +30,7 @@ public sealed partial class CombatAnimationPrototype : IPrototype, ICloneable
         return new CombatAnimationPrototype()
         {
             ID = ID,
+            AnimationType = AnimationType,
             AnimationDuration = AnimationDuration,
             FadeoutDuration = FadeoutDuration,
             FadeoutStartTime = FadeoutStartTime,

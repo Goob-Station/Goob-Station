@@ -1030,6 +1030,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     // TODO переименовать
     public void DoSweepingBlow(List<EntityUid> targets, EntityUid user, MeleeWeaponComponent component, AttackEvent ev, EntityUid meleeUid, DamageSpecifier damage, MeleeHitEvent hitEvent)
     {
+        var resistanceBypass = GetResistanceBypass(meleeUid, user, component);
 
         foreach (var target in targets)
         {
@@ -1066,6 +1067,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                     modifiedDamage.WoundSeverityMultipliers[type] *= component.HeavyAttackWoundMultiplier;
             }
             var damageResult = Damageable.TryChangeDamage(entity, modifiedDamage, origin: user, ignoreResistances: resistanceBypass, partMultiplier: component.HeavyPartDamageMultiplier); // Shitmed Change
+
             var comboEv = new ComboAttackPerformedEvent(user, entity, meleeUid, ComboAttackType.HarmLight);
             RaiseLocalEvent(user, comboEv);
 

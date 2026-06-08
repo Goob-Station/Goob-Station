@@ -21,7 +21,6 @@ namespace Content.Client._pofitlo.CombatExtended.UserInterface.FightAction;
 public sealed class FightActionUIController : UIController, IOnStateEntered<GameplayState>, IOnSystemChanged<FightActionSystem>
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
     [Dependency] private readonly IEntityNetworkManager _net = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
@@ -113,20 +112,21 @@ public sealed class FightActionUIController : UIController, IOnStateEntered<Game
     public void SetFightAction(FightActionPrototype fightActionPrototype)
     {
         if (_playerManager.LocalEntity is not { } user
-            || _entManager.GetComponent<FightActionComponent>(user) is not { } fightActionComp
+            || !_entManager.TryGetComponent<FightActionComponent>(user, out var fightActionComp)
             || FightActionControl == null)
             return;
 
         ProtoId<CombatAnimationPrototype> animationProto = fightActionPrototype.AnimationPrototype;
+        ProtoId<CombatAnimationPrototype> altAnimationProto = fightActionPrototype.AltAnimationPrototype;
         ProtoId<FightActionMeleeParametersPrototype> meleeParametersProto = fightActionPrototype.MeleeParametersPrototype;
         AttackStrategy fightAction = fightActionPrototype.SetAttackStrategy;
         SpriteSpecifier icon = fightActionPrototype.Icon;
-        bool hasHigherPriorityThanWeapons = fightActionPrototype.HasHigherPriorityThanWeapons; // TODO вынести в говорящие функции
+        bool hasHigherPriorityThanWeapons = fightActionPrototype.HasHigherPriorityThanWeapons;
 
         var player = _entManager.GetNetEntity(user);
         if (fightAction != fightActionComp.Strategy)
         {
-            var msg = new FightActionChangeEvent(player, fightAction, hasHigherPriorityThanWeapons, meleeParametersProto, animationProto);
+            var msg = new FightActionChangeEvent(player, fightAction, hasHigherPriorityThanWeapons, meleeParametersProto, animationProto, altAnimationProto);
             _net.SendSystemNetworkMessage(msg);
         }
 
