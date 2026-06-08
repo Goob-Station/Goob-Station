@@ -1,9 +1,9 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Baptr0b0t 
+// SPDX-FileCopyrightText: 2025 Baptr0b0t
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.SpeciesAffinity;
+using Content.Goobstation.Shared.PlushieBite;
 using Content.Server.Body.Systems;
 using Content.Server.Popups;
 using Content.Shared.Damage;
@@ -14,9 +14,9 @@ using Robust.Server.Audio;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Server.SpeciesAffinity;
+namespace Content.Goobstation.Server.PlushieBite;
 
-public sealed class SpeciesAffinitySystem : EntitySystem
+public sealed class PlushieBiteSystem : EntitySystem
 {
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
@@ -29,18 +29,18 @@ public sealed class SpeciesAffinitySystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<SpeciesAffinityComponent, GotEquippedHandEvent>(OnEquipped);
-        SubscribeLocalEvent<SpeciesAffinityComponent, GotUnequippedHandEvent>(OnUnequipped);
+        SubscribeLocalEvent<PlushieBiteComponent, GotEquippedHandEvent>(OnEquipped);
+        SubscribeLocalEvent<PlushieBiteComponent, GotUnequippedHandEvent>(OnUnequipped);
     }
 
-    private void OnEquipped(Entity<SpeciesAffinityComponent> ent, ref GotEquippedHandEvent args)
+    private void OnEquipped(Entity<PlushieBiteComponent> ent, ref GotEquippedHandEvent args)
     {
         ent.Comp.Holder = args.User;
         ent.Comp.IsHolderFavored = IsFavored(args.User, ent.Comp);
         ent.Comp.NextBiteTime = _timing.CurTime + ent.Comp.BiteInterval;
     }
 
-    private void OnUnequipped(Entity<SpeciesAffinityComponent> ent, ref GotUnequippedHandEvent args)
+    private void OnUnequipped(Entity<PlushieBiteComponent> ent, ref GotUnequippedHandEvent args)
     {
         ent.Comp.Holder = null;
         ent.Comp.IsHolderFavored = false;
@@ -50,7 +50,7 @@ public sealed class SpeciesAffinitySystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<SpeciesAffinityComponent>();
+        var query = EntityQueryEnumerator<PlushieBiteComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
             if (comp.Holder == null || comp.IsHolderFavored)
@@ -77,7 +77,7 @@ public sealed class SpeciesAffinitySystem : EntitySystem
         }
     }
 
-    private bool IsFavored(EntityUid holder, SpeciesAffinityComponent comp)
+    private bool IsFavored(EntityUid holder, PlushieBiteComponent comp)
     {
         if (!TryComp<HumanoidAppearanceComponent>(holder, out var appearance))
             return false;

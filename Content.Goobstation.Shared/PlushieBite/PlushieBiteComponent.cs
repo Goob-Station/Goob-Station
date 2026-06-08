@@ -1,5 +1,5 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Baptr0b0t 
+// SPDX-FileCopyrightText: 2025 Baptr0b0t
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -9,13 +9,13 @@ using Content.Shared.Humanoid.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.SpeciesAffinity;
+namespace Content.Goobstation.Shared.PlushieBite;
 
 /// <summary>
 /// Holders whose species is not in <see cref="FavoredSpecies"/> have a periodic chance to be bitten.
 /// </summary>
 [RegisterComponent]
-public sealed partial class SpeciesAffinityComponent : Component
+public sealed partial class PlushieBiteComponent : Component
 {
     /// <summary>
     /// Any species not in this list is considered unfavored and may get bitten.
@@ -55,10 +55,10 @@ public sealed partial class SpeciesAffinityComponent : Component
 
     [ViewVariables]
     public EntityUid? Holder;
-    
+
     [ViewVariables]
     public bool IsHolderFavored;
-    
+
     [ViewVariables]
     public TimeSpan NextBiteTime;
 }

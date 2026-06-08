@@ -1097,7 +1097,7 @@
   suffix: Evil
 
 - type: entity
-  name: evil LeoMalone plush
+  name: evil Leo Malone plush
   parent: PlushieLeoMalone
   id: EvilPlushieLeoMalone
   suffix: Evil
@@ -1194,8 +1194,8 @@
     juiceSolution:
       reagents:
       - ReagentId: VulpkaninMutationToxin
-        Quantity: 7.5
-  - type: SpeciesAffinity
+        Quantity: 10
+  - type: PlushieBite
     favoredSpecies:
     - Vulpkanin
     biteChance: 0.15
