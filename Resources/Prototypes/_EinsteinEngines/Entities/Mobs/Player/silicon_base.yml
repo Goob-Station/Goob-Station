@@ -261,7 +261,7 @@
     - type: Climbing
     - type: StandingState
     - type: MindContainer
-      showExamineInfo: true
+    - type: MindExaminable
     - type: SSDIndicator
     - type: CanEscapeInventory
     - type: HumanoidAppearance

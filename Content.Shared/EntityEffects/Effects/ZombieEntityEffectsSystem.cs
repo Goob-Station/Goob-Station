@@ -1,4 +1,6 @@
-﻿using Content.Shared.Mobs.Components;
+﻿using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Popups;
 using Content.Shared.Zombies;
 using Robust.Shared.Prototypes;
 
@@ -27,17 +29,39 @@ public sealed partial class CauseZombieInfectionEntityEffectsSystem : EntityEffe
 /// <inheritdoc cref="EntityEffectSystem{T, TEffect}"/>
 public sealed partial class CureZombieInfectionEntityEffectsSystem : EntityEffectSystem<MobStateComponent, CureZombieInfection>
 {
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
     // MobState because you have to die to become a zombie...
     protected override void Effect(Entity<MobStateComponent> entity, ref EntityEffectEvent<CureZombieInfection> args)
     {
         if (HasComp<IncurableZombieComponent>(entity))
             return;
 
-        RemComp<ZombifyOnDeathComponent>(entity);
-        RemComp<PendingZombieComponent>(entity);
+        // Goob start cure
+        if (HasComp<ZombifyOnDeathComponent>(entity)
+            || HasComp<PendingZombieComponent>(entity))
+        {
+            RemComp<ZombifyOnDeathComponent>(entity);
+            RemComp<PendingZombieComponent>(entity);
+
+            _popup.PopupEntity(
+                Loc.GetString("zombie-cured-popup"),
+                entity,
+                PopupType.Medium
+            );
+        }
+        // Goob end cure
 
         if (args.Effect.Innoculate)
             EnsureComp<ZombieImmuneComponent>(entity);
+
+        // Goob cure start, again,
+        if (HasComp<ZombieComponent>(entity)
+            && entity.Comp.CurrentState != MobState.Alive)
+        {
+            var ev = new EntityZombifiedEvent(entity);
+            RaiseLocalEvent(entity, ref ev);
+        }
+        // Goob cure end, again.
     }
 }
 
@@ -56,6 +80,12 @@ public sealed partial class CureZombieInfection : EntityEffectBase<CureZombieInf
     /// </summary>
     [DataField]
     public bool Innoculate;
+
+    /// <summary>
+    ///  Goobstation - whether it cures zombies in a critical state or under
+    /// </summary>
+    [DataField]
+    public bool CureCriticalZombies; // Goob
 
     public override string EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
     {

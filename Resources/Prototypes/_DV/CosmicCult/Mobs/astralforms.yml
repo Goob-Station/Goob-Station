@@ -31,7 +31,7 @@
   - type: StatusIcon
     bounds: -0.5,-0.5,0.5,0.5
   - type: MindContainer
-    showExamineInfo: true
+  - type: MindExaminable
   - type: Examiner
   - type: ContentEye
     maxZoom: 1.2, 1.2

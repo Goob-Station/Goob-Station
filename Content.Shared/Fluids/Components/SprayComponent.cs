@@ -45,8 +45,11 @@ namespace Content.Shared.Fluids.Components;
 [Access(typeof(SharedSpraySystem))]
 public sealed partial class SprayComponent : Component
 {
-    public string Solution = "spray";
+
     public string TankSolution = "tank"; // Assmos - Extinguisher Nozzle
+
+    [DataField]
+    public string Solution = "spray";
 
     [DataField]
     public FixedPoint2 TransferAmount = 10;

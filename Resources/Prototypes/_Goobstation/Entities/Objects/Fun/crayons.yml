@@ -11,7 +11,8 @@
   - type: Crayon
     color: Red
     selectableColor: true
-    capacity: 1000
+  - type: AutoRecharge
+    rechargeDuration: 1
   - type: Tag
     tags:
     - Write

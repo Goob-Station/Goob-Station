@@ -107,15 +107,15 @@
     - VelesBookSet
     maxSelectedSets: 1
 
-#- type: selectableSet
-#  id: BibleSet
-#  name: The Holy Bible
-#  description: Sever any tie, but the ties that bind me to your service and to your heart.
-#  sprite:
-#    sprite: Objects/Specific/Chapel/bible.rsi
-#    state: icon
-#  content:
-#  - Bible
+- type: selectableSet
+  id: BibleSet
+  name: The Holy Bible
+  description: Sever any tie, but the ties that bind me to your service and to your heart.
+  sprite:
+    sprite: Objects/Specific/Chapel/bible.rsi
+    state: icon
+  content:
+  - Bible
 
 - type: selectableSet
   id: QuaranSet
