@@ -23336,3 +23336,13 @@ Entries:
       message: Added bluespace shaker, a larger shaker for mass-producing drinks.
   id: 2681
   time: '2026-06-08T03:57:14.0000000+00:00'
+- author: N0lim
+  changes:
+    - type: Add
+      message: >-
+        Slimes can now eat corpses piece by piece, with a DoAfter time of 20
+        seconds for ripping off a body part or organ.
+    - type: Tweak
+      message: Body parts now drop their contents (for example, organs) when destroyed.
+  id: 2682
+  time: '2026-06-08T04:00:48.0000000+00:00'
