@@ -23308,3 +23308,11 @@ Entries:
         around.
   id: 2677
   time: '2026-06-08T03:48:08.0000000+00:00'
+- author: N0lim
+  changes:
+    - type: Tweak
+      message: >-
+        Now slime extracts and chemical reactions spawn items by maximal
+        possible stacks.
+  id: 2678
+  time: '2026-06-08T03:49:29.0000000+00:00'
