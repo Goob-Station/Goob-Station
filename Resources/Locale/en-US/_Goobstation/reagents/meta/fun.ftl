@@ -55,3 +55,6 @@ reagent-desc-tilenol = You can feel yourself becoming more robust just by holdin
 
 reagent-name-crapotoxin = crapotoxin
 reagent-desc-crapotoxin = Causes the metabolizer to fart uncontrollably.
+
+reagent-name-vulpkaninmutationtoxin = Vulpkanin mutation toxin
+reagent-desc-vulpkaninmutationtoxin = A strange fluid that smells distinctly of wet dog. Ingesting enough of it will make you very familiar with that smell.

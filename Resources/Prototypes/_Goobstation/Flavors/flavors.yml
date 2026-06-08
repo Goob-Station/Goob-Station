@@ -74,6 +74,11 @@
   id: offensive
   flavorType: Base
   description: flavor-base-offensive
+
+- type: flavor
+  id: musky
+  flavorType: Base
+  description: flavor-base-musky
 # END OF MIT-LICENSED CODE
 
 - type: flavor

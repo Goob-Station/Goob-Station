@@ -220,9 +220,9 @@
 
 - type: reagent
   id: VulpkaninMutationToxin
-  name: Vulpkanin mutation toxin
+  name: reagent-name-vulpkaninmutationtoxin
   group: Toxins
-  desc: A strange fluid that smells distinctly of wet dog. Ingesting enough of it will make you very familiar with that smell.
+  desc: reagent-desc-vulpkaninmutationtoxin
   physicalDesc: reagent-physical-desc-viscous
   flavor: musky
   color: "#FFDE9F"

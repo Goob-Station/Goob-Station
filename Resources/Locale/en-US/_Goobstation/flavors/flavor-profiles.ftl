@@ -11,6 +11,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 flavor-base-futuristic = futuristic
+flavor-base-musky = musky
 flavor-base-offensive = offensive
 flavor-base-sigma = sigma
 flavor-complex-fentanyl = burning tar
