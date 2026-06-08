@@ -23217,3 +23217,9 @@ Entries:
       message: Fixed helmets not showing hair when folded.
   id: 2664
   time: '2026-06-08T03:37:56.0000000+00:00'
+- author: Skarpelen
+  changes:
+    - type: Fix
+      message: liquid pump did not allow setting a custom fluid flow rate
+  id: 2665
+  time: '2026-06-08T03:38:42.0000000+00:00'
