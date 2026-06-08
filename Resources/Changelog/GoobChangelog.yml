@@ -23445,3 +23445,9 @@ Entries:
       message: Slashers no longer have infinite revives (lmao)
   id: 2691
   time: '2026-06-08T05:06:59.0000000+00:00'
+- author: Baptr0b0t
+  changes:
+    - type: Fix
+      message: Fixed demote icon not being displayed in security pda
+  id: 2692
+  time: '2026-06-08T08:17:14.0000000+00:00'
