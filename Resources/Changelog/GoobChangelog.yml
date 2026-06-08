@@ -23478,3 +23478,11 @@ Entries:
       message: Fixed ingestion blocker info text does not show up.
   id: 2696
   time: '2026-06-08T11:58:25.0000000+00:00'
+- author: BeanyBoi69
+  changes:
+    - type: Add
+      message: Buckets have very minor armor when worn on the head.
+    - type: Tweak
+      message: Wired and sliced buckets can now be worn
+  id: 2697
+  time: '2026-06-08T11:58:54.0000000+00:00'
