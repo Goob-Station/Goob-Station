@@ -23253,3 +23253,9 @@ Entries:
       message: Reduce numbers on whitehole grenade to prevent wall clipping
   id: 2670
   time: '2026-06-08T03:41:04.0000000+00:00'
+- author: seyriix
+  changes:
+    - type: Tweak
+      message: Fixed QM's mantle resprite not showing.
+  id: 2671
+  time: '2026-06-08T03:41:22.0000000+00:00'
