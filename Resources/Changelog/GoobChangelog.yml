@@ -23205,3 +23205,9 @@ Entries:
       message: Fixed mimes being punished for using sign even with a broken vow.
   id: 2662
   time: '2026-06-08T03:36:14.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Fix
+      message: Updated cure section in zombie guidebook to be accurate.
+  id: 2663
+  time: '2026-06-08T03:37:09.0000000+00:00'
