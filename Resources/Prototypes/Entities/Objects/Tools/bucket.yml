@@ -169,6 +169,8 @@
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Plastic: 50
+  - type: StaticPrice # goobstation
+    price: 4
   - type: DnaSubstanceTrace
   - type: Armor #Goobstation
     coverage:
