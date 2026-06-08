@@ -23316,3 +23316,9 @@ Entries:
         possible stacks.
   id: 2678
   time: '2026-06-08T03:49:29.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Remove
+      message: Removed the Greytide antag
+  id: 2679
+  time: '2026-06-08T03:52:03.0000000+00:00'
