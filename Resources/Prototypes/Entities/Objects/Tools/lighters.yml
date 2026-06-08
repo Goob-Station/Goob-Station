@@ -409,6 +409,12 @@
   - type: UseDelay
   - type: IgnitionSource
     ignited: false
+  - type: MeleeWeapon
+    animationRotation: 180
+    wideAnimationRotation: 180
+    damage:
+      types:
+        Blunt: 0
   # Goobstation
   - type: Tag
     tags:

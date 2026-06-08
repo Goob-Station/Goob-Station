@@ -67,3 +67,43 @@
   license: "CC-BY-SA-3.0"
   copyright: "Created by Merct"
   source: "https://github.com/BeeStation/BeeStation-Hornet/commit/951fab19dc228507b299a132c33e0d1c41f6a655"
+
+- files: ["that_handsome_devil_midi.ogg"]
+  license: "CC0-1.0"
+  copyright: "Created by Death_Rider_03"
+  source: "https://onlinesequencer.net/3416638"
+
+- files: ["fnaf_bonnies_lullaby.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "Created by Scott Cawthon, Modified by Fnaf Nostalgia (Youtube)"
+  source: "https://www.youtube.com/watch?v=xwCpn_LnI_s"
+
+- files: ["scared_to_bits.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "Created by GBIT06"
+  source: "https://pixabay.com/music/video-games-scaredtobits-401875/"
+
+- files: ["horror_violin_string.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "Created by Alec_Koff"
+  source: "https://pixabay.com/music/dramatic-classical-horror-violin-string-487424/"
+
+- files: ["cultist_chant.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "Created by AK A"
+  source: "https://www.youtube.com/watch?v=CUQZ_I-eKI8"
+
+- files: ["naktigonis_catwhisker.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "Created by Naktigonis"
+  source: "https://www.youtube.com/watch?v=i256f1fJg4E"
+
+- files: ["padtext_horror"]
+  license: "CC-BY-3.0"
+  copyright: "Created by Padtext"
+  source: "https://pixabay.com/music/horror-scene-padtext-horror-117590/"
+
+- files: ["horror_synthwave.ogg"]
+  license: "CC-BY-4.0"
+  copyright: "Created by Karl Casey @ White Bat Audio, Modified by Loltart"
+  source: "https://www.youtube.com/watch?v=bRvES2Yw9lU"

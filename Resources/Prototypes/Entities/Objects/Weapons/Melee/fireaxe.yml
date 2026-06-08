@@ -62,7 +62,7 @@
     doAfterDuration: 4.0
     decapitation: true # Goobstation - Decapitation
   - type: Sprite
-    sprite: Objects/Weapons/Melee/fireaxe.rsi
+    sprite: _Goobstation/Objects/Weapons/Melee/fireaxe.rsi # Goobstation - resprite
     state: icon
   - type: MeleeWeapon
     heavyStaminaCost: 15 # goob edit
@@ -89,7 +89,7 @@
   - type: Item
     size: Ginormous
   - type: Clothing
-    sprite: Objects/Weapons/Melee/fireaxe.rsi
+    sprite: _Goobstation/Objects/Weapons/Melee/fireaxe.rsi # Goobstation - resprite
     quickEquip: false
     slots:
     - back
@@ -141,10 +141,10 @@
   - type: IgniteOnMeleeHit
     fireStacks: 5 #Goobchange
   - type: Sprite
-    sprite: Objects/Weapons/Melee/fireaxeflaming.rsi
+    sprite: _Goobstation/Objects/Weapons/Melee/fireaxeflaming.rsi # Goobstation - resprite
     state: icon
   - type: Clothing
-    sprite: Objects/Weapons/Melee/fireaxeflaming.rsi
+    sprite: _Goobstation/Objects/Weapons/Melee/fireaxeflaming.rsi # Goobstation - resprite
     quickEquip: false
     slots:
     - back

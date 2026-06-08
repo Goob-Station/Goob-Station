@@ -11,8 +11,8 @@
     maxOpacity: 0.7
     fadeInDuration: 1.6
     fadeOutDuration: 1.6
-    startPosition: -300,-100
-    endPosition: -300,200
+    startPosition: -500,-400
+    endPosition: -500,0
     text: "WAR DECLARATION"
     textPosition: -200,150
     textOverrideColor: Red

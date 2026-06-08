@@ -23115,3 +23115,333 @@ Entries:
       message: Fixed Goob yaml
   id: 2652
   time: '2026-05-23T22:12:03.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Tweak
+      message: Reduced the price of the holoparasite kit to 60tc.
+  id: 2653
+  time: '2026-05-24T22:46:11.0000000+00:00'
+- author: squishy97
+  changes:
+    - type: Add
+      message: ported tunnel clown undetermined bundle set from trauma station
+    - type: Add
+      message: Ported Syndicate Lawyer undetermined bundle set from Trauma station
+    - type: Add
+      message: Ported Syndicate Terrorist undetermined bundle set Trauma station
+    - type: Add
+      message: Ported Syndicate Pirate Captain undetermined bundle set Trauma station
+    - type: Add
+      message: Ported Syndicate Engineer undetermined bundle set Trauma station
+    - type: Add
+      message: Ported Syndicate Door Kicker undetermined bundle set Trauma station
+  id: 2654
+  time: '2026-05-24T22:46:20.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: >-
+        Added a new sandevistan variant, the Statveka. It slows down time near
+        the user but lasts for way less time than the normal sandevistan.
+    - type: Tweak
+      message: >-
+        Sandevistans now have a status alert telling you what your current load
+        level is. If you hover your mouse over it, it will tell you your
+        thresholds. (20 seconds causes jittering, 40 causes damage, 60 causes
+        death, etc)
+    - type: Tweak
+      message: >-
+        the normal sandevistan variant now gives a 50% speed boost to all
+        do-afters.
+    - type: Tweak
+      message: Brand new trail for the sandevistan.
+    - type: Tweak
+      message: Sandevistans no longer have a build up to be disabled.
+    - type: Tweak
+      message: The cyberpsychosis bundle now comes with the new sandevistan variant.
+  id: 2655
+  time: '2026-05-25T08:16:12.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Fix
+      message: Blind people can no longer be masters of reading sign language.
+  id: 2656
+  time: '2026-05-29T19:20:13.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Fix
+      message: Mimes are now encouraged to actually do their job.
+  id: 2657
+  time: '2026-05-30T02:47:56.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Add
+      message: Fixed blind people not being able to hear nearby conversations
+  id: 2658
+  time: '2026-05-30T20:02:26.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Fix
+      message: Fixed blob spending points on automatic attacks.
+  id: 2659
+  time: '2026-05-31T19:56:57.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Remove
+      message: Removed Gate station.
+  id: 2660
+  time: '2026-06-02T15:06:06.0000000+00:00'
+- author: TileGrout
+  changes:
+    - type: Fix
+      message: >-
+        Heretics can now use all non-chameleon/voicemod gasmasks in the Armorer
+        Ritual
+  id: 2661
+  time: '2026-06-08T03:35:55.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Add
+      message: Fixed mimes being punished for using sign even with a broken vow.
+  id: 2662
+  time: '2026-06-08T03:36:14.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Fix
+      message: Updated cure section in zombie guidebook to be accurate.
+  id: 2663
+  time: '2026-06-08T03:37:09.0000000+00:00'
+- author: shoebill
+  changes:
+    - type: Fix
+      message: Fixed helmets not showing hair when folded.
+  id: 2664
+  time: '2026-06-08T03:37:56.0000000+00:00'
+- author: Skarpelen
+  changes:
+    - type: Fix
+      message: liquid pump did not allow setting a custom fluid flow rate
+  id: 2665
+  time: '2026-06-08T03:38:42.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Fix
+      message: Fixed metal slimes being unobtainable.
+  id: 2666
+  time: '2026-06-08T03:39:25.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Fix
+      message: Fixed lathe upgrades not being installable.
+  id: 2667
+  time: '2026-06-08T03:39:32.0000000+00:00'
+- author: Elarten
+  changes:
+    - type: Fix
+      message: Now you can fight with branded lighters
+  id: 2668
+  time: '2026-06-08T03:40:18.0000000+00:00'
+- author: feistyfedora
+  changes:
+    - type: Fix
+      message: Captain's lollypop will no longer spawn infinite trash.
+  id: 2669
+  time: '2026-06-08T03:40:39.0000000+00:00'
+- author: Tisme
+  changes:
+    - type: Tweak
+      message: Reduce numbers on whitehole grenade to prevent wall clipping
+  id: 2670
+  time: '2026-06-08T03:41:04.0000000+00:00'
+- author: seyriix
+  changes:
+    - type: Tweak
+      message: Fixed QM's mantle resprite not showing.
+  id: 2671
+  time: '2026-06-08T03:41:22.0000000+00:00'
+- author: shoebill
+  changes:
+    - type: Add
+      message: >-
+        Heretics' Living Hearts play the heartbeat to the target as well,
+        getting louder the closer the heretic is. Gulp!
+    - type: Remove
+      message: >-
+        Living Hearts only play the heartbeat to the user and the target. Nearby
+        people can't hear it anymore.
+  id: 2672
+  time: '2026-06-08T03:41:53.0000000+00:00'
+- author: archee1
+  changes:
+    - type: Fix
+      message: Scrap armour has correct coverage and armour values.
+  id: 2673
+  time: '2026-06-08T03:42:34.0000000+00:00'
+- author: RedTerrorDark
+  changes:
+    - type: Tweak
+      message: Fire axe, flaming fire axe and mjollnir resprite
+  id: 2674
+  time: '2026-06-08T03:43:59.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Add
+      message: Some Resomi customisations
+    - type: Tweak
+      message: 'Some Resomi customisations '
+  id: 2675
+  time: '2026-06-08T03:45:23.0000000+00:00'
+- author: N0lim
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the utility of food and drinks for AI, this allows slimes, mice
+        and another animals to eat uncooked eggs, drink blood if they can digest
+        them and avoid toxic reagents. 
+  id: 2676
+  time: '2026-06-08T03:46:25.0000000+00:00'
+- author: shoebill
+  changes:
+    - type: Fix
+      message: >-
+        Syndicate SWAT helmets no longer show sec they're able to carry them
+        around.
+  id: 2677
+  time: '2026-06-08T03:48:08.0000000+00:00'
+- author: N0lim
+  changes:
+    - type: Tweak
+      message: >-
+        Now slime extracts and chemical reactions spawn items by maximal
+        possible stacks.
+  id: 2678
+  time: '2026-06-08T03:49:29.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Remove
+      message: Removed the Greytide antag
+  id: 2679
+  time: '2026-06-08T03:52:03.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Fix
+      message: >-
+        Fixed the nuclear operative that declares war appearing on screen
+        without any clothes.
+  id: 2680
+  time: '2026-06-08T03:52:24.0000000+00:00'
+- author: Generic-person4077
+  changes:
+    - type: Add
+      message: Added bluespace shaker, a larger shaker for mass-producing drinks.
+  id: 2681
+  time: '2026-06-08T03:57:14.0000000+00:00'
+- author: N0lim
+  changes:
+    - type: Add
+      message: >-
+        Slimes can now eat corpses piece by piece, with a DoAfter time of 20
+        seconds for ripping off a body part or organ.
+    - type: Tweak
+      message: Body parts now drop their contents (for example, organs) when destroyed.
+  id: 2682
+  time: '2026-06-08T04:00:48.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Add
+      message: >-
+        New changeling ability - Darkness Adaption. Gives translucency and night
+        vision while shrouded in darkness. Works best with darker clothing.
+  id: 2683
+  time: '2026-06-08T04:02:17.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Fix
+      message: >-
+        Fixed ore processors causing the server to crash when printing tens of
+        thousands materials at once.
+  id: 2684
+  time: '2026-06-08T04:03:11.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Tweak
+      message: >-
+        All proto-kinetic weapons were rebalanced. Now they aren't as strong as
+        before and should be comparble in power with melee crusher weapons, but
+        have 4 upgrade slots and still can break stones.
+    - type: Tweak
+      message: >-
+        Buffed Rude Buster crusher upgrade, now it has a 2 second cooldown
+        instead of 10.
+    - type: Fix
+      message: Fixed proto-kinetic repeater being too loud.
+  id: 2685
+  time: '2026-06-08T04:04:42.0000000+00:00'
+- author: seyriix
+  changes:
+    - type: Add
+      message: Added several new CentCom outfits.
+  id: 2686
+  time: '2026-06-08T04:05:26.0000000+00:00'
+- author: elperson
+  changes:
+    - type: Add
+      message: Clown can speak in comic sans
+  id: 2687
+  time: '2026-06-08T04:06:06.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Add
+      message: Added the watch from Obra Dinn to the detective
+  id: 2688
+  time: '2026-06-08T04:07:42.0000000+00:00'
+- author: thegigglerofrats
+  changes:
+    - type: Add
+      message: Medical gets re-ignitable e-cigarettes and cryostasis cigarettes
+  id: 2689
+  time: '2026-06-08T04:09:16.0000000+00:00'
+- author: GoomsonCode
+  changes:
+    - type: Add
+      message: The Reclaimer returns!!! ...Where is it?
+  id: 2690
+  time: '2026-06-08T04:12:15.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: >-
+        Added a new slasher variant system. When you first spawn in you will be
+        asked which one you want to be.
+    - type: Add
+      message: Slasher Clown variant.
+    - type: Add
+      message: Slasher Billy variant.
+    - type: Add
+      message: Slasher Butcher (original) variant.
+    - type: Add
+      message: Slasher Maintenance variant.
+    - type: Add
+      message: Slasher Hockeymask variant.
+    - type: Add
+      message: Slasher Glutton variant.
+    - type: Add
+      message: Slasher Cannibal variant.
+    - type: Add
+      message: Slasher Cultist variant.
+    - type: Tweak
+      message: Slashers can now see who's soulless.
+    - type: Tweak
+      message: >-
+        Devils cannot take souls from people that have had their soul stolen by
+        a slasher and vice versa.
+    - type: Tweak
+      message: Slashers brains now reside in their torso.
+    - type: Fix
+      message: Fixed facehuggers latching onto slashers while incorporeal,
+    - type: Fix
+      message: Slashers can now wake up if they end up falling asleep while incorporeal
+    - type: Fix
+      message: Slashers no longer have infinite revives (lmao)
+  id: 2691
+  time: '2026-06-08T05:06:59.0000000+00:00'
