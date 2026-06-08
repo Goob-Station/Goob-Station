@@ -23283,3 +23283,11 @@ Entries:
       message: Fire axe, flaming fire axe and mjollnir resprite
   id: 2674
   time: '2026-06-08T03:43:59.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Add
+      message: Some Resomi customisations
+    - type: Tweak
+      message: 'Some Resomi customisations '
+  id: 2675
+  time: '2026-06-08T03:45:23.0000000+00:00'
