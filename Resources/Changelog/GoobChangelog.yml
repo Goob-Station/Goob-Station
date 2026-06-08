@@ -23235,3 +23235,9 @@ Entries:
       message: Fixed lathe upgrades not being installable.
   id: 2667
   time: '2026-06-08T03:39:32.0000000+00:00'
+- author: Elarten
+  changes:
+    - type: Fix
+      message: Now you can fight with branded lighters
+  id: 2668
+  time: '2026-06-08T03:40:18.0000000+00:00'
