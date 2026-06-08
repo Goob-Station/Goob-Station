@@ -23211,3 +23211,9 @@ Entries:
       message: Updated cure section in zombie guidebook to be accurate.
   id: 2663
   time: '2026-06-08T03:37:09.0000000+00:00'
+- author: shoebill
+  changes:
+    - type: Fix
+      message: Fixed helmets not showing hair when folded.
+  id: 2664
+  time: '2026-06-08T03:37:56.0000000+00:00'
