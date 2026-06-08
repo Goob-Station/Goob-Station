@@ -97,6 +97,9 @@
           Quantity: 2.5
         - ReagentId: Ash
           Quantity: 2.5
+  - type: Construction
+    graph: AshwoodStick
+    node: stick
 
 - type: entity
   parent: MaterialAshwoodStick
@@ -153,6 +156,9 @@
         reagents:
         - ReagentId: Cellulose
           Quantity: 5
+  - type: Construction
+    graph: WoodStick
+    node: stick
 
 - type: entity
   parent: MaterialWoodStick
