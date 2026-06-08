@@ -23247,3 +23247,9 @@ Entries:
       message: Captain's lollypop will no longer spawn infinite trash.
   id: 2669
   time: '2026-06-08T03:40:39.0000000+00:00'
+- author: Tisme
+  changes:
+    - type: Tweak
+      message: Reduce numbers on whitehole grenade to prevent wall clipping
+  id: 2670
+  time: '2026-06-08T03:41:04.0000000+00:00'
