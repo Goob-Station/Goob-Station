@@ -1161,8 +1161,8 @@
 - type: entity
   parent: BasePlushie
   id: PlushieLeoMalone
-  name: LeoMalone plushie
-  description: PLACEHOLDER
+  name: Leo Malone plushie
+  description: Smells faintly of authority and wet dog. It barks a lot. No, seriously. A lot.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
@@ -1171,25 +1171,30 @@
     heldPrefix: plushieleomalone
   - type: EmitSoundOnUse
     sound:
-      path: /Audio/_DV/Voice/Vulpkanin/dog_bark1.ogg
+      collection: VulpkaninBarks
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/_DV/Voice/Vulpkanin/dog_bark1.ogg
+      collection: VulpkaninBarks
   - type: EmitSoundOnActivate
     sound:
-      path: /Audio/_DV/Voice/Vulpkanin/dog_bark1.ogg
+      collection: VulpkaninBarks
   - type: EmitSoundOnTrigger
     sound:
-      path: /Audio/_DV/Voice/Vulpkanin/dog_bark1.ogg
+      collection: VulpkaninBarks
   - type: EmitSoundOnCollide
     sound:
-      path: /Audio/_DV/Voice/Vulpkanin/dog_bark1.ogg
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
   - type: MeleeWeapon
     damage:
       types:
         Blunt: 0
     soundHit:
-      path: /Audio/_DV/Voice/Vulpkanin/dog_bark1.ogg
+      collection: VulpkaninSnarls
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: VulpkaninMutationToxin
+        Quantity: 7.5
   - type: SpeciesAffinity
     favoredSpecies:
     - Vulpkanin
@@ -1198,7 +1203,9 @@
     biteDamage:
       types:
         Slash: 5
-    biteSounds:
-    - /Audio/_DV/Voice/Vulpkanin/dog_snarl1.ogg
-    - /Audio/_DV/Voice/Vulpkanin/dog_snarl2.ogg
-    - /Audio/_DV/Voice/Vulpkanin/dog_snarl3.ogg
+    biteSound:
+      collection: VulpkaninSnarls
+    biteReagents:
+      reagents:
+      - ReagentId: VulpkaninMutationToxin
+        Quantity: 1

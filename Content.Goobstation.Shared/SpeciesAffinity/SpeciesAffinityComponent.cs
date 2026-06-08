@@ -3,8 +3,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Chemistry.Components;
 using Content.Shared.Damage;
 using Content.Shared.Humanoid.Prototypes;
+using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.SpeciesAffinity;
@@ -40,10 +42,16 @@ public sealed partial class SpeciesAffinityComponent : Component
     public DamageSpecifier BiteDamage = new();
 
     /// <summary>
-    /// Sounds played on bite. A random one is picked each time. No sound plays if empty.
+    /// Sound played on bite.
     /// </summary>
     [DataField]
-    public List<string> BiteSounds = [];
+    public SoundSpecifier? BiteSound;
+
+    /// <summary>
+    /// Reagents injected into the holder's bloodstream on each bite. Null means no injection.
+    /// </summary>
+    [DataField]
+    public Solution? BiteReagents;
 
     [ViewVariables]
     public EntityUid? Holder;

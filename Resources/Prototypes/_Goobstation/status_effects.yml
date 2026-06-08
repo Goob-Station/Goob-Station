@@ -28,6 +28,9 @@
 # END OF MIT-LICENSED CODE
 
 - type: statusEffect
+  id: BarkAccent
+
+- type: statusEffect
   id: Brainrotted
 
 - type: statusEffect

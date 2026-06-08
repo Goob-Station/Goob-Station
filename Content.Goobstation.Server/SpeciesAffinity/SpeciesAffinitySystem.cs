@@ -4,13 +4,13 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.SpeciesAffinity;
+using Content.Server.Body.Systems;
 using Content.Server.Popups;
 using Content.Shared.Damage;
 using Content.Shared.Hands;
 using Content.Shared.Humanoid;
 using Content.Shared.Popups;
 using Robust.Server.Audio;
-using Robust.Shared.Audio;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -21,9 +21,9 @@ public sealed class SpeciesAffinitySystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-
 
     public override void Initialize()
     {
@@ -67,10 +67,13 @@ public sealed class SpeciesAffinitySystem : EntitySystem
             var holder = comp.Holder.Value;
             var message = $"{Name(uid)} doesn't recognize its owner and bites you!";
 
-            if (comp.BiteSounds.Count > 0)
-                _audio.PlayPvs(new SoundPathSpecifier(_random.Pick(comp.BiteSounds)), uid);
+            if (comp.BiteSound != null)
+                _audio.PlayPvs(comp.BiteSound, uid);
             _popup.PopupEntity(message, uid, holder, PopupType.MediumCaution);
             _damageable.TryChangeDamage(holder, comp.BiteDamage, origin: uid);
+
+            if (comp.BiteReagents != null)
+                _bloodstream.TryAddToChemicals(holder, comp.BiteReagents.Clone());
         }
     }
 

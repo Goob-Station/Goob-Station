@@ -217,3 +217,37 @@
         showInGuidebook: true
         force: true
         probability: 1
+
+- type: reagent
+  id: VulpkaninMutationToxin
+  name: Vulpkanin mutation toxin
+  group: Toxins
+  desc: A strange fluid that smells distinctly of wet dog. Ingesting enough of it will make you very familiar with that smell.
+  physicalDesc: reagent-physical-desc-viscous
+  flavor: musky
+  color: "#FFDE9F"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.01
+      effects:
+      - !type:SpeciesChange
+        newSpecies: Vulpkanin
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+      - !type:AdjustReagent
+        reagent: VulpkaninMutationToxin
+        amount: -50.0
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+      - !type:Emote
+        emote: Bark
+        showInChat: true
+        force: false
+        probability: 0.1
+      - !type:GenericStatusEffect
+        key: BarkAccent
+        component: BarkAccent
+        time: 15
+        refresh: true
