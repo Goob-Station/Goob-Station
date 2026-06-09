@@ -32,7 +32,10 @@ public sealed partial class WoundSystem
                 continue;
 
             foreach (var woundEntity in childWoundable.Wounds.ContainedEntities)
-                yield return (woundEntity, Comp<WoundComponent>(woundEntity));
+            {
+                if (TryComp<WoundComponent>(woundEntity, out var woundComp))
+                    yield return (woundEntity, woundComp);
+            }
 
         }
     }
