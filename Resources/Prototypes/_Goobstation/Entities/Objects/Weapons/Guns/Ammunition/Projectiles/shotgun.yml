@@ -275,6 +275,7 @@
     intensitySlope: 2
     totalIntensity: 1
 
+# This basically coppies "ScatteringGrenadeBase." I wasn't able to parent from it directly because it caused crashes.
 - type: entity
   id: BulletShrapnelHeavyHighExplosive
   name: explosive shrapnel
