@@ -275,7 +275,7 @@
     intensitySlope: 2
     totalIntensity: 1
 
-# This basically coppies "ScatteringGrenadeBase." I wasn't able to parent from it directly because it caused crashes.
+# Basically copies explosive grenades, I did not parent directly because animation caused the shrapnel to spawn with an error texture.
 - type: entity
   id: BulletShrapnelHeavyHighExplosive
   name: explosive shrapnel
