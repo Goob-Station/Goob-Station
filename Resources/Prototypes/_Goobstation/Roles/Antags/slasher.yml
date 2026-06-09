@@ -32,13 +32,86 @@
 - type: startingGear
   id: SlasherGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitColorGrey
+    jumpsuit: ClothingUniformSlasher
     back: ClothingBackpackSatchel
     head: ClothingHeadHatSlasherMask
     gloves: ClothingHandsSlasherGloves
     outerClothing: ClothingOuterSlasherApron
     shoes: ClothingShoesSlasher
     id: AgentIDCard
+
+- type: startingGear
+  id: SlasherGearSpring
+  parent: SlasherGear
+  equipment:
+    head: ClothingHeadHatSlasherMaskSpring
+    outerClothing: ClothingOuterSlasherApronSpring
+
+- type: startingGear
+  id: SlasherGearBilly
+  parent: SlasherGear
+  equipment:
+    jumpsuit: ClothingUniformSlasherBilly
+    head: ClothingMaskSlasherBilly
+    gloves: ClothingHandsSlasherBilly
+    outerClothing: ClothingOuterSlasherBilly
+
+- type: startingGear
+  id: SlasherGearCult
+  parent: SlasherGear
+  equipment:
+    head: ClothingHeadSlasherCult
+    mask: ClothingMaskSlasherCult
+    outerClothing: ClothingOuterSlasherCult
+
+- type: startingGear
+  id: SlasherGearMaintenance
+  parent: SlasherGear
+  equipment:
+    jumpsuit: ClothingUniformSlasherMaintenance
+    head: ClothingHeadSlasherMaintenance
+    outerClothing: ClothingOuterSlasherMaintenance
+    neck: HarmonicaInstrument
+
+- type: startingGear
+  id: SlasherGearCannibal
+  parent: SlasherGear
+  equipment:
+    jumpsuit: ClothingUniformSlasherCannibal
+    head: ClothingHeadSlasherCannibal
+    mask: ClothingMaskSlasherCannibal
+    outerClothing: ClothingOuterSlasherCannibal
+
+- type: startingGear
+  id: SlasherGearGlutton
+  parent: SlasherGear
+  equipment:
+    head: ClothingHeadSlasherGlutton
+    outerClothing: ClothingOuterSlasherGlutton
+
+- type: startingGear
+  id: SlasherGearClown
+  parent: SlasherGear
+  equipment:
+    jumpsuit: ClothingUniformSlasherClown
+    head: ClothingMaskSlasherClown
+    outerClothing: ClothingOuterSlasherClown
+    shoes: ClothingShoesSlasherClown
+
+- type: startingGear
+  id: SlasherGearClownAscended
+  equipment:
+    jumpsuit: ClothingUniformSlasherClownAscended
+    head: ClothingMaskSlasherClownAscended
+    shoes: ClothingShoesSlasherClownAscended
+
+- type: startingGear
+  id: SlasherGearHockey
+  parent: SlasherGear
+  equipment:
+    jumpsuit: ClothingUniformSlasherHockey
+    head: ClothingMaskSlasherHockey
+    outerClothing: ClothingOuterSlasherHockey
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]

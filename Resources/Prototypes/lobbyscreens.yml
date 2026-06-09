@@ -283,3 +283,9 @@
   background: /Textures/LobbyScreens/nukies_bridge.webp
   name: Nukies Bridge!!
   artist: seyriix
+
+- type: lobbyBackground
+  id: etzils-hungry
+  background: /Textures/LobbyScreens/etzilshungry.webp
+  name: Etzil's Hungry
+  artist: IdiotVibes
