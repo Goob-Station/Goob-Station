@@ -22,7 +22,7 @@
     - prototype: SpawnArmamentsCursader
       icon:
         sprite: _ShitChap/Clothing/OuterClothing/Misc/templar.rsi
-        state: icon
+        state: full
     - prototype: SpawnArmamentsStudent
       icon:
         sprite: _ShitChap/Clothing/OuterClothing/Misc/student.rsi
