@@ -1,30 +1,261 @@
 ﻿
-# Resomi Tails
+# Head top
+- type: marking
+  id: ResomiDroopyEars
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/head_top/droopy_ears.rsi
+    state: droopy_ears
+
+- type: marking
+  id: ResomiDefaultEars
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/head_top/default_ears.rsi
+    state: default_ears
+
+- type: marking
+  id: ResomiBigEars
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/head_top/big_ears.rsi
+    state: big_ears
+
+- type: marking
+  id: ResomiNoEars
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/head_top/no_ears.rsi
+    state: no_ears
+
+# Head
+- type: marking
+  id: ResomiFluffHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/resomi_parts.rsi
+    state: fluff_head
+
+- type: marking
+  id: ResomiFluffHeadUp
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/resomi_parts.rsi
+    state: fluff_head_up
+
+# Chest
+- type: marking
+  id: ResomiFluffyChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/chest/fluffy_chest.rsi
+    state: resomifluffchest
+
+- type: marking
+  id: ResomiFluff
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/resomi_parts.rsi
+    state: fluff
+
+# Tail
+- type: marking
+  id: ResomiTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/resomi_parts.rsi
+    state: tail
+
+- type: marking
+  id: ResomiTailFeathers
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/resomi_parts.rsi
+    state: tail
+  - sprite: _Goobstation/Mobs/Customization/Resomi/resomi_parts.rsi
+    state: tail_feathers
+
 - type: marking
   id: ResomiFeathersBig
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Resomi]
   sprites:
-  - sprite: _Floofstation/Mobs/Customization/resomi_parts.rsi
+  - sprite: _Goobstation/Mobs/Customization/Resomi/resomi_parts.rsi
     state: tail
   - sprite: _Goobstation/Mobs/Customization/Resomi/Resomi_tail.rsi
     state: resomibigtail
-# Resomi head
+
+# Right arm
 - type: marking
-  id: ResomiEars
-  bodyPart: HeadTop
-  markingCategory: HeadTop
+  id: ResomiRightArmFeathers
+  bodyPart: RArm
+  markingCategory: RightArm
   speciesRestriction: [Resomi]
   sprites:
-  - sprite: _Goobstation/Mobs/Customization/Resomi/Resomi_headtop.rsi
-    state: resomi_ears
-# Resomi Chest
+  - sprite: _Goobstation/Mobs/Customization/Resomi/right_arm/arm_feathers.rsi
+    state: right_arm_feathers
+
 - type: marking
-  id: ResomiFluffyChest
-  bodyPart: Tail
-  markingCategory: Chest
+  id: ResomiRightArmColour
+  bodyPart: RArm
+  markingCategory: RightArm
   speciesRestriction: [Resomi]
   sprites:
-  - sprite: _Goobstation/Mobs/Customization/Resomi/Resomi_chest.rsi
-    state: resomifluffchest
+  - sprite: _Goobstation/Mobs/Customization/Resomi/right_arm/arm_colour.rsi
+    state: right_arm_colour
+
+- type: marking
+  id: ResomiRightArmPoints
+  bodyPart: RArm
+  markingCategory: RightArm
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/right_arm/arm_points.rsi
+    state: right_arm_points
+
+# Right hand
+- type: marking
+  id: ResomiRightHand
+  bodyPart: RHand
+  markingCategory: RightHand
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/right_hand_colour.rsi
+    state: right_hand_colour
+
+# Left arm
+- type: marking
+  id: ResomiLeftArmFeathers
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/left_arm/arm_feathers.rsi
+    state: left_arm_feathers
+
+- type: marking
+  id: ResomiLeftArmColour
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/left_arm/arm_colour.rsi
+    state: left_arm_colour
+
+- type: marking
+  id: ResomiLeftArmPoints
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/left_arm/arm_points.rsi
+    state: left_arm_points
+
+# Left hand
+- type: marking
+  id: ResomiLeftHand
+  bodyPart: LHand
+  markingCategory: LeftHand
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/left_hand_colour.rsi
+    state: left_hand_colour
+
+# Right leg
+- type: marking
+  id: ResomiRightLegFeathers
+  bodyPart: RLeg
+  markingCategory: RightLeg
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/right_leg/leg_feathers.rsi
+    state: right_leg_feathers
+
+- type: marking
+  id: ResomiRightLegColour
+  bodyPart: RLeg
+  markingCategory: RightLeg
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/right_leg/leg_colour.rsi
+    state: right_leg_colour
+
+- type: marking
+  id: ResomiRightLegPoints
+  bodyPart: RLeg
+  markingCategory: RightLeg
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/right_leg/leg_points.rsi
+    state: right_leg_points
+
+# Right foot
+- type: marking
+  id: ResomiRightFoot
+  bodyPart: RFoot
+  markingCategory: RightFoot
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/right_foot_colour.rsi
+    state: right_foot_colour
+
+# Left leg
+- type: marking
+  id: ResomiLeftLegFeathers
+  bodyPart: LLeg
+  markingCategory: LeftLeg
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/left_leg/leg_feathers.rsi
+    state: left_leg_feathers
+
+- type: marking
+  id: ResomiLeftLegColour
+  bodyPart: LLeg
+  markingCategory: LeftLeg
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/left_leg/leg_colour.rsi
+    state: left_leg_colour
+
+- type: marking
+  id: ResomiLeftLegPoints
+  bodyPart: LLeg
+  markingCategory: LeftLeg
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/left_leg/leg_points.rsi
+    state: left_leg_points
+
+# Left foot
+- type: marking
+  id: ResomiLeftFoot
+  bodyPart: LFoot
+  markingCategory: LeftFoot
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/left_foot_colour.rsi
+    state: left_foot_colour
+
+# Overlay
