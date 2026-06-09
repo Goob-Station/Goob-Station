@@ -50,7 +50,7 @@
     - prototype: SpawnArmamentsBishop
       icon:
         sprite: _ShitChap/Clothing/OuterClothing/Misc/bishop.rsi
-        state: icon
+        state: full
     - prototype: SpawnArmamentsDraconic
       icon:
         sprite: _ShitChap/Clothing/OuterClothing/Misc/dragonsuit.rsi
