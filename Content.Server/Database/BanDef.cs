@@ -1,6 +1,8 @@
 using System.Collections.Immutable;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
+using System.Text.Json;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Robust.Shared.Configuration;
@@ -117,12 +119,43 @@ namespace Content.Server.Database
                     : loc.GetString("ban-banned-permanent");
             }
 
+            // Goobstation change: add banning admin
             return $"""
-                   {loc.GetString("ban-banned-1")}
-                   {loc.GetString("ban-banned-2", ("reason", Reason))}
-                   {expires}
-                   {loc.GetString("ban-banned-3")}
-                   """;
+                {loc.GetString("ban-banned-1")}
+                {loc.GetString("ban-banned-2", ("adminName", GetUsername(BanningAdmin.ToString())))}
+                {loc.GetString("ban-banned-3", ("reason", Reason))}
+                {expires}
+                {loc.GetString("ban-banned-4")}
+                """;
+        }
+
+        // Goobstation change: add banning admin
+        static string GetUsername(string? userId)
+        {
+            if (userId == null)
+            {
+                return "Unknown";
+            }
+
+            using (var client = new HttpClient())
+            {
+                string apiUrl = "https://auth.spacestation14.com/api/query/userid?userid=" + userId;
+
+                HttpResponseMessage response = client.Send(new HttpRequestMessage(HttpMethod.Get, apiUrl));
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string jsonResponse = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+                    var jsonObject = JsonDocument.Parse(jsonResponse).RootElement;
+
+                    return jsonObject.GetProperty("userName").GetString() ?? "Unknown";
+
+                }
+                else
+                {
+                    return "Unknown";
+                }
+            }
         }
     }
 }
