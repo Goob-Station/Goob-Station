@@ -189,6 +189,7 @@
   - CryoPodMachineCircuitboard
   - CryostasisBeaker
   - SyringeCryostasis
+  - CryostasisCigarette # goob cryo cigarette
   # Goobstation R&D Console rework start
   position: 3,5
   technologyPrerequisites:
@@ -314,7 +315,7 @@
   technologyPrerequisites:
   - CritterMechs
   # Goobstation R&D Console rework end
-  
+
 - type: technology  # Goobstation
   id: ServiceBluespaceChemistry
   name: research-technology-service-energy-chem
@@ -365,9 +366,10 @@
   - SyringeBluespace
   - MedkitCombat # Goobstation - remove medkitcombat from static to research
   - VialBluespace # goob edit - bluespace vials
+  - DrinkShakerBluespace # goob
   # Goobstation R&D Console rework start
   position: 4,5
   technologyPrerequisites:
   - BiochemicalStasis
   # Goobstation R&D Console rework end
-  
+

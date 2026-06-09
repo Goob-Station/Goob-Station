@@ -5,10 +5,10 @@
 
 using Content.Goobstation.Client.Overlays;
 using Content.Goobstation.Shared.SpecialAnimation;
+using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Client.SpecialAnimation;
 
@@ -17,13 +17,15 @@ public sealed class SpecialAnimationSystem : SharedSpecialAnimationSystem
 {
     [Dependency] private readonly IOverlayManager _overlayMan = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
-    private readonly SpecialAnimationOverlay _overlay = new();
+    private SpecialAnimationOverlay _overlay = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
+        _overlay = new SpecialAnimationOverlay(_sprite);
         _overlayMan.AddOverlay(_overlay);
 
         SubscribeNetworkEvent<SpecialAnimationEvent>(OnStartAnimation);
@@ -63,32 +65,5 @@ public sealed class SpecialAnimationSystem : SharedSpecialAnimationSystem
     {
         if (_player.LocalEntity == uid)
             _overlayMan.RemoveOverlay(_overlay);
-    }
-
-    public override void PlayAnimationForEntity(
-        EntityUid sprite,
-        EntityUid player,
-        SpecialAnimationData? animationData = null,
-        string? overrideText = null)
-    {
-        // Do nothing, because predicting it will be useless.
-    }
-
-    public override void PlayAnimationFiltered(
-        EntityUid sprite,
-        Filter filter,
-        SpecialAnimationData? animationData = null,
-        string? overrideText = null)
-    {
-        // Do nothing, because predicting it will be useless.
-    }
-
-    public override void PlayAnimationFiltered(
-        EntityUid sprite,
-        Filter filter,
-        ProtoId<SpecialAnimationPrototype>? animationData = null,
-        string? overrideText = null)
-    {
-        // Do nothing, because predicting it will be useless.
     }
 }

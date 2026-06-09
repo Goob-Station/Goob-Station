@@ -160,6 +160,7 @@
     tags:
     - WhitelistChameleon
     - IPCMaskWearable
+    - GasMask
   - type: HideLayerClothing
     slots:
     - Hair

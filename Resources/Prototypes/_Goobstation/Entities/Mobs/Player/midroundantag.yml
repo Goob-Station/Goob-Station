@@ -1,12 +1,4 @@
 - type: entity
-  parent: BaseMobHuman
-  id: MobHumanGreyTide
-  name: The Greytide
-  components:
-  - type: Loadout
-    prototypes: [ GreyTideAntagGear ]
-
-- type: entity
   parent: MobHuman
   id: MobHumanTunnelClown
   name: Tunnel clown
