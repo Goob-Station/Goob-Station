@@ -179,10 +179,11 @@
 
 - type: loadout
   id: NanotrasenRepresentativeFancyJumpsuit
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: RespectedRep
   equipment:
     jumpsuit: ClothingUniformJumpsuitNanotrasenRepresentativeFancy
-    - !type:GroupLoadoutEffect
-      proto: RespectedRep
 
 - type: loadout
   id: NanotrasenRepresentativeJumpskirt

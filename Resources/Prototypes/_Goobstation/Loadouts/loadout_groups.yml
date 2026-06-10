@@ -1261,6 +1261,8 @@
 
 - type: loadoutGroup
   id: CaptainShoes
+  minLimit: 1
+  maxLimit: 1
   loadouts:
   - CaptainShoes
   - CaptainleatherShoes
