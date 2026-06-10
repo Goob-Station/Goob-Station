@@ -1588,7 +1588,7 @@
   - BoxerEnvirosuitGladiator
 
 - type: loadoutGroup
-  id: BoxerHelemet
+  id: BoxerHelmet
   name: loadout-group-boxer-helmet
   maxLimit: 1
   loadouts:
