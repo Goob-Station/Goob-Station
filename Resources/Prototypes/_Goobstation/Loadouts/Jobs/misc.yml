@@ -105,7 +105,7 @@
   effects:
   - !type:JobRequirementLoadoutEffect
     requirement:
-      !type:OverallTimeRequirement
+      !type:OverallPlaytimeRequirement
       time: 18000 #5 hours
       inverted: true
 
