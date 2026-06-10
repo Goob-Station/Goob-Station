@@ -1,0 +1,859 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "charred, dbushy, deathhead, default, dfan, fan, feathery, friewatch, gothic, jungle, ladybug, maple, moffra, oakworm, plasmafire, pointy, royal, stellar, striped, swirly, whitefly and witchwing taken from tgstation at commits https://github.com/tgstation/tgstation/commit/b30e2934e7585bad901dd12a35d0635f1fc292c1 and https://github.com/tgstation/tgstation/commit/6b0af0febe578f47ae280781682ea7a3d77f508a, modified by https://github.com/PixelTheKermit & https://github.com/MilenVolf, Underwing is drawn by Ubaser, sprites for backstabbed, bee, beetle, dragonfly, firefly, fly, glasswing, lanternfly, rhinobeetle, snoth, and truebutterfly by crocodilecarousel (github) for impstation. wings modified and separated by crocodile carousel (github) and mousesweater for impstation",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "backstabbed_neck",
+      "directions": 4
+    },
+    {
+      "name": "backstabbed_primary_behind",
+      "directions": 4
+    },
+    {
+      "name": "backstabbed_primary_front",
+      "directions": 4
+    },
+    {
+      "name": "bee_neck",
+      "directions": 4
+    },
+    {
+      "name": "bee_primary_behind",
+      "directions": 4
+    },
+    {
+      "name": "bee_primary_front",
+      "directions": 4
+    },
+    {
+      "name": "bee_secondary_front",
+      "directions": 4
+    },
+    {
+      "name": "bee_secondary_behind",
+      "directions": 4
+    },
+    {
+      "name": "bee_tertiary_front",
+      "directions": 4
+    },
+    {
+      "name": "beetle_neck",
+      "directions": 4
+    },
+    {
+      "name": "beetle_primary_behind",
+      "directions": 4
+    },
+    {
+      "name": "beetle_primary_front",
+      "directions": 4
+    },
+    {
+      "name": "beetle_secondary_front",
+      "directions": 4
+    },
+    {
+      "name": "beetle_tertiary_behind",
+      "directions": 4
+    },
+    {
+      "name": "charred_neck",
+      "directions": 4
+    },
+    {
+      "name": "charred_primary_behind",
+      "directions": 4
+    },
+    {
+      "name": "charred_primary_front",
+      "directions": 4
+    },
+    {
+      "name": "dbushy_neck",
+      "directions": 4
+    },
+    {
+      "name": "dbushy_primary_behind",
+      "directions": 4
+    },
+    {
+      "name": "dbushy_primary_front",
+      "directions": 4
+    },
+    {
+      "name": "dbushy_secondary_front",
+      "directions": 4
+    },
+    {
+      "name": "dbushy_secondary_behind",
+      "directions": 4
+    },
+    {
+      "name": "deathhead_neck",
+      "directions": 4
+    },
+    {
+      "name": "deathhead_primary_behind",
+      "directions": 4
+    },
+    {
+      "name": "deathhead_primary_front",
+      "directions": 4
+    },
+    {
+      "name": "deathhead_secondary_front",
+      "directions": 4
+    },
+    {
+      "name": "deathhead_secondary_behind",
+      "directions": 4
+    },
+    {
+      "name": "default_neck",
+      "directions": 4
+    },
+    {
+      "name": "default_primary_behind",
+      "directions": 4
+    },
+    {
+      "name": "default_primary_front",
+      "directions": 4
+    },
+    {
+      "name": "default_secondary_front",
+      "directions": 4
+    },
+    {
+      "name": "default_secondary_behind",
+      "directions": 4
+    },
+    {
+      "name": "dfan_neck",
+      "directions": 4
+    },
+    {
+      "name": "dfan_primary_behind",
+      "directions": 4
+    },
+    {
+      "name": "dfan_primary_front",
+      "directions": 4
+    },
+    {
+      "name": "dfan_secondary_front",
+      "directions": 4
+    },
+    {
+      "name": "dfan_secondary_behind",
+      "directions": 4
+    },
+    {
+      "name": "dragonfly_neck",
+      "directions": 4
+    },
+    {
+      "name": "dragonfly_primary_behind",
+      "directions": 4
+    },
+    {
+      "name": "dragonfly_primary_front",
+      "directions": 4
+    },
+    {
+      "name": "dragonfly_secondary_front",
+      "directions": 4
+    },
+    {
+      "name": "dragonfly_secondary_behind",
+      "directions": 4
+    },
+    {
+      "name": "fan_neck",
+      "directions": 4
+    },
+    {
+      "name": "fan_primary_behind",
+      "directions": 4
+    },
+    {
+      "name": "fan_primary_front",
+      "directions": 4
+    },
+    {
+      "name": "fan_secondary_front",
+      "directions": 4
+    },
+    {
+      "name": "fan_secondary_behind",
+      "directions": 4
+    },
+    {
+      "name": "feathery_neck",
+      "directions": 4
+    },
+    {
+      "name": "feathery_primary_behind",
+      "directions": 4
+    },
+    {
+      "name": "feathery_primary_front",
+      "directions": 4
+    },
+    {
+      "name": "firewatch_neck",
+      "directions": 4
+    },
+    {
+      "name": "firewatch_primary_behind",
+      "directions": 4
+    },
+    {
+      "name": "firewatch_primary_front",
+      "directions": 4
+    },
+    {
+      "name": "firewatch_secondary_front",
+      "directions": 4
+    },
+    {
+      "name": "firewatch_secondary_behind",
+      "directions": 4
+    },
+    {
+      "name": "fly_neck",
+      "directions": 4
+    },
+    {
+      "name": "fly_primary_behind",
+      "directions": 4
+    },
+    {
+      "name": "fly_primary_front",
+      "directions": 4
+    },
+    {
+      "name": "fly_secondary_front",
+      "directions": 4
+    },
+    {
+      "name": "fly_secondary_behind",
+      "directions": 4
+    },
+    {
+      "name": "glasswing_neck",
+      "directions": 4
+    },
+    {
+      "name": "glasswing_primary_behind",
+      "directions": 4
+    },
+    {
+      "name": "glasswing_primary_front",
+      "directions": 4
+    },
+    {
+      "name": "glasswing_secondary_front",
+      "directions": 4
+    },
+    {
+      "name": "glasswing_secondary_behind",
+      "directions": 4
+    },
+    {
+      "name": "glasswing_tertiary_front",
+      "directions": 4
+    },
+    {
+      "name": "glasswing_tertiary_behind",
+      "directions": 4
+    },
+    {
+      "name": "gothic_neck",
+      "directions": 4
+    },
+    {
+      "name": "gothic_primary_behind",
+      "directions": 4
+    },
+    {
+      "name": "gothic_primary_front",
+      "directions": 4
+    },
+    {
+      "name": "gothic_secondary_front",
+      "directions": 4
+    },
+    {
+      "name": "gothic_secondary_behind",
+      "directions": 4
+    },
+    {
+      "name": "jungle_neck",
+      "directions": 4
+    },
+    {
+      "name": "jungle_primary_behind",
+      "directions": 4
+    },
+    {
+      "name": "jungle_primary_front",
+      "directions": 4
+    },
+    {
+      "name": "ladybug_neck",
+      "directions": 4
+    },
+    {
+      "name": "ladybug_primary_behind",
+      "directions": 4
+    },
+    {
+      "name": "ladybug_primary_front",
+      "directions": 4
+    },
+    {
+      "name": "ladybug_secondary_front",
+      "directions": 4
+    },
+    {
+      "name": "lanternfly_neck",
+      "directions": 4
+    },
+    {
+      "name": "lanternfly_primary_behind",
+      "directions": 4
+    },
+    {
+      "name": "lanternfly_primary_front",
+      "directions": 4
+    },
+    {
+      "name": "lbushy_neck",
+      "directions": 4
+    },
+    {
+      "name": "lbushy_primary_behind",
+      "directions": 4
+    },
+    {
+      "name": "lbushy_primary_front",
+      "directions": 4
+    },
+    {
+      "name": "lbushy_secondary_front",
+      "directions": 4
+    },
+    {
+      "name": "lbushy_secondary_behind",
+      "directions": 4
+    },
+    {
+      "name": "lfirewatch_neck",
+      "directions": 4
+    },
+    {
+      "name": "lfirewatch_primary_behind",
+      "directions": 4
+    },
+    {
+      "name": "lfirewatch_primary_front",
+      "directions": 4
+    },
+    {
+      "name": "lfirewatch_secondary_front",
+      "directions": 4
+    },
+    {
+      "name": "lfirewatch_secondary_behind",
+      "directions": 4
+    },
+    {
+      "name": "luna_neck",
+      "directions": 4
+    },
+    {
+      "name": "luna_primary_behind",
+      "directions": 4
+    },
+    {
+      "name": "luna_primary_front",
+      "directions": 4
+    },
+    {
+      "name": "luna_secondary_front",
+      "directions": 4
+    },
+    {
+      "name": "luna_secondary_behind",
+      "directions": 4
+    },
+    {
+      "name": "maple_neck",
+      "directions": 4
+    },
+    {
+      "name": "maple_primary_behind",
+      "directions": 4
+    },
+    {
+      "name": "maple_primary_front",
+      "directions": 4
+    },
+    {
+      "name": "maple_secondary_front",
+      "directions": 4
+    },
+    {
+      "name": "maple_secondary_behind",
+      "directions": 4
+    },
+    {
+      "name": "moffra_neck",
+      "directions": 4
+    },
+    {
+      "name": "moffra_neck_secondary",
+      "directions": 4
+    },
+    {
+      "name": "moffra_primary_behind",
+      "directions": 4
+    },
+    {
+      "name": "moffra_primary_front",
+      "directions": 4
+    },
+    {
+      "name": "moffra_secondary_front",
+      "directions": 4
+    },
+    {
+      "name": "moffra_secondary_behind",
+      "directions": 4
+    },
+    {
+      "name": "oakworm_neck",
+      "directions": 4
+    },
+    {
+      "name": "oakworm_primary_behind",
+      "directions": 4
+    },
+    {
+      "name": "oakworm_primary_front",
+      "directions": 4
+    },
+    {
+      "name": "plasmafire_neck",
+      "directions": 4
+    },
+    {
+      "name": "plasmafire_primary_behind",
+      "directions": 4
+    },
+    {
+      "name": "plasmafire_primary_front",
+      "directions": 4
+    },
+    {
+      "name": "plasmafire_secondary_front",
+      "directions": 4
+    },
+    {
+      "name": "plasmafire_secondary_behind",
+      "directions": 4
+    },
+    {
+      "name": "pointy_neck",
+      "directions": 4
+    },
+    {
+      "name": "pointy_primary_behind",
+      "directions": 4
+    },
+    {
+      "name": "pointy_primary_front",
+      "directions": 4
+    },
+    {
+      "name": "pyr_inner_behind",
+      "directions": 4
+    },
+    {
+      "name": "pyr_inner_front",
+      "directions": 4
+    },
+    {
+      "name": "pyr_neck",
+      "directions": 4
+    },
+    {
+      "name": "pyr_stripes_front",
+      "directions": 4
+    },
+    {
+      "name": "pyr_wing_behind",
+      "directions": 4
+    },
+    {
+      "name": "pyr_wing_front",
+      "directions": 4
+    },
+    {
+      "name": "rhinobeetle_neck",
+      "directions": 4
+    },
+    {
+      "name": "rhinobeetle_primary_behind",
+      "directions": 4
+    },
+    {
+      "name": "rhinobeetle_primary_front",
+      "directions": 4
+    },
+    {
+      "name": "rhinobeetle_secondary_front",
+      "directions": 4
+    },
+    {
+      "name": "rhinobeetle_secondary_behind",
+      "directions": 4
+    },
+    {
+      "name": "royal_neck",
+      "directions": 4
+    },
+    {
+      "name": "royal_primary_behind",
+      "directions": 4
+    },
+    {
+      "name": "royal_primary_front",
+      "directions": 4
+    },
+    {
+      "name": "royal_secondary_front",
+      "directions": 4
+    },
+    {
+      "name": "royal_secondary_behind",
+      "directions": 4
+    },
+    {
+      "name": "snoth_neck",
+      "directions": 4
+    },
+    {
+      "name": "snoth_primary_behind",
+      "directions": 4
+    },
+    {
+      "name": "snoth_primary_front",
+      "directions": 4
+    },
+    {
+      "name": "snoth_secondary_front",
+      "directions": 4
+    },
+    {
+      "name": "stellar_neck",
+      "directions": 4
+    },
+    {
+      "name": "stellar_primary_behind",
+      "directions": 4
+    },
+    {
+      "name": "stellar_primary_front",
+      "directions": 4
+    },
+    {
+      "name": "striped_neck",
+      "directions": 4
+    },
+    {
+      "name": "striped_primary_behind",
+      "directions": 4
+    },
+    {
+      "name": "striped_primary_front",
+      "directions": 4
+    },
+    {
+      "name": "swirly_neck",
+      "directions": 4
+    },
+    {
+      "name": "swirly_primary_behind",
+      "directions": 4
+    },
+    {
+      "name": "swirly_primary_front",
+      "directions": 4
+    },
+    {
+      "name": "truebutterfly_neck",
+      "directions": 4
+    },
+    {
+      "name": "truebutterfly_primary_behind",
+      "directions": 4
+    },
+    {
+      "name": "truebutterfly_primary_front",
+      "directions": 4
+    },
+    {
+      "name": "truebutterfly_secondary_front",
+      "directions": 4
+    },
+    {
+      "name": "truebutterfly_secondary_behind",
+      "directions": 4
+    },
+    {
+      "name": "truebutterfly_tertiary_front",
+      "directions": 4
+    },
+    {
+      "name": "truebutterfly_tertiary_behind",
+      "directions": 4
+    },
+    {
+      "name": "underwing_neck",
+      "directions": 4
+    },
+    {
+      "name": "underwing_primary_behind",
+      "directions": 4
+    },
+    {
+      "name": "underwing_primary_front",
+      "directions": 4
+    },
+    {
+      "name": "underwing_secondary_front",
+      "directions": 4
+    },
+    {
+      "name": "underwing_secondary_behind",
+      "directions": 4
+    },
+    {
+      "name": "whitefly_neck",
+      "directions": 4
+    },
+    {
+      "name": "whitefly_primary_behind",
+      "directions": 4
+    },
+    {
+      "name": "whitefly_primary_front",
+      "directions": 4
+    },
+    {
+      "name": "witchwing_neck",
+      "directions": 4
+    },
+    {
+      "name": "witchwing_primary_behind",
+      "directions": 4
+    },
+    {
+      "name": "witchwing_primary_front",
+      "directions": 4
+    },
+    {
+      "name": "firefly_neck",
+      "directions": 4
+    },
+    {
+      "name": "firefly_primary_behind",
+      "directions": 4
+    },
+    {
+      "name": "firefly_primary_front",
+      "directions": 4
+    },
+    {
+        "name": "firefly_secondary_behind",
+        "directions": 4,
+        "delays": [
+            [
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2
+            ],
+            [
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2
+            ],
+            [
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2
+            ],
+            [
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2
+            ]
+        ]
+    },
+    {
+        "name": "firefly_secondary_front",
+        "directions": 4,
+        "delays": [
+            [
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2
+            ],
+            [
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2
+            ],
+            [
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2
+            ],
+            [
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2
+            ]
+        ]
+    }
+  ]
+}
