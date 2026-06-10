@@ -401,6 +401,15 @@
     - Plasmaman
 
 - type: loadout
+  id: reyEnvirogloves
+  equipment:
+    gloves: ClothingHandsGlovesEnviroglovesColorGrey
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
   id: Enviroslacks
   equipment:
     jumpsuit: ClothingUniformEnvirosuitEnviroslacks
