@@ -27,6 +27,24 @@
     - Plasmaman
 
 - type: loadout
+  id: PrisonGuardEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitPrisonGuard
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: PrisonGuardEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmPrisonGuard
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
   id: WardenCoatBlue
   equipment:
     outerClothing: ClothingOuterCoatWardenBlue

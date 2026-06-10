@@ -230,3 +230,25 @@
   id: CaptainWintercoat
   equipment:
     outerClothing: ClothingOuterWinterCapArmored # Goob edit
+
+- type: loadout # Goobstation
+  id: CaptainWintercoatUnarmored
+  equipment:
+    outerClothing: ClothingOuterWinterCap
+
+# Shoes - Goobstation
+
+- type: loadout
+  id: CaptainShoes
+  equipment:
+    outerClothing: ClothingShoesBootsLaceup
+
+- type: loadout
+  id: CaptainLeatherShoes
+  equipment:
+    outerClothing: ClothingShoesLeather
+
+- type: loadout
+  id: CaptainHeels
+  equipment:
+    outerClothing: ClothingShoesHighheelBoots

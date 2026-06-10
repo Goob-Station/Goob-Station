@@ -360,6 +360,7 @@
   - CaptainOuterClothing
   - CaptainWintercoat
   - CaptainJacket # Goobstation
+  - CaptainWintercoatUnarmored #Goobstation
 
 - type: loadoutGroup
   id: HoPHead
@@ -432,6 +433,9 @@
   - BrownMJ
   - MaroonMJ
   - QuarterzipJumpsuit
+  - ContractorJumpsuit
+  - ContractorJumpsuitTac
+  - JumpsuitRecruit
  # goob changes end
 
 - type: loadoutGroup
@@ -985,6 +989,7 @@
   - ChiefEngineerTurtleneckSkirt
   - ChiefEngineerMJ # goob
   - CESummerShirt # goob
+  - ChiefEngineerNT # goob
 
 - type: loadoutGroup
   id: ChiefEngineerNeck
@@ -1198,6 +1203,7 @@
   - SeniorResearcherJumpsuit
   - SeniorResearcherJumpskirt
   - ResearchMJ # goob
+  - ScientistFormal # goob
 
 - type: loadoutGroup
   id: ScientistBackpack
@@ -1614,6 +1620,7 @@
   - SeniorPhysicianJumpsuit # Goobstation
   - SeniorPhysicianJumpskirt # Goobstation
   - ParamedMJ # goob
+  - ParamedicNT # goob
 
 - type: loadoutGroup
   id: ParamedicOuterClothing
@@ -1636,7 +1643,7 @@
 - type: loadoutGroup
   id: MedicalEyewear
   name: loadout-group-medical-glasses
-  minLimit: 0
+  minLimit: 1 #Goobstation
   loadouts:
   - MedicalHud
   - MedicalEyePatchHud

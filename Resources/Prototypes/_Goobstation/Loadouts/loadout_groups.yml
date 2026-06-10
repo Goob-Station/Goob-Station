@@ -247,6 +247,7 @@
   loadouts:
   - CargoTechnicianEnvirohelm
   - MailCarrierEnvirohelm
+  - CourierEnvirosuit
 
 - type: loadoutGroup
   id: CargoTechnicianEnvirosuit
@@ -256,6 +257,7 @@
   loadouts:
   - CargoTechnicianEnvirosuit
   - MailCarrierEnvirosuit
+  - CourierEnvirosuit
 
 - type: loadoutGroup
   id: CargoTechnicianEnvirogloves
@@ -405,6 +407,8 @@
   maxLimit: 1
   loadouts:
   - SecurityOfficerEnvirohelm
+  - SecurityOfficerEnvirohelmGrey
+  - SecurityOfficerEnvirohelmBlue
 
 - type: loadoutGroup
   id: SecurityOfficerEnvirosuit
@@ -413,6 +417,8 @@
   maxLimit: 1
   loadouts:
   - SecurityOfficerEnvirosuit
+  - SecurityOfficerEnvirosuitGrey
+  - SecurityOfficerEnvirosuitBlue
 
 - type: loadoutGroup
   id: SecurityOfficerEnvirogloves
@@ -491,6 +497,7 @@
   maxLimit: 1
   loadouts:
   - WardenEnvirohelm
+  - PrisonGuard
 
 - type: loadoutGroup
   id: WardenEnvirosuit
@@ -499,6 +506,7 @@
   maxLimit: 1
   loadouts:
   - WardenEnvirosuit
+  - PrisonGuard
 
 - type: loadoutGroup
   id: WardenEnvirogloves
@@ -506,7 +514,7 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - BlackEnvirogloves
+  - CombatEnvirogloves
 
 # Head of Personnel
 
@@ -767,6 +775,23 @@
   maxLimit: 1
   loadouts:
   - GreyEnvirohelm
+  - BlackEnvirohelm
+  - PurpleEnvirohelm
+  - WhiteEnvirohelm
+  - DarkGreenEnvirohelm
+  - MaroonEnvirohelm
+  - BlueEnvirohelm
+  - PinkEnvirohelm
+  - DarkBlueEnvirohelm
+  - LightBrownEnvirohelm
+  - RedEnvirohelm
+  - OrangeEnvirohelm
+  - YellowEnvirohelm
+  - GreenEnvirohelm
+  - BrownEnvirohelm
+  - TransEnvirohelm
+  - BlackPinkEnvirohelm
+  - BlackPinkAltEnvirohelm
 
 - type: loadoutGroup
   id: AssistantEnvirosuit
@@ -775,6 +800,25 @@
   maxLimit: 1
   loadouts:
   - GreyEnvirosuit
+  - BlackEnvirosuit
+  - PurpleEnvirosuit
+  - WhiteEnvirosuit
+  - DarkGreenEnvirosuit
+  - MaroonEnvirosuit
+  - BlueEnvirosuit
+  - PinkEnvirosuit
+  - DarkBlueEnvirosuit
+  - LightBrownEnvirosuit
+  - RedEnvirosuit
+  - OrangeEnvirosuit
+  - YellowEnvirosuit
+  - GreenEnvirosuit
+  - BrownEnvirosuit
+  - TransEnvirosuit
+  - BlackPinkEnvirosuit
+  - BlackPinkAltEnvirosuit
+  - NegativeEnvirosuit
+  - EnviroslacksTider
 
 - type: loadoutGroup
   id: AssistantEnvirogloves
@@ -783,6 +827,11 @@
   maxLimit: 1
   loadouts:
   - DarkGreyEnvirogloves
+  - GreyEnvirogloves
+  - BlackEnvirogloves
+  - PurpleEnvirogloves
+  - WhiteEnvirogloves
+  - DarkGreenEnvirogloves
 
 # Musician
 
@@ -871,6 +920,9 @@
   maxLimit: 1
   loadouts:
   - WhiteEnvirohelm
+  - EnviroslacksHelmBlue
+  - EnviroslacksHelmRed
+  - EnviroslacksHelmGreen
 
 - type: loadoutGroup
   id: LawyerEnvirosuit
@@ -879,6 +931,9 @@
   maxLimit: 1
   loadouts:
   - Enviroslacks
+  - EnviroslacksBlue
+  - EnviroslacksRed
+  - EnviroslacksGreen
 
 - type: loadoutGroup
   id: LawyerEnvirogloves
@@ -1205,6 +1260,13 @@
   - CaptainGloves
 
 - type: loadoutGroup
+  id: CaptainShoes
+  loadouts:
+  - CaptainShoes
+  - CaptainleatherShoes
+  - CaptainShoesHighheelBoots
+
+- type: loadoutGroup
   id: CaptainMask
   name: loadout-group-captain-mask
   minLimit: 0
@@ -1451,6 +1513,14 @@
   - SecurityMeleePolyBaton
   - SecurityMeleeSpear
 
+- type: loadoutGroup
+  id: SecurityGloves
+  name: loadout-group-security-gloves
+  loadouts:
+  - SecurityGloves
+  - SecurityGlovesRed
+  - SecurityGlovesFingerless
+
 # Zookeeper
 
 - type: loadoutGroup
@@ -1502,6 +1572,8 @@
   maxLimit: 1
   loadouts:
   - BoxerEnvirohelm
+  - BoxerEnvirosuitGi
+  - BoxerEnvirosuitGladiator
 
 - type: loadoutGroup
   id: BoxerEnvirosuit
@@ -1510,6 +1582,15 @@
   maxLimit: 1
   loadouts:
   - BoxerEnvirosuit
+  - BoxerEnvirosuitGi
+  - BoxerEnvirosuitGladiator
+
+- type: loadoutGroup
+  id: BoxerHelemet
+  name: loadout-group-boxer-helmet
+  maxLimit: 1
+  loadouts:
+  - BoxerHelmetGladiator
 
 # Plasmamen
 
@@ -1605,3 +1686,4 @@
   - ShaftMinerJumpsuit
   - ShaftMinerJumpskirt
   - ShaftMinerOveralls
+  - ShaftMJ

@@ -125,6 +125,7 @@
   - CaptainMask # Goobstation - Lollypops!
   - CaptainBackpack
   - CaptainOuterClothing
+  - CaptainShoes # Goobstation
   - Survival
   - Trinkets
   - Animals
@@ -592,6 +593,7 @@
   - SecurityBelt
   - HeadofSecurityOuterClothing
   - HeadofSecurityShoes # Goobstation edit
+  - SecurityGloves #goob
   - SurvivalSecurity
   - Trinkets
   - SecurityStar
@@ -614,6 +616,7 @@
   - SecurityBelt
   - WardenOuterClothing
   - SecurityShoes
+  - SecurityGloves #goob
   - SurvivalSecurity
   - Trinkets
   - SecurityStar
@@ -633,6 +636,7 @@
   - SecurityMelee # Goobstation
   - SecurityOuterClothing
   - SecurityShoes
+  - SecurityGloves #goob
   - SecurityNeck
   - SecurityPDA
   - SecurityBelt
@@ -655,6 +659,7 @@
   - SecurityBackpack
   - DetectiveOuterClothing
   - SecurityShoes
+  - SecurityGloves #goob
   - SurvivalSecurity
   - Trinkets
   - SecurityStar
@@ -842,6 +847,7 @@
   - GroupTankHarness
   - BoxerJumpsuit
   - BoxerGloves
+  - BoxerHelmet #Goob
   - CommonBackpack
   - Glasses
   - Survival
