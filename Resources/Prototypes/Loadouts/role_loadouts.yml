@@ -701,7 +701,7 @@
   - ChiefMedicalOfficerOuterClothing
   - ChiefMedicalOfficerNeck
   - ChiefMedicalOfficerShoes
-  - MedicalEyewear
+ # - MedicalEyewear #Goobstation - Spawns with medichem hud
   - SurvivalMedical
   - Trinkets
   - Animals
