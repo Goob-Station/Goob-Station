@@ -286,7 +286,6 @@
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     state: ball
   - type: TriggerOnUse
-    popup: null
   - type: TimerTrigger
     delay: 3
     popup: null
@@ -354,7 +353,6 @@
     fixtureID: projectile
     maxTriggers: 1
     keyOut: timer
-    popup: null
   - type: ScatteringGrenade
     fillPrototype: BulletShrapnelHeavyHighExplosive
     delayBeforeTriggerContents: 0.5
