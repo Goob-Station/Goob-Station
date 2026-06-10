@@ -163,7 +163,7 @@ tunnel-clown-business-card = Tunnel Clown, licensed to kill.
 
 ghost-role-information-Singuloth-Knight-name = Singuloth Knight
 ghost-role-information-Singuloth-Knight-description = Once master engineers, now followers of Lord Singuloth. Wielding a singularity hammer they are a force to be reckoned with!
-Singuloth-Knight-role-greeting = Thou art a [color=#880808]Singuloth Knight[/color], a devout followeth'r of Lord Singuloth, checketh thy charact'r sheet f'r thy objectives.
+Singuloth-Knight-role-greeting = Thou art a [color=#880808]Singuloth Knight[/color], a devout followeth'r of Lord Singuloth, enter its warm embrace!
 objective-issuer-lord-singuloth = [color=#320022]Lord Singuloth[/color]
 
 ghost-role-information-dark-lord-name = Dark Lord
@@ -196,7 +196,7 @@ ghost-role-information-santa-name = Santa Claus
 ghost-role-information-santa-description = Spread christmas cheer around the station!
 
 ghost-role-information-slasher-token = The Slasher (Token)
- 
+
 ghost-role-information-sentientanimal-rules = You are a [color={role-type-sentient-animal-color}][bold]{role-type-sentient-animal-name}[/bold][/color]. You are a neutral animal who may act in self defense but otherwise not seek to harm crew.
                                               You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
                                               You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc, however you are not knowledgeable in advanced roles.

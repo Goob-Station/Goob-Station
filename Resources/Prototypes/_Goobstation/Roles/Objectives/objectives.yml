@@ -43,7 +43,7 @@
 - type: entity
   parent: BaseObjective
   name: Expand the singularity
-  description: Thee wilt prithee lord singuloth, doth this by expanding (but nay loosing) the singularity, the bigger the better!
+  description: Thee wilt prithee lord singuloth, doth this by feeding yonself to doth singularity, the bigger the better, let there be no containment fieldth!
   id: SingulothKnightSingularityObjective
   components:
   - type: Objective
@@ -52,7 +52,7 @@
       state: icon
     difficulty: 1
     issuer: objective-issuer-lord-singuloth
-  - type: RoleplayObjective
+  - type: DieCondition #todo: Obj type to check if you die specially to the singulo
 
 - type: entity
   parent: BaseObjective
