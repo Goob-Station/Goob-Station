@@ -1011,7 +1011,7 @@
 
 ## SUPPLY
 - type: entity
-  parent: ClothingUniformJumpsuitSalvageSpecialist
+  parent: ClothingUniformJumpsuitShaftMiner #Goob
   id: ClothingUniformJumpsuitMilitaryShaftMiner #Goob
   suffix: Military
   components:
