@@ -319,11 +319,12 @@
 
 - type: loadout
   id: JumpsuitRecruit
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitRecruitNT
   effects:
   - !type:GroupLoadoutEffect
     proto: Noob
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitRecruitNT
+
 
 # service jumpsuit - putting it here because frontier's only service jumpsuits are hydroponics and general lmao # goob change btw
 
