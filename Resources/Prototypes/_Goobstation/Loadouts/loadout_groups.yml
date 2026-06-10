@@ -1590,6 +1590,7 @@
 - type: loadoutGroup
   id: BoxerHelmet
   name: loadout-group-boxer-helmet
+  minLimit: 0
   maxLimit: 1
   loadouts:
   - BoxerHelmetGladiator
