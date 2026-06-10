@@ -241,14 +241,14 @@
 - type: loadout
   id: CaptainShoes
   equipment:
-    outerClothing: ClothingShoesBootsLaceup
+    shoes: ClothingShoesBootsLaceup
 
 - type: loadout
   id: CaptainLeatherShoes
   equipment:
-    outerClothing: ClothingShoesLeather
+    shoes: ClothingShoesLeather
 
 - type: loadout
   id: CaptainHeels
   equipment:
-    outerClothing: ClothingShoesHighheelBoots
+    shoes: ClothingShoesHighheelBoots
