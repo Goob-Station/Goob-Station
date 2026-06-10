@@ -277,7 +277,7 @@
 - type: loadout
   id: BlackPinkEnvirohelm
   equipment:
-    head: ClothingHeadEnvirohelmColorBlackPink
+    head: ClothingHeadEnvirohelmBlackPink
   effects:
   - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
     species:
@@ -295,7 +295,7 @@
 - type: loadout
   id: BlackPinkAltEnvirohelm
   equipment:
-    head: ClothingHeadEnvirohelmColorBlackPinkAlt
+    head: ClothingHeadEnvirohelmBlackPinkAlt
   effects:
   - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
     species:
@@ -395,15 +395,6 @@
   id: DarkGreyEnvirogloves
   equipment:
     gloves: ClothingHandsGlovesEnviroglovesColorDarkGrey
-  effects:
-  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
-    species:
-    - Plasmaman
-
-- type: loadout
-  id: GreyEnvirogloves
-  equipment:
-    gloves: ClothingHandsGlovesEnviroglovesColorGrey
   effects:
   - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
     species:

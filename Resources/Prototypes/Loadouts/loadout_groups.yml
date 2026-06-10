@@ -1620,7 +1620,7 @@
   - SeniorPhysicianJumpsuit # Goobstation
   - SeniorPhysicianJumpskirt # Goobstation
   - ParamedMJ # goob
-  - ParamedicNT # goob
+  - ParamedicJumpsuitNT # goob
 
 - type: loadoutGroup
   id: ParamedicOuterClothing
@@ -1687,6 +1687,7 @@
   loadouts:
   - BoxerShorts
   - BoxerShortsWithTop
+  - BoxerGladiator
 
 - type: loadoutGroup
   id: BoxerGloves

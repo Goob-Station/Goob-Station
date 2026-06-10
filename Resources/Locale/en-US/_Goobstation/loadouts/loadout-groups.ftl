@@ -225,6 +225,7 @@ loadout-group-boxer-helmet = Boxer helmet
 
 # Misc
 loadout-group-plasma-tank = Plasma tank
+loadout-group-security-gloves = Security gloves
 
 # Salvage/Shaft Miner
 loadout-group-salvage-specialist-jumpsuit = Salvage Specialist Jumpsuit

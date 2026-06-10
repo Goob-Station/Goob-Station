@@ -128,18 +128,17 @@
     species:
     - Plasmaman
 
-
 - type: loadout
   id: SecurityGloves
   equipment:
-    hands: ClothingHandsGlovesColorBlack
+    gloves: ClothingHandsGlovesColorBlack
 
 - type: loadout
   id: SecurityGlovesRed
   equipment:
-    hands: ClothingHandsGlovesColorRed
+    gloves: ClothingHandsGlovesColorRed
 
 - type: loadout
   id: SecurityGlovesFingerless
   equipment:
-    hands: ClothingHandsGlovesFingerless
+    gloves: ClothingHandsGlovesFingerless
