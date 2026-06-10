@@ -27,7 +27,7 @@ public sealed partial class WoundComponent : Component
     /// <summary>
     /// The damage this wound applies to it's woundable
     /// </summary>
-    public FixedPoint2 WoundIntegrityDamage => WoundSeverityPoint; //* WoundableIntegrityMultiplier;
+    public FixedPoint2 WoundIntegrityDamage => WoundSeverityPoint;
 
     /// <summary>
     /// Actually, severity of the wound. The more the worse.
@@ -35,12 +35,6 @@ public sealed partial class WoundComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public FixedPoint2 WoundSeverityPoint;
-
-    /// <summary>
-    /// How much damage this wound does to it's parent woundable?
-    /// </summary>
-    [DataField("integrityMultiplier")]
-    public FixedPoint2 WoundableIntegrityMultiplier = 1;
 
     /// <summary>
     /// maybe some cool mechanical stuff to treat those wounds later. I genuinely have no idea
@@ -120,7 +114,6 @@ public sealed class WoundComponentState : ComponentState
     public NetEntity HoldingWoundable;
 
     public FixedPoint2 WoundSeverityPoint;
-    public FixedPoint2 WoundableIntegrityMultiplier;
 
     public WoundType WoundType;
 

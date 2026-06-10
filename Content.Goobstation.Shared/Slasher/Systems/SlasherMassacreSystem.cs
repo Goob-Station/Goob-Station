@@ -1,5 +1,4 @@
 using Content.Goobstation.Shared.Slasher.Components;
-using Content.Goobstation.Shared.Slasher.Events;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared.Actions;

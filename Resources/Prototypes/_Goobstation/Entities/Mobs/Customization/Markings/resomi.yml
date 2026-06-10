@@ -1,0 +1,30 @@
+﻿
+# Resomi Tails
+- type: marking
+  id: ResomiFeathersBig
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Floofstation/Mobs/Customization/resomi_parts.rsi
+    state: tail
+  - sprite: _Goobstation/Mobs/Customization/Resomi/Resomi_tail.rsi
+    state: resomibigtail
+# Resomi head
+- type: marking
+  id: ResomiEars
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/Resomi_headtop.rsi
+    state: resomi_ears
+# Resomi Chest
+- type: marking
+  id: ResomiFluffyChest
+  bodyPart: Tail
+  markingCategory: Chest
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/Resomi_chest.rsi
+    state: resomifluffchest
