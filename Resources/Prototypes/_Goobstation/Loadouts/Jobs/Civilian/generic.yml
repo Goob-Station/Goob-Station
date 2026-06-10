@@ -59,6 +59,15 @@
     - Plasmaman
 
 - type: loadout
+  id: BlueEnvirohelm
+  equipment:
+    jumpsuit: ClothingHeadEnvirohelmColorBlue
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
   id: PinkEnvirohelm
   equipment:
     head: ClothingHeadEnvirohelmColorPink
