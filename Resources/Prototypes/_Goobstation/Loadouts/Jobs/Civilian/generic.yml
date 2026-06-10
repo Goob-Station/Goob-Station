@@ -401,7 +401,7 @@
     - Plasmaman
 
 - type: loadout
-  id: reyEnvirogloves
+  id: GreyEnvirogloves
   equipment:
     gloves: ClothingHandsGlovesEnviroglovesColorGrey
   effects:
