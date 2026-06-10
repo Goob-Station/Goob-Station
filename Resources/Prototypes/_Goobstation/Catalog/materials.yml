@@ -1,0 +1,25 @@
+- type: entity
+  id: CrateMaterialBasicResourceBulk
+  parent: CrateGenericSteel
+  name: bulk basic sheet crate
+  description: 90 sheets of steel, glass, and plastic, for when science is really screaming at you.
+  components:
+  - type: StorageFill
+    contents:
+    - id: SheetSteel
+      amount: 3
+    - id: SheetGlass
+      amount: 3
+    - id: SheetPlastic
+      amount: 3
+
+- type: entity
+  id: CrateMaterialSteelBulk
+  parent: CrateGenericSteel
+  name: bulk steel sheet crate
+  description: 300 sheets of steel, for your big construction or crafting needs.
+  components:
+  - type: StorageFill
+    contents:
+    - id: SheetSteel
+      amount: 10
