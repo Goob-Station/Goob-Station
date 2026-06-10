@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Targeting;
@@ -31,7 +32,10 @@ public sealed partial class WoundSystem
                 continue;
 
             foreach (var woundEntity in childWoundable.Wounds.ContainedEntities)
-                yield return (woundEntity, Comp<WoundComponent>(woundEntity));
+            {
+                if (TryComp<WoundComponent>(woundEntity, out var woundComp))
+                    yield return (woundEntity, woundComp);
+            }
 
         }
     }
@@ -252,7 +256,8 @@ public sealed partial class WoundSystem
             var nearestSeverity = WoundableSeverity.Severed;
             var damage = damageable.TotalDamage;
 
-            foreach (var (severity, threshold) in woundable.SortedThresholds!)
+            woundable.SortedThresholds ??= [.. woundable.Thresholds.OrderByDescending(kv => kv.Value)];
+            foreach (var (severity, threshold) in woundable.SortedThresholds)
             {
                 if (damage <= 0)
                 {
@@ -297,8 +302,9 @@ public sealed partial class WoundSystem
 
             var damageFeeling = woundable.WoundableIntegrity * nerve.PainFeels;
 
+            woundable.SortedThresholds ??= [.. woundable.Thresholds.OrderByDescending(kv => kv.Value)];
             var nearestSeverity = woundable.WoundableSeverity;
-            foreach (var (severity, value) in woundable.SortedThresholds!)
+            foreach (var (severity, value) in woundable.SortedThresholds)
             {
                 if (damageFeeling <= 0)
                 {

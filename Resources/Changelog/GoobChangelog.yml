@@ -23486,3 +23486,9 @@ Entries:
       message: Wired and sliced buckets can now be worn
   id: 2697
   time: '2026-06-08T11:58:54.0000000+00:00'
+- author: Baptr0b0t
+  changes:
+    - type: Fix
+      message: Fixed game reloading every second !
+  id: 2698
+  time: '2026-06-09T15:33:32.0000000+00:00'
