@@ -353,6 +353,9 @@
     fixtureID: projectile
     maxTriggers: 1
     keyOut: timer
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
   - type: ScatteringGrenade
     fillPrototype: BulletShrapnelHeavyHighExplosive
     delayBeforeTriggerContents: 0.5
