@@ -3,7 +3,7 @@
   icon:
     sprite: Objects/Materials/Sheets/other.rsi
     state: generic_materials
-  product: CrateMaterialBasicResource
+  product: CrateMaterialBasicResourceBulk
   cost: 4980
   category: cargoproduct-category-name-materials
   group: market
@@ -13,7 +13,7 @@
   icon:
     sprite: Objects/Materials/Sheets/metal.rsi
     state: steel_3
-  product: CrateMaterialSteel
+  product: CrateMaterialSteelBulk
   cost: 5000
   category: cargoproduct-category-name-materials
   group: market
