@@ -448,7 +448,7 @@
 - type: loadout
   id: EnviroslacksHelmBlue
   equipment:
-    jumpsuit: lothingHeadEnvirohelmEnviroslacksColorBlue
+    jumpsuit: ClothingHeadEnvirohelmEnviroslacksColorBlue
   effects:
   - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
     species:
@@ -457,7 +457,7 @@
 - type: loadout
   id: EnviroslacksHelmRed
   equipment:
-    jumpsuit: lothingHeadEnvirohelmEnviroslacksColorRed
+    jumpsuit: ClothingHeadEnvirohelmEnviroslacksColorRed
   effects:
   - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
     species:
