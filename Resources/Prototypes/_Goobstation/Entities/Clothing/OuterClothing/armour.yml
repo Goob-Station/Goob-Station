@@ -489,7 +489,7 @@
     sprite: _ShitChap/Clothing/OuterClothing/Misc/clock.rsi
 
 - type: entity
-  parent: [ClothingOuterArmorTemplar, ClothingOuterBaseToggleable]
+  parent: ClothingOuterArmorTemplar
   id: ClothingOuterArmorMonk
   name: monk's habit
   description: A few steps above rended sackcloth.
@@ -498,10 +498,6 @@
     sprite: _ShitChap/Clothing/OuterClothing/Misc/monkrobe.rsi
   - type: Clothing
     sprite: _ShitChap/Clothing/OuterClothing/Misc/monkrobe.rsi
-  - type: ToggleableClothing
-    stripDelay: null
-    clothingPrototypes:
-      head: ClothingHeadHatHelmetMonk
 
 - type: entity
   parent: ClothingOuterArmorTemplar

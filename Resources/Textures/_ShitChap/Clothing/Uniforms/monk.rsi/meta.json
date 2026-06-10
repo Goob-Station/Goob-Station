@@ -11,14 +11,7 @@
       "name": "icon"
     },
     {
-      "name": "full"
-    },
-    {
-      "name": "equipped-OUTERCLOTHING",
-      "directions": 4
-    },
-    {
-      "name": "equipped-OUTERCLOTHING-vox",
+      "name": "equipped-INNERCLOTHING",
       "directions": 4
     },
     {

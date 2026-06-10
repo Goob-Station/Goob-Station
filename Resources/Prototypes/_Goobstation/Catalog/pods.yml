@@ -77,6 +77,8 @@
   - type: SpawnTableOnDespawn
     table:
       id: ClothingOuterArmorMonk
+      id: ClothingHeadHatHelmetMonk
+      id: ClothingUniformJumpsuitMonk
 
 - type: entity
   id: SpawnArmamentsBishop

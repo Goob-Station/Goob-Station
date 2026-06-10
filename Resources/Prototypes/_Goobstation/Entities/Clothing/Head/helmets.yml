@@ -266,14 +266,17 @@
 - type: entity
   parent: ClothingHeadHatHelmetTemplar
   id: ClothingHeadHatHelmetMonk
-  name: monk's hood
-  description: For when a man wants to cover up his tonsure.
+  name: monk's blindfold
+  description: For people who want to give up unnecessary feelings.
   components:
   - type: Sprite
-    sprite: _ShitChap/Clothing/Head/Misc/monkhood.rsi
+    sprite: _ShitChap/Clothing/Head/Misc/monkblindfold.rsi
     state: icon
   - type: Clothing
-    sprite: _ShitChap/Clothing/Head/Misc/monkhood.rsi
+    sprite: _ShitChap/Clothing/Head/Misc/monkblindfold.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingHeadHatHelmetTemplar
