@@ -51,7 +51,7 @@ using static Robust.Client.UserInterface.Controls.BaseButton;
 namespace Content.Client.UserInterface.Systems.Character;
 
 [UsedImplicitly]
-public sealed class CharacterUIController : UIController // Goobstation edit - basically fully disabled this UI. Modify GoobCharacterUIController instead!!!!!!
+public sealed class CharacterUIController : UIController, IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>, IOnSystemChanged<CharacterInfoSystem>
 {
     [Dependency] private readonly IEntityManager _ent = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
@@ -64,14 +64,14 @@ public sealed class CharacterUIController : UIController // Goobstation edit - b
     {
         base.Initialize();
 
-        //SubscribeNetworkEvent<MindRoleTypeChangedEvent>(OnRoleTypeChanged); // Goobstation edit
+        SubscribeNetworkEvent<MindRoleTypeChangedEvent>(OnRoleTypeChanged);
     }
 
     private CharacterWindow? _window;
     private MenuButton? CharacterButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.CharacterButton;
 
 
-    /*public void OnStateEntered(GameplayState state) // Goobstation edit - basically fully disabled this UI. Modify GoobCharacterUIController instead!!!!!!
+    public void OnStateEntered(GameplayState state)
     {
         DebugTools.Assert(_window == null);
 
@@ -108,7 +108,7 @@ public sealed class CharacterUIController : UIController // Goobstation edit - b
     {
         system.OnCharacterUpdate -= CharacterUpdated;
         _player.LocalPlayerDetached -= CharacterDetached;
-    }*/ // Goobstation edit
+    }
 
     public void UnloadButton()
     {
