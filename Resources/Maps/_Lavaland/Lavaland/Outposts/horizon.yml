@@ -1000,7 +1000,7 @@ entities:
       parent: 1
     - type: Fixtures
       fixtures: {}
-- proto: AshBush
+- proto: FloraAshBush
   entities:
   - uid: 1260
     components:
