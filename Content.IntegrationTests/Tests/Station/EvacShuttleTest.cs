@@ -73,7 +73,7 @@ public sealed class EvacShuttleTest
         var data = entMan.GetComponent<StationDataComponent>(station);
         var shuttleData = entMan.GetComponent<StationEmergencyShuttleComponent>(station);
 
-        var saltern = data.Grids.First(x => !entMan.HasComponent<Content.Server._Lavaland.Procedural.Components.LavalandStationComponent>(x)); // Lavaland change - ignore lavaland outpost
+        var saltern = data.Grids.First(x => !entMan.HasComponent<Content.Shared._Lavaland.Procedural.Components.LavalandStationComponent>(x)); // Lavaland change - ignore lavaland outpost
         Assert.That(entMan.HasComponent<MapGridComponent>(saltern));
 
         var shuttle = shuttleData.EmergencyShuttle!.Value;

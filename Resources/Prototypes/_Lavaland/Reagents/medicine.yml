@@ -28,60 +28,26 @@
   physicalDesc: reagent-physical-desc-shiny
   flavor: metallic
   color: "#f2c777"
-  recognizable: true
   metabolisms:
     Medicine:
       effects:
-      - !type:ModifyBloodLevel
-        amount: 1.5
       - !type:HealthChange
         damage:
-          groups:
-            Burn: -1.75
-            Brute: -1.75
           types:
-            Bloodloss: -1.25
-      - !type:ModifyBloodLevel
-        amount: 1.5
-        conditions:
-        - !type:PressureThreshold
-          min: 1
-          max: 50
-          worksOnLavaland: true
-      - !type:HealthChange
-        damage:
-          groups:
-            Burn: -4.75
-            Brute: -4.75
-          types:
-            Bloodloss: -1.25
-        conditions:
-        - !type:PressureThreshold
-          min: 1
-          max: 50
-          worksOnLavaland: true
-      - !type:HealthChange
+            Blunt: -1.5
+            Slash: -1.5
+            Piercing: -1.5
+            Heat: -2
+            Shock: -0.5
+            Asphyxiation: -1
+            Bloodloss: -1
         conditions:
         - !type:ReagentThreshold
-          min: 21
+          max: 21
         - !type:PressureThreshold
-          min: 1
+          min: 20
           max: 50
           worksOnLavaland: true
-        damage:
-          types:
-            Poison: 5
-            Cold: 5
-      - !type:Jitter
-      - !type:PopupMessage
-        type: Local
-        visualType: Small
-        messages: [ "generic-reagent-effect-burning-insides" ]
-        probability: 0.1
-      - !type:Emote
-        emote: Scream
-        probability: 0.05
-        #It's balanced I swear!
 
 - type: reagent
   id: Luxurium
@@ -91,38 +57,28 @@
   physicalDesc: reagent-physical-desc-powdery
   flavor: metallic
   color: "#302f70"
-  recognizable: true
   metabolisms:
     Medicine:
       effects:
       - !type:HealthChange
         damage:
           types:
-            Cold: 2
-            Asphyxiation: 1.75
-            Bloodloss: 3
-          groups:
-            Toxin: 1.5
-            Brute: 7.5
-            Burn: 4
-            Airloss: 1.5
-      - !type:HealthChange
-        damage:
-          types:
-            Cold: -2
-            Asphyxiation: -1.75
+            Blunt: -2.5
+            Slash: -2.5
+            Piercing: -2.5
+            Heat: -3
+            Shock: -1
+            Asphyxiation: -3
             Bloodloss: -3
-          groups:
-            Toxin: -1.5
-            Brute: -7.5
-            Burn: -4
-            Airloss: -1.5
+            Poison: -1
+            Radiation: -0.5
         conditions:
-          - !type:PressureThreshold
-            min: 1
-            max: 50
-            worksOnLavaland: true
-      # Cuts the amount healed roughly by 50% when in normal pressure.
+        - !type:ReagentThreshold
+          max: 21
+        - !type:PressureThreshold
+          min: 20
+          max: 50
+          worksOnLavaland: true
 
 - type: reagent
   id: VitriumFroth

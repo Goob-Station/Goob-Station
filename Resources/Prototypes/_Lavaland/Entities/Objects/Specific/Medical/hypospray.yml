@@ -72,29 +72,19 @@
     emptySpriteName: luxpen_empty
   - type: Hypospray
     solutionName: pen
-    transferAmount: 180
+    transferAmount: 50
     onlyAffectsMobs: false
     injectOnly: true
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 180
+        maxVol: 50
         reagents:
-          - ReagentId: DexalinPlus
-            Quantity: 20
-          - ReagentId: Epinephrine # until Penthrite gets shitcoded in someday
-            Quantity: 20
-          - ReagentId: Oxandrolone
-            Quantity: 20
-          - ReagentId: SalicylicAcid
-            Quantity: 20
-          - ReagentId: Omnizine
-            Quantity: 20
-          - ReagentId: Leporazine
-            Quantity: 20
-          - ReagentId: TranexamicAcid
-            Quantity: 20
-          - ReagentId: Saline
-            Quantity: 20
-          - ReagentId: Luxurium
-            Quantity: 20
+        - ReagentId: Luxurium
+          Quantity: 20
+        - ReagentId: Leporazine
+          Quantity: 10
+        - ReagentId: Epinephrine
+          Quantity: 10
+        - ReagentId: TranexamicAcid
+          Quantity: 10

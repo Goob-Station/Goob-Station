@@ -6,12 +6,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server._Lavaland.Procedural.Systems;
+using Robust.Shared.GameStates;
 
-namespace Content.Server._Lavaland.Procedural.Components;
+namespace Content.Shared._Lavaland.Procedural.Components;
 
-[RegisterComponent, Access(typeof(LavalandSystem))]
-public sealed partial class LavalandPreloaderComponent : Component
-{
-
-}
+[RegisterComponent, NetworkedComponent]
+public sealed partial class LavalandPreloaderComponent : Component;

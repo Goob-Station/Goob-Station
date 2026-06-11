@@ -19,11 +19,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._Lavaland.Atmos;
+using Content.Shared._Lavaland.Procedural.Components;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
-using Content.Shared.Atmos.EntitySystems;
 
-namespace Content.Shared.EntityEffects.EffectConditions;
+namespace Content.Shared._Lavaland.EntityEffects.EffectConditions;
 
 public sealed partial class PressureThreshold : EntityEffectCondition
 {
@@ -38,13 +39,25 @@ public sealed partial class PressureThreshold : EntityEffectCondition
 
     public override bool Condition(EntityEffectBaseArgs args)
     {
-        return false;
+        if (!args.EntityManager.TryGetComponent<TransformComponent>(args.TargetEntity, out var transform))
+            return false;
+
+        if (WorksOnLavaland && args.EntityManager.HasComponent<LavalandMapComponent>(transform.MapUid))
+            return true;
+
+        // TODO this is a terrible workaround and it's fixable only by making atmos partially predicted AAAAAAAAAAAAAAA
+        var mix = args.EntityManager.System<SharedLavalandAtmosphereSystem>().GetTileMixture((args.TargetEntity, transform));
+        if (mix == null)
+            return false;
+
+        var pressure = mix?.Pressure;
+        return pressure >= Min && pressure <= Max;
     }
+
     public override string GuidebookExplanation(IPrototypeManager prototype)
     {
         return Loc.GetString("reagent-effect-condition-pressure-threshold",
             ("min", Min),
             ("max", Max));
     }
-
 }
