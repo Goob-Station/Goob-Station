@@ -189,3 +189,22 @@
   id: CloningConsoleComputerCircuitboardRecipe
   result: CloningConsoleComputerCircuitboard
   completetime: 10
+
+# Recipes for both cigarettes need tweaking
+- type: latheRecipe
+  id: ECigarette
+  result: ECigarette
+  completetime: 2
+  materials:
+    Plastic: 50
+    Steel: 100
+    Glass: 100
+
+- type: latheRecipe
+  id: CryostasisCigarette
+  result: CryostasisCigarette
+  completetime: 2
+  materials:
+    Plastic: 100
+    Steel: 150
+    Glass: 150

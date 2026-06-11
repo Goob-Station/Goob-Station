@@ -1,15 +1,22 @@
 - type: entity
   name: machete
-  parent: [ BaseSword, BaseMajorContraband ]
+  parent: [ BaseItem, BaseMajorContraband ]
   id: SlasherMachete
   description: A large, vicious looking blade.
   components:
+  - type: Sharp
+  - type: Execution
+    doAfterDuration: 4.0
+    decapitation: true
   - type: Tag
     tags:
     - Machete
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Slasher/machete.rsi
+    state: icon
   - type: MeleeWeapon
+    animationRotation: -45
+    wideAnimationRotation: -135
     damage:
       types:
         Slash: 15
@@ -22,11 +29,15 @@
       types:
         Slash: 30
   - type: Item
+    size: Large
     storedSprite:
       state: storage
       sprite: _Goobstation/Objects/Specific/Slasher/machete.rsi
     shape:
     - 0,0,0,2
+  - type: Tool
+    qualities:
+    - Slicing
   - type: DisarmMalus
   - type: SlasherMassacreMachete
   - type: Prying
@@ -73,9 +84,7 @@
         Piercing: 0.90
         Heat: 0.90
         Caustic: 0.90
-  - type: ClothingGrantComponent
-    component:
-    - type: FaceHuggerBlocker
+  - type: FaceHuggerBlocker
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -131,6 +140,9 @@
         Piercing: 0.90
         Heat: 0.90
         Caustic: 0.90
+  - type: SelfUnremovableClothing
+  - type: SelfEquipOnly
+    unequipRequireConscious: false
 
 - type: entity
   parent: ClothingShoesLeather
@@ -148,6 +160,607 @@
         Piercing: 0.90
         Heat: 0.90
         Caustic: 0.90
+  - type: SelfUnremovableClothing
+  - type: SelfEquipOnly
+    unequipRequireConscious: false
+
+- type: entity
+  parent: ClothingUniformJumpsuitColorGrey
+  id: ClothingUniformSlasher
+  name: grey jumpsuit
+  description: A grey jumpsuit that smells faintly of blood.
+  components:
+  - type: SelfUnremovableClothing
+  - type: SelfEquipOnly
+    unequipRequireConscious: false
+
+- type: entity # This one is just for the actual facemask slot instead of the helmet slot
+  parent: ClothingMaskBase
+  id: ClothingMaskSlasher
+  categories: [ HideSpawnMenu ]
+  name: slasher mask
+  description: A face-covering mask. You can't smell the fear through it, but you can cause it.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Slasher/mask.rsi
+  - type: Clothing
+    sprite: _Goobstation/Objects/Specific/Slasher/mask.rsi
+    clothingVisuals:
+      mask:
+      - state: equipped-MASK
+  - type: SelfUnremovableClothing
+  - type: SelfEquipOnly
+    unequipRequireConscious: false
+
+# Spring-locked kit
+
+- type: entity
+  name: purple knife
+  parent: SlasherMachete
+  id: SlasherMacheteSpring
+  description: A large, purple, vicious looking blade.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Slasher/spring_machete.rsi
+
+- type: entity
+  name: spring mask
+  parent: ClothingHeadHatSlasherMask
+  id: ClothingHeadHatSlasherMaskSpring
+  description: A deeply unsettling and mechanical looking mask.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Slasher/spring_mask.rsi
+  - type: Clothing
+    sprite: _Goobstation/Objects/Specific/Slasher/spring_mask.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "-0.06, 0.40"
+  - type: Appearance
+  - type: SpringlockClothing
+    lockedClothingVisuals:
+      head:
+      - sprite: _Goobstation/Objects/Specific/Slasher/spring_mask.rsi
+        state: locked-equipped-HELMET
+        offset: "-0.03, 0.32"
+
+- type: entity
+  name: spring suit
+  parent: ClothingOuterSlasherApron
+  id: ClothingOuterSlasherApronSpring
+  description: A suit with intricate springs all around the insides, as if it was made to move by itself. Better not let any liquids near it.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Slasher/spring_apron.rsi
+  - type: Clothing
+    sprite: _Goobstation/Objects/Specific/Slasher/spring_apron.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+  - type: Appearance
+  - type: SpringlockClothing
+    lockedClothingVisuals:
+      outerClothing:
+      - sprite: _Goobstation/Objects/Specific/Slasher/spring_apron.rsi
+        state: locked-equipped-OUTERCLOTHING
+
+# Billy Kit
+
+- type: entity
+  name: combat gloves
+  parent: ClothingHandsSlasherGloves
+  id: ClothingHandsSlasherBilly
+  categories: [ HideSpawnMenu ]
+  description: Tactical gloves, permanently stained.
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/combat.rsi
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/combat.rsi
+
+- type: entity
+  name: gas mask
+  parent: ClothingHeadHatSlasherMask
+  id: ClothingMaskSlasherBilly
+  categories: [ HideSpawnMenu ]
+  description: A face-covering mask. You can smell the fear through it.
+  components:
+  - type: Sprite
+    sprite: Clothing/Mask/gas.rsi
+  - type: Clothing
+    sprite: Clothing/Mask/gas.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-MASK
+
+- type: entity
+  name: jensen coat
+  parent: ClothingOuterSlasherApron
+  id: ClothingOuterSlasherBilly
+  categories: [ HideSpawnMenu ]
+  description: Made out of the toughest synthleather for the toughest killer.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Coats/jensencoat.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Coats/jensencoat.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+
+- type: entity
+  name: black jumpsuit
+  parent: ClothingUniformSlasher
+  id: ClothingUniformSlasherBilly
+  categories: [ HideSpawnMenu ]
+  description: A pitch-black jumpsuit. Stylish, in a murderous way.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+    layers:
+    - state: icon
+      color: "#1a1a1a"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#1a1a1a"
+      right:
+      - state: inhand-right
+        color: "#1a1a1a"
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/black.rsi
+
+
+- type: entity
+  name: crowbar
+  parent: SlasherMachete
+  id: SlasherCrowbar
+  categories: [ HideSpawnMenu ]
+  description: A multipurpose tool. Multipurpose includes murder.
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/crowbar.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    soundHit:
+      collection: MetalThud
+  - type: Item
+    size: Normal
+    sprite: Objects/Tools/crowbar.rsi
+    shape:
+    - 0,0,0,1
+  - type: Tool
+    qualities:
+    - Prying
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: Prying
+
+# Cult Kit
+
+- type: entity
+  name: cult hood
+  parent: ClothingHeadHatSlasherMask
+  id: ClothingHeadSlasherCult
+  categories: [ HideSpawnMenu ]
+  description: There's no slasher without cult hoods.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hoods/cult.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hoods/cult.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+
+- type: entity
+  name: abyssal mask
+  parent: ClothingMaskSlasher
+  id: ClothingMaskSlasherCult
+  categories: [ HideSpawnMenu ]
+  description: A mask created from suffering. When you look into its eyes, it looks back.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/mad_mask.rsi
+  - type: Clothing
+    sprite: _Goobstation/Heretic/mad_mask.rsi
+  - type: MadnessMask
+    staminaProb: 0
+    jitterProb: 0.75
+    rainbowProb: 0.5
+  - type: IdentityBlocker
+
+- type: entity
+  name: cult robes
+  parent: ClothingOuterSlasherApron
+  id: ClothingOuterSlasherCult
+  categories: [ HideSpawnMenu ]
+  description: There's no slasher without classic cult robes.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Misc/cultrobes.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Misc/cultrobes.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+
+- type: entity
+  name: eldritch blade
+  parent: SlasherMachete
+  id: SlasherEldritchBlade
+  categories: [ HideSpawnMenu ]
+  description: A sword humming with unholy energy. The slasher has claimed it as their own.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/cult_blade.rsi
+    state: icon
+  - type: Item
+    storedSprite:
+      state: icon
+      sprite: Objects/Weapons/Melee/cult_blade.rsi
+  - type: Tag
+    tags:
+    - Machete
+  - type: SlasherMassacreMachete
+
+# Maintenance Kit
+
+- type: entity
+  name: paper bag
+  parent: ClothingHeadHatSlasherMask
+  id: ClothingHeadSlasherMaintenance
+  categories: [ HideSpawnMenu ]
+  description: A smiling paper bag. Somehow more unsettling than any mask.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/papersacksmile.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/papersacksmile.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+
+- type: entity
+  name: monastic robe
+  parent: ClothingUniformSlasher
+  id: ClothingUniformSlasherMaintenance
+  categories: [ HideSpawnMenu ]
+  description: A light robe worn by a wandering something.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuit/monastic_robe_light.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpsuit/monastic_robe_light.rsi
+
+- type: entity
+  name: butcher's cleaver
+  parent: SlasherMachete
+  id: SlasherButchCleaver
+  categories: [ HideSpawnMenu ]
+  description: A huge blade used for chopping up meat. This includes the crew.
+  components:
+  - type: Tag
+    tags:
+    - Knife
+    - Cleaver
+    - Machete
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/cleaver.rsi
+    state: butch
+  - type: MeleeWeapon
+    wideAnimationRotation: -115
+  - type: Item
+    size: Normal
+    sprite: Objects/Weapons/Melee/cleaver.rsi
+
+- type: entity
+  name: basic armor
+  parent: ClothingOuterSlasherApron
+  id: ClothingOuterSlasherMaintenance
+  categories: [ HideSpawnMenu ]
+  description: Basic armor. Looks a bit worn down.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Armor/security.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Armor/security.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+
+# Cannibal Kit
+
+- type: entity
+  name: chef's uniform
+  parent: ClothingUniformSlasher
+  id: ClothingUniformSlasherCannibal
+  categories: [ HideSpawnMenu ]
+  description: A chef's uniform. Still warm from the last shift.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuit/chef.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpsuit/chef.rsi
+
+- type: entity
+  name: chef's hat
+  parent: ClothingHeadHatSlasherMask
+  id: ClothingHeadSlasherCannibal
+  categories: [ HideSpawnMenu ]
+  description: A tall white chef's hat, stained with more than just grease.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/chefhat.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/chefhat.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+
+- type: entity
+  name: pig mask
+  parent: ClothingMaskSlasher
+  id: ClothingMaskSlasherCannibal
+  categories: [ HideSpawnMenu ]
+  description: A squealing pig mask. Fitting for someone with a unique appetite.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Clothing/Mask/pig.rsi
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Clothing/Mask/pig.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-MASK
+
+- type: entity
+  name: blood-soaked apron
+  parent: ClothingOuterSlasherApron
+  id: ClothingOuterSlasherCannibal
+  categories: [ HideSpawnMenu ]
+  description: An apron drenched in something you'd rather not think about.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Slasher/blood_apron.rsi
+  - type: Clothing
+    sprite: _Goobstation/Objects/Specific/Slasher/blood_apron.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+
+# Glutton Kit
+
+- type: entity
+  name: organic space suit
+  parent: ClothingOuterSlasherApron
+  id: ClothingOuterSlasherGlutton
+  categories: [ HideSpawnMenu ]
+  description: You can't quite make out what it is.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Hardsuits/lingspacesuit.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Hardsuits/lingspacesuit.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+
+- type: entity
+  name: organic space helmet
+  parent: ClothingHeadHatSlasherMask
+  id: ClothingHeadSlasherGlutton
+  categories: [ HideSpawnMenu ]
+  description: You can't quite make out what it is.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hardsuits/lingspacehelmet.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hardsuits/lingspacehelmet.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+
+# Clown Kit
+
+- type: entity
+  name: robes of the honkmother
+  parent: ClothingOuterSlasherApron
+  id: ClothingOuterSlasherClown
+  categories: [ HideSpawnMenu ]
+  description: Meant for a clown of the cloth. And for murder, apparently.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Coats/clownpriest.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Coats/clownpriest.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+
+- type: entity
+  name: clown suit
+  parent: ClothingUniformSlasher
+  id: ClothingUniformSlasherClown
+  categories: [ HideSpawnMenu ]
+  description: HONK!
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuit/clown.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpsuit/clown.rsi
+
+- type: entity
+  name: large clown shoes
+  parent: ClothingShoesSlasher
+  id: ClothingShoesSlasherClown
+  categories: [ HideSpawnMenu ]
+  description: When you need to stand out in a room full of clowns. Or crime scenes.
+  components:
+  - type: Sprite
+    sprite: Clothing/Shoes/Specific/large_clown.rsi
+    state: icon
+  - type: Clothing
+    sprite: Clothing/Shoes/Specific/large_clown.rsi
+    clothingVisuals:
+      shoes:
+      - state: equipped-FEET
+        offset: "0, -0.02"
+  - type: WaddleWhenWorn
+  - type: FootstepModifier # Goobstation - uncommented, dog dying sound is peak
+    footstepSoundCollection:
+      collection: FootstepSlip
+      params:
+        volume: -2
+        variation: 0.20
+
+- type: entity
+  name: clown wig and mask
+  parent: ClothingHeadHatSlasherMask
+  id: ClothingMaskSlasherClown
+  categories: [ HideSpawnMenu ]
+  description: A true prankster's facial attire. The slasher has claimed it as their own.
+  components:
+  - type: Sprite
+    sprite: Clothing/Mask/clown.rsi
+  - type: Clothing
+    sprite: Clothing/Mask/clown.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-MASK
+
+- type: entity
+  name: rainbow offset cane
+  parent: SlasherMachete
+  id: SlasherOffsetCaneClown
+  categories: [ HideSpawnMenu ]
+  description: A rainbow offset cane. Perfect for clowns and for making a mess.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/offset_canes/clown.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    soundHit:
+      path: /Audio/Items/bikehorn.ogg
+      params:
+        volume: -4
+  - type: Item
+    size: Normal
+    sprite: Objects/Weapons/Melee/offset_canes/clown.rsi
+    shape:
+    - 0,0,0,1
+
+- type: entity
+  name: Ominous Bananium Tower
+  parent: SlasherMeatSpike
+  id: SlasherMeatSpikeClown
+  categories: [ HideSpawnMenu ]
+  description: An unsettling bananium tower. You might want to run.
+  components:
+  - type: Sprite
+    sprite: Structures/Decoration/statues.rsi
+    state: bananium_clown
+    layers:
+    - state: bananium_clown
+      map: ["base"]
+    offset: "0.0,0.5"
+
+# Clown Kit – Ascended variants
+
+- type: entity
+  name: bling clown shoes
+  parent: ClothingShoesSlasherClown
+  id: ClothingShoesSlasherClownAscended
+  categories: [ HideSpawnMenu ]
+  description: Made of refined bananium. You've achieved something truly unprecedented.
+  components:
+  - type: Sprite
+    sprite: Clothing/Shoes/Specific/bling.rsi
+  - type: Clothing
+    sprite: Clothing/Shoes/Specific/bling.rsi
+    clothingVisuals:
+      shoes:
+      - state: equipped-FEET
+  - type: PointLight
+    enabled: true
+    radius: 3
+    energy: 2
+    color: "#FFD800"
+
+- type: entity
+  name: banana clown suit
+  parent: ClothingUniformSlasherClown
+  id: ClothingUniformSlasherClownAscended
+  categories: [ HideSpawnMenu ]
+  description: A banana-yellow clown suit, radiating with honk energy.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuit/clown_banana.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpsuit/clown_banana.rsi
+
+- type: entity
+  name: banana clown wig and mask
+  parent: ClothingMaskSlasherClown
+  id: ClothingMaskSlasherClownAscended
+  categories: [ HideSpawnMenu ]
+  description: The wig and mask of the honkmother. HONK!
+  components:
+  - type: Sprite
+    sprite: Clothing/Mask/clown_banana.rsi
+  - type: Clothing
+    sprite: Clothing/Mask/clown_banana.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-MASK
+
+# Hockey Mask Kit
+
+- type: entity
+  parent: ClothingHeadHatSlasherMask
+  id: ClothingMaskSlasherHockey
+  name: hockey mask
+  description: A white hockey mask, worn and cracked. The kind you see right before the lights go out.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Slasher/hockymask/hockey_mask.rsi
+  - type: Clothing
+    sprite: _Goobstation/Objects/Specific/Slasher/hockymask/hockey_mask.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-MASK
+
+- type: entity
+  parent: ClothingUniformSlasher
+  id: ClothingUniformSlasherHockey
+  name: worn jumpsuit
+  description: A tattered, muddied jumpsuit. Smells like a forest after rain. And blood.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Slasher/hockymask/hocky_outfit.rsi
+  - type: Clothing
+    sprite: _Goobstation/Objects/Specific/Slasher/hockymask/hocky_outfit.rsi
+    clothingVisuals:
+      innerClothing:
+      - state: equipped-INNERCLOTHING
+
+- type: entity
+  parent: ClothingOuterSlasherApron
+  id: ClothingOuterSlasherHockey
+  name: hockey slasher coat
+  description: A heavy, weathered coat. Something dark stains the collar, and the stitching looks rough, like it was done in the dark.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Slasher/hockymask/hocky_coat.rsi
+  - type: Clothing
+    sprite: _Goobstation/Objects/Specific/Slasher/hockymask/hocky_coat.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+
 
 - type: entity
   id: SlasherMeatSpike
@@ -167,12 +780,6 @@
     damageModifierSet: Metallic
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 200
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 100

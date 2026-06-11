@@ -37,6 +37,15 @@ using Content.Shared.Wieldable;
 using Content.Shared.Wieldable.Components;
 using Content.Server.Nutrition.EntitySystems;
 
+using Content.Goobstation.Maths.FixedPoint; // Goobstation start
+using Content.Shared.Chemistry.Reagent;
+using Content.Shared.EntityEffects.Effects;
+using Content.Shared.EntityEffects;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Systems;
+using Content.Shared.Chemistry;
+using Content.Server.Body.Components; // Goobstation end
+
 namespace Content.Server.NPC.Systems;
 
 /// <summary>
@@ -62,7 +71,9 @@ public sealed class NPCUtilitySystem : EntitySystem
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly MobThresholdSystem _thresholdSystem = default!;
     [Dependency] private readonly TurretTargetSettingsSystem _turretTargetSettings = default!;
-    [Dependency] private readonly SharedWieldableSystem _wieldable = default!; // Goobstation
+    [Dependency] private readonly SharedWieldableSystem _wieldable = default!; // Goobstation start
+    [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly SharedBodySystem _body = default!; // Goobstation end
 
     private EntityQuery<PuddleComponent> _puddleQuery;
     private EntityQuery<TransformComponent> _xformQuery;
@@ -190,10 +201,10 @@ public sealed class NPCUtilitySystem : EntitySystem
                     return 0f;
 
                 // no mouse don't eat the uranium-235
-                if (avoidBadFood && HasComp<BadFoodComponent>(targetUid))
+                if (avoidBadFood && (HasComp<BadFoodComponent>(targetUid) || TotalFoodUtilityConditioned(targetUid, owner).IsToxic)) // Goobstation edit
                     return 0f;
 
-                var nutrition = _ingestion.TotalNutrition(targetUid, owner);
+                var nutrition = TotalFoodUtilityConditioned(targetUid, owner).TotalNutrition; // Goobstation edit
                 if (nutrition <= 1.0f)
                     return 0f;
 
@@ -210,13 +221,13 @@ public sealed class NPCUtilitySystem : EntitySystem
                     return 0f;
 
                 // no janicow don't drink the blood puddle
-                if (HasComp<BadDrinkComponent>(targetUid))
+                if (HasComp<BadDrinkComponent>(targetUid) || TotalFoodUtilityConditioned(targetUid, owner).IsToxic) // Goobstation edit
                     return 0f;
 
                 // needs to have something that will satiate thirst, mice wont try to drink 100% pure mutagen.
                 // We don't check if the solution is metabolizable cause all drinks should be currently.
                 // If that changes then simply use the other overflow.
-                var hydration = _ingestion.TotalHydration(targetUid);
+                var hydration = TotalFoodUtilityConditioned(targetUid, owner).TotalHydration; // Goobstation edit
                 if (hydration <= 1.0f)
                     return 0f;
 
@@ -599,6 +610,75 @@ public sealed class NPCUtilitySystem : EntitySystem
                 throw new NotImplementedException();
         }
     }
+
+    // Goobstation start
+    /// <summary>
+    /// Gets the total metabolizable nutrition, hydration and toxicity from an ingested entity recursively, may return lesser numbers with cyclic metabolism graphs.
+    /// </summary>
+    /// <param name="consumer">The consumer entity</param>
+    /// <param name="ingestable">The consumed entity</param>
+    /// <returns>The amount of nutrition the consumable is worth</returns>
+    private FoodUtilityParams TotalFoodUtilityConditioned(Entity<EdibleComponent?> ingestable, EntityUid consumer)
+    {
+        var utilityParams = new FoodUtilityParams(0f, 0f, false);
+        if (!Resolve(ingestable, ref ingestable.Comp))
+            return utilityParams;
+
+        if (!_solutions.TryGetSolution(ingestable.Owner, ingestable.Comp.Solution, out _, out var solution))
+            return utilityParams;
+
+        Queue<ReagentQuantity> queue = [];
+        HashSet<ReagentPrototype> alreadychecked = [];
+
+        foreach (var quantity in solution.Contents)
+            queue.Enqueue(quantity);
+
+        while (queue.Any())
+        {
+            var quantity = queue.Dequeue();
+            var reagent = _proto.Index<ReagentPrototype>(quantity.Reagent.Prototype);
+
+            if (!alreadychecked.Add(reagent))
+                continue;
+
+            if (reagent.Metabolisms == null)
+                continue;
+
+            foreach (var (metabolism, entry) in reagent.Metabolisms)
+            {
+                foreach (var effect in entry.Effects)
+                {
+                    Entity<MetabolizerComponent>? metabolizingOrgan = null;
+                    if (TryComp<BodyComponent>(consumer, out var body)
+                        && _body.TryGetBodyOrganEntityComps<MetabolizerComponent>(consumer, out var metabolizers)
+                        && metabolizers is not null)
+                        metabolizingOrgan = metabolizers.First(met => (met.Comp1.MetabolismGroups ?? []).Any(group => group.Id == metabolism));
+
+                    var args = new EntityEffectReagentArgs(consumer, _entityManager, metabolizingOrgan, solution, quantity.Quantity, reagent, ReactionMethod.Ingestion, 1f);
+                    if (effect.Conditions is not null
+                        && !effect.Conditions.All(x => x.Condition(args)))
+                        continue;
+
+                    if (effect is SatiateHunger hunger)
+                        utilityParams.TotalNutrition += hunger.NutritionFactor * quantity.Quantity.Float();
+
+                    if (effect is SatiateThirst thirst)
+                        utilityParams.TotalHydration += thirst.HydrationFactor * quantity.Quantity.Float();
+
+                    if (effect is HealthChange damage
+                        && damage.Damage.AnyPositive())
+                        utilityParams.IsToxic = true;
+
+                    if (effect is AdjustReagent newReagent
+                        && newReagent.Reagent is not null
+                        && newReagent.Amount > 0f)
+                        queue.Enqueue(new ReagentQuantity(newReagent.Reagent, quantity.Quantity * (newReagent.Amount / entry.MetabolismRate)));
+                }
+            }
+        }
+
+        return utilityParams;
+    } // Goobstation end
 }
 
 public readonly record struct UtilityResult(Dictionary<EntityUid, float> Entities)
@@ -629,3 +709,5 @@ public readonly record struct UtilityResult(Dictionary<EntityUid, float> Entitie
         return Entities.MinBy(x => x.Value).Key;
     }
 }
+
+public record struct FoodUtilityParams(float TotalNutrition, float TotalHydration, bool IsToxic); // Goobstation edit

@@ -144,6 +144,7 @@ public abstract partial class SharedBuckleSystem
 
         SubscribeLocalEvent<BuckleComponent, StartPullAttemptEvent>(OnPullAttempt);
         SubscribeLocalEvent<BuckleComponent, BeingPulledAttemptEvent>(OnBeingPulledAttempt);
+        SubscribeLocalEvent<BuckleComponent, PullAttemptEvent>(OnBucklePullAttempt); // Goobstation
         SubscribeLocalEvent<BuckleComponent, PullStartedMessage>(OnPullStarted);
         SubscribeLocalEvent<BuckleComponent, UnbuckleAlertEvent>(OnUnbuckleAlert);
 
@@ -188,22 +189,38 @@ public abstract partial class SharedBuckleSystem
             return;
         }
 
-        // Goobstation - doafter for unbuckle by others
+        // Goobstation - cancel pull entirely if others are not allowed to unbuckle (e.g. clowncar)
         if (args.Puller != ent.Owner
             && TryComp<StrapComponent>(ent.Comp.BuckledTo, out var strap)
-            && strap.UnbuckleDoafterTime > 0)
+            && !strap.AllowOthersToUnbuckle)
         {
             args.Cancel();
-            var doAfter = new DoAfterArgs(EntityManager, args.Puller, TimeSpan.FromSeconds(strap.UnbuckleDoafterTime), new UnbuckleDoAfterEvent(), ent.Owner, target: ent.Owner)
-            {
-                BreakOnMove = true,
-                BreakOnDamage = true,
-            };
-            _doAfter.TryStartDoAfter(doAfter);
-            return;
         }
-        // Goobstation
+        // Goobstation - when do-after is required, do NOT cancel here; CanPull succeeds and
+        // OnBucklePullAttempt starts the do-after only on actual pull initiation, not on CanPull checks
     }
+
+    // Goobstation - start unbuckle do-after only on actual pull initiation, not on CanPull checks
+    private void OnBucklePullAttempt(Entity<BuckleComponent> ent, ref PullAttemptEvent args)
+    {
+        if (args.Cancelled || !ent.Comp.Buckled || args.PullerUid == ent.Owner)
+            return;
+
+        if (!TryComp<StrapComponent>(ent.Comp.BuckledTo, out var strap) || strap.UnbuckleDoafterTime <= 0)
+            return;
+
+        if (!CanUnbuckle(ent!, args.PullerUid, false))
+            return;
+
+        args.Cancelled = true;
+        var doAfter = new DoAfterArgs(EntityManager, args.PullerUid, TimeSpan.FromSeconds(strap.UnbuckleDoafterTime), new UnbuckleDoAfterEvent(), ent.Owner, target: ent.Owner)
+        {
+            BreakOnMove = true,
+            BreakOnDamage = true,
+        };
+        _doAfter.TryStartDoAfter(doAfter);
+    }
+    // Goobstation
 
     private void OnPullStarted(Entity<BuckleComponent> ent, ref PullStartedMessage args)
     {
