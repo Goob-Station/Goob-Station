@@ -5,8 +5,8 @@
   description: Used for setting bones back into place.
   components:
   - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/bonesetter.rsi
-    state: bonesetter
+    sprite: Objects/Specific/Medical/Surgery/scissors.rsi.rsi
+    state: setter
   - type: Item
   - type: BoneSetter
   - type: SurgeryTool
