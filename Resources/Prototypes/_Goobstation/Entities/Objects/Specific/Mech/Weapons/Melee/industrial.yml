@@ -27,9 +27,9 @@
     attackRate: 3.5
     damage:
       groups:
-        Brute: 9
+        Brute: 3
       types:
-        Structural: 40 # ~10 seconds for solid wall / ~21 secods for reinforced wall
+        Structural: 15
 
 - type: entity
   id: WeaponMechMeleeDrillDiamond
@@ -54,6 +54,6 @@
     attackRate: 4
     damage:
       groups:
-        Brute: 18
+        Brute: 7
       types:
-        Structural: 60 # ~3 seconds for solid wall / 9 seconds for reinforced wall
+        Structural: 31
