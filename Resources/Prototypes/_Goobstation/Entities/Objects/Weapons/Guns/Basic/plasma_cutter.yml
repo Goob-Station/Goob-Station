@@ -64,6 +64,8 @@
   - type: ProjectileBatteryAmmoProvider
     proto: BulletSuperPlasmaCutter
     fireCost: 40
+  - type: StaticPrice
+    price: 2000
   - type: PhysicalComposition
     materialComposition:
       Gold: 400

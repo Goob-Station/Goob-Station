@@ -101,9 +101,10 @@
         Structural: 31
   - type: PhysicalComposition
     materialComposition:
+      Gold: 500
       Steel: 250
-      Plastic: 350
-      Silver: 50
+      Plastic: 150
+      Silver: 100
       Plasma: 100
-      Diamond: 50
       BSCrystal: 100
+      Diamond: 50
