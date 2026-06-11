@@ -164,7 +164,7 @@
     sprite: Clothing/Shoes/Boots/combatboots.rsi
 
 - type: entity
-  parent: ClothingShoesBaseButcherable
+  parent: ClothingShoesBaseButcherable #Goobstation
   id: ClothingShoesHighheelBoots
   name: high-heeled boots
   description: Snazy boots for when you want to be stylish, yet prepared.

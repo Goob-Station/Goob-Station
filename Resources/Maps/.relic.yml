@@ -14909,7 +14909,7 @@ entities:
     - type: Transform
       pos: 45.5,21.5
       parent: 2
-- proto: ClothingShoesHighheelBootsFilled
+- proto: ClothingShoesHighheelBoots
   entities:
   - uid: 1388
     components:
