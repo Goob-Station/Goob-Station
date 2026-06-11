@@ -13,5 +13,14 @@ public sealed partial class ProjectileImmunityComponent : Component
     [DataField, AutoNetworkedField]
     public EntProtoId? DodgeEffect;
 
+    [DataField, AutoNetworkedField]
+    public float StaminaCostPerDodge;
+
+    [DataField, AutoNetworkedField]
+    public float BatteryCostPerDodge;
+
     public HashSet<EntityUid> DodgedEntities = new();
 }
+
+[ByRefEvent]
+public record struct ProjectileDodgeAttemptEvent(bool Cancelled = false);

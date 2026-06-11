@@ -2,10 +2,10 @@ meta:
   format: 7
   category: Map
   engineVersion: 266.0.0
-  forkId: GoobLRP
-  forkVersion: 56d5c97e73c97d5a490ef42aadb3b590f834f059
-  time: 03/16/2026 20:38:21
-  entityCount: 30497
+  forkId: ""
+  forkVersion: ""
+  time: 04/27/2026 05:43:54
+  entityCount: 30499
 maps:
 - 1
 grids:
@@ -11960,7 +11960,7 @@ entities:
       pos: -39.5,-14.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -86.0814
+      secondsUntilStateChange: -191.7272
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12349,7 +12349,7 @@ entities:
       pos: 27.5,14.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -18716.89
+      secondsUntilStateChange: -18822.537
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12947,7 +12947,7 @@ entities:
       pos: 46.5,47.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -24800.14
+      secondsUntilStateChange: -24905.787
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -13650,7 +13650,7 @@ entities:
       pos: 0.5,48.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -71328.18
+      secondsUntilStateChange: -71433.83
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14266,7 +14266,7 @@ entities:
       pos: 27.5,-58.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -28122.271
+      secondsUntilStateChange: -28227.918
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14324,7 +14324,7 @@ entities:
       pos: -20.5,-41.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -10036.138
+      secondsUntilStateChange: -10141.783
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14421,7 +14421,7 @@ entities:
       pos: -3.5,-35.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -672973.06
+      secondsUntilStateChange: -673078.7
       state: Opening
 - proto: AirlockMedicalGlassLocked
   entities:
@@ -14432,7 +14432,7 @@ entities:
       pos: -22.5,-39.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -15378.72
+      secondsUntilStateChange: -15484.365
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -95625,7 +95625,7 @@ entities:
       pos: -1.5,-16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -39752.633
+      secondsUntilStateChange: -39858.277
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -143174,6 +143174,19 @@ entities:
     components:
     - type: Transform
       pos: -61.575497,-41.500057
+      parent: 2
+- proto: PollBooth
+  entities:
+  - uid: 30498
+    components:
+    - type: Transform
+      pos: -44.5,-14.5
+      parent: 2
+  - uid: 30499
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -4.5,31.5
       parent: 2
 - proto: PonderingOrb
   entities:
@@ -192138,7 +192151,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -96677.19
+      secondsUntilStateChange: -96782.836
       state: Opening
     - type: Airlock
       autoClose: False
@@ -193394,7 +193407,7 @@ entities:
       pos: 24.5,2.5
       parent: 22618
     - type: Door
-      secondsUntilStateChange: -451104.62
+      secondsUntilStateChange: -451210.28
       state: Opening
   - uid: 29025
     components:
@@ -193403,7 +193416,7 @@ entities:
       pos: -46.5,28.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -105060.95
+      secondsUntilStateChange: -105166.6
       state: Opening
 - proto: WoodenBench
   entities:

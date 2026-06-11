@@ -102,13 +102,13 @@
     animation: WeaponArcPunch
     damage:
       types:
-        Blunt: 35
+        Blunt: 10 # Lavaland Change 35 -> 10
         Slash: 15
   - type: NpcFactionMember
     factions:
     - Lavafauna
   - type: HTN
-    constantlyReplan: false
+    constantlyReplan: true # Lavaland Change
     rootTask:
       task: GoliathCompound
     blackboard:
@@ -135,6 +135,17 @@
     - id: MaterialBones1 # Lavaland Change
       maxAmount: 2
   - type: Fauna # Lavaland Change
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        density: 50
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
 
 - type: entity
   parent: BaseAction

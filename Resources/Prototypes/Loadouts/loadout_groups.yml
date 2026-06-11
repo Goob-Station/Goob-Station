@@ -421,6 +421,7 @@
   - AncientJumpsuit
   - RainbowJumpsuit
   - RainbowJumpskirt
+  - OverallsJumpsuit
  # goob changes start
   - GreyMJ
   - BlackMJ
@@ -1006,9 +1007,12 @@
   name: loadout-group-chief-engineer-neck
   minLimit: 0
   loadouts:
-  - ChiefEngineerCloak
-  - ChiefEngineerMantle
-  - ChiefEngineerEnsemble # goob
+  - ClothingNeckCloakWhiteCe # goob
+  - ClothingNeckCloakGreenCe # goob
+  - ClothingNeckMantleWhiteCE # goob
+  - ClothingNeckMantleOrangeCE # goob
+  - ClothingNeckEnsembleChiefEngineerWhite # goob
+  - ClothingNeckEnsembleChiefEngineerGreen # goob
 
 - type: loadoutGroup
   id: ChiefEngineerOuterClothing

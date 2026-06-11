@@ -181,6 +181,23 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
+    # Goob start
+    - trigger: !type:DamageTrigger
+        damage: 1450
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetPlasteel1:
+            min: 1
+            max: 2
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:ChangeConstructionNodeBehavior
+        node: assembly
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    #  Goob end
   - type: Construction
     graph: Airlock
     node: highSecDoor

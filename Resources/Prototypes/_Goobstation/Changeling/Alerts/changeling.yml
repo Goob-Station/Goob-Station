@@ -51,6 +51,14 @@
   description: alerts-changeling-panacea-desc
 
 - type: alert
+  id: DarknessAdaption
+  icons:
+  - sprite: /Textures/_Goobstation/Changeling/changeling_abilities.rsi
+    state: darkness_adaption
+  name: alerts-changeling-darkadapt-name
+  description: alerts-changeling-darkadapt-desc
+
+- type: alert
   id: VoidAdaption
   icons:
   - sprite: /Textures/_Goobstation/Changeling/changeling_abilities.rsi

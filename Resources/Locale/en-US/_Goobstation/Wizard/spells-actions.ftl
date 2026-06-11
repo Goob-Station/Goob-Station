@@ -35,3 +35,4 @@ action-speech-spell-gorilla-form = B'NA NAH-SLEMA!
 action-speech-spell-summon-stick-minions = Rise, my creations! Off your page into this realm!
 action-speech-spell-tile-toggle = RUK'AT
 action-speech-spell-curse-of-byond = CURSE OF BYOND!!
+action-speech-spell-rathen = ARSE NATH!!

@@ -546,3 +546,21 @@ public sealed partial class RandomizeSpellsEvent : EntityEventArgs
     [DataField(required: true)]
     public Dictionary<ProtoId<WeightedRandomEntityPrototype>, int?> SpellsDict;
 }
+
+public sealed partial class RathenEvent : InstantActionEvent
+{
+    [DataField]
+    public float MaxRange = 5f;
+
+    [DataField]
+    public TimeSpan StunTime = TimeSpan.FromSeconds(5);
+
+    [DataField]
+    public DamageSpecifier SuperFartDamage = new()
+    {
+        DamageDict = { { "Blunt", 10 } },
+    };
+
+    [DataField]
+    public float LimbTearChance = 0.2f;
+}

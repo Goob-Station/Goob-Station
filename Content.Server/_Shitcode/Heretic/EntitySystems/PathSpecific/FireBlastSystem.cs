@@ -1,7 +1,7 @@
 using System.Linq;
 using Content.Goobstation.Common.Physics;
 using Content.Goobstation.Common.Religion;
-using Content.Server.Atmos.Components;
+using Content.Shared.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Stunnable;
 using Content.Shared._Shitcode.Heretic.Components;

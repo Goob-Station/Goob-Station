@@ -1,0 +1,29 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-4.0",
+    "copyright": "Created by Jaraten for Engenia Project",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "sprout1"
+        },
+        {
+            "name": "sprout2"
+        },
+        {
+            "name": "sprout3"
+        },
+        {
+            "name": "sprout4"
+        },
+        {
+            "name": "sprout5"
+        },
+        {
+            "name": "sprout6"
+        }
+    ]
+}

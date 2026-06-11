@@ -148,12 +148,8 @@ public sealed class BlobNodeSystem : EntitySystem
                 if (!_tileQuery.HasComponent(tile))
                     continue;
 
-                var ev = new BlobTileGetPulseEvent
-                {
-                    Handled = explain
-                };
+                var ev = new BlobTileGetPulseEvent();
                 RaiseLocalEvent(tile, ev);
-                explain = false; // WTF?
             }
         }
 

@@ -6,13 +6,14 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._Shitcode.Heretic.SpriteOverlay;
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
 
 namespace Content.Shared._Goobstation.Heretic.Components;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
-public sealed partial class EntropicPlumeAffectedComponent : Component
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true), AutoGenerateComponentPause]
+public sealed partial class EntropicPlumeAffectedComponent : BaseSpriteOverlayComponent
 {
     [DataField, AutoNetworkedField]
     public EntityUid ExcludedEntity;
@@ -23,8 +24,10 @@ public sealed partial class EntropicPlumeAffectedComponent : Component
     [DataField, AutoNetworkedField, AutoPausedField]
     public TimeSpan NextAttack = TimeSpan.Zero;
 
-    [DataField]
-    public SpriteSpecifier Sprite =
+    public override Enum Key { get; set; } = EntropicPlumeKey.Key;
+
+    [DataField, AutoNetworkedField]
+    public override SpriteSpecifier? Sprite { get; set; } =
         new SpriteSpecifier.Rsi(new ResPath("_Goobstation/Heretic/Effects/effects.rsi"), "cloud_swirl");
 }
 

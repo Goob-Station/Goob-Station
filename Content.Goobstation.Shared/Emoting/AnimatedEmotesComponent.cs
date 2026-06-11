@@ -36,12 +36,10 @@ public sealed partial class PendingAnimatedEmoteComponent : Component
 {
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
     public TimeSpan ExpireTime;
-
-    [DataField, AutoNetworkedField]
-    public bool KnockDownLast;
 }
 
-[Serializable, NetSerializable] public sealed partial class AnimatedEmotesComponentState : ComponentState
+[Serializable, NetSerializable]
+public sealed partial class AnimatedEmotesComponentState : ComponentState
 {
     public ProtoId<EmotePrototype>? Emote;
 

@@ -1,6 +1,6 @@
 using Content.Goobstation.Server.Devil.Contract;
 using Content.Goobstation.Shared.Slasher.Components;
-using Content.Goobstation.Shared.Slasher.Events;
+using Content.Goobstation.Shared.Slasher;
 using Content.Goobstation.Shared.Slasher.Objectives;
 using Content.Goobstation.Shared.Slasher.Systems;
 using Content.Server.AlertLevel;
@@ -32,6 +32,9 @@ using FixedPoint2 = Content.Goobstation.Maths.FixedPoint.FixedPoint2;
 using System.Linq;
 using Content.Server.Light.Components;
 using Robust.Server.GameObjects;
+using Content.Shared.Inventory;
+using Content.Shared.Roles;
+using Content.Shared.Station;
 
 namespace Content.Goobstation.Server.Slasher.Systems;
 
@@ -61,6 +64,8 @@ public sealed class SlasherSoulStealSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly PoweredLightSystem _light = default!;
     [Dependency] private readonly SlasherRegenerateSystem _regenerate = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly SharedStationSpawningSystem _spawning = default!;
 
     public override void Initialize()
     {
@@ -80,6 +85,7 @@ public sealed class SlasherSoulStealSystem : EntitySystem
     private void OnMapInit(Entity<SlasherSoulStealComponent> ent, ref MapInitEvent args)
     {
         _actions.AddAction(ent.Owner, ref ent.Comp.ActionEntity, ent.Comp.ActionId);
+        Dirty(ent);
     }
 
     private void OnShutdown(Entity<SlasherSoulStealComponent> ent, ref ComponentShutdown args)
@@ -189,8 +195,8 @@ public sealed class SlasherSoulStealSystem : EntitySystem
             comp.DeadSouls++;
 
         // Update absorb souls objective progress
-        if (_mindSystem.TryGetMind(user, out var mindId, out var mind))
-            foreach (var objUid in mind.Objectives)
+        if (_mindSystem.TryGetMind(user, out _, out var mind))
+            foreach (var objUid in mind.Objectives.ToList())
             {
                 if (!TryComp<SlasherAbsorbSoulsConditionComponent>(objUid, out var absorbObj))
                     continue;
@@ -244,10 +250,14 @@ public sealed class SlasherSoulStealSystem : EntitySystem
                 var xform = Transform(user);
                 _weather.SetWeather(xform.MapID, _protoMan.Index<WeatherPrototype>("Storm"), null);
 
+                // Swap clothing if the kit defines ascension gear
+                if (comp.AscensionGear != null)
+                    ApplyAscensionGear(user, comp.AscensionGear.Value);
+
                 // Make station announcement from Central Command
                 _chatSystem.DispatchStationAnnouncement(
                     station.Value,
-                    Loc.GetString("slasher-soulsteal-ascendance"),
+                    Loc.GetString(comp.AscendanceAnnouncementKey),
                     sender: Loc.GetString("comms-console-announcement-title-centcom"),
                     playDefaultSound: false,
                     announcementSound: null,
@@ -267,6 +277,31 @@ public sealed class SlasherSoulStealSystem : EntitySystem
         // Popup for victim only
         _popup.PopupEntity(Loc.GetString("slasher-soulsteal-success-victim", ("user", user)), target, target, PopupType.LargeCaution);
         Dirty(user, comp);
+    }
+
+    /// <summary>
+    /// Strips the slots covered by the ascension gear, then equips it.
+    /// </summary>
+    private void ApplyAscensionGear(EntityUid user, ProtoId<StartingGearPrototype> gearProto)
+    {
+        if (!_protoMan.TryIndex(gearProto, out var loadout))
+            return;
+
+        // Strip any slot the ascension gear will fill so items don't stack
+        if (_inventory.TryGetSlots(user, out var slots))
+            foreach (var slot in slots)
+            {
+                if (string.IsNullOrEmpty(((IEquipmentLoadout) loadout).GetGear(slot.Name)))
+                    continue;
+
+                if (_inventory.TryGetSlotEntity(user, slot.Name, out var worn) && worn != null)
+                {
+                    _inventory.TryUnequip(user, slot.Name, silent: true, force: true);
+                    QueueDel(worn.Value);
+                }
+            }
+
+        _spawning.EquipStartingGear(user, loadout);
     }
 
     private static void ApplyArmorBonus(EntityUid user, float percent, SlasherSoulStealComponent comp)
@@ -307,10 +342,8 @@ public sealed class SlasherSoulStealSystem : EntitySystem
             return null;
 
         foreach (var held in _hands.EnumerateHeld((user, hands)))
-        {
             if (HasComp<SlasherMassacreMacheteComponent>(held))
                 return held;
-        }
 
         return null;
     }
@@ -431,23 +464,23 @@ public sealed class SlasherSoulStealSystem : EntitySystem
         var flickerCounter = 0;
         foreach (var entity in entities)
         {
-            if (!HasComp<PointLightComponent>(entity) && !HasComp<PoweredLightComponent>(entity))
+            if (!HasComp<PointLightComponent>(entity))
                 continue;
 
             var handled = false;
 
-            // For powered lights, 50/50 chance to either flicker or destroy the bulb
-            if (TryComp<PoweredLightComponent>(entity, out var lightComp) && _random.Prob(0.5f))
-                // Destroy the light bulb
-                if (_light.TryDestroyBulb(entity, lightComp))
+            if (TryComp<PoweredLightComponent>(entity, out var lightComp)
+                && _random.Prob(0.85f))
+            {
+                if (_random.Prob(0.2f) && _light.TryDestroyBulb(entity, lightComp))
                     handled = true;
                 else
                 {
-                    // Flicker the light via ghost boo event
                     var ev = new GhostBooEvent();
                     RaiseLocalEvent(entity, ev);
                     handled = ev.Handled;
                 }
+            }
 
             if (handled)
                 flickerCounter++;

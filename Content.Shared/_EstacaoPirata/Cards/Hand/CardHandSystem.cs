@@ -11,6 +11,7 @@ using Content.Shared._EstacaoPirata.Cards.Deck;
 using Content.Shared._EstacaoPirata.Cards.Stack;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
 using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Verbs;
@@ -48,6 +49,7 @@ public sealed class CardHandSystem : EntitySystem
         SubscribeLocalEvent<CardHandComponent, CardHandDrawMessage>(OnCardDraw);
         SubscribeLocalEvent<CardHandComponent, CardStackQuantityChangeEvent>(OnStackQuantityChange);
         SubscribeLocalEvent<CardHandComponent, GetVerbsEvent<AlternativeVerb>>(OnAlternativeVerb);
+        SubscribeLocalEvent<CardHandComponent, UseInHandEvent>(OnUse);
     }
 
     private void OnStackQuantityChange(EntityUid uid, CardHandComponent comp, CardStackQuantityChangeEvent args)
@@ -101,6 +103,15 @@ public sealed class CardHandSystem : EntitySystem
         {
             _hands.TryPickupAnyHand(args.Actor, leftover.Value);
         }
+    }
+
+    private void OnUse(EntityUid uid, CardHandComponent comp, UseInHandEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        FlipCards(uid, comp);
+        args.Handled = true;
     }
 
     private void OpenHandMenu(EntityUid user, EntityUid hand)

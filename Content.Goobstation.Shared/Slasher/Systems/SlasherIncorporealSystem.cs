@@ -1,6 +1,5 @@
 using Content.Goobstation.Shared.PhaseShift;
 using Content.Goobstation.Shared.Slasher.Components;
-using Content.Goobstation.Shared.Slasher.Events;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.Actions.Events;
@@ -11,6 +10,7 @@ using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Movement.Systems;
 using Robust.Shared.Network;
 using Content.Shared.Damage;
 using Content.Shared.Tag;
@@ -40,6 +40,10 @@ using Content.Goobstation.Shared.Sprinting;
 using Content.Shared.Stunnable;
 using Content.Shared.Trigger;
 using Content.Shared.Trigger.Components.Triggers;
+using Content.Goobstation.Common.Materials;
+using Content.Goobstation.Shared.Xenomorph;
+using Content.Shared.Bed.Sleep;
+using Content.Shared.StepTrigger.Systems;
 
 namespace Content.Goobstation.Shared.Slasher.Systems;
 
@@ -53,21 +57,21 @@ public sealed class SlasherIncorporealSystem : EntitySystem
     [Dependency] private readonly SharedEyeSystem _eye = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly FixtureSystem _fixtures = default!;
     [Dependency] private readonly SlasherObserverCheckSystem _observerCheck = default!;
-    [Dependency] private readonly SharedSprintingSystem _sprinting = default!;
 
     private const string FootstepSoundTag = "FootstepSound";
 
     public override void Initialize()
     {
         base.Initialize();
+
         SubscribeLocalEvent<SlasherIncorporealComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<SlasherIncorporealComponent, ComponentShutdown>(OnShutdown);
 
@@ -88,6 +92,7 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         SubscribeLocalEvent<SlasherIncorporealComponent, KnockDownAttemptEvent>(OnKnockDownAttempt);
         SubscribeLocalEvent<SlasherIncorporealComponent, FlashAttemptEvent>(OnFlashAttempt);
         SubscribeLocalEvent<TriggerOnProximityComponent, AttemptTriggerEvent>(OnProximityTriggerAttempt);
+        SubscribeLocalEvent<SlasherIncorporealComponent, StepTriggerAttemptEvent>(OnStepTriggerAttempt);
     }
 
     private void OnMapInit(Entity<SlasherIncorporealComponent> ent, ref MapInitEvent args)
@@ -202,30 +207,35 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         args.Handled = true;
     }
 
-    private void EnterIncorporeal(EntityUid uid, Entity<SlasherIncorporealComponent> ent)
+    public void EnterIncorporeal(EntityUid uid, Entity<SlasherIncorporealComponent> ent)
     {
         ent.Comp.IsIncorporeal = true;
         ent.Comp.IncorporealStartTime = _timing.CurTime;
         Dirty(ent);
 
-        // Spawn jaunt in effect.
-        var coords = Transform(uid).Coordinates;
-        Spawn(ent.Comp.JauntInEffect, coords);
-        _audio.PlayPredicted(ent.Comp.JauntDisappear, coords, ent.Owner);
-
         // Freeze all action cooldowns.
         FreezeCooldowns((uid, ent.Comp));
 
-        RemComp<KnockedDownComponent>(uid);
+        RemCompDeferred<KnockedDownComponent>(uid);
+        ent.Comp.AddedIncorporealComponents.Clear();
 
-        var phase = new PhaseShiftedComponent
+        EnsureTrackedComp<FacehuggerImmuneComponent>(uid, ent);
+
+        var phase = EnsureTrackedComp<PhaseShiftedComponent>(uid, ent, new PhaseShiftedComponent
         {
-            SpawnEffects = false,
-            MovementSpeedBuff = 5.5f
-        };
-        AddComp(uid, phase);
+            SpawnEffects = true,
+            MovementSpeedBuff = 5.5f,
+            PhaseInEffect = ent.Comp.JauntInEffect,
+            PhaseOutEffect = ent.Comp.JauntOutEffect,
+            PhaseInSound = ent.Comp.JauntDisappear,
+            PhaseOutSound = ent.Comp.JauntAppear,
+        });
+
+        Dirty(uid, phase);
+        _movement.RefreshMovementSpeedModifiers(uid);
 
         // don't wanna let people see them obviously.
+        EnsureTrackedComp<StealthComponent>(uid, ent);
         var stealth = EnsureComp<StealthComponent>(uid);
         _stealth.SetVisibility(uid, stealth.MinVisibility, stealth);
         _stealth.SetThermalsImmune(uid, true, stealth);
@@ -242,76 +252,90 @@ public sealed class SlasherIncorporealSystem : EntitySystem
             _tags.RemoveTag(uid, FootstepSoundTag);
 
         // Mute and block vocal emotes.
-        _ = EnsureComp<MutedComponent>(uid);
+        EnsureTrackedComp<MutedComponent>(uid, ent);
 
         // Disable FOV for full vision while incorporeal.
         _eye.SetDrawFov(uid, false);
 
         // Space immunity
-        _ = EnsureComp<MovementIgnoreGravityComponent>(uid);
-        _ = EnsureComp<SpecialPressureImmunityComponent>(uid);
-        _ = EnsureComp<SpecialBreathingImmunityComponent>(uid);
-        _ = EnsureComp<SpecialLowTempImmunityComponent>(uid);
-        _ = EnsureComp<SpecialHighTempImmunityComponent>(uid);
+        EnsureTrackedComp<MovementIgnoreGravityComponent>(uid, ent);
+        EnsureTrackedComp<SpecialPressureImmunityComponent>(uid, ent);
+        EnsureTrackedComp<SpecialBreathingImmunityComponent>(uid, ent);
+        EnsureTrackedComp<SpecialLowTempImmunityComponent>(uid, ent);
+        EnsureTrackedComp<SpecialHighTempImmunityComponent>(uid, ent);
 
         // Supermatter immunity
-        _ = EnsureComp<SupermatterImmuneComponent>(uid);
+        EnsureTrackedComp<SupermatterImmuneComponent>(uid, ent);
+
+        // Recycler immunity
+        EnsureTrackedComp<MaterialReclaimerImmuneComponent>(uid, ent);
 
         // Raise event for server systems to handle additional logic (like disabling lights)
         var enteredEv = new SlasherIncorporealEnteredEvent();
         RaiseLocalEvent(uid, ref enteredEv);
     }
 
-    private void ExitIncorporeal(EntityUid uid, Entity<SlasherIncorporealComponent> ent)
+    public void ExitIncorporeal(EntityUid uid, Entity<SlasherIncorporealComponent> ent)
     {
         ent.Comp.IsIncorporeal = false;
         Dirty(ent);
-
-        // Spawn jaunt out effect
-        var coords = Transform(uid).Coordinates;
-        Spawn(ent.Comp.JauntOutEffect, coords);
-        if (_net.IsServer)
-            _audio.PlayPvs(ent.Comp.JauntAppear, coords);
 
         // Restore frozen cooldowns
         UnfreezeCooldowns((uid, ent.Comp));
 
         ent.Comp.IncorporealStartTime = null;
 
-        if (TryComp<PhaseShiftedComponent>(uid, out var phase))
-        {
-            phase.SpawnEffects = false;
-            Dirty(uid, phase);
-        }
-
-        if (HasComp<PhaseShiftedComponent>(uid))
-            RemComp<PhaseShiftedComponent>(uid);
-
-        if (HasComp<StealthComponent>(uid))
-            RemComp<StealthComponent>(uid);
+        RemoveTrackedCompsDeferred(uid, ent);
 
         _actions.SetEnabled(ent.Comp.IncorporealizeActionEnt, true);
         _actions.SetEnabled(ent.Comp.CorporealizeActionEnt, false);
 
         _tags.AddTag(uid, SharedDoorSystem.DoorBumpTag);
-
         _tags.AddTag(uid, FootstepSoundTag);
-
-        // Let them speak
-        _ = RemComp<MutedComponent>(uid);
 
         // Restore FOV
         _eye.SetDrawFov(uid, true);
+    }
 
-        // Remove space immunity
-        _ = RemComp<MovementIgnoreGravityComponent>(uid);
-        _ = RemComp<SpecialPressureImmunityComponent>(uid);
-        _ = RemComp<SpecialBreathingImmunityComponent>(uid);
-        _ = RemComp<SpecialLowTempImmunityComponent>(uid);
-        _ = RemComp<SpecialHighTempImmunityComponent>(uid);
+    /// <summary>
+    /// EnsureComp but it checks if they already had the Component.
+    /// If they didn't it adds it to a list then removes it when they
+    /// corporealize.
+    /// </summary>
+    private T EnsureTrackedComp<T>(EntityUid uid, Entity<SlasherIncorporealComponent> ent, T? preconfigured = null) where T : Component, new()
+    {
+        if (TryComp<T>(uid, out var existing))
+            return existing;
 
-        // Remove supermatter immunity
-        _ = RemComp<SupermatterImmuneComponent>(uid);
+        var componentName = typeof(T).FullName;
+        if (componentName != null)
+            ent.Comp.AddedIncorporealComponents.Add(componentName);
+
+        if (preconfigured != null)
+        {
+            AddComp(uid, preconfigured);
+            return preconfigured;
+        }
+
+        return EnsureComp<T>(uid);
+    }
+
+    /// <summary>
+    /// Removes tracked components.
+    /// </summary>
+    private void RemoveTrackedCompsDeferred(EntityUid uid, Entity<SlasherIncorporealComponent> ent)
+    {
+        if (ent.Comp.AddedIncorporealComponents.Count == 0)
+            return;
+
+        foreach (var component in EntityManager.GetComponents(uid))
+        {
+            var componentName = component.GetType().FullName;
+            if (componentName != null && ent.Comp.AddedIncorporealComponents.Contains(componentName))
+                RemCompDeferred(uid, component.GetType());
+        }
+
+        ent.Comp.AddedIncorporealComponents.Clear();
     }
 
     // Goida as shit.. I couldn't find a better way stop cooldowns
@@ -378,7 +402,9 @@ public sealed class SlasherIncorporealSystem : EntitySystem
 
     private void OnAttemptInteract(EntityUid uid, SlasherIncorporealComponent comp, ref InteractionAttemptEvent args)
     {
-        if (!comp.IsIncorporeal || args.Target == null)
+        if (!comp.IsIncorporeal
+            || args.Target == null
+            || args.Target == uid)
             return;
 
         // Allow them to stop pulling things
@@ -416,9 +442,9 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         if (!TryComp<SlasherIncorporealComponent>(user, out var comp) || !comp.IsIncorporeal)
             return;
 
-        // Allow nightvision / corporealize.
+        // Allow nightvision / corporealize / wake up.
         if (comp.CorporealizeActionEnt == action.Owner
-            || _actions.GetEvent(action.Owner) is ToggleNightVisionEvent)
+            || _actions.GetEvent(action.Owner) is ToggleNightVisionEvent or WakeActionEvent)
             return;
 
         args.Cancelled = true;
@@ -457,6 +483,12 @@ public sealed class SlasherIncorporealSystem : EntitySystem
 
 
     private void OnFlashAttempt(EntityUid uid, SlasherIncorporealComponent comp, ref FlashAttemptEvent args)
+    {
+        if (comp.IsIncorporeal)
+            args.Cancelled = true;
+    }
+
+    private void OnStepTriggerAttempt(EntityUid uid, SlasherIncorporealComponent comp, ref StepTriggerAttemptEvent args)
     {
         if (comp.IsIncorporeal)
             args.Cancelled = true;

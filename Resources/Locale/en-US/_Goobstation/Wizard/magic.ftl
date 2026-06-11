@@ -55,6 +55,8 @@ spell-charge-spells-charged-entity = {CAPITALIZE($entity)} suddenly feels very w
 
 spell-summon-simians-maxed-out-message = Your simian power has reached maximum capacity! You can now cast this spell naked, and have additionally been granted a gorilla transformation spell!
 
+spell-rathen-gut-popup = You have no appendix, but something had to give!
+
 ghosts-summoned-message = Ghosts have been summoned!
 dimension-shift-message = Dimensions shift!
 global-tile-movement-message = An ominous beat starts playing!

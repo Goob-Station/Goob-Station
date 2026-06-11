@@ -6,7 +6,6 @@
   components:
   - type: SlimeScanner
   - type: Sprite
-    noRot: true
     sprite: _Goobstation/Xenobiology/Specific/Xenobiology/slime_scanner.rsi
     layers:
     - state: icon

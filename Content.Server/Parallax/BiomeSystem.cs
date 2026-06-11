@@ -121,6 +121,8 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
 
     private void ProtoReload(PrototypesReloadedEventArgs obj)
     {
+        ClearNoiseCache(); // Goob - Cache Noise
+
         if (!obj.ByType.TryGetValue(typeof(BiomeTemplatePrototype), out var reloads))
             return;
 

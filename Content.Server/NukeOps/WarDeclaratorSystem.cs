@@ -29,6 +29,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Server.NukeOps;
 
@@ -93,7 +94,7 @@ public sealed class WarDeclaratorSystem : EntitySystem
             var title = Loc.GetString(ent.Comp.SenderTitle);
             _chat.DispatchGlobalAnnouncement(ent.Comp.Message, title, true, ent.Comp.Sound, ent.Comp.Color);
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"{ToPrettyString(args.Actor):player} has declared war with this text: {ent.Comp.Message}");
-            _specialAnimation.PlayAnimationFiltered(args.Actor, Filter.Broadcast(), "NukeOpsWarAnimation"); // Goob edit
+            _specialAnimation.PlayAnimationFiltered(new SpriteSpecifier.Rsi(new ResPath("/Textures/Objects/Tools/Decoys/commander_decoy.rsi"), "cballoon"), Filter.Broadcast(), "NukeOpsWarAnimation"); // Goob edit
         }
 
         UpdateUI(ent, ev.Status);

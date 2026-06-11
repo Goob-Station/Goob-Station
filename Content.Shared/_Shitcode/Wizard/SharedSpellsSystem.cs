@@ -189,6 +189,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<BlinkSpellEvent>(OnBlink);
         SubscribeLocalEvent<TileToggleSpellEvent>(OnTileToggle);
         SubscribeLocalEvent<PredictionToggleSpellEvent>(OnPredictionToggle);
+        SubscribeLocalEvent<RathenEvent>(OnRathen);
         SubscribeAllEvent<SetSwapSecondaryTarget>(OnSwapSecondaryTarget);
     }
 
@@ -1243,6 +1244,14 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         ev.Handled = true;
     }
+    private void OnRathen(RathenEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        Rathen(ev);
+        ev.Handled = true;
+    }
 
     #endregion
 
@@ -1537,6 +1546,8 @@ public abstract class SharedSpellsSystem : EntitySystem
     }
 
     protected virtual void Blink(BlinkSpellEvent ev) { }
+
+    protected virtual void Rathen(RathenEvent ev) { }
 
     #endregion
 }

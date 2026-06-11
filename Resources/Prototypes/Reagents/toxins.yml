@@ -699,8 +699,8 @@
         type: Add
         time: 4
       - !type:ImmunityModifier #Goobstation
-        gainRateModifier: -0.0024 #double spaceacilin penalty
-        strengthModifier: -0.008 #ditto
+        gainRateModifier: -0.00111111111111 #double spaceacilin penalty
+        strengthModifier: -0.0088888888888 #ditto
         statusLifetime: 1.5 # 1.5s per 1u
 
 - type: reagent
@@ -816,7 +816,7 @@
     Poison:
       effects:
       - !type:Electrocute
-        probability: 0.8
+        probability: 0.5 #goob edit
 
 - type: reagent
   id: Lipolicide

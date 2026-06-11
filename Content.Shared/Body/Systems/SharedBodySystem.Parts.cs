@@ -107,6 +107,9 @@ using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Robust.Shared.Random;
 
+// Goobstation
+using Content.Shared.Destructible;
+
 namespace Content.Shared.Body.Systems;
 
 public partial class SharedBodySystem
@@ -124,6 +127,14 @@ public partial class SharedBodySystem
         // Shitmed Change
         SubscribeLocalEvent<BodyPartComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<BodyPartComponent, ComponentRemove>(OnBodyPartRemove);
+
+        // Goobstation change
+        SubscribeLocalEvent<BodyPartComponent, DestructionEventArgs>(OnBodyPartDestructed);
+    }
+
+    private void OnBodyPartDestructed(Entity<BodyPartComponent> ent, ref DestructionEventArgs args)
+    {
+        GibPart(ent, ent.Comp);
     }
 
     private void OnMapInit(Entity<BodyPartComponent> ent, ref MapInitEvent args)
@@ -1085,6 +1096,24 @@ public partial class SharedBodySystem
                && Containers.TryGetContainer(parentId, GetPartSlotContainerId(slotId), out var container)
                && Containers.CanRemove(partId, container);
     }
+
+    // Goobstation start
+    /// <summary>
+    /// Tries find parent body part and detaches a partId part.
+    /// </summary>
+    public bool TryDetachPart(
+        EntityUid partId,
+        BodyPartComponent? part = null)
+    {
+        var parentTuple = GetParentPartAndSlotOrNull(partId);
+        if (parentTuple is null)
+            return false;
+
+        var (parentPartId, slot) = parentTuple ?? default;
+
+        return DetachPart(parentPartId, slot, partId, null, part);
+    }
+    // Goobstation end
 
     /// <summary>
     /// Detaches a body part from the specified body part parent.

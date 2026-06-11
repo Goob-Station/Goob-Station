@@ -2,6 +2,7 @@
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Clothing;
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Examine;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory;
@@ -21,6 +22,7 @@ public sealed partial class IngestionSystem
         SubscribeLocalEvent<IngestionBlockerComponent, ItemMaskToggledEvent>(OnBlockerMaskToggled);
         SubscribeLocalEvent<IngestionBlockerComponent, IngestionAttemptEvent>(OnIngestionBlockerAttempt);
         SubscribeLocalEvent<IngestionBlockerComponent, InventoryRelayedEvent<IngestionAttemptEvent>>(OnIngestionBlockerAttempt);
+        SubscribeLocalEvent<IngestionBlockerComponent, ExaminedEvent>(OnIngestionBlockerExamined);
 
         // Edible Event
         SubscribeLocalEvent<EdibleComponent, EdibleEvent>(OnEdible);
@@ -41,6 +43,12 @@ public sealed partial class IngestionSystem
         // If we can't remove it we probably shouldn't be able to eat it.
         // TODO: Separate glue and Unremovable component.
         args.Cancelled = true;
+    }
+
+    private void OnIngestionBlockerExamined(Entity<IngestionBlockerComponent> ent, ref ExaminedEvent args)
+    {
+        if (ent.Comp.BlockSmokeIngestion)
+            args.PushMarkup(Loc.GetString("ingestion-blocker-block-smoke-examine"));
     }
 
     private void OnBlockerMaskToggled(Entity<IngestionBlockerComponent> ent, ref ItemMaskToggledEvent args)
