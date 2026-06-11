@@ -69,8 +69,7 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
 
     private CharacterWindow? _window;
     private MenuButton? CharacterButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.CharacterButton;
-
-
+    
     public void OnStateEntered(GameplayState state)
     {
         DebugTools.Assert(_window == null);
