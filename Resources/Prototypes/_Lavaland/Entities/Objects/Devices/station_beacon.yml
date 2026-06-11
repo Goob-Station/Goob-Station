@@ -1,3 +1,93 @@
+# Lavaland Outpost beacons
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconLavaland
+  suffix: Lavaland Outpost
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-lavaland
+    color: "#c900c9"
+
+- type: entity
+  parent: DefaultStationBeaconLavaland
+  id: DefaultStationBeaconLavalandAtmos
+  suffix: Lavaland Atmos
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-lavaland-atmos
+
+- type: entity
+  parent: DefaultStationBeaconLavaland
+  id: DefaultStationBeaconLavalandCargoEquipment
+  suffix: Lavaland Cargo Equipment
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-lavaland-cargo-equipment
+
+- type: entity
+  parent: DefaultStationBeaconLavaland
+  id: DefaultStationBeaconLavalandGenerator
+  suffix: Lavaland Generator
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-lavaland-generator
+
+- type: entity
+  parent: DefaultStationBeaconLavaland
+  id: DefaultStationBeaconLavalandToolsRoom
+  suffix: Lavaland Tools room
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-lavaland-tools-room
+
+- type: entity
+  parent: DefaultStationBeaconLavaland
+  id: DefaultStationBeaconLavalandRestRoom
+  suffix: Lavaland Rest room
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-lavaland-rest-room
+
+- type: entity
+  parent: DefaultStationBeaconLavaland
+  id: DefaultStationBeaconLavalandQMOffice
+  suffix: Lavaland QM's Office
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-lavaland-qm-office
+
+- type: entity
+  parent: DefaultStationBeaconLavaland
+  id: DefaultStationBeaconLavalandServerRoom
+  suffix: Lavaland Server Room
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-lavaland-server
+
+- type: entity
+  parent: DefaultStationBeaconLavaland
+  id: DefaultStationBeaconLavalandStorage
+  suffix: Lavaland Storage
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-lavaland-storage
+
+- type: entity
+  parent: DefaultStationBeaconLavaland
+  id: DefaultStationBeaconLavalandDorms
+  suffix: Lavaland Dorms
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-lavaland-dorms
+
+- type: entity
+  parent: DefaultStationBeaconLavaland
+  id: DefaultStationBeaconLavalandMedbay
+  suffix: Lavaland Medbay
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-lavaland-medbay
+
 # A default station beacon without warp point components.
 - type: entity
   parent: BaseItem
