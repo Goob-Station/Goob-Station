@@ -288,4 +288,7 @@ public sealed partial class ZombieComponent : Component
     /// </summary>
     [DataField("newBloodReagent", customTypeSerializer: typeof(PrototypeIdSerializer<ReagentPrototype>))]
     public string NewBloodReagent = "ZombieBlood";
+
+    [DataField]
+    public EntityUid? BeforeZombificationReferenceEnt; // Goob - reference clone of before zombified
 }

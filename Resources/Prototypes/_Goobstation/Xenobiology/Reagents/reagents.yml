@@ -9,6 +9,80 @@
 
 - type: reagent
   parent: BaseXenobioReagent
+  id: XenobioSlimeToxin
+  name: xenobio-reagent-slime-toxin-name
+  desc: xenobio-reagent-slime-toxin-desc
+  color: "#3CB371"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.1
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        - !type:MobStateCondition
+          mobstate: Critical
+        damage:
+          types:
+            Asphyxiation: -2 # should keep target in crit
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        damage:
+          types:
+            Bloodloss: -7 # 20 bloodloss damage every 3 seconds when there are no blood in bloodsream
+    Narcotic:
+      metabolismRate: 0.1
+      effects:
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        effectProto: StatusEffectSeeingRainbow
+        type: Add
+        time: 5
+        refresh: false
+      - !type:Drunk
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        boozePower: 5
+    Poison:
+      metabolismRate: 0.1
+      effects:
+      - !type:Emote
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        emote: Yawn
+        showInChat: true
+        probability: 0.1
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        effectProto: StatusEffectDrowsiness
+        time: 2
+        type: Add
+        refresh: false
+
+
+- type: reagent
+  parent: BaseXenobioReagent
   id: XenobioJellyPurple
   name: xenobio-reagent-jelly-purple-name
   desc: xenobio-reagent-jelly-purple-desc

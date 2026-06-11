@@ -29,6 +29,10 @@
     {
       "name": "equipped-OUTERCLOTHING-reptilian",
       "directions": 4
+    }, 
+    {
+      "name": "equipped-OUTERCLOTHING-feroxi",
+      "directions": 4
     }
   ]
 }

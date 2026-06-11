@@ -44,8 +44,8 @@
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
-  id: ClothingNeckEnsembleChiefEngineer
-  name: chief engineer's ensemble
+  id: ClothingNeckEnsembleChiefEngineerWhite 
+  name: chief engineer's white ensemble
   description: In the event of a delamination, this won't protect you from the radiation. With how long you've been doing this, that wouldn't happen. Right?
   suffix: DO NOT MAP
   components:
@@ -58,9 +58,9 @@
       right:
       - state: inhand-right
   - type: Sprite
-    sprite: _Goobstation/Clothing/Neck/Ensembles/ce.rsi
+    sprite: _Goobstation/Clothing/Neck/Ensembles/ChiefEngineer/whitece.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Neck/Ensembles/ce.rsi
+    sprite: _Goobstation/Clothing/Neck/Ensembles/ChiefEngineer/whitece.rsi
     equippedPrefix: both
     slots:
     - Neck
@@ -73,17 +73,61 @@
       both: !type:ItemSwitchState
         verb: both
         sprite:
-          sprite: _Goobstation/Clothing/Neck/Ensembles/ce.rsi
+          sprite: _Goobstation/Clothing/Neck/Ensembles/ChiefEngineer/whitece.rsi
           state: icon
       mantle: !type:ItemSwitchState
         verb: mantle
         sprite:
-          sprite: _Goobstation/Clothing/Neck/Ensembles/ce.rsi
+          sprite: _Goobstation/Clothing/Neck/Ensembles/ChiefEngineer/whitece.rsi
           state: mantle-icon
       cloak: !type:ItemSwitchState
         verb: cloak
         sprite:
-          sprite: _Goobstation/Clothing/Neck/Ensembles/ce.rsi
+          sprite: _Goobstation/Clothing/Neck/Ensembles/ChiefEngineer/whitece.rsi
+          state: cloak-icon
+
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckEnsembleChiefEngineerGreen
+  name: chief engineer's green ensemble
+  description: In the event of a delamination, this won't protect you from the radiation. With how long you've been doing this, that wouldn't happen. Right?
+  suffix: DO NOT MAP
+  components:
+  - type: Item
+    size: Small
+    heldPrefix: both
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Ensembles/ChiefEngineer/greence.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Ensembles/ChiefEngineer/greence.rsi
+    equippedPrefix: both
+    slots:
+    - Neck
+  - type: StealTarget
+    stealGroup: HeadCloak
+  - type: ItemSwitch
+    state: both
+    showLabel: true
+    states:
+      both: !type:ItemSwitchState
+        verb: both
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/ChiefEngineer/greence.rsi
+          state: icon
+      mantle: !type:ItemSwitchState
+        verb: mantle
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/ChiefEngineer/greence.rsi
+          state: mantle-icon
+      cloak: !type:ItemSwitchState
+        verb: cloak
+        sprite:
+          sprite: _Goobstation/Clothing/Neck/Ensembles/ChiefEngineer/greence.rsi
           state: cloak-icon
 
 - type: entity

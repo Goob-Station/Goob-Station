@@ -114,9 +114,6 @@ public abstract partial class SharedStaminaSystem : EntitySystem
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private readonly StatusEffectNew.StatusEffectsSystem _status = default!;
     [Dependency] protected readonly SharedStunSystem StunSystem = default!;
-    [Dependency] private readonly SharedStutteringSystem _stutter = default!; // goob edit
-    [Dependency] private readonly SharedJitteringSystem _jitter = default!; // goob edit
-    [Dependency] private readonly IRobustRandom _random = default!; // Goob - Shove
 
 
     /// <summary>

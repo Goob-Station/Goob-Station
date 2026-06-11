@@ -53,3 +53,8 @@
   license: "CC-BY-NC-4.0"
   copyright: "night_vision.wav by Syna-Max"
   source: "https://freesound.org/s/60345/"
+
+- files: ["whip.ogg"]
+  license: "CC0-1.0"
+  copyright: "Taken from freesound.org. Converted from m4a to ogg"
+  source: "https://freesound.org/people/SciFiSounds/sounds/529925/"

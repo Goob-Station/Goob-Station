@@ -551,3 +551,14 @@
     sprite: _ShitChap/Clothing/OuterClothing/Misc/inquisitor.rsi
   - type: Clothing
     sprite: _ShitChap/Clothing/OuterClothing/Misc/inquisitor.rsi
+#senior security
+- type: entity
+  parent: ClothingOuterArmorBase
+  id: ClothingOuterArmorVeteranSecurity
+  name: Veteran security's old armor
+  description: An old version of the standard NanoTrasen bulletproof vest, its design provides better protection against surprise attacks by clowns, it still meets NT's protection standards
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Armor/veteran_security.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Armor/veteran_security.rsi

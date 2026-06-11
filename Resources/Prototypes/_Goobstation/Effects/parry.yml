@@ -1,0 +1,11 @@
+- type: entity
+  id: EffectParry
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: DodgeEffect
+    duration: 0.35
+  - type: TimedDespawn
+    lifetime: 0.35
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/_Goobstation/Effects/Parry/parry.ogg

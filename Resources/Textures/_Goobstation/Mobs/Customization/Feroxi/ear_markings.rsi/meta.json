@@ -1,0 +1,47 @@
+{
+    "version": 1,
+    "license": "CC-BY-NC-SA-3.0",
+    "copyright": "Made by BlitzTheSquishy, resprite(and alt, tiger, pierced) by RedTerror",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+    {
+        "name": "feroxi-ears",
+        "directions": 4
+    },
+    {
+        "name": "feroxi-ears-inner",
+        "directions": 4
+    },
+    {
+        "name": "feroxi-ears-tips",
+        "directions": 4
+    },
+    {
+        "name": "feroxi-ears-tiger",
+        "directions": 4
+    },
+    {
+        "name": "feroxi-ears-alt",
+        "directions": 4
+    },
+    {
+        "name": "feroxi-ears-alt-inner",
+        "directions": 4
+    },
+    {
+        "name": "feroxi-ears-alt-tiger",
+        "directions": 4
+    },
+    {
+        "name": "feroxi-ears-alt-tips",
+        "directions": 4
+    },
+    {
+        "name": "feroxi-ears-pierced",
+        "directions": 4
+    }
+    ]
+}

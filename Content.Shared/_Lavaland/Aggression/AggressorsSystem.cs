@@ -20,6 +20,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Shared._Lavaland.Audio;
 using Content.Shared.Damage;
 using Content.Shared.Mobs;
@@ -71,6 +72,8 @@ public sealed class AggressorsSystem : EntitySystem
 
             aggressive.NextUpdate = curTime + aggressive.UpdateDelay;
 
+            var toRemove = new List<EntityUid>();
+
             foreach (var aggressor in aggressive.Aggressors)
             {
                 if (!_xformQuery.TryComp(aggressor, out var aggroXform))
@@ -82,7 +85,11 @@ public sealed class AggressorsSystem : EntitySystem
 
                 if (distance > aggressive.ForgiveRange
                     || xform.MapID != aggroXform.MapID)
-                    RemoveAggressor((uid, aggressive), aggressor);
+                    toRemove.Add(aggressor);
+            }
+            foreach (var remove in toRemove)
+            {
+                RemoveAggressor((uid, aggressive), remove);
             }
         }
     }
@@ -151,8 +158,17 @@ public sealed class AggressorsSystem : EntitySystem
         ent.Comp.Aggressors.Remove(aggressor);
         aggressor.Comp.Aggressives.Remove(ent);
 
+        RaiseLocalEvent(ent.Owner, new AggressorRemovedEvent(aggressor.Owner));
+
+        Dirty(ent.Owner, ent.Comp);
+
         if (aggressor.Comp.Aggressives.Count == 0)
+        {
+            RaiseLocalEvent(aggressor.Owner, new AggressiveRemovedEvent(ent.Owner));
             RemComp(aggressor, aggressor.Comp);
+        }
+        else
+            Dirty(aggressor.Owner, aggressor.Comp);
     }
 
     public void RemoveAllAggressors(Entity<AggressiveComponent> ent)
@@ -182,7 +198,7 @@ public sealed class AggressorsSystem : EntitySystem
         if (!Resolve(aggressor, ref aggressor.Comp))
             return;
 
-        foreach (var aggressive in aggressor.Comp.Aggressives)
+        foreach (var aggressive in aggressor.Comp.Aggressives.ToArray())
         {
             if (TryComp<AggressiveComponent>(aggressive, out var aggressors))
                 RemoveAggressor((aggressive, aggressors), aggressor);

@@ -195,6 +195,18 @@
     damage:
       types:
         Blunt: 15
+  - type: HeatTint # Goob - color liquid by temperature
+    colorGradient:
+    - temperature: 200
+      color: "#A0BCE0"
+    - temperature: 293
+      color: "#FFFFFF"
+    - temperature: 350
+      color: "#FFC0A8"
+    - temperature: 800
+      color: "#FF9880"
+    affectedLayers:
+    - "enum.SolutionContainerLayers.Fill"
 
 - type: entity
   parent: BaseItem

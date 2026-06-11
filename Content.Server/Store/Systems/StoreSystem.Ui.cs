@@ -72,7 +72,7 @@ public sealed partial class StoreSystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly HereticKnowledgeSystem _heretic = default!; // goobstation - heretics
+    [Dependency] private readonly HereticSystem _heretic = default!; // goobstation - heretics
     [Dependency] private readonly IGameTiming _timing = default!; // goobstation - ntr update
 
     private void InitializeUi()
@@ -241,8 +241,11 @@ public sealed partial class StoreSystem
         // so i'm just gonna shitcode my way out of my misery
         if (listing.ProductHereticKnowledge != null)
         {
-            if (TryComp<HereticComponent>(buyer, out var heretic))
-                _heretic.AddKnowledge(buyer, heretic, (ProtoId<HereticKnowledgePrototype>) listing.ProductHereticKnowledge);
+            mindId = buyer;
+            var mind = CompOrNull<MindComponent>(mindId);
+
+            if (mind != null || _mind.TryGetMind(buyer, out mindId, out mind))
+                _heretic.TryAddKnowledge(mindId, listing.ProductHereticKnowledge.Value, mind.CurrentEntity);
         }
 
         //spawn entity
@@ -358,7 +361,7 @@ public sealed partial class StoreSystem
             $"{ToPrettyString(buyer):player} purchased listing \"{ListingLocalisationHelpers.GetLocalisedNameOrEntityName(listing, _proto)}\" from {ToPrettyString(uid)}");
 
         listing.PurchaseAmount++; //track how many times something has been purchased
-        _audio.PlayEntity(component.BuySuccessSound, msg.Actor, uid); //cha-ching!
+        _audio.PlayGlobal(component.BuySuccessSound, msg.Actor); //cha-ching! // Goob edit
 
         //WD EDIT START
         if (listing.SaleLimit != 0 && listing.DiscountValue > 0 && listing.PurchaseAmount >= listing.SaleLimit)

@@ -17,14 +17,13 @@ public sealed partial class RitualFeastOfOwlsBehavior : RitualCustomBehavior
 
     public override void Finalize(RitualData args)
     {
-        if (!args.EntityManager.TryGetComponent(args.Performer, out HereticComponent? heretic) || heretic.Ascended ||
-            !heretic.CanAscend)
+        if (args.Mind.Comp.Ascended || !args.Mind.Comp.CanAscend)
             return;
 
         if (!args.EntityManager.TryGetComponent(args.Performer, out ActorComponent? actor))
             return;
 
         var eui = IoCManager.Resolve<EuiManager>();
-        eui.OpenEui(new FeastOfOwlsEui(args.Performer, args.Platform, args.EntityManager), actor.PlayerSession);
+        eui.OpenEui(new FeastOfOwlsEui(args.Performer, args.Mind, args.Platform, args.EntityManager), actor.PlayerSession);
     }
 }

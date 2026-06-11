@@ -16,6 +16,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Mobs;
 using Content.Shared.Database;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Components;
@@ -143,13 +144,18 @@ public partial class MobStateSystem
             // to handle consciousness related stuff. sorry
         }
 
-        if (origin != null
-            && HasComp<ActorComponent>(origin)
-            && HasComp<ActorComponent>(target)
-            && oldState < newState)
-            _adminLogger.Add(LogType.Damaged, LogImpact.High, $"{ToPrettyString(origin):player} caused {ToPrettyString(target):player} state to change from {oldState} to {newState}");
-        else
-            _adminLogger.Add(LogType.Damaged, oldState == MobState.Alive ? LogImpact.Low : LogImpact.Medium, $"{ToPrettyString(target):user} state changed from {oldState} to {newState}");
+        var shouldLog = new ShouldLogMobStateChangeEvent(target, origin); // Goob edit
+        RaiseLocalEvent(ref shouldLog);
+        if (!shouldLog.Cancelled)
+        {
+            if (origin != null
+                && HasComp<ActorComponent>(origin)
+                && HasComp<ActorComponent>(target)
+                && oldState < newState)
+                _adminLogger.Add(LogType.Damaged, LogImpact.High, $"{ToPrettyString(origin):player} caused {ToPrettyString(target):player} state to change from {oldState} to {newState}");
+            else
+                _adminLogger.Add(LogType.Damaged, oldState == MobState.Alive ? LogImpact.Low : LogImpact.Medium, $"{ToPrettyString(target):user} state changed from {oldState} to {newState}");
+        }
         Dirty(target, component);
     }
 

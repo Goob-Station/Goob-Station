@@ -1,5 +1,8 @@
 [ooc]
 enable_during_round = true
 
+[game]
+round_end_eorg_popup_enabled = true
+
 [hub]
 tags = "lang:en, rp:medium, region:eu_w"

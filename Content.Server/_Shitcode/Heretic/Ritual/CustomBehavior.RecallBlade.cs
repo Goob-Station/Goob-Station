@@ -11,8 +11,7 @@ public sealed partial class RitualRecallBladeBehavior : RitualCustomBehavior
         outstr = null;
 
         var entMan = args.EntityManager;
-        if (!entMan.TryGetComponent(args.Performer, out HereticComponent? heretic))
-            return false;
+        var heretic = args.Mind.Comp;
 
         var transform = entMan.System<TransformSystem>();
         if (GetLostBlade(args.Platform, args.Performer, heretic, args.EntityManager, transform) != null)
@@ -25,8 +24,7 @@ public sealed partial class RitualRecallBladeBehavior : RitualCustomBehavior
     public override void Finalize(RitualData args)
     {
         var entMan = args.EntityManager;
-        if (!entMan.TryGetComponent(args.Performer, out HereticComponent? heretic))
-            return;
+        var heretic = args.Mind.Comp;
 
         var transform = entMan.System<TransformSystem>();
         if (GetLostBlade(args.Platform, args.Performer, heretic, args.EntityManager, transform) is not { } blade)
@@ -42,10 +40,7 @@ public sealed partial class RitualRecallBladeBehavior : RitualCustomBehavior
         IEntityManager entMan,
         TransformSystem transform)
     {
-        if (comp.CurrentPath == null || !comp.Blades.TryGetValue(comp.CurrentPath, out var bladeId))
-            return null;
-
-        if (!comp.LimitedTransmutations.TryGetValue(bladeId, out var blades))
+        if (comp.CurrentPath is not { } path || !comp.LimitedTransmutations.TryGetValue($"Blade{path}", out var blades))
             return null;
 
         var originCoords = transform.GetMapCoordinates(origin);

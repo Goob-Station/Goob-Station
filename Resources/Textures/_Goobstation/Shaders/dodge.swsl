@@ -1,0 +1,68 @@
+light_mode unshaded;
+
+uniform highp float progress;
+uniform highp vec2 center;
+uniform highp vec2 size;
+uniform highp float seed;
+
+const highp float PI = 3.14159265;
+
+highp float hash(highp float p) {
+    p = fract(p * 0.1031);
+    p *= p + 33.33;
+    p *= p + p;
+    return fract(p);
+}
+
+void fragment() {
+    highp vec2 rel = (FRAGCOORD.xy - center) / (size * 0.5);
+    highp float dist = length(rel);
+    highp float angle = atan(rel.y, rel.x);
+
+    highp float normAngle = fract((angle + PI) / (2.0 * PI) + hash(seed));
+
+    highp float fade = 1.0 - progress;
+    highp float sharpFade = fade * fade;
+    highp float flashFade = sharpFade * sharpFade;
+
+    highp float n1 = 18.0;
+    highp float a1 = normAngle * n1;
+    highp float idx1 = floor(a1);
+    highp float f1 = fract(a1);
+
+    highp float s = seed;
+    highp float w1 = 0.1 + hash(idx1 * 7.13 + s) * 0.7;
+    highp float vis1 = step(0.35, hash(idx1 * 3.77 + s));
+    highp float wedge1 = step(abs(f1 - 0.5) * 2.0, w1) * vis1;
+
+    highp float lineMaxLen = 0.35 + hash(idx1 * 13.37 + s) * 0.65;
+    highp float lineSpeed = 0.5 + hash(idx1 * 17.91 + s) * 1.5;
+    highp float lineGrow = clamp(progress * lineSpeed, 0.0, 1.0);
+    highp float lineLen = lineMaxLen * lineGrow;
+
+    highp float inner1 = 0.06;
+    highp float mask1 = smoothstep(inner1, inner1 + 0.06, dist)
+                      * smoothstep(lineLen + 0.1, lineLen, dist);
+
+    highp float lineFadeSpeed = 0.6 + hash(idx1 * 23.53 + s) * 0.8;
+    highp float lineFade = 1.0 - clamp(progress * lineFadeSpeed, 0.0, 1.0);
+    lineFade *= lineFade;
+
+    highp float lines = wedge1 * mask1 * lineFade;
+
+    highp float flashR = 0.12 + progress * 0.04;
+    highp float flash = (1.0 - smoothstep(0.0, flashR, dist)) * flashFade;
+
+    highp float ringPos = progress * 0.85;
+    highp float ringW = max(0.03, 0.07 - progress * 0.05);
+    highp float ring = exp(-pow((dist - ringPos) / ringW, 2.0)) * fade * 0.7;
+
+    highp float alpha = max(max(lines, flash), ring);
+    if (alpha < 0.01) { discard; }
+
+    highp vec3 color = vec3(1.0) * flash
+                     + vec3(0.9, 0.95, 1.0) * lines
+                     + vec3(0.7, 0.9, 1.0) * ring;
+
+    COLOR = vec4(color, alpha);
+}

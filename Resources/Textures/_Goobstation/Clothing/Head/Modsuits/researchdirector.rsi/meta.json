@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "From tgstation - https://github.com/tgstation/tgstation/pull/59109, vulp microwave looking sprite made by YERO",
+  "copyright": "From tgstation - https://github.com/tgstation/tgstation/pull/59109, vulp microwave looking sprite made by YERO, feroxi RedTerror",
   "size": {
     "x": 32,
     "y": 32
@@ -35,6 +35,14 @@
     },
     {
       "name": "equipped-HEAD-vulpkanin",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HEAD-sealed-feroxi",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HEAD-feroxi",
       "directions": 4
     }
   ]

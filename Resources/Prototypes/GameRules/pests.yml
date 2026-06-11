@@ -110,6 +110,14 @@
         weight: 0.79
       - id: MobMothroach
         weight: 0.20
+      - id: MobMothroachMustard # Goob-Mothroaches-Start
+        weight: 0.20
+      - id: MobMothroachLeopard
+        weight: 0.20
+      - id: MobMothroachCecropia
+        weight: 0.20
+      - id: MobMothroachLunar
+        weight: 0.20 # Goob-Mothroaches-End
       - id: MobSquackroach # Goobstation
         weight: 0.1
       - id: MobLootbug # Goobstation

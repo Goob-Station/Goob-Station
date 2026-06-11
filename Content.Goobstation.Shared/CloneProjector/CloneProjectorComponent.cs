@@ -7,6 +7,8 @@
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Inventory;
+using Content.Shared.Players.PlayTimeTracking;
+using Content.Shared.Roles;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
@@ -112,6 +114,21 @@ public sealed partial class CloneProjectorComponent : Component
 
     [DataField]
     public LocId GhostRoleRules = "ghost-role-information-familiar-rules";
+
+    [ViewVariables]
+    public RoleTimeRequirement? GhostRoleRequirement;
+
+    /// <summary>
+    /// Required role for the projector
+    /// </summary>
+    [DataField]
+    public ProtoId<PlayTimeTrackerPrototype>? RequiredRole = "JobScientist";
+
+    /// <summary>
+    /// How many seconds needed for RequiredRole to play this projector clone
+    /// </summary>
+    [DataField]
+    public TimeSpan TimeNeeded = TimeSpan.FromSeconds(18000);
 
     /// <summary>
     /// How much the strip time should be increased by.

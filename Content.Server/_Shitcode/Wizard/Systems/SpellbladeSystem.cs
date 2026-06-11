@@ -7,7 +7,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Server.Atmos.Components;
+using Content.Shared.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Lightning;
 using Content.Shared._Goobstation.Wizard.Spellblade;
@@ -18,6 +18,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
 using Content.Shared.Timing;
 using Content.Shared.Weapons.Melee.Events;
+using Content.Server.Atmos.Components;
 
 namespace Content.Server._Goobstation.Wizard.Systems;
 

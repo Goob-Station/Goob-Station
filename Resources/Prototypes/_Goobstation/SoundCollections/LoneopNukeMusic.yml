@@ -1,0 +1,4 @@
+﻿- type: soundCollection
+  id: LoneopNukeMusic
+  files:
+     - /Audio/StationEvents/one_against_all.ogg

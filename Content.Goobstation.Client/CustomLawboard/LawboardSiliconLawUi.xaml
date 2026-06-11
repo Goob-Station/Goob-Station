@@ -14,10 +14,18 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     MinSize="600 400"
 >
     <BoxContainer Orientation="Vertical">
-        <BoxContainer Orientation="Horizontal" Align="End" Margin="0 15 0 0">
-            <Button Name="NewLawButton" Text="{Loc silicon-law-ui-new-law}" MaxSize="256 64" StyleClasses="OpenRight"></Button>
-            <Button Name="Save" Text="{Loc silicon-law-ui-save}" MaxSize="256 64" Access="Public" StyleClasses="OpenLeft"></Button>
+        <BoxContainer Orientation="Horizontal" Margin="0 0 0 0">
+            <BoxContainer Orientation="Horizontal" Align="Begin" HorizontalAlignment="Left" Margin="0 15 0 0">
+                <Button Name="Import" Text="{Loc custom-lawboard-import}" MaxSize="256 64" StyleClasses="OpenRight"></Button>
+                <Button Name="Export" Text="{Loc custom-lawboard-export}" MaxSize="256 64" Access="Public" StyleClasses="OpenLeft"></Button>
+            </BoxContainer>
+            
+            <BoxContainer Orientation="Horizontal" Align="End" HorizontalAlignment="Right" Margin="0 15 0 0" HorizontalExpand="True">
+                <Button Name="NewLawButton" Text="{Loc silicon-law-ui-new-law}" MaxSize="256 64" StyleClasses="OpenRight"></Button>
+                <Button Name="Save" Text="{Loc silicon-law-ui-save}" MaxSize="256 64" Access="Public" StyleClasses="OpenLeft"></Button>
+            </BoxContainer>
         </BoxContainer>
+
     </BoxContainer>
     <BoxContainer Orientation="Vertical" Margin="4 60 0 0">
         <ScrollContainer VerticalExpand="True" HorizontalExpand="True" HScrollEnabled="False">

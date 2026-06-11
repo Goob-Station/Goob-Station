@@ -17,7 +17,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    raiseOnUser: true
     checkCanInteract: false
     checkConsciousness: false
     useDelay: 15
@@ -29,7 +28,8 @@
     event: !type:EventHereticRealignment
   - type: HereticAction
     requireMagicItem: true
-    messageLoc: heretic-speech-realignment
+  - type: SpeakOnAction
+    sentence: heretic-speech-realignment
 
 - type: entity
   parent: BaseAction
@@ -39,7 +39,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    raiseOnUser: true
     checkCanInteract: false
     useDelay: 60
     itemIconStyle: NoItem
@@ -50,7 +49,8 @@
     event: !type:EventHereticFuriousSteel
   - type: HereticAction
     requireMagicItem: true
-    messageLoc: heretic-speech-blade-furioussteel
+  - type: SpeakOnAction
+    sentence: heretic-speech-blade-furioussteel
   - type: ChangeUseDelayOnAscension
     newUseDelay: 30
     requiredPath: Blade

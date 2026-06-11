@@ -62,6 +62,28 @@ public sealed class PollOption
     public List<PollVote> Votes { get; set; } = default!;
 }
 
+[Table("poll_seen")]
+[Index(nameof(PollId))]
+[Index(nameof(PlayerUserId))]
+public sealed class PollSeen
+{
+    [Key]
+    public int Id { get; set; }
+
+    [Required]
+    public int PollId { get; set; }
+
+    public Poll Poll { get; set; } = default!;
+
+    [Required, ForeignKey("Player")]
+    public Guid PlayerUserId { get; set; }
+
+    public Player Player { get; set; } = default!;
+
+    [Required]
+    public DateTime SeenAt { get; set; }
+}
+
 [Table("poll_votes")]
 [Index(nameof(PollId))]
 [Index(nameof(PlayerUserId))]

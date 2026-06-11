@@ -61,6 +61,11 @@
           name: thunderdome-loadout-capo
           category: thunderdome-category-melee
           sprite: CapoeiraManual
+        - gear: ThunderdomeMosin
+          name: thunderdome-loadout-mosin
+          description: thunderdome-desc-mosin
+          category: thunderdome-category-snipers
+          sprite: WeaponSniperMosin
     - type: LoadMapRule
       mapPath: /Maps/_Goobstation/Nonstations/dm01-entryway.yml
     - type: RuleGrids

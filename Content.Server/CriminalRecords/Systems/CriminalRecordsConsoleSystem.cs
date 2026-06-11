@@ -113,7 +113,8 @@ public sealed partial class CriminalRecordsConsoleSystem : SharedCriminalRecords
         var requireReason = msg.Status is SecurityStatus.Wanted
             or SecurityStatus.Suspected
             or SecurityStatus.Search
-            or SecurityStatus.Dangerous;
+            or SecurityStatus.Dangerous
+            or SecurityStatus.Demote; // Goobstation
 
         if (requireReason != (msg.Reason != null))
             return;
@@ -188,6 +189,8 @@ public sealed partial class CriminalRecordsConsoleSystem : SharedCriminalRecords
             (_, SecurityStatus.Search) => "search",
             // person is very dangerous
             (_, SecurityStatus.Dangerous) => "dangerous",
+            // person is demoted from their job
+            (_, SecurityStatus.Demote) => "demote", // Goobstation
             // person is no longer sus
             (SecurityStatus.Suspected, SecurityStatus.None) => "not-suspected",
             // going from wanted to none, must have been a mistake
@@ -202,6 +205,8 @@ public sealed partial class CriminalRecordsConsoleSystem : SharedCriminalRecords
             (SecurityStatus.Search, SecurityStatus.None) => "not-search",
             // person is no longer dangerous
             (SecurityStatus.Dangerous, SecurityStatus.None) => "not-dangerous",
+            // person no longer demoted
+            (SecurityStatus.Demote, SecurityStatus.None) => "not-demoted", // Goobstation
             // this is impossible
             _ => "not-wanted"
         };

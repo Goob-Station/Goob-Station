@@ -152,7 +152,7 @@
 
 # Western Undetermined Set
 - type: entity
-  parent: [ClothingHeadHatCowboyBrown, BaseMajorContraband]
+  parent: [ClothingHeadHatArmored, ClothingHeadHatCowboyBrown, BaseMajorContraband]
   id: ClothingHeadHatCowboyBrownRobust
   name: authentic brown cowboy hat
   description: "\"This station ain't big enough for the two of us.\""
@@ -331,3 +331,45 @@
     - WhitelistChameleon
   - type: HideLayerClothing
     layers: {}
+
+- type: entity
+  parent: ClothingHeadHatHelmetTemplar
+  id: ClothingHeadHatHelmetBrass
+  name: brass helmet
+  description: Brass helmet, like in the good old days.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Helmets/brass_helmet.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Helmets/brass_helmet.rsi
+  - type: Construction
+    graph: BrassHelm
+    node: brassHelmet
+
+- type: entity
+  parent: [ClothingHeadHelmetBase, ClothingHeadHelmetBaseFoldable]
+  id: ClothingHeadHelmetSwatBase
+  abstract: true
+  components:
+  - type: Armor
+    coverage:
+    - Head
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.35
+        Slash: 0.35
+        Piercing: 0.35
+        Heat: 0.35
+        Radiation: 0.75
+        Caustic: 0.75
+  - type: ExplosionResistance
+    damageCoefficient: 0.75
+  - type: FlashSoundSuppression
+  - type: FaceHuggerBlocker

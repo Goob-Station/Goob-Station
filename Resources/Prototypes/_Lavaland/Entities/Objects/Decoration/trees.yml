@@ -4,7 +4,7 @@
   name: ash tree
   components:
   - type: Sprite
-    sprite: _Lavaland/Objects/Decoration/Flora/ashtree.rsi
+    sprite: _Lavaland/Objects/Decoration/Flora/Trees/ashtree.rsi
     offset: 0,0.5
     layers:
     - state: ashtree01
@@ -53,3 +53,44 @@
           AshwoodLog:
             min: 2
             max: 4
+
+- type: entity
+  parent: FloraAshtree
+  id: FloraAshtreePale
+  name: pale tree
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Decoration/Flora/Trees/ashtree_pale.rsi
+    layers:
+    - state: tree1
+      map: ["random"]
+  - type: RandomSprite
+    available:
+    - random:
+        tree1: ""
+        tree2: ""
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/tree_fell.ogg
+          params:
+            volume: 5
+            variation: 0.05
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          AshwoodLog:
+            min: 3
+            max: 5

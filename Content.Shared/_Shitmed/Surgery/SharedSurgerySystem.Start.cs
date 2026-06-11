@@ -52,7 +52,7 @@ public abstract partial class SharedSurgerySystem
         var verb = new UtilityVerb()
         {
             Act = () => AttemptStartSurgery(ent, user, target),
-            Icon = new SpriteSpecifier.Rsi(new("/Textures/Objects/Specific/Medical/Surgery/scalpel.rsi"), "scalpel"),
+            Icon = new SpriteSpecifier.Texture(new("/Textures/_Shitmed/Interface/Examine/scalpel.png")),
             Text = Loc.GetString("surgery-verb-text"),
             Message = Loc.GetString("surgery-verb-message"),
             DoContactInteraction = true

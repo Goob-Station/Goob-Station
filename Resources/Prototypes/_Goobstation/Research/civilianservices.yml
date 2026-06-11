@@ -117,3 +117,20 @@
   - HONKMech
 
 # Tier 3
+
+- type: technology
+  id: CloningTechnology
+  name: research-technology-cloning
+  icon:
+    sprite: Structures/Machines/cloning.rsi
+    state: pod_0
+  discipline: CivilianServices
+  tier: 3
+  cost: 15000
+  recipeUnlocks:
+  - CloningPodMachineCircuitboardRecipe
+  - MedicalScannerMachineCircuitboardRecipe
+  - CloningConsoleComputerCircuitboardRecipe
+  technologyPrerequisites:
+  - HighEndSurgery
+  position: -3, 9

@@ -117,12 +117,6 @@
   artist: asardonicsailor
 
 - type: lobbyBackground
-  id: cburn
-  background: /Textures/LobbyScreens/cburn.webp
-  name: Cburn
-  artist: PubliclyExecutedPig
-
-- type: lobbyBackground
   id: clown
   background: /Textures/LobbyScreens/clown.webp
   name: Clown
@@ -277,3 +271,21 @@
   background: /Textures/LobbyScreens/syndi_kek.webp
   name: Syndi kek
   artist: blooodyspy
+
+- type: lobbyBackground
+  id: etu-hop
+  background: /Textures/LobbyScreens/fuckingkillHoPalready.webp
+  name: E tu, HoP?
+  artist: MsMunde
+
+- type: lobbyBackground
+  id: nukies-bridge
+  background: /Textures/LobbyScreens/nukies_bridge.webp
+  name: Nukies Bridge!!
+  artist: seyriix
+
+- type: lobbyBackground
+  id: etzils-hungry
+  background: /Textures/LobbyScreens/etzilshungry.webp
+  name: Etzil's Hungry
+  artist: IdiotVibes

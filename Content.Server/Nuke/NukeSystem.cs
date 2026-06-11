@@ -648,6 +648,12 @@ public sealed class NukeSystem : EntitySystem
                     _selectedNukeSong = _audio.GetSound(component.HonkopsArmMusic);
                     break;
                 }
+
+                if (nukeopsComp.LocalePrefix == "loneop-")
+                {
+                    _selectedNukeSong = _audio.GetSound(component.LoneopArmMusic);
+                    break;
+                }
             }
         }
         // Goobstation end

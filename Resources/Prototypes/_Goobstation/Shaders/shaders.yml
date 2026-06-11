@@ -24,3 +24,17 @@
   id: ColorTint
   kind: source
   path: "/Textures/_Goobstation/Shaders/color_tint.swsl"
+
+- type: shader
+  id: Dodge
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/dodge.swsl"
+  params:
+    progress: 0.0
+
+- type: shader
+  id: SandevistanGlitch
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/sandevistan_glitch.swsl"
+  params:
+    intensity: 1.0

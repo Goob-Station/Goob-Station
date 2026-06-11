@@ -22,7 +22,6 @@
     # Goob edit start
     canTargetSelf: false
     whitelist:
-      requireAll: true
       components:
       - MobState
       - Body # this also allows borgs because that supercode uses Body for no reason

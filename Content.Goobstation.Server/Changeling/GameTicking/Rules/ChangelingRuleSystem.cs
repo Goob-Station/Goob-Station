@@ -48,7 +48,7 @@ public sealed class ChangelingRuleSystem : GameRuleSystem<ChangelingRuleComponen
 
     public readonly ProtoId<CurrencyPrototype> Currency = "EvolutionPoint";
 
-    public readonly int StartingCurrency = 16;
+    public readonly int StartingCurrency = 12;
 
     [ValidatePrototypeId<EntityPrototype>] EntProtoId mindRole = "MindRoleChangeling";
 

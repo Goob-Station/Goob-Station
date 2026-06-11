@@ -143,6 +143,13 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorRainbow
 
+# Overalls
+- type: loadout
+  id: OverallsJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformOveralls
+
+
 # Ancient
 - type: loadout
   id: AncientJumpsuit

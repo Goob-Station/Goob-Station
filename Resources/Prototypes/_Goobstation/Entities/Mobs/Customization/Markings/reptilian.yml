@@ -1,0 +1,10 @@
+- type: marking
+  id: LizardHornsEasternDragon
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/reptilian.rsi
+    state: dragon-antlers-left
+  - sprite: _Goobstation/Mobs/Customization/reptilian.rsi
+    state: dragon-antlers-right

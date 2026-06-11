@@ -215,6 +215,7 @@ public sealed partial class WantedListUiFragment : BoxContainer
             var proto = "SecurityIcon" + record.Status switch
             {
                 SecurityStatus.Detained => "Incarcerated",
+                SecurityStatus.Demote => "Demoted", // Goobstation
                 _ => record.Status.ToString(),
             };
 

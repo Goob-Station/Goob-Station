@@ -98,6 +98,7 @@ public sealed class BuckleDragTest : InteractionTest
 
 #pragma warning disable RA0002
         buckle.Delay = TimeSpan.Zero;
+        strap.UnbuckleDoafterTime = 0f; // Goobstation - disable doafter for test
 #pragma warning restore RA0002
 
         // Initially not buckled to the chair and not pulling anything

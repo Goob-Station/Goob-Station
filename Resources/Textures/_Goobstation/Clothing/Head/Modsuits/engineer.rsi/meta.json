@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "From Baystation12 - https://github.com/Baystation12/Baystation12/pull/34564, sprites made by YERO",
+  "copyright": "From Baystation12 - https://github.com/Baystation12/Baystation12/pull/34564, sprites made by YERO, feroxi RedTerror",
   "size": {
     "x": 32,
     "y": 32
@@ -35,6 +35,14 @@
     },
     {
       "name": "equipped-HEAD-sealed-vulpkanin",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HEAD-feroxi",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HEAD-sealed-feroxi",
       "directions": 4
     }
   ]

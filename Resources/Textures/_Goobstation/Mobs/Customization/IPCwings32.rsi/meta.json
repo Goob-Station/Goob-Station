@@ -1,0 +1,16 @@
+{
+    "version": 1,
+    "size": { "x": 32, "y": 32 },
+    "license": "CC-BY-NC-SA-3.0",
+    "copyright": "Created by Suportik for Goobstation",
+    "states": [
+        {
+            "name": "minimalistic_base",
+            "directions": 4
+        },
+        {
+            "name": "minimalistic_light",
+            "directions": 4
+        }
+    ]
+}

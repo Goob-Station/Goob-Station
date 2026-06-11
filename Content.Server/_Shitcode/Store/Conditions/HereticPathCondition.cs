@@ -7,6 +7,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Server.Heretic.EntitySystems;
 using Content.Shared.Heretic;
 using Content.Shared.Mind;
 using Content.Shared.Store;
@@ -30,12 +31,10 @@ public sealed partial class HereticPathCondition : ListingCondition
     public override bool Condition(ListingConditionArgs args)
     {
         var ent = args.EntityManager;
-        var minds = ent.System<SharedMindSystem>();
+        var hereticSys = ent.System<HereticSystem>();
 
-        if (!minds.TryGetMind(args.Buyer, out var mindId, out var mind))
-            return false;
-
-        if (!ent.TryGetComponent<HereticComponent>(args.Buyer, out var hereticComp))
+        if (!hereticSys.TryGetHereticComponent(args.Buyer, out var hereticComp, out _) &&
+            !ent.TryGetComponent(args.Buyer, out hereticComp))
             return false;
 
         if (RequiresCanAscend && !hereticComp.CanAscend)

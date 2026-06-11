@@ -6,6 +6,8 @@ namespace Content.Shared._Shitcode.Heretic.Components;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class CosmosPassiveComponent : Component
 {
+    public override bool SessionSpecific => true;
+
     [DataField]
     public float StaminaHeal = -15f;
 

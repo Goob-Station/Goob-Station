@@ -885,6 +885,42 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.ToTable("poll_options", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.PollSeen", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("poll_seen_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<Guid>("PlayerUserId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("player_user_id");
+
+                    b.Property<int>("PollId")
+                        .HasColumnType("integer")
+                        .HasColumnName("poll_id");
+
+                    b.Property<DateTime>("SeenAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("seen_at");
+
+                    b.HasKey("Id")
+                        .HasName("PK_poll_seen");
+
+                    b.HasIndex("PlayerUserId")
+                        .HasDatabaseName("IX_poll_seen_player_user_id");
+
+                    b.HasIndex("PollId")
+                        .HasDatabaseName("IX_poll_seen_poll_id");
+
+                    b.HasIndex("PollId", "PlayerUserId")
+                        .IsUnique();
+
+                    b.ToTable("poll_seen", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.PollVote", b =>
                 {
                     b.Property<int>("Id")
@@ -2129,6 +2165,28 @@ namespace Content.Server.Database.Migrations.Postgres
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("FK_poll_options_polls_poll_id");
+
+                    b.Navigation("Poll");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.PollSeen", b =>
+                {
+                    b.HasOne("Content.Server.Database.Player", "Player")
+                        .WithMany()
+                        .HasForeignKey("PlayerUserId")
+                        .HasPrincipalKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_poll_seen_player_player_user_id");
+
+                    b.HasOne("Content.Server.Database.Poll", "Poll")
+                        .WithMany()
+                        .HasForeignKey("PollId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_poll_seen_polls_poll_id");
+
+                    b.Navigation("Player");
 
                     b.Navigation("Poll");
                 });

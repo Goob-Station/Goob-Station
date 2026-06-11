@@ -286,7 +286,8 @@ public abstract class SharedJetpackSystem : EntitySystem
         }
 
 
-        Appearance.SetData(uid, JetpackVisuals.Enabled, enabled);
+        // Goob edit - jetpack state might have changed by the time "enabled" is any relevant
+        Appearance.SetData(uid, JetpackVisuals.Enabled, HasComp<ActiveJetpackComponent>(uid));
         Dirty(uid, component);
     }
 

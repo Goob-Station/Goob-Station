@@ -1,0 +1,103 @@
+{
+    "version": 1,
+    "license": "CC-BY-NC-SA-3.0",
+    "copyright": "Stripes made by BlitzTheSquishy, Countershading made by Emily9031, resprite by RedTerror",
+    "size":{
+        "x": 32,
+        "y": 32
+    },
+        "states": [
+        {
+            "name": "feroxi-torso-stripes-blitz",
+            "directions": 4
+        },
+        {
+            "name": "feroxi-Larm-stripes-blitz",
+            "directions": 4
+        },
+        {
+            "name": "feroxi-Rarm-stripes-blitz",
+            "directions": 4
+        },
+        {
+            "name": "feroxi-Lleg-stripes-blitz",
+            "directions": 4
+        },
+        {
+            "name": "feroxi-Rleg-stripes-blitz",
+            "directions": 4
+        },
+        {
+            "name": "feroxi-torso-countershading-m",
+            "directions": 4
+        },
+        {
+            "name": "feroxi-torso-countershading-f",
+            "directions": 4
+        },
+        {
+            "name": "feroxi-torso-stripes-tiger",
+            "directions": 4
+        },
+        {
+            "name": "feroxi-torso-stripes-tiger-alt",
+            "directions": 4
+        },
+        {
+            "name": "feroxi-Larm-stripes-tiger",
+            "directions": 4
+        },
+        {
+            "name": "feroxi-Rarm-stripes-tiger",
+            "directions": 4
+        },
+        {
+            "name": "feroxi-Lleg-stripes-tiger",
+            "directions": 4
+        },
+        {
+            "name": "feroxi-Rleg-stripes-tiger",
+            "directions": 4
+        },
+        {
+            "name": "feroxi-head-stripes-tiger",
+            "directions": 4
+        },
+        {
+            "name": "feroxi-head-stripes-tiger-alt",
+            "directions": 4
+        },
+        {
+            "name": "feroxi-Lfoot-tip",
+            "directions": 4
+        },
+        {
+            "name": "feroxi-Rfoot-tip",
+            "directions": 4
+        },
+        {
+            "name": "feroxi-Lfoot-stripes-tiger",
+            "directions": 4
+        },
+        {
+            "name": "feroxi-Rfoot-stripes-tiger",
+            "directions": 4
+        },
+        {
+            "name": "feroxi-Lhand-tip",
+            "directions": 4
+        },
+        {
+            "name": "feroxi-Rhand-tip",
+            "directions": 4
+        },
+        {
+            "name": "feroxi-Lhand-stripes-tiger",
+            "directions": 4
+        },
+        {
+            "name": "feroxi-Rhand-stripes-tiger",
+            "directions": 4
+        }
+    ]
+}

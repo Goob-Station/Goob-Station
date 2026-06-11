@@ -11,7 +11,7 @@
     Dragon: 0.3
     SlaughterDemon: 0.3
     LaughterDemon: 0.3
-    WizApprentice: 0.1
+    WizardMidRoundThreat: 0.1
 
 # Threats
 
@@ -46,17 +46,16 @@
   rule: UnknownShuttleInstigator
 
 - type: ninjaHackingThreat
-  id: WizApprentice
-  announcement: terror-apprentice
-  rule: ApprenticeRule
+  id: WizardMidRoundThreat
+  announcement: terror-wizard
+  rule: WizardMidround
+
+- type: ninjaHackingThreat
+  id: Slasher
+  announcement: terror-slasher
+  rule: SlasherSpawn
 
 #- type: ninjaHackingThreat
 #  id: Wraith
 #  announcement: terror-wraith
 #  rule: WraithMidround
-
-# TODO When Slasher is Ready
-#- type: ninjaHackingThreat
-#  id: Slasher
-#  announcement: terror-slasher
-#  rule: SlasherSpawn

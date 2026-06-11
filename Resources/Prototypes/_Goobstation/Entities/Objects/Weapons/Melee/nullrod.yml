@@ -312,6 +312,7 @@
       types:
         Slash: 20
     UntrainedUseString: nullrod-atheistfedora-untrained-usage-popup
+    recallType: Normal
   - type: LandAtCursor
   - type: Boomerang
   - type: DamageOtherOnHit
@@ -384,6 +385,7 @@
     quickEquip: false
     slots:
     - back
+    - suitstorage
   - type: MeleeDash
   - type: UseDelay
     delay: 10
@@ -615,6 +617,7 @@
     DamageOnUntrainedUse:
       types:
         Heat: 20
+    recallType: DualWield
     UntrainedUseString: nullrod-pistol-untrained-usage-popup
   - type: Sprite
     sprite: _ShitChap/Objects/Weapons/Nullrod/casul.rsi
@@ -715,6 +718,7 @@
     DamageOnUntrainedUse:
       types:
         Piercing: 20
+    recallType: Embedded
     UntrainedUseString: nullrod-spear-untrained-usage-popup
   - type: Item
     size: Large # Goob edit

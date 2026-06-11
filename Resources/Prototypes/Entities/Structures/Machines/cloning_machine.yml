@@ -47,6 +47,7 @@
   description: A Cloning Pod. 50% reliable.
   components:
   - type: CloningPod
+    cloningTime: 90 # Goobstation
   - type: DeviceList
   - type: DeviceNetwork
     deviceNetId: Wired

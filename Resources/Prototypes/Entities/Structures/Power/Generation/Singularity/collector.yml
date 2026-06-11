@@ -32,7 +32,7 @@
 
 - type: entity
   id: RadiationCollector
-  parent: ConstructibleMachine # Goobstation
+  parent: [ ConstructibleMachine, BaseAutomatedMachine ] # Goob: Automation
   name: radiation collector
   suffix: Empty tank
   description: A machine that collects radiation and turns it into power. Requires plasma gas to function.

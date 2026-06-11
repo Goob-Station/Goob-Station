@@ -3,8 +3,7 @@ using Content.Shared.Database;
 using Content.Shared.Popups;
 using Content.Shared.Silicons.Laws;
 using Content.Shared.Silicons.Laws.Components;
-using Robust.Shared.Prototypes;
-
+using System.Linq;
 
 namespace Content.Goobstation.Shared.CustomLawboard;
 
@@ -22,13 +21,17 @@ public abstract class SharedCustomLawboardSystem : EntitySystem
         SubscribeLocalEvent<CustomLawboardComponent, CustomLawboardChangeLawsMessage>(OnChangeLaws);
     }
 
-    public List<SiliconLaw> SanitizeLaws(List<SiliconLaw> listToSanitize)
+    public static List<SiliconLaw> SanitizeLaws(List<SiliconLaw> listToSanitize)
     {
         var sanitizedLaws = new List<SiliconLaw>();
-        foreach (SiliconLaw law in listToSanitize)
+        foreach (SiliconLaw law in listToSanitize.Take(MaxLaws)) // clamp to maxlaws  
         {
+            var sanitizedLaw = law.LawString.Replace("\n", " "); // Remove newlines cause they mess chat up when the law is stated  
 
-            var sanitizedLaw = law.LawString.Replace("\n", " "); // Remove newlines cause they mess chat up when the law is stated
+            // clamp max law length
+            if (sanitizedLaw.Length > MaxLawLength)
+                sanitizedLaw = sanitizedLaw[..MaxLawLength];
+
             sanitizedLaws.Add(new SiliconLaw()
             {
                 LawString = sanitizedLaw,
@@ -39,12 +42,19 @@ public abstract class SharedCustomLawboardSystem : EntitySystem
         return sanitizedLaws;
     }
 
+    public static SiliconLawset CreateLawset(List<SiliconLaw> laws)
+    {
+        var lawset = new SiliconLawset();
+        lawset.Laws = laws;
+
+        return lawset;
+    }
+
     private void OnChangeLaws(EntityUid uid, CustomLawboardComponent customLawboard, CustomLawboardChangeLawsMessage args)
     {
         var provider = EnsureComp<SiliconLawProviderComponent>(uid);
-        var lawset = new SiliconLawset();
         var sanitizedLaws = SanitizeLaws(args.Laws);
-        lawset.Laws = sanitizedLaws; // Sanitizing is done so you can't make newlines in a law.
+        var lawset = CreateLawset(sanitizedLaws);
 
         customLawboard.Laws = sanitizedLaws;
         provider.Lawset = lawset;
