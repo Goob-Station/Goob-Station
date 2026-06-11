@@ -9,7 +9,7 @@
   markingCategory: Hair
   speciesRestriction: [Resomi]
   sprites:
-    - sprite: _Goobstation/Mobs/Customization/Resomi/resomi_hair.rsi
+    - sprite: _Goobstation/Mobs/Customization/Resomi/hair.rsi
       state: ResomiBackstrafe
 
 - type: marking
@@ -18,7 +18,7 @@
   markingCategory: Hair
   speciesRestriction: [Resomi]
   sprites:
-    - sprite: _Goobstation/Mobs/Customization/Resomi/resomi_hair.rsi
+    - sprite: _Goobstation/Mobs/Customization/Resomi/hair.rsi
       state: ResomiBurstShort
 
 - type: marking
@@ -27,7 +27,7 @@
   markingCategory: Hair
   speciesRestriction: [Resomi]
   sprites:
-    - sprite: _Goobstation/Mobs/Customization/Resomi/resomi_hair.rsi
+    - sprite: _Goobstation/Mobs/Customization/Resomi/hair.rsi
       state: ResomiDefault
 
 - type: marking
@@ -36,7 +36,7 @@
   markingCategory: Hair
   speciesRestriction: [Resomi]
   sprites:
-    - sprite: _Goobstation/Mobs/Customization/Resomi/resomi_hair.rsi
+    - sprite: _Goobstation/Mobs/Customization/Resomi/hair.rsi
       state: ResomiDroopy
 
 - type: marking
@@ -45,7 +45,7 @@
   markingCategory: Hair
   speciesRestriction: [Resomi]
   sprites:
-    - sprite: _Goobstation/Mobs/Customization/Resomi/resomi_hair.rsi
+    - sprite: _Goobstation/Mobs/Customization/Resomi/hair.rsi
       state: ResomiFluffymohawk
 
 - type: marking
@@ -54,7 +54,7 @@
   markingCategory: Hair
   speciesRestriction: [Resomi]
   sprites:
-    - sprite: _Goobstation/Mobs/Customization/Resomi/resomi_hair.rsi
+    - sprite: _Goobstation/Mobs/Customization/Resomi/hair.rsi
       state: ResomiHedge
 
 - type: marking
@@ -63,7 +63,7 @@
   markingCategory: Hair
   speciesRestriction: [Resomi]
   sprites:
-    - sprite: _Goobstation/Mobs/Customization/Resomi/resomi_hair.rsi
+    - sprite: _Goobstation/Mobs/Customization/Resomi/hair.rsi
       state: ResomiLongway
 
 - type: marking
@@ -72,7 +72,7 @@
   markingCategory: Hair
   speciesRestriction: [Resomi]
   sprites:
-    - sprite: _Goobstation/Mobs/Customization/Resomi/resomi_hair.rsi
+    - sprite: _Goobstation/Mobs/Customization/Resomi/hair.rsi
       state: ResomiMane
 
 - type: marking
@@ -81,7 +81,7 @@
   markingCategory: Hair
   speciesRestriction: [Resomi]
   sprites:
-    - sprite: _Goobstation/Mobs/Customization/Resomi/resomi_hair.rsi
+    - sprite: _Goobstation/Mobs/Customization/Resomi/hair.rsi
       state: ResomiManeBeardless
 
 - type: marking
@@ -90,7 +90,7 @@
   markingCategory: Hair
   speciesRestriction: [Resomi]
   sprites:
-    - sprite: _Goobstation/Mobs/Customization/Resomi/resomi_hair.rsi
+    - sprite: _Goobstation/Mobs/Customization/Resomi/hair.rsi
       state: ResomiMohawk
 
 - type: marking
@@ -99,7 +99,7 @@
   markingCategory: Hair
   speciesRestriction: [Resomi]
   sprites:
-    - sprite: _Goobstation/Mobs/Customization/Resomi/resomi_hair.rsi
+    - sprite: _Goobstation/Mobs/Customization/Resomi/hair.rsi
       state: ResomiMushroom
 
 - type: marking
@@ -108,7 +108,7 @@
   markingCategory: Hair
   speciesRestriction: [Resomi]
   sprites:
-    - sprite: _Goobstation/Mobs/Customization/Resomi/resomi_hair.rsi
+    - sprite: _Goobstation/Mobs/Customization/Resomi/hair.rsi
       state: ResomiNotree
 
 - type: marking
@@ -117,7 +117,7 @@
   markingCategory: Hair
   speciesRestriction: [Resomi]
   sprites:
-    - sprite: _Goobstation/Mobs/Customization/Resomi/resomi_hair.rsi
+    - sprite: _Goobstation/Mobs/Customization/Resomi/hair.rsi
       state: ResomiSpiky
 
 - type: marking
@@ -126,7 +126,7 @@
   markingCategory: Hair
   speciesRestriction: [Resomi]
   sprites:
-    - sprite: _Goobstation/Mobs/Customization/Resomi/resomi_hair.rsi
+    - sprite: _Goobstation/Mobs/Customization/Resomi/hair.rsi
       state: ResomiPointy
 
 - type: marking
@@ -135,7 +135,7 @@
   markingCategory: Hair
   speciesRestriction: [Resomi]
   sprites:
-    - sprite: _Goobstation/Mobs/Customization/Resomi/resomi_hair.rsi
+    - sprite: _Goobstation/Mobs/Customization/Resomi/hair.rsi
       state: ResomiTwies
 
 - type: marking
@@ -144,7 +144,7 @@
   markingCategory: Hair
   speciesRestriction: [Resomi]
   sprites:
-    - sprite: _Goobstation/Mobs/Customization/Resomi/resomi_hair.rsi
+    - sprite: _Goobstation/Mobs/Customization/Resomi/hair.rsi
       state: ResomiUpright
 
 - type: marking
@@ -153,5 +153,5 @@
   markingCategory: Hair
   speciesRestriction: [Resomi]
   sprites:
-    - sprite: _Goobstation/Mobs/Customization/Resomi/resomi_hair.rsi
+    - sprite: _Goobstation/Mobs/Customization/Resomi/hair.rsi
       state: ResomiLong
