@@ -4,8 +4,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Common.Knowledge;
 using Content.Goobstation.Common.Knowledge.Components;
-using Content.Goobstation.Common.Knowledge.Systems;
 using Content.Server.Silicons.Borgs;
 using Content.Shared._EinsteinEngines.Language;
 using Content.Shared._EinsteinEngines.Language.Components;
@@ -19,7 +19,7 @@ namespace Content.Server._EinsteinEngines.Language;
 
 public sealed partial class LanguageSystem : SharedLanguageSystem
 {
-    [Dependency] private readonly KnowledgeSystem _knowledge = default!; // Goobstation edit
+    [Dependency] private readonly IKnowledgeSystem _knowledge = default!; // Goobstation edit
 
     public override void Initialize()
     {

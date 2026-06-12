@@ -1,4 +1,4 @@
-using Content.Goobstation.Common.Knowledge.Systems;
+using Content.Goobstation.Shared.Knowledge.Systems;
 using Content.Shared.Roles;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;

@@ -81,8 +81,8 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Goobstation.Common.Knowledge;
 using Content.Goobstation.Common.Knowledge.Components;
-using Content.Goobstation.Common.Knowledge.Systems;
 using Content.Goobstation.Shared.CloneProjector.Clone;
 using Content.Goobstation.Shared.Clothing.Components;
 using Content.Goobstation.Shared.Clothing.Systems;
@@ -111,7 +111,7 @@ public sealed partial class CloningSystem : EntitySystem
     [Dependency] private readonly SharedStorageSystem _storage = default!;
     [Dependency] private readonly SharedSubdermalImplantSystem _subdermalImplant = default!;
     [Dependency] private readonly NameModifierSystem _nameMod = default!;
-    [Dependency] private readonly KnowledgeSystem _knowledge = default!; // Goobstation
+    [Dependency] private readonly IKnowledgeSystem _knowledge = default!; // Goobstation
     [Dependency] private readonly ToggleableClothingSystem _toggleable = default!; // Goobstation
     [Dependency] private readonly SharedSealableClothingSystem _sealable = default!; // Goobstation
 

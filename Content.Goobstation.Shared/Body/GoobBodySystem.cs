@@ -14,7 +14,7 @@ public sealed class GoobBodySystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<OrganComponent, KnowledgeContainerRelayEvent>(HandleKnowledge); // Goobstation edit
+        SubscribeLocalEvent<OrganComponent, KnowledgeContainerRelayEvent>(HandleKnowledge);
     }
 
     private void HandleKnowledge(Entity<OrganComponent> ent, ref KnowledgeContainerRelayEvent args)

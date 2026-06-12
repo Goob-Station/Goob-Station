@@ -3,7 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Knowledge.Systems;
+using Content.Goobstation.Common.Knowledge;
 using Content.Shared.Implants.Components;
 using Content.Shared._EinsteinEngines.Language.Components;
 using Content.Shared._EinsteinEngines.Language.Events;
@@ -15,7 +15,7 @@ namespace Content.Server._EinsteinEngines.Language;
 public sealed class TranslatorImplantSystem : EntitySystem
 {
     [Dependency] private readonly LanguageSystem _language = default!;
-    [Dependency] private readonly KnowledgeSystem _knowledge = default!; // Goobstation edit
+    [Dependency] private readonly IKnowledgeSystem _knowledge = default!; // Goobstation edit
 
     public override void Initialize()
     {

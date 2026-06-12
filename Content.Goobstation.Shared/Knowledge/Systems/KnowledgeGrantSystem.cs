@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using Content.Goobstation.Common.Knowledge.Systems;
+using Content.Goobstation.Common.Knowledge;
 using Content.Goobstation.Shared.Knowledge.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.DoAfter;
@@ -10,12 +10,12 @@ using Robust.Shared.Serialization;
 namespace Content.Goobstation.Shared.Knowledge.Systems;
 
 /// <summary>
-/// Handles granting knowledge through different components and ways.
+/// Handles granting knowledge through different components.
 /// </summary>
 public sealed class KnowledgeGrantSystem : EntitySystem
 {
     [Dependency] private readonly EntityTableSystem _table = default!;
-    [Dependency] private readonly KnowledgeSystem _knowledge = default!;
+    [Dependency] private readonly IKnowledgeSystem _knowledge = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
 
     /// <inheritdoc/>

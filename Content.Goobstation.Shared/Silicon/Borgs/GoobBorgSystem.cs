@@ -8,7 +8,7 @@ public sealed class GoobBorgSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<BorgBrainComponent, KnowledgeContainerRelayEvent>(HandleKnowledge); // Goobstation edit
+        SubscribeLocalEvent<BorgBrainComponent, KnowledgeContainerRelayEvent>(HandleKnowledge);
     }
 
     private void HandleKnowledge(Entity<BorgBrainComponent> ent, ref KnowledgeContainerRelayEvent args)

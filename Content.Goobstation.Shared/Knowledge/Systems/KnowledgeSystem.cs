@@ -1,14 +1,12 @@
-﻿using Content.Goobstation.Common.Knowledge.Components;
+﻿using Content.Goobstation.Common.Knowledge;
+using Content.Goobstation.Common.Knowledge.Components;
 using Robust.Shared.Containers;
 
-namespace Content.Goobstation.Common.Knowledge.Systems;
+namespace Content.Goobstation.Shared.Knowledge.Systems;
 
-/// <summary>
-/// This handles all knowledge related entities.
-/// </summary>
-public sealed partial class KnowledgeSystem : EntitySystem
+public sealed partial class KnowledgeSystem : EntitySystem, IKnowledgeSystem
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!;
+    private SharedContainerSystem _container = default!;
 
     private EntityQuery<KnowledgeComponent> _knowledgeQuery;
     private EntityQuery<KnowledgeContainerComponent> _containerQuery;
@@ -24,6 +22,9 @@ public sealed partial class KnowledgeSystem : EntitySystem
 
         _knowledgeQuery = GetEntityQuery<KnowledgeComponent>();
         _containerQuery = GetEntityQuery<KnowledgeContainerComponent>();
+
+        // TODO dependency injection doesn't really work when you IoC register entity systems
+        _container = EntityManager.System<SharedContainerSystem>();
     }
 
     private void OnKnowledgeContainerShutdown(Entity<KnowledgeContainerComponent> ent, ref ComponentShutdown args)
@@ -62,17 +63,9 @@ public sealed partial class KnowledgeSystem : EntitySystem
         if (statusComp.AppliedTo == null)
             return;
 
-        // Why not just delete it? Well, that might end up being best, but this
-        // could theoretically allow for moving status effects from one entity
-        // to another. That might be good to have for polymorphs or something.
+        // Why not just delete it? Well, that might allow to transfer this knowledge to other entities,
+        // for example as a wizard spell to steal all knowledge from someone.
         statusComp.AppliedTo = null;
         Dirty(args.Entity, statusComp);
-    }
-
-    public string? GetKnowledgeString(Entity<KnowledgeComponent> knowledge)
-    {
-        var ev = new KnowledgeGetStringEvent();
-        RaiseLocalEvent(knowledge.Owner, ref ev);
-        return ev.Description;
     }
 }

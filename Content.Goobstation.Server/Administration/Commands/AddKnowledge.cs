@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using Content.Goobstation.Common.Knowledge.Systems;
+using Content.Goobstation.Shared.Knowledge.Systems;
 using Content.Server.Administration;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
