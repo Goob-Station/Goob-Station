@@ -190,6 +190,12 @@
   result: CloningConsoleComputerCircuitboard
   completetime: 10
 
+- type: latheRecipe
+  id: CrewMonitoringComputerCircuitboard
+  parent: BaseCircuitboardRecipe
+  result: CrewMonitoringComputerCircuitboard
+  icon: _Goobstation/Structures/Machines/Icons/Computers/cloning.png
+
 # Recipes for both cigarettes need tweaking
 - type: latheRecipe
   id: ECigarette

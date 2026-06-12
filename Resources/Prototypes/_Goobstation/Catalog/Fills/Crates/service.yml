@@ -312,3 +312,14 @@
           amount: 2
         - id: Bible
           amount: 1
+
+- type: entity
+  id: CrateCargoWalkieTalkie
+  parent: CratePlastic
+  name: handheld radio crate
+  description: Contains 5 handheld radios.
+  components:
+    - type: StorageFill
+      contents:
+        - id: RadioHandheld
+          amount: 5

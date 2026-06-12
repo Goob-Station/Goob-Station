@@ -18,3 +18,16 @@
     contents:
     - id: ModsuitCoreStandard
       amount: 3
+
+- type: entity
+  id: CrateScienceResearchServerFilled
+  parent: CrateScienceSecure
+  name: R&D server crate
+  description: Contains a flatpack of a R&D server and a few R&D computers. Requires Science access to open.
+  components:
+  - type: StorageFill
+    contents:
+    - id: ResearchAndDevelopmentServerMachineFlatpack
+      amount: 1
+    - id: ResearchComputerFlatpack
+      amount: 3

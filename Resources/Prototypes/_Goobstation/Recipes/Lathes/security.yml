@@ -756,6 +756,19 @@
   completetime: 4
 
 - type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  icon: { sprite: Objects/Misc/module.rsi, state: cpu_security }
+  id: CriminalRecordsComputerCircuitboard
+  result: CriminalRecordsComputerCircuitboard
+  completetime: 4
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  icon: { sprite: Objects/Misc/module.rsi, state: cpu_security }
+  id: WeaponEnergyTurretSecurityMachineCircuitboard
+  result: WeaponEnergyTurretSecurityMachineCircuitboard
+
+- type: latheRecipe
   id: ClothingMaskMuzzleSecure
   result: ClothingMaskMuzzleSecure
   completetime: 4

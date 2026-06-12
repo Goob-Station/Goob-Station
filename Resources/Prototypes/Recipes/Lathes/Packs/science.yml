@@ -20,6 +20,7 @@
   - ExosuitFabricatorMachineCircuitboard
   - CutterMachineCircuitboard
   - BorgChargerCircuitboard
+  - ResearchComputerCircuitboard # Goobstation
 
 - type: latheRecipePack
   id: CircuitFloorsStatic
