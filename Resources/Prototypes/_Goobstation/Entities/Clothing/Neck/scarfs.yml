@@ -1,0 +1,119 @@
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckClassicRedScarf
+  name: A red scarf
+  description: It's a scarf that is red.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Scarf/redscarf.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Scarf/redscarf.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckClassicBlueScarf
+  name: A blue scarf
+  description: It's a scarf that is blue.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Scarf/bluescarf.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Scarf/bluescarf.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckClassicGreenScarf
+  name: A green scarf
+  description: It's a scarf that is green.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Scarf/greenscarf.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Scarf/greenscarf.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckClassicYellowScarf
+  name: A yellow scarf
+  description: It's a scarf that is yellow.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Scarf/yellowscarf.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Scarf/yellowscarf.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckClassicPumpkinScarf
+  name: A spoopy scarf
+  description: It's a scarf that is spoopy.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Scarf/pumpkinscarf.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Scarf/pumpkinscarf.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckClassicPurpleScarf
+  name: A purple scarf
+  description: It's a scarf that is purple.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Scarf/purplescarf.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Scarf/purplescarf.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckClassicWhiteScarf
+  name: A white scarf
+  description: It's a scarf that is white.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Scarf/whitescarf.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Scarf/whitescarf.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckClassicIndigoScarf
+  name: An indigo scarf
+  description: It's a scarf that is indigo.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Scarf/indigoscarf.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Scarf/indigoscarf.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckClassicPinkScarf
+  name: A pink scarf
+  description: It's a scarf that is pink.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Scarf/pinkscarf.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Scarf/pinkscarf.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckClassicGreyScarf
+  name: A grey scarf
+  description: It's a scarf that is grey.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Scarf/greyscarf.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Scarf/greyscarf.rsi
