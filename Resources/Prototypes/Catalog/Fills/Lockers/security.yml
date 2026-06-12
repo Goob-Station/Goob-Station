@@ -81,63 +81,70 @@
   suffix: Filled, Hardsuit
   parent: LockerWarden
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:AllSelector
-        children:
-        - !type:NestedSelector
-          tableId: FillLockerWarden
-        - !type:NestedSelector
-          tableId: FillLockerWardenHarduit
+  - type: StorageFill
+    contents:
+      - id: FlashlightSeclite
+      - id: WardenGunCase  #Omu
+      #- id: WeaponDisabler #Goobstation (Disablers in belts)
+      - id: ClothingBeltSecurityFilled
+      - id: ClothingHandsGlovesKravMaga # Goobstation - Martial Arts
+      - id: BoxLethalInjection # Goobstation
+      - id: Flash
+      - id: ClothingEyesGlassesSecurity
+      - id: ClothingHeadsetAltWarden # Goobstation
+      - id: ClothingHandsGlovesCombat
+      - id: ClothingShoesBootsJack
+      - id: ClothingOuterCoatWarden
+      - id: ClothingOuterWinterWarden
+      - id: RubberStampWarden
+      - id: DoorRemoteArmory
+      - id: ClothingOuterHardsuitWarden
+      - id: OxygenTankFilled
+      - id: NitrogenTankFilled
+      - id: HoloprojectorSecurity
+      - id: BookSpaceLaw
+      - id: ClothingBackpackElectropack
+        amount: 2
+      - id: RemoteSignaller
+        amount: 2
+      - id: Multitool # Goobstation
+      - id: Wrench # Goobstation
+      - id: ContrabandDetectorFlatpack # Goobstation
+        amount: 2
 
 - type: entity
   id: LockerWardenFilled
   suffix: Filled
   parent: LockerWarden
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:NestedSelector
-        tableId: FillLockerWarden
-
-- type: entityTable
-  id: FillLockerWarden
-  table: !type:AllSelector
-    children:
-    - id: FlashlightSeclite
-    #- id: WeaponDisabler # Goobstation (Disablers in belts)
-    - id: ClothingBeltSecurityFilled
-    - id: Flash
-    - id: ClothingEyesGlassesSecurity
-    - id: ClothingHandsGlovesCombat
-    - id: ClothingShoesBootsJack
-    - id: ClothingOuterCoatWarden
-    - id: ClothingOuterWinterWarden
-    - id: RubberStampWarden
-    - id: DoorRemoteArmory
-    #- id: HoloprojectorSecurity Goob, its in your belt
-    - id: BookSpaceLaw
-    - id: ClothingBackpackElectropack
-      amount: 2
-    - id: RemoteSignaller
-      amount: 2
-    - id: Binoculars
-    - id: WeaponEnergyShotgun # Goobstation
-    - id: ClothingHandsGlovesKravMaga # Goobstation - Martial Arts
-    - id: BoxLethalInjection # Goobstation
-    - id: ClothingHeadsetAltWarden # Goobstation
-    - id: Multitool # Goobstation
-    - id: Wrench # Goobstation
-    - id: ContrabandDetectorFlatpack # Goobstation
-    - id: SecurityMegaphone # goob - loudspeakers
-
-- type: entityTable
-  id: FillLockerWardenHarduit
-  table: !type:AllSelector
-    children:
-    - id: ClothingOuterHardsuitWarden
-    - id: OxygenTankFilled
-    - id: ClothingMaskBreath
+  - type: StorageFill
+    contents:
+      - id: FlashlightSeclite
+      - id: WardenGunCase # Omu
+      #- id: WeaponDisabler #Goobstation (Disablers in belts)
+      - id: ClothingBeltSecurityFilled
+      - id: ClothingHandsGlovesKravMaga # Goobstation - Martial Arts
+      - id: BoxLethalInjection # Goobstation
+      - id: Flash
+      - id: ClothingEyesGlassesSecurity
+      - id: ClothingHeadsetAltWarden # Goobstation
+      - id: ClothingHandsGlovesCombat
+      - id: ClothingShoesBootsJack
+      - id: ClothingOuterCoatWarden
+      - id: ClothingOuterWinterWarden
+      - id: RubberStampWarden
+      - id: DoorRemoteArmory
+      - id: HoloprojectorSecurity
+      - id: BookSpaceLaw
+      - id: ClothingBackpackElectropack
+        amount: 2
+      - id: RemoteSignaller
+        amount: 2
+      - id: Binoculars
+      - id: Multitool # Goobstation
+      - id: Wrench # Goobstation
+      - id: ContrabandDetectorFlatpack # Goobstation
+        amount: 2
 
 - type: entity
   id: LockerSecurityFilled

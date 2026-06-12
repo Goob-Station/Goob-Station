@@ -1,0 +1,123 @@
+- type: selectableSet
+  id: VoidsuitSelectorHeadOfSecurityParadeVoidsuit
+  name: selectable-set-headofsecurity-paradevoidsuit-name
+  description: selectable-set-headofsecurity-paradevoidsuit-desc
+  sprite:
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/hos-expi.rsi
+    state: icon
+  content:
+  - ClothingOuterHardsuitHeadOfSecurityExperimental
+
+- type: selectableSet
+  id: HosCQCSet
+  name: selectable-set-hos-belt-name
+  description: selectable-set-hos-belt-description
+  sprite:
+    sprite: _Omu/Clothing/Belt/clothingbelthoscqc.rsi
+    state: icon
+  content:
+  - ClothingBeltHOSCQC
+
+- type: selectableSet
+  id: HosJusticeSet
+  name: selectable-set-hos-Justice-name
+  description: selectable-set-hos-Justice-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
+    state: icon
+  content:
+  - ClothingBeltSheathHeadOfSecurityFilled
+
+- type: selectableSet
+  id: HosLawbringerSet
+  name: selectable-set-hos-lawbringer-name
+  description: selectable-set-hos-lawbringer-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/lawbringer.rsi
+    state: icon
+  content:
+  - WeaponEnergyGunLawbringer
+
+- type: selectableSet
+  id: WeaponEnergyShotgunSet
+  name: selectable-set-warden-eshotty-name
+  description: selectable-set-warden-eshotty-description
+  sprite:
+    sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
+    state: icon
+  content:
+  - WeaponEnergyShotgun
+
+- type: selectableSet
+  id: WeaponWardenRevolverShotgunSet
+  name: selectable-set-warden-r6-name
+  description: selectable-set-warden-r6-description
+  sprite:
+    sprite: _Omu/Objects/Weapons/Guns/Revolvers/R6.rsi
+    state: base
+  content:
+  - WeaponWardenRevolverShotgun
+
+- type: selectableSet
+  id: WeaponMk58Set
+  name: selectable-set-mk58-name
+  description: selectable-set-mk58-description
+  sprite:
+    sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
+    state: base
+  content:
+  - WeaponPistolMk58
+  - MagazinePistol
+  - MagazinePistol
+
+- type: selectableSet
+  id: WeaponT8Set
+  name: selectable-set-t8-name
+  description: selectable-set-t8-description
+  sprite:
+    sprite: _Omu/Objects/Weapons/Guns/Revolvers/T8.rsi
+    state: base
+  content:
+  - SecurityDutyRevolver
+  - SpeedLoaderRevolverLightRifle
+  - SpeedLoaderRevolverLightRifle
+
+- type: selectableSet
+  id: WeaponTerminusSet
+  name: selectable-set-terminus-name
+  description: selectable-set-terminus-description
+  sprite:
+    sprite: _EinsteinEngines/Objects/Weapons/Melee/terminus.rsi
+    state: icon
+  content:
+  - Terminus
+
+- type: selectableSet
+  id: WeaponAntiqueLaserSet
+  name: selectable-set-antiquelaser-name
+  description: selectable-set-antiquelaser-description
+  sprite:
+    sprite: Objects/Weapons/Guns/Battery/antiquelasergun.rsi
+    state: base
+  content:
+  - WeaponAntiqueLaser
+
+- type: selectableSet
+  id: WeaponVC8Set
+  name: selectable-set-vc8-name
+  description: selectable-set-vc8-description
+  sprite:
+    sprite: _Omu/Objects/Weapons/Guns/Revolvers/VC-8.rsi
+    state: base
+  content:
+  - VulcanEightRevolver
+
+- type: selectableSet
+  id: HosIrelanderSet
+  name: selectable-set-irelander-name
+  description: selectable-set-irelander-description
+  sprite:
+    sprite: _Omu/Objects/Weapons/Melee/irelander.rsi
+    state: base
+  content:
+  - HosIreLander

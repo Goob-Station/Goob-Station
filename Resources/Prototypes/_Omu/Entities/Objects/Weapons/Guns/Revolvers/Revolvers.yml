@@ -1,0 +1,118 @@
+- type: entity
+  name: VC-8 "Handshake" Revolver
+  parent: BaseWeaponRevolver
+  id: VulcanEightRevolver
+  description: A replica of the legendary Vulcan Eight, This revolver packs not only an unrealistic capacity, but also and unrealistic punch. A tungsten alloy gyroscope in the handle allows for it to be fired with alarming ease and speed. A CelTek stamp identifies it as a replica.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Guns/Revolvers/VC-8.rsi
+    state: base
+  - type: Clothing
+    sprite: _Omu/Objects/Weapons/Guns/Revolvers/VC-8.rsi
+  - type: AmmoCounter
+  - type: Gun
+    selectedMode: SemiAuto
+    fireRate: 1
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
+  - type: RevolverAmmoProvider
+    whitelist:
+      tags:
+      - ShellShotgun
+    proto: ShellShotgun
+    capacity: 5
+    chambers: [True, True, True, True, True]
+    ammoSlots: [null, null, null, null, null]
+    soundEject:
+      path: /Audio/Weapons/Guns/MagOut/revolver_magout.ogg
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
+  - type: StaticPrice
+    price: 15000 # if someone sells a captian gun that's a bigger issue lmao.
+  - type: StealTarget
+    stealGroup: WeaponAntiqueLaser
+  - type: GunSpreadModifier
+    spread: 2
+
+- type: entity
+  name: R6 "Slammer" Trench Gun
+  parent: [BaseWeaponRevolver, BaseGunWieldable, BaseGrandTheftContraband]
+  id: WeaponWardenRevolverShotgun
+  description: The semi-automatic R6 trench gun, designed for clearing corners. It has the punch of a 12 gauge slug while being small enough to fit in your boots!
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Guns/Revolvers/R6.rsi
+    state: base
+  - type: Clothing
+    sprite: _Omu/Objects/Weapons/Guns/Revolvers/R6.rsi
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,2,1
+  - type: AmmoCounter
+  - type: Gun
+    selectedMode: SemiAuto
+    fireRate: 1.5
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
+  - type: RevolverAmmoProvider
+    whitelist:
+      tags:
+      - ShellShotgun
+    proto: ShellShotgunSlug
+    capacity: 6
+    chambers: [True, True, True, True, True, True]
+    ammoSlots: [null, null, null, null, null, null]
+    soundEject:
+      path: /Audio/Weapons/Guns/MagOut/revolver_magout.ogg
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
+  - type: StaticPrice
+    price: 12000
+  - type: GunSpreadModifier
+    spread: 2
+  - type: StealTarget
+    stealGroup: WeaponEnergyShotgun
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 12 # fat pistol whip
+
+- type: entity
+  name: T8 "Consistency" Revolver
+  parent: BaseWeaponRevolver
+  id: SecurityDutyRevolver
+  description: A high end, high capacity revolver for the discerning officer. It's even coated in security red! This revolver trades the throughput of a mk58 for not only style, but also stopping power. Loads .30 rifle.
+  components:
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Guns/Revolvers/T8.rsi
+    state: base
+  - type: Clothing
+    sprite: _Omu/Objects/Weapons/Guns/Revolvers/T8.rsi
+  - type: AmmoCounter
+  - type: Gun
+    selectedMode: SemiAuto
+    fireRate: 3
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/revolver.ogg
+  - type: RevolverAmmoProvider
+    whitelist:
+      tags:
+      - CartridgeLightRifle
+      - SpeedLoaderRifle
+    proto: CartridgeLightRifle
+    capacity: 8
+    chambers: [ True, True, True, True, True, True, True, True ]
+    ammoSlots: [ null, null, null, null, null, null, null, null ]
+    soundEject:
+      path: /Audio/Weapons/Guns/MagOut/revolver_magout.ogg
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
+  - type: StaticPrice
+    price: 1500

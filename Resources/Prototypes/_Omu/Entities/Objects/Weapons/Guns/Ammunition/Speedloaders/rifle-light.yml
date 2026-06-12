@@ -1,0 +1,66 @@
+- type: entity
+  id: SpeedLoaderRevolverLightRifle
+  name: Speed Loader (.30 Rifle Revolver)
+  parent: [ BaseItem, BaseSecurityContraband ]
+  description: A speedloader for the T8 Revolver.
+  components:
+  - type: Tag
+    tags:
+    - SpeedLoaderRifle
+  - type: SpeedLoader
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - CartridgeLightRifle
+    capacity: 8
+    proto: CartridgeLightRifle
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Guns/Ammunition/Speedloaders/light_rifle_speed_loader.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: base-8
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: base
+    steps: 9
+    zeroVisible: false
+  - type: Appearance
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+
+
+- type: entity
+  id: SpeedLoaderRevolverLightRifleEmpty
+  name: Speed Loader (.30 Rifle Revolver Any)
+  parent: [ BaseItem, BaseSecurityContraband ]
+  description: A speedloader for the T8 Revolver.
+  components:
+  - type: Tag
+    tags:
+    - SpeedLoaderRifle
+  - type: SpeedLoader
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - CartridgeLightRifle
+    capacity: 8
+    proto: Null
+  - type: Sprite
+    sprite: _Omu/Objects/Weapons/Guns/Ammunition/Speedloaders/light_rifle_speed_loader.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: base-8
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: base
+    steps: 9
+    zeroVisible: false
+  - type: Appearance
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []

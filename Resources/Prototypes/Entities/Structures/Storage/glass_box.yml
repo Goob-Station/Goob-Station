@@ -162,7 +162,7 @@
   - type: ContainerFill
     containers:
       ItemCabinet:
-      - WeaponAntiqueLaser
+      - CaptainGunCase
 
 - type: entity
   parent: [GlassBoxLaserFilled, GlassBoxLaserOpen]
