@@ -458,6 +458,7 @@
   table: !type:AllSelector
     children:
     - id: Intellicard
+    - id: StationAiFixerCircuitboard # upstream port #39588
     - id: BoxEncryptionKeyScience
     #- id: CircuitImprinterMachineCircuitboard # Goobstation - Science Techfab
     - id: ClothingBeltUtilityFilled

@@ -23,7 +23,11 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
+using Content.Shared.CCVar; // Goobstation - MalfAI camera upgrade
+using Content.Shared._Funkystation.MalfAI; // Goobstation - MalfAI camera upgrade
 using Content.Shared.Silicons.StationAi;
+using Content.Shared.SurveillanceCamera; // Goobstation - MalfAI camera upgrade
+using Robust.Client.GameObjects; // Goobstation - MalfAI camera upgrade
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
@@ -46,6 +50,7 @@ public sealed class StationAiOverlay : Overlay
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly Robust.Shared.Configuration.IConfigurationManager _cfg = default!; // Goobstation - MalfAI camera upgrade
 
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
 
@@ -58,6 +63,10 @@ public sealed class StationAiOverlay : Overlay
     private float _accumulator;
 
     private EntityUid _lastGridUid = EntityUid.Invalid; // goobstation - off grid vision fix
+
+    // Goobstation - MalfAI camera upgrade: reusable buffers for x-ray circles around cameras.
+    private readonly List<Vector2> _circleCenters = new(16);
+    private readonly List<(Vector2 pos, float dist2)> _cameraCandidates = new(32);
 
     public StationAiOverlay()
     {
@@ -125,6 +134,56 @@ public sealed class StationAiOverlay : Overlay
                 _entManager.System<StationAiVisionSystem>().GetView((gridUid, broadphase, grid), worldBounds, _visibleTiles);
             }
 
+            // Goobstation - MalfAI camera upgrade: collect x-ray circles around powered cameras
+            // when the local player is a Malf AI with the upgrade active.
+            _circleCenters.Clear();
+            var radiusTiles = _cfg.GetCVar(CCVars.MalfAiCameraUpgradeRange);
+            if (_entManager.TryGetComponent<MalfAiCameraUpgradeComponent>(_player.LocalEntity, out var camUpg)
+                && camUpg.EnabledEffective
+                && playerXform != null)
+            {
+                var appearance = _entManager.System<SharedAppearanceSystem>();
+                var radiusWorld = radiusTiles * grid.TileSize;
+                var worldAABB = worldBounds.CalcBoundingBox();
+                var expanded = new Box2(worldAABB.Left - radiusWorld, worldAABB.Bottom - radiusWorld,
+                    worldAABB.Right + radiusWorld, worldAABB.Top + radiusWorld);
+
+                var eyeWorldPos = xforms.GetWorldPosition(playerEnt!.Value);
+                _cameraCandidates.Clear();
+
+                foreach (var camUid in lookups.GetEntitiesIntersecting(playerXform.MapID, expanded))
+                {
+                    if (_entManager.HasComponent<CameraUpgradeOmitterComponent>(camUid))
+                        continue;
+
+                    if (!_entManager.HasComponent<Content.Client.SurveillanceCamera.SurveillanceCameraVisualsComponent>(camUid)
+                        || !_entManager.TryGetComponent(camUid, out TransformComponent? camXform))
+                        continue;
+
+                    // Only powered/active cameras project x-ray vision.
+                    if (!_entManager.TryGetComponent(camUid, out AppearanceComponent? appearanceComp)
+                        || !appearance.TryGetData(camUid, SurveillanceCameraVisualsKey.Key, out SurveillanceCameraVisuals state, appearanceComp))
+                        continue;
+
+                    if (state != SurveillanceCameraVisuals.Active && state != SurveillanceCameraVisuals.InUse)
+                        continue;
+
+                    var camPos = xforms.GetWorldPosition(camXform);
+                    if (!expanded.Contains(camPos))
+                        continue;
+
+                    var d2 = (camPos - eyeWorldPos).LengthSquared();
+                    _cameraCandidates.Add((camPos, d2));
+                }
+
+                // Closest cameras first, capped to keep the overlay cheap.
+                _cameraCandidates.Sort((a, b) => a.dist2.CompareTo(b.dist2));
+                var max = Math.Min(10, _cameraCandidates.Count);
+                for (var i = 0; i < max; i++)
+                    _circleCenters.Add(_cameraCandidates[i].pos);
+            }
+            // End Goobstation - MalfAI camera upgrade
+
             var gridMatrix = xforms.GetWorldMatrix(gridUid);
             var matty =  Matrix3x2.Multiply(gridMatrix, invMatrix);
 
@@ -138,6 +197,18 @@ public sealed class StationAiOverlay : Overlay
                     var aabb = lookups.GetLocalBounds(tile, grid.TileSize);
                     worldHandle.DrawRect(aabb, Color.White);
                 }
+
+                // Goobstation - MalfAI camera upgrade: union hard-edged discs around cameras.
+                if (_circleCenters.Count > 0)
+                {
+                    worldHandle.SetTransform(invMatrix);
+                    var circleRadius = radiusTiles * grid.TileSize;
+                    foreach (var center in _circleCenters)
+                    {
+                        worldHandle.DrawCircle(center, circleRadius, Color.White, filled: true);
+                    }
+                }
+                // End Goobstation - MalfAI camera upgrade
             },
             Color.Transparent);
 

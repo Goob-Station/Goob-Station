@@ -35,4 +35,10 @@ public sealed partial class StationAiHolderComponent : Component
 
     [DataField]
     public ItemSlot Slot = new();
+
+    /// <summary>
+    /// Whether the holder should be renamed to the name of the inserted object.
+    /// </summary>
+    [DataField]
+    public bool RenameOnInsert = true;
 }

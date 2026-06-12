@@ -1,0 +1,35 @@
+# SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
+# SPDX-FileCopyrightText: 2025 Goob-Station
+#
+# SPDX-License-Identifier: MIT
+
+- type: alertCategory
+  id: MalfAI
+
+- type: alert
+  id: MalfCpu
+  category: MalfAI
+  icons:
+  - sprite: /Textures/Interface/Actions/actions_malf_ai.rsi
+    state: CPU
+  alertViewEntity: AlertMalfCpuSpriteView
+  name: alert-malfcpu-name
+  description: alert-malfcpu-desc
+
+- type: entity
+  id: AlertMalfCpuSpriteView
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.AlertVisualLayers.Base" ]
+      sprite: /Textures/Interface/Actions/actions_malf_ai.rsi
+      state: CPU
+    - map: [ "enum.MalfAiHudVisualLayers.Digit1" ]
+      sprite: /Textures/Interface/Alerts/essence_counter.rsi
+    - map: [ "enum.MalfAiHudVisualLayers.Digit2" ]
+      sprite: /Textures/Interface/Alerts/essence_counter.rsi
+      offset: 0.125, 0
+    - map: [ "enum.MalfAiHudVisualLayers.Digit3" ]
+      sprite: /Textures/Interface/Alerts/essence_counter.rsi
+      offset: 0.25, 0

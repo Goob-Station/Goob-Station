@@ -1,0 +1,16 @@
+# SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
+# SPDX-FileCopyrightText: 2025 Goob-Station
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleMalfAi
+  name: Malfunctioning AI Role
+  components:
+  - type: MindRole
+    antagPrototype: MalfunctioningAI
+    roleType: SiliconAntagonist
+    exclusiveAntag: true
+    sortWeight: 60
+  - type: MalfAiRole

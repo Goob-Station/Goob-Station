@@ -32,6 +32,7 @@ namespace Content.Client.Power.APC.UI
     public sealed partial class ApcMenu : FancyWindow
     {
         public event Action? OnBreaker;
+        public event Action? OnSiphon; // Goobstation - MalfAI
 
         public ApcMenu()
         {
@@ -39,6 +40,7 @@ namespace Content.Client.Power.APC.UI
             RobustXamlLoader.Load(this);
 
             BreakerButton.OnPressed += _ => OnBreaker?.Invoke();
+            SiphonButton.OnPressed += _ => OnSiphon?.Invoke(); // Goobstation - MalfAI
         }
 
         public void SetEntity(EntityUid entity)
@@ -88,6 +90,15 @@ namespace Content.Client.Power.APC.UI
                 var chargePercentage = (castState.Charge / ChargeBar.MaxValue);
                 ChargePercentage.Text = Loc.GetString("apc-menu-charge-label",("percent",  chargePercentage.ToString("P0")));
             }
+
+            // Goobstation - MalfAI: disable the siphon button if this APC has already been siphoned.
+            if (SiphonButton != null)
+            {
+                SiphonButton.Disabled = castState.Siphoned;
+                SiphonButton.ToolTip = castState.Siphoned
+                    ? Loc.GetString("apc-menu-siphon-already")
+                    : null;
+            }
         }
 
         public void SetAccessEnabled(bool hasAccess)
@@ -102,6 +113,17 @@ namespace Content.Client.Power.APC.UI
                 BreakerButton.Disabled = true;
                 BreakerButton.ToolTip = Loc.GetString("apc-component-insufficient-access");
             }
+        }
+
+        // Goobstation - MalfAI: only show the siphon button to Malf AIs.
+        public void SetSiphonVisible(bool visible)
+        {
+            if (SiphonSpacer != null)
+                SiphonSpacer.Visible = visible;
+            if (SiphonContainer != null)
+                SiphonContainer.Visible = visible;
+            if (SiphonButton != null)
+                SiphonButton.Visible = visible;
         }
 
         private void UpdateChargeBarColor(float charge)

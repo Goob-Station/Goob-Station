@@ -1812,3 +1812,6 @@
 - type: Tag
   id: XenoborgModuleStealth
 # ALPHABETICAL
+
+- type: Tag
+  id: StationAiCoreElectronics

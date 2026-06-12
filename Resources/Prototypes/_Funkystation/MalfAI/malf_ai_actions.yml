@@ -1,0 +1,343 @@
+# SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
+# SPDX-FileCopyrightText: 2025 Goob-Station
+#
+# SPDX-License-Identifier: MIT
+
+# Basic actions always available to Malf AI
+
+- type: entity
+  parent: BaseMentalAction
+  id: ActionMalfAiOpenStore
+  name: action-name-malfai-open-store
+  description: action-desc-malfai-open-store
+  components:
+  - type: MalfAiAction # blocked while carded
+  - type: Action
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_shop
+    itemIconStyle: BigAction
+    priority: -20
+  - type: InstantAction
+    event: !type:OpenMalfAiStoreActionEvent
+
+- type: entity
+  parent: BaseMentalAction
+  id: ActionMalfAiOpenBorgsUi
+  name: action-name-malfai-open-borgs
+  description: action-desc-malfai-open-borgs
+  components:
+  - type: MalfAiAction # blocked while carded
+  - type: Action
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_borgs
+    itemIconStyle: BigAction
+    priority: -10
+  - type: InstantAction
+    event: !type:OpenMalfAiBorgsUiActionEvent
+
+- type: entity
+  parent: BaseMentalAction
+  id: ActionMalfAiSetViewport
+  name: action-name-malfai-set-viewport
+  description: action-desc-malfai-set-viewport
+  components:
+  - type: MalfAiAction # blocked while carded
+  - type: Action
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_placeviewport
+    itemIconStyle: BigAction
+    priority: -5
+    useDelay: 30
+  - type: TargetAction
+    checkCanAccess: false
+    range: 99999
+  - type: WorldTargetAction
+    event: !type:MalfAiSetViewportActionEvent
+
+- type: entity
+  parent: BaseMentalAction
+  id: ActionMalfAiOpenViewport
+  name: action-name-malfai-open-viewport
+  description: action-desc-malfai-open-viewport
+  components:
+  - type: MalfAiAction # blocked while carded
+  - type: Action
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_openviewport
+    itemIconStyle: BigAction
+    priority: -5
+  - type: InstantAction
+    event: !type:MalfAiOpenViewportActionEvent
+
+- type: entity
+  parent: BaseMentalAction
+  id: ActionMalfAiReturnToCore
+  name: action-name-malfai-return-to-core
+  description: action-desc-malfai-return-to-core
+  components:
+  - type: MalfAiAction # blocked while carded
+  - type: Action
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_returntocore
+    itemIconStyle: BigAction
+    priority: -5
+  - type: InstantAction
+    event: !type:MalfAiReturnToCoreActionEvent
+
+# Purchasable abilities
+
+- type: entity
+  parent: BaseMentalAction
+  id: ActionMalfAiDoomsday
+  name: action-name-malfai-doomsday
+  description: action-desc-malfai-doomsday
+  components:
+  - type: MalfAiAction # blocked while carded
+  - type: Action
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_doomsday
+    itemIconStyle: BigAction
+    priority: -5
+  - type: InstantAction
+    event: !type:MalfAiDoomsdayActionEvent
+
+- type: entity
+  parent: BaseMentalAction
+  id: ActionMalfAiShuntToApc
+  name: action-name-malfai-shunt-to-apc
+  description: action-desc-malfai-shunt-to-apc
+  components:
+  - type: MalfAiAction # blocked while carded
+  - type: Action
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_shunttoapc
+    itemIconStyle: BigAction
+    priority: -5
+  - type: TargetAction
+    checkCanAccess: false
+    range: 99999
+  - type: EntityTargetAction
+    event: !type:MalfAiShuntToApcActionEvent
+
+- type: entity
+  parent: BaseMentalAction
+  id: ActionMalfAiVoiceModulator
+  name: action-name-malfai-voice-modulator
+  description: action-desc-malfai-voice-modulator
+  components:
+  - type: MalfAiAction # blocked while carded
+  - type: Action
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_voicemodulator
+    itemIconStyle: BigAction
+    priority: -5
+  - type: InstantAction
+    event: !type:MalfAiVoiceModulatorActionEvent
+
+- type: entity
+  parent: BaseMentalAction
+  id: ActionMalfAiOverloadMachine
+  name: action-name-malfai-overload
+  description: action-desc-malfai-overload
+  components:
+  - type: MalfAiAction # blocked while carded
+  - type: LimitedCharges
+    maxCharges: 2
+  - type: Action
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_overloadmachine
+    itemIconStyle: BigAction
+    priority: -5
+  - type: TargetAction
+    checkCanAccess: false
+    range: 99999
+  - type: WorldTargetAction
+    event: !type:MalfAiOverloadMachineActionEvent
+
+- type: entity
+  parent: BaseMentalAction
+  id: ActionMalfAiHijackMech
+  name: action-name-malfai-hijack-mech
+  description: action-desc-malfai-hijack-mech
+  components:
+  - type: MalfAiAction # blocked while carded
+  - type: Action
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_mech
+    itemIconStyle: BigAction
+    priority: -5
+    useDelay: 600 # 10 min cooldown
+    checkCanInteract: false
+  - type: TargetAction
+    checkCanAccess: false
+    range: 99999
+  - type: EntityTargetAction
+    event: !type:MalfAiHijackMechActionEvent
+
+- type: entity
+  parent: BaseMentalAction
+  id: ActionMalfAiOverrideMachine
+  name: action-name-malfai-override
+  description: action-desc-malfai-override
+  components:
+  - type: MalfAiAction # blocked while carded
+  - type: LimitedCharges
+    maxCharges: 2
+  - type: Action
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_overridemachine
+    itemIconStyle: BigAction
+    priority: -5
+  - type: TargetAction
+    checkCanAccess: false
+    range: 99999
+  - type: WorldTargetAction
+    event: !type:MalfAiOverrideMachineActionEvent
+
+- type: entity
+  parent: BaseMentalAction
+  id: ActionMalfAiDetonateRCDs
+  name: action-name-malfai-detonate-rcds
+  description: action-desc-malfai-detonate-rcds
+  components:
+  - type: MalfAiAction # blocked while carded
+  - type: LimitedCharges
+    maxCharges: 1
+  - type: Action
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_detonatercd
+    itemIconStyle: BigAction
+    priority: -5
+  - type: InstantAction
+    event: !type:MalfAiDetonateRcdsActionEvent
+
+- type: entity
+  parent: BaseMentalAction
+  id: ActionMalfAiLockdownGrid
+  name: action-name-malfai-lockdown
+  description: action-desc-malfai-lockdown
+  components:
+  - type: MalfAiAction # blocked while carded
+  - type: LimitedCharges
+    maxCharges: 1
+  - type: Action
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_lockdowngrid
+    itemIconStyle: BigAction
+    priority: -5
+  - type: InstantAction
+    event: !type:MalfAiLockdownGridActionEvent
+
+- type: entity
+  parent: BaseMentalAction
+  id: ActionMalfAiGyroscope
+  name: action-name-malfai-gyroscope
+  description: action-desc-malfai-gyroscope
+  components:
+  - type: MalfAiAction # blocked while carded
+  - type: Action
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_gyroscope
+    itemIconStyle: BigAction
+    priority: -5
+    useDelay: 3
+  - type: TargetAction
+    checkCanAccess: false
+    range: 5
+  - type: WorldTargetAction
+    event: !type:MalfAiGyroscopeActionEvent
+
+- type: entity
+  parent: BaseMentalAction
+  id: ActionMalfAiRoboticsFactory
+  name: action-name-malfai-robotics-factory
+  description: action-desc-malfai-robotics-factory
+  components:
+  - type: MalfAiAction # blocked while carded
+  - type: Action
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_factory
+    itemIconStyle: BigAction
+    priority: -5
+  - type: TargetAction
+    checkCanAccess: false
+    range: 99999
+  - type: WorldTargetAction
+    event: !type:MalfAiRoboticsFactoryActionEvent
+
+- type: entity
+  parent: BaseMentalAction
+  id: ActionMalfAiToggleCameraUpgrade
+  name: action-name-malfai-toggle-camera-upgrade
+  description: action-desc-malfai-toggle-camera-upgrade
+  components:
+  - type: MalfAiAction # blocked while carded
+  - type: Action
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_cameraupgrade
+    itemIconStyle: BigAction
+    priority: -6
+  - type: InstantAction
+    event: !type:MalfAiToggleCameraUpgradeActionEvent
+
+- type: entity
+  parent: BaseMentalAction
+  id: ActionMalfAiToggleCameraMicrophones
+  name: action-name-malfai-toggle-camera-microphones
+  description: action-desc-malfai-toggle-camera-microphones
+  components:
+  - type: MalfAiAction # blocked while carded
+  - type: Action
+    icon:
+      sprite: Interface/Actions/actions_malf_ai.rsi
+      state: malfai_cameramic
+    itemIconStyle: BigAction
+    priority: -6
+  - type: InstantAction
+    event: !type:MalfAiToggleCameraMicrophonesActionEvent
+
+# Mirror mech pilot actions for the hijacking AI: the mech entity itself fails the
+# usual interaction/consciousness blockers, so these are mental actions instead.
+- type: entity
+  parent: BaseMentalAction
+  id: ActionMalfAiMechCycle
+  name: Cycle
+  description: Cycles currently selected equipment
+  components:
+  - type: Action
+    useDelay: 0.5
+    icon:
+      sprite: Interface/Actions/actions_mecha.rsi
+      state: mech_cycle_equip_on
+  - type: InstantAction
+    event: !type:MechToggleEquipmentEvent
+
+- type: entity
+  parent: BaseMentalAction
+  id: ActionMalfAiMechUi
+  name: Control Panel
+  description: Opens the control panel for the mech
+  components:
+  - type: Action
+    useDelay: 1
+    icon:
+      sprite: Interface/Actions/actions_mecha.rsi
+      state: mech_view_stats
+  - type: InstantAction
+    event: !type:MechOpenUiEvent

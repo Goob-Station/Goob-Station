@@ -149,3 +149,5 @@ construction-graph-tag-spationaut-hardsuit = spationaut hardsuit
 
 # clothing
 construction-graph-tag-backpack = backpack
+
+construction-graph-tag-station-ai-core-electronics = station AI core electronics

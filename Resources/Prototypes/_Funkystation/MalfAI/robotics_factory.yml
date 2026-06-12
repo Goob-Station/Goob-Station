@@ -1,0 +1,40 @@
+# SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
+# SPDX-FileCopyrightText: 2025 Goob-Station
+#
+# SPDX-License-Identifier: MIT
+
+# Recycler converted into the Malf AI robotics factory:
+# crew fed into it are converted into cyborgs subservient to the AI.
+- type: entity
+  id: RoboticsFactoryGrid
+  parent: Recycler
+  name: robotics factory
+  description: A specialized recycling facility that has been converted into a mobile robotics factory.
+  components:
+  - type: RoboticsFactoryGrid
+  # Always consider this machine powered and on
+  - type: ApcPowerReceiver
+    needsPower: false
+  # Ensure the reclaimer is enabled so touching entities are processed
+  - type: MaterialReclaimer
+    enabled: true
+    whitelist:
+      components:
+      - HumanoidAppearance
+  # Mark as emagged (interaction) so it can process living mobs on touch
+  - type: Emagged
+    emagType: Interaction
+
+# Borg chassis spawned by the factory: battery installed, no brain
+# (the factory inserts the victim's MMI itself).
+- type: entity
+  id: MalfAiFactoryBorgChassis
+  parent: BorgChassisSelectable
+  suffix: MalfAI factory
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium

@@ -13,6 +13,7 @@ using Content.Shared._CorvaxNext.Silicons.Borgs.Components;
 using Content.Shared.Actions;
 using Content.Shared.Mind;
 using Content.Shared.Silicons.Laws.Components;
+using Content.Shared.Mobs;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.StationAi;
 using Content.Shared.Verbs;
@@ -40,6 +41,11 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
         SubscribeLocalEvent<AiRemoteControllerComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
         SubscribeLocalEvent<StationAiHeldComponent, AiRemoteControllerComponent.RemoteDeviceActionMessage>(OnUiRemoteAction);
         SubscribeLocalEvent<StationAiHeldComponent, ToggleRemoteDevicesScreenEvent>(OnToggleRemoteDevicesScreen);
+
+        // Goobstation - MalfAI: a dying or deleted brain pulls its mind back out of the
+        // remote-controlled device, instead of leaving the player stranded in it.
+        SubscribeLocalEvent<StationAiHeldComponent, MobStateChangedEvent>(OnBrainMobState);
+        SubscribeLocalEvent<StationAiHeldComponent, EntityTerminatingEvent>(OnBrainTerminating);
     }
 
     private void OnMapInit(Entity<AiRemoteControllerComponent> entity, ref MapInitEvent args)
@@ -89,6 +95,20 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
     private void OnReturnMindIntoAi(Entity<AiRemoteControllerComponent> entity, ref ReturnMindIntoAiEvent args) =>
         ReturnMindIntoAi(entity);
 
+    // Goobstation - MalfAI start
+    private void OnBrainMobState(Entity<StationAiHeldComponent> ent, ref MobStateChangedEvent args)
+    {
+        if (args.NewMobState == MobState.Dead && ent.Comp.CurrentConnectedEntity is { } connected)
+            ReturnMindIntoAi(connected);
+    }
+
+    private void OnBrainTerminating(Entity<StationAiHeldComponent> ent, ref EntityTerminatingEvent args)
+    {
+        if (ent.Comp.CurrentConnectedEntity is { } connected)
+            ReturnMindIntoAi(connected);
+    }
+    // Goobstation - MalfAI end
+
     public void AiTakeControl(EntityUid ai, EntityUid entity)
     {
         if (!_mind.TryGetMind(ai, out var mindId, out var mind))
@@ -122,10 +142,9 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
 
         stationAiHeldComp.CurrentConnectedEntity = entity;
 
-        if (!_stationAiSystem.TryGetCore(ai, out var stationAiCore))
-            return;
-
-        _stationAiSystem.SwitchRemoteEntityMode(stationAiCore, false);
+        // Goobstation - MalfAI: the brain may be shunted into an APC; only park the eye when a core exists.
+        if (_stationAiSystem.TryGetCore(ai, out var stationAiCore))
+            _stationAiSystem.SwitchRemoteEntityMode(stationAiCore, false);
 
         RewriteLaws(ai, entity);
     }

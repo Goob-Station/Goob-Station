@@ -315,6 +315,7 @@ namespace Content.Shared.Containers.ItemSlots
             InsertOnInteract = other.InsertOnInteract;
             EjectOnInteract = other.EjectOnInteract;
             EjectOnUse = other.EjectOnUse;
+            DisableEject = other.DisableEject; // Goobstation - MalfAI: was missing, client never learned the slot is eject-locked
             InsertVerbText = other.InsertVerbText;
             EjectVerbText = other.EjectVerbText;
             WhitelistFailPopup = other.WhitelistFailPopup;

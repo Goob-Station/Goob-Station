@@ -30,12 +30,7 @@ public abstract class SharedAiRemoteControlSystem : EntitySystem
         if (!TryComp<AiRemoteControllerComponent>(entity, out var remoteComp))
             return;
 
-        if (remoteComp?.AiHolder == null
-            || !_stationAiSystem.TryGetCore(remoteComp.AiHolder.Value, out var stationAiCore)
-            || stationAiCore.Comp?.RemoteEntity == null)
-            return;
-
-        if (remoteComp.LinkedMind == null)
+        if (remoteComp?.AiHolder == null || remoteComp.LinkedMind == null)
             return;
 
         if (!TryComp<StationAiHeldComponent>(remoteComp.AiHolder.Value, out var stationAiHeldComp))
@@ -45,11 +40,16 @@ public abstract class SharedAiRemoteControlSystem : EntitySystem
 
         _mind.TransferTo(remoteComp.LinkedMind.Value, remoteComp.AiHolder);
 
-        _stationAiSystem.SwitchRemoteEntityMode(stationAiCore, true);
+        // Goobstation - MalfAI: the brain may sit in an APC shunt; the eye work only applies to a core.
+        if (_stationAiSystem.TryGetCore(remoteComp.AiHolder.Value, out var stationAiCore) &&
+            stationAiCore.Comp?.RemoteEntity != null)
+        {
+            _stationAiSystem.SwitchRemoteEntityMode(stationAiCore, true);
+            _xformSystem.SetCoordinates(stationAiCore.Comp.RemoteEntity.Value, Transform(entity).Coordinates);
+        }
+
         remoteComp.AiHolder = null;
         remoteComp.LinkedMind = null;
-
-        _xformSystem.SetCoordinates(stationAiCore.Comp.RemoteEntity.Value, Transform(entity).Coordinates);
     }
 }
 

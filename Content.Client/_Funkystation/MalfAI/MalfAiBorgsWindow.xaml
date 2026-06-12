@@ -1,0 +1,18 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                     xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                     Title="{Loc malfai-borgs-window-title}"
+                     MinWidth="400"
+                     MinHeight="300">
+    <BoxContainer Orientation="Vertical" Margin="8">
+        <Button Name="MasterLawsetButton"
+                Text="{Loc malfai-borgs-master-lawset-button}"
+                Margin="0 0 0 8"/>
+        <Label Name="NoBorgs"
+               Text="{Loc malfai-borgs-none}"
+               Visible="False"
+               HorizontalAlignment="Center"/>
+        <ScrollContainer VerticalExpand="True">
+            <BoxContainer Name="BorgList" Orientation="Vertical"/>
+        </ScrollContainer>
+    </BoxContainer>
+</controls:FancyWindow>
