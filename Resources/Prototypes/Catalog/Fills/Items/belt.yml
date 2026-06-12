@@ -247,6 +247,10 @@
     - id: HydroponicsToolMiniHoe
     - id: HydroponicsToolSpade
     - id: HydroponicsToolClippers
+      #Goob-Station start
+    - id: PlantAnalyzer
+    - id: PlantBGoneSpray
+      #Goob-Station end
     - id: ChemistryBottleRobustHarvest
 
 - type: entity

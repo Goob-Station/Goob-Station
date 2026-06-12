@@ -18,19 +18,22 @@
     heldPrefix: analyzer
     storedRotation: -90
   - type: ActivatableUI
-    key: enum.HealthAnalyzerUiKey.Key
+    key: enum.PlantAnalyzerUiKey.Key
+    inHandsOnly: true
   - type: UserInterface
     interfaces:
-      enum.HealthAnalyzerUiKey.Key:
-        type: HealthAnalyzerBoundUserInterface
-  - type: ItemToggle
-    onUse: false
-  - type: HealthAnalyzer
-    scanningEndSound:
-      path: "/Audio/Items/Medical/healthscanner.ogg"
+      enum.PlantAnalyzerUiKey.Key:
+        type: PlantAnalyzerBoundUserInterface
   - type: Tag
     tags:
-    - DiscreteHealthAnalyzer
+    - PlantAnalyzer
+  - type: ItemToggle
+    onUse: false
+  - type: PlantAnalyzer
+    scanningEndSound:
+      path: "/Audio/Items/Medical/healthscanner.ogg"
+      settings:
+        scanDelay: 0.8
   - type: Appearance
   - type: GenericVisualizer
     visuals:
