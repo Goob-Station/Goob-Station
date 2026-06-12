@@ -189,9 +189,3 @@
   id: CameraElectronics
   icon: { sprite: Structures/Wallmounts/camera.rsi, state: cameracase }
   result: CameraElectronics
-
-- type: latheRecipe
-  parent: [ BaseElectronicsRecipe, BaseCircuitryRecipeCategory ]
-  id: CutterMachineCircuitboard
-  icon: { sprite: Structures/Machines/cuttermachine.rsi, state: icon }
-  result: CutterMachineCircuitboard

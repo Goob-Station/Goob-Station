@@ -11,6 +11,7 @@
   recipes:
   - ContrabandDetectorCircuitboard
   - CriminalRecordsComputerCircuitboard
+  - WeaponEnergyTurretSecurityMachineCircuitboard
 
 - type: latheRecipePack
   id: MedicalBoardsStaticGoob
