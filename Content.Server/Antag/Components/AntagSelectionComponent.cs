@@ -174,13 +174,6 @@ public partial struct AntagSelectionDefinition()
     public List<ProtoId<JobPrototype>>? JobBlacklist;
 
     /// <summary>
-    /// Skips the job canBeAntag check for this definition. | Goobstation - MalfAI
-    /// Used by rules targeting jobs that are normally antag-restricted (the station AI).
-    /// </summary>
-    [DataField]
-    public bool IgnoreCanBeAntag;
-
-    /// <summary>
     /// A list of antagonist roles that are used for selecting which players will be antagonists.
     /// </summary>
     [DataField]

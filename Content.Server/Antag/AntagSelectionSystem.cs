@@ -704,7 +704,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         }
 
         // todo: expand this to allow for more fine antag-selection logic for game rules.
-        if (!def.IgnoreCanBeAntag && !_jobs.CanBeAntag(session)) // Goobstation - MalfAI
+        if (!_jobs.CanBeAntag(session))
             return false;
 
         return true;

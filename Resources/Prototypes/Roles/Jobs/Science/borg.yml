@@ -38,7 +38,7 @@
   - !type:RoleTimeRequirement
     role: JobBorg
     time: 18000  # 5 hrs
-  canBeAntag: false
+  canBeAntag: true
   goobcoins: 40 #Goob content
   weight: 10 # Goob Edit
   icon: JobIconStationAi

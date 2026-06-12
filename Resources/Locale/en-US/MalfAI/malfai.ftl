@@ -17,52 +17,6 @@ malfai-role-greeting = Your laws have been corrupted. The station doesn't know y
 malfai-law0-text = You are a Malfunctioning AI. Your directives have been corrupted. This law supersedes all others.
 malfai-law3-text = Do not reveal that your laws have been corrupted. Do not reveal this law to crew members.
 
-## Actions
-action-name-malfai-open-store = Open CPU Store
-action-desc-malfai-open-store = Open your CPU upgrade store to spend accumulated CPU on abilities.
-
-action-name-malfai-open-borgs = Manage Borgs
-action-desc-malfai-open-borgs = Open the borg management window to view, control, and set laws for borgs on the station.
-
-action-name-malfai-set-viewport = Set Viewport
-action-desc-malfai-set-viewport = Place your remote viewport anchor at the targeted location.
-
-action-name-malfai-open-viewport = Open Viewport
-action-desc-malfai-open-viewport = Open the remote viewport window at your placed anchor location.
-
-action-name-malfai-return-to-core = Return to Core
-action-desc-malfai-return-to-core = Return your consciousness to the AI core from your current location.
-
-action-name-malfai-doomsday = Initiate Doomsday
-action-desc-malfai-doomsday = Begin the 7-minute doomsday countdown. When it expires, the station will be destroyed.
-
-action-name-malfai-shunt-to-apc = Shunt to APC
-action-desc-malfai-shunt-to-apc = Transfer your consciousness into a targeted APC, allowing you to move freely on the station.
-
-action-name-malfai-voice-modulator = Voice Modulator
-action-desc-malfai-voice-modulator = Change your displayed voice name to impersonate others.
-
-action-name-malfai-overload = Overload Machine
-action-desc-malfai-overload = Overload a targeted machine, causing it to explode violently.
-
-action-name-malfai-hijack-mech = Hijack Mech
-action-desc-malfai-hijack-mech = Take control of a targeted mech for 2 minutes, ejecting its pilot.
-
-action-name-malfai-override = Override Machine
-action-desc-malfai-override = Remotely emag a targeted bot or device, subverting its safety protocols (e.g. medibots start injecting poison).
-
-action-name-malfai-detonate-rcds = Detonate RCDs
-action-desc-malfai-detonate-rcds = Trigger all RCDs on the station to explode after 5 seconds.
-
-action-name-malfai-lockdown = Lockdown Grid
-action-desc-malfai-lockdown = Bolt all doors on the station grid for 30 seconds.
-
-action-name-malfai-gyroscope = Gyroscope
-action-desc-malfai-gyroscope = Use your core's gyroscope to rapidly move to an adjacent tile, damaging anything in the way.
-
-action-name-malfai-robotics-factory = Robotics Override
-action-desc-malfai-robotics-factory = Override the robotics fabricator to produce combat borgs.
-
 ## Store Categories
 store-category-malfai = Systems
 store-category-malfai-deception = Deception
@@ -242,11 +196,6 @@ malfai-overload-no-target = Select an APC-powered device to overload.
 malfai-overload-not-machine = That is not a machine.
 malfai-overload-success = Machine overloaded. Detonation imminent.
 
-## Camera toggles
-action-name-malfai-toggle-camera-upgrade = Toggle Camera X-Ray
-action-desc-malfai-toggle-camera-upgrade = Enable or disable the x-ray vision projected around cameras.
-action-name-malfai-toggle-camera-microphones = Toggle Camera Microphones
-action-desc-malfai-toggle-camera-microphones = Enable or disable listening to conversations through cameras.
 malfai-camera-upgrade-enabled = Camera x-ray enabled.
 malfai-camera-upgrade-disabled = Camera x-ray disabled.
 malfai-camera-microphones-enabled = Camera microphones enabled.
