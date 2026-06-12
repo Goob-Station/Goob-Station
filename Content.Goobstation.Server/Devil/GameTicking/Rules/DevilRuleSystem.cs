@@ -4,19 +4,24 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Text;
 using Content.Goobstation.Server.Devil.Roles;
 using Content.Goobstation.Shared.Devil;
 using Content.Server.Antag;
+using Content.Server.Chat.Systems;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Mind;
 using Content.Server.Objectives;
 using Content.Server.Roles;
+using Content.Shared.GameTicking.Components;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Roles;
+using Content.Shared.Store;
+using Content.Shared.Store.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
+using System.Text;
+
 
 namespace Content.Goobstation.Server.Devil.GameTicking.Rules;
 
@@ -26,6 +31,10 @@ public sealed class DevilRuleSystem : GameRuleSystem<DevilRuleComponent>
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
     [Dependency] private readonly ObjectivesSystem _objective = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
+
+    public readonly ProtoId<CurrencyPrototype> Currency = "SoulsStored";
+    public readonly int StartingCurrency = 0;
     public override void Initialize()
     {
         base.Initialize();
@@ -33,6 +42,7 @@ public sealed class DevilRuleSystem : GameRuleSystem<DevilRuleComponent>
         SubscribeLocalEvent<DevilRuleComponent, AfterAntagEntitySelectedEvent>(OnSelectAntag);
         SubscribeLocalEvent<DevilRuleComponent, ObjectivesTextPrependEvent>(OnTextPrepend);
         SubscribeLocalEvent<DevilRoleComponent, GetBriefingEvent>(OnGetBrief);
+        SubscribeLocalEvent<DevilComponent, DevilAscendedEvent>(OnDevilAscended);
     }
 
     private void OnSelectAntag(EntityUid uid, DevilRuleComponent comp, ref AfterAntagEntitySelectedEvent args)
@@ -49,6 +59,14 @@ public sealed class DevilRuleSystem : GameRuleSystem<DevilRuleComponent>
 
         _npcFaction.RemoveFaction(target, rule.NanotrasenFaction);
         _npcFaction.AddFaction(target, rule.DevilFaction);
+
+        // add store
+        var store = EnsureComp<StoreComponent>(target);
+
+        store.Categories.Add(rule.StoreCategory);
+
+        store.CurrencyWhitelist.Add(Currency);
+        store.Balance.Add(Currency, StartingCurrency);
 
         return true;
     }
@@ -92,5 +110,25 @@ public sealed class DevilRuleSystem : GameRuleSystem<DevilRuleComponent>
         var sb = new StringBuilder();
         sb.AppendLine(Loc.GetString($"roundend-prepend-devil-contracts{(!string.IsNullOrWhiteSpace(mostContractsName) ? "-named" : "")}", ("name", mostContractsName), ("number", mostContracts)));
         args.Text = sb.ToString();
+    }
+
+    private void OnDevilAscended(EntityUid uid, DevilComponent devil, DevilAscendedEvent args)
+    {
+        var rules = EntityQueryEnumerator<DevilRuleComponent, GameRuleComponent>();
+
+        while (rules.MoveNext(out _, out var rule, out _))
+        {
+            if (rule.AscensionAnnounced)
+                continue;
+
+            rule.AscensionAnnounced = true;
+
+            _chat.DispatchStationAnnouncement(
+                uid,
+                Loc.GetString("devil-ascension-announcement", ("trueName", devil.TrueName)),
+                colorOverride: Color.DarkRed,
+                announcementSound: rule.AscensionSound
+            );
+        }
     }
 }

@@ -9,15 +9,23 @@ using Content.Goobstation.Server.Devil.Contract.Revival;
 using Content.Goobstation.Server.Devil.Grip;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Actions;
+using Content.Goobstation.Shared.Devil.Components;
 using Content.Goobstation.Shared.Devil.Condemned;
 using Content.Goobstation.Shared.Devil.Contract;
+using Content.Server.Store.Systems;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Mind;
+using Content.Shared.Popups;
+using Content.Shared.Storage.EntitySystems;
 
 namespace Content.Goobstation.Server.Devil;
 
 public sealed partial class DevilSystem
 {
+    [Dependency] private readonly StoreSystem _store = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
+
     private void SubscribeAbilities()
     {
         SubscribeLocalEvent<DevilComponent, CreateContractEvent>(OnContractCreated);
@@ -66,6 +74,13 @@ public sealed partial class DevilSystem
         if (!TryUseAbility(args))
             return;
 
+        if (HasComp<DevilLesserFormComponent>(devil) || HasComp<ArchdevilComponent>(devil)) // Unable to jaunt while in ascended form.
+        {
+            var message = Loc.GetString("jaunt-ascended-fail");
+            _popup.PopupEntity(message, devil, devil);
+            return;
+        }
+
         Spawn(devil.Comp.JauntAnimationProto, Transform(devil).Coordinates);
         Spawn(devil.Comp.PentagramEffectProto, Transform(devil).Coordinates);
 
@@ -84,20 +99,19 @@ public sealed partial class DevilSystem
         {
             foreach (var item in _hands.EnumerateHeld(devil.Owner))
             {
-                if (!HasComp<DevilGripComponent>(item))
-                    continue;
-
-                QueueDel(item);
-                return;
+                if (HasComp<DevilGripComponent>(item))
+                    QueueDel(item);
             }
         }
 
         var grasp = Spawn(devil.Comp.GripPrototype, Transform(devil).Coordinates);
+
         if (!_hands.TryPickupAnyHand(devil, grasp))
             QueueDel(grasp);
 
         devil.Comp.DevilGrip = args.Action.Owner;
     }
+
 
     private void OnPossess(Entity<DevilComponent> devil, ref DevilPossessionEvent args)
     {

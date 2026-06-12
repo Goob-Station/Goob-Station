@@ -3,10 +3,13 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Damage;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.Devil.Grip;
+namespace Content.Goobstation.Shared.Devil.Components;
 
 [RegisterComponent]
 public sealed partial class DevilGripComponent : Component
@@ -18,7 +21,10 @@ public sealed partial class DevilGripComponent : Component
     public EntityWhitelist Blacklist = new();
 
     [DataField]
-    public TimeSpan KnockdownTime = TimeSpan.FromSeconds(5f);
+    public TimeSpan KnockdownTime = TimeSpan.FromSeconds(3f);
+
+    [DataField]
+    public TimeSpan KnockdownTimeIncrement = TimeSpan.FromSeconds(2f);
 
     [DataField]
     public float StaminaDamage = 80f;
@@ -31,4 +37,7 @@ public sealed partial class DevilGripComponent : Component
 
     [DataField]
     public LocId Invocation = "devil-speech-grip";
+
+    [DataField]
+    public DamageSpecifier Healing = new();
 }

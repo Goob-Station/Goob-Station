@@ -5,6 +5,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.NPC.Prototypes;
+using Content.Shared.Store;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -24,4 +25,13 @@ public sealed partial class DevilRuleComponent : Component
 
     [DataField]
     public EntProtoId DevilMindRole = "DevilMindRole";
+
+    [DataField]
+    public ProtoId<StoreCategoryPrototype> StoreCategory = "DevilAbilities";
+
+    [DataField]
+    public bool AscensionAnnounced = false;
+
+    [DataField]
+    public SoundPathSpecifier AscensionSound = new("/Audio/_Goobstation/Devil/demonchant3.ogg");
 }
