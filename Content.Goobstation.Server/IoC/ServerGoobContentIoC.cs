@@ -12,6 +12,7 @@ using Content.Goobstation.Common.ServerCurrency;
 using Content.Goobstation.Server.JoinQueue;
 using Content.Goobstation.Server.MisandryBox.JumpScare;
 using Content.Goobstation.Server.Polls;
+using Content.Goobstation.Server.RecoveryPassword;
 using Content.Goobstation.Server.Redial;
 using Content.Goobstation.Server.ServerCurrency;
 using Content.Goobstation.Server.Voice;
@@ -27,6 +28,7 @@ internal static class ServerGoobContentIoC
 
         instance.Register<RedialManager>();
         instance.Register<PollManager>();
+        instance.Register<RecoveryPasswordManager>();
         instance.Register<IVoiceChatServerManager, VoiceChatServerManager>();
         instance.Register<IJoinQueueManager, JoinQueueManager>();
         instance.Register<IFullScreenImageJumpscare, ServerFullScreenImageJumpscare>();

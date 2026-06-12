@@ -111,3 +111,33 @@ public sealed class PollVote
     [Required]
     public DateTime VotedAt { get; set; }
 }
+
+[Table("recovery_password")]
+public sealed class RecoveryPassword
+{
+    [Key]
+    public int Id { get; set; }
+
+    [Required, ForeignKey("Player")]
+    public Guid PlayerUserId { get; set; }
+
+    public Player Player { get; set; } = default!;
+
+    [Required, StringLength(64)]
+    public string UsernameAtCreation { get; set; } = default!;
+
+    [Required]
+    public byte[] Salt { get; set; } = default!;
+
+    [Required]
+    public byte[] Hash { get; set; } = default!;
+
+    [Required]
+    public int Iterations { get; set; }
+
+    [Required]
+    public int AlgoVersion { get; set; }
+
+    [Required]
+    public DateTime CreatedAt { get; set; }
+}
