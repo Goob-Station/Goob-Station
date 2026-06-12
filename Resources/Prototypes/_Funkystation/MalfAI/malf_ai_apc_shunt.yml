@@ -9,6 +9,7 @@
   id: MalfAiApcShuntKit
   categories: [ HideSpawnMenu ]
   components:
+  - type: ItemSlots
   - type: StationAiHolder
     slot:
       name: station-ai-mind-slot
@@ -17,6 +18,10 @@
       whitelist:
         tags:
         - StationAi
+  - type: ContainerContainer
+    containers:
+      station_ai_mind_slot: !type:ContainerSlot
+        showEnts: True
   - type: ContainerComp
     proto: AiHeld
     container: station_ai_mind_slot
