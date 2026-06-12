@@ -113,7 +113,7 @@
 - type: humanoidBaseSprite
   id: MobResomiEyes
   baseSprite:
-    sprite: _Goobstation/Mobs/Customization/Resomi/eyes/eyes.rsi
+    sprite: _Goobstation/Mobs/Customization/Resomi/eyes.rsi
     state: eyes
 
 - type: humanoidBaseSprite
