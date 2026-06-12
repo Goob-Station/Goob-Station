@@ -852,25 +852,23 @@
     slots:
     - belt
   - type: TimedToggleOnPray
-    duration: 10
+    duration: 20
     soundActivate:
       collection: GeneratorTug
       params:
-        volume: 3
+        volume: 5
     soundDeactivate:
       path: /Audio/_Goobstation/Weapons/ChainSword/chainEnd.ogg
       params:
-        volume: 3
+        volume: 5
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/Weapons/chainsawidle.ogg
       params:
-        volume: 3
+        volume: 5
   - type: ComponentToggler
     components:
     - type: Sharp
-    - type: DisarmMalus
-      malus: 0.6
     - type: Execution
       doAfterDuration: 4.0
     - type: BoneSaw # Shitmed
@@ -880,6 +878,7 @@
         path: /Audio/Weapons/chainsawwield.ogg
       endSound:
         path: /Audio/Weapons/chainsaw.ogg
+    - type: Unremoveable
   - type: Item
     size: Large
   - type: ItemToggleMeleeWeapon
@@ -899,13 +898,13 @@
     autoAttack: true
     heavyStaminaCost: 10
     wideAnimationRotation: -135
-    attackRate: 1.2
+    attackRate: 1.4
     damage:
       types:
         Blunt: 7
         Holy: 5
   - type: UseDelay
-    delay: 180.0
+    delay: 120.0
   - type: Appearance
   - type: ToggleableVisuals
     spriteLayer: blade
@@ -917,3 +916,5 @@
   - type: Tag
     tags:
     - InquisitorChainSword
+  - type: AlternatePrayable
+    prayDoAfterDuration: 1.5
