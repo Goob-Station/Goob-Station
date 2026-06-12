@@ -1,5 +1,6 @@
 ﻿using Content.Server.Botany.Components;
 using Content.Shared._NF.PlantAnalyzer;
+using Content.Server.PowerCell;
 using Content.Shared.Atmos;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
@@ -19,6 +20,7 @@ namespace Content.Server.Botany.Systems;
 public sealed partial class PlantAnalyzerSystem : EntitySystem
 {
     [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly PowerCellSystem _cell = default!;
     [Dependency] private ItemToggleSystem _toggle = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private SharedDoAfterSystem _doAfterSystem = default!;
@@ -41,7 +43,7 @@ public sealed partial class PlantAnalyzerSystem : EntitySystem
 
     private void OnAfterInteract(Entity<PlantAnalyzerComponent> ent, ref AfterInteractEvent args)
     {
-        if (args.Target == null || !args.CanReach)
+        if (args.Target == null || !args.CanReach || !_cell.HasActivatableCharge(ent, user: args.User))
             return;
 
         if (ent.Comp.DoAfter != null)
