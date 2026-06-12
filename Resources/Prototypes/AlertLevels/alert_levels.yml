@@ -91,35 +91,35 @@
       announcement: alert-level-green-announcement
       color: Green
       emergencyLightColor: LawnGreen
-      shuttleTime: 600.0
+      shuttleTime: 600
     blue:
       announcement: alert-level-blue-announcement
       sound: /Audio/Misc/bluealert.ogg
       color: DodgerBlue
       forceEnableEmergencyLights: true
       emergencyLightColor: DodgerBlue
-      shuttleTime: 600.0
+      shuttleTime: 600
     violet:
       announcement: alert-level-violet-announcement
       sound: /Audio/Misc/notice1.ogg
       color: Violet
       emergencyLightColor: Violet
       forceEnableEmergencyLights: true
-      shuttleTime: 600.0
+      shuttleTime: 600
     yellow:
       announcement: alert-level-yellow-announcement
       sound: /Audio/Misc/notice1.ogg
       color: Yellow
       emergencyLightColor: Goldenrod
       forceEnableEmergencyLights: true
-      shuttleTime: 600.0
+      shuttleTime: 600
     red:
       announcement: alert-level-red-announcement
       sound: /Audio/Misc/redalert.ogg
       color: Red
       emergencyLightColor: Red
       forceEnableEmergencyLights: true
-      shuttleTime: 600.0 #No reduction in time as we don't have swiping for red alert like in /tg/. Shuttle times are intended to create friction, so having a way to brainlessly bypass that would be dumb.
+      shuttleTime: 600 #No reduction in time as we don't have swiping for red alert like in /tg/. Shuttle times are intended to create friction, so having a way to brainlessly bypass that would be dumb.
     gamma:
       announcement: alert-level-gamma-announcement
       selectable: false
@@ -131,7 +131,7 @@
       color: PaleVioletRed
       emergencyLightColor: PaleVioletRed
       forceEnableEmergencyLights: true
-      shuttleTime: 1200.0
+      shuttleTime: 1200
     delta:
       announcement: alert-level-delta-announcement
       selectable: false
@@ -143,7 +143,7 @@
       color: DarkRed
       emergencyLightColor: Orange
       forceEnableEmergencyLights: true
-      shuttleTime: 1200.0
+      shuttleTime: 1200
     epsilon:
       announcement: alert-level-epsilon-announcement
       selectable: false
@@ -155,7 +155,7 @@
       color: DarkViolet
       emergencyLightColor: DarkViolet
       forceEnableEmergencyLights: true
-      shuttleTime: 1200.0
+      shuttleTime: 1200
     omicron: # Goobstation
       announcement: alert-level-omicron-announcement
       selectable: false
@@ -165,7 +165,7 @@
       color: Ivory
       emergencyLightColor: Ivory
       forceEnableEmergencyLights: true
-      shuttleTime: 2400.0
+      shuttleTime: 2400
     octarine: # DeltaV - Cosmic Cult
       announcement: alert-level-octarine-announcement
       selectable: false
@@ -174,7 +174,7 @@
       color: CadetBlue
       emergencyLightColor: CadetBlue
       forceEnableEmergencyLights: true
-      shuttleTime: 600.0
+      shuttleTime: 600
     honk: # Goobstation
       announcement: alert-level-honk-announcement
       selectable: false
@@ -184,11 +184,11 @@
       color: Magenta
       emergencyLightColor: Magenta
       forceEnableEmergencyLights: true
-      shuttleTime: 600.0
+      shuttleTime: 600
     amber:
       announcement: alert-level-amber-announcement
       sound: /Audio/_Goobstation/Announcements/amberalarm.ogg
       color: "#8A3324"
       emergencyLightColor: "#8A3324"
       forceEnableEmergencyLights: true
-      shuttleTime: 600.0
+      shuttleTime: 600
