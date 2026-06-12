@@ -140,6 +140,15 @@
   - sprite: _Goobstation/Mobs/Customization/Resomi/torso/fluffy_chest.rsi
     state: fluffy_chest
 
+- type: marking
+  id: ResomiChestTiger
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/torso/tiger.rsi
+    state: tiger
+
 # Chest_scars
 - type: marking
   id: ResomiChestBackstab
@@ -256,9 +265,116 @@
 
 #Legs
 # Right_leg
+- type: marking
+  id: ResomiRightLegColour
+  bodyPart: RLeg
+  markingCategory: RightLeg
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/limbs/legs/right/colour.rsi
+    state: r_leg_colour
+
+- type: marking
+  id: ResomiRightLegFeathers
+  bodyPart: RLeg
+  markingCategory: RightLeg
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/limbs/legs/right/feathers.rsi
+    state: r_leg_feathers
+
+- type: marking
+  id: ResomiRightLegHalf
+  bodyPart: RLeg
+  markingCategory: RightLeg
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/limbs/legs/right/half.rsi
+    state: r_leg_half
+
+- type: marking
+  id: ResomiRightLegPoints
+  bodyPart: RLeg
+  markingCategory: RightLeg
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/limbs/legs/right/points.rsi
+    state: r_leg_point
+
+- type: marking
+  id: ResomiRightLegTiger
+  bodyPart: RLeg
+  markingCategory: RightLeg
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/limbs/legs/right/tiger.rsi
+    state: r_leg_tiger
+
 # Right_foot
+- type: marking
+  id: ResomiRightFootColour
+  bodyPart: RFoot
+  markingCategory: RightFoot
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/limbs/legs/right/foot/colour.rsi
+    state: r_foot_colour
+
 # Left_leg
+- type: marking
+  id: ResomiLeftLegColour
+  bodyPart: LLeg
+  markingCategory: LeftLeg
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/limbs/legs/left/colour.rsi
+    state: l_leg_colour
+
+- type: marking
+  id: ResomiLeftLegFeathers
+  bodyPart: LLeg
+  markingCategory: LeftLeg
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/limbs/legs/left/feathers.rsi
+    state: l_leg_feathers
+
+- type: marking
+  id: ResomiLeftLegHalf
+  bodyPart: LLeg
+  markingCategory: LeftLeg
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/limbs/legs/left/half.rsi
+    state: l_leg_half
+
+- type: marking
+  id: ResomiLeftLegPoints
+  bodyPart: LLeg
+  markingCategory: LeftLeg
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/limbs/legs/left/points.rsi
+    state: l_leg_point
+
+- type: marking
+  id: ResomiLeftLegTiger
+  bodyPart: LLeg
+  markingCategory: LeftLeg
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/limbs/legs/left/tiger.rsi
+    state: l_leg_tiger
+
 # Left_foot
+- type: marking
+  id: ResomiLeftFootColour
+  bodyPart: LFoot
+  markingCategory: LeftFoot
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/limbs/legs/left/foot/colour.rsi
+    state: l_foot_colour
 
 # Tail
 - type: marking
