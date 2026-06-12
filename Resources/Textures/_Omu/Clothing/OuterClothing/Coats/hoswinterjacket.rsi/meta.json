@@ -1,0 +1,26 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from TG files - https://github.com/tgstation/tgstation/commit/c7806cad2e1e58295974bd30a4c6eb59e2fdb554 inhand sprites by diggy",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "equipped-OUTERCLOTHING",
+            "directions": 4
+        },
+		{
+            "name": "inhand-left",
+            "directions": 4
+        },
+		{
+            "name": "inhand-right",
+            "directions": 4
+        }
+    ]
+}

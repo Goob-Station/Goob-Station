@@ -90,12 +90,12 @@
     #gloves: ClothingHandsGlovesCombat - Goobstation, moved to loadouts
     id: BlueshieldPDA
     ears: ClothingHeadsetAltBlueshield
-    belt: ClothingBeltAssaultFilled
+   #belt: ClothingBeltAssaultFilled - Omu, moved to loadouts
     pocket1: UniqueBlueshieldOfficerLockerTeleporter
   storage:
     back:
     - Flash
-    - ClothingBSOMaskGasSwat
+    - ClothingMaskGasBSO #Omu - Replaced the security gas mask with Blue SWAT from Starlight
     - CombatKnife
 
 - type: chameleonOutfit
@@ -104,7 +104,7 @@
   equipment:
     head: ClothingHeadHatBeretEliteNavyOfficer
     eyes: ClothingEyesGlassesBSO
-    mask: ClothingMaskGasSecurity
+    mask: ClothingMaskGasBSO #Omu - Blue SWAT gas mask ported from Starlight
     ears: ClothingHeadsetAltBlueshield
     outerClothing: ClothingBlueshieldArmourVest
     neck: ClothingNeckMantleBlueshield

@@ -1,0 +1,13 @@
+- type: entity
+  parent: [BaseCentcommContraband, ClothingShoesBootsJack]
+  id: ClothingShoesBootsBlueshieldJackAdvanced
+  name: blueshield advanced jackboots
+  description: There are only two sounds around those shoes. the sound of them approaching your location, and the sound of them crushing your skull.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Shoes/Boots/bso_advanced_jackboots.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Shoes/Boots/bso_advanced_jackboots.rsi
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: StepHeavyBoots

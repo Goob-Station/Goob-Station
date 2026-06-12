@@ -1,0 +1,16 @@
+- type: entity
+  parent: [ ClothingHeadHatBeretRND, BaseCommandContraband ]
+  id: ClothingHeadHatBeretVeteranCMO
+  name: chief medical officer's veteran beret
+  description: A Fur lined rubber beret, designed to survive even the most inevitable of chemistry mishaps.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Hats/beret_veteran_cmo.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Hats/beret_veteran_cmo.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - Recyclable
+    - HamsterWearable
+    - WhitelistChameleon

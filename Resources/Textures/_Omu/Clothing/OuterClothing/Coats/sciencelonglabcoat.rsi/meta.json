@@ -1,0 +1,41 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Skyrat Files - https://github.com/Skyrat-SS13/Skyrat-tg/commit/b09a67f33bb2c03834b80ff028b730967d3dc56f inhand sprites made by dootythefrooty",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "icon-open"
+        },
+        {
+            "name": "equipped-OUTERCLOTHING",
+            "directions": 4
+        },
+        {
+            "name": "open-equipped-OUTERCLOTHING",
+            "directions": 4
+        },
+		{
+            "name": "inhand-left",
+            "directions": 4
+        },
+		{
+            "name": "inhand-right",
+            "directions": 4
+        },
+		{
+            "name": "open-inhand-left",
+            "directions": 4
+        },
+		{
+            "name": "open-inhand-right",
+            "directions": 4
+        }
+    ]
+}

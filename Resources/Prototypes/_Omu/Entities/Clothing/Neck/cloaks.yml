@@ -1,0 +1,21 @@
+- type: entity
+  parent: ClothingNeckCloakCentcom
+  id: ClothingCloakCentCommAdmiral
+  name: central command admiral cloak
+  description: A large green cloak that demands attention, and careful steps to not trip while wearing it.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Cloaks/admiralcape.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Cloaks/admiralcape.rsi
+
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckCloakRdFancy
+  name: decorated research director's cloak
+  description: A purple cloak with silver lining, appropiate for a research director.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Cloaks/rdcloak.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak

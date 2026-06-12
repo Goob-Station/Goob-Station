@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from TG Station - https://github.com/tgstation/tgstation/commit/7dcc8f9c90055acd89a2a5daf138f88e99133148",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "equipped-INNERCLOTHING",
+      "directions": 4
+    },
+	{
+      "name": "inhand-left",
+	  "directions": 4
+    },
+	{
+      "name": "inhand-right",
+      "directions": 4
+    }
+  ]
+}

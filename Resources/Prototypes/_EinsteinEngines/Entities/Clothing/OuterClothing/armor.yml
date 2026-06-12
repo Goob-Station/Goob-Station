@@ -1,0 +1,61 @@
+- type: entity
+  parent: [ClothingOuterBaseMedium, AllowSuitStorageClothing, ClothingOuterStorageFoldableBase, ClothingBlueshieldArmourVest]
+  id: ClothingBlueshieldArmoredCoat
+  name: blueshield's armored coat
+  description: A coat for cold winter seasons with sewn in plates.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Armor/blueshield_coat.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Armor/blueshield_coat.rsi
+  - type: Armor
+    coverage:
+    - Chest
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.4
+        Heat: 0.3
+        Caustic: 0.75
+  - type: TemperatureProtection
+    heatingCoefficient: 0.1
+    coolingCoefficient: 0.1
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingBlueshieldArmoredCoat]
+  id: ClothingBlueshieldArmoredCoatOpen
+  name: blueshield's armored coat
+  suffix: Opened
+
+- type: entity
+  parent: ClothingBlueshieldArmourVest
+  id: ClothingBlueshieldArmoredMarine
+  name: blueshield's armored marine vest
+  description: A vest from the blueshield's time in the marines.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Armor/blueshield_marine.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Armor/blueshield_marine.rsi
+  - type: Item
+    size: Normal
+
+- type: entity
+  parent: ClothingBlueshieldArmourVest
+  id: ClothingBlueshieldArmoredVest
+  name: blueshield's armored vest
+  description: A vest with sewn-in reinforcement layers.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Armor/blueshield_vest.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Armor/blueshield_vest.rsi
+  - type: Item
+    size: Normal

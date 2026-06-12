@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingNeckMantleBlueshield
+  id: ClothingNeckMantleTwoBlueshield
+  name: blueshield officer black mantle
+  description: A mostly black mantle with blue lining along the neck, in case the other option wasn't convincing enough.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Neck/Mantle/bsomantleblack.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Neck/Mantle/bsomantleblack.rsi

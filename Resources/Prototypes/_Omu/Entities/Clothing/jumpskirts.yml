@@ -1,0 +1,94 @@
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformJumpsuitQMUniformSkirt
+  name: quartermaster skirt
+  description: A brown dress shirt, coupled with a long pleated black skirt. It's specially designed to prevent back injuries caused by pushing paper.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/qmuniformskirt.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/qmuniformskirt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCargotechShortsSkirt
+  name: cargo technician's shortskirt
+  description: I like skiiiiirts! They're comfy and easy to wear!
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/cargotechshirtskirt.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/cargotechshirtskirt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCargotechSweaterSkirt
+  name: cargo technician's skirt
+  description: A brown sweater and a black skirt to match.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/cargotechturtleneckskirt.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/cargotechturtleneckskirt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitParamedUniformSkirt
+  name: paramedic skirt
+  description: It's made of a special fiber that provides minor protection against caustic hazards. It has a dark blue cross on the chest denoting that the wearer is a trained paramedic.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/paramedicuniformskirt.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/paramedicuniformskirt.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.85
+
+- type: entity
+  parent: ClothingUniformJumpsuitBlueshieldOfficer
+  id: ClothingUniformBlueShieldOfficerTurtleneckSkirt
+  name: blueshield officer turtleskirt
+  description: Turtleneck with a skirt worn by Blueshield Officers, CC tag removed because it was too itchy.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/blueshieldturtleskirt.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/blueshieldturtleskirt.rsi
+
+- type: entity
+  parent: ClothingUniformJumpsuitBlueshieldOfficer
+  id: ClothingUniformBlackBlueShieldOfficerTurtleneckSkirt
+  name: black blueshield officer turtleskirt
+  description: black turtleneck with a skirt worn by Blueshield Officers, CC tag removed because it was too itchy.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/blackblueshieldturtleskirt.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/blackblueshieldturtleskirt.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformJumpsuitHoPParadeDress
+  name: head of personnel's parade dress
+  description: A luxurious uniform for the head of personnel, woven in a deep blue. On the lapel is a small pin in the shape of a corgi's head.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/hopparadeskirt.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/hopparadeskirt.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformJumpsuitHoPTurtleneckSkirt
+  name: head of personnel's turtleneck skirt
+  description: A soft blue turtleneck and black skirt worn by heads who prefer a bit more comfort over style.
+  components:
+  - type: Sprite
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/hopturtleneckskirt.rsi
+  - type: Clothing
+    sprite: _Omu/Clothing/Uniforms/Jumpskirt/hopturtleneckskirt.rsi
+
+
+

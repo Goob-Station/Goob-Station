@@ -1,0 +1,36 @@
+# OuterClothing
+- type: loadout
+  id: ClothingFormalHoPCoat
+  equipment:
+    outerClothing: ClothingOuterCoatHoP
+
+- type: loadout
+  id: ClothingFormalHoPJacket
+  equipment:
+    outerClothing: ClothingOuterFormalJacketHoP
+
+- type: loadout
+  id: ClothingFormalHoPDress
+  equipment:
+    outerClothing: ClothingOuterFormalDressHoP
+
+# Jumpsuits and Jumpskirts
+- type: loadout
+  id: HoPParadeUniformMale
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHoPParade
+
+- type: loadout
+  id: HoPParadeUniformFemale
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHoPParadeDress
+
+- type: loadout
+  id: HoPTurtleneckMale
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHoPTurtleneck
+
+- type: loadout
+  id: HoPTurtleneckSkirtFemale
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHoPTurtleneckSkirt
