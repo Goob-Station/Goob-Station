@@ -2,7 +2,7 @@
 # Head_top
 - type: marking
   id: ResomiDefaultEars
-  bodyPart: HeadTop
+  bodyPart: Head
   markingCategory: HeadTop
   speciesRestriction: [Resomi]
   sprites:
@@ -11,7 +11,7 @@
 
 - type: marking
   id: ResomiBatteredEars
-  bodyPart: HeadTop
+  bodyPart: Head
   markingCategory: HeadTop
   speciesRestriction: [Resomi]
   sprites:
@@ -20,7 +20,7 @@
 
 - type: marking
   id: ResomiBigEars
-  bodyPart: HeadTop
+  bodyPart: Head
   markingCategory: HeadTop
   speciesRestriction: [Resomi]
   sprites:
@@ -29,7 +29,7 @@
 
 - type: marking
   id: ResomiDroopyEars
-  bodyPart: HeadTop
+  bodyPart: Head
   markingCategory: HeadTop
   speciesRestriction: [Resomi]
   sprites:
@@ -38,7 +38,7 @@
 
 - type: marking
   id: ResomiTinyEars
-  bodyPart: HeadTop
+  bodyPart: Head
   markingCategory: HeadTop
   speciesRestriction: [Resomi]
   sprites:
@@ -206,6 +206,15 @@
   - sprite: _Goobstation/Mobs/Customization/Resomi/limbs/right/arm.rsi
     state: r_arm_point
 
+- type: marking
+  id: ResomiRightArmTiger
+  bodyPart: RArm
+  markingCategory: RightArm
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/limbs/right/arm.rsi
+    state: r_arm_tiger
+
 # Right_hand
 - type: marking
   id: ResomiRightHandColour
@@ -252,6 +261,15 @@
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Resomi/limbs/left/arm.rsi
     state: l_arm_point
+
+- type: marking
+  id: ResomiLeftArmTiger
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/limbs/left/arm.rsi
+    state: l_arm_tiger
 
 # Left_hand
 - type: marking
@@ -379,7 +397,7 @@
 # Tail
 - type: marking
   id: ResomiTail
-  bodyPart: Tail
+  bodyPart: HeadTop
   markingCategory: Tail
   speciesRestriction: [Resomi]
   sprites:
@@ -388,7 +406,7 @@
 
 - type: marking
   id: ResomiTailFeathers
-  bodyPart: Tail
+  bodyPart: HeadTop
   markingCategory: Tail
   speciesRestriction: [Resomi]
   sprites:
@@ -399,7 +417,7 @@
 
 - type: marking
   id: ResomiTailGradient
-  bodyPart: Tail
+  bodyPart: HeadTop
   markingCategory: Tail
   speciesRestriction: [Resomi]
   sprites:
@@ -410,7 +428,7 @@
 
 - type: marking
   id: ResomiTailTip
-  bodyPart: Tail
+  bodyPart: HeadTop
   markingCategory: Tail
   speciesRestriction: [Resomi]
   sprites:
@@ -421,7 +439,7 @@
 
 - type: marking
   id: ResomiBigTail
-  bodyPart: Tail
+  bodyPart: HeadTop
   markingCategory: Tail
   speciesRestriction: [Resomi]
   sprites:

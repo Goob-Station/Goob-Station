@@ -53,6 +53,12 @@
     alternateState: Resomi_burning
   - type: HumanoidAppearance
     species: Resomi
+    markingsDisplacement:
+      Hair:
+        sizeMaps:
+          32:
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
+            state: hair
   - type: Icon
     sprite: _Goobstation/Mobs/Species/Resomi/parts.rsi
     state: full
@@ -293,6 +299,12 @@
   components:
   - type: HumanoidAppearance
     species: Resomi
+    markingsDisplacement:
+      Hair:
+        sizeMaps:
+          32:
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
+            state: hair
   - type: Hands
     handDisplacement:
       sizeMaps:

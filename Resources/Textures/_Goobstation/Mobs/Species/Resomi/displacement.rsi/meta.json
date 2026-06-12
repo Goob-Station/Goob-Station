@@ -31,6 +31,10 @@
             "directions": 4
         },
         {
+            "name": "hair",
+            "directions": 4
+        },
+        {
             "name": "belt",
             "directions": 4
         },
