@@ -1,49 +1,41 @@
 {
-    "version": 1,
-    "license": "CC-BY-SA-3.0",
-    "copyright": "Created by discord:SOL(\u0410\u0440\u0442\u0443\u0440)#8162. Vox states by Flareguy for Space Station 14, Hydrakin sprites by Zethine(synthetic_086)",
-    "size": {
-        "x": 32,
-        "y": 32
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Created by discord:SOL(\u0410\u0440\u0442\u0443\u0440)#8162. Vox states by Flareguy for Space Station 14",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
     },
-    "states": [
-        {
-            "name": "icon"
-        },
-        {
-            "name": "icon-flash"
-        },
-        {
-            "name": "off-equipped-HELMET",
-            "directions": 4
-        },
-        {
-            "name": "off-equipped-HELMET-vox",
-            "directions": 4
-        },
-        {
-            "name": "on-equipped-HELMET",
-            "directions": 4
-        },
-        {
-            "name": "on-equipped-HELMET-vox",
-            "directions": 4
-        },
-        {
-            "name": "off-equipped-HELMET-hydrakin",
-            "directions": 4
-        },
-        {
-            "name": "on-equipped-HELMET-hydrakin",
-            "directions": 4
-        },
-        {
-            "name": "on-equipped-HELMET-vulpkanin",
-            "directions": 4
-        },
-        {
-            "name": "off-equipped-HELMET-vulpkanin",
-            "directions": 4
-        }
-    ]
+    {
+      "name": "icon-flash"
+    },
+    {
+      "name": "off-equipped-HELMET",
+      "directions": 4
+    },
+    {
+      "name": "off-equipped-HELMET-vox",
+      "directions": 4
+    },
+    {
+      "name": "on-equipped-HELMET",
+      "directions": 4
+    },
+    {
+      "name": "on-equipped-HELMET-vox",
+      "directions": 4
+    },
+    {
+      "name": "off-equipped-HELMET-vulpkanin",
+      "directions": 4
+    },
+    {
+      "name": "on-equipped-HELMET-vulpkanin",
+      "directions": 4
+    }
+  ]
 }
