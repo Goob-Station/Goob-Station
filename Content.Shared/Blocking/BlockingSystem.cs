@@ -198,9 +198,10 @@ public sealed partial class BlockingSystem : EntitySystem
         {
             var intersecting = _lookup.GetLocalEntitiesIntersecting(playerTileRef.Value, 0f);
             var mobQuery = GetEntityQuery<MobStateComponent>();
+            var physicsQuery = GetEntityQuery<PhysicsComponent>(); // Omu - Fix non-collidable entities such as pais or posibrains preventing blocking.
             foreach (var uid in intersecting)
             {
-                if (uid != user && mobQuery.HasComponent(uid))
+                if (uid != user && mobQuery.HasComponent(uid) && physicsQuery.TryGetComponent(uid, out var physicsComp) && physicsComp.CanCollide) // Omu - Fix non-collidable entities such as pais or posibrains preventing blocking.
                 {
                     TooCloseError(user);
                     return false;
