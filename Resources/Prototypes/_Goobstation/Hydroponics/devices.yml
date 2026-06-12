@@ -6,7 +6,7 @@
   description: A handheld device capable of scanning seeds and plants to give information about the genes.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/healthanalyzer.rsi
+    sprite: _Goobstation/Objects/Specific/Hydroponics/plant_analyzer.rsi
     state: icon
     layers:
     - state: icon
