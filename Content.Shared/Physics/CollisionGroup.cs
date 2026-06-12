@@ -106,6 +106,7 @@ public enum CollisionGroup
     // Y dis door passable when all the others impassable / collision.
     DoorPassable       = 1 << 8, // 256 Allows door to close over top, Like blast doors over conveyors for disposals rooms/cargo.
     BlobImpassable     = 1 << 9, // 512 Blob Tiles Goobstation - Blob
+    VehicleImpassable = 1 << 10, // 1024 Vehicle Layer Goobstation
 
     MapGrid = MapGridHelpers.CollisionGroup, // Map grids, like shuttles. This is the actual grid itself, not the walls or other entities connected to the grid.
 
@@ -130,15 +131,15 @@ public enum CollisionGroup
     LargeMobLayer = Opaque | HighImpassable | MidImpassable | LowImpassable | BulletImpassable,
 
     // Machines, computers
-    MachineMask = Impassable | MidImpassable | LowImpassable | BlobImpassable, //Goobstation - Blob
+    MachineMask = Impassable | MidImpassable | LowImpassable | BlobImpassable | VehicleImpassable, //Goobstation - Blob - Vehicle
     MachineLayer = Opaque | MidImpassable | LowImpassable | BulletImpassable,
     ConveyorMask = Impassable | MidImpassable | LowImpassable | DoorPassable,
 
     // Crates
-    CrateMask = Impassable | HighImpassable | LowImpassable,
+    CrateMask = Impassable | HighImpassable | LowImpassable | VehicleImpassable,
 
     // Tables that SmallMobs can go under
-    TableMask = Impassable | MidImpassable | BlobImpassable, //Goobstation - Blob
+    TableMask = Impassable | MidImpassable | BlobImpassable | VehicleImpassable, //Goobstation - Blob - Vehicle
     TableLayer = MidImpassable,
 
     // Tabletop machines, windoors, firelocks
@@ -180,6 +181,11 @@ public enum CollisionGroup
     FlyingBlobMobMask = Impassable | HighImpassable,
     FlyingBlobMobLayer = Opaque | BulletImpassable,
 
-    BlobTileLayer = Opaque | BlobImpassable | BulletImpassable
+    BlobTileLayer = Opaque | BlobImpassable | BulletImpassable,
     // end-goobstation: blob
+
+    // start-goobstation: vehicle
+    VehicleMask = Impassable | HighImpassable | LowImpassable | BlobImpassable,
+    VehicleLayer = VehicleImpassable,
+    // end-goobstation: vehicle
 }
