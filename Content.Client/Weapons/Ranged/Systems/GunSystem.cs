@@ -61,6 +61,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using SharedGunSystem = Content.Shared.Weapons.Ranged.Systems.SharedGunSystem;
 using TimedDespawnComponent = Robust.Shared.Spawners.TimedDespawnComponent;
+using Content.Shared._pofitlo.CombatExtended.FightAction; //_pofitlo
+
 
 namespace Content.Client.Weapons.Ranged.Systems;
 
@@ -76,6 +78,7 @@ public sealed partial class GunSystem : SharedGunSystem
     [Dependency] private readonly SharedMapSystem _maps = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private readonly SharedFightActionSystem _fightActionSystem = default!;
 
     public static readonly EntProtoId HitscanProto = "HitscanEffect";
 
@@ -207,6 +210,9 @@ public sealed partial class GunSystem : SharedGunSystem
 
         if (TryComp<MechPilotComponent>(entity, out var mechPilot)) // Goobstation
             entity = mechPilot.Mech;
+
+        if (_fightActionSystem.FightActionHasHigherPriority(entity)) // _pofitlo // TODO узнать как работает с мехами. По-идее, не должно мешать
+            return;
 
         if (!TryGetGun(entity, out var gunUid, out var gun))
         {

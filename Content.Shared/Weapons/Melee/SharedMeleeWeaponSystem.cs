@@ -174,6 +174,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using ItemToggleMeleeWeaponComponent = Content.Shared.Item.ItemToggle.Components.ItemToggleMeleeWeaponComponent;
+using Content.Shared._pofitlo.CombatExtended.FightAction; //_pofitlo
 
 namespace Content.Shared.Weapons.Melee;
 
@@ -201,6 +202,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     [Dependency] private   readonly ThrowingSystem _throwing = default!;
     [Dependency] private   readonly INetConfigurationManager _config = default!;
     [Dependency] private   readonly SharedStaminaSystem _stamina = default!;
+    [Dependency] private   readonly SharedFightActionSystem _fightActionSystem = default!;
     [Dependency] private   readonly TagSystem _tag = default!;
 
     //Goob - Shove
@@ -477,7 +479,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         }
 
         // Use inhands entity if we got one.
-        if (_hands.TryGetActiveItem(entity, out var held))
+        if (_hands.TryGetActiveItem(entity, out var held) && !_fightActionSystem.FightActionHasHigherPriority(entity))
         {
             // Make sure the entity is a weapon AND it doesn't need
             // to be equipped to be used (E.g boxing gloves).
@@ -507,7 +509,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         }
 
         // Use hands clothing if applicable.
-        if (_inventory.TryGetSlotEntity(entity, "gloves", out var gloves) &&
+        if (_inventory.TryGetSlotEntity(entity, "gloves", out var gloves) && // TODO подумать над этим
             TryComp<MeleeWeaponComponent>(gloves, out var glovesMelee))
         {
             weaponUid = gloves.Value;
@@ -934,11 +936,102 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         if (hitEvent.Handled)
             return true;
 
-        var weapon = GetEntity(ev.Weapon);
+        DoSweepingBlow(targets, user, component, ev, meleeUid, damage, hitEvent);
 
-        Interaction.DoContactInteraction(user, weapon);
+        //var weapon = meleeUid; // TODO надо уже решиться это удалить
 
-        // For stuff that cares about it being attacked.
+        //Interaction.DoContactInteraction(user, weapon);
+
+        //// For stuff that cares about it being attacked.
+        //foreach (var target in targets)
+        //{
+        //    // We skip weapon -> target interaction, as forensics system applies DNA on hit
+
+        //    // If the user is using a long-range weapon, this probably shouldn't be happening? But I'll interpret melee as a
+        //    // somewhat messy scuffle. See also, light attacks.
+        //    Interaction.DoContactInteraction(user, target);
+        //}
+
+        //var appliedDamage = new DamageSpecifier();
+
+        //for (var i = targets.Count - 1; i >= 0; i--)
+        //{
+        //    var entity = targets[i];
+        //    // We raise an attack attempt here as well,
+        //    // primarily because this was an untargeted wideswing: if a subscriber to that event cared about
+        //    // the potential target (such as for pacifism), they need to be made aware of the target here.
+        //    // In that case, just continue.
+        //    if (!Blocker.CanAttack(user, entity, (weapon, component)))
+        //    {
+        //        targets.RemoveAt(i);
+        //        continue;
+        //    }
+
+        //    var attackedEvent = new AttackedEvent(meleeUid, user, GetCoordinates(ev.Coordinates));
+        //    RaiseLocalEvent(entity, attackedEvent);
+        //    var modifiedDamage = DamageSpecifier.ApplyModifierSets(damage + hitEvent.BonusDamage + attackedEvent.BonusDamage, hitEvent.ModifiersList);
+        //    modifiedDamage = DamageSpecifier.ApplyModifierSets(modifiedDamage, attackedEvent.ModifiersList); // Goobstation
+        //    var damageResult = Damageable.TryChangeDamage(entity, modifiedDamage, origin: user, partMultiplier: component.HeavyPartDamageMultiplier); // Shitmed Change
+        //    var comboEv = new ComboAttackPerformedEvent(user, entity, meleeUid, ComboAttackType.HarmLight);
+        //    RaiseLocalEvent(user, comboEv);
+
+        //    if (damageResult != null && damageResult.GetTotal() > FixedPoint2.Zero)
+        //    {
+        //        // If the target has stamina and is taking blunt damage, they should also take stamina damage based on their blunt to stamina factor
+        //        if (damageResult.DamageDict.TryGetValue("Blunt", out var bluntDamage))
+        //        {
+        //            _stamina.TakeStaminaDamage(entity, (bluntDamage * component.BluntStaminaDamageFactor).Float(), visual: false, source: user, with: meleeUid == user ? null : meleeUid);
+        //        }
+
+        //        appliedDamage += damageResult;
+
+        //        if (meleeUid == user)
+        //        {
+        //            AdminLogger.Add(LogType.MeleeHit,
+        //                LogImpact.Medium,
+        //                $"{ToPrettyString(user):actor} melee attacked (heavy) {ToPrettyString(entity):subject} using their hands and dealt {damageResult.GetTotal():damage} damage");
+        //        }
+        //        else
+        //        {
+        //            AdminLogger.Add(LogType.MeleeHit,
+        //                LogImpact.Medium,
+        //                $"{ToPrettyString(user):actor} melee attacked (heavy) {ToPrettyString(entity):subject} using {ToPrettyString(meleeUid):tool} and dealt {damageResult.GetTotal():damage} damage");
+        //        }
+        //    }
+        //}
+
+        //if (entities.Count != 0)
+        //{
+        //    var target = entities.First();
+        //    _meleeSound.PlayHitSound(target, user, GetHighestDamageSound(appliedDamage, _protoManager), hitEvent.HitSoundOverride, component);
+        //}
+
+        //if (appliedDamage.GetTotal() > FixedPoint2.Zero)
+        //{
+        //    DoDamageEffect(targets, user, Transform(targets[0]));
+        //}
+
+        // goob edit - stunmeta
+
+        var appliedDamage = new DamageSpecifier();
+
+        if (entities.Count != 0)
+        {
+            var target = entities.First();
+            _meleeSound.PlayHitSound(target, user, GetHighestDamageSound(appliedDamage, _protoManager), hitEvent.HitSoundOverride, component);
+        }
+
+        if (TryComp<StaminaComponent>(user, out var stamina) && entities.Count != 0)
+            // make it not immediate to prevent annoying stamcrits
+            _stamina.TakeStaminaDamage(user, component.HeavyStaminaCost * (entities.Count - 1), stamina, visual: false, immediate: false);
+
+        return true;
+    }
+    // TODO переименовать
+    public void DoSweepingBlow(List<EntityUid> targets, EntityUid user, MeleeWeaponComponent component, AttackEvent ev, EntityUid meleeUid, DamageSpecifier damage, MeleeHitEvent hitEvent)
+    {
+        var resistanceBypass = GetResistanceBypass(meleeUid, user, component);
+
         foreach (var target in targets)
         {
             // We skip weapon -> target interaction, as forensics system applies DNA on hit
@@ -958,7 +1051,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             // primarily because this was an untargeted wideswing: if a subscriber to that event cared about
             // the potential target (such as for pacifism), they need to be made aware of the target here.
             // In that case, just continue.
-            if (!Blocker.CanAttack(user, entity, (weapon, component)))
+            if (!Blocker.CanAttack(user, entity, (meleeUid, component)))
             {
                 targets.RemoveAt(i);
                 continue;
@@ -974,6 +1067,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                     modifiedDamage.WoundSeverityMultipliers[type] *= component.HeavyAttackWoundMultiplier;
             }
             var damageResult = Damageable.TryChangeDamage(entity, modifiedDamage, origin: user, ignoreResistances: resistanceBypass, partMultiplier: component.HeavyPartDamageMultiplier); // Shitmed Change
+
             var comboEv = new ComboAttackPerformedEvent(user, entity, meleeUid, ComboAttackType.HarmLight);
             RaiseLocalEvent(user, comboEv);
 
@@ -987,38 +1081,25 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
                 appliedDamage += damageResult;
 
-                if (meleeUid == user)
-                {
-                    AdminLogger.Add(LogType.MeleeHit,
-                        LogImpact.Medium,
-                        $"{ToPrettyString(user):actor} melee attacked (heavy) {ToPrettyString(entity):subject} using their hands and dealt {damageResult.GetTotal():damage} damage");
-                }
-                else
-                {
-                    AdminLogger.Add(LogType.MeleeHit,
-                        LogImpact.Medium,
-                        $"{ToPrettyString(user):actor} melee attacked (heavy) {ToPrettyString(entity):subject} using {ToPrettyString(meleeUid):tool} and dealt {damageResult.GetTotal():damage} damage");
-                }
+                //if (meleeUid == user) // TODO придумать что делать с логированием
+                //{
+                //    AdminLogger.Add(LogType.MeleeHit,
+                //        LogImpact.Medium,
+                //        $"{ToPrettyString(user):actor} melee attacked (heavy) {ToPrettyString(entity):subject} using their hands and dealt {damageResult.GetTotal():damage} damage");
+                //}
+                //else
+                //{
+                //    AdminLogger.Add(LogType.MeleeHit,
+                //        LogImpact.Medium,
+                //        $"{ToPrettyString(user):actor} melee attacked (heavy) {ToPrettyString(entity):subject} using {ToPrettyString(meleeUid):tool} and dealt {damageResult.GetTotal():damage} damage");
+                //}
             }
-        }
-
-        if (entities.Count != 0)
-        {
-            var target = entities.First();
-            _meleeSound.PlayHitSound(target, user, GetHighestDamageSound(appliedDamage, _protoManager), hitEvent.HitSoundOverride, component);
         }
 
         if (appliedDamage.GetTotal() > FixedPoint2.Zero)
         {
             DoDamageEffect(targets, user, Transform(targets[0]));
         }
-
-        // goob edit - stunmeta
-        if (TryComp<StaminaComponent>(user, out var stamina) && entities.Count != 0)
-            // make it not immediate to prevent annoying stamcrits
-            _stamina.TakeStaminaDamage(user, component.HeavyStaminaCost * (entities.Count - 1), stamina, visual: false, immediate: false);
-
-        return true;
     }
 
     public HashSet<EntityUid> ArcRayCast(Vector2 position, Angle angle, Angle arcWidth, float range, MapId mapId, EntityUid ignore) // Goob edit

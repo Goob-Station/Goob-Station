@@ -1,0 +1,29 @@
+<widgets:FightActionControl
+    xmlns="https://spacestation14.io"
+    xmlns:widgets="clr-namespace:Content.Client._pofitlo.CombatExtended.UserInterface.FightAction.Widgets"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    Name="TargetingButton"
+    VerticalExpand="True"
+    VerticalAlignment="Bottom"
+    HorizontalAlignment="Right">
+    <Control HorizontalAlignment="Right" Name="test1">
+        <TextureRect
+            Name="TargetDoll"
+            Stretch="KeepAspectCentered"
+            SetSize="48 48">
+            <PanelContainer
+                SetSize="32 32">
+                <PanelContainer
+                    SetSize="32 32">
+                    <TextureButton
+                        Name="test">
+                        <TextureRect
+                            Name="ButtonTexture"
+                            TexturePath="/Textures/_pofitlo/CombatExtended/FightAction/punch.rsi/icon.png"
+                            Stretch="KeepAspectCentered"/>
+                    </TextureButton>
+                </PanelContainer>
+            </PanelContainer>
+        </TextureRect>
+    </Control>
+</widgets:FightActionControl>

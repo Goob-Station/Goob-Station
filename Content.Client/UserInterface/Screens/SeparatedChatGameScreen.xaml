@@ -27,6 +27,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
     xmlns:inventory="clr-namespace:Content.Client.UserInterface.Systems.Inventory.Widgets"
     xmlns:targeting="clr-namespace:Content.Client._Shitmed.UserInterface.Systems.Targeting.Widgets"
+    xmlns:fightAction="clr-namespace:Content.Client._pofitlo.CombatExtended.UserInterface.FightAction.Widgets"
     xmlns:us="clr-namespace:Content.Client._Shitcode.UserActions"
     Name="SeparatedChatHud"
     VerticalExpand="False"
@@ -39,6 +40,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
             <inventory:InventoryGui Name="Inventory" Access="Protected"/>
             <hotbar:HotbarGui Name="Hotbar" Access="Protected"/>
             <targeting:TargetingControl Name="Targeting" Access="Protected"/> <!-- Shitmed Change -->
+            <fightAction:FightActionControl Name="FightAction" Access="Protected"/>
             <BoxContainer Name="TopLeftContainer" Orientation="Vertical">
                 <actions:ActionsBar Name="Actions" Access="Protected" />
                 <BoxContainer Name="VoteMenu" Access="Public" Orientation="Vertical"/>

@@ -40,6 +40,8 @@ public sealed partial class DefaultGameScreen : InGameScreen
         SetAnchorAndMarginPreset(Chat, LayoutPreset.TopRight, margin: 10);
         SetAnchorAndMarginPreset(Alerts, LayoutPreset.TopRight, margin: 10);
         SetAnchorAndMarginPreset(Targeting, LayoutPreset.BottomRight, margin: 5); // Shitmed Change
+        SetAnchorAndMarginPreset(FightAction, LayoutPreset.BottomRight, margin: 5); // _pofitlo Change
+        SetPosition(FightAction, new Vector2(-100f, 0f)); // TODO: нахуй с пляжа
 
         Chat.OnResized += ChatOnResized;
         Chat.OnChatResizeFinish += ChatOnResizeFinish;
@@ -56,7 +58,7 @@ public sealed partial class DefaultGameScreen : InGameScreen
 
     private void ResizeAlertsContainer()
     {
-        float indent = Chat.Size.Y + Targeting.Size.Y + 120;
+        float indent = Chat.Size.Y + Targeting.Size.Y + FightAction.Size.Y + 120;
         Alerts.AlertContainer.MaxGridHeight = Math.Max(MainViewport.Size.Y - indent, 1);
     }
 

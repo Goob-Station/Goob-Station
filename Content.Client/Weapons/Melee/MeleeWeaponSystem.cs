@@ -74,6 +74,7 @@ using Content.Shared.Weapons.Melee.Components;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Wieldable.Components;
+using Content.Shared.Interaction;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
@@ -82,6 +83,14 @@ using Robust.Client.State;
 using Robust.Shared.Input;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
+using Robust.Shared.Network;
+//_pofitlo
+using Content.Shared._pofitlo.CombatExtended.FightAction;
+using Content.Client._pofitlo.CombatExtended.AttackStrategies;
+using Robust.Shared.Prototypes;
+using Content.Shared._pofitlo.CombatExtended.FightAction.Prototypes;
+
+
 
 namespace Content.Client.Weapons.Melee;
 
@@ -97,8 +106,12 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
     [Dependency] private readonly MapSystem _map = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
     [Dependency] private readonly TransformSystem _transform = default!; // Goobstation
+    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
+    [Dependency] private readonly INetManager _netManager = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!; //_pofitlo
 
     private EntityQuery<TransformComponent> _xformQuery;
+    private AttackStrategyFactory _attackStrategyFactory = default!;
 
     private const string MeleeLungeKey = "melee-lunge";
 
@@ -106,6 +119,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
     {
         base.Initialize();
         _xformQuery = GetEntityQuery<TransformComponent>();
+        _attackStrategyFactory = new AttackStrategyFactory(_stateManager, _interaction, _transform, _netManager, EntityManager, _prototypeManager, this); // TODO я не уверен насколько это хорошо
         SubscribeNetworkEvent<MeleeLungeEvent>(OnMeleeLunge);
         UpdatesOutsidePrediction = true;
     }
@@ -274,35 +288,41 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
     }
 
     /// <summary>
-    /// Raises a heavy attack event with the relevant attacked entities.
+    /// Raises a heavy 
+    ///event with the relevant attacked entities.
     /// This is to avoid lag effecting the client's perspective too much.
     /// </summary>
     private void ClientHeavyAttack(EntityUid user, EntityCoordinates coordinates, EntityUid meleeUid, MeleeWeaponComponent component)
     {
-        // Only run on first prediction to avoid the potential raycast entities changing.
-        if (!_xformQuery.TryGetComponent(user, out var userXform) ||
-            !Timing.IsFirstTimePredicted)
+        if (TryComp<FightActionComponent>(user, out var fightActionComponent) && meleeUid == user) // Сделать код более говорящим
         {
+            var strategy = _attackStrategyFactory.GetStrategy(fightActionComponent);
+            strategy.ExecuteAltAttack(user, coordinates, meleeUid, component);
             return;
         }
 
-        var targetMap = TransformSystem.ToMapCoordinates(coordinates);
-
-        if (targetMap.MapId != userXform.MapID)
-            return;
-
-        var userPos = TransformSystem.GetWorldPosition(userXform);
-        var direction = targetMap.Position - userPos;
-        var distance = MathF.Min(component.Range, direction.Length());
+        // Only run on first prediction to avoid the potential raycast entities changing.
 
         // This should really be improved. GetEntitiesInArc uses pos instead of bounding boxes.
         // Server will validate it with InRangeUnobstructed.
-        var entities = GetNetEntityList(ArcRayCast(userPos, direction.ToWorldAngle(), component.Angle, distance, userXform.MapID, user).ToList());
+        var entities = GetListOfNetEntitiesInArea(user, coordinates, component.Range, component.Angle);
+
+        if (entities == null)
+            return;
+
         RaisePredictiveEvent(new HeavyAttackEvent(GetNetEntity(meleeUid), entities.GetRange(0, Math.Min(MaxTargets, entities.Count)), GetNetCoordinates(coordinates)));
     }
 
     private void ClientDisarm(EntityUid attacker, MapCoordinates mousePos, EntityCoordinates coordinates)
     {
+        // TODO убрать дизарм. мейби
+        //if (TryComp<FightActionComponent>(attacker, out var fightActionComponent))
+        //{
+        //    var strategy = _attackStrategyFactory.GetStrategy(fightActionComponent);
+        //    strategy.ExecuteDisarm(attacker, mousePos, coordinates);
+        //    return;
+        //}
+
         EntityUid? target = null;
 
         if (_stateManager.CurrentState is GameplayStateBase screen)
@@ -313,6 +333,17 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
     private void ClientLightAttack(EntityUid attacker, MapCoordinates mousePos, EntityCoordinates coordinates, EntityUid weaponUid, MeleeWeaponComponent meleeComponent)
     {
+        // Проверяем, есть ли компонент FightActionComponent для определения стратегии атаки
+        if (TryComp<FightActionComponent>(attacker, out var fightActionComponent))
+        {
+            var strategy = _attackStrategyFactory.GetStrategy(fightActionComponent);
+            strategy.ExecuteMainAttack(attacker, mousePos, coordinates, weaponUid, meleeComponent);
+
+            return; // We return here to avoid running the default light attack logic, as the strategy will handle it.
+        }
+
+        // Если компонента нет, используем стандартную логику //TODO что то с этим сделать
+
         var attackerPos = TransformSystem.GetMapCoordinates(attacker);
 
         // Goob edit start
@@ -346,5 +377,44 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         // Entity might not have been sent by PVS.
         if (Exists(ent) && Exists(entWeapon))
             DoLunge(ent, entWeapon, ev.Angle, ev.LocalPos, ev.Animation, ev.SpriteRotation, ev.FlipAnimation);
+    }
+
+    public List<NetEntity>? GetListOfNetEntitiesInArea(EntityUid user, EntityCoordinates coordinates, float range, Angle angle)
+    {
+        if (!_xformQuery.TryGetComponent(user, out var userXform) ||
+        !Timing.IsFirstTimePredicted)
+        {
+            return null;
+        }
+
+        var targetMap = TransformSystem.ToMapCoordinates(coordinates);
+
+        if (targetMap.MapId != userXform.MapID)
+            return null;
+
+        var userPos = TransformSystem.GetWorldPosition(userXform);
+        var direction = targetMap.Position - userPos;
+        var distance = MathF.Min(range, direction.Length());
+
+        var entities = GetNetEntityList(ArcRayCast(userPos, direction.ToWorldAngle(), angle, distance, userXform.MapID, user).ToList());
+
+        return entities;
+    }
+
+    public EntityUid? GetTargetAsEntityUid(EntityUid attacker, float range)
+    {
+        var mousePos = _eyeManager.PixelToMap(_inputManager.MouseScreenPosition);
+
+        var attackerPos = TransformSystem.GetMapCoordinates(attacker);
+
+        if (mousePos.MapId != attackerPos.MapId || (attackerPos.Position - mousePos.Position).Length() > range)
+            return null;
+
+        EntityUid? target = null;
+
+        if (_stateManager.CurrentState is GameplayStateBase screen)
+            target = screen.GetDamageableClickedEntity(mousePos); // Goob edit
+
+        return target;
     }
 }

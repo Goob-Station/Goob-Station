@@ -1,0 +1,7 @@
+- type: fightActionMeleeParameters
+  id: PunchMeleeParameters
+  hasDisarm: true
+  
+- type: fightActionMeleeParameters
+  id: tailAttackMeleeParameters
+  hasDisarm: false
