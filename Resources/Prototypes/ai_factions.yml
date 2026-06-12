@@ -112,6 +112,8 @@
   - Blob # Goobstation - Blob
   - PirateFaction # goob - pirates
   - Lavafauna # Goob - Lavaland
+  - Doodon # Goob - Doodon
+
   friendly: # Goobstation
   - Wizard
   - Shadowling # Einstein Engines - Shadowlings
@@ -182,6 +184,7 @@
   - Xenoborg
   - Wraith # Goobstation - Wraith
   - Lavafauna # Goob - Lavaland
+  - Doodon # Goob - Doodon
 
 - type: npcFaction
   id: Revolutionary
@@ -197,6 +200,7 @@
   - PirateFaction # goob - pirates
   - Xenoborg
   - Lavafauna # Goob - Lavaland
+  - Doodon # Goob - Doodon
 
 - type: npcFaction
   id: AllHostile
@@ -220,6 +224,7 @@
   - PirateFaction # goob - pirates
   - Wraith # Goobstation - Wraith
   - Lavafauna # Goob - Lavaland
+  - Doodon # Goob - Doodon
 
 # Balloons Factions Edit:
 - type: npcFaction  
@@ -243,6 +248,7 @@
   - Changeling # goob edit - changelings
   - Heretic # goob edit - heretics
   - PirateFaction # goob - pirates
+  - Doodon # Goob - Doodon
 
   - Xeno # rivalry
 
@@ -268,6 +274,8 @@
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
   - PirateFaction # goob - pirates
+  - Doodon # Goob - Doodon
+
   friendly: # Goobstation
   - Wraith # Goobstation
   - Lavafauna # Lavaland

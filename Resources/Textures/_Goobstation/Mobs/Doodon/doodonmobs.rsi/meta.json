@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+    "copyright": "Sprited by Arraydeess",
+  "size": {
+        "x": 32,
+        "y": 32
+  },
+  "states": [
+    {
+        "name": "papa",
+        "directions": 4
+    },
+    {
+        "name": "warrior",
+        "directions": 4
+    },
+    {
+        "name": "worker",
+        "directions": 4
+    },
+    {
+        "name": "moodon",
+        "directions": 4
+    },
+    {
+        "name": "papa_dead"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+- type: entity
+  parent: BasePlushie
+  id: PlushieDoodon
+  name: doodon plushie
+  description: The plush of the doodon patriarch. 
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/doodon_plush.rsi
+    state: doodon_plush
+  - type: EmitSoundOnUse
+    sound:
+      collection: Doodon
+  - type: EmitSoundOnLand
+    sound:
+      collection: DoodonDeath
+  - type: EmitSoundOnActivate
+    sound:
+      collection: Doodon
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: Doodon
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      collection: DoodonDeath
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      collection: Doodon

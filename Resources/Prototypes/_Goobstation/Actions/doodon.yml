@@ -1,0 +1,30 @@
+- type: entity
+  parent: BaseAction
+  id: ActionDoodonResin
+  name: Fabricate Resin
+  description: Condense the contents of your stomach into doodon resin.
+  components:
+  - type: Action
+    icon:
+      sprite: _Goobstation/Objects/Materials/materials.rsi
+      state: doodon_resin
+    useDelay: 1
+  - type: InstantAction
+    event: !type:SericultureActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionEstablishTownhall
+  name: Establish Townhall
+  description: 
+  components:
+  - type: Action
+    useDelay: 8
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Interface/DoodonActions/town_hall_actions.rsi
+      state: build
+  - type: TargetAction
+    range: 4
+  - type: WorldTargetAction
+    event: !type:EstablishTownhallTileActionEvent

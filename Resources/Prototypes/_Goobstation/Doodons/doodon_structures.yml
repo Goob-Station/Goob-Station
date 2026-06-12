@@ -1,0 +1,171 @@
+- type: entity
+  abstract: true
+  parent: BaseMachine
+  id: BaseDoodonStructure               # Base
+  components:
+  - type: Transform
+    anchored: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 100
+        mask:
+        - MachineMask
+        layer:
+        - TabletopMachineLayer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 70
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/gib3.ogg
+          params:
+            variation: 0.125
+            volume: -2
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: "#FF6F00"
+
+- type: entity
+  parent: BaseDoodonStructure       # Town Hall
+  id: DoodonTownHall
+  name: doodon town hall
+  description: The heart of the Doodon village.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+    state: townhall
+  - type: PointLight
+    radius: 3
+    energy: 3
+    color: "#FF6F00"
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300 # High HP since it's very important to the doodons
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/gib3.ogg
+          params:
+            variation: 0.125
+            volume: -2
+  - type: DoodonTownhall
+  
+- type: entity
+  parent: BaseDoodonStructure       # Dwelling
+  id: DoodonDwelling
+  name: doodon dwelling
+  description: The place Doodon workers call home. Can hold one worker Doodon.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+    state: dwelling
+  - type: Construction
+    graph: DoodonGraph
+    node: dwelling
+    
+- type: entity
+  parent: BaseDoodonStructure       # Warrior Hut
+  id: DoodonWarriorHut
+  name: doodon warrior hut
+  description: Training grounds for doodon warriors. Can hold one warrior Doodon.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+    state: warriorhut
+  - type: Construction
+    graph: DoodonGraph
+    node: hut
+    
+- type: entity          # Metal refiner
+  parent: BaseDoodonStructure
+  id: DoodonMetalRefiner
+  name: doodon metal refiner
+  description: A doodon specifically cultivated to digest steel. Due to its diet, it has a metallic skin. Shiny.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+    state: metalrefiner
+  - type: Construction
+    graph: DoodonGraph
+    node: MRefiner
+        
+- type: entity              # Glass refiner
+  parent: BaseDoodonStructure
+  id: DoodonGlassRefiner
+  name: doodon glass refiner
+  description: A doodon specifically cultivated to digest glass. Due to its diet, it's translucent. Look! You can see its insides!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+    state: glassrefiner
+  - type: Construction
+    graph: DoodonGraph
+    node: GRefiner
+    
+- type: entity              # Pasture
+  parent: BaseDoodonStructure
+  id: DoodonPasture
+  name: doodon pasture
+  description: The doodon pasture, makes moodons which can be milked or juiced for omnizine.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+    state: pasture
+  - type: Construction
+    graph: DoodonGraph
+    node: pasture
+    
+- type: entity                      # Shieldsmith
+  parent: BaseDoodonStructure
+  id: DoodonShieldsmith
+  name: doodon shieldsmith
+  description: A place to mold resin into a flat shield.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+    state: shieldsmith
+  - type: Construction
+    graph: DoodonGraph
+    node: shield
+    
+- type: entity                      # Swordsmith
+  parent: BaseDoodonStructure
+  id: DoodonSwordsmith
+  name: doodon swordsmith
+  description: A place to shape resin into a sharp implement.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+    state: swordsmith
+  - type: Construction
+    graph: DoodonGraph
+    node: sword
+    
+- type: entity                          # Gem Cutter
+  parent: BaseDoodonStructure
+  id: DoodonGemCutter
+  name: doodon gem cutter
+  description: This building can press resin into a valuable doodon gem.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Doodon/doodonstructures.rsi
+    state: gemcutter
+  - type: Construction
+    graph: DoodonGraph
+    node: gem
