@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/4f6190e2895e09116663ef282d3ce1d8b35c032e. Reptilian edit by Nairod(Github). Vox state by Flareguy for SS14 | vulpkanin version edited by Floofers, , equipped-MASK-feroxi by RedTerror, | Vox unequipped by MissKay1994(Github)",
+  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/4f6190e2895e09116663ef282d3ce1d8b35c032e. Reptilian edit by Nairod(Github). Vox state by Flareguy for SS14 | vulpkanin version edited by Floofers, , equipped-MASK-feroxi by RedTerror, | Vox unequipped by MissKay1994(Github). hydrakin sprite by Zethine / @synthetic_086 (discord).",
   "size": {
     "x": 32,
     "y": 32
@@ -45,6 +45,10 @@
       {
           "name": "up-equipped-MASK-vox",
           "directions": 4
-      }
+      },
+     {
+            "name": "equipped-MASK-hydrakin",
+            "directions": 4
+     }
   ]
 }

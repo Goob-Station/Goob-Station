@@ -30,6 +30,7 @@
           type:
           - Slime
           - Cybernetic # Shitmed - Cybernetic Organs
+          - Hydrakin # Go fuck yourself
           inverted: true
         ignoreResistances: true
         damage:
@@ -42,7 +43,9 @@
           reagent: BZ
           min: 0.3
         - !type:MetabolizerTypeCondition
-          type: [ Slime ]
+          type: 
+          - Slime
+          - Hydrakin # Go fuck yourself
           inverted: true
         key: SeeingRainbows
         component: SeeingRainbows
@@ -108,6 +111,10 @@
         component: ForcedSleeping
         time: 10
         type: Add
+      - !type:Oxygenate
+        conditions:
+        - !type:MetabolizerTypeCondition # Fuck you
+          type: [Hydrakin]
     Gas:
       effects:
       - !type:Emote
@@ -126,10 +133,10 @@
           reagent: BZ
           min: 0.5
         - !type:MetabolizerTypeCondition
-          type: [ Slime ]
-          inverted: true
-        - !type:MetabolizerTypeCondition # Shitmed - Cybernetic Organs
-          type: [ Cybernetic ]
+          type:
+          - Slime
+          - Cybernetic # shitmed oir whatever
+          - Hydrakin # Go fuck yourself
           inverted: true
         ignoreResistances: true
         damage:
@@ -142,8 +149,9 @@
           reagent: BZ
           min: 0.3
         - !type:MetabolizerTypeCondition
-          type: [ Slime ]
-          inverted: true
+          type:
+          - Slime
+          - Hydrakin # Go fuck yourself
         key: SeeingRainbows
         component: SeeingRainbows
         type: Add
@@ -208,6 +216,10 @@
         component: ForcedSleeping
         time: 10
         type: Add
+      - !type:Oxygenate
+        conditions:
+        - !type:MetabolizerTypeCondition # Fuck you
+          type: [Hydrakin]
 
 - type: reagent
   id: Healium
@@ -271,6 +283,10 @@
         - !type:ReagentCondition
           reagent: Healium
           min: 4
+      - !type:Oxygenate
+        conditions:
+        - !type:MetabolizerTypeCondition # Fuck you
+          type: [Hydrakin]
     Gas:
       effects:
       - !type:HealthChange
@@ -325,6 +341,10 @@
         - !type:ReagentCondition
           reagent: Healium
           min: 4
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
 
 - type: reagent
   id: Nitrium
@@ -380,6 +400,10 @@
         damage:
           types:
             Asphyxiation: 15
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
     Gas:
       effects:
       - !type:NitriumMovespeedModifier
@@ -426,6 +450,10 @@
         damage:
           types:
             Asphyxiation: 15
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
 
 - type: reagent
   id: Pluoxium
@@ -463,6 +491,11 @@
         - !type:MetabolizerTypeCondition # Goobstation - Cybernetics
           type: [ Cybernetic ]
       # Convert Pluox into CO2.
+      - !type:Oxygenate
+        factor: 8
+        conditions:
+        - !type:MetabolizerTypeCondition # Fuck you
+          type: [Hydrakin]
       - !type:ModifyLungGas
         conditions:
         - !type:MetabolizerTypeCondition
@@ -516,7 +549,7 @@
         factor: 8
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Cybernetic ]
+          type: [ Cybernetic, Hydrakin ]
       # Convert Pluoxium into CO2.
       - !type:ModifyLungGas
         conditions:
