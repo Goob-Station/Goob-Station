@@ -1,0 +1,27 @@
+- type: entity
+  name: Royal jelly
+  parent: FoodInjectableBase
+  id: TerrorRoyalJelly
+  description: Used to raise terror spider brood. Smells meaty, but also sweet. Looks absolutely delicious.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - meaty
+      - sweet
+  - type: Sprite
+    sprite: _Goobstation/Terror/Objects/jelly.rsi
+    layers:
+    - state: royalJelly
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 85
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 30
+        - ReagentId: Vitamin
+          Quantity: 5
+        - ReagentId: Iron
+          Quantity: 10
+        - ReagentId: Omnizine
+          Quantity: 15

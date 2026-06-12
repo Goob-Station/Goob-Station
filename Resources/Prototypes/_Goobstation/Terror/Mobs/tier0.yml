@@ -1,0 +1,193 @@
+- type: entity
+  name: spiderling
+  parent: SimpleMobBase
+  id: MobSpiderlingBase
+  description: It never stays still for long.
+  components:
+  - type: Sprite
+    drawdepth: SmallMobs
+    sprite: _Goobstation/Terror
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: spiderling
+  - type: Item
+    size: Tiny
+  - type: HTN
+    constantlyReplan: false
+    rootTask:
+      task: MouseCompound
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 100
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      2: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 3
+    baseSprintSpeed : 5
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: spiderling
+      Dead:
+        Base: spiderling_dead
+  - type: Bloodstream
+    bloodReagent: CopperBlood
+    bloodMaxVolume: 20
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Slime
+          Quantity: 5
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatSlime
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Cockroach
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:GibBehavior
+        gibContents: Skip # Shitmed Change
+        recursive: false
+  - type: NonSpreaderZombie
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Xeno
+    understands:
+    - Xeno
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 0
+  - type: IgnoreSpiderWeb
+
+# =========================================================
+# SPIDERLING GROWTH BASE
+# =========================================================
+
+- type: entity
+  id: SpiderlingGrowthBase
+  abstract: true
+  components:
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+    - TerrorSpiderRed   # Dummy, overridden below
+    intervalSeconds: 45
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+  - type: TimedDespawn
+    lifetime: 45.1
+
+# =========================================================
+# SPIDERLINGS (EACH VARIANT GROWS INTO ITS SPIDER)
+# =========================================================
+
+- type: entity
+  id: SpiderlingFake
+  parent: MobSpiderlingBase
+  components:
+  - type: Timer
+  - type: TimedDespawn
+    lifetime: 45
+
+- type: entity
+  id: SpiderlingRed
+  parent: [MobSpiderlingBase, SpiderlingGrowthBase]
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - TerrorSpiderRed
+
+- type: entity
+  id: SpiderlingGray
+  parent: [MobSpiderlingBase, SpiderlingGrowthBase]
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - TerrorSpiderGray
+
+- type: entity
+  id: SpiderlingGreen
+  parent: [MobSpiderlingBase, SpiderlingGrowthBase]
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - TerrorSpiderGreen
+
+- type: entity
+  id: SpiderlingBlack
+  parent: [MobSpiderlingBase, SpiderlingGrowthBase]
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - TerrorSpiderBlack
+
+- type: entity
+  id: SpiderlingWhite
+  parent: [MobSpiderlingBase, SpiderlingGrowthBase]
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - TerrorSpiderWhite
+
+- type: entity
+  id: SpiderlingPurple
+  parent: [MobSpiderlingBase, SpiderlingGrowthBase]
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - TerrorSpiderPurple
+
+- type: entity
+  id: SpiderlingBrown
+  parent: [MobSpiderlingBase, SpiderlingGrowthBase]
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - TerrorSpiderBrown
+
+- type: entity
+  id: SpiderlingPrince
+  parent: [MobSpiderlingBase, SpiderlingGrowthBase]
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - TerrorSpiderPrince
+
+- type: entity
+  id: SpiderlingPrincess
+  parent: [MobSpiderlingBase, SpiderlingGrowthBase]
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - TerrorSpiderPrincess
+
+- type: entity
+  id: SpiderlingMother
+  parent: [MobSpiderlingBase, SpiderlingGrowthBase]
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - TerrorSpiderMother
