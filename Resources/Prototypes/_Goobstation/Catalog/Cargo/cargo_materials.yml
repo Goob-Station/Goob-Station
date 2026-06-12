@@ -1,0 +1,9 @@
+- type: cargoProduct
+  id: SupplyMaterialSilo
+  icon:
+    sprite: _Goobstation/Structures/Machines/silo.rsi
+    state: ore_silo
+  product: CrateMaterialSiloFilled
+  cost: 6500
+  category: cargoproduct-category-name-science
+  group: market

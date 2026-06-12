@@ -117,6 +117,12 @@
   result: XenobiologyBountyComputerCircuitboard
 
 - type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  icon: _Goobstation/Structures/Machines/Icons/Computers/xenobiology.png
+  id: ResearchComputerCircuitboard
+  result: ResearchComputerCircuitboard
+
+- type: latheRecipe
   parent: BaseGoldCircuitboardRecipe
   id: RadiationCollectorCircuitboard
   result: RadiationCollectorCircuitboard
@@ -183,3 +189,9 @@
   id: CameraElectronics
   icon: { sprite: Structures/Wallmounts/camera.rsi, state: cameracase }
   result: CameraElectronics
+
+- type: latheRecipe
+  parent: [ BaseElectronicsRecipe, BaseCircuitryRecipeCategory ]
+  id: CutterMachineCircuitboard
+  icon: { sprite: Structures/Machines/cuttermachine.rsi, state: icon }
+  result: CutterMachineCircuitboard

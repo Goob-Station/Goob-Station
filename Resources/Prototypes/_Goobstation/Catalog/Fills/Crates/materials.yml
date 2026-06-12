@@ -1,0 +1,9 @@
+- type: entity
+  id: CrateMaterialSiloFilled
+  parent: CratePlastic
+  name: material silo crate
+  description: Contains a flatpack of a material silo.
+  components:
+  - type: StorageFill
+    contents:
+    - id: MaterialSiloFlatpack

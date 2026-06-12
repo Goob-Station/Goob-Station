@@ -117,6 +117,7 @@
     - ToolsStatic
     - SharedBoardsStatic
     - CargoBoardsStatic
+    - CargoBoardsStaticGoob
     - CablesStatic
     - PartsStatic
     - LatheMiscStatic
