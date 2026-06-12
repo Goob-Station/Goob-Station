@@ -6,6 +6,7 @@
   description: It looks so much like jelly. I wonder what it tastes like?
   components:
   - type: Appearance
+  - type: ZombieImmune #Zombies are Cancerous
   - type: Hunger
     startingHunger: 40
     thresholds:
