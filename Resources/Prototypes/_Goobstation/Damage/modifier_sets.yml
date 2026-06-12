@@ -358,3 +358,43 @@
     Piercing: 5
     Heat: 3
     Structural: 3
+
+- type: damageModifierSet
+  id: BloodsuckerFortitude1
+  coefficients:
+    Blunt: 0.7
+    Slash: 0.7
+    Piercing: 0.7
+    Structural: 0.7
+
+- type: damageModifierSet
+  id: BloodsuckerFortitude2
+  coefficients:
+    Blunt: 0.6
+    Slash: 0.6
+    Piercing: 0.6
+    Structural: 0.6
+
+- type: damageModifierSet
+  id: BloodsuckerFortitude3
+  coefficients:
+    Blunt: 0.5
+    Slash: 0.5
+    Piercing: 0.5
+    Structural: 0.5
+
+- type: damageModifierSet
+  id: BloodsuckerFortitude4
+  coefficients:
+    Blunt: 0.4
+    Slash: 0.4
+    Piercing: 0.4
+    Structural: 0.4
+
+- type: damageModifierSet
+  id: BloodsuckerFortitude5
+  coefficients:
+    Blunt: 0.3
+    Slash: 0.3
+    Piercing: 0.3
+    Structural: 0.3

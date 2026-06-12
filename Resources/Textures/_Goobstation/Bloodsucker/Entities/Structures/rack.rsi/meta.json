@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "https://github.com/yogstation13/Yogstation/blob/ae2886be95c234202212a3090ee7637173ea2c1d/icons/obj/vamp_obj.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "vassalrack"
+    }
+  ]
+}
