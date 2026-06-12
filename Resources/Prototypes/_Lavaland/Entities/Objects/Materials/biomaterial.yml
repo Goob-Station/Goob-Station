@@ -1,0 +1,119 @@
+- type: entity
+  parent: MaterialBase
+  id: MaterialFlowersAsh
+  name: ash flowers
+  suffix: Full
+  components:
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      Cloth: 50
+  - type: Stack
+    stackType: FlowersAsh
+    baseLayer: base
+    layerStates:
+    - dark_1
+    - dark_2
+    - dark_3
+  - type: Sprite
+    sprite: _Lavaland/Objects/Materials/biomaterial.rsi
+    layers:
+    - state: dark_1
+      map: ["base"]
+  - type: Appearance
+  - type: Tag
+    tags:
+    - ClothMade
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fiber
+        Quantity: 1
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: FlavorProfile
+    flavors:
+    - fiber
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 2
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 2
+
+- type: entity
+  parent: MaterialFlowersAsh
+  id: MaterialFlowersAsh10
+  suffix: 10
+  components:
+  - type: Stack
+    count: 10
+
+- type: entity
+  parent: MaterialFlowersAsh
+  id: MaterialFlowersAsh1
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: MaterialBase
+  id: MaterialFlowersPale
+  name: pale flowers
+  suffix: Full
+  components:
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      Cloth: 100
+  - type: Stack
+    stackType: FlowersPale
+    baseLayer: base
+    layerStates:
+    - light_1
+    - light_2
+    - light_3
+  - type: Sprite
+    sprite: _Lavaland/Objects/Materials/biomaterial.rsi
+    layers:
+    - state: light_1
+      map: ["base"]
+  - type: Appearance
+  - type: Tag
+    tags:
+    - ClothMade
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fiber
+        Quantity: 3
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: FlavorProfile
+    flavors:
+    - fiber
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 5
+
+- type: entity
+  parent: MaterialFlowersPale
+  id: MaterialFlowersPale10
+  suffix: 10
+  components:
+  - type: Stack
+    count: 10
+
+- type: entity
+  parent: MaterialFlowersPale
+  id: MaterialFlowersPale1
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1

@@ -154,6 +154,7 @@
     # cargofab
     - MiningToolsStatic
     - Mining
+    - MiningLavaland # Lavaland Change
     - MiningWeapons
     - MiningBoards
     - MiningUpgrades

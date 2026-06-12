@@ -11,7 +11,7 @@
   name: plasma cutter
   parent: BaseWeaponBatterySmall
   id: WeaponPlasmaCutter
-  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
+  description: A mining weapon that can mine an entire tunnel with a single shot.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/cutter.rsi
@@ -23,7 +23,7 @@
   - type: Item
     size: Normal
     shape:
-    - 0,0,2,2
+    - 0,0,1,1
   - type: Battery
     maxCharge: 1500
     startingCharge: 1500
@@ -45,5 +45,41 @@
   suffix: Empty
   components:
   - type: Battery
-    maxCharge: 1500
+    startingCharge: 0
+
+- type: entity
+  name: super plasma cutter
+  parent: [ WeaponPlasmaCutter, BaseSalvageContraband ]
+  id: WeaponSuperPlasmaCutter
+  description: A strong mining weapon that can mine even bigger tunnels through rocks.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/super_cutter.rsi
+    state: icon
+  - type: Gun
+    fireRate: 2
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletSuperPlasmaCutter
+    fireCost: 40
+  - type: StaticPrice
+    price: 2000
+  - type: PhysicalComposition
+    materialComposition:
+      Gold: 400
+      Steel: 200
+      Glass: 150
+      Plasma: 150
+      BSCrystal: 100
+      Silver: 100
+      Diamond: 50
+
+- type: entity
+  parent: WeaponSuperPlasmaCutter
+  id: WeaponSuperPlasmaCutterEmpty
+  suffix: Empty
+  components:
+  - type: Battery
     startingCharge: 0

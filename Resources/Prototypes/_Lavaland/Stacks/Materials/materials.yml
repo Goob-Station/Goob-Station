@@ -118,3 +118,17 @@
   icon: { sprite: _Lavaland/Objects/Materials/ashwood.rsi, state: wood }
   spawn: MaterialAshwoodPlank1
   maxCount: 30
+
+- type: stack
+  id: AshwoodStick
+  name: stack-ashwood-stick
+  icon: { sprite: _Lavaland/Objects/Materials/sticks.rsi, state: ash_stick_1 }
+  spawn: MaterialAshwoodStick1
+  maxCount: 30
+
+- type: stack
+  id: WoodStick
+  name: stack-wood-stick
+  icon: { sprite: _Lavaland/Objects/Materials/sticks.rsi, state: stick_1 }
+  spawn: MaterialWoodStick1
+  maxCount: 30

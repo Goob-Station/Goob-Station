@@ -96,6 +96,7 @@
     attackRate: 0.7
     animationRotation: -45 # WWDP
     wideAnimationRotation: -135
+    heavyStaminaCost: 0 # Lavaland Change
     soundHit:
       path: "/Audio/Weapons/smash.ogg"
       params:
