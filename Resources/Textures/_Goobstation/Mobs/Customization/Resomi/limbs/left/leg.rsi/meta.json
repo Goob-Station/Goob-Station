@@ -1,0 +1,31 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "sprites by @seyriix",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+      {
+          "name": "l_leg_colour",
+          "directions": 4
+      },
+      {
+          "name": "l_leg_feathers",
+          "directions": 4
+      },
+      {
+          "name": "l_leg_half",
+          "directions": 4
+      },
+      {
+          "name": "l_leg_point",
+          "directions": 4
+      },
+      {
+          "name": "l_leg_tiger",
+          "directions": 4
+      }
+    ]
+}

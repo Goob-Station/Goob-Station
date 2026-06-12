@@ -1,0 +1,31 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "sprites by @seyriix",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+      {
+          "name": "r_arm_colour",
+          "directions": 4
+      },
+      {
+          "name": "r_arm_feathers",
+          "directions": 4
+      },
+      {
+          "name": "r_arm_half",
+          "directions": 4
+      },
+      {
+          "name": "r_arm_point",
+          "directions": 4
+      },
+      {
+          "name": "r_arm_tiger",
+          "directions": 4
+      }
+    ]
+}

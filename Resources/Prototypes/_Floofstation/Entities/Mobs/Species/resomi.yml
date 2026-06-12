@@ -53,8 +53,14 @@
     alternateState: Resomi_burning
   - type: HumanoidAppearance
     species: Resomi
+    markingsDisplacement:
+      Hair:
+        sizeMaps:
+          32:
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
+            state: hair
   - type: Icon
-    sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
+    sprite: _Goobstation/Mobs/Species/Resomi/parts.rsi
     state: full
   - type: Body
     prototype: Resomi
@@ -78,7 +84,7 @@
     handDisplacement:
       sizeMaps:
         32:
-          sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+          sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
           state: inHand
   - type: Inventory
     speciesId: resomi
@@ -86,123 +92,123 @@
       jumpsuit:
         sizeMaps:
           32:
-            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
             state: jumpsuit
       eyes:
         sizeMaps:
           32:
-            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
             state: eyes
       gloves:
         sizeMaps:
           32:
-            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
             state: hands
       head:
         sizeMaps:
           32:
-            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
             state: head
       back:
         sizeMaps:
           32:
-            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
             state: back
       ears:
         sizeMaps:
           32:
-            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
             state: ears
       shoes:
         sizeMaps:
           32:
-            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
             state: feet
       neck:
         sizeMaps:
           32:
-            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
             state: neck
       mask:
         sizeMaps:
           32:
-            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
             state: mask
       outerClothing: # Goob - are you serious? there just wasn't an outerclothing displacement map? taken from starlight
         sizeMaps:
           32:
-            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
             state: outerClothing
       suitstorage:
         sizeMaps:
           32:
-            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
             state: suitStorage
       belt:
         sizeMaps:
           32:
-            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
             state: belt
     femaleDisplacements: # Goobstation - splitting up the genders broke displacements, apparently it won't just apply the same displacement to both genders :|
       jumpsuit:
         sizeMaps:
           32:
-            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
             state: jumpsuit
       eyes:
         sizeMaps:
           32:
-            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
             state: eyes
       gloves:
         sizeMaps:
           32:
-            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
             state: hands
       head:
         sizeMaps:
           32:
-            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
             state: head
       back:
         sizeMaps:
           32:
-            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
             state: back
       ears:
         sizeMaps:
           32:
-            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
             state: ears
       shoes:
         sizeMaps:
           32:
-            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
             state: feet
       neck:
         sizeMaps:
           32:
-            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
             state: neck
       mask:
         sizeMaps:
           32:
-            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            sprite: _Goobstation /Mobs/Species/Resomi/displacement.rsi
             state: mask
       outerClothing:
         sizeMaps:
           32:
-            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
             state: outerClothing
       suitstorage:
         sizeMaps:
           32:
-            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
             state: suitStorage
       belt:
         sizeMaps:
           32:
-            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
             state: belt
   - type: Bloodstream # Goobstation - lore stuff
     bloodReagent: AmmoniaBlood
@@ -293,11 +299,17 @@
   components:
   - type: HumanoidAppearance
     species: Resomi
+    markingsDisplacement:
+      Hair:
+        sizeMaps:
+          32:
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
+            state: hair
   - type: Hands
     handDisplacement:
       sizeMaps:
         32:
-          sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+          sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
           state: inHand
   - type: Inventory
     speciesId: resomi
@@ -305,62 +317,62 @@
       jumpsuit:
         sizeMaps:
           32:
-            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
             state: jumpsuit
       eyes:
         sizeMaps:
           32:
-            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
             state: eyes
       gloves:
         sizeMaps:
           32:
-            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
             state: hands
       head:
         sizeMaps:
           32:
-            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
             state: head
       back:
         sizeMaps:
           32:
-            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
             state: back
       ears:
         sizeMaps:
           32:
-            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
             state: ears
       shoes:
         sizeMaps:
           32:
-            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
             state: feet
       neck:
         sizeMaps:
           32:
-            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
             state: neck
       mask:
         sizeMaps:
           32:
-            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
             state: mask
       outerClothing:
         sizeMaps:
           32:
-            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
             state: outerClothing
       suitstorage:
         sizeMaps:
           32:
-            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
             state: suitStorage
       belt:
         sizeMaps:
           32:
-            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
             state: belt
   - type: Sprite # goob - makes character setup look consistent with in-game visuals
     layers:

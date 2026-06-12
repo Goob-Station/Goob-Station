@@ -1,0 +1,23 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "sprites by @seyriix",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+      {
+          "name": "eyes",
+          "directions": 4
+      },
+      {
+          "name": "right_eye",
+          "directions": 4
+      },
+      {
+          "name": "left_eye",
+          "directions": 4
+      }
+    ]
+}
