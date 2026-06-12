@@ -4,9 +4,9 @@ using Robust.Shared.Containers;
 
 namespace Content.Goobstation.Shared.Knowledge.Systems;
 
-public sealed partial class KnowledgeSystem : EntitySystem, IKnowledgeSystem
+public sealed partial class KnowledgeSystem : CommonKnowledgeSystem
 {
-    private SharedContainerSystem _container = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
 
     private EntityQuery<KnowledgeComponent> _knowledgeQuery;
     private EntityQuery<KnowledgeContainerComponent> _containerQuery;
@@ -22,9 +22,6 @@ public sealed partial class KnowledgeSystem : EntitySystem, IKnowledgeSystem
 
         _knowledgeQuery = GetEntityQuery<KnowledgeComponent>();
         _containerQuery = GetEntityQuery<KnowledgeContainerComponent>();
-
-        // TODO dependency injection doesn't really work when you IoC register entity systems
-        _container = EntityManager.System<SharedContainerSystem>();
     }
 
     private void OnKnowledgeContainerShutdown(Entity<KnowledgeContainerComponent> ent, ref ComponentShutdown args)

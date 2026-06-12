@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using Content.Goobstation.Shared.Knowledge.Systems;
+using Content.Goobstation.Common.Knowledge;
 using Content.Server.Administration;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
@@ -17,7 +17,7 @@ public sealed class AddKnowledge : LocalizedCommands
 
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        var knowledgeSystem = _entMan.System<KnowledgeSystem>();
+        var knowledgeSystem = _entMan.System<CommonKnowledgeSystem>();
 
         if (args.Length < 2)
         {

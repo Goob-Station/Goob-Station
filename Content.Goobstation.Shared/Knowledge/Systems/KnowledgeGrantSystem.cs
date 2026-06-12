@@ -15,7 +15,7 @@ namespace Content.Goobstation.Shared.Knowledge.Systems;
 public sealed class KnowledgeGrantSystem : EntitySystem
 {
     [Dependency] private readonly EntityTableSystem _table = default!;
-    [Dependency] private readonly IKnowledgeSystem _knowledge = default!;
+    [Dependency] private readonly CommonKnowledgeSystem _commonKnowledge = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
 
     /// <inheritdoc/>
@@ -32,7 +32,7 @@ public sealed class KnowledgeGrantSystem : EntitySystem
     private void OnKnowledgeGrantInit(Entity<KnowledgeGrantComponent> ent, ref MapInitEvent args)
     {
         var units = _table.GetSpawns(ent.Comp.Table).ToList();
-        _knowledge.AddKnowledgeUnits(ent.Owner, units);
+        _commonKnowledge.AddKnowledgeUnits(ent.Owner, units);
         RemComp(ent.Owner, ent.Comp);
     }
 
@@ -43,7 +43,7 @@ public sealed class KnowledgeGrantSystem : EntitySystem
         if (comp.DoAfter is null)
         {
             var units = _table.GetSpawns(ent.Comp.Table).ToList();
-            _knowledge.AddKnowledgeUnits(args.User, units);
+            _commonKnowledge.AddKnowledgeUnits(args.User, units);
         }
         else
         {
@@ -76,7 +76,7 @@ public sealed class KnowledgeGrantSystem : EntitySystem
             return;
 
         var units = _table.GetSpawns(ent.Comp.Table).ToList();
-        _knowledge.AddKnowledgeUnits(args.Target.Value, units);
+        _commonKnowledge.AddKnowledgeUnits(args.Target.Value, units);
     }
 }
 

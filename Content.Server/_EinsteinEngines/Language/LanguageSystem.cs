@@ -19,7 +19,7 @@ namespace Content.Server._EinsteinEngines.Language;
 
 public sealed partial class LanguageSystem : SharedLanguageSystem
 {
-    [Dependency] private readonly IKnowledgeSystem _knowledge = default!; // Goobstation edit
+    [Dependency] private readonly CommonKnowledgeSystem _commonKnowledge = default!; // Goobstation edit
 
     public override void Initialize()
     {
@@ -44,7 +44,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         // Goobstation edit start
         if (TryComp(ent.Owner, out LanguageGrantComponent? grant))
         {
-            if (!_knowledge.TryEnsureKnowledgeUnit(ent.Owner, LanguageKnowledgeId, out var knowledgeEnt))
+            if (!_commonKnowledge.TryEnsureKnowledgeUnit(ent.Owner, LanguageKnowledgeId, out var knowledgeEnt))
             {
                 Log.Error($"Entity {ToPrettyString(ent.Owner)} failed to setup {nameof(KnowledgeContainerComponent)} properly!");
                 return;
@@ -154,7 +154,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         bool addUnderstood = true)
     {
         // Goobstation edit start
-        if (!_knowledge.TryEnsureKnowledgeUnit(uid, LanguageKnowledgeId, out var knowledgeEnt))
+        if (!_commonKnowledge.TryEnsureKnowledgeUnit(uid, LanguageKnowledgeId, out var knowledgeEnt))
             return;
 
         var knowledge = EnsureComp<LanguageKnowledgeComponent>(knowledgeEnt.Value);
@@ -181,7 +181,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         bool removeUnderstood = true)
     {
         // Goobstation edit start
-        if (!_knowledge.TryGetKnowledgeUnit(ent, LanguageKnowledgeId, out var knowledgeEnt))
+        if (!_commonKnowledge.TryGetKnowledgeUnit(ent, LanguageKnowledgeId, out var knowledgeEnt))
             return;
         var knowledge = EnsureComp<LanguageKnowledgeComponent>(knowledgeEnt.Value);
         // Goobstation edit end
@@ -236,7 +236,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         //    foreach (var understood in knowledge.UnderstoodLanguages)
         //       ev.UnderstoodLanguages.Add(understood);
         //}
-        if (_knowledge.TryGetKnowledgeUnit(ent.Owner, LanguageKnowledgeId, out var knowledgeEnt)
+        if (_commonKnowledge.TryGetKnowledgeUnit(ent.Owner, LanguageKnowledgeId, out var knowledgeEnt)
             && TryComp(knowledgeEnt, out LanguageKnowledgeComponent? languageKnowledge))
         {
             foreach (var spoken in languageKnowledge.SpokenLanguages)

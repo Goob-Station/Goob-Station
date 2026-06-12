@@ -1,4 +1,4 @@
-using Content.Goobstation.Shared.Knowledge.Systems;
+using Content.Goobstation.Common.Knowledge;
 using Content.Shared.Roles;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
@@ -17,7 +17,7 @@ public sealed partial class AddKnowledgeSpecial : JobSpecial
     public override void AfterEquip(EntityUid mob)
     {
         var entMan = IoCManager.Resolve<IEntityManager>();
-        var knowledgeSystem = entMan.System<KnowledgeSystem>();
+        var knowledgeSystem = entMan.System<CommonKnowledgeSystem>();
         knowledgeSystem.AddKnowledgeUnits(mob, Knowledge);
     }
 }

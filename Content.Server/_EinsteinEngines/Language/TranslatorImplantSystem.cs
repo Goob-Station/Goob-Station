@@ -15,7 +15,7 @@ namespace Content.Server._EinsteinEngines.Language;
 public sealed class TranslatorImplantSystem : EntitySystem
 {
     [Dependency] private readonly LanguageSystem _language = default!;
-    [Dependency] private readonly IKnowledgeSystem _knowledge = default!; // Goobstation edit
+    [Dependency] private readonly CommonKnowledgeSystem _commonKnowledge = default!; // Goobstation edit
 
     public override void Initialize()
     {
@@ -30,7 +30,7 @@ public sealed class TranslatorImplantSystem : EntitySystem
             return;
 
         var implantee = Transform(uid).ParentUid;
-        if (implantee is not { Valid: true } || !_knowledge.TryEnsureKnowledgeUnit(implantee, SharedLanguageSystem.LanguageKnowledgeId, out var knowledgeEnt) || !TryComp<LanguageKnowledgeComponent>(knowledgeEnt, out var knowledge)) // Goobstation edit
+        if (implantee is not { Valid: true } || !_commonKnowledge.TryEnsureKnowledgeUnit(implantee, SharedLanguageSystem.LanguageKnowledgeId, out var knowledgeEnt) || !TryComp<LanguageKnowledgeComponent>(knowledgeEnt, out var knowledge)) // Goobstation edit
             return;
 
         component.Enabled = true;

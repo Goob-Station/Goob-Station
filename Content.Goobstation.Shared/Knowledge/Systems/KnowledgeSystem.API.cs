@@ -10,7 +10,7 @@ namespace Content.Goobstation.Shared.Knowledge.Systems;
 public sealed partial class KnowledgeSystem
 {
     [PublicAPI]
-    public bool TryEnsureKnowledgeUnit(
+    public override bool TryEnsureKnowledgeUnit(
         EntityUid target,
         EntProtoId knowledgeId,
         [NotNullWhen(true)] out EntityUid? found)
@@ -26,7 +26,7 @@ public sealed partial class KnowledgeSystem
     }
 
     [PublicAPI]
-    public bool TryAddKnowledgeUnit(EntityUid target, EntProtoId knowledgeId)
+    public override bool TryAddKnowledgeUnit(EntityUid target, EntProtoId knowledgeId)
     {
         EnsureKnowledgeContainer(target, out var ent);
         EnsureContainer(ent);
@@ -38,7 +38,7 @@ public sealed partial class KnowledgeSystem
     }
 
     [PublicAPI]
-    public bool TryAddKnowledgeUnit(
+    public override bool TryAddKnowledgeUnit(
         EntityUid target,
         EntProtoId knowledgeId,
         [NotNullWhen(true)] out EntityUid? found)
@@ -54,7 +54,7 @@ public sealed partial class KnowledgeSystem
     }
 
     [PublicAPI]
-    public void AddKnowledgeUnits(EntityUid target, List<EntProtoId> knowledgeList)
+    public override void AddKnowledgeUnits(EntityUid target, List<EntProtoId> knowledgeList)
     {
         EnsureKnowledgeContainer(target, out var ent);
         EnsureContainer(ent);
@@ -69,7 +69,7 @@ public sealed partial class KnowledgeSystem
     }
 
     [PublicAPI]
-    public bool TryRemoveKnowledgeUnit(
+    public override bool TryRemoveKnowledgeUnit(
         EntityUid target,
         EntProtoId knowledgeUnit,
         int level,
@@ -85,7 +85,7 @@ public sealed partial class KnowledgeSystem
     }
 
     [PublicAPI]
-    public bool TryRemoveKnowledgeUnit(EntityUid target, EntProtoId knowledgeUnit, bool force = false)
+    public override bool TryRemoveKnowledgeUnit(EntityUid target, EntProtoId knowledgeUnit, bool force = false)
     {
         if (!TryGetKnowledgeUnit(target, knowledgeUnit, out var unit)
             || !_knowledgeQuery.TryComp(unit, out var knowledge))
@@ -99,7 +99,7 @@ public sealed partial class KnowledgeSystem
     }
 
     [PublicAPI]
-    public bool TryRemoveAllKnowledgeUnits(EntityUid target, int level, bool force = false)
+    public override bool TryRemoveAllKnowledgeUnits(EntityUid target, int level, bool force = false)
     {
         if (!TryGetAllKnowledgeUnits(target, out var units))
             return false;
@@ -116,7 +116,7 @@ public sealed partial class KnowledgeSystem
     }
 
     [PublicAPI]
-    public bool TryRemoveAllKnowledgeUnits(EntityUid target, bool force = false)
+    public override bool TryRemoveAllKnowledgeUnits(EntityUid target, bool force = false)
     {
         if (!TryGetAllKnowledgeUnits(target, out var units))
             return false;
@@ -133,7 +133,7 @@ public sealed partial class KnowledgeSystem
     }
 
     [PublicAPI]
-    public bool TryGetKnowledgeUnit(
+    public override bool TryGetKnowledgeUnit(
         EntityUid target,
         EntProtoId knowledgeUnit,
         [NotNullWhen(true)] out EntityUid? found)
@@ -157,7 +157,7 @@ public sealed partial class KnowledgeSystem
     }
 
     [PublicAPI]
-    public bool HasKnowledgeUnit(EntityUid target, EntProtoId knowledgeUnit)
+    public override bool HasKnowledgeUnit(EntityUid target, EntProtoId knowledgeUnit)
     {
         EnsureKnowledgeContainer(target, out var ent);
         EnsureContainer(ent, out var container);
@@ -176,7 +176,7 @@ public sealed partial class KnowledgeSystem
     }
 
     [PublicAPI]
-    public bool TryGetAllKnowledgeUnits(
+    public override bool TryGetAllKnowledgeUnits(
         EntityUid target,
         [NotNullWhen(true)] out HashSet<Entity<KnowledgeComponent>>? found)
     {
@@ -197,7 +197,7 @@ public sealed partial class KnowledgeSystem
     }
 
     [PublicAPI]
-    public bool HasKnowledgeComp<T>(EntityUid target) where T : IComponent
+    public override bool HasKnowledgeComp<T>(EntityUid target)
     {
         EnsureKnowledgeContainer(target, out var ent);
         EnsureContainer(ent, out var container);
@@ -212,10 +212,9 @@ public sealed partial class KnowledgeSystem
     }
 
     [PublicAPI]
-    public bool TryGetKnowledgeWithComp<T>(
+    public override bool TryGetKnowledgeWithComp<T>(
         EntityUid target,
         [NotNullWhen(true)] out HashSet<Entity<T, KnowledgeComponent>>? knowledgeEnts)
-        where T : IComponent
     {
         knowledgeEnts = null;
         EnsureKnowledgeContainer(target, out var ent);
@@ -237,7 +236,7 @@ public sealed partial class KnowledgeSystem
     }
 
     [PublicAPI]
-    public bool CanRemoveKnowledge(
+    public override bool CanRemoveKnowledge(
         Entity<KnowledgeComponent?> target,
         int level,
         bool force = false)
@@ -256,7 +255,7 @@ public sealed partial class KnowledgeSystem
     }
 
     [PublicAPI]
-    public Entity<KnowledgeContainerComponent> EnsureKnowledgeContainer(EntityUid uid)
+    public override Entity<KnowledgeContainerComponent> EnsureKnowledgeContainer(EntityUid uid)
     {
         // Raise event on an entity. Stuff like BodySystem should give us a result
         var ev = new KnowledgeContainerRelayEvent(uid);
@@ -272,7 +271,7 @@ public sealed partial class KnowledgeSystem
     }
 
     [PublicAPI]
-    public void EnsureKnowledgeContainer(EntityUid uid, out Entity<KnowledgeContainerComponent> container)
+    public override void EnsureKnowledgeContainer(EntityUid uid, out Entity<KnowledgeContainerComponent> container)
     {
         // Raise event on an entity. Stuff like BodySystem should give us a result
         var ev = new KnowledgeContainerRelayEvent(uid);
@@ -307,7 +306,7 @@ public sealed partial class KnowledgeSystem
     }
 
     [PublicAPI]
-    public string? GetKnowledgeString(Entity<KnowledgeComponent> knowledge)
+    public override string? GetKnowledgeString(Entity<KnowledgeComponent> knowledge)
     {
         var ev = new KnowledgeGetStringEvent();
         RaiseLocalEvent(knowledge.Owner, ref ev);

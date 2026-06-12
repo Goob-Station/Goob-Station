@@ -7,7 +7,7 @@ namespace Content.Shared.Construction;
 
 public abstract partial class SharedConstructionSystem
 {
-    [Dependency] private readonly IKnowledgeSystem _knowledge = default!;
+    [Dependency] private readonly CommonKnowledgeSystem _commonKnowledge = default!;
 
     /// <summary>
     /// Goobstation
@@ -17,7 +17,7 @@ public abstract partial class SharedConstructionSystem
     {
         var set = new HashSet<ProtoId<ConstructionPrototype>>();
 
-        if (!_knowledge.TryGetKnowledgeWithComp<ConstructionKnowledgeComponent>(user, out var knowledge))
+        if (!_commonKnowledge.TryGetKnowledgeWithComp<ConstructionKnowledgeComponent>(user, out var knowledge))
             return set;
 
         foreach (var (_, construction, _) in knowledge)

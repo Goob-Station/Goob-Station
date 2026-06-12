@@ -15,6 +15,5 @@ internal static class SharedGoobContentIoC
     {
         var instance = IoCManager.Instance!;
 
-        instance.Register<IKnowledgeSystem, KnowledgeSystem>();
     }
 }

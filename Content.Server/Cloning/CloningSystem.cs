@@ -111,7 +111,7 @@ public sealed partial class CloningSystem : EntitySystem
     [Dependency] private readonly SharedStorageSystem _storage = default!;
     [Dependency] private readonly SharedSubdermalImplantSystem _subdermalImplant = default!;
     [Dependency] private readonly NameModifierSystem _nameMod = default!;
-    [Dependency] private readonly IKnowledgeSystem _knowledge = default!; // Goobstation
+    [Dependency] private readonly CommonKnowledgeSystem _commonKnowledge = default!; // Goobstation
     [Dependency] private readonly ToggleableClothingSystem _toggleable = default!; // Goobstation
     [Dependency] private readonly SharedSealableClothingSystem _sealable = default!; // Goobstation
 
@@ -472,7 +472,7 @@ public sealed partial class CloningSystem : EntitySystem
 
     public void CopyKnowledge(EntityUid original, EntityUid target)
     {
-        if (!_knowledge.TryGetAllKnowledgeUnits(original, out var found))
+        if (!_commonKnowledge.TryGetAllKnowledgeUnits(original, out var found))
             return; // No knowledge to copy!
 
         foreach (var originalKnowledge in found)
@@ -485,7 +485,7 @@ public sealed partial class CloningSystem : EntitySystem
             if (knowledgeId == null)
                 continue;
 
-            if (!_knowledge.TryAddKnowledgeUnit(target, knowledgeId, out var targetKnowledge))
+            if (!_commonKnowledge.TryAddKnowledgeUnit(target, knowledgeId, out var targetKnowledge))
                 continue;
 
             // copy over important component data
