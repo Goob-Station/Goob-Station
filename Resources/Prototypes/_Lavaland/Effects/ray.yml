@@ -1,0 +1,61 @@
+- type: entity
+  id: ORTCosmicRayStart
+  categories: [HideSpawnMenu]
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Effects/ray.rsi
+    state: ray_start
+    shader: unshaded
+  - type: Physics
+    bodyType: Static
+  - type: FadingIn
+    fadeInTime: 0.5
+  - type: FadingTimedDespawn
+    lifetime: 2
+    fadeOutTime: 0.5
+  - type: TriggerOnSpawn
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: MercuryBeam
+      params:
+        volume: -2
+
+- type: entity
+  id: ORTCosmicRaySegment
+  categories: [HideSpawnMenu]
+  components:
+  - type: Physics
+    bodyType: Static
+  - type: DamageOnCollide
+    ignoreWhitelist:
+      components:
+        - Fauna
+    inverted: true
+    damage:
+      groups:
+        Genetic: 10
+  - type: FadingIn
+    fadeInTime: 0.5
+  - type: FadingTimedDespawn
+    lifetime: 2
+    fadeOutTime: 0.5
+
+- type: entity
+  id: ORTCosmicRayEnd
+  categories: [HideSpawnMenu]
+  components:
+  - type: Physics
+    bodyType: Static
+  - type: DamageOnCollide
+    ignoreWhitelist:
+      components:
+        - Fauna
+    inverted: true
+    damage:
+      groups:
+        Genetic: 15
+  - type: FadingIn
+    fadeInTime: 0.5
+  - type: FadingTimedDespawn
+    lifetime: 2
+    fadeOutTime: 0.5

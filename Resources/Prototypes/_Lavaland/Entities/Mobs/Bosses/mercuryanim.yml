@@ -1,0 +1,129 @@
+- type: entity
+  name: ???
+  id: BaseORTAnimation
+  categories: [HideSpawnMenu]
+  description: The air trembles around it.
+  abstract: true
+  components:
+  - type: Timer
+  - type: Physics
+    bodyType: KinematicController
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1,-2,1,1"
+        density: 1000
+        mask:
+        - LargeMobMask
+        layer:
+        - LargeMobLayer
+
+- type: entity
+  id: ORTFormingAnimation
+  parent: BaseORTAnimation
+  categories: [HideSpawnMenu]
+  components:
+  - type: TriggerOnSpawn
+  - type: EmitSoundOnTrigger
+    sound: /Audio/_Lavaland/Mobs/Bosses/Mercury/ufo_active.ogg
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/128x128.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: mercury-forming
+  - type: TimedSpawner
+    prototypes:
+      - ORTForming
+    chance: 1.0
+    intervalSeconds: 6.5
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+  - type: TimedDespawn
+    lifetime: 6.5
+
+- type: entity
+  id: ORTCombatAnimation
+  parent: BaseORTAnimation
+  categories: [HideSpawnMenu]
+  description: Oh no...
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/128x128.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: mercury-combat-forming
+  - type: TimedSpawner
+    prototypes:
+      - ORTCombatForm
+    chance: 1.0
+    intervalSeconds: 0.9
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+  - type: TimedDespawn
+    lifetime: 1
+
+- type: entity
+  id: ORTUFODeathAnimation
+  parent: BaseORTAnimation
+  categories: [HideSpawnMenu]
+  description: Is it finally over?
+  components:
+  - type: TriggerOnSpawn
+  - type: EmitSoundOnTrigger
+    sound: /Audio/_Lavaland/Mobs/Bosses/Mercury/ufo_death.ogg
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/128x128.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: UFO-death
+  - type: TimedSpawner
+    prototypes:
+      - ORTStarCell
+    chance: 1.0
+    intervalSeconds: 12.9
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+  - type: TimedDespawn
+    lifetime: 13
+
+- type: entity
+  id: ORTStarCell
+  parent: BaseORTAnimation
+  categories: [HideSpawnMenu]
+  name: Star cell
+  description: Space-time continuum analyzed. Manifesting Star Cell colony invasive entity.
+  components:
+  - type: PointLight
+    radius: 5
+    energy: 3
+    color: gold
+  - type: PulsingLight
+    lightColor: gold
+  - type: Rotating
+    rotationSpeed: 30
+    increaseOvertime: true
+  - type: FadingIn
+    fadeInTime: 5
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/128x96.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: star_cell
+  - type: TimedSpawner
+    prototypes:
+      - ORTXibalba
+    chance: 1.0
+    intervalSeconds: 10
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+  - type: FadingTimedDespawn
+    lifetime: 15
+    fadeOutTime: 5

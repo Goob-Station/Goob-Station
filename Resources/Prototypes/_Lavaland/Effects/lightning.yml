@@ -1,0 +1,235 @@
+- type: entity
+  id: LightningCrackle
+  name: Static buildup
+  description: Something is coming...
+  components:
+  - type: FadingIn
+    fadeInTime: 0.5
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Lavaland/Effects/eletricity.rsi
+    state: lightning
+    drawdepth: BelowMobs
+    noRot: true
+  - type: TimedDespawn
+    lifetime: 2.5
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: cyan
+    castShadows: false
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+      - LightningStrike
+    intervalSeconds: 2.4
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+
+- type: entity
+  id: LightningStrike
+  name: lightning strike
+  description: Does strike twice in the same spot, contrary to popular belief. Should you really be inspecting this?
+  components:
+  - type: Transform
+    noRot: true  
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Lavaland/Effects/64x128.rsi
+    state: lightning_1
+    drawdepth: BelowMobs
+    noRot: true
+    offset: "0.5, 1.5"
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3, -0.2, 0.4, 1.4"
+        density: 100
+        mask:
+        - MobMask
+        layer:
+        - InteractImpassable
+  - type: PointLight
+    radius: 3
+    energy: 3
+    color: White
+    castShadows: true
+  - type: FadingIn
+    fadeInTime: 0.1
+  - type: FadingTimedDespawn
+    lifetime: 0.6
+    fadeOutTime: 0.2
+  - type: Timer
+  - type: TriggerOnSpawn
+  - type: SpawnOnTrigger
+    proto: ThunderSound
+    predicted: true
+  - type: DamageOnCollide
+    ignoreWhitelist:
+      components:
+        - Fauna
+    inverted: true
+    damage:
+      types:
+        Shock: 35 # It's a fucking thunder strike!
+
+- type: entity
+  id: ThunderSound # Because EmitSoundOnTrigger deletes the sound of the entity getting deleted as well. Nice job blizzard.
+  categories: [HideSpawnMenu]
+  components:
+  - type: TimedDespawn
+    lifetime: 5
+  - type: Timer  
+  - type: TriggerOnSpawn
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: ThunderStrike
+      params:
+        volume: -2
+
+- type: entity
+  id: ORTMassiveThunderstrike
+  components:
+  - type: Timer
+  - type: VicinitySpawner
+    spawnInterval: 0.2
+    numberToSpawn: 4
+    offsetForSpawn: 2
+    prototype:
+      - LightningStrike
+  - type: TimedDespawn
+    lifetime: 3
+
+- type: entity
+  id: StormSpawner
+  categories: [HideSpawnMenu]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.2
+  - type: Timer
+  - type: TriggerOnSpawn
+  - type: SpawnOnTrigger
+    proto: ThunderStormBuildup
+    predicted: true
+
+- type: entity
+  id: ThunderStormBuildup
+  name: Massive static buildup
+  description: Run. Now!!!
+  components:
+  - type: Transform
+    noRot: true    
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/_Lavaland/Mobs/Bosses/Mercury/ufo_noise.ogg
+      params:
+        variation: 0.3  
+  - type: FadingIn
+    fadeInTime: 0.5
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Lavaland/Effects/160x160.rsi
+    state: thundercloud
+    drawdepth: Effects
+    noRot: true
+  - type: TimedDespawn
+    lifetime: 5.1
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: cyan
+    castShadows: false
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+      - ORTEvilThunderCloud
+    intervalSeconds: 5
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+  - type: DangerZone
+    popupRange: 8
+    popup:
+    - ort-thunder-warning1
+    - ort-thunder-warning2
+    - ort-thunder-warning3
+    - ort-thunder-warning4
+
+- type: entity
+  id: ORTEvilThunderCloud
+  name: Galactica Supercell
+  description: A cluster of thunderclouds created through nuclear fusion. Emits an ungodly amount of radiation.
+  components:
+  - type: Transform
+    noRot: true    
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Lavaland/Effects/160x160.rsi
+    state: evilcloud
+    drawdepth: Effects
+    noRot: true
+  - type: Physics
+    bodyType: KinematicController
+    bodyStatus: InAir
+    sleepingAllowed: false
+  - type: CanMoveInAir
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1, -1, 1, 1"
+        density: 9999
+        hard: false
+        mask:
+        - MobMask
+        layer:
+        - GlassLayer
+  - type: PointLight
+    radius: 5
+    energy: 3
+    color: Purple
+    castShadows: true
+  - type: FadingIn
+    fadeInTime: 0.1
+  - type: FadingTimedDespawn
+    lifetime: 15
+    fadeOutTime: 1
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+      - LightningStrike
+    intervalSeconds: 1.5
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+  - type: RadiationSource
+    intensity: 15
+  - type: DamageOnCollide
+    ignoreWhitelist:
+      components:
+        - Fauna
+    inverted: true
+    damage:
+      types:
+        Shock: 25 # It's a fucking thunder strike!
+  - type: LightningArcShooter
+    arcDepth: 3
+    maxLightningArc: 1
+    shootMinInterval: 5
+    shootMaxInterval: 20 # If you're lucky, it doesn't shoot at all before despawning.
+    shootRange: 5
+    lightningPrototype: Lightning
+  - type: ChasingWalk
+    chasingComponent:
+    - type: Actor
+    maxChaseRadius: 8
+    minSpeed: 1
+    maxSpeed: 1
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/Effects/tesla_collapse.ogg
+      params:
+        variation: 0.3

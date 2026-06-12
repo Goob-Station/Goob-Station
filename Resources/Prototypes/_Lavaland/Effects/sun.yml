@@ -1,0 +1,70 @@
+- type: entity
+  id: ORTSolarStormWarning
+  categories: [HideSpawnMenu]
+  components:
+  - type: Transform
+    noRot: true    
+  - type: Sprite
+    sprite: _Lavaland/Effects/160x160.rsi
+    state: sun_red
+    drawdepth: BelowMobs
+    noRot: true
+  - type: Rotating
+    increaseOvertime: true
+    rotationSpeed: 50
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: Orange
+    castShadows: true
+  - type: FadingIn
+    fadeInTime: 0.1
+  - type: RadiationSource
+    intensity: 1
+  - type: DangerZone
+    popupRange: 10
+    popup:
+    - ort-solar-storm-warning1
+    - ort-solar-storm-warning2
+    - ort-solar-storm-warning3
+    - ort-solar-storm-warning4
+  - type: ExpandAndCollapse
+    expandTime: 90
+    collapseTime: 10
+    startingScale: 0.1
+    peakScale: 1
+
+
+- type: entity
+  id: ORTSolarStorm
+  description: The power of the sun, in the palm of my hands!
+  categories: [HideSpawnMenu]
+  components:
+  - type: Transform
+    noRot: true    
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Lavaland/Effects/160x160.rsi
+    state: sun_ripple
+    drawdepth: BelowMobs
+    noRot: true
+  - type: PointLight
+    radius: 12
+    energy: 10
+    color: Orange
+    castShadows: true
+  - type: FadingIn
+    fadeInTime: 0.1
+  - type: RadiationSource
+    intensity: 10
+  - type: AmbientSound
+    volume: 1
+    range: 10
+    sound:
+      path: /Audio/Ambience/Objects/fireplace.ogg
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/_Lavaland/Mobs/Bosses/Mercury/heavyimpact.ogg
+      params:
+        volume: 6
+  - type: TriggerOnSpawn

@@ -1,0 +1,163 @@
+- type: entity
+  id: DarkMatterPlankton
+  name: Dark matter plankton
+  description: Looks unstable. Kill it fast!
+  components:
+  - type: Clickable
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: MercurySpider
+  - type: Physics
+    bodyType: Static
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2, -0.2, 0.2, 0.2"
+        density: 1
+        mask:
+        - MobMask
+        layer:
+        - InteractImpassable
+        - BulletImpassable
+  - type: Rotating
+    increaseOvertime: true
+  - type: FadingIn
+    fadeInTime: 3
+  - type: Sprite
+    sprite: _Lavaland/Effects/plankton.rsi
+    state: plankton
+    drawdepth: Effects
+  - type: TimedDespawn
+    lifetime: 10
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: Green
+    castShadows: false
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+      - DarkMatterPlanktonExplode
+    intervalSeconds: 9.9
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10 # Just don't punch it and you'll get em'
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  id: DarkMatterPlanktonExplode
+  categories: [HideSpawnMenu]
+  components:
+  - type: Rotating  
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Lavaland/Effects/plankton.rsi
+    state: plankton_explode
+    drawdepth: Effects
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3, -0.3, 0.3, 0.3"
+        density: 100
+        hard: false
+        mask:
+        - MobMask
+        layer:
+        - InteractImpassable
+  - type: PointLight
+    radius: 4
+    energy: 2
+    color: Green
+    castShadows: false
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: DamageOnCollide
+    ignoreWhitelist:
+      components:
+        - Fauna
+    inverted: true
+    damage:
+      groups:
+        Genetic: 5
+  - type: EmitSoundOnSpawn
+    sound:
+      collection: MercuryBeam
+      params:
+        volume: -6
+  - type: TriggerOnSpawn
+  - type: ProjectileGrenade
+    minVelocity: 0.1
+    maxVelocity: 0.3
+    fillPrototype: DarkMatterPlanktonProjectile
+    capacity: 8
+
+- type: entity
+  id: DarkMatterPlanktonProjectile # BaseBullet expects a specific sprite path for some reason so I'm copying it.
+  name: Radiating energy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Effects/plankton.rsi
+    state: plankton_projectile
+    drawdepth: Effects
+  - type: Reflective
+  - type: FlyBySound
+  - type: Clickable
+  - type: Physics
+    bodyType: Dynamic
+    bodyStatus: InAir
+    linearDamping: 0
+    angularDamping: 0
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.10,0.1,0.30"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+      fly-by: &flybyfixture
+        shape: !type:PhysShapeCircle
+          radius: 1.5
+        layer:
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: False
+  - type: Projectile
+    impactEffect: BulletImpactEffectDisabler
+    deleteOnCollide: true
+    damage:
+      groups:
+        Genetic: 2
+    soundHit:
+      path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg # TO DO: Change later
+
+- type: entity
+  id: DarkMatterPlanktonOrbiting
+  parent: DarkMatterPlankton
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 35
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

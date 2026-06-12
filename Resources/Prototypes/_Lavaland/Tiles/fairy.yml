@@ -1,0 +1,28 @@
+- type: tile
+  id: FloorFairyGrass
+  name: tiles-fairy-grass
+  sprite: /Textures/_Lavaland/Tiles/Fairy/fairygrass.png
+  variants: 5
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepGrass
+  heatCapacity: 10000
+  tileRipResistance: 80
+
+- type: tile
+  id: FloorFairyGrassDamaged
+  name: tiles-fairy-grass-damaged
+  sprite: /Textures/_Lavaland/Tiles/Fairy/fairydamaged.png
+  baseTurf: Plating
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepGrass
+  heatCapacity: 10000
+  tileRipResistance: 80

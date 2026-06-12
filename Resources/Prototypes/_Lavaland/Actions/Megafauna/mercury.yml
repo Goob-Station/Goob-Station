@@ -1,0 +1,200 @@
+- type: entity
+  id: ActionBaseORT
+  parent: BaseAction
+  name: spider of mercury action
+  abstract: true
+  components:
+  - type: Action
+    priority: -21
+    useDelay: 2
+    icon:
+      sprite: _Lavaland/Effects/plankton.rsi
+      state: plankton
+    itemIconStyle: NoItem
+  - type: TargetAction
+    checkCanAccess: false
+    range: 30
+
+- type: entity
+  parent: ActionBaseORT
+  id: ActionORTEtherDrain
+  name: Ether Drain
+  description: ██□■■■ □□□▣▣ ▢■■□
+  components:
+  - type: AngerDelayAction
+    minDelay: 8
+    maxDelay: 20
+  - type: InstantAction
+    event: !type:EtherDrainEvent
+
+- type: entity
+  parent: ActionBaseORT
+  id: ActionORTPlanktonFlood
+  name: Plankton Flood
+  description:  ■■ ■■□□▣ █□■■■□
+  components:
+  - type: AngerDelayAction
+    minDelay: 10
+    maxDelay: 20
+  - type: InstantAction
+    event: !type:AddComponentActionEvent
+      targetComponent:
+        - type: VicinitySpawner
+          spawnInterval: 2
+          numberToSpawn: 4
+          offsetForSpawn: 8
+          prototype:
+            - DarkMatterPlankton
+      timeToRemoval: 8
+      removeAfterTimer: true
+
+- type: entity
+  parent: ActionBaseORT
+  id: ActionORTEnergyDischarge
+  name: Energy Discharge
+  description: ■■□█□□▣ ■■ ■■□■■■■
+  components:
+  - type: AngerDelayAction
+    minDelay: 10
+    maxDelay: 20
+  - type: InstantAction
+    event: !type:AddComponentActionEvent
+      targetComponent:
+        - type: VicinitySpawner
+          spawnInterval: 1
+          numberToSpawn: 2
+          offsetForSpawn: 8
+          prototype:
+            - LightningCrackle
+      timeToRemoval: 6
+      removeAfterTimer: true
+
+- type: entity
+  parent: ActionBaseORT
+  id: ActionORTEnergySurge
+  name: Energy Burst
+  description: ■■■ ■■□■■■
+  components:
+  - type: AngerDelayAction
+    minDelay: 10
+    maxDelay: 20
+  - type: WorldTargetAction
+    event: !type:SpawnEntityActionEvent
+      spawn: EmptyWarningSpawner
+
+- type: entity
+  parent: ActionBaseORT
+  id: ActionORTCosmicRays
+  name: Cosmic Rays
+  description: ■■▣ ■ ■■■□■
+  components:
+  - type: AngerDelayAction
+    minDelay: 10
+    maxDelay: 16
+  - type: InstantAction
+    event: !type:CosmicRayCirculatorActionEvent
+
+- type: entity
+  parent: ActionBaseORT
+  id: ActionGalacticaSupercell
+  name: Galactica Supercell
+  description: ■■□■■ ■■█□■■■ □██■■■■ ■■■■■ ■■■■██■■□■ ■■■
+  components:
+  - type: TargetAction
+    checkCanAccess: false
+    range: 20
+  - type: AngerDelayAction
+    minDelay: 20
+    maxDelay: 30
+  - type: EntityTargetAction
+    canTargetSelf: false
+  - type: WorldTargetAction
+    event: !type:SpawnEntityActionEvent
+      spawn: StormSpawner
+
+- type: entity
+  parent: ActionBaseORT
+  id: ActionORTResonanceHorizontal
+  name: Environmental Resonance
+  description: ■■□■■■ ■■■□□ ■■■■■□ ■■■
+  components:
+  - type: AngerDelayAction
+    minDelay: 10
+    maxDelay: 20
+  - type: InstantAction
+    event: !type:EnvironmentalResonanceActionEvent
+      vertical: false
+
+- type: entity
+  parent: ActionBaseORT
+  id: ActionORTResonanceVertical
+  name: Environmental Resonance
+  description: ■■□■■■ ■■■□□ ■■■■■□ ■■■
+  components:
+  - type: AngerDelayAction
+    minDelay: 10
+    maxDelay: 20
+  - type: InstantAction
+    event: !type:EnvironmentalResonanceActionEvent
+      vertical: true
+
+- type: entity
+  parent: ActionBaseORT
+  id: ActionORTSolarStorm
+  name: Solar Storm
+  description: ■■■■ ■■ ■■■■■
+  components:
+  - type: AngerDelayAction
+    minDelay: 20
+    maxDelay: 30
+  - type: InstantAction
+    event: !type:ORTSolarStormActionEvent
+
+- type: entity
+  parent: ActionBaseORT
+  id: ActionORTParadigmInflation
+  name: Paradigm Inflation
+  description: ■■■■ ■■ ■■■■■
+  components:
+  - type: AngerDelayAction
+    minDelay: 20
+    maxDelay: 30
+  - type: EntityTargetAction
+    canTargetSelf: false
+    event: !type:ParadigmInflationActionEvent
+
+- type: entity
+  parent: ActionBaseORT
+  id: ActionORTPhaseConversion
+  name: Phase Conversion
+  description: ■■■□□■■■ □■■ ■■■■□■■■■
+  components:
+  - type: AngerDelayAction
+    minDelay: 20
+    maxDelay: 30
+  - type: InstantAction
+    event: !type:PhaseConversionActionEvent
+
+- type: entity
+  parent: ActionBaseORT
+  id: ActionORTReflectiveThreads
+  name: Reflective Threads
+  description: ■■■■■■■□□■■■■
+  components:
+  - type: AngerDelayAction
+    minDelay: 15
+    maxDelay: 25
+  - type: InstantAction
+    event: !type:ReflectiveThreadsActionEvent
+
+- type: entity
+  parent: ActionBaseORT
+  id: ActionORTDarkMatterShell
+  name: D.M. Shell
+  description: ■■■■ ■□ ■□ ■■■ ■■□
+  components:
+  - type: AngerDelayAction
+    minDelay: 15
+    maxDelay: 30
+  - type: InstantAction
+    event: !type:OrbitingRingActionEvent

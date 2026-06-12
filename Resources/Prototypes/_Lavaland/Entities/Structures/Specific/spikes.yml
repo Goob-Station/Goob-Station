@@ -1,0 +1,99 @@
+- type: entity
+  id: CrystalSpikeEmerging
+  name: Spikes
+  description: Look out!
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Lavaland/Structures/Specific/Crystal/crystal_spike.rsi
+    state: spikes_emerge
+    drawdepth: Effects
+    noRot: true
+  - type: TimedDespawn
+    lifetime: 0.6
+  - type: PointLight
+    radius: 1
+    energy: 1
+    color: Cyan
+    castShadows: false
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+      - CrystalSpikesStabbing
+    intervalSeconds: 0.5
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+
+- type: entity
+  id: CrystalSpikes
+  name: Spikes
+  description: Looks like stepping on it might hurt...
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Lavaland/Structures/Specific/Crystal/crystal_spike.rsi
+    state: spikes_idle
+    drawdepth: Effects
+    noRot: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5, -0.5, 0.5, 0.5"
+        density: 1000
+        mask:
+        - MobMask
+        layer:
+        - InteractImpassable
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: Cyan
+    castShadows: false
+  - type: DamageOnCollide
+    ignoreWhitelist:
+      components:
+        - Fauna
+    inverted: true
+    damage:
+      types:
+        Slash: 10
+
+- type: entity
+  id: CrystalSpikesStabbing
+  parent: CrystalSpikes
+  components:
+  - type: FadingTimedDespawn
+    lifetime: 0.6
+    fadeoutTime: 0.2
+  - type: Timer
+  - type: Sprite
+    sprite: _Lavaland/Structures/Specific/Crystal/crystal_spike.rsi
+    state: spikes_stabbing
+    drawdepth: Effects
+    noRot: true
+
+- type: entity
+  id: CrystalSpikeLarge
+  parent: CrystalSpikes
+  components:
+  - type: FadingTimedDespawn
+    lifetime: 0.6
+    fadeoutTime: 0.2
+  - type: Timer
+  - type: Sprite
+    sprite: _Lavaland/Structures/Specific/Crystal/crystal_spike.rsi
+    state: spike
+    drawdepth: Effects
+    noRot: true
+  - type: DamageOnCollide
+    ignoreWhitelist:
+      components:
+        - Fauna
+    inverted: true
+    damage:
+      types:
+        Slash: 15

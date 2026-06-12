@@ -1,0 +1,356 @@
+- type: entity
+  name: Spider of Mercury
+  id: BaseORT
+  parent: LavalandMobBase
+  description:
+  abstract: true
+  components:
+  - type: StatusEffects
+    allowed:
+    - RadiationProtection
+  - type: Physics
+    bodyType: KinematicController
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-1.5,1.5,1.5"
+        density: 1000
+        mask:
+        - LargeMobMask
+        layer:
+        - LargeMobLayer
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - FootstepSound
+  - type: TileMovement
+  - type: NoSlip
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: MercurySpider
+  - type: DamageOnCollide
+    ignoreWhitelist:
+      components:
+        - Fauna
+    inverted: true
+    damage:
+      types:
+        Structural: 9999
+  - type: AddOrRemoveComponent
+  - type: Fauna
+  - type: Aggressive
+    forgiveRange: 1000 # You woke it up, no more running.
+  - type: CombatPower # Goobstation
+    factor: 9999
+
+- type: entity
+  name: Bottomless pit
+  id: ORTPit
+  description: The radiation seeping from below makes your skin crawl. Something is waiting down there.
+  components:
+  - type: Physics
+    bodyType: KinematicController
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1,-2,1,1"
+        density: 1000
+        mask:
+        - LargeMobMask
+        layer:
+        - SlipLayer
+  - type: Sprite
+    drawdepth: FloorTiles
+    sprite: _Lavaland/Mobs/Bosses/128x128.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: hole
+
+- type: entity
+  name: pulsing exoskeleton
+  id: ORTForming
+  parent: BaseORT
+  description: The air trembles around it...
+  components:
+  - type: PointLight
+    radius: 2
+    energy: 1
+    color: cyan
+  - type: RadiationSource
+    intensity: 3
+  - type: Sprite
+    drawdepth: OverMobs
+    sprite: _Lavaland/Mobs/Bosses/128x128.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: mercury-skeleton
+  - type: AngerPlayerScaling
+    angerScale: 1.2
+    hpScale: 1.2
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      750: Dead
+  - type: SpawnLootOnDeath
+    deleteOnDeath: true
+    table: !type:AllSelector
+      children:
+      - id: ORTCombatAnimation
+  # Actual boss from here
+  - type: DangerZone
+    popupRange: 15
+    popup:
+    - ort-sense-danger1
+    - ort-sense-danger2
+    - ort-sense-danger3
+    - ort-sense-danger4
+    - ort-sense-danger5
+    - ort-sense-danger6
+  - type: PulsingLight
+    shouldPlaySound: true
+  - type: VicinitySpawner
+    numberToSpawn: 2
+    offsetForSpawn: 7
+    prototype:
+    - CrystalSpikeEmerging
+
+- type: entity
+  name: Spider of Mercury
+  id: ORTCombatForm
+  parent: BaseORT
+  description: Its body is not flesh. It is not metal. You don't have a clue as to what it is.
+  components:
+  - type: RadiationSource
+    intensity: 2
+  - type: Sprite
+    drawdepth: OverMobs
+    sprite: _Lavaland/Mobs/Bosses/128x128.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: mercury
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: mercury-walking
+    noMovementLayers:
+      movement:
+        state: mercury
+  - type: CombatMode
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 2
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      1500: Dead
+  - type: AngerPlayerScaling
+    angerScale: 1.3
+    hpScale: 1.3
+  - type: SpawnLootOnDeath
+    deleteOnDeath: true
+    table: !type:AllSelector
+      children:
+      - id: ORTUFO
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: CrystalStep
+      params:
+        volume: -5
+  - type: BossMusic
+    soundId: ORT
+  - type: PointLight
+    radius: 5
+    energy: 1.5
+    color: cyan
+  # Actual boss from here
+  - type: MegafaunaAnchor
+    anchored: false
+  - type: EnvironmentalResonance
+    horizontalOffset: 12
+    verticalOffset: 12
+    rowNumber: 14
+  - type: CosmicRayCirculator
+    beamPrototype: ORTBeamSmall
+    warningPrototype: ORTWarningBox
+  - type: MegafaunaAi
+    actionDelay: 0.5
+    selector: !type:NestedMegafaunaSelector
+      id: Mercury
+  - type: EtherDrain
+  - type: ActionGrant
+    actions:
+    #- ActionORTCosmicRays
+    #- ActionORTResonanceVertical
+    #- ActionORTResonanceHorizontal
+    #- ActionORTEtherDrain
+    - ActionORTEnergySurge
+    #- ActionORTPlanktonFlood
+    #- ActionORTEnergyDischarge
+    #- ActionGalacticaSupercell
+
+- type: entity
+  name: UFO
+  id: ORTUFO
+  parent: BaseORT
+  description: The spider was only an empty shell. The true body was above all along.
+  components:
+  - type: SingularityDistortion
+    intensity: 5
+    falloffPower: 5
+  - type: RadiationSource
+    intensity: 4
+  - type: Sprite
+    drawdepth: OverMobs
+    sprite: _Lavaland/Mobs/Bosses/128x128.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: UFO-spin
+  - type: CombatMode
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 2
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      1500: Dead
+  - type: AngerPlayerScaling
+    angerScale: 1.2
+    hpScale: 1.1
+  - type: SpawnLootOnDeath
+    deleteOnDeath: true
+    table: !type:AllSelector
+      children:
+      - id: ORTUFODeathAnimation
+  - type: AmbientSound
+    enabled: true
+    volume: -5
+    range: 20
+    sound:
+      path: /Audio/_Lavaland/Mobs/Bosses/Mercury/ufo_ambience.ogg
+  - type: PointLight
+    radius: 4
+    energy: 1.5
+    color: green
+  - type: BossMusic
+    soundId: ORT
+  # Actual boss from here
+  - type: MegafaunaAi
+    actionDelay: 0.5
+    selector: !type:NestedMegafaunaSelector
+      id: UFO
+  - type: ActionGrant
+    actions:
+    - ActionORTEnergySurge
+    - ActionORTEnergyDischarge
+    - ActionGalacticaSupercell
+
+- type: entity
+  name: The ultimate one
+  id: ORTXibalba
+  parent: BaseORT
+  description: Long-range weaponry analyzed. Adaptation complete.
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-1,0.5,1.5"
+        density: 10000
+        hard: false
+        mask:
+        - LargeMobMask
+        layer:
+        - LargeMobLayer
+  - type: RadiationSource
+    intensity: 1
+  - type: Sprite
+    sprite: _Lavaland/Mobs/Bosses/96x96.rsi
+    state: adapted_ranged
+    drawdepth: OverMobs
+    noRot: true
+  - type: CombatMode
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      2500: Dead
+  - type: AngerPlayerScaling
+    angerScale: 1.5
+    hpScale: 1.2
+  - type: SpawnLootOnDeath
+    deleteOnDeath: true
+    table: !type:AllSelector
+      children:
+      - id: DarkMatterPlankton
+  #- type: BossMusic
+  #  soundId: UltimateOne
+  - type: PointLight
+    radius: 5
+    energy: 1.5
+    color: gold
+  - type: TriggerOnSpawn
+  - type: EmitSoundOnTrigger
+    sound: /Audio/_Lavaland/Mobs/Bosses/Mercury/alien_noise.ogg
+  # Actual boss from here
+  - type: FadingAnchoredTeleport
+    moveInstead: true
+    moveSpeed: 25
+    dashTrail:
+      - type: Trail
+        color: "#ae00ffdd"
+        scale: 1.1
+        frequency: 0.02
+        lifetime: 0.8
+        lerpTime: 0.005
+        alphaLerpAmount: 0.2
+        scaleLerpAmount: 0.1
+        shader: unshaded
+        sprite:
+          sprite: /Textures/_Lavaland/Mobs/Bosses/96x96.rsi
+          state: adapted_melee
+  - type: FloatingVisuals
+    floatRegardlessOfGravity: true
+  - type: MegafaunaAnchor
+    anchored: false
+  - type: MegafaunaAi
+    actionDelay: 0.5
+    selector: !type:NestedMegafaunaSelector
+      id: ORTRanged
+  - type: ORTSolarStorm
+    glowIntensity: 8
+    stormDamage:
+      types:
+        Heat: 3
+        Radiation: 3
+  - type: EtherDrain
+  - type: ParadigmInflation
+  - type: Appearance
+  - type: ReflectiveThreads
+  - type: OrbitingRing
+    prototype: DarkMatterPlanktonOrbiting
+  - type: PhaseConversion
+    switchDelay: 1.0
+  #- type: ActionGrant
+  # actions:
+    #- ActionORTEtherDrain
+    #- ActionORTEnergyDischarge
+    #- ActionORTEnergySurge
+    #- ActionORTSolarStorm
+    #- ActionORTParadigmInflation
+    #- ActionORTPhaseConversion
+    #- ActionORTReflectiveThreads
+    #- ActionORTDarkMatterShell

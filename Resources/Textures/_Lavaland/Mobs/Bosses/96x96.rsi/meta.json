@@ -115,6 +115,15 @@
     },
     {
       "name": "dragon_swoop"
+    },
+    {
+      "name": "adapted_melee"
+    },
+    {
+      "name": "adapted_ranged"
+    },
+    {
+      "name": "mercury_ring"
     }
   ]
 }

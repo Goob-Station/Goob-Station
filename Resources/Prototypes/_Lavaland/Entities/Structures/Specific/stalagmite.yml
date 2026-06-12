@@ -1,0 +1,57 @@
+- type: entity
+  parent: BaseRock
+  id: CrystalStalagmite1
+  name: crystal formation
+  description: You mite step on it.
+  components:
+  - type: Clickable
+  - type: Sprite
+    sprite: /Textures/_Lavaland/Structures/Specific/Crystal/stalagmite.rsi
+    state: crystalstalagmite1
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 1000
+        layer:
+        - HalfWallLayer
+        - Opaque
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+
+- type: entity
+  parent: CrystalStalagmite1
+  id: CrystalStalagmite2
+  components:
+  - type: Clickable
+  - type: Sprite
+    sprite: /Textures/_Lavaland/Structures/Specific/Crystal/stalagmite.rsi
+    state: crystalstalagmite2
+
+- type: entity
+  parent: CrystalStalagmite1
+  id: CrystalStalagmite3
+  components:
+  - type: Clickable
+  - type: Sprite
+    sprite: /Textures/_Lavaland/Structures/Specific/Crystal/stalagmite.rsi
+    state: crystalstalagmite3
+
+- type: entity
+  parent: CrystalStalagmite1
+  id: CrystalStalagmite4
+  components:
+  - type: Clickable
+  - type: Sprite
+    sprite: /Textures/_Lavaland/Structures/Specific/Crystal/stalagmite.rsi
+    state: crystalstalagmite4

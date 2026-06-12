@@ -119,3 +119,60 @@
     - state: gibtonite_inactive
       visible: false
       map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
+
+- type: entity
+  parent: BaseStructure
+  id: WallRockFairyIndestructible
+  name: fissure wall
+  description: Keeps the radiation in and the shaft miners out.
+  suffix: indestructible
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+    - type: Occluder
+    - type: Sprite
+      sprite: _Lavaland/Structures/Walls/fairy.rsi
+      state: rock_fairy
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.5,-0.5,0.5,0.5"
+          mask:
+          - FullTileMask
+          layer:
+          - WallLayer
+          density: 4000
+    - type: RustRequiresPathStage
+      pathStage: 11
+    - type: Penetratable
+      penetrateDamage: 1
+      damagePenalty: 0.1
+    - type: Damageable
+      damageContainer: StructuralInorganic
+      damageModifierSet: StructuralMetallicStrong
+    - type: RadiationBlocker
+      resistance: 20
+    - type: RangedDamageSound
+      soundGroups:
+        Brute:
+          collection:
+            MetalBulletImpact
+      soundTypes:
+        Heat:
+          collection:
+            MetalLaserImpact
+    - type: Tag
+      tags:
+      - Wall
+    - type: IsRoof
+    - type: Physics
+      bodyType: Static
+    - type: Airtight
+    - type: StaticPrice
+      price: 75
+    - type: BlockWeather
+    - type: SunShadowCast

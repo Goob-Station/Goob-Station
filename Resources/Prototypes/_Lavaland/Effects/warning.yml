@@ -1,0 +1,118 @@
+- type: entity
+  id: ORTWarningBox
+  name: warning
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Effects/warning.rsi
+    state: warning_box
+    shader: unshaded
+    drawdepth: BelowMobs
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35, -0.35, 0.35, 0.35"
+        density: 9999
+        hard: false
+        mask:
+        - MobMask
+        layer:
+        - GlassLayer
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+      - ORTBeamSmall
+    intervalSeconds: 1
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+  - type: Physics
+    bodyType: Static
+  - type: FadingIn
+    fadeInTime: 0.3
+  - type: FadingTimedDespawn
+    lifetime: 1.1
+    fadeOutTime: 0.3
+
+- type: entity
+  id: EmptyWarningSpawner # SpawnEntityActionEvent spawns in invisible entities, so this middle manager is needed.
+  categories: [HideSpawnMenu]
+  components:
+  - type: Timer
+  - type: TriggerOnSpawn
+  - type: SpawnOnTrigger
+    proto: ORTWarningBoxLarge
+    predicted: true
+  - type: TimedDespawn
+    lifetime: 0.1
+
+- type: entity
+  id: ORTWarningBoxLarge
+  parent: ORTWarningBox
+  components:
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.5
+    sprintSpeedModifier: 0.5
+    ignoreWhitelist:
+      components:
+      - Fauna  
+  - type: Sprite
+    sprite: _Lavaland/Effects/large_warning.rsi
+    state: Mwarning_box
+    shader: unshaded
+    drawdepth: BelowMobs
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5, -0.5, 0.5, 0.5"
+        density: 9999
+        hard: false
+        mask:
+        - MobMask
+        layer:
+        - GlassLayer
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+      - ORTMassiveThunderstrike
+    intervalSeconds: 3.9
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+  - type: FadingIn
+    fadeInTime: 0.3
+  - type: FadingTimedDespawn
+    lifetime: 4
+
+- type: entity
+  id: ORTAnchor
+  categories: [HideSpawnMenu]
+  components:
+  - type: Transform  
+
+- type: entity
+  id: ParadigmInflationTarget
+  categories: [HideSpawnMenu]
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Effects/target.rsi
+    state: ORT_target
+    shader: unshaded
+    drawdepth: Effects
+    noRot: true
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: Green
+    castShadows: true
+  - type: Timer
+  - type: FadingIn
+    fadeInTime: 0.5
+  - type: FadingTimedDespawn
+    lifetime: 5
+  - type: Rotating
+    increaseOvertime: true
+    rotationSpeed: 35

@@ -1,0 +1,209 @@
+# Root selector
+- type: megafaunaSelector
+  id: Mercury
+  selector: !type:AllMegafaunaSelector
+    children:
+    - id: PickTargetSimple
+    - id: MercuryActions
+
+- type: megafaunaSelector
+  id: UFO
+  selector: !type:AllMegafaunaSelector
+    children:
+    - id: PickTargetSimple
+    - id: UFOActions
+
+- type: megafaunaSelector
+  id: ORTMelee
+  selector: !type:AllMegafaunaSelector
+    children:
+    - id: PickTargetSimple
+    - id: ORTMeleeActions
+
+- type: megafaunaSelector
+  id: ORTRanged
+  selector: !type:AllMegafaunaSelector
+    children:
+    - id: PickTargetSimple
+    - id: ORTRangedActions
+
+# Actions
+- type: megafaunaSelector
+  id: MercuryActions
+  selector: !type:GroupMegafaunaSelector
+    children:
+    - id: ActionORTEtherDrain
+    - id: ActionORTPlanktonFlood
+    - id: ActionORTCosmicRays
+    - id: ActionORTResonanceVertical
+    - id: ActionORTResonanceHorizontal
+
+- type: megafaunaSelector
+  id: UFOActions
+  selector: !type:GroupMegafaunaSelector
+    children:
+    - id: ActionORTEnergyDischarge
+    - id: ActionGalacticaSupercell
+    - id: ActionORTEnergySurge
+
+- type: megafaunaSelector
+  id: ORTMeleeActions
+  selector: !type:GroupMegafaunaSelector
+    children:
+    - id: ActionORTSolarStorm
+    - id: ActionORTParadigmInflation
+    - id: ActionORTPhaseConversion
+    - id: ActionORTReflectiveThreads
+
+- type: megafaunaSelector
+  id: ORTRangedActions
+  selector: !type:GroupMegafaunaSelector
+    children:
+    - id: ActionORTEtherDrain
+    - id: ActionORTEnergyDischarge
+    - id: ActionORTEnergySurge
+    - id: ActionORTPhaseConversion
+    - id: ActionORTDarkMatterShell
+
+- type: megafaunaSelector
+  id: ActionORTEtherDrain
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0,4.0
+      inverse: true
+    actionId: ActionORTEtherDrain
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionORTEtherDrain
+
+- type: megafaunaSelector
+  id: ActionORTPlanktonFlood
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0,4.0
+      inverse: true
+    actionId: ActionORTPlanktonFlood
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionORTPlanktonFlood
+
+- type: megafaunaSelector
+  id: ActionORTEnergyDischarge
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0,4.0
+      inverse: true
+    actionId: ActionORTEnergyDischarge
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionORTEnergyDischarge
+
+- type: megafaunaSelector
+  id: ActionORTEnergySurge
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0,4.0
+      inverse: true
+    actionId: ActionORTEnergySurge
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionORTEnergySurge
+
+- type: megafaunaSelector
+  id: ActionGalacticaSupercell
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0,4.0
+      inverse: true
+    actionId: ActionGalacticaSupercell
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionGalacticaSupercell
+
+- type: megafaunaSelector
+  id: ActionORTCosmicRays
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0,4.0
+      inverse: true
+    actionId: ActionORTCosmicRays
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionORTCosmicRays
+
+- type: megafaunaSelector
+  id: ActionORTResonanceHorizontal
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0,4.0
+      inverse: true
+    actionId: ActionORTResonanceHorizontal
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionORTResonanceHorizontal
+
+- type: megafaunaSelector
+  id: ActionORTResonanceVertical
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0,4.0
+      inverse: true
+    actionId: ActionORTResonanceVertical
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionORTResonanceVertical
+
+- type: megafaunaSelector
+  id: ActionORTSolarStorm
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0,4.0
+      inverse: true
+    actionId: ActionORTSolarStorm
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionORTSolarStorm
+
+- type: megafaunaSelector
+  id: ActionORTParadigmInflation
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0,4.0
+      inverse: true
+    actionId: ActionORTParadigmInflation
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionORTParadigmInflation
+
+- type: megafaunaSelector
+  id: ActionORTPhaseConversion
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0,4.0
+      inverse: true
+    actionId: ActionORTPhaseConversion
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionORTPhaseConversion
+
+- type: megafaunaSelector
+  id: ActionORTReflectiveThreads
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0,4.0
+      inverse: true
+    actionId: ActionORTReflectiveThreads
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionORTReflectiveThreads
+
+- type: megafaunaSelector
+  id: ActionORTDarkMatterShell
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0,4.0
+      inverse: true
+    actionId: ActionORTDarkMatterShell
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionORTDarkMatterShell

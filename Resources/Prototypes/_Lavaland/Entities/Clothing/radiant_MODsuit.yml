@@ -1,0 +1,169 @@
+- type: entity
+  parent: [ ClothingModsuitStandard ]
+  id: ClothingModsuitORTRadiant
+  name: Radiant modsuit control unit
+  description: A highly-adaptable control unit in the form of the Ultimate One.
+  components:
+    - type: Sprite
+      sprite: _Lavaland/Clothing/Back/Modsuits/radiant.rsi
+    - type: ToggleableClothing
+      clothingPrototypes:
+        head: ClothingModsuitHelmetORTRadiant
+        gloves: ClothingModsuitGauntletsORTRadiant
+        outerClothing: ClothingModsuitChestplateORTRadiant
+        shoes: ClothingModsuitBootsORTRadiant
+    - type: ItemSlots
+      slots:
+        cell_slot:
+          name: power-cell-slot-component-slot-name-default
+          startingItem: PowerCellMicroreactor
+          whitelist:
+            components:
+              - PowerCell
+    - type: Storage
+      grid:
+        - 0,0,10,3
+    - type: SealableClothingVisuals
+      spriteLayer: sealed
+      clothingVisuals:
+        back:
+        - state: equipped-BACKPACK-sealed
+
+- type: entity
+  parent: ClothingModsuitGauntletsStandard
+  id: ClothingModsuitGauntletsORTRadiant
+  name: Radiant modsuit gauntlets
+  description: 
+  categories: [HideSpawnMenu]
+  components:
+    - type: Sprite
+      sprite: _Lavaland/Clothing/Hands/ModSuits/radiant.rsi
+    - type: SealableClothingVisuals
+      spriteLayer: sealed
+      clothingVisuals:
+        gloves:
+        - state: equipped-HAND-sealed
+    - type: Insulated
+
+- type: entity
+  parent: ClothingModsuitHelmetStandard
+  id: ClothingModsuitHelmetORTRadiant
+  name: Radiant modsuit helmet
+  description: 
+  categories: [HideSpawnMenu]
+  components:
+    - type: Sprite
+      sprite: _Lavaland/Clothing/Head/Modsuits/radiant.rsi
+    - type: PressureProtection
+      highPressureMultiplier: 0.08
+      lowPressureMultiplier: 1000
+    - type: Armor
+      traumaDeductions:
+        Dismemberment: 0.8
+        OrganDamage: 0.75
+        BoneDamage: 0.75
+        VeinsDamage: 0.2
+        NerveDamage: 0.1
+      modifiers:
+        coefficients:
+          Blunt: 0.7
+          Slash: 0.7
+          Piercing: 0.6
+          Heat: 0.5
+          Radiation: 0
+          Caustic: 0.75
+    - type: FlashImmunity
+    - type: FlashSoundSuppression
+      protectionRange: 3
+    - type: EyeProtection
+    - type: ShowHealthBars
+      damageContainers:
+        - Biological
+        - Inorganic
+        - Silicon
+    - type: PointLight
+      color: "#FFDF00"
+      radius: 15 # Comically powerful
+      energy: 10
+    - type: SealableClothingVisuals
+      spriteLayer: sealed
+      clothingVisuals:
+        head:
+        - state: equipped-HEAD-sealed
+
+- type: entity
+  parent: ClothingModsuitChestplateStandard
+  id: ClothingModsuitChestplateORTRadiant
+  name: Radiant modsuit chestplate
+  description: 
+  categories: [HideSpawnMenu]
+  components:
+    - type: Sprite
+      sprite: _Lavaland/Clothing/OuterClothing/MODsuits/Radiant/radiant.rsi
+    - type: Armor
+      traumaDeductions:
+        Dismemberment: 0.75
+        OrganDamage: 0.75
+        BoneDamage: 0.75
+        VeinsDamage: 0
+        NerveDamage: 0
+      modifiers:
+        coefficients:
+          Blunt: 0.75
+          Slash: 0.75
+          Piercing: 0.6
+          Heat: 0.6
+          Radiation: 0
+          Caustic: 0.5
+    - type: ExplosionResistance
+      damageCoefficient: 0.8
+    - type: SealableClothingVisuals
+      spriteLayer: sealed
+      clothingVisuals:
+        outerClothing:
+        - state: equipped-OUTERCLOTHING-sealed
+    - type: StaminaResistance
+      damageCoefficient: 0.75
+
+- type: entity
+  parent: ClothingModsuitBootsStandard
+  id: ClothingModsuitBootsORTRadiant
+  name: Radiant modsuit boots
+  description: 
+  categories: [HideSpawnMenu]
+  components:
+    - type: Appearance
+    - type: Sprite
+      sprite: _Lavaland/Clothing/Shoes/MODsuits/radiant.rsi
+    - type: Tag
+      tags:
+        - WhitelistChameleon
+    - type: SealableClothingVisuals
+      spriteLayer: sealed
+      clothingVisuals:
+        shoes:
+        - state: equipped-FEET-sealed
+    - type: ItemToggle
+    - type: ToggleClothing
+      action: ActionToggleMagboots
+    - type: ComponentToggler
+      components:
+      - type: NoSlip
+    - type: Magboots
+      enabledPrefix: null
+    - type: ClothingSpeedModifier
+      walkModifier: 1.15
+      sprintModifier: 1.15
+    #- type: ClothingGrantComponent
+    #  component:
+
+- type: entity
+  id: SuitStorageORTRadiant # Honestly not sure what this is for
+  parent: SuitStorageBase
+  suffix: Radiant Modsuit
+  components:
+    - type: StorageFill
+      contents:
+        - id: OxygenTankFilled
+        - id: ClothingModsuitORTRadiant
+        - id: ClothingMaskBreath
