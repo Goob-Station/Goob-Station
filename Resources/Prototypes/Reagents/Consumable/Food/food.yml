@@ -138,3 +138,16 @@
   desc: reagent-desc-pumpkin-flesh
   flavor: pumpkin
   color: "#fc9300"
+
+- type: reagent
+  id: Queso
+  parent: Nutriment
+  name: reagent-name-queso
+  desc: reagent-desc-queso
+  flavor: cheesy
+  color: "#f7cf60"
+  viscosity: 0.25
+  recognizable: true
+  footstepSound:
+    collection: FootstepSlime
+  physicalDesc: reagent-physical-desc-saucey

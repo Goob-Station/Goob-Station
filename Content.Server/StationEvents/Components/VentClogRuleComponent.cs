@@ -25,7 +25,7 @@ public sealed partial class VentClogRuleComponent : Component
     [DataField]
     public IReadOnlyList<ProtoId<ReagentPrototype>> SafeishVentChemicals = new ProtoId<ReagentPrototype>[]
     {
-        "Water", "Blood", "Slime", "SpaceDrugs", "SpaceCleaner", "Nutriment", "Sugar", "SpaceLube", "Ephedrine", "Ale", "Beer", "SpaceGlue"
+        "Water", "Blood", "Slime", "SpaceDrugs", "SpaceCleaner", "Nutriment", "Sugar", "SpaceLube", "Ephedrine", "Ale", "Beer", "SpaceGlue", "Queso"
     };
 
     /// <summary>

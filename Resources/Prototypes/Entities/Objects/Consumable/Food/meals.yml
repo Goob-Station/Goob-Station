@@ -616,6 +616,16 @@
         - cheesy
     - type: Sprite
       state: queso
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 26
+          reagents:
+          - ReagentId: Queso
+            Quantity: 20
+    - type: SolutionSpiker
+      sourceSolution: food
+      ignoreEmpty: true
 # Its queso! Everyone loves queso... Right?.
 
 - type: entity
