@@ -106,12 +106,14 @@
   storage:
     back:
     - ClothingHeadHatFlowerWreath
+  groupBy: "hats"
 
 - type: loadout
   id: Hairflower
   storage:
     back:
     - ClothingHeadHatHairflower
+  groupBy: "hats"
 
 # Headphones
 - type: loadout
@@ -119,6 +121,7 @@
   storage:
     back:
     - ClothingMultipleHeadphones
+  groupBy: "hats"
 
 # Toys
 - type: loadout
@@ -126,12 +129,14 @@
   storage:
     back:
     - PlushieLizard
+  groupBy: "plushies"
 
 - type: loadout
   id: PlushieSpaceLizard
   storage:
     back:
     - PlushieSpaceLizard
+  groupBy: "plushies"
 
 - type: loadout
   id: ThreeCandles
@@ -405,6 +410,7 @@
   storage:
     back:
     - CardBoxBlack
+  groupBy: "cards"
 
 # Nanotrasen Variant
 - type: loadout
@@ -418,6 +424,7 @@
   storage:
     back:
     - CardBoxNanotrasen
+  groupBy: "cards"
 
 # Candy!
 
@@ -431,6 +438,7 @@
   storage:
     back:
     - FoodSnackLollypopWrapped
+  groupBy: "candy"
 
 - type: loadout
   id: FoodSnackLollypopWrappedRainbow
@@ -442,6 +450,7 @@
   storage:
     back:
     - FoodSnackLollypopWrappedRainbow
+  groupBy: "candy"
 
 - type: loadout
   id: FoodSnackLollypopWrappedCarp
@@ -454,6 +463,7 @@
   storage:
     back:
     - FoodSnackLollypopWrappedCarp
+  groupBy: "candy"
 
 # End GoobStation
 
