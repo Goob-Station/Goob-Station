@@ -196,6 +196,8 @@
   - SolarControlComputerCircuitboard
   - SolarTrackerElectronics
   - EmitterCircuitboard
+  # Goobstation
+  - PowerComputerCircuitboard
   position: 0,-2
 
 - type: technology
@@ -210,6 +212,10 @@
   recipeUnlocks:
   - ThermomachineFreezerMachineCircuitBoard
   - GasRecyclerMachineCircuitboard
+  # Goobstation
+  - AlertsComputerCircuitboard
+  - AtmosMonitoringComputerCircuitboard
+  - SupermatterComputerCircuitboard
   # Goobstation R&D Console rework start
   position: -2,-4
   technologyPrerequisites:
