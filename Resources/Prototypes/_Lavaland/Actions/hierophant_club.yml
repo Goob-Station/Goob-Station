@@ -52,6 +52,7 @@
       sprite: _Lavaland/Objects/Weapons/hierophant_club.rsi
       state: icon
   - type: TargetAction
+    checkCanAccess: true
     range: 10
   - type: WorldTargetAction
     event: !type:MegafaunaBlinkActionEvent

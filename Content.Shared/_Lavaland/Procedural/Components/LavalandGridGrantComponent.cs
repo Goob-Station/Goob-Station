@@ -3,14 +3,15 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Lavaland.Procedural.Components;
+namespace Content.Shared._Lavaland.Procedural.Components;
 
 /// <summary>
 /// Component that is used for granting components to entities that enter the ruin.
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class LavalandGridGrantComponent : Component
 {
     /// <summary>
