@@ -1096,6 +1096,12 @@
   id: EvilPlushieTwofish
   suffix: Evil
 
+- type: entity
+  name: evil Leo Malone plush
+  parent: PlushieLeoMalone
+  id: EvilPlushieLeoMalone
+  suffix: Evil
+
 
 - type: entity
   parent: BaseItem
@@ -1151,3 +1157,46 @@
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/Effects/Chemistry/bubbles.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieLeoMalone
+  name: Leo Malone plushie
+  description: Smells faintly of authority and gunpowder. It barks a lot. No, seriously. A lot.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_leomalone
+  - type: Item
+    heldPrefix: plushieleomalone
+  - type: EmitSoundOnUse
+    sound:
+      collection: VulpkaninBarks
+  - type: EmitSoundOnLand
+    sound:
+      collection: VulpkaninBarks
+  - type: EmitSoundOnActivate
+    sound:
+      collection: VulpkaninBarks
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: VulpkaninBarks
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      collection: VulpkaninSnarls
+  - type: PlushieBite
+    favoredSpecies:
+    - Vulpkanin
+    biteChance: 0.15
+    biteInterval: 15
+    biteDamage:
+      types:
+        Slash: 5
+    biteSound:
+      collection: VulpkaninSnarls
