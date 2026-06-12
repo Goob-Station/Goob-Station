@@ -803,21 +803,21 @@
   components:
   - type: Sprite
     sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
-    layers:
+    layers: #Goob - Military Jumpsuit Color Correction
     - state: icon-base-bottom
       color: "#3e3e48"
     - state: icon-base-top-jumpsuit
       color: "#3e3e48"
     - state: icon-decor-department
-      color: "#09300b"
+      color: "#3E6588"
     - state: icon-decor-department-head
-      color: "#fbe6b8"
+      color: "#A52F29"
     - state: icon-decor-epaulets
-      color: "#eca615"
+      color: "#EADB83"
     - state: icon-belt
-      color: "#fbe6b8"
+      color: "#E6A345"
     - state: icon-belt-buckle
-      color: "#eca615"
+      color: "#C06822"
   - type: Item
     inhandVisuals:
       left:
@@ -826,30 +826,30 @@
       - state: inhand-left-base-top-jumpsuit
         color: "#3e3e48"
       - state: inhand-left-decor-department
-        color: "#09300b"
+        color: "#3E6588"
       - state: inhand-left-decor-department-head
-        color: "#fbe6b8"
+        color: "#A52F29"
       - state: inhand-left-decor-epaulets
-        color: "#eca615"
+        color: "#EADB83"
       - state: inhand-left-belt
-        color: "#fbe6b8"
+        color: "#E6A345"
       - state: inhand-left-belt-buckle
-        color: "#eca615"
+        color: "#C06822"
       right:
       - state: inhand-right-base-bottom
         color: "#3e3e48"
       - state: inhand-right-base-top-jumpsuit
         color: "#3e3e48"
       - state: inhand-right-decor-department
-        color: "#09300b"
+        color: "#3E6588"
       - state: inhand-right-decor-department-head
-        color: "#fbe6b8"
+        color: "#A52F29"
       - state: inhand-right-decor-epaulets
-        color: "#eca615"
+        color: "#EADB83"
       - state: inhand-right-belt
-        color: "#fbe6b8"
+        color: "#E6A345"
       - state: inhand-right-belt-buckle
-        color: "#eca615"
+        color: "#C06822"
   - type: Clothing
     sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
     clothingVisuals:
@@ -859,15 +859,15 @@
       - state: equipped-base-top-jumpsuit
         color: "#3e3e48"
       - state: equipped-decor-department
-        color: "#2c6a30"
+        color: "#3E6588"
       - state: equipped-decor-department-head
-        color: "#fbe6b8"
+        color: "#A52F29"
       - state: equipped-decor-epaulets
-        color: "#eca615"
+        color: "#EADB83"
       - state: equipped-belt
-        color: "#fbe6b8"
+        color: "#E6A345"
       - state: equipped-belt-buckle
-        color: "#eca615"
+        color: "#C06822"
 
 ## ENGINEERING
 - type: entity
