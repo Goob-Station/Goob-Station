@@ -143,3 +143,24 @@
   id: DiscountedItems
   name: store-discounted-items
   priority: 200
+
+# Malfunctioning AI
+- type: storeCategory
+  id: MalfAI
+  name: store-category-malfai
+  priority: 0
+
+- type: storeCategory
+  id: MalfAIDeception
+  name: store-category-malfai-deception
+  priority: 1
+
+- type: storeCategory
+  id: MalfAIFactory
+  name: store-category-malfai-factory
+  priority: 2
+
+- type: storeCategory
+  id: MalfAIDisruption
+  name: store-category-malfai-disruption
+  priority: 3

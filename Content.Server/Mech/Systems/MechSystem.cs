@@ -200,7 +200,7 @@ public sealed partial class MechSystem : SharedMechSystem
     private void OnOpenUi(EntityUid uid, MechComponent component, MechOpenUiEvent args)
     {
         args.Handled = true;
-        ToggleMechUi(uid, component);
+        ToggleMechUi(uid, component, args.Performer); // Goobstation - MalfAI: honor the performer (identical for regular pilots)
     }
 
     private void OnToolUseAttempt(EntityUid uid, MechPilotComponent component, ref ToolUserAttemptUseEvent args)

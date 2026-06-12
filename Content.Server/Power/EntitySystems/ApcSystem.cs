@@ -30,18 +30,26 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Emp;
+using Content.Server._Funkystation.MalfAI; // Goobstation - MalfAI
 using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Power.Pow3r;
 using Content.Shared.Access.Systems;
 using Content.Shared.APC;
+using Content.Shared.CCVar; // Goobstation - MalfAI
+using Content.Shared.Emag.Components; // Goobstation - MalfAI
 using Content.Shared.Emag.Systems;
+using Content.Shared.Interaction; // Goobstation - MalfAI
+using Content.Shared._Funkystation.MalfAI; // Goobstation - MalfAI
 using Content.Shared.Popups;
+using Content.Shared.Silicons.StationAi; // Goobstation - MalfAI
 using Content.Shared.Rounding;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Configuration; // Goobstation - MalfAI
 using Robust.Shared.Timing;
+using Timer = Robust.Shared.Timing.Timer; // Goobstation - MalfAI
 
 namespace Content.Server.Power.EntitySystems;
 
@@ -54,6 +62,8 @@ public sealed class ApcSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly MalfAiApcSiphonSystem _malfAiSiphon = default!; // Goobstation - MalfAI
+    [Dependency] private readonly IConfigurationManager _cfg = default!; // Goobstation - MalfAI
 
     public override void Initialize()
     {
@@ -68,6 +78,13 @@ public sealed class ApcSystem : EntitySystem
         SubscribeLocalEvent<ApcComponent, GotEmaggedEvent>(OnEmagged);
 
         SubscribeLocalEvent<ApcComponent, EmpPulseEvent>(OnEmpPulse);
+
+        // Goobstation - MalfAI: APC siphoning
+        SubscribeLocalEvent<ApcComponent, ApcSiphonCpuMessage>(OnSiphonCpu);
+        SubscribeLocalEvent<ApcComponent, ApcStartSiphonEvent>(OnStartSiphon);
+        SubscribeLocalEvent<MalfAiApcSiphonedComponent, ApcSiphonExpiredEvent>(OnSiphonExpired);
+        SubscribeLocalEvent<MalfAiApcSiphonedComponent, ApcToggleMainBreakerAttemptEvent>(OnSiphonedToggleAttempt);
+        SubscribeLocalEvent<MalfAiApcSiphonedComponent, InteractHandEvent>(OnSiphonedInteract);
     }
 
     public override void Update(float deltaTime)
@@ -133,11 +150,105 @@ public sealed class ApcSystem : EntitySystem
         if (!Resolve(uid, ref apc, ref battery))
             return;
 
+        // Goobstation - MalfAI: prevent siphoned APCs from being toggled
+        if (HasComp<MalfAiApcSiphonedComponent>(uid))
+            return;
+
         apc.MainBreakerEnabled = !apc.MainBreakerEnabled;
         battery.CanDischarge = apc.MainBreakerEnabled;
 
         UpdateUIState(uid, apc);
         _audio.PlayPvs(apc.OnReceiveMessageSound, uid, AudioParams.Default.WithVolume(-2f));
+    }
+
+    // Goobstation - MalfAI: siphon request from the APC UI
+    private void OnSiphonCpu(EntityUid uid, ApcComponent component, ApcSiphonCpuMessage args)
+    {
+        // Only a Malf AI may siphon
+        if (!HasComp<MalfAiMarkerComponent>(args.Actor))
+            return;
+
+        var siphonEvent = new ApcStartSiphonEvent(args.Actor);
+        RaiseLocalEvent(uid, ref siphonEvent);
+    }
+
+    // Goobstation - MalfAI
+    private void OnStartSiphon(EntityUid uid, ApcComponent apc, ref ApcStartSiphonEvent args)
+    {
+        // Don't siphon if already siphoned, shouldn't be possible but just in case
+        if (HasComp<MalfAiApcSiphonedComponent>(uid))
+            return;
+
+        if (!TryComp<PowerNetworkBatteryComponent>(uid, out var battery))
+            return;
+
+        // Create siphoned component and save original state
+        var siphonedComp = EnsureComp<MalfAiApcSiphonedComponent>(uid);
+        siphonedComp.OriginalBreakerState = apc.MainBreakerEnabled;
+        Dirty(uid, siphonedComp);
+
+        // Set APC to emagged state
+        var emagged = EnsureComp<EmaggedComponent>(uid);
+        emagged.EmagType |= EmagType.Interaction;
+        Dirty(uid, emagged);
+
+        // Disable the APC
+        apc.MainBreakerEnabled = false;
+        battery.CanDischarge = false;
+
+        // Update APC state and UI
+        UpdateApcState(uid, apc, battery);
+        UpdateUIState(uid, apc, battery);
+
+        // Schedule siphon expiration using configurable duration
+        var siphonDuration = TimeSpan.FromSeconds(_cfg.GetCVar(CCVars.MalfAiSiphonDurationSeconds));
+        Timer.Spawn(siphonDuration, () =>
+        {
+            if (!Exists(uid))
+                return;
+
+            var expireEvent = new ApcSiphonExpiredEvent();
+            RaiseLocalEvent(uid, ref expireEvent);
+        });
+
+        // Handle MalfAI CPU rewards
+        _malfAiSiphon.OnApcStartSiphon(uid, apc, ref args);
+    }
+
+    // Goobstation - MalfAI
+    private void OnSiphonExpired(EntityUid uid, MalfAiApcSiphonedComponent siphoned, ref ApcSiphonExpiredEvent args)
+    {
+        if (!TryComp<ApcComponent>(uid, out var apc) || !TryComp<PowerNetworkBatteryComponent>(uid, out var battery))
+            return;
+
+        // Restore original APC state
+        apc.MainBreakerEnabled = siphoned.OriginalBreakerState;
+        battery.CanDischarge = siphoned.OriginalBreakerState;
+
+        // Remove siphoned and emag components
+        RemComp<MalfAiApcSiphonedComponent>(uid);
+        RemComp<EmaggedComponent>(uid);
+
+        // Update APC state and UI
+        UpdateApcState(uid, apc, battery);
+        UpdateUIState(uid, apc, battery);
+
+        _popup.PopupEntity(Loc.GetString("malfai-apc-restore"), uid);
+    }
+
+    // Goobstation - MalfAI
+    private void OnSiphonedToggleAttempt(EntityUid uid, MalfAiApcSiphonedComponent siphoned, ref ApcToggleMainBreakerAttemptEvent args)
+    {
+        // Block all toggle attempts on siphoned APCs
+        args.Cancelled = true;
+    }
+
+    // Goobstation - MalfAI
+    private void OnSiphonedInteract(EntityUid uid, MalfAiApcSiphonedComponent siphoned, InteractHandEvent args)
+    {
+        // Block all interactions with siphoned APCs
+        _popup.PopupCursor(Loc.GetString("malfai-apc-unresponsive"), args.User, PopupType.Medium);
+        args.Handled = true;
     }
 
     private void OnEmagged(EntityUid uid, ApcComponent comp, ref GotEmaggedEvent args)
@@ -199,14 +310,16 @@ public sealed class ApcSystem : EntitySystem
 
         var state = new ApcBoundInterfaceState(apc.MainBreakerEnabled,
             (int) MathF.Ceiling(battery.CurrentSupply), apc.LastExternalState,
-            charge);
+            charge,
+            HasComp<MalfAiApcSiphonedComponent>(uid)); // Goobstation - MalfAI
 
         _ui.SetUiState((uid, ui), ApcUiKey.Key, state);
     }
 
     private ApcChargeState CalcChargeState(EntityUid uid, PowerState.Battery battery)
     {
-        if (_emag.CheckFlag(uid, EmagType.Interaction))
+        // Goobstation - MalfAI: an inhabited APC (shunted AI) shows the same blue screen as a siphoned one
+        if (_emag.CheckFlag(uid, EmagType.Interaction) || HasComp<StationAiHolderComponent>(uid))
             return ApcChargeState.Emag;
 
         if (battery.CurrentStorage / battery.Capacity > ApcComponent.HighPowerThreshold)

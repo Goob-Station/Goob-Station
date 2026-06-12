@@ -58,6 +58,7 @@
       blacklist:
         components:
         - CommandStaff
+        - StationAiHeld
       components:
       - type: Pacified
       - type: Thieving

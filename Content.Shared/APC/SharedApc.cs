@@ -205,13 +205,15 @@ namespace Content.Shared.APC
         public readonly int Power;
         public readonly ApcExternalPowerState ApcExternalPower;
         public readonly float Charge;
+        public readonly bool Siphoned; // Goobstation - MalfAI: true if this APC has already been siphoned
 
-        public ApcBoundInterfaceState(bool mainBreaker, int power, ApcExternalPowerState apcExternalPower, float charge)
+        public ApcBoundInterfaceState(bool mainBreaker, int power, ApcExternalPowerState apcExternalPower, float charge, bool siphoned = false) // Goobstation - MalfAI
         {
             MainBreaker = mainBreaker;
             Power = power;
             ApcExternalPower = apcExternalPower;
             Charge = charge;
+            Siphoned = siphoned; // Goobstation - MalfAI
         }
 
         public bool Equals(ApcBoundInterfaceState? other)
@@ -221,7 +223,8 @@ namespace Content.Shared.APC
             return MainBreaker == other.MainBreaker &&
                    Power == other.Power &&
                    ApcExternalPower == other.ApcExternalPower &&
-                   MathHelper.CloseTo(Charge, other.Charge);
+                   MathHelper.CloseTo(Charge, other.Charge) &&
+                   Siphoned == other.Siphoned; // Goobstation - MalfAI
         }
 
         public override bool Equals(object? obj)
@@ -231,12 +234,18 @@ namespace Content.Shared.APC
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(MainBreaker, Power, (int) ApcExternalPower, Charge);
+            return HashCode.Combine(MainBreaker, Power, (int) ApcExternalPower, Charge, Siphoned); // Goobstation - MalfAI
         }
     }
 
     [Serializable, NetSerializable]
     public sealed class ApcToggleMainBreakerMessage : BoundUserInterfaceMessage
+    {
+    }
+
+    // Goobstation - MalfAI: sent by the Malf AI client to siphon CPU from an APC
+    [Serializable, NetSerializable]
+    public sealed class ApcSiphonCpuMessage : BoundUserInterfaceMessage
     {
     }
 

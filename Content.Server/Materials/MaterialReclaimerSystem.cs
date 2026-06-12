@@ -67,6 +67,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Materials;
+using Content.Shared._Funkystation.Materials; // Goobstation - MalfAI
 using Content.Shared.Mind;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Power;
@@ -230,6 +231,12 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
         MaterialReclaimerComponent? component = null)
     {
         if (!Resolve(uid, ref component))
+            return;
+
+        // Goobstation - MalfAI: allow systems to intercept processing (e.g. robotics factory conversion).
+        var processEvent = new MaterialReclaimerProcessEntityEvent(item);
+        RaiseLocalEvent(uid, processEvent);
+        if (processEvent.Handled)
             return;
 
         base.Reclaim(uid, item, completion, component);

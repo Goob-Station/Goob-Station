@@ -1,0 +1,11 @@
+# SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
+# SPDX-FileCopyrightText: 2025 Goob-Station
+#
+# SPDX-License-Identifier: MIT
+
+- type: antag
+  id: MalfunctioningAI
+  name: roles-antag-malfunctioning-ai-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-malfunctioning-ai-objective

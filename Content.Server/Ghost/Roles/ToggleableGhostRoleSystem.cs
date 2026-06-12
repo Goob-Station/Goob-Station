@@ -191,6 +191,25 @@ public sealed class ToggleableGhostRoleSystem : EntitySystem
         }
     }
 
+    /// <summary>
+    /// Activates the ghost role without a user, e.g. when reconstructing an AI core (upstream port #39588).
+    /// </summary>
+    public void ActivateGhostRole(Entity<ToggleableGhostRoleComponent?> ent)
+    {
+        if (!Resolve(ent, ref ent.Comp))
+            return;
+
+        var ghostRole = EnsureComp<GhostRoleComponent>(ent);
+        EnsureComp<GhostTakeoverAvailableComponent>(ent);
+
+        // GhostRoleComponent inherits custom settings from the ToggleableGhostRoleComponent
+        ghostRole.RoleName = Loc.GetString(ent.Comp.RoleName);
+        ghostRole.RoleDescription = Loc.GetString(ent.Comp.RoleDescription);
+        ghostRole.RoleRules = Loc.GetString(ent.Comp.RoleRules);
+        ghostRole.JobProto = ent.Comp.JobProto;
+        ghostRole.MindRoles = ent.Comp.MindRoles;
+    }
+
     // Goobstation
     public void TryActivate(EntityUid uid, ToggleableGhostRoleComponent component, EntityUid user)
     {

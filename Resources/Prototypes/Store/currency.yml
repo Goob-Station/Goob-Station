@@ -30,6 +30,12 @@
   displayName: store-currency-display-wizcoin
   canWithdraw: false
 
+# Malfunctioning AI
+- type: currency
+  id: CPU
+  displayName: store-currency-display-cpu
+  canWithdraw: false
+
 #debug
 - type: currency
   id: DebugDollar

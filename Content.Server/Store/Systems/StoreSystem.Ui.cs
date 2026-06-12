@@ -40,6 +40,8 @@ using Content.Server.Stack;
 using Content.Server.Store.Components;
 using Content.Shared._Goobstation.Wizard.Refund; // Goob
 using Content.Shared.Actions;
+using Content.Shared.Charges.Components; // Goobstation - MalfAI
+using Content.Shared.Charges.Systems; // Goobstation - MalfAI
 using Content.Shared.Database;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.ManifestListings;
@@ -74,6 +76,7 @@ public sealed partial class StoreSystem
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly HereticSystem _heretic = default!; // goobstation - heretics
     [Dependency] private readonly IGameTiming _timing = default!; // goobstation - ntr update
+    [Dependency] private readonly SharedChargesSystem _charges = default!; // Goobstation - MalfAI
 
     private void InitializeUi()
     {
@@ -273,6 +276,27 @@ public sealed partial class StoreSystem
         //give action
         if (!string.IsNullOrWhiteSpace(listing.ProductAction))
         {
+            // Goobstation - MalfAI: rebuying a limited-charges action from the CPU store
+            // refills its charges instead of granting a duplicate. Other stores keep vanilla behaviour.
+            var refilled = false;
+            if (listing.Cost.ContainsKey("CPU"))
+            {
+                foreach (var existing in _actions.GetActions(buyer))
+                {
+                    if (MetaData(existing.Owner).EntityPrototype?.ID != listing.ProductAction)
+                        continue;
+
+                    if (!TryComp<LimitedChargesComponent>(existing.Owner, out var charges))
+                        break;
+
+                    _charges.ResetCharges((existing.Owner, charges));
+                    refilled = true;
+                    break;
+                }
+            }
+
+            if (!refilled)
+            {
             EntityUid? actionId;
             // I guess we just allow duplicate actions?
             // Allow duplicate actions and just have a single list buy for the buy-once ones.
@@ -299,6 +323,8 @@ public sealed partial class StoreSystem
                     }
                 }
             }
+
+            } // Goobstation - MalfAI end
         }
 
         if (listing is { ProductUpgradeId: not null, ProductActionEntity: not null })
@@ -335,10 +361,22 @@ public sealed partial class StoreSystem
 
         if (listing.ProductEvent != null)
         {
-            if (!listing.RaiseProductEventOnUser)
-                RaiseLocalEvent(listing.ProductEvent);
+            // Goobstation - MalfAI: handle ActionPurchaseCompanionEvent specially to populate the buyer
+            if (listing.ProductEvent is Content.Shared._Funkystation.Actions.Events.ActionPurchaseCompanionEvent companionEvent)
+            {
+                companionEvent.Buyer = GetNetEntity(buyer);
+                if (!listing.RaiseProductEventOnUser)
+                    RaiseLocalEvent(companionEvent);
+                else
+                    RaiseLocalEvent(buyer, companionEvent);
+            }
             else
-                RaiseLocalEvent(buyer, listing.ProductEvent);
+            {
+                if (!listing.RaiseProductEventOnUser)
+                    RaiseLocalEvent(listing.ProductEvent);
+                else
+                    RaiseLocalEvent(buyer, listing.ProductEvent);
+            }
         }
 
         // Goob edit start

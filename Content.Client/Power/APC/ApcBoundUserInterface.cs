@@ -27,6 +27,7 @@
 using Content.Client.Power.APC.UI;
 using Content.Shared.Access.Systems;
 using Content.Shared.APC;
+using Content.Shared._Funkystation.MalfAI; // Goobstation - MalfAI
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 
@@ -48,14 +49,21 @@ namespace Content.Client.Power.APC
             _menu = this.CreateWindow<ApcMenu>();
             _menu.SetEntity(Owner);
             _menu.OnBreaker += BreakerPressed;
+            _menu.OnSiphon += SiphonPressed; // Goobstation - MalfAI
 
             var hasAccess = false;
+            var isMalfAi = false; // Goobstation - MalfAI
             if (PlayerManager.LocalEntity != null)
             {
+                var player = (EntityUid) PlayerManager.LocalEntity;
                 var accessReader = EntMan.System<AccessReaderSystem>();
-                hasAccess = accessReader.IsAllowed((EntityUid)PlayerManager.LocalEntity, Owner);
+                hasAccess = accessReader.IsAllowed(player, Owner);
+
+                // Goobstation - MalfAI: only Malf AI should see the siphon button.
+                isMalfAi = EntMan.HasComponent<MalfAiMarkerComponent>(player);
             }
             _menu?.SetAccessEnabled(hasAccess);
+            _menu?.SetSiphonVisible(isMalfAi); // Goobstation - MalfAI
         }
 
         protected override void UpdateState(BoundUserInterfaceState state)
@@ -69,6 +77,12 @@ namespace Content.Client.Power.APC
         public void BreakerPressed()
         {
             SendMessage(new ApcToggleMainBreakerMessage());
+        }
+
+        // Goobstation - MalfAI
+        public void SiphonPressed()
+        {
+            SendMessage(new ApcSiphonCpuMessage());
         }
     }
 }

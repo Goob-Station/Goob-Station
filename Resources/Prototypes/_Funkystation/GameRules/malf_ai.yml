@@ -1,0 +1,46 @@
+# SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
+# SPDX-FileCopyrightText: 2025 Goob-Station
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  parent: BaseGameRule
+  id: MalfAi
+  components:
+  - type: MalfAiRule
+  - type: GameRule
+    minPlayers: 20
+  - type: AntagObjectives
+    objectives:
+    - MalfAiSurviveObjective
+  - type: AntagRandomObjectives
+    sets:
+    - groups: MalfAiSabotageObjectives
+      maxPicks: 3
+    maxDifficulty: 8
+  - type: AntagSelection
+    selectionTime: PostPlayerSpawn
+    agentName: malfai-roundend-name
+    definitions:
+    - prefRoles: [ MalfunctioningAI ]
+      max: 1
+      playerRatio: 20
+      chaosScore: 1000
+      allowNonHumans: true
+      whitelist:
+        components:
+        - StationAiHeld
+      blacklist:
+        components:
+        - MalfAiMarker
+      mindRoles:
+      - MindRoleMalfAi
+      briefing:
+        text: malfai-role-greeting
+        color: Red
+        sound: "/Audio/_Funkystation/Ambience/Antag/malfai_start.ogg"
+      components:
+      - type: MalfAiMarker
+  - type: Tag
+    tags:
+    - RoundstartAntag
