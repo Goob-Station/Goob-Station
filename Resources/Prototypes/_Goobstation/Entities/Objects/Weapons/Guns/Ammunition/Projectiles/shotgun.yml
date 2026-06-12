@@ -275,6 +275,7 @@
     intensitySlope: 2
     totalIntensity: 1
 
+# Basically copies explosive grenades, I did not parent directly because animation caused the shrapnel to spawn with an error texture.
 - type: entity
   id: BulletShrapnelHeavyHighExplosive
   name: explosive shrapnel
@@ -284,14 +285,42 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     state: ball
+  - type: TriggerOnUse
+  - type: TimerTrigger
+    delay: 3
+    popup: null
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:TriggerBehavior
+        keyOut: timer # explode immediately
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: ExplodeOnTrigger
+    keysIn:
+    - timer
   - type: Explosive
     explosionType: DemolitionCharge
     totalIntensity: 15
     intensitySlope: 5
     maxIntensity: 5
-  - type: ExplodeOnTrigger
   - type: TimedDespawn
     lifetime: 6
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.2
+        density: 20 # derived from base_item
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
 
 - type: entity
   id: HeavyPelletShotgunSpread
@@ -320,6 +349,10 @@
       armorPenetration: 0.5
   - type: StaminaDamageOnCollide
     damage: 40
+  - type: TriggerOnCollide
+    fixtureID: projectile
+    maxTriggers: 1
+    keyOut: timer
   - type: ContainerContainer
     containers:
       cluster-payload: !type:Container
