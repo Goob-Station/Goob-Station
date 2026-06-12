@@ -43,7 +43,7 @@
           False: { visible: false }
   - type: GuideHelp
     guides:
-    - MedicalDoctor
+    - Botany
 
 - type: entity
   id: PlantAnalyzer
