@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Normal and vox sprites created by https://github.com/Pronana / princesscheeseballs (Discord). Dog states modified from base states by Sparlight (GitHub).",
+    "copyright": "Normal and vox sprites created by https://github.com/Pronana / princesscheeseballs (Discord). Dog states modified from base states by Sparlight (GitHub).. Hydrakin sprites by bobbble (discord)",
 
     "size": {
         "x": 32,
@@ -54,6 +54,18 @@
         },
         {
             "name": "equipped-head-unshaded-dog",
+            "directions": 4
+        },
+        {
+            "name": "equipped-head-hydrakin",
+            "directions": 4
+        },
+        {
+            "name": "equipped-head-light-hydrakin",
+            "directions": 4
+        },
+        {
+            "name": "equipped-head-unshaded-hydrakin",
             "directions": 4
         }
     ]
