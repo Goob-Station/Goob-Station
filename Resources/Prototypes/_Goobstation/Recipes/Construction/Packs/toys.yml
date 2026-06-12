@@ -1,0 +1,26 @@
+# Recipies that require some basic creativity to make out of other funny toys.
+- type: constructionPack
+  id: Toys
+  name: construction-pack-toys
+  recipes:
+  - PlushieGhostRevenant
+  - ClothingOuterSuitIan
+  - MoproachShoes
+  - ClownHardsuit
+  - MimeHardsuit
+  - ClothingShoeSlippersDuck
+  - ClothingShoeSlippersLizard
+
+# For all of the weird bananium stuff.
+- type: constructionPack
+  id: Bananium
+  name: construction-pack-bananium
+  recipes:
+  - FloorBananium
+  - BananiumClownStatue
+  - BananiumDoor
+  - BananaClownMask
+  - BananaClownJumpsuit
+  - BananaClownShoes
+  - HornBananium
+  - BananiumSword

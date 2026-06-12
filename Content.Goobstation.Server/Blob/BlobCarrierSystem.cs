@@ -49,7 +49,7 @@ public sealed class BlobCarrierSystem : SharedBlobCarrierSystem
 
         SubscribeLocalEvent<BlobCarrierComponent, MapInitEvent>(OnStartup);
         SubscribeLocalEvent<BlobCarrierComponent, DetermineEntityLanguagesEvent>(OnApplyLang);
-        SubscribeLocalEvent<BlobCarrierComponent, ComponentRemove>(OnRemove);
+        SubscribeLocalEvent<BlobCarrierComponent, ComponentShutdown>(OnRemove);
 
         SubscribeLocalEvent<BlobCarrierComponent, MindAddedMessage>(OnMindAdded);
         SubscribeLocalEvent<BlobCarrierComponent, MindRemovedMessage>(OnMindRemove);
@@ -73,7 +73,7 @@ public sealed class BlobCarrierSystem : SharedBlobCarrierSystem
         args.UnderstoodLanguages.Add(BlobLang);
     }
 
-    private void OnRemove(Entity<BlobCarrierComponent> ent, ref ComponentRemove args) => _language.UpdateEntityLanguages(ent.Owner);
+    private void OnRemove(Entity<BlobCarrierComponent> ent, ref ComponentShutdown args) => _language.UpdateEntityLanguages(ent.Owner);
 
     private void OnMindAdded(EntityUid uid, BlobCarrierComponent component, MindAddedMessage args) => component.HasMind = true;
 

@@ -196,7 +196,7 @@
         - CannotSuicide
     # - type: ReplacementAccent
     #   accent: genericAggressive
-    - type: LanguageKnowledge # goob edit - swap replacement accent for language
+    - type: LanguageGrant # goob edit - swap replacement accent for language
       speaks:
       - Carptongue
       understands:

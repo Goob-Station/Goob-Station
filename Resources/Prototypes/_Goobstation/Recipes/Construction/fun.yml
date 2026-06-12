@@ -16,7 +16,7 @@
   targetNode: bananiumSword
   category: construction-category-weapons
   objectType: Item
-  
+
 - type: construction
   id: boomerang
   graph: boomerangGraph

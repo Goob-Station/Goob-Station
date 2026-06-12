@@ -103,7 +103,7 @@
     - PetsNT
   - type: Alerts
   - type: Familiar
-  - type: LanguageKnowledge
+  - type: LanguageGrant
     speaks:
     - Mouse
     understands:
@@ -171,7 +171,7 @@
       Male: Cerberus
       Female: Cerberus
       Unsexed: Cerberus
-  - type: LanguageKnowledge
+  - type: LanguageGrant
     speaks:
     - Dog
     understands:

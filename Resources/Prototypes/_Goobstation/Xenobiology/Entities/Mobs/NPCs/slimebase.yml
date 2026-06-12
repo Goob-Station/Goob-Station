@@ -140,7 +140,7 @@
     bodyPartComposition: Organic # I hope it works
   - type: TypingIndicator
     proto: slime
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks:
     - Bubblish
     understands:

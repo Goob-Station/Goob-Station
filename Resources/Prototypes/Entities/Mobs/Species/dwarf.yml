@@ -98,7 +98,7 @@
     accent: zombieDwarf #Goob
   - type: Speech
     speechSounds: Bass
-  - type: LanguageKnowledge # Einstein Engines - Languages
+  - type: LanguageGrant # Einstein Engines - Languages
     speaks:
     - TauCetiBasic
     - SolCommon

@@ -28,7 +28,7 @@
   targetNode: icon
   category: construction-category-weapons
   objectType: Item
-  
+
 - type: construction
   id: BladedUraniumFlatcapGrey
   graph: BladedUraniumFlatcapGrey
@@ -36,7 +36,7 @@
   targetNode: icon
   category: construction-category-weapons
   objectType: Item
-  
+
 - type: construction
   id: BladedReinforcedFlatcapGrey
   graph: BladedReinforcedFlatcapGrey
@@ -44,7 +44,7 @@
   targetNode: icon
   category: construction-category-weapons
   objectType: Item
-  
+
 - type: construction
   id: BladedPlasmaFlatcapBrown
   graph: BladedPlasmaFlatcapBrown
@@ -52,7 +52,7 @@
   targetNode: icon
   category: construction-category-weapons
   objectType: Item
-  
+
 - type: construction
   id: BladedUraniumFlatcapBrown
   graph: BladedUraniumFlatcapBrown
@@ -60,7 +60,7 @@
   targetNode: icon
   category: construction-category-weapons
   objectType: Item
-  
+
 - type: construction
   id: BladedReinforcedFlatcapBrown
   graph: BladedReinforcedFlatcapBrown

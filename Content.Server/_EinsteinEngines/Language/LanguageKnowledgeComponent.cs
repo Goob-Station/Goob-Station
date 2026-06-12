@@ -9,10 +9,12 @@ using Robust.Shared.Prototypes;
 namespace Content.Server._EinsteinEngines.Language;
 
 /// <summary>
-///     Stores data about entities' intrinsic language knowledge.
+///     Goobstation edit - for everything to make sense - this is just original LanguageKnowledgeComponent, but renamed.
+///     Name of the file is unchanged to not trigger any merge conflicts.
+///     Grants knowledge about languages to the entity on mapinit.
 /// </summary>
 [RegisterComponent]
-public sealed partial class LanguageKnowledgeComponent : Component
+public sealed partial class LanguageGrantComponent : Component
 {
     /// <summary>
     ///     List of languages this entity can speak without any external tools.

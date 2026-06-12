@@ -18,7 +18,7 @@
   name: Urist McShadow
   abstract: true
   components:
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks:
     - TauCetiBasic
     - Marish

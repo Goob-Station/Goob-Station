@@ -7,3 +7,8 @@
   id: Diseases
   name: entity-category-name-diseases
   hideSpawnMenu: true
+
+- type: entityCategory
+  id: Knowledge
+  name: entity-category-name-knowledge
+  hideSpawnMenu: true

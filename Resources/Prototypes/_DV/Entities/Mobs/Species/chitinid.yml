@@ -116,7 +116,7 @@
         visible: false
   - type: Chitinid
   - type: BlockInjection
-  - type: LanguageKnowledge # Einstein Engines - Languages
+  - type: LanguageGrant # Einstein Engines - Languages
     speaks:
     - TauCetiBasic
     - Moffic

@@ -270,7 +270,7 @@
   - type: MobsterAccent
   - type: Speech
     speechVerb: SmallMob
-  - type: LanguageKnowledge # Einstein Engines - Languages
+  - type: LanguageGrant # Einstein Engines - Languages
     speaks:
     - TauCetiBasic
     - Mouse
@@ -392,7 +392,7 @@
       state: eyes
       shader: unshaded
   - type: Insulated # Goobstation
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks:
     - Mouse
     understands:

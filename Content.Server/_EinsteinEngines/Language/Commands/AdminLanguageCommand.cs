@@ -58,7 +58,7 @@ public sealed class AdminLanguageCommand : ToolshedCommand
             RemComp<UniversalLanguageSpeakerComponent>(input);
             EnsureComp<LanguageSpeakerComponent>(input);
         }
-        // We execute this branch even in case of universal so that it gets removed if it was added manually to the LanguageKnowledge.
+        // We execute this branch even in case of universal so that it gets removed if it was added manually to the LanguageGrant.
         Languages.RemoveLanguage(input, language, removeSpeak, removeUnderstand);
 
         return input;

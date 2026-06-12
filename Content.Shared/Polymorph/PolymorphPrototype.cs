@@ -209,7 +209,7 @@ public sealed partial record PolymorphConfiguration
     [DataField(serverOnly: true)]
     public HashSet<ComponentTransferData> ComponentsToTransfer = new()
     {
-        new("LanguageKnowledge"),
+        new("LanguageGrant"),
         new("LanguageSpeaker"),
         new("Grammar"),
     };

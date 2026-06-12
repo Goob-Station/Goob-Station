@@ -29,13 +29,10 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Pointing;
 
 // Shitmed Change
+using Content.Shared.Body.Components;
+using Content.Goobstation.Common.Body;
 using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared.Body.Systems;
-using Content.Goobstation.Common.Changeling;
-using Content.Shared.Body.Components;
-using Content.Goobstation.Shared.Changeling.Components;
-using Content.Goobstation.Common.Body;
-
 
 namespace Content.Server.Body.Systems
 {

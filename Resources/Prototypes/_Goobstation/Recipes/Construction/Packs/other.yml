@@ -1,0 +1,36 @@
+# Everything made out of web.
+- type: constructionPack
+  id: SpiderCraft
+  name: construction-pack-spider-craft
+  recipes:
+  - WallWeb
+  - TableWeb
+  - WebBed
+  - ChairWeb
+  - CrateWeb
+  - WebDoor
+  - TileWeb
+  - ClothingOuterWinterWeb
+  - ClothingUniformJumpsuitWeb
+  - ClothingUniformJumpskirtWeb
+  - SilkWovenCloth
+  - WebShield
+  - ClothingShoesBootsWinterWeb
+  - WebCocoon
+  - ClothingNeckClassicPonchoWeb
+  - ClothingNeckPonchoWeb
+  - ClothingNeckCloakWeb
+  - SilkPatchMakeshift
+
+- type: constructionPack
+  id: Smokeables
+  name: construction-pack-smokeables
+  recipes:
+  - smokeableJoint
+  - smokeableJointRainbow
+  - smokeableBlunt
+  - smokeableBluntRainbow
+  - smokeableCigarette
+  - smokeableGroundCannabis
+  - smokeableGroundCannabisRainbow
+  - smokeableGroundTobacco

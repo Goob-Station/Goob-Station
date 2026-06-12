@@ -12,11 +12,14 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
+using Content.Goobstation.Common.Knowledge;
 using Content.Shared._Shitmed.DoAfter;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Weapons.Melee.Events;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
+
 namespace Content.Shared.Body.Systems;
 
 public partial class SharedBodySystem
@@ -27,7 +30,8 @@ public partial class SharedBodySystem
         SubscribeLocalEvent<BodyPartComponent, GetDoAfterDelayMultiplierEvent>(RelayBoneEvent);
         SubscribeLocalEvent<BodyComponent, AttemptHandsMeleeEvent>(RelayBodyPartEvent);
         SubscribeLocalEvent<BodyPartComponent, AttemptHandsMeleeEvent>(RelayBoneEvent);
-
+        SubscribeLocalEvent<BodyComponent, KnowledgeContainerRelayEvent>(RelayGeneralEvent);
+        SubscribeLocalEvent<BodyPartComponent, KnowledgeContainerRelayEvent>(RelayGeneralEvent);
     }
 
     protected void RefRelayBodyPartEvent<T>(EntityUid uid, BodyComponent component, ref T args) where T : IBodyPartRelayEvent
@@ -126,6 +130,31 @@ public partial class SharedBodySystem
 
     }
 
+    /// <summary>
+    /// Relays an event to all body parts.
+    /// Should be used as the last resort, for example if your event is located in a Common module.
+    /// </summary>
+    private void RelayGeneralEvent<T>(Entity<BodyComponent> ent, ref T args) where T : notnull
+    {
+        var children = GetBodyChildren(ent.Owner, ent.Comp).ToList();
+        foreach (var (part, _) in children)
+        {
+            RaiseLocalEvent(part, ref args);
+        }
+    }
+
+    /// <summary>
+    /// Relays an event to all organs.
+    /// Should be used as the last resort, for example if your event is located in a Common module.
+    /// </summary>
+    private void RelayGeneralEvent<T>(Entity<BodyPartComponent> ent, ref T args) where T : notnull
+    {
+        var children = GetPartOrgans(ent.Owner, ent.Comp).ToList();
+        foreach (var (part, _) in children)
+        {
+            RaiseLocalEvent(part, ref args);
+        }
+    }
 }
 
 public sealed class BodyPartRelayedEvent<TEvent> : EntityEventArgs

@@ -64,7 +64,7 @@
 #    - OwOnavirus
   - type: Speech
     speechSounds: Alto
-  - type: LanguageKnowledge # Einstein Engines - Languages
+  - type: LanguageGrant # Einstein Engines - Languages
     speaks:
     - TauCetiBasic
     - Nekomimetic

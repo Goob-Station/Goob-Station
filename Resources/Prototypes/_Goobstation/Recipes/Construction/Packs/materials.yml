@@ -1,0 +1,18 @@
+# Any craftable materials.
+- type: constructionPack
+  id: Materials
+  name: construction-pack-materials
+  recipes:
+  - CottonWovenCloth
+  - MetalRod
+  - SheetRGlass
+  - SheetClockworkGlass
+  - SheetPGlass
+  - SheetRPGlass
+  - SheetRPGlass0
+  - SheetRPGlass1
+  - MaterialDurathread
+  - SheetUGlass
+  - SheetRUGlass
+  - SheetRUGlass0
+  - SheetRUGlass1

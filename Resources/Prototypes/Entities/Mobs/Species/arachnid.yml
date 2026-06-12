@@ -119,7 +119,7 @@
       Unsexed: UnisexArachnid
   - type: TypingIndicator
     proto: spider
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageGrant # Einstein Engines - Language
     speaks:
     - TauCetiBasic
     - Chittin # Until they have a species-specific
