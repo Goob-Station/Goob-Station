@@ -206,6 +206,20 @@
       "name": "wavelength_analyzer"
     },
     {
+      "name": "wavelength_analyzer_icon"
+    },
+    {
+      "name": "wavelength_analyzer_unlit",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
       "name": "scan_module_static"
     }
   ]
