@@ -1,0 +1,7 @@
+- type: entity
+  parent: HolopadLongRange
+  id: HolopadCargoLavaland
+  suffix: Lavaland
+  components:
+  - type: Label
+    currentLabel: holopad-cargo-lavaland

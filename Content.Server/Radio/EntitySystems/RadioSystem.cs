@@ -247,8 +247,13 @@ public sealed partial class RadioSystem : EntitySystem
                     continue;
             }
 
+            // Goob edit - signal transmitters
+            var overrideEv = new TelecomConnectionOverrideEvent(sourceMapId, transform.MapID);
+            RaiseLocalEvent(ref overrideEv);
+            // Goob edit end
+
             if (!channel.LongRange && transform.MapID != sourceMapId && !radio.GlobalReceive
-                && !(HasActiveTransmitter(transform.MapID) && HasActiveTransmitter(sourceMapId))) // goob - intermap transmitters
+                && overrideEv.Cancelled) // Goob edit - signal transmitters
                 continue;
 
             // don't need telecom server for long range channels or handheld radios and intercoms
@@ -357,12 +362,4 @@ public sealed partial class RadioSystem : EntitySystem
         }
         return false;
     }
-
-    /// <inheritdoc cref="TelecomServerComponent"/>
-    private bool HasActiveTransmitter(MapId mapId)
-    {
-        return EntityQuery<TelecomTransmitterComponent, ApcPowerReceiverComponent, TransformComponent>()
-            .Any(server => server.Item3.MapID == mapId && server.Item2.Powered);
-    }
-    // goob end
 }

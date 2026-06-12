@@ -156,6 +156,7 @@
         - SurveillanceCameraGeneral
         - SurveillanceCameraMedical
         - SurveillanceCameraCommand
+        - SurveillanceCameraLavaland # Lavaland Change
 
 - type: entity
   parent: SurveillanceCameraBase
