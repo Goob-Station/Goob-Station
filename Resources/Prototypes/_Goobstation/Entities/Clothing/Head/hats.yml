@@ -368,7 +368,7 @@
     sprite: _Goobstation/Clothing/Head/Hats/golden_centcom.rsi
 
 - type: entity
-  parent: [ ClothingHeadBase, BaseCentcommContraband ]
+  parent: ClothingHeadHatCentcomcap
   id: ClothingHeadHatCowboyCentcom
   name: centcom cowboy hat
   description: A black and green cowboy hat with a gold band, worn by 'southerner' Central Command officers.
