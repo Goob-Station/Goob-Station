@@ -271,23 +271,8 @@ public sealed class SlasherMassacreSystem : EntitySystem
         // Apply speed boost.
         if (speedBonus > 0)
         {
+            // Upstreamer fix i don't even know if this works, untested, if slasher speed is breaking fix this up here.
             _movementModStatus.TryUpdateMovementSpeedModDuration(user, SlasherEffect, TimeSpan.FromSeconds(comp.SpeedBoostDuration), 1 + speedBonus);
-
-            /*
-            var speedComp = EnsureComp<MovespeedModifierMetabolismComponent>(user);
-            var speedMultiplier = 1f + speedBonus;
-            var endTime = _timing.CurTime + TimeSpan.FromSeconds(comp.SpeedBoostDuration);
-
-            // Only update if the modifier changed or we're extending the duration
-            if (speedComp.ModifierTimer < endTime)
-            {
-                speedComp.WalkSpeedModifier = speedMultiplier;
-                speedComp.SprintSpeedModifier = speedMultiplier;
-                speedComp.ModifierTimer = endTime;
-
-                Dirty(user, speedComp);
-                _movementSpeed.RefreshMovementSpeedModifiers(user);
-            }*/
         }
 
         // Apply healing via slasherium

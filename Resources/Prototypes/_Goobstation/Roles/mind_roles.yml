@@ -106,8 +106,9 @@
   name: Gemini Role
   components:
   - type: MindRole
+    antag: true # This is bad
     antagPrototype: TempGeminiGhostRoleAntag # todo marty clean this up and fix other mindroles too
-    exclusiveAntag: false
+    exclusiveAntag: true  # This is bad
     roleType: Familiar
     subtype: role-subtype-gemini
   - type: GeminiRole

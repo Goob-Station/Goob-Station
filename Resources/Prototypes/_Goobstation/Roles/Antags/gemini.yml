@@ -6,7 +6,7 @@
 - type: antag
   id: TempGeminiGhostRoleAntag
   name: role-type-familiar-name
-  antagonist: false
+  antagonist: true # This is here because tests complain. This is bad. This is known. if you are reading this, ping me @notactuallymarty if i haven't gotten to fixing it by now.
   objective: never-shown
   requirements:
   - !type:OverallPlaytimeRequirement

@@ -79,14 +79,15 @@
   name: brain
   description: "The central hub of a diona's pseudo-neurological activity, its root-like tendrils search for its former body."
   components:
-  - type: MindContainer
+  - type: MindContainer # Goob start
   - type: MindExaminable
+    state: Catatonic # modified component on spawn otherwise
   - type: Speech
     enabled: false
   - type: TypingIndicator
     proto: empty
   - type: Emoting
-    enabled: false
+    enabled: false # Goob end
   - type: Item
     size: Small
     heldPrefix: brain

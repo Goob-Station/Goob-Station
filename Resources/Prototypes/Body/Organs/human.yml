@@ -190,14 +190,15 @@
   name: brain
   description: "The source of incredible, unending intelligence. Honk."
   components:
-  - type: MindContainer
+  - type: MindContainer # Goob start
   - type: MindExaminable
+    state: Catatonic # modified component on spawn otherwise
   - type: Speech
     enabled: false
   - type: TypingIndicator
     proto: empty
   - type: Emoting
-    enabled: false
+    enabled: false # Goob end
   - type: Sprite
     state: brain
   - type: Organ

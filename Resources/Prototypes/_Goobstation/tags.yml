@@ -375,6 +375,9 @@
   id: Lungs
 
 - type: Tag
+  id: Machete
+
+- type: Tag
   id: MagazineAntiMateriel
 
 - type: Tag

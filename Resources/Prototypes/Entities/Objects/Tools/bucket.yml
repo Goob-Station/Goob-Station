@@ -132,9 +132,6 @@
   - type: Tag
     tags:
       - Bucket
-  - type: PhysicalComposition #Goobstation - Recycle update
-    materialComposition:
-      Plastic: 10
   - type: DnaSubstanceTrace
   - type: Armor #Goobstation
     coverage:
@@ -148,6 +145,8 @@
     modifiers:
       coefficients:
         Blunt: 0.95
+  - type: StaticPrice # Goobstation
+    price: 20
 
 - type: entity
   parent: Bucket
