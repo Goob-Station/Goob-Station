@@ -98,3 +98,23 @@
   storage:
     back:
     - MobCarpGoldfish
+
+#Recruit jumpsuit
+- type: loadoutEffectGroup
+  id: Noob
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:OverallPlaytimeRequirement
+      time: 18000 #5 hours
+      inverted: true
+
+#NTR Fancy suit
+- type: loadoutEffectGroup
+  id: RespectedRep
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobNanotrasenRepresentative
+      time: 72000 #20 hours

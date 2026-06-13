@@ -125,6 +125,10 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryEngineeringChief
 
+- type: loadout # goob
+  id: ChiefEngineerNT
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitChiefEngineerNT
 
 # Head
 - type: loadout

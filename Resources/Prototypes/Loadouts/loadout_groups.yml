@@ -360,6 +360,7 @@
   - CaptainOuterClothing
   - CaptainWintercoat
   - CaptainJacket # Goobstation
+  - CaptainWintercoatUnarmored #Goobstation
 
 - type: loadoutGroup
   id: HoPHead
@@ -414,8 +415,9 @@
   - AncientJumpsuit
   - RainbowJumpsuit
   - RainbowJumpskirt
-  - OverallsJumpsuit
  # goob changes start
+  - JumpsuitRecruit
+  - OverallsJumpsuit
   - GreyMJ
   - BlackMJ
   - BlueMJ
@@ -432,6 +434,9 @@
   - BrownMJ
   - MaroonMJ
   - QuarterzipJumpsuit
+  - ContractorJumpsuit
+  - ContractorJumpsuitTac
+  - BlackMJAlt
  # goob changes end
 
 - type: loadoutGroup
@@ -918,6 +923,7 @@
   - CargoTechnicianJumpsuitMail # Goob/DeltaV - Mail
   - CargoTechnicianJumpskirtMail # Goob/DeltaV - Mail
   - CargoTechMJ # goob
+  - MailCarrierMJ #Goob
 
 - type: loadoutGroup
   id: CargoTechnicianBackpack
@@ -985,6 +991,7 @@
   - ChiefEngineerTurtleneckSkirt
   - ChiefEngineerMJ # goob
   - CESummerShirt # goob
+  - ChiefEngineerNT # goob
 
 - type: loadoutGroup
   id: ChiefEngineerNeck
@@ -1040,6 +1047,7 @@
   - SeniorEngineerJumpsuit
   - SeniorEngineerJumpskirt
   - EngiMJ # goob
+  - StationEngineerJumpsuitCasual # goob
 
 - type: loadoutGroup
   id: StationEngineerBackpack
@@ -1198,6 +1206,7 @@
   - SeniorResearcherJumpsuit
   - SeniorResearcherJumpskirt
   - ResearchMJ # goob
+  - ScientistFormal # goob
 
 - type: loadoutGroup
   id: ScientistBackpack
@@ -1273,6 +1282,7 @@
   - HeadofSecurityFormalSuit
   - HeadofSecurityFormalSkirt
   - HoSSummerShirt # goob
+  - HoSMJ # goob
 
 - type: loadoutGroup
   id: HeadofSecurityNeck
@@ -1307,6 +1317,7 @@
   loadouts:
   - WardenJumpsuit
   - WardenJumpskirt
+  - WardenMJ # goob
 
 - type: loadoutGroup
   id: WardenOuterClothing
@@ -1339,6 +1350,8 @@
   - SeniorOfficerJumpskirt
   - TrooperUniform
   - VeteranOfficerBlackJumpsuit # Goobstation
+  - SecurityMJ # Goob
+  - SecurityMJSenior # Goob
 
 - type: loadoutGroup
   id: SecurityBackpack
@@ -1421,6 +1434,7 @@
   loadouts:
   - RedJumpsuit
   - RedJumpskirt
+  - RedMJ #Goob
 
 - type: loadoutGroup
   id: SurvivalSecurity
@@ -1614,6 +1628,7 @@
   - SeniorPhysicianJumpsuit # Goobstation
   - SeniorPhysicianJumpskirt # Goobstation
   - ParamedMJ # goob
+  - ParamedicJumpsuitNT # goob
 
 - type: loadoutGroup
   id: ParamedicOuterClothing
@@ -1636,7 +1651,7 @@
 - type: loadoutGroup
   id: MedicalEyewear
   name: loadout-group-medical-glasses
-  minLimit: 0
+  minLimit: 1 #Goobstation
   loadouts:
   - MedicalHud
   - MedicalEyePatchHud
@@ -1680,6 +1695,7 @@
   loadouts:
   - BoxerShorts
   - BoxerShortsWithTop
+  - BoxerGladiator
 
 - type: loadoutGroup
   id: BoxerGloves

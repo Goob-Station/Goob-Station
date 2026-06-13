@@ -78,6 +78,12 @@
   equipment:
     jumpsuit: ClothingUniformOverallsSalvageSpecialist
 
+- type: loadout
+  id: SalvageSpecialistMJ
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitarySalvageSpecialist
+
+
 # Shaft Miner
 - type: loadout
   id: ShaftMinerJumpsuit
@@ -93,3 +99,8 @@
   id: ShaftMinerOveralls
   equipment:
     jumpsuit: ClothingUniformOverallsShaftMiner
+
+- type: loadout
+  id: ShaftMinerMJ
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryShaftMiner
