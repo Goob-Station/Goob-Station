@@ -20,7 +20,6 @@
 
 using System.Numerics;
 using Content.Client.DisplacementMap;
-using Content.Shared.CCVar;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
@@ -183,7 +182,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
 
         var customBaseLayers = new Dictionary<HumanoidVisualLayers, CustomBaseLayerInfo>();
 
-        var speciesPrototype = _prototypeManager.Index<SpeciesPrototype>(profile.Species);
+        var speciesPrototype = _prototypeManager.Index(profile.Species); // Floof
         var markings = new MarkingSet(speciesPrototype.MarkingPoints, _markingManager, _prototypeManager);
 
         // Add markings that doesn't need coloring. We store them until we add all other markings that doesn't need it.
@@ -337,6 +336,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
             _sprite.RemoveLayer(spriteEnt.AsNullable(), index);
         }
     }
+
     private void ApplyMarking(MarkingPrototype markingPrototype,
         IReadOnlyList<Color>? colors,
         bool visible,
@@ -345,50 +345,106 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         var humanoid = entity.Comp1;
         var sprite = entity.Comp2;
 
-        if (!_sprite.LayerMapTryGet((entity.Owner, sprite), markingPrototype.BodyPart, out var targetLayer, false))
+        // FLOOF ADD START
+        // make a handy dict of filename -> colors
+        // cus we might need to access it by filename to link
+        // one sprite's colors to another
+        var colorDict = new Dictionary<string, Color>();
+        for (var i = 0; i < markingPrototype.Sprites.Count; i++)
         {
-            return;
+            var spriteName = markingPrototype.Sprites[i] switch
+            {
+                SpriteSpecifier.Rsi rsi => rsi.RsiState,
+                SpriteSpecifier.Texture texture => texture.TexturePath.Filename,
+                _ => null
+            };
+
+            if (spriteName != null)
+            {
+                if (colors != null && i < colors.Count)
+                    colorDict.Add(spriteName, colors[i]);
+                else
+                    colorDict.Add(spriteName, Color.White);
+            }
         }
-
-        visible &= !IsHidden(humanoid, markingPrototype.BodyPart);
-        visible &= humanoid.BaseLayers.TryGetValue(markingPrototype.BodyPart, out var setting)
-           && setting.AllowsMarkings;
-
+        // now, rearrange them, copying any parented colors to children set to
+        // inherit them
+        if (markingPrototype.ColorLinks != null)
+        {
+            foreach (var (child, parent) in markingPrototype.ColorLinks)
+            {
+                if (colorDict.TryGetValue(parent, out var color))
+                {
+                    colorDict[child] = color;
+                }
+            }
+        }
+        // and, since we can't rely on the iterator knowing where the heck to put
+        // each sprite when we have one marking setting multiple layers,
+        // lets just kinda sorta do that ourselves
+        var layerDict = new Dictionary<string, int>();
+        // FLOOF ADD END
         for (var j = 0; j < markingPrototype.Sprites.Count; j++)
         {
+            // FLOOF CHANGE START
             var markingSprite = markingPrototype.Sprites[j];
-
             if (markingSprite is not SpriteSpecifier.Rsi rsi)
             {
                 continue;
             }
 
-            var layerId = $"{markingPrototype.ID}-{rsi.RsiState}";
-
-            if (!_sprite.LayerMapTryGet((entity.Owner, sprite), layerId, out var layer, false)) // Goob edit
+            var layerSlot = markingPrototype.BodyPart;
+            // first, try to see if there are any custom layers for this marking
+            if (markingPrototype.Layering != null)
             {
-                layer = _sprite.AddLayer((entity.Owner, sprite), markingSprite, targetLayer + j + 1); // Goob edit
-                _sprite.LayerMapSet((entity.Owner, sprite), layerId, layer);
-                _sprite.LayerSetSprite((entity.Owner, sprite), layerId, rsi);
+                var name = rsi.RsiState;
+                if (markingPrototype.Layering.TryGetValue(name, out var layerName))
+                {
+                    layerSlot = Enum.Parse<HumanoidVisualLayers>(layerName);
+                }
+            }
+            // update the layerDict
+            // if it doesnt have this, add it at 0, otherwise increment it
+            if (layerDict.TryGetValue(layerSlot.ToString(), out var layerIndex))
+            {
+                layerDict[layerSlot.ToString()] = layerIndex + 1;
+            }
+            else
+            {
+                layerDict.Add(layerSlot.ToString(), 0);
             }
 
-            var hasInfo = humanoid.CustomBaseLayers.TryGetValue(markingPrototype.BodyPart, out var info); // Goobstation
-            // impstation edit begin - check if there's a shader defined in the markingPrototype's shader datafield, and if there is...
+            if (!sprite.LayerMapTryGet(layerSlot, out var targetLayer))
+            {
+                continue;
+            }
+
+            visible &= !IsHidden(humanoid, markingPrototype.BodyPart);
+            visible &= humanoid.BaseLayers.TryGetValue(markingPrototype.BodyPart, out var setting)
+               && setting.AllowsMarkings;
+
+            var layerId = $"{markingPrototype.ID}-{rsi.RsiState}";
+            // FLOOF CHANGE END
+
+            if (!sprite.LayerMapTryGet(layerId, out _))
+            {
+                // for layers that are supposed to be behind everything,
+                // adding 1 to the layer index makes it not be behind
+                // everything. fun! FLOOF ADD =3
+                // var targLayerAdj = targetLayer == 0 ? 0 + j : targetLayer + j + 1;
+                var targLayerAdj = targetLayer + layerDict[layerSlot.ToString()] + 1;
+                var layer = sprite.AddLayer(markingSprite, targLayerAdj);
+                sprite.LayerMapSet(layerId, layer);
+                sprite.LayerSetSprite(layerId, rsi);
+            }
+            // imp special via beck. check if there's a shader defined in the markingPrototype's shader datafield, and if there is...
 			if (markingPrototype.Shader != null)
 			{
 			// use spriteComponent's layersetshader function to set the layer's shader to that which is specified.
-				sprite.LayerSetShader(layer, markingPrototype.Shader); // Goob edit
+				sprite.LayerSetShader(layerId, markingPrototype.Shader);
 			}
-            else // Goobstation
-            {
-                if (hasInfo && info.Shader != null)
-                    sprite.LayerSetShader(layer, info.Shader);
-                else
-                    sprite.LayerSetShader(layer, null, null);
-            }
-			// impstation edit end
-
-            _sprite.LayerSetVisible((entity.Owner, sprite), layerId, visible);
+            // end imp special
+            sprite.LayerSetVisible(layerId, visible);
 
             if (!visible || setting == null) // this is kinda implied
             {
@@ -398,29 +454,18 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
             // Okay so if the marking prototype is modified but we load old marking data this may no longer be valid
             // and we need to check the index is correct.
             // So if that happens just default to white?
-            if (colors != null && j < colors.Count)
-            {
-                // Goob edit start
-                var color = colors[j];
-                if (hasInfo && info.Color != null)
-                    color = Color.InterpolateBetween(color, info.Color.Value, 0.5f);
-                _sprite.LayerSetColor((entity.Owner, sprite), layerId, color);
-                // Goob edit end
-            }
-            else
-            {
-                // Goob edit start
-                var color = Color.White;
-                if (hasInfo && info.Color != null)
-                    color = info.Color.Value;
-                _sprite.LayerSetColor((entity.Owner, sprite), layerId, color);
-                // Goob edit end
-            }
+            // FLOOF ADD =3
+            sprite.LayerSetColor(layerId, colorDict.TryGetValue(rsi.RsiState, out var color) ? color : Color.White);
 
-            if (humanoid.MarkingsDisplacement.TryGetValue(markingPrototype.BodyPart, out var displacementData) && markingPrototype.CanBeDisplaced)
-            {
-                _displacement.TryAddDisplacement(displacementData, (entity.Owner, sprite), targetLayer + j + 1, layerId, out _);
-            }
+            // FLOOF CHANGE
+            // if (colors != null && j < colors.Count)
+            // {
+            //     sprite.LayerSetColor(layerId, colors[j]);
+            // }
+            // else
+            // {
+            //     sprite.LayerSetColor(layerId, Color.White);
+            // }
         }
     }
 

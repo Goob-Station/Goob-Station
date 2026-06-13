@@ -87,6 +87,9 @@ namespace Content.Shared.Humanoid
                 case HumanoidVisualLayers.Groin:
                     yield return HumanoidVisualLayers.Groin;
                     yield return HumanoidVisualLayers.Tail;
+                    yield return HumanoidVisualLayers.TailBehind;
+                    yield return HumanoidVisualLayers.TailBehindBackpack;
+                    yield return HumanoidVisualLayers.TailOversuit;
                     break;
                 case HumanoidVisualLayers.LHand:
                     yield return HumanoidVisualLayers.LHand;

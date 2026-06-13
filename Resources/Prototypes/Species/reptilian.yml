@@ -37,6 +37,9 @@
 - type: speciesBaseSprites
   id: MobReptilianSprites
   sprites:
+    TailBehind: MobHumanoidAnyMarking # floof
+    TailOversuit: MobHumanoidAnyMarking # floof
+    TailBehindBackpack: MobHumanoidAnyMarking # imp
     Head: MobReptilianHead
     Face: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
