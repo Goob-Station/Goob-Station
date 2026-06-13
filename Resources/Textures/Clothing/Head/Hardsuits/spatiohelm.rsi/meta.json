@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Original by Emisse, modified by EmoGarbage404. Vox states by Flareguy for SS14. Dog states modified from base states by Sparlight (GitHub)., vulp sprites made by YERO, feroxi by RedTerror",
+  "copyright": "Original by Emisse, modified by EmoGarbage404. Vox states by Flareguy for SS14. Dog states modified from base states by Sparlight (GitHub)., vulp sprites made by YERO, feroxi by RedTerror. hydrakin sprite by Zethine / @synthetic_086 (discord).",
   "size": {
     "x": 32,
     "y": 32
@@ -77,6 +77,18 @@
     },
     {
       "name": "equipped-head-light-feroxi",
+      "directions": 4
+    },
+	{
+      "name": "equipped-head-hydrakin",
+      "directions": 4
+    },
+    {
+      "name": "equipped-head-light-hydrakin",
+      "directions": 4
+    },
+    {
+      "name": "equipped-head-unshaded-hydrakin",
       "directions": 4
     }
   ]
