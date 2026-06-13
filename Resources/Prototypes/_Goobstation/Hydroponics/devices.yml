@@ -1,0 +1,67 @@
+﻿- type: entity
+  id: PlantAnalyzerUnpowered
+  parent: BaseItem
+  name: plant analyzer
+  suffix: Always Powered
+  description: A handheld device capable of scanning seeds and plants to give information about the genes.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Hydroponics/plant_analyzer.rsi
+    state: icon
+    layers:
+    - state: icon
+    - state: analyzer
+      shader: unshaded
+      visible: true
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+  - type: Item
+    heldPrefix: analyzer
+    storedRotation: -90
+  - type: ActivatableUI
+    key: enum.PlantAnalyzerUiKey.Key
+    inHandsOnly: true
+  - type: UserInterface
+    interfaces:
+      enum.PlantAnalyzerUiKey.Key:
+        type: PlantAnalyzerBoundUserInterface
+  - type: Tag
+    tags:
+    - PlantAnalyzer
+  - type: ItemToggle
+    onUse: false
+  - type: PlantAnalyzer
+    scanningEndSound:
+      path: "/Audio/Items/Medical/healthscanner.ogg"
+      settings:
+        scanDelay: 0.8
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerCellSlotVisuals.Enabled:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+  - type: GuideHelp
+    guides:
+    - Botany
+
+- type: entity
+  id: PlantAnalyzer
+  parent: [ PlantAnalyzerUnpowered, PowerCellSlotSmallItem]
+  suffix: ""
+  components:
+  - type: PowerCellDraw
+    drawRate: 1.2
+    useRate: 40
+  - type: ToggleCellDraw
+  - type: ActivatableUIRequiresPowerCell
+
+- type: entity
+  id: PlantAnalyzerEmpty
+  parent: PlantAnalyzer
+  suffix: Empty
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default

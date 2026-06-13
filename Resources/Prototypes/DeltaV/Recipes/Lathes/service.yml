@@ -7,3 +7,4 @@
   id: ServiceTools
   recipes:
   - PlantBagOfHolding
+  - PlantAnalyzer # Goobstation, Add plant analyzer.

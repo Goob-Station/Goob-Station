@@ -16,6 +16,14 @@
     Gold: 200
 
 - type: latheRecipe
+  id: PlantAnalyzer
+  result: PlantAnalyzer
+  completetime: 2
+  materials:
+    Steel: 400
+    Plastic: 400
+
+- type: latheRecipe
   id: PinpointerArtifact
   parent: Pinpointer
   result: PinpointerArtifact
