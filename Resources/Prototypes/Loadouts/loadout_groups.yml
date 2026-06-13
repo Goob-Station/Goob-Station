@@ -1350,6 +1350,8 @@
   - SeniorOfficerJumpskirt
   - TrooperUniform
   - VeteranOfficerBlackJumpsuit # Goobstation
+  - SecurityMJ # Goob
+  - SecurityMJSenior # Goob
 
 - type: loadoutGroup
   id: SecurityBackpack

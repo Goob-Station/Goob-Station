@@ -144,12 +144,12 @@
     gloves: ClothingHandsGlovesFingerless
 
 - type: loadout
-  id: SecurityJumpsuitMil
+  id: SecurityMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitarySecurity
 
 - type: loadout
-  id: SecurityJumpsuitMilSenior
+  id: SecurityMJSenior
   effects:
   - !type:GroupLoadoutEffect
     proto: SeniorOfficer
