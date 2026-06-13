@@ -1317,6 +1317,7 @@
   loadouts:
   - WardenJumpsuit
   - WardenJumpskirt
+  - WardenMJ # goob
 
 - type: loadoutGroup
   id: WardenOuterClothing

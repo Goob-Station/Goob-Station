@@ -51,3 +51,8 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: SeniorWarden
+
+- type: loadout
+  id: WardenMJ
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryWarden

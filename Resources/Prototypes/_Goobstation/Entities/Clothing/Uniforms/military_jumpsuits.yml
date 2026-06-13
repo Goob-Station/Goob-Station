@@ -440,3 +440,60 @@
         color: "#804000"
       - state: equipped-decor-epaulets
         color: "#0082ff"
+
+- type: entity
+  parent: ClothingUniformJumpsuitWarden
+  id: ClothingUniformJumpsuitMilitaryWarden
+  suffix: Military
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
+    layers:
+    - state: icon-base-bottom
+      color: "#3e3e48"
+    - state: icon-base-top-jumpsuit
+      color: "#3e3e48"
+    - state: icon-decor-contractor-tac
+      color: "#A52F29"
+    - state: icon-belt-buckle
+      color: "#D6D3D9"
+    - state: icon-decor-epaulets
+      color: "#D6D3D9"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base-bottom
+        color: "#3e3e48"
+      - state: inhand-left-base-top-jumpsuit
+        color: "#3e3e48"
+      - state: inhand-left-decor-contractor-tac
+        color: "#A52F29"
+      - state: inhand-left-belt-buckle
+        color: "#D6D3D9"
+      - state: inhand-left-decor-epaulets
+        color: "#D6D3D9"
+      right:
+      - state: inhand-right-base-bottom
+        color: "#3e3e48"
+      - state: inhand-right-base-top-jumpsuit
+        color: "#3e3e48"
+      - state: inhand-right-decor-contractor-tac
+        color: "#A52F29"
+      - state: inhand-right-belt-buckle
+        color: "#D6D3D9"
+      - state: inhand-right-decor-epaulets
+        color: "#D6D3D9"
+  - type: Clothing
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-base-bottom
+        color: "#3e3e48"
+      - state: equipped-base-top-jumpsuit-tac
+        color: "#3e3e48"
+      - state: equipped-decor-contractor-tac
+        color: "#A52F29"
+      - state: equipped-belt-buckle
+        color: "#D6D3D9"
+      - state: equipped-decor-epaulets
+        color: "#D6D3D9"
