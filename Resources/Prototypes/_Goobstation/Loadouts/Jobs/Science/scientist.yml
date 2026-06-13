@@ -18,6 +18,7 @@
 
 - type: loadout
   id: SeniorResearcherMJ
+  effects:
   - !type:GroupLoadoutEffect
     proto: SeniorResearcher
   equipment:
