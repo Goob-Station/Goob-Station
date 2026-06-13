@@ -136,8 +136,8 @@
 
 - type: loadout
   id: BlackMJAlt
-  equipment
-  jumpsuit: ClothingUniformJumpsuitMilitaryColorBlackAlt
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorBlackAlt
 
 # service jumpsuit - putting it here because frontier's only service jumpsuits are hydroponics and general lmao # goob change btw
 
