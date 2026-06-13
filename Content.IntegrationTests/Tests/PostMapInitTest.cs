@@ -276,7 +276,7 @@ namespace Content.IntegrationTests.Tests
               //"Amber", kill
               "Atlas",
               "Bagel",
-              "Barratry",
+             //  "Barratry", kill memory concerns
             //"Box",            // Not in pool
               "CentComm",      // CentComm
               "Chloris",
@@ -288,7 +288,7 @@ namespace Content.IntegrationTests.Tests
             //"dm01-entryway",  // Deathmatch
             //"Europa",         // Not in pool.
               "Exo",
-              "Fland",
+            //  "Fland",        // kill due to mem
               "FlandHighPop",
               "Kettle",
             //"Lambda",         // Not in pool
@@ -298,7 +298,7 @@ namespace Content.IntegrationTests.Tests
               "Marathon",
               "Meta",
             //"MeteorArena",    // Deathmatch
-              "Oasis",
+            //  "Oasis",        // kill due to memory
               "OasisHighPop",
               "Omega",
               "Origin",
@@ -309,7 +309,7 @@ namespace Content.IntegrationTests.Tests
               "Reach",
               "Saltern",
               "Serpentcrest",
-              "Snowball",
+             // "Snowball", // fuck off not in pool
         };
         // Goobstation edit end
 

@@ -43,7 +43,7 @@
           reagent: BZ
           min: 0.3
         - !type:MetabolizerTypeCondition
-          type: 
+          type:
           - Slime
           - Hydrakin # Go fuck yourself
           inverted: true
@@ -343,8 +343,8 @@
           min: 4
       - !type:Oxygenate
         conditions:
-        - !type:OrganType
-          type: Hydrakin
+        - !type:MetabolizerTypeCondition # Fuck you
+          type: [ Hydrakin ]
 
 - type: reagent
   id: Nitrium
@@ -402,8 +402,8 @@
             Asphyxiation: 15
       - !type:Oxygenate
         conditions:
-        - !type:OrganType
-          type: Hydrakin
+        - !type:MetabolizerTypeCondition # Fuck you
+          type: [ Hydrakin ]
     Gas:
       effects:
       - !type:NitriumMovespeedModifier
@@ -452,8 +452,8 @@
             Asphyxiation: 15
       - !type:Oxygenate
         conditions:
-        - !type:OrganType
-          type: Hydrakin
+        - !type:MetabolizerTypeCondition # Fuck you
+          type: [ Hydrakin ]
 
 - type: reagent
   id: Pluoxium

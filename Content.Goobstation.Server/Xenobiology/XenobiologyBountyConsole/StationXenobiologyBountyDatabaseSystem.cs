@@ -111,6 +111,9 @@ public sealed class StationXenobiologyBountyDatabaseSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return false;
 
+        if (component.Bounties.Count >= component.MaxBounties)
+            return false;
+
         _nameIdentifier.GenerateUniqueName(uid, BountyNameIdentifierGroup, out var randomVal);
         var newBounty = new XenobiologyBountyData(bounty, randomVal);
 
@@ -121,6 +124,7 @@ public sealed class StationXenobiologyBountyDatabaseSystem : EntitySystem
         }
 
         component.Bounties.Add(newBounty);
+        component.TotalBounties++;
         return true;
     }
 

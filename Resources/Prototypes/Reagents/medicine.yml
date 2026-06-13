@@ -350,13 +350,12 @@
         - !type:GenericStatusEffect # Mono edit
           conditions:
           - !type:MetabolizerTypeCondition
-          type:
-          - Hydrakin # i hate them
-          - !type:Temperature
+            type:
+            - Hydrakin # i hate them
+          - !type:TemperatureCondition
             max: 213.0
           key: ForcedSleep
           component: ForcedSleeping
-          refresh: false
           type: Add
 
 - type: reagent
@@ -387,12 +386,11 @@
         - !type:GenericStatusEffect # Mono edit
           conditions:
           - !type:MetabolizerTypeCondition # Fuck you
-          type: [Hydrakin]
-          - !type:Temperature
+            type: [Hydrakin]
+          - !type:TemperatureCondition
             max: 213.0
           key: ForcedSleep
           component: ForcedSleeping
-          refresh: false
           type: Add
 
 - type: reagent
@@ -812,7 +810,7 @@
         amount: -5
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 215.15
         - !type:MetabolizerTypeCondition # Fuck you
           type: [Hydrakin]
@@ -1773,12 +1771,11 @@
         - !type:GenericStatusEffect # Mono edit
           conditions:
           - !type:MetabolizerTypeCondition # Fuck you
-          type: [Hydrakin]
-          - !type:Temperature
+            type: [Hydrakin]
+          - !type:TemperatureCondition
             max: 217.15
           key: ForcedSleep
           component: ForcedSleeping
-          refresh: false
           type: Add
 
 
@@ -1803,20 +1800,16 @@
           max: 213.0
           scale: 1.6
         damage: # Goobstation - Cryo rebalance
-          types:
-            Heat: -10.0
-            Shock: -10.0
-            Caustic: -10.0
+          Burn: -10.0
       - !type:GenericStatusEffect # Mono edit
         conditions:
         - !type:MetabolizerTypeCondition
           type:
           - Hydrakin # i hate them
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 213.0
         key: ForcedSleep
         component: ForcedSleeping
-        refresh: false
         type: Add
 
 - type: reagent

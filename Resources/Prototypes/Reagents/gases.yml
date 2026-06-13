@@ -313,9 +313,8 @@
       - !type:HealthChange
 # Goobstation start
         conditions:
-        - !type:MetabolizerTypeCondition # Shitmed - Cybernetic 
-        s
-          type: [ Cybernetic ]
+        - !type:MetabolizerTypeCondition # Shitmed - Cybernetic
+          type: [ Cybernetic, Hydrakin ] # Fuck you
           inverted: true
 # Goobstation end
         damage:
@@ -367,7 +366,7 @@
         conditions:
         - !type:MetabolizerTypeCondition # Fuck you
           type: [Hydrakin]
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Tritium
           min: 0.01
         damage:
@@ -517,15 +516,14 @@
         conditions:
         - !type:MetabolizerTypeCondition # Fuck you
           type: [Hydrakin]
-      - !type:MovespeedModifier # Mono - Hydrakin
-        walkSpeedModifier: 1.15
-        sprintSpeedModifier: 1.15
+      - !type:NitrousMovespeedModifier # Mono - Hydrakin
         conditions:
-        - !type:MetabolizerTypeCondition # Fuck you
-          type: [Hydrakin]
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: NitrousOxide
           min: 0.05
+        - !type:MetabolizerTypeCondition # Fuck you
+          type: [ Hydrakin ]
+        speedModifier: 1.25
       - !type:Emote
         minScale: 0.2
         conditions:
@@ -702,7 +700,7 @@
         minScale: 1
         # Goob start
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Frezon
           min: 1
         - !type:MetabolizerTypeCondition
@@ -718,7 +716,7 @@
         minScale: 1
         # Goob start
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Frezon
           min: 1
         - !type:MetabolizerTypeCondition
@@ -733,7 +731,7 @@
         minScale: 1
         # Goob start
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Frezon
           min: 1
         - !type:MetabolizerTypeCondition
@@ -749,18 +747,19 @@
         minScale: 1
         # Goob start
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Frezon
           min: 1
         - !type:MetabolizerTypeCondition
           type:
           - Hydrakin # i hate them
           inverted: true
+      - !type:AdjustTemperature # Mono - Hydrakin
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Frezon
           min: 0.045
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 215.15
         - !type:MetabolizerTypeCondition
           type:
