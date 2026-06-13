@@ -73,6 +73,7 @@
     CartridgeSaline: 2
     CartridgeBicaridine: 2
     CartridgeDermaline: 2 # Goobstation - end
+    SecurityThrowingKnivesKit: 4
   # security officers need to follow a diet regimen!
   contrabandInventory:
     WeaponMeleeNeedle: 2
