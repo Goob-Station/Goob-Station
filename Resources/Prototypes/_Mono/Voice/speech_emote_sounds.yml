@@ -1,0 +1,37 @@
+- type: emoteSounds
+  id: UnisexHydrakin
+  params:
+    variation: 0.125
+    volume: -8
+  sounds:
+    Scream:
+      collection: HydrakinScream
+    Laugh:
+      collection: HydrakinLaugh
+    Crying:
+      collection: HydrakinCry
+    Sigh:
+      collection: HydrakinSigh
+    Gasp:
+      collection: HydrakinGasp
+    Trill:
+      collection: HydrakinTrill
+    Wurble:
+      collection: HydrakinWurble
+    Cough:
+      collection: HydrakinCough
+    Yawn:
+      collection: HydrakinYawn
+    Whistle:
+      collection: HydrakinWhistle
+    DefaultDeathgasp:
+      collection: HydrakinDeathgasp
+
+- type: speechSounds
+  id: Hydrakin
+  saySound:
+    collection: HydrakinSay
+  askSound:
+    collection: HydrakinAsk
+  exclaimSound:
+    collection: HydrakinExclaim

@@ -334,6 +334,16 @@
               Airloss: -3
               Brute: -3
               Burn: -3
+        - !type:GenericStatusEffect # Mono edit
+          conditions:
+          - !type:OrganType #
+            type: Hydrakin
+          - !type:Temperature
+            max: 213.0
+          key: ForcedSleep
+          component: ForcedSleeping
+          refresh: false
+          type: Add
 
 - type: reagent
   id: Doxarubixadone
@@ -357,7 +367,19 @@
             scale: 1.6
           damage:
             types:
-             Cellular: -2
+                Cellular: -2
+            groups: # Frontier
+                Brute: 1 # Frontier
+        - !type:GenericStatusEffect # Mono edit
+          conditions:
+          - !type:OrganType #
+            type: Hydrakin
+          - !type:Temperature
+            max: 213.0
+          key: ForcedSleep
+          component: ForcedSleeping
+          refresh: false
+          type: Add
 
 - type: reagent
   id: Dermaline
@@ -739,11 +761,17 @@
         conditions:
         - !type:Temperature
           max: 293.15
+        - !type:OrganType
+          type: Hydrakin
+          shouldHave: false
         amount: 100000 # thermal energy, not temperature!
       - !type:AdjustTemperature
         conditions:
         - !type:Temperature
           min: 293.15
+        - !type:OrganType
+          type: Hydrakin
+          shouldHave: false
         amount: -10000
       - !type:PopupMessage
         type: Local
@@ -753,6 +781,13 @@
       - !type:AdjustReagent
         reagent: Fresium
         amount: -5
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          min: 215.15
+        - !type:OrganType
+          type: Hydrakin
+        amount: -75000
 
 - type: reagent
   id: Barozine
@@ -1616,6 +1651,17 @@
               Brute: -5.0
               Burn: -5.0
               Toxin: -5.0
+        - !type:GenericStatusEffect # Mono edit
+          conditions:
+          - !type:OrganType
+            type: Hydrakin
+          - !type:Temperature
+            max: 217.15
+          key: ForcedSleep
+          component: ForcedSleeping
+          refresh: false
+          type: Add
+
 
 - type: reagent
   id : Aloxadone
@@ -1642,6 +1688,16 @@
             Heat: -10.0
             Shock: -10.0
             Caustic: -10.0
+      - !type:GenericStatusEffect # Mono edit
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
+        - !type:Temperature
+          max: 213.0
+        key: ForcedSleep
+        component: ForcedSleeping
+        refresh: false
+        type: Add
 
 - type: reagent
   id : Mannitol # currently this is just a way to create psicodine
