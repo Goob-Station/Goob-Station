@@ -32,13 +32,15 @@
   - type: Sprite
     state: stomach
   - type: Stomach
+    specialDigestible:
+      tags:
+      - ReptilianFood
+      - Meat
+    isSpecialDigestibleExclusive: false # goob edit
   - type: Organ
     slotId: stomach
   - type: Metabolizer
-    metabolizerTypes: [ Animal, Hydrakin ]
-    groups:
-    - id: Food
-    - id: Drink
+    metabolizerTypes: [ Hydrakin, Animal ]
   - type: SolutionContainerManager
     solutions:
       stomach:
