@@ -743,7 +743,7 @@
   id: ClothingUniformJumpsuitMilitaryCaptain
   suffix: Military
   components:
-  - type: Sprite
+  - type: Sprite #Goob - Military Jumpsuit Color Correction
     sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
     layers:
     - state: icon-base-bottom
@@ -751,11 +751,13 @@
     - state: icon-base-top-jumpsuit
       color: "#3e3e48"
     - state: icon-decor-department
-      color: "#2d4c5e"
+      color: "#41579A"
     - state: icon-decor-department-head
-      color: "#aeb7bd"
+      color: "#F0CC8F"
     - state: icon-decor-epaulets
-      color: "#ffce5b"
+      color: "#F0CC8F"
+    - state: icon-belt-buckle
+      color: "#F0CC8F"
   - type: Item
     inhandVisuals:
       left:
@@ -764,22 +766,26 @@
       - state: inhand-left-base-top-jumpsuit
         color: "#3e3e48"
       - state: inhand-left-decor-department
-        color: "#2d4c5e"
+        color: "#41579A"
       - state: inhand-left-decor-department-head
-        color: "#aeb7bd"
+        color: "#F0CC8F"
       - state: inhand-left-decor-epaulets
-        color: "#ffce5b"
+        color: "#F0CC8F"
+      - state: inhand-left-belt-buckle
+        color: "#F0CC8F"
       right:
       - state: inhand-right-base-bottom
         color: "#3e3e48"
       - state: inhand-right-base-top-jumpsuit
         color: "#3e3e48"
       - state: inhand-right-decor-department
-        color: "#2d4c5e"
+        color: "#41579A"
       - state: inhand-right-decor-department-head
-        color: "#aeb7bd"
+        color: "#F0CC8F"
       - state: inhand-right-decor-epaulets
-        color: "#ffce5b"
+        color: "#F0CC8F"
+      - state: inhand-right-belt-buckle
+        color: "#F0CC8F"
   - type: Clothing
     sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
     clothingVisuals:
@@ -789,11 +795,13 @@
       - state: equipped-base-top-jumpsuit-tac
         color: "#3e3e48"
       - state: equipped-decor-department
-        color: "#2d4c5e"
+        color: "#41579A"
       - state: equipped-decor-department-head
-        color: "#aeb7bd"
+        color: "#F0CC8F"
       - state: equipped-decor-epaulets
-        color: "#ffce5b"
+        color: "#F0CC8F"
+      - state: equipped-belt-buckle
+        color: "#F0CC8F"
 
 - type: entity
   parent: ClothingUniformJumpsuitHoP
@@ -975,7 +983,9 @@
     - state: icon-decor-department
       color: "#ff8800"
     - state: icon-decor-department-head
-      color: "#aeb7bd"
+      color: "#fafafa" #Goob - Military Jumpsuit Color Correction
+    - state: icon-decor-epaulets #Goob - Military Jumpsuit Color Correction
+      color: "#00ff00"
   - type: Item
     inhandVisuals:
       left:
@@ -986,7 +996,9 @@
       - state: inhand-left-decor-department
         color: "#ff8800"
       - state: inhand-left-decor-department-head
-        color: "#aeb7bd"
+        color: "#fafafa" #Goob - Military Jumpsuit Color Correction
+      - state: inhand-left-decor-epaulets #Goob - Military Jumpsuit Color Correction
+        color: "#00ff00"
       right:
       - state: inhand-right-base-bottom
         color: "#3e3e48"
@@ -995,7 +1007,9 @@
       - state: inhand-right-decor-department
         color: "#ff8800"
       - state: inhand-right-decor-department-head
-        color: "#aeb7bd"
+        color: "#fafafa" #Goob - Military Jumpsuit Color Correction
+      - state: inhand-right-decor-epaulets #Goob - Military Jumpsuit Color Correction
+        color: "#00ff00"
   - type: Clothing
     sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
     clothingVisuals:
@@ -1007,7 +1021,9 @@
       - state: equipped-decor-department
         color: "#ff8800"
       - state: equipped-decor-department-head
-        color: "#aeb7bd"
+        color: "#fafafa" #Goob - Military Jumpsuit Color Correction
+      - state: equipped-decor-epaulets
+        color: "#00ff00" #Goob - Military Jumpsuit Color Correction
 
 ## SUPPLY
 - type: entity
@@ -1024,9 +1040,9 @@
     - state: icon-base-top-jumpsuit
       color: "#3e3e48"
     - state: icon-decor-department
-      color: "#d6b328"
+      color: "#7B4E23" #Goob - Military Jumpsuit Color Correction
     - state: icon-decor-shoulder-patch
-      color: "#ad2aea"
+      color: "#ad2aea" #Goob - Military Jumpsuit Color Correction
   - type: Item
     inhandVisuals:
       left:
@@ -1035,18 +1051,18 @@
       - state: inhand-left-base-top-jumpsuit
         color: "#3e3e48"
       - state: inhand-left-decor-department
-        color: "#d6b328"
+        color: "#7B4E23" #Goob - Military Jumpsuit Color Correction
       - state: inhand-left-decor-shoulder-patch
-        color: "#ad2aea"
+        color: "#ad2aea" #Goob - Military Jumpsuit Color Correction
       right:
       - state: inhand-right-base-bottom
         color: "#3e3e48"
       - state: inhand-right-base-top-jumpsuit
         color: "#3e3e48"
       - state: inhand-right-decor-department
-        color: "#d6b328"
+        color: "#7B4E23" #Goob - Military Jumpsuit Color Correction
       - state: inhand-right-decor-shoulder-patch
-        color: "#ad2aea"
+        color: "#ad2aea" #Goob - Military Jumpsuit Color Correction
   - type: Clothing
     sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
     clothingVisuals:
@@ -1056,9 +1072,9 @@
       - state: equipped-base-top-jumpsuit
         color: "#3e3e48"
       - state: equipped-decor-department
-        color: "#d6b328"
+        color: "#7B4E23" #Goob - Military Jumpsuit Color Correction
       - state: equipped-decor-shoulder-patch
-        color: "#ad2aea"
+        color: "#ad2aea" #Goob - Military Jumpsuit Color Correction
 
 - type: entity
   parent: ClothingUniformJumpsuitCargo
@@ -1073,7 +1089,7 @@
     - state: icon-base-top-jumpsuit
       color: "#3e3e48"
     - state: icon-decor-department
-      color: "#d6b328"
+      color: "#7B4E23" #Goob - Military Jumpsuit Color Correction
   - type: Item
     inhandVisuals:
       left:
@@ -1082,14 +1098,14 @@
       - state: inhand-left-base-top-jumpsuit
         color: "#3e3e48"
       - state: inhand-left-decor-department
-        color: "#d6b328"
+        color: "#7B4E23" #Goob - Military Jumpsuit Color Correction
       right:
       - state: inhand-right-base-bottom
         color: "#3e3e48"
       - state: inhand-right-base-top-jumpsuit
         color: "#3e3e48"
       - state: inhand-right-decor-department
-        color: "#d6b328"
+        color: "#7B4E23" #Goob - Military Jumpsuit Color Correction
   - type: Clothing
     sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
     clothingVisuals:
@@ -1099,7 +1115,7 @@
       - state: equipped-base-top-jumpsuit
         color: "#3e3e48"
       - state: equipped-decor-department
-        color: "#d6b328"
+        color: "#7B4E23" #Goob - Military Jumpsuit Color Correction
 
 - type: entity
   parent: ClothingUniformJumpsuitQM
@@ -1114,9 +1130,11 @@
     - state: icon-base-top-jumpsuit
       color: "#3e3e48"
     - state: icon-decor-department
-      color: "#d6b328"
+      color: "#7B4E23" #Goob - Military Jumpsuit Color Correction
     - state: icon-decor-department-head
       color: "#aeb7bd"
+    - state: icon-decor-epaulets #Goob - Military Jumpsuit Color Correction
+      color: "#EADB83"
   - type: Item
     inhandVisuals:
       left:
@@ -1125,18 +1143,22 @@
       - state: inhand-left-base-top-jumpsuit
         color: "#3e3e48"
       - state: inhand-left-decor-department
-        color: "#d6b328"
+        color: "#7B4E23" #Goob - Military Jumpsuit Color Correction
       - state: inhand-left-decor-department-head
         color: "#aeb7bd"
+      - state: inhand-left-decor-epaulets #Goob - Military Jumpsuit Color Correction
+        color: "#EADB83"
       right:
       - state: inhand-right-base-bottom
         color: "#3e3e48"
       - state: inhand-right-base-top-jumpsuit
         color: "#3e3e48"
       - state: inhand-right-decor-department
-        color: "#d6b328"
+        color: "#7B4E23" #Goob - Military Jumpsuit Color Correction
       - state: inhand-right-decor-department-head
         color: "#aeb7bd"
+      - state: inhand-right-decor-epaulets #Goob - Military Jumpsuit Color Correction
+        color: "#EADB83"
   - type: Clothing
     sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
     clothingVisuals:
@@ -1146,9 +1168,11 @@
       - state: equipped-base-top-jumpsuit
         color: "#3e3e48"
       - state: equipped-decor-department
-        color: "#d6b328"
+        color: "#7B4E23" #Goob - Military Jumpsuit Color Correction
       - state: equipped-decor-department-head
         color: "#aeb7bd"
+      - state: equipped-decor-epaulets #Goob - Military Jumpsuit Color Correction
+        color: "#EADB83"
 
 ## MEDICAL
 - type: entity
@@ -1156,57 +1180,57 @@
   id: ClothingUniformJumpsuitMilitaryParamedic
   suffix: Military
   components:
-  - type: Sprite
+  - type: Sprite #Goob - Military Jumpsuit Color Correction
     sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
     layers:
     - state: icon-base-bottom
-      color: "#175163"
+      color: "#364660"
     - state: icon-base-top-jumpsuit
-      color: "#175163"
+      color: "#364660"
     - state: icon-decor-department
-      color: "#aeb7bd"
+      color: "#EEEEEE"
     - state: icon-belt
-      color: "#aeb7bd"
+      color: "#EEEEEE"
     - state: icon-belt-buckle
-      color: "#aeb7bd"
+      color: "#EEEEEE"
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left-base-bottom
-        color: "#175163"
+        color: "#364660"
       - state: inhand-left-base-top-jumpsuit
-        color: "#175163"
+        color: "#364660"
       - state: inhand-left-decor-department
-        color: "#aeb7bd"
+        color: "#EEEEEE"
       - state: inhand-left-belt
-        color: "#aeb7bd"
+        color: "#EEEEEE"
       - state: inhand-left-belt-buckle
-        color: "#aeb7bd"
+        color: "#EEEEEE"
       right:
       - state: inhand-right-base-bottom
-        color: "#175163"
+        color: "#364660"
       - state: inhand-right-base-top-jumpsuit
-        color: "#175163"
+        color: "#364660"
       - state: inhand-right-decor-department
-        color: "#aeb7bd"
+        color: "#EEEEEE"
       - state: inhand-right-belt
-        color: "#aeb7bd"
+        color: "#EEEEEE"
       - state: inhand-right-belt-buckle
-        color: "#aeb7bd"
+        color: "#EEEEEE"
   - type: Clothing
     sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
     clothingVisuals:
       jumpsuit:
       - state: equipped-base-bottom
-        color: "#175163"
+        color: "#364660"
       - state: equipped-base-top-jumpsuit
-        color: "#175163"
+        color: "#364660"
       - state: equipped-decor-department
-        color: "#aeb7bd"
+        color: "#EEEEEE"
       - state: equipped-belt
-        color: "#aeb7bd"
+        color: "#EEEEEE"
       - state: equipped-belt-buckle
-        color: "#aeb7bd"
+        color: "#EEEEEE"
 
 - type: entity
   parent: ClothingUniformJumpsuitMedicalDoctor
@@ -1254,7 +1278,7 @@
   id: ClothingUniformJumpsuitMilitaryCMO
   suffix: Military
   components:
-  - type: Sprite
+  - type: Sprite #Goob - Military Jumpsuit Color Correction
     sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
     layers:
     - state: icon-base-bottom
@@ -1264,7 +1288,11 @@
     - state: icon-decor-department
       color: "#5a96bb"
     - state: icon-decor-department-head
-      color: "#aeb7bd"
+      color: "#EEEEEE"
+    - state: icon-belt-buckle
+      color: "#EEEEEE"
+    - state: icon-decor-shoulder-patch
+      color: "#5EB8B8"
   - type: Item
     inhandVisuals:
       left:
@@ -1275,7 +1303,11 @@
       - state: inhand-left-decor-department
         color: "#5a96bb"
       - state: inhand-left-decor-department-head
-        color: "#aeb7bd"
+        color: "#EEEEEE"
+      - state: inhand-left-belt-buckle
+        color: "#EEEEEE"
+      - state: inhand-left-decor-shoulder-patch
+        color: "#5EB8B8"
       right:
       - state: inhand-right-base-bottom
         color: "#3e3e48"
@@ -1284,7 +1316,11 @@
       - state: inhand-right-decor-department
         color: "#5a96bb"
       - state: inhand-right-decor-department-head
-        color: "#aeb7bd"
+        color: "#EEEEEE"
+      - state: inhand-right-belt-buckle
+        color: "#EEEEEE"
+      - state: inhand-right-decor-shoulder-patch
+        color: "#5EB8B8"
   - type: Clothing
     sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
     clothingVisuals:
@@ -1296,7 +1332,11 @@
       - state: equipped-decor-department
         color: "#5a96bb"
       - state: equipped-decor-department-head
-        color: "#aeb7bd"
+        color: "#EEEEEE"
+      - state: equipped-belt-buckle
+        color: "#EEEEEE"
+      - state: equipped-decor-shoulder-patch
+        color: "#5EB8B8"
 
 - type: entity
   parent: ClothingUniformJumpsuitChemistry

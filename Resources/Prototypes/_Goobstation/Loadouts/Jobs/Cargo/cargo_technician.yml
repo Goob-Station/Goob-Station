@@ -96,3 +96,8 @@
   id: CargoTechnicianOveralls
   equipment:
     jumpsuit: ClothingUniformOverallsCargo
+
+- type: loadout
+  id: MailCarrierMJ
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryMailCarrier

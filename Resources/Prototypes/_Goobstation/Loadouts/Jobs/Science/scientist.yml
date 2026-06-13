@@ -15,3 +15,10 @@
   - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
     species:
     - Plasmaman
+
+- type: loadout
+  id: SeniorResearcherMJ
+  - !type:GroupLoadoutEffect
+    proto: SeniorResearcher
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitarySeniorResearcher

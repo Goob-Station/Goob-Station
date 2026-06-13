@@ -142,3 +142,16 @@
   id: SecurityGlovesFingerless
   equipment:
     gloves: ClothingHandsGlovesFingerless
+
+- type: loadout
+  id: SecurityJumpsuitMil
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitarySecurity
+
+- type: loadout
+  id: SecurityJumpsuitMilSenior
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorOfficer
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitarySecurity

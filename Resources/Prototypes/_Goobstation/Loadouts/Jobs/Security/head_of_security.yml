@@ -54,3 +54,8 @@
   id: HoSSummerShirt
   equipment:
     jumpsuit: ClothingUniformJumpsuitHoSSummer
+
+- type: loadout
+  id: HoSMJ
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryHoS

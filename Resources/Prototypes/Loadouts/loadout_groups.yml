@@ -415,8 +415,9 @@
   - AncientJumpsuit
   - RainbowJumpsuit
   - RainbowJumpskirt
-  - OverallsJumpsuit
  # goob changes start
+  - JumpsuitRecruit
+  - OverallsJumpsuit
   - GreyMJ
   - BlackMJ
   - BlueMJ
@@ -435,7 +436,7 @@
   - QuarterzipJumpsuit
   - ContractorJumpsuit
   - ContractorJumpsuitTac
-  - JumpsuitRecruit
+  - BlackMJAlt
  # goob changes end
 
 - type: loadoutGroup
@@ -922,6 +923,7 @@
   - CargoTechnicianJumpsuitMail # Goob/DeltaV - Mail
   - CargoTechnicianJumpskirtMail # Goob/DeltaV - Mail
   - CargoTechMJ # goob
+  - MailCarrierMJ #Goob
 
 - type: loadoutGroup
   id: CargoTechnicianBackpack
@@ -1280,6 +1282,7 @@
   - HeadofSecurityFormalSuit
   - HeadofSecurityFormalSkirt
   - HoSSummerShirt # goob
+  - HoSMJ # goob
 
 - type: loadoutGroup
   id: HeadofSecurityNeck

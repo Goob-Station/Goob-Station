@@ -190,6 +190,10 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtNanotrasenRepresentative
 
+- type: loadout
+  id: NTRMJ
+  equipment:
+
 
 - type: loadout
   id: NanotrasenRepresentativeEnvirosuit
