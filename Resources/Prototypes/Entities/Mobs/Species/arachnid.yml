@@ -128,6 +128,7 @@
     - Chittin # Until they have a species-specific
   - type: Sprite # I'd prefer if these maps were better. Insert map pun here.
     layers:
+      - map: [ "enum.HumanoidVisualLayers.TailBehind" ] # Floof
       - map: [ "enum.HumanoidVisualLayers.Groin" ]
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
       - map: [ "enum.HumanoidVisualLayers.Head" ]
@@ -152,6 +153,7 @@
       - map: [ "belt" ] #Goobedit - Belts over outerwear
       - map: [ "enum.HumanoidVisualLayers.Tail" ] # Mentioned in moth code: This needs renaming lol.
       - map: [ "back" ]
+      - map: [ "enum.HumanoidVisualLayers.TailOversuit" ] # Floof
       - map: [ "neck" ]
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
       - map: [ "enum.HumanoidVisualLayers.Hair" ] # Do these need to be here? (arachnid hair arachnid hair)

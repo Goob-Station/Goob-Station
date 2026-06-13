@@ -195,6 +195,7 @@
         Slash: 5 # Reduce?
   - type: Sprite # Need to redefine the whole order to draw the tail over their gas tank
     layers:
+    - map: [ "enum.HumanoidVisualLayers.TailBehind" ] # Floof
     - map: [ "enum.HumanoidVisualLayers.Groin" ]
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
     - map: [ "enum.HumanoidVisualLayers.Head" ]
@@ -216,7 +217,9 @@
     - map: [ "id" ]
     - map: [ "outerClothing" ]
     - map: [ "belt" ] #Goobedit - Belts over outerwear
+    - map: [ "enum.HumanoidVisualLayers.TailBehindBackpack" ] # imp
     - map: [ "back" ]
+    - map: [ "enum.HumanoidVisualLayers.TailOversuit" ] # Floof
     - map: [ "enum.HumanoidVisualLayers.Face" ]
     - map: [ "neck" ]
     - map: [ "suitstorage" ] # This is not in the default order
@@ -290,7 +293,7 @@
           32:
             sprite: Mobs/Species/Vox/displacement.rsi
             state: shoes
-      outerClothing: # Goob 
+      outerClothing: # Goob
         sizeMaps:
           32:
             sprite: Mobs/Species/Vox/displacement.rsi
@@ -358,7 +361,7 @@
   - type: Carriable # Goobstation
   - type: CPRTraining # Goobstation - Just give to everyone! This ain't MRP.
   - type: GrabIntent # wilted rose
-  - type: Grabbable 
+  - type: Grabbable
   # Goobstation end
   - type: Hands
     leftHandDisplacement:
