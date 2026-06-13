@@ -14,7 +14,7 @@
       volume: -2
   - type: VentSpawnRule
   - type: AntagSpawner
-    prototype: MobXenomorphLarva
+    prototype: RoundStartMobXenomorphLarva
   - type: AntagSelection
     selectionTime: PrePlayerSpawn
     agentName: xenomorph-round-end-agent-name
