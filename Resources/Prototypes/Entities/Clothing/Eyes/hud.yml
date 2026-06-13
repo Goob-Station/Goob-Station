@@ -132,6 +132,7 @@
     - Inorganic
     - Silicon
     - SiliconRadiation # Goobstation - Make IPCs take radiation
+  - type: ShowAccessReaderSettings
   - type: Tag
     tags:
     - HudDiagnostic # Goobstation - CR glasses changes and addition
@@ -214,7 +215,7 @@
   - type: Clothing
     sprite: Clothing/Eyes/Hud/friedonion.rsi
   - type: ShowHungerIcons
-  - type: Food
+  - type: Edible
   - type: SolutionContainerManager
     solutions:
       food:

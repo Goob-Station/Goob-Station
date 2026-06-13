@@ -48,6 +48,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Input;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Physics;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -98,6 +99,7 @@ namespace Content.Shared.Movement.Systems
             SubscribeLocalEvent<InputMoverComponent, ComponentGetState>(OnMoverGetState);
             SubscribeLocalEvent<InputMoverComponent, ComponentHandleState>(OnMoverHandleState);
             SubscribeLocalEvent<InputMoverComponent, EntParentChangedMessage>(OnInputParentChange);
+            SubscribeLocalEvent<InputMoverComponent, AnchorStateChangedEvent>(OnAnchorState);
 
             SubscribeLocalEvent<FollowedComponent, EntParentChangedMessage>(OnFollowedParentChange);
 
@@ -354,6 +356,12 @@ namespace Content.Shared.Movement.Systems
 
             entity.Comp.LerpTarget = TimeSpan.FromSeconds(InputMoverComponent.LerpTime) + Timing.CurTime;
             Dirty(entity.Owner, entity.Comp);
+        }
+
+        private void OnAnchorState(Entity<InputMoverComponent> entity, ref AnchorStateChangedEvent args)
+        {
+            if (!args.Anchored)
+                PhysicsSystem.SetBodyType(entity, BodyType.KinematicController);
         }
 
         private void HandleDirChange(EntityUid entity, Direction dir, ushort subTick, bool state)
@@ -685,7 +693,7 @@ namespace Content.Shared.Movement.Systems
             }
         }
     }
-
+    /* Goob moved to Content.Goobstation.Common/Movement
     [Flags]
     [Serializable, NetSerializable]
     public enum MoveButtons : byte
@@ -697,7 +705,7 @@ namespace Content.Shared.Movement.Systems
         Right = 8,
         Walk = 16,
         AnyDirection = Up | Down | Left | Right,
-    }
+    }*/
 
     [Flags]
     public enum ShuttleButtons : byte

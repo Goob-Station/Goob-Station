@@ -18,7 +18,7 @@
   sprites: MobYowieSprites
   markingLimits: MobYowieMarkingLimits
   dollPrototype: MobYowieDummy
-  skinColoration: NoColor
+  skinColoration: TintedHues
   defaultSkinTone: "#7d7d7d" # added here to make skin-tone markings work better
   naming: First
   maleFirstNames: NamesYowieMale
@@ -47,8 +47,8 @@
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
-    Underwear: MobHumanoidAnyMarking
-    Undershirt: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
+    UndergarmentTop: MobHumanoidAnyMarking
     Chest: MobYowieChest
     Groin: MobYowieGroin
     Eyes: MobHumanoidEyes
@@ -87,10 +87,10 @@
     Chest:
       points: 10
       required: false
-    Underwear:
+    UndergarmentBottom:
       points: 1
       required: false
-    Undershirt:
+    UndergarmentTop:
       points: 1
       required: false
     RightLeg:

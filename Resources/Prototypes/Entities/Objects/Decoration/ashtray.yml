@@ -55,6 +55,7 @@
       - Burnt
       - Cigarette
       - Cigar
+      - Matchstick
     hideStackVisualsWhenClosed: false
     maxItemSize: Tiny
     grid:
@@ -64,7 +65,7 @@
       storagebase: !type:Container
   - type: ItemCounter
     count:
-      tags: [ Cigarette, Cigar, Burnt ]
+      tags: [ Cigarette, Cigar, Burnt, Matchstick ]
     composite: true
     layerStates:
     - ashtray1

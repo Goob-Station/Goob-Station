@@ -119,7 +119,7 @@ public abstract class SharedBindSoulSystem : EntitySystem
         }
         else if ((itemXform.GridUid == null &&
                  (!TryComp(item.Value, out PhysicsComponent? body) ||
-                  _gravity.IsWeightless(item.Value, body, itemXform)) ||
+                  _gravity.IsWeightless(item.Value)) ||
                  itemXform.GridUid != xform.GridUid) && // If it is in space or on another grid
                  !RespawnItem(item.Value, itemXform, xform))
             return;

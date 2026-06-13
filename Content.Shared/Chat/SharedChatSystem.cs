@@ -32,18 +32,27 @@
 using System.Collections.Frozen;
 using Content.Shared._Starlight.CollectiveMind; // Goobstation - Starlight collective mind port
 using System.Text.RegularExpressions;
+using Content.Shared._EinsteinEngines.Language;
+using Content.Shared._EinsteinEngines.Language.Systems;
+using Content.Shared.ActionBlocker;
+using Content.Shared.Chat.Prototypes;
 using Content.Shared.Popups;
 using Content.Shared.Radio;
 using Content.Shared.Speech;
+using Content.Shared.Whitelist;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Console;
+using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Serialization; // Einstein Engines - Language
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Chat;
 
-public abstract class SharedChatSystem : EntitySystem
+public abstract partial class SharedChatSystem : EntitySystem
 {
     public const char RadioCommonPrefix = ';';
     public const char RadioChannelPrefix = ':';
@@ -64,7 +73,8 @@ public abstract class SharedChatSystem : EntitySystem
     public const int VoiceRange = 10; // how far voice goes in world units
     public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units
     public const int WhisperMuffledRange = 5; // how far whisper goes at all, in world units
-    public const string DefaultAnnouncementSound = "/Audio/Announcements/announce.ogg";
+    public static readonly SoundSpecifier DefaultAnnouncementSound
+        = new SoundPathSpecifier("/Audio/Announcements/announce.ogg");
 
     public static readonly ProtoId<RadioChannelPrototype> CommonChannel = "Common";
 
@@ -73,6 +83,12 @@ public abstract class SharedChatSystem : EntitySystem
 
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly SharedLanguageSystem _language = default!; // Einstein Engines - Language
 
     /// <summary>
     /// Cache of the keycodes for faster lookup.
@@ -85,9 +101,12 @@ public abstract class SharedChatSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+
         DebugTools.Assert(_prototypeManager.HasIndex(CommonChannel));
+
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypeReload);
         CacheRadios();
+        CacheEmotes();
         CacheCollectiveMinds(); // Goobstation - Starlight collective mind port
     }
 
@@ -95,6 +114,9 @@ public abstract class SharedChatSystem : EntitySystem
     {
         if (obj.WasModified<RadioChannelPrototype>())
             CacheRadios();
+
+        if (obj.WasModified<EmotePrototype>())
+            CacheEmotes();
 
         // Goobstation - Starlight collective mind port
         if (obj.WasModified<CollectiveMindPrototype>())
@@ -178,7 +200,7 @@ public abstract class SharedChatSystem : EntitySystem
     /// <param name="channel">The channel that was requested, if any</param>
     /// <param name="quiet">Whether or not to generate an informative pop-up message.</param>
     /// <returns></returns>
-    public bool TryProccessRadioMessage(
+    public bool TryProcessRadioMessage(
         EntityUid source,
         string input,
         out string output,
@@ -284,19 +306,6 @@ public abstract class SharedChatSystem : EntitySystem
 
         return false;
     }
-
-    public virtual void TrySendInGameICMessage(
-        EntityUid source,
-        string message,
-        InGameICChatType desiredType,
-        bool hideChat, bool hideLog = false,
-        IConsoleShell? shell = null,
-        ICommonSession? player = null, string? nameOverride = null,
-        bool checkRadioPrefix = true,
-        bool ignoreActionBlocker = false,
-        Color? colorOverride = null, // Goobstation
-        bool forced = false // goobstation
-    ) { }
 
     public string SanitizeMessageCapital(string message)
     {
@@ -435,37 +444,159 @@ public abstract class SharedChatSystem : EntitySystem
         tagStart += tag.Length + 2;
         return rawmsg.Substring(tagStart, tagEnd - tagStart);
     }
+
+    protected virtual void SendEntityEmote(
+        EntityUid source,
+        string action,
+        ChatTransmitRange range,
+        string? nameOverride,
+        LanguagePrototype language, // Goob
+        bool hideLog = false,
+        bool checkEmote = true,
+        bool ignoreActionBlocker = false,
+        NetUserId? author = null,
+        bool forced = false // goobstation
+        )
+    { }
+
+    /// <summary>
+    /// Sends an in-character chat message to relevant clients.
+    /// </summary>
+    /// <param name="source">The entity that is speaking.</param>
+    /// <param name="message">The message being spoken or emoted.</param>
+    /// <param name="desiredType">The chat type.</param>
+    /// <param name="hideChat">Whether or not this message should appear in the chat window.</param>
+    /// <param name="hideLog">Whether or not this message should appear in the adminlog window.</param>
+    /// <param name="shell"></param>
+    /// <param name="player">The player doing the speaking.</param>
+    /// <param name="nameOverride">The name to use for the speaking entity. Usually this should just be modified via <see cref="TransformSpeakerNameEvent"/>. If this is set, the event will not get raised.</param>
+    /// <param name="checkRadioPrefix">Whether or not <paramref name="message"/> should be parsed with consideration of radio channel prefix text at start the start.</param>
+    /// <param name="ignoreActionBlocker">If set to true, action blocker will not be considered for whether an entity can send this message.</param>
+    public virtual void TrySendInGameICMessage(
+        EntityUid source,
+        string message,
+        InGameICChatType desiredType,
+        bool hideChat,
+        bool hideLog = false,
+        IConsoleShell? shell = null,
+        ICommonSession? player = null,
+        string? nameOverride = null,
+        bool checkRadioPrefix = true,
+        bool ignoreActionBlocker = false,
+        Color? colorOverride = null, // Goobstation
+        LanguagePrototype? languageOverride = null, // Einstein Engines - Language
+        bool forced = false // goobstation
+        )
+
+    { }
+
+    /// <summary>
+    /// Sends an in-character chat message to relevant clients.
+    /// </summary>
+    /// <param name="source">The entity that is speaking.</param>
+    /// <param name="message">The message being spoken or emoted.</param>
+    /// <param name="desiredType">The chat type.</param>
+    /// <param name="range">Conceptual range of transmission, if it shows in the chat window, if it shows to far-away ghosts or ghosts at all...</param>
+    /// <param name="hideLog">Disables the admin log for this message if true. Used for entities that are not players, like vendors, cloning, etc.</param>
+    /// <param name="shell"></param>
+    /// <param name="player">The player doing the speaking.</param>
+    /// <param name="nameOverride">The name to use for the speaking entity. Usually this should just be modified via <see cref="TransformSpeakerNameEvent"/>. If this is set, the event will not get raised.</param>
+    /// <param name="ignoreActionBlocker">If set to true, action blocker will not be considered for whether an entity can send this message.</param>
+    public virtual void TrySendInGameICMessage(
+        EntityUid source,
+        string message,
+        InGameICChatType desiredType,
+        ChatTransmitRange range,
+        bool hideLog = false,
+        IConsoleShell? shell = null,
+        ICommonSession? player = null,
+        string? nameOverride = null,
+        bool checkRadioPrefix = true,
+        bool ignoreActionBlocker = false,
+        Color? colorOverride = null, // Goobstation
+        LanguagePrototype? languageOverride = null, // Einstein Engines - Language
+        bool forced = false // goobstation
+        )
+    { }
+
+    /// <summary>
+    /// Sends an out-of-character chat message to relevant clients.
+    /// </summary>
+    /// <param name="source">The entity that is speaking.</param>
+    /// <param name="message">The message being spoken or emoted.</param>
+    /// <param name="type">The chat type.</param>
+    /// <param name="hideChat">Whether or not to show the message in the chat window.</param>
+    /// <param name="shell"></param>
+    /// <param name="player">The player doing the speaking.</param>
+    public virtual void TrySendInGameOOCMessage(
+        EntityUid source,
+        string message,
+        InGameOOCChatType type,
+        bool hideChat,
+        IConsoleShell? shell = null,
+        ICommonSession? player = null
+        )
+    { }
+
+    /// <summary>
+    /// Dispatches an announcement to all.
+    /// </summary>
+    /// <param name="message">The contents of the message.</param>
+    /// <param name="sender">The sender (Communications Console in Communications Console Announcement).</param>
+    /// <param name="playSound">Play the announcement sound.</param>
+    /// <param name="announcementSound">Sound to play.</param>
+    /// <param name="colorOverride">Optional color for the announcement message.</param>
+    public virtual void DispatchGlobalAnnouncement(
+        string message,
+        string? sender = null,
+        bool playSound = true,
+        SoundSpecifier? announcementSound = null,
+        Color? colorOverride = null
+        )
+    { }
+
+    /// <summary>
+    /// Dispatches an announcement to players selected by filter.
+    /// </summary>
+    /// <param name="filter">Filter to select players who will recieve the announcement.</param>
+    /// <param name="message">The contents of the message.</param>
+    /// <param name="source">The entity making the announcement (used to determine the station).</param>
+    /// <param name="sender">The sender (Communications Console in Communications Console Announcement).</param>
+    /// <param name="playSound">Play the announcement sound.</param>
+    /// <param name="announcementSound">Sound to play.</param>
+    /// <param name="colorOverride">Optional color for the announcement message.</param>
+    public virtual void DispatchFilteredAnnouncement(
+        Filter filter,
+        string message,
+        EntityUid? source = null,
+        string? sender = null,
+        bool playSound = true,
+        SoundSpecifier? announcementSound = null,
+        Color? colorOverride = null)
+    { }
+
+    /// <summary>
+    /// Dispatches an announcement on a specific station.
+    /// </summary>
+    /// <param name="source">The entity making the announcement (used to determine the station).</param>
+    /// <param name="message">The contents of the message.</param>
+    /// <param name="sender">The sender (Communications Console in Communications Console Announcement).</param>
+    /// <param name="playDefaultSound">Play the announcement sound.</param>
+    /// <param name="announcementSound">Sound to play.</param>
+    /// <param name="colorOverride">Optional color for the announcement message.</param>
+    public virtual void DispatchStationAnnouncement(
+        EntityUid source,
+        string message,
+        string? sender = null,
+        bool playDefaultSound = true,
+        SoundSpecifier? announcementSound = null,
+        Color? colorOverride = null)
+    { }
 }
 
-// Einstein Engines - Language begin (moves chat types to shared)
 /// <summary>
-///     InGame IC chat is for chat that is specifically ingame (not lobby) but is also in character, i.e. speaking.
+/// Controls transmission of chat.
 /// </summary>
-// ReSharper disable once InconsistentNaming
-[Serializable, NetSerializable]
-public enum InGameICChatType : byte // Einstein Engines - Make InGameIIChatType available in Shared
-{
-    Speak,
-    Emote,
-    Whisper,
-    Telepathic, // Goobstation Change
-    CollectiveMind // Goobstation - Starlight collective mind port
-}
-
-/// <summary>
-///     InGame OOC chat is for chat that is specifically ingame (not lobby) but is OOC, like deadchat or LOOC.
-/// </summary>
-[Serializable, NetSerializable]
-public enum InGameOOCChatType : byte
-{
-    Looc,
-    Dead
-}
-
-/// <summary>
-///     Controls transmission of chat.
-/// </summary>
-[Serializable, NetSerializable]
 public enum ChatTransmitRange : byte
 {
     /// Acts normal, ghosts can hear across the map, etc.
@@ -477,4 +608,25 @@ public enum ChatTransmitRange : byte
     /// Ghosts can't hear or see it at all. Regular players can if in-range.
     NoGhosts
 }
-// Einstein Engines - Language end
+
+/// <summary>
+/// InGame IC chat is for chat that is specifically ingame (not lobby) but is also in character, i.e. speaking.
+/// </summary>
+// ReSharper disable once InconsistentNaming
+public enum InGameICChatType : byte
+{
+    Speak,
+    Emote,
+    Whisper,
+    Telepathic, // Goobstation Change
+    CollectiveMind // Goobstation - Starlight collective mind port
+}
+
+/// <summary>
+/// InGame OOC chat is for chat that is specifically ingame (not lobby) but is OOC, like deadchat or LOOC.
+/// </summary>
+public enum InGameOOCChatType : byte
+{
+    Looc,
+    Dead
+}

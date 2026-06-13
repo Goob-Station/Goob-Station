@@ -13,7 +13,7 @@
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
       state: hide_chat
-    iconOn: _Goobstation/Wraith/actions.rsi/show_chat.png
+    iconOn: { sprite: _Goobstation/Wraith/actions.rsi, state: show_chat }
 
 - type: entity
   id: ActionHaunt

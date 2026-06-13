@@ -75,7 +75,7 @@ public sealed partial class OfferingWindow : FancyWindow,
 
     public void ClearOptions()
     {
-        Container.DisposeAllChildren();
+        Container.RemoveAllChildren();
     }
 
     protected override void FrameUpdate(FrameEventArgs args)

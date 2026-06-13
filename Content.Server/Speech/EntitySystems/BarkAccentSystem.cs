@@ -12,6 +12,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Shared.StatusEffectNew;
 using Content.Server.Speech.Components;
 using Content.Shared.Speech;
 using Robust.Shared.Random;
@@ -37,6 +38,7 @@ namespace Content.Server.Speech.EntitySystems
         public override void Initialize()
         {
             SubscribeLocalEvent<BarkAccentComponent, AccentGetEvent>(OnAccent);
+            SubscribeLocalEvent<BarkAccentComponent, StatusEffectRelayedEvent<AccentGetEvent>>(OnAccentRelayed);
         }
 
         public string Accentuate(string message)
@@ -50,9 +52,14 @@ namespace Content.Server.Speech.EntitySystems
                 .Replace("l", "r").Replace("L", "R");
         }
 
-        private void OnAccent(EntityUid uid, BarkAccentComponent component, AccentGetEvent args)
+        private void OnAccent(Entity<BarkAccentComponent> entity, ref AccentGetEvent args)
         {
             args.Message = Accentuate(args.Message);
+        }
+
+        private void OnAccentRelayed(Entity<BarkAccentComponent> entity, ref StatusEffectRelayedEvent<AccentGetEvent> args)
+        {
+            args.Args.Message = Accentuate(args.Args.Message);
         }
     }
 }

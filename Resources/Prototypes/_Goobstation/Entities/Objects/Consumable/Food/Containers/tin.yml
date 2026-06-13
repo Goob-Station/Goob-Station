@@ -20,7 +20,7 @@
     - rich
     - fish
     - salty
-  - type: Food
+  - type: Edible
     trash:
     - FoodBlackCaviarTrash
 
@@ -39,7 +39,7 @@
   parent: FoodTinBase
   id: FoodRedCaviar
   name: red caviar
-  description: A tin of red caviar with a convenient pull tab. 
+  description: A tin of red caviar with a convenient pull tab.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Consumable/Food/red_caviar.rsi
@@ -50,7 +50,7 @@
     flavors:
     - fish
     - salty
-  - type: Food
+  - type: Edible
     trash:
     - FoodRedCaviarTrash
 

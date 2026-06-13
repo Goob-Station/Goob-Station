@@ -31,7 +31,7 @@
     layers:
     - state: erifle_lethal
       map: [ "enum.GunVisualLayers.Base" ]
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: RifleBulletEnergyGunLethal
     fireCost: 50
 
@@ -45,7 +45,7 @@
     layers:
     - state: erifle_disabler
       map: [ "enum.GunVisualLayers.Base" ]
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: RifleBulletEnergyGunDisabler
     fireCost: 50
 
@@ -59,7 +59,7 @@
     layers:
     - state: erifle_ion
       map: [ "enum.GunVisualLayers.Base" ]
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: RifleBulletEnergyGunIon
     fireCost: 50
 
@@ -73,6 +73,6 @@
     layers:
     - state: erifle_overcharge
       map: [ "enum.GunVisualLayers.Base" ]
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: RifleBulletEnergyGunOverchargeLethal
     fireCost: 66 #15 shot hopefully

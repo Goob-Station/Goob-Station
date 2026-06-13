@@ -17,7 +17,7 @@ namespace Content.Goobstation.Shared.SetSelector;
 /// </see>
 /// </summary>
 [Prototype]
-public sealed class SelectableSetPrototype : IPrototype
+public sealed partial class SelectableSetPrototype : IPrototype
 {
     [IdDataField] public string ID { get; private set; } = default!;
     [DataField] public string Name { get; private set; } = string.Empty;

@@ -23,6 +23,7 @@ using Content.Shared.Damage;
 using Content.Shared.Interaction;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
+using Content.Shared.Power.Components;
 using Content.Shared.Timing;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
@@ -127,9 +128,9 @@ public sealed class MedigunSystem : SharedMedigunSystem
 
         var batteryToWithdraw = comp.UberActivated ? comp.UberBatteryWithdraw: comp.BatteryWithdraw;
         if (_batteryQuery.TryComp(ent.Owner, out var batteryComp)
-            && !_battery.TryUseCharge(ent, batteryToWithdraw, batteryComp))
+            && !_battery.TryUseCharge(ent.Owner, batteryToWithdraw))
         {
-            _battery.SetCharge(ent, 0f, batteryComp); // Trigger recharging & cooldown
+            _battery.SetCharge(ent.Owner, 0f); // Trigger recharging & cooldown
             return false;
         }
 

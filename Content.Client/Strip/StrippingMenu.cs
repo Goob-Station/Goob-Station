@@ -32,7 +32,7 @@ namespace Content.Client.Strip
         public StrippingMenu()
         {
             var box = new BoxContainer() { Orientation = LayoutOrientation.Vertical, Margin = new Thickness(0, 8) };
-            Contents.AddChild(box);
+            ContentsContainer.AddChild(box);
             box.AddChild(SnareContainer);
             box.AddChild(HandsContainer);
             box.AddChild(InventoryContainer);
@@ -40,9 +40,9 @@ namespace Content.Client.Strip
 
         public void ClearButtons()
         {
-            InventoryContainer.DisposeAllChildren();
-            HandsContainer.DisposeAllChildren();
-            SnareContainer.DisposeAllChildren();
+            InventoryContainer.RemoveAllChildren();
+            HandsContainer.RemoveAllChildren();
+            SnareContainer.RemoveAllChildren();
         }
 
         protected override void FrameUpdate(FrameEventArgs args)

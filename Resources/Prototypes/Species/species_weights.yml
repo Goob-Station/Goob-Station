@@ -23,10 +23,14 @@
     Human: 5
     Reptilian: 4
     SlimePerson: 4
+    Moth: 4
+    Dwarf: 2
     Diona: 2
+    Vox: 1
+    Vulpkanin: 4
     # Goobstation
-    Vulpkanin: 3
     # Felinid: 4
+    Resomi: 3
     Feroxi: 3 # DeltaV - Feroxi, see Prototypes/_DV/Entities/Mobs/Species/feroxi.yml
     Harpy: 3
     Rodentia: 3

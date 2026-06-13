@@ -28,8 +28,10 @@
   - type: Damageable
     damageContainer: Inorganic
   - type: Bloodstream
-    bloodReagent: Oil
-    bloodMaxVolume: 50
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Oil
+        Quantity: 50
     bloodlossDamage:
       types:
         Bloodloss:
@@ -175,19 +177,13 @@
         toggleAction: ActionDronePlayMidi
   - type: StationMap #imp
   - type: GhostRole
-    requirements:
-    - !type:DepartmentTimeRequirement
-      department: Engineering
-      time: 36000 # ten hours
-    - !type:DepartmentTimeRequirement
-      department: Silicon
-      time: 18000 # five hours
     makeSentient: true
     name: ghost-role-information-drone-name
     description: ghost-role-information-drone-description
     rules: ghost-role-information-drone-rules
     mindRoles:
     - MindRoleGhostRoleSilicon
+    job: Borg
   - type: GhostTakeoverAvailable
   - type: SiliconLawBound
   - type: SiliconLawProvider
@@ -222,9 +218,10 @@
       30: 0.7
       50: 0.5
   - type: Temperature
-    heatDamageThreshold: 5000
     currentTemperature: 310.15
     specificHeat: 42
+  - type: TemperatureDamage
+    heatDamageThreshold: 5000
     heatDamage:
       types:
         Heat : 1 #per second, scales with temperature & other constants

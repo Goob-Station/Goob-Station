@@ -196,7 +196,7 @@
         id: eyes
   - type: Input
     context: "ghost"
-  - type: Tag
+  - type: Tag # Goobstation
     tags:
       - Head
   - type: Woundable

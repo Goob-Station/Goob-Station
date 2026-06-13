@@ -432,7 +432,7 @@ public sealed partial class FireControlSystem : EntitySystem
                 continue;
 
             // If we can fire, fire the weapon
-            _gun.AttemptShoot(localWeapon, localWeapon, gun, targetCoords);
+            _gun.AttemptShoot(localWeapon, (localWeapon, gun), targetCoords);
         }
     }
 
@@ -521,7 +521,7 @@ public sealed partial class FireControlSystem : EntitySystem
         // Try to get a gun component and fire the weapon
         if (TryComp<GunComponent>(weapon, out var gun))
         {
-            _gun.AttemptShoot(weapon, user, gun, coords);
+            _gun.AttemptShoot(user, (weapon, gun), coords);
             return true;
         }
 

@@ -9,7 +9,7 @@ SPDX-License-Identifier: MIT
 <DefaultWindow
     xmlns="https://spacestation14.io"
     Title="{Loc 'ui-bql-results-title'}">
-    <BoxContainer Orientation="Vertical">
+    <BoxContainer Orientation="Vertical" MinSize="500 700">
         <Label Name="StatusLabel" />
         <ScrollContainer VerticalExpand="True">
             <BoxContainer Orientation="Vertical" Name="ItemList" VerticalExpand="True" />

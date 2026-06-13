@@ -10,7 +10,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: ClothingHeadsetGrey
+  parent: [ClothingHeadsetGrey, BaseChameleon]
   id: ClothingHeadsetChameleon
   name: passenger headset
   description: An updated, modular intercom that fits over the head. Takes encryption keys.
@@ -25,8 +25,4 @@
     - type: ChameleonClothing
       slot: [ears]
       default: ClothingHeadsetGrey
-    - type: UserInterface
-      interfaces:
-        enum.ChameleonUiKey.Key:
-          type: ChameleonBoundUserInterface
     - type: HideContrabandContent #Goobstation-Contraband detector

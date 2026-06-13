@@ -53,14 +53,14 @@
         - Lava
   - type: TileEntityEffect
     effects:
-    - !type:FlammableReaction
+    - !type:Flammable
       multiplier: 2.5 # Lavaland Change
       multiplierOnExisting: 0.75
     - !type:Ignite
   # Lavaland Change start
     - !type:AdjustTemperature
       amount: 10000 # thermal energy, not temperature!
-    - !type:MovespeedModifier
+    - !type:MovementSpeedModifier
       walkSpeedModifier: 0.6
       sprintSpeedModifier: 0.6
   # Lavaland Change end

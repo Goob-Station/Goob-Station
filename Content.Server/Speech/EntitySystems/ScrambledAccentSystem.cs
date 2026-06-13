@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using Content.Server.Speech.Components;
 using Content.Shared.Speech;
+using Content.Shared.StatusEffectNew;
 using Robust.Shared.Random;
 
 namespace Content.Server.Speech.EntitySystems
@@ -22,6 +23,7 @@ namespace Content.Server.Speech.EntitySystems
         public override void Initialize()
         {
             SubscribeLocalEvent<ScrambledAccentComponent, AccentGetEvent>(OnAccent);
+            SubscribeLocalEvent<ScrambledAccentComponent, StatusEffectRelayedEvent<AccentGetEvent>>(OnAccentRelayed);
         }
 
         public string Accentuate(string message)
@@ -48,9 +50,14 @@ namespace Content.Server.Speech.EntitySystems
             return msg;
         }
 
-        private void OnAccent(EntityUid uid, ScrambledAccentComponent component, AccentGetEvent args)
+        private void OnAccent(Entity<ScrambledAccentComponent> entity, ref AccentGetEvent args)
         {
             args.Message = Accentuate(args.Message);
+        }
+
+        private void OnAccentRelayed(Entity<ScrambledAccentComponent> entity, ref StatusEffectRelayedEvent<AccentGetEvent> args)
+        {
+            args.Args.Message = Accentuate(args.Args.Message);
         }
     }
 }

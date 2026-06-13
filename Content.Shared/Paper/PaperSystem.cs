@@ -106,7 +106,7 @@ public sealed class PaperSystem : EntitySystem
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedIdentitySystem _identitySystem = default!; // Starlight-edit
+    [Dependency] private readonly IdentitySystem _identitySystem = default!; // Starlight-edit
 
     private static readonly ProtoId<TagPrototype> WriteIgnoreStampsTag = "WriteIgnoreStamps";
     private static readonly ProtoId<TagPrototype> WriteTag = "Write";
@@ -391,8 +391,8 @@ public sealed class PaperSystem : EntitySystem
 
         // Get the identity entity (ID card, etc.)
         var identityEntity = player;
-        if (TryComp<IdentityComponent>(player, out var identity) &&
-            identity.IdentityEntitySlot.ContainedEntity is { } idEntity)
+        if (TryComp<IdentityComponent>(player, out var identity)
+            && identity.IdentityEntitySlot is { ContainedEntity: { } idEntity })
         {
             identityEntity = idEntity;
         }

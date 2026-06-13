@@ -98,7 +98,7 @@
       # doesn't spawn anything for probably obvious reasons
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: Food
+  - type: Edible
     solution: food
     delay: 1
     forceFeedDelay: 1
@@ -126,12 +126,6 @@
   stackEntity: SpaceCash
   icon: { sprite: /Textures/Objects/Economy/cash.rsi, state: cash }
   price: 1
-
-- type: stack
-  id: Credit
-  name: stack-credit
-  icon: { sprite: /Textures/Objects/Economy/cash.rsi, state: cash }
-  spawn: SpaceCash
 
 - type: entity
   parent: SpaceCash

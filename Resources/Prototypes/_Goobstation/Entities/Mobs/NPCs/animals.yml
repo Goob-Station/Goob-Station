@@ -63,7 +63,7 @@
       - ForcedSleep
       - TemporaryBlindness
       - Pacified
-      - StaminaModifier
+      - StaminaModifierStatusEffectComponent
   - type: FloatingVisuals
   - type: NpcFactionMember
     factions:
@@ -115,7 +115,10 @@
     - id: FoodMeatGondola
       amount: 3
   - type: Bloodstream
-    bloodMaxVolume: 150
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 150
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Scale
@@ -277,8 +280,10 @@
       0: Alive
       100: Dead
   - type: Bloodstream
-    bloodReagent: InsectBlood
-    bloodMaxVolume: 40
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: InsectBlood
+        Quantity: 40
   - type: Tag
     tags:
     - Trash
@@ -359,7 +364,7 @@
     baseWalkSpeed: 2.5
     baseSprintSpeed: 3.5
   - type: Stamina
-    critThreshold: 100
+    baseCritThreshold: 100
   - type: DamageStateVisuals
     states:
       Alive:
@@ -488,8 +493,10 @@
       0: Alive
       50: Dead
   - type: Bloodstream
-    bloodReagent: Blood
-    bloodMaxVolume: 40
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 40
   - type: Tag
     tags:
     - Trash
@@ -560,8 +567,10 @@
     - type: Speech
       speechVerb: Cluwne
     - type: Bloodstream
-      bloodMaxVolume: 150
-      bloodReagent: Laughter
+      bloodReferenceSolution:
+        reagents:
+        - ReagentId: Laughter
+          Quantity: 150
     - type: Clumsy
     - type: NoSlip
     - type: Tag
@@ -909,8 +918,10 @@
       types:
         Blunt: 0.1
   - type: Bloodstream
-    bloodMaxVolume: 50
-    bloodReagent: Honk
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Honk
+        Quantity: 50
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepClown

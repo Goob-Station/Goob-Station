@@ -101,8 +101,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="ClothingOuterHardsuitRd" Caption=""/>
     <GuideEntityEmbed Entity="HandTeleporter" Caption=""/>
   </Box>
-  - Stealing the [color=#cb0000]Head of Security[/color]'s [bold]X-01 Multiphase[/bold] or the [color=#cb0000]Warden[/color]'s [bold]energy shotgun[/bold].
+  - Stealing the [color=#cb0000]Head of Security[/color]'s [bold]X-01 Multiphase[/bold], [bold]energy magnum[/bold], or the [color=#cb0000]Warden[/color]'s [bold]energy shotgun[/bold].
   <Box>
+    <GuideEntityEmbed Entity="WeaponEnergyMagnum" Caption=""/>
     <GuideEntityEmbed Entity="WeaponEnergyGunMultiphase" Caption=""/>
     <GuideEntityEmbed Entity="WeaponEnergyShotgun" Caption=""/>
   </Box>

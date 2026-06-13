@@ -919,14 +919,6 @@ entities:
     - type: Transform
       pos: -1.5,-5.5
       parent: 1
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 123
-          - 124
     - type: Physics
       canCollide: False
 - proto: BoxFolderClipboard
@@ -2593,9 +2585,6 @@ entities:
     - type: Transform
       pos: 6.5,-7.5
       parent: 1
-    - type: PowerCellDraw
-      canUse: True
-      canDraw: True
     - type: Physics
       canCollide: False
     - type: ContainerContainer

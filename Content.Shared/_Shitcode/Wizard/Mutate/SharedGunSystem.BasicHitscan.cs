@@ -12,6 +12,9 @@ namespace Content.Shared.Weapons.Ranged.Systems;
 
 public abstract partial class SharedGunSystem
 {
+
+    [Dependency] private readonly SharedGunSystem _gun = default!;
+
     protected virtual void InitializeBasicHitScan()
     {
         SubscribeLocalEvent<BasicHitscanAmmoProviderComponent, TakeAmmoEvent>(OnBasicHitscanTakeAmmo);
@@ -28,7 +31,8 @@ public abstract partial class SharedGunSystem
     {
         for (var i = 0; i < args.Shots; i++)
         {
-            args.Ammo.Add((null, ProtoManager.Index<HitscanPrototype>(ent.Comp.Proto)));
+            var hitscanEnt = Spawn(ent.Comp.Proto);
+            args.Ammo.Add((hitscanEnt, _gun.EnsureShootable(hitscanEnt)));
         }
     }
 }

@@ -161,7 +161,7 @@
       baseWalkSpeed: 2.5
       baseSprintSpeed: 3.5
     - type: Stamina
-      critThreshold: 100
+      baseCritThreshold: 100
     - type: DamageStateVisuals
       states:
         Alive:
@@ -278,7 +278,7 @@
   components:
   - type: PointLight
     radius: 1.5
-    energy: 0.5
+    energy: 2
   - type: RgbLightController
     layers: [ 0 ]
 
@@ -312,15 +312,20 @@
     - type: HTN
       rootTask:
         task: DragonCarpCompound
-    - type: Tag
+    - type: Flammable
+      damage:
+       types: {}
+    - type: Temperature
+    - type: TemperatureDamage
+      heatDamageThreshold: 1200
+    - type: Tag # Goobstation Start
       tags:
         - Carp
         - DoorBumpOpener
-    # Goobstation - Collective mind
     - type: CollectiveMind
       defaultChannel: Dragonmind
       channels:
-      - Dragonmind
+      - Dragonmind # Goobstation End
 
 - type: entity
   id: MobCarpDungeon
@@ -370,7 +375,7 @@
         #82: Dead # Might seem random, but this brings up the hits to kill with a crusher mark to 3
         150: Dead # Lavaland Change
     - type: Stamina
-      critThreshold: 150
+      baseCritThreshold: 150
     - type: DamageStateVisuals
       states:
         Alive:

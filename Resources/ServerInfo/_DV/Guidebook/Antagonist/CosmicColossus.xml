@@ -1,0 +1,49 @@
+<Document>
+  # Entropic Colossus
+
+  <Box>
+    [color=#999999][italic]"Neither ill will, nor impassioned desire. Neither malice, nor cruelty. Nothing."[/italic][/color]
+  </Box>
+  <Box>
+    [color=#999999][italic]"Just an end."[/italic][/color]
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="MobCosmicColossus" Caption=""/>
+  </Box>
+
+  You are an Entropic Colossus, a towering monstrosity of malign plating and dendritic infestation. Your purpose is the same as that of the [color=#4cabb3]Cosmic Cult[/color]: The end of all things.
+
+  Some Colossi are remnants. Perhaps survivors of a conflict borne of The Unknown's influence, or the product of some strange Noospheric anomaly. These Colossi drift across the distal black of space until their energies deplete... Or until they impact civilization.
+
+  [textlink="For information on cult-created colossi, click here." link="CosmicCult"]
+
+  ## Influences
+
+  Entropic Colossi are posessed of powerful [color=#4cabb3]Malign Influences[/color], with which a capable colossus may lay waste to its enemies.
+
+  - [color=#4cabb3][bold]Entropic Sunder:[/bold][/color] Warp to the target location and unleash a cascading detonation of malign energy. Careful - this will hurt allied cultists!
+  - [color=#4cabb3][bold]Colossal Ingress:[/bold][/color] Use your colossal strength to force open a doorway. Even securely bolted doorways will be torn open by your titanic power.
+  - [color=#4cabb3][bold]Slumber Shell:[/bold][/color] Slumber your body for a period of time to regenerate integrity. Must be done on stable ground. This will restore you for exactly half the damage you've taken.
+
+  Colossi that have encountered the station by happenstance also have this influence:
+  - [color=#4cabb3][bold]Colossal Ingress:[/bold][/color] Use your colossal strength to force open a doorway. Even securely bolted doorways will be torn open by your titanic power.
+
+  ## Objectives
+  <Box>
+    <GuideEntityEmbed Entity="MobTileDamageArea" Caption=""/>
+  </Box>
+
+  Colossi that have encountered the station by happenstance:
+  - [color=#4cabb3][bold]Persist[/bold][/color]  - Collectively siphon a certain amount of Entropy from the crew. The more entropy you siphon, the more you can empower the Monument!
+  - [color=#4cabb3][bold]Beckon[/bold][/color] - Call forth an Effigy of Entropy at a designated location aboard the station.
+
+  Colossi created from Cyborgs by the Cosmic Cult:
+  - [color=#4cabb3][bold]Usher In The End[/bold][/color] - Complete the final ritual to beckon the Unknown and destroy the station.
+
+  ## Effigy of Entropy
+  <Box>
+    <GuideEntityEmbed Entity="CosmicEffigy" Caption=""/>
+  </Box>
+  Some Colossi may call forth an [color=#4cabb3]Effigy of Entropy[/color]. The effigy is a dangerously unstable malign anomaly, and should be dealt with by the Epistemics department immediately!
+
+</Document>

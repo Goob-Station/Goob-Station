@@ -27,15 +27,14 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  id: BaseCartridgeHeavyRifle
-  name: cartridge (.20 rifle)
-  parent: [ BaseCartridge, BaseSecurityContraband ]
   abstract: true
+  parent: [ BaseCartridge, BaseSecurityContraband ]
+  id: BaseCartridgeHeavyRifle
+  name: cartridge (.10 rifle)
   components:
   - type: Tag
     tags:
-      - Cartridge
-      - CartridgeHeavyRifle
+    - CartridgeHeavyRifle
   - type: CartridgeAmmo
     proto: BulletHeavyRifle
   - type: Sprite
@@ -49,9 +48,9 @@
     price: 10
 
 - type: entity
+  parent: BaseCartridgeHeavyRifle
   id: CartridgeMinigun
   name: cartridge (.10 rifle)
-  parent: BaseCartridgeHeavyRifle
   components:
   - type: CartridgeAmmo
     proto: BulletMinigun

@@ -63,12 +63,9 @@
       description: blob-carrier-role-desc
       rules: blob-carrier-role-rules
       mindRoles:
-      - MindRoleGhostRoleSoloAntagonist
+      - MindRoleGhostRoleSoloAntagonistGoob
       raffle:
         settings: default
-      requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 54000 #15 hours
     - type: Sprite
       sprite: Markers/jobs.rsi
       layers:

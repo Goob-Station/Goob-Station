@@ -97,8 +97,6 @@
         - DroneUsable # Goobstation
         - DoorElectronics
     - type: DoorElectronics
-    - type: StaticPrice
-      price: 55
     - type: AccessReader
     - type: ActivatableUI
       key: enum.DoorElectronicsConfigurationUiKey.Key

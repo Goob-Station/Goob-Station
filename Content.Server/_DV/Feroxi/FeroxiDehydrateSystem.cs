@@ -6,6 +6,7 @@
 
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
+using Content.Shared.Body.Components;
 using Content.Shared.Nutrition.Components;
 
 namespace Content.Server._DV.Feroxi;

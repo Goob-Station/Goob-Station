@@ -34,7 +34,7 @@
         shader: unshaded
   - type: TileEntityEffect
     effects:
-    - !type:FlammableReaction
+    - !type:Flammable
       fireProtectionPenetration: 0.5
       multiplier: 3.75
       multiplierOnExisting: 0.75
@@ -97,8 +97,8 @@
       - !type:HasComponentCondition
         checkMind: true
         components:
-          - Heretic
-          - Ghoul
+        - type: Heretic
+        - type: Ghoul
         guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
   - type: Transform
     anchored: true

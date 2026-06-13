@@ -10,7 +10,7 @@
 
 using System.Linq;
 using Content.Goobstation.Common.Blob;
-using Content.Server.Abilities.Felinid;
+using Content.Server.Nyanotrasen.Abilities.Felinid;
 using Content.Server.Ghost.Roles.Events;
 using Content.Server.Nutrition.Components;
 using Content.Server.Station.Components;
@@ -90,7 +90,7 @@ public sealed class BlobSpawnRule : StationEventSystem<BlobSpawnRuleComponent>
             return;
 
         // Blob doesn't spawn when blob carrier was eaten.
-        RemComp<FoodComponent>(carrier);
+        RemComp<EdibleComponent>(carrier);
         RemComp<FelinidFoodComponent>(carrier);
 
 

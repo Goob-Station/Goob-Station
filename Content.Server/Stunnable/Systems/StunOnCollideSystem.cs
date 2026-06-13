@@ -20,6 +20,7 @@ using Content.Shared.Movement.Systems;
 using JetBrains.Annotations;
 using Content.Shared.Throwing;
 using Robust.Shared.Physics.Events;
+using Content.Shared.Whitelist; // DeltaV
 
 namespace Content.Server.Stunnable.Systems;
 
@@ -28,6 +29,7 @@ internal sealed class StunOnCollideSystem : EntitySystem
 {
     [Dependency] private readonly StunSystem _stunSystem = default!;
     [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!; // DeltaV
 
     public override void Initialize()
     {
@@ -39,11 +41,17 @@ internal sealed class StunOnCollideSystem : EntitySystem
 
     private void TryDoCollideStun(Entity<StunOnCollideComponent> ent, EntityUid target)
     {
-        _stunSystem.TryKnockdown(target, ent.Comp.KnockdownAmount, ent.Comp.Refresh, ent.Comp.AutoStand, true); // goob edit
+        // Begin DeltaV Additions
+        if (!_whitelist.IsWhitelistFailOrNull(ent.Comp.Blacklist, target))
+            return;
+        // End DeltaV Additions
+
+        _stunSystem.TryKnockdown(target, ent.Comp.KnockdownAmount, ent.Comp.Refresh, ent.Comp.AutoStand, ent.Comp.Drop, true);
 
         if (ent.Comp.Refresh)
         {
             _stunSystem.TryUpdateStunDuration(target, ent.Comp.StunAmount);
+
             _movementMod.TryUpdateMovementSpeedModDuration(
                 target,
                 MovementModStatusSystem.TaserSlowdown,

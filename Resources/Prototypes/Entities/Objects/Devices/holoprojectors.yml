@@ -129,7 +129,7 @@
   # End DeltaV Additions
   - type: Tag
     tags:
-      - HolofanProjector
+    - HolofanProjector
   - type: StaticPrice
     price: 80
   - type: PhysicalComposition #Goobstation - Recycle update

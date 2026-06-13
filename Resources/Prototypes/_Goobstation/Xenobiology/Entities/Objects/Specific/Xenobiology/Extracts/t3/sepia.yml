@@ -36,8 +36,7 @@
       - !type:Jitter
         time: 5
         frequency: 20
-      - !type:CreateEntityReactionEffect
-        delay: 5
+      - !type:SpawnEntity
         entity: XenoExtractChronofield
         number: 1
     - reagents: [ Blood ]
@@ -49,7 +48,7 @@
         messages: [ "xeno-extract-reaction" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:CreateEntityReactionEffect
+      - !type:SpawnEntity
         entity: FloorTileItemSepia
         number: 30
   - type: Tag

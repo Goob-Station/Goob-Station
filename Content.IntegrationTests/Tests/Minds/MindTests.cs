@@ -29,7 +29,7 @@ using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Players;
 using Content.Shared.Roles;
-using Content.Shared.Roles.Jobs;
+using Content.Shared.Roles.Components;
 using Robust.Server.Console;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
@@ -166,10 +166,9 @@ public sealed partial class MindTests
         await server.WaitAssertion(() =>
         {
             var damageable = entMan.GetComponent<DamageableComponent>(entity);
-            if (!protoMan.TryIndex(BluntDamageType, out var prototype))
-            {
-                return;
-            }
+            var prototype = protoMan.Index(BluntDamageType);
+
+            // Goob start
 
             if (entMan.TryGetComponent(entity, out BodyComponent? body) &&
                 body.BodyType == BodyType.Complex &&
@@ -186,6 +185,8 @@ public sealed partial class MindTests
                     damageableSystem.SetDamage(woundable, wdc, new DamageSpecifier(prototype, FixedPoint2.New(100)));
                 }
             }
+
+            // Goob End
             damageableSystem.SetDamage(entity, damageable, new DamageSpecifier(prototype, FixedPoint2.New(401)));
             Assert.That(mindSystem.GetMind(entity, mindContainerComp), Is.EqualTo(mindId));
         });

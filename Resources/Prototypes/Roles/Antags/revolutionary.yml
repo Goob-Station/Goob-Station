@@ -19,8 +19,8 @@
   objective: roles-antag-rev-head-objective
   requirements:
   - !type:DepartmentTimeRequirement # was  - !type:OverallPlaytimeRequirement, Goob change
-      department: Command 
-      time: 36000 # 10h
+      department: Command
+      time: 10h # Goobstation
   guides: [ Revolutionaries ]
 
 - type: antag

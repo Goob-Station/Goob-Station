@@ -6736,7 +6736,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -14.940454,-39.485104
       parent: 31
-- proto: BoxFolderBlue
+- proto: BoxFolderBlueEmpty
   entities:
   - uid: 8742
     components:

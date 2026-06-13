@@ -32,7 +32,6 @@
     tags:
     - WhitelistChameleon
     - HidesHair
-    - HidesNose
 
 - type: entity
   parent: ClothingMaskGasChrono

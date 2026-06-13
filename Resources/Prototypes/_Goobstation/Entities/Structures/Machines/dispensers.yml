@@ -36,6 +36,7 @@
         layer:
         - MachineLayer
   - type: Battery
+    netsync: false
     maxCharge: 1500
     startingCharge: 1500
   - type: ApcPowerReceiverBattery
@@ -149,6 +150,7 @@
         layer:
         - MachineLayer
   - type: Battery
+    netsync: false
     maxCharge: 1500
     startingCharge: 1500
   - type: ApcPowerReceiverBattery

@@ -17,7 +17,7 @@
   objective: roles-antag-changeling-description
   requirements:
   - !type:OverallPlaytimeRequirement
-      time: 36000 #10 hrs
+      time: 10h #10 hrs
   - !type:SpeciesRequirement
     inverted: true
     species:

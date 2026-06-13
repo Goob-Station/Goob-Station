@@ -109,7 +109,6 @@
   - type: OrganInsertOnUse
     slotId: heart
     partType: Chest
-  - type: Food
-    requiredStomachs: 666 # So you can't just eat it on use lmao
+  - type: Edible
   - type: StaticPrice
     price: 50000

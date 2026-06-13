@@ -92,6 +92,7 @@ namespace Content.Shared.Kitchen
         Key
     }
 
+    [Serializable, NetSerializable]
     public enum GrinderAutoMode : byte
     {
         Off,

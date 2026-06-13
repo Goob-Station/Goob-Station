@@ -36,7 +36,7 @@
       Normal: 28
       Damaged: 16
       Destroyed: 0
-  - type: Food
+  - type: Edible
   - type: Extractable
     grindableSolutionName: organ
   - type: SolutionContainerManager
@@ -62,7 +62,6 @@
 - type: entity
   id: OrganArachnidStomach
   parent: OrganAnimalStomach
-  name: stomach
   description: "Gross. This is hard to stomach."
   components:
   - type: Sprite
@@ -198,7 +197,6 @@
     metabolizerTypes: [Animal]
     groups:
     - id: Alcohol
-      rateModifier: 0.1 # removes alcohol very slowly along with the stomach removing it as a drink
   - type: Organ # Shitmed
     intCap: 28
     integrity: 28

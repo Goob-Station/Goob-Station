@@ -55,10 +55,17 @@ public sealed partial class RCDPrototype : IPrototype
     public string? Prototype { get; private set; }
 
     /// <summary>
+    /// GOOBSTATION?
     /// If the entity can be flipped, this prototype is available as an alternate (mode dependent)
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public string? MirrorPrototype { get; private set; }
+
+    /// <summary>
+    /// If true, allows placing the entity once per direction (North, West, South and East)
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public bool AllowMultiDirection { get; private set; }
 
     /// <summary>
     /// Number of charges consumed when the operation is completed

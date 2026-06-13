@@ -127,7 +127,7 @@ public sealed partial class HumanoidMarkingModifierWindow : DefaultWindow
             });
             _enable = new CheckBox
             {
-                Text = "Enable",
+                Text = Loc.GetString("humanoid-marking-modifier-enable"),
                 HorizontalAlignment = HAlignment.Right
             };
 
@@ -143,8 +143,8 @@ public sealed partial class HumanoidMarkingModifierWindow : DefaultWindow
                 OnStateChanged!();
             };
 
-            var lineEditBox = new BoxContainer();
-            lineEditBox.AddChild(new Label { Text = "Prototype id: "});
+            var lineEditBox = new BoxContainer { SeparationOverride = 4 };
+            lineEditBox.AddChild(new Label { Text = Loc.GetString("humanoid-marking-modifier-prototype-id") });
 
             // TODO: This line edit should really be an options / dropdown selector, not text.
             _lineEdit = new() { MinWidth = 200 };

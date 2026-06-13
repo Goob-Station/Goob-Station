@@ -138,7 +138,7 @@ public partial class XenobiologySystem
 
         var parentChemSolutionTransfer = new Solution();
         if (TryComp<BloodstreamComponent>(ent, out var parentBloodstream)
-            && _solutionContainer.ResolveSolution(ent.Owner, parentBloodstream.ChemicalSolutionName, ref parentBloodstream.ChemicalSolution, out var parentChem))
+            && _solutionContainer.ResolveSolution(ent.Owner, parentBloodstream.BloodSolutionName, ref parentBloodstream.BloodSolution, out var parentChem))
         {
             parentChemSolutionTransfer.AddSolution(parentChem, _proto);
             parentChem.RemoveAllSolution();
@@ -148,7 +148,7 @@ public partial class XenobiologySystem
         foreach (var s in slimes)
         {
             if (TryComp<BloodstreamComponent>(s, out var childBloodstream)
-                && _solutionContainer.ResolveSolution(s, childBloodstream.ChemicalSolutionName, ref childBloodstream.ChemicalSolution, out var childChem))
+                && _solutionContainer.ResolveSolution(s, childBloodstream.BloodSolutionName, ref childBloodstream.BloodSolution, out var childChem))
                 childChem.AddSolution(parentChemSolutionTransfer, _proto);
 
             var childStomachList = _body.GetBodyOrganEntityComps<StomachComponent>(s);

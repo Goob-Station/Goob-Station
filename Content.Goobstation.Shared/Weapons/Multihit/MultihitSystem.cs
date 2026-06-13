@@ -42,7 +42,7 @@ public sealed class MultihitSystem : EntitySystem
     private void WhitelistCheck(MultihitUserWhitelistEvent ev)
     {
         ev.Handled = ev.Blacklist
-            ? _whitelist.IsBlacklistFail(ev.Whitelist, ev.User)
+            ? _whitelist.IsWhitelistFail(ev.Whitelist, ev.User)
             : _whitelist.IsWhitelistPass(ev.Whitelist, ev.User);
     }
 

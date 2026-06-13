@@ -99,7 +99,7 @@ public sealed partial class CardHandMenu : RadialMenu
     }
 }
 
-public sealed class CardMenuButton : RadialMenuTextureButtonWithSector
+public sealed class CardMenuButton : RadialMenuButtonWithSector
 {
     public CardMenuButton()
     {

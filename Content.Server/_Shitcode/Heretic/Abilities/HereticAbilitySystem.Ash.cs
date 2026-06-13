@@ -25,6 +25,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Atmos.Components;
 
 namespace Content.Server.Heretic.Abilities;
 

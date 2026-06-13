@@ -44,9 +44,10 @@
   id: BoxMagazinePistolCaselessRifle
   description: A box full of 9.5mm caseless magnum hollow-point magazines. # Goob edit
   components:
-  - type: StorageFill
-    contents:
-      - id: MagazinePistolCaselessRifle
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: MagazinePistolCaselessRifle
         amount: 4
 
 - type: entity
@@ -55,9 +56,10 @@
   id: BoxMagazinePistolCaselessRiflePractice
   description: A box full of 9.5mm caseless magnum practice magazines. # Goob edit
   components:
-  - type: StorageFill
-    contents:
-      - id: MagazinePistolCaselessRiflePractice
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: MagazinePistolCaselessRiflePractice
         amount: 4
 
 # LightRifle
@@ -67,9 +69,10 @@
   id: BoxMagazineLightRifle
   description: A box full of .30 rifle magazines.
   components:
-  - type: StorageFill
-    contents:
-      - id: MagazineLightRifle
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: MagazineLightRifle
         amount: 4
 
 - type: entity
@@ -78,9 +81,10 @@
   id: BoxMagazineLightRiflePractice
   description: A box full of .30 rifle (practice) magazines.
   components:
-  - type: StorageFill
-    contents:
-      - id: MagazineLightRiflePractice
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: MagazineLightRiflePractice
         amount: 4
 
 # Magnum
@@ -113,9 +117,10 @@
   id: BoxMagazinePistolSubMachineGunTopMounted
   description: A box full of WT550 .35 auto magazines.
   components:
-  - type: StorageFill
-    contents:
-      - id: MagazinePistolSubMachineGunTopMounted
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: MagazinePistolSubMachineGunTopMounted
         amount: 3
 
 - type: entity
@@ -124,9 +129,10 @@
   id: BoxMagazinePistol
   description: A box full of pistol .35 auto magazines.
   components:
-  - type: StorageFill
-    contents:
-      - id: MagazinePistol
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: MagazinePistol
         amount: 4
 
 - type: entity
@@ -135,9 +141,10 @@
   id: BoxMagazinePistolPractice
   description: A box full of  magazines.
   components:
-  - type: StorageFill
-    contents:
-      - id: MagazinePistolPractice
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: MagazinePistolPractice
         amount: 4
 
 - type: entity
@@ -146,9 +153,10 @@
   id: BoxMagazinePistolHighCapacity
   description: A box full of machine pistol .35 auto magazines.
   components:
-  - type: StorageFill
-    contents:
-      - id: MagazinePistolHighCapacity
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: MagazinePistolHighCapacity
         amount: 4
 
 - type: entity
@@ -157,9 +165,10 @@
   id: BoxMagazinePistolHighCapacityPractice
   description: A box full of machine pistol .35 auto (practice) magazines.
   components:
-  - type: StorageFill
-    contents:
-      - id: MagazinePistolHighCapacityPractice
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: MagazinePistolHighCapacityPractice
         amount: 4
 
 - type: entity
@@ -168,9 +177,10 @@
   id: BoxMagazinePistolSubMachineGun
   description: A box full of SMG .35 auto magazines.
   components:
-  - type: StorageFill
-    contents:
-      - id: MagazinePistolSubMachineGun
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: MagazinePistolSubMachineGun
         amount: 3
 
 - type: entity
@@ -179,9 +189,10 @@
   id: BoxMagazinePistolSubMachineGunPractice
   description: A box full of SMG .35 auto (practice) magazines.
   components:
-  - type: StorageFill
-    contents:
-      - id: MagazinePistolSubMachineGunPractice
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: MagazinePistolSubMachineGunPractice
         amount: 3
 
 # Shotgun
@@ -191,9 +202,10 @@
   id: BoxMagazineShotgun
   description: A box full of (.50 pellet) ammo drums.
   components:
-  - type: StorageFill
-    contents:
-      - id: MagazineShotgun
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: MagazineShotgun
         amount: 4
 
 - type: entity
@@ -202,9 +214,10 @@
   id: BoxMagazineShotgunBeanbag
   description: A box full of (.50 beanbag) ammo drums.
   components:
-  - type: StorageFill
-    contents:
-      - id: MagazineShotgunBeanbag
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: MagazineShotgunBeanbag
         amount: 4
 
 - type: entity
@@ -213,9 +226,10 @@
   id: BoxMagazineShotgunSlug
   description: A box full of (.50 slug) ammo drums.
   components:
-  - type: StorageFill
-    contents:
-      - id: MagazineShotgunSlug
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: MagazineShotgunSlug
         amount: 4
 
 - type: entity
@@ -224,9 +238,10 @@
   id: BoxMagazineShotgunIncendiary
   description: A box full of (.50 incendiary) ammo drums.
   components:
-  - type: StorageFill
-    contents:
-      - id: MagazineShotgunIncendiary
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: MagazineShotgunIncendiary
         amount: 4
 
 # Rifle
@@ -236,9 +251,10 @@
   id: BoxMagazineRifle
   description: A box full of .20 rifle magazines.
   components:
-  - type: StorageFill
-    contents:
-      - id: MagazineRifle
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: MagazineRifle
         amount: 4
 
 - type: entity
@@ -247,7 +263,8 @@
   id: BoxMagazineRiflePractice
   description: A box full of .20 rifle (practice) magazines.
   components:
-  - type: StorageFill
-    contents:
-      - id: MagazineRiflePractice
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: MagazineRiflePractice
         amount: 4

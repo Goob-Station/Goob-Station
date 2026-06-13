@@ -16,7 +16,9 @@
   setPreference: true
   objective: roles-antag-initial-infected-objective
   requirements:
-  - !type:SpeciesRequirement
+  - !type:OverallPlaytimeRequirement
+    time: 1h
+  - !type:SpeciesRequirement # Goobstation
     inverted: true
     species:
     - IPC

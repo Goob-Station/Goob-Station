@@ -39,10 +39,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
+  abstract: true
+  parent: [ BaseItem, BaseSecurityContraband ]
   id: BaseMagazinePistol
   name: pistol magazine (.35 auto)
-  parent: [ BaseItem, BaseSecurityContraband ]
-  abstract: true
   components:
   - type: Tag
     tags:
@@ -72,10 +72,10 @@
   - type: Appearance
 
 - type: entity
+  abstract: true
+  parent: [ BaseItem, BaseSecurityContraband ]
   id: BaseMagazinePistolHighCapacity
   name: machine pistol magazine (.35 auto)
-  parent: BaseItem
-  abstract: true
   components:
   - type: Tag
     tags:
@@ -85,7 +85,7 @@
     whitelist:
       tags:
         - CartridgePistol
-    capacity: 16
+    capacity: 15
   - type: Item
     size: Small
   - type: ContainerContainer
@@ -105,10 +105,10 @@
   - type: Appearance
 
 - type: entity
+  abstract: true
+  parent: [ BaseItem, BaseSecurityContraband ]
   id: BaseMagazinePistolSubMachineGun  # Yeah it's weird but it's pistol caliber
   name: SMG magazine (.35 auto)
-  parent: [ BaseItem, BaseSecurityContraband ]
-  abstract: true
   components:
   - type: Tag
     tags:
@@ -138,11 +138,13 @@
   - type: Appearance
 
 - type: entity
+  parent: [ BaseItem, BaseSecurityContraband ]
   id: MagazinePistolSubMachineGunTopMounted
   name: WT550 magazine (.35 auto top-mounted)
-  parent: [ BaseItem, BaseSecurityContraband ]
   description: Unconventional 30-round top feeding magazine for the WT550 SMG. Intended to hold general-purpose kinetic ammunition.
   components:
+  - type: Item
+    storedRotation: 90
   - type: Tag
     tags:
       - MagazinePistolSubMachineGunTopMounted
@@ -170,18 +172,19 @@
       ballistic-ammo: !type:Container
 
 - type: entity
+  parent: MagazinePistolSubMachineGunTopMounted
   id: MagazinePistolSubMachineGunTopMountedEmpty
   name: WT550 magazine (.35 auto top-mounted any)
-  parent: MagazinePistolSubMachineGunTopMounted
+  suffix: empty
   description: Unconventional 30-round top feeding magazine for the WT550 SMG.
   components:
   - type: BallisticAmmoProvider
     proto: null
 
 - type: entity
+  parent: BaseMagazinePistol
   id: MagazinePistol
   name: pistol magazine (.35 auto)
-  parent: BaseMagazinePistol
   description: 12-round single-stack magazine for pistols. Intended to hold general-purpose kinetic ammunition. #goobstation
   components:
   - type: BallisticAmmoProvider
@@ -200,10 +203,10 @@
       - state: inhand-right-mag
 
 - type: entity
+  parent: MagazinePistol
   id: MagazinePistolEmpty
   name: pistol magazine (.35 auto any)
   suffix: empty
-  parent: MagazinePistol
   description: 12-round single-stack magazine for pistols. #goobstation
   components:
   - type: BallisticAmmoProvider
@@ -222,9 +225,9 @@
       - state: inhand-right-mag
 
 - type: entity
+  parent: MagazinePistol
   id: MagazinePistolIncendiary
   name: pistol magazine (.35 auto incendiary)
-  parent: MagazinePistol
   description: 12-round single-stack magazine for pistols. Intended to hold self-igniting incendiary ammunition. #goobstation
   components:
   - type: BallisticAmmoProvider
@@ -249,9 +252,9 @@
         color: "#ff6e52"
 
 - type: entity
+  parent: BaseMagazinePistol
   id: MagazinePistolPractice
   name: pistol magazine (.35 auto practice)
-  parent: BaseMagazinePistol
   description: 12-round single-stack magazine for pistols. Intended to hold non-harmful chalk ammunition. #goobstation
   components:
   - type: BallisticAmmoProvider
@@ -276,9 +279,9 @@
         color: "#dbdbdb"
 
 - type: entity
+  parent: BaseMagazinePistol
   id: MagazinePistolUranium
   name: pistol magazine (.35 auto uranium)
-  parent: BaseMagazinePistol
   description: 12-round single-stack magazine for pistols. Intended to hold exotic uranium-core ammunition. #goobstation
   components:
   - type: BallisticAmmoProvider
@@ -303,10 +306,34 @@
         color: "#00cd42"
 
 - type: entity
-  id: MagazinePistolHighCapacityEmpty
-  name: machine pistol magazine (.35 auto any)
+  parent: BaseMagazinePistolSubMachineGun
+  id: MagazinePistolSubMachineGun
+  name: SMG magazine (.35 auto)
+  description: 30-round double-stack magazine for submachine guns. Intended to hold general-purpose kinetic ammunition.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistol
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/bullet_insert.ogg
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      right:
+      - state: inhand-right-mag
+
+- type: entity
+  parent: BaseMagazinePistolSubMachineGun
+  id: MagazinePistolSubMachineGunEmpty
+  name: SMG magazine (.35 auto any)
   suffix: empty
-  parent: BaseMagazinePistolHighCapacity
+  description: 30-round double-stack magazine for submachine guns.
   components:
   - type: BallisticAmmoProvider
     proto: null
@@ -324,32 +351,13 @@
       - state: inhand-right-mag
 
 - type: entity
-  id: MagazinePistolHighCapacity
-  name: machine pistol magazine (.35 auto)
-  parent: BaseMagazinePistolHighCapacity
+  parent: BaseMagazinePistolSubMachineGun
+  id: MagazinePistolSubMachineGunPractice
+  name: SMG magazine (.35 auto practice)
+  description: 30-round double-stack magazine for submachine guns. Intended to hold harmless practice ammunition.
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgePistol
-  - type: Sprite
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left-mag
-      right:
-      - state: inhand-right-mag
-
-- type: entity
-  id: MagazinePistolHighCapacityPractice
-  name: machine pistol magazine (.35 auto practice)
-  parent: BaseMagazinePistolHighCapacity
-  components:
-  - type: BallisticAmmoProvider
-    proto: CartridgePistol
+    proto: CartridgePistolPractice
   - type: Sprite
     layers:
     - state: base
@@ -384,84 +392,9 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
-  id: MagazinePistolSubMachineGun
-  name: SMG magazine (.35 auto)
   parent: BaseMagazinePistolSubMachineGun
-  description: 30-round double-stack magazine for submachine guns. Intended to hold general-purpose kinetic ammunition.
-  components:
-  - type: BallisticAmmoProvider
-    proto: CartridgePistol
-    whitelist:
-      tags:
-        - CartridgePistol
-    soundInsert:
-      path: /Audio/Weapons/Guns/MagIn/bullet_insert.ogg
-  - type: Sprite
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left-mag
-      right:
-      - state: inhand-right-mag
-
-- type: entity
-  id: MagazinePistolSubMachineGunEmpty
-  name: SMG magazine (.35 auto any)
-  suffix: empty
-  parent: BaseMagazinePistolSubMachineGun
-  description: 30-round double-stack magazine for submachine guns.
-  components:
-  - type: BallisticAmmoProvider
-    proto: null
-  - type: Sprite
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left-mag
-      right:
-      - state: inhand-right-mag
-
-- type: entity
-  id: MagazinePistolSubMachineGunPractice
-  name: SMG magazine (.35 auto practice)
-  parent: BaseMagazinePistolSubMachineGun
-  description: 30-round double-stack magazine for submachine guns. Intended to hold non-harmful chalk ammunition.
-  components:
-  - type: BallisticAmmoProvider
-    proto: CartridgePistolPractice
-  - type: Sprite
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
-    - state: stripe
-      color: "#dbdbdb"
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left-mag
-      - state: inhand-left-stripe
-        color: "#dbdbdb"
-      right:
-      - state: inhand-right-mag
-      - state: inhand-right-stripe
-        color: "#dbdbdb"
-
-- type: entity
   id: MagazinePistolSubMachineGunUranium
   name: SMG magazine (.35 auto uranium)
-  parent: BaseMagazinePistolSubMachineGun
   description: 30-round double-stack magazine for submachine guns. Intended to hold exotic uranium-core ammunition.
   components:
   - type: BallisticAmmoProvider
@@ -512,3 +445,72 @@
       - state: inhand-right-stripe
         color: "#ff6e52"
 
+- type: entity
+  parent: BaseMagazinePistolHighCapacity
+  id: MagazinePistolHighCapacityEmpty
+  name: machine pistol magazine (.35 auto any)
+  suffix: empty
+  description: Custom 15-round double-stack magazine for the Viper pistol.
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      right:
+      - state: inhand-right-mag
+
+- type: entity
+  parent: BaseMagazinePistolHighCapacity
+  id: MagazinePistolHighCapacity
+  name: machine pistol magazine (.35 auto)
+  description: Custom 15-round double-stack magazine for the Viper pistol. Intended to hold general-purpose kinetic ammunition.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistol
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      right:
+      - state: inhand-right-mag
+
+- type: entity
+  parent: BaseMagazinePistolHighCapacity
+  id: MagazinePistolHighCapacityPractice
+  name: machine pistol magazine (.35 auto practice)
+  description: Custom 15-round double-stack magazine for the Viper pistol. Intended to hold harmless practice ammunition.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolPractice
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: stripe
+      color: "#dbdbdb"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#dbdbdb"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#dbdbdb"

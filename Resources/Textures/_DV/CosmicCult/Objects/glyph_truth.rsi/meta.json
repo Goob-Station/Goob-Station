@@ -1,0 +1,90 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Default sprite (ready) by AftrLite (Github). Other states (spawning, despawning, cooldown, active) modified from the original by NoElkaTheGod (GitHub).",
+    "size": {
+        "x": 96,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "ready"
+        },
+        {
+            "name": "cooldown",
+            "delays": [
+                [
+                    1.9,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    60
+                ]
+            ]
+        },
+        {
+            "name": "active",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "spawning",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    60
+                ]
+            ]
+        },
+        {
+            "name": "despawning",
+            "delays": [
+                [
+                    0.05,
+                    0.05,
+                    0.05,
+                    0.05,
+                    0.05,
+                    0.05,
+                    0.05,
+                    0.05,
+                    0.05,
+                    0.05,
+                    0.05,
+                    60
+                ]
+            ]
+        }
+    ]
+}

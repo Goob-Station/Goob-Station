@@ -31,6 +31,7 @@
     size: Normal
     sprite: Objects/Weapons/Melee/cane.rsi
   - type: Appearance
+  - type: MobilityAid
   - type: MeleeWeapon
     animationRotation: -45 # WWDP
     wideAnimationRotation: 45
@@ -50,25 +51,22 @@
 
 - type: entity
   name: cane blade
-  parent: [BaseItem, BaseSyndicateContraband]
+  parent: [BaseSword, BaseSyndicateContraband]
   id: CaneBlade
   description: A sharp blade with a cane shaped hilt. Enchanted with fire powers by a fellow book lover. # Goobstation
   components:
-  - type: Sharp
   - type: Sprite
     sprite: Objects/Weapons/Melee/cane_blade.rsi
-    state: icon
   - type: MeleeWeapon
     animationRotation: 45 # WWDP
     wideAnimationRotation: 65
     attackRate: 1.5
     damage:
       types:
-        Slash: 16 # Goobstation
+        Slash: 17
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
-    size: Normal
     sprite: Objects/Weapons/Melee/cane_blade.rsi
   - type: Tag
     tags:
@@ -78,7 +76,7 @@
     fireStacks: 0.5
 
 - type: entity
-  parent: Cane
+  parent: [Cane, SelectableLock]
   id: CaneSheath
   suffix: Empty
   components:
@@ -94,6 +92,9 @@
     interfaces:
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
+  - type: ItemSlotsLock
+    slots:
+    - item
   - type: ItemSlots
     slots:
       item:
@@ -105,6 +106,7 @@
           - CaneBlade
         insertSound: /Audio/Items/sheath.ogg
         ejectSound: /Audio/Items/unsheath.ogg
+        priority: 3
   - type: ItemMapper
     mapLayers:
       cane:

@@ -21,22 +21,4 @@ namespace Content.Shared.Weapons.Ranged.Components;
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedGunSystem))]
 public sealed partial class ClothingSlotAmmoProviderComponent : AmmoProviderComponent
 {
-    /// <summary>
-    /// The slot that the ammo provider should be located in.
-    /// </summary>
-    [DataField("targetSlot", required: true)]
-    public SlotFlags TargetSlot;
-
-    /// <summary>
-    /// A whitelist for determining whether or not an ammo provider is valid.
-    /// </summary>
-    [DataField("providerWhitelist")]
-    public EntityWhitelist? ProviderWhitelist;
-
-    /// <summary>
-    /// Assmos - Extinguisher Nozzle
-    /// If the hands are considered a valid ammo provider slot.
-    /// </summary>
-    [DataField("checkHands")]
-    public bool CheckHands = false;
 }

@@ -256,6 +256,28 @@
   materials:
     Biomass: 18
 
+- type: latheRecipe
+  id: BioGenDiseaseSwab
+  result: DiseaseSwab
+  categories:
+  - Materials
+  completetime: 3
+  materials:
+    Biomass: 2
+
+- type: latheRecipe
+  id: BioGenUnstableMutagen
+  resultReagents:
+    UnstableMutagen: 10
+  categories:
+  - Chemicals
+  icon:
+    sprite: Objects/Specific/Chemistry/bottle.rsi
+    state: bottle-1
+  completetime: 5
+  materials:
+    Biomass: 20
+
 - type: latheRecipe #Goobstation Change
   id: BioGenDylo
   resultReagents:
@@ -294,19 +316,6 @@
   completetime: 1
   materials:
     Biomass: 25
-
-- type: latheRecipe #Goobstation Change
-  id: BioGenMuta
-  resultReagents:
-    UnstableMutagen: 10
-  categories:
-  - Chemicals
-  icon:
-    sprite: Objects/Specific/Chemistry/bottle.rsi
-    state: bottle-1
-  completetime: 1
-  materials:
-    Biomass: 12
 
 - type: latheRecipe #Goobstation Change
   id: BioGenEgg

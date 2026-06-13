@@ -296,6 +296,22 @@
 
 
 - type: listing
+  id: UplinkEnergyCrossbow
+  name: uplink-energycrossbow-name
+  description: uplink-energycrossbow-desc
+  #discountCategory: rareDiscounts
+  #discountDownTo:
+  #  Telecrystal: 3
+  productEntity: WeaponEnergyCrossbow
+  cost:
+    Telecrystal: 30 # Goob
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
   id: UplinkThrowingKnivesKit
   name: uplink-knives-kit-name
   description: uplink-knives-kit-desc
@@ -377,6 +393,20 @@
       tags:
       - ContractorUplink
 
+
+- type: listing
+  id: UplinkHushpup
+  name: uplink-hushpup-name
+  description: uplink-hushpup-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/hushpup.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledHushpup
+  #discountCategory: rareDiscounts
+  #discountDownTo:
+  #  Telecrystal: 8
+  cost:
+    Telecrystal: 30 # goob
+  categories:
+  - UplinkWeaponry
 
 - type: listing
   id: UplinkC20R #goob
@@ -760,8 +790,8 @@
   id: UplinkPistol9mmMagazine
   name: uplink-pistol-magazine-name
   description: uplink-pistol-magazine-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag.rsi, state: red-icon }
-  productEntity: MagazinePistol
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_high_capacity_mag.rsi, state: base-icon }
+  productEntity: MagazinePistolHighCapacity
   cost:
     Telecrystal: 2 # goob - Ammo should be cheap.
   categories:
@@ -929,8 +959,11 @@
   description: uplink-chemistry-kit-desc
   icon: { sprite: /Textures/Objects/Storage/boxicons.rsi, state: vials }
   productEntity: ChemicalSynthesisKit
+  #discountCategory: usualDiscounts
+  #discountDownTo:
+  #  Telecrystal: 10 # Goob
   cost:
-    Telecrystal: 20 # goob
+    Telecrystal: 20 # Goob
   categories:
   - UplinkChemicals
   #Goobstation
@@ -952,21 +985,22 @@
 #    Telecrystal: 200 # goob
 #  categories:
 #  - UplinkChemicals
+#  #Goobstation
 #  conditions:
 #  - !type:StoreWhitelistCondition
-#    whitelist:
-#      tags:
-#      - NukeOpsUplink
-#  - !type:BuyerWhitelistCondition
 #    blacklist:
-#      components:
-#      - SurplusBundle
+#      tags:
+#      - ContractorUplink
+
 
 - type: listing
   id: UplinkNocturineChemistryBottle
   name: uplink-nocturine-chemistry-bottle-name
   description: uplink-nocturine-chemistry-bottle-desc
   productEntity: ChemistryBottleNocturine
+  #discountCategory: usualDiscounts
+  #discountDownTo:
+  #  Telecrystal: 15 # Goob
   cost:
     Telecrystal: 30 # goob
   categories:
@@ -1000,8 +1034,11 @@
   name: uplink-stimpack-name
   description: uplink-stimpack-desc
   productEntity: Stimpack
+  #discountCategory: usualDiscounts
+  #discountDownTo:
+  #  Telecrystal: 1
   cost:
-    Telecrystal: 10 # goob - 1 TC per 3 seconds.
+    Telecrystal: 5 # goob
   categories:
   - UplinkChemicals
 
@@ -1011,8 +1048,11 @@
   name: uplink-stimkit-name
   description: uplink-stimkit-desc
   productEntity: StimkitFilled
+  #discountCategory: rareDiscounts
+  #discountDownTo:
+  #  Telecrystal: 3
   cost:
-    Telecrystal: 40 # goob
+    Telecrystal: 30 # goob
   categories:
   - UplinkChemicals
 
@@ -1049,6 +1089,15 @@
 
 
 # Deception
+- type: listing
+  id: UplinkSyndicateIDCard
+  name: uplink-syndicate-id-card-name
+  description: uplink-syndicate-id-card-desc
+  productEntity: SyndicateIDCard
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkDeception
 
 - type: listing
   id: UplinkAgentIDCard
@@ -1192,6 +1241,30 @@
     Telecrystal: 10 # goob
   categories:
   - UplinkDeception
+  restockTime: 1800
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkSyndicateBombFakeNukie
+  name: uplink-exploding-syndicate-bomb-fake-name
+  description: uplink-exploding-syndicate-bomb-fake-desc
+  productEntity: SyndicateBombFake
+  #discountCategory: usualDiscounts
+  #discountDownTo:
+  #  Telecrystal: 1
+  cost:
+    Telecrystal: 10 # Goob
+  categories:
+  - UplinkDeception
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
 
 # Disruption
 
@@ -1842,7 +1915,6 @@
       blacklist:
         components:
           - SurplusBundle
-          - ContravendUplink
 
 - type: listing
   id: UplinkFakeMindshield
@@ -1855,36 +1927,45 @@
   categories:
   - UplinkImplants
 
-
-# Wearables
-
 - type: listing
   id: UplinkJetpack
   name: uplink-black-jetpack-name
   description: uplink-black-jetpack-desc
   productEntity: JetpackBlackFilled
+  #discountCategory: veryRareDiscounts
+  #discountDownTo:
+  #  Telecrystal: 1
   cost:
     Telecrystal: 10 # goob
   categories:
   - UplinkWearables
-  #Goobstation
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - ContractorUplink
-
 
 - type: listing
   id: UplinkVoiceMask
   name: uplink-voice-mask-name
   description: uplink-voice-mask-desc
   productEntity: ClothingMaskGasVoiceChameleon
+  #discountCategory: usualDiscounts
+  #discountDownTo:
+  #  Telecrystal: 1
   cost:
     Telecrystal: 10 # goob
   categories:
   - UplinkWearables
 
+- type: listing
+  id: UplinkVoiceMaskImplant
+  name: uplink-voice-mask-implanter-name
+  description: uplink-voice-mask-implanter-desc
+  icon: { sprite: Interface/Actions/voice-mask.rsi, state: icon }
+  productEntity: VoiceMaskImplanter
+  #discountCategory: usualDiscounts
+  #discountDownTo:
+  #  Telecrystal: 1
+  cost:
+    Telecrystal: 20 # Goob
+  categories:
+  - UplinkImplants
 
 - type: listing
   id: UplinkHolster
@@ -2326,22 +2407,6 @@
       whitelist:
         - Passenger
 
-
-- type: listing
-  id: uplinkRiggedBoxingGlovesBoxer
-  name: uplink-rigged-boxing-gloves-name
-  description: uplink-rigged-boxing-gloves-desc
-  productEntity: ClothingHandsGlovesBoxingRigged
-  cost:
-    Telecrystal: 20 # goob
-  categories:
-    - UplinkJob
-  conditions:
-    - !type:BuyerJobCondition
-      whitelist:
-        - Boxer
-
-
 - type: listing
   id: uplinkNecronomicon
   name: uplink-necronomicon-name
@@ -2502,9 +2567,8 @@
   categories:
   - UplinkJob
   conditions:
-  - !type:BuyerJobCondition # We can't use BuyerDepartmentCondition here since Zookeeper and Chef can also get this
+  - !type:BuyerJobCondition # We can't use BuyerDepartmentCondition here since Chef can also get this
     whitelist:
-    - Zookeeper
     - Scientist
     - ResearchDirector
     - Chef
@@ -2581,3 +2645,38 @@
   - !type:BuyerJobCondition
     whitelist:
     - Chaplain
+
+- type: listing
+  id: UplinkSawAdvanced
+  name: uplink-saw-advanced-name
+  description: uplink-saw-advanced-desc
+  icon: { sprite:  Objects/Specific/Medical/Surgery/saw.rsi, state: advanced}
+  productEntity: SawAdvanced
+  #discountCategory: rareDiscounts
+  #discountDownTo:
+  #  Telecrystal: 5
+  cost:
+    Telecrystal: 15 # Goob
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - MedicalDoctor
+
+- type: listing
+  id: uplinkBriefcaseGun
+  name: uplink-briefcase-gun-name
+  description: uplink-briefcase-gun-desc
+  productEntity: WeaponSubMachineGunBriefcase
+  #discountCategory: veryRareDiscounts
+  #discountDownTo:
+  #  Telecrystal: 10
+  cost:
+    Telecrystal: 25 # Goob
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Lawyer

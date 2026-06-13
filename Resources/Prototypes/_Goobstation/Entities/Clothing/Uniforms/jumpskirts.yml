@@ -53,7 +53,7 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Centcom/trainer.rsi
 
-- type: entity
+- type: entity # todo <mailfix>
   parent: ClothingUniformSkirtBase
   id: ClothingUniformSkirtMailCarrier
   name: mail carrier's jumpskirt
@@ -121,7 +121,7 @@
       - state: inhand-right
         color: "#620b73"
         sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/color.rsi
-        
+
 
 - type: entity
   parent: ClothingUniformSkirtBase

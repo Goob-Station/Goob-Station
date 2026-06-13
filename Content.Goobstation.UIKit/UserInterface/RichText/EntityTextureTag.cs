@@ -17,8 +17,7 @@ public sealed class EntityTextureTag : BaseTextureTag, IMarkupTagHandler
     public bool TryCreateControl(MarkupNode node, [NotNullWhen(true)] out Control? control)
     {
         control = null;
-
-        if (!node.Attributes.TryGetValue("id", out var idParameter) || !idParameter.TryGetLong(out var id))
+        if (node.Closing || !node.Attributes.TryGetValue("id", out var idParameter) || !idParameter.TryGetLong(out var id))
             return false;
 
         if (!node.Attributes.TryGetValue("size", out var size) || !size.TryGetLong(out var sizeValue))
@@ -26,11 +25,7 @@ public sealed class EntityTextureTag : BaseTextureTag, IMarkupTagHandler
             sizeValue = 32;
         }
 
-        if (!TryDrawIconEntity(new NetEntity((int) id), sizeValue.Value, out var texture))
-            return false;
-
-        control = texture;
-
+        control = DrawIconEntity(new NetEntity((int) id), sizeValue.Value);
         return true;
     }
 }

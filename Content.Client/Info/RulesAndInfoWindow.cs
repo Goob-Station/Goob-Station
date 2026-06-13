@@ -62,7 +62,7 @@ namespace Content.Client.Info
 
             PopulateTutorial(tutorialList);
 
-            Contents.AddChild(rootContainer);
+            ContentsContainer.AddChild(rootContainer);
 
             SetSize = new Vector2(650, 650);
         }

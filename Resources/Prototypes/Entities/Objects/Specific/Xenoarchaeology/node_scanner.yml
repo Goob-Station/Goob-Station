@@ -21,7 +21,7 @@
       delay: 1
     - type: GuideHelp
       guides:
-      - ArtifactReports
+      - Xenoarchaeology
     - type: PhysicalComposition #Goobstation - Recycle update
       materialComposition:
         Steel: 25

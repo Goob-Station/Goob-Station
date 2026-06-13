@@ -57,6 +57,9 @@ public abstract partial class InteractionTest
         public static implicit operator EntitySpecifier(string prototype)
             => new(prototype, 1);
 
+        public static implicit operator EntitySpecifier(EntProtoId prototype)
+            => new(prototype.Id, 1);
+
         public static implicit operator EntitySpecifier((string, int) tuple)
             => new(tuple.Item1, tuple.Item2);
 
@@ -101,7 +104,7 @@ public abstract partial class InteractionTest
             await Server.WaitPost(() =>
             {
                 uid = SEntMan.SpawnEntity(stackProto.Spawn, coords);
-                Stack.SetCount(uid, spec.Quantity);
+                Stack.SetCount((uid, null), spec.Quantity);
             });
             return uid;
         }

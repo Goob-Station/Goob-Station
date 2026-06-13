@@ -8,21 +8,21 @@ using Robust.Shared.Prototypes;
 namespace Content.Goobstation.Shared.NTR.Documents
 {
     [Prototype("documentType")]
-    public sealed class DocumentTypePrototype : IPrototype
+    public sealed partial class DocumentTypePrototype : IPrototype
     {
         [IdDataField]
-        public string ID { get; } = default!;
+        public string ID { get; private set; } = default!;
 
         [DataField]
-        public string StartingText { get; } = string.Empty;
+        public string StartingText { get; private set; } = string.Empty;
 
         [DataField]
-        public string Template { get; } = string.Empty;
+        public string Template { get; private set; } = string.Empty;
 
         [DataField]
-        public string[] TextKeys { get; } = Array.Empty<string>();
+        public string[] TextKeys { get; private set; } = Array.Empty<string>();
 
         [DataField]
-        public int[] TextCounts { get; } = Array.Empty<int>();
+        public int[] TextCounts { get; private set; } = Array.Empty<int>();
     }
 }

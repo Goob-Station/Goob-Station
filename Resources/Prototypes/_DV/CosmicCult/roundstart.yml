@@ -23,6 +23,7 @@
     objectives:
     - CosmicFinalityObjective
     - CosmicMonumentObjective
+    - CosmicConversionObjective
     - CosmicEntropyObjective
   - type: AntagSelection
     definitions:

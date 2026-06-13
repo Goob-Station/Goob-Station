@@ -193,13 +193,13 @@
       path: "/Audio/Items/wirecutter.ogg"
   - type: Tool
     qualities:
-      - Cutting
+    - Cutting
     useSound:
       path: /Audio/Items/wirecutter.ogg
   - type: RandomSprite
     available:
-      - enum.DamageStateVisualLayers.Base:
-          cutters: Rainbow
+    - enum.DamageStateVisualLayers.Base:
+        cutters: Rainbow
   - type: Item
     sprite: Objects/Tools/wirecutters.rsi
     storedRotation: -90
@@ -247,9 +247,9 @@
   - type: Sprite
     sprite: Objects/Tools/screwdriver.rsi
     layers:
-      - state: screwdriver
-        map: [ "enum.DamageStateVisualLayers.Base" ]
-      - state: screwdriver-screwybits
+    - state: screwdriver
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+    - state: screwdriver-screwybits
   - type: Item
     sprite: Objects/Tools/screwdriver.rsi
     storedRotation: -90
@@ -264,7 +264,7 @@
       path: "/Audio/Weapons/bladeslice.ogg"
   - type: Tool
     qualities:
-      - Screwing
+    - Screwing
     useSound:
       collection: Screwdriver
   - type: RandomSprite
@@ -330,7 +330,7 @@
       collection: MetalThud
   - type: Tool
     qualities:
-      - Anchoring
+    - Anchoring
     useSound:
       path: /Audio/Items/ratchet.ogg
   - type: PhysicalComposition
@@ -374,7 +374,7 @@
     - Belt
   - type: Tool
     qualities:
-      - Pulsing
+    - Pulsing
   - type: NetworkConfigurator
   - type: ActivatableUI
     key: enum.NetworkConfiguratorUiKey.List
@@ -389,9 +389,9 @@
         type: NetworkConfiguratorBoundUserInterface
   - type: Tag
     tags:
-      - Multitool
-      - DoorElectronicsConfigurator
-      - DroneUsable # Goobstation
+    - Multitool
+    - DoorElectronicsConfigurator
+    - DroneUsable # Goobstation
   - type: PhysicalComposition
     materialComposition:
       Steel: 100
@@ -411,54 +411,54 @@
   id: NetworkConfigurator
   description: A tool for linking devices together. Has two modes, a list mode for mass linking devices and a linking mode for advanced device linking.
   components:
-    - type: EmitSoundOnLand
-      sound:
-        path: /Audio/Items/multitool_drop.ogg
-    - type: Sprite
-      sprite: Objects/Tools/network_configurator.rsi
-      layers:
-        - state: icon
-        - state: mode-link
-          map: ["enum.NetworkConfiguratorLayers.ModeLight"]
-          shader: unshaded
-    - type: Item
-      size: Small
-    - type: Clothing
-      sprite: Objects/Tools/network_configurator.rsi
-      quickEquip: false
-      slots:
-        - Belt
-    - type: Appearance
-    - type: GenericVisualizer
-      visuals:
-        enum.NetworkConfiguratorVisuals.Mode:
-          enum.NetworkConfiguratorLayers.ModeLight:
-            True: { state: mode-link }
-            False: { state: mode-list }
-    - type: NetworkConfigurator
-    - type: ActivatableUI
-      key: enum.NetworkConfiguratorUiKey.List
-      inHandsOnly: true
-    - type: Tag
-      tags:
-        - DoorElectronicsConfigurator
-    - type: UserInterface
-      interfaces:
-        enum.NetworkConfiguratorUiKey.List:
-          type: NetworkConfiguratorBoundUserInterface
-        enum.NetworkConfiguratorUiKey.Configure:
-          type: NetworkConfiguratorBoundUserInterface
-        enum.NetworkConfiguratorUiKey.Link:
-          type: NetworkConfiguratorBoundUserInterface
-    - type: StaticPrice
-      price: 56
-    - type: GuideHelp
-      guides:
-      - Networking
-    - type: PhysicalComposition #Goobstation - Recycle update
-      materialComposition:
-        Steel: 25
-        Plastic: 25
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/multitool_drop.ogg
+  - type: Sprite
+    sprite: Objects/Tools/network_configurator.rsi
+    layers:
+    - state: icon
+    - state: mode-link
+      map: ["enum.NetworkConfiguratorLayers.ModeLight"]
+      shader: unshaded
+  - type: Item
+    size: Small
+  - type: Clothing
+    sprite: Objects/Tools/network_configurator.rsi
+    quickEquip: false
+    slots:
+    - Belt
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.NetworkConfiguratorVisuals.Mode:
+        enum.NetworkConfiguratorLayers.ModeLight:
+          True: { state: mode-link }
+          False: { state: mode-list }
+  - type: NetworkConfigurator
+  - type: ActivatableUI
+    key: enum.NetworkConfiguratorUiKey.List
+    inHandsOnly: true
+  - type: Tag
+    tags:
+    - DoorElectronicsConfigurator
+  - type: UserInterface
+    interfaces:
+      enum.NetworkConfiguratorUiKey.List:
+        type: NetworkConfiguratorBoundUserInterface
+      enum.NetworkConfiguratorUiKey.Configure:
+        type: NetworkConfiguratorBoundUserInterface
+      enum.NetworkConfiguratorUiKey.Link:
+        type: NetworkConfiguratorBoundUserInterface
+  - type: StaticPrice
+    price: 56
+  - type: GuideHelp
+    guides:
+    - Networking
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 25
+      Plastic: 25
 
 #Power tools
 #Later on these should switch probably switch damage when changing the tool behavior.
@@ -479,28 +479,28 @@
     size: Small
   - type: Tool
     qualities:
-      - Screwing
+    - Screwing
     speedModifier: 1.5
     useSound: /Audio/Items/drill_use.ogg
   - type: MultipleTool
     statusShowBehavior: true
     entries:
-      - behavior: Screwing
-        sprite:
-          sprite: Objects/Tools/drill.rsi
-          state: drill_screw
-        useSound:
-          path: /Audio/Items/drill_use.ogg
-        changeSound:
-          path: /Audio/Items/change_drill.ogg
-      - behavior: Anchoring
-        sprite:
-          sprite: Objects/Tools/drill.rsi
-          state: drill_bolt
-        useSound:
-          path: /Audio/Items/drill_use.ogg
-        changeSound:
-          path: /Audio/Items/change_drill.ogg
+    - behavior: Screwing
+      sprite:
+        sprite: Objects/Tools/drill.rsi
+        state: drill_screw
+      useSound:
+        path: /Audio/Items/drill_use.ogg
+      changeSound:
+        path: /Audio/Items/change_drill.ogg
+    - behavior: Anchoring
+      sprite:
+        sprite: Objects/Tools/drill.rsi
+        state: drill_bolt
+      useSound:
+        path: /Audio/Items/drill_use.ogg
+      changeSound:
+        path: /Audio/Items/change_drill.ogg
   - type: PhysicalComposition
     materialComposition:
       Steel: 300
@@ -578,7 +578,7 @@
     key: enum.RcdUiKey.Key
   - type: Tag
     tags:
-      - DroneUsable # Goobstation
+    - DroneUsable # Goobstation
 
 - type: entity
   id: RPD
@@ -691,7 +691,7 @@
     delay: 0 # Goobstation - no switch CD
   - type: Tool
     qualities:
-      - Screwing
+    - Screwing
     speedModifier: 1.2 # Kept for future adjustments. Currently 1.2x for balance
     useSound: /Audio/Items/drill_use.ogg
   - type: ToolTileCompatible
@@ -778,6 +778,7 @@
   - type: Item
     sprite: Objects/Tools/rolling_pin.rsi
     size: Small
+    storedRotation: -45
   - type: Clothing
     sprite: Objects/Tools/rolling_pin.rsi
     quickEquip: false

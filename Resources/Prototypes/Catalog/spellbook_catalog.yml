@@ -72,12 +72,24 @@
     blacklist:
     - SpellbookFullRandom
     - SpellbookSemiRandom
+# Goobstation Start
+#- type: listing
+#  id: SpellbookRepulse
+#  name: spellbook-repulse-name
+#  description: spellbook-repulse-desc
+#  productAction: ActionRepulse
+#  cost:
+#    WizCoin: 2
+#  categories:
+#  - SpellbookDefensive
+#  conditions:
+#  - !type:ListingLimitedStockCondition
+#    stock: 1
 
 # Utility
-# Goob edit
 #- type: listing
 #  id: SpellbookPolymorphSpider
-#  name: spellbook-polymoprh-spider-name
+#  name: spellbook-polymorph-spider-name
 #  description: spellbook-polymorph-spider-desc
 #  productAction: ActionPolymorphWizardSpider
 #  cost:
@@ -87,6 +99,7 @@
 #  conditions:
 #  - !type:ListingLimitedStockCondition
 #    stock: 1
+# Goobstation End
 
 - type: listing
   id: SpellbookBlink
@@ -105,6 +118,20 @@
     blacklist:
     - SpellbookFullRandom
     - SpellbookSemiRandom
+
+## Taking an Eldritch spell, good proof of concept and a way to celebrate everything magic.
+#- type: listing
+#  id: SpellbookVoidApplause
+#  name: spellbook-voidapplause-name
+#  description: spellbook-voidapplause-desc
+#  productAction: ActionVoidApplause
+#  cost:
+#    WizCoin: 1
+#  categories:
+#  - SpellbookUtility
+#  conditions:
+#  - !type:ListingLimitedStockCondition
+#    stock: 1
 
 - type: listing
   id: SpellbookCharge

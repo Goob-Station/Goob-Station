@@ -79,11 +79,11 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Temperature.Components;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Rotting;
 using Content.Shared.Body.Events;
 using Content.Shared.Damage;
+using Content.Shared.Temperature.Components;
 using Robust.Server.Containers;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;
@@ -152,19 +152,21 @@ public sealed class RottingSystem : SharedRottingSystem
         {
             if (_timing.CurTime < perishable.RotNextUpdate)
                 continue;
+
             perishable.RotNextUpdate += perishable.PerishUpdateRate;
 
             var stage = PerishStage((uid, perishable), MaxStages);
             if (stage != perishable.Stage)
             {
                 perishable.Stage = stage;
-                Dirty(uid, perishable);
+                DirtyField(uid, perishable, nameof(PerishableComponent.Stage));
             }
 
             if (IsRotten(uid) || !IsRotProgressing(uid, perishable))
                 continue;
 
             perishable.RotAccumulator += perishable.PerishUpdateRate * GetRotRate(uid);
+            DirtyField(uid, perishable, nameof(PerishableComponent.RotAccumulator));
             if (perishable.RotAccumulator >= perishable.RotAfter)
             {
                 var rot = AddComp<RottingComponent>(uid);

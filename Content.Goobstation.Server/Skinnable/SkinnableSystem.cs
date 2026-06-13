@@ -9,6 +9,7 @@ using Content.Server.Kitchen.Components;
 using Content.Server.Popups;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
+using Content.Shared.Kitchen.Components;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Robust.Server.Audio;

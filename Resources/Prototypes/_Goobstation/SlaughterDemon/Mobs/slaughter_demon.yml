@@ -11,7 +11,7 @@
     sprite: _Goobstation/SlaughterDemon/demon.rsi
     state: daemon
   - type: Stamina
-    critThreshold: 150
+    baseCritThreshold: 150
   - type: NightVision
     color: "#AA4A44"
     activateSound: null
@@ -49,12 +49,9 @@
     description: ghost-role-information-slaughter-demon-description
     rules: ghost-role-information-slaughter-demon-rules
     mindRoles:
-    - MindRoleGhostRoleSoloAntagonist
+    - MindRoleGhostRoleSoloAntagonistGoob
     raffle:
       settings: default
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 18000
   - type: GhostTakeoverAvailable
   - type: Physics
     bodyType: KinematicController
@@ -171,10 +168,13 @@
     speedModifierThresholds:
       200: 1
   - type: Bloodstream
-    bloodMaxVolume: 300
-    bloodReagent: Sulfur
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Sulfur
+        Quantity: 300
     bleedReductionAmount: 5
   - type: Temperature
+  - type: TemperatureDamage
     coldDamage:
       types:
         Cold: 0
@@ -225,12 +225,9 @@
     description: ghost-role-information-laughter-demon-description
     rules: ghost-role-information-slaughter-demon-rules
     mindRoles:
-    - MindRoleGhostRoleSoloAntagonist
+    - MindRoleGhostRoleSoloAntagonistGoob
     raffle:
       settings: default
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 18000
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Effects/sadtrombone.ogg

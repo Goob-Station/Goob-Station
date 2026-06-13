@@ -130,7 +130,7 @@
 
 - type: cargoBounty
   id: BountyCrayon
-  reward: 4000
+  reward: 1500
   description: bounty-description-crayon
   entries:
   - name: bounty-item-crayon
@@ -165,7 +165,7 @@
 
 - type: cargoBounty
   id: BountyFigurine
-  reward: 8000
+  reward: 3500
   description: bounty-description-figurine
   entries:
   - name: bounty-item-figurine
@@ -222,14 +222,16 @@
 
 - type: cargoBounty
   id: BountyKnife
-  reward: 6000
+  reward: 2000
   description: bounty-description-knife
   entries:
   - name: bounty-item-knife
     amount: 5
     whitelist:
       components:
-        - Sharp
+      - Sharp
+      tags:
+      - UtilityKnife # required because retracted utility knives are not Sharp
 
 - type: cargoBounty
   id: BountyLemon
@@ -313,7 +315,7 @@
 
 - type: cargoBounty
   id: BountyPercussion
-  reward: 15000
+  reward: 2500
   description: bounty-description-percussion
   entries:
   - name: bounty-item-percussion
@@ -540,7 +542,7 @@
 
 - type: cargoBounty
   id: BountyLaserGun
-  reward: 28500
+  reward: 9600
   description: bounty-description-lasergun
   idPrefix: IV
   entries:
@@ -548,7 +550,7 @@
     amount: 6
     whitelist:
       components:
-      - HitscanBatteryAmmoProvider
+      - BatteryAmmoProvider
     blacklist:
       components:
       - PowerCell
@@ -617,11 +619,10 @@
 
 - type: cargoBounty
   id: BountyRollerskates
-  reward: 6500
+  reward: 900
   description: bounty-description-rollerskates
   entries:
   - name: bounty-item-rollerskates
-    amount: 2
     whitelist:
       components:
       - Skates
@@ -727,7 +728,7 @@
 
 - type: cargoBounty
   id: BountyWine
-  reward: 3000
+  reward: 1500
   description: bounty-description-wine
   entries:
   - name: bounty-item-wine

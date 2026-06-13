@@ -117,8 +117,8 @@
         mask:
         - TableMask
         layer:
-        - TableLayer
         - BulletImpassable #Goobstation
+        - TableLayer
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Wood
@@ -590,7 +590,7 @@
         acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
-          collection: GlassBreak
+          collection: WoodDestroy
     - trigger:
         !type:DamageTrigger
         damage: 15
@@ -740,6 +740,31 @@
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: CosmicTable
 
+- type: entity
+  parent: TableBase
+  id: TableXeno
+  name: xeno table
+  description: I wouldn't put the silverware on it.
+  components:
+  - type: Sprite
+    sprite: Structures/Furniture/Tables/xeno.rsi
+  - type: Icon
+    sprite: Structures/Furniture/Tables/xeno.rsi
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: gib
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepFloor
+
 # Fancy tables
 
 - type: entity
@@ -753,6 +778,12 @@
     damageModifierSet: Wood
   - type: Destructible
     thresholds:
+    - trigger: # Excess damage, don't spawn entities
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 25
@@ -796,6 +827,21 @@
     node: TableFancyBlue
   - type: IconSmooth
     key: fancytableblue
+
+- type: entity
+  id: TableFancySkyBlue
+  parent: TableFancyBase
+  suffix: SkyBlue
+  components:
+  - type: Sprite
+    sprite: Structures/Furniture/Tables/Fancy/skyblue.rsi
+  - type: Icon
+    sprite: Structures/Furniture/Tables/Fancy/skyblue.rsi
+  - type: Construction
+    graph: Table
+    node: TableFancySkyBlue
+  - type: IconSmooth
+    key: fancytableskyblue
 
 - type: entity
   id: TableFancyCyan
@@ -928,7 +974,6 @@
   components:
   - type: Tag
     tags:
-      - Debug
       - Table # goob
   - type: Sprite
     sprite: Structures/Furniture/Tables/debug.rsi

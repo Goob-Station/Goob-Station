@@ -24,7 +24,6 @@ using Content.Shared.Stacks;
 using Content.Shared.Tag;
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -33,6 +32,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using System.Numerics;
 using System.Text;
+using Content.Shared.Power.Components;
 
 namespace Content.Goobstation.Server.Power.PTL;
 
@@ -48,9 +48,8 @@ public sealed partial class PTLSystem : EntitySystem
     [Dependency] private readonly AudioSystem _aud = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
 
-    [ValidatePrototypeId<StackPrototype>] private readonly string _stackCredits = "Credit";
-    [ValidatePrototypeId<TagPrototype>] private readonly string _tagScrewdriver = "Screwdriver";
-    [ValidatePrototypeId<TagPrototype>] private readonly string _tagMultitool = "Multitool";
+    private static readonly ProtoId<TagPrototype> _tagScrewdriver = "Screwdriver";
+    private static readonly ProtoId<TagPrototype> _tagMultitool = "Multitool";
 
     private readonly SoundPathSpecifier _soundKaching = new("/Audio/Effects/kaching.ogg");
     private readonly SoundPathSpecifier _soundSparks = new("/Audio/Effects/sparks4.ogg");
@@ -102,7 +101,7 @@ public sealed partial class PTLSystem : EntitySystem
     private void Tick(Entity<PTLComponent> ent)
     {
         if (!TryComp<BatteryComponent>(ent, out var battery)
-        || battery.CurrentCharge < ent.Comp.MinShootPower)
+        || battery.LastCharge < ent.Comp.MinShootPower)
             return;
 
         Shoot((ent, ent.Comp, battery));
@@ -114,23 +113,18 @@ public sealed partial class PTLSystem : EntitySystem
         var megajoule = 1e6;
 
         // Measure battery before firing.
-        var chargeBefore = ent.Comp2.CurrentCharge;
+        var chargeBefore = ent.Comp2.LastCharge;
         if (chargeBefore <= 0)
             return;
 
         // Configure consumption and damage based on planned energy use (capped).
-        if (TryComp<HitscanBatteryAmmoProviderComponent>(ent, out var hitscan))
+        if (TryComp<BatteryAmmoProviderComponent>(ent, out var hitscan))
         {
             var desiredFireCost = (float) Math.Min(chargeBefore, ent.Comp1.MaxEnergyPerShot);
             if (desiredFireCost <= 0)
                 return;
 
             hitscan.FireCost = desiredFireCost;
-
-            // Scale damage from the planned energy use (in MJ);
-            var plannedMJ = desiredFireCost / (float) megajoule;
-            var prot = _protMan.Index<HitscanPrototype>(hitscan.Prototype);
-            prot.Damage = ent.Comp1.BaseBeamDamage * plannedMJ * 2f;
         }
 
         if (TryComp<GunComponent>(ent, out var gun))
@@ -146,11 +140,11 @@ public sealed partial class PTLSystem : EntitySystem
 
             var targetCoords = xform.Coordinates.Offset(directionInParentSpace);
 
-            _gun.AttemptShoot(ent, ent, gun, targetCoords);
+            _gun.AttemptShoot(ent, (ent, gun), targetCoords);
         }
 
         // Determine actual energy used.
-        var chargeAfter = ent.Comp2.CurrentCharge;
+        var chargeAfter = ent.Comp2.LastCharge;
         var energyUsed = Math.Max(0.0, chargeBefore - chargeAfter);
         if (energyUsed <= 0)
             return;
@@ -211,8 +205,8 @@ public sealed partial class PTLSystem : EntitySystem
         {
             if (!Transform(ent).Anchored) // Check if Anchored.
                 return;
-            var stackPrototype = _protMan.Index<StackPrototype>(_stackCredits);
-            _stack.Spawn((int) ent.Comp.SpesosHeld, stackPrototype, Transform(args.User).Coordinates);
+            var spesos = Spawn("SpaceCash", Transform(args.User).Coordinates);
+            _stack.SetCount(spesos, (int) ent.Comp.SpesosHeld);
             ent.Comp.SpesosHeld = 0;
             _popup.PopupEntity(Loc.GetString("ptl-interact-spesos"), ent);
             _aud.PlayPvs(_soundKaching, args.User);

@@ -231,12 +231,6 @@
     count: 6
 
 - type: localizedDataset
-  id: FirebotAd
-  values:
-    prefix: advertisement-firebot-
-    count: 4
-
-- type: localizedDataset
   id: GoodCleanFunAds
   values:
     prefix: advertisement-goodcleanfun-
@@ -367,13 +361,6 @@
   values:
     prefix: advertisement-virodrobe-
     count: 3
-
-- type: localizedDataset
-  id: MedibotAds
-  values:
-    prefix: advertisement-medibot-
-    # Goobstation - Medibot AM advertisement; originally 17
-    count: 18
 
 - type: localizedDataset
   id: PrideDrobeAds

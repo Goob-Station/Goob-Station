@@ -5,6 +5,7 @@ cult-glyph-conditions-not-met = No suitable targets within range of glyph!
 cult-glyph-too-many-targets = Too many targets present on glyph!
 cult-glyph-target-mindshield = Mental shielding prevents the glyph's influence from taking hold!
 cult-glyph-target-chaplain = A spark of divine power prevents the glyph's influence from taking hold!
+cult-glyph-target-mindless = The glyph fails to activate, as the target is currently mindless.
 
 cult-glyph-name-knowledge = Pact of Knowledge
 cult-glyph-description-knowledge = Knowledge. Instills the spark of indelible knowledge. Able to convert most to join our ranks.
@@ -17,6 +18,6 @@ cult-glyph-name-blades = Communion of Blades
 cult-glyph-description-blades = Blades. Transmutes and extrudes sharp objects into more lethal weaponry.
 
 cult-glyph-name-cessation = Concord of Cessation
-cult-glyph-description-cessation = Cessation. Transmutes a portable atmospherics scrubber into a Vacuous Spire for our use.
+cult-glyph-description-cessation = Cessation. Transmutes various machinery into mysterious devices for our use.
 cult-glyph-name-truth = Concord of Truth
 cult-glyph-description-truth = Truth. Instills the pure, indelible truth. Able to convert absolutely anyone to join our ranks.

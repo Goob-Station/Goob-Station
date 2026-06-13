@@ -30,7 +30,7 @@
         components:
         - MindShield
         - Changeling
-        - BorgChassisComponent #dermal means skin. borgs dont have skin
+        - BorgChassis #dermal means skin. borgs dont have skin
     - type: MindcontrolImplant
 
 - type: factionIcon #  There are no statusicon for group for what is needed here. a new group is needed whit ShowToUid. Faction will do for now.

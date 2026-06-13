@@ -20,6 +20,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Silicons.StationAi;
 using Robust.Client.UserInterface;
@@ -41,19 +42,19 @@ public sealed class StationAiBoundUserInterface(EntityUid owner, Enum uiKey) : B
         _menu.Track(Owner);
         var buttonModels = ConvertToButtons(ev.Actions);
         _menu.SetButtons(buttonModels);
-        
+
         _menu.Open();
     }
 
-    private IEnumerable<RadialMenuActionOption> ConvertToButtons(IReadOnlyList<StationAiRadial> actions)
+    private IEnumerable<RadialMenuActionOptionBase> ConvertToButtons(IReadOnlyList<StationAiRadial> actions)
     {
-        var models = new RadialMenuActionOption[actions.Count];
+        var models = new RadialMenuActionOptionBase[actions.Count];
         for (int i = 0; i < actions.Count; i++)
         {
             var action = actions[i];
             models[i] = new RadialMenuActionOption<BaseStationAiAction>(HandleRadialMenuClick, action.Event)
             {
-                Sprite = action.Sprite,
+                IconSpecifier = RadialMenuIconSpecifier.With(action.Sprite),
                 ToolTip = action.Tooltip
             };
         }

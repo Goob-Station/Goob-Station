@@ -63,7 +63,6 @@ public sealed partial class StorageSystem : SharedStorageSystem
     {
         base.Initialize();
         SubscribeLocalEvent<StorageComponent, BeforeExplodeEvent>(OnExploded);
-
         SubscribeLocalEvent<StorageFillComponent, MapInitEvent>(OnStorageFillMapInit);
     }
 

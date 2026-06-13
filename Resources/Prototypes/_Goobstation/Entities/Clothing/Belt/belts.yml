@@ -53,7 +53,6 @@
         - HandheldCrewMonitor # Goobstation
         - SyringeCase # Goobstation
       components:
-        - Hypospray
         - Injector
         - Pill
         - HandLabeler
@@ -167,7 +166,7 @@
         - Cigarette
       components:
         - Pill
-        - Hypospray
+        - Injector
         - SyringeGun
         - SurgeryTool
         - Defibrillator

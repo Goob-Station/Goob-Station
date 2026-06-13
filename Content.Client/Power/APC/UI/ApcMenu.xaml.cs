@@ -57,7 +57,14 @@ namespace Content.Client.Power.APC.UI
 
             if (PowerLabel != null)
             {
-                PowerLabel.Text = castState.Power + " W";
+                if (castState.Tripped)
+                {
+                    PowerLabel.Text = Loc.GetString("apc-menu-power-state-label-tripped");
+                }
+                else
+                {
+                    PowerLabel.Text = Loc.GetString("apc-menu-power-state-label-text", ("power", castState.Power), ("maxLoad", castState.MaxLoad));
+                }
             }
 
             if (ExternalPowerStateLabel != null)
@@ -66,15 +73,15 @@ namespace Content.Client.Power.APC.UI
                 {
                     case ApcExternalPowerState.None:
                         ExternalPowerStateLabel.Text = Loc.GetString("apc-menu-power-state-none");
-                        ExternalPowerStateLabel.SetOnlyStyleClass(StyleNano.StyleClassPowerStateNone);
+                        ExternalPowerStateLabel.SetOnlyStyleClass("negative");
                         break;
                     case ApcExternalPowerState.Low:
                         ExternalPowerStateLabel.Text = Loc.GetString("apc-menu-power-state-low");
-                        ExternalPowerStateLabel.SetOnlyStyleClass(StyleNano.StyleClassPowerStateLow);
+                        ExternalPowerStateLabel.SetOnlyStyleClass("highlight");
                         break;
                     case ApcExternalPowerState.Good:
                         ExternalPowerStateLabel.Text = Loc.GetString("apc-menu-power-state-good");
-                        ExternalPowerStateLabel.SetOnlyStyleClass(StyleNano.StyleClassPowerStateGood);
+                        ExternalPowerStateLabel.SetOnlyStyleClass("positive");
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();

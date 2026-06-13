@@ -17108,7 +17108,7 @@ entities:
     - type: Transform
       pos: 17.5,-6.5
       parent: 4
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 1364
 - proto: BarSignTheNet
   entities:
@@ -21410,7 +21410,7 @@ entities:
     - type: Transform
       pos: 18.5,-6.5
       parent: 4
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 1364
 - proto: CleanerDispenser
   entities:
@@ -22811,7 +22811,7 @@ entities:
     - type: Transform
       pos: 21.5,-6.5
       parent: 4
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 1364
 - proto: FatExtractor
   entities:
@@ -27775,7 +27775,7 @@ entities:
     - type: Transform
       pos: 14.219234,-8.8610935
       parent: 4
-- proto: MaterialSilo
+- proto: MachineMaterialSilo
   entities:
   - uid: 1364
     components:
@@ -27785,23 +27785,23 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         330:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
+        - - OreSilo
+          - OreSiloClient
         1370:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
+        - - OreSilo
+          - OreSiloClient
         89:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
+        - - OreSilo
+          - OreSiloClient
         1365:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
+        - - OreSilo
+          - OreSiloClient
         90:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
+        - - OreSilo
+          - OreSiloClient
         359:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
+        - - OreSilo
+          - OreSiloClient
 - proto: MedicatedSuture
   entities:
   - uid: 1449
@@ -27850,7 +27850,7 @@ entities:
     - type: Transform
       pos: 19.5,-8.5
       parent: 4
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 1364
 - proto: OreBagOfHolding
   entities:
@@ -27881,7 +27881,7 @@ entities:
     - type: Transform
       pos: 16.5,-6.5
       parent: 4
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 1364
 - proto: OxygenCanister
   entities:
@@ -28112,7 +28112,7 @@ entities:
     - type: Transform
       pos: 22.5,-6.5
       parent: 4
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 1364
 - proto: Rack
   entities:

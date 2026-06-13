@@ -37,6 +37,7 @@
     damageContainer: Biological
     damageModifierSet: Gingerbread
   - type: Temperature
+  - type: TemperatureDamage
     coldDamage:
       types:
         Cold: 0.0 #per second, scales with temperature & other constants
@@ -53,7 +54,12 @@
       - id: FoodBakedCookie #should be replaced with gingerbread sheets or something... provided you're willing to make a full spriteset of those.
         amount: 5
   - type: Bloodstream
-    bloodReagent: Sugar
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Sugar
+        Quantity: 100
+      - ReagentId: Butter
+        Quantity: 200
   - type: Reactive
     groups:
       Flammable: [ Touch ]
@@ -63,12 +69,11 @@
     - reagents: [ Water, SpaceCleaner ]
       methods: [ Touch ]
       effects:
-      - !type:WashCreamPieReaction
+      - !type:WashCreamPie
     - reagents: [ Water ]
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
         damage:
           types:
             Heat: 0.3

@@ -98,9 +98,10 @@
 
 
 - type: entity
-  name: pie cannon
   parent: BaseStorageItem
   id: LauncherCreamPie
+  name: pie cannon
+  suffix: Empty
   description: Load cream pie for optimal results.
   components:
   - type: Sprite
@@ -128,7 +129,7 @@
   - type: ContainerAmmoProvider
     container: storagebase
   - type: Item
-    size: Normal
+    size: Large
   - type: Clothing
     sprite: Objects/Weapons/Guns/Cannons/pie_cannon.rsi
     quickEquip: false
@@ -160,20 +161,20 @@
     soundEmpty:
       path: /Audio/Items/hiss.ogg
     clumsyProof: true
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: FoodPieBananaCream
     fireCost: 30
   - type: Battery
     maxCharge: 90
     startingCharge: 90
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 1
   - type: AmmoCounter
   - type: Item
     size: Normal
 
-#- type: entity # Goobstation - proper syringe guns
+# Goobstation - proper syringe guns
+#- type: entity
 #  name: syringe gun
 #  parent: BaseStorageItem
 #  id: LauncherSyringe
@@ -186,7 +187,7 @@
 #  - type: Storage
 #    maxItemSize: Normal
 #    grid:
-#    - 0,0,2,0
+#   - 0,0,2,0
 #    whitelist:
 #      tags:
 #      - SyringeGunAmmo
@@ -204,9 +205,11 @@
 #  - type: ContainerAmmoProvider
 #    container: storagebase
 #  - type: Item
-#    size: Normal
-#  - type: ContainerContainer
-#    containers:
+#    size: Large
+#    shape:
+#   - 0,0,2,1
+# - type: ContainerContainer
+#   containers:
 #      storagebase: !type:Container
 #        ents: []
 

@@ -90,38 +90,14 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Cuffs;
-using Content.Server.Forensics;
-using Content.Server.Humanoid;
 using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
-using Content.Server.Teleportation;
-using Content.Shared.Cuffs.Components;
-using Content.Shared.Forensics;
-using Content.Shared.Forensics.Components;
-using Content.Shared.Humanoid;
 using Content.Shared.Implants;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
-using Content.Shared.Preferences;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Map;
-using Robust.Shared.Physics;
-using Robust.Shared.Physics.Components;
-using Robust.Shared.Random;
-using System.Numerics;
-using Content.Shared.Movement.Pulling.Components;
-using Content.Shared.Movement.Pulling.Systems;
-using Content.Server.IdentityManagement;
-using Content.Shared.DetailExaminable;
-using Content.Shared.DoAfter;
-using Content.Shared.Ensnaring;
-using Content.Shared.Ensnaring.Components;
 using Content.Shared.Implants.Components;
 using Content.Shared.Polymorph;
 using Content.Shared.Store.Components;
-using Content.Shared.Teleportation;
-using Content.Shared.Stunnable;
 
 namespace Content.Server.Implants;
 public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
@@ -148,12 +124,15 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
             if (!TryComp<SubdermalImplantComponent>(implant, out var sic))
                 continue;
 
-            ForceImplant(args.NewEntity, implant, sic);
+            var implantEnt = new Entity<SubdermalImplantComponent>(ent, sic);
+
+            ForceImplant(args.NewEntity, implantEnt!);
         }
     }
     // goob edit end
 
 
+    // TODO: This shouldn't be in the SubdermalImplantSystem
     private void OnStoreRelay(EntityUid uid, StoreComponent store, ImplantRelayEvent<AfterInteractUsingEvent> implantRelay)
     {
         var args = implantRelay.Event;

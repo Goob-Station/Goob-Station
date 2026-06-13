@@ -63633,7 +63633,7 @@ entities:
     - type: Transform
       pos: 8.48969,29.428799
       parent: 2
-- proto: MaterialSilo
+- proto: MachineMaterialSilo
   entities:
   - uid: 13785
     components:

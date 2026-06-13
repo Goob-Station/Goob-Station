@@ -8,9 +8,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Clothing.Systems;
 using Content.Goobstation.Shared.Clothing.Components;
 using Content.Shared.Popups;
 using Content.Shared.PowerCell;
+using Content.Shared.PowerCell.Components;
 using Content.Shared.Wires;
 
 namespace Content.Goobstation.Shared.Clothing.Systems;
@@ -18,10 +20,10 @@ namespace Content.Goobstation.Shared.Clothing.Systems;
 /// <summary>
 /// Used for sealable clothing that requires power to work
 /// </summary>
-public abstract class SharedPoweredSealableClothingSystem : EntitySystem
+public abstract class SharedPoweredSealableClothingSystem : CommonPoweredSealableClothingSystem
 {
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedPowerCellSystem _powerCellSystem = default!;
+    [Dependency] private readonly PowerCellSystem _powerCellSystem = default!;
 
     public override void Initialize()
     {
@@ -60,7 +62,7 @@ public abstract class SharedPoweredSealableClothingSystem : EntitySystem
         if (controlComp.IsCurrentlySealed)
             return;
 
-        if (!_powerCellSystem.HasDrawCharge(entity, cellDrawComp) || !_powerCellSystem.HasActivatableCharge(entity, cellDrawComp))
+        if (!_powerCellSystem.HasDrawCharge(entity.Owner, cellDrawComp.Owner) || !_powerCellSystem.HasActivatableCharge(entity.Owner, cellDrawComp.Owner))
         {
             _popupSystem.PopupClient(Loc.GetString(entity.Comp.NotPoweredPopup), entity, args.User);
             args.Cancel();

@@ -23,7 +23,7 @@
 
 - type: entity
   abstract: true
-  parent: [ClothingHeadBase] 
+  parent: [ClothingHeadBase]
   id: ClothingHeadHatArmored
   components:
   - type: Armor
@@ -167,7 +167,7 @@
       map: ["foldedLayer"]
       visible: false
 
-- type: entity
+- type: entity # todo <mailfix>
   parent: ClothingHeadBase
   id: ClothingHeadMailCarrier
   name: mail carrier's hat
@@ -348,7 +348,7 @@
   id: ClothingHeadHatOuterCommandcap
   name: outer command cap
   description: Purple gilded cap with Terra-Gov insignia.
-  components: 
+  components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hats/outcommcap.rsi
   - type: Clothing
@@ -359,7 +359,7 @@
   id: ClothingHeadHatGoldCentcom
   name: golden Centcom cap
   description: A gold-and-white gilded cap worn by the highest-ranking members of Central Command.
-  components: 
+  components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hats/golden_centcom.rsi
   - type: Clothing
@@ -372,7 +372,7 @@
   id: ClothingHeadHatCowboyCentcom
   name: centcom cowboy hat
   description: A black and green cowboy hat with a gold band, worn by 'southerner' Central Command officers.
-  components: 
+  components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hats/cowboyhat_centcom.rsi
   - type: Clothing

@@ -41,7 +41,7 @@ public sealed class EldritchInfluenceSystem : EntitySystem
     [Dependency] private readonly IChatManager _chatMan = default!;
     [Dependency] private readonly IPlayerManager _playerMan = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedEntityEffectSystem _effect = default!;
+    [Dependency] private readonly SharedEntityEffectsSystem _effect = default!;
 
     public override void Initialize()
     {
@@ -74,12 +74,10 @@ public sealed class EldritchInfluenceSystem : EntitySystem
         SharedChatSystem.UpdateFontSize(size, ref message, ref loc);
         _chatMan.ChatMessageToOne(ChatChannel.Server, message, loc, default, false, session.Channel, canCoalesce: false);
 
-        var effectArgs = new EntityEffectBaseArgs(args.Examiner, EntityManager);
         var effects = _random.Pick(ent.Comp.PossibleExamineEffects);
         foreach (var effect in effects)
         {
-            if (effect.ShouldApply(effectArgs, _random))
-                _effect.Effect(effect, effectArgs);
+            _effect.TryApplyEffect(args.Examiner, effect);
         }
     }
 

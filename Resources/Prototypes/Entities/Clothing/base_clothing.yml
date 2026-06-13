@@ -70,10 +70,9 @@
   components:
   - type: AllowSuitStorage
     whitelist:
-      tags:
+      components:
       - GasTank
-      components: # Goobstation
-      - XenoVacuumTank
+      - XenoVacuumTank # Goobstation
 
 # for clothing that has a single item slot to insert and alt click out.
 # inheritors add a whitelisted slot named item

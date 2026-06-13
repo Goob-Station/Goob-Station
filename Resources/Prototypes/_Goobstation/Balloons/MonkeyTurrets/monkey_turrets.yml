@@ -44,9 +44,9 @@
       amount: 3
   - type: Deathgasp
     prototype: MonkeyDeathgasp
-  - type: Physics 
-    bodyType: Dynamic # Allows mob to be moved since BaseWeaponBallisticTurret sets entity to Static.
-  - type: Transform 
+  - type: Physics
+    bodyType: KinematicController # Allows mob to be moved since BaseWeaponBallisticTurret sets entity to Static.
+  - type: Transform
     anchored: false
   - type: Anchorable # Initially set to unanchored so individuals can position it and then anchor it to avoid turrets moving.
   - type: MobPrice

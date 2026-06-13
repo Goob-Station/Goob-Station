@@ -509,8 +509,8 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
-    radius: 2
-    energy: 1.3
+    radius: 1
+    energy: 2.0
     color: "#ffb0b0"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -551,8 +551,8 @@
   - type: AccessReader
     access: [["Service"]]
   - type: PointLight
-    radius: 2
-    energy: 1.6
+    radius: 1.5
+    energy: 3.0
     color: "#4b93ad"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -620,8 +620,8 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
-    radius: 2
-    energy: 1.6
+    radius: 1.8
+    energy: 3.0
     color: "#3db83b"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -656,8 +656,8 @@
     - state: panel
       map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
   - type: PointLight
-    radius: 2
-    energy: 1.6
+    radius: 1.8
+    energy: 3.0
     color: "#3db83b"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -703,8 +703,8 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
-    radius: 2
-    energy: 1.3
+    radius: 1.5
+    energy: 2.0
     color: "#ad7c4b"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -747,8 +747,8 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
-    radius: 2
-    energy: 1.6
+    radius: 1.5
+    energy: 3.0
     color: "#3c5eb5"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -774,8 +774,8 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
-    radius: 2
-    energy: 1.6
+    radius: 1.5
+    energy: 3.0
     color: "#423438"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -797,8 +797,8 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
-    radius: 2
-    energy: 1.6
+    radius: 1.5
+    energy: 3.0
     color: "#A50824"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -824,8 +824,8 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
-    radius: 2
-    energy: 1.6
+    radius: 1.5
+    energy: 3.0
     color: "#44964A"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -853,8 +853,8 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
-    radius: 2
-    energy: 1.6
+    radius: 1.5
+    energy: 3.0
     color: "#CBC6BE"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -885,8 +885,8 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
-    radius: 2
-    energy: 1.6
+    radius: 1.5
+    energy: 3.0
     color: "#D3A44D"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -923,8 +923,8 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
-    radius: 2
-    energy: 1.6
+    radius: 1.5
+    energy: 3.0
     color: "#66538F"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -961,8 +961,8 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
-    radius: 2
-    energy: 1.6
+    radius: 1.5
+    energy: 3.0
     color: "#6927C5"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -999,8 +999,8 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
-    radius: 2
-    energy: 1.6
+    radius: 1.5
+    energy: 3.0
     color: "#D82929"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -1038,7 +1038,7 @@
     pack: SmiteGoodbyes
   - type: PointLight
     radius: 1.5
-    energy: 1.6
+    energy: 3.0
     color: "#00E645"
 
 - type: entity
@@ -1072,8 +1072,8 @@
   - type: AccessReader
     access: [["Kitchen"]]
   - type: PointLight
-    radius: 2
-    energy: 1.6
+    radius: 1.5
+    energy: 3.0
     color: "#4b93ad"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -1112,8 +1112,8 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
-    radius: 2
-    energy: 1.6
+    radius: 1.5
+    energy: 3.0
     color: "#9a18d6"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -1152,8 +1152,8 @@
     - texture: Structures/Machines/VendingMachines/maintenance_panel.png
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
-    radius: 2
-    energy: 1.6
+    radius: 1.5
+    energy: 3.0
     color: "#6148c7"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -1185,8 +1185,8 @@
   - type: AccessReader
     access: [["Engineering"]]
   - type: PointLight
-    radius: 2
-    energy: 1.6
+    radius: 1.5
+    energy: 3.0
     color: "#b89e2a"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -1201,13 +1201,13 @@
 
 - type: entity
   parent: VendingMachine
-  id: VendingMachineMedical
-  name: NanoMed Plus
-  description: It's a medical drug dispenser. Natural chemicals only! (And wheelchairs, why not) # Goobstation
+  id: VendingMachineMedicalBase
+  name: NanoMed Civilian
+  description: It's a medical drug dispenser. Natural chemicals only!
   components:
   - type: VendingMachine
-    pack: NanoMedPlusInventory
-    offState: off
+    pack: NanoMedCivilianInventory
+    offState: off # Goob
     brokenState: broken
     normalState: normal-unshaded
     ejectState: eject-unshaded
@@ -1218,8 +1218,42 @@
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/medivend.rsi
+    sprite: Structures/Machines/VendingMachines/medivend.rsi # Goob
     noRot: true
+    layers:
+    - state: "off" # Goob
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off" # Goob
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.5
+    energy: 3.0
+    color: "#9dc5c9"
+    mask: /Textures/Effects/LightMasks/cone.png # Goobstation
+    autoRot: true # Goobstation
+  - type: GuideHelp
+    guides:
+    - MedicalDoctor
+  - type: Transform # Goobstation Start
+    noRot: false
+  - type: Rotatable
+    rotateWhileAnchored: false
+    rotateWhilePulling: true # Goobstation End
+
+- type: entity
+  parent: VendingMachineMedicalBase
+  id: VendingMachineMedical
+  name: NanoMed Plus
+  description: It's a medical drug dispenser. Natural chemicals only!
+  components:
+  - type: VendingMachine
+    pack: NanoMedPlusInventory
+    offState: off
+  - type: Sprite
+    sprite: Structures/Machines/VendingMachines/medical.rsi
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -1230,20 +1264,6 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: AccessReader
     access: [["Medical"]]
-  - type: PointLight
-    radius: 2
-    energy: 1.6
-    color: "#9dc5c9"
-    mask: /Textures/Effects/LightMasks/cone.png
-    autoRot: true
-  - type: GuideHelp
-    guides:
-    - MedicalDoctor
-  - type: Transform
-    noRot: false
-  - type: Rotatable
-    rotateWhileAnchored: false
-    rotateWhilePulling: true
 
 - type: entity
   parent: VendingMachine
@@ -1275,8 +1295,8 @@
   - type: AccessReader
     access: [["Hydroponics"]]
   - type: PointLight
-    radius: 2
-    energy: 1.6
+    radius: 1.5
+    energy: 3.0
     color: "#326e3f"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -1312,8 +1332,8 @@
   - type: AccessReader
     access: [["Security"]]
   - type: PointLight
-    radius: 2
-    energy: 1.8
+    radius: 1
+    energy: 2.0
     color: "#78645c"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -1357,8 +1377,8 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
-    radius: 2
-    energy: 1.6
+    radius: 1.5
+    energy: 3.0
     color: "#326e3f"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -1403,8 +1423,8 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
-    radius: 2
-    energy: 1.6
+    radius: 1.5
+    energy: 3.0
     color: "#c73434"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -1440,8 +1460,8 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
-    radius: 2
-    energy: 1.6
+    radius: 1.5
+    energy: 3.0
     color: "#737785"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -1462,8 +1482,8 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
-    radius: 2
-    energy: 1.6
+    radius: 1.5
+    energy: 3.0
     color: "#3c5eb5"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -1484,8 +1504,8 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
-    radius: 2
-    energy: 1.6
+    radius: 1.5
+    energy: 3.0
     color: "#CE3401"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -1506,8 +1526,8 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
-    radius: 2
-    energy: 1.6
+    radius: 1.5
+    energy: 3.0
     color: "#5F6A1C"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -1528,8 +1548,8 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
-    radius: 2
-    energy: 1.6
+    radius: 1.5
+    energy: 3.0
     color: "#207E79"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -1537,8 +1557,9 @@
 - type: entity
   parent: VendingMachine
   id: VendingMachineSovietSoda
-  name: BODA
+  name: ВОДА
   description: An old vending machine containing sweet water.
+  suffix: VODA
   components:
   - type: VendingMachine
     pack: BodaInventory
@@ -1566,9 +1587,9 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
-    radius: 2
-    energy: 1.6
-    color: "#B80F0A"
+    radius: 1.5
+    energy: 3.0
+    color: "#389690"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
   - type: Transform
@@ -1611,8 +1632,8 @@
       map: ["enum.VendingMachineVisualLayers.Screen"]
       shader: unshaded
   - type: PointLight
-    radius: 2
-    energy: 1.6
+    radius: 1.5
+    energy: 3.0
     color: "#c73434"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -1654,8 +1675,8 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
-    radius: 2
-    energy: 1.6
+    radius: 1.5
+    energy: 3.0
     color: "#9dc5c9"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -1696,8 +1717,8 @@
   - type: AccessReader
     access: [["Research"]]
   - type: PointLight
-    radius: 2
-    energy: 1.6
+    radius: 1.5
+    energy: 3.0
     color: "#B0ADA9"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -1735,8 +1756,8 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
-    radius: 2
-    energy: 1.6
+    radius: 1.5
+    energy: 3.0
     color: "#d4ab33"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -1778,8 +1799,8 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
-    radius: 2
-    energy: 1.6
+    radius: 1.5
+    energy: 3.0
     color: "#326e3f"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -1820,8 +1841,8 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
-    radius: 2
-    energy: 1.6
+    radius: 1.5
+    energy: 3.0
     color: "#ffe599"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -1854,8 +1875,8 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
-    radius: 2
-    energy: 1.6
+    radius: 1.5
+    energy: 3.0
     color: "#b89f25"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -1918,8 +1939,8 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
-    radius: 2
-    energy: 1.6
+    radius: 1.5
+    energy: 3.0
     color: "#d4ab33"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -1953,7 +1974,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 1.6
+    energy: 3.0
     color: "#326e3f"
   - type: AccessReader
     access: [["Hydroponics"]]
@@ -2013,7 +2034,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 1.6
+    energy: 3.0
     color: "#d82929"
   - type: AccessReader
     access: [["Security"]]
@@ -2070,8 +2091,8 @@
   - type: AccessReader
     access: [["Chapel"]]
   - type: PointLight
-    radius: 2
-    energy: 1.6
+    radius: 1.5
+    energy: 3.0
     color: "#CCCCCC" #The holy C
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -2103,7 +2124,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 1.6
+    energy: 3.0
     color: "#b89e2a"
   - type: AccessReader
     access: [["Cargo"]]
@@ -2219,7 +2240,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 1.6
+    energy: 3.0
     color: "#b89e2a"
   - type: AccessReader
     access: [["Engineering"]]
@@ -2251,7 +2272,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 1.6
+    energy: 3.0
     color: "#b89e2a"
   - type: AccessReader
     access: [["Engineering"]]
@@ -2341,7 +2362,7 @@
     access: [["Janitor"]]
   - type: PointLight
     radius: 1.5
-    energy: 1.6
+    energy: 3.0
     color: "#6927C5"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -2401,7 +2422,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
     radius: 1.5
-    energy: 1.6
+    energy: 3.0
     color: "#d82929"
   - type: AccessReader
     access: [["NuclearOperative"], ["SyndicateAgent"]]
@@ -2512,8 +2533,8 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
-    radius: 2
-    energy: 1.6
+    radius: 1.5
+    energy: 3.0
     color: "#48CF48"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -2548,8 +2569,8 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: PointLight
-    radius: 2
-    energy: 1.6
+    radius: 1.5
+    energy: 3.0
     color: "#3c5eb5"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -2580,7 +2601,7 @@
   - type: Speech
   - type: PointLight
     radius: 1.5
-    energy: 1.3 # reduced energy since the color is pure white
+    energy: 2.0 # reduced energy since the color is pure white
     color: "#FFFFFF"
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/pride.rsi
@@ -2671,6 +2692,36 @@
 # wallmount
 - type: entity
   parent: VendingMachineWallmount
+  id: VendingMachineWallMedicalCivilian
+  name: NanoMed band-aid
+  description: "It's a wall-mounted medical equipment dispenser. Natural chemicals only!"
+  components:
+  - type: VendingMachine
+    pack: NanoMedCivilianWallInventory
+    offState: off # Goob
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+  - type: Sprite
+    sprite: Structures/Machines/VendingMachines/wallmed.rsi
+    layers:
+    - state: "off" # Goob
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off" # Goob
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - texture: Structures/Machines/VendingMachines/maintenance_panel.png
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.3
+    energy: 3.0
+    color: "#43ccb5"
+  - type: GuideHelp
+    guides:
+    - Medical
+
+- type: entity
+  parent: VendingMachineWallMedicalCivilian
   id: VendingMachineWallMedical
   name: NanoMed
   description: "It's a wall-mounted medical equipment dispenser. Natural chemicals only!"
@@ -2678,9 +2729,6 @@
   - type: VendingMachine
     pack: NanoMedInventory
     offState: off
-    brokenState: broken
-    normalState: normal-unshaded
-    denyState: deny-unshaded
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/wallmed.rsi
     layers:
@@ -2691,12 +2739,5 @@
       shader: unshaded
     - texture: Structures/Machines/VendingMachines/maintenance_panel.png
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
-  - type: PointLight
-    radius: 1.3
-    energy: 1.6
-    color: "#43ccb5"
   - type: AccessReader
     access: [["Medical"]]
-  - type: GuideHelp
-    guides:
-    - Medical

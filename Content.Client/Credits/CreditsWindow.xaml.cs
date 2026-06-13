@@ -124,7 +124,7 @@ public sealed partial class CreditsWindow : DefaultWindow
 
     private async void PopulateAttributions(BoxContainer attributionsContainer, int count)
     {
-        attributionsContainer.DisposeAllChildren();
+        attributionsContainer.RemoveAllChildren();
 
         if (_attributions.Count == 0)
         {
@@ -144,11 +144,11 @@ public sealed partial class CreditsWindow : DefaultWindow
 
         var container = new BoxContainer { Orientation = LayoutOrientation.Horizontal };
 
-        var previousPageButton = new Button { Text = "Previous Page" };
+        var previousPageButton = new Button { Text = Loc.GetString("credits-window-previous-page-button") };
         previousPageButton.OnPressed +=
             _ => PopulateAttributions(attributionsContainer, count - AttributionsSourcesPerPage);
 
-        var nextPageButton = new Button { Text = "Next Page" };
+        var nextPageButton = new Button { Text = Loc.GetString("credits-window-next-page-button") };
         nextPageButton.OnPressed +=
             _ => PopulateAttributions(attributionsContainer, count + AttributionsSourcesPerPage);
 
@@ -297,10 +297,12 @@ public sealed partial class CreditsWindow : DefaultWindow
 
     private void PopulateLicenses(BoxContainer licensesContainer)
     {
+        licensesContainer.RemoveAllChildren();
+
         foreach (var entry in CreditsManager.GetLicenses(_resourceManager).OrderBy(p => p.Name))
         {
             licensesContainer.AddChild(new Label
-                { StyleClasses = { StyleBase.StyleClassLabelHeading }, Text = entry.Name });
+                { StyleClasses = { StyleClass.LabelHeading }, Text = entry.Name });
 
             // We split these line by line because otherwise
             // the LGPL causes Clyde to go out of bounds in the rendering code.
@@ -313,6 +315,8 @@ public sealed partial class CreditsWindow : DefaultWindow
 
     private void PopulatePatrons(BoxContainer patronsContainer)
     {
+        patronsContainer.RemoveAllChildren();
+
         var patrons = LoadPatrons();
 
             var linkPatreon = _cfg.GetCVar(CCVars.InfoLinksPatreon);
@@ -337,7 +341,7 @@ public sealed partial class CreditsWindow : DefaultWindow
 
             first = false;
             patronsContainer.AddChild(new Label
-                { StyleClasses = { StyleBase.StyleClassLabelHeading }, Text = $"{tier.Key}" });
+                { StyleClasses = { StyleClass.LabelHeading }, Text = $"{tier.Key}" });
 
             var msg = string.Join(", ", tier.OrderBy(p => p.Name).Select(p => p.Name));
 
@@ -361,6 +365,8 @@ public sealed partial class CreditsWindow : DefaultWindow
 
     private void PopulateContributors(BoxContainer ss14ContributorsContainer)
     {
+        ss14ContributorsContainer.RemoveAllChildren();
+
         Button contributeButton;
 
         ss14ContributorsContainer.AddChild(new BoxContainer
@@ -384,7 +390,7 @@ public sealed partial class CreditsWindow : DefaultWindow
 
             first = false;
             ss14ContributorsContainer.AddChild(new Label
-                { StyleClasses = { StyleBase.StyleClassLabelHeading }, Text = title });
+                { StyleClasses = { StyleClass.LabelHeading }, Text = title });
 
             var label = new RichTextLabel();
             var text = _resourceManager.ContentFileReadAllText($"/Credits/{path}");
@@ -399,6 +405,7 @@ public sealed partial class CreditsWindow : DefaultWindow
         AddSection(Loc.GetString("credits-window-contributors-section-title"), "GitHub.txt");
         AddSection(Loc.GetString("credits-window-codebases-section-title"), "SpaceStation13.txt");
         AddSection(Loc.GetString("credits-window-original-remake-team-section-title"), "OriginalRemake.txt");
+        AddSection(Loc.GetString("credits-window-immortals-title"), "Immortals.txt", true);
         AddSection(Loc.GetString("credits-window-special-thanks-section-title"), "SpecialThanks.txt", true);
 
         var linkGithub = _cfg.GetCVar(CCVars.InfoLinksGithub);

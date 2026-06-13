@@ -25,10 +25,10 @@
     resistanceBypass: true
     angle: 90
     animation: WeaponArcCosmic
-    attackRate: 1
+    attackRate: 1 # Goobstation
     clickDamageModifier: 1.1
     damage:
-      types:
+      types: # Goobstation
         Slash: 10
         Cold: 2.5
         Asphyxiation: 2.5
@@ -70,14 +70,14 @@
         volume: 0
   - type: IncreaseDamageOnWield
     damage:
-      types:
+      types: # Goobstation
         Slash: 5
         Cold: 2.5
         Asphyxiation: 2.5
         Structural: 5
   - type: DisarmMalus
   - type: Item
-    size: Large
+    size: Large # Goobstation
     sprite: _DV/CosmicCult/Objects/cosmicsword-inhands.rsi
     inhandVisuals:
       left:
@@ -93,6 +93,9 @@
   description: An unnerving spear, wrought of indescribable material. Being near it feels like a prickle of static spreading through your nerves.
   components:
   - type: CosmicEquipment
+  - type: EmbeddableProjectile
+    removalTime: 2
+    sound: /Audio/_DV/CosmicCult/cosmiclance_impact.ogg
   - type: Sprite
     sprite: _DV/CosmicCult/Objects/cosmiclance.rsi
     layers:
@@ -103,9 +106,9 @@
     resistanceBypass: true
     angle: 0
     animation: WeaponArcCosmic
-    attackRate: 0.6
+    attackRate: 0.62
     damage:
-      types:
+      types: # Goobstation
         Piercing: 15
         Cold: 5
         Asphyxiation: 5
@@ -128,7 +131,7 @@
   - type: Boomerang # Goob edit
   - type: DamageOtherOnHit
     damage:
-      types:
+      types: # Goobstation
         Piercing: 5
         Cold: 5
         Asphyxiation: 5
@@ -146,12 +149,12 @@
         volume: 0
   - type: IncreaseDamageOnWield
     damage:
-      types:
+      types: # Goobstation
         Piercing: 10
         Cold: 2.5
         Asphyxiation: 2.5
   - type: Item
-    size: Large
+    size: Large # Goobstation
     shape:
     - 0,0,4,0
     sprite: _DV/CosmicCult/Objects/cosmiclance-inhands.rsi
@@ -206,14 +209,16 @@
       groups:
         Brute: -10
   - type: Gun
-    projectileSpeed: 5
+    projectileSpeed: 10 # Goobstation
     soundGunshot: /Audio/_DV/CosmicCult/projectile_razor.ogg
-    fireRate: 1.75
-    useKey: false
+    soundEmpty: null
+    fireRate: 1.5 # Goobstation
   - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 0.3
+    rechargeCooldown: 0.67 # Goobstation
     rechargeSound:
       path: /Audio/_DV/CosmicCult/projectile_razor_reload.ogg
+      params:
+        variation: 0.08
   - type: BasicEntityAmmoProvider
     proto: ProjectileCosmicRazor
     capacity: 1
@@ -222,10 +227,10 @@
     resistanceBypass: true
     wideAnimationRotation: -135
     animation: WeaponArcCosmic
-    attackRate: 1.5
+    attackRate: 1.5 # Goobstation
     clickDamageModifier: 1.1
     damage:
-      types:
+      types: # Goobstation
         Slash: 6
         Cold: 2
         Asphyxiation: 2
@@ -239,21 +244,15 @@
     soundSwing:
       path: /Audio/_DV/CosmicCult/cosmicweapon_swing.ogg
       params:
-        variation: 0.125
+        variation: 0.124
         volume: -4
     soundNoDamage:
       path: /Audio/_DV/CosmicCult/cosmicsword_glance.ogg
       params:
         variation: 0.2
         volume: -11
-  - type: Reflect
-    reflectProb: .35
-    spread: 120
-    soundOnReflect:
-      path: /Audio/_DV/CosmicCult/cosmicsword_glance.ogg
-      params:
-        variation: 0.2
-        volume: -6
+  - type: AltFireMelee
+    attackType: Heavy
   - type: Wieldable
     wieldSound:
       path: /Audio/_DV/CosmicCult/cosmic_wield.ogg

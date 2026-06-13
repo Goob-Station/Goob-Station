@@ -51,16 +51,7 @@
     name: abductor-lone-ghost-role-name
     description: abductor-lone-ghost-role-desc
     mindRoles:
-    - MindRoleGhostRoleSoloAntagonist
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 18000 #5 hours
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 7200 #2 hours
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 7200 #2 hours
+    - MindRoleLoneAbductor
   - type: AbductorScientist
   - type: SurgeryIgnoreClothing
   - type: Sanitized
@@ -79,13 +70,7 @@
     name: abductor-scientist-ghost-role-name
     description: abductor-scientist-ghost-role-desc
     mindRoles:
-    - MindRoleGhostRoleTeamAntagonist
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 18000 #5 hours
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 10800 #3 hours
+    - MindRoleAbductorScientist
   - type: AbductorScientist
   - type: SurgeryIgnoreClothing
   - type: Sanitized
@@ -104,13 +89,7 @@
     name: abductor-agent-ghost-role-name
     description: abductor-agent-ghost-role-desc
     mindRoles:
-    - MindRoleGhostRoleTeamAntagonist
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 18000 #5 hours
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 10800 #3 hours
+    - MindRoleAbductorAgent
   - type: RandomMetadata
     nameSegments:
       - AbductorAgentPrefix
@@ -197,18 +176,9 @@
     description: abductor-lone-ghost-role-desc
     rules: abductors-ghost-role-rules
     mindRoles:
-    - MindRoleGhostRoleSoloAntagonist
+    - MindRoleLoneAbductor
     raffle:
       settings: default
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 18000 #5 hours
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 7200 #2 hours
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 7200 #2 hours
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
@@ -239,15 +209,9 @@
     description: abductor-agent-ghost-role-desc
     rules: abductors-ghost-role-rules
     mindRoles:
-    - MindRoleGhostRoleTeamAntagonist
+    - MindRoleAbductorAgent
     raffle:
       settings: default
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 18000 #5 hours
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 10800 #3 hours
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
@@ -278,15 +242,9 @@
     description: abductor-scientist-ghost-role-desc
     rules: abductors-ghost-role-rules
     mindRoles:
-    - MindRoleGhostRoleTeamAntagonist
+    - MindRoleAbductorScientist
     raffle:
       settings: default
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 18000 #5 hours
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 10800 #3 hours
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:

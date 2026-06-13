@@ -34826,7 +34826,7 @@ entities:
     - type: Transform
       pos: 5.5,62.5
       parent: 2
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 15199
 - proto: Carpet
   entities:
@@ -78977,7 +78977,7 @@ entities:
     - type: Transform
       pos: -13.294653,33.547
       parent: 2
-- proto: MaterialSilo
+- proto: MachineMaterialSilo
   entities:
   - uid: 15199
     components:
@@ -78987,11 +78987,11 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         11908:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
+        - - OreSilo
+          - OreSiloClient
         5386:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
+        - - OreSilo
+          - OreSiloClient
 - proto: MaterialWoodPlank
   entities:
   - uid: 11810
@@ -79577,7 +79577,7 @@ entities:
     - type: Transform
       pos: 8.5,66.5
       parent: 2
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 15199
 - proto: OxygenCanister
   entities:

@@ -54,9 +54,11 @@ public abstract class SharedCriminalRecordsSystem : EntitySystem
             SecurityStatus.Detained => "SecurityIconIncarcerated",
             SecurityStatus.Discharged => "SecurityIconDischarged",
             SecurityStatus.Suspected => "SecurityIconSuspected",
-            SecurityStatus.Perma => "SecurityIconPerma",
-            SecurityStatus.Search => "SecurityIconSearch",
-            SecurityStatus.Dangerous => "SecurityIconDangerous",
+            SecurityStatus.Hostile => "SecurityIconHostile",
+            SecurityStatus.Eliminated => "SecurityIconEliminated",
+            SecurityStatus.Perma => "SecurityIconPerma", // Goobstation
+            SecurityStatus.Search => "SecurityIconSearch", // Goobstation
+            SecurityStatus.Dangerous => "SecurityIconDangerous", // Goobstation
             SecurityStatus.Demote => "SecurityIconDemoted", // Goobstation
             _ => record.StatusIcon
         };

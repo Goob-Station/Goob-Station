@@ -1,92 +1,212 @@
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Alice "Arimah" Heurlin <30327355+arimah@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 HS <81934438+HolySSSS@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Truoizys <153248924+Truoizys@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-// SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 #nullable enable
-using System.Collections.Generic;
-using Content.IntegrationTests.Tests.Interaction;
+using System.Linq;
+using Content.IntegrationTests.Tests.Helpers;
 using Content.Shared.Movement.Components;
+using Content.Shared.Movement.Systems;
+using Content.Shared.Physics;
 using Content.Shared.Slippery;
+using Content.Shared.StepTrigger.Components;
 using Content.Shared.Stunnable;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Input;
 using Robust.Shared.Maths;
+using Robust.Shared.Physics.Components;
 
 namespace Content.IntegrationTests.Tests.Movement;
 
 public sealed class SlippingTest : MovementTest
 {
-    public sealed class SlipTestSystem : EntitySystem
-    {
-        public HashSet<EntityUid> Slipped = new();
-        public override void Initialize()
-        {
-            SubscribeLocalEvent<SlipperyComponent, SlipEvent>(OnSlip);
-        }
-
-        private void OnSlip(EntityUid uid, SlipperyComponent component, ref SlipEvent args)
-        {
-            Slipped.Add(args.Slipped);
-        }
-    }
+    public sealed class SlipTestSystem : TestListenerSystem<SlipEvent>;
 
     [Test]
     public async Task BananaSlipTest()
     {
-        var sys = SEntMan.System<SlipTestSystem>();
         await SpawnTarget("TrashBananaPeel");
 
         var modifier = Comp<MovementSpeedModifierComponent>(Player).SprintSpeedModifier;
         Assert.That(modifier, Is.EqualTo(1), "Player is not moving at full speed.");
 
-        // Player is to the left of the banana peel and has not slipped.
+        // Player is to the left of the banana peel.
         Assert.That(Delta(), Is.GreaterThan(0.5f));
-        Assert.That(sys.Slipped, Does.Not.Contain(SEntMan.GetEntity(Player)));
+
+        await LogSlipDebug("Initial");
 
         // Walking over the banana slowly does not trigger a slip.
-        await SetKey(EngineKeyFunctions.Walk, BoundKeyState.Down); // Goobstation - Simulate Toggling the Key
-        await SetKey(EngineKeyFunctions.Walk, BoundKeyState.Up); // Goobstation
+        await SetKey(EngineKeyFunctions.Walk, BoundKeyState.Down);
+
+        await Server.WaitPost(() =>
+        {
+            var mover = SEntMan.GetComponent<InputMoverComponent>(SPlayer);
+
+            SLogger.Info(
+                "[BananaSlipTest] Immediately after Walk Down\n" +
+                "  HeldMoveButtons: {HeldMoveButtons}\n" +
+                "  Has Walk: {HasWalk}\n" +
+                "  Sprinting: {Sprinting}\n" +
+                "  DefaultSprinting: {DefaultSprinting}",
+                mover.HeldMoveButtons,
+                (mover.HeldMoveButtons & MoveButtons.Walk) == MoveButtons.Walk,
+                mover.Sprinting,
+                mover.DefaultSprinting);
+        });
+        await RunTicks(1);
+        await LogSlipDebug("After Walk Down");
+
+        var banana = ToServer(Target!.Value);
+
+        await Server.WaitPost(() =>
+        {
+            SEntMan.EnsureComponent<TestListenerComponent>(banana);
+            ClearEvents<SlipEvent>(banana);
+        });
+
+        await LogSlipDebug("Before slow east move");
         await Move(DirectionFlag.East, 1f);
+        await LogSlipDebug("After slow east move");
+
+        var slipEvents = GetEvents<SlipEvent>(banana).ToList();
+
+        SLogger.Info(
+            "[BananaSlipTest] Slow move SlipEvent count: {Count}",
+            slipEvents.Count);
+
+        foreach (var slipEvent in slipEvents)
+        {
+            SLogger.Info(
+                "[BananaSlipTest] Slow move SlipEvent\n" +
+                "  Slipped: {Slipped}\n" +
+                "  Expected player: {Player}\n" +
+                "  Was player: {WasPlayer}",
+                SEntMan.ToPrettyString(slipEvent.Slipped),
+                SEntMan.ToPrettyString(SPlayer),
+                slipEvent.Slipped == SPlayer);
+        }
+
+        Assert.That(slipEvents.Count, Is.EqualTo(0), "Walking over the banana slowly triggered a slip.");
+
         Assert.That(Delta(), Is.LessThan(0.5f));
-        Assert.That(sys.Slipped, Does.Not.Contain(SEntMan.GetEntity(Player)));
         AssertComp<KnockedDownComponent>(false, Player);
 
         // Moving at normal speeds does trigger a slip.
-        await SetKey(EngineKeyFunctions.Walk, BoundKeyState.Down); // solstice is a MAJOR nerd.
-        await Move(DirectionFlag.West, 1f);
-        Assert.That(sys.Slipped, Does.Contain(SEntMan.GetEntity(Player)));
+        await SetKey(EngineKeyFunctions.Walk, BoundKeyState.Up);
+        await RunTicks(1);
+        await LogSlipDebug("After Walk Up");
+
+        await AssertFiresEvent<SlipEvent>(async () =>
+        {
+            await LogSlipDebug("Before normal west move");
+            await Move(DirectionFlag.West, 1f);
+            await LogSlipDebug("After normal west move");
+        });
+
+        // And the person that slipped was the player
+        AssertEvent<SlipEvent>(predicate: @event => @event.Slipped == SPlayer);
         AssertComp<KnockedDownComponent>(true, Player);
+    }
+
+    private async Task LogSlipDebug(string label)
+    {
+        await Server.WaitPost(() =>
+        {
+            var player = ToServer(Player);
+            var target = ToServer(Target!.Value);
+
+            var playerXform = SEntMan.GetComponent<TransformComponent>(player);
+            var bananaXform = SEntMan.GetComponent<TransformComponent>(target);
+
+            var playerPhysics = SEntMan.GetComponent<PhysicsComponent>(player);
+            var playerMove = SEntMan.GetComponent<MovementSpeedModifierComponent>(player);
+
+            SLogger.Info(
+                "[BananaSlipTest] {Label}\n" +
+                "  Player: {Player}\n" +
+                "  Banana: {Banana}\n" +
+                "  Player position: {PlayerPos}\n" +
+                "  Banana position: {BananaPos}\n" +
+                "  Delta: {Delta}\n" +
+                "  Linear velocity: {Velocity}, length={VelocityLength}\n" +
+                "  BodyStatus: {BodyStatus}\n" +
+                "  SprintSpeedModifier: {SprintSpeedModifier}\n" +
+                "  WalkSpeedModifier: {WalkSpeedModifier}\n" +
+                "  KnockedDown: {KnockedDown}",
+                label,
+                SEntMan.ToPrettyString(player),
+                SEntMan.ToPrettyString(target),
+                playerXform.Coordinates,
+                bananaXform.Coordinates,
+                Delta(),
+                playerPhysics.LinearVelocity,
+                playerPhysics.LinearVelocity.Length(),
+                playerPhysics.BodyStatus,
+                playerMove.SprintSpeedModifier,
+                playerMove.WalkSpeedModifier,
+                SEntMan.HasComponent<KnockedDownComponent>(player));
+
+            if (SEntMan.TryGetComponent<StepTriggerComponent>(target, out var step))
+            {
+                SLogger.Info(
+                    "[BananaSlipTest] {Label} StepTrigger\n" +
+                    "  Active: {Active}\n" +
+                    "  StepOn: {StepOn}\n" +
+                    "  RequiredTriggeredSpeed: {RequiredTriggeredSpeed}\n" +
+                    "  IntersectRatio: {IntersectRatio}\n" +
+                    "  Colliding: {Colliding}\n" +
+                    "  CurrentlySteppedOn: {CurrentlySteppedOn}",
+                    label,
+                    step.Active,
+                    step.StepOn,
+                    step.RequiredTriggeredSpeed,
+                    step.IntersectRatio,
+                    string.Join(", ", step.Colliding.Select(uid => SEntMan.ToPrettyString(uid))),
+                    string.Join(", ", step.CurrentlySteppedOn.Select(uid => SEntMan.ToPrettyString(uid))));
+            }
+
+            if (SEntMan.TryGetComponent<SlipperyComponent>(target, out var slippery))
+            {
+                SLogger.Info(
+                    "[BananaSlipTest] {Label} Slippery\n" +
+                    "  SlipOnStep: {SlipOnStep}\n" +
+                    "  SuperSlippery: {SuperSlippery}\n" +
+                    "  KnockdownTime: {KnockdownTime}\n" +
+                    "  StunTime: {StunTime}\n" +
+                    "  LaunchForwardsMultiplier: {LaunchForwardsMultiplier}\n" +
+                    "  SlipFriction: {SlipFriction}\n" +
+                    "  RequiredContact: checked via StepTrigger",
+                    label,
+                    slippery.SlipData.SlipOnStep,
+                    slippery.SlipData.SuperSlippery,
+                    slippery.SlipData.KnockdownTime,
+                    slippery.SlipData.StunTime,
+                    slippery.SlipData.LaunchForwardsMultiplier,
+                    slippery.SlipData.SlipFriction);
+            }
+
+            if (SEntMan.TryGetComponent<InputMoverComponent>(player, out var mover))
+            {
+                SLogger.Info(
+                    "[BananaSlipTest] {Label} InputMover\n" +
+                    "  HeldMoveButtons: {HeldMoveButtons}\n" +
+                    "  Has Walk: {HasWalk}\n" +
+                    "  Has Right: {HasRight}\n" +
+                    "  Has Left: {HasLeft}\n" +
+                    "  Sprinting: {Sprinting}\n" +
+                    "  DefaultSprinting: {DefaultSprinting}\n" +
+                    "  CanMove: {CanMove}\n" +
+                    "  LastInputTick: {LastInputTick}\n" +
+                    "  LastInputSubTick: {LastInputSubTick}",
+                    label,
+                    mover.HeldMoveButtons,
+                    (mover.HeldMoveButtons & MoveButtons.Walk) == MoveButtons.Walk,
+                    (mover.HeldMoveButtons & MoveButtons.Right) == MoveButtons.Right,
+                    (mover.HeldMoveButtons & MoveButtons.Left) == MoveButtons.Left,
+                    mover.Sprinting,
+                    mover.DefaultSprinting,
+                    mover.CanMove,
+                    mover.LastInputTick,
+                    mover.LastInputSubTick);
+            }
+        });
+
+        await RunTicks(1);
     }
 }

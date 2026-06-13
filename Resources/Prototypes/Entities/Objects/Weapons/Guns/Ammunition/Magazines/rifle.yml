@@ -23,10 +23,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Empty mags
 - type: entity
+  abstract: true
+  parent: [ BaseItem, BaseSecurityContraband ]
   id: BaseMagazineRifle
   name: "magazine (.20 rifle)"
-  parent: [ BaseItem, BaseSecurityContraband ]
-  abstract: true
   components:
   - type: Tag
     tags:
@@ -56,9 +56,10 @@
   - type: Appearance
 
 - type: entity
+  parent: BaseMagazineRifle
   id: MagazineRifle
   name: "magazine (.20 rifle)"
-  parent: BaseMagazineRifle
+  description: 25-round double stack magazine for combat rifles. Intended to hold general-purpose kinetic ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeRifle
@@ -76,10 +77,11 @@
       - state: inhand-right-mag
 
 - type: entity
+  parent: MagazineRifle
   id: MagazineRifleEmpty
   name: "magazine (.20 rifle any)"
   suffix: empty
-  parent: MagazineRifle
+  description: 25-round double stack magazine for combat rifles.
   components:
   - type: BallisticAmmoProvider
     proto: null
@@ -97,9 +99,10 @@
       - state: inhand-right-mag
 
 - type: entity
+  parent: MagazineRifle
   id: MagazineRifleIncendiary
   name: "magazine (.20 rifle incendiary)"
-  parent: MagazineRifle
+  description: 25-round double stack magazine for combat rifles. Intended to hold self-igniting incendiary ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeRifleIncendiary
@@ -123,9 +126,10 @@
         color: "#ff6e52"
 
 - type: entity
+  parent: BaseMagazineRifle
   id: MagazineRiflePractice
   name: "magazine (.20 rifle practice)"
-  parent: BaseMagazineRifle
+  description: 25-round double stack magazine for combat rifles. Intended to hold harmless practice ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeRiflePractice
@@ -149,9 +153,10 @@
         color: "#dbdbdb"
 
 - type: entity
+  parent: BaseMagazineRifle
   id: MagazineRifleUranium
   name: "magazine (.20 rifle uranium)"
-  parent: BaseMagazineRifle
+  description: 25-round double stack magazine for combat rifles. Intended to hold exotic uranium-core ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeRifleUranium

@@ -162,7 +162,7 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Centcom/blueshield_shirt.rsi
 
-- type: entity
+- type: entity # todo <mailfix>
   parent: ClothingUniformBase
   id: ClothingUniformMailCarrier
   name: mail carrier's uniform

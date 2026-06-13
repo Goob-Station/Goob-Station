@@ -81,10 +81,6 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
         if (args.IsHit)
         {
             TryInjectTargets((entity.Owner, entity.Comp), args.HitEntities, args.User);
-            // goob start
-            if (TryComp<InjectorComponent>(entity.Owner, out var injector))
-                injector.ToggleState = InjectorToggleMode.Draw;
-            // goob end
         }
     }
 
@@ -253,7 +249,7 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
             // Adjust solution amount based on transfer efficiency
             var solutionToInject = removedSolution.SplitSolution(removedSolution.Volume * injector.Comp.TransferEfficiency);
             // Inject our portion into the target's bloodstream
-            if (_bloodstream.TryAddToChemicals((target, bloodstream), solutionToInject))
+            if (_bloodstream.TryAddToBloodstream((target, bloodstream), solutionToInject))
                 anySuccess = true;
         }
         // Goobstation - Armor resisting syringe gun

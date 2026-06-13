@@ -109,7 +109,7 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
             !TryComp(uid, out MansusGraspComponent? grasp))
             return;
 
-        if (args.Target == null || _whitelist.IsBlacklistPass(grasp.Blacklist, args.Target.Value))
+        if (args.Target == null || _whitelist.IsWhitelistPass(grasp.Blacklist, args.Target.Value))
         {
             RustTile();
             return;
@@ -172,7 +172,7 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
             return true;
         }
 
-        if (_whitelist.IsBlacklistPass(grasp.Comp.Blacklist, target))
+        if (_whitelist.IsWhitelistPass(grasp.Comp.Blacklist, target))
             return false;
 
         var beforeEvent = new BeforeHarmfulActionEvent(user, HarmfulActionType.MansusGrasp);

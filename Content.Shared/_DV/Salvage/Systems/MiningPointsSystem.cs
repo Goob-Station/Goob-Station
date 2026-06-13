@@ -22,12 +22,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Silo;
 using Content.Shared._DV.Salvage.Components;
 using Content.Shared._Lavaland.UnclaimedOre;
 using Content.Shared.Access.Systems;
 using Content.Shared.Lathe;
 using Content.Shared.Materials;
+using Content.Shared.Materials.OreSilo;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
@@ -61,7 +61,7 @@ public sealed class MiningPointsSystem : EntitySystem
     {
         if (!_timing.IsFirstTimePredicted
             || !TryComp<UnclaimedOreComponent>(args.Inserted, out var unclaimedOre)
-            || !TryComp<SiloUtilizerComponent>(ent, out var utilizer)
+            || !TryComp<OreSiloClientComponent>(ent, out var utilizer)
             || !utilizer.Silo.HasValue
             || Transform(utilizer.Silo.Value).MapID != Transform(ent).MapID)
             return;
@@ -81,7 +81,7 @@ public sealed class MiningPointsSystem : EntitySystem
     #endregion
     #region Public API
     /// <summary>
-    /// if user can claim mining points 
+    /// if user can claim mining points
     /// <summary>
     public bool CanClaimPoints(EntityUid user) // Goobstation - borg Miningpoints
     {

@@ -36,7 +36,7 @@
   - type: Damageable
   - type: Actions
   - type: Physics
-    bodyType: Dynamic
+    bodyType: KinematicController
   - type: MovementSpeedModifier
     baseWalkSpeed: 0.3 # Goobstation
     baseSprintSpeed: 0.5

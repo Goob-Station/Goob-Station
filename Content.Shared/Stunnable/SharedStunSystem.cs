@@ -194,7 +194,7 @@ public abstract partial class SharedStunSystem : EntitySystem
         if (args.OurFixtureId != ent.Comp.FixtureId)
             return;
 
-        if (_entityWhitelist.IsBlacklistPass(ent.Comp.Blacklist, args.OtherEntity))
+        if (_entityWhitelist.IsWhitelistPass(ent.Comp.Blacklist, args.OtherEntity))
             return;
         TryUpdateStunDuration(args.OtherEntity, ent.Comp.Duration);
         TryKnockdown(args.OtherEntity, ent.Comp.Duration, force: true);
@@ -230,6 +230,9 @@ public abstract partial class SharedStunSystem : EntitySystem
     {
         var ev = new StunnedEvent();
         RaiseLocalEvent(uid, ref ev);// todo: rename event or change how it is raised - this event is raised each time duration of stun was externally changed
+
+        var evDropHands = new DropHandItemsEvent();
+        RaiseLocalEvent(uid, ref evDropHands);
 
         var timeForLogs = duration.HasValue
             ? duration.Value.Seconds.ToString()
@@ -407,9 +410,12 @@ public abstract partial class SharedStunSystem : EntitySystem
         }
     }
 
-    public bool TryAddParalyzeDuration(EntityUid uid, TimeSpan duration)
+    public bool TryAddParalyzeDuration(EntityUid uid, TimeSpan? duration)
     {
-        if (!_status.TryAddStatusEffectDuration(uid, StunId, duration))
+        if (duration == null)
+            return TryUpdateParalyzeDuration(uid, duration);
+
+        if (!_status.TryAddStatusEffectDuration(uid, StunId, duration.Value))
             return false;
 
         // We can't exit knockdown when we're stunned, so this prevents knockdown lasting longer than the stun.

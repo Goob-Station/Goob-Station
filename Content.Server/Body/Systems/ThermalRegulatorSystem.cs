@@ -10,9 +10,9 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Body.Components;
-using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Shared.ActionBlocker;
+using Content.Shared.Temperature.Components;
 using Content.Shared.Mobs; // Mono
 using Content.Shared.Mobs.Components; // Mono
 using Robust.Shared.Timing;

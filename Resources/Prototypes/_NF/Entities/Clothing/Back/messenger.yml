@@ -267,14 +267,14 @@
       - state: clasp-inhand-right
         color: "#5f539a"
 
-- type: entity
-  parent: ClothingBackpackMessengerBase
-  id: ClothingBackpackMessengerMailman
-  name: mailman messenger bag
-  description: A robust bag for transportation of letters and parcels.
-  components:
-  - type: Sprite
-    sprite: _NF/Clothing/Back/Messenger/mailman.rsi
+#- type: entity # upstreamrr todo <mailfix>
+#  parent: ClothingBackpackMessengerBase
+#  id: ClothingBackpackMessengerMailman
+#  name: mailman messenger bag
+#  description: A robust bag for transportation of letters and parcels.
+#  components:
+#  - type: Sprite
+#    sprite: _NF/Clothing/Back/Messenger/mailman.rsi
 
 # Medical
 - type: entity

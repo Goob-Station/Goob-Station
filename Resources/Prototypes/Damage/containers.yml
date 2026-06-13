@@ -39,15 +39,6 @@
     - Shock
 
 - type: damageContainer
-  id: InorganicMetaphysical
-  supportedGroups:
-    - Brute
-    - Metaphysical
-  supportedTypes:
-    - Heat
-    - Shock
-
-- type: damageContainer
   id: StructuralInorganic
   supportedGroups:
   - Brute
@@ -61,7 +52,7 @@
   id: Silicon
   supportedGroups:
     - Brute
-    - Electronic # Goobstation
+    - Electronic # DeltaV
   supportedTypes:
     - Heat
     - Shock
@@ -107,3 +98,13 @@
   - Genetic
   supportedTypes: # Goobstation
   - Holy
+
+- type: damageContainer # DeltaV edits begin
+  id: InorganicMetaphysical
+  supportedGroups:
+  - Brute
+  - Burn
+  - Metaphysical # DeltaV edits end
+  supportedTypes: # Goobstation
+  - Holy
+  - Shock

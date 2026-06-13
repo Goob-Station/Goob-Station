@@ -13,6 +13,7 @@ using Content.Server.Power.EntitySystems;
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.EntitySystems;
 using Content.Shared.Mech.Equipment.Components;
+using Content.Shared.Power.Components;
 using Content.Shared.Weapons.Ranged.Components;
 
 namespace Content.Goobstation.Server.Mech.Equipment.EntitySystems;
@@ -25,8 +26,7 @@ public sealed class MechGunSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<MechEquipmentComponent, HandleMechEquipmentBatteryEvent>(OnHandleMechEquipmentBattery);
-        SubscribeLocalEvent<HitscanBatteryAmmoProviderComponent, CheckMechWeaponBatteryEvent>(OnCheckBattery);
-        SubscribeLocalEvent<ProjectileBatteryAmmoProviderComponent, CheckMechWeaponBatteryEvent>(OnCheckBattery);
+        SubscribeLocalEvent<BatteryAmmoProviderComponent, CheckMechWeaponBatteryEvent>(OnCheckBattery);
     }
 
     private void OnHandleMechEquipmentBattery(EntityUid uid, MechEquipmentComponent component, HandleMechEquipmentBatteryEvent args)
@@ -51,7 +51,7 @@ public sealed class MechGunSystem : EntitySystem
 
     private void OnCheckBattery(EntityUid uid, BatteryAmmoProviderComponent component, CheckMechWeaponBatteryEvent args)
     {
-        if (args.Battery.CurrentCharge > component.FireCost)
+        if (args.Battery.LastCharge > component.FireCost)
             args.Cancelled = true;
     }
 
@@ -64,7 +64,7 @@ public sealed class MechGunSystem : EntitySystem
             return;
 
         var maxCharge = component.MaxCharge;
-        var currentCharge = component.CurrentCharge;
+        var currentCharge = component.LastCharge;
 
         var chargeDelta = maxCharge - currentCharge;
 
@@ -75,7 +75,7 @@ public sealed class MechGunSystem : EntitySystem
         if (!_mech.TryChangeEnergy(mechEquipment.EquipmentOwner.Value, -chargeDelta, mech))
             return;
 
-        _battery.SetCharge(uid, component.MaxCharge, component);
+        _battery.SetCharge(uid, component.MaxCharge);
     }
 }
 

@@ -40,7 +40,7 @@
       Normal: 24
       Damaged: 15
       Destroyed: 0
-  - type: Food
+  - type: Edible
   - type: Extractable
     grindableSolutionName: organ
   - type: SolutionContainerManager
@@ -53,7 +53,7 @@
       food:
         maxVol: 5
         reagents:
-        - ReagentId: UncookedAnimalProteins
+        - ReagentId: Cellulose
           Quantity: 5
   - type: FlavorProfile
     flavors:
@@ -79,14 +79,15 @@
   name: brain
   description: "The central hub of a diona's pseudo-neurological activity, its root-like tendrils search for its former body."
   components:
-  - type: MindContainer
-    showExamineInfo: true
+  - type: MindContainer # Goob start
+  - type: MindExaminable
+    state: Catatonic # modified component on spawn otherwise
   - type: Speech
     enabled: false
   - type: TypingIndicator
     proto: empty
   - type: Emoting
-    enabled: false
+    enabled: false # Goob end
   - type: Item
     size: Small
     heldPrefix: brain
@@ -166,7 +167,7 @@
       food:
         maxVol: 5
         reagents:
-        - ReagentId: UncookedAnimalProteins
+        - ReagentId: Cellulose
           Quantity: 5
   - type: Organ # Shitmed
     intCap: 35
@@ -188,7 +189,6 @@
       - id: Poison
       - id: Narcotic
       - id: Alcohol
-        rateModifier: 0.1
   - type: Tag # goob edit
     tags:
     - Meat
@@ -236,6 +236,11 @@
       Lung:
         maxVol: 100
         canReact: False
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Cellulose
+          Quantity: 5
   - type: Tag # goob edit
     tags:
     - Meat

@@ -129,8 +129,7 @@
     dischargedRechargeRate: 100
     chargedRechargeRate: 150
   - type: BatterySelfRecharger
-    autoRechargeRate: 150
-    autoRecharge: true
+    autoRechargeRate: 100
   - type: Item
     size: Normal
   - type: Tag

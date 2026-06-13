@@ -10,6 +10,7 @@ using Content.Server.Forensics;
 using Content.Shared.Cloning.Events;
 using Content.Shared.Clothing.Components;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Cloning;
 using Content.Shared.Forensics.Components;
 using Content.Shared.Labels.Components;
 using Content.Shared.Labels.EntitySystems;
@@ -31,7 +32,7 @@ namespace Content.Server.Cloning;
 ///     We only consider the most important components so the paradox clone gets similar equipment.
 ///     This method of using subscriptions was chosen to make it easy for forks to add their own custom components that need to be copied.
 /// </remarks>
-public sealed partial class CloningSystem : EntitySystem
+public sealed partial class CloningSystem
 {
     [Dependency] private readonly SharedStackSystem _stack = default!;
     [Dependency] private readonly LabelSystem _label = default!;
@@ -53,7 +54,7 @@ public sealed partial class CloningSystem : EntitySystem
     {
         // if the clone is a stack as well, adjust the count of the copy
         if (TryComp<StackComponent>(args.CloneUid, out var cloneStackComp))
-            _stack.SetCount(args.CloneUid, ent.Comp.Count, cloneStackComp);
+            _stack.SetCount((args.CloneUid, cloneStackComp), ent.Comp.Count);
     }
 
     private void OnCloneLabel(Entity<LabelComponent> ent, ref CloningItemEvent args)

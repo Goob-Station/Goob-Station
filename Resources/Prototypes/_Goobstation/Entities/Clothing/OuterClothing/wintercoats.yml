@@ -9,7 +9,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: entity
+- type: entity # upstreamrr todo <mailfix>
   parent: ClothingOuterWinterCoat
   id: ClothingOuterWinterCoatMail
   name: mail carrier's winter coat

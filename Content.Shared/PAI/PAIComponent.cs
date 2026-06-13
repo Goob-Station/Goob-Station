@@ -35,7 +35,7 @@ namespace Content.Shared.PAI;
 ///  and there's not always enough players and ghost roles to justify it.
 /// All logic in PAISystem.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class PAIComponent : Component
 {
     /// <summary>
@@ -44,12 +44,6 @@ public sealed partial class PAIComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public EntityUid? LastUser;
-
-    [DataField]
-    public EntProtoId ShopActionId = "ActionPAIOpenShop";
-
-    [DataField, AutoNetworkedField]
-    public EntityUid? ShopAction;
 
     /// <summary>
     /// When microwaved there is this chance to brick the pai, kicking out its player and preventing it from being used again.

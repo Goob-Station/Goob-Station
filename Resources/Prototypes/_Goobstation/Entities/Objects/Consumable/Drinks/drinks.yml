@@ -69,7 +69,7 @@
         factor: 4
 
 - type: entity
-  parent: [DrinkBottleVisualsAll, DrinkBottlePlasticSmallBaseFull]
+  parent: [DrinkVisualsAllFilled, DrinkBottlePlasticSmallBaseFull]
   id: DrinkMilkBottleFull
   name: milk bottle
   description: How do plasmamen even drink this?

@@ -45,8 +45,10 @@
     - id: SheetPlasteel1
       amount: 2
   - type: Bloodstream
-    bloodMaxVolume: 10
-    bloodReagent: Oil
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Oil
+        Quantity: 10
   - type: Fixtures
     fixtures:
       fix1:
@@ -131,11 +133,10 @@
         - MobMask
         layer:
         - MobLayer
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletPistol
     fireCost: 50
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 50
   - type: Battery
     maxCharge: 1000
@@ -179,7 +180,7 @@
     noMovementLayers:
       movement:
         state: nukebot
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BaseBulletIncendiary
     fireCost: 50
   - type: Gun

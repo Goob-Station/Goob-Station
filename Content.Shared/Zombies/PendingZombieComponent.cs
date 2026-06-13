@@ -52,7 +52,7 @@ public sealed partial class PendingZombieComponent : Component
     /// The amount of time left before the infected begins to take damage.
     /// </summary>
     [DataField("gracePeriod"), ViewVariables(VVAccess.ReadWrite)]
-    public TimeSpan GracePeriod = TimeSpan.Zero;
+    public TimeSpan GracePeriod = TimeSpan.Zero; // Goobstation
 
     /// <summary>
     /// The minimum amount of time initial infected have before they start taking infection damage.

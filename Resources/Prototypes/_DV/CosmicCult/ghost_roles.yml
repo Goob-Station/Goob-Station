@@ -1,0 +1,18 @@
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointCosmicColossus
+  components:
+  - type: GhostRole
+    name: ghost-role-information-colossus-name
+    description: ghost-role-information-colossus-description
+    rules: ghost-role-information-colossus-rules
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+  - type: Sprite
+    layers:
+    - sprite: _DV/CosmicCult/Mobs/colossus.rsi
+      state: colossus

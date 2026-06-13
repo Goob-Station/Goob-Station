@@ -40,9 +40,6 @@
     delay: 5 # Melee dash is strong
   - type: StaticPrice
     price: 10000
-  - type: Tag
-    tags:
-    - Katana
 
 - type: entity
   name: cryo katana
@@ -151,7 +148,4 @@
     delay: 3
   - type: StaticPrice
     price: 25000
-  - type: Tag
-    tags:
-    - Katana
   # TODO: SWOON

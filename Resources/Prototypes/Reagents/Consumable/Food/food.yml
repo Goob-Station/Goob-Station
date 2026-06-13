@@ -34,7 +34,7 @@
           groups:
             Brute: -0.2 #30 nutriment will heal 12 dmg/group, this will help make up for small, consistent damage, and make service more valued
             Burn: -0.2
-      - !type:ModifyBleedAmount #makes bleeding healable outside of med WOW....
+      - !type:ModifyBleed #makes bleeding healable outside of med WOW....
         amount: -0.1
       - !type:ModifyBloodLevel
         amount: 0.25 #GOOBEND
@@ -63,7 +63,7 @@
             Brute: -0.5 #vitamin will heal 1 dmg per 1u
             Burn: -0.5
       # Helps you stop bleeding to an extent.
-      - !type:ModifyBleedAmount
+      - !type:ModifyBleed
         amount: -0.25
       - !type:SatiateHunger #Numbers are balanced with this in mind + it helps limit how much healing you can get from food
       - !type:ImmunityModifier #Goobstation # 1/3 of immurin
@@ -113,7 +113,7 @@
       effects:
       - !type:SatiateHunger
         conditions:
-        - !type:ReagentThreshold #Only satiates when eaten with nutriment
+        - !type:ReagentCondition #Only satiates when eaten with nutriment
           reagent: Nutriment
           min: 0.1
         factor: 1

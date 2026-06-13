@@ -136,29 +136,13 @@
     implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
+  parent: ERTLeaderGearEVA
   id: ERTLeaderGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitERTLeader
-    back: ClothingBackpackERTLeader
     shoes: ClothingShoesBootsMagEmergencyResponseTeam # Goobstation
     head: ClothingHeadHelmetERTLeader
-    neck: ExecutiveIDCard # Goobstation - Executive Access!
-    eyes: ClothingEyesGlassesSecurity
-    gloves: ClothingHandsGlovesCombat
-    outerClothing: ClothingOuterArmourDurathread # Durathread armor is cooler.
-    id: ERTLeaderPDA
-    ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltAssaultFilled # Goobstation
-    pocket1: WeaponPulsePistol # Literally described as "Favored sidearm of NT ERT operatives". Is never used anywhere else.
+    outerClothing: ClothingOuterArmourDurathread # Goobstation
     pocket2: FlashlightSeclite
-  storage:
-    back:
-    # - WeaponDisabler - Redundant. It spawns in secbelts now.
-    - MedkitCombatFilled # Goobstation - No reason not to.
-    - BoxZiptie
-    - CrowbarRed
-    - ERTSecurityUndeterminedWeapon
-    # - MagazineMagnum - No need
 
 - type: startingGear
   id: ERTLeaderGearEVA
@@ -166,24 +150,65 @@
     jumpsuit: ClothingUniformJumpsuitERTLeader
     back: ClothingBackpackERTLeader
     shoes: ClothingShoesBootsMagEmergencyResponseTeam # Goobstation
-    neck: ExecutiveIDCard # Goobstation - Executive Access!
     mask: ClothingMaskGasERT
-    eyes: ClothingEyesGlassesSecurity
+    eyes: ClothingEyesHudMedSec
+    neck: ExecutiveIDCard # Goobstation - Executive Access!
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitERTLeader
     id: ERTLeaderPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltAssaultFilled # Goobstation
+    belt: ClothingBeltMilitaryWebbingFilled # Goobstation
     pocket1: WeaponPulsePistol # Literally described as "Favored sidearm of NT ERT operatives". Is never used anywhere else.
-    pocket2: FlashlightSeclite
+    pocket2: CombatKnife
+    suitstorage: WeaponDisablerSMG
   storage:
     back:
-    # - WeaponDisabler - Redundant. It spawns in secbelts now.
-    - MedkitCombatFilled # Goobstation - No reason not to.
-    - BoxZiptie
-    - CrowbarRed
-    - ERTSecurityUndeterminedWeapon
-    # Goobstation - MagazineMagnum
+    - Binoculars
+    - HoloprojectorField
+    - PhoneInstrument
+    - PinpointerNuclear
+    - PowerCellHigh
+    - PowerCellHigh
+    - MedkitCombatFilled # End of first line
+    - MedkitCombatFilled
+    - TelescopicShield
+    #belt: # Goobstation prefilled
+    #- Stunbaton
+    #- Handcuffs
+    #- Handcuffs
+    #- CrowbarRed
+    #- WeaponPistolN1984
+    #- MagazineMagnum
+    #- EmergencyMedipen
+
+- type: startingGear
+  parent: ERTLeaderGearEVA
+  id: ERTLeaderGearArmed
+  equipment:
+    pocket2: WeaponDisabler
+    suitstorage: WeaponRifleLecter
+    # WeaponRifleLecterXL8  # Goobstation resprite and replace the above
+  storage:
+    back:
+    #- HoloprojectorField # Goobstation
+    #- PhoneInstrument
+    - PinpointerNuclear
+    - MagazineRifle
+    - MagazineRifle
+    - MagazineRifleIncendiary
+    - MagazineRifleUranium
+    - MedkitCombatFilled # End of first line
+    - GrenadeShrapnel
+    - EmpGrenade
+    - ERTSecurityUndeterminedWeapon # Goobstation?
+    #belt: # Goobstation
+    #- Truncheon
+    #- Handcuffs
+    #- Handcuffs
+    #- CrowbarRed
+    #- WeaponPistolN1984
+    #- MagazineMagnum
+    #- EmergencyMedipen
 
 - type: chameleonOutfit
   id: ERTLeaderChameleonOutfit
@@ -221,36 +246,14 @@
      implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
+  parent: ERTChaplainGearEVA
   id: ERTChaplainGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitERTChaplain
-    back: ClothingBackpackERTChaplain
     shoes: ClothingShoesBootsMagEmergencyResponseTeam # Goobstation
     head: ClothingHeadHatFez
-    eyes: ClothingEyesGlasses
     neck: ClothingNeckStoleChaplain
-    gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterArmourDurathread # Durathread armor is cooler.
-    id: ERTChaplainPDA
-    ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltStorageWaistbag
-    pocket1: WeaponPulsePistol # Literally described as "Favored sidearm of NT ERT operatives".
-    pocket2: DrinkWaterBottleFull
-  storage:
-    back:
-    - BoxCandle
-    - BoxBodyBag
-    - DrinkWaterMelonJuiceJug
-    - Lantern
-    - Lantern
-    - ChaplainUndeterminedBible # Goobstation
-    - CrowbarRed
-    - FoodBakedBunHotX
-    - FoodBakedBunHotX
-    - FoodBakedBunHotX
-    - Nullrod # Goobstation
-    - Lighter
-    - ExecutiveIDCard # Goobstation - Executive Access!
+    pocket2: FlashlightSeclite
 
 - type: startingGear
   id: ERTChaplainGearEVA
@@ -259,31 +262,37 @@
     back: ClothingBackpackERTChaplain
     shoes: ClothingShoesBootsMagEmergencyResponseTeam # Goobstation
     mask: ClothingMaskGasERT
-    eyes: ClothingEyesGlasses
-    neck: ClothingNeckStoleChaplain
+    eyes: ClothingEyesHudMedical
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitERTChaplain
     id: ERTChaplainPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltStorageWaistbag
-    pocket1: Flare
-    pocket2: DrinkWaterBottleFull
+    belt: ClothingBeltMilitaryWebbingERT
+    pocket1: WeaponPulsePistol # Goobstation Literally described as "Favored sidearm of NT ERT operatives".
+    pocket2: CombatKnife
   storage:
     back:
     - BoxCandle
-    - BoxBodyBag
-    - DrinkWaterMelonJuiceJug
-    - Lantern
-    - Lantern
+    - BodyBagFolded
+    - BodyBagFolded
+    - JugWater
+    - JugBlood # End of first row
+    - FoodBakedBunHotX
+    - FoodBakedBunHotX
+    - FoodBakedBunHotX
+    - FoodBakedBunHotX
     - ChaplainUndeterminedBible # Goobstation
-    - CrowbarRed
-    - FoodBakedBunHotX
-    - FoodBakedBunHotX
-    - FoodBakedBunHotX
-    - FoodBakedBunHotX
-    - Lighter
     - Nullrod # Goobstation
     - ExecutiveIDCard # Goobstation - Executive Access!
+    belt:
+    - Bible
+    - Lantern
+    - Lantern
+    - Lantern
+    - CrowbarRed
+    - WeaponPistolMk58
+    - MagazinePistol
+    - FlippoEngravedLighter
 
 - type: chameleonOutfit
   id: ERTChaplainChameleonOutfit
@@ -318,33 +327,13 @@
     implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
+  parent: ERTEngineerGearEVA
   id: ERTEngineerGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitERTEngineer
-    back: ClothingBackpackERTEngineer
     shoes: ClothingShoesBootsMagEmergencyResponseTeam # Goobstation
     head: ClothingHeadHelmetERTEngineer
-    neck: ExecutiveIDCard # Goobstation - Executive Access!
-    eyes: ClothingEyesGlassesMeson
-    gloves: ClothingHandsGlovesCombat
-    outerClothing: ClothingOuterArmourDurathread # Durathread armor is cooler.
-    id: ERTEngineerPDA
-    ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltChiefEngineerFilled
-    pocket1: WeaponPulsePistol # Literally described as "Favored sidearm of NT ERT operatives".
-    pocket2: GasAnalyzer
-  storage:
-    back:
-    - trayScanner
-    - RCD
-    - RCDAmmo
-    - RCDAmmo
-    - CableMVStack
-    - CableHVStack
-    - CableApcStack
-    - SheetPlasteel
-    - SheetSteel
-    - SheetGlass
+    outerClothing: ClothingOuterArmourDurathread # Goobstation
+    pocket2: FlashlightSeclite
 
 - type: startingGear
   id: ERTEngineerGearEVA
@@ -354,26 +343,57 @@
     shoes: ClothingShoesBootsMagEmergencyResponseTeam # Goobstation
     neck: ExecutiveIDCard # Goobstation - Executive Access!
     mask: ClothingMaskGasERT
-    eyes: ClothingEyesGlassesMeson
+    eyes: ClothingEyesHudDiagnostic
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitERTEngineer
     id: ERTEngineerPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltChiefEngineerFilled
-    pocket1: Flare
-    pocket2: GasAnalyzer
+    belt: ClothingBeltMilitaryWebbingERT
+    pocket1: WeaponPulsePistol # Goobstation
+    pocket2: CombatKnife
   storage:
     back:
-    - trayScanner
     - RCD
+    - GasAnalyzer
+    - trayScanner
+    - HolofanProjector
+    - PartRodMetal
+    - SheetPlasteel # End of first line
+    - MiningDrillDiamond
     - RCDAmmo
     - RCDAmmo
-    - CableMVStack
-    - CableHVStack
-    - CableApcStack
-    - SheetPlasteel
-    - SheetSteel
-    - SheetGlass
+    - RCDAmmo
+    - RCDAmmo
+    - MetalFoamGrenade
+    - AirGrenade
+    belt:
+    - JawsOfLife
+    - PowerDrill
+    - WelderIndustrialAdvanced
+    - Multitool
+    - WeaponPistolMk58
+    - MagazinePistol
+    - EmergencyMedipen
+
+- type: startingGear
+  parent: ERTEngineerGearEVA
+  id: ERTEngineerGearArmed
+  equipment:
+    suitstorage: WeaponShotgunEnforcer
+  storage:
+    back:
+    - RCD
+    - GasAnalyzer
+    - HolofanProjector
+    - MiningDrillDiamond
+    - BoxLethalshot
+    - BoxShotgunSlug # End of first line
+    - RCDAmmo
+    - RCDAmmo
+    - RCDAmmo
+    - RCDAmmo
+    - CableDetStack
+    - BoxDetonator
 
 - type: chameleonOutfit
   id: ERTEngineerChameleonOutfit
@@ -406,29 +426,13 @@
     implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm]
 
 - type: startingGear
+  parent: ERTSecurityGearEVA
   id: ERTSecurityGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitERTSecurity
-    back: ClothingBackpackERTSecurity
     shoes: ClothingShoesBootsMagEmergencyResponseTeam # Goobstation
     head: ClothingHeadHelmetERTSecurity
-    neck: ExecutiveIDCard # Goobstation - Executive Access!
-    eyes: ClothingEyesGlassesSecurity
-    gloves: ClothingHandsGlovesCombat
-    outerClothing: ClothingOuterArmourDurathread # Durathread armor is cooler.
-    id: ERTSecurityPDA
-    ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltAssaultFilled # Goobstation
-    pocket1: WeaponPulsePistol # Literally described as "Favored sidearm of NT ERT operatives".
+    outerClothing: ClothingOuterArmourDurathread # Goobstation
     pocket2: FlashlightSeclite
-  storage:
-    back:
-    # - WeaponDisabler - Redundant. It spawns in secbelts now.
-    - MedkitCombatFilled # Goobstation - No reason not to.
-    - BoxZiptie
-    - CrowbarRed
-    - ERTSecurityUndeterminedWeapon
-   # - MagazinePistol
 
 - type: startingGear
   id: ERTSecurityGearEVA
@@ -437,50 +441,150 @@
     back: ClothingBackpackERTSecurity
     shoes: ClothingShoesBootsMagEmergencyResponseTeam # Goobstation
     mask: ClothingMaskGasERT
-    neck: ExecutiveIDCard # Goobstation - Executive Access!
     eyes: ClothingEyesGlassesSecurity
+    gloves: ClothingHandsGlovesCombat
+    neck: ExecutiveIDCard # Goobstation - Executive Access!
+    outerClothing: ClothingOuterHardsuitERTSecurity
+    id: ERTSecurityPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltMilitaryWebbingFilled # Goobstation
+    pocket1: WeaponPulsePistol # Goobstation Death to Crew aligned Ballistics
+    pocket2: CombatKnife
+  storage:
+    back:
+    - BoxZiptie
+    - Flash
+    - GrenadeFlashBang
+    - TearGasGrenade
+    - GrenadeStinger
+    - MedkitCombatFilled # End of first line
+    - TelescopicShield
+    - HoloprojectorSecurity
+    - PowerCellHigh
+    - ERTSecurityUndeterminedWeapon # Goobstation
+    #belt: # Goobstation custom belt
+    #- Stunbaton
+    #- Handcuffs
+    #- Handcuffs
+    #- CrowbarRed
+    #- WeaponPistolMk58
+    #- MagazinePistol
+    #- EmergencyMedipen
+
+- type: startingGear
+  id: ERTSecurityGearArmedRifle
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTSecurity
+    shoes: ClothingShoesBootsMagERT
+    mask: ClothingMaskGasERT
+    eyes: ClothingEyesHudSecurity
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitERTSecurity
     id: ERTSecurityPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltAssaultFilled # Goobstation
-    pocket1: WeaponPulsePistol # Death to Crew aligned Ballistics
-    pocket2: FlashlightSeclite
+    belt: ClothingBeltMilitaryWebbingERT
+    pocket2: CombatKnife
+    suitstorage: WeaponRifleLecter
+  inhand:
+    - WeaponLaserCannon
+    - PortableRecharger
+  storage:
+    belt:
+    - CrowbarRed
+    - Zipties
+    - MedkitCombatFilled
+    - MagazineRifle
+    - MagazineRifle
+    - MagazineRifleIncendiary
+    - MagazineRifleUranium
+    - Zipties
+
+- type: startingGear
+  parent: ERTSecurityGearEVA
+  id: ERTSecurityGearArmedGrenade
+  equipment:
+    pocket2: WeaponDisabler
+    suitstorage: WeaponLauncherHydraLethal
   storage:
     back:
-    # - WeaponDisabler - Redundant. It spawns in secbelts now.
-    - MedkitCombatFilled # Goobstation - No reason not to.
-    - BoxZiptie
-    - CrowbarRed
-    - ERTSecurityUndeterminedWeapon
-   # - MagazinePistol
+    - GrenadeBlast
+    - GrenadeBlast
+    - GrenadeBlast
+    - GrenadeBlast
+    - GrenadeBlast
+    - GrenadeBlast
+    - MagazinePistol
+    - MedkitCombatFilled # End of first line
+    - GrenadeEMP
+    - GrenadeEMP
+    - GrenadeEMP
+    - GrenadeFlash
+    - GrenadeFlash
+    - GrenadeFlash
+    - MagazinePistol
+    #belt: # Goobstation
+    #- Truncheon
+    #- Handcuffs
+    #- Handcuffs
+    #- CrowbarRed
+    #- WeaponPistolMk58
+    #- MagazinePistol
+    #- EmergencyMedipen
 
-# Every time an admin spawns a lecter ERT instead of an annie ert i lose a part of my soul. USE THE DAMN GUN MADE FOR THE ERTS, OR SPAWN THE OTHER PROTO. THIS IS REDUNDANT!!
-# - type: startingGear
-#   id: ERTSecurityGearEVALecter
-#  equipment:
-#    jumpsuit: ClothingUniformJumpsuitERTSecurity
-#    back: ClothingBackpackERTSecurity
-#    shoes: ClothingShoesBootsCombatFilled # STOP GIVING ROLES ADVANCED MAGBOOTS!! - SOL
-#    mask: ClothingMaskGasERT
-#    neck: ExecutiveIDCard # Goobstation - Executive Access!
-#    eyes: ClothingEyesGlassesSecurity
-#    gloves: ClothingHandsGlovesCombat
-#    outerClothing: ClothingOuterHardsuitERTSecurity
-#    id: ERTSecurityPDA
-#    ears: ClothingHeadsetAltCentCom
-#    belt: ClothingBeltSecurityFilled
-#    pocket1: MagazineRifle
-#    pocket2: MagazineRifle
-#  inhand:
-#    - WeaponRifleLecter
-#  storage:
-#    back:
-#    # - WeaponDisabler - Redundant. It spawns in secbelts now.
-#    - MedkitCombatFilled # Goobstation - No reason not to.
-#    - BoxZiptie
-#    - CrowbarRed
-#    - MagazinePistol
+- type: startingGear
+  parent: ERTSecurityGearEVA
+  id: ERTSecurityGearArmedVanguard
+  equipment:
+    pocket2: WeaponDisabler
+    suitstorage: WeaponSubMachineGunWt550
+  storage:
+    back:
+    - ExGrenade
+    - SmokeGrenade
+    - EmpGrenade
+    - HoloprojectorSecurity
+    - TelescopicShield
+    - TelescopicShield
+    - TelescopicShield
+    - MedkitCombatFilled # End of first line
+    - MagazinePistolSubMachineGunTopMounted
+    - MagazinePistolSubMachineGunTopMounted
+    - MagazinePistolSubMachineGunTopMounted
+    - MagazinePistolSubMachineGunTopMounted
+    #belt: # Goobstation
+    #- Truncheon
+    #- Handcuffs
+    #- Handcuffs
+    #- CrowbarRed
+    #- WeaponPistolMk58
+    #- MagazinePistol
+    #- EmergencyMedipen
+
+- type: startingGear
+  parent: ERTSecurityGearEVA
+  id: ERTSecurityGearArmedShotgun
+  equipment:
+    pocket2: WeaponDisabler
+    suitstorage: WeaponShotgunEnforcer
+  storage:
+    back:
+    - SmokeGrenade
+    - BoxLethalshot
+    - BoxShotgunSlug
+    - BoxShotgunIncendiary
+    - MedkitCombatFilled # End of first line
+    - SmokeGrenade
+    - ExGrenade
+    - CableDetStack
+    - BoxDetonator
+    #belt: # Goobstation
+    #- Truncheon
+    #- Handcuffs
+    #- Handcuffs
+    #- CrowbarRed
+    #- WeaponPistolMk58
+    #- MagazinePistol
+    #- EmergencyMedipen
 
 - type: chameleonOutfit
   id: ERTSecurityChameleonOutfit
@@ -513,33 +617,13 @@
     implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
+  parent: ERTMedicalGearEVA
   id: ERTMedicalGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitERTMedic
-    back: ClothingBackpackERTMedical
     shoes: ClothingShoesBootsMagEmergencyResponseTeam # Goobstation
     head: ClothingHeadHelmetERTMedic
-    neck: ExecutiveIDCard # Goobstation - Executive Access!
-    eyes: ClothingEyesGlassesMedSec # Goobstation
-    gloves: ClothingHandsGlovesNitrile
-    outerClothing: ClothingOuterArmourDurathread # Durathread armor is cooler.
-    id: ERTMedicPDA
-    ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltSecurityWebbingFilledMedical # Fancier
-    pocket1: Flare
-    pocket2: WeaponPulsePistol # Literally described as "Favored sidearm of NT ERT operatives".
-  storage:
-    back:
-    - CentCommHypo
-    - MedkitAdvancedFilled
-    - CrowbarRed
-    - ChemistryBottleOmnizine
-    - JugOxandrolone
-    - JugSalicylicAcid
-    - ParamedHypo
-    - CartridgeAtropine
-    - CartridgeAtropine
-    - MedicalBeamGunBattery
+    outerClothing: ClothingOuterArmourDurathread # Goobstation
+    pocket2: FlashlightSeclite
 
 - type: startingGear
   id: ERTMedicalGearEVA
@@ -555,9 +639,25 @@
     id: ERTMedicPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltSecurityWebbingFilledMedical # Fancier
-    pocket1: WeaponPulsePistol # Literally described as "Favored sidearm of NT ERT operatives".
+    pocket1: WeaponPulsePistol # Goobstation Literally described as "Favored sidearm of NT ERT operatives".
   storage:
     back:
+    # Goobstation Start
+    #- Hypospray
+    #- BeakerSmallBruiz
+    #- BeakerSmallLace
+    #- JugPunctTranex
+    #- JugPyraDerma
+    #- JugDexPlusSaline # End of first line
+    #- JugTrico
+    #- BeakerSmallArith
+    #- BeakerSmallDiph
+    #- BeakerSmallSigy
+    #- ClothingEyesGlassesChemical
+    #- ChemistryBottleOmnizine
+
+    # Wizden^ vGoob
+
     - CentCommHypo
     - MedkitAdvancedFilled
     - CrowbarRed
@@ -567,6 +667,41 @@
     - CartridgeAtropine
     - CartridgeAtropine
     - MedicalBeamGunBattery
+    #belt: # Goobstation custom belt
+    #- DefibrillatorCompact
+    #- MedkitCombatFilled
+    #- CrowbarRed
+    #- WeaponPistolMk58
+    #- MagazinePistol
+    #- EmergencyMedipen
+
+- type: startingGear
+  parent: ERTMedicalGearEVA
+  id: ERTMedicalGearArmed
+  equipment:
+    suitstorage: WeaponRifleLecter
+    pocket2: WeaponDisabler
+  storage:
+    back:
+    - Hypospray
+    - JugPunctTranex
+    - JugPyraDerma
+    - JugDexPlusSaline
+    - JugTrico # End of first line
+    - BeakerSmallArith
+    - DefibrillatorCompact
+    - MedkitCombatFilled
+    - ClothingEyesGlassesChemical
+    - ChemistryBottleOmnizine
+    #belt: # Goobstation
+    #- Truncheon
+    #- Zipties
+    #- CrowbarRed
+    #- MagazineRifle
+    #- MagazineRifle
+    #- MagazineRifleIncendiary
+    #- MagazineRifleUranium # End of first line
+    #- Zipties
 
 - type: chameleonOutfit
   id: ERTMedicalChameleonOutfit
@@ -599,27 +734,12 @@
     implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm]
 
 - type: startingGear
+  parent: ERTJanitorGearEVA
   id: ERTJanitorGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitERTJanitor
-    back: ClothingBackpackERTJanitor
     shoes: ClothingShoesGaloshes
     head: ClothingHeadHelmetERTJanitor
-    neck: ExecutiveIDCard # Goobstation - Executive Access!
-    gloves: ClothingHandsGlovesColorPurple
-    outerClothing: ClothingOuterArmourDurathread # Durathread armor is cooler.
-    id: ERTJanitorPDA
-    ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltJanitorFilled
-    pocket1: WeaponPulsePistol # Literally described as "Favored sidearm of NT ERT operatives".
-  storage:
-    back:
-    - LightReplacer
-    - BoxLightMixed
-    - BoxLightMixed
-    - Soap
-    - CrowbarRed
-    - AdvMopItem
+    outerClothing: ClothingOuterArmourDurathread # Goobstation
 
 - type: startingGear
   id: ERTJanitorGearEVA
@@ -633,16 +753,32 @@
     outerClothing: ClothingOuterHardsuitERTJanitor
     id: ERTJanitorPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltJanitorFilled
-    pocket1: WeaponPulsePistol # Literally described as "Favored sidearm of NT ERT operatives".
+    belt: ClothingBeltMilitaryWebbingERT # Goobstation fuck it
+    pocket2: CombatKnife
+    pocket1: WeaponPulsePistol # Goobstation Literally described as "Favored sidearm of NT ERT operatives".
+    suitstorage: WeaponLauncherHydra # Goobstation
   storage:
     back:
+    - TrashBag
+    - SoapNT
+    - Plunger
+    - Screwdriver
+    - AdvMopItem # End of first line
+    - GrenadeCleanade
+    - GrenadeCleanade
+    - GrenadeCleanade
+    - GrenadeCleanade
+    - GrenadeCleanade
+    - GrenadeCleanade
+    belt:
+    - MegaSprayBottleSpaceCleaner
+    - Holoprojector
     - LightReplacer
-    - BoxLightMixed
-    - BoxLightMixed
-    - Soap
+    - WireBrush
     - CrowbarRed
-    - AdvMopItem
+    - WeaponPistolMk58
+    - MagazinePistol
+    - EmergencyMedipen
 
 - type: chameleonOutfit
   id: ERTJanitorChameleonOutfit

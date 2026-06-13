@@ -33,7 +33,7 @@
         - reagents: [Water, SpaceCleaner]
           methods: [Touch]
           effects:
-            - !type:WashCreamPieReaction
+            - !type:WashCreamPie
     - type: DamageOnHighSpeedImpact
       damage:
         types:
@@ -83,17 +83,18 @@
         1: 0.45
         0: 0.00
     - type: Temperature
-      heatDamageThreshold: 450 # Another goob edit: Wanted to do 363.15 for le realism, but reptiles have 400K limit which is ????
-      coldDamageThreshold: 260
       currentTemperature: 310.15 # Goob note: 310K is the standard operating temperature of a home circuit breaker
       specificHeat: 42
+      atmosTemperatureTransferEfficiency: 0.05
+    - type: TemperatureDamage # Goob?
+      heatDamageThreshold: 450 # Another goob edit: Wanted to do 363.15 for le realism, but reptiles have 400K limit which is ????
+      coldDamageThreshold: 260
       coldDamage:
         types:
           Cold: 0.1 #per second, scales with temperature & other constants
       heatDamage:
         types:
           Heat: 2 #per second, scales with temperature & other constants
-      atmosTemperatureTransferEfficiency: 0.05
     - type: KillOnOverheat # Goob edit
     - type: Deathgasp
       prototype: SiliconDeathgasp
@@ -179,9 +180,11 @@
     - type: HasJobIcons # Goobstation
     #- type: Bloodstream This is left commented out because it's not necessary for a robot, but you may want it.
     #  damageBleedModifiers: BloodlossIPC
-    #  bloodReagent: Oil
+    #  bloodReferenceSolution:
+    #  reagents:
+    #    - ReagentId: Oil
+    #      Quantity: 500
     #  bleedReductionAmount: 0
-    #  bloodMaxVolume: 500
     #  chemicalMaxVolume: 0
     #  bleedPuddleThreshold: 3
     #  bleedRefreshAmount: 0
@@ -258,7 +261,7 @@
     - type: Climbing
     - type: StandingState
     - type: MindContainer
-      showExamineInfo: true
+    - type: MindExaminable
     - type: SSDIndicator
     - type: CanEscapeInventory
     - type: HumanoidAppearance

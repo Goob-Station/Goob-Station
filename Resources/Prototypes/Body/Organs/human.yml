@@ -190,14 +190,15 @@
   name: brain
   description: "The source of incredible, unending intelligence. Honk."
   components:
-  - type: MindContainer
-    showExamineInfo: true
+  - type: MindContainer # Goob start
+  - type: MindExaminable
+    state: Catatonic # modified component on spawn otherwise
   - type: Speech
     enabled: false
   - type: TypingIndicator
     proto: empty
   - type: Emoting
-    enabled: false
+    enabled: false # Goob end
   - type: Sprite
     state: brain
   - type: Organ
@@ -239,8 +240,8 @@
   - type: Item
     size: Small
     heldPrefix: brain
-  - type: NerveSystem
-  - type: ConsciousnessRequired
+  - type: NerveSystem # Goobstation
+  - type: ConsciousnessRequired # Goobstation
     identifier: "nerveSystem"
 
 - type: entity
@@ -462,7 +463,6 @@
     metabolizerTypes: [Human]
     groups:
     - id: Alcohol
-      rateModifier: 0.1 # removes alcohol very slowly along with the stomach removing it as a drink
   - type: Tag # goob edit
     tags:
     - Meat

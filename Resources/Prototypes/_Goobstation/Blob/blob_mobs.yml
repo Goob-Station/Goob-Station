@@ -236,8 +236,10 @@
       guides:
       - Blob
     - type: Bloodstream
-      bloodMaxVolume: 300
-      bloodReagent: Blood
+      bloodReferenceSolution:
+        reagents:
+        - ReagentId: Blood
+          Quantity: 300
       bleedReductionAmount: 5
 
 # Observer
@@ -281,10 +283,7 @@
       description: ghost-role-information-blob-description
       rules: You are an antagonist, destroy the station!
       mindRoles:
-      - MindRoleGhostRoleSoloAntagonist
-      requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 18000 #5 hours
+      - MindRoleGhostRoleSoloAntagonistGoob
     - type: GhostTakeoverAvailable
     - type: Fixtures
       fixtures:

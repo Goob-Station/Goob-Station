@@ -159,13 +159,13 @@ public partial class SharedMartialArtsSystem
         if (!downed)
         {
             DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
-            _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
-            _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, true, proto.DropItems);
+            _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
+            _stun.TryKnockdown(target, proto.ParalyzeTime, true, true, proto.DropItems);
         }
         else
         {
             DoDamage(ent, target, proto.DamageType, proto.ExtraDamage / 2, out _);
-            _stamina.TakeStaminaDamage(target, proto.StaminaDamage - 20, applyResistances: true);
+            _stamina.TakeStaminaDamage(target, proto.StaminaDamage - 20);
             _hands.TryDrop(target);
         }
         if (TryComp<PullableComponent>(target, out var pullable))

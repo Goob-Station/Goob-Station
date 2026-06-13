@@ -45,7 +45,7 @@ public sealed class DevilGripSystem : EntitySystem
         if (!args.CanReach
             || args.Target is not { } target
             || args.Target == args.User
-            || _whitelist.IsBlacklistPass(ent.Comp.Blacklist, target)
+            || _whitelist.IsWhitelistPass(ent.Comp.Blacklist, target)
             || !TryComp<DevilComponent>(args.User, out var devilComp))
             return;
 

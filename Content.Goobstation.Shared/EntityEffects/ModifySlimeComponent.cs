@@ -2,15 +2,31 @@
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
-
-using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Shared.EntityEffects;
+using Content.Shared.EntityEffects.Effects;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.EntityEffects;
 
-public sealed partial class ModifySlimeComponent : EntityEffect
+public sealed partial class ModifySlimeComponentSystem : EntityEffectSystem<SlimeComponent, ModifySlimeComponent>
+{
+    protected override void Effect(Entity<SlimeComponent> entity, ref EntityEffectEvent<ModifySlimeComponent> args)
+    {
+        var slime = entity.Comp;
+        var effect = args.Effect;
+
+        slime.ExtractsProduced += effect.ExtractBonus ?? 0;
+        slime.MaxOffspring += effect.OffspringBonus ?? 0;
+
+        if (effect.ChanceModifier is { } chanceMod)
+            slime.MutationChance = Math.Clamp(slime.MutationChance + chanceMod, 0f, 1f);
+
+        Dirty(entity);
+    }
+}
+
+public sealed partial class ModifySlimeComponent : EntityEffectBase<ModifySlimeComponent>
 {
     /// <summary>
     /// How many additional extracts will be produced?
@@ -30,18 +46,6 @@ public sealed partial class ModifySlimeComponent : EntityEffect
     [DataField]
     public float? ChanceModifier;
 
-    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => null; // todo add something here
-
-    public override void Effect(EntityEffectBaseArgs args)
-    {
-        if (!args.EntityManager.TryGetComponent<SlimeComponent>(args.TargetEntity, out var slime))
-            return;
-
-        slime.ExtractsProduced += ExtractBonus ?? 0;
-        slime.MaxOffspring += OffspringBonus ?? 0;
-
-        if (ChanceModifier is { } chanceMod)
-            slime.MutationChance = Math.Clamp(slime.MutationChance + chanceMod, 0f, 1f);
-    }
 }

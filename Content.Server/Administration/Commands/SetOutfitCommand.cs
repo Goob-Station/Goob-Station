@@ -172,7 +172,7 @@ namespace Content.Server.Administration.Commands
                 }
             }
 
-            if (!_outfitSystem.SetOutfit(target.Value, args[1], doSpecial: doSpecial))
+            if (!_outfitSystem.SetOutfit(target.Value, args[1], doSpecial: doSpecial)) // Goobstation dospecial
                 shell.WriteLine(Loc.GetString("cmd-setoutfit-invalid-outfit-id-error"));
         }
     }

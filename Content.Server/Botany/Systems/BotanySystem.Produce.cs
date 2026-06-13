@@ -22,6 +22,8 @@ namespace Content.Server.Botany.Systems;
 
 public sealed partial class BotanySystem
 {
+    [Dependency] private readonly SharedEntityEffectsSystem _entityEffects = default!;
+
     public void ProduceGrown(EntityUid uid, ProduceComponent produce)
     {
         if (!TryGetSeed(produce, out var seed))
@@ -30,10 +32,7 @@ public sealed partial class BotanySystem
         foreach (var mutation in seed.Mutations)
         {
             if (mutation.AppliesToProduce)
-            {
-                var args = new EntityEffectBaseArgs(uid, EntityManager);
-                _effect.Effect(mutation.Effect, args); // goob edit - use system instead
-            }
+                _entityEffects.TryApplyEffect(uid, mutation.Effect);
         }
 
         if (!_solutionContainerSystem.EnsureSolution(uid,
@@ -45,10 +44,10 @@ public sealed partial class BotanySystem
         solutionContainer.RemoveAllSolution();
         foreach (var (chem, quantity) in seed.Chemicals)
         {
-            var amount = FixedPoint2.New(quantity.Min);
+            var amount = quantity.Min;
             if (quantity.PotencyDivisor > 0 && seed.Potency > 0)
-                amount += FixedPoint2.New(seed.Potency / quantity.PotencyDivisor);
-            amount = FixedPoint2.New(MathHelper.Clamp(amount.Float(), quantity.Min, quantity.Max));
+                amount += seed.Potency / quantity.PotencyDivisor;
+            amount = FixedPoint2.Clamp(amount, quantity.Min, quantity.Max);
             solutionContainer.MaxVolume += amount;
             solutionContainer.AddReagent(chem, amount);
         }

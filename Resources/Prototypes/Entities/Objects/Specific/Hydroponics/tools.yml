@@ -52,6 +52,7 @@
         Slash: 6
   - type: Item
     sprite: Objects/Tools/Hydroponics/hoe.rsi
+    storedRotation: -135
   - type: PhysicalComposition
     materialComposition:
       Steel: 100
@@ -95,7 +96,7 @@
     - Cutting
     useSound:
       path: /Audio/Items/wirecutter.ogg
-    speedModifier: 0.25    
+    speedModifier: 0.25
 
 - type: entity
   name: scythe
@@ -147,6 +148,7 @@
         Piercing: 2
   - type: Item
     sprite: Objects/Tools/Hydroponics/hatchet.rsi
+    storedRotation: -135
   - type: BoneSaw # Shitmed
     speed: 0.35
   - type: SurgeryTool # Shitmed
@@ -178,6 +180,7 @@
       collection: MetalThud
   - type: Item
     sprite: Objects/Tools/Hydroponics/spade.rsi
+    storedRotation: -45
   - type: Shovel
     speedModifier: 0.75 # slower at digging than a full-sized shovel
   - type: PhysicalComposition

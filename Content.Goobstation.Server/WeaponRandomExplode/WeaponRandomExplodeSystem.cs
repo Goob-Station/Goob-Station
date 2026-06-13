@@ -8,6 +8,7 @@
 
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Power.Components;
+using Content.Shared.Power.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Random;
 
@@ -31,7 +32,7 @@ namespace Content.Goobstation.Server.WeaponRandomExplode
                 return;
 
             TryComp<BatteryComponent>(uid, out var battery);
-            if (battery == null || battery.CurrentCharge <= 0)
+            if (battery == null || battery.LastCharge <= 0)
                 return;
 
             if (_random.Prob(component.explosionChance))
@@ -39,7 +40,7 @@ namespace Content.Goobstation.Server.WeaponRandomExplode
                 var intensity = 1;
                 if (component.multiplyByCharge > 0)
                 {
-                    intensity = Convert.ToInt32(component.multiplyByCharge * (battery.CurrentCharge / 100));
+                    intensity = Convert.ToInt32(component.multiplyByCharge * (battery.LastCharge / 100));
                 }
 
                 _explosionSystem.QueueExplosion(

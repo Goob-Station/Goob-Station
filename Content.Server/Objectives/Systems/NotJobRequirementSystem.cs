@@ -34,14 +34,15 @@ public sealed class NotJobRequirementSystem : EntitySystem
 
         _jobs.MindTryGetJob(args.MindId, out var proto);
 
+
+        // Goob start MisandryBox - JobObjectives - inverted behaviour
         if (proto is null)
             return;
 
-
-        // MisandryBox - JobObjectives
-        var hasJob = proto.ID == comp.Job;
+        var hasJob = comp.Jobs.Contains(proto.ID);
 
         if (comp.Inverted ? !hasJob : hasJob)
             args.Cancelled = true;
+        // Goob end
     }
 }

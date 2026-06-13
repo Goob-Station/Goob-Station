@@ -12,6 +12,7 @@ using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
+using Content.Shared.Emp;
 using Content.Shared.Examine;
 using Content.Shared.Mobs;
 using Content.Shared.Popups;

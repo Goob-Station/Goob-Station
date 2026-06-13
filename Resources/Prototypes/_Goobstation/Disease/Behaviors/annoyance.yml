@@ -9,7 +9,7 @@
   - type: DiseaseReagentEffect
     timeScale: false
     effects:
-    - !type:ChemVomit
+    - !type:Vomit
   # also a low-power infect
   - type: DiseaseSpreadEffect
     arc: 360

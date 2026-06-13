@@ -8,6 +8,8 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Shared.Maps;
+
 namespace Content.Server.Maps;
 
 /// <summary>

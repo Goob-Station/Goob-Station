@@ -30,7 +30,8 @@
     - type: Transform
       anchored: true
     - type: Tag
-      tags: [ Ice ]
+      tags:
+      - Ice
     - type: Physics
     - type: Fixtures
       fixtures:
@@ -53,6 +54,7 @@
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
     - type: Temperature
+    - type: TemperatureDamage
       heatDamage:
         types:
           Heat: 5

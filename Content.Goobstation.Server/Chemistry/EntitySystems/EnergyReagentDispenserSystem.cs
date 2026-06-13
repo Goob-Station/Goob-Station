@@ -110,7 +110,7 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
 
             if (TryComp<BatteryComponent>(reagentDispenser, out var battery))
             {
-                batteryCharge = battery.CurrentCharge;
+                batteryCharge = battery.LastCharge;
                 batteryMaxCharge = battery.MaxCharge;
             }
 
@@ -199,7 +199,7 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
             var amount = (int) reagentDispenser.Comp.DispenseAmount;
             var powerRequired = GetPowerCostForReagent(message.ReagentId, amount, reagentDispenser.Comp);
 
-            if (battery.CurrentCharge < powerRequired)
+            if (battery.LastCharge < powerRequired)
             {
                 _audioSystem.PlayPvs(reagentDispenser.Comp.PowerSound, reagentDispenser, AudioParams.Default.WithVolume(-2f));
                 return;
@@ -210,7 +210,7 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
             if (!_solutionContainerSystem.TryAddSolution(solution.Value, sol))
                 return;
 
-            _battery.SetCharge(reagentDispenser.Owner, battery.CurrentCharge - powerRequired);
+            _battery.SetCharge(reagentDispenser.Owner, battery.LastCharge - powerRequired);
             ClickSound(reagentDispenser);
             UpdateUiState(reagentDispenser);
         }
@@ -224,7 +224,12 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
 
             var refundedPower = soln.Sum(reagent => GetPowerCostForReagent(reagent.Reagent.Prototype, (int) reagent.Quantity, reagentDispenser));
             if (refundedPower > 0)
-                _battery.AddCharge(reagentDispenser, refundedPower);
+            {
+                _battery.TryGetBatteryComponent(reagentDispenser, out var batteryComponent, out _);
+                if (batteryComponent != null)
+                    _battery.SetCharge(reagentDispenser.Owner,  batteryComponent.LastCharge + refundedPower);
+            }
+
 
             _solutionContainerSystem.RemoveAllSolution(solution.Value);
             UpdateUiState(reagentDispenser);

@@ -27,6 +27,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Server.Gravity;
 using Content.Goobstation.Common.CCVar;
+using Content.Shared.Chemistry.Reagent;
 using Robust.Shared.Configuration;
 
 namespace Content.Goobstation.Server.Footprints;
@@ -76,7 +77,7 @@ public sealed class FootprintSystem : EntitySystem
         if (_noFootprintsQuery.HasComp(entity))
             return;
 
-        if (_gravity.IsWeightless(entity) || !e.OldPosition.IsValid(EntityManager) || !e.NewPosition.IsValid(EntityManager))
+        if (_gravity.IsWeightless(entity.Owner) || !e.OldPosition.IsValid(EntityManager) || !e.NewPosition.IsValid(EntityManager))
             return;
 
         var oldPosition = _transform.ToMapCoordinates(e.OldPosition).Position;
@@ -142,7 +143,7 @@ public sealed class FootprintSystem : EntitySystem
 
         var puddleSolSol = puddleSolution.Value.Comp.Solution;
         // don't transfer reagents that don't stick to skin to our footsteps
-        var nonStickProtos = new List<string>(); // has to be string or it dies
+        var nonStickProtos = new List<ProtoId<ReagentPrototype>>();
         foreach (var (proto, amt) in puddleSolSol.GetReagentPrototypes(_prototype))
         {
             if (!proto.SticksToSkin)
