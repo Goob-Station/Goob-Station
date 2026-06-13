@@ -140,6 +140,7 @@ loadout-group-mime-envirohelm = Mime envirohelm
 loadout-group-mime-envirosuit = Mime envirosuit
 loadout-group-mime-envirogloves = Mime envirogloves
 loadout-group-mime-gloves = Mime gloves
+loadout-group-mime-shoes = Mime shoes
 
 # Assistant
 loadout-group-assistant-envirohelm = Assistant envirohelm

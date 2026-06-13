@@ -129,21 +129,6 @@
     - Plasmaman
 
 - type: loadout
-  id: SecurityGloves
-  equipment:
-    gloves: ClothingHandsGlovesColorBlack
-
-- type: loadout
-  id: SecurityGlovesRed
-  equipment:
-    gloves: ClothingHandsGlovesColorRed
-
-- type: loadout
-  id: SecurityGlovesFingerless
-  equipment:
-    gloves: ClothingHandsGlovesFingerless
-
-- type: loadout
   id: SecurityMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitarySecurity
