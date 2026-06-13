@@ -193,6 +193,7 @@
 - type: loadout
   id: NTRMJ
   equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryNTR
 
 
 - type: loadout
