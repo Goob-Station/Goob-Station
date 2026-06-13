@@ -66,5 +66,5 @@
 
 - type: loadout
   id: BrigmedicMJ
-    equipment:
-      jumpsuit: ClothingUniformJumpsuitMilitaryBrigmedic
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryBrigmedic
