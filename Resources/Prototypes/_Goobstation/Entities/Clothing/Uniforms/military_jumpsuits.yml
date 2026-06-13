@@ -497,3 +497,44 @@
         color: "#D6D3D9"
       - state: equipped-decor-epaulets
         color: "#D6D3D9"
+
+- type: entity
+  parent: ClothingUniformJumpsuitBrigmedic
+  id: ClothingUniformJumpsuitMilitaryBrigmedic
+  suffix: Military
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
+    layers:
+    - state: icon-base-bottom
+      color: "#553022"
+    - state: icon-base-top-turtleneck
+      color: "#dd2218"
+    - state: icon-decor-shoulder-patch
+      color: "#EEEEEE"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base-bottom
+        color: "#553022"
+      - state: inhand-left-base-top-turtleneck
+        color: "#dd2218"
+      - state: inhand-left-decor-shoulder-patch
+        color: "#EEEEEE"
+      right:
+      - state: inhand-right-base-bottom
+        color: "#553022"
+      - state: inhand-right-base-top-turtleneck
+        color: "#dd2218"
+      - state: inhand-right-decor-shoulder-patch
+        color: "#EEEEEE"
+  - type: Clothing
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-base-bottom
+        color: "#553022"
+      - state: equipped-base-top-turtleneck-alt
+        color: "#dd2218"
+      - state: equipped-decor-shoulder-patch
+        color: "#EEEEEE"
