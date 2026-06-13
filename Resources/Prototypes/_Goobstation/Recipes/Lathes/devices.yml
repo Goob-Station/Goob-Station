@@ -17,11 +17,11 @@
 
 - type: latheRecipe
   id: PlantAnalyzer
-  result: PlantAnalyzerEmpty
+  result: PlantAnalyzer
   completetime: 2
   materials:
-    Steel: 300
-    Plastic: 200
+    Steel: 400
+    Plastic: 400
 
 - type: latheRecipe
   id: PinpointerArtifact
