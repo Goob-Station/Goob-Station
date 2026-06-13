@@ -1,0 +1,53 @@
+# Spoken by Hydrakin. Have fun.
+- type: language
+  id: Hydraspeak
+  isVisibleLanguage: true
+  speech:
+    color: "#6e6cfedd"
+    fontId: MinecraftEnchantment
+  obfuscation:
+    !type:SyllableObfuscation
+    minSyllables: 2
+    maxSyllables: 4
+    replacement:
+    - ᔑᔑ
+    - ʖ↸
+    - ╎⍑
+    - ꖎꖎリ
+    - ∷∴
+    - ⋮∷
+    - ⨅⍊
+    - ᓵʖ
+    - ᒲ↸
+    - ʖ↸
+    - ᔑ↸
+    - ᑑ↸
+    - ʖᒲ
+    - ⊣ᒷ
+    - ᒲᒷ
+    - リᔑʖ
+    - ╎╎ᑑ
+    - ⎓∴
+    - ᔑ
+    - ʖ
+    - ᓵ
+    - ↸
+    - ᒷ
+    - ⎓
+    - ⊣
+    - ⍑
+    - ╎
+    - ⋮
+    - ꖌ
+    - ꖎ
+    - ᒲ
+    - リ
+    - 𝙹
+    - ᑑ
+    - ∷
+    - ᓭ
+    - ℸ ̣
+    - ⚍
+    - ⍊
+    - ∴
+    - ⨅

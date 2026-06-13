@@ -23492,3 +23492,13 @@ Entries:
       message: Fixed game reloading every second !
   id: 2698
   time: '2026-06-09T15:33:32.0000000+00:00'
+- author: Nightharlaw
+  changes:
+    - type: Add
+      message: New specie - Hydrakin.
+    - type: Add
+      message: >-
+        New reagent - Peranol. Intended to be used by hydrakins for cooling
+        down.
+  id: 2699
+  time: '2026-06-12T18:45:47.0000000+00:00'
