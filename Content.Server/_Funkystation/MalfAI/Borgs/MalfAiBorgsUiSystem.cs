@@ -107,7 +107,7 @@ public sealed class MalfAiBorgsUiSystem : EntitySystem
         if (args.Synced)
         {
             var sync = EnsureComp<MalfBorgSyncToMasterComponent>(borg);
-            sync.MalfAi = ent.Owner;
+            sync.Master = ent.Owner;
             ApplyMasterLawsToBorg(ent.Owner, borg);
         }
         else
@@ -176,7 +176,7 @@ public sealed class MalfAiBorgsUiSystem : EntitySystem
         var query = EntityQueryEnumerator<MalfBorgSyncToMasterComponent>();
         while (query.MoveNext(out var borg, out var sync))
         {
-            if (sync.MalfAi == ent.Owner)
+            if (sync.Master == ent.Owner)
                 ApplyMasterLawsToBorg(ent.Owner, borg);
         }
     }

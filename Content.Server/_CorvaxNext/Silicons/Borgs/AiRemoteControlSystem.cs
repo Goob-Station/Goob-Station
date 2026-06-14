@@ -13,7 +13,7 @@ using Content.Shared._CorvaxNext.Silicons.Borgs.Components;
 using Content.Shared.Actions;
 using Content.Shared.Mind;
 using Content.Shared.Silicons.Laws.Components;
-using Content.Shared.Mobs;
+using Content.Shared.Mobs; // Goobstation - MalfAI
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.StationAi;
 using Content.Shared.Verbs;

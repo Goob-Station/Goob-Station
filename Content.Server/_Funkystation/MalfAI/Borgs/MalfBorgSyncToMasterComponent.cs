@@ -13,5 +13,5 @@ namespace Content.Server._Funkystation.MalfAI.Borgs;
 public sealed partial class MalfBorgSyncToMasterComponent : Component
 {
     [DataField]
-    public EntityUid MalfAi;
+    public EntityUid Master;
 }

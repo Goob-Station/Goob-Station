@@ -192,7 +192,7 @@ public sealed class ToggleableGhostRoleSystem : EntitySystem
     }
 
     /// <summary>
-    /// Activates the ghost role without a user, e.g. when reconstructing an AI core (upstream port #39588).
+    /// Activates the ghost role without a user, e.g. when reconstructing an AI core.
     /// </summary>
     public void ActivateGhostRole(Entity<ToggleableGhostRoleComponent?> ent)
     {

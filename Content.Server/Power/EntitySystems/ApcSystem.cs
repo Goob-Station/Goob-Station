@@ -1,4 +1,4 @@
-﻿// SPDX-FileCopyrightText: 2022 CommieFlowers <rasmus.cedergren@hotmail.com>
+// SPDX-FileCopyrightText: 2022 CommieFlowers <rasmus.cedergren@hotmail.com>
 // SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
 // SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
@@ -30,27 +30,28 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Emp;
-using Content.Server._Funkystation.MalfAI; // Goobstation - MalfAI
-using Content.Server._Funkystation.MalfAI.Shunt; // Goobstation - MalfAI
 using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Power.Pow3r;
 using Content.Shared.Access.Systems;
 using Content.Shared.APC;
-using Content.Shared.CCVar; // Goobstation - MalfAI
-using Content.Shared.Emag.Components; // Goobstation - MalfAI
 using Content.Shared.Emag.Systems;
-using Content.Shared._Funkystation.MalfAI; // Goobstation - MalfAI
-using Content.Shared._Funkystation.MalfAI.Shunt; // Goobstation - MalfAI
 using Content.Shared.Popups;
-using Content.Shared.Silicons.StationAi; // Goobstation - MalfAI
 using Content.Shared.Rounding;
-using Content.Shared.Verbs; // Goobstation - MalfAI
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Configuration; // Goobstation - MalfAI
 using Robust.Shared.Timing;
+// Goobstation - MalfAI Begin
+using Content.Server._Funkystation.MalfAI.Shunt;
+using Content.Shared.CCVar;
+using Content.Shared.Emag.Components;
+using Content.Shared._Funkystation.MalfAI;
+using Content.Shared._Funkystation.MalfAI.Shunt;
+using Content.Shared.Silicons.StationAi;
+using Content.Shared.Verbs;
+using Robust.Shared.Configuration;
+// Goobstation - MalfAI End
 
 namespace Content.Server.Power.EntitySystems;
 
@@ -63,8 +64,10 @@ public sealed class ApcSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly MalfAiApcSiphonSystem _malfAiSiphon = default!; // Goobstation - MalfAI
-    [Dependency] private readonly IConfigurationManager _cfg = default!; // Goobstation - MalfAI
+    // Goobstation - MalfAI Begin
+    [Dependency] private readonly MalfAiApcSiphonSystem _malfAiSiphon = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    // Goobstation - MalfAI End
 
     public override void Initialize()
     {
@@ -80,24 +83,24 @@ public sealed class ApcSystem : EntitySystem
 
         SubscribeLocalEvent<ApcComponent, EmpPulseEvent>(OnEmpPulse);
 
-        // Goobstation - MalfAI: APC siphoning
+        // Goobstation - MalfAI Begin
         SubscribeLocalEvent<ApcComponent, GetVerbsEvent<AlternativeVerb>>(OnGetSiphonVerb);
         SubscribeLocalEvent<ApcComponent, ApcSiphonCpuMessage>(OnSiphonCpu);
         SubscribeLocalEvent<ApcComponent, ApcStartSiphonEvent>(OnStartSiphon);
         SubscribeLocalEvent<MalfAiApcSiphonedComponent, ApcSiphonExpiredEvent>(OnSiphonExpired);
         SubscribeLocalEvent<MalfAiApcSiphonedComponent, ApcToggleMainBreakerAttemptEvent>(OnSiphonedToggleAttempt);
+        // Goobstation - MalfAI End
     }
 
     public override void Update(float deltaTime)
     {
-        var now = _gameTiming.CurTime;
 
-        var apcQuery = EntityQueryEnumerator<ApcComponent, PowerNetworkBatteryComponent, UserInterfaceComponent>();
-        while (apcQuery.MoveNext(out var uid, out var apc, out var battery, out var ui))
+        var Query = EntityQueryEnumerator<ApcComponent, PowerNetworkBatteryComponent, UserInterfaceComponent>();
+        while (Query.MoveNext(out var uid, out var apc, out var battery, out var ui))
         {
-            if (apc.LastUiUpdate + ApcComponent.VisualsChangeDelay < now && _ui.IsUiOpen((uid, ui), ApcUiKey.Key))
+            if (apc.LastUiUpdate + ApcComponent.VisualsChangeDelay < _gameTiming.CurTime && _ui.IsUiOpen((uid, ui), ApcUiKey.Key))
             {
-                apc.LastUiUpdate = now;
+                apc.LastUiUpdate = _gameTiming.CurTime;
                 UpdateUIState(uid, apc, battery);
             }
 
@@ -111,7 +114,7 @@ public sealed class ApcSystem : EntitySystem
         var siphonQuery = EntityQueryEnumerator<MalfAiApcSiphonedComponent>();
         while (siphonQuery.MoveNext(out var uid, out var siphoned))
         {
-            if (now < siphoned.EndTime)
+            if (_gameTiming.CurTime < siphoned.EndTime)
                 continue;
 
             var expireEvent = new ApcSiphonExpiredEvent();
@@ -329,10 +332,12 @@ public sealed class ApcSystem : EntitySystem
         // TODO: Fix ContentHelpers or make a new one coz this is cooked.
         var charge = ContentHelpers.RoundToNearestLevels(battery.CurrentStorage / battery.Capacity, 1.0, 100 / ChargeAccuracy) / 100f * ChargeAccuracy;
 
+        // Goobstation - MalfAI Begin
         var state = new ApcBoundInterfaceState(apc.MainBreakerEnabled,
             (int) MathF.Ceiling(battery.CurrentSupply), apc.LastExternalState,
             charge,
-            HasComp<MalfAiApcSiphonedComponent>(uid)); // Goobstation - MalfAI
+            HasComp<MalfAiApcSiphonedComponent>(uid));
+        // Goobstation - MalfAI End
 
         _ui.SetUiState((uid, ui), ApcUiKey.Key, state);
     }
