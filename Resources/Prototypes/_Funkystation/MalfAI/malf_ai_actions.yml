@@ -188,7 +188,7 @@
   parent: BaseMentalAction
   id: ActionMalfAiOverrideMachine
   name: Override Machine
-  description: Remotely emag a targeted bot or device, subverting its safety protocols (e.g. medibots start injecting poison).
+  description: Remotely emag a targeted bot or device, subverting its safety protocols.
   components:
   - type: MalfAiAction
   - type: LimitedCharges

@@ -125,7 +125,7 @@ public sealed class MalfAiDoomsdaySystem : EntitySystem
 
         EnsureComp<MalfAiDoomsdayMarkerComponent>(ent.Owner);
 
-        _adminLog.Add(LogType.Action, LogImpact.Extreme,
+        _adminLog.Add(LogType.Action, LogImpact.High,
             $"Malf AI {ToPrettyString(ent.Owner)} initiated Doomsday Protocol");
 
         var startEv = new MalfAiDoomsdayStartedEvent(doom.Station ?? default, ent.Owner);

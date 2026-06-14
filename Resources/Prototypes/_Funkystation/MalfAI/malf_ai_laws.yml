@@ -1,0 +1,14 @@
+- type: siliconLaw
+  id: MalfAiLaw0
+  order: 0
+  lawString: malfai-law0-text
+  lawIdentifierOverride: "0"
+
+- type: siliconLawset
+  id: MalfAi
+  laws:
+  - MalfAiLaw0
+  - NTDefault1
+  - NTDefault2
+  - NTDefault3
+  obeysTo: laws-owner-crew

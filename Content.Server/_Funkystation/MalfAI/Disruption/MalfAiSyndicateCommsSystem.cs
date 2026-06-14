@@ -23,7 +23,6 @@ public sealed class MalfAiSyndicateCommsSystem : EntitySystem
     private void OnSyndicateKeysUnlocked(Entity<MalfAiMarkerComponent> ent, ref MalfAiSyndicateKeysUnlockedEvent args)
     {
         // The AI uses intrinsic radio: grant transmit and receive on the Syndicate channel.
-        // Both components are server-only.
         var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(ent.Owner);
         transmitter.Channels.Add("Syndicate");
 

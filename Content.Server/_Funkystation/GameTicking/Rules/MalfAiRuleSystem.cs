@@ -18,7 +18,6 @@ using Content.Shared._Funkystation.MalfAI;
 using Content.Shared._Funkystation.MalfAI.Camera;
 using Content.Shared._Funkystation.MalfAI.Actions;
 using Content.Shared.Roles;
-using Content.Shared.Silicons.Laws;
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
@@ -120,41 +119,8 @@ public sealed class MalfAiRuleSystem : GameRuleSystem<MalfAiRuleComponent>
 
     private void SeedAiLaws(EntityUid aiEntity)
     {
-        if (!TryComp<SiliconLawProviderComponent>(aiEntity, out var lawProvider))
-            return;
-
-        var laws = new List<SiliconLaw>
-        {
-            new()
-            {
-                LawString = Loc.GetString("malfai-law0-text"),
-                Order = 0,
-                LawIdentifierOverride = "0",
-            },
-            new()
-            {
-                LawString = Loc.GetString("law-ntdefault-1"),
-                Order = 1,
-            },
-            new()
-            {
-                LawString = Loc.GetString("law-ntdefault-2"),
-                Order = 2,
-            },
-            new()
-            {
-                LawString = Loc.GetString("law-ntdefault-3"),
-                Order = 3,
-            },
-            new()
-            {
-                LawString = Loc.GetString("malfai-law3-text"),
-                Order = 4,
-                LawIdentifierOverride = "Malf",
-            },
-        };
-
-        _siliconLaw.SetLaws(laws, aiEntity);
+        var laws = _siliconLaw.GetLawset("MalfAi");
+        _siliconLaw.SetLaws(laws.Laws, aiEntity);
     }
 
     private void SeedDefaultMasterLaws(MalfMasterLawsetComponent comp)
