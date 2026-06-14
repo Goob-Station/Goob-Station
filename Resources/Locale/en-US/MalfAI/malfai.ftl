@@ -164,6 +164,8 @@ malfai-borgs-none = No borgs detected on the station.
 malfai-borgs-master-lawset-button = Edit Master Lawset
 malfai-borgs-sync-label = Sync
 malfai-borgs-jump-label = View
+malfai-borgs-claim-label = Claim
+malfai-borgs-resync-all-button = Resync All
 
 ## Voice Modulator
 malfai-voice-modulator-title = Voice Modulator

@@ -4,8 +4,10 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Body.Components;
+using Content.Server._Funkystation.MalfAI.Borgs;
 using Content.Shared.Body.Systems;
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared._Funkystation.MalfAI;
 using Content.Shared._Funkystation.MalfAI.Factory;
 using Content.Shared._Funkystation.Materials;
 using Content.Shared.Mind;
@@ -27,6 +29,7 @@ public sealed class CyborgFactorySystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _containers = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
+    [Dependency] private readonly MalfAiBorgsUiSystem _borgsUi = default!;
 
     private const string MmiPrototype = "MMI";
     private const string CyborgPrototype = "MalfAiFactoryBorgChassis";
@@ -69,6 +72,18 @@ public sealed class CyborgFactorySystem : EntitySystem
 
         if (!string.IsNullOrWhiteSpace(priorName))
             _meta.SetEntityName(cyborg, priorName);
+
+        // Auto-assign ownership to the AI that built this factory.
+        if (TryComp<MalfFactoryOwnerComponent>(factory.Owner, out var owner) &&
+            owner.Controller != null &&
+            HasComp<MalfAiMarkerComponent>(owner.Controller.Value))
+        {
+            var controlled = EnsureComp<MalfAiControlledComponent>(cyborg);
+            controlled.Controller = owner.Controller;
+            Dirty(cyborg, controlled);
+
+            _borgsUi.RefreshBorgsUi(owner.Controller.Value);
+        }
 
         args.Handled = true;
     }

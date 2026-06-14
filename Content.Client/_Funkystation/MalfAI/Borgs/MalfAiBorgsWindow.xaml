@@ -4,9 +4,15 @@
                      MinWidth="400"
                      MinHeight="300">
     <BoxContainer Orientation="Vertical" Margin="8">
-        <Button Name="MasterLawsetButton"
-                Text="{Loc malfai-borgs-master-lawset-button}"
-                Margin="0 0 0 8"/>
+        <BoxContainer Orientation="Horizontal" Margin="0 0 0 8">
+            <Button Name="MasterLawsetButton"
+                    Text="{Loc malfai-borgs-master-lawset-button}"
+                    HorizontalExpand="True"/>
+            <Button Name="ResyncAllButton"
+                    Text="{Loc malfai-borgs-resync-all-button}"
+                    Margin="4 0 0 0"
+                    Visible="False"/>
+        </BoxContainer>
         <Label Name="NoBorgs"
                Text="{Loc malfai-borgs-none}"
                Visible="False"

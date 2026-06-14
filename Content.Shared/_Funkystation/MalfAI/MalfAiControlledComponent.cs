@@ -15,7 +15,4 @@ public sealed partial class MalfAiControlledComponent : Component
 {
     [DataField, AutoNetworkedField]
     public EntityUid? Controller;
-
-    [DataField, AutoNetworkedField]
-    public string? UniqueId;
 }

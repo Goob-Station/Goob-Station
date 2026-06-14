@@ -1,4 +1,4 @@
-﻿// SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
 // SPDX-FileCopyrightText: 2025 Goob-Station
 //
 // SPDX-License-Identifier: MIT
@@ -7,6 +7,7 @@ using System.Linq;
 using Content.Server.EUI;
 using Content.Server.Silicons.Laws;
 using Content.Shared.Damage;
+using Content.Shared.DoAfter;
 using Content.Shared._Funkystation.MalfAI;
 using Content.Server._Funkystation.MalfAI.Laws;
 using Content.Shared._Funkystation.MalfAI.Borgs;
@@ -18,20 +19,46 @@ using Content.Shared._Funkystation.MalfAI.Actions;
 using Content.Shared.Silicons.StationAi;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
+using Robust.Shared.Timing;
 
 namespace Content.Server._Funkystation.MalfAI.Borgs;
 
 /// <summary>
 /// Server-side system that manages the Malf AI's borg control UI.
-/// Allows the AI to view, edit laws of, and sync borgs to its master lawset.
+/// Allows the AI to view, sync, claim, and resync borgs.
 /// </summary>
 public sealed class MalfAiBorgsUiSystem : EntitySystem
 {
     [Dependency] private readonly EuiManager _eui = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SiliconLawSystem _siliconLaw = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly SharedTransformSystem _xforms = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+
+    private static readonly TimeSpan ClaimDelay = TimeSpan.FromSeconds(20);
+    private static readonly TimeSpan UiRefreshInterval = TimeSpan.FromSeconds(1);
+    // I WILL REWORK THAT
+    private readonly Dictionary<EntityUid, EntityUid> _activeClaims = [];
+
+    private TimeSpan _nextUiRefresh;
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var curTime = _timing.CurTime;
+        if (curTime < _nextUiRefresh)
+            return;
+        _nextUiRefresh = curTime + UiRefreshInterval;
+
+        var query = EntityQueryEnumerator<MalfAiMarkerComponent>();
+        while (query.MoveNext(out var ai, out _))
+        {
+            if (_ui.IsUiOpen(ai, MalfAiBorgsUiKey.Key))
+                RefreshBorgsUi(ai);
+        }
+    }
 
     public override void Initialize()
     {
@@ -40,6 +67,9 @@ public sealed class MalfAiBorgsUiSystem : EntitySystem
         SubscribeLocalEvent<MalfAiMarkerComponent, OpenMalfAiBorgsUiActionEvent>(OnOpenBorgsUi);
         SubscribeLocalEvent<MalfAiMarkerComponent, BoundUIOpenedEvent>(OnBoundUIOpened);
         SubscribeLocalEvent<MalfAiMarkerComponent, MalfAiBorgsSetSyncMessage>(OnSetSync);
+        SubscribeLocalEvent<MalfAiMarkerComponent, MalfAiClaimBorgMessage>(OnClaimBorg);
+        SubscribeLocalEvent<MalfAiMarkerComponent, MalfAiClaimBorgDoAfterEvent>(OnClaimBorgDoAfter);
+        SubscribeLocalEvent<MalfAiMarkerComponent, MalfAiResyncAllBorgsMessage>(OnResyncAllBorgs);
         SubscribeLocalEvent<MalfAiMarkerComponent, MalfAiOpenMasterLawsetMessage>(OnOpenMasterLawset);
         SubscribeLocalEvent<MalfAiMarkerComponent, MalfAiBorgsJumpToBorgMessage>(OnJumpToBorg);
     }
@@ -70,32 +100,85 @@ public sealed class MalfAiBorgsUiSystem : EntitySystem
         if (!HasComp<BorgChassisComponent>(borg))
             return;
 
-        // Only borgs slaved to the AI (SlavedBorg with the ObeyAI law, set in YAML on NT chassis)
-        // can be synced; syndicate borgs, xenoborgs etc. lack it or obey something else.
-        if (!TryComp<SlavedBorgComponent>(borg, out var slaved) || slaved.Law != "ObeyAI")
+        // Only owned borgs can be synced.
+        if (!TryComp<MalfAiControlledComponent>(borg, out var controlled) || controlled.Controller != ent.Owner)
             return;
 
         if (args.Synced)
         {
             var sync = EnsureComp<MalfBorgSyncToMasterComponent>(borg);
             sync.MalfAi = ent.Owner;
-
-            // Mark the borg as controlled by this AI (counts towards the control objective).
-            var controlled = EnsureComp<MalfAiControlledComponent>(borg);
-            controlled.Controller = ent.Owner;
-            controlled.UniqueId ??= $"borg-{Guid.NewGuid():N}";
-            Dirty(borg, controlled);
-
-            // Immediately apply master laws
             ApplyMasterLawsToBorg(ent.Owner, borg);
         }
         else
         {
             RemComp<MalfBorgSyncToMasterComponent>(borg);
-            RemComp<MalfAiControlledComponent>(borg);
         }
 
         RefreshBorgsUi(ent.Owner);
+    }
+
+    private void OnClaimBorg(Entity<MalfAiMarkerComponent> ent, ref MalfAiClaimBorgMessage args)
+    {
+        // Only one claim at a time per AI.
+        if (_activeClaims.ContainsKey(ent.Owner))
+            return;
+
+        var borg = GetEntity(args.Borg);
+        if (!HasComp<BorgChassisComponent>(borg))
+            return;
+
+        if (!TryComp<SlavedBorgComponent>(borg, out var slaved) || slaved.Law != "ObeyAI")
+            return;
+
+        // Already owned — cannot be re-claimed.
+        if (HasComp<MalfAiControlledComponent>(borg))
+            return;
+
+        var doAfterArgs = new DoAfterArgs(EntityManager, ent.Owner, ClaimDelay,
+            new MalfAiClaimBorgDoAfterEvent(args.Borg),
+            eventTarget: ent.Owner)
+        {
+            BreakOnMove = false,
+            BreakOnDamage = false,
+            NeedHand = false,
+        };
+
+        if (_doAfter.TryStartDoAfter(doAfterArgs))
+            _activeClaims[ent.Owner] = borg;
+    }
+
+    private void OnClaimBorgDoAfter(Entity<MalfAiMarkerComponent> ent, ref MalfAiClaimBorgDoAfterEvent args)
+    {
+        _activeClaims.Remove(ent.Owner);
+
+        if (args.Cancelled || args.Handled)
+            return;
+
+        var borg = GetEntity(args.Borg);
+        if (!HasComp<BorgChassisComponent>(borg))
+            return;
+
+        // Another AI may have claimed it during our DoAfter.
+        if (HasComp<MalfAiControlledComponent>(borg))
+            return;
+
+        var controlled = EnsureComp<MalfAiControlledComponent>(borg);
+        controlled.Controller = ent.Owner;
+        Dirty(borg, controlled);
+
+        args.Handled = true;
+        RefreshBorgsUi(ent.Owner);
+    }
+
+    private void OnResyncAllBorgs(Entity<MalfAiMarkerComponent> ent, ref MalfAiResyncAllBorgsMessage args)
+    {
+        var query = EntityQueryEnumerator<MalfBorgSyncToMasterComponent>();
+        while (query.MoveNext(out var borg, out var sync))
+        {
+            if (sync.MalfAi == ent.Owner)
+                ApplyMasterLawsToBorg(ent.Owner, borg);
+        }
     }
 
     private void OnOpenMasterLawset(Entity<MalfAiMarkerComponent> ent, ref MalfAiOpenMasterLawsetMessage args)
@@ -104,7 +187,6 @@ public sealed class MalfAiBorgsUiSystem : EntitySystem
             return;
 
         var eui = new MalfAiLawEui(_siliconLaw, EntityManager);
-        // The EUI must be opened (Player assigned) before StateDirty is called in OpenForMasterLawset.
         _eui.OpenEui(eui, actor.PlayerSession);
         eui.OpenForMasterLawset(ent.Owner);
     }
@@ -115,8 +197,6 @@ public sealed class MalfAiBorgsUiSystem : EntitySystem
         if (Deleted(borg))
             return;
 
-        // Move the AI's remote eye next to the selected borg, like funky-station does.
-        // The AI is held inside the core; the core tracks the remote eye entity.
         var core = Transform(ent.Owner).ParentUid;
         if (!TryComp<StationAiCoreComponent>(core, out var coreComp) || coreComp.RemoteEntity is not { } eye)
             return;
@@ -124,7 +204,7 @@ public sealed class MalfAiBorgsUiSystem : EntitySystem
         _xforms.DropNextTo(eye, borg);
     }
 
-    private void RefreshBorgsUi(EntityUid malfAi)
+    public void RefreshBorgsUi(EntityUid malfAi)
     {
         var borgs = GetBorgsForAi(malfAi);
         _ui.SetUiState(malfAi, MalfAiBorgsUiKey.Key, new MalfAiBorgsUiState(borgs));
@@ -141,7 +221,6 @@ public sealed class MalfAiBorgsUiSystem : EntitySystem
             if (borgXform.MapID != xform.MapID)
                 continue;
 
-            // Hide borgs not slaved to the AI (syndicate, xenoborg...) from the management UI entirely.
             if (!TryComp<SlavedBorgComponent>(borg, out var slaved) || slaved.Law != "ObeyAI")
                 continue;
 
@@ -155,12 +234,19 @@ public sealed class MalfAiBorgsUiSystem : EntitySystem
                 health = Math.Clamp(1f - (float)(damageable.TotalDamage / maxHealth), 0f, 1f);
             }
 
+            var isOwned = TryComp<MalfAiControlledComponent>(borg, out var controlled);
+            var ownedByMe = isOwned && controlled!.Controller == malfAi;
+            var isBeingClaimed = _activeClaims.TryGetValue(malfAi, out var claimedBorg) && claimedBorg == borg;
+
             result.Add(new MalfAiBorgListEntry(
                 GetNetEntity(borg),
                 Name(borg),
                 health,
                 isSynced,
-                laws));
+                laws,
+                isOwned,
+                ownedByMe,
+                isBeingClaimed));
         }
 
         return result;
