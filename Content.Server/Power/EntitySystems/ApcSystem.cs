@@ -40,7 +40,6 @@ using Content.Shared.APC;
 using Content.Shared.CCVar; // Goobstation - MalfAI
 using Content.Shared.Emag.Components; // Goobstation - MalfAI
 using Content.Shared.Emag.Systems;
-using Content.Shared.Interaction; // Goobstation - MalfAI
 using Content.Shared._Funkystation.MalfAI; // Goobstation - MalfAI
 using Content.Shared._Funkystation.MalfAI.Shunt; // Goobstation - MalfAI
 using Content.Shared.Popups;
@@ -85,7 +84,6 @@ public sealed class ApcSystem : EntitySystem
         SubscribeLocalEvent<ApcComponent, ApcStartSiphonEvent>(OnStartSiphon);
         SubscribeLocalEvent<MalfAiApcSiphonedComponent, ApcSiphonExpiredEvent>(OnSiphonExpired);
         SubscribeLocalEvent<MalfAiApcSiphonedComponent, ApcToggleMainBreakerAttemptEvent>(OnSiphonedToggleAttempt);
-        SubscribeLocalEvent<MalfAiApcSiphonedComponent, InteractHandEvent>(OnSiphonedInteract);
     }
 
     public override void Update(float deltaTime)
@@ -248,14 +246,6 @@ public sealed class ApcSystem : EntitySystem
     {
         // Block all toggle attempts on siphoned APCs
         args.Cancelled = true;
-    }
-
-    // Goobstation - MalfAI
-    private void OnSiphonedInteract(EntityUid uid, MalfAiApcSiphonedComponent siphoned, InteractHandEvent args)
-    {
-        // Block all interactions with siphoned APCs
-        _popup.PopupCursor(Loc.GetString("malfai-apc-unresponsive"), args.User, PopupType.Medium);
-        args.Handled = true;
     }
 
     private void OnEmagged(EntityUid uid, ApcComponent comp, ref GotEmaggedEvent args)
