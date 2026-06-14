@@ -45,6 +45,7 @@ using Content.Shared._Funkystation.MalfAI.Shunt; // Goobstation - MalfAI
 using Content.Shared.Popups;
 using Content.Shared.Silicons.StationAi; // Goobstation - MalfAI
 using Content.Shared.Rounding;
+using Content.Shared.Verbs; // Goobstation - MalfAI
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -80,6 +81,7 @@ public sealed class ApcSystem : EntitySystem
         SubscribeLocalEvent<ApcComponent, EmpPulseEvent>(OnEmpPulse);
 
         // Goobstation - MalfAI: APC siphoning
+        SubscribeLocalEvent<ApcComponent, GetVerbsEvent<AlternativeVerb>>(OnGetSiphonVerb);
         SubscribeLocalEvent<ApcComponent, ApcSiphonCpuMessage>(OnSiphonCpu);
         SubscribeLocalEvent<ApcComponent, ApcStartSiphonEvent>(OnStartSiphon);
         SubscribeLocalEvent<MalfAiApcSiphonedComponent, ApcSiphonExpiredEvent>(OnSiphonExpired);
@@ -171,6 +173,28 @@ public sealed class ApcSystem : EntitySystem
 
         UpdateUIState(uid, apc);
         _audio.PlayPvs(apc.OnReceiveMessageSound, uid, AudioParams.Default.WithVolume(-2f));
+    }
+
+    // Goobstation - MalfAI: alt-click verb to siphon the APC
+    private void OnGetSiphonVerb(EntityUid uid, ApcComponent component, GetVerbsEvent<AlternativeVerb> args)
+    {
+        if (!HasComp<MalfAiMarkerComponent>(args.User))
+            return;
+
+        var alreadySiphoned = HasComp<MalfAiApcSiphonedComponent>(uid);
+
+        args.Verbs.Add(new AlternativeVerb
+        {
+            Text = Loc.GetString("malfai-apc-siphon-verb"),
+            Disabled = alreadySiphoned,
+            Message = alreadySiphoned ? Loc.GetString("malfai-siphon-already-active") : null,
+            Priority = 10,
+            Act = () =>
+            {
+                var siphonEvent = new ApcStartSiphonEvent(args.User);
+                RaiseLocalEvent(uid, ref siphonEvent);
+            }
+        });
     }
 
     // Goobstation - MalfAI: siphon request from the APC UI
