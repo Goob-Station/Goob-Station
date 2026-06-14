@@ -275,7 +275,7 @@
     Food:
       effects:
       - !type:AdjustReagent
-        reagent: Theobrobime #Goob - Fix
+        reagent: Theobromine #Goob - Fix
         amount: 0.25
       - !type:SatiateHunger
         conditions:
