@@ -136,6 +136,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Goobstation.Common.Interactions;
+using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CCVar;
@@ -210,6 +211,9 @@ namespace Content.Shared.Interaction
         [Dependency] private readonly TagSystem _tagSystem = default!;
         [Dependency] private readonly UseDelaySystem _useDelay = default!;
 
+        // <Trauma>
+        private EntityQuery<TargetInteractionRelayComponent> _targetRelayQuery;
+        // </Trauma>
         private EntityQuery<IgnoreUIRangeComponent> _ignoreUiRangeQuery;
         private EntityQuery<FixturesComponent> _fixtureQuery;
         private EntityQuery<ItemComponent> _itemQuery;
@@ -238,6 +242,9 @@ namespace Content.Shared.Interaction
 
         public override void Initialize()
         {
+            // <Trauma>
+            _targetRelayQuery = GetEntityQuery<TargetInteractionRelayComponent>();
+            // </Trauma>
             _ignoreUiRangeQuery = GetEntityQuery<IgnoreUIRangeComponent>();
             _fixtureQuery = GetEntityQuery<FixturesComponent>();
             _itemQuery = GetEntityQuery<ItemComponent>();
@@ -411,6 +418,12 @@ namespace Content.Shared.Interaction
             if (Deleted(uid))
                 return false;
 
+            // <Trauma>
+            if (_targetRelayQuery.TryComp(uid, out var relay) && relay.RelayPulls &&
+                Exists(relay.RelayEntity) && relay.RelayEntity.Value != uid)
+                return HandleTryPullObject(session, coords, relay.RelayEntity.Value);
+            // </Trauma>
+
             if (!InRangeUnobstructed(userEntity.Value, uid, popup: true))
                 return false;
 
@@ -546,6 +559,24 @@ namespace Content.Shared.Interaction
 
             if (target != null && Deleted(target.Value))
                 return;
+
+            // <Trauma>
+            if (_targetRelayQuery.TryComp(target, out var targetRelay) && Exists(targetRelay.RelayEntity) &&
+                targetRelay.RelayEntity.Value != target)
+            {
+                if (_actionBlockerSystem.CanInteract(user, target))
+                {
+                    UserInteraction(user,
+                        coordinates,
+                        targetRelay.RelayEntity.Value,
+                        altInteract,
+                        checkCanInteract,
+                        checkAccess,
+                        checkCanUse);
+                    return;
+                }
+            }
+            // </Trauma>
 
             if (!altInteract && _combatQuery.TryComp(user, out var combatMode) && combatMode.IsInCombatMode)
             {

@@ -63,3 +63,17 @@
   targetNode: meddiagHud
   category: construction-category-clothing
   objectType: Item
+
+- type: construction
+  id: BrassOuterClot
+  graph: BrassOutClot
+  targetNode: brassClot
+  category: construction-category-clothing
+  objectType: Item
+
+- type: construction
+  id: BrassHelmet
+  graph: BrassHelm
+  targetNode: brassHelmet
+  category: construction-category-clothing
+  objectType: Item

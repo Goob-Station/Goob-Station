@@ -562,5 +562,5 @@ public sealed partial class RathenEvent : InstantActionEvent
     };
 
     [DataField]
-    public float LimbTearChance = 0.3f;
+    public float LimbTearChance = 0.2f;
 }

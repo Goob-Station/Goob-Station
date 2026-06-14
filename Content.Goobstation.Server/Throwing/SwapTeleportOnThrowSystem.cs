@@ -38,7 +38,7 @@ public sealed class SwapTeleportOnThrowSystem : EntitySystem
         var targetPos = targetTransform.Coordinates;
 
         var throwerParent = throwerTransform.ParentUid;
-        var targetParent = throwerTransform.ParentUid;
+        var targetParent = targetTransform.ParentUid;
 
         _transform.SetCoordinates(thrower.Value, targetPos);
         _transform.SetCoordinates(target, throwerPos);

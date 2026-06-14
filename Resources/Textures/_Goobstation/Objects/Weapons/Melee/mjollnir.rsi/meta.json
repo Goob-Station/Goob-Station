@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-NC-SA-3.0",
-  "copyright": "Taken from Paradise at https://github.com/ParadiseSS13/Paradise/blob/7bbebbb23f78fd9b3f0e0e756b6e6c4deed587ea, https://github.com/ParadiseSS13/Paradise/blob/7bbebbb23f78fd9b3f0e0e756b6e6c4deed587ea/icons/obj/weapons/magical_weapons.dmi, https://github.com/ParadiseSS13/Paradise/blob/7bbebbb23f78fd9b3f0e0e756b6e6c4deed587ea/icons/obj/weapons/magical_weapons.dmi, https://github.com/ParadiseSS13/Paradise/blob/0b3c7705976197e173fa700d36355380b34dcf9d/icons/mob/inhands/weapons_lefthand.dmi, https://github.com/ParadiseSS13/Paradise/blob/0b3c7705976197e173fa700d36355380b34dcf9d/icons/mob/inhands/weapons_righthand.dmi",
+  "copyright": "Taken from Paradise at https://github.com/ParadiseSS13/Paradise/blob/7bbebbb23f78fd9b3f0e0e756b6e6c4deed587ea, https://github.com/ParadiseSS13/Paradise/blob/7bbebbb23f78fd9b3f0e0e756b6e6c4deed587ea/icons/obj/weapons/magical_weapons.dmi, https://github.com/ParadiseSS13/Paradise/blob/7bbebbb23f78fd9b3f0e0e756b6e6c4deed587ea/icons/obj/weapons/magical_weapons.dmi, https://github.com/ParadiseSS13/Paradise/blob/0b3c7705976197e173fa700d36355380b34dcf9d/icons/mob/inhands/weapons_lefthand.dmi, https://github.com/ParadiseSS13/Paradise/blob/0b3c7705976197e173fa700d36355380b34dcf9d/icons/mob/inhands/weapons_righthand.dmi, uhhhhhh resprite by RedTerror",
   "size": {
     "x": 32,
     "y": 32
@@ -12,6 +12,7 @@
       "delays": [
         [
           2,
+          0.1,
           0.1,
           0.1,
           0.1,

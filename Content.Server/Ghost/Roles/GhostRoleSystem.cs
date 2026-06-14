@@ -638,6 +638,20 @@ public sealed class GhostRoleSystem : EntitySystem
         return roles.ToArray();
     }
 
+    /// <summary>
+    /// Goobstation - Add requirement to the ghost role
+    /// </summary>
+    /// <param name="ghostRole">The entity</param>
+    /// <param name="job">The job requirement</param>
+    public void AddRoleRequirements(Entity<GhostRoleComponent>? ghostRole, JobRequirement job)
+    {
+        if (ghostRole is not {} ghost)
+            return;
+
+        ghost.Comp.Requirements ??= [];
+        ghost.Comp.Requirements.Add(job);
+
+    }
     private void OnPlayerAttached(PlayerAttachedEvent message)
     {
         // Close the session of any player that has a ghost roles window open and isn't a ghost anymore.

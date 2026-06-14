@@ -499,7 +499,7 @@
         amount: -3
         conditions:
         - !type:UniqueBloodstreamChemThreshold
-          max: 3 # the gist is, 2 and below this sucks, 3 and above it's great; mix with water etc for good results
+          max: 2
       - !type:AdjustReagent
         group: Poison
         amount: -3
@@ -513,7 +513,7 @@
       - !type:HealthChange
         conditions:
         - !type:UniqueBloodstreamChemThreshold
-          min: 2
+          min: 3
         damage:
           types:
             Poison: -3

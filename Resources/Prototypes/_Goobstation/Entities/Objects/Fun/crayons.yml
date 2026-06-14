@@ -1,0 +1,45 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: CrayonInedible
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/crayons.rsi
+  - type: Item
+    sprite: Objects/Fun/crayons.rsi
+    size: Tiny
+  - type: Tag
+    tags:
+    - Write
+    - Crayon
+    - Trash
+  - type: SpaceGarbage
+  - type: UserInterface
+    interfaces:
+      enum.CrayonUiKey.Key:
+        type: CrayonBoundUserInterface
+  - type: Crayon
+    capacity: 25
+  - type: StaticPrice
+    price: 5
+
+- type: entity
+  parent: CrayonInedible
+  id: CrayonRainbowLarge
+  name: plasmic rainbow crayon
+  description: A colourful crayon. Now infinite! (almost)
+  components:
+  - type: Sprite
+    state: rainbow
+  - type: Item
+    heldPrefix: rainbow
+  - type: Crayon
+    color: Red
+    selectableColor: true
+    capacity: 1000
+  - type: Tag
+    tags:
+    - Write
+    - Crayon
+    - Recyclable
+    - Trash

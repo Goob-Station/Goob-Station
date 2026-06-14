@@ -942,6 +942,12 @@
       state: mothroach
   - type: FaxableObject
     insertingState: inserting_mothroach_mustard
+  - type: Clothing
+    quickEquip: false
+    sprite: _Goobstation/Mobs/Animals/mustard_mothroach.rsi
+    equippedPrefix: 0
+    slots:
+    - HEAD
 
 - type: entity
   name: leopard mothroach
@@ -956,6 +962,12 @@
       state: mothroach
   - type: FaxableObject
     insertingState: inserting_mothroach_leopard
+  - type: Clothing
+    quickEquip: false
+    sprite: _Goobstation/Mobs/Animals/leopard_mothroach.rsi
+    equippedPrefix: 0
+    slots:
+    - HEAD
 
 - type: entity
   name: cecropia mothroach
@@ -970,6 +982,12 @@
       state: mothroach
   - type: FaxableObject
     insertingState: inserting_mothroach_cecropia
+  - type: Clothing
+    quickEquip: false
+    sprite: _Goobstation/Mobs/Animals/cecropia_mothroach.rsi
+    equippedPrefix: 0
+    slots:
+    - HEAD
 
 - type: entity
   name: lunar mothroach
@@ -984,3 +1002,9 @@
       state: mothroach
   - type: FaxableObject
     insertingState: inserting_mothroach_lunar
+  - type: Clothing
+    quickEquip: false
+    sprite: _Goobstation/Mobs/Animals/lunar_mothroach.rsi
+    equippedPrefix: 0
+    slots:
+    - HEAD

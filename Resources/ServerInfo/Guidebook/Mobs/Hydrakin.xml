@@ -1,0 +1,29 @@
+<Document>
+  # Hydrakin
+
+  <Box>
+    <GuideEntityEmbed Entity="MobHydrakin" Caption=""/>
+  </Box>
+  ## Food
+
+  - Hydrakins mostly prefer raw food. Onions and theobromine-containing food are [color=#FFA500]highly toxic to them[/color].
+
+  ## Physical properties
+
+  - They are [color=#4169E1]10% more resistant to blunt damage[/color].
+  - They take [color=#FFA500]25% more heat damage and 15% more slash damage[/color].
+  - Wearing glasses is [color=#FFA500]not possible[/color] due to the head anatomy.
+
+  ## Temperature
+
+  - Hydrakin bodies are [color=#FFA500]constantly heating up[/color]. They can tolerate heat without any insulation, but wearing hardsuits or coats will immediatly start [color=#FFA500]heating them up to 67C[/color].
+  - Leporazine and Peranol have [color=#4169E1]amplified[/color] cooling effect on their body.
+  - However, using any type of cryo chemicals will make hydrakins [color=#FFA500]fall asleep[/color] if their body temperature is low enough to activate it.
+  - As well, Hydrakin's thermal regulation entirely fails in critical condition as while as being dead.
+
+  ## Atmospherics
+
+  - Hydrakins are capable of breathing all gases, with carbon dioxide and water vapor being an exception.
+  - Unique gases (Such as Plasma, Tritium, Frezon, Nitrium, Healium and etc.) have mostly [color=#4169E1]positive[/color] effect on them, described in the "Chemicals" guideebook entry.
+
+</Document>
