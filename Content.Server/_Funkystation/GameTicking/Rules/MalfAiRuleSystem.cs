@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
+﻿// SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
 // SPDX-FileCopyrightText: 2025 Goob-Station
 //
 // SPDX-License-Identifier: MIT
@@ -8,12 +8,14 @@ using Content.Server.Antag;
 using Content.Server._Funkystation.GameTicking.Rules.Components;
 using Content.Server.GameTicking.Rules;
 using Content.Server._Funkystation.MalfAI;
+using Content.Server._Funkystation.MalfAI.Viewport;
 using Content.Server.Mind;
 using Content.Server.Roles;
 using Content.Server.Silicons.Laws;
 using Content.Server.Store.Systems;
 using Content.Shared.Alert;
 using Content.Shared._Funkystation.MalfAI;
+using Content.Shared._Funkystation.MalfAI.Camera;
 using Content.Shared._Funkystation.MalfAI.Actions;
 using Content.Shared.Roles;
 using Content.Shared.Silicons.Laws;

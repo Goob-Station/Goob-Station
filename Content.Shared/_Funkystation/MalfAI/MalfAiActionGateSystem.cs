@@ -4,6 +4,7 @@
 
 using Content.Shared.Actions.Events;
 using Content.Shared.Silicons.StationAi;
+using Content.Shared._Funkystation.MalfAI.Mech;
 
 namespace Content.Shared._Funkystation.MalfAI;
 

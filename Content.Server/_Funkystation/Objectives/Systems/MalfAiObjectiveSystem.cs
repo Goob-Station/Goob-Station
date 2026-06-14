@@ -1,9 +1,11 @@
-// SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
+﻿// SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
 // SPDX-FileCopyrightText: 2025 Goob-Station
 //
 // SPDX-License-Identifier: MIT
 
 using Content.Shared._Funkystation.MalfAI;
+using Content.Shared._Funkystation.MalfAI.Shunt;
+using Content.Shared._Funkystation.MalfAI.Doomsday;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
@@ -33,9 +35,8 @@ public sealed class MalfAiObjectiveSystem : EntitySystem
         SubscribeLocalEvent<MalfAiSurviveObjectiveComponent, ObjectiveGetProgressEvent>(OnSurviveGetProgress);
     }
 
-    private void OnDoomsdayCompleted(MalfAiDoomsdayCompletedEvent ev)
+    private void OnDoomsdayCompleted(ref MalfAiDoomsdayCompletedEvent ev)
     {
-        // Add marker to AI entity to indicate doomsday completion
         EnsureComp<MalfAiDoomsdayCompletedComponent>(ev.Ai);
     }
 

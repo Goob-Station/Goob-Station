@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2022 CommieFlowers <rasmus.cedergren@hotmail.com>
+﻿// SPDX-FileCopyrightText: 2022 CommieFlowers <rasmus.cedergren@hotmail.com>
 // SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
 // SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
@@ -31,6 +31,7 @@
 
 using Content.Server.Emp;
 using Content.Server._Funkystation.MalfAI; // Goobstation - MalfAI
+using Content.Server._Funkystation.MalfAI.Shunt; // Goobstation - MalfAI
 using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Power.Pow3r;
@@ -41,6 +42,7 @@ using Content.Shared.Emag.Components; // Goobstation - MalfAI
 using Content.Shared.Emag.Systems;
 using Content.Shared.Interaction; // Goobstation - MalfAI
 using Content.Shared._Funkystation.MalfAI; // Goobstation - MalfAI
+using Content.Shared._Funkystation.MalfAI.Shunt; // Goobstation - MalfAI
 using Content.Shared.Popups;
 using Content.Shared.Silicons.StationAi; // Goobstation - MalfAI
 using Content.Shared.Rounding;
@@ -49,7 +51,6 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration; // Goobstation - MalfAI
 using Robust.Shared.Timing;
-using Timer = Robust.Shared.Timing.Timer; // Goobstation - MalfAI
 
 namespace Content.Server.Power.EntitySystems;
 
@@ -89,12 +90,14 @@ public sealed class ApcSystem : EntitySystem
 
     public override void Update(float deltaTime)
     {
-        var query = EntityQueryEnumerator<ApcComponent, PowerNetworkBatteryComponent, UserInterfaceComponent>();
-        while (query.MoveNext(out var uid, out var apc, out var battery, out var ui))
+        var now = _gameTiming.CurTime;
+
+        var apcQuery = EntityQueryEnumerator<ApcComponent, PowerNetworkBatteryComponent, UserInterfaceComponent>();
+        while (apcQuery.MoveNext(out var uid, out var apc, out var battery, out var ui))
         {
-            if (apc.LastUiUpdate + ApcComponent.VisualsChangeDelay < _gameTiming.CurTime && _ui.IsUiOpen((uid, ui), ApcUiKey.Key))
+            if (apc.LastUiUpdate + ApcComponent.VisualsChangeDelay < now && _ui.IsUiOpen((uid, ui), ApcUiKey.Key))
             {
-                apc.LastUiUpdate = _gameTiming.CurTime;
+                apc.LastUiUpdate = now;
                 UpdateUIState(uid, apc, battery);
             }
 
@@ -102,6 +105,17 @@ public sealed class ApcSystem : EntitySystem
             {
                 UpdateApcState(uid, apc, battery);
             }
+        }
+
+        // Goobstation - MalfAI: expire siphoned APCs
+        var siphonQuery = EntityQueryEnumerator<MalfAiApcSiphonedComponent>();
+        while (siphonQuery.MoveNext(out var uid, out var siphoned))
+        {
+            if (now < siphoned.EndTime)
+                continue;
+
+            var expireEvent = new ApcSiphonExpiredEvent();
+            RaiseLocalEvent(uid, ref expireEvent);
         }
     }
 
@@ -200,16 +214,9 @@ public sealed class ApcSystem : EntitySystem
         UpdateApcState(uid, apc, battery);
         UpdateUIState(uid, apc, battery);
 
-        // Schedule siphon expiration using configurable duration
+        // Set the expiry time - Update() will fire the event when the time arrives
         var siphonDuration = TimeSpan.FromSeconds(_cfg.GetCVar(CCVars.MalfAiSiphonDurationSeconds));
-        Timer.Spawn(siphonDuration, () =>
-        {
-            if (!Exists(uid))
-                return;
-
-            var expireEvent = new ApcSiphonExpiredEvent();
-            RaiseLocalEvent(uid, ref expireEvent);
-        });
+        siphonedComp.EndTime = _gameTiming.CurTime + siphonDuration;
 
         // Handle MalfAI CPU rewards
         _malfAiSiphon.OnApcStartSiphon(uid, apc, ref args);

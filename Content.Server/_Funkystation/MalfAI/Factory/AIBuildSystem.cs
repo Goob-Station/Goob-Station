@@ -8,29 +8,15 @@ using Content.Shared.DoAfter;
 using Content.Shared._Funkystation.MalfAI;
 using Content.Shared._Funkystation.MalfAI.Factory;
 using Content.Shared.Silicons.StationAi;
-using Content.Shared.SubFloor;
-using Content.Shared.Tag;
 using Robust.Shared.Map;
-using Robust.Shared.Map.Components;
 
 namespace Content.Server._Funkystation.MalfAI.Factory;
 
 /// <summary>
 /// Event to request building a prototype at a specific location.
 /// </summary>
-public sealed class AIBuildRequestEvent : EntityEventArgs
-{
-    public EntityUid Requester { get; }
-    public EntityCoordinates Target { get; }
-    public string Prototype { get; }
-
-    public AIBuildRequestEvent(EntityUid requester, EntityCoordinates target, string prototype)
-    {
-        Requester = requester;
-        Target = target;
-        Prototype = prototype;
-    }
-}
+[ByRefEvent]
+public readonly record struct AIBuildRequestEvent(EntityUid Requester, EntityCoordinates Target, string Prototype);
 
 /// <summary>
 /// Handles Malf AI building requests by spawning prototypes at specified locations after a DoAfter.
@@ -40,7 +26,7 @@ public sealed class AIBuildSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly SharedMalfAiFactorySystem _factory = default!;
 
     private static readonly TimeSpan BuildDelay = TimeSpan.FromSeconds(3);
 
@@ -51,9 +37,9 @@ public sealed class AIBuildSystem : EntitySystem
         SubscribeLocalEvent<MalfAiMarkerComponent, AIBuildDoAfterEvent>(OnBuildDoAfter);
     }
 
-    private void OnBuildRequest(AIBuildRequestEvent args)
+    private void OnBuildRequest(ref AIBuildRequestEvent args)
     {
-        if (!args.Target.IsValid(EntityManager) || !IsTileFree(args.Target))
+        if (!_factory.IsTileFree(args.Target, out var tileCenter))
             return;
 
         // Show the DoAfter on the AI's remote eye when possible (the brain is hidden in the core).
@@ -62,10 +48,10 @@ public sealed class AIBuildSystem : EntitySystem
         if (TryComp<StationAiCoreComponent>(core, out var coreComp) && coreComp.RemoteEntity is { } eye)
             doAfterUser = eye;
 
-        var doAfterEvent = new AIBuildDoAfterEvent(GetNetCoordinates(args.Target), args.Prototype);
+        var doAfterEvent = new AIBuildDoAfterEvent(GetNetCoordinates(tileCenter), args.Prototype);
         var doAfterArgs = new DoAfterArgs(EntityManager, doAfterUser, BuildDelay, doAfterEvent, eventTarget: args.Requester)
         {
-            BreakOnMove = true, // Cancel if the AI eye moves during the build
+            BreakOnMove = true,
             BreakOnDamage = true,
             NeedHand = false,
         };
@@ -79,10 +65,10 @@ public sealed class AIBuildSystem : EntitySystem
             return;
 
         var location = GetCoordinates(args.Location);
-        if (!IsTileFree(location))
+        if (!_factory.IsTileFree(location, out var tileCenter))
             return;
 
-        var spawned = Spawn(args.Prototype, location);
+        var spawned = Spawn(args.Prototype, tileCenter);
 
         // If this is a robotics factory, remember who built it so created borgs go to the right AI.
         if (HasComp<RoboticsFactoryGridComponent>(spawned))
@@ -112,35 +98,5 @@ public sealed class AIBuildSystem : EntitySystem
 
         foreach (var id in toRemove)
             _actions.RemoveAction(performer, id);
-    }
-
-    /// <summary>
-    /// Checks if a tile is free for building: floor present, no blocking anchored entities.
-    /// </summary>
-    private bool IsTileFree(EntityCoordinates coordinates)
-    {
-        if (!coordinates.IsValid(EntityManager))
-            return false;
-
-        if (!TryComp<MapGridComponent>(coordinates.EntityId, out var grid))
-            return false;
-
-        var tile = grid.TileIndicesFor(coordinates);
-        if (grid.GetTileRef(tile).Tile.IsEmpty)
-            return false;
-
-        foreach (var entity in grid.GetAnchoredEntities(tile))
-        {
-            // Cables, pipes and wall-mounted devices don't block construction.
-            if (HasComp<SubFloorHideComponent>(entity))
-                continue;
-
-            if (_tag.HasTag(entity, "WallMount"))
-                continue;
-
-            return false;
-        }
-
-        return true;
     }
 }

@@ -274,10 +274,7 @@
       state: malfai_bg_factory
     itemIconStyle: BigAction
     priority: -5
-  - type: TargetAction
-    checkCanAccess: false
-    range: 99999
-  - type: WorldTargetAction
+  - type: InstantAction
     event: !type:MalfAiRoboticsFactoryActionEvent
 
 - type: entity

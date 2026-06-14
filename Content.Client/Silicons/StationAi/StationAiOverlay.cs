@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
+﻿// SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
@@ -24,10 +24,9 @@
 
 using System.Numerics;
 using Content.Shared.CCVar; // Goobstation - MalfAI camera upgrade
-using Content.Shared._Funkystation.MalfAI; // Goobstation - MalfAI camera upgrade
+using Content.Shared._Funkystation.MalfAI.Camera; // Goobstation - MalfAI camera upgrade
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.SurveillanceCamera; // Goobstation - MalfAI camera upgrade
-using Robust.Client.GameObjects; // Goobstation - MalfAI camera upgrade
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Enums;

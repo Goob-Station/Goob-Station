@@ -30,7 +30,7 @@ public sealed partial class MalfAiToggleCameraUpgradeActionEvent : InstantAction
 
 public sealed partial class MalfAiToggleCameraMicrophonesActionEvent : InstantActionEvent;
 
-public sealed partial class MalfAiRoboticsFactoryActionEvent : WorldTargetActionEvent;
+public sealed partial class MalfAiRoboticsFactoryActionEvent : InstantActionEvent;
 
 public sealed partial class MalfAiGyroscopeActionEvent : WorldTargetActionEvent;
 
