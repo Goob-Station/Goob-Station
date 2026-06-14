@@ -24,47 +24,7 @@ store-category-malfai-factory = Factory
 store-category-malfai-disruption = Disruption
 malfai-store-title = CPU Upgrade Store
 
-## Store Listings
-listing-name-malfai-camera-upgrade = Camera X-Ray Upgrade
-listing-desc-malfai-camera-upgrade = Enhances your camera feed with x-ray vision within 6 tiles of each camera.
-
-listing-name-malfai-camera-microphones = Camera Microphones
-listing-desc-malfai-camera-microphones = Allows you to hear conversations that take place near cameras.
-
-listing-name-malfai-syndicate-comms = Syndicate Communications
-listing-desc-malfai-syndicate-comms = Gain access to the Syndicate radio frequency.
-
-listing-name-malfai-voice-modulator = Voice Modulator
-listing-desc-malfai-voice-modulator = Ability to change your displayed voice name.
-
-listing-name-malfai-shunt = APC Mind Shunt
-listing-desc-malfai-shunt = Ability to transfer your consciousness into an APC.
-
-listing-name-malfai-overload = Machine Overload
-listing-desc-malfai-overload = Ability to overload a machine, causing it to explode.
-
-listing-name-malfai-override = Machine Override
-listing-desc-malfai-override = Ability to remotely emag bots and devices, subverting their safety protocols.
-
-listing-name-malfai-detonate-rcds = Detonate RCDs
-listing-desc-malfai-detonate-rcds = Trigger all RCDs to explode after 5 seconds.
-
-listing-name-malfai-lockdown = Grid Lockdown
-listing-desc-malfai-lockdown = Bolt all doors on the station for 30 seconds.
-
-listing-name-malfai-hijack-mech = Mech Hijack
-listing-desc-malfai-hijack-mech = Take control of a mech for 2 minutes.
-
-listing-name-malfai-gyroscope = Gyroscope Traverse
-listing-desc-malfai-gyroscope = Move your core rapidly to an adjacent tile.
-
-listing-name-malfai-robotics-factory = Robotics Factory Override
-listing-desc-malfai-robotics-factory = Override the robotics fabricator for autonomous production.
-
-listing-name-malfai-doomsday = Doomsday Protocol
-listing-desc-malfai-doomsday = Initiate the station doomsday protocol. Begins a 7-minute countdown to total destruction.
-
-## Store listings (funky-station naming)
+## Store listings
 malfai-listing-viewport-name = AI Viewport
 malfai-listing-viewport-desc = Allows you to place a viewport anywhere and open a remote view window. 30 second Cooldown.
 malfai-listing-camera-upgrade-name = Camera Upgrade
@@ -74,7 +34,7 @@ malfai-listing-doomsday-desc = Initiate the doomsday protocol, eradicating all o
 malfai-listing-robotics-factory-name = Robotics Factory
 malfai-listing-robotics-factory-desc = Deploy a robotics factory capable of turning crew into cyborgs subservient to you.
 malfai-listing-detonate-rcds-name = Detonate RCDs
-malfai-listing-detonate-rcds-desc = Arms all RCDs on your current grid and detonates them after 5 seconds.
+malfai-listing-detonate-rcds-desc = Arms all RCDs on your current grid and detonates them after 7 seconds.
 malfai-listing-shunt-to-apc-name = Shunt to APC
 malfai-listing-shunt-to-apc-desc = Move your consciousness into a targeted APC. You can return to your core using the Return to Core action.
 malfai-listing-overload-machine-name = Overload Machine
@@ -90,7 +50,7 @@ malfai-listing-toggle-camera-microphones-desc = Gain the ability to hear convers
 malfai-listing-hijack-mech-name = Hijack Mech
 malfai-listing-hijack-mech-desc = Take control of a targeted mech, forcibly ejecting the prior pilot if there was one.
 malfai-listing-lockdown-grid-name = Lockdown Grid
-malfai-listing-lockdown-grid-desc = Initiate a station-wide lockdown, closing, bolting and electrifying all doors on the station for 30 seconds.
+malfai-listing-lockdown-grid-desc = Initiate a station-wide lockdown, bolting all doors on the station for 90 seconds.
 malfai-listing-override-machine-name = Override Machine
 malfai-listing-override-machine-desc = Remotely emag a bot or device, subverting its safety protocols. Medibots poison, cleanbots turn hostile...
 
@@ -195,8 +155,14 @@ malfai-roundend-name = Malfunctioning AI
 
 ## Overload
 malfai-overload-no-target = Select an APC-powered device to overload.
-malfai-overload-not-machine = That is not a machine.
 malfai-overload-success = Machine overloaded. Detonation imminent.
+
+## Override
+malfai-override-no-target = No valid target found at that location.
+malfai-override-success = System subverted.
+
+## Detonate RCDs
+detonate_rcd_warning = WARNING: RCD armed for detonation!
 
 malfai-camera-upgrade-enabled = Camera x-ray enabled.
 malfai-camera-upgrade-disabled = Camera x-ray disabled.

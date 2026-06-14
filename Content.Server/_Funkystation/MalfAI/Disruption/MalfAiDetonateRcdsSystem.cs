@@ -36,7 +36,7 @@ public sealed class MalfAiDetonateRcdsSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _containers = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
 
-    private static readonly TimeSpan RcdDetonationDelay = TimeSpan.FromSeconds(5);
+    private static readonly TimeSpan RcdDetonationDelay = TimeSpan.FromSeconds(7);
     private static readonly SoundSpecifier RcdBeepSound = new SoundPathSpecifier("/Audio/Effects/beep1.ogg");
 
     public override void Initialize()
@@ -58,7 +58,7 @@ public sealed class MalfAiDetonateRcdsSystem : EntitySystem
             {
                 var coords = _xform.GetMapCoordinates(rcdUid);
                 _explosions.QueueExplosion(coords, ExplosionSystem.DefaultExplosionPrototypeId,
-                    totalIntensity: 4f, slope: 1f, maxTileIntensity: 2f, cause: null, maxTileBreak: 0);
+                    totalIntensity: 100f, slope: 2f, maxTileIntensity: 50f, cause: null, maxTileBreak: 0);
 
                 QueueDel(rcdUid);
                 continue;

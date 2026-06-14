@@ -17,7 +17,7 @@ public sealed partial class MalfAiDetonateRcdsActionEvent : InstantActionEvent;
 public sealed partial class MalfAiLockdownGridActionEvent : InstantActionEvent
 {
     [DataField]
-    public float Duration = 30f;
+    public float Duration = 90f;
 }
 
 public sealed partial class MalfAiOpenViewportActionEvent : InstantActionEvent;

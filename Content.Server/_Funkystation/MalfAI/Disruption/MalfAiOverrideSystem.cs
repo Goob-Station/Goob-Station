@@ -1,4 +1,4 @@
-﻿// SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
 // SPDX-FileCopyrightText: 2025 Goob-Station
 //
 // SPDX-License-Identifier: MIT
@@ -10,7 +10,6 @@ using Content.Shared.Emag.Systems;
 using Content.Shared._Funkystation.MalfAI;
 using Content.Shared._Funkystation.MalfAI.Actions;
 using Content.Shared.Popups;
-using Content.Shared.Silicons.StationAi;
 
 namespace Content.Server._Funkystation.MalfAI.Disruption;
 
@@ -34,24 +33,10 @@ public sealed class MalfAiOverrideSystem : EntitySystem
         SubscribeLocalEvent<MalfAiMarkerComponent, MalfAiOverrideMachineActionEvent>(OnOverride);
     }
 
-    /// <summary>
-    /// Popups must be positioned at the AI eye to be visible to the player (the brain is hidden in the core).
-    /// </summary>
-    private EntityUid? GetAiEyeForPopup(EntityUid ai)
-    {
-        var core = Transform(ai).ParentUid;
-        if (!TryComp<StationAiCoreComponent>(core, out var coreComp))
-            return null;
-
-        return coreComp.RemoteEntity;
-    }
-
     private void OnOverride(Entity<MalfAiMarkerComponent> ent, ref MalfAiOverrideMachineActionEvent args)
     {
         if (args.Handled)
             return;
-
-        var popupTarget = GetAiEyeForPopup(ent.Owner) ?? ent.Owner;
 
         // Find emaggable entities in a very small radius around the clicked point,
         // closest to the cursor first.
@@ -71,7 +56,6 @@ public sealed class MalfAiOverrideSystem : EntitySystem
 
         foreach (var (target, _) in candidates)
         {
-
             // Already subverted.
             if (TryComp<EmaggedComponent>(target, out var emagged) &&
                 (emagged.EmagType & EmagType.Interaction) != 0)
@@ -95,11 +79,11 @@ public sealed class MalfAiOverrideSystem : EntitySystem
             _adminLog.Add(LogType.Emag, LogImpact.High,
                 $"Malf AI {ToPrettyString(ent.Owner)} remotely emagged {ToPrettyString(target)}");
 
-            _popup.PopupEntity(Loc.GetString("malfai-override-success"), popupTarget, ent.Owner);
+            _popup.PopupCursor(Loc.GetString("malfai-override-success"), ent.Owner, PopupType.Medium);
             args.Handled = true;
             return;
         }
 
-        _popup.PopupEntity(Loc.GetString("malfai-override-no-target"), popupTarget, ent.Owner);
+        _popup.PopupCursor(Loc.GetString("malfai-override-no-target"), ent.Owner, PopupType.Medium);
     }
 }

@@ -46,7 +46,7 @@ public sealed class MalfAiCameraUpgradeSystem : EntitySystem
         Dirty(ent);
 
         var key = ent.Comp.EnabledDesired ? "malfai-camera-upgrade-enabled" : "malfai-camera-upgrade-disabled";
-        _popup.PopupEntity(Loc.GetString(key), ent.Owner, ent.Owner);
+        _popup.PopupCursor(Loc.GetString(key), ent.Owner);
         args.Handled = true;
     }
 

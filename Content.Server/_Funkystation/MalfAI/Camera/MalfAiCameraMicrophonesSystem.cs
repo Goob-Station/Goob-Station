@@ -46,7 +46,7 @@ public sealed class MalfAiCameraMicrophonesSystem : EntitySystem
         Dirty(ent);
 
         var key = ent.Comp.EnabledDesired ? "malfai-camera-microphones-enabled" : "malfai-camera-microphones-disabled";
-        _popup.PopupEntity(Loc.GetString(key), ent.Owner, ent.Owner);
+        _popup.PopupCursor(Loc.GetString(key), ent.Owner);
         args.Handled = true;
     }
 

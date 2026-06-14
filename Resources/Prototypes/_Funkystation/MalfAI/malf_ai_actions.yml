@@ -11,7 +11,7 @@
   name: Open CPU Store
   description: Open your CPU upgrade store to spend accumulated CPU on abilities.
   components:
-  - type: MalfAiAction # blocked while carded
+  - type: MalfAiAction
   - type: Action
     icon:
       sprite: Interface/Actions/actions_malf_ai.rsi
@@ -27,7 +27,7 @@
   name: Manage Borgs
   description: Open the borg management window to view, control, and set laws for borgs on the station.
   components:
-  - type: MalfAiAction # blocked while carded
+  - type: MalfAiAction
   - type: Action
     icon:
       sprite: Interface/Actions/actions_malf_ai.rsi
@@ -43,7 +43,7 @@
   name: Set Viewport
   description: Place your remote viewport anchor at the targeted location.
   components:
-  - type: MalfAiAction # blocked while carded
+  - type: MalfAiAction
   - type: Action
     icon:
       sprite: Interface/Actions/actions_malf_ai.rsi
@@ -63,7 +63,7 @@
   name: Open Viewport
   description: Open the remote viewport window at your placed anchor location.
   components:
-  - type: MalfAiAction # blocked while carded
+  - type: MalfAiAction
   - type: Action
     icon:
       sprite: Interface/Actions/actions_malf_ai.rsi
@@ -79,7 +79,7 @@
   name: Return to Core
   description: Return your consciousness to the AI core from your current location.
   components:
-  - type: MalfAiAction # blocked while carded
+  - type: MalfAiAction
   - type: Action
     icon:
       sprite: Interface/Actions/actions_malf_ai.rsi
@@ -97,7 +97,7 @@
   name: Initiate Doomsday
   description: Begin the 7-minute doomsday countdown. When it expires, the station will be destroyed.
   components:
-  - type: MalfAiAction # blocked while carded
+  - type: MalfAiAction
   - type: Action
     icon:
       sprite: Interface/Actions/actions_malf_ai.rsi
@@ -113,7 +113,7 @@
   name: Shunt to APC
   description: Transfer your consciousness into a targeted APC, allowing you to move freely on the station.
   components:
-  - type: MalfAiAction # blocked while carded
+  - type: MalfAiAction
   - type: Action
     icon:
       sprite: Interface/Actions/actions_malf_ai.rsi
@@ -132,7 +132,7 @@
   name: Voice Modulator
   description: Change your displayed voice name to impersonate others.
   components:
-  - type: MalfAiAction # blocked while carded
+  - type: MalfAiAction
   - type: Action
     icon:
       sprite: Interface/Actions/actions_malf_ai.rsi
@@ -148,7 +148,7 @@
   name: Overload Machine
   description: Overload a targeted machine, causing it to explode violently.
   components:
-  - type: MalfAiAction # blocked while carded
+  - type: MalfAiAction
   - type: LimitedCharges
     maxCharges: 2
   - type: Action
@@ -169,7 +169,7 @@
   name: Hijack Mech
   description: Take control of a targeted mech for 2 minutes, ejecting its pilot.
   components:
-  - type: MalfAiAction # blocked while carded
+  - type: MalfAiAction
   - type: Action
     icon:
       sprite: Interface/Actions/actions_malf_ai.rsi
@@ -190,7 +190,7 @@
   name: Override Machine
   description: Remotely emag a targeted bot or device, subverting its safety protocols (e.g. medibots start injecting poison).
   components:
-  - type: MalfAiAction # blocked while carded
+  - type: MalfAiAction
   - type: LimitedCharges
     maxCharges: 2
   - type: Action
@@ -209,9 +209,9 @@
   parent: BaseMentalAction
   id: ActionMalfAiDetonateRCDs
   name: Detonate RCDs
-  description: Trigger all RCDs on the station to explode after 5 seconds.
+  description: Trigger all RCDs on the station to explode after 7 seconds.
   components:
-  - type: MalfAiAction # blocked while carded
+  - type: MalfAiAction
   - type: LimitedCharges
     maxCharges: 1
   - type: Action
@@ -227,9 +227,9 @@
   parent: BaseMentalAction
   id: ActionMalfAiLockdownGrid
   name: Lockdown Grid
-  description: Bolt all doors on the station grid for 30 seconds.
+  description: Bolt all doors on the station grid for 90 seconds.
   components:
-  - type: MalfAiAction # blocked while carded
+  - type: MalfAiAction
   - type: LimitedCharges
     maxCharges: 1
   - type: Action
@@ -247,14 +247,14 @@
   name: Gyroscope
   description: Use your core's gyroscope to rapidly move to an adjacent tile, damaging anything in the way.
   components:
-  - type: MalfAiAction # blocked while carded
+  - type: MalfAiAction
   - type: Action
     icon:
       sprite: Interface/Actions/actions_malf_ai.rsi
       state: malfai_bg_gyroscope
     itemIconStyle: BigAction
     priority: -5
-    useDelay: 3
+    useDelay: 8 # Until it's no longer instagib
   - type: TargetAction
     checkCanAccess: false
     range: 5
@@ -267,7 +267,7 @@
   name: Robotics Override
   description: Override the robotics fabricator to produce combat borgs.
   components:
-  - type: MalfAiAction # blocked while carded
+  - type: MalfAiAction
   - type: Action
     icon:
       sprite: Interface/Actions/actions_malf_ai.rsi
@@ -283,7 +283,7 @@
   name: Camera X-Ray Upgrade
   description: Enhances your camera feed with x-ray vision within 6 tiles of each camera.
   components:
-  - type: MalfAiAction # blocked while carded
+  - type: MalfAiAction
   - type: Action
     icon:
       sprite: Interface/Actions/actions_malf_ai.rsi
@@ -299,7 +299,7 @@
   name: Camera Microphones
   description: Allows you to hear conversations that take place near cameras.
   components:
-  - type: MalfAiAction # blocked while carded
+  - type: MalfAiAction
   - type: Action
     icon:
       sprite: Interface/Actions/actions_malf_ai.rsi
