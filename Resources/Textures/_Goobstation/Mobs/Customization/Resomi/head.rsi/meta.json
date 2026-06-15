@@ -18,6 +18,14 @@
       {
           "name": "tiger",
           "directions": 4
+      },
+      {
+          "name": "point_mask",
+          "directions": 4
+      },
+      {
+          "name": "blaze",
+          "directions": 4
       }
     ]
 }

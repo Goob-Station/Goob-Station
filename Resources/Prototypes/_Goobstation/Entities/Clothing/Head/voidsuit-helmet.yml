@@ -259,8 +259,6 @@
     clothingVisuals:
       head:
       - state: equipped-head
-      head-resomi:
-      - state: equipped-head-resomi
   - type: PointLight
     color: white
     radius: 7

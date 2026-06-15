@@ -86,28 +86,28 @@
       points: 1
       required: false
     RightLeg:
-      points: 2
+      points: 3
       required: false
     RightFoot:
-      points: 2
+      points: 1
       required: false
     LeftLeg:
-      points: 2
+      points: 3
       required: false
     LeftFoot:
-      points: 2
+      points: 1
       required: false
     RightArm:
-      points: 2
+      points: 3
       required: false
     RightHand:
-      points: 3
+      points: 1
       required: false
     LeftArm:
-      points: 2
+      points: 3
       required: false
     LeftHand:
-      points: 3
+      points: 1
       required: false
 
 - type: humanoidBaseSprite

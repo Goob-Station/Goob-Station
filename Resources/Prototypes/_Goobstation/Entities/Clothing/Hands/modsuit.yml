@@ -232,8 +232,6 @@
     clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
-      gloves-resomi:
-      - state: equipped-HAND-sealed-resomi
       gloves-vox:
       - state: equipped-HAND-sealed-vox
   - type: Armor
@@ -280,8 +278,6 @@
     clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
-      gloves-resomi:
-      - state: equipped-HAND-sealed-resomi
       gloves-vox:
       - state: equipped-HAND-sealed-vox
   - type: Armor
@@ -361,8 +357,6 @@
     clothingVisuals:
         hands:
         - state: equipped-HAND
-        hands-resomi:
-        - state: equipped-HAND-resomi
   - type: DamageOnInteractProtection
     damageProtection:
       flatReductions:
@@ -380,8 +374,6 @@
     clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
-      gloves-resomi:
-      - state: equipped-HAND-sealed-resomi
       gloves-vox:
       - state: equipped-HAND-sealed-vox
   - type: Armor

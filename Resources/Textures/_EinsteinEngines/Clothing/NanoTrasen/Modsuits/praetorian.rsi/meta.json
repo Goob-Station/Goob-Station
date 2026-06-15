@@ -12,19 +12,7 @@
       "directions": 4
     },
     {
-      "name": "equipped-BACKPACK-sealed-resomi",
-      "directions": 4
-    },
-    {
-      "name": "equipped-BACKPACK-resomi",
-      "directions": 4
-    },
-    {
       "name": "equipped-BACKPACK",
-      "directions": 4
-    },
-    {
-      "name": "equipped-HEAD-sealed-resomi",
       "directions": 4
     },
 	{
@@ -44,10 +32,6 @@
       "directions": 4
     },
     {
-      "name": "equipped-HEAD-resomi",
-      "directions": 4
-    },
-    {
       "name": "equipped-HEAD-sealed-unshaded",
       "directions": 4
     },
@@ -57,14 +41,6 @@
     },
     {
       "name": "equipped-OUTERCLOTHING",
-      "directions": 4
-    },
-    {
-      "name": "equipped-OUTERCLOTHING-sealed-resomi",
-      "directions": 4
-    },
-    {
-      "name": "equipped-OUTERCLOTHING-resomi",
       "directions": 4
     },
 	{

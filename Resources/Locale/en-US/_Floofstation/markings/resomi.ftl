@@ -5,14 +5,19 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 # Goob Station start
-marking-ResomiBatteredEars = Damaged ears
 marking-ResomiDefaultEars = Default ears
+marking-ResomiDefaultEarrings = Earrings (default)
+marking-ResomiBatteredEars = Damaged ears
 marking-ResomiDroopyEars = Droopy ears
+marking-ResomiDroopyEarrings = Earrings (droopy)
 marking-ResomiBigEars = Big ears
+marking-ResomiBigEarrings = Earrings (big)
 marking-ResomiTinyEars = Tiny ears
 marking-ResomiFluffHead = Snout
 marking-ResomiFluffHeadUp = Head feathers
 marking-ResomiHeadTiger = Tiger stripes
+marking-ResomiHeadPoints = Point mask
+marking-ResomiHeadBlaze = Blaze
 marking-ResomiEyeScar = Eye scar
 marking-ResomiLeftEye = Left eye
 marking-ResomiRightEye = Right eye
@@ -47,9 +52,12 @@ marking-ResomiLeftLegHalf = Half colour
 marking-ResomiLeftLegPoints = Leg points
 marking-ResomiLeftLegTiger = Tiger stripes
 marking-ResomiLeftFootColour = Foot colour
-marking-ResomiTail = Default tail
-marking-ResomiTailFeathers = Feathers (default)
-marking-ResomiTailGradient = Gradient (default)
-marking-ResomiTailTip = Tail-tip (default)
-marking-ResomiBigTail = Big feathers (default)
+marking-ResomiTail = Tail
+marking-ResomiTailFeathers = Feathers
+marking-ResomiTailGradient = Gradient
+marking-ResomiTailTip = Tail-tip
+marking-ResomiBigTail = Big feathers
+marking-ResomiTailTiger = Tiger stripes
+marking-ResomiTailLinesFilled = Tail lines
+marking-ResomiFilledLinesOverlay = Body lines
 # Goob Station end

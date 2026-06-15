@@ -26,6 +26,18 @@
         {
             "name": "tip",
             "directions": 4
+        },
+        {
+            "name": "tiger",
+            "directions": 4
+        },
+        {
+            "name": "lines",
+            "directions": 4
+        },
+        {
+            "name": "lines_filled",
+            "directions": 4
         }
     ]
 }

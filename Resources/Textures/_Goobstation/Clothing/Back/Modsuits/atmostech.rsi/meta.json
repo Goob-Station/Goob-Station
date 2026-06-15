@@ -28,14 +28,6 @@
 		{
 			"name": "equipped-BACKPACK-sealed",
 			"directions": 4
-		},
-		{
-			"name": "equipped-BACKPACK-resomi",
-			"directions": 4
-		},
-		{
-			"name": "equipped-BACKPACK-sealed-resomi",
-			"directions": 4
 		}
   ]
 }

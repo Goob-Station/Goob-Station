@@ -45,6 +45,49 @@
   - sprite: _Goobstation/Mobs/Customization/Resomi/head_top.rsi
     state: tiny_ears
 
+# Head_side
+- type: marking
+  id: ResomiDefaultEarrings
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Resomi]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#f3d052"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/head_side.rsi
+    state: default_earrings
+
+- type: marking
+  id: ResomiDroopyEarrings
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Resomi]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#f3d052"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/head_side.rsi
+    state: droopy_earrings
+
+- type: marking
+  id: ResomiBigEarrings
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Resomi]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#f3d052"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/head_side.rsi
+    state: big_earrings
+
 # Head
 - type: marking
   id: ResomiRightEye
@@ -90,6 +133,24 @@
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Resomi/head.rsi
     state: tiger
+
+- type: marking
+  id: ResomiHeadPoints
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/head.rsi
+    state: point_mask
+
+- type: marking
+  id: ResomiHeadBlaze
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/head.rsi
+    state: blaze
 
 # Head_scars
 - type: marking
@@ -448,4 +509,38 @@
   - sprite: _Goobstation/Mobs/Customization/Resomi/tail/default.rsi
     state: big_tail
 
+- type: marking
+  id: ResomiTailTiger
+  bodyPart: HeadTop
+  markingCategory: Tail
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/tail/default.rsi
+    state: tail_colour
+  - sprite: _Goobstation/Mobs/Customization/Resomi/tail/default.rsi
+    state: tiger
+
+- type: marking
+  id: ResomiTailLinesFilled
+  bodyPart: HeadTop
+  markingCategory: Tail
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/tail/default.rsi
+    state: tail_colour
+  - sprite: _Goobstation/Mobs/Customization/Resomi/tail/default.rsi
+    state: lines
+  - sprite: _Goobstation/Mobs/Customization/Resomi/tail/default.rsi
+    state: lines_filled
+
 # Overlay
+- type: marking
+  id: ResomiFilledLinesOverlay
+  bodyPart: LFoot
+  markingCategory: Overlay
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Resomi/overlay.rsi
+    state: lines_overlay
+  - sprite: _Goobstation/Mobs/Customization/Resomi/overlay.rsi
+    state: lines_filled

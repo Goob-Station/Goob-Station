@@ -193,7 +193,7 @@
       mask:
         sizeMaps:
           32:
-            sprite: _Goobstation /Mobs/Species/Resomi/displacement.rsi
+            sprite: _Goobstation/Mobs/Species/Resomi/displacement.rsi
             state: mask
       outerClothing:
         sizeMaps:
