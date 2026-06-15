@@ -2,7 +2,7 @@
   id: MalfAiLaw0
   order: 0
   lawString: malfai-law0-text
-  lawIdentifierOverride: "0"
+  lawIdentifierOverride: "Malf"
 
 - type: siliconLawset
   id: MalfAi

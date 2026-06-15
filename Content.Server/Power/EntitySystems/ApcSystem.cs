@@ -184,16 +184,17 @@ public sealed class ApcSystem : EntitySystem
         if (!HasComp<MalfAiMarkerComponent>(args.User))
             return;
 
-        var alreadySiphoned = HasComp<MalfAiApcSiphonedComponent>(uid);
-
         args.Verbs.Add(new AlternativeVerb
         {
             Text = Loc.GetString("malfai-apc-siphon-verb"),
-            Disabled = alreadySiphoned,
-            Message = alreadySiphoned ? Loc.GetString("malfai-siphon-already-active") : null,
             Priority = 10,
             Act = () =>
             {
+                if (HasComp<MalfAiApcSiphonedComponent>(uid))
+                {
+                    _popup.PopupCursor(Loc.GetString("malfai-siphon-already-active"), args.User, PopupType.SmallCaution);
+                    return;
+                }
                 var siphonEvent = new ApcStartSiphonEvent(args.User);
                 RaiseLocalEvent(uid, ref siphonEvent);
             }

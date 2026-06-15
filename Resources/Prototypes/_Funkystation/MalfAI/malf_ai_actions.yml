@@ -104,6 +104,7 @@
       state: malfai_bg_doomsday
     itemIconStyle: BigAction
     priority: -5
+    useDelay: 480 # 8 min cooldown
   - type: InstantAction
     event: !type:MalfAiDoomsdayActionEvent
 

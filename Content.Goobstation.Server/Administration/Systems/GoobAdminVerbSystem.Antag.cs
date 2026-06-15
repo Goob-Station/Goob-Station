@@ -13,12 +13,14 @@ using Content.Goobstation.Common.Blob;
 using Content.Goobstation.Server.Changeling.GameTicking.Rules;
 using Content.Goobstation.Server.Devil.GameTicking.Rules;
 using Content.Goobstation.Server.Shadowling.Rules;
+using Content.Server._Funkystation.GameTicking.Rules.Components;
 using Content.Server.Administration.Managers;
 using Content.Server.Antag;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Administration;
 using Content.Shared.Database;
 using Content.Shared.Mind.Components;
+using Content.Shared.Silicons.StationAi;
 using Content.Shared.Verbs;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
@@ -99,6 +101,24 @@ public sealed partial class GoobAdminVerbSystem
             Message = Loc.GetString("admin-verb-make-shadowling"),
         };
         args.Verbs.Add(shadowling);
+
+        // Malf AI
+        if (HasComp<StationAiHeldComponent>(args.Target))
+        {
+            Verb malfAi = new()
+            {
+                Text = Loc.GetString("admin-verb-text-make-malfai"),
+                Category = VerbCategory.Antag,
+                Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Actions/malfunction.png")),
+                Act = () =>
+                {
+                    _antag.ForceMakeAntag<MalfAiRuleComponent>(targetPlayer, "MalfAi");
+                },
+                Impact = LogImpact.High,
+                Message = Loc.GetString("admin-verb-make-malfai"),
+            };
+            args.Verbs.Add(malfAi);
+        }
     }
 
     public bool AntagVerbAllowed(GetVerbsEvent<Verb> args, [NotNullWhen(true)] out ICommonSession? target)
