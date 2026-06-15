@@ -17,6 +17,7 @@
 
 using System.Linq;
 using Content.Goobstation.Shared.Changeling.Components;
+using Content.Goobstation.Shared.CustomFactionIcons;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
 using Content.Shared.IdentityManagement;
@@ -86,7 +87,9 @@ public partial class SharedMartialArtsSystem
             case >= 3:
                 if (!TryGrantMartialArt(args.User, ent.Comp))
                     return;
-                _faction.AddFaction(args.User, "Dragon");
+                _faction.AddFaction(args.User, ent.Comp.FactionToAdd);
+                var userFactionIcons = EnsureComp<CustomFactionIconsComponent>(args.User);
+                userFactionIcons.FactionIcons.Add(ent.Comp.IconToAdd);
                 var userReflect = EnsureComp<ReflectComponent>(args.User);
                 userReflect.Examinable = false; // no doxxing scarp users by examining lmao
                 userReflect.ReflectProb = 1;
@@ -157,7 +160,7 @@ public partial class SharedMartialArtsSystem
         {
             DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
             _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
-            _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, proto.DropHeldItemsBehavior);
+            _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, true, proto.DropItems);
         }
         else
         {
@@ -186,7 +189,7 @@ public partial class SharedMartialArtsSystem
         var dir = hitPos - mapPos;
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
-        _grabThrowing.Throw(target, ent, dir, proto.ThrownSpeed, damage, proto.DropHeldItemsBehavior);
+        _grabThrowing.Throw(target, ent, dir, proto.ThrownSpeed, damage, proto.DropItems);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit2.ogg"), target);
         ComboPopup(ent, target, proto.Name);
         ent.Comp.LastAttacks.Clear();

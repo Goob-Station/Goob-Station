@@ -10,6 +10,7 @@
       silent: true
       consumesCharges: 1
       applyFlashEffect: true
+      bypassMuted: true
     - type: LimitedCharges
       maxCharges: 5
     - type: Sprite

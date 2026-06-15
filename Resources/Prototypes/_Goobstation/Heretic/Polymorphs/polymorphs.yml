@@ -47,6 +47,8 @@
     polymorphSound: /Audio/_Goobstation/Heretic/voidblink.ogg
     showPopup: false
     attachToGridOrMap: true
+    allowRepeatedMorphs: true
+    allowMovement: false
 
 # shapeshifts
 - type: polymorph

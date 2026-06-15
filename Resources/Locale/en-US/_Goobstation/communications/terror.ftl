@@ -5,3 +5,4 @@ terror-slasher = Attention crew, it appears that someone on your station has mad
 terror-vox = Attention crew, it appears that someone on your station has made an unexpected communication with a group of raiders in nearby space.
 terror-blob = Attention crew, it appears that someone on your station has made an unexpected communication with a mad scientist in nearby space.
 terror-grey-tide = Attention crew, it appears that someone on your station has made an unexpected communication with a very robust individual in nearby space.
+terror-wizard = Attention crew, it appears that someone on your station has made an unexpected communication with a mentally unstable person in nearby space.

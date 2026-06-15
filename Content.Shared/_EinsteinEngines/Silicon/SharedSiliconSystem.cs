@@ -100,7 +100,7 @@ public sealed class SharedSiliconChargeSystem : EntitySystem
     // goob edit - antag target blockers
     private void OnGetAntagBlocker(Entity<SiliconComponent> ent, ref GetAntagSelectionBlockerEvent args)
     {
-        args.IsSilicon = true;
+        args.Blocked = true;
     }
 }
 

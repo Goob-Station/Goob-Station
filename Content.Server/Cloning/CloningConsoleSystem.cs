@@ -72,6 +72,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Power;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
+using Content.Shared.Damage;
 
 namespace Content.Server.Cloning
 {
@@ -85,6 +86,7 @@ namespace Content.Server.Cloning
         [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
         [Dependency] private readonly PowerReceiverSystem _powerReceiverSystem = default!;
         [Dependency] private readonly SharedMindSystem _mindSystem = default!;
+        [Dependency] private readonly DamageableSystem _damage = default!; // Goobstation
 
         public override void Initialize()
         {
@@ -225,6 +227,8 @@ namespace Content.Server.Cloning
 
             if (_cloningPodSystem.TryCloning(cloningPodUid, body.Value, (mindId, mind), cloningPod, scannerComp.CloningFailChanceMultiplier))
                 _adminLogger.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(uid)} successfully cloned {ToPrettyString(body.Value)}.");
+
+            _damage.TryChangeDamage(body.Value, cloningPod.CloneDamage, true); // Goobstation - Damage the og body if the clone successful
         }
 
         public void RecheckConnections(EntityUid console, EntityUid? cloningPod, EntityUid? scanner, CloningConsoleComponent? consoleComp = null)

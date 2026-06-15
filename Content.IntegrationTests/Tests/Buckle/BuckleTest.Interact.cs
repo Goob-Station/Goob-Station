@@ -40,6 +40,7 @@ public sealed partial class BuckleTest
 
 #pragma warning disable RA0002
             buckle.Delay = TimeSpan.Zero;
+            strap.UnbuckleDoafterTime = 0f; // Goobstation - disable doafter for test
 #pragma warning restore RA0002
 
             // Buckle victim to chair

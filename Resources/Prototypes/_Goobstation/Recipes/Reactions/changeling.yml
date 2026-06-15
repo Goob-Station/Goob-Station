@@ -1,0 +1,155 @@
+- type: reaction
+  id: DevilsKissLing
+  requiredMixerCategories:
+    - Stir
+  reactants:
+    Rum:
+      amount: 1
+    Blood:
+      amount: 1
+    CoffeeLiqueur:
+      amount: 1
+  products:
+    DevilsKiss: 3
+
+- type: reaction
+  id: BeastBloodLing
+  reactants:
+    Sake:
+      amount: 1
+    BloodChangeling:
+      amount: 1
+    Stimulants:
+      amount: 1
+  products:
+    BeastBlood: 2
+
+- type: reaction
+  id: MeatificationLing
+  impact: Low
+  quantized: true
+  reactants:
+    Fat:
+      amount: 25
+    Nutriment:
+      amount: 5
+    BloodChangeling:
+      amount: 10
+    Carbon:
+      amount: 10
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: FoodMeat
+
+- type: reaction
+  id: CreateSoapHomemadeLing
+  impact: Low
+  quantized: true
+  reactants:
+    Fat:
+      amount: 15
+    TableSalt:
+      amount: 10
+    BloodChangeling:
+      amount: 10
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: SoapHomemade
+
+- type: reaction
+  id: RedMeadLing
+  reactants:
+    Mead:
+      amount: 1
+    BloodChangeling:
+      amount: 1
+  products:
+    RedMead: 2
+
+- type: reaction
+  id: MeatSynthLing
+  quantized: true
+  reactants:
+    SodiumPolyacrylate:
+      amount: 10
+    Phenol:
+      amount: 10
+    BloodChangeling:
+      amount: 10
+    Carbon:
+      amount: 10
+  products:
+    Hydroxide: 5 # frankly it's there so that this recipe appears in the guidebook at all
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: FoodMeatSynth
+
+- type: reaction
+  id: StypticCrystalCreationLing
+  quantized: true
+  conserveEnergy: false
+  reactants:
+    StypticCrystalCatalyst:
+      amount: 5
+    BloodChangeling:
+      amount: 10
+    Sodium:
+      amount: 10
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: ShardCrystalStyptic
+
+- type: reaction
+  id: DemonsBloodLing
+  requiredMixerCategories:
+    - Stir
+  reactants:
+    Rum:
+      amount: 1
+    BloodChangeling:
+      amount: 1
+    DrGibb:
+      amount: 1
+    SpaceMountainWind:
+      amount: 1
+  products:
+    DemonsBlood: 4
+
+
+- type: reaction
+  id: OculineLing
+  reactants:
+    TableSalt:
+      amount: 1
+    BloodChangeling:
+      amount: 1
+    Hydroxide:
+      amount: 2
+  products:
+    Oculine: 4
+
+- type: reaction
+  id: UnholyWaterLing
+  reactants:
+    BloodChangeling:
+      amount: 1
+    Sulfur:
+      amount: 1
+    Water:
+      amount: 1
+  products:
+    UnholyWater: 3
+
+- type: reaction
+  id: NecrosolLing
+  impact: Medium
+  minTemp: 370
+  reactants:
+    BloodChangeling:
+      amount: 3
+    Omnizine:
+      amount: 1
+    Cryoxadone:
+      amount: 2
+  products:
+    Necrosol: 2

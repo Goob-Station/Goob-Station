@@ -22,7 +22,7 @@
     fillBaseName: bananasoap-
   - type: Slippery
     slipData:
-      paralyzeTime: 3.5
+      knockdownTime: 3.5
       launchForwardsMultiplier: 2
   - type: StepTrigger
   - type: Item

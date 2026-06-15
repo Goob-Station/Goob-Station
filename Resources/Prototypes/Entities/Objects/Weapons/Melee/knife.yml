@@ -280,7 +280,7 @@
   - type: ThrowingAngle
     angle: 225
   - type: ThrowableBlocked # Goobstation
-  - type: GunUpgrade # Lavaland Change
+  - type: ItemUpgrade # Lavaland Change
     name: gun-upgrade-bayonet-name
     examineTextType: gun-upgrade-examine-type-can-use
     insertedTextType: gun-upgrade-inserted-examine-type-attached
@@ -350,7 +350,7 @@
     attackRate: 1.2
     damage:
       types:
-        Slash: 5
+        Slash: 6 #goob - damage matches shiv
   - type: DamageOtherOnHit
     damage:
       types:

@@ -1105,6 +1105,27 @@
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: clowning-module }
 
+- type: entity
+  id: BorgModuleAdvancedClowning
+  parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
+  name: advanced clowning cyborg module
+  description: Advanced service module for only the silliest cyborgs! Comes with a built-in oven that bakes pies automatically over time, a holopeel projector, and a push horn.
+  components:
+  - type: Sprite
+    layers:
+    - state: service
+    - state: icon-clown-adv
+  - type: ItemBorgModule
+    moduleId: AdvancedClowning
+    items:
+    - HoloprojectorClownBorg
+    - BorgLauncherCreamPie
+    - ClownRecorder
+    - PushHorn
+    - BikeHornInstrument
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-clowning-module }
+
 #syndicate modules
 - type: entity
   id: BorgModuleSyndicateWeapon
@@ -1236,6 +1257,40 @@
     - type: StaticPrice
       price: 2000
 
+# Goob upstreamer todo fixborghands earlyadding this so i dont have to do shitcode for xenoborgs and i dont want to earlymerge every part of them
+# Kill this shit when you start upstreaming xenoborgs proper
+# <Goobstreamer>
+# mothership module
+- type: entity
+  parent: [ BaseXenoborgModuleGeneric, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: MothershipModule
+  name: mothership module
+  description: A module that helps the mothership borg brains and install other modules.
+  components:
+  - type: Tag
+    tags:
+    - MothershipModule
+  - type: Sprite
+    layers:
+    - state: xenoborg_generic
+    - state: icon-xenoborg-tools
+  - type: ItemBorgModule
+    moduleId: MothershipBasic # This makes this version of xenoborgs technically a backport which is so accursed.
+    items:
+    - DoorRemoteXenoborg
+    - MMI
+    - PowerCellHigh
+    - XenoborgModuleBasic
+    - HandheldGPSBasic
+    - MaterialBag
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-martyr-module }
+- type: Tag
+  id: MothershipModule # Cyborg module category for evil xenoborg core
+  # Yeah im just, whatever, ill kill this as i upstream.
+
+# </Goobstreamer>
+
 # Shitmed Modules
 
 - type: entity
@@ -1308,7 +1363,7 @@
   parent: [ BaseXenoborgModuleGeneric, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleBasic
   name: basic xenoborg module
-  description: Essential items for any xenoborg.
+  description: Essential items for any Xenoborg.
   components:
   - type: Sprite
     layers:
@@ -1327,7 +1382,7 @@
   parent: [ BaseXenoborgModuleGeneric, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleTool
   name: tool xenoborg module
-  description: Simple tools for most xenoborgs.
+  description: Simple tools for most Xenoborgs.
   components:
   - type: Sprite
     layers:
@@ -1434,7 +1489,7 @@
   parent: [ BaseXenoborgModuleScout, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleSpaceMovement
   name: space movement xenoborg module
-  description: Module that helps a xenoborg move better in space.
+  description: Module that helps a Xenoborg move better in space.
   components:
   - type: Sprite
     layers:
@@ -1537,3 +1592,20 @@
     - CloakingDevice
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-eye-module }
+
+- type: entity
+  parent: [ BaseXenoborgModuleStealth, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: XenoborgModuleSuperCloakDevice
+  name: cloaking device xenoborg module
+  description: Module with a device that allows xenoborgs to become truly invisible for less time.
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_stealth
+    - state: icon-xenoborg-cloak2
+  - type: ItemBorgModule
+    moduleId: SuperCloakDevice
+    items:
+    - SuperCloakingDevice
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-eye2-module }

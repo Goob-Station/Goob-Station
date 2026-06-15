@@ -5,7 +5,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Standing;
 
 namespace Content.Goobstation.Shared.Knockdown;
 
@@ -13,5 +12,5 @@ namespace Content.Goobstation.Shared.Knockdown;
 public sealed partial class KnockdownOnCollideComponent : Component
 {
     [DataField]
-    public DropHeldItemsBehavior Behavior = DropHeldItemsBehavior.NoDrop;
+    public bool DropItems = false;
 }

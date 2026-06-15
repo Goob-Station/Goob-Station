@@ -357,6 +357,8 @@
   - type: FootprintOwner # Corvax-Next-Footprints
   - type: Carriable # Goobstation
   - type: CPRTraining # Goobstation - Just give to everyone! This ain't MRP.
+  - type: GrabIntent # wilted rose
+  - type: Grabbable 
   # Goobstation end
   - type: Hands
     leftHandDisplacement:

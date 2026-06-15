@@ -12,7 +12,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Grab;
 using Content.Goobstation.Common.MartialArts;
+using Content.Goobstation.Shared.GrabIntent;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
 using Content.Shared.Clothing;
@@ -24,6 +26,7 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
+using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee;
 using Robust.Shared.Audio;
 
@@ -90,14 +93,7 @@ public partial class SharedMartialArtsSystem
             || !TryComp(target, out StatusEffectsComponent? status))
             return;
 
-        _stun.TrySlowdown(target, args.Time, true, args.SpeedMultiplier, args.SpeedMultiplier, status);
-
-        if (_newStatus.TryUpdateStatusEffectDuration(target, args.StatusEffectProto, out var effect, args.Time) &&
-            TryComp(effect, out StaminaResistanceModifierStatusEffectComponent? effectComp))
-        {
-            effectComp.Modifier *= args.StaminaResistanceModifier;
-            Dirty(effect.Value, effectComp);
-        }
+        _movementMod.TryUpdateMovementSpeedModDuration(target, MartsGenericSlow, TimeSpan.FromSeconds(5), 0.5f, 0.5f);
 
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
 
@@ -147,7 +143,7 @@ public partial class SharedMartialArtsSystem
 
         knockdownTime *= ev.Value;
 
-        _stun.TryKnockdown(target, knockdownTime, true, proto.DropHeldItemsBehavior);
+        _stun.TryKnockdown(target, knockdownTime, true, true, proto.DropItems);
 
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
 
@@ -164,7 +160,9 @@ public partial class SharedMartialArtsSystem
             || !TryUseMartialArt(ent, proto, out var target, out var downed)
             || !downed
             || !TryComp<PullerComponent>(ent, out var puller)
-            || !TryComp<PullableComponent>(target, out var pullable))
+            || !TryComp<GrabIntentComponent>(ent, out var grabIntent)
+            || !TryComp<PullableComponent>(target, out var pullable)
+            || !TryComp<GrabbableComponent>(target, out var grabbable))
             return;
 
         var knockdownTime = TimeSpan.FromSeconds(proto.ParalyzeTime);
@@ -181,11 +179,11 @@ public partial class SharedMartialArtsSystem
         }
 
         // Taking someone in an armbar is an equivalent of taking them in a choke grab
-        if (puller.GrabStage != GrabStage.Suffocate
-            || pullable.GrabStage != GrabStage.Suffocate)
-            _pulling.TrySetGrabStages((ent, puller), (target, pullable), GrabStage.Suffocate);
+        if (grabIntent.GrabStage != GrabStage.Suffocate
+            || grabbable.GrabStage != GrabStage.Suffocate)
+            _grab.TrySetGrabStages((ent, puller, grabIntent), (target, pullable, grabbable), GrabStage.Suffocate);
 
-        _stun.TryKnockdown(target, knockdownTime, true, proto.DropHeldItemsBehavior);
+        _stun.TryKnockdown(target, knockdownTime, true, true, proto.DropItems);
 
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
         ComboPopup(ent, target, proto.Name);
@@ -209,7 +207,7 @@ public partial class SharedMartialArtsSystem
             ent,
             _transform.GetMapCoordinates(ent).Position - _transform.GetMapCoordinates(target).Position,
             5,
-            behavior: proto.DropHeldItemsBehavior);
+            behavior: proto.DropItems);
 
         _status.TryRemoveStatusEffect(ent, "KnockedDown");
         _standingState.Stand(ent);
@@ -228,7 +226,7 @@ public partial class SharedMartialArtsSystem
             || !TryComp<PullableComponent>(target, out var pullable))
             return;
 
-        _stun.TryParalyze(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, status);
+        _stun.TryUpdateParalyzeDuration(target, TimeSpan.FromSeconds(proto.ParalyzeTime));
 
         _pulling.TryStopPull(target, pullable, ent, true);
 

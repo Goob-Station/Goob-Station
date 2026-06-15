@@ -81,11 +81,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.MartialArts;
 using Content.Shared.Alert;
 using Content.Shared.Movement.Pulling.Systems; // Goobstation
 using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Movement.Pulling.Components;
 
@@ -124,61 +122,6 @@ public sealed partial class PullableComponent : Component
     [AutoNetworkedField, DataField]
     public bool PrevFixedRotation;
 
-    // Goobstation start
-    // Added Grab variables
-
-
-    [DataField]
-    public Dictionary<GrabStage, short> PulledAlertAlertSeverity = new()
-    {
-        { GrabStage.No, 0 },
-        { GrabStage.Soft, 1 },
-        { GrabStage.Hard, 2 },
-        { GrabStage.Suffocate, 3 },
-    };
-
-    [AutoNetworkedField, DataField]
-    public GrabStage GrabStage = GrabStage.No;
-
-    [AutoNetworkedField, DataField]
-    public float EscapeAttemptModifier = 1f;
-
-    [AutoNetworkedField, DataField]
-    public float GrabEscapeChance = 1f;
-
-    [DataField]
-    public ProtoId<AlertPrototype> PulledAlert = "Pulled";
-
-    [AutoNetworkedField]
-    public TimeSpan NextEscapeAttempt = TimeSpan.Zero;
-
-    /// <summary>
-    /// If this pullable being tabled.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public bool BeingTabled = false;
-
-    /// <summary>
-    /// Constant for tabling throw math
-    /// </summary>
-    [DataField]
-    public float BasedTabledForceSpeed = 5f;
-
-    /// <summary>
-    ///  Stamina damage. taken on tabled
-    /// </summary>
-    [DataField]
-    public float TabledStaminaDamage = 40f;
-
-    /// <summary>
-    /// Damage taken on being tabled.
-    /// </summary>
-    [DataField]
-    public float TabledDamage = 5f;
-
-    [DataField]
-    public float EscapeAttemptCooldown = 2f;
-    // Goobstation end
 }
 
 public sealed partial class StopBeingPulledAlertEvent : BaseAlertEvent

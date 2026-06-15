@@ -14,7 +14,7 @@
 
 using Content.Server._Goobstation.Heretic.EntitySystems.PathSpecific;
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Atmos.Components;
+using Content.Shared.Atmos.Components;
 using Content.Server.Audio;
 using Content.Server.Light.Components;
 using Content.Server.Light.EntitySystems;
@@ -51,6 +51,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
+using Content.Server.Atmos.Components;
 
 namespace Content.Server.Heretic.EntitySystems.PathSpecific;
 
@@ -78,12 +79,13 @@ public sealed class AristocratSystem : EntitySystem
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
+    [Dependency] private readonly HereticSystem _heretic = default!;
 
     private static readonly EntProtoId IceTilePrototype = "IceCrust";
     private static readonly ProtoId<ContentTileDefinition> SnowTilePrototype = "FloorAstroSnow";
     private static readonly EntProtoId IceWallPrototype = "WallIce";
 
-    private const float ConduitDelay = 1f;
+    private const float ConduitDelay = 2f;
 
     private float _accumulator;
 
@@ -316,6 +318,12 @@ public sealed class AristocratSystem : EntitySystem
         var conduitQuery = EntityQueryEnumerator<VoidConduitComponent, TransformComponent>();
         while (conduitQuery.MoveNext(out var uid, out var conduit, out var xform))
         {
+            if (!conduit.Active) // Skip first iteration
+            {
+                conduit.Active = true;
+                continue;
+            }
+
             FreezeAtmos((uid, xform));
 
             var (pos, rot) = _xform.GetWorldPositionRotation(xform, xformQuery);
@@ -330,7 +338,7 @@ public sealed class AristocratSystem : EntitySystem
                 if (ignored.Contains(ent))
                     continue;
 
-                if (hereticQuery.HasComp(ent) || ghoulQuery.HasComp(ent))
+                if (_heretic.IsHereticOrGhoul(ent))
                 {
                     ignored.Add(ent);
                     if (statusQuery.TryComp(ent, out var status))
@@ -344,7 +352,7 @@ public sealed class AristocratSystem : EntitySystem
                     continue;
                 }
 
-                if (_voidcurse.DoCurse(ent, conduit.stacksEverySeconds, conduit.maxStacksGiven))
+                if (_voidcurse.DoCurse(ent))
                 {
                     ignored.Add(ent);
                     affected.Add(ent);
@@ -377,6 +385,12 @@ public sealed class AristocratSystem : EntitySystem
 
             if (affected.Count > 0)
                 _color.RaiseEffect(Color.Black, affected, Filter.Pvs(uid, 3f, EntityManager));
+
+            if (conduit.Range < conduit.MaxRange)
+            {
+                conduit.Range++;
+                Dirty(uid, conduit);
+            }
         }
     }
 

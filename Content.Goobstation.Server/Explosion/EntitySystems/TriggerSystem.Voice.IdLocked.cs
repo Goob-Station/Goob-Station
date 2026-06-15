@@ -12,6 +12,8 @@ using Content.Server.Speech;
 using Content.Shared.Access.Systems;
 using Content.Shared.Database;
 using Content.Shared.Hands;
+using Content.Shared.Speech;
+using Content.Shared.Trigger.Systems;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Explosion.EntitySystems

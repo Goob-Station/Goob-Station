@@ -118,6 +118,7 @@ using Content.Shared.Alert;
 using Content.Shared.Atmos;
 using Content.Shared.Damage;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Temperature.Components;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Temperature.Components;

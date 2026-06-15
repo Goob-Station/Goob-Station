@@ -1,0 +1,24 @@
+name: Publish Changelog (RSS)
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  changelog_rss:
+    runs-on: self-hosted
+    steps:
+    - name: Install dependencies
+      run: sudo apt-get install -y python3-paramiko python3-lxml
+      
+    - uses: actions/checkout@v3.6.0
+      with:
+        submodules: 'recursive'
+  
+    - name: Publish changelog (RSS)
+      run: Tools/actions_changelog_rss.py
+      env:
+        CHANGELOG_RSS_KEY: ${{ secrets.CHANGELOG_RSS_KEY }}

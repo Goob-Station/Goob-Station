@@ -17,6 +17,7 @@ using Content.Server.Station.Components;
 using Content.Server.StationEvents.Components;
 using Content.Server.StationEvents.Events;
 using Content.Shared.GameTicking.Components;
+using Content.Shared.Nutrition.Components;
 using Content.Shared.Station.Components;
 using Robust.Server.Player;
 using Robust.Shared.Map;

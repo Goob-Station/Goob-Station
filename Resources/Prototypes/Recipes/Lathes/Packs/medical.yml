@@ -36,6 +36,7 @@
   - Beaker
   - LargeBeaker
   - Syringe
+  - Dropper #Goobstation
   - PillCanister
   - HandLabeler
   - ChemicalPayload
@@ -68,6 +69,8 @@
   - DiseaseSwab
   - BodyBag
   - WhiteCane
+  - OffsetCane
+  - OffsetCaneWood
 
 - type: latheRecipePack
   id: RollerBedsStatic
@@ -119,6 +122,7 @@
   - SyringeBluespace
   - MedkitCombat #goob - Move combat kit to research
   - VialBluespace # goob edit - bluespace vials
+  - CryostasisCigarette # goob - cryo cig
 
 - type: latheRecipePack
   id: MedicalBoards

@@ -86,7 +86,7 @@ public sealed class DoorMetricSystem : ChaosMetricSystem<DoorMetricComponent>
 
         // Add up the pain of all the doors
         // Restrict to just doors on the main station
-        var stationGrids = _stationSystem.GetAllStationGrids();
+        var stationGrids = _stationSystem.GoobGetAllStationGrids();
 
         var queryFirelock = EntityQueryEnumerator<DoorComponent, ApcPowerReceiverComponent, TransformComponent>();
         while (queryFirelock.MoveNext(out var uid, out var door, out var power, out var transform))

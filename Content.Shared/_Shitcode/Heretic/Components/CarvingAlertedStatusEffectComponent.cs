@@ -8,7 +8,7 @@ namespace Content.Shared._Shitcode.Heretic.Components;
 public sealed partial class CarvingAlertedStatusEffectComponent : Component
 {
     [DataField]
-    public HashSet<NetCoordinates> Locations = new();
+    public Dictionary<NetCoordinates, EntityUid> Locations = new();
 
     public const string Id = "alertcarving";
 

@@ -216,7 +216,7 @@
     - MobMouse
     - MobMouse1
     - MobMouse2
-    rareChance: 0.12
+    rareChance: 0.06
     offset: 0
     rarePrototypes:
     - MobMousePlague

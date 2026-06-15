@@ -58,6 +58,7 @@ using Robust.Shared.Maths;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
+using Robust.Shared.Player;
 
 namespace Content.Goobstation.Server.Supermatter.Systems;
 
@@ -598,6 +599,9 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
     {
         var target = args.OtherEntity;
 
+        if (args.OurEntity != uid || !args.OtherFixture.Hard)
+            return;
+
         // Stop immune entities from activating the sm.
         if (args.OtherBody.BodyType == BodyType.Static
             || HasComp<SupermatterImmuneComponent>(target)
@@ -693,7 +697,8 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         // your criminal actions will not go unnoticed
         sm.Damage += sm.DelaminationPoint / 10;
         sm.DamageArchived += sm.DelaminationPoint / 10;
-
+        sm.SliverRemoved = true;
+        
         var integrity = GetIntegrity(sm).ToString("0.00");
         SupermatterAnnouncement(uid, Loc.GetString("supermatter-announcement-cc-tamper", ("integrity", integrity)), true, "Central Command");
 

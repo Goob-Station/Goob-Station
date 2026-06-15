@@ -254,6 +254,12 @@
     - id: FlashlightLantern
     - id: FireExtinguisher
     - id: SurvivalKnife
+    - !type:GroupSelector # Goobstation
+      children:
+      - id: EmergencyOxygenTankFilled
+      - id: EmergencyNitrogenTankFilled
+      - id: EmergencyWaterVaporTankFilled
+      - id: EmergencyPlasmaTankFilled
 
 - type: entityTable
   id: SalvageEquipmentUncommon
@@ -266,7 +272,7 @@
     - id: ClothingBeltUtility
     - id: WeaponProtoKineticAccelerator
       weight: 0.5
-    - id: OxygenTankFilled
+   # - id: OxygenTankFilled #Goobstation
     - id: WelderIndustrial
     - id: FoodSnackLollypopWrappedMystery # Goobstation
     - id: WeaponGrapplingGun
@@ -279,6 +285,12 @@
         weight: 0.25
       - id: ClothingHeadHatWeldingMaskPainted
         weight: 0.1
+    - !type:GroupSelector # Goobstation
+      children:
+      - id: ExtendedEmergencyOxygenTankFilled
+      - id: ExtendedEmergencyNitrogenTankFilled
+      - id: ExtendedEmergencyWaterVaporTankFilled
+      - id: ExtendedEmergencyPlasmaTankFilled
 
 - type: entityTable
   id: SalvageEquipmentRare
@@ -294,11 +306,19 @@
     - id: MiningDrill
     - id: ClothingEyesGlassesMeson
     - id: ClothingBeltSalvageWebbing
+    - id: ClothingOuterHardsuitSalvage #Goobstation
+    - id: WelderIndustrialAdvanced #Goobstation
     - id: SeismicCharge
     - id: MineralScanner
     - id: FoodSnackLollypopWrappedMysteryEvil # Goobstation
     - id: FoodSnackLollypopWrappedOmnizine # Goobstation
       weight: 0.5
+    - !type:GroupSelector # Goobstation
+      children:
+      - id: DoubleEmergencyOxygenTankFilled
+      - id: DoubleEmergencyNitrogenTankFilled
+      - id: DoubleEmergencyWaterVaporTankFilled
+      - id: PlasmaTankFilledInternals
     - id: WeaponCrusher
       weight: 0.5
     - !type:GroupSelector
@@ -314,13 +334,21 @@
     # - id: BlueprintFulton # Goobstation - roundstart
     # - id: BlueprintSeismicCharge # Goobstation - emag locked
     - id: WeaponCrusherGlaive
-    - id: ClothingOuterHardsuitSalvage
+    - id: WeaponCrusherHammer #Goobstation
+    - id: WeaponCrusherHalberd #Goobstation
+    - !type:GroupSelector #Goobstation
+      children:
+      - id: ClothingOuterHardsuitSalvage
+      - id: ClothingOuterHardsuitLuxury
+        weight: 0.25
     - id: ChemistryBottleOmnizine
     - id: FoodSnackLollypopWrappedCarpEvil # Goobstation
     - !type:GroupSelector
       children:
       - id: JetpackBlueFilled
       - id: JetpackBlackFilled
+      - id: JetpackVoidFilled
+        weight: 0.25
 
 - type: entityTable
   id: RandomGeneratorTable
@@ -331,6 +359,6 @@
     - id: ScrapGeneratorPlasma
       weight: 0.5
     - id: ScrapGeneratorUranium
-      weight: 0.5
+      weight: 0.4 #Goobstation
     - id: ScrapGeneratorFrame
       weight: 0.25

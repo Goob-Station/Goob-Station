@@ -9,7 +9,8 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Chat.Systems;
-using Content.Server.Speech.Components;
+using Content.Shared.Speech;
+using Content.Shared.Speech.Components;
 
 namespace Content.Server.Speech.EntitySystems;
 

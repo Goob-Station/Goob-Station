@@ -11,8 +11,9 @@ using Content.Shared.Tag;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
+using Content.Goobstation.Common.Religion;
 
-namespace Content.Goobstation.Shared.Religion.Nullrod;
+namespace Content.Goobstation.Shared.Religion.Nullrod.Systems;
 
 public sealed class NullrodTransformSystem : EntitySystem
 {
@@ -41,6 +42,10 @@ public sealed class NullrodTransformSystem : EntitySystem
 
         // Spawn proto associated with the altar.
         Spawn(component.RodProto, args.ClickLocation.SnapToGrid(EntityManager));
+
+        //Unassign original nullrod
+        if (TryComp<BibleUserComponent>(args.User, out var bibleComp))
+            bibleComp.NullRod = null;
 
         // Remove the nullrod
         QueueDel(args.Used);

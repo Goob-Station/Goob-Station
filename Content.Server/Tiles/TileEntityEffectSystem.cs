@@ -12,7 +12,7 @@ namespace Content.Server.Tiles;
 
 public sealed class TileEntityEffectSystem : EntitySystem
 {
-    [Dependency] private readonly EntityEffectSystem _effect = default!; // goob edit - use system instead
+    [Dependency] private readonly SharedEntityEffectSystem _effect = default!; // goob edit - use system instead
 
     public override void Initialize()
     {

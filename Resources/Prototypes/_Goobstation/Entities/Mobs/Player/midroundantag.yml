@@ -1,12 +1,4 @@
 - type: entity
-  parent: BaseMobHuman
-  id: MobHumanGreyTide
-  name: The Greytide
-  components:
-  - type: Loadout
-    prototypes: [ GreyTideAntagGear ]
-
-- type: entity
   parent: MobHuman
   id: MobHumanTunnelClown
   name: Tunnel clown
@@ -50,6 +42,7 @@
     actions:
     - ActionRepulseNoRobes
     - ActionBlindSpell
+  - type: MindShield
   - type: RandomHumanoidAppearance
     randomizeName: true
   - type: Loadout
@@ -60,7 +53,12 @@
   id: MobHumanMimeAssassin
   name: Mime assassin
   components:
+  - type: AutoImplant
+    implants:
+    - FreedomImplanter
+    - DeathAcidifierImplanter
   - type: MimePowers
+    preventWriting: true
   - type: RandomHumanoidAppearance
     randomizeName: true
   - type: Loadout
@@ -81,10 +79,16 @@
   id: MobVoxRaider
   name: Vox Raider
   components:
+  - type: AutoImplant
+    implants:
+    - DeathAcidifierImplant
   - type: RandomHumanoidAppearance
     randomizeName: true
   - type: Loadout
     prototypes: [ VoxRaiderAntagGear ]
+  - type: Thieving
+    stripTimeReduction: 1
+    stealthy: true
 
 - type: entity
   parent: BaseMobHuman

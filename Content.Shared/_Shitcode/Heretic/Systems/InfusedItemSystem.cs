@@ -27,6 +27,8 @@ public sealed class InfusedItemSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedItemSystem _item = default!;
     [Dependency] private readonly SharedMansusGraspSystem _grasp = default!;
+    [Dependency] private readonly SharedHereticSystem _heretic = default!;
+
 
     public override void Initialize()
     {
@@ -49,13 +51,13 @@ public sealed class InfusedItemSystem : EntitySystem
     {
         var target = args.User;
 
-        if (HasComp<HereticComponent>(target) || HasComp<GhoulComponent>(target))
+        if (_heretic.IsHereticOrGhoul(target))
             return;
 
         if (HasComp<StatusEffectsComponent>(target))
         {
             _audio.PlayPvs(new SoundPathSpecifier("/Audio/Items/welder.ogg"), target);
-            _stun.TryParalyze(target, TimeSpan.FromSeconds(5f), true);
+            _stun.TryUpdateParalyzeDuration(target, TimeSpan.FromSeconds(5f));
             _language.DoRatvarian(target, TimeSpan.FromSeconds(10f), true);
         }
 
@@ -68,7 +70,7 @@ public sealed class InfusedItemSystem : EntitySystem
         if (!args.IsHit || args.HitEntities.Count == 0)
             return;
 
-        if (!TryComp(args.User, out HereticComponent? heretic))
+        if (!_heretic.TryGetHereticComponent(args.User, out var heretic, out _))
             return;
 
         var success = false;
@@ -78,9 +80,6 @@ public sealed class InfusedItemSystem : EntitySystem
                 continue;
 
             if (!HasComp<StatusEffectsComponent>(target) && !HasComp<MobStateComponent>(target))
-                continue;
-
-            if ((TryComp<HereticComponent>(target, out var th) && th.CurrentPath == heretic.CurrentPath))
                 continue;
 
             if (!_grasp.TryApplyGraspEffectAndMark(args.User, heretic, target, null, out _))

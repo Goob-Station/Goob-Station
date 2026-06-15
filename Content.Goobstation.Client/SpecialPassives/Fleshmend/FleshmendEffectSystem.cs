@@ -17,15 +17,25 @@ public sealed class FleshmendEffectSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<FleshmendEffectComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<FleshmendEffectComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<FleshmendEffectComponent, AfterAutoHandleStateEvent>(OnAfterAutoHandleState);
     }
+    // todo goobstation nuke all lingcode and unhardcode ts
+    private static readonly ResPath ResPath = new("_Goobstation/SpecialPassives/fleshmend_visuals.rsi");
 
-    private void OnAfterAutoHandleState(Entity<FleshmendEffectComponent> ent, ref AfterAutoHandleStateEvent args)
+    private void OnStartup(Entity<FleshmendEffectComponent> ent, ref ComponentStartup args)
     {
-        if (ent.Comp.ResPath == ResPath.Empty
-            || ent.Comp.EffectState == null)
-            return;
+        if (TryComp<FleshmendComponent>(ent, out var fleshmend) // only done if new effects were yaml'd in (or just applied to the comp)
+            && fleshmend.EffectState != null
+            && fleshmend.ResPath != ResPath.Empty)
+        {
+            ent.Comp.EffectState = fleshmend.EffectState;
+            ent.Comp.ResPath = fleshmend.ResPath;
+        }
+
+        // I'm not dealing with abysmal fuckery to get the path to the effects. just like, why?
+        ent.Comp.ResPath = ResPath;
+        ent.Comp.EffectState = "mend_active";
 
         AddLayer(ent);
     }

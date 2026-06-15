@@ -7,15 +7,17 @@
 #
 # SPDX-License-Identifier: MIT
 
-- type: cargoProduct
-  id: CargoOreBox
-  icon:
-    sprite:  /Textures/Structures/Storage/orebox.rsi
-    state: orebox
-  product: OreBox
-  cost: 500
-  category: cargoproduct-category-name-cargo
-  group: market
+# Lavaland Change Start - ore box is now craftable
+#- type: cargoProduct
+#  id: CargoOreBox
+#  icon:
+#    sprite:  /Textures/Structures/Storage/orebox.rsi
+#    state: orebox
+#  product: OreBox
+#  cost: 500
+#  category: cargoproduct-category-name-cargo
+#  group: market
+# Lavaland Change End
 
 - type: cargoProduct
   id: CargoLuxuryHardsuit

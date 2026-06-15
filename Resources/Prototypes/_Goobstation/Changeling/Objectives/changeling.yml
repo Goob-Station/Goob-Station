@@ -101,8 +101,18 @@
   - type: TargetObjective
     title: objective-condition-escape-identity-title
   - type: PickRandomPerson
-    needsOrganic: true # Don't pick IPCs.
-    excludeChangeling: true # if they swap identities its a guarantee fail
+    filters:
+    - !type:BodyMindFilter
+      inverted: true
+      whitelist:
+        components:
+        - ChangelingIdentity # if they swap identities its a guarantee fail
+        - Silicon # Don't pick IPCs.
+    # Can't have multiple objectives to kill the same person.
+    - !type:TargetObjectiveMindFilter
+      blacklist:
+        components:
+        - KillPersonCondition
 
 - type: entity
   parent: [BaseChangelingSyndicateObjective, BaseStealObjective]
@@ -122,7 +132,17 @@
     unique: true
   - type: TargetObjective
     title: objective-condition-kill-head-title
-  - type: PickRandomHead
+  - type: PickRandomPerson
+    filters:
+    - !type:BodyMindFilter
+      whitelist:
+        components:
+        - CommandStaff
+      # Can't have multiple objectives to kill the same person.
+    - !type:TargetObjectiveMindFilter
+      blacklist:
+        components:
+        - KillPersonCondition
   - type: KillPersonCondition
     requireDead: true
 

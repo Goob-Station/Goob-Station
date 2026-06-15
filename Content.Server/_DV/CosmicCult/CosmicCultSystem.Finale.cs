@@ -79,35 +79,37 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
             || !TryComp<CosmicCorruptingComponent>(uid, out var corruptingComp))
             return;
 
-        if (uid.Comp.CurrentState == FinaleState.ReadyBuffer)
-        {
-            _corrupting.SetCorruptionTime((uid, corruptingComp), TimeSpan.FromSeconds(3));
-            _appearance.SetData(uid, MonumentVisuals.FinaleReached, 2);
-            comp.BufferTimer = _timing.CurTime + comp.BufferRemainingTime;
-            comp.SelectedSong = comp.BufferMusic;
-            _sound.DispatchStationEventMusic(uid, comp.SelectedSong, StationEventMusicType.CosmicCult);
+        // if (uid.Comp.CurrentState == FinaleState.ReadyBuffer) // goob edit - make coscult final longer
 
-            _chatSystem.DispatchStationAnnouncement(uid,
+        _corrupting.SetCorruptionTime((uid, corruptingComp), TimeSpan.FromSeconds(3));
+        _appearance.SetData(uid, MonumentVisuals.FinaleReached, 2);
+        comp.BufferTimer = _timing.CurTime + comp.BufferRemainingTime;
+        comp.SelectedSong = comp.BufferMusic;
+        _sound.DispatchStationEventMusic(uid, comp.SelectedSong, StationEventMusicType.CosmicCult);
+
+        _chatSystem.DispatchStationAnnouncement(uid,
             Loc.GetString("cosmiccult-finale-location", ("location", indicatedLocation)),
             null, false, null,
             Color.FromHex("#cae8e8"));
 
-            uid.Comp.CurrentState = FinaleState.ActiveBuffer;
-        }
-        else
-        {
-            _corrupting.SetCorruptionTime((uid, corruptingComp), TimeSpan.FromSeconds(1));
-            _appearance.SetData(uid, MonumentVisuals.FinaleReached, 3);
-            comp.FinaleTimer = _timing.CurTime + comp.FinaleRemainingTime;
-            comp.SelectedSong = comp.FinaleMusic;
-            _sound.DispatchStationEventMusic(uid, comp.SelectedSong, StationEventMusicType.CosmicCult);
-            _chatSystem.DispatchStationAnnouncement(uid,
-            Loc.GetString("cosmiccult-finale-location", ("location", indicatedLocation)),
-            null, false, null,
-            Color.FromHex("#cae8e8"));
+        uid.Comp.CurrentState = FinaleState.ActiveBuffer;
 
-            uid.Comp.CurrentState = FinaleState.ActiveFinale;
-        }
+        // goob edit start - make coscult final longer
+        // else
+        // {
+        //     _corrupting.SetCorruptionTime((uid, corruptingComp), TimeSpan.FromSeconds(1));
+        //     _appearance.SetData(uid, MonumentVisuals.FinaleReached, 3);
+        //     comp.FinaleTimer = _timing.CurTime + comp.FinaleRemainingTime;
+        //     comp.SelectedSong = comp.FinaleMusic;
+        //     _sound.DispatchStationEventMusic(uid, comp.SelectedSong, StationEventMusicType.CosmicCult);
+        //     _chatSystem.DispatchStationAnnouncement(uid,
+        //     Loc.GetString("cosmiccult-finale-location", ("location", indicatedLocation)),
+        //     null, false, null,
+        //     Color.FromHex("#cae8e8"));
+        //
+        //     uid.Comp.CurrentState = FinaleState.ActiveFinale;
+        // }
+        // goob edit end
 
         var stationUid = _station.GetStationInMap(Transform(uid).MapID);
 

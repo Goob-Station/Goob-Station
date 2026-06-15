@@ -190,7 +190,6 @@
   components:
     - type: Sprite
       sprite: Clothing/Back/Duffels/hydroponics.rsi
-
 - type: entity
   parent: ClothingBackpackDuffel
   id: ClothingBackpackDuffelCargo
@@ -198,8 +197,7 @@
   description: A large duffel bag for stealing cargo's precious loot.
   components:
     - type: Sprite
-      sprite: Clothing/Back/Duffels/cargo.rsi
-
+      sprite: _Goobstation/Clothing/Back/Duffels/cargo.rsi # Goob
 - type: entity
   parent: ClothingBackpackDuffel
   id: ClothingBackpackDuffelSalvage

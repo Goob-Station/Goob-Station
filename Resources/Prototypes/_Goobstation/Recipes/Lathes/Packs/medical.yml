@@ -34,6 +34,7 @@
   - MedicalPatchTherapeutic
   - MedicalPatchLarge
   - MedicalCigPack
+  - ECigarette
 
 - type: latheRecipePack
   id: SurgeryStaticGoob
@@ -87,3 +88,10 @@
   id: EnvirosuitExtinguisherRefill
   recipes:
   - EnvirosuitExtinguisherRefill
+
+- type: latheRecipePack
+  id: MedicalCloning
+  recipes:
+  - CloningPodMachineCircuitboardRecipe
+  - MedicalScannerMachineCircuitboardRecipe
+  - CloningConsoleComputerCircuitboardRecipe

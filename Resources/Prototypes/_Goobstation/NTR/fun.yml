@@ -134,7 +134,7 @@
     - Soap
   - type: Slippery
     slipData:
-      paralyzeTime: 5.0 # omegaslop
+      knockdownTime: 5.0 # omegaslop
       launchForwardsMultiplier: 3.0
   - type: CleansForensics
   - type: FloorCleaner

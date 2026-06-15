@@ -41,7 +41,6 @@ public sealed partial class CosmicCultComponent : Component
     public HashSet<ProtoId<InfluencePrototype>> UnlockedInfluences =
     [
         "InfluenceAberrantLapse",
-        "InfluenceShuntSubjectivity",
         "InfluenceEschewMetabolism",
     ];
 
@@ -49,7 +48,7 @@ public sealed partial class CosmicCultComponent : Component
     public HashSet<EntProtoId> CosmicCultActions =
     [
         "ActionCosmicSiphon",
-        "ActionCosmicGlare",
+        "ActionCosmicBlank",
     ];
 
     public HashSet<EntityUid?> ActionEntities = [];

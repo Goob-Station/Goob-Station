@@ -16,7 +16,7 @@ public abstract class SharedCurseHolderSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly EntityEffectSystem _effect = default!;
+    [Dependency] private readonly SharedEntityEffectSystem _effect = default!;
 
     public override void Initialize()
     {

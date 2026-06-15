@@ -179,6 +179,9 @@
   abstract: true
   id: GoldRingBase
   components:
+  - type: PhysicalComposition #Goobstation
+    materialComposition:
+      Gold: 200
   - type: StaticPrice
     price: 300
 

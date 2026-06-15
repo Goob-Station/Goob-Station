@@ -15,6 +15,14 @@
     - /Audio/_Goobstation/Voice/Human/fart4.ogg
 
 - type: soundCollection
+  id: SuperFart
+  files:
+    - /Audio/_Goobstation/Voice/Human/fart2-long.ogg
+    - /Audio/_Goobstation/Voice/Human/fart3-long.ogg
+    - /Audio/_Goobstation/Voice/Human/fart4-long.ogg
+    - /Audio/_Goobstation/Voice/Human/parp1-long.ogg
+
+- type: soundCollection
   id: Jump
   files:
     - /Audio/_Goobstation/Voice/sound_items_weapons_thudswoosh.ogg

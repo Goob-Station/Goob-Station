@@ -84,6 +84,7 @@
     bloodMaxVolume: 100
     bloodReagent: Nitrogen # by request
   - type: MeleeWeapon
+    altDisarm: false
     soundHit:
         path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
     angle: 0
@@ -98,6 +99,8 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 2 # same as slime
     baseSprintSpeed : 4
+  - type: Sprinter
+    staminaDrainRate: 27 #fat legs
   - type: Stamina
     critThreshold: 120
   - type: StaminaDamageOnHit # Should consistently stamcrit in 3 hits, 4-5 against sec
@@ -141,8 +144,6 @@
     activateSound: null
     deactivateSound: null
   - type: FlashImmunity
-  - type: ScannableForPoints # NTR update
-    points: 2 # this would be abused so much if i made it more
   - type: Butcherable
     spawned:
     - id: FoodMeatBingle

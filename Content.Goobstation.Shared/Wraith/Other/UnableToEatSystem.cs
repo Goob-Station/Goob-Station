@@ -11,12 +11,12 @@ public sealed class UnableToEatSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<UnableToEatComponent, IngestionAttemptEvent>(OnIngestionAttempt);
+        SubscribeLocalEvent<UnableToEatComponent, AttemptIngestEvent>(OnIngestionAttempt);
     }
 
-    private void OnIngestionAttempt(Entity<UnableToEatComponent> ent, ref IngestionAttemptEvent args)
+    private void OnIngestionAttempt(Entity<UnableToEatComponent> ent, ref AttemptIngestEvent args)
     {
         _popup.PopupEntity(Loc.GetString("curse-rot-cant-eat"), ent.Owner, ent.Owner);
-        args.Cancel();
+        args.Handled = true;
     }
 }

@@ -597,6 +597,9 @@
           - !type:OrganType # Goobstation - Yowie
             type: Yowie
             shouldHave: false
+          - !type:OrganType # Goobstation - XenobioSlime
+            type: XenobioSlime
+            shouldHave: false
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-sick" ]
@@ -613,6 +616,9 @@
           - !type:OrganType # Goobstation - Yowie
             type: Yowie
             shouldHave: false
+          - !type:OrganType # Goobstation - XenobioSlime
+            type: XenobioSlime # slimes shouldn't vomit from blood and raw meat
+            shouldHave: false
       - !type:HealthChange
         conditions:
         - !type:OrganType
@@ -624,6 +630,9 @@
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
+        - !type:OrganType # Goobstation - XenobioSlime
+          type: XenobioSlime
+          shouldHave: false
         damage:
           types:
             Poison: 1
@@ -631,6 +640,12 @@
         conditions:
         - !type:OrganType
           type: Animal
+        reagent: Protein
+        amount: 0.5
+      - !type:AdjustReagent # Goobstation - XenobioSlime
+        conditions:
+        - !type:OrganType
+          type: XenobioSlime
         reagent: Protein
         amount: 0.5
       - !type:AdjustReagent
@@ -649,9 +664,15 @@
   flavor: bitter
   color: "#F2E9D2"
   metabolisms:
-    Poison:
-      metabolismRate: 0.05
+    Medicine: #Goobstation start
+      metabolismRate: 0.25
       effects:
+      - !type:DiseaseProgressChange
+        affectedType: Bacterial
+        progressModifier: -0.01 #1/10th of spacalin
+#    Poison:
+#      metabolismRate: 0.05
+#      effects: Goobstation end
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -660,7 +681,7 @@
           type: Animal
         damage:
           types:
-            Poison: 0.06
+            Poison: 0.1 #goobstation, was 0.06
 
 - type: reagent
   id: Pax
@@ -677,6 +698,10 @@
         component: Pacified
         type: Add
         time: 4
+      - !type:ImmunityModifier #Goobstation
+        gainRateModifier: -0.00111111111111 #double spaceacilin penalty
+        strengthModifier: -0.0088888888888 #ditto
+        statusLifetime: 1.5 # 1.5s per 1u
 
 - type: reagent
   id: Honk
@@ -791,7 +816,7 @@
     Poison:
       effects:
       - !type:Electrocute
-        probability: 0.8
+        probability: 0.5 #goob edit
 
 - type: reagent
   id: Lipolicide

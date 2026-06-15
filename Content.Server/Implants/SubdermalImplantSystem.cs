@@ -95,55 +95,49 @@ using Content.Server.Forensics;
 using Content.Server.Humanoid;
 using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
+using Content.Server.Teleportation;
 using Content.Shared.Cuffs.Components;
+using Content.Shared.Forensics;
+using Content.Shared.Forensics.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Implants;
-using Content.Shared.Implants.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Preferences;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Map;
+using Robust.Shared.Physics;
+using Robust.Shared.Physics.Components;
+using Robust.Shared.Random;
+using System.Numerics;
 using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Movement.Pulling.Systems;
 using Content.Server.IdentityManagement;
 using Content.Shared.DetailExaminable;
 using Content.Shared.DoAfter;
 using Content.Shared.Ensnaring;
 using Content.Shared.Ensnaring.Components;
+using Content.Shared.Implants.Components;
+using Content.Shared.Polymorph;
 using Content.Shared.Store.Components;
 using Content.Shared.Teleportation;
 using Content.Shared.Stunnable;
-using Content.Goobstation.Shared.Teleportation.Systems;
-using Content.Shared.Polymorph;
 
 namespace Content.Server.Implants;
-
 public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
 {
-    [Dependency] private readonly CuffableSystem _cuffable = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoidAppearance = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly ForensicsSystem _forensicsSystem = default!;
-    [Dependency] private readonly IdentitySystem _identity = default!;
-    [Dependency] private readonly SharedRandomTeleportSystem _teleportSys = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-
-
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<SubdermalImplantComponent, UseFreedomImplantEvent>(OnFreedomImplant);
         SubscribeLocalEvent<StoreComponent, ImplantRelayEvent<AfterInteractUsingEvent>>(OnStoreRelay);
-        SubscribeLocalEvent<SubdermalImplantComponent, ActivateImplantEvent>(OnActivateImplantEvent);
-        SubscribeLocalEvent<SubdermalImplantComponent, UseScramImplantEvent>(OnScramImplant);
-        SubscribeLocalEvent<SubdermalImplantComponent, UseDnaScramblerImplantEvent>(OnDnaScramblerImplant);
 
         SubscribeLocalEvent<ImplantedComponent, PolymorphedEvent>(OnPolymorphed); // goob edit
     }
 
+    // todo goobstation move this to goobmod probably
     // goob edit - implants now transfer on polymorph
     private void OnPolymorphed(Entity<ImplantedComponent> ent, ref PolymorphedEvent args)
     {
@@ -158,6 +152,7 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
         }
     }
     // goob edit end
+
 
     private void OnStoreRelay(EntityUid uid, StoreComponent store, ImplantRelayEvent<AfterInteractUsingEvent> implantRelay)
     {
@@ -180,79 +175,5 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
         args.Handled = true;
         var msg = Loc.GetString("store-currency-inserted-implant", ("used", args.Used));
         _popup.PopupEntity(msg, args.User, args.User);
-    }
-
-    // Heavily edited by goobstation to make freedom useful
-    private void OnFreedomImplant(EntityUid uid, SubdermalImplantComponent component, UseFreedomImplantEvent args)
-    {
-        if (component.ImplantedEntity == null)
-            return;
-
-        var user = component.ImplantedEntity.Value;
-
-        if (TryComp<CuffableComponent>(user, out var cuffs) && cuffs.Container.ContainedEntities.Count > 0)
-        {
-            _cuffable.Uncuff(user, cuffs.LastAddedCuffs, cuffs.LastAddedCuffs);
-            args.Handled = true;
-        }
-
-        if (TryComp<PullableComponent>(user, out var pullable) && pullable.Puller.HasValue)
-        {
-            _stun.TryParalyze(pullable.Puller.Value, TimeSpan.FromSeconds(args.StunTime), true);
-            args.Handled = true;
-        }
-
-        if (TryComp<EnsnareableComponent>(user, out var ensnareable) && ensnareable.Container.ContainedEntities.Count > 0)
-        {
-            var bola = ensnareable.Container.ContainedEntities[0];
-            // Yes this is dumb, but trust me this is the best way to do this. Bola code is fucking awful.
-            _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, 0, new EnsnareableDoAfterEvent(), user, user, bola));
-            _transform.DropNextTo(bola, user);
-            args.Handled = true;
-        }
-    }
-
-    private void OnActivateImplantEvent(EntityUid uid, SubdermalImplantComponent component, ActivateImplantEvent args)
-    {
-        args.Handled = true;
-    }
-
-    // Goobstation - Actually fix scram implant (#759)
-    private void OnScramImplant(EntityUid uid, SubdermalImplantComponent component, UseScramImplantEvent args)
-    {
-        if (component.ImplantedEntity is not { } ent)
-            return;
-
-        if (!TryComp<RandomTeleportComponent>(uid, out var teleport))
-            return;
-
-        if (!_teleportSys.RandomTeleport(ent, teleport))
-            return;
-
-        args.Handled = true;
-    }
-
-    private void OnDnaScramblerImplant(EntityUid uid, SubdermalImplantComponent component, UseDnaScramblerImplantEvent args)
-    {
-        if (component.ImplantedEntity is not { } ent)
-            return;
-
-        if (TryComp<HumanoidAppearanceComponent>(ent, out var humanoid))
-        {
-            var newProfile = HumanoidCharacterProfile.RandomWithSpecies(humanoid.Species);
-            _humanoidAppearance.LoadProfile(ent, newProfile, humanoid);
-            _metaData.SetEntityName(ent, newProfile.Name, raiseEvents: false); // raising events would update ID card, station record, etc.
-
-            // If the entity has the respecive components, then scramble the dna and fingerprint strings
-            _forensicsSystem.RandomizeDNA(ent);
-            _forensicsSystem.RandomizeFingerprint(ent);
-
-            RemComp<DetailExaminableComponent>(ent); // remove MRP+ custom description if one exists
-            _identity.QueueIdentityUpdate(ent); // manually queue identity update since we don't raise the event
-            _popup.PopupEntity(Loc.GetString("scramble-implant-activated-popup"), ent, ent);
-        }
-
-        args.Handled = true;
-        QueueDel(uid);
     }
 }

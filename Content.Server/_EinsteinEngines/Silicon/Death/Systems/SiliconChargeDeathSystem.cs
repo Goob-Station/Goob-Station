@@ -13,11 +13,13 @@ using Content.Shared.Humanoid;
 using Content.Shared.StatusEffectNew;
 // Goobstation Start - Energycrit
 using Content.Goobstation.Shared.Sprinting;
+using Content.Server.Popups;
 using Content.Server.Radio;
 using Content.Shared._EinsteinEngines.Silicon.Death;
 using Content.Shared.Actions;
 using Content.Shared.CombatMode;
 using Content.Shared.Interaction.Components;
+using Content.Shared.Popups;
 using Content.Shared.Standing;
 using Content.Shared.Stunnable;
 // Goobstation End - Energycrit
@@ -34,6 +36,8 @@ public sealed class SiliconDeathSystem : SharedSiliconDeathSystem
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
     // Goobstation End - Energycrit
 
     public override void Initialize()
@@ -44,7 +48,7 @@ public sealed class SiliconDeathSystem : SharedSiliconDeathSystem
 
         // Goobstation Start - Energycrit
         SubscribeLocalEvent<SiliconDownOnDeadComponent, RadioSendAttemptEvent>(OnRadioSendAttempt);
-        SubscribeLocalEvent<SiliconDownOnDeadComponent, StandAttemptEvent>(OnStandAttempt);
+        SubscribeLocalEvent<SiliconDownOnDeadComponent, StandUpAttemptEvent>(OnStandAttempt);
         // Goobstation End - Energycrit
     }
 
@@ -83,14 +87,16 @@ public sealed class SiliconDeathSystem : SharedSiliconDeathSystem
     ///     Some actions, like picking up an IPC and carrying it remove the KnockedDownComponent, if they try to stand when they
     ///     shouldn't, just knock them down again
     /// </summary>
-    private void OnStandAttempt(Entity<SiliconDownOnDeadComponent> ent, ref StandAttemptEvent args)
+    private void OnStandAttempt(Entity<SiliconDownOnDeadComponent> ent, ref StandUpAttemptEvent args)
     {
         // Prevent standing up if discharged
         if (args.Cancelled || !ent.Comp.Dead)
             return;
 
-        EnsureComp<KnockedDownComponent>(ent);
-        args.Cancel();
+        // todo goobstation ftl this and refactor this fucking mess.
+        _popup.PopupEntity("Without charge, you don't have the strength to stand up",ent.Owner, PopupType.SmallCaution);
+        args.Autostand = false;
+        args.Cancelled = true;
     }
 
     private void SiliconDead(EntityUid uid, SiliconDownOnDeadComponent siliconDeadComp, BatteryComponent? batteryComp, EntityUid batteryUid)
@@ -100,6 +106,10 @@ public sealed class SiliconDeathSystem : SharedSiliconDeathSystem
 
         if (deadEvent.Cancelled)
             return;
+
+        // Knock down
+        if (!TryComp<CrawlerComponent>(uid, out var crawler))
+            return; // unless they cant.
 
         // Goobstation Start - Energycrit
 
@@ -123,9 +133,8 @@ public sealed class SiliconDeathSystem : SharedSiliconDeathSystem
             _actions.SetEnabled(combatMode.CombatToggleActionEntity, false);
         }
 
-        // Knock down
         _standing.Down(uid);
-        EnsureComp<KnockedDownComponent>(uid);
+        _stun.TryCrawling((uid, crawler), autoStand:false);
 
         if (TryComp(uid, out HumanoidAppearanceComponent? humanoidAppearanceComponent))
         {
@@ -167,7 +176,7 @@ public sealed class SiliconDeathSystem : SharedSiliconDeathSystem
             _actions.SetEnabled(combatMode.CombatToggleActionEntity, true);
 
         // Let you stand again
-        RemComp<KnockedDownComponent>(uid);
+        _standing.Stand(uid, force: true);
 
         // Update component
         siliconDeadComp.Dead = false;

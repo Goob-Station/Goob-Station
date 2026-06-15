@@ -54,7 +54,7 @@ public sealed class ReactiveSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly EntityEffectSystem _effects = default!; // goob edit
+    [Dependency] private readonly SharedEntityEffectSystem _effects = default!; // goob edit
 
     public void DoEntityReaction(EntityUid uid, Solution solution, ReactionMethod method)
     {

@@ -7,13 +7,16 @@ using Content.Shared.Body.Organ;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Humanoid;
 using Content.Shared.Popups;
+using Content.Shared.Stunnable;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
 
 public partial class TraumaSystem
 {
     private const string OrganDamagePainIdentifier = "OrganDamage";
+    public static readonly EntProtoId OrgansDamagedSlowdown = "OrgansDamagedSlowdownEffect";
 
     private void InitOrgans()
     {
@@ -95,13 +98,13 @@ public partial class TraumaSystem
                 nerveSys.Value.Comp.OrganDestructionReflexSounds[sex],
                 AudioParams.Default.WithVolume(6f));
 
-            _stun.TryParalyze(body.Value, nerveSys.Value.Comp.OrganDamageStunTime, true);
-            _stun.TrySlowdown(
-                body.Value,
-                nerveSys.Value.Comp.OrganDamageStunTime * _cfg.GetCVar(SurgeryCVars.OrganTraumaSlowdownTimeMultiplier),
-                true,
-                _cfg.GetCVar(SurgeryCVars.OrganTraumaWalkSpeedSlowdown),
-                _cfg.GetCVar(SurgeryCVars.OrganTraumaRunSpeedSlowdown));
+            _stun.TryUpdateParalyzeDuration(body.Value, nerveSys.Value.Comp.OrganDamageStunTime);
+            _movementMod.TryUpdateMovementSpeedModDuration(
+                 body.Value,
+                 OrgansDamagedSlowdown,
+                 nerveSys.Value.Comp.OrganDamageStunTime * _cfg.GetCVar(SurgeryCVars.OrganTraumaSlowdownTimeMultiplier),
+                 _cfg.GetCVar(SurgeryCVars.OrganTraumaWalkSpeedSlowdown),
+                 _cfg.GetCVar(SurgeryCVars.OrganTraumaRunSpeedSlowdown));
         }
 
         if (TryGetWoundableTrauma(bodyPart, out var traumas, TraumaType.OrganDamage, bodyPart))

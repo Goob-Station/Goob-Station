@@ -10,10 +10,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Server.Station.Components;
 using Content.Shared.Cargo;
 using Content.Shared.Cargo.Components;
 using Content.Shared.Cargo.Prototypes;
+using Content.Shared.Station.Components;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Cargo.Components;

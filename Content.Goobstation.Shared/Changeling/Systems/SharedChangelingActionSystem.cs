@@ -1,12 +1,11 @@
 using Content.Goobstation.Shared.Changeling.Components;
-using Content.Shared.Actions.Components;
 using Content.Shared.Actions.Events;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Popups;
 
 namespace Content.Goobstation.Shared.Changeling.Systems;
 
-public sealed class SharedChanglingActionSystem : EntitySystem
+public abstract class SharedChanglingActionSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 

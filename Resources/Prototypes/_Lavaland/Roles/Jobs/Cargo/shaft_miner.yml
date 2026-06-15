@@ -24,9 +24,9 @@
 - type: startingGear
   id: ShaftMinerGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitShaftMiner
+## Goob comment out - jumpsuit: ClothingUniformJumpsuitShaftMiner
     id: MinerPDA
-    ears: ClothingHeadsetCargo
+    ears: ClothingHeadsetMining
   storage:
     back:
     - MiningVoucher

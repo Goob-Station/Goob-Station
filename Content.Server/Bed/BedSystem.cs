@@ -82,6 +82,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Server.Power.EntitySystems;
+using Content.Shared.Bed;
+using Content.Shared.Bed.Components;
+using Content.Shared.Bed.Sleep;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Events;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Damage;
 using Content.Shared.Mobs.Systems;

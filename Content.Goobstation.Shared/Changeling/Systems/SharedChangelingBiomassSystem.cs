@@ -34,7 +34,6 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
 
     private EntityQuery<AbsorbedComponent> _absorbQuery;
     private EntityQuery<BloodstreamComponent> _bloodQuery;
-    private EntityQuery<ChangelingIdentityComponent> _lingQuery;
     private EntityQuery<InternalResourcesComponent> _resourceQuery;
 
     public override void Initialize()
@@ -50,7 +49,6 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
 
         _absorbQuery = GetEntityQuery<AbsorbedComponent>();
         _bloodQuery = GetEntityQuery<BloodstreamComponent>();
-        _lingQuery = GetEntityQuery<ChangelingIdentityComponent>();
         _resourceQuery = GetEntityQuery<InternalResourcesComponent>();
     }
 
@@ -60,6 +58,8 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
 
         if (data != null)
             ent.Comp.ResourceData = data;
+
+        Dirty(ent);
     }
 
     private void OnShutdown(Entity<ChangelingBiomassComponent> ent, ref ComponentShutdown args)
@@ -86,19 +86,19 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
 
             case "Second":
 
-                _stun.TryStun(ent, ent.Comp.SecondWarnStun, false);
-                DoPopup(ent, ent.Comp.SecondWarnPopup, PopupType.MediumCaution);
+            _stun.TryUpdateStunDuration(ent, ent.Comp.SecondWarnStun);
+            DoPopup(ent, ent.Comp.SecondWarnPopup, PopupType.MediumCaution);
 
                 break;
 
             case "Third":
 
-                _stun.TryStun(ent, ent.Comp.ThirdWarnStun, false);
+            _stun.TryUpdateStunDuration(ent, ent.Comp.ThirdWarnStun);
 
                 if (!_blood.TryModifyBloodLevel(ent.Owner, -ent.Comp.BloodCoughAmount)
                     || !_bloodQuery.TryComp(ent, out var bloodComp))
                 {
-                    _stun.TryKnockdown(ent, ent.Comp.ThirdWarnStun, false); // knockdown if there isnt any blood to cough up
+                    _stun.TryKnockdown(ent.Owner, ent.Comp.ThirdWarnStun, false); // knockdown if there isnt any blood to cough up
                     return;
                 }
 
@@ -138,9 +138,7 @@ public abstract class SharedChangelingBiomassSystem : EntitySystem
 
     private void OnRejuvenate(Entity<ChangelingBiomassComponent> ent, ref RejuvenateEvent args)
     {
-        if (ent.Comp.ResourceData == null
-            || _lingQuery.TryComp(ent, out var ling)
-            && ling.IsInStasis)
+        if (ent.Comp.ResourceData == null)
             return;
 
         _resource.TryUpdateResourcesAmount(ent, ent.Comp.ResourceData, ent.Comp.ResourceData.MaxAmount);

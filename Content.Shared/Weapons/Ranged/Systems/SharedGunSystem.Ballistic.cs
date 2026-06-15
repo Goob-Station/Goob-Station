@@ -394,6 +394,27 @@ public abstract partial class SharedGunSystem
         UpdateAmmoCount(entity.Owner);
         Dirty(entity);
     }
+
+    /// <summary>
+    /// Goobstation - Clears all existing ammo and refills to capacity with unspawned rounds.
+    /// </summary>
+    public void RefillBallisticAmmo(Entity<BallisticAmmoProviderComponent> entity)
+    {
+        if (entity.Comp.Proto == null)
+            return;
+
+        foreach (var ent in entity.Comp.Entities)
+        {
+            Containers.Remove(ent, entity.Comp.Container);
+            QueueDel(ent);
+        }
+
+        entity.Comp.Entities.Clear();
+        entity.Comp.UnspawnedCount = entity.Comp.Capacity;
+        UpdateBallisticAppearance(entity.Owner, entity.Comp);
+        UpdateAmmoCount(entity.Owner);
+        Dirty(entity);
+    }
 }
 
 /// <summary>

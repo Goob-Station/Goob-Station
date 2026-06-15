@@ -8,7 +8,7 @@ namespace Content.Shared.EntityEffects;
 
 // this should've been done a long time ago ngl.
 // also lowkey this is not worth the goobstation folder so i'll just leave it here.
-public sealed partial class EntityEffectSystem : EntitySystem
+public sealed partial class SharedEntityEffectSystem : EntitySystem
 {
     public struct EntityEffectQueueEntry
     {

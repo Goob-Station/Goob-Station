@@ -196,9 +196,9 @@
   - type: Sprite
     layers:
     - state: icon-base
-      color: "#c99840"
+      color: "#b7793d" # Goob
     - state: icon-base-top
-      color: "#aaaaaa"
+      color: "#494b4e" # Goob
     - state: icon-sling
       color: "#776756"
     - state: icon-clasp

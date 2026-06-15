@@ -1,0 +1,17 @@
+- type: marking
+  id: dogTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Human, Dwarf]
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/dog_markings.rsi
+      state: dog_tail_standard
+
+- type: marking
+  id: dogTailWag
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Human, Dwarf]
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/dog_markings.rsi
+      state: dog_tail_animated

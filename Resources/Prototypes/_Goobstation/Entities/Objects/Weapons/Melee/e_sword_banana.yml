@@ -57,7 +57,7 @@
       malus: 0
     - type: KnockdownOnHit
       duration: 0.2
-      dropHeldItemsBehavior: DropIfStanding # Goob edit
+      dropItems: true # Goob edit
     - type: TelescopicBaton
     - type: MeleeWeapon
       wideAnimationRotation: -135

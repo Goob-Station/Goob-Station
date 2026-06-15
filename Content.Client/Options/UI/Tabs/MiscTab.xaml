@@ -48,6 +48,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                 <Label Text="{Loc 'ui-options-preferences'}"
                        StyleClasses="LabelKeyText"/>
                 <CheckBox Name="AutoFocusSearchOnBuildMenuCheckBox" Text="{Loc 'ui-options-auto-focus-search-on-build-menu'}" />
+                <CheckBox Name="LockActionBarDragCheckBox" Text="{Loc 'ui-options-lock-action-bar-drag'}" />
                 <!-- Goobstation Edit End -->
                 <!-- <CheckBox Name="ToggleWalk" Text="{Loc 'ui-options-hotkey-toggle-walk'}" /> -->
             </BoxContainer>

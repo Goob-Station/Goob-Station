@@ -1,0 +1,75 @@
+
+# we could keep the same ids but im putting FSE before every itemid for the sake of clarity. i recommend you do too
+
+- type: foodSequenceElement
+  id: FSE_OrganShadowkinStomach
+  name: food-sequence-content-stomach
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Shadowkin/organs.rsi
+    state: stomach
+  tags:
+  - Meat
+  - Organ
+  - Stomach
+
+- type: foodSequenceElement
+  id: FSE_OrganShadowkinLiver
+  name: food-sequence-content-liver
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Shadowkin/organs.rsi
+    state: liver
+  tags:
+  - Meat
+  - Organ
+  - Stomach
+
+- type: foodSequenceElement
+  id: FSE_FoodFreedomCheeseSlice
+  name: food-sequence-content-cheese
+  sprites:
+  - sprite: _Goobstation/Objects/Consumable/Food/freedom_cheese.rsi
+    state: cheese_slice_burger
+  tags:
+  - Slice
+
+- type: foodSequenceElement
+  id: FSE_FoodMeatVoxFried
+  name: food-sequence-content-cheese
+  sprites:
+  - sprite: Objects/Consumable/Food/meat.rsi
+    state: chicken-fried
+  tags:
+  - Cooked
+  - Meat
+
+- type: foodSequenceElement
+  id: FSE_FoodMeatVoxFriedSkewer
+  name: food-sequence-content-chicken
+  sprites:
+  - sprite: Objects/Consumable/Food/skewer.rsi
+    state: skewer-meat
+  tags:
+  - Cooked
+  - Meat
+
+- type: foodSequenceElement
+  id: FSE_FoodMeatSynth
+  name: food-sequence-burger-content-rotten
+  sprites:
+  - sprite: Objects/Consumable/Food/meat.rsi
+    state: bear
+
+- type: foodSequenceElement
+  id: FSE_Mango
+  name: food-sequence-content-mango
+  sprites:
+  - sprite: _RMC14/Objects/Kitchen/Plants/mango.rsi
+    state: produce
+
+- type: foodSequenceElement
+  id: FSE_MangoBurger
+  name: food-sequence-burger-content-mango
+  sprites:
+  - sprite: _RMC14/Objects/Kitchen/Plants/mango.rsi
+    state: produce
+

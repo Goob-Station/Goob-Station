@@ -555,6 +555,7 @@
     - VimPilot
   - type: StealTarget
     stealGroup: AnimalMcGriff
+  - type: MessyDrinker
 
 - type: entity
   name: Paperwork
@@ -661,6 +662,7 @@
   - type: Speech
     speechVerb: Canine
     speechSounds: Dog
+  - type: MessyDrinker
 
 - type: entity
   name: Morty
@@ -887,6 +889,11 @@
     understands:
     - Mouse
     - TauCetiBasic
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-hamlet
+    stampedColor: "#1c1c1c"
+    stampState: "paper_stamp-hamster"
+    stampLargeIcon: "large_stamp-hamster"
 
 - type: entity
   name: Shiva

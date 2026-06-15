@@ -18,6 +18,8 @@ namespace Content.Goobstation.Shared.Religion;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class WeakToHolyComponent : Component
 {
+    public override bool SessionSpecific => true;
+
     /// <summary>
     /// Should this entity take holy damage no matter what?
     /// </summary>

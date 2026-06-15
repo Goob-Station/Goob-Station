@@ -62,7 +62,7 @@ public sealed partial class GoobBibleSystem : EntitySystem
             _popupSystem.PopupPredicted(popup, target, performer, PopupType.LargeCaution);
             _audio.PlayPvs(bibleComp.SizzleSoundPath, target);
             _damageableSystem.TryChangeDamage(target, bibleComp.SmiteDamage * multiplier, true, origin: bible, targetPart: TargetBodyPart.All, ignoreBlockers: true);
-            _stun.TryParalyze(target, bibleComp.SmiteStunDuration * multiplier, false);
+            _stun.TryUpdateParalyzeDuration(target, bibleComp.SmiteStunDuration * multiplier);
             _delay.TryResetDelay((bible, useDelay));
         }
         else if (isDevil && HasComp<BibleUserComponent>(performer))

@@ -268,7 +268,7 @@
       showInHands: true
     - type: BlobObserver
     - type: Visibility
-      layer: 2
+      layer: 2 # Ghost visflag
     - type: ContentEye
     - type: MindContainer
     - type: Clickable

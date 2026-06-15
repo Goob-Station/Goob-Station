@@ -53,15 +53,16 @@
     - state: cottonbun_bottom
     - map: ["foodSequenceLayers"]
   - type: FoodSequenceStartPoint
-    key: cotton_burger
+    key: CottonBurger
     acceptAll: true
-    maxLayers: 15 #fixed aineias crashing admins
+    maxLayers: 12 #fixed aineias crashing admins # Upstreamer edit i lowered this cause new burger is ass
     startPosition: 0, 0
     offset: 0, 0.07
     minLayerOffset: -0.05, 0
     maxLayerOffset: 0.05, 0
     nameGeneration: food-sequence-cotton-burger-gen
   - type: Appearance
+  - type: FoodMetamorphableByAdding
   - type: SolutionContainerManager
     solutions:
       food:
@@ -100,12 +101,8 @@
         - ReagentId: Fiber
           Quantity: 1.665
   - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/cottonburger.rsi
-      state: cottonbun_top
     entries:
-      cotton_burger:
-        final: true
+      CottonBurger: CottonBunTopBurger
   - type: Tag
     tags:
     - ClothMade

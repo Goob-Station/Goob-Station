@@ -49,8 +49,8 @@
     sprite: _Goobstation/Objects/Weapons/Bombs/Molotov.rsi
     layers:
     - state: lit
-  - type: ActiveTimerTrigger
-    timeRemaining: 10
+  - type: TimerTrigger
+    delay: 10
   - type: Item
     sprite: _Goobstation/Objects/Weapons/Bombs/Molotov.rsi
   - type: Explosive

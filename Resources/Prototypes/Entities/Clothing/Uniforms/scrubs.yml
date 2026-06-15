@@ -6,34 +6,34 @@
 # SPDX-License-Identifier: MIT
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase] # Goob
   id: UniformScrubsColorPurple
   name: purple scrubs
   description: A combination of comfort and utility intended to make removing every last organ someone has and selling them to a space robot much more official looking.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Scrubs/purple.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Scrubs/purple.rsi # Goob
   - type: Clothing
-    sprite: Clothing/Uniforms/Scrubs/purple.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Scrubs/purple.rsi # Goob
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase] # Goob
   id: UniformScrubsColorGreen
   name: green scrubs
   description: A combination of comfort and utility intended to make removing every last organ someone has and selling them to a space robot much more official looking.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Scrubs/green.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Scrubs/green.rsi # Goob
   - type: Clothing
-    sprite: Clothing/Uniforms/Scrubs/green.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Scrubs/green.rsi # Goob
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase] # Goob
   id: UniformScrubsColorBlue
   name: blue scrubs
   description: A combination of comfort and utility intended to make removing every last organ someone has and selling them to a space robot much more official looking.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Scrubs/blue.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Scrubs/blue.rsi # Goob
   - type: Clothing
-    sprite: Clothing/Uniforms/Scrubs/blue.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Scrubs/blue.rsi # Goob

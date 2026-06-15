@@ -7,6 +7,8 @@
 
 using Content.Shared.Atmos;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared._Shitcode.Heretic.SpriteOverlay;
+using Content.Shared.Damage;
 using Content.Shared.Physics;
 using Robust.Shared.GameStates;
 using Robust.Shared.Physics;
@@ -17,7 +19,7 @@ using Robust.Shared.Utility;
 namespace Content.Shared._Goobstation.Wizard.Traps;
 
 [RegisterComponent, NetworkedComponent]
-public sealed partial class IceCubeComponent : Component
+public sealed partial class IceCubeComponent : BaseSpriteOverlayComponent
 {
     [ViewVariables(VVAccess.ReadOnly)]
     public BodyType? OldBodyType = null;
@@ -50,7 +52,10 @@ public sealed partial class IceCubeComponent : Component
     public float SustainedDamageMeltProbabilityMultiplier = 4f;
 
     [DataField]
-    public float DamageMeltProbabilityThreshold = 20f;
+    public float StaminaDamageMeltProbabilityMultiplier = 5f;
+
+    [DataField]
+    public float DamageMeltProbabilityThreshold = 60f;
 
     [DataField]
     public float SustainedDamage;
@@ -65,8 +70,22 @@ public sealed partial class IceCubeComponent : Component
     public TimeSpan BreakFreeDelay = TimeSpan.FromSeconds(10);
 
     [DataField]
-    public SpriteSpecifier Sprite =
+    public DamageModifierSet DamageReduction = new()
+    {
+        Coefficients =
+        {
+            { "Blunt", 0.35f },
+            { "Slash", 0.35f },
+            { "Piercing", 0.35f },
+        },
+    };
+
+    public override Enum Key { get; set; } = IceCubeKey.Key;
+
+    public override SpriteSpecifier? Sprite { get; set; } =
         new SpriteSpecifier.Rsi(new ResPath("_Goobstation/Wizard/Effects/effects.rsi"), "ice_cube");
+
+    public override bool Unshaded { get; set; } = false;
 }
 
 public enum IceCubeKey : byte

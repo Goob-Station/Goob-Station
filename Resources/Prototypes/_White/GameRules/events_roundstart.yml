@@ -9,6 +9,9 @@
     objectives:
     - XenomorphSurviveObjective
   - type: XenomorphsRule # Goobstation - Required for Evolution Logic
+    xenomorphInfestationSound:
+      collection: xeno_start
+      volume: -2
   - type: VentSpawnRule
   - type: AntagSpawner
     prototype: MobXenomorphLarva

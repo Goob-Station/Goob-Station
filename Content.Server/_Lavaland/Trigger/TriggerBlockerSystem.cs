@@ -1,4 +1,5 @@
 ﻿using Content.Server.Explosion.EntitySystems;
+using Content.Shared.Trigger;
 using Content.Shared.Whitelist;
 
 namespace Content.Server._Lavaland.Trigger;
@@ -11,10 +12,10 @@ public sealed class TriggerBlockerSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<TriggerBlockerComponent, BeforeTriggerEvent>(OnTrigger);
+        SubscribeLocalEvent<TriggerBlockerComponent, AttemptTriggerEvent>(OnTrigger);
     }
 
-    private void OnTrigger(Entity<TriggerBlockerComponent> ent, ref BeforeTriggerEvent args)
+    private void OnTrigger(Entity<TriggerBlockerComponent> ent, ref AttemptTriggerEvent args)
     {
         if (args.Cancelled)
             return;
@@ -26,6 +27,6 @@ public sealed class TriggerBlockerSystem : EntitySystem
             || _whitelist.IsBlacklistFail(ent.Comp.MapBlacklist, map.Value))
             return;
 
-        args.Cancel();
+        args.Cancelled = true;
     }
 }

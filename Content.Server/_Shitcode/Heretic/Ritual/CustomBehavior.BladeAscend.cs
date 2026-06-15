@@ -26,8 +26,11 @@ public sealed partial class RitualBladeAscendBehavior : RitualSacrificeBehavior
         var beheadedBodies = new List<EntityUid>();
         foreach (var uid in uids)
         {
-            if (_body.GetBodyChildrenOfType(uid, BodyPartType.Head).Count() == 0)
+            if (!_body.GetBodyChildrenOfType(uid, BodyPartType.Head).Any())
                 beheadedBodies.Add(uid);
+
+            if (beheadedBodies.Count >= Max)
+                break;
         }
 
         if (beheadedBodies.Count < Min)
