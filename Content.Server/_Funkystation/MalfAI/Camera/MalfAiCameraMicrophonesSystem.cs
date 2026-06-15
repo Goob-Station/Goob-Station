@@ -17,9 +17,9 @@ using static Content.Server.Chat.Systems.ChatSystem;
 namespace Content.Server._Funkystation.MalfAI.Camera;
 
 /// <summary>
-/// Server-side logic for the Malf AI "Camera Microphones" upgrade:
+/// Malf AI Camera Microphones upgrade:
 /// relays local IC chat to the Malf AI when both the speaker is within voice range
-/// of a microphone-equipped camera and the AI eye is near that same camera.
+/// of a camera and the AI eye is near that same camera.
 /// </summary>
 public sealed class MalfAiCameraMicrophonesSystem : EntitySystem
 {
@@ -41,11 +41,10 @@ public sealed class MalfAiCameraMicrophonesSystem : EntitySystem
         if (args.Handled)
             return;
 
-        ent.Comp.EnabledDesired = !ent.Comp.EnabledDesired;
-        ent.Comp.EnabledEffective = ent.Comp.EnabledDesired;
+        ent.Comp.Active = !ent.Comp.Active;
         Dirty(ent);
 
-        var key = ent.Comp.EnabledDesired ? "malfai-camera-microphones-enabled" : "malfai-camera-microphones-disabled";
+        var key = ent.Comp.Active ? "malfai-camera-microphones-enabled" : "malfai-camera-microphones-disabled";
         _popup.PopupCursor(Loc.GetString(key), ent.Owner);
         args.Handled = true;
     }
@@ -54,11 +53,7 @@ public sealed class MalfAiCameraMicrophonesSystem : EntitySystem
     {
         _actions.AddAction(ent.Owner, "ActionMalfAiToggleCameraMicrophones");
 
-        // Ensure the per-AI microphones component exists and mark it enabled by default.
-        var comp = EnsureComp<MalfAiCameraMicrophonesComponent>(ent.Owner);
-        comp.EnabledDesired = true;
-        comp.EnabledEffective = true;
-        Dirty(ent.Owner, comp);
+        EnsureComp<MalfAiCameraMicrophonesComponent>(ent.Owner);
     }
 
     private void OnExpandRecipients(ExpandICChatRecipientsEvent ev)
@@ -78,7 +73,7 @@ public sealed class MalfAiCameraMicrophonesSystem : EntitySystem
         var aiQuery = EntityQueryEnumerator<MalfAiMarkerComponent, StationAiHeldComponent, MalfAiCameraMicrophonesComponent, TransformComponent>();
         while (aiQuery.MoveNext(out var aiUid, out _, out _, out var micComp, out _))
         {
-            if (!micComp.EnabledEffective)
+            if (!micComp.Active)
                 continue;
 
             // Resolve the AI eye (remote entity of the holding core).
@@ -92,10 +87,9 @@ public sealed class MalfAiCameraMicrophonesSystem : EntitySystem
             var eyePos = _xforms.GetWorldPosition(eyeXform, xformQuery);
 
             // Find cameras where BOTH the speaker AND the AI eye are in range of the SAME camera.
+            var heardByCamera = false;
             var minRangeToSource = float.MaxValue;
-            var any = false;
 
-            // Most cameras have no SurveillanceCameraMicrophone component, so any active camera can listen.
             var camEnum = EntityQueryEnumerator<SurveillanceCameraComponent, TransformComponent>();
             while (camEnum.MoveNext(out _, out var camComp, out var camXform))
             {
@@ -113,15 +107,14 @@ public sealed class MalfAiCameraMicrophonesSystem : EntitySystem
                 if (srcDist > voiceRange)
                     continue;
 
-                any = true;
-                if (srcDist < minRangeToSource)
-                    minRangeToSource = srcDist;
+                heardByCamera = true;
+                minRangeToSource = MathF.Min(minRangeToSource, srcDist);
             }
 
-            if (!any)
+            if (!heardByCamera)
                 continue;
 
-            // Add the AI player's session as a recipient once.
+            // Add the AI player's session as a recipient.
             if (TryComp<ActorComponent>(aiUid, out var actor))
             {
                 ev.Recipients.TryAdd(actor.PlayerSession, new ICChatRecipientData(minRangeToSource, false));

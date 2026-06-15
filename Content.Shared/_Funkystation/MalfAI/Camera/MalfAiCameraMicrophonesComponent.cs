@@ -14,12 +14,15 @@ namespace Content.Shared._Funkystation.MalfAI.Camera;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class MalfAiCameraMicrophonesComponent : Component
 {
+    /// <summary>
+    /// Whether the upgrade is currently listening. Toggled by the AI's action.
+    /// </summary>
     [DataField, AutoNetworkedField]
-    public bool EnabledDesired;
+    public bool Active = true;
 
-    [DataField, AutoNetworkedField]
-    public bool EnabledEffective;
-
+    /// <summary>
+    /// Distance the AI eye must be within of a camera for it to relay chat.
+    /// </summary>
     [DataField]
-    public float RadiusTiles = 5.0f;
+    public float RadiusTiles = 6.0f;
 }
