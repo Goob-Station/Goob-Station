@@ -37,3 +37,15 @@
     iconOn: { sprite : _EinsteinEngines/Interface/Actions/flight.rsi, state: flight_on }
   - type: InstantAction
     event: !type:ToggleFlightEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionEyeZoom
+  name: Bird's Eye
+  description: Look further away!
+  components:
+  - type: Action
+    icon: _Impstation/Interface/Emotes/BirdEye.png
+    useDelay: 0.5
+  - type: InstantAction
+    event: !type:CursorOffsetActionEvent

@@ -26,9 +26,9 @@
 - type: damageModifierSet
   id: Harpy
   coefficients:
-    Blunt: 1.15
+    Blunt: 1.30
     Slash: 1.15
-    Piercing: 1.15
+    Piercing: 1.20
   ignoreArmorPierceFlags: All # Goobstation
 
 - type: damageModifierSet

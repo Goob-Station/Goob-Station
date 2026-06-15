@@ -49,3 +49,17 @@
      - Meat
      - Organ
      - Lungs
+
+- type: entity
+  parent: OrganHumanEyes
+  id: OrganHarpyEyes
+  name: Harpy eyes
+  description: They seem as if they're looking at something far away...
+  components:
+  - type: Organ
+    onAdd:
+    - type: EyeCursorOffset
+      maxOffset: 3
+      pvsIncrease: 0.5
+      enabled: false
+    - type: CursorOffsetAction
