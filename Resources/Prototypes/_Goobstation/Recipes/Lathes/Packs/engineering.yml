@@ -38,3 +38,11 @@
   id: ConstructionBagOfHolding
   recipes:
   - ConstructionBagOfHolding
+
+- type: latheRecipePack
+  id: ModsuitEngineering
+  categories:
+   - Modsuit
+  recipes:
+   -  ModsuitPlatingEngineering
+   -  ModsuitPlatingAtmostech

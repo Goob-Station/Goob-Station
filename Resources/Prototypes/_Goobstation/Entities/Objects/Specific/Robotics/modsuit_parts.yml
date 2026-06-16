@@ -133,7 +133,7 @@
           shell-secured: { state: shell-secured }
 
 - type: entity
-  id: ModsuitPlatingExternal
+  id: ModsuitPlatingExternal #sci fab
   parent: PartModsuit
   name: MOD standard external plating
   description: A part used in MOD construction.
@@ -153,7 +153,7 @@
     - ModsuitPlatingExternal
 
 - type: entity
-  id: ModsuitPlatingParamedic
+  id: ModsuitPlatingParamedic #medfab
   parent: PartModsuit
   name: MOD standard paramedic 'sanitater' plating
   description: A part used in MOD construction.
@@ -170,10 +170,10 @@
   - type: Tag
     tags:
     - ModsuitPart
-    - ModsuitPlatingExternal # Change this when they become obtainable
+    - ModsuitPlatingParamedic 
 
 - type: entity
-  id: ModsuitPlatingEngineer
+  id: ModsuitPlatingEngineer #engiefab
   parent: PartModsuit
   name: MOD standard engineer 'sapper' plating
   description: A part used in MOD construction.
@@ -190,10 +190,10 @@
   - type: Tag
     tags:
     - ModsuitPart
-    - ModsuitPlatingExternal # Change this when they become obtainable
+    - ModsuitPlatingEngineer
 
 - type: entity
-  id: ModsuitPlatingSecurity
+  id: ModsuitPlatingSecurity #secfab
   parent: PartModsuit
   name: MOD standard security 'soldat' plating
   description: A part used in MOD construction.
@@ -210,10 +210,10 @@
   - type: Tag
     tags:
     - ModsuitPart
-    - ModsuitPlatingExternal # Change this when they become obtainable
+    - ModsuitPlatingSecurity
 
 - type: entity
-  id: ModsuitPlatingHeadOfSecurity
+  id: ModsuitPlatingHeadOfSecurity # Not obtainable
   parent: PartModsuit
   name: MOD standard head of security 'bulwark' plating
   description: A part used in MOD construction.
@@ -230,10 +230,10 @@
   - type: Tag
     tags:
     - ModsuitPart
-    - ModsuitPlatingExternal # Change this when they become obtainable
+    - ModsuitPlatingHeadOfSecurity 
 
 - type: entity
-  id: ModsuitPlatingCaptain
+  id: ModsuitPlatingCaptain # Not obtainable
   parent: PartModsuit
   name: MOD standard captain's magnate plating
   description: A part used in MOD construction.
@@ -250,10 +250,10 @@
   - type: Tag
     tags:
     - ModsuitPart
-    - ModsuitPlatingExternal # Change this when they become obtainable
+    - ModsuitPlatingCaptain 
 
 - type: entity
-  id: ModsuitPlatingRD
+  id: ModsuitPlatingRD # Not obtainable
   parent: PartModsuit
   name: MOD standard RD's 'minerva' plating
   description: A part used in MOD construction.
@@ -270,10 +270,10 @@
   - type: Tag
     tags:
     - ModsuitPart
-    - ModsuitPlatingExternal # Change this when they become obtainable
+    - ModsuitPlatingRD
 
 - type: entity
-  id: ModsuitPlatingAtmostech
+  id: ModsuitPlatingAtmostech #engiefab
   parent: PartModsuit
   name: MOD standard atmospheric technician's 'aeolus' plating
   description: A part used in MOD construction.
@@ -290,7 +290,7 @@
   - type: Tag
     tags:
     - ModsuitPart
-    - ModsuitPlatingExternal # Change this when they become obtainable
+    - ModsuitPlatingAtmostech
 
 - type: entity
   id: ModsuitCoreStandard

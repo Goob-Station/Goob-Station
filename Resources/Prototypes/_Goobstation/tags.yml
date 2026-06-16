@@ -450,6 +450,27 @@
   id: ModsuitPlatingExternal
 
 - type: Tag
+  id: ModsuitPlatingParamedic
+
+- type: Tag
+  id: ModsuitPlatingEngineer
+
+- type: Tag
+  id: ModsuitPlatingSecurity
+
+- type: Tag
+  id: ModsuitPlatingAtmostech
+
+- type: Tag
+  id: ModsuitPlatingHeadOfSecurity
+
+- type: Tag
+  id: ModsuitPlatingCaptain
+
+- type: Tag
+  id: ModsuitPlatingRD
+
+- type: Tag
   id: ModsuitShell
 
 - type: Tag

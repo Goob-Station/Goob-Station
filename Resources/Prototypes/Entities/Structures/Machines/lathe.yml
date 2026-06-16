@@ -788,6 +788,7 @@
     # - ServiceWeapons
     - SpecOpsGoogles
     - PowerCells
+    - ModsuitSecurity
   - type: EmagLatheRecipes # Goobstation
     emagStaticPacks:
     - SyndicateAmmoLightStatic
@@ -877,6 +878,7 @@
     - MedicalBoardsStaticGoob
     - PowerCellsStatic
     - GrenadeTriggersStatic
+    - ModsuitMedical
     # Einstein Engines Packs
     - SyringeCase
     dynamicPacks:

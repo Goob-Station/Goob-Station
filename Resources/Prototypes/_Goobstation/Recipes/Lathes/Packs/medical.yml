@@ -95,3 +95,10 @@
   - CloningPodMachineCircuitboardRecipe
   - MedicalScannerMachineCircuitboardRecipe
   - CloningConsoleComputerCircuitboardRecipe
+
+- type: latheRecipePack
+  id: ModsuitMedical
+  categories:
+   - Modsuit
+  recipes:
+   -  ModsuitPlatingParamedic
