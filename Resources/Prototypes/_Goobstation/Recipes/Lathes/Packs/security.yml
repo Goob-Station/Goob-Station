@@ -118,7 +118,5 @@
 
 - type: latheRecipePack
   id: ModsuitSecurity
-  categories:
-   - Modsuit
   recipes:
    -  ModsuitPlatingSecurity
