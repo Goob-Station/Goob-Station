@@ -20,5 +20,4 @@ marking-HairResomiNotree = Resomi Notree
 marking-HairResomiSpiky = Resomi Spiky
 marking-HairResomiPointy = ResomiPointy
 marking-HairResomiTwies = Resomi Twies
-marking-HairResomiUpright = Resomi Upright
 marking-HairResomiLong = Resomi Long
