@@ -672,6 +672,9 @@
   - type: EmagLatheRecipes # Goobstation
     emagStaticPacks:
     - MechWeaponsSecurityStatic
+    - ModsuitEngineering
+    - ModsuitSecurity
+    - ModsuitMedical
     emagDynamicPacks:
     - MechWeaponsSalvage
     - MechWeaponsSecurityLight
