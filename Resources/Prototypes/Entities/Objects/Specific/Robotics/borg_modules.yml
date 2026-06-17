@@ -1305,6 +1305,7 @@
   - type: ItemBorgModule
     moduleId: Surgery
     items:
+    - HandheldHealthAnalyzer #Goob - add a health scanner to surgery modules
     - Scalpel
     - SawElectric
     - Drill
@@ -1340,6 +1341,7 @@
   - type: ItemBorgModule
     moduleId: AdvancedSurgery
     items:
+    - HandheldHealthAnalyzer #Goob - add a health scanner to surgery modules
     - EnergyScalpel
     - EnergyCautery
     - AdvancedRetractor
