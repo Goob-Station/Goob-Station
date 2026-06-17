@@ -95,6 +95,13 @@
   - type: ChasmTeleportBeacon
   - type: NavMapBeacon
     defaultText: station-beacon-mercury-arena
+  - type: Sprite
+    drawdepth: LowFloors
+    sprite: _Lavaland/Effects/particle.rsi
+    shader: unshaded
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: solarparticle
 
 - type: entity
   parent: DefaultStationBeaconLavalandRuin
@@ -104,3 +111,10 @@
   - type: SeaOfFantasyTreesExitBeacon
   - type: NavMapBeacon
     defaultText: station-beacon-bottomless-pit
+  - type: Sprite
+    drawdepth: LowFloors
+    sprite: _Lavaland/Effects/particle.rsi
+    shader: unshaded
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: solarparticle

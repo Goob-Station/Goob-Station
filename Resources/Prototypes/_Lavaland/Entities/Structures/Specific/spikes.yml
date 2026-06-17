@@ -14,7 +14,7 @@
   - type: PointLight
     radius: 1
     energy: 1
-    color: Cyan
+    color: Purple
     castShadows: false
   - type: Timer
   - type: TimedSpawner
@@ -51,7 +51,7 @@
   - type: PointLight
     radius: 2
     energy: 2
-    color: Cyan
+    color: Purple
     castShadows: false
   - type: DamageOnCollide
     ignoreWhitelist:

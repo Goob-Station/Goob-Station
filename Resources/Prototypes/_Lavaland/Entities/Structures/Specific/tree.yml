@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseTree
   id: TreeCrystal
-  name: Crystal tree
+  name: crystal tree
   description: This tree does not look like it belongs here.
   components:
   - type: Sprite
@@ -26,7 +26,7 @@
           acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 60
+        damage: 80
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -36,14 +36,99 @@
             variation: 0.05
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          LavalandMobCrystalSeed:
-            min: 1
-            max: 2
+      - !type:WeightedSpawnEntityBehavior
+        weightedEntityTable: CrystalTreeLoot
+        minSpawn: 1
+        maxSpawn: 2
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
   - type: PointLight
     radius: 3
     energy: 2
+    color: Purple
+
+- type: entity
+  parent: TreeCrystal
+  id: LargeTreeCrystal
+  name: large crystal tree
+  description: This massive tree is pouring with plasma. Might take a while to cut down.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Lavaland/Structures/Specific/Crystal/large_tree.rsi
+    state: large_crystaltree
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.5,0.4,0.5"
+        density: 2000
+        layer:
+        - WallLayer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/tree_fell.ogg
+          params:
+            volume: 5
+            variation: 0.05
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:WeightedSpawnEntityBehavior
+        weightedEntityTable: CrystalTreeLoot 
+        minSpawn: 4 # This gon' be fun
+        maxSpawn: 6
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
+  - type: PointLight
+    radius: 5
+    energy: 5
+    color: Purple
+
+- type: entity
+  parent: LargeTreeCrystal
+  id: LargeTreeCrystalSeeds
+  description: This massive tree is pouring with plasma, and is overflowing with seeds. Might be a good idea to cut it down.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Lavaland/Structures/Specific/Crystal/large_tree.rsi
+    state: large_crystaltree_seeds
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 250
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/tree_fell.ogg
+          params:
+            volume: 5
+            variation: 0.05
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:WeightedSpawnEntityBehavior
+        weightedEntityTable: LargeCrystalTreeLoot 
+        minSpawn: 5 # This gon' be fun
+        maxSpawn: 7
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+      - LavalandMobCrystalSeed
+    chance: 0.5
+    intervalSeconds: 180 # Increase if this is too much. Shouldn't be, mouse spawners are much more frequent.
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+  - type: PointLight
+    radius: 6
+    energy: 6
     color: Purple
 
 - type: entity
@@ -55,6 +140,9 @@
   - type: Sprite
     sprite: /Textures/_Lavaland/Structures/Specific/Crystal/tree.rsi
     state: crystalstump1
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
   - type: Fixtures
     fixtures:
       fix1:
@@ -74,7 +162,7 @@
           acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 30
+        damage: 40
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -84,11 +172,10 @@
             variation: 0.05
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          LavalandMobCrystalSeed:
-            min: 1
-            max: 1
+      - !type:WeightedSpawnEntityBehavior
+        weightedEntityTable: LargeCrystalTreeLoot
+        minSpawn: 0
+        maxSpawn: 1
 
 - type: entity
   parent: TreeCrystalStump1
@@ -107,3 +194,17 @@
   - type: Sprite
     sprite: /Textures/_Lavaland/Structures/Specific/Crystal/tree.rsi
     state: crystalstump3
+
+- type: weightedRandomEntity
+  id: CrystalTreeLoot
+  weights:
+    LavalandMobCrystalSeed: 35
+    PlasmaOre1Unprocessed: 60
+    DiamondOre1Unprocessed: 5
+
+- type: weightedRandomEntity
+  id: LargeCrystalTreeLoot
+  weights:
+    LavalandMobCrystalSeed: 50
+    PlasmaOreUnprocessed: 35
+    DiamondOre1Unprocessed: 15
