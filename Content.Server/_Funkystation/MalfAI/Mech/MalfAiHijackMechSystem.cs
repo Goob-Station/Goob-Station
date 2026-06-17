@@ -7,6 +7,7 @@ using Content.Server.Actions;
 using Content.Server.Administration.Logs;
 using Content.Server.Mind;
 using Content.Shared.CombatMode;
+using Content.Shared.Damage;
 using Content.Shared.Intellicard;
 using Content.Shared.Mobs;
 using Content.Shared.Database;
@@ -47,6 +48,8 @@ public sealed class MalfAiHijackMechSystem : EntitySystem
         SubscribeLocalEvent<MalfAiMarkerComponent, MalfAiHijackMechActionEvent>(OnHijackMech);
         SubscribeLocalEvent<MalfAiMechHijackComponent, MalfAiReturnToCoreActionEvent>(OnReturnFromMech);
         SubscribeLocalEvent<MalfAiMechHijackComponent, EntInsertedIntoContainerMessage>(OnPilotEntered);
+        SubscribeLocalEvent<MalfAiMechHijackComponent, EntityTerminatingEvent>(OnMechDestruction);
+        SubscribeLocalEvent<MalfAiMechHijackComponent, DamageChangedEvent>(OnMechDamaged);
         SubscribeLocalEvent<MalfAiMarkerComponent, EntGotInsertedIntoContainerMessage>(OnBrainInserted);
         SubscribeLocalEvent<MalfAiMarkerComponent, MobStateChangedEvent>(OnBrainMobState);
         SubscribeLocalEvent<MalfAiMarkerComponent, EntityTerminatingEvent>(OnBrainTerminating);
@@ -125,6 +128,27 @@ public sealed class MalfAiHijackMechSystem : EntitySystem
 
         if (!Deleted(brain))
             _popup.PopupEntity(Loc.GetString("malfai-hijack-pilot-retook-control"), brain, brain, PopupType.LargeCaution);
+    }
+
+    /// <summary>
+    /// The mech being deleted outright ejects the AI.
+    /// </summary>
+    private void OnMechDestruction(Entity<MalfAiMechHijackComponent> ent, ref EntityTerminatingEvent args)
+    {
+        ReturnFromHijack(ent.Owner, ent.Comp);
+    }
+
+    /// <summary>
+    /// Damaging the mech to destruction kicks the AI out
+    /// </summary>
+    private void OnMechDamaged(Entity<MalfAiMechHijackComponent> ent, ref DamageChangedEvent args)
+    {
+        if (!TryComp<MechComponent>(ent.Owner, out var mech))
+            return;
+
+        var integrity = mech.MaxIntegrity - args.Damageable.TotalDamage;
+        if (integrity <= 0)
+            ReturnFromHijack(ent.Owner, ent.Comp);
     }
 
     private void OnHijackMech(Entity<MalfAiMarkerComponent> ent, ref MalfAiHijackMechActionEvent args)
