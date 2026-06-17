@@ -97,6 +97,8 @@ public sealed class ChasmSystem : EntitySystem
     {
         var falling = AddComp<ChasmFallingComponent>(tripper);
 
+        falling.SourceChasm = chasm; // Goobstation - the chasm that triggered the fall.
+
         falling.NextDeletionTime = _timing.CurTime + falling.DeletionTime;
         _blocker.UpdateCanMove(tripper);
 

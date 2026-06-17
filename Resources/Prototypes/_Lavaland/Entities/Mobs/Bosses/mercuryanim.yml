@@ -5,6 +5,9 @@
   description: The air trembles around it.
   abstract: true
   components:
+  - type: Transform
+    anchored: true
+    noRot: true
   - type: Timer
   - type: Physics
     bodyType: KinematicController
@@ -16,6 +19,7 @@
         shape:
           !type:PhysShapeAabb
           bounds: "-1,-2,1,1"
+        hard: false
         density: 1000
         mask:
         - LargeMobMask
@@ -23,14 +27,58 @@
         - LargeMobLayer
 
 - type: entity
+  id: MegafaunaORTDormant
+  parent: BaseORTAnimation
+  name: Unknown entity
+  description: Appears to be dormant. Maybe give it a whack?
+  suffix: DO NOT MAP # except for where the Megafauna is supposed to spawn, of course.
+  components:
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: MercurySpider
+  - type: Sprite
+    noRot: true
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/128x128.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: dormant
+  - type: VicinitySpawner
+    numberToSpawn: 1
+    spawnInterval: 4
+    offsetForSpawn: 12
+    prototype:
+    - ORTLightParticle
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ORTFormingAnimation:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
   id: ORTFormingAnimation
   parent: BaseORTAnimation
   categories: [HideSpawnMenu]
   components:
+  - type: VicinitySpawner
+    numberToSpawn: 1
+    spawnInterval: 1
+    offsetForSpawn: 12
+    prototype:
+    - ORTLightParticleLong
   - type: TriggerOnSpawn
   - type: EmitSoundOnTrigger
     sound: /Audio/_Lavaland/Mobs/Bosses/Mercury/ufo_active.ogg
   - type: Sprite
+    noRot: true
     drawdepth: Mobs
     sprite: _Lavaland/Mobs/Bosses/128x128.rsi
     layers:
@@ -53,6 +101,7 @@
   description: Oh no...
   components:
   - type: Sprite
+    noRot: true
     drawdepth: Mobs
     sprite: _Lavaland/Mobs/Bosses/128x128.rsi
     layers:
@@ -78,6 +127,7 @@
   - type: EmitSoundOnTrigger
     sound: /Audio/_Lavaland/Mobs/Bosses/Mercury/ufo_death.ogg
   - type: Sprite
+    noRot: true
     drawdepth: Mobs
     sprite: _Lavaland/Mobs/Bosses/128x128.rsi
     layers:
@@ -96,10 +146,12 @@
 - type: entity
   id: ORTStarCell
   parent: BaseORTAnimation
-  categories: [HideSpawnMenu]
+  #categories: [HideSpawnMenu]
   name: Star cell
   description: Space-time continuum analyzed. Manifesting Star Cell colony invasive entity.
   components:
+  - type: Transform
+    noRot: false
   - type: PointLight
     radius: 5
     energy: 3
@@ -112,18 +164,62 @@
   - type: FadingIn
     fadeInTime: 5
   - type: Sprite
-    drawdepth: Mobs
+    drawdepth: BelowMobs
     sprite: _Lavaland/Mobs/Bosses/128x96.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: star_cell
   - type: TimedSpawner
     prototypes:
-      - ORTXibalba
+      - ORTXibalbaWarpIn
     chance: 1.0
-    intervalSeconds: 10
+    intervalSeconds: 8
     minimumEntitiesSpawned: 1
     maximumEntitiesSpawned: 1
   - type: FadingTimedDespawn
-    lifetime: 15
-    fadeOutTime: 5
+    lifetime: 12
+    fadeOutTime: 4
+
+- type: entity
+  id: ORTXibalbaWarpIn
+  parent: BaseORTAnimation
+  categories: [HideSpawnMenu]
+  name: ???
+  description: It's still not over?
+  components:
+  - type: PointLight
+    radius: 5
+    energy: 3
+    color: cyan
+  - type: Sprite
+    noRot: true
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/96x96.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: warp_in
+  - type: TimedSpawner
+    prototypes:
+      - ORTXibalba
+    chance: 1.0
+    intervalSeconds: 1.3
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+  - type: TimedDespawn
+    lifetime: 1.4
+  - type: TriggerOnSpawn
+  - type: EmitSoundOnTrigger
+    sound: /Audio/_EinsteinEngines/Effects/Shadowkin/futuristic-teleport.ogg
+
+- type: entity
+  id: ORTXibalbaGhost
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Mobs/Bosses/96x96.rsi
+    state: adapted_melee
+    drawdepth: BelowMobs
+    noRot: true
+  - type: Transform
+    noRot: true
+  - type: FadingIn
+    fadeIn: 5

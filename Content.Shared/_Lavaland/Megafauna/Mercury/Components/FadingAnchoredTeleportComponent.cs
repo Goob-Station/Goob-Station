@@ -68,6 +68,45 @@ public sealed partial class FadingAnchoredTeleportComponent : Component
     public ComponentRegistry? DashTrail;
 
     /// <summary>
+    /// When dashing towards a player instead of random location, cut the delay.
+    /// </summary>
+    [DataField]
+    public float TeleportDelayMultiplier = 0.2f;
+
+    /// <summary>
+    /// Spawn ghost entity at dash location for readibility.
+    /// Dissapears once dash goes through.
+    /// </summary>
+    [DataField]
+    public EntProtoId? DashWarningPrototype = "ORTXibalbaGhost";
+    public EntityUid? DashWarningEntity;
+
+    /// <summary>
+    /// Target that spawns on target
+    /// </summary>
+    [DataField]
+    public EntProtoId? PlayerTargetPrototype = "TransportMatterTarget";
+    public EntityUid? PlayerTargetEntity;
+
+    /// <summary>
+    /// Spawned periodically on entity to deal damage.
+    /// </summary>
+    [DataField]
+    public EntProtoId? DashDamagePrototype = "ORTBeamWarning";
+
+    /// <summary>
+    /// How often to spawn the damage proto during the dash.
+    /// </summary>
+    [DataField]
+    public float DashDamageInterval = 0.05f;
+
+    /// <summary>
+    /// Spawned on the entity when it lands at the target position.
+    /// </summary>
+    [DataField]
+    public EntProtoId? DashLandPrototype = "ORTMegaSlashEffect";
+
+    /// <summary>
     /// How long to fadeout for.
     /// </summary>
     [DataField, AutoNetworkedField]
@@ -81,6 +120,7 @@ public sealed partial class FadingAnchoredTeleportComponent : Component
 
     [AutoNetworkedField]
     public float Accumulator;
+    public float DashDamageAccumulator;
 
     public const string AnimationKey = "fading_anchored_teleport";
 }

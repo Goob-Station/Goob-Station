@@ -1,0 +1,71 @@
+- type: entity
+  name: Bottomless pit
+  id: ORTPit
+  description: Seems like something is waiting for you down there... Take the plunge, if you dare.
+  components:
+  - type: Physics
+    bodyType: Static
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        noRot: true
+        hard: false
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1,-2,1,1"
+        density: 1000
+        mask:
+        - LargeMobMask
+        layer:
+        - SlipLayer
+  - type: Sprite
+    drawdepth: FloorTiles
+    sprite: _Lavaland/Mobs/Bosses/128x128.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: hole
+  - type: Chasm
+  - type: ChasmTeleport
+    mapPath: /Maps/_Lavaland/Lavaland/ORT_arena.yml
+  - type: StepTrigger
+    requiredTriggeredSpeed: 0
+    intersectRatio: 0.4
+    blacklist:
+      tags:
+      - Catwalk
+    triggerGroups:
+      types:
+      - Chasm
+
+- type: entity
+  id: ORTArenaExitPortal
+  name: rift portal
+  description: Looks like the way out.
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      portalFixture:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.48,0.25,0.48"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        hard: false
+  - type: SeaOfFantasyTreesExit
+  - type: Sprite
+    sprite: /Textures/Effects/portal.rsi
+    layers:
+    - state: portal-blue
+  - type: PointLight
+    color: Cyan
+    radius: 3
+    energy: 2
+    netsync: false

@@ -87,6 +87,18 @@
     collection: FootstepCosmic
   heatCapacity: 10000
 
+  # Goobstation
+- type: tile
+  id: FloorCosmicVoidUnremovable
+  name: tiles-cosmiccult-floor-void-unremovable
+  sprite: /Textures/_DV/CosmicCult/Tileset/cosmicfloor/floor_void.png
+  baseTurf: Space
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepCosmic
+  heatCapacity: 10000
+  # Goobstation end
+
 - type: entity
   id: FloorCosmicDecay
   name: entropic decay

@@ -53,3 +53,5 @@ public sealed partial class PhaseConversionActionEvent : InstantActionEvent;
 public sealed partial class ReflectiveThreadsActionEvent : InstantActionEvent;
 
 public sealed partial class OrbitingRingActionEvent : InstantActionEvent;
+
+public sealed partial class ORTConvergenceActionEvent : InstantActionEvent;

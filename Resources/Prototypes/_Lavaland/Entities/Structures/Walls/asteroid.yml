@@ -122,6 +122,76 @@
 
 - type: entity
   parent: BaseStructure
+  id: WallRockFairy
+  name: fissure wall
+  description: Keeps the radiation in and the shaft miners out.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+    - type: Occluder
+    - type: Sprite
+      sprite: _Lavaland/Structures/Walls/fairy.rsi
+      state: rock_fairy
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.5,-0.5,0.5,0.5"
+          mask:
+          - FullTileMask
+          layer:
+          - WallLayer
+          density: 4000
+    - type: RustRequiresPathStage
+      pathStage: 11
+    - type: Penetratable
+      penetrateDamage: 1
+      damagePenalty: 0.1
+    - type: SoundOnGather
+    - type: Gatherable
+      toolWhitelist:
+        tags: [] # Lavaland Change
+        #- Pickaxe
+    - type: Damageable
+      damageContainer: StructuralInorganic
+      damageModifierSet: Rock # Lavaland Change
+    - type: Destructible
+      thresholds:
+      # Lavaland Change start
+      - trigger:
+          !type:DamageTrigger
+          damage: 120
+        behaviors:
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
+    - type: RadiationBlocker
+      resistance: 20
+    - type: RangedDamageSound
+      soundGroups:
+        Brute:
+          collection:
+            MetalBulletImpact
+      soundTypes:
+        Heat:
+          collection:
+            MetalLaserImpact
+    - type: Tag
+      tags:
+      - Wall
+    - type: Physics
+      bodyType: Static
+    - type: Airtight
+    - type: StaticPrice
+      price: 75
+    - type: BlockWeather
+    - type: SunShadowCast
+
+
+- type: entity
+  parent: BaseStructure
   id: WallRockFairyIndestructible
   name: fissure wall
   description: Keeps the radiation in and the shaft miners out.

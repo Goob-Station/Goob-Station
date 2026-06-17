@@ -42,3 +42,40 @@
         - MobMask
         layer:
         - GlassLayer
+
+- type: entity
+  id: ORTLightParticle
+  categories: [HideSpawnMenu]
+  components:
+  - type: Sprite
+    drawdepth: BelowMobs
+    sprite: _Lavaland/Effects/4x4.rsi
+    shader: unshaded
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: light
+  - type: FadingIn
+    fadeInTime: 5
+  - type: FloatingVisuals
+    floatRegardlessOfGravity: true
+  - type: FadingTimedDespawn
+    lifetime: 30
+    fadeOutTime: 5
+  - type: Transform
+    noRot: true
+  - type: PointLight
+    radius: 8
+    energy: 1.5
+    color: purple
+  - type: Rotating
+    increaseOvertime: false
+    rotationSpeed: 30
+
+- type: entity
+  id: ORTLightParticleLong
+  parent: ORTLightParticle
+  categories: [HideSpawnMenu]
+  components:
+  - type: FadingTimedDespawn
+    lifetime: 300 # Should last the whole fight, theoretically.
+    fadeOutTime: 5

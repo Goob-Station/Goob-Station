@@ -64,6 +64,7 @@
     - id: ActionORTEnergySurge
     - id: ActionORTPhaseConversion
     - id: ActionORTDarkMatterShell
+    - id: ActionORTConvergence
 
 - type: megafaunaSelector
   id: ActionORTEtherDrain
@@ -207,3 +208,14 @@
     conditions:
     - !type:ActionAvailableCondition
       actionId: ActionORTDarkMatterShell
+
+- type: megafaunaSelector
+  id: ActionORTConvergence
+  selector: !type:PerformActionSelector
+    delay: !type:AngerNumberSelector
+      range: 1.0,4.0
+      inverse: true
+    actionId: ActionORTConvergence
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionORTConvergence

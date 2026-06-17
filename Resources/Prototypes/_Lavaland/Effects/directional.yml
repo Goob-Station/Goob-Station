@@ -181,6 +181,10 @@
   - type: FadingTimedDespawn
     lifetime: 0.5
     fadeOutTime: 0.5
+  - type: PointLight
+    radius: 2
+    energy: 1.5
+    color: cyan
 
 - type: entity
   id: ORTThickBeamHorizontal
@@ -219,3 +223,7 @@
   - type: FadingTimedDespawn
     lifetime: 0.5
     fadeOutTime: 0.5
+  - type: PointLight
+    radius: 2
+    energy: 1.5
+    color: cyan

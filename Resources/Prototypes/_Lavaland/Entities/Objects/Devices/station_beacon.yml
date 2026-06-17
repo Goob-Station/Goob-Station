@@ -86,3 +86,21 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-ruin-snow-biodome
+
+- type: entity
+  parent: DefaultStationBeaconLavalandRuin
+  id: DefaultStationBeaconORTArenaEntrance
+  suffix: Spider of Mercury Arena
+  components:
+  - type: ChasmTeleportBeacon
+  - type: NavMapBeacon
+    defaultText: station-beacon-mercury-arena
+
+- type: entity
+  parent: DefaultStationBeaconLavalandRuin
+  id: DefaultStationBeaconORTArenaExit
+  suffix: Bottomless pit entrance
+  components:
+  - type: SeaOfFantasyTreesExitBeacon
+  - type: NavMapBeacon
+    defaultText: station-beacon-bottomless-pit

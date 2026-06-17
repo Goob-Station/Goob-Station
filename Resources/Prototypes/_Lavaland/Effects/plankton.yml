@@ -13,6 +13,7 @@
   - type: Fixtures
     fixtures:
       fix1:
+        hard: false
         shape:
           !type:PhysShapeAabb
           bounds: "-0.2, -0.2, 0.2, 0.2"
@@ -157,7 +158,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 35
+        damage: 20
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]

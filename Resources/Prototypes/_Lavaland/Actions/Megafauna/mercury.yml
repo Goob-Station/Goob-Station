@@ -198,3 +198,15 @@
     maxDelay: 30
   - type: InstantAction
     event: !type:OrbitingRingActionEvent
+
+- type: entity
+  parent: ActionBaseORT
+  id: ActionORTConvergence
+  name: Convergence
+  description: ■■■■ ■■■
+  components:
+  - type: AngerDelayAction
+    minDelay: 20
+    maxDelay: 30
+  - type: InstantAction
+    event: !type:ORTConvergenceActionEvent

@@ -7,7 +7,7 @@
   - type: Sprite
     sprite: _Lavaland/Structures/Specific/Crystal/crystal_spike.rsi
     state: spikes_emerge
-    drawdepth: Effects
+    drawdepth: BelowMobs
     noRot: true
   - type: TimedDespawn
     lifetime: 0.6
@@ -33,7 +33,7 @@
   - type: Sprite
     sprite: _Lavaland/Structures/Specific/Crystal/crystal_spike.rsi
     state: spikes_idle
-    drawdepth: Effects
+    drawdepth: Mobs
     noRot: true
   - type: Physics
     bodyType: Static
@@ -73,7 +73,7 @@
   - type: Sprite
     sprite: _Lavaland/Structures/Specific/Crystal/crystal_spike.rsi
     state: spikes_stabbing
-    drawdepth: Effects
+    drawdepth: Mobs
     noRot: true
 
 - type: entity
@@ -87,7 +87,7 @@
   - type: Sprite
     sprite: _Lavaland/Structures/Specific/Crystal/crystal_spike.rsi
     state: spike
-    drawdepth: Effects
+    drawdepth: Mobs
     noRot: true
   - type: DamageOnCollide
     ignoreWhitelist:

@@ -14,7 +14,7 @@ public sealed partial class EtherDrainComponent : Component
     /// How much stamina the action should drain.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public int StaminaDrain = 25;
+    public int StaminaDrain = 10; // This is quite annoying so it's pretty low, might remove it altogether eventually if players complain.
 
     /// <summary>
     /// Lookup range.
