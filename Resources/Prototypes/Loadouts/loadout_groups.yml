@@ -1695,7 +1695,7 @@
   loadouts:
   - BoxerShorts
   - BoxerShortsWithTop
-  - BoxerGladiator
+  - BoxerGladiator #Goobstation
 
 - type: loadoutGroup
   id: BoxerGloves
