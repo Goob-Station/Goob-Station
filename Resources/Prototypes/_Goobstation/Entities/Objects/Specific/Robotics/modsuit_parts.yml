@@ -133,7 +133,7 @@
           shell-secured: { state: shell-secured }
 
 - type: entity
-  id: ModsuitPlatingExternal #sci fab
+  id: ModsuitPlatingExternal
   parent: PartModsuit
   name: MOD standard external plating
   description: A part used in MOD construction.
@@ -153,7 +153,7 @@
     - ModsuitPlatingExternal
 
 - type: entity
-  id: ModsuitPlatingParamedic #medfab
+  id: ModsuitPlatingParamedic
   parent: PartModsuit
   name: MOD standard paramedic 'sanitater' plating
   description: A part used in MOD construction.
@@ -173,7 +173,7 @@
     - ModsuitPlatingParamedic 
 
 - type: entity
-  id: ModsuitPlatingEngineer #engiefab
+  id: ModsuitPlatingEngineer
   parent: PartModsuit
   name: MOD standard engineer 'sapper' plating
   description: A part used in MOD construction.
@@ -193,7 +193,7 @@
     - ModsuitPlatingEngineer
 
 - type: entity
-  id: ModsuitPlatingSecurity #secfab
+  id: ModsuitPlatingSecurity
   parent: PartModsuit
   name: MOD standard security 'soldat' plating
   description: A part used in MOD construction.
@@ -213,7 +213,7 @@
     - ModsuitPlatingSecurity
 
 - type: entity
-  id: ModsuitPlatingHeadOfSecurity # Not obtainable
+  id: ModsuitPlatingHeadOfSecurity
   parent: PartModsuit
   name: MOD standard head of security 'bulwark' plating
   description: A part used in MOD construction.
@@ -233,7 +233,7 @@
     - ModsuitPlatingHeadOfSecurity 
 
 - type: entity
-  id: ModsuitPlatingCaptain # Not obtainable
+  id: ModsuitPlatingCaptain
   parent: PartModsuit
   name: MOD standard captain's magnate plating
   description: A part used in MOD construction.
@@ -253,7 +253,7 @@
     - ModsuitPlatingCaptain 
 
 - type: entity
-  id: ModsuitPlatingRD # Not obtainable
+  id: ModsuitPlatingRD
   parent: PartModsuit
   name: MOD standard RD's 'minerva' plating
   description: A part used in MOD construction.
@@ -273,7 +273,7 @@
     - ModsuitPlatingRD
 
 - type: entity
-  id: ModsuitPlatingAtmostech #engiefab
+  id: ModsuitPlatingAtmostech
   parent: PartModsuit
   name: MOD standard atmospheric technician's 'aeolus' plating
   description: A part used in MOD construction.
