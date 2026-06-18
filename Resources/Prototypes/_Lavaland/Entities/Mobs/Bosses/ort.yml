@@ -284,10 +284,15 @@
     angerScale: 1.5
     hpScale: 1.5
   - type: SpawnLootOnDeath
+    dropBoth: true
     deleteOnDeath: true
     table: !type:AllSelector
       children:
-      - id: ClothingModsuitORTRadiant
+      - id: MaterialORTKeratin10
+      - id: MegafaunaMercuryCore
+    specialTable: !type:AllSelector # Gets an extra bar on crusher only kill
+      children:
+      - id: MaterialORTAlloy1
   - type: BossMusic
     soundId: UltimateOne
   - type: PointLight

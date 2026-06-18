@@ -1,0 +1,134 @@
+- type: material
+  id: ORTKeratin
+  stackEntity: MaterialORTKeratin1
+  name: crystallized keratin
+  unit: materials-unit-piece
+  icon: { sprite: _Lavaland/Objects/Materials/mercury.rsi, state: biokeratin }
+  color: cyan
+  price: 5
+
+- type: stack
+  id: ORTKeratin
+  name: crystallized keratin
+  icon: { sprite: _Lavaland/Objects/Materials/mercury.rsi, state: biokeratin }
+  spawn: MaterialORTKeratin1
+  maxCount: 30
+
+- type: entity
+  parent: MaterialBase
+  id: MaterialORTKeratin
+  name: crystallized keratin
+  description: Crystals harder than diamond yet as flexible as hair. Can be used to craft as is or refined into powerful alloys for more specialized weaponry.
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: ORTKeratin
+    baseLayer: base
+    layerStates:
+    - biokeratin
+    - biokeratin_2
+    - biokeratin_3
+  - type: Sprite
+    sprite: _Lavaland/Objects/Materials/mercury.rsi
+    state: biokeratin
+    layers:
+    - state: biokeratin
+      map: ["base"]
+  - type: PhysicalComposition
+    materialComposition:
+      ORTKeratin: 100
+  - type: Appearance
+  - type: Item
+    heldPrefix: biokeratin
+  - type: Material
+  - type: Tag
+    tags:
+    - Ore
+    - Ingot
+
+- type: entity
+  parent: MaterialORTKeratin
+  id: MaterialORTKeratin1
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: MaterialORTKeratin
+  id: MaterialORTKeratin10
+  suffix: Ten
+  components:
+  - type: Stack
+    count: 10
+
+# Alloy
+- type: latheRecipePack
+  id: ORTSmelting
+  recipes:
+  - ORTAlloySmelt
+
+- type: latheRecipe
+  id: ORTAlloySmelt
+  result: MaterialORTAlloy
+  completetime: 7
+  materials:
+    ORTKeratin: 133
+    Diamond: 133
+    Plasma: 399
+
+- type: stack
+  id: ORTAlloy
+  name: ultra advanced alloy
+  icon: { sprite: _Lavaland/Objects/Materials/mercury.rsi, state: radiant }
+  spawn: MaterialORTAlloy1
+  maxCount: 30
+
+- type: material
+  id: ORTAlloy
+  stackEntity: MaterialORTAlloy1  
+  name: ultra advanced alloy
+  unit: materials-unit-piece
+  icon: { sprite: _Lavaland/Objects/Materials/mercury.rsi, state: radiant }
+  color: cyan
+  price: 10
+
+- type: entity
+  parent: IngotBase
+  id: MaterialORTAlloy
+  name: ultra advanced alloy
+  description: Highly specialized alloy used in the construction of a select few devices.
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: ORTAlloy
+    baseLayer: base
+    layerStates:
+    - radiant
+    - radiant_2
+    - radiant_3
+  - type: Sprite
+    sprite: _Lavaland/Objects/Materials/mercury.rsi
+    state: radiant
+    layers:
+    - state: radiant
+      map: ["base"]
+  - type: PhysicalComposition
+    materialComposition:
+      ORTAlloy: 100
+  - type: Appearance
+  - type: Item
+    heldPrefix: radiant
+  - type: Material
+  - type: Tag
+    tags:
+    - Ore
+    - Ingot
+
+- type: entity
+  parent: MaterialORTAlloy
+  id: MaterialORTAlloy1
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1

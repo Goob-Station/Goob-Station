@@ -28,3 +28,6 @@ ort-paradigm-genetic-highest = The entity attempts to shift your genetic makeup.
 ort-paradigm-finished = You feel your external wounds healed, but...something is terribly, terribly wrong!
 
 ort-phase-conversion = Adaptation complete.
+
+paradox-canceller-start = Reality anchor secured. Initiating timer.
+paradox-canceller-rewind = Cancelling.

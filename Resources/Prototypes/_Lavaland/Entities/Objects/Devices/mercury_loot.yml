@@ -1,0 +1,112 @@
+######################### Construction graphs #########################################
+
+- type: construction
+  id: MercuryRailgun
+  graph: MercuryRailgun
+  startNode: start
+  targetNode: WeaponMercuryRailgun
+  category: construction-category-weapons
+  objectType: Item
+
+- type: constructionGraph
+  id: MercuryRailgun
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: WeaponMercuryRailgun
+          steps:
+            - tag: MegafaunaMercuryCore
+              name: Core of Mercury
+              icon:
+                sprite: _Lavaland/Objects/Devices/mercury.rsi
+                state: mercury_core
+              doAfter: 5
+            - material: ORTAlloy
+              amount: 2
+              doAfter: 5
+    - node: WeaponMercuryRailgun
+      entity: WeaponMercuryRailgun
+
+- type: construction
+  id: RadiantMODsuit
+  graph: RadiantMODsuit
+  startNode: start
+  targetNode: ClothingModsuitORTRadiant
+  category: construction-category-clothing
+  objectType: Item
+
+- type: constructionGraph
+  id: RadiantMODsuit
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: WeaponMercuryRailgun
+          steps:
+            - tag: MegafaunaMercuryCore
+              name: Core of Mercury
+              icon:
+                sprite: _Lavaland/Objects/Devices/mercury.rsi
+                state: mercury_core
+              doAfter: 5
+            - material: ORTAlloy
+              amount: 2
+              doAfter: 5
+    - node: ClothingModsuitORTRadiant
+      entity: ClothingModsuitORTRadiant
+
+################################################################################################
+
+- type: entity
+  parent: BaseItem
+  id: MegafaunaMercuryCore
+  name: Core of Mercury
+  description: Can be used to make highly advanced tools and weaponry. Alternatively, can be sold for a handsome sum.
+  components:
+  - type: PointLight
+    radius: 2
+    color: cyan
+    energy: 1
+  - type: Sprite
+    sprite: _Lavaland/Objects/Devices/mercury.rsi
+    state: mercury_core
+  - type: Tag # I hate construction graphs
+    tags:
+    - MegafaunaMercuryCore
+
+- type: entity
+  parent: BaseItem
+  id: MegafaunaEtherDrinker
+  name: Ether Drinker
+  description: 
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Devices/mercury.rsi
+    state: ether_drinker
+
+- type: entity
+  parent: BaseItem
+  id: MegafaunaParadoxCanceller
+  name: Paradox Canceller
+  description: A device that saves your point in time, then reverts you back to that point after a short delay, reverting any damage taken in that period.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Devices/mercury.rsi
+    state: paradox_canceller
+  - type: UseDelay
+    delay: 60
+  - type: ParadoxCanceller
+    trail:
+      - type: Trail
+        color: "#ae00ffdd"
+        scale: 0.9
+        frequency: 0.1
+        lifetime: 1
+        lerpTime: 0.05
+        alphaLerpAmount: 0.2
+        scaleLerpAmount: 0.1
+        shader: unshaded
+        sprite:
+          sprite: /Textures/Mobs/Aliens/paradox_clone.rsi
+          state: paradox

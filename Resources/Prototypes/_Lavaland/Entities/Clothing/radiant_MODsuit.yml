@@ -2,7 +2,7 @@
   parent: [ ClothingModsuitStandard ]
   id: ClothingModsuitORTRadiant
   name: Radiant modsuit control unit
-  description: A highly-adaptable control unit in the form of the Ultimate One.
+  description: A highly-adaptable control unit that provides full radiation protection, and prevents from falling into chasms permanently.
   components:
     - type: Sprite
       sprite: _Lavaland/Clothing/Back/Modsuits/radiant.rsi
@@ -124,6 +124,8 @@
         - state: equipped-OUTERCLOTHING-sealed
     - type: StaminaResistance
       damageCoefficient: 0.75
+    - type: PreventChasmFalling
+      deleteOnUse: false
 
 - type: entity
   parent: ClothingModsuitBootsStandard
