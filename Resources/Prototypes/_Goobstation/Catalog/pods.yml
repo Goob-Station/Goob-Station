@@ -76,10 +76,10 @@
   components:
   - type: SpawnTableOnDespawn
     table: !type:AllSelector
-    table:
-      id: ClothingOuterArmorMonk
-      id: ClothingHeadHatHelmetMonk
-      id: ClothingUniformJumpsuitMonk
+      children:
+      - id: ClothingOuterArmorMonk
+      - id: ClothingHeadHatHelmetMonk
+      - id: ClothingUniformJumpsuitMonk
 
 - type: entity
   id: SpawnArmamentsBishop
@@ -101,9 +101,9 @@
   components:
   - type: SpawnTableOnDespawn
     table: !type:AllSelector
-    table:
-      id: ClothingOuterArmorDragon
-      id: ClothingHeadHatHelmetDragon
+      children:
+      - id: ClothingOuterArmorDragon
+      - id: ClothingHeadHatHelmetDragon
 
 - type: entity
   id: SpawnArmamentsInquisitor
