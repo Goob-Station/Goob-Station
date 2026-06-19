@@ -211,6 +211,7 @@
     ignoreWhitelist:
       components:
         - Fauna
+        - LightningImmune
     inverted: true
     damage:
       types:
@@ -233,3 +234,67 @@
       path: /Audio/Effects/tesla_collapse.ogg
       params:
         variation: 0.3
+
+# Neutral lightining alts
+
+- type: entity
+  id: LightningCrackleNeutral
+  parent: LightningCrackle
+  components:
+  - type: TimedSpawner
+    prototypes:
+      - LightningStrikeNeutral
+    intervalSeconds: 2.4
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+
+- type: entity
+  id: LightningStrikeNeutral
+  name: lightning strike
+  description: Does strike twice in the same spot, contrary to popular belief. Should you really be inspecting this?
+  components:
+  - type: Transform
+    noRot: true  
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Lavaland/Effects/64x128.rsi
+    state: lightning_1
+    drawdepth: BelowMobs
+    noRot: true
+    offset: "0.5, 1.5"
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3, -0.2, 0.4, 1.4"
+        density: 100
+        mask:
+        - MobMask
+        layer:
+        - InteractImpassable
+  - type: PointLight
+    radius: 3
+    energy: 3
+    color: White
+    castShadows: true
+  - type: FadingIn
+    fadeInTime: 0.1
+  - type: FadingTimedDespawn
+    lifetime: 0.6
+    fadeOutTime: 0.2
+  - type: Timer
+  - type: TriggerOnSpawn
+  - type: SpawnOnTrigger
+    proto: ThunderSound
+    predicted: true
+  - type: DamageOnCollide
+    inverted: true
+    ignoreWhitelist:
+      components:
+        - LightningImmune
+    damage:
+      types:
+        Shock: 35 # It's a fucking thunder strike!

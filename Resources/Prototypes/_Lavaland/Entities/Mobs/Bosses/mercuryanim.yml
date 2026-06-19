@@ -162,7 +162,7 @@
     rotationSpeed: 30
     increaseOvertime: true
   - type: FadingIn
-    fadeInTime: 5
+    fadeInTime: 4
   - type: Sprite
     drawdepth: BelowMobs
     sprite: _Lavaland/Mobs/Bosses/128x96.rsi
@@ -177,8 +177,11 @@
     minimumEntitiesSpawned: 1
     maximumEntitiesSpawned: 1
   - type: FadingTimedDespawn
-    lifetime: 12
+    lifetime: 8
     fadeOutTime: 4
+  - type: TriggerOnSpawn
+  - type: EmitSoundOnTrigger
+    sound: /Audio/_EinsteinEngines/Effects/Shadowkin/futuristic-teleport.ogg
 
 - type: entity
   id: ORTXibalbaWarpIn

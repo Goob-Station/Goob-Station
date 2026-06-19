@@ -31,3 +31,7 @@ ort-phase-conversion = Adaptation complete.
 
 paradox-canceller-start = Reality anchor secured. Initiating timer.
 paradox-canceller-rewind = Cancelling.
+
+ether-drinker-no-charge = Not enough charge!
+ether-drinker-discharge = Discharging.
+ether-drinker-examine-charge = Current charge: {$charge}%.

@@ -33,7 +33,7 @@ public sealed partial class FadingAnchoredTeleportComponent : Component
     /// How frequently it teleports.
     /// </summary>
     [DataField]
-    public float TeleportDelay = 6f;
+    public float TeleportDelay = 4f;
 
     /// <summary>
     /// If true, plays sound.
@@ -71,7 +71,7 @@ public sealed partial class FadingAnchoredTeleportComponent : Component
     /// When dashing towards a player instead of random location, cut the delay.
     /// </summary>
     [DataField]
-    public float TeleportDelayMultiplier = 0.2f;
+    public float TeleportDelayMultiplier = 0.5f;
 
     /// <summary>
     /// Spawn ghost entity at dash location for readibility.
