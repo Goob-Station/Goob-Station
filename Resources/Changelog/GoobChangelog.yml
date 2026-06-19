@@ -23502,3 +23502,45 @@ Entries:
         down.
   id: 2699
   time: '2026-06-12T18:45:47.0000000+00:00'
+- author: Super7522
+  changes:
+    - type: Fix
+      message: Hydrakin can now breathe Oxygen and Plasma
+    - type: Fix
+      message: Hydrakin can eat meat now...
+    - type: Fix
+      message: Fixed Hydrakin look in Character Creator
+    - type: Fix
+      message: >-
+        Not being able to use Goob interfaces as Hydrakin (Changeling UI,
+        Wantedhud, etc...)
+    - type: Fix
+      message: Not being able to Cool off without hands ( amputation or handcuffs )
+    - type: Fix
+      message: Hydrakins now get a Survival box for once
+  id: 2700
+  time: '2026-06-18T08:51:26.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: >-
+        Fixed natural regen (below 20 damage) being like 10 times less effective
+        as it should've been.
+    - type: Tweak
+      message: >-
+        Slimes now have double natural regen speed again, and regenerate up to
+        **65** damage.
+  id: 2701
+  time: '2026-06-18T10:29:29.0000000+00:00'
+- author: Sanyati
+  changes:
+    - type: Add
+      message: Reptilian stealth suit sprites.
+  id: 2702
+  time: '2026-06-18T10:32:13.0000000+00:00'
+- author: lucapgiannotti
+  changes:
+    - type: Tweak
+      message: monkeys are blind while sleeping like other species!
+  id: 2703
+  time: '2026-06-19T03:12:09.0000000+00:00'

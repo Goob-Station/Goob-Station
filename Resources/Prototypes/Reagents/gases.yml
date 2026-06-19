@@ -122,6 +122,10 @@
         conditions:
         - !type:OrganType
           type: Human
+      - !type:Oxygenate # Mono - Hydrakin
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
       - !type:Oxygenate
         conditions:
         - !type:OrganType
@@ -250,10 +254,6 @@
             Poison: 1.5
     Gas:
       effects:
-      - !type:Oxygenate # Mono - Hydrakin
-        conditions:
-        - !type:OrganType
-          type: Hydrakin
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie
@@ -290,6 +290,11 @@
         conditions:
         - !type:OrganType
           type: Plasmaman
+      - !type:Oxygenate # Mono - Hydrakin
+        factor: 4
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
       - !type:ModifyLungGas
         conditions:
         - !type:OrganType
@@ -465,10 +470,6 @@
         conditions:
         - !type:OrganType
           type: Plant
-      - !type:Oxygenate # Mono - Hydrakin
-        conditions:
-        - !type:OrganType
-          type: Hydrakin
       - !type:HealthChange
         conditions:
         - !type:OrganType
@@ -500,6 +501,9 @@
         conditions:
         - !type:OrganType
           type: Plant
+          shouldHave: false
+        - !type:OrganType
+          type: Hydrakin
           shouldHave: false
         - !type:OrganType # Shitmed - Cybernetic Organs
           type: Cybernetic
@@ -619,6 +623,9 @@
           min: 0.5
         - !type:OrganType
           type: Slime
+          shouldHave: false
+        - !type:OrganType # Mono - Hydrakin
+          type: Hydrakin
           shouldHave: false
         - !type:OrganType # Shitmed - Cybernetic Organs
           type: Cybernetic
@@ -749,6 +756,18 @@
         conditions:
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
+        damage:
+          groups:
+            Brute: -1
+          types:
+            Heat: -0.5
+            Shock: -0.5
+            Cold: -0.5
+            Radiation: -0.5
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType # Goobstation - Hydrakin
+          type: Hydrakin
         damage:
           groups:
             Brute: -1
