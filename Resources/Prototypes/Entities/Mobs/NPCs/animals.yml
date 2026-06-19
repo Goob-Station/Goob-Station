@@ -1133,6 +1133,7 @@
         Base: dead
   - type: Extractable
     grindableSolutionName: food
+  - type: ZombieImmune #goob
   - type: SolutionContainerManager
     solutions:
       food:
