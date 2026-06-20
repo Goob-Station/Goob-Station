@@ -35,7 +35,7 @@
     anchored: true
   - type: Clickable
   - type: Sprite
-    sprite: _Lavaland/Tiles/Planet/Hazard.rsi
+    sprite: _Lavaland/Tiles/Planet/hazard.rsi
     drawdepth: BelowFloor
     layers:
     - state: plasma

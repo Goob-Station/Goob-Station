@@ -12,17 +12,6 @@
     bodyType: KinematicController
   - type: Clickable
   - type: InteractionOutline
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-1.5,-1.5,1.5,1.5"
-        density: 1000
-        mask:
-        - LargeMobMask
-        layer:
-        - LargeMobLayer
   - type: Tag
     tags:
     - CannotSuicide
@@ -67,6 +56,17 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: mercury-skeleton
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-1.5,1.5,1.5"
+        density: 1000
+        mask:
+        - LargeMobMask
+        layer:
+        - LargeMobLayer
   - type: AngerPlayerScaling
     angerScale: 1.2
     hpScale: 1.2
@@ -111,6 +111,17 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: mercury
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-1.5,1.5,1.5"
+        density: 1000
+        mask:
+        - LargeMobMask
+        layer:
+        - LargeMobLayer
   - type: SpriteMovement
     movementLayers:
       movement:
@@ -263,10 +274,8 @@
           bounds: "-0.5,-1,0.5,1.5"
         density: 10000
         hard: true
-        mask:
-        - LargeMobMask
         layer:
-        - LargeMobLayer
+        - BulletImpassable
   - type: RadiationSource
     intensity: 1
   - type: Sprite

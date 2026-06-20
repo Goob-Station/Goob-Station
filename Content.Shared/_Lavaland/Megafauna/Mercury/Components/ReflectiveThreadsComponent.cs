@@ -1,11 +1,11 @@
 using Robust.Shared.Audio;
-using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Lavaland.Megafauna.Mercury.Components;
 
 /// <summary>
-/// 
+/// Spawn an entity attached to component holder for visual flare.
+/// Adds Reflective component to this component holder for a specified duration.
 /// </summary>
 
 [RegisterComponent]

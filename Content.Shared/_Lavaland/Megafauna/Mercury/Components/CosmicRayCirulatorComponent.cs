@@ -2,6 +2,12 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Lavaland.Megafauna.Mercury.Components;
 
+/// <summary>
+/// Spawns warning entities in a ring around this entity.
+/// Depending on the number of WaveCount, will skip a tile and spawn another ring in a wider radius until radius has increased by WaveCount.
+/// In other words, spawns multiple rings of beams around itself, in waves.
+/// </summary>
+
 [RegisterComponent]
 public sealed partial class CosmicRayCirculatorComponent : Component
 {

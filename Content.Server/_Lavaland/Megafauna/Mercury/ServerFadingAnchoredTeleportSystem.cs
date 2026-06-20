@@ -158,7 +158,20 @@ public sealed class ServerFadingAnchoredTeleportSystem : SharedFadingAnchoredTel
             var nearest = FindNearestPlayer(uid);
             if (nearest.HasValue)
             {
-                targetPos = _transform.GetWorldPosition(nearest.Value);
+                var playerPos = _transform.GetWorldPosition(nearest.Value);
+                var myPos = _transform.GetWorldPosition(uid);
+                var direction = playerPos - myPos;
+
+                if (direction.LengthSquared() > 0f)
+                {
+                    direction = direction.Normalized();
+                }
+                else
+                {
+                    direction = Vector2.UnitX;
+                }
+
+                targetPos = playerPos + direction * comp.DashOvershootDistance;
                 comp.DashDamageAccumulator = 0f;
 
                 // Spawn target indicator on the player

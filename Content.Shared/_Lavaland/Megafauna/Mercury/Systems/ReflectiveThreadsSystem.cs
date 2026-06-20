@@ -2,6 +2,7 @@ using Content.Shared._Lavaland.Megafauna.Mercury.Components;
 using Content.Shared._Lavaland.Megafauna.Mercury.Events;
 using Content.Shared.Weapons.Reflect;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Timing;
 
 namespace Content.Shared._Lavaland.Megafauna.Mercury.Systems;
 
@@ -12,6 +13,7 @@ public sealed class ReflectiveThreadsSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly IGameTiming _timing = default!; // TO DO: switch out frametime
 
     public override void Initialize()
     {

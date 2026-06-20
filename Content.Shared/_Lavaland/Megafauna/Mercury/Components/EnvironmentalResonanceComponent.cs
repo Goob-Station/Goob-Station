@@ -2,6 +2,14 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Lavaland.Megafauna.Mercury.Components;
 
+/// <summary>
+/// Spawns an entity in two corners of the screen, then skips a tile in a specific direction and does it again.
+/// Which corners of the screen are decided by a bool.
+/// Each row, in the case of the Megafauna, is actually an invisible projectile moving towards a direction by using DirectionalMovementComponent.
+/// That projectile spawns in warning entities that spawn in beams.
+/// If you wish to use this system, that is the ideal way to do so. It is generic enough to be done.
+/// </summary>
+
 [RegisterComponent]
 public sealed partial class EnvironmentalResonanceComponent : Component
 {

@@ -23,7 +23,7 @@ public sealed class ORTSolarStormSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedPointLightSystem _lights = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IGameTiming _timing = default!; // TO DO: switch out frametime
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()

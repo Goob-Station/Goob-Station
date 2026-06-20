@@ -5,7 +5,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._Lavaland.Megafauna.Mercury.Components;
 
 /// <summary>
-/// Basically picks a target, checks their damage values, and if it isn't genetic, then heal that damage, and make it genetic.
+/// Basically picks a target, checks their highest damage value, and if it isn't genetic, then heal that damage, and then add the damage healed as genetic.
 /// Can be avoided by not having any damage, or by having genetic already as your highest damage type.
 /// </summary>
 

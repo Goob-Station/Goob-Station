@@ -1,7 +1,12 @@
 using Robust.Shared.Prototypes;
-using System.Numerics;
 
 namespace Content.Shared._Lavaland.Megafauna.Mercury.Components;
+
+/// <summary>
+/// Spawn a safe zone indicator in a random location near this component holder.
+/// Using that safe zone's coordinates as a base, rings of damaging beams will spawn in and begin closing in
+/// by reducing radius and spawning closer to the safe zone's position, until they reach the minimum radius allowed.
+/// </summary>
 
 [RegisterComponent]
 public sealed partial class ORTConvergenceComponent : Component

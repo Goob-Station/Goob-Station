@@ -9,6 +9,7 @@ namespace Content.Shared._Lavaland.Megafauna.Mercury.Components;
 /// On use in hand, save current position and current health values, then start a timer.
 /// Once the timer finishes, return to saved position and return to whatever health values were on use of item.
 /// Will techically "hurt" you if you healed during the rewind timer.
+/// Ideally also reverts burning, crushed bones and bleeding, but these systems aren't predicted, and frankly a bit of a hassle to do.
 /// </summary>
 [RegisterComponent]
 public sealed partial class ParadoxCancellerComponent : Component

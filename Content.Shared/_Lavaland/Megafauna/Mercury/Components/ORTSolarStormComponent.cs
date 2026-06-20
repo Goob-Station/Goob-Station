@@ -4,6 +4,13 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Lavaland.Megafauna.Mercury.Components;
 
+/// <summary>
+/// Spawns an entity for visual flare and begin spawning particles in a ring around this component holder.
+/// These particles shoot towards the component holder for visual flare.
+/// Once sufficient time has passed, delete the entity that provides visual flare and spawn a new one.
+/// At the same time, deal damage in a medium sized radius around this component holder every X seconds.
+/// </summary>
+
 [RegisterComponent, AutoGenerateComponentState]
 public sealed partial class ORTSolarStormComponent : Component
 {

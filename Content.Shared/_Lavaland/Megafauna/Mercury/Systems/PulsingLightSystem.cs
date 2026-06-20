@@ -1,7 +1,4 @@
-using Content.Shared._Lavaland.Megafauna.Components;
-using Content.Shared._Lavaland.Megafauna.Events;
 using Content.Shared._Lavaland.Megafauna.Mercury.Components;
-using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
 

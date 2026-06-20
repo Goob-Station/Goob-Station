@@ -5,7 +5,6 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using SixLabors.ImageSharp;
 
 namespace Content.Server._Lavaland.Megafauna.Mercury.Systems;
 

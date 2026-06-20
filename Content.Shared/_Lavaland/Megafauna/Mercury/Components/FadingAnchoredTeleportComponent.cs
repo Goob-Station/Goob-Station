@@ -7,6 +7,10 @@ namespace Content.Shared._Lavaland.Megafauna.Mercury.Components;
 
 /// <summary>
 /// Teleports an entity around an anchored coordinate, fades out their sprite as they teleport, and fades it back in.
+/// Only works for the Megafauna it was designed for, due to several very specific checks to prevent the Megafauna from teleporting towards the player during an intant kill move.
+/// During ranged form, spawns a ghost of itself, then dashes towards that ghost.
+/// On melee form, instead dashes towards the nearest player, slightly overshooting their position, and spawning damaging beams on its dash path.
+/// Does not dash towards player in melee form whilst powering up SolarStorm.
 /// </summary>
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
@@ -59,7 +63,13 @@ public sealed partial class FadingAnchoredTeleportComponent : Component
     /// Speed at which to move towards the coordinates.
     /// </summary>
     [DataField]
-    public float MoveSpeed = 8f;
+    public float MoveSpeed = 10f;
+
+    /// <summary>
+    /// Go past the player so the beams can actually daamge them.
+    /// </summary>
+    [DataField]
+    public float DashOvershootDistance = 2f;
 
     public Vector2? MoveTarget;
 

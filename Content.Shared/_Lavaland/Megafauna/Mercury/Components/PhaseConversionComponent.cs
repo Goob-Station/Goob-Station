@@ -8,6 +8,7 @@ namespace Content.Shared._Lavaland.Megafauna.Mercury.Components;
 
 /// <summary>
 /// Switches between the ranged form, and the melee form.
+/// Changes which Megafauna AI actions it uses as well.
 /// </summary>
 
 [RegisterComponent, NetworkedComponent]

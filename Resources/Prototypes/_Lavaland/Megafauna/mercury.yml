@@ -65,6 +65,7 @@
     - id: ActionORTPhaseConversion
     - id: ActionORTDarkMatterShell
     - id: ActionORTConvergence
+    - id: ActionORTResonanceVertical
 
 - type: megafaunaSelector
   id: ActionORTEtherDrain
