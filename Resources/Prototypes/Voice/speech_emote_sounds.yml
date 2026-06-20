@@ -385,6 +385,8 @@
       collection: Hew
     Gasp:
       collection: FemaleGasp
+    Belch: # Frontier
+      collection: Belch # Frontier
     DefaultDeathgasp:
       collection: FemaleDeathGasp
     Gulp: # Goob
@@ -393,8 +395,6 @@
       path: /Audio/_Goobstation/Voice/surprised.ogg
   params:
     variation: 0.125
-  Belch: # Frontier
-    collection: Belch # Frontier
 
 - type: emoteSounds
   id: UnisexVox
