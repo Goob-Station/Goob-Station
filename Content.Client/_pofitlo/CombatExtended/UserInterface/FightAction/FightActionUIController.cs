@@ -118,7 +118,6 @@ public sealed class FightActionUIController : UIController, IOnStateEntered<Game
 
         ProtoId<CombatAnimationPrototype> animationProto = fightActionPrototype.AnimationPrototype;
         ProtoId<CombatAnimationPrototype> altAnimationProto = fightActionPrototype.AltAnimationPrototype;
-        ProtoId<FightActionMeleeParametersPrototype> meleeParametersProto = fightActionPrototype.MeleeParametersPrototype;
         AttackStrategy fightAction = fightActionPrototype.SetAttackStrategy;
         SpriteSpecifier icon = fightActionPrototype.Icon;
         bool hasHigherPriorityThanWeapons = fightActionPrototype.HasHigherPriorityThanWeapons;
@@ -126,7 +125,7 @@ public sealed class FightActionUIController : UIController, IOnStateEntered<Game
         var player = _entManager.GetNetEntity(user);
         if (fightAction != fightActionComp.Strategy)
         {
-            var msg = new FightActionChangeEvent(player, fightAction, hasHigherPriorityThanWeapons, meleeParametersProto, animationProto, altAnimationProto);
+            var msg = new FightActionChangeEvent(player, fightAction, hasHigherPriorityThanWeapons, animationProto, altAnimationProto);
             _net.SendSystemNetworkMessage(msg);
         }
 

@@ -502,6 +502,33 @@
     availableActions:
     - Punch
     - TailAttack
+    # Per-strategy melee weapon overrides. Override these on a species to give it a different base attack.
+    # Only the fields you declare get applied; the rest of the weapon is left untouched.
+    meleeParameters:
+      Punch:
+        hasDisarm: true
+        damage:
+          types:
+            Blunt: 5
+        attackRate: 1
+        range: 1.5
+        angle: 60
+        canHeavyAttack: true
+        canWideSwing: true
+        resistanceBypass: false
+      TailAttack:
+        hasDisarm: false
+        damage:
+          types:
+            Blunt: 5
+        bluntStaminaDamageFactor: 5
+        attackRate: 0.75
+        range: 2
+        angle: 90
+        heavyStaminaCost: 7.5
+        canHeavyAttack: true
+        canWideSwing: true
+        resistanceBypass: false
   - type: MindControllable # Goobstation
   - type: VisibleContraband # Goobstation
   - type: MomentumSteering # Goobstation - No steer

@@ -7,6 +7,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Robust.Shared.Random;
 using Content.Shared._pofitlo.CombatExtended.FightAction.Events;
 using Content.Shared._pofitlo.CombatExtended.FightAction.Prototypes;
 using Content.Shared.Weapons.Melee;
@@ -47,23 +48,10 @@ using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
 using Content.Shared.Throwing;
-using Content.Shared.Weapons.Melee.Components;
-using Content.Shared.Weapons.Melee.Events;
-using Content.Shared.Weapons.Ranged.Components;
-using Content.Shared.Weapons.Ranged.Events;
-using Content.Shared.Weapons.Ranged.Systems;
-using Robust.Shared.Audio;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Configuration;
-using Robust.Shared.Map;
-using Robust.Shared.Network;
-using Robust.Shared.Physics;
-using Robust.Shared.Physics.Components;
-using Robust.Shared.Physics.Systems;
-using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
-using Robust.Shared.Timing;
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Stunnable;
+using Content.Shared.Random.Helpers;
+
 
 
 namespace Content.Shared._pofitlo.CombatExtended.FightAction.AttackStrategySystems;
@@ -79,6 +67,7 @@ public abstract class SharedTailAttackSystem : EntitySystem
     //[Dependency] private readonly UseDelaySystem _delay = default!;
     //[Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
 
     public override void Initialize()
     {
@@ -168,7 +157,7 @@ public abstract class SharedTailAttackSystem : EntitySystem
         RaiseLocalEvent(weaponUid, ref ev);
 
         //if (!MeleeWeaponSystem.DoHeavyAttack(user, heavy, weaponUid, weapon, session))
-            //return false;
+        //    return false;
 
         EntProtoId animation; // Goobstation - Edit
         var spriteRotation = weapon.AnimationRotation;
@@ -249,7 +238,74 @@ public abstract class SharedTailAttackSystem : EntitySystem
             return;
 
         MeleeWeaponSystem.DoSweepingBlow(targets, user, weapon, mainAttack, weaponUid, damage, hitEvent);
+        TryShoveTargets(user, targets);
+        TryKnockDownTargets(user, targets);
+        //TryShoveTargets(user, targets, direction);
     } // TODO ахуй какие большие функции
+
+    private void TryKnockDownTargets(EntityUid user, List<EntityUid> targets) //TODO МБ сделать как трай
+    {
+        if (!TryComp<TargetingComponent>(user, out var targetingComp) || !TargetIsLeg(targetingComp.Target))
+            return;
+
+        foreach (var target in targets)
+        {
+            if (!TryComp<StaminaComponent>(target, out var targetStamina))
+                continue; // Skip if entity doesn't have stamina
+
+            if (!TryPassWithChanceWhichDependsOnStaminaByHyperbola(targetStamina))
+                continue;
+
+            var x = TryPassWithChanceWhichDependsOnStaminaByHyperbola(targetStamina);
+
+            TimeSpan knockdownDuration = TimeSpan.FromSeconds(5); // TУДУ. Просто тест.
+            _stun.TryKnockdown(target, knockdownDuration, force: true);
+
+        }
+    }
+
+    private bool TargetIsLeg(TargetBodyPart target)
+    {
+        return (target & TargetBodyPart.Legs) != 0;
+    }
+
+    private bool TryPassWithChanceWhichDependsOnStaminaByHyperbola(StaminaComponent stamina, float chanceMultiplier = 10f)
+    {
+        var staminaLevelInPercent = (1 - (stamina.StaminaDamage / stamina.CritThreshold)) * 100;
+
+        var seed = SharedRandomExtensions.HashCodeCombine(new() { (int)Timing.CurTick.Value, GetNetEntity(stamina.Owner).Id });
+        var rand = new System.Random(seed);
+
+        return rand.Prob(Math.Min(1 / staminaLevelInPercent * chanceMultiplier, 1.0f));
+
+        /*
+        y = (1/x)*chanceMult, where y is our chamce and x is the percentage of stamina left
+
+        y
+        ^
+        | *
+        | *
+        | *
+        |
+        |  *
+        |
+        |   *
+        |    *
+        |     **
+        |       ****
+        |          *********
+        +-----------------------> x
+
+        when chaneMultiplier is 10:
+            when stamina is 80% chance is 12.5%
+            when stamina is 50% chance is 20%
+            when stamina is 20% chance is 50%
+            when stamina is 10% chance is 100%
+
+        */
+    }
+
+
 
     private void DoAltAttack(EntityUid user, EntityUid weaponUid, MeleeWeaponComponent weapon, TailAltAttackEvent altAttack)
     {
@@ -258,14 +314,22 @@ public abstract class SharedTailAttackSystem : EntitySystem
         if (GetEntity(altAttack.Target) is not { } target)
             return;
 
-        var userPos = TransformSystem.GetWorldPosition(user);
-        var targetPos = TransformSystem.GetMapCoordinates(target).Position;
-        var direction = targetPos - userPos;
+        TryShoveTargets(user, new List<EntityUid> { target }, -1f);
+    }
 
-        if (direction == Vector2.Zero)
-            return;
+    private void TryShoveTargets(EntityUid user, List<EntityUid> targets, float vectorMult = 1f)
+    {
+        foreach (var target in targets)
+        {
+            var userPos = TransformSystem.GetWorldPosition(user);
+            var targetPos = TransformSystem.GetMapCoordinates(target).Position;
+            var direction = targetPos - userPos;
 
-        _throwing.TryThrow(target, direction.Normalized() * -1f, 2f, compensateFriction: true);
+            if (direction == Vector2.Zero)
+                return;
+
+            _throwing.TryThrow(target, direction.Normalized() * vectorMult, 2f, compensateFriction: true);
+        }
     }
     private void DoLungeAnimation(EntityUid user, EntityUid weapon, MapCoordinates coordinates, float length, string? animation, Angle spriteRotation, bool flipAnimation, ProtoId<CombatAnimationPrototype>? combatAnimProto)
     {

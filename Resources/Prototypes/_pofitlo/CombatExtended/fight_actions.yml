@@ -7,7 +7,6 @@
     state: icon
   setAttackStrategy: Punch
   animationPrototype: PunchAnimation
-  meleeParametersPrototype: PunchMeleeParameters
   hasHigherPriorityThanWeapons: false
 
 - type: fightAction
@@ -20,5 +19,4 @@
   setAttackStrategy: TailAttack
   animationPrototype: TailMainAttackAnimation
   altAnimationPrototype: TailAltAttackAnimation
-  meleeParametersPrototype: tailAttackMeleeParameters
   hasHigherPriorityThanWeapons: true

@@ -12,7 +12,6 @@ public sealed class FightActionChangeEvent : EntityEventArgs
     public NetEntity Uid { get; }
     public AttackStrategy FightAction { get; }
     public bool HasHigherPriorityThanWeapons { get; }
-    public ProtoId<FightActionMeleeParametersPrototype> FightActionMeleeParametersProto { get; }
     public ProtoId<CombatAnimationPrototype> CombatAnimationProto { get; }
     public ProtoId<CombatAnimationPrototype> AltCombatAnimationProto { get; }
 
@@ -20,14 +19,12 @@ public sealed class FightActionChangeEvent : EntityEventArgs
         NetEntity uid,
         AttackStrategy fightAction,
         bool hasHigherPriorityThanWeapons,
-        ProtoId<FightActionMeleeParametersPrototype> fightActionMeleeParametersProto,
         ProtoId<CombatAnimationPrototype> combatAnimationProto,
         ProtoId<CombatAnimationPrototype> altCombatAnimationProto)
     {
         Uid = uid;
         FightAction = fightAction;
         HasHigherPriorityThanWeapons = hasHigherPriorityThanWeapons;
-        FightActionMeleeParametersProto = fightActionMeleeParametersProto;
         CombatAnimationProto = combatAnimationProto;
         AltCombatAnimationProto = altCombatAnimationProto;
     }

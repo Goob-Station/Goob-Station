@@ -32,8 +32,6 @@ public sealed partial class FightActionPrototype : IPrototype, ICloneable
 
     [DataField] public ProtoId<CombatAnimationPrototype> AltAnimationPrototype = "PunchAnimation"; //TODO Это заглушка. Нуэно сделать так, что бы оно не было обязательным
 
-    [DataField] public ProtoId<FightActionMeleeParametersPrototype> MeleeParametersPrototype = "PunchMeleeParameters";
-
     [DataField] public bool HasHigherPriorityThanWeapons = false;
 
     public object Clone()
@@ -47,7 +45,6 @@ public sealed partial class FightActionPrototype : IPrototype, ICloneable
             SetAttackStrategy = SetAttackStrategy,
             AnimationPrototype = AnimationPrototype,
             AltAnimationPrototype = AltAnimationPrototype,
-            MeleeParametersPrototype = MeleeParametersPrototype,
             HasHigherPriorityThanWeapons = HasHigherPriorityThanWeapons
         };
     }

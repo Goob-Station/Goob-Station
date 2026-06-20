@@ -33,8 +33,13 @@ public sealed partial class FightActionComponent : Component
     [DataField, AutoNetworkedField]
     public ProtoId<CombatAnimationPrototype>? AltCombatAnimationPrototype = "PunchAnimation";
 
-    [DataField, AutoNetworkedField]
-    public ProtoId<FightActionMeleeParametersPrototype>? FightActionMeleeParametersPrototype = "PunchMeleeParameters";
+    /// <summary>
+    ///     Per-strategy melee parameters applied to this entity's <see cref="Content.Shared.Weapons.Melee.MeleeWeaponComponent"/>
+    ///     when the matching strategy is selected. Declared per-entity so different races can define their own attacks.
+    ///     Not networked: only the server reads it to mutate the (networked) melee weapon component.
+    /// </summary>
+    [DataField]
+    public Dictionary<AttackStrategy, FightActionMeleeParameters> MeleeParameters = new();
 
     [DataField, AutoNetworkedField]
     public Dictionary<string, object> AnimationSettings = new();
