@@ -151,7 +151,7 @@ public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
 
         if (anchoredTarget != null)
         {
-            BlobTargetAttack(core, fromTile.Value, anchoredTarget.Value);
+            BlobTargetAttack(core, fromTile.Value, anchoredTarget.Value, spendPoints);
             return;
         }
 
@@ -169,7 +169,7 @@ public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
                 && targetComp.Core != null)
                 return;
 
-            BlobTargetAttack(core, fromTile.Value, args.Target.Value);
+            BlobTargetAttack(core, fromTile.Value, args.Target.Value, spendPoints);
             return;
         }
 
@@ -238,12 +238,11 @@ public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
         return null;
     }
 
-    private void BlobTargetAttack(Entity<BlobCoreComponent> ent, Entity<BlobTileComponent?> from, EntityUid target)
+    private void BlobTargetAttack(Entity<BlobCoreComponent> ent, Entity<BlobTileComponent?> from, EntityUid target, bool spendPoints)
     {
-        if (ent.Comp.Observer == null)
-            return;
-
-        if (!_blobCoreSystem.TryUseAbility(ent, ent.Comp.AttackCost, Transform(target).Coordinates))
+        if (ent.Comp.Observer == null
+            || spendPoints
+            && !_blobCoreSystem.TryUseAbility(ent, ent.Comp.AttackCost, Transform(target).Coordinates))
             return;
 
         _blobTileSystem.DoLunge(from, target);

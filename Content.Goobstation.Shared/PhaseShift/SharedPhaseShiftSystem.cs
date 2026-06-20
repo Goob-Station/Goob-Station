@@ -76,7 +76,7 @@ public abstract class SharedPhaseShiftSystem : EntitySystem
         }
 
         var stealth = EnsureComp<StealthComponent>(ent);
-        _stealth.SetVisibility(ent, -1, stealth);
+        _stealth.SetVisibility(ent, stealth.MinVisibility, stealth);
 
         if (TryComp(ent, out PullableComponent? pullable))
             _pulling.TryStopPull(ent, pullable);
