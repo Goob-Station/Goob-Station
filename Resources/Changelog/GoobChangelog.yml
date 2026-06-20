@@ -23544,3 +23544,41 @@ Entries:
       message: monkeys are blind while sleeping like other species!
   id: 2703
   time: '2026-06-19T03:12:09.0000000+00:00'
+- author: RedTerror
+  changes:
+    - type: Tweak
+      message: >-
+        Now all Chaplain armor sets have the SAME stats. Different armor sets
+        are now reskins.
+  id: 2704
+  time: '2026-06-20T11:39:08.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Tweak
+      message: >-
+        Singulo knights, Derelict syndicate borgs, Greytides, Tunnel clowns,
+        Mime assassin, and some other midround roles now have playtime
+        requirements.
+  id: 2705
+  time: '2026-06-20T12:17:14.0000000+00:00'
+- author: RedTerror
+  changes:
+    - type: Tweak
+      message: >-
+        Chaplain Grey Emperor's Glove Buff: welding add to the list of tools.
+        The attack range has been increased to 3 tiles, and attacks cannot be
+        performed by right-clicking.
+    - type: Tweak
+      message: All Grey Emperor's Glove sounds have been replaced with finger snaps
+  id: 2706
+  time: '2026-06-20T12:17:57.0000000+00:00'
+- author: RedTerror
+  changes:
+    - type: Tweak
+      message: >-
+        Chaplain Chain sword Buff: activation speed 5s -> 1.5s, cooldown 3
+        minutes -> 2 minutes, duration 10s -> 20s.
+    - type: Tweak
+      message: Chaplain Chain sword cannot be dropped while active
+  id: 2707
+  time: '2026-06-20T12:18:31.0000000+00:00'
