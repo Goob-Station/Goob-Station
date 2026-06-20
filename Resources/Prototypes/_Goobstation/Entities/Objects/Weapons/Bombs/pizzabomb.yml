@@ -37,3 +37,4 @@
     canCreateVacuum: false
   - type: Appearance
   - type: TimerTriggerVisuals
+  - type: TriggerOnActivate
