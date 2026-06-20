@@ -5,7 +5,6 @@
   - type: Sprite
     sprite: _Lavaland/Effects/ray.rsi
     state: ray_start
-    shader: unshaded
   - type: Physics
     bodyType: Static
   - type: FadingIn

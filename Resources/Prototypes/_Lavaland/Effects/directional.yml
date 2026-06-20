@@ -151,7 +151,6 @@
   - type: Sprite
     sprite: _Lavaland/Effects/thick_beam.rsi
     state: thick_beamV
-    shader: unshaded
     drawdepth: Mobs
     noRot: true
   - type: Fixtures
@@ -193,7 +192,6 @@
   - type: Sprite
     sprite: _Lavaland/Effects/thick_beam.rsi
     state: thick_beamH
-    shader: unshaded
     drawdepth: Mobs
     noRot: true
   - type: Physics

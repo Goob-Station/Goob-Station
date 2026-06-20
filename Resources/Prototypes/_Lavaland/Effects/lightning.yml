@@ -151,7 +151,6 @@
     minimumEntitiesSpawned: 1
     maximumEntitiesSpawned: 1
   - type: DangerZone
-    popupRange: 8
     popup:
     - ort-thunder-warning1
     - ort-thunder-warning2

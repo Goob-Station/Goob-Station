@@ -118,7 +118,7 @@
         - to: WeaponMercuryRailgun
           steps:
             - tag: MegafaunaMercuryCore
-              name: Core of Mercury
+              name: mercury-core
               icon:
                 sprite: _Lavaland/Objects/Devices/mercury.rsi
                 state: mercury_core
@@ -148,7 +148,7 @@
         - to: ClothingModsuitORTRadiant
           steps:
             - tag: MegafaunaMercuryCore
-              name: Core of Mercury
+              name: mercury-core
               icon:
                 sprite: _Lavaland/Objects/Devices/mercury.rsi
                 state: mercury_core

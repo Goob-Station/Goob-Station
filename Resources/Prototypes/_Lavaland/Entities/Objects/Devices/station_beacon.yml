@@ -181,7 +181,6 @@
   - type: Sprite
     drawdepth: LowFloors
     sprite: _Lavaland/Effects/particle.rsi
-    shader: unshaded
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: solarparticle
@@ -197,7 +196,6 @@
   - type: Sprite
     drawdepth: LowFloors
     sprite: _Lavaland/Effects/particle.rsi
-    shader: unshaded
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: solarparticle

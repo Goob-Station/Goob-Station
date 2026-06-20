@@ -1,5 +1,6 @@
 using Content.Shared._Lavaland.Megafauna.Mercury.Components;
 using Content.Shared._Lavaland.Megafauna.Mercury.Systems;
+using Content.Shared.Mobs.Systems;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
@@ -25,6 +26,7 @@ public sealed class ServerFadingAnchoredTeleportSystem : SharedFadingAnchoredTel
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     public override void Initialize()
     {
@@ -55,7 +57,7 @@ public sealed class ServerFadingAnchoredTeleportSystem : SharedFadingAnchoredTel
 
             if (comp.FadeInStarted)
             {
-                if (comp.MoveTarget.HasValue)
+                if (comp.MoveTarget.HasValue && (!comp.PlayerTargetEntity.HasValue || _mobState.IsAlive(Transform(comp.PlayerTargetEntity.Value).ParentUid)))
                 {
                     var target = comp.MoveTarget.Value;
 

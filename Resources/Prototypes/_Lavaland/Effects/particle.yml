@@ -5,7 +5,6 @@
   - type: Sprite
     drawdepth: OverMobs
     sprite: _Lavaland/Effects/particle.rsi
-    shader: unshaded
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: solarparticle
@@ -50,7 +49,6 @@
   - type: Sprite
     drawdepth: BelowMobs
     sprite: _Lavaland/Effects/4x4.rsi
-    shader: unshaded
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: light
@@ -68,7 +66,6 @@
     energy: 1.5
     color: purple
   - type: Rotating
-    increaseOvertime: false
     rotationSpeed: 30
 
 - type: entity

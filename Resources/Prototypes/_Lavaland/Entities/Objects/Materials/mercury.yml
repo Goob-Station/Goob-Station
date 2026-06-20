@@ -1,7 +1,7 @@
 - type: material
   id: ORTKeratin
   stackEntity: MaterialORTKeratin1
-  name: crystallized keratin
+  name: crystallized-keratin
   unit: materials-unit-piece
   icon: { sprite: _Lavaland/Objects/Materials/mercury.rsi, state: biokeratin }
   color: cyan
@@ -9,7 +9,7 @@
 
 - type: stack
   id: ORTKeratin
-  name: crystallized keratin
+  name: crystallized-keratin
   icon: { sprite: _Lavaland/Objects/Materials/mercury.rsi, state: biokeratin }
   spawn: MaterialORTKeratin1
   maxCount: 30
@@ -79,7 +79,7 @@
 
 - type: stack
   id: ORTAlloy
-  name: ultra advanced alloy
+  name: ultra-advanced-alloy
   icon: { sprite: _Lavaland/Objects/Materials/mercury.rsi, state: radiant }
   spawn: MaterialORTAlloy1
   maxCount: 30
@@ -87,7 +87,7 @@
 - type: material
   id: ORTAlloy
   stackEntity: MaterialORTAlloy1  
-  name: ultra advanced alloy
+  name: ultra-advanced-alloy
   unit: materials-unit-piece
   icon: { sprite: _Lavaland/Objects/Materials/mercury.rsi, state: radiant }
   color: cyan
