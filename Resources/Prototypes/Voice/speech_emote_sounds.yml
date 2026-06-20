@@ -197,6 +197,8 @@
       collection: MaleDeathGasp
     Gulp: # Goob
       path: /Audio/_Goobstation/Voice/Human/gulp.ogg ## GOOB CONTENT END
+    Belch: # Frontier
+      collection: Belch # Frontier
 
 - type: emoteSounds
   id: MaleReptilian
@@ -239,6 +241,8 @@
       collection: MaleCoughs
     Yawn: # Goob
       collection: MaleYawn
+    Belch: # Frontier
+      collection: Belch # Frontier
 
 - type: emoteSounds
   id: FemaleReptilian
@@ -281,6 +285,8 @@
       collection: FemaleCoughs
     Yawn: # Goob
       collection: FemaleYawn
+    Belch: # Frontier
+      collection: Belch # Frontier
 
 - type: emoteSounds
   id: MaleSlime
@@ -333,6 +339,8 @@
       path: /Audio/_Goobstation/Voice/surprised.ogg
   params:
     variation: 0.125
+  Belch: # Frontier
+    collection: Belch # Frontier
 
 - type: emoteSounds
   id: FemaleSlime
@@ -385,6 +393,8 @@
       path: /Audio/_Goobstation/Voice/surprised.ogg
   params:
     variation: 0.125
+  Belch: # Frontier
+    collection: Belch # Frontier
 
 - type: emoteSounds
   id: UnisexVox
@@ -441,6 +451,8 @@
       collection: HarpyCaws
   params:
     variation: 0.125
+  Belch: # Frontier
+    collection: Belch # Frontier
 
 - type: emoteSounds
   id: UnisexDiona
@@ -479,6 +491,8 @@
       collection: Dionasigh
   params:
     variation: 0.125
+  Belch: # Frontier
+    collection: Belch # Frontier
 
 - type: emoteSounds
   id: UnisexArachnid
@@ -509,6 +523,8 @@
       path: /Audio/_Goobstation/Voice/surprised.ogg
     Gulp: # Goob
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
+    Belch: # Frontier
+      collection: Belch # Frontier
 
 - type: emoteSounds
   id: UnisexDwarf
@@ -655,6 +671,8 @@
       collection: MaleSneezes
     Cough:
       collection: MaleCoughs
+    Belch: # Frontier
+      collection: Belch # Frontier
 
 - type: emoteSounds
   id: MaleMoth
@@ -705,6 +723,8 @@
       collection: MaleSneezes
     Cough:
       collection: MaleCoughs
+    Belch: # Frontier
+      collection: Belch # Frontier
 
 - type: emoteSounds
   id: FemaleMoth
@@ -755,6 +775,8 @@
       collection: FemaleSneezes
     Cough:
       collection: FemaleCoughs
+    Belch: # Frontier
+      collection: Belch # Frontier
 
 - type: emoteSounds
   id: UnisexSilicon

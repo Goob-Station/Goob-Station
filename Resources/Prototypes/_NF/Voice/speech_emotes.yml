@@ -2,7 +2,7 @@
   id: Belch
   name: chat-emote-name-belch
   category: Vocal
-  available: false
+  available: true
   icon: _NF/Interface/Emotes/belch.png
   whitelist:
     components:
@@ -10,6 +10,7 @@
   blacklist:
     components:
     - BorgChassis
+    - Silicon
   chatMessages: ["chat-emote-msg-belch"]
   chatTriggers:
     - belch

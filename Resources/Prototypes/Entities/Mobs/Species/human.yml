@@ -145,7 +145,6 @@
     - Snout
   - type: Carriable # Carrying system from nyanotrasen.
   - type: Speech # Frontier
-    allowedEmotes: ['Belch'] # Frontier
   - type: Inventory
     femaleDisplacements:
       jumpsuit:

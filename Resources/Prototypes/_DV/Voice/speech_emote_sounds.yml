@@ -101,6 +101,8 @@
       collection: Wurble
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Belch: # Frontier
+      collection: Belch # Frontier
 
 - type: emoteSounds
   id: SoundsHarpyMale
@@ -187,6 +189,8 @@
       collection: Mars
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Belch: # Frontier
+      collection: Belch # Frontier
 
 - type: emoteSounds
   id: FemaleVulpkanin
@@ -237,6 +241,8 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Belch: # Frontier
+      collection: Belch # Frontier
 
 - type: emoteSounds
   id: MaleVulpkanin
@@ -287,6 +293,8 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Belch: # Frontier
+      collection: Belch # Frontier
 
 - type: emoteSounds
   id: MobDog
@@ -345,6 +353,8 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Belch: # Frontier
+      collection: Belch # Frontier
 
 - type: emoteSounds
   id: FemaleRodentia
@@ -385,6 +395,8 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Belch: # Frontier
+      collection: Belch # Frontier
 
 - type: emoteSounds
   id: UnisexChitinid
@@ -427,6 +439,8 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Belch: # Frontier
+      collection: Belch # Frontier
 
 - type: emoteSounds
   id: FemaleFeroxi
@@ -469,6 +483,8 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Belch: # Frontier
+      collection: Belch # Frontier
 
 - type: emoteSounds
   id: MaleFeroxi
@@ -511,3 +527,5 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Belch: # Frontier
+      collection: Belch # Frontier

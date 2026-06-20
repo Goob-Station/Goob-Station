@@ -125,6 +125,8 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Belch: # Frontier
+      collection: Belch # Frontier
 
 - type: emoteSounds
   id: FemaleShadowkin
@@ -171,3 +173,5 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
+    Belch: # Frontier
+      collection: Belch # Frontier
