@@ -1639,6 +1639,7 @@
   description: The genetic bipedal ancestor of... Uh... Something. Yeah, there's definitely something on the station that descended from whatever this is.
   abstract: true
   components:
+  - type: Blindable # monkeys can be blind while sleeping!
   - type: VentCrawler # goobstation - Ventcrawl
     allowInventory: false
   - type: CombatMode
