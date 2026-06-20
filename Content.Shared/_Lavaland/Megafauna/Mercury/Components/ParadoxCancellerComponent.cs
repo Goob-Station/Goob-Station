@@ -53,6 +53,6 @@ public sealed partial class ParadoxCancellerComponent : Component
     /// Spawn this on use to keep track of position to return to.
     /// </summary>
     [DataField]
-    public EntProtoId? MarkerPrototype = "MobParadox";
+    public EntProtoId? MarkerPrototype = "EffectParadox";
     public EntityUid? MarkerEntity;
 }

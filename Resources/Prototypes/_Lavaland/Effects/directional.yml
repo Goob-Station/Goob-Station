@@ -159,7 +159,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.3, -0.5, 0.3, 0.5"
+          bounds: "-0.25, -0.5, 0.25, 0.5"
         density: 9999
         hard: false
         mask:
@@ -177,7 +177,7 @@
     inverted: true
     damage:
       groups:
-        Genetic: 5
+        Genetic: 3
   - type: FadingTimedDespawn
     lifetime: 0.5
     fadeOutTime: 0.5
@@ -205,7 +205,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.5, -0.3, 0.5, 0.3"
+          bounds: "-0.5, -0.25, 0.5, 0.25"
         density: 9999
         hard: false
         mask:
@@ -219,7 +219,7 @@
     inverted: true
     damage:
       groups:
-        Genetic: 5
+        Genetic: 3
   - type: FadingTimedDespawn
     lifetime: 0.5
     fadeOutTime: 0.5

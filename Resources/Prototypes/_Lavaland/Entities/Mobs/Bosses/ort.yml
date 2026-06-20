@@ -30,7 +30,6 @@
   - type: Appearance
   - type: InputMover
   - type: MobMover
-  - type: TileMovement
   - type: NoSlip
   - type: Damageable
     damageContainer: Inorganic
@@ -188,7 +187,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-2,-0.5,2,0.5"
+          bounds: "-2,0,2,1"
         density: 10000
         mask:
         - LargeMobMask
@@ -218,7 +217,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      1500: Dead
+      1250: Dead
   - type: AngerPlayerScaling
     angerScale: 1.4
     hpScale: 1.5
@@ -263,7 +262,7 @@
           !type:PhysShapeAabb
           bounds: "-0.5,-1,0.5,1.5"
         density: 10000
-        hard: false
+        hard: true
         mask:
         - LargeMobMask
         layer:
@@ -279,7 +278,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      2000: Dead
+      1750: Dead
   - type: AngerPlayerScaling
     angerScale: 1.5
     hpScale: 1.5

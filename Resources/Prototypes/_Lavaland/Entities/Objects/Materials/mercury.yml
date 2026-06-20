@@ -73,8 +73,8 @@
   result: MaterialORTAlloy
   completetime: 7
   materials:
-    ORTKeratin: 133
-    Diamond: 133
+    ORTKeratin: 266
+    Diamond: 66
     Plasma: 399
 
 - type: stack
