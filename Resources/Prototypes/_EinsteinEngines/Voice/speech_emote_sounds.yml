@@ -21,6 +21,8 @@
         variation: 0.125
     Chitter:
       path: /Audio/Voice/Talk/pai.ogg
+    Belch: # Frontier
+      collection: Belch # Frontier
     Squeak:
       path: /Audio/Voice/Talk/pai.ogg
     CatMeow:
