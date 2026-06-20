@@ -140,31 +140,52 @@
 
 # Neck
 - type: loadout
-  id: ChiefEngineerCloak
+  id: ClothingNeckCloakWhiteCe
   equipment:
-    neck: ClothingNeckCloakCe
+    neck: ClothingNeckCloakWhiteCe
+  groupBy: "cecloak"
 
 - type: loadout
-  id: ChiefEngineerMantle
+  id: ClothingNeckCloakGreenCe
   equipment:
-    neck: ClothingNeckMantleCE
+    neck: ClothingNeckCloakGreenCe
+  groupBy: "cecloak"
+
+- type: loadout
+  id: ClothingNeckMantleWhiteCE
+  equipment:
+    neck: ClothingNeckMantleWhiteCE # Goob edit
   effects:
   - !type:GroupLoadoutEffect
     proto: MasterCE
+  groupBy: "cemantle"
 
-- type: startingGear
-  id: ChiefEngineerMantle
+- type: loadout
+  id: ClothingNeckMantleOrangeCE
   equipment:
-    neck: ClothingNeckMantleCE
+    neck: ClothingNeckMantleOrangeCE # Goob edit
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterCE
+  groupBy: "cemantle"
 
 - type: loadout # Goobstation - Ensembles
-  id: ChiefEngineerEnsemble
+  id: ClothingNeckEnsembleChiefEngineerWhite
   equipment:
-    neck: ClothingNeckEnsembleChiefEngineer
+    neck: ClothingNeckEnsembleChiefEngineerWhite
   effects:
   - !type:GroupLoadoutEffect
     proto: GrandMasterCE
+  groupBy: "ce_ensemble"
 
+- type: loadout # Goobstation - Ensembles
+  id: ClothingNeckEnsembleChiefEngineerGreen
+  equipment:
+    neck: ClothingNeckEnsembleChiefEngineerGreen
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: GrandMasterCE
+  groupBy: "ce_ensemble"
 # OuterClothing
 - type: loadout
   id: ChiefEngineerWintercoat

@@ -42,4 +42,5 @@ lavaland-ruin-generator = Generator graveyard
 lavaland-ruin-mug = Mug factory
 lavaland-ruin-temple = Nar'Sie temple
 lavaland-ruin-flock-large = Strange glass ruins
+lavaland-ruin-reclaimer = NT-Reclaimer
 lavaland-ruin-mercury-fissure = Radioactive fissure

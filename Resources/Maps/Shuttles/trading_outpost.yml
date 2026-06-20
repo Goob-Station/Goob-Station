@@ -3213,7 +3213,7 @@ entities:
     - type: Transform
       pos: 6.5,-16.5
       parent: 2
-- proto: ClothingNeckCloakCe
+- proto: ClothingNeckCloakWhiteCe
   entities:
   - uid: 1096
     components:

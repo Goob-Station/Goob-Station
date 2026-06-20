@@ -141,6 +141,7 @@
     useDelay: 3
     icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
     itemIconStyle: NoItem
+    raiseOnUser: true
   - type: InstantAction
     event: !type:ToggleSandevistanEvent
 

@@ -180,6 +180,8 @@
   - type: TypingIndicator
     proto: skeleton
   - type: FacehuggerImmune # Goobstation - Xenomorphs
+  - type: GrabIntent #goob
+  - type: Grabbable #goob
 
 - type: entity
   parent: BaseSpeciesDummy
