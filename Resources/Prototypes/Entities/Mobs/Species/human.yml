@@ -143,8 +143,6 @@
     hideLayersOnEquip:
     - Hair
     - Snout
-  - type: Carriable # Carrying system from nyanotrasen.
-  - type: Speech # Frontier
   - type: Inventory
     femaleDisplacements:
       jumpsuit:
