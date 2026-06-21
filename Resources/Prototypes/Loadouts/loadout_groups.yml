@@ -1732,3 +1732,4 @@
   hidden: true
   loadouts:
   - LoadoutSpeciesBreathToolSecurity
+  - LoadoutDecapoidBreathTool #Trauma port
