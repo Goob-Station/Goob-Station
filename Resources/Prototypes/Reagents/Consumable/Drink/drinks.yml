@@ -577,6 +577,7 @@
         conditions:
         - !type:OrganType
           type: Feroxi
+          type: Decapoid
         factor: 2
       - !type:Oxygenate
         conditions:
