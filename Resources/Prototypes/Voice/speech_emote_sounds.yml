@@ -489,10 +489,11 @@
       collection: Dionayawn
     Sigh: #goob
       collection: Dionasigh
+    Belch: # Frontier
+      collection: Belch # Frontier
   params:
     variation: 0.125
-  Belch: # Frontier
-    collection: Belch # Frontier
+
 
 - type: emoteSounds
   id: UnisexArachnid
