@@ -79,6 +79,8 @@
       path: /Audio/_Goobstation/Voice/surprised.ogg
       params:
         variation: 0
+    Belch: # Frontier
+      collection: Belch # Frontier
 
 - type: emoteSounds
   id: MaleShadowkin
