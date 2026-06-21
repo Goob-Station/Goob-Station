@@ -1713,6 +1713,7 @@
   hidden: true
   loadouts:
   - LoadoutSpeciesBreathTool
+  - LoadoutDecapoidBreathTool #Trauma port
 
 - type: loadoutGroup
   id: GroupSpeciesBreathToolMedical
