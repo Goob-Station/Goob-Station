@@ -1207,6 +1207,7 @@
   - SeniorResearcherJumpskirt
   - ResearchMJ # goob
   - ScientistFormal # goob
+  - SeniorResearchMJ #goob
 
 - type: loadoutGroup
   id: ScientistBackpack
