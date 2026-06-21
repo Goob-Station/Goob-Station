@@ -601,6 +601,7 @@
         conditions:
         - !type:OrganType
           type: FeroxiDehydrated
+          type: Decapoid
         ratios: # DeltaV no duplicating O2 >:3
           CarbonDioxide: 0.5
           WaterVapor: -1.0
