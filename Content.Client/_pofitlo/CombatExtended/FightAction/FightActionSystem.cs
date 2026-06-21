@@ -76,14 +76,4 @@ public sealed class FightActionSystem : SharedFightActionSystem
         FightActionStatusUpdate?.Invoke(component);
     }
 
-    //private void HandleStrategyChange(ICommonSession? session, FightActionComponent component)
-    //{
-    //    if (session == null
-    //        || session.AttachedEntity is not { } uid
-    //        || !TryComp<FightActionComponent>(uid, out var targeting)) // TODO переименовать
-    //        return;
-
-    //    StrategyChange?.Invoke(target);
-    //}
-
 }

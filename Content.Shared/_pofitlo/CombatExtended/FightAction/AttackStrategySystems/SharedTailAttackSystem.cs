@@ -1,52 +1,17 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
-using Content.Shared.ActionBlocker;
-using Content.Shared.CombatMode;
-using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Map;
-using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Random;
+using Content.Shared.ActionBlocker;
+using Content.Shared.CombatMode;
+using Content.Shared.Weapons.Melee.Events;
 using Content.Shared._pofitlo.CombatExtended.FightAction.Events;
 using Content.Shared._pofitlo.CombatExtended.FightAction.Prototypes;
 using Content.Shared.Weapons.Melee;
-using Content.Shared._pofitlo.CombatExtended.FightAction;
-
-
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Numerics;
-using Content.Goobstation.Common.CCVar;
-using Content.Goobstation.Common.MartialArts; // Goobstation - Martial Arts
-using Content.Shared._EinsteinEngines.Contests;
-using Content.Shared._Shitmed.Weapons.Melee.Events; // Shitmed Change
-using Content.Shared.ActionBlocker;
-using Content.Shared.Actions.Events;
-using Content.Shared.Administration.Components;
-using Content.Shared.Administration.Logs;
-using Content.Shared.CombatMode;
-using Content.Shared.Coordinates;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Systems;
-using Content.Shared.Database;
-using Content.Goobstation.Maths.FixedPoint;
-using Content.Shared.Hands;
-using Content.Shared.Hands.Components;
-using Content.Shared.Hands.EntitySystems;
-using Content.Shared.IdentityManagement;
-using Content.Shared.Hands.EntitySystems; // Shitmed Change
-using Content.Shared.Interaction;
-using Content.Shared.Inventory;
-using Content.Shared.Inventory.VirtualItem;
-using Content.Shared.Item;
-using Content.Shared.Item.ItemToggle.Components;
-using Content.Shared.Mobs.Components;
-using Content.Shared.Mobs.Systems;
-using Content.Shared.Physics;
-using Content.Shared.Popups;
-using Content.Shared.StatusEffect;
 using Content.Shared.Throwing;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Stunnable;
@@ -64,8 +29,6 @@ public abstract class SharedTailAttackSystem : EntitySystem
     [Dependency] protected readonly ActionBlockerSystem Blocker = default!;
     [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
     [Dependency] protected readonly IGameTiming Timing = default!;
-    //[Dependency] private readonly UseDelaySystem _delay = default!;
-    //[Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
 
@@ -88,7 +51,7 @@ public abstract class SharedTailAttackSystem : EntitySystem
             return;
 
 
-        AttemptAttack(user, weaponUid, weapon, fightAction, msg, args.SenderSession);
+        AttemptAttack(user, weaponUid, weapon, fightAction, msg);
 
     }
 
@@ -101,7 +64,7 @@ public abstract class SharedTailAttackSystem : EntitySystem
             weaponUid != GetEntity(msg.Weapon))
             return;
 
-        AttemptAttack(user, weaponUid, weapon, fightAction, msg, args.SenderSession);
+        AttemptAttack(user, weaponUid, weapon, fightAction, msg);
     }
 
     private bool GetTailAsWeapon(EntityUid entity, out EntityUid weaponUid, [NotNullWhen(true)] out MeleeWeaponComponent? melee, [NotNullWhen(true)] out FightActionComponent? fightAction)
@@ -120,54 +83,18 @@ public abstract class SharedTailAttackSystem : EntitySystem
     }
 
 
-    private bool AttemptAttack(EntityUid user, EntityUid weaponUid, MeleeWeaponComponent weapon, FightActionComponent fightAction, AttackEvent attack, ICommonSession? session)
+    private bool AttemptAttack(EntityUid user, EntityUid weaponUid, MeleeWeaponComponent weapon, FightActionComponent fightAction, AttackEvent attack)
     {
-        // TODO избавиться от всех комментариев
-        var curTime = Timing.CurTime;
-
-        if (weapon.NextAttack > curTime)
+        if (CanAttack(user, weaponUid, weapon))
             return false;
 
-        if (!CombatMode.IsInCombatMode(user))
-            return false;
-
-        EntityUid? target = null;
-
-        if (!Blocker.CanAttack(user, weapon: (weaponUid, weapon)))
-            return false;
-
-        // Windup time checked elsewhere.
-        var fireRate = TimeSpan.FromSeconds(1f / MeleeWeaponSystem.GetAttackRate(weaponUid, user, weapon));
-        var swings = 0;
-
-        // TODO: If we get autoattacks then probably need a shotcounter like guns so we can do timing properly.
-        if (weapon.NextAttack < curTime)
-            weapon.NextAttack = curTime;
-
-        while (weapon.NextAttack <= curTime)
-        {
-            weapon.NextAttack += fireRate;
-            swings++;
-        }
-
-        DirtyField(weaponUid, weapon, nameof(MeleeWeaponComponent.NextAttack));
-
-        // Do this AFTER attack so it doesn't spam every tick
-        var ev = new AttemptMeleeEvent(user, weaponUid, weapon, attack is HeavyAttackEvent); // Goob edit
-        RaiseLocalEvent(weaponUid, ref ev);
-
-        //if (!MeleeWeaponSystem.DoHeavyAttack(user, heavy, weaponUid, weapon, session))
-        //    return false;
-
-        EntProtoId animation; // Goobstation - Edit
-        var spriteRotation = weapon.AnimationRotation;
-
-        var attackEv = new MeleeAttackEvent(weaponUid);
-        RaiseLocalEvent(user, ref attackEv);
+        AdvanceCooldown(weaponUid, weapon, user);
+        RaiseAttackEvents(user, weaponUid, weapon, attack);
 
         weapon.Attacking = true;
         DirtyField(weaponUid, weapon, nameof(MeleeWeaponComponent.Attacking));
 
+        EntProtoId animation; // Goobstation - Edit
         ProtoId<CombatAnimationPrototype>? combatAnimProto;
 
         switch (attack)
@@ -186,68 +113,140 @@ public abstract class SharedTailAttackSystem : EntitySystem
                 return false;
         }
 
-        spriteRotation = weapon.WideAnimationRotation;
+        var spriteRotation = weapon.WideAnimationRotation;
         DoLungeAnimation(user, weaponUid, TransformSystem.ToMapCoordinates(GetCoordinates(attack.Coordinates)), weapon.Range, animation, spriteRotation, weapon.FlipAnimation, combatAnimProto);
 
-        // TODO слишком раздутая система. Надо будет сократить
         return true;
+    }
+
+    private bool CanAttack(EntityUid user, EntityUid weaponUid, MeleeWeaponComponent weapon)
+    {
+        return weapon.NextAttack > Timing.CurTime ||
+               !CombatMode.IsInCombatMode(user) ||
+               !Blocker.CanAttack(user, weapon: (weaponUid, weapon));
+    }
+
+
+    private void AdvanceCooldown(EntityUid weaponUid, MeleeWeaponComponent weapon, EntityUid user)
+    {
+        var curTime = Timing.CurTime;
+        var fireRate = TimeSpan.FromSeconds(1f / MeleeWeaponSystem.GetAttackRate(weaponUid, user, weapon));
+
+        weapon.NextAttack = (weapon.NextAttack < curTime ? curTime : weapon.NextAttack) + fireRate;
+        DirtyField(weaponUid, weapon, nameof(MeleeWeaponComponent.NextAttack));
+    }
+
+    private void RaiseAttackEvents(EntityUid user, EntityUid weaponUid, MeleeWeaponComponent weapon, AttackEvent attack)
+    {
+        var ev = new AttemptMeleeEvent(user, weaponUid, weapon, attack is HeavyAttackEvent); // Goob edit
+        RaiseLocalEvent(weaponUid, ref ev);
+
+        var attackEv = new MeleeAttackEvent(weaponUid);
+        RaiseLocalEvent(user, ref attackEv);
     }
 
     private void DoMainAttack(EntityUid user, EntityUid weaponUid, MeleeWeaponComponent weapon, FightActionComponent fightAction, TailMainAttackEvent mainAttack) // TODO пристроить fightAction
     {
-        if (!TryComp(user, out TransformComponent? userXform))
+        if (!TryGetAttackDirection(user, TransformSystem.ToMapCoordinates(GetCoordinates(mainAttack.Coordinates)), out var direction))
             return;
-
-        var targetMap = TransformSystem.ToMapCoordinates(GetCoordinates(mainAttack.Coordinates));
-
-        if (targetMap.MapId != userXform.MapID)
-            return;
-
-        var userPos = TransformSystem.GetWorldPosition(userXform);
-        var direction = targetMap.Position - userPos;
 
         if (mainAttack.Entities == null || mainAttack.Entities.Count <= 0)
             return;
 
-        var entities = GetEntityList(mainAttack.Entities);
+        var targets = CollectTargets(user, mainAttack.Entities);
+        if (targets.Count == 0)
+            return;
+
+        if (!TryHitTargets(user, weaponUid, weapon, mainAttack, direction, targets))
+            return;
+
+        ApplyTargetingEffects(user, targets);
+    }
+
+    private bool TryGetAttackDirection(EntityUid user, MapCoordinates targetMap, out Vector2 direction)
+    {
+        direction = Vector2.Zero;
+
+        if (!TryComp(user, out TransformComponent? userXform))
+            return false;
+
+        if (targetMap.MapId != userXform.MapID)
+            return false;
+
+        var userPos = TransformSystem.GetWorldPosition(userXform);
+        direction = targetMap.Position - userPos;
+
+        return true;
+    }
+
+    private List<EntityUid> CollectTargets(EntityUid user, List<NetEntity>? netEntities)
+    {
         var targets = new List<EntityUid>();
+        if (netEntities == null || netEntities.Count == 0)
+            return targets;
+
         var damageQuery = GetEntityQuery<DamageableComponent>();
 
-        foreach (var entity in entities)
+        foreach (var entity in GetEntityList(netEntities))
         {
-            if (entity == user ||
-                !damageQuery.HasComponent(entity))
+            if (entity == user || !damageQuery.HasComponent(entity))
                 continue;
 
-            // Goobstation start
-            var beforeEvent = new BeforeHarmfulActionEvent(user, HarmfulActionType.Harm);
-            RaiseLocalEvent(entity, beforeEvent);
-            if (beforeEvent.Cancelled)
+            if (IsHarmCancelled(user, entity)) // Goobstation
                 continue;
-            // Goobstation end
 
             targets.Add(entity);
         }
 
+        return targets;
+    }
+    private bool IsHarmCancelled(EntityUid user, EntityUid target)
+    {
+        var ev = new BeforeHarmfulActionEvent(user, HarmfulActionType.Harm);
+        RaiseLocalEvent(target, ev);
+        return ev.Cancelled;
+    }
+
+    private bool TryHitTargets(EntityUid user, EntityUid weaponUid, MeleeWeaponComponent weapon,
+        TailMainAttackEvent mainAttack, Vector2 direction, List<EntityUid> targets)
+    {
         var damage = MeleeWeaponSystem.GetDamage(weaponUid, user, weapon);
 
-        var hitEvent = new MeleeHitEvent(targets, user, weaponUid, damage, direction, GetCoordinates(mainAttack.Coordinates)); // Goob edit
-        RaiseLocalEvent(weaponUid, hitEvent, true); // Goob station - broadcast
+        var hitEvent = new MeleeHitEvent(targets, user, weaponUid, damage, direction, GetCoordinates(mainAttack.Coordinates));
+        RaiseLocalEvent(weaponUid, hitEvent, true); // Goobstation - broadcast
 
         if (hitEvent.Handled)
-            return;
+            return false;
 
         MeleeWeaponSystem.DoSweepingBlow(targets, user, weapon, mainAttack, weaponUid, damage, hitEvent);
-        TryShoveTargets(user, targets);
-        TryKnockDownTargets(user, targets);
-        //TryShoveTargets(user, targets, direction);
-    } // TODO ахуй какие большие функции
+
+        return true;
+    }
+
+    private void ApplyTargetingEffects(EntityUid user, List<EntityUid> targets)
+    {
+        if (!TryComp<TargetingComponent>(user, out var targeting))
+            return;
+
+        var target = targeting.Target;
+
+        if (TargetIsLeg(target))
+            TryKnockDownTargets(user, targets);
+
+        if (TargetIsChest(target))
+            TryShoveTargets(user, targets);
+    }
+    private bool TargetIsLeg(TargetBodyPart target)
+    {
+        return (target & TargetBodyPart.Legs) != 0;
+    }
+    private bool TargetIsChest(TargetBodyPart target)
+    {
+        return (target & TargetBodyPart.Chest) != 0;
+    }
 
     private void TryKnockDownTargets(EntityUid user, List<EntityUid> targets) //TODO МБ сделать как трай
     {
-        if (!TryComp<TargetingComponent>(user, out var targetingComp) || !TargetIsLeg(targetingComp.Target))
-            return;
-
         foreach (var target in targets)
         {
             if (!TryComp<StaminaComponent>(target, out var targetStamina))
@@ -260,13 +259,7 @@ public abstract class SharedTailAttackSystem : EntitySystem
 
             TimeSpan knockdownDuration = TimeSpan.FromSeconds(5); // TУДУ. Просто тест.
             _stun.TryKnockdown(target, knockdownDuration, force: true);
-
         }
-    }
-
-    private bool TargetIsLeg(TargetBodyPart target)
-    {
-        return (target & TargetBodyPart.Legs) != 0;
     }
 
     private bool TryPassWithChanceWhichDependsOnStaminaByHyperbola(StaminaComponent stamina, float chanceMultiplier = 10f)
@@ -317,8 +310,11 @@ public abstract class SharedTailAttackSystem : EntitySystem
         TryShoveTargets(user, new List<EntityUid> { target }, -1f);
     }
 
-    private void TryShoveTargets(EntityUid user, List<EntityUid> targets, float vectorMult = 1f)
+    private bool TryShoveTargets(EntityUid user, List<EntityUid> targets, float vectorMult = 1f)
     {
+        if (targets.Count == 0)
+            return false;
+
         foreach (var target in targets)
         {
             var userPos = TransformSystem.GetWorldPosition(user);
@@ -326,10 +322,11 @@ public abstract class SharedTailAttackSystem : EntitySystem
             var direction = targetPos - userPos;
 
             if (direction == Vector2.Zero)
-                return;
+                continue;
 
             _throwing.TryThrow(target, direction.Normalized() * vectorMult, 2f, compensateFriction: true);
         }
+        return true;
     }
     private void DoLungeAnimation(EntityUid user, EntityUid weapon, MapCoordinates coordinates, float length, string? animation, Angle spriteRotation, bool flipAnimation, ProtoId<CombatAnimationPrototype>? combatAnimProto)
     {

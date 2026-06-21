@@ -117,7 +117,7 @@ public sealed class FightActionUIController : UIController, IOnStateEntered<Game
             return;
 
         ProtoId<CombatAnimationPrototype> animationProto = fightActionPrototype.AnimationPrototype;
-        ProtoId<CombatAnimationPrototype> altAnimationProto = fightActionPrototype.AltAnimationPrototype;
+        ProtoId<CombatAnimationPrototype>? altAnimationProto = fightActionPrototype.AltAnimationPrototype;
         AttackStrategy fightAction = fightActionPrototype.SetAttackStrategy;
         SpriteSpecifier icon = fightActionPrototype.Icon;
         bool hasHigherPriorityThanWeapons = fightActionPrototype.HasHigherPriorityThanWeapons;

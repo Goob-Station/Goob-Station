@@ -1,51 +1,49 @@
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
 namespace Content.Shared._pofitlo.CombatExtended.FightAction.Prototypes;
 
-[Serializable, NetSerializable, DataDefinition]
+[DataDefinition]
 [Prototype("fightAction")]
-public sealed partial class FightActionPrototype : IPrototype, ICloneable
+public sealed partial class FightActionPrototype : IPrototype
 {
+    /// <summary>
+    ///     Unique identifier of the prototype.
+    /// </summary>
     [IdDataField] public string ID { get; private set; } = default!;
 
     /// <summary>
-    ///     Used for codex and radial menu.
+    ///     Localization id of the action's display name. Used for codex and radial menu.
     /// </summary>
     [DataField] public string LocName = "fight-action-unknown";
 
     /// <summary>
-    ///     Used for codex
+    ///     Localization id of the action's description. Used for codex.
     /// </summary>
     [DataField] public string LocDesc = string.Empty;
 
     /// <summary>
     ///     Icon for codex and radial menu.
     /// </summary>
-    [DataField] public SpriteSpecifier Icon = new SpriteSpecifier.Rsi(new("_Goobstation/Heretic/amber_focus.rsi"), "icon"); // TODO поставить свою
+    [DataField] public SpriteSpecifier Icon = new SpriteSpecifier.Rsi(new("_pofitlo/CombatExtended/FightAction/punch.rsi"), "icon");
 
-    //TODO дать описание
+    /// <summary>
+    ///     Which attack strategy (combat behaviour) this action triggers, e.g. punch or tail attack.
+    /// </summary>
     [DataField] public AttackStrategy SetAttackStrategy = AttackStrategy.Punch;
 
+    /// <summary>
+    ///     Animation played on the main (primary) attack.
+    /// </summary>
     [DataField] public ProtoId<CombatAnimationPrototype> AnimationPrototype = "PunchAnimation";
 
-    [DataField] public ProtoId<CombatAnimationPrototype> AltAnimationPrototype = "PunchAnimation"; //TODO Это заглушка. Нуэно сделать так, что бы оно не было обязательным
+    /// <summary>
+    ///     Animation played on the alternative (secondary) attack. Null falls back to no special animation.
+    /// </summary>
+    [DataField] public ProtoId<CombatAnimationPrototype>? AltAnimationPrototype;
 
+    /// <summary>
+    ///     If true, this fight action takes precedence over a held weapon when resolving which attack to use.
+    /// </summary>
     [DataField] public bool HasHigherPriorityThanWeapons = false;
-
-    public object Clone()
-    {
-        return new FightActionPrototype() // TODO сдлать что-то с тем, что оно ругается
-        {
-            ID = ID,
-            LocName = LocName,
-            LocDesc = LocDesc,
-            Icon = Icon,
-            SetAttackStrategy = SetAttackStrategy,
-            AnimationPrototype = AnimationPrototype,
-            AltAnimationPrototype = AltAnimationPrototype,
-            HasHigherPriorityThanWeapons = HasHigherPriorityThanWeapons
-        };
-    }
 }

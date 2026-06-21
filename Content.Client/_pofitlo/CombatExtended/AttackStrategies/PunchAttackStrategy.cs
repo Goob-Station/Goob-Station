@@ -1,28 +1,14 @@
-using Content.Client.Gameplay;
-using Content.Shared._pofitlo.CombatExtended.FightAction;
-using Content.Shared._pofitlo.CombatExtended.FightAction.Events;
-using Content.Shared.Interaction;
-using Content.Shared.Interaction;
-using Content.Shared.Weapons.Melee;
-using Content.Shared.Weapons.Melee;
-using Content.Shared.Weapons.Melee.Events;
-using Content.Shared.Weapons.Melee.Events;
-using Robust.Client.GameObjects;
-using Robust.Client.GameObjects;
-using Robust.Client.State;
-using Robust.Client.State;
-using Robust.Shared.GameObjects;
-using Robust.Shared.Map;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
-using Robust.Shared.Network;
-using Robust.Shared.Player;
-using Content.Client.Weapons.Melee;
-
-using Content.Shared._pofitlo.CombatExtended.FightAction;
-using Content.Client._pofitlo.CombatExtended.AttackStrategies;
 using Robust.Shared.Prototypes;
+using Robust.Client.GameObjects;
+using Robust.Client.State;
+using Content.Shared._pofitlo.CombatExtended.FightAction;
+using Content.Shared.Interaction;
+using Content.Shared.Weapons.Melee;
+using Content.Shared.Weapons.Melee.Events;
 using Content.Shared._pofitlo.CombatExtended.FightAction.Prototypes;
+using Content.Client.Gameplay;
 using Content.Client.Weapons.Melee;
 
 namespace Content.Client._pofitlo.CombatExtended.AttackStrategies;
@@ -32,7 +18,6 @@ public sealed class PunchAttackStrategy : IAttackStrategy
     private readonly IStateManager _stateManager;
     private readonly SharedInteractionSystem _interaction;
     private readonly TransformSystem _transform;
-    private readonly INetManager _netManager;
     private readonly IEntityManager _entityManager;
     private readonly IPrototypeManager _prototypeManager;
     private readonly MeleeWeaponSystem _meleeWeaponSystem;
@@ -49,7 +34,6 @@ public sealed class PunchAttackStrategy : IAttackStrategy
         _stateManager = stateManager;
         _interaction = interaction;
         _transform = transform;
-        _netManager = netManager;
         _entityManager = entityManager;
         _prototypeManager = prototypeManager;
         _meleeWeaponSystem = meleeWeaponSystem;
@@ -87,7 +71,7 @@ public sealed class PunchAttackStrategy : IAttackStrategy
 
         var angle = animPrototype.AngleEnd - animPrototype.AngleStart;
 
-        var entities = _meleeWeaponSystem.GetListOfNetEntitiesInArea(attacker, coordinates, 2f, angle); // TODO настройки вынести в прототип
+        var entities = _meleeWeaponSystem.GetListOfNetEntitiesInArea(attacker, coordinates, meleeComponent.Range, angle);
 
         if (entities == null || entities.Count == 0)
             return;
@@ -98,12 +82,7 @@ public sealed class PunchAttackStrategy : IAttackStrategy
             _entityManager.GetNetCoordinates(coordinates)));
     }
 
-    public void ExecuteDisarm(EntityUid attacker, MapCoordinates mousePos, EntityCoordinates coordinates) // TODO убрать дизарм
+    public void ExecuteDisarm(EntityUid attacker, MapCoordinates mousePos, EntityCoordinates coordinates)
     {
-        EntityUid? target = null;
-
-        if (_stateManager.CurrentState is GameplayStateBase screen)
-            target = screen.GetDamageableClickedEntity(mousePos);
-
     }
 }

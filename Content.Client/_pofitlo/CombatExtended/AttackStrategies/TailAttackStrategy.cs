@@ -72,15 +72,15 @@ public sealed class TailAttackStrategy : IAttackStrategy
 
         var angle = Angle.FromDegrees(animPrototype.AngleEnd - animPrototype.AngleStart);
 
-        var entities = _meleeWeaponSystem.GetListOfNetEntitiesInArea(attacker, coordinates, 1f, angle); // TODO настройки вынести в прототип
+        var entities = _meleeWeaponSystem.GetListOfNetEntitiesInArea(attacker, coordinates, meleeComponent.Range, angle);
 
-        // Don't light-attack if interaction will be handling this instead // TODO разобраться что это делает
+        // Don't light-attack if interaction will be handling this instead
         if (_interaction.CombatModeCanHandInteract(attacker, target))
             return;
 
         _entityManager.RaisePredictiveEvent(new TailMainAttackEvent(
             _entityManager.GetNetEntity(weaponUid),
-            entities, // TODO разобраться зачем используется рейнж
+            entities,
             _entityManager.GetNetCoordinates(coordinates)
             ));
     } // TODO упростить

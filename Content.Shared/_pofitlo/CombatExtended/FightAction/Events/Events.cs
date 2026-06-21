@@ -13,14 +13,14 @@ public sealed class FightActionChangeEvent : EntityEventArgs
     public AttackStrategy FightAction { get; }
     public bool HasHigherPriorityThanWeapons { get; }
     public ProtoId<CombatAnimationPrototype> CombatAnimationProto { get; }
-    public ProtoId<CombatAnimationPrototype> AltCombatAnimationProto { get; }
+    public ProtoId<CombatAnimationPrototype>? AltCombatAnimationProto { get; }
 
     public FightActionChangeEvent(
         NetEntity uid,
         AttackStrategy fightAction,
         bool hasHigherPriorityThanWeapons,
         ProtoId<CombatAnimationPrototype> combatAnimationProto,
-        ProtoId<CombatAnimationPrototype> altCombatAnimationProto)
+        ProtoId<CombatAnimationPrototype>? altCombatAnimationProto)
     {
         Uid = uid;
         FightAction = fightAction;

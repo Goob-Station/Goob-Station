@@ -938,7 +938,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         DoSweepingBlow(targets, user, component, ev, meleeUid, damage, hitEvent);
 
-        //var weapon = meleeUid; // TODO надо уже решиться это удалить
+        //var weapon = meleeUid; //I should delete this but I'm too unsure about it -_-...
 
         //Interaction.DoContactInteraction(user, weapon);
 
@@ -1027,7 +1027,6 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         return true;
     }
-    // TODO переименовать
     public void DoSweepingBlow(List<EntityUid> targets, EntityUid user, MeleeWeaponComponent component, AttackEvent ev, EntityUid meleeUid, DamageSpecifier damage, MeleeHitEvent hitEvent)
     {
         var resistanceBypass = GetResistanceBypass(meleeUid, user, component);
@@ -1081,7 +1080,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
                 appliedDamage += damageResult;
 
-                //if (meleeUid == user) // TODO придумать что делать с логированием
+                //if (meleeUid == user)
                 //{
                 //    AdminLogger.Add(LogType.MeleeHit,
                 //        LogImpact.Medium,

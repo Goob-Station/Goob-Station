@@ -1,12 +1,10 @@
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
-using Robust.Shared.Utility;
 
 namespace Content.Shared._pofitlo.CombatExtended.FightAction.Prototypes;
 
-[Serializable, NetSerializable, DataDefinition]
+[DataDefinition]
 [Prototype("combatAnimation")]
-public sealed partial class CombatAnimationPrototype : IPrototype, ICloneable
+public sealed partial class CombatAnimationPrototype : IPrototype
 {
     [IdDataField] public string ID { get; private set; } = default!;
 
@@ -24,20 +22,4 @@ public sealed partial class CombatAnimationPrototype : IPrototype, ICloneable
     [DataField] public bool UseFadeout = true;
 
     [DataField] public bool TrackUser = true;
-
-    public object Clone()
-    {
-        return new CombatAnimationPrototype()
-        {
-            ID = ID,
-            AnimationType = AnimationType,
-            AnimationDuration = AnimationDuration,
-            FadeoutDuration = FadeoutDuration,
-            FadeoutStartTime = FadeoutStartTime,
-            AngleStart = AngleStart,
-            AngleEnd = AngleEnd,
-            UseFadeout = UseFadeout,
-            TrackUser = TrackUser
-        };
-    }
 }
