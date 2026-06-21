@@ -71,8 +71,6 @@
         variation: 0.125
     Whirr:
       collection: IPCWhirrs
-    Belch: # Frontier
-      collection: Belch # Frontier
     Gulp: # Goob
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
       params:

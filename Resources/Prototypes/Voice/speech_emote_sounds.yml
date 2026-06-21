@@ -327,6 +327,8 @@
       collection: Whistles
     Weh:
       collection: Weh
+    Belch: # Frontier
+      collection: Belch # Frontier
     Hew:
       collection: Hew
     Gasp:
@@ -337,8 +339,6 @@
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
     Surprised: # Goob
       path: /Audio/_Goobstation/Voice/surprised.ogg
-    Belch: # Frontier
-      collection: Belch # Frontier
   params:
     variation: 0.125
 
@@ -447,12 +447,12 @@
       collection: VoxChitter
     Hiss: #imp
       collection: VoxHiss
+    Belch: # Frontier
+      collection: Belch # Frontier
     Caw:
       collection: HarpyCaws
   params:
     variation: 0.125
-  Belch: # Frontier
-    collection: Belch # Frontier
 
 - type: emoteSounds
   id: UnisexDiona
