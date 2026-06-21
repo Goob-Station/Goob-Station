@@ -21,6 +21,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
        <Label Name="Bans"/>
        <Label Name="RoleBans"/>
        <Label Name="SharedConnections"/>
+       <Label Name="TrustScore"/>
+       <Label Name="AccountCreationDate"/>
 
        <BoxContainer Align="Center">
            <GridContainer Rows="6">

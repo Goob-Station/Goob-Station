@@ -71,6 +71,8 @@ public sealed class PlayerPanelEui : BaseEui
         PlayerPanel.SetSharedConnections(s.SharedConnections);
         PlayerPanel.SetFrozen(s.CanFreeze, s.Frozen);
         PlayerPanel.SetAhelp(s.CanAhelp);
+        PlayerPanel.SetTrustScore(s.TrustScore);
+        PlayerPanel.SetAccountCreationDate(s.AccountCreationDate);
         PlayerPanel.SetButtons();
     }
 }
