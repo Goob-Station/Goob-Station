@@ -583,7 +583,8 @@
       - !type:Oxygenate
         conditions:
         - !type:OrganType
-          type: FeroxiDehydrated
+          type: FeroxiDehydrate
+          type: Decapoid
       - !type:SatiateThirst
         conditions:
         - !type:OrganType
