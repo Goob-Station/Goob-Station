@@ -586,6 +586,7 @@
         conditions:
         - !type:OrganType
           type: FeroxiDehydrated
+          type: Decapoid
         factor: 2
       # DeltaV Converts H2O into CO2 for Feroxi
       - !type:ModifyLungGas
