@@ -168,6 +168,14 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitScientistFormal
 
+- type: loadout #goob
+  id: SeniorResearcherMJ
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorResearcher
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitarySeniorResearcher
+
 # Back
 - type: loadout
   id: ScientistBackpack
