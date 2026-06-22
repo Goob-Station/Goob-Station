@@ -1,0 +1,18 @@
+# SPDX-FileCopyrightText: 2025 sneb
+#
+# SPDX-License-Identifier: MPL-2.0
+
+- type: entity
+  id: ActionHydrakinCoolOff
+  parent: BaseAction
+  name: Cool off
+  description: Dispel some of your body heat.
+  categories: [ HideSpawnMenu ] # Frontier
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 5
+    itemIconStyle: BigAction
+    icon: { sprite: _Obelisk/Actions/hydrakin_cooldown.rsi, state: hydra_cooldown }
+  - type: InstantAction
+    event: !type:HydrakinCoolOffActionEvent

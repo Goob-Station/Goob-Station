@@ -32,8 +32,6 @@
   components:
   - type: AutomationSlots
   - type: Automated
-  - type: UpgradedMachine
-    upgrade: upgrade-kit-automation
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: BasicDevice

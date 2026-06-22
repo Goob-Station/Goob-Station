@@ -124,6 +124,20 @@
   - type: Speech
     speechVerb: Slime
     speechSounds: Slime
+  - type: CorpseEater
+    organWhitelist:
+      components:
+      - Edible
+    bodyPartWhitelist:
+      components:
+      - Edible
+    organBlacklist:
+      components:
+      - BadFood
+    bodyPartBlacklist:
+      components:
+      - BadFood
+    bodyPartComposition: Organic # I hope it works
   - type: TypingIndicator
     proto: slime
   - type: LanguageKnowledge # Einstein Engines - Language
@@ -141,6 +155,7 @@
   - type: ActionGrant
     actions:
     - ActionSlimeLatch
+    - ActionEatCorpse
   - type: HTN
     rootTask:
       task: XenoSlimeCompound

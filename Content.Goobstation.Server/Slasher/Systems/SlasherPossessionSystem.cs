@@ -1,6 +1,6 @@
 using Content.Goobstation.Server.Possession;
 using Content.Goobstation.Shared.Slasher.Components;
-using Content.Goobstation.Shared.Slasher.Events;
+using Content.Goobstation.Shared.Slasher;
 using Content.Server.Actions;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Mobs.Components;
