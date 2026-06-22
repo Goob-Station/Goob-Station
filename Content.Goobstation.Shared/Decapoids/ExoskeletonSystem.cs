@@ -1,11 +1,11 @@
-﻿// SPDX-License-Identifier: AGPL-3.0-or-later
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Chemistry.Components;
-using Content.Shared.Chemistry.Events;
 using Content.Shared.IdentityManagement;
+using Content.Trauma.Shared.Decapoids;
 using Robust.Shared.Prototypes;
 
-namespace Content.Trauma.Shared.Decapoids;
+namespace Content.Goobstation.Shared.Decapoids;
 
 /// <summary>
 /// Prevents the entity from being injected with syringes altogether.

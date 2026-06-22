@@ -1,0 +1,361 @@
+- type: markingsGroup
+  id: Decapoid
+  limits:
+    enum.HumanoidVisualLayers.Hair:
+      limit: 0
+      required: false
+    enum.HumanoidVisualLayers.FacialHair:
+      limit: 0
+      required: false
+    enum.HumanoidVisualLayers.Eyes:
+      limit: 1
+      required: true
+      default: [ DecapoidEyesDefault ]
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Chest:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RFoot:
+      limit: 1
+      required: false
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseSpeciesAppearance
+  id: AppearanceDecapoid
+  name: Decapoid appearance
+  components:
+  - type: Inventory
+    templateId: diona # Human but no shoes
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Decapoid/displacement.rsi
+            state: jumpsuit
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Decapoid/displacement.rsi
+            state: jumpsuit
+      head: # don't need mask, those are fine
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Decapoid/displacement.rsi
+            state: jumpsuit
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Decapoid/displacement.rsi
+            state: gloves
+      neck:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Decapoid/displacement.rsi
+            state: neck
+      suitstorage:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Decapoid/displacement.rsi
+            state: back
+      back:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Decapoid/displacement.rsi
+            state: back
+      belt:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Decapoid/displacement.rsi
+            state: belt
+  - type: InitialBody
+    organs:
+      Torso: TorsoDecapoid
+      Head: HeadDecapoid
+      ArmRight: RightArmDecapoid
+      ArmLeft: LeftArmDecapoid
+      HandRight: RightHandDecapoid
+      HandLeft: LeftHandDecapoid
+      LegRight: RightLegDecapoid
+      LegLeft: LeftLegDecapoid
+      FootRight: RightFootDecapoid
+      FootLeft: LeftFootDecapoid
+      Lungs: OrganDecapoidLungs
+      Stomach: OrganDecapoidStomach
+      Brain: OrganDecapoidBrain
+      Eyes: OrganDecapoidEyes
+      Tongue: OrganDecapoidTongue
+      Appendix: OrganDecapoidAppendix
+      Ears: OrganDecapoidEars
+      Heart: OrganDecapoidHeart
+      Liver: OrganDecapoidLiver
+      Kidneys: OrganDecapoidKidneys
+  - type: HumanoidProfile
+    species: Decapoid
+
+- type: entity
+  parent:
+  - AppearanceDecapoid
+  - BaseSpeciesMobOrganic
+  id: MobDecapoid
+  name: Urist McCrab
+  components:
+  - type: SpeechRequiresEquipment
+    equipment:
+      mask:
+        tags:
+        - Vaporizer
+    failMessage: decapoid-cant-speak
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 2
+    damageRecovery:
+      types:
+        Asphyxiation: -1.0
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepDecapoid
+  - type: Butcherable # No bones. No I didn't forget go fuck yourself.
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeatCrab # maybe custom someday. as-is, it's fine
+      amount: 3
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 210 # they're a little heavier than everyone else.
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Decapoid
+  - type: Vocal
+    sounds:
+      Male: UnisexDecapoid
+      Female: UnisexDecapoid
+      Unsexed: UnisexDecapoid # male and female sounds have to 1) exist and 2) come first, otherwise urists will spawn without emote sounds 66% of the time, because this game is poorly programmed
+  - type: MovementSpeedModifier
+    weightlessAcceleration: 1.5 # move more easily in space
+    weightlessFrictionNoInput: 2 # more control over movement in space
+    weightlessModifier: 1
+  - type: TemperatureDamage
+    heatDamageThreshold: 380 # slightly more vulnerable to heat
+    coldDamageThreshold: 0 # immune to cold
+    coldDamage:
+      types:
+        Cold : 0 # immune to cold
+    heatDamage:
+      types:
+        Heat : 1
+  - type: Temperature
+    currentTemperature: 310
+    specificHeat: 42
+  - type: TemperatureSpeed
+    thresholds: # lol
+      293: 1.0
+      280: 1.0
+      260: 1.0
+  - type: Clumsy
+    clumsySound:
+      path: /Audio/_Impstation/Effects/Clumsy/crab_snap.ogg
+    clumsyHypo: false
+    clumsyVaulting: false
+    clumsyDefib: false
+    gunFailedMessage: gun-clumsy-decapoid # The gun slips out of your claws!
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: CopperBlood # real life crustaceans are in the same clade as spiders and share a blood type
+        Quantity: 300
+  - type: Puller
+    needsHands: false # they drag with the claw, or their back legs
+    applySpeedModifier: false # they're strong as fuck. also i made this variable just for them.
+  - type: Speech
+    speechSounds: Decapoid
+  - type: TypingIndicator
+    proto: robot
+  - type: Exoskeleton # Prevents injections with syringes. Ideally it'd be on their body parts instead but eh.
+
+- type: entity
+  abstract: true
+  parent: OrganBaseFleshy
+  id: BaseDecapoidOrgan
+  suffix: "decapoid"
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+  - type: Damageable
+    damageModifierSet: Decapoid
+
+- type: entity
+  abstract: true
+  parent: BaseDecapoidOrgan
+  id: BaseDecapoidOrganExternal
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Decapoid/parts.rsi
+  - type: VisualOrgan
+    data:
+      sprite: _Impstation/Mobs/Species/Decapoid/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: Decapoid
+
+- type: entity
+  id: TorsoDecapoid
+  name: "decapoid torso"
+  parent: [BaseDecapoidOrganExternal, OrganBaseTorso]
+
+- type: entity
+  id: HeadDecapoid
+  name: "decapoid head"
+  parent: [BaseDecapoidOrganExternal, OrganBaseHead]
+
+- type: entity
+  id: LeftArmDecapoid
+  name: "left decapoid arm"
+  parent: [BaseDecapoidOrganExternal, OrganBaseArmLeft]
+
+- type: entity
+  id: RightArmDecapoid
+  name: "right decapoid arm"
+  parent: [BaseDecapoidOrganExternal, OrganBaseArmRight]
+
+- type: entity
+  id: LeftHandDecapoid
+  name: "decapoid claw"
+  parent: [BaseDecapoidOrganExternal, OrganBaseHandLeft]
+  components:
+  - type: HandOrgan
+    startingItem: DecapoidClawItem
+
+- type: entity
+  id: RightHandDecapoid
+  name: "right decapoid hand"
+  parent: [BaseDecapoidOrganExternal, OrganBaseHandRight]
+
+- type: entity
+  id: LeftLegDecapoid # these are the front legs
+  name: "front decapoid legs"
+  parent: [BaseDecapoidOrganExternal, OrganBaseLegLeft]
+
+- type: entity
+  id: RightLegDecapoid # these are the back legs
+  name: "back decapoid legs"
+  parent: [BaseDecapoidOrganExternal, OrganBaseLegRight]
+
+- type: entity
+  id: LeftFootDecapoid # these are the front feet
+  name: "front decapoid feet"
+  parent: [BaseDecapoidOrganExternal, OrganBaseFootLeft]
+
+- type: entity
+  id: RightFootDecapoid # these are the back feet
+  name: "back decapoid feet"
+  parent: [BaseDecapoidOrganExternal, OrganBaseFootRight]
+
+- type: entity # These are a bit evil
+  id: OrganDecapoidEyes
+  parent: [BaseDecapoidOrgan, OrganBaseEyes]
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: _Impstation/Mobs/Species/Decapoid/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: Decapoid
+
+- type: entity
+  id: OrganDecapoidLungs
+  parent: [BaseDecapoidOrgan, OrganBaseLungs]
+  name: decapoid respiratory system
+  description: "Extracts dissolved oxygen from water, and utilizes it for cell maintenance."
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Decapoid ]
+  - type: SolutionContainerManager # Test fail without this for some reason
+    solutions:
+      food:
+        temperature: 293.15
+        canReact: True
+        maxVol: 15
+        name: null
+        reagents:
+        - data: []
+          ReagentId: UncookedAnimalProteins
+          Quantity: 12
+        - data: []
+          ReagentId: Fat
+          Quantity: 3
+      Lung:
+        temperature: 293.15
+        canReact: False
+        maxVol: 100
+        name: Lung
+        reagents: []
+
+- type: entity
+  id: OrganDecapoidStomach
+  parent: [BaseDecapoidOrgan, OrganBaseStomach]
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Decapoid ]
+
+- type: entity
+  id: OrganDecapoidBrain
+  parent: [BaseDecapoidOrgan, OrganBaseBrain]
+
+
+- type: entity
+  id: OrganDecapoidTongue
+  parent: [BaseDecapoidOrgan, OrganBaseTongue]
+
+- type: entity
+  id: OrganDecapoidAppendix
+  parent: [BaseDecapoidOrgan, OrganBaseAppendix]
+
+- type: entity
+  id: OrganDecapoidEars
+  parent: [BaseDecapoidOrgan, OrganBaseEars]
+
+- type: entity
+  id: OrganDecapoidHeart
+  parent: [BaseDecapoidOrgan, OrganBaseHeart]
+
+- type: entity
+  id: OrganDecapoidLiver
+  parent: [BaseDecapoidOrgan, OrganBaseLiver]
+
+- type: entity
+  id: OrganDecapoidKidneys
+  parent: [BaseDecapoidOrgan, OrganBaseKidneys]

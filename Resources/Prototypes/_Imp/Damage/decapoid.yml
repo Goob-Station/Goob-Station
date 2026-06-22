@@ -1,0 +1,7 @@
+- type: damageModifierSet
+  id: Decapoid
+  coefficients:
+    Blunt: 1.2
+    Slash: .8
+    Piercing: .8
+    Heat: 1.2

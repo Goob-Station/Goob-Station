@@ -1,0 +1,5 @@
+- type: localizedDataset
+  id: NamesDecapoidFirst
+  values:
+    prefix: names-decapoid-first-dataset-
+    count: 25

@@ -1,0 +1,144 @@
+- type: entity
+  parent: BaseItem
+  id: DecapoidClawItem
+  name: decapoid claw
+  suffix: Unremoveable
+  description: 'A large claw. Not very good for fine manipulation, but very strong and very sharp.'
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Decapoid/claw.rsi
+    state: icon
+  - type: Item
+    sprite: _Impstation/Objects/Decapoid/claw.rsi
+  - type: MeleeWeapon
+    angle: 20
+    resetOnHandSelected: true
+    wideAnimationRotation: 135
+    attackRate: 1.5
+    damage:
+      types:
+        Piercing: 10
+        Structural: 10
+    soundHit:
+      collection: AlienClaw
+  - type: Unremoveable
+  - type: ToolTileCompatible
+    delay: 0.5
+  - type: Tool
+    qualities:
+      - Prying
+    useSound: /Audio/_Impstation/Items/Decapoid/claw_prying.ogg
+  - type: Prying
+    speedModifier: 1.5
+    useSound: /Audio/_Impstation/Items/Decapoid/claw_prying.ogg
+  - type: MultipleTool
+    statusShowBehavior: true
+    entries:
+      - behavior: Prying
+        sprite:
+          sprite: _Impstation/Objects/Decapoid/claw.rsi
+          state: icon-closed
+        useSound: /Audio/_Impstation/Items/Decapoid/claw_prying.ogg
+        changeSound: /Audio/_Impstation/Items/Decapoid/switch.ogg
+      - behavior: Cutting
+        sprite:
+          sprite: _Impstation/Objects/Decapoid/claw.rsi
+          state: icon
+        useSound: /Audio/_Impstation/Items/Decapoid/claw_cutting.ogg
+        changeSound: /Audio/_Impstation/Items/Decapoid/switch.ogg
+  - type: Tweezers # More or less same as wirecutters + crowbar (which the claw is), but even worse, because the claw is unwieldy
+    speed: 0.4
+  - type: Retractor
+    speed: 0.3
+  - type: Hemostat
+    speed: 0.3
+  - type: SurgeryTool
+    startSound: /Audio/_Impstation/Items/Decapoid/switch.ogg
+    endSound: /Audio/_Impstation/Items/Decapoid/claw_prying.ogg
+
+- type: entity
+  name: vaporizer
+  parent: ClothingMaskGas
+  id: DecapoidBreathingApparatus
+  description: 'A neck-mounted breathing apparatus for Decapoids. Moistens your gills, if you have them. Also functions as a brain-to-voice translator.'
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Decapoid/vaporizer.rsi
+    state: icon
+  - type: Tag
+    tags:
+      - Vaporizer
+      - BreathMask
+  - type: Clothing
+    quickEquip: true
+    slots:
+    - mask
+    sprite: _Impstation/Objects/Decapoid/vaporizer.rsi
+    clothingVisuals:
+      mask:
+      - state: EQUIPPED-neck
+  - type: BreathMask
+  - type: HideLayerClothing
+    slots:
+    - Snout
+  - type: SpeechOverride # Using Trauma's version here, this one can't replace SpeechVerbs, should probably do that at some point
+    speechIDs: Decapoid
+    emoteIDs: null # Someone tell me why did I make this a required field
+
+
+- type: entity
+  parent: GasTankRoundBase
+  id: DecapoidVaporTank
+  name: vapor tank
+  suffix: Filled
+  description: 'An alien contraption consisting of two tanks. The smaller tank takes in water and converts it into vapor, which is stored in the larger tank. It can hold 5 L of gas, and 30u of fluid.'
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Tanks/vapor.rsi
+    layers:
+      - state: icon
+  - type: Item
+    size: Normal
+    sprite: _Impstation/Objects/Tanks/vapor.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Impstation/Objects/Tanks/vapor.rsi
+    slots:
+    - Back
+    - suitStorage
+  - type: ActivatableUI
+    key: enum.SharedGasTankUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.SharedGasTankUiKey.Key:
+        type: GasTankBoundUserInterface
+      enum.TransferAmountUiKey.Key:
+        type: TransferAmountBoundUserInterface
+  - type: GasTank
+    outputPressure: 21.3
+    air:
+      volume: 5
+      moles:
+        WaterVapor: 2.051379050
+      temperature: 293.15
+  - type: SolutionContainerManager
+    solutions:
+      waterTank:
+        maxVol: 30
+  - type: RefillableSolution
+    solution: waterTank
+  - type: ExaminableSolution
+    solution: waterTank
+  - type: Spillable
+    solution: waterTank
+  - type: SolutionTransfer
+    canChangeTransferAmount: true
+  - type: SolutionItemStatus
+    solution: waterTank
+  - type: MixableSolution
+    solution: waterTank
+  - type: DrainableSolution
+    solution: waterTank
+  - type: DrawableSolution
+    solution: waterTank
+  - type: Vaporizer

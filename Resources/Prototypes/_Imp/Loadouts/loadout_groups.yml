@@ -1,0 +1,16 @@
+# vaporizer
+- type: loadoutGroup
+  id: GroupBreathToolDecapoid
+  name: loadout-group-breath-tool-decapoid
+  minLimit: 1
+  hidden: true
+  loadouts:
+  - LoadoutDecapoidBreathTool
+
+- type: loadoutGroup
+  id: GroupBreathToolDecapoidInventory
+  name: loadout-group-breath-tool-inventory-decapoid
+  minLimit: 1
+  hidden: true
+  loadouts:
+  - LoadoutDecapoidBreathToolInventory

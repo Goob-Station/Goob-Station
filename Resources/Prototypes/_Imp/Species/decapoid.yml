@@ -1,0 +1,14 @@
+- type: species
+  id: Decapoid
+  name: species-name-decapoid
+  roundStart: true
+  prototype: MobDecapoid
+  defaultSkinTone: "#385878"
+  dollPrototype: AppearanceDecapoid
+  skinColoration: Hues
+  maleFirstNames: NamesDecapoidFirst
+  femaleFirstNames: NamesDecapoidFirst
+  lastNames: NamesDecapoidLast
+  sexes:
+  - Unsexed
+  knowledge: Human # Idk make a custom one if you really want to

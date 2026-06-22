@@ -1,0 +1,27 @@
+# Species
+- type: loadoutEffectGroup
+  id: Aquatic
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Decapoid
+
+- type: loadout
+  id: LoadoutDecapoidBreathTool
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Aquatic
+  equipment:
+    mask: DecapoidBreathingApparatus
+    suitstorage: DecapoidVaporTank
+    outerClothing: ClothingOuterVestTank
+
+# Breath tool in inventory
+- type: loadout
+  id: LoadoutDecapoidBreathToolInventory
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Aquatic
+  storage:
+    back:
+    - DecapoidBreathingApparatus
