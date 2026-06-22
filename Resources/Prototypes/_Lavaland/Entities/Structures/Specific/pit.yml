@@ -10,7 +10,6 @@
   - type: Fixtures
     fixtures:
       fix1:
-        noRot: true
         hard: false
         shape:
           !type:PhysShapeAabb
@@ -23,6 +22,7 @@
   - type: Sprite
     drawdepth: FloorTiles
     sprite: _Lavaland/Mobs/Bosses/128x128.rsi
+    noRot: true
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: hole
