@@ -1,0 +1,158 @@
+# SPDX-FileCopyrightText: 2025 sneb
+#
+# SPDX-License-Identifier: MPL-2.0
+
+- type: entity
+  save: false
+  name: Urist McHydra
+  parent: BaseMobSpeciesOrganic
+  id: BaseMobHydrakin
+  abstract: true
+  components:
+  - type: Icon
+    sprite: _Obelisk/Mobs/Species/Hydrakin/parts.rsi
+    state: full
+  - type: BodyEmotes
+    soundsId: ReptilianBodyEmotes
+  - type: Hunger
+  - type: Thirst
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Hydrakin
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeatChicken
+      amount: 5
+  - type: Bloodstream
+    bloodReagent: AmmoniaBlood
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    angle: 30
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 5
+  - type: Body
+    prototype: Hydrakin
+    requiredLegs: 2
+  - type: Temperature
+    coldDamageThreshold: 10 # Mono - Absurd cold resistance
+    heatDamageThreshold: 332 # no. just no. suffer.
+    coldDamage:
+      types:
+        Cold : 0.01 #per second, scales with temperature & other constants
+  - type: TemperatureSpeed
+    thresholds:
+      90: 0.9
+      40: 0.75
+      10: 0.6
+  - type: HumanoidAppearance
+    species: Hydrakin
+  - type: ThermalRegulator #Todo, implement hydrakin thermal movement generation
+    metabolismHeat: 800
+    radiatedHeat: 100
+    implicitHeatRegulation: 250
+    sweatHeatRegulation: 350
+    shiveringHeatRegulation: 800
+    normalBodyTemperature: 210.15
+    thermalRegulationTemperatureThreshold: 30
+    processWhileCrit: false
+  - type: PassiveHeatGeneration
+    watts: 3900
+    mobStateModifier:
+      Alive: 1
+      Critical: 0.75
+      Dead: 0
+    minimumTemperature: 27.15 # too bad bro
+    maximumTemperature: 340
+    ignoreHeatResistance: true
+  - type: PressureProtection
+    lowPressureMultiplier: 1.2
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - Hydraspeak
+    understands:
+    - TauCetiBasic
+    - Hydraspeak
+  - type: Inventory
+    speciesId: hydrakin
+    templateId: hydrakin
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Obelisk/Mobs/Species/Hydrakin/displacement.rsi
+            state: jumpsuit
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Obelisk/Mobs/Species/Hydrakin/displacement.rsi
+            state: gloves
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Obelisk/Mobs/Species/Hydrakin/displacement.rsi
+            state: shoes
+      head:
+        sizeMaps:
+          32:
+            sprite: _Obelisk/Mobs/Species/Hydrakin/displacement.rsi
+            state: head
+      neck: # Goob
+        sizeMaps:
+          32:
+            sprite: _Obelisk/Mobs/Species/Hydrakin/displacement.rsi
+            state: neck
+  - type: Carriable # Frontier: Carrying system from nyanotrasen.
+  - type: Speech
+    speechSounds: Hydrakin
+    speechVerb: Reptilian
+    allowedEmotes: ['Trill', 'Wurble',]
+  - type: Vocal
+    sounds:
+      Male: UnisexHydrakin
+      Female: UnisexHydrakin
+      Unsexed: UnisexHydrakin
+  - type: TypingIndicator
+    proto: robot
+  - type: Hydrakin
+
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobHydrakinDummy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HumanoidAppearance
+    species: Hydrakin
+  - type: Inventory
+    speciesId: hydrakin 
+    templateId: hydrakin
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Obelisk/Mobs/Species/Hydrakin/displacement.rsi
+            state: jumpsuit
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Obelisk/Mobs/Species/Hydrakin/displacement.rsi
+            state: gloves
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Obelisk/Mobs/Species/Hydrakin/displacement.rsi
+            state: shoes
+      head:
+        sizeMaps:
+          32:
+            sprite: _Obelisk/Mobs/Species/Hydrakin/displacement.rsi
+            state: head
+      neck: # Goob
+        sizeMaps:
+          32:
+            sprite: _Obelisk/Mobs/Species/Hydrakin/displacement.rsi
+            state: neck

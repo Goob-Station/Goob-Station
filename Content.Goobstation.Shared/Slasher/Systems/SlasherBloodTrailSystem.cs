@@ -1,12 +1,12 @@
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.Slasher.Components;
-using Content.Goobstation.Shared.Slasher.Events;
 using Content.Shared.Actions;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Fluids;
 using Content.Shared.Mobs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
+using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Slasher.Systems;
@@ -21,9 +21,10 @@ public sealed class SlasherBloodTrailSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     // Next time at which we should drop a blood puddle for an entity.
-    private readonly Dictionary<EntityUid, TimeSpan> _nextDropAt = new();
+    private readonly Dictionary<EntityUid, TimeSpan> _nextDropAt = [];
 
     public override void Initialize()
     {
@@ -32,7 +33,6 @@ public sealed class SlasherBloodTrailSystem : EntitySystem
         SubscribeLocalEvent<SlasherBloodTrailComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<SlasherBloodTrailComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<SlasherBloodTrailComponent, ToggleBloodTrailEvent>(OnToggle);
-
         SubscribeLocalEvent<SlasherBloodTrailComponent, SlasherIncorporealizeDoAfterEvent>(OnIncorporealize);
         SubscribeLocalEvent<SlasherBloodTrailComponent, MobStateChangedEvent>(OnMobStateChanged);
     }
@@ -40,12 +40,12 @@ public sealed class SlasherBloodTrailSystem : EntitySystem
     private void OnMapInit(Entity<SlasherBloodTrailComponent> ent, ref MapInitEvent args)
     {
         _actions.AddAction(ent.Owner, ref ent.Comp.ActionEntity, ent.Comp.ActionId);
+        Dirty(ent);
     }
 
     private void OnShutdown(Entity<SlasherBloodTrailComponent> ent, ref ComponentShutdown args)
     {
         _actions.RemoveAction(ent.Owner, ent.Comp.ActionEntity);
-
         _nextDropAt.Remove(ent.Owner);
         StopFunkyslasher(ent.Owner, ent.Comp);
     }
@@ -55,19 +55,14 @@ public sealed class SlasherBloodTrailSystem : EntitySystem
         if (args.Handled)
             return;
 
-        if (!_net.IsServer)
-        {
-            args.Handled = true;
-            return;
-        }
-
         ent.Comp.IsActive = !ent.Comp.IsActive;
         Dirty(ent, ent.Comp);
 
-        // Reset the drop timer so the first drop happens immediately when turning on.
         if (ent.Comp.IsActive)
         {
-            _nextDropAt[ent.Owner] = _timing.CurTime; // drop now
+            _nextDropAt[ent.Owner] = _timing.CurTime;
+            if (ent.Comp.JumpscareSounds.Count > 0)
+                _audio.PlayPredicted(_random.Pick(ent.Comp.JumpscareSounds), ent.Owner, ent.Owner);
             StartFunkyslasher(ent.Owner, ent.Comp);
         }
         else
@@ -128,7 +123,7 @@ public sealed class SlasherBloodTrailSystem : EntitySystem
             // Spill a small amount of generic blood at the entity's feet.
             var solution = new Solution();
             var amount = FixedPoint2.Max(FixedPoint2.Zero, comp.VolumePerDrop);
-            solution.AddReagent("Blood", amount);
+            solution.AddReagent(comp.BloodTrailReagent, amount);
 
             _puddles.TrySpillAt(uid, solution, out _, sound: false);
         }
@@ -136,12 +131,20 @@ public sealed class SlasherBloodTrailSystem : EntitySystem
 
     private void StartFunkyslasher(EntityUid uid, SlasherBloodTrailComponent comp)
     {
-        if (comp.FunkyslasherStream != null)
-            comp.FunkyslasherStream = _audio.Stop(comp.FunkyslasherStream);
+        if (!_net.IsServer)
+            return;
 
-        comp.FunkyslasherStream = _audio.PlayPvs(comp.Funkyslasher, uid)?.Entity;
+        if (comp.BloodTrailMusicStream != null)
+            comp.BloodTrailMusicStream = _audio.Stop(comp.BloodTrailMusicStream);
+
+        comp.BloodTrailMusicStream = _audio.PlayPvs(comp.BloodTrailMusic, uid)?.Entity;
     }
 
-    private void StopFunkyslasher(EntityUid uid, SlasherBloodTrailComponent comp) =>
-        comp.FunkyslasherStream = _audio.Stop(comp.FunkyslasherStream);
+    private void StopFunkyslasher(EntityUid uid, SlasherBloodTrailComponent comp)
+    {
+        if (!_net.IsServer)
+            return;
+
+        comp.BloodTrailMusicStream = _audio.Stop(comp.BloodTrailMusicStream);
+    }
 }
