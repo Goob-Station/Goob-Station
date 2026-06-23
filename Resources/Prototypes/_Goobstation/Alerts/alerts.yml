@@ -202,7 +202,7 @@
     state: sunlight_day        # severity 4 - daytime
   category: BloodsuckerSol
 
-- type: Alert
+- type: alert
   id: SandevistanLoad
   icons:
   - sprite: /Textures/_Goobstation/Interface/Alerts/sandevistan.rsi
