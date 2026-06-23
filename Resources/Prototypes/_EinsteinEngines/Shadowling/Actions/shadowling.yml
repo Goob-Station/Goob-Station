@@ -24,7 +24,7 @@
   parent: BaseAction
   id: ActionEnthrall
   name: Enthrall
-  description: Shatters their will, forging a thrall, does not work on mindshielded people or silicons.
+  description: Shatters their will, forging a thrall, not strong enough to effect mindshielded individuals or enslaved AI.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -225,7 +225,7 @@
   parent: BaseAction
   id: ActionEmpoweredEnthrall
   name: Empowered Enthrall
-  description: Shatters their will, forging a Thrall. Faster and stronger, works on mindshields.
+  description: Shatters their will, forging a Thrall. Faster and stronger, enough to bypass mindshields.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

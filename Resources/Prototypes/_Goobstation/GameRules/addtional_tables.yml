@@ -1,0 +1,46 @@
+#A leftover file from the Hermit revert, was renamed and made to store spawning tables for any addtional gamemode created.
+
+- type: entityTable
+  id: BasicGameRulesTableLowpop
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+      - !type:NestedSelector
+        tableId: BasicCalmEventsTable
+      - !type:NestedSelector
+        tableId: BasicAntagEventsTableLowpop
+      - !type:NestedSelector
+        tableId: CargoGiftsTable
+      - !type:NestedSelector
+        tableId: CalmPestEventsTable
+      - !type:NestedSelector
+        tableId: SpicyPestEventsTable
+
+- type: entityTable
+  id: BasicAntagEventsTableLowpop
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+    - id: ClosetSkeleton
+   # - id: DragonSpawn removed for low pop Too little sec
+    - id: KingRatMigration
+    - id: NinjaSpawn
+    - id: ParadoxCloneSpawn
+    #- id: RevenantSpawn  
+    - id: SleeperAgents
+   # - id: ZombieOutbreak removed for low pop too little sec
+   # - id: LoneOpsSpawn removed for low pop too little sec
+    - id: DerelictCyborgSpawn
+    #- id: BlobSpawn # Goobstation - removed for low pop too little sec
+    - id: LoneAbductorSpawn 
+    - id: DuoAbductorSpawn 
+    - id: BingleSpawn 
+   #- id: SlaughterDemonMidround 
+   #- id: XenomorphsInfestation #  removed for low pop too little sec
+    - id: SlasherSpawn 
+    - id: SpacePirates 
+    - id: GreyTideAntagMidround 
+    #- id: SingulothKnightsMidround 
+    #- id: DarkLordMidround 
+    - id: MimeAssassinMidround 
+    - id: DarkPriestMidround 
+    #- id: VoxRaidersMidround 
+    - id: TunnelClownMidround 

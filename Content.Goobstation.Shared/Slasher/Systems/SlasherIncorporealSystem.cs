@@ -40,6 +40,7 @@ using Content.Goobstation.Shared.Sprinting;
 using Content.Shared.Stunnable;
 using Content.Shared.Trigger;
 using Content.Shared.Trigger.Components.Triggers;
+using Content.Goobstation.Common.Materials;
 
 namespace Content.Goobstation.Shared.Slasher.Systems;
 
@@ -242,20 +243,23 @@ public sealed class SlasherIncorporealSystem : EntitySystem
             _tags.RemoveTag(uid, FootstepSoundTag);
 
         // Mute and block vocal emotes.
-        _ = EnsureComp<MutedComponent>(uid);
+        EnsureComp<MutedComponent>(uid);
 
         // Disable FOV for full vision while incorporeal.
         _eye.SetDrawFov(uid, false);
 
         // Space immunity
-        _ = EnsureComp<MovementIgnoreGravityComponent>(uid);
-        _ = EnsureComp<SpecialPressureImmunityComponent>(uid);
-        _ = EnsureComp<SpecialBreathingImmunityComponent>(uid);
-        _ = EnsureComp<SpecialLowTempImmunityComponent>(uid);
-        _ = EnsureComp<SpecialHighTempImmunityComponent>(uid);
+        EnsureComp<MovementIgnoreGravityComponent>(uid);
+        EnsureComp<SpecialPressureImmunityComponent>(uid);
+        EnsureComp<SpecialBreathingImmunityComponent>(uid);
+        EnsureComp<SpecialLowTempImmunityComponent>(uid);
+        EnsureComp<SpecialHighTempImmunityComponent>(uid);
 
         // Supermatter immunity
-        _ = EnsureComp<SupermatterImmuneComponent>(uid);
+        EnsureComp<SupermatterImmuneComponent>(uid);
+
+        // Recycler immunity
+        EnsureComp<MaterialReclaimerImmuneComponent>(uid);
 
         // Raise event for server systems to handle additional logic (like disabling lights)
         var enteredEv = new SlasherIncorporealEnteredEvent();
@@ -298,20 +302,23 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         _tags.AddTag(uid, FootstepSoundTag);
 
         // Let them speak
-        _ = RemComp<MutedComponent>(uid);
+        RemComp<MutedComponent>(uid);
 
         // Restore FOV
         _eye.SetDrawFov(uid, true);
 
         // Remove space immunity
-        _ = RemComp<MovementIgnoreGravityComponent>(uid);
-        _ = RemComp<SpecialPressureImmunityComponent>(uid);
-        _ = RemComp<SpecialBreathingImmunityComponent>(uid);
-        _ = RemComp<SpecialLowTempImmunityComponent>(uid);
-        _ = RemComp<SpecialHighTempImmunityComponent>(uid);
+        RemComp<MovementIgnoreGravityComponent>(uid);
+        RemComp<SpecialPressureImmunityComponent>(uid);
+        RemComp<SpecialBreathingImmunityComponent>(uid);
+        RemComp<SpecialLowTempImmunityComponent>(uid);
+        RemComp<SpecialHighTempImmunityComponent>(uid);
 
         // Remove supermatter immunity
-        _ = RemComp<SupermatterImmuneComponent>(uid);
+        RemComp<SupermatterImmuneComponent>(uid);
+
+        // Remove recycler immunity
+        RemComp<MaterialReclaimerImmuneComponent>(uid);
     }
 
     // Goida as shit.. I couldn't find a better way stop cooldowns

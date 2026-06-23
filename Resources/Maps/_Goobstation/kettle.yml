@@ -2,10 +2,10 @@ meta:
   format: 7
   category: Map
   engineVersion: 266.0.0
-  forkId: GoobLRP
-  forkVersion: 3b67412980fc0efb23a3055d0b635c8393f83d60
-  time: 02/12/2026 17:38:23
-  entityCount: 26991
+  forkId: ""
+  forkVersion: ""
+  time: 04/27/2026 05:35:21
+  entityCount: 26994
 maps:
 - 1
 grids:
@@ -82054,7 +82054,7 @@ entities:
       pos: -4.5,37.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -2419.7322
+      secondsUntilStateChange: -2512.7007
       state: Closing
   - uid: 12318
     components:
@@ -125162,6 +125162,24 @@ entities:
     components:
     - type: Transform
       pos: 79.54016,12.36062
+      parent: 2
+- proto: PollBooth
+  entities:
+  - uid: 26991
+    components:
+    - type: Transform
+      pos: -33.5,-6.5
+      parent: 2
+  - uid: 26992
+    components:
+    - type: Transform
+      pos: 27.5,28.5
+      parent: 2
+  - uid: 26993
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 32.5,-34.5
       parent: 2
 - proto: PortableFlasher
   entities:

@@ -271,3 +271,15 @@
   background: /Textures/LobbyScreens/syndi_kek.webp
   name: Syndi kek
   artist: blooodyspy
+
+- type: lobbyBackground
+  id: etu-hop
+  background: /Textures/LobbyScreens/fuckingkillHoPalready.webp
+  name: E tu, HoP?
+  artist: MsMunde
+
+- type: lobbyBackground
+  id: nukies-bridge
+  background: /Textures/LobbyScreens/nukies_bridge.webp
+  name: Nukies Bridge!!
+  artist: seyriix

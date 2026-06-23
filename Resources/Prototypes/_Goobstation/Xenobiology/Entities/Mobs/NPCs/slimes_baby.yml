@@ -1,167 +1,307 @@
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyGrey
   name: grey slime
   components:
-  - type: PendingSlimeSpawn
-    breed: GreyMutation
+  - type: Slime
+    breed: MobSlimeXenobioBabyGrey
+    breedName: xenobio-breed-grey
+    producedExtract: GreySlimeExtract
+    slimeColor: "#828282"
+    potentialMutations:
+    - MobSlimeXenobioBabyOrange
+    - MobSlimeXenobioBabyPurple
+    - MobSlimeXenobioBabyBlue
+    - MobSlimeXenobioBabyPyrite
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyOrange
   name: orange slime
   components:
-  - type: PendingSlimeSpawn
-    breed: OrangeMutation
+  - type: Slime
+    slimeColor: "#ff9f1a"
+    breed: MobSlimeXenobioBabyOrange
+    breedName: xenobio-breed-orange
+    producedExtract: OrangeSlimeExtract
+    potentialMutations:
+    - MobSlimeXenobioBabyGrey
+    - MobSlimeXenobioBabyYellow
+    - MobSlimeXenobioBabyDarkPurple
+    - MobSlimeXenobioBabyRed
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyPurple
   name: purple slime
   components:
-  - type: PendingSlimeSpawn
-    breed: PurpleMutation
+  - type: Slime
+    slimeColor: "#BF77F6"
+    breed: MobSlimeXenobioBabyPurple
+    breedName: xenobio-breed-purple
+    producedExtract: PurpleSlimeExtract
+    potentialMutations:
+    - MobSlimeXenobioBabyGrey
+    - MobSlimeXenobioBabyDarkPurple
+    - MobSlimeXenobioBabyDarkBlue
+    - MobSlimeXenobioBabyGreen
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyBlue
   name: blue slime
   components:
-  - type: PendingSlimeSpawn
-    breed: BlueMutation
+  - type: Slime
+    slimeColor: "#79F6FC"
+    breed: MobSlimeXenobioBabyBlue
+    breedName: xenobio-breed-blue
+    producedExtract: BlueSlimeExtract
+    potentialMutations:
+    - MobSlimeXenobioBabyGrey
+    - MobSlimeXenobioBabyDarkBlue
+    - MobSlimeXenobioBabySilver
+    - MobSlimeXenobioBabyPink
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyMetal
   name: metal slime
   components:
-  - type: PendingSlimeSpawn
-    breed: MetalMutation
+  - type: Slime
+    slimeColor: "#595959"
+    breed: MobSlimeXenobioBabyMetal
+    breedName: xenobio-breed-metal
+    producedExtract: MetalSlimeExtract
+    shader: XenoMetallic
+    potentialMutations:
+    - MobSlimeXenobioBabyGrey
+    - MobSlimeXenobioBabySilver
+    - MobSlimeXenobioBabyYellow
+    - MobSlimeXenobioBabyGold
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyYellow
   name: yellow slime
   components:
-  - type: PendingSlimeSpawn
-    breed: YellowMutation
+  - type: Slime
+    slimeColor: "#ffff1a"
+    breed: MobSlimeXenobioBabyYellow
+    breedName: xenobio-breed-yellow
+    producedExtract: YellowSlimeExtract
+    potentialMutations:
+    - MobSlimeXenobioBabyOrange
+    - MobSlimeXenobioBabyPyrite
+    - MobSlimeXenobioBabyBluespace
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyDarkPurple
   name: dark purple slime
   components:
-  - type: PendingSlimeSpawn
-    breed: DarkPurpleMutation
+  - type: Slime
+    slimeColor: "#8e0ff0"
+    breed: MobSlimeXenobioBabyDarkPurple
+    breedName: xenobio-breed-dark-purple
+    producedExtract: DarkPurpleSlimeExtract
+    potentialMutations:
+    - MobSlimeXenobioBabyPurple
+    - MobSlimeXenobioBabyOrange
+    - MobSlimeXenobioBabySepia
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyDarkBlue
   name: dark blue slime
   components:
-  - type: PendingSlimeSpawn
-    breed: DarkBlueMutation
+  - type: Slime
+    slimeColor: "#1e8cfa"
+    breed: MobSlimeXenobioBabyDarkBlue
+    breedName: xenobio-breed-dark-blue
+    producedExtract: DarkBlueSlimeExtract
+    potentialMutations:
+    - MobSlimeXenobioBabyBlue
+    - MobSlimeXenobioBabyPurple
+    - MobSlimeXenobioBabyCerulean
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabySilver
   name: silver slime
   components:
-  - type: PendingSlimeSpawn
-    breed: SilverMutation
+  - type: Slime
+    slimeColor: "#c4c4c4"
+    shader: XenoMetallic
+    breed: MobSlimeXenobioBabySilver
+    breedName: xenobio-breed-silver
+    producedExtract: SilverSlimeExtract
+    potentialMutations:
+    - MobSlimeXenobioBabyBlue
+    - MobSlimeXenobioBabyPyrite
+    - MobSlimeXenobioBabySilver
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyBluespace
   name: bluespace slime
   components:
-  - type: PendingSlimeSpawn
-    breed: BluespaceMutation
+  - type: Slime
+    slimeColor: "#f0f8ff"
+    shader: XenoBluespace
+    breed: MobSlimeXenobioBabyBluespace
+    breedName: xenobio-breed-bluespace
+    producedExtract: BluespaceSlimeExtract
+    potentialMutations:
+    - MobSlimeXenobioBabyBluespace
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabySepia
   name: sepia slime
   components:
-  - type: PendingSlimeSpawn
-    breed: SepiaMutation
+  - type: Slime
+    slimeColor: "#704214"
+    shader: XenoSepia
+    breed: MobSlimeXenobioBabySepia
+    breedName: xenobio-breed-sepia
+    producedExtract: SepiaSlimeExtract
+    potentialMutations:
+    - MobSlimeXenobioBabySepia
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyCerulean
   name: cerulean slime
   components:
-  - type: PendingSlimeSpawn
-    breed: CeruleanMutation
+  - type: Slime
+    slimeColor: "#2A52BE"
+    breed: MobSlimeXenobioBabyCerulean
+    breedName: xenobio-breed-cerulean
+    producedExtract: CeruleanSlimeExtract
+    potentialMutations:
+    - MobSlimeXenobioBabyCerulean
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyPyrite
   name: pyrite slime
   components:
-  - type: PendingSlimeSpawn
-    breed: PyriteMutation
+  - type: Slime
+    slimeColor: "#dcaa4f"
+    shader: XenoMetallic
+    breed: MobSlimeXenobioBabyPyrite
+    breedName: xenobio-breed-pyrite
+    producedExtract: PyriteSlimeExtract
+    potentialMutations:
+    - MobSlimeXenobioBabyPyrite
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyRed
   name: red slime
   components:
-  - type: PendingSlimeSpawn
-    breed: RedMutation
+  - type: Slime
+    slimeColor: "#ff3333"
+    breed: MobSlimeXenobioBabyRed
+    breedName: xenobio-breed-red
+    producedExtract: RedSlimeExtract
+    potentialMutations:
+    - MobSlimeXenobioBabyRed
+    - MobSlimeXenobioBabyOil
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyGreen
   name: green slime
   components:
-  - type: PendingSlimeSpawn
-    breed: GreenMutation
+  - type: Slime
+    slimeColor: "#4dff4d"
+    breed: MobSlimeXenobioBabyGreen
+    breedName: xenobio-breed-green
+    producedExtract: GreenSlimeExtract
+    potentialMutations:
+    - MobSlimeXenobioBabyGreen
+    - MobSlimeXenobioBabyBlack
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyPink
   name: pink slime
   components:
-  - type: PendingSlimeSpawn
-    breed: PinkMutation
+  - type: Slime
+    slimeColor: "#ff33cc"
+    breed: MobSlimeXenobioBabyPink
+    breedName: xenobio-breed-pink
+    producedExtract: PinkSlimeExtract
+    potentialMutations:
+    - MobSlimeXenobioBabyPink
+    - MobSlimeXenobioBabyLightPink
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyGold
   name: gold slime
   components:
-  - type: PendingSlimeSpawn
-    breed: GoldMutation
+  - type: Slime
+    slimeColor: "#e8b923"
+    shader: XenoMetallic
+    breed: MobSlimeXenobioBabyGold
+    breedName: xenobio-breed-gold
+    producedExtract: GoldSlimeExtract
+    potentialMutations:
+    - MobSlimeXenobioBabyGold
+    - MobSlimeXenobioBabyAdamantine
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyOil
   name: oil slime
   components:
-  - type: PendingSlimeSpawn
-    breed: OilMutation
+  - type: Slime
+    slimeColor: "#383936"
+    shader: XenoMetallic
+    breed: MobSlimeXenobioBabyOil
+    breedName: xenobio-breed-oil
+    producedExtract: OilSlimeExtract
+    potentialMutations:
+    - MobSlimeXenobioBabyOil
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyLightPink
   name: light pink slime
   components:
-  - type: PendingSlimeSpawn
-    breed: LightPinkMutation
+  - type: Slime
+    slimeColor: "#ffb3ec"
+    breed: MobSlimeXenobioBabyLightPink
+    breedName: xenobio-breed-light-pink
+    producedExtract: LightPinkSlimeExtract
+    potentialMutations:
+    - MobSlimeXenobioBabyLightPink
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyBlack
   name: black slime
   components:
-  - type: PendingSlimeSpawn
-    breed: BlackMutation
+  - type: Slime
+    slimeColor: "#000000"
+    breed: MobSlimeXenobioBabyBlack
+    breedName: xenobio-breed-black
+    producedExtract: BlackSlimeExtract
+    potentialMutations:
+    - MobSlimeXenobioBabyBlack
 
 - type: entity
-  parent: MobSlimeXenobioBabyPending
+  parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyAdamantine
   name: adamantite slime
   components:
-  - type: PendingSlimeSpawn
-    breed: AdamantineMutation
+  - type: Slime
+    slimeColor: "#005c33"
+    shader: XenoMetallic
+    breed: MobSlimeXenobioBabyAdamantine
+    breedName: xenobio-breed-adamantine
+    producedExtract: AdamantineSlimeExtract
+    potentialMutations:
+    - MobSlimeXenobioBabyAdamantine

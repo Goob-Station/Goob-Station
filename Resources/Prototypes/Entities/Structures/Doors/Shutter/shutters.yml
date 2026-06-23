@@ -126,6 +126,23 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
+    # Goob start
+    - trigger: !type:DamageTrigger
+        damage: 250
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          CableApcStack1:
+            min: 0
+            max: 1
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:ChangeConstructionNodeBehavior
+        node: frame1
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    # Goob end
   - type: DoorSignalControl
   - type: DeviceNetwork
     deviceNetId: Wireless
@@ -272,10 +289,26 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 500
+        damage: 200 #Goob, was 500
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
+    # Goob start
+    - trigger: !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          # decent recovery from smashing since it's basically just a bunch of small sheets
+          SheetSteel1:
+            min: 1
+            max: 2
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    # Goob end
   - type: Physics
     bodyType: Dynamic
   - type: Fixtures

@@ -29,3 +29,10 @@
   recipes:
     - FoodShakerSaltEmpty
     - FoodShakerPepperEmpty
+
+# Dynamic
+
+- type: latheRecipePack
+  id: EntertainmentPack
+  recipes:
+  - CrayonRainbowLarge
