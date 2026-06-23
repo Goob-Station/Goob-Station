@@ -98529,7 +98529,7 @@ entities:
       linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
-- proto: ClothingNeckCloakCe
+- proto: ClothingNeckCloakWhiteCe
   entities:
   - uid: 15161
     components:
@@ -98613,7 +98613,7 @@ entities:
       linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
-- proto: ClothingNeckMantleCE
+- proto: ClothingNeckMantleWhiteCE
   entities:
   - uid: 15162
     components:

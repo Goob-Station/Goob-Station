@@ -226,6 +226,9 @@ namespace Content.Server.Nuke
         // Goobstation start
         [DataField("honkopsArmMusic")]
         public SoundSpecifier HonkopsArmMusic = new SoundCollectionSpecifier("HonkopsNukeMusic");
+
+        [DataField("loneopArmMusic")]
+        public SoundSpecifier LoneopArmMusic = new SoundCollectionSpecifier("LoneopNukeMusic");
         // Goobstation end
     }
 }

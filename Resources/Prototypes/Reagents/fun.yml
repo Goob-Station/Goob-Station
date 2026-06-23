@@ -208,7 +208,7 @@
     Poison:
       effects:
       - !type:Electrocute
-        probability: 0.35
+        probability: 0.15 #goob edit
 
 - type: reagent
   id: Razorium

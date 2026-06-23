@@ -1,0 +1,23 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Modified from a combination of sprites by lunalita(discord) and MosleyTheMalO(github) / Made by Redstonewolf(ss14)/RedstonewolfX(github)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "dragon-antler",
+            "directions": 4
+        },
+        {
+            "name": "dragon-antlers-left",
+            "directions": 4
+        },
+        {
+            "name": "dragon-antlers-right",
+            "directions": 4
+        }
+    ]
+}

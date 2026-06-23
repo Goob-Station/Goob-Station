@@ -26,3 +26,6 @@
   description: Do the impossible, see the invisible!
   components:
   - type: EyeProtection
+  - type: Tag # Goobstation
+    tags:
+    - MesonGoggles

@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/12/2026 11:14:39
-  entityCount: 47812
+  time: 04/27/2026 05:07:48
+  entityCount: 47815
 maps:
 - 1
 grids:
@@ -15587,7 +15587,8 @@ entities:
           9,30:
             1: 65535
           9,31:
-            1: 4095
+            1: 4087
+            2: 8
           9,32:
             1: 57599
           10,28:
@@ -15927,7 +15928,8 @@ entities:
           14,31:
             1: 52975
           14,30:
-            1: 3296
+            1: 3168
+            4: 128
             2: 512
           14,32:
             1: 52990
@@ -16144,7 +16146,7 @@ entities:
             1: 65529
           20,12:
             1: 32752
-            4: 32768
+            5: 32768
           20,13:
             1: 63344
           20,14:
@@ -16412,7 +16414,7 @@ entities:
             1: 65264
           21,9:
             1: 13232
-            4: 2048
+            5: 2048
           21,10:
             1: 48059
           21,11:
@@ -16614,21 +16616,21 @@ entities:
             1: 36863
           22,34:
             1: 16
-            5: 60650
-            6: 516
+            6: 60650
+            7: 516
           22,35:
             1: 61440
-            5: 238
+            6: 238
           22,36:
             1: 61951
           23,33:
             1: 4095
           23,34:
-            6: 17
-            5: 4352
+            7: 17
+            6: 4352
             1: 52428
           23,35:
-            5: 17
+            6: 17
             1: 61646
           23,36:
             1: 55551
@@ -16794,7 +16796,7 @@ entities:
             1: 56576
           25,10:
             1: 53581
-            7: 128
+            4: 128
           25,11:
             1: 7645
           26,9:
@@ -17960,6 +17962,25 @@ entities:
           - 0
           - 0
         - volume: 2500
+          temperature: 293.15
+          moles:
+          - 21.6852
+          - 81.57766
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
           temperature: 293.14975
           moles:
           - 21.824879
@@ -18002,25 +18023,6 @@ entities:
           moles:
           - 25.047342
           - 94.22572
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 21.6852
-          - 81.57766
           - 0
           - 0
           - 0
@@ -22572,7 +22574,7 @@ entities:
       pos: 120.5,174.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -4455.3125
+      secondsUntilStateChange: -5537.56
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -23021,7 +23023,7 @@ entities:
       pos: 70.5,55.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -14540.858
+      secondsUntilStateChange: -15623.106
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -23222,7 +23224,7 @@ entities:
       pos: 99.5,180.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -6140.034
+      secondsUntilStateChange: -7222.2817
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -23690,7 +23692,7 @@ entities:
       pos: 70.5,41.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -13724.06
+      secondsUntilStateChange: -14806.308
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -23944,7 +23946,7 @@ entities:
       pos: 41.5,168.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -4577.6455
+      secondsUntilStateChange: -5659.893
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -23986,7 +23988,7 @@ entities:
       pos: 48.5,173.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -6733.3003
+      secondsUntilStateChange: -7815.548
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -24575,7 +24577,7 @@ entities:
       pos: 78.5,45.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -4907.11
+      secondsUntilStateChange: -5989.3574
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -24659,7 +24661,7 @@ entities:
       pos: 78.5,44.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -4906.3765
+      secondsUntilStateChange: -5988.624
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -24861,7 +24863,7 @@ entities:
       pos: 59.5,143.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -24485.783
+      secondsUntilStateChange: -25568.031
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -24970,7 +24972,7 @@ entities:
       pos: 83.5,55.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -16867.691
+      secondsUntilStateChange: -17949.94
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -26452,7 +26454,7 @@ entities:
       pos: 137.5,147.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -22292.686
+      secondsUntilStateChange: -23374.934
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -32621,6 +32623,11 @@ entities:
     - type: Transform
       pos: 44.5,118.5
       parent: 2
+  - uid: 30295
+    components:
+    - type: Transform
+      pos: 24.5,85.5
+      parent: 2
 - proto: BlastDoor
   entities:
   - uid: 2138
@@ -33448,7 +33455,10 @@ entities:
       parent: 2
     - type: Paper
       stampedBy:
-      - stampedColor: '#850000FF'
+      - hasIcon: True
+        stampFont: null
+        stampLargeIcon: null
+        stampedColor: '#850000FF'
         stampedName: 1984
       content: >2
 
@@ -112495,6 +112505,12 @@ entities:
       parent: 2
 - proto: ComputerBroken
   entities:
+  - uid: 691
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 47.5,125.5
+      parent: 2
   - uid: 13437
     components:
     - type: Transform
@@ -112880,12 +112896,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 39.5,90.5
-      parent: 2
-  - uid: 18137
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 47.5,125.5
       parent: 2
   - uid: 18143
     components:
@@ -114970,6 +114980,13 @@ entities:
         - 0
         - 0
         - 0
+- proto: CrateMedicalScrubs
+  entities:
+  - uid: 695
+    components:
+    - type: Transform
+      pos: 47.5,126.5
+      parent: 2
 - proto: CrateMedicalSecure
   entities:
   - uid: 18478
@@ -116046,6 +116063,13 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 130.5,123.5
       parent: 2
+- proto: CurtainsBlue
+  entities:
+  - uid: 30294
+    components:
+    - type: Transform
+      pos: 59.5,122.5
+      parent: 2
 - proto: CurtainsBlueOpen
   entities:
   - uid: 3213
@@ -116071,7 +116095,7 @@ entities:
       pos: 102.5,175.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -7538.9663
+      secondsUntilStateChange: -8621.214
       state: Closing
   - uid: 18576
     components:
@@ -136696,7 +136720,7 @@ entities:
       pos: 138.5,145.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -22753.219
+      secondsUntilStateChange: -23835.467
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -145503,7 +145527,7 @@ entities:
   - uid: 22905
     components:
     - type: Transform
-      pos: 29.553638,84.65897
+      pos: 29.669373,84.57086
       parent: 2
   - uid: 22906
     components:
@@ -232080,6 +232104,11 @@ entities:
       parent: 2
 - proto: LockerParamedicFilled
   entities:
+  - uid: 776
+    components:
+    - type: Transform
+      pos: 57.5,121.5
+      parent: 2
   - uid: 35780
     components:
     - type: Transform
@@ -232907,8 +232936,8 @@ entities:
         immutable: False
         temperature: 293.14673
         moles:
-        - 1.7459903
-        - 6.568249
+        - 1.8856695
+        - 7.0937095
         - 0
         - 0
         - 0
@@ -233523,11 +233552,6 @@ entities:
     - type: Transform
       pos: 58.5,86.5
       parent: 2
-  - uid: 35951
-    components:
-    - type: Transform
-      pos: 47.5,124.5
-      parent: 2
   - uid: 35952
     components:
     - type: Transform
@@ -233620,6 +233644,11 @@ entities:
       parent: 2
 - proto: MachineFrameDestroyed
   entities:
+  - uid: 694
+    components:
+    - type: Transform
+      pos: 47.5,124.5
+      parent: 2
   - uid: 35970
     components:
     - type: Transform
@@ -235016,11 +235045,6 @@ entities:
       parent: 2
 - proto: MedicalScanner
   entities:
-  - uid: 36182
-    components:
-    - type: Transform
-      pos: 47.5,126.5
-      parent: 2
   - uid: 36183
     components:
     - type: Transform
@@ -235054,42 +235078,30 @@ entities:
     - type: Transform
       pos: 49.45434,146.49944
       parent: 2
-- proto: MedkitBrute
+- proto: MedkitBruteFilled
   entities:
-  - uid: 776
+  - uid: 30279
     components:
     - type: Transform
-      pos: 49.561993,144.55899
+      pos: 49.0361,144.68721
       parent: 2
-  - uid: 778
+  - uid: 30293
     components:
     - type: Transform
-      pos: 49.21045,144.76244
-      parent: 2
-  - uid: 779
-    components:
-    - type: Transform
-      pos: 49.650497,144.95448
-      parent: 2
-- proto: MedkitBurn
-  entities:
-  - uid: 780
-    components:
-    - type: Transform
-      pos: 48.599876,144.87341
-      parent: 2
-  - uid: 782
-    components:
-    - type: Transform
-      pos: 48.562874,144.30005
-      parent: 2
-  - uid: 783
-    components:
-    - type: Transform
-      pos: 48.35935,144.5405
+      pos: 48.80693,145.10388
       parent: 2
 - proto: MedkitBurnFilled
   entities:
+  - uid: 18137
+    components:
+    - type: Transform
+      pos: 48.41537,144.68254
+      parent: 2
+  - uid: 30286
+    components:
+    - type: Transform
+      pos: 48.265263,145.10388
+      parent: 2
   - uid: 36196
     components:
     - type: Transform
@@ -235104,6 +235116,16 @@ entities:
       parent: 2
 - proto: MedkitFilled
   entities:
+  - uid: 778
+    components:
+    - type: Transform
+      pos: 49.43193,145.10388
+      parent: 2
+  - uid: 779
+    components:
+    - type: Transform
+      pos: 49.640263,144.70804
+      parent: 2
   - uid: 35825
     components:
     - type: Transform
@@ -235159,25 +235181,18 @@ entities:
     - type: Transform
       pos: 95.402054,150.64551
       parent: 2
-- proto: MedkitO2
-  entities:
-  - uid: 691
-    components:
-    - type: Transform
-      pos: 49.696392,145.91052
-      parent: 2
-  - uid: 694
-    components:
-    - type: Transform
-      pos: 49.40036,145.68857
-      parent: 2
-  - uid: 695
-    components:
-    - type: Transform
-      pos: 49.7334,145.5406
-      parent: 2
 - proto: MedkitOxygenFilled
   entities:
+  - uid: 30287
+    components:
+    - type: Transform
+      pos: 49.515263,145.97888
+      parent: 2
+  - uid: 30292
+    components:
+    - type: Transform
+      pos: 49.2861,145.74971
+      parent: 2
   - uid: 36211
     components:
     - type: Transform
@@ -235210,27 +235225,12 @@ entities:
   - uid: 36216
     components:
     - type: Transform
-      pos: 48.506523,145.85764
-      parent: 2
-  - uid: 36217
-    components:
-    - type: Transform
-      pos: 48.681232,145.63889
-      parent: 2
-  - uid: 36218
-    components:
-    - type: Transform
-      pos: 48.524982,145.57639
+      pos: 48.2861,146.02054
       parent: 2
   - uid: 36220
     components:
     - type: Transform
-      pos: 48.532932,145.73688
-      parent: 2
-  - uid: 36221
-    components:
-    - type: Transform
-      pos: 44.375725,145.51926
+      pos: 48.5986,145.81221
       parent: 2
   - uid: 36222
     components:
@@ -235726,6 +235726,28 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 38.5,124.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
   - uid: 36287
     components:
     - type: Transform
@@ -237622,6 +237644,11 @@ entities:
       parent: 2
 - proto: PartRodMetal
   entities:
+  - uid: 783
+    components:
+    - type: Transform
+      pos: 29.481873,84.71669
+      parent: 2
   - uid: 36612
     components:
     - type: Transform
@@ -238375,6 +238402,30 @@ entities:
     components:
     - type: Transform
       pos: 109.43205,54.61765
+      parent: 2
+- proto: PollBooth
+  entities:
+  - uid: 782
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 82.5,132.5
+      parent: 2
+  - uid: 30296
+    components:
+    - type: Transform
+      pos: 90.5,97.5
+      parent: 2
+  - uid: 30574
+    components:
+    - type: Transform
+      pos: 92.5,97.5
+      parent: 2
+  - uid: 30618
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 99.5,109.5
       parent: 2
 - proto: PolymerBaton
   entities:
@@ -251886,7 +251937,7 @@ entities:
       pos: 145.5,128.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -21361.854
+      secondsUntilStateChange: -22444.102
       state: Opening
   - uid: 2562
     components:
@@ -255414,7 +255465,7 @@ entities:
   - uid: 40044
     components:
     - type: Transform
-      pos: 24.44426,85.62772
+      pos: 23.784592,85.18129
       parent: 2
 - proto: SheetPlasma10
   entities:
@@ -261528,7 +261579,7 @@ entities:
   - uid: 22916
     components:
     - type: Transform
-      pos: 23.91565,85.59978
+      pos: 23.138763,85.30629
       parent: 2
   - uid: 22971
     components:
@@ -264140,10 +264191,10 @@ entities:
       parent: 2
 - proto: SpawnPointParamedic
   entities:
-  - uid: 41322
+  - uid: 780
     components:
     - type: Transform
-      pos: 58.5,121.5
+      pos: 59.5,122.5
       parent: 2
 - proto: SpawnPointPassenger
   entities:
@@ -268962,7 +269013,7 @@ entities:
   - uid: 41993
     components:
     - type: Transform
-      pos: 79.54622,113.92174
+      pos: 79.4725,113.83305
       parent: 2
 - proto: Syringe
   entities:
@@ -270862,11 +270913,6 @@ entities:
     components:
     - type: Transform
       pos: 26.5,84.5
-      parent: 2
-  - uid: 42345
-    components:
-    - type: Transform
-      pos: 24.5,85.5
       parent: 2
   - uid: 42346
     components:
@@ -314264,7 +314310,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -15577.657
+      secondsUntilStateChange: -16659.904
       state: Opening
     - type: Airlock
       autoClose: False

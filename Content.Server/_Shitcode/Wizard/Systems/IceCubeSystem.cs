@@ -10,12 +10,17 @@ using Content.Server._Goobstation.Wizard.Components;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Shared._Goobstation.Wizard.Traps;
+using Content.Shared.ActionBlocker;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Projectiles;
 using Content.Shared.Temperature;
 using Content.Shared.Whitelist;
+using Robust.Shared.Physics;
+using Robust.Shared.Physics.Collision.Shapes;
+using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
 
 namespace Content.Server._Goobstation.Wizard.Systems;
@@ -24,13 +29,19 @@ public sealed class IceCubeSystem : SharedIceCubeSystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
 
+    [Dependency] private readonly FixtureSystem _fixtures = default!;
+    [Dependency] private readonly ActionBlockerSystem _blocker = default!;
     [Dependency] private readonly TemperatureSystem _temperature = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+
+    private const string IceCubeFixture = "ice-cube-fixture";
 
     public override void Initialize()
     {
         base.Initialize();
 
+        SubscribeLocalEvent<IceCubeComponent, ComponentStartup>(IceCubeAdded);
+        SubscribeLocalEvent<IceCubeComponent, ComponentShutdown>(IceCubeRemoved);
         SubscribeLocalEvent<IceCubeComponent, OnTemperatureChangeEvent>(OnTemperatureChange);
         SubscribeLocalEvent<IceCubeComponent, DamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<IceCubeComponent, BeforeStaminaDamageEvent>(OnStaminaDamage, before: [typeof(SharedStaminaSystem)]);
@@ -110,31 +121,75 @@ public sealed class IceCubeSystem : SharedIceCubeSystem
             RemCompDeferred(ent.Owner, ent.Comp);
     }
 
-    protected override void Startup(Entity<IceCubeComponent> ent)
+    private void IceCubeRemoved(Entity<IceCubeComponent> ent, ref ComponentShutdown args)
     {
-        base.Startup(ent);
-
         var (uid, comp) = ent;
 
-        if (!TryComp(uid, out TemperatureComponent? temperature))
+        if (TerminatingOrDeleted(uid))
             return;
 
-        _temperature.ForceChangeTemperature(uid,
-            MathF.Min(temperature.CurrentTemperature, comp.FrozenTemperature),
-            temperature);
+        if (TryComp(uid, out TemperatureComponent? temperature))
+        {
+            _temperature.ForceChangeTemperature(uid,
+                MathF.Max(temperature.CurrentTemperature, comp.UnfrozenTemperature),
+                temperature);
+        }
+
+        _blocker.UpdateCanMove(uid);
+
+        Popup.PopupEntity(Loc.GetString("ice-cube-melt"), uid);
+
+        if (!TryComp(uid, out PhysicsComponent? physics) || !TryComp(uid, out FixturesComponent? fixtures))
+            return;
+
+        var xform = Transform(uid);
+
+        var fixture = _fixtures.GetFixtureOrNull(uid, IceCubeFixture, fixtures);
+
+        if (fixture != null)
+            _fixtures.DestroyFixture(uid, IceCubeFixture, fixture, body: physics, manager: fixtures, xform: xform);
+        else
+            _fixtures.FixtureUpdate(uid, manager: fixtures, body: physics);
+
+        if (comp.OldBodyType != null)
+            Physics.SetBodyType(uid, comp.OldBodyType.Value, fixtures, physics, xform);
     }
 
-    protected override void Shutdown(Entity<IceCubeComponent> ent)
+    private void IceCubeAdded(Entity<IceCubeComponent> ent, ref ComponentStartup args)
     {
-        base.Shutdown(ent);
-
         var (uid, comp) = ent;
 
-        if (!TryComp(uid, out TemperatureComponent? temperature))
+        if (TryComp(uid, out TemperatureComponent? temperature))
+        {
+            _temperature.ForceChangeTemperature(uid,
+                MathF.Min(temperature.CurrentTemperature, comp.FrozenTemperature),
+                temperature);
+        }
+
+        _blocker.UpdateCanMove(uid);
+
+        if (!TryComp(uid, out PhysicsComponent? physics) || !TryComp(uid, out FixturesComponent? fixtures))
             return;
 
-        _temperature.ForceChangeTemperature(uid,
-            MathF.Max(temperature.CurrentTemperature, comp.UnfrozenTemperature),
-            temperature);
+        var xform = Transform(uid);
+
+        // For whatever reason I can't set bounds on PhysShapeAabb in code so I have to use polygon shape
+        var shape = new PolygonShape();
+        shape.SetAsBox(new Box2(-0.4f, -0.4f, 0.4f, 0.4f));
+        _fixtures.TryCreateFixture(uid,
+            shape,
+            IceCubeFixture,
+            collisionLayer: comp.CollisionLayer,
+            collisionMask: comp.CollisionMask,
+            restitution: comp.Restitution,
+            manager: fixtures,
+            body: physics,
+            xform: xform);
+
+        if (physics.BodyType != BodyType.KinematicController)
+            return;
+
+        comp.OldBodyType = physics.BodyType;
+        Physics.SetBodyType(uid, comp.FrozenBodyType, fixtures, physics, xform);
     }
 }

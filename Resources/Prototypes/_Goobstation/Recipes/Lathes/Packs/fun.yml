@@ -1,0 +1,7 @@
+- type: latheRecipe
+  id: CrayonRainbowLarge
+  result: CrayonRainbowLarge
+  completetime: 2
+  materials:
+    Plasma: 100
+    Plastic: 300

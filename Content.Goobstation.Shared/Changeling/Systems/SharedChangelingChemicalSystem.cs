@@ -13,7 +13,6 @@ public abstract partial class SharedChangelingChemicalSystem : EntitySystem
     [Dependency] private readonly SharedInternalResourcesSystem _resource = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
-    private EntityQuery<ChangelingIdentityComponent> _lingQuery;
     private EntityQuery<InternalResourcesComponent> _resourceQuery;
 
     public override void Initialize()
@@ -26,7 +25,6 @@ public abstract partial class SharedChangelingChemicalSystem : EntitySystem
         SubscribeLocalEvent<ChangelingChemicalComponent, InternalResourcesRegenModifierEvent>(BeforeResourceRegenEvent);
         SubscribeLocalEvent<ChangelingChemicalComponent, RejuvenateEvent>(OnRejuvenate);
 
-        _lingQuery = GetEntityQuery<ChangelingIdentityComponent>();
         _resourceQuery = GetEntityQuery<InternalResourcesComponent>();
     }
 
@@ -60,9 +58,7 @@ public abstract partial class SharedChangelingChemicalSystem : EntitySystem
 
     private void OnRejuvenate(Entity<ChangelingChemicalComponent> ent, ref RejuvenateEvent args)
     {
-        if (ent.Comp.ResourceData == null
-            || _lingQuery.TryComp(ent, out var ling)
-            && ling.IsInStasis)
+        if (ent.Comp.ResourceData == null)
             return;
 
         _resource.TryUpdateResourcesAmount(ent, ent.Comp.ResourceData, ent.Comp.ResourceData.MaxAmount);

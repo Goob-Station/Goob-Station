@@ -1,0 +1,35 @@
+﻿- type: entity
+  parent: CrateGenericSteel
+  id: CrateSalvageHardsuitLuxury
+  name: luxury salvage hardsuit crate
+  description: Contains a luxury salvage hardsuit, breath mask, and oxygen tank. Lucky you.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ClothingOuterHardsuitLuxury
+        - id: ClothingMaskBreath
+        - id: OxygenTankFilled
+
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateCrusherHammer
+  name: crusher hammer crate
+  description: Contains a crusher hammer for use by salvage.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: WeaponCrusherHammer
+
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateCrusherHalberd
+  name: crusher halberd crate
+  description: Contains a crusher halberd for use by salvage.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: WeaponCrusherHalberd

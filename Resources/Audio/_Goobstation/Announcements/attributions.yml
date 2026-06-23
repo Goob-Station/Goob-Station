@@ -29,3 +29,8 @@
   license: "CC-BY-NC-SA-3.0"
   copyright: "Paradise Station"
   source: "https://github.com/ParadiseSS13/Paradise/blob/f0880267d25704521982a5c6ecefdaa485ed01e0/sound/AI/outbreak_terror.ogg"
+
+- files: ["amberalarm.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "alexslayer30"
+  source: "https://discord.com/invite/bpHJneTjUb"

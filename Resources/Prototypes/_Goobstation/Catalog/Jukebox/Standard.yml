@@ -325,4 +325,8 @@
   path:
     path: /Audio/_Goobstation/Music/mind_crawler.ogg
 
-
+- type: jukebox
+  id: one_against_all
+  name: mrjajkes - One Against All
+  path:
+    path: /Audio/StationEvents/one_against_all.ogg

@@ -16,6 +16,8 @@ namespace Content.Shared._Goobstation.Heretic.Components;
 [RegisterComponent]
 public sealed partial class LeechingWalkComponent : Component
 {
+    public override bool SessionSpecific => true;
+
     [DataField]
     public FixedPoint2 BoneHeal = -5;
 

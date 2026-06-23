@@ -28,6 +28,7 @@ thunderdome-loadout-inspector = Inspector
 thunderdome-loadout-hristov = Hristov
 thunderdome-loadout-esword = Energy Sword
 thunderdome-loadout-capo = Capoeira
+thunderdome-loadout-mosin = Kardashev-Mosin
 
 # Weapon descriptions (tooltips)
 thunderdome-desc-shotgun = Pump shotgun + 1 box buckshot, 1 box slugs
@@ -41,6 +42,7 @@ thunderdome-desc-inspector = Revolver + 2 speedloaders
 thunderdome-desc-hristov = Anti-materiel sniper + 2 spare magazines
 thunderdome-desc-esword = Energy sword + 2 hyperzine injectors
 thunderdome-desc-capo = Capoeira manual + 2 injector pens
+thunderdome-desc-mosin = Kardashev-Mosin + 2 spare magazines + ushanka + a vodka
 
 # Kill streak announcements
 thunderdome-streak-3 = {$player} is on a Killing Spree!

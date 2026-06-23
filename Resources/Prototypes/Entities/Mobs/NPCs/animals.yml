@@ -1639,6 +1639,7 @@
   description: The genetic bipedal ancestor of... Uh... Something. Yeah, there's definitely something on the station that descended from whatever this is.
   abstract: true
   components:
+  - type: Blindable # monkeys can be blind while sleeping!
   - type: VentCrawler # goobstation - Ventcrawl
     allowInventory: false
   - type: CombatMode
@@ -2294,6 +2295,21 @@
       tags:
       - Mouse
   - type: MobCallable
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+  - type: InventorySlots
+  - type: Inventory
+    speciesId: mouse
+    templateId: mouse
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: _Goobstation/Mobs/Animals/mouse/displacement.rsi
+            state: head
   # </Goobstation>
 
 - type: entity
@@ -4126,6 +4142,10 @@
   id: MobDionaNymph
   description: It's like a cat, only.... branch-ier.
   components:
+  # Goobstation - Diona nymphs can also see through kudzu.
+  - type: SeeOverLayer
+    layers:
+    - kudzu
   - type: Sprite
     drawdepth: Mobs
     layers:
