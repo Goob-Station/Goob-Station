@@ -202,7 +202,8 @@
     state: sunlight_day        # severity 4 - daytime
   category: BloodsuckerSol
 
-- id: SandevistanLoad
+- type: entity
+  id: SandevistanLoad
   icons:
   - sprite: /Textures/_Goobstation/Interface/Alerts/sandevistan.rsi
     state: sandevistan
