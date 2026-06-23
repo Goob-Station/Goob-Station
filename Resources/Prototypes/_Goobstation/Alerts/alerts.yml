@@ -156,6 +156,15 @@
   minSeverity: 0
   maxSeverity: 1
 
+- type: alertCategory
+  id: BloodsuckerBlood
+
+- type: alertCategory
+  id: BloodsuckerRank
+
+- type: alertCategory
+  id: BloodsuckerSol
+
 - type: alert
   id: BloodsuckerBlood
   name: alert-bloodsucker-blood-name
@@ -192,12 +201,3 @@
   - sprite: /Textures/_Goobstation/Bloodsucker/Actions/actions_bloodsucker.rsi
     state: sunlight_day        # severity 4 - daytime
   category: BloodsuckerSol
-
-- type: alertCategory
-  id: BloodsuckerBlood
-
-- type: alertCategory
-  id: BloodsuckerRank
-
-- type: alertCategory
-  id: BloodsuckerSol
