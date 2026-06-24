@@ -36,6 +36,10 @@
     sprite: _Pirate/Objects/Tools/rpld.rsi
   - type: Clothing
     sprite: _Pirate/Objects/Tools/rpld.rsi
+  - type: PhysicalComposition # Pirate: keep recycling below the upgraded engifab recipe cost.
+    materialComposition:
+      Steel: 500
+      Plastic: 100
 
 - type: entity
   id: RPLDEmpty
