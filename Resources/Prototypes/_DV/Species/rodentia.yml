@@ -32,9 +32,9 @@
   minHeight: 0.8
   defaultHeight: 0.80
   maxHeight: 1.15
-  minWidth: 1.6
-  defaultWidth: 1.6
-  maxWidth: 1.9
+  minWidth: 1.8
+  defaultWidth: 1.9
+  maxWidth: 2.0
   # end Goobstation: port EE height/width sliders
 
 - type: speciesBaseSprites
