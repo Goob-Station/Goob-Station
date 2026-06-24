@@ -108,10 +108,11 @@ public sealed class AlignRPDAtmosPipeLayers : PlacementMode
 
         var gridId = _transformSystem.GetGrid(MouseCoords);
 
-        if (!_entityManager.TryGetComponent<MapGridComponent>(gridId, out var mapGrid))
+        if (gridId is not { } gridUid ||
+            !_entityManager.TryGetComponent<MapGridComponent>(gridUid, out var mapGrid))
             return;
 
-        CurrentTile = _mapSystem.GetTileRef(gridId.Value, mapGrid, MouseCoords);
+        CurrentTile = _mapSystem.GetTileRef(gridUid, mapGrid, MouseCoords);
 
         var tileSize = mapGrid.TileSize;
         GridDistancing = tileSize;
@@ -143,7 +144,7 @@ public sealed class AlignRPDAtmosPipeLayers : PlacementMode
         if (!_transformSystem.InRange(playerXform.Coordinates, MouseCoords, SharedInteractionSystem.InteractionRange))
             return;
 
-        var newLayer = GetLayerForMode(rcd, gridId.Value);
+        var newLayer = GetLayerForMode(rcd, gridUid);
 
         if (newLayer != _currentLayer)
             _currentLayer = newLayer;
@@ -248,17 +249,18 @@ public sealed class AlignRPDAtmosPipeLayers : PlacementMode
             return false;
 
         var gridUid = _transformSystem.GetGrid(position);
-        if (!_entityManager.TryGetComponent<MapGridComponent>(gridUid, out var mapGrid))
+        if (gridUid is not { } grid ||
+            !_entityManager.TryGetComponent<MapGridComponent>(grid, out var mapGrid))
             return false;
 
-        var tile = _mapSystem.GetTileRef(gridUid.Value, mapGrid, position);
-        var posVector = _mapSystem.TileIndicesFor(gridUid.Value, mapGrid, position);
+        var tile = _mapSystem.GetTileRef(grid, mapGrid, position);
+        var posVector = _mapSystem.TileIndicesFor(grid, mapGrid, position);
 
         if (_stateManager.CurrentState is not GameplayStateBase screen)
             return false;
 
         var target = screen.GetClickedEntity(_transformSystem.ToMapCoordinates(_mouseCoordsRaw));
 
-        return _rcdSystem.IsRCDOperationStillValid(heldEntity, rcd, gridUid.Value, mapGrid, tile, posVector, target, player.Value, false);
+        return _rcdSystem.IsRCDOperationStillValid(heldEntity, rcd, grid, mapGrid, tile, posVector, target, player.Value, false);
     }
 }

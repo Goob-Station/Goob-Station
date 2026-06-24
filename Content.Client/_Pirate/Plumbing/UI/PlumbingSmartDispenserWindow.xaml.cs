@@ -168,7 +168,7 @@ public sealed partial class PlumbingSmartDispenserWindow : DefaultWindow
             row.AddChild(new Label
             {
                 Text = Loc.GetString("reagent-dispenser-window-quantity-label-text", ("quantity", quantity)),
-                StyleClasses = { StyleClass.LabelWeak },
+                StyleClasses = { StyleNano.StyleClassLabelSecondaryColor },
             });
 
             ContainerInfo.AddChild(row);

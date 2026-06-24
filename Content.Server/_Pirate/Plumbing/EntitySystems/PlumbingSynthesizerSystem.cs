@@ -108,7 +108,7 @@ public sealed partial class PlumbingSynthesizerSystem : EntitySystem
             if (!_powerCell.TryGetBatteryFromSlot(ent.Owner, out var batteryCheck))
                 return;
 
-            var availableCharge = batteryCheck.Value.Comp.LastCharge;
+            var availableCharge = batteryCheck.CurrentCharge;
             if (availableCharge <= 0)
                 return;
 

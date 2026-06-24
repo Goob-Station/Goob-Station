@@ -131,7 +131,7 @@ public sealed partial class PlumbingReactorSystem : EntitySystem
                 return;
             }
 
-            var reactionOccurred = _reactionSystem.FullyReactSolution(bufferEnt.Value);
+            _reactionSystem.FullyReactSolution(bufferEnt.Value);
 
             var products = new List<(ReagentId Reagent, FixedPoint2 Quantity)>();
             foreach (var reagent in buffer.Contents)
