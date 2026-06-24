@@ -29,6 +29,9 @@
   id: PlumbingDuct
 
 - type: Tag
+  id: MechReactor
+
+- type: Tag
   id: CameraFilm
 
 - type: Tag
