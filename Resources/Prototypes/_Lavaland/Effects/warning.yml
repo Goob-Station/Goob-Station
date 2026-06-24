@@ -5,7 +5,6 @@
   - type: Sprite
     sprite: _Lavaland/Effects/warning.rsi
     state: warning_box
-    shader: unshaded
     drawdepth: BelowMobs
     noRot: true
   - type: Fixtures
@@ -64,7 +63,6 @@
   - type: Sprite
     sprite: _Lavaland/Effects/large_warning.rsi
     state: Mwarning_box
-    shader: unshaded
     drawdepth: BelowMobs
     noRot: true
   - type: Fixtures
@@ -108,7 +106,6 @@
   - type: Sprite
     sprite: _Lavaland/Effects/target.rsi
     state: ORT_target
-    shader: unshaded
     drawdepth: Effects
     noRot: true
   - type: PointLight
@@ -132,7 +129,6 @@
   - type: Sprite
     sprite: _Lavaland/Effects/target.rsi
     state: ORT_target2
-    shader: unshaded
     drawdepth: Effects
     noRot: true
   - type: PointLight
@@ -157,7 +153,6 @@
   - type: Sprite
     sprite: _Lavaland/Effects/64x64.rsi
     state: safe_zone
-    shader: unshaded
     drawdepth: BelowMobs
     noRot: true
   - type: Fixtures

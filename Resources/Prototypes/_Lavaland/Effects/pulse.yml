@@ -25,7 +25,7 @@
     expandTime: 10
     collapseTime: 10
     startingScale: 1
-    peakScale: 2
+    maxScale: 2
 
 - type: entity
   id: ORTReflectiveThreadsEffect
@@ -46,4 +46,4 @@
     expandTime: 40
     collapseTime: 10
     startingScale: 3
-    peakScale: 4
+    maxScale: 4

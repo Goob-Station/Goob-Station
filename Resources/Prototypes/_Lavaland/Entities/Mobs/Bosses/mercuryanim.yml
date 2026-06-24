@@ -225,4 +225,4 @@
   - type: Transform
     noRot: true
   - type: FadingIn
-    fadeIn: 5
+    fadeInTime: 5

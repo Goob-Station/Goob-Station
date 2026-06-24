@@ -81,7 +81,7 @@
       - id: ORTCombatAnimation
   # Actual boss from here
   - type: DangerZone
-    popupRange: 15
+    popUpRange: 15
     popup:
     - ort-sense-danger1
     - ort-sense-danger2
@@ -170,7 +170,6 @@
     verticalOffset: 12
     rowNumber: 14
   - type: CosmicRayCirculator
-    beamPrototype: ORTBeamSmall
     warningPrototype: ORTWarningBox
   - type: MegafaunaAi
     actionDelay: 0.5

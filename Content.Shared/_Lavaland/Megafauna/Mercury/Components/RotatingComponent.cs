@@ -36,6 +36,7 @@ public sealed partial class RotatingComponent : Component
     /// <summary>
     /// If the rotation should speed up overtime to begin with.
     /// </summary>
+    [DataField]
     public bool IncreaseOvertime;
 
     public TimeSpan NextUpdate;
