@@ -47,4 +47,10 @@ public sealed partial class RCDDeconstructableComponent : Component
     /// </summary>
     [DataField("rpd"), ViewVariables(VVAccess.ReadWrite)]
     public bool RpdDeconstructable = false;
+
+    /// <summary>
+    /// Toggles whether this entity is deconstructable by the RPLD or not
+    /// </summary>
+    [DataField("rpld"), ViewVariables(VVAccess.ReadWrite)]
+    public bool RpldDeconstructable = false;
 }

@@ -1,0 +1,55 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+               xmlns:chemUi="clr-namespace:Content.Client.Chemistry.UI"
+               MinSize="440 560"
+               SetSize="440 560"
+               Title="{Loc plumbing-smart-dispenser-window-title}">
+    <BoxContainer Orientation="Vertical" Margin="5 5 5 5" SeparationOverride="4">
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True" SeparationOverride="6">
+            <BoxContainer Name="DispensePane" Access="Public" Orientation="Vertical" MinWidth="220" Visible="False">
+                <Label Text="{Loc reagent-dispenser-window-amount-to-dispense-label}" HorizontalAlignment="Center" />
+                <chemUi:ButtonGrid Name="AmountGrid"
+                                   Access="Public"
+                                   Columns="3"
+                                   HorizontalAlignment="Center"
+                                   Margin="5 4"
+                                   ButtonList="1,5,10,15,20,25,30,50,100"
+                                   RadioGroup="True" />
+
+                <Control VerticalExpand="True" />
+
+                <BoxContainer Orientation="Vertical" HorizontalAlignment="Center" SeparationOverride="0" Margin="0 2 0 2">
+                    <Label Name="ContainerInfoName" Access="Public" HorizontalAlignment="Center" />
+                    <Label Name="ContainerInfoFill" Access="Public" HorizontalAlignment="Center" StyleClasses="LabelSubText" Margin="0 -3 0 0" />
+                    <SpriteView Name="View" Access="Public" Scale="3.5 3.5" HorizontalAlignment="Center" Margin="0 -1 0 2" />
+                </BoxContainer>
+
+                <ScrollContainer HScrollEnabled="False" VerticalExpand="True" HorizontalExpand="True" MinHeight="128">
+                    <PanelContainer VerticalExpand="True">
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="#1b1b1e" />
+                        </PanelContainer.PanelOverride>
+                        <BoxContainer Name="ContainerInfo" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" SeparationOverride="2" Margin="5" />
+                    </PanelContainer>
+                </ScrollContainer>
+
+                <Button Name="ClearButton" Access="Public" Text="{Loc reagent-dispenser-window-clear-button}" HorizontalAlignment="Center" Margin="0 4 0 0" />
+            </BoxContainer>
+
+            <PanelContainer Name="DispensePaneDivider" Access="Public" StyleClasses="LowDivider" SetWidth="1" VerticalExpand="True" Visible="False" />
+
+            <ScrollContainer HScrollEnabled="False" VerticalExpand="True" HorizontalExpand="True" MinHeight="320" MinWidth="380">
+                <BoxContainer Name="ReagentList" Orientation="Vertical" HorizontalExpand="True"
+                              SeparationOverride="3" />
+            </ScrollContainer>
+        </BoxContainer>
+
+        <!-- Footer -->
+        <PanelContainer StyleClasses="LowDivider" />
+        <Label Name="StatusLabel" StyleClasses="WindowFooterText"
+               HorizontalAlignment="Center" Margin="0 2 0 0" />
+        <Label StyleClasses="LabelSubText" HorizontalAlignment="Center"
+               Text="{Loc plumbing-smart-dispenser-hint}" />
+    </BoxContainer>
+</DefaultWindow>

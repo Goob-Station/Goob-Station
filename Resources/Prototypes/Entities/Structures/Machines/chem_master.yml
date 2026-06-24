@@ -55,14 +55,23 @@
   placement:
     mode: SnapgridCenter
   components:
+  # Pirate: chem plumbing
+  - type: Transform
+    noRot: false
+  - type: Rotatable
+    rotateWhileAnchored: true
   - type: Sprite
     sprite: Structures/Machines/mixer.rsi
-    snapCardinals: true
+    snapCardinals: false # Pirate: chem plumbing
     layers:
     - state: mixer_empty
     - state: mixer_screens
       shader: unshaded
       map: ["enum.PowerDeviceVisualLayers.Powered"]
+  # Pirate: chem plumbing
+  - type: PlumbingConnectorAppearance
+    offset: 0.09375
+  - type: AtmosPipeColor
   - type: Icon
     sprite: Structures/Machines/mixer.rsi
     state: mixer_empty
@@ -168,3 +177,36 @@
     guides:
     - Chemicals
     - Chemist
+  # Pirate: chem plumbing
+  - type: PlumbingDevice
+    updateInterval: 2
+  - type: PlumbingInlet
+    solutionName: buffer
+    inletNames:
+    - inletNorth
+    - inletEast
+    - inletWest
+    transferAmount: 40
+  - type: PlumbingOutlet
+    solutionName: beaker
+    connectedOutlets: true
+    containerSlotId: beakerSlot
+    enabled: false
+  - type: NodeContainer
+    nodes:
+      inletNorth:
+        !type:PlumbingNode
+        nodeGroupID: Plumbing
+        pipeDirection: North
+      inletEast:
+        !type:PlumbingNode
+        nodeGroupID: Plumbing
+        pipeDirection: East
+      inletWest:
+        !type:PlumbingNode
+        nodeGroupID: Plumbing
+        pipeDirection: West
+      outlet:
+        !type:PlumbingNode
+        nodeGroupID: Plumbing
+        pipeDirection: South

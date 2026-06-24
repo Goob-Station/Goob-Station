@@ -1,0 +1,80 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Starlight",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+  "states": [
+    {
+      "name": "bartending-module",
+      "copyright": "SevenShades"
+    },
+    {
+      "name": "bookkeeping-module",
+      "copyright": "SevenShades"
+    },
+    {
+      "name": "cooking-module",
+      "copyright": "SevenShades"
+    },
+    {
+      "name": "paperwork-module",
+      "copyright": "SevenShades"
+    },
+    {
+      "name": "surgery-module",
+      "copyright": "SevenShades"
+    },
+    {
+      "name": "xenoborg-rcd-module",
+      "copyright": "SevenShades"
+    },
+	{
+      "name": "xenoborg-laser3-module",
+      "copyright": "Samuka-C, wonderfulnewworld"
+    },
+	{
+      "name": "xenoborg-sword3-module",
+      "copyright": "Samuka-C, wonderfulnewworld"
+    },
+	{
+      "name": "xenoborg-hypo2-module",
+      "copyright": "Samuka-C, wonderfulnewworld"
+    },
+    {
+      "name": "mail-module",
+      "copyright": "SevenShades"
+    },
+    {
+      "name": "mats-module",
+      "copyright": "SevenShades"
+    },
+    {
+      "name": "loading-module",
+      "copyright": "SevenShades"
+    },
+    {
+      "name": "plumbing-module",
+      "copyright": "AegisShieldDev"
+    },
+    {
+      "name": "hands",
+      "directions": 1,
+      "copyright": "Citrea-Lingua, modified from robohands.rsi"
+    },
+    {
+      "name": "knife-module",
+      "copyright": "Conflee"
+    },
+    {
+      "name": "medtak-aid-module",
+      "copyright": "SevenShades"
+    },
+    {
+      "name": "medtak-combat-module",
+      "copyright": "SevenShades"
+    }
+  ]
+}

@@ -67,6 +67,10 @@ namespace Content.Client.Chemistry.UI
                     (uint) _window.BottleDosage.Value, _window.LabelLine));
             _window.BufferSortButton.OnPressed += _ => SendMessage(
                     new ChemMasterSortingTypeCycleMessage());
+            _window.OutputBufferDraw.OnPressed += _ => SendMessage(
+                new ChemMasterOutputDrawSourceMessage(ChemMasterDrawSource.Internal)); // Pirate: chem plumbing
+            _window.OutputBeakerDraw.OnPressed += _ => SendMessage(
+                new ChemMasterOutputDrawSourceMessage(ChemMasterDrawSource.External)); // Pirate: chem plumbing
 
             for (uint i = 0; i < _window.PillTypeButtons.Length; i++)
             {
@@ -75,6 +79,7 @@ namespace Content.Client.Chemistry.UI
             }
 
             _window.OnReagentButtonPressed += (args, button) => SendMessage(new ChemMasterReagentAmountButtonMessage(button.Id, button.Amount, button.IsBuffer));
+            _window.OnToggleValveButtonPressed += () => SendMessage(new ChemMasterToggleValveMessage()); // Pirate: chem plumbing
         }
 
         /// <summary>

@@ -1,0 +1,4 @@
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: BorgModuleAdvancedPlumbing
+  result: BorgModuleAdvancedPlumbing

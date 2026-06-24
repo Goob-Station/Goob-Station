@@ -1,0 +1,8 @@
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: RPLD
+  result: RPLDEmpty
+  completetime: 4
+  materials:
+    Steel: 1000
+    Plastic: 300

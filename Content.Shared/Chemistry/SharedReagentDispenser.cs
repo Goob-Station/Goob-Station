@@ -113,6 +113,12 @@ namespace Content.Shared.Chemistry
 
     }
 
+    // Pirate: chem plumbing
+    [Serializable, NetSerializable]
+    public sealed class ReagentDispenserToggleValveMessage : BoundUserInterfaceMessage
+    {
+    }
+
     public enum ReagentDispenserDispenseAmount
     {
         U1 = 1,
@@ -149,6 +155,8 @@ namespace Content.Shared.Chemistry
 
         public readonly ReagentDispenserDispenseAmount SelectedDispenseAmount;
 
+        public readonly bool ValveOpen; // Pirate: chem plumbing
+
         public readonly List<ReagentDispenserRecipeItem> SavedRecipes;// Pirate: chem recipes
         public readonly bool HasRecipeDisk;// Pirate: chem recipes
         public readonly List<ReagentDispenserRecipeItem> DiskRecipes;// Pirate: chem recipes
@@ -160,6 +168,7 @@ namespace Content.Shared.Chemistry
             NetEntity? outputContainerEntity,
             List<ReagentInventoryItem> inventory,
             ReagentDispenserDispenseAmount selectedDispenseAmount,
+            bool valveOpen,
             List<ReagentDispenserRecipeItem> savedRecipes,
             bool hasRecipeDisk,
             List<ReagentDispenserRecipeItem> diskRecipes,
@@ -170,6 +179,7 @@ namespace Content.Shared.Chemistry
             OutputContainerEntity = outputContainerEntity;
             Inventory = inventory;
             SelectedDispenseAmount = selectedDispenseAmount;
+            ValveOpen = valveOpen;
             #region Pirate: chem recipes
             SavedRecipes = savedRecipes;
             HasRecipeDisk = hasRecipeDisk;

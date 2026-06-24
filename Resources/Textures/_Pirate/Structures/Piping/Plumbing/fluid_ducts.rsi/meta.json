@@ -1,0 +1,52 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "TGstation",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "ductBend",
+            "directions": 4,
+            "copyright": "TGStation"
+        },
+        {
+            "name": "ductConnector",
+            "directions": 4,
+            "copyright": "TGStation"
+        },
+        {
+            "name": "ductFourway",
+            "directions": 4,
+            "copyright": "TGStation"
+        },
+        {
+            "name": "ductStraight",
+            "directions": 4,
+            "copyright": "TGStation"
+        },
+        {
+            "name": "ductTJunction",
+            "directions": 4,
+            "copyright": "TGStation"
+        },
+        {
+            "name": "storageBend",
+            "copyright": "TGStation"
+        },
+        {
+            "name": "storageFourway",
+            "copyright": "TGStation"
+        },
+        {
+            "name": "storageStraight",
+            "copyright": "TGStation"
+        },
+        {
+            "name": "storageTjunction",
+            "copyright": "TGStation"
+        }
+    ]
+}

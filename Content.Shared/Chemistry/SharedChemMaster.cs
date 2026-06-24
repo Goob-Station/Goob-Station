@@ -96,6 +96,19 @@ namespace Content.Shared.Chemistry
         }
     }
 
+    // Pirate: chem plumbing
+    [Serializable, NetSerializable]
+    public sealed class ChemMasterOutputDrawSourceMessage(ChemMasterDrawSource drawSource) : BoundUserInterfaceMessage
+    {
+        public readonly ChemMasterDrawSource DrawSource = drawSource;
+    }
+
+    // Pirate: chem plumbing
+    [Serializable, NetSerializable]
+    public sealed class ChemMasterToggleValveMessage : BoundUserInterfaceMessage
+    {
+    }
+
     public enum ChemMasterMode
     {
         Transfer,
@@ -126,6 +139,12 @@ namespace Content.Shared.Chemistry
         U50 = 50,
         U100 = 100,
         All,
+    }
+
+    public enum ChemMasterDrawSource // Pirate: chem plumbing
+    {
+        Internal,
+        External,
     }
 
     public static class ChemMasterReagentAmountToFixedPoint
@@ -197,10 +216,14 @@ namespace Content.Shared.Chemistry
 
         public readonly bool UpdateLabel;
 
+        public readonly ChemMasterDrawSource DrawSource; // Pirate: chem plumbing
+
+        public readonly bool ValveOpen; // Pirate: chem plumbing
+
         public ChemMasterBoundUserInterfaceState(
             ChemMasterMode mode, ChemMasterSortingType sortingType, ContainerInfo? inputContainerInfo, ContainerInfo? outputContainerInfo,
             IReadOnlyList<ReagentQuantity> bufferReagents, FixedPoint2 bufferCurrentVolume,
-            uint selectedPillType, uint pillDosageLimit, bool updateLabel)
+            uint selectedPillType, uint pillDosageLimit, bool updateLabel, ChemMasterDrawSource drawSource, bool valveOpen)
         {
             InputContainerInfo = inputContainerInfo;
             OutputContainerInfo = outputContainerInfo;
@@ -211,6 +234,8 @@ namespace Content.Shared.Chemistry
             SelectedPillType = selectedPillType;
             PillDosageLimit = pillDosageLimit;
             UpdateLabel = updateLabel;
+            DrawSource = drawSource;
+            ValveOpen = valveOpen;
         }
     }
 

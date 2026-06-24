@@ -1,0 +1,39 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               MinSize="400 450" Title="{Loc plumbing-reactor-window-title}">
+    <BoxContainer Orientation="Vertical" Margin="5 5 5 5" SeparationOverride="8">
+        <!-- Status toggle -->
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+            <Label Text="{Loc plumbing-reactor-status}" />
+            <Button Name="ToggleStatusButton" MinWidth="80" />
+        </BoxContainer>
+
+        <!-- Temperature control -->
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" SeparationOverride="5">
+            <Label Text="{Loc plumbing-reactor-temperature}" />
+            <LineEdit Name="TemperatureInput" PlaceHolder="293.15" MinWidth="80" />
+            <Label Name="CurrentTemperatureLabel" Text="(293.15 K)" />
+            <Button Name="SetTemperatureButton" Text="{Loc plumbing-reactor-set}" MinWidth="50" />
+            <Button Name="ResetTemperatureButton" Text="{Loc plumbing-reactor-reset}" MinWidth="50" />
+        </BoxContainer>
+
+        <!-- Add reagent section -->
+        <PanelContainer StyleClasses="LowDivider" />
+        <Label Text="{Loc plumbing-reactor-add-reagent}" StyleClasses="LabelHeading" />
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" SeparationOverride="5">
+            <LineEdit Name="ReagentIdInput" PlaceHolder="{Loc plumbing-reactor-reagent-id}" HorizontalExpand="True" />
+            <LineEdit Name="QuantityInput" PlaceHolder="{Loc plumbing-reactor-quantity}" MinWidth="60" />
+            <Button Name="AddTargetButton" Text="{Loc plumbing-reactor-add}" MinWidth="50" />
+        </BoxContainer>
+        <ItemList Name="SuggestionList" SelectMode="Single" MinHeight="80" MaxHeight="120" HorizontalExpand="True" Visible="False" />
+
+        <!-- Targets list (shows current/target) -->
+        <PanelContainer StyleClasses="LowDivider" />
+        <BoxContainer Orientation="Horizontal">
+            <Label Text="{Loc plumbing-reactor-targets}" StyleClasses="LabelHeading" HorizontalExpand="True" />
+            <Button Name="ClearTargetsButton" Text="{Loc plumbing-reactor-clear}" MinWidth="60" />
+        </BoxContainer>
+        <ItemList Name="TargetsList" SelectMode="Single" VerticalExpand="True" MinHeight="100" />
+        <Button Name="RemoveTargetButton" Text="{Loc plumbing-reactor-remove-selected}" Disabled="True" />
+    </BoxContainer>
+</DefaultWindow>
