@@ -65,8 +65,7 @@ public sealed class PlushieBiteSystem : EntitySystem
                 && comp.FavoredSpecies.Contains(appearance.Species))
                 continue;
 
-
-            var message = $"{Name(uid)} doesn't recognize your species and bites you!";
+            var message = Loc.GetString("plushie-bite-popup", ("plushie", Name(uid)));
 
             if (comp.BiteSound != null)
                 _audio.PlayPvs(comp.BiteSound, uid);
