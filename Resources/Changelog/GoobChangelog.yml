@@ -23582,3 +23582,31 @@ Entries:
       message: Chaplain Chain sword cannot be dropped while active
   id: 2707
   time: '2026-06-20T12:18:31.0000000+00:00'
+- author: winkkk-k
+  changes:
+    - type: Add
+      message: >-
+        Amber alert level. It indicates that all crew must be armed to fight the
+        threats.
+  id: 2708
+  time: '2026-06-21T13:10:29.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Tweak
+      message: Desoxypehedrine poison 0.75 > 2
+    - type: Tweak
+      message: Desoxypehedrine OD poison 2 > 2.75
+  id: 2709
+  time: '2026-06-21T13:12:48.0000000+00:00'
+- author: UmbiMax
+  changes:
+    - type: Fix
+      message: Emitter projectiles no longer pass through the supermatter crystal.
+  id: 2710
+  time: '2026-06-21T13:55:57.0000000+00:00'
+- author: shoebill
+  changes:
+    - type: Add
+      message: Added a low blood alert to the health analyzer.
+  id: 2711
+  time: '2026-06-23T12:32:06.0000000+00:00'
