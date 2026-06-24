@@ -12,7 +12,7 @@ using Content.Trauma.Shared.Ranching.Components;
 
 namespace Content.Trauma.Shared.Ranching.Systems;
 
-public abstract partial class SharedHappinessSystem : EntitySystem
+public sealed partial class SharedHappinessSystem : EntitySystem
 {
     [Dependency] private SharedInternalResourcesSystem _internalResources = default!;
     [Dependency] private IPrototypeManager _proto = default!;
