@@ -10,7 +10,7 @@
     noRot: true
   - type: Timer
   - type: Physics
-    bodyType: KinematicController
+    bodyType: Static
   - type: Clickable
   - type: InteractionOutline
   - type: Fixtures

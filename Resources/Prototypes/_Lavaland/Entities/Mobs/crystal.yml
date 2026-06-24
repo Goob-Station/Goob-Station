@@ -52,6 +52,8 @@
           PlasmaOre1Unprocessed:
             min: 1
             max: 8 # Supposed to be an insanely good way of farming plasma ore.
+  - type: StaticPrice
+    price: 1500
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: MercurySpider

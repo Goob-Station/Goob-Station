@@ -4,6 +4,7 @@
   components:
   - type: Physics
     bodyType: Static
+    canCollide: false
   - type: Transform
     noRot: true    
   - type: FadingIn
@@ -33,6 +34,7 @@
   components:
   - type: Physics
     bodyType: Static
+    canCollide: false
   - type: Transform
     noRot: true    
   - type: FadingIn

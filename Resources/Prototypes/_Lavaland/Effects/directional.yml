@@ -5,7 +5,8 @@
   - type: Transform
     noRot: true  
   - type: Physics
-    bodyType: Static  
+    bodyType: Static
+    canCollide: false
   - type: DirectionalMovement
     moveNorth: true
     speed: 20
@@ -32,7 +33,8 @@
   - type: Transform
     noRot: true  
   - type: Physics
-    bodyType: Static  
+    bodyType: Static
+    canCollide: false
   - type: DirectionalMovement
     moveSouth: true
     speed: 20
@@ -59,7 +61,8 @@
   - type: Transform
     noRot: true    
   - type: Physics
-    bodyType: Static  
+    bodyType: Static
+    canCollide: false
   - type: DirectionalMovement
     moveWest: true
     speed: 20
@@ -86,7 +89,8 @@
   - type: Transform
     noRot: true    
   - type: Physics
-    bodyType: Static  
+    bodyType: Static
+    canCollide: false
   - type: DirectionalMovement
     moveEast: true
     speed: 20

@@ -206,6 +206,9 @@
     state: paradox_canceller
   - type: UseDelay
     delay: 60
+  - type: Construction
+    graph: ParadoxCanceller
+    node: MegafaunaParadoxCanceller
   - type: ParadoxCanceller
     trail:
       - type: Trail
