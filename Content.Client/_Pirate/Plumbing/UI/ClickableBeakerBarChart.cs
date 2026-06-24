@@ -1,6 +1,3 @@
-using Content.Client.Medical.Cryogenics;
-using Content.Client.Stylesheets.Colorspace;
-using Content.Client.Stylesheets.Palette;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface.Controls;
 
@@ -8,15 +5,13 @@ namespace Content.Client._Pirate.Plumbing.UI;
 
 public sealed class ClickableBeakerBarChart : ContainerButton
 {
-    private const float StateLightnessShift = 0.10f;
-
-    private static readonly ColorPalette _buttonPalette = Palettes.Navy;
-    private static readonly Color _idleBackgroundColor = _buttonPalette.Element;
+    private static readonly Color _idleBackgroundColor = Color.FromHex("#25252A");
     private static readonly Color _chartBackgroundColor = new(0.1f, 0.1f, 0.1f);
-    private static readonly Color _hoverBackgroundColor = _buttonPalette.HoveredElement.NudgeLightness(StateLightnessShift);
-    private static readonly Color _pressedBackgroundColor = _buttonPalette.PressedElement.NudgeLightness(StateLightnessShift);
+    private static readonly Color _hoverBackgroundColor = Color.FromHex("#303038");
+    private static readonly Color _pressedBackgroundColor = Color.FromHex("#1E1E24");
 
-    private readonly BeakerBarChart _chart;
+    private readonly ProgressBar _chart;
+    private readonly Label _label;
 
     public event Action<string>? OnChartPressed;
 
@@ -24,8 +19,8 @@ public sealed class ClickableBeakerBarChart : ContainerButton
 
     public float Capacity
     {
-        get => _chart.Capacity;
-        set => _chart.Capacity = value;
+        get => _chart.MaxValue;
+        set => _chart.MaxValue = Math.Max(value, 1f);
     }
 
     public ClickableBeakerBarChart()
@@ -37,26 +32,41 @@ public sealed class ClickableBeakerBarChart : ContainerButton
 
         var chartContainer = new BoxContainer
         {
+            Orientation = BoxContainer.LayoutOrientation.Vertical,
             HorizontalExpand = true,
             VerticalExpand = true,
             Margin = new Thickness(4),
         };
 
-        _chart = new BeakerBarChart
+        _label = new Label
+        {
+            HorizontalExpand = true,
+            ClipText = true,
+        };
+
+        _chart = new ProgressBar
         {
             HorizontalExpand = true,
             VerticalExpand = true,
             MouseFilter = MouseFilterMode.Ignore,
-            BackgroundColor = _chartBackgroundColor,
+            MinValue = 0,
+            MaxValue = 1,
+            BackgroundStyleBoxOverride = new StyleBoxFlat(_chartBackgroundColor),
+            ForegroundStyleBoxOverride = new StyleBoxFlat(Color.White),
         };
 
+        chartContainer.AddChild(_label);
         chartContainer.AddChild(_chart);
         AddChild(chartContainer);
         UpdateButtonStyle();
     }
 
     public void Clear()
-        => _chart.Clear();
+    {
+        _chart.Value = 0;
+        _label.Text = string.Empty;
+        ToolTip = string.Empty;
+    }
 
     public void SetEntry(
         string uid,
@@ -67,7 +77,10 @@ public sealed class ClickableBeakerBarChart : ContainerButton
         string? tooltip = null)
     {
         ToolTip = tooltip;
-        _chart.SetEntry(uid, label, amount, color, textColor, tooltip);
+        _label.Text = label;
+        _label.FontColorOverride = textColor;
+        _chart.Value = amount;
+        _chart.ForegroundStyleBoxOverride = new StyleBoxFlat(color);
     }
 
     protected override void DrawModeChanged()

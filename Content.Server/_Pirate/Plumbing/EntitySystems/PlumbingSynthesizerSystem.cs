@@ -1,11 +1,11 @@
 using Content.Server._Pirate.Plumbing.Components;
+using Content.Server.PowerCell;
 using Content.Shared._Pirate.Plumbing;
 using Content.Shared._Pirate.Plumbing.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.PowerCell;
-using Content.Shared.Power.EntitySystems;
 using Content.Shared.UserInterface;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
@@ -20,7 +20,7 @@ namespace Content.Server._Pirate.Plumbing.EntitySystems;
 ///     Handles plumbing synthesizer machine behavior: basically a small reagent dispenser,
 ///     you can select a generatable reagent and it will produce it into its buffer container.
 ///     Uses power from an internal battery and the reagents have the same power cost as reagent dispensers.
-///     Battery charging from APC is handled by <see cref="Content.Shared.Power.EntitySystems.ChargerSystem"/>.
+///     Battery charging from APC is handled by <see cref="Content.Server.Power.EntitySystems.ChargerSystem"/>.
 /// </summary>
 [UsedImplicitly]
 public sealed partial class PlumbingSynthesizerSystem : EntitySystem
@@ -28,7 +28,6 @@ public sealed partial class PlumbingSynthesizerSystem : EntitySystem
     [Dependency] private SharedSolutionContainerSystem _solutionSystem = default!;
     [Dependency] private UserInterfaceSystem _ui = default!;
     [Dependency] private PowerCellSystem _powerCell = default!;
-    [Dependency] private SharedBatterySystem _battery = default!;
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
@@ -176,7 +175,9 @@ public sealed partial class PlumbingSynthesizerSystem : EntitySystem
         var batteryCharge = 0f;
         if (_powerCell.TryGetBatteryFromSlot(ent.Owner, out var battery))
         {
-            batteryCharge = _battery.GetChargeLevel(battery.Value.AsNullable());
+            batteryCharge = battery.MaxCharge > 0
+                ? battery.CurrentCharge / battery.MaxCharge
+                : 0f;
         }
 
         var generatableReagents = new Dictionary<string, float>();
