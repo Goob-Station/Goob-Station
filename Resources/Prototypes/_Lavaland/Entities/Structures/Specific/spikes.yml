@@ -82,7 +82,7 @@
   components:
   - type: FadingTimedDespawn
     lifetime: 0.6
-    fadeoutTime: 0.2
+    fadeOutTime: 0.2
   - type: Timer
   - type: Sprite
     sprite: _Lavaland/Structures/Specific/Crystal/crystal_spike.rsi
