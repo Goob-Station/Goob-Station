@@ -23,7 +23,7 @@ public sealed partial class ChangeDamageModiferEffectSystem : EntitySystem
             return;
 
         ent.Comp.OriginalDamageModifierSet = damageable.DamageModifierSetId;
-        _damageable.SetDamageModifierSetId(args.Target, ent.Comp.DamageModifierSet);
+        _damageable.SetDamageModifierSetId((args.Target, damageable), ent.Comp.DamageModifierSet);
     }
 
     private void OnRemoved(Entity<ChangeDamageModiferSetStatusEffectComponent> ent, ref StatusEffectRemovedEvent args)

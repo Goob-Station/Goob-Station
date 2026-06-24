@@ -29,9 +29,11 @@ public sealed partial class SpecialEggsSystem : EntitySystem
         if (foodproto is null)
             return;
 
+        var coords = Transform(ent).Coordinates;
+
         // Minecraft crazy craft chicken chest, if you know you know.
-        PredictedSpawnAtPosition(foodproto.ID, ent.Owner.ToCoordinates());
-        PredictedSpawnAtPosition(foodproto.ID, ent.Owner.ToCoordinates());
+        PredictedSpawnAtPosition(foodproto.ID, coords);
+        PredictedSpawnAtPosition(foodproto.ID, coords);
     }
 
     private void OnInteract(Entity<PlateableChickenComponent> ent, ref InteractUsingEvent args)
@@ -40,7 +42,7 @@ public sealed partial class SpecialEggsSystem : EntitySystem
             return;
 
         EntityManager.AddComponents(ent.Owner, ore.Components);
-        RemComp<PlateableChickenComponent>(ent.Owner);
+        RemComp(ent, ent.Comp);
 
         if (_stack.GetCount(args.Used) > 0)
         {

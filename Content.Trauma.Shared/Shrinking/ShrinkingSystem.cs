@@ -17,11 +17,12 @@ public sealed partial class ShrinkingSystem : EntitySystem
 
     private void OnApplied(Entity<ShrunkStatusEffectComponent> ent, ref StatusEffectAppliedEvent args)
     {
+        ent.Comp.OriginalSize = _scale.GetSpriteScale(ent.Owner);
         _scale.SetSpriteScale(args.Target, new Vector2(0.5f, 0.5f));
     }
 
     private void OnRemoved(Entity<ShrunkStatusEffectComponent> ent, ref StatusEffectRemovedEvent args)
     {
-        _scale.SetSpriteScale(args.Target, new Vector2(1f, 1f));
+        _scale.SetSpriteScale(args.Target, ent.Comp.OriginalSize);
     }
 }

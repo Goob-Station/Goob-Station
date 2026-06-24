@@ -76,7 +76,7 @@
   description: It's a delicious piece of Eden.
   components:
   - type: Produce
-    seedId: apple
+    seedId: deliciousApple
   - type: Tag
     tags:
     - Fruit
@@ -91,7 +91,7 @@
   - type: Sprite
     sprite: _Trauma/Objects/Specific/Hydroponics/meth_apple.rsi
   - type: Produce
-    seedId: apple
+    seedId: MethApple
   - type: Solution
     solution:
       maxVol: 14
@@ -115,6 +115,8 @@
   components:
   - type: Sprite
     sprite: _Trauma/Objects/Specific/Hydroponics/clear_corn.rsi
+  - type: Produce
+    seedId: ClearCorn
   - type: Tag
     tags:
     - ClearCorn
@@ -193,6 +195,8 @@
   - type: Sprite
     state: icon
     sprite: _Trauma/Objects/Fun/balloons/red_balloon.rsi
+  - type: Produce
+    seedId: BalloonWatermelon
   - type: Destructible
     thresholds:
     - trigger:

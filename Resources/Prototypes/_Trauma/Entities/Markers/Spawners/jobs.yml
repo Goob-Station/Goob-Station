@@ -31,7 +31,7 @@
 - type: entity
   parent: SpawnPointJobBase
   id: SpawnPointRancher
-  name: SpawnPointRancher
+  name: rancher spawn point
   components:
   - type: SpawnPoint
     job_id: Rancher

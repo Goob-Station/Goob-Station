@@ -12,16 +12,20 @@ public sealed partial class BouncingSystem : EntitySystem
     [Dependency] private SharedEntityEffectsSystem _effects = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private IGameTiming _timing = default!;
+    private EntityQuery<BounceableComponent> _bounceableQuery;
 
     public override void Initialize()
     {
         base.Initialize();
+
+        _bounceableQuery = GetEntityQuery<BounceableComponent>();
+
         SubscribeLocalEvent<BounceableComponent, StartCollideEvent>(OnCollide);
     }
 
     private void OnCollide(Entity<BounceableComponent> ent, ref StartCollideEvent args)
     {
-        if (!HasComp<BounceableComponent>(args.OtherEntity))
+        if (!_bounceableQuery.HasComp(args.OtherEntity))
             return;
 
         var curTime = _timing.CurTime;

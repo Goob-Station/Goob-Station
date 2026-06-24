@@ -23,7 +23,7 @@ public sealed partial class TimedReplaceSystem : EntitySystem
         if (!ent.Comp.Active)
             return;
 
-        ent.Comp.SpawnTime = _timing.CurTime + TimeSpan.FromSeconds(_random.NextFloat(ent.Comp.MinTime, ent.Comp.MaxTime));
+        ent.Comp.SpawnTime = _timing.CurTime + ent.Comp.Time;
     }
 
     public override void Update(float frameTime)

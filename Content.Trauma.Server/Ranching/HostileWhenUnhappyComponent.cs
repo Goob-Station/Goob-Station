@@ -13,9 +13,9 @@ public sealed partial class HostileWhenUnhappyComponent : Component
     [DataField]
     public float HappinessRequired = -10f;
 
-    [DataField]
+    [DataField(required: true)]
     public HTNCompoundTask UnhappyTask;
 
-    [DataField]
+    [DataField(required: true)]
     public HTNCompoundTask HappyTask;
 }

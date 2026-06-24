@@ -10,6 +10,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Popups;
+using Content.Shared.Whitelist;
 using Content.Trauma.Shared.Ranching.Components;
 using Content.Trauma.Shared.Ranching.Events;
 using Content.Trauma.Shared.TimedReplace;
@@ -33,10 +34,16 @@ public sealed partial class RanchingEggLayerSystem : EntitySystem
     [Dependency] private SharedDoAfterSystem _doAfter = default!;
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+
+    private EntityQuery<HappinessComponent> _happinessQuery;
 
     public override void Initialize()
     {
         base.Initialize();
+
+        _happinessQuery = GetEntityQuery<HappinessComponent>();
+
         SubscribeLocalEvent<RanchingEggLayerComponent, RanchingEggLayAttemptEvent>(OnEggLayAttempt);
         SubscribeLocalEvent<RanchingEggLayerComponent, RanchingEggLayEvent>(OnEggLay);
 
@@ -69,7 +76,7 @@ public sealed partial class RanchingEggLayerSystem : EntitySystem
             return;
         }
 
-        var entityPrototype = MetaData(ent.Owner).EntityPrototype;
+        var entityPrototype = Prototype(ent.Owner);
 
         if (entityPrototype is null)
             return;
@@ -82,7 +89,7 @@ public sealed partial class RanchingEggLayerSystem : EntitySystem
     private void ReplaceAndHatchEgg(Entity<TimedReplaceComponent> ent, EggFertilizerComponent fertilizer, FertilizeDoAfterEvent args)
     {
 
-        if (!TryComp<HappinessComponent>(args.User, out var happiness) || fertilizer.SpecialReplacement is null)
+        if (!_happinessQuery.TryComp(args.User, out var happiness) || fertilizer.SpecialReplacement is null)
             return;
 
         ent.Comp.Entity = fertilizer.SpecialReplacement.Value;
@@ -115,7 +122,7 @@ public sealed partial class RanchingEggLayerSystem : EntitySystem
         SpawnNextToOrDrop(ent.Comp.EggSpawn, ent.Owner);
 
         _audio.PlayPvs(ent.Comp.EggLaySound, ent.Owner);
-        _popup.PopupEntity(Loc.GetString("action-popup-lay-egg-user"), ent.Owner, ent.Owner);
+        _popup.PopupClient(Loc.GetString("action-popup-lay-egg-user"), ent.Owner, ent.Owner);
         _popup.PopupEntity(Loc.GetString("action-popup-lay-egg-others", ("entity", ent.Owner)), ent.Owner, Filter.PvsExcept(ent.Owner), true);
 
         if (!TryComp<HungerComponent>(ent.Owner, out var hunger))
@@ -139,7 +146,7 @@ public sealed partial class RanchingEggLayerSystem : EntitySystem
         if (currentHappiness is null)
             return;
 
-        var entityPrototype = MetaData(ent.Owner).EntityPrototype;
+        var entityPrototype = Prototype(ent.Owner);
         if (entityPrototype is null)
             return;
 
@@ -166,20 +173,8 @@ public sealed partial class RanchingEggLayerSystem : EntitySystem
             if (requiredHappiness > currentHappiness)
                 continue;
 
-            if (proto.ComponentsRequired is not null)
-            {
-                var hasAll = true;
-                foreach (var (_, comp) in proto.ComponentsRequired)
-                {
-                    if (!HasComp(ent.Owner, comp.Component.GetType())) // Why is there no entitymananger.hascomponents
-                    {
-                        hasAll = false;
-                        break;
-                    }
-                }
-                if (!hasAll)
-                    continue;
-            }
+            if (proto.ComponentsRequired is not null && _whitelist.IsWhitelistFail(proto.ComponentsRequired, ent.Owner))
+                continue;
 
             var chickenAccepted = false;
             foreach (var chicken in proto.RequiredChicken)

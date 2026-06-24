@@ -15,7 +15,7 @@ public sealed partial class HappinessSystem : EntitySystem
     [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private TagSystem _tag = default!;
-    [Dependency] private Shared.Ranching.Systems.SharedHappinessSystem _happiness = default!;
+    [Dependency] private SharedHappinessSystem _happiness = default!;
 
     public override void Initialize()
     {

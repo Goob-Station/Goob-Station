@@ -3,4 +3,8 @@
 namespace Content.Trauma.Shared.Shrinking;
 
 [RegisterComponent, NetworkedComponent]
-public sealed partial class ShrunkStatusEffectComponent : Component;
+public sealed partial class ShrunkStatusEffectComponent : Component
+{
+    [DataField]
+    public Vector2 OriginalSize;
+};

@@ -25,6 +25,7 @@ public sealed partial class TameableSystem : EntitySystem
     private void OnMapInit(Entity<TameableComponent> ent, ref MapInitEvent args)
     {
         ent.Comp.PetsRequired = _random.Next(ent.Comp.MinPetsRequired, ent.Comp.MaxPetsRequired);
+        Dirty(ent);
     }
 
     private void OnSuccess(Entity<TameableComponent> ent, ref InteractionSuccessEvent args)

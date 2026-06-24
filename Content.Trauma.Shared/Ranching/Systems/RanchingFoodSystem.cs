@@ -13,7 +13,8 @@ namespace Content.Trauma.Shared.Ranching.Systems;
 public sealed partial class RanchingFoodSystem : EntitySystem
 {
     [Dependency] private SharedInternalResourcesSystem _internalResources = default!;
-    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private TagSystem _tag = default!;
 
     public override void Initialize()
     {
@@ -27,12 +28,8 @@ public sealed partial class RanchingFoodSystem : EntitySystem
         if (!TryComp<TagComponent>(args.Food, out var tag) || !TryComp<HappinessComponent>(ent.Owner, out var happiness))
             return;
 
-        foreach (var food in tag.Tags)
-        {
-            if (ent.Comp.Tag.Contains(food))
-                AddHappiness((ent.Owner, happiness), ent.Comp.Amount);
-
-        }
+        if (_tag.HasAnyTag(ent.Owner, ent.Comp.Tag))
+            AddHappiness((ent.Owner, happiness), ent.Comp.Amount);
     }
 
     private void OnFoodEaten(Entity<MostRecentlyEatenFoodTagsComponent> ent, ref FullyAteEvent args)
@@ -51,7 +48,7 @@ public sealed partial class RanchingFoodSystem : EntitySystem
         if (!TryComp<InternalResourcesComponent>(ent, out var internalResources))
             return;
 
-        var happinessResource = _prototype.Index(ent.Comp.HappinessResource);
+        var happinessResource = _proto.Index(ent.Comp.HappinessResource);
 
         foreach (var type in internalResources.CurrentInternalResources)
         {

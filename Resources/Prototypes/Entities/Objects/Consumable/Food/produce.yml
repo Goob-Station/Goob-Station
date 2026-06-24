@@ -978,9 +978,9 @@
         acts: [ "Destruction" ]
   - type: Tag
     tags:
+    - Tomato # Trauma
     - Fruit
     - Vegetable
-    - Tomato # Trauma
   - type: FoodSequenceElement
     entries:
       Skewer: TomatoSkewer

@@ -19,8 +19,7 @@ public sealed partial class TemporaryActionGrantEffectSystem : EntitySystem
     {
         foreach (var action in ent.Comp.ActionPrototypes)
         {
-            EntityUid? actionUid = null;
-            _action.AddAction(args.Target, ref actionUid, action);
+            var actionUid = _action.AddAction(args.Target, action);
 
             if (actionUid != null)
                 ent.Comp.Actions.Add(actionUid.Value);

@@ -114,12 +114,12 @@
       PotencyDivisor: 40
 
 - type: seed
-  id: DeliciousApple
+  id: deliciousApple
   name: seeds-appledelicious-name
   noun: seeds-noun-seeds
   displayName: seeds-appledelicious-display-name
   plantRsi: Objects/Specific/Hydroponics/apple.rsi
-  packetPrototype: DeliciousAppleSeeds
+  packetPrototype: deliciousAppleSeeds
   productPrototypes:
   - FoodDeliciousApple
   mutationPrototypes:

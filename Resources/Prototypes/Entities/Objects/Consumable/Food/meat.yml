@@ -158,9 +158,9 @@
       - fishy
   - type: Tag
     tags:
+    - Fish # Trauma
     - Raw
     - Meat
-    - Fish # Trauma
   - type: Sprite
     state: fish
   - type: SolutionContainerManager

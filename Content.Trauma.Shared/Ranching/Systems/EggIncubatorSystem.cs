@@ -25,7 +25,7 @@ public sealed partial class EggIncubatorSystem : EntitySystem
         if (!TryComp<TimedReplaceComponent>(args.Entity, out var timedReplace))
             return;
 
-        timedReplace.SpawnTime = _timing.CurTime + TimeSpan.FromSeconds(_random.NextFloat(timedReplace.MinTime, timedReplace.MaxTime));
+        timedReplace.SpawnTime = _timing.CurTime + timedReplace.Time;
         timedReplace.Active = true;
 
         _appearance.SetData(ent, EggIncubatorVisuals.Egg, true);

@@ -21,11 +21,11 @@
 
 - type: entity
   parent: AppleSeeds
-  id: DeliciousAppleSeeds
+  id: deliciousAppleSeeds
   name: packet of delicious apple seeds
   components:
   - type: Seed
-    seedId: DeliciousApple
+    seedId: deliciousApple
 
 - type: entity
   parent: AppleSeeds

@@ -2,6 +2,7 @@
 
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Tag;
+using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 
 namespace Content.Trauma.Shared.Ranching;
@@ -67,5 +68,5 @@ public sealed partial class EggRecipePrototype : IPrototype
     /// Components required to lay the egg.
     /// </summary>
     [DataField]
-    public ComponentRegistry? ComponentsRequired;
+    public EntityWhitelist? ComponentsRequired;
 }

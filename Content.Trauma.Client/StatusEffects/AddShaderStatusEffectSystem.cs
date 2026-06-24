@@ -2,8 +2,6 @@
 
 using Content.Shared.StatusEffectNew;
 using Content.Trauma.Shared.StatusEffects;
-using Robust.Client.GameObjects;
-using Robust.Client.Graphics;
 
 namespace Content.Trauma.Client.StatusEffects;
 
@@ -30,9 +28,6 @@ public sealed partial class AddShaderStatusEffectSystem : EntitySystem
 
     private void OnStartUp(Entity<AddShaderStatusEffectComponent> ent, ref StatusEffectAppliedEvent args)
     {
-        if (!_spriteQuery.HasComp(args.Target))
-            return;
-
         SetShader(args.Target, true, ent.Comp.Shader);
     }
 

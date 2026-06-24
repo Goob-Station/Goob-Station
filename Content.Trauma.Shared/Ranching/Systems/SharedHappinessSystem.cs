@@ -12,16 +12,20 @@ using Content.Trauma.Shared.Ranching.Components;
 
 namespace Content.Trauma.Shared.Ranching.Systems;
 
-public sealed partial class SharedHappinessSystem : EntitySystem
+public abstract partial class SharedHappinessSystem : EntitySystem
 {
     [Dependency] private SharedInternalResourcesSystem _internalResources = default!;
-    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private SharedAnimalAgeingSystem _ageing = default!;
     [Dependency] private MobStateSystem _mobState = default!;
+    private EntityQuery<InternalResourcesComponent> _internalResourcesQuery;
 
     public override void Initialize()
     {
         base.Initialize();
+
+        _internalResourcesQuery = GetEntityQuery<InternalResourcesComponent>();
+
         SubscribeLocalEvent<HappinessComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<HappinessComponent, InteractionSuccessEvent>(OnSuccessPet);
         SubscribeLocalEvent<HappinessComponent, DamageChangedEvent>(OnDamaged);
@@ -70,7 +74,7 @@ public sealed partial class SharedHappinessSystem : EntitySystem
 
     private void OnMapInit(Entity<HappinessComponent> ent, ref MapInitEvent args)
     {
-        var happinessResource = _prototype.Index(ent.Comp.HappinessResource);
+        var happinessResource = _proto.Index(ent.Comp.HappinessResource);
         _internalResources.EnsureInternalResources(ent.Owner, happinessResource, out _);
     }
 
@@ -79,7 +83,7 @@ public sealed partial class SharedHappinessSystem : EntitySystem
         if (!TryComp<InternalResourcesComponent>(ent, out var internalResources))
             return;
 
-        var happinessResource = _prototype.Index(ent.Comp.HappinessResource);
+        var happinessResource = _proto.Index(ent.Comp.HappinessResource);
 
         foreach (var type in internalResources.CurrentInternalResources)
         {
@@ -90,10 +94,10 @@ public sealed partial class SharedHappinessSystem : EntitySystem
 
     public void ChangeHappiness(Entity<HappinessComponent> ent, float amount)
     {
-        if (!TryComp<InternalResourcesComponent>(ent, out var internalResources) || _mobState.IsDead(ent.Owner))
+        if (!_internalResourcesQuery.TryComp(ent, out var internalResources) || _mobState.IsDead(ent.Owner))
             return;
 
-        var happinessResource = _prototype.Index(ent.Comp.HappinessResource);
+        var happinessResource = _proto.Index(ent.Comp.HappinessResource);
 
         foreach (var type in internalResources.CurrentInternalResources)
         {
@@ -107,7 +111,7 @@ public sealed partial class SharedHappinessSystem : EntitySystem
         if (!TryComp<InternalResourcesComponent>(ent, out var internalResources))
             return null;
 
-        var happinessResource = _prototype.Index(ent.Comp.HappinessResource);
+        var happinessResource = _proto.Index(ent.Comp.HappinessResource);
 
         foreach (var type in internalResources.CurrentInternalResources)
         {

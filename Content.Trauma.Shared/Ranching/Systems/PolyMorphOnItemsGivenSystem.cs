@@ -9,7 +9,7 @@ using Robust.Shared.Random;
 
 namespace Content.Trauma.Shared.Ranching.Systems;
 
-public sealed partial class PolyMorphOnItemsGivenSystem : EntitySystem
+public sealed partial class PolymorphOnItemsGivenSystem : EntitySystem
 {
     [Dependency] private SharedStackSystem _stack = default!;
     [Dependency] private SharedAnimalAgeingSystem _ageing = default!;
@@ -18,6 +18,8 @@ public sealed partial class PolyMorphOnItemsGivenSystem : EntitySystem
 
     public override void Initialize()
     {
+        base.Initialize();
+
         SubscribeLocalEvent<PolymorphOnItemsGivenComponent, InteractUsingEvent>(OnInteract);
     }
 
