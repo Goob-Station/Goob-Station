@@ -153,7 +153,7 @@ public sealed partial class PlumbingReactorSystem : EntitySystem
                 }
             }
 
-            if (reactionOccurred)
+            if (products.Count > 0)
             {
                 // Reset buffer to ambient temperature after any completed reaction pass.
                 _solutionSystem.SetTemperature(bufferEnt.Value, Atmospherics.T20C);

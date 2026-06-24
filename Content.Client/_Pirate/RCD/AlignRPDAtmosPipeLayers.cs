@@ -150,7 +150,7 @@ public sealed class AlignRPDAtmosPipeLayers : PlacementMode
             _currentLayer = newLayer;
 
         if (rcd.CurrentMode == RpdMode.Free)
-            UpdateSelectedLayer(heldEntity, _currentLayer);
+            UpdateSelectedLayer(heldEntity.Value, _currentLayer);
 
         UpdatePlacer(_currentLayer);
     }
@@ -261,6 +261,6 @@ public sealed class AlignRPDAtmosPipeLayers : PlacementMode
 
         var target = screen.GetClickedEntity(_transformSystem.ToMapCoordinates(_mouseCoordsRaw));
 
-        return _rcdSystem.IsRCDOperationStillValid(heldEntity, rcd, grid, mapGrid, tile, posVector, target, player.Value, false);
+        return _rcdSystem.IsRCDOperationStillValid(heldEntity.Value, rcd, grid, mapGrid, tile, posVector, target, player.Value, false);
     }
 }
