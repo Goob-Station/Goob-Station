@@ -7,6 +7,10 @@
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Hydrakin]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
   sprites:
   - sprite: _Obelisk/Mobs/Customization/hydrakin_parts.rsi
     state: eyes_default

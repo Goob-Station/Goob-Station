@@ -23502,3 +23502,111 @@ Entries:
         down.
   id: 2699
   time: '2026-06-12T18:45:47.0000000+00:00'
+- author: Super7522
+  changes:
+    - type: Fix
+      message: Hydrakin can now breathe Oxygen and Plasma
+    - type: Fix
+      message: Hydrakin can eat meat now...
+    - type: Fix
+      message: Fixed Hydrakin look in Character Creator
+    - type: Fix
+      message: >-
+        Not being able to use Goob interfaces as Hydrakin (Changeling UI,
+        Wantedhud, etc...)
+    - type: Fix
+      message: Not being able to Cool off without hands ( amputation or handcuffs )
+    - type: Fix
+      message: Hydrakins now get a Survival box for once
+  id: 2700
+  time: '2026-06-18T08:51:26.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: >-
+        Fixed natural regen (below 20 damage) being like 10 times less effective
+        as it should've been.
+    - type: Tweak
+      message: >-
+        Slimes now have double natural regen speed again, and regenerate up to
+        **65** damage.
+  id: 2701
+  time: '2026-06-18T10:29:29.0000000+00:00'
+- author: Sanyati
+  changes:
+    - type: Add
+      message: Reptilian stealth suit sprites.
+  id: 2702
+  time: '2026-06-18T10:32:13.0000000+00:00'
+- author: lucapgiannotti
+  changes:
+    - type: Tweak
+      message: monkeys are blind while sleeping like other species!
+  id: 2703
+  time: '2026-06-19T03:12:09.0000000+00:00'
+- author: RedTerror
+  changes:
+    - type: Tweak
+      message: >-
+        Now all Chaplain armor sets have the SAME stats. Different armor sets
+        are now reskins.
+  id: 2704
+  time: '2026-06-20T11:39:08.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Tweak
+      message: >-
+        Singulo knights, Derelict syndicate borgs, Greytides, Tunnel clowns,
+        Mime assassin, and some other midround roles now have playtime
+        requirements.
+  id: 2705
+  time: '2026-06-20T12:17:14.0000000+00:00'
+- author: RedTerror
+  changes:
+    - type: Tweak
+      message: >-
+        Chaplain Grey Emperor's Glove Buff: welding add to the list of tools.
+        The attack range has been increased to 3 tiles, and attacks cannot be
+        performed by right-clicking.
+    - type: Tweak
+      message: All Grey Emperor's Glove sounds have been replaced with finger snaps
+  id: 2706
+  time: '2026-06-20T12:17:57.0000000+00:00'
+- author: RedTerror
+  changes:
+    - type: Tweak
+      message: >-
+        Chaplain Chain sword Buff: activation speed 5s -> 1.5s, cooldown 3
+        minutes -> 2 minutes, duration 10s -> 20s.
+    - type: Tweak
+      message: Chaplain Chain sword cannot be dropped while active
+  id: 2707
+  time: '2026-06-20T12:18:31.0000000+00:00'
+- author: winkkk-k
+  changes:
+    - type: Add
+      message: >-
+        Amber alert level. It indicates that all crew must be armed to fight the
+        threats.
+  id: 2708
+  time: '2026-06-21T13:10:29.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Tweak
+      message: Desoxypehedrine poison 0.75 > 2
+    - type: Tweak
+      message: Desoxypehedrine OD poison 2 > 2.75
+  id: 2709
+  time: '2026-06-21T13:12:48.0000000+00:00'
+- author: UmbiMax
+  changes:
+    - type: Fix
+      message: Emitter projectiles no longer pass through the supermatter crystal.
+  id: 2710
+  time: '2026-06-21T13:55:57.0000000+00:00'
+- author: shoebill
+  changes:
+    - type: Add
+      message: Added a low blood alert to the health analyzer.
+  id: 2711
+  time: '2026-06-23T12:32:06.0000000+00:00'
