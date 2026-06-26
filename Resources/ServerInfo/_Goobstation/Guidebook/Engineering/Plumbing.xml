@@ -12,8 +12,11 @@ Research and build a liquid pump and some automation upgrade kits.
 You can upgrade certain liquid handling machines like ChemMasters and industrial reagent grinders.
 Link the pump to the Plumbing Input/Output ports and it will start pumping.
 
-Pumps can only transfer between 2 machines, but you can click them to assign a filter. Only that filtered reagent will be moved by the pump.
-Use multiple pumps for advanced stuff.
+Pumps can transfer liquids through other pumps before reaching the final machine.
+Click a pump to assign a filter. Only that filtered reagent will be moved by the pump.
+When multiple filtered pumps are linked in one chain, their filters are combined and their transfer amounts are added per reagent.
+If several pumps use the same filter, their transfer amounts stack.
+Unfiltered pumps do not add new filtered reagents to the chain, but they still limit the total transfer rate.
 
 Because it's just multitool based you don't need to build any pipes or anything, just link pumps to machines and watch the liquids move!
 

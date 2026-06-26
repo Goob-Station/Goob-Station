@@ -1,6 +1,5 @@
-using Content.Shared.DeviceLinking;
+using Content.Goobstation.Shared.Factory.Slots;
 using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Goobstation.Shared.Factory.Plumbing;
@@ -10,7 +9,7 @@ namespace Content.Goobstation.Shared.Factory.Plumbing;
 /// Basically a robotic arm for reagents.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-[Access(typeof(PlumbingPumpSystem))]
+[Access(typeof(PlumbingPumpSystem), typeof(PlumbingLinkSystem))]
 [AutoGenerateComponentPause]
 public sealed partial class PlumbingPumpComponent : Component
 {
@@ -19,4 +18,19 @@ public sealed partial class PlumbingPumpComponent : Component
 
     [DataField]
     public TimeSpan UpdateDelay = TimeSpan.FromSeconds(1);
+
+    [ViewVariables]
+    public bool ChainDirty = true;
+
+    [ViewVariables]
+    public readonly List<EntityUid> CachedProcessors = new();
+
+    [ViewVariables]
+    public EntityUid? CachedOutputMachine;
+
+    [ViewVariables]
+    public string? CachedOutputPort;
+
+    [ViewVariables]
+    public AutomationSlot? CachedOutputSlot;
 }
