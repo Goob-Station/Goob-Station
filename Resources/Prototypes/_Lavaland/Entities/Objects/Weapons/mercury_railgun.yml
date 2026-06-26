@@ -25,9 +25,6 @@
     proto: BulletMercuryRailgun
     fireCost: 100
   - type: Appearance
-  - type: PhysicalComposition
-    materialComposition:
-      Plasma: 5000
   - type: Construction
     graph: MercuryRailgun
     node: WeaponMercuryRailgun

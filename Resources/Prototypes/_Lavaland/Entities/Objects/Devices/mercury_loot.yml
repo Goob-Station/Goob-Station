@@ -177,6 +177,9 @@
   - type: Tag # I hate construction graphs
     tags:
     - MegafaunaMercuryCore
+  - type: Construction
+    graph: MercuryCore
+    node: MegafaunaMercuryCore
 
 - type: entity
   parent: BaseItem
@@ -194,6 +197,9 @@
   - type: HeldGrantComponent
     components:
     - type: LightningImmune
+  - type: Construction
+    graph: EtherDrinker
+    node: MegafaunaEtherDrinker
 
 - type: entity
   parent: BaseItem

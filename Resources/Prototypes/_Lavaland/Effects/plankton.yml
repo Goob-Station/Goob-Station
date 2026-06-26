@@ -141,6 +141,9 @@
         - HighImpassable
         - LowImpassable
         hard: False
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
   - type: Projectile
     impactEffect: BulletImpactEffectDisabler
     deleteOnCollide: true

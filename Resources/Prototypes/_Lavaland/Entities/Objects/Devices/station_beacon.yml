@@ -178,6 +178,8 @@
   - type: ChasmTeleportBeacon
   - type: NavMapBeacon
     defaultText: station-beacon-mercury-arena
+  - type: GenericVisualizer
+    visuals: {}
   - type: Sprite
     drawdepth: LowFloors
     sprite: _Lavaland/Effects/particle.rsi
@@ -193,6 +195,8 @@
   - type: SeaOfFantasyTreesExitBeacon
   - type: NavMapBeacon
     defaultText: station-beacon-bottomless-pit
+  - type: GenericVisualizer
+    visuals: {}
   - type: Sprite
     drawdepth: LowFloors
     sprite: _Lavaland/Effects/particle.rsi
