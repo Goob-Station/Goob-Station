@@ -40,9 +40,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     xmlns:info="clr-namespace:Content.Client.Info"
     xmlns:widgets="clr-namespace:Content.Client.UserInterface.Systems.Chat.Widgets"
     xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client">
-    <!-- Background -->
-    <TextureRect Access="Public" VerticalExpand="True" HorizontalExpand="True" Name="Background"
-                 Stretch="KeepAspectCovered" />
+    <!-- Background (AnimatedGifRect supports both static images and animated gifs) -->
+    <controls:AnimatedGifRect Access="Public" VerticalExpand="True" HorizontalExpand="True" Name="Background"
+                              Stretch="KeepAspectCovered" />
     <BoxContainer Name="MainContainer" VerticalExpand="True" HorizontalExpand="True" Orientation="Horizontal"
                   Margin="10 10 10 10" SeparationOverride="2">
         <SplitContainer State="Auto" ResizeMode="NotResizable" HorizontalExpand="True">

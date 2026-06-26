@@ -25,7 +25,7 @@ public sealed partial class GameTicker
     [ViewVariables]
     private List<ProtoId<LobbyBackgroundPrototype>> _lobbyBackgrounds = [];
 
-    private static readonly string[] WhitelistedBackgroundExtensions = new string[] {"png", "jpg", "jpeg", "webp"};
+    private static readonly string[] WhitelistedBackgroundExtensions = new string[] {"png", "jpg", "jpeg", "webp", "gif"};
 
     private void InitializeLobbyBackground()
     {
@@ -43,7 +43,13 @@ public sealed partial class GameTicker
         RandomizeLobbyBackground();
     }
 
+    // TODO TESTING: revert this list when done; it forces the lobby to only show the test gifs.
+    private static readonly ProtoId<LobbyBackgroundPrototype>[] ForcedTestBackgrounds =
+        { "tenor", "sprite0002", "moisesdimas" };
+
     private void RandomizeLobbyBackground() {
-        LobbyBackground = _lobbyBackgrounds.Any() ? _robustRandom.Pick(_lobbyBackgrounds) : (ProtoId<LobbyBackgroundPrototype>?) null;
+        // TODO TESTING: forcing the test gifs so they always show. Revert to the random pick below before shipping.
+        LobbyBackground = _robustRandom.Pick(ForcedTestBackgrounds);
+        // LobbyBackground = _lobbyBackgrounds.Any() ? _robustRandom.Pick(_lobbyBackgrounds) : (ProtoId<LobbyBackgroundPrototype>?) null;
     }
 }

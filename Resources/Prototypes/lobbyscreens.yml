@@ -111,6 +111,24 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: lobbyBackground
+  id: tenor
+  background: /Textures/LobbyScreens/tenor.gif
+  name: Tenor
+  artist: Unknown
+
+- type: lobbyBackground
+  id: sprite0002
+  background: /Textures/LobbyScreens/Sprite-0002.gif
+  name: Sprite-0002
+  artist: Unknown
+
+- type: lobbyBackground
+  id: moisesdimas
+  background: /Textures/LobbyScreens/moises-dimas-dawn-riding.gif
+  name: Moises Dimas Dawn Riding
+  artist: Unknown
+
+- type: lobbyBackground
   id: amos
   background: /Textures/LobbyScreens/amos.webp
   name: Atmos

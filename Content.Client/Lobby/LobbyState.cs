@@ -90,17 +90,22 @@ using Content.Client.Lobby.UI;
 using Content.Client.Message;
 using Content.Client.Playtime;
 using Content.Client.UserInterface.Systems.Chat;
+using Content.Client.Utility; // Goobstation - gif lobby backgrounds
 using Content.Client.Voting;
 using Content.Goobstation.Common.ServerCurrency;
 using Content.Shared.CCVar;
 using Robust.Client;
 using Robust.Client.Console;
+using Robust.Client.Graphics; // Goobstation - gif lobby backgrounds
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility; // Goobstation - gif lobby backgrounds
+using SixLabors.ImageSharp; // Goobstation - gif lobby backgrounds
+using SixLabors.ImageSharp.PixelFormats; // Goobstation - gif lobby backgrounds
 
 namespace Content.Client.Lobby
 {
@@ -122,6 +127,7 @@ namespace Content.Client.Lobby
         private ISawmill _sawmill = default!; // Goobstation
         private ClientGameTicker _gameTicker = default!;
         private ContentAudioSystem _contentAudioSystem = default!;
+        private ResPath? _currentBackground; // Goobstation - dedup background (re)loading; see UpdateLobbyBackground
 
         protected override Type? LinkedScreenType { get; } = typeof(LobbyGui);
         public LobbyGui? Lobby;
@@ -186,6 +192,9 @@ namespace Content.Client.Lobby
             Lobby.CharacterPreview.PatronPerks.OnPressed -= OnPatronPerksPressed;
             Lobby!.ReadyButton.OnPressed -= OnReadyPressed;
             Lobby!.ReadyButton.OnToggled -= OnReadyToggled;
+
+            Lobby!.Background.SetStatic(null); // Goobstation - dispose any animated gif frame textures
+            _currentBackground = null;
 
             Lobby = null;
         }
@@ -354,13 +363,21 @@ namespace Content.Client.Lobby
             }
         }
 
-        // Goobstation - heavily modified to add credits for lobby backgrounds
+        // Goobstation - heavily modified to add credits for lobby backgrounds + animated gif support
         private void UpdateLobbyBackground()
         {
             if (_gameTicker.LobbyBackground != null)
             {
                 var lobbyBackground = _protoMan.Index(_gameTicker.LobbyBackground.Value);
-                Lobby!.Background.Texture = _resourceCache.GetResource<TextureResource>(lobbyBackground.Background);
+
+                // This fires on every lobby status event (ready toggles, joins, etc.), not just background
+                // changes. Only (re)load when the path actually changes - re-decoding/re-uploading a gif
+                // each time would leak its frame textures.
+                if (_currentBackground != lobbyBackground.Background)
+                {
+                    _currentBackground = lobbyBackground.Background;
+                    ApplyBackground(lobbyBackground.Background);
+                }
 
                 var name = string.IsNullOrEmpty(lobbyBackground.Name)
                     ? Loc.GetString("lobby-state-background-unknown-title")
@@ -380,8 +397,34 @@ namespace Content.Client.Lobby
             }
 
             _sawmill.Warning("_gameTicker.LobbyBackground was null! No lobby background selected.");
-            Lobby!.Background.Texture = null;
+            _currentBackground = null;
+            Lobby!.Background.SetStatic(null);
             Lobby!.LobbyBackground.SetMarkup(Loc.GetString("lobby-state-background-no-background-text"));
+        }
+
+        // Goobstation - loads either an animated gif or a static image into the lobby background control.
+        private void ApplyBackground(ResPath path)
+        {
+            if (path.Extension == "gif")
+            {
+                GifDecoder.GifData gif;
+                using (var stream = _resourceCache.ContentFileRead(path))
+                {
+                    gif = GifDecoder.Decode(stream);
+                }
+
+                var textures = new Texture[gif.Frames.Length];
+                for (var i = 0; i < gif.Frames.Length; i++)
+                {
+                    textures[i] = Texture.LoadFromImage(gif.Frames[i], path.ToString());
+                    gif.Frames[i].Dispose(); // pixels are copied to the GPU; free the managed image.
+                }
+
+                Lobby!.Background.SetGif(textures, gif.Delays);
+                return;
+            }
+
+            Lobby!.Background.SetStatic(_resourceCache.GetResource<TextureResource>(path).Texture);
         }
 
         private void SetReady(bool newReady)
