@@ -60,3 +60,7 @@ alert-level-octarine-instructions = Crewmembers are advised to listen to heads o
 alert-level-honk = Honk
 alert-level-honk-announcement = A devious clown is on the loose and will cause cataclysmic damage if not executed! All crewmembers must collaborate in executing the clown if possible, or else evacuate.
 alert-level-honk-instructions = Crewmembers are advised to execute the clown.
+
+alert-level-amber = Amber
+alert-level-amber-announcement = There is an immediate station ending threat. All crewmembers are to be armed by any means and all non-essential personnel must assist Security and the Heads of Staff in the defence of the station.
+alert-level-amber-instructions = Crewmembers are to be armed to fight a station ending threat.

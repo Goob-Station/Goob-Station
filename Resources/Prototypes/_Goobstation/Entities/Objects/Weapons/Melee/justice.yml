@@ -71,6 +71,11 @@
       - Alive
   - type: StealTarget
     stealGroup: WeaponSecHeadSword
+  - type: IntrinsicRadioReceiver
+  - type: ActiveRadio
+    channels:
+    - Common
+    - Security
   - type: ItemSwitch
     needsPower: true
     defaultState: off

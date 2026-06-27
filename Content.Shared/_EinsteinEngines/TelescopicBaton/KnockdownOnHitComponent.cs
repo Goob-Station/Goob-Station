@@ -21,6 +21,9 @@ public sealed partial class KnockdownOnHitComponent : Component
     public bool DropItems = false;
 
     [DataField]
+    public bool Autostand = true;
+
+    [DataField]
     public bool RefreshDuration = true;
 
     [DataField]

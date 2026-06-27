@@ -310,6 +310,9 @@
     containers:
       entity_storage: !type:NestedSelector
         tableId: MaintenanceLockerLoot
+  - type: Tag
+    tags:
+    - MaintenanceCloset
 
 - type: entity
   id: ClosetWallMaintenanceFilledRandom

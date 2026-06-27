@@ -37,5 +37,5 @@ public sealed partial class VoidAdaptionComponent : Component
     public LocId LeaveLowTempPopup = "changeling-voidadapt-lowtemperature-end";
 
     [DataField, AutoNetworkedField]
-    public float ChemModifierValue = 0.25f;
+    public float ChemModifierValue = 1f;
 }

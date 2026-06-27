@@ -271,13 +271,13 @@
   - type: HeatTint # Goob - color liquid by temperature
     colorGradient:
     - temperature: 200
-      color: "#6699FF"
+      color: "#A0BCE0"
     - temperature: 293
       color: "#FFFFFF"
     - temperature: 350
-      color: "#FF6680"
+      color: "#FFC0A8"
     - temperature: 800
-      color: "#FF2280"
+      color: "#FF9880"
     affectedLayers:
     - "enum.SolutionContainerLayers.Fill"
 

@@ -105,7 +105,7 @@ public sealed class GrabThrownSystem : EntitySystem
         comp.IgnoreEntity.Add(thrower);
         comp.DamageOnCollide = damageToUid;
 
-        _stun.TryCrawling(uid);
+        _stun.TryCrawling(uid, drop: false);
         _throwing.TryThrow(uid, vector, grabThrownSpeed, animated: false);
     }
 }

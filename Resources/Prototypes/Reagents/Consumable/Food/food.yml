@@ -66,6 +66,10 @@
       - !type:ModifyBleedAmount
         amount: -0.25
       - !type:SatiateHunger #Numbers are balanced with this in mind + it helps limit how much healing you can get from food
+      - !type:ImmunityModifier #Goobstation # 1/3 of immurin
+        gainRateModifier: 0.000211695098702 # sqrt(1/3) * immurin
+        strengthModifier: 0.00256600119637 # sqrt(1/3) * immurin
+        statusLifetime: 3
   # Lets plants benefit too
   plantMetabolism:
   - !type:PlantAdjustNutrition

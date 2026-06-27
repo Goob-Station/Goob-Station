@@ -6,7 +6,7 @@
   description: A wild mushroom that likes to grow in hot, moist environments.
   components:
   - type: Sprite
-    sprite: _Lavaland/Objects/Decoration/Flora/lavashroom.rsi
+    sprite: _Lavaland/Objects/Decoration/Flora/Plants/lavashroom.rsi
     layers:
     - state: shroom1
       map: ["random"]
@@ -30,6 +30,48 @@
   - type: Harvestable
     delay: 3.5
     loot: FoodSpaceshroom # TODO: make lavashroom food
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  name: seraka mushrooms
+  parent: BaseStructure
+  id: SerakaMushroom
+  description: A small cluster of seraka mushrooms.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Decoration/Flora/Plants/seraka_mushroom.rsi
+    layers:
+    - state: seraka_mushroom1
+      map: ["random"]
+  - type: RandomSprite
+    available:
+    - random:
+        seraka_mushroom1: ""
+        seraka_mushroom2: ""
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+  - type: InteractionOutline
+  - type: Harvestable
+    delay: 3.5
+    loot: FoodMealSerakaCap
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Wood

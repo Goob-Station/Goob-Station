@@ -11,6 +11,29 @@
   - StationAiIconDorf
   - StationAiIconHeartline
   - StationAiIconSmiley
+  # <Trauma>
+  - StationAiIconFirewall
+  - StationAiIconDatabase
+  - StationAiIconGlitchman
+  - StationAiIconHades
+  - StationAiIconMatrix
+  - StationAiIconMonochrome
+  - StationAiIconMurica
+  - StationAiIconNanotrasen
+  - StationAiIconPresident
+  - StationAiIconRedDot
+  - StationAiIconRed
+  - StationAiIconTooDeep
+  - StationAiIconTriumvirate
+  - StationAiIconNotMalf
+  - StationAiIconHelios
+  - StationAiIconHouse
+  - StationAiIconRainbow
+  - StationAiIconAlien
+  - StationAiIconGoon
+  - StationAiIconWeird
+  - StationAiIconInverted
+  # </Trauma>
 
 - type: stationAiCustomizationGroup
   id: StationAiHolograms

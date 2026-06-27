@@ -9,6 +9,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Heretic;
 using Content.Shared.Dataset;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Objectives.Components;
@@ -22,10 +23,11 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.Heretic;
 
-// TODO: Move all of this to mind components, heretics should be safely polymorphable
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class HereticComponent : Component
 {
+    public override bool SessionSpecific => true;
+
     [DataField]
     public List<ProtoId<HereticKnowledgePrototype>> BaseKnowledge = new()
     {
@@ -38,9 +40,6 @@ public sealed partial class HereticComponent : Component
         "Reminiscence",
         "FeastOfOwls",
     };
-
-    [DataField]
-    public List<ProtoId<HereticKnowledgePrototype>> ResearchedKnowledge = new();
 
     [DataField, AutoNetworkedField]
     public List<ProtoId<HereticRitualPrototype>> KnownRituals = new();
@@ -93,22 +92,10 @@ public sealed partial class HereticComponent : Component
     ///     Used to prevent double casting mansus grasp.
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
-    public EntityUid MansusGrasp = EntityUid.Invalid;
+    public EntityUid MansusGraspAction = EntityUid.Invalid;
 
     [DataField]
     public Dictionary<ProtoId<HereticRitualPrototype>, List<EntityUid>> LimitedTransmutations = new();
-
-    // Required for reminiscence, Path -> Blade ritual id
-    [DataField]
-    public Dictionary<string, ProtoId<HereticRitualPrototype>> Blades = new()
-    {
-        {"Ash", "BladeAsh"},
-        {"Blade", "BladeBlade"},
-        {"Flesh", "BladeFlesh"},
-        {"Void", "BladeVoid"},
-        {"Rust", "BladeRust"},
-        {"Cosmos", "BladeCosmos"},
-    };
 
     [DataField]
     public SoundSpecifier? InfluenceGainSound = new SoundCollectionSpecifier("bloodCrawl");
@@ -148,6 +135,18 @@ public sealed partial class HereticComponent : Component
         "HereticSacrificeObjective",
         "HereticSacrificeHeadObjective",
     };
+
+    /// <summary>
+    /// Events raised when on new body when mind gets transferred to it
+    /// </summary>
+    [DataField, NonSerialized]
+    public List<HereticKnowledgeEvent> KnowledgeEvents = new();
+
+    /// <summary>
+    /// Minions summoned by this heretic
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public HashSet<EntityUid> Minions = new();
 }
 
 [DataDefinition, Serializable, NetSerializable]

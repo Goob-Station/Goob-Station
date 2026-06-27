@@ -4,6 +4,11 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+
+verb-trigger-timer-set = {$time} seconds
+verb-trigger-timer-set-current = {$time} seconds
+popup-trigger-timer-set = Trap timer set to {$time} seconds.
+
 reverse-bear-trap-component-target-self = You start putting the trap onto your head.
 reverse-bear-trap-component-start-cuffing-observer = {$user} is putting a trap on {$target}!
 reverse-bear-trap-component-start-cuffing-target = You start putting the trap on {$targetName}.

@@ -81,6 +81,9 @@
     interactOnMiss: false
   - type: EntityTargetAction
     canTargetSelf: false
+    whitelist:
+      components:
+      - MobState
     event: !type:SlasherPossessionEvent
 
 - type: entity
@@ -142,5 +145,35 @@
     interactOnMiss: false
   - type: EntityTargetAction
     canTargetSelf: false
+    whitelist:
+      components:
+      - MobState
     event: !type:SlasherSoulStealEvent
 
+- type: entity
+  id: ActionSlasherNightVision
+  name: Enhanced Vision
+  description: You see through the darkness.
+  components:
+  - type: Action
+    raiseOnUser: true
+    useDelay: 1
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    icon: { sprite: _Goobstation/Actions/slashericons.rsi, state: SlasherVision }
+  - type: InstantAction
+    event: !type:ToggleNightVisionEvent
+
+- type: entity
+  id: ActionSlasherRelentlessGrab
+  name: Relentless Grab
+  description: Your next melee attack will grab your target.
+  components:
+  - type: Action
+    raiseOnUser: true
+    useDelay: 15
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    icon: { sprite: _Goobstation/Actions/slashericons.rsi, state: RelentlessGrab }
+  - type: InstantAction
+    event: !type:SlasherRelentlessGrabEvent

@@ -488,3 +488,27 @@
       - state: inhand-right
         color: "#620b73"
         sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+
+#senior sec
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitVeteranSecurity
+  name: Airy Security Jumpsuit
+  description: An airy version of the standard security jumpsuit, normally given on shifts with a lacking atmos department
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Security/security_black.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Security/security_black.rsi
+
+# Golden liaison jumpsuit
+- type: entity
+  parent: [ ClothingUniformBase, BaseCentcommContraband ]
+  id: ClothingUniformJumpsuitGoldenLiaison
+  name: Golden Liaison CentCom Jumpsuit
+  description: A finely-tailored white-and-gold uniform worn by senior officials of Central Command.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Centcom/golden_liaison.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/Centcom/golden_liaison.rsi

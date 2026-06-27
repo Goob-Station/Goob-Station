@@ -26,11 +26,14 @@ public sealed partial class RitualRustAscendBehavior : RitualSacrificeBehavior
             return false;
 
         var targets = new List<EntityUid>();
-        for (var i = 0; i < Max; i++)
+        foreach (var uid in uids)
         {
-            if (args.EntityManager.HasComponent<RottingComponent>(uids[i]) ||
-                args.EntityManager.HasComponent<SiliconComponent>(uids[i]))
-                targets.Add(uids[i]);
+            if (args.EntityManager.HasComponent<RottingComponent>(uid) ||
+                args.EntityManager.HasComponent<SiliconComponent>(uid))
+                targets.Add(uid);
+
+            if (targets.Count >= Max)
+                break;
         }
 
         if (targets.Count < Min)

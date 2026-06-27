@@ -1,5 +1,4 @@
 using Content.Goobstation.Shared.Slasher.Components;
-using Content.Goobstation.Shared.Slasher.Events;
 using Content.Shared.Actions;
 using Content.Shared.Interaction;
 using Content.Shared.Movement.Systems;
@@ -65,16 +64,15 @@ public sealed class SlasherStaggerAreaSystem : EntitySystem
 
             _movemod.TryUpdateMovementSpeedModDuration(targetUid, EffectId, TimeSpan.FromSeconds(comp.SlowDuration), comp.SlowMultiplier, comp.SlowMultiplier);
 
-            // Show popup to the victim
+            // Show popup to the victim only
             if (_net.IsServer)
                 _popup.PopupEntity(Loc.GetString("slasher-staggerarea-victim"), targetUid, targetUid, PopupType.MediumCaution);
         }
 
         _audio.PlayPredicted(comp.StaggerSound, uid, uid);
 
-        // Show popup to the user
-        if (_net.IsServer)
-            _popup.PopupEntity(Loc.GetString("slasher-staggerarea-popup"), uid, uid, PopupType.MediumCaution);
+        // Show popup to the slasher only
+        _popup.PopupClient(Loc.GetString("slasher-staggerarea-popup"), uid, uid, PopupType.MediumCaution);
 
         args.Handled = true;
     }
