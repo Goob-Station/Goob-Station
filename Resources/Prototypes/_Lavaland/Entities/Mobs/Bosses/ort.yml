@@ -228,9 +228,9 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      1250: Dead
+      1000: Dead
   - type: AngerPlayerScaling
-    angerScale: 1.4
+    angerScale: 2
     hpScale: 1.5
   - type: SpawnLootOnDeath
     deleteOnDeath: true
@@ -287,9 +287,9 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      1750: Dead
+      1500: Dead
   - type: AngerPlayerScaling
-    angerScale: 1.5
+    angerScale: 2
     hpScale: 1.5
   - type: SpawnLootOnDeath
     dropBoth: true
@@ -298,6 +298,7 @@
       children:
       - id: MaterialORTKeratin10
       - id: MegafaunaMercuryCore
+      - id: LavalandEscapeRopeFissure
     specialTable: !type:AllSelector # Gets an extra bar on crusher only kill
       children:
       - id: MaterialORTAlloy1

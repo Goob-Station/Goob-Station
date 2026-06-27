@@ -13,7 +13,7 @@
         hard: false
         shape:
           !type:PhysShapeAabb
-          bounds: "-1,-2,1,1"
+          bounds: "-2,-2,1.5,-0.5"
         density: 1000
         mask:
         - LargeMobMask
@@ -41,7 +41,7 @@
 
 - type: entity
   id: ORTArenaExitPortal
-  name: rift portal
+  name: escape rope
   description: Looks like the way out.
   components:
   - type: Transform
@@ -61,11 +61,6 @@
         hard: false
   - type: SeaOfFantasyTreesExit
   - type: Sprite
-    sprite: /Textures/Effects/portal.rsi
+    sprite: _Lavaland/Structures/Specific/escape_rope.rsi
     layers:
-    - state: portal-blue
-  - type: PointLight
-    color: Cyan
-    radius: 3
-    energy: 2
-    netsync: false
+    - state: ceiling-rope

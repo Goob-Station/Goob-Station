@@ -1,0 +1,39 @@
+- type: entity
+  name: RadAway
+  parent: BaseItem
+  description: Goes through you like a rampaging brullbear!
+  id: RadAwayBag
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Specific/Medical/radaway.rsi
+    layers:
+    - state: radaway
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 20
+    onlyAffectsMobs: false
+    injectOnly: true
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: radaway-empty
+  - type: TrashOnSolutionEmpty
+    solution: pen
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 20
+        reagents:
+        - ReagentId: RadAway
+          Quantity: 20
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 25
+  - type: SpaceGarbage
+  - type: StaticPrice
+    price: 500
+  - type: Tag
+    tags:
+    - Medipen

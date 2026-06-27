@@ -39,3 +39,6 @@ ether-drinker-examine-charge = Current charge: {$charge}%.
 crystallized-keratin = crystallized keratin
 ultra-advanced-alloy = ultra advanced alloy
 mercury-core = Core of Mercury
+
+reagent-name-radaway = RadAway
+reagent-desc-radaway = Goes through you like a rampaging brullbear!

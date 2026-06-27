@@ -483,24 +483,11 @@ entities:
             0: 1
         uniqueMixes:
         - volume: 2500
-          temperature: 293.15
+          temperature: 308.4523 # 35.3023 C
           moles:
-          - 21.824879
-          - 82.10312
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
+          - 10.524779 # oxygen, not enough for breathing
+          - 25.10312 # nitrogen
+          - 8.21301 # carbon dioxide
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
