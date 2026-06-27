@@ -93,9 +93,9 @@ public abstract class SharedAnimatedEmotesSystem : EntitySystem
             return;
         }
 
-        //var newPending = EnsureComp<PendingAnimatedEmoteComponent>(uid);
-        //newPending.ExpireTime = _timing.CurTime + FlipDuration;
-        //Dirty(uid, newPending);
+        var newPending = EnsureComp<PendingAnimatedEmoteComponent>(uid);
+        newPending.ExpireTime = _timing.CurTime + FlipDuration;
+        Dirty(uid, newPending);
     }
 
     /*
