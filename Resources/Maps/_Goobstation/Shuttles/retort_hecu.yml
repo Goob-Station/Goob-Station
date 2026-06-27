@@ -4,7 +4,7 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/27/2026 20:48:32
+  time: 06/27/2026 21:58:33
   entityCount: 362
 maps: []
 grids:
@@ -397,6 +397,14 @@ entities:
       - - CentralCommand
 - proto: APCBasic
   entities:
+  - uid: 18
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 1.5,-1.5
+      parent: 1
+    - type: Fixtures
+      fixtures: {}
   - uid: 36
     components:
     - type: Transform
@@ -410,14 +418,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 1.5,-4.5
-      parent: 1
-    - type: Fixtures
-      fixtures: {}
-  - uid: 38
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 1.5,-1.5
       parent: 1
     - type: Fixtures
       fixtures: {}
@@ -536,24 +536,19 @@ entities:
     - type: InsideEntityStorage
 - proto: BoxMagazinePistolSubMachineGun
   entities:
-  - uid: 18
+  - uid: 20
     components:
     - type: Transform
       parent: 53
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-  - uid: 20
+  - uid: 38
     components:
     - type: Transform
       parent: 53
-    - type: UserInterface
-      actors:
-        enum.StorageUiKey.Key:
-        - invalid
     - type: Physics
       canCollide: False
-    - type: ActiveUserInterface
     - type: InsideEntityStorage
 - proto: ButtonFrameCaution
   entities:
@@ -1085,29 +1080,8 @@ entities:
   - uid: 157
     components:
     - type: Transform
-      pos: 2.7041411,-6.5662813
+      pos: 2.6114738,-6.625
       parent: 1
-    - type: UserInterface
-      actors:
-        enum.StorageUiKey.Key:
-        - invalid
-    - type: GroupExamine
-      group:
-      - hoverMessage: ""
-        contextText: verb-examine-group-other
-        icon: /Textures/Interface/examine-star.png
-        components:
-        - Armor
-        - ClothingSpeedModifier
-        entries:
-        - message: This decreases your running speed by [color=yellow]10%[/color].
-          priority: 0
-          component: ClothingSpeedModifier
-        title: null
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-    - type: ActiveUserInterface
 - proto: ClothingBackpackMerc
   entities:
   - uid: 59
@@ -1684,14 +1658,14 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 14
+          - 38
           - 20
-          - 19
-          - 13
-          - 16
-          - 17
           - 15
-          - 18
+          - 17
+          - 16
+          - 13
+          - 19
+          - 14
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
