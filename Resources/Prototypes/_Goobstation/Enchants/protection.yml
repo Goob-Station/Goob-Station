@@ -8,6 +8,7 @@
   abstract: true
   parent: BaseEnchant
   id: BaseProtEnchant
+  categories: [ HideSpawnMenu ]
   components:
   - type: Enchant
     whitelist:
@@ -21,6 +22,7 @@
   parent: BaseProtEnchant
   id: EnchantProtection
   name: Protection
+  categories: [ HideSpawnMenu ]
   components:
   - type: Enchant
     maxLevel: 4
@@ -35,6 +37,7 @@
   parent: BaseProtEnchant
   id: EnchantProtBlast
   name: Blast Protection
+  categories: [ HideSpawnMenu ]
   components:
   - type: Enchant
     incompatible:
@@ -46,6 +49,7 @@
   parent: BaseProtEnchant
   id: EnchantProtFire
   name: Fire Protection
+  categories: [ HideSpawnMenu ]
   components:
   - type: Enchant
     maxLevel: 4
