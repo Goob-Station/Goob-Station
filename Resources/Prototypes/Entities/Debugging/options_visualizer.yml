@@ -5,6 +5,7 @@
 
 - type: entity
   id: OptionsVisualizerTest
+  name: Options Visualizer Test #Goobstation - clean up spawn menu
   suffix: DEBUG
   components:
   - type: Tag
