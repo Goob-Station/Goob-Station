@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/27/2026 20:40:32
-  entityCount: 361
+  time: 06/27/2026 20:48:32
+  entityCount: 362
 maps: []
 grids:
 - 1
@@ -1535,6 +1535,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 0.5,-15.5
       parent: 1
+  - uid: 362
+    components:
+    - type: Transform
+      pos: 0.5,2.5
+      parent: 1
 - proto: GrilleDiagonal
   entities:
   - uid: 335
@@ -2084,20 +2089,14 @@ entities:
   - uid: 194
     components:
     - type: Transform
-      anchored: False
       rot: -1.5707963267948966 rad
       pos: 1.5,2.5
       parent: 1
-    - type: Physics
-      bodyType: Dynamic
   - uid: 195
     components:
     - type: Transform
-      anchored: False
       pos: -0.5,2.5
       parent: 1
-    - type: Physics
-      bodyType: Dynamic
   - uid: 196
     components:
     - type: Transform
@@ -2107,20 +2106,14 @@ entities:
   - uid: 197
     components:
     - type: Transform
-      anchored: False
       rot: -1.5707963267948966 rad
       pos: 2.5,1.5
       parent: 1
-    - type: Physics
-      bodyType: Dynamic
   - uid: 198
     components:
     - type: Transform
-      anchored: False
       pos: -1.5,1.5
       parent: 1
-    - type: Physics
-      bodyType: Dynamic
 - proto: PosterLegitGoobNTRAdvert
   entities:
   - uid: 200
@@ -2516,8 +2509,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 7.5,-8.5
       parent: 1
-    - type: Thruster
-      enabled: False
   - uid: 230
     components:
     - type: Transform
