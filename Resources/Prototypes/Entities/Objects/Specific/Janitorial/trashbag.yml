@@ -49,7 +49,7 @@
         - Cartridge
         - Trash
         - Organ #goob
-      components:
+      components: #goob
       - SpaceGarbage
   - type: UseDelay
     delay: 0.5
