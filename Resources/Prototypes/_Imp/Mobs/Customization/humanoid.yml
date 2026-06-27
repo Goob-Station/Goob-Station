@@ -616,6 +616,7 @@
   bodyPart: RLeg
   markingCategory: RightLeg
   speciesRestriction: [Human, Dwarf, Oni, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia, Yowie, Reptilian] # goob edit
+  coloring:
     default:
       type:
         !type:TattooColoring
