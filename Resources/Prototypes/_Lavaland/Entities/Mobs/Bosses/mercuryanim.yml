@@ -1,7 +1,7 @@
 - type: entity
   name: ???
   id: BaseORTAnimation
-  categories: [HideSpawnMenu]
+  categories: [HideSpawnMenu, Spawner]
   description: The air trembles around it.
   abstract: true
   components:

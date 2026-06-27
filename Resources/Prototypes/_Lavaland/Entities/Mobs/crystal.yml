@@ -180,10 +180,11 @@
     factor: 0.6 # times more dangerous than a crew-member
 
 - type: entity
-  name: Crystal ring
+  name: Crystal crab
   id: LavalandMobCrystalCrab
   parent: BaseLavalandMobCrystal
   description: Spiky. Tough to shatter.
+  categories: [ Spawner ]
   components:
   - type: Destructible
     thresholds:
