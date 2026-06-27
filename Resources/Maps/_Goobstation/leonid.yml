@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/15/2026 02:10:36
-  entityCount: 35966
+  time: 04/27/2026 06:24:34
+  entityCount: 35968
 maps:
 - 1
 grids:
@@ -161749,7 +161749,10 @@ entities:
     - type: Paper
       stampState: paper_stamp-ok
       stampedBy:
-      - stampedColor: '#00BE00FF'
+      - hasIcon: True
+        stampFont: null
+        stampLargeIcon: null
+        stampedColor: '#00BE00FF'
         stampedName: stamp-component-stamped-name-approved
       content: >-
         [color=#1b67a5]█▄ █ ▀█▀    [head=3]CENTRAL COMMAND Memo[/head]
@@ -162524,7 +162527,10 @@ entities:
     - type: Paper
       stampState: paper_stamp-centcom
       stampedBy:
-      - stampedColor: '#006600FF'
+      - hasIcon: True
+        stampFont: null
+        stampLargeIcon: null
+        stampedColor: '#006600FF'
         stampedName: stamp-component-stamped-name-centcom
       content: >-
         Included are some premade forms provided by our Chief Paper pusher codenamed "Moomoobeef".
@@ -163780,6 +163786,26 @@ entities:
     - type: Transform
       pos: -61.575073,29.543238
       parent: 2
+- proto: PollBooth
+  entities:
+  - uid: 24914
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 7.5,-1.5
+      parent: 2
+  - uid: 35967
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 6.5,50.5
+      parent: 2
+  - uid: 35968
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -96.5,-22.5
+      parent: 2
 - proto: PoppySeeds
   entities:
   - uid: 24784
@@ -164798,11 +164824,6 @@ entities:
     components:
     - type: Transform
       pos: 5.5,-4.5
-      parent: 2
-  - uid: 24914
-    components:
-    - type: Transform
-      pos: 7.5,-1.5
       parent: 2
   - uid: 24915
     components:

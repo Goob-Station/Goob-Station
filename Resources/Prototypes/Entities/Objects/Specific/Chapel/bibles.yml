@@ -103,6 +103,8 @@
     - QuaranSet
     - TanakhSet
     - ClockworkSet
+    - BibleVedaSet
+    - VelesBookSet
     maxSelectedSets: 1
 
 - type: selectableSet
@@ -144,6 +146,26 @@
     state: icon
   content:
   - BibleSlabClockwork
+
+- type: selectableSet
+  id: BibleVedaSet
+  name: Slavic-Aryan Vedas
+  description: Slavic neopaganisms.
+  sprite:
+    sprite: _Goobstation/Objects/Specific/Chapel/veda.rsi
+    state: icon
+  content:
+  - BibleVeda
+
+- type: selectableSet
+  id: VelesBookSet
+  name: Book of veles
+  description: Basis and proof of neopagan religiosity.
+  sprite:
+    sprite: _Goobstation/Objects/Specific/Chapel/veles_book.rsi
+    state: icon
+  content:
+  - BibleVelesBook
 ##END SET SELECTION
 
 - type: entity

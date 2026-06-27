@@ -240,10 +240,27 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
-      # TODO this should go to the broken node first
+      # TODO this should go to the broken node first  < Solved but left wizden comment
       - !type:PlaySoundBehavior
         sound:
           collection: MetalSlam
+    # Goobstart
+    - trigger: !type:DamageTrigger
+        damage: 450
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 0
+            max: 2
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:ChangeConstructionNodeBehavior
+        node: assembly
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    # Goobend
   - type: Construction
     graph: Airlock
     node: airlock

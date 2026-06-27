@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/26/2026 21:33:47
-  entityCount: 38469
+  time: 04/27/2026 05:25:29
+  entityCount: 38472
 maps:
 - 113
 grids:
@@ -35704,7 +35704,7 @@ entities:
       pos: 16.5,70.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -11471.856
+      secondsUntilStateChange: -11692.689
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -112472,33 +112472,6 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-  - uid: 14975
-    components:
-    - type: Transform
-      pos: 34.5,-6.5
-      parent: 2
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.1496
-        moles:
-        - 2.4954846
-        - 9.387775
         - 0
         - 0
         - 0
@@ -190464,6 +190437,30 @@ entities:
     components:
     - type: Transform
       pos: 28.562729,105.623215
+      parent: 2
+- proto: PollBooth
+  entities:
+  - uid: 14975
+    components:
+    - type: Transform
+      pos: 34.5,-6.5
+      parent: 2
+  - uid: 24665
+    components:
+    - type: Transform
+      pos: -9.5,46.5
+      parent: 2
+  - uid: 24666
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -28.5,0.5
+      parent: 2
+  - uid: 24667
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -26.5,0.5
       parent: 2
 - proto: PonderingOrb
   entities:

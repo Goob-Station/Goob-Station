@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/13/2026 15:53:55
-  entityCount: 36095
+  time: 04/27/2026 05:33:04
+  entityCount: 36097
 maps:
 - 1
 grids:
@@ -21497,7 +21497,7 @@ entities:
       pos: 72.5,-11.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -77642.69
+      secondsUntilStateChange: -77773.23
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -30699,11 +30699,6 @@ entities:
     components:
     - type: Transform
       pos: -22.5,51.5
-      parent: 2
-  - uid: 2374
-    components:
-    - type: Transform
-      pos: -22.5,50.5
       parent: 2
   - uid: 2375
     components:
@@ -170124,7 +170119,10 @@ entities:
     - type: Paper
       stampState: paper_stamp-greytide
       stampedBy:
-      - stampedColor: '#323232FF'
+      - hasIcon: True
+        stampFont: null
+        stampLargeIcon: null
+        stampedColor: '#323232FF'
         stampedName: stamp-component-stamped-name-greytide
       content: >
         uhh... Looks like our last particle decelerator was eaten in giant burger...
@@ -170173,7 +170171,10 @@ entities:
     - type: Paper
       stampState: paper_stamp-ce
       stampedBy:
-      - stampedColor: '#C69B17FF'
+      - hasIcon: True
+        stampFont: null
+        stampLargeIcon: null
+        stampedColor: '#C69B17FF'
         stampedName: stamp-component-stamped-name-ce
       content: >-
         We've done it. We got our hands on the supermatter! Now all we have to do is configure the air alarm for scrubbers in the chamber to siphon, get the air outta there, pump in some fresh nitrogen, replace rad collector tanks, something something... you know what? Fuck this, i'm leaving it to whoever finds the note.
@@ -170435,7 +170436,10 @@ entities:
     - type: Paper
       stampState: paper_stamp-signature
       stampedBy:
-      - stampedColor: '#2F4F4FFF'
+      - hasIcon: True
+        stampFont: null
+        stampLargeIcon: null
+        stampedColor: '#2F4F4FFF'
         stampedName: John Cadet
       content: >
         how do I charge batong?
@@ -171265,6 +171269,25 @@ entities:
     components:
     - type: Transform
       pos: 110.72576,10.415595
+      parent: 2
+- proto: PollBooth
+  entities:
+  - uid: 2374
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -22.5,50.5
+      parent: 2
+  - uid: 27106
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -10.5,12.5
+      parent: 2
+  - uid: 36097
+    components:
+    - type: Transform
+      pos: 91.5,23.5
       parent: 2
 - proto: PoppySeeds
   entities:
@@ -181641,11 +181664,6 @@ entities:
       parent: 2
 - proto: RandomVendingDrinks
   entities:
-  - uid: 27106
-    components:
-    - type: Transform
-      pos: -10.5,12.5
-      parent: 2
   - uid: 27107
     components:
     - type: Transform

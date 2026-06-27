@@ -1,0 +1,38 @@
+- type: entity
+  id: PollBooth
+  parent: BaseStructure
+  name: polling booth
+  description: A booth for casting your vote on community polls. Activate to open the polls window.
+  components:
+  - type: Anchorable
+  - type: Transform
+  - type: PollBooth
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Goobstation/Structures/Specific/polling.rsi
+    state: polling_booth
+  - type: Icon
+    sprite: _Goobstation/Structures/Specific/polling.rsi
+    state: polling_booth
+  - type: Tag
+    tags:
+    - Wooden
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepWood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

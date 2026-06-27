@@ -16,18 +16,18 @@
   id: SpacePirates
   components:
   - type: StationEvent
-    weight: 5
+    weight: 3
     duration: null
     earliestStart: 20
     reoccurrenceDelay: 60
     minimumPlayers: 30
     chaos:
-      Hostile: 50
+      Hostile: 60
       Medical: 50
       Death: 25
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 500
+    chaosScore: 650
   - type: PendingPirateRule
     ransomPrototype: BikeHornRansom
   - type: Tag

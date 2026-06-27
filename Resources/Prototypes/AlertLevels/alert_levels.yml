@@ -131,6 +131,7 @@
       color: PaleVioletRed
       emergencyLightColor: PaleVioletRed
       forceEnableEmergencyLights: true
+      shuttleTime: 1200
     delta:
       announcement: alert-level-delta-announcement
       selectable: false
@@ -182,5 +183,12 @@
         path: /Audio/Items/bikehorn.ogg
       color: Magenta
       emergencyLightColor: Magenta
+      forceEnableEmergencyLights: true
+      shuttleTime: 600
+    amber:
+      announcement: alert-level-amber-announcement
+      sound: /Audio/_Goobstation/Announcements/amberalarm.ogg
+      color: "#8A3324"
+      emergencyLightColor: "#8A3324"
       forceEnableEmergencyLights: true
       shuttleTime: 600

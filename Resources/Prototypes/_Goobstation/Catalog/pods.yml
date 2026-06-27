@@ -112,3 +112,13 @@
       - id: ClothingHeadHatHelmetInquisitor
       - id: ClothingOuterArmorInquisitor
       - id: ClothingNeckCloakInquisitor
+
+- type: entity
+  id: SpawnSchemaMonk
+  categories: [ HideSpawnMenu ]
+  name: monastic vestments
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnTableOnDespawn
+    table:
+      id: ClothingOuterSchemaMonk

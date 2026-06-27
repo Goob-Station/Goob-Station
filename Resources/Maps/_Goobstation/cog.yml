@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/15/2026 10:01:11
-  entityCount: 31849
+  time: 04/27/2026 05:14:46
+  entityCount: 31853
 maps:
 - 1
 grids:
@@ -15490,7 +15490,7 @@ entities:
       pos: 26.5,17.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -72347.33
+      secondsUntilStateChange: -72573.59
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 1
@@ -16597,7 +16597,7 @@ entities:
       pos: 41.5,62.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -29614.02
+      secondsUntilStateChange: -29840.285
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -150797,6 +150797,26 @@ entities:
     components:
     - type: Transform
       pos: 55.5,63.5
+      parent: 2
+- proto: PollBooth
+  entities:
+  - uid: 31850
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -4.5,77.5
+      parent: 2
+  - uid: 31852
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -10.5,48.5
+      parent: 2
+  - uid: 31853
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 21.5,53.5
       parent: 2
 - proto: PortableGeneratorJrPacman
   entities:

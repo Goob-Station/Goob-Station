@@ -13,7 +13,7 @@
     uiWindowPos: 1,0
     strippingWindowPos: 0,0
     displayName: Head
-    offset: 0, -0.45
+    offset: 0, -0.25
   - name: pocket1
     slotTexture: pocket
     fullTextureName: template_small

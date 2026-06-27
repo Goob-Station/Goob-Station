@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/24/2026 15:01:44
-  entityCount: 47811
+  time: 04/27/2026 05:07:48
+  entityCount: 47815
 maps:
 - 1
 grids:
@@ -22574,7 +22574,7 @@ entities:
       pos: 120.5,174.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -5322.218
+      secondsUntilStateChange: -5537.56
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -23023,7 +23023,7 @@ entities:
       pos: 70.5,55.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -15407.764
+      secondsUntilStateChange: -15623.106
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -23224,7 +23224,7 @@ entities:
       pos: 99.5,180.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -7006.9395
+      secondsUntilStateChange: -7222.2817
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -23692,7 +23692,7 @@ entities:
       pos: 70.5,41.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -14590.965
+      secondsUntilStateChange: -14806.308
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -23946,7 +23946,7 @@ entities:
       pos: 41.5,168.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -5444.551
+      secondsUntilStateChange: -5659.893
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -23988,7 +23988,7 @@ entities:
       pos: 48.5,173.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -7600.2056
+      secondsUntilStateChange: -7815.548
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -24577,7 +24577,7 @@ entities:
       pos: 78.5,45.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -5774.015
+      secondsUntilStateChange: -5989.3574
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -24661,7 +24661,7 @@ entities:
       pos: 78.5,44.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -5773.2817
+      secondsUntilStateChange: -5988.624
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -24863,7 +24863,7 @@ entities:
       pos: 59.5,143.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -25352.69
+      secondsUntilStateChange: -25568.031
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -24972,7 +24972,7 @@ entities:
       pos: 83.5,55.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -17734.598
+      secondsUntilStateChange: -17949.94
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -26454,7 +26454,7 @@ entities:
       pos: 137.5,147.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -23159.592
+      secondsUntilStateChange: -23374.934
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -116095,7 +116095,7 @@ entities:
       pos: 102.5,175.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -8405.871
+      secondsUntilStateChange: -8621.214
       state: Closing
   - uid: 18576
     components:
@@ -136720,7 +136720,7 @@ entities:
       pos: 138.5,145.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -23620.125
+      secondsUntilStateChange: -23835.467
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -238403,6 +238403,30 @@ entities:
     - type: Transform
       pos: 109.43205,54.61765
       parent: 2
+- proto: PollBooth
+  entities:
+  - uid: 782
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 82.5,132.5
+      parent: 2
+  - uid: 30296
+    components:
+    - type: Transform
+      pos: 90.5,97.5
+      parent: 2
+  - uid: 30574
+    components:
+    - type: Transform
+      pos: 92.5,97.5
+      parent: 2
+  - uid: 30618
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 99.5,109.5
+      parent: 2
 - proto: PolymerBaton
   entities:
   - uid: 22105
@@ -251913,7 +251937,7 @@ entities:
       pos: 145.5,128.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -22228.76
+      secondsUntilStateChange: -22444.102
       state: Opening
   - uid: 2562
     components:
@@ -314286,7 +314310,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -16444.562
+      secondsUntilStateChange: -16659.904
       state: Opening
     - type: Airlock
       autoClose: False
