@@ -48,6 +48,9 @@
       tags:
         - Cartridge
         - Trash
+        - Organ #goob
+      components:
+      - SpaceGarbage
   - type: UseDelay
     delay: 0.5
   - type: Tag

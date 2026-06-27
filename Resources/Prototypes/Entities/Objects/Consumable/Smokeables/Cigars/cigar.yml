@@ -90,3 +90,8 @@
     solutions:
       smokable:
         maxVol: 20
+  - type: Tag #Goob
+    tags:
+    - Cigar
+    - Trash
+    - Burnt
