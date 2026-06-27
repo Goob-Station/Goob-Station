@@ -17,6 +17,8 @@
 # Pointlight masks were coded in hell and sent up to us ong
 - type: entity
   id: SpawnerChristmasLightsWhite
+  name: Christmas Lights Spawner
+  suffix: White
   parent: MarkerBase
   components:
   - type: Sprite
@@ -36,6 +38,8 @@
 
 - type: entity
   id: SpawnerChristmasLightsRed
+  name: Christmas Lights Spawner
+  suffix: Red
   parent: MarkerBase
   components:
   - type: Sprite
@@ -56,6 +60,8 @@
 
 - type: entity
   id: SpawnerChristmasLightsBlue
+  name: Christmas Lights Spawner
+  suffix: Blue
   parent: MarkerBase
   components:
   - type: Sprite
@@ -76,8 +82,8 @@
 
 - type: entity
   id: ChristmasLightsWhite1
+  name: white christmas lights
   description: Some white Christmas lights.
-  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
@@ -92,8 +98,8 @@
 
 - type: entity
   id: ChristmasLightsWhite2
+  name: white christmas lights
   description: Some white Christmas lights.
-  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
@@ -108,8 +114,8 @@
 
 - type: entity
   id: ChristmasLightsWhite3
+  name: white christmas lights
   description: Some white Christmas lights.
-  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
@@ -124,8 +130,8 @@
 
 - type: entity
   id: ChristmasLightsWhite4
+  name: white christmas lights
   description: Some white Christmas lights.
-  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
@@ -140,8 +146,8 @@
 
 - type: entity
   id: ChristmasLightsWhite5
+  name: white christmas lights
   description: Some white Christmas lights.
-  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
@@ -156,8 +162,8 @@
 
 - type: entity
   id: ChristmasLightsWhite6
+  name: white christmas lights
   description: Some white Christmas lights.
-  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
@@ -172,8 +178,8 @@
 
 - type: entity
   id: ChristmasLightsRed1
+  name: red christmas lights
   description: Some red Christmas lights.
-  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
@@ -189,8 +195,8 @@
 
 - type: entity
   id: ChristmasLightsRed2
+  name: red christmas lights
   description: Some red Christmas lights.
-  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
@@ -206,8 +212,8 @@
 
 - type: entity
   id: ChristmasLightsRed3
+  name: red christmas lights
   description: Some red Christmas lights.
-  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
@@ -223,8 +229,8 @@
 
 - type: entity
   id: ChristmasLightsRed4
+  name: red christmas lights
   description: Some red Christmas lights.
-  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
@@ -240,8 +246,8 @@
 
 - type: entity
   id: ChristmasLightsRed5
+  name: red christmas lights
   description: Some red Christmas lights.
-  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
@@ -257,8 +263,8 @@
 
 - type: entity
   id: ChristmasLightsRed6
+  name: red christmas lights
   description: Some red Christmas lights.
-  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
@@ -274,8 +280,8 @@
 
 - type: entity
   id: ChristmasLightsBlue1
+  name: blue christmas lights
   description: Some blue Christmas lights.
-  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
@@ -291,8 +297,8 @@
 
 - type: entity
   id: ChristmasLightsBlue2
+  name: blue christmas lights
   description: Some blue Christmas lights.
-  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
@@ -308,8 +314,8 @@
 
 - type: entity
   id: ChristmasLightsBlue3
+  name: blue christmas lights
   description: Some blue Christmas lights.
-  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
@@ -325,8 +331,8 @@
 
 - type: entity
   id: ChristmasLightsBlue4
+  name: blue christmas lights
   description: Some blue Christmas lights.
-  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
@@ -342,8 +348,8 @@
 
 - type: entity
   id: ChristmasLightsBlue5
+  name: blue christmas lights
   description: Some blue Christmas lights.
-  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
@@ -359,8 +365,8 @@
 
 - type: entity
   id: ChristmasLightsBlue6
+  name: blue christmas lights
   description: Some blue Christmas lights.
-  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
