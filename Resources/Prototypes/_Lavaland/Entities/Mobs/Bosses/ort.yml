@@ -43,6 +43,7 @@
   id: ORTForming
   parent: BaseORT
   description: The air trembles around it...
+  categories: [ Spawner ]
   components:
   - type: PointLight
     radius: 5
