@@ -32,8 +32,5 @@ public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
     {
         ent.Comp.Emote = prot;
         Dirty(ent);
-
-        if (prot == "Flip")
-            ApplyFlipEffects(ent);
     }
 }

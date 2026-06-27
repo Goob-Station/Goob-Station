@@ -93,11 +93,12 @@ public abstract class SharedAnimatedEmotesSystem : EntitySystem
             return;
         }
 
-        var newPending = EnsureComp<PendingAnimatedEmoteComponent>(uid);
-        newPending.ExpireTime = _timing.CurTime + FlipDuration;
-        Dirty(uid, newPending);
+        //var newPending = EnsureComp<PendingAnimatedEmoteComponent>(uid);
+        //newPending.ExpireTime = _timing.CurTime + FlipDuration;
+        //Dirty(uid, newPending);
     }
 
+    /*
     public void ApplyFlipEffects(EntityUid uid)
     {
         if (!TryComp<PendingAnimatedEmoteComponent>(uid, out var pending))
@@ -114,4 +115,5 @@ public abstract class SharedAnimatedEmotesSystem : EntitySystem
 
         Dirty(uid, immunity);
     }
+    */
 }
