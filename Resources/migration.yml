@@ -1069,3 +1069,43 @@ PosterContrabandCommunistState: PosterContrabandSolAlliance
 MagazinePistolMindbreaker: MagazinePistolCryptobiolin
 SpawnMobGoidaBot: SpawnMobPotyzhnobot
 # PIRATE END
+
+# Charon Epsilon event map (starcup port) - 2026-06-28
+AACTablet: null
+AirAlarmAutoLink: AirAlarm
+AirlockCommandGlassLockedSyndie: AirlockCommandGlassLocked
+BlastDoorUnlinkedArmoryOpen: BlastDoorOpen
+CandyBucketPailCat: CandyBucket
+ChemistryBottleStellibinin: null
+ChoppingAxe: HydroponicsToolHatchet
+CocoaSeedsImitation: CocoaSeeds
+CryoPodDestroyed: CryoPod
+CurtainsBlackOpenDirectional: CurtainsBlackOpen
+CurtainsBlueDirectional: CurtainsBlue
+CurtainsBlueOpenDirectional: CurtainsBlueOpen
+DrinkGlassCocktail: DrinkGlass
+DrinkGlassHighball: DrinkGlass
+DrinkGlassOldFashioned: DrinkGlass
+DrinkHotCocoImitation: DrinkHotCoco
+LightTubeBlueAmbient: LightTubeCrystalBlue
+LockerCaptainFilledNoLaserSyndie: LockerCaptainFilledNoLaser
+PillCanisterSoretizone: null
+PosterLegitBlessThisSpessSyndie: PosterLegitBlessThisSpess
+PosterLegitCleanlinessSyndie: PosterLegitCleanliness
+PosterLegitSyndicateLogo: PosterLegitNanotrasenLogo
+PoweredFloorLightWarm: PoweredFloorLight
+PoweredLightPostSmallBroken: PoweredLightPostSmall
+PoweredLightPostSmallSodium: PoweredLightPostSmall
+RailingCornerDeltaVWood: RailingCorner
+RailingCornerSmallDeltaVWood: RailingCornerSmall
+RailingDeltaVWood: Railing
+ShotGunCabinetBartender: ShotGunCabinet
+SignBridgeSyndie: SignBridge
+SignHazardRadiation: SignRadiation
+SpawnMobSlimeGloom: SpawnMobAdultSlimesGreen
+SpawnPointCargoAssistant: SpawnPointCargoTechnician
+WoodenBarrel: null
+WoodenKeg: null
+WoodenKegRootBeer: null
+FloraShroomMound: null
+FloraShroomRock: null

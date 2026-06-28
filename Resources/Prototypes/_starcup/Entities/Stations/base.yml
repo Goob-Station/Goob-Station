@@ -1,0 +1,13 @@
+# Terrestrial Stations with a Charonic surface trading outpost
+- type: entity
+  id: BaseTerrestrialStationTradingCharonic
+  abstract: true
+  components:
+  - type: GridSpawn
+    groups:
+      trade: !type:GridSpawnGroup
+        addComponents:
+        - type: ProtectedGrid
+        - type: TradeStation
+        paths:
+        - /Maps/_starcup/Events/SilentMoonGrids/T1-ats-9x9.yml

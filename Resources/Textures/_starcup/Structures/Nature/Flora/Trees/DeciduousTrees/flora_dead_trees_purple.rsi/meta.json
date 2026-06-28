@@ -1,0 +1,23 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Modified by Psymbiote from original sprites by Hyptosis taken from https://opengameart.org/content/lots-of-hyptosis-tiles-organized",
+    "size": {
+        "x": 96,
+        "y": 96
+    },
+    "states": [
+        {
+            "name": "tree01"
+        },
+        {
+            "name": "tree02"
+        },
+        {
+            "name": "treestump1"
+        },
+        {
+            "name": "treestump2"
+        }
+    ]
+}

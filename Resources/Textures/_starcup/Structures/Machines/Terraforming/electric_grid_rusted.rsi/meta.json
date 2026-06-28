@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 48
+    },
+    "license": "CC0-1.0",
+    "copyright": "Modified by Psymbiote from the sprite created by BigBimmer",
+    "states": [
+        {
+            "name": "base"
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+- files:
+  - leech_death.ogg
+  - leech_exclaim.ogg
+  - leech_growl.ogg
+  - leech_question.ogg
+  - leech_say1.ogg
+  - leech_say2.ogg
+  - leech_scream.ogg
+  - leechbite1.ogg
+  - leechbite2.ogg
+  - leechbite3.ogg
+  copyright: "Created by Psymbiote for starcup."
+  license: "CC0-1.0"
+  source: "https://github.com/teamstarcup/starcup/pull/541"

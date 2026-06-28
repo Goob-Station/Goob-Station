@@ -1,0 +1,90 @@
+# Mushrooms
+- type: decal
+  id: Shrooma1
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _starcup/Decals/Flora/flora_mushrooms.rsi
+    state: shrooma1
+
+- type: decal
+  id: Shrooma2
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _starcup/Decals/Flora/flora_mushrooms.rsi
+    state: shrooma2
+
+- type: decal
+  id: Shrooma3
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _starcup/Decals/Flora/flora_mushrooms.rsi
+    state: shrooma3
+
+- type: decal
+  id: Shroomb1
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _starcup/Decals/Flora/flora_mushrooms.rsi
+    state: shroomb1
+
+- type: decal
+  id: Shroomb2
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _starcup/Decals/Flora/flora_mushrooms.rsi
+    state: shroomb2
+
+- type: decal
+  id: Shroomb3
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _starcup/Decals/Flora/flora_mushrooms.rsi
+    state: shroomb3
+
+- type: decal
+  id: Shroomc1
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _starcup/Decals/Flora/flora_mushrooms.rsi
+    state: shroomc1
+
+- type: decal
+  id: Shroomc2
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _starcup/Decals/Flora/flora_mushrooms.rsi
+    state: shroomc2
+
+- type: decal
+  id: Shroomd1
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _starcup/Decals/Flora/flora_mushrooms.rsi
+    state: shroomd1
+
+- type: decal
+  id: Shroomd2
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _starcup/Decals/Flora/flora_mushrooms.rsi
+    state: shroomd2

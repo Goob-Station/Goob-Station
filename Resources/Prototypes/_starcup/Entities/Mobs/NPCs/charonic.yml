@@ -1,0 +1,273 @@
+- type: entity
+  name: Charonic leech
+  id: MobCharonicLeech
+  parent: [ SimpleMobBase, FlyingMobBase, MobCombat ]
+  description: There is no life on Charon Epsilon.
+  components:
+  - type: InputMover
+  - type: MobMover
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+    blackboard:
+      NavSmash: !type:Bool
+        true
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _starcup/Mobs/Aliens/charonic_leech.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: alive
+  - type: CombatMode
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.40
+        density: 80
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      30: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.5
+    baseSprintSpeed: 3.5
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: alive
+      Dead:
+        Base: gib
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      collection: LeechBite
+    damage:
+      types:
+        Piercing: 8
+  - type: TypingIndicator
+    proto: alien
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - CannotSuicide
+  - type: ReplacementAccent
+    accent: genericAggressive
+  - type: Speech
+    speechVerb: LargeMob
+  - type: InteractionPopup
+    interactSuccessString: petting-success-frog
+    interactFailureString: petting-failure-carp
+    interactFailureSound:
+      path: /Audio/_starcup/Monsters/CharonicLeech/leech_scream.ogg
+  - type: FloatingVisuals
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 29
+      behaviors:
+      - !type:GibBehavior
+        recursive: false
+  - type: Bloodstream
+    bloodMaxVolume: 300
+    bloodReagent: VentCrud
+
+- type: entity
+  name: glowing object
+  id: MobCharonicWisp
+  suffix: AI
+  parent:
+  - BaseSimpleMob
+  - FlyingMobBase
+  description: It reflects a strange, otherworldly light.
+  components:
+    - type: Sprite
+      drawdepth: Mobs
+      sprite: _starcup/Mobs/Aliens/charonic_wisp.rsi
+      state: charonwisp
+    - type: Icon
+      sprite: _starcup/Mobs/Aliens/charonic_wisp.rsi
+      state: icon
+    - type: InputMover
+    - type: MobMover
+    - type: FloatingVisuals
+    - type: NpcFactionMember
+      factions:
+      - SimpleHostile
+    - type: HTN
+      rootTask:
+        task: SimpleHostileCompound
+      blackboard:
+        NavSmash: !type:Bool
+          true
+    - type: Damageable
+      damageContainer: Inorganic
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 40
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - type: StatusEffects
+      allowed:
+      - Electrocution
+      - RadiationProtection
+      - Adrenaline
+    - type: MovementSpeedModifier
+      baseWalkSpeed: 2.5
+      baseSprintSpeed: 3.5
+    - type: RadiationSource
+      intensity: 4
+    - type: PointLight
+      enabled: true
+      radius: 3
+      energy: 2.5
+      color: "#BBF0FF"
+      netsync: false
+    - type: LightBehaviour
+      behaviours:
+      - !type:FadeBehaviour
+        id: radiating
+        maxDuration: 2.0
+        startValue: 3.0
+        endValue: 2.0
+        isLooped: true
+        reverseWhenFinished: true
+      - !type:PulseBehaviour
+        id: blinking
+        interpolate: Nearest
+        maxDuration: 1.0
+        startValue: 0.1
+        endValue: 2.0
+        isLooped: true
+    - type: Speech
+      speechVerb: LargeMob
+    - type: IntrinsicRadioReceiver
+    - type: IntrinsicRadioTransmitter
+      channels:
+      - Common
+    - type: ActiveRadio
+      channels:
+      - Common
+    - type: Tag
+      tags:
+      - DoorBumpOpener
+      - CannotSuicide
+
+- type: entity
+  name: ink-black sludge
+  id: MobCharonicSlime
+  suffix: AI
+  parent: [ MobAdultSlimes, MobCombat ]
+  description: It oozes like tar and drips like a slavering maw.
+  components:
+    - type: Sprite
+      drawdepth: Mobs
+      sprite: _starcup/Mobs/Aliens/alt_reagent_slime.rsi
+      layers:
+        - map: [ "enum.DamageStateVisualLayers.Base" ]
+          state: alive
+          color: "#1f2e2c"
+    - type: Damageable
+      damageContainer: Inorganic
+      damageModifierSet: Slime
+    - type: MobState
+      allowedStates:
+      - Alive
+      - Dead
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        75: Dead
+    - type: Bloodstream
+      bloodMaxVolume: 100
+      bloodReagent: MuteToxin
+    - type: MeleeWeapon
+      soundHit:
+        collection: AlienClaw
+      animation: WeaponArcBite
+      damage:
+        types:
+          Slash: 3
+          Caustic: 3
+    - type: MeleeChemicalInjector
+      solution: bloodstream
+      transferAmount: 5
+    - type: DamageStateVisuals
+      states:
+        Alive:
+          Base: alive
+        Dead:
+          Base: dead
+    - type: NoSlip
+    - type: ZombieImmune
+    - type: StatusEffects
+      allowed:
+      - Electrocution
+    - type: NpcFactionMember
+      factions:
+      - SimpleHostile
+    - type: Tag
+      tags:
+      - FootstepSound
+      - CannotSuicide
+      - DoorBumpOpener
+      - StunImmune
+    - type: Speech
+      speechVerb: Slime
+    - type: TypingIndicator
+      proto: slime
+
+- type: entity
+  id: MobSpawnCharonicSlime
+  name: ink-black sludge
+  suffix: Spawner
+  categories: [ Spawner ]
+  components:
+    - type: Transform
+      anchored: True
+    - type: InteractionOutline
+    - type: Physics
+      bodyType: Static
+    - type: Sprite
+      drawdepth: Mobs
+      sprite: _starcup/Mobs/Aliens/alt_reagent_slime.rsi
+      state: spawn
+      color: "#1f2e2c"
+    - type: Fixtures
+      fixtures:
+        portalFixture:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.3
+          density: 80
+          mask:
+            - MobMask
+          layer:
+            - MobLayer
+    - type: TriggerOnSpawn
+    - type: EmitSoundOnTrigger
+      sound:
+        path: /Audio/_starcup/Effects/Fluids/splash1.ogg
+        params:
+          pitch: 0.82
+          volume: 0.85
+    - type: TimedDespawn
+      lifetime: 2.1
+    - type: SpawnOnDespawn
+      prototype: MobCharonicSlime

@@ -1,0 +1,265 @@
+meta:
+  format: 7
+  category: Grid
+  engineVersion: 267.3.0
+  forkId: ""
+  forkVersion: ""
+  time: 11/02/2025 18:39:03
+  entityCount: 21
+maps: []
+grids:
+- 1
+orphans:
+- 1
+nullspace: []
+tilemap:
+  2: Space
+  0: FloorPlanetDirtTwilight
+  1: FloorPlanetGrassyDirtTwilight
+entities:
+- proto: ""
+  entities:
+  - uid: 1
+    components:
+    - type: MetaData
+      name: tanks
+    - type: Transform
+    - type: MapGrid
+      chunks:
+        0,0:
+          ind: 0,0
+          tiles: AAAAAAAEAAAAAAAAAwABAAAAAAEAAQAAAAADAAAAAAAABAAAAAAAAAEAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAAAAAAAAgAAAAAAAAIAAAAAAAADAAEAAAAAAAABAAAAAAIAAQAAAAADAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAEAAQAAAAAAAAEAAAAAAwACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAAAAAAACAAAAAAAAAQAAAAAAAAEAAAAAAAAEAAAAAAAAAwAAAAAAAAQAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAADAAAAAAAAAQAAAAAAAAQAAAAAAAAEAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAIAAQAAAAADAAEAAAAAAwACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAA==
+          version: 7
+    - type: Broadphase
+    - type: Physics
+      bodyStatus: InAir
+      fixedRotation: False
+      bodyType: Dynamic
+    - type: Fixtures
+      fixtures: {}
+    - type: OccluderTree
+    - type: SpreaderGrid
+    - type: Shuttle
+      dampingModifier: 0.25
+    - type: ImplicitRoof
+    - type: GridPathfinding
+    - type: Gravity
+      gravityShakeSound: !type:SoundPathSpecifier
+        path: /Audio/Effects/alert.ogg
+    - type: DecalGrid
+      chunkCollection:
+        version: 2
+        nodes:
+        - node:
+            color: '#8D1C9996'
+            id: Bushn1
+          decals:
+            2: 0.09644127,1.0246568
+        - node:
+            color: '#A4610696'
+            id: Bushn1
+          decals:
+            4: 5.180582,3.7897496
+        - node:
+            color: '#FFFFFFFF'
+            id: Rock06
+          decals:
+            7: 0.8949814,0.8617213
+        - node:
+            color: '#52B4E996'
+            id: bushsnowb1
+          decals:
+            3: 0.5338421,0.34697342
+        - node:
+            color: '#8D1C9996'
+            id: bushsnowb2
+          decals:
+            0: 3.756277,0.059952736
+    - type: GridAtmosphere
+      version: 2
+      data:
+        tiles:
+          0,0:
+            0: 65535
+          0,1:
+            0: 239
+          1,0:
+            0: 13107
+          1,1:
+            0: 51
+        uniqueMixes:
+        - volume: 2500
+          temperature: 293.15
+          moles:
+            Oxygen: 21.824879
+            Nitrogen: 82.10312
+        chunkSize: 4
+    - type: GasTileOverlay
+    - type: IFF
+      flags: Hide
+- proto: ActionToggleLight
+  entities:
+  - uid: 3
+    mapInit: true
+    paused: true
+    components:
+    - type: Transform
+      parent: 2
+    - type: Action
+      originalIconColor: '#FFFFFFFF'
+      container: 2
+- proto: BarrelChemEmpty
+  entities:
+  - uid: 4
+    components:
+    - type: Transform
+      pos: 2.3001213,2.1901145
+      parent: 1
+  - uid: 5
+    components:
+    - type: Transform
+      pos: 2.69833,2.5713828
+      parent: 1
+  - uid: 6
+    components:
+    - type: Transform
+      pos: 0.74056053,3.0734313
+      parent: 1
+- proto: BaseBarrelChemRadioactiveEmpty
+  entities:
+  - uid: 7
+    components:
+    - type: Transform
+      pos: 2.3234024,2.9593744
+      parent: 1
+    - type: Pullable
+      prevFixedRotation: True
+- proto: BaseBarrelChemRadioactiveFilledUranium
+  entities:
+  - uid: 8
+    components:
+    - type: Transform
+      pos: 3.2713299,3.587502
+      parent: 1
+- proto: FenceMetalBroken
+  entities:
+  - uid: 9
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.5,4.5
+      parent: 1
+- proto: FenceMetalCorner
+  entities:
+  - uid: 10
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 4.5,4.5
+      parent: 1
+- proto: FenceMetalStraight
+  entities:
+  - uid: 11
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 2.5,4.5
+      parent: 1
+  - uid: 12
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 3.5,4.5
+      parent: 1
+  - uid: 13
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 4.5,3.5
+      parent: 1
+- proto: Floodlight
+  entities:
+  - uid: 2
+    components:
+    - type: Transform
+      pos: 3.7643852,3.5776877
+      parent: 1
+    - type: HandheldLight
+      toggleActionEntity: 3
+    - type: ContainerContainer
+      containers:
+        cell_slot: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
+        actions: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 3
+    - type: ActionsContainer
+- proto: FloraMushroom
+  entities:
+  - uid: 14
+    components:
+    - type: Transform
+      pos: 5.7618656,0.92344236
+      parent: 1
+- proto: FloraTreeHollowBase
+  entities:
+  - uid: 15
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 1.5426369,5.720063
+      parent: 1
+- proto: PaperDyedPink
+  entities:
+  - uid: 16
+    components:
+    - type: Transform
+      pos: 5.4332447,5.930907
+      parent: 1
+    - type: Paper
+      content: savegrid 163481 /silent-moon-nox-tanks
+- proto: PaperDyedRed
+  entities:
+  - uid: 17
+    components:
+    - type: MetaData
+      name: usage notes
+    - type: Transform
+      pos: 5.9684544,5.733347
+      parent: 1
+- proto: ShadowTree
+  entities:
+  - uid: 18
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 5.263731,0.5932007
+      parent: 1
+- proto: TankRusted
+  entities:
+  - uid: 19
+    components:
+    - type: Transform
+      pos: 1.5,3.5
+      parent: 1
+- proto: TankTallBRusted
+  entities:
+  - uid: 20
+    components:
+    - type: Transform
+      pos: 2.5,3.5
+      parent: 1
+- proto: WarpPoint
+  entities:
+  - uid: 21
+    components:
+    - type: MetaData
+      name: Silent Moon - Tanks
+    - type: Transform
+      pos: 3.5,2.5
+      parent: 1
+...

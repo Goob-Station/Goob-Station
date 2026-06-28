@@ -1,0 +1,38 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Modified by Psymbiote from files taken from ccss13 at commit https://github.com/cmss13-devs/cmss13/blob/71d46ee8057d19b12e1495419cb299d2fedef6cc/icons/turf/ground_map.dmi, modified by github user @CyberTropic",
+    "size": {
+        "x": 64,
+        "y": 64
+    },
+    "states": [
+        {
+            "name": "treealien01"
+        },
+        {
+            "name": "treealien02"
+        },
+        {
+            "name": "treealien03"
+        },
+        {
+            "name": "treealien04"
+        },
+        {
+            "name": "treealien05"
+        },
+        {
+            "name": "treealien06"
+        },
+        {
+            "name": "treestumpalien1"
+        },
+        {
+            "name": "treestumpalien2"
+        },
+        {
+            "name": "treestumpalien3"
+        }
+    ]
+}

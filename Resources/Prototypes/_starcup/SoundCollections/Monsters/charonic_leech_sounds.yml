@@ -1,0 +1,12 @@
+- type: soundCollection
+  id: LeechBite
+  files:
+    - /Audio/_starcup/Monsters/CharonicLeech/leechbite1.ogg
+    - /Audio/_starcup/Monsters/CharonicLeech/leechbite2.ogg
+    - /Audio/_starcup/Monsters/CharonicLeech/leechbite3.ogg
+
+- type: soundCollection
+  id: LeechSpeech
+  files:
+  - /Audio/_starcup/Monsters/CharonicLeech/leech_say1.ogg
+  - /Audio/_starcup/Monsters/CharonicLeech/leech_say2.ogg

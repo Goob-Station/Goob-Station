@@ -1,0 +1,41 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "shrooma1-shrooma2-shrooma3-shroomb1-shroomb2-shroomb3 sprited by sentryprimies on Discord. shroomc1-shroomc2-shroomd1-shroomd2 sprited by armolitskiy on Discord.",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "shrooma1"
+        },
+        {
+            "name": "shrooma2"
+        },
+        {
+            "name": "shrooma3"
+        },
+        {
+            "name": "shroomb1"
+        },
+        {
+            "name": "shroomb2"
+        },
+        {
+            "name": "shroomb3"
+        },
+        {
+            "name": "shroomc1"
+        },
+        {
+            "name": "shroomc2"
+        },
+        {
+            "name": "shroomd1"
+        },
+        {
+            "name": "shroomd2"
+        }
+    ]
+}
