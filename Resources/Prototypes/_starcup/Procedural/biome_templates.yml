@@ -196,6 +196,41 @@
         fractalType: None
       entities:
       - FloorMuteWaterEntity
+    # charonic leeches (very sparse)
+    - !type:BiomeEntityLayer
+      allowedTiles:
+        - FloorPlanetGrassBlue
+        - FloorPlanetGrassyDirtTwilight
+      threshold: 0.99
+      noise:
+        seed: 5
+        noiseType: OpenSimplex2
+        frequency: 0.5
+      entities:
+        - SpawnMobCharonicLeech
+    # charonic wisps (very sparse)
+    - !type:BiomeEntityLayer
+      allowedTiles:
+        - FloorPlanetDirtTwilight
+        - FloorPlanetGrassyDirtTwilight
+      threshold: 0.98
+      noise:
+        seed: 6
+        noiseType: OpenSimplex2
+        frequency: 0.3
+      entities:
+        - SpawnMobCharonicWisp
+    # charonic slimes (very sparse, near mute water)
+    - !type:BiomeEntityLayer
+      allowedTiles:
+        - FloorPlanetDirtTwilight
+      threshold: 0.98
+      noise:
+        seed: 7
+        noiseType: OpenSimplex2
+        frequency: 0.4
+      entities:
+        - SpawnMobCharonicSlime
 
 
 # Snow

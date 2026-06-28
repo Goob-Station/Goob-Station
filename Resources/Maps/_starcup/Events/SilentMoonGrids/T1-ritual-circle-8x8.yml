@@ -17,7 +17,7 @@ tilemap:
   1: FloorPlanetDirtTwilight
   3: FloorPlanetGrassBlue
   2: FloorPlanetGrassyDirtTwilight
-  4: FloorStarcupBlueStone02
+  4: FloorBlue
 entities:
 - proto: ""
   entities:
@@ -135,8 +135,15 @@ entities:
         - volume: 2500
           temperature: 293.15
           moles:
-            Oxygen: 21.824879
-            Nitrogen: 82.10312
+          - 21.824879
+          - 82.10312
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
         chunkSize: 4
     - type: GasTileOverlay
 - proto: MaterialBones1

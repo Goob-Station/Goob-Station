@@ -15,7 +15,7 @@ nullspace: []
 tilemap:
   1: Space
   0: FloorPlanetDirtTwilight
-  2: FloorStarcupBlueStone10
+  2: FloorBlue
 entities:
 - proto: ""
   entities:
@@ -113,8 +113,15 @@ entities:
         - volume: 2500
           temperature: 293.15
           moles:
-            Oxygen: 21.824879
-            Nitrogen: 82.10312
+          - 21.824879
+          - 82.10312
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
         chunkSize: 4
     - type: GasTileOverlay
     - type: IFF

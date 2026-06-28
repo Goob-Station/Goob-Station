@@ -2,41 +2,34 @@
   parent: MarkerBase
   id: SpawnMobCharonicLeech
   name: Charonic Leech Spawner
+  categories: [ HideSpawnMenu ]
   components:
-  - type: Sprite
-    layers:
-    - state: green
-    - state: icon
-      sprite: _starcup/Mobs/Aliens/charonic_leech.rsi
   - type: ConditionalSpawner
     prototypes:
     - MobCharonicLeech
+  - type: TimedDespawn
+    lifetime: 0.5
 
 - type: entity
   parent: MarkerBase
   id: SpawnMobCharonicWisp
   name: Charonic Wisp Spawner
+  categories: [ HideSpawnMenu ]
   components:
-  - type: Sprite
-    layers:
-    - state: green
-    - state: icon
-      sprite: _starcup/Mobs/Aliens/charonic_wisp.rsi
   - type: ConditionalSpawner
     prototypes:
     - MobCharonicWisp
+  - type: TimedDespawn
+    lifetime: 0.5
 
 - type: entity
   parent: MarkerBase
   id: SpawnMobCharonicSlime
   name: Charonic Slime Spawner
+  categories: [ HideSpawnMenu ]
   components:
-  - type: Sprite
-    layers:
-    - state: green
-    - state: icon
-      sprite: _starcup/Mobs/Aliens/alt_reagent_slime.rsi
-      color: "#1f2e2c"
   - type: ConditionalSpawner
     prototypes:
     - MobCharonicSlime
+  - type: TimedDespawn
+    lifetime: 0.5

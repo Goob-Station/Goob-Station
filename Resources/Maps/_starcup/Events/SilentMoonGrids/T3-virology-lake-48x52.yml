@@ -593,8 +593,15 @@ entities:
         - volume: 2500
           temperature: 293.15
           moles:
-            Oxygen: 21.824879
-            Nitrogen: 82.10312
+          - 21.824879
+          - 82.10312
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
         chunkSize: 4
     - type: GasTileOverlay
     - type: IFF
@@ -9953,48 +9960,6 @@ entities:
     - type: Transform
       pos: -7.5,11.5
       parent: 1
-    - type: DeltaPressure
-      gridUid: 1
-  - uid: 1737
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -10.5,12.5
-      parent: 1
-    - type: DeltaPressure
-      gridUid: 1
-  - uid: 1738
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -10.5,13.5
-      parent: 1
-    - type: DeltaPressure
-      gridUid: 1
-  - uid: 1739
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -6.5,11.5
-      parent: 1
-    - type: DeltaPressure
-      gridUid: 1
-  - uid: 1740
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -5.5,11.5
-      parent: 1
-    - type: DeltaPressure
-      gridUid: 1
-  - uid: 1741
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -8.5,11.5
-      parent: 1
-    - type: DeltaPressure
-      gridUid: 1
 - proto: RightArmSkeleton
   entities:
   - uid: 1742
@@ -10447,47 +10412,6 @@ entities:
         1807:
         - - DoorStatus
           - DoorBolt
-    - type: DeltaPressure
-      gridUid: 1
-    - type: AccessReader
-      accessListsOriginal: []
-      access:
-      - - BasicSilicon
-      - - Borg
-      - - Brigmedic
-      - - Chemistry
-      - - ChiefMedicalOfficer
-      - - Medical
-      - - Paramedic
-      - - Psychologist
-      - - Xenoborg
-  - uid: 1807
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -9.5,11.5
-      parent: 1
-    - type: DeviceLinkSink
-      invokeCounter: 1
-    - type: DeviceLinkSource
-      linkedPorts:
-        1806:
-        - - DoorStatus
-          - DoorBolt
-    - type: DeltaPressure
-      gridUid: 1
-    - type: AccessReader
-      accessListsOriginal: []
-      access:
-      - - BasicSilicon
-      - - Borg
-      - - Brigmedic
-      - - Chemistry
-      - - ChiefMedicalOfficer
-      - - Medical
-      - - Paramedic
-      - - Psychologist
-      - - Xenoborg
 - proto: Wrench
   entities:
   - uid: 1808

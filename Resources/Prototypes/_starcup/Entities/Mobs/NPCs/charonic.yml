@@ -63,6 +63,7 @@
     tags:
     - DoorBumpOpener
     - CannotSuicide
+  - type: WeatherImmune
   - type: ReplacementAccent
     accent: genericAggressive
   - type: Speech
@@ -94,6 +95,7 @@
   - FlyingMobBase
   description: It reflects a strange, otherworldly light.
   components:
+    - type: CombatMode
     - type: Sprite
       drawdepth: Mobs
       sprite: _starcup/Mobs/Aliens/charonic_wisp.rsi
@@ -103,6 +105,28 @@
       state: icon
     - type: InputMover
     - type: MobMover
+    - type: Physics
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.40
+          density: 80
+          mask:
+          - FlyingMobMask
+          layer:
+          - FlyingMobLayer
+    - type: MobState
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        40: Dead
+    - type: MeleeWeapon
+      hidden: true
+      damage:
+        types:
+          Radiation: 5
     - type: FloatingVisuals
     - type: NpcFactionMember
       factions:
@@ -132,7 +156,7 @@
       baseWalkSpeed: 2.5
       baseSprintSpeed: 3.5
     - type: RadiationSource
-      intensity: 4
+      intensity: 0
     - type: PointLight
       enabled: true
       radius: 3
@@ -168,6 +192,7 @@
       tags:
       - DoorBumpOpener
       - CannotSuicide
+    - type: WeatherImmune
 
 - type: entity
   name: ink-black sludge
@@ -228,6 +253,7 @@
       - CannotSuicide
       - DoorBumpOpener
       - StunImmune
+    - type: WeatherImmune
     - type: Speech
       speechVerb: Slime
     - type: TypingIndicator

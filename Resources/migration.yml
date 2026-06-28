@@ -1109,3 +1109,33 @@ WoodenKeg: null
 WoodenKegRootBeer: null
 FloraShroomMound: null
 FloraShroomRock: null
+FloorTileBrickHorizontal: null
+
+# Charon Epsilon grid files - missing prototypes from grids
+MailTeleporterSyndie: MailTeleporter
+PosterLegitDoNotQuestionSyndie: null
+PoweredLightPostSmallCold: PoweredLightPostSmall
+PoweredlightCold: PoweredLightPostSmall
+PoweredlightWarm: PoweredLightPostSmall
+AlwaysPoweredLightPostSmallSodium: PoweredLightPostSmall
+PaperDyedRed: Paper
+PaperDyedPink: Paper
+PaperDyedTan: Paper
+PosterLegitElectraTattered: null
+WoodenKegWine: null
+NotebookPocketBlue: null
+ToyGlobeAncientEarth: null
+ChemistryBottleHolywater: null
+FloraTreeConiferDead: FloraTreeDeadPurple
+Skimmer: null
+BoxFolderClipboardEmpty: BoxFolderClipboard
+
+# when I do the orbital station - currently not working
+# AirlockExternalGlassShuttleCharonEpsilonFilled: null
+# BenchSofaCorporateLeft: null
+# BenchSofaCorporateRight: null
+# ComputerShuttleMiningGlacier: null
+# PosterLegitElectra: null
+# PosterLegitHereForYourSafetySyndie: null
+# PosterLegitSafetyReportSyndie: null
+# RandomNotebookSpawner: null

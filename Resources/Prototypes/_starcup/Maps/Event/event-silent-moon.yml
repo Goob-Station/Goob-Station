@@ -1,10 +1,10 @@
 - type: gameMap
   id: EventCharonEpsilon
-  mapName: 'Charon-Epsilon Surface Outpost'
+  mapName: 'Наземний форпост Харон-Епсілон'
   mapPath: /Maps/_starcup/Events/silent_moon_surface_station.yml
   maxRandomOffset: 0
   randomRotation: false
-  minPlayers: 0
+  minPlayers: 5 # Pirate - too dangerous
   maxPlayers: 60
   stations:
     EventSilentMoon:

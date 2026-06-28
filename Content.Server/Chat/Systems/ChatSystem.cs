@@ -381,6 +381,11 @@ public sealed partial class ChatSystem : SharedChatSystem
             message = message[1..];
         }
 
+        if (desiredType == InGameICChatType.Speak && HasComp<Content.Shared.Speech.Hushing.HushedComponent>(source))
+        {
+            desiredType = InGameICChatType.Whisper;
+        }
+
         var language = languageOverride ?? _language.GetLanguage(source); // Einstein Engines - Language
 
         bool shouldCapitalize = (desiredType != InGameICChatType.Emote);

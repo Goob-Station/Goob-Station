@@ -1,0 +1,18 @@
+- type: weatherScheduler
+  id: WeatherCharonEpsilon
+  states:
+    WeatherClear:
+      transitions:
+        WeatherClear: 100
+        WeatherCharonHush: 15
+        WeatherCharonOilfall: 3
+    WeatherCharonHush:
+      transitions:
+        WeatherClear: 15
+        WeatherCharonHush: 100
+        WeatherCharonOilfall: 5
+    WeatherCharonOilfall:
+      transitions:
+        WeatherClear: 5
+        WeatherCharonHush: 20
+        WeatherCharonOilfall: 100
