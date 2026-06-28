@@ -732,6 +732,7 @@
       effects:
       - !type:SpeciesChange
         newSpecies: BananaMen
+        transferAppearance: true
         conditions:
         - !type:ReagentThreshold
           min: 30

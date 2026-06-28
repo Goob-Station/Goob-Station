@@ -588,6 +588,33 @@ public sealed class ToggleableClothingSystem : EntitySystem
         }
     }
 
+    // <Goobstation>
+    /// <summary>
+    ///     Retracts every deployed modsuit piece worn by wearer
+    /// </summary>
+    public void RetractModsuits(EntityUid wearer)
+    {
+        var cores = new List<Entity<ToggleableClothingComponent>>();
+        var slots = _inventorySystem.GetSlotEnumerator(wearer);
+        while (slots.NextItem(out var worn))
+        {
+            if (TryComp<ToggleableClothingComponent>(worn, out var toggleable)
+                && toggleable.Container != null
+                && toggleable.ReplaceCurrentClothing)
+                cores.Add((worn, toggleable));
+        }
+
+        foreach (var core in cores)
+        {
+            foreach (var (part, slot) in new Dictionary<EntityUid, string>(core.Comp.ClothingUids))
+            {
+                if (!string.IsNullOrEmpty(slot) && !core.Comp.Container.Contains(part))
+                    UnequipClothing(wearer, core, part, slot);
+            }
+        }
+    }
+    // </Goobstation>
+
     private bool CanToggleClothing(EntityUid user, Entity<ToggleableClothingComponent> toggleable, bool multiple)
     {
         var comp = toggleable.Comp;

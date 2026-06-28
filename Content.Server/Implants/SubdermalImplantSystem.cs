@@ -122,12 +122,14 @@ using Content.Shared.Polymorph;
 using Content.Shared.Store.Components;
 using Content.Shared.Teleportation;
 using Content.Shared.Stunnable;
+using Robust.Shared.Containers;
 
 namespace Content.Server.Implants;
 public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
 {
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -147,6 +149,10 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
         {
             if (!TryComp<SubdermalImplantComponent>(implant, out var sic))
                 continue;
+
+            // Permanent implants (e.g. bluespace lifeline) block normal container removal, force them out first so they transfer too.
+            if (sic.Permanent)
+                _container.Remove(implant, ent.Comp.ImplantContainer, force: true);
 
             ForceImplant(args.NewEntity, implant, sic);
         }

@@ -13,6 +13,7 @@ public sealed partial class RandomSpeciesChange : EntityEffect
 
     [DataField] public List<ProtoId<SpeciesPrototype>>? SpeciesWhitelist;
     [DataField] public List<ProtoId<SpeciesPrototype>>? SpeciesBlacklist;
+    [DataField] public bool TransferAppearance;
 
     public override void Effect(EntityEffectBaseArgs args)
     {
@@ -32,6 +33,7 @@ public sealed partial class RandomSpeciesChange : EntityEffect
         var sce = new SpeciesChange
         {
             NewSpecies = random.Pick(species.ToList()).ID,
+            TransferAppearance = TransferAppearance,
         };
 
         entityEffects.Effect(sce, args);

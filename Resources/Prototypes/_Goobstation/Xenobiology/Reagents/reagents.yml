@@ -179,6 +179,7 @@
         - !type:ReagentThreshold
           min: 10
         newSpecies: SlimePerson
+        transferAppearance: true
       - !type:AdjustReagent
         reagent: XenobioJellyGreen
         amount: -50.0
@@ -201,6 +202,7 @@
         - !type:ReagentThreshold
           min: 10
         newSpecies: Human
+        transferAppearance: true
       - !type:AdjustReagent
         reagent: XenobioHumanToxin
         amount: -50.0
@@ -235,6 +237,7 @@
       metabolismRate: 5 # hello hypospray users!
       effects:
       - !type:RandomSpeciesChange
+        transferAppearance: true
         speciesBlacklist:
         - Skeleton # if he's dead it's GG
         - IPC # do i have to explain this one
@@ -266,6 +269,7 @@
         - !type:ReagentThreshold
           min: 10
         newSpecies: Felinid
+        transferAppearance: true
       - !type:AdjustReagent
         reagent: XenobioFelinidToxin
         amount: -50.0

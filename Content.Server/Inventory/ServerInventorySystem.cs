@@ -20,6 +20,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Explosion;
 using Content.Shared.Inventory;
 
@@ -27,6 +28,8 @@ namespace Content.Server.Inventory
 {
     public sealed class ServerInventorySystem : InventorySystem
     {
+        [Dependency] private readonly ToggleableClothingSystem _toggleableClothing = default!;
+
         public override void Initialize()
         {
             base.Initialize();
@@ -50,8 +53,9 @@ namespace Content.Server.Inventory
             if (!Resolve(source.Owner, ref source.Comp) || !Resolve(target.Owner, ref target.Comp))
                 return;
 
-            var enumerator = new InventorySlotEnumerator(source.Comp);
             // Goob edit start
+            _toggleableClothing.RetractModsuits(source);
+            var enumerator = new InventorySlotEnumerator(source.Comp);
             List<(EntityUid, SlotDefinition)> items = new();
             while (enumerator.NextItem(out var item, out var slot))
             {

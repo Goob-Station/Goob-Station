@@ -21,9 +21,13 @@ public sealed partial class SpeciesChange : EventEntityEffect<SpeciesChange>
     [DataField(required: true)]
     public ProtoId<SpeciesPrototype> NewSpecies;
 
-    public SpeciesChange(ProtoId<SpeciesPrototype> newspecies)
+    [DataField]
+    public bool TransferAppearance;
+
+    public SpeciesChange(ProtoId<SpeciesPrototype> newspecies, bool transferAppearance = false)
     {
         NewSpecies = newspecies;
+        TransferAppearance = transferAppearance;
     }
 
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
@@ -31,7 +35,7 @@ public sealed partial class SpeciesChange : EventEntityEffect<SpeciesChange>
 
     public override void Effect(EntityEffectBaseArgs args)
     {
-        var ev = new SpeciesChange(NewSpecies);
+        var ev = new SpeciesChange(NewSpecies, TransferAppearance);
         args.EntityManager.EventBus.RaiseLocalEvent(args.TargetEntity, ev);
     }
 
