@@ -101,17 +101,26 @@
     sprite: Clothing/OuterClothing/Bio/scientist.rsi
 
 - type: entity
-  parent: [ClothingOuterBioGeneral, BaseSecurityContraband]
   id: ClothingOuterBioSecurity
   name: bio suit
+  description: A suit that protects against tougher biological contamination, kitted out with additional armor.
   suffix: Security
-  description: A suit that protects against biological contamination, kitted out with additional armor.
+  parent:
+  - ClothingOuterBioGeneral
+  - BaseSecurityContraband
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Bio/security.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Bio/security.rsi
   - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.8
+        Caustic: 0.2
     coverage:
     - Chest
     - Groin
@@ -120,15 +129,8 @@
     - Leg
     - Foot
     - Tail
-    modifiers:
-      coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
-        Heat: 0.8
-        Caustic: 0.2
   - type: ZombificationResistance
-    zombificationResistanceCoefficient: 0.4
+    zombificationResistanceCoefficient: 0.3
 
 - type: entity
   parent: ClothingOuterBioGeneral
