@@ -29,7 +29,7 @@
         layer:
         - MobLayer
   - type: Sprite
-    drawdepth: LargeMobs
+    drawdepth: Mobs
     sprite:  /Textures/_Lavaland/Mobs/Bosses/banana.rsi
     noRot: true
     state: phase_0
@@ -38,6 +38,8 @@
   - type: LagCompensation
   - type: Actions
   - type: Appearance
+  - type: InputMover
+  - type: MobMover
   - type: RotationVisuals
     defaultRotation: 0
     horizontalRotation: 0
@@ -59,7 +61,7 @@
   - type: DamageOnCollide # To prevent getting stuck on objects.
     ignoreWhitelist:
       components:
-        - ChildishOni
+        - Fauna
     inverted: true
     damage:
       types:
@@ -68,6 +70,21 @@
     thresholds:
       0: Alive
       2600: Dead
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    angle: 30
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 10
+        Piercing: 5
   - type: Tag
     tags:
     - CannotSuicide
@@ -140,7 +157,6 @@
     wallShape: !type:NestedEntityShape
       id: BoxHollow
       size: 12 # Radius of the arena
-  - type: RingOfFire
   - type: OniRampage
     landDamageRange: 1
     shouldSpeak: true
@@ -153,18 +169,13 @@
     speed: 10
     spawnDelay: 0.1
     shouldSpeak: true
-  - type: MegafaunaChaseTarget # Makes the boss chase target when unachored
-    whitelist:
-      components:
-        - HumanoidAppearance
-    chaseNow: true
-    movementSpeed: 7
-  - type: MegafaunaDamageTrigger # Triggers phase changes and boss music from non predicted sources
+  - type: OrbitingRing
+    prototype: BananaSmallSkullTemporaryLong
   - type: MegafaunaDirectionalSpawn
   - type: MegafaunaAnchor # Keeps anchored until fight starts
   - type: MegafaunaGodmode # Godmode against any damage not coming from player
   - type: MegafaunaRejuvenate # Regens on fight over
-  - type: MegafaunaPhaseSpeech # Boss speaks different lines per phase and on phase change
+  - type: MobPhaseSpeech # Boss speaks different lines per phase and on phase change
     phases:
       1:
         speech:

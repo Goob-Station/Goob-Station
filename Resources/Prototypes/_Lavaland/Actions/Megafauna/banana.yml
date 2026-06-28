@@ -51,8 +51,8 @@
     maxDelay: 30
   - type: InstantAction
     event: !type:OrbitingRingActionEvent
-    #  ringDistance: 1
-    #  skullPrototype: BananaSmallSkullTemporaryLong
+      ringDistance: 1
+      ringId: close
 
 - type: entity
   id: ActionRingOfFireWide
@@ -65,8 +65,8 @@
     maxDelay: 20
   - type: InstantAction
     event: !type:OrbitingRingActionEvent
-    #  ringDistance: 2
-    #  skullPrototype: BananaSmallSkullTemporary
+      ringDistance: 2
+      ringId: far
 
 - type: entity
   parent: ActionBaseBanana
@@ -132,7 +132,7 @@
     minDelay: 3
     maxDelay: 8
   - type: WorldTargetAction
-    event: !type:SpawnFarSideHandEvent
+    event: !type:SpawnFarSideEvent
 
 - type: entity
   id: ActionOniHandCloseSide
@@ -146,7 +146,7 @@
     minDelay: 2
     maxDelay: 6
   - type: WorldTargetAction
-    event: !type:SpawnCloseSideHandEvent
+    event: !type:SpawnCloseSideEvent
 
 - type: entity
   id: ActionOniHandFarBarrage

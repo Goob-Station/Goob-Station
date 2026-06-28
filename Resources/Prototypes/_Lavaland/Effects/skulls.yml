@@ -30,7 +30,7 @@
   - type: DamageOnCollide
     ignoreWhitelist:
       components:
-        - ChildishOni
+        - Fauna
     inverted: true
     damage:
       types:
@@ -41,7 +41,7 @@
   parent: BananaSmallSkull
   components:
   - type: FadingTimedDespawn
-    lifetime: 8
+    lifetime: 5
     fadeOutTime: 2
 
 - type: entity
@@ -49,8 +49,8 @@
   parent: BananaSmallSkull
   components:
   - type: FadingTimedDespawn
-    lifetime: 16
-    fadeOutTime: 2
+    lifetime: 15
+    fadeOutTime: 3
 
 - type: entity
   id: BananaSmallSkullSpiral

@@ -35,7 +35,7 @@
   - type: DamageOnCollide
     ignoreWhitelist:
       components:
-        - ChildishOni
+        - BossMusic # Bcuz sword loot uses this projectile
     inverted: true
     damage:
       types:
@@ -80,7 +80,7 @@
   - type: DamageOnCollide
     ignoreWhitelist:
       components:
-        - ChildishOni
+        - Fauna
     inverted: true
     damage:
       types:

@@ -52,6 +52,13 @@ public sealed partial class PhaseConversionActionEvent : InstantActionEvent;
 
 public sealed partial class ReflectiveThreadsActionEvent : InstantActionEvent;
 
-public sealed partial class OrbitingRingActionEvent : InstantActionEvent;
+public sealed partial class OrbitingRingActionEvent : InstantActionEvent
+{
+    [DataField]
+    public float RingDistance;
+
+    [DataField]
+    public string RingId = string.Empty;
+}
 
 public sealed partial class ORTConvergenceActionEvent : InstantActionEvent;

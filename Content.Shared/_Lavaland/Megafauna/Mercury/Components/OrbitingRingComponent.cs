@@ -40,7 +40,7 @@ public sealed partial class OrbitingRingComponent : Component
     public SoundSpecifier? Sound;
 
     /// <summary>
-    /// Currently spawned ring entities.
+    /// Currently spawned ring entities, with a ring ID. For clean-up purposes.
     /// </summary>
-    public List<EntityUid> Entities = new();
+    public Dictionary<string, List<EntityUid>> Rings = new();
 }

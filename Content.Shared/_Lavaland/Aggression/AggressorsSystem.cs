@@ -1,30 +1,8 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
-// SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
-// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
-// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-// SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
-using System.Linq;
 using Content.Shared._Lavaland.Audio;
 using Content.Shared.Damage;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
+using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -37,6 +15,7 @@ public sealed class AggressorsSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedBossMusicSystem _bossMusic = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
+    [Dependency] private readonly INetManager _net = default!;
 
     private EntityQuery<TransformComponent> _xformQuery;
 
@@ -66,9 +45,10 @@ public sealed class AggressorsSystem : EntitySystem
         var query = EntityQueryEnumerator<AggressiveComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var aggressive, out var xform))
         {
-            if (aggressive.ForgiveRange == null
-                || aggressive.NextUpdate < curTime)
+            if (aggressive.ForgiveRange is null || curTime < aggressive.NextUpdate)
+            {
                 continue;
+            }
 
             aggressive.NextUpdate = curTime + aggressive.UpdateDelay;
 
@@ -77,16 +57,20 @@ public sealed class AggressorsSystem : EntitySystem
             foreach (var aggressor in aggressive.Aggressors)
             {
                 if (!_xformQuery.TryComp(aggressor, out var aggroXform))
+                {
                     continue;
+                }
 
                 var aggroPos = _xform.GetWorldPosition(aggroXform);
                 var aggressivePos = _xform.GetWorldPosition(xform);
                 var distance = (aggressivePos - aggroPos).Length();
 
-                if (distance > aggressive.ForgiveRange
-                    || xform.MapID != aggroXform.MapID)
+                if (distance > aggressive.ForgiveRange || xform.MapID != aggroXform.MapID)
+                {
                     toRemove.Add(aggressor);
+                }
             }
+
             foreach (var remove in toRemove)
             {
                 RemoveAggressor((uid, aggressive), remove);
@@ -100,8 +84,7 @@ public sealed class AggressorsSystem : EntitySystem
     {
         var aggro = args.Origin;
 
-        if (aggro == null
-            || !HasComp<ActorComponent>(aggro))
+        if (aggro is null || !HasComp<ActorComponent>(aggro))
             return;
 
         AddAggressor(ent, aggro.Value);
@@ -115,17 +98,37 @@ public sealed class AggressorsSystem : EntitySystem
 
     private void OnAggressorAdded(Entity<AggressorComponent> ent, ref AggressiveAddedEvent args)
     {
-        if (ent.Comp.Aggressives.TryFirstOrNull(out var boss))
-            _bossMusic.StartBossMusic(boss.Value);
+        if (!ent.Comp.Aggressives.TryFirstOrNull(out var boss))
+            return;
+
+        _bossMusic.StartBossMusic(boss.Value);
+
+        // Backstop for unpredicted damage (e.g. projectile hits): this handler only runs locally
+        // on whichever side computed the triggering damage. If that's the server, the affected
+        // client needs to be told directly so its own BossMusicSystem can actually play the audio.
+        if (_net.IsServer && TryComp<ActorComponent>(ent.Owner, out var actor))
+        {
+            RaiseNetworkEvent(new StartBossMusicNetworkEvent(GetNetEntity(boss.Value)), actor.PlayerSession);
+        }
     }
 
     private void OnAggressorRemoved(Entity<AggressorComponent> ent, ref AggressiveRemovedEvent args)
-        => _bossMusic.EndAllMusic(); // Stop the music if we are no longer get attacked by anyone.
+    {
+        // Stop the music if we are no longer get attacked by anyone.
+        _bossMusic.EndAllMusic();
+
+        if (_net.IsServer && TryComp<ActorComponent>(ent.Owner, out var actor))
+        {
+            RaiseNetworkEvent(new EndBossMusicNetworkEvent(), actor.PlayerSession);
+        }
+    }
 
     private void OnAggressorStateChange(Entity<AggressorComponent> ent, ref MobStateChangedEvent args)
     {
         if (_mobState.IsDead(ent.Owner))
+        {
             CleanAggressions((ent.Owner, ent.Comp));
+        }
     }
 
     private void OnAggressorDeleted(Entity<AggressorComponent> ent, ref EntityTerminatingEvent args)
@@ -168,7 +171,9 @@ public sealed class AggressorsSystem : EntitySystem
             RemComp(aggressor, aggressor.Comp);
         }
         else
+        {
             Dirty(aggressor.Owner, aggressor.Comp);
+        }
     }
 
     public void RemoveAllAggressors(Entity<AggressiveComponent> ent)
@@ -176,7 +181,9 @@ public sealed class AggressorsSystem : EntitySystem
         foreach (var aggressor in ent.Comp.Aggressors)
         {
             if (!TryComp<AggressorComponent>(aggressor, out var aggressorComp))
+            {
                 continue;
+            }
 
             aggressorComp.Aggressives.Remove(ent.Owner);
             if (aggressorComp.Aggressives.Count == 0)
@@ -198,10 +205,14 @@ public sealed class AggressorsSystem : EntitySystem
         if (!Resolve(aggressor, ref aggressor.Comp))
             return;
 
-        foreach (var aggressive in aggressor.Comp.Aggressives.ToArray())
+        var aggressives = new List<EntityUid>(aggressor.Comp.Aggressives);
+
+        foreach (var aggressive in aggressives)
         {
             if (TryComp<AggressiveComponent>(aggressive, out var aggressors))
+            {
                 RemoveAggressor((aggressive, aggressors), aggressor);
+            }
         }
 
         RemComp(aggressor, aggressor.Comp);

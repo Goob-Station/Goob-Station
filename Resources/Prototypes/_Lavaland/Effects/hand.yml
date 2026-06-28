@@ -32,10 +32,13 @@
     energy: 2
     color: Orange
     castShadows: true
+  - type: FadingTimedDespawn
+    lifetime: 4
+    fadeOutTime: 0.5
   - type: DamageOnCollide
     ignoreWhitelist:
       components:
-        - ChildishOni
+        - Fauna
     inverted: true
     damage:
       types:
@@ -50,12 +53,9 @@
   - type: FadingIn
     fadeInTime: 2
   - type: DirectionalMovement
-    direction: 1,0
-    initialSpeed: 0.1
-    acceleration: 4
-    maxSpeed: 30
-    maxDistance: 50
-    deleteOnEnd: true
+    moveEast: true
+    speed: 12
+    acceleration: 6
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/_Goobstation/Wraith/flameswoosh.ogg
@@ -77,56 +77,9 @@
   - type: FadingIn
     fadeInTime: 2
   - type: DirectionalMovement
-    direction: -1,0
-    initialSpeed: 0.1
-    acceleration: 4
-    maxSpeed: 30
-    maxDistance: 50
-    deleteOnEnd: true
-  - type: EmitSoundOnSpawn
-    sound:
-      path: /Audio/_Goobstation/Wraith/flameswoosh.ogg
-      params:
-          volume: -5
-          maxDistance: 10
-          variation: 0.05
-
-- type: entity
-  id: BananaOniHandUp
-  parent: BananaOniHand
-  suffix: Up
-  components:
-  - type: FadingIn
-    fadeInTime: 2
-  - type: DirectionalMovement
-    direction: 0,1
-    initialSpeed: 0.1
-    acceleration: 4
-    maxSpeed: 30
-    maxDistance: 20
-    deleteOnEnd: true
-  - type: EmitSoundOnSpawn
-    sound:
-      path: /Audio/_Goobstation/Wraith/flameswoosh.ogg
-      params:
-          volume: -5
-          maxDistance: 10
-          variation: 0.05
-
-- type: entity
-  id: BananaOniHandDown
-  parent: BananaOniHand
-  suffix: Down
-  components:
-  - type: FadingIn
-    fadeInTime: 2
-  - type: DirectionalMovement
-    direction: 0,-1
-    initialSpeed: 0.1
-    acceleration: 4
-    maxSpeed: 30
-    maxDistance: 20
-    deleteOnEnd: true
+    moveWest: true
+    speed: 12
+    acceleration: 6
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/_Goobstation/Wraith/flameswoosh.ogg

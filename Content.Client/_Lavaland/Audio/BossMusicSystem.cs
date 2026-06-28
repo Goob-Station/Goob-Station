@@ -1,25 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
-// SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
-// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
-// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-// SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Client.Audio;
 using Content.Shared._Lavaland.Audio;
 using Content.Shared.CCVar;
@@ -72,6 +50,8 @@ public sealed class BossMusicSystem : SharedBossMusicSystem
         SubscribeLocalEvent<ActorComponent, MobStateChangedEvent>(OnPlayerDeath);
         SubscribeLocalEvent<ActorComponent, EntParentChangedMessage>(OnPlayerParentChange);
         SubscribeLocalEvent<RoundEndMessageEvent>(OnRoundEnd);
+        SubscribeNetworkEvent<StartBossMusicNetworkEvent>(OnStartBossMusicNetwork);
+        SubscribeNetworkEvent<EndBossMusicNetworkEvent>(OnEndBossMusicNetwork);
     }
 
     public override void Shutdown()
@@ -94,14 +74,15 @@ public sealed class BossMusicSystem : SharedBossMusicSystem
     {
         _volumeSlider = SharedAudioSystem.GainToVolume(obj);
 
-        if (_bossMusicStream != null
-            && _musicProto != null)
+        if (_bossMusicStream is not null && _musicProto is not null)
+        {
             _audio.SetVolume(_bossMusicStream, _musicProto.Sound.Params.Volume + _volumeSlider);
+        }
     }
 
     public override void StartBossMusic(ProtoId<BossMusicPrototype> music)
     {
-        if (_musicProto != null || _bossMusicStream != null)
+        if (_musicProto is not null || _bossMusicStream is not null)
             return;
 
         _audioContent.DisableAmbientMusic();
@@ -115,8 +96,7 @@ public sealed class BossMusicSystem : SharedBossMusicSystem
             false,
             AudioParams.Default.WithVolume(sound.Sound.Params.Volume + _volumeSlider).WithLoop(true));
 
-        if (_musicProto.FadeIn
-            && stream != null)
+        if (_musicProto.FadeIn && stream is not null)
         {
             _bossMusicStream = (stream.Value.Entity, stream.Value.Component);
             FadeIn(_bossMusicStream, stream.Value.Component, sound.FadeInTime);
@@ -125,14 +105,17 @@ public sealed class BossMusicSystem : SharedBossMusicSystem
 
     public override void EndAllMusic()
     {
-        if (_musicProto == null
-            || _bossMusicStream == null)
+        if (_musicProto is null || _bossMusicStream is null)
             return;
 
         if (_musicProto.FadeIn)
+        {
             FadeOut(_bossMusicStream, duration: _musicProto.FadeOutTime);
+        }
         else
+        {
             _audio.Stop(_bossMusicStream);
+        }
 
         _musicProto = null;
         _bossMusicStream = null;
@@ -145,9 +128,10 @@ public sealed class BossMusicSystem : SharedBossMusicSystem
 
     private void OnPlayerDeath(Entity<ActorComponent> ent, ref MobStateChangedEvent args)
     {
-        if (ent.Comp.PlayerSession == _player.LocalSession &&
-            args.NewMobState == MobState.Dead)
+        if (ent.Comp.PlayerSession == _player.LocalSession && args.NewMobState == MobState.Dead)
+        {
             EndAllMusic();
+        }
     }
 
     /// <summary>
@@ -155,9 +139,10 @@ public sealed class BossMusicSystem : SharedBossMusicSystem
     /// </summary>
     private void OnPlayerParentChange(Entity<ActorComponent> ent, ref EntParentChangedMessage args)
     {
-        if (ent.Comp.PlayerSession == _player.LocalSession &&
-            args.OldMapId != null)
+        if (ent.Comp.PlayerSession == _player.LocalSession && args.OldMapId is not null)
+        {
             EndAllMusic();
+        }
     }
 
     private void OnRoundEnd(RoundEndMessageEvent args)
@@ -165,11 +150,26 @@ public sealed class BossMusicSystem : SharedBossMusicSystem
         _bossMusicStream = _audio.Stop(_bossMusicStream);
     }
 
+    private void OnStartBossMusicNetwork(StartBossMusicNetworkEvent ev, EntitySessionEventArgs args)
+    {
+        var boss = GetEntity(ev.Boss);
+
+        if (!TryComp<BossMusicComponent>(boss, out var musicComp))
+            return;
+
+        StartBossMusic(musicComp.SoundId);
+    }
+
+    private void OnEndBossMusicNetwork(EndBossMusicNetworkEvent ev, EntitySessionEventArgs args)
+    {
+        EndAllMusic();
+    }
+
     #region Fades
 
     private void FadeOut(EntityUid? stream, AudioComponent? component = null, float duration = DefaultDuration)
     {
-        if (stream == null || duration <= 0f || !Resolve(stream.Value, ref component))
+        if (stream is null || duration <= 0f || !Resolve(stream.Value, ref component))
             return;
 
         _fadingIn.Remove(stream.Value);
@@ -179,7 +179,7 @@ public sealed class BossMusicSystem : SharedBossMusicSystem
 
     private void FadeIn(EntityUid? stream, AudioComponent? component = null, float duration = DefaultDuration)
     {
-        if (stream == null || duration <= 0f || !Resolve(stream.Value, ref component) || component.Volume < MinVolume)
+        if (stream is null || duration <= 0f || !Resolve(stream.Value, ref component) || component.Volume < MinVolume)
             return;
 
         _fadingOut.Remove(stream.Value);

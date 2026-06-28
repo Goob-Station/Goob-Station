@@ -20,9 +20,16 @@ public sealed partial class DirectionalMovementComponent : Component
     public bool MoveEast;
 
     /// <summary>
-    /// Speed at which to move towards that direction.
+    /// Speed at which to move towards that direction. Also acts as the speed cap when Acceleration is set.
     /// </summary>
     [DataField]
     public float Speed = 10f;
+    public float CurrentSpeed;
+
+    /// <summary>
+    /// Optional acceleration. If zero, full speed from get go. Put any number for otherwise.
+    /// </summary>
+    [DataField]
+    public float Acceleration;
 
 }
