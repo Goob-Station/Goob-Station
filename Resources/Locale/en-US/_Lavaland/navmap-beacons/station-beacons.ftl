@@ -13,3 +13,5 @@ station-beacon-ruin-syndicate = Syndicate Signal
 
 station-beacon-mercury-arena = Sea of Fantasy Trees
 station-beacon-bottomless-pit = Radioactive Signal
+
+station-beacon-ruin-banana-arena = Taunting Signal

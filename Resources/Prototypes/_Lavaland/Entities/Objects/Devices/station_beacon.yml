@@ -203,3 +203,11 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: solarparticle
+
+- type: entity
+  parent: DefaultStationBeaconLavalandRuin
+  id: DefaultStationBeaconRuinBananaArena
+  suffix: Ruin Childish Oni Arena
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-ruin-banana-arena

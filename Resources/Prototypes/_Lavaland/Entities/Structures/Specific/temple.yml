@@ -1,0 +1,109 @@
+- type: entity
+  id: JapaneseGateTorii
+  parent: BaseStructure
+  name: Torii gate
+  description: Bow before entering as a show of respect.
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Lavaland/Structures/Specific/96x96.rsi
+    state: torii
+    drawdepth: Overdoors
+    noRot: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      leftPillar:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.15, -1.5, -0.65, -0.9"
+        density: 1000
+        mask:
+        - LargeMobMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+        - BulletImpassable
+      rightPillar:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.65, -1.5, 1.15, -0.9"
+        density: 1000
+        mask:
+        - LargeMobMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+        - BulletImpassable
+
+- type: entity
+  parent: BaseRoofTempleShingle
+  id: TemplePillar
+  name: temple pillar # Deliberaly does not have collisions because it is used in boss arena. If you wish to use these make a child with collissions.
+  description: Holds up a temple.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Structures/Specific/temple.rsi
+    state: pillar
+    drawdepth: Overdoors
+  - type: Icon
+    sprite: _Lavaland/Structures/Specific/temple.rsi
+    state: pillar
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path: /Audio/Effects/chop.ogg
+        params:
+          variation: 0.05
+  - type: Destructible
+    thresholds:
+    - trigger: # Excess damage, don't spawn entities
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Log:
+            min: 1
+            max: 3
+
+- type: entity
+  id: StandingTorch
+  parent: BaseStructure
+  name: Standing torch
+  description: A large torch fashioned from wood and iron.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Lavaland/Structures/Specific/torch.rsi
+    state: torch_tall
+  - type: PointLight
+    radius: 7
+    energy: 3
+    color: "#FFC90C"
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 60
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+  - type: AmbientSound
+    volume: -5
+    range: 5
+    sound:
+      path: /Audio/Ambience/Objects/fireplace.ogg
+  - type: AlwaysHot

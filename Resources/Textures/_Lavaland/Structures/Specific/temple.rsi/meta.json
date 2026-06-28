@@ -1,0 +1,29 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Sprited by OnsenCapy",
+    "size": {
+        "x": 96,
+        "y": 96
+    },
+    "states": [
+        {
+            "name": "pillar"
+        },
+                {
+            "name": "panel"
+        },
+                {
+            "name": "shinglecenter",
+            "directions": 4
+        },
+        {
+            "name": "shingleedge",
+            "directions": 4
+        },
+                {
+            "name": "shingleedgealt",
+            "directions": 4
+        }
+    ]
+}

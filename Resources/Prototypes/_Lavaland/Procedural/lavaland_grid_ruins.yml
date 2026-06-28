@@ -31,6 +31,13 @@
   patchToPlanet: false
 
 - type: lavalandGridRuin
+  id: BananaArena
+  name: lavaland-ruin-banana
+  path: /Maps/_Lavaland/Lavaland/ruin_childish_oni_arena.yml
+  priority: -1 # highest priority
+  patchToPlanet: false
+
+- type: lavalandGridRuin
   id: BiodomeSnow
   name: lavaland-ruin-biodome
   path: /Maps/_Lavaland/Lavaland/ruin_snow_biodome.yml
