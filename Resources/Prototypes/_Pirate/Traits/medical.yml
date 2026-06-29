@@ -67,6 +67,9 @@
   components:
   - type: Vampirism
     succDelay: 3
+  - type: VampireHolyWaterWeakness
+  - type: WeakToHoly
+    AlwaysTakeHoly: true
 #endregion
 
 #region Hearing

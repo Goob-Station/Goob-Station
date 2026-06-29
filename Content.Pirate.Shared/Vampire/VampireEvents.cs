@@ -174,7 +174,6 @@ public sealed partial class VampireRejuvenateIIActionEvent : InstantActionEvent
 
 public sealed partial class VampireClassSelectActionEvent : InstantActionEvent;
 
-public sealed partial class VampireToggleFangsActionEvent : InstantActionEvent;
 public sealed partial class VampireLocateMindActionEvent : InstantActionEvent;
 
 public sealed class VampireBloodDrankEvent : EntityEventArgs

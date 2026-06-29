@@ -13,6 +13,8 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Pirate.Shared.Vampirism.Events;
 using Content.Pirate.Server.Traits.Vampirism.Components;
+using Content.Pirate.Server.Vampire.Systems;
+using Content.Goobstation.Common.Religion;
 //using Content.Shared.Cocoon;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
@@ -25,6 +27,8 @@ using Content.Server.Nutrition.Components;
 using Content.Server.Mind;
 using Content.Shared.HealthExaminable;
 using Content.Shared.Body.Organ;
+using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.Eye.Blinding.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Utility;
@@ -35,6 +39,12 @@ using Content.Server.Atmos.Rotting;
 using Content.Server.Nutrition.EntitySystems;
 using Content.Pirate.Shared.Vampire.Components;
 using Content.Goobstation.Shared.Religion;
+using Content.Shared.Atmos.Rotting;
+using Content.Shared.Humanoid;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
+using Content.Shared._EinsteinEngines.Silicon.Components;
+using Robust.Shared.Audio;
 
 
 namespace Content.Pirate.Server.Traits.Vampirism.Systems
@@ -54,6 +64,7 @@ namespace Content.Pirate.Server.Traits.Vampirism.Systems
         [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
         [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
+        [Dependency] private readonly VampireSystem _vampireSystem = default!;
         [Dependency] private readonly HungerSystem _hunger = default!;
         [Dependency] private readonly RottingSystem _rotting = default!;
 
@@ -115,7 +126,6 @@ namespace Content.Pirate.Server.Traits.Vampirism.Systems
             if (success)
                 args.Repeat = true;
         }
-
         public void StartSuccDoAfter(EntityUid bloodsucker, EntityUid victim, BloodSuckerComponent? bloodSuckerComponent = null, BloodstreamComponent? stream = null, bool doChecks = true)
         {
             if (!Resolve(bloodsucker, ref bloodSuckerComponent) || !Resolve(victim, ref stream))
@@ -142,12 +152,25 @@ namespace Content.Pirate.Server.Traits.Vampirism.Systems
                     _popups.PopupEntity(Loc.GetString("vampire-blooddrink-rotted"), victim, bloodsucker, PopupType.Medium);
                     return;
                 }
-
+                // is bloodsucker have mouth free?
+                if (IsMouthBlocked(bloodsucker))
+                {
+                    _popups.PopupEntity(Loc.GetString("vampire-mouth-covered"), bloodsucker, bloodsucker);
+                    return;
+                }
                 // Warn if the victim is another vampire
                 if (HasComp<VampireComponent>(victim) || HasComp<VampirismComponent>(victim))
                 {
                     _popups.PopupEntity(Loc.GetString("bloodsucker-victim-is-vampire"), victim, bloodsucker, PopupType.MediumCaution);
                 }
+            }
+            // Antag vampires get an early heads-up that a faith-protected victim will give no power.
+            // Drinking is still allowed, they just won't feed on the blood (see TryGainVampirePower).
+            if (TryComp<VampireComponent>(bloodsucker, out var vamp)
+                && !vamp.FullPower
+                && _vampireSystem.IsProtectedByFaith(victim))
+            {
+                _popups.PopupEntity(Loc.GetString("vampire-target-protected-by-faith"), bloodsucker, bloodsucker, PopupType.MediumCaution);
             }
 
             if (stream.BloodReagent != "Blood")
@@ -176,6 +199,13 @@ namespace Content.Pirate.Server.Traits.Vampirism.Systems
             // Is bloodsucker a bloodsucker?
             if (!Resolve(bloodsucker, ref bloodsuckerComp))
                 return false;
+
+            // Check for IPCs/silicons
+            if (HasComp<SiliconComponent>(victim))
+            {
+                _popups.PopupEntity(Loc.GetString("vampire-drink-target-not-viable"), bloodsucker, bloodsucker, PopupType.MediumCaution);
+                return false;
+            }
 
             // Does victim have a bloodstream?
             if (!TryComp<BloodstreamComponent>(victim, out var bloodstream))
@@ -233,7 +263,101 @@ namespace Content.Pirate.Server.Traits.Vampirism.Systems
             //{
             //    _solutionSystem.TryAddReagent(victim, injectable, bloodsuckerComp.InjectReagent, bloodsuckerComp.UnitsToInject, out var acceptedQuantity);
             //}
+
+            // Antag vampires additionally feed on the blood to power their abilities.
+            if (TryComp<VampireComponent>(bloodsucker, out var vamp))
+                TryGainVampirePower(bloodsucker, vamp, victim, temp.Volume.Float());
+
             return true;
+        }
+
+        /// <summary>
+        /// Antag-only follow up to a successful bite. Runs the additional checks the old
+        /// VampireComponent drinking system had and, if they pass, feeds the vampire's power.
+        /// On a failed check the vampire still drank normally but is warned and gains nothing.
+        /// </summary>
+        private void TryGainVampirePower(EntityUid uid, VampireComponent comp, EntityUid target, float drunkAmount)
+        {
+            if (drunkAmount <= 0f)
+                return;
+
+            // Drinking another vampire's blood grants no power.
+            if (HasComp<VampireComponent>(target) || HasComp<VampirismComponent>(target))
+            {
+                _popups.PopupEntity(Loc.GetString("bloodsucker-victim-is-vampire"), uid, uid, PopupType.MediumCaution);
+                return;
+            }
+
+            // Holy people give no power unless we are at full power.
+            if (_vampireSystem.IsProtectedByFaith(target) && !comp.FullPower)
+            {
+                _popups.PopupEntity(Loc.GetString("vampire-target-protected-by-faith"), uid, uid, PopupType.MediumCaution);
+                return;
+            }
+
+            // Only so much power can be wrung out of a single victim.
+            var drunkFromTarget = comp.BloodDrunkFromTargets.GetValueOrDefault(target, 0);
+            if (drunkFromTarget >= comp.MaxBloodPerTarget)
+            {
+                _popups.PopupEntity(Loc.GetString("vampire-drink-target-hard-max", ("amount", comp.MaxBloodPerTarget)), uid, uid, PopupType.MediumCaution);
+                return;
+            }
+
+            // Silicons and (optionally) the dead are not a usable source of power.
+            if (HasComp<SiliconComponent>(target)
+                || !TryComp<MobStateComponent>(target, out var mobState)
+                || (mobState.CurrentState == MobState.Dead && comp.DeadEfficiency == 0f))
+            {
+                _popups.PopupEntity(Loc.GetString("vampire-drink-target-not-viable"), uid, uid, PopupType.MediumCaution);
+                return;
+            }
+
+            // How much of the drawn blood is actually usable as power.
+            var targetIsHumanoid = HasComp<HumanoidAppearanceComponent>(target);
+            var efficiency = targetIsHumanoid ? comp.HumanoidEfficiency : comp.NonHumanoidEfficiency;
+            if (mobState.CurrentState == MobState.Dead)
+                efficiency *= comp.DeadEfficiency;
+            if (TryComp<PerishableComponent>(target, out var rot))
+                efficiency *= GetRotEfficiency(comp, rot.Stage);
+
+            if (efficiency <= 0f)
+            {
+                _popups.PopupEntity(Loc.GetString("vampire-drink-target-rot"), uid, uid, PopupType.MediumCaution);
+                return;
+            }
+
+            var bloodGained = MathF.Min(drunkAmount * efficiency * 2, comp.MaxBloodPerTarget - drunkFromTarget);
+            if (bloodGained <= 0f)
+                return;
+
+            // Damage, sound and other side effects of biting are handled by the shared TrySucc flow.
+            // Here antags only convert the drawn blood into usable power.
+            _vampireSystem.AddBlood(uid, comp, bloodGained, target, countTotalBlood: targetIsHumanoid);
+        }
+
+        private static float GetRotEfficiency(VampireComponent comp, int stage) => stage switch
+        {
+            0 => comp.Rot0Efficiency,
+            1 => comp.Rot1Efficiency,
+            2 => comp.Rot2Efficiency,
+            3 => comp.Rot3Efficiency,
+            _ => comp.Rot4Efficiency,
+        };
+
+        private bool IsMouthBlocked(EntityUid uid)
+        {
+            if (!HasComp<InventoryComponent>(uid))
+                return false;
+
+            var slots = new[] { "mask", "head" };
+            foreach (var slot in slots)
+                if (_inventorySystem.TryGetSlotEntity(uid, slot, out var ent) &&
+                    TryComp<IngestionBlockerComponent>(ent.Value, out var blocker) &&
+                    blocker.Enabled)
+
+                    return true;
+
+            return false;
         }
     }
 }

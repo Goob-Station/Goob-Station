@@ -2,27 +2,6 @@
 
 - type: entity
   parent: BaseAction
-  id: ActionVampireToggleFangs
-  name: Toggle Fangs(Toggle)
-  description: Extend or retract your fangs to drink blood from victims.
-  components:
-    - type: Action
-      useDelay: 2 # Toggle
-      itemIconStyle: NoItem
-      priority: 1
-      icon:
-        sprite: _Pirate/Vampire/actions_vampire.rsi
-        state: fangs_retracted
-      iconOn:
-        sprite: _Pirate/Vampire/actions_vampire.rsi
-        state: fangs_extended
-    - type: InstantAction
-      event: !type:VampireToggleFangsActionEvent {}
-    - type: VampireAction
-      bloodToUnlock: 0
-      bloodCost: 0
-- type: entity
-  parent: BaseAction
   id: ActionVampireGlare
   name: Glare(Free)
   description: Stare down nearby targets, dealing stamina damage. Targets in front are paralyzed, muted, and take extra stamina damage over time.

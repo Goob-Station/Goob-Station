@@ -17,7 +17,4 @@ public sealed partial class VampirismComponent : Component
 
     [DataField]
     public TimeSpan SuccDelay = TimeSpan.FromSeconds(1);
-
-    [DataField]
-    public float UnitsToSucc = 10;
 }

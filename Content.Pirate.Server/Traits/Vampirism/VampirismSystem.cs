@@ -4,10 +4,12 @@ using Content.Pirate.Server.Traits.Vampirism.Components;
 using Content.Pirate.Shared.Vampire.Components;
 using Content.Server.Body.Systems;
 using Content.Shared.Body.Components;
+using Content.Shared.Body.Prototypes;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Robust.Shared.Analyzers;
+using Robust.Shared.Prototypes;
 
 namespace Content.Pirate.Server.Traits.Vampirism;
 
@@ -18,7 +20,6 @@ public sealed class VampirismSystem : EntitySystem
     [Dependency] private readonly MetabolizerSystem _metabolizer = default!;
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-
     public override void Initialize()
     {
         SubscribeLocalEvent<VampirismComponent, MapInitEvent>(OnInitVampire);
@@ -26,51 +27,33 @@ public sealed class VampirismSystem : EntitySystem
 
     private void OnInitVampire(Entity<VampirismComponent> ent, ref MapInitEvent args)
     {
-        if (!TryComp<BodyComponent>(ent, out var bodyCheck)
-            || !_body.TryGetBodyOrganEntityComps<StomachComponent>((ent, bodyCheck), out var stomachComps)
+        if (!TryComp<BodyComponent>(uid, out var body)
+            || !_body.TryGetBodyOrganEntityComps<StomachComponent>((uid, body), out var stomachComps)
             || stomachComps.Count == 0)
-        {
-            // No stomach found and requirement not ignored - don't initialize vampirism
-            return;
-        }
+            return false;
 
         // Mark vampire blood with VampireToxin on the DnaComponent so future blood generation includes it
-        if (TryComp<Content.Shared.Forensics.Components.DnaComponent>(ent, out var dnaComp))
-        {
+        if (TryComp<Content.Shared.Forensics.Components.DnaComponent>(uid, out var dnaComp))
             dnaComp.VampireToxin = true;
-        }
+
         // Mark existing blood solution with VampireToxin so metabolism effects won't apply
-        MarkVampireBloodWithToxin(ent);
+        MarkVampireBloodWithToxin(uid);
 
-        EnsureBloodSucker(ent);
-        if (ent.Comp.MetabolizerPrototypes == null)
-            return;
+        if (metabolizerPrototypes == null)
+            return true;
 
-        if (!TryComp<BodyComponent>(ent, out var body)
-            || !_body.TryGetBodyOrganEntityComps<MetabolizerComponent>((ent, body), out var comps))
-            return;
+        if (!_body.TryGetBodyOrganEntityComps<MetabolizerComponent>((uid, body), out var comps))
+            return true;
 
         foreach (var comp in comps)
         {
-            if (!TryComp<StomachComponent>(comp.Comp2.Owner, out var stomach))
+            if (!TryComp<StomachComponent>(comp.Comp2.Owner, out _))
                 continue;
 
-            _metabolizer.SetMetabolizerTypes((comp.Comp2.Owner, comp.Comp1), ent.Comp.MetabolizerPrototypes);
+            _metabolizer.SetMetabolizerTypes((comp.Comp2.Owner, comp.Comp1), metabolizerPrototypes);
         }
-    }
 
-    private void EnsureBloodSucker(Entity<VampirismComponent> uid)
-    {
-        if (HasComp<BloodSuckerComponent>(uid))
-            return;
-
-        AddComp(uid, new BloodSuckerComponent
-        {
-            Delay = uid.Comp.SuccDelay,
-            InjectWhenSucc = false, // The code for it is deprecated, might wanna make it inject something when (if?) it gets reworked
-            UnitsToSucc = uid.Comp.UnitsToSucc,
-            WebRequired = false
-        });
+        return true;
     }
 
     /// <summary>
