@@ -58,10 +58,10 @@ public sealed partial class CloneProjectorComponent : Component
     [DataField]
     public bool RestrictRangedWeapons = true;
 
-    [DataField]
+    [DataField, AlwaysPushInheritance]
     public ComponentRegistry? AddedComponents;
 
-    [DataField]
+    [DataField, AlwaysPushInheritance]
     public ComponentRegistry? RemovedComponents;
 
     /// <summary>
