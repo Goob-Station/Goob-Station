@@ -54,6 +54,7 @@ using Content.Shared.Mind.Components;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs;
+using Content.Shared.Mood;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Parallax;
 using Content.Shared.Popups;
@@ -788,6 +789,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
     private void OnComponentShutdown(Entity<CosmicCultComponent> uid, ref ComponentShutdown args)
     {
+        RaiseLocalEvent(uid.Owner, new MoodRemoveEffectEvent("CultFocused")); // Pirate - port EE mood system
+
         if (AssociatedGamerule(uid) is not { } cult)
             return;
 

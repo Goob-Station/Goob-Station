@@ -1,5 +1,3 @@
-using Content.Server.Body.Systems;
-using Content.Shared.Body.Components;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Interaction.Events;
@@ -16,7 +14,6 @@ public sealed class MoodEventSystem : EntitySystem
 
         SubscribeLocalEvent<SlipperyComponent, SlipEvent>(OnSlip);
         SubscribeLocalEvent<CuffableComponent, CuffedStateChangeEvent>(OnCuffedStateChanged);
-        SubscribeLocalEvent<BodyComponent, SuffocationEvent>(OnSuffocation);
         SubscribeLocalEvent<InteractionPopupComponent, InteractionSuccessEvent>(OnInteractionSuccess);
     }
 
@@ -31,11 +28,6 @@ public sealed class MoodEventSystem : EntitySystem
             RaiseLocalEvent(entity.Owner, new MoodRemoveEffectEvent("Handcuffed"));
         else
             RaiseLocalEvent(entity.Owner, new MoodEffectEvent("Handcuffed"));
-    }
-
-    private void OnSuffocation(Entity<BodyComponent> entity, ref SuffocationEvent args)
-    {
-        RaiseLocalEvent(entity.Owner, new MoodEffectEvent("Suffocating"));
     }
 
     private void OnInteractionSuccess(Entity<InteractionPopupComponent> entity, ref InteractionSuccessEvent args)
