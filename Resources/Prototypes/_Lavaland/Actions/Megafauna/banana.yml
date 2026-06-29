@@ -8,8 +8,8 @@
     priority: -21
     useDelay: 2
     icon:
-      sprite: _Lavaland/Mobs/Bosses/banana.rsi
-      state: childish-oni
+      sprite: _Lavaland/Actions/banana.rsi
+      state: nameless
     itemIconStyle: NoItem
   - type: TargetAction
     checkCanAccess: false
