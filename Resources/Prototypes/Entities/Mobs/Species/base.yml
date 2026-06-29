@@ -505,6 +505,7 @@
   - type: ExaminableCharacter # WWDP
   - type: AlternativeJob # Pirate - Alternative Jobs
   - type: OfferItem # Pirate - port EE item offesrs
+  - type: Mood # Pirate - port EE mood system
   - type: Sprinter # Goobstation
   - type: MindControllable # Goobstation
   - type: VisibleContraband # Goobstation

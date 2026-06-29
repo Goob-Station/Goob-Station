@@ -1,0 +1,4 @@
+- type: shader
+  id: SaturationScale
+  kind: source
+  path: "/Textures/_Pirate/Shaders/saturationscale.swsl"

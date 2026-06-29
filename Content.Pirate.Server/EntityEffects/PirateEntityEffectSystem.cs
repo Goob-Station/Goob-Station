@@ -1,4 +1,5 @@
 using Content.Pirate.Shared.Vampire.Components;
+using Content.Pirate.Server.Mood;
 using Content.Pirate.Server.Alchemy.Components;
 using Content.Pirate.Shared.Alchemy.EntityEffects;
 using Content.Pirate.Shared.Witch;
@@ -24,6 +25,7 @@ using Content.Shared.EntityEffects;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Maps;
+using Content.Shared.Mood;
 using Content.Shared.Psionics.Glimmer;
 using Content.Shared.StatusEffectNew;
 using Content.Shared.Stacks;
@@ -167,6 +169,9 @@ public sealed class PirateEntityEffectSystem : EntitySystem
 
         SubscribeLocalEvent<ExecuteEntityEffectEvent<ChangeGlimmerReactionEffect>>(OnExecuteChangeGlimmer);
         SubscribeLocalEvent<ExecuteEntityEffectEvent<ChemRemovePsionic>>(OnExecuteChemRemovePsionic);
+        SubscribeLocalEvent<ExecuteEntityEffectEvent<ChemAddMoodlet>>(OnExecuteChemAddMoodlet);
+        SubscribeLocalEvent<ExecuteEntityEffectEvent<ChemRemoveMoodlet>>(OnExecuteChemRemoveMoodlet);
+        SubscribeLocalEvent<ExecuteEntityEffectEvent<ChemPurgeMoodlets>>(OnExecuteChemPurgeMoodlets);
         SubscribeLocalEvent<ExecuteEntityEffectEvent<ChemRerollPsionic>>(OnExecuteChemRerollPsionic);
         SubscribeLocalEvent<ExecuteEntityEffectEvent<ChemRestorePsionicReroll>>(OnExecuteChemRestorePsionicReroll);
         SubscribeLocalEvent<ExecuteEntityEffectEvent<CleanseWitchEffects>>(OnExecuteCleanseWitchEffects);
@@ -193,6 +198,42 @@ public sealed class PirateEntityEffectSystem : EntitySystem
             return;
 
         _psionicAbilities.MindBreak(reagentArgs.TargetEntity);
+    }
+
+    private void OnExecuteChemAddMoodlet(ref ExecuteEntityEffectEvent<ChemAddMoodlet> args)
+    {
+        if (args.Args is not EntityEffectReagentArgs reagentArgs)
+            return;
+
+        RaiseLocalEvent(reagentArgs.TargetEntity, new MoodEffectEvent(args.Effect.MoodPrototype));
+    }
+
+    private void OnExecuteChemRemoveMoodlet(ref ExecuteEntityEffectEvent<ChemRemoveMoodlet> args)
+    {
+        if (args.Args is not EntityEffectReagentArgs reagentArgs)
+            return;
+
+        RaiseLocalEvent(reagentArgs.TargetEntity, new MoodRemoveEffectEvent(args.Effect.MoodPrototype));
+    }
+
+    private void OnExecuteChemPurgeMoodlets(ref ExecuteEntityEffectEvent<ChemPurgeMoodlets> args)
+    {
+        if (args.Args is not EntityEffectReagentArgs reagentArgs
+            || !TryComp<MoodComponent>(reagentArgs.TargetEntity, out var moodComponent))
+            return;
+
+        var moodletList = new List<string>();
+        foreach (var moodlet in moodComponent.UncategorisedEffects)
+        {
+            if (!_prototype.TryIndex(moodlet.Key, out MoodEffectPrototype? moodProto)
+                || moodProto.Timeout == 0 && !args.Effect.RemovePermanentMoodlets)
+                continue;
+
+            moodletList.Add(moodlet.Key);
+        }
+
+        foreach (var moodId in moodletList)
+            RaiseLocalEvent(reagentArgs.TargetEntity, new MoodRemoveEffectEvent(moodId));
     }
 
     private void OnExecuteChemRerollPsionic(ref ExecuteEntityEffectEvent<ChemRerollPsionic> args)

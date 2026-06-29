@@ -1,0 +1,12 @@
+# Morphine
+- type: moodEffect
+  id: MorphineBenefit
+  moodChange: 5
+  timeout: 1020 # 17 minutes
+  moodletOnEnd: MorphineWithdrawal
+  category: "MorphineAddiction"
+
+- type: moodEffect
+  id: MorphineWithdrawal
+  moodChange: -25 # no timeout
+  category: "MorphineAddiction"

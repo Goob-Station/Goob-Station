@@ -1,0 +1,109 @@
+- type: alert
+  id: Insane
+  category: Mood
+  clickEvent: !type:ShowMoodAlertEvent
+  icons:
+  - sprite: /Textures/_Pirate/Interface/Alerts/mood.rsi
+    state: mood_insane
+  name: alerts-mood-insane-name
+  description: alerts-mood-insane-desc
+
+- type: alert
+  id: Horrible
+  category: Mood
+  clickEvent: !type:ShowMoodAlertEvent
+  icons:
+  - sprite: /Textures/_Pirate/Interface/Alerts/mood.rsi
+    state: mood1
+  name: alerts-mood-horrible-name
+  description: alerts-mood-horrible-desc
+
+- type: alert
+  id: Terrible
+  category: Mood
+  clickEvent: !type:ShowMoodAlertEvent
+  icons:
+  - sprite: /Textures/_Pirate/Interface/Alerts/mood.rsi
+    state: mood2
+  name: alerts-mood-terrible-name
+  description: alerts-mood-terrible-desc
+
+- type: alert
+  id: Bad
+  category: Mood
+  clickEvent: !type:ShowMoodAlertEvent
+  icons:
+  - sprite: /Textures/_Pirate/Interface/Alerts/mood.rsi
+    state: mood3
+  name: alerts-mood-bad-name
+  description: alerts-mood-bad-desc
+
+- type: alert
+  id: Meh
+  category: Mood
+  clickEvent: !type:ShowMoodAlertEvent
+  icons:
+  - sprite: /Textures/_Pirate/Interface/Alerts/mood.rsi
+    state: mood4
+  name: alerts-mood-meh-name
+  description: alerts-mood-meh-desc
+
+- type: alert
+  id: Neutral
+  category: Mood
+  clickEvent: !type:ShowMoodAlertEvent
+  icons:
+  - sprite: /Textures/_Pirate/Interface/Alerts/mood.rsi
+    state: mood5
+  name: alerts-mood-neutral-name
+  description: alerts-mood-neutral-desc
+
+- type: alert
+  id: Good
+  category: Mood
+  clickEvent: !type:ShowMoodAlertEvent
+  icons:
+  - sprite: /Textures/_Pirate/Interface/Alerts/mood.rsi
+    state: mood6
+  name: alerts-mood-good-name
+  description: alerts-mood-good-desc
+
+- type: alert
+  id: Great
+  category: Mood
+  clickEvent: !type:ShowMoodAlertEvent
+  icons:
+  - sprite: /Textures/_Pirate/Interface/Alerts/mood.rsi
+    state: mood7
+  name: alerts-mood-great-name
+  description: alerts-mood-great-desc
+
+- type: alert
+  id: Exceptional
+  category: Mood
+  clickEvent: !type:ShowMoodAlertEvent
+  icons:
+  - sprite: /Textures/_Pirate/Interface/Alerts/mood.rsi
+    state: mood8
+  name: alerts-mood-exceptional-name
+  description: alerts-mood-exceptional-desc
+
+- type: alert
+  id: Perfect
+  category: Mood
+  clickEvent: !type:ShowMoodAlertEvent
+  icons:
+  - sprite: /Textures/_Pirate/Interface/Alerts/mood.rsi
+    state: mood9
+  name: alerts-mood-perfect-name
+  description: alerts-mood-perfect-desc
+
+- type: alert
+  id: MoodDead
+  category: Mood
+  clickEvent: !type:ShowMoodAlertEvent
+  icons:
+  - sprite: /Textures/_Pirate/Interface/Alerts/mood.rsi
+    state: mood_happiness_bad
+  name: alerts-mood-dead-name
+  description: alerts-mood-dead-desc

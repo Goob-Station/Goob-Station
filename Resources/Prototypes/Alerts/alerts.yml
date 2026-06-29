@@ -139,6 +139,7 @@
   id: BaseAlertOrder
   order:
   - category: Health
+  - category: Mood # Pirate - port EE mood system
   - category: Stamina
   - alertType: ChangelingBiomass # goobstation - changelings
   - alertType: ChangelingChemicals # goobstation - changelings
