@@ -23,6 +23,9 @@ public sealed partial class MoodComponent : Component
     public readonly Dictionary<string, string> CategorisedEffects = new();
 
     [ViewVariables(VVAccess.ReadOnly)]
+    public readonly Dictionary<string, float> CategorisedEffectValues = new();
+
+    [ViewVariables(VVAccess.ReadOnly)]
     public readonly Dictionary<string, float> UncategorisedEffects = new();
 
     [DataField]
@@ -58,6 +61,7 @@ public sealed partial class MoodComponent : Component
         { MoodThreshold.Bad, 30f },
         { MoodThreshold.Terrible, 20f },
         { MoodThreshold.Horrible, 10f },
+        { MoodThreshold.Insane, 5f },
         { MoodThreshold.Dead, 0f },
     };
 

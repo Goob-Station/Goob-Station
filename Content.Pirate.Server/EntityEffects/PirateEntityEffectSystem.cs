@@ -223,6 +223,16 @@ public sealed class PirateEntityEffectSystem : EntitySystem
             return;
 
         var moodletList = new List<string>();
+
+        foreach (var moodlet in moodComponent.CategorisedEffects.Values)
+        {
+            if (!_prototype.TryIndex(moodlet, out MoodEffectPrototype? moodProto)
+                || moodProto.Timeout == 0 && !args.Effect.RemovePermanentMoodlets)
+                continue;
+
+            moodletList.Add(moodlet);
+        }
+
         foreach (var moodlet in moodComponent.UncategorisedEffects)
         {
             if (!_prototype.TryIndex(moodlet.Key, out MoodEffectPrototype? moodProto)

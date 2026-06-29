@@ -331,12 +331,18 @@ namespace Content.Shared._EinsteinEngines.Contests // Goob Edit
                 || !_doMoodContests
                 || !TryComp<NetMoodComponent>(performer, out var performerMood)
                 || !TryComp<NetMoodComponent>(target, out var targetMood)
-                || targetMood.CurrentMoodLevel == 0)
+                || performerMood.NeutralMoodThreshold == 0
+                || targetMood.NeutralMoodThreshold == 0)
+                return 1f;
+
+            var performerMoodRatio = performerMood.CurrentMoodLevel / performerMood.NeutralMoodThreshold;
+            var targetMoodRatio = targetMood.CurrentMoodLevel / targetMood.NeutralMoodThreshold;
+            if (targetMoodRatio == 0)
                 return 1f;
 
             return _allowClampOverride && bypassClamp
-                ? performerMood.CurrentMoodLevel / targetMood.CurrentMoodLevel
-                : Math.Clamp(performerMood.CurrentMoodLevel / targetMood.CurrentMoodLevel,
+                ? performerMoodRatio / targetMoodRatio
+                : Math.Clamp(performerMoodRatio / targetMoodRatio,
                     1 - _massContestsMaxPercentage * rangeFactor,
                     1 + _massContestsMaxPercentage * rangeFactor);
         }
@@ -368,6 +374,13 @@ namespace Content.Shared._EinsteinEngines.Contests // Goob Edit
             if (!_doContestSystem)
                 return 1f;
 
+            if (!sumOrMultiply)
+                return MassContest(performer, bypassClampMass, rangeFactorMass)
+                    * StaminaContest(performer, bypassClampStamina, rangeFactorStamina)
+                    * HealthContest(performer, bypassClampHealth, rangeFactorHealth)
+                    * MindContest(performer, bypassClampMind, rangeFactorMind)
+                    * MoodContest(performer, bypassClampMood, rangeFactorMood); // Pirate
+
             var weightTotal = weightMass + weightStamina + weightHealth + weightMind + weightMood; // Pirate
             var massMultiplier = weightMass / weightTotal;
             var staminaMultiplier = weightStamina / weightTotal;
@@ -375,17 +388,11 @@ namespace Content.Shared._EinsteinEngines.Contests // Goob Edit
             var mindMultiplier = weightMind / weightTotal;
             var moodMultiplier = weightMood / weightTotal; // Pirate
 
-            return sumOrMultiply
-                ? MassContest(performer, bypassClampMass, rangeFactorMass) * massMultiplier
-                    + StaminaContest(performer, bypassClampStamina, rangeFactorStamina) * staminaMultiplier
-                    + HealthContest(performer, bypassClampHealth, rangeFactorHealth) * healthMultiplier
-                    + MindContest(performer, bypassClampMind, rangeFactorMind) * mindMultiplier
-                    + MoodContest(performer, bypassClampMood, rangeFactorMood) * moodMultiplier // Pirate
-                : MassContest(performer, bypassClampMass, rangeFactorMass) * massMultiplier
-                    * StaminaContest(performer, bypassClampStamina, rangeFactorStamina) * staminaMultiplier
-                    * HealthContest(performer, bypassClampHealth, rangeFactorHealth) * healthMultiplier
-                    * MindContest(performer, bypassClampMind, rangeFactorMind) * mindMultiplier
-                    * MoodContest(performer, bypassClampMood, rangeFactorMood) * moodMultiplier; // Pirate
+            return MassContest(performer, bypassClampMass, rangeFactorMass) * massMultiplier
+                + StaminaContest(performer, bypassClampStamina, rangeFactorStamina) * staminaMultiplier
+                + HealthContest(performer, bypassClampHealth, rangeFactorHealth) * healthMultiplier
+                + MindContest(performer, bypassClampMind, rangeFactorMind) * mindMultiplier
+                + MoodContest(performer, bypassClampMood, rangeFactorMood) * moodMultiplier; // Pirate
         }
 
         public float EveryContest(
@@ -412,6 +419,13 @@ namespace Content.Shared._EinsteinEngines.Contests // Goob Edit
             if (!_doContestSystem)
                 return 1f;
 
+            if (!sumOrMultiply)
+                return MassContest(performer, target, bypassClampMass, rangeFactorMass)
+                    * StaminaContest(performer, target, bypassClampStamina, rangeFactorStamina)
+                    * HealthContest(performer, target, bypassClampHealth, rangeFactorHealth)
+                    * MindContest(performer, target, bypassClampMind, rangeFactorMind)
+                    * MoodContest(performer, target, bypassClampMood, rangeFactorMood); // Pirate
+
             var weightTotal = weightMass + weightStamina + weightHealth + weightMind + weightMood; // Pirate
             var massMultiplier = weightMass / weightTotal;
             var staminaMultiplier = weightStamina / weightTotal;
@@ -419,17 +433,11 @@ namespace Content.Shared._EinsteinEngines.Contests // Goob Edit
             var mindMultiplier = weightMind / weightTotal;
             var moodMultiplier = weightMood / weightTotal; // Pirate
 
-            return sumOrMultiply
-                ? MassContest(performer, target, bypassClampMass, rangeFactorMass) * massMultiplier
-                    + StaminaContest(performer, target, bypassClampStamina, rangeFactorStamina) * staminaMultiplier
-                    + HealthContest(performer, target, bypassClampHealth, rangeFactorHealth) * healthMultiplier
-                    + MindContest(performer, target, bypassClampMind, rangeFactorMind) * mindMultiplier
-                    + MoodContest(performer, target, bypassClampMood, rangeFactorMood) * moodMultiplier // Pirate
-                : MassContest(performer, target, bypassClampMass, rangeFactorMass) * massMultiplier
-                    * StaminaContest(performer, target, bypassClampStamina, rangeFactorStamina) * staminaMultiplier
-                    * HealthContest(performer, target, bypassClampHealth, rangeFactorHealth) * healthMultiplier
-                    * MindContest(performer, target, bypassClampMind, rangeFactorMind) * mindMultiplier
-                    * MoodContest(performer, target, bypassClampMood, rangeFactorMood) * moodMultiplier; // Pirate
+            return MassContest(performer, target, bypassClampMass, rangeFactorMass) * massMultiplier
+                + StaminaContest(performer, target, bypassClampStamina, rangeFactorStamina) * staminaMultiplier
+                + HealthContest(performer, target, bypassClampHealth, rangeFactorHealth) * healthMultiplier
+                + MindContest(performer, target, bypassClampMind, rangeFactorMind) * mindMultiplier
+                + MoodContest(performer, target, bypassClampMood, rangeFactorMood) * moodMultiplier; // Pirate
         }
         #endregion
     }

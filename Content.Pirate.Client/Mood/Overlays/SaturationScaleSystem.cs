@@ -33,10 +33,22 @@ public sealed class SaturationScaleSystem : EntitySystem
 
     private void HandleMoodEffectsUpdated(bool moodEffectsEnabled)
     {
-        if (_overlayMan.HasOverlay<SaturationScaleOverlay>() && !moodEffectsEnabled)
-            _overlayMan.RemoveOverlay(_overlay);
-
         _moodEffectsEnabled = moodEffectsEnabled;
+
+        if (!moodEffectsEnabled)
+        {
+            if (_overlayMan.HasOverlay<SaturationScaleOverlay>())
+                _overlayMan.RemoveOverlay(_overlay);
+
+            return;
+        }
+
+        if (_playerMan.LocalEntity is { } uid
+            && HasComp<SaturationScaleOverlayComponent>(uid)
+            && !_overlayMan.HasOverlay<SaturationScaleOverlay>())
+        {
+            _overlayMan.AddOverlay(_overlay);
+        }
     }
 
     private void RoundRestartCleanup(RoundRestartCleanupEvent ev)

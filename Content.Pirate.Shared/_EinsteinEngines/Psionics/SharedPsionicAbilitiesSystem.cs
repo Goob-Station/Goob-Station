@@ -135,8 +135,11 @@ namespace Content.Shared.Abilities.Psionics
         ///     Returns the CurrentDampening of a given Entity, multiplied by the result of that Entity's MoodContest.
         ///     Lower mood means more Dampening, higher mood means less Dampening.
         /// </summary>
-        public float ModifiedDampening(EntityUid uid, PsionicComponent component) =>
-            component.CurrentDampening / _contests.MoodContest(uid, true); // Pirate
+        public float ModifiedDampening(EntityUid uid, PsionicComponent component)
+        {
+            var moodContest = _contests.MoodContest(uid, true); // Pirate
+            return moodContest == 0 ? component.CurrentDampening : component.CurrentDampening / moodContest; // Pirate
+        }
     }
 
     public sealed class PsionicPowerUsedEvent : HandledEntityEventArgs

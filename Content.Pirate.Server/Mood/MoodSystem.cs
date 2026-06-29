@@ -86,7 +86,7 @@ public sealed class MoodSystem : EntitySystem
         RemComp<SaturationScaleOverlayComponent>(uid);
 
         foreach (var token in component.EffectTimeoutSources.Values)
-            token.Cancel();
+            DisposeEffectTimeout(token);
 
         component.EffectTimeoutSources.Clear();
     }
@@ -150,7 +150,7 @@ public sealed class MoodSystem : EntitySystem
             return;
 
         if (mood.EffectTimeoutSources.TryGetValue(effect.ID, out var oldTimeoutSource))
-            oldTimeoutSource.Cancel();
+            DisposeEffectTimeout(oldTimeoutSource);
 
         var timeoutSource = new CancellationTokenSource();
         Timer.Spawn(
@@ -161,16 +161,24 @@ public sealed class MoodSystem : EntitySystem
         mood.EffectTimeoutSources[effect.ID] = timeoutSource;
     }
 
+    private static void DisposeEffectTimeout(CancellationTokenSource timeoutSource)
+    {
+        timeoutSource.Cancel();
+        timeoutSource.Dispose();
+    }
+
     private void StopEffectTimeout(MoodComponent mood, string effectId)
     {
         if (!mood.EffectTimeoutSources.Remove(effectId, out var timeoutSource))
             return;
 
-        timeoutSource.Cancel();
+        DisposeEffectTimeout(timeoutSource);
     }
 
     private void ApplyEffect(EntityUid uid, MoodComponent component, MoodEffectPrototype prototype, float eventModifier = 1, float eventOffset = 0)
     {
+        var moodChange = prototype.MoodChange * eventModifier + eventOffset;
+
         if (prototype.Category != null)
         {
             if (component.CategorisedEffects.TryGetValue(prototype.Category, out var oldPrototypeId))
@@ -192,14 +200,18 @@ public sealed class MoodSystem : EntitySystem
                 component.CategorisedEffects.Add(prototype.Category, prototype.ID);
             }
 
+            component.CategorisedEffectValues[prototype.Category] = moodChange;
             StartEffectTimeout(uid, component, prototype);
         }
         else
         {
             if (component.UncategorisedEffects.TryGetValue(prototype.ID, out _))
+            {
+                StartEffectTimeout(uid, component, prototype);
+                RefreshMood(uid, component);
                 return;
+            }
 
-            var moodChange = prototype.MoodChange * eventModifier + eventOffset;
             if (moodChange == 0)
                 return;
 
@@ -241,6 +253,7 @@ public sealed class MoodSystem : EntitySystem
                 return;
 
             comp.CategorisedEffects.Remove(category);
+            comp.CategorisedEffectValues.Remove(category);
         }
 
         ReplaceMood(uid, prototypeId);
@@ -272,10 +285,10 @@ public sealed class MoodSystem : EntitySystem
     {
         var amount = 0f;
 
-        foreach (var (_, protoId) in component.CategorisedEffects)
+        foreach (var (category, protoId) in component.CategorisedEffects)
         {
             if (_prototypeManager.TryIndex<MoodEffectPrototype>(protoId, out var prototype))
-                amount += prototype.MoodChange;
+                amount += component.CategorisedEffectValues.GetValueOrDefault(category, prototype.MoodChange);
         }
 
         foreach (var (_, value) in component.UncategorisedEffects)
@@ -319,7 +332,7 @@ public sealed class MoodSystem : EntitySystem
         if (!force)
         {
             newMoodLevel = Math.Clamp(
-                amount + neutral,
+                newMoodLevel,
                 component.MoodThresholds[MoodThreshold.Dead],
                 component.MoodThresholds[MoodThreshold.Perfect]);
         }
@@ -385,14 +398,18 @@ public sealed class MoodSystem : EntitySystem
             || !_mobThreshold.TryGetThresholdForState(uid, MobState.Critical, out var key))
             return;
 
+        var baseThreshold = component.CritThresholdBeforeModify == FixedPoint2.Zero
+            ? key.Value
+            : component.CritThresholdBeforeModify;
+
         var newKey = modifier switch
         {
-            1 => FixedPoint2.New(key.Value.Float() * component.IncreaseCritThreshold),
-            -1 => FixedPoint2.New(key.Value.Float() * component.DecreaseCritThreshold),
-            _ => component.CritThresholdBeforeModify,
+            1 => FixedPoint2.New(baseThreshold.Float() * component.IncreaseCritThreshold),
+            -1 => FixedPoint2.New(baseThreshold.Float() * component.DecreaseCritThreshold),
+            _ => baseThreshold,
         };
 
-        component.CritThresholdBeforeModify = key.Value;
+        component.CritThresholdBeforeModify = baseThreshold;
         _mobThreshold.SetMobStateThreshold(uid, newKey, MobState.Critical, mobThresholds);
     }
 
