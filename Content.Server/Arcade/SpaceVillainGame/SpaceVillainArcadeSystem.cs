@@ -47,6 +47,7 @@ using Content.Shared.UserInterface;
 using Content.Server.Advertise.EntitySystems;
 using Content.Shared.Advertise.Components;
 using Content.Shared.Arcade;
+using Content.Shared.Mood;
 using Content.Shared.Power;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -120,6 +121,8 @@ public sealed partial class SpaceVillainArcadeSystem : EntitySystem
             return;
         if (!TryComp<ApcPowerReceiverComponent>(uid, out var power) || !power.Powered)
             return;
+
+        RaiseLocalEvent(msg.Actor, new MoodEffectEvent("ArcadePlay")); // Pirate - port EE mood system
 
         switch (msg.PlayerAction)
         {

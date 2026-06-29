@@ -14,6 +14,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Nutrition.Components;
+using Content.Shared.Mood;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using JetBrains.Annotations;
@@ -59,6 +60,11 @@ namespace Content.Shared.Nutrition.EntitySystems
             {
                 _appearance.SetData(uid, CreamPiedVisuals.Creamed, value, appearance);
             }
+
+            if (value)
+                RaiseLocalEvent(uid, new MoodEffectEvent("Creampied")); // Pirate - port EE mood system
+            else
+                RaiseLocalEvent(uid, new MoodRemoveEffectEvent("Creampied")); // Pirate - port EE mood system
         }
 
         private void OnCreamPieLand(EntityUid uid, CreamPieComponent component, ref LandEvent args)

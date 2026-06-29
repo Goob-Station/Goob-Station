@@ -41,6 +41,7 @@ using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Item;
+using Content.Shared.Mood;
 using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared._Shitmed.Body.Part;
 using Content.Shared.Popups;
@@ -645,6 +646,8 @@ public abstract partial class SharedSurgerySystem
         RaiseLocalEvent(args.Body, ev);
         if (ev.Cancelled)
             return;
+
+        RaiseLocalEvent(args.Body, new MoodEffectEvent("SurgeryPain")); // Pirate - port EE mood system
 
         if (!_consciousness.TryGetNerveSystem(args.Body, out var nerveSys))
             return;
