@@ -313,6 +313,12 @@
           shouldHave: false
       - !type:Drunk
         boozePower: 2
+      - !type:ChemAddMoodlet # Pirate - port EE mood system
+        moodPrototype: EthanolBenefit
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Ethanol
+          min: 5
 
 - type: reagent
   id: Gin

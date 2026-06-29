@@ -141,6 +141,8 @@
         showInChat: true
         showInGuidebook: true
         probability: 0.05
+      - !type:ChemAddMoodlet # Pirate - port EE mood system
+        moodPrototype: PepperEffect
   reactiveEffects:
     Acidic:
       methods: [ Touch ]
@@ -212,6 +214,8 @@
       - !type:AdjustReagent
         reagent: Nutriment
         amount: 0.75
+      - !type:ChemAddMoodlet # Pirate - port EE mood system
+        moodPrototype: OilyEffect
 
 - type: reagent
   id: Oil
@@ -246,6 +250,8 @@
       - !type:AdjustReagent
         reagent: Nutriment #Oils enhance nutrition
         amount: 0.75
+      - !type:ChemAddMoodlet # Pirate - port EE mood system
+        moodPrototype: SpicyEffect
     Poison:
       effects:
         - !type:AdjustTemperature
@@ -280,6 +286,8 @@
           reagent: Nutriment
           min: 0.1
         factor: 1
+      - !type:ChemAddMoodlet # Pirate - port EE mood system
+        moodPrototype: ChocolateEffect
   plantMetabolism:
   - !type:PlantAdjustNutrition
     amount: 0.1
@@ -305,6 +313,8 @@
       - !type:AdjustReagent
         reagent: Nutriment
         amount: 0.75
+      - !type:ChemAddMoodlet # Pirate - port EE mood system
+        moodPrototype: ButterEffect
 
 - type: reagent
   id: TeaPowder

@@ -171,6 +171,8 @@
             type: Vampiric
             shouldHave: false # Pirate end
         factor: 1
+      - !type:ChemAddMoodlet # Pirate - port EE mood system
+        moodPrototype: SweetenerEffect
   plantMetabolism:
   - !type:PlantAdjustNutrition
     amount: 0.1

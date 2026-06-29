@@ -127,6 +127,8 @@
       - !type:RemoveComponentEffect # goob edit
         component: DelayedKnockdown
         locale: reagent-effect-guidebook-remove-delayed-knockdown
+      - !type:ChemAddMoodlet # Pirate - port EE mood system
+        moodPrototype: StrongStimulant
     Medicine:
       effects:
       - !type:ResetNarcolepsy
@@ -205,6 +207,8 @@
       - !type:SuppressPain # Shitmed Change
         amount: 1.2
         time: 10 # it accumulated 1.2*quantity and then exists for 30 seconds.
+      - !type:ChemAddMoodlet # Pirate - port EE mood system
+        moodPrototype: StrongStimulant
     Medicine:
       effects:
       - !type:ResetNarcolepsy
@@ -296,6 +300,8 @@
       - !type:SuppressPain
           amount: 1.2
           time: 30 # it accumulated 1.2*quantity and then exists for 30 seconds.
+      - !type:ChemAddMoodlet # Pirate - port EE mood system
+        moodPrototype: StrongStimulant
     Medicine:
       metabolismRate: 0.25 # Goobstation edit
       effects:
@@ -374,6 +380,8 @@
             Shock: -0.1
             Cold: -0.1
             Radiation: -0.1
+      - !type:ChemAddMoodlet # Pirate - port EE mood system
+        moodPrototype: NicotineBenefit
 
 # TODO: Replace these nonstandardized effects with generic brain damage
 - type: reagent
@@ -448,6 +456,8 @@
         type: Add
         time: 5
         refresh: false
+      - !type:ChemAddMoodlet # Pirate - port EE mood system
+        moodPrototype: SpaceDrugsBenefit
 
 - type: reagent
   id: Bananadine
@@ -628,6 +638,8 @@
         conditions: # because of the remainding after effect, threshold is given so the effects ends simultaniously
         - !type:ReagentThreshold
           min: 4
+      - !type:ChemAddMoodlet # Pirate - port EE mood system
+        moodPrototype: TearGasEffect
 
 - type: reagent
   id: Happiness
@@ -689,6 +701,8 @@
         type: Add
         time: 5
         refresh: false
+      - !type:ChemAddMoodlet # Pirate - port EE mood system
+        moodPrototype: PsicodineEffect
 
 - type: reagent # Assmos - /tg/ gases
   id: NitrosylPlasmide

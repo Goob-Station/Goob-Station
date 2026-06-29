@@ -152,6 +152,16 @@
           type: Vampiric
         - !type:HasVampireToxin
           invert: true # Pirate end
+      - !type:ChemAddMoodlet # Pirate - port EE mood system
+        moodPrototype: DrankBlood
+        conditions:
+          - !type:OrganType
+            type: Human
+      - !type:ChemAddMoodlet # Pirate - port EE mood system
+        moodPrototype: DrankBloodVampiric
+        conditions:
+          - !type:OrganType
+            type: Vampiric
     Food:
       effects:
         - !type:AdjustReagent
@@ -197,6 +207,11 @@
   color: "#808A51"
   recognizable: true
   physicalDesc: reagent-physical-desc-slimy
+  metabolisms:
+    Drink:
+      effects:
+        - !type:ChemAddMoodlet # Pirate - port EE mood system
+          moodPrototype: DrankInsectBlood
 
 - type: reagent
   id: Slime
@@ -256,6 +271,14 @@
   color: "#162581"
   recognizable: true
   physicalDesc: reagent-physical-desc-metallic
+  metabolisms:
+    Drink:
+      effects:
+        - !type:ChemAddMoodlet # Pirate - port EE mood system
+          moodPrototype: DrankBlood
+          conditions:
+            - !type:OrganType
+              type: Human
 
 - type: reagent
   parent: Blood
@@ -267,6 +290,14 @@
   color: "#7a8bf2"
   recognizable: true
   physicalDesc: reagent-physical-desc-pungent
+  metabolisms:
+    Drink:
+      effects:
+        - !type:ChemAddMoodlet # Pirate - port EE mood system
+          moodPrototype: DrankBlood
+          conditions:
+            - !type:OrganType
+              type: Human
 
 - type: reagent
   id: ZombieBlood
@@ -298,6 +329,8 @@
           type: Yowie
           shouldHave: false
         probability: 0.25
+      - !type:ChemAddMoodlet # Pirate - port EE mood system
+        moodPrototype: DrankZombieBlood
 
 - type: reagent
   id: Ichor
@@ -375,6 +408,8 @@
       - !type:AdjustReagent
         reagent: Nutriment
         amount: 0.1
+      - !type:ChemAddMoodlet # Pirate - port EE mood system
+        moodPrototype: DrankVomit
   footstepSound:
     collection: FootstepBlood
     params:
