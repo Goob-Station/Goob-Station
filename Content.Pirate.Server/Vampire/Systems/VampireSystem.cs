@@ -7,6 +7,8 @@ using Content.Server.Objectives.Systems;
 using Content.Goobstation.Shared.Religion;
 using Content.Pirate.Shared.Vampire;
 using Content.Pirate.Shared.Vampire.Components;
+using Content.Pirate.Server.Traits.Vampirism;
+using Content.Pirate.Server.Traits.Vampirism.Components;
 using Content.Pirate.Shared.Vampire.Components.Classes;
 using Content.Pirate.Shared.Vampire.Prototypes;
 using Content.Shared.Eye.Blinding.Components;
@@ -77,6 +79,7 @@ public sealed partial class VampireSystem : EntitySystem
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
+    [Dependency] private readonly VampirismSystem _vampirism = default!;
 
     private ISawmill? _sawmill;
     private static readonly ProtoId<DamageGroupPrototype> _bruteGroupId = "Brute";
@@ -453,7 +456,7 @@ public sealed partial class VampireSystem : EntitySystem
 
     private void OnStartup(EntityUid uid, VampireComponent comp, ComponentStartup args)
     {
-        comp.HadWeakToHoly = TryComp<WeakToHolyComponent>(uid, out var weakToHoly);
+       comp.HadWeakToHoly = TryComp<WeakToHolyComponent>(uid, out var weakToHoly);
         comp.HadAlwaysTakeHoly = weakToHoly?.AlwaysTakeHoly ?? false;
 
         weakToHoly ??= EnsureComp<WeakToHolyComponent>(uid);
@@ -480,6 +483,9 @@ public sealed partial class VampireSystem : EntitySystem
         UpdateVampireFedAlert(uid, comp);
 
         SyncVampireActions(uid, comp);
+        EnsureComp<BloodSuckerComponent>(uid);
+        // Process blood like a trait vampire and prevent gaining anything from drinking vampire blood.
+        _vampirism.SetupVampireMetabolism(uid, comp.MetabolizerPrototypes);
         _movementSpeed.RefreshMovementSpeedModifiers(uid);
 
     }
@@ -659,7 +665,7 @@ public sealed partial class VampireSystem : EntitySystem
         Dirty(uid, comp);
     }
 
-    private void HandleHolyWater(EntityUid uid, VampireComponent comp)
+private void HandleHolyWater(EntityUid uid, VampireComponent comp)
     {
         if (comp.UniqueHumanoidVictims < 1)
             return;

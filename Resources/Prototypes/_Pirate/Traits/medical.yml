@@ -67,6 +67,7 @@
   components:
   - type: Vampirism
     succDelay: 3
+  - type: VampireHolyWaterWeakness
 #endregion
 
 #region Hearing
