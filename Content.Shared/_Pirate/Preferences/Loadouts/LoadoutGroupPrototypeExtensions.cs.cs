@@ -33,4 +33,12 @@ public static class LoadoutGroupPrototypeExtensions
             }
         }
     }
+
+    /// <summary>
+    /// Whether a selected loadout group is deprecated, i.e. hidden from the editor and skipped when spawning gear.
+    /// </summary>
+    public static bool IsDeprecatedGroup(this ProtoId<LoadoutGroupPrototype> groupId, IPrototypeManager protoManager)
+    {
+        return protoManager.TryIndex(groupId, out var proto) && proto.Deprecated;
+    }
 }

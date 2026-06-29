@@ -167,6 +167,7 @@
 - type: loadoutGroup
   id: Trinkets
   name: loadout-group-trinkets
+  deprecated: true # Pirate: loadout - old profile compatibility
   minLimit: 0
   maxLimit: 3
   loadouts:
@@ -440,6 +441,7 @@
 - type: loadoutGroup
   id: PassengerFace
   name: loadout-group-passenger-mask
+  deprecated: true # Pirate: loadout - old profile compatibility
   minLimit: 0
   loadouts:
   - PassengerFace
@@ -447,6 +449,7 @@
 - type: loadoutGroup
   id: PassengerGloves
   name: loadout-group-passenger-gloves
+  deprecated: true # Pirate: loadout - old profile compatibility
   minLimit: 0
   loadouts:
   - PassengerGloves

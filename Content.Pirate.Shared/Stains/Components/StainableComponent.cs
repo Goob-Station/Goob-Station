@@ -1,6 +1,7 @@
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.DoAfter;
 using Content.Shared.Inventory;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
@@ -19,7 +20,10 @@ public sealed partial class StainableComponent : Component
     public FixedPoint2 SpillTransferAmount = 0.5f;
 
     [DataField]
-    public float WringDoAfterDuration = 15f;
+    public float WringDoAfterDuration = 10f;
+
+    [DataField]
+    public SoundSpecifier WringSound = new SoundPathSpecifier("/Audio/_Pirate/Machines/wring.ogg");
 
     [DataField]
     public Dictionary<string, List<PrototypeLayerData>> ClothingVisuals = new();

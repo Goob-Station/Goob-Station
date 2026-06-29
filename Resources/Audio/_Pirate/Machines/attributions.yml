@@ -18,3 +18,13 @@
   copyright: "Originally made by Adriana Lopez (Acekat13X31), edited by tgstation contributors"
   source: "https://freesound.org/people/Acekat13X31/sounds/515685/"
 
+
+- files: ["sink_faucet.ogg"]
+  license: "CC0-1.0"
+  copyright: "Made by FOSSarts on freesound, ported from tgstation"
+  source: "https://freesound.org/people/FOSSarts/sounds/740086/"
+
+- files: ["wring.ogg"]
+  license: "CC-BY-4.0"
+  copyright: "Created by everythingsounds on Freesound, edited for SS14"
+  source: "https://freesound.org/people/everythingsounds/sounds/602902/"

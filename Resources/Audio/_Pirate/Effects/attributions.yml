@@ -23,3 +23,8 @@
   license: "CC-BY-SA-3.0"
   copyright: "Taken from Starlight."
   source: "https://github.com/ss14Starlight/space-station-14/blob/starlight-dev/Resources/Audio/_Starlight/Effects/mass_driver_launching.ogg"
+
+- files: ["Emotes/blink.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from NovaSector, added by Manatee."
+  source: "https://github.com/NovaSector/NovaSector/blob/ab979ae8f8e0c65bdce45f368837148d064da32f/modular_nova/modules/emotes/sound/voice/blink.ogg"

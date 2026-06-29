@@ -34,6 +34,7 @@ public sealed class StainSystem : SharedStainSystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = null!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = null!;
     [Dependency] private readonly SpriteSystem _sprite = null!;
+    [Dependency] private readonly ItemSystem _item = null!;
 
     // Cached across prediction rollbacks.
     private readonly Dictionary<EntityUid, (Color Color, SlotFlags Slots, bool HasStain, string Frame)> _lastDrawn = new();
@@ -69,6 +70,9 @@ public sealed class StainSystem : SharedStainSystem
         if (_lastDrawn.TryGetValue(ent.Owner, out var last) && last == drawn)
             return;
         _lastDrawn[ent.Owner] = drawn;
+
+        // Appearance data may already match on the client, so notify item visuals directly.
+        _item.VisualsChanged(ent.Owner);
 
         foreach (var key in ent.Comp.RevealedLayerKeys)
         {
@@ -131,32 +135,32 @@ public sealed class StainSystem : SharedStainSystem
 
             var bloodKey = $"stain-inhand-{args.Location}-{i}";
 
-            if (!string.IsNullOrEmpty(source.RsiPath) || !string.IsNullOrEmpty(source.TexturePath))
-            {
-                var maskKey = $"stain-inhand-mask-{args.Location}-{i}";
-                args.Layers.Add((maskKey, BuildMaskLayer(source, maskKey, bloodKey)));
+            // Mask even BaseRSI-only inhand layers; flat stains can cover the whole sprite.
+            var maskKey = $"stain-inhand-mask-{args.Location}-{i}";
+            args.Layers.Add((maskKey, BuildMaskLayer(source, maskKey, bloodKey)));
 
-                var masked = BuildItemBloodLayer(bloodKey, source);
-                masked.Shader = StainShaderFor(ent.Owner);
-                masked.Color = color;
-                args.Layers.Add((bloodKey, masked));
-                continue;
-            }
-
-            var flat = BuildItemBloodLayer(bloodKey, source);
-            flat.Color = color;
-            args.Layers.Add((bloodKey, flat));
+            var masked = BuildItemBloodLayer(bloodKey, source);
+            masked.Shader = StainShaderFor(ent.Owner);
+            masked.Color = color;
+            args.Layers.Add((bloodKey, masked));
         }
     }
 
     // Tracks dynamic icon silhouettes.
     private string BaseFrameFingerprint(Entity<SpriteComponent?> sprite)
     {
-        if (HasComp<HumanoidAppearanceComponent>(sprite.Owner) || !_sprite.TryGetLayer(sprite, 0, out _, false))
+        if (HasComp<HumanoidAppearanceComponent>(sprite.Owner))
             return string.Empty;
 
-        var state = _sprite.LayerGetRsiState(sprite, 0);
-        return state.IsValid ? state.Name ?? string.Empty : string.Empty;
+        // Icon stains mask every visible base layer, so track visible state changes.
+        var fingerprint = string.Empty;
+        for (var i = 0; _sprite.TryGetLayer(sprite, i, out var layer, false); i++)
+        {
+            var state = _sprite.LayerGetRsiState(sprite, i);
+            fingerprint += $"{(_sprite.IsVisible(layer) ? 1 : 0)}:{(state.IsValid ? state.Name : string.Empty)}|";
+        }
+
+        return fingerprint;
     }
 
     private IEnumerable<(string, PrototypeLayerData)> BuildVisuals(Entity<StainableComponent> ent, List<PrototypeLayerData> templates, string prefix)
@@ -189,7 +193,6 @@ public sealed class StainSystem : SharedStainSystem
         while (_sprite.TryGetLayer(sprite, baseCount, out _, false))
             baseCount++;
 
-        var added = false;
         for (var i = 0; i < baseCount; i++)
         {
             if (!_sprite.TryGetLayer(sprite, i, out var layer, false) || !_sprite.IsVisible(layer))
@@ -212,17 +215,8 @@ public sealed class StainSystem : SharedStainSystem
             masked.Color = color;
             ent.Comp.RevealedLayerKeys.Add(bloodKey);
             _sprite.AddLayer(sprite, masked, null);
-            added = true;
         }
-
-        if (added)
-            return;
-
-        const string flatKey = "stain-icon";
-        var flat = BuildItemBloodLayer(flatKey);
-        flat.Color = color;
-        ent.Comp.RevealedLayerKeys.Add(flatKey);
-        _sprite.AddLayer(sprite, flat, null);
+        // No maskable base layer means no stain overlay.
     }
 
     private static PrototypeLayerData BuildMaskLayer(PrototypeLayerData source, string maskKey, string targetKey)
@@ -255,14 +249,15 @@ public sealed class StainSystem : SharedStainSystem
             slots = bodySlotFlags;
         }
 
+        // Put bare-body stains below matching gear so shoes/gloves hide them.
         if ((slots & SlotFlags.FEET) != 0)
-            AddBodyStainVisual(ent, sprite, color, BareFeetLayerKey, "shoeblood");
+            AddBodyStainVisual(ent, sprite, color, BareFeetLayerKey, "shoeblood", "shoes");
 
         if ((slots & SlotFlags.GLOVES) != 0)
-            AddBodyStainVisual(ent, sprite, color, BareHandsLayerKey, "gloveblood");
+            AddBodyStainVisual(ent, sprite, color, BareHandsLayerKey, "gloveblood", "gloves");
     }
 
-    private void AddBodyStainVisual(Entity<StainableComponent> ent, Entity<SpriteComponent?> sprite, Color color, string key, string state)
+    private void AddBodyStainVisual(Entity<StainableComponent> ent, Entity<SpriteComponent?> sprite, Color color, string key, string state, string slotBookmark)
     {
         var layerData = new PrototypeLayerData
         {
@@ -273,7 +268,11 @@ public sealed class StainSystem : SharedStainSystem
         };
 
         ent.Comp.RevealedLayerKeys.Add(key);
-        _sprite.AddLayer(sprite, layerData, null);
+
+        if (_sprite.LayerMapTryGet(sprite, slotBookmark, out var index, false))
+            _sprite.AddLayer(sprite, layerData, index);
+        else
+            _sprite.AddLayer(sprite, layerData, null);
     }
 
     private static PrototypeLayerData BuildItemBloodLayer(string key, PrototypeLayerData? source = null)

@@ -56,6 +56,7 @@
   - type: DrainableSolution
     solution: tank
   - type: ReagentTank
+  - type: SinkWasher # Pirate: stains - wash stained items / hands at the sink
   - type: Drain
     autoDrain: false
   - type: DumpableSolution

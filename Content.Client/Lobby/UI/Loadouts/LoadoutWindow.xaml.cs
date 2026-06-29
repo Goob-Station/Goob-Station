@@ -121,7 +121,7 @@ public sealed partial class LoadoutWindow : FancyWindow
                 if (!protoManager.TryIndex(group, out var groupProto))
                     continue;
 
-                if (groupProto.Hidden)
+                if (groupProto.Hidden || groupProto.Deprecated) // Pirate: loadout
                     continue;
 
                 var container = new LoadoutGroupContainer(profile, loadout, protoManager.Index(group), session, collection);

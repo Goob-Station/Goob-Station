@@ -70,6 +70,14 @@ public sealed partial class LoadoutGroupPrototype : IPrototype
     [DataField]
     public bool Hidden;
 
+    #region Pirate: loadout
+    /// <summary>
+    /// Kept for profile validation, but hidden from UI and skipped when spawning gear.
+    /// </summary>
+    [DataField]
+    public bool Deprecated;
+    #endregion Pirate: loadout
+
     [DataField(required: true)]
     public List<ProtoId<LoadoutPrototype>> Loadouts = new();
 

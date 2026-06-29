@@ -140,6 +140,10 @@ public abstract class SharedStationSpawningSystem : EntitySystem
         var selectedLoadouts = new List<(Loadout Loadout, LoadoutPrototype Prototype)>();
         foreach (var group in loadout.SelectedLoadouts.OrderBy(x => roleProto.Groups.FindIndex(e => e == x.Key)))
         {
+            // Deprecated groups validate saved profiles, but never spawn gear.
+            if (group.Key.IsDeprecatedGroup(PrototypeManager))
+                continue;
+
             foreach (var items in group.Value)
             {
                 if (!PrototypeManager.TryIndex(items.Prototype, out var loadoutProto))
@@ -398,6 +402,9 @@ public abstract class SharedStationSpawningSystem : EntitySystem
 
         foreach (var group in loadout.SelectedLoadouts)
         {
+            if (group.Key.IsDeprecatedGroup(PrototypeManager)) // Pirate: loadout
+                continue; // Pirate: loadout
+
             foreach (var items in group.Value)
             {
                 if (!PrototypeManager.TryIndex(items.Prototype, out var loadoutPrototype))

@@ -1,7 +1,6 @@
 using Content.Goobstation.Common.Bloodstream;
 using Content.Goobstation.Common.CCVar; // Goobstation
 using Content.Goobstation.Maths.FixedPoint;
-using Content.Shared._Pirate.Fluids; // Pirate: stains
 using Content.Shared._Shitmed.Body;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness;
@@ -20,8 +19,6 @@ using Content.Shared.Drunk;
 using Content.Shared.Fluids;
 using Content.Shared.Forensics.Components;
 using Content.Shared.HealthExaminable;
-using Content.Shared.Inventory; // Pirate: stains
-using Content.Shared.Item; // Pirate: stains
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
@@ -50,7 +47,6 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly SharedDrunkSystem _drunkSystem = default!;
     [Dependency] private readonly SharedStutteringSystem _stutteringSystem = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!; // Pirate: stains
 
     private float _bloodlossMultiplier = 4f; // Goobstation
 
@@ -589,23 +585,7 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
             SolutionContainer.RemoveAllSolution(ent.Comp.TemporarySolution.Value);
         }
 
-#region Pirate: stains
-        RaiseLocalEvent(ent.Owner, new SpilledOnEvent(ent.Owner, tempSol));
-
-        var xform = Transform(ent.Owner);
-        foreach (var neighbor in _lookup.GetEntitiesInRange(xform.Coordinates, 1.5f))
-        {
-            // ItemComponent proxies loose stainables here.
-            if (neighbor == ent.Owner ||
-                (!HasComp<InventoryComponent>(neighbor) && !HasComp<ItemComponent>(neighbor)))
-                continue;
-
-            RaiseLocalEvent(neighbor, new SpilledOnEvent(ent.Owner, tempSol));
-
-            if (tempSol.Volume <= 0)
-                break;
-        }
-#endregion Pirate: stains
+        // Gibbing only spills blood to the floor; bystanders get bloody from the puddle. // Pirate: stains
         _puddle.TrySpillAt(ent, tempSol, out _);
     }
 

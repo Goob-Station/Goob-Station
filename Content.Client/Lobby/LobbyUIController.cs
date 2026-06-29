@@ -442,8 +442,11 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
         if (roleLoadout == null)
             return;
 
-        foreach (var group in roleLoadout.SelectedLoadouts.Values)
+        foreach (var (groupId, group) in roleLoadout.SelectedLoadouts) // Pirate: loadout
         {
+            if (groupId.IsDeprecatedGroup(_prototypeManager)) // Pirate: loadout
+                continue; // Pirate: loadout
+
             foreach (var loadout in group)
             {
                 if (!_prototypeManager.TryIndex(loadout.Prototype, out var loadoutProto))
@@ -465,8 +468,11 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
         // Apply loadout
         if (profile.Loadouts.TryGetValue(job.ID, out var jobLoadout))
         {
-            foreach (var loadouts in jobLoadout.SelectedLoadouts.Values)
+            foreach (var (groupId, loadouts) in jobLoadout.SelectedLoadouts) // Pirate: loadout
             {
+                if (groupId.IsDeprecatedGroup(_prototypeManager)) // Pirate: loadout
+                    continue; // Pirate: loadout
+
                 foreach (var loadout in loadouts)
                 {
                     if (!_prototypeManager.TryIndex(loadout.Prototype, out var loadoutProto))

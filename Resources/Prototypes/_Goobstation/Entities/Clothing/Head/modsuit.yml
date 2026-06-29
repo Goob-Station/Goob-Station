@@ -64,6 +64,18 @@
     - HeadTop
     - HeadSide
   - type: FaceHuggerBlocker
+  #region Pirate: stains
+  # This base has no parent, so add stain visuals here.
+  - type: Appearance
+  - type: Stainable
+    clothingVisuals:
+      head:
+      - sprite: _Pirate/Effects/blood.rsi
+        state: helmetblood
+    iconVisuals:
+    - sprite: _Pirate/Effects/blood.rsi
+      state: helmetbloodicon
+  #endregion Pirate: stains
 
 - type: entity
   abstract: true

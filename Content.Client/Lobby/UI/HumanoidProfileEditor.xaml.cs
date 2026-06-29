@@ -1088,7 +1088,8 @@ namespace Content.Client.Lobby.UI
                     if (AbsorbedLoadoutGroups.Contains(groupId) ||
                         !shownGroups.Add(groupId) ||
                         !_prototypeManager.TryIndex(groupId, out LoadoutGroupPrototype? groupProto) ||
-                        groupProto.Hidden)
+                        groupProto.Hidden ||
+                        groupProto.Deprecated) // Pirate: loadout
                         continue;
 
                     var category = GetLoadoutGroupCategory(groupProto);
@@ -1595,9 +1596,6 @@ namespace Content.Client.Lobby.UI
             if (key.Contains("gloves") || key.Contains("hands"))
                 return "Hands";
 
-            if (key.Contains("head"))
-                return "Head";
-
             if (key.Contains("mask"))
                 return "Mask";
 
@@ -1612,6 +1610,11 @@ namespace Content.Client.Lobby.UI
 
             if (key.Contains("jumpsuit") || key.Contains("jumpskirt") || key.Contains("uniform") || key.Contains("clothing"))
                 return "Uniform";
+
+
+            // Pirate: loadout. Job names like "Head of Security" contain "head"; let slot keywords win first.
+            if (key.Contains("head"))
+                return "Head";
 
             return "Items";
         }

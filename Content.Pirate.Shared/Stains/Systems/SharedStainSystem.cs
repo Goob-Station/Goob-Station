@@ -20,6 +20,7 @@ using Content.Shared.Verbs;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Goobstation.Maths.FixedPoint;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Random;
@@ -54,6 +55,7 @@ public abstract class SharedStainSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = null!;
     [Dependency] private readonly SharedPuddleSystem _puddle = null!;
     [Dependency] private readonly SharedPopupSystem _popup = null!;
+    [Dependency] private readonly SharedAudioSystem _audio = null!;
     [Dependency] private readonly IRobustRandom _random = null!;
     [Dependency] private readonly IGameTiming _timing = null!;
 
@@ -374,6 +376,35 @@ public abstract class SharedStainSystem : EntitySystem
         return true;
     }
 
+    /// <summary>Whether the entity currently carries any stain.</summary>
+    public bool HasStain(EntityUid uid)
+    {
+        return TryComp<StainableComponent>(uid, out var stainable) &&
+               _solution.TryGetSolution(uid, stainable.SolutionName, out _, out var sol) &&
+               sol.Volume > FixedPoint2.Zero;
+    }
+
+    /// <summary>
+    /// Cleans one bare-body stain slot, emptying the solution when no body stains remain.
+    /// </summary>
+    public bool TryCleanBodyStain(EntityUid uid, SlotFlags slot)
+    {
+        if (!TryComp<StainableComponent>(uid, out var stainable) || (stainable.BodyStainSlots & slot) == 0)
+            return false;
+
+        stainable.BodyStainSlots &= ~slot;
+
+        if (stainable.BodyStainSlots == SlotFlags.NONE &&
+            _solution.TryGetSolution(uid, stainable.SolutionName, out var solComp, out _))
+        {
+            _solution.RemoveAllSolution(solComp.Value);
+            OnCleaned((uid, stainable));
+        }
+
+        UpdateVisuals((uid, stainable));
+        return true;
+    }
+
     public bool CleanEntityAndEquipment(EntityUid uid)
     {
         var cleaned = false;
@@ -473,12 +504,16 @@ public abstract class SharedStainSystem : EntitySystem
             Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/bubbles.svg.192dpi.png")),
             Act = () =>
             {
-                _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, ent.Comp.WringDoAfterDuration, new WringStainDoAfterEvent(), ent.Owner)
+                if (_doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, ent.Comp.WringDoAfterDuration, new WringStainDoAfterEvent(), ent.Owner)
+                    {
+                        BreakOnMove = true,
+                        BreakOnDamage = true,
+                        NeedHand = true
+                    }))
                 {
-                    BreakOnMove = true,
-                    BreakOnDamage = true,
-                    NeedHand = true
-                });
+                    // Verb Acts run predicted and server-side; play this once for the user.
+                    _audio.PlayPredicted(ent.Comp.WringSound, ent.Owner, user);
+                }
             }
         });
     }
