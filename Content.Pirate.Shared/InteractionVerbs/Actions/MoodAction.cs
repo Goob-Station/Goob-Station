@@ -27,9 +27,9 @@ public sealed partial class MoodAction : InteractionAction
     public override bool Perform(InteractionArgs args, InteractionVerbPrototype proto, VerbDependencies deps)
     {
         if (Remove)
-            deps.EntMan.EventBus.RaiseLocalEvent(args.Target, new MoodRemoveEffectEvent(Effect.Value));
+            deps.EntMan.EventBus.RaiseLocalEvent(args.Target, new MoodRemoveEffectEvent(Effect.Id));
         else
-            deps.EntMan.EventBus.RaiseLocalEvent(args.Target, new MoodEffectEvent(Effect.Value, Modifier, Offset));
+            deps.EntMan.EventBus.RaiseLocalEvent(args.Target, new MoodEffectEvent(Effect.Id, Modifier, Offset));
 
         return true;
     }
