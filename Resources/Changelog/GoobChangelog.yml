@@ -23610,3 +23610,9 @@ Entries:
       message: Added a low blood alert to the health analyzer.
   id: 2711
   time: '2026-06-23T12:32:06.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Fix
+      message: Fixed Artifact crusher spawning too much fragments.
+  id: 2712
+  time: '2026-06-26T19:27:30.0000000+00:00'
