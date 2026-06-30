@@ -650,11 +650,12 @@ public abstract partial class SharedSurgerySystem
         if (!_consciousness.TryGetNerveSystem(args.Body, out var nerveSys))
             return;
 
-        RaiseLocalEvent(args.Body, new MoodEffectEvent("SurgeryPain")); // Pirate - port EE mood system
-
         var painToInflict = ent.Comp.Amount;
         if (Status.HasEffectComp<ForcedSleepingStatusEffectComponent>(args.Body))
             painToInflict *= ent.Comp.SleepModifier;
+
+        if (painToInflict > FixedPoint2.Zero)
+            RaiseLocalEvent(args.Body, new MoodEffectEvent("SurgeryPain")); // Pirate - port EE mood system
 
         if (!_pain.TryChangePainModifier(
                 nerveSys.Value.Owner,
