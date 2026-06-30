@@ -1,3 +1,4 @@
+using Content.Shared.Body.Prototypes;
 using Content.Shared.Chemistry.Reagent;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -23,7 +24,6 @@ public sealed partial class VampireComponent : Component
     [DataField]
     public List<EntProtoId> BaseVampireActions = new()
     {
-        "ActionVampireToggleFangs",
         "ActionVampireGlare",
         "ActionVampireRejuvenateI",
         "ActionVampireSleep"
@@ -61,16 +61,11 @@ public sealed partial class VampireComponent : Component
     public int BlindInc = 0;
 
     /// <summary>
-    /// Determines whether the fangs are extended or not.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadOnly), DataField, AutoNetworkedField]
-    public bool FangsExtended = false;
-
-    /// <summary>
-    /// amount of blood in u consumed by the vampire per bite
+    /// Metabolizer types applied to the vampire's stomach so it processes blood like a trait vampire.
     /// </summary>
     [DataField]
-    public float SipAmount = 10f;
+    public HashSet<ProtoId<MetabolizerTypePrototype>> MetabolizerPrototypes = new() { "Vampiric", "Animal" };
+
     /// <summary>
     /// damage per 1u of blood drawn from target
     /// </summary>
@@ -116,11 +111,6 @@ public sealed partial class VampireComponent : Component
     /// </summary>
     [DataField]
     public float Rot4Efficiency = 0.0f;
-    /// <summary>
-    /// How far a target may be for biting to work
-    /// </summary>
-    [DataField]
-    public float BiteDistanceThreshold = 1.5f;
 
     /// <summary>
     /// Current blood fullness used instead of normal food needs.
@@ -158,11 +148,6 @@ public sealed partial class VampireComponent : Component
     /// Action entities of the vampire, used as ActionId -> EntityUid.
     /// </summary>
     public Dictionary<EntProtoId, EntityUid> ActionEntities = new();
-
-    /// <summary>
-    /// Determines whether the vampire is drinking at the moment
-    /// </summary>
-    public bool IsDrinking = false;
 
     /// <summary>
     /// tracking how much blood was drunk from each target.
