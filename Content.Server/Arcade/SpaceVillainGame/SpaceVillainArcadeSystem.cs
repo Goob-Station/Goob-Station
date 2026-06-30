@@ -122,13 +122,12 @@ public sealed partial class SpaceVillainArcadeSystem : EntitySystem
         if (!TryComp<ApcPowerReceiverComponent>(uid, out var power) || !power.Powered)
             return;
 
-        RaiseLocalEvent(msg.Actor, new MoodEffectEvent("ArcadePlay")); // Pirate - port EE mood system
-
         switch (msg.PlayerAction)
         {
             case SharedSpaceVillainArcadeComponent.PlayerAction.Attack:
             case SharedSpaceVillainArcadeComponent.PlayerAction.Heal:
             case SharedSpaceVillainArcadeComponent.PlayerAction.Recharge:
+                RaiseLocalEvent(msg.Actor, new MoodEffectEvent("ArcadePlay")); // Pirate - port EE mood system
                 component.Game.ExecutePlayerAction(uid, msg.PlayerAction, component);
                 // Any sort of gameplay action counts
                 if (TryComp<SpeakOnUIClosedComponent>(uid, out var speakComponent))

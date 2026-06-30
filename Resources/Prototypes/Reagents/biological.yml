@@ -162,6 +162,8 @@
         conditions:
           - !type:OrganType
             type: Vampiric
+          - !type:HasVampireToxin
+            invert: true
     Food:
       effects:
         - !type:AdjustReagent
@@ -313,6 +315,8 @@
       effects:
       - !type:SatiateThirst
         factor: -0.5
+      - !type:ChemAddMoodlet # Pirate - port EE mood system
+        moodPrototype: DrankZombieBlood
     Poison:
       effects:
       - !type:HealthChange
@@ -329,9 +333,6 @@
           type: Yowie
           shouldHave: false
         probability: 0.25
-      - !type:ChemAddMoodlet # Pirate - port EE mood system
-        moodPrototype: DrankZombieBlood
-
 - type: reagent
   id: Ichor
   name: reagent-name-ichor

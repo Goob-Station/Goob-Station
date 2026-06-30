@@ -497,6 +497,7 @@ namespace Content.Server.Atmos.EntitySystems
             flammable.OnFire = false;
             flammable.FireStacks = 0;
             flammable.FireProtectionPenetration = 0f; // Goobstation
+            RaiseLocalEvent(uid, new MoodRemoveEffectEvent("OnFire")); // Pirate - port EE mood system
 
             _ignitionSourceSystem.SetIgnited(uid, false);
 

@@ -201,9 +201,8 @@ namespace Content.Server.Bible
                 _popupSystem.PopupEntity(selfMessage, args.User, args.User, PopupType.Large);
                 _audio.PlayPvs(component.HealSoundPath, args.User);
                 _delay.TryResetDelay((uid, useDelay));
+                RaiseLocalEvent(args.Target.Value, new MoodEffectEvent("GotBlessed")); // Pirate - port EE mood system
             }
-
-            RaiseLocalEvent(args.Target.Value, new MoodEffectEvent("GotBlessed")); // Pirate - port EE mood system
         }
 
         private void AddSummonVerb(EntityUid uid, SummonableComponent component, GetVerbsEvent<AlternativeVerb> args)

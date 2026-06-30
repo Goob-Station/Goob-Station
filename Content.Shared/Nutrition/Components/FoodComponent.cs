@@ -192,4 +192,8 @@ public sealed partial class FoodComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public bool RequireDead = true;
+
+    // Pirate - port EE mood system
+    [DataField]
+    public HashSet<string> MoodletsOnEat = new();
 }

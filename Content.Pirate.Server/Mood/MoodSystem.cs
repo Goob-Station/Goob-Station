@@ -197,6 +197,7 @@ public sealed class MoodSystem : EntitySystem
             }
             else
             {
+                SendEffectText(uid, prototype);
                 component.CategorisedEffects.Add(prototype.Category, prototype.ID);
             }
 

@@ -338,7 +338,7 @@ namespace Content.Shared._EinsteinEngines.Contests // Goob Edit
             var performerMoodRatio = performerMood.CurrentMoodLevel / performerMood.NeutralMoodThreshold;
             var targetMoodRatio = targetMood.CurrentMoodLevel / targetMood.NeutralMoodThreshold;
             if (targetMoodRatio == 0)
-                return 1f;
+                return 1 + _massContestsMaxPercentage * rangeFactor;
 
             return _allowClampOverride && bypassClamp
                 ? performerMoodRatio / targetMoodRatio

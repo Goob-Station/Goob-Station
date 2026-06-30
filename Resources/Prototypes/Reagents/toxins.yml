@@ -610,6 +610,9 @@
               min: 5
         - !type:ChemAddMoodlet # Pirate - port EE mood system
           moodPrototype: RomerolEffect
+          conditions:
+            - !type:ReagentThreshold
+              min: 5
 
 - type: reagent
   id: UncookedAnimalProteins

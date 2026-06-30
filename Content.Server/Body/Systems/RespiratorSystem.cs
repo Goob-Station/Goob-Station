@@ -552,6 +552,8 @@ public sealed class RespiratorSystem : EntitySystem
 
     private void OnStopSuffocating(Entity<BodyComponent> ent, ref StopSuffocatingEvent args)
     {
+        RaiseLocalEvent(ent.Owner, new MoodRemoveEffectEvent("Suffocating")); // Pirate - port EE mood system
+
         // TODO: This is not going work with multiple different lungs, if that ever becomes a possibility
         var organs = _bodySystem.GetBodyOrganEntityComps<LungComponent>((ent, null));
         foreach (var entity in organs)
