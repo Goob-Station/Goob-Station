@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseTree
   id: FloraTree01
-  name: "дерево"
+  name: tree
   components:
   - type: Sprite
     sprite: Objects/Decoration/Flora/flora_trees.rsi
@@ -10,7 +10,7 @@
 - type: entity
   parent: BaseTree
   id: FloraTree02
-  name: "дерево"
+  name: tree
   components:
   - type: Sprite
     sprite: Objects/Decoration/Flora/flora_trees.rsi
@@ -19,7 +19,7 @@
 - type: entity
   parent: BaseTree
   id: FloraTree03
-  name: "дерево"
+  name: tree
   components:
   - type: Sprite
     sprite: Objects/Decoration/Flora/flora_trees.rsi
@@ -28,7 +28,7 @@
 - type: entity
   parent: BaseTree
   id: FloraTree04
-  name: "дерево"
+  name: tree
   components:
   - type: Sprite
     sprite: Objects/Decoration/Flora/flora_trees.rsi
@@ -37,7 +37,7 @@
 - type: entity
   parent: BaseTree
   id: FloraTree05
-  name: "дерево"
+  name: tree
   components:
   - type: Sprite
     sprite: Objects/Decoration/Flora/flora_trees.rsi
@@ -46,7 +46,7 @@
 - type: entity
   parent: BaseTree
   id: FloraTree06
-  name: "дерево"
+  name: tree
   components:
   - type: Sprite
     sprite: Objects/Decoration/Flora/flora_trees.rsi
@@ -55,7 +55,7 @@
 - type: entity
   parent: BaseTreeSnow
   id: FloraTreeSnow01
-  name: "засніжене дерево"
+  name: snowy tree
   components:
   - type: Sprite
     sprite: Objects/Decoration/Flora/flora_treessnow.rsi
@@ -64,7 +64,7 @@
 - type: entity
   parent: BaseTreeSnow
   id: FloraTreeSnow02
-  name: "засніжене дерево"
+  name: snowy tree
   components:
   - type: Sprite
     sprite: Objects/Decoration/Flora/flora_treessnow.rsi
@@ -73,7 +73,7 @@
 - type: entity
   parent: BaseTreeSnow
   id: FloraTreeSnow03
-  name: "засніжене дерево"
+  name: snowy tree
   components:
   - type: Sprite
     sprite: Objects/Decoration/Flora/flora_treessnow.rsi
@@ -82,7 +82,7 @@
 - type: entity
   parent: BaseTreeSnow
   id: FloraTreeSnow04
-  name: "засніжене дерево"
+  name: snowy tree
   components:
   - type: Sprite
     sprite: Objects/Decoration/Flora/flora_treessnow.rsi
@@ -91,7 +91,7 @@
 - type: entity
   parent: BaseTreeSnow
   id: FloraTreeSnow05
-  name: "засніжене дерево"
+  name: snowy tree
   components:
   - type: Sprite
     sprite: Objects/Decoration/Flora/flora_treessnow.rsi
@@ -100,7 +100,7 @@
 - type: entity
   parent: BaseTreeSnow
   id: FloraTreeSnow06
-  name: "засніжене дерево"
+  name: snowy tree
   components:
   - type: Sprite
     sprite: Objects/Decoration/Flora/flora_treessnow.rsi
@@ -109,7 +109,7 @@
 - type: entity
   parent: BaseTreeLarge
   id: FloraTreeLarge01
-  name: "велике дерево"
+  name: large tree
   components:
   - type: Sprite
     sprite: Objects/Decoration/Flora/flora_treeslarge.rsi
@@ -118,7 +118,7 @@
 - type: entity
   parent: BaseTreeLarge
   id: FloraTreeLarge02
-  name: "велике дерево"
+  name: large tree
   components:
   - type: Sprite
     sprite: Objects/Decoration/Flora/flora_treeslarge.rsi
@@ -127,7 +127,7 @@
 - type: entity
   parent: BaseTreeLarge
   id: FloraTreeLarge03
-  name: "велике дерево"
+  name: large tree
   components:
   - type: Sprite
     sprite: Objects/Decoration/Flora/flora_treeslarge.rsi
@@ -136,7 +136,7 @@
 - type: entity
   parent: BaseTreeLarge
   id: FloraTreeLarge04
-  name: "велике дерево"
+  name: large tree
   components:
   - type: Sprite
     sprite: Objects/Decoration/Flora/flora_treeslarge.rsi
@@ -145,7 +145,7 @@
 - type: entity
   parent: BaseTreeLarge
   id: FloraTreeLarge05
-  name: "велике дерево"
+  name: large tree
   components:
   - type: Sprite
     sprite: Objects/Decoration/Flora/flora_treeslarge.rsi
@@ -154,7 +154,7 @@
 - type: entity
   parent: BaseTreeLarge
   id: FloraTreeLarge06
-  name: "велике дерево"
+  name: large tree
   components:
   - type: Sprite
     sprite: Objects/Decoration/Flora/flora_treeslarge.rsi
@@ -163,7 +163,7 @@
 - type: entity
   parent: BaseTreeConifer
   id: FloraTreeConifer01
-  name: "засніжене хвойне дерево"
+  name: snowy conifer
   components:
   - type: Sprite
     sprite: Objects/Decoration/Flora/flora_treesconifer.rsi
@@ -172,7 +172,7 @@
 - type: entity
   parent: BaseTreeConifer
   id: FloraTreeConifer02
-  name: "засніжене хвойне дерево"
+  name: snowy conifer
   components:
   - type: Sprite
     sprite: Objects/Decoration/Flora/flora_treesconifer.rsi
@@ -181,7 +181,7 @@
 - type: entity
   parent: BaseTreeConifer
   id: FloraTreeConifer03
-  name: "засніжене хвойне дерево"
+  name: snowy conifer
   components:
   - type: Sprite
     sprite: Objects/Decoration/Flora/flora_treesconifer.rsi
@@ -190,8 +190,8 @@
 - type: entity
   parent: FloraTree01
   id: ShadowTree01
-  name: "темне дерево"
-  description: "Листя шепоче про тебе."
+  name: dark wood
+  description: The leaves are whispering about you.
   components:
   - type: Sprite
     sprite: Objects/Decoration/Flora/flora_shadow_trees.rsi
@@ -240,8 +240,8 @@
 - type: entity
   parent: BaseTree
   id: LightTree01
-  name: "сяюче дерево"
-  description: "дивовижне дерево, сповнене дивної енергії."
+  name: glowing tree
+  description: a marvelous tree filled with strange energy.
   components:
   - type: PointLight
     radius: 2.0

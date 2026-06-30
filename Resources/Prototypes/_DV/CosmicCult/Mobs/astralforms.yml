@@ -3,8 +3,8 @@
   - Incorporeal
   - BaseMob
   id: MobCosmicAstralAscended
-  name: "астральний піднесений"
-  description: "Трансцендентний, піднесений."
+  name: astral ascended
+  description: Transcendant, ascendant.
   components:
   - type: Input
     context: "ghost"
@@ -49,8 +49,8 @@
 - type: entity
   parent: [ Incorporeal, BaseMob ]
   id: MobCosmicAstralProjection
-  name: "астральна проєкція"
-  description: "Ні тут, ні там."
+  name: astral projection
+  description: Neither here nor there.
   components:
   - type: ActionGrant
     actions:
@@ -114,9 +114,9 @@
   id: MobRogueAscended
   parent:
   - BaseMob
-  name: "бунтівний піднесений"
+  name: rogue ascended
   suffix: MidRoundAntag
-  description: "Істота з-за меж блакитного простору. Її контури постійно розмиваються і зливаються, що бентежить око."
+  description: An entity from beyond the borders of bluespace. Its contours continuously blur and blend together, unnerving to the eye.
   components:
   - type: FTLSmashImmune
   - type: Physics

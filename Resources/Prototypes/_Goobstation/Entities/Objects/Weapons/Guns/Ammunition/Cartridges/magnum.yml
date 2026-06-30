@@ -54,7 +54,7 @@
 
 - type: entity
   id: CartridgeMagnumNeurotoxin
-  name: "гільза (.45 дозвукова нейротоксин)"
+  name: shell (.45 subsonic neurotoxin)
   parent: BaseCartridgeMagnum
   components:
   - type: Sprite

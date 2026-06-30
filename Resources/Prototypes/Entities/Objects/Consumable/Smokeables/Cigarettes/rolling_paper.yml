@@ -20,9 +20,9 @@
 
 - type: entity
   parent: BaseStorageItem
-  name: "пачка паперу для закруток"
+  name: pack of rolling paper
   id: PackPaperRolling
-  description: "Пачка тонких шматочків паперу, з яких виготовляють тонкі курильні суміші."
+  description: A pack of thin pieces of paper used to make fine smokeables.
   components:
   - type: Storage
     grid:
@@ -43,9 +43,9 @@
 
 - type: entity
   parent: PackPaperRolling
-  name: "пачка паперу для закруток з фільтрами"
+  name: pack of rolling paper with filters
   id: PackPaperRollingFilters
-  description: "Пачка фільтрів і тонких шматочків паперу, з яких виготовляють тонкі курильні суміші."
+  description: A pack of filters and thin pieces of paper used to make fine smokeables.
   components:
   - type: Storage
     whitelist:
@@ -61,8 +61,8 @@
 
 - type: entity
   id: PaperRolling
-  name: "рулонний папір"
-  description: "Тонкий шматок паперу, з якого виготовляють тонкі курильні суміші."
+  name: rolling paper
+  description: A thin piece of paper used to make fine smokeables.
   suffix: Full
   parent: BaseItem
   components:
@@ -91,8 +91,8 @@
 
 - type: entity
   id: CigaretteFilter
-  name: "сигаретний фільтр"
-  description: "Смужка цупкого паперу, що використовується як фільтр для сигарет ручної роботи."
+  name: cigarette filter
+  description: A strip of firm paper used as a filter for handmade cigarettes.
   suffix: Full
   parent: BaseItem
   components:

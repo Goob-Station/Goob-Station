@@ -1,8 +1,8 @@
 - type: entity
   parent: ComputerSurveillanceWirelessCameraMonitor
   id: ComputerTelevision
-  name: "дерев'яний телевізор"
-  description: "Нарешті тут з'явився пристойний прийом..."
+  name: wooden television
+  description: Finally, some decent reception around here...
   components:
   - type: Sprite
     noRot: true

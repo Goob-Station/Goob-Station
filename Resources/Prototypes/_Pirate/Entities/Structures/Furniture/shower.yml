@@ -1,7 +1,7 @@
 - type: entity
-  name: "Душ"
+  name: Душ
   id: Shower
-  description: "Душ, з якого тече блюспейсова вода."
+  description: Душ, з якого тече блюспейсова вода.
   placement:
     mode: SnapgridCenter
     snap:

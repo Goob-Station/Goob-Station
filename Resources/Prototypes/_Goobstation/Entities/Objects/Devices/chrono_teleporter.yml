@@ -7,8 +7,8 @@
 - type: entity
   id: ChronoTeleporter
   parent: BaseItem
-  name: "футуристичний телепорт"
-  description: "Насправді, не настільки футуристично, як все інше"
+  name: futuristic teleporter
+  description: Actually, not that futuristic as everything else
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Devices/teleporter.rsi

@@ -93,8 +93,8 @@
   abstract: true
   parent: BaseItem
   id: EncryptionKey
-  name: "ключ шифрування"
-  description: "Невеликий шифрувальний чіп для гарнітури."
+  name: encryption key
+  description: A small cypher chip for headsets.
   components:
   - type: EncryptionKey
   - type: Item
@@ -105,8 +105,8 @@
 - type: entity
   parent: EncryptionKey
   id: EncryptionKeyCommon
-  name: "загальний ключ шифрування"
-  description: "Ключ шифрування, яким може користуватися будь-хто."
+  name: common encryption key
+  description: An encryption key used by anyone.
   components:
   - type: EncryptionKey
     channels:
@@ -123,8 +123,8 @@
 - type: entity
   parent: [ EncryptionKey, BaseCargoContraband ]
   id: EncryptionKeyCargo
-  name: "вантажний ключ шифрування"
-  description: "Ключ шифрування, що використовується співробітниками відділу постачання."
+  name: cargo encryption key
+  description: An encryption key used by supply employees.
   components:
   - type: EncryptionKey
     channels:
@@ -141,8 +141,8 @@
 - type: entity
   parent: [ EncryptionKey, BaseCentcommContraband ]
   id: EncryptionKeyCentCom
-  name: "ключ шифрування центральної команди"
-  description: "Ключ шифрування, яким користується начальство капітана."
+  name: central command encryption key
+  description: An encryption key used by captain's bosses.
   components:
   - type: EncryptionKey
     channels:
@@ -156,8 +156,8 @@
 - type: entity
   parent: [ EncryptionKey, BaseCentcommCommandContraband ]
   id: EncryptionKeyStationMaster
-  name: "головний ключ шифрування станції"
-  description: "Ключ шифрування, яким користується начальство станції."
+  name: station master encryption key
+  description: An encryption key used by station's bosses.
   components:
   - type: EncryptionKey
     channels:
@@ -178,8 +178,8 @@
 - type: entity
   parent: [ EncryptionKey, BaseCommandContraband ]
   id: EncryptionKeyCommand
-  name: "ключ шифрування команди"
-  description: "Ключ шифрування, який використовують боси екіпажу."
+  name: command encryption key
+  description: An encryption key used by crew's bosses.
   components:
   - type: EncryptionKey
     channels:
@@ -196,8 +196,8 @@
 - type: entity
   parent: [ EncryptionKey, BaseEngineeringContraband ]
   id: EncryptionKeyEngineering
-  name: "інженерний ключ шифрування"
-  description: "Ключ шифрування, який використовують інженери."
+  name: engineering encryption key
+  description: An encryption key used by the engineers.
   components:
   - type: EncryptionKey
     channels:
@@ -214,8 +214,8 @@
 - type: entity
   parent: [ EncryptionKey, BaseMedicalContraband ]
   id: EncryptionKeyMedical
-  name: "медичний ключ шифрування"
-  description: "Ключ шифрування, який використовують ті, хто рятує життя."
+  name: medical encryption key
+  description: An encryption key used by those who save lives.
   components:
   - type: EncryptionKey
     channels:
@@ -232,8 +232,8 @@
 - type: entity
   parent: [ EncryptionKey, BaseMedicalScienceContraband ]
   id: EncryptionKeyMedicalScience
-  name: "медико-науковий ключ шифрування"
-  description: "Ключ шифрування, що використовується тим, хто ще не вирішив, на чиєму боці бути."
+  name: med-sci encryption key
+  description: An encryption key used by someone who hasn't decided which side to take.
   components:
   - type: EncryptionKey
     channels:
@@ -248,8 +248,8 @@
 - type: entity
   parent: [ EncryptionKey, BaseScienceContraband ]
   id: EncryptionKeyScience
-  name: "науковий ключ шифрування"
-  description: "Ключ шифрування, що використовується вченими. Можливо, він плазмостійкий?"
+  name: science encryption key
+  description: An encryption key used by scientists. Maybe it is plasmaproof?
   components:
   - type: EncryptionKey
     channels:
@@ -266,8 +266,8 @@
 - type: entity
   parent: [ EncryptionKey, BaseScienceContraband ]
   id: EncryptionKeyRobo
-  name: "ключ шифрування робототехніки"
-  description: "Ключ шифрування, який використовують інженери робототехніки. Можливо, на ньому є LAH-6000?"
+  name: robotech encryption key
+  description: An encryption key used by robototech engineers. Maybe it has a LAH-6000 on it?
   components:
   - type: EncryptionKey
     channels:
@@ -281,8 +281,8 @@
 - type: entity
   parent: [ EncryptionKey, BaseSecurityLawyerContraband ]
   id: EncryptionKeySecurity
-  name: "ключ шифрування безпеки"
-  description: "Ключ шифрування, який використовується службою безпеки."
+  name: security encryption key
+  description: An encryption key used by security.
   components:
   - type: EncryptionKey
     channels:
@@ -299,8 +299,8 @@
 - type: entity
   parent: [ EncryptionKey, BaseCivilianContraband ]
   id: EncryptionKeyService
-  name: "сервісний ключ шифрування"
-  description: "Ключ шифрування, що використовується обслуговуючим персоналом, завдання якого полягає в тому, щоб станція була повною, щасливою і чистою."
+  name: service encryption key
+  description: An encryption key used by the service staff, tasked with keeping the station full, happy and clean.
   components:
   - type: EncryptionKey
     channels:
@@ -317,8 +317,8 @@
 - type: entity
   parent: [ EncryptionKey, BaseSyndicateContraband ]
   id: EncryptionKeySyndie
-  name: "криваво-червоний ключ шифрування"
-  description: "Ключ шифрування, яким користується... зачекайте... Хто власник цього чіпа?"
+  name: blood-red encryption key
+  description: An encryption key used by... wait... Who is the owner of this chip?
   components:
   - type: EncryptionKey
     channels:
@@ -334,8 +334,8 @@
 - type: entity
   parent: [ EncryptionKey, BaseSiliconScienceContraband ]
   id: EncryptionKeyBinary
-  name: "ключ бінарного транслятора"
-  description: "Ключ шифрування, який перетворює двійкові сигнали, що використовуються кремнієм."
+  name: binary translator key
+  description: An encryption key that translates binary signals used by silicons.
   components:
   # Goobstation - replaced with collective mind
   #- type: EncryptionKey
@@ -350,8 +350,8 @@
 - type: entity
   parent: [ EncryptionKey, BaseSyndicateContraband ]
   id: EncryptionKeyBinarySyndicate
-  name: "ключ бінарного транслятора"
-  description: "Ключ шифрування синдикату, який транслює двійкові сигнали, що використовуються кремнієм."
+  name: binary translator key
+  description: A syndicate encryption key that translates binary signals used by silicons.
   components:
   # Goobstation - replaced with collective mind
   #- type: EncryptionKey
@@ -368,8 +368,8 @@
 - type: entity
   parent: EncryptionKey
   id: EncryptionKeyFreelance
-  name: "ключ шифрування фрілансера"
-  description: "Ключ шифрування, що використовується фрілансерами, які можуть мати або не мати приналежності. Виглядає зношеним."
+  name: freelancer encryption key
+  description: An encryption key used by freelancers, who may or may not have an affiliation. It looks like it's worn out.
   components:
     - type: EncryptionKey
       channels:

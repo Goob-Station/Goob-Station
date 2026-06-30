@@ -9,8 +9,8 @@
 - type: entity
   parent: BaseLathe
   id: MedicalBiofabricator
-  name: "медичний біофабрикатор"
-  description: "Виробляє органи та інші органічні речовини, які можуть бути хірургічно пересаджені пацієнтам за допомогою біомаси."
+  name: medical biofabricator
+  description: Produces organs and other organic matter that can be surgically grafted onto patients with biomass.
   components:
   - type: Sprite
     sprite: _Shitmed/Structures/Machines/limbgrower.rsi

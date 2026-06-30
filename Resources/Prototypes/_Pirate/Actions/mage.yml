@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseAction
   id: ActionMageShop
-  name: "Магазин"
-  description: "Відкриває магазин здібностей."
+  name: Магазин
+  description: Відкриває магазин здібностей.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -13,8 +13,8 @@
 
 - type: entity
   id: ActionMageBlink
-  name: "Телепорт"
-  description: "Телепортуйтеся в вибране місце."
+  name: Телепорт
+  description: Телепортуйтеся в вибране місце.
   components:
   - type: WorldTargetAction
     event: !type:MageTeleportSpellEvent
@@ -61,8 +61,8 @@
 - type: entity
   parent: BaseAction
   id: MageAbilityKnock
-  name: "Стук"
-  description: "Це заклинання відкриває сусідні двері."
+  name: Стук
+  description: Це заклинання відкриває сусідні двері.
   components:
   - type: InstantAction
     event: !type:MageKnockSpellEvent
@@ -81,8 +81,8 @@
 - type: entity
   parent: BaseAction
   id: MageAbilityFireball
-  name: "вогняна куля"
-  description: "Випускає вибухову вогняну кулю в напрямку клацання."
+  name: вогняна куля
+  description: Випускає вибухову вогняну кулю в напрямку клацання.
   components:
   - type: WorldTargetAction
     event: !type:MageProjectileSpellEvent
@@ -107,8 +107,8 @@
 - type: entity
   parent: BaseAction
   id: MageAbilityIcicle
-  name: "Бурулька"
-  description: "бурулька."
+  name: Бурулька
+  description: бурулька.
   components:
   - type: WorldTargetAction
     event: !type:MageProjectileSpellEvent
@@ -133,8 +133,8 @@
 - type: entity
   parent: BaseAction
   id: MageAbilityEmp
-  name: "ЕМІ-спалах"
-  description: "Вимкніть будь-які сусідні технології за допомогою електромагнітного імпульсу."
+  name: EM Спалах
+  description: Вимкніть будь-які сусідні технології за допомогою електромагнітного імпульсу.
   components:
   - type: InstantAction
     event: !type:MageEmpSpellEvent
@@ -153,8 +153,8 @@
 - type: entity
   parent: BaseAction
   id: MageAbilityLightning
-  name: "Блискавка"
-  description: "Сила Тесли!"
+  name: Блискавка
+  description: Сила Тесли!
   components:
   - type: InstantAction
     event: !type:MageLightningSpellEvent
@@ -176,8 +176,8 @@
 - type: entity
   parent: BaseAction
   id: MageAbilityBlind
-  name: "Сліпота"
-  description: "Тимчасово засліплює ціль."
+  name: Blind
+  description: Temporarily blinds a target.
   components:
   - type: EntityTargetAction
     whitelist:
@@ -203,8 +203,8 @@
 - type: entity
   parent: BaseAction
   id: MageAbilitySmoke
-  name: "Дим"
-  description: "Це заклинання створює густу димову завісу навколо заклинателя"
+  name: Smoke
+  description: This spell creates a thick smoke screen around the caster
   components:
   - type: InstantAction
     event: !type:MageSmokeSpellEvent
@@ -222,8 +222,8 @@
 - type: entity
   parent: BaseAction
   id: MageAbilitySwap
-  name: "Обмін"
-  description: "Обмін позиціями з метою"
+  name: Swap
+  description: Swap positions with a target
   components:
   - type: EntityTargetAction
     canTargetSelf: false
@@ -250,8 +250,8 @@
 - type: entity
   parent: BaseAction
   id: MageAbilityMindSwap
-  name: "Обмін"
-  description: "Обмін позиціями з метою"
+  name: Swap
+  description: Swap positions with a target
   components:
   - type: EntityTargetAction
     whitelist:
@@ -278,8 +278,8 @@
 - type: entity
   parent: BaseAction
   id: MageAbilityHeal
-  name: "Зцілити"
-  description: "Зцілює ціль. Цільтеся в себе для самозцілення. Обожнюю тавтології"
+  name: Heal
+  description: Heals whoever you target. Target yourself to self-heal
   components:
   - type: EntityTargetAction
     whitelist:
@@ -306,8 +306,8 @@
 - type: entity
   parent: BaseAction
   id: MageAbilityAnimateDead
-  name: "Оживші Мерці"
-  description: "Це заклинання змушує скелети з усіх довколишніх трупів допомагати вам"
+  name: Animate Dead
+  description: This spell forces the skeleton out of all nearby corpses to assist you
   components:
   - type: InstantAction
     event: !type:MageAnimateDeadSpellEvent
@@ -325,8 +325,8 @@
 - type: entity
   parent: BaseAction
   id: MageMagicMissile
-  name: "Магічна куля"
-  description: "Час ставати!"
+  name: Magic Missile
+  description: Fires an orb that stuns on hit towards the clicked location.
   components:
   - type: WorldTargetAction
     event: !type:MageProjectileSpellEvent
@@ -351,8 +351,8 @@
 - type: entity
   parent: BaseAction
   id: MageIceBurst
-  name: "Магічна куля"
-  description: "Час ставати!"
+  name: Magic Missile
+  description: Fires an orb that stuns on hit towards the clicked location.
   components:
   - type: WorldTargetAction
     event: !type:MageProjectileSpellEvent
@@ -377,8 +377,8 @@
 - type: entity
   parent: BaseAction
   id: MagicTeslaBall
-  name: "Куля Тесли"
-  description: "Випускає міні-тесла-кулю в напрямку цілі"
+  name: Tesla Ball
+  description: Fires a mini tesla ball towards the clicked location
   components:
   - type: WorldTargetAction
     event: !type:MageProjectileSpellEvent
@@ -403,8 +403,8 @@
 - type: entity
   parent: BaseAction
   id: ActionToggleDome
-  name: "Перемикання енергетичного купола"
-  description: "Увімкніть або вимкніть енергетичний бар'єр."
+  name: Toggle energy dome
+  description: Turn the energy barrier on or off.
   components:
   - type: InstantAction
     event: !type:ToggleActionEvent

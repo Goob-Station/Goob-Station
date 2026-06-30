@@ -105,8 +105,8 @@
   abstract: true
   parent: Clothing
   id: ClothingHeadset
-  name: "гарнітура"
-  description: "Оновлений модульний інтерком, який одягається на голову. Приймає ключі шифрування."
+  name: headset
+  description: An updated, modular intercom that fits over the head. Takes encryption keys.
   components:
   - type: ContainerContainer
     containers:
@@ -141,7 +141,7 @@
 - type: entity
   parent: ClothingHeadset
   id: ClothingHeadsetGrey
-  name: "пасажирська гарнітура"
+  name: passenger headset
   components:
   - type: Sprite
     sprite: Clothing/Ears/Headsets/base.rsi
@@ -149,8 +149,8 @@
 - type: entity
   parent: ClothingHeadset
   id: ClothingHeadsetCargo
-  name: "вантажна гарнітура"
-  description: "Гарнітура, що використовується співробітниками відділу постачання."
+  name: cargo headset
+  description: A headset used by supply employees.
   components:
   - type: ContainerFill
     containers:
@@ -165,8 +165,8 @@
 - type: entity
   parent: ClothingHeadsetCargo
   id: ClothingHeadsetMining
-  name: "гарнітура шахтера"
-  description: "Гарнітура, яку використовують шахтарі."
+  name: mining headset
+  description: Headset used by shaft miners.
   components:
   - type: Sprite
     sprite: Clothing/Ears/Headsets/mining.rsi
@@ -176,8 +176,8 @@
 - type: entity
   parent: [ClothingHeadsetCargo, BaseCommandContraband]
   id: ClothingHeadsetQM
-  name: "гарнітура квартирмейстера"
-  description: "Гарнітура, що використовується квартирмейстером."
+  name: qm headset
+  description: A headset used by the quartermaster.
   components:
   - type: ContainerFill
     containers:
@@ -189,8 +189,8 @@
 - type: entity
   parent: [ ClothingHeadset, BaseCentcommContraband ]
   id: ClothingHeadsetCentCom
-  name: "гарнітура ЦентКому"
-  description: "Гарнітура, що використовується вищими ешелонами НаноТрейзен."
+  name: CentComm headset
+  description: A headset used by the upper echelons of Nanotrasen.
   components:
   - type: ContainerFill
     containers:
@@ -205,8 +205,8 @@
 - type: entity
   parent: [ClothingHeadset, BaseCommandContraband]
   id: ClothingHeadsetCommand
-  name: "командна гарнітура"
-  description: "Гарнітура з командним каналом."
+  name: command headset
+  description: A headset with a commanding channel.
   components:
   - type: ContainerFill
     containers:
@@ -220,8 +220,8 @@
 - type: entity
   parent: ClothingHeadset
   id: ClothingHeadsetEngineering
-  name: "інженерна гарнітура"
-  description: "Гарнітура для спілкування інженерів, поки навколо них горить станція."
+  name: engineering headset
+  description: A headset for engineers to chat while the station burns around them.
   components:
   - type: ContainerFill
     containers:
@@ -236,8 +236,8 @@
 - type: entity
   parent: [ClothingHeadsetEngineering, BaseCommandContraband]
   id: ClothingHeadsetCE
-  name: "гарнітура головного інженера"
-  description: "Гарнітура для головного інженера, на якій можна ігнорувати всі екстрені виклики."
+  name: ce headset
+  description: A headset for the chief engineer to ignore all emergency calls on.
   components:
   - type: ContainerFill
     containers:
@@ -249,8 +249,8 @@
 - type: entity
   parent: ClothingHeadset
   id: ClothingHeadsetMedical
-  name: "медична гарнітура"
-  description: "Гарнітура для навченого персоналу медпункту."
+  name: medical headset
+  description: A headset for the trained staff of the medbay.
   components:
   - type: ContainerFill
     containers:
@@ -265,8 +265,8 @@
 - type: entity
   parent: [ClothingHeadsetMedical, BaseCommandContraband]
   id: ClothingHeadsetCMO
-  name: "гарнітура cmo"
-  description: "Гарнітура, якою користується ОКУ."
+  name: cmo headset
+  description: A headset used by the CMO.
   components:
   - type: ContainerFill
     containers:
@@ -278,8 +278,8 @@
 - type: entity
   parent: ClothingHeadset
   id: ClothingHeadsetScience
-  name: "наукова гарнітура"
-  description: "Наукова гарнітура. Як завжди."
+  name: science headset
+  description: A sciency headset. Like usual.
   components:
   - type: ContainerFill
     containers:
@@ -294,8 +294,8 @@
 - type: entity
   parent: ClothingHeadsetScience
   id: ClothingHeadsetMedicalScience
-  name: "медична дослідницька гарнітура"
-  description: "Гарнітура, яка є результатом поєднання медицини та науки."
+  name: medical research headset
+  description: A headset that is a result of the mating between medical and science.
   components:
   - type: ContainerFill
     containers:
@@ -310,8 +310,8 @@
 - type: entity
   parent: ClothingHeadsetScience
   id: ClothingHeadsetRobotics
-  name: "робототехнічна гарнітура"
-  description: "Зроблено спеціально для робототехніків, які не можуть вибрати між відділами."
+  name: robotics headset
+  description: Made specifically for the roboticists, who cannot decide between departments.
   components:
   - type: ContainerFill
     containers:
@@ -326,8 +326,8 @@
 - type: entity
   parent: [ClothingHeadsetScience, BaseCommandContraband]
   id: ClothingHeadsetRD
-  name: "гарнітура наукового керівника"
-  description: "Ламарр раніше любив це жувати..."
+  name: rd headset
+  description: Lamarr used to love chewing on this...
   components:
   - type: ContainerFill
     containers:
@@ -339,8 +339,8 @@
 - type: entity
   parent: [ClothingHeadset, BaseSecurityLawyerContraband]
   id: ClothingHeadsetSecurity
-  name: "охоронна гарнітура"
-  description: "Ним користується ваша елітна служба безпеки."
+  name: security headset
+  description: This is used by your elite security force.
   components:
   - type: ContainerFill
     containers:
@@ -355,8 +355,8 @@
 - type: entity
   parent: [ClothingHeadset, BaseSecurityContraband]
   id: ClothingHeadsetBrigmedic
-  name: "гарнітура тюремного медика"
-  description: "Гарнітура, яка допомагає чути передсмертні крики."
+  name: brigmedic headset
+  description: A headset that helps to hear the death cries.
   components:
   - type: ContainerFill
     containers:
@@ -372,8 +372,8 @@
 - type: entity
   parent: ClothingHeadset
   id: ClothingHeadsetService
-  name: "сервісна гарнітура"
-  description: "Гарнітура використовується обслуговуючим персоналом, який стежить за тим, щоб станція була повною, щасливою і чистою."
+  name: service headset
+  description: Headset used by the service staff, tasked with keeping the station full, happy and clean.
   components:
   - type: ContainerFill
     containers:
@@ -388,8 +388,8 @@
 - type: entity
   parent: ClothingHeadset
   id: ClothingHeadsetFreelance
-  name: "гарнітура фрілансера"
-  description: "Це використовується групою фрілансерів, що блукають."
+  name: freelancer headset
+  description: This is used by a roaming group of freelancers.
   components:
     - type: ContainerFill
       containers:
@@ -403,8 +403,8 @@
 - type: entity
   parent: [ClothingHeadset, BaseMagicalContraband]
   id: ClothingHeadsetWizard
-  name: "гарнітура чарівника"
-  description: "Гарнітура, яку використовують грізні космічні чарівники."
+  name: wizard headset
+  description: A headset used by the dreaded space wizards.
   components:
     - type: ContainerFill
       containers:

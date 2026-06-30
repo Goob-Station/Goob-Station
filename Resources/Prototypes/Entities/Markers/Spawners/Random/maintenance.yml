@@ -327,7 +327,7 @@
       - id: SkullBalaclava # Pirate
 
 - type: entity
-  name: "спавнер луту із техів"
+  name: Maint Loot Spawner
   suffix: Fluff+Clothes
   id: MaintenanceFluffSpawner
   parent: MarkerBase
@@ -467,7 +467,7 @@
         weight: 0.05
 
 - type: entity
-  name: "спавнер луту із техів"
+  name: Maint Loot Spawner
   suffix: Tools+Cells+Mats
   id: MaintenanceToolSpawner
   parent: MarkerBase
@@ -526,7 +526,7 @@
       - id: ClothingHandsKnuckleDusters
 
 - type: entity
-  name: "спавнер луту із техів"
+  name: Maint Loot Spawner
   suffix: Scrap+Weapons
   id: MaintenanceWeaponSpawner
   parent: MarkerBase
@@ -542,7 +542,7 @@
       prob: 0.6
 
 - type: entity
-  name: "спавнер луту із техів"
+  name: Maint Loot Spawner
   suffix: Plants
   id: MaintenancePlantSpawner
   parent: MarkerBase
@@ -573,7 +573,7 @@
       weight: 1
 
 - type: entity
-  name: "спавнер луту із техів"
+  name: Maint Loot Spawner
   id: MaintenanceInsulsSpawner
   suffix: Insuls, safe
   parent: MarkerBase

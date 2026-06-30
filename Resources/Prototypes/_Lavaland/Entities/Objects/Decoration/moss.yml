@@ -1,7 +1,7 @@
 - type: entity
   id: FloraMossPale
-  name: "блідий мох"
-  description: "Блідий килим моху, що виглядає огидно і смачно водночас."
+  name: pale moss
+  description: A pale carpet of moss that looks disgusting and tasty at the same time.
   placement:
     mode: SnapgridCenter
     snap:

@@ -7,9 +7,9 @@
 - type: entity
   id: WeaponMechChainSword
   parent: [ BaseMechWeaponMelee, CombatMechEquipment  ]
-  name: "екзокостюм ланцюговий меч"
+  name: exosuit chainsword
   suffix: Mech Weapon, Melee, Combat
-  description: "Обладнання для бойових екзокостюмів. Це механічний ланцюговий меч, який проткне небеса!"
+  description: Equipment for combat exosuits. This is the mechanical chainsword that'll pierce the heavens!
   components:
   - type: Sprite
     state: mecha_chainsword

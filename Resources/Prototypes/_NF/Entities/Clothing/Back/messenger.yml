@@ -24,8 +24,8 @@
 - type: entity
   parent: ClothingBackpackMessengerBase
   id: ClothingBackpackMessenger
-  name: "сумка-месенджер"
-  description: "Міцна сумка для зберігання дрібних речей."
+  name: messenger bag
+  description: A robust bag for keeping small stuff.
   components:
   - type: Sprite
     sprite: _NF/Clothing/Back/Messenger/messenger.rsi
@@ -35,8 +35,8 @@
 - type: entity
   parent: [ BaseCommandContraband , ClothingBackpackMessengerBase ]
   id: ClothingBackpackMessengerCaptain
-  name: "капітанська сумка-месенджер"
-  description: "Міцна сумка, виготовлена виключно для офіцерів Nanotrasen."
+  name: captain's messenger bag
+  description: A robust bag made exclusively for Nanotrasen officers.
   components:
   - type: Sprite
     layers:
@@ -71,8 +71,8 @@
 - type: entity
   parent: [ BaseCentcommContraband , ClothingBackpackMessengerBase ]
   id: ClothingBackpackMessengerCentcomm
-  name: "сумка-месенджер Центкому"
-  description: "Міцна сумка, виготовлена для високопоставлених чиновників Nanotrasen."
+  name: centcomm messenger bag
+  description: A robust bag made for Nanotrasen high-ranking officials.
   components:
   - type: Sprite
     layers:
@@ -107,8 +107,8 @@
 - type: entity
   parent: [ BaseCentcommContraband , ClothingBackpackMessengerBase ]
   id: ClothingBackpackMessengerBlueshield
-  name: "офіцерська сумка-месенджер синього щита"
-  description: "Міцна сумка з захисних матеріалів. Пахне енергетичною зброєю."
+  name: blueshield officer messenger bag
+  description: A robust bag made of protective materials. Smells like emergy gun.
   components:
   - type: Sprite
     layers:
@@ -144,8 +144,8 @@
 - type: entity
   parent: ClothingBackpackMessengerBase
   id: ClothingBackpackMessengerAtmospherics
-  name: "атмосферна сумка-месенджер"
-  description: "Міцна сумка з вогнетривких волокон. Пахне плазмою."
+  name: atmospherics messenger bag
+  description: A robust bag made of fire resistant fibers. Smells like plasma.
   components:
   - type: Sprite
     sprite: _NF/Clothing/Back/Messenger/atmospherics.rsi
@@ -153,8 +153,8 @@
 - type: entity
   parent: ClothingBackpackMessengerBase
   id: ClothingBackpackMessengerEngineering
-  name: "інженерна сумка-месенджер"
-  description: "Міцна сумка для зберігання додаткових інструментів."
+  name: engineering messenger bag
+  description: A robust bag for keeping extra tools.
   components:
   - type: Sprite
     layers:
@@ -190,8 +190,8 @@
 - type: entity
   parent: ClothingBackpackMessengerBase
   id: ClothingBackpackMessengerCargo
-  name: "вантажна сумка-месенджер"
-  description: "Міцна сумка для зберігання великої кількості спесо."
+  name: cargo messenger bag
+  description: A robust bag for keeping lots of spesos.
   components:
   - type: Sprite
     layers:
@@ -234,8 +234,8 @@
 - type: entity
   parent: ClothingBackpackMessengerBase
   id: ClothingBackpackMessengerSalvage
-  name: "утилізаторська сумка-месенджер"
-  description: "Міцна сумка для зберігання здобичі з Лаваленду."
+  name: salvage messenger bag
+  description: A robust bag for stashing Lavaland loot.
   components:
   - type: Sprite
     layers:
@@ -270,8 +270,8 @@
 - type: entity
   parent: ClothingBackpackMessengerBase
   id: ClothingBackpackMessengerMailman
-  name: "поштарська сумка-месенджер"
-  description: "Міцна сумка для транспортування листів та посилок."
+  name: mailman messenger bag
+  description: A robust bag for transportation of letters and parcels.
   components:
   - type: Sprite
     sprite: _NF/Clothing/Back/Messenger/mailman.rsi
@@ -280,8 +280,8 @@
 - type: entity
   parent: ClothingBackpackMessengerBase
   id: ClothingBackpackMessengerMedical
-  name: "медична сумка-месенджер"
-  description: "Міцна сумка для зберігання додаткових ліків."
+  name: medical messenger bag
+  description: A robust bag for keeping extra medicine.
   components:
   - type: Sprite
     sprite: _NF/Clothing/Back/Messenger/medical.rsi
@@ -289,8 +289,8 @@
 - type: entity
   parent: ClothingBackpackMessengerBase
   id: ClothingBackpackMessengerChemistry
-  name: "хімічна сумка-месенджер"
-  description: "Міцна сумка для зберігання додаткових стаканів та пробірок."
+  name: chemistry messenger bag
+  description: A robust bag for keeping extra beakers and vials.
   components:
   - type: Sprite
     sprite: _NF/Clothing/Back/Messenger/chemistry.rsi
@@ -298,8 +298,8 @@
 - type: entity
   parent: ClothingBackpackMessengerBase
   id: ClothingBackpackMessengerVirology
-  name: "вірусологічна сумка-месенджер"
-  description: "Міцна сумка з гіпоалергенних волокон для запобігання поширенню хвороб."
+  name: virology messenger bag
+  description: A robust bag made of hypo-allergenic fibers to prevent the spread of disease.
   components:
   - type: Sprite
     sprite: _NF/Clothing/Back/Messenger/virology.rsi
@@ -307,8 +307,8 @@
 - type: entity
   parent: ClothingBackpackMessengerBase
   id: ClothingBackpackMessengerGenetics
-  name: "генетична сумка-месенджер"
-  description: "Міцна стерильна сумка з кольорами генетиків."
+  name: genetics messenger bag
+  description: A robust sterile bag with geneticist colours.
   components:
   - type: Sprite
     sprite: _NF/Clothing/Back/Messenger/genetics.rsi
@@ -317,8 +317,8 @@
 - type: entity
   parent: ClothingBackpackMessengerBase
   id: ClothingBackpackMessengerScience
-  name: "наукова сумка-месенджер"
-  description: "Міцна сумка для зберігання дослідницьких матеріалів."
+  name: science messenger bag
+  description: A robust bag for holding research materials.
   components:
   - type: Sprite
     sprite: _NF/Clothing/Back/Messenger/science.rsi
@@ -327,8 +327,8 @@
 - type: entity
   parent: ClothingBackpackMessengerBase
   id: ClothingBackpackMessengerClown
-  name: "клоунська сумка-месенджер"
-  description: "Міцна сумка для зберігання додаткових пирогів."
+  name: clown messenger bag
+  description: A robust bag for keeping extra pies.
   components:
   - type: Sprite
     sprite: _NF/Clothing/Back/Messenger/clown.rsi
@@ -339,8 +339,8 @@
 - type: entity
   parent: ClothingBackpackMessengerBase
   id: ClothingBackpackMessengerMime
-  name: "мімська сумка-месенджер"
-  description: "Міцна сумка для дотримання обітниці мовчання."
+  name: mime messenger bag
+  description: A robust bag for keeping the vow of silence.
   components:
     - type: Sprite
       sprite: _NF/Clothing/Back/Messenger/mime.rsi
@@ -348,8 +348,8 @@
 - type: entity
   parent: ClothingBackpackMessengerBase
   id: ClothingBackpackMessengerHydroponics
-  name: "гідропонна сумка-месенджер"
-  description: "Міцна сумка з натуральних волокон. Пахне землею."
+  name: hydroponics messenger bag
+  description: A robust bag made of all natural fibers. Smells like dirt.
   components:
   - type: Sprite
     layers:
@@ -393,8 +393,8 @@
 - type: entity
   parent: [ BaseSecurityContraband , ClothingBackpackMessengerBase ]
   id: ClothingBackpackMessengerSecurity
-  name: "охоронна сумка-месенджер"
-  description: "Міцна сумка для зберігання додаткового обладнання для арешту."
+  name: security messenger bag
+  description: A robust bag for storing extra arrest equipment.
   components:
   - type: Sprite
     layers:
@@ -437,8 +437,8 @@
 - type: entity
   parent: [ BaseSecurityContraband , ClothingBackpackMessengerBase ]
   id: ClothingBackpackMessengerBrigmedic
-  name: "сумка-месенджер тюремного медика"
-  description: "Міцна сумка для зберігання додаткових хірургічних інструментів для катува... лікування в'язнів."
+  name: brigmedic messenger bag
+  description: A robust bag for storing extra surgery tools for inmate tort... treating.
   components:
   - type: Sprite
     layers:
@@ -482,8 +482,8 @@
 - type: entity
   parent: ClothingBackpackHolding
   id: ClothingBackpackMessengerHolding
-  name: "сумка-месенджер бездонна"
-  description: "Сумка-месенджер, що відкривається в локалізовану кишеню блюспейсу."
+  name: messenger bag of holding
+  description: A messenger bag that opens into a localized pocket of bluespace.
   components:
   - type: Sprite
     sprite: _NF/Clothing/Back/Messenger/holding.rsi
@@ -514,8 +514,8 @@
 - type: entity
   parent: [ BaseSyndicateContraband , ClothingBackpackMessengerBase ]
   id: ClothingBackpackMessengerSyndicate
-  name: "сумка-месенджер синдикату"
-  description: "Міцна сумка для зберігання додаткових патронів та вибухівки."
+  name: syndicate messenger bag
+  description: A robust bag for storing extra cartridges and explosives.
   components:
   - type: Sprite
     layers:

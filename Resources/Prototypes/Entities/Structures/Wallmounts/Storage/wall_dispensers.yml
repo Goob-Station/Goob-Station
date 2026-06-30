@@ -89,7 +89,7 @@
 - type: entity
   parent: BaseDispenser
   id: FuelDispenser
-  name: "дозатор топлива"
+  name: fuel dispenser
   components:
   - type: Sprite
     sprite: Structures/Storage/tanks.rsi
@@ -117,7 +117,7 @@
 - type: entity
   parent: BaseDispenser
   id: CleanerDispenser
-  name: "диспенсер очищувача"
+  name: space cleaner dispenser
   components:
   - type: SolutionContainerManager
     solutions:

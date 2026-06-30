@@ -8,8 +8,8 @@
 - type: entity
   parent: BaseItem
   id: Igniter
-  name: "запалювач"
-  description: "Створює іскру, коли активується сигналом."
+  name: igniter
+  description: Creates a spark when activated by a signal.
   components:
   - type: Sprite
     sprite: Objects/Devices/igniter.rsi

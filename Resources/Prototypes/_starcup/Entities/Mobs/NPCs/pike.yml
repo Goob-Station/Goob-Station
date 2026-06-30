@@ -1,8 +1,8 @@
 - type: entity
-  name: "космічна щука"
+  name: space pike
   id: MobPike
   parent: BaseMobCarp
-  description: "Люта риба-вбивця з відкритого космосу."
+  description: A ferocious killer fish from outer space.
   components:
   - type: NpcFactionMember
     factions:
@@ -53,8 +53,8 @@
 - type: entity
   id: MobDunklosteus
   parent: MobPike
-  name: "космічний данклеостей"
-  description: "Трохи більший і міцніший за інші види космічної щуки, з твердою кістяною головою."
+  name: space dunkleosteus
+  description: Slightly larger and tougher than other space pike species, with a tough, bony head.
   components:
   - type: Sprite
     sprite: _starcup/Mobs/Aliens/Pikes/dunklosteus.rsi

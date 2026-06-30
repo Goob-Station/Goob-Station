@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseMobXenomorph
   id: BaseMobXenomorphLarva
-  name: "личинка ксеноморфа"
-  description: "Рання стадія розвитку, що характеризується невеликими розмірами, червоподібною формою тіла та відсутністю виразних кінцівок."
+  name: xenomorph larva
+  description: An early stage of development characterized by small size, a worm-like body shape, and the absence of distinct limbs.
   abstract: true
   components:
   - type: Sprite

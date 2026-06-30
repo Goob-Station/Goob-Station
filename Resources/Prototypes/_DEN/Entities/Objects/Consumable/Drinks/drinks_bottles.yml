@@ -1,8 +1,8 @@
 ﻿- type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
   id: DrinkJaegermisterBottleFull
-  name: "пляшка єгермістера"
-  description: "Гірко-солодкий алкоголь, рецепт якого не змінювався майже тисячу років."
+  name: jaegermister bottle
+  description: A bittersweet alcohol that hasn't changed its recipe in nearly a thousand years.
   components:
   - type: SolutionContainerManager
     solutions:

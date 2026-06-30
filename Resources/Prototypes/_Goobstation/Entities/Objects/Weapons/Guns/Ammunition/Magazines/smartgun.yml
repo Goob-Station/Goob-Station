@@ -21,7 +21,7 @@
 
 - type: entity
   id: MagazineSmart
-  name: "магазин (.160 розумний)"
+  name: "magazine (.160 smart)"
   parent: [ BaseItem, BaseSecurityContraband ]
   components:
   - type: Tag

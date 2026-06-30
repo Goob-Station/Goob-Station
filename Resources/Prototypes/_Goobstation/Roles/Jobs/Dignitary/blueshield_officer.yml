@@ -30,7 +30,7 @@
 - type: job
   id: BlueshieldOfficer
   name: job-name-bso
-  description: "Виконуйте роль охоронця та радника для Командування й VIP із Центкому."
+  description: "Act as a bodyguard and advisor for Command and CentCom VIPs."
   playTimeTracker: JobBlueshieldOfficer
   requirements:
     - !type:DepartmentTimeRequirement

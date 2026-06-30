@@ -1,6 +1,6 @@
 - type: body
   id: Shadow
-  name: "Тінь"
+  name: Shadow
   root: chest
   slots:
     head:

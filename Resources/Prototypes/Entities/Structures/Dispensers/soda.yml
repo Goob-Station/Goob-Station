@@ -103,8 +103,8 @@
 - type: entity
   parent: ReagentDispenserBase
   id: SodaDispenserEmpty
-  name: "диспенсер газованих напоїв"
-  description: "Диспенсер напоїв із вибором газованих та кількох інших поширених напоїв. Має один слот для наповнення контейнерів."
+  name: soda dispenser
+  description: A beverage dispenser with a selection of soda and several other common beverages. Has a single fill slot for containers.
   suffix: Empty
   components:
   - type: Rotatable

@@ -101,8 +101,8 @@
 - type: entity
   parent: BaseWallmountMetallic
   id: SignalSwitch
-  name: "сигнальний перемикач"
-  description: "Це вимикач для перемикання живлення речей."
+  name: signal switch
+  description: It's a switch for toggling power to things.
   components:
   - type: WallMount
     arc: 360
@@ -173,8 +173,8 @@
 - type: entity
   parent: BaseWallmountMetallic
   id: SignalButton
-  name: "сигнальна кнопка"
-  description: "Це кнопка для активації чогось."
+  name: signal button
+  description: It's a button for activating something.
   components:
   - type: WallMount
     arc: 360
@@ -225,8 +225,8 @@
 - type: entity
   parent: BaseWallmountMetallic
   id: ApcNetSwitch
-  name: "мережевий перемикач apc"
-  description: "Це перемикач для перемикання ліхтарів, які підключені до одного акумулятора."
+  name: apc net switch
+  description: It's a switch for toggling lights that are connected to the same apc.
   components:
     - type: WallMount
       arc: 360
@@ -264,7 +264,7 @@
 - type: entity
   parent: SignalSwitch
   id: SignalSwitchDirectional
-  name: "сигнальний перемикач"
+  name: signal switch
   suffix: directional
   components:
   - type: WallMount
@@ -276,7 +276,7 @@
 - type: entity
   parent: SignalButton
   id: SignalButtonDirectional
-  name: "сигнальна кнопка"
+  name: signal button
   suffix: directional
   components:
   - type: WallMount
@@ -288,7 +288,7 @@
 - type: entity
   parent: ApcNetSwitch
   id: ApcNetSwitchDirectional
-  name: "мережевий перемикач apc"
+  name: apc net switch
   suffix: directional
   components:
   - type: WallMount
@@ -302,7 +302,7 @@
 - type: entity
   parent: SignalButtonDirectional
   id: LockableButton
-  name: "кнопка з фіксацією"
+  name: lockable button
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -570,9 +570,9 @@
 
 - type: entity
   id: ButtonFrame
-  name: "рамка для кнопок"
+  name: button frame
   categories: [ HideSpawnMenu ]
-  description: "Це рамка, яка допомагає візуально розрізняти перемикачі."
+  description: It's a frame to help distinguish switches visually.
   placement:
     mode: SnapgridCenter
     snap:

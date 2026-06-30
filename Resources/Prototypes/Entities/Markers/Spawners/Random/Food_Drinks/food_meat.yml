@@ -6,7 +6,7 @@
 #Spawners
 - type: entity
   id: RandomMeat
-  name: "випадковий м'ясний нерестовик"
+  name: random meat spawner
   parent: MarkerBase
   placement:
     mode: PlaceFree

@@ -9,10 +9,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "сире м'ясо гондоли"
+  name: raw gondola meat
   parent: FoodMeatRawBase
   id: FoodMeatGondola
-  description: "Ти чудовисько."
+  description: You monster.
   components:
   - type: Sprite
     state: plain
@@ -32,10 +32,10 @@
     defaultTarget: gondola steak
 
 - type: entity
-  name: "стейк з гондоли"
+  name: gondola steak
   parent: FoodMeatBase
   id: FoodMeatGondolaCooked
-  description: "Приготоване, жорстке м'ясо гондоли."
+  description: Cooked, tough gondola meat.
   components:
   - type: Tag
     tags:
@@ -60,10 +60,10 @@
     node: gondola steak
 
 - type: entity
-  name: "сире м'ясо бінгла"
+  name: raw bingle meat
   parent: FoodMeatRawBase
   id: FoodMeatBingle
-  description: "Смердить лайном."
+  description: Smells like shit.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Consumable/Food/bingle.rsi
@@ -84,10 +84,10 @@
     defaultTarget: bingle steak
 
 - type: entity
-  name: "стейк з бінгла"
+  name: bingle steak
   parent: FoodMeatBase
   id: FoodMeatBingleCooked
-  description: "Все ще смердить лайном."
+  description: Still smells like shit.
   components:
   - type: Tag
     tags:
@@ -112,10 +112,10 @@
     node: bingle steak
 
 - type: entity
-  name: "смажена \"\"курка\"\""
+  name: 'fried "chicken"'
   parent: FoodMeatBase
   id: FoodMeatVoxFried
-  description: "Соковитий шматок курячого м'яса... Я так думаю..."
+  description: A juicy hunk of chicken meat... I think...
   components:
   - type: Tag
     tags:

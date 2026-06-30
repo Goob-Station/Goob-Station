@@ -1,9 +1,9 @@
 - type: entity
-  name: "Еліта"
+  name: Elite
   id: LavalandEliteBase
   abstract: true
   parent: LavalandMobBase
-  description: "Елітний монстр, знайдений в одному з дивних наростів на Лаваленді."
+  description: An elite monster, found in one of the strange tumors on lavaland.
   components:
   - type: Physics
     bodyType: KinematicController
@@ -66,10 +66,10 @@
     factor: 8 # times more dangerous than a crew-member
 
 - type: entity
-  name: "Легіонер"
+  name: Legionnaire
   id: LavalandEliteLegionnaire
   parent: LavalandEliteBase
-  description: "Височезний скелет, що уособлює жахливу силу Легіону."
+  description: A towering skeleton, embodying the terrifying power of Legion.
   components:
   - type: HTN
     rootTask:
@@ -118,8 +118,8 @@
 
 - type: entity
   id: LavalandElitePandora #Just a hierophant resprite, all of these are templates anyway.
-  name: "Пандора"
-  description: "Велика магічна скринька з подібною силою та дизайном до Ієрофанта. Коли вона відкриється, закрити її буде непросто."
+  name: Pandora
+  description: A large magic box with similar power and design to the Hierophant. Once it opens, it's not easy to close it.
   components:
   # Basic stuff
   - type: Physics
@@ -188,10 +188,10 @@
   - type: Fauna
 
 - type: entity
-  name: "Герольд"
+  name: Herald
   id: LavalandEliteHerald
   parent: LavalandEliteBase
-  description: "Чудовисько, що випускає смертоносні снаряди по загрозах і здобичі."
+  description: A monstrous beast which fires deadly projectiles at threats and prey.
   components:
   - type: HTN
     rootTask:
@@ -257,10 +257,10 @@
     damageModifierSet: Hierophant
 
 - type: entity
-  name: "Матка"
+  name: Broodmother
   id: LavalandEliteGoliathBroodmother
   parent: LavalandEliteBase
-  description: "Приклад статевого диморфізму: ця самка голіафа виглядає зовсім інакше, ніж самці її виду. Втім, вона так само небезпечна — а то й більш."
+  description: An example of sexual dimorphism, this female goliath looks much different than the males of her species.  She is, however, just as dangerous, if not more.
   components:
   - type: HTN
     rootTask:

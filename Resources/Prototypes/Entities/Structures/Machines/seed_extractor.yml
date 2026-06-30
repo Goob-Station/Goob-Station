@@ -16,9 +16,9 @@
 
 - type: entity
   id: SeedExtractor
-  name: "витяжка насіння"
+  name: seed extractor
   parent: [ BaseMachinePowered, ConstructibleMachine ]
-  description: "Витягує насіння з продуктів."
+  description: Extracts seeds from produce.
   components:
   - type: Sprite
     sprite: Structures/Machines/seed_extractor.rsi

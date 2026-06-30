@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseStructure
   id: ResinNest
-  name: "смоляне гніздо"
-  description: "Слизька і липка маса, що нагадує ліжко?..."
+  name: resin nest
+  description: Slimy and sticky mass representing a bed?....
   components:
   - type: Sprite
     sprite: _White/Structures/Furniture/resin_nest.rsi

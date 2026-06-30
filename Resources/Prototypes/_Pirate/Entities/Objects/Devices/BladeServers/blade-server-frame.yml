@@ -1,8 +1,8 @@
 - type: entity
   id: UnfinishedBladeServerFrame
   parent: BaseItem
-  name: "рама блейд-сервера"
-  description: "Рама блейд-сервера в процесі складання. Потрібно більше деталей."
+  name: blade server frame
+  description: A blade server frame under construction. Needs more parts.
   suffix: Незавершена
   components:
   - type: Sprite
@@ -58,7 +58,7 @@
 - type: entity
   id: BladeServerFrame
   parent: BaseItem
-  name: "рама блейд-сервера"
+  name: blade server frame
   suffix: Готова
   components:
   - type: Sprite

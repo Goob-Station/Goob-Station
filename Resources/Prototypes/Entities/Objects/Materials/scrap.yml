@@ -81,8 +81,8 @@
   parent: BaseItem
   id: BaseScrap
   abstract: true
-  name: "брухт"
-  description: "Нікчемний мотлох. Однак ви, ймовірно, могли б отримати з нього деякі матеріали."
+  name: scrap
+  description: Worthless junk. You could probably get some materials out of it though.
   suffix: Scrap
   components:
   - type: Sprite
@@ -110,8 +110,8 @@
   parent: BaseStructure
   id: BaseScrapLarge
   abstract: true
-  name: "брухт"
-  description: "Нікчемний мотлох. Однак ви, ймовірно, могли б отримати з нього деякі матеріали."
+  name: scrap
+  description: Worthless junk. You could probably get some materials out of it though.
   suffix: Scrap
   components:
   - type: InteractionOutline
@@ -149,8 +149,8 @@
 - type: entity
   parent: BaseScrap
   id: ScrapSteel
-  name: "купа сталі"
-  description: "Купа сталі, зварена разом при екстремальній температурі. Вона пристойного розміру; ви, ймовірно, могли б отримати з неї чимало листів."
+  name: blasted steel pile
+  description: An pile of steel welded together in extreme heat. It's of a decent size overall; you could probably get a fair amount of sheets out of it.
   components:
   - type: Sprite
     layers:
@@ -175,8 +175,8 @@
 - type: entity
   parent: BaseScrap
   id: ScrapGlass
-  name: "брухт скла"
-  description: "Величезна купа різних схем, дивним чином сплавлених разом. Ймовірно, ви могли б витягти з цього деякі матеріали."
+  name: scrap circuitry
+  description: A huge lump of various circuits, strangely fused together. You could likely extract some materials out of this.
   components:
   - type: Sprite
     layers:
@@ -204,8 +204,8 @@
 - type: entity
   parent: BaseScrap
   id: ScrapAirlock1
-  name: "двері шлюзу"
-  description: "Раніше це утримувало повітря. Тепер, здається, воно взагалі нічого не робить."
+  name: airlock door
+  description: This used to keep air in. Now it doesn't seem to be doing anything at all.
   components:
   - type: Sprite
     layers:
@@ -229,8 +229,8 @@
 - type: entity
   parent: BaseScrap
   id: ScrapAirlock2
-  name: "підсвічування шлюзу"
-  description: "Так йому і треба за те, що весь час блимало червоним."
+  name: airlock light
+  description: Serves it right for flashing red all those times.
   components:
   - type: Sprite
     layers:
@@ -247,8 +247,8 @@
 - type: entity
   parent: BaseScrap
   id: ScrapBucket
-  name: "розбите відро"
-  description: "Боже мій..."
+  name: busted bucket
+  description: Dear god...
   components:
   - type: Sprite
     layers:
@@ -260,8 +260,8 @@
 - type: entity
   parent: BaseScrap
   id: ScrapCamera
-  name: "розбита камера"
-  description: "Вона все ще може спостерігати."
+  name: broken camera
+  description: It might still be watching.
   components:
   - type: Sprite
     layers:
@@ -274,8 +274,8 @@
 - type: entity
   parent: BaseScrap
   id: ScrapCanister1
-  name: "ручка каністри"
-  description: "Корисна для утримання каністри. Тепер вам потрібна лише сама частина каністри."
+  name: canister handle
+  description: Helpful for holding a canister. Now you just need the actual canister part.
   components:
   - type: Sprite
     layers:
@@ -287,8 +287,8 @@
 - type: entity
   parent: BaseScrap
   id: ScrapCanister2
-  name: "клапан каністри"
-  description: "Клапан від газової каністри."
+  name: canister valve
+  description: A valve from a gas canister.
   components:
   - type: Sprite
     layers:
@@ -302,8 +302,8 @@
 - type: entity
   parent: BaseScrap
   id: ScrapCloset
-  name: "двері шафи"
-  description: "Зірвані двері з шафи для технічного обслуговування. Виглядає як гарний елемент декору стін."
+  name: closet door
+  description: A blown off door from a maintenance closet. Looks like a nice piece of wall decor.
   components:
   - type: Sprite
     layers:
@@ -321,8 +321,8 @@
 - type: entity
   parent: BaseScrap
   id: ScrapFaxMachine
-  name: "факс"
-  description: "Прикрий результат надсилання занадто великої кількості ASCII-графіки до Центрального командування."
+  name: fax machine
+  description: The unfortunate result of one too many ASCII arts being sent to Central Command.
   components:
   - type: Sprite
     layers:
@@ -337,8 +337,8 @@
 - type: entity
   parent: BaseScrap
   id: ScrapFireExtinguisher
-  name: "розколотий вогнегасник"
-  description: "Велика тріщина в центрі змушує вас хвилюватися за попереднього користувача."
+  name: split fire extinguisher
+  description: The large gash down the center makes you worry for the previous user.
   components:
   - type: Sprite
     layers:
@@ -350,8 +350,8 @@
 - type: entity
   parent: BaseScrap
   id: ScrapFirelock1
-  name: "двері протипожежного замка"
-  description: "Принаймні ви все ще знаєте, для чого він призначений."
+  name: firelock door
+  description: At least you still know what it's meant for.
   components:
   - type: Sprite
     layers:
@@ -369,8 +369,8 @@
 - type: entity
   parent: BaseScrap
   id: ScrapFirelock2
-  name: "двері протипожежного замка"
-  description: "О! Ось куди поділася інша половина!"
+  name: firelock door
+  description: OH! That's where the other half went!
   components:
   - type: Sprite
     layers:
@@ -388,7 +388,7 @@
 - type: entity
   parent: BaseScrap
   id: ScrapFirelock3
-  name: "рама протипожежного замка"
+  name: firelock frame
   components:
   - type: Sprite
     layers:
@@ -402,8 +402,8 @@
 - type: entity
   parent: BaseScrap
   id: ScrapIntercom
-  name: "брухт переговорного пристрою"
-  description: "Шкода, що він не постачається з ключами шифрування."
+  name: intercom scrap
+  description: You wish it at least came with some encryption keys.
   components:
   - type: Sprite
     layers:
@@ -424,8 +424,8 @@
 - type: entity
   parent: BaseScrap
   id: ScrapJetpack
-  name: "розбитий реактивний ранець"
-  description: "Схоже, він більше не літатиме."
+  name: busted jetpack
+  description: Looks like it won't be flying any more.
   components:
   - type: Sprite
     layers:
@@ -441,8 +441,8 @@
 - type: entity
   parent: BaseScrap
   id: ScrapMedkit
-  name: "розбита аптечка"
-  description: "Сподіваюся, вони нею скористалися."
+  name: snapped medkit
+  description: Hopefully they got some use out of it.
   components:
   - type: Sprite
     layers:
@@ -462,8 +462,8 @@
 - type: entity
   parent: BaseScrap
   id: ScrapMopBucket
-  name: "половина відра для швабри"
-  description: "Прибиральники вмирають. Двірники виживають."
+  name: half a mop bucket
+  description: Tiders die. Janitors survive.
   components:
   - type: Sprite
     layers:
@@ -477,8 +477,8 @@
 - type: entity
   parent: BaseScrap
   id: ScrapPAI
-  name: "персональний пристрій ШІ"
-  description: "Друже! Ти ще там? Алло? Друже???"
+  name: personal ai device
+  description: A buddy! You still in there? Hello? Buddy???
   components:
   - type: Sprite
     layers:
@@ -493,8 +493,8 @@
 - type: entity
   parent: BaseScrap
   id: ScrapPAIGold
-  name: "позолочений персональний пристрій ШІ"
-  description: "Вау! Яка знахідка - одна на мільйон! Це коштувало б цілий статок... якби було в хорошому стані."
+  name: gilded personal ai device
+  description: Wow! What a one-in-a-million find! This would be worth a fortune... if it was in good condition.
   components:
   - type: Sprite
     layers:
@@ -509,8 +509,8 @@
 - type: entity
   parent: BaseScrap
   id: ScrapTube
-  name: "розбита пробірка для зразків"
-  description: "Скляна пробірка, що містить якийсь рідкісний зразок. Або, принаймні, раніше містила. Зараз там мало що залишилося."
+  name: shattered sample tube
+  description: A glass tube containing some kind of rare sample. Or at least, it used to contain it. Not much left in there now.
   components:
   - type: Sprite
     layers:
@@ -535,8 +535,8 @@
 - type: entity
   parent: BaseScrapLarge
   id: ScrapGeneratorPlasmaLeaking
-  name: "генератор P.A.C.M.A.N. з витоком плазми"
-  description: "Старий на вигляд генератор P.A.C.M.A.N., у якого почали протікати плазмові баки."
+  name: leaking P.A.C.M.A.N. generator
+  description: An old looking P.A.C.M.A.N. generator whos plasma tanks started leaking.
   components:
   - type: Sprite
     sprite: Objects/Materials/Scrap/generator.rsi
@@ -553,8 +553,8 @@
 - type: entity
   parent: BaseScrapLarge
   id: ScrapGeneratorPlasma
-  name: "старий генератор P.A.C.M.A.N"
-  description: "Старий на вигляд генератор P.A.C.M.A.N. Він у дуже поганому стані та не працює."
+  name: old P.A.C.M.A.N. generator
+  description: An old looking P.A.C.M.A.N. generator. It's in very poor condition and non functional.
   components:
   - type: Sprite
     sprite: Objects/Materials/Scrap/generator.rsi
@@ -569,8 +569,8 @@
 - type: entity
   parent: BaseScrapLarge
   id: ScrapGeneratorUraniumLeaking
-  name: "генератор S.U.P.E.R.P.A.C.M.A.N. з витоком урану"
-  description: "Генератор S.U.P.E.R.P.A.C.M.A.N., який, схоже, зазнав якоїсь катастрофічної аварії. З нього витікає уран."
+  name: leaking S.U.P.E.R.P.A.C.M.A.N. generator
+  description: A S.U.P.E.R.P.A.C.M.A.N. generator that appears to have had some kind of catastrophic failure. Its leaking uranium.
   components:
   - type: Sprite
     sprite: Objects/Materials/Scrap/generator.rsi
@@ -598,8 +598,8 @@
 - type: entity
   parent: BaseScrapLarge
   id: ScrapGeneratorUranium
-  name: "зруйнований генератор S.U.P.E.R.P.A.C.M.A.N"
-  description: "Генератор S.U.P.E.R.P.A.C.M.A.N., який, схоже, зазнав якоїсь катастрофічної аварії."
+  name: destroyed S.U.P.E.R.P.A.C.M.A.N. generator
+  description: A S.U.P.E.R.P.A.C.M.A.N. generator that appears to have had some kind of catastrophic failure.
   components:
   - type: Sprite
     sprite: Objects/Materials/Scrap/generator.rsi
@@ -622,8 +622,8 @@
 - type: entity
   parent: BaseScrapLarge
   id: ScrapGeneratorFrame
-  name: "рама генератора"
-  description: "Рама генератора типу P.A.C.M.A.N. або S.U.P.E.R.P.A.C.M.A.N. Де решта?"
+  name: generator frame
+  description: A frame of a P.A.C.M.A.N. or S.U.P.E.R.P.A.C.M.A.N. type generator. Where is the rest of it?
   components:
   - type: Sprite
     sprite: Objects/Materials/Scrap/generator.rsi
@@ -636,8 +636,8 @@
 - type: entity
   parent: BaseScrap
   id: ScrapGeneratorFuelTank
-  name: "паливний бак"
-  description: "Паливний бак від генератора типу S.U.P.E.R.P.A.C.M.A.N. Датчик показує, що в ньому залишилося трохи палива."
+  name: fuel tank
+  description: A fuel tank from a S.U.P.E.R.P.A.C.M.A.N. type generator. The gauge indicates its got a little fuel left.
   components:
   - type: Sprite
     sprite: Objects/Materials/Scrap/generator.rsi

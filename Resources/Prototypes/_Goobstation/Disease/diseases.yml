@@ -19,8 +19,8 @@
 - type: entity
   id: DiseaseFlu
   parent: DiseaseBase
-  name: "грип"
-  description: "Надзвичайно набридливий і помірно небезпечний."
+  name: flu
+  description: Highly annoying and mildly dangerous.
   components:
   - type: Disease
     diseaseType: Viral
@@ -37,8 +37,8 @@
 - type: entity
   id: DiseaseCancer
   parent: DiseaseBase
-  name: "рак"
-  description: "Завдає інфікованому генетичної шкоди. Не минає само по собі."
+  name: cancer
+  description: Deals genetic damage to the infected. Doesn't go away by itself.
   components:
   - type: Disease
     diseaseType: OwnCells
@@ -53,8 +53,8 @@
 - type: entity
   id: DiseaseGravitosisA
   parent: DiseaseBase
-  name: "гравітозис А"
-  description: "Дивна хвороба."
+  name: gravitosis A
+  description: A strange disease.
   components:
   - type: Disease
     diseaseType: Bacterial
@@ -65,8 +65,8 @@
 - type: entity
   id: DiseaseGunemia
   parent: DiseaseBase
-  name: "гунемія"
-  description: "Дивна хвороба."
+  name: gunemia
+  description: A strange disease.
   components:
   - type: Disease
     diseaseType: Bacterial

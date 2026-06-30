@@ -5,8 +5,8 @@
 - type: entity
   id: ActionHydrakinCoolOff
   parent: BaseAction
-  name: "Охолонути"
-  description: "Розсійте частину тепла свого тіла."
+  name: Cool off
+  description: Dispel some of your body heat.
   categories: [ HideSpawnMenu ] # Frontier
   components:
   - type: Action

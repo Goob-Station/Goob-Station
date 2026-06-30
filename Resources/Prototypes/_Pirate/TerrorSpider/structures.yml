@@ -2,8 +2,8 @@
   id: WebEntityBeacon
   placement:
     mode: SnapgridCenter
-  name: "павутинний стовп"
-  description: "Дивний павутинний стовп."
+  name: web pole
+  description: A strange web pole.
   components:
   - type: Appearance
   - type: Clickable
@@ -78,8 +78,8 @@
   id: TerrorWebCocoon
   placement:
     mode: SnapgridCenter
-  name: "павутинний кокон"
-  description: "Дивний павутинний кокон."
+  name: web cocoon
+  description: A strange web cocoon.
   components:
   - type: Appearance
   - type: Clickable
@@ -172,8 +172,8 @@
   id: AmmoniaEggGenerator
   placement:
     mode: SnapgridCenter
-  name: "аміачне яйце"
-  description: "Дивне яйце, яке виробляє аміак."
+  name: ammonia egg
+  description: A strange egg which produces ammonia.
   components:
   - type: Appearance
   - type: Clickable
@@ -254,8 +254,8 @@
   id: EffectTerrorCocoon
   categories: [ HideSpawnMenu ]
   # Pirate - local "cocoon" locale id conflicts with prototype localization validation.
-  name: "кокон терору"
-  description: "Павутинний кокон з людьми всередині!"
+  name: terror cocoon
+  description: Web cocoon with people inside!
   components:
   - type: Clickable
   - type: Transform

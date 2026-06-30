@@ -6,12 +6,12 @@
 
 - type: guideEntry
   id: Changelings
-  name: "Перевертні"
+  name: "Changelings"
   text: "/ServerInfo/_Goobstation/Guidebook/Antagonist/Changelings.xml"
   children:
   - ChangelingsAbilities
 
 - type: guideEntry
   id: ChangelingsAbilities
-  name: "Здібності перевертнів"
+  name: "Changeling Abilities"
   text: "/ServerInfo/_Goobstation/Guidebook/Antagonist/ChangelingsAbilities.xml"

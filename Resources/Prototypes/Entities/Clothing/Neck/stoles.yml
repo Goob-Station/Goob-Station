@@ -6,8 +6,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckStoleChaplain
-  name: "шарф капелана"
-  description: "Елегантний палантин з яскравим золотим плюсом на обох кінцях."
+  name: chaplain stole
+  description: An elegantly designed stole, with a vibrant gold plus on either end.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Stoles/chaplain.rsi

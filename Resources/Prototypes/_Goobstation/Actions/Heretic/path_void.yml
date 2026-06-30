@@ -10,8 +10,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticVoidBlast
-  name: "Вибух порожнечі"
-  description: "Випустіть конус льоду перед собою."
+  name: Void Blast
+  description: Fire off a cone of ice in front of you.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -31,8 +31,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticVoidPhase
-  name: "Порожня фаза"
-  description: "Пронесіться крізь порожнечу, збиваючи з ніг усіх навколо."
+  name: Void Phase
+  description: Shift through the void, knocking down everyone around you.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -57,8 +57,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticVoidPrison
-  name: "В'язниця Пустки"
-  description: "Відправляє язичника в пустку на 10 секунд. Він не зможе виконувати жодних дій протягом цього часу. Після цього він охолоне та повернеться на смертний план."
+  name: Void Prison
+  description: Sends a heathen into the void for 10 seconds. They will be unable to perform any actions for the duration. Afterwards, they will be chilled and returned to the mortal plane.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -85,8 +85,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticVoidPull
-  name: "Притягнення Порожнечі"
-  description: "Закликає Порожнечу, завдаючи шкоди, збиваючи з ніг і оглушуючи всіх поблизу. Віддалені вороги також притягуються до вас (але не зазнають шкоди)."
+  name: Void Pull
+  description: Calls the void, damaging, knocking down, pulling people closer, and stunning people nearby.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -108,8 +108,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticVoidConduit
-  name: "Канал Пустки"
-  description: "Відкриває ворота до Пустки; випускає періодичний імпульс, що пошкоджує вікна та шлюзи, уражаючи Язичників холодом пустки. Уражені Єретики натомість отримують стійкість до низького тиску."
+  name: Void Conduit
+  description: Opens a gate to the Void; it releases an intermittent pulse that damages windows and airlocks, while afflicting Heathens with void chill. Affected Heretics instead receive low pressure resistance.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

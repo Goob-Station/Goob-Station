@@ -14,10 +14,10 @@
 # When adding new food also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\food_single.yml
 
 - type: entity
-  name: "тортилья для тако"
+  name: taco shell
   parent: FoodMealBase
   id: FoodTacoShell
-  description: "Тортилья для тако, яку легко тримати, але вона падає на бік, коли її кладуть."
+  description: A taco shell, easy to hold, but falls on its side when put down.
   components:
   - type: Item
     storedRotation: -90
@@ -80,30 +80,30 @@
       - Meat
 
 - type: entity
-  name: "яловиче тако"
+  name: beef taco
   parent: FoodTacoBase
   id: FoodTacoBeef
-  description: "Дуже базове, пересічне яловиче тако, тепер із сиром!"
+  description: A very basic and run of the mill beef taco, now with cheese!
   components:
   - type: Food
   - type: Sprite
     state: beeftaco
 
 - type: entity
-  name: "куряче тако"
+  name: chicken taco
   parent: FoodTacoBase
   id: FoodTacoChicken
-  description: "Дуже базове, пересічне куряче тако, тепер із сиром!"
+  description: A very basic and run of the mill chicken taco, now with cheese!
   components:
   - type: Food
   - type: Sprite
     state: chickentaco
 
 - type: entity
-  name: "рибне тако"
+  name: fish taco
   parent: FoodTacoBase
   id: FoodTacoFish
-  description: "Звучить так собі, але насправді не так уже й погано."
+  description: Sounds kinda gross, but it's actually not that bad.
   components:
   - type: FlavorProfile
     flavors:
@@ -123,10 +123,10 @@
           Quantity: 6
 
 - type: entity
-  name: "щуряче тако"
+  name: rat taco
   parent: FoodTacoBase
   id: FoodTacoRat
-  description: "Так, виглядає саме так..."
+  description: Yeah, that looks about right...
   components:
   - type: Food
   - type: Sprite
@@ -142,10 +142,10 @@
           Quantity: 4
 
 - type: entity
-  name: "яловиче тако супрім"
+  name: beef taco supreme
   parent: FoodTacoBase
   id: FoodTacoBeefSupreme
-  description: "Це як звичайне яловиче тако, але супрім!"
+  description: It's like a regular beef taco, but surpeme!
   components:
   - type: Food
   - type: Sprite
@@ -161,10 +161,10 @@
           Quantity: 6
 
 - type: entity
-  name: "куряче тако супрім"
+  name: chicken taco supreme
   parent: FoodTacoBase
   id: FoodTacoChickenSupreme
-  description: "Це як звичайне куряче тако, але супрім!"
+  description: It's like a regular chicken taco, but surpeme!
   components:
   - type: Food
   - type: Sprite
@@ -180,10 +180,10 @@
           Quantity: 6
 
 - type: entity
-  name: "м’яке тако"
+  name: soft taco
   parent: FoodMealBase
   id: FoodMealSoftTaco
-  description: "Відкусіть шматочок!"
+  description: Take a bite!
   components:
   - type: FlavorProfile
     flavors:

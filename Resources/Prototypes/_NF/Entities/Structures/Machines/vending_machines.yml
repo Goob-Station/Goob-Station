@@ -6,8 +6,8 @@
 - type: entity
   parent: [AntagPlanetContravendPreset, VendingMachine]
   id: VendingMachineSyndieContraband # Ported from Frontier
-  name: "КонтраВенд"
-  description: "Розшукується в кількох секторах!"
+  name: ContraVend
+  description: Wanted across multiple sectors!
   components:
   - type: VendingMachine
     pack: EmptyVendingMachineInventory

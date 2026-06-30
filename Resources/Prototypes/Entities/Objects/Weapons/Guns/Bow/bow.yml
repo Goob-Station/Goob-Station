@@ -16,10 +16,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "лук"
+  name: bow
   parent: [BaseItem, BaseMinorContraband]
   id: BaseBow
-  description: "Оригінальний кореневищний зубастий гострий і пагонистий."
+  description: The original rooty tooty point and shooty.
   abstract: true
   components:
   - type: Sprite

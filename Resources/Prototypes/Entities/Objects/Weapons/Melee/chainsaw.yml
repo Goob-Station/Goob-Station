@@ -17,10 +17,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "бензопила"
+  name: chainsaw
   parent: BaseItem
   id: Chainsaw
-  description: "Дуже велика бензопила. Зазвичай нею рубають дерева... зазвичай."
+  description: A very large chainsaw. Usually you use this for cutting down trees... usually.
   components:
   - type: Wieldable
     wieldSound: !type:SoundPathSpecifier

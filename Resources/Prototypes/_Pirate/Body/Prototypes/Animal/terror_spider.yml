@@ -1,6 +1,6 @@
 - type: body
   id: TerrorSpiderHemocyanin
-  name: "гемоціанін жахопавука"
+  name: "terror spider hemocyanin"
   root: chest
   slots:
     chest:

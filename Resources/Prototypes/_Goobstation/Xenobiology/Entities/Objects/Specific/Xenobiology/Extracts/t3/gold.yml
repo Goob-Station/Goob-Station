@@ -1,7 +1,7 @@
 - type: entity
   id: GoldSlimeExtract
   parent: BaseSlimeExtract
-  name: "золотий екстракт слайма"
+  name: gold slime extract
   components:
   - type: Sprite
     layers:

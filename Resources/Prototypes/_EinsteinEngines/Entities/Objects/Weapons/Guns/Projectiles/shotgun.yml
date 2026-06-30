@@ -5,7 +5,7 @@
 
 - type: entity
   id: PelletShotgunBirdshot
-  name: "дробинка (.50 дріб)"
+  name: pellet (.50 birdshot)
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
@@ -30,7 +30,7 @@
 
 - type: entity
   id: PelletShotgun00Buckshot
-  name: "дробинка (.50 00-Картеч)"
+  name: pellet (.50 00-Buckshot)
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
@@ -55,7 +55,7 @@
 
 - type: entity
   id: PelletShotgun0000Buckshot
-  name: "дробинка (.50 0000-Картеч)"
+  name: pellet (.50 0000-Buckshot)
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:

@@ -7,8 +7,8 @@
 - type: entity
   parent: [ ConstructibleMachine, BaseMachinePowered, BaseAutomatedMachine ]
   id: StorageBin
-  name: "контейнер для зберігання"
-  description: "Контейнер для зберігання з електронним управлінням, призначений для використання з роботизованими руками."
+  name: storage bin
+  description: An electronically controlled storage bin intended for use with robotic arms.
   components:
   # Visuals
   - type: Sprite

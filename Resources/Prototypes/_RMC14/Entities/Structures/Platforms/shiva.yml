@@ -2,8 +2,8 @@
 - type: entity
   parent: CMPlatform
   id: RMCPlatformShivaRock
-  name: "крижана скельна кромка"
-  description: "Суцільний шмат безлюдних скель і льоду. Схоже, що на неї можна забратися з певними труднощами."
+  name: ice rock edge
+  description: A solid chunk of desolate rocks and ice. Looks like you could climb it with some difficulty.
   components:
   - type: Sprite
     state: strata_platform
@@ -11,8 +11,8 @@
 - type: entity
   parent: CMPlatformBroken
   id: RMCPlatformShivaRockBroken
-  name: "зруйнована крижана скельна кромка"
-  description: "Суцільний шмат безлюдних скель і льоду. Схоже, що на неї можна забратися з певними труднощами. Вона була зруйнована."
+  name: destroyed ice rock edge
+  description: A solid chunk of desolate rocks and ice. Looks like you could climb it with some difficulty. It has been destroyed.
   components:
   - type: Sprite
     state: strata_platform_broken
@@ -20,8 +20,8 @@
 - type: entity
   parent: RMCPlatformCornerSmall
   id: RMCPlatformShivaRockCornerSmall
-  name: "крижаний скельний кут"
-  description: "Суцільний шмат безлюдних скель і льоду."
+  name: ice rock corner
+  description: A solid chunk of desolate rocks and ice.
   components:
   - type: Sprite
     state: strata_platform_deco

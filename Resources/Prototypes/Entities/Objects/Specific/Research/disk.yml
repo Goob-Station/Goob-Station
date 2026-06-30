@@ -18,8 +18,8 @@
 - type: entity
   parent: BaseItem
   id: ResearchDisk
-  name: "диск з дослідницькими точками (1000)"
-  description: "Диск для R&D сервера, що містить 1000 балів."
+  name: research point disk (1000)
+  description: A disk for the R&D server containing 1000 points.
   components:
   # Goobstation edit start
   - type: EmitSoundOnPickup
@@ -49,8 +49,8 @@
 - type: entity
   parent: ResearchDisk
   id: ResearchDisk5000
-  name: "диск з дослідницькою точкою (5000)"
-  description: "Диск для R&D сервера, що містить 5000 балів."
+  name: research point disk (5000)
+  description: A disk for the R&D server containing 5000 points.
   components:
   - type: ResearchDisk
     points: 5000
@@ -58,8 +58,8 @@
 - type: entity
   parent: ResearchDisk
   id: ResearchDisk10000
-  name: "диск дослідницької точки (10000)"
-  description: "Диск для R&D сервера, що містить 10000 балів."
+  name: research point disk (10000)
+  description: A disk for the R&D server containing 10000 points.
   components:
   - type: ResearchDisk
     points: 10000
@@ -67,10 +67,10 @@
 - type: entity
   parent: ResearchDisk
   id: ResearchDiskDebug
-  name: "диск дослідницької точки"
+  name: research point disk
   suffix: DEBUG, DO NOT MAP
   categories: [ DoNotMap ]
-  description: "Диск для R&D сервера з усіма пунктами, які можуть вам коли-небудь знадобитися."
+  description: A disk for the R&D server containing all the points you could ever need.
   components:
   - type: ResearchDisk
     unlockAllTech: true
@@ -78,8 +78,8 @@
 - type: entity
   parent: BaseItem
   id: TechnologyDisk
-  name: "технологічний диск"
-  description: "Диск для сервера відділу вчених, що містить технологію для досліду."
+  name: technology disk
+  description: A disk for the R&D server containing research technology.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi

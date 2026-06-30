@@ -12,7 +12,7 @@
 
 - type: body
   id: SpaceDragon
-  name: "космічний дракон"
+  name: "space dragon"
   root: chest
   slots:
     chest:

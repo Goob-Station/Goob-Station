@@ -11,7 +11,7 @@
 - type: entity
   parent: BaseMindRoleAntag
   id: MindRoleLoneAbductor
-  name: "Роль Самотнього Викрадача"
+  name: Lone Abductor Role
   components:
   - type: MindRole
     exclusiveAntag: true
@@ -23,7 +23,7 @@
 - type: entity
   parent: BaseMindRoleAntag
   id: MindRoleAbductorAgent
-  name: "Роль Самотнього Викрадача"
+  name: Lone Abductor Role
   components:
   - type: MindRole
     exclusiveAntag: true
@@ -35,7 +35,7 @@
 - type: entity
   parent: BaseMindRoleAntag
   id: MindRoleAbductorScientist
-  name: "Роль Самотнього Викрадача"
+  name: Lone Abductor Role
   components:
   - type: MindRole
     exclusiveAntag: true
@@ -47,7 +47,7 @@
 - type: entity
   parent: BaseMindRoleAntag
   id: MindRoleAbductorVictim
-  name: "Роль Жертви Викрадення"
+  name: Abductee Role
   components:
   - type: MindRole
     roleType: AbductorVictimRole

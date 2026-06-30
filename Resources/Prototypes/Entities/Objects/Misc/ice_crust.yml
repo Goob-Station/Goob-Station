@@ -9,8 +9,8 @@
 
 - type: entity
   id: IceCrust
-  name: "крижане покриття"
-  description: "Холодно і слизько."
+  name: ice crust
+  description: It's cold and slippery.
   placement:
     mode: SnapgridCenter
     snap:

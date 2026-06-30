@@ -46,10 +46,10 @@
 
 - type: entity
   id: ChemDispenserEmpty
-  name: "хімічний дозатор"
+  name: chemical dispenser
   suffix: Empty
   parent: ReagentDispenserBase
-  description: "Промисловий хімічний дозатор."
+  description: An industrial grade chemical dispenser.
   components:
   - type: Sprite
     sprite: Structures/dispensers.rsi

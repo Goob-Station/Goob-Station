@@ -87,8 +87,8 @@
 - type: entity
   parent: ClothingHeadEVAHelmetBase
   id: ClothingHeadHelmetEVA
-  name: "шолом EVA"
-  description: "Старий, але золотий шолом, призначений для позашляхової діяльності. Сумнозвісний тим, що робить офіцерів служби безпеки параноїдальними."
+  name: EVA helmet
+  description: An old-but-gold helmet designed for extravehicular activites. Infamous for making security officers paranoid.
   components:
   - type: Sprite
     sprite: Clothing/Head/Helmets/eva.rsi
@@ -104,8 +104,8 @@
 - type: entity
   parent: ClothingHeadEVAHelmetBase
   id: ClothingHeadHelmetEVALarge
-  name: "шолом EVA"
-  description: "Старий, але золотий шолом, призначений для позашляхової активності."
+  name: EVA helmet
+  description: An old-but-gold helmet designed for extravehicular activites.
   components:
   - type: Sprite
     sprite: Clothing/Head/Helmets/eva_large.rsi
@@ -121,8 +121,8 @@
 - type: entity
   parent: [ ClothingHeadEVAHelmetBase, BaseSyndicateContraband ]
   id: ClothingHeadHelmetSyndicate
-  name: "синдикатний шолом EVA"
-  description: "Простий, стильний шолом з EVA. Створений для максимально скромного космічного нахабства."
+  name: syndicate EVA helmet
+  description: A simple, stylish EVA helmet. Designed for maximum humble space-badassery.
   components:
   - type: Sprite
     sprite: Clothing/Head/Helmets/eva_syndicate.rsi
@@ -144,8 +144,8 @@
 - type: entity
   parent: ClothingHeadEVAHelmetBase
   id: ClothingHeadHelmetCosmonaut
-  name: "шолом космонавта"
-  description: "Старовинний дизайн, але сучасне виробництво." #Description here originally started with " A deceptively well armored space helmet." Potentially had armor values in SS13 that weren't brought over?
+  name: cosmonaut helmet
+  description: Ancient design, but advanced manufacturing. #Description here originally started with " A deceptively well armored space helmet." Potentially had armor values in SS13 that weren't brought over?
   components:
   - type: Sprite
     sprite: Clothing/Head/Helmets/cosmonaut.rsi
@@ -156,8 +156,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase # goobstation - why didnt this have a light
   id: ClothingHeadHelmetVoidParamed
-  name: "шолом парамедика пустотілий"
-  description: "Порожній шолом для парамедиків."
+  name: paramedic void helmet
+  description: A void helmet made for paramedics.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hardsuits/goobparamed.rsi # goobstation - wizden sprites SUCK ASS!!!
@@ -187,8 +187,8 @@
 - type: entity
   parent: ClothingHeadEVAHelmetBase
   id: ClothingHeadHelmetAncient
-  name: "стародавній космічний шолом NTSRA"
-  description: "Стародавній космічний шолом, розроблений філією NTSRA ЦентКому."
+  name: NTSRA void helmet
+  description: An ancient space helmet, designed by the NTSRA branch of CentComm.
   components:
   - type: Sprite
     sprite: Clothing/Head/Helmets/ancientvoidsuit.rsi

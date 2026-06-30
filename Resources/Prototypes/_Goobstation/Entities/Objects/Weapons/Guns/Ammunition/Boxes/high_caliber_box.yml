@@ -12,7 +12,7 @@
   abstract: true
   parent: [ BaseItem, BaseSyndicateContraband ]
   id: BaseMagazineBoxHighCaliber
-  name: "коробка з набоями (.50 протиматеріальний)"
+  name: ammunition box (.50 anti-materiel)
   components:
   - type: BallisticAmmoProvider
     mayTransfer: true
@@ -46,7 +46,7 @@
 - type: entity
   parent: BaseMagazineBoxHighCaliber
   id: MagazineBoxHighCaliberExplosive
-  name: "коробка з патронами (.50 фугасно-запалювальний)"
+  name: ammunition box (.50 high-explosive incendiary)
   components:
   - type: BallisticAmmoProvider
     capacity: 30

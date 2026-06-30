@@ -1,6 +1,6 @@
 - type: entity
-  name: "Вогняне намисто"
-  description: "Намисто, зачароване на вогняний щит. Тільки не запускай вогняну кулю з увімкнутим щитом, бо він її не пропустить!"
+  name: Вогняне намисто
+  description: Намисто, зачароване на вогняний щит. Тільки не запускай вогняну кулю з увімкнутим щитом, бо він її не пропустить!
   id: WizardFireNecklace
   parent: ClothingNeckBase
   components:
@@ -29,7 +29,7 @@
   parent: SurveillanceWirelessCameraBodySecurity
   id: SurveillanceWirelessCameraCollar
   name: "нашийна камера служби безпеки"
-  description: "Камера, яка прикріплена до нашийника. Вона стежить за вами."
+  description: "Камера яка прикріплена на нашийник. Вона стежить за вами."
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Neck/Misc/camera_collar.rsi

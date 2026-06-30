@@ -18,8 +18,8 @@
 - type: entity
   parent: BaseItem
   id: ArmHammerChangeling
-  name: "молоток"
-  description: "Молот, зроблений з плоті та кісток, досить важкий, щоб розбивати споруди та людей."
+  name: arm hammer
+  description: A hammer made out of flesh and bone, heavy enough to smash through structures and people alike.
   suffix: Unremoveable
   components:
   - type: Sprite

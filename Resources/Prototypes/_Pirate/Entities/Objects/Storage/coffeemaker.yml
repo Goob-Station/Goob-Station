@@ -1,8 +1,8 @@
 - type: entity
   id: CoffeeCondimentDisplayPirate
   parent: BaseStorageItem
-  name: "стелаж із добавками до кави"
-  description: "Невелика вітрина з цукром, вершками та іншими додатками."
+  name: coffee condiments display
+  description: A small display box holding coffee condiments.
   components:
     - type: Sprite
       sprite: _Pirate/Objects/Storage/coffee_containers.rsi
@@ -65,8 +65,8 @@
 - type: entity
   id: CoffeePackPirate
   parent: BoxCardboard
-  name: "пачка арабіки"
-  description: "Пакування із сухими зернами арабіки."
+  name: arabica beans pack
+  description: A pack containing dry coffee arabica beans.
   components:
     - type: Sprite
       sprite: _Pirate/Objects/Storage/coffee_containers.rsi
@@ -96,8 +96,8 @@
 - type: entity
   id: CoffeePackRobustaPirate
   parent: CoffeePackPirate
-  name: "пачка робусти"
-  description: "Пакування із сухими зернами робусти."
+  name: robusta beans pack
+  description: A pack containing dry coffee robusta beans.
   components:
     - type: Sprite
       state: robusta_beans
@@ -111,8 +111,8 @@
 - type: entity
   id: CoffeePackSyntheticPirate
   parent: CoffeePackPirate
-  name: "пачка синтетичної кави"
-  description: "Пакування із сухими зернами синтетичної кави."
+  name: synthetic beans pack
+  description: A pack containing dry synthetic coffee beans.
   components:
     - type: Sprite
       state: synthetic_beans
@@ -126,8 +126,8 @@
 - type: entity
   id: CoffeePackStenophyllaPirate
   parent: CoffeePackPirate
-  name: "пачка стенофілли"
-  description: "Пакування із сухими зернами стенофілли."
+  name: stenophylla beans pack
+  description: A pack containing dry stenophylla coffee beans.
   components:
     - type: Sprite
       state: stenophylla_beans

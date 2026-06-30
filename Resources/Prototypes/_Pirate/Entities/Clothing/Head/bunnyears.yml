@@ -1,7 +1,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunnyearsStandard
-  name: "зайчикові вушка"
+  name: bunnyears
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/Bunnyears/standard.rsi
@@ -15,7 +15,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunnyearsBritish
-  name: "чайні зайчикові вушка"
+  name: tea bunnyears
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/Bunnyears/british.rsi
@@ -29,7 +29,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunnyearsUSA
-  name: "демократичні зайчикові вушка"
+  name: democracy bunnyears
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/Bunnyears/USA.rsi
@@ -43,7 +43,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunnyearsSyndicate
-  name: "хтиві зайчикові вушка"
+  name: horny bunnyears
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/Bunnyears/syndi.rsi
@@ -60,7 +60,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunnyearsCE
-  name: "зайчикові вушка головного інженера"
+  name: chief engineer's bunnyears
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/Bunnyears/CE.rsi
@@ -74,7 +74,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunnyearsEngineers
-  name: "зайчикові вушка інженера"
+  name: engineer's bunnyears
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/Bunnyears/engi.rsi
@@ -88,7 +88,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunnyearsAtmos
-  name: "зайчикові вушка атмосферного техніка"
+  name: atmosis bunnyears
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/Bunnyears/atmos.rsi
@@ -105,7 +105,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunnyearsCMO
-  name: "зайчикові вушка головного лікаря"
+  name: CMO's bunnyears
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/Bunnyears/CMO.rsi
@@ -119,7 +119,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunnyearsDoctor
-  name: "медичні зайчикові вушка"
+  name: medical bunnyears
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/Bunnyears/doctor.rsi
@@ -133,7 +133,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunnyearsGenetics
-  name: "генетичні зайчикові вушка"
+  name: genetics bunnyears
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/Bunnyears/genetics.rsi
@@ -147,7 +147,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunnyearsVirologist
-  name: "зайчикові вушка вірусолога"
+  name: virologist bunnyears
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/Bunnyears/virologist.rsi
@@ -161,7 +161,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunnyearsParamedic
-  name: "зайчикові вушка парамедика"
+  name: paramedic bunnyears
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/Bunnyears/paramedic.rsi
@@ -175,7 +175,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunnyearsChem
-  name: "хімічні зайчикові вушка"
+  name: chemistry bunnyears
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/Bunnyears/chem.rsi
@@ -192,7 +192,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunnyearsRD
-  name: "зайчикові вушка наукового керівника"
+  name: RD's bunnyears
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/Bunnyears/RD.rsi
@@ -206,7 +206,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunnyearsScience
-  name: "наукові зайчикові вушка"
+  name: science bunnyears
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/Bunnyears/science.rsi
@@ -220,7 +220,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunnyearsRoboticist
-  name: "зайчикові вушка робототехніка"
+  name: roboticist bunnyears
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/Bunnyears/roboticist.rsi
@@ -237,7 +237,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunnyearsQM
-  name: "зайчикові вушка квартирмейстера"
+  name: QM's bunnyears
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/Bunnyears/QM.rsi
@@ -251,7 +251,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunnyearsCargo
-  name: "зайчикові вушка техніка вантажного відсіку"
+  name: cargo technican bunnyears
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/Bunnyears/cargo_tech.rsi
@@ -265,7 +265,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunnyearsSalvage
-  name: "зайчикові вушка утилізатора"
+  name: salvage bunnyears
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/Bunnyears/salvage.rsi
@@ -282,7 +282,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunnyearsHOS
-  name: "зайчикові вушка голови СБ"
+  name: HOS bunnyears
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/Bunnyears/HOS.rsi
@@ -296,7 +296,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunnyearsWarden
-  name: "зайчикові вушка наглядача"
+  name: warden's bunnyears
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/Bunnyears/warden.rsi
@@ -310,7 +310,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunnyearsDetective
-  name: "зайчикові вушка детектива"
+  name: detective bunnyears
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/Bunnyears/detective.rsi
@@ -324,7 +324,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunnyearsDetectiveNoir
-  name: "нуарні зайчикові вушка"
+  name: noir bunnyears
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/Bunnyears/detective_noir.rsi
@@ -338,7 +338,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunnyearsSecurity
-  name: "зайчикові вушка СБ"
+  name: security bunnyears
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/Bunnyears/security.rsi
@@ -352,7 +352,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunnyearsLawyer
-  name: "зайчикові вушка юриста"
+  name: lawyer bunnyears
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/Bunnyears/lawyer.rsi
@@ -369,7 +369,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunnyearsCentcom
-  name: "зайчикові вушка Центрального Командування"
+  name: central command bunnyears
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/Bunnyears/centcom.rsi
@@ -383,7 +383,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunnyearsCaptain
-  name: "зайчикові вушка капітана"
+  name: captain bunnyears
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/Bunnyears/captain.rsi
@@ -397,7 +397,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunnyearsHOP
-  name: "зайчикові вушка голови персоналу"
+  name: HOP bunnyears
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/Bunnyears/HOP.rsi
@@ -411,7 +411,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunnyearsBar
-  name: "барні зайчикові вушка"
+  name: bar bunnyears
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/Bunnyears/bar.rsi
@@ -425,7 +425,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunnyearsBotany
-  name: "ботанічні зайчикові вушка"
+  name: botany bunnyears
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/Bunnyears/botany.rsi
@@ -439,7 +439,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunnyearsChaplain
-  name: "зайчикові вушка капелана"
+  name: chaplain bunnyears
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/Bunnyears/chaplain.rsi
@@ -453,7 +453,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunnyearsChef
-  name: "зайчикові вушка шеф-кухаря"
+  name: chef bunnyears
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/Bunnyears/chef.rsi
@@ -467,7 +467,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunnyearsClown
-  name: "зайчикові вушка клоуна"
+  name: clown bunnyears
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/Bunnyears/clown.rsi
@@ -481,7 +481,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunnyearsJanitor
-  name: "зайчикові вушка прибиральника"
+  name: janitor bunnyears
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/Bunnyears/janitor.rsi
@@ -495,7 +495,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunnyearsMime
-  name: "зайчикові вушка міма"
+  name: mime bunnyears
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/Bunnyears/mime.rsi

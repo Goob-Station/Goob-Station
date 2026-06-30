@@ -24,8 +24,8 @@
 - type: entity
   id: EnergyMagRifleLethal
   parent: [ EnergyRifleMagBase, BaseSecurityContraband ]
-  name: "магазин для енергетичної гвинтівки (летальний)"
-  description: "Енергетична комірка з приєднаним перетворювачем енергії, що створює летальний заряд на кінці енергетичної гвинтівки."
+  name: energy rifle magazine (lethal)
+  description: Powercell with an attached power converter that create lethal bolt at the end of energy rifle.
   components:
   - type: Sprite
     layers:
@@ -38,8 +38,8 @@
 - type: entity
   id: EnergyMagRifleDisabler
   parent: [ EnergyRifleMagBase, BaseSecurityContraband ]
-  name: "магазин для енергетичної гвинтівки (дизейблер)"
-  description: "Енергетична комірка з приєднаним перетворювачем енергії, що створює виводячий з ладу заряд на кінці енергетичної гвинтівки."
+  name: energy rifle magazine (disabler)
+  description: Powercell with an attached power converter that create disabler bolt at the end of energy rifle.
   components:
   - type: Sprite
     layers:
@@ -52,8 +52,8 @@
 - type: entity
   id: EnergyMagRifleIon
   parent: [ EnergyRifleMagBase, BaseSecurityContraband ]
-  name: "магазин для енергетичної гвинтівки (іонний)"
-  description: "Енергетична комірка з приєднаним перетворювачем енергії, що створює іонізуючий заряд на кінці енергетичної гвинтівки."
+  name: energy rifle magazine (Ion)
+  description: Powercell with an attached power converter that create Ionize bolt at the end of energy rifle.
   components:
   - type: Sprite
     layers:
@@ -66,8 +66,8 @@
 - type: entity
   id: EnergyMagRifleOverchargeLethal
   parent: [ EnergyRifleMagBase, BaseSecurityContraband ]
-  name: "магазин для енергетичної гвинтівки (перевантажений)"
-  description: "Перетворювач енергії на цьому магазині був модифікований для пострілу ще потужнішим зарядом в обмін на більше споживання енергії."
+  name: energy rifle magazine (overcharge)
+  description: The power converter on this magazine has been modified to shot even more powerfull bolt in exchanged of more power consumption.
   components:
   - type: Sprite
     layers:

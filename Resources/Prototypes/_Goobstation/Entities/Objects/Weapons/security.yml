@@ -10,11 +10,11 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "гіперзаряджена флешка"
+  name: hypercharged flash
   parent: [BaseItem, BaseCentcommContraband]
   id: HyperFlash
   suffix: DO NOT MAP
-  description: "Надяскрава флеш-лампа з тригером. Ця здається набагато потужнішою за звичайну."
+  description: An ultrabright flashbulb with a trigger. This one seems to be much more potent than an ordinary one.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/flash.rsi
@@ -56,7 +56,7 @@
 # This is used by HE1S-G8 overcharged cartridge, idk where to put it
 - type: entity
   id: EnergyVortex
-  name: "енергетичний вихор"
+  name: energy vortex
   components:
   - type: Sprite
     sprite: Structures/Power/Generation/Tesla/energy_ball.rsi
@@ -127,11 +127,11 @@
 
 
 - type: entity
-  name: "перцевий балончик"
+  name: pepperspray
   id: PepperSpray
   parent: [BaseItem, BaseSecurityContraband]
   suffix: Filled
-  description: "Маленький балончик на 50u олеорезину капсаїцину. Здатний засліплювати та оглушувати цілі, які не носять захисного спорядження."
+  description: A small 50u canister of Oleoresin Capsaicin. Capable of blinding and stunning targets who aren't wearing protective gear.
   components:
   - type: Sprite
     sprite: /Textures/_Goobstation/Objects/Specific/Security/pepperspray.rsi

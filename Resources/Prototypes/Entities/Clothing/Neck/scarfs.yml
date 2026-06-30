@@ -85,8 +85,8 @@
 - type: entity
   parent: ClothingScarfBase
   id: ClothingNeckScarfStripedRed
-  name: "смугастий червоний шарф"
-  description: "Стильний смугастий червоний шарф. Ідеальний зимовий аксесуар для тих, хто стежить за модою, і тих, хто просто не може терпіти холодний вітерець на шиї."
+  name: striped red scarf
+  description: A stylish striped red scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Scarfs/red.rsi
@@ -96,8 +96,8 @@
 - type: entity
   parent: ClothingScarfBase
   id: ClothingNeckScarfStripedBlue
-  name: "смугастий синій шарф"
-  description: "Стильний синій шарф у смужку. Ідеальний зимовий аксесуар для тих, хто стежить за модою, і тих, хто просто не витримує холодного вітерцю на шиї."
+  name: striped blue scarf
+  description: A stylish striped blue scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Scarfs/blue.rsi
@@ -107,8 +107,8 @@
 - type: entity
   parent: ClothingScarfBase
   id: ClothingNeckScarfStripedGreen
-  name: "смугастий зелений шарф"
-  description: "Стильний смугастий зелений шарф. Ідеальний зимовий аксесуар для тих, хто стежить за модою, і тих, хто просто не витримує холодного вітерцю на шиї."
+  name: striped green scarf
+  description: A stylish striped green scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Scarfs/green.rsi
@@ -118,8 +118,8 @@
 - type: entity
   parent: ClothingScarfBase
   id: ClothingNeckScarfStripedBlack
-  name: "смугастий чорний шарф"
-  description: "Стильний чорний шарф у смужку. Ідеальний зимовий аксесуар для тих, хто стежить за модою, і тих, хто просто не витримує холодного вітерцю на шиї."
+  name: striped black scarf
+  description: A stylish striped black scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
   components:
     - type: Sprite
       sprite: Clothing/Neck/Scarfs/black.rsi
@@ -129,8 +129,8 @@
 - type: entity
   parent: ClothingScarfBase
   id: ClothingNeckScarfStripedBrown
-  name: "смугастий коричневий шарф"
-  description: "Стильний смугастий коричневий шарф. Ідеальний зимовий аксесуар для тих, хто стежить за модою, і тих, хто просто не витримує холодного вітерцю на шиї."
+  name: striped brown scarf
+  description: A stylish striped brown scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
   components:
     - type: Sprite
       sprite: Clothing/Neck/Scarfs/brown.rsi
@@ -140,8 +140,8 @@
 - type: entity
   parent: ClothingScarfBase
   id: ClothingNeckScarfStripedLightBlue
-  name: "смугастий світло-блакитний шарф"
-  description: "Стильний смугастий світло-блакитний шарф. Ідеальний зимовий аксесуар для тих, хто стежить за модою, і тих, хто просто не може терпіти холодний вітерець на шиї."
+  name: striped light blue scarf
+  description: A stylish striped light blue scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
   components:
     - type: Sprite
       sprite: Clothing/Neck/Scarfs/lightblue.rsi
@@ -151,8 +151,8 @@
 - type: entity
   parent: ClothingScarfBase
   id: ClothingNeckScarfStripedOrange
-  name: "смугастий помаранчевий шарф"
-  description: "Стильний смугастий помаранчевий шарф. Ідеальний зимовий аксесуар для тих, хто стежить за модою, і тих, хто просто не витримує холодного вітерцю на шиї."
+  name: striped orange scarf
+  description: A stylish striped orange scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
   components:
     - type: Sprite
       sprite: Clothing/Neck/Scarfs/orange.rsi
@@ -162,8 +162,8 @@
 - type: entity
   parent: ClothingScarfBase
   id: ClothingNeckScarfStripedPurple
-  name: "смугастий фіолетовий шарф"
-  description: "Стильний смугастий фіолетовий шарф. Ідеальний зимовий аксесуар для тих, хто стежить за модою, і тих, хто просто не витримує холодного вітерцю на шиї."
+  name: striped purple scarf
+  description: A stylish striped purple scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
   components:
     - type: Sprite
       sprite: Clothing/Neck/Scarfs/purple.rsi
@@ -173,8 +173,8 @@
 - type: entity
   parent: [ ClothingScarfBase, BaseSyndicateContraband ]
   id: ClothingNeckScarfStripedSyndieGreen
-  name: "смугастий синдикатний зелений шарф"
-  description: "Стильний смугастий шарф синдикатного зеленого кольору. Ідеальний зимовий аксесуар для тих, хто має гостре відчуття моди, і тих, хто має настрій щось поцупити."
+  name: striped syndicate green scarf
+  description: A stylish striped syndicate green scarf. The perfect winter accessory for those with a keen fashion sense, and those who are in the mood to steal something.
   components:
     - type: Sprite
       sprite: Clothing/Neck/Scarfs/syndiegreen.rsi
@@ -188,8 +188,8 @@
 - type: entity
   parent: [ ClothingScarfBase, BaseSyndicateContraband ]
   id: ClothingNeckScarfStripedSyndieRed
-  name: "смугастий синдикатний червоний шарф"
-  description: "Стильний смугастий синдиковий червоний шарф. Ідеальний зимовий аксесуар для тих, хто має гостре відчуття моди, і тих, хто має настрій щось поцупити."
+  name: striped syndicate red scarf
+  description: A stylish striped syndicate red scarf. The perfect winter accessory for those with a keen fashion sense, and those who are in the mood to steal something.
   components:
     - type: Sprite
       sprite: Clothing/Neck/Scarfs/syndiered.rsi
@@ -203,8 +203,8 @@
 - type: entity
   parent: [ ClothingScarfBase, BaseCentcommContraband ]
   id: ClothingNeckScarfStripedCentcom
-  name: "смугастий шарф ЦентКому"
-  description: "Стильний смугастий шарф у кольорах ЦентКому. Ідеальний зимовий аксесуар для тих, хто має гостре почуття моди, і для тих, кому потрібно працювати з документами на холоді."
+  name: striped CentComm scarf
+  description: A stylish striped centcomm colored scarf. The perfect winter accessory for those with a keen fashion sense, and those who need to do paperwork in the cold.
   components:
     - type: Sprite
       sprite: Clothing/Neck/Scarfs/centcom.rsi
@@ -214,8 +214,8 @@
 - type: entity
   parent: ClothingScarfBase
   id: ClothingNeckScarfStripedZebra
-  name: "шарф-зебра"
-  description: "Смугастий шарф, обов'язковий аксесуар для художників."
+  name: zebra scarf
+  description: A striped scarf, a mandatory accessory for artists.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Scarfs/zebra.rsi
@@ -226,8 +226,8 @@
 - type: entity
   parent: ClothingScarfBase
   id: ClothingNeckScarfStripedAce
-  name: "смугастий асексуальний шарф"
-  description: "Стильний смугастий асексуальний шарф. Ідеальний зимовий аксесуар для тих, хто має витончений смак моди, і для тих, хто просто не витримує холодного вітру на шиї."
+  name: striped asexual scarf
+  description: A stylish striped asexual scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Scarfs/PrideScarfs/ace.rsi
@@ -237,8 +237,8 @@
 - type: entity
   parent: ClothingScarfBase
   id: ClothingNeckScarfStripedAro
-  name: "смугастий аромантичний шарф"
-  description: "Стильний смугастий аромантичний шарф. Ідеальний зимовий аксесуар для тих, хто має витончений смак моди, і для тих, хто просто не витримує холодного вітру на шиї."
+  name: striped aromantic scarf
+  description: A stylish striped aromantic scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Scarfs/PrideScarfs/aro.rsi
@@ -248,8 +248,8 @@
 - type: entity
   parent: ClothingScarfBase
   id: ClothingNeckScarfStripedAroace
-  name: "смугастий ароейс шарф"
-  description: "Стильний смугастий ароейс шарф. Ідеальний зимовий аксесуар для тих, хто має витончений смак моди, і для тих, хто просто не витримує холодного вітру на шиї."
+  name: striped aroace scarf
+  description: A stylish striped aroace scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Scarfs/PrideScarfs/aroace.rsi
@@ -259,8 +259,8 @@
 - type: entity
   parent: ClothingScarfBase
   id: ClothingNeckScarfStripedBiSexual
-  name: "смугастий бісексуальний шарф"
-  description: "Стильний смугастий бісексуальний шарф. Ідеальний зимовий аксесуар для тих, хто має витончений смак моди, і для тих, хто просто не витримує холодного вітру на шиї."
+  name: striped bisexual scarf
+  description: A stylish striped bisexual scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Scarfs/PrideScarfs/bi.rsi
@@ -270,8 +270,8 @@
 - type: entity
   parent: ClothingScarfBase
   id: ClothingNeckScarfStripedGay
-  name: "смугастий гей-шарф"
-  description: "Стильний смугастий гей-шарф. Ідеальний зимовий аксесуар для тих, хто має витончений смак моди, і для тих, хто просто не витримує холодного вітру на шиї."
+  name: striped gay scarf
+  description: A stylish striped gay scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Scarfs/PrideScarfs/gay.rsi
@@ -281,8 +281,8 @@
 - type: entity
   parent: ClothingScarfBase
   id: ClothingNeckScarfStripedInter
-  name: "смугастий інтерсекс-шарф"
-  description: "Стильний смугастий інтерсекс-шарф. Ідеальний зимовий аксесуар для тих, хто має витончений смак моди, і для тих, хто просто не витримує холодного вітру на шиї."
+  name: striped intersex scarf
+  description: A stylish striped intersex scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Scarfs/PrideScarfs/inter.rsi
@@ -292,8 +292,8 @@
 - type: entity
   parent: ClothingScarfBase
   id: ClothingNeckScarfStripedLesbian
-  name: "смугастий лесбійський шарф"
-  description: "Стильний смугастий лесбійський шарф. Ідеальний зимовий аксесуар для тих, хто має витончений смак моди, і для тих, хто просто не витримує холодного вітру на шиї."
+  name: striped lesbian scarf
+  description: A stylish striped lesbian scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Scarfs/PrideScarfs/lesbian.rsi
@@ -303,8 +303,8 @@
 - type: entity
   parent: ClothingScarfBase
   id: ClothingNeckScarfStripedPan
-  name: "смугастий пан-шарф"
-  description: "Стильний смугастий пан-шарф. Ідеальний зимовий аксесуар для тих, хто має витончений смак моди, і для тих, хто просто не витримує холодного вітру на шиї."
+  name: striped pan scarf
+  description: A stylish striped pan scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Scarfs/PrideScarfs/pan.rsi
@@ -314,8 +314,8 @@
 - type: entity
   parent: ClothingScarfBase
   id: ClothingNeckScarfStripedNonBinary
-  name: "смугастий небінарний шарф"
-  description: "Стильний смугастий небінарний шарф. Ідеальний зимовий аксесуар для тих, хто має витончений смак моди, і для тих, хто просто не витримує холодного вітру на шиї."
+  name: striped non-binary scarf
+  description: A stylish striped non-binary scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Scarfs/PrideScarfs/non.rsi
@@ -325,8 +325,8 @@
 - type: entity
   parent: ClothingScarfBase
   id: ClothingNeckScarfStripedRainbow
-  name: "райдужний шарф"
-  description: "Стильний райдужний шарф. Ідеальний зимовий аксесуар для тих, хто має витончений смак моди, і для тих, хто просто не витримує холодного вітру на шиї."
+  name: rainbow scarf
+  description: A stylish rainbow scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Scarfs/PrideScarfs/rainbow.rsi
@@ -336,8 +336,8 @@
 - type: entity
   parent: ClothingScarfBase
   id: ClothingNeckScarfStripedTrans
-  name: "смугастий транс-шарф"
-  description: "Стильний смугастий транс-шарф. Ідеальний зимовий аксесуар для тих, хто має витончений смак моди, і для тих, хто просто не витримує холодного вітру на шиї."
+  name: striped trans scarf
+  description: A stylish striped trans scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Scarfs/PrideScarfs/trans.rsi
@@ -347,8 +347,8 @@
 - type: entity
   parent: ClothingScarfBase
   id: ClothingNeckScarfStripedLesbianLong
-  name: "довгий бекон"
-  description: "Довгий бекон! Ідеально, щоб поділитися з дівчиною!"
+  name: long bacon
+  description: Long bacon! Perfect for sharing with your girlfriend!
   components:
   - type: Sprite
     sprite: Clothing/Neck/Scarfs/PrideScarfs/lesbian-long.rsi

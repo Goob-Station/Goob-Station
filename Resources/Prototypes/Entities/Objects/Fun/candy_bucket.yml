@@ -6,10 +6,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "відерце з цукерками"
+  name: "candy bucket"
   parent: BaseItem
   id: CandyBucket
-  description: "Святкове відерце для всіх ваших смаколиків."
+  description: A festive bucket for all your treats.
   components:
   - type: Sprite
     sprite: Objects/Fun/candy_bucket.rsi

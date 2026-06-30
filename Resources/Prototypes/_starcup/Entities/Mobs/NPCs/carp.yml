@@ -7,10 +7,10 @@
     sprite: _starcup/Mobs/Aliens/Carps/splitfin.rsi
 
 - type: entity
-  name: "піратський короп"
+  name: pirate carp
   parent: MobCarp
   id: MobCarpPirate
-  description: "Короп, у якого покору жорстоко вибили силою."
+  description: A carp that has had obedience savagely beaten into it.
   components:
   - type: NpcFactionMember
     factions:
@@ -26,10 +26,10 @@
       maxAmount: 4
 
 - type: entity
-  name: "вампірський короп"
+  name: vampire carp
   parent: MobCarp
   id: MobCarpVampire
-  description: "Ненажерлива космічна риба з довгими іклами та спрагою крові."
+  description: A ravenous space fish with long fangs and a thirst for blood.
   components:
   - type: Sprite
     sprite: _starcup/Mobs/Aliens/Carps/vampire.rsi
@@ -44,10 +44,10 @@
       40: Dead
 
 - type: entity
-  name: "королева коропів"
+  name: queen carp
   parent: MobCarp
   id: MobCarpQueen
-  description: "Коропів, добре відгодованих похмурими рештками, іноді називають королевами за їхній огрядний вигляд."
+  description: Carps well fed on grim debris are sometimes called 'queens' for their portly appearance.
   components:
   - type: Sprite
     sprite: _starcup/Mobs/Aliens/Carps/queen.rsi
@@ -85,10 +85,10 @@
     sprite: _starcup/Mobs/Aliens/Carps/Sharkminnows/sharkminnowgreen.rsi
 
 - type: entity
-  name: "панцирний мальок"
+  name: shellminnow
   parent: MobShark
   id: MobSharkShelled
-  description: "Небезпечна акула з темряви безкрайнього космосу, захищена товстими кістяними пластинами."
+  description: A dangerous shark from the blackness of endless space, protected by thick bony plates.
   components:
     - type: Sprite
       sprite: _starcup/Mobs/Aliens/Carps/Sharkminnows/sharkminnowshelled.rsi
@@ -104,7 +104,7 @@
         amount: 3
 
 - type: entity
-  name: "панцирний мальок"
+  name: shellminnow
   suffix: blue
   parent: MobSharkShelled
   id: MobSharkShelledBlue
@@ -113,7 +113,7 @@
       sprite: _starcup/Mobs/Aliens/Carps/Sharkminnows/sharkminnowshelledblue.rsi
 
 - type: entity
-  name: "панцирний мальок"
+  name: shellminnow
   suffix: brown
   parent: MobSharkShelled
   id: MobSharkShelledBrown
@@ -122,7 +122,7 @@
       sprite: _starcup/Mobs/Aliens/Carps/Sharkminnows/sharkminnowshelledbrown.rsi
 
 - type: entity
-  name: "панцирний мальок"
+  name: shellminnow
   suffix: green
   parent: MobSharkShelled
   id: MobSharkShelledGreen
@@ -131,11 +131,11 @@
     sprite: _starcup/Mobs/Aliens/Carps/Sharkminnows/sharkminnowshelledgreen.rsi
 
 - type: entity
-  name: "розгодований акулячий мальок"
+  name: engorged sharkminnow
   suffix: green
   parent: MobSharkShelled
   id: MobSharkFat
-  description: "Небезпечна акула з темряви безкрайнього космосу, добре відгодована рештками нещасних космонавтів."
+  description: A dangerous shark from the blackness of endless space, well fed on the remains of unfortunate spacers.
   components:
   - type: Sprite
     sprite: _starcup/Mobs/Aliens/Carps/Sharkminnows/sharkminnowfat.rsi
@@ -145,10 +145,10 @@
       175: Dead
 
 - type: entity
-  name: "вампірський акулячий мальок"
+  name: vampire sharkminnow
   parent: MobShark
   id: MobSharkVampire
-  description: "Жахлива акула з темряви безкрайнього космосу з лиховісними довгими іклами."
+  description: A terrifying shark from the blackness of endless space, with wicked long fangs.
   components:
   - type: Sprite
     sprite: _starcup/Mobs/Aliens/Carps/Sharkminnows/sharkminnowvampire.rsi
@@ -169,10 +169,10 @@
       amount: 5
 
 - type: entity
-  name: "абісальний акулячий мальок"
+  name: abyssal sharkminnow
   parent: MobShark
   id: MobSharkAbyssal
-  description: "Ще небезпечніша акула з темряви безкрайнього космосу, лютіша й витриваліша."
+  description: An extra dangerous shark from the blackness of endless space, more vicious and durable.
   components:
     - type: Sprite
       sprite: _starcup/Mobs/Aliens/Carps/Sharkminnows/sharkminnowabyssal.rsi
@@ -193,10 +193,10 @@
         amount: 5
 
 - type: entity
-  name: "лазерний акулячий мальок"
+  name: laser sharkminnow
   parent: MobShark
   id: MobSharkLaser
-  description: "Улюблений спосіб страти для витонченого космічного лиходія."
+  description: The execution method of choice for the sophisticated space villain.
   components:
   - type: NpcFactionMember
     factions:
@@ -224,10 +224,10 @@
       task: SimpleRangedHostileCompound
 
 - type: entity
-  name: "страхітливий акулячий мальок"
+  name: dire sharkminnow
   parent: MobShark
   id: MobSharkDire
-  description: "Жахлива акула з темряви безкрайнього космосу з лиховісними довгими іклами."
+  description: A terrifying shark from the blackness of endless space, with wicked long fangs.
   components:
   - type: Sprite
     sprite: _starcup/Mobs/Aliens/Carps/Sharkminnows/sharkminnowdire.rsi
@@ -248,11 +248,11 @@
       amount: 6
 
 - type: entity
-  name: "тибурадон"
+  name: tiburadon
   suffix: "sharkminnow boss"
   parent: MobSharkDire
   id: MobSharkTiburadon
-  description: "Стародавня порода акулячого малька з найглибших закутків космосу."
+  description: An ancient bred of sharkminnow from the deepest confines of space.
   components:
   - type: Sprite
     sprite: _starcup/Mobs/Aliens/Carps/Sharkminnows/tiburadon.rsi

@@ -15,8 +15,8 @@
 
 - type: entity
   id: BaseMindRole
-  name: "Роль Розуму"
-  description: "Сутність Ролі Розуму"
+  name: Mind Role
+  description: Mind Role entity
   abstract: true
   components:
   - type: MindRole
@@ -36,7 +36,7 @@
 - type: entity
   parent: BaseMindRole
   id: MindRoleObserver
-  name: "Роль Спостерігача"
+  name: Observer Role
   components:
   - type: ObserverRole
   - type: MindRole
@@ -46,14 +46,14 @@
 - type: entity
   parent: BaseMindRole
   id: MindRoleGhostRoleNeutral
-  name: "Роль Привида"
+  name: Ghost Role
   components:
   - type: GhostRoleMarkerRole
 
 - type: entity
   parent: MindRoleGhostRoleNeutral
   id: MindRoleGhostRoleFamiliar
-  name: "Роль Привида (Фамільяр)"
+  name: Ghost Role (Familiar)
   components:
   - type: MindRole
     roleType: Familiar
@@ -61,7 +61,7 @@
 - type: entity
   parent: [ BaseMindRoleAntag, MindRoleGhostRoleNeutral ]
   id: MindRoleGhostRoleFreeAgent
-  name: "Роль Привида (Вільний Агент)"
+  name: Ghost Role (Free Agent)
   components:
   - type: MindRole
     roleType: FreeAgent
@@ -71,7 +71,7 @@
 - type: entity
   parent: MindRoleGhostRoleNeutral
   id: MindRoleGhostRoleFreeAgentHarmless
-  name: "Роль Привида (Вільний Агент)"
+  name: Ghost Role (Free Agent)
   components:
   - type: MindRole
     roleType: FreeAgent
@@ -80,7 +80,7 @@
 - type: entity
   parent: MindRoleGhostRoleNeutral
   id: MindRoleGhostRoleSilicon
-  name: "Роль Привида (Кремній)"
+  name: Ghost Role (Silicon)
   components:
   - type: MindRole
     roleType: Silicon
@@ -88,7 +88,7 @@
 - type: entity
   parent: [ BaseMindRoleAntag, MindRoleGhostRoleNeutral ]
   id: MindRoleGhostRoleSiliconAntagonist
-  name: "Роль Привида (Антагоніст Кремнію)"
+  name: Ghost Role (Silicon Antagonist)
   components:
   - type: MindRole
     roleType: SiliconAntagonist
@@ -98,12 +98,12 @@
 - type: entity
   parent: [ BaseMindRoleAntag, MindRoleGhostRoleNeutral ]
   id: MindRoleGhostRoleSoloAntagonist
-  name: "Роль Привида (Соло Антагоніст)"
+  name: Ghost Role (Solo Antagonist)
 
 - type: entity
   parent: [ BaseMindRoleAntag, MindRoleGhostRoleNeutral ]
   id: MindRoleGhostRoleTeamAntagonist
-  name: "Роль Привида (Командний Антагоніст)"
+  name: Ghost Role (Team Antagonist)
   components:
   - type: MindRole
     roleType: TeamAntagonist
@@ -113,7 +113,7 @@
 - type: entity
   parent: MindRoleGhostRoleTeamAntagonist
   id: MindRoleGhostRoleTeamAntagonistFlock
-  name: "Роль Привида (Командний Антагоніст)"
+  name: Ghost Role (Team Antagonist)
   components:
   - type: MindRole
     sortWeight: 40
@@ -122,14 +122,14 @@
 - type: entity
   parent: BaseMindRole
   id: MindRoleJob
-  name: "Роль Роботи"
+  name: Job Role
   # JobPrototype is filled by SharedJobSystem
 
 # Silicon
 - type: entity
   parent: BaseMindRole
   id: MindRoleSiliconBrain
-  name: "Роль Мозку Борга"
+  name: Borg Brain Role
   components:
   - type: MindRole
     roleType: Silicon
@@ -138,7 +138,7 @@
 - type: entity
   parent: BaseMindRoleAntag
   id: MindRoleSubvertedSilicon
-  name: "Роль Підкореного Кремнію"
+  name: Subverted Silicon Role
   description:
   components:
   - type: MindRole
@@ -151,7 +151,7 @@
 - type: entity
   parent: BaseMindRoleAntag
   id: MindRoleDragon
-  name: "Роль Дракона"
+  name: Dragon Role
   components:
   - type: MindRole
     antagPrototype: Dragon
@@ -164,7 +164,7 @@
 - type: entity
   parent: BaseMindRoleAntag
   id: MindRoleNinja
-  name: "Роль Космічного Ніндзя"
+  name: Space Ninja Role
   components:
   - type: MindRole
     antagPrototype: SpaceNinja
@@ -176,7 +176,7 @@
 - type: entity
   parent: BaseMindRoleAntag
   id: MindRoleParadoxClone
-  name: "Роль Клона Парадоксу"
+  name: Paradox Clone Role
   components:
   - type: MindRole
     antagPrototype: ParadoxClone
@@ -187,7 +187,7 @@
 - type: entity
   parent: BaseMindRoleAntag
   id: MindRoleNukeops
-  name: "Роль Оперативника Ядерного Удару"
+  name: Nukeops Operative Role
   components:
   - type: MindRole
     roleType: TeamAntagonist
@@ -199,7 +199,7 @@
 - type: entity
   parent: MindRoleNukeops
   id: MindRoleNukeopsMedic
-  name: "Роль Медика Ядерного Удару"
+  name: Nukeops Medic Role
   components:
   - type: MindRole
     antagPrototype: NukeopsMedic
@@ -207,7 +207,7 @@
 - type: entity
   parent: MindRoleNukeops
   id: MindRoleNukeopsCommander
-  name: "Роль Командира Ядерного Удару"
+  name: Nukeops Commander Role
   components:
   - type: MindRole
     antagPrototype: NukeopsCommander
@@ -216,7 +216,7 @@
 - type: entity
   parent: BaseMindRoleAntag
   id: MindRoleHeadRevolutionary
-  name: "Роль Голови Революціонерів"
+  name: Head Revolutionary Role
   components:
   - type: MindRole
     antagPrototype: HeadRev
@@ -228,7 +228,7 @@
 - type: entity
   parent: MindRoleHeadRevolutionary
   id: MindRoleRevolutionary
-  name: "Роль Революціонера"
+  name: Revolutionary Role
   components:
   - type: MindRole
     antagPrototype: Rev
@@ -238,7 +238,7 @@
 - type: entity
   parent: BaseMindRoleAntag
   id: MindRoleThief
-  name: "Роль Злодія"
+  name: Thief Role
   components:
   - type: MindRole
     antagPrototype: Thief
@@ -249,7 +249,7 @@
 - type: entity
   parent: BaseMindRoleAntag
   id: MindRoleTraitor
-  name: "Роль Зрадника"
+  name: Traitor Role
   components:
   - type: MindRole
     antagPrototype: Traitor
@@ -260,7 +260,7 @@
 - type: entity
   parent: MindRoleTraitor
   id: MindRoleTraitorSleeper
-  name: "Роль Сплячого Агента"
+  name: Sleeper Agent Role
   components:
   - type: MindRole
     antagPrototype: TraitorSleeper
@@ -268,7 +268,7 @@
 - type: entity
   parent: MindRoleTraitor
   id: MindRoleTraitorReinforcement
-  name: "Роль Підкріплення Синдикату"
+  name: Syndicate Reinforcement Role
   components:
   - type: MindRole
     roleType: Familiar
@@ -279,7 +279,7 @@
 - type: entity
   parent: BaseMindRoleAntag
   id: MindRoleInitialInfected
-  name: "Роль Початкового Інфікованого"
+  name: Initial Infected Role
   components:
   - type: MindRole
     antagPrototype: InitialInfected
@@ -291,7 +291,7 @@
 - type: entity
   parent: MindRoleGhostRoleTeamAntagonistFlock
   id: MindRoleZombie
-  name: "Роль Зомбі"
+  name: Zombie Role
   components:
   - type: MindRole
     antagPrototype: Zombie

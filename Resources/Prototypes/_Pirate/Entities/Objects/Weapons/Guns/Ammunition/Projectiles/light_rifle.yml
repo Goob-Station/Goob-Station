@@ -2,7 +2,7 @@
   parent: BaseBullet
   id: BulletLightRifleCaseless
   categories: [ HideSpawnMenu ]
-  name: "куля (.30 безгільзова гвинтівкова)"
+  name: куля (.30 безгільзова гвинтівкова)
   components:
   - type: Projectile
     damage:

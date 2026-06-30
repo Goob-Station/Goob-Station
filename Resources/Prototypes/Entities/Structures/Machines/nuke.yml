@@ -38,8 +38,8 @@
 - type: entity
   parent: [BaseStructure, StructureWheeled, BaseMajorContraband]
   id: NuclearBomb
-  name: "вибухівка ядерного розщеплення"
-  description: "Можливо, вам не варто залишатися тут, щоб перевірити, чи вона увімкнена."
+  name: nuclear fission explosive
+  description: You probably shouldn't stick around to see if this is armed.
   components:
   - type: Transform
     anchored: true
@@ -164,9 +164,9 @@
 - type: entity
   parent: StorageTank
   id: NuclearBombKeg
-  name: "вибухівка ядерного розщеплення"
+  name: nuclear fission explosive
   suffix: keg
-  description: "Вам, мабуть, не варто залишатися тут, щоб перевірити, чи він озброєний. Тут є кран збоку."
+  description: You probably shouldn't stick around to see if this is armed. It has a tap on the side.
   components:
   - type: Transform
     anchored: false

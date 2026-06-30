@@ -9,8 +9,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCreateContract
-  name: "Викликати пекельний контракт"
-  description: "Створює пекельний контракт у руці Диявола."
+  name: Summon infernal contract
+  description: Creates an infernal contract in the Devil's hand.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -25,8 +25,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCreateRevivalContract
-  name: "Викликати контракт на воскресіння"
-  description: "Створює контракт на воскресіння в руці Диявола."
+  name: Summon revival contract
+  description: Creates a revival contract in the Devil's hand.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -41,8 +41,8 @@
 - type: entity
   parent: BaseAction
   id: ActionShadowJaunt
-  name: "Тіньовий стрибок"
-  description: "Розчиніться в тінях."
+  name: Shadow jaunt
+  description: Melt into the shadows.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -59,8 +59,8 @@
 - type: entity
   parent: BaseAction
   id: ActionDevilPossess
-  name: "Заволодіти ціллю"
-  description: "Тимчасово заволодіти ціллю."
+  name: Possess target
+  description: Temporarily possess a target.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -81,8 +81,8 @@
 - type: entity
   parent: BaseAction
   id: ActionEndPossession
-  name: "Припинити одержимість"
-  description: "Скасувати цю одержимість достроково."
+  name: End possession
+  description: Cancel this possession early.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -98,8 +98,8 @@
 - type: entity
   parent: BaseAction
   id: ActionDevilGrip
-  name: "Диявольська Хватка"
-  description: "Та мала частка вашої сили, що залишилася в цьому царстві, скерована у ваші руки."
+  name: Devils Grip
+  description: What little fraction of your power remains in this realm, channeled into your hands.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -115,8 +115,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCheatDeath
-  name: "Обдурити Смерть"
-  description: "Посмійтеся в обличчя Смерті з косою. У вас ще є час."
+  name: Cheat Death
+  description: Laugh in the Grim Reapers face. You've still got time.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

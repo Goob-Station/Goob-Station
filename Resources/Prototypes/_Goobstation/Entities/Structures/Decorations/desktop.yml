@@ -6,8 +6,8 @@
 - type: entity
   id: Desktop
   parent: BaseStructure
-  name: "настільний комп'ютер"
-  description: "На екрані написано, що потрібно почекати оновлення ОС. Хоча смуга прогресу, здається, ніколи не рухається."
+  name: desktop computer
+  description: The screen says to hold for the OS to update. Though the progress bar never seems to move.
   placement:
     mode: SnapgridCenter
   components:

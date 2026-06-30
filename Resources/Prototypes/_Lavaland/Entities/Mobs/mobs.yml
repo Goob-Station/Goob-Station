@@ -1,8 +1,8 @@
 - type: entity
-  name: "Попелясте дитинча"
+  name: Ash Whelp
   id: LavalandMobAshWhelp
   parent: LavalandMobBase
-  description: "Нащадок попелястого дракона: слабший у порівнянні, але все ще жахає."
+  description: The offspring of an ash drake, weak in comparison but still terrifying.
   components:
   - type: Physics
     bodyType: KinematicController
@@ -65,10 +65,10 @@
     factor: 4 # times more dangerous than a crew-member
 
 - type: entity
-  name: "Брімдемон"
+  name: Brimdemon
   id: LavalandMobBrimdemon
   parent: LavalandMobBase
-  description: "Нестабільна істота, схожа на величезний рогатий череп. Її реакція майже на будь-який подразник — випустити промінь пекельної енергії."
+  description: A volatile creature resembling an enormous horned skull. Its response to almost any stimulus is to unleash a beam of infernal energy.
   components:
   - type: Physics
     bodyType: KinematicController
@@ -148,10 +148,10 @@
     factor: 4 # times more dangerous than a crew-member
 
 - type: entity
-  name: "Чернь"
+  name: Rabble
   id: LavalandMobLegionMonkey
   parent: LavalandMobBase
-  description: "Під мінливою масою скверни видно те, що колись було мавпою. У нього недостатньо біомаси для розмноження."
+  description: You can see what was once a monkey under the shifting mass of corruption. It doesn't have enough biomass to reproduce.
   components:
   - type: Physics
     bodyType: KinematicController

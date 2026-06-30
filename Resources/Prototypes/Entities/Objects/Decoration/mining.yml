@@ -6,8 +6,8 @@
 
 - type: entity
   id: WoodenSign
-  name: "дерев'яна вивіска"
-  description: "Вона кудись показує."
+  name: wooden sign
+  description: He's pointing somewhere.
   components:
   - type: Clickable
   - type: InteractionOutline
@@ -63,8 +63,8 @@
 - type: entity
   id: WoodenSupport
   parent: BaseStructure
-  name: "дерев'яна опора"
-  description: "Підвищує впевненість у тому, що камінь не впаде на голову."
+  name: wooden support
+  description: Increases your confidence that a rock won't fall on your head.
   placement:
     mode: SnapgridCenter
   components:
@@ -121,7 +121,7 @@
 
 - type: entity
   id: WoodenSupportBeam
-  name: "дерев'яна опорна балка"
+  name: wooden support beam
   parent: WoodenSupport
   components:
   - type: Sprite
@@ -143,8 +143,8 @@
 - type: entity
   id: WoodenSupportWall
   parent: BaseStructure
-  name: "дерев'яна опорна стіна"
-  description: "Стара, прогнила стіна."
+  name: wooden support wall
+  description: An old, rotten wall.
   placement:
     mode: SnapgridCenter
   components:

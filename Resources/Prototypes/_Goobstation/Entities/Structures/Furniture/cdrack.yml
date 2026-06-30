@@ -5,8 +5,8 @@
 - type: entity
   id: CdRack
   parent: BaseStructure
-  name: "Стійка для CD"
-  description: "Здебільшого заповнена CD-дисками."
+  name: CD rack
+  description: Mostly filled with CDs.
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Furniture/cdrack.rsi

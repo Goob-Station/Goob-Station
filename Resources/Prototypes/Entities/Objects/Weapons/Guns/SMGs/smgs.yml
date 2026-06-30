@@ -64,10 +64,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "BaseSMG"
+  name: BaseSMG
   parent: BaseItem
   id: BaseWeaponSubMachineGun
-  description: "Корінцевий зубастий і пагонистий."
+  description: A rooty tooty point and shooty.
   abstract: true
   components:
   - type: Sprite
@@ -157,10 +157,10 @@
   - type: CanTakeAim # PIRATE
 
 - type: entity
-  name: "Атрейдес"
+  name: Atreides
   parent: [BaseWeaponSubMachineGun, BaseSecurityContraband]
   id: WeaponSubMachineGunAtreides
-  description: "Рідкісний компактний машинний пістолет, який нечасто трапляється у секторі Спінвард. Випущений під час Корпоративних воєн, а його креслення давно загубилися в часі, Атрейдес чудово показує себе в ближньому бою завдяки шаленій скорострільності. Живиться з магазинів ПП .35 Auto." # Goobstation
+  description: A rare, compact machine pistol not often found in the Spinward sector. Being produced during the Corporate Wars and the design specs being long since lost to time, the Atreides excels at CQB due to its overwhelming firerate. Feeds from .35 Auto SMG magazines. # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/SMGs/atreides.rsi
@@ -180,10 +180,10 @@
   - type: Appearance
 
 - type: entity
-  name: "C-20R"
+  name: C-20R
   parent: [BaseWeaponSubMachineGun, BaseSyndicateContraband]
   id: WeaponSubMachineGunC20r
-  description: "Права рука тих, хто б’ється під знаком трьох зміїв. Одноручний ПП у компоновці булпап від корпорації Waffle, що жертвує точністю заради чистої скорострільності. Живиться з магазинів ПП .35 Auto."
+  description: The right hand of those who fight under the three serpents. A one-handed, bullpup SMG from the Waffle Corporation that sacrifices accuracy for pure firerate. Feeds from .35 Auto SMG magazines.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/SMGs/c20r.rsi
@@ -223,10 +223,10 @@
     price: 5000
 
 - type: entity
-  name: "Дрозд"
+  name: Drozd
   parent: [BaseWeaponSubMachineGun, BaseSecurityContraband]
   id: WeaponSubMachineGunDrozd
-  description: "ПП у компоновці булпап, створений для вузьких і тісних коридорів, типових для станційних боїв. Ця правоохоронна модель має вибір режимів вогню, але конструкція Дрозда, орієнтована на короткі черги, помітно обмежує ефективність повністю автоматичного режиму. Живиться з магазинів ПП .35 Auto."
+  description: A bullpup SMG designed for the narrow and tight corridors common in station warfare. This law-enforcement model is select fire, but the Drozd's burst focused design throttles its full-auto performance massively. Feeds from .35 Auto SMG magazines.
   components:
     - type: Sprite
       sprite: Objects/Weapons/Guns/SMGs/drozd.rsi
@@ -282,10 +282,10 @@
     - type: Appearance
 
 - type: entity
-  name: "WT550" # Goobstation
+  name: WT550 # Goobstation
   parent: [BaseWeaponSubMachineGun, BaseSecurityContraband]
   id: WeaponSubMachineGunWt550
-  description: "Справді унікальна вогнепальна зброя: WT550 заряджається зі спеціального верхнього магазину, розташованого паралельно стволу. Хоч скорострільність не вражає, компактні габарити та стабільна віддача дозволяють цілком комфортно користуватися ним однією рукою. Живиться з верхніх магазинів ПП .35 Auto." # Goobstation
+  description: A truly unique firearm, the WT550 loads from a proprietary top-mounted magazine parallel to the barrel. While the RPM isn't great, the small package and steady recoil make it fully usable one-handed. Feeds from top-mounted .35 Auto SMG magazines. # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/SMGs/wt550.rsi

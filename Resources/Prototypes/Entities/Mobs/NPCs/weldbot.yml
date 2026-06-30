@@ -6,8 +6,8 @@
 - type: entity
   parent: MobSiliconBase
   id: MobWeldbot
-  name: "зварювальний робот"
-  description: "Не замінить інженера, але краще, ніж нічого."
+  name: weldbot
+  description: No substitute for an engineer, but better than nothing.
   components:
   - type: Weldbot
   - type: Sprite

@@ -76,8 +76,8 @@
 
 - type: entity
   id: BarberScissors
-  name: "перукарські ножиці"
-  description: "Здатні змінити зачіску будь-якої стрижки на ваш смак."
+  name: barber scissors
+  description: Is able to reshape the hairstyle of any crew cut to your liking.
   parent: BaseItem
   components:
   - type: Sprite

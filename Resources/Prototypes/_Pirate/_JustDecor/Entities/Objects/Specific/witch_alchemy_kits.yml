@@ -2,7 +2,7 @@
   id: PirateEventReagentVialBase
   parent: BaseChemistryEmptyVial
   abstract: true
-  name: "магічна фляжка"
+  name: магічна фляжка
   components:
   - type: AlchemistDirectApplication
 

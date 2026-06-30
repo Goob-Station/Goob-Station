@@ -8,7 +8,7 @@
   parent: BaseMail
   abstract: true
   id: BaseMailLarge
-  name: "пакунок"
+  name: package
   components:
   - type: Item
     size: Large

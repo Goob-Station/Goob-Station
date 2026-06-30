@@ -11,8 +11,8 @@
 - type: entity
   parent: [ ClothingNeckBase, BaseCentcommContraband ]
   id: ClothingNeckMantleBlueshield
-  name: "мантія офіцера синього щита"
-  description: "Добре збалансована, захисна мантія, розроблена для оптимальної ефективності охорони."
+  name: blueshield officer mantle
+  description: A well-balanced, protective mantle, designed for optimal bodyguarding efficiency.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Mantle/bsomantle.rsi
@@ -23,8 +23,8 @@
 - type: entity
   parent: [ ClothingNeckBase ]
   id: ClothingNeckMantleVeteranSecurity
-  name: "мантія ветерана охорони"
-  description: "Особисто вручена керівником служби безпеки за відбиття атаки Синдикату; одного погляду на неї досить, щоб трохи підняти бойовий дух"
+  name: veteran security's mantle
+  description: Personally awarded by HOS for repealing a Syndicate attack, looking at it seems to boost your morale by a bit
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Neck/Mantle/veteran_security.rsi # Pirate bluesec
@@ -35,8 +35,8 @@
 - type: entity
   parent: [ ClothingNeckBase, BaseCentcommContraband ]
   id: ClothingNeckMantleEpaulettes
-  name: "золоті еполети"
-  description: "Вишукано виготовлені золоті еполети, що символізують адміральство в Центральному Командуванні."
+  name: golden epaulettes
+  description: Exquisitely-crafted gold epaulettes symbolizing admiralty within Central Command.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Mantle/epaulettes.rsi

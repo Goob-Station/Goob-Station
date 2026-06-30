@@ -6,10 +6,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "M7S «Вентилятор»"
+  name: M7S Ventilator
   parent: [BaseWeaponSubMachineGun, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponSubMachineGunM7S
-  description: "Коли треба провітрити цілий коридор — силоміць. Живиться з магазинів із боковим заряджанням 5x23mm."
+  description: For when you need to air out an entire hallway, forcibly. Feeds from side-loading 5x23mm magazines.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/SMGs/M7S.rsi

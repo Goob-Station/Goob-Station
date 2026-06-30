@@ -5,8 +5,8 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "ніж для різьблення"
-  description: "Маленький ніж з холодної сталі, чистий і досконалий. Його гострота може різати сам титан - але лише деякі можуть викликати небезпеки, що ховаються під реальністю."
+  name: carving knife
+  description: A small knife made of cold steel, pure and perfect. Its sharpness can carve into titanium itself - but only few can evoke the dangers that lurk beneath reality.
   parent: [ BaseKnife, BaseMagicalContraband ]
   id: CarvingKnife
   components:

@@ -1,7 +1,7 @@
 - type: entity
   id: RedSlimeExtract
   parent: BaseSlimeExtract
-  name: "червоний екстракт слайма"
+  name: red slime extract
   components:
   - type: Sprite
     layers:

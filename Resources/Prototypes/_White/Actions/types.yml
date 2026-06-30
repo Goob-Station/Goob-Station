@@ -7,8 +7,8 @@
 - type: entity
   parent: BaseAction
   id: ToggleNightVision
-  name: "Переключити нічне бачення"
-  description: "Перемикає нічне бачення."
+  name: Toggle Night Vision
+  description: Toggles night vision.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -24,8 +24,8 @@
 - type: entity
   parent: BaseAction
   id: ToggleThermalVision
-  name: "Переключити теплове бачення"
-  description: "Перемикає теплове бачення."
+  name: Toggle Thermal Vision
+  description: Toggles thermal vision.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -41,8 +41,8 @@
 - type: entity
   id: PulseThermalVision
   parent: ToggleThermalVision
-  name: "Імпульсне тепловізійне бачення"
-  description: "Тимчасово увімкнути тепловий зір."
+  name: Pulse Thermal Vision
+  description: Activate thermal vision temporarily.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

@@ -40,8 +40,8 @@
   abstract: true
   id: BaseSMES
   parent: [ BaseMachine, ConstructibleMachine ]
-  name: "SMES"
-  description: "Надпровідний магнітний накопичувач енергії (SMES) великої ємності."
+  name: SMES
+  description: A high-capacity superconducting magnetic energy storage (SMES) unit.
   placement:
     mode: SnapgridCenter
   components:
@@ -174,8 +174,8 @@
   parent: BaseSMES
   id: SMESAdvanced
   suffix: Advanced, 32MJ
-  name: "просунутий SMES"
-  description: "Ще більш потужний надпровідний магнітний накопичувач енергії (SMES)."
+  name: advanced SMES
+  description: An even-higher-capacity superconducting magnetic energy storage (SMES) unit.
   components:
   - type: Sprite
     sprite: Structures/Power/smes.rsi

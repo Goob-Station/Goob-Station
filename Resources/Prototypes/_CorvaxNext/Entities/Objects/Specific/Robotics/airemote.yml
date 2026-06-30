@@ -6,8 +6,8 @@
 - type: entity
   parent: BaseItem
   id: AiRemoteBrain
-  name: "B.O.R.I.S. Пульт дистанційного керування ШІ-кіборгом"
-  description: "Плата управління кіборгом зі штучним інтелектом."
+  name: "B.O.R.I.S. AI-Cyborg Remote Control"
+  description: Artificial Intelligence cyborg control board.
   components:
     - type: Sprite
       sprite: Objects/Misc/module.rsi

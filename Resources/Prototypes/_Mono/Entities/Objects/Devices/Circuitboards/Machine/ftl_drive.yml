@@ -1,8 +1,8 @@
 - type: entity
   id: MachineFTLDriveCircuitboard
   parent: BaseMachineCircuitboard
-  name: "плата блюспейс-двигуна FSS-512"
-  description: "Машинна плата для блюспейс-двигуна."
+  name: FSS-512 bluespace drive board
+  description: A machine board for a bluespace drive.
   components:
   - type: Sprite
     state: supply
@@ -15,8 +15,8 @@
 - type: entity
   id: MachineFTLDriveHighCircuitboard
   parent: BaseMachineCircuitboard
-  name: "плата блюспейс-двигуна CTLA-2048"
-  description: "Машинна плата для блюспейс-двигуна."
+  name: CTLA-2048 bluespace drive board
+  description: A machine board for a bluespace drive.
   components:
   - type: Sprite
     state: supply

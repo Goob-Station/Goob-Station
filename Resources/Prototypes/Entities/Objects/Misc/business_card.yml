@@ -8,9 +8,9 @@
 
 - type: entity
   id: SyndicateBusinessCard
-  name: "візитна картка синдикату"
+  name: syndicate business card
   parent: [ Paper, BaseSyndicateContraband ]
-  description: "Чорна картка з логотипом синдикату. На звороті щось написано."
+  description: A black card with the syndicate's logo. There's something written on the back.
   components:
     - type: Sprite
       sprite: Objects/Misc/bureaucracy.rsi

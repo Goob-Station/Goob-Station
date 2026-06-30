@@ -8,8 +8,8 @@
 - type: entity
   id: FleshBlocker
   parent: BaseStructure
-  name: "шматок м'яса"
-  description: "Набридливий шматок плоті."
+  name: flesh clump
+  description: An annoying clump of flesh.
   components:
   - type: InteractionOutline
   - type: Sprite

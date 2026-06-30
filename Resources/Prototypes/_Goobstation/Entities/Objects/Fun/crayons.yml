@@ -26,8 +26,8 @@
 - type: entity
   parent: CrayonInedible
   id: CrayonRainbowLarge
-  name: "плазмова веселкова крейда"
-  description: "Барвиста крейда. Тепер нескінченна! (майже)"
+  name: plasmic rainbow crayon
+  description: A colourful crayon. Now infinite! (almost)
   components:
   - type: Sprite
     state: rainbow

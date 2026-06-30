@@ -1,8 +1,8 @@
 - type: entity
   parent: [ ClothingShoesBootsMantis, BaseFoldable ]
   id: ClothingShoesSandalsMantisAiry
-  name: "легкі сандалі Мантіса"
-  description: "Сандальні чоботи з похмурої тканини. Верхи можна загнути вниз, якщо вони заважають штанам."
+  name: airy mantis sandals
+  description: "Sandal boots made of gloomy fabric. You can fold the tops down if they're in the way of your pants."
   components:
   - type: Sprite
     sprite: _DEN/Clothing/Shoes/Sandals/mantis_sandals_airy.rsi
@@ -25,8 +25,8 @@
 - type: entity
   parent: ClothingShoesBootsMantis
   id: ClothingShoesSandalsMantisDark
-  name: "темні сандалі Мантіса"
-  description: "Сандалі з ремінцями для скромного містика."
+  name: dark mantis sandals
+  description: "Strapped sandals, for the modest mystic."
   components:
   - type: Sprite
     sprite: _DEN/Clothing/Shoes/Sandals/mantis_sandals_dark.rsi
@@ -37,8 +37,8 @@
 - type: entity
   parent: [ClothingShoesBootsMantis, BaseFoldable]
   id: ClothingShoesSandalsMantisOrnate
-  name: "оздоблені сандалі Мантіса"
-  description: "Сандальні чоботи з пурпурової тканини. Верхи можна загнути вниз, якщо вони заважають штанам."
+  name: ornate mantis sandals
+  description: "Sandal boots made of magenta fabric. You can fold the tops down if they're in the way of your pants."
   components:
   - type: Sprite
     sprite: _DEN/Clothing/Shoes/Sandals/mantis_sandals_ornate.rsi

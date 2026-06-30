@@ -1,8 +1,8 @@
 - type: entity
   parent: [ BaseKnife, BaseSalvageContraband ]
   id: WeaponCrusherDagger
-  name: "кінетичний кинджал"
-  description: "Зменшена версія прото-кінетичної дробарки. Використовує кінетичну енергію, щоб вібрувати лезом на високих швидкостях."
+  name: kinetic dagger
+  description: A scaled down version of a proto-kinetic crusher. Uses kinetic energy to vibrate the blade at high speeds.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/crusher_dagger.rsi
@@ -52,8 +52,8 @@
 - type: entity
   parent: [ BaseItem, ClothingHandsBase, BaseSalvageContraband ]
   id: LavalandWeaponKineticClaws
-  name: "кінетичні кігті"
-  description: "Вивільніть свого внутрішнього еджлорда цим одноручним кігтем, достатньо малим, щоб уміститися у рюкзак."
+  name: kinetic claws
+  description: Unleash your inner edgelord with this one-handed claw small enough to fit in your backpack.
   components:
   - type: Appearance
   - type: Sprite
@@ -100,8 +100,8 @@
 - type: entity
   parent: [ BaseItem, BaseSalvageContraband ]
   id: LavalandWeaponKineticMachete
-  name: "кінетичне мачете"
-  description: "Менша одноручна версія дробарки, яка дозволяє атакувати здалеку та блокувати вхідні атаки."
+  name: kinetic machete
+  description: A smaller, one-handed variant of the crusher which allows you to attack from afar and block incoming attacks.
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Weapons/Secondary/kinetic_machete.rsi

@@ -1,8 +1,8 @@
 - type: entity
   parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponShotgunHushpup
-  name: "Хашпап"
-  description: "Маловідома модифікація «Енфорсера», оснащена громіздким глушником. Чудово підходить тим, у кого суворий моральний кодекс. Вміщує 5 набоїв 12 Gauge." # Goobstation
+  name: Hushpup
+  description: An obscure modification of the Enforcer, fitted with a bulky suppressor. Great for those with a strict moral code. Loads 5 rounds of 12 Gauge. # Goobstation
   components:
   - type: Sprite
     sprite: _Harmony/Objects/Weapons/Guns/Shotguns/hushpup.rsi

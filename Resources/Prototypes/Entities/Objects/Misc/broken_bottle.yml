@@ -25,10 +25,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "розбита пляшка"
+  name: broken bottle
   parent: BaseItem
   id: BrokenBottle
-  description: "У Space Glasgow це називається \"початок розмови\"."
+  description: In Space Glasgow this is called a conversation starter.
   components:
   - type: Sharp
   - type: Execution

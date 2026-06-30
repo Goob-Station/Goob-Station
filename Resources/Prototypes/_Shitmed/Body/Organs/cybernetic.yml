@@ -25,8 +25,8 @@
 - type: entity
   parent: BaseCyberneticOrgan
   id: BasicCyberneticEyes
-  name: "кібернетичні очі"
-  description: "Пара кібернетичних очей, які покращують ваш зір і захищають від пошкоджень очей."
+  name: cybernetic eyes
+  description: A pair of cybernetic eyes that enhance your vision, and protect you from eye damage.
   components:
   - type: Cybernetics
   - type: Sprite
@@ -51,8 +51,8 @@
 - type: entity
   parent: BasicCyberneticEyes
   id: SecurityCyberneticEyes
-  name: "кібернетичні очі безпеки"
-  description: "Пара кібернетичних очей, які покращують ваш зір завдяки інтегрованому SecHUD."
+  name: cybernetic security eyes
+  description: A pair of cybernetic eyes that enhance your vision, featuring an integrated SecHUD.
   components:
   - type: Sprite
     state: eyes-sechud
@@ -67,8 +67,8 @@
 - type: entity
   parent: BasicCyberneticEyes
   id: MedicalCyberneticEyes
-  name: "кібернетичні очі з мед-інтерфейсом"
-  description: "Пара кібернетичних очей, що покращують ваш зір, оснащені вбудованим медичним інтерфейсом (MedHUD)."
+  name: cybernetic medhud eyes
+  description: A pair of cybernetic eyes that enhance your vision, featuring an integrated MedHUD.
   components:
   - type: Sprite
     state: eyes-medhud
@@ -84,8 +84,8 @@
 - type: entity
   parent: BasicCyberneticEyes
   id: DiagnosticCyberneticEyes
-  name: "кібернетичні діагностичні очі"
-  description: "Пара кібернетичних очей, що покращують ваш зір, оснащені вбудованим діагностичним інтерфейсом."
+  name: cybernetic diagnostic eyes
+  description: A pair of cybernetic eyes that enhance your vision, featuring an integrated diagnostic hud.
   components:
   - type: Sprite
     state: eyes-diagnostic
@@ -107,8 +107,8 @@
 - type: entity
   parent: BaseCyberneticOrgan
   id: BasicCyberneticHeart
-  name: "кібернетичне серце"
-  description: "Точно налаштоване серце, яке сповільнює засвоєння ліків, але пришвидшує засвоєння отрут і наркотиків, послаблюючи їхній ефект."
+  name: cybernetic heart
+  description: A precision-tuned heart that slows down medicine absorption while hastening the absorption of poisons and narcotics resulting in weakened effects.
   components:
   - type: Sprite
     state: heart-on
@@ -145,8 +145,8 @@
 - type: entity
   parent: BasicCyberneticHeart
   id: UpgradedCyberneticHeart
-  name: "удосконалене кібернетичне серце"
-  description: "Циркуляторне ядро нового покоління, яке повільно розподіляє ліки по всьому тілу, забезпечуючи значно краще лікування, водночас різко прискорюючи та послаблюючи дію токсинів і наркотиків."
+  name: upgraded cybernetic heart
+  description: A next-gen circulatory core that slowly delivers medicine throughout the body providing much better healing while heavily accelerating and weakening toxins and narcotics.
   components:
   - type: Sprite
     state: heart-u-on
@@ -177,8 +177,8 @@
 - type: entity
   parent: BaseCyberneticOrgan
   id: BasicCyberneticLiver
-  name: "кібернетична печінка"
-  description: "Високоефективна синтетична печінка, що нейтралізує всі негативні ефекти алкоголю, зберігаючи при цьому сп'яніння."
+  name: cybernetic liver
+  description: A high-efficiency synthetic liver that neutralizes all negative effects of alcohol while preserving the buzz.
   components:
   - type: Liver
   - type: Organ
@@ -210,8 +210,8 @@
 - type: entity
   parent: BaseCyberneticOrgan
   id: BasicCyberneticLungs
-  name: "кібернетичні легені"
-  description: "Вдосконалені синтетичні легені, що дихають киснем та азотом, ігнорують CO2 та стійкі до більшості інших атмосферних небезпек."
+  name: cybernetic lungs
+  description: Advanced synthetic lungs that breathe oxygen and nitrogen, ignore CO2, and resist most other atmospheric hazards.
   components:
   - type: Sprite
     layers:
@@ -250,8 +250,8 @@
 - type: entity
   parent: BasicCyberneticLungs
   id: UpgradedCyberneticLungs
-  name: "покращені кібернетичні легені"
-  description: "Автономна дихальна система, яка повністю усуває потребу в диханні та забезпечує прискорене відновлення витривалості."
+  name: upgraded cybernetic lungs
+  description: A self-contained respiratory system that eliminates the need to breathe entirely and grants increased stamina recovery.
   components:
   - type: Sprite
     layers:

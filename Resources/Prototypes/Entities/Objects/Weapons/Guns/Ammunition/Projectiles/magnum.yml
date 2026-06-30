@@ -40,7 +40,7 @@
 
 - type: entity
   id: BulletMagnum
-  name: "куля (.45 magnum)"
+  name: bullet (.45 magnum)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -51,7 +51,7 @@
 
 - type: entity
   id: BulletMagnumPractice
-  name: "куля (.45 magnum practice)"
+  name: bullet (.45 magnum practice)
   parent: BaseBulletPractice
   categories: [ HideSpawnMenu ]
   components:
@@ -63,7 +63,7 @@
 # PIRATE START
 - type: entity
   id: BulletMagnumRubber
-  name: "куля (.45 магнум гумовий)"
+  name: bullet (.45 magnum rubber)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -78,7 +78,7 @@
 - type: entity
   id: BulletMagnumIncendiary
   parent: BaseBulletIncendiary
-  name: "куля (.45 магнум запальний)"
+  name: bullet (.45 magnum incendiary)
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -89,7 +89,7 @@
 
 - type: entity
   id: BulletMagnumAP
-  name: "куля (.45 magnum бронебійний)"
+  name: bullet (.45 magnum armor-piercing)
   parent: BaseBullet # Goobstation edit
   categories: [ HideSpawnMenu ]
   components:
@@ -101,7 +101,7 @@
 
 - type: entity
   id: BulletMagnumUranium
-  name: "куля (.45 магнум уран)"
+  name: bullet (.45 magnum uranium)
   parent: BaseBulletUranium
   categories: [ HideSpawnMenu ]
   components:

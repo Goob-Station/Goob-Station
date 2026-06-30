@@ -100,8 +100,8 @@
 - type: entity
   parent: CableBase
   id: CableHV
-  name: "Високовольтний кабель живлення"
-  description: "Помаранчевий високовольтний кабель живлення."
+  name: HV power cable
+  description: An orange high voltage power cable.
   components:
   - type: Sprite
     sprite: Structures/Power/Cables/hv_cable.rsi
@@ -158,8 +158,8 @@
 - type: entity
   parent: CableBase
   id: CableMV
-  name: "Силовий кабель середнього класу напруги"
-  description: "Кабель живлення середньої напруги."
+  name: MV power cable
+  description: A medium voltage power cable.
   components:
   - type: Sprite
     sprite: Structures/Power/Cables/mv_cable.rsi
@@ -212,8 +212,8 @@
 - type: entity
   parent: CableBase
   id: CableApcExtension
-  name: "Низьковольтний кабель живлення"
-  description: "Кабель, що використовується для з'єднання машин з АПЦ." #APCs aren't area defined anymore so need this cable to connect things to the APC. This description should be dynamic in future.
+  name: LV power cable
+  description: A cable used to connect machines to an APC. #APCs aren't area defined anymore so need this cable to connect things to the APC. This description should be dynamic in future.
   components:
   - type: Sprite
     color: Green

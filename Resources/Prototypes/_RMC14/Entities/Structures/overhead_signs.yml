@@ -1,7 +1,7 @@
 - type: entity
   id: RMCOverheadSign
   abstract: true
-  name: "знак"
+  name: sign
   placement:
     mode: SnapgridCenter
     snap:

@@ -73,8 +73,8 @@
 - type: entity
   id: CrateHydroponicsSeedsExotic
   parent: CrateHydroSecure
-  name: "ящик з екзотичним насінням"
-  description: "Мрія будь-якого підприємливого ботаніка. Містить багато різного екзотичного насіння. Для відкриття потрібен доступ гідропоніки."
+  name: exotic seeds crate
+  description: Any entrepreneuring botanist's dream. Contains many different exotic seeds. Requires Hydroponics access to open.
   components:
   - type: StorageFill
     contents:
@@ -96,8 +96,8 @@
 - type: entity
   id: CrateHydroponicsSeedsMedicinal
   parent: CrateHydroSecure
-  name: "ящик з лікарським насінням"
-  description: "Мрія хіміка-початківця. Сила медицини у вас на кінчиках ваших пальців! Для відкриття потрібен доступ гідропоніки."
+  name: medicinal seeds crate
+  description: The wannabe chemist's dream. The power of medicine is at your fingertips! Requires Hydroponics access to open.
   components:
   - type: StorageFill
     contents:
@@ -115,8 +115,8 @@
 - type: entity
   id: CrateHydroponicsTools
   parent: CrateHydroponics
-  name: "ящик з обладнанням для гідропоніки"
-  description: "Все необхідне для вирощування чудового саду! Містить кілька пляшечок з хімікатами для рослин, сокиру, міні-сапку, косу, а також пару шкіряних рукавичок і фартух ботаніка."
+  name: hydroponics equipment crate
+  description: Supplies for growing a great garden! Contains some spray bottles of plant chemicals, a hatchet, a mini-hoe, scythe, as well as a pair of leather gloves and a botanist's apron.
   components:
   - type: StorageFill
     contents:
@@ -136,8 +136,8 @@
 - type: entity
   id: CrateHydroponicsSeeds
   parent: CrateHydroponics
-  name: "ящик з насінням"
-  description: "Великі речі починаються з малого. Містить дванадцять різних насінин."
+  name: seeds crate
+  description: Big things have small beginnings. Contains twelve different seeds.
   components:
   - type: StorageFill
     contents:
@@ -168,8 +168,8 @@
 - type: entity
   id: CrateHydroponicsTray
   parent: CrateHydroponics
-  name: "ящик з лотком для гідропоніки"
-  description: "Містить розкладний лоток для гідропоніки."
+  name: hydroponics tray crate
+  description: Contains a hydroponics tray flatpack.
   components:
   - type: StorageFill
     contents:

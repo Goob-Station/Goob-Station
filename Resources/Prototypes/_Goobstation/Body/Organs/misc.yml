@@ -6,8 +6,8 @@
 - type: entity
   parent: [ OrganHumanHeart, BaseSyndicateContraband ]
   id: OrganHeartSandevistan
-  name: "Сандевістан"
-  description: "Незаконне кібернетичне програмне забезпечення, яке замінює серце користувача і дозволяє йому значно збільшити свою швидкість ціною витривалості."
+  name: Sandevistan
+  description: Illegal cyberware that replaces the user's heart and allows them to greatly increase their speed for the cost of the endurance.
   components:
   - type: Cybernetics
   - type: Sprite
@@ -29,8 +29,8 @@
 - type: entity
   parent: [ OrganHumanHeart, BaseSyndicateContraband ]
   id: OrganHeartStatvekaSandevistan
-  name: "mi13 статвека сандевістан"
-  description: "Кібернетичний імплант серця, що різко покращує швидкість і рефлекси користувача на короткий час ціною витривалості. Колись його використовував певний найманець."
+  name: mi13 statveka sandevistan
+  description: A cybernetic heart implant that drastically improves the user's speed and reflexes for a short duration, at the cost of endurance. Once used by a certain mercenary.
   components:
   - type: Cybernetics
   - type: Sprite
@@ -57,8 +57,8 @@
 - type: entity
   parent: [OrganHumanHeart, BaseSyndicateContraband]
   id: SyndicateBerserkerHeart
-  name: "серце берсерка"
-  description: "Бойове серцево-судинне ядро нового покоління, що дозволяє користувачеві входити в стан берсерка, значно збільшуючи швидкість і рефлекси на короткий час за рахунок витривалості та деякої больової стійкості. Суворо заборонено."
+  name: berserker heart
+  description: A next-gen combat circulatory core that allows the user to enter a berserk state, greatly increasing their speed and reflexes for a short time at the cost of endurance and some pain resistance. Highly illegal.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/berserker_heart.rsi
@@ -71,8 +71,8 @@
 - type: entity
   parent: [OrganHumanHeart, BaseSyndicateContraband]
   id: SyndicateJumpstarterHeart
-  name: "серце-дефібрилятор"
-  description: "Бойове серцево-судинне ядро нового покоління, що впорскує велику кількість омнізину в кров користувача при критичному пораненні, рятуючи його від смерті. Суворо заборонено."
+  name: jumpstarter heart
+  description: A next-gen combat circulatory core that injects a large amount of omnizine into the user's bloodstream when they are critically injured, saving them from death. Highly illegal.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/jumpstarter_heart.rsi

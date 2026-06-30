@@ -46,8 +46,8 @@
 - type: entity
   id: WeldingFuelTank
   parent: [StorageTank, StructureWheeled]
-  name: "паливний бак"
-  description: "Паливний бак. Використовується для зберігання великої кількості пального."
+  name: fuel tank
+  description: A fuel tank. It's used to store high amounts of fuel.
   suffix: Empty
   components:
   - type: StaticPrice
@@ -98,8 +98,8 @@
 - type: entity
   parent: [StorageTankBig, WeldingFuelTank] # StorageTankBig must come first, or else the desnity won't get inherited.
   id: WeldingFuelTankHighCapacity
-  name: "паливний бак великої місткості"
-  description: "Паливний бак під високим тиском, призначений для зберігання величезної кількості зварювального палива."
+  name: high-capacity fuel tank
+  description: A highly pressurized fuel tank made to hold gargantuan amounts of welding fuel.
   suffix: Full
   components:
   - type: StaticPrice
@@ -130,8 +130,8 @@
 - type: entity
   id: WaterTank
   parent: [StorageTank, StructureWheeled]
-  name: "бак для води"
-  description: "Резервуар для води. Використовується для зберігання великої кількості води."
+  name: water tank
+  description: A water tank. It's used to store high amounts of water.
   suffix: Empty
   components:
   - type: Tag # goob edit
@@ -168,8 +168,8 @@
 - type: entity
   parent: StorageTank
   id: WaterCooler
-  name: "кулер для води"
-  description: "Здається, це гарне місце, щоб постояти і згаяти час. Збоку є запас паперових стаканчиків."
+  name: water cooler
+  description: Seems like a good place to stand and waste time. It has a stock of paper cups on the side.
   components:
   - type: Sprite
     sprite: Structures/Storage/tanks.rsi
@@ -217,8 +217,8 @@
 - type: entity
   parent: [StorageTankBig, WaterTank]
   id: WaterTankHighCapacity
-  name: "ємність для води великої місткості"
-  description: "Резервуар для води під високим тиском, призначений для зберігання гігантської кількості води."
+  name: high-capacity water tank
+  description: A highly pressurized water tank made to hold gargantuan amounts of water.
   suffix: Full
   components:
   - type: StaticPrice

@@ -4,7 +4,7 @@
 
 - type: entity
   save: false
-  name: "Уріст МакГідра"
+  name: Urist McHydra
   parent: BaseMobSpeciesOrganic
   id: BaseMobHydrakin
   abstract: true

@@ -16,8 +16,8 @@
 - type: entity
   id: Bonfire
   parent: BaseStructure
-  name: "вогнище"
-  description: "Що може бути краще, ніж пізній вечір під небом з гітарою та друзями?"
+  name: bonfire
+  description: What can be better than a late evening under the sky with guitar and friends?
   components:
   - type: Sprite
     noRot: true
@@ -53,8 +53,8 @@
 - type: entity
   id: LegionnaireBonfire
   parent: Bonfire
-  name: "вогнище легіонерів"
-  description: "Там, у країні лави і попелу, можна приготувати зефір і картоплю."
+  name: legionnaire bonfire
+  description: There, in the land of lava and ash, place to to cook marshmallow and potato.
   components:
   - type: Sprite
     layers:
