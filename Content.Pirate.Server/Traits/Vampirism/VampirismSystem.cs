@@ -27,30 +27,38 @@ public sealed class VampirismSystem : EntitySystem
 
     private void OnInitVampire(Entity<VampirismComponent> ent, ref MapInitEvent args)
     {
-        if (!TryComp<BodyComponent>(uid, out var body)
-            || !_body.TryGetBodyOrganEntityComps<StomachComponent>((uid, body), out var stomachComps)
+        if (!TryComp<BodyComponent>(ent, out var bodyCheck)
+            || !_body.TryGetBodyOrganEntityComps<StomachComponent>((ent, bodyCheck), out var stomachComps)
             || stomachComps.Count == 0)
             return;
 
         // Mark vampire blood with VampireToxin on the DnaComponent so future blood generation includes it
-        if (TryComp<Content.Shared.Forensics.Components.DnaComponent>(uid, out var dnaComp))
+        if (TryComp<Content.Shared.Forensics.Components.DnaComponent>(ent, out var dnaComp))
             dnaComp.VampireToxin = true;
 
         // Mark existing blood solution with VampireToxin so metabolism effects won't apply
-        MarkVampireBloodWithToxin(uid);
+        MarkVampireBloodWithToxin(ent);
 
-        if (metabolizerPrototypes == null)
+        EnsureComp<BloodSuckerComponent>(ent);
+
+        SetMetabolizerTypes(ent, ent.Comp.MetabolizerPrototypes);
+    }
+
+    public void SetMetabolizerTypes(EntityUid uid, HashSet<ProtoId<MetabolizerTypePrototype>> metabolizerTypes)
+    {
+        if (metabolizerTypes == null)
             return;
 
-        if (!_body.TryGetBodyOrganEntityComps<MetabolizerComponent>((uid, body), out var comps))
+        if (!TryComp<BodyComponent>(uid, out var body)
+            || !_body.TryGetBodyOrganEntityComps<MetabolizerComponent>((uid, body), out var comps))
             return;
 
         foreach (var comp in comps)
         {
-            if (!TryComp<StomachComponent>(comp.Comp2.Owner, out _))
+            if (!TryComp<StomachComponent>(comp.Comp2.Owner, out var stomach))
                 continue;
 
-            _metabolizer.SetMetabolizerTypes((comp.Comp2.Owner, comp.Comp1), metabolizerPrototypes);
+            _metabolizer.SetMetabolizerTypes((comp.Comp2.Owner, comp.Comp1), metabolizerTypes);
         }
     }
 

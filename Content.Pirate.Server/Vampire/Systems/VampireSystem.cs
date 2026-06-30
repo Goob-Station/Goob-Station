@@ -11,6 +11,7 @@ using Content.Pirate.Server.Traits.Vampirism;
 using Content.Pirate.Server.Traits.Vampirism.Components;
 using Content.Pirate.Shared.Vampire.Components.Classes;
 using Content.Pirate.Shared.Vampire.Prototypes;
+using Content.Shared.Body.Components;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Alert;
 using Content.Shared.Actions.Components;
@@ -484,8 +485,9 @@ public sealed partial class VampireSystem : EntitySystem
 
         SyncVampireActions(uid, comp);
         EnsureComp<BloodSuckerComponent>(uid);
-        // Process blood like a trait vampire and prevent gaining anything from drinking vampire blood.
-        _vampirism.SetupVampireMetabolism(uid, comp.MetabolizerPrototypes);
+
+        _vampirism.SetMetabolizerTypes(uid, comp.MetabolizerPrototypes);
+
         _movementSpeed.RefreshMovementSpeedModifiers(uid);
 
     }
