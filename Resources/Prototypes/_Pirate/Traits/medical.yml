@@ -70,7 +70,7 @@
   - type: VampireHolyWaterWeakness
 
   - type: WeakToHoly
-    AlwaysTakeHoly: true
+    alwaysTakeHoly: true
 #endregion
 
 #region Hearing
