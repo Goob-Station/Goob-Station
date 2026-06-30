@@ -28,7 +28,6 @@ public sealed class VampireHolyWaterWeaknessSystem : EntitySystem
 
     private static readonly ProtoId<DamageGroupPrototype> _burnGroupId = "Burn";
 
-
     public override void Update(float frameTime)
     {
         var query = EntityQueryEnumerator<VampireHolyWaterWeaknessComponent>();

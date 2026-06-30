@@ -162,6 +162,34 @@ public sealed partial class VampireComponent : Component
     [DataField]
     public int ActionRefreshThreshold = 5;
 
+    [DataField]
+    public TimeSpan HolyTickDelay = TimeSpan.FromSeconds(2);
+
+    [DataField]
+    public float HolyPlaceRange = 8f;
+
+    public bool HadWeakToHoly;
+    public bool HadAlwaysTakeHoly;
+
+    /// <summary>
+    /// Healing factors
+    /// </summary>
+    [DataField]
+    public int VampHealBurn = 2;
+    [DataField]
+    public int VampHealBrute = 2;
+    [DataField]
+    public int VampHealAsphyxiation = 10;
+    [DataField]
+    public int VampHealPois = 4;
+
+    [DataField]
+    public ProtoId<ReagentPrototype> HolyWaterReagentId = "Holywater";
+    [AutoPausedField]
+    public TimeSpan NextHolyWaterTick = TimeSpan.Zero;
+    public TimeSpan NextHolyPlaceTick = TimeSpan.Zero;
+    public TimeSpan NextHolyPlacePopup = TimeSpan.Zero;
+
     public float StarvationDrunkBloodDrainAccumulator;
 
     [ViewVariables(VVAccess.ReadOnly)]

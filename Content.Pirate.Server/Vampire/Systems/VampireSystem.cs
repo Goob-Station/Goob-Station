@@ -665,7 +665,7 @@ public sealed partial class VampireSystem : EntitySystem
         Dirty(uid, comp);
     }
 
-private void HandleHolyWater(EntityUid uid, VampireComponent comp)
+    private void HandleHolyWater(EntityUid uid, VampireComponent comp)
     {
         if (comp.UniqueHumanoidVictims < 1)
             return;

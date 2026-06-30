@@ -68,8 +68,11 @@
   - type: Vampirism
     succDelay: 3
   - type: VampireHolyWaterWeakness
+<<<<<<< HEAD
   - type: WeakToHoly
     AlwaysTakeHoly: true
+=======
+>>>>>>> ded57fe4373820b6d30f0da7a31423bf1ed2e667
 #endregion
 
 #region Hearing

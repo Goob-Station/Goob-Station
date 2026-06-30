@@ -30,7 +30,7 @@ public sealed class VampirismSystem : EntitySystem
         if (!TryComp<BodyComponent>(uid, out var body)
             || !_body.TryGetBodyOrganEntityComps<StomachComponent>((uid, body), out var stomachComps)
             || stomachComps.Count == 0)
-            return false;
+            return;
 
         // Mark vampire blood with VampireToxin on the DnaComponent so future blood generation includes it
         if (TryComp<Content.Shared.Forensics.Components.DnaComponent>(uid, out var dnaComp))
@@ -40,10 +40,10 @@ public sealed class VampirismSystem : EntitySystem
         MarkVampireBloodWithToxin(uid);
 
         if (metabolizerPrototypes == null)
-            return true;
+            return;
 
         if (!_body.TryGetBodyOrganEntityComps<MetabolizerComponent>((uid, body), out var comps))
-            return true;
+            return;
 
         foreach (var comp in comps)
         {
@@ -52,8 +52,6 @@ public sealed class VampirismSystem : EntitySystem
 
             _metabolizer.SetMetabolizerTypes((comp.Comp2.Owner, comp.Comp1), metabolizerPrototypes);
         }
-
-        return true;
     }
 
     /// <summary>
