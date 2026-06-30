@@ -105,7 +105,7 @@
   id: ClothingOuterBioSecurity
   name: bio suit
   suffix: Security
-  description: A suit that protects against biological contamination, kitted out with additional armor.
+  description: A suit that protects against tougher biological contamination, kitted out with additional armor.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Bio/security.rsi
@@ -128,7 +128,7 @@
         Heat: 0.8
         Caustic: 0.2
   - type: ZombificationResistance
-    zombificationResistanceCoefficient: 0.4
+    zombificationResistanceCoefficient: 0.3 # Goobstation
 
 - type: entity
   parent: ClothingOuterBioGeneral
