@@ -5,7 +5,7 @@
 
 - type: entity
   id: RandomInsulsSpawner
-  name: random insuls spawner
+  name: "спавнер випадкових ізоляторів"
   parent: MarkerBase
   components:
     - type: Sprite

@@ -8,10 +8,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: squackroach
+  name: "сквак-тарган"
   parent: MobCockroach
   id: MobSquackroach
-  description: This is just a horrific genetic stew of a specimen.
+  description: "Це просто жахлива генетична мішанина, а не екземпляр."
   components:
   - type: HarpySinger
     ShutUpDamageThreshold: 5 # Punch does 5 damage

@@ -8,8 +8,8 @@
 - type: entity
   id: CrateArmoryCombatHardsuit
   parent: [ CrateWeaponSecure, BaseSecurityContraband ]
-  name: Combat hardsuit crate
-  description: Contains an advanced security hardsuit. Requires Armory access to open.
+  name: "Ящик з бойовим скафандром"
+  description: "Містить вдосконалений скафандр служби безпеки. Для відкриття потрібен доступ до збройової."
   components:
   - type: StorageFill
     contents:
@@ -19,8 +19,8 @@
 - type: entity
   id: CrateArmoryCombatMedicalHardsuit
   parent: [ CrateWeaponSecure, BaseSecurityContraband ]
-  name: Combat medical hardsuit crate
-  description:  Contains an advanced medical security hardsuit, less defence but much less cumbersome. Requires Armory access to open.
+  name: "Ящик з бойовим медичним скафандром"
+  description: "Містить вдосконалений медичний скафандр служби безпеки, менший захист, але набагато менш громіздкий. Для відкриття потрібен доступ до збройової."
   components:
   - type: StorageFill
     contents:
@@ -30,8 +30,8 @@
 - type: entity
   id: CrateArmoryCombatRiotHardsuit
   parent: [ CrateWeaponSecure, BaseSecurityContraband ]
-  name: Riot hardsuit crate
-  description: Contains an advanced riot security hardsuit, very high defence but much also very cumbersome. Requires Armory access to open.
+  name: "Ящик з штурмовим скафандром"
+  description: "Містить вдосконалений штурмовий скафандр служби безпеки, дуже високий захист, але також дуже громіздкий. Для відкриття потрібен доступ до збройової."
   components:
   - type: StorageFill
     contents:

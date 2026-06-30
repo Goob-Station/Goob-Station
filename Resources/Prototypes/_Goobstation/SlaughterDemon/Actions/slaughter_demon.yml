@@ -5,8 +5,8 @@
 
 - type: entity
   id: BloodCrawlAction
-  name: Blood Crawl
-  description: JAUNT ANYWHERE WHENEVER YOU ARE ON BLOOD
+  name: "Криваве переміщення"
+  description: "ТЕЛЕПОРТУЙТЕСЯ КУДИ ЗАВГОДНО, КОЛИ ВИ НА КРОВІ"
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -19,8 +19,8 @@
 
 - type: entity
   id: DemonicWhisperAction
-  name: Demonic Whisper
-  description: SEND A MESSAGE TO THEIR SOUL, FROM HELL
+  name: "Демонічний шепіт"
+  description: "НАДІШЛІТЬ ПОВІДОМЛЕННЯ ЇХНІЙ ДУШІ, З ПЕКЛА"
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

@@ -111,10 +111,10 @@
 # Warm ones contain a small amount of Omnizine.
 
 - type: entity
-  name: donk-pocket
+  name: "донк-покет"
   parent: FoodDonkpocketBase
   id: FoodDonkpocket
-  description: The food of choice for the seasoned traitor.
+  description: "Їжа на вибір для досвідченого зрадника."
   components:
   - type: FlavorProfile
     flavors:
@@ -125,10 +125,10 @@
     state: plain
 
 - type: entity
-  name: warm donk-pocket
+  name: "нагрітий донк-покет"
   parent: FoodDonkpocket
   id: FoodDonkpocketWarm
-  description: The heated food of choice for the seasoned traitor.
+  description: "Підігріта їжа для досвідченого зрадника."
   components:
   - type: FlavorProfile
     flavors:
@@ -146,10 +146,10 @@
           Quantity: 2
 
 - type: entity
-  name: dank-pocket
+  name: "сирий донк-покет"
   parent: FoodDonkpocketBase
   id: FoodDonkpocketDank
-  description: The food of choice for the seasoned botanist.
+  description: "Їжа на вибір для досвідченого ботаніка."
   components:
   - type: FlavorProfile
     flavors:
@@ -165,10 +165,10 @@
     state: dank
 
 - type: entity
-  name: warm dank-pocket
+  name: "нагрітий сирий донк-покет"
   parent: FoodDonkpocketDank
   id: FoodDonkpocketDankWarm
-  description: The heated food of choice for the seasoned botanist.
+  description: "Підігріта їжа на вибір досвідченого ботаніка."
   components:
   - type: FlavorProfile
     flavors:
@@ -184,10 +184,10 @@
           Quantity: 4
 
 - type: entity
-  name: spicy-pocket
+  name: "гострий донк-покет"
   parent: FoodDonkpocketBase
   id: FoodDonkpocketSpicy
-  description: The classic snack food, now with a heat-activated spicy flair.
+  description: "Класична закуска, тепер із пряним ароматом, що активується під час нагрівання."
   components:
   - type: FlavorProfile
     flavors:
@@ -198,10 +198,10 @@
     state: plain
 
 - type: entity
-  name: warm spicy-pocket
+  name: "нагрітий гострий донк-покет"
   parent: FoodDonkpocketSpicy
   id: FoodDonkpocketSpicyWarm
-  description: The classic snack food, now maybe a bit too spicy.
+  description: "Класична їжа для перекусу, тепер, можливо, трохи занадто гостра."
   components:
   - type: FlavorProfile
     flavors:
@@ -220,10 +220,10 @@
     state: spicy
 
 - type: entity
-  name: teriyaki-pocket
+  name: "теріякі-покет"
   parent: FoodDonkpocketBase
   id: FoodDonkpocketTeriyaki
-  description: An East Asian take on the classic stationside snack.
+  description: "Східно-азійський варіант класичної закуски на вокзалі."
   components:
   - type: FlavorProfile
     flavors:
@@ -234,10 +234,10 @@
     state: teriyaki
 
 - type: entity
-  name: warm teriyaki-pocket
+  name: "нагрітий теріякі-покет"
   parent: FoodDonkpocketTeriyaki
   id: FoodDonkpocketTeriyakiWarm
-  description: An East Asian take on the classic stationside snack, now steamy and warm.
+  description: "Східно-азійський варіант класичного вокзального перекусу, тепер ще й з парою та теплом."
   components:
   - type: FlavorProfile
     flavors:
@@ -254,10 +254,10 @@
           Quantity: 2
 
 - type: entity
-  name: pizza-pocket
+  name: "піцца-покет"
   parent: FoodDonkpocketBase
   id: FoodDonkpocketPizza
-  description: Delicious, cheesy and surprisingly filling.
+  description: "Смачний, сирний і напрочуд ситний."
   components:
   - type: FlavorProfile
     flavors:
@@ -275,10 +275,10 @@
     state: pizza
 
 - type: entity
-  name: warm pizza-pocket
+  name: "нагріта піцца-покет"
   parent: FoodDonkpocketPizza
   id: FoodDonkpocketPizzaWarm
-  description: Cheese filling really hits the spot when warm.
+  description: "Сирна начинка дуже смакує в теплому вигляді."
   components:
   - type: FlavorProfile
     flavors:
@@ -296,10 +296,10 @@
           Quantity: 2
 
 - type: entity
-  name: honk-pocket
+  name: "гудковий-покет"
   parent: FoodDonkpocketBase
   id: FoodDonkpocketHonk
-  description: The award-winning donk-pocket that won the hearts of clowns and humans alike.
+  description: "Удостоєна нагород кишеня для осла, яка завоювала серця клоунів і людей."
   components:
   - type: FlavorProfile
     flavors:
@@ -317,10 +317,10 @@
     state: banana
 
 - type: entity
-  name: warm honk-pocket
+  name: "нагрітий гудковий-покет"
   parent: FoodDonkpocketHonk
   id: FoodDonkpocketHonkWarm
-  description: The award-winning donk-pocket, now warm and toasty.
+  description: "Відзначена нагородами кишеня для донкіхотів, тепер тепла і підсмажена."
   components:
   - type: FlavorProfile
     flavors:
@@ -338,10 +338,10 @@
           Quantity: 2
 
 - type: entity
-  name: berry-pocket
+  name: "ягідний-покет"
   parent: FoodDonkpocketBase
   id: FoodDonkpocketBerry
-  description: A relentlessly sweet donk-pocket. Made with 100% artificial flavoring.
+  description: "Невтомно солодкий ослик-кишеня. Зроблено зі 100% штучних ароматизаторів."
   components:
   - type: FlavorProfile
     flavors:
@@ -357,10 +357,10 @@
     state: berry
 
 - type: entity
-  name: warm berry-pocket
+  name: "нагрітий ягідний-покет"
   parent: FoodDonkpocketBerry
   id: FoodDonkpocketBerryWarm
-  description: A relentlessly sweet donk-pocket, now warm and delicious.
+  description: "Незмінно солодкий ослик-кишеня, тепер теплий і смачний."
   components:
   - type: FlavorProfile
     flavors:
@@ -378,10 +378,10 @@
           Quantity: 2
 
 - type: entity
-  name: stonk-pocket
+  name: "стонк-кишенька"
   parent: FoodDonkpocketBase
   id: FoodDonkpocketStonk
-  description: Tasty, but a sad reminder of the great crash of '24.
+  description: "Смачно, але є сумним нагадуванням про великий крах 24-го року."
   components:
   - type: FlavorProfile
     flavors:
@@ -397,7 +397,7 @@
     state: stonk
 
 - type: entity
-  name: warm stonk-pocket
+  name: "нагрітий стонк-покет"
   parent: FoodDonkpocketStonk
   id: FoodDonkpocketStonkWarm
   components:
@@ -415,10 +415,10 @@
           Quantity: 2
 
 - type: entity
-  name: carp-pocket
+  name: "короп-покет"
   parent: FoodDonkpocketBase
   id: FoodDonkpocketCarp
-  description: A long-lost edition of donk pocket, made specifically for hard-working salvagers.
+  description: "Давно втрачене видання донк-покетів, зроблене спеціально для працьовитих рятувальників."
   components:
   - type: FlavorProfile
     flavors:
@@ -434,7 +434,7 @@
     state: carp
 
 - type: entity
-  name: warm carp-pocket
+  name: "нагрітий короп-покет"
   parent: FoodDonkpocketCarp
   id: FoodDonkpocketCarpWarm
   components:
@@ -452,10 +452,10 @@
           Quantity: 2
 
 - type: entity
-  name: dink-pocket
+  name: "ящірний донк-покет"
   parent: FoodDonkpocketBase
   id: FoodDonkpocketDink
-  description: An off-brand lizard donk-pocket, filled with pickled carrot and wrapped with seaweed. Best eaten cold, or even better, not eaten at all.
+  description: "Небрендована кишеня з ящірки, наповнена маринованою морквою та загорнута у водорості. Найкраще їсти холодною, а ще краще - не їсти взагалі."
   components:
   - type: FlavorProfile
     flavors:
@@ -473,10 +473,10 @@
     state: dink
 
 - type: entity
-  name: moth-pocket
+  name: "донк-кишенька для метеликів"
   parent: FoodDonkpocketBase
   id: FoodDonkpocketMoth
-  description: Buzzy edition of donk-pocket that was created during mass protests ab-... Actually who cares? Just donk-pockets for moths.
+  description: "Дзижчача версія донк-кишеньки, створена під час масових протестів... Хоча кого це хвилює? Просто донк-кишеньки для метеликів."
   components:
   - type: FlavorProfile
     flavors:
@@ -500,7 +500,7 @@
     - DonkPocket
 
 - type: entity
-  name: warm moth-pocket
+  name: "тепла донк-кишенька для метеликів"
   parent: FoodDonkpocketMoth
   id: FoodDonkpocketMothWarm
   components:

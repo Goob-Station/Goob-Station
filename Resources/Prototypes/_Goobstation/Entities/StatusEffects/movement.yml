@@ -3,29 +3,29 @@
 - type: entity
   parent: StatusEffectSlowdown
   id: SlasherSlowdownStatusEffect
-  name: slasher slowdown
+  name: "сповільнення слешера"
 
 - type: entity
   parent: StatusEffectSlowdown
   id: TentacleSlowdownStatusEffect
-  name: tentacle slowdown
+  name: "сповільнення щупальця"
 
 - type: entity
   parent: StatusEffectSlowdown
   id: MartialArtsGenericSlowdownEffect
-  name: martial arts slowdown
+  name: "сповільнення бойових мистецтв"
 
 - type: entity
   parent: StatusEffectSlowdown
   id: OrgansDamagedSlowdownEffect
-  name: organ damage slowdown
+  name: "сповільнення від пошкодження органів"
 
 - type: entity
   parent: StatusEffectSlowdown
   id: ShadowCloakSlowdownEffect
-  name: shadow cloak slowdown
+  name: "сповільнення тіньового плаща"
 
 - type: entity
   parent: StatusEffectSlowdown
   id: ShadowlingGlareSlowdownEffect
-  name: shadow ling glare slowdown
+  name: "сповільнення погляду шедоулінга"

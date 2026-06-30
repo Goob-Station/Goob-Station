@@ -1,8 +1,8 @@
 - type: entity
-  name: ????
+  name: "????"
   parent: [ SimpleSpaceMobBase, MobCombat ]
   id: MobHastur
-  description: He who must not be named...
+  description: "Той, кого не можна називати..."
   components:
     - type: Omnipresence
       cloneDistance: 3.5
@@ -147,11 +147,11 @@
       factor: 10 # times more dangerous than a crew-member
 
 - type: entity
-  name: ????
+  name: "????"
   parent: SimpleSpaceMobBase 
   id: MobHasturClone
   suffix: DO NOT MAP
-  description: He who must not be named...
+  description: "Той, кого не можна називати..."
   components:
     - type: Sprite
       sprite: _Goobstation/Hastur/hastur.rsi

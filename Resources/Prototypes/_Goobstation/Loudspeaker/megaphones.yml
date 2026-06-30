@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseItem
   id: Megaphone
-  name: megaphone
-  description: Testing!
+  name: "мегафон"
+  description: "Тестування!"
   components:
   - type: Loudspeaker
     isActive: true
@@ -18,8 +18,8 @@
 - type: entity
   parent: Megaphone
   id: CargoMegaphone
-  name: cargo megaphone
-  description: Make money in silence and let the hustle make noise. Or something like that.
+  name: "вантажний мегафон"
+  description: "Заробляй гроші в тиші, а шум нехай створює метушня. Або щось типу того."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Tools/megaphones/cargo.rsi
@@ -30,8 +30,8 @@
 - type: entity
   parent: Megaphone
   id: CommandMegaphone
-  name: command megaphone
-  description: Turn shallow authority into loud shallow authority.
+  name: "командний мегафон"
+  description: "Перетворіть поверховий авторитет на гучний поверховий авторитет."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Tools/megaphones/command.rsi
@@ -42,8 +42,8 @@
 - type: entity
   parent: Megaphone
   id: SecurityMegaphone
-  name: security megaphone
-  description: Use to make suspects aware you're after them. Or to yell at prisoners you don't like.
+  name: "мегафон служби безпеки"
+  description: "Використовуйте, щоб повідомити підозрюваним, що ви за ними полюєте. Або щоб кричати на в'язнів, які вам не подобаються."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Tools/megaphones/security.rsi
@@ -54,8 +54,8 @@
 - type: entity
   parent: Megaphone
   id: ClownMegaphone
-  name: clown megaphone
-  description: A comedian has to make their voice known.
+  name: "мегафон клоуна"
+  description: "Комік повинен зробити так, щоб його голос почули."
   components:
   - type: Loudspeaker
     affectRadio: true # :trollface:

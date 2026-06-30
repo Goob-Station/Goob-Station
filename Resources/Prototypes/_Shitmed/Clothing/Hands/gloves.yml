@@ -6,8 +6,8 @@
 - type: entity
   parent: [ ClothingHandsButcherable, BaseMedicalContraband ]
   id: ClothingHandsGlovesSurgical
-  name: bluespace surgical gloves
-  description: These experimental gloves utilize bluespace technology to allow their user to perform surgery through clothing.
+  name: "блюспейс хірургічні рукавички"
+  description: "Ці експериментальні рукавички використовують технологію блюспейс, щоб дозволити користувачеві проводити операції через одяг."
   components:
   - type: Sprite
     sprite: _Shitmed/Clothing/Hands/surgery_gloves.rsi

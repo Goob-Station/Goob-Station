@@ -23,8 +23,8 @@
 - type: entity
   parent: BaseLatheUpgradeKit
   id: LatheUpgradeKitHyper
-  name: hyper-convection upgrade kit
-  description: An upgrade kit with all the parts needed to upgrade a lathe. This one will save materials at the cost of speed and producing heat.
+  name: "комплект гіперконвекційного оновлення"
+  description: "Комплект оновлення з усіма необхідними деталями для модернізації токарного верстата. Цей заощадить матеріали за рахунок швидкості та виділення тепла."
   components:
   - type: UpgradeKit
     components:
@@ -43,8 +43,8 @@
 - type: entity
   parent: BaseLatheUpgradeKit
   id: LatheUpgradeKitCryo
-  name: cryo-stabilizing upgrade kit
-  description: An upgrade kit with all the parts needed to upgrade a lathe. This one will speed up production at the cost of freezing the area.
+  name: "комплект кріостабілізуючого оновлення"
+  description: "Комплект оновлення з усіма необхідними деталями для модернізації токарного верстата. Цей прискорить виробництво за рахунок заморожування навколишньої території."
   components:
   - type: UpgradeKit
     components:

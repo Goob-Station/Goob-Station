@@ -9,8 +9,8 @@
 - type: entity
   parent: BaseAction
   id: ActionBackToAi
-  name: Back to Ai
-  description: Sends your mind back to the core.
+  name: "Повернутися до ШІ"
+  description: "Повертає вашу свідомість назад до ядра."
   components:
   - type: Action
     checkConsciousness: false
@@ -26,8 +26,8 @@
 - type: entity
   parent: BaseAction
   id: ActionOpenRemoteDevicesMenu
-  name: Open list of remote devices
-  description: Opens a menu with available remote devices.
+  name: "Відкрити список віддалених пристроїв"
+  description: "Відкриває меню з доступними віддаленими пристроями."
   components:
   - type: Action
     checkConsciousness: false

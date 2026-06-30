@@ -80,10 +80,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: pickaxe
+  name: "кирка"
   parent: BaseItem
   id: Pickaxe
-  description: Notched to perfection, for jamming it into rocks.
+  description: "Зазубрена до досконалості, для вбивання в каміння."
   components:
   - type: Tag
     tags:
@@ -124,10 +124,10 @@
       Wood: 125
 
 - type: entity
-  name: mining drill
+  name: "гірничий бур"
   parent: BaseItem
   id: MiningDrill
-  description: Powerful tool used to quickly drill through rocks.
+  description: "Потужний інструмент для швидкого буріння гірських порід."
   components:
   - type: Item
     storedRotation: -90
@@ -157,10 +157,10 @@
       Plastic: 25
 
 - type: entity
-  name: diamond tipped mining drill
+  name: "гірничий бур з алмазним наконечником"
   parent: MiningDrill
   id: MiningDrillDiamond
-  description: A significantly more efficient mining drill tipped with diamond.
+  description: "Значно ефективніший гірничий бур з алмазним наконечником."
   components:
   - type: Sprite
     sprite: Objects/Tools/handdrilldiamond.rsi

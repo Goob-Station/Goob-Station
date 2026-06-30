@@ -7,9 +7,9 @@
 - type: entity
   id: EnergyChemDispenser
   parent: SmallConstructibleMachine
-  name: energy chemical dispenser
+  name: "енергетичний хімічний диспенсер"
   suffix: energy
-  description: A bluespace Chemical Dispenser that uses station energy to synthesize Reagents. The future is here and now.
+  description: "Блюспейс-хімічний диспенсер, що використовує енергію станції для синтезу реагентів. Майбутнє вже тут."
   placement:
     mode: SnapgridCenter
   components:
@@ -131,9 +131,9 @@
 - type: entity
   id: ServiceEnergyChemDispenser
   parent: SmallConstructibleMachine
-  name: energy food synthesizer
+  name: "енергетичний синтезатор їжі"
   suffix: energy
-  description: A bluespace Chemical Dispenser that uses station energy to synthesize organic reagents. The future for chefs is here and now.
+  description: "Блюспейс-хімічний диспенсер, що використовує енергію станції для синтезу органічних реагентів. Майбутнє для кухарів уже тут і зараз."
   placement:
     mode: SnapgridCenter
   components:

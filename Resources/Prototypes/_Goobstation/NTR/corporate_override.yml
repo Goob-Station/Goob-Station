@@ -1,7 +1,7 @@
 - type: entity
   id: CorporateOverrideKey
-  name: Corporate Override Key
-  description: A black-market authentication dongle that bypasses NanoTrasen security protocols. When inserted into an executive briefcase, it unlocks restricted procurement channels.
+  name: "Ключ корпоративного доступу"
+  description: "Чорноринковий аутентифікаційний ключ, що обходить протоколи безпеки NanoTrasen. При вставці в кейс керівника, він відкриває доступ до обмежених каналів закупівель."
   parent: [BaseItem, BaseSyndicateContraband]
   suffix: Debug
   components:

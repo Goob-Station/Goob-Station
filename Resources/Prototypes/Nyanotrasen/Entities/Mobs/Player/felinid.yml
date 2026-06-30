@@ -12,7 +12,7 @@
 
 - type: entity
   save: false
-  name: Urist McFelinid
+  name: "Уріст МакФелінід"
   parent: MobFelinidBase
   id: MobFelinid
   components:

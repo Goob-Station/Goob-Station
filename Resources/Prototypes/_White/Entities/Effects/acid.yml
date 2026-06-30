@@ -1,7 +1,7 @@
 - type: entity
   id: XenomorphAcid
-  name: corrosive acid
-  description: Burbling corrosive stuff. I wouldn't want to touch it.
+  name: "їдка кислота"
+  description: "Булькаюча їдка речовина. Я б не хотів до неї торкатися."
   components:
   - type: Sprite
     sprite: _White/Interface/Actions/xenomorph.rsi # TODO: move it

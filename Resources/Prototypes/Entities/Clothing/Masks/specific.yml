@@ -83,8 +83,8 @@
 - type: entity
   parent: ClothingMaskBase
   id: ClothingMaskGasChameleon
-  name: gas mask
-  description: A face-covering mask that can be connected to an air supply.
+  name: "протигаз"
+  description: "Маска, що закриває обличчя, яку можна під'єднати до системи подачі повітря."
   suffix: Chameleon
   components:
     - type: Tag
@@ -128,8 +128,8 @@
 - type: entity
   parent: ClothingMaskBase
   id: ClothingMaskGoldenCursed
-  name: golden mask
-  description: Previously used in strange pantomimes, after one of the actors went mad on stage these masks have avoided use. You swear its face contorts when you're not looking.
+  name: "золота маска"
+  description: "Раніше використовувані в дивних пантомімах, після того, як один з акторів збожеволів на сцені, ці маски перестали використовуватися. Ви можете заприсягтися, що його обличчя спотворюється, коли ви не дивитеся."
   components:
   - type: Sprite
     sprite: Clothing/Mask/goldenmask.rsi

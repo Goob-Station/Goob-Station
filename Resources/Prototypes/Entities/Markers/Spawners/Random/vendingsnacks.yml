@@ -12,7 +12,7 @@
 
 - type: entity
   id: RandomVendingSnacks
-  name: random vending machine spawner
+  name: "спавнер випадкового торгового автомату"
   suffix: Snacks
   parent: MarkerBase
   components:

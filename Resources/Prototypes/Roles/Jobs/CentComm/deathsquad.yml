@@ -14,7 +14,7 @@
 - type: job
   id: DeathSquad
   name: job-name-deathsquad
-  description: job-description-deathsquad
+  description: "член елітного загону реагування, що відправляється на найнебезпечніші завдання"
   playTimeTracker: JobDeathSquad
   setPreference: false
   startingGear: DeathSquadGear

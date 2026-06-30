@@ -21,8 +21,8 @@
 - type: entity
   id: BaseFastDrawImplanter
   parent: BaseImplanter
-  name: fast draw implanter
-  description: A syringe with tools for quick implant removal. It has small gold stars on its body.
+  name: "імплантер швидкого витягування"
+  description: "Шприц з інструментами для швидкого видалення імплантів. На його корпусі є маленькі золоті зірочки."
   abstract: true
   components:
     - type: Sprite
@@ -69,8 +69,8 @@
 - type: entity
   id: BaseImplantOnlyImplanterCentcomm
   parent: [ BaseImplantOnlyImplanter, BaseCentcommContraband ]
-  name: centcomm implanter
-  description: A compact disposable syringe exclusively designed for the injection of subdermal implants. The insertion needle is coated with an analgesic.
+  name: "імплантер Центкому"
+  description: "Компактний одноразовий шприц, розроблений виключно для ін'єкції підшкірних імплантів. Голка для введення покрита знеболюючим засобом."
   abstract: true
   components:
   - type: Item
@@ -265,7 +265,7 @@
   abstract: true
   id: BaseAntagImplantOnlyImplanter
   parent: BaseImplantOnlyImplanterCentcomm
-  name: antag implanter
+  name: "імплантер антагоніста"
 
 - type: entity
   id: AntagImplanterChangeling

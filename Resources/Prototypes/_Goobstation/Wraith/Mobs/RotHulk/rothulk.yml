@@ -2,8 +2,8 @@
   id: MobRotHulk
   suffix: Wraith
   parent: [ BaseMob, MobCombat ]
-  name: Bloated abomination
-  description: A rotting, walking mass of flesh.
+  name: "роздута потворність"
+  description: "Гнила, ходяча маса плоті."
   components:
   - type: DeleteOnTrigger
   - type: SpamEmitSound
@@ -107,7 +107,7 @@
   id: MobRotHulkBuff
   suffix: Wraith
   parent: MobRotHulk
-  name: Huge plague-ridden goliath
+  name: "величезний чумний голіаф"
   components:
   - type: SmokeOnTrigger
     duration: 5

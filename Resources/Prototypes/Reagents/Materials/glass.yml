@@ -55,7 +55,7 @@
 - type: material
   id: BrassGlass
   stackEntity: SheetClockworkGlass1
-  name: materials-clockwork-glass
+  name: "годинникове скло"
   icon: { sprite: Objects/Materials/Sheets/glass.rsi, state: cglass }
   color: "#9b6f07"
   price: 0.225 # average of glass and brass.

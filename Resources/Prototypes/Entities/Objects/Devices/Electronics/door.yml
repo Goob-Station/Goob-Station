@@ -86,8 +86,8 @@
 - type: entity
   id: DoorElectronics
   parent: BaseElectronics
-  name: door electronics
-  description: An electronics board used in doors and airlocks.
+  name: "електроніка дверей"
+  description: "Електронна плата, що використовується в дверях та шлюзах."
   components:
     - type: Sprite
       sprite: Objects/Misc/module.rsi

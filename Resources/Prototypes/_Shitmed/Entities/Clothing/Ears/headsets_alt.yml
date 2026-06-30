@@ -9,7 +9,7 @@
 - type: entity
   parent: [ ClothingHeadsetAlt, BaseMajorContraband ]
   id: ClothingHeadsetAltAbductor
-  name: abductor over-ear headset
+  name: "навушник-гарнітура з викрадачем"
   components:
   - type: ContainerFill
     containers:

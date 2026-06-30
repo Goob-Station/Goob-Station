@@ -80,10 +80,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: basic lighter
+  name: "звичайна запальничка"
   parent: BaseItem
   id: Lighter
-  description: "A simple plastic cigarette lighter."
+  description: "Проста пластикова запальничка."
   components:
   - type: IgnitionSource
     ignited: false
@@ -190,10 +190,10 @@
   # Pirate banking end
 
 - type: entity
-  name: cheap lighter
+  name: "дешева запальничка"
   parent: Lighter
   id: CheapLighter
-  description: "A dangerously inexpensive plastic lighter, don't burn your thumb!"
+  description: "Небезпечно дешева пластикова запальничка, не обпечіть свої пальці!"
   components:
   - type: Sprite
     sprite: Objects/Tools/Lighters/lighters.rsi
@@ -223,10 +223,10 @@
   # Pirate banking end
 
 - type: entity
-  name: flippo lighter
+  name: "запальничка фліппо"
   parent: BaseItem
   id: FlippoLighter
-  description: "A rugged metal lighter, lasts quite a while."
+  description: "Міцна металева запальничка, служитиме досить довго."
   components:
   - type: Sprite
     sprite: Objects/Tools/Lighters/lighters.rsi
@@ -324,10 +324,10 @@
   # Pirate banking end
 
 - type: entity
-  name: flippo engraved lighter
+  name: "запальничка з гравіюванням фліппо"
   parent: FlippoLighter
   id: FlippoEngravedLighter
-  description: "A rugged golden lighter, lasts quite a while. Engravings serve no tactical advantage whatsoever."
+  description: "Міцна золота запальничка, яка служитиме досить довго. Гравіювання не дають жодної тактичної переваги."
   components:
   - type: Sprite
     sprite: Objects/Tools/Lighters/lighters.rsi
@@ -435,8 +435,8 @@
 - type: entity
   parent: [BaseBrandedLighter, BaseSyndicateContraband]
   id: SyndicateFlippo
-  name: Blood-red flippo
-  description: "A 'Valid' choice in lighters. Contains no copper."
+  name: "Криваво-червоний фліппо"
+  description: "Правильний\" вибір запальничок. Не містить міді."
   components:
   - type: Sprite
     sprite: Objects/Tools/Lighters/syndielighter.rsi
@@ -455,8 +455,8 @@
 - type: entity
   parent: Lighter
   id: DiscountDanLighter
-  name: Discount Dan's lighter
-  description: "The worst lighter ever produced, lighterburn is inevitable, do not refuel while lit."
+  name: "запальничка \"Знижковий Ден"
+  description: "Найгірша запальничка з коли-небудь вироблених, опік неминучий, не заправляйте під час горіння."
   components:
   - type: Sprite
     sprite: Objects/Tools/Lighters/lighters.rsi
@@ -510,8 +510,8 @@
 - type: entity
   parent: [BaseBrandedLighter, BaseSyndicateContraband]
   id: CybersunFlippo
-  name: CyberSun Flippo
-  description: "A Sleek black and magenta flippo lighter, bearing the logo and iconography of CyberSun Industries."
+  name: "Фліппо CyberSun"
+  description: "Витончена чорно-пурпурова запальничка фліппо з логотипом та іконографією CyberSun Industries."
   components:
   - type: Sprite
     sprite: Objects/Tools/Lighters/cybersun.rsi
@@ -530,8 +530,8 @@
 - type: entity
   parent: [BaseBrandedLighter, BaseSyndicateContraband]
   id: InterdyneFlippo
-  name: Interdyne Flippo
-  description: "A deep blue flippo lighter, decorated with the logo of Interdyne Pharmaceuticals' 'Gene Clean' clinics. Become the master of your own cigarette."
+  name: "Фліппо Interdyne"
+  description: "Темно-синя запальничка фліппо, прикрашена логотипом клінік \"Gene Clean\" від Interdyne Pharmaceuticals. Станьте господарем власної сигарети."
   components:
   - type: Sprite
     sprite: Objects/Tools/Lighters/interdyne.rsi
@@ -554,8 +554,8 @@
 - type: entity
   parent: [BaseBrandedLighter]
   id: NanotrasenFlippo
-  name: Nanotrasen Flippo
-  description: "A navy blue luxury flippo, generally handed out to loyal heads of staff instead of a payraise. Fueled with liquid plasma"
+  name: "Фліппо Nanotrasen"
+  description: "Темно-синя розкішна запальничка фліппо, яку зазвичай видають лояльним керівникам замість підвищення зарплати. Заправляється рідкою плазмою"
   components:
   - type: Sprite
     sprite: Objects/Tools/Lighters/nanotrasen.rsi
@@ -584,8 +584,8 @@
 - type: entity
   parent: [BaseBrandedLighter, BaseCentcommContraband]
   id: CentCommFlippo
-  name: Gilded CentComm Flippo
-  description: "An Ornate, jade embossed and gilded flippo frame containing a bluespace powered jet. The latch is secured by a miniature access reader that only responds to CentComm officials. The nicest lighter known to man."
+  name: "Позолочений фліппо ЦентКом"
+  description: "Вишукана, інкрустована нефритом і позолочена рамка фліппо, що містить блюспейс-реактивний двигун. Засувка закріплена мініатюрним зчитувачем доступу, який реагує тільки на офіцерів ЦентКом. Найкраща запальничка, відома людству."
   suffix: DO NOT MAP
   components:
   - type: Sprite
@@ -630,8 +630,8 @@
 - type: entity
   parent: [BaseBrandedLighter, BaseMajorContraband]
   id: SpiderclanFlippo
-  name: Spider-Clan lighter
-  description: "A high tech jet lighter, engineered to function even in deep space. Runs on a tiny microfusion cell."
+  name: "запальничка клану Павуків"
+  description: "Високотехнологічна реактивна запальничка, розроблена для роботи навіть у глибокому космосі. Працює на крихітній мікрофузійній комірці."
   components:
   - type: Sprite
     sprite: Objects/Tools/Lighters/spiderclan.rsi
@@ -650,8 +650,8 @@
 - type: entity
   parent: [BaseBrandedLighter, BaseSyndicateContraband]
   id: WaffleCoFlippo
-  name: Waffle Co. flippo
-  description: "A robust mass produced lighter. The Waffle Co. logo turns the spark wheel when pushed up, minimising risk of lighter burns for even the most inept user."
+  name: "Фліппо Waffle Co"
+  description: "Надійна запальничка масового виробництва. Логотип Waffle Co. повертає іскрове колесо при натисканні вгору, мінімізуючи ризик опіків навіть для найневмілішого користувача."
   components:
   - type: Sprite
     sprite: Objects/Tools/Lighters/waffleco.rsi
@@ -670,8 +670,8 @@
 - type: entity
   parent: [BaseBrandedLighter]
   id: HonkCoFlippo
-  name: Honk Co. flippo
-  description: "A slippery gag lighter produced by Honk Co. hidden inside of a real banana peel."
+  name: "Фліппо Honk Co"
+  description: "Слизька запальничка-жарт виробництва Honk Co., захована всередині справжньої бананової шкірки."
   components:
   - type: Sprite
     sprite: Objects/Tools/Lighters/honkco.rsi
@@ -715,8 +715,8 @@
 - type: entity
   parent: [BaseBrandedLighter]
   id: DonkcoLighter
-  name: Donk Co. flippo
-  description: "The flippo of choice for the seasoned traitor. A Breaded novelty lighter made by Donk Co. Somehow edible while lit."
+  name: "Фліппо Donk Co"
+  description: "Фліппо на вибір досвідченого зрадника. Запальничка-новинка в паніровці від Donk Co. Якимось чином їстівна під час горіння."
   components:
   - type: Sprite
     sprite: Objects/Tools/Lighters/donkco.rsi

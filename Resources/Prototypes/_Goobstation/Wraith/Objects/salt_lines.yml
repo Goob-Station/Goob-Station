@@ -1,7 +1,7 @@
 - type: entity
   id: SaltLine
-  name: salt line
-  description: A line of salt. Keeps the spirits away, or so they say.
+  name: "лінія солі"
+  description: "Смуга солі. Кажуть, відганяє духів."
   placement:
     mode: SnapgridCenter
   components:

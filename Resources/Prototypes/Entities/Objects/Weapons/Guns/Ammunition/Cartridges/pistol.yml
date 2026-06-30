@@ -35,7 +35,7 @@
 
 - type: entity
   id: BaseCartridgePistol
-  name: cartridge (.35 auto)
+  name: "патрон (.35 авто)"
   parent: [ BaseCartridge, BaseSecurityContraband ]
   abstract: true
   components:
@@ -55,8 +55,8 @@
 
 - type: entity
   id: CartridgePistol
-  name: cartridge (.35 auto)
-  description: Arguably the most popular caliber on the market, used by all manner of pistols and submachine guns. Standard kinetic ammunition is common and useful in most situations.
+  name: "патрон (.35 авто)"
+  description: "Мабуть, найпопулярніший калібр на ринку, використовується всіма видами пістолетів та пістолетів-кулеметів. Стандартні кінетичні боєприпаси поширені та корисні в більшості ситуацій."
   parent: BaseCartridgePistol
   components:
   - type: CartridgeAmmo
@@ -64,8 +64,8 @@
 
 - type: entity
   id: CartridgePistolPractice
-  name: cartridge (.35 auto practice)
-  description: Arguably the most popular caliber on the market, used by all manner of pistols and submachine guns. Chalk ammunition is generally non-harmful, used for practice.
+  name: "патрон (.35 авто тренувальний)"
+  description: "Мабуть, найпопулярніший калібр на ринку, використовується всіма видами пістолетів та пістолетів-кулеметів. Крейдяні боєприпаси зазвичай нешкідливі, використовуються для тренувань."
   parent: BaseCartridgePistol
   components:
   - type: CartridgeAmmo
@@ -80,8 +80,8 @@
 
 - type: entity
   id: CartridgePistolIncendiary
-  name: cartridge (.35 auto incendiary)
-  description: Arguably the most popular caliber on the market, used by all manner of pistols and submachine guns. Incendiary ammunition contains a self-igniting compound that sets the target ablaze.
+  name: "патрон (.35 авто запалювальний)"
+  description: "Мабуть, найпопулярніший калібр на ринку, використовується всіма видами пістолетів та пістолетів-кулеметів. Запалювальні боєприпаси містять самозаймисту суміш, яка підпалює ціль."
   parent: BaseCartridgePistol
   components:
   - type: CartridgeAmmo
@@ -96,8 +96,8 @@
 
 - type: entity
   id: CartridgePistolUranium
-  name: cartridge (.35 auto uranium)
-  description: Arguably the most popular caliber on the market, used by all manner of pistols and submachine guns. Uranium core ammunition features a load of fissile material, irradiating the target from the inside.
+  name: "патрон (.35 авто урановий)"
+  description: "Мабуть, найпопулярніший калібр на ринку, використовується всіма видами пістолетів та пістолетів-кулеметів. Боєприпаси з урановим осердям містять заряд матеріалу, що розщеплюється, опромінюючи ціль зсередини."
   parent: BaseCartridgePistol
   components:
   - type: CartridgeAmmo
@@ -112,7 +112,7 @@
 
 - type: entity
   id: CartridgePistolSpent
-  name: cartridge (.35 auto)
+  name: "патрон (.35 авто)"
   suffix: spent
   parent: BaseCartridgePistol
   components:

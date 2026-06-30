@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseMachineCircuitboard
   id: WashingMachineCircuitboard
-  name: Nanotrasen Commercial Model-C washing machine board
-  description: A machine printed circuit board for an industrial-grade washing machine.
+  name: "плата комерційної пральної машини Нанотрейзен модель-C"
+  description: "Машинна друкована плата для промислової пральної машини."
   components:
   - type: MachineBoard
     prototype: WashingMachine

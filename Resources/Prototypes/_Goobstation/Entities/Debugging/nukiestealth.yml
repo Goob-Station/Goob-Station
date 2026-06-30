@@ -15,8 +15,8 @@
   id: ClothingOuterHardsuitSyndieStealthDebug
   suffix: DEBUG, DO NOT MAP, stealth
   categories: [ DoNotMap ]
-  name: syndicate stealth hardsuit
-  description: A hardsuit with stealth plating for operations, the shielding doesn't work while you're moving though! Needs the helmet on to finish the stealth field.
+  name: "стелс-скафандр Синдикату"
+  description: "Скафандр зі стелс-покриттям для спецоперацій, але захист не працює, коли ви рухаєтесь! Щоб стелс-поле працювало, необхідно одягнути шолом."
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/syndicate.rsi
@@ -69,8 +69,8 @@
   id: ClothingHeadHelmetHardsuitSyndieStealthDebug
   suffix: DEBUG, DO NOT MAP, stealth
   categories: [ DoNotMap ]
-  name: syndicate stealth hardsuit helmet
-  description: A helmet with plating for stealth operations.
+  name: "стелс-шолом скафандра Синдикату"
+  description: "Шолом із покриттям для стелс-операцій."
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/syndicate.rsi

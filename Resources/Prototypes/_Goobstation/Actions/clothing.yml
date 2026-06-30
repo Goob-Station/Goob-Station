@@ -11,8 +11,8 @@
 - type: entity
   parent: BaseAction
   id: ActionClothingSeal
-  name: Seal clothing
-  description: Seals your current clothing.
+  name: "Загерметизувати одяг"
+  description: "Герметизує ваш поточний одяг."
   categories: [ HideSpawnMenu ]
   components:
   - type: ConfirmableAction
@@ -35,8 +35,8 @@
 - type: entity
   parent: BaseAction
   id: ActionActivateProjector
-  name: Toggle Clone
-  description: Generates or dissipates your connected gemini.
+  name: "Перемкнути клона"
+  description: "Створює або розсіює вашого підключеного близнюка."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -53,8 +53,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHailer
-  name: Hail
-  description: Audibly hail nearby crew, useful for giving quick orders.
+  name: "Оповістити"
+  description: "Гучно оповістити найближчий екіпаж, корисно для швидких наказів."
   components:
   - type: Action
     icon: { sprite: Clothing/Mask/gassecurity.rsi, state: icon }

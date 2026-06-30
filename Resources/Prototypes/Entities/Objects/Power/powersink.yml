@@ -15,8 +15,8 @@
 - type: entity
   id: PowerSink
   parent: [BaseMachine, BaseSyndicateAnchoredContraband]
-  name: power sink
-  description: Drains immense amounts of electricity from the grid.
+  name: "викачувач енергії"
+  description: "Викачує величезну кількість електроенергії з мережі."
   components:
     - type: Item
       size: Huge

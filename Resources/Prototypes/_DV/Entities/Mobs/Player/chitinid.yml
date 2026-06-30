@@ -5,6 +5,6 @@
 
 - type: entity
   save: false
-  name: Urist McAnt
+  name: "Уріст МакАнт"
   parent: BaseMobChitinid  
   id: MobChitinid

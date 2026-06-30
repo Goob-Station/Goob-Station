@@ -5,7 +5,7 @@
 
 - type: entity
   id: SlaughterDemonJauntEffect
-  name: slaughter demon jaunt
+  name: "стрибок демона-різника"
   components:
   - type: TimedDespawn
     lifetime: 0.75
@@ -26,7 +26,7 @@
 
 - type: entity
   id: SlaughterDemonJauntUpEffect
-  name: slaughter demon jaunt up
+  name: "стрибок демона-різника вгору"
   components:
   - type: TimedDespawn
     lifetime: 0.9

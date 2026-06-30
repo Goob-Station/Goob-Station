@@ -47,7 +47,7 @@
 - type: entity
   parent: MobStatusEffectDebuff
   id: StatusEffectForcedSleeping
-  name: forced sleep
+  name: "примусовий сон"
   components:
   - type: ForcedSleepingStatusEffect
   - type: StunnedStatusEffect
@@ -57,7 +57,7 @@
 - type: entity
   parent: MobStatusEffectBase # Not even rejuvenate can cure SSD...
   id: StatusEffectSSDSleeping
-  name: forced sleep
+  name: "примусовий сон"
   components:
   - type: ForcedSleepingStatusEffect
   - type: StunnedStatusEffect
@@ -67,7 +67,7 @@
 - type: entity
   parent: MobStatusEffectDebuff
   id: StatusEffectDrowsiness
-  name: drowsiness
+  name: "сонливість"
   components:
   - type: DrowsinessStatusEffect
 
@@ -75,6 +75,6 @@
 - type: entity
   parent: MobStatusEffectDebuff
   id: StatusEffectSeeingRainbow
-  name: hallucinations
+  name: "галюцинації"
   components:
   - type: SeeingRainbowsStatusEffect

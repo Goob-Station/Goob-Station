@@ -2,9 +2,9 @@
 
 - type: entity
   id: WeaponShuttleMissileVespera
-  name: ADMP VESPERA missile launcher
+  name: "Ракетна установка ADMP VESPERA"
   parent: BallisticArtillery
-  description: A rapid-fire swarm missile pod manufactured by Aetherion Dynamics. Can be remotely activated, or linked up to a GCS.
+  description: "Швидкострільна касета з роєм ракет виробництва Aetherion Dynamics. Може бути активована дистанційно або підключена до СКЗ."
   components:
   - type: StaticPrice
     price: 2000
@@ -50,9 +50,9 @@
 
 - type: entity
   id: WeaponShuttleMissileWhirlwind
-  name: ASM Whirlwind missile launcher
+  name: "Ракетна установка ASM Whirlwind"
   parent: BallisticArtillery
-  description: ASM-501 Smerchs heavy torpedo launcher. Can be remotely activated, or linked up to a GCS.
+  description: "Важка торпедна установка ASM-501 Smerchs. Може бути активована дистанційно або підключена до СКЗ."
   components:
   - type: StaticPrice
     price: 7500
@@ -97,9 +97,9 @@
 
 - type: entity
   id: WeaponShuttleMissileVanyk
-  name: ASM Vanyk missile launcher
+  name: "Ракетна установка ASM Vanyk"
   parent: BallisticArtillery
-  description: ASM-302 Vanyk basic guided missile pod. Can be remotely activated, or linked up to a GCS.
+  description: "Базова касета керованих ракет ASM-302 Vanyk. Може бути активована дистанційно або підключена до СКЗ."
   components:
   - type: StaticPrice
     price: 5000
@@ -162,9 +162,9 @@
 
 - type: entity
   id: WeaponShuttleMissileTovek
-  name: TOVEK missile launcher
+  name: "Ракетна установка TOVEK"
   parent: BallisticArtillery
-  description: A hybrid EMP missile pod manufactured by Aetherion Dynamics. Deals both physical and EMP damage. Can be remotely activated, or linked up to a GCS.
+  description: "Гібридна ЕМІ-ракетна касета виробництва Aetherion Dynamics. Завдає як фізичної, так і ЕМІ-шкоди. Може бути активована дистанційно або підключена до СКЗ."
   components:
   - type: StaticPrice
     price: 10000

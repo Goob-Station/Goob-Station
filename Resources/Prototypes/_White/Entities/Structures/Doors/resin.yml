@@ -1,8 +1,8 @@
 - type: entity
   parent: CMBaseXenoStructure
   id: ResinDoor
-  name: resin Door
-  description: Thick resin solidified into a door.
+  name: "смоляні двері"
+  description: "Густа смола, що застигла у формі дверей."
   placement:
     mode: SnapgridCenter
   components:

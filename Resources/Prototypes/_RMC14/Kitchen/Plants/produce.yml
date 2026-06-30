@@ -1,8 +1,8 @@
 - type: entity
-  name: mango
+  name: "манго"
   parent: FoodProduceBase
   id: FoodMango
-  description: "MANGO MANGO MANGO"
+  description: "МАНГО МАНГО МАНГО"
   components:
   - type: FlavorProfile
     flavors:

@@ -41,8 +41,8 @@
 - type: entity
   parent: [BaseDragonObjective, BaseSurviveObjective]
   id: DragonSurviveObjective
-  name: Survive
-  description: You have to stay alive to maintain control.
+  name: "Виживіть"
+  description: "Ви повинні залишатися живими, щоб зберегти контроль."
   components:
   - type: Objective
     icon:

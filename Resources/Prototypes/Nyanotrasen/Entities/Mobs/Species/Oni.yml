@@ -17,7 +17,7 @@
 
 - type: entity
   parent: BaseMobHuman
-  name: Urist McOni
+  name: "Уріст Маконі"
   id: MobOniBase
   abstract: true
   components:
@@ -77,8 +77,8 @@
 
 - type: entity
   save: false
-  name: Urist McOni
+  name: "Уріст Маконі"
   parent: MobHumanDummy
   id: MobOniDummy
   categories: [ HideSpawnMenu ]
-  description: A dummy oni meant to be used in character setup.
+  description: "Фіктивний оні, призначений для використання у налаштуванні символів."

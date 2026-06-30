@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseAction
   id: ActionSonicBoom
-  name: Sonic Boom
-  description: Emit a shockwave which flings everything around you.
+  name: "Звуковий удар"
+  description: "Випустіть ударну хвилю, яка відкине все навколо вас."
   components:
   - type: Action
     checkCanInteract: false

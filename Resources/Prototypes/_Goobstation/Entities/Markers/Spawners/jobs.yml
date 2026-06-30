@@ -8,7 +8,7 @@
 - type: entity
   id: SpawnPointBlueshieldOfficer
   parent: SpawnPointJobBase
-  name: blueshieldofficer
+  name: "блюзовий офіцер"
   components:
   - type: SpawnPoint
     job_id: BlueshieldOfficer
@@ -20,7 +20,7 @@
 - type: entity
   id: SpawnPointNanotrasenRepresentative
   parent: SpawnPointJobBase
-  name: nanotrasenrepresentative
+  name: "нанотрасенпредставник"
   components:
   - type: SpawnPoint
     job_id: NanotrasenRepresentative
@@ -32,7 +32,7 @@
 - type: entity
   id: SpawnPointNanotrasenCareerTrainer
   parent: SpawnPointJobBase
-  name: nanotrasencareertrainer
+  name: "кар'єрнийтренернанотрасен"
   components:
   - type: SpawnPoint
     job_id: NanotrasenCareerTrainer
@@ -44,7 +44,7 @@
 - type: entity
   id: SpawnPointRoboticist
   parent: SpawnPointJobBase
-  name: SpawnPointRoboticist
+  name: "Точка появи робототехніка"
   components:
   - type: SpawnPoint
     job_id: Roboticist
@@ -56,7 +56,7 @@
 - type: entity
   id: SpawnPointRadioHost
   parent: SpawnPointJobBase
-  name: SpawnPointRadioHost
+  name: "точка появи радіоведучого"
   components:
   - type: SpawnPoint
     job_id: RadioHost
@@ -68,7 +68,7 @@
 - type: entity
   id: SpawnPointVirologist
   parent: SpawnPointJobBase
-  name: virologist
+  name: "вірусолог"
   components:
   - type: SpawnPoint
     job_id: Virologist

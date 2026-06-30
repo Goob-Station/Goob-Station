@@ -14,8 +14,8 @@
 - type: entity
   id: BinglePit
   categories: [ Spawner ] # needed so tests don't sus
-  name: binglepit
-  description: Looks Hungry
+  name: "яма Бінгла"
+  description: "Виглядає голодною"
   placement:
     mode: SnapgridCenter
   components:

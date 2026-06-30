@@ -31,8 +31,8 @@
 - type: entity
   id: MechEquipmentGrabber
   parent: [ BaseMechEquipment, IndustrialMechEquipment ] # Goobstation
-  name: hydraulic clamp
-  description: Gives the mech the ability to grab things and drag them around.
+  name: "гідравлічний затискач"
+  description: "Дає механізму можливість хапати речі та перетягувати їх."
   components:
   - type: Sprite
     state: mecha_clamp
@@ -51,8 +51,8 @@
 - type: entity
   id: MechEquipmentGrabberSmall
   parent: BaseMechEquipment
-  name: small hydraulic clamp
-  description: Gives the mech the ability to grab things and drag them around.
+  name: "малий гідравлічний затискач"
+  description: "Дає механізму можливість хапати речі та перетягувати їх."
   components:
   - type: Sprite
     state: mecha_clamp_small
@@ -78,8 +78,8 @@
 - type: entity
   id: MechEquipmentHorn
   parent: [ BaseMechEquipment, SpecialMechEquipment ] # Goobstation
-  name: mech horn
-  description: An enhanced bike horn that plays a hilarious array of sounds for the enjoyment of the crew. HONK!
+  name: "мех-гудок"
+  description: "Покращений велосипедний клаксон, який відтворює веселі звуки для задоволення екіпажу. ГУДОК!"
   components:
   - type: Sprite
     # TODO: use own sprite

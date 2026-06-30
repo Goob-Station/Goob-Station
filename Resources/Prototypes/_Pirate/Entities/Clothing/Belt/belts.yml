@@ -2,8 +2,8 @@
   abstract: true
   parent: ClothingBeltStorageBase
   id: ClothingBeltCombatSurgeryBase
-  name: Компактний військовий набір хірургії
-  description: Набір вміщуючи у собі все необхідне для праці парамедика та санітара. Не всі оцінили те що він працює тільки з курткою фронтіру, тому нова ревізія дозволяє закріпити його на пояс.
+  name: "Компактний військовий набір хірургії"
+  description: "Набір, що вміщує все необхідне для роботи парамедика та санітара. Не всі оцінили, що він працював лише з курткою Фронтиру, тож нова ревізія дозволяє закріплювати його на поясі."
   components:
   - type: Storage
     whitelist:
@@ -64,8 +64,8 @@
 - type: entity
   parent: ClothingBeltSheath
   id: ClothingBeltSheatCaptainHeavy
-  name: ножни для важкої шаблі
-  description: Вишукані ножни зроблені щоб зберігати важку шаблю капітана.
+  name: "піхви для важкої шаблі"
+  description: "Вишукані піхви, створені для зберігання важкої капітанської шаблі."
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Belt/Captain_sheaths/heavy.rsi
@@ -103,8 +103,8 @@
 - type: entity
   parent: ClothingBeltSheath
   id: ClothingBeltSheatCaptainShashka
-  name: ножни до шашки
-  description: Вишукані ножни зроблені щоб зберігати шашку капітана.
+  name: "піхви для шашки"
+  description: "Вишукані піхви, створені для зберігання капітанської шашки."
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Belt/Captain_sheaths/shashka.rsi

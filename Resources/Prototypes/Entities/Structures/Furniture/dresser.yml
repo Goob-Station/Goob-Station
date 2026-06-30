@@ -44,8 +44,8 @@
 - type: entity
   id: Dresser
   parent: BaseStructure
-  name: dresser
-  description: Wooden dresser, can store things inside itself, ideal for underwear, and someone's kidneys?...
+  name: "комод"
+  description: "Дерев'яний комод, може зберігати речі всередині себе."
   components:
   - type: Sprite
     sprite: Structures/Furniture/furniture.rsi

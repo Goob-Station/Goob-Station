@@ -83,10 +83,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: BaseWeaponRifle
+  name: "BaseWeaponRifle"
   parent: [BaseItem, BaseGunWieldable]
   id: BaseWeaponRifle
-  description: A rooty tooty point and shooty.
+  description: "Корінцевий зубастий і пагонистий."
   abstract: true
   components:
   - type: Sprite
@@ -172,10 +172,10 @@
   # Goobstation edit end
 
 - type: entity
-  name: AKM
+  name: "АКМ"
   parent: [BaseWeaponRifle, BaseSecurityContraband]
   id: WeaponRifleAk
-  description: A somewhat battered combat rifle of a design originating from old Earth. Favored by criminals, militias, and terrorists due to its famed reliability and easy-to-manufacture design. Feeds from .30 Rifle magazines.
+  description: "Дещо пошарпана бойова гвинтівка староземного походження. Її полюбляють злочинці, ополчення та терористи за легендарну надійність і просту у виробництві конструкцію. Живиться з магазинів .30 Rifle."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Rifles/ak.rsi
@@ -221,10 +221,10 @@
   - type: Appearance
 
 - type: entity
-  name: M-90GL # Goobstation
+  name: "M-90GL" # Goobstation
   parent: [BaseWeaponRifle, BaseSyndicateContraband]
   id: WeaponRifleM90GrenadeLauncher
-  description: A bullpup Waffle Corporation assault rifle with an integrated grenade launcher. Feeds from .20 Rifle magazines. # Goobstation
+  description: "Штурмова гвинтівка Waffle Corporation у компоновці булпап із вбудованим гранатометом. Живиться з магазинів .20 Rifle." # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Rifles/carbine.rsi
@@ -267,10 +267,10 @@
     fireRate: 6
 
 - type: entity
-  name: Lecter
+  name: "Лектер"
   parent: [BaseWeaponRifle, BaseSecurityContraband]
   id: WeaponRifleLecter
-  description: A military-grade assault rifle that's seen more wars than you can remember. The full-size package and steady recoil of the Lecter help it excel at one thing—pinpoint accuracy. Feeds from .20 Rifle magazines. # Goobstation
+  description: "Штурмова гвинтівка військового класу, що бачила більше війн, ніж ви здатні згадати. Повнорозмірна конструкція та стабільна віддача допомагають Лектеру блискуче проявляти себе в одному — ювелірній точності. Живиться з магазинів .20 Rifle." # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Rifles/lecter.rsi
@@ -315,10 +315,10 @@
   - type: Appearance
 
 - type: entity
-  name: Estoc # Goob
+  name: "Есток" # Goob
   parent: [BaseWeaponRifle, BaseSyndicateContraband]
   id: WeaponRifleEstoc
-  description: A now defunct military burst-fire DMR, the Estoc quickly found its way into paramilitary and boarding party hands. Boasts an expensive tritium sight for faster target acquisition. Feeds from .30 Rifle magazines. # Goobstation
+  description: "Нині вже знята з озброєння військова гвинтівка марксмана зі стрільбою короткими чергами. Есток швидко потрапив до рук воєнізованих формувань і абордажних команд. Має дорогий тритієвий приціл для швидшого захоплення цілі. Живиться з магазинів .30 Rifle." # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Rifles/estoc.rsi
@@ -379,10 +379,10 @@
   - type: Appearance
 
 - type: entity
-  name: Foam Force Astro Ace
+  name: "Піна Foam Force Astro Ace"
   parent: [BaseWeaponShotgun, BaseGunWieldable]
   id: WeaponRifleFoam
-  description: A premium foam rifle of the highest quality. Its plastic feels rugged, and its mechanisms sturdy.
+  description: "Преміальна пістолетна гвинтівка найвищої якості. Її пластик здається міцним, а механізми - надійними."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Rifles/foam_rifle.rsi

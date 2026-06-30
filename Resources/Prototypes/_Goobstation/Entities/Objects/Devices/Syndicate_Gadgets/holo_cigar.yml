@@ -6,8 +6,8 @@
 - type: entity
   parent: [ BaseItem, BaseSyndicateContraband ]
   id: HoloCigar
-  name: holo-cigar
-  description: A sleek electronic cigar imported straight from Sol. You feel badass merely glimpsing it...
+  name: "голо-сигара"
+  description: "Витончена електронна сигара, імпортована прямісінько з Солу. Відчуваєш себе неймовірно крутим, лише мигцем глянувши на неї..."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Devices/holocigar.rsi
@@ -31,8 +31,8 @@
 - type: entity
   parent: HoloCigar
   id: HoloCigarWestern
-  name: western holo-cigar
-  description: A sleek electronic cigar imported straight from Sol. You feel badass merely glimpsing it...
+  name: "вестернова голо-сигара"
+  description: "Витончена електронна сигара, імпортована прямісінько з Солу. Відчуваєш себе неймовірно крутим, лише мигцем глянувши на неї..."
   components:
   - type: HoloCigar
     music:

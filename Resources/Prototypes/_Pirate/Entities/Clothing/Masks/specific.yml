@@ -44,8 +44,8 @@
 - type: entity
   parent: ClothingBalaclavaBase
   id: Balaclava
-  name: балаклава
-  description: Чорна балаклава яка робить твій вигляд крутим.
+  name: "балаклава"
+  description: "Чорна балаклава яка робить твій вигляд крутим."
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Mask/balaclavas/black.rsi
@@ -56,8 +56,8 @@
 - type: entity
   parent: ClothingBalaclavaBase
   id: GreenBalaclava
-  name: зелена балаклава
-  description: Зелена балаклава яка робить твій вигляд крутим.
+  name: "зелена балаклава"
+  description: "Зелена балаклава яка робить твій вигляд крутим."
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Mask/balaclavas/green.rsi
@@ -68,8 +68,8 @@
 - type: entity
   parent: ClothingBalaclavaBase
   id: SkullBalaclava
-  name: балаклава з черепем
-  description: Чорна балаклава з черепом, по всім канонам супер-елітних отрядів хах...
+  name: "балаклава з черепем"
+  description: "Чорна балаклава з черепом, по всім канонам супер-елітних отрядів хах..."
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Mask/balaclavas/skull.rsi

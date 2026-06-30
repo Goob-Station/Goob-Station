@@ -7,8 +7,8 @@
 - type: entity
   id: CrateVendingMachineRestockSweetToofFilled
   parent: CratePlastic
-  name: SweetToof restock crate
-  description: Contains a restock box for a Sweet-Toof candy dispenser.
+  name: "ящик поповнення SweetToof"
+  description: "Містить коробку для поповнення автомату з цукерками Sweet-Toof."
   components:
   - type: StorageFill
     contents:

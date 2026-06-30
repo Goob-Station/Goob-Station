@@ -1,8 +1,8 @@
 - type: entity
   id: ResinMembrane
   parent: WindowRCDResistant
-  name: resin membrane
-  description: Resin just thin enough to let light pass through.
+  name: "смоляна мембрана"
+  description: "Смола, достатньо тонка, щоб пропускати світло."
   components:
   - type: Sprite
     drawdepth: WallTops

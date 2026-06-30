@@ -1,9 +1,9 @@
 - type: entity
   parent: OrganHumanBrain
   id: OrganGoblinBrain
-  name: brain
+  name: "мозок"
   suffix: Goblin
-  description: "The source of your woes."
+  description: "Джерело ваших бід."
   components:
   - type: Sprite
     sprite: _Pirate/Mobs/Species/Goblin/organs.rsi
@@ -23,7 +23,7 @@
 - type: entity
   parent: OrganHumanEyes
   id: OrganGoblinEyes
-  name: eyes
+  name: "очі"
   suffix: Goblin
   components:
   - type: Sprite
@@ -35,7 +35,7 @@
 - type: entity
   parent: OrganHumanTongue
   id: OrganGoblinTongue
-  name: tongue
+  name: "язик"
   suffix: Goblin
   components:
   - type: Sprite
@@ -45,7 +45,7 @@
 - type: entity
   parent: OrganHumanAppendix
   id: OrganGoblinAppendix
-  name: appendix
+  name: "апендикс"
   suffix: Goblin
   components:
   - type: Sprite
@@ -58,7 +58,7 @@
 - type: entity
   parent: OrganHumanEars
   id: OrganGoblinEars
-  name: ears
+  name: "вуха"
   suffix: Goblin
   components:
   - type: Sprite
@@ -68,9 +68,9 @@
 - type: entity
   parent: BaseHumanOrgan
   id: OrganGoblinLungs
-  name: lungs
+  name: "легені"
   suffix: Goblin
-  description: "They breathe business."
+  description: "Вони дихають бізнесом."
   components:
   - type: Sprite
     sprite: _Pirate/Mobs/Species/Goblin/organs.rsi
@@ -104,7 +104,7 @@
 - type: entity
   parent: OrganHumanHeart
   id: OrganGoblinHeart
-  name: heart
+  name: "серце"
   suffix: Goblin
   components:
   - type: Sprite
@@ -116,9 +116,9 @@
 - type: entity
   parent: OrganAnimalStomach
   id: OrganGoblinStomach
-  name: stomach
+  name: "шлунок"
   suffix: Goblin
-  description: "Shrooms go in here."
+  description: "Сюди йдуть грибочки."
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -149,7 +149,7 @@
 - type: entity
   parent: OrganHumanLiver
   id: OrganGoblinLiver
-  name: liver
+  name: "печінка"
   suffix: Goblin
   components:
   - type: Sprite
@@ -164,7 +164,7 @@
 - type: entity
   parent: OrganHumanKidneys
   id: OrganGoblinKidneys
-  name: kidneys
+  name: "нирки"
   suffix: Goblin
   components:
   - type: Sprite

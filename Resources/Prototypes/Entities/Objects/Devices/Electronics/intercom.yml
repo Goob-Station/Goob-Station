@@ -80,8 +80,8 @@
 - type: entity
   id: IntercomElectronics
   parent: BaseElectronics
-  name: intercom electronics
-  description: An electronics board used in intercoms.
+  name: "електроніка домофона"
+  description: "Електронна плата, що використовується в домофонах."
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi

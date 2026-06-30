@@ -16,8 +16,8 @@
 
 - type: entity
   id: InflatableWall
-  name: inflatable barricade
-  description: An inflated membrane. Activate to deflate. Do not puncture.
+  name: "надувна барикада"
+  description: "Надута мембрана. Активувати, щоб здути. Не проколювати."
   components:
   - type: Clickable
   - type: InteractionOutline
@@ -57,9 +57,9 @@
 
 - type: entity
   id: InflatableDoor
-  name: inflatable door
+  name: "надувні двері"
   parent: BaseMaterialDoor
-  description: An inflated membrane. Activate to deflate. Now with a door. Do not puncture.
+  description: "Надута мембрана. Активувати, щоб здути. Тепер з дверима. Не проколіть."
   components:
   - type: Clickable
   - type: InteractionOutline

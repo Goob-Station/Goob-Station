@@ -41,8 +41,8 @@
 - type: entity
   id: LockerBooze
   parent: LockerBase
-  name: booze storage
-  description: This is where the bartender keeps the booze.
+  name: "зберігання випивки"
+  description: "Тут бармен зберігає випивку."
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -68,7 +68,7 @@
 - type: entity
   id: LockerSteel
   parent: LockerBaseSecure
-  name: secure closet
+  name: "шафа із замком"
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -80,7 +80,7 @@
 - type: entity
   id: LockerQuarterMaster
   parent: LockerBaseSecure
-  name: quartermaster's locker
+  name: "шафка квартирмейстера"
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -93,8 +93,8 @@
 - type: entity
   id: LockerSalvageSpecialist
   parent: LockerBase
-  name: salvage specialist's locker # Lavaland Change
-  description: Contains equipment useful for space exploration. # Lavaland Change
+  name: "шафка спеціаліста з утилізації" # Lavaland Change
+  description: "Містить спорядження, корисне для космічних досліджень." # Lavaland Change
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -110,8 +110,8 @@
 - type: entity
   id: LockerShaftMiner
   parent: LockerBase
-  name: shaft miner's locker
-  description: Contains equipment useful for planet exploration.
+  name: "шафка шахтаря"
+  description: "Містить спорядження, корисне для дослідження планет."
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -126,7 +126,7 @@
 - type: entity
   id: LockerCaptain
   parent: LockerBaseSecure
-  name: captain's locker
+  name: "шафка капітана"
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -139,7 +139,7 @@
 - type: entity
   id: LockerHeadOfPersonnel
   parent: LockerBaseSecure
-  name: head of personnel's locker
+  name: "шафка голови персоналу"
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -153,7 +153,7 @@
 - type: entity
   id: LockerChiefEngineer
   parent: LockerBaseSecure
-  name: chief engineer's locker
+  name: "шафка головного інженера"
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -167,7 +167,7 @@
 - type: entity
   id: LockerElectricalSupplies
   parent: LockerBase
-  name: electrical supplies locker
+  name: "шафа для електроприладів"
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -181,7 +181,7 @@
 - type: entity
   id: LockerWeldingSupplies
   parent: LockerBase
-  name: welding supplies locker
+  name: "шафа для зварювальних матеріалів"
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -195,7 +195,7 @@
 - type: entity
   id: LockerAtmospherics
   parent: LockerBase
-  name: atmospheric technician's locker
+  name: "шафка атмосферного техніка"
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -209,7 +209,7 @@
 - type: entity
   id: LockerEngineer
   parent: LockerBase
-  name: engineer's locker
+  name: "шафка інженера"
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -223,8 +223,8 @@
 - type: entity
   parent: LockerBase
   id: LockerEvacRepair
-  name: emergency shuttle emergency locker
-  description: It's emergencies all the way down.
+  name: "аварійна шафка евакуаційного шатла"
+  description: "Суцільні надзвичайні ситуації."
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -238,7 +238,7 @@
 - type: entity
   id: LockerFreezerBase
   parent: LockerBase
-  name: freezer
+  name: "морозильна камера"
   suffix: No Access
   components:
   - type: Appearance
@@ -260,7 +260,7 @@
 - type: entity
   id: LockerFreezer
   parent: LockerFreezerBase
-  name: freezer
+  name: "морозильна камера"
   suffix: Kitchen, Locked
   components:
   - type: AccessReader
@@ -270,7 +270,7 @@
 - type: entity
   id: LockerBotanist
   parent: LockerBase
-  name: botanist's locker
+  name: "шафка ботаніка"
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -284,8 +284,8 @@
 - type: entity
   id: LockerMedicine
   parent: LockerBase
-  name: medicine locker
-  description: Filled to the brim with medical junk.
+  name: "шафка з ліками"
+  description: "Вщерть заповнений медичним мотлохом."
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -299,7 +299,7 @@
 - type: entity
   id: LockerMedical
   parent: LockerBase
-  name: medical doctor's locker
+  name: "шафка лікаря"
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -313,7 +313,7 @@
 - type: entity
   id: LockerParamedic
   parent: LockerBase
-  name: paramedic's locker
+  name: "шафка парамедика"
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -328,7 +328,7 @@
 - type: entity
   id: LockerChemistry
   parent: LockerBase
-  name: chemical locker
+  name: "шафа хімика"
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -342,7 +342,7 @@
 - type: entity
   id: LockerChiefMedicalOfficer
   parent: LockerBaseSecure
-  name: chief medical officer's locker
+  name: "шафка головного лікаря"
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -356,7 +356,7 @@
 - type: entity
   id: LockerResearchDirector
   parent: LockerBase
-  name: research director's locker
+  name: "шафка наукового керівника"
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -369,7 +369,7 @@
 - type: entity
   id: LockerScientist
   parent: LockerBase
-  name: scientist's locker
+  name: "шафка вченого"
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -383,7 +383,7 @@
 - type: entity
   id: LockerHeadOfSecurity
   parent: LockerBaseSecure
-  name: head of security's locker
+  name: "шафка начальника служби безпеки"
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -397,7 +397,7 @@
 - type: entity
   id: LockerWarden
   parent: LockerBaseSecure
-  name: warden's locker
+  name: "шафка наглядача"
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -411,7 +411,7 @@
 - type: entity
   id: LockerBrigmedic
   parent: LockerBaseSecure
-  name: brigmedic locker
+  name: "шафка тюремного медика"
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -425,7 +425,7 @@
 - type: entity
   id: LockerSecurity
   parent: LockerBaseSecure
-  name: security officer's locker
+  name: "шафка офіцера"
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -438,7 +438,7 @@
 - type: entity
   id: GunSafe
   parent: LockerBaseSecure
-  name: gun safe
+  name: "сейф для зброї"
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -490,8 +490,8 @@
 - type: entity
   parent: [ GenpopBase , LockerBaseSecure ]
   id: LockerPrisoner
-  name: prisoner closet
-  description: It's a secure locker for an inmate's personal belongings during their time in prison.
+  name: "шафа в'язня"
+  description: "Це надійна шафа для особистих речей ув'язненого на час його перебування у в'язниці."
   suffix: 1
   components:
   - type: Fixtures
@@ -576,8 +576,8 @@
 - type: entity
   id: LockerDetective
   parent: LockerBooze
-  name: detective's cabinet
-  description: Usually cold and empty... like your heart.
+  name: "шафка детектива"
+  description: "В ній є хоч щось... Навідміну від твого серця."
   components:
   - type: AccessReader
     access: [["Detective"]]
@@ -585,8 +585,8 @@
 - type: entity
   id: LockerEvidence
   parent: LockerSecurity
-  name: evidence locker
-  description: To store bags of bullet casings and detainee belongings.
+  name: "сховище доказів"
+  description: "Для зберігання мішків з гільзами та речей затриманих."
   components:
   - type: AccessReader
     access: [["Security"]]
@@ -594,9 +594,9 @@
 # Syndicate
 - type: entity
   id: LockerSyndicatePersonal
-  name: armory closet
+  name: "збройова шафа"
   parent: LockerBaseSecure
-  description: It's a personal storage unit for operative gear.
+  description: "Це персональне сховище для оперативного спорядження."
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -607,10 +607,10 @@
 # Bluespace
 - type: entity
   id: LockerBluespaceStation
-  name: bluespace locker
+  name: "шафка блюспейс"
   suffix: once to station
   parent: LockerSyndicatePersonal
-  description: Advanced locker technology.
+  description: "Передова технологія шафки."
   components:
     - type: ArrivalsBlacklist
     - type: BluespaceLocker
@@ -634,7 +634,7 @@
 # Clown
 - type: entity
   id: LockerClown
-  name: clown locker
+  name: "шафка клоуна"
   parent: LockerBaseSecure
   components:
   - type: Appearance
@@ -652,7 +652,7 @@
 # Mime
 - type: entity
   id: LockerMime
-  name: mime locker
+  name: "шафка міма"
   parent: LockerBaseSecure
   components:
   - type: Appearance
@@ -666,7 +666,7 @@
 # Representative
 - type: entity
   id: LockerRepresentative
-  name: representative locker
+  name: "шафка представника"
   parent: LockerBaseSecure
   components:
   - type: Appearance

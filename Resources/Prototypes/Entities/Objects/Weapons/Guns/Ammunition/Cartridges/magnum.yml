@@ -34,7 +34,7 @@
 
 - type: entity
   id: BaseCartridgeMagnum
-  name: cartridge (.45 magnum)
+  name: "патрон (.45 magnum)"
   parent: [ BaseCartridge, BaseSecurityCommandContraband ] # Goob edit - captain's N1984
   abstract: true
   components:
@@ -54,18 +54,18 @@
 
 - type: entity
   id: CartridgeMagnum
-  name: cartridge (.45 magnum)
+  name: "патрон (.45 magnum)"
   parent: BaseCartridgeMagnum
-  description: Heavy magnum cartridge mostly used by revolvers. Standard kinetic ammunition is common and useful in most situations.
+  description: "Важкий патрон магнум, що переважно використовується револьверами. Стандартні кінетичні боєприпаси поширені та корисні в більшості ситуацій."
   components:
   - type: CartridgeAmmo
     proto: BulletMagnum
 
 - type: entity
   id: CartridgeMagnumPractice
-  name: cartridge (.45 magnum practice)
+  name: "патрон (.45 magnum тренувальний)"
   parent: BaseCartridgeMagnum
-  description: Heavy magnum cartridge mostly used by revolvers. Chalk ammunition is generally non-harmful, used for practice.
+  description: "Важкий патрон магнум, що переважно використовується револьверами. Крейдяні боєприпаси зазвичай нешкідливі, використовуються для тренувань."
   components:
   - type: CartridgeAmmo
     proto: BulletMagnumPractice
@@ -80,7 +80,7 @@
 # PIRATE START
 - type: entity
   id: CartridgeMagnumRubber
-  name: cartridge (.45 magnum rubber)
+  name: "набій (.45 магнум гумовий)"
   parent: BaseCartridgeMagnum
   components:
   - type: CartridgeAmmo
@@ -96,9 +96,9 @@
 
 - type: entity
   id: CartridgeMagnumIncendiary
-  name: cartridge (.45 magnum incendiary)
+  name: "патрон (.45 magnum запалювальний)"
   parent: BaseCartridgeMagnum
-  description: Heavy magnum cartridge mostly used by revolvers. Incendiary ammunition contains a self-igniting compound that sets the target ablaze.
+  description: "Важкий патрон магнум, що переважно використовується револьверами. Запалювальні боєприпаси містять самозаймисту суміш, яка підпалює ціль."
   components:
   - type: CartridgeAmmo
     proto: BulletMagnumIncendiary
@@ -112,9 +112,9 @@
 
 - type: entity
   id: CartridgeMagnumAP
-  name: cartridge (.45 magnum armor-piercing)
+  name: "патрон (.45 magnum бронебійний)"
   parent: BaseCartridgeMagnum
-  description: Heavy magnum cartridge mostly used by revolvers. Armor piercing ammunition is renowned for its ability to cut straight through body armor.
+  description: "Важкий патрон магнум, що переважно використовується револьверами. Бронебійні боєприпаси відомі своєю здатністю пробивати натільну броню."
   components:
   - type: CartridgeAmmo
     proto: BulletMagnumAP
@@ -128,9 +128,9 @@
 
 - type: entity
   id: CartridgeMagnumUranium
-  name: cartridge (.45 magnum uranium)
+  name: "патрон (.45 magnum урановий)"
   parent: BaseCartridgeMagnum
-  description: Heavy magnum cartridge mostly used by revolvers. Uranium ammunition replaces the lead core of the bullet with fissile material, irradiating the target from the inside.
+  description: "Важкий патрон магнум, що переважно використовується револьверами. Уранові боєприпаси замінюють свинцеве осердя кулі на матеріал, що розщеплюється, опромінюючи ціль зсередини."
   components:
   - type: CartridgeAmmo
     proto: BulletMagnumUranium

@@ -1,7 +1,7 @@
 - type: job
   id: ForensicMantis
   name: job-name-mantis
-  description: job-description-mantis
+  description: "опис роботи богомола"
   playTimeTracker: JobForensicMantis
   requirements:
     - !type:OverallPlaytimeRequirement

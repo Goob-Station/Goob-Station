@@ -1,7 +1,7 @@
 - type: flavor
   id: entropic
   flavorType: Complex
-  description: flavor-complex-entropy
+  description: "смак-комплекс-ентропія"
 
 - type: reagent
   id: Entropy

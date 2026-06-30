@@ -7,8 +7,8 @@
 - type: entity
   parent: BaseAction
   id: ActionThankDriver
-  name: Thank Driver
-  description: Show the driver you enjoy being a passenger
+  name: "Подякувати водію"
+  description: "Покажіть водію, що вам подобається бути пасажиром"
   components:
   - type: Action
     itemIconStyle: NoItem
@@ -22,8 +22,8 @@
 - type: entity
   parent: BaseAction
   id: ActionQuietBackThere
-  name: Quiet back there
-  description: Tell the passengers to be quiet
+  name: "Тихіше там"
+  description: "Скажіть пасажирам, щоб вони були тихіше"
   components:
   - type: Action
     itemIconStyle: NoItem
@@ -37,8 +37,8 @@
 - type: entity
   parent: BaseAction
   id: ActionDrivingWithStyle
-  name: JukeBox
-  description: Drive with music
+  name: "Музичний автомат"
+  description: "Їдьте з музикою"
   components:
   - type: Action
     itemIconStyle: NoItem

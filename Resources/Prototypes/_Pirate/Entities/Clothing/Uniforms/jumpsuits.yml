@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitAdminAssistant
-  name: administrative assistant's jumpsuit
-  description: A suit worn by the Administrative Assistant. Smells of burnt coffee.
+  name: "комбінезон адміністративного асистента"
+  description: "Костюм, який носить адміністративний асистент. Пахне горілою кавою."
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Uniforms/Jumpsuit/admin_assistant.rsi
@@ -13,7 +13,7 @@
   parent: [ClothingUniformBase, BaseSecurityContraband]
   id: ClothingUniformJumpsuitCadet
   name: "уніформа кадета"
-  description: Уніформа, яка використовується кадетами Служби Безпеки. Немає ніяких знаків розрізнення чи шевронів, окрім букви К з тильної сторони.
+  description: "Уніформа, яка використовується кадетами Служби Безпеки. Немає ніяких знаків розрізнення чи шевронів, окрім букви К з тильної сторони."
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Uniforms/Jumpsuit/Security/security_cadet.rsi
@@ -23,8 +23,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitJeansGreen
-  name: green sweater with jeans
-  description: A green sweater with blue jeans. This one has the recessive jeans.
+  name: "зелений светр із джинсами"
+  description: "Зелений светр із синіми джинсами. У цьому комплекті джинси рецесивні."
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Uniforms/Jumpsuit/jeans_green.rsi
@@ -34,8 +34,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitJeansBrown
-  name: brown sweater with jeans
-  description: A brown sweater with blue jeans.
+  name: "коричневий светр із джинсами"
+  description: "Коричневий светр із синіми джинсами."
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Uniforms/Jumpsuit/jeans_brown.rsi
@@ -45,7 +45,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSecurityCorrectionofficer
-  name: correction officer's jumpsuit
+  name: "комбінезон виправного офіцера"
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Uniforms/Jumpsuit/Security/correction_officer.rsi
@@ -55,7 +55,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSecurityMaid
-  name: security maid suit
+  name: "костюм покоївки СБ"
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Uniforms/Jumpsuit/Security/maid.rsi

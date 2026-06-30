@@ -156,10 +156,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: rat king
+  name: "щурячий король"
   id: MobRatKing
   parent: [ SimpleMobBase, MobCombat ]
-  description: He's da rat. He make da roolz.
+  description: "Він - щур. Він встановлює правила."
   components:
   - type: VentCrawler # goobstation - Ventcrawl
   - type: CombatMode
@@ -352,10 +352,10 @@
 
 
 - type: entity
-  name: rat servant
+  name: "щурячий слуга"
   id: MobRatServant
   parent: [ SimpleMobBase, MobCombat ]
-  description: He's da mini rat. He don't make da roolz.
+  description: "Він - міні-щур. Він не встановлює правила."
   categories: [ HideSpawnMenu ] #Must be configured to a King or the AI breaks.
   components:
   - type: VentCrawler # goobstation - Ventcrawl
@@ -528,8 +528,8 @@
 - type: entity
   parent: BaseAction
   id: ActionRatKingRaiseArmy
-  name: Raise Army
-  description: Spend some hunger to summon an allied rat to help defend you.
+  name: "Підняти Армію"
+  description: "Витратьте трохи голоду, щоб викликати щура-союзника, який допоможе вам захистити себе."
   components:
   - type: Action
     useDelay: 4
@@ -542,8 +542,8 @@
 - type: entity
   parent: BaseAction
   id: ActionRatKingDomain
-  name: Rat King's Domain
-  description: Spend some hunger to release a cloud of ammonia into the air.
+  name: "Володіння Щурячого Короля"
+  description: "Витратьте трохи голоду, щоб випустити в повітря хмару аміаку."
   components:
   - type: Action
     useDelay: 6
@@ -556,8 +556,8 @@
 - type: entity
   parent: BaseAction
   id: ActionRatKingOrderStay
-  name: Stay
-  description: Command your army to stand in place.
+  name: "Стояти!"
+  description: "Накажіть своїй армії залишатися на місці."
   components:
   - type: Action
     useDelay: 1
@@ -575,8 +575,8 @@
 - type: entity
   parent: BaseAction
   id: ActionRatKingOrderFollow
-  name: Follow
-  description: Command your army to follow you around.
+  name: "За мною!"
+  description: "Накажи своїй армії слідувати за тобою."
   components:
   - type: Action
     useDelay: 1
@@ -594,8 +594,8 @@
 - type: entity
   parent: BaseAction
   id: ActionRatKingOrderCheeseEm
-  name: Cheese 'Em
-  description: Command your army to attack whoever you point at.
+  name: "Шинкуй їх!"
+  description: "Накажіть своїй армії атакувати того, на кого ви вкажете."
   components:
   - type: Action
     useDelay: 1
@@ -613,8 +613,8 @@
 - type: entity
   parent: BaseAction
   id: ActionRatKingOrderLoose
-  name: Loose
-  description: Command your army to act at their own will.
+  name: "Разслабонь"
+  description: "Накажи своїй армії діяти за власним бажанням."
   components:
   - type: Action
     useDelay: 1

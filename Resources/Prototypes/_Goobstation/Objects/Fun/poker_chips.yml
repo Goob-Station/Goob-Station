@@ -8,8 +8,8 @@
 - type: entity
   id: PokerChips
   parent: BaseItem
-  name: poker chips
-  description: Play money for adults
+  name: "покерні фішки"
+  description: "Іграшкові гроші для дорослих"
   components:
   - type: Stack
     stackType: PokerChips

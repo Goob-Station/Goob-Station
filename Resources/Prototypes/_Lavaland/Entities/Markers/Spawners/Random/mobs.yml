@@ -27,7 +27,7 @@
       - id: MobWatcherIcewing
 
 - type: entity
-  name: lavaland heavy mob spawner
+  name: "спавнер важких мобів Лаваленду"
   id: SpawnerRandomMobLavaland
   parent: ProximitySpawnerBase
   suffix: Lavaland, Proximity
@@ -42,7 +42,7 @@
       tableId: LavalandHeavyMobs
 
 - type: entity
-  name: lavaland light mob spawner
+  name: "спавнер легких мобів Лаваленду"
   id: SpawnerRandomLightMobLavaland
   parent: ProximitySpawnerBase
   suffix: Lavaland, Proximity

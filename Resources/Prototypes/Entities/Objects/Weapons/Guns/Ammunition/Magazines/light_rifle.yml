@@ -25,7 +25,7 @@
 # Empty mags
 - type: entity
   id: BaseMagazineLightRifle
-  name: "magazine (.30 rifle)"
+  name: "магазин (.30 гвинтівковий)"
   parent: [ BaseItem, BaseSecurityContraband ]
   abstract: true
   components:
@@ -60,9 +60,9 @@
 # Magazines
 - type: entity
   id: MagazineLightRifleBox
-  name: "L6 SAW magazine box (.30 rifle)"
+  name: "коробка з магазином для L6 SAW (.30 гвинтівковий)"
   parent: BaseMagazineLightRifle
-  description: Box containing a 100-round belt of linked .30 rifle rounds, used by light machine guns such as the L6. Intended to hold general-purpose kinetic ammunition.
+  description: "Коробка, що містить 100-зарядну стрічку з патронами калібру .30, що використовується в легких кулеметах, таких як L6. Призначена для зберігання кінетичних боєприпасів загального призначення."
   components:
   - type: Tag
     tags:
@@ -81,7 +81,7 @@
 
 - type: entity # Goobstation
   id: MagazineLightRifleBoxEmpty
-  name: "L6 SAW magazine box (.30 rifle any)"
+  name: "коробка з магазинами L6 SAW (.30 гвинтівка будь-яка)"
   parent: MagazineLightRifleBox
   components:
   - type: BallisticAmmoProvider
@@ -89,9 +89,9 @@
 
 - type: entity
   id: MagazineLightRifle
-  name: "magazine (.30 rifle)"
+  name: "магазин (.30 гвинтівковий)"
   parent: BaseMagazineLightRifle
-  description: Curved 30-round double stack magazine for combat rifles. Intended to hold general-purpose kinetic ammunition.
+  description: "Вигнутий 30-зарядний дворядний магазин для бойових гвинтівок. Призначений для зберігання кінетичних боєприпасів загального призначення."
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLightRifle
@@ -110,10 +110,10 @@
 
 - type: entity
   id: MagazineLightRifleEmpty
-  name: "magazine (.30 rifle any)"
+  name: "магазин (.30 гвинтівковий будь-який)"
   suffix: empty
   parent: MagazineLightRifle
-  description: Curved 30-round double stack magazine for combat rifles.
+  description: "Вигнутий 30-зарядний дворядний магазин для бойових гвинтівок."
   components:
   - type: BallisticAmmoProvider
     proto: null
@@ -132,9 +132,9 @@
 
 - type: entity
   id: MagazineLightRiflePractice
-  name: "magazine (.30 rifle practice)"
+  name: "магазин (.30 гвинтівковий тренувальний)"
   parent: BaseMagazineLightRifle
-  description: Curved 30-round double stack magazine for combat rifles. Intended to hold non-harmful chalk ammunition.
+  description: "Вигнутий 30-зарядний дворядний магазин для бойових гвинтівок. Призначений для зберігання нешкідливих крейдяних боєприпасів."
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLightRiflePractice
@@ -159,9 +159,9 @@
 
 - type: entity
   id: MagazineLightRifleUranium
-  name: "magazine (.30 rifle uranium)"
+  name: "магазин (.30 гвинтівковий урановий)"
   parent: BaseMagazineLightRifle
-  description: Curved 30-round double stack magazine for combat rifles. Intended to hold exotic uranium-core ammunition.
+  description: "Вигнутий 30-зарядний дворядний магазин для бойових гвинтівок. Призначений для зберігання екзотичних боєприпасів з урановим сердечником."
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLightRifleUranium
@@ -186,9 +186,9 @@
 
 - type: entity
   id: MagazineLightRifleIncendiary
-  name: "magazine (.30 rifle incendiary)"
+  name: "магазин (.30 гвинтівковий запалювальний)"
   parent: MagazineLightRifle
-  description: Curved 30-round double stack magazine for combat rifles. Intended to hold self-igniting incendiary ammunition.
+  description: "Вигнутий 30-зарядний дворядний магазин для бойових гвинтівок. Призначений для зберігання самозаймистих запалювальних боєприпасів."
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLightRifleIncendiary
@@ -213,7 +213,7 @@
 
 - type: entity
   id: MagazineLightRifleMaxim
-  name: "pan magazine (.30 rifle)"
+  name: "магазин під набій (гвинтівка калібру .30)"
   parent: BaseMagazineLightRifle
   components:
   - type: Tag
@@ -227,7 +227,7 @@
 
 - type: entity
   id: MagazineLightRiflePkBox
-  name: "PK munitions box (.30 rifle)"
+  name: "коробочка з набоями PK (гвинтівка калібру .30)"
   parent: BaseMagazineLightRifle
   components:
   - type: Tag

@@ -8,7 +8,7 @@
 - type: entity
   parent: BaseEnchant
   id: EnchantKnockback
-  name: Knockback
+  name: "Відкидання"
   components:
   - type: Enchant
     whitelist:

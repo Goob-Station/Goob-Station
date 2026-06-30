@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingHeadHatSecsoft
   id: ClothingHeadHatSecsoftOfficer
-  name: офіцерська кепка
-  description: Кепка офіцера служби безпеки, має срібну кокарду.
+  name: "офіцерська кепка"
+  description: "Кепка офіцера служби безпеки зі срібною кокардою."
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Soft/officersoft.rsi
@@ -12,4 +12,4 @@
 - type: entity
   parent: [ClothingHeadHeadHatBaseFlipped, ClothingHeadHatSecsoftOfficer]
   id: ClothingHeadHatSecsoftOfficerFlipped
-  name: офіцерська кепка
+  name: "офіцерська кепка"

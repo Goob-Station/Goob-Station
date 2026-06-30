@@ -83,10 +83,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: forensic scanner
+  name: "криміналістичний сканер"
   parent: [ BaseItem, BaseSecurityContraband ]
   id: ForensicScanner
-  description: A handheld device that can scan objects for fingerprints and fibers.
+  description: "Портативний пристрій, який може сканувати об'єкти на наявність відбитків пальців, волокон, залишків ДНК та речовини."
   components:
   - type: Sprite
     sprite: Objects/Devices/forensic_scanner.rsi
@@ -115,10 +115,10 @@
     stealGroup: ForensicScanner
 
 - type: entity
-  name: forensic scanner report
+  name: "звіт криміналістичного сканера"
   parent: Paper
   id: ForensicReportPaper
-  description: Circumstantial evidence, at best.
+  description: "Непрямі докази, в кращому випадку."
   components:
   - type: Sprite
     sprite: Objects/Misc/bureaucracy.rsi
@@ -145,8 +145,8 @@
 - type: entity
   parent: ForensicReportPaper
   id: PaperAccessLogs
-  name: access logs
-  description: A printout from the detective's trusty LogProbe.
+  name: "журнали доступу"
+  description: "Роздруківка з вірного LogProbe детектива."
   components:
   - type: PaperVisuals
     headerImagePath: null

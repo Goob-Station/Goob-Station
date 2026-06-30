@@ -2,8 +2,8 @@
 - type: entity
   id: MobSkeletonCommander
   parent: [ BaseMob, MobCombat ]
-  name: skeleton commander
-  description: A bulky skeleton here to encourage his friends.
+  name: "командир скелетів"
+  description: "Кремезний скелет, що прийшов підбадьорити своїх друзів."
   components:
   - type: CollectiveMind
     defaultChannel: Wraithmind
@@ -110,10 +110,10 @@
     speedModifier: 2.5
 
 - type: entity
-  name: Tentacle fiend
+  name: "щупальцевий демон"
   parent: MobCorgiNarsi
   id: MobVoidSpiker
-  description: Standing still is probably not a good idea.
+  description: "Стояти на місці — мабуть, не найкраща ідея."
   components:
   - type: MindContainer
     showExamineInfo: true
@@ -209,10 +209,10 @@
     speedModifier: 2.5
 
 - type: entity
-  name: Voidhound
+  name: "Гончак Порожнечі"
   parent: MobCorgiNarsi
   id: MobVoidHound
-  description: You probably shouldn't be staring at this thing.
+  description: "Ймовірно, не варто втуплюватися на цю штуку."
   components:
   - type: MindContainer
     showExamineInfo: true

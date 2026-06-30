@@ -2,8 +2,8 @@
   id: MobPlagueRatSmall
   suffix: Wraith
   parent: [ BaseMob, MobCombat ]
-  name: plague rat
-  description: A diseased looking rat.
+  name: "чумний щур"
+  description: "Хворий на вигляд щур."
   components:
   - type: MindContainer
     showExamineInfo: true
@@ -130,8 +130,8 @@
   id: MobPlagueRatMedium
   suffix: Wraith
   parent: MobPlagueRatSmall
-  name: plague-ridden rat
-  description: A wretched, disgusting rat.
+  name: "чумний щур"
+  description: "Жалюгідний, огидний щур."
   components:
   - type: SummonRatDen # allows you to use summon rat den
   - type: ActionGrant
@@ -161,8 +161,8 @@
   id: MobPlagueRatLarge
   suffix: Wraith
   parent: MobPlagueRatMedium
-  name: Bloated rat mass
-  description: A horrible mass of pus and warts, that once used to look like a rat.
+  name: "роздута щуряча маса"
+  description: "Жахлива маса гною й бородавок, яка колись виглядала як щур."
   components:
   - type: Rushdown #TO DO: Change the jump sound, or don't. Werewolf sound isn't perfect but works.
   - type: ActionGrant
@@ -204,8 +204,8 @@
   id: MobMadRat
   suffix: Wraith
   parent: [ BaseMob, MobCombat ]
-  name: mad rat
-  description: A very weak rat spawned from a den.
+  name: "божевільний щур"
+  description: "Дуже слабкий щур, породжений кублом."
   components:
   - type: Sprite
     drawdepth: Mobs

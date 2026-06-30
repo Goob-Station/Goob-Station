@@ -59,7 +59,7 @@
 - type: entity
   parent: PartBase
   id: PartRodMetal
-  name: metal rod
+  name: "металевий стрижень"
   suffix: Full
   components:
   - type: PhysicalComposition
@@ -111,7 +111,7 @@
 - type: entity
   parent: PartRodMetal
   id: PartRodMetal10
-  name: metal rod
+  name: "металевий стрижень"
   suffix: 10
   components:
   - type: Tag
@@ -126,7 +126,7 @@
 - type: entity
   parent: PartRodMetal
   id: PartRodMetal1
-  name: metal rod
+  name: "металевий стрижень"
   suffix: Single
   components:
   - type: Tag

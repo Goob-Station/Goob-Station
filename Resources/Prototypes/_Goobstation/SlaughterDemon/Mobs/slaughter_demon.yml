@@ -3,9 +3,9 @@
     - SimpleSpaceMobBase
     - MobPolymorphable
   id: BaseMobSlaughterDemon
-  name: slaughter demon
+  name: "демон-різник"
   suffix: ""
-  description: A large, menacing creature covered in armored black scales. You should run.
+  description: "Велика, загрозлива істота, вкрита броньованою чорною лускою. Вам слід тікати."
   components:
   - type: Sprite
     sprite: _Goobstation/SlaughterDemon/demon.rsi
@@ -193,8 +193,8 @@
 - type: entity
   parent: BaseMobSlaughterDemon
   id: MobLaughterDemon
-  name: laughter demon
-  description: A large, adorable creature covered in armor with pink bows.
+  name: "демон сміху"
+  description: "Велика, чарівна істота, вкрита бронею з рожевими бантиками."
   components:
   - type: Sprite
     sprite: _Goobstation/SlaughterDemon/demon.rsi
@@ -239,7 +239,7 @@
 - type: entity
   parent: BaseMobSlaughterDemon
   id: MobLesserSlaughterDemon
-  name: lesser slaughter demon
+  name: "менший демон-різник"
   components:
   - type: MobThresholds
     thresholds:

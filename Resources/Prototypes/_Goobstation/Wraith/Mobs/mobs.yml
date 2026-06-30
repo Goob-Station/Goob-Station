@@ -3,8 +3,8 @@
 - type: entity
   id: MobSkeletonGoon
   parent: [ BaseMob, MobCombat]
-  name: malicious skeleton
-  description: A hostile skeleton summoned by a wraith.
+  name: "зловмисний скелет"
+  description: "Ворожий скелет, викликаний примарою."
   components:
   - type: HTN
     rootTask:
@@ -96,8 +96,8 @@
 - type: entity
   id: MobCrunched
   parent: [ BaseMob, MobCombat ]
-  name: transposed scientist
-  description: A fellow who seems to have been shunted between dimensions. Not a good state to be in.
+  name: "переміщений науковець"
+  description: "Хтось, кого, здається, перекинуло між вимірами. Не найкращий стан."
   components:
   - type: Advertise
     pack: CrunchedSpeech
@@ -169,8 +169,8 @@
 - type: entity
   id: MobShade
   parent: [ BaseMob, MobCombat ]
-  name: darkness
-  description: Oh god.
+  name: "темрява"
+  description: "О боже."
   components:
   - type: Advertise
     pack: Shade
@@ -247,10 +247,10 @@
     - FootstepSound
 
 - type: entity
-  name: mechanical monstrosity
+  name: "механічна потворність"
   id: MobMonstrosityHead
   parent: [ BaseMob, MobCombat ]
-  description: A severely disfigured human torso which is forcibly kept alive by the mechanical parts...
+  description: "Сильно спотворений людський торс, який примусово підтримується живим механічними частинами..."
   components:
   - type: MindContainer
     showExamineInfo: true
@@ -310,8 +310,8 @@
 - type: entity
   id: MobMonstrosityBody
   parent: [ BaseMob, MobCombat ]
-  name: mechanical monstrosity
-  description: A severely disfigured human torso which is forcibly kept alive by the mechanical parts...
+  name: "механічна потворність"
+  description: "Сильно спотворений людський торс, який примусово підтримується живим механічними частинами..."
   components:
   - type: SpamEmitSound
     minInterval: 5
@@ -387,10 +387,10 @@
       collection: FootstepHeavySuit
 
 - type: entity
-  name: lion
+  name: "лев"
   id: MobLion
   parent: [ BaseMob, MobCombat ]
-  description: Oh christ.
+  description: "О господи."
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -438,8 +438,8 @@
 - type: entity
   id: MobAncientRepairBot # This mob is supposed to be a drone that auto-repairs stuff, but out of scope, and olny for adventure zones anyway.
   parent: [ BaseMob, MobCombat ]
-  name: strange robot  #This mob is also supposed to shoot lightning bolts instead of slicing in meelee range, but since we don't have AI capable of using mob skills, that is to be added.
-  description: It looks like some sort of floating repair bot or something?
+  name: "дивний робот"  #This mob is also supposed to shoot lightning bolts instead of slicing in meelee range, but since we don't have AI capable of using mob skills, that is to be added.
+  description: "Схоже на якийсь літаючий ремонтний бот чи щось таке?"
   components:
   - type: Advertise
     pack: Repairbot
@@ -522,8 +522,8 @@
 - type: entity
   id: MobAncientGuardBot
   parent: MobAncientRepairBot
-  name: strange robot
-  description: A Security Robot, something seems a bit off.
+  name: "дивний робот"
+  description: "Охоронний робот, щось здається трохи не так."
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -554,8 +554,8 @@
 - type: entity
   id: MobAncientRobot1
   parent: [ BaseMob, MobCombat ]
-  name: ???
-  description: What the hell is that?
+  name: "???"
+  description: "Що за біса це таке?"
   components:
   - type: HTN
     rootTask:

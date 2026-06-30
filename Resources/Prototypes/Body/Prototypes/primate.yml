@@ -9,7 +9,7 @@
 
 - type: body
   id: Primate
-  name: "primate"
+  name: "примат"
   root: chest
   slots:
     head: # Shitmed: put pun pun into a humans body

@@ -118,7 +118,7 @@
 - type: entity
   parent: BaseMobSpeciesOrganic
   id: BaseMobHuman
-  name: Urist McHands
+  name: "Уріст МакХендс"
   abstract: true
   components:
   - type: Hunger

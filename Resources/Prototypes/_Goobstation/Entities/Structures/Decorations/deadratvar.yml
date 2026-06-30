@@ -6,8 +6,8 @@
 - type: entity
   id: DeadRatvar
   parent: BaseStructure
-  name: dead construct
-  description: The corpse of an ancient construct made of brass and cogs. It still hums with tremendous power.
+  name: "мертвий конструкт"
+  description: "Труп стародавнього конструкта, зробленого з латуні та шестерень. Він досі гуде з величезною силою."
   components:
   - type: Sprite
     layers:

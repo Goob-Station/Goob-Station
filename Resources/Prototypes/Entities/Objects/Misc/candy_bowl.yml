@@ -10,8 +10,8 @@
 - type: entity
   parent: BaseItem
   id: CandyBowl
-  name: "candy bowl"
-  description: Grab as much as you can fit in your pockets!
+  name: "цукерниця"
+  description: "Візьміть стільки, скільки поміститься в кишені!"
   components:
   - type: Sprite
     sprite: Objects/Misc/candy_bowl.rsi

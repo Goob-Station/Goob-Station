@@ -16,8 +16,8 @@
 
 - type: entity
   id: WindoorAssembly
-  name: windoor assembly
-  description: It opens, it closes, and you can see through it!
+  name: "збірка вікно-дверей"
+  description: "Він відкривається, закривається, і ви можете бачити крізь нього!"
   parent: BaseStructure
   components:
   - type: InteractionOutline
@@ -67,8 +67,8 @@
 
 - type: entity
   id: WindoorAssemblySecure
-  name: secure windoor assembly
-  description: It opens, it closes, and you can see through it! This one looks tough.
+  name: "збірка захищених вікно-дверей"
+  description: "Вона відкривається, закривається, і крізь неї можна бачити! Ця виглядає міцною."
   parent: WindoorAssembly
   components:
   - type: Sprite
@@ -95,8 +95,8 @@
 
 - type: entity
   id: WindoorAssemblyClockwork
-  name: clockwork windoor assembly
-  description: It opens, it closes, and you can see through it! This one looks tough.
+  name: "збірка часових вікно-дверей"
+  description: "Вона відкривається, закривається, і крізь неї можна бачити! Ця виглядає міцною."
   parent: WindoorAssembly
   components:
   - type: Sprite
@@ -123,8 +123,8 @@
 #plasma windoor assemblies
 - type: entity
   id: WindoorAssemblyPlasma
-  name: plasma windoor assembly
-  description: It opens, it closes, and you can see through it! This one looks purp-, no, pink. Wait...
+  name: "збірка плазмових вікнодверей"
+  description: "Вони відчиняються, зачиняються, і крізь них можна бачити! Ці виглядають фіолетовими, ні, рожевими. Зачекайте..."
   parent: WindoorAssembly
   components:
   - type: Sprite
@@ -153,8 +153,8 @@
 
 - type: entity
   id: WindoorAssemblySecurePlasma
-  name: secure plasma windoor assembly
-  description: It opens, it closes, and you can see through it! This one looks strong and pin-, no, purple. Hold on...
+  name: "збірка захищених плазмових вікнодверей"
+  description: "Вони відчиняються, зачиняються, і крізь них можна бачити! Ці виглядають міцними і рожевими, ні, фіолетовими. Стривайте..."
   parent: WindoorAssembly
   components:
   - type: Sprite
@@ -185,8 +185,8 @@
 #uranium windoor assemblies
 - type: entity
   id: WindoorAssemblyUranium
-  name: uranium windoor assembly
-  description: It opens, it closes, and you can see through it! This one looks sickly green...
+  name: "збірка уранових вікнодверей"
+  description: "Вони відчиняються, зачиняються, і крізь них можна бачити! Ці виглядають хворобливо-зеленими..."
   parent: WindoorAssembly
   components:
   - type: Sprite
@@ -215,8 +215,8 @@
 
 - type: entity
   id: WindoorAssemblySecureUranium
-  name: secure uranium windoor assembly
-  description: It opens, it closes, and you can see through it! This one looks strong and radioactive-lime-green!
+  name: "збірка захищених уранових вікнодверей"
+  description: "Вони відчиняються, зачиняються, і крізь них можна бачити! Ці виглядають міцними і радіоактивно-лаймово-зеленими!"
   parent: WindoorAssembly
   components:
   - type: Sprite

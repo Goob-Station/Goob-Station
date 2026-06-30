@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseItem
   id: XenomorphPromotion
-  name: royal parasite
-  description: Inject this into one of your grown children to promote her to a Praetorian!
+  name: "королівський паразит"
+  description: "Введіть це одному зі своїх дорослих дітей, щоб підвищити її до Преторіанця!"
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

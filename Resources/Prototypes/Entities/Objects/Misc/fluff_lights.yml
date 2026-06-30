@@ -100,7 +100,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: lantern
+  name: "ліхтар"
   parent: BaseItem
   id: BaseLamp
   abstract: true
@@ -156,10 +156,10 @@
     stealGroup: LAMP
 
 - type: entity
-  name: lamp
+  name: "лампа"
   id: Lamp
   parent: BaseLamp
-  description: A light emitting device.
+  description: "Пристрій, що випромінює світло."
   components:
   - type: Sprite
     sprite: Objects/Misc/Lights/lamp.rsi
@@ -185,10 +185,10 @@
           festive: { state: christmaslamp-on }
 
 - type: entity
-  name: banana lamp
+  name: "бананова лампа"
   id: LampBanana
   parent: BaseLamp
-  description: A light emitting device, shaped like a banana.
+  description: "Світловипромінювальний пристрій у формі банана."
   components:
   - type: Sprite
     layers:
@@ -199,10 +199,10 @@
         map: [ "light" ]
 
 - type: entity
-  name: desk lamp
+  name: "настільна лампа"
   id: LampGold
   parent: BaseLamp
-  description: A light emitting device that would look great on a desk.
+  description: "Пристрій, що випромінює світло, ще й чудово виглядатиме на робочому столі."
   components:
   - type: Sprite
     sprite: Objects/Misc/Lights/lampgreen.rsi
@@ -232,10 +232,10 @@
             state: christmaslamp-on
 
 - type: entity
-  name: interrogator lamp
+  name: "лампа для допитів"
   id: LampInterrogator
   parent: [ BaseLamp, BaseSecurityContraband ]
-  description: Ultra-bright lamp for the bad cop.
+  description: "Надяскрава лампа для поганого поліцейського."
   components:
   - type: Sprite
     sprite: Objects/Misc/Lights/lampint.rsi
@@ -289,10 +289,10 @@
           False: {visible: false}
 
 - type: entity
-  name: floodlight
+  name: "прожектор"
   id: Floodlight
   parent: BaseLamp
-  description: A pole with powerful mounted lights on it.
+  description: "Стовп, на якому встановлені потужні ліхтарі."
   components:
   - type: Item
     size: Normal
@@ -350,10 +350,10 @@
       Glass: 500
       Steel: 200
 - type: entity
-  name: broken floodlight
+  name: "розбитий прожектор"
   id: FloodlightBroken
   parent: BaseItem
-  description: A pole with powerful mounted lights on it. It's broken.
+  description: "Стовп з потужними ліхтарями на ньому. Він зламаний."
   components:
   - type: Item
     size: Normal

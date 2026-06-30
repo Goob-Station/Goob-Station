@@ -1,6 +1,6 @@
 - type: entity
-  name: disposable battery
-  description: Robots eat these, right?
+  name: "одноразова батарея"
+  description: "Роботи це їдять, так?"
   id: BatteryDisposable
   parent: BaseItem
   components:

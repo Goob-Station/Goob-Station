@@ -8,9 +8,9 @@
 - type: entity
   id: ClosetCursed
   parent: ClosetSteelBase
-  name: closet
+  name: "шафа"
   suffix: cursed
-  description: A standard-issue Nanotrasen storage unit.
+  description: "Стандартизований НаноТрейзен контейнер для зберігання."
   components:
   - type: CursedEntityStorage
   - type: EntityStorage

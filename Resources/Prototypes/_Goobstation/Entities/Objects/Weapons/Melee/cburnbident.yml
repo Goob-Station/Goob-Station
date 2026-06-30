@@ -6,10 +6,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: dispatch spear
+  name: "диспетчерський спис"
   parent: [BaseItem, BaseCentcommContraband] # Before you ask why I didn't parent the spear, it's because I don't want this to be able to have reagants applied.
   id: CburnSpear
-  description: A spear used by Nanotrasen's CBURN agents. Effective at incinerating organic targets.
+  description: "Спис, що використовується агентами CBURN NanoTrasen. Ефективний для спалювання органічних цілей."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/cburn_spear.rsi

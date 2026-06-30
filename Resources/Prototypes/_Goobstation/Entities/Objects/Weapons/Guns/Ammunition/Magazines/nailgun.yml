@@ -37,12 +37,12 @@
 - type: entity
   id: MagazineNailgun
   parent: [ BaseMagazineNailgun, BaseEngineeringContraband ]
-  name: nailgun magazine
+  name: "магазин для цвяхомета"
 
 - type: entity
   id: MagazineNailgunEmpty
   parent: [ BaseMagazineNailgun, BaseEngineeringContraband ]
-  name: nailgun magazine (any)
+  name: "магазин для цвяхомета (будь-який)"
   components:
   - type: BallisticAmmoProvider
     proto: null
@@ -50,7 +50,7 @@
 - type: entity
   id: MagazineNailgunArmorPiercing
   parent: [ BaseMagazineNailgun, BaseSyndicateContraband ]
-  name: nailgun magazine (armor-piercing)
+  name: "магазин для цвяхомета (бронебійний)"
   components:
   - type: BallisticAmmoProvider
     proto: NailArmorPiercing

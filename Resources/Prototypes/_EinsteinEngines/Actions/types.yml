@@ -1,7 +1,7 @@
 - type: entity
   id: ActionSelfExtinguish
-  name: Self-Extinguish
-  description: Extinguishes you if you are on fire and insulated against self-ignition.
+  name: "Самозатухання"
+  description: "Гасить вас у разі пожежі та ізолює від самозаймання."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

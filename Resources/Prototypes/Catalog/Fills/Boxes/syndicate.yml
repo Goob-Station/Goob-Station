@@ -23,7 +23,7 @@
 - type: entity
   id: ElectricalDisruptionKit
   parent: [BoxCardboard, BaseSyndicateContraband]
-  name: electrical disruption kit
+  name: "коробка проти перебоїв у електропостачанні"
   suffix: Filled
   components:
     - type: StorageFill
@@ -36,8 +36,8 @@
 - type: entity
   parent: [BoxVial, BaseSyndicateContraband]
   id: ChemicalSynthesisKit
-  name: chemical synthesis kit
-  description: A starter kit for the aspiring chemist, notably includes a chemical payload and timer, a hyperzine syringe, and two vials of vestine for all your criminal needs! # Goobstation
+  name: "набір для хімічного синтезу"
+  description: "Стартовий набір для початківця-хіміка, що особливо включає хімічний заряд і таймер, шприц з гіперзином і два флакони вестину для всіх ваших злочинних потреб!" # Goobstation
   components:
   - type: Storage
     grid:
@@ -57,8 +57,8 @@
 - type: entity
   parent: [BoxCardboard, BaseSyndicateContraband]
   id: ThrowingKnivesKit
-  name: throwing knives kit
-  description: A set of 4 syndicate branded throwing knives, perfect for embedding into the body of your victims.
+  name: "набір метальних ножів"
+  description: "Набір з 4 фірмових метальних ножів синдикату, які ідеально підходять для встромляння в тіло жертви."
   components:
   - type: Storage
     grid:
@@ -73,10 +73,10 @@
       - state: throwing_knives
 
 - type: entity
-  name: deathrattle implant box
+  name: "коробка з імплантами \"передсмертний хрип"
   parent: [BoxCardboard, BaseSyndicateContraband]
   id: BoxDeathRattleImplants
-  description: Six deathrattle implants for the whole squad.
+  description: "Шість імплантів \"передсмертний хрип\" для всього загону."
   components:
   - type: Sprite
     layers:
@@ -93,8 +93,8 @@
 - type: entity
   parent: [BoxCardboard, BaseSyndicateContraband]
   id: CombatBakeryKit
-  name: combat bakery kit
-  description: A kit of clandestine baked weapons.
+  name: "бойовий хлібопекарський набір"
+  description: "Комплект підпільної зброї, що випікається підпільно."
   components:
   - type: Storage
     grid:

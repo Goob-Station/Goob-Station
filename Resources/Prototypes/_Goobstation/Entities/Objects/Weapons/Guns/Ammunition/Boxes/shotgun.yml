@@ -22,7 +22,7 @@
 
 # Carpshot
 - type: entity
-  name: shell box (8 Gauge carpshot)
+  name: "коробка з патронами (8 калібр карпшот)"
   parent: BaseMagazineBoxShotgunHighCaliber
   id: MagazineBoxShotgunHighCaliber
   components:
@@ -38,7 +38,7 @@
 
 # Normal Slug
 - type: entity
-  name: shell box (8 Gauge slug)
+  name: "коробка з патронами (8 калібр куля)"
   parent: BaseMagazineBoxShotgunHighCaliber
   id: MagazineBoxShotgunSlugHighCaliber
   components:
@@ -58,7 +58,7 @@
 
 # Incendiary
 - type: entity
-  name: shell box (8 Gauge incendiary)
+  name: "коробка з патронами (8 калібр запалювальний)"
   parent: BaseMagazineBoxShotgunHighCaliber
   id: MagazineBoxShotgunIncendiaryHighCaliber
   components:
@@ -74,7 +74,7 @@
 
 # Uranium
 - type: entity
-  name: shell box (8 Gauge uranium)
+  name: "коробка з патронами (8 калібр урановий)"
   parent: BaseMagazineBoxShotgunHighCaliber
   id: MagazineBoxShotgunUraniumHighCaliber
   components:
@@ -97,7 +97,7 @@
 - type: entity
   parent: BaseMagazineBoxShotgunHighCaliber
   id: MagazineBoxShotgunBeanbagHighCaliber
-  name: shell box (8 Gauge beanbag)
+  name: "коробка з патронами (8 калібр травматичний)"
   components:
   - type: BallisticAmmoProvider
     proto: ShellShotgunBeanbagHighCaliber
@@ -112,7 +112,7 @@
 # Practice
 
 - type: entity
-  name: shell box (8 Gauge practice)
+  name: "коробка з патронами (8 калібр тренувальний)"
   parent: BaseMagazineBoxShotgunHighCaliber
   id: MagazineBoxShotgunPracticeHighCaliber
   components:
@@ -131,7 +131,7 @@
 - type: entity
   id: MagazineBoxShotgunHighCaliberEnsnaring
   parent: BaseMagazineBoxShotgunHighCaliber
-  name: shell box (8 Gauge slug ensnaring)
+  name: "коробка з патронами (8 калібр куля-сітка)"
   components:
   - type: BallisticAmmoProvider
     proto: ShellShotgunSlugEnsnaring
@@ -148,7 +148,7 @@
 - type: entity
   id: MagazineBoxShotgunHighCaliberEMP
   parent: BaseMagazineBoxShotgunHighCaliber
-  name: shell box (8 Gauge slug EMP)
+  name: "коробка з патронами (8 калібр куля ЕМІ)"
   components:
   - type: BallisticAmmoProvider
     proto: ShellShotgunSlugEMP
@@ -165,7 +165,7 @@
 - type: entity
   id: MagazineBoxShotgunHighCaliberFlash
   parent: BaseMagazineBoxShotgunHighCaliber
-  name: shell box (8 Gauge slug flash)
+  name: "коробка з патронами (8 калібр куля-спалах)"
   components:
   - type: BallisticAmmoProvider
     proto: ShellShotgunSlugFlash
@@ -182,7 +182,7 @@
 - type: entity
   id: MagazineBoxShotgunHighCaliberSarin
   parent: BaseMagazineBoxShotgunHighCaliber
-  name: shell box (8 Gauge sarin gas)
+  name: "коробка з патронами (8 калібр зарин)"
   components:
   - type: BallisticAmmoProvider
     proto: ShellShotgunHighCaliberSarin

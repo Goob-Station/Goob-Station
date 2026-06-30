@@ -63,8 +63,8 @@
 
 - type: entity
   id: ConveyorBelt
-  name: conveyor belt
-  description: A conveyor belt, commonly used to transport large numbers of items elsewhere quite quickly.
+  name: "конвеєрна стрічка"
+  description: "Конвеєрна стрічка, яку зазвичай використовують для швидкого транспортування великої кількості предметів в інше місце."
   placement:
     mode: SnapgridCenter
   components:
@@ -135,9 +135,9 @@
 - type: entity
   id: ConveyorBeltAssembly
   parent: BaseItem
-  name: conveyor belt
+  name: "конвеєрна стрічка"
   suffix: assembly
-  description: A conveyor belt assembly. Used to construct a conveyor belt.
+  description: "Конвеєрна стрічка в зборі. Використовується для створення конвеєрної стрічки."
   components:
   - type: Tag
     tags:

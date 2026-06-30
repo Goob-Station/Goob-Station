@@ -116,10 +116,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Mop Bucket
 - type: entity
-  name: mop bucket
+  name: "відро для швабри"
   id: MopBucket
   parent: [BaseStructureDynamic, StructureWheeled]
-  description: Holds water and the tears of the janitor.
+  description: "Тримає воду і сльози прибиральника."
   components:
   - type: Clickable
   - type: Sprite
@@ -233,7 +233,7 @@
         - MachineMask
 
 - type: entity
-  name: mop bucket
+  name: "відро для швабри"
   id: MopBucketFull
   parent: MopBucket
   suffix: full
@@ -253,9 +253,9 @@
 
 - type: entity
   parent: BaseWrappedCube
-  name: mop bucket cube
+  name: "куб з відром для швабри"
   id: MopBucketCubeWrapped
-  description: Unwrap this to get a mop bucket cube.
+  description: "Розгорніть це, щоб отримати куб з відром для швабри."
   components:
   - type: SpawnItemsOnUse
     items:
@@ -265,10 +265,10 @@
 
 # Janicart
 - type: entity
-  name: janitorial trolley
+  name: "візок прибиральника"
   id: JanitorialTrolley
   parent: [BaseStructureDynamic, StructureWheeled]
-  description: This is the alpha and omega of sanitation.
+  description: "Це альфа і омега санітарії."
   components:
     - type: Sprite
       noRot: true

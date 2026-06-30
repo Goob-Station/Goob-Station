@@ -2,8 +2,8 @@
   abstract: true
   parent: MarkerBase
   id: ProximitySpawnerBase
-  name: proximity spawner
-  description: Spawner that triggers when there is a player nearby.
+  name: "спавнер наближення"
+  description: "Спавнер, що спрацьовує, коли поруч є гравець."
   components:
   - type: Physics
   - type: Fixtures

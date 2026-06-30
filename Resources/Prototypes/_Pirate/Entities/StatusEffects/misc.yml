@@ -1,7 +1,7 @@
 - type: entity
   parent: MobStatusEffectDebuff
   id: StatusEffectLotophagoiOil
-  name: lotophagoi oil effect
+  name: "ефект олії лотофагої"
   components:
   - type: ScrambledAccent
   - type: TelepathicRepeater

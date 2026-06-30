@@ -1,6 +1,6 @@
 - type: entity
   id: MindBase
-  name: mind
+  name: "свідомість"
   categories: [ HideSpawnMenu ]
   components:
   - type: Mind

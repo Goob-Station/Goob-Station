@@ -9,10 +9,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: entropic blade
+  name: "ентропійний клинок"
   parent: BaseSword
   id: SwordCosmicCult
-  description: An eerie greatsword wrought of indescribable material, forcibly extruded down into reality. Your instincts tell you that it does not belong here.
+  description: "Моторошний дворучний меч, виготовлений з незрозумілого матеріалу, насильно витягнутий у реальність. Ваші інстинкти підказують, що йому тут не місце."
   components:
   - type: CosmicEquipment
   - type: Sprite
@@ -87,10 +87,10 @@
   - type: UnholyItem # Goobstation Shitchap
 
 - type: entity
-  name: vacuous lance
+  name: "порожнистий спис"
   parent: BaseItem
   id: SpearCosmicCult
-  description: An unnerving spear, wrought of indescribable material. Being near it feels like a prickle of static spreading through your nerves.
+  description: "Моторошний спис, виготовлений з незрозумілого матеріалу. Перебування поруч із ним викликає відчуття поколювання, наче статичний розряд, що поширюється по нервах."
   components:
   - type: CosmicEquipment
   - type: Sprite
@@ -186,7 +186,7 @@
   - type: UnholyItem # Goobstation Shitchap
 
 - type: entity
-  name: astral razor
+  name: "астральне лезо"
   parent: BaseItem
   id: ScytheCosmicCult
   components:

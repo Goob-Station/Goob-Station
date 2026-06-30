@@ -12,8 +12,8 @@
 - type: entity
   parent: SmokeGrenade
   id: LubeGrenade
-  name: Lube Grenade
-  description: A grenade that releases Space Lube foam.
+  name: "Глицеринова граната"
+  description: "Граната, що випускає піну з космічного глицерину."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/foamdart.rsi
@@ -29,8 +29,8 @@
 - type: entity
   parent: SmokeGrenade
   id: GlueGrenade
-  name: Glue Grenade
-  description: A grenade that releases Space Glue foam.
+  name: "Клейова граната"
+  description: "Граната, що випускає піну з космічного клею."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/smoke.rsi

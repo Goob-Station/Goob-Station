@@ -1,8 +1,8 @@
 - type: entity
   id: CrateArmoryBRDIR25
   parent: CrateWeaponSecure
-  name: Ящик BRDI-R25
-  description: Містить дві гвинтівки з інтегрованим глушником схеми буллпап. Імпортовано з Biesel Republic Defense Industries. Для відкриття потрібен доступ до збройової.
+  name: "Ящик BRDI-R25"
+  description: "Містить дві гвинтівки з інтегрованим глушником схеми буллпап. Імпортовано з Biesel Republic Defense Industries. Для відкриття потрібен доступ до збройової."
   components:
   - type: StorageFill
     contents:

@@ -16,8 +16,8 @@
 - type: entity
   parent: BaseSuicideAction
   id: ActionActivateBluespaceLifeline
-  name: Activate Bluespace Lifeline
-  description: Activates your bluespace lifeline implant, teleporting you far-far away from this station. You won't be able to come back.
+  name: "Активуйте Bluespace Lifeline"
+  description: "Активує ваш імплантат рятувального круга, телепортуючи вас дуже далеко від цієї станції. Ти не зможеш повернутися."
   components:
   - type: Action
     checkCanInteract: false
@@ -33,8 +33,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHorn
-  name: Honk!
-  description: Beep the horn at whoever you will run over.
+  name: "Посигналь!"
+  description: "Посигнальте тому, кого збираєтесь переїхати."
   components:
   - type: Action
     useDelay: 1
@@ -45,8 +45,8 @@
 - type: entity
   parent: BaseAction
   id: ActionSiren
-  name: Siren
-  description: Alert your victim to your presence.
+  name: "Сирена"
+  description: "Сповістіть свою жертву про свою присутність."
   components:
   - type: Action
     useDelay: 1
@@ -57,8 +57,8 @@
 - type: entity
   parent: BaseImplantAction
   id: ActivateSmokeImplant
-  name: Release a cloud of smoke
-  description: Releases a cloud of smoke around you.
+  name: "Випустити хмару диму"
+  description: "Випускає хмару диму навколо вас."
   components:
   - type: Action
     useDelay: 30
@@ -69,8 +69,8 @@
 - type: entity
   parent: BaseAction
   id: ActionDashMoth
-  name: Wing dash
-  description: Sharply flap your wings, dashing to the side!
+  name: "Ривок крилами"
+  description: "Різко змахніть крилами, щоб зробити ривок убік!"
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -91,9 +91,9 @@
 
 - type: entity
   id: ActionDashGeneric
-  name: Dash
+  name: "Ривок"
   parent: ActionDashMoth
-  description: Dash forward.
+  description: "Ривок уперед."
   components:
   - type: Action
     useDelay: 6.5
@@ -107,8 +107,8 @@
 - type: entity
   parent: BaseAction
   id: ActionToggleRightMantisBlade
-  name: Toggle Right Mantis Blade
-  description: Extend or retract the mantis blade in your right arm.
+  name: "Перемкнути праве лезо-богомол"
+  description: "Висунути або втягнути лезо-богомол у правій руці."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -124,8 +124,8 @@
 - type: entity
   parent: ActionToggleRightMantisBlade
   id: ActionToggleLeftMantisBlade
-  name: Toggle Left Mantis Blade
-  description: Extend or retract the mantis blade in your left arm.
+  name: "Перемкнути ліве лезо-богомол"
+  description: "Висунути або втягнути лезо-богомол у лівій руці."
   components:
   - type: Action
     icon: { sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi, state: icon-mirrored }
@@ -133,8 +133,8 @@
 - type: entity
   parent: BaseAction
   id: ActionToggleSandevistan
-  name: Toggle Sandevistan
-  description: Enable or disable your improved reflexes provided by the Sandevistan.
+  name: "Перемкнути Сандевістан"
+  description: "Увімкнути або вимкнути покращені рефлекси, що надаються Сандевістаном."
   components:
   - type: Action
     checkCanInteract: false
@@ -148,8 +148,8 @@
 - type: entity
   parent: BaseMentalAction
   id: ActionShowStationMap
-  name: Station Map Interface
-  description: View a Station Map Interface.
+  name: "Інтерфейс карти станції"
+  description: "Переглянути інтерфейс карти станції."
   components:
   - type: Action
     # TODO: Make a sprite for the station map interface.
@@ -163,8 +163,8 @@
 - type: entity
   parent: BaseAction
   id: ActionToggleFloorBoardsMode
-  name: Enter or Exit Floor
-  description: Crawl under the floor boards.
+  name: "Увійти або вийти з-під підлоги"
+  description: "Заповзти під мостини."
   components:
   - type: Action
     itemIconStyle: BigAction
@@ -178,8 +178,8 @@
 - type: entity
   parent: BaseAction
   id: ActionStealShoes
-  name: Steal Shoes
-  description: A tasty snack it will be!
+  name: "Вкрасти взуття"
+  description: "Це буде смачна закуска!"
   components:
   - type: Action
     checkCanInteract: false
@@ -198,8 +198,8 @@
 
 - type: entity
   id: ActionVehicleWallPush
-  name: Wall Launch
-  description: Launch yourself off the nearest surface, tiders count as surfaces.
+  name: "Відштовхування від стіни"
+  description: "Відштовхніться від найближчої поверхні, тайдери вважаються поверхнями."
   components:
   - type: Action
     itemIconStyle: NoItem
@@ -216,8 +216,8 @@
 - type: entity
   id: ActionRocketChairBoost
   parent: BaseAction
-  name: Boost
-  description: Spray water to launch forward.
+  name: "Прискорення"
+  description: "Розпиліть воду, щоб прискоритися."
   components:
   - type: Action
     itemIconStyle: NoItem
@@ -234,8 +234,8 @@
 - type: entity
   parent: BaseAction
   id: ActionActivateBerserkerImplant
-  name: Activate Berserker Implant
-  description: Activate your berserker implant, greatly increasing your melee damage and speed for a short duration. While in berserk mode, you will be unable to use ranged weapons.
+  name: "Активувати імплант берсерка"
+  description: "Активуйте свій імплант берсерка, значно збільшуючи шкоду в ближньому бою та швидкість на короткий час. У режимі берсерка ви не зможете використовувати стрілецьку зброю."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -251,8 +251,8 @@
 - type: entity
   parent: BaseSuicideAction
   id: ActionActivateRedspaceLifeline
-  name: Activate Redspace Lifeline
-  description: Activates your redspace lifeline implant, teleporting you far-far away from this station. You won't be able to come back.
+  name: "Активувати рятувальний трос червоного простору"
+  description: "Активує ваш імплант рятувального троса червоного простору, телепортуючи вас далеко-далеко від цієї станції. Ви не зможете повернутися."
   components:
     - type: Action
       checkCanInteract: false
@@ -268,8 +268,8 @@
 - type: entity
   parent: BaseAction
   id: ActionForklift
-  name: Activate Lift
-  description: Lift up crates in front of you.
+  name: "Активувати підйомник"
+  description: "Підніміть ящики перед собою."
   components:
   - type: Action
     useDelay: 3
@@ -289,8 +289,8 @@
 - type: entity
   parent: BaseAction
   id: ActionUnforklift
-  name: Drop Lift
-  description: Put down crates in front of you.
+  name: "Опустити підйомник"
+  description: "Поставте ящики перед собою."
   components:
   - type: Action
     useDelay: 1.5

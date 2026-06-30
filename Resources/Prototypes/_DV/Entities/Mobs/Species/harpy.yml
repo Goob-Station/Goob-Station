@@ -33,7 +33,7 @@
 
 - type: entity
   save: false
-  name: Urist McHarpy
+  name: "Уріст МакГарпі"
   parent: BaseMobHuman
   id: MobHarpyBase
   abstract: true
@@ -214,11 +214,11 @@
 
 - type: entity
   save: false
-  name: Urist McHands
+  name: "Уріст МакРуки"
   parent: MobHumanDummy
   id: MobHarpyDummy
   categories: [ HideSpawnMenu ]
-  description: A dummy Harpy meant to be used in character setup.
+  description: "Манекен гарпії, призначений для використання при створенні персонажа."
   components:
   - type: HumanoidAppearance
     species: Harpy

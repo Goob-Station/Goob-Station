@@ -1,6 +1,6 @@
 - type: diseaseSpread
   id: Debug
-  name: Debug
+  name: "Дебаг"
 
 - type: entity
   abstract: true
@@ -12,8 +12,8 @@
 - type: entity
   id: DiseaseBehaviorTurboCancer
   parent: DiseaseBehaviorDebug
-  name: turbocancer
-  description: Deals genetic and blunt damage over time. A short time.
+  name: "турборак"
+  description: "Протягом нетривалого часу завдає генетичної та тупої шкоди."
   components:
   - type: DiseaseEffect
     complexity: 1000
@@ -29,8 +29,8 @@
 - type: entity
   id: DiseaseBehaviorSpreadDebug
   parent: DiseaseBehaviorDebug
-  name: debug spread
-  description: The plague.
+  name: "дебаг-поширення"
+  description: "Чума."
   components:
   - type: DiseaseEffect
     complexity: 1000
@@ -48,8 +48,8 @@
 - type: entity
   id: DiseaseBehaviorForceSpreadDebug
   parent: DiseaseBehaviorDebug
-  name: omega spread
-  description: Worlds will rot. # [x] sufficiently edgy description
+  name: "омега-поширення"
+  description: "Світи згниють." # [x] sufficiently edgy description
   components:
   - type: DiseaseEffect
     complexity: 1000
@@ -68,8 +68,8 @@
 - type: entity
   id: DiseaseBehaviorTurboBlunt
   parent: DiseaseBehaviorBase
-  name: poison
-  description: Deals lots of blunt damage over time.
+  name: "отрута"
+  description: "Завдає багато тупої шкоди з часом."
   components:
   - type: DiseaseEffect
     complexity: 1000
@@ -84,8 +84,8 @@
 - type: entity
   id: DiseaseBehaviorDeconstructFloor
   parent: DiseaseBehaviorBase
-  name: tile prying
-  description: Deconstructs the floor.
+  name: "підважування плиток"
+  description: "Розбирає підлогу."
   components:
   - type: DiseaseEffect
     complexity: 80
@@ -97,8 +97,8 @@
 - type: entity
   id: DiseaseTurboCancer
   parent: DiseaseBase
-  name: turbo cancer
-  description: Deals lots of genetic damage to the infected. Better prepare the funeral.
+  name: "турбо-рак"
+  description: "Завдає інфікованому багато генетичної шкоди. Краще підготуйте похорон."
   components:
   - type: Disease
     infectionRate: 0.1
@@ -113,8 +113,8 @@
 - type: entity
   id: DiseaseTheRot
   parent: DiseaseBase
-  name: the rot
-  description: If you are reading this, you've invoked the gods' wrath.
+  name: "гниль"
+  description: "Якщо ви це читаєте, ви накликали гнів богів."
   components:
   - type: Disease
     infectionRate: 0.003
@@ -132,8 +132,8 @@
 - type: entity
   id: MeleeDebugInfectTurboCancer
   parent: MeleeDebugGib
-  name: turbocancer stick
-  description: Need a taste of Chernobyl?
+  name: "палиця турбораку"
+  description: "Потрібен ковток Чорнобиля?"
   components:
   - type: Tag
     tags:
@@ -148,8 +148,8 @@
 - type: entity
   id: MeleeDebugInfectTheRot
   parent: MeleeDebugGib
-  name: the rot stick
-  description: Destroys everything. No, really.
+  name: "палиця гнили"
+  description: "Знищує все. Ні, справді."
   components:
   - type: Tag
     tags:
@@ -164,8 +164,8 @@
 - type: entity
   id: MeleeDebugInfectFlu
   parent: MeleeDebugGib
-  name: flu stick
-  description: Gives you the flu. And people wonder where it comes from.
+  name: "палиця грипу"
+  description: "Нагороджує вас грипом. А люди ще дивуються, звідки він береться."
   components:
   - type: Tag
     tags:
@@ -180,8 +180,8 @@
 - type: entity
   id: MeleeDebugInfectGravitosisA
   parent: MeleeDebugGib
-  name: gravitosis stick
-  description: Gives you gravitosis A.
+  name: "палиця гравітозису"
+  description: "Нагороджує вас гравітозисом А."
   components:
   - type: Tag
     tags:
@@ -196,8 +196,8 @@
 - type: entity
   id: MeleeDebugInfectGunemia
   parent: MeleeDebugGib
-  name: gunemia stick
-  description: Gives you gunemia.
+  name: "палиця гунемії"
+  description: "Нагороджує вас гунемією."
   components:
   - type: Tag
     tags:

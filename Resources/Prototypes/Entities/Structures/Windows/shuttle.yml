@@ -17,7 +17,7 @@
 
 - type: entity
   id: ShuttleWindow
-  name: shuttle window
+  name: "вікно шаттла"
   parent: WindowRCDResistant
   components:
   - type: Sprite

@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseMobSpeciesOrganic
   id: BaseMobPlasmaman
-  name: Urist McPlasma
+  name: "Уріст Макплазма"
   abstract: true
   components:
   - type: ZombieImmune

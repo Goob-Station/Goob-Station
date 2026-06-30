@@ -611,8 +611,8 @@
 - type: entity
   parent: [BaseThiefObjective, BaseLivingObjective]
   id: EscapeThiefShuttleObjective
-  name: Escape to centcomm alive and unrestrained.
-  description: You don't want your illegal activities to be discovered by anyone, do you? Get out on the evacuation shuttle. # Goobstation
+  name: "Втекти на шатлі живим і на волі."
+  description: "Ви ж не хочете, щоб ваші незаконні дії хтось виявив, чи не так? Тікайте на евакуаційному шатлі." # Goobstation
   components:
   - type: Objective
     difficulty: 1.3

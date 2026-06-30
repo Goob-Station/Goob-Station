@@ -36,8 +36,8 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsStandard
-  name: standard modsuit boots
-  description: A special modular suit boots designed for compact folding inside modular suit control.
+  name: "стандартні черевики модкостюма"
+  description: "Спеціальні черевики модульного костюма, розроблені для компактного складання всередині блоку керування модульним костюмом."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -65,8 +65,8 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsSecurity
-  name: soldat modsuit boots
-  description: THE IRON BOOTS OF THE LAW.
+  name: "чоботи мод-костюма \"Солдат"
+  description: "ЗАЛІЗНІ ЧОБОТИ ЗАКОНУ."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -113,8 +113,8 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsHeadOfSecurity
-  name: bulwark modsuit boots
-  description: I call these my commie stompers.
+  name: "чоботи мод-костюма \"Бастіон"
+  description: "Я називаю їх своїми комуняко-топтунами."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -161,8 +161,8 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsParamedic
-  name: sanitater modsuit boots
-  description: Made to get bloody.
+  name: "чоботи мод-костюма \"Санітар"
+  description: "Створені для того, щоб бути в крові."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -192,8 +192,8 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsEngineer
-  name: sapper modsuit boots
-  description: Made to get oily.
+  name: "чоботи мод-костюма \"Сапер"
+  description: "Створені для того, щоб бути в мастилі."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -235,8 +235,8 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsAtmostech
-  name: aeolus modsuit boots
-  description: Made to get burnt.
+  name: "чоботи мод-костюма \"Еол"
+  description: "Створені для того, щоб бути в вогні."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -269,8 +269,8 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsResearchDirector
-  name: minerva modsuit boots
-  description: Won't stop you slipping on your own blood when the holocarp gets to you.
+  name: "чоботи мод-костюма \"Мінерва"
+  description: "Не врятує вас від падіння у власній крові, коли до вас добереться голокарп."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -300,8 +300,8 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsCaptain
-  name: magnate modsuit boots
-  description: These boots were designed by THE Michael Jordan and crafted with ancient alloys, man.
+  name: "чоботи мод-костюма \"Магнат"
+  description: "Ці чоботи розробив САМ Майкл Джордан і виготовив зі стародавніх сплавів, чуваче."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance

@@ -164,10 +164,10 @@
 # Custom Bread Example
 
 - type: entity
-  name: volcanic loaf
+  name: "вулканічний батон"
   parent: FoodBreadBase
   id: FoodBreadVolcanic
-  description: A dark loaf. Resembles pumice.
+  description: "Темний буханець. Нагадує пемзу."
   components:
   - type: Food
   - type: Sprite
@@ -180,10 +180,10 @@
     slice: FoodBreadVolcanicSlice
 
 - type: entity
-  name: volcanic slice
+  name: "вулканічний зріз"
   parent: FoodBreadSliceBase
   id: FoodBreadVolcanicSlice
-  description: A slice of dark loaf. Resembles pumice.
+  description: "Шматок темного батона. Нагадує пемзу."
   components:
   - type: Food
   - type: Sprite
@@ -196,10 +196,10 @@
 # Bread
 
 - type: entity
-  name: banana bread
+  name: "банановий хліб"
   parent: FoodBreadBase
   id: FoodBreadBanana
-  description: A heavenly and filling treat.
+  description: "Небесне і ситне частування."
   components:
   - type: FlavorProfile
     flavors:
@@ -218,10 +218,10 @@
 # Tastes like bread, banana, nut.
 
 - type: entity
-  name: banana bread slice
+  name: "шматочок бананового хліба"
   parent: FoodBreadSliceBase
   id: FoodBreadBananaSlice
-  description: A slice of delicious banana bread.
+  description: "Шматочок смачного бананового хліба."
   components:
   - type: FlavorProfile
     flavors:
@@ -238,10 +238,10 @@
     - Slice
 
 - type: entity
-  name: cotton bread
+  name: "бавовняний хліб"
   parent: FoodBreadBase
   id: FoodBreadCotton
-  description: Bread, but for moff.
+  description: "Хліб, але для молі."
   components:
   - type: FlavorProfile
     flavors:
@@ -269,10 +269,10 @@
           Quantity: 10
 
 - type: entity
-  name: cotton bread slice
+  name: "шматок бавовняного хліба"
   parent: FoodBreadSliceBase
   id: FoodBreadCottonSlice
-  description: A slice of (maybe) delicious cotton bread.
+  description: "Шматок (можливо) смачного бавовняного хліба."
   components:
   - type: FlavorProfile
     flavors:
@@ -299,10 +299,10 @@
           Quantity: 2
 
 - type: entity
-  name: cornbread
+  name: "кукурудзяний хліб"
   parent: FoodBreadBase
   id: FoodBreadCorn
-  description: Some good down-home country-style, rootin'-tootin', revolver-shootin', dad-gum yeehaw cornbread.
+  description: "Трохи хорошого кантрі-стилю, з корінням, стріляниною з револьверів, кукурудзяним хлібом \"тато-гум\"."
   components:
   - type: FlavorProfile
     flavors:
@@ -324,10 +324,10 @@
 # Tastes like bread, banana, nut.
 
 - type: entity
-  name: cornbread slice
+  name: "шматочок кукурудзяного хліба"
   parent: FoodBreadSliceBase
   id: FoodBreadCornSlice
-  description: A slice of cornbread.
+  description: "Шматочок кукурудзяного хліба."
   components:
   - type: FlavorProfile
     flavors:
@@ -346,10 +346,10 @@
           Quantity: 3
 
 - type: entity
-  name: cream cheese bread
+  name: "хліб з вершковим сиром"
   parent: FoodBreadBase
   id: FoodBreadCreamcheese
-  description: Yum yum yum!
+  description: "Ням-ням-ням!"
   components:
   - type: FlavorProfile
     flavors:
@@ -374,10 +374,10 @@
 # Tastes like bread, cheese.
 
 - type: entity
-  name: cream cheese bread slice
+  name: "скибочка хліба з вершковим сиром"
   parent: FoodBreadSliceBase
   id: FoodBreadCreamcheeseSlice
-  description: A slice of yum!
+  description: "Шматочок смакоти!"
   components:
   - type: FlavorProfile
     flavors:
@@ -399,10 +399,10 @@
           Quantity: 1.2
 
 - type: entity
-  name: meat bread
+  name: "м'ясний хліб"
   parent: FoodBreadBase
   id: FoodBreadMeat
-  description: The culinary base of every self-respecting eloquen/tg/entleman.
+  description: "Кулінарна база кожного поважаючого себе красномовця/талановитого/джентльмена."
   components:
   - type: FlavorProfile
     flavors:
@@ -430,10 +430,10 @@
 # Tastes like bread, meat.
 
 - type: entity
-  name: meat bread slice
+  name: "м'ясна скибочка хліба"
   parent: FoodBreadSliceBase
   id: FoodBreadMeatSlice
-  description: A slice of delicious meatbread.
+  description: "Шматочок смачного м'ясного хліба."
   components:
   - type: FlavorProfile
     flavors:
@@ -459,10 +459,10 @@
     - Slice
 
 - type: entity
-  name: mimana bread
+  name: "хліб мімана"
   parent: FoodBreadBase
   id: FoodBreadMimana
-  description: Best eaten in silence.
+  description: "Найкраще їсти в тиші."
   components:
   - type: FlavorProfile
     flavors:
@@ -490,10 +490,10 @@
 # Tastes like bread, cheese.
 
 - type: entity
-  name: mimana bread slice
+  name: "скибочка хліба мімана"
   parent: FoodBreadSliceBase
   id: FoodBreadMimanaSlice
-  description: A slice of silence!
+  description: "Шматочок тиші!"
   components:
   - type: FlavorProfile
     flavors:
@@ -518,10 +518,10 @@
           Quantity: 1
 
 - type: entity
-  name: bread
+  name: "хліб"
   parent: FoodBreadBase
   id: FoodBreadPlain
-  description: Some plain old earthen bread.
+  description: "Простого старого земляного хліба."
   components:
   - type: Food
   - type: Sprite
@@ -531,10 +531,10 @@
     slice: FoodBreadPlainSlice
 
 - type: entity
-  name: bread slice
+  name: "скибочка хліба"
   parent: FoodBreadSliceBase
   id: FoodBreadPlainSlice
-  description: A slice of home.
+  description: "Шматочок дому."
   components:
   - type: Food
   - type: Sprite
@@ -542,10 +542,10 @@
     - state: plain-slice
 
 - type: entity
-  name: sausage bread
+  name: "ковбасний хліб"
   parent: FoodBreadBase
   id: FoodBreadSausage
-  description: Dont think too much about it.
+  description: "Не думайте про це занадто багато."
   components:
   - type: FlavorProfile
     flavors:
@@ -574,10 +574,10 @@
     - Bread
 
 - type: entity
-  name: sausage bread slice
+  name: "скибочка хліба з ковбасою"
   parent: FoodBreadSliceBase
   id: FoodBreadSausageSlice
-  description: Dont think too much about it.
+  description: "Не думайте про це занадто багато."
   components:
   - type: FlavorProfile
     flavors:
@@ -605,10 +605,10 @@
     - Slice
 
 - type: entity
-  name: spider meat bread
+  name: "хліб з павукового м'яса"
   parent: FoodBreadBase
   id: FoodBreadMeatSpider
-  description: Reassuringly green meatloaf made from spider meat.
+  description: "Заспокійливо-зелений м'ясний рулет з м'яса павука."
   components:
   - type: FlavorProfile
     flavors:
@@ -636,10 +636,10 @@
 # Tastes like bread, cobwebs.
 
 - type: entity
-  name: spider meat bread slice
+  name: "хлібна скибочка з м'ясом павука"
   parent: FoodBreadSliceBase
   id: FoodBreadMeatSpiderSlice
-  description: A slice of meatloaf made from an animal that most likely still wants you dead.
+  description: "Шматок м'ясного рулету, зроблений з тварини, яка, швидше за все, все ще хоче вашої смерті."
   components:
   - type: FlavorProfile
     flavors:
@@ -665,10 +665,10 @@
     - Slice
 
 - type: entity
-  name: tofu bread
+  name: "хліб з тофу"
   parent: FoodBreadBase
   id: FoodBreadTofu
-  description: Like meatbread but for vegetarians. Brag to your crewmates about how much better it is.
+  description: "Як м'ясний хліб, але для вегетаріанців. Похваліться своїм товаришам по команді, наскільки він кращий."
   components:
   - type: FlavorProfile
     flavors:
@@ -692,10 +692,10 @@
 # Tastes like bread, tofu.
 
 - type: entity
-  name: tofu bread slice
+  name: "скибочка хліба з тофу"
   parent: FoodBreadSliceBase
   id: FoodBreadTofuSlice
-  description: A slice of delicious tofu bread.
+  description: "Шматочок смачного хліба з тофу."
   components:
   - type: FlavorProfile
     flavors:
@@ -716,10 +716,10 @@
           Quantity: 2.4
 
 - type: entity
-  name: xeno meat bread
+  name: "ксеном'ясний хліб"
   parent: FoodBreadBase
   id: FoodBreadMeatXeno
-  description: A fitting, and filling, end to xeno scum.
+  description: "Пристосування та заповнення, кінець ксеношкідництву."
   components:
   - type: FlavorProfile
     flavors:
@@ -747,10 +747,10 @@
 # Tastes like bread, acid.
 
 - type: entity
-  name: xeno meat bread slice
+  name: "хлібна скибочка з ксеном'яса"
   parent: FoodBreadSliceBase
   id: FoodBreadMeatXenoSlice
-  description: A slice of xeno scum.
+  description: "Шматок ксеношмаття."
   components:
   - type: FlavorProfile
     flavors:
@@ -778,10 +778,10 @@
 # Other than bread/slices
 
 - type: entity
-  name: baguette
+  name: "багет"
   parent: FoodBreadBase
   id: FoodBreadBaguette
-  description: Bon appétit!
+  description: "Смачного!"
   components:
   - type: Sprite
     state: baguette
@@ -832,10 +832,10 @@
 # Tastes like France.
 
 - type: entity
-  name: cotton baguette
+  name: "бавовняний багет"
   parent: FoodBreadBaguette
   id: FoodBreadBaguetteCotton
-  description: Bon azzétit!
+  description: "Смачного!"
   components:
   - type: Sprite
     state: baguette-cotton
@@ -875,10 +875,10 @@
           Quantity: 1
 
 - type: entity
-  name: crostini
+  name: "кростіні"
   parent: FoodBreadSliceBase
   id: FoodBreadBaguetteSlice
-  description: Bon ap-petite!
+  description: "Бон аппетит!"
   components:
   - type: Sprite
     state: crostini
@@ -897,10 +897,10 @@
           Quantity: 0.1
 
 - type: entity
-  name: cotton crostini
+  name: "бавовняний кростіні"
   parent: FoodBreadBaguetteSlice
   id: FoodBreadBaguetteCottonSlice
-  description: Bon az-zetite!
+  description: "Смачного!"
   components:
   - type: Sprite
     state: crostini-cotton
@@ -928,10 +928,10 @@
           Quantity: 0.1
 
 - type: entity
-  name: buttered toast
+  name: "тост з маслом"
   parent: FoodBreadSliceBase
   id: FoodBreadButteredToast
-  description: Crunchy.
+  description: "Хрусткий."
   components:
   - type: FlavorProfile
     flavors:
@@ -951,10 +951,10 @@
 # Tastes like bread, butter.
 
 - type: entity
-  name: french toast
+  name: "французький тост"
   parent: FoodBreadSliceBase
   id: FoodBreadFrenchToast
-  description: A slice of bread soaked in a beaten egg mixture.
+  description: "Скибочку хліба вмочити у збиту яєчну суміш."
   components:
   - type: FlavorProfile
     flavors:
@@ -974,10 +974,10 @@
 # Tastes like bread, butter.
 
 - type: entity
-  name: garlic bread
+  name: "часниковий хліб"
   parent: FoodBreadSliceBase
   id: FoodBreadGarlicSlice
-  description: Alas, it is limited.
+  description: "На жаль, вона обмежена."
   components:
   - type: FlavorProfile
     flavors:
@@ -998,10 +998,10 @@
 # Tastes like garlic, Italy.
 
 - type: entity
-  name: jelly toast
+  name: "тост з желе"
   parent: FoodBreadSliceBase
   id: FoodBreadJellySlice
-  description: As if science are gonna give up their slimes for toast!
+  description: "Ніби вчені віддадуть своїх слимаків на тости!"
   components:
   - type: FlavorProfile
     flavors:
@@ -1022,10 +1022,10 @@
 # Tastes like garlic, Italy.
 
 - type: entity
-  name: moldy bread slice
+  name: "запліснявіла скибка хліба"
   parent: FoodBreadSliceBase
   id: FoodBreadMoldySlice
-  description: Entire stations have been ripped apart over arguing whether this is still good to eat.
+  description: "Цілі станції були розірвані на шматки, сперечаючись, чи це все ще можна їсти."
   components:
   - type: Sprite
     layers:
@@ -1045,10 +1045,10 @@
 # Tastes like decaying fungus.
 
 - type: entity
-  name: two slice
+  name: "два шматочка"
   parent: FoodBreadSliceBase
   id: FoodBreadTwoSlice
-  description: Classy.
+  description: "Шикарно."
   components:
   - type: Sprite
     layers:
@@ -1067,10 +1067,10 @@
 # Tastes like decaying fungus.
 
 - type: entity
-  name: bread dog
+  name: "хлібна собака"
   id: MobBreadDog
   parent: EdibleBase
-  description: It's a bread. It's a dog. It's a... breaddog?
+  description: "Це хліб. Це собака. Це... хлібний пес?"
   components:
   - type: FlavorProfile
     flavors:

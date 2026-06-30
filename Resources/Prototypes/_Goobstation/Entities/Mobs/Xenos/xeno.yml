@@ -1,8 +1,8 @@
 - type: entity
-  name: ancient base xeno
+  name: "древній базовий ксеноморф"
   id: CMBaseXeno
   parent: SimpleSpaceMobBase
-  description: An alien drone.
+  description: "Чужий трутень."
   abstract: true
   components:
   - type: CombatMode
@@ -145,7 +145,7 @@
   - type: Fauna # Lavaland Change
 
 - type: entity
-  name: ancient drone
+  name: "древній трутень"
   id: CMMobXenoDrone
   parent: CMBaseXeno
   components:
@@ -162,10 +162,10 @@
         - MobLayer
 
 - type: entity
-  name: ancient Burrower
+  name: "древній Бурровер"
   id: CMMobXenoBurrower
   parent: CMBaseXeno
-  description: A beefy alien with sharp claws.
+  description: "Кремезний чужий з гострими кігтями."
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -195,10 +195,10 @@
     factor: 1 # times more dangerous than a crew-member
 
 - type: entity
-  name: ancient warrior
+  name: "древній воїн"
   id: CMMobXenoWarrior
   parent: CMBaseXeno
-  description: A beefy alien with an armored carapace.
+  description: "Кремезний чужий з броньованим панциром."
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -236,10 +236,10 @@
     factor: 1.8 # times more dangerous than a crew-member
 
 - type: entity
-  name: ancient crusher
+  name: "древній крушитель"
   id: CMMobXenoCrusher
   parent: CMBaseXeno
-  description: A huge alien with an enormous armored crest.
+  description: "Величезний чужий з величезним броньованим гребенем."
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -277,10 +277,10 @@
     factor: 2 # times more dangerous than a crew-member
 
 - type: entity
-  name: ancient ravager
+  name: "древній спустошувач"
   id: CMMobXenoRavager
   parent: CMBaseXeno
-  description: A huge, nasty red alien with enormous scythed claws.
+  description: "Величезний, огидний червоний чужий з величезними косоподібними кігтями."
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -317,10 +317,10 @@
     factor: 2.5 # times more dangerous than a crew-member
 
 - type: entity
-  name: ancient king
+  name: "древній король"
   id: CMMobXenoKing
   parent: CMBaseXeno
-  description: A massive alien covered in spines and armoured plates.
+  description: "Масивний чужий, вкритий шипами та броньованими пластинами."
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -374,10 +374,10 @@
     factor: 5 # times more dangerous than a crew-member
 
 - type: entity
-  name: ancient queen
+  name: "древня королева"
   id: CMMobXenoQueen
   parent: CMBaseXeno
-  description: The Queen, in all her glory.
+  description: "Королева, у всій її величі."
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -450,10 +450,10 @@
     factor: 5 # times more dangerous than a crew-member
 
 - type: entity
-  name: ancient rogue king
+  name: "древній король-вигнанець"
   id: CMMobXenoRogueKing
   parent: CMMobXenoQueen
-  description: Driven into isolation, after all these years, this King has grown to be an unstoppable killing machine.
+  description: "Вигнаний в ізоляцію, після стількох років цей Король виріс у нестримну машину для вбивства."
   components:
   - type: Sprite
     drawdepth: Mobs

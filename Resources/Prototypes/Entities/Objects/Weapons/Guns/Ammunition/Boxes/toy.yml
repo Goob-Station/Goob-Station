@@ -30,7 +30,7 @@
   abstract: true
   parent: BaseItem
   id: BoxDonkSoftBase
-  name: foamdart box
+  name: "пінопластова коробка"
   components:
   # Goobstation edit start
   - type: EmitSoundOnPickup
@@ -56,7 +56,7 @@
 - type: entity
   parent: BoxDonkSoftBase
   id: BoxDonkSoftBox
-  name: box of foam darts
+  name: "коробка пінопластових дротиків"
   components:
   - type: BallisticAmmoProvider
     whitelist:
@@ -73,7 +73,7 @@
 - type: entity
   parent: BaseMagazineBoxMagnum
   id: BoxCartridgeCap
-  name: cap gun cartridge box
+  name: "коробка з патронами для іграшкового пістолета"
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeCap

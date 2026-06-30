@@ -316,10 +316,10 @@
     spreadAddition: 40
 
 - type: entity
-  name: Svalinn # Goobstation
+  name: "Свалінн" # Goobstation
   parent: [BaseWeaponCustomCellSmall, BaseSecurityContraband] # goob edit - svalinn buff fix
   id: WeaponLaserSvalinn
-  description: A cheap and modular laser pistol often carried by civilians. Takes standard power cells, with higher capacity ones amplifying the capacity and power of the resulting beam. # Goobstation
+  description: "Дешевий і модульний лазерний пістолет, який часто носять цивільні. Працює на стандартних елементах живлення; елементи більшої ємності збільшують ємність і потужність отриманого променя." # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
@@ -360,10 +360,10 @@
             - PotatoBattery
 
 - type: entity
-  name: retro laser blaster
+  name: "ретро-лазерний бластер"
   parent: [BaseWeaponBatterySmall, BaseMajorContraband]
   id: WeaponLaserGun
-  description: A laser pistol from another time. Its design is pretty rare in the current era, but it's compatible with modern rechargers. # Goobstation
+  description: "Лазерний пістолет з іншої епохи. Його дизайн доволі рідкісний у наш час, але він сумісний із сучасними зарядними пристроями." # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/laser_retro.rsi
@@ -390,10 +390,10 @@
   - type: Appearance
 
 - type: entity
-  name: makeshift laser pistol
+  name: "саморобний лазерний пістолет"
   parent: [BaseWeaponBatterySmall, BaseMinorContraband]
   id: WeaponMakeshiftLaser
-  description: Better pray it won't burn your hands off.
+  description: "Краще моліться, щоб він не обпік вам руки."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/makeshift.rsi
@@ -424,10 +424,10 @@
     maxCharge: 500
     startingCharge: 500
 - type: entity
-  name: tesla gun
+  name: "тесла-рушниця"
   parent: [BaseWeaponBattery, BaseMajorContraband]
   id: WeaponTeslaGun
-  description: The power of the primordial element of lightning in your hands.
+  description: "Сила первісної стихії блискавки у ваших руках."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/tesla_gun.rsi
@@ -453,10 +453,10 @@
   - type: Appearance
 
 - type: entity
-  name: practice laser carbine # Goobstation
+  name: "тренувальний лазерний карабін" # Goobstation
   parent: [BaseWeaponBattery, BaseGunWieldable]
   id: WeaponLaserCarbinePractice
-  description: A modified laser carbine that fires nearly harmless beams in the 40-watt range, for target practice or training scenarios. # Goobstation
+  description: "Модифікований лазерний карабін, що стріляє майже нешкідливими променями потужністю близько 40 ват — для тренувальних стрільб або навчальних сценаріїв." # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
@@ -489,10 +489,10 @@
 
 
 - type: entity
-  name: laser carbine # Goobstation
+  name: "лазерний карабін" # Goobstation
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponLaserCarbine
-  description: An ergonomic and light laser weapon favored by NanoTrasen security teams because of its low capacity for structural damage. # Goobstation
+  description: "Ергономічна й легка лазерна зброя, яку полюбляють підрозділи безпеки NanoTrasen через низьку здатність завдавати структурних пошкоджень." # Goobstation
   components:
   - type: StaticPrice
     price: 420
@@ -524,10 +524,10 @@
 
 
 - type: entity
-  name: pulse pistol
+  name: "імпульсний пістолет"
   parent: [BaseWeaponBatterySmall, BaseCentcommContraband]
   id: WeaponPulsePistol
-  description: A state-of-the-art laser pistol that fires a rapidly pulsing beam. It's favored as a sidearm for the Emergency Response corps due to its self-recharging design. # Goobstation
+  description: "Сучасний лазерний пістолет, що стріляє швидко пульсуючим променем. Його часто обирають як бічну зброю Корпусу екстреного реагування завдяки самозарядній конструкції." # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/pulse_pistol.rsi
@@ -560,10 +560,10 @@
     autoRecharge: true
     autoRechargeRate: 40
 - type: entity
-  name: pulse carbine
+  name: "імпульсний карабін"
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseCentcommContraband]
   id: WeaponPulseCarbine
-  description: A state-of-the-art laser carbine that fires a rapidly pulsing beam. Cheaper than its advanced counterpart, though lacks the ability to self-recharge. # Goobstation
+  description: "Сучасний лазерний карабін, що стріляє швидко пульсуючим променем. Дешевший за свого просунутого аналога, але не здатний самозаряджатися." # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/pulse_carbine.rsi
@@ -617,10 +617,10 @@
     - 0,0,4,1
 
 - type: entity
-  name: pulse rifle
+  name: "імпульсна гвинтівка"
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseCentcommContraband]
   id: WeaponPulseRifle
-  description: A weapon almost as infamous as its users. # Goobstation - Sometimes less is more.
+  description: "Зброя, майже така ж сумнозвісна, як і її користувачі." # Goobstation - Sometimes less is more.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/pulse_rifle.rsi
@@ -671,10 +671,10 @@
     - 0,0,5,1
 
 - type: entity
-  name: laser cannon
+  name: "лазерна гармата"
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponLaserCannon
-  description: A heavy and advanced laser weapon that trades out the capacity of a carbine for greatly increased power. Known to inflict third-degree burns straight through bulletproof armor.
+  description: "Важка й просунута лазерна зброя, що жертвує ємністю карабіна заради значно більшої потужності. Відомо, що спричиняє опіки третього ступеня навіть крізь куленепробивну броню."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/laser_cannon.rsi
@@ -708,10 +708,10 @@
     - 0,0,4,1
 
 - type: entity
-  name: portable particle decelerator
+  name: "портативний сповільнювач частинок"
   parent: [BaseWeaponBattery, BaseEngineeringContraband]
   id: WeaponParticleDecelerator
-  description: A portable particle decelerator capable of decomposing a tesla or singularity.
+  description: "Портативний сповільнювач частинок, здатний розкласти теслу або сингулярність."
   components:
     - type: Item
       size: Ginormous
@@ -747,10 +747,10 @@
       - Rifle
 
 - type: entity
-  name: x-ray cannon
+  name: "рентген-гармата"
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponXrayCannon
-  description: An experimental laser weapon that fires a dense x-ray beam. Leaves intense radiation burns.
+  description: "Експериментальна лазерна зброя, що стріляє щільним рентгенівським променем. Залишає сильні радіаційні опіки."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/xray.rsi
@@ -790,10 +790,10 @@
     - 0,0,4,1
 
 - type: entity
-  name: practice disabler
+  name: "тренувальний дизейблер"
   parent: BaseWeaponBatterySmall
   id: WeaponDisablerPractice
-  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse. This one has been undertuned for use in training scenarios or target practice.
+  description: "Зброя самозахисту, що виснажує органічні цілі, послаблюючи їх, доки вони не впадуть. Цей варіант ослаблено для тренувальних сценаріїв або стрільби по мішенях."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/practice_disabler.rsi
@@ -846,10 +846,10 @@
     containers:
       flashlight: !type:ContainerSlot
 - type: entity
-  name: disabler
+  name: "дізейблер"
   parent: [WeaponDisablerPractice, BaseSecurityCommandContraband]
   id: WeaponDisabler
-  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
+  description: "Зброя самооборони, яка виснажує органічні цілі, послаблюючи їх аж до руйнування."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/disabler.rsi
@@ -882,10 +882,10 @@
   # Goobstation end
 
 - type: entity
-  name: disabler SMG
+  name: "пП-дизейблер"
   parent: [BaseWeaponBattery, BaseSecurityContraband]
   id: WeaponDisablerSMG
-  description: An iteration of the disabler, reducing the power of each shot for a massive increase in firerate. Though a lot bulkier, the lightweight frame and lack of recoil make it fully usable one-handed. # Goobstation
+  description: "Версія дизейблера: потужність кожного пострілу зменшено заради величезного зростання скорострільності. Хоч він і набагато габаритніший, легка рама та відсутність віддачі роблять його цілком придатним для стрільби однією рукою." # Goobstation
   components:
   - type: Item
     size: Large
@@ -923,10 +923,10 @@
 
 
 - type: entity
-  name: Taser # Goobstation
+  name: "Тазер" # Goobstation
   parent: [BaseWeaponBatterySmall, BaseSecurityContraband]
   id: WeaponTaser
-  description: A handheld stun weapon that fires two electrified darts at the target. Formerly used by NanoTrasen security, though it's mostly been phased out. # Goobstation
+  description: "Ручна оглушувальна зброя, що випускає у ціль два електрифіковані дротики. Раніше використовувався охороною NanoTrasen, але зараз здебільшого виведений з експлуатації." # Goobstation
   components:
   - type: Tag
     tags:
@@ -962,11 +962,11 @@
 
 
 - type: entity
-  name: elite taser
+  name: "елітний тазер"
   parent: [ BaseCentcommContraband, WeaponTaser ]
   id: WeaponTaserSuper
   suffix: ADMEME
-  description: A low-capacity, energy-based stun gun used by elite security teams to disable even the toughest of targets.
+  description: "Низькоємнісна енергетична оглушувальна зброя, яку використовують елітні загони безпеки, щоб виводити з ладу навіть найвитриваліші цілі."
   components:
   - type: Gun
     fireRate: 0.5
@@ -979,10 +979,10 @@
     fireCost: 200
 
 - type: entity
-  name: antique laser pistol
+  name: "антикварний лазерний пістолет"
   parent: [BaseWeaponBatterySmall, BaseGrandTheftContraband]
   id: WeaponAntiqueLaser
-  description: A premium laser pistol from another age, customised with a mahogany grip and sleek chrome filigree. The chamber glows with menacing spikes of energy. There are clown and captain stick figures scratched into the side plate. The clown is dead. The captain is striking a heroic pose. # Goobstation
+  description: "Преміальний лазерний пістолет з іншої епохи, оздоблений махагоновою рукояттю та витонченою хромовою філігранню. Камера світиться зловісними шипами енергії. На бічній пластині видряпані паличкові фігурки клоуна й капітана. Клоун мертвий. Капітан позує героїчно." # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/antiquelasergun.rsi
@@ -1022,10 +1022,10 @@
     weight: 0.0002 # 5,000 times less likely than 1 regular animal
     # not putting a BlockMovement component here cause that's funny.
 - type: entity
-  name: advanced laser pistol # Goobstation
+  name: "удосконалений лазерний пістолет" # Goobstation
   parent: [BaseWeaponBatterySmall, BaseSecurityContraband]
   id: WeaponAdvancedLaser
-  description: An experimental laser pistol fitted with a self-charging nuclear battery. # Goobstation
+  description: "Експериментальний лазерний пістолет із самозарядною ядерною батареєю." # Goobstation
   components:
   - type: Item
     # size: Normal  # Intentionally larger than other pistols # Goobstation - no fuck you
@@ -1064,10 +1064,10 @@
     price: 63
 
 - type: entity
-  name: C.H.I.M.P. handcannon
+  name: "ручна гармата C.H.I.M.P"
   parent: [BaseWeaponBatterySmall, BaseScienceContraband]
   id: WeaponPistolCHIMP
-  description: Just because it's a little C.H.I.M.P. doesn't mean it can't punch like an A.P.E.
+  description: "Те, що це невеликий C.H.I.M.P., не означає, що він не може бити, як A.P.E."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Revolvers/chimp.rsi
@@ -1116,10 +1116,10 @@
 
 
 - type: entity
-  name: experimental C.H.I.M.P. handcannon
+  name: "експериментальна ручна гармата C.H.I.M.P"
   parent: [WeaponPistolCHIMP, BaseSyndicateContraband]
   id: WeaponPistolCHIMPUpgraded
-  description: This C.H.I.M.P. seems to have a greater punch than usual...
+  description: "Здається, цей C.H.I.M.P. має більшу силу удару, ніж зазвичай..."
   components:
   - type: BatteryWeaponFireModes
     fireModes:
@@ -1135,10 +1135,10 @@
       fireCost: 100
 
 - type: entity
-  name: eye of a behonker
+  name: "око збожеволілого"
   parent: BaseWeaponBatterySmall
   id: WeaponBehonkerLaser
-  description: The eye of a behonker, it fires a laser when squeezed.
+  description: "Око дивака, воно вистрілює лазером, коли його стискають."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/behonker_eye.rsi
@@ -1159,10 +1159,10 @@
     price: 750
 
 - type: entity
-  name: Energy Shotgun # Goobstation
+  name: "енергетична рушниця" # Goobstation
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseGrandTheftContraband]
   id: WeaponEnergyShotgun
-  description: A one-of-a-kind energy weapon that fires a barrage of red-hot plasma rather than a laser beam. Comes with a fire selector between narrow, wide, and disabling, making it a diverse weapon in the right hands. # Goobstation
+  description: "Єдина у своєму роді енергетична зброя, що випускає шквал розпеченої плазми замість лазерного променя. Має перемикач режимів між вузьким, широким і дизейблерним, що робить її універсальною зброєю у вправних руках." # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
@@ -1233,10 +1233,10 @@
   #   autoRechargePauseTime: 30
 
 - type: entity
-  name: temperature gun # Goobstation
+  name: "температурна гармата" # Goobstation
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponTemperatureGun
-  description: A versatile energy gun that fires projectiles that modify internal body temperature, originally designed for use against opponents in armored hardsuits. Probably constitutes some kind of war crime in corporate space. # Goobstation
+  description: "Універсальна енергетична зброя, що стріляє снарядами, які змінюють внутрішню температуру тіла. Спершу була розроблена для боротьби з противниками в броньованих скафандрах. Ймовірно, у корпоративному космосі це вважається якоюсь формою воєнного злочину." # Goobstation
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/tempgun.rsi # Goobstation
@@ -1286,12 +1286,12 @@
           Heating: { state: mode-heating }
 
 - type: entity
-  name: xenoborg laser gun
+  name: "лазерна гармата ксеноборга"
   parent: [WeaponAdvancedLaser, BaseXenoborgContraband]
   id: XenoborgLaserGun
 
 - type: entity
-  name: xenoborg heavy laser gun
+  name: "важка лазерна гармата ксеноборга"
   parent: [WeaponAdvancedLaser, BaseXenoborgContraband]
   id: XenoborgHeavyLaserGun
   components:

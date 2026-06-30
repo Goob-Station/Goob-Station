@@ -23,8 +23,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: BluespaceLifelineImplant
-  name: bluespace lifeline implant
-  description: Teleports the hosts body to Central Command on activation. They will not be able to return.
+  name: "імплант \"блюспейс-рятівна лінія"
+  description: "Телепортує тіло носія до Центрального Командування при активації. Повернутися він не зможе."
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
@@ -46,8 +46,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: CommandTrackingImplant
-  name: command tracking implant
-  description: This implant reserved for command has a tracking device attached to a private suit sensor network, as well as a condition monitor for the Command radio channel.
+  name: "імплант відстеження командування"
+  description: "Цей імплант, зарезервований для командування, має пристрій відстеження, під'єднаний до приватної сенсорної мережі костюма, а також монітор стану для радіоканалу командування."
   categories: [ HideSpawnMenu ]
   components:
     - type: SubdermalImplant
@@ -70,8 +70,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: PacifismImplant
-  name: pacifism implant
-  description: Pacifism implant, given to life sentenced prisoners or such to prevent them from committing violence.
+  name: "імплант пацифізму"
+  description: "Імплант пацифізму, що видається довічно ув'язненим або подібним особам, щоб запобігти вчиненню ними насильства."
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
@@ -83,8 +83,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: SmokeImplant
-  name: smoke implant
-  description: This implant releases smoke cloud on activation.
+  name: "димовий імплант"
+  description: "Цей імплант випускає хмару диму при активації."
   categories: [ HideSpawnMenu ]
   components:
     - type: SubdermalImplant
@@ -99,8 +99,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: KravMagaImplant
-  name: krav maga implant
-  description: This implant allows the user to perform various Krav Maga moves.
+  name: "імплант крав-мага"
+  description: "Цей імплант дозволяє користувачеві виконувати різні прийоми крав-мага."
   categories: [ HideSpawnMenu ]
   components:
   - type: ComponentsImplant
@@ -110,8 +110,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: AutoinjectorImplant
-  name: autoinjector implant
-  description: This implant allows the user to inject themselves with a chemical on use. Ephedrine by default.
+  name: "імплант автоінжектора"
+  description: "Цей імплант дозволяє користувачеві вводити собі хімікат при використанні. За замовчуванням ефедрин."
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
@@ -124,8 +124,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: NutrimentPumpImplant
-  name: nutriment pump implant
-  description: This implant allows prevents the user from getting hungry or thirsty.
+  name: "імплант нутрієнтного насоса"
+  description: "Цей імплант запобігає виникненню голоду або спраги у користувача."
   categories: [ HideSpawnMenu ]
   components:
   - type: NutrimentPumpImplant
@@ -133,8 +133,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: SpaceProofImplant
-  name: space proofing implant
-  description: This implant allows the user to survive in space and without air.
+  name: "імплант космічної стійкості"
+  description: "Цей імплант дозволяє користувачеві виживати в космосі та без повітря."
   categories: [ HideSpawnMenu ]
   components:
   - type: ComponentsImplant
@@ -146,8 +146,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: StypticStimulatorImplant
-  name: styptic stimulator implant
-  description: This implant sends the users regeneration into overdrive.
+  name: "імплант кровоспинного стимулятора"
+  description: "Цей імплант змушує регенерацію користувача працювати на повну потужність."
   categories: [ HideSpawnMenu ]
   components:
   - type: StypticStimulatorImplant
@@ -155,8 +155,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: BinaryImplant
-  name: binary decoder implant
-  description: This implant allows the user to access Binary and communicate with silicons (use +b).
+  name: "імплант бінарного декодера"
+  description: "Цей імплант дозволяє користувачеві отримувати доступ до бінарного коду та спілкуватися з силіконами (використовуйте +b)."
   categories: [ HideSpawnMenu ]
   components:
   - type: ImplantGrantCollectiveMind
@@ -165,8 +165,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: ClumsyImplant
-  name: clumsy implant
-  description: This implant makes the user clumsy, allowing them to drive a certain vehicle.
+  name: "імплант незграбності"
+  description: "Цей імплант робить користувача незграбним, дозволяючи йому керувати певним транспортним засобом."
   categories: [ HideSpawnMenu ]
   components:
   - type: ComponentsImplant
@@ -176,8 +176,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: ShadowmindImplant
-  name: shadowmind implant
-  description: This implant allows the user to access Shadowmind channel (use +q).
+  name: "імплант тіньового розуму"
+  description: "Цей імплант дозволяє користувачеві отримати доступ до каналу тіньового розуму (використовуйте +q)."
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
@@ -190,8 +190,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: BlinkImplant
-  name: blink implant
-  description: This implant allows the user temporarily blink into a higher dimension.
+  name: "імплант моргання"
+  description: "Цей імплант дозволяє користувачеві тимчасово моргнути у вищий вимір."
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
@@ -200,8 +200,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: VaporizeImplant
-  name: vaporize implant
-  description: This implant allows the user to vaporize targets with the power of their mind.
+  name: "імплант випаровування"
+  description: "Цей імплант дозволяє користувачеві випаровувати цілі силою своєї думки."
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
@@ -210,8 +210,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: NaniteMenderImplant
-  name: nanite mender implant
-  description: This implant allows the user to heal entities with microscopic nanites.
+  name: "імплант нанітового ремонтника"
+  description: "Цей імплант дозволяє користувачеві лікувати сутності за допомогою мікроскопічних нанітів."
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
@@ -220,8 +220,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: ShiftImplant
-  name: shift implant
-  description: This implant allows the user to teleport to a point in range.
+  name: "імплант зсуву"
+  description: "Цей імплант дозволяє користувачеві телепортуватися в точку в межах досяжності."
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
@@ -230,8 +230,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: StopTimeImplant
-  name: stop time implant
-  description: This implant allows the user to stop time in an area briefly.
+  name: "імплант зупинки часу"
+  description: "Цей імплант дозволяє користувачеві ненадовго зупинити час у певній області."
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
@@ -242,8 +242,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: AntagImplantChangeling
-  name: changeling implant
-  description: This implant allows the user to shift their bodies like a changeling
+  name: "імплант перевертня"
+  description: "Цей імплант дозволяє користувачеві змінювати своє тіло, як перевертень"
   categories: [ HideSpawnMenu ]
   components:
   - type: ComponentsImplant
@@ -259,8 +259,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: AntagImplantSpaceNinja
-  name: ninja implant
-  description: This implant allows the user to gain the skills of a space ninja.
+  name: "імплант космічного ніндзя"
+  description: "Цей імплант дозволяє користувачеві отримати навички космічного ніндзя."
   categories: [ HideSpawnMenu ]
   components:
   - type: ComponentsImplant
@@ -270,8 +270,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: XenoCompatibilityImplant
-  name: xeno compatibility implant
-  description: Allows a subject to have xeno organs transplanted.
+  name: "імплант ксеносумісності"
+  description: "Дозволяє пересаджувати суб'єкту органи ксеноморфів."
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
@@ -289,8 +289,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: RedspaceLifelineImplant
-  name: redspace lifeline implant
-  description: Teleports the hosts body to Syndicate High Command on activation. They will not be able to return.
+  name: "імплант рятувального троса червоного простору"
+  description: "Телепортує тіло носія до Верховного командування Синдикату при активації. Вони не зможуть повернутися."
   categories: [ HideSpawnMenu ]
   components:
     - type: SubdermalImplant

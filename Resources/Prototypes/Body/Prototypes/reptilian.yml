@@ -9,7 +9,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: body
-  name: "reptilian"
+  name: "рептилія"
   id: Reptilian
   root: chest
   slots:

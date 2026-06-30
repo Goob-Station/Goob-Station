@@ -10,8 +10,8 @@
 - type: entity
   parent: BaseAction
   id: ActionBlink
-  name: Blink
-  description: Teleport to the clicked location.
+  name: "Моргнути"
+  description: "Телепортуватися у вибране місце."
   components:
   - type: Action
     useDelay: 10

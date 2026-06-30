@@ -12,7 +12,7 @@
 - type: entity
   id: BaseScrapDebris
   parent: BaseDebris
-  name: scrap debris
+  name: "брухт"
   abstract: true
   components:
     - type: MapGrid
@@ -63,7 +63,7 @@
 - type: entity
   id: ScrapDebrisSmall
   parent: BaseScrapDebris
-  name: scrap debris small
+  name: "маленький брухт"
   categories: [ HideSpawnMenu ]
   components:
     - type: MapGrid
@@ -73,7 +73,7 @@
 - type: entity
   id: ScrapDebrisMedium
   parent: BaseScrapDebris
-  name: scrap debris medium
+  name: "середній брухт"
   categories: [ HideSpawnMenu ]
   components:
     - type: MapGrid
@@ -83,7 +83,7 @@
 - type: entity
   id: ScrapDebrisLarge
   parent: BaseScrapDebris
-  name: scrap debris large
+  name: "великий брухт"
   categories: [ HideSpawnMenu ]
   components:
     - type: MapGrid

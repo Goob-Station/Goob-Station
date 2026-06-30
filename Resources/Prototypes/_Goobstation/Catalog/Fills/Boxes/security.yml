@@ -13,10 +13,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: tracker box
+  name: "коробка з трекерами"
   parent: [BoxCardboard, BaseSecurityContraband]
   id: BoxTracker
-  description: A box containing a couple trackers.
+  description: "Коробка з кількома трекерами."
   components:
   - type: StorageFill
     contents:
@@ -27,10 +27,10 @@
     - state: box
 
 - type: entity
-  name: lethal injections box
+  name: "коробка зі смертельними ін'єкціями"
   parent: [BoxCardboard, BaseSecurityContraband]
   id: BoxLethalInjection
-  description: A box containing several lethal injection syringes.
+  description: "Коробка з кількома шприцами для смертельних ін'єкцій."
   components:
   - type: StorageFill
     contents:
@@ -41,10 +41,10 @@
     - state: box
 
 - type: entity
-  name: 40mm baton grenade box
+  name: "коробка 40мм гранат з кийками"
   parent: [BoxCardboard, BaseSecurityContraband]
   id: BoxGrenadesBaton
-  description: A box containing eight 40mm baton grenades for single target stunning.
+  description: "Коробка з вісьмома 40мм гранатами з кийками для оглушення одиночних цілей."
   components:
   - type: StorageFill
     contents:
@@ -58,10 +58,10 @@
       - Grenade
 
 - type: entity
-  name: 40mm flash grenade box
+  name: "коробка 40мм світлових гранат"
   parent: [BoxCardboard, BaseSecurityContraband]
   id: BoxGrenadesFlash
-  description: A box containing eight 40mm flashbang grenades for mass target stunning.
+  description: "Коробка з вісьмома 40мм світловими гранатами для масового оглушення цілей."
   components:
   - type: StorageFill
     contents:
@@ -75,10 +75,10 @@
       - Grenade
 
 - type: entity
-  name: 40mm tear gas grenade box
+  name: "коробка 40мм гранат зі сльозогінним газом"
   parent: [BoxCardboard, BaseSecurityContraband]
   id: BoxGrenadesTeargas
-  description: A box containing eight 40mm tear gas grenades for efficient riot dispersion.
+  description: "Коробка з вісьмома 40мм гранатами зі сльозогінним газом для ефективного розгону заворушень."
   components:
   - type: StorageFill
     contents:

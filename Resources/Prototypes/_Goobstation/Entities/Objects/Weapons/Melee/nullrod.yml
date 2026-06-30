@@ -31,10 +31,10 @@
     - Nullrod
 
 - type: entity
-  name: Null Rod
+  name: "Нуль-жезл"
   parent: BaseNullrod
   id: Nullrod
-  description: The old classic. Does nothing special, really.
+  description: "Стара класика. Насправді нічого особливого не робить."
   components:
   - type: MeleeWeapon
     heavyStaminaCost: 2.5
@@ -55,10 +55,10 @@
     - Nullrod
 
 - type: entity
-  name: holy claymore
+  name: "священний клеймор"
   parent: BaseNullrod
   id: HolyClaymore
-  description: A weapon fit for a crusade! A sword capable of stealing life from evil-doers.
+  description: "Зброя, гідна хрестового походу! Меч, здатний красти життя у лиходіїв."
   components:
   - type: Item
     size: Large
@@ -130,8 +130,8 @@
 
 
 - type: entity
-  name: rosary
-  description: Using these to pray near someone will heal them. They are surrounded by a holy aura.
+  name: "розарій"
+  description: "Використання їх для молитви біля когось зцілить його. Вони оточені священною аурою."
   parent: BaseNullrod
   id: Rosary
   components:
@@ -179,8 +179,8 @@
 - type: entity
   parent: BaseNullrod
   id: GodHand
-  name: Hand of God
-  description: A holy, fiery gift from the gods. You won't drop this one.
+  name: "Рука Бога"
+  description: "Священний, вогненний дар від богів. Цей ви не впустите."
   suffix: Unremoveable
   components:
   - type: Item
@@ -230,8 +230,8 @@
 - type: entity
   parent: BaseNullrod
   id: ArrythmicKnife
-  name: arrythmic knife
-  description: They say fear is the true mind killer, but stabbing them in the head works too. Slows you down and speeds you up randomly.
+  name: "аритмічний ніж"
+  description: "Кажуть, страх - справжній вбивця розуму, але вдарити їх ножем у голову теж працює. Сповільнює вас і прискорює випадковим чином."
   components:
   - type: Nullrod
     DamageOnUntrainedUse:
@@ -272,8 +272,8 @@
 - type: entity
   parent: BaseNullrod
   id: MonkStaff
-  name: monk's staff
-  description: A long, tall staff made of polished wood. Traditionally used in ancient old-Earth martial arts, now used to harass the clown. #this should be able to parry eventually.
+  name: "посох монаха"
+  description: "Довгий, високий посох з полірованого дерева. Традиційно використовувався в стародавніх бойових мистецтвах Старої Землі, тепер використовується для переслідування клоуна." #this should be able to parry eventually.
   components:
   - type: Nullrod
     DamageOnUntrainedUse:
@@ -302,10 +302,10 @@
     - MonkStaff
 
 - type: entity
-  name: Atheist's Fedora
+  name: "Федора атеїста"
   parent: BaseNullrod
   id: AtheistFedora
-  description: The brim of the hat is as sharp as your wit. Throwing it at someone would hurt almost as much as disproving the existence of God.
+  description: "Край капелюха такий же гострий, як і ваш розум. Кинути його в когось було б майже так само боляче, як спростувати існування Бога."
   components:
   - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
     DamageOnUntrainedUse:
@@ -353,10 +353,10 @@
     - AthiestsFedora
 
 - type: entity
-  name: Bulwark
+  name: "Бастіон"
   parent: BaseNullrod
   id: Bulwark
-  description: An absolutely enormous two handed shield, very difficult to use if not planted in place.
+  description: "Абсолютно величезний дворучний щит, дуже важкий у використанні, якщо не встановлений на місці."
   components:
   - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
     DamageOnUntrainedUse:
@@ -418,10 +418,10 @@
   - type: MultiHandedItem
 
 - type: entity
-  name: Honkmother's Maw
+  name: "Паща Матері-Гумористки"
   parent: BaseNullrod
   id: HonkmotherMaw
-  description: a-HEAD of you lies a path most hilarious.
+  description: "попереду вас чекає найсмішніший шлях."
   components:
   - type: Item
     size: Huge
@@ -460,8 +460,8 @@
 - type: entity
   parent: BaseNullrod
   id: UristHand
-  name: Grey Emperor's Glove
-  description: The tide beckons.
+  name: "Рукавичка Сірого Імператора"
+  description: "Приплив кличе."
   suffix: Unremoveable
   components:
   - type: PointLight
@@ -561,10 +561,10 @@
     - type: Insulated
 
 - type: entity
-  name: his holy chainsaw
+  name: "його свята бензопила"
   parent: BaseNullrod
   id: HolyChainsaw
-  description: And because it's fuckin' FUN! AHAHA! AHAHAHA! AHAH-AAAAAAAA-MEN!
+  description: "І тому що це, бляха, ВЕСЕЛО! АХАХА! АХАХАХА! АХАХ-ААААААА-МІНЬ!"
   suffix: Unremoveable
   components:
   - type: Wieldable
@@ -619,10 +619,10 @@
 
 # Casul & Jackal
 - type: entity
-  name: Casul
+  name: "Касул"
   parent: BaseItem
   id: WeaponPistolCasul
-  description: The first of two huge pistols, capable of firing regenerating silver bullets. Incapable of firing without its sister gun.
+  description: "Перший із двох величезних пістолетів, здатний стріляти самовідновлюваними срібними кулями. Не може стріляти без своєї зброї-пари."
   components:
   - type: Nullrod
     DamageOnUntrainedUse:
@@ -678,10 +678,10 @@
     prayDoAfterDuration: 3.5
 
 - type: entity
-  name: Jackal
+  name: "Джекал"
   parent: WeaponPistolCasul
   id: WeaponPistolJackal
-  description: The second of two huge pistols, capable of firing regenerating silver bullets. Incapable of firing without its sister gun.
+  description: "Другий із двох величезних пістолетів, здатний стріляти самовідновлюваними срібними кулями. Не може стріляти без своєї зброї-пари."
   components:
   - type: Sprite
     sprite: _ShitChap/Objects/Weapons/Nullrod/jackal.rsi
@@ -698,10 +698,10 @@
       - WeaponPistolCasul
 
 - type: entity
-  name: blessing of the reaper
+  name: "благословення Жнеця"
   parent: [Nullrod, ArmBlade, BaseMajorContraband]
   id: BlessingOfTheReaper
-  description: A special undroppable armblade nullrod, it's blessed by the dark gods.
+  description: "Особливий нульрод у вигляді наручного клинка, який неможливо викинути; його благословили темні боги."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/blessing_reaper.rsi
@@ -722,8 +722,8 @@
 - type: entity
   parent: BaseNullrod
   id: RatvarianSpear
-  name: ancient spear
-  description: An ancient spear made of brass, I mean gold, I mean bronze. It looks highly mechanical.
+  name: "стародавній спис"
+  description: "Стародавній спис з латуні, тобто золота, тобто бронзи. Виглядає дуже механічним."
   components:
   - type: Nullrod
     DamageOnUntrainedUse:
@@ -807,10 +807,10 @@
   - type: ThrowableBlocked # Goobstation
 
 - type: entity
-  name: dragon's tail
+  name: "хвіст дракона"
   parent: BaseNullrod
   id: DragonsTail
-  description: A dragon's tail impaled on a stick. Still holds that deep fiery power within.
+  description: "Хвіст дракона, насаджений на палицю. Усередині все ще зберігає ту глибоку вогняну силу."
   components:
   - type: Item
     size: Large
@@ -843,8 +843,8 @@
 - type: entity
   id: InquisitorChainSword
   parent: BaseNullrod
-  name: chain sword
-  description: The perfect weapon for purging the station of all heresy! Activated through prayer.
+  name: "ланцюговий меч"
+  description: "Ідеальна зброя для очищення станції від усієї єресі! Активується молитвою."
   components:
   - type: Nullrod
     DamageOnUntrainedUse:

@@ -1,7 +1,7 @@
 ﻿- type: entity
   id: RMCFiltration
-  name: water filtration system
-  description: A water filter that separates both organic and inorganic matter, hazardous waste, and corrosive acids from water so it may be further processed.
+  name: "система фільтрації води"
+  description: "Водяний фільтр, який відокремлює як органічні, так і неорганічні речовини, небезпечні відходи та корозійні кислоти від води, щоб її можна було далі обробляти."
   placement:
     mode: SnapgridCenter
   components:
@@ -26,8 +26,8 @@
 - type: entity
   parent: RMCFiltration
   id: RMCFiltrationDisinfection
-  name: disinfection filter
-  description: A water filter specifically designed to separate micro-organisms, such as viruses and bacteria, from water.
+  name: "дезінфекційний фільтр"
+  description: "Водяний фільтр, спеціально розроблений для відокремлення мікроорганізмів, таких як віруси та бактерії, від води."
   components:
   - type: Fixtures
     fixtures:
@@ -45,8 +45,8 @@
 - type: entity
   parent: RMCFiltration
   id: RMCFiltrationDistribution
-  name: waste distribution system
-  description: This machine separates the leftover waste from the purification processes to be discarded into space, recycled for supplies, or used for research.
+  name: "система розподілу відходів"
+  description: "Ця машина відокремлює залишки відходів від процесів очищення для утилізації в космос, переробки на матеріали або використання для досліджень."
   components:
   - type: Sprite
     sprite: _RMC14/Structures/Filtration/96x96.rsi
@@ -63,8 +63,8 @@
 - type: entity
   parent: RMCFiltration
   id: RMCFiltrationSedimentation
-  name: sedimentation filter
-  description: A water filter specifically designed to capture and remove sediment, such as sand, silt, dirt, and rust, from water without removing the nutritious minerals for that crisp, clean taste every time.
+  name: "седиментаційний фільтр"
+  description: "Водяний фільтр, спеціально розроблений для захоплення та видалення осадів, таких як пісок, мул, бруд та іржа, з води, не видаляючи при цьому поживних мінералів для того самого хрусткого, чистого смаку щоразу."
   components:  
   - type: Sprite
     sprite: _RMC14/Structures/Filtration/96x96.rsi
@@ -90,8 +90,8 @@
 - type: entity
   parent: RMCFiltration
   id: RMCCoagulationArm
-  name: coagulation arm
-  description: An axel with four sides, made to spin to help filter the water.
+  name: "коагуляційний важіль"
+  description: "Вісь з чотирма сторонами, створена для обертання, щоб допомогти фільтрувати воду."
   components:
   - type: Fixtures
     fixtures:

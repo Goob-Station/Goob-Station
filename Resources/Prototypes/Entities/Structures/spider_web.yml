@@ -48,8 +48,8 @@
 - type: entity
   id: SpiderWeb
   parent: SpiderWebBase
-  name: spider web
-  description: It's stringy and sticky.
+  name: "павутиння"
+  description: "Він в'язкий і липкий."
   components:
   - type: Sprite
     color: "#ffffffdd"
@@ -92,8 +92,8 @@
 - type: entity
   id: SpiderWebClown
   parent: SpiderWebBase
-  name: clown spider web
-  description: It's stringy and slippy.
+  name: "клоунська павутина"
+  description: "Він в'язкий і слизький."
   components:
   - type: Sprite
     color: "#ffa3fc"

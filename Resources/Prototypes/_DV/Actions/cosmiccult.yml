@@ -10,8 +10,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCosmicSiphon
-  name: Siphon Entropy
-  description: Silently siphon entropy from your target, dealing some damage in the process.
+  name: "Поглинати Ентропію"
+  description: "Тихо викачуйте ентропію з вашої цілі, завдаючи при цьому деякої шкоди."
   components:
   - type: Action
     useDelay: 15
@@ -33,8 +33,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCosmicBlank
-  name: Shunt Subjectivity
-  description: Shunt your target's mind out of their body and unto the cosmic dark, temporarily rendering their body mindless.
+  name: "Витіснити Суб'єктивність"
+  description: "Витіснити розум вашої цілі з її тіла в космічну темряву, тимчасово роблячи її тіло безглуздим."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -58,8 +58,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCosmicPlaceMonument
-  name: Beckon The Monument
-  description: Call forth The Monument into realspace. Keep it hidden and safe from non-cultists!
+  name: "Покликати Монумент"
+  description: "Викликати Монумент у реальний простір. Тримайте його прихованим і в безпеці від не-культистів!"
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -79,8 +79,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCosmicMoveMonument
-  name: Relocate The Monument
-  description: Your work is imperative, and the end is inevitable. Ensure that it is completed under your watch.
+  name: "Перемістити Монумент"
+  description: "Ваша робота вкрай важлива, а кінець неминучий. Переконайтеся, що вона буде завершена під вашим наглядом."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -100,8 +100,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCosmicReturn
-  name: Return
-  description: Dissipate your astral projection and return to your body.
+  name: "Повернення"
+  description: "Розсіяти свою астральну проєкцію та повернутися до свого тіла."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -116,8 +116,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCosmicLapse
-  name: Abberant Lapse
-  description: Lapse your target's corporeal form, temporarily rendering it immutable, impassible, and frozen in place.
+  name: "Аберантний Проміжок"
+  description: "Тимчасово розірвати тілесну форму вашої цілі, роблячи її незмінною, непрохідною та замороженою на місці."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -138,8 +138,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCosmicGlare
-  name: Null Glare
-  description: Emit a horrific pulse of cosmic light, slowing and disorienting everyone around you.
+  name: "Нульовий Погляд"
+  description: "Випромінювати жахливий імпульс космічного світла, сповільнюючи та дезорієнтуючи всіх навколо вас."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -154,8 +154,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCosmicIngress
-  name: Force Ingress
-  description: Use a concentrated blast of power to force a secure doorway open.
+  name: "Примусовий Вхід"
+  description: "Використовуйте концентрований вибух сили, щоб змусити відчинити захищені двері."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -175,8 +175,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCosmicImposition
-  name: Vacuous Imposition
-  description: You negate any incoming damage for a short time.
+  name: "Порожнисте Нав'язування"
+  description: "Ви зводите нанівець будь-яку вхідну шкоду протягом короткого часу."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -191,8 +191,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCosmicNova
-  name: Astral Nova
-  description: Hurl a large and disruptive blast of astral energy.
+  name: "Астральна Нова"
+  description: "Кинути великий і руйнівний вибух астральної енергії."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -212,8 +212,8 @@
 - type: entity
   parent: BaseAction
   id: ActionRogueCosmicNova
-  name: Usurped Astral Nova
-  description: Hurl a large and disruptive blast of astral energy.
+  name: "Узурпована Астральна Нова"
+  description: "Кинути великий і руйнівний вибух астральної енергії."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -231,8 +231,8 @@
 - type: entity
   parent: BaseAction
   id: ActionRogueInfection
-  name: Malign Corruption
-  description: Instill the essence of endings into a subdued target.
+  name: "Зловісне Спустошення"
+  description: "Вселити сутність закінчень у підкорену ціль."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -257,8 +257,8 @@
 - type: entity
   parent: BaseAction
   id: ActionRogueSlumber
-  name: Slumber Shell
-  description: Instantly slumber a target's mortal shell, rendering them asleep and ready for Malign Corruption.
+  name: "Оболонка Сну"
+  description: "Миттєво приспати смертну оболонку цілі, залишаючи її сплячою і готовою до Зловісного Спустошення."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -283,8 +283,8 @@
 - type: entity
   parent: BaseAction
   id: ActionRogueGrandShunt
-  name: Malign Mindspike
-  description: Shunt the minds of all nearby out of their body and unto the cosmic dark, temporarily rendering their body mindless.
+  name: "Зловісний Шип Розуму"
+  description: "Виштовхнути розуми всіх найближчих з їхніх тіл у космічну темряву, тимчасово роблячи їхні тіла бездушними."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

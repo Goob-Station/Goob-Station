@@ -35,7 +35,7 @@
         acts: [ "Destruction" ]
 
 - type: entity
-  name: shrapnel payload # Goobstation - shrapnel payload
+  name: "шрапнельний заряд" # Goobstation - shrapnel payload
   parent: [ BasePayload, BaseSecurityContraband ]
   id: ShrapnelPayload
   components:
@@ -78,10 +78,10 @@
     capacity: 20
 
 - type: entity
-  name: chemical payload
+  name: "хімічний заряд"
   parent: [ BasePayload, BaseMedicalScienceContraband ]
   id: ChemicalPayload
-  description: A chemical payload. Has space to store two beakers. In combination with a trigger and a case, this can be used to initiate chemical reactions.
+  description: "Хімічний заряд. Має місце для зберігання двох мензурок. У поєднанні з пусковим механізмом та футляром може використовуватися для ініціювання хімічних реакцій."
   components:
   - type: Sprite
     sprite: Objects/Devices/payload.rsi
@@ -118,10 +118,10 @@
       Plastic: 75
 
 - type: entity
-  name: flash payload
+  name: "флеш-заряд"
   parent: [ BasePayload, BaseSecurityScienceCommandContraband ]
   id: FlashPayload
-  description: A single-use flash payload.
+  description: "Одноразовий спалах."
   components:
     - type: Sprite
       sprite: Objects/Devices/payload.rsi

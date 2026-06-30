@@ -7,7 +7,7 @@
 - type: entity
   parent: BaseThruster
   id: ThrusterLarge
-  name: large thruster
+  name: "великий двигун"
   placement:
     mode: AlignTileAny
   components:

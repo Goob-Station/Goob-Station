@@ -68,10 +68,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: BaseWeaponSniper
+  name: "BaseWeaponSniper"
   parent: BaseItem
   id: BaseWeaponSniper
-  description: A rooty tooty point and shooty.
+  description: "Корінцевий зубастий і пагонистий."
   abstract: true
   components:
   - type: Sprite
@@ -130,10 +130,10 @@
 
 # Goobstation - Start - I decided to put it here, because it changes Hristov.
 - type: entity
-  name: BaseMagazineSniper
+  name: "БазовийСнайперськийМагазин"
   parent: [BaseItem, BaseGunWieldable]
   id: BaseWeaponSniperMagazine
-  description: A rooty tooty point and shooty.
+  description: "Корінцевий зубастий і пагонистий."
   abstract: true
   components:
   - type: Sprite
@@ -192,10 +192,10 @@
 # Goobstation - End
 
 - type: entity
-  name: Kardashev-Mosin
+  name: "Кардашов-Мосін"
   parent: [BaseWeaponSniper, BaseGunWieldable, BaseMajorContraband]
   id: WeaponSniperMosin
-  description: A true relic, the Kardashev-Mosin has served in nearly every armed conflict since its creation 670 years ago. The bolt-action design of the rifle remains virtually identical to its original design, whether used for hunting, sniping, or endless trench warfare. Loads 10 rounds of .30 Rifle.
+  description: "Справжня реліквія, Кардашов-Мосін служив майже в кожному збройному конфлікті з моменту свого створення 670 років тому. Болтова конструкція гвинтівки практично не відрізняється від оригінальної — чи то для полювання, снайпінгу, чи нескінченної окопної війни. Вміщує 10 набоїв .30 Rifle."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
@@ -249,10 +249,10 @@
     points: 2
 
 - type: entity
-  name: Hristov
+  name: "Христов"
   parent: [BaseWeaponSniperMagazine, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponSniperHristov
-  description: A portable anti-materiel rifle for when you need to make someone regret their life choices from a safe distance. Comes with an integrated long-range scope. Feeds from .60 Anti-Materiel magazines.
+  description: "Портативна протиматеріальна гвинтівка, коли потрібно змусити когось пошкодувати про життєві рішення з безпечної відстані. Має вбудований далекобійний приціл. Живиться з магазинів .60 Anti-Materiel."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/heavy_sniper.rsi
@@ -284,10 +284,10 @@
     price: 3500
 
 - type: entity
-  name: musket
+  name: "мушкет"
   parent: [ BaseWeaponSniper, BaseGunWieldable, BaseMajorContraband ]
   id: Musket
-  description: This should've been in a museum long before you were born. Loads one round of .60 Anti-Materiel.
+  description: "Цьому місце в музеї задовго до вашого народження. Заряджається одним набоєм .60 Anti-Materiel."
   components:
   - type: Sharp
   - type: Item
@@ -323,10 +323,10 @@
   - type: GunRequiresWield
 
 - type: entity
-  name: flintlock pistol
+  name: "кремінний пістолет"
   parent: [BaseWeaponSniper, BaseMajorContraband]
   id: WeaponPistolFlintlock
-  description: A pirate's companion. Yarrr! Loads one round of .45 Magnum.
+  description: "Піратський напарник. Арр! Заряджається одним набоєм .45 Magnum."
   components:
   - type: Gun
     minAngle: 0

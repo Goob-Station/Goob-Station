@@ -13,8 +13,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatAnimalCat
-  name: grey cat hat
-  description: A cute and fluffy head of a grey cat.
+  name: "сіра котяча шапка"
+  description: "Мила та пухнаста голова сірого кота."
   components:
   - type: Sprite
     sprite: Clothing/Head/Animals/cat.rsi
@@ -24,8 +24,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatAnimalCatBrown
-  name: brown cat hat
-  description: A cute and fluffy head of a brown cat.
+  name: "коричнева котяча шапка"
+  description: "Мила та пухнаста голова коричневого кота."
   components:
   - type: Sprite
     sprite: Clothing/Head/Animals/cat2.rsi
@@ -35,8 +35,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatAnimalCatBlack
-  name: black cat hat
-  description: A cute and fluffy head of a black cat.
+  name: "чорна котяча шапка"
+  description: "Мила і пухнаста голова чорного кота."
   components:
   - type: Sprite
     sprite: Clothing/Head/Animals/cat3.rsi
@@ -46,8 +46,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatAnimalHeadslime
-  name: headslime hat
-  description: A green, sticky headslime, you put it on your head.
+  name: "капелюх з вапна"
+  description: "Зелене, липке вапно для голови, і ви надягаєте його на голову."
   components:
   - type: Sprite
     sprite: Clothing/Head/Animals/headslime.rsi
@@ -57,8 +57,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatAnimalMonkey
-  name: monkey hat
-  description: That's a monkey head. It has a hole on a mouth to eat bananas.
+  name: "мавпяча шапка"
+  description: "Це голова мавпи. У неї отвір на роті, щоб їсти банани."
   components:
   - type: Sprite
     sprite: Clothing/Head/Animals/monkey.rsi

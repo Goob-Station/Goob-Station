@@ -1,8 +1,8 @@
 - type: entity
   id: VampiricClawsItem
-  name: vampiric claws
+  name: "вампірські кігті"
   parent: BaseItem
-  description: Blood-forged claws that siphon vitae on hit. They will dissipate after a 15 swings, or if dispelled.
+  description: "Викувані з крові кігті, що висмоктують життєву силу при ударі. Вони розвіються після 15 ударів або якщо їх розвіяти."
   components:
   - type: Sprite
     sprite: _Pirate/Objects/Weapons/Melee/vampire_claws.rsi

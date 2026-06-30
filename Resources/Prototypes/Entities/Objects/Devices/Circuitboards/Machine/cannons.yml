@@ -79,8 +79,8 @@
 - type: entity
   id: ShuttleGunSvalinnMachineGunCircuitboard
   parent: BaseMachineCircuitboard
-  name: LSE-400c "Svalinn machine gun" machine board
-  description: A machine printed circuit board for an LSE-400c "Svalinn machine gun".
+  name: "плата кулемета \"Свалінн\" LSE-400c"
+  description: "Машинна друкована плата для кулемета \"Свалінн\" LSE-400c."
   suffix: DO NOT MAP, Machine Board
   categories: [ DoNotMap ]
   components:
@@ -96,8 +96,8 @@
 - type: entity
   id: ShuttleGunPerforatorCircuitboard
   parent: BaseMachineCircuitboard
-  name: LSE-1200c "Perforator" machine board
-  description: A machine printed circuit board for an LSE-1200c "Perforator".
+  name: "плата \"Перфоратора\" LSE-1200c"
+  description: "Машинна друкована плата для \"Перфоратора\" LSE-1200c."
   suffix: DO NOT MAP, Machine Board
   categories: [ DoNotMap ]
   components:
@@ -113,8 +113,8 @@
 - type: entity
   id: ShuttleGunFriendshipCircuitboard
   parent: BaseMachineCircuitboard
-  name: EXP-320g "Friendship" machine board
-  description: A machine printed circuit board for an EXP-320g "Friendship".
+  name: "плата \"Дружби\" EXP-320g"
+  description: "Машинна друкована плата для \"Дружби\" EXP-320g."
   suffix: DO NOT MAP, Machine Board
   categories: [ DoNotMap ]
   components:
@@ -130,8 +130,8 @@
 - type: entity
   id: ShuttleGunDusterCircuitboard
   parent: BaseMachineCircuitboard
-  name: EXP-2100g "Duster" machine board
-  description: A machine printed circuit board for an EXP-2100g "Duster".
+  name: "плата \"Дастера\" EXP-2100g"
+  description: "Машинна друкована плата для \"Дастера\" EXP-2100g."
   suffix: DO NOT MAP, Machine Board
   categories: [ DoNotMap ]
   components:
@@ -148,8 +148,8 @@
 - type: entity
   id: ShuttleGunKineticCircuitboard
   parent: BaseMachineCircuitboard
-  name: PTK-800 "Matter Dematerializer" machine board
-  description: A machine printed circuit board for an PTK-800 "Matter Dematerializer".
+  name: "плата \"Дематеріалізатора матерії\" PTK-800"
+  description: "Машинна друкована плата для \"Дематеріалізатора матерії\" PTK-800."
   suffix: DO NOT MAP, Machine Board
   categories: [ DoNotMap ]
   components:

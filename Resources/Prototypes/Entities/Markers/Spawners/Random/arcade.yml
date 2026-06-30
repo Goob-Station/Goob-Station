@@ -12,7 +12,7 @@
 
 - type: entity
   id: RandomArcade
-  name: random arcade spawner
+  name: "спавнер випадкової аркади"
   parent: MarkerBase
   components:
   - type: Sprite

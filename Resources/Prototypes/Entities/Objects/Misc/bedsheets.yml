@@ -96,9 +96,9 @@
 - type: entity
   parent: BaseItem
   id: BedsheetBase
-  name: BedsheetBase
+  name: "ПростирадлоБаза"
   abstract: true
-  description: A surprisingly soft linen bedsheet.
+  description: "Напрочуд м'яке лляне простирадло."
   placement:
     mode: SnapgridCenter
     snap:
@@ -132,7 +132,7 @@
 - type: entity
   id: BedsheetBlack
   parent: BedsheetBase
-  name: black bedsheet
+  name: "чорне простирадло"
   components:
   - type: Sprite
     state: sheetblack
@@ -142,7 +142,7 @@
 - type: entity
   id: BedsheetBlue
   parent: BedsheetBase
-  name: blue bedsheet
+  name: "синє простирадло"
   components:
   - type: Sprite
     state: sheetblue
@@ -152,7 +152,7 @@
 - type: entity
   id: BedsheetBrown
   parent: BedsheetBase
-  name: brown bedsheet
+  name: "коричневе простирадло"
   components:
   - type: Sprite
     state: sheetbrown
@@ -162,8 +162,8 @@
 - type: entity
   id: BedsheetCaptain
   parent: BedsheetBase
-  name: captain's bedsheet
-  description: It has a Nanotrasen symbol on it, and was woven with a revolutionary new kind of thread guaranteed to have 0.01% permeability for most non-chemical substances, popular among most modern captains.
+  name: "капітанське простирадло"
+  description: "На ньому є символ Nanotrasen, і він був витканий з революційно нового виду ниток, які гарантовано мають 0,01% проникності для більшості нехімічних речовин, популярних серед більшості сучасних капітанів."
   components:
   - type: Sprite
     state: sheetcaptain
@@ -175,8 +175,8 @@
 - type: entity
   id: BedsheetCE
   parent: BedsheetBase
-  name: CE's bedsheet
-  description: It's decorated with a wrench emblem. It's highly reflective and stain resistant, so you don't need to worry about ruining it with oil.
+  name: "простирадло ГІ"
+  description: "Прикрашений емблемою гайкового ключа. Він дуже світловідбиваючий і стійкий до плям, тому вам не потрібно турбуватися про те, що ви зіпсуєте його олією."
   components:
   - type: Sprite
     state: sheetce
@@ -188,8 +188,8 @@
 - type: entity
   id: BedsheetCentcom
   parent: BedsheetBase
-  name: CentComm bedsheet
-  description: Woven with advanced nanothread for warmth as well as being very decorated, essential for all officials.
+  name: "простирадло ЦентКому"
+  description: "Сплетене з передової нанонитки для тепла, а також дуже прикрашене, необхідне для всіх чиновників."
   components:
   - type: Sprite
     state: sheetcentcom
@@ -201,8 +201,8 @@
 - type: entity
   id: BedsheetClown
   parent: BedsheetBase
-  name: clown's bedsheet
-  description: A rainbow blanket with a clown mask woven in. It smells faintly of bananas.
+  name: "простирадло для клоуна"
+  description: "Райдужна ковдра з витканою маскою клоуна. Слабко пахне бананами."
   components:
   - type: Sprite
     state: sheetclown
@@ -212,8 +212,8 @@
 - type: entity
   id: BedsheetCMO
   parent: BedsheetBase
-  name: CMO's bedsheet
-  description: It's a sterilized blanket that has a cross emblem. There's some cat fur on it, likely from Runtime.
+  name: "простирадло ГМ"
+  description: "Це стерилізована ковдра з емблемою хреста. На ній є трохи котячого хутра, ймовірно, з \"Виконання\"."
   components:
   - type: Sprite
     state: sheetcmo
@@ -225,8 +225,8 @@
 - type: entity
   id: BedsheetCosmos
   parent: BedsheetBase
-  name: cosmos bedsheet
-  description: Made from the dreams of those who wonder at the stars.
+  name: "космічне простирадло"
+  description: "Зроблений з мрій тих, хто дивується на зірки."
   components:
   - type: Sprite
     state: sheetcosmos
@@ -236,8 +236,8 @@
 - type: entity
   id: BedsheetCult
   parent: BedsheetBase
-  name: cult bedsheet
-  description: You might dream of Nar'Sie if you sleep with this. It seems rather tattered and glows of an eldritch presence.
+  name: "культове простирадло"
+  description: "Якщо ви будете спати з ним, вам може приснитися Нар'сі. Воно виглядає досить пошарпаним і світиться від зловесної присутності."
   components:
   - type: Sprite
     state: sheetcult
@@ -247,7 +247,7 @@
 - type: entity
   id: BedsheetGreen
   parent: BedsheetBase
-  name: green bedsheet
+  name: "зелене простирадло"
   components:
   - type: Sprite
     state: sheetgreen
@@ -257,7 +257,7 @@
 - type: entity
   id: BedsheetGrey
   parent: BedsheetBase
-  name: grey bedsheet
+  name: "сіре простирадло"
   components:
   - type: Sprite
     state: sheetgrey
@@ -267,8 +267,8 @@
 - type: entity
   id: BedsheetHOP
   parent: BedsheetBase
-  name: HOP's bedsheet
-  description: It's decorated with a key emblem. For those rare moments when you can rest and cuddle with Ian without someone screaming for you over the radio.
+  name: "простирадло ГП"
+  description: "Він прикрашений емблемою ключа. Для тих рідкісних моментів, коли ви можете відпочити і обійнятися з Яном без того, щоб хтось кричав вам по рації."
   components:
   - type: Sprite
     state: sheethop
@@ -280,8 +280,8 @@
 - type: entity
   id: BedsheetHOS
   parent: BedsheetBase
-  name: HOS's bedsheet
-  description: It's decorated with a shield emblem. While crime doesn't sleep, you do, but you are still THE LAW!
+  name: "простирадло ГБ"
+  description: "Його прикрашає емблема у вигляді щита. Поки злочинність не спить, спите ви, але ви все ще ЗАКОН!"
   components:
   - type: Sprite
     state: sheethos
@@ -293,7 +293,7 @@
 - type: entity
   id: BedsheetIan
   parent: BedsheetBase
-  name: Ian's bedsheet
+  name: "простирадло Іана"
   components:
   - type: Sprite
     state: sheetian
@@ -303,8 +303,8 @@
 - type: entity
   id: BedsheetMedical
   parent: BedsheetBase
-  name: medical bedsheet
-  description: It's a sterilized blanket commonly used in the Medbay. Sterilization is voided if a virologist is present onboard the station.
+  name: "простирадло медичного відділу"
+  description: "Це стерилізована ковдра, яка зазвичай використовується в медпункті. Стерилізація анулюється, якщо на борту станції присутній вірусолог."
   components:
   - type: Sprite
     state: sheetmedical
@@ -314,8 +314,8 @@
 - type: entity
   id: BedsheetMime
   parent: BedsheetBase
-  name: mime's bedsheet
-  description: A very soothing striped blanket.  All the noise just seems to fade out when you're under the covers in this.
+  name: "простирадло міма"
+  description: "Дуже заспокійлива смугаста ковдра.  Здається, що весь шум просто зникає, коли ти вкриваєшся нею."
   components:
   - type: Sprite
     state: sheetmime
@@ -325,8 +325,8 @@
 - type: entity
   id: BedsheetNT
   parent: BedsheetBase
-  name: NT bedsheet
-  description: It has the Nanotrasen logo on it and an aura of duty.
+  name: "простирадло Нанотрейзен"
+  description: "На ньому є логотип Nanotrasen та аура обов'язку."
   components:
   - type: Sprite
     state: sheetNT
@@ -336,7 +336,7 @@
 - type: entity
   id: BedsheetOrange
   parent: BedsheetBase
-  name: orange bedsheet
+  name: "помаранчеве простирадло"
   components:
   - type: Sprite
     state: sheetorange
@@ -346,7 +346,7 @@
 - type: entity
   id: BedsheetPurple
   parent: BedsheetBase
-  name: purple bedsheet
+  name: "фіолетове простирадло"
   components:
   - type: Sprite
     state: sheetpurple
@@ -356,7 +356,7 @@
 - type: entity
   id: BedsheetQM
   parent: BedsheetBase
-  name: QM's bedsheet
+  name: "простирадло квартирмейстера"
   components:
   - type: Sprite
     state: sheetqm
@@ -368,7 +368,7 @@
 - type: entity
   id: BedsheetRainbow
   parent: BedsheetBase
-  name: rainbow bedsheet
+  name: "райдужне простирадло"
   components:
   - type: Sprite
     state: sheetrainbow
@@ -378,8 +378,8 @@
 - type: entity
   id: BedsheetRD
   parent: BedsheetBase
-  name: RD's bedsheet
-  description: It appears to have a beaker emblem, and is made out of fire-resistant material, although it probably won't protect you in the event of fires you're familiar with every day.
+  name: "простирадло наукового керівника"
+  description: "На ньому, здається, є емблема мензурки, і воно зроблене з вогнестійкого матеріалу, хоча, ймовірно, не захистить вас у разі пожеж, з якими ви стикаєтеся щодня."
   components:
   - type: Sprite
     state: sheetrd
@@ -391,8 +391,8 @@
 - type: entity
   id: BedsheetBrigmedic
   parent: BedsheetBase
-  name: brigmedic's bedsheet
-  description: Not worse than cotton.
+  name: "простирадло тюремного медика"
+  description: "Не гірше бавовни."
   components:
   - type: Sprite
     state: sheetbrigmedic
@@ -402,7 +402,7 @@
 - type: entity
   id: BedsheetRed
   parent: BedsheetBase
-  name: red bedsheet
+  name: "червоне простирадло"
   components:
   - type: Sprite
     state: sheetred
@@ -412,8 +412,8 @@
 - type: entity
   id: BedsheetSyndie
   parent: [ BedsheetBase, BaseSyndicateContraband ]
-  name: syndicate bedsheet
-  description: It has a syndicate emblem and it has an aura of evil.
+  name: "синдикатське простирадло"
+  description: "Він має емблему синдикату і має ауру зла."
   components:
   - type: Sprite
     state: sheetsyndie
@@ -425,7 +425,7 @@
 - type: entity
   id: BedsheetUSA
   parent: BedsheetBase
-  name: USA bedsheet
+  name: "простирадло США"
   components:
   - type: Sprite
     state: sheetUSA
@@ -435,7 +435,7 @@
 - type: entity
   id: BedsheetWhite
   parent: BedsheetBase
-  name: white bedsheet
+  name: "біле простирадло"
   components:
   - type: Butcherable
     spawned:
@@ -449,8 +449,8 @@
 - type: entity
   id: BedsheetWiz
   parent: BedsheetBase
-  name: wizard's bedsheet
-  description: A special fabric enchanted with magic so you can have an enchanted night. It even glows!
+  name: "простирадло чарівника"
+  description: "Спеціальна тканина, зачарована магією, щоб ви могли провести чарівну ніч. Вона навіть світиться!"
   components:
   - type: Sprite
     state: sheetwiz
@@ -460,7 +460,7 @@
 - type: entity
   id: BedsheetYellow
   parent: BedsheetBase
-  name: yellow bedsheet
+  name: "жовте простирадло"
   components:
   - type: Sprite
     state: sheetyellow

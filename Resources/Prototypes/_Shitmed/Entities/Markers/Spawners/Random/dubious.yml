@@ -47,7 +47,7 @@
       - id: OrganDubiousSlimeEggs
 
 - type: entity
-  name: Dubious Organ Spawner
+  name: "Сумнівний орган-розплідник"
   id: DubiousOrganSpawner
   parent: MarkerBase
   components:

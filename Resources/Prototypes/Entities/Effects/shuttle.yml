@@ -9,7 +9,7 @@
 - type: entity
   id: FtlVisualizerEntity
   categories: [ HideSpawnMenu ]
-  description: Visualizer for shuttles arriving. You shouldn't see this!
+  description: "Візуалізатор прибуття шатлів. Ви не повинні цього бачити!"
   components:
   - type: Transform
     noRot: true

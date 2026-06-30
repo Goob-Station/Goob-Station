@@ -22,8 +22,8 @@
 - type: entity
   parent: BaseComputerCircuitboard
   id: LavalandShuttleConsoleCircuitboard
-  name: mining shuttle console board
-  description: A printed circuit board for a mining shuttle console.
+  name: "плата консолі шахтарського шатла"
+  description: "Друкована плата для консолі шахтарського шатла."
   components:
   - type: Sprite
     state: cpu_supply

@@ -22,8 +22,8 @@
 - type: entity
   parent: BaseStructure
   id: ContainmentFieldGenerator
-  name: containment field generator
-  description: A machine that generates a containment field when powered by an emitter. Keeps the Singularity docile.
+  name: "генератор захисного поля"
+  description: "Машина, яка генерує стримуюче поле, коли живиться від випромінювача. Тримає сингулярність слухняною."
   components:
   - type: Fixtures
     fixtures:
@@ -94,8 +94,8 @@
 
 - type: entity
   id: ContainmentField
-  name: containment field
-  description: A containment field that repels gravitational singularities.
+  name: "поле утримання"
+  description: "Стримуюче поле, яке відштовхує гравітаційні сингулярності."
   placement:
     mode: SnapgridCenter
   components:

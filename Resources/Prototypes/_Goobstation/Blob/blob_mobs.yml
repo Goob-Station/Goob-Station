@@ -16,8 +16,8 @@
 # Pod
 - type: entity
   id: MobBlobPod
-  name: Blob pod
-  description: An ordinary person fighting opponents, not like a thing attached to a tile, zombifies corpses.
+  name: "Блобпод"
+  description: "Звичайна істота, яка бореться з супротивниками, а не річ, прикріплена до підлоги. Зомбіфікує трупи."
   parent: SimpleSpaceMobBase
   categories: [ HideSpawnMenu ]
   components:
@@ -131,8 +131,8 @@
 # Blobbernaut
 - type: entity
   id: MobBlobBlobbernaut
-  name: Blobbernaut
-  description: Juggernaut, but blob! when the station crew shows full hatred of you, with the help of such strong men you can organize a blitzkriek if you tell them the plan in advance.
+  name: "Блоббернаут"
+  description: "Джаггернаут, але блоб! Коли екіпаж станції демонструє повну ненависть до вас, за допомогою таких сильних мужиків можна організувати бліцкриг, якщо заздалегідь розповісти їм про план."
   parent: SimpleSpaceMobBase
   categories: [ HideSpawnMenu ]
   components:
@@ -243,7 +243,7 @@
 # Observer
 - type: entity
   id: MobObserverBlob
-  name: Blob observer
+  name: "Блоб спостерігач"
   categories: [ HideSpawnMenu ]
   save: false
   components:

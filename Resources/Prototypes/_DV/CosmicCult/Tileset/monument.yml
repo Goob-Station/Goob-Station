@@ -11,8 +11,8 @@
   abstract: true
   parent: BaseStructure
   id: MonumentCosmicCultBase
-  name: The Monument
-  description: A great slab of unknowledge, only visible to those aware of it. Built of a thousand little nothings, its surface reflects a starless emptiness...
+  name: "Монумент"
+  description: "Величезна плита невідання, видима лише тим, хто про неї знає. Збудована з тисячі маленьких ніщо, її поверхня відбиває беззоряну порожнечу..."
   placement:
     mode: AlignTileAny
   components:
@@ -123,7 +123,7 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   id: MonumentCosmicCultSpawnIn
-  name: The Monument
+  name: "Монумент"
   parent: BaseStructure
   suffix: Spawn, DO NOT MAP
   components:
@@ -181,7 +181,7 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   id: MonumentCosmicCultMoveStart
-  name: The Monument
+  name: "Монумент"
   parent: BaseStructure
   suffix: Spawn, DO NOT MAP
   components:
@@ -236,7 +236,7 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   id: MonumentCosmicCultMoveEnd
-  name: The Monument
+  name: "Монумент"
   parent: BaseStructure
   suffix: Spawn, DO NOT MAP
   components:

@@ -10,8 +10,8 @@
 - type: entity
   parent: BaseStructure
   id: BaseFenceWood
-  name: wooden fence
-  description: Wooden piece of fencing. I hope there is babushka's garden behind it.
+  name: "дерев'яний паркан"
+  description: "Дерев'яний шматок огорожі. Сподіваюся, за ним знаходиться сад бабусі."
   abstract: true
   components:
   - type: MeleeSound
@@ -68,8 +68,8 @@
 - type: entity
   parent: BaseFenceWood
   id: BaseFenceWoodSmall
-  name: small wooden fence
-  description: Wooden piece of small fence. The best protection for the fencing of a private territory!
+  name: "невеликий дерев'яний паркан"
+  description: "Дерев'яний шматок невеликого паркану. Найкращий захист для огородження приватної території!"
   abstract: true
   components:
   - type: Destructible
@@ -239,8 +239,8 @@
 - type: entity
   parent: BaseFenceWood
   id: FenceWoodHighGate
-  name: wooden fence gate
-  description: Do you have any idea what awaits you behind these gates? It can be either a toilet or a luxurious mansion. But you continue to love your emo boys.
+  name: "дерев'яні ворота паркану"
+  description: "Ви хоч уявляєте, що чекає на вас за цими воротами? Це може бути як туалет, так і розкішний особняк. Але ви продовжуєте любити своїх емо-хлопчиків."
   components:
   - type: Sprite
     layers:
@@ -418,8 +418,8 @@
 - type: entity
   parent: BaseFenceWoodSmall
   id: FenceWoodSmallGate
-  name: wooden fence gate
-  description: Looking at this gate, a familiar image pops up in your head. Where's my piggy?
+  name: "дерев'яні ворота паркану"
+  description: "Дивлячись на цю хвіртку, в голові спливає знайомий образ. Де моє порося?"
   components:
   - type: Sprite
     layers:

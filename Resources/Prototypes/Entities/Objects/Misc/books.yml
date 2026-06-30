@@ -95,10 +95,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: book
+  name: "книга"
   parent: BaseItem
   id: BookBase
-  description: A hardcover book.
+  description: "Книга у твердій обкладинці."
   components:
    # Goobstation edit start
   - type: EmitSoundOnPickup
@@ -226,8 +226,8 @@
 - type: entity
   id: BookSpaceEncyclopedia
   parent: BaseGuidebook
-  name: space encyclopedia
-  description: An encyclopedia containing all the knowledge. The author of this encyclopedia is unknown.
+  name: "космічна енциклопедія"
+  description: "Енциклопедія, що містить усі знання. Автор цієї енциклопедії невідомий."
   components:
   - type: Sprite
     layers:
@@ -247,8 +247,8 @@
 - type: entity
   id: BookTheBookOfControl
   parent: BaseGuidebook
-  name: the book of control
-  description: Essential to become robust.
+  name: "книга контролю"
+  description: "Важливо, щоб стати міцним."
   components:
   - type: Sprite
     layers:
@@ -268,8 +268,8 @@
 - type: entity
   id: BookBartendersManual
   parent: BaseGuidebook
-  name: bartender's manual
-  description: This manual is stained with beer.
+  name: "посібник бармена"
+  description: "Цей посібник забруднений пивом."
   components:
   - type: Sprite
     layers:
@@ -287,8 +287,8 @@
 - type: entity
   id: BookHowToCookForFortySpaceman
   parent: BaseGuidebook
-  name: How To Cook For Forty Spacemen
-  description: A book about cooking written by a space chef.
+  name: "Як приготувати їжу для сорока космонавтів"
+  description: "Книга про кулінарію, написана космічним шеф-кухарем."
   components:
   - type: Sprite
     layers:
@@ -305,8 +305,8 @@
 - type: entity
   id: BookLeafLoversSecret
   parent: BaseGuidebook
-  name: leaf lover's secret
-  description: It has a strong weed smell. It motivates you to feed and seed.
+  name: "секрет любителя листя"
+  description: "Має сильний запах бур'янів. Це мотивує вас підгодовувати і сіяти."
   components:
   - type: Sprite
     layers:
@@ -326,8 +326,8 @@
 - type: entity
   id: BookEngineersHandbook
   parent: BaseGuidebook
-  name: engineer's handbook
-  description: A handbook about engineering written by Nanotrasen.
+  name: "довідник інженера"
+  description: "Посібник з інженерії, написаний НаноТрейзен."
   components:
   - type: Sprite
     layers:
@@ -346,8 +346,8 @@
 - type: entity
   id: BookScientistsGuidebook
   parent: BaseGuidebook
-  name: scientist's guidebook
-  description: A guidebook about science written by Nanotrasen.
+  name: "путівник науковця"
+  description: "Путівник про науку, написаний НаноТрейзен."
   components:
   - type: Sprite
     layers:
@@ -364,8 +364,8 @@
 - type: entity
   id: BookSecurity
   parent: BaseGuidebook
-  name: security 101
-  description: A book about security written by Nanotrasen. The book is stained with blood. It seems to have been used more as a weapon than reading material.
+  name: "безпека 101"
+  description: "Книга про безпеку, написана НаноТрейзен. Книга заплямована кров'ю. Схоже, її використовували більше як зброю, ніж як матеріал для читання."
   components:
   - type: Sprite
     layers:
@@ -388,8 +388,8 @@
 - type: entity
   id: BookHowToKeepStationClean
   parent: BaseGuidebook
-  name: how to keep station clean
-  description: This book is very clean.
+  name: "як підтримувати станцію в чистоті"
+  description: "Ця книга дуже чиста."
   components:
   - type: Sprite
     layers:
@@ -405,8 +405,8 @@
 - type: entity
   id: BookHowToRockAndStone
   parent: BaseGuidebook
-  name: how to rock and stone
-  description: A very detailed guide about salvage written by Karl, a legendary space miner, however he's missing. It motivates you to rock and stone.
+  name: "слава породі та каменюці для чайників"
+  description: "Дуже детальний посібник для дослідників, написаний Карлом, легендарним космічним шахтарем, який, на жаль, пропав безвісти. Він мотивує вас каменувати і каменувати."
   components:
   - type: Sprite
     layers:
@@ -426,8 +426,8 @@
 - type: entity
   id: BookMedicalReferenceBook
   parent: BaseGuidebook
-  name: medical reference book
-  description: A reference book about medical written by an old doctor. The handwriting is barely comprehensible.
+  name: "медичний довідник"
+  description: "Довідник з медицини, написаний старим лікарем. Почерк ледь розбірливий."
   components:
   - type: Sprite
     layers:
@@ -445,8 +445,8 @@
 - type: entity
   id: BookHowToSurvive
   parent: BaseGuidebook
-  name: how to survive
-  description: Ironically the author of this book is dead.
+  name: "як вижити"
+  description: "За іронією долі, автор цієї книги помер."
   components:
   - type: Sprite
     layers:
@@ -466,8 +466,8 @@
 - type: entity
   id: BookChemicalCompendium
   parent: BaseGuidebook
-  name: chempendium
-  description: A comprehensive guide written by some old skeleton of a professor about chemical synthesis.
+  name: "хепендіум"
+  description: "Вичерпний посібник, написаний якимось старим професорським скелетом про хімічний синтез."
   components:
   - type: Sprite
     layers:
@@ -485,8 +485,8 @@
 - type: entity
   id: BookSpaceLaw
   parent: BaseGuidebook
-  name: space law
-  description: A set of Nanotrasen guidelines for keeping law and order on their space stations.
+  name: "космічний закон"
+  description: "Набір настанов Нанотрейзен для підтримання закону та порядку на їхніх космічних станціях."
   components:
   - type: Sprite
     layers:
@@ -503,7 +503,7 @@
   parent: BookBase
   id: BookRandom
   suffix: random visual
-  description: Each book is unique! What is hidden in this one?
+  description: "Кожна книга унікальна! Що заховано в цій?"
   components:
   - type: RandomMetadata
     nameSegments:
@@ -575,8 +575,8 @@
 - type: entity
   parent: BookBase
   id: BookAtmosDistro
-  name: "Newton's Guide to Atmos: The Distro"
-  description: There are endless illegible notes scribbled in the margins. Most of the text is covered in handwritten question marks.
+  name: "Путівник Ньютона по атмосфері: Дистрибутив"
+  description: "На полях - нескінченні нерозбірливі нотатки. Більша частина тексту вкрита написаними від руки знаками питання."
   components:
   - type: Sprite
     layers:
@@ -594,8 +594,8 @@
 - type: entity
   parent: BookBase
   id: BookAtmosWaste
-  name: "Newton's Guide to Atmos: Waste"
-  description: There are endless illegible notes scribbled in the margins. Most of the text is covered in handwritten question marks.
+  name: "Путівник Ньютона по атмосфері: Відходи"
+  description: "На полях - нескінченні нерозбірливі нотатки. Більша частина тексту вкрита написаними від руки знаками питання."
   components:
   - type: Sprite
     layers:
@@ -613,8 +613,8 @@
 - type: entity
   parent: BookBase
   id: BookAtmosAirAlarms
-  name: "Newton's Guide to Atmos: Air Alarms"
-  description: There are endless illegible notes scribbled in the margins. Most of the text is covered in handwritten question marks.
+  name: "Путівник Ньютона по атмосфері: Повітряна сигналізація"
+  description: "На полях - нескінченні нерозбірливі нотатки. Більша частина тексту вкрита написаними від руки знаками питання."
   components:
   - type: Sprite
     layers:
@@ -632,8 +632,8 @@
 - type: entity
   parent: BookBase
   id: BookAtmosVentsMore
-  name: "Newton's Guide to Atmos: Vents and More"
-  description: There are endless illegible notes scribbled in the margins. Most of the text is covered in handwritten question marks.
+  name: "Путівник Ньютона по атмосфері: Вентиляційні отвори та інше"
+  description: "На полях - нескінченні нерозбірливі нотатки. Більша частина тексту вкрита написаними від руки знаками питання."
   components:
   - type: Sprite
     layers:

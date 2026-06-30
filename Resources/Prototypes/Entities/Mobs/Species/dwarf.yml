@@ -44,7 +44,7 @@
 
 - type: entity
   save: false
-  name: Urist McHands The Dwarf
+  name: "Уріст МакХендс Гном"
   parent: BaseMobSpeciesOrganic
   id: BaseMobDwarf
   abstract: true

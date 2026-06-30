@@ -7,8 +7,8 @@
 - type: entity
   id: JetpackChrono
   parent: BaseJetpack
-  name: futuristic jetpack
-  description: Magnetically attached jetpack that holds extreme amount of gas. It is used as an oxygen cylinder.
+  name: "футуристичний реактивний ранець"
+  description: "Магнітний реактивний ранець, що вміщує велику кількість газу. Використовується як кисневий балон."
   components:
   - type: Item
     sprite: _Goobstation/Objects/Tanks/chronojet.rsi
@@ -44,7 +44,7 @@
 - type: entity
   id: JetpackContractor
   parent: BaseJetpack
-  name: contractor's jetpack
+  name: "реактивний ранець контрактора"
   suffix: Empty
   components:
   - type: Sprite
@@ -62,7 +62,7 @@
 - type: entity
   id: JetpackContractorFilled
   parent: JetpackContractor
-  name: contractor's jetpack
+  name: "реактивний ранець контрактора"
   suffix: Filled
   components:
   - type: GasTank

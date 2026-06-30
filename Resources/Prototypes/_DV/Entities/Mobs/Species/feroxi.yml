@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseMobSpeciesOrganic
   id: BaseMobFeroxi
-  name: Urist McFin
+  name: "Юріст МакПлавець"
   save: false
   abstract: true
   components:
@@ -140,10 +140,10 @@
 - type: entity
   parent: MobHumanDummy
   id: MobFeroxiDummy
-  name: Feroxi Dummy
+  name: "манекен ферокса"
   save: false
   categories: [ HideSpawnMenu ]
-  description: A dummy feroxi meant to be used in character setup.
+  description: "Манекен ферокса, призначений для використання в налаштуваннях персонажа."
   components:
   - type: HumanoidAppearance
     species: Feroxi

@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: Brullbar Spawner
+  name: "Спавнер Брулбарів"
   id: SpawnMobBrullbar
   parent: MarkerBase
   components:
@@ -18,7 +18,7 @@
     - MobBrullbar
 
 - type: entity
-  name: Brullbar King Spawner
+  name: "Спавнер Короля Брулбарів"
   id: SpawnMobBrullbarKing
   parent: MarkerBase
   components:
@@ -32,7 +32,7 @@
     - MobBrullbarKing
 
 - type: entity
-  name: Bear Spawner
+  name: "Спавнер Ведмедів"
   id: SpawnMobBearGoon
   parent: MarkerBase
   components:
@@ -46,7 +46,7 @@
     - MobBearGoon
 
 - type: entity
-  name: White Wolf Spawner
+  name: "Спавнер Білих Вовків"
   id: SpawnMobWhiteWolf
   parent: MarkerBase
   components:
@@ -60,7 +60,7 @@
     - MobWhiteWolf
 
 - type: entity
-  name: Living Curse Spawner
+  name: "Спавнер Живих Проклять"
   id: SpawnMobLivingCurse
   parent: MarkerBase
   components:
@@ -74,7 +74,7 @@
     - MobLivingCurse
     
 - type: entity
-  name: Fermid Large Spawner
+  name: "Спавнер великих фермідів"
   id: SpawnMobFermidLarge
   components:
   - type: Sprite
@@ -86,7 +86,7 @@
     - MobFermidLarge
     
 - type: entity
-  name: Fermid Small Spawner
+  name: "Спавнер малих фермідів"
   id: SpawnMobFermidSmall
   parent: MarkerBase
   components:
@@ -99,7 +99,7 @@
     - MobFermidSmall
 
 - type: entity
-  name: Fermid Warrior Spawner
+  name: "Спавнер фермідів-воїнів"
   id: SpawnMobFermidWarrior
   parent: MarkerBase
   components:
@@ -113,7 +113,7 @@
     - MobFermidWarrior
 
 - type: entity
-  name: Fermid Queen Spawner
+  name: "Спавнер королеви фермідів"
   id: SpawnMobFermidQueen
   parent: MarkerBase
   components:
@@ -127,7 +127,7 @@
     - MobFermidQueen
 
 - type: entity
-  name: Spooky Ghost Spawner
+  name: "Спавнер моторошних привидів"
   id: SpawnMobSpookyGhost1
   parent: MarkerBase
   components:
@@ -141,7 +141,7 @@
     - MobSpookyGhost1
 
 - type: entity
-  name: Glutton Spawner
+  name: "Спавнер ненажер"
   id: SpawnBaseMobGlutton
   parent: MarkerBase
   components:
@@ -155,7 +155,7 @@
     - BaseMobGlutton
 
 - type: entity
-  name: Nanite Swarm Spawner
+  name: "Спавнер рою нанітів"
   id: SpawnMobNanites
   parent: MarkerBase
   components:
@@ -169,7 +169,7 @@
     - MobNanites
 
 - type: entity
-  name: Gunbot Spawner
+  name: "Спавнер ганботів"
   id: SpawnGunBot
   parent: MarkerBase
   components:
@@ -183,7 +183,7 @@
     - GunBot
 
 - type: entity
-  name: NukeBot Spawner
+  name: "Спавнер нюкботів"
   id: SpawnNukeBot
   parent: MarkerBase
   components:
@@ -197,7 +197,7 @@
     - NukeBot
 
 - type: entity
-  name: Flock Drone Spawner
+  name: "Спавнер дронів зграї"
   id: SpawnMobFlockDrone
   parent: MarkerBase
   components:
@@ -211,7 +211,7 @@
     - MobFlockDrone
 
 - type: entity
-  name: Flock Bit Spawner
+  name: "Спавнер бітів зграї"
   id: SpawnMobFlockBit
   parent: MarkerBase
   components:
@@ -225,7 +225,7 @@
     - MobFlockBit
 
 - type: entity
-  name: Abyss crawler Spawner
+  name: "Спавнер повзунів з безодні"
   id: SpawnMobAbyssCrawler
   parent: MarkerBase
   components:
@@ -240,7 +240,7 @@
 
 #Xenos
 - type: entity
-  name: salvage Ancient Drone Spawner
+  name: "утиль-спавнер древніх дронів"
   id: SpawnCMMobXenoDrone
   parent: MarkerBase
   components:
@@ -254,7 +254,7 @@
     - CMMobXenoDrone
 
 - type: entity
-  name: salvage Ancient Burrower Spawner
+  name: "утиль-спавнер древніх землерийок"
   id: SpawnCMMobXenoBurrower
   parent: MarkerBase
   components:
@@ -268,7 +268,7 @@
     - CMMobXenoBurrower
 
 - type: entity
-  name: salvage Ancient Warrior Spawner
+  name: "утиль-спавнер древніх воїнів"
   id: SpawnCMMobXenoWarrior
   parent: MarkerBase
   components:
@@ -282,7 +282,7 @@
     - CMMobXenoWarrior
 
 - type: entity
-  name: salvage Ancient Crusher Spawner
+  name: "утиль-спавнер древніх руйнівників"
   id: SpawnCMMobXenoCrusher
   parent: MarkerBase
   components:
@@ -296,7 +296,7 @@
     - CMMobXenoCrusher
 
 - type: entity
-  name: salvage Ancient Ravager Spawner
+  name: "утиль-спавнер древніх спустошувачів"
   id: SpawnCMMobXenoRavager
   parent: MarkerBase
   components:
@@ -310,7 +310,7 @@
     - CMMobXenoRavager
 
 - type: entity
-  name: salvage Ancient King Spawner
+  name: "утиль-спавнер древнього короля"
   id: SpawnCMMobXenoKing
   parent: MarkerBase
   components:
@@ -324,7 +324,7 @@
     - CMMobXenoKing
 
 - type: entity
-  name: salvage Ancient Queen Spawner
+  name: "утиль-спавнер древньої королеви"
   id: SpawnCMMobXenoQueen
   parent: MarkerBase
   components:
@@ -338,7 +338,7 @@
     - CMMobXenoQueen
 
 - type: entity
-  name: salvage Ancient Rogue King Spawner
+  name: "утиль-спавнер древнього короля-розбійника"
   id: SpawnCMMobXenoRogueKing
   parent: MarkerBase
   suffix: DO NOT MAP #Too srong to be mapped
@@ -354,7 +354,7 @@
 
 #Sentient xenos
 - type: entity
-  name: Ancient Drone Spawner
+  name: "Спавнер древніх дронів"
   id: SpawnCMMobXenoDroneSentient
   parent: MarkerBase
   components:
@@ -368,7 +368,7 @@
     - CMMobXenoDroneSentient
 
 - type: entity
-  name: Ancient Burrower Spawner
+  name: "Спавнер древніх землерийок"
   id: SpawnCMMobXenoBurrowerSentient
   parent: MarkerBase
   components:
@@ -382,7 +382,7 @@
     - CMMobXenoBurrowerSentient
 
 - type: entity
-  name: Ancient Warrior Spawner
+  name: "Спавнер древніх воїнів"
   id: SpawnCMMobXenoWarriorSentient
   parent: MarkerBase
   components:
@@ -396,7 +396,7 @@
     - CMMobXenoWarriorSentient
 
 - type: entity
-  name: Ancient Crusher Spawner
+  name: "Спавнер древніх руйнівників"
   id: SpawnCMMobXenoCrusherSentient
   parent: MarkerBase
   components:
@@ -410,7 +410,7 @@
     - CMMobXenoCrusherSentient
 
 - type: entity
-  name: Ancient Ravager Spawner
+  name: "Спавнер древніх спустошувачів"
   id: SpawnCMMobXenoRavagerSentient
   parent: MarkerBase
   components:
@@ -424,7 +424,7 @@
     - CMMobXenoRavagerSentient
 
 - type: entity
-  name: Ancient King Spawner
+  name: "Спавнер древнього короля"
   id: SpawnCMMobXenoKingSentient
   parent: MarkerBase
   components:
@@ -438,7 +438,7 @@
     - CMMobXenoKingSentient
 
 - type: entity
-  name: Ancient Queen Spawner
+  name: "Спавнер древньої королеви"
   id: SpawnCMMobXenoQueenSentient
   parent: MarkerBase
   components:
@@ -452,7 +452,7 @@
     - CMMobXenoQueenSentient
 
 - type: entity
-  name: Ancient Rogue King Spawner
+  name: "Спавнер древнього короля-розбійника"
   id: SpawnCMMobXenoRogueKingSentient
   parent: MarkerBase
   suffix: DO NOT MAP #Too srong to be mapped

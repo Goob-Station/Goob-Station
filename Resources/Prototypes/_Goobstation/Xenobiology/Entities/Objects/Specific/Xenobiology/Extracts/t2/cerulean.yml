@@ -1,7 +1,7 @@
 - type: entity
   id: CeruleanSlimeExtract
   parent: BaseSlimeExtract
-  name: cerulean slime extract
+  name: "церулеановий екстракт слайма"
   components:
   - type: Sprite
     layers:

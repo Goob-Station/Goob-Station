@@ -18,8 +18,8 @@
 #Base
 - type: entity
   id: AirlockAssembly
-  name: airlock assembly
-  description: It opens, it closes, and maybe crushes you.
+  name: "збірка шлюзу"
+  description: "Він відкривається, закривається і, можливо, розчавить вас."
   components:
   - type: Clickable
   - type: InteractionOutline

@@ -128,9 +128,9 @@
             Quantity: 30
 
 - type: entity
-  name: bluespace vial
+  name: "блюспейс-пробірка"
   parent: BaseBeakerMetallic
-  description: It's longer on the inside!
+  description: "Всередині вона довша!"
   id: BluespaceChemistryVial
   components:
   - type: Tag

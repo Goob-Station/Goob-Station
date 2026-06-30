@@ -6,7 +6,7 @@
 - type: entity
   parent: BaseItem
   id: MiscSignallerBase
-  name: "misc signaller base"
+  name: "основа сигналізатора"
   abstract: true
   components:
   - type: MiscSignaller
@@ -25,8 +25,8 @@
 - type: entity
   parent: MiscSignallerBase
   id: VoiceSignaller
-  name: voice signaller
-  description: A device that transmits a signal when its activation word has been spoken. Comes with an inbuilt recorder.
+  name: "голосовий сигналізатор"
+  description: "Пристрій, що передає сигнал, коли вимовлено слово активації. Має вбудований диктофон."
   components:
    - type: Sprite
      sprite: _Goobstation/Objects/Devices/miscsignallers.rsi
@@ -49,8 +49,8 @@
 - type: entity
   parent: MiscSignallerBase
   id: ProximitySignaller
-  name: proximity signaller
-  description: A device that transmits a signal when something is nearby. You may be able not to trigger it if you move slowly enough. Needs to be anchored.
+  name: "сигналізатор наближення"
+  description: "Пристрій, що передає сигнал, коли щось знаходиться поруч. Ви можете не спрацювати його, якщо будете рухатися досить повільно. Потребує закріплення."
   components:
     - type: Sprite
       sprite: _Goobstation/Objects/Devices/miscsignallers.rsi

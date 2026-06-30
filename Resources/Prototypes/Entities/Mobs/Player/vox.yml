@@ -25,6 +25,6 @@
 
 - type: entity
   save: false
-  name: Uristititi McVox
+  name: "Урістітіті МакВокс"
   parent: BaseMobVox
   id: MobVox

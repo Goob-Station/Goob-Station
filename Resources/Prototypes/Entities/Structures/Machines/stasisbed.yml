@@ -47,9 +47,9 @@
 
 - type: entity
   id: StasisBed
-  name: stasis bed
+  name: "стазис-ліжко"
   parent: [ BaseMachinePowered, ConstructibleMachine ]
-  description: A bed that massively slows down the patient's metabolism and prevents bodily decay, allowing more time to administer a proper treatment for stabilization.
+  description: "Ліжко, яке значно уповільнює метаболізм пацієнта і запобігає розпаду тіла, що дає більше часу для проведення належного лікування для стабілізації стану."
   components:
   - type: StasisBed
   - type: AntiRotOnBuckle

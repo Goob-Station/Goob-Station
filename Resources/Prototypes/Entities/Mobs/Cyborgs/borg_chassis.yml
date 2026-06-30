@@ -82,7 +82,7 @@
 - type: entity
   id: BorgChassisGeneric
   parent: BorgChassisSelectable
-  name: generic cyborg
+  name: "загальний кіборг"
   suffix: type picked
   components:
   - type: BorgSwitchableType
@@ -93,7 +93,7 @@
 - type: entity
   id: BorgChassisMining
   parent: BorgChassisSelectable
-  name: salvage cyborg
+  name: "кіборг-утилізатор"
   components:
   - type: BorgSwitchableType
     selectedBorgType: mining
@@ -103,7 +103,7 @@
 - type: entity
   id: BorgChassisEngineer
   parent: BorgChassisSelectable
-  name: engineer cyborg
+  name: "кіборг-інженер"
   components:
   - type: BorgSwitchableType
     selectedBorgType: engineering
@@ -113,7 +113,7 @@
 - type: entity
   id: BorgChassisJanitor
   parent: BorgChassisSelectable
-  name: janitor cyborg
+  name: "кіборг-прибиральник"
   components:
   - type: BorgSwitchableType
     selectedBorgType: janitor
@@ -123,7 +123,7 @@
 - type: entity
   id: BorgChassisMedical
   parent: BorgChassisSelectable
-  name: medical cyborg
+  name: "медичний кіборг"
   components:
   - type: BorgSwitchableType
     selectedBorgType: medical
@@ -133,7 +133,7 @@
 - type: entity
   id: BorgChassisService
   parent: BorgChassisSelectable
-  name: service cyborg
+  name: "сервісний кіборг"
   components:
   - type: BorgSwitchableType
     selectedBorgType: service
@@ -143,8 +143,8 @@
 - type: entity
   id: BorgChassisSyndicateAssault
   parent: BaseBorgChassisSyndicate
-  name: syndicate assault cyborg
-  description: A lean, mean killing machine with access to a variety of deadly modules.
+  name: "синдикатський штурмовий кіборг"
+  description: "Худорлява, жорстока машина для вбивства з доступом до різноманітних смертоносних модулів."
   components:
     - type: Sprite
       layers:
@@ -175,8 +175,8 @@
 - type: entity
   id: BorgChassisSyndicateMedical
   parent: [BaseBorgChassisSyndicate, ShowMedicalIcons]
-  name: syndicate medical cyborg
-  description: A combat medical cyborg. Has limited offensive potential, but makes more than up for it with its support capabilities.
+  name: "синдикатський медичний кіборг"
+  description: "Бойовий медичний кіборг. Має обмежений наступальний потенціал, але з лишком компенсує його своїми можливостями підтримки."
   components:
     - type: Sprite
       layers:
@@ -214,8 +214,8 @@
 - type: entity
   id: BorgChassisSyndicateSaboteur
   parent: BaseBorgChassisSyndicate
-  name: syndicate saboteur cyborg
-  description: A streamlined engineering cyborg, equipped with covert modules. Its chameleon projector lets it disguise itself as a Nanotrasen cyborg.
+  name: "синдикатський диверсійний кіборг"
+  description: "Обтічний інженерний кіборг, оснащений прихованими модулями. Проектор-хамелеон дозволяє йому маскуватися під кіборга \"НаноТрейзен\"."
   components:
     - type: Sprite
       layers:
@@ -251,8 +251,8 @@
 - type: entity
   id: BorgChassisDerelict
   parent: BaseBorgChassisDerelict
-  name: derelict cyborg
-  description: A man-machine hybrid that assists in station activity. This one is in a state of great disrepair.
+  name: "покинутий кіборг"
+  description: "Гібрид людини та машини, який допомагає в діяльності станції. Цей знаходиться у стані сильного занепаду."
   components:
   - type: Sprite
     layers:

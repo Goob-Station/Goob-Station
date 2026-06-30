@@ -8,10 +8,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: futuristic pen
+  name: "футуристична ручка"
   parent: PenCentcom
   id: PenFuture
-  description: Some theories claim that the apocalypse of 3024 happened because of the pens
+  description: "Деякі теорії стверджують, що апокаліпсис 3024 року стався через ручки"
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/bureaucracy.rsi
@@ -21,10 +21,10 @@
     heldPrefix: pen_future
 
 - type: entity
-  name: devilish pen
+  name: "диявольська ручка"
   parent: [BaseAdvancedPen, BaseMagicalContraband]
   id: PenDevil
-  description: A devilishly sharp pen with a strangely warm body. Not quite as sharp as a devils tongue, nor as silver coated.
+  description: "Диявольськи гостра ручка з дивно теплим корпусом. Не така гостра, як язик диявола, і не посріблена."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/bureaucracy.rsi

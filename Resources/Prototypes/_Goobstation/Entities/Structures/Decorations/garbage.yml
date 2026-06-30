@@ -6,8 +6,8 @@
 - type: entity
   id: Garbage
   parent: BaseItem
-  name: garbage
-  description: It's crawling with maggots!
+  name: "сміття"
+  description: "Воно кишить личинками!"
   components:
   - type: Sprite
     noRot: true

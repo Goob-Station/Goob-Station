@@ -11,8 +11,8 @@
 - type: entity
   parent: BaseItem
   id: HandLabeler
-  name: hand labeler
-  description: A hand labeler, used to label items and objects.
+  name: "ручний етикетувальник"
+  description: "Ручний етикетувальник, що використовується для маркування предметів і об'єктів."
   components:
     - type: Sprite
       sprite: Objects/Tools/hand_labeler.rsi

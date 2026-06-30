@@ -13,8 +13,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ChangelingClothingHeadHelmet
-  name: chitinous helmet
-  description: An all-consuming chitinous mass of armor.
+  name: "хітиновий шолом"
+  description: "Всепоглинаюча хітинова маса броні."
   suffix: Unremoveable
   components:
   - type: Sprite

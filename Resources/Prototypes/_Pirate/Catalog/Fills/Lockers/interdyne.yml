@@ -2,7 +2,7 @@
 - type: entity
   parent: LockerInterdyneCommand
   id: LockerMedPersonalInterdyneFilled
-  name: Шафа з медичним обладнанням Інтердайна
+  name: "Шафа з медичним обладнанням ІнтерДайн"
   components:
   - type: StorageFill
     contents:
@@ -30,7 +30,7 @@
 - type: entity
   parent: LockerInterdyneCommand
   id: LockerMedCheamPersonalInterdyneFilled
-  name: Шафа хіміка Інтердайна
+  name: "Шафа хіміка ІнтерДайн"
   components:
   - type: StorageFill
     contents:
@@ -56,7 +56,7 @@
 - type: entity
   parent: LockerInterdyneCommand
   id: LockerSecureInterdyneFilled
-  name: Шафа охоронця Інтердайна
+  name: "Шафа охоронця ІнтерДайн"
   components:
   - type: StorageFill
     contents:
@@ -83,7 +83,7 @@
 - type: entity
   parent: LockerInterdyneCommand
   id: LockerPilotInterdyneFilled
-  name: Шафа пілота Інтердайна
+  name: "Шафа пілота ІнтерДайн"
   components:
   - type: StorageFill
     contents:
@@ -110,7 +110,7 @@
 - type: entity
   parent: LockerInterdyneCommand
   id: LockerEngInterdyneFilled
-  name: Шафа інженера Інтердайна
+  name: "Шафа інженера ІнтерДайн"
   components:
   - type: StorageFill
     contents:
@@ -133,7 +133,7 @@
 - type: entity
   parent: LockerInterdyneCommand
   id: LockerAtmosInterdyneFilled
-  name: Шафа атмоса Інтердайна
+  name: "Шафа атмос-техніка ІнтерДайн"
   components:
   - type: StorageFill
     contents:
@@ -157,7 +157,7 @@
 - type: entity
   parent: LockerInterdyne
   id: LockerShaftMinersInterdyneFilled
-  name: Шафа шахтаря Інтердайна
+  name: "Шафа шахтаря ІнтерДайн"
   components:
   - type: StorageFill
     contents:

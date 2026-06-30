@@ -8,7 +8,7 @@
 - type: entity
   parent: BaseEnchant
   id: EnchantUnslippable
-  name: Unslippable
+  name: "Неслизький"
   components:
   - type: Enchant
     incompatible:

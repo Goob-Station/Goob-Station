@@ -6,8 +6,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesSandals
-  name: sandals
-  description: A pair of simple but stylish sandals.
+  name: "босоніжки"
+  description: "Пара простих, але стильних босоніжок."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Shoes/Specific/sandals.rsi

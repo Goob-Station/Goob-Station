@@ -43,8 +43,8 @@
 - type: entity
   parent: [ClothingShoesBase, BaseToggleClothing]
   id: ClothingShoesBootsMagBase
-  name: magboots
-  description: Magnetic boots, often used during extravehicular activity to ensure the user remains safely attached to the vehicle.
+  name: "магнітні чоботи"
+  description: "Магнітні черевики, часто використовуються під час позашляхової активності, щоб гарантувати, що користувач залишається надійно прикріпленим до транспортного засобу."
   abstract: true
   components:
   - type: Sprite
@@ -93,8 +93,8 @@
 - type: entity
   parent: [ClothingShoesBootsMagBase, BaseGrandTheftContraband]
   id: ClothingShoesBootsMagAdv
-  name: advanced magboots
-  description: State-of-the-art magnetic boots that do not slow down their wearer.
+  name: "просунуті магнітні чоботи"
+  description: "Найсучасніші магнітні черевики, які не гальмують свого власника."
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Boots/magboots-advanced.rsi
@@ -129,8 +129,8 @@
 - type: entity
   parent: ClothingShoesBootsMagBase
   id: ClothingShoesBootsMagBlinding
-  name: magboots of blinding speed
-  description: These would look fetching on a fetcher like you.
+  name: "магнітні чоботи сліпучої швидкості"
+  description: "Вони виглядатимуть привабливо на такому ловеласі, як ти."
   components:
   - type: ClothingSpeedModifier
     walkModifier: 1.1 #PVS isn't too much of an issue when you are blind...
@@ -141,8 +141,8 @@
 - type: entity
   parent: [ClothingShoesBootsMagBase, BaseJetpack, BaseSyndicateContraband]
   id: ClothingShoesBootsMagSyndie
-  name: blood-red magboots
-  description: Reverse-engineered magnetic boots that have a heavy magnetic pull and integrated thrusters. It can hold 0.75 L of gas.
+  name: "криваво-червоні маг-черевики"
+  description: "Модифіковані магнітні черевики, що мають сильне магнітне тяжіння та вбудовані двигуни. Можуть вмістити 0.75 л газу."
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Boots/magboots-syndicate.rsi
@@ -170,8 +170,8 @@
 - type: entity
   parent: BaseAction
   id: ActionToggleMagboots
-  name: Toggle Magboots
-  description: Toggles the magboots on and off.
+  name: "Перемикач Magboots"
+  description: "Вмикає та вимикає магбути."
   components:
   - type: Action
     itemIconStyle: BigItem

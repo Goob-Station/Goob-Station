@@ -24,7 +24,7 @@
 - type: entity
   parent: [ BaseCartridge, BaseMajorContraband ]
   id: CartridgeAntiMateriel
-  name: cartridge (.60 anti-materiel)
+  name: "патрон (.60 протипіхотний)"
   components:
   - type: Tag
     tags:

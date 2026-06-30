@@ -7,7 +7,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: stasis bolt
+  name: "стазисний болт"
   id: BulletStasis
   parent: BaseBullet
   categories: [ HideSpawnMenu ]

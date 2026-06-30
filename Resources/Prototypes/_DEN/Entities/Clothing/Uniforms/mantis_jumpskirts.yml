@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingUniformSkirtMantis
   id: ClothingUniformSkirtMantisAiry
-  name: airy mantis robe
-  description: "A light, low-cut robe with an eye emblazoned on the back."
+  name: "легка роба Мантіса"
+  description: "Легка роба з низьким вирізом і оком, нанесеним на спині."
   components:
   - type: Sprite
     sprite: _DEN/Clothing/Uniforms/Jumpskirt/mantis_airy.rsi
@@ -13,8 +13,8 @@
 - type: entity
   parent: [ClothingUniformSkirtMantis, BaseFoldable]
   id: ClothingUniformSkirtMantisOrnate
-  name: ornate mantis robe
-  description: "A swept, low-cut robe accented with an electrum necklace. You can wear it on either side, as your outfit demands."
+  name: "оздоблена роба Мантіса"
+  description: "Широка роба з низьким вирізом, підкреслена електрумовим намистом. Її можна носити з будь-якого боку, як того вимагає ваш образ."
   components:
   - type: Sprite
     sprite: _DEN/Clothing/Uniforms/Jumpskirt/mantis_ornate.rsi

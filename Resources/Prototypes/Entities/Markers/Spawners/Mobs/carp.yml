@@ -1,7 +1,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobCarp
-  name: Space Carp Spawner
+  name: "Спавнер Космічного Коропа"
   components:
   - type: Sprite
     layers:
@@ -20,7 +20,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobCarpHolo
-  name: Holocarp Spawner
+  name: "Спавнер Голокарпа"
   components:
   - type: Sprite
     layers:
@@ -34,7 +34,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobCarpMagic
-  name: Magicarp Spawner
+  name: "Спавнер Магікарпа"
   components:
   - type: Sprite
     layers:
@@ -48,7 +48,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobShark
-  name: Space Sharkminnow Spawner
+  name: "Спавнер Космічної Акульяни"
   components:
   - type: Sprite
     layers:

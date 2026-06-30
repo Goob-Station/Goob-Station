@@ -12,8 +12,8 @@
 - type: entity
   parent: BaseItem
   id: ArmClawChangeling
-  name: hand claw
-  description: A grotesque claw made out of bone and flesh that instantly grabs anyone it hits.
+  name: "ручний кіготь"
+  description: "Гротескний кіготь із кістки та плоті, який миттєво хапає кожного, кого зачепить."
   suffix: Unremoveable
   components:
   - type: Sprite
