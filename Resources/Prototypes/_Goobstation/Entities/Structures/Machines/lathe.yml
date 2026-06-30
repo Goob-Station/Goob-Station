@@ -229,6 +229,7 @@
     - XenobioPack
     - XenobagHoldingPack
     # Einstein Engines Packs
+    - TeleportationTechnology
     - Translators
     - TranslatorImplanters
   - type: EmagLatheRecipes

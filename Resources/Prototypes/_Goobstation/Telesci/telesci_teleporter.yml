@@ -1,0 +1,125 @@
+- type: entity
+  id: MachineTelesci
+  parent: [ BaseMachinePowered, SmallConstructibleMachine ]
+  name: Teleporter
+  description: A platform for harnessing the power of bluespace
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Goobstation/Structures/Machines/teleporter.rsi
+    drawdepth: HighFloorObjects
+    layers:
+    - state: icon
+    - state: teleporter
+      #shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+  - type: Physics
+    bodyType: Static
+    canCollide: true
+  - type: AmbientSound
+    enabled: false
+    sound:
+      path: /Audio/Machines/scan_loop.ogg
+    range: 5
+    volume: -8
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.35,0.35,0.35"
+        mask:
+        - Impassable
+        - HighImpassable
+        - MidImpassable
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.35,0.35,0.35"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - Impassable
+        - MidImpassable
+        - LowImpassable
+        - BulletImpassable
+        hard: False
+  - type: Transform
+    anchored: true
+  - type: ApcPowerReceiver
+    powerLoad: 12000
+  - type: TelesciTeleporter
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: BasicDevice
+  - type: DeviceList
+  - type: DeviceLinkSink
+    ports:
+    - Input
+  - type: Machine
+    board: TelesciTeleporterMachineCircuitboard
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#b53ca1"
+  - type: GuideHelp
+    guides:
+    - Xenoarchaeology
+  - type: LitOnPowered
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+
+- type: entity
+  id: TelesciTeleporterMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: Teleport machine board
+  description: A machine printed circuit board for a Teleporter.
+  components:
+  - type: Sprite
+    state: science
+  - type: MachineBoard
+    prototype: MachineTelesci
+    stackRequirements:
+      Manipulator: 8
+      Glass: 5
+      Steel: 5
+      Cable: 5
+      Plasma: 5
+      BSCrystal: 4
+      Diamond: 4
+
+- type: latheRecipe
+  id: TelesciTeleporterMachineCircuitboard
+  result: TelesciTeleporterMachineCircuitboard
+  completetime: 5
+  materials:
+    Plasma: 100
+    Steel: 200
+    Glass: 100
+    Gold: 100
+    Silver: 100
+    Diamond: 10
+
+- type: entity
+  id: EffectTelesciTeleportation
+  categories: [ HideSpawnMenu ]
+  name: teleportation
+  components:
+  - type: Transform
+    anchored: True
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+  - type: Sprite
+    sprite: _Shitmed/Effects/teleportation.rsi
+    state: teleportation
+    scale: 0.65, 0.65
+    color: "#02BCFAff"
+  - type: TimedDespawn
+    lifetime: 0.7

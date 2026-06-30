@@ -1,0 +1,68 @@
+- type: entity
+  parent: BaseComputerAiAccess
+  id: ComputerTelescisConsole
+  name: teleportation console
+  description: A computer used to control teleportation.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: teleport
+    - map: ["computerLayerKeys"]
+      state: teleport_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: TelesciComputer
+  - type: DeviceList
+  - type: DeviceNetwork
+    deviceNetId: Wired
+  - type: DeviceLinkSource
+    range: 5
+    ports:
+    - Output
+  - type: ActivatableUI
+    key: enum.TelesciUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.TelesciUiKey.Key:
+        type: TelesciConsoleBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: ApcPowerReceiver
+    powerLoad: 1000
+  - type: Computer
+    board: TelesciComputerCircuitboard
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#b53ca1"
+  - type: GuideHelp
+    guides:
+    - Xenoarchaeology #Todo make guide
+
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: TelesciComputerCircuitboard
+  name: Teleport computer board
+  description: A computer printed circuit board for an Teleportation console.
+  components:
+  - type: Sprite
+    state: cpu_science
+  - type: ComputerBoard
+    prototype: ComputerTelescisConsole
+
+- type: latheRecipe
+  id: TelesciComputerCircuitboard
+  result: TelesciComputerCircuitboard
+  completetime: 5
+  materials:
+    Plasma: 100
+    Steel: 200
+    Glass: 200
+    Gold: 100
+    Silver: 100
+    Diamond: 10

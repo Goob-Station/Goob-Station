@@ -1,0 +1,31 @@
+
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
+                      Title="Teleportation Console"
+                      SetSize="350 110"
+                      Resizable="False">
+    <BoxContainer Orientation="Vertical" Margin="5 5 5 5" SeparationOverride="10">
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+            <Control MinSize="5 0" />
+            <Label Name="StatusOutput" Text="Teleporter not found"/>
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+            <Control MinSize="10 0" />
+            <Label Text="X"/>
+            <Control MinSize="5 0" />
+            <FloatSpinBox Name="XNodeInput" MinSize="60 0" />
+            <Control MinSize="15 0" />
+            <Label Text="Y"/>
+            <Control MinSize="5 0" />
+            <FloatSpinBox Name="YNodeInput" MinSize="60 0" />
+            <Control MinSize="5 0" />
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal" Margin="5 5 5 5" SeparationOverride="10">
+            <Button Name="SendButton" Text="Send" />
+            <Control MinSize="5 0" />
+            <Button Name="RetrieveButton" Text="Retrieve" />
+            <Control MinSize="5 0" />
+            <Button Name="PortalButton" Text="Open Portal" />
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>
