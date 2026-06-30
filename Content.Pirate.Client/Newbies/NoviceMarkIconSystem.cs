@@ -25,12 +25,13 @@ public sealed class NoviceMarkIconSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<InventoryComponent, GetStatusIconsEvent>(OnGetStatusIcons);
+        SubscribeLocalEvent<StatusIconComponent, GetStatusIconsEvent>(OnGetStatusIcons);
     }
 
-    private void OnGetStatusIcons(EntityUid uid, InventoryComponent component, ref GetStatusIconsEvent args)
+    private void OnGetStatusIcons(EntityUid uid, StatusIconComponent component, ref GetStatusIconsEvent args)
     {
-        if (!_inventory.TryGetSlotEntity(uid, NeckSlot, out var neckItem, component))
+        if (!TryComp<InventoryComponent>(uid, out var inventory) ||
+            !_inventory.TryGetSlotEntity(uid, NeckSlot, out var neckItem, inventory))
             return;
 
         if (!TryComp<MetaDataComponent>(neckItem, out var meta) ||
