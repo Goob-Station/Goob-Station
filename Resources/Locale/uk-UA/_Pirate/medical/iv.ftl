@@ -2,27 +2,22 @@ iv-drip-attach-self-injecting = Ви під'єднуєте {THE($iv)} до {$tar
 iv-drip-attach-others-injecting = {$user} під'єднує {THE($iv)} до {$target}, вводячи рідину.
 iv-drip-attach-self-drawing = Ви під'єднуєте {THE($iv)} до {$target}, забираючи кров.
 iv-drip-attach-others-drawing = {$user} під'єднує {THE($iv)} до {$target}, забираючи кров.
-
 iv-drip-detach-self = Ви від'єднуєте {THE($iv)} від {$target}.
 iv-drip-detach-others = {$user} від'єднує {THE($iv)} від {$target}.
-
 iv-drip-rip = Голку вириває з {$target}. Це мало бути боляче.
 iv-drip-now-injecting = Крапельниця тепер вводить рідину.
 iv-drip-now-taking = Крапельниця тепер забирає кров.
 iv-drip-verb-toggle-inject = Перемкнути режим введення
-
 iv-drip-examine-injecting = {CAPITALIZE(THE($iv))} вводить рідину.
 iv-drip-examine-drawing = {CAPITALIZE(THE($iv))} забирає кров.
 iv-drip-examine-chemicals = Під'єднано {$attached} з {$units} од. рідини.
 iv-drip-examine-chemicals-none = Нічого не під'єднано.
 iv-drip-examine-attached = Під'єднано до {$attached}.
 iv-drip-examine-attached-none = Ні до кого не під'єднано.
-
 iv-drip-blood-pack-cannot-self = Ви не можете під'єднати це до себе.
 iv-drip-blood-pack-poke-self = Ви проколюєте {$target} за допомогою {$pack}.
 iv-drip-blood-pack-poke-others = {$user} проколює {$target} за допомогою {$pack}.
 iv-drip-blood-pack-contains = Містить: [color=#BB0000FF]{$units} од.[/color] рідини.
-
 ent-IVDrip = крапельниця
     .desc = Дозволяє вводити кров пацієнту або забирати її для переливання.
 ent-IVBloodPack = пакет крові для крапельниці
