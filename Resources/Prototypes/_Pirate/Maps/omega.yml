@@ -34,7 +34,7 @@
   mapName: 'Омега ТП'
   mapPath: /Maps/_Pirate/omega.yml
   minPlayers: 0
-  maxPlayers: 35
+  maxPlayers: 40
   stations:
     Omega:
       stationProto: StandardNanotrasenStation
@@ -81,7 +81,7 @@
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
             SecurityOfficer: [ 4, 4 ]
-            Detective: [ 1, 1 ]
+            Detective: [ 2, 2 ]
             SecurityCadet: [ 2, 2 ]
             Lawyer: [ 1, 1 ]
             Brigmedic: [ 1, 1 ]
