@@ -1,0 +1,188 @@
+# Drugs should be paired up in Trios of "Bonus, Penalty, Category"
+
+# Lotophagoi Oil
+- type: moodEffect
+  id: LotoTranscendence
+  moodChange: 30
+  timeout: 1020 #17 minutes
+  moodletOnEnd: LotoEnthrallment
+  category: "LotophagoiAddiction"
+
+- type: moodEffect
+  id: LotoEnthrallment
+  moodChange: -30
+  timeout: 600 #10 minutes
+  category: "LotophagoiAddiction"
+
+# Nicotine
+- type: moodEffect
+  id: NicotineBenefit
+  moodChange: 5
+  timeout: 1020 #17 minutes
+  moodletOnEnd: NicotineWithdrawal
+  category: "NicotineAddiction"
+
+- type: moodEffect
+  id: NicotineWithdrawal
+  moodChange: -7 #No timeout
+  category: "NicotineAddiction"
+
+# Non-Addictive Drugs
+- type: moodEffect
+  id: EthanolBenefit
+  moodChange: 3
+  timeout: 300 #5 minutes
+
+- type: moodEffect
+  id: SpaceDrugsBenefit
+  moodChange: 7
+  timeout: 300 #5 minutes
+
+- type: moodEffect
+  id: StrongStimulant
+  moodChange: 10
+  timeout: 300 #5 minutes
+
+# Floor Juice
+- type: moodEffect
+  id: DrankBlood
+  moodChange: -10
+  timeout: 60 #1 minute
+
+- type: moodEffect
+  id: DrankBloodVampiric
+  moodChange: 10
+  timeout: 300 #5 minutes
+
+- type: moodEffect
+  id: DrankInsectBlood
+  moodChange: -10
+  timeout: 60 #1 minute
+
+- type: moodEffect
+  id: DrankVomit
+  moodChange: -10
+  timeout: 60 #1 minute
+
+- type: moodEffect
+  id: DrankZombieBlood
+  moodChange: -30
+  timeout: 600 #10 minute
+
+# Medicines
+- type: moodEffect
+  id: EpinephrineEffect
+  moodChange: -3
+  timeout: 300 #5 minutes
+
+- type: moodEffect
+  id: PsicodineEffect
+  moodChange: 8
+  timeout: 300 #5 minutes
+
+- type: moodEffect
+  id: MildPaincauser
+  moodChange: -1
+  timeout: 300 #5 minutes
+
+- type: moodEffect
+  id: StrongPaincauser
+  moodChange: -5
+  timeout: 300 #5 minutes
+
+- type: moodEffect
+  id: MildPainkiller
+  moodChange: 1
+  timeout: 300 #5 minutes
+
+- type: moodEffect
+  id: StrongPainkiller
+  moodChange: 5
+  timeout: 300 #5 minutes
+
+# Poisons
+- type: moodEffect
+  id: LacerinolEffect
+  moodChange: -20
+  timeout: 60 #1 minute
+
+- type: moodEffect
+  id: PuncturaseEffect
+  moodChange: -20
+  timeout: 60 #1 minute
+
+- type: moodEffect
+  id: BruizineEffect
+  moodChange: -20
+  timeout: 60 #1 minute
+
+- type: moodEffect
+  id: TearGasEffect
+  moodChange: -20
+  timeout: 60 #1 minute
+
+- type: moodEffect
+  id: BuzzochloricBeesEffect
+  moodChange: -20
+  timeout: 60 #1 minute
+
+- type: moodEffect
+  id: RomerolEffect
+  moodChange: -200
+  timeout: 1800 #30 minutes
+
+- type: moodEffect
+  id: PaxEffect
+  moodChange: 100
+  timeout: 60 #1 minute
+
+# Food
+- type: moodEffect
+  id: SweetenerEffect
+  moodChange: 0.5
+  timeout: 1800 #30 minutes
+
+- type: moodEffect
+  id: SpicyEffect
+  moodChange: 0.5
+  timeout: 1800 #30 minutes
+
+- type: moodEffect
+  id: OilyEffect
+  moodChange: 0.5
+  timeout: 1800 #30 minutes
+
+- type: moodEffect
+  id: SaltyEffect
+  moodChange: 0.5
+  timeout: 1800 #30 minutes
+
+- type: moodEffect
+  id: MintyEffect
+  moodChange: 0.5
+  timeout: 1800 #30 minutes
+
+- type: moodEffect
+  id: PepperEffect
+  moodChange: 0.5
+  timeout: 1800 #30 minutes
+
+- type: moodEffect
+  id: ChocolateEffect
+  moodChange: 3
+  timeout: 1800 #30 minutes
+
+- type: moodEffect
+  id: ButterEffect
+  moodChange: 4
+  timeout: 1800 #30 minutes
+
+- type: moodEffect
+  id: DeepFriedEffect
+  moodChange: 5
+  timeout: 1800 #30 minutes
+
+- type: moodEffect
+  id: TastyEffect
+  moodChange: 3
+  timeout: 1800 #30 minutes

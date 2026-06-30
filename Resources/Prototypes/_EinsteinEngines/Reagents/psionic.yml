@@ -88,12 +88,12 @@
         effectProto: StatusEffectLotophagoiOil
         time: 20
         type: Add
-      #- !type:ChemAddMoodlet PIRATE START
-      #  moodPrototype: LotoTranscendence
-      #  conditions:
-      #  - !type:ReagentThreshold
-      #    reagent: LotophagoiOil
-      #    min: 5 PIRATE END
+      - !type:ChemAddMoodlet # Pirate - port EE mood system
+        moodPrototype: LotoTranscendence
+        conditions:
+        - !type:ReagentThreshold
+          reagent: LotophagoiOil
+          min: 5
 
 - type: reagent
   id: OusianaDust

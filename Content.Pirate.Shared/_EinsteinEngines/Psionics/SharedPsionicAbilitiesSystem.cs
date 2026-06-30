@@ -1,5 +1,5 @@
 using Content.Shared.Administration.Logs;
-//using Content.Shared.Contests; PIRATE, remove then we get mood systems
+using Content.Shared._EinsteinEngines.Contests; // Pirate
 using Content.Shared.Popups;
 using Content.Shared.Psionics.Glimmer;
 using Robust.Shared.Random;
@@ -15,7 +15,7 @@ namespace Content.Shared.Abilities.Psionics
         [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
         [Dependency] private readonly IRobustRandom _robustRandom = default!;
 
-        //[Dependency] private readonly ContestsSystem _contests = default!; PIRATE, remove then we get mood systems
+        [Dependency] private readonly ContestsSystem _contests = default!; // Pirate
 
 
         public override void Initialize()
@@ -116,7 +116,7 @@ namespace Content.Shared.Abilities.Psionics
         /// </summary>
         public float ModifiedAmplification(EntityUid uid, PsionicComponent component)
         {
-            return component.CurrentAmplification /* * _contests.MoodContest(uid, true)*/; ///PIRATE, remove then we get mood systems
+            return component.CurrentAmplification * _contests.MoodContest(uid, true); // Pirate
         }
 
         /// <summary>
@@ -135,8 +135,11 @@ namespace Content.Shared.Abilities.Psionics
         ///     Returns the CurrentDampening of a given Entity, multiplied by the result of that Entity's MoodContest.
         ///     Lower mood means more Dampening, higher mood means less Dampening.
         /// </summary>
-        public float ModifiedDampening(EntityUid uid, PsionicComponent component) =>
-         component.CurrentDampening/* / _contests.MoodContest(uid, true)*/; ///PIRATE, remove then we get mood systems
+        public float ModifiedDampening(EntityUid uid, PsionicComponent component)
+        {
+            var moodContest = _contests.MoodContest(uid, true); // Pirate
+            return moodContest == 0 ? component.CurrentDampening : component.CurrentDampening / moodContest; // Pirate
+        }
     }
 
     public sealed class PsionicPowerUsedEvent : HandledEntityEventArgs

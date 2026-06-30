@@ -254,6 +254,8 @@
             Radiation: -3
           groups:
             Brute: 0.5
+      - !type:ChemAddMoodlet # Pirate - port EE mood system
+        moodPrototype: StrongPaincauser
 
 - type: reagent
   id: Bicaridine
@@ -311,6 +313,8 @@
         identifier: Suffocation
         amount: -1.2
         time: 12
+      - !type:ChemAddMoodlet # Pirate - port EE mood system
+        moodPrototype: MildPaincauser
 
 - type: reagent
   id: Cryoxadone
@@ -633,6 +637,8 @@
         identifier: Suffocation
         amount: -2.4
         time: 12
+      - !type:ChemAddMoodlet # Pirate - port EE mood system
+        moodPrototype: EpinephrineEffect
 
 - type: reagent
   id: Hyronalin
@@ -718,6 +724,8 @@
         identifier: Suffocation
         amount: 8
         time: 20
+      - !type:ChemAddMoodlet # Pirate - port EE mood system
+        moodPrototype: MildPainkiller
 
 - type: reagent
   id: Kelotane
@@ -751,6 +759,8 @@
         conditions:
         - !type:ReagentThreshold
           min: 25
+      - !type:ChemAddMoodlet # Pirate - port EE mood system
+        moodPrototype: MildPainkiller
 
 - type: reagent
   id: Leporazine
@@ -958,6 +968,11 @@
           conditions:
             - !type:ReagentThreshold
               min: 10
+        - !type:ChemRemoveMoodlet # Pirate - port EE mood system
+          moodPrototype: RomerolEffect
+          conditions:
+            - !type:ReagentThreshold
+              min: 10
 
 - type: reagent
   id: AmbuzolPlus
@@ -973,6 +988,11 @@
         - !type:CureZombieInfection
           innoculate: true
           cureCriticalZombies: true # Goob
+          conditions:
+            - !type:ReagentThreshold
+              min: 5
+        - !type:ChemRemoveMoodlet # Pirate - port EE mood system
+          moodPrototype: RomerolEffect
           conditions:
             - !type:ReagentThreshold
               min: 5
@@ -1091,6 +1111,11 @@
         effectProto: StatusEffectSeeingRainbow
         time: 15.0
         type: Remove
+      - !type:ChemPurgeMoodlets # Pirate - port EE mood system
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Synaptizine
+          min: 10
 
 - type: reagent
   id: TranexamicAcid
@@ -1138,6 +1163,8 @@
             Heat: -0.5
             Shock: -0.5
             Cold: -0.5 # Was .33, Buffed due to limb damage changes(GoobStation)
+      - !type:ChemAddMoodlet # Pirate - port EE mood system
+        moodPrototype: MildPainkiller
 
 - type: reagent
   id: Lipozine
@@ -1404,6 +1431,8 @@
         damage:
           types:
             Cold: 3
+      - !type:ChemAddMoodlet # Pirate - port EE mood system
+        moodPrototype: LacerinolEffect
 
 - type: reagent
   id: Puncturase
@@ -1431,6 +1460,8 @@
         damage:
           types:
             Blunt: 5
+      - !type:ChemAddMoodlet # Pirate - port EE mood system
+        moodPrototype: PuncturaseEffect
 
 - type: reagent
   id: Bruizine
@@ -1457,6 +1488,8 @@
         damage:
           types:
             Poison: 4
+      - !type:ChemAddMoodlet # Pirate - port EE mood system
+        moodPrototype: BruizineEffect
 
 - type: reagent
   id: Holywater
@@ -1782,6 +1815,8 @@
         - "psicodine-effect-anxieties-wash-away"
         - "psicodine-effect-at-peace"
         probability: 0.2
+      - !type:ChemAddMoodlet # Pirate - port EE mood system
+        moodPrototype: PsicodineEffect
 
 - type: reagent
   id: PotassiumIodide

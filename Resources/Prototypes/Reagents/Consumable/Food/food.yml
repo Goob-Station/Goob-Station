@@ -168,9 +168,15 @@
           reagent: Nutriment
           min: 0.1
         - !type:OrganType # Pirate
-            type: Vampiric
-            shouldHave: false # Pirate end
+          type: Vampiric
+          shouldHave: false # Pirate end
         factor: 1
+      - !type:ChemAddMoodlet # Pirate - port EE mood system
+        moodPrototype: SweetenerEffect
+        conditions: # Pirate
+        - !type:OrganType
+          type: Vampiric
+          shouldHave: false # Pirate end
   plantMetabolism:
   - !type:PlantAdjustNutrition
     amount: 0.1

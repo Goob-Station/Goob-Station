@@ -28,6 +28,7 @@ using Content.Shared.Examine;
 using Content.Shared.Eye;
 using Content.Shared.Hands;
 using Content.Shared.Inventory.Events;
+using Content.Shared.Mood;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
@@ -138,6 +139,8 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     /// </summary>
     private void OnStartCultist(Entity<CosmicCultComponent> uid, ref ComponentInit args)
     {
+        RaiseLocalEvent(uid.Owner, new MoodEffectEvent("CultFocused")); // Pirate - port EE mood system
+
         foreach (var actionId in uid.Comp.CosmicCultActions)
         {
             var actionEnt = _actions.AddAction(uid, actionId);

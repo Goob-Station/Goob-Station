@@ -41,6 +41,7 @@ using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Item;
+using Content.Shared.Mood;
 using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared._Shitmed.Body.Part;
 using Content.Shared.Popups;
@@ -652,6 +653,9 @@ public abstract partial class SharedSurgerySystem
         var painToInflict = ent.Comp.Amount;
         if (Status.HasEffectComp<ForcedSleepingStatusEffectComponent>(args.Body))
             painToInflict *= ent.Comp.SleepModifier;
+
+        if (painToInflict > 0)
+            RaiseLocalEvent(args.Body, new MoodEffectEvent("SurgeryPain")); // Pirate - port EE mood system
 
         if (!_pain.TryChangePainModifier(
                 nerveSys.Value.Owner,

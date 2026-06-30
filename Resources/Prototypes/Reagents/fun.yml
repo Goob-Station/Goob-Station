@@ -179,6 +179,8 @@
         - !type:HasTag
           invert: true
           tag: Bee
+      - !type:ChemAddMoodlet # Pirate - port EE mood system
+        moodPrototype: BuzzochloricBeesEffect
 
 - type: reagent
   id: GroundBee
@@ -249,6 +251,8 @@
       - !type:Emote
         emote: Scream
         probability: 0.3
+      - !type:ChemAddMoodlet # Pirate - port EE mood system
+        moodPrototype: LacerinolEffect
 
 - type: reagent
   id: Fresium

@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from NSV13 at b6b1e2bf2cc60455851317d8e82cca8716d9dac1",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "mood1"
+    },
+    {
+      "name": "mood2"
+    },
+    {
+      "name": "mood3"
+    },
+    {
+      "name": "mood4"
+    },
+    {
+      "name": "mood5"
+    },
+    {
+      "name": "mood6"
+    },
+    {
+      "name": "mood7"
+    },
+    {
+      "name": "mood8"
+    },
+    {
+      "name": "mood9"
+    },
+    {
+      "name": "mood_happiness_bad"
+    },
+    {
+      "name": "mood_happiness_good"
+    },
+    {
+      "name": "mood_insane",
+      "delays": [
+        [
+          0.07,
+          0.07,
+          0.07,
+          0.07,
+          0.07,
+          0.07,
+          0.07,
+          0.07,
+          0.07
+        ]
+      ]
+    }
+  ]
+}

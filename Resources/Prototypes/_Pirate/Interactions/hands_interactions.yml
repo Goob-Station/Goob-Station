@@ -15,9 +15,8 @@
       whitelist:
         components: [HumanoidAppearance]
   action:
-    !type:NoOpAction
-#    !type:MoodAction
-#    effect: BeingPet
+    !type:MoodAction
+    effect: BeingPet
   effectFailure: null
 
 - type: Interaction
@@ -32,13 +31,12 @@
       blacklist:
         components: [HumanoidAppearance]
   action:
-    !type:NoOpAction
-#    !type:ComplexAction # TODO might wanna make a multiplexer action for situations like this
-#    actions:
-#    - !type:MoodAction
-#      effect: BeingPet
-#    - !type:OnUserAction
-#      action:
-#        !type:MoodAction
-#        effect: PetAnimal
+    !type:ComplexAction
+    actions:
+    - !type:MoodAction
+      effect: BeingPet
+    - !type:OnUserAction
+      action:
+        !type:MoodAction
+        effect: PetAnimal
   effectFailure: null

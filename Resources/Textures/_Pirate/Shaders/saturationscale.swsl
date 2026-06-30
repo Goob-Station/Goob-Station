@@ -1,0 +1,12 @@
+uniform highp float saturation; // Between 0 and 2;
+uniform sampler2D SCREEN_TEXTURE;
+
+void fragment() {
+    highp vec4 color = texture(SCREEN_TEXTURE, UV);
+
+    highp float brightness = (color.r + color.g + color.b) / 3.0;
+
+    color.rgb = mix(vec3(brightness), color.rgb, saturation);
+
+    COLOR = color;
+}

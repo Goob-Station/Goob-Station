@@ -42,6 +42,7 @@ mood-effect-SpaceDrugsBenefit = Вооооо, які гарні кольори �
 mood-effect-SurgeryPain = Операція - це боляче
 mood-effect-HeirloomSecure = Моя реліквія в безпеці, а разом з нею і спогади про тих, хто був до мене.
 mood-effect-HeirloomLost = Я не можу знайти свою реліквію, як тепер минуле буде в безпеці?
+mood-effect-HeirloomNeutral = Моя реліквія десь поруч, але я все одно хвилююся за неї.
 mood-effect-PlasmamanIngestPlasma = Моє тіло омолоджується завдяки свіжій плазмі, що протікає через моє тіло.
 mood-effect-PlasmamanIngestMilk = Я відчуваю, як кальцій молока відновлює мої кістки. Це так по-молочному легко!
 mood-effect-MorphineBenefit = Морфін допомагає мені забути про турботи.

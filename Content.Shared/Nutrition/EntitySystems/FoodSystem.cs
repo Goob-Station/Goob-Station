@@ -130,6 +130,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
+using Content.Shared.Mood;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
@@ -274,6 +275,9 @@ public sealed class FoodSystem : EntitySystem
         else
         {
             _popup.PopupClient(Loc.GetString(entity.Comp.EatMessage, ("food", entity.Owner), ("flavors", flavors)), args.User, args.User);
+
+            foreach (var moodlet in entity.Comp.MoodletsOnEat) // Pirate - port EE mood system
+                RaiseLocalEvent(args.User, new MoodEffectEvent(moodlet));
 
             // log successful voluntary eating
             _adminLogger.Add(LogType.Ingestion, LogImpact.Low, $"{ToPrettyString(args.User):target} ate {ToPrettyString(entity):food}");

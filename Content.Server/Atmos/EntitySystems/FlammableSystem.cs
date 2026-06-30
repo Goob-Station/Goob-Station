@@ -145,6 +145,7 @@ using Content.Shared.Database;
 using Content.Shared.IgnitionSource;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
+using Content.Shared.Mood;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
@@ -496,6 +497,7 @@ namespace Content.Server.Atmos.EntitySystems
             flammable.OnFire = false;
             flammable.FireStacks = 0;
             flammable.FireProtectionPenetration = 0f; // Goobstation
+            RaiseLocalEvent(uid, new MoodRemoveEffectEvent("OnFire")); // Pirate - port EE mood system
 
             _ignitionSourceSystem.SetIgnited(uid, false);
 
@@ -636,12 +638,14 @@ namespace Content.Server.Atmos.EntitySystems
                 if (!flammable.OnFire)
                 {
                     _alertsSystem.ClearAlert(uid, flammable.FireAlert);
+                    RaiseLocalEvent(uid, new MoodRemoveEffectEvent("OnFire")); // Pirate - port EE mood system
                     // Goobstation - from EE at 7b0949568d07df81b298251c6fce9be4d7d03f18 (https://github.com/Simple-Station/Einstein-Engines/pull/2462)
                     RemCompDeferred<OnFireComponent>(uid);
                     continue;
                 }
 
                 _alertsSystem.ShowAlert(uid, flammable.FireAlert);
+                RaiseLocalEvent(uid, new MoodEffectEvent("OnFire")); // Pirate - port EE mood system
 
                 // goob edit - fire immunity
                 if (HasComp<FireImmunityComponent>(uid))

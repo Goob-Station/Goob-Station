@@ -134,6 +134,8 @@
       - !type:AdjustReagent
         reagent: Mitogen
         amount: 0.125 # 1.25 per 5u
+      - !type:ChemAddMoodlet # Pirate - port EE mood system
+        moodPrototype: StrongPainkiller
 
 - type: reagent
   id: Mitogen
@@ -751,6 +753,8 @@
         identifier: Suffocation
         amount: -2.4
         time: 12
+      - !type:ChemAddMoodlet # Pirate - port EE mood system
+        moodPrototype: MildPainkiller
 
 # Externally applied meds
 

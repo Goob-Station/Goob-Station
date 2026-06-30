@@ -60,3 +60,9 @@
         identifier: Suffocation
         amount: -2
         time: 12
+      - !type:ChemAddMoodlet # Pirate - port EE mood system
+        moodPrototype: MorphineBenefit
+        conditions:
+        - !type:ReagentThreshold # Doesn't cause addiction unless you use more than one syringe/pen in a sitting.
+          reagent: Morphine
+          min: 16
