@@ -105,9 +105,7 @@
   name: bio suit
   description: A suit that protects against tougher biological contamination, kitted out with additional armor.
   suffix: Security
-  parent:
-  - ClothingOuterBioGeneral
-  - BaseSecurityContraband
+  parent: [ClothingOuterBioGeneral, BaseSecurityContraband]
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Bio/security.rsi
