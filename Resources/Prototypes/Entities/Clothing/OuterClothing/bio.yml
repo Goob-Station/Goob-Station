@@ -130,7 +130,7 @@
     - Foot
     - Tail
   - type: ZombificationResistance
-    zombificationResistanceCoefficient: 0.3
+    zombificationResistanceCoefficient: 0.3 # Goobstation
 
 - type: entity
   parent: ClothingOuterBioGeneral
