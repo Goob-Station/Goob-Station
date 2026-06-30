@@ -22,8 +22,8 @@
     - prefRoles: [ XenomorphsInfestationRoundstart ]
       spawnerPrototype: SpawnPointGhostXenomorph
       min: 2
-      max: 4
-      playerRatio: 15
+      max: 6 # Goobstation - 4
+      playerRatio: 12 # Goobstation - 15
       pickPlayer: true
       mindRoles:
       - MindRoleXenomorph
