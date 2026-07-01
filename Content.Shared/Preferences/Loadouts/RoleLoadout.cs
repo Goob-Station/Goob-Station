@@ -167,6 +167,8 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
             }
         }
 
+        var explicitGroups = SelectedLoadouts.Keys.ToHashSet(); // Pirate: loadout
+
         // In some instances we might not have picked up a new group for existing data.
         foreach (var groupProto in roleProto.Groups.Concat(GlobalLoadoutGroups.Groups)) // Pirate: loadout
         {
@@ -241,7 +243,8 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
             // Technically it's possible for someone to game themselves into loadouts they shouldn't have
             // If you put invalid ones first but that's your fault for not using sensible defaults
             var pirateHasLoadoutForGroupSlot = PirateHasLoadoutForGroupSlot(group, groupProto, loadouts, profile, session, collection, protoManager); // Pirate: loadout
-            if (loadouts.Count < groupProto.MinLimit && !pirateHasLoadoutForGroupSlot) // Pirate: loadout
+            var intentionallyEmptyGroup = explicitGroups.Contains(group) && groupLoadouts.Count == 0; // Pirate: loadout
+            if (loadouts.Count < groupProto.MinLimit && !pirateHasLoadoutForGroupSlot && !intentionallyEmptyGroup) // Pirate: loadout
             {
                 //foreach (var protoId in groupProto.Loadouts)
                 foreach (var protoId in groupProto.GetAllLoadouts(protoManager).Distinct()) // Pirate - port frontier subgroups

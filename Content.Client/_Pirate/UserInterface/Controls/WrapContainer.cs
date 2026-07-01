@@ -20,6 +20,14 @@ public class WrapContainer : Container
 
     public int? SeparationOverride { get; set; }
 
+    /// <summary>Shared last-good width for rows rebuilt before their parents arrange.</summary>
+    public WidthCache? SharedWidth { get; set; }
+
+    public sealed class WidthCache
+    {
+        public float Value;
+    }
+
     private float _lastArrangeWidth;
 
     private int ActualSeparation =>
@@ -72,9 +80,10 @@ public class WrapContainer : Container
     /// until a corrective layout pass settles (which is unreliable under engine
     /// load — see UserInterfaceManager's per-frame Measure/Arrange queues).
     ///
-    /// Best heuristic: walk up the parent chain for an already-arranged
-    /// ancestor and use its <c>Size.X</c>. That's the post-stretch width, which
-    /// closely matches what we'll actually be arranged at.
+    /// Best heuristic: use the previous arranged width, then walk up the parent
+    /// chain for an already-arranged ancestor and use its <c>Size.X</c>.
+    /// That's the post-stretch width, which closely matches what we'll actually
+    /// be arranged at.
     /// </summary>
     private float ResolveWrapWidth(float availableX, float widestChild)
     {
@@ -85,6 +94,14 @@ public class WrapContainer : Container
             return hasFiniteAvailable
                 ? Math.Min(availableX, _lastArrangeWidth)
                 : _lastArrangeWidth;
+        }
+
+        // Fresh rows reuse the last real row width.
+        if (SharedWidth is { Value: > 0f } shared)
+        {
+            return hasFiniteAvailable
+                ? Math.Min(availableX, shared.Value)
+                : shared.Value;
         }
 
         for (var p = Parent; p != null; p = p.Parent)
@@ -136,6 +153,10 @@ public class WrapContainer : Container
             _lastArrangeWidth = finalSize.X;
             InvalidateMeasure();
         }
+
+        // Publish the real width for rebuilt rows.
+        if (SharedWidth != null && finalSize.X > 0f)
+            SharedWidth.Value = finalSize.X;
 
         return finalSize;
     }
