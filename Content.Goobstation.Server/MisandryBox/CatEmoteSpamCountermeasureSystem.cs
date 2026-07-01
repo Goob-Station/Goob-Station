@@ -44,7 +44,7 @@ public sealed class CatEmoteSpamCountermeasureSystem : EntitySystem
     /// Ash offenders on proc? Tell them what they should do?
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public bool DrasticMeasures = false; // Pirate edit - was true
+    public bool DrasticMeasures = true;
 
     [ViewVariables(VVAccess.ReadOnly)]
     private Dictionary<EntityUid, int> _meowTracker = [];
@@ -110,18 +110,12 @@ public sealed class CatEmoteSpamCountermeasureSystem : EntitySystem
 
     private void TryHardThresholdSmite(EntityUid uid, int count)
     {
-        if (!DrasticMeasures) // Pirate edit
-            return;
-
         if (count >= _hardEmoteThreshold)
             Smite(uid);
     }
 
     private void TrySoftThresholdSmite(EntityUid uid, int count)
     {
-        if (!DrasticMeasures) // Pirate edit
-            return;
-
         // This here has a very funny emergent possibility of getting changed FOR THE BEST mid-emote and smiting people
         var soft = GetSoftThreshold();
 
