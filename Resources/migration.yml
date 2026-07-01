@@ -323,7 +323,7 @@ WarpPointLibrary: null
 WarpPointMorgue: null
 WarpPointReporter: null
 WarpPointSingulo: null
-WashingMachine: null
+#WashingMachine: null # Pirate
 WashingMachineBroken: null
 WashingMachineFilledClothes: null
 WeaponShotgunKammererNonLethal: null
