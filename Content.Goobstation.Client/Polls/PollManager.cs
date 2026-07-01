@@ -6,6 +6,8 @@ namespace Content.Goobstation.Client.Polls;
 
 public sealed class PollManager
 {
+    private const string NotConnectedError = "not connected";
+
     [Dependency] private readonly IClientNetManager _net = default!;
 
     private readonly Dictionary<int, PollData> _activePolls = [];
@@ -61,7 +63,13 @@ public sealed class PollManager
     public void RequestActivePolls()
     {
         if (!CanSend())
+        {
+            _activePolls.Clear();
+            _seenPolls.Clear();
+            OnActivePollsUpdated?.Invoke([]);
+            OnUnseenChanged?.Invoke();
             return;
+        }
 
         var msg = new MsgRequestActivePolls();
         _net.ClientSendMessage(msg);
@@ -70,7 +78,12 @@ public sealed class PollManager
     public void RequestPollDetails(int pollId)
     {
         if (!CanSend())
+        {
+            if (_activePolls.TryGetValue(pollId, out var poll))
+                OnPollDetailsReceived?.Invoke(poll, GetPlayerVotes(pollId));
+
             return;
+        }
 
         var msg = new MsgRequestPollDetails { PollId = pollId };
         _net.ClientSendMessage(msg);
@@ -79,7 +92,10 @@ public sealed class PollManager
     public void CastVote(int pollId, int optionId)
     {
         if (!CanSend())
+        {
+            OnVoteResponse?.Invoke(false, NotConnectedError);
             return;
+        }
 
         if (!_playerVotes.ContainsKey(pollId))
             _playerVotes[pollId] = [];
@@ -108,7 +124,10 @@ public sealed class PollManager
     public void RemoveVote(int pollId, int optionId)
     {
         if (!CanSend())
+        {
+            OnVoteResponse?.Invoke(false, NotConnectedError);
             return;
+        }
 
         if (_playerVotes.TryGetValue(pollId, out var value))
             value.RemoveAll(v => v.OptionId == optionId);
