@@ -32,6 +32,7 @@ public sealed class LoadoutIconButton : Button
     private readonly Label _caption;
     private readonly TextureRect _lockOverlay;
     private bool _flashing;
+    private int _flashGeneration;
     private readonly bool _supportsColor;
 
     private readonly EntityUid? _entity;
@@ -86,7 +87,7 @@ public sealed class LoadoutIconButton : Button
         spriteRegion.AddChild(sprite);
 
         // Full name remains in the tooltip.
-        var captionText = displayName.Length > 16 ? string.Concat(displayName.AsSpan(0, 15), "...") : displayName;
+        var captionText = displayName.Length > 15 ? string.Concat(displayName.AsSpan(0, 14), "...") : displayName;
 
         // ClipText labels must stay stretched.
         _caption = new Label
@@ -168,12 +169,13 @@ public sealed class LoadoutIconButton : Button
     /// <summary>Briefly highlights the button.</summary>
     public void Flash()
     {
+        var generation = ++_flashGeneration;
         _flashing = true;
         ApplyStyle();
 
         Timer.Spawn(TimeSpan.FromSeconds(1.5), () =>
         {
-            if (Disposed)
+            if (Disposed || generation != _flashGeneration)
                 return;
 
             _flashing = false;
@@ -238,8 +240,6 @@ public sealed class LoadoutIconButton : Button
 
         if (_caption != null)
             _caption.FontColorOverride = disabled ? new Color(0.6f, 0.6f, 0.65f) : null;
-
-        InvalidateMeasure();
     }
 
     private static StyleBoxFlat CreateStyle(string backgroundColor, string borderColor, float borderThickness = 1)

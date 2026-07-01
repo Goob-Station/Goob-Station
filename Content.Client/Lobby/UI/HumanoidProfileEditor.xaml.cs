@@ -239,6 +239,7 @@ namespace Content.Client.Lobby.UI
         private string _loadoutSearchQuery = string.Empty;
         private bool _suppressLoadoutTabChange;
         private bool _loadoutPreviewReloadQueued; // Pirate: loadout
+        private int _loadoutSearchBuildGeneration;
         private bool IsLoadoutSearchActive => !string.IsNullOrWhiteSpace(_loadoutSearchQuery);
         // Last stable icon-row width, reused after rebuilds.
         private readonly PirateWrapContainer.WidthCache _loadoutWrapWidth = new();
@@ -1381,9 +1382,25 @@ namespace Content.Client.Lobby.UI
             UpdateLoadoutTabMarkers(choices);
 
             if (IsLoadoutSearchActive)
-                BuildLoadoutSearchResults(choices);
+                QueueLoadoutSearchResultsBuild();
 
             PositionLoadoutSidebar();
+        }
+
+        private void QueueLoadoutSearchResultsBuild()
+        {
+            if (!IsLoadoutSearchActive)
+                return;
+
+            var generation = ++_loadoutSearchBuildGeneration;
+            Timer.Spawn(50, () =>
+            {
+                if (Disposed || generation != _loadoutSearchBuildGeneration || !IsLoadoutSearchActive)
+                    return;
+
+                BuildLoadoutSearchResults();
+                PositionLoadoutSidebar();
+            });
         }
 
         private void QueueLoadoutPreviewReload()
@@ -1790,12 +1807,13 @@ namespace Content.Client.Lobby.UI
 
             LoadoutSlotTabs.Visible = false;
             LoadoutSearchView.Visible = true;
-            BuildLoadoutSearchResults();
+            QueueLoadoutSearchResultsBuild();
             PositionLoadoutSidebar();
         }
 
         private void ClearLoadoutSearch()
         {
+            _loadoutSearchBuildGeneration++;
             _loadoutSearchQuery = string.Empty;
             if (LoadoutSearchBar.Text.Length != 0)
                 LoadoutSearchBar.Text = string.Empty;
@@ -1811,7 +1829,7 @@ namespace Content.Client.Lobby.UI
             LoadoutSearchView.Visible = IsLoadoutSearchActive;
 
             if (IsLoadoutSearchActive)
-                BuildLoadoutSearchResults();
+                QueueLoadoutSearchResultsBuild();
 
             PositionLoadoutSidebar();
         }
@@ -1859,34 +1877,59 @@ namespace Content.Client.Lobby.UI
             if (Matches(loadoutSystem.GetName(loadout)))
                 return true;
 
-            var entity = ResolveLoadoutDisplayEntity(loadout, loadoutSystem);
-            if (entity != null && _prototypeManager.TryIndex<EntityPrototype>(entity.Value, out var proto))
+            foreach (var entity in ResolveLoadoutDisplayEntities(loadout, loadoutSystem))
             {
-                return Matches(proto.Name) || Matches(proto.Description) || Matches(proto.SetName) || Matches(proto.SetDesc);
+                if (!_prototypeManager.TryIndex<EntityPrototype>(entity, out var proto))
+                    continue;
+
+                if (Matches(proto.Name) ||
+                    Matches(proto.Description) ||
+                    Matches(proto.SetName) ||
+                    Matches(proto.SetDesc))
+                {
+                    return true;
+                }
             }
 
             return false;
         }
 
-        private EntProtoId? ResolveLoadoutDisplayEntity(LoadoutPrototype loadout, LoadoutSystem loadoutSystem)
+        private IEnumerable<EntProtoId> ResolveLoadoutDisplayEntities(LoadoutPrototype loadout, LoadoutSystem loadoutSystem)
         {
-            var entity = loadout.DummyEntity ?? loadoutSystem.GetFirstOrNull(loadout);
-            if (entity != null)
-                return entity;
+            var seen = new HashSet<EntProtoId>();
+
+            IEnumerable<EntProtoId> Yield(EntProtoId? entity)
+            {
+                if (entity != null && seen.Add(entity.Value))
+                    yield return entity.Value;
+            }
+
+            foreach (var entity in Yield(loadout.DummyEntity))
+                yield return entity;
+
+            foreach (var entity in Yield(loadoutSystem.GetFirstOrNull(loadout)))
+                yield return entity;
 
             foreach (var equipment in loadout.Equipment.Values)
-                return equipment;
+            {
+                foreach (var entity in Yield(equipment))
+                    yield return entity;
+            }
 
-            if (loadout.Inhand.Count != 0)
-                return loadout.Inhand[0];
+            foreach (var inhand in loadout.Inhand)
+            {
+                foreach (var entity in Yield(inhand))
+                    yield return entity;
+            }
 
             foreach (var storage in loadout.Storage.Values)
             {
-                if (storage.Count != 0)
-                    return storage[0];
+                foreach (var item in storage)
+                {
+                    foreach (var entity in Yield(item))
+                        yield return entity;
+                }
             }
-
-            return null;
         }
 
         // Jumps to a selected item's slot tab.
