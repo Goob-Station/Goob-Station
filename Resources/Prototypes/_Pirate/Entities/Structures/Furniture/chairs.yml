@@ -5,10 +5,9 @@
   description: It looks comfy.
   components:
   - type: Sprite
-    state: brown
-  - type: Sprite
     sprite: _Pirate/Structures/Furniture/chairs.rsi
     noRot: true
+    state: brown
 
 - type: entity
   name: gray comfy chair
@@ -17,10 +16,9 @@
   description: It looks comfy.
   components:
   - type: Sprite
-    state: gray
-  - type: Sprite
     sprite: _Pirate/Structures/Furniture/chairs.rsi
     noRot: true
+    state: gray
 
 - type: entity
   name: sand comfy chair
@@ -29,10 +27,9 @@
   description: It looks comfy.
   components:
   - type: Sprite
-    state: sand
-  - type: Sprite
     sprite: _Pirate/Structures/Furniture/chairs.rsi
     noRot: true
+    state: sand
 
 - type: entity
   name: warm comfy chair
@@ -41,7 +38,6 @@
   description: It looks comfy.
   components:
   - type: Sprite
-    state: warm
-  - type: Sprite
     sprite: _Pirate/Structures/Furniture/chairs.rsi
     noRot: true
+    state: warm
