@@ -1803,3 +1803,11 @@ Entries:
       message: Пральна машина тепер зберігається на мапах
   id: 167
   time: '2026-07-01T13:37:13.0000000+00:00'
+- author: Vareniko
+  changes:
+    - type: Add
+      message: >-
+        Дві нових музикальних композицій від групи Caravan Palace в музикальний
+        автомат, а саме: City Cook і Wonderland
+  id: 168
+  time: '2026-07-01T14:20:35.0000000+00:00'
