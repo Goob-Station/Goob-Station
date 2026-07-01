@@ -1119,7 +1119,7 @@ PoweredlightCold: PoweredLightPostSmall
 PoweredlightWarm: PoweredLightPostSmall
 AlwaysPoweredLightPostSmallSodium: PoweredLightPostSmall
 PaperDyedRed: Paper
-PaperDyedPink: Paper
+PaperDyedPink: null
 PaperDyedTan: Paper
 PosterLegitElectraTattered: null
 WoodenKegWine: null

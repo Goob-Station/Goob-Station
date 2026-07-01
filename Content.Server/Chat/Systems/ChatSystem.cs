@@ -381,11 +381,6 @@ public sealed partial class ChatSystem : SharedChatSystem
             message = message[1..];
         }
 
-        if (desiredType == InGameICChatType.Speak && HasComp<Content.Shared.Speech.Hushing.HushedComponent>(source))
-        {
-            desiredType = InGameICChatType.Whisper;
-        }
-
         var language = languageOverride ?? _language.GetLanguage(source); // Einstein Engines - Language
 
         bool shouldCapitalize = (desiredType != InGameICChatType.Emote);
@@ -443,6 +438,13 @@ public sealed partial class ChatSystem : SharedChatSystem
                 return;
             }
         }
+
+        // _Pirate Charon Epsilon - If the player is hushed, they cannot speak, and their speech is converted to a whisper.
+        if (desiredType == InGameICChatType.Speak && HasComp<Content.Shared.Speech.Hushing.HushedComponent>(source))
+        {
+            desiredType = InGameICChatType.Whisper;
+        }
+        // _Pirate end
 
         // Otherwise, send whatever type.
         switch (desiredType)
