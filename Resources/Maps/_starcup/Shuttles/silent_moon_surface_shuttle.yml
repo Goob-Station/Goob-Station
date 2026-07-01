@@ -67,7 +67,6 @@ entities:
     - type: SpreaderGrid
     - type: Shuttle
       dampingModifier: 0.25
-    - type: MiningShuttle
     - type: DockingShuttle
       destinations: []
     - type: ProtectedGrid
@@ -76,10 +75,9 @@ entities:
       gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
     - type: DeviceNetwork
-      deviceNetId: Wireless
       configurators: []
       deviceLists: []
-      transmitFrequencyId: ShuttleTimer
+      transmitFrequencyId: ArrivalsShuttleTimer
     - type: GridPathfinding
     - type: DecalGrid
       chunkCollection:
@@ -120,7 +118,16 @@ entities:
           - 0
         - volume: 2500
           immutable: True
-          moles: {}
+          moles:
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
@@ -971,4 +978,30 @@ entities:
     - type: Transform
       pos: -2.5,0.5
       parent: 1
-...
+- proto: ArrivalsShuttleTimer
+  entities:
+  - uid: 147
+    components:
+    - type: Transform
+      pos: -0.5,3.5
+      parent: 1
+- proto: AtmosDeviceFanDirectional
+  entities:
+  - uid: 148
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -0.5,-7.5
+      parent: 1
+  - uid: 149
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -1.5,-7.5
+      parent: 1
+  - uid: 150
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 0.5,-7.5
+      parent: 1

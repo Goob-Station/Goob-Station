@@ -94,6 +94,7 @@ entities:
         - 0
     - type: DynamicWeather
       scheduler: WeatherCharonEpsilon
+      stepFrequency: 180
   - uid: 2
     components:
     - type: MetaData
@@ -6866,7 +6867,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -11.5,6.5
       parent: 2
-- proto: ComputerMedicalRecords
+- proto: ComputerComms
   entities:
   - uid: 1001
     components:
@@ -6907,7 +6908,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -7.5,-2.5
       parent: 2
-- proto: ComputerComms
+- proto: ComputerStationRecords
   entities:
   - uid: 1007
     components:

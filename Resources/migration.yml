@@ -1130,12 +1130,12 @@ FloraTreeConiferDead: FloraTreeDeadPurple
 Skimmer: null
 BoxFolderClipboardEmpty: BoxFolderClipboard
 
-# when I do the orbital station - currently not working
-# AirlockExternalGlassShuttleCharonEpsilonFilled: null
-# BenchSofaCorporateLeft: null
-# BenchSofaCorporateRight: null
-# ComputerShuttleMiningGlacier: null
-# PosterLegitElectra: null
-# PosterLegitHereForYourSafetySyndie: null
-# PosterLegitSafetyReportSyndie: null
-# RandomNotebookSpawner: null
+# if we also need to do the orbital station - currently not working
+AirlockExternalGlassShuttleCharonEpsilonFilled: AirlockExternalGlassShuttleArrivals
+BenchSofaCorporateLeft: null
+BenchSofaCorporateRight: null
+ComputerShuttleMiningGlacier: null
+PosterLegitElectra: null
+PosterLegitHereForYourSafetySyndie: null
+PosterLegitSafetyReportSyndie: null
+RandomNotebookSpawner: null

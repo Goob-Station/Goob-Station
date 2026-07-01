@@ -52,7 +52,7 @@
   - BaseStationRecords
   - BaseStationSalvageJobs
 #  - BaseStationAllEventsEligible
-#  - BaseStationArrivals
+  - BaseStationArrivals
 #  - BaseStationShuttles - unwanted ATS/space wrecks
 #  - BaseStationEvacuation
 #  - BaseStationMagnet - makes no sense for planetside

@@ -86,8 +86,6 @@ entities:
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
-    - type: BecomesStation
-      id: EventSilentMoon
     - type: DecalGrid
       chunkCollection:
         version: 2
@@ -334,7 +332,16 @@ entities:
           - 0
         - volume: 2500
           immutable: True
-          moles: {}
+          moles:
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
