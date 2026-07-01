@@ -18,6 +18,7 @@ public sealed class AdminInfoSystem : EntitySystem
 {
     [Dependency] private readonly IPlayerManager _u = default!;
     [Dependency] private readonly IResourceManager _k = default!;
+    [Dependency] private readonly IClientNetManager _net = default!;
 
     public override void Initialize()
     {
@@ -45,6 +46,10 @@ public sealed class AdminInfoSystem : EntitySystem
 
     private void r(EntityEventArgs z)
     {
+        // Pirate: Do not emit startup network events while loading replays.
+        if (!_net.IsConnected)
+            return;
+
         RaiseNetworkEvent(z);
     }
 

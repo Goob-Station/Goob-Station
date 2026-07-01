@@ -219,7 +219,8 @@ public partial class TraumaSystem
 
         bool hasBrokenBones = false;
 
-        var rootPart = bodyComp.RootContainer.ContainedEntity;
+        // Pirate: Replay state application can call this before body containers are restored.
+        var rootPart = bodyComp.RootContainer?.ContainedEntity;
         if (rootPart.HasValue)
         {
             foreach (var (_, woundable) in _wound.GetAllWoundableChildren(rootPart.Value))

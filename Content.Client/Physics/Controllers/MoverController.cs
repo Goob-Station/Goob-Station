@@ -36,6 +36,7 @@ using Content.Shared.Movement.Systems;
 using Robust.Client.Physics;
 using Robust.Client.Player;
 using Robust.Shared.Configuration;
+using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
@@ -47,6 +48,7 @@ public sealed class MoverController : SharedMoverController
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly IClientNetManager _net = default!;
 
     public override void Initialize()
     {
@@ -60,7 +62,16 @@ public sealed class MoverController : SharedMoverController
         SubscribeLocalEvent<MovementRelayTargetComponent, UpdateIsPredictedEvent>(OnUpdateRelayTargetPredicted);
         SubscribeLocalEvent<PullableComponent, UpdateIsPredictedEvent>(OnUpdatePullablePredicted);
 
-        Subs.CVar(_cfg, CCVars.DefaultWalk, _ => RaiseNetworkEvent(new UpdateInputCVarsMessage()));
+        Subs.CVar(_cfg, CCVars.DefaultWalk, _ => SendInputCvars());
+    }
+
+    private void SendInputCvars()
+    {
+        // Pirate: Replay metadata applies CVars locally without a server connection.
+        if (!_net.IsConnected)
+            return;
+
+        RaiseNetworkEvent(new UpdateInputCVarsMessage());
     }
 
     private void OnUpdatePredicted(Entity<InputMoverComponent> entity, ref UpdateIsPredictedEvent args)

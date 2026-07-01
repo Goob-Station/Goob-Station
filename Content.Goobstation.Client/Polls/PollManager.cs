@@ -23,8 +23,14 @@ public sealed class PollManager
 
     public bool HasUnseenPolls => _activePolls.Values.Any(p => p.Active && !_seenPolls.Contains(p.PollId));
 
+    // Pirate: Replay clients run disconnected; do not send poll requests from replay state/UI.
+    private bool CanSend() => _net.IsConnected;
+
     public void MarkAllSeen()
     {
+        if (!CanSend())
+            return;
+
         var changed = false;
         foreach (var poll in _activePolls.Values)
         {
@@ -54,18 +60,27 @@ public sealed class PollManager
 
     public void RequestActivePolls()
     {
+        if (!CanSend())
+            return;
+
         var msg = new MsgRequestActivePolls();
         _net.ClientSendMessage(msg);
     }
 
     public void RequestPollDetails(int pollId)
     {
+        if (!CanSend())
+            return;
+
         var msg = new MsgRequestPollDetails { PollId = pollId };
         _net.ClientSendMessage(msg);
     }
 
     public void CastVote(int pollId, int optionId)
     {
+        if (!CanSend())
+            return;
+
         if (!_playerVotes.ContainsKey(pollId))
             _playerVotes[pollId] = [];
 
@@ -92,6 +107,9 @@ public sealed class PollManager
 
     public void RemoveVote(int pollId, int optionId)
     {
+        if (!CanSend())
+            return;
+
         if (_playerVotes.TryGetValue(pollId, out var value))
             value.RemoveAll(v => v.OptionId == optionId);
 
