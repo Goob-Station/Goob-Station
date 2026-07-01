@@ -3,3 +3,15 @@
   name: Caravan Palace - Lone Digger
   path:
     path: /Audio/_Pirate/Jukebox/Caravan_Palace_Lone_Digger-MONO.ogg
+
+- type: jukebox
+  id: CityCook
+  name: Caravan Palace - City Cook
+  path:
+    path: /Audio/_Pirate/Jukebox/Caravan_Palace_City_Cook-MONO.ogg
+
+- type: jukebox
+  id: Wonderland
+  name: Caravan Palace - Wonderland
+  path:
+    path: /Audio/_Pirate/Jukebox/Caravan_Palace_Wonderland-MONO.ogg

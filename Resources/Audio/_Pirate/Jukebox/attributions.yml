@@ -2,3 +2,13 @@
   license: "CC-BY-SA-3.0"
   copyright: "Lone Digger by Caravan Palace, converted to mono"
   source: "https://vimeo.com/144736865"
+
+- files: ["Caravan_Palace_City_Cook-MONO.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "City Cook by Caravan Palace, converted to mono"
+  source: "https://vimeo.com/1064365727"
+
+- files: ["Caravan_Palace_Wonderland-MONO.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Wonderland by Caravan Palace, converted to mono"
+  source: "https://vimeo.com/170745803"
