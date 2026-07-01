@@ -6,6 +6,8 @@ namespace Content.Goobstation.Client.Polls;
 
 public sealed class PollManager
 {
+    private const string NotConnectedError = "not connected";
+
     [Dependency] private readonly IClientNetManager _net = default!;
 
     private readonly Dictionary<int, PollData> _activePolls = [];
@@ -23,8 +25,14 @@ public sealed class PollManager
 
     public bool HasUnseenPolls => _activePolls.Values.Any(p => p.Active && !_seenPolls.Contains(p.PollId));
 
+    // Pirate: Replay clients run disconnected; do not send poll requests from replay state/UI.
+    private bool CanSend() => _net.IsConnected;
+
     public void MarkAllSeen()
     {
+        if (!CanSend())
+            return;
+
         var changed = false;
         foreach (var poll in _activePolls.Values)
         {
@@ -54,18 +62,41 @@ public sealed class PollManager
 
     public void RequestActivePolls()
     {
+        if (!CanSend())
+        {
+            _activePolls.Clear();
+            _seenPolls.Clear();
+            OnActivePollsUpdated?.Invoke([]);
+            OnUnseenChanged?.Invoke();
+            return;
+        }
+
         var msg = new MsgRequestActivePolls();
         _net.ClientSendMessage(msg);
     }
 
     public void RequestPollDetails(int pollId)
     {
+        if (!CanSend())
+        {
+            if (_activePolls.TryGetValue(pollId, out var poll))
+                OnPollDetailsReceived?.Invoke(poll, GetPlayerVotes(pollId));
+
+            return;
+        }
+
         var msg = new MsgRequestPollDetails { PollId = pollId };
         _net.ClientSendMessage(msg);
     }
 
     public void CastVote(int pollId, int optionId)
     {
+        if (!CanSend())
+        {
+            OnVoteResponse?.Invoke(false, NotConnectedError);
+            return;
+        }
+
         if (!_playerVotes.ContainsKey(pollId))
             _playerVotes[pollId] = [];
 
@@ -92,6 +123,12 @@ public sealed class PollManager
 
     public void RemoveVote(int pollId, int optionId)
     {
+        if (!CanSend())
+        {
+            OnVoteResponse?.Invoke(false, NotConnectedError);
+            return;
+        }
+
         if (_playerVotes.TryGetValue(pollId, out var value))
             value.RemoveAll(v => v.OptionId == optionId);
 

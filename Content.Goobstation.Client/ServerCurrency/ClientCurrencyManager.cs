@@ -14,6 +14,7 @@ namespace Content.Goobstation.Client.ServerCurrency;
 public sealed class ClientCurrencyManager : ICommonCurrencyManager, IEntityEventSubscriber, IPostInjectInit
 {
     [Dependency] private readonly IEntityManager _ent = default!;
+    [Dependency] private readonly IClientNetManager _net = default!;
     [Dependency] private readonly IPlayerManager _playMan = default!;
 
     private static int _cachedBalance = -1;
@@ -43,6 +44,10 @@ public sealed class ClientCurrencyManager : ICommonCurrencyManager, IEntityEvent
     private void OnStatusChanged(object? sender, SessionStatusEventArgs e)
     {
         if (e.NewStatus != SessionStatus.InGame)
+            return;
+
+        // Pirate: Replays run as singleplayer and have no server to answer this request.
+        if (!_net.IsConnected)
             return;
 
         var ev = new PlayerBalanceRequestEvent();
