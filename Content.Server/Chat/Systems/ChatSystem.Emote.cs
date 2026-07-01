@@ -219,10 +219,14 @@ public partial class ChatSystem
         if (!AllowedToUseEmote(uid, emote))
             return true;
 
-        if (!_pirateEmoteCooldown.TryEmote(uid)) // Pirate: emote cooldown
+        if (!_pirateEmoteCooldown.CanEmote(uid)) // Pirate: emote cooldown
             return false; // Pirate: emote cooldown
 
-        return TryInvokeEmoteEvent(uid, emote, voluntary: !forced); // Goob - emotespam
+        if (!TryInvokeEmoteEvent(uid, emote, voluntary: !forced)) // Pirate: emote cooldown
+            return false; // Pirate: emote cooldown
+
+        _pirateEmoteCooldown.CommitEmote(uid); // Pirate: emote cooldown
+        return true; // Pirate: emote cooldown
 
         static string TrimPunctuation(string textInput)
         {

@@ -21,17 +21,25 @@ public sealed class PirateEmoteCooldownSystem : EntitySystem
         Subs.CVar(_config, CCVars.PirateEmoteCooldownSeconds, value => _emoteCooldown = TimeSpan.FromSeconds(value), true);
     }
 
-    public bool TryEmote(EntityUid uid)
+    public bool CanEmote(EntityUid uid)
     {
         if (!HasComp<ActorComponent>(uid))
             return true;
 
+        if (!TryComp<PirateEmoteCooldownComponent>(uid, out var cooldown))
+            return true;
+
+        var time = _timing.CurTime;
+        return time >= cooldown.NextEmote;
+    }
+
+    public void CommitEmote(EntityUid uid)
+    {
+        if (!HasComp<ActorComponent>(uid))
+            return;
+
         var cooldown = EnsureComp<PirateEmoteCooldownComponent>(uid);
         var time = _timing.CurTime;
-        if (time < cooldown.NextEmote)
-            return false;
-
         cooldown.NextEmote = time + _emoteCooldown;
-        return true;
     }
 }
