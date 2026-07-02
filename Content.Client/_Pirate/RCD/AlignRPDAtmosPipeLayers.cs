@@ -1,5 +1,7 @@
 using Content.Client.Gameplay;
 using Content.Client.Hands.Systems;
+using Content.Client._Pirate.Plumbing;
+using Content.Shared._Pirate.Plumbing.Components;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Atmos.EntitySystems;
 using Content.Shared.Interaction;
@@ -40,6 +42,7 @@ public sealed class AlignRPDAtmosPipeLayers : PlacementMode
     private readonly SpriteSystem _spriteSystem;
     private readonly RCDSystem _rcdSystem;
     private readonly HandsSystem _handsSystem;
+    private readonly PlumbingConnectorAppearanceSystem _plumbingConnectorAppearanceSystem;
 
     private const float SearchBoxSize = 2f;
     private const float MouseDeadzoneRadius = 0.25f;
@@ -62,6 +65,7 @@ public sealed class AlignRPDAtmosPipeLayers : PlacementMode
         _spriteSystem = _entityManager.System<SpriteSystem>();
         _rcdSystem = _entityManager.System<RCDSystem>();
         _handsSystem = _entityManager.System<HandsSystem>();
+        _plumbingConnectorAppearanceSystem = _entityManager.System<PlumbingConnectorAppearanceSystem>();
 
         ValidPlaceColor = ValidPlaceColor.WithAlpha(PlaceColorBaseAlpha);
     }
@@ -117,16 +121,10 @@ public sealed class AlignRPDAtmosPipeLayers : PlacementMode
         var tileSize = mapGrid.TileSize;
         GridDistancing = tileSize;
 
-        if (pManager.CurrentPermission!.IsTile)
-        {
-            MouseCoords = new EntityCoordinates(MouseCoords.EntityId, new Vector2(CurrentTile.X + tileSize / 2,
-                CurrentTile.Y + tileSize / 2));
-        }
-        else
-        {
-            MouseCoords = new EntityCoordinates(MouseCoords.EntityId, new Vector2(CurrentTile.X + tileSize / 2 + pManager.PlacementOffset.X,
-                CurrentTile.Y + tileSize / 2 + pManager.PlacementOffset.Y));
-        }
+        var tileCenter = _mapSystem.GridTileToLocal(gridUid, mapGrid, CurrentTile.GridIndices);
+        MouseCoords = pManager.CurrentPermission!.IsTile
+            ? tileCenter
+            : tileCenter.WithPosition(tileCenter.Position + new Vector2(pManager.PlacementOffset.X, pManager.PlacementOffset.Y));
 
         var player = _playerManager.LocalSession?.AttachedEntity;
         if (player == null)
@@ -225,6 +223,14 @@ public sealed class AlignRPDAtmosPipeLayers : PlacementMode
         }
 
         pManager.CurrentTextures = textures;
+
+        if (newProto.TryGetComponent<PlumbingConnectorAppearanceComponent>(out var plumbingConnector, _entityManager.ComponentFactory) &&
+            plumbingConnector.PreviewNodeDirections != Content.Shared.Atmos.PipeDirection.None &&
+            pManager.CurrentPlacementOverlayEntity is { } overlay &&
+            _entityManager.TryGetComponent<SpriteComponent>(overlay, out var overlaySprite))
+        {
+            _plumbingConnectorAppearanceSystem.ApplyPlacementPreview(overlay, plumbingConnector, overlaySprite);
+        }
     }
 
     public override bool IsValidPosition(EntityCoordinates position)

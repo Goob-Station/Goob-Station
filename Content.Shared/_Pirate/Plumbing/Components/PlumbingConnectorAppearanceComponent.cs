@@ -1,4 +1,5 @@
 using Robust.Shared.Utility;
+using Content.Shared.Atmos;
 
 namespace Content.Shared._Pirate.Plumbing.Components;
 
@@ -26,4 +27,28 @@ public sealed partial class PlumbingConnectorAppearanceComponent : Component
     /// </summary>
     [DataField]
     public float Offset;
+
+    /// <summary>
+    ///     Local connector directions to show on client-side placement previews before server appearance data exists.
+    /// </summary>
+    [DataField]
+    public PipeDirection PreviewNodeDirections = PipeDirection.None;
+
+    /// <summary>
+    ///     Local inlet connector directions to color on placement previews.
+    /// </summary>
+    [DataField]
+    public PipeDirection PreviewInletDirections = PipeDirection.None;
+
+    /// <summary>
+    ///     Local outlet connector directions to color on placement previews.
+    /// </summary>
+    [DataField]
+    public PipeDirection PreviewOutletDirections = PipeDirection.None;
+
+    /// <summary>
+    ///     Local mixing inlet connector directions to color on placement previews.
+    /// </summary>
+    [DataField]
+    public PipeDirection PreviewMixingInletDirections = PipeDirection.None;
 }

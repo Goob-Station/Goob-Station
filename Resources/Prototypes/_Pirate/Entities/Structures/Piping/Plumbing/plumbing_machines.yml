@@ -55,6 +55,11 @@
     sprite: _Pirate/Structures/Piping/Plumbing/plumbers.rsi
     layers:
     - state: tank
+  - type: PlumbingConnectorAppearance
+    offset: 0.09375
+    previewNodeDirections: Fourway
+    previewInletDirections: North
+    previewOutletDirections: TSouth
   - type: PlumbingDevice
     updateInterval: 2
   - type: PlumbingInlet
@@ -129,6 +134,11 @@
     - outletSouth
     - outletEast
     - outletWest
+  - type: PlumbingConnectorAppearance
+    offset: 0.09375
+    previewNodeDirections: Fourway
+    previewInletDirections: North
+    previewOutletDirections: TSouth
   - type: SolutionContainerManager
     solutions:
       tank:
@@ -152,6 +162,10 @@
     sprite: _Pirate/Structures/Piping/Plumbing/plumbers.rsi
     layers:
     - state: pipe_input
+  - type: PlumbingConnectorAppearance
+    offset: 0.09375
+    previewNodeDirections: Fourway
+    previewOutletDirections: Fourway
   - type: PlumbingInput
     solutionName: input
   - type: Plungeable
@@ -215,6 +229,11 @@
     drawdepth: FloorObjects
     layers:
     - state: sink_wide
+  - type: PlumbingConnectorAppearance
+    offset: 0.09375
+    previewNodeDirections: Fourway
+    previewInletDirections: TNorth
+    previewOutletDirections: South
   - type: Rotatable
     rotateWhileAnchored: false
   - type: PlumbingDevice
@@ -293,6 +312,10 @@
     sprite: _Pirate/Structures/Piping/Plumbing/plumbers.rsi
     layers:
     - state: pipe_output
+  - type: PlumbingConnectorAppearance
+    offset: 0.09375
+    previewNodeDirections: Fourway
+    previewInletDirections: Fourway
   - type: PlumbingDevice
     updateInterval: 2
   - type: PlumbingInlet
@@ -357,6 +380,11 @@
     layers:
     - state: reaction_chamber
       map: [ "enum.PlumbingVisualLayers.Base" ]
+  - type: PlumbingConnectorAppearance
+    offset: 0.09375
+    previewNodeDirections: Longitudinal
+    previewInletDirections: North
+    previewOutletDirections: South
   - type: GenericVisualizer
     visuals:
       enum.PlumbingVisuals.Running:
@@ -439,6 +467,10 @@
     - state: smartfridge_door
       map: ["enum.StorageVisualLayers.Door"]
       shader: unshaded
+  - type: PlumbingConnectorAppearance
+    offset: 0.09375
+    previewNodeDirections: Fourway
+    previewInletDirections: Fourway
   - type: PointLight
     radius: 1.2
     energy: 3.0
@@ -530,6 +562,9 @@
     dosage: 10
   - type: PlumbingConnectorAppearance
     offset: 0.09375
+    previewNodeDirections: TNorth
+    previewInletDirections: North
+    previewMixingInletDirections: Lateral
   - type: PlumbingInlet
     solutionName: buffer
     inletNames:
@@ -599,6 +634,11 @@
     sprite: _Pirate/Structures/Piping/Plumbing/plumbers.rsi
     layers:
     - state: filter
+  - type: PlumbingConnectorAppearance
+    offset: 0.09375
+    previewNodeDirections: TWest
+    previewInletDirections: North
+    previewOutletDirections: SWBend
   - type: PlumbingDevice
     updateInterval: 2
   - type: PlumbingInlet
@@ -676,6 +716,11 @@
     sprite: _Pirate/Structures/Piping/Plumbing/plumbers.rsi
     layers:
     - state: filterF
+  - type: PlumbingConnectorAppearance
+    offset: 0.09375
+    previewNodeDirections: TWest
+    previewInletDirections: South
+    previewOutletDirections: NWBend
   - type: NodeContainer
     nodes:
       inlet:
@@ -710,6 +755,10 @@
     - state: synthesizer_overlay
       map: [ "enum.PlumbingVisualLayers.Overlay" ]
       visible: false
+  - type: PlumbingConnectorAppearance
+    offset: 0.09375
+    previewNodeDirections: TSouth
+    previewOutletDirections: TSouth
   - type: GenericVisualizer
     visuals:
       enum.PlumbingVisuals.Running:
@@ -810,6 +859,10 @@
     layers:
     - state: disposal
       map: [ "enum.PlumbingVisualLayers.Base" ]
+  - type: PlumbingConnectorAppearance
+    offset: 0.09375
+    previewNodeDirections: South
+    previewInletDirections: South
   - type: GenericVisualizer
     visuals:
       enum.PlumbingVisuals.Running:
@@ -876,6 +929,10 @@
     - map: [ "enum.SolutionContainerLayers.Fill" ]
       state: fill-1
       visible: false
+  - type: PlumbingConnectorAppearance
+    offset: 0.09375
+    previewNodeDirections: Fourway
+    previewOutletDirections: Fourway
   - type: CollideOnAnchor
   - type: Physics
     bodyType: Static

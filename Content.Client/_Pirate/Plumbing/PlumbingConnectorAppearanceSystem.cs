@@ -6,6 +6,7 @@ using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;
+using Robust.Shared.Map;
 
 namespace Content.Client._Pirate.Plumbing;
 
@@ -57,20 +58,26 @@ public sealed partial class PlumbingConnectorAppearanceSystem : EntitySystem
         if (!TryComp(uid, out SpriteComponent? sprite))
             return;
 
-        // Create one layer for each cardinal direction
-        // The layer will swap between disconnected/connected sprites based on connection state
-        // Insert at layer 0 so connectors render UNDER the plumbing machine sprite
+        EnsureConnectorLayers(uid, component, sprite);
+
+        if (component.PreviewNodeDirections != PipeDirection.None && IsPlacementPreview(uid))
+            ApplyPlacementPreview(uid, component, sprite);
+    }
+
+    private void EnsureConnectorLayers(EntityUid uid, PlumbingConnectorAppearanceComponent component, SpriteComponent sprite)
+    {
         foreach (var layerKey in _connectionLayers)
         {
+            var layerName = layerKey.ToString();
+            if (_sprite.LayerMapTryGet((uid, sprite), layerName, out _, false))
+                continue;
+
             var direction = (PipeDirection) layerKey;
             var baseOffset = GetDirectionOffset(direction, component.Offset);
 
-            // Each insertion at 0 pushes previous layers up, so we use index 0 for all operations
-            var layerName = layerKey.ToString();
             _sprite.AddBlankLayer((uid, sprite), 0);
             _sprite.LayerMapSet((uid, sprite), layerName, 0);
 
-            // Disconnected connectors are offset from center to show under big machine sprites.
             _sprite.LayerSetRsi((uid, sprite), 0, component.Disconnected.RsiPath);
             _sprite.LayerSetRsiState((uid, sprite), 0, component.Disconnected.RsiState);
             _sprite.LayerSetDirOffset((uid, sprite), 0, ToOffset(direction));
@@ -81,6 +88,31 @@ public sealed partial class PlumbingConnectorAppearanceSystem : EntitySystem
 
     private static Vector2 GetDirectionOffset(PipeDirection direction, float offset)
         => direction.ToDirection().ToVec() * offset;
+
+    public void ApplyPlacementPreview(EntityUid uid, PlumbingConnectorAppearanceComponent component, SpriteComponent sprite)
+    {
+        EnsureConnectorLayers(uid, component, sprite);
+
+        foreach (var layerKey in _connectionLayers)
+        {
+            var dir = (PipeDirection) layerKey;
+            var layerName = layerKey.ToString();
+            if (!_sprite.LayerMapTryGet((uid, sprite), layerName, out var layer, false))
+                continue;
+
+            var hasNode = component.PreviewNodeDirections.HasDirection(dir);
+            sprite[layer].Visible = hasNode;
+            if (!hasNode)
+                continue;
+
+            _sprite.LayerSetRsiState((uid, sprite), layer, component.Disconnected.RsiState);
+            _sprite.LayerSetOffset((uid, sprite), layer, GetDirectionOffset(dir, component.Offset));
+            sprite[layer].Color = GetConnectorColor(
+                component.PreviewInletDirections.HasDirection(dir),
+                component.PreviewOutletDirections.HasDirection(dir),
+                component.PreviewMixingInletDirections.HasDirection(dir));
+        }
+    }
 
     private void OnAppearanceChanged(EntityUid uid, PlumbingConnectorAppearanceComponent component, ref AppearanceChangeEvent args)
     {
@@ -101,7 +133,11 @@ public sealed partial class PlumbingConnectorAppearanceSystem : EntitySystem
         // Hide if no nodes exists somehow
         if (!_appearance.TryGetData<int>(uid, PlumbingVisuals.NodeDirections, out var nodeDirectionsInt, args.Component))
         {
-            HideAllLayers(uid, args.Sprite);
+            if (component.PreviewNodeDirections != PipeDirection.None && IsPlacementPreview(uid))
+                ApplyPlacementPreview(uid, component, args.Sprite);
+            else
+                HideAllLayers(uid, args.Sprite);
+
             return;
         }
 
@@ -257,6 +293,9 @@ public sealed partial class PlumbingConnectorAppearanceSystem : EntitySystem
                 sprite[key].Visible = false;
         }
     }
+
+    private bool IsPlacementPreview(EntityUid uid)
+        => TryComp(uid, out TransformComponent? xform) && xform.MapID == MapId.Nullspace;
 
     private static AtmosPipeLayer GetConnectedLayer(int packedData, PipeDirection direction)
     {
