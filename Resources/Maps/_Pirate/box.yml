@@ -4,8 +4,8 @@ meta:
   engineVersion: 268.1.0
   forkId: ""
   forkVersion: ""
-  time: 07/02/2026 08:38:02
-  entityCount: 30645
+  time: 07/02/2026 08:58:46
+  entityCount: 30646
 maps:
 - 1
 grids:
@@ -14466,7 +14466,7 @@ entities:
       pos: -13.5,18.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -194751.47
+      secondsUntilStateChange: -194799.48
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -15562,7 +15562,7 @@ entities:
         DoorStatus: True
         DockStatus: True
     - type: Door
-      secondsUntilStateChange: -9308.98
+      secondsUntilStateChange: -9357.002
       changeAirtight: False
       state: Opening
   - uid: 438
@@ -15895,7 +15895,7 @@ entities:
       pos: 35.5,-56.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -67753.984
+      secondsUntilStateChange: -67802.01
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -16058,7 +16058,7 @@ entities:
       pos: 0.5,0.5
       parent: 30404
     - type: Door
-      secondsUntilStateChange: -146215.33
+      secondsUntilStateChange: -146263.34
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -16392,7 +16392,7 @@ entities:
       pos: 41.5,11.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -295359.7
+      secondsUntilStateChange: -295407.72
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -17457,7 +17457,7 @@ entities:
         DoorStatus: True
         DockStatus: True
     - type: Door
-      secondsUntilStateChange: -9309.147
+      secondsUntilStateChange: -9357.169
       changeAirtight: False
       state: Opening
 - proto: AirlockShuttleSyndicate
@@ -77048,8 +77048,16 @@ entities:
   - uid: 11498
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 12.5,6.5
+      rot: 1.5707963267948966 rad
+      pos: 7.5,8.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 29592
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 10.5,3.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -81520,7 +81528,7 @@ entities:
       pos: 28.5,-5.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -233923.67
+      secondsUntilStateChange: -233971.69
       state: Opening
   - uid: 12112
     components:
