@@ -71,7 +71,7 @@ public sealed partial class ArtifactCrusherComponent : Component
     /// The material for the fragments.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public ProtoId<StackPrototype> FragmentStackProtoId = "ArtifactFragment";
+    public EntProtoId FragmentStackProtoId = "ArtifactFragment1"; // Goobstation - changed to EntProtoId
 
     /// <summary>
     /// A container used to hold fragments and gibs from crushing.
