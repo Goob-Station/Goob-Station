@@ -29,7 +29,7 @@ public sealed partial class TelesciTeleporterComponent : Component
     /// Can be null if not linked.
     /// </summary>
     [ViewVariables, AutoNetworkedField]
-    public EntityUid? Console;
+    public EntityUid? Computer;
 
     [DataField]
     public SoundSpecifier SoundSucess = new SoundCollectionSpecifier("sparks"); //TODO FIND BETTER SOUNDS
@@ -53,35 +53,18 @@ public enum TelesciUiKey
 }
 
 [Serializable, NetSerializable]
-public sealed class TelesciBoundUserInterfaceState : BoundUserInterfaceState
-{
+public sealed class TelesciBoundUserInterfaceState : BoundUserInterfaceState;
 
-    public TelesciBoundUserInterfaceState()
-    {
-    }
+[Serializable, NetSerializable]
+public sealed class TelesciSendMessage(Vector2 coordinates) : BoundUserInterfaceMessage
+{
+    public Vector2 Coordinates = coordinates;
 }
 
 [Serializable, NetSerializable]
-public sealed class TelesciSendMessage : BoundUserInterfaceMessage
+public sealed class TelesciRetrieveMessage(Vector2 coordinates) : BoundUserInterfaceMessage
 {
-    public Vector2 Cordinates { get; }
-
-    public TelesciSendMessage(Vector2 cordinates)
-    {
-        Cordinates = cordinates;
-    }
-}
-
-[Serializable, NetSerializable]
-public sealed class TelesciRetriveMessage : BoundUserInterfaceMessage
-
-{
-    public Vector2 Cordinates { get; }
-
-    public TelesciRetriveMessage(Vector2 cordinates)
-    {
-        Cordinates = cordinates;
-    }
+    public Vector2 Coordinates = coordinates;
 }
 
 [Serializable, NetSerializable]
@@ -91,33 +74,19 @@ public sealed class TelesciOpenPortaleMessage : BoundUserInterfaceMessage;
 public sealed class TelesciScanMessage : BoundUserInterfaceMessage;
 
 [Serializable, NetSerializable]
-public sealed class TelesciSendEvent : EventArgs
+public sealed class TelesciSendEvent(Vector2 coordinates) : EventArgs
 {
-    public Vector2 Cordinates { get; }
-
-    public TelesciSendEvent(Vector2 cordinates)
-    {
-        Cordinates = cordinates;
-    }
+    public Vector2 Coordinates = coordinates;
 }
 
 [Serializable, NetSerializable]
-public sealed class TelesciRetriveEvent : EventArgs
+public sealed class TelesciRetrieveEvent(Vector2 coordinates) : EventArgs
 {
-    public Vector2 Cordinates { get; }
-
-    public TelesciRetriveEvent(Vector2 cordinates)
-    {
-        Cordinates = cordinates;
-    }
+    public Vector2 Coordinates = coordinates;
 }
 
 [Serializable, NetSerializable]
-public sealed class TelesciCooldowneEvent : EventArgs
+public sealed class TelesciCooldowneEvent(TimeSpan time) : EventArgs
 {
-    public TimeSpan Cooldown { get; }
-    public TelesciCooldowneEvent(TimeSpan time)
-    {
-        Cooldown = time;
-    }
+    public TimeSpan Cooldown = time;
 }

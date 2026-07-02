@@ -13,7 +13,6 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Teleportation.Systems;
 
-
 public sealed class TelesciTeleporterSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _time = default!;
@@ -25,28 +24,27 @@ public sealed class TelesciTeleporterSystem : EntitySystem
     [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
 
-
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<TelesciTeleporterComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<TelesciTeleporterComponent, TelesciSendEvent>(OnSendEvent);
-        SubscribeLocalEvent<TelesciTeleporterComponent, TelesciRetriveEvent>(OnRetriveEvent);
+        SubscribeLocalEvent<TelesciTeleporterComponent, TelesciRetrieveEvent>(OnRetriveEvent);
     }
 
-    private void OnMapInit(Entity<TelesciTeleporterComponent> ent,  ref MapInitEvent arg)
+    private void OnMapInit(Entity<TelesciTeleporterComponent> ent, ref MapInitEvent arg)
     {
         if (!TryComp<DeviceLinkSinkComponent>(ent, out var sink))
             return;
 
         foreach (var source in sink.LinkedSources)
         {
-            if (!TryComp<TelesciComputerComponent>(source, out var telesciComputer))
+            if (!TryComp<TelesciComputerComponent>(source, out var computer))
                 continue;
 
-            telesciComputer.TeleporterEntity = GetNetEntity(ent);
-            ent.Comp.Console = source;
-            Dirty(source, telesciComputer);
+            computer.TeleporterEntity = GetNetEntity(ent);
+            ent.Comp.Computer = source;
+            Dirty(source, computer);
             Dirty(ent);
             break;
         }
@@ -63,16 +61,16 @@ public sealed class TelesciTeleporterSystem : EntitySystem
         StartCooldown(ent);
 
         var cords = _xform.GetMapCoordinates(ent);
-        var newCords = ScrambleVector(ent, arg.Cordinates);
+        var newCords = ScrambleVector(ent, arg.Coordinates);
 
         if (Vector2.Distance(cords.Position, newCords) > ent.Comp.TeleportMaxDistance)
-            return; // to far away
+            return;
 
-        Teleport(ent ,cords.Position, newCords);
+        Teleport(ent,cords.Position, newCords);
         Dirty(ent);
     }
 
-    private void OnRetriveEvent(Entity<TelesciTeleporterComponent> ent, ref TelesciRetriveEvent arg)
+    private void OnRetriveEvent(Entity<TelesciTeleporterComponent> ent, ref TelesciRetrieveEvent arg)
     {
         if (!_power.IsPowered(ent.Owner))
             return;
@@ -82,13 +80,13 @@ public sealed class TelesciTeleporterSystem : EntitySystem
 
         StartCooldown(ent);
 
-        var cords = _xform.GetMapCoordinates(ent);
-        var newCords = ScrambleVector(ent, arg.Cordinates);
+        var coords = _xform.GetMapCoordinates(ent);
+        var newCoords = ScrambleVector(ent, arg.Coordinates);
 
-        if (Vector2.Distance(cords.Position, newCords) > ent.Comp.TeleportMaxDistance)
+        if (Vector2.Distance(coords.Position, newCoords) > ent.Comp.TeleportMaxDistance)
             return;
 
-        Teleport(ent ,newCords, cords.Position );
+        Teleport(ent,newCoords, coords.Position );
         Dirty(ent);
     }
 
@@ -100,7 +98,7 @@ public sealed class TelesciTeleporterSystem : EntitySystem
             ent.Comp.TeleportSize,
             LookupFlags.Uncontained);
 
-        if (entitiesToTeleport.Count < 1 )
+        if (entitiesToTeleport.Count < 1)
             return;
 
         var list = new List<EntityUid>();
@@ -115,31 +113,31 @@ public sealed class TelesciTeleporterSystem : EntitySystem
             list.Add(n);
         }
 
-        if (list.Count > 1) // Chance of Failure if more than one item
+        if (list.Count > 1) // Chance of Failure if more than one item //TODO this is shit change it
         {
             var random = _random.Next(0, 100); // low is bad
 
             if (random == 0) // automatic Failure
             {
-                TeleportFaliure(ent,target,list);
+                TeleportFailure(ent, target, list);
                 return;
             }
 
             if (random == 99) // Automatic Success
             {
-                TeleportSuccess(ent,target,list);
+                TeleportSuccess(ent, target, list);
                 return;
             }
 
             var probability = list.Count * ent.Comp.TeleportFaliureMultiplyer;
 
-            if(random < probability)
-                TeleportFaliure(ent,target,list);
+            if (random < probability)
+                TeleportFailure(ent, target, list);
             else
-                TeleportSuccess(ent,target,list);
+                TeleportSuccess(ent, target, list);
         }
         else
-            TeleportSuccess(ent,target,list);
+            TeleportSuccess(ent, target, list);
     }
 
     private void TeleportSuccess(Entity<TelesciTeleporterComponent> ent, Vector2 target, List<EntityUid> entitiesToTeleport)
@@ -159,25 +157,25 @@ public sealed class TelesciTeleporterSystem : EntitySystem
         _audio.PlayPvs(ent.Comp.SoundSucess, Transform(entitiesToTeleport[thisOne]).Coordinates);
     }
 
-    private void TeleportFaliure(Entity<TelesciTeleporterComponent> ent, Vector2 target, List<EntityUid> entitiesToTeleport)
+    private void TeleportFailure(Entity<TelesciTeleporterComponent> ent, Vector2 target, List<EntityUid> entitiesToTeleport)
     {
-        switch (_random.Next(0, 100))
+        switch (_random.Next(0, 100))  // TODO MOVE THIS TO YAML SOMEHOW
         {
             case <25: // one goliath
-                SpawnAttachedTo("EffectTelesciTeleportation", Transform(ent).Coordinates);
+                PredictedSpawnAtPosition("EffectTelesciTeleportation", Transform(ent).Coordinates);
                 _audio.PlayPvs(ent.Comp.SoundFaliure, Transform(ent).Coordinates);
                 SpawnAtPosition("MobLavalandGoliath", Transform(ent).Coordinates);
                 break;
 
             case <50: // a random number of carps
-                var carpAmmount = Math.Min(_random.Next(1, entitiesToTeleport.Count),10); // max 10 carps
+                var carpAmount = Math.Min(_random.Next(1, entitiesToTeleport.Count), 10); // max 10 carps
 
-                SpawnAttachedTo("EffectTelesciTeleportation", Transform(ent).Coordinates);
+                PredictedSpawnAtPosition("EffectTelesciTeleportation", Transform(ent).Coordinates);
                 _audio.PlayPvs(ent.Comp.SoundFaliure, Transform(ent).Coordinates);
 
-                for(int i = 0; i < carpAmmount; i++)
+                for (int i = 0; i < carpAmount; i++)
                 {
-                    var carp = SpawnAtPosition("MobCarpHolo", Transform(ent).Coordinates);
+                    var carp = PredictedSpawnAtPosition("MobCarpHolo", Transform(ent).Coordinates);
                     var despawn = EnsureComp<TimedDespawnComponent>(carp);
                     despawn.Lifetime = 60; // despawns after one minute
                 }
@@ -187,9 +185,9 @@ public sealed class TelesciTeleporterSystem : EntitySystem
                 SpawnAttachedTo("EffectTelesciTeleportation", Transform(ent).Coordinates);
                 foreach (var gib in entitiesToTeleport)
                 {
-                    if(HasComp<MobStateComponent>(gib))
+                    if (HasComp<MobStateComponent>(gib))
                     {
-                        SpawnAttachedTo("EffectTelesciTeleportation", Transform(gib).Coordinates);
+                        PredictedSpawnAtPosition("EffectTelesciTeleportation", Transform(gib).Coordinates);
                         _body.GibBody(gib);
                     }
                 }
@@ -210,22 +208,21 @@ public sealed class TelesciTeleporterSystem : EntitySystem
         return !ev.Cancelled;
     }
 
-    private Vector2 ScrambleVector(Entity<TelesciTeleporterComponent> ent,Vector2 input)
+    private Vector2 ScrambleVector(Entity<TelesciTeleporterComponent> ent, Vector2 input)
     {
-        var cords = _xform.GetMapCoordinates(ent);
+        var coords = _xform.GetMapCoordinates(ent);
 
-       return cords.Offset(input).Position;
+       return coords.Offset(input).Position;
     }
 
     private void StartCooldown(Entity<TelesciTeleporterComponent> ent)
     {
         ent.Comp.Cooldown = _time.CurTime + ent.Comp.CooldownInterval;
 
-        if(ent.Comp.Console==null)
+        if (ent.Comp.Computer == null)
             return;
 
         Dirty(ent);
-        var ev = new TelesciCooldowneEvent(ent.Comp.Cooldown);
-        RaiseLocalEvent(ent.Comp.Console.Value, ev);
+        RaiseLocalEvent(ent.Comp.Computer.Value, new TelesciCooldowneEvent(ent.Comp.Cooldown));
     }
 }

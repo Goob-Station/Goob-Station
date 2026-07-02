@@ -228,8 +228,8 @@
     - Genetics
     - XenobioPack
     - XenobagHoldingPack
+    - TeleportationTechnology # Goobstation - Telescience
     # Einstein Engines Packs
-    - TeleportationTechnology
     - Translators
     - TranslatorImplanters
   - type: EmagLatheRecipes

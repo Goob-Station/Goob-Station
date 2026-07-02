@@ -4,9 +4,6 @@ using Content.Goobstation.Shared.Teleportation.Components;
 
 namespace Content.Goobstation.Client.Teleport.Ui;
 
-/// <summary>
-/// This handles...
-/// </summary>
 public sealed class TelesciConsoleBoundUserInterface : BoundUserInterface
 {
     [Dependency] private readonly IEntityManager _entMan = default!;
@@ -49,9 +46,8 @@ public sealed class TelesciConsoleBoundUserInterface : BoundUserInterface
         =>  SendMessage(new TelesciSendMessage(location));
 
     private void RetrieveButtonPresed(Vector2 location)
-        =>  SendMessage(new TelesciRetriveMessage(location));
+        =>  SendMessage(new TelesciRetrieveMessage(location));
 
     public void Update(Entity<TelesciComputerComponent> ent)
         =>   _window?.Update(ent);
-
 }

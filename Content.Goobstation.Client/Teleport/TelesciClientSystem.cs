@@ -4,9 +4,6 @@ using Content.Shared.Xenoarchaeology.Equipment.Components;
 
 namespace Content.Goobstation.Client.Teleport;
 
-/// <summary>
-/// This handles...
-/// </summary>
 public sealed class TelesciClientSystem : EntitySystem
 {
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
@@ -14,26 +11,25 @@ public sealed class TelesciClientSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<TelesciComputerComponent,AfterAutoHandleStateEvent>(OnComputerAfterAutoHandleState);
-        SubscribeLocalEvent<TelesciTeleporterComponent,AfterAutoHandleStateEvent>(OnTeleportAfterAutoHandleState);
+        SubscribeLocalEvent<TelesciComputerComponent, AfterAutoHandleStateEvent>(OnComputerAfterAutoHandleState);
+        SubscribeLocalEvent<TelesciTeleporterComponent, AfterAutoHandleStateEvent>(OnTeleportAfterAutoHandleState);
     }
 
-    private void OnComputerAfterAutoHandleState(Entity<TelesciComputerComponent> ent,ref  AfterAutoHandleStateEvent arg)
+    private void OnComputerAfterAutoHandleState(Entity<TelesciComputerComponent> ent, ref  AfterAutoHandleStateEvent arg)
     {
         if (_ui.TryGetOpenUi<TelesciConsoleBoundUserInterface>(ent.Owner, TelesciUiKey.Key, out var bui))
             bui.Update(ent);
     }
 
-    private void OnTeleportAfterAutoHandleState(Entity<TelesciTeleporterComponent> ent,ref  AfterAutoHandleStateEvent arg)
+    private void OnTeleportAfterAutoHandleState(Entity<TelesciTeleporterComponent> ent, ref  AfterAutoHandleStateEvent arg)
     {
-        if (ent.Comp.Console == null)
+        if (ent.Comp.Computer == null)
             return;
 
-        if (!TryComp<TelesciComputerComponent>(ent.Comp.Console.Value, out var computer))
+        if (!TryComp<TelesciComputerComponent>(ent.Comp.Computer.Value, out var computer))
             return;
 
-        if (_ui.TryGetOpenUi<TelesciConsoleBoundUserInterface>(ent.Comp.Console.Value, TelesciUiKey.Key, out var bui))
-            bui.Update( (ent.Comp.Console.Value, computer) );
+        if (_ui.TryGetOpenUi<TelesciConsoleBoundUserInterface>(ent.Comp.Computer.Value, TelesciUiKey.Key, out var bui))
+            bui.Update((ent.Comp.Computer.Value, computer));
     }
-
 }

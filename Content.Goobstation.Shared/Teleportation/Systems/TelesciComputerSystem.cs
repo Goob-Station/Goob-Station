@@ -3,7 +3,6 @@ using Content.Shared.DeviceLinking.Events;
 
 namespace Content.Goobstation.Shared.Teleportation.Systems;
 
-
 public sealed class TelesciComputerSystem : EntitySystem
 {
     public override void Initialize()
@@ -12,20 +11,20 @@ public sealed class TelesciComputerSystem : EntitySystem
         SubscribeLocalEvent<TelesciComputerComponent, NewLinkEvent>(OnNewLink);
         SubscribeLocalEvent<TelesciComputerComponent, PortDisconnectedEvent>(OnPortDisconnected);
 
-        SubscribeLocalEvent<TelesciComputerComponent,TelesciSendMessage>(OnSendMessage);
-        SubscribeLocalEvent<TelesciComputerComponent,TelesciRetriveMessage>(OnRetriveMessage);
-        SubscribeLocalEvent<TelesciComputerComponent,TelesciCooldowneEvent>(OnCooldownEvent);
+        SubscribeLocalEvent<TelesciComputerComponent, TelesciSendMessage>(OnSendMessage);
+        SubscribeLocalEvent<TelesciComputerComponent, TelesciRetrieveMessage>(OnRetrieveMessage);
+        SubscribeLocalEvent<TelesciComputerComponent, TelesciCooldowneEvent>(OnCooldownEvent);
     }
 
 
     private void OnNewLink(Entity<TelesciComputerComponent> ent, ref NewLinkEvent arg)
     {
-        if (!TryComp<TelesciTeleporterComponent>(arg.Sink, out var teleporter))
+        if (!TryComp<TelesciTeleporterComponent>(arg.Sink, out var telepad))
             return;
 
         ent.Comp.TeleporterEntity = GetNetEntity(arg.Sink);
-        teleporter.Console = ent;
-        Dirty(arg.Sink, teleporter);
+        telepad.Computer = ent;
+        Dirty(arg.Sink, telepad);
         Dirty(ent);
     }
 
@@ -36,41 +35,41 @@ public sealed class TelesciComputerSystem : EntitySystem
             return;
 
         var teleporterEntityUid = GetEntity(teleporterNetEntity);
-        if (TryComp<TelesciTeleporterComponent>(teleporterEntityUid, out var telerport))
+        if (TryComp<TelesciTeleporterComponent>(teleporterEntityUid, out var telepad))
         {
-            telerport.Console = null;
-            Dirty(teleporterEntityUid.Value, telerport);
+            telepad.Computer = null;
+            Dirty(teleporterEntityUid.Value, telepad);
         }
 
         ent.Comp.TeleporterEntity = null;
         Dirty(ent);
     }
 
-    private void OnSendMessage(Entity<TelesciComputerComponent> ent,ref  TelesciSendMessage arg)
+    private void OnSendMessage(Entity<TelesciComputerComponent> ent, ref  TelesciSendMessage arg)
     {
         var teleporter = GetEntity(ent.Comp.TeleporterEntity);
-        if( teleporter == null)
+        if (teleporter == null)
             return;
 
-        ent.Comp.X = arg.Cordinates.X;
-        ent.Comp.Y = arg.Cordinates.Y;
+        ent.Comp.X = arg.Coordinates.X;
+        ent.Comp.Y = arg.Coordinates.Y;
         Dirty(ent);
 
-        var ev = new TelesciSendEvent(arg.Cordinates);
+        var ev = new TelesciSendEvent(arg.Coordinates);
         RaiseLocalEvent(teleporter.Value, ev);
     }
 
-    private void OnRetriveMessage(Entity<TelesciComputerComponent> ent, ref TelesciRetriveMessage arg)
+    private void OnRetrieveMessage(Entity<TelesciComputerComponent> ent, ref TelesciRetrieveMessage arg)
     {
         var teleporter = GetEntity(ent.Comp.TeleporterEntity);
-        if( teleporter == null)
+        if (teleporter == null)
             return;
 
-        ent.Comp.X = arg.Cordinates.X;
-        ent.Comp.Y = arg.Cordinates.Y;
+        ent.Comp.X = arg.Coordinates.X;
+        ent.Comp.Y = arg.Coordinates.Y;
         Dirty(ent);
 
-        var ev = new TelesciRetriveEvent(arg.Cordinates);
+        var ev = new TelesciRetrieveEvent(arg.Coordinates);
         RaiseLocalEvent(teleporter.Value, ev);
     }
 
@@ -79,5 +78,4 @@ public sealed class TelesciComputerSystem : EntitySystem
         ent.Comp.CooldownTime = arg.Cooldown;
         Dirty(ent);
     }
-
 }

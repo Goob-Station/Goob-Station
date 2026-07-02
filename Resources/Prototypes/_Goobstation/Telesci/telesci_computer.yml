@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseComputerAiAccess
   id: ComputerTelescisConsole
-  name: teleportation console
+  name: telepad control console
   description: A computer used to control teleportation.
   components:
   - type: Sprite
@@ -47,7 +47,7 @@
 - type: entity
   parent: BaseComputerCircuitboard
   id: TelesciComputerCircuitboard
-  name: Teleport computer board
+  name: telepad computer board
   description: A computer printed circuit board for an Teleportation console.
   components:
   - type: Sprite
@@ -62,7 +62,5 @@
   materials:
     Plasma: 100
     Steel: 200
-    Glass: 200
-    Gold: 100
     Silver: 100
     Diamond: 10
