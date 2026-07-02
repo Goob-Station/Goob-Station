@@ -183,7 +183,8 @@ namespace Content.Client.Chemistry.UI
             // Ensure the Panel Info is updated, including UI elements for Buffer Volume, Output Container and so on
             UpdatePanelInfo(castState);
 
-            switch (castState.DrawSource) // Pirate: chem plumbing
+            #region Pirate: chem plumbing
+            switch (castState.DrawSource)
             {
                 case ChemMasterDrawSource.Internal:
                     SetOutputSourceText(castState.BufferCurrentVolume, "chem-master-window-buffer-text");
@@ -192,6 +193,7 @@ namespace Content.Client.Chemistry.UI
                     SetOutputSourceText(castState.InputContainerInfo?.CurrentVolume, "chem-master-window-container-label");
                     break;
             }
+            #endregion
 
             InputEjectButton.Disabled = castState.InputContainerInfo is null;
             OutputEjectButton.Disabled = castState.OutputContainerInfo is null;
@@ -210,14 +212,16 @@ namespace Content.Client.Chemistry.UI
             var holdsReagents = output?.Reagents != null;
             var pillNumberMax = holdsReagents ? 0 : remainingCapacity;
             var bottleAmountMax = holdsReagents ? remainingCapacity : 0;
-            var outputVolume = castState.DrawSource switch // Pirate: chem plumbing
+            #region Pirate: chem plumbing
+            var outputVolume = castState.DrawSource switch
             {
                 ChemMasterDrawSource.Internal => castState.BufferCurrentVolume?.Int() ?? 0,
                 ChemMasterDrawSource.External => castState.InputContainerInfo?.CurrentVolume.Int() ?? 0,
                 _ => 0,
             };
+            #endregion
 
-            PillDosage.Value = (int)Math.Min(outputVolume, castState.PillDosageLimit);
+            PillDosage.Value = (int)Math.Min(outputVolume, castState.PillDosageLimit); // Pirate: chem plumbing
 
             PillTypeButtons[castState.SelectedPillType].Pressed = true;
 
@@ -233,14 +237,14 @@ namespace Content.Client.Chemistry.UI
             // Avoid division by zero
             if (PillDosage.Value > 0)
             {
-                PillNumber.Value = Math.Min(outputVolume / PillDosage.Value, pillNumberMax);
+                PillNumber.Value = Math.Min(outputVolume / PillDosage.Value, pillNumberMax); // Pirate: chem plumbing
             }
             else
             {
                 PillNumber.Value = 0;
             }
 
-            BottleDosage.Value = Math.Min(bottleAmountMax, outputVolume);
+            BottleDosage.Value = Math.Min(bottleAmountMax, outputVolume); // Pirate: chem plumbing
         }
         /// <summary>
         /// Generate a product label based on reagents in the buffer.
@@ -248,17 +252,19 @@ namespace Content.Client.Chemistry.UI
         /// <param name="state">State data sent by the server.</param>
         private string GenerateLabel(ChemMasterBoundUserInterfaceState state)
         {
-            IEnumerable<ReagentQuantity> reagents = state.DrawSource switch // Pirate: chem plumbing
+            #region Pirate: chem plumbing
+            IEnumerable<ReagentQuantity> reagents = state.DrawSource switch
             {
                 ChemMasterDrawSource.Internal => state.BufferReagents,
                 ChemMasterDrawSource.External => state.InputContainerInfo?.Reagents ?? Enumerable.Empty<ReagentQuantity>(),
                 _ => Enumerable.Empty<ReagentQuantity>(),
             };
+            #endregion
 
-            if (!reagents.Any())
+            if (!reagents.Any()) // Pirate: chem plumbing
                 return "";
 
-            var reagent = reagents.OrderBy(r => r.Quantity).First().Reagent;
+            var reagent = reagents.OrderBy(r => r.Quantity).First().Reagent; // Pirate: chem plumbing
             _prototypeManager.TryIndex(reagent.Prototype, out ReagentPrototype? proto);
             return proto?.LocalizedName ?? "";
         }
@@ -472,6 +478,7 @@ namespace Content.Client.Chemistry.UI
             set => LabelLineEdit.Text = value;
         }
 
+        #region Pirate: chem plumbing
         private void SetOutputSourceText(FixedPoint2? volume, string sourceLoc)
         {
             DrawSource.Text = $"{Loc.GetString(sourceLoc)}:";
@@ -482,6 +489,7 @@ namespace Content.Client.Chemistry.UI
         {
             return $"{Loc.GetString("gas-canister-window-valve-label")} {Loc.GetString(open ? "gas-canister-window-valve-open-text" : "gas-canister-window-valve-closed-text")}";
         }
+        #endregion
     }
 
     public sealed class ReagentButton : Button

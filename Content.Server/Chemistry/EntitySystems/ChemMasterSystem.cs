@@ -118,15 +118,17 @@ namespace Content.Server.Chemistry.EntitySystems
 
             var state = new ChemMasterBoundUserInterfaceState(
                 chemMaster.Mode, chemMaster.SortingType, BuildInputContainerInfo(inputContainer), BuildOutputContainerInfo(outputContainer),
-                bufferReagents, bufferCurrentVolume, chemMaster.PillType, chemMaster.PillDosageLimit, updateLabel, drawSource, valveOpen);
+                bufferReagents, bufferCurrentVolume, chemMaster.PillType, chemMaster.PillDosageLimit, updateLabel, drawSource, valveOpen); // Pirate: chem plumbing
 
             _userInterfaceSystem.SetUiState(owner, ChemMasterUiKey.Key, state);
         }
 
+        #region Pirate: chem plumbing
         private void OnComponentShutdown(Entity<ChemMasterComponent> ent, ref ComponentShutdown args)
         {
             _drawSources.Remove(ent.Owner);
         }
+        #endregion
 
         private void OnSetModeMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterSetModeMessage message)
         {
@@ -181,6 +183,7 @@ namespace Content.Server.Chemistry.EntitySystems
             ClickSound(chemMaster);
         }
 
+        #region Pirate: chem plumbing
         private void OnSetDrawSourceMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterOutputDrawSourceMessage message)
         {
             if (!Enum.IsDefined(typeof(ChemMasterDrawSource), message.DrawSource))
@@ -190,6 +193,7 @@ namespace Content.Server.Chemistry.EntitySystems
             UpdateUiState(chemMaster);
             ClickSound(chemMaster);
         }
+        #endregion
 
         private void TransferReagents(Entity<ChemMasterComponent> chemMaster, ReagentId id, FixedPoint2 amount, bool fromBuffer, EntityUid? actor = null) // goob - logging
         {
@@ -335,19 +339,20 @@ namespace Content.Server.Chemistry.EntitySystems
             ClickSound(chemMaster);
         }
 
-        private bool WithdrawFromSource(
+        private bool WithdrawFromSource( // Pirate: chem plumbing
             Entity<ChemMasterComponent> chemMaster,
             FixedPoint2 neededVolume, EntityUid? user,
             [NotNullWhen(returnValue: true)] out Solution? outputSolution)
         {
             outputSolution = null;
 
+            #region Pirate: chem plumbing
             Solution? solution;
             Entity<SolutionComponent>? solutionEnt = null;
             var emptyMessage = "chem-master-window-buffer-empty-text";
             var lowMessage = "chem-master-window-buffer-low-text";
 
-            switch (GetDrawSource(chemMaster.Owner)) // Pirate: chem plumbing
+            switch (GetDrawSource(chemMaster.Owner))
             {
                 case ChemMasterDrawSource.Internal:
                     if (!_solutionContainerSystem.TryGetSolution(chemMaster.Owner, SharedChemMaster.BufferSolutionName, out _, out solution))
@@ -368,24 +373,27 @@ namespace Content.Server.Chemistry.EntitySystems
                 default:
                     return false;
             }
+            #endregion
 
             if (solution.Volume == 0)
             {
                 if (user.HasValue)
-                    _popupSystem.PopupCursor(Loc.GetString(emptyMessage), user.Value);
+                    _popupSystem.PopupCursor(Loc.GetString(emptyMessage), user.Value); // Pirate: chem plumbing
                 return false;
             }
 
             if (neededVolume > solution.Volume)
             {
                 if (user.HasValue)
-                    _popupSystem.PopupCursor(Loc.GetString(lowMessage), user.Value);
+                    _popupSystem.PopupCursor(Loc.GetString(lowMessage), user.Value); // Pirate: chem plumbing
                 return false;
             }
 
             outputSolution = solution.SplitSolution(neededVolume);
+            #region Pirate: chem plumbing
             if (solutionEnt is { } externalSolution)
                 _solutionContainerSystem.UpdateChemicals(externalSolution);
+            #endregion
 
             return true;
         }
@@ -447,6 +455,7 @@ namespace Content.Server.Chemistry.EntitySystems
             };
         }
 
+        #region Pirate: chem plumbing
         private ChemMasterDrawSource GetDrawSource(EntityUid uid)
         {
             return _drawSources.TryGetValue(uid, out var drawSource)
@@ -464,5 +473,6 @@ namespace Content.Server.Chemistry.EntitySystems
             UpdateUiState(chemMaster);
             ClickSound(chemMaster);
         }
+        #endregion
     }
 }

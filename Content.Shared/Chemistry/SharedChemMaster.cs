@@ -96,18 +96,18 @@ namespace Content.Shared.Chemistry
         }
     }
 
-    // Pirate: chem plumbing
+    #region Pirate: chem plumbing
     [Serializable, NetSerializable]
     public sealed class ChemMasterOutputDrawSourceMessage(ChemMasterDrawSource drawSource) : BoundUserInterfaceMessage
     {
         public readonly ChemMasterDrawSource DrawSource = drawSource;
     }
 
-    // Pirate: chem plumbing
     [Serializable, NetSerializable]
     public sealed class ChemMasterToggleValveMessage : BoundUserInterfaceMessage
     {
     }
+    #endregion
 
     public enum ChemMasterMode
     {
@@ -141,11 +141,13 @@ namespace Content.Shared.Chemistry
         All,
     }
 
-    public enum ChemMasterDrawSource // Pirate: chem plumbing
+    #region Pirate: chem plumbing
+    public enum ChemMasterDrawSource
     {
         Internal,
         External,
     }
+    #endregion
 
     public static class ChemMasterReagentAmountToFixedPoint
     {
@@ -223,7 +225,7 @@ namespace Content.Shared.Chemistry
         public ChemMasterBoundUserInterfaceState(
             ChemMasterMode mode, ChemMasterSortingType sortingType, ContainerInfo? inputContainerInfo, ContainerInfo? outputContainerInfo,
             IReadOnlyList<ReagentQuantity> bufferReagents, FixedPoint2 bufferCurrentVolume,
-            uint selectedPillType, uint pillDosageLimit, bool updateLabel, ChemMasterDrawSource drawSource, bool valveOpen)
+            uint selectedPillType, uint pillDosageLimit, bool updateLabel, ChemMasterDrawSource drawSource, bool valveOpen) // Pirate: chem plumbing
         {
             InputContainerInfo = inputContainerInfo;
             OutputContainerInfo = outputContainerInfo;
@@ -234,8 +236,8 @@ namespace Content.Shared.Chemistry
             SelectedPillType = selectedPillType;
             PillDosageLimit = pillDosageLimit;
             UpdateLabel = updateLabel;
-            DrawSource = drawSource;
-            ValveOpen = valveOpen;
+            DrawSource = drawSource; // Pirate: chem plumbing
+            ValveOpen = valveOpen; // Pirate: chem plumbing
         }
     }
 

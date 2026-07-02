@@ -130,7 +130,7 @@ namespace Content.Server.Chemistry.EntitySystems
                 GetNetEntity(outputContainer),
                 inventory,
                 reagentDispenser.Comp.DispenseAmount,
-                valveOpen,
+                valveOpen, // Pirate: chem plumbing
                 recipeUiData.SavedRecipes,
                 recipeUiData.HasRecipeDisk,
                 recipeUiData.DiskRecipes,
@@ -251,6 +251,7 @@ namespace Content.Server.Chemistry.EntitySystems
             PlayClickSound(reagentDispenser); // Pirate: chem recipes
         }
 
+        #region Pirate: chem plumbing
         private void OnToggleValveMessage(Entity<ReagentDispenserComponent> reagentDispenser, ref ReagentDispenserToggleValveMessage message)
         {
             if (!TryComp<PlumbingOutletComponent>(reagentDispenser.Owner, out var plumbingOutlet))
@@ -259,8 +260,9 @@ namespace Content.Server.Chemistry.EntitySystems
             plumbingOutlet.Enabled = !plumbingOutlet.Enabled;
             Dirty(reagentDispenser.Owner, plumbingOutlet);
             UpdateUiState(reagentDispenser);
-            PlayClickSound(reagentDispenser); // Pirate: chem recipes
+            PlayClickSound(reagentDispenser); // Pirate: chem plumbing
         }
+        #endregion
 
         /// <summary>
         /// Initializes the beaker slot
