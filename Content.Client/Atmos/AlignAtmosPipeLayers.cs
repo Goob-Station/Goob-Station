@@ -106,8 +106,8 @@ public sealed class AlignAtmosPipeLayers : SnapgridCenter
         float tileSize = mapGrid.TileSize;
         GridDistancing = tileSize;
 
-        var tileCenter = _mapSystem.GridTileToLocal(gridId.Value, mapGrid, CurrentTile.GridIndices); // Pirate: emote cooldown
-        MouseCoords = tileCenter.WithPosition(tileCenter.Position + new Vector2(pManager.PlacementOffset.X, pManager.PlacementOffset.Y)); // Pirate: emote cooldown
+        var tileCenter = _mapSystem.GridTileToLocal(gridId.Value, mapGrid, CurrentTile.GridIndices); // Pirate: chem plumbing
+        MouseCoords = tileCenter.WithPosition(tileCenter.Position + new Vector2(pManager.PlacementOffset.X, pManager.PlacementOffset.Y)); // Pirate: chem plumbing
 
         // Calculate the position of the mouse cursor with respect to the center of the tile to determine which layer to use
         var mouseCoordsDiff = _unalignedMouseCoords.Position - MouseCoords.Position;

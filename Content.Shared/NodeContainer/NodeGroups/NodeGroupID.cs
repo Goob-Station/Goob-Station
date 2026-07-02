@@ -17,6 +17,5 @@ public enum NodeGroupID : byte
     /// <seealso cref="Content.Server.Power.Generation.Teg.TegNodeGroup"/>
     Teg,
 
-    // Pirate: reagent plumbing ducts use a separate liquid node graph.
-    Plumbing,
+    Plumbing, // Pirate: reagent plumbing ducts use a separate liquid node graph.
 }

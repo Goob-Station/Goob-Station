@@ -7,8 +7,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Client.Hands.Systems;
-using Content.Client._Pirate.RCD;
-using Content.Shared.Atmos.Components;
+using Content.Client._Pirate.RCD; // Pirate: chem plumbing
+using Content.Shared.Atmos.Components; // Pirate: chem plumbing
 using Content.Shared.Hands.Components;
 using Content.Shared.Input;
 using Content.Shared.Interaction;
@@ -30,7 +30,7 @@ namespace Content.Client.RCD;
 public sealed class RCDConstructionGhostSystem : EntitySystem
 {
     private const string PlacementMode = nameof(AlignRCDConstruction);
-    private const string RpdPlacementMode = nameof(AlignRPDAtmosPipeLayers);
+    private const string RpdPlacementMode = nameof(AlignRPDAtmosPipeLayers); // Pirate: chem plumbing
 
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IPlacementManager _placementManager = default!;
@@ -38,7 +38,7 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
     [Dependency] private readonly HandsSystem _hands = default!;
 
     private Direction _placementDirection = default;
-    private EntityUid? _lastHeldRcd;
+    private EntityUid? _lastHeldRcd; // Pirate: chem plumbing
     private bool _useMirrorPrototype = false;
     public event EventHandler? FlipConstructionPrototype;
 
@@ -78,7 +78,7 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
             _useMirrorPrototype = !rcd.UseMirrorPrototype;
 
             var useProto = _useMirrorPrototype ? prototype.MirrorPrototype : prototype.Prototype;
-            CreatePlacer(placerEntity.Value, useProto, prototype.Mode, GetPlacementMode(rcd, prototype));
+            CreatePlacer(placerEntity.Value, useProto, prototype.Mode, GetPlacementMode(rcd, prototype)); // Pirate: chem plumbing
 
             // tell the server
 
@@ -108,8 +108,10 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
 
         var heldEntity = _hands.GetActiveItem(player);
 
+        #region Pirate: chem plumbing
         if (heldEntity != null && IsClientSide(heldEntity.Value))
             return;
+        #endregion
 
         if (!TryComp<RCDComponent>(heldEntity, out var rcd))
         {
@@ -117,44 +119,50 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
             if (placerIsRCD)
                 _placementManager.Clear();
 
-            _lastHeldRcd = null;
+            _lastHeldRcd = null; // Pirate: chem plumbing
             return;
         }
+        #region Pirate: chem plumbing
         var prototype = _protoManager.Index(rcd.ProtoId);
         var useProto = (_useMirrorPrototype && !string.IsNullOrEmpty(prototype.MirrorPrototype)) ? prototype.MirrorPrototype : prototype.Prototype;
         var isLayered = (rcd.IsRpd || rcd.IsRPLD) && prototype.HasLayers;
         var desiredMode = GetPlacementMode(rcd, prototype);
+        #endregion
 
+        #region Pirate: chem plumbing
         if (_lastHeldRcd != heldEntity)
         {
             _lastHeldRcd = heldEntity;
             _placementDirection = _placementManager.Direction;
             RaiseNetworkEvent(new RCDConstructionGhostRotationEvent(GetNetEntity(heldEntity.Value), _placementDirection));
         }
+        #endregion
         // Update the direction the RCD prototype based on the placer direction
-        else if (_placementDirection != _placementManager.Direction)
+        else if (_placementDirection != _placementManager.Direction) // Pirate: chem plumbing
         {
             _placementDirection = _placementManager.Direction;
             RaiseNetworkEvent(new RCDConstructionGhostRotationEvent(GetNetEntity(heldEntity.Value), _placementDirection));
         }
         // If the placer has not changed build it.
+        #region Pirate: chem plumbing
         if (heldEntity != placerEntity ||
             _placementManager.CurrentPermission?.PlacementOption != desiredMode ||
             !PrototypeMatchesCurrentPlacer(useProto, placerProto, isLayered))
+        #endregion
         {
-            CreatePlacer(heldEntity.Value, useProto, prototype.Mode, desiredMode);
+            CreatePlacer(heldEntity.Value, useProto, prototype.Mode, desiredMode); // Pirate: chem plumbing
         }
 
 
     }
 
-    private void CreatePlacer(EntityUid uid, string? prototype, RcdMode mode, string placementMode)
+    private void CreatePlacer(EntityUid uid, string? prototype, RcdMode mode, string placementMode) // Pirate: chem plumbing
     {
         // Create a new placer
         var newObjInfo = new PlacementInformation
         {
             MobUid = uid,
-            PlacementOption = placementMode,
+            PlacementOption = placementMode, // Pirate: chem plumbing
             EntityType = prototype,
             Range = (int) Math.Ceiling(SharedInteractionSystem.InteractionRange),
             IsTile = (mode == RcdMode.ConstructTile),
@@ -165,6 +173,7 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
         _placementManager.BeginPlacing(newObjInfo);
     }
 
+    #region Pirate: chem plumbing
     private static string GetPlacementMode(RCDComponent component, RCDPrototype prototype)
     {
         return (component.IsRpd || component.IsRPLD) && prototype.HasLayers
@@ -194,4 +203,5 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
 
         return false;
     }
+    #endregion
 }

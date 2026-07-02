@@ -52,8 +52,8 @@
   # - BorgModuleAdvancedClowning # goobedit
   # - BorgModuleAdvancedChemical # Goob edit
   - BorgModuleAdvancedMining
-  # Pirate
-  - BorgModuleAdvancedPlumbing
+  # Pirate: chem plumbing
+  - BorgModuleAdvancedPlumbing # Pirate: chem plumbing
 
 - type: latheRecipePack
   id: MechParts

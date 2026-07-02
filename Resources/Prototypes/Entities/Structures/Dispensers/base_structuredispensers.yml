@@ -119,7 +119,7 @@
         components:
         - FitsInDispenser
       priority: 9
-    recipeDiskSlot: # Pirate: chem recipes
+    recipeDiskSlot: # Pirate: chem plumbing
       name: reagent-dispenser-component-slot-name-disk
       priority: 10
       insertSound:
@@ -136,7 +136,7 @@
       machine_board: !type:Container
       machine_parts: !type:Container
       beakerSlot: !type:ContainerSlot
-      recipeDiskSlot: !type:ContainerSlot # Pirate: chem recipes
+      recipeDiskSlot: !type:ContainerSlot # Pirate: chem plumbing
       storagebase: !type:Container
   - type: StaticPrice
     price: 1000

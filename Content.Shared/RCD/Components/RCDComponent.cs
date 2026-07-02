@@ -9,12 +9,12 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.RCD.Systems;
-using Content.Shared.Atmos.Components;
+using Content.Shared.Atmos.Components; // Pirate: chem plumbing
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
+using Robust.Shared.Serialization; // Pirate: chem plumbing
 
 namespace Content.Shared.RCD.Components;
 
@@ -57,6 +57,7 @@ public sealed partial class RCDComponent : Component
     [DataField, AutoNetworkedField]
     public bool IsRpd { get; set; } = false;
 
+    #region Pirate: chem plumbing
     /// <summary>
     /// Indicates whether this is an RPLD.
     /// </summary>
@@ -77,6 +78,7 @@ public sealed partial class RCDComponent : Component
 
     [DataField]
     public SoundSpecifier SoundSwitchMode { get; set; } = new SoundPathSpecifier("/Audio/Machines/quickbeep.ogg");
+    #endregion
 
     /// <summary>
     /// The direction constructed entities will face upon spawning
@@ -104,6 +106,7 @@ public sealed partial class RCDComponent : Component
     public Transform ConstructionTransform { get; private set; }
 }
 
+#region Pirate: chem plumbing
 [Serializable, NetSerializable]
 public enum RpdMode : byte
 {
@@ -114,3 +117,4 @@ public enum RpdMode : byte
     Quinary = 4,
     Free = 5,
 }
+#endregion
