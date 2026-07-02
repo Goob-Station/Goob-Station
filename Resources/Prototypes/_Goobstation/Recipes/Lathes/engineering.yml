@@ -1,0 +1,19 @@
+  # Modsuits
+
+- type: latheRecipe
+  id: ModsuitPlatingEngineering
+  result: ModsuitPlatingEngineer
+  completetime: 4
+  materials:
+    Steel: 300
+    Glass: 150
+    Plasma: 50
+
+- type: latheRecipe
+  id: ModsuitPlatingAtmostech
+  result: ModsuitPlatingAtmostech
+  completetime: 4
+  materials:
+    Steel: 300
+    Glass: 150
+    Plasma: 50

@@ -47,6 +47,10 @@
   - ModsuitGauntlets
   - ModsuitShell
   - ModsuitPlatingExternal
+  - ModsuitPlatingSecurity
+  - ModsuitPlatingParamedic
+  - ModsuitPlatingEngineering
+  - ModsuitPlatingAtmostech
   position: -4,-1
   technologyPrerequisites:
   - MagnetsTech

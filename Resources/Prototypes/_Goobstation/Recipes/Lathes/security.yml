@@ -773,4 +773,13 @@
     Plastic: 250
     Cloth: 200
 
-  
+  # Modsuits
+
+- type: latheRecipe
+  id: ModsuitPlatingSecurity
+  result: ModsuitPlatingSecurity
+  completetime: 4
+  materials:
+    Steel: 300
+    Glass: 150
+    Plasma: 50

@@ -214,3 +214,14 @@
     Plastic: 100
     Steel: 150
     Glass: 150
+
+# Modsuits
+
+- type: latheRecipe
+  id: ModsuitPlatingParamedic
+  result: ModsuitPlatingParamedic
+  completetime: 4
+  materials:
+    Steel: 300
+    Glass: 150
+    Plasma: 50

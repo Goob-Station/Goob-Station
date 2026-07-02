@@ -115,3 +115,8 @@
   recipes:
   - ClothingMaskMuzzleSecure
   - ClothingMaskMuzzleShock
+
+- type: latheRecipePack
+  id: ModsuitSecurity
+  recipes:
+   -  ModsuitPlatingSecurity

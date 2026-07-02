@@ -672,6 +672,9 @@
   - type: EmagLatheRecipes # Goobstation
     emagStaticPacks:
     - MechWeaponsSecurityStatic
+    - ModsuitEngineering
+    - ModsuitSecurity
+    - ModsuitMedical
     emagDynamicPacks:
     - MechWeaponsSalvage
     - MechWeaponsSecurityLight
@@ -788,6 +791,7 @@
     # - ServiceWeapons
     - SpecOpsGoogles
     - PowerCells
+    - ModsuitSecurity
   - type: EmagLatheRecipes # Goobstation
     emagStaticPacks:
     - SyndicateAmmoLightStatic
@@ -892,6 +896,7 @@
     - Janitor
     - Genetics
     - MedicalCloning
+    - ModsuitMedical 
     # Einstein Engines Packs
     - Translators # Language
     - TranslatorImplanters # Language

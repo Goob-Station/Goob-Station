@@ -170,7 +170,7 @@
   - type: Tag
     tags:
     - ModsuitPart
-    - ModsuitPlatingExternal # Change this when they become obtainable
+    - ModsuitPlatingParamedic 
 
 - type: entity
   id: ModsuitPlatingEngineer
@@ -190,7 +190,7 @@
   - type: Tag
     tags:
     - ModsuitPart
-    - ModsuitPlatingExternal # Change this when they become obtainable
+    - ModsuitPlatingEngineer
 
 - type: entity
   id: ModsuitPlatingSecurity
@@ -210,7 +210,7 @@
   - type: Tag
     tags:
     - ModsuitPart
-    - ModsuitPlatingExternal # Change this when they become obtainable
+    - ModsuitPlatingSecurity
 
 - type: entity
   id: ModsuitPlatingHeadOfSecurity
@@ -230,7 +230,7 @@
   - type: Tag
     tags:
     - ModsuitPart
-    - ModsuitPlatingExternal # Change this when they become obtainable
+    - ModsuitPlatingHeadOfSecurity 
 
 - type: entity
   id: ModsuitPlatingCaptain
@@ -250,7 +250,7 @@
   - type: Tag
     tags:
     - ModsuitPart
-    - ModsuitPlatingExternal # Change this when they become obtainable
+    - ModsuitPlatingCaptain 
 
 - type: entity
   id: ModsuitPlatingRD
@@ -270,7 +270,7 @@
   - type: Tag
     tags:
     - ModsuitPart
-    - ModsuitPlatingExternal # Change this when they become obtainable
+    - ModsuitPlatingRD
 
 - type: entity
   id: ModsuitPlatingAtmostech
@@ -290,7 +290,7 @@
   - type: Tag
     tags:
     - ModsuitPart
-    - ModsuitPlatingExternal # Change this when they become obtainable
+    - ModsuitPlatingAtmostech
 
 - type: entity
   id: ModsuitCoreStandard
