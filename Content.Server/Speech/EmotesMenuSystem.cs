@@ -5,6 +5,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Chat.Systems;
+using Content.Server._Pirate.Speech; // Pirate: emote cooldown
 using Content.Shared.Chat;
 using Robust.Shared.Prototypes;
 
@@ -14,6 +15,7 @@ public sealed partial class EmotesMenuSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly PirateEmoteCooldownSystem _pirateEmoteCooldown = default!; // Pirate: emote cooldown
 
     public override void Initialize()
     {
@@ -31,6 +33,10 @@ public sealed partial class EmotesMenuSystem : EntitySystem
         if (!_prototypeManager.TryIndex(msg.ProtoId, out var proto) || proto.ChatTriggers.Count == 0)
             return;
 
-        _chat.TryEmoteWithChat(player.Value, msg.ProtoId); // Goob - emotespam
+        if (!_pirateEmoteCooldown.CanEmote(player.Value)) // Pirate: emote cooldown
+            return; // Pirate: emote cooldown
+
+        if (_chat.TryEmoteWithChat(player.Value, msg.ProtoId)) // Pirate: emote cooldown
+            _pirateEmoteCooldown.CommitEmote(player.Value); // Pirate: emote cooldown
     }
 }

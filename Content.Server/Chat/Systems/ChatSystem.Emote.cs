@@ -26,6 +26,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Collections.Frozen;
+using Content.Server._Pirate.Speech; // Pirate: emote cooldown
 using Content.Goobstation.Common.MisandryBox;
 using Content.Shared.Chat; // Einstein Engines - Languages & Goobmod
 using Content.Server.Popups;
@@ -42,6 +43,7 @@ namespace Content.Server.Chat.Systems;
 public partial class ChatSystem
 {
     [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private readonly PirateEmoteCooldownSystem _pirateEmoteCooldown = default!; // Pirate: emote cooldown
 
     private FrozenDictionary<string, EmotePrototype> _wordEmoteDict = FrozenDictionary<string, EmotePrototype>.Empty;
 
@@ -217,7 +219,14 @@ public partial class ChatSystem
         if (!AllowedToUseEmote(uid, emote))
             return true;
 
-        return TryInvokeEmoteEvent(uid, emote, voluntary: !forced); // Goob - emotespam
+        if (!_pirateEmoteCooldown.CanEmote(uid)) // Pirate: emote cooldown
+            return false; // Pirate: emote cooldown
+
+        if (!TryInvokeEmoteEvent(uid, emote, voluntary: !forced)) // Pirate: emote cooldown
+            return false; // Pirate: emote cooldown
+
+        _pirateEmoteCooldown.CommitEmote(uid); // Pirate: emote cooldown
+        return true; // Pirate: emote cooldown
 
         static string TrimPunctuation(string textInput)
         {

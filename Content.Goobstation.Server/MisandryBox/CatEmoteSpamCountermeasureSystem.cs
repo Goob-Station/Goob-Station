@@ -5,6 +5,7 @@
 
 using Content.Goobstation.Common.MisandryBox;
 using Content.Goobstation.Shared.MisandryBox.Smites;
+using Content.Server._Pirate.Speech; // Pirate: emote cooldown
 using Content.Server.Chat.Systems;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Speech;
@@ -17,6 +18,7 @@ public sealed class CatEmoteSpamCountermeasureSystem : EntitySystem
 {
     [Dependency] private readonly ThunderstrikeSystem _thunderstrike = default!;
     [Dependency] private readonly IRobustRandom _rand = default!;
+    [Dependency] private readonly PirateAudibleEmoteSystem _pirateAudibleEmote = default!; // Pirate: emote cooldown
 
     private const float ClearInterval = 20.0f;
     private const float PitchModulo = 0.08f;
@@ -44,7 +46,7 @@ public sealed class CatEmoteSpamCountermeasureSystem : EntitySystem
     /// Ash offenders on proc? Tell them what they should do?
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public bool DrasticMeasures = false; // Pirate edit - was true
+    public bool DrasticMeasures = true;
 
     [ViewVariables(VVAccess.ReadOnly)]
     private Dictionary<EntityUid, int> _meowTracker = [];
@@ -91,7 +93,7 @@ public sealed class CatEmoteSpamCountermeasureSystem : EntitySystem
 
     private void OnEmoteEvent(Entity<SpeechComponent> ent, ref EmoteEvent args)
     {
-        if (args.Emote.Category is EmoteCategory.Vocal or EmoteCategory.Farts && args.Voluntary)
+        if (_pirateAudibleEmote.IsAudible(args.Emote) && args.Voluntary) // Pirate: emote cooldown
             Add(ent.Owner);
     }
 
@@ -110,18 +112,12 @@ public sealed class CatEmoteSpamCountermeasureSystem : EntitySystem
 
     private void TryHardThresholdSmite(EntityUid uid, int count)
     {
-        if (!DrasticMeasures) // Pirate edit
-            return;
-
         if (count >= _hardEmoteThreshold)
             Smite(uid);
     }
 
     private void TrySoftThresholdSmite(EntityUid uid, int count)
     {
-        if (!DrasticMeasures) // Pirate edit
-            return;
-
         // This here has a very funny emergent possibility of getting changed FOR THE BEST mid-emote and smiting people
         var soft = GetSoftThreshold();
 
