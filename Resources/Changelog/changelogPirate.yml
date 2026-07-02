@@ -1811,3 +1811,9 @@ Entries:
         автомат, а саме: City Cook і Wonderland
   id: 168
   time: '2026-07-01T14:20:35.0000000+00:00'
+- author: AgentMaper
+  changes:
+    - type: Tweak
+      message: Додано пральні машини на Омегу, Чайник, Пердішн та Гейт.
+  id: 169
+  time: '2026-07-02T13:06:07.0000000+00:00'
