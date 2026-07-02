@@ -1,0 +1,72 @@
+- type: entity
+  id: RPLD
+  parent: RCD
+  name: RPLD
+  description: A device used to rapidly deploy plumbing ducts and machines.
+  components:
+  - type: Contraband
+    allowedDepartments: [ Engineering, Medical ]
+  - type: RCD
+    isRPLD: true
+    availablePrototypes:
+    - PlumbingRpldDuctStraight
+    - PlumbingRpldDuctBend
+    - PlumbingRpldDuctTJunction
+    - PlumbingRpldDuctFourway
+    - PlumbingRpldDuctManifold
+    - PlumbingRpldTank
+    - PlumbingRpldBuffer
+    - PlumbingRpldInput
+    - PlumbingRpldOutput
+    - PlumbingRpldSink
+    - PlumbingRpldReactor
+    - PlumbingRpldPillPress
+    - PlumbingRpldFilter
+    - PlumbingRpldSynthesizer
+    - PlumbingRpldSmartDispenser
+    - PlumbingRpldDrain
+    - PlumbingRpldDisposal
+    - Deconstruct
+  - type: LimitedCharges
+    maxCharges: 45
+  - type: Sprite
+    sprite: _Pirate/Objects/Tools/rpld.rsi
+    state: icon
+  - type: Item
+    sprite: _Pirate/Objects/Tools/rpld.rsi
+  - type: Clothing
+    sprite: _Pirate/Objects/Tools/rpld.rsi
+  - type: PhysicalComposition # Pirate: keep recycling below the upgraded engifab recipe cost.
+    materialComposition:
+      Steel: 500
+      Plastic: 100
+
+- type: entity
+  id: RPLDEmpty
+  parent: RPLD
+  suffix: Empty
+  components:
+  - type: LimitedCharges
+    lastCharges: -1
+
+- type: entity
+  id: RPLDRecharging
+  parent: RPLD
+  name: experimental RPLD
+  description: Cyborg-mounted Rapid Plumbing Device which creates compressed matter on the fly using an internal fabricator.
+  suffix: AutoRecharge
+  components:
+  - type: LimitedCharges
+    maxCharges: 20
+  - type: AutoRecharge
+    rechargeDuration: 10
+
+- type: entity
+  id: RPLDExperimental
+  parent: RPLD
+  suffix: Admeme
+  name: experimental RPLD
+  description: A bluespace-enhanced rapid plumbing device that passively generates its own compressed matter.
+  components:
+  - type: AutoRecharge
+    rechargeDuration: 1

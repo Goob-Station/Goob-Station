@@ -91,6 +91,9 @@
   cost: 6500
   recipeUnlocks:
   - PlumbingPumpCircuitboard
+  # Pirate: chem plumbing
+  - RPLD # Pirate: chem plumbing
+  - BorgModuleAdvancedPlumbing # Pirate: chem plumbing
   position: 1,-7
   technologyPrerequisites:
   - IndustrialEngineering

@@ -31,6 +31,15 @@ public sealed class RCDConstructionGhostFlipEvent(NetEntity netEntity, bool useM
     public readonly bool UseMirrorPrototype = useMirrorPrototype;
 }
 
+#region Pirate: chem plumbing
+[Serializable, NetSerializable]
+public sealed class RPDSelectedLayerEvent(NetEntity netEntity, byte layer) : EntityEventArgs
+{
+    public readonly NetEntity NetEntity = netEntity;
+    public readonly byte Layer = layer;
+}
+#endregion
+
 [Serializable, NetSerializable]
 public enum RcdUiKey : byte
 {

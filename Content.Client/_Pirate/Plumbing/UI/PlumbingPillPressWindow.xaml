@@ -1,0 +1,67 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               MinSize="380 420"
+               Title="{Loc plumbing-pill-press-window-title}">
+    <BoxContainer Orientation="Vertical" Margin="5 5 5 5" SeparationOverride="8">
+        <!-- Status toggle -->
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+            <Label Text="{Loc plumbing-pill-press-status}" />
+            <Button Name="ToggleStatusButton" MinWidth="80" />
+        </BoxContainer>
+
+        <PanelContainer StyleClasses="LowDivider" />
+
+        <!-- Output mode selector -->
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+            <Label Text="{Loc plumbing-pill-press-output-mode}" />
+            <OptionButton Name="OutputModeSelector" MinWidth="100" HorizontalExpand="True" />
+        </BoxContainer>
+
+        <!-- Dosage input -->
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+            <Label Text="{Loc plumbing-pill-press-dosage}" />
+            <LineEdit Name="DosageInput" PlaceHolder="10" MinWidth="60" HorizontalExpand="True" />
+            <Button Name="SetDosageButton" Text="{Loc plumbing-pill-press-set}" MinWidth="50" />
+        </BoxContainer>
+
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+            <Label Text="{Loc plumbing-pill-press-label}" />
+            <LineEdit Name="LabelInput" MinWidth="60" HorizontalExpand="True" />
+            <Button Name="SetLabelButton" Text="{Loc plumbing-pill-press-set}" MinWidth="50" />
+        </BoxContainer>
+
+        <PanelContainer StyleClasses="LowDivider" />
+
+        <!-- Pill type selector (hidden for patches) -->
+        <BoxContainer Name="PillTypeContainer" Orientation="Vertical" SeparationOverride="4">
+            <Label Text="{Loc plumbing-pill-press-pill-type}" StyleClasses="LabelHeading" />
+            <GridContainer Name="PillTypeGrid" Columns="10" />
+        </BoxContainer>
+
+        <PanelContainer StyleClasses="LowDivider" />
+
+        <!-- Mixing mode section -->
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+            <CheckBox Name="MixingToggle" />
+            <Label Text="{Loc plumbing-pill-press-mixing-mode}" />
+        </BoxContainer>
+
+        <BoxContainer Name="MixingContainer" Orientation="Vertical" SeparationOverride="4">
+            <!-- Inlet ratio inputs (gas-mixer style) -->
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                <Label Text="{Loc plumbing-pill-press-west-ratio}" />
+                <Control MinSize="5 0" />
+                <LineEdit Name="WestRatioInput" PlaceHolder="50" MinSize="60 0" />
+                <Label Text=" %" />
+                <Control MinSize="10 0" />
+                <Label Text="{Loc plumbing-pill-press-east-ratio}" />
+                <Control MinSize="5 0" />
+                <LineEdit Name="EastRatioInput" PlaceHolder="50" MinSize="60 0" />
+                <Label Text=" %" />
+                <Control MinSize="5 0" />
+                <Button Name="SetRatioButton" Text="{Loc plumbing-pill-press-set}" />
+            </BoxContainer>
+        </BoxContainer>
+
+    </BoxContainer>
+</DefaultWindow>

@@ -60,6 +60,7 @@ using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared._Pirate.Chemistry;
 using Content.Shared.Chemistry.Reagent;
+using Content.Shared._Pirate.Plumbing.Components; // Pirate: chem plumbing
 #endregion
 
 namespace Content.Goobstation.Server.Chemistry.EntitySystems
@@ -95,6 +96,7 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
             SubscribeLocalEvent<EnergyReagentDispenserComponent, EnergyReagentDispenserSetDispenseAmountMessage>(OnSetDispenseAmountMessage);
             SubscribeLocalEvent<EnergyReagentDispenserComponent, EnergyReagentDispenserDispenseReagentMessage>(OnDispenseReagentMessage);
             SubscribeLocalEvent<EnergyReagentDispenserComponent, EnergyReagentDispenserClearContainerSolutionMessage>(OnClearContainerSolutionMessage);
+            SubscribeLocalEvent<EnergyReagentDispenserComponent, EnergyReagentDispenserToggleValveMessage>(OnToggleValveMessage); // Pirate: chem plumbing
             SubscribeLocalEvent<EnergyReagentDispenserComponent, PowerChangedEvent>(OnPowerChanged);
             RegisterPirateRecipeEvents(); // Pirate: chem recipes
 
@@ -129,6 +131,8 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
             if (TryComp<ApcPowerReceiverComponent>(reagentDispenser, out var apc))
                 hasPower = apc.Powered;
 
+            var valveOpen = TryComp<PlumbingOutletComponent>(reagentDispenser.Owner, out var plumbingOutlet) && plumbingOutlet.Enabled; // Pirate: chem plumbing
+
             #region Pirate: chem recipes
             var recipeUiData = PirateChemRecipeUiDataHelper.BuildRecipeUiData(
                 reagentDispenser,
@@ -148,6 +152,7 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
                 idleUse,
                 usingBattery,
                 hasPower,// Pirate: chem recipes
+                valveOpen,// Pirate: chem plumbing
                 recipeUiData.SavedRecipes,// Pirate: chem recipes
                 recipeUiData.HasRecipeDisk,// Pirate: chem recipes
                 recipeUiData.DiskRecipes,// Pirate: chem recipes
@@ -245,6 +250,18 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
             PlayClickSound(reagentDispenser); // Pirate: chem recipes
         }
 
+
+        // Pirate: chem plumbing
+        private void OnToggleValveMessage(Entity<EnergyReagentDispenserComponent> reagentDispenser, ref EnergyReagentDispenserToggleValveMessage message)
+        {
+            if (!TryComp<PlumbingOutletComponent>(reagentDispenser.Owner, out var plumbingOutlet))
+                return;
+
+            plumbingOutlet.Enabled = !plumbingOutlet.Enabled;
+            Dirty(reagentDispenser.Owner, plumbingOutlet);
+            UpdateUiState(reagentDispenser);
+            PlayClickSound(reagentDispenser);
+        }
 
         private static float GetPowerCostForReagent(string reagentId, float amount, EnergyReagentDispenserComponent comp) // Pirate: chem recipes
         {

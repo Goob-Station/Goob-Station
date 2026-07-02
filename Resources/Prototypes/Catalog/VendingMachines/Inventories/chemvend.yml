@@ -40,6 +40,7 @@
     JugSugar: 3
     JugSulfur: 1
     ChemRecipeDisk: 4 # Pirate: chem recipes
+    RPLD: 2 # Pirate: chem plumbing
   contrabandInventory:
     DrinkLithiumFlask: 1
     StrangePill: 3

@@ -129,6 +129,14 @@ public sealed partial class RCDPrototype : IPrototype
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public RcdRotation Rotation { get; private set; } = RcdRotation.User;
+
+    #region Pirate: chem plumbing
+    /// <summary>
+    /// Whether RPD/RPLD placement should use atmos pipe layer alternative prototypes.
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public bool HasLayers { get; private set; } = false;
+    #endregion
 }
 
 public enum RcdMode : byte

@@ -9,10 +9,12 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.RCD.Systems;
+using Content.Shared.Atmos.Components; // Pirate: chem plumbing
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization; // Pirate: chem plumbing
 
 namespace Content.Shared.RCD.Components;
 
@@ -55,6 +57,29 @@ public sealed partial class RCDComponent : Component
     [DataField, AutoNetworkedField]
     public bool IsRpd { get; set; } = false;
 
+    #region Pirate: chem plumbing
+    /// <summary>
+    /// Indicates whether this is an RPLD.
+    /// </summary>
+    [DataField("isRPLD"), AutoNetworkedField]
+    public bool IsRPLD { get; set; } = false;
+
+    /// <summary>
+    /// Last free-mode pipe layer selected by the client.
+    /// </summary>
+    [DataField]
+    public AtmosPipeLayer? LastSelectedLayer { get; set; } = null;
+
+    /// <summary>
+    /// Current pipe layer build mode for RPD/RPLD placement.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public RpdMode CurrentMode { get; set; } = RpdMode.Free;
+
+    [DataField]
+    public SoundSpecifier SoundSwitchMode { get; set; } = new SoundPathSpecifier("/Audio/Machines/quickbeep.ogg");
+    #endregion
+
     /// <summary>
     /// The direction constructed entities will face upon spawning
     /// </summary>
@@ -80,3 +105,16 @@ public sealed partial class RCDComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public Transform ConstructionTransform { get; private set; }
 }
+
+#region Pirate: chem plumbing
+[Serializable, NetSerializable]
+public enum RpdMode : byte
+{
+    Primary = 0,
+    Secondary = 1,
+    Tertiary = 2,
+    Quaternary = 3,
+    Quinary = 4,
+    Free = 5,
+}
+#endregion

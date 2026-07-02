@@ -71,6 +71,7 @@ namespace Content.Goobstation.Client.Chemistry.UI
             _window.AmountGrid.OnButtonPressed += s => SendMessage(new EnergyReagentDispenserSetDispenseAmountMessage(s));
 
             _window.OnDispenseReagentButtonPressed += (reagentId) => SendMessage(new EnergyReagentDispenserDispenseReagentMessage(reagentId));
+            _window.OnToggleValveButtonPressed += () => SendMessage(new EnergyReagentDispenserToggleValveMessage()); // Pirate: chem plumbing
             BindPirateRecipeActions(); // Pirate: chem recipes
         }
 

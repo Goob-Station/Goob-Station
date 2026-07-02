@@ -24,6 +24,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Administration.Logs;
+using Content.Shared.Atmos.Components; // Pirate: chem plumbing
+using Content.Shared.Atmos.EntitySystems; // Pirate: chem plumbing
 using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Construction;
@@ -35,9 +37,11 @@ using Content.Shared.Interaction;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
+using Content.Shared._Pirate.Plumbing.Components; // Pirate: chem plumbing
 using Content.Shared.RCD.Components;
 using Content.Shared.Tag;
 using Content.Shared.Tiles;
+using Content.Shared.Verbs; // Pirate: chem plumbing
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -47,6 +51,7 @@ using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Robust.Shared.Utility; // Pirate: chem plumbing
 using System.Linq;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Hands.Components;
@@ -74,6 +79,7 @@ public sealed class RCDSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedAtmosPipeLayersSystem _pipeLayers = default!; // Pirate: chem plumbing
     [Dependency] private readonly TagSystem _tags = default!;
     [Dependency] private readonly AccessReaderSystem _accessReader = default!; // Goobstation - RCD respects door access
 
@@ -96,8 +102,11 @@ public sealed class RCDSystem : EntitySystem
         SubscribeLocalEvent<RCDComponent, RCDDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<RCDComponent, DoAfterAttemptEvent<RCDDoAfterEvent>>(OnDoAfterAttempt);
         SubscribeLocalEvent<RCDComponent, RCDSystemMessage>(OnRCDSystemMessage);
+        SubscribeLocalEvent<RCDComponent, GetVerbsEvent<UtilityVerb>>(OnGetUtilityVerb); // Pirate: chem plumbing
+        SubscribeLocalEvent<RCDComponent, GetVerbsEvent<AlternativeVerb>>(OnGetAlternativeVerb); // Pirate: chem plumbing
         SubscribeNetworkEvent<RCDConstructionGhostRotationEvent>(OnRCDconstructionGhostRotationEvent);
         SubscribeNetworkEvent<RCDConstructionGhostFlipEvent>(OnRCDConstructionGhostFlipEvent);
+        SubscribeNetworkEvent<RPDSelectedLayerEvent>(OnRPDSelectedLayerEvent); // Pirate: chem plumbing
 
     }
 
@@ -153,6 +162,14 @@ public sealed class RCDSystem : EntitySystem
         }
 
         args.PushMarkup(msg);
+
+        #region Pirate: chem plumbing
+        if (component.IsRpd || component.IsRPLD)
+        {
+            var modeLoc = $"rcd-rpd-mode-{component.CurrentMode.ToString().ToLowerInvariant()}";
+            args.PushMarkup(Loc.GetString("rcd-component-examine-rpd-mode", ("mode", Loc.GetString(modeLoc))));
+        }
+        #endregion
     }
 
     private void OnAfterInteract(EntityUid uid, RCDComponent component, AfterInteractEvent args)
@@ -177,6 +194,7 @@ public sealed class RCDSystem : EntitySystem
         }
         var tile = _mapSystem.GetTileRef(gridUid.Value, mapGrid, location);
         var position = _mapSystem.TileIndicesFor(gridUid.Value, mapGrid, location);
+        var placementLayer = GetPlacementLayer(component, prototype); // Pirate: chem plumbing
 
         if (!IsRCDOperationStillValid(uid, component, gridUid.Value, mapGrid, tile, position, args.Target, args.User))
             return;
@@ -241,7 +259,7 @@ public sealed class RCDSystem : EntitySystem
 
         // Try to start the do after
         var effect = Spawn(effectPrototype, location);
-        var ev = new RCDDoAfterEvent(GetNetCoordinates(location), component.ConstructionDirection, component.ProtoId, cost, GetNetEntity(effect));
+        var ev = new RCDDoAfterEvent(GetNetCoordinates(location), component.ConstructionDirection, placementLayer, component.ProtoId, cost, GetNetEntity(effect)); // Pirate: chem plumbing
 
         var doAfterArgs = new DoAfterArgs(EntityManager, user, delay, ev, uid, target: args.Target, used: uid)
         {
@@ -321,7 +339,7 @@ public sealed class RCDSystem : EntitySystem
             return;
 
         // Finalize the operation (this should handle prediction properly)
-        FinalizeRCDOperation(uid, component, gridUid.Value, mapGrid, tile, position, args.Direction, args.Target, args.User);
+        FinalizeRCDOperation(uid, component, gridUid.Value, mapGrid, tile, position, args.Direction, args.PipeLayer, args.Target, args.User); // Pirate: chem plumbing
 
         // Play audio and consume charges
         _audio.PlayPredicted(component.SuccessSound, uid, args.User);
@@ -372,6 +390,73 @@ public sealed class RCDSystem : EntitySystem
         rcd.UseMirrorPrototype = ev.UseMirrorPrototype;
         Dirty(uid, rcd);
     }
+
+    #region Pirate: chem plumbing
+    private void OnRPDSelectedLayerEvent(RPDSelectedLayerEvent ev, EntitySessionEventArgs session)
+    {
+        var uid = GetEntity(ev.NetEntity);
+
+        if (session.SenderSession.AttachedEntity is not { } player)
+            return;
+
+        if (_hands.GetActiveItem(player) != uid)
+            return;
+
+        if (!TryComp<RCDComponent>(uid, out var rcd) || (!rcd.IsRpd && !rcd.IsRPLD))
+            return;
+
+        rcd.LastSelectedLayer = (AtmosPipeLayer) Math.Clamp((int) ev.Layer, (int) AtmosPipeLayer.Primary, (int) AtmosPipeLayer.Tertiary);
+    }
+
+    private void OnGetUtilityVerb(EntityUid uid, RCDComponent component, GetVerbsEvent<UtilityVerb> args)
+    {
+        if (!args.CanAccess || !args.CanInteract || (!component.IsRpd && !component.IsRPLD))
+            return;
+
+        args.Verbs.Add(new UtilityVerb
+        {
+            Act = () => SwitchPipeMode(uid, component, args.User),
+            Text = Loc.GetString("rcd-verb-switch-mode"),
+            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/settings.svg.192dpi.png")),
+            Impact = LogImpact.Low,
+        });
+    }
+
+    private void OnGetAlternativeVerb(EntityUid uid, RCDComponent component, GetVerbsEvent<AlternativeVerb> args)
+    {
+        if (!args.CanAccess || !args.CanInteract || (!component.IsRpd && !component.IsRPLD) ||
+            !args.Using.HasValue || args.Using.Value != uid)
+            return;
+
+        args.Verbs.Add(new AlternativeVerb
+        {
+            Act = () => SwitchPipeMode(uid, component, args.User),
+            Text = Loc.GetString("rcd-verb-switch-mode"),
+            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/settings.svg.192dpi.png")),
+            Impact = LogImpact.Low,
+        });
+    }
+
+    private void SwitchPipeMode(EntityUid uid, RCDComponent component, EntityUid? user = null)
+    {
+        if (!component.IsRpd && !component.IsRPLD)
+            return;
+
+        component.CurrentMode = component.CurrentMode switch
+        {
+            RpdMode.Primary => RpdMode.Secondary,
+            RpdMode.Secondary => RpdMode.Tertiary,
+            RpdMode.Tertiary => RpdMode.Free,
+            RpdMode.Free => RpdMode.Primary,
+            _ => RpdMode.Primary,
+        };
+
+        Dirty(uid, component);
+
+        if (user != null)
+            _audio.PlayPredicted(component.SoundSwitchMode, uid, user.Value);
+    }
+    #endregion
 
 
     #endregion
@@ -487,6 +572,12 @@ public sealed class RCDSystem : EntitySystem
         var isWindow = prototype.ConstructionRules.Contains(RcdConstructionRule.IsWindow);
         var isCatwalk = prototype.ConstructionRules.Contains(RcdConstructionRule.IsCatwalk);
         var isWallLight = prototype.ConstructionRules.Contains(RcdConstructionRule.IsWallLight);
+        #region Pirate: chem plumbing
+        var isPlumbingMachinePlacement = component.IsRPLD
+            && prototype.Prototype != null
+            && _protoManager.TryIndex<EntityPrototype>(prototype.Prototype, out var constructionProto)
+            && constructionProto.TryGetComponent<PlumbingConnectorAppearanceComponent>(out _, EntityManager.ComponentFactory);
+        #endregion
 
         _intersectingEntities.Clear();
         _lookup.GetLocalEntitiesIntersecting(gridUid, position, _intersectingEntities, -0.05f, LookupFlags.Uncontained);
@@ -495,6 +586,16 @@ public sealed class RCDSystem : EntitySystem
         {
             if (isWindow && HasComp<SharedCanBuildWindowOnTopComponent>(ent))
                 continue;
+
+            #region Pirate: chem plumbing
+            if (isPlumbingMachinePlacement && Transform(ent).Anchored && HasComp<PlumbingConnectorAppearanceComponent>(ent))
+            {
+                if (popMsgs)
+                    _popup.PopupClient(Loc.GetString("rcd-component-cannot-build-on-occupied-tile-message"), uid, user);
+
+                return false;
+            }
+            #endregion
 
             // Goobstation - No light spam
             if (isWallLight && _tags.HasTag(ent, WallLightTag))
@@ -543,7 +644,7 @@ public sealed class RCDSystem : EntitySystem
         // Attempt to deconstruct a floor tile
         if (target == null)
         {
-            if (component.IsRpd)
+            if (component.IsRpd || component.IsRPLD) // Pirate: chem plumbing
             {
                 if (popMsgs)
                     _popup.PopupClient(Loc.GetString("rcd-component-deconstruct-target-not-on-whitelist-message"), uid, user);
@@ -584,7 +685,9 @@ public sealed class RCDSystem : EntitySystem
         else
         {
             // The object is not in the RPD whitelist
-            if (!TryComp<RCDDeconstructableComponent>(target, out var deconstructible) || !deconstructible.RpdDeconstructable && component.IsRpd)
+            if (!TryComp<RCDDeconstructableComponent>(target, out var deconstructible)
+                || component.IsRpd && !deconstructible.RpdDeconstructable
+                || component.IsRPLD && !deconstructible.RpldDeconstructable) // Pirate: chem plumbing
             {
                 if (popMsgs)
                     _popup.PopupClient(Loc.GetString("rcd-component-deconstruct-target-not-on-whitelist-message"), uid, user);
@@ -627,7 +730,7 @@ public sealed class RCDSystem : EntitySystem
 
     #region Entity construction/deconstruction
 
-    private void FinalizeRCDOperation(EntityUid uid, RCDComponent component, EntityUid gridUid, MapGridComponent mapGrid, TileRef tile, Vector2i position, Direction direction, EntityUid? target, EntityUid user)
+    private void FinalizeRCDOperation(EntityUid uid, RCDComponent component, EntityUid gridUid, MapGridComponent mapGrid, TileRef tile, Vector2i position, Direction direction, AtmosPipeLayer pipeLayer, EntityUid? target, EntityUid user) // Pirate: chem plumbing
     {
         if (!_net.IsServer)
             return;
@@ -650,6 +753,16 @@ public sealed class RCDSystem : EntitySystem
                     ? prototype.MirrorPrototype
                     : prototype.Prototype;
 
+                #region Pirate: chem plumbing
+                if ((component.IsRpd || component.IsRPLD) && prototype.HasLayers &&
+                    _protoManager.TryIndex<EntityPrototype>(proto, out var entityProto) &&
+                    entityProto.TryGetComponent<AtmosPipeLayersComponent>(out var atmosPipeLayers, EntityManager.ComponentFactory) &&
+                    _pipeLayers.TryGetAlternativePrototype(atmosPipeLayers, pipeLayer, out var layeredProto))
+                {
+                    proto = layeredProto;
+                }
+                #endregion
+
                 // Funky - Calculate rotation and apply it before spawning
                 var rotation = prototype.Rotation switch
                 {
@@ -663,6 +776,13 @@ public sealed class RCDSystem : EntitySystem
                 var entityCoords = _mapSystem.GridTileToLocal(gridUid, mapGrid, position);
                 var mapCoords = _transform.ToMapCoordinates(entityCoords);
                 var ent = Spawn(proto, mapCoords, rotation: rotation);
+                #region Pirate: chem plumbing
+                if ((component.IsRpd || component.IsRPLD) && prototype.HasLayers &&
+                    TryComp<AtmosPipeLayersComponent>(ent, out var spawnedLayers))
+                {
+                    _pipeLayers.SetPipeLayer((ent, spawnedLayers), pipeLayer);
+                }
+                #endregion
                 // End of funky changes
 
                 /* Funky - handled above
@@ -715,6 +835,35 @@ public sealed class RCDSystem : EntitySystem
         return boundingPolygon.ComputeAABB(boundingTransform, 0).Intersects(fixture.Shape.ComputeAABB(entXform, 0));
     }
 
+    #region Pirate: chem plumbing
+    private static AtmosPipeLayer GetPlacementLayer(RCDComponent component, RCDPrototype prototype)
+    {
+        if ((!component.IsRpd && !component.IsRPLD) || !prototype.HasLayers)
+            return AtmosPipeLayer.Primary;
+
+        return ClampPipeLayer(component.CurrentMode switch
+        {
+            RpdMode.Primary => AtmosPipeLayer.Primary,
+            RpdMode.Secondary => AtmosPipeLayer.Secondary,
+            RpdMode.Tertiary => AtmosPipeLayer.Tertiary,
+            RpdMode.Quaternary => AtmosPipeLayer.Tertiary, // Pirate: chem plumbing
+            RpdMode.Quinary => AtmosPipeLayer.Tertiary,
+            RpdMode.Free => component.LastSelectedLayer ?? AtmosPipeLayer.Primary,
+            _ => AtmosPipeLayer.Primary,
+        });
+    }
+
+    private static AtmosPipeLayer ClampPipeLayer(AtmosPipeLayer layer)
+    {
+        return (AtmosPipeLayer) Math.Clamp((int) layer, (int) AtmosPipeLayer.Primary, (int) AtmosPipeLayer.Tertiary);
+    }
+
+    public RpdMode GetCurrentRpdMode(EntityUid uid, RCDComponent? component = null)
+    {
+        return Resolve(uid, ref component) ? component.CurrentMode : RpdMode.Free;
+    }
+    #endregion
+
     #endregion
 }
 
@@ -727,6 +876,11 @@ public sealed partial class RCDDoAfterEvent : DoAfterEvent
     [DataField]
     public Direction Direction { get; private set; }
 
+    #region Pirate: chem plumbing
+    [DataField]
+    public AtmosPipeLayer PipeLayer { get; private set; } = AtmosPipeLayer.Primary;
+    #endregion
+
     [DataField]
     public ProtoId<RCDPrototype> StartingProtoId { get; private set; }
 
@@ -738,10 +892,11 @@ public sealed partial class RCDDoAfterEvent : DoAfterEvent
 
     private RCDDoAfterEvent() { }
 
-    public RCDDoAfterEvent(NetCoordinates location, Direction direction, ProtoId<RCDPrototype> startingProtoId, int cost, NetEntity? effect = null)
+    public RCDDoAfterEvent(NetCoordinates location, Direction direction, AtmosPipeLayer pipeLayer, ProtoId<RCDPrototype> startingProtoId, int cost, NetEntity? effect = null) // Pirate: chem plumbing
     {
         Location = location;
         Direction = direction;
+        PipeLayer = pipeLayer; // Pirate: chem plumbing
         StartingProtoId = startingProtoId;
         Cost = cost;
         Effect = effect;

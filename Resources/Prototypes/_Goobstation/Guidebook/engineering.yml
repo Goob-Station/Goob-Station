@@ -21,3 +21,5 @@
   id: Plumbing
   name: guide-entry-plumbing
   text: "/ServerInfo/_Goobstation/Guidebook/Engineering/Plumbing.xml"
+  children: # Pirate: chem plumbing
+  - PiratePlumbing # Pirate: chem plumbing

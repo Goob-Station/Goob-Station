@@ -1,0 +1,9 @@
+- type: cargoProduct
+  id: PlumbingRPLD
+  icon:
+    sprite: _Pirate/Objects/Tools/rpld.rsi
+    state: icon
+  product: CrateRPLD
+  cost: 800
+  category: cargoproduct-category-name-engineering
+  group: market

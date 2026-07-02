@@ -77,6 +77,8 @@
   - PowerDrill
   - WelderExperimental
   - JawsOfLife
+  # Pirate: chem plumbing
+  - RPLD # Pirate: chem plumbing
 
 - type: latheRecipePack
   id: AtmosTools

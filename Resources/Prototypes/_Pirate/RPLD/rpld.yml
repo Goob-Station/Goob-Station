@@ -1,0 +1,230 @@
+# =============================================================================
+# RPLD (Rapid Plumbing Device) - RCD prototypes for plumbing placement
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Category: PlumbingDucts
+# -----------------------------------------------------------------------------
+
+- type: rcd
+  id: PlumbingRpldDuctStraight
+  category: PlumbingDucts
+  sprite: /Textures/_Pirate/Interface/Radial/RPLD/duct_straight.png
+  mode: ConstructObject
+  prototype: PlumbingDuctStraight
+  cost: 1
+  delay: 0
+  rules:
+  - MustBuildOnSubfloor
+  rotation: User
+  hasLayers: true
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: PlumbingRpldDuctBend
+  category: PlumbingDucts
+  sprite: /Textures/_Pirate/Interface/Radial/RPLD/duct_bend.png
+  mode: ConstructObject
+  prototype: PlumbingDuctBend
+  cost: 1
+  delay: 0
+  rules:
+  - MustBuildOnSubfloor
+  rotation: User
+  hasLayers: true
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: PlumbingRpldDuctTJunction
+  category: PlumbingDucts
+  sprite: /Textures/_Pirate/Interface/Radial/RPLD/duct_tjunction.png
+  mode: ConstructObject
+  prototype: PlumbingDuctTJunction
+  cost: 1
+  delay: 0
+  rules:
+  - MustBuildOnSubfloor
+  rotation: User
+  hasLayers: true
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: PlumbingRpldDuctFourway
+  category: PlumbingDucts
+  sprite: /Textures/_Pirate/Interface/Radial/RPLD/duct_fourway.png
+  mode: ConstructObject
+  prototype: PlumbingDuctFourway
+  cost: 1
+  delay: 0
+  rules:
+  - MustBuildOnSubfloor
+  rotation: User
+  hasLayers: true
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: PlumbingRpldDuctManifold
+  category: PlumbingDucts
+  sprite: /Textures/_Pirate/Interface/Radial/RPLD/duct_manifold.png
+  mode: ConstructObject
+  prototype: PlumbingDuctManifold
+  cost: 1
+  delay: 0
+  rules:
+  - MustBuildOnSubfloor
+  rotation: User
+  hasLayers: true
+  fx: EffectRCDConstruct0
+
+# -----------------------------------------------------------------------------
+# Category: PlumbingSupply
+# -----------------------------------------------------------------------------
+
+- type: rcd
+  id: PlumbingRpldInput
+  category: PlumbingSupply
+  sprite: /Textures/_Pirate/Interface/Radial/RPLD/pipe_input.png
+  mode: ConstructObject
+  prototype: PlumbingInput
+  cost: 1
+  delay: 0
+  collisionMask: MachineMask
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: PlumbingRpldTank
+  category: PlumbingSupply
+  sprite: /Textures/_Pirate/Interface/Radial/RPLD/tank.png
+  mode: ConstructObject
+  prototype: PlumbingTank
+  cost: 2
+  delay: 0
+  collisionMask: MachineMask
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: PlumbingRpldBuffer
+  category: PlumbingSupply
+  sprite: /Textures/_Pirate/Interface/Radial/RPLD/buffer_tank.png
+  mode: ConstructObject
+  prototype: PlumbingBuffer
+  cost: 2
+  delay: 0
+  collisionMask: MachineMask
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: PlumbingRpldOutput
+  category: PlumbingSupply
+  sprite: /Textures/_Pirate/Interface/Radial/RPLD/pipe_output.png
+  mode: ConstructObject
+  prototype: PlumbingOutput
+  cost: 1
+  delay: 0
+  collisionMask: MachineMask
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: PlumbingRpldSink
+  category: PlumbingSupply
+  sprite: /Textures/_Pirate/Interface/Radial/RPLD/sink.png
+  mode: ConstructObject
+  prototype: PlumbingSink
+  cost: 2
+  delay: 0
+  collisionMask: MachineMask
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: PlumbingRpldDrain
+  category: PlumbingSupply
+  sprite: /Textures/_Pirate/Interface/Radial/RPLD/drain.png
+  mode: ConstructObject
+  prototype: PlumbingDrain
+  cost: 1
+  delay: 0
+  collisionMask: MachineMask
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: PlumbingRpldDisposal
+  category: PlumbingSupply
+  sprite: /Textures/_Pirate/Interface/Radial/RPLD/disposal.png
+  mode: ConstructObject
+  prototype: PlumbingDisposal
+  cost: 1
+  delay: 0
+  collisionMask: MachineMask
+  rotation: User
+  fx: EffectRCDConstruct0
+
+# -----------------------------------------------------------------------------
+# Category: PlumbingProduction
+# -----------------------------------------------------------------------------
+
+- type: rcd
+  id: PlumbingRpldFilter
+  category: PlumbingProduction
+  sprite: /Textures/_Pirate/Interface/Radial/RPLD/filter.png
+  mode: ConstructObject
+  prototype: PlumbingFilter
+  mirrorPrototype: PlumbingFilterFlipped
+  cost: 1
+  delay: 0
+  collisionMask: MachineMask
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: PlumbingRpldSynthesizer
+  category: PlumbingProduction
+  sprite: /Textures/_Pirate/Interface/Radial/RPLD/synthesizer.png
+  mode: ConstructObject
+  prototype: PlumbingSynthesizer
+  cost: 2
+  delay: 0
+  collisionMask: MachineMask
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: PlumbingRpldReactor
+  category: PlumbingProduction
+  sprite: /Textures/_Pirate/Interface/Radial/RPLD/reaction_chamber.png
+  mode: ConstructObject
+  prototype: PlumbingReactor
+  cost: 3
+  delay: 0
+  collisionMask: MachineMask
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: PlumbingRpldPillPress
+  category: PlumbingProduction
+  sprite: /Textures/_Pirate/Interface/Radial/RPLD/pill_press.png
+  mode: ConstructObject
+  prototype: PlumbingPillPress
+  cost: 3
+  delay: 0
+  collisionMask: MachineMask
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: PlumbingRpldSmartDispenser
+  category: PlumbingProduction
+  sprite: /Textures/_Pirate/Interface/Radial/RPLD/smart_fridge.png
+  mode: ConstructObject
+  prototype: PlumbingSmartDispenser
+  cost: 3
+  delay: 0
+  collisionMask: MachineMask
+  rotation: User
+  fx: EffectRCDConstruct0

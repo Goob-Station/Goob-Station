@@ -81,6 +81,12 @@ namespace Content.Goobstation.Shared.Chemistry
     {
     }
 
+    // Pirate: chem plumbing
+    [Serializable, NetSerializable]
+    public sealed class EnergyReagentDispenserToggleValveMessage : BoundUserInterfaceMessage
+    {
+    }
+
     public enum EnergyReagentDispenserDispenseAmount
     {
         U1 = 1,
@@ -115,6 +121,7 @@ namespace Content.Goobstation.Shared.Chemistry
         float idleUse,
         bool usingBattery,
         bool hasPower,
+        bool valveOpen, // Pirate: chem plumbing
         List<ReagentDispenserRecipeItem> savedRecipes,
         bool hasRecipeDisk,
         List<ReagentDispenserRecipeItem> diskRecipes,
@@ -138,6 +145,7 @@ namespace Content.Goobstation.Shared.Chemistry
         public readonly float IdleUse = idleUse;
         public readonly bool UsingBattery = usingBattery;
         public readonly bool HasPower = hasPower;
+        public readonly bool ValveOpen = valveOpen; // Pirate: chem plumbing
         #region Pirate: chem recipes
         public readonly List<ReagentDispenserRecipeItem> SavedRecipes = savedRecipes;
         public readonly bool HasRecipeDisk = hasRecipeDisk;

@@ -35,8 +35,12 @@ public sealed class RCDMenuBoundUserInterface : BoundUserInterface
             // Goobstation - RPD (13 of stars)
             ["Piping"] = ("rcd-component-piping", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RPD/fourway.png"))),
             ["AtmosphericUtility"] = ("rcd-component-atmosphericutility", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RPD/port.png"))),
-            ["PumpsValves"] = ("rcd-component-pumpsvalves", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RPD/pump_volume.png"))),
+            ["PumpsValves"] = ("rcd-component-pumps", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RPD/pump_volume.png"))), // Pirate: chem plumbing
             ["Vents"] = ("rcd-component-vents", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RPD/vent_passive.png"))),
+            // Pirate: chem plumbing
+            ["PlumbingDucts"] = ("rpld-component-ducts", new SpriteSpecifier.Texture(new ResPath("/Textures/_Pirate/Interface/Radial/RPLD/category_ducts.png"))), // Pirate: chem plumbing
+            ["PlumbingSupply"] = ("rpld-component-supply", new SpriteSpecifier.Texture(new ResPath("/Textures/_Pirate/Interface/Radial/RPLD/tank.png"))), // Pirate: chem plumbing
+            ["PlumbingProduction"] = ("rpld-component-production", new SpriteSpecifier.Texture(new ResPath("/Textures/_Pirate/Interface/Radial/RPLD/reaction_chamber.png"))), // Pirate: chem plumbing
         };
 
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;

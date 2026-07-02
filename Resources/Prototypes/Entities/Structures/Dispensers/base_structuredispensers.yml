@@ -53,9 +53,15 @@
   components:
   - type: Transform
     anchored: true
-    noRot: true
+    noRot: false # Pirate: chem plumbing
+  - type: Rotatable # Pirate: chem plumbing
+    rotateWhileAnchored: true
   - type: Clickable
   - type: InteractionOutline
+  # Pirate: chem plumbing
+  - type: PlumbingConnectorAppearance
+    offset: 0.09375
+  - type: AtmosPipeColor
   - type: Physics
     bodyType: Static
   - type: Fixtures
@@ -113,7 +119,7 @@
         components:
         - FitsInDispenser
       priority: 9
-    recipeDiskSlot: # Pirate: chem recipes
+    recipeDiskSlot: # Pirate: chem plumbing
       name: reagent-dispenser-component-slot-name-disk
       priority: 10
       insertSound:
@@ -130,8 +136,37 @@
       machine_board: !type:Container
       machine_parts: !type:Container
       beakerSlot: !type:ContainerSlot
-      recipeDiskSlot: !type:ContainerSlot # Pirate: chem recipes
+      recipeDiskSlot: !type:ContainerSlot # Pirate: chem plumbing
       storagebase: !type:Container
   - type: StaticPrice
     price: 1000
   - type: WiresPanel 
+  # Pirate: chem plumbing
+  - type: NodeContainer
+    nodes:
+      outletNorth:
+        !type:PlumbingNode
+        nodeGroupID: Plumbing
+        pipeDirection: North
+      outletEast:
+        !type:PlumbingNode
+        nodeGroupID: Plumbing
+        pipeDirection: East
+      outletSouth:
+        !type:PlumbingNode
+        nodeGroupID: Plumbing
+        pipeDirection: South
+      outletWest:
+        !type:PlumbingNode
+        nodeGroupID: Plumbing
+        pipeDirection: West
+  - type: PlumbingOutlet
+    solutionName: beaker
+    connectedOutlets: true
+    outletNames:
+    - outletNorth
+    - outletEast
+    - outletSouth
+    - outletWest
+    containerSlotId: beakerSlot
+    enabled: false

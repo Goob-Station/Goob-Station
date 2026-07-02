@@ -1,0 +1,67 @@
+# ============================================================================
+# Guidebook Duct Entities
+# ============================================================================
+# Duct variants specifically for GuideEntityEmbed display.
+# Real ducts have SubFloorHide + visible: false, which prevents proper
+# rendering in guidebook embeds
+# ============================================================================
+
+- type: entity
+  id: GuidebookPlumbingDuctStraight
+  categories: [ HideSpawnMenu ]
+  name: fluid duct
+  suffix: Straight, Guidebook
+  components:
+  - type: Sprite
+    sprite: _Pirate/Structures/Piping/Plumbing/fluid_ducts.rsi
+    drawdepth: ThinPipe
+    layers:
+    - state: storageStraight
+
+- type: entity
+  id: GuidebookPlumbingDuctBend
+  categories: [ HideSpawnMenu ]
+  name: fluid duct
+  suffix: Bend, Guidebook
+  components:
+  - type: Sprite
+    sprite: _Pirate/Structures/Piping/Plumbing/fluid_ducts.rsi
+    drawdepth: ThinPipe
+    layers:
+    - state: storageBend
+
+- type: entity
+  id: GuidebookPlumbingDuctTJunction
+  categories: [ HideSpawnMenu ]
+  name: fluid duct
+  suffix: T-Junction, Guidebook
+  components:
+  - type: Sprite
+    sprite: _Pirate/Structures/Piping/Plumbing/fluid_ducts.rsi
+    drawdepth: ThinPipe
+    layers:
+    - state: storageTjunction
+
+- type: entity
+  id: GuidebookPlumbingDuctFourway
+  categories: [ HideSpawnMenu ]
+  name: fluid duct
+  suffix: Fourway, Guidebook
+  components:
+  - type: Sprite
+    sprite: _Pirate/Structures/Piping/Plumbing/fluid_ducts.rsi
+    drawdepth: ThinPipe
+    layers:
+    - state: storageFourway
+
+- type: entity
+  id: GuidebookPlumbingDuctManifold
+  categories: [ HideSpawnMenu ]
+  name: fluid manifold
+  suffix: Guidebook
+  components:
+  - type: Sprite
+    sprite: _Pirate/Structures/Piping/Plumbing/plumbing_manifold.rsi
+    drawdepth: ThinPipe
+    layers:
+    - state: duct_manifold

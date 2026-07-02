@@ -1,0 +1,22 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               MinSize="300 250" Title="{Loc plumbing-synthesizer-window-title}">
+    <BoxContainer Orientation="Vertical" Margin="5 5 5 5" SeparationOverride="8">
+        <!-- Status toggle -->
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+            <Label Text="{Loc plumbing-synthesizer-status}" />
+            <Button Name="ToggleStatusButton" MinWidth="80" />
+        </BoxContainer>
+
+        <!-- Battery indicator -->
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+            <Label Text="{Loc plumbing-synthesizer-battery}" />
+            <ProgressBar Name="BatteryBar" HorizontalExpand="True" MinHeight="20" MinValue="0" MaxValue="1" />
+        </BoxContainer>
+
+        <!-- Reagent selection -->
+        <PanelContainer StyleClasses="LowDivider" />
+        <Label Text="{Loc plumbing-synthesizer-select-reagent}" StyleClasses="LabelHeading" />
+        <OptionButton Name="ReagentSelector" HorizontalExpand="True" />
+    </BoxContainer>
+</DefaultWindow>

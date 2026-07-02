@@ -1,0 +1,17 @@
+- type: guideEntry
+  id: PiratePlumbing
+  name: guidebook-pirate-plumbing
+  text: "/ServerInfo/_Pirate/Guidebook/Engineering/Plumbing.xml"
+  children:
+  - PiratePlumbingFlow
+  - PiratePlumbingMachines
+
+- type: guideEntry
+  id: PiratePlumbingFlow
+  name: guidebook-pirate-plumbing-flow
+  text: "/ServerInfo/_Pirate/Guidebook/Engineering/PlumbingFlow.xml"
+
+- type: guideEntry
+  id: PiratePlumbingMachines
+  name: guidebook-pirate-plumbing-machines
+  text: "/ServerInfo/_Pirate/Guidebook/Engineering/PlumbingMachines.xml"
