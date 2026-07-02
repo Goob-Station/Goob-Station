@@ -1,0 +1,16 @@
+loadout-search-placeholder = Search items...
+loadout-search-results = {$count} items matching "{$query}"
+loadout-selected-count = Selected ({$count})
+loadout-locate-tooltip = Find in list
+loadout-group-limit-tooltip = Pick up to {$max}
+loadout-category-Backpacks = Backpacks
+loadout-category-Belt = Belt
+loadout-category-Eyes = Eyes
+loadout-category-Hands = Hands
+loadout-category-Head = Head
+loadout-category-Items = Items
+loadout-category-Mask = Mask
+loadout-category-Neck = Neck
+loadout-category-Outer = Outer
+loadout-category-Shoes = Shoes
+loadout-category-Uniform = Uniform

@@ -196,7 +196,27 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                     <!-- Pirate end: port and modified DV traits UI -->
                 <!-- Pirate: loadout -->
                 <BoxContainer Name="LoadoutsTab" Orientation="Vertical" Margin="10">
+                    <!-- #region Pirate: loadout -->
+                    <!-- global item search -->
+                    <BoxContainer Orientation="Horizontal" Margin="0 0 0 6">
+                        <LineEdit Name="LoadoutSearchBar" HorizontalExpand="True" />
+                        <Control MinWidth="2" />
+                        <Button Name="LoadoutSearchClear" Text="✕" />
+                    </BoxContainer>
+                    <!-- #endregion Pirate: loadout -->
                     <TabContainer Name="LoadoutSlotTabs" HorizontalExpand="True" VerticalExpand="True" />
+                    <!-- #region Pirate: loadout -->
+                    <!-- flat search results, shown in place of the slot tabs while searching -->
+                    <BoxContainer Name="LoadoutSearchView" Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True" Visible="False">
+                        <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" SizeFlagsStretchRatio="4">
+                            <Label Name="LoadoutSearchResultsLabel" Margin="5 0 5 4" />
+                            <ScrollContainer Name="LoadoutSearchScroll" HScrollEnabled="False" HorizontalExpand="True" VerticalExpand="True">
+                                <BoxContainer Name="LoadoutSearchResultsBody" Orientation="Vertical" Margin="5" HorizontalExpand="True" />
+                            </ScrollContainer>
+                        </BoxContainer>
+                        <BoxContainer Name="LoadoutSearchSidebarSlot" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" SizeFlagsStretchRatio="1" />
+                    </BoxContainer>
+                    <!-- #endregion Pirate: loadout -->
                     <ScrollContainer Name="LoadoutSidebarScroll" HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="False">
                         <BoxContainer Name="SelectedLoadoutsList" Orientation="Vertical" HorizontalExpand="True" Margin="5" />
                     </ScrollContainer>
