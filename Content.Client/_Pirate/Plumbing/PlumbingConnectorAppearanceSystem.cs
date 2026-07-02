@@ -157,11 +157,15 @@ public sealed partial class PlumbingConnectorAppearanceSystem : EntitySystem
         if (!_appearance.TryGetData<bool>(uid, PlumbingVisuals.CoveredByFloor, out var coveredByFloor, args.Component))
             coveredByFloor = false;
 
+        if (!_appearance.TryGetData<int>(uid, PlumbingVisuals.CoveredDirections, out var coveredDirectionsInt, args.Component))
+            coveredDirectionsInt = 0;
+
         var nodeDirections = (PipeDirection)nodeDirectionsInt;
         var connectedDirections = (PipeDirection)connectedDirectionsInt;
         var inletDirections = (PipeDirection)inletDirectionsInt;
         var outletDirections = (PipeDirection)outletDirectionsInt;
         var mixingInletDirections = (PipeDirection)mixingInletDirectionsInt;
+        var coveredDirections = (PipeDirection)coveredDirectionsInt;
 
         // Get the entity's local rotation to transform world directions to local
         if (!_xformQuery.TryGetComponent(uid, out var xform))
@@ -172,6 +176,7 @@ public sealed partial class PlumbingConnectorAppearanceSystem : EntitySystem
         var inletDirectionsLocal = inletDirections.RotatePipeDirection(-localRotation);
         var outletDirectionsLocal = outletDirections.RotatePipeDirection(-localRotation);
         var mixingInletDirectionsLocal = mixingInletDirections.RotatePipeDirection(-localRotation);
+        var coveredDirectionsLocal = coveredDirections.RotatePipeDirection(-localRotation);
 
         foreach (var layerKey in _connectionLayers)
         {
@@ -181,6 +186,7 @@ public sealed partial class PlumbingConnectorAppearanceSystem : EntitySystem
             var isInlet = inletDirectionsLocal.HasDirection(dir);
             var isOutlet = outletDirectionsLocal.HasDirection(dir);
             var isMixingInlet = mixingInletDirectionsLocal.HasDirection(dir);
+            var isCovered = coveredByFloor || coveredDirectionsLocal.HasDirection(dir);
 
             var color = GetConnectorColor(isInlet, isOutlet, isMixingInlet);
 
@@ -188,7 +194,7 @@ public sealed partial class PlumbingConnectorAppearanceSystem : EntitySystem
             if (_sprite.LayerMapTryGet((uid, args.Sprite), layerName, out var layerKey2, false))
             {
                 var layer = args.Sprite[layerKey2];
-                layer.Visible = hasNode && !coveredByFloor;
+                layer.Visible = hasNode && !isCovered;
 
                 if (layer.Visible)
                 {

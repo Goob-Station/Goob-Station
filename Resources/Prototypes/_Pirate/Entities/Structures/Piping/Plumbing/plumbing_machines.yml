@@ -770,14 +770,26 @@
   - type: PlumbingSynthesizer
     bufferSolutionName: buffer
     generatableReagents:
-      Iron: 2
+      Aluminium: 5
       Carbon: 2
+      Chlorine: 8
       Copper: 2
+      Ethanol: 5
+      Fluorine: 8
       Hydrogen: 2
+      Iodine: 5
+      Iron: 2
+      Lithium: 8
+      Mercury: 8
+      Nitrogen: 2
       Oxygen: 0
-      Sugar: 2
-      Silicon: 5
       Phosphorus: 5
+      Potassium: 5
+      Radium: 10
+      Silicon: 5
+      Sodium: 3
+      Sugar: 2
+      Sulfur: 3
   - type: Plungeable
   - type: PlumbingOutlet
     solutionName: buffer
@@ -826,9 +838,8 @@
   - type: ContainerContainer
     containers:
       cell_slot: !type:ContainerSlot
-  - type: Charger
-    slotId: cell_slot
-    chargeRate: 5
+  # Cell is recharged in-place by PlumbingSynthesizerSystem (see CellRechargeRate);
+  # the stock Charger doesn't resume for a cell drained inside the machine.
   - type: ApcPowerReceiver
     powerLoad: 1
   - type: ExtensionCableReceiver

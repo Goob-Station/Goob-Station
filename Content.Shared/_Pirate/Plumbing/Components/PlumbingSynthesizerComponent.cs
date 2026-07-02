@@ -43,4 +43,12 @@ public sealed partial class PlumbingSynthesizerComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Enabled = true;
+
+    /// <summary>
+    ///     Charge (in watts) added to the inserted power cell each second while the machine
+    ///     has grid power. Recharged in-place here rather than via a <c>Charger</c>, which only
+    ///     wakes on cell insert/remove and never resumes for a cell drained inside the machine.
+    /// </summary>
+    [DataField]
+    public float CellRechargeRate = 30f;
 }

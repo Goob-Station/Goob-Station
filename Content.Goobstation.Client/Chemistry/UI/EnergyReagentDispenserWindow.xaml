@@ -51,6 +51,13 @@ SPDX-License-Identifier: AGPL-3.0-or-later
             <SpriteView Name="View"
                         Scale="4 4"
                         HorizontalAlignment="Center" />
+            <!-- Pirate: chem plumbing -->
+            <BoxContainer Orientation="Horizontal" Margin="0 4">
+                <Button Name="ValveButton"
+                        Access="Public"
+                        HorizontalExpand="True"
+                        Text="{Loc 'gas-canister-window-valve-closed-text'}" />
+            </BoxContainer>
             <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button Name="ClearButton"
                         Access="Public"

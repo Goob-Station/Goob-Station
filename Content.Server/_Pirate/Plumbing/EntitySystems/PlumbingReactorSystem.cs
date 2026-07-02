@@ -212,6 +212,7 @@ public sealed partial class PlumbingReactorSystem : EntitySystem
             if (_prototypeManager.HasIndex<ReagentPrototype>(args.ReagentId))
                 ent.Comp.ReagentTargets.Remove(new ProtoId<ReagentPrototype>(args.ReagentId));
             DirtyField(ent, ent.Comp, nameof(PlumbingReactorComponent.ReagentTargets));
+            EvacuateBufferReagent(ent, args.ReagentId);
             UpdateUI(ent);
             return;
         }
@@ -248,6 +249,7 @@ public sealed partial class PlumbingReactorSystem : EntitySystem
     {
         ent.Comp.ReagentTargets.Remove(new ProtoId<ReagentPrototype>(args.ReagentId));
         DirtyField(ent, ent.Comp, nameof(PlumbingReactorComponent.ReagentTargets));
+        EvacuateBufferReagent(ent, args.ReagentId);
         ClickSound(ent.Owner);
         UpdateUI(ent);
     }
@@ -256,8 +258,44 @@ public sealed partial class PlumbingReactorSystem : EntitySystem
     {
         ent.Comp.ReagentTargets.Clear();
         DirtyField(ent, ent.Comp, nameof(PlumbingReactorComponent.ReagentTargets));
+        EvacuateAllBufferReagents(ent);
         ClickSound(ent.Owner);
         UpdateUI(ent);
+    }
+
+    /// <summary>
+    ///     Moves a reagent out of the buffer into the output when its recipe target is removed,
+    ///     so it stops showing in the list and doesn't clog the buffer. Only moves what the output
+    ///     can hold; any remainder can still be plungered out.
+    /// </summary>
+    private void EvacuateBufferReagent(Entity<PlumbingReactorComponent> ent, string reagentId)
+    {
+        if (!_solutionSystem.TryGetSolution(ent.Owner, ent.Comp.BufferSolutionName, out var bufferEnt, out var buffer)
+            || !_solutionSystem.TryGetSolution(ent.Owner, ent.Comp.OutputSolutionName, out var outputEnt, out var output))
+            return;
+
+        var reagent = new ReagentId(reagentId, null);
+        var toMove = FixedPoint2.Min(buffer.GetReagentQuantity(reagent), output.AvailableVolume);
+        if (toMove <= 0)
+            return;
+
+        var removed = _solutionSystem.RemoveReagent(bufferEnt.Value, reagent, toMove);
+        if (removed > 0)
+            _solutionSystem.TryAddReagent(outputEnt.Value, reagent, removed, out _);
+    }
+
+    private void EvacuateAllBufferReagents(Entity<PlumbingReactorComponent> ent)
+    {
+        if (!_solutionSystem.TryGetSolution(ent.Owner, ent.Comp.BufferSolutionName, out _, out var buffer))
+            return;
+
+        // Snapshot ids first since evacuation mutates the buffer.
+        var reagentIds = new List<string>();
+        foreach (var reagent in buffer.Contents)
+            reagentIds.Add(reagent.Reagent.Prototype);
+
+        foreach (var reagentId in reagentIds)
+            EvacuateBufferReagent(ent, reagentId);
     }
 
     private void OnSetTemperature(Entity<PlumbingReactorComponent> ent, ref PlumbingReactorSetTemperatureMessage args)

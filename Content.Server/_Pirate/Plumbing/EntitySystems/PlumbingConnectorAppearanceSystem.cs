@@ -81,15 +81,6 @@ public sealed partial class PlumbingConnectorAppearanceSystem : EntitySystem
 
         var tile = _map.TileIndicesFor(gridUid, grid, xform.Coordinates);
 
-        static IEnumerable<Vector2i> TilesToCheck(Vector2i center)
-        {
-            yield return center;
-            yield return center + (0, 1);
-            yield return center + (0, -1);
-            yield return center + (1, 0);
-            yield return center + (-1, 0);
-        }
-
         foreach (var checkTile in TilesToCheck(tile))
         {
             foreach (var ent in _map.GetAnchoredEntities(gridUid, grid, checkTile))
@@ -106,12 +97,26 @@ public sealed partial class PlumbingConnectorAppearanceSystem : EntitySystem
 
         foreach (var change in ev.Changes)
         {
-            foreach (var uid in _map.GetAnchoredEntities(ev.Entity, grid, change.GridIndices))
+            // Refresh the changed tile and its neighbours: a machine next to the changed
+            // tile has a connector stub pointing into it whose coverage may have flipped.
+            foreach (var checkTile in TilesToCheck(change.GridIndices))
             {
-                if (HasComp<PlumbingConnectorAppearanceComponent>(uid))
-                    UpdateAppearance(uid);
+                foreach (var uid in _map.GetAnchoredEntities(ev.Entity, grid, checkTile))
+                {
+                    if (HasComp<PlumbingConnectorAppearanceComponent>(uid))
+                        UpdateAppearance(uid);
+                }
             }
         }
+    }
+
+    private static IEnumerable<Vector2i> TilesToCheck(Vector2i center)
+    {
+        yield return center;
+        yield return center + (0, 1);
+        yield return center + (0, -1);
+        yield return center + (1, 0);
+        yield return center + (-1, 0);
     }
 
     private bool HasFloorCover(EntityUid gridUid, MapGridComponent grid, Vector2i position)
@@ -179,6 +184,7 @@ public sealed partial class PlumbingConnectorAppearanceSystem : EntitySystem
         }
 
         var coveredByFloor = HasFloorCover(xform.GridUid.Value, grid, tile);
+        var coveredDirections = GetCoveredDirections(xform.GridUid.Value, grid, tile);
 
         _appearance.SetData(uid, PlumbingVisuals.NodeDirections, (int)nodeDirections, appearance);
         _appearance.SetData(uid, PlumbingVisuals.ConnectedDirections, (int)connectedDirections, appearance);
@@ -188,6 +194,32 @@ public sealed partial class PlumbingConnectorAppearanceSystem : EntitySystem
         _appearance.SetData(uid, PlumbingVisuals.MixingInletDirections, (int)mixingInletDirections, appearance);
         _appearance.SetData(uid, PlumbingVisuals.ManifoldMode, false, appearance);
         _appearance.SetData(uid, PlumbingVisuals.CoveredByFloor, coveredByFloor, appearance);
+        _appearance.SetData(uid, PlumbingVisuals.CoveredDirections, (int)coveredDirections, appearance);
+    }
+
+    /// <summary>
+    ///     Returns the cardinal directions whose neighbouring tile is covered by a floor,
+    ///     so connector stubs pointing under a floored tile can hide with the ducts there.
+    /// </summary>
+    private PipeDirection GetCoveredDirections(EntityUid gridUid, MapGridComponent grid, Vector2i tile)
+    {
+        var covered = PipeDirection.None;
+        foreach (var dir in _cardinalDirections)
+        {
+            var neighborTile = dir switch
+            {
+                PipeDirection.North => tile + (0, 1),
+                PipeDirection.South => tile + (0, -1),
+                PipeDirection.East => tile + (1, 0),
+                PipeDirection.West => tile + (-1, 0),
+                _ => tile
+            };
+
+            if (HasFloorCover(gridUid, grid, neighborTile))
+                covered |= dir;
+        }
+
+        return covered;
     }
 
     private void UpdateManifoldAppearance(EntityUid uid,

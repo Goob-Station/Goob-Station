@@ -61,7 +61,15 @@ public enum PlumbingVisuals : byte
     ///     Packed connected slot bitmask per cardinal direction for manifold-mode connectors.
     ///     Uses 4-bit nibbles per direction, where each bit is a slot index (0-3).
     /// </summary>
-    ManifoldConnectedSlotsByDirection
+    ManifoldConnectedSlotsByDirection,
+
+    /// <summary>
+    ///     Directions whose neighbouring tile is covered by a floor.
+    ///     Connector stubs pointing into a covered tile hide along with the ducts under
+    ///     that floor, so a machine on exposed plating doesn't leave pipes poking over
+    ///     adjacent floor tiles.
+    /// </summary>
+    CoveredDirections
 }
 
 [Serializable, NetSerializable]

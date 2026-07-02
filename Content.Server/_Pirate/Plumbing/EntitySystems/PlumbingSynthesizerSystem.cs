@@ -1,4 +1,5 @@
 using Content.Server._Pirate.Plumbing.Components;
+using Content.Server.Power.EntitySystems;
 using Content.Server.PowerCell;
 using Content.Shared._Pirate.Plumbing;
 using Content.Shared._Pirate.Plumbing.Components;
@@ -31,6 +32,8 @@ public sealed partial class PlumbingSynthesizerSystem : EntitySystem
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private PowerReceiverSystem _power = default!;
+    [Dependency] private BatterySystem _battery = default!;
 
     private readonly Dictionary<EntityUid, TimeSpan> _nextUiUpdate = new();
 
@@ -81,6 +84,8 @@ public sealed partial class PlumbingSynthesizerSystem : EntitySystem
 
     private void OnSynthesizerUpdate(Entity<PlumbingSynthesizerComponent> ent, ref PlumbingDeviceUpdateEvent args)
     {
+        RechargeCell(ent, args.dt);
+
         if (_solutionSystem.TryGetSolution(ent.Owner, ent.Comp.BufferSolutionName, out _, out var bufferCheck))
             _appearance.SetData(ent.Owner, PlumbingVisuals.Running, bufferCheck.Volume > 0);
 
@@ -127,6 +132,24 @@ public sealed partial class PlumbingSynthesizerSystem : EntitySystem
 
         _appearance.SetData(ent.Owner, PlumbingVisuals.Running, buffer.Volume > 0);
         UpdateUI(ent);
+    }
+
+    /// <summary>
+    ///     Tops up the inserted power cell from grid power. Done here because the stock Charger
+    ///     only wakes on cell insert/remove, so a cell drained in-place never resumes charging.
+    /// </summary>
+    private void RechargeCell(Entity<PlumbingSynthesizerComponent> ent, float dt)
+    {
+        if (ent.Comp.CellRechargeRate <= 0f || !_power.IsPowered(ent.Owner))
+            return;
+
+        if (!_powerCell.TryGetBatteryFromSlot(ent.Owner, out var batteryUid, out var battery))
+            return;
+
+        if (battery.CurrentCharge >= battery.MaxCharge)
+            return;
+
+        _battery.SetCharge(batteryUid.Value, battery.CurrentCharge + ent.Comp.CellRechargeRate * dt, battery);
     }
 
     /// <summary>
