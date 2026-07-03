@@ -77,7 +77,7 @@
 - type: reaction
   id: MuteSerumFromMuteToxin
   source: true
-  minTemp: 450
+  minTemp: 470
   reactants:
     MuteToxin:
       amount: 1
