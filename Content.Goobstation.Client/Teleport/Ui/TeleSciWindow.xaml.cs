@@ -4,7 +4,6 @@ using Content.Client.UserInterface.Controls;
 using Content.Goobstation.Shared.Teleportation.Components;
 using Robust.Shared.Timing;
 using System.Numerics;
-using Robust.Client.UserInterface.Controls;
 
 namespace Content.Goobstation.Client.Teleport.Ui;
 
@@ -13,31 +12,22 @@ public sealed partial class TeleSciWindow : FancyWindow
 {
     [Dependency] private readonly IGameTiming _timing = default!;
 
-    private Entity<TelesciComputerComponent>? _owner;
     private TelesciState _state;
 
     public event Action<Vector2>? OnSendButtonPressed;
     public event Action<Vector2>? OnRetrieveButtonPressed;
-
+    public event Action<Vector2>? OnPositionChange;
     //public event Action? OnOpenPortalButtonPressed;
-
-    public TeleSciWindow()
-    {
-        RobustXamlLoader.Load(this);
-        IoCManager.InjectDependencies(this);
-        SendButton.OnPressed += Send;
-        RetrieveButton.OnPressed += Retrieve;
-
-        PortalButton.Disabled = true;
-        PortalButton.ToggleMode = true;
-    }
 
     public TeleSciWindow(EntityUid owner, TelesciComputerComponent computer)
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
-        SendButton.OnPressed += Send;
-        RetrieveButton.OnPressed += Retrieve;
+
+        SendButton.OnPressed += _ => OnSendButtonPressed?.Invoke(new Vector2(XNodeInput.Value, YNodeInput.Value));
+        RetrieveButton.OnPressed += _ => OnRetrieveButtonPressed?.Invoke(new Vector2(XNodeInput.Value, YNodeInput.Value));
+        XNodeInput.OnValueChanged += _ => OnPositionChange?.Invoke(new Vector2(XNodeInput.Value, YNodeInput.Value));
+        YNodeInput.OnValueChanged += _ => OnPositionChange?.Invoke(new Vector2(XNodeInput.Value, YNodeInput.Value));
 
         PortalButton.Disabled = true;
         PortalButton.ToggleMode = true;
@@ -108,12 +98,6 @@ public sealed partial class TeleSciWindow : FancyWindow
         YNodeInput.Value = ent.Comp.Position.Y;
     }
 
-    private void Send(BaseButton.ButtonEventArgs obj)
-        => OnSendButtonPressed?.Invoke(new Vector2(XNodeInput.Value, YNodeInput.Value));
-
-    private void Retrieve(BaseButton.ButtonEventArgs obj)
-        => OnRetrieveButtonPressed?.Invoke(new Vector2(XNodeInput.Value, YNodeInput.Value));
-
     private enum TelesciState
     {
         Unknown,
@@ -122,5 +106,3 @@ public sealed partial class TeleSciWindow : FancyWindow
         Cooldown
     }
 }
-
-

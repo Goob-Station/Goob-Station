@@ -14,8 +14,8 @@ public sealed class TelesciComputerSystem : EntitySystem
         SubscribeLocalEvent<TelesciComputerComponent, TelesciSendMessage>(OnSendMessage);
         SubscribeLocalEvent<TelesciComputerComponent, TelesciRetrieveMessage>(OnRetrieveMessage);
         SubscribeLocalEvent<TelesciComputerComponent, TelesciCooldowneEvent>(OnCooldownEvent);
+        SubscribeLocalEvent<TelesciComputerComponent, TelesciPositionMessage>(OnPositionMessage);
     }
-
 
     private void OnNewLink(Entity<TelesciComputerComponent> ent, ref NewLinkEvent arg)
     {
@@ -69,6 +69,12 @@ public sealed class TelesciComputerSystem : EntitySystem
 
         var ev = new TelesciRetrieveEvent(arg.Coordinates);
         RaiseLocalEvent(teleporter.Value, ev);
+    }
+
+    private void OnPositionMessage(Entity<TelesciComputerComponent> ent, ref TelesciPositionMessage arg)
+    {
+        ent.Comp.Position = arg.Coordinates;
+        Dirty(ent);
     }
 
     private void OnCooldownEvent(Entity<TelesciComputerComponent> ent, ref TelesciCooldowneEvent arg)

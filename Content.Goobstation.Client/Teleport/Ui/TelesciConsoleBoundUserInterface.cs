@@ -17,17 +17,19 @@ public sealed class TelesciConsoleBoundUserInterface : BoundUserInterface
 
     protected override void Open()
     {
+        if (!_entMan.TryGetComponent<TelesciComputerComponent>(Owner, out var computer))
+            return;
+
         base.Open();
-        if (_entMan.TryGetComponent<TelesciComputerComponent>(Owner, out var computer))
-            _window = new TeleSciWindow(Owner, computer);
-        else
-            _window = new TeleSciWindow();
+
+        _window = new TeleSciWindow(Owner, computer);
 
         _window.OnClose += Close;
         _window.OpenCentered();
 
         _window.OnSendButtonPressed += SendButtonPresed;
         _window.OnRetrieveButtonPressed += RetrieveButtonPresed;
+        _window.OnPositionChange += PositionChanged;
     }
 
     protected override void Dispose(bool disposing)
@@ -43,11 +45,14 @@ public sealed class TelesciConsoleBoundUserInterface : BoundUserInterface
     // protected override void UpdateState(BoundUserInterfaceState state) => _window?.Update();
 
     private void SendButtonPresed(Vector2 location)
-        =>  SendMessage(new TelesciSendMessage(location));
+        => SendMessage(new TelesciSendMessage(location));
 
     private void RetrieveButtonPresed(Vector2 location)
-        =>  SendMessage(new TelesciRetrieveMessage(location));
+        => SendMessage(new TelesciRetrieveMessage(location));
 
     public void Update(Entity<TelesciComputerComponent> ent)
-        =>   _window?.Update(ent);
+        => _window?.Update(ent);
+
+    private void PositionChanged(Vector2 position)
+        => SendMessage(new TelesciPositionMessage(position));
 }

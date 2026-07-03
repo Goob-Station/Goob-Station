@@ -65,6 +65,12 @@ public sealed class TelesciRetrieveMessage(Vector2 coordinates) : BoundUserInter
 }
 
 [Serializable, NetSerializable]
+public sealed class TelesciPositionMessage(Vector2 coordinates) : BoundUserInterfaceMessage
+{
+    public Vector2 Coordinates = coordinates;
+}
+
+[Serializable, NetSerializable]
 public sealed class TelesciOpenPortaleMessage : BoundUserInterfaceMessage;
 
 [Serializable, NetSerializable]
