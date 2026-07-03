@@ -198,6 +198,12 @@ public sealed class StainSystem : SharedStainSystem
             if (!_sprite.TryGetLayer(sprite, i, out var layer, false) || !_sprite.IsVisible(layer))
                 continue;
 
+            // Skip shaded overlay layers (e.g. borg eye/light glows use the 'unshaded' shader). Blood should
+            // clip to the solid body/item layers only; masking it onto a full-frame glow layer makes the
+            // overlay cover the whole sprite (this is why some borgs showed a full blood square).
+            if (layer.ShaderPrototype != null)
+                continue;
+
             var state = _sprite.LayerGetRsiState(sprite, i);
             var rsi = _sprite.LayerGetEffectiveRsi(sprite, i);
             if (rsi == null || !state.IsValid)

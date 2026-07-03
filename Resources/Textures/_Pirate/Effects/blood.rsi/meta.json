@@ -44,7 +44,8 @@
       "directions": 4
     },
     {
-      "name": "itemblood"
+      "name": "itemblood",
+      "directions": 4
     },
     {
       "name": "glovebloodicon"
