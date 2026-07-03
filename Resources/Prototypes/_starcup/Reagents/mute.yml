@@ -91,10 +91,10 @@
   - Electrolysis
   reactants:
     MuteToxin:
-      amount: 1
+      amount: 10
   products:
-    Mutol: 1
-    Oxygen: 1
+    Mutol: 5
+    Oxygen: 5
 
 - type: reaction
   id: MutoninSynthesis
