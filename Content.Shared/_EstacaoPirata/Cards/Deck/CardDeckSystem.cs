@@ -101,7 +101,8 @@ public sealed class CardDeckSystem : EntitySystem
 
     private void TryShuffle(EntityUid deck, CardDeckComponent comp, CardStackComponent? stack)
     {
-        _cardStackSystem.ShuffleCards(deck, stack);
+        if (!_cardStackSystem.ShuffleCards(deck, stack)) // Pirate: shuffle-cooldown
+            return;
         if (_net.IsClient)
             return;
 

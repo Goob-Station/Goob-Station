@@ -20,6 +20,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Random;
+using Robust.Shared.Timing; // Pirate: shuffle-cooldown
 using Robust.Shared.Utility;
 
 namespace Content.Shared._EstacaoPirata.Cards.Stack;
@@ -42,6 +43,7 @@ public sealed class CardStackSystem : EntitySystem
     [Dependency] private readonly SharedStorageSystem _storage = default!;
     [Dependency] private readonly CardHandSystem _cardHandSystem = default!; // Frontier
     [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly IGameTiming _timing = default!; // Pirate: shuffle-cooldown
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -112,6 +114,11 @@ public sealed class CardStackSystem : EntitySystem
     {
         if (!Resolve(uid, ref comp))
             return false;
+
+        // Pirate: shuffle-cooldown
+        if (_timing.CurTime < comp.NextShuffle)
+            return false;
+        comp.NextShuffle = _timing.CurTime + comp.ShuffleCooldown;
 
         _random.Shuffle(comp.Cards);
 

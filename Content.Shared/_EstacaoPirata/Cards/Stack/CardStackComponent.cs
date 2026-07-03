@@ -44,6 +44,20 @@ public sealed partial class CardStackComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public List<EntityUid> Cards = [];
+
+    #region Pirate: shuffle-cooldown
+    /// <summary>
+    /// How long to wait between shuffles.
+    /// </summary>
+    [DataField]
+    public TimeSpan ShuffleCooldown = TimeSpan.FromSeconds(0.5);
+
+    /// <summary>
+    /// Earliest time the stack can be shuffled again.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public TimeSpan NextShuffle;
+    #endregion
 }
 
 [Serializable, NetSerializable]
