@@ -133,16 +133,15 @@ public sealed class StainSystem : SharedStainSystem
             if (source.Visible == false)
                 continue;
 
-            var bloodKey = $"stain-inhand-{args.Location}-{i}";
+            var drawnKey = $"stain-inhand-{args.Location}-{i}";
+            var copyKey = $"stain-inhand-blood-{args.Location}-{i}";
 
-            // Mask even BaseRSI-only inhand layers; flat stains can cover the whole sprite.
-            var maskKey = $"stain-inhand-mask-{args.Location}-{i}";
-            args.Layers.Add((maskKey, BuildMaskLayer(source, maskKey, bloodKey)));
-
-            var masked = BuildItemBloodLayer(bloodKey, source);
-            masked.Shader = StainShaderFor(ent.Owner);
-            masked.Color = color;
-            args.Layers.Add((bloodKey, masked));
+            // Redraw the item's OWN in-hand sprite, shaded to paint blood over its silhouette, so the held
+            // sprite's bounds/click map stay the item's. The blood texture comes from the copy layer, added
+            // first so it renders (and sets the shader params) before the drawn layer. BaseRSI-only layers are
+            // resolved by HandsSystem for the drawn layer the same way it resolves the base layer.
+            args.Layers.Add((copyKey, BuildBloodCopyLayer(copyKey, drawnKey, source)));
+            args.Layers.Add((drawnKey, BuildStainDrawnLayer(drawnKey, source, color, ent.Owner)));
         }
     }
 
@@ -209,23 +208,49 @@ public sealed class StainSystem : SharedStainSystem
             if (rsi == null || !state.IsValid)
                 continue;
 
-            var bloodKey = $"stain-icon-{i}";
-            var maskKey = $"stain-icon-mask-{i}";
+            var drawnKey = $"stain-icon-{i}";
+            var copyKey = $"stain-icon-blood-{i}";
 
-            var maskSource = new PrototypeLayerData { RsiPath = rsi.Path.ToString(), State = state.Name };
-            ent.Comp.RevealedLayerKeys.Add(maskKey);
-            _sprite.AddLayer(sprite, BuildMaskLayer(maskSource, maskKey, bloodKey), null);
+            var itemSource = new PrototypeLayerData { RsiPath = rsi.Path.ToString(), State = state.Name };
 
-            var masked = BuildItemBloodLayer(bloodKey);
-            masked.Shader = StainShaderFor(ent.Owner);
-            masked.Color = color;
-            ent.Comp.RevealedLayerKeys.Add(bloodKey);
-            _sprite.AddLayer(sprite, masked, null);
+            // Blood copy layer first (lower index -> renders first, feeds the shader; CopyToShaderParameters
+            // keeps it out of bounds/click maps).
+            ent.Comp.RevealedLayerKeys.Add(copyKey);
+            _sprite.AddLayer(sprite, BuildBloodCopyLayer(copyKey, drawnKey, itemSource), null);
+
+            // Drawn layer redraws the item's OWN sprite, shaded to paint blood - so the item's click map/bounds
+            // are unchanged instead of being inflated by a full-frame blood blob.
+            ent.Comp.RevealedLayerKeys.Add(drawnKey);
+            _sprite.AddLayer(sprite, BuildStainDrawnLayer(drawnKey, itemSource, color, ent.Owner), null);
         }
         // No maskable base layer means no stain overlay.
     }
 
-    private static PrototypeLayerData BuildMaskLayer(PrototypeLayerData source, string maskKey, string targetKey)
+    // Copy layer: supplies the blood texture to the drawn layer's shader. CopyToShaderParameters means it is
+    // not rendered and is excluded from the sprite's bounding box and (pixel-perfect) click map.
+    private static PrototypeLayerData BuildBloodCopyLayer(string copyKey, string targetKey, PrototypeLayerData? source = null)
+    {
+        return new PrototypeLayerData
+        {
+            RsiPath = BloodRsiPath,
+            State = ItemBloodState,
+            Scale = source?.Scale,
+            Rotation = source?.Rotation,
+            Offset = source?.Offset,
+            RenderingStrategy = source?.RenderingStrategy,
+            MapKeys = new() { copyKey },
+            CopyToShaderParameters = new PrototypeCopyToShaderParameters
+            {
+                LayerKey = targetKey,
+                ParameterTexture = StainMaskTextureParam,
+                ParameterUV = StainMaskUvParam,
+            }
+        };
+    }
+
+    // Drawn layer: the item's OWN sprite, shaded to paint blood over its silhouette. Using the item's texture
+    // keeps the item's bounding box and pixel-perfect click map unchanged (no full-frame blood blob).
+    private static PrototypeLayerData BuildStainDrawnLayer(string key, PrototypeLayerData source, Color color, EntityUid uid)
     {
         return new PrototypeLayerData
         {
@@ -235,14 +260,11 @@ public sealed class StainSystem : SharedStainSystem
             Scale = source.Scale,
             Rotation = source.Rotation,
             Offset = source.Offset,
+            Visible = source.Visible,
             RenderingStrategy = source.RenderingStrategy,
-            MapKeys = new() { maskKey },
-            CopyToShaderParameters = new PrototypeCopyToShaderParameters
-            {
-                LayerKey = targetKey,
-                ParameterTexture = StainMaskTextureParam,
-                ParameterUV = StainMaskUvParam,
-            }
+            Shader = StainShaderFor(uid),
+            Color = color,
+            MapKeys = new() { key }
         };
     }
 
@@ -279,21 +301,6 @@ public sealed class StainSystem : SharedStainSystem
             _sprite.AddLayer(sprite, layerData, index);
         else
             _sprite.AddLayer(sprite, layerData, null);
-    }
-
-    private static PrototypeLayerData BuildItemBloodLayer(string key, PrototypeLayerData? source = null)
-    {
-        return new PrototypeLayerData
-        {
-            RsiPath = BloodRsiPath,
-            State = ItemBloodState,
-            Scale = source?.Scale,
-            Rotation = source?.Rotation,
-            Offset = source?.Offset,
-            Visible = source?.Visible,
-            RenderingStrategy = source?.RenderingStrategy,
-            MapKeys = new() { key }
-        };
     }
 
     private static PrototypeLayerData CopyVisualLayer(PrototypeLayerData source, Color color, string key)
