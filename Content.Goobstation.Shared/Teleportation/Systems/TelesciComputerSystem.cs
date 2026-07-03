@@ -51,8 +51,7 @@ public sealed class TelesciComputerSystem : EntitySystem
         if (teleporter == null)
             return;
 
-        ent.Comp.X = arg.Coordinates.X;
-        ent.Comp.Y = arg.Coordinates.Y;
+        ent.Comp.Position = arg.Coordinates;
         Dirty(ent);
 
         var ev = new TelesciSendEvent(arg.Coordinates);
@@ -65,8 +64,7 @@ public sealed class TelesciComputerSystem : EntitySystem
         if (teleporter == null)
             return;
 
-        ent.Comp.X = arg.Coordinates.X;
-        ent.Comp.Y = arg.Coordinates.Y;
+        ent.Comp.Position = arg.Coordinates;
         Dirty(ent);
 
         var ev = new TelesciRetrieveEvent(arg.Coordinates);

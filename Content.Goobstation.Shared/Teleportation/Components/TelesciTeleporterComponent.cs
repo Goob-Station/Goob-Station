@@ -10,10 +10,7 @@ namespace Content.Goobstation.Shared.Teleportation.Components;
 public sealed partial class TelesciTeleporterComponent : Component
 {
     [DataField]
-    public float X = 0; //TODO MAKE INTO VECTOR
-
-    [DataField]
-    public float Y = 0;
+    public Vector2 Position;
 
     [DataField]
     public float TeleportSize = 0.5f; // area teleported  1 tile

@@ -50,7 +50,7 @@ public sealed partial class TeleSciWindow : FancyWindow
        UpdateState(ent);
        UpdateButton();
        UpdateStatusText();
-       SetCordinates(ent);
+       SetCoordinates(ent);
     }
 
     private void UpdateState(Entity<TelesciComputerComponent> ent)
@@ -62,7 +62,7 @@ public sealed partial class TeleSciWindow : FancyWindow
         else
             _state = TelesciState.Ready;
 
-        if(ent.Comp.CooldownTime > _timing.CurTime)
+        if (ent.Comp.CooldownTime > _timing.CurTime)
             _state = TelesciState.Cooldown;
     }
 
@@ -102,10 +102,10 @@ public sealed partial class TeleSciWindow : FancyWindow
         StatusOutput.Text = output;
     }
 
-    private void SetCordinates(Entity<TelesciComputerComponent> ent)
+    private void SetCoordinates(Entity<TelesciComputerComponent> ent)
     {
-        XNodeInput.Value = ent.Comp.X;
-        YNodeInput.Value = ent.Comp.Y;
+        XNodeInput.Value = ent.Comp.Position.X;
+        YNodeInput.Value = ent.Comp.Position.Y;
     }
 
     private void Send(BaseButton.ButtonEventArgs obj)

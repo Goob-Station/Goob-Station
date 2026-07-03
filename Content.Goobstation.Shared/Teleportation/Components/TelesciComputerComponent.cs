@@ -1,3 +1,4 @@
+using System.Numerics;
 using Content.Shared.DeviceLinking;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -8,10 +9,7 @@ namespace Content.Goobstation.Shared.Teleportation.Components;
 public sealed partial class TelesciComputerComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public float X = 1; //TODO make into vector
-
-    [DataField, AutoNetworkedField]
-    public float Y = 1;
+    public Vector2 Position;
 
     /// <summary>
     /// The machine linking port for the teleporter
