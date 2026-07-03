@@ -1,0 +1,11 @@
+- type: entity
+  parent: Window
+  id: WindowCharonic
+  name: charonic window
+  description: A glass pane reinforced with crystallized wisp shards. It hums faintly.
+  components:
+  - type: Sprite
+    color: "#A8E6FF"
+  - type: Construction
+    graph: CharonicWindow
+    node: window

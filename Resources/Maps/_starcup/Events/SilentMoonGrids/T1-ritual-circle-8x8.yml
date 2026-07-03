@@ -5,7 +5,7 @@ meta:
   forkId: ""
   forkVersion: ""
   time: 11/02/2025 18:35:05
-  entityCount: 18
+  entityCount: 19
 maps: []
 grids:
 - 1
@@ -252,6 +252,13 @@ entities:
     components:
     - type: MetaData
       name: Silent Moon - Ritual Circle
+    - type: Transform
+      pos: 1.5,4.5
+      parent: 1
+- proto: CharonicPOILootSpawnerT1
+  entities:
+  - uid: 19
+    components:
     - type: Transform
       pos: 1.5,4.5
       parent: 1

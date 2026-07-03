@@ -1,0 +1,27 @@
+# Chromite-alloy tools.
+
+- type: entity
+  name: chromite pickaxe
+  id: PickaxeChromite
+  parent: Pickaxe
+  description: A pickaxe forged from chromite alloy. Heavier and harder than standard steel.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/pickaxe.rsi
+    state: pickaxe
+    color: "#7A8B99"
+  - type: MeleeWeapon
+    attackRate: 0.65
+    damage:
+      groups:
+        Brute: 7
+  - type: IncreaseDamageOnWield
+    damage:
+      groups:
+        Brute: 12
+      types:
+        Structural: 40
+  - type: PhysicalComposition
+    materialComposition:
+      Chromite: 200
+      Wood: 100

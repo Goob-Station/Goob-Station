@@ -440,6 +440,7 @@
     - GrenadeTriggersStatic
     - TapeRecorderStatic
     - MiscSignallersStatic
+    - CharonAutolatheStatic
     dynamicPacks: # Pirate - tweak fab recepies | Add advanced power cells to each fab
     - PowerCells  # Pirate - tweak fab recepies | Add advanced power cells to each fab
   - type: EmagLatheRecipes
@@ -1054,6 +1055,7 @@
       staticPacks:
       - OreSmelting
       - RGlassSmelting
+      - CharonSmelting
     - type: MiningPoints # DeltaV - Source of mining points for miners
     - type: MiningPointsLathe # DeltaV
     - type: MaterialStorageMagnetPickup # Frontier
@@ -1075,6 +1077,7 @@
     - OreSmelting
     - RGlassSmelting
     - AdvancedSmelting
+    - CharonSmelting
 
 - type: entity
   parent: BaseLathe

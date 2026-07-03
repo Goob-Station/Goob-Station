@@ -5,7 +5,7 @@ meta:
   forkId: ""
   forkVersion: ""
   time: 11/02/2025 18:35:44
-  entityCount: 28
+  entityCount: 29
 maps: []
 grids:
 - 1
@@ -337,6 +337,13 @@ entities:
     components:
     - type: MetaData
       name: Silent Moon - Electrolyzer
+    - type: Transform
+      pos: 4.5,-3.5
+      parent: 1
+- proto: CharonicPOILootSpawnerT2
+  entities:
+  - uid: 29
+    components:
     - type: Transform
       pos: 4.5,-3.5
       parent: 1

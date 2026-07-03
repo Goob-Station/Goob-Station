@@ -1,0 +1,151 @@
+# Loot caches for Charon-Epsilon exploration POIs.
+
+- type: entityTable
+  id: CharonicPOILootT1
+  table: !type:GroupSelector
+    rolls: 2, 3
+    children:
+    - id: SheetSteel1
+      weight: 3
+    - id: SheetGlass1
+      weight: 3
+    - id: CableApcStack1
+      weight: 3
+    - id: FoodSnackChips
+      weight: 2
+    - id: DrinkWaterBottleFull
+      weight: 2
+    - id: Brutepack
+      weight: 2
+    - id: Ointment
+      weight: 2
+    - id: EmergencyMedipen
+      weight: 1
+    - id: PowerCellMedium
+      weight: 1
+    - id: ToolboxMechanicalFilled
+      weight: 1
+    - id: MaterialCharonicHide1
+      weight: 1
+    - id: MaterialCharonicLeechTooth1
+      weight: 1
+
+- type: entityTable
+  id: CharonicPOILootT2
+  table: !type:GroupSelector
+    rolls: 3, 5
+    children:
+    - id: SheetSteel1
+      weight: 3
+    - id: SheetGlass1
+      weight: 3
+    - id: SheetPlasma1
+      weight: 2
+    - id: SheetPlasteel1
+      weight: 2
+    - id: CableApcStack10
+      weight: 2
+    - id: MedkitBruteFilled
+      weight: 2
+    - id: MedkitBurnFilled
+      weight: 2
+    - id: Bloodpack
+      weight: 2
+    - id: FoodBoxPizzaFilled
+      weight: 2
+    - id: Multitool
+      weight: 2
+    - id: WelderIndustrial
+      weight: 1
+    - id: HandheldGPSBasic
+      weight: 1
+    - id: FultonBeacon
+      weight: 1
+    - id: SurvivalKnife
+      weight: 1
+    - id: MaterialCharonicHide1
+      weight: 2
+    - id: MaterialCharonicIchor1
+      weight: 2
+    - id: MaterialCharonicWispShard1
+      weight: 1
+
+- type: entityTable
+  id: CharonicPOILootT3
+  table: !type:GroupSelector
+    rolls: 4, 6
+    children:
+    - id: SheetPlasteel1
+      weight: 3
+    - id: SheetPlasma1
+      weight: 3
+    - id: SheetUranium1
+      weight: 2
+    - id: CableApcStack10
+      weight: 2
+    - id: MedkitBruteFilled
+      weight: 2
+    - id: MedkitBurnFilled
+      weight: 2
+    - id: SpaceMedipen
+      weight: 2
+    - id: WeaponDisabler
+      weight: 2
+    - id: Stunbaton
+      weight: 2
+    - id: JetpackMiniFilled
+      weight: 1
+    - id: AnomalyScanner
+      weight: 1
+    - id: ResearchDisk5000
+      weight: 1
+    - id: ClothingOuterHardsuitSalvage
+      weight: 1
+    - id: LanternCharonicWisp
+      weight: 1
+    - id: KnifeCharonicTooth
+      weight: 1
+    - id: CharonicSalve
+      weight: 1
+    - id: MaterialCharonicHide1
+      weight: 2
+    - id: MaterialCharonicWispShard1
+      weight: 2
+    - id: MaterialCharonicIchor1
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: CharonicPOILootSpawnerT1
+  name: Charonic POI loot spawner
+  suffix: T1
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTableSpawner
+    offset: 0.3
+    table: !type:NestedSelector
+      tableId: CharonicPOILootT1
+
+- type: entity
+  parent: MarkerBase
+  id: CharonicPOILootSpawnerT2
+  name: Charonic POI loot spawner
+  suffix: T2
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTableSpawner
+    offset: 0.3
+    table: !type:NestedSelector
+      tableId: CharonicPOILootT2
+
+- type: entity
+  parent: MarkerBase
+  id: CharonicPOILootSpawnerT3
+  name: Charonic POI loot spawner
+  suffix: T3
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTableSpawner
+    offset: 0.3
+    table: !type:NestedSelector
+      tableId: CharonicPOILootT3

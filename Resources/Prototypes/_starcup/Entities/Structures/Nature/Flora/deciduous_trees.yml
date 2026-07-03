@@ -39,6 +39,12 @@
             variation: 0.05
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        offset: 0
+        spawn:
+          MaterialWoodPlank1:
+            min: 3
+            max: 5
 
 - type: entity
   parent: BaseTree
@@ -77,3 +83,9 @@
             variation: 0.05
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        offset: 0
+        spawn:
+          MaterialWoodPlank1:
+            min: 2
+            max: 3

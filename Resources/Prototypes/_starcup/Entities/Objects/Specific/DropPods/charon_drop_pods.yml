@@ -1,0 +1,146 @@
+# CentCom supply drops for Charon-Epsilon.
+# These are pre-filled DropPodspawner variants that trigger on spawn.
+
+- type: entity
+  parent: DropPodspawner
+  id: DropPodCharonMedical
+  name: CentCom medical drop pod
+  suffix: Charon, Medical
+  components:
+  - type: TriggerOnSpawn
+  - type: ContainerFill
+    containers:
+      clowncar_container:
+      - MedkitBruteFilled
+      - MedkitBurnFilled
+      - MedkitRadiationFilled
+      - Ointment
+      - Bloodpack
+      - EmergencyMedipen
+      - EmergencyMedipen
+
+- type: entity
+  parent: DropPodspawner
+  id: DropPodCharonFood
+  name: CentCom food drop pod
+  suffix: Charon, Food
+  components:
+  - type: TriggerOnSpawn
+  - type: ContainerFill
+    containers:
+      clowncar_container:
+      - FoodBoxPizzaFilled
+      - FoodBoxCloth
+      - FoodBoxDonkpocket
+      - FoodSnackChips
+      - DrinkWaterJug
+      - DrinkWaterJug
+      - DrinkColaCan
+      - DrinkColaCan
+      - DrinkColaCan
+
+- type: entity
+  parent: DropPodspawner
+  id: DropPodCharonEngineering
+  name: CentCom engineering drop pod
+  suffix: Charon, Engineering
+  components:
+  - type: TriggerOnSpawn
+  - type: ContainerFill
+    containers:
+      clowncar_container:
+      - ToolboxMechanicalFilledAllTools
+      - WelderIndustrial
+      - Multitool
+      - CableApcStack10
+      - SheetSteel10
+      - SheetSteel10
+      - SheetGlass10
+      - SheetGlass10
+      - SheetPlasteel10
+      - PowerCellMedium
+      - PowerCellMedium
+
+- type: entity
+  parent: DropPodspawner
+  id: DropPodCharonScience
+  name: CentCom science drop pod
+  suffix: Charon, Science
+  components:
+  - type: TriggerOnSpawn
+  - type: ContainerFill
+    containers:
+      clowncar_container:
+      - AnomalyScanner
+      - MicroManipulatorStockPart
+      - MicroManipulatorStockPart
+      - Beaker
+      - LargeBeaker
+      - SheetPlasma10
+      - SheetPlasma10
+
+- type: entity
+  parent: DropPodspawner
+  id: DropPodCharonMaterials
+  name: CentCom materials drop pod
+  suffix: Charon, Materials
+  components:
+  - type: TriggerOnSpawn
+  - type: ContainerFill
+    containers:
+      clowncar_container:
+      - SheetSteel10
+      - SheetSteel10
+      - SheetGlass10
+      - SheetGlass10
+      - SheetPlasma10
+      - SheetPlasteel10
+      - SheetPlasteel10
+      - CableApcStack
+
+- type: entity
+  parent: DropPodspawner
+  id: DropPodCharonSecurityCargo
+  name: CentCom security-cargo drop pod
+  suffix: Charon, Security/Cargo
+  components:
+  - type: TriggerOnSpawn
+  - type: ContainerFill
+    containers:
+      clowncar_container:
+      - WeaponDisabler
+      - Stunbaton
+      - Handcuffs
+      - SurvivalKnife
+      - FultonBeacon
+      - HandheldGPSBasic
+      - WeaponLaserSvalinn
+      - WeaponLaserSvalinn
+
+# Randomised spawner used by the game rule.
+- type: entityTable
+  id: CharonSupplyDropTable
+  table: !type:GroupSelector
+    children:
+    - id: DropPodCharonMedical
+      weight: 1
+    - id: DropPodCharonFood
+      weight: 1
+    - id: DropPodCharonEngineering
+      weight: 1
+    # - id: DropPodCharonScience
+    #   weight: 1
+    - id: DropPodCharonMaterials
+      weight: 1
+    - id: DropPodCharonSecurityCargo
+      weight: 1
+
+- type: entity
+  id: RandomCharonSupplyDropSpawner
+  parent: MarkerBase
+  name: random Charon supply drop spawner
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: CharonSupplyDropTable

@@ -1,0 +1,31 @@
+# Charon-Epsilon ore processor recipes.
+
+- type: latheRecipe
+  id: IngotChromite1
+  result: IngotChromite1
+  completetime: 0
+  materials:
+    RawChromite: 200
+
+- type: latheRecipe
+  id: SheetSteelFromChromite
+  result: SheetSteel1
+  completetime: 0
+  materials:
+    RawChromite: 100
+    # Coal: 30
+
+- type: latheRecipe
+  id: SheetGlassFromWispShards
+  result: SheetGlass1
+  completetime: 0
+  materials:
+    CharonicWispShard: 100
+
+- type: latheRecipe
+  id: PickaxeChromite
+  result: PickaxeChromite
+  completetime: 3
+  materials:
+    Chromite: 1000
+    Wood: 1000

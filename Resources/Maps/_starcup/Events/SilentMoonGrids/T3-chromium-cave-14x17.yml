@@ -5,7 +5,7 @@ meta:
   forkId: ""
   forkVersion: ""
   time: 11/02/2025 18:38:21
-  entityCount: 118
+  entityCount: 119
 maps: []
 grids:
 - 1
@@ -738,6 +738,13 @@ entities:
     components:
     - type: MetaData
       name: Silent Moon - Chromium Cave
+    - type: Transform
+      pos: -3.5,8.5
+      parent: 1
+- proto: CharonicPOILootSpawnerT3
+  entities:
+  - uid: 119
+    components:
     - type: Transform
       pos: -3.5,8.5
       parent: 1

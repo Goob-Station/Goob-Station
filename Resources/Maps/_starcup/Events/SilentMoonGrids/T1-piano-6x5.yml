@@ -5,7 +5,7 @@ meta:
   forkId: ""
   forkVersion: ""
   time: 11/02/2025 18:32:25
-  entityCount: 13
+  entityCount: 14
 maps: []
 grids:
 - 1
@@ -185,6 +185,13 @@ entities:
     components:
     - type: MetaData
       name: Silent Moon - Quiet Piano
+    - type: Transform
+      pos: 2.5,-2.5
+      parent: 1
+- proto: CharonicPOILootSpawnerT1
+  entities:
+  - uid: 14
+    components:
     - type: Transform
       pos: 2.5,-2.5
       parent: 1

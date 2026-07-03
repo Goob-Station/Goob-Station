@@ -1,0 +1,119 @@
+# Construction recipes for Charonic mob-drop gear.
+
+- type: constructionGraph
+  id: CharonicCloak
+  graph:
+  - node: start
+    edges:
+    - to: cloak
+      steps:
+      - material: CharonicHide
+        amount: 2
+        doAfter: 4
+  - node: cloak
+    entity: ClothingNeckCloakCharonic
+
+- type: constructionGraph
+  id: CharonicToothKnife
+  graph:
+  - node: start
+    edges:
+    - to: knife
+      steps:
+      - material: CharonicLeechTooth
+        amount: 2
+        doAfter: 3
+      - material: Steel
+        amount: 1
+        doAfter: 3
+  - node: knife
+    entity: KnifeCharonicTooth
+
+- type: constructionGraph
+  id: CharonicWispLantern
+  graph:
+  - node: start
+    edges:
+    - to: lantern
+      steps:
+      - material: CharonicWispShard
+        amount: 1
+        doAfter: 3
+      - material: Glass
+        amount: 2
+        doAfter: 3
+      - material: Steel
+        amount: 1
+        doAfter: 3
+  - node: lantern
+    entity: LanternCharonicWisp
+
+- type: constructionGraph
+  id: CharonicSalve
+  graph:
+  - node: start
+    edges:
+    - to: salve
+      steps:
+      - material: CharonicIchor
+        amount: 1
+        doAfter: 2
+      - material: Cloth
+        amount: 1
+        doAfter: 2
+  - node: salve
+    entity: CharonicSalve
+
+- type: constructionGraph
+  id: CharonicWall
+  graph:
+  - node: start
+    edges:
+    - to: wall
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - material: WoodPlank
+        amount: 2
+        doAfter: 2
+      - material: CharonicHide
+        amount: 2
+        doAfter: 3
+  - node: wall
+    entity: WallCharonic
+
+- type: constructionGraph
+  id: CharonicWindow
+  graph:
+  - node: start
+    edges:
+    - to: window
+      steps:
+      - material: Glass
+        amount: 2
+        doAfter: 2
+      - material: CharonicWispShard
+        amount: 2
+        doAfter: 3
+  - node: window
+    entity: WindowCharonic
+
+- type: constructionGraph
+  id: CharonicFloorTile
+  graph:
+  - node: start
+    edges:
+    - to: floortile
+      completed:
+      - !type:SetStackCount
+        amount: 4
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+      - material: CharonicIchor
+        amount: 1
+        doAfter: 1
+  - node: floortile
+    entity: FloorTileItemCharonic

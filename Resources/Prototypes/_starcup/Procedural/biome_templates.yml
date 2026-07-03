@@ -170,6 +170,19 @@
         cellularReturnType: Distance2
       entities:
         - WallRockChromite
+    # rare artifact-laced chromite outcrops
+    - !type:BiomeEntityLayer
+      allowedTiles:
+        - FloorPlanetDirtTwilight
+      threshold: 0.88
+      noise:
+        seed: 9
+        noiseType: OpenSimplex2
+        frequency: 0.2
+        fractalType: FBm
+        octaves: 3
+      entities:
+        - WallRockChromiteArtifactFragment
     # mute toxin rivers
     - !type:BiomeEntityLayer
       allowedTiles:
@@ -220,6 +233,17 @@
         frequency: 0.3
       entities:
         - SpawnMobCharonicWisp
+    # elder wisps (rare mini-boss)
+    - !type:BiomeEntityLayer
+      allowedTiles:
+        - FloorPlanetDirtTwilight
+      threshold: 0.985
+      noise:
+        seed: 8
+        noiseType: OpenSimplex2
+        frequency: 0.2
+      entities:
+        - SpawnMobCharonicWispElder
     # charonic slimes (very sparse, near mute water)
     - !type:BiomeEntityLayer
       allowedTiles:

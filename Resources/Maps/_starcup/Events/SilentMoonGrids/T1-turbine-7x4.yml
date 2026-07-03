@@ -5,7 +5,7 @@ meta:
   forkId: ""
   forkVersion: ""
   time: 11/02/2025 18:39:50
-  entityCount: 17
+  entityCount: 18
 maps: []
 grids:
 - 1
@@ -200,6 +200,13 @@ entities:
     components:
     - type: MetaData
       name: Silent Moon - Turbine
+    - type: Transform
+      pos: 4.5,-0.5
+      parent: 1
+- proto: CharonicPOILootSpawnerT1
+  entities:
+  - uid: 18
+    components:
     - type: Transform
       pos: 4.5,-0.5
       parent: 1

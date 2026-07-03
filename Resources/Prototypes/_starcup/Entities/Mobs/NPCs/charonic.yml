@@ -74,17 +74,28 @@
     interactFailureSound:
       path: /Audio/_starcup/Monsters/CharonicLeech/leech_scream.ogg
   - type: FloatingVisuals
+  - type: Bloodstream
+    bloodMaxVolume: 300
+    bloodReagent: VentCrud
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 29
+        damage: 30
       behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialCharonicHide1:
+            min: 1
+            max: 1
+          MaterialCharonicLeechTooth1:
+            min: 1
+            max: 1
+          ArtifactFragment1:
+            min: 0
+            max: 1
       - !type:GibBehavior
         recursive: false
-  - type: Bloodstream
-    bloodMaxVolume: 300
-    bloodReagent: VentCrud
 
 - type: entity
   name: glowing object
@@ -143,10 +154,21 @@
       thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 40
+          damage: 200
         behaviors:
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
+    - type: Butcherable
+      spawned:
+      - id: MaterialCharonicWispShard1
+        amount: 1
+        prob: 0.8
+      - id: MaterialCharonicWispShard1
+        amount: 1
+        prob: 0.3
+      - id: ArtifactFragment1
+        amount: 1
+        prob: 0.15
     - type: StatusEffects
       allowed:
       - Electrocution
@@ -258,6 +280,55 @@
       speechVerb: Slime
     - type: TypingIndicator
       proto: slime
+    - type: Butcherable
+      spawned:
+      - id: MaterialCharonicIchor1
+        amount: 1
+      - id: MaterialCharonicIchor1
+        amount: 1
+        prob: 0.5
+      - id: MaterialCharonicHide1
+        amount: 1
+        prob: 0.3
+      - id: ArtifactFragment1
+        amount: 1
+        prob: 0.1
+
+- type: entity
+  name: elder wisp
+  id: MobCharonicWispElder
+  parent: MobCharonicWisp
+  description: A swollen, furious mote of otherworldly light. The air around it hums with wrong radiation.
+  components:
+  - type: Sprite
+    color: "#D28CFF"
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      120: Dead
+  - type: MeleeWeapon
+    hidden: true
+    damage:
+      types:
+        Radiation: 12
+        Shock: 5
+  - type: PointLight
+    radius: 5
+    energy: 4
+    color: "#D28CFF"
+  - type: Butcherable
+    spawned:
+    - id: MaterialCharonicWispShard1
+      amount: 3
+    - id: MaterialCharonicWispShard1
+      amount: 2
+      prob: 0.5
+    - id: LanternCharonicWisp
+      amount: 1
+      prob: 0.5
+    - id: ArtifactFragment1
+      amount: 1
+      prob: 0.35
 
 - type: entity
   id: MobSpawnCharonicSlime

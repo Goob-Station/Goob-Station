@@ -5,7 +5,7 @@ meta:
   forkId: ""
   forkVersion: ""
   time: 11/02/2025 18:40:43
-  entityCount: 1809
+  entityCount: 1810
 maps: []
 grids:
 - 1
@@ -10418,5 +10418,12 @@ entities:
     components:
     - type: Transform
       pos: -10.639755,10.416031
+      parent: 1
+- proto: CharonicPOILootSpawnerT3
+  entities:
+  - uid: 1810
+    components:
+    - type: Transform
+      pos: -8.5,14.5
       parent: 1
 ...

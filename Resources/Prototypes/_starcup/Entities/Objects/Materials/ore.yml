@@ -1,0 +1,69 @@
+# Charon-Epsilon chromite ore and refined ingots.
+
+- type: entity
+  parent: OreBase
+  id: OreChromite
+  name: chromite ore
+  suffix: Full
+  description: A dark, metallic ore rich in chromium and iron. Worth mining points at an ore processor.
+  components:
+  - type: Stack
+    stackType: ChromiteOre
+  - type: Sprite
+    state: iron
+    color: "#5A6A7A"
+  - type: Item
+    heldPrefix: iron
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      RawChromite: 100
+  - type: UnclaimedOre
+    miningPoints: 8
+
+- type: entity
+  parent: OreChromite
+  id: OreChromite1
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: IngotBase
+  id: IngotChromite
+  name: chromite ingot
+  suffix: Full
+  description: A lustrous chromium-iron ingot. Sturdy and corrosion-resistant.
+  components:
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      Chromite: 100
+  - type: Stack
+    stackType: Chromite
+    baseLayer: base
+    layerStates:
+    - iron
+    - iron_2
+    - iron_3
+  - type: Sprite
+    state: iron_3
+    color: "#7A8B99"
+    layers:
+    - state: iron_3
+      map: ["base"]
+  - type: Item
+    heldPrefix: iron
+  - type: Appearance
+
+- type: entity
+  parent: IngotChromite
+  id: IngotChromite1
+  suffix: Single
+  components:
+  - type: Sprite
+    state: iron
+    color: "#7A8B99"
+  - type: Stack
+    count: 1

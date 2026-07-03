@@ -1,0 +1,7 @@
+# Chromite ore distribution.
+
+- type: ore
+  id: OreChromite
+  oreEntity: OreChromite1
+  minOreYield: 1
+  maxOreYield: 3

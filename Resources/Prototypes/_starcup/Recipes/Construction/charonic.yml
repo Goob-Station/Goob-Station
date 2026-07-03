@@ -1,0 +1,29 @@
+# Construction menu entries for Charonic mob-drop recipes.
+
+- type: construction
+  id: CharonicCloak
+  graph: CharonicCloak
+  targetNode: cloak
+  category: construction-category-clothing
+  objectType: Item
+
+- type: construction
+  id: CharonicToothKnife
+  graph: CharonicToothKnife
+  targetNode: knife
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: CharonicWispLantern
+  graph: CharonicWispLantern
+  targetNode: lantern
+  category: construction-category-tools
+  objectType: Item
+
+- type: construction
+  id: CharonicSalve
+  graph: CharonicSalve
+  targetNode: salve
+  category: construction-category-misc
+  objectType: Item

@@ -1,0 +1,92 @@
+# Craftable gear made from Charonic mob drops.
+
+- type: entity
+  parent: ClothingNeckCloakGoliathCloak
+  id: ClothingNeckCloakCharonic
+  name: charonic hide cloak
+  description: A heavy cloak woven from the hide of Charonic leeches. It still smells of the swamp.
+  components:
+  - type: Sprite
+    sprite: Clothing/Neck/Cloaks/goliathcloak.rsi
+    color: "#3B2F55"
+  - type: Construction
+    graph: CharonicCloak
+    node: cloak
+
+- type: entity
+  parent: SurvivalKnife
+  id: KnifeCharonicTooth
+  name: charonic tooth knife
+  description: A crude but effective blade made from leech teeth and a steel tang.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/survival_knife.rsi
+    state: icon
+    color: "#C0C0C0"
+  - type: MeleeWeapon
+    attackRate: 1.0
+    damage:
+      types:
+        Slash: 12
+        Piercing: 4
+  - type: Construction
+    graph: CharonicToothKnife
+    node: knife
+
+- type: entity
+  parent: FlashlightLantern
+  id: LanternCharonicWisp
+  name: charonic wisp lantern
+  description: A lantern built around a crystallised wisp shard. The light is cold and steady.
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/flashlight.rsi
+    layers:
+      - state: flashlight
+        color: "#A8E6FF"
+      - state: flashlight-overlay
+        shader: unshaded
+        visible: false
+        map: [ "light" ]
+  - type: PointLight
+    enabled: false
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    radius: 8
+    color: "#A8E6FF"
+    netsync: false
+  - type: Construction
+    graph: CharonicWispLantern
+    node: lantern
+
+- type: entity
+  name: charonic salve
+  description: A thick, black poultice refined from Charonic slime ichor. Soothes burns and caustic wounds.
+  parent: BaseHealingItem
+  id: CharonicSalve
+  suffix: Full
+  components:
+  - type: Sprite
+    state: ointment
+    color: "#2F4F4F"
+  - type: Item
+    heldPrefix: ointment
+  - type: Healing
+    damageContainers:
+      - Biological
+    damage:
+      types:
+        Heat: -15
+        Cold: -15
+        Shock: -15
+        Caustic: -15
+    healingBeginSound:
+      path: "/Audio/Items/Medical/ointment_begin.ogg"
+    healingEndSound:
+      path: "/Audio/Items/Medical/ointment_end.ogg"
+  - type: Stack
+    stackType: Ointment
+    count: 10
+  - type: Construction
+    graph: CharonicSalve
+    node: salve

@@ -5,7 +5,7 @@ meta:
   forkId: ""
   forkVersion: ""
   time: 11/02/2025 18:39:03
-  entityCount: 21
+  entityCount: 22
 maps: []
 grids:
 - 1
@@ -266,6 +266,13 @@ entities:
     components:
     - type: MetaData
       name: Silent Moon - Tanks
+    - type: Transform
+      pos: 3.5,2.5
+      parent: 1
+- proto: CharonicPOILootSpawnerT1
+  entities:
+  - uid: 22
+    components:
     - type: Transform
       pos: 3.5,2.5
       parent: 1
