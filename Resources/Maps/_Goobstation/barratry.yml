@@ -49887,7 +49887,7 @@ entities:
     - type: Transform
       pos: 27.345951,23.492924
       parent: 2
-- proto: EnergyChemDispenser
+- proto: ChemDispenser
   entities:
   - uid: 5200
     components:

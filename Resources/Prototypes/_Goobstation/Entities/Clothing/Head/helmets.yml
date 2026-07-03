@@ -303,18 +303,6 @@
     state: icon
   - type: Clothing
     sprite: _ShitChap/Clothing/Head/Misc/dragonhood.rsi
-  - type: TemperatureProtection
-    heatingCoefficient: 0.01
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.95
-  - type: FireProtection
-    reduction: 0.2
-  - type: FactionClothing
-    faction: Dragon
 
 - type: entity
   parent: ClothingHeadHatHelmetTemplar
@@ -331,6 +319,18 @@
     - WhitelistChameleon
   - type: HideLayerClothing
     layers: {}
+    
+- type: entity
+  parent: ClothingHeadHatHelmetTemplar
+  id: ClothingHeadHatHoodSchemaMonk
+  categories: [ HideSpawnMenu ]
+  name: hood of a monastic vestments
+  description: Comfortable hood of monastic vestment.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hoods/schema_monk.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hoods/schema_monk.rsi
 
 - type: entity
   parent: ClothingHeadHatHelmetTemplar
