@@ -300,6 +300,15 @@ namespace Content.Client.HealthAnalyzer.UI
 
             ConditionsListContainer.RemoveAllChildren();
 
+            // Goob start - low blood alert
+            if (msg.BloodLevelLow)
+                ConditionsListContainer.AddChild(new RichTextLabel
+                {
+                    Text = Loc.GetString("condition-body-low-blood", ("entity", Identity.Name(_target.Value, _entityManager))),
+                    Margin = new Thickness(0, 4),
+                });
+            // Goob end
+
             if (msg.Unrevivable == true)
                 ConditionsListContainer.AddChild(new RichTextLabel
                 {

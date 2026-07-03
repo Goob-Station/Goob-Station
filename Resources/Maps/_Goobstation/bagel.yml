@@ -71251,7 +71251,7 @@ entities:
       parent: 10858
     - type: Physics
       canCollide: False
-- proto: EnergyChemDispenser
+- proto: ChemDispenser
   entities:
   - uid: 9108
     components:

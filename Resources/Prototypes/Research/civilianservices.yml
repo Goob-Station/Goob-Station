@@ -323,13 +323,14 @@
     sprite: _Goobstation/Structures/Machines/service_dispenser.rsi
     state: industrial
   discipline: CivilianServices
-  tier: 2
+  tier: 3
   cost: 7500
   recipeUnlocks:
   - ServiceEnergyChemMachineCircuitboard
   position: -4,7
   technologyPrerequisites:
   - MeatManipulation
+  - BluespaceChemistry
 
 
 # Tier 3
@@ -367,6 +368,7 @@
   - MedkitCombat # Goobstation - remove medkitcombat from static to research
   - VialBluespace # goob edit - bluespace vials
   - DrinkShakerBluespace # goob
+  - EnergyChemDispenserMachineCircuitboard #Goob
   # Goobstation R&D Console rework start
   position: 4,5
   technologyPrerequisites:
