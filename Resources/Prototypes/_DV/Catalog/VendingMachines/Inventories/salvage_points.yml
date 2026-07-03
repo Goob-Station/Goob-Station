@@ -95,6 +95,8 @@
     cost: 1050
   - id: WeaponCrusherDagger
     cost: 1050
+  - id: JetpackMini
+    cost: 1100
   - id: AdvancedMineralScanner
     cost: 1150
   - id: PKAUpgradeDamage
@@ -119,6 +121,8 @@
     cost: 2000
   - id: ClothingOuterHardsuitSalvage
     cost: 2000
+  - id: JetpackBlue
+    cost: 2250
     #TODO: super resonator for 2500
   - id: ClothingOuterHardsuitLuxury
     cost: 3000 #still costs more than just buying it with spesos you got from vendor but whatever
