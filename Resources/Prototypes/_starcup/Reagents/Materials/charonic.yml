@@ -1,0 +1,37 @@
+# Crafting material definitions for Charonic fauna drops.
+
+- type: material
+  id: CharonicHide
+  stackEntity: MaterialCharonicHide1
+  name: stack-charonic-hide
+  unit: materials-unit-piece
+  icon: { sprite: Objects/Materials/hide.rsi, state: goliath_hide }
+  color: "#3B2F55"
+  price: 0.1
+
+- type: material
+  id: CharonicLeechTooth
+  stackEntity: MaterialCharonicLeechTooth1
+  name: stack-charonic-leech-tooth
+  unit: materials-unit-piece
+  icon: { sprite: Objects/Materials/materials.rsi, state: bones }
+  color: "#C0C0C0"
+  price: 0.1
+
+- type: material
+  id: CharonicWispShard
+  stackEntity: MaterialCharonicWispShard1
+  name: stack-charonic-wisp-shard
+  unit: materials-unit-piece
+  icon: { sprite: Objects/Materials/materials.rsi, state: diamond }
+  color: "#A8E6FF"
+  price: 0.15
+
+- type: material
+  id: CharonicIchor
+  stackEntity: MaterialCharonicIchor1
+  name: stack-charonic-ichor
+  unit: materials-unit-piece
+  icon: { sprite: Objects/Misc/reagent_fillings.rsi, state: powderpile }
+  color: "#1F2E2C"
+  price: 0.1

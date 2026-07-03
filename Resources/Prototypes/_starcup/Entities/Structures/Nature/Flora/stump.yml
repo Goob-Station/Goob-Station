@@ -1,0 +1,49 @@
+# Upstream trees do not spawn stumps when destroyed.
+# Solution: we make our own stumps.
+- type: entity
+  id: BaseStumpStarcup
+  name: tree stump
+  description: A tree once stood here. Now, only nature's seat remains.
+  abstract: true
+  components:
+  - type: Clickable
+  - type: Sprite
+    noRot: true
+    sprite: Objects/Decoration/Flora/flora_trees.rsi
+    state: treestump
+    drawdepth: HighFloorObjects
+    offset: 0,0
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.03,-0.05,0.03,0.05"
+        density: 1000
+        layer:
+        - WallLayer
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path: /Audio/Effects/chop.ogg
+        params:
+          variation: 0.05
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: TreeFall
+          params:
+            volume: 3
+            variation: 0.05
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

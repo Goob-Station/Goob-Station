@@ -1,0 +1,103 @@
+# Hollow trees
+- type: entity
+  id: FloraTreeHollowBase
+  name: hollow tree
+  description: Are these really trees... ?
+  components:
+  - type: Clickable
+  - type: Sprite
+    noRot: true
+    sprite: _starcup/Structures/Nature/Flora/Trees/AlienTrees/flora_hollowtrees.rsi
+    drawdepth: Overdoors
+    offset: 0,1.5
+    layers:
+    - state: treelarge01
+      map: ["random"]
+  - type: RandomSprite
+    available:
+    - random:
+        treelarge01: ""
+        treelarge02: ""
+        treelarge03: ""
+        treelarge04: ""
+        treelarge05: ""
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.3,0.4,0.3"
+        density: 2000
+        layer:
+        - WallLayer
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path: /Audio/Effects/chop.ogg
+        params:
+          variation: 0.05
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 135
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: TreeFall
+          params:
+            volume: 5
+            variation: 0.05
+      - !type:SpawnEntitiesBehavior
+        offset: 0
+        spawn:
+          EffectHollowTree:
+            min: 1
+            max: 1
+          HollowTreeStump:
+            min: 1
+            max: 1
+          MaterialWoodPlank1:
+            min: 2
+            max: 4
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: BaseStumpStarcup
+  id: HollowTreeStump
+  suffix: hollow tree
+  name: hollow tree stump
+  description: A dark cauldron of fleshy wood, full of foul-smelling ooze.
+  components:
+  - type: Sprite
+    sprite: _starcup/Structures/Nature/Flora/Trees/AlienTrees/flora_hollowtrees.rsi
+    layers:
+    - state: treestump1
+      map: ["random"]
+    offset: 0,1.5
+  - type: RandomSprite
+    available:
+    - random:
+        treestump1: ""
+        treestump2: ""
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.3,0.4,0"
+        density: 2000
+        layer:
+        - WallLayer

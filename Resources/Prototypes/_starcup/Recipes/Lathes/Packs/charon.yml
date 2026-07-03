@@ -1,0 +1,11 @@
+- type: latheRecipePack
+  id: CharonSmelting
+  recipes:
+  - IngotChromite1
+  - SheetSteelFromChromite
+  - SheetGlassFromWispShards
+
+- type: latheRecipePack
+  id: CharonAutolatheStatic
+  recipes:
+  - PickaxeChromite

@@ -1,0 +1,18 @@
+- type: entity
+  parent: FloorTileItemDark
+  id: FloorTileItemCharonic
+  name: charonic floor tile
+  description: Dark, resin-bound tiles that muffle footsteps.
+  components:
+  - type: Sprite
+    state: dark
+    color: "#2F3B3B"
+  - type: Construction
+    graph: CharonicFloorTile
+    node: floortile
+  - type: Stack
+    stackType: FloorTileCharonic
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorDark

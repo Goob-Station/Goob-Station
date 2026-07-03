@@ -1,0 +1,64 @@
+- type: tile
+  id: FloorPlanetDirtPale
+  parent: BaseFloorPlanet
+  name: pale dirt
+  sprite: /Textures/_starcup/Tiles/Planet/dirt_pale.rsi/dirt.png
+  variants: 5
+  placementVariants:
+  - 0.8
+  - 0.0166
+  - 0.0166
+  - 0.0166
+  - 0.0166
+  edgeSprites:
+    SouthEast: /Textures/_starcup/Tiles/Planet/dirt_pale.rsi/single_edge.png
+    NorthEast: /Textures/_starcup/Tiles/Planet/dirt_pale.rsi/single_edge.png
+    NorthWest: /Textures/_starcup/Tiles/Planet/dirt_pale.rsi/single_edge.png
+    SouthWest: /Textures/_starcup/Tiles/Planet/dirt_pale.rsi/single_edge.png
+    South: /Textures/_starcup/Tiles/Planet/dirt_pale.rsi/double_edge.png
+    East: /Textures/_starcup/Tiles/Planet/dirt_pale.rsi/double_edge.png
+    North: /Textures/_starcup/Tiles/Planet/dirt_pale.rsi/double_edge.png
+    West: /Textures/_starcup/Tiles/Planet/dirt_pale.rsi/double_edge.png
+
+- type: tile
+  id: FloorPlanetDirtTwilight
+  parent: FloorPlanetDirtPale
+  name: twilight dirt
+  sprite: /Textures/_starcup/Tiles/Planet/dirt_twilight.rsi/dirt.png
+  variants: 8
+  placementVariants:
+  - 0.8
+  - 0.0166
+  - 0.0166
+  - 0.0166
+  - 0.0166
+  - 0.0166
+  - 0.0166
+  - 0.0166
+  edgeSprites:
+    SouthEast: /Textures/_starcup/Tiles/Planet/dirt_twilight.rsi/single_edge.png
+    NorthEast: /Textures/_starcup/Tiles/Planet/dirt_twilight.rsi/single_edge.png
+    NorthWest: /Textures/_starcup/Tiles/Planet/dirt_twilight.rsi/single_edge.png
+    SouthWest: /Textures/_starcup/Tiles/Planet/dirt_twilight.rsi/single_edge.png
+    South: /Textures/_starcup/Tiles/Planet/dirt_twilight.rsi/double_edge.png
+    East: /Textures/_starcup/Tiles/Planet/dirt_twilight.rsi/double_edge.png
+    North: /Textures/_starcup/Tiles/Planet/dirt_twilight.rsi/double_edge.png
+    West: /Textures/_starcup/Tiles/Planet/dirt_twilight.rsi/double_edge.png
+
+- type: tile
+  id: FloorPlanetGrassyDirtTwilight
+  parent: FloorPlanetDirtTwilight
+  name: grassy twilight dirt
+  sprite: /Textures/_starcup/Tiles/Planet/dirt_twilight_grassy.rsi/dirt.png
+  variants: 8
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  footstepSounds:
+    collection: FootstepGrass

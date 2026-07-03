@@ -1,0 +1,36 @@
+- type: entity
+  parent: MarkerBase
+  id: RandomWallRockSnowOreSpawner
+  name: snowdrift ore spawner
+  components:
+  - type: Sprite
+    sprite: Structures/Walls/rock.rsi
+    state: rock_snow
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: RandomSnowdriftOreTable
+
+- type: entityTable
+  id: RandomSnowdriftOreTable
+  table: !type:GroupSelector
+    children:
+    - id: WallRockSnowCoal
+      weight: 0.5
+    - id: WallRockSnowTin
+      weight: 0.5
+    - id: WallRockSnowQuartz
+      weight: 0.5
+    - id: WallRockSnowPlasma
+      weight: 0.4
+    - id: WallRockSnowSilver
+      weight: 0.1
+    - id: WallRockSnowGold
+      weight: 0.05
+    - id: WallRockSnowUranium
+      weight: 0.05
+    - id: WallRockSnowBananium
+      weight: 0.025
+    - id: WallRockSnowDiamond
+      weight: 0.025
+    - id: WallRockSnowArtifactFragment
+      weight: 0.025

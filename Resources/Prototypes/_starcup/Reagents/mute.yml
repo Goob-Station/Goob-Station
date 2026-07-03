@@ -1,0 +1,108 @@
+# Processed forms of Charon-Epsilon's abundant MuteToxin.
+
+- type: reagent
+  id: MuteSerum
+  name: reagent-name-mute-serum
+  desc: reagent-desc-mute-serum
+  group: Medicine
+  physicalDesc: reagent-physical-desc-syrupy
+  color: "#6A7A8A"
+  boilingPoint: 310.0
+  meltingPoint: 42.0
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: -0.5
+            Burn: -0.5
+      - !type:GenericStatusEffect
+        key: Muted
+        component: Muted
+        type: Remove
+        time: 10
+
+- type: reagent
+  id: Mutol
+  name: reagent-name-mutol
+  desc: reagent-desc-mutol
+  group: Medicine
+  physicalDesc: reagent-physical-desc-acidic
+  color: "#4A5A6A"
+  boilingPoint: 280.0
+  meltingPoint: 38.0
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Asphyxiation: -0.25
+      - !type:MovespeedModifier
+        walkSpeedModifier: 1.1
+        sprintSpeedModifier: 1.1
+
+- type: reagent
+  id: Mutonin
+  name: reagent-name-mutonin
+  desc: reagent-desc-mutonin
+  group: Narcotics
+  physicalDesc: reagent-physical-desc-acidic
+  color: "#5A4A6A"
+  boilingPoint: 300.0
+  meltingPoint: 40.0
+  metabolisms:
+    Narcotic:
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: -0.5
+            Burn: -0.5
+            Toxin: -0.25
+      - !type:MovespeedModifier
+        walkSpeedModifier: 1.2
+        sprintSpeedModifier: 1.2
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+        damage:
+          types:
+            Poison: 0.5
+
+# Reactions
+
+- type: reaction
+  id: MuteSerumFromMuteToxin
+  source: true
+  minTemp: 470
+  reactants:
+    MuteToxin:
+      amount: 1
+  products:
+    MuteSerum: 1
+
+- type: reaction
+  id: MutolFromMuteToxin
+  source: true
+  requiredMixerCategories:
+  - Electrolysis
+  reactants:
+    MuteToxin:
+      amount: 10
+  products:
+    Mutol: 5
+    Oxygen: 5
+
+- type: reaction
+  id: MutoninSynthesis
+  source: true
+  reactants:
+    MuteToxin:
+      amount: 1
+    Mutol:
+      amount: 1
+  products:
+    Mutonin: 2

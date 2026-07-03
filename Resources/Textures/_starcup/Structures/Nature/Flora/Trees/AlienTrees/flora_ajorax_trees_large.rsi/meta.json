@@ -1,0 +1,32 @@
+{
+    "version": 1,
+    "license": "CC0-1.0",
+    "copyright": "Sprited by Psymbiote for starcup.",
+    "size": {
+        "x": 128,
+        "y": 160
+    },
+    "states": [
+        {
+            "name": "treelarge01"
+        },
+        {
+            "name": "treelarge02"
+        },
+        {
+            "name": "treelarge03"
+        },
+        {
+            "name": "treelarge04"
+        },
+        {
+            "name": "treelarge05"
+        },
+        {
+            "name": "treestump1"
+        },
+        {
+            "name": "treestump2"
+        }
+    ]
+}

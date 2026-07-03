@@ -75,6 +75,7 @@ using Content.Server.Chat.Managers;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
+using Content.Server.RoundEnd;
 using Content.Server.Parallax;
 using Content.Server.Screens.Components;
 using Content.Server.Shuttles.Components;
@@ -129,6 +130,7 @@ public sealed class ArrivalsSystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly ShuttleSystem _shuttles = default!;
+    [Dependency] private readonly EmergencyShuttleSystem _emergency = default!;
     [Dependency] private readonly StationSpawningSystem _stationSpawning = default!;
     [Dependency] private readonly StationSystem _station = default!;
 
@@ -174,6 +176,8 @@ public sealed class ArrivalsSystem : EntitySystem
         SubscribeLocalEvent<ArrivalsShuttleComponent, FTLCompletedEvent>(OnArrivalsDocked);
 
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(SendDirections);
+
+        SubscribeLocalEvent<RoundEndSystemChangedEvent>(OnRoundEndChanged);
 
         _pendingQuery = GetEntityQuery<PendingClockInComponent>();
         _blacklistQuery = GetEntityQuery<ArrivalsBlacklistComponent>();
@@ -315,7 +319,10 @@ public sealed class ArrivalsSystem : EntitySystem
             return;
 
         // Any mob then yeet them off the shuttle.
-        if (!_cfgManager.GetCVar(CCVars.ArrivalsReturns) && args.FromMapUid != null)
+        var allowReturns = _cfgManager.GetCVar(CCVars.ArrivalsReturns);
+        if (TryComp<StationArrivalsComponent>(component.Station, out var stationArrivals) && stationArrivals.AllowReturns.HasValue)
+            allowReturns = stationArrivals.AllowReturns.Value;
+        if (!allowReturns && args.FromMapUid != null)
             DumpChildren(shuttleUid, ref args);
 
         var pendingQuery = AllEntityQuery<PendingClockInComponent, TransformComponent>();
@@ -326,7 +333,7 @@ public sealed class ArrivalsSystem : EntitySystem
         // and will not warp. This is intended behavior.
         while (pendingQuery.MoveNext(out var pUid, out _, out var xform))
         {
-            if (xform.GridUid == shuttleUid)
+            if (xform.GridUid == shuttleUid && !allowReturns)
             {
                 // Warp all players who are still on this shuttle to a spawn point. This doesn't let them return to
                 // arrivals. It also ensures noobs, slow players or AFK players safely leave the shuttle.
@@ -408,15 +415,25 @@ public sealed class ArrivalsSystem : EntitySystem
         // We use arrivals as the default spawn so don't check for job prio.
 
         // Only works on latejoin even if enabled.
-        if (!Enabled || _ticker.RunLevel != GameRunLevel.InRound)
+        if (_ticker.RunLevel != GameRunLevel.InRound)
             return;
 
-        if (!HasComp<StationArrivalsComponent>(ev.Station))
+        if (ev.Station == null || !TryComp<StationArrivalsComponent>(ev.Station.Value, out var stationArrivals))
             return;
 
-        TryGetArrivals(out var arrivals);
+        // Per-station overrides work regardless of the global CVar
+        if (!Enabled && !stationArrivals.IsPlanet.HasValue && !stationArrivals.AllowReturns.HasValue)
+            return;
 
-        if (!TryComp(arrivals, out TransformComponent? arrivalsXform))
+        // Use per-station terminal if set, otherwise shared terminal
+        EntityUid? arrivals = stationArrivals.TerminalGrid;
+        if (arrivals == null && TryGetArrivals(out var sharedArrivals))
+            arrivals = sharedArrivals;
+
+        if (arrivals == null)
+            return;
+
+        if (!TryComp(arrivals.Value, out TransformComponent? arrivalsXform))
             return;
 
         var mapId = arrivalsXform.MapID;
@@ -533,41 +550,49 @@ public sealed class ArrivalsSystem : EntitySystem
 
         var query = EntityQueryEnumerator<ArrivalsShuttleComponent, ShuttleComponent, TransformComponent>();
         var curTime = _timing.CurTime;
-        TryGetArrivals(out var arrivals);
 
-        if (TryComp(arrivals, out TransformComponent? arrivalsXform))
+        while (query.MoveNext(out var uid, out var comp, out var shuttle, out var xform))
         {
-            while (query.MoveNext(out var uid, out var comp, out var shuttle, out var xform))
+            if (comp.NextTransfer > curTime)
+                continue;
+
+            // Use per-station terminal if available, otherwise shared terminal
+            EntityUid? arrivals = null;
+            if (TryComp<StationArrivalsComponent>(comp.Station, out var stationArr) && stationArr.TerminalGrid != null)
+                arrivals = stationArr.TerminalGrid;
+            else if (TryGetArrivals(out var sharedArrivals))
+                arrivals = sharedArrivals;
+
+            if (arrivals == null || !arrivals.Value.IsValid())
+                continue;
+
+            if (!TryComp(arrivals.Value, out TransformComponent? arrivalsXform))
+                continue;
+
+            var tripTime = _shuttles.DefaultTravelTime + _shuttles.DefaultStartupTime;
+
+            // At terminal — go to station if evac is not active
+            if (xform.MapUid == arrivalsXform.MapUid)
             {
-                if (comp.NextTransfer > curTime)
-                    continue;
-
-                var tripTime = _shuttles.DefaultTravelTime + _shuttles.DefaultStartupTime;
-
-                // Go back to arrivals source
-                if (xform.MapUid != arrivalsXform.MapUid)
-                {
-                    if (arrivals.IsValid())
-                        _shuttles.FTLToDock(uid, shuttle, arrivals);
-
-                    comp.NextArrivalsTime = _timing.CurTime + TimeSpan.FromSeconds(tripTime);
-                }
-                // Go to station
-                else
+                if (stationArr is not { EvacActive: true })
                 {
                     var targetGrid = _station.GetLargestGrid(comp.Station);
 
                     if (targetGrid != null)
                         _shuttles.FTLToDock(uid, shuttle, targetGrid.Value);
 
-                    // The ArrivalsCooldown includes the trip there, so we only need to add the time taken for
-                    // the trip back.
                     comp.NextArrivalsTime = _timing.CurTime + TimeSpan.FromSeconds(
                         _cfgManager.GetCVar(CCVars.ArrivalsCooldown) + tripTime);
                 }
-
-                comp.NextTransfer += TimeSpan.FromSeconds(_cfgManager.GetCVar(CCVars.ArrivalsCooldown));
             }
+            // At station — go back to terminal
+            else
+            {
+                _shuttles.FTLToDock(uid, shuttle, arrivals.Value);
+                comp.NextArrivalsTime = _timing.CurTime + TimeSpan.FromSeconds(tripTime);
+            }
+
+            comp.NextTransfer += TimeSpan.FromSeconds(_cfgManager.GetCVar(CCVars.ArrivalsCooldown));
         }
     }
 
@@ -580,8 +605,23 @@ public sealed class ArrivalsSystem : EntitySystem
         SetupArrivalsStation();
     }
 
+    private void OnRoundEndChanged(RoundEndSystemChangedEvent ev)
+    {
+        var evacActive = _emergency.EmergencyShuttleArrived;
+        var query = AllEntityQuery<StationArrivalsComponent>();
+        while (query.MoveNext(out _, out var comp))
+        {
+            if (comp.PauseDuringEvac)
+                comp.EvacActive = evacActive;
+        }
+    }
+
     private void SetupArrivalsStation()
     {
+        // Don't create duplicate shared terminals
+        if (TryGetArrivals(out _))
+            return;
+
         var path = new ResPath(_cfgManager.GetCVar(CCVars.ArrivalsMap));
         _mapSystem.CreateMap(out var mapId, runMapInit: false);
         var mapUid = _mapSystem.GetMap(mapId);
@@ -652,6 +692,14 @@ public sealed class ArrivalsSystem : EntitySystem
 
     private void OnStationPostInit(EntityUid uid, StationArrivalsComponent component, ref StationPostInitEvent args)
     {
+        // Stations with per-station overrides get their own terminal even when global CVar is off
+        if (component.IsPlanet.HasValue || component.AllowReturns.HasValue)
+        {
+            EnsurePerStationTerminal(uid, component);
+            SetupShuttle(uid, component);
+            return;
+        }
+
         if (!Enabled)
             return;
 
@@ -659,23 +707,74 @@ public sealed class ArrivalsSystem : EntitySystem
         SetupShuttle(uid, component);
     }
 
+    private void EnsurePerStationTerminal(EntityUid uid, StationArrivalsComponent component)
+    {
+        if (component.TerminalGrid != null)
+            return;
+
+        // Check if shared terminal matches what we need
+        var stationIsPlanet = component.IsPlanet ?? _cfgManager.GetCVar(CCVars.ArrivalsPlanet);
+        var sharedIsPlanet = _cfgManager.GetCVar(CCVars.ArrivalsPlanet);
+
+        // If shared terminal matches, use it instead of creating a new one
+        if (stationIsPlanet == sharedIsPlanet && TryGetArrivals(out var sharedArrivals))
+        {
+            component.TerminalGrid = sharedArrivals;
+            return;
+        }
+
+        var path = new ResPath(_cfgManager.GetCVar(CCVars.ArrivalsMap));
+
+        _mapSystem.CreateMap(out var mapId, runMapInit: false);
+        var mapUid = _mapSystem.GetMap(mapId);
+
+        if (!_loader.TryLoadGrid(mapId, path, out var grid))
+        {
+            _mapSystem.DeleteMap(mapId);
+            return;
+        }
+
+        _metaData.SetEntityName(mapUid, Loc.GetString("map-name-terminal"));
+
+        EnsureComp<ArrivalsSourceComponent>(grid.Value);
+        EnsureComp<ProtectedGridComponent>(grid.Value);
+        EnsureComp<PreventPilotComponent>(grid.Value);
+
+        if (stationIsPlanet)
+        {
+            var template = _random.Pick(_arrivalsBiomeOptions);
+            _biomes.EnsurePlanet(mapUid, _protoManager.Index(template));
+            AddComp(mapUid, new RestrictedRangeComponent { Range = 32f });
+        }
+
+        _mapSystem.InitializeMap(mapId);
+        component.TerminalGrid = grid.Value;
+    }
+
     private void SetupShuttle(EntityUid uid, StationArrivalsComponent component)
     {
         if (!Deleted(component.Shuttle))
             return;
 
+        // Use per-station terminal if set, otherwise shared terminal
+        EntityUid? arrivals = component.TerminalGrid;
+        if (arrivals == null && TryGetArrivals(out var sharedArrivals))
+            arrivals = sharedArrivals;
+
+        if (arrivals == null)
+            return;
+
         // Spawn arrivals on a dummy map then dock it to the source.
         var dummpMapEntity = _mapSystem.CreateMap(out var dummyMapId);
 
-        if (TryGetArrivals(out var arrivals) &&
-            _loader.TryLoadGrid(dummyMapId, component.ShuttlePath, out var shuttle))
+        if (_loader.TryLoadGrid(dummyMapId, component.ShuttlePath, out var shuttle))
         {
             component.Shuttle = shuttle.Value;
             var shuttleComp = Comp<ShuttleComponent>(component.Shuttle);
             var arrivalsComp = EnsureComp<ArrivalsShuttleComponent>(component.Shuttle);
             arrivalsComp.Station = uid;
             EnsureComp<ProtectedGridComponent>(uid);
-            _shuttles.FTLToDock(component.Shuttle, shuttleComp, arrivals, hyperspaceTime: RoundStartFTLDuration);
+            _shuttles.FTLToDock(component.Shuttle, shuttleComp, arrivals.Value, hyperspaceTime: RoundStartFTLDuration);
             arrivalsComp.NextTransfer = _timing.CurTime + TimeSpan.FromSeconds(_cfgManager.GetCVar(CCVars.ArrivalsCooldown));
         }
 

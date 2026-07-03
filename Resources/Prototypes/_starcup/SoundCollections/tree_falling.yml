@@ -1,0 +1,5 @@
+- type: soundCollection
+  id: TreeFall
+  files:
+  - /Audio/_starcup/Effects/branch_break.ogg
+  - /Audio/_starcup/Effects/rock_break.ogg

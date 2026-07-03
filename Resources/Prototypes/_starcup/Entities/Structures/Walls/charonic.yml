@@ -1,0 +1,17 @@
+# Charon-Epsilon structures built from harvested Charonic materials.
+
+- type: entity
+  parent: WallSolid
+  id: WallCharonic
+  name: charonic wall
+  description: A wall grown from compressed Charonic hide and resin.
+  components:
+  - type: Sprite
+    color: "#3B2F55"
+  - type: Construction
+    graph: CharonicWall
+    node: wall
+  - type: RCDDeconstructable
+    cost: 6
+    delay: 8
+    fx: EffectRCDDeconstruct8

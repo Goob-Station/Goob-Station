@@ -433,6 +433,13 @@ public sealed partial class ChatSystem : SharedChatSystem
             }
         }
 
+        // _Pirate Charon Epsilon - If the player is hushed, they cannot speak, and their speech is converted to a whisper.
+        if (desiredType == InGameICChatType.Speak && HasComp<Content.Shared.Speech.Hushing.HushedComponent>(source))
+        {
+            desiredType = InGameICChatType.Whisper;
+        }
+        // _Pirate end
+
         // Otherwise, send whatever type.
         switch (desiredType)
         {

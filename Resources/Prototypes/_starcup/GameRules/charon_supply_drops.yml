@@ -1,0 +1,25 @@
+# CentCom supply-drop event for Charon-Epsilon.
+# The event spawns a pre-filled drop pod at a random station tile.
+
+- type: entity
+  id: CharonSupplyDrop
+  parent: BaseGameRule
+  components:
+  - type: GameRule
+    delay:
+      min: 10
+      max: 10
+    chaosScore: -20
+  - type: StationEvent
+    weight: 6
+    duration: 1
+    earliestStart: 15
+    reoccurrenceDelay: 20
+    minimumPlayers: 5
+    startAnnouncement: station-event-charon-supply-drop-announcement
+    startAnnouncementColor: "#18abf5"
+    startAudio:
+      path: /Audio/Announcements/announce.ogg
+    eventType: FreeStuffUseful
+  - type: RandomSpawnRule
+    prototype: RandomCharonSupplyDropSpawner

@@ -1,0 +1,30 @@
+# Construction menu entries for Charonic structures.
+
+- type: construction
+  id: CharonicWall
+  name: construction-charonic-wall
+  graph: CharonicWall
+  startNode: start
+  targetNode: wall
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  id: CharonicWindow
+  name: construction-charonic-window
+  graph: CharonicWindow
+  startNode: start
+  targetNode: window
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  id: CharonicFloorTile
+  name: construction-charonic-floor-tile
+  graph: CharonicFloorTile
+  startNode: start
+  targetNode: floortile
+  category: construction-category-tiles
+  objectType: Item

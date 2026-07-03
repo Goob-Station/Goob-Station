@@ -1034,6 +1034,9 @@
   id: Igniter
 
 - type: Tag
+  id: IgnoreTallGrass
+
+- type: Tag
   id: Ingredient
 
 - type: Tag #Drop this innate tool instead of deleting it.

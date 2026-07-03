@@ -11,6 +11,19 @@
   statusEffect: StatusEffectMuted
   refresh: true
 
+- type: weather
+  id: WeatherCharonHush
+  sprite:
+    sprite: /Textures/Effects/weather.rsi
+    state: charonhush
+  sound:
+    path: /Audio/Ambience/ambireebe1.ogg
+    params:
+      loop: true
+      volume: -25
+  statusEffect: StatusEffectHushed
+  refresh: true
+
 # NOTE: This isn't intended to be used directly! DynamicWeatherSystem secretly swaps this for `null`.
 - type: weather
   id: WeatherClear

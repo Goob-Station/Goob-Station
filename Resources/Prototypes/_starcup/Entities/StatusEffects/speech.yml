@@ -6,3 +6,12 @@
   components:
   - type: ComponentStatusEffect
     component: Muted
+
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: StatusEffectHushed
+  name: hushed effect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ComponentStatusEffect
+    component: Hushed

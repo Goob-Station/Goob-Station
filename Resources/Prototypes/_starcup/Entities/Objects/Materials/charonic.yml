@@ -1,0 +1,137 @@
+# Crafting materials harvested from Charonic fauna.
+
+- type: entity
+  parent: MaterialBase
+  id: MaterialCharonicHide
+  name: charonic hide
+  description: A leathery scrap of hide from a Charonic creature. It feels cold and slightly damp.
+  suffix: Full
+  components:
+  - type: Sprite
+    sprite: Objects/Materials/hide.rsi
+    layers:
+    - state: goliath_hide
+      map: [ "base" ]
+      color: "#3B2F55"
+  - type: Stack
+    stackType: CharonicHide
+    baseLayer: base
+    layerStates:
+    - goliath_hide
+    - goliath_hide_2
+    - goliath_hide_3
+  - type: Item
+    size: Large
+    heldPrefix: goliathhide
+    sprite: Objects/Materials/hide.rsi
+    shape:
+    - 0,0,2,2
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      CharonicHide: 100
+
+- type: entity
+  parent: MaterialCharonicHide
+  id: MaterialCharonicHide1
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: MaterialBase
+  id: MaterialCharonicLeechTooth
+  name: charonic leech tooth
+  description: A serrated tooth from a Charonic leech. Surprisingly hard.
+  suffix: Full
+  components:
+  - type: Sprite
+    sprite: Objects/Materials/materials.rsi
+    state: bones
+    color: "#C0C0C0"
+  - type: Stack
+    stackType: CharonicLeechTooth
+  - type: Item
+    size: Small
+    sprite: Objects/Materials/materials.rsi
+    heldPrefix: bone
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      CharonicLeechTooth: 100
+
+- type: entity
+  parent: MaterialCharonicLeechTooth
+  id: MaterialCharonicLeechTooth1
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: MaterialBase
+  id: MaterialCharonicWispShard
+  name: charonic wisp shard
+  description: A crystalline fragment that still glows with pale blue light.
+  suffix: Full
+  components:
+  - type: Sprite
+    sprite: Objects/Materials/materials.rsi
+    state: diamond
+    color: "#A8E6FF"
+  - type: Stack
+    stackType: CharonicWispShard
+  - type: Item
+    size: Small
+    sprite: Objects/Materials/materials.rsi
+    heldPrefix: diamond
+  - type: PointLight
+    enabled: true
+    radius: 1.5
+    energy: 1.0
+    color: "#A8E6FF"
+    netsync: false
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      CharonicWispShard: 100
+
+- type: entity
+  parent: MaterialCharonicWispShard
+  id: MaterialCharonicWispShard1
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: MaterialBase
+  id: MaterialCharonicIchor
+  name: charonic ichor
+  description: A viscous black fluid harvested from Charonic slimes. It has soothing properties when properly refined.
+  suffix: Full
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/reagent_fillings.rsi
+    state: powderpile
+    color: "#1F2E2C"
+  - type: Stack
+    stackType: CharonicIchor
+  - type: Item
+    size: Tiny
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      CharonicIchor: 100
+
+- type: entity
+  parent: MaterialCharonicIchor
+  id: MaterialCharonicIchor1
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1

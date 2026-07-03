@@ -1,0 +1,9 @@
+materials-raw-chromite = raw chromite
+materials-chromite = chromite
+materials-unit-ingot = ingot
+stack-chromite-ore = chromite ore
+stack-chromite = chromite ingot
+stack-floor-tile-charonic = charonic floor tile
+construction-charonic-wall = charonic wall
+construction-charonic-window = charonic window
+construction-charonic-floor-tile = charonic floor tile

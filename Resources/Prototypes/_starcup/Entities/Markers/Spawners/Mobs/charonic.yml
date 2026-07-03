@@ -1,0 +1,47 @@
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobCharonicLeech
+  name: Charonic Leech Spawner
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - MobCharonicLeech
+  - type: TimedDespawn
+    lifetime: 0.5
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobCharonicWisp
+  name: Charonic Wisp Spawner
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - MobCharonicWisp
+  - type: TimedDespawn
+    lifetime: 0.5
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobCharonicSlime
+  name: Charonic Slime Spawner
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - MobCharonicSlime
+  - type: TimedDespawn
+    lifetime: 0.5
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobCharonicWispElder
+  name: Elder Charonic Wisp Spawner
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - MobCharonicWispElder
+  - type: TimedDespawn
+    lifetime: 0.5

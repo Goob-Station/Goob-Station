@@ -1,0 +1,51 @@
+- type: entity
+  id: BaseShroomSolid
+  name: mushrooms
+  description: Now that's one BIG mushroom.
+  abstract: true
+  components:
+  - type: Clickable
+  - type: Sprite
+    noRot: true
+    sprite: _starcup/Structures/Nature/solid_shrooms.rsi
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.4
+        density: 1000
+        layer:
+        - HalfWallLayer
+        - Opaque
+  - type: Climbable
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: BaseShroomSolid
+  id: FloraMushroom
+  components:
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Sprite
+    sprite: _starcup/Structures/Nature/solid_shrooms.rsi
+    layers:
+    - state: shroomsolid1
+      map: ["random"]
+  - type: RandomSprite
+    available:
+    - random:
+        shroomsolid1: ""
+        shroomsolid2: ""

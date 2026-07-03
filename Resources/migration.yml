@@ -1069,3 +1069,73 @@ PosterContrabandCommunistState: PosterContrabandSolAlliance
 MagazinePistolMindbreaker: MagazinePistolCryptobiolin
 SpawnMobGoidaBot: SpawnMobPotyzhnobot
 # PIRATE END
+
+# Charon Epsilon event map (starcup port) - 2026-06-28
+AACTablet: null
+AirAlarmAutoLink: AirAlarm
+AirlockCommandGlassLockedSyndie: AirlockCommandGlassLocked
+BlastDoorUnlinkedArmoryOpen: BlastDoorOpen
+CandyBucketPailCat: CandyBucket
+ChemistryBottleStellibinin: null
+ChoppingAxe: HydroponicsToolHatchet
+CocoaSeedsImitation: CocoaSeeds
+CryoPodDestroyed: CryoPod
+CurtainsBlackOpenDirectional: CurtainsBlackOpen
+CurtainsBlueDirectional: CurtainsBlue
+CurtainsBlueOpenDirectional: CurtainsBlueOpen
+DrinkGlassCocktail: DrinkGlass
+DrinkGlassHighball: DrinkGlass
+DrinkGlassOldFashioned: DrinkGlass
+DrinkHotCocoImitation: DrinkHotCoco
+LightTubeBlueAmbient: LightTubeCrystalBlue
+LockerCaptainFilledNoLaserSyndie: LockerCaptainFilledNoLaser
+PillCanisterSoretizone: null
+PosterLegitBlessThisSpessSyndie: PosterLegitBlessThisSpess
+PosterLegitCleanlinessSyndie: PosterLegitCleanliness
+PosterLegitSyndicateLogo: PosterLegitNanotrasenLogo
+PoweredFloorLightWarm: PoweredFloorLight
+PoweredLightPostSmallBroken: PoweredLightPostSmall
+PoweredLightPostSmallSodium: PoweredLightPostSmall
+RailingCornerDeltaVWood: RailingCorner
+RailingCornerSmallDeltaVWood: RailingCornerSmall
+RailingDeltaVWood: Railing
+ShotGunCabinetBartender: ShotGunCabinet
+SignBridgeSyndie: SignBridge
+SignHazardRadiation: SignRadiation
+SpawnMobSlimeGloom: SpawnMobAdultSlimesGreen
+SpawnPointCargoAssistant: SpawnPointCargoTechnician
+WoodenBarrel: null
+WoodenKeg: null
+WoodenKegRootBeer: null
+FloraShroomMound: FloraRockSolid
+FloraShroomRock: FloraRockSolid
+# FloorTileBrickHorizontal: null
+
+# Charon Epsilon grid files - missing prototypes from grids
+MailTeleporterSyndie: MailTeleporter
+PosterLegitDoNotQuestionSyndie: null
+PoweredLightPostSmallCold: PoweredLightPostSmall
+PoweredlightCold: PoweredLightPostSmall
+PoweredlightWarm: PoweredLightPostSmall
+AlwaysPoweredLightPostSmallSodium: PoweredLightPostSmall
+PaperDyedRed: Paper
+PaperDyedPink: null
+PaperDyedTan: Paper
+PosterLegitElectraTattered: null
+WoodenKegWine: null
+NotebookPocketBlue: null
+ToyGlobeAncientEarth: null
+ChemistryBottleHolywater: null
+FloraTreeConiferDead: FloraTreeDeadPurple
+Skimmer: null
+BoxFolderClipboardEmpty: BoxFolderClipboard
+
+# if we also need to do the orbital station - currently not working
+AirlockExternalGlassShuttleCharonEpsilonFilled: AirlockExternalGlassShuttleArrivals
+BenchSofaCorporateLeft: null
+BenchSofaCorporateRight: null
+ComputerShuttleMiningGlacier: null
+PosterLegitElectra: null
+PosterLegitHereForYourSafetySyndie: null
+PosterLegitSafetyReportSyndie: null
+RandomNotebookSpawner: null

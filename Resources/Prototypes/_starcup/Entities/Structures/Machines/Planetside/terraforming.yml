@@ -1,0 +1,425 @@
+- type: entity
+  id: MachineCoilGround
+  parent: BaseMachine
+  name: connector coil
+  description: Machines connected to other machines? How perverse.
+  placement:
+    mode: AlignTileAny
+  components:
+  - type: Rotatable
+  - type: Sprite
+    sprite: _starcup/Structures/Machines/Terraforming/coil.rsi
+    drawdepth: FloorObjects
+    layers:
+    - state: base
+  - type: Fixtures
+    fixtures:
+      slipFixture:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1,-0.4,1,0.4"
+        mask:
+        - ConveyorMask
+        layer:
+        - SlipLayer
+        hard: false
+  - type: Transform
+    noRot: false
+
+- type: entity
+  id: MachineCoilGroundMirrored
+  parent: MachineCoilGround
+  name: connector coil
+  suffix: mirrored
+  description: Machines connected to other machines? How perverse.
+  components:
+  - type: Rotatable
+  - type: Sprite
+    sprite: _starcup/Structures/Machines/Terraforming/coil_mirrored.rsi
+    drawdepth: FloorObjects
+    layers:
+    - state: base
+
+- type: entity
+  id: MachineElectricGridRusted
+  parent: BaseMachinePowered
+  name: rusted electric grid
+  description: An old, broken down machine.
+  placement:
+    mode: AlignTileAny
+  components:
+  - type: Sprite
+    sprite: _starcup/Structures/Machines/Terraforming/electric_grid_rusted.rsi
+    offset: 0,0.5
+    layers:
+    - state: base
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.25,0.45,0.1"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+- type: entity
+  id: MachineElectrolysRusted
+  parent: BaseMachinePowered
+  name: rusted industrial electrolyzer
+  description: An old, broken down power generator.
+  placement:
+    mode: AlignTileAny
+  components:
+  - type: SpriteFade
+  - type: Sprite
+    sprite: _starcup/Structures/Machines/Terraforming/electrolys_rusted.rsi
+    offset: 0,1
+    layers:
+    - state: base
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-0.5,1.5,0.6"
+        density: 50
+        mask:
+        - LargeMobMask
+        layer:
+        - WallLayer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+- type: entity
+  id: HatchLockedRusted
+  parent: BaseMachine
+  name: rusted locked hatch
+  description: Perfectly sealed, nearly impossible to break open.
+  placement:
+    mode: AlignTileAny
+  components:
+  - type: Sprite
+    sprite: _starcup/Structures/Machines/Terraforming/hatch_locked_rusted.rsi
+    drawdepth: FloorObjects
+    layers:
+    - state: base
+  - type: Fixtures
+    fixtures:
+      slipFixture:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        mask:
+        - ConveyorMask
+        layer:
+        - SlipLayer
+        hard: false
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.5
+    sprintSpeedModifier: 0.5
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+- type: entity
+  id: MachineHeaterRusted
+  parent: BaseMachinePowered
+  name: rusted heater
+  description: An old, broken down heater.
+  placement:
+    mode: AlignTileAny
+  components:
+  - type: Sprite
+    sprite: _starcup/Structures/Machines/Terraforming/heater_rusted.rsi
+    layers:
+    - state: base
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.9,-0.5,0.9,0.6"
+        density: 50
+        mask:
+        - LargeMobMask
+        layer:
+        - WallLayer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+
+- type: entity
+  id: ReactorCasingRusted
+  parent: BaseMachine
+  name: rusted reactor casing
+  description: Old remains of a ruined venture.
+  placement:
+    mode: AlignTileAny
+  components:
+  - type: Sprite
+    sprite: _starcup/Structures/Machines/Terraforming/reactor_casing_rusted.rsi
+    drawdepth: FloorObjects
+    layers:
+    - state: base
+  - type: Fixtures
+    fixtures:
+      slipFixture:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1,-1,1,1"
+        mask:
+        - ConveyorMask
+        layer:
+        - SlipLayer
+        hard: false
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.5
+    sprintSpeedModifier: 0.5
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+- type: entity
+  id: SignCERusted
+  parent: BaseMachinePowered
+  name: rusted sign
+  suffix: mine
+  description: An old Acid Enteprise sign for a mining outpost.
+  placement:
+    mode: AlignTileAny
+  components:
+  - type: SpriteFade
+  - type: Sprite
+    sprite: _starcup/Structures/Machines/Terraforming/sign_ce_mine.rsi
+    layers:
+    - state: base
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.3,-0.5,1.3,0.6"
+        density: 50
+        mask:
+        - LargeMobMask
+        layer:
+        - WallLayer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+- type: entity
+  id: SignCEResearch
+  parent: BaseMachinePowered
+  name: rusted sign
+  suffix: research post
+  description: An old Acid Enteprise sign for a research post.
+  placement:
+    mode: AlignTileAny
+  components:
+  - type: SpriteFade
+  - type: Sprite
+    sprite: _starcup/Structures/Machines/Terraforming/sign_ce_research.rsi
+    layers:
+    - state: base
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.3,-0.5,1.3,0.6"
+        density: 50
+        mask:
+        - LargeMobMask
+        layer:
+        - WallLayer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+- type: entity
+  id: TankRusted
+  parent: BaseMachinePowered
+  name: rusted tank
+  description: The rusty old remains of a failed venture.
+  components:
+  - type: SpriteFade
+  - type: Sprite
+    sprite: _starcup/Structures/Machines/Terraforming/tank_rusted.rsi
+    offset: 0,0.3
+    layers:
+    - state: base
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.25,0.45,0.1"
+        density: 190
+        layer:
+        - WallLayer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+- type: entity
+  id: TankTallARusted
+  parent: BaseMachinePowered
+  name: rusted tank
+  description: The rusty old remains of a failed venture.
+  placement:
+    mode: AlignTileAny
+  components:
+  - type: SpriteFade
+  - type: Sprite
+    sprite: _starcup/Structures/Machines/Terraforming/tank_tall_a_rusted.rsi
+    offset: 0,0.5
+    layers:
+    - state: base
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.25,0.45,0.1"
+        density: 190
+        layer:
+        - WallLayer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+- type: entity
+  id: TankTallBRusted
+  parent: BaseMachinePowered
+  name: rusted tank
+  description: The rusty old remains of a failed venture.
+  placement:
+    mode: AlignTileAny
+  components:
+  - type: SpriteFade
+  - type: Sprite
+    sprite: _starcup/Structures/Machines/Terraforming/tank_tall_b_rusted.rsi
+    offset: 0,0.5
+    layers:
+    - state: base
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.25,0.45,0.1"
+        density: 190
+        layer:
+        - WallLayer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+- type: entity
+  id: MachineTurbineRusted
+  parent: BaseMachinePowered
+  name: rusted industrial turbine
+  description: An old, broken down industrial turbine.
+  placement:
+    mode: AlignTileAny
+  components:
+  - type: Sprite
+    sprite: _starcup/Structures/Machines/Terraforming/turbine_rusted.rsi
+    layers:
+    - state: base
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.7,-0.5,1.7,0.5"
+        density: 50
+        mask:
+        - LargeMobMask
+        layer:
+        - WallLayer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]

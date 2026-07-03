@@ -1,0 +1,70 @@
+# Epilogue Stations (for EOR+)
+- type: entity
+  id: StandardEpilogueStation
+  parent:
+  - StandardEpilogueStationNoEvacNoEvents
+  - BaseStationEvacuation
+  - BaseStationAllEventsEligible
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  id: StandardEpilogueStationNoEvacNoEvents
+  parent:
+  - BaseStation
+  - BaseStationJobsSpawning
+  - BaseStationRecords
+  - BaseStationCentcomm
+  - BaseStationAlertLevels
+  - BaseStationSiliconLawCrewsimov
+  - BaseStationNanotrasen
+#  - BaseStationGateway
+#  - BaseStationExpeditions
+#  - BaseStationSalvageJobs
+#  - BaseStationAllEventsEligible
+#  - BaseStationNews
+#  - BaseStationCargo
+#  - BaseStationDeliveries
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+
+# Terrestrial Stations
+- type: entity
+  id: StandardTerrestrialStation
+  parent:
+  - StandardTerrestrialStationNoEvac
+  - BaseStationEvacuation
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  id: StandardTerrestrialStationNoEvac
+  parent:
+  - BaseStation
+  - BaseStationAlertLevels
+  - BaseStationCargo
+  - BaseStationCentcomm
+  - BaseStationSiliconLawCrewsimov
+  - BaseStationExpeditions
+  - BaseStationGateway
+  - BaseStationJobsSpawning
+  - BaseStationNanotrasen
+  - BaseStationNews
+  - BaseStationRecords
+  - BaseStationSalvageJobs
+#  - BaseStationAllEventsEligible
+  - BaseStationArrivals
+#  - BaseStationShuttles - unwanted ATS/space wrecks
+#  - BaseStationEvacuation
+#  - BaseStationMagnet - makes no sense for planetside
+#  - BaseStationLavaland
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+
+## Terrestrial Stations with Trading Outposts
+- type: entity
+  id: StandardTerrestrialStationTradingCharonic
+  parent:
+  - StandardTerrestrialStation
+  - BaseTerrestrialStationTradingCharonic
+  categories: [ HideSpawnMenu ]

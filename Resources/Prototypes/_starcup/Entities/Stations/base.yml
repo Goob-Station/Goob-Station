@@ -1,0 +1,60 @@
+# Terrestrial Stations with a Charonic surface trading outpost
+- type: entity
+  id: BaseTerrestrialStationTradingCharonic
+  abstract: true
+  components:
+  - type: GridSpawn
+    groups:
+      trade: !type:GridSpawnGroup
+        addComponents:
+        - type: ProtectedGrid
+        - type: TradeStation
+        paths:
+        - /Maps/_starcup/Events/SilentMoonGrids/T1-ats-9x9.yml
+      tier1_pois: !type:GridSpawnGroup
+        hide: false
+        nameGrid: true
+        stationGrid: false
+        rotation: 0
+        minCount: 3
+        maxCount: 5
+        paths:
+        - /Maps/_starcup/Events/SilentMoonGrids/T1-mime-tree-4x4.yml
+        - /Maps/_starcup/Events/SilentMoonGrids/T1-piano-6x5.yml
+        - /Maps/_starcup/Events/SilentMoonGrids/T1-power-station-13x14.yml
+        - /Maps/_starcup/Events/SilentMoonGrids/T1-reactor-casing-7x10.yml
+        - /Maps/_starcup/Events/SilentMoonGrids/T1-ritual-circle-8x8.yml
+        - /Maps/_starcup/Events/SilentMoonGrids/T1-tanks-6x6.yml
+        - /Maps/_starcup/Events/SilentMoonGrids/T1-turbine-7x4.yml
+      tier2_pois: !type:GridSpawnGroup
+        hide: false
+        nameGrid: true
+        stationGrid: false
+        rotation: 0
+        minCount: 2
+        maxCount: 3
+        paths:
+        - /Maps/_starcup/Events/SilentMoonGrids/T2-electrolyzer-14x14.yml
+        - /Maps/_starcup/Events/SilentMoonGrids/T2-farmhouse-17x20.yml
+        - /Maps/_starcup/Events/SilentMoonGrids/T2-hatch-11x10.yml
+        - /Maps/_starcup/Events/SilentMoonGrids/T2-med-outpost-14x11.yml
+      tier3_pois: !type:GridSpawnGroup
+        hide: false
+        nameGrid: true
+        stationGrid: false
+        rotation: 0
+        minCount: 1
+        maxCount: 2
+        paths:
+        - /Maps/_starcup/Events/SilentMoonGrids/T3-chromium-cave-14x17.yml
+        - /Maps/_starcup/Events/SilentMoonGrids/T3-shadow-valley-13x12.yml
+        - /Maps/_starcup/Events/SilentMoonGrids/T3-virology-lake-48x52.yml
+  - type: CharonSupplyDropScheduler
+    interval: 300
+    dropSpawners:
+    - DropPodCharonMedical
+    - DropPodCharonFood
+    - DropPodCharonEngineering
+    - DropPodCharonScience
+    - DropPodCharonMaterials
+    - DropPodCharonSecurityCargo

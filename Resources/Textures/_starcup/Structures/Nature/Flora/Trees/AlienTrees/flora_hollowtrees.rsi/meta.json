@@ -1,0 +1,32 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Modified by Psymbiote from LPC Baobabs by bluecarrot16. Commissioned by YuriNikolai for the OpenTaxa project https://opentaxa.miraheze.org/",
+    "size": {
+        "x": 128,
+        "y": 160
+    },
+    "states": [
+        {
+            "name": "treelarge01"
+        },
+        {
+            "name": "treelarge02"
+        },
+        {
+            "name": "treelarge03"
+        },
+        {
+            "name": "treelarge04"
+        },
+        {
+            "name": "treelarge05"
+        },
+        {
+            "name": "treestump1"
+        },
+        {
+            "name": "treestump2"
+        }
+    ]
+}

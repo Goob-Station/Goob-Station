@@ -1,0 +1,19 @@
+# Chromite ore and refined metal materials.
+
+- type: material
+  id: RawChromite
+  stackEntity: OreChromite1
+  name: materials-raw-chromite
+  unit: materials-unit-chunk
+  icon: { sprite: Objects/Materials/ore.rsi, state: iron }
+  color: "#5A6A7A"
+  price: 0.08
+
+- type: material
+  id: Chromite
+  stackEntity: IngotChromite1
+  name: materials-chromite
+  unit: materials-unit-ingot
+  icon: { sprite: Objects/Materials/ingots.rsi, state: iron }
+  color: "#7A8B99"
+  price: 0.12

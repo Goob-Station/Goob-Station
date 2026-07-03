@@ -1,0 +1,27 @@
+- type: tile
+  id: FloorPlanetGrassBlue
+  name: twilight grass
+  sprite: /Textures/_starcup/Tiles/Planet/grass_twilight/grass.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  edgeSpritePriority: 1
+  edgeSprites:
+    SouthEast: /Textures/_starcup/Tiles/Planet/grass_twilight/single_edge.png
+    NorthEast: /Textures/_starcup/Tiles/Planet/grass_twilight/single_edge.png
+    NorthWest: /Textures/_starcup/Tiles/Planet/grass_twilight/single_edge.png
+    SouthWest: /Textures/_starcup/Tiles/Planet/grass_twilight/single_edge.png
+    South: /Textures/_starcup/Tiles/Planet/grass_twilight/double_edge.png
+    East: /Textures/_starcup/Tiles/Planet/grass_twilight/double_edge.png
+    North: /Textures/_starcup/Tiles/Planet/grass_twilight/double_edge.png
+    West: /Textures/_starcup/Tiles/Planet/grass_twilight/double_edge.png
+  baseTurf: FloorPlanetDirtTwilight
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepGrass
+  heatCapacity: 10000
+  weather: true
+  indestructible: true

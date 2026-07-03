@@ -1,0 +1,417 @@
+- type: biomeTemplate
+  id: Charonic
+  layers:
+    # tiles
+    - !type:BiomeTileLayer
+      threshold: -1.00
+      tile: FloorPlanetDirtTwilight
+    - !type:BiomeTileLayer
+      threshold: -0.40
+      tile: FloorPlanetGrassyDirtTwilight
+      noise:
+        seed: 0
+        frequency: 0.03
+        fractalType: None
+    - !type:BiomeTileLayer
+      threshold: -0.00
+      tile: FloorPlanetGrassBlue
+      noise:
+        seed: 0
+        frequency: 0.03
+        fractalType: None
+    # rocks
+    - !type:BiomeDecalLayer
+      allowedTiles:
+        - FloorPlanetDirtTwilight
+        - FloorPlanetGrassyDirtTwilight
+        - FloorPlanetGrassBlue
+      threshold: 0.9
+      divisions: 1
+      noise:
+        seed: 1
+        frequency: 1
+      decals:
+        - Basalt1
+        - Basalt2
+        - Basalt3
+        #- Basalt4 # pawprints
+        - Basalt5
+        - Basalt6
+        - Basalt7
+        - Basalt8
+        #- Basalt9 # pawprints
+    # rock entities
+    - !type:BiomeEntityLayer
+      threshold: 0.95
+      noise:
+        noiseType: OpenSimplex2
+        frequency: 1
+      allowedTiles:
+        - FloorPlanetDirtTwilight
+      entities:
+        - FloraRockSolid
+    # mushrooms (entities)
+    - !type:BiomeEntityLayer
+      threshold: 0.95
+      noise:
+        noiseType: OpenSimplex2
+        frequency: 1
+      allowedTiles:
+        - FloorPlanetGrassBlue
+      entities:
+        - FloraMushroom
+    # crystals
+    - !type:BiomeEntityLayer
+      threshold: 0.95
+      noise:
+        seed: 1
+        noiseType: OpenSimplex2
+        frequency: 0.25
+      allowedTiles:
+        - FloorPlanetGrassBlue
+        - FloorPlanetGrassyDirtTwilight
+        - FloorPlanetDirtTwilight
+      entities:
+        - CrystalPink
+        - CrystalCyan
+        - CrystalBlack
+    # mushrooms (grass)
+    - !type:BiomeDecalLayer
+      allowedTiles:
+        - FloorPlanetGrassBlue
+      threshold: 0.55
+      invert: true
+      noise:
+        seed: 1
+        noiseType: OpenSimplex2
+        fractalType: FBm
+        frequency: 1
+      decals:
+        - Shroomc1
+        - Shroomc2
+        - Shroomd1
+        - Shroomd2
+    # mushrooms (all)
+    - !type:BiomeDecalLayer
+      allowedTiles:
+        - FloorPlanetGrassBlue
+        - FloorPlanetGrassyDirtTwilight
+        - FloorPlanetDirtTwilight
+      threshold: 0.65
+      invert: true
+      noise:
+        seed: 2
+        noiseType: OpenSimplex2
+        fractalType: FBm
+        frequency: 1
+      decals:
+        - Shroomb1
+        - Shroomb2
+        - Shroomb3
+    # mushrooms (dirt)
+    - !type:BiomeDecalLayer
+      allowedTiles:
+        - FloorPlanetDirtTwilight
+      threshold: 0.70
+      invert: true
+      noise:
+        seed: 3
+        noiseType: OpenSimplex2
+        fractalType: FBm
+        frequency: 1
+      decals:
+        - Shrooma1
+        - Shrooma2
+        - Shrooma3
+    # trees
+    - !type:BiomeEntityLayer
+      threshold: 0.45
+      noise:
+        seed: 0
+        noiseType: OpenSimplex2
+        fractalType: FBm
+        frequency: 2
+      allowedTiles:
+        - FloorPlanetGrassBlue
+        - FloorPlanetGrassyDirtTwilight
+      entities:
+        - FloraTreeDeadPurple
+        - ShadowTree
+        - FloraTreeLargeDark
+        - LightTree
+    # resource trees
+    - !type:BiomeEntityLayer
+      threshold: 0.60
+      noise:
+        noiseType: OpenSimplex2
+        fractalType: FBm
+        frequency: 2.25
+      allowedTiles:
+      #  - FloorPlanetGrassBlue
+        - FloorPlanetGrassyDirtTwilight
+        - FloorPlanetDirtTwilight
+      entities:
+        - FloraTreeHollowBase
+    # rock formations
+    - !type:BiomeEntityLayer
+      allowedTiles:
+        - FloorPlanetGrassBlue
+        - FloorPlanetGrassyDirtTwilight
+        - FloorPlanetDirtTwilight
+      threshold: -0.15
+      noise:
+        seed: 0
+        noiseType: Cellular
+        frequency: 0.05
+        lacunarity: 2.5
+        fractalType: FBm
+        octaves: 5
+        cellularDistanceFunction: Euclidean
+        cellularReturnType: Distance2
+      entities:
+        - WallRockChromite
+    # rare artifact-laced chromite outcrops
+    - !type:BiomeEntityLayer
+      allowedTiles:
+        - FloorPlanetDirtTwilight
+      threshold: 0.88
+      noise:
+        seed: 9
+        noiseType: OpenSimplex2
+        frequency: 0.2
+        fractalType: FBm
+        octaves: 3
+      entities:
+        - WallRockChromiteArtifactFragment
+    # mute toxin rivers
+    - !type:BiomeEntityLayer
+      allowedTiles:
+        - FloorPlanetGrassBlue
+        - FloorPlanetGrassyDirtTwilight
+        - FloorPlanetDirtTwilight
+      threshold: 0.915
+      noise:
+        seed: 3
+        noiseType: OpenSimplex2
+        frequency: 0.005
+        lacunarity: 1.50
+        fractalType: Ridged
+        octaves: 1
+      entities:
+      - FloorMuteWaterEntity
+    # mute toxin pools
+    - !type:BiomeEntityLayer
+      allowedTiles:
+        - FloorPlanetDirtTwilight
+      threshold: 0.70
+      noise:
+        frequency: 0.05
+        fractalType: None
+      entities:
+      - FloorMuteWaterEntity
+    # charonic leeches (very sparse)
+    - !type:BiomeEntityLayer
+      allowedTiles:
+        - FloorPlanetGrassBlue
+        - FloorPlanetGrassyDirtTwilight
+      threshold: 0.99
+      noise:
+        seed: 5
+        noiseType: OpenSimplex2
+        frequency: 0.5
+      entities:
+        - SpawnMobCharonicLeech
+    # charonic wisps (very sparse)
+    - !type:BiomeEntityLayer
+      allowedTiles:
+        - FloorPlanetDirtTwilight
+        - FloorPlanetGrassyDirtTwilight
+      threshold: 0.98
+      noise:
+        seed: 6
+        noiseType: OpenSimplex2
+        frequency: 0.3
+      entities:
+        - SpawnMobCharonicWisp
+    # elder wisps (rare mini-boss)
+    - !type:BiomeEntityLayer
+      allowedTiles:
+        - FloorPlanetDirtTwilight
+      threshold: 0.985
+      noise:
+        seed: 8
+        noiseType: OpenSimplex2
+        frequency: 0.2
+      entities:
+        - SpawnMobCharonicWispElder
+    # charonic slimes (very sparse, near mute water)
+    - !type:BiomeEntityLayer
+      allowedTiles:
+        - FloorPlanetDirtTwilight
+      threshold: 0.98
+      noise:
+        seed: 7
+        noiseType: OpenSimplex2
+        frequency: 0.4
+      entities:
+        - SpawnMobCharonicSlime
+
+
+# Snow
+- type: biomeTemplate
+  id: SnowPtarmigan
+  layers:
+    # Sparse vegetation
+    - !type:BiomeDecalLayer
+      allowedTiles:
+      - FloorSnow
+      divisions: 2
+      threshold: -0.50
+      noise:
+        seed: 0
+        noiseType: Cellular
+        frequency: 1
+      decals:
+      - grasssnowa1
+      - grasssnowa2
+      - grasssnowa3
+      - grasssnowb1
+      - grasssnowb2
+      - grasssnowb3
+      - grasssnowc1
+      - grasssnowc2
+      - grasssnowc3
+    # Dense, bland grass
+    - !type:BiomeDecalLayer
+      allowedTiles:
+      - FloorSnow
+      divisions: 1
+      threshold: -0.35
+      noise:
+        seed: 0
+        noiseType: Cellular
+        frequency: 0.2
+        fractalType: FBm
+        octaves: 5
+        lacunarity: 2
+        cellularDistanceFunction: Euclidean
+        cellularReturnType: Distance2
+      decals:
+      - grasssnow
+      - grasssnow01
+      - grasssnow02
+      - grasssnow03
+      - grasssnow04
+      - grasssnow05
+      - grasssnow06
+      - grasssnow07
+      - grasssnow08
+      - grasssnow09
+      - grasssnow10
+      - grasssnow11
+      - grasssnow12
+      - grasssnow13
+    # Little bit of colored grass
+    - !type:BiomeDecalLayer
+      allowedTiles:
+      - FloorSnow
+      divisions: 1
+      threshold: -0.0
+      noise:
+        seed: 0
+        noiseType: Cellular
+        frequency: 1
+        fractalType: None
+        cellularDistanceFunction: Euclidean
+        cellularReturnType: Distance2
+      decals:
+      - bushsnowa1
+      - bushsnowa2
+      - bushsnowa3
+      - bushsnowb3
+      - bushsnowb2
+      - bushsnowb3
+    - !type:BiomeEntityLayer
+      threshold: 0.5
+      noise:
+        seed: 0
+        noiseType: OpenSimplex2
+        fractalType: FBm
+        frequency: 2
+      allowedTiles:
+      - FloorSnow
+      entities:
+      - FloraTreeSnow
+    # Rock formations
+    - !type:BiomeEntityLayer
+      allowedTiles:
+      - FloorSnow
+      threshold: -0.30
+      noise:
+        seed: 0
+        noiseType: Cellular
+        frequency: 0.05
+        lacunarity: 2
+        fractalType: FBm
+        octaves: 5
+        cellularDistanceFunction: Euclidean
+        cellularReturnType: Distance2
+      entities:
+      - WallRockSnow
+    # Ore Veins
+    - !type:BiomeEntityLayer
+      allowedTiles:
+      - FloorSnow
+      threshold: -0.18
+      noise:
+        seed: 0
+        noiseType: Cellular
+        frequency: 0.05
+        lacunarity: 2.5
+        fractalType: FBm
+        octaves: 5
+        cellularDistanceFunction: Euclidean
+        cellularReturnType: Distance2
+      entities:
+      - RandomWallRockSnowOreSpawner
+    # Ice tiles
+    - !type:BiomeTileLayer
+      tile: FloorIce
+      threshold: -0.9
+      noise:
+        seed: 0
+        noiseType: Cellular
+        frequency: 0.03
+        lacunarity: 2
+        fractalType: FBm
+        octaves: 5
+        cellularDistanceFunction: Euclidean
+        cellularReturnType: Distance2
+    # Liquid plasma rivers. Ice moon baby
+    - !type:BiomeEntityLayer
+      allowedTiles:
+      - FloorSnow
+      - FloorIce
+      threshold: 0.95
+      noise:
+        seed: 3
+        noiseType: OpenSimplex2
+        frequency: 0.003
+        lacunarity: 1.50
+        fractalType: Ridged
+        octaves: 1
+      entities:
+      - FloorLiquidPlasmaEntity
+    - !type:BiomeDummyLayer
+      id: Loot
+    - !type:BiomeTileLayer
+      threshold: -0.7
+      tile: FloorSnow
+      noise:
+        seed: 0
+        frequency: 0.02
+        fractalType: None
+
+# making a special biome like this is purely a temporary stopgap;
+# ideally we change Ptarmigan to use the mining planet system eventually,
+# but that requires expertise I lack.

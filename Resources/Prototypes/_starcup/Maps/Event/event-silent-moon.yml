@@ -1,0 +1,70 @@
+- type: gameMap
+  id: EventCharonEpsilon
+  mapName: 'Charon-Epsilon Surface Outpost'
+  mapPath: /Maps/_starcup/Events/silent_moon_surface_station.yml
+  maxRandomOffset: 0
+  randomRotation: false
+  minPlayers: 5
+  maxPlayers: 60
+  stations:
+    EventSilentMoon:
+      stationProto: StandardTerrestrialStationTradingCharonic
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Charon-Epsilon Surface Outpost'
+      - type: StationBiome
+        biome: Charonic
+        mapLightColor: "#2B3153"
+      - type: StationEmergencyShuttle
+        emergencyShuttlePath: /Maps/_starcup/Shuttles/silent_moon_surface_shuttle.yml
+      - type: StationArrivals
+        shuttlePath: /Maps/_starcup/Shuttles/silent_moon_surface_shuttle.yml
+        isPlanet: false
+        allowReturns: true
+        pauseDuringEvac: true
+      - type: StationJobs
+        availableJobs:
+          #Command
+            Captain: [ 1, 1 ]
+            HeadOfSecurity: [ 1, 1 ]
+            HeadOfPersonnel: [ 1, 1 ]
+            ChiefMedicalOfficer: [ 1, 1 ]
+            ChiefEngineer: [ 1, 1 ]
+            Quartermaster: [ 1, 1 ]
+            ResearchDirector: [ 1, 1 ]
+          #service
+            Janitor: [ 2, 2 ]
+            Bartender: [ 2, 2 ]
+            Botanist: [ 2, 2 ]
+            Chef: [ 2, 2 ]
+            Musician: [ 2, 2 ]
+            Clown: [ 2, 2 ]
+            Mime: [ 2, 2 ]
+          #engineering
+            AtmosphericTechnician: [ 2, 2 ]
+            StationEngineer: [ 4, 4 ]
+            TechnicalAssistant: [ 2, 2 ]
+          #medical
+            Chemist: [ 2, 2 ]
+            Psychologist: [ 1, 1 ]
+            Paramedic: [ 2, 2 ]
+            MedicalDoctor: [ 4, 4 ]
+            MedicalIntern: [ 2, 2 ]
+          #science
+            Roboticist: [ 2, 2 ]
+            Scientist: [ 3, 3 ]
+            ResearchAssistant: [ 2, 2 ]
+            Chaplain: [ 1, 1 ]
+          #Silicon
+            Borg: [ 3, 3 ]
+          #security
+            Warden: [ 1, 1 ]
+            Detective: [ 1, 1 ]
+            SecurityOfficer: [ 4, 4 ]
+            SecurityCadet: [ 2, 2 ]
+            Brigmedic: [ 1, 1 ]
+          #supply
+            SalvageSpecialist: [ 4, 4 ]
+            CargoTechnician: [ 3, 3 ]
+          #civilian
+            Passenger: [ -1, -1 ]

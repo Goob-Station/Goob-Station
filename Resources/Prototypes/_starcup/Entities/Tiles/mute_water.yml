@@ -1,0 +1,85 @@
+- type: entity
+  id: FloorMuteWaterEntity
+  name: dark water
+  description: Brackish and foreboding, water that draws the eyes and drowns the voice...
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: StepTrigger
+    requiredTriggeredSpeed: 0
+    intersectRatio: 0.25 # more forgiving than lava/plasma since it's less visually obvious
+    blacklist:
+      tags:
+        - Catwalk
+  - type: TileEntityEffect
+    effects:
+    - !type:ExtinguishReaction
+    - !type:GenericStatusEffect
+      key: Muted
+      component: Muted
+      type: Add
+      time: 10
+      refresh: false
+  - type: Transform
+    anchored: true
+  - type: SyncSprite
+  - type: Clickable
+  - type: Sprite
+    sprite: _starcup/Tiles/Planet/mute_water.rsi
+    drawdepth: BelowFloor
+    layers:
+      - state: mwater
+        shader: unshaded
+  - type: Icon
+    sprite: _starcup/Tiles/Planet/mute_water.rsi
+    state: full
+  - type: IconSmooth
+    key: floor
+    additionalKeys:
+    - walls
+    base: mwater
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+          - SlipLayer
+        mask:
+          - ItemMask
+        density: 1000
+        hard: false
+  - type: SolutionContainerManager
+    solutions:
+      pool:
+        maxVol: 9999999 # same as water.
+        reagents:
+        - ReagentId: MuteToxin
+          Quantity: 9999999
+  - type: SolutionRegeneration
+    solution: tank
+    generated:
+      reagents:
+      - ReagentId: MuteToxin
+        Quantity: 100
+  - type: DrainableSolution
+    solution: pool
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.5
+    sprintSpeedModifier: 0.5
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepWater
+      params:
+        volume: 8
+  - type: TriggerOnStepTrigger
+  - type: DamageOnTrigger
+    targetUser: true
+    damage:
+      types:
+        Caustic: 3

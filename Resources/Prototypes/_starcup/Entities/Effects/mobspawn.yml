@@ -1,0 +1,77 @@
+- type: entity
+  id: EffectHollowTree
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.4
+  - type: Sprite
+    drawdepth: Effects
+    noRot: true
+    layers:
+      - shader: unshaded
+        map: ["enum.EffectLayers.Unshaded"]
+        sprite: /Textures/Effects/acidifier.rsi
+        state: acid
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: AnimationPlayer
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      tableId: HollowTreeLootTable
+
+- type: entityTable
+  id: HollowTreeLootTable
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 0.5
+      children:
+      - id: Log
+        weight: 0.80
+        amount: !type:RangeNumberSelector
+          range: 1, 4
+      - id: ShardCrystalBlack
+        weight: 0.10
+        amount: !type:RangeNumberSelector
+          range: 1, 3
+      - id: ShardCrystalPink
+        weight: 0.10
+        amount: !type:RangeNumberSelector
+          range: 1, 3
+
+    - !type:GroupSelector
+      weight: 0.15
+      children:
+      - id: FoodPumpkin
+      - id: FoodAmbrosiaVulgaris
+      - id: FoodMushroom
+
+    - id: MobSpawnCharonicSlime
+      weight: 0.02
+
+- type: entity
+  id: HollowTreeRandomPuddle
+  parent: PuddleTemporary
+  suffix: Random, Hollow Tree
+  components:
+  - type: RandomFillSolution
+    solution: puddle
+    weightedRandomId: RandomFillPuddleHollowTree
+
+- type: weightedRandomFillSolution
+  id: RandomFillPuddleHollowTree
+  fills:
+  - quantity: 60
+    weight: 1
+    reagents:
+    - Blood
+    - Oil
+    - InsectBlood
+    - Ammonia
+  - quantity: 20
+    weight: 1
+    reagents:
+    - MuteToxin

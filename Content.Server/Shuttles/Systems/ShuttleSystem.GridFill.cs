@@ -237,6 +237,15 @@ public sealed partial class ShuttleSystem
 
         if (_loader.TryLoadGrid(mapId, path, out var grid))
         {
+            if (group.RandomRotation)
+            {
+                _transform.SetLocalRotation(grid.Value, _random.NextAngle());
+            }
+            else if (group.Rotation.HasValue)
+            {
+                _transform.SetLocalRotation(grid.Value, group.Rotation.Value);
+            }
+
             if (HasComp<ShuttleComponent>(grid))
                 TryFTLProximity(grid.Value, targetGrid);
 

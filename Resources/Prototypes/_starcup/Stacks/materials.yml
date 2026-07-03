@@ -1,0 +1,50 @@
+# Crafting materials dropped by Charonic fauna.
+
+- type: stack
+  id: CharonicHide
+  name: stack-charonic-hide
+  icon: { sprite: /Textures/Objects/Materials/hide.rsi, state: goliath_hide }
+  spawn: MaterialCharonicHide1
+  maxCount: 30
+
+- type: stack
+  id: CharonicLeechTooth
+  name: stack-charonic-leech-tooth
+  icon: { sprite: /Textures/Objects/Materials/materials.rsi, state: bones }
+  spawn: MaterialCharonicLeechTooth1
+  maxCount: 30
+
+- type: stack
+  id: CharonicWispShard
+  name: stack-charonic-wisp-shard
+  icon: { sprite: /Textures/Objects/Materials/materials.rsi, state: diamond }
+  spawn: MaterialCharonicWispShard1
+  maxCount: 30
+
+- type: stack
+  id: CharonicIchor
+  name: stack-charonic-ichor
+  icon: { sprite: /Textures/Objects/Misc/reagent_fillings.rsi, state: powderpile }
+  spawn: MaterialCharonicIchor1
+  maxCount: 30
+
+- type: stack
+  id: ChromiteOre
+  name: stack-chromite-ore
+  icon: { sprite: /Textures/Objects/Materials/ore.rsi, state: iron }
+  spawn: OreChromite1
+  maxCount: 30
+
+- type: stack
+  id: Chromite
+  name: stack-chromite
+  icon: { sprite: /Textures/Objects/Materials/ingots.rsi, state: iron }
+  spawn: IngotChromite1
+  maxCount: 30
+
+- type: stack
+  id: FloorTileCharonic
+  name: stack-floor-tile-charonic
+  icon: { sprite: /Textures/Objects/Tiles/tile.rsi, state: dark }
+  spawn: FloorTileItemCharonic
+  maxCount: 30
