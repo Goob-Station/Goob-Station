@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from SPLURT-station (space station 13)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "white",
+      "directions": 4
+    },
+    {
+      "name": "white-overlay",
+      "directions": 4
+    },
+    {
+      "name": "brown",
+      "directions": 4
+    },
+    {
+      "name": "brown-overlay",
+      "directions": 4
+    },
+    {
+      "name": "gray",
+      "directions": 4
+    },
+    {
+      "name": "gray-overlay",
+      "directions": 4
+    },
+    {
+      "name": "sand",
+      "directions": 4
+    },
+    {
+      "name": "sand-overlay",
+      "directions": 4
+    },
+    {
+      "name": "warm",
+      "directions": 4
+    },
+    {
+      "name": "warm-overlay",
+      "directions": 4
+    }
+  ]
+}
+  

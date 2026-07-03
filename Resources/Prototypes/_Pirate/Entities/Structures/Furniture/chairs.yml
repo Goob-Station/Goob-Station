@@ -1,0 +1,43 @@
+- type: entity
+  name: brown comfy chair
+  id: ComfyChairBrown
+  parent: ComfyChair
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    sprite: _Pirate/Structures/Furniture/chairs.rsi
+    noRot: true
+    state: brown
+
+- type: entity
+  name: gray comfy chair
+  id: ComfyChairGray
+  parent: ComfyChair
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    sprite: _Pirate/Structures/Furniture/chairs.rsi
+    noRot: true
+    state: gray
+
+- type: entity
+  name: sand comfy chair
+  id: ComfyChairSand
+  parent: ComfyChair
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    sprite: _Pirate/Structures/Furniture/chairs.rsi
+    noRot: true
+    state: sand
+
+- type: entity
+  name: warm comfy chair
+  id: ComfyChairWarm
+  parent: ComfyChair
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    sprite: _Pirate/Structures/Furniture/chairs.rsi
+    noRot: true
+    state: warm
