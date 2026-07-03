@@ -136,6 +136,14 @@
       "directions": 4
     },
     {
+      "name:": "default_behind",
+      "directions": 4
+    },
+    {
+      "name:" "default_front",
+      "directions": 4
+    },
+    {
       "name": "dfan_neck",
       "directions": 4
     },
@@ -205,6 +213,14 @@
     },
     {
       "name": "feathery_primary_front",
+      "directions": 4
+    },
+    {
+      "name": "feathery_front",
+      "directions": 4
+    },
+    {
+      "name": "feathery_behind",
       "directions": 4
     },
     {
@@ -308,6 +324,14 @@
       "directions": 4
     },
     {
+      "name": "jungle_front",
+      "directions": 4
+    },
+    {
+      "name": "jungle_behind",
+      "directions": 4
+    },
+    {
       "name": "ladybug_neck",
       "directions": 4
     },
@@ -321,6 +345,10 @@
     },
     {
       "name": "ladybug_secondary_front",
+      "directions": 4
+    },
+    {
+      "name": "ladybug_secondary",
       "directions": 4
     },
     {
@@ -528,6 +556,10 @@
       "directions": 4
     },
     {
+      "name": "rhinobeetle_primary_back",
+      "directions": 4
+    },
+    {
       "name": "royal_neck",
       "directions": 4
     },
@@ -626,6 +658,10 @@
     {
       "name": "truebutterfly_tertiary_behind",
       "directions": 4
+    },
+    {
+     "name": "truebutterfly_primary.png",
+     "directions": 4
     },
     {
       "name": "underwing_neck",
