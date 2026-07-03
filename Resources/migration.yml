@@ -1131,11 +1131,11 @@ Skimmer: null
 BoxFolderClipboardEmpty: BoxFolderClipboard
 
 # if we also need to do the orbital station - currently not working
-# AirlockExternalGlassShuttleCharonEpsilonFilled: AirlockExternalGlassShuttleArrivals
-# BenchSofaCorporateLeft: null
-# BenchSofaCorporateRight: null
-# ComputerShuttleMiningGlacier: null
-# PosterLegitElectra: null
-# PosterLegitHereForYourSafetySyndie: null
-# PosterLegitSafetyReportSyndie: null
-# RandomNotebookSpawner: null
+AirlockExternalGlassShuttleCharonEpsilonFilled: AirlockExternalGlassShuttleArrivals
+BenchSofaCorporateLeft: null
+BenchSofaCorporateRight: null
+ComputerShuttleMiningGlacier: null
+PosterLegitElectra: null
+PosterLegitHereForYourSafetySyndie: null
+PosterLegitSafetyReportSyndie: null
+RandomNotebookSpawner: null
