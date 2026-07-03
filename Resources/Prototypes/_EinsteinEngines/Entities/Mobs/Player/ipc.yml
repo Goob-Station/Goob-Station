@@ -67,6 +67,12 @@
         type: SurgeryBui
       enum.RadarConsoleUiKey.Key: #goob - contractor
         type: RadarConsoleBoundUserInterface
+      enum.BloodCultistCommuneUIKey.Key: # Pirate - Blood Cult
+        type: BloodCultCommuneBoundUserInterface
+        requireInputValidation: false
+      enum.SpellsUiKey.Key: # Pirate - Blood Cult
+        type: SpellsBoundUserInterface
+        requireInputValidation: false
   # Goobstation Start - Energycrit
   # - type: PowerCellSlot
   #   cellSlotId: cell_slot

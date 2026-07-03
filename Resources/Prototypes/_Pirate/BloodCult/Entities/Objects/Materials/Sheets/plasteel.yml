@@ -1,0 +1,68 @@
+# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  parent: [ SheetMetalBase, BaseBloodCultContraband ]
+  id: SheetRunedPlasteel
+  name: runed plasteel
+  suffix: Full
+  description: A sheet of otherworldly plasteel, used by cultists to armor their robes.
+  components:
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      RunedPlasteel: 100
+  - type: Stack
+    stackType: RunedPlasteel
+    baseLayer: base
+    layerStates:
+    - runedplasteel
+    - runedplasteel_2
+    - runedplasteel_3
+  - type: Sprite
+    sprite: _Pirate/BloodCult/Sheets/plasteel.rsi
+    state: runedplasteel_3
+    layers:
+    - state: runedplasteel_3
+      map: ["base"]
+  - type: Item
+    sprite: _Pirate/BloodCult/Sheets/plasteel.rsi
+    heldPrefix: runedplasteel
+  - type: Appearance
+
+- type: entity
+  parent: SheetRunedPlasteel
+  id: SheetRunedPlasteel30
+  name: runed plasteel
+  suffix: 30
+  components:
+  - type: Sprite
+    state: runedplasteel_3
+  - type: Stack
+    stackType: RunedPlasteel
+    count: 30
+
+- type: entity
+  parent: SheetRunedPlasteel
+  id: SheetRunedPlasteel10
+  name: runed plasteel
+  suffix: 10
+  components:
+  - type: Sprite
+    state: runedplasteel_2
+  - type: Stack
+    stackType: RunedPlasteel
+    count: 10
+
+- type: entity
+  parent: SheetRunedPlasteel
+  id: SheetRunedPlasteel1
+  name: runed plasteel
+  suffix: Single
+  components:
+  - type: Sprite
+    state: runedplasteel
+  - type: Stack
+    stackType: RunedPlasteel
+    count: 1

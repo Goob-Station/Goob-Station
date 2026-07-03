@@ -22,3 +22,16 @@
   icon:
     sprite: /Textures/_Pirate/Vampire/hud_icons.rsi
     state: hudvampirethrall
+
+- type: factionIcon
+  id: BloodCultFaction
+  isShaded: true
+  priority: 11
+  showTo:
+    components:
+      - ShowAntagIcons
+      - BloodCultist
+      - BloodCultConstruct
+  icon:
+    sprite: /Textures/_Pirate/Interface/Misc/cult_job_icons.rsi
+    state: Cultist

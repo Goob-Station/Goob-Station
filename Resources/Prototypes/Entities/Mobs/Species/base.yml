@@ -283,6 +283,11 @@
     - map: [ "shoes" ]
     - map: [ "jumpsuitOverShoes" ] # Pirate: loadout - bookmark for floor-length garments to draw over feet/shoes
     - map: [ "ears" ]
+    - map: [ "culteyes" ] # Pirate - Blood Cult
+      sprite: "_Pirate/BloodCult/Effects/culteyes.rsi"
+      state: "human"
+      shader: unshaded
+      visible: false
     - map: [ "eyes" ]
     - map: [ "id" ]
     - map: [ "outerClothing" ]
@@ -309,6 +314,11 @@
       sprite: "Effects/creampie.rsi"
       state: "creampie_human"
       visible: false
+    - map: [ "culthalo" ] # Pirate - Blood Cult
+      sprite: "_Pirate/BloodCult/Effects/halo.rsi"
+      state: "halo"
+      shader: unshaded
+      visible: false
 #  - type: DamageVisuals
 #    thresholds: [ 10, 20, 30, 50, 70, 100 ]
 #    targetLayers:
@@ -330,6 +340,14 @@
         clownedon: # Not 'creampied' bc I can already see Skyrat complaining about conflicts.
           True: {visible: true}
           False: {visible: false}
+      enum.CultHaloVisuals.CultHalo: # Pirate - Blood Cult
+        culthalo:
+          True: { visible: true }
+          False: { visible: false }
+      enum.CultEyesVisuals.CultEyes: # Pirate - Blood Cult
+        culteyes:
+          True: { visible: true }
+          False: { visible: false }
   - type: StatusIcon
     bounds: -0.5,-0.5,0.5,0.5
   - type: HasJobIcons # Goobstation
@@ -465,6 +483,12 @@
         type: VampireLocateBui # Pirate
       enum.SetPsionicsVerbMenu.Key: # Pirate-PsionicsMenu
         type: PsionicsMenuBoundUserInterface
+      enum.BloodCultistCommuneUIKey.Key: # Pirate - Blood Cult
+        type: BloodCultCommuneBoundUserInterface
+        requireInputValidation: false
+      enum.SpellsUiKey.Key: # Pirate - Blood Cult
+        type: SpellsBoundUserInterface
+        requireInputValidation: false
   - type: Puller
   - type: Speech
     speechSounds: Alto

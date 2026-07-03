@@ -75,6 +75,12 @@
         requireInputValidation: false
       enum.RadarConsoleUiKey.Key: #goob - contractor
         type: RadarConsoleBoundUserInterface
+      enum.BloodCultistCommuneUIKey.Key: # Pirate - Blood Cult
+        type: BloodCultCommuneBoundUserInterface
+        requireInputValidation: false
+      enum.SpellsUiKey.Key: # Pirate - Blood Cult
+        type: SpellsBoundUserInterface
+        requireInputValidation: false
   - type: Sprite
     # scale: 0.9, 0.9 # Goobstation: port EE height/width sliders
     layers:
@@ -105,6 +111,11 @@
       - map: [ "gloves" ]
       - map: [ "ears" ]
       - map: [ "outerClothing" ]
+      - map: [ "culteyes" ] # Pirate - Blood Cult
+        sprite: "_Pirate/BloodCult/Effects/culteyes.rsi"
+        state: "human"
+        shader: unshaded
+        visible: false
       - map: [ "eyes" ]
       - map: [ "belt" ]
       - map: [ "neck" ]
@@ -118,6 +129,11 @@
       - map: [ "clownedon" ] # Dynamically generated
         sprite: "Effects/creampie.rsi"
         state: "creampie_human"
+        visible: false
+      - map: [ "culthalo" ] # Pirate - Blood Cult
+        sprite: "_Pirate/BloodCult/Effects/halo.rsi"
+        state: "halo"
+        shader: unshaded
         visible: false
 # Yes, RArm has to be down here
       - map: [ "enum.HumanoidVisualLayers.RArm" ]

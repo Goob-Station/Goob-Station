@@ -232,6 +232,11 @@
       - map: [ "gloves" ]
       - map: [ "shoes" ]
       - map: [ "ears" ]
+      - map: [ "culteyes" ] # Pirate - Blood Cult
+        sprite: "_Pirate/BloodCult/Effects/culteyes.rsi"
+        state: "moth"
+        shader: unshaded
+        visible: false
       - map: [ "eyes" ]
       - map: [ "id" ]
       - map: [ "outerClothing" ]
@@ -253,6 +258,11 @@
       - map: [ "clownedon" ] # Dynamically generated
         sprite: "Effects/creampie.rsi"
         state: "creampie_moth"
+        visible: false
+      - map: [ "culthalo" ] # Pirate - Blood Cult
+        sprite: "_Pirate/BloodCult/Effects/halo.rsi"
+        state: "halo"
+        shader: unshaded
         visible: false
   - type: Inventory
     speciesId: moth

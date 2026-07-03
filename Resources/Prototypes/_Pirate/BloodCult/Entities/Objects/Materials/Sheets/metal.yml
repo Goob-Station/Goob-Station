@@ -1,0 +1,71 @@
+# SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
+# SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
+
+- type: entity
+  parent: [ SheetMetalBase, BaseBloodCultContraband ]
+  id: SheetRunedSteel
+  name: runed steel
+  suffix: Full
+  description: A sheet of otherworldly steel, used by acolytes of cosmic entities to assemble twisted constructs.
+  components:
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      RunedSteel: 100
+  - type: Stack
+    stackType: RunedSteel
+    baseLayer: base
+    layerStates:
+    - runedmetal
+    - runedmetal_2
+    - runedmetal_3
+  - type: Sprite
+    sprite: _Pirate/BloodCult/Sheets/metal.rsi
+    state: runedmetal_3
+    layers:
+    - state: runedmetal_3
+      map: ["base"]
+  - type: Item
+    sprite: _Pirate/BloodCult/Sheets/metal.rsi
+    heldPrefix: runedmetal
+  - type: Appearance
+
+- type: entity
+  parent: SheetRunedSteel
+  id: SheetRunedSteel30
+  name: runed steel
+  suffix: 30
+  components:
+  - type: Sprite
+    state: runedmetal_3
+  - type: Stack
+    stackType: RunedSteel
+    count: 30
+
+- type: entity
+  parent: SheetRunedSteel
+  id: SheetRunedSteel10
+  name: runed steel
+  suffix: 10
+  components:
+  - type: Sprite
+    state: runedmetal_2
+  - type: Stack
+    stackType: RunedSteel
+    count: 10
+
+- type: entity
+  parent: SheetRunedSteel
+  id: SheetRunedSteel1
+  name: runed steel
+  suffix: Single
+  components:
+  - type: Sprite
+    state: runedmetal
+  - type: Stack
+    stackType: RunedSteel
+    count: 1
