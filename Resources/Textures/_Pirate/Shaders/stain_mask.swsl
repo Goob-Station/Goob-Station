@@ -1,37 +1,44 @@
-// Masks a blood layer to another sprite's silhouette.
+// Paints blood over the silhouette of the drawn layer. The DRAWN layer uses the stained item's OWN sprite,
+// so the item's bounding box and (pixel-perfect) click map are unchanged - only its opaque pixels get blood.
+// The blood texture is supplied by a CopyToShaderParameters layer (stainMask), which is itself excluded from
+// rendering / bounds / clicks. stainOffsetX/Y + stainAngle give each item a slightly different splatter.
+//
+// The layer colour (stain reagent colour) is applied to COLOR automatically by the engine after fragment(),
+// exactly like a normal sprite - so we must NOT multiply it in here, and we sample the blood with the same
+// zTextureSpec helper zTexture uses so the colour space matches the blood shown on clothing.
 
-uniform sampler2D stainMask;
-uniform highp vec4 stainMaskUV;
+uniform sampler2D stainMask;      // blood texture (from the copy layer)
+uniform highp vec4 stainMaskUV;   // blood frame's atlas rect
 uniform highp float stainOffsetX;
 uniform highp float stainOffsetY;
 uniform highp float stainAngle;
 
-varying highp vec2 stainMaskUVOut;
 varying highp vec2 stainFrameCoord;
 
 void vertex()
 {
-    stainMaskUVOut = mix(stainMaskUV.xy, stainMaskUV.zw, tCoord2);
     stainFrameCoord = tCoord2;
 }
 
 void fragment()
 {
-    highp float maskAlpha = texture2D(stainMask, stainMaskUVOut).a;
+    // Drawn layer is the item itself: use its silhouette as the clip (ignore its colour).
+    highp float itemAlpha = zTexture(UV).a;
 
-    // Rotate the blood sample without moving the mask.
+    // Rotate/offset the blood lookup without moving the item.
     highp vec2 centered = stainFrameCoord - vec2(0.5);
     highp float c = cos(stainAngle);
     highp float s = sin(stainAngle);
     highp vec2 rotated = vec2(c * centered.x - s * centered.y, s * centered.x + c * centered.y);
     highp vec2 sampleCoord = rotated + vec2(0.5) + vec2(stainOffsetX, stainOffsetY) / 32.0;
 
-    highp vec4 blood = zTexture(UV + (sampleCoord - stainFrameCoord) * TEXTURE_PIXEL_SIZE * 32.0);
+    highp vec4 blood = zTextureSpec(stainMask, mix(stainMaskUV.xy, stainMaskUV.zw, sampleCoord));
 
-    // Avoid sampling adjacent atlas frames.
+    // Don't sample adjacent atlas frames.
     if (sampleCoord.x < 0.0 || sampleCoord.x > 1.0 || sampleCoord.y < 0.0 || sampleCoord.y > 1.0)
         blood.a = 0.0;
 
+    // Clip to the item silhouette. The stain colour tint is applied by the engine after this.
     COLOR = blood;
-    COLOR.a *= maskAlpha;
+    COLOR.a *= itemAlpha;
 }

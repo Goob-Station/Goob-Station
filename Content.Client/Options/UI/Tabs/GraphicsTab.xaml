@@ -34,6 +34,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                 <CheckBox Name="ViewportLowResCheckBox" Text="{Loc 'ui-options-vp-low-res'}" />
                 <CheckBox Name="ParallaxLowQualityCheckBox" Text="{Loc 'ui-options-parallax-low-quality'}" />
                 <CheckBox Name="AmbientOcclusionCheckBox" Text="{Loc 'ui-options-ambient-occlusion'}" />
+                <CheckBox Name="MoodVisualEffectsCheckBox" Text="{Loc 'ui-options-mood-visual-effects'}" /> <!-- Pirate: mood color grading tweaks -->
 
                 <!-- Interface -->
                 <Label Text="{Loc 'ui-options-interface-label'}" StyleClasses="LabelKeyText"/>
