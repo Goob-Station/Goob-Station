@@ -10008,9 +10008,6 @@ entities:
         1806:
         - - Pressed
           - DoorBolt
-        1807:
-        - - Pressed
-          - DoorBolt
         7:
         - - Pressed
           - DoorBolt
@@ -10408,10 +10405,7 @@ entities:
     - type: DeviceLinkSink
       invokeCounter: 1
     - type: DeviceLinkSource
-      linkedPorts:
-        1807:
-        - - DoorStatus
-          - DoorBolt
+      linkedPorts: {}
 - proto: Wrench
   entities:
   - uid: 1808
