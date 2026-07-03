@@ -11,6 +11,8 @@
             - material: Steel
               amount: 5
               doAfter: 1
+            - material: BSCrystal
+              amount: 1
     - node: shower
       entity: Shower
       edges:
@@ -19,6 +21,9 @@
             - !type:SpawnPrototype
               prototype: SheetSteel1
               amount: 5
+            - !type:SpawnPrototype
+              prototype: MaterialBSCrystal1
+              amount: 1
             - !type:EmptyAllContainers {}
             - !type:DestroyEntity {}
           conditions:
