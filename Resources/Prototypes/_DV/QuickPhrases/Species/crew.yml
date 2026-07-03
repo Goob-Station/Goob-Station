@@ -54,10 +54,10 @@
 #  parent: BaseCrewSpeciesPhrase
 #  text: species-name-kodepiia
 
-- type: quickPhrase
-  id: SpeciesThavenPhrase
-  parent: BaseCrewSpeciesPhrase
-  text: species-name-thaven
+#- type: quickPhrase
+#  id: SpeciesThavenPhrase
+#  parent: BaseCrewSpeciesPhrase
+#  text: species-name-thaven
 
 - type: quickPhrase
   id: SpeciesSkeletonPhrase
