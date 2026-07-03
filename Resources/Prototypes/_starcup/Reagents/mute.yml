@@ -77,7 +77,7 @@
 - type: reaction
   id: MuteSerumFromMuteToxin
   source: true
-  minTemp: 340
+  minTemp: 450
   reactants:
     MuteToxin:
       amount: 1
@@ -93,8 +93,8 @@
     MuteToxin:
       amount: 1
   products:
-    Mutol: 0.7
-    Oxygen: 0.3
+    Mutol: 1
+    Oxygen: 1
 
 - type: reaction
   id: MutoninSynthesis
