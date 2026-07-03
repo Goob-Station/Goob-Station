@@ -16,7 +16,6 @@
       collection: GenericEquip
       params:
         volume: -5
-  # Goobstation edit end
   - type: Sprite
     state: icon
   - type: Item

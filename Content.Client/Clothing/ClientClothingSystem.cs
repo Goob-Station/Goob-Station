@@ -77,7 +77,7 @@ public sealed class ClientClothingSystem : ClothingSystem
         {"belt", "BELT"},
         {"gloves", "HAND"},
         {"shoes", "FEET"},
-        {"socks", "SOCKS"},
+        {"socks", "SOCKS"}, /// Goobstation - Socks
         {"id", "IDCARD"},
         {"pocket1", "POCKET1"},
         {"pocket2", "POCKET2"},

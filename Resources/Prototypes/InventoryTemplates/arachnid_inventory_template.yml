@@ -65,6 +65,7 @@
       uiWindowPos: 2,0
       strippingWindowPos: 2,3
       displayName: Socks
+    #Goobstation - Socks end
     - name: jumpsuit
       slotTexture: uniform
       slotFlags: INNERCLOTHING

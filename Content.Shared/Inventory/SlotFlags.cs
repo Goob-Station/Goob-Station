@@ -39,7 +39,7 @@ public enum SlotFlags
     LEGS = 1 << 13,
     FEET = 1 << 14,
     SUITSTORAGE = 1 << 15,
-    SOCKS = 1 << 16,
+    SOCKS = 1 << 16, ///Goobstation - Socks
     All = ~NONE,
 
     WITHOUT_POCKET = All & ~POCKET

@@ -263,6 +263,8 @@
   - SocksWhite
   - SocksBlack
   - SocksGreen
+  
+  #Goobstation - Socks end
 
 - type: loadoutGroup
   id: Animals  # Goobstation
