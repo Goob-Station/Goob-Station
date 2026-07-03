@@ -1,0 +1,43 @@
+- type: quickPhrase
+  id: BaseCommonPhrase
+  abstract: true
+
+- type: quickPhrase
+  id: BaseCargoPhrase
+  abstract: true
+
+- type: quickPhrase
+  id: BaseCommandPhrase
+  abstract: true
+
+- type: quickPhrase
+  id: BaseSciencePhrase
+  abstract: true
+
+- type: quickPhrase
+  id: BaseEngineeringPhrase
+  abstract: true
+
+- type: quickPhrase
+  id: BaseMedicalPhrase
+  abstract: true
+
+- type: quickPhrase
+  id: BaseSecurityPhrase
+  abstract: true
+
+- type: quickPhrase
+  id: BaseServicePhrase
+  abstract: true
+
+- type: quickPhrase
+  id: BaseSubjectPhrase
+  abstract: true
+
+- type: quickPhrase
+  id: BaseThreatPhrase
+  abstract: true
+
+- type: quickPhrase
+  id: BaseSpeciesPhrase
+  abstract: true

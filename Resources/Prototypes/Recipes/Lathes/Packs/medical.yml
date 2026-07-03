@@ -71,7 +71,8 @@
   - WhiteCane
   - OffsetCane
   - OffsetCaneWood
-
+  - AACTablet
+  
 - type: latheRecipePack
   id: RollerBedsStatic
   recipes:
