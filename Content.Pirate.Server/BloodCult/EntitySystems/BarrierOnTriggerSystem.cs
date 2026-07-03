@@ -12,7 +12,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Trigger;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Popups;

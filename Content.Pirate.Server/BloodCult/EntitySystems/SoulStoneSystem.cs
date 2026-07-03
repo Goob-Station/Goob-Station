@@ -25,7 +25,7 @@ using Content.Shared.BloodCult.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.Prototypes;
 using Content.Server.Roles;
 using Content.Server.Body.Systems;

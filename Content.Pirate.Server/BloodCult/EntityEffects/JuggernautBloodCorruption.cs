@@ -7,7 +7,7 @@ using Content.Shared.BloodCult;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.EntityEffects;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.BloodCult.EntityEffects;

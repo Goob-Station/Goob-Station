@@ -15,7 +15,7 @@ using Content.Shared.BloodCult.Components;
 using Content.Shared.BloodCult;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reaction;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
 using Content.Shared.Coordinates.Helpers;

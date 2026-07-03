@@ -4,8 +4,9 @@
 
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
+using Content.Shared.Body.Components;
 using Content.Shared.EntityEffects;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.Prototypes;
 using Robust.Shared.GameObjects;
 using Content.Shared.Chemistry.Reagent;
@@ -81,4 +82,3 @@ public sealed partial class EdgeEssentiaBloodComponent : Component
     [DataField]
     public FixedPoint2 LastTrackedBloodAmount = FixedPoint2.Zero;
 }
-

@@ -7,6 +7,7 @@ using Content.Server.Fluids.EntitySystems;
 using Content.Server.Body.Systems;
 using Content.Server.Body.Components;
 using Content.Server.Popups;
+using Content.Shared.Body.Components;
 using Content.Shared.BloodCult;
 using Content.Shared.BloodCult.Components;
 using Content.Shared.Chemistry;
@@ -15,7 +16,7 @@ using Content.Shared.Chemistry.Reagent;
 using Content.Server.Damage.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Popups;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -159,4 +160,3 @@ public sealed class BloodCultistReactionSystem : EntitySystem
 		);
 	}
 }
-

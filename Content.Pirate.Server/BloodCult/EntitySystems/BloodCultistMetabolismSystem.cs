@@ -4,6 +4,7 @@
 
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
+using Content.Shared.Body.Components;
 using Content.Shared.BloodCult;
 using Robust.Shared.GameObjects;
 
@@ -170,4 +171,3 @@ public sealed class BloodCultistMetabolismSystem : EntitySystem
 		}
 	}
 }
-

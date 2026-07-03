@@ -20,6 +20,7 @@ using Content.Server.GameTicking.Rules;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.BloodCult;
+using Content.Shared.Trigger;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.AlertLevel;
 using Content.Server.Station.Systems;
