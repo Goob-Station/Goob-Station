@@ -373,6 +373,7 @@ reagent-desc-edge-essentia = Темна проклята речовина, що 
 reagent-name-sanguine-perniculate = кривава пернікулята
 reagent-desc-sanguine-perniculate = Темно-багряна кров, що ніби звивається від зловісної енергії. Торкатися її неправильно.
 reagent-physical-desc-profane = нечестива
+flavor-complex-forbidden = наче заборонена кривава магія
 
 reagent-effect-guidebook-bleed-sanguine-perniculate =
     перетворює кровотечу на криваву пернікуляту

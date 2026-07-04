@@ -13,8 +13,6 @@
   color: "#660000"
   boilingPoint: 100.0
   meltingPoint: 0.0
-  density: 1.06
-  hydrogenPotential: 6.6
   recognizable: true
   metabolisms:
     Drink:
