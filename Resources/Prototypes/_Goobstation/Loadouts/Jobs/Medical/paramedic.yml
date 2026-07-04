@@ -33,7 +33,3 @@
     species:
     - Plasmaman
 
-- type: loadout
-  id: ParamedicJumpsuitNT
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitParamedicNT
