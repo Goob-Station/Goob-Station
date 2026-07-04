@@ -87,7 +87,7 @@ public sealed class HandsContainer : ItemSlotUIContainer<HandButton>
     public void Clear()
     {
         ClearButtons();
-        _grid.DisposeAllChildren();
+        _grid.RemoveAllChildren();
     }
 
     public IEnumerable<HandButton> GetButtons()

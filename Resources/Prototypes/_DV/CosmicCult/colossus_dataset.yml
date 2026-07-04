@@ -1,0 +1,17 @@
+- type: localizedDataset
+  id: ColossusNames
+  values:
+    prefix: cosmiccolossus-names-dataset-
+    count: 6
+
+- type: localizedDataset
+  id: ColossusTitlesBase
+  values:
+    prefix: cosmiccolossus-titles-dataset-
+    count: 3
+
+- type: localizedDataset
+  id: ColossusTitlesLone
+  values:
+    prefix: cosmiccolossus-titles-lone-dataset-
+    count: 5

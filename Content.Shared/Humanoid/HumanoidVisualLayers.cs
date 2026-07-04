@@ -42,13 +42,14 @@ namespace Content.Shared.Humanoid
         Wings, // For IPC wings porting from SimpleStation
         Hair,
         FacialHair,
+        UndergarmentTop,
+        UndergarmentBottom,
         Face, // EE Plasmeme Port
         Chest,
-        Underwear,
-        Undershirt,
         Groin,
         Head,
         Snout,
+        SnoutCover, // things layered over snouts (i.e. noses)
         HeadSide, // side parts (i.e., frills)
         HeadTop,  // top parts (i.e., ears)
         TailBehind, // FLOOF - add tails that dont have to go through a brutal cookiecutter to work
@@ -58,7 +59,6 @@ namespace Content.Shared.Humanoid
         RArm,
         LArm,
         RHand,
-
         LHand,
         RLeg,
         LLeg,

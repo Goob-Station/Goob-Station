@@ -41866,7 +41866,7 @@ entities:
       parent: 2
     - type: Physics
       canCollide: False
-- proto: MaterialSilo
+- proto: MachineMaterialSilo
   entities:
   - uid: 7206
     components:

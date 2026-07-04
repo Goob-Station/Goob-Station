@@ -29,7 +29,10 @@ namespace Content.Shared.Humanoid.Markings
         HeadSide,
         Face, // Plasmeme Port
         Snout,
+        SnoutCover,
         Chest,
+        UndergarmentTop,
+        UndergarmentBottom,
         RightArm,
         RightHand,
         LeftArm,
@@ -42,8 +45,6 @@ namespace Content.Shared.Humanoid.Markings
         Legs,
         Groin, // Shitmed Change
         Wings, // For IPC wings porting from SimpleStation
-        Underwear,
-        Undershirt,
         Tail,
         Overlay
     }
@@ -62,19 +63,19 @@ namespace Content.Shared.Humanoid.Markings
                 HumanoidVisualLayers.HeadTop => MarkingCategories.HeadTop,
                 HumanoidVisualLayers.HeadSide => MarkingCategories.HeadSide,
                 HumanoidVisualLayers.Snout => MarkingCategories.Snout,
-                HumanoidVisualLayers.Undershirt => MarkingCategories.Undershirt,
-                HumanoidVisualLayers.Underwear => MarkingCategories.Underwear,
                 HumanoidVisualLayers.Chest => MarkingCategories.Chest,
+                HumanoidVisualLayers.UndergarmentTop => MarkingCategories.UndergarmentTop,
+                HumanoidVisualLayers.UndergarmentBottom => MarkingCategories.UndergarmentBottom,
                 HumanoidVisualLayers.Groin => MarkingCategories.Groin, // Shitmed Change
-                HumanoidVisualLayers.RArm => MarkingCategories.RightArm,
-                HumanoidVisualLayers.LArm => MarkingCategories.LeftArm,
-                HumanoidVisualLayers.RHand => MarkingCategories.RightHand,
-                HumanoidVisualLayers.LHand => MarkingCategories.LeftHand,
-                HumanoidVisualLayers.LLeg => MarkingCategories.LeftLeg,
-                HumanoidVisualLayers.RLeg => MarkingCategories.RightLeg,
-                HumanoidVisualLayers.LFoot => MarkingCategories.LeftFoot,
-                HumanoidVisualLayers.RFoot => MarkingCategories.RightFoot,
-                HumanoidVisualLayers.Wings => MarkingCategories.Wings,
+                HumanoidVisualLayers.RArm => MarkingCategories.RightArm, // Goobstation
+                HumanoidVisualLayers.LArm => MarkingCategories.LeftArm, // Goobstation
+                HumanoidVisualLayers.RHand => MarkingCategories.RightHand, // Goobstation
+                HumanoidVisualLayers.LHand => MarkingCategories.LeftHand, // Goobstation
+                HumanoidVisualLayers.LLeg => MarkingCategories.LeftLeg, // Goobstation
+                HumanoidVisualLayers.RLeg => MarkingCategories.RightLeg, // Goobstation
+                HumanoidVisualLayers.LFoot => MarkingCategories.LeftFoot, // Goobstation
+                HumanoidVisualLayers.RFoot => MarkingCategories.RightFoot, // Goobstation
+                HumanoidVisualLayers.Wings => MarkingCategories.Wings, // Goobstation
                 HumanoidVisualLayers.Tail => MarkingCategories.Tail,
                 _ => MarkingCategories.Overlay
             };

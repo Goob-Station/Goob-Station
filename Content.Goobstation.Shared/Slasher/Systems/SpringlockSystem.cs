@@ -1,3 +1,4 @@
+using Content.Goobstation.Common.Slasher.Events;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Inventory;
@@ -19,13 +20,14 @@ public sealed class SpringlockSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ReactiveComponent, ReactionEntityEvent>(OnReactionEntity);
+        SubscribeLocalEvent<ReactiveComponent, ShitRelayEventFixMeReactionEntityEvent>(OnReactionEntity);
     }
 
-    private void OnReactionEntity(Entity<ReactiveComponent> ent, ref ReactionEntityEvent args)
+    private void OnReactionEntity(Entity<ReactiveComponent> ent, ref ShitRelayEventFixMeReactionEntityEvent args)
     {
-        if (args.Method != ReactionMethod.Touch
-            || !HasComp<InventoryComponent>(ent.Owner))
+        if (
+            //args.Method != ReactionMethod.Touch ||
+            !HasComp<InventoryComponent>(ent.Owner))
             return;
 
         var slots = _inventory.GetSlotEnumerator(ent.Owner, SlotFlags.WITHOUT_POCKET);

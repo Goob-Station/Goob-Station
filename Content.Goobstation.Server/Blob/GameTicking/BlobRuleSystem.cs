@@ -129,7 +129,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
             && _roundEndSystem.ExpectedCountdownEnd != null
             && !_emergency.EmergencyShuttleArrived)
         {
-            _roundEndSystem.CancelRoundEndCountdown(checkCooldown: false);
+            _roundEndSystem.CancelRoundEndCountdown(forceRecall: true);
             _chatSystem.DispatchStationAnnouncement(stationUid,
                 Loc.GetString("blob-alert-recall-shuttle"),
                 Loc.GetString("Station"),
@@ -138,7 +138,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                 Color.Red);
         }
         else if (blobTilesCount >= (stationUid.Comp?.StageBegin ?? StationBlobConfigComponent.DefaultStageBegin)
-                 && _roundEndSystem.ExpectedCountdownEnd != null && _emergency.EmergencyShuttleArrived) 
+                 && _roundEndSystem.ExpectedCountdownEnd != null && _emergency.EmergencyShuttleArrived)
         {
             _chatSystem.DispatchStationAnnouncement(stationUid,
                 Loc.GetString("blob-alert-shuttle-arrived"),
@@ -147,7 +147,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                 null,
                 Color.OrangeRed);
         }
-        
+
         switch (blobRuleComp.Stage)
         {
             case BlobStage.Default when blobTilesCount >= (stationUid.Comp?.StageBegin ?? StationBlobConfigComponent.DefaultStageBegin):

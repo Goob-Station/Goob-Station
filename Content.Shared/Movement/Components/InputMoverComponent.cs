@@ -87,11 +87,13 @@ namespace Content.Shared.Movement.Components
         public TimeSpan LerpTarget;
 
         public const float LerpTime = 1.0f;
+        public const float SprintingSoundModifier = 3.5f;
+        public const float WalkingSoundModifier = 1.5f;
 
         public bool Sprinting => DefaultSprinting
-        ? (HeldMoveButtons & MoveButtons.Walk) != 0x0
-        : (HeldMoveButtons & MoveButtons.Walk) == 0x0;
-        
+            ? (HeldMoveButtons & MoveButtons.Walk) == 0x0
+            : (HeldMoveButtons & MoveButtons.Walk) != 0x0;
+
         public bool DefaultSprinting = true;
 
         [ViewVariables(VVAccess.ReadWrite)]

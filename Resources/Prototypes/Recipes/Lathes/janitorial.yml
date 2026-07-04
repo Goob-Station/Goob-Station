@@ -41,7 +41,7 @@
   result: Bucket
   completetime: 2
   materials:
-    Plastic: 100
+    Plastic: 250 # Goobstation due to lathe upgrades
 
 - type: latheRecipe
   id: WetFloorSign
