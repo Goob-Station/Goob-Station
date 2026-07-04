@@ -85,6 +85,7 @@
     sprite: _Pirate/BloodCult/Clothing/cult_boots.rsi
   - type: Clothing
     sprite: _Pirate/BloodCult/Clothing/cult_boots.rsi
+  - type: NoSlip
   - type: SlowedOverSlippery
     slowdownModifier: 0.7
   - type: SpeedModifierContactCapClothing
