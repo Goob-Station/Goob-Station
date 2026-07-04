@@ -13,8 +13,8 @@
 - type: entity
   parent: BaseAction
   id: ActionRevertPolymorph
-  name: "Повернути назад"
-  description: "Поверніться до початкової форми."
+  name: Revert
+  description: Revert back into your original form.
   components:
   - type: ConfirmableAction
     popup: revert-polymorph-action-popup
@@ -36,8 +36,8 @@
 - type: entity
   parent: BaseActionPolymorph
   id: ActionPolymorphWizardSpider
-  name: "Поліморф павука"
-  description: "Поліморфує тебе на павука."
+  name: Spider Polymorph
+  description: Polymorphs you into a Spider.
   components:
   - type: Action
     icon:
@@ -50,8 +50,8 @@
 - type: entity
   parent: BaseActionPolymorph
   id: ActionPolymorphWizardRod
-  name: "Форма стрижня"
-  description: "БРЯЗКІТ!"
+  name: Rod Form
+  description: Take on the form of an immovable rod, destroying everything in your path.
   components:
   - type: Action
     useDelay: 25 # Goob edit
@@ -78,8 +78,8 @@
 - type: entity
   parent: BaseActionPolymorph
   id: ActionPolymorphJaunt
-  name: "Безтілесна прогулянка"
-  description: "Розчинитися в ефірній площині для швидкої втечі!"
+  name: Ethereal Jaunt
+  description: Melt into the Ethereal Plane for a quick getaway!
   components:
   - type: Magic
     requiresClothes: true # Goobstation
@@ -104,8 +104,8 @@
 - type: entity
   parent: ActionPolymorphJaunt
   id: ActionPolymorphJauntII
-  name: "Ефірний похід II"
-  description: "Розчинитися в ефірній площині, щоб ще швидше втекти!"
+  name: Ethereal Jaunt II
+  description: Melt into the Ethereal Plane for an even quicker getaway!
   components:
   - type: Action
     useDelay: 22
@@ -113,8 +113,8 @@
 - type: entity
   parent: ActionPolymorphJaunt
   id: ActionPolymorphJauntIII
-  name: "Ефірний похід III"
-  description: "Ти вже взагалі відчутний?"
+  name: Ethereal Jaunt III
+  description: Are you even tangible anymore?
   components:
   - type: Action
     useDelay: 14

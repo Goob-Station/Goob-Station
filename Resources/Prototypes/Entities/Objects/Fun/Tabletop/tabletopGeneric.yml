@@ -19,7 +19,7 @@
 
 - type: entity
   id: RedTabletopPiece
-  name: "червона фішка"
+  name: red piece
   parent: BaseGenericTabletopPiece
   components:
   - type: Sprite
@@ -27,7 +27,7 @@
 
 - type: entity
   id: GreenTabletopPiece
-  name: "зелена фішка"
+  name: green piece
   parent: BaseGenericTabletopPiece
   components:
   - type: Sprite
@@ -35,7 +35,7 @@
 
 - type: entity
   id: YellowTabletopPiece
-  name: "жовта фішка"
+  name: yellow piece
   parent: BaseGenericTabletopPiece
   components:
   - type: Sprite
@@ -43,7 +43,7 @@
 
 - type: entity
   id: BlueTabletopPiece
-  name: "синя фішка"
+  name: blue piece
   parent: BaseGenericTabletopPiece
   components:
   - type: Sprite
@@ -51,7 +51,7 @@
 
 - type: entity
   id: WhiteTabletopPiece
-  name: "біла фішка"
+  name: white piece
   parent: BaseGenericTabletopPiece
   components:
   - type: Sprite
@@ -59,7 +59,7 @@
 
 - type: entity
   id: BlackTabletopPiece
-  name: "чорна фішка"
+  name: black piece
   parent: BaseGenericTabletopPiece
   components:
   - type: Sprite

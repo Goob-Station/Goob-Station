@@ -1,8 +1,8 @@
 - type: entity
-  name: "плодоносний кактус"
+  name: fruiting cacti
   parent: FoodProduceBase
   id: FoodMealCactusFruit
-  description: "Плід кактуса, вкритий товстою червонуватою шкіркою. І трохи попелу."
+  description: A cactus fruit covered in a thick, reddish skin. And some ash.
   components:
   - type: Food
   - type: FlavorProfile

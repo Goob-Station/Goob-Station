@@ -1,6 +1,6 @@
 - type: body
   id: SmartCorgi
-  name: "коргі"
+  name: corgi
   root: chest
   slots:
     chest:

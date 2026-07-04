@@ -62,10 +62,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "сінокосарки"
+  name: haycutters
   parent: BaseItem
   id: Haycutters
-  description: "Це ріже дріт. Муу!"
+  description: This kills the wire. Moo!
   components:
   - type: Tag
     tags:
@@ -89,10 +89,10 @@
     sprite: Objects/Tools/Cowtools/haycutters.rsi
 
 - type: entity
-  name: "мууукрутка"
+  name: moodriver
   parent: BaseItem
   id: Moodriver
-  description: "Покрути, аби використати. Муу!"
+  description: Turn to use. Moo!
   components:
   - type: Sprite
     sprite: Objects/Tools/Cowtools/moodriver.rsi
@@ -112,10 +112,10 @@
     speedModifier: 0.05
 
 - type: entity
-  name: "гайковий клюуууч"
+  name: wronch
   parent: BaseItem
   id: Wronch
-  description: "Закручує гайки, а не вимʼя. Муу!"
+  description: Wronch thing. Moo!
   components:
   - type: Sprite
     sprite: Objects/Tools/Cowtools/wronch.rsi
@@ -135,10 +135,10 @@
     speedModifier: 0.05
 
 - type: entity
-  name: "ломууу"
+  name: cowbar
   parent: BaseItem
   id: Cowbar
-  description: "Забудьте про свої проблеми. Муу!"
+  description: Cow your problems away. Moo!
   components:
   - type: Sprite
     sprite: Objects/Tools/Cowtools/cowbar.rsi
@@ -162,10 +162,10 @@
     delay: 3
 
 - type: entity
-  name: "мууультитул"
+  name: mooltitool
   parent: BaseItem
   id: Mooltitool
-  description: "Примітивний інструмент для копіювання, зберігання та надсилання електричних імпульсів і сигналів через дроти та машини. Муу!"
+  description: An crude tool to copy, store, and send electrical pulses and signals through wires and machines. Moo!
   components:
   - type: Sprite
     sprite: Objects/Tools/Cowtools/mooltitool.rsi
@@ -180,10 +180,10 @@
       - Multitool
 
 - type: entity
-  name: "зварювальний інструуумент"
+  name: cowelding tool
   parent: Welder
   id: Cowelder
-  description: "Розплавляє все, що завгодно, якщо воно заправлене паливом, не забудьте захисні окуляри! Муу!"
+  description: "Melts anything as long as it's fueled, don't forget your eye protection! Moo!"
   components:
   - type: Sprite
     sprite: Objects/Tools/Cowtools/cowelder.rsi
@@ -194,10 +194,10 @@
     speedModifier: 0.05
 
 - type: entity
-  name: "молокоаналізатор"
+  name: milkalyzer
   parent: BaseItem
   id: Milkalyzer
-  description: "Ручний екологічний сканер, який повідомляє про поточний рівень загазованості. Муу!"
+  description: A hand-held environmental scanner which reports current gas levels. Moo!
   components:
   - type: Sprite
     sprite: Objects/Tools/Cowtools/milkalyzer.rsi
@@ -216,10 +216,10 @@
   - type: Appearance
 
 - type: entity
-  name: "ящик для коровʼячих інструментів"
+  name: cow toolbox
   parent: ToolboxBase
   id: CowToolbox
-  description: "Ящик дивної форми, наповнений... інструментами?"
+  description: A weirdly shaped box, stocked with... tools?
   components:
   - type: Sprite
     sprite: Objects/Tools/Cowtools/cow_toolbox.rsi
@@ -233,7 +233,7 @@
 
 - type: entity
   id: CowToolboxFilled
-  name: "ящик для коровʼячих інструментів"
+  name: cow toolbox
   suffix: Filled
   parent: CowToolbox
   components:

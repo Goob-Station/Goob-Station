@@ -4,7 +4,7 @@
 - type: entity
   parent: DropPodspawner
   id: DropPodCharonMedical
-  name: "медична десантна капсула ЦентКому"
+  name: CentCom medical drop pod
   suffix: Charon, Medical
   components:
   - type: TriggerOnSpawn
@@ -22,7 +22,7 @@
 - type: entity
   parent: DropPodspawner
   id: DropPodCharonFood
-  name: "продовольча десантна капсула ЦентКому"
+  name: CentCom food drop pod
   suffix: Charon, Food
   components:
   - type: TriggerOnSpawn
@@ -42,7 +42,7 @@
 - type: entity
   parent: DropPodspawner
   id: DropPodCharonEngineering
-  name: "інженерна десантна капсула ЦентКому"
+  name: CentCom engineering drop pod
   suffix: Charon, Engineering
   components:
   - type: TriggerOnSpawn
@@ -64,7 +64,7 @@
 - type: entity
   parent: DropPodspawner
   id: DropPodCharonScience
-  name: "наукова десантна капсула ЦентКому"
+  name: CentCom science drop pod
   suffix: Charon, Science
   components:
   - type: TriggerOnSpawn
@@ -82,7 +82,7 @@
 - type: entity
   parent: DropPodspawner
   id: DropPodCharonMaterials
-  name: "десантна капсула матеріалів ЦентКому"
+  name: CentCom materials drop pod
   suffix: Charon, Materials
   components:
   - type: TriggerOnSpawn
@@ -101,7 +101,7 @@
 - type: entity
   parent: DropPodspawner
   id: DropPodCharonSecurityCargo
-  name: "десантна капсула безпеки й постачання ЦентКому"
+  name: CentCom security-cargo drop pod
   suffix: Charon, Security/Cargo
   components:
   - type: TriggerOnSpawn
@@ -138,7 +138,7 @@
 - type: entity
   id: RandomCharonSupplyDropSpawner
   parent: MarkerBase
-  name: "спавнер випадкового харонського постачання"
+  name: random Charon supply drop spawner
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTableSpawner

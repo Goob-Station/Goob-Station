@@ -9,8 +9,8 @@
 - type: entity
   id: CrateNPCGondola
   parent: CrateLivestock
-  name: "ящик з гондолою"
-  description: "Ящик, що містить гондолу."
+  name: gondola crate
+  description: A crate containing a gondola.
   components:
     - type: StorageFill
       contents:
@@ -19,8 +19,8 @@
 - type: entity
   id: CrateNPCLootbug
   parent: CrateLivestock
-  name: "ящик з жуками-скарбами"
-  description: "Ящик, що містить трьох жуків-скарбів."
+  name: crate of lootbugs
+  description: A crate containing three lootbugs.
   components:
   - type: StorageFill
     contents:
@@ -30,8 +30,8 @@
 - type: entity
   id: CrateNPCXenobioSlime
   parent: CrateLivestock
-  name: "ящик з ксенобіо-слизами"
-  description: "Ящик, що містить двох ксенобіо-слизів для експериментів."
+  name: crate of xenobio slimes
+  description: A crate containing two xenobio slimes for experiments.
   components:
   - type: StorageFill
     contents:

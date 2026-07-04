@@ -2,7 +2,7 @@
   abstract: true
   parent: ClothingHeadBase
   id: ClothingHeadEnvirohelmBase
-  name: "базовий шолом екокостюму"
+  name: base envirosuit helmet
   components:
   - type: Sprite
     layers:
@@ -104,7 +104,7 @@
   abstract: true
   parent: ClothingHeadEnvirohelmBase
   id: ClothingHeadEnvirohelmCustomBase
-  name: "базовий кастомний шолом для екокостюму"
+  name: base custom envirosuit helmet
   components:
   - type: ToggleableVisuals
     spriteLayer: light

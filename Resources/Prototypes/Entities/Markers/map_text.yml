@@ -6,7 +6,7 @@
 - type: entity
   id: MapText
   parent: MarkerBase
-  name: "текст на мапі"
+  name: map text
   placement:
     mode: PlaceFree
   components:

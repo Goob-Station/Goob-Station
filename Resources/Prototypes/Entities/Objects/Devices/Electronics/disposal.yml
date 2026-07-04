@@ -82,8 +82,8 @@
 - type: entity
   id: MailingUnitElectronics
   parent: BaseElectronics
-  name: "електроніка поштового блоку"
-  description: "Електронна плата, що використовується в поштових блоках."
+  name: mailing unit electronics
+  description: An electronics board used in mailing units.
   components:
     - type: Sprite
       sprite: Objects/Misc/module.rsi

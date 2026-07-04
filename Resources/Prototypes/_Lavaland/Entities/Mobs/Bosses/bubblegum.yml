@@ -1,8 +1,8 @@
 - type: entity
-  name: "Баблґам"
+  name: Bubblegum
   id: LavalandBossBubblegum
   parent: LavalandMobBase
-  description: "У тому, що вважається ієрархією серед демонів бійні, цей — король."
+  description: In what passes for a hierarchy among slaughter demons, this one is king.
   components:
   - type: Physics
     bodyType: KinematicController

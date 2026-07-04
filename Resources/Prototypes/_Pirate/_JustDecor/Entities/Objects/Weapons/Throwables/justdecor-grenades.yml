@@ -1,8 +1,8 @@
 - type: entity
   parent: SmokeGrenade
   id: SmokeGrenadeLove
-  name: "граната кохання"
-  description: "Граната, що випускає хмару диму, яка викликає почуття закоханості. Поширює тепло й прихильність."
+  name: love grenade
+  description: A grenade that releases a cloud of love-inducing smoke. Spreads feelings of affection and warmth.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/smoke.rsi
@@ -18,8 +18,8 @@
 - type: entity
   parent: SmokeGrenade
   id: SmokeGrenadeCourage
-  name: "граната відваги"
-  description: "Граната, що випускає хмару диму, яка викликає відвагу. Підсилює впевненість і сміливість."
+  name: courage grenade
+  description: A grenade that releases a cloud of courage-inducing smoke. Boosts confidence and bravery.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/smoke.rsi
@@ -35,8 +35,8 @@
 - type: entity
   parent: SmokeGrenade
   id: SmokeGrenadeSerenity
-  name: "граната спокою"
-  description: "Граната, що випускає хмару заспокійливого диму. Навіює мир і умиротворення."
+  name: serenity grenade
+  description: A grenade that releases a cloud of calming smoke. Induces peace and tranquility.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/smoke.rsi
@@ -52,8 +52,8 @@
 - type: entity
   parent: SmokeGrenade
   id: SmokeGrenadeInspiration
-  name: "граната натхнення"
-  description: "Граната, що випускає хмару диму, яка надихає. Пробуджує творчість і мотивацію."
+  name: inspiration grenade
+  description: A grenade that releases a cloud of inspiring smoke. Sparks creativity and motivation.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/smoke.rsi
@@ -69,8 +69,8 @@
 - type: entity
   parent: SmokeGrenade
   id: SmokeGrenadeWisdom
-  name: "граната мудрості"
-  description: "Граната, що випускає хмару диму, яка викликає мудрість. Поглиблює розуміння й проникливість."
+  name: wisdom grenade
+  description: A grenade that releases a cloud of wisdom-inducing smoke. Enhances understanding and insight.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/smoke.rsi
@@ -86,8 +86,8 @@
 - type: entity
   parent: SmokeGrenade
   id: SmokeGrenadeHope
-  name: "граната надії"
-  description: "Граната, що випускає хмару сповненого надії диму. Наповнює серця оптимізмом і вірою в можливості."
+  name: hope grenade
+  description: A grenade that releases a cloud of hopeful smoke. Fills hearts with optimism and possibility.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/smoke.rsi
@@ -103,8 +103,8 @@
 - type: entity
   parent: SmokeGrenade
   id: SmokeGrenadeDetermination
-  name: "граната рішучості"
-  description: "Граната, що випускає хмару диму, яка викликає рішучість. Зміцнює волю та непохитність."
+  name: determination grenade
+  description: A grenade that releases a cloud of determination-inducing smoke. Strengthens resolve and willpower.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/smoke.rsi
@@ -120,8 +120,8 @@
 - type: entity
   parent: SmokeGrenade
   id: SmokeGrenadeCompassion
-  name: "граната співчуття"
-  description: "Граната, що випускає хмару диму, яка пробуджує співчуття. Викликає емпатію та доброту."
+  name: compassion grenade
+  description: A grenade that releases a cloud of compassionate smoke. Awakens empathy and kindness.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/smoke.rsi
@@ -137,8 +137,8 @@
 - type: entity
   parent: SmokeGrenade
   id: SmokeGrenadeClarity
-  name: "граната ясності"
-  description: "Граната, що випускає хмару диму, яка викликає ясність думки. Загострює концентрацію та гостроту розуму."
+  name: clarity grenade
+  description: A grenade that releases a cloud of clarity-inducing smoke. Sharpens focus and mental acuity.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/smoke.rsi

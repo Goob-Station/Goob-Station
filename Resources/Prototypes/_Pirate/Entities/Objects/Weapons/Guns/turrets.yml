@@ -2,7 +2,7 @@
   parent: BaseWeaponTurret
   id: WeaponTurretSAN
   suffix: Sol Alliance Navy
-  description: "Турель, створена щоб захищати соляріанських морпіхів під час бойових десантів. Вона загрожує цілям спареним C-20r, однак через дешеву систему керування вогнем їй бракує точності."
+  description: A turret designed to provide protection for Sol Marines during combat drops. It menaces targets with a twin-linked C-20r, although its cheap fire controller lends to poor accuracy.
   components:
     - type: ContainerContainer
       containers:

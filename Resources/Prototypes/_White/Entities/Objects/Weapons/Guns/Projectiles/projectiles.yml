@@ -1,7 +1,7 @@
 - type: entity
   id: BulletNeurotoxin
   parent: BulletAcid
-  name: "плювок нейротоксином"
+  name: neurotoxin spit
   categories: [ HideSpawnMenu ]
   components:
   - type: StaminaDamageOnCollide

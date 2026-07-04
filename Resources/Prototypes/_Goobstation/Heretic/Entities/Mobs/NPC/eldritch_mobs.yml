@@ -99,8 +99,8 @@
 - type: entity
   parent: BaseMobGhoul
   id: MobGhoulStalker
-  name: "переслідувач плоті"
-  description: "Огида, викладена з різноманітних решток. Його вигляд злегка змінюється щоразу, коли ви моргаєте."
+  name: flesh stalker
+  description: An abomination cobbled together from varied remains. Its appearance changes slightly every time you blink.
   components:
   - type: Ghoul
     totalHealth: 150
@@ -145,8 +145,8 @@
 - type: entity
   parent: BaseMobGhoul
   id: MobGhoulProphet
-  name: "сирий пророк"
-  description: "Потвора, зшита з кількох відрубаних рук і одного опухлого, осиротілого ока."
+  name: raw prophet
+  description: An abomination stitched together from a few severed arms and one swollen, orphaned eye.
   components:
   - type: Ghoul
     totalHealth: 65
@@ -195,8 +195,8 @@
 - type: entity
   parent: [BaseMobGhoul, FlyingMobBase]
   id: MobGhoulFireShark
-  name: "вогняна акула"
-  description: "Це потойбічна карликова космічна акула, також відома як вогняна акула."
+  name: fire shark
+  description: It is a eldritch dwarf space shark, also known as a fire shark.
   components:
   - type: Ghoul
     spawnOnDeathPrototype: SheetPlasma1
@@ -259,8 +259,8 @@
   - MobAtmosExposed
   - MobPolymorphable
   id: MobGhoulRustWalker
-  name: "іржавий ходок"
-  description: "Скреготлива, скреготлива конструкція, яка з кожним броньованим кроком висмоктує життя з навколишнього середовища."
+  name: rust walker
+  description: A grinding, clanking construct which leaches life from its surroundings with every armoured step.
   components:
   - type: Ghoul
     totalHealth: 100

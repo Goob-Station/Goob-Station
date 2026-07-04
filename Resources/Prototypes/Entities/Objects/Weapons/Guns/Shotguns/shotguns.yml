@@ -70,10 +70,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "BaseWeaponShotgun"
+  name: BaseWeaponShotgun
   parent: BaseItem
   id: BaseWeaponShotgun
-  description: "Корінцевий зубастий і пагонистий."
+  description: A rooty tooty point and shooty.
   abstract: true
   components:
   - type: Sprite
@@ -148,11 +148,11 @@
   - type: CanTakeAim # PIRATE
 
 - type: entity
-  name: "Бульдог"
+  name: Bulldog
   # Don't parent to BaseWeaponShotgun because it differs significantly
   parent: [BaseItem, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponShotgunBulldog
-  description: "Повністю автоматична булпап-рушниця, коли у вас є три секунди, щоб перетворити вісьмох людей на соус для пасти. Віддача — як у мула на стероїдах. Живиться з барабанних магазинів 12 Gauge." # Goobstation
+  description: A fully automatic, bullpup shotgun for when you have three seconds to turn eight people into pasta sauce. Kicks like a mule on steroids. Feeds from 12 Gauge drum magazines. # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi
@@ -213,10 +213,10 @@
     - oni-cannot-shoot-guns-3
 
 - type: entity
-  name: "двоствольний дробовик"
+  name: double-barreled shotgun
   parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSecurityBartenderZookeeperContraband]
   id: WeaponShotgunDoubleBarreled
-  description: "Безсмертна класика. Використовує патрони 12 калібру."
+  description: An immortal classic. Uses 12 Gauge shotgun shells.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Shotguns/db_shotgun.rsi
@@ -238,7 +238,7 @@
     deconstructionTarget: null
 
 - type: entity
-  name: "двоствольний дробовик"
+  name: double-barreled shotgun
   parent: WeaponShotgunDoubleBarreled
   id: WeaponShotgunDoubleBarreledRubber
   suffix: Non-Lethal
@@ -247,10 +247,10 @@
     proto: ShellShotgunBeanbag
 
 - type: entity
-  name: "Енфорсер"
+  name: Enforcer
   parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponShotgunEnforcer
-  description: "Преміальна напівавтоматична рушнична платформа, розроблена для правоохоронних органів та контртерористичних операцій. Надійна, як помпова рушниця, навіть в екстремальних умовах. Вміщує 7 набоїв 12 Gauge." # Goobstation
+  description: A premium, semi-automatic shotgun platform designed for law enforcement and counter-terrorism use. Reliable as a pump action, even in extreme conditions. Loads 7 rounds of 12 Gauge. # Goobstation
   components: # intend for Enforcer to have wider choke for semi-auto function
   - type: Sprite
     sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi
@@ -274,10 +274,10 @@
     proto: ShellShotgunBeanbag
 
 - type: entity
-  name: "Каммерер"
+  name: Kammerer
   parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponShotgunKammerer
-  description: "Стара й вірна помпова рушниця: Каммерер дешевий, легкий і, ймовірно, працюватиме навіть якщо залишити його в камері випалу на тиждень. Популярний серед цивільних і улюбленець NanoTrasen через мізерний цінник. Вміщує 7 набоїв 12 Gauge." # Goobstation
+  description: An old and faithful pump action, the Kammerer is cheap, light, and would probably still function if you left it in the burn chamber for a week. Popular for civilian use, and loved by NanoTrasen for its minuscule price tag. Loads 7 rounds of 12 Gauge. # Goobstation
   components: # intend for Kammerer to have tighter choke for slower fire rate and/or manual cycling
   - type: Item
     size: Normal
@@ -300,10 +300,10 @@
     autoCycle: false
 
 - type: entity
-  name: "обріз"
+  name: sawn-off shotgun
   parent: [ BaseWeaponShotgun, BaseSecurityBartenderContraband ]
   id: WeaponShotgunSawn
-  description: "Круто! Використовує патрони 12 калібру." # Goob edit
+  description: Groovy! Uses 12 Gauge shotgun shells. # Goob edit
   components: # needs to be super inaccurate because you don't need to wield it
   - type: Sprite
     sprite: Objects/Weapons/Guns/Shotguns/sawn.rsi
@@ -326,7 +326,7 @@
     deconstructionTarget: null
 
 - type: entity
-  name: "обріз"
+  name: sawn-off shotgun
   parent: WeaponShotgunSawn
   id: WeaponShotgunSawnEmpty
   suffix: Empty
@@ -339,10 +339,10 @@
     deconstructionTarget: null
 
 - type: entity
-  name: "саморобний пістолет"
+  name: handmade pistol
   parent: [BaseWeaponShotgun, BaseMinorContraband]
   id: WeaponShotgunHandmade
-  description: "Виглядає ненадійно. Використовує патрони 12 калібру." # Goob edit
+  description: Looks unreliable. Uses 12 Gauge shotgun shells. # Goob edit
   components:
   - type: Item
     size: Small
@@ -363,11 +363,11 @@
     price: 0
 
 - type: entity
-  name: "мушкетон"
+  name: blunderbuss
   parent: [BaseWeaponShotgun, BaseGunWieldable, BaseMinorContraband]
   id: WeaponShotgunBlunderbuss
   suffix: Pirate
-  description: "Смертельна з близької відстані."
+  description: Deadly at close range.
   components:
   - type: Item
     size: Normal
@@ -384,10 +384,10 @@
     price: 0
 
 - type: entity
-  name: "імпровізований дробовик"
+  name: improvised shotgun
   parent: [BaseWeaponShotgun, BaseGunWieldable, BaseMinorContraband]
   id: WeaponShotgunImprovised
-  description: "Дермовий, саморобний дробовик, що використовує патрони 12 калібру. В патронник вміщується лише один патрон." # Goob edit
+  description: A shitty, hand-made shotgun that uses 12 Gauge shotgun shells. It can only hold one round in the chamber. # Goob edit
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Shotguns/improvised_shotgun.rsi
@@ -414,7 +414,7 @@
     - ImprovisedShotgun # Goobstation
 
 - type: entity
-  name: "імпровізований дробовик"
+  name: improvised shotgun
   parent: WeaponShotgunImprovised
   suffix: Loaded
   id: WeaponShotgunImprovisedLoaded

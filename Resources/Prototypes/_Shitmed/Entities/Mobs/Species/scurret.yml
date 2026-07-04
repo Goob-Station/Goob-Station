@@ -3,7 +3,7 @@
   parent: BaseSpeciesDummy
   id: MobScurretDummy
   categories: [ HideSpawnMenu ]
-  description: "Манекен скуррета, призначений для використання при створенні персонажа."
+  description: A dummy scurret meant to be used in character setup.
   components:
   - type: Icon
     sprite: Mobs/Animals/scurret/scurret.rsi

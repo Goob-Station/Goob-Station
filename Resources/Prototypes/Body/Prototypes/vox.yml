@@ -10,7 +10,7 @@
 
 - type: body
   id: Vox
-  name: "species-name-vox"
+  name: "vox"
   root: chest
   slots:
     head:

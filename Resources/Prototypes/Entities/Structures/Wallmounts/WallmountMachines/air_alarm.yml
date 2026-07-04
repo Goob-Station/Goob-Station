@@ -36,8 +36,8 @@
 - type: entity
   parent: BaseWallmountMachine
   id: AirAlarm
-  name: "повітряна сигналізація"
-  description: "Повітряна тривога. Сигналізація... повітря?"
+  name: air alarm
+  description: An air alarm. Alarms... air?
   components:
   - type: StationAiWhitelist
   - type: Electrified
@@ -148,8 +148,8 @@
 - type: entity
   parent: BaseWallmountMetallic
   id: AirAlarmAssembly
-  name: "повітряна сигналізація в зборі"
-  description: "Повітряна тривога. Не схоже, що найближчим часом буде повітряна тривога."
+  name: air alarm assembly
+  description: An air alarm. Doesn't look like it'll be alarming air any time soon.
   components:
   - type: Sprite
     sprite: Structures/Wallmounts/air_monitors.rsi

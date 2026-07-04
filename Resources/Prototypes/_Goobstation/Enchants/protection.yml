@@ -20,7 +20,7 @@
 - type: entity
   parent: BaseProtEnchant
   id: EnchantProtection
-  name: "Захист"
+  name: Protection
   components:
   - type: Enchant
     maxLevel: 4
@@ -34,7 +34,7 @@
 - type: entity
   parent: BaseProtEnchant
   id: EnchantProtBlast
-  name: "Захист від вибухів"
+  name: Blast Protection
   components:
   - type: Enchant
     incompatible:
@@ -45,7 +45,7 @@
 - type: entity
   parent: BaseProtEnchant
   id: EnchantProtFire
-  name: "Захист від вогню"
+  name: Fire Protection
   components:
   - type: Enchant
     maxLevel: 4

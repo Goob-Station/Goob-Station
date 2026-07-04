@@ -73,7 +73,7 @@
 
 - type: entity
   id: ChristmasTinselWhite1
-  description: "Трохи білої мішури. Вона трохи блискуча."
+  description: Some white tinsel. It's a bit sparkly.
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
@@ -88,7 +88,7 @@
 
 - type: entity
   id: ChristmasTinselWhite2
-  description: "Трохи білої мішури. Вона трохи блискуча."
+  description: Some white tinsel. It's a bit sparkly.
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
@@ -103,7 +103,7 @@
 
 - type: entity
   id: ChristmasTinselWhite3
-  description: "Трохи білої мішури. Вона трохи блискуча."
+  description: Some white tinsel. It's a bit sparkly.
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
@@ -118,7 +118,7 @@
 
 - type: entity
   id: ChristmasTinselWhite4
-  description: "Трохи білої мішури. Вона трохи блискуча."
+  description: Some white tinsel. It's a bit sparkly.
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
@@ -133,7 +133,7 @@
 
 - type: entity
   id: ChristmasTinselWhite5
-  description: "Трохи білої мішури. Вона трохи блискуча."
+  description: Some white tinsel. It's a bit sparkly.
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
@@ -148,7 +148,7 @@
 
 - type: entity
   id: ChristmasTinselWhite6
-  description: "Трохи білої мішури. Вона трохи блискуча."
+  description: Some white tinsel. It's a bit sparkly.
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
@@ -163,7 +163,7 @@
 
 - type: entity
   id: ChristmasTinselRed1
-  description: "Трохи червоної мішури. Вона трохи блискуча."
+  description: Some red tinsel. It's a bit sparkly.
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
@@ -179,7 +179,7 @@
 
 - type: entity
   id: ChristmasTinselRed2
-  description: "Трохи червоної мішури. Вона трохи блискуча."
+  description: Some red tinsel. It's a bit sparkly.
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
@@ -195,7 +195,7 @@
 
 - type: entity
   id: ChristmasTinselRed3
-  description: "Трохи червоної мішури. Вона трохи блискуча."
+  description: Some red tinsel. It's a bit sparkly.
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
@@ -211,7 +211,7 @@
 
 - type: entity
   id: ChristmasTinselRed4
-  description: "Трохи червоної мішури. Вона трохи блискуча."
+  description: Some red tinsel. It's a bit sparkly.
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
@@ -227,7 +227,7 @@
 
 - type: entity
   id: ChristmasTinselRed5
-  description: "Трохи червоної мішури. Вона трохи блискуча."
+  description: Some red tinsel. It's a bit sparkly.
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
@@ -243,7 +243,7 @@
 
 - type: entity
   id: ChristmasTinselRed6
-  description: "Трохи червоної мішури. Вона трохи блискуча."
+  description: Some red tinsel. It's a bit sparkly.
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
@@ -259,7 +259,7 @@
 
 - type: entity
   id: ChristmasTinselBlue1
-  description: "Трохи синьої мішури. Вона трохи блискуча."
+  description: Some blue tinsel. It's a bit sparkly.
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
@@ -275,7 +275,7 @@
 
 - type: entity
   id: ChristmasTinselBlue2
-  description: "Трохи синьої мішури. Вона трохи блискуча."
+  description: Some blue tinsel. It's a bit sparkly.
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
@@ -291,7 +291,7 @@
 
 - type: entity
   id: ChristmasTinselBlue3
-  description: "Трохи синьої мішури. Вона трохи блискуча."
+  description: Some blue tinsel. It's a bit sparkly.
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
@@ -307,7 +307,7 @@
 
 - type: entity
   id: ChristmasTinselBlue4
-  description: "Трохи синьої мішури. Вона трохи блискуча."
+  description: Some blue tinsel. It's a bit sparkly.
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
@@ -323,7 +323,7 @@
 
 - type: entity
   id: ChristmasTinselBlue5
-  description: "Трохи синьої мішури. Вона трохи блискуча."
+  description: Some blue tinsel. It's a bit sparkly.
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
@@ -339,7 +339,7 @@
 
 - type: entity
   id: ChristmasTinselBlue6
-  description: "Трохи синьої мішури. Вона трохи блискуча."
+  description: Some blue tinsel. It's a bit sparkly.
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"

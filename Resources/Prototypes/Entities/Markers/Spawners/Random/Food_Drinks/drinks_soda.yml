@@ -15,7 +15,7 @@
 
 - type: entity
   id: RandomDrinkSoda
-  name: "спавнер випадкової соди"
+  name: random soda spawner
   parent: MarkerBase
   placement:
     mode: AlignTileAny

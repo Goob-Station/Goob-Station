@@ -46,8 +46,8 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateStandard
-  name: "стандартний нагрудник модкостюма"
-  description: "Спеціальне герметичне покриття для модульного костюма, розроблене для компактного складання всередині блоку керування модульним костюмом."
+  name: standard modsuit chestplate
+  description: A special modular suit spaceproof cover designed for compact folding inside modular suit control.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -115,8 +115,8 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateSecurity
-  name: "нагрудник мод-костюма \"Солдат"
-  description: "Міцний модульний чохол для костюма з керамічними вставками для додаткового захисту."
+  name: soldat modsuit chestplate
+  description: A robust modular suit cover with ceramic inserts for extra protection.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -192,8 +192,8 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateHeadOfSecurity
-  name: "нагрудник мод-костюма \"Бастіон"
-  description: "Міцний модульний чохол для костюма з ДОДАТКОВИМИ керамічними вставками для трохи більшого захисту."
+  name: bulwark modsuit chestplate
+  description: A robust modular suit cover with EXTRA ceramic inserts for slightly more protection.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -275,8 +275,8 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateParamedic
-  name: "нагрудник мод-костюма \"Санітар"
-  description: "Біло-синьо-сіра сталева пластина для захисту від суворого космічного вакууму та випадкових куль."
+  name: sanitater modsuit chestplate
+  description: A white and blue-ish-grey steel plate for keeping out the harsh void of space and the occasional bullet.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -352,8 +352,8 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateEngineer
-  name: "нагрудник мод-костюма \"Сапер"
-  description: "Міцна бронепластина для захисту від суворих атмосферних умов та ударних хвиль."
+  name: sapper modsuit chestplate
+  description: A tough armor plate to defend against harsh atmospheric conditions and shockwaves.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -430,8 +430,8 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateAtmostech
-  name: "нагрудник мод-костюма \"Еол"
-  description: "Вогнестійка бронепластина для захисту від суворих атмосферних умов."
+  name: aeolus modsuit chestplate
+  description: A fire-proof armor plate to defend against harsh atmospheric conditions.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -506,8 +506,8 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateResearchDirector
-  name: "нагрудник мод-костюма \"Мінерва"
-  description: "Громіздкий шматок сталі, стійкий до бомб та кийків."
+  name: minerva modsuit chestplate
+  description: A bulky bomb and bat proof chunk of steel.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -585,8 +585,8 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateCaptain
-  name: "нагрудник мод-костюма \"Магнат"
-  description: "Ця штука зроблена з ДІАМАНТІВ, чуваче, ця броня викувана з КОШТОВНОГО КАМІННЯ."
+  name: magnate modsuit chestplate
+  description: This shit is made out of DIAMONDS, man, this armor was forged with GEMS.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance

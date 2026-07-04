@@ -3,8 +3,8 @@
 - type: entity
   parent: ClothingNeckCloakGoliathCloak
   id: ClothingNeckCloakCharonic
-  name: "плащ з харонічної шкіри"
-  description: "Важкий плащ, витканий зі шкіри харонічних п'явок. Він досі пахне болотом."
+  name: charonic hide cloak
+  description: A heavy cloak woven from the hide of Charonic leeches. It still smells of the swamp.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/goliathcloak.rsi
@@ -16,8 +16,8 @@
 - type: entity
   parent: SurvivalKnife
   id: KnifeCharonicTooth
-  name: "ніж із зуба харонічної п'явки"
-  description: "Грубе, але ефективне лезо, зроблене із зубів п'явки та сталевого хвостовика."
+  name: charonic tooth knife
+  description: A crude but effective blade made from leech teeth and a steel tang.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/survival_knife.rsi
@@ -36,8 +36,8 @@
 - type: entity
   parent: FlashlightLantern
   id: LanternCharonicWisp
-  name: "ліхтар харонічного вогника"
-  description: "Ліхтар, зібраний навколо кристалізованого уламка вогника. Світло холодне й рівне."
+  name: charonic wisp lantern
+  description: A lantern built around a crystallised wisp shard. The light is cold and steady.
   components:
   - type: Sprite
     sprite: Objects/Tools/flashlight.rsi
@@ -60,8 +60,8 @@
     node: lantern
 
 - type: entity
-  name: "харонічна мазь"
-  description: "Густа чорна припарка, очищена з іхору харонічного слизу. Заспокоює опіки та їдкі рани."
+  name: charonic salve
+  description: A thick, black poultice refined from Charonic slime ichor. Soothes burns and caustic wounds.
   parent: BaseHealingItem
   id: CharonicSalve
   suffix: Full

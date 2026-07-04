@@ -55,8 +55,8 @@
 - type: entity
   parent: BaseComputerDocking
   id: ComputerShuttleMiningLavaland
-  name: "консоль шахтарського шатлу"
-  description: "Використовується для пілотування шахтарського шатла до шахтарської бази та назад."
+  name: mining shuttle console
+  description: Used to pilot the mining shuttle to and from the mining base.
   components:
   - type: DockingConsole
     windowTitle: mining-console-window-title

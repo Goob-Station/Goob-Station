@@ -7,10 +7,10 @@
 # To be implemented: see #9072
 
 - type: entity
-  name: "посох зцілення"
+  name: staff of healing
   parent: WeaponStaffBase
   id: WeaponStaffHealing
-  description: "Ви не передбачаєте, що вам доведеться використовувати його в пошуках кривавої бійні занадто часто." # Goobstation
+  description: An artefact that spits bolts of restoring magic which can remove ailments of all kinds and even raise the dead. Effects are reversed on the undead. # Goobstation
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Objects/Weapons/Staves/healing.rsi # Goobstation
@@ -30,10 +30,10 @@
   - type: PacifismAllowedGun
 
 - type: entity
-  name: "персонал на вході"
+  name: staff of door creation
   parent: WeaponStaffBase
   id: WeaponStaffPolymorphDoor
-  description: "Для тих випадків, коли вам потрібен маршрут для втечі." # Goob station
+  description: An artefact that spits bolts of transformative magic that can create doors in walls. # Goob station
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Objects/Weapons/Staves/door.rsi # Goobstation

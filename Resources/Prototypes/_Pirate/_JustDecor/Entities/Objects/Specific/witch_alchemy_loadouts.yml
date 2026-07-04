@@ -174,8 +174,8 @@
 - type: entity
   id: ClothingBackpackSatchelLeatherImproved
   parent: ClothingBackpackSatchelLeather
-  name: "покращена шкіряна сумка"
-  description: "Містка шкіряна сумка для ритуального начиння, настоїв і запасів для варіння."
+  name: покращена шкіряна сумка
+  description: Містка шкіряна сумка для ритуального начиння, настоїв і запасів для варіння. 
   suffix: JustDecor
   categories: [ HideSpawnMenu ]
   components:

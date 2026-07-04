@@ -1,8 +1,8 @@
 - type: entity
   id: HiveEggMorpherXeno
   parent: BaseHiveStructure
-  name: "Яйцеморфер"
-  description: "Огидний генератор біомаси, що смердить гнилою плоттю. Здатний самостійно виробляти паразитів."
+  name: Egg Morpher
+  description: A disgusting biomass generator that reeks of rotting flesh. Capable of producing parasites on its own.
   components:
   - type: Sprite
     sprite: _RMC14/Structures/Xenos/hive_structures.rsi

@@ -14,8 +14,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckBronzeheart
-  name: "медаль \"Бронзове серце"
-  description: "Надається членам екіпажу за зразкову хоробрість перед обличчям небезпеки."
+  name: bronzeheart medal
+  description: Given to crewmates for exemplary bravery in the face of danger.
   components:
   # Goobstation edit start
   - type: EmitSoundOnPickup
@@ -40,8 +40,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckGoldmedal
-  name: "золота медаль за командну роботу"
-  description: "Надається членам екіпажу, які демонструють відмінну роботу в команді."
+  name: gold medal of crewmanship
+  description: Given to crewmates who display excellent crewmanship.
   components:
   # Goobstation edit start
   - type: EmitSoundOnPickup
@@ -68,8 +68,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCargomedal
-  name: "вантажна медаль"
-  description: "Вручається за найкращу роботу у вантажному відділі."
+  name: cargo medal
+  description: Given for the best work in the cargo department.
   components:
   # Goobstation edit start
   - type: EmitSoundOnPickup
@@ -94,8 +94,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckEngineermedal
-  name: "інженерна медаль"
-  description: "Вручається за найкращу роботу в інженерному відділі."
+  name: engineer medal
+  description: Given for the best work in the engineering department.
   components:
   # Goobstation edit start
   - type: EmitSoundOnPickup
@@ -120,8 +120,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckMedicalmedal
-  name: "медична медаль"
-  description: "Вручається за найкращу роботу в медичному відділі."
+  name: medical medal
+  description: Given for the best work in the medical department.
   components:
   # Goobstation edit start
   - type: EmitSoundOnPickup
@@ -146,8 +146,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckSciencemedal
-  name: "наукова медаль"
-  description: "Вручається за найкращу роботу в науковому відділі."
+  name: science medal
+  description: Given for the best work in the science department.
   components:
   # Goobstation edit start
   - type: EmitSoundOnPickup
@@ -172,8 +172,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckSecuritymedal
-  name: "медаль служби безпеки"
-  description: "Вручається за найкращу роботу у відділі безпеки."
+  name: security medal
+  description: Given for the best work in the security department.
   components:
   # Goobstation edit start
   - type: EmitSoundOnPickup
@@ -198,8 +198,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckClownmedal
-  name: "медаль клоуна"
-  description: "Нагороджується за найкращий жарт у всесвіті. ГОНК!"
+  name: clown medal
+  description: Given for the best joke in the universe. HONK!
   components:
   # Goobstation edit start
   - type: EmitSoundOnPickup

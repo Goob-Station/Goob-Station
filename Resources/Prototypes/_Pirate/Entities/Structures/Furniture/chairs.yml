@@ -1,8 +1,8 @@
 - type: entity
-  name: "коричневе зручне крісло"
+  name: brown comfy chair
   id: ComfyChairBrown
   parent: ComfyChair
-  description: "Виглядає зручно."
+  description: It looks comfy.
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Furniture/chairs.rsi
@@ -10,10 +10,10 @@
     state: brown
 
 - type: entity
-  name: "сіре зручне крісло"
+  name: gray comfy chair
   id: ComfyChairGray
   parent: ComfyChair
-  description: "Виглядає зручно."
+  description: It looks comfy.
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Furniture/chairs.rsi
@@ -21,10 +21,10 @@
     state: gray
 
 - type: entity
-  name: "пісочне зручне крісло"
+  name: sand comfy chair
   id: ComfyChairSand
   parent: ComfyChair
-  description: "Виглядає зручно."
+  description: It looks comfy.
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Furniture/chairs.rsi
@@ -32,10 +32,10 @@
     state: sand
 
 - type: entity
-  name: "тепле зручне крісло"
+  name: warm comfy chair
   id: ComfyChairWarm
   parent: ComfyChair
-  description: "Виглядає зручно."
+  description: It looks comfy.
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Furniture/chairs.rsi

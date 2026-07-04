@@ -70,8 +70,8 @@
 - type: entity
   id: RollerBed
   parent: [BaseItem, BaseDeployFoldable]
-  name: "ліжко на роликах"
-  description: "Використовували для перенесення пацієнтів, не пошкоджуючи їх."
+  name: rollerbed
+  description: Used to carry patients around without damaging them.
   components:
     - type: Transform
       noRot: true
@@ -164,9 +164,9 @@
 
 - type: entity
   id: CheapRollerBed
-  name: "ліжко на роликах"
+  name: rollerbed
   parent: RollerBed
-  description: "Пошарпане ліжко на колесах. Використовували для перевезення хворих."
+  description: A run-down rollerbed. Used to carry patients around.
   components:
   - type: Item
     heldPrefix: cheap_rollerbed
@@ -194,9 +194,9 @@
 
 - type: entity
   id: EmergencyRollerBed
-  name: "ліжко на роликах"
+  name: rollerbed
   parent: RollerBed
-  description: "Міцне на вигляд підкатне ліжко, що використовується в екстрених випадках."
+  description: A robust looking rollerbed used for emergencies.
   components:
   - type: Item
     heldPrefix: emergency_rollerbed

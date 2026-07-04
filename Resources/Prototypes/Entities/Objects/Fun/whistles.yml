@@ -11,7 +11,7 @@
   abstract: true
   parent: BaseItem
   id: BaseWhistle
-  name: "свисток"
+  name: whistle
   description: Someone forgot to turn off kettle?
   components:
   - type: Item
@@ -53,8 +53,8 @@
 - type: entity
   parent: [BaseWhistle, BaseMinorContraband]
   id: SyndicateWhistle
-  name: "окопний свисток"
-  description: "Свисток, яким командири Синдикату привертали увагу. Вперед!"
+  name: trench whistle
+  description: A whistle used by Syndicate commanders to draw attention. Avanti!
   components:
   - type: Sprite
     state: trench

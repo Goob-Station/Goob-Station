@@ -1,8 +1,8 @@
 - type: entity
-  name: "харонічна п'явка"
+  name: Charonic leech
   id: MobCharonicLeech
   parent: [ SimpleMobBase, FlyingMobBase, MobCombat ]
-  description: "На Хароні Епсилон життя немає."
+  description: There is no life on Charon Epsilon.
   components:
   - type: InputMover
   - type: MobMover
@@ -98,13 +98,13 @@
         recursive: false
 
 - type: entity
-  name: "сяйний об'єкт"
+  name: glowing object
   id: MobCharonicWisp
   suffix: AI
   parent:
   - BaseSimpleMob
   - FlyingMobBase
-  description: "Він відбиває дивне, потойбічне світло."
+  description: It reflects a strange, otherworldly light.
   components:
     - type: CombatMode
     - type: Sprite
@@ -217,11 +217,11 @@
     - type: WeatherImmune
 
 - type: entity
-  name: "чорна як чорнило жижа"
+  name: ink-black sludge
   id: MobCharonicSlime
   suffix: AI
   parent: [ MobAdultSlimes, MobCombat ]
-  description: "Вона сочиться, наче дьоготь, і капає, мов слинна паща."
+  description: It oozes like tar and drips like a slavering maw.
   components:
     - type: Sprite
       drawdepth: Mobs
@@ -295,10 +295,10 @@
         prob: 0.1
 
 - type: entity
-  name: "старший вогник"
+  name: elder wisp
   id: MobCharonicWispElder
   parent: MobCharonicWisp
-  description: "Розбухла, люта іскорка потойбічного світла. Повітря навколо неї гуде неправильною радіацією."
+  description: A swollen, furious mote of otherworldly light. The air around it hums with wrong radiation.
   components:
   - type: Sprite
     color: "#D28CFF"
@@ -332,7 +332,7 @@
 
 - type: entity
   id: MobSpawnCharonicSlime
-  name: "чорна як чорнило жижа"
+  name: ink-black sludge
   suffix: Spawner
   categories: [ Spawner ]
   components:

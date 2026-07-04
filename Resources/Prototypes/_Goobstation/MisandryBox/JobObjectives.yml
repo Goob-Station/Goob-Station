@@ -19,7 +19,7 @@
 - type: entity
   parent: [BaseBlueshieldObjective, BaseKeepAliveObjective]
   id: BlueshieldRandomCommandAliveObjective
-  description: "Захищайте призначеного члена командування."
+  description: Protect your assigned command member.
   components:
   - type: Objective
     difficulty: 2

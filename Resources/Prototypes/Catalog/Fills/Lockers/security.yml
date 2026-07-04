@@ -282,7 +282,7 @@
 - type: entity
   parent: [GunSafeBaseSecure, BaseSecurityContraband]
   id: GunSafeDisabler
-  name: "сейф-знешкоджувач"
+  name: disabler safe
   components:
   - type: EntityTableContainerFill
     containers:
@@ -299,7 +299,7 @@
 - type: entity
   parent: [GunSafeBaseSecure, BaseSecurityContraband]
   id: GunSafePistolMk58
-  name: "сейф для MK58"
+  name: mk58 safe
   components:
   - type: EntityTableContainerFill
     containers:
@@ -318,7 +318,7 @@
 - type: entity
   parent: [GunSafeBaseSecure, BaseSecurityContraband]
   id: GunSafeRifleLecter
-  name: "сейф для Лектора"
+  name: lecter safe
   components:
   - type: EntityTableContainerFill
     containers:
@@ -337,7 +337,7 @@
 - type: entity
   parent: [GunSafeBaseSecure, BaseSecurityContraband]
   id: GunSafeSubMachineGunDrozd
-  name: "сейф для Дрозда"
+  name: drozd safe
   components:
   - type: EntityTableContainerFill
     containers:
@@ -356,7 +356,7 @@
 - type: entity
   parent: [GunSafeBaseSecure, BaseSecurityContraband]
   id: GunSafeShotgunEnforcer
-  name: "сейф для Enforcer"
+  name: enforcer safe
   components:
   - type: EntityTableContainerFill
     containers:
@@ -375,7 +375,7 @@
 - type: entity
   parent: [GunSafeBaseSecure, BaseSecurityContraband]
   id: GunSafeShotgunKammerer
-  name: "сейф для Каммерера"
+  name: kammerer safe
   components:
   - type: EntityTableContainerFill
     containers:
@@ -395,7 +395,7 @@
   id: GunSafeSubMachineGunWt550
   suffix: Wt550
   parent: [GunSafeBaseSecure, BaseSecurityContraband]
-  name: "сейф для WT550 "
+  name: wt550 safe
   components:
   - type: EntityTableContainerFill
     containers:
@@ -414,7 +414,7 @@
 - type: entity
   parent: [GunSafeBaseSecure, BaseSecurityContraband]
   id: GunSafeLaserCarbine
-  name: "сейф для лазерних карабінів"
+  name: laser safe
   components:
   - type: EntityTableContainerFill
     containers:

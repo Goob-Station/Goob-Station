@@ -31,44 +31,44 @@
 - type: entity
   id: Windoor
   parent: BaseWindoor
-  name: "вікнодвері"
-  description: "Це вікно і розсувні двері. Вау!"
+  name: windoor
+  description: It's a window and a sliding door. Wow!
 
 - type: entity
   id: WindoorSecure
   parent: BaseSecureWindoor
-  name: "захищені вікнодвері"
-  description: "Це міцне вікно і розсувні двері. Вау!"
+  name: secure windoor
+  description: It's a sturdy window and a sliding door. Wow!
 
 - type: entity
   id: WindoorClockwork
   parent: BaseClockworkWindoor
-  name: "годинникове вікно-двері"
-  description: "Це міцне вікно і розсувні двері. Вау!"
+  name: clockwork windoor
+  description: It's a sturdy window and a sliding door. Wow!
 
 - type: entity
   id: WindoorPlasma
   parent: BasePlasmaWindoor
-  name: "плазмові вікнодвері"
-  description: "Це рожеве вікно *і* розсувні двері. Дивовижно!"
+  name: plasma windoor
+  description: It's a pink window *and* a sliding door. Amazing!
 
 - type: entity
   id: WindoorSecurePlasma
   parent: BaseSecurePlasmaWindoor
-  name: "захищені плазмові вікнодвері"
-  description: "Це міцне фіолетове вікно *і* розсувні двері. Вражаюче!"
+  name: secure plasma windoor
+  description: It's a sturdy purple window *and* a sliding door. Spectacular!
 
 - type: entity
   id: WindoorUranium
   parent: BaseUraniumWindoor
-  name: "уранові вікнодвері"
-  description: "Це вікно і розсувні двері. Га? О, і воно зелене!"
+  name: uranium windoor
+  description: It's a window and a sliding door. Huh? Oh, and it's green!
 
 - type: entity
   id: WindoorSecureUranium
   parent: BaseSecureUraniumWindoor
-  name: "захищені уранові вікнодвері"
-  description: "Це міцне вікно і розсувні двері. Воно настільки неоново-зелене, що, можливо, навіть має смак лайма!"
+  name: secure uranium windoor
+  description: It's a sturdy window and a sliding door. It's so neon green, it might even taste like limes!
 
 # TODO remove these with parameterized prototypes/whatever we end up doing
 # Windoors (alphabetical)
@@ -561,8 +561,8 @@
   parent: WindoorSecurePlasma
   id: PlasmaWindoorSecureSyndicateLockedIndestructable
   suffix: Syndicate, Locked, Plasma, Indestructable
-  name: "захищені плазмові вікнодвері?"
-  description: "У вас погане передчуття щодо цього."
+  name: secure plasma windoor?
+  description: You have a bad feeling about this.
   components:
   - type: ContainerFill
     containers:

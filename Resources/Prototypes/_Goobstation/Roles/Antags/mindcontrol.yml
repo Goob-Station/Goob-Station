@@ -7,7 +7,7 @@
 
 - type: antag
   id: Mindcontrolled
-  name: "підконтрольний розуму"
+  name: mindcontrolled
   antagonist: true
   setPreference: false
   objective: "Help your Master"

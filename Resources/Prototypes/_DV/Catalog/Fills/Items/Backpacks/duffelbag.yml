@@ -22,8 +22,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSalvage
   id: ClothingBackpackDuffelSalvageConscription
-  name: "призовний комплект для гірників"
-  description: "Сумка з усім необхідним для підтримки шахтаря в польових умовах."
+  name: mining conscription kit
+  description: A duffel bag containing everything a crewmember needs to support a shaft miner in the field.
   components:
   - type: StorageFill
     contents:

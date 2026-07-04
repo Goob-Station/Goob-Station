@@ -106,7 +106,7 @@
   # </Goobstation>
 
 - type: entity
-  name: "дрон"
+  name: drone
   id: Drone
   parent: [PlayerSiliconBase, BaseBorgTransponder]
   components:
@@ -238,7 +238,7 @@
     sprite:
       sprite: _Imp/Drone/drone.rsi
       state: shell
-    name: "дрон"
+    name: drone
   - type: MovementAlwaysTouching
   - type: Fixtures
     fixtures:

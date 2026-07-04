@@ -23,8 +23,8 @@
 - type: entity
   parent: [BaseBloodBrotherObjective, BaseTargetObjective]
   id: BloodBrotherConvertedObjective
-  name: "Допоможіть тому, з ким ви пов'язані кровною клятвою."
-  description: "Допоможіть тому, з ким ви пов'язані кровною клятвою, виконати всі цілі за будь-яку ціну."
+  name: Help your blood bound.
+  description: Assist your blood bound in completing all of their objectives no matter the cost.
   components:
   - type: Objective
     difficulty: 0
@@ -41,8 +41,8 @@
 - type: entity
   parent: BaseBloodBrotherObjective
   id: BloodBrotherEscapeShuttleObjective
-  name: "Втечіть до ЦентКому живими та не скутими."
-  description: "Ви маєте втекти до Центрального Командування живими й не скутими разом із тим, з ким ви пов'язані кровною клятвою."
+  name: Escape to centcomm alive and unrestrained.
+  description: You must escape to Central Command alive and unrestrained with your blood bound.
   components:
   - type: Objective
     difficulty: 1.5
@@ -61,8 +61,8 @@
 - type: entity
   parent: BaseBloodBrotherObjective
   id: BloodBrotherSurviveObjective
-  name: "Виживіть."
-  description: "Нам потрібно лише, щоб ви і той, з ким ви пов'язані кровною клятвою, залишилися живими, у кайданках чи ні. Втеча до ЦентКому не обов'язкова."
+  name: Survive.
+  description: We just need you and your blood bound alive, cuffs or not. Escaping to centcomm is not necessary.
   components:
   - type: Objective
     difficulty: 1.5

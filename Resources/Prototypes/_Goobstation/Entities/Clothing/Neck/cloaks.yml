@@ -14,8 +14,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakHelldiver
-  name: "плащ чистої відданості утилізатора"
-  description: "Символ вдячності нескінченних екіпажів, чиє заможне існування ми прагнемо забезпечити."
+  name: salvage pure loyality cape
+  description: A representation of the thankfulness of those infinite crew whose wealthy existence we strive to ensure.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Cloaks/helldiver.rsi
@@ -25,8 +25,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakResonant
-  name: "резонансний плащ"
-  description: "Сцена кличе нас. Ми повинні з радістю підіграти."
+  name: resonant cape
+  description: The stage calls for us. We should gladly play along.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Cloaks/breverb.rsi
@@ -36,8 +36,8 @@
 - type: entity
   parent: [ ClothingNeckBase, BaseMagicalContraband ]
   id: ClothingNeckCloakCarp
-  name: "плащ карпа"
-  description: "Займаємося рибними справами, так?"
+  name: carp cloak
+  description: Getting up to some fishy business are we?
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Cloaks/carpcloak.rsi
@@ -47,8 +47,8 @@
 - type: entity
   parent: [ ClothingNeckBase, BaseMagicalContraband ]
   id: ClothingNeckCloakCarpAlt
-  name: "плащ карпа"
-  description: "Дозволено лише позаземним істотам. Це означає НЕ вам."
+  name: carp cloak
+  description: Restricted to extraterrestrial entities. That means NOT you.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Cloaks/carpcloakalt.rsi
@@ -58,8 +58,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakSanabi
-  name: "плащ бригадного генерала"
-  description: "Пошарпаний, але грізний плащ, який носять елітні воїни."
+  name: brigadier general cloak
+  description: A tattered, yet imposing cloak, worn by elite warriors.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Cloaks/sanabi.rsi
@@ -67,8 +67,8 @@
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckCloakVetCap
-  name: "Плащ капітана-ветерана"
-  description: "Плащ аури капітана"
+  name: Veteran Captain's cloak
+  description: Captains Aura Cloak
   components:
   - type: Item
     size: Small
@@ -100,8 +100,8 @@
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckCloakOuterCommand
-  name: "плащ зовнішнього командування"
-  description: "Стильний фіолетовий плащ з емблемою Терра-Ґов."
+  name: outer command cloak
+  description: A stylish purple cloak with Terra-Gov insignia.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Cloaks/outcommcloak.rsi
@@ -112,8 +112,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakInquisitor
-  name: "плащ інквізитора"
-  description: "Громіздкий плащ, прикрашений священними писаннями та символом Інквізиції."
+  name: inquisitor cloak
+  description: A bulky cloak decorated with sacred writings and the symbol of the Inquisition.
   components:
   - type: Sprite
     sprite: _ShitChap/Clothing/Neck/Misc/inquisitor.rsi
@@ -122,8 +122,8 @@
 - type: entity
   parent: [ClothingNeckBase, BaseCentcommContraband]
   id: ClothingNeckCloakHighCommand
-  name: "плащ вищого Центрального Командування"
-  description: "Чудовий зелений плащ із розкішними краями, підбитими золотом."
+  name: high central command cloak
+  description: A magnificent green cloak featuring luxurious gold-lined edges.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Cloaks/cchighcommand.rsi
@@ -134,8 +134,8 @@
 - type: entity
   parent: [ClothingNeckBase, BaseCentcommContraband]
   id: ClothingNeckCloakHighCommandCape
-  name: "накидка вищого Центрального Командування"
-  description: "Розкішна зелено-червона накидка, оздоблена золотою тасьмою та вишуканими еполетами."
+  name: high central command cape
+  description: A lavish green-and-red cape decorated with gold trim and ornate epaulettes.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Cloaks/highcmdcape.rsi
@@ -146,8 +146,8 @@
 - type: entity
   parent: [ClothingNeckBase, BaseCentcommContraband]
   id: ClothingNeckCloakGoldenCentComm
-  name: "позолочений плащ Центрального Командування"
-  description: "Розкішний позолочений плащ, який носять найвищі посадовці."
+  name: gilded central command cloak
+  description: A luxurious gold-gilded cloak worn by the highest-ranking officials.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Cloaks/goldcentcom.rsi
@@ -158,8 +158,8 @@
 - type: entity
   parent: [ClothingNeckBase, BaseCentcommContraband]
   id: ClothingNeckCloakCentComPoncho
-  name: "пончо Центрального Командування"
-  description: "Королівське зелено-чорне пончо, прикрашене багатими золотими акцентами."
+  name: central command poncho
+  description: A regal green-and-black poncho embellished with rich golden accents.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Cloaks/centcom_poncho.rsi

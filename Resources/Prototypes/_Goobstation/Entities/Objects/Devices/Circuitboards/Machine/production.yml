@@ -13,8 +13,8 @@
 - type: entity
   id: EngineeringTechFabCircuitboard
   parent: BaseMachineCircuitboard
-  name: "плата інженерного техфаба"
-  description: "Друкована плата для інженерного техфаба."
+  name: engineering techfab machine board
+  description: A machine printed circuit board for a engineering techfab.
   components:
   - type: Sprite
     state: engineering
@@ -30,8 +30,8 @@
 - type: entity
   id: CargoTechFabCircuitboard
   parent: BaseMachineCircuitboard
-  name: "плата вантажного техфаба"
-  description: "Друкована плата для вантажного техфаба."
+  name: cargo techfab machine board
+  description: A machine printed circuit board for a cargo techfab.
   components:
   - type: Sprite
     state: engineering
@@ -47,8 +47,8 @@
 - type: entity
   id: ScienceTechFabCircuitboard
   parent: BaseMachineCircuitboard
-  name: "плата наукового техфаба"
-  description: "Друкована плата для наукового техфаба."
+  name: science techfab machine board
+  description: A machine printed circuit board for a science techfab.
   components:
   - type: Sprite
     state: science
@@ -64,8 +64,8 @@
 - type: entity
   id: ServiceTechFabCircuitboard
   parent: BaseMachineCircuitboard
-  name: "плата сервісного техфаба"
-  description: "Друкована плата для сервісного техфаба."
+  name: service techfab machine board
+  description: A machine printed circuit board for a service techfab.
   components:
   - type: Sprite
     state: service
@@ -81,8 +81,8 @@
 - type: entity
   id: ERTTechFabCircuitboard
   parent: BaseMachineCircuitboard
-  name: "плата машини техфаба ЕРТ"
-  description: "Друкована плата машини для техфаба ЕРТ."
+  name: ERT techfab machine board
+  description: A machine printed circuit board for a ERT techfab.
   components:
   - type: Sprite
     state: ert
@@ -98,7 +98,7 @@
 - type: entity
   id: TeslaCoilCircuitboard
   parent: BaseMachineCircuitboard
-  name: "плата котушки Тесли"
+  name: tesla coil board
   components:
     - type: Sprite
       state: engineering
@@ -112,7 +112,7 @@
 - type: entity
   id: RadiationCollectorCircuitboard
   parent: BaseMachineCircuitboard
-  name: "плата збирача радіації"
+  name: radiation collector board
   components:
     - type: Sprite
       state: engineering
@@ -127,7 +127,7 @@
 - type: entity
   parent: BaseMachineCircuitboard
   id: PlumbingPumpCircuitboard
-  name: "плата рідинного насоса"
+  name: liquid pump board
   components:
   - type: Sprite
     state: engineering
@@ -144,8 +144,8 @@
 - type: entity
   id: EnergyChemDispenserMachineCircuitboard
   parent: BaseMachineCircuitboard
-  name: "машинна плата енергетичного хімічного диспенсера"
-  description: "Друкована плата машини для енергетичного хімічного диспенсера."
+  name: energy chem dispenser machine board
+  description: A machine printed circuit board for an energy chem dispenser.
   components:
     - type: Sprite
       state: medical
@@ -163,8 +163,8 @@
 - type: entity
   id: TelecomTransmitterCircuitboard
   parent: BaseMachineCircuitboard
-  name: "плата телекомунікаційного передавача"
-  description: "Друкована плата для телекомунікаційного передавача."
+  name: telecommunication transmitter machine board
+  description: A machine printed circuit board for an telecommunication transmitter.
   components:
   - type: Sprite
     state: engineering

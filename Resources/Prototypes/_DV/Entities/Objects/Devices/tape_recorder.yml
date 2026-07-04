@@ -6,8 +6,8 @@
 - type: entity
   parent: BaseItem
   id: TapeRecorder
-  name: "магнітофон"
-  description: "Все, що сказано в цей пристрій, може бути і буде використано проти вас у суді космічного права."
+  name: tape recorder
+  description: Anything said into this device can and will be used against you in a court of space law.
   components:
   - type: Sprite
     sprite: _DV/Objects/Devices/tape_recorder.rsi
@@ -69,8 +69,8 @@
 - type: entity
   parent: BaseItem
   id: CassetteTape
-  name: "касета"
-  description: "Магнітна стрічка, яка може вмістити до двох хвилин вмісту з кожного боку."
+  name: cassette tape
+  description: A magnetic tape that can hold up to two minutes of content on either side.
   components:
   - type: Sprite
     sprite: _DV/Objects/Devices/cassette_tapes.rsi

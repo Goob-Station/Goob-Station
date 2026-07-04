@@ -11,8 +11,8 @@
 - type: entity
   parent: [ BaseCentcommContraband , ClothingBackpack ]
   id: ClothingBackpackCentcomm
-  name: "рюкзак центкому"
-  description: "Розкішний рюкзак, пахне грошима."
+  name: centcomm backpack
+  description: A luxurious backpack, smells like money.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Backpacks/centcom.rsi
@@ -20,8 +20,8 @@
 - type: entity
   parent: [ClothingBackpack, BaseCentcommContraband]
   id: ClothingBackpackBlueshield
-  name: "рюкзак офіцера синього щита"
-  description: "Не їстівне, нажаль..."
+  name: blueshield backpack
+  description: A very protective backpack, smells like energy gun.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Backpacks/blueshield.rsi
@@ -34,8 +34,8 @@
   - type: Unremoveable
 
 - type: entity
-  name: "мішок утримання Санти"
-  description: "Усе, що потрібно, щоб поширювати різдвяний настрій, уже всередині!"
+  name: Santa's sack of holding
+  description: All you need to spread christmas cheer is contained inside!
   parent: ClothingBackpackHolding
   id: ClothingBackpackSantasSack
   suffix: Unremoveable

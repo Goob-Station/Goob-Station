@@ -2,9 +2,9 @@
 # TODO: When shields will be added, debuff the damage and make EMP effect temporarily disable shields
 - type: entity
   id: WeaponShuttleEnergyRubicon
-  name: "ЕМІ-пускова установка M220 RUBICON"
+  name: M220 RUBICON EMP launcher
   parent: BallisticArtillery
-  description: "Запускає ЕМІ-снаряди по кораблях. Може бути активована дистанційно або підключена до СКЗ."
+  description: Launches EMP projectiles at ships. Can be remotely activated, or linked up to a GCS.
   components:
   - type: StaticPrice
     price: 5000
@@ -64,9 +64,9 @@
 
 - type: entity
   id: WeaponShuttleEnergyMarauder
-  name: "Плазмова зброя MARAUDER"
+  name: MARAUDER plasma weapon
   parent: BallisticArtillery
-  description: "Запускає по цілях кулі плазми, утримувані магнітним полем. Може бути активована дистанційно або підключена до СКЗ."
+  description: Launches magnetically contained balls of plasma at targets. Can be remotely activated, or linked up to a GCS.
   components:
   - type: StaticPrice
     price: 2500
@@ -129,9 +129,9 @@
 
 - type: entity
   id: WeaponShuttleEnergyDymere
-  name: "Турболазер ADEX-9 DYMERE"
+  name: ADEX-9 DYMERE turbolaser
   parent: BallisticArtilleryUnanchorable
-  description: "Найвідоміший продукт Відділу розробки зброї Aetherion Dynamics. Снаряди з іонізованого газу розплавлять все, що ви поставите перед ними. Може бути активований дистанційно або підключений до СКЗ."
+  description: Aetherion Dynamics Weapons Development Branch's most iconic product. Ionized gas projectiles will melt through anything you put in front of them. Can be remotely activated, or linked up to a GCS.
   components:
   - type: StaticPrice
     price: 20000

@@ -13,7 +13,7 @@
 
 - type: entity
   save: false
-  name: "Уріст МакГарпі"
+  name: Urist McHarpy
   parent: MobHarpyBase
   id: MobHarpy
   components:

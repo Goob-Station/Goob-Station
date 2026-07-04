@@ -8,7 +8,7 @@
 - type: entity
   parent: [ UnsensoredClothingUniformBase, BaseMajorContraband ]
   id: ClothingUniformJumpsuitAbductor
-  name: "форма викрадачів"
+  name: abductor uniform
   components:
   - type: Sprite
     sprite: _Shitmed/Clothing/Uniforms/Jumpsuit/abductor.rsi

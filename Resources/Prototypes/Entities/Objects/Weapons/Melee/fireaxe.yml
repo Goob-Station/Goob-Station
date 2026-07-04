@@ -49,10 +49,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "пожежна сокира"
+  name: fireaxe
   parent: [BaseItem, BaseEngineeringContraband]
   id: FireAxe
-  description: "Воістину, зброя божевільного. Хто б міг подумати боротися з вогнем сокирою?"
+  description: Truly, the weapon of a madman. Who would think to fight fire with an axe?
   components:
   - type: Tag
     tags:
@@ -117,9 +117,9 @@
 
 - type: entity
   id: FireAxeFlaming
-  name: "пожежна сокира"
+  name: fire axe
   parent: [BaseSyndicateContraband, FireAxe]
-  description: "Навіщо боротися з вогнем сокирою, коли можна боротися і з вогнем, і з сокирою? Тепер з міцною прогумованою ручкою!"
+  description: Why fight fire with an axe when you can fight with fire and axe? Now featuring rugged rubberized handle!
   components:
   - type: MeleeWeapon
     # Goobstation - fire axe buff

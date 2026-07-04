@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseWeaponBallisticTurret
   id: WeaponTurretFlock
-  name: "тотем зграї"
-  description: "Цей тотем викликає біль замість дощу."
+  name: flock totem
+  description: This totem summons pain instead of rain.
   components:
   - type: NpcFactionMember
     factions:
@@ -47,8 +47,8 @@
 - type: entity
   parent: BaseStructure
   id: WeaponTurretFlockBroken
-  name: "тотем зграї"
-  description: "Зламаний тотем. Схоже, всередині є щось цінне."
+  name: flock totem
+  description: A broken totem. Looks like it contains something valuable.
   components:
   - type: Sprite
     sprite: /Textures/_Goobstation/Flock/Mobs/totem.rsi

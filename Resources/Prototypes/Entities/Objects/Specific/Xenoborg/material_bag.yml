@@ -1,8 +1,8 @@
 - type: entity
   parent: [ BaseStorageItem, BaseXenoborgContraband ]
   id: MaterialBag
-  name: "мішок матеріалів"
-  description: "Міцний мішок для ксеноборгів, щоб переносити велику кількість матеріалів."
+  name: material bag
+  description: A robust bag for Xenoborgs to carry large amounts of materials.
   components:
   - type: MagnetPickup
   - type: Sprite

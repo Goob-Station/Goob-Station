@@ -35,10 +35,10 @@
 # SPDX-License-Identifier: MIT
 
 - type: entity
-  name: "ліжко"
+  name: bed
   id: Bed
   parent: BaseStructure
-  description: "На ньому можна лежати, спати або прив'язуватися. Відпочинок тут забезпечує надзвичайно повільне загоєння."
+  description: This is used to lie in, sleep in or strap on. Resting here provides extremely slow healing.
   components:
   - type: HealOnBuckle
     damage:
@@ -103,8 +103,8 @@
 - type: entity
   parent: Bed
   id: MedicalBed
-  name: "медичне ліжко"
-  description: "Лікарняне ліжко для одужання пацієнтів. Відпочинок тут забезпечує досить повільне одужання."
+  name: medical bed
+  description: A hospital bed for patients to recover in. Resting here provides fairly slow healing.
   components:
   - type: Sprite
     state: bed-MED
@@ -124,8 +124,8 @@
 - type: entity
   parent: Bed
   id: DogBed
-  name: "собача лежанка"
-  description: "Зручний на вигляд лежак для собак. Ви навіть можете прив'язати свого улюбленця на випадок, якщо гравітація вимкнеться."
+  name: dog bed
+  description: A comfy-looking dog bed. You can even strap your pet in, in case the gravity turns off.
   components:
   - type: Sprite
     state: dogbed
@@ -166,8 +166,8 @@
 - type: entity
   parent: Bed
   id: Mattress
-  name: "матрац"
-  description: "Гадаю, краще спати в ньому, ніж на підлозі."
+  name: mattress
+  description: Better sleep in that then on the floor i guess.
   components:
   - type: Sprite
     state: mattress
@@ -177,8 +177,8 @@
 - type: entity
   parent: Bed
   id: WebBed
-  name: "павутинне ліжко"
-  description: "Цікавий факт: те, що ви їсте павуків уві сні - неправда."
+  name: web bed
+  description: You got webbed.
   components:
   - type: Damageable
     damageModifierSet: Web
@@ -217,8 +217,8 @@
 - type: entity
   parent: Bed
   id: PsychBed
-  name: "ліжко психолога"
-  description: "М'яке ліжко для психологічної допомоги пацієнтам."
+  name: psychologist bed
+  description: An upholstered bed for the psychological care of patients.
   components:
   - type: Sprite
     state: psychbed

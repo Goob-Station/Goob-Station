@@ -27,10 +27,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "мішок для руди"
+  name: ore bag
   id: OreBag
   parent: BaseStorageItem
-  description: "Міцна сумка для утилізаторів і шахтарів для перенесення великої кількості руди. Прикріплена до поясу, притягує руду, що знаходиться поблизу."
+  description: A robust bag for salvage specialists and miners alike to carry large amounts of ore. Magnetises any nearby ores when attached to a belt.
   components:
   - type: MagnetPickup
   - type: Sprite
@@ -84,8 +84,8 @@
 - type: entity
   parent: OreBag
   id: BorgOreBag
-  name: "вбудована сумка для руди"
-  description: "Велика сумка для руди, вбудована в раму шахтарського кіборга."
+  name: integrated ore bag
+  description: A large ore bag built into the frame of a mining cyborg.
   components:
     - type: Storage
       grid:

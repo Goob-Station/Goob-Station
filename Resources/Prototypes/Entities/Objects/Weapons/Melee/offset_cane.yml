@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseItem
   id: OffsetCane
-  name: "стандартна офсетна тростина"
-  description: "Стандартна офсетна тростина, незамінна для пересування, коли ваші ноги не справляються. Може дати вам мудрість літніх, а може й ні."
+  name: standard offset cane
+  description: A standard offset cane, essential for getting around when your legs aren't up to the task. May or may not grant you the wisdom of the elderly.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/offset_canes/standard.rsi
@@ -39,8 +39,8 @@
 - type: entity
   parent: OffsetCane
   id: OffsetCaneClown
-  name: "райдужна офсетна тростина"
-  description: "Райдужна офсетна тростина, ідеальна для клоунів і тих, хто любить яскраві барви у своєму житті."
+  name: rainbow offset cane
+  description: A rainbow offset cane, perfect for clowns and those who enjoy a splash of color in their lives.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/offset_canes/clown.rsi
@@ -51,8 +51,8 @@
 - type: entity
   parent: OffsetCane
   id: OffsetCaneMime
-  name: "смугаста офсетна тростина"
-  description: "Чорно-біла смугаста тростина, ідеальна для безмовних виступів."
+  name: striped offset cane
+  description: A black and white striped cane, perfect for silent performances.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/offset_canes/mime.rsi
@@ -63,8 +63,8 @@
 - type: entity
   parent: OffsetCane
   id: OffsetCaneNT
-  name: "офсетна тростина Нанотрейзен"
-  description: "Офсетна тростина стандартного зразка Нанотрейзен з логотипом НТ, улюблений вибір тих, хто надає перевагу більш корпоративному вигляду."
+  name: nanotrasen offset cane
+  description: A nanotrasen standard issue offset cane with the NT logo, favored by those who prefer a more corporate look.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/offset_canes/nanotrasen.rsi
@@ -75,8 +75,8 @@
 - type: entity
   parent: OffsetCane
   id: OffsetCaneWood
-  name: "дерев’яна офсетна тростина"
-  description: "Дерев’яна офсетна тростина, класичний вибір для тих, хто цінує природні матеріали й надійний хват."
+  name: wooden offset cane
+  description: A wooden offset cane, a classic choice for those who appreciate natural materials and a sturdy grip.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/offset_canes/wood.rsi

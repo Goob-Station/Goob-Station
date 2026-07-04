@@ -6,8 +6,8 @@
 - type: entity
   parent: BaseItem
   id: PhotoCamera
-  name: "фотоапарат"
-  description: "Скажіть \"Сииир!\". Використовує плівку для друку."
+  name: "camera"
+  description: 'Say "Cheeese!", uses film for printing.'
   components:
   - type: Sprite
     sprite: _Pirate/Objects/Misc/Photo/camera.rsi
@@ -32,8 +32,8 @@
 - type: entity
   parent: PhotoCamera
   id: PhotoCameraFilled
-  name: "фотоапарат"
-  description: "Скажіть \"Сииир!\". Використовує плівку для друку."
+  name: "camera"
+  description: 'Say "Cheeese!", uses film for printing.'
   suffix: Filled
   components:
   - type: MaterialStorage
@@ -43,8 +43,8 @@
 - type: entity
   id: CameraFilm
   parent: BaseItem
-  name: "картридж із плівкою"
-  description: "Картридж із плівкою для фотоапарата. Вставте його в камеру, щоб перезарядити."
+  name: film cartridge
+  description: A camera film cartridge. Insert it into a camera to reload it.
   components:
   - type: Sprite
     sprite: _Pirate/Objects/Misc/Photo/camera.rsi
@@ -60,10 +60,10 @@
       Paper: 1000
 
 - type: entity
-  name: "фотографія"
+  name: "photo"
   parent: BaseItem
   id: PhotoCard
-  description: "Проявлена фотографія."
+  description: "A developed photograph."
   components:
   - type: Sprite
     sprite: _Pirate/Objects/Misc/Photo/camera.rsi

@@ -1,6 +1,6 @@
 - type: tile
   id: FloorPlanetGrassBlue
-  name: "сутінкова трава"
+  name: twilight grass
   sprite: /Textures/_starcup/Tiles/Planet/grass_twilight/grass.png
   variants: 4
   placementVariants:

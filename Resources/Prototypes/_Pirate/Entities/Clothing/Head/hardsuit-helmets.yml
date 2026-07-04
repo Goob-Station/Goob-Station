@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitAtmosOld
-  name: "атмосферний шолом від скафандра" # Pirate
-  description: "Старий атмосферний шолом від скафандра. Схоже, він бачив кращі дні, але все ще забезпечує хороший захист від вогню. Важкий на дотик."
+  name: atmos hardsuit helmet # Pirate
+  description: An old atmospheric hardsuit helmet. It looks like it has seen better days, but it still provides good fire protection. Feels heavy.
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hardsuits/atmospherics_old.rsi

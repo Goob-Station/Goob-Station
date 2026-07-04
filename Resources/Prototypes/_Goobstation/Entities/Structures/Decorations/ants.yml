@@ -6,8 +6,8 @@
 - type: entity
   id: BaseAnts
   parent: BaseStructureDynamic
-  name: "мурашник"
-  description: "Краще їх не провокувати."
+  name: ant hill
+  description: Best not to provoke them.
   components:
   - type: Fixtures
     fixtures:

@@ -1,8 +1,8 @@
 - type: entity
   id: DiseaseBehaviorCancer
   parent: DiseaseBehaviorBase
-  name: "Рак"
-  description: "Завдає генетичної шкоди з часом."
+  name: Cancer
+  description: Deals genetic damage over time.
   components:
   - type: DiseaseEffect
     complexity: 40
@@ -17,8 +17,8 @@
 - type: entity
   id: DiseaseBehaviorPoison
   parent: DiseaseBehaviorBase
-  name: "Отруєння"
-  description: "Завдає отруйної шкоди з часом."
+  name: Poison
+  description: Deals poison damage over time.
   components:
   - type: DiseaseEffect
     complexity: 20
@@ -33,8 +33,8 @@
 - type: entity
   id: DiseaseBehaviorBlunt
   parent: DiseaseBehaviorBase
-  name: "Деградація тканин"
-  description: "Завдає тупої шкоди з часом."
+  name: Tissue degradation
+  description: Deals blunt damage over time.
   components:
   - type: DiseaseEffect
     complexity: 15
@@ -50,8 +50,8 @@
 - type: entity
   id: DiseaseBehaviorGunemia
   parent: DiseaseBehaviorBase
-  name: "Гунемія"
-  description: "Змушує вас кашляти кулями. Механізм невідомий."
+  name: Gunemia
+  description: Makes you cough bullets. Mechanism unknown.
   components:
   - type: DiseaseEffect
     complexity: 30

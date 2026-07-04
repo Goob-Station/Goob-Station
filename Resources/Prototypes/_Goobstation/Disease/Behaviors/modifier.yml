@@ -1,8 +1,8 @@
 - type: entity
   id: DiseaseBehaviorFightImmunity
   parent: DiseaseBehaviorBase
-  name: "Опір імунітету"
-  description: "Після розвитку змушує хворобу чинити опір імунітету."
+  name: Immune resistance
+  description: Makes the disease resist immunity once developed.
   components:
   - type: DiseaseEffect
     complexity: 12
@@ -11,8 +11,8 @@
 - type: entity
   id: DiseaseBehaviorSluggish
   parent: DiseaseBehaviorBase
-  name: "Відчуття млявості"
-  description: "Викликає відчуття млявості."
+  name: Feeling sluggish
+  description: Makes you feel sluggish.
   components:
   - type: DiseaseEffect
     complexity: 30
@@ -26,8 +26,8 @@
 - type: entity
   id: DiseaseBehaviorTemperature
   parent: DiseaseBehaviorBase
-  name: "Температура"
-  description: "Підвищує температуру тіла до шкідливих рівнів."
+  name: Temperature
+  description: Raises your body temperature to harmful levels.
   components:
   - type: DiseaseEffect
     complexity: 20
@@ -42,8 +42,8 @@
 - type: entity
   id: DiseaseBehaviorCold
   parent: DiseaseBehaviorBase
-  name: "Термофагія"
-  description: "Поглинає тепло тіла, знижуючи його температуру до шкідливих рівнів."
+  name: Thermophagy
+  description: Consumes body heat, lowering your body temperature to harmful levels.
   components:
   - type: DiseaseEffect
     complexity: 20
@@ -55,8 +55,8 @@
 - type: entity
   id: DiseaseBehaviorRapidMutation
   parent: DiseaseBehaviorBase
-  name: "Швидка мутація"
-  description: "Ця хвороба швидко мутує себе та інші хвороби навіть перебуваючи в організмі носія."
+  name: Rapid mutation
+  description: This disease rapidly mutates itself and other diseases even while in the host.
   components:
   - type: DiseaseEffect
     complexity: 10

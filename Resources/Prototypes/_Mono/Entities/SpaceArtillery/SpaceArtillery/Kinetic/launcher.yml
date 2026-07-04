@@ -2,9 +2,9 @@
 
 - type: entity
   id: WeaponShuttleKineticL85
-  name: "20мм автогармата L85"
+  name: L85 20mm autocannon
   parent: BallisticArtillery
-  description: "Дешева та легка 20-мм автогармата. Може бути активована дистанційно або підключена до СКЗ."
+  description: A cheap and light 20mm autocannon. Can be remotely activated, or linked up to a GCS.
   components:
   - type: StaticPrice
     price: 250
@@ -58,9 +58,9 @@
 
 - type: entity
   id: WeaponShuttleKineticDravon
-  name: "57мм автогармата ADBP-7 DRAVON"
+  name: ADBP-7 DRAVON 57mm Autocannon
   parent: BallisticArtillery
-  description: "Одноствольна автогармата виробництва Aetherion Dynamics. Висока скорострільність, але відносно низька сила удару. Може бути активована дистанційно або підключена до СКЗ."
+  description: A single-barrel autocannon made by Aetherion Dynamics. High fire rate, but relatively low impact. Can be remotely activated, or linked up to a GCS.
   components:
   - type: StaticPrice
     price: 650
@@ -106,9 +106,9 @@
 
 - type: entity
   id: WeaponShuttleKineticAK570
-  name: "90мм важка автогармата AK570"
+  name: AK570 90mm heavy autocannon
   parent: BallisticArtillery
-  description: "Двоствольна важка автогармата. Може бути активована дистанційно або підключена до СКЗ."
+  description: A dual barrel, heavy autocannon. Can be remotely activated, or linked up to a GCS.
   components:
   - type: StaticPrice
     price: 1250
@@ -159,9 +159,9 @@
 
 - type: entity
   id: WeaponShuttleKineticTarnyx
-  name: "150мм ЕМІ-гармата ADBX-31 TARNYX"
+  name: ADBX-31 TARNYX 150mm EMP Cannon
   parent: BallisticArtilleryUnanchorable
-  description: "Важка ЕМІ-гармата виробництва Aetherion Dynamics. Вона може вивести з ладу значні частини ворожого корабля, що робить її ефективною в асиметричному бою. Може бути активована дистанційно або підключена до СКЗ."
+  description: A heavy EMP Cannon made by Aetherion Dynamics. It can disable massive parts of an enemy ship, making it effective in asymmetric combat. Can be remotely activated, or linked up to a GCS.
   components:
   - type: StaticPrice
     price: 10000
@@ -207,9 +207,9 @@
 
 - type: entity
   id: WeaponShuttleKineticCyrexa
-  name: "220мм гармата CYREXA"
+  name: CYREXA 220mm cannon
   parent: BallisticArtilleryUnanchorable
-  description: "Двоствольна гармата головного калібру, що стріляє 220-мм автоматичними снарядами з незначним зменшенням грубої сили. Може бути активована дистанційно або підключена до СКЗ."
+  description: A dual barrel, main-battery cannon firing 220mm auto shells with slight reduction in brute strength. Can be remotely activated, or linked up to a GCS.
   components:
   - type: StaticPrice
     price: 20000
@@ -272,9 +272,9 @@
 
 - type: entity
   id: WeaponShuttleKineticHades
-  name: "305мм гармата HADES"
+  name: HADES 305mm cannon
   parent: BallisticArtilleryUnanchorable
-  description: "Одна з найбільших кінетичних гармат на хімічній основі в секторі. Її потужність може зрівнятися лише з мас-драйверами, такими як M381."
+  description: One of the largest chemical-based kinetic weapons in the sector. Its power is only rivaled by mass drivers such as the M381.
   components:
   - type: StaticPrice
     price: 40000
@@ -337,9 +337,9 @@
 
 - type: entity
   id: WeaponShuttleKineticCharon
-  name: "Мас-драйвер M381 CHARON"
+  name: M381 CHARON mass driver
   parent: BallisticArtilleryUnanchorable
-  description: "Важкий лінійний прискорювач, здатний руйнувати цілі кінетичною енергією. Може бути активований дистанційно або підключений до СКЗ."
+  description: A heavy linear accelerator, capable of devastating targets with kinetic energy. Can be remotely activated, or linked up to a GCS.
   components:
   - type: StaticPrice
     price: 40000
@@ -413,9 +413,9 @@
 
 - type: entity
   id: WeaponShuttleKineticBofors
-  name: "255мм гармата Bofors"
+  name: Bofors 255mm cannon
   parent: BallisticArtilleryUnanchorable
-  description: "Одноствольна важка артилерійська гармата. Може бути активована дистанційно або підключена до СКЗ."
+  description: A single barrelled, heavy artillery cannon. Can be remotely activated, or linked up to a GCS.
   components:
   - type: StaticPrice
     price: 20000
@@ -474,9 +474,9 @@
 
 - type: entity
   id: WeaponShuttleKineticKargil
-  name: "203мм гармата Kargil"
+  name: Kargil 203mm cannon
   parent: BallisticArtilleryUnanchorable
-  description: "Одноствольна середньо-важка артилерійська гармата. Може бути активована дистанційно або підключена до СКЗ."
+  description: A single barrelled, medium-heavy artillery cannon. Can be remotely activated, or linked up to a GCS.
   components:
   - type: StaticPrice
     price: 20000

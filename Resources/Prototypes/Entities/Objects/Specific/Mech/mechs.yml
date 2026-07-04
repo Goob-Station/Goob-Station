@@ -197,8 +197,8 @@
 - type: entity
   id: MechRipley
   parent: [ BaseMech, IndustrialMech, BaseCargoContraband ] # Goobstation
-  name: "Ripley APLU"
-  description: "Універсальний і легкоброньований, Ripley стане в нагоді практично для будь-якого важкого сценарію роботи. \"APLU\" розшифровується як Автономний зарядний пристрій."
+  name: Ripley APLU
+  description: Versatile and lightly armored, the Ripley is useful for almost any heavy work scenario. The "APLU" stands for Autonomous Power Loading Unit.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -242,8 +242,8 @@
 - type: entity
   parent: [ BaseMech, SpecialMech, BaseCivilianContraband ] # Goobstation
   id: MechHonker
-  name: "H.O.N.K."
-  description: "Цей екзокостюм, виготовлений компанією \"Tyranny of Honk, INC\", спроектований як важка клоунська опора. Використовується для поширення веселощів і радості життя. ХОНК!"
+  name: H.O.N.K.
+  description: "Produced by \"Tyranny of Honk, INC\", this exosuit is designed as heavy clown-support. Used to spread the fun and joy of life. HONK!"
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -283,8 +283,8 @@
 - type: entity
   parent: [ BaseMech, SmallMech ] # Goobstation
   id: MechHamtr
-  name: "HAMTR"
-  description: "Експериментальний мех, який використовує інтерфейс \"мозок-комп'ютер\" для прямого підключення до мозку хом'яків."
+  name: HAMTR
+  description: "An experimental mech which uses a brain–computer interface to connect directly to a hamsters brain."
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -332,8 +332,8 @@
 - type: entity
   parent: BaseMech
   id: MechVim
-  name: "Вім"
-  description: "Мініатюрний екзокостюм від Nanotrasen, розроблений, щоб незамінні домашні улюбленці станції могли прожити трохи довше."
+  name: Vim
+  description: A miniature exosuit from Nanotrasen, developed to let the irreplaceable station pets live a little longer.
   components:
   - type: Sprite
     drawdepth: Mobs

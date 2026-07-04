@@ -8,7 +8,7 @@
 
 - type: body
   id: Bloodsucker
-  name: "кровопивця"
+  name: "bloodsucker"
   root: chest
   slots:
     chest:

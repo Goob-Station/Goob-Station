@@ -1,9 +1,9 @@
 - type: entity
   id: WeaponScytheDeath
   suffix: JustDecor, Death
-  name: "Коса Смерті"
+  name: Коса Смерті
   parent: BaseItem
-  description: "Коса, що випромінює загрозу. Лезо вкрите засохлою кров'ю."
+  description: Коса, що випромінює загрозу. Лезо вкрите засохлою кров'ю.
   components:
   - type: Sharp
   - type: Sprite

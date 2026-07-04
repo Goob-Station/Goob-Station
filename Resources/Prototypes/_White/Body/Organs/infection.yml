@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseItem
   id: XenomorphInfection
-  name: "ембріон личинки ксеноморфа"
-  description: "Паразитична форма життя на ранніх стадіях розвитку. Має червоподібну форму тіла, недорозвинені кінцівки та хвостовий придаток."
+  name: xenomorph larva embryo
+  description: A parasitic life form in its early stages of development. It has a worm-like body shape, underdeveloped limbs, and a tail appendage.
   components:
   - type: Sprite
     sprite: _White/Mobs/Species/Xenomorph/organs.rsi

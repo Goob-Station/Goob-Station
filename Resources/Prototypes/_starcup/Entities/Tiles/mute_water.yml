@@ -1,7 +1,7 @@
 - type: entity
   id: FloorMuteWaterEntity
-  name: "темна вода"
-  description: "Солонувата й зловісна вода, що притягує погляд і топить голос..."
+  name: dark water
+  description: Brackish and foreboding, water that draws the eyes and drowns the voice...
   placement:
     mode: SnapgridCenter
     snap:

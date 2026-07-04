@@ -8,10 +8,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
 
 - type: entity
-  name: "оболонка джагернаута"
+  name: juggernaut shell
   id: CultJuggernautShell
   parent: BaseBloodCultContraband
-  description: "Велика інертна потвора, зроблена з рунованої сталі. Її можна завершити, перетягнувши на неї мертве тіло або використавши на ній наповнений камінь душі."
+  description: A large, inert monstrosity made from runed steel. Can be completed by dragging a dead body onto it or using a filled soulstone on it.
   components:
   - type: BloodCultConstructShell
   - type: Construction
@@ -59,8 +59,8 @@
 
 - type: entity
   id: MobBloodCultJuggernaut
-  name: "Джагернаут"
-  description: "Сильний, повільний і має багато здоров'я. Вирішує більшість проблем ударами кулаків. Імунний до слабких атак."
+  name: Juggernaut
+  description: Strong, slow, and has lots of health. Solves most problems by punching them. Immune to weak attacks.
   parent: [ SimpleSpaceMobBase, BaseBloodCultContraband ]
   categories: [ HideSpawnMenu ]
   components:
@@ -193,8 +193,8 @@
 
 - type: entity
   id: MobBloodCultShade
-  name: "Тінь"
-  description: "Душа, що стала твердою й поневолена волею кровокульту."
+  name: Shade
+  description: A soul made solid, enslaved to the will of the blood cult.
   parent: [ SimpleSpaceMobBase, BaseBloodCultContraband ]
   #categories: [ HideSpawnMenu ]
   components:

@@ -2,8 +2,8 @@
 # Solution: we make our own stumps.
 - type: entity
   id: BaseStumpStarcup
-  name: "пень"
-  description: "Колись тут стояло дерево. Тепер лишилося тільки природне сидіння."
+  name: tree stump
+  description: A tree once stood here. Now, only nature's seat remains.
   abstract: true
   components:
   - type: Clickable

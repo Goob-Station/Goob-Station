@@ -3,8 +3,8 @@
 - type: entity
   parent: WallSolid
   id: WallCharonic
-  name: "харонічна стіна"
-  description: "Стіна, вирощена зі стисненої харонічної шкіри та смоли."
+  name: charonic wall
+  description: A wall grown from compressed Charonic hide and resin.
   components:
   - type: Sprite
     color: "#3B2F55"

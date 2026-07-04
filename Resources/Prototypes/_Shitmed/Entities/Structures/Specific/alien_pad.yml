@@ -17,8 +17,8 @@
 - type: entity
   id: AbductorAlienPad
   parent: [ BaseMachinePowered, ConstructibleMachine ]
-  name: "житло інопланетян"
-  description: "Захоплюйте нижчі форми життя і заглиблюйтесь у них."
+  name: alien pad
+  description: Beam in the inferior lifeforms and dig in.
   components:
   - type: AbductorAlienPad
   - type: InteractionOutline

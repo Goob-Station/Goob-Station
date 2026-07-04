@@ -29,8 +29,8 @@
 - type: entity
   abstract: true
   id: SurveillanceCameraBase
-  name: "камера"
-  description: "Камера спостереження. Вона стежить за тобою. Типу того."
+  name: camera
+  description: A surveillance camera. It's watching you. Kinda.
   components:
   - type: Physics
     bodyType: Static
@@ -140,7 +140,7 @@
 - type: entity
   parent: SurveillanceCameraBase
   id: SurveillanceCameraConstructed
-  name: "камера"
+  name: camera
   suffix: Constructed
   components:
     - type: DeviceNetwork
@@ -160,7 +160,7 @@
 - type: entity
   parent: SurveillanceCameraBase
   id: SurveillanceCameraEngineering
-  name: "камера"
+  name: camera
   suffix: Engineering
   components:
   - type: DeviceNetwork
@@ -173,7 +173,7 @@
 - type: entity
   parent: SurveillanceCameraBase
   id: SurveillanceCameraSecurity
-  name: "камера"
+  name: camera
   suffix: Security
   components:
   - type: DeviceNetwork
@@ -186,7 +186,7 @@
 - type: entity
   parent: SurveillanceCameraBase
   id: SurveillanceCameraScience
-  name: "камера"
+  name: camera
   suffix: Science
   components:
   - type: DeviceNetwork
@@ -199,7 +199,7 @@
 - type: entity
   parent: SurveillanceCameraBase
   id: SurveillanceCameraSupply
-  name: "камера"
+  name: camera
   suffix: Supply
   components:
   - type: DeviceNetwork
@@ -212,7 +212,7 @@
 - type: entity
   parent: SurveillanceCameraBase
   id: SurveillanceCameraCommand
-  name: "камера"
+  name: camera
   suffix: Command
   components:
   - type: DeviceNetwork
@@ -225,7 +225,7 @@
 - type: entity
   parent: SurveillanceCameraBase
   id: SurveillanceCameraService
-  name: "камера"
+  name: camera
   suffix: Service
   components:
   - type: DeviceNetwork
@@ -238,7 +238,7 @@
 - type: entity
   parent: SurveillanceCameraBase
   id: SurveillanceCameraMedical
-  name: "камера"
+  name: camera
   suffix: Medical
   components:
   - type: DeviceNetwork
@@ -251,7 +251,7 @@
 - type: entity
   parent: SurveillanceCameraBase
   id: SurveillanceCameraGeneral
-  name: "камера"
+  name: camera
   suffix: General
   components:
   - type: DeviceNetwork
@@ -263,8 +263,8 @@
 
 - type: entity
   id: SurveillanceCameraAssembly
-  name: "камера"
-  description: "Камера спостереження. Не схоже, що найближчим часом вона буде за кимось спостерігати. Напевно."
+  name: camera
+  description: A surveillance camera. Doesn't seem to be watching anybody any time soon. Probably.
   components:
     - type: Clickable
     - type: InteractionOutline

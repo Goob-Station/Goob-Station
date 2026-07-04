@@ -14,7 +14,7 @@
 - type: entity
   id: PartMoth
   parent: [BaseItem, BasePart]
-  name: "частина тіла молі"
+  name: "moth body part"
   abstract: true
   components:
   - type: WoundableVisuals
@@ -40,7 +40,7 @@
 
 - type: entity
   id: ChestMoth
-  name: "груди молі"
+  name: "moth chest"
   parent: [PartMoth, BaseChest]
   components:
   - type: Sprite
@@ -56,7 +56,7 @@
 
 - type: entity
   id: GroinMoth
-  name: "пах молі"
+  name: "moth groin"
   parent: [PartMoth, BaseGroin]
   components:
   - type: Sprite
@@ -72,7 +72,7 @@
 
 - type: entity
   id: HeadMoth
-  name: "голова молі"
+  name: "moth head"
   parent: [PartMoth, BaseHead]
   components:
   - type: Sprite
@@ -88,7 +88,7 @@
 
 - type: entity
   id: LeftArmMoth
-  name: "ліва рука молі"
+  name: "left moth arm"
   parent: [PartMoth, BaseLeftArm]
   components:
   - type: Sprite
@@ -97,7 +97,7 @@
 
 - type: entity
   id: RightArmMoth
-  name: "права рука молі"
+  name: "right moth arm"
   parent: [PartMoth, BaseRightArm]
   components:
   - type: Sprite
@@ -106,7 +106,7 @@
 
 - type: entity
   id: LeftHandMoth
-  name: "ліва долоня молі"
+  name: "left moth hand"
   parent: [PartMoth, BaseLeftHand]
   components:
   - type: Sprite
@@ -115,7 +115,7 @@
 
 - type: entity
   id: RightHandMoth
-  name: "права долоня молі"
+  name: "right moth hand"
   parent: [PartMoth, BaseRightHand]
   components:
   - type: Sprite
@@ -124,7 +124,7 @@
 
 - type: entity
   id: LeftLegMoth
-  name: "ліва ніжка молі"
+  name: "left moth leg"
   parent: [PartMoth, BaseLeftLeg]
   components:
   - type: Sprite
@@ -135,7 +135,7 @@
 
 - type: entity
   id: RightLegMoth
-  name: "права ніжка молі"
+  name: "right moth leg"
   parent: [PartMoth, BaseRightLeg]
   components:
   - type: Sprite
@@ -146,7 +146,7 @@
 
 - type: entity
   id: LeftFootMoth
-  name: "ліва стопа молі"
+  name: "left moth foot"
   parent: [PartMoth, BaseLeftFoot]
   components:
   - type: Sprite
@@ -155,7 +155,7 @@
 
 - type: entity
   id: RightFootMoth
-  name: "права стопа молі"
+  name: "right moth foot"
   parent: [PartMoth, BaseRightFoot]
   components:
   - type: Sprite

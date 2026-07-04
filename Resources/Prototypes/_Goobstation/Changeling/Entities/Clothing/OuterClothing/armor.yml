@@ -22,8 +22,8 @@
 - type: entity
   parent: ClothingOuterBaseLarge
   id: ChangelingClothingOuterArmor
-  name: "хітинова броня"
-  description: "Всепоглинаюча хітинова маса броні."
+  name: chitinous armor
+  description: An all-consuming chitinous mass of armor.
   suffix: Unremoveable
   components:
   - type: Sprite

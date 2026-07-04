@@ -15,8 +15,8 @@
 - type: entity
   id: RGBStaff
   parent: BaseItem
-  name: "RGB посох"
-  description: "Допомагає виправити нестачу RGB-обладнання на станції."
+  name: RGB staff
+  description: Helps fix the underabundance of RGB gear on the station.
   components:
   - type: LimitedCharges
     maxCharges: 25
@@ -51,8 +51,8 @@
 - type: entity
   id: AnimationStaff
   parent: BaseItem
-  name: "посох анімації"
-  description: "Артефакт, що випускає заряди життєвої сили, від яких уражені ним об’єкти оживають!"
+  name: staff of animation
+  description: An artefact that spits bolts of life-force which causes objects which are hit by it to animate and come to life!
   components:
   - type: LimitedCharges
     maxCharges: 6

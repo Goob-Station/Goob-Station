@@ -38,8 +38,8 @@
 - type: entity
   parent: [BaseCassette, BaseSyndicateContraband]
   id: BloodredCassette
-  name: "криваво-червоний касетний плеєр"
-  description: "Найменш витончений спосіб насолодитися улюбленими мелодіями."
+  name: bloodred cassette player
+  description: The least subtle way to enjoy your favorite tunes.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/bloodred_cassette_player.rsi
@@ -53,8 +53,8 @@
 - type: entity
   parent: BaseCassette
   id: CrewCassette
-  name: "касетний плеєр"
-  description: "Звичайний старий касетний плеєр, щоб насолоджуватися мелодіями на ходу."
+  name: cassette player
+  description: Regular old cassette player to enjoy your tunes on the go.
   components:
     - type: Sprite
       sprite: _Goobstation/Objects/Fun/crew_cassette_player.rsi
@@ -68,8 +68,8 @@
 - type: entity
   parent: BaseCassette
   id: ExecutiveCassette
-  name: "представницький касетний плеєр"
-  description: "Ідеально підходить для того, щоб ви виглядали так, ніби займаєтеся злиттям та поглинанням."
+  name: executive cassette player
+  description: Perfect to make you look like you do mergers and acquisitions.
   components:
     - type: Sprite
       sprite: _Goobstation/Objects/Fun/executive_cassette_player.rsi

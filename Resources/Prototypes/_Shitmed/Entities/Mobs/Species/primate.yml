@@ -8,7 +8,7 @@
   parent: BaseSpeciesDummy
   id: MobMonkeyDummy
   categories: [ HideSpawnMenu ]
-  description: "Манекен мавпи, призначений для використання в налаштуваннях символів."
+  description: A dummy monkey meant to be used in character setup.
   components:
   - type: Icon
     sprite: Mobs/Animals/monkey.rsi
@@ -29,7 +29,7 @@
   parent: BaseSpeciesDummy
   id: MobKoboldDummy
   categories: [ HideSpawnMenu ]
-  description: "Фіктивний кобольд, призначений для використання в налаштуваннях персонажів."
+  description: A dummy kobold meant to be used in character setup.
   components:
   - type: Icon
     sprite: Mobs/Animals/kobold.rsi

@@ -1,8 +1,8 @@
 - type: entity
   parent: CleanerDispenser
   id: CapsaicinDispenser
-  name: "дозатор капсаїцину"
-  description: "Настінний дозатор, здатний видавати капсаїцин. Поповнюйте свій перцевий балончик тут."
+  name: capsaicin dispenser
+  description: A wallmount dispenser capable of dispensing capsaicin. Refill your pepperspray here.
   components:
   - type: Sprite
     sprite: Structures/Storage/tanks.rsi

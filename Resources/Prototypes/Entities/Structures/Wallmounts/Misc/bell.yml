@@ -9,8 +9,8 @@
 - type: entity
   parent: BaseWallmountMetallic
   id: BoxingBell
-  name: "боксерський гонг"
-  description: "Дзинь-дзинь!"
+  name: boxing bell
+  description: Ding ding!
   components:
   - type: Sprite
     sprite: Structures/Wallmounts/bell.rsi

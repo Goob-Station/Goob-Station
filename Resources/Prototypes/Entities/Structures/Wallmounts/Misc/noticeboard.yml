@@ -71,8 +71,8 @@
 - type: entity
   parent: BaseWallmount
   id: NoticeBoard
-  name: "дошка оголошень"
-  description: "Чи є робота для відьмака?"
+  name: notice board
+  description: Is there a job for a witcher?
   components:
   - type: Sprite
     drawdepth: WallMountedItems

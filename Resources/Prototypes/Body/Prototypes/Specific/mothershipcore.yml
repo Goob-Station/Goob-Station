@@ -1,6 +1,6 @@
 - type: body
   id: MothershipCoreBody
-  name: "ядро"
+  name: "core"
   root: torso
   slots:
     torso:

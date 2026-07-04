@@ -17,10 +17,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "раковина"
+  name: sink
   id: SinkEmpty
   suffix: Empty
-  description: "Крани були затягнуті з максимально можливим моментом, але вони все одно капають."
+  description: The faucets have been tightened to the maximum possible torque but are still known to drip.
   placement:
     mode: SnapgridCenter
   components:
@@ -90,7 +90,7 @@
 
 
 - type: entity
-  name: "раковина"
+  name: sink
   id: Sink
   parent: SinkEmpty
   suffix: Water
@@ -105,7 +105,7 @@
           Quantity: 9999999
 
 - type: entity
-  name: "широка раковина"
+  name: wide sink
   id: SinkWide
   parent: Sink
   components:
@@ -124,7 +124,7 @@
 #Stemless Sink
 
 - type: entity
-  name: "раковина"
+  name: sink
   id: SinkStemless
   parent: SinkEmpty
   components:
@@ -137,7 +137,7 @@
         visible: false
 
 - type: entity
-  name: "раковина"
+  name: sink
   id: SinkStemlessWater
   parent: SinkStemless
   suffix: Water

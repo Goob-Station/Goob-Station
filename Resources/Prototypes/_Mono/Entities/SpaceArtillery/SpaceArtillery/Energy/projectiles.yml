@@ -2,7 +2,7 @@
 
 - type: entity
   id: ShipMediumPlasmaProjectile
-  name: "плазмовий снаряд"
+  name: plasma projectile
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -40,7 +40,7 @@
 
 - type: entity
   id: ShipRubiconProjectile
-  name: "ЕМІ-снаряд"
+  name: EMP projectile
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -75,7 +75,7 @@
 
 - type: entity
   id: ShipDymereProjectile
-  name: "Снаряд з іонізованого газу"
+  name: Ionized Gas Projectile
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:

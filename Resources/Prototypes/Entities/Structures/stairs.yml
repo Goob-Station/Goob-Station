@@ -7,9 +7,9 @@
 
 - type: entity
   id: Stairs
-  name: "сходи"
+  name: stairs
   suffix: Steel
-  description: "Найбільший винахід з часів реактивних гранатометів."
+  description: The greatest invention since rocket-propelled grenades.
   placement:
     mode: SnapgridCenter
   components:

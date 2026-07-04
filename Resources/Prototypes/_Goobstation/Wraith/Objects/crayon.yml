@@ -2,8 +2,8 @@
   parent: BaseItem
   id: CrayonBlood
   categories: [ HideSpawnMenu ]
-  name: "кривава крейда"
-  description: "Кривава крейда. Виглядає моторошно. Ууу..."
+  name: bloody crayon
+  description: A bloody crayon. Looks scary. Oooo...
   components:
   - type: Sprite
     sprite: Objects/Fun/crayons.rsi

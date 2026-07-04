@@ -2,7 +2,7 @@
 - type: entity
   parent: CardBoxBase
   id: CardBoxSparot
-  name: "коробка колоди спароту"
+  name: sparot deck box
   components:
   - type: Item
     size: Small
@@ -26,7 +26,7 @@
 - type: entity
   parent: CardDeckBase
   id: CardDeckSparot
-  name: "колода карт"
+  name: deck of cards
   components:
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
@@ -95,7 +95,7 @@
 - type: entity
   parent: BaseItem
   id: CardBaseSparot
-  name: "карта"
+  name: card
   categories: [ HideSpawnMenu ]
   components:
   - type: EmitSoundOnLand
@@ -120,7 +120,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScDevil
-  description: "Бліда демонічна постать чатувала на роздоріжжі; обидва шляхи ведуть у темряву. Вибір, спокуса, цикли, невідоме."
+  description: A pallid demonic figure lurks at the crossroads; both paths lead into darkness. Choice, Temptation, Cycles, The Unknown.
   components:
   - type: Card
     name: card-sc-devil
@@ -132,7 +132,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScClown
-  description: "Веселий арлекін танцює над шаленим пеклом. Лихо, різка зміна, перетворення."
+  description: A merry harlequin dances above a raging inferno. Calamity, Drastic Change, Transformation.
   components:
   - type: Card
     name: card-sc-clown
@@ -145,7 +145,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScAceOfCables
-  description: "Поганка проростає з ґрунту, її мідний міцелій розростається в усі боки. Нові зв’язки, зміни способу життя."
+  description: A toadstool mushroom sprouts from the soil, its coppery mycelium growing every which way. New Connections, Lifestyle Changes.
   components:
   - type: Card
     name: card-sc-ace-of-cables
@@ -157,7 +157,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScTwoOfCables
-  description: "Два мідні кабелі, потріскуючи електрикою, обвивають залізний стрижень і утворюють електромагніт. Союз, рівновага, спілкування."
+  description: Two copper cables crackling with electricity wind around an iron rod to form an electromagnet. Union, Balance, Communication.
   components:
   - type: Card
     name: card-sc-two-of-cables
@@ -169,7 +169,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScThreeOfCables
-  description: "Три мідні кабелі утворюють шпалеру для виноградних лоз, обтяжених плодами. Святкування, вправа, потурання собі, веселощі."
+  description: Three copper cables form a trellis for grape vines, laden with fruit. Celebration, Exercise, Indulgence, Fun.
   components:
   - type: Card
     name: card-sc-three-of-cables
@@ -181,7 +181,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScFourOfCables
-  description: "Чотири барвисті труби вставлені в трубний колектор і спрямовані в чотири різні боки. Дистанція, відпочинок, надання стосункам простору."
+  description: Four colorful pipes are slotted into a pipe manifold and sent in four different directions. Distance, Rest, Giving a Relationship Space.
   components:
   - type: Card
     name: card-sc-four-of-cables
@@ -193,7 +193,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScFiveOfCables
-  description: "П’ять голів золотої венериної мухоловки люто б’ються одна з одною, роздираючи власне тіло. Розрив, травма, любов перетворюється на ненависть."
+  description: The five heads of a golden Venus flytrap viciously battle one another, tearing their own body apart. A Severing, An Injury, Love Turns to Hate.
   components:
   - type: Card
     name: card-sc-five-of-cables
@@ -205,7 +205,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScSixOfCables
-  description: "Шість зруйнованих радіовеж здіймаються серед величезного пустельного ландшафту білого снігу. Видно маленькі постаті, що їх лагодять. Лагодження, возз’єднання, повернення зв’язку з минулим."
+  description: Six broken-down radio towers rise across a vast and desolate landscape of white snow. Small figures can be seen mending them. Mendings, Reunions, Reconnecting to the Past.
   components:
   - type: Card
     name: card-sc-six-of-cables
@@ -217,7 +217,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScSevenOfCables
-  description: "Гілки семи могутніх сталекапів переплітаються над захаращеним відділом гідропоніки. Квітучі колючі пагони повзуть по корінню дерев. Налагодження контактів, оцінка власного становища, приховані вразливості."
+  description: The branches of seven mighty steelcap trees intertwine above a cluttered Hydroponics department. Flowering briars crawl over the trees' roots. Networking, Appraising One's Position, Hidden Vulnerabilities.
   components:
   - type: Card
     name: card-sc-seven-of-cables
@@ -229,7 +229,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScEightOfCables
-  description: "Термоелектричний генератор наповнює своє павутинне оточення теплим сяйвом. Холодний і гарячий контури розташовані навпаки й розділені у вісім різних напрямків. Повернення своїми слідами, нездатність змінитися, повторення помилок."
+  description: A Thermo-Electric Generator fills its cobwebbed surroundings with a warm glow. The cold and hot loops are arranged backwards and split in eight different directions. Retracing One's Steps, Failing to Change, Repeating Mistakes.
   components:
   - type: Card
     name: card-sc-eight-of-cables
@@ -241,7 +241,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScNineOfCables
-  description: "Дев’ять каучуконосів захисним кільцем ростуть навколо погризеного та потерто обтріпаного високовольтного кабелю. Вразливість, слабкість, прояснення справжніх почуттів."
+  description: Nine rubber trees grow protectively around a chewed and frayed high-voltage cable. Vulnerability, Weakness, True Feelings Becoming Clear.
   components:
   - type: Card
     name: card-sc-nine-of-cables
@@ -253,7 +253,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScTenOfCables
-  description: "Десять мідяних кленових листків падають у стрімку річку. Мирна смерть, дорогоцінна минущість, дружні розставання."
+  description: Ten coppery maple leaves fall into a rushing river. Peaceful Death, Precious Impermanence, Amicable Partings.
   components:
   - type: Card
     name: card-sc-ten-of-cables
@@ -265,7 +265,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScKnightOfCables
-  description: "Лицарка підносить мідний спис на вершині гори. Грозові хмари вгорі тріщать і плюються блискавками. Та, хто бореться за зв’язки зі світом, за близьких або проти хвороби."
+  description: A knight raises her copper spear aloft atop a mountain. Stormclouds above above crackle and spit with lightning. One Who Who Fights for Connections to the World, For Loved Ones, or Against Sickness.
   components:
   - type: Card
     name: card-sc-knight-of-cables
@@ -277,7 +277,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScPrincessOfCables
-  description: "Принцеса стоїть на вершині радіовежі, усміхаючись до квітучих полів унизу. Та, хто заохочує утворення зв’язків; та, хто вимагає від інших дбати про себе або про інших, іноді про неї саму."
+  description: A princess stands at the top of a radio tower, smiling down at the flowering fields below. One Who Encourages Bonds to Form; One Who Demands Others Practice Self-Care or Care for Others (Sometimes Her).
   components:
   - type: Card
     name: card-sc-princess-of-cables
@@ -289,7 +289,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScQueenOfCables
-  description: "Королева лагідно налаштовує лампу для кількох тендітних іпомей, спрямовуючи їх рости павутинною шпалерою. Та, хто плекає, хто зцілює; та, хто досконало пов’язана з іншими."
+  description: A queen gently adjusts a grow light for several delicate morning glory plants, guiding them to grow up a spiderweb trellis. One Who Nurtures, Who Heals; One Perfectly Connected to Others.
   components:
   - type: Card
     name: card-sc-queen-of-cables
@@ -302,7 +302,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScAceOfDiscs
-  description: "Ліхтарик світить на дискету, покинуту в темряві. Сміливі нові починання, нова історія, багатообіцяюча таємниця."
+  description: A flashlight shines upon a floppy disk left abandoned in the dark. Bold New Ventures, A New Story, A Promising Mystery.
   components:
   - type: Card
     name: card-sc-ace-of-discs
@@ -314,7 +314,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScTwoOfDiscs
-  description: "Пара дзеркальних дисків обертається один навколо одного в чорноті космосу. У відбитті одного видно далеку будівлю, що вибухає надновою. Рівновага, об’єктивність, гнучкість, приховані ракурси."
+  description: A pair of reflective discs orbit one another in the blackness of space. In the reflection of one can be seen a distant building supernova. Balance, Objectivity, Flexibility, Hidden Angles.
   components:
   - type: Card
     name: card-sc-two-of-discs
@@ -326,7 +326,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScThreeOfDiscs
-  description: "Три медалі лежать на столі, заваленому книгами та паперами. Командна робота, вдячність, групова праця."
+  description: Three medals rest on a table piled with books and papers. Teamwork, Appreciation, Group Work.
   components:
   - type: Card
     name: card-sc-three-of-discs
@@ -338,7 +338,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScFourOfDiscs
-  description: "Ревуча Тесла лежить у стримувальному полі, оточена чотирма сяйними дисками. Віддзеркалення, обережне планування бюджету, стриманість."
+  description: A roaring Tesla lies within a containment field surrounded by four glowing discs. Reflection, Careful Budgeting, Restraint.
   components:
   - type: Card
     name: card-sc-four-of-discs
@@ -350,7 +350,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScFiveOfDiscs
-  description: "П’ять дисків лежать розбиті на підлозі. З тріщин сяє призматичне світло. Втрата пам’яті, помилки, руїна, небезпечне знання."
+  description: Five discs lie shattered on the floor. Prismatic light shines from the cracks. Memory Loss, Mistakes, Ruin, Dangerous Knowledge.
   components:
   - type: Card
     name: card-sc-five-of-discs
@@ -362,7 +362,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScSixOfDiscs
-  description: "Шість технологічних дисків лежать біля дослідницького сервера. Щедрість, достаток, обмін таємницями, розповідання історій."
+  description: Six technology disks rest beside a research server. Generosity, Abundance, Sharing Secrets, Telling Stories.
   components:
   - type: Card
     name: card-sc-six-of-discs
@@ -374,7 +374,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScSevenOfDiscs
-  description: "Сім барвистих сяйних дисків оточують посудину аномалії в яскраво освітленій лабораторії. Коридори за нею темні. Інвестиція, наполегливість, скупість, корисна зачіпка."
+  description: Seven colorful glowing discs encircle an anomaly vessel within a brightly-lit laboratory. The hallways beyond are dark. Investment, Perseverance, Miserliness, A Useful Lead.
   components:
   - type: Card
     name: card-sc-seven-of-discs
@@ -386,7 +386,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScEightOfDiscs
-  description: "Зламаний контейнер артефакта лежить у вигорілій оболонці дослідницької лабораторії. Вісім брудних комп’ютерних дисків лежать на обвугленій книжковій полиці. Марні зусилля, безперспективні зачіпки, чіпляння за непотрібні ресурси."
+  description: A broken artifact container rests within the burnt-out shell of a research lab. Eight grimy computer disks rest on a charred bookshelf. Wasted Effort, Dead Leads, Clinging to Useless Resources.
   components:
   - type: Card
     name: card-sc-eight-of-discs
@@ -398,7 +398,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScNineOfDiscs
-  description: "Аномалії плоті, лози й темряви оточують тіньове дерево з фіолетовим листям. Дев’ять дослідницьких дисків заплуталися в його гілках. Міфи, кошмари, замулена істина, небажані відповіді."
+  description: Anomalies of flesh and vine and darkness encircle a shadowy tree with violet leaves. Nine research disks are entangled in its branches. Myths, Nightmares, Muddied Truth, Unwanted Answers.
   components:
   - type: Card
     name: card-sc-nine-of-discs
@@ -410,7 +410,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScTenOfDiscs
-  description: "Десять круглих ілюмінаторів шатла сяють на золотий світанок, створюючи крихітні веселки світла всередині шатла. Розгадані таємниці, мудрість, стабільність, процвітання."
+  description: Ten circular shuttle windows shine out upon a golden sunrise, creating tiny rainbows of light across the shuttle interior. Solved Mysteries, Wisdom, Stability, Prosperity.
   components:
   - type: Card
     name: card-sc-ten-of-discs
@@ -422,7 +422,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScKnightOfDiscs
-  description: "Лицарка виставляє сяйний круглий щит проти наступальних тіньових вусиків, не даючи їм дістатися книги, яку вона тримає в другій руці. Та, хто бореться за істину, або та, хто стримує небезпечні речі."
+  description: A knight brandishes a shining circular shield against encroaching tendrils of shadow, keeping them from the book she grips in her off hand. One Who Fights for Truth, or One Who Keeps Dangerous Things Contained.
   components:
   - type: Card
     name: card-sc-knight-of-discs
@@ -434,7 +434,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScPrincessOfDiscs
-  description: "Кіборг у тіарі принцеси замінює лампочку, проливаючи світло на ідилічну бібліотеку. Його панель лишена відкритою, відкриваючи всередині дископодібний позитронний мозок. Та, хто заохочує інших навчатися, хто вимагає кмітливості та обачності; ключова свідка."
+  description: A cyborg wearing the tiara of a princess replaces a lightbulb, shedding light over an idyllic library. Her panel is left open, revealing a disc-shaped positronic brain within. One Who Encourages Others to Learn, Who Demands Cleverness and Discretion; A Key Witness.
   components:
   - type: Card
     name: card-sc-princess-of-discs
@@ -446,7 +446,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScQueenOfDiscs
-  description: "Обличчя прекрасної королеви сяє з екрана ядра ШІ. Екрани незліченних комп’ютерів звернені до неї, купаючи її в променистому світлі. Та, хто має велике багатство або знання, плекає, захищає і спрямовує."
+  description: The face of a beautiful queen shines from the screen of an AI core. The screens of countless computers face her, bathing her in radiant light. One of Great Wealth or Knowledge Who Nurtures, Protects, and Guides.
   components:
   - type: Card
     name: card-sc-queen-of-discs
@@ -459,7 +459,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScAceOfKnives
-  description: "Зазубрений ніж розрізає свіжий буханець хліба. Нова мета, зародження суперництва."
+  description: A serrated knife slices through a fresh loaf of bread. A New Goal, A Budding Rivalry.
   components:
   - type: Card
     name: card-sc-ace-of-knives
@@ -471,7 +471,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScTwoOfKnives
-  description: "Два бойові ножі стирчать із землі, довший під кутом і нахилений через інший. Переламування ситуації, вирівняні долі."
+  description: Two combat knives stick out of the earth, the longer one at an angle and leaning across the other. Turning Tables, Leveled Fortunes.
   components:
   - type: Card
     name: card-sc-two-of-knives
@@ -483,7 +483,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScThreeOfKnives
-  description: "Три метальні ножі глибоко встромлені у стояче дзеркало. З тріщин витікає кров. Розкриті почуття, вороги стають коханими, кохані стають ворогами."
+  description: Three throwing knives are deeply embedded into a standing mirror. Blood is leaking from the cracks. Feelings Revealed, Enemies to Lovers, Lovers to Enemies.
   components:
   - type: Card
     name: card-sc-three-of-knives
@@ -495,7 +495,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScFourOfKnives
-  description: "Екзоморф-ривач згорнувся у своїй норі, а чотири кухонні ножі безрезультатно стирчать у його хвості. Прийняття обмежень, коротке затишшя."
+  description: A burrower exomorph lies curled up in its den, four kitchen knives lodged ineffectually in its tail. Accepting Limitations, A Brief Lull.
   components:
   - type: Card
     name: card-sc-four-of-knives
@@ -507,7 +507,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScFiveOfKnives
-  description: "За розбитим вікном станції п’ять закривавлених уламків скла витягнуло до зірок. Катастрофа, зрада, повне приниження."
+  description: Beyond a shattered station window, five bloody glass shards have been drawn out into the stars. Disaster, Betrayal, Utter Humiliation.
   components:
   - type: Card
     name: card-sc-five-of-knives
@@ -519,7 +519,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScSixOfKnives
-  description: "Темний тунель відкривається у залитий лавою краєвид. Шість потрісканих і пощерблених ножів вказують шлях до блюспейс-сховища. Піррова перемога, безпечний прихисток, навчання у ворогів."
+  description: A dark tunnel opens up into a lava-flooded landscape. Six cracked and chipped knives point the way to a bluespace shelter. Pyrrhic Victory, Safe Haven, Learning From Enemies.
   components:
   - type: Card
     name: card-sc-six-of-knives
@@ -531,7 +531,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScSevenOfKnives
-  description: "Сім ножів одночасно проводять по точильному каменю поруч із сімома однаковими парами солдатських чобіт. Хитрощі, готовність до зради, невикористані помилки."
+  description: Seven knives are drawn in tandem across a whetstone--next to seven matching pairs of jackboots. Tricks, Bracing for Betrayal, Mistakes Not Capitalized On.
   components:
   - type: Card
     name: card-sc-seven-of-knives
@@ -543,7 +543,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScEightOfKnives
-  description: "Вісім іржавих ножів лежать у щойно відкопаній відкритій сумці, оточені камінцями сяйного урану. Прощення, відновлені ігри, поновлені клятви."
+  description: Eight rusting knives lie within a newly-unearthed open satchel, surrounded by pebbles of glowing uranium. Forgiveness, Games Resumed, Oaths Renewed.
   components:
   - type: Card
     name: card-sc-eight-of-knives
@@ -555,7 +555,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScNineOfKnives
-  description: "Сім закривавлених ножів лежать у багнюці; восьмий і дев’ятий стоять вертикально. Ясність мети, переоцінені мотиви, зрозумілі вороги."
+  description: Seven bloody knives lie in the mud; an eighth and ninth stand upright. Clarity of Cause, Motives Reevaluated, Enemies Understood.
   components:
   - type: Card
     name: card-sc-nine-of-knives
@@ -567,7 +567,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScTenOfKnives
-  description: "Десять ножів плавляться в ревучому пеклі. Програна битва, гірка поразка, новий шлях, стосунки завершені або змінені."
+  description: Ten knives rest melting in a roaring inferno. A Battle Lost, A Bitter Defeat, A New Path, A Relationship Ended or Transformed.
   components:
   - type: Card
     name: card-sc-ten-of-knives
@@ -579,7 +579,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScKnightOfKnives
-  description: "Лицарка стискає ніж в одній руці та золоте яблуко в іншій, пробираючись темними тунелями технічних приміщень. Та, хто бореться за самовдосконалення; бунтарка; вірна суперниця."
+  description: A knight clutches a knife in one hand and a golden apple in the other as she makes her way through shadowy maintenance tunnels. One Who Fights for Self-Betterment, A Rebel, A Faithful Rival.
   components:
   - type: Card
     name: card-sc-knight-of-knives
@@ -591,7 +591,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScPrincessOfKnives
-  description: "Два оздоблені ножі на подушках подають принцесі, яка критично їх оглядає, їдячи свою випічку. Та, хто надихає конфлікт або вимагає переконаності."
+  description: Two ornate knives on cushions are presented to a princess, who examines them with a critical eye as she eats her pastry. One Who Inspires Conflict or Demands Conviction.
   components:
   - type: Card
     name: card-sc-princess-of-knives
@@ -603,7 +603,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScQueenOfKnives
-  description: "Кремезна королева молотить шматок заліза на ковадлі. Незрозуміло, чи вона викує ніж, чи садову лопатку. Організаторка; та, хто спрямовує самовдосконалення і заспокоює суперництво."
+  description: A burly queen hammers away at a piece of iron on her anvil. It is unclear whether she is fashioning a knife or a trowel. An Organizer; One Who Guides Self-Improvement, Who Soothes Rivalries.
   components:
   - type: Card
     name: card-sc-queen-of-knives
@@ -616,7 +616,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScAceOfSparrows
-  description: "Космічний короп з опаловими лусками вистрибує з масних чорних вод до падучого водоспаду зірок. Нова подорож; зміна перспективи."
+  description: A space carp with opalescent scales leaps out of oily black waters towards a tumbling waterfall of stars. A New Journey; A Shift in Perspective.
   components:
   - type: Card
     name: card-sc-ace-of-sparrows
@@ -628,7 +628,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScTwoOfSparrows
-  description: "Довгонога двоголова чапля стоїть над бурхливою річкою, поставивши кожну ногу в різне русло, коли річка розділяється надвоє. Роздоріжжя; безмежні можливості."
+  description: A gangly two-headed heron stands above a rushing river, each leg planted in a different branch as the river splits in two. Forks in the Road; Endless Possibilities.
   components:
   - type: Card
     name: card-sc-two-of-sparrows
@@ -640,7 +640,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScThreeOfSparrows
-  description: "Шатл несеться крізь космос на линвах, прив’язаних до трьох крихітних горобців. Усі горобці летять у різні боки. Творення; розширення; занурення в диво."
+  description: A shuttle is borne through space by lines connected to three tiny sparrows. The sparrows all fly in different directions. Creation; Expansion; Immersion in Wonder.
   components:
   - type: Card
     name: card-sc-three-of-sparrows
@@ -652,7 +652,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScFourOfSparrows
-  description: "Коли сонце визирає з-за горизонту, один маленький бурий кажан приєднується до трьох інших, що висять під карнизом над прекрасним абстрактним муралом. Безпечні прихистки; шанс насолодитися досягненнями; місце для відпочинку."
+  description: As the sun peeks over the horizon, one small brown bat joins three others in hanging from the eaves overlooking a beautiful abstract mural. Safe Havens; A Chance to Enjoy Accomplishments; A Place to Rest.
   components:
   - type: Card
     name: card-sc-four-of-sparrows
@@ -664,7 +664,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScFiveOfSparrows
-  description: "Чотири прекрасні червонокрилі чорні дрозди дряпають і шматують просту чорну ворону, розбризкуючи кров по сувою, який вона несе. Творчість, спрямована на руйнування; хибний поворот заводить когось у небезпеку; радість стає смутком."
+  description: Four beautiful red-winged blackbirds claw and tear at a plain black crow, spattering blood across the scroll it carries. Creativity Channeled Towards Destruction; A Wrong Turn Leads Someone Into Danger; Joy Turns to Sorrow.
   components:
   - type: Card
     name: card-sc-five-of-sparrows
@@ -676,7 +676,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScSixOfSparrows
-  description: "Шість горобців спускаються в пухові гнізда, збудовані на голові величезного сплячого космічного дракона. Від лап деяких горобців тягнуться темні стрічки. Пошук затишку в знайомому; дозвіл іншим іти наступною подорожжю."
+  description: Six sparrows descend into feathered nests built atop the head of a vast slumbering space dragon. Some of the sparrows have dark ribbons trailing from their feet. Finding Comfort in the Familiar; Allowing Others to Follow on the Journey to Come.
   components:
   - type: Card
     name: card-sc-six-of-sparrows
@@ -688,7 +688,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScSevenOfSparrows
-  description: "Сім зозуль висовують голови крізь однакові розломи і, виринаючи з просторових розломів позаду себе, цікаво дивляться на власні спини. Забагато емоцій; плутанина і фантазія; подорож усередину, щоб осмислити речі."
+  description: Seven cuckoos stick their heads through identical rifts and, emerging from rifts in space behind them, stare curiously at their own backs. Too Many Emotions; Confusion and Fantasy; Venturing Inward to Make Sense of Things.
   components:
   - type: Card
     name: card-sc-seven-of-sparrows
@@ -700,7 +700,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScEightOfSparrows
-  description: "Тьмяна стара курка зупиняється на півдорозі через широку безлюдну дорогу; за нею тягнуться сім однакових полеглих курей дедалі яскравіших відтінків. Вона дивиться на два вогні, що швидко наближаються. Загубленість і втома; виснажлива подорож."
+  description: A drab old hen stops halfway across a wide and desolate road; behind her trail seven identical fallen hens of increasingly vibrant hues. She stares at twin lights fast approaching. Becoming Lost and Weary; An Exhausting Journey.
   components:
   - type: Card
     name: card-sc-eight-of-sparrows
@@ -712,7 +712,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScNineOfSparrows
-  description: "Звивиста дорога веде крізь снігову пустку. Дев’ять крячків ховаються в самотній смоківниці, але їхні очі спрямовані на мету дороги — роззявлену пащу величезного скелета дракона. Кінець близько; справжній сенс подорожі стає ясним; роздоріж більше немає, але вибір завжди лишається."
+  description: A winding road leads through a snowy wasteland. Nine terns shelter within a solitary fig tree, but their eyes are on the road's destination - the yawning maw of an enormous dragon skeleton. An End is Near; A Journey's True Meaning Becomes Clear; No More Forks in the Road, But Always a Choice.
   components:
   - type: Card
     name: card-sc-nine-of-sparrows
@@ -724,7 +724,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScTenOfSparrows
-  description: "Гніздо з десяти схожих на коштовності лялечок викидає на піщаний берег; вони починають вилуплюватися в колібрі. Ці люди взагалі знають, як працювали земні птахи? Перетворення завершується; новий дім; досягнений катарсис."
+  description: A nest of ten jewel-like chrysalises washes up on a sandy shore; they are beginning to hatch into hummingbirds. Do these people actually know how Earth birds worked? A Transformation Completes; A New Home; Catharsis is Achieved.
   components:
   - type: Card
     name: card-sc-ten-of-sparrows
@@ -736,7 +736,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScKnightOfSparrows
-  description: "Лицар-гарпія у головній пов’язці покоївки лагідно усміхається, показуючи фігурку з кінською головою гарчливому космічному дракону; голова дракона лежить у нього на колінах. Той, хто бореться за почуття і мистецтво; безстрашний дослідник; інтуїтивний мислитель."
+  description: A harpy knight wearing a maid's headband smiles gently as he displays a horse-headed gamepiece to a growling space dragon; the dragon's head is nestled in his lap. One Who Fights for Feeling and Art; A Fearless Explorer; An Intuitive Thinker.
   components:
   - type: Card
     name: card-sc-knight-of-sparrows
@@ -748,7 +748,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScPrincessOfSparrows
-  description: "Принцеса щасливо плескає, отримуючи від зграї завзятих співочих птахів свій портрет; він приєднується до її величезної купи книг, інструментів і прикрас. Акулячий мальок згорнувся біля її ніг, мов вірний пес. Та, хто надихає мистецтво або провокує емоції; жартівниця; та, хто вимагає щирості й цікавості."
+  description: A princess claps happily as she receives a painting of herself from a flock of eager songbirds; it joins her vast horde of books, instruments, and jewelry. A sharkminnow lies curled around her feet like a faithful hound. One Who Inspires Art or Provokes Emotions; A Prankster; One Who Demands Sincerity and Curiosity.
   components:
   - type: Card
     name: card-sc-princess-of-sparrows
@@ -760,7 +760,7 @@
   parent: CardBaseSparot
   categories: [ HideSpawnMenu ]
   id: CardScQueenOfSparrows
-  description: "Космічний дракон у короні королеви лагідно спрямовує орбіту землеподібної планети; її хвіст тримає пензель, вкритий зоряним пилом. Та, хто повністю налаштована на власні емоції; порадниця; клоунеса; провідниця крізь невідоме."
+  description: A space dragon wearing the crown of a queen gently guides an Earth-like planet's orbit; her tail grips a paintbrush tipped with stardust. One Fully Attuned to Her Emotions; A Counselor; A Clown; A Guide Through the Unknown.
   components:
   - type: Card
     name: card-sc-queen-of-sparrows

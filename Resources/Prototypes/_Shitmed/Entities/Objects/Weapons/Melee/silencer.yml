@@ -8,10 +8,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "глушник"
+  name: silencer
   parent: [ BaseItem, BaseMajorContraband ]
   id: Silencer
-  description: "Інструмент для того, щоб змусити людину замовкнути."
+  description: Tool for silencing humans.
   components:
   - type: Item
     sprite: _Shitmed/Objects/Weapons/Melee/silencer.rsi

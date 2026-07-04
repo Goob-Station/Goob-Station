@@ -13,7 +13,7 @@
 - type: entity
   id: PathfindPoint
   parent: MarkerBase
-  name: "точка патфайнду"
+  name: pathfind point
   components:
   - type: NPCPathfindPoint
   - type: Sprite

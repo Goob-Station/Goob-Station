@@ -1,8 +1,8 @@
 - type: entity
   id: MachineCoilGround
   parent: BaseMachine
-  name: "з'єднувальна котушка"
-  description: "Машини, під'єднані до інших машин? Яка збоченість."
+  name: connector coil
+  description: Machines connected to other machines? How perverse.
   placement:
     mode: AlignTileAny
   components:
@@ -29,9 +29,9 @@
 - type: entity
   id: MachineCoilGroundMirrored
   parent: MachineCoilGround
-  name: "з'єднувальна котушка"
+  name: connector coil
   suffix: mirrored
-  description: "Машини, під'єднані до інших машин? Яка збоченість."
+  description: Machines connected to other machines? How perverse.
   components:
   - type: Rotatable
   - type: Sprite
@@ -43,8 +43,8 @@
 - type: entity
   id: MachineElectricGridRusted
   parent: BaseMachinePowered
-  name: "іржава електрична решітка"
-  description: "Стара, зламана машина."
+  name: rusted electric grid
+  description: An old, broken down machine.
   placement:
     mode: AlignTileAny
   components:
@@ -78,8 +78,8 @@
 - type: entity
   id: MachineElectrolysRusted
   parent: BaseMachinePowered
-  name: "іржавий промисловий електролізер"
-  description: "Старий, зламаний генератор енергії."
+  name: rusted industrial electrolyzer
+  description: An old, broken down power generator.
   placement:
     mode: AlignTileAny
   components:
@@ -114,8 +114,8 @@
 - type: entity
   id: HatchLockedRusted
   parent: BaseMachine
-  name: "іржавий замкнений люк"
-  description: "Ідеально запечатаний, майже неможливо зламати."
+  name: rusted locked hatch
+  description: Perfectly sealed, nearly impossible to break open.
   placement:
     mode: AlignTileAny
   components:
@@ -150,8 +150,8 @@
 - type: entity
   id: MachineHeaterRusted
   parent: BaseMachinePowered
-  name: "іржавий обігрівач"
-  description: "Старий, зламаний обігрівач."
+  name: rusted heater
+  description: An old, broken down heater.
   placement:
     mode: AlignTileAny
   components:
@@ -185,8 +185,8 @@
 - type: entity
   id: ReactorCasingRusted
   parent: BaseMachine
-  name: "іржавий корпус реактора"
-  description: "Старі рештки зруйнованого підприємства."
+  name: rusted reactor casing
+  description: Old remains of a ruined venture.
   placement:
     mode: AlignTileAny
   components:
@@ -221,9 +221,9 @@
 - type: entity
   id: SignCERusted
   parent: BaseMachinePowered
-  name: "іржавий знак"
+  name: rusted sign
   suffix: mine
-  description: "Старий знак «Ейсід Ентерпрайз» для шахтарського аванпосту."
+  description: An old Acid Enteprise sign for a mining outpost.
   placement:
     mode: AlignTileAny
   components:
@@ -257,9 +257,9 @@
 - type: entity
   id: SignCEResearch
   parent: BaseMachinePowered
-  name: "іржавий знак"
+  name: rusted sign
   suffix: research post
-  description: "Старий знак «Ейсід Ентерпрайз» для дослідницького поста."
+  description: An old Acid Enteprise sign for a research post.
   placement:
     mode: AlignTileAny
   components:
@@ -293,8 +293,8 @@
 - type: entity
   id: TankRusted
   parent: BaseMachinePowered
-  name: "іржавий бак"
-  description: "Іржаві старі рештки невдалого підприємства."
+  name: rusted tank
+  description: The rusty old remains of a failed venture.
   components:
   - type: SpriteFade
   - type: Sprite
@@ -325,8 +325,8 @@
 - type: entity
   id: TankTallARusted
   parent: BaseMachinePowered
-  name: "іржавий бак"
-  description: "Іржаві старі рештки невдалого підприємства."
+  name: rusted tank
+  description: The rusty old remains of a failed venture.
   placement:
     mode: AlignTileAny
   components:
@@ -359,8 +359,8 @@
 - type: entity
   id: TankTallBRusted
   parent: BaseMachinePowered
-  name: "іржавий бак"
-  description: "Іржаві старі рештки невдалого підприємства."
+  name: rusted tank
+  description: The rusty old remains of a failed venture.
   placement:
     mode: AlignTileAny
   components:
@@ -393,8 +393,8 @@
 - type: entity
   id: MachineTurbineRusted
   parent: BaseMachinePowered
-  name: "іржава промислова турбіна"
-  description: "Стара, зламана промислова турбіна."
+  name: rusted industrial turbine
+  description: An old, broken down industrial turbine.
   placement:
     mode: AlignTileAny
   components:

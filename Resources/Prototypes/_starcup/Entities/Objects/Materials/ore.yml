@@ -3,9 +3,9 @@
 - type: entity
   parent: OreBase
   id: OreChromite
-  name: "хромітова руда"
+  name: chromite ore
   suffix: Full
-  description: "Темна металева руда, багата на хром і залізо. Дає шахтарські очки в переробнику руди."
+  description: A dark, metallic ore rich in chromium and iron. Worth mining points at an ore processor.
   components:
   - type: Stack
     stackType: ChromiteOre
@@ -32,9 +32,9 @@
 - type: entity
   parent: IngotBase
   id: IngotChromite
-  name: "хромітовий злиток"
+  name: chromite ingot
   suffix: Full
-  description: "Блискучий хромо-залізний злиток. Міцний і стійкий до корозії."
+  description: A lustrous chromium-iron ingot. Sturdy and corrosion-resistant.
   components:
   - type: Material
   - type: PhysicalComposition

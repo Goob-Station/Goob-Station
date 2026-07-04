@@ -1,8 +1,8 @@
 # Hollow trees
 - type: entity
   id: FloraTreeHollowBase
-  name: "порожнисте дерево"
-  description: "Це справді дерева...?"
+  name: hollow tree
+  description: Are these really trees... ?
   components:
   - type: Clickable
   - type: Sprite
@@ -78,8 +78,8 @@
   parent: BaseStumpStarcup
   id: HollowTreeStump
   suffix: hollow tree
-  name: "пень порожнистого дерева"
-  description: "Темний казан із м'ясистої деревини, повний смердючого слизу."
+  name: hollow tree stump
+  description: A dark cauldron of fleshy wood, full of foul-smelling ooze.
   components:
   - type: Sprite
     sprite: _starcup/Structures/Nature/Flora/Trees/AlienTrees/flora_hollowtrees.rsi

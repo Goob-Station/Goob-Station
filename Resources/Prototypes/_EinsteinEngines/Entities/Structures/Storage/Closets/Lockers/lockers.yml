@@ -2,8 +2,8 @@
   id: LockerForensicMantis
   parent: LockerDetective
   suffix: Empty
-  name: "шафа мантіса"
-  description: "Ви ніколи не дізнаєтесь, що всередині, доки не зруйнуєте квантову суперпозицію всіх можливих таємниць."
+  name: mantis' cabinet
+  description: You'll never know what's inside until you collapse the quantum superposition of all possible mysteries.
   components:
   # Because it holds a traitor objective, StrongMetallic,
   # but not as much HP as LockerBaseSecure, because it's not a Head's locker.

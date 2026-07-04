@@ -13,7 +13,7 @@
 
 - type: entity
   id: BaseSpeedLoaderCap
-  name: "зарядки для іграшкового пістолета"
+  name: "cap gun loader"
   parent: BaseItem
   abstract: true
   components:
@@ -44,7 +44,7 @@
 
 - type: entity
   id: SpeedLoaderCap
-  name: "зарядки для іграшкового пістолета"
+  name: "cap gun loader"
   parent: BaseSpeedLoaderCap
   components:
   - type: BallisticAmmoProvider

@@ -15,8 +15,8 @@
 - type: entity
   parent: [Clothing, ContentsExplosionResistanceBase]
   id: ClothingModsuitStandard
-  name: "стандартний блок керування модкостюмом"
-  description: "Спеціальний блок керування модульним костюмом, що містить усі необхідні частини модульного скафандра."
+  name: standard modsuit control unit
+  description: A special modular suit contol unit containing all necessary modular hardsuit parts.
   components:
   - type: Appearance
   - type: Sprite
@@ -99,8 +99,8 @@
 - type: entity
   parent: Clothing
   id: ClothingModsuitStandardNoStorage
-  name: "стандартний блок керування модкостюмом"
-  description: "Спеціальний блок керування модульним костюмом, що містить усі необхідні частини модульного скафандра."
+  name: standard modsuit control unit
+  description: A special modular suit contol unit containing all necessary modular hardsuit parts.
   components:
   - type: Appearance
   - type: Sprite
@@ -182,8 +182,8 @@
 - type: entity
   parent: [ClothingModsuitStandard, BaseSecurityContraband]
   id: ClothingModsuitSecurity
-  name: "блок керування мод-костюмом \"Солдат\" служби безпеки"
-  description: "Міцний модульний блок керування скафандром для побиття комуняк у космосі."
+  name: security soldat modsuit control unit
+  description: A robust modular hardsuit control module unit for thrashing commies in spess.
   components:
   - type: Appearance
   - type: Sprite
@@ -220,8 +220,8 @@
 - type: entity
   parent: [ClothingModsuitStandard, BaseCommandContraband]
   id: ClothingModsuitHeadOfSecurity
-  name: "блок керування мод-костюмом \"Бастіон\" голови служби безпеки"
-  description: "Міцний модульний блок керування МІЦНІШИМ скафандром для голови служби безпеки."
+  name: head of security's bulwark modsuit control unit
+  description: A robust modular HARDERsuit control module unit for the head of security.
   components:
   - type: Appearance
   - type: Clothing
@@ -266,8 +266,8 @@
 - type: entity
   parent: [ClothingModsuitStandard, BaseMedicalContraband]
   id: ClothingModsuitParamedic
-  name: "блок керування мод-костюмом \"Санітар"
-  description: "Модульний блок керування скафандром для парамедиків."
+  name: sanitater modsuit control unit
+  description: A modular hardsuit control module unit for paramedics.
   components:
   - type: Appearance
   - type: Sprite
@@ -309,8 +309,8 @@
 - type: entity
   parent: [ClothingModsuitStandard, BaseEngineeringContraband]
   id: ClothingModsuitEngineer
-  name: "блок керування мод-костюмом \"Сапер\" інженера"
-  description: "Модульний блок керування скафандром для витримування найбільших небезпек на роботі."
+  name: engineer sapper modsuit control unit
+  description: A modular hardsuit control module unit for withstanding the greatest hazards on the job.
   components:
   - type: Appearance
   - type: Sprite
@@ -349,8 +349,8 @@
 - type: entity
   parent: [ClothingModsuitStandard, BaseEngineeringContraband]
   id: ClothingModsuitAtmostech
-  name: "блок керування мод-костюмом \"Еол\" атмос-техніка"
-  description: "Модульний блок керування скафандром для витримування найбільших небезпек на роботі."
+  name: atmospheric technician aeolus modsuit control unit
+  description: A modular hardsuit control module unit for withstanding the greatest hazards on the job.
   components:
   - type: Appearance
   - type: Sprite
@@ -389,8 +389,8 @@
 - type: entity
   parent: [ClothingModsuitStandard, BaseCommandContraband, BaseGrandTheftContraband]
   id: ClothingModsuitResearchDirector
-  name: "блок керування мод-костюмом \"Мінерва\" наукового керівника"
-  description: "Модульний блок керування скафандром для витримування чергового вибуху шатла."
+  name: RD's minerva modsuit control unit
+  description: A modular hardsuit control module unit for withstanding another shuttlebomb.
   components:
   - type: Appearance
   - type: Sprite
@@ -432,8 +432,8 @@
 - type: entity
   parent: [ClothingModsuitStandard, BaseCommandContraband]
   id: ClothingModsuitCaptain
-  name: "блок керування мод-костюмом \"Магнат\" капітана"
-  description: "Інкрустований дорогоцінним камінням, відполірований до дзеркального блиску і абсолютно МАГНАТСЬКИЙ броньований мод-костюм. Охолоджуюча рідина — це кров драконів, розбавлена Доктором Гіббом. Це лайно для тебе ніщо, чувак." # goob edit - grammar
+  name: captain's magnate modsuit control unit
+  description: A gem-encrusted, mirror-shined and absolutely MAGNATE armored modsuit. The cooling fluid is dragons' blood watered down with Dr. Gibb. This shit is nothing to you, man. # goob edit - grammar
   components:
   - type: Appearance
   - type: Sprite

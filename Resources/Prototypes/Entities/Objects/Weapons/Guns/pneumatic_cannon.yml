@@ -32,10 +32,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "імпровізована пневматична гармата"
+  name: improvised pneumatic cannon
   parent: [BaseStorageItem, BaseMinorContraband]
   id: WeaponImprovisedPneumaticCannon
-  description: "Імпровізована з труби, кількох застібок-блискавок і пневматичної гармати. Не приймає танки без достатньої кількості бензину."
+  description: Improvised using nothing but a pipe, some zipties, and a pneumatic cannon. Doesn't accept tanks without enough gas.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Cannons/pneumatic_cannon.rsi
@@ -98,10 +98,10 @@
 
 
 - type: entity
-  name: "пирогова гармата"
+  name: pie cannon
   parent: BaseStorageItem
   id: LauncherCreamPie
-  description: "Завантажте кремовий пиріг для оптимального результату."
+  description: Load cream pie for optimal results.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Cannons/pie_cannon.rsi
@@ -140,10 +140,10 @@
         ents: []
 
 - type: entity
-  name: "експериментальна гарматка для пирогів"
+  name: experimental pie cannon
   parent: BaseWeaponBattery
   id: BorgLauncherCreamPie
-  description: "Доставляє щедру порцію вершків прямо в обличчя екіпажу! Автоматично випікає пироги з часом."
+  description: Deliver a generous portion of cream directly to the crew! Automatically bakes pies over time.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Cannons/pie_cannon.rsi

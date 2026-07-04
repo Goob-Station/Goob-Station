@@ -3,8 +3,8 @@
 - type: entity
   parent: MaterialBase
   id: MaterialCharonicHide
-  name: "харонічна шкіра"
-  description: "Шкірястий клапоть шкіри харонічної істоти. На дотик холодний і трохи вологий."
+  name: charonic hide
+  description: A leathery scrap of hide from a Charonic creature. It feels cold and slightly damp.
   suffix: Full
   components:
   - type: Sprite
@@ -45,8 +45,8 @@
 - type: entity
   parent: MaterialBase
   id: MaterialCharonicLeechTooth
-  name: "зуб харонічної п'явки"
-  description: "Зазубрений зуб харонічної п'явки. Дивовижно твердий."
+  name: charonic leech tooth
+  description: A serrated tooth from a Charonic leech. Surprisingly hard.
   suffix: Full
   components:
   - type: Sprite
@@ -75,8 +75,8 @@
 - type: entity
   parent: MaterialBase
   id: MaterialCharonicWispShard
-  name: "уламок харонічного вогника"
-  description: "Кристалічний фрагмент, що досі світиться блідо-блакитним світлом."
+  name: charonic wisp shard
+  description: A crystalline fragment that still glows with pale blue light.
   suffix: Full
   components:
   - type: Sprite
@@ -111,8 +111,8 @@
 - type: entity
   parent: MaterialBase
   id: MaterialCharonicIchor
-  name: "харонічний іхор"
-  description: "В'язка чорна рідина, зібрана з харонічних слизів. Має заспокійливі властивості після належного очищення."
+  name: charonic ichor
+  description: A viscous black fluid harvested from Charonic slimes. It has soothing properties when properly refined.
   suffix: Full
   components:
   - type: Sprite

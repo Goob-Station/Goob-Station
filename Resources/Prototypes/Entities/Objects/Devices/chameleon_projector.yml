@@ -15,8 +15,8 @@
 - type: entity
   parent: [BaseItem, BaseSyndicateContraband]
   id: ChameleonProjector
-  name: "проектор-хамелеон"
-  description: "Технологія голопаразитів використовується для створення жорсткої світлової копії будь-якого об'єкта навколо вас. Маскування знищується при піднятті або деактивації."
+  name: chameleon projector
+  description: Holoparasite technology used to create a hard-light replica of any object around you. Disguise is destroyed when picked up or deactivated.
   components:
   - type: Sprite
     sprite: /Textures/Objects/Devices/chameleon_projector.rsi
@@ -40,7 +40,7 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   id: ChameleonDisguise
-  name: "Уріст МакКляйнер"
+  name: Urist McKleiner
   components:
   # this and the name/desc get replaced, this is just placeholder incase something goes wrong
   - type: Sprite
@@ -57,8 +57,8 @@
 - type: entity
   parent: BaseAction
   id: ActionDisguiseNoRot
-  name: "Перемкнути Обертання"
-  description: "Використовуйте його, щоб запобігти обертанню маскування, що полегшує ховання в деяких сценаріях."
+  name: Toggle Rotation
+  description: Use this to prevent your disguise from rotating, making it easier to hide in some scenarios.
   components:
   - type: Action
     icon: Interface/VerbIcons/refresh.svg.192dpi.png
@@ -69,8 +69,8 @@
 - type: entity
   parent: BaseAction
   id: ActionDisguiseAnchor
-  name: "Перемкнути Закріплення"
-  description: "Для багатьох об'єктів ви захочете закріпитися, щоб не бути повністю очевидними."
+  name: Toggle Anchored
+  description: For many objects you will want to be anchored to not be completely obvious.
   components:
   - type: Action
     icon:

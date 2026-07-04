@@ -1,8 +1,8 @@
 - type: entity
   parent: FloorTileItemDark
   id: FloorTileItemCharonic
-  name: "харонічна плитка підлоги"
-  description: "Темні плитки, зв'язані смолою, що приглушують кроки."
+  name: charonic floor tile
+  description: Dark, resin-bound tiles that muffle footsteps.
   components:
   - type: Sprite
     state: dark

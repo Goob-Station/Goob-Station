@@ -1,7 +1,7 @@
 - type: entity
   id: BoxFolderNuclearCodes
   parent: BaseItem
-  name: "папка з ядерними кодами"
+  name: nuclear code folder
   components:
   - type: Sprite
     sprite: Objects/Misc/folders.rsi
@@ -21,8 +21,8 @@
 - type: entity
   id: BoxFolderBase
   parent: BoxBase
-  name: "папка"
-  description: "Папка з надсекретними документами."
+  name: folder
+  description: A folder filled with top secret paperwork.
   components:
   - type: Sprite
     sprite: Objects/Misc/folders.rsi
@@ -153,10 +153,10 @@
 
 - type: entity
   id: BoxFolderCentCom
-  name: "папка ЦентКому"
+  name: CentComm folder
   parent: BoxFolderBase
   categories: [ DoNotMap ]
-  description: "Жалюгідна купка секретів ЦентКому!"
+  description: CentComm's miserable little pile of secrets!
   components:
   - type: Sprite
     layers:
@@ -166,8 +166,8 @@
 - type: entity
   id: BoxFolderClipboard
   parent: BoxFolderBase
-  name: "буфер обміну"
-  description: "Зброя вибору для тих, хто знаходиться на передовій лінії бюрократії."
+  name: clipboard
+  description: The weapon of choice for those on the front lines of bureaucracy.
   components:
   - type: Sprite
     sprite: Objects/Misc/clipboard.rsi
@@ -226,8 +226,8 @@
 - type: entity
   id: BoxFolderCentComClipboard
   parent: BoxFolderClipboard
-  name: "планшет ЦентКому"
-  description: "Розкішний планшет, оббитий зеленим оксамитом. Часто бачили, як його носять чиновники ЦентКому, рідко бачили, щоб ним справді користувалися."
+  name: CentComm clipboard
+  description: A luxurious clipboard upholstered with green velvet. Often seen carried by CentComm officials, seldom seen actually used.
   components:
   - type: Sprite
     sprite: Objects/Misc/cc-clipboard.rsi
@@ -248,8 +248,8 @@
 - type: entity
   id: BoxFolderQmClipboard
   parent: [BoxFolderClipboard, BaseGrandTheftContraband]
-  name: "електроплата замовлень"
-  description: "Громіздкий електричний буфер обміну, заповнений замовленнями на доставку та фінансовими деталями. Маючи стільки компрометуючих документів, ви повинні зберігати його в безпеці."
+  name: requisition digi-board
+  description: A bulky electric clipboard, filled with shipping orders and financing details. With so many compromising documents, you ought to keep this safe.
   components:
   - type: Sprite
     sprite: Objects/Misc/qm_clipboard.rsi

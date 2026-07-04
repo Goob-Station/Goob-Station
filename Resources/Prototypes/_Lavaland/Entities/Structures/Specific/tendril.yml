@@ -23,9 +23,9 @@
 - type: entity
   id: LavalandTendrilBase
   parent: BaseStructure
-  name: "вусик"
+  name: tendril
   abstract: true
-  description: "Величезна структура."
+  description: A huge structure.
   components:
   - type: Sprite
     noRot: true
@@ -93,8 +93,8 @@
 - type: entity
   parent: LavalandTendrilBase
   id: LavalandTendrilGoliath
-  name: "вусик"
-  description: "Величезна структура."
+  name: tendril
+  description: A huge structure.
   suffix: Goliath
   components:
   - type: SpawnTableOnTrigger

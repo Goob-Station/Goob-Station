@@ -20,8 +20,8 @@
 - type: entity
   parent: BaseFlatpack
   id: JustDecorWitchCauldronFlatpack
-  name: "плаский ящик казана відьми"
-  description: "Розкладний набір для ритуального казана. Після встановлення лишається тільки закріпити його ключем."
+  name: плаский ящик казана відьми
+  description: Розкладний набір для ритуального казана. Після встановлення лишається тільки закріпити його ключем. 
   suffix: Відьма, JustDecor
   components:
   - type: Flatpack
@@ -33,8 +33,8 @@
 - type: entity
   parent: BaseFlatpack
   id: JustDecorAlchemistApparatusFlatpack
-  name: "плаский ящик алхімічного апарата"
-  description: "Розкладний набір для алхіміка. Після встановлення лишається тільки закріпити його ключем."
+  name: плаский ящик алхімічного апарата
+  description: Розкладний набір для алхіміка. Після встановлення лишається тільки закріпити його ключем. 
   suffix: Алхім., JustDecor
   components:
   - type: Flatpack

@@ -132,8 +132,8 @@
 - type: entity
   parent: [ ClothingBeltBaseCloneProjector, BaseGrandTheftContraband ]
   id: ClothingBeltGeminiHoloProjector
-  name: "голографічна установка \"ax-32 \"\"gemini\"\""
-  description: "Високотехнологічна голографічна установка, яка підключається безпосередньо до спинного мозку користувача для створення його точної копії. Справжнє диво технології Нанотрейзен."
+  name: ax-32 "gemini" holo-projector rig
+  description: A highly advanced holo-projector rig that interfaces directly with the users spinal cord to generate an exact copy of them. Truly a marvel of Nanotrasen technology.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Belt/geminiprojector.rsi
@@ -161,8 +161,8 @@
 - type: entity
   parent: [ ClothingBeltBaseCloneProjector, BaseCentcommContraband ]
   id: ClothingBeltMonozygoticHoloProjector
-  name: "голо-проєкторна установка ax-48 \"монозиготна"
-  description: "Виготовлений на замовлення експериментальний варіант ax-32, модернізований для використання Центральним Командуванням."
+  name: ax-48 "monozygotic" holo-projector rig
+  description: An custom made, experimental variant of the ax-32, retrofitted for use by Central Command.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Belt/geminiprojector.rsi

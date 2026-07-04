@@ -90,8 +90,8 @@
 - type: entity
   parent: [BaseRogueAscendedObjective, BaseSurviveObjective]
   id: RogueAscendedSurviveObjective
-  name: "Вижити"
-  description: "Вижити до кінця всього сущого."
+  name: Survive
+  description: Survive until the end of all things.
   components:
   - type: Objective
     icon:

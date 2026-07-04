@@ -27,13 +27,13 @@
 - type: entity
   parent: [ClothingHeadsetAltSyndicate, ClothingHeadsetAltLoudspeaker]
   id: ClothingHeadsetAltSyndicateCommander
-  name: "криваво-червона командирська гарнітура"
+  name: blood-red commander over-ear headset
 
 - type: entity
   parent: ClothingHeadset
   id: ClothingHeadsetChronolegioneer
-  name: "футуристична накладна гарнітура"
-  description: "Гарнітура з майбутнього, яка може приймати більшість частот радіостанцій."
+  name: futuristic over-ear headset
+  description: A headset from the future that can pick up most station frequencies.
   components:
   - type: ContainerFill
     containers:
@@ -54,8 +54,8 @@
 - type: entity
   parent: [ClothingHeadsetAlt, BaseSecurityContraband]
   id: ClothingHeadsetAltWarden
-  name: "навушники наглядача"
-  description: "Оновлений, модульний інтерком, що дозволяє швидко спілкуватися з командним персоналом."
+  name: warden's over-ear headset
+  description: An updated, modular intercom, allowing for rapid communication with command personnel.
   components:
   - type: ContainerFill
     containers:
@@ -71,7 +71,7 @@
 - type: entity
   parent: [ClothingHeadsetAlt, BaseCentcommContraband]
   id: ClothingHeadsetDeathsquad
-  name: "навушники загону смерті"
+  name: deathsquad over-ear headset
   components:
   - type: ContainerFill
     containers:
@@ -88,7 +88,7 @@
 - type: entity
   parent: [ClothingHeadsetAlt, BaseSecurityContraband]
   id: ClothingHeadsetAltSecurityRegular
-  name: "гарнітура служби безпеки"
+  name: security over-ear headset
   components:
   - type: ContainerFill
     containers:
@@ -103,7 +103,7 @@
 - type: entity
   parent: [ClothingHeadsetAlt, BaseCentcommContraband]
   id: ClothingHeadsetAltBlueshield
-  name: "навушники офіцера синього щита"
+  name: blueshield officers over-ear headset
   components:
   - type: ContainerFill
     containers:
@@ -119,8 +119,8 @@
 - type: entity
   parent: ClothingHeadsetCommand
   id: ClothingHeadsetCommandService
-  name: "командно-сервісна гарнітура"
-  description: "Гарнітура з каналами командування та сервісу."
+  name: command-service headset
+  description: A headset with a command and service channels.
   components:
   - type: ContainerFill
     containers:
@@ -132,8 +132,8 @@
 - type: entity
   parent: ClothingHeadsetAlt
   id: ClothingHeadsetAltRadioHost
-  name: "накладна гарнітура радіоведучого"
-  description: "Накладна гарнітура з додатковою м’якою пінною підкладкою навколо вух."
+  name: Radio host's over-ear headset
+  description: An over-ear headset with extra foam padding around the ears.
   components:
   - type: ContainerFill
     containers:
