@@ -387,7 +387,7 @@
   description: task-ntr-kira-special-desc
   reagentTask: true
   reagents:
-    KiraSpecial: 3000
+    OrangeLimeSoda: 3000
   entries:
   - name: task-ntr-drink-base-name
     stamps: [ ]

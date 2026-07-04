@@ -36,8 +36,7 @@
       - !type:Jitter
         time: 5
         frequency: 20
-      - !type:ExplosionReactionEffect
-        delay: 5
+      - !type:Explosion
         explosionType: FireBomb # bomboclat
         maxIntensity: 1050
         intensitySlope: 4

@@ -14,6 +14,7 @@ using Content.Shared.Effects;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;
 using Content.Shared._EinsteinEngines.SelfExtinguisher;
+using Content.Shared.Atmos.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;

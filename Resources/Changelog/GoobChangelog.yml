@@ -23652,3 +23652,11 @@ Entries:
       message: Syndicate chemvend now has the proper amount of empty jugs (8).
   id: 2714
   time: '2026-07-02T13:00:02.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Add
+      message: >-
+        Upstream merge will break things. Make a github issue or check upstream
+        bugs threads in the discord and report things breaking for fixes.
+  id: 2715
+  time: '2026-07-04T02:14:46.0000000+00:00'

@@ -22,7 +22,7 @@
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateGas
         gas: Pluoxium
-        multiplier: 55
+        moles: 55
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:

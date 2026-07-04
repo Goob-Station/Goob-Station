@@ -42,7 +42,6 @@ using Content.Shared.Singularity.Events;
 using Robust.Server.GameStates;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameStates;
-using Robust.Shared.Timing;
 
 namespace Content.Server.Singularity.EntitySystems;
 
@@ -55,7 +54,6 @@ namespace Content.Server.Singularity.EntitySystems;
 public sealed class SingularitySystem : SharedSingularitySystem
 {
 #region Dependencies
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly PvsOverrideSystem _pvs = default!;
 #endregion Dependencies
@@ -103,9 +101,6 @@ public sealed class SingularitySystem : SharedSingularitySystem
     /// <param name="frameTime">The amount of time since the last set of updates.</param>
     public override void Update(float frameTime)
     {
-        if(!_timing.IsFirstTimePredicted)
-            return;
-
         var query = EntityQueryEnumerator<SingularityComponent>();
         while (query.MoveNext(out var uid, out var singularity))
         {

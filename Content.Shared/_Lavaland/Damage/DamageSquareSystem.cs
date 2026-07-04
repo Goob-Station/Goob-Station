@@ -103,7 +103,7 @@ public sealed class DamageSquareSystem : EntitySystem
             if (!_damageQuery.TryComp(target, out var damageable)
                 || _immuneQuery.HasComp(target)
                 || _whitelist.IsWhitelistFail(field.Comp.DamageWhitelist, target)
-                || _whitelist.IsBlacklistPass(field.Comp.DamageBlacklist, target))
+                || _whitelist.IsWhitelistFail(field.Comp.DamageBlacklist, target))
                 continue;
 
             if (_net.IsServer) // Movement prediction is wonky and doesn't compensate for lag

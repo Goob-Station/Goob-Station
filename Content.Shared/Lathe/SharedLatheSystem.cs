@@ -82,6 +82,7 @@ public abstract class SharedLatheSystem : EntitySystem
     [Dependency] private readonly EmagSystem _emag = default!;
 
     public readonly Dictionary<string, List<LatheRecipePrototype>> InverseRecipes = new();
+    public const int MaxItemsPerRequest = 10_000;
 
     public override void Initialize()
     {
@@ -145,6 +146,8 @@ public abstract class SharedLatheSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return false;
         if (!HasRecipe(uid, recipe, component))
+            return false;
+        if (amount <= 0)
             return false;
 
         foreach (var (material, needed) in recipe.Materials)

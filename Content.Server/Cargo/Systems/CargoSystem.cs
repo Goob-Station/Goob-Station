@@ -164,49 +164,4 @@ public sealed partial class CargoSystem : SharedCargoSystem
         UpdateTelepad(frameTime);
         UpdateBounty();
     }
-
-    public void UpdateBankAccount(
-        Entity<StationBankAccountComponent?> ent,
-        int balanceAdded,
-        ProtoId<CargoAccountPrototype> account,
-        bool dirty = true)
-    {
-        UpdateBankAccount(
-            ent,
-            balanceAdded,
-            new Dictionary<ProtoId<CargoAccountPrototype>, double> { {account, 1} },
-            dirty: dirty);
-    }
-
-    /// <summary>
-    /// Adds or removes funds from the <see cref="StationBankAccountComponent"/>.
-    /// </summary>
-    /// <param name="ent">The station.</param>
-    /// <param name="balanceAdded">The amount of funds to add or remove.</param>
-    /// <param name="accountDistribution">The distribution between individual <see cref="CargoAccountPrototype"/>.</param>
-    /// <param name="dirty">Whether to mark the bank account component as dirty.</param>
-    [PublicAPI]
-    public void UpdateBankAccount(
-        Entity<StationBankAccountComponent?> ent,
-        int balanceAdded,
-        Dictionary<ProtoId<CargoAccountPrototype>, double> accountDistribution,
-        bool dirty = true)
-    {
-        if (!Resolve(ent, ref ent.Comp))
-            return;
-
-        foreach (var (account, percent) in accountDistribution)
-        {
-            var accountBalancedAdded = (int) Math.Round(percent * balanceAdded);
-            ent.Comp.Accounts[account] += accountBalancedAdded;
-        }
-
-        var ev = new BankBalanceUpdatedEvent(ent, ent.Comp.Accounts);
-        RaiseLocalEvent(ent, ref ev, true);
-
-        if (!dirty)
-            return;
-
-        Dirty(ent);
-    }
 }
