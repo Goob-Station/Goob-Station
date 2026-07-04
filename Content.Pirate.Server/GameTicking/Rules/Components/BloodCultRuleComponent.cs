@@ -168,9 +168,9 @@ public sealed partial class BloodCultRuleComponent : Component
 	[DataField] public int CultistsToSacrifice = 1;
 
 	/// <summary>
-	/// Number of players required to convert a player.
+	/// Number of cultists required to convert a player.
 	/// </summary>
-	[DataField] public int CultistsToConvert = 2;
+	[DataField] public int CultistsToConvert = 1;
 
 	/// <summary>
 	/// Minimum number of cultists required on Tear Veil runes to complete the ritual.

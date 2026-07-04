@@ -66,6 +66,7 @@ namespace Content.Server.BloodCult.EntitySystems
 	public sealed partial class OfferOnTriggerSystem : EntitySystem
 	{
 		private const string MindShieldTag = "MindShield";
+		private const int MindshieldBreakCultistsRequired = 2;
 
 		[Dependency] private readonly PopupSystem _popupSystem = default!;
 		[Dependency] private readonly EntityLookupSystem _lookup = default!;
@@ -728,8 +729,8 @@ namespace Content.Server.BloodCult.EntitySystems
 			return;
 		}
 
-		// Require 3 cultists total (user + 2 others)
-		if (cultistsInRange.Length < 3)
+		// Require 2 cultists total (user + 1 other)
+		if (cultistsInRange.Length < MindshieldBreakCultistsRequired)
 		{
 			_popupSystem.PopupEntity(
 				Loc.GetString("cult-invocation-fail"),
@@ -893,8 +894,8 @@ namespace Content.Server.BloodCult.EntitySystems
 		validParticipants.Add(participant);
 	}
 
-	// Still need 3 cultists at the end
-	if (validParticipants.Count < 3)
+	// Still need 2 cultists at the end
+	if (validParticipants.Count < MindshieldBreakCultistsRequired)
 	{
 		// Show failure message to all participants who are still around
 		foreach (var participant in participants)
