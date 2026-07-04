@@ -8,7 +8,7 @@ using Content.Shared.EntityEffects;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.BloodCult.EntityEffects.EffectConditions;
+namespace Content.Shared.BloodCult.EntityEffects.EffectConditions;
 
 /// <summary>
 /// Condition that checks if an entity is a Blood Cultist.
@@ -37,4 +37,3 @@ public sealed partial class IsBloodCultist : EntityEffectCondition
         return Loc.GetString("reagent-effect-condition-guidebook-is-blood-cultist", ("invert", Invert));
     }
 }
-

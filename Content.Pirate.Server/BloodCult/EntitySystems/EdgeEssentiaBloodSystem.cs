@@ -2,7 +2,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
 
-using Content.Server.BloodCult.EntityEffects;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.GameTicking;
