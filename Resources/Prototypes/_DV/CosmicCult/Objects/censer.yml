@@ -1,0 +1,71 @@
+- type: tool
+  id: Censer
+  name: tool-quality-censer-name
+  toolName: tool-quality-censer-tool-name
+  spawn: CosmicCenser
+  icon: { sprite: _DV/CosmicCult/Objects/censer.rsi, state: icon }
+
+- type: entity
+  parent: BaseItem
+  id: CosmicCenser
+  name: ardent censer
+  description: Cleanses and sanctifies the air around it. If used on another being, it would irreversibly wipe their memories.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _DV/CosmicCult/Objects/censer.rsi
+    layers:
+    - state: icon
+    - state: flame
+      visible: false
+      shader: unshaded
+      map: ["enum.ToggleableVisuals.Layer"]
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+  - type: ItemToggleSize
+    activatedSize: Large
+  - type: ItemToggle
+    predictable: false
+  - type: CosmicCenser
+    failedDeconversionDamage:
+      types:
+        Cold: 80
+  - type: Tool
+    qualities: Censer
+  - type: Welder
+    fuelSolutionName: Censer
+    fuelReagent: MindbreakerToxin
+    fuelConsumption: 0.5
+  - type: RefillableSolution
+    solution: Censer
+  - type: SolutionContainerManager
+    solutions:
+      Censer:
+        reagents:
+        - ReagentId: MindbreakerToxin
+          Quantity: 50
+        maxVol: 50
+  - type: ItemTogglePointLight
+  - type: Spillable
+    solution: Censer
+  - type: ToggleableVisuals
+    spriteLayer: flame
+    inhandVisuals:
+      left:
+      - state: inhand-left-flame
+        shader: unshaded
+      right:
+      - state: inhand-right-flame
+        shader: unshaded
+  - type: Appearance
+  - type: PointLight
+    enabled: false
+    radius: 1.5
+    energy: 2
+    color: "#7742a8"
+    netsync: false

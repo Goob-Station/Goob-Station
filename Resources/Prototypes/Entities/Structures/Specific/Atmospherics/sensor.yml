@@ -79,43 +79,39 @@
   id: AirSensorBase
   abstract: true
   components:
-    - type: DeviceNetwork
-      deviceNetId: AtmosDevices
-      receiveFrequencyId: AtmosMonitor
-      transmitFrequencyId: AtmosMonitor
-      prefix: device-address-prefix-sensor
-      sendBroadcastAttemptEvent: true
-      examinableAddress: true
-    - type: WiredNetworkConnection
-    - type: DeviceNetworkRequiresPower
-    - type: AtmosDevice
-    - type: AtmosMonitor
-      temperatureThresholdId: stationTemperature
-      pressureThresholdId: stationPressure
-      gasThresholdPrototypes:
-        Oxygen: stationOxygen
-        Nitrogen: stationNitrogen
-        CarbonDioxide: stationCO2
-        Plasma: stationPlasma
-        Tritium: stationTritium
-        WaterVapor: stationWaterVapor
-        Ammonia: stationAmmonia
-        NitrousOxide: stationNO
-        Frezon: danger
-        # <Goobstation>
-        BZ: danger
-        Healium: ignore # it's harmless unless you also breathe in nitrium, which is danger
-        Nitrium: danger
-        Pluoxium: ignore
-        # </Goobstation>
-    - type: Tag
-      tags:
-        - AirSensor
-        - ForceFixRotations
-    - type: GuideHelp
-      guides:
-        - DeviceMonitoringAndControl
-        - AtmosphericsSystems
+  - type: DeviceNetwork
+    deviceNetId: AtmosDevices
+    receiveFrequencyId: AtmosMonitor
+    transmitFrequencyId: AtmosMonitor
+    prefix: device-address-prefix-sensor
+    sendBroadcastAttemptEvent: true
+    examinableAddress: true
+  - type: WiredNetworkConnection
+  - type: DeviceNetworkRequiresPower
+  - type: AtmosDevice
+  - type: AtmosMonitor
+    temperatureThresholdId: stationTemperature
+    pressureThresholdId: stationPressure
+    gasThresholdPrototypes:
+      Oxygen: stationOxygen
+      Nitrogen: stationNitrogen
+      CarbonDioxide: stationCO2
+      Plasma: stationPlasma
+      Tritium: stationTritium
+      WaterVapor: stationWaterVapor
+      Ammonia: stationAmmonia
+      NitrousOxide: stationNO
+      Frezon: danger
+      # <Goobstation>
+      BZ: danger
+      Healium: ignore # it's harmless unless you also breathe in nitrium, which is danger
+      Nitrium: danger
+      Pluoxium: ignore
+      # </Goobstation>
+  - type: GuideHelp
+    guides:
+    - DeviceMonitoringAndControl
+    - AtmosphericsSystems
 
 - type: entity
   id: AirSensor
@@ -173,6 +169,10 @@
         enum.PowerDeviceVisualLayers.Powered:
           True: { state: gsensor1 }
           False: { state: gsensor0 }
+  - type: Tag
+    tags:
+    - AirSensor
+    - ForceFixRotations
 
 - type: entity
   parent: BaseItem

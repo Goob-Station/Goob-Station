@@ -1,12 +1,12 @@
 using Content.Server._Obelisk.Species.Components;
 using Content.Server.Popups;
-using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Shared._Mono.Species.Systems;
 using Content.Shared._Obelisk.Actions.Events;
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Temperature.Components;
 using Robust.Shared.Audio.Systems;
 
 namespace Content.Server._Obelisk.Species.Systems;
@@ -37,7 +37,11 @@ public sealed class HydrakinSystem : EntitySystem
 
     private void OnCoolOff(EntityUid uid, HydrakinComponent component, HydrakinCoolOffActionEvent args)
     {
-        var doafter = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(3), new CoolOffDoAfterEvent(), uid);
+        var doafter = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(3), new CoolOffDoAfterEvent(), uid){
+            NeedHand = false,
+            RequireCanInteract = false,
+            BreakOnHandChange = false
+        };
 
         if (!_doAfter.TryStartDoAfter(doafter))
             return;

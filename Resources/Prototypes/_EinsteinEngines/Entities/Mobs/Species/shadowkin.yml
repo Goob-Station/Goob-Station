@@ -111,12 +111,16 @@
     bloodlossHealDamage:
       types:
         Bloodloss: -0.25
-    bloodReagent: BlackBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: BlackBlood
+        Quantity: 200
   - type: Temperature
-    heatDamageThreshold: 330
-    coldDamageThreshold: 195
     currentTemperature: 310.15
     specificHeat: 46
+  - type: TemperatureDamage
+    heatDamageThreshold: 330
+    coldDamageThreshold: 195
     coldDamage:
       types:
         Cold: 0.05 #per second, scales with temperature & other constants

@@ -1,179 +1,3 @@
-# SPDX-FileCopyrightText: 2020 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 Vera Aguilera Puerto <zddm@outlook.es>
-# SPDX-FileCopyrightText: 2021 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 fishfish458 <fishfish458>
-# SPDX-FileCopyrightText: 2022 Checkraze <71046427+Cheackraze@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Demetre Beroshvili <69920861+Capnsockless@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Rinkashikachi <15rinkashikachi15@gmail.com>
-# SPDX-FileCopyrightText: 2022 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
-# SPDX-FileCopyrightText: 2022 Willhelm53 <97707302+Willhelm53@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 AJCM <AJCM@tutanota.com>
-# SPDX-FileCopyrightText: 2023 Arendian <137322659+Arendian@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 CMDR-Piboy314 <92357316+CMDR-Piboy314@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 ElectroJr <leonsfriedrich@gmail.com>
-# SPDX-FileCopyrightText: 2023 EnDecc <33369477+Endecc@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Gotimanga <127038462+Gotimanga@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2023 Puro <103608145+PuroSlavKing@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Renlou <rubensvidal@hotmail.co.uk>
-# SPDX-FileCopyrightText: 2023 eclips_e <67359748+Just-a-Unity-Dev@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lapatison <100279397+lapatison@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lzk228 <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 mhamster <81412348+mhamsterr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 BeeRobynn <robynthewarcrime@proton.me>
-# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 CaasGit <87243814+CaasGit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
-# SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
-# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Firewatch <54725557+musicmanvr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kukutis96513 <146854220+Kukutis96513@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Lye <128915833+Lyroth001@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MACMAN2003 <macman2003c@gmail.com>
-# SPDX-FileCopyrightText: 2024 MerrytheManokit <167581110+MerrytheManokit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Neptune <Captain03chaos@gmail.com>
-# SPDX-FileCopyrightText: 2024 OrangeMoronage9622 <whyteterry0092@gmail.com>
-# SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Plyush <121322002+toasterpm87@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 PoTeletubby <ajcraigaz@gmail.com>
-# SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Scruq445 <storchdamien@gmail.com>
-# SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tyzemol <85772526+Tyzemol@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
-# SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2024 Vigers Ray <60344369+VigersRay@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
-# SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-# SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 gambesun <116504990+gambesun@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-# SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
-# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 xprospero <116504990+xprospero@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Evige <jussi.heikkila1@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
-# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Plyush <121322002+Plyushsune@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 RatherUncreative <RatherUncreativeName@proton.me>
-# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-# SPDX-FileCopyrightText: 2025 SpaceLizard <the.justice.league.of.canada@gmail.com>
-# SPDX-FileCopyrightText: 2025 TeenSarlacc <46608342+TeenSarlacc@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
-# SPDX-FileCopyrightText: 2025 plyush <121322002+toasterpm87@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
-- type: entityTable
-  id: AllPlushiesTable
-  table: !type:GroupSelector
-    children:
-    - id: PlushieBee
-    - id: PlushieNar
-      weight: 0.5
-    - id: PlushieRatvar
-      weight: 0.5
-    - id: PlushieNuke
-    - id: PlushieSlime
-    - id: PlushieSnake
-    - id: PlushieExperiment
-    - !type:GroupSelector
-      children:
-      - id: PlushieLizard
-        weight: 9
-      - id: PlushieSpaceLizard
-        weight: 1
-      - id: PlushieLizardInversed
-        weight: 0.5
-    - !type:GroupSelector
-      children:
-      - id: PlushieCarp
-      - id: PlushieHolocarp
-        weight: 0.25
-      - id: PlushieMagicarp
-        weight: 0.25
-      - id: PlushieRainbowCarp
-        weight: 0.15
-    - id: PlushieVox
-    - id: PlushieRouny
-    - !type:GroupSelector
-      children:
-      - id: PlushieSharkBlue
-      - id: PlushieSharkGrey
-      - id: PlushieSharkPink
-    - id: PlushieAtmosian
-    - id: PlushieDiona
-    - id: PlushieXeno
-    - id: PlushieHampter
-    - id: PlushieMoth
-    - id: PlushieArachind
-    - id: PlushiePenguin
-
 - type: entityTable
   id: AllPottedPlantsTable
   table: !type:GroupSelector
@@ -205,8 +29,8 @@
     - id: PottedPlant26
 
 - type: entity
-  id: CratePlants
   parent: CrateGenericSteel
+  id: CratePlants
   name: plant crate
   description: A variety pack of potted plants to spruce up your station!
   components:
@@ -218,8 +42,8 @@
           value: 5
 
 - type: entity
-  id: CrateFunPlushie
   parent: CrateGenericSteel
+  id: CrateFunPlushie
   name: plushie crate
   description: A buncha soft plushies. Throw them around and then wonder how you're gonna explain this purchase to NT.
   components:
@@ -231,25 +55,21 @@
           value: 10
 
 - type: entity
-  id: CrateFunLizardPlushieBulk
   parent: CrateGenericSteel
+  id: CrateFunLizardPlushieBulk
   name: bulk lizard plushie crate
   description: A buncha soft lizard plushies. Throw them around and then wonder how you're gonna explain this purchase to NT.
   components:
   - type: EntityTableContainerFill
     containers:
-      entity_storage: !type:AllSelector
-        children:
-        - id: PlushieLizard
-          amount: !type:ConstantNumberSelector
-            value: 3
-        - id: PlushieSpaceLizard
-          amount: !type:ConstantNumberSelector
-            value: 3
+      entity_storage: !type:NestedSelector
+        tableId: AllLizardPlushieTable
+        rolls: !type:ConstantNumberSelector
+          value: 6
 
 - type: entity
-  id: CrateFunSharkPlushieBulk
   parent: CrateGenericSteel
+  id: CrateFunSharkPlushieBulk
   name: bulk soft toy shark crate
   description: A crate filled with a variety of everyone's favorite finned friend. Rawr!
   components:
@@ -268,347 +88,402 @@
             value: 2
 
 - type: entity
-  id: CrateFunInstrumentsVariety
   parent: CrateGenericSteel
+  id: CrateFunInstrumentsVariety
   name: variety instrument collection
   description: Get your sad station movin' and groovin' with this catch-all variety pack! Contains seven different instruments.
   components:
-  - type: StorageFill
-    contents:
-      - id: SynthesizerInstrument
-      - id: AcousticGuitarInstrument
-      - id: TrumpetInstrument
-      - id: AccordionInstrument
-      - id: HarmonicaInstrument
-      - id: RecorderInstrument
-      - id: GlockenspielInstrument
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: SynthesizerInstrument
+        - id: AcousticGuitarInstrument
+        - id: TrumpetInstrument
+        - id: AccordionInstrument
+        - id: HarmonicaInstrument
+        - id: RecorderInstrument
+        - id: GlockenspielInstrument
 
 - type: entity
-  id: CrateFunInstrumentsBrass
   parent: CrateGenericSteel
+  id: CrateFunInstrumentsBrass
   name: brass instrument ensemble crate
   description: Bring some jazz to the station with the brass ensemble. Contains a variety of brass instruments for the whole station to play.
   components:
-  - type: StorageFill
-    contents:
-      - id: TrumpetInstrument
-        amount: 2
-      - id: TromboneInstrument
-        amount: 2
-      - id: FrenchHornInstrument
-        amount: 2
-      - id: EuphoniumInstrument
-      - id: TubaInstrument
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: TrumpetInstrument
+          amount: 2
+        - id: TromboneInstrument
+          amount: 2
+        - id: FrenchHornInstrument
+          amount: 2
+        - id: EuphoniumInstrument
+        - id: TubaInstrument
 
 - type: entity
-  id: CrateFunInstrumentsString
   parent: CrateGenericSteel
+  id: CrateFunInstrumentsString
   name: string instrument ensemble crate
   description: Pluck or pick, slap or shred! Play a smooth melody or melt peoples' faces with this package of stringed instruments.
   components:
-  - type: StorageFill
-    contents:
-      - id: AcousticGuitarInstrument
-      - id: ElectricGuitarInstrument
-      - id: BassGuitarInstrument
-      - id: RockGuitarInstrument
-      - id: BanjoInstrument
-      - id: ViolinInstrument
-      - id: CelloInstrument
-      - id: ViolaInstrument
-      - id: HarpInstrument
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: AcousticGuitarInstrument
+        - id: ElectricGuitarInstrument
+        - id: BassGuitarInstrument
+        - id: RockGuitarInstrument
+        - id: BanjoInstrument
+        - id: ViolinInstrument
+        - id: CelloInstrument
+        - id: ViolaInstrument
+        - id: HarpInstrument
 
 - type: entity
-  id: CrateFunInstrumentsWoodwind
   parent: CrateGenericSteel
+  id: CrateFunInstrumentsWoodwind
   name: woodwind instrument ensemble crate
   description: If atmos is good at their job, use air to play music with these woodwind instruments! Real wood not guaranteed with every item.
   components:
-  - type: StorageFill
-    contents:
-      - id: RecorderInstrument
-        amount: 2
-      - id: BagpipeInstrument
-      - id: ClarinetInstrument
-      - id: FluteInstrument
-      - id: HarmonicaInstrument
-        amount: 2
-      - id: SaxophoneInstrument
-        amount: 2
-      - id: OcarinaInstrument
-      - id: PanFluteInstrument
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: RecorderInstrument
+          amount: 2
+        - id: BagpipeInstrument
+        - id: ClarinetInstrument
+        - id: FluteInstrument
+        - id: HarmonicaInstrument
+          amount: 2
+        - id: SaxophoneInstrument
+          amount: 2
+        - id: OcarinaInstrument
+        - id: PanFluteInstrument
 
 - type: entity
-  id: CrateFunInstrumentsKeyedPercussion
   parent: CrateGenericSteel
+  id: CrateFunInstrumentsKeyedPercussion
   name: keyed/percussion instrument ensemble crate
   description: Hit some keys with some sticks or your hands, with this Keyed and Percussion instrument ensemble crate.
   components:
-  - type: StorageFill
-    contents:
-      - id: SynthesizerInstrument
-        amount: 2
-      - id: AccordionInstrument
-        amount: 2
-      - id: KalimbaInstrument
-        amount: 2
-      - id: WoodblockInstrument
-      - id: GlockenspielInstrument
-        amount: 2
-      - id: VibraphoneInstrument
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: SynthesizerInstrument
+          amount: 2
+        - id: AccordionInstrument
+          amount: 2
+        - id: KalimbaInstrument
+          amount: 2
+        - id: WoodblockInstrument
+        - id: GlockenspielInstrument
+          amount: 2
+        - id: VibraphoneInstrument
 
 - type: entity
-  id: CrateFunInstrumentsSpecial
   parent: CrateGenericSteel
+  id: CrateFunInstrumentsSpecial
   name: special instrument collector's crate
   description: Create some noise with this special collection of arguably-instruments! Centcomm is not responsible for any trauma caused by the contents.
   components:
-  - type: StorageFill
-    contents:
-      - id: BikeHornInstrument
-      - id: MusicBoxInstrument
-      - id: SeashellInstrument
-      - id: XylophoneInstrument
-      - id: GunpetInstrument
-      - id: MicrophoneInstrument
-      - id: HelicopterInstrument
-      - id: BirdToyInstrument
-      - id: MusicalLungInstrument
-      - id: ReverseCymbalsInstrument
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: BikeHornInstrument
+        - id: MusicBoxInstrument
+        - id: SeashellInstrument
+        - id: XylophoneInstrument
+        - id: GunpetInstrument
+        - id: MicrophoneInstrument
+        - id: HelicopterInstrument
+        - id: BirdToyInstrument
+        - id: MusicalLungInstrument
+        - id: ReverseCymbalsInstrument
 
 - type: entity
-  id: CrateFunArtSupplies
   parent: CrateGenericSteel
+  id: CrateFunInstrumentsRandom
+  name: random instrument collection
+  description: A box containing several randomly curated instruments, hand picked by Centcomm's top musicians!
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - !type:NestedSelector
+          tableId: VarietyInstrumentTable # 200 speso max
+        - !type:NestedSelector
+          tableId: BrassInstrumentTable # 300 speso max
+        - !type:NestedSelector
+          tableId: StringInstrumentTable # 300 speso max
+        - !type:NestedSelector
+          tableId: WoodwindInstrumentTable # 200 speso max
+        - !type:NestedSelector
+          tableId: KeyedPercussionInstrumentTable # 300 speso max
+        - !type:NestedSelector
+          tableId: SpecialInstrumentTable # x2 200 speso max
+          rolls: 2
+
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateFunArtSupplies
   name: art supplies
   description: Make some happy little accidents with lots of crayons!
   components:
-  - type: StorageFill
-    contents:
-      - id: CrayonBox
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: CrayonBox
 
 - type: entity
-  id: CrateFunBoardGames
   parent: CrateGenericSteel
+  id: CrateFunBoardGames
   name: board game crate
   description: Game nights have been proven to either decrease boredom or increase murderous rage depending on the game.
   components:
-  - type: StorageFill
-    contents:
-      - id: ChessBoard
-      - id: BackgammonBoard
-      - id: ParchisBoard
-      - id: CheckerBoard
-      - id: ShipBattlemap
-      - id: SnowBattlemap
-      - id: SandBattlemap
-      - id: MoonBattlemap
-      - id: GrassBattlemap
-      - id: DiceBag
-        amount: 6
-      - id: PaperCNCSheet
-        amount: 6
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ChessBoard
+        - id: BackgammonBoard
+        - id: ParchisBoard
+        - id: CheckerBoard
+        - id: ShipBattlemap
+        - id: SnowBattlemap
+        - id: SandBattlemap
+        - id: MoonBattlemap
+        - id: GrassBattlemap
+        - id: DiceBag
+          amount: 6
+        - id: PaperCNCSheet
+          amount: 6
 
 - type: entity
-  id: CrateFunSadTromboneImplants
   parent: CrateGenericSteel
+  id: CrateFunSadTromboneImplants
   name: sad trombone implants
   description: Death's never been so fun before! Implant these to make dying a bit more happy.
   components:
-  - type: StorageFill
-    contents:
-      - id: SadTromboneImplanter
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: SadTromboneImplanter
         amount: 3
 
 - type: entity
-  id: CrateFunLightImplants
   parent: CrateGenericSteel
+  id: CrateFunLightImplants
   name: light implants
   description: Light up your skin with these implants!
   components:
-  - type: StorageFill
-    contents:
-      - id: LightImplanter
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: LightImplanter
         amount: 3
 
 - type: entity
-  id: CrateFunParty
   parent: CrateGenericSteel
+  id: CrateFunParty
   name: party crate
   description: An entire party just waiting for you to open it. Includes party favors, party beverages, and even a cake.
   components:
-  - type: StorageFill
-    contents:
-      - id: GlowstickBase
-        amount: 2
-      - id: GlowstickBlue
-        amount: 2
-      - id: GlowstickPurple
-        amount: 2
-      - id: GlowstickRed
-        amount: 2
-      - id: GlowstickYellow
-        amount: 2
-      - id: FoodCakeBirthday
-      - id: DrinkLean
-        amount: 4
-      - id: KnifePlastic
-      - id: ClothingHeadHatPartyRed
-        amount: 2
-      - id: ClothingHeadHatPartyYellow
-        amount: 2
-      - id: ClothingHeadHatPartyGreen
-        amount: 2
-      - id: ClothingHeadHatPartyBlue
-        amount: 2
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: GlowstickGreen
+          amount: 2
+        - id: GlowstickBlue
+          amount: 2
+        - id: GlowstickPurple
+          amount: 2
+        - id: GlowstickRed
+          amount: 2
+        - id: GlowstickYellow
+          amount: 2
+        - id: FoodCakeBirthday
+        - id: DrinkLean
+          amount: 4
+        - id: KnifePlastic
+        - id: ClothingHeadHatPartyRed
+          amount: 2
+        - id: ClothingHeadHatPartyYellow
+          amount: 2
+        - id: ClothingHeadHatPartyGreen
+          amount: 2
+        - id: ClothingHeadHatPartyBlue
+          amount: 2
 
 - type: entity
-  id: CrateFunWaterGuns
   parent: CratePlastic
+  id: CrateFunWaterGuns
   name: water gun crate
   description: A summer special with a variety of brightly colored water guns. Water not included.
   components:
-  - type: StorageFill
-    contents:
-      - id: WeaponWaterBlaster
-        amount: 2
-      - id: WeaponWaterPistol
-        amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponWaterBlaster
+          amount: 2
+        - id: WeaponWaterPistol
+          amount: 4
 
 - type: entity
-  id: CrateFunFoamGuns
   parent: CratePlastic
+  id: CrateFunFoamGuns
   name: Foam Force crate
-  description: Contains four Foam Force rifles, some grenades, and extra ammo. It's [REDACTED] or nothing!
+  description: Contains four Foam Force Battle Kits™. It's [REDACTED] or nothing!
   components:
-  - type: StorageFill
-    contents:
-    - id: WeaponRifleFoam
-      amount: 4
-    - id: BoxDonkSoftBox
-      amount: 2
-    - id: GrenadeFoamDart
-      amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponRifleFoam
+          amount: 4
+        - id: BoxDonkSoftBox
+          amount: 2
+        - id: GrenadeFoamDart
+          amount: 4
 
 - type: entity
-  id: CrateFunBoxing
   parent: CrateGenericSteel
+  id: CrateFunBoxing
   name: boxing crate
   description: Want to set up an underground fight club or host a tournament amongst station crew? This crate is for you!
   components:
-  - type: StorageFill
-    contents:
-      - id: ClothingHandsGlovesBoxingRed
-      - id: ClothingHandsGlovesBoxingBlue
-      - id: ClothingHandsGlovesBoxingYellow
-      - id: ClothingHandsGlovesBoxingGreen
-      - id: UniformShortsRed
-        amount: 3
-      - id: UniformShortsRedWithTop
-        amount: 3
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ClothingHandsGlovesBoxingRed
+        - id: ClothingHandsGlovesBoxingBlue
+        - id: ClothingHandsGlovesBoxingYellow
+        - id: ClothingHandsGlovesBoxingGreen
+        - id: UniformShortsRed
+          amount: 3
+        - id: UniformShortsRedWithTop
+          amount: 3
 
 - type: entity
-  id: CrateFunPirate
   parent: CratePirate
+  id: CrateFunPirate
   suffix: Filled
   components:
-  - type: StorageFill
-    contents:
-      - id: ClothingUniformJumpsuitPirate
-        amount: 2
-      - id: ClothingHeadHatPirate
-      - id: ClothingOuterCoatPirate
-      - id: ClothingShoesBootsLaceup
-        amount: 2
-      - id: ClothingHeadBandRed
-      - id: FoamCutlass
-        amount: 2
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ClothingUniformJumpsuitPirate
+          amount: 2
+        - id: ClothingHeadHatPirate
+        - id: ClothingOuterCoatPirate
+        - id: ClothingShoesBootsLaceup
+          amount: 2
+        - id: ClothingHeadBandRed
+        - id: FoamCutlass
+          amount: 2
 
 - type: entity
-  id: CrateFunToyBox
   parent: CrateToyBox
+  id: CrateFunToyBox
   suffix: Filled
   components:
-  - type: StorageFill
-    contents:
-      - id: SnapPopBox
-      - id: CrazyGlue
-        amount: 2
-      - id: PlasticBanana
-      - id: WhoopieCushion
-      - id: ToyHammer
-      - id: MrChips
-        orGroup: GiftPool
-      - id: MrDips
-        orGroup: Giftpool
-      - id: LilCal
-        orGroup: Giftpool
-      - id: RevolverCapGun
-      - id: BalloonNT
-      - id: ClothingShoesClownLarge
-      - id: ClothingHeadHatMagician
-      - id: BeachBall
-      - id: ClothingShoesSkates
-      - id: RubberChicken
-      - id: TennisBall # goob edit
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: SnapPopBox
+        - id: CrazyGlue
+        - id: CrazyLube
+        - id: PlasticBanana
+        - id: WhoopieCushion
+        - id: ToyHammer
+        - !type:GroupSelector
+          children:
+          - id: MrChips
+          - id: MrDips
+        - id: RevolverCapGun
+        - id: BalloonNT
+        - id: ClothingShoesClownLarge
+        - id: ClothingHeadHatMagician
+        - id: BeachBall
+        - id: TennisBall
+          amount: 2
+        - id: ClothingShoesSkates
+        - id: RubberChicken
 
 - type: entity
-  id: CrateFunBikeHornImplants
   parent: CrateGenericSteel
+  id: CrateFunBikeHornImplants
   name: bike horn implants
-  description: A thousand honks a day keeps security officers away! Now with bike horns!
+  description: A thousand honks a day keeps security officers away!
   components:
-  - type: StorageFill
-    contents:
-      - id: BikeHornImplanter
-        amount: 3
-      - id: BikeHorn
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: BikeHornImplanter
         amount: 3
 
 - type: entity
-  id: CrateFunMysteryFigurines
   parent: CratePlastic
+  id: CrateFunMysteryFigurines
   name: mystery figure crate
   description: A collection of 10 Mystery Figurine boxes. Duplicates non refundable.
   components:
-  - type: StorageFill
-    contents:
-      - id: MysteryFigureBox
-        amount: 10
-      - id: MysteryFigureBox
-        amount: 15
-        prob: 0.05
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: MysteryFigureBox
+          amount: 10
+        - id: MysteryFigureBox
+          amount: 15
+          prob: 0.05
 
 - type: entity
+  parent: CratePlastic
+  id: CrateFunDartsSet
   name: dartboard box set
   description: A box with everything you need for a fun game of darts.
-  id: CrateFunDartsSet
-  parent: CratePlastic
   components:
-  - type: StorageFill
-    contents:
-      - id: TargetDarts
-        amount: 1
-      - id: BoxDarts
-        amount: 2
-      - id: BoxDarts
-        amount: 1
-        prob: 0.05
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: TargetDarts
+        - id: BoxDarts
+          amount: 2
+        - id: BoxDarts
+          prob: 0.05
 
 - type: entity
+  parent: CrateLivestock
+  id: CrateFunScurret
   name: hydrated scurret
   description: Wait, what?
-  id: CrateFunScurret
-  parent: CrateLivestock
   components:
-  - type: StorageFill
-    contents:
-    - id: MobEmotionalSupportScurret # How? Why?
-    - id: DrinkVodkaBottleFull
-    - id: DrinkWhiskeyBottleFull
-    - id: DrinkTequilaBottleFull # ...that explains it.
-    - id: DrinkShotGlass
-      amount: 2
-    - id: Spear # self defence
-    - id: ClothingHeadHatHardhatYellow
-    - id: ClothingNeckMantleQM
-    - id: ClothingHeadsetCargo
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: MobEmotionalSupportScurret # How? Why?
+        - id: DrinkVodkaBottleFull
+        - id: DrinkWhiskeyBottleFull
+        - id: DrinkTequilaBottleFull # ...that explains it.
+        - id: DrinkShotGlass
+          amount: 2
+        - id: Spear # self defence
+        - id: ClothingHeadHatHardhatYellow
+        - id: ClothingNeckMantleQM
+        - id: ClothingHeadsetCargo

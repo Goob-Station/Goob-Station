@@ -39,8 +39,10 @@
   - Dropper #Goobstation
   - PillCanister
   - HandLabeler
-  - ChemicalPayload
-  - BaseChemistryEmptyVial
+  - ChemistryEmptyVial
+  - ChemistryEmptyVialSmall
+  - ChemicalPayload # Goobstation?
+  - Dropper
 
 - type: latheRecipePack
   parent: BasicChemistryStatic
@@ -71,6 +73,7 @@
   - WhiteCane
   - OffsetCane
   - OffsetCaneWood
+  - JetInjector
 
 - type: latheRecipePack
   id: RollerBedsStatic
@@ -108,7 +111,6 @@
   - ChemMasterMachineCircuitboard
   - CondenserMachineCircuitBoard
   - HotplateMachineCircuitboard
-  - EnergyChemDispenserMachineCircuitboard #Goob edit - all things that get base med boards get E-Chem
 
 ## Dynamic
 
@@ -120,6 +122,9 @@
   - SyringeCryostasis
   - BluespaceBeaker
   - SyringeBluespace
+  #- LauncherSyringe # Goob i think  we dont have these
+  #- MiniSyringe # Goob i think  we dont have these
+  - AdvancedJetInjector
   - MedkitCombat #goob - Move combat kit to research
   - VialBluespace # goob edit - bluespace vials
   - CryostasisCigarette # goob - cryo cig
@@ -131,3 +136,4 @@
   - CryoPodMachineCircuitboard
   - BiomassReclaimerMachineCircuitboard
   - StasisOperatingTableCircuitboard # Corvax-Goob-StasisOperatingTable
+  - EnergyChemDispenserMachineCircuitboard #Goob

@@ -3,7 +3,8 @@
   id: LamarrStealObjective
   components:
   - type: NotJobRequirement
-    job: ResearchDirector
+    jobs:
+    - ResearchDirector
   - type: StealCondition
     stealGroup: AnimalLamarr
   - type: Objective

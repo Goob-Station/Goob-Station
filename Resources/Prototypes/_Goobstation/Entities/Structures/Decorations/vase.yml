@@ -5,7 +5,7 @@
 
 - type: entity
   id: VaseBase
-  parent: DrinkGlassBase
+  parent: [DrinkBaseMaterialGlass, DrinkBase]
   name: vase
   description: It's a vase. It holds flowers.
   abstract: true
@@ -23,7 +23,7 @@
     state: vase-0
 
 - type: entity
-  id: VasePlant0 
+  id: VasePlant0
   parent: VaseBase
   name: empty vase
   description: It's a vase. It holds flowers. This one is empty.
@@ -32,56 +32,56 @@
     state: vase-0
 
 - type: entity
-  id: VasePlant1 
+  id: VasePlant1
   parent: VaseBase
   components:
   - type: Sprite
     state: vase-1
 
 - type: entity
-  id: VasePlant2 
+  id: VasePlant2
   parent: VaseBase
   components:
   - type: Sprite
     state: vase-2
 
 - type: entity
-  id: VasePlant3 
+  id: VasePlant3
   parent: VaseBase
   components:
   - type: Sprite
     state: vase-3
 
 - type: entity
-  id: VasePlant4 
+  id: VasePlant4
   parent: VaseBase
   components:
   - type: Sprite
     state: vase-4
 
 - type: entity
-  id: VasePlant5 
+  id: VasePlant5
   parent: VaseBase
   components:
   - type: Sprite
     state: vase-5
 
 - type: entity
-  id: VasePlant6 
+  id: VasePlant6
   parent: VaseBase
   components:
   - type: Sprite
     state: vase-6
 
 - type: entity
-  id: VasePlant7 
+  id: VasePlant7
   parent: VaseBase
   components:
   - type: Sprite
     state: vase-7
 
 - type: entity
-  id: VasePlant8 
+  id: VasePlant8
   parent: VaseBase
   components:
   - type: Sprite

@@ -93,7 +93,6 @@ using Content.Shared.Interaction;
 using Content.Shared.Item;
 using Content.Shared.Materials;
 using Content.Shared.Nutrition;
-using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Storage.Components;
 using Content.Shared.Tools.EntitySystems;
@@ -111,7 +110,6 @@ namespace Content.Shared.Storage.EntitySystems;
 /// </summary>
 public sealed class SecretStashSystem : EntitySystem
 {
-    [Dependency] private readonly IngestionSystem _ingestion = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
@@ -194,7 +192,7 @@ public sealed class SecretStashSystem : EntitySystem
 
         // check if item is too big to fit into secret stash or is in the blacklist
         if (_item.GetSizePrototype(itemComp.Size) > _item.GetSizePrototype(entity.Comp.MaxItemSize) ||
-            _whitelistSystem.IsBlacklistPass(entity.Comp.Blacklist, itemToHideUid))
+            _whitelistSystem.IsWhitelistPass(entity.Comp.Blacklist, itemToHideUid))
         {
             var msg = Loc.GetString("comp-secret-stash-action-hide-item-too-big",
                 ("item", itemToHideUid), ("stashname", GetStashName(entity)));
