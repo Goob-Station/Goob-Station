@@ -300,7 +300,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			// Check if this action's AbilityId matches any spell in KnownSpells
 			if (knownSpellIds.Contains(spellComp.AbilityId))
 			{
-				_action.RemoveAction(action);
+				_action.RemoveAction(action.Owner);
 			}
 		}
 	}

@@ -92,7 +92,7 @@ public sealed class BloodCultMindShieldSystem : EntitySystem
             if (!TryComp<CultistSpellComponent>(action.Owner, out _))
                 continue;
 
-            _actions.RemoveAction(action);
+            _actions.RemoveAction(action.Owner);
         }
 
         if (!removeVisuals)
