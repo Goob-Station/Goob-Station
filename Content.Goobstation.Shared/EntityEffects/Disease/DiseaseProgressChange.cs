@@ -1,6 +1,8 @@
 using Content.Goobstation.Shared.Disease;
 using Content.Goobstation.Shared.Disease.Components;
 using Content.Shared.EntityEffects;
+using Content.Shared.EntityEffects.Effects;
+using Content.Goobstation.Shared.EntityEffects.Disease;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.EntityEffects.Disease;
@@ -8,7 +10,25 @@ namespace Content.Goobstation.Shared.EntityEffects.Disease;
 /// <summary>
 /// Reduces the progress of diseases of chosen type on the entity.
 /// </summary>
-public sealed partial class DiseaseProgressChange : EventEntityEffect<DiseaseProgressChange>
+public sealed partial class DiseaseProgressChangeSystem : EntityEffectSystem<DiseaseCarrierComponent, DiseaseProgressChange>
+{
+    protected override void Effect(Entity<DiseaseCarrierComponent> entity, ref EntityEffectEvent<DiseaseProgressChange> args)
+    {
+        var effect = args.Effect;
+
+        var ev = new DiseaseProgressChange(
+            effect.AffectedType,
+            effect.ProgressModifier,
+            effect.Scaled,
+            args.Scale,
+            effect.Quantity
+        );
+
+        EntityManager.EventBus.RaiseLocalEvent(entity.Owner, ev);
+    }
+}
+
+public sealed partial class DiseaseProgressChange : EntityEffectBase<DiseaseProgressChange>
 {
     /// <summary>
     /// Diseases of which type to affect.
@@ -27,10 +47,18 @@ public sealed partial class DiseaseProgressChange : EventEntityEffect<DiseasePro
 
     [DataField]
     public float Scale = 1f;
+
     [DataField]
     public float Quantity = 1f;
 
-    public DiseaseProgressChange(ProtoId<DiseaseTypePrototype> affectedType, float progressModifier, bool scaled, float scale, float quantity)
+    public DiseaseProgressChange() { }
+
+    public DiseaseProgressChange(
+        ProtoId<DiseaseTypePrototype> affectedType,
+        float progressModifier,
+        bool scaled,
+        float scale,
+        float quantity)
     {
         AffectedType = affectedType;
         ProgressModifier = progressModifier;
@@ -39,27 +67,11 @@ public sealed partial class DiseaseProgressChange : EventEntityEffect<DiseasePro
         Quantity = quantity;
     }
 
-    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
     {
         return Loc.GetString("reagent-effect-guidebook-disease-progress-change",
             ("chance", Probability),
             ("type", prototype.Index<DiseaseTypePrototype>(AffectedType).LocalizedName),
             ("amount", ProgressModifier));
-    }
-
-    public override void Effect(EntityEffectBaseArgs args)
-    {
-        if (!args.EntityManager.TryGetComponent<DiseaseCarrierComponent>(args.TargetEntity, out _))
-            return;
-
-        var ev = new DiseaseProgressChange(AffectedType, ProgressModifier, Scaled, Scale, Quantity);
-
-        if (args is EntityEffectReagentArgs reagentArgs)
-        {
-            ev.Scale = reagentArgs.Scale.Float();
-            ev.Quantity = reagentArgs.Quantity.Float();
-        }
-
-        args.EntityManager.EventBus.RaiseLocalEvent(args.TargetEntity, ev);
     }
 }

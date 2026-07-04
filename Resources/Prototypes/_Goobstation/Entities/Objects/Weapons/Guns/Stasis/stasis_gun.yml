@@ -39,8 +39,9 @@
   - type: UseDelay
     delay: 0.25
   - type: ClothingSlotAmmoProvider
+  - type: SlotBasedConnectedContainer
     targetSlot: BACK
-    providerWhitelist:
+    containerWhitelist:
       tags:
       - StasisBattery
 

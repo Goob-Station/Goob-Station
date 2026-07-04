@@ -33,14 +33,15 @@ namespace Content.Server.Body.Components
     /// <summary>
     ///     Handles metabolizing various reagents with given effects.
     /// </summary>
-    // [RegisterComponent, Access(typeof(MetabolizerSystem))] // Goob edit
-    [RegisterComponent] // Goobstation
+    [RegisterComponent, AutoGenerateComponentPause,
+     //Access(typeof(MetabolizerSystem)) // Goobstation
+     ]
     public sealed partial class MetabolizerComponent : Component
     {
         /// <summary>
         ///     The next time that reagents will be metabolized.
         /// </summary>
-        [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+        [DataField, AutoPausedField]
         public TimeSpan NextUpdate;
 
         /// <summary>
@@ -66,7 +67,7 @@ namespace Content.Server.Body.Components
         ///     From which solution will this metabolizer attempt to metabolize chemicals
         /// </summary>
         [DataField("solution")]
-        public string SolutionName = BloodstreamComponent.DefaultChemicalsSolutionName;
+        public string SolutionName = BloodstreamComponent.DefaultBloodSolutionName;
 
         /// <summary>
         ///     Does this component use a solution on it's parent entity (the body) or itself
@@ -76,6 +77,14 @@ namespace Content.Server.Body.Components
         /// </remarks>
         [DataField]
         public bool SolutionOnBody = true;
+
+        /// <summary>
+        ///     How many reagents can this metabolizer process at once?
+        ///     Used to nerf 'stacked poisons' where having 5+ different poisons in a syringe, even at low
+        ///     quantity, would be muuuuch better than just one poison acting.
+        /// </summary>
+        [DataField("maxReagents")]
+        public int MaxReagentsProcessable = 3;
 
         /// <summary>
         ///     List of metabolizer types that this organ is. ex. Human, Slime, Felinid, w/e.

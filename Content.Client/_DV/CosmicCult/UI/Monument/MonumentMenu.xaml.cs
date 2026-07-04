@@ -126,7 +126,7 @@ public sealed partial class MonumentMenu : FancyWindow
             var button = new Button
             {
                 HorizontalExpand = true,
-                StyleClasses = { StyleBase.ButtonSquare },
+                StyleClasses = { StyleClass.ButtonSquare },
                 ToolTip = Loc.GetString(glyph.Tooltip),
                 Group = _glyphButtonGroup,
                 Pressed = glyph.ID == _selectedGlyphProtoId,
