@@ -1131,7 +1131,6 @@
   - ChiefEngineerTurtleneckSkirt
   - ChiefEngineerMJ # goob
   - CESummerShirt # goob
-  - ChiefEngineerNT # goob
 
 - type: loadoutGroup
   id: ChiefEngineerNeck
@@ -1878,7 +1877,6 @@
   - SeniorPhysicianJumpsuit # Goobstation
   - SeniorPhysicianJumpskirt # Goobstation
   - ParamedMJ # goob
-  - ParamedicJumpsuitNT # goob
 
 - type: loadoutGroup
   id: ParamedicOuterClothing
