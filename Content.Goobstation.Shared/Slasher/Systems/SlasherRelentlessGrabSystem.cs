@@ -1,8 +1,6 @@
 using Content.Goobstation.Common.Grab;
-using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Common.Weapons;
 using Content.Goobstation.Shared.Slasher.Components;
-using Content.Goobstation.Shared.Slasher.Events;
 using Content.Shared.Actions;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;

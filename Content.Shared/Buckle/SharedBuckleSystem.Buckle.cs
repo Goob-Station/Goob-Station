@@ -104,7 +104,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Shared.Alert;
-using Content.Shared.ActionBlocker;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Database;
@@ -144,6 +143,7 @@ public abstract partial class SharedBuckleSystem
 
         SubscribeLocalEvent<BuckleComponent, StartPullAttemptEvent>(OnPullAttempt);
         SubscribeLocalEvent<BuckleComponent, BeingPulledAttemptEvent>(OnBeingPulledAttempt);
+        SubscribeLocalEvent<BuckleComponent, PullAttemptEvent>(OnBucklePullAttempt); // Goobstation
         SubscribeLocalEvent<BuckleComponent, PullStartedMessage>(OnPullStarted);
         SubscribeLocalEvent<BuckleComponent, UnbuckleAlertEvent>(OnUnbuckleAlert);
 
@@ -188,22 +188,38 @@ public abstract partial class SharedBuckleSystem
             return;
         }
 
-        // Goobstation - doafter for unbuckle by others
+        // Goobstation - cancel pull entirely if others are not allowed to unbuckle (e.g. clowncar)
         if (args.Puller != ent.Owner
             && TryComp<StrapComponent>(ent.Comp.BuckledTo, out var strap)
-            && strap.UnbuckleDoafterTime > 0)
+            && !strap.AllowOthersToUnbuckle)
         {
             args.Cancel();
-            var doAfter = new DoAfterArgs(EntityManager, args.Puller, TimeSpan.FromSeconds(strap.UnbuckleDoafterTime), new UnbuckleDoAfterEvent(), ent.Owner, target: ent.Owner)
-            {
-                BreakOnMove = true,
-                BreakOnDamage = true,
-            };
-            _doAfter.TryStartDoAfter(doAfter);
-            return;
         }
-        // Goobstation
+        // Goobstation - when do-after is required, do NOT cancel here; CanPull succeeds and
+        // OnBucklePullAttempt starts the do-after only on actual pull initiation, not on CanPull checks
     }
+
+    // Goobstation - start unbuckle do-after only on actual pull initiation, not on CanPull checks
+    private void OnBucklePullAttempt(Entity<BuckleComponent> ent, ref PullAttemptEvent args)
+    {
+        if (args.Cancelled || !ent.Comp.Buckled || args.PullerUid == ent.Owner)
+            return;
+
+        if (!TryComp<StrapComponent>(ent.Comp.BuckledTo, out var strap) || strap.UnbuckleDoafterTime <= 0)
+            return;
+
+        if (!CanUnbuckle(ent!, args.PullerUid, false))
+            return;
+
+        args.Cancelled = true;
+        var doAfter = new DoAfterArgs(EntityManager, args.PullerUid, TimeSpan.FromSeconds(strap.UnbuckleDoafterTime), new UnbuckleDoAfterEvent(), ent.Owner, target: ent.Owner)
+        {
+            BreakOnMove = true,
+            BreakOnDamage = true,
+        };
+        _doAfter.TryStartDoAfter(doAfter);
+    }
+    // Goobstation
 
     private void OnPullStarted(Entity<BuckleComponent> ent, ref PullStartedMessage args)
     {
@@ -330,11 +346,11 @@ public abstract partial class SharedBuckleSystem
         {
             strapEnt.Comp.BuckledEntities.Add(buckle);
             Dirty(strapEnt);
-            _alerts.ShowAlert(buckle, strapEnt.Comp.BuckledAlertType);
+            _alerts.ShowAlert(buckle.Owner, strapEnt.Comp.BuckledAlertType);
         }
         else
         {
-            _alerts.ClearAlertCategory(buckle, BuckledAlertCategory);
+            _alerts.ClearAlertCategory(buckle.Owner, BuckledAlertCategory);
         }
 
         buckle.Comp.BuckledTo = strap;
@@ -369,7 +385,7 @@ public abstract partial class SharedBuckleSystem
 
         // Does it pass the Whitelist
         if (_whitelistSystem.IsWhitelistFail(strapComp.Whitelist, buckleUid) ||
-            _whitelistSystem.IsBlacklistPass(strapComp.Blacklist, buckleUid))
+            _whitelistSystem.IsWhitelistPass(strapComp.Blacklist, buckleUid))
         {
             if (popup)
                 _popup.PopupClient(Loc.GetString("buckle-component-cannot-fit-message"), user, PopupType.Medium);
@@ -599,9 +615,9 @@ public abstract partial class SharedBuckleSystem
     private void Unbuckle(Entity<BuckleComponent> buckle, Entity<StrapComponent> strap, EntityUid? user)
     {
         if (user == buckle.Owner)
-            _adminLogger.Add(LogType.Action, LogImpact.Low, $"{user} unbuckled themselves from {strap}");
+            _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(user):user} unbuckled themselves from {ToPrettyString(strap):strap}");
         else if (user != null)
-            _adminLogger.Add(LogType.Action, LogImpact.Low, $"{user} unbuckled {buckle} from {strap}");
+            _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(user):user} unbuckled {ToPrettyString(buckle):target} from {ToPrettyString(strap):strap}");
 
         _audio.PlayPredicted(strap.Comp.UnbuckleSound, strap, user);
 
@@ -621,7 +637,7 @@ public abstract partial class SharedBuckleSystem
             // TODO: This is doing 4 moveevents this is why I left the warning in, if you're going to remove it make it only do 1 moveevent.
             if (strap.Comp.BuckleOffset != Vector2.Zero)
             {
-                buckleXform.Coordinates = oldBuckledXform.Coordinates.Offset(strap.Comp.BuckleOffset);
+                _transform.SetCoordinates(buckle, buckleXform, oldBuckledXform.Coordinates.Offset(strap.Comp.BuckleOffset));
             }
         }
 

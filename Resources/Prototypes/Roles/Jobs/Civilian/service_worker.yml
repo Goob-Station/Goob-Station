@@ -81,7 +81,7 @@
   requirements:
   - !type:DepartmentTimeRequirement
     department: Civilian
-    time: 27000 #7.5 hr - Goobstation - shitter nerf
+    time: 7.5h # - Goobstation - shitter nerf
   startingGear: ServiceWorkerGear
   icon: "JobIconServiceWorker"
   supervisors: job-supervisors-service

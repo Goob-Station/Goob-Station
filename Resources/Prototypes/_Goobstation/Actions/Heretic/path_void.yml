@@ -75,7 +75,7 @@
     whitelist:
       components:
       - MobState
-    canTargetSelf: false
+    canTargetSelf: true
     event: !type:HereticVoidPrisonEvent
   - type: HereticAction
     requireMagicItem: true

@@ -227,7 +227,7 @@
 
 #Spationaut Hardsuit
 - type: entity
-  parent: ClothingHeadHardsuitWithLightBase
+  parent: ClothingHeadHardsuitWithLightBase # Goobstation?
   id: ClothingHeadHelmetHardsuitSpatio
   name: spationaut hardsuit helmet # Goob edit
   description: A sturdy helmet designed for complex industrial operations in space. # Goob edit
@@ -268,13 +268,16 @@
       head-dog:
       - state: equipped-head-dog
       - state: equipped-head-unshaded-dog
+      head-hydrakin:
+      - state: equipped-head-hydrakin
+      - state: equipped-head-unshaded-hydrakin
         shader: unshaded
   - type: PointLight
     radius: 6
   - type: PressureProtection
     highPressureMultiplier: 0.72
     lowPressureMultiplier: 1000
-  - type: Armor
+  - type: Armor # Goobstation?
     modifiers:
       coefficients:
         Blunt: 0.9
@@ -289,7 +292,7 @@
 
 #Salvage Hardsuit
 - type: entity
-  parent: ClothingHeadHardsuitWithLightBase
+  parent: ClothingHeadHardsuitWithLightBase # Goobstation?
   id: ClothingHeadHelmetHardsuitSalvage
   name: salvage hardsuit helmet # Goob edit
   description: A special helmet designed for work in a hazardous, low pressure environment. Has reinforced plating for wildlife encounters and dual floodlights. # Goob edit
@@ -304,7 +307,7 @@
   - type: PointLight
     radius: 7
     energy: 3
-  - type: Armor
+  - type: Armor # Goobstation?
     modifiers:
       coefficients:
         Blunt: 0.75
@@ -320,7 +323,7 @@
 
 #Goliath Hardsuit
 - type: entity
-  parent: ClothingHeadHardsuitWithLightBase
+  parent: ClothingHeadHardsuitWithLightBase # Goobstation?
   id: ClothingHeadHelmetHardsuitGoliath
   name: goliath hardsuit helmet # Goob edit
   description: A sturdy hardsuit helmet, infused with a goliath's hide and an eerie, unblinking eye cut from its mass. # Goob edit
@@ -345,6 +348,9 @@
       head-vox:
       - state: equipped-head-light-vox
         shader: unshaded
+      head-reptilian:
+      - state: equipped-head-light-reptilian
+        shader: unshaded
       head-dog:
       - state: equipped-head-light-dog
         shader: unshaded
@@ -367,7 +373,7 @@
   - type: PressureProtection
     highPressureMultiplier: 0.72
     lowPressureMultiplier: 1000
-  - type: Armor
+  - type: Armor # Goobstation?
     modifiers:
       coefficients:
         Blunt: 0.75
@@ -396,7 +402,7 @@
   - type: PressureProtection
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
-  - type: Armor
+  - type: Armor # Goobstation? start
     traumaDeductions:
       Dismemberment: 0.3
       OrganDamage: 0.3
@@ -410,6 +416,7 @@
         Piercing: 0.55
         Heat: 0.35
         Radiation: 0.01
+  # Goobstation end
 
 #Security Hardsuit - Goob deprecated
 - type: entity
@@ -428,6 +435,7 @@
     highPressureMultiplier: 0.525
     lowPressureMultiplier: 1000
   - type: Armor
+    # Goobstation start
     traumaDeductions:
       Dismemberment: 0.3
       OrganDamage: 0.3
@@ -443,6 +451,7 @@
         Caustic: 0.7
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+  # Goobstation end
   - type: Tag
     tags:
     - CorgiWearable
@@ -461,6 +470,7 @@
     sprite: Clothing/Head/Hardsuits/brigmedic.rsi
   - type: PointLight
     color: "#00FFFF"
+    # Goobstation start
   - type: Armor
     modifiers:
       coefficients:
@@ -470,6 +480,7 @@
         Heat: 0.9
         Radiation: 0.4
         Caustic: 0.4
+    # Goobstation end
   - type: PressureProtection
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
@@ -492,6 +503,7 @@
   - type: PressureProtection
     highPressureMultiplier: 0.525
     lowPressureMultiplier: 1000
+    # Goobstation start
   - type: Armor
     traumaDeductions:
       Dismemberment: 0.3
@@ -506,6 +518,7 @@
         Piercing: 0.65
         Heat: 0.8
         Caustic: 0.7
+    # Goobstation start
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
 
@@ -523,6 +536,7 @@
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
+    # Goobstation start
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
   - type: Armor
@@ -540,6 +554,7 @@
         Heat: 0.65
         Radiation: 0.15
         Caustic: 0.65 #Goob - Modsuit Rebalance end
+    # Goobstation end
   - type: Tag
     tags:
     - CorgiWearable
@@ -563,6 +578,7 @@
     lowPressureMultiplier: 1000
   - type: FireProtection
     reduction: 0.2
+    # Goobstation start
   - type: Armor
     modifiers:
       coefficients:
@@ -573,6 +589,7 @@
         Radiation: 0.0
         Caustic: 0.7
   - type: EyeProtection # goob
+    # Goobstation end
   - type: Tag
     tags:
     - CorgiWearable
@@ -594,7 +611,7 @@
   - type: PressureProtection
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
-  - type: Armor
+  - type: Armor # Goobstation
     modifiers:
       coefficients:
         Caustic: 0.1
@@ -619,6 +636,7 @@
   - type: PressureProtection
     highPressureMultiplier: 0.60
     lowPressureMultiplier: 1000
+    # Goobstation start
   - type: Armor
     modifiers:
       coefficients: #Goob - Modsuit edited all but pierce/blunt
@@ -630,6 +648,7 @@
         Caustic: 0.4
   - type: EyeProtection #Goob
   - type: FlashImmunity #Goob
+    # Goobstation end
   - type: Tag
     tags:
     - CorgiWearable
@@ -651,6 +670,7 @@
   - type: PressureProtection
     highPressureMultiplier: 0.45
     lowPressureMultiplier: 1000
+    # Goobstation start
   - type: Armor
     traumaDeductions:
       Dismemberment: 0.3
@@ -668,6 +688,7 @@
         Caustic: 0.5
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+    # Goobstation end
 
 #Luxury Mining Hardsuit
 - type: entity
@@ -687,7 +708,7 @@
   - type: PointLight
     radius: 7
     energy: 3
-  - type: Armor
+  - type: Armor # Goobstation
     modifiers:
       coefficients:
         Blunt: 0.9
@@ -714,6 +735,7 @@
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
   - type: Armor
+    # Goobstation start
     traumaDeductions:
       Dismemberment: 0.5
       OrganDamage: 0.5
@@ -730,6 +752,7 @@
         Caustic: 0.5
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+    # Goobstation end
   - type: Tag
     tags:
     - CorgiWearable
@@ -769,6 +792,7 @@
   - type: FireProtection
     reduction: 0.2
   - type: Armor
+    # Goobstation start
     traumaDeductions:
       Dismemberment: 0.5
       OrganDamage: 0.5
@@ -785,6 +809,7 @@
         Caustic: 0.4
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+    # Goobstation end
   - type: Tag
     tags:
     - CorgiWearable
@@ -807,6 +832,7 @@
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
   - type: Armor
+    # Goobstation start
     traumaDeductions:
       Dismemberment: 0.6
       OrganDamage: 0.6
@@ -823,6 +849,7 @@
         Caustic: 0.4
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+    # Goobstation end
   - type: Tag
     tags:
     - CorgiWearable
@@ -843,6 +870,7 @@
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
   - type: Armor
+    # Goobstation start
     traumaDeductions: # prevents traumas at all (kinda)
       Dismemberment: 1
       OrganDamage: 1
@@ -859,6 +887,7 @@
         Caustic: 0.2
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+    # Goobstation end
   - type: Tag
     tags:
     - CorgiWearable
@@ -882,6 +911,7 @@
   - type: PressureProtection
     highPressureMultiplier: 0.27
     lowPressureMultiplier: 1000
+    # Goobstation start
   - type: Armor # Goob edit
     traumaDeductions: # prevents traumas at all (kinda)
       Dismemberment: 1
@@ -900,6 +930,7 @@
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
   - type: WizardClothes # Goobstation
+    # Goobstation end
   - type: Tag
     tags:
     - CorgiWearable
@@ -919,7 +950,7 @@
   - type: PressureProtection
     highPressureMultiplier: 0.225
     lowPressureMultiplier: 1000
-  - type: Armor
+  - type: Armor # Goobstation
     modifiers:
       coefficients:
         Heat: 0.5
@@ -939,7 +970,7 @@
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
-  - type: Armor
+  - type: Armor # Goobstation
     modifiers:
       coefficients:
         Blunt: 0.8
@@ -958,7 +989,7 @@
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/piratecaptainhelm.rsi
-  - type: ToggleableVisuals
+  - type: ToggleableVisuals # Goobstation
     spriteLayer: light
     clothingVisuals:
       head:
@@ -989,7 +1020,7 @@
   - type: FlashSoundSuppression # Goobstation
   - type: Armor
     modifiers:
-      coefficients:
+      coefficients: # Goobstation
         Blunt: 0.75
         Slash: 0.8
         Piercing: 0.85
@@ -1105,7 +1136,7 @@
       - state: equipped-head
       - state: equipped-head-unshaded
         shader: unshaded
-      head-vox:
+      head-vox: # Goobstation
       - state: equipped-head-vox
       - state: equipped-head-unshaded-vox
         shader: unshaded
@@ -1119,7 +1150,7 @@
     coolingCoefficient: 0.005
   - type: Armor
     modifiers:
-      coefficients:
+      coefficients: # Goobstation
         Blunt: 0.75
         Slash: 0.4 # Goobstation - CBURN should protect against zombie attacks
         Piercing: 0.65
@@ -1151,6 +1182,7 @@
   - type: FireProtection
     reduction: 0.2
   - type: Armor
+    # Goobstation start
     traumaDeductions: # prevents traumas at all (kinda)
       Dismemberment: 1
       OrganDamage: 1
@@ -1183,6 +1215,7 @@
   # WD EDIT END
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
+    # Goobstation end
 
 
 #MISC. HARDSUITS
@@ -1200,7 +1233,7 @@
     sprite: Clothing/Head/Hardsuits/clown.rsi
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Effects/Emotes/parp1.ogg
-  - type: Armor
+  - type: Armor # Goobstation
     traumaDeductions: # why the fuck is it parented from sec helmet
       Dismemberment: 0.2
       OrganDamage: 0.2
@@ -1226,7 +1259,7 @@
     sprite: Clothing/Head/Hardsuits/mime.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/mime.rsi
-  - type: Armor
+  - type: Armor # Goobstation
     traumaDeductions: # why the fuck is it parented from sec helmet
       Dismemberment: 0.2
       OrganDamage: 0.2
@@ -1256,7 +1289,7 @@
     color: "#f4ffad"
     radius: 5
     energy: 2
-  - type: Armor
+  - type: Armor # Goobstation
     modifiers:
       coefficients:
         Blunt: 0.85

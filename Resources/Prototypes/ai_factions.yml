@@ -46,6 +46,8 @@
     - Zombie
     - Revolutionary
     - AllHostile
+    # - Wizard # Goob
+    - Xenoborg
     - Heretic # goob edit - heretics
     - Blob # Goobstation - Blob
     - Shadowling # Einstein Engines - Shadowlings
@@ -83,6 +85,8 @@
 
 - type: npcFaction
   id: PetsNT
+  friendly:
+  - NanoTrasen
   hostile:
   - Mouse
   - Balloon # Goob Balloon Edit     Pets can join the fight against the balloons
@@ -90,7 +94,6 @@
   - Zombie
   - Xeno
   - AllHostile
-  - Wizard
   - Dragon
   - Blob # Goobstation - Blob
   - Lavafauna # Goob - Lavaland
@@ -107,6 +110,7 @@
   - Dragon
   - Xeno
   - AllHostile
+  # - Wizard # Goob?
   - Xenoborg
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
@@ -130,11 +134,11 @@
   - Zombie
   - Dragon
   - AllHostile
+  - Wizard
   - Xenoborg
   - Changeling # goob edit - changelings
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
-  - Wizard # goob edit - wizard
   - PirateFaction # goob - pirates
   - Shadowling # Einstein Engines - Shadowlings
   - Wraith # Goobstation - Wraith
@@ -150,6 +154,7 @@
   - Zombie
   - Revolutionary
   - AllHostile
+  - Wizard
   - Dragon
   - Xenoborg
   - Dragon
@@ -172,12 +177,12 @@
   - PetsNT
   - Revolutionary
   - AllHostile
+  - Wizard
   - Dragon
   - Changeling # goob edit - changelings
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
   - Shadowling # Einstein Engines - Shadowlings
-  - Wizard # goob edit - wizard
   - PirateFaction # goob - pirates
   - Xenoborg
   - Wraith # Goobstation - Wraith
@@ -222,10 +227,10 @@
   - Lavafauna # Goob - Lavaland
 
 # Balloons Factions Edit:
-- type: npcFaction  
+- type: npcFaction
   id: Balloon
   # Balloons can't attack
-  
+
 - type: npcFaction
   id: Monkey
   hostile:
@@ -247,7 +252,7 @@
   - Xeno # rivalry
 
   # cause they are hostile to them
-  - SimpleHostile 
+  - SimpleHostile
   - AllHostile
   - Blob # Goobstation - Blob
   - Shadowling # Einstein Engines - Shadowlings
@@ -259,6 +264,9 @@
   - Syndicate
   - Passive
   - PetsNT
+  - SimpleHostile
+  - SimpleNeutral
+  - Xeno
   - Zombie
   - Revolutionary
   - Dragon

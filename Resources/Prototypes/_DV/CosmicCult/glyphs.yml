@@ -25,15 +25,28 @@
         - SlipLayer
   - type: Physics
   - type: Clickable
-  - type: CosmicGlyph
   - type: CosmicCultExamine
     othersText: cosmic-examine-text-glyphs
   - type: Sprite
-    sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
+    sprite: _DV/CosmicCult/Objects/glyph_truth.rsi
     layers:
-      - state: aid
+      - state: spawning
+        map: ["base"]
     drawdepth: Puddles
+  - type: GenericVisualizer
+    visuals:
+      enum.GlyphVisuals.Status:
+        base:
+          Spawning: {state: spawning}
+          Despawning: {state: despawning}
+          Ready: {state: ready}
+          Active: {state: active}
+          Cooldown: {state: cooldown}
   - type: Appearance
+  - type: InteractionOutline
+  - type: CosmicPurifiable # Because why the hell not
+    cleanseTime: 10
+    cleanseTimeChaplain: 5
 
 - type: entity
   parent: CosmicGlyphBase
@@ -41,17 +54,18 @@
   name: Glyph of Truth
   components:
   - type: Sprite
-    sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
+    sprite: _DV/CosmicCult/Objects/glyph_truth.rsi
     layers:
-      - state: truth
-    drawdepth: Puddles
+      - state: spawning
+        map: ["base"]
   - type: CosmicGlyphConversion
     negateProtection: true
   - type: CosmicGlyph
     requiredCultists: 3
     activationDamage:
       types:
-        Asphyxiation: 10
+        Asphyxiation: 10 # Goobstation
+        Ion: 10 # Goobstation
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-truth
 
@@ -61,16 +75,17 @@
   name: Glyph of Knowledge
   components:
   - type: Sprite
-    sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
+    sprite: _DV/CosmicCult/Objects/glyph_knowledge.rsi
     layers:
-    - state: knowledge
-    drawdepth: Puddles
+      - state: spawning
+        map: ["base"]
   - type: CosmicGlyphConversion
   - type: CosmicGlyph
-    requiredCultists: 1
+    requiredCultists: 1 # Goobstation
     activationDamage:
       types:
-        Asphyxiation: 10
+        Asphyxiation: 10 # Goobstation
+        Ion: 10 # Goobstation
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-knowledge
 
@@ -80,21 +95,17 @@
   name: Glyph of Cessation
   components:
   - type: Sprite
+    sprite: _DV/CosmicCult/Objects/glyph_cessation.rsi
     layers:
-    - sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
-      state: cessation
-    drawdepth: Puddles
+      - state: spawning
+        map: ["base"]
   - type: CosmicGlyphTransmute
-    transmutations:
-    - CosmicVacuousSpire
-    whitelist:
-      components:
-      - PortableScrubber
   - type: CosmicGlyph
     requiredCultists: 1
     activationDamage:
       types:
-        Asphyxiation: 10
+        Asphyxiation: 10 # Goobstation
+        Ion: 10 # Goobstation
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-cessation
 
@@ -104,23 +115,17 @@
   name: Glyph of Blades
   components:
   - type: Sprite
-    sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
+    sprite: _DV/CosmicCult/Objects/glyph_blades.rsi
     layers:
-    - state: blades
-    drawdepth: Puddles
+      - state: spawning
+        map: ["base"]
   - type: CosmicGlyphTransmute
-    transmutations:
-    - SwordCosmicCult
-    - SpearCosmicCult
-    - ScytheCosmicCult
-    whitelist:
-      components:
-      - Sharp
   - type: CosmicGlyph
     requiredCultists: 1
     activationDamage:
       types:
-        Asphyxiation: 10
+        Asphyxiation: 10 # Goobstation
+        Ion: 10 # Goobstation
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-blades
 
@@ -130,23 +135,17 @@
   name: Glyph of Warding
   components:
   - type: Sprite
-    sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
+    sprite: _DV/CosmicCult/Objects/glyph_warding.rsi
     layers:
-    - state: warding
-    drawdepth: Puddles
+      - state: spawning
+        map: ["base"]
   - type: CosmicGlyphTransmute
-    transmutations:
-    - ClothingOuterHardsuitCosmicCult
-    whitelist:
-      requireAll: true
-      components:
-      - ClothingSpeedModifier
-      - PressureProtection
   - type: CosmicGlyph
-    requiredCultists: 1
+    requiredCultists: 1 # Goobstation
     activationDamage:
       types:
-        Asphyxiation: 10
+        Asphyxiation: 10 # Goobstation
+        Ion: 10 # Goobstation
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-warding
 
@@ -156,12 +155,17 @@
   name: Glyph of Projection
   components:
   - type: Sprite
-    sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
+    sprite: _DV/CosmicCult/Objects/glyph_projection.rsi
     layers:
-    - state: projection
-    drawdepth: Puddles
+      - state: spawning
+        map: ["base"]
   - type: CosmicGlyphAstralProjection
   - type: CosmicGlyph
     requiredCultists: 1
+    eraseOnUse: true # This is something that you may use early into the round where there aren't many cultists to hide it for you, so it erases automaticaly.
+    activationDamage:
+      types:
+        Asphyxiation: 25
+        Ion: 25
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-projection

@@ -26,6 +26,8 @@ names-slasher-title-dataset-25 = Bleak
 names-slasher-title-dataset-26 = Echoing
 names-slasher-title-dataset-27 = Starless
 names-slasher-title-dataset-28 = Void
+names-slasher-title-dataset-29 = Leather
+names-slasher-title-dataset-30 = Midwich
 
 names-slasher-dataset-1 = Slasher
 names-slasher-dataset-2 = Killer
@@ -59,3 +61,4 @@ names-slasher-dataset-29 = Horror
 names-slasher-dataset-30 = Specter
 names-slasher-dataset-31 = Wraith
 names-slasher-dataset-32 = Haunt
+names-slasher-dataset-33 = Teeth

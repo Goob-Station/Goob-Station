@@ -121,7 +121,7 @@
     sprite: Objects/Tools/Toolboxes/toolbox_yellow.rsi
     state: icon
   product: CrateAirlockKit
-  cost: 1100
+  cost: 1200 # Goob
   category: cargoproduct-category-name-engineering
   group: market
 
@@ -187,7 +187,7 @@
   group: market
 
 # Assmos - Extinguisher Nozzle
-- type: cargoProduct 
+- type: cargoProduct
   id: EngineeringFirefighterBackpackTank
   icon:
     sprite: Clothing/Back/Backpacks/atmosbackpacktank.rsi

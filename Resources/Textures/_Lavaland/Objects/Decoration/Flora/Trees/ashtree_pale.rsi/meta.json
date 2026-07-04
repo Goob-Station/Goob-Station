@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-4.0",
+    "copyright": "Created by Jaraten for Engenia Project",
+    "size": {
+        "x": 96,
+        "y": 96
+    },
+    "states": [
+        {
+            "name": "tree1"
+        },
+        {
+            "name": "tree2"
+        }
+    ]
+}

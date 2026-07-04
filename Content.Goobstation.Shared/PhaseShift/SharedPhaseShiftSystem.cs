@@ -19,6 +19,7 @@ using Content.Shared.ProximityDetection;
 using Content.Shared.Standing;
 using Content.Shared.StepTrigger.Systems;
 using Content.Goobstation.Common.Footprints;
+using Content.Shared.Chat;
 
 namespace Content.Goobstation.Shared.PhaseShift;
 
@@ -76,7 +77,7 @@ public abstract class SharedPhaseShiftSystem : EntitySystem
         }
 
         var stealth = EnsureComp<StealthComponent>(ent);
-        _stealth.SetVisibility(ent, -1, stealth);
+        _stealth.SetVisibility(ent, stealth.MinVisibility, stealth);
 
         if (TryComp(ent, out PullableComponent? pullable))
             _pulling.TryStopPull(ent, pullable);

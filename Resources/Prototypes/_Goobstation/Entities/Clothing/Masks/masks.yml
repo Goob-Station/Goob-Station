@@ -32,7 +32,6 @@
     tags:
     - WhitelistChameleon
     - HidesHair
-    - HidesNose
 
 - type: entity
   parent: ClothingMaskGasChrono
@@ -160,6 +159,7 @@
     tags:
     - WhitelistChameleon
     - IPCMaskWearable
+    - GasMask
   - type: HideLayerClothing
     slots:
     - Hair

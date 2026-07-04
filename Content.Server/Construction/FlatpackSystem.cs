@@ -47,7 +47,6 @@ using Content.Shared.Construction;
 using Content.Shared.Construction.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Power;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Server.Construction;
@@ -77,16 +76,8 @@ public sealed class FlatpackSystem : SharedFlatpackSystem
         if (!_itemSlots.TryGetSlot(uid, comp.SlotId, out var itemSlot) || itemSlot.Item is not { } board)
             return;
 
-        Dictionary<string, int> cost;
-        if (TryComp<MachineBoardComponent>(board, out var machine))
-            cost = GetFlatpackCreationCost(ent, (board, machine));
-        else if (TryComp<ComputerBoardComponent>(board, out var computer) && computer.Prototype != null)
-            cost = GetFlatpackCreationCost(ent, null);
-        else
-        {
-            Log.Error($"Encountered invalid flatpack board while packing: {ToPrettyString(board)}");
+        if (!TryGetFlatpackCreationCost(ent, board, out var cost))
             return;
-        }
 
         if (!MaterialStorage.CanChangeMaterialAmount(uid, cost))
             return;
@@ -122,29 +113,15 @@ public sealed class FlatpackSystem : SharedFlatpackSystem
         if (!_itemSlots.TryGetSlot(uid, comp.SlotId, out var itemSlot) || itemSlot.Item is not { } board)
             return;
 
-        Dictionary<string, int> cost;
-        EntProtoId proto;
-        if (TryComp<MachineBoardComponent>(board, out var machine))
-        {
-            cost = GetFlatpackCreationCost(ent, (board, machine));
-            proto = machine.Prototype;
-        }
-        else if (TryComp<ComputerBoardComponent>(board, out var computer) && computer.Prototype != null)
-        {
-            cost = GetFlatpackCreationCost(ent, null);
-            proto = computer.Prototype;
-        }
-        else
-        {
-            Log.Error($"Encountered invalid flatpack board while packing: {ToPrettyString(board)}");
+        if (!TryGetFlatpackCreationCost(ent, board, out var cost) ||
+            !TryGetFlatpackResultPrototype(board, out var proto))
             return;
-        }
 
         if (!MaterialStorage.TryChangeMaterialAmount((ent, null), cost))
             return;
 
         var flatpack = Spawn(comp.BaseFlatpackPrototype, Transform(ent).Coordinates);
-        SetupFlatpack(flatpack, proto, board);
+        SetupFlatpack(flatpack, proto.Value, board);
         Del(board);
     }
 

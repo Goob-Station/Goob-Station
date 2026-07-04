@@ -10,6 +10,7 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server._EinsteinEngines.Atmos.Components;
 using Content.Server.Cloning.Components;
 using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Bed.Components;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;

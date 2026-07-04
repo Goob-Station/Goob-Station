@@ -37,7 +37,7 @@ namespace Content.Server.Administration.Commands
                 return;
             }
 
-            var ban = await _dbManager.GetServerBanAsync(banId);
+            var ban = await _dbManager.GetBanAsync(banId);
 
             if (ban == null)
             {
@@ -60,7 +60,7 @@ namespace Content.Server.Administration.Commands
                 return;
             }
 
-            await _dbManager.AddServerUnbanAsync(new ServerUnbanDef(banId, player?.UserId, DateTimeOffset.Now));
+            await _dbManager.AddUnbanAsync(new UnbanDef(banId, player?.UserId, DateTimeOffset.Now));
 
             shell.WriteLine(Loc.GetString($"cmd-pardon-success", ("id", banId)));
         }

@@ -18,7 +18,7 @@
 - type: entity
   id: ShuttleWindow
   name: shuttle window
-  parent: WindowRCDResistant
+  parent: [BaseDeltaPressureReinforcedGlass, WindowRCDResistant]
   components:
   - type: Sprite
     drawdepth: WallTops
@@ -89,6 +89,7 @@
   - type: Tag
     tags:
     - Diagonal
+    - Window
   - type: IconSmooth
     mode: Diagonal
     key: windows

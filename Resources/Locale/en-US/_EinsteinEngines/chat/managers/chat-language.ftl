@@ -20,6 +20,7 @@ chat-language-Sign-name = Sign
 chat-language-Marish-name = Marish
 chat-language-Chittin-name = Chittin
 chat-language-Xeeplian-name = Xeeplian
+chat-language-Hydraspeak-name = Hy'drav'tha
 
 # Ported from Floofstation:
 

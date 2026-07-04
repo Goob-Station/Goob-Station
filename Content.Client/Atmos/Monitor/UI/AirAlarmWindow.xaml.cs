@@ -56,7 +56,7 @@
 
 using Content.Client.Atmos.Monitor.UI.Widgets;
 using Content.Client.Message;
-using Content.Client.Stylesheets;
+using Content.Client.Stylesheets.Palette;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Monitor;
@@ -73,7 +73,7 @@ namespace Content.Client.Atmos.Monitor.UI;
 public sealed partial class AirAlarmWindow : FancyWindow
 {
     public event Action<string, IAtmosDeviceData>? AtmosDeviceDataChanged;
-	public event Action<IAtmosDeviceData>? AtmosDeviceDataCopied;
+    public event Action<IAtmosDeviceData>? AtmosDeviceDataCopied;
     public event Action<string, AtmosMonitorThresholdType, AtmosAlarmThreshold, Gas?>? AtmosAlarmThresholdChanged;
     public event Action<AirAlarmMode>? AirAlarmModeChanged;
     public event Action<bool>? AutoModeChanged;
@@ -187,7 +187,7 @@ public sealed partial class AirAlarmWindow : FancyWindow
             case GasVentPumpData pump:
                 if (!_pumps.TryGetValue(addr, out var pumpControl))
                 {
-                    var control= new PumpControl(pump, addr);
+                    var control = new PumpControl(pump, addr);
                     control.PumpDataChanged += AtmosDeviceDataChanged;
                     control.PumpDataCopied += AtmosDeviceDataCopied;
                     _pumps.Add(addr, control);
@@ -242,11 +242,9 @@ public sealed partial class AirAlarmWindow : FancyWindow
     {
         return curAlarm switch
         {
-            AtmosAlarmType.Danger => StyleNano.DangerousRedFore,
-            AtmosAlarmType.Warning => StyleNano.ConcerningOrangeFore,
-            _ => StyleNano.GoodGreenFore,
+            AtmosAlarmType.Danger => Palettes.Status.Critical,
+            AtmosAlarmType.Warning => Palettes.Status.Warning,
+            _ => Palettes.Status.Good,
         };
     }
-
-
 }

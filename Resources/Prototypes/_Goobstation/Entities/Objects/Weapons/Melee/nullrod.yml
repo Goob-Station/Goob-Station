@@ -478,8 +478,8 @@
   - type: Tool
     qualities:
     - Screwing
-    speedModifier: 1.2
-    useSound: /Audio/Items/drill_use.ogg
+    speedModifier: 1.5
+    useSound: /Audio/Effects/Emotes/snap3.ogg
   - type: ToolTileCompatible
   - type: Prying
     enabled: false
@@ -491,48 +491,59 @@
         sprite: _ShitChap/Objects/Weapons/Nullrod/uristhand.rsi
         state: icon
       useSound:
-        path: /Audio/Items/drill_use.ogg
+        path: /Audio/Effects/Emotes/snap3.ogg
       changeSound:
-        path: /Audio/Items/change_drill.ogg
+        path: /Audio/Effects/Emotes/snap2.ogg
     - behavior: Prying
       sprite:
         sprite: _ShitChap/Objects/Weapons/Nullrod/uristhand.rsi
         state: icon
       useSound:
-        path: /Audio/Items/jaws_pry.ogg
+        path: /Audio/Effects/Emotes/snap3.ogg
       changeSound:
-        path: /Audio/Items/change_drill.ogg
+        path: /Audio/Effects/Emotes/snap2.ogg
     - behavior: Anchoring
       sprite:
         sprite: _ShitChap/Objects/Weapons/Nullrod/uristhand.rsi
         state: icon
       useSound:
-        path: /Audio/Items/ratchet.ogg
+        path: /Audio/Effects/Emotes/snap3.ogg
       changeSound:
-        path: /Audio/Items/change_drill.ogg
+        path: /Audio/Effects/Emotes/snap2.ogg
     - behavior: Cutting
       sprite:
         sprite: _ShitChap/Objects/Weapons/Nullrod/uristhand.rsi
         state: icon
       useSound:
-        path: /Audio/Items/jaws_cut.ogg
+        path: /Audio/Effects/Emotes/snap3.ogg
       changeSound:
-        path: /Audio/Items/change_drill.ogg
+        path: /Audio/Effects/Emotes/snap2.ogg
     - behavior: Pulsing
       sprite:
         sprite: _ShitChap/Objects/Weapons/Nullrod/uristhand.rsi
         state: icon
       changeSound:
-        path: /Audio/Items/change_drill.ogg
+        path: /Audio/Effects/Emotes/snap2.ogg
+    - behavior: Welding
+      sprite:
+        sprite: _ShitChap/Objects/Weapons/Nullrod/uristhand.rsi
+        state: icon
+      useSound:
+        path: /Audio/Effects/Emotes/snap3.ogg
+      changeSound:
+        path: /Audio/Effects/Emotes/snap2.ogg
   - type: MeleeWeapon
     canWideSwing: false
+    range: 3
     attackRate: 0.9
     damage:
       types:
         Holy: 14
-        Blunt: 9
+        Blunt: 14
     soundHit:
-      path: /Audio/Weapons/smash.ogg
+      path: /Audio/Effects/Emotes/snap3.ogg
+      params:
+        volume: 10
   - type: Unremoveable
   - type: Nullrod
     DamageOnUntrainedUse:
@@ -852,25 +863,23 @@
     slots:
     - belt
   - type: TimedToggleOnPray
-    duration: 10
+    duration: 20
     soundActivate:
       collection: GeneratorTug
       params:
-        volume: 3
+        volume: 5
     soundDeactivate:
       path: /Audio/_Goobstation/Weapons/ChainSword/chainEnd.ogg
       params:
-        volume: 3
+        volume: 5
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/Weapons/chainsawidle.ogg
       params:
-        volume: 3
+        volume: 5
   - type: ComponentToggler
     components:
     - type: Sharp
-    - type: DisarmMalus
-      malus: 0.6
     - type: Execution
       doAfterDuration: 4.0
     - type: BoneSaw # Shitmed
@@ -880,6 +889,7 @@
         path: /Audio/Weapons/chainsawwield.ogg
       endSound:
         path: /Audio/Weapons/chainsaw.ogg
+    - type: Unremoveable
   - type: Item
     size: Large
   - type: ItemToggleMeleeWeapon
@@ -899,13 +909,13 @@
     autoAttack: true
     heavyStaminaCost: 10
     wideAnimationRotation: -135
-    attackRate: 1.2
+    attackRate: 1.4
     damage:
       types:
         Blunt: 7
         Holy: 5
   - type: UseDelay
-    delay: 180.0
+    delay: 120.0
   - type: Appearance
   - type: ToggleableVisuals
     spriteLayer: blade
@@ -917,3 +927,5 @@
   - type: Tag
     tags:
     - InquisitorChainSword
+  - type: AlternatePrayable
+    prayDoAfterDuration: 1.5

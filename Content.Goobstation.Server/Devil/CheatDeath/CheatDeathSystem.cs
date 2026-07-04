@@ -11,6 +11,7 @@ using Content.Server._Shitmed.DelayedDeath;
 using Content.Server.Actions;
 using Content.Server.Administration.Systems;
 using Content.Server.Jittering;
+using Content.Shared.Administration.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;

@@ -91,7 +91,8 @@
     # HoS will have this on them a lot of the time so..
     difficulty: 3
   - type: NotJobRequirement
-    job: HeadOfSecurity
+    jobs:
+    - HeadOfSecurity
   - type: StealCondition
     stealGroup: WeaponEnergyGunLawbringer
     owner: job-name-hos
@@ -103,7 +104,8 @@
   - type: Objective
     difficulty: 5 #Cannot be pocketed/bagged like Lawbringer or similar, requires your belt slot or hand to hold.
   - type: NotJobRequirement
-    job: HeadOfSecurity
+    jobs:
+    - HeadOfSecurity
   - type: StealCondition
     stealGroup: WeaponSecHeadSword
     owner: job-name-hos
@@ -124,7 +126,8 @@
   - type: Objective
     difficulty: 3 # its an item that you cant store anywhere without being noticed, good luck
   - type: NotJobRequirement
-    job: NanotrasenRepresentative
+    jobs:
+    - NanotrasenRepresentative
   - type: StealCondition
     stealGroup: ExecutiveBriefcase
 
@@ -133,7 +136,8 @@
   id: GeminiProjectorStealObjective
   components:
   - type: NotJobRequirement
-    job: ResearchDirector
+    jobs:
+    - ResearchDirector
   - type: StealCondition
     stealGroup: ClothingBeltGeminiHoloProjector
     descriptionText: objective-condition-steal-gemini-projector-description

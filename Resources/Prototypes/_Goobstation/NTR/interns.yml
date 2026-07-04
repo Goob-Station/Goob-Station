@@ -13,9 +13,7 @@
     name: ghost-role-lead-intern-name
     description: ghost-role-intern-desc
     rules: ghost-role-lead-intern-rules
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 36000 #10 hours
+    job: NanotrasenRepresentative
   - type: GhostRoleMobSpawner
     prototype: LeadIntern
 
@@ -46,9 +44,7 @@
     name: ghost-role-intern-name
     description: ghost-role-intern-desc
     rules: ghost-role-intern-rules
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 36000 #10 hours
+    job: NanotrasenRepresentative
   - type: GhostRoleMobSpawner
     prototype: NTIntern
 
@@ -66,9 +62,7 @@
     name: ghost-role-nerd-intern-name
     description: ghost-role-intern-desc
     rules: ghost-role-intern-rules
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 36000 #10 hours
+    job: NanotrasenRepresentative
   - type: GhostRoleMobSpawner
     prototype: NTNerdIntern
 
