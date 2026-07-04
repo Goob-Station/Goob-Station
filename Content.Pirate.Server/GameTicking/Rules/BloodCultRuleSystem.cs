@@ -1039,8 +1039,8 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		var cultists = GetCultists(includeConstructs: false);
 		var cultistCount = cultists.Count;
 
-		// Call evac if cult drops to 0 or 1 members
-		if (cultistCount <= 1)
+		// Pirate: a lone cultist should still be able to continue the round.
+		if (cultistCount <= 0)
 		{
 			_roundEnd.RequestRoundEnd(
 				TimeSpan.FromMinutes(10),
