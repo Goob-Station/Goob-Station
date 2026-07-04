@@ -196,10 +196,9 @@
         id: eyes
   - type: Input
     context: "ghost"
-  - type: Tag
+  - type: Tag # Goobstation
     tags:
       - Head
-      - Unedible # Goobstation
   - type: Woundable
     boneEntity: BoneNeck
     integrity: 125 #Decaps should happen after the person is already dead

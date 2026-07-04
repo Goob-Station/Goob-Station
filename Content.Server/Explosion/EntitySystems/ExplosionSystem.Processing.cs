@@ -127,6 +127,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using System.Numerics;
 using TimedDespawnComponent = Robust.Shared.Spawners.TimedDespawnComponent;
 
 // Shitmed Change
@@ -134,18 +135,14 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared._Shitmed.Body;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
-using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
 using Content.Shared.Body.Components;
 using Content.Server.Destructible;
-using Content.Server.Destructible.Thresholds.Triggers;
-using System.Linq;
+using Content.Shared.Destructible.Thresholds.Triggers;
 
 namespace Content.Server.Explosion.EntitySystems;
 
 public sealed partial class ExplosionSystem
 {
-    [Dependency] private readonly FlammableSystem _flammableSystem = default!;
-
     /// <summary>
     ///     Used to limit explosion processing time. See <see cref="MaxProcessingTime"/>.
     /// </summary>
@@ -325,6 +322,8 @@ public sealed partial class ExplosionSystem
         HashSet<EntityUid> processed,
         string id,
         float? fireStacks,
+        float? temperature,
+        float currentIntensity,
         EntityUid? cause)
     {
         var size = grid.Comp.TileSize;
@@ -355,6 +354,12 @@ public sealed partial class ExplosionSystem
         {
             processed.Add(entity);
             ProcessEntity(entity, epicenter, damage, throwForce, id, null, fireStacks, cause);
+        }
+
+        // heat the atmosphere
+        if (temperature != null)
+        {
+            _atmosphere.HotspotExpose(grid.Owner, tile, temperature.Value, currentIntensity, cause, true);
         }
 
         // Walls and reinforced walls will break into girders. These girders will also be considered turf-blocking for
@@ -573,7 +578,7 @@ public sealed partial class ExplosionSystem
             GetEntitiesToDamage(uid, originalDamage, id);
             foreach (var (entity, damage) in _toDamage)
             {
-                if (damage.GetTotal() > 0 && TryComp<ActorComponent>(entity, out var actorComponent))
+                if (_actorQuery.HasComp(entity))
                 {
                     // Log damage to player entities only, cause this will create a massive amount of log spam otherwise.
                     if (cause != null)
@@ -593,7 +598,7 @@ public sealed partial class ExplosionSystem
             }
         }
 
-        // ignite
+        // ignite entities with the flammable component
         if (fireStacksOnIgnite != null)
         {
             if (_flammableQuery.TryGetComponent(uid, out var flammable))
@@ -645,17 +650,39 @@ public sealed partial class ExplosionSystem
         else if (tileDef.MapAtmosphere)
             canCreateVacuum = true; // is already a vacuum.
 
+        var history = CompOrNull<TileHistoryComponent>(tileRef.GridUid);
+
+        // break the tile into its underlying parts
         int tileBreakages = 0;
         while (maxTileBreak > tileBreakages && _robustRandom.Prob(type.TileBreakChance(effectiveIntensity)))
         {
             tileBreakages++;
             effectiveIntensity -= type.TileBreakRerollReduction;
 
-            // does this have a base-turf that we can break it down to?
-            if (string.IsNullOrEmpty(tileDef.BaseTurf))
-                break;
+            ContentTileDefinition? newDef = null;
 
-            if (_tileDefinitionManager[tileDef.BaseTurf] is not ContentTileDefinition newDef)
+            // if we have tile history, we revert the tile to its previous state
+            var chunkIndices = SharedMapSystem.GetChunkIndices(tileRef.GridIndices, TileSystem.ChunkSize);
+            if (history != null && history.ChunkHistory.TryGetValue(chunkIndices, out var chunk) &&
+                chunk.History.TryGetValue(tileRef.GridIndices, out var stack) && stack.Count > 0)
+            {
+                // last entry in the stack
+                var newId = stack[^1];
+                stack.RemoveAt(stack.Count - 1);
+                if (stack.Count == 0)
+                    chunk.History.Remove(tileRef.GridIndices);
+
+                Dirty(tileRef.GridUid, history);
+
+                newDef = (ContentTileDefinition) _tileDefinitionManager[newId.Id];
+            }
+            else if (tileDef.BaseTurf.HasValue)
+            {
+                // otherwise, we just use the base turf
+                newDef = (ContentTileDefinition) _tileDefinitionManager[tileDef.BaseTurf.Value];
+            }
+
+            if (newDef == null)
                 break;
 
             if (newDef.MapAtmosphere && !canCreateVacuum)
@@ -704,7 +731,7 @@ public sealed partial class ExplosionSystem
             // Check if combined damage would exceed threshold
             if (currentDamage + additionalDamage >= damageTypeTrigger.Damage)
             {
-                threshold.Execute(uid, _destructibleSystem, EntityManager, cause);
+                _destructibleSystem.Execute(threshold, uid, cause);
                 return true;
             }
         }
@@ -837,6 +864,7 @@ sealed class Explosion
     private readonly IEntityManager _entMan;
     private readonly ExplosionSystem _system;
     private readonly SharedMapSystem _mapSystem;
+    private readonly DamageableSystem _damageable;
 
     public readonly EntityUid VisualEnt;
 
@@ -857,10 +885,10 @@ sealed class Explosion
         int maxTileBreak,
         bool canCreateVacuum,
         IEntityManager entMan,
-        IMapManager mapMan,
         EntityUid visualEnt,
         EntityUid? cause,
-        SharedMapSystem mapSystem)
+        SharedMapSystem mapSystem,
+        DamageableSystem damageable)
     {
         VisualEnt = visualEnt;
         Cause = cause;
@@ -875,6 +903,7 @@ sealed class Explosion
         _maxTileBreak = maxTileBreak;
         _canCreateVacuum = canCreateVacuum;
         _entMan = entMan;
+        _damageable = damageable;
 
         _xformQuery = entMan.GetEntityQuery<TransformComponent>();
         _physicsQuery = entMan.GetEntityQuery<PhysicsComponent>();
@@ -929,8 +958,10 @@ sealed class Explosion
                 _expectedDamage = ExplosionType.DamagePerIntensity * _currentIntensity;
             }
 #endif
-
-            _currentDamage = ExplosionType.DamagePerIntensity * _currentIntensity;
+            var modifier = _currentIntensity
+                           * _damageable.UniversalExplosionDamageModifier
+                           * _damageable.UniversalAllDamageModifier;
+            _currentDamage = ExplosionType.DamagePerIntensity * modifier;
 
             // only throw if either the explosion is small, or if this is the outer ring of a large explosion.
             var doThrow = Area < _system.ThrowLimit || CurrentIteration > _tileSetIntensity.Count - 6;
@@ -1029,6 +1060,8 @@ sealed class Explosion
                     ProcessedEntities,
                     ExplosionType.ID,
                     ExplosionType.FireStacks,
+                    ExplosionType.Temperature,
+                    _currentIntensity,
                     Cause);
 
                 // If the floor is not blocked by some dense object, damage the floor tiles.

@@ -5,7 +5,7 @@
   description: Several prickly cacti, brimming with ripe fruit and covered in a thin layer of ash.
   components:
   - type: Sprite
-    sprite: _Lavaland/Objects/Decoration/Flora/fruiting_cactus.rsi
+    sprite: _Lavaland/Objects/Decoration/Flora/Plants/fruiting_cactus.rsi
     layers:
     - state: cactus1
       map: ["random"]

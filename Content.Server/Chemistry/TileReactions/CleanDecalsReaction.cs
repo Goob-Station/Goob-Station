@@ -84,6 +84,7 @@ using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using System.Numerics;
+using Content.Shared.Maps; // Goob
 
 namespace Content.Server.Chemistry.TileReactions;
 
@@ -112,6 +113,11 @@ public sealed partial class CleanDecalsReaction : ITileReaction
         {
             return FixedPoint2.Zero;
         }
+        // Goob start
+        var tileDefManager = IoCManager.Resolve<ITileDefinitionManager>();
+        if (tileDefManager[tile.Tile.TypeId] is ContentTileDefinition tileDef && tileDef.ProtectDecals)
+            return FixedPoint2.Zero;
+        // Goob end
 
         var lookupSystem = entityManager.System<EntityLookupSystem>();
         var decalSystem = entityManager.System<DecalSystem>();

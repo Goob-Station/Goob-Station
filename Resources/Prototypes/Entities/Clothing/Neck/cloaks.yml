@@ -67,7 +67,7 @@
   description: A pompous and comfy blue cloak with a nice gold trim, while not particularly valuable as your other possessions, it sure is fancy.
   components:
   - type: Sprite
-    sprite: Clothing/Neck/Cloaks/cap.rsi
+    sprite: _Goobstation/Clothing/Neck/Cloaks/cap.rsi # Goob Station - cloak resprite
   - type: StealTarget
     stealGroup: HeadCloak
 
@@ -78,18 +78,29 @@
   description: An exquisite dark and red cloak fitting for those who can assert dominance over wrongdoers. Take a stab at being civil in prosecution!
   components:
   - type: Sprite
-    sprite: Clothing/Neck/Cloaks/hos.rsi
+    sprite: _Goobstation/Clothing/Neck/Cloaks/hos.rsi # Goob Station - cloak resprite
   - type: StealTarget
     stealGroup: HeadCloak
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
-  id: ClothingNeckCloakCe
-  name: chief engineer's cloak
-  description: A dark green cloak with light blue ornaments, given to those who proved themselves to master the precise art of engineering.
+  id: ClothingNeckCloakWhiteCe # Goobstation This is so fucking stupid i blame the guys who approved this for not catching a rename of an internal ID, like why.
+  name: chief engineer's white cloak
+  description: A white cloak with orange adornments, given to those who proved themselves to master the precise art of engineering.
   components:
   - type: Sprite
-    sprite: Clothing/Neck/Cloaks/ce.rsi
+    sprite: _Goobstation/Clothing/Neck/Cloaks/ChiefEngineer/whitece.rsi # Goob Station - cloak resprite
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckCloakGreenCe
+  name: chief engineer's green cloak
+  description: A green cloak with yellow and blue adornments, given to those who proved themselves to master the precise art of engineering.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Cloaks/ChiefEngineer/greence.rsi # Goob Station - cloak resprite
   - type: StealTarget
     stealGroup: HeadCloak
 
@@ -111,7 +122,7 @@
   description: A white cloak with violet stripes, showing your status as the arbiter of cutting-edge technology.
   components:
   - type: Sprite
-    sprite: Clothing/Neck/Cloaks/rd.rsi
+    sprite: _Goobstation/Clothing/Neck/Cloaks/rd.rsi # Goob Station - cloak resprite
   - type: StealTarget
     stealGroup: HeadCloak
 
@@ -133,7 +144,7 @@
   description: A blue cloak with red shoulders and gold buttons, proving you are the gatekeeper to any airlock on the station.
   components:
   - type: Sprite
-    sprite: Clothing/Neck/Cloaks/hop.rsi
+    sprite: _Goobstation/Clothing/Neck/Cloaks/hop.rsi # Goob Station - cloak resprite
   - type: StealTarget
     stealGroup: HeadCloak
 
@@ -232,7 +243,7 @@
   parent: ClothingNeckBase
   id: ClothingNeckCloakMoth
   name: moth cloak
-  description: A cloak in the form of moth wings is an unusual and original element of the wardrobe that can attract the attention of others. It is made of a thin fabric imitating moth wings, with soft and fluffy edges. The raincoat is fastened around the neck with Velcro, and has a hood in the shape of a moths head.
+  description: A cloak in the form of moth wings is an unusual and original element of the wardrobe that can attract the attention of others. It is made of a thin fabric imitating moth wings, with soft and fluffy edges. The raincoat is fastened around the neck with straps, and has a hood in the shape of a moths head.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/moth.rsi

@@ -14,6 +14,7 @@ using Content.Server.EUI;
 using Content.Server.Ghost;
 using Content.Server.Polymorph.Systems;
 using Content.Shared.Actions;
+using Content.Shared.Administration.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
 using Content.Shared.Mind;

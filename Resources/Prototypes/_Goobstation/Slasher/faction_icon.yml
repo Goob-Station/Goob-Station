@@ -1,0 +1,12 @@
+- type: factionIcon
+  id: SoullessFaction
+  isShaded: false
+  priority: 11
+  showTo:
+    components:
+      - Slasher
+      - Devil
+      - ShowAntagIcons
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/faction_icons.rsi
+    state: soulless
