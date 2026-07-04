@@ -141,7 +141,7 @@ namespace Content.Client.Chemistry.UI
                 var quantityLabel = new Label
                 {
                     Text = Loc.GetString("reagent-dispenser-window-quantity-label-text", ("quantity", quantity)),
-                    StyleClasses = { StyleNano.StyleClassLabelSecondaryColor },
+                    StyleClasses = { StyleClass.LabelWeak },
                 };
 
                 ContainerInfo.Children.Add(new BoxContainer

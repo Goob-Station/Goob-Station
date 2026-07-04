@@ -129,7 +129,6 @@ using Content.Server._Goobstation.Wizard.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.Components;
 using Content.Server.Stunnable;
-using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Server.Damage.Components;
 using Content.Goobstation.Common.CCVar;
@@ -154,6 +153,8 @@ using Content.Shared.Throwing;
 using Content.Shared.Timing;
 using Content.Shared.Toggleable;
 using Content.Shared.Weapons.Melee.Events;
+using Content.Shared.Hands;
+using Content.Shared.Temperature.Components;
 using Content.Goobstation.Maths.FixedPoint;
 using Robust.Server.Audio;
 using Robust.Shared.Maths;
@@ -306,8 +307,8 @@ namespace Content.Server.Atmos.EntitySystems
             if (!TryComp<PhysicsComponent>(uid, out var body))
                 return;
 
-            _fixture.TryCreateFixture(uid, component.FlammableCollisionShape, component.FlammableFixtureID, hard: false,
-                collisionMask: (int) CollisionGroup.FullTileLayer, body: body);
+            _fixture.TryCreateFixture(uid, component.FlammableCollisionShape, component.FlammableFixtureID, density: 0,
+                hard: false, collisionMask: (int) CollisionGroup.FullTileLayer, body: body);
         }
 
         private void OnInteractUsing(EntityUid uid, FlammableComponent flammable, InteractUsingEvent args)
@@ -386,22 +387,16 @@ namespace Content.Server.Atmos.EntitySystems
                 mass2 = otherPhys.Mass;
             }
 
-            // when the thing on fire is more massive than the other, the following happens:
-            // - the thing on fire loses a small number of firestacks
-            // - the other thing gains a large number of firestacks
-            // so a person on fire engulfs a mouse, but an engulfed mouse barely does anything to a person
-            var total = mass1 + mass2;
-            var avg = (flammable.FireStacks + otherFlammable.FireStacks) / total;
+            // Get the average of both entity's firestacks * mass
+            // Then for each entity, we divide the average by their mass and set their firestacks to that value
+            // An entity with a higher mass will lose some fire and transfer it to the one with lower mass.
+            var total = mass1 + mass2; // Goob
+            var avg = (flammable.FireStacks * mass1 + otherFlammable.FireStacks * mass2) / 2f;
             var avgPen = (flammable.FireProtectionPenetration + otherFlammable.FireProtectionPenetration) / total; // Goobstation
 
-            // swap the entity losing stacks depending on whichever has the most firestack kilos
-            // Goob edit
-            // var (src, dest) = flammable.FireStacks * mass1 > otherFlammable.FireStacks * mass2
-            //     ? (-1f, 1f)
-            //     : (1f, -1f);
-            // bring each entity to the same firestack mass, firestacks being scaled by the other's mass
-            SetFireStacks(uid, avg * mass2, flammable, ignite: true, avgPen * mass2); // Goob edit
-            SetFireStacks(otherUid, avg * mass1, otherFlammable, ignite: true, avgPen * mass1); // Goob edit
+            // bring each entity to the same firestack mass, firestack amount is scaled by the inverse of the entity's mass
+            SetFireStacks(uid, avg / mass1, flammable, ignite: true, avgPen * mass2); // Goob edit
+            SetFireStacks(otherUid, avg / mass2, otherFlammable, ignite: true, avgPen * mass1); // Goob edit
         }
 
         private void OnIsHot(EntityUid uid, FlammableComponent flammable, IsHotEvent args)

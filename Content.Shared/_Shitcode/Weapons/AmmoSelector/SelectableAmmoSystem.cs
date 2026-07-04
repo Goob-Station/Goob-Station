@@ -102,11 +102,8 @@ public sealed class SelectableAmmoSystem : EntitySystem
         if (TryComp(uid, out BasicEntityAmmoProviderComponent? basic) && basic.Proto != null)
             return _protoManager.TryIndex(basic.Proto, out var index) ? index.Name : null;
 
-        if (TryComp(uid, out HitscanBatteryAmmoProviderComponent? hitscanBattery))
-            return _protoManager.TryIndex(hitscanBattery.Prototype, out var index) ? index.Name : null;
-
-        if (TryComp(uid, out ProjectileBatteryAmmoProviderComponent? projectileBattery))
-            return _protoManager.TryIndex(projectileBattery.Prototype, out var index) ? index.Name : null;
+        if (TryComp(uid, out BatteryAmmoProviderComponent? battery))
+            return _protoManager.TryIndex(battery.Prototype, out var index) ? index.Name : null;
 
         if (TryComp(uid, out ChangelingChemicalsAmmoProviderComponent? chemicals))
             return _protoManager.TryIndex(chemicals.Proto, out var index) ? index.Name : null;
@@ -125,7 +122,7 @@ public sealed class SelectableAmmoSystem : EntitySystem
         }
 
         // this entire system makes me want to sob but im not touching this shit more than i have to
-        if (TryComp(uid, out HitscanBatteryAmmoProviderComponent? hitscanBattery))
+        if (TryComp(uid, out BatteryAmmoProviderComponent? hitscanBattery))
         {
             hitscanBattery.Prototype = proto.ProtoId;
             if (!ShouldSetFireCost(proto))
@@ -137,24 +134,6 @@ public sealed class SelectableAmmoSystem : EntitySystem
             hitscanBattery.Shots = (int) Math.Round(hitscanBattery.Shots / fireCostDiff);
             hitscanBattery.Capacity = (int) Math.Round(hitscanBattery.Capacity / fireCostDiff);
             Dirty(uid, hitscanBattery);
-            var updateClientAmmoEvent = new UpdateClientAmmoEvent();
-            RaiseLocalEvent(uid, ref updateClientAmmoEvent);
-            return true;
-        }
-
-        if (TryComp(uid, out ProjectileBatteryAmmoProviderComponent? projectileBattery))
-        {
-            projectileBattery.Prototype = proto.ProtoId;
-            if (!ShouldSetFireCost(proto))
-                return true;
-            var oldFireCost = projectileBattery.FireCost;
-            projectileBattery.FireCost = proto.FireCost;
-            var fireCostDiff =  proto.FireCost / oldFireCost;
-            projectileBattery.Shots = (int) Math.Round(projectileBattery.Shots / fireCostDiff);
-            projectileBattery.Capacity = (int) Math.Round(projectileBattery.Capacity / fireCostDiff);
-            Dirty(uid, projectileBattery);
-            var updateClientAmmoEvent = new UpdateClientAmmoEvent();
-            RaiseLocalEvent(uid, ref updateClientAmmoEvent);
             return true;
         }
 

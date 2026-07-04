@@ -107,6 +107,12 @@
   copyright: "Taken from 0ne_one111yt on freesound.org"
   source: "https://freesound.org/people/0ne_one111yt/sounds/478213/"
 
+- files: ["utilityknifeopen.ogg, utilityknifeclose.ogg"]
+  license: "CC0-1.0"
+  copyright: "Taken from FilmOrbit on freesound.org"
+  source: "https://freesound.org/s/554299/"
+
+# Goobstation?
 - files: ["firepunch1.ogg", "firepunch2.ogg", "firepunch3.ogg", "firepunch4.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from Citadel Station 13. Remixed to mono where it was stereo by metalgearsloth then added punch sound effects by Skubman"

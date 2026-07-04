@@ -32,3 +32,19 @@ public readonly struct EntityZombifiedEvent
 ///     Event raised when a player zombifies themself using the "turn" action
 /// </summary>
 public sealed partial class ZombifySelfActionEvent : InstantActionEvent { };
+
+
+/// <summary>
+///  Goobstation
+///  Event raised when unzombifying or something.
+///  Temporarily making this because i cannot be bothered doing proper fixes.
+///  Does nothing on client server handles unzombifying after an entity effect.
+/// </summary>
+[ByRefEvent]
+public readonly struct EntityUnZombifiedEvent(EntityUid target)
+{
+    /// <summary>
+    ///     The entity that was unzombified.
+    /// </summary>
+    public readonly EntityUid Target = target;
+};

@@ -11,7 +11,8 @@ namespace Content.Server.Administration.Components;
 /// <summary>
 /// Component to track the timer for the SuperBonk smite.
 /// </summary>
-[RegisterComponent, AutoGenerateComponentPause, Access(typeof(SuperBonkSystem))]
+[RegisterComponent, AutoGenerateComponentPause]
+[Access(typeof(SuperBonkSystem))]
 public sealed partial class SuperBonkComponent : Component
 {
     /// <summary>

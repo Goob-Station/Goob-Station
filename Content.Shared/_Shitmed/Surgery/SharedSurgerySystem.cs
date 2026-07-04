@@ -201,8 +201,8 @@ public abstract partial class SharedSurgerySystem : EntitySystem
         // consume the tool if it's something like using LV cable as stitches
         if (args.ToolUsed)
         {
-            if (_stackQuery.TryComp(tool, out var stack))
-                _stack.Use(tool, 1, stack);
+            if (_stackQuery.HasComp(tool))
+                _stack.ReduceCount(tool, 1);
             else
                 PredictedQueueDel(tool);
         }
