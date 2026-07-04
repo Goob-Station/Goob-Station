@@ -18,6 +18,7 @@ using Content.Shared.Administration;
 using Content.Shared.Players;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;
+using Content.Shared.Roles.Components;
 using Robust.Server.Player;
 using Robust.Shared.Console;
 

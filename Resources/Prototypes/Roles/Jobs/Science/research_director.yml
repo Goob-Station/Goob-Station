@@ -139,10 +139,10 @@
   requirements:
   - !type:RoleTimeRequirement
     role: JobScientist
-    time: 21600 #6 hrs
+    time: 6h # Goobstation
   - !type:DepartmentTimeRequirement
     department: Science
-    time: 36000 #10 hrs
+    time: 10h
   - !type:SpeciesRequirement # Goob - None Felinid
     inverted: true
     species:
@@ -182,6 +182,7 @@
   storage:
     back:
     - Flash
+    - CosmicCenser # DeltaV - Cosmic Cult
     - TelescopicBaton # Goobstation
 
 - type: chameleonOutfit

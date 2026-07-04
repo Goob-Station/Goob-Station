@@ -9,7 +9,6 @@
   - type: DiseaseReagentEffect
     effects:
     - !type:HealthChange
-      useTargeting: false
       damage:
         types:
           Cellular: 0.2
@@ -25,7 +24,6 @@
   - type: DiseaseReagentEffect
     effects:
     - !type:HealthChange
-      useTargeting: false
       damage:
         types:
           Poison: 0.3
@@ -41,7 +39,6 @@
   - type: DiseaseReagentEffect
     effects:
     - !type:HealthChange
-      useTargeting: false
       damage:
         types:
           Blunt: 0.3

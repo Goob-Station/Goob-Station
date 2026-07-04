@@ -225,7 +225,7 @@ public sealed class MechGrabberSystem : EntitySystem
             return;
         }
 
-        if (_whitelist.IsBlacklistPass(component.Blacklist, target)) // Goobstation - added blackist
+        if (_whitelist.IsWhitelistPass(component.Blacklist, target)) // Goobstation - added blackist
             return;
 
         if (Transform(target).Anchored)

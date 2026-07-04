@@ -25,6 +25,7 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.Traits.Assorted;
 using JetBrains.Annotations;
 using Robust.Client.Graphics;
@@ -48,6 +49,7 @@ public sealed class DamageOverlayUiController : UIController
 
     [UISystemDependency] private readonly ConsciousnessSystem _consciousness = default!; // Shitmed Change
     [UISystemDependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
+    [UISystemDependency] private readonly StatusEffectsSystem _statusEffects = default!;
     private Overlays.DamageOverlay _overlay = default!;
 
     public override void Initialize()
@@ -124,43 +126,53 @@ public sealed class DamageOverlayUiController : UIController
         {
             if (!_mobThresholdSystem.TryGetIncapThreshold(entity, out var foundThreshold, thresholds))
                 return; //this entity cannot die or crit!!
-
             var critThreshold = foundThreshold.Value;
             switch (mobState.CurrentState)
             {
                 // Why the fuck is this the correct formatting??? Im gonna fucking kill someone.
                 case MobState.Alive:
                     {
+                        FixedPoint2 painLevel = 0;
+                        _overlay.PainLevel = 0;
                         if (damageable.DamagePerGroup.TryGetValue("Brute", out var bruteDamage))
                             _overlay.PainLevel = FixedPoint2.Min(1f, bruteDamage / critThreshold).Float();
 
                         if (damageable.DamagePerGroup.TryGetValue("Airloss", out var oxyDamage))
                             _overlay.OxygenLevel = FixedPoint2.Min(1f, oxyDamage / critThreshold).Float();
 
+                        if (!_statusEffects.TryEffectsWithComp<PainNumbnessStatusEffectComponent>(entity, out _))
+                        {
+                            foreach (var painDamageType in damageable.PainDamageGroups)
+                            {
+                                damageable.DamagePerGroup.TryGetValue(painDamageType, out var painDamage);
+                                painLevel += painDamage;
+                            }
+                            _overlay.PainLevel = FixedPoint2.Min(1f, painLevel / critThreshold).Float();
+                        }
                         if (_overlay.PainLevel < 0.05f) // Don't show damage overlay if they're near enough to max.
                             _overlay.PainLevel = 0;
 
                         _overlay.CritLevel = 0;
                         _overlay.DeadLevel = 0;
                         break;
-                    }
-                case MobState.Critical:
-                    {
-                        if (!_mobThresholdSystem.TryGetDeadPercentage(entity,
-                                FixedPoint2.Max(0.0, _mobThresholdSystem.CheckVitalDamage(entity, damageable)), out var critLevel)) // GoobStation
-                            return;
-                        _overlay.CritLevel = critLevel.Value.Float();
+                        }
+                        case MobState.Critical:
+                        {
+                            if (!_mobThresholdSystem.TryGetDeadPercentage(entity,
+                                    FixedPoint2.Max(0.0, _mobThresholdSystem.CheckVitalDamage(entity, damageable)), out var critLevel)) // GoobStation
+                                return;
+                            _overlay.CritLevel = critLevel.Value.Float();
 
-                        _overlay.PainLevel = 0;
-                        _overlay.DeadLevel = 0;
-                        break;
-                    }
-                case MobState.Dead:
-                    {
-                        _overlay.PainLevel = 0;
-                        _overlay.CritLevel = 0;
-                        break;
-                    }
+                            _overlay.PainLevel = 0;
+                            _overlay.DeadLevel = 0;
+                            break;
+                        }
+                        case MobState.Dead:
+                        {
+                            _overlay.PainLevel = 0;
+                            _overlay.CritLevel = 0;
+                            break;
+                        }
             }
         }
         else if (body != null)
