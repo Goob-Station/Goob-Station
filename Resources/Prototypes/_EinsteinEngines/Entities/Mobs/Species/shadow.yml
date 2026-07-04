@@ -1,7 +1,7 @@
 # used for nightmares and lesser shadowlings
 - type: entity
   save: false
-  name: Urist McShadow
+  name: "Уріст МакТінь"
   parent: BaseMobSpeciesOrganic
   id: BaseMobShadow
   abstract: true

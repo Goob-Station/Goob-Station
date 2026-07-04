@@ -5,10 +5,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: futuristic stunbaton
+  name: "футуристичний кийок"
   parent: Stunbaton
   id: StasisBaton
-  description: An advanced security baton for shutting down interfering tiders
+  description: "Удосконалений жезл безпеки для вимкнення заважаючих тайдерів"
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/stasisbaton.rsi

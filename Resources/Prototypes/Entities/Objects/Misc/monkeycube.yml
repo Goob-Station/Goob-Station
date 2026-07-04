@@ -47,9 +47,9 @@
 
 - type: entity
   parent: BoxCardboard
-  name: monkey cube box
+  name: "коробка з кубиками мавпи"
   id: MonkeyCubeBox
-  description: Drymate brand monkey cubes. Just add water!
+  description: "Кубики-мавпочки бренду Drymate. Просто додайте води!"
   components:
   - type: StorageFill
     contents:
@@ -75,9 +75,9 @@
 
 - type: entity
   parent: BaseWrappedCube
-  name: monkey cube
+  name: "запакований мавпʼячий кубик"
   id: MonkeyCubeWrapped
-  description: Unwrap this to get a monkey cube.
+  description: "Розгорніть його, щоб отримати кубик мавпочки."
   components:
   - type: SpawnItemsOnUse
     items:
@@ -90,9 +90,9 @@
 
 - type: entity
   parent: MonkeyCubeBox
-  name: kobold cube box
+  name: "коробка з кубиками кобольда"
   id: KoboldCubeBox
-  description: Condensed kobolds in a cube. Just add water!
+  description: "Згущені кобольди в кубі. Просто додай води!"
   components:
   - type: StorageFill
     contents:
@@ -104,9 +104,9 @@
 
 - type: entity
   parent: MonkeyCubeBox
-  name: variant cube box
+  name: "варіантивна коробка з кубиками"
   id: VariantCubeBox
-  description: Both kobold cubes and monkey cubes. Just add water!
+  description: "І кубики кобольдів, і кубики мавп. Просто додайте води!"
   components:
   - type: StorageFill
     contents:
@@ -120,9 +120,9 @@
 
 - type: entity
   parent: BaseWrappedCube
-  name: kobold cube
+  name: "запакований кобольдський кубик"
   id: KoboldCubeWrapped
-  description: Unwrap this to get a kobold cube.
+  description: "Розгорніть його, щоб отримати кубик кобольда."
   components:
   - type: SpawnItemsOnUse
     items:
@@ -132,10 +132,10 @@
 
 - type: entity
   parent: MonkeyCubeBox
-  name: monkey cube box
+  name: "коробка з кубиками мавпи"
   suffix: Syndicate
   id: SyndicateSpongeBox
-  description: Drymate brand monkey cubes. Just add water!
+  description: "Кубики-мавпочки бренду Drymate. Просто додайте води!"
   components:
   - type: StorageFill
     contents:
@@ -147,7 +147,7 @@
 
 - type: entity
   parent: MonkeyCubeWrapped
-  name: monkey cube
+  name: "запакований мавпʼячий кубик"
   suffix: Wrapped, Syndicate
   id: SyndicateSpongeWrapped
   components:

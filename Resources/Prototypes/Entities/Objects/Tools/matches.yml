@@ -46,10 +46,10 @@
     size: Small
 
 - type: entity
-  name: match stick
+  name: "сірник"
   parent: BaseItem
   id: Matchstick
-  description: A simple match stick, used for lighting fine smokables.
+  description: "Простий сірниковий стрижень, що використовується для підпалювання тонких курильних сумішей."
   components:
   - type: Tag
     tags:
@@ -100,10 +100,10 @@
     state: Burnt
 
 - type: entity
-  name: match box
+  name: "сірникова коробка"
   parent: [ SmallboxItem, BaseBagOpenClose ]
   id: Matchbox
-  description: A small box of Almost But Not Quite Plasma Premium Matches.
+  description: "Невеличка коробочка сірників Almost But Not Quite Plasma Premium."
   components:
   # Goobstation edit start
   - type: EmitSoundOnPickup
@@ -170,8 +170,8 @@
 - type: entity
   parent: [Matchbox, BaseSyndicateContraband]
   id: GorlexMatchbox
-  name: Gorlex match box
-  description: "A pneumatic match box styled after the Gorlex Marauders' equipment. Contains 24 matches."
+  name: "Сірникова коробка Gorlex"
+  description: "Пневматична сірникова коробка в стилі екіпіровки мародерів Gorlex. Містить 24 сірники."
   components:
   - type: Sprite
     sprite: Objects/Tools/Lighters/gorlex.rsi
@@ -187,10 +187,10 @@
   - type: Matchbox
 
 - type: entity
-  name: match stick
+  name: "сірник"
   parent: [Matchstick, BaseSyndicateContraband]
   id: GorlexMatchstick
-  description: A military grade match stick, used for lighting fine smokables and noncombatants alike.
+  description: "Військовий сірник, що використовується для запалювання вишуканих курильних виробів і некомбатантів."
   components:
   - type: Sprite
     sprite: Objects/Tools/Lighters/gorlexmatch.rsi

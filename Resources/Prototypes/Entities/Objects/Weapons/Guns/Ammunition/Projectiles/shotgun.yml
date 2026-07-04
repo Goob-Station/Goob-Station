@@ -111,7 +111,7 @@
 
 - type: entity
   id: PelletShotgunSlug
-  name: pellet (.50 slug)
+  name: "куля (.50 slug)"
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
@@ -127,7 +127,7 @@
 
 - type: entity
   id: PelletShotgunBeanbag
-  name: beanbag (.50)
+  name: "горошок (.50)"
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
@@ -143,7 +143,7 @@
 
 - type: entity
   id: PelletShotgun
-  name: pellet (.50)
+  name: "куля (.50)"
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
@@ -169,7 +169,7 @@
 
 - type: entity
   id: PelletShotgunIncendiary
-  name: pellet (.50 incendiary)
+  name: "дробинка (.50 запальний)"
   categories: [ HideSpawnMenu ]
   parent: BaseBulletIncendiary
   components:
@@ -196,7 +196,7 @@
 
 - type: entity
   id: PelletShotgunPractice
-  name: pellet (.50 practice)
+  name: "куля (.50 практика)"
   categories: [ HideSpawnMenu ]
   parent: BaseBulletPractice
   components:
@@ -220,7 +220,7 @@
 
 - type: entity
   id: PelletShotgunImprovised
-  name: improvised pellet
+  name: "імпровізована гранула"
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
@@ -245,7 +245,7 @@
 
 - type: entity
   id: PelletShotgunTranquilizer
-  name: pellet (.50 tranquilizer)
+  name: "куля (.50 транквілізатор)"
   categories: [ HideSpawnMenu ]
   parent: BaseBulletPractice
   components:
@@ -272,7 +272,7 @@
 
 - type: entity
   id: PelletShotgunFlare
-  name: pellet (.50 flare)
+  name: "куля (.50 факел)"
   categories: [ HideSpawnMenu ]
   components:
   - type: Physics
@@ -319,7 +319,7 @@
 
 - type: entity
   id: PelletShotgunUranium
-  name: pellet (.50 uranium)
+  name: "пелета (.50 урану)"
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
@@ -344,7 +344,7 @@
 
 - type: entity
   id: PelletGrapeshot #tally fucking ho
-  name: grapeshot pellet
+  name: "виноградна дробина"
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
@@ -372,7 +372,7 @@
 
 - type: entity
   id: PelletGlass
-  name: glass shard
+  name: "осколок скла"
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:

@@ -29,8 +29,8 @@
 - type: entity
   id: CrateFoodPizza
   parent: CratePlastic
-  name: emergency pizza delivery
-  description: Help do your part to end station hunger by distributing pizza to underfunded departments! Includes 4 pizzas.
+  name: "екстрена доставка піци"
+  description: "Допоможіть зробити свій внесок у боротьбу з голодом на станції, роздавши піцу відділенням, які не отримують достатнього фінансування! Включає 4 піци."
   components:
   - type: StorageFill
     contents:
@@ -43,8 +43,8 @@
 - type: entity
   id: CrateFoodPizzaLarge
   parent: CratePlastic
-  name: disaster pizza delivery
-  description: In the ultimate event that all else has failed, Find comfort in that more pizza solves everything. Includes 16 pizzas.
+  name: "доставка піци на випадок катастрофи"
+  description: "Коли все інше зазнає краху — пам'ятай: більше піци вирішує всі проблеми. Містить 16 піц."
   components:
   - type: StorageFill
     contents:
@@ -57,8 +57,8 @@
 - type: entity
   id: CrateFoodMRE
   parent: CratePlastic
-  name: MRE crate
-  description: A military style meal fit to feed a whole department.
+  name: "Ящик ІРХ"
+  description: "Їжа у військовому стилі, якої вистачить, щоб нагодувати цілий відділ."
   components:
   - type: StorageFill
     contents:
@@ -68,8 +68,8 @@
 - type: entity
   id: CrateFoodCooking
   parent: CratePlastic
-  name: kitchen supplies crate
-  description: Extra kitchen supplies, in case the botanists are absent.
+  name: "ящик кухонного приладдя"
+  description: "Додаткове кухонне приладдя на випадок відсутності ботаніків."
   components:
   - type: StorageFill
     contents:
@@ -95,8 +95,8 @@
 - type: entity
   id: CrateFoodDinnerware
   parent: CratePlastic
-  name: kitchen dinnerware crate
-  description: Extra kitchen supplies, in case the clown was allowed in the cafeteria unsupervised.
+  name: "ящик кухонного посуду"
+  description: "Додаткове кухонне приладдя на випадок, якщо клоуна пустять в кафетерій без нагляду."
   components:
   - type: StorageFill
     contents:
@@ -122,8 +122,8 @@
 - type: entity
   id: CrateFoodBarSupply
   parent: CratePlastic
-  name: bartending supplies crate
-  description: Extra Bar supplies, in case the clown was allowed in the bar unsupervised.
+  name: "ящик барменського приладдя"
+  description: "Додаткові барні приналежності, на випадок, якщо клоуна пустять до бару без нагляду."
   components:
   - type: StorageFill
     contents:
@@ -149,8 +149,8 @@
 - type: entity
   id: CrateFoodSoftdrinks
   parent: CratePlastic
-  name: softdrinks crate
-  description: A variety of sodas to complement a small party, without having to empty the soda machines. Includes 14 sodas.
+  name: "ящик з безалкогольними напоями"
+  description: "Різноманітні газовані напої для невеликої вечірки, без необхідності спорожнення автоматів з газованою водою. Містить 14 газованих напоїв."
   components:
   - type: StorageFill
     contents:
@@ -172,8 +172,8 @@
 - type: entity
   id: CrateFoodSoftdrinksLarge
   parent: CratePlastic
-  name: softdrinks bulk crate
-  description: Lots of sodas taken straight out of Centcomm's own vending machines, because you just can't leave your department. Includes 32 sodas.
+  name: "гуртовий ящик газованих напоїв"
+  description: "Багато газованих напоїв просто з автоматів CentCom, бо ви просто не можете залишити свій відділ. Містить 32 банки."
   components:
   - type: EntityStorage
     capacity: 32 # Slightly over-sized CratePlastic to accomodate over 30 drink cans at once.
@@ -197,8 +197,8 @@
 - type: entity
   id: CrateFoodGetMore
   parent: CratePlastic
-  name: Getmore Bakemore crate
-  description: Getmore branded snacks and baking supplies for the creative chef, all without the need of emptying your station's Getmore machines!
+  name: "ящик Getmore Bakemore"
+  description: "Брендові закуски та припаси для випічки від Getmore для творчого шеф-кухаря, і все це без необхідності спустошувати автомати Getmore на вашій станції!"
   components:
   - type: StorageFill
     contents:
@@ -224,8 +224,8 @@
 - type: entity
   id: CrateFoodIceCream
   parent: CrateFreezer
-  name: ice cream delivery
-  description: An assortment of ice cream delights for any occasion! Includes 16 frozen treats.
+  name: "доставка морозива"
+  description: "Асортимент морозива на будь-який випадок! Включає 16 заморожених ласощів."
   components:
   - type: StorageFill
     contents:
@@ -247,8 +247,8 @@
 - type: entity
   id: CrateFoodSnowcone
   parent: CrateFreezer
-  name: snowcone delivery
-  description: A freezer packed with refreshing snowcones for a hard working crew, or even a lazy one! Includes 16 snowcones.
+  name: "доставка сніжкових ріжків"
+  description: "Морозильна камера, наповнена освіжаючими сніжковими ріжками для працьовитої команди, або навіть для ледачої! Включає 16 сніжкових ріжків."
   components:
   - type: StorageFill
     contents:
@@ -268,8 +268,8 @@
 - type: entity
   id: CrateFoodHappyHonkBigBite
   parent: CratePlastic
-  name: Happy Honk meal delivery
-  description: Two fully loaded Happy Honk Big Bite burger meals, complete with cheesy fries, a bottle of Space Cola, a slice of apple pie and a toy!
+  name: "доставка їжі Хеппі Хонк"
+  description: "Два повних набори \"Хеппі Хонк Біг Байт\", що включають сирну картоплю фрі, пляшку Космічної Коли, шматок яблучного пирога та іграшку!"
   components:
   - type: StorageFill
     contents:

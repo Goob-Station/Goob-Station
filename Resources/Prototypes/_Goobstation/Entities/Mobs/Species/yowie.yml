@@ -17,7 +17,7 @@
 - type: entity
   parent: BaseMobSpeciesOrganic
   id: BaseMobYowie
-  name: Urist McYowie
+  name: "Уріст МакЙові"
   abstract: true
   components:
   - type: Sprite

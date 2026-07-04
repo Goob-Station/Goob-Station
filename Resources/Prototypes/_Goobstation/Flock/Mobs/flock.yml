@@ -1,9 +1,9 @@
 - type: entity
-  name: base flock
+  name: "основа зграї"
   id: MobFlockBase
   parent: [ SimpleSpaceMobBase, MobCombat ]
   abstract: true
-  description: Is it broccoli? A glass chicken? A peacock? A green roomba? A shiny discobot? A crystal turkey? A bugbird? A radio pigeon??
+  description: "Це броколі? Скляна курка? Павич? Зелений румба? Блискучий дискобот? Кришталевий індик? Птахожук? Радіоголуб??"
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -34,7 +34,7 @@
   - type: Fauna # Lavaland Change
 
 - type: entity
-  name: flockDrone
+  name: "дрон зграї"
   id: MobFlockDrone
   parent: MobFlockBase
   components:
@@ -84,10 +84,10 @@
 
 
 - type: entity
-  name: flockBit
+  name: "біт зграї"
   id: MobFlockBit
   parent: MobFlockBase
-  description: The inferior version of the byte. Thankfully, it does not bite.
+  description: "Менша версія байта. На щастя, він не кусається."
   components:
   - type: Sprite
     drawdepth: Mobs

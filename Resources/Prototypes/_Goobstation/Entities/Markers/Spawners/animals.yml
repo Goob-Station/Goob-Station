@@ -9,7 +9,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobHorse
-  name: Horse Spawner
+  name: "Спавнер Коня"
   components:
   - type: Sprite
     layers:
@@ -22,7 +22,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobHorseTrevor
-  name: Trevor Spawner
+  name: "Спавнер Тревора"
   components:
   - type: Sprite
     layers:

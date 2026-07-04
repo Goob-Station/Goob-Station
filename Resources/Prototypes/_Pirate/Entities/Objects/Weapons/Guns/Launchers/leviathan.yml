@@ -1,8 +1,8 @@
 - type: entity
-  name: Leviathan
+  name: "Левіафан"
   parent: [ BaseWeaponLauncher, BaseGunWieldable, BaseSyndicateContraband ]
   id: WeaponLauncherBazooka
-  description: A symbol of hubris, arrogance, and an overwhelming lust for destruction. Not intended for use without a hardsuit. Uses rockets.
+  description: "Символ гордині, зарозумілості та непереборної жаги до руйнування. Не призначений для використання без скафандра. Використовує ракети."
   components:
   - type: Sprite
     sprite: _Pirate/Objects/Weapons/Guns/Launchers/leviathan.rsi

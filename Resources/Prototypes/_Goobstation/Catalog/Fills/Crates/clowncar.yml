@@ -7,8 +7,8 @@
 - type: entity
   id: CrateFunClownCarUplink
   parent: CrateSyndicate
-  name: clown car crate
-  description: Contains one car, Clown not included
+  name: "ящик з клоунською машиною"
+  description: "Містить одну машину, клоун не входить до комплекту"
   suffix: Uplink item
   components:
   - type: StorageFill
@@ -19,8 +19,8 @@
 - type: entity
   id: CrateFunClownCarNukieUplink
   parent: CrateSyndicate
-  name: clown car crate
-  description: Contains one car, Clown not included
+  name: "ящик з клоунською машиною"
+  description: "Містить одну машину, клоун не входить до комплекту"
   suffix: Uplink item
   components:
   - type: StorageFill
@@ -32,9 +32,9 @@
 - type: entity
   id: CrateFunClownCarCargo
   parent: CrateLivestock
-  name: clown car crate
+  name: "ящик з клоунською машиною"
   suffix: Cargo Order
-  description: Contains one car, Clown not included
+  description: "Містить одну машину, клоун не входить до комплекту"
   components:
   - type: StorageFill
     contents:
@@ -44,9 +44,9 @@
 - type: entity
   id: CrateFunClownCarTesting
   parent: CrateLivestock
-  name: clown car crate
+  name: "ящик з клоунською машиною"
   suffix: for testing
-  description: for the cursed clown
+  description: "для проклятого клоуна"
   components:
   - type: StorageFill
     contents:

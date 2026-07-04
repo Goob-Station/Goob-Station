@@ -1,8 +1,8 @@
 - type: entity # The mantis backpacks are a bit smaller visually to show off their clothes
   parent: [ClothingBackpack, BaseFoldable]
   id: ClothingBackpackMantis
-  name: mantis backpack
-  description: "A low-profile backpack for the mantis, signified by the Greek psi in electrum. Designed with clips that fit your uniform perfectly, allowing the strap to be removed as desired."
+  name: "рюкзак Мантіса"
+  description: "Низькопрофільний рюкзак для Мантіса, позначений грецькою пси з електруму. Спроєктований із кліпсами, що ідеально пасують до вашої уніформи, дозволяючи за бажанням зняти ремінь."
   components:
   - type: Sprite
     sprite: _DEN/Clothing/Back/Backpacks/mantis.rsi
@@ -35,8 +35,8 @@
 - type: entity
   parent: [ClothingBackpackDuffel, BaseFoldable]
   id: ClothingBackpackDuffelMantis
-  name: mantis duffel bag
-  description: "A relatively low-profile duffel bag with a braided handle for the mantis. Designed with clips that fit your uniform perfectly, allowing the strap to be removed as desired."
+  name: "речовий мішок Мантіса"
+  description: "Відносно низькопрофільний речовий мішок для Мантіса з плетеною ручкою. Спроєктований із кліпсами, що ідеально пасують до вашої уніформи, дозволяючи за бажанням зняти ремінь."
   components:
   - type: Sprite
     sprite: _DEN/Clothing/Back/Duffels/mantis.rsi
@@ -69,8 +69,8 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelMantis
-  name: mantis satchel
-  description: "A low-profile satchel for the mantis that hooks onto the back of your belt, bearing a Greek psi on the flap. Perhaps the only bag that won't get caught on the sleeves of your robes."
+  name: "сумка Мантіса"
+  description: "Низькопрофільна сумка для Мантіса, що чіпляється до задньої частини пояса й має грецьку пси на клапані. Мабуть, єдина сумка, яка не чіплятиметься за рукави вашої роби."
   components: # Intentionally only visible when facing north, since multiple mantis gloves have big detached sleeves
   - type: Sprite # Backpacks layer over gloves when facing east or west, so this is the only option that will never do that
     sprite: _DEN/Clothing/Back/Satchels/mantis.rsi
@@ -79,8 +79,8 @@
 - type: entity
   parent: [ClothingBackpackSatchel, BaseFoldable]
   id: ClothingBackpackSatchelMantisPurse
-  name: mantis handbag
-  description: "A low-profile handbag for the mantis with a polished clasp. It can be worn on either shoulder, and it's easily hidden beneath a cloak."
+  name: "ручна сумка Мантіса"
+  description: "Низькопрофільна ручна сумка для Мантіса з полірованою застібкою. Її можна носити на будь-якому плечі, і вона легко ховається під плащем."
   components:
   - type: Sprite
     sprite: _DEN/Clothing/Back/Satchels/mantispurse.rsi
@@ -99,8 +99,8 @@
 - type: entity
   parent: [ClothingBackpackMessengerBase, BaseFoldable]
   id: ClothingBackpackMessengerMantis
-  name: mantis messenger bag
-  description: "A low-profile messenger bag for the mantis, within an electrum shell shaped like a watchful eye. The strap can be flipped to the other side."
+  name: "кур’єрська сумка Мантіса"
+  description: "Низькопрофільна кур’єрська сумка для Мантіса в електрумовій оболонці у формі пильного ока. Ремінь можна перекинути на інший бік."
   components:
   - type: Sprite
     sprite: _DEN/Clothing/Back/Messenger/mantis.rsi

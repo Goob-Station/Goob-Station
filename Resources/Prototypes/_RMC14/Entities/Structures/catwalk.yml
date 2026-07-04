@@ -1,7 +1,7 @@
 - type: entity
   id: CMCatwalk
-  name: catwalk
-  description: A catwalk for easier EVA maneuvering and cable placement.
+  name: "місток"
+  description: "Місток для полегшення маневрування у відкритому космосі та прокладання кабелів."
   placement:
     mode: SnapgridCenter
   components:
@@ -80,7 +80,7 @@
 - type: entity
   parent: CMCatwalk
   id: RMCCatwalkHybrisa
-  name: solid metal grate
+  name: "суцільна металева решітка"
   components:
   - type: Sprite
     state: solidgrate1
@@ -88,7 +88,7 @@
 - type: entity
   parent: CMCatwalk
   id: RMCCatwalkHybrisaLattice
-  name: structural lattice
+  name: "структурна решітка"
   components:
   - type: Sprite
     state: latticefull
@@ -96,7 +96,7 @@
 - type: entity
   parent: CMCatwalk
   id: RMCCatwalkHybrisaElevator
-  name: solid metal grate
+  name: "суцільна металева решітка"
   components:
   - type: Sprite
     state: solidgrate5
@@ -105,8 +105,8 @@
 
 - type: entity
   id: RMCMonorailStraight
-  name: monorail track
-  description: The rail system for the CORSAT monorail.
+  name: "колія монорейки"
+  description: "Рейкова система для монорейки CORSAT."
   placement:
     mode: SnapgridCenter
   components:
@@ -147,8 +147,8 @@
 - type: entity
   parent: RMCMonorailStraight
   id: RMCRailroadStraight
-  name: rails
-  description: Minecarts and rail vehicles go on these.
+  name: "рейки"
+  description: "По них їздять вагонетки та рейковий транспорт."
   components:
   - type: Sprite
     sprite: _RMC14/Structures/catwalk.rsi
@@ -173,8 +173,8 @@
 - type: entity
   parent: RMCRailroadStraight
   id: RMCRailroadBumper
-  name: rail bumpers
-  description: This (usually) stops minecarts and other rail vehicles at the end of a line of track.
+  name: "рейкові бампери"
+  description: "Це (зазвичай) зупиняє вагонетки та інший рейковий транспорт в кінці колії."
   components:
   - type: Sprite
     sprite: _RMC14/Structures/catwalk.rsi

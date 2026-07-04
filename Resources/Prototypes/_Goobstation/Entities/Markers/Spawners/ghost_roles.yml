@@ -32,7 +32,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
-  name: grey tide antag spawn
+  name: "спавн антагоніста «Грей тайд»"
   parent: BaseAntagSpawner
   id: SpawnPointGhostGreyTide
   components:
@@ -57,7 +57,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
-  name: tunnel clown antag spawn
+  name: "спавн антагоніста «Тунельний клоун»"
   parent: BaseAntagSpawner
   id: SpawnPointGhostTunnelClown
   components:
@@ -82,7 +82,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
-  name: Singuloth Knights antag spawn
+  name: "спавн антагоніста «Лицарі Синґулота»"
   parent: BaseAntagSpawner
   id: SpawnPointGhostSingulothKnight
   components:
@@ -107,7 +107,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
-  name: Dark Lord antag spawn
+  name: "спавн антагоніста «Темний лорд»"
   parent: BaseAntagSpawner
   id: SpawnPointGhostDarkLord
   components:
@@ -133,7 +133,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
-  name: mime assassin antag spawn
+  name: "спавн антагоніста «Мім-убивця»"
   parent: BaseAntagSpawner
   id: SpawnPointGhostMimeAssassin
   components:
@@ -158,7 +158,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
-  name: Chosen One spawn
+  name: "спавн «Обраного»"
   parent: BaseAntagSpawner
   id: SpawnPointGhostChosenOne
   components:
@@ -183,7 +183,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
-  name: Dark Priest Spawner
+  name: "Спавнер темного жерця"
   parent: BaseAntagSpawner
   id: SpawnPointGhostDarkPriest
   components:
@@ -208,7 +208,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
-  name: Vox Raider Spawner
+  name: "Спавнер вокс-рейдера"
   parent: BaseAntagSpawner
   id: SpawnPointGhostVoxRaider
   components:
@@ -232,7 +232,7 @@
       state: icon
 
 - type: entity
-  name: Maints Spawn Marker
+  name: "Маркер спавну технічних тунелів"
   parent: MarkerBase
   id: MaintsSpawnMarker
   components:

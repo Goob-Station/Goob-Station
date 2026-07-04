@@ -1,6 +1,6 @@
 - type: entity
-  name: Echion power cell
-  description: A rechargeable power cell made with an exotic reagent. Extremely potent when used with weapons, but not the most efficient power source.
+  name: "Елемент живлення з Ехіоном"
+  description: "Акумуляторна батарея, виготовлена з екзотичного реагенту. Надзвичайно потужна при використанні зі зброєю, але не найефективніше джерело енергії."
   id: PowerCellEchion
   suffix: Full
   parent: [ BasePowerCell, BaseSyndicateContraband ]

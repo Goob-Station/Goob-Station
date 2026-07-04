@@ -77,8 +77,8 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: urn
-  description: Store the Dead smart and Compact since 2300.
+  name: "урна"
+  description: "Зберігайте мертвих розумно та компактно з 2300 року."
   parent: BaseStorageItem
   id: Urn
   components:

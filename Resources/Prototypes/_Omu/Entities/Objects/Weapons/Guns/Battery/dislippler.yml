@@ -1,8 +1,8 @@
 - type: entity
-  name: dislippler
+  name: "дисліпплер"
   parent: [WeaponDisablerPractice, BaseSyndicateContraband]
   id: WeaponDislippler
-  description: Standard-issue security disabler on Honk! Co. stations. Ultimate proof that God has abandoned us.
+  description: "Штатний деактиватор безпеки на станціях Honk! Co. Остаточний доказ, що Бог нас покинув."
   components:
     - type: Gun
       fireRate: 3
@@ -39,7 +39,7 @@
       autoRechargeRate: 50
 
 - type: entity
-  name: dislippler bolt
+  name: "заряд дисліпплера"
   id: BulletDislippler
   parent: BulletDisabler
   categories: [HideSpawnMenu]

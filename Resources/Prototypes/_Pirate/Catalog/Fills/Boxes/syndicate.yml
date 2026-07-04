@@ -1,8 +1,8 @@
 - type: entity
   parent: [BoxCardboard, BaseSyndicateContraband]
   id: LeviathanExplosiveRocketBox
-  name: Leviathan rocket box (explosive)
-  description: 4 highly destructive rockets stored in a concerningly fragile container.
+  name: "Ящик з ракетами Левіафана (вибухові)"
+  description: "4 надзвичайно руйнівні ракети, що зберігаються в тривожно крихкому контейнері."
   components:
   - type: Storage
     grid:
@@ -19,8 +19,8 @@
 - type: entity
   parent: LeviathanExplosiveRocketBox
   id: LeviathanIncendiaryRocketBox
-  name: Leviathan rocket box (incendiary)
-  description: 4 rockets filled with highly flammable fuel stored in a concerningly fragile container.
+  name: "Ящик з ракетами Левіафана (запалювальні)"
+  description: "4 ракети, наповнені легкозаймистим паливом, що зберігаються в тривожно крихкому контейнері."
   components:
   - type: StorageFill
     contents:
@@ -34,8 +34,8 @@
 - type: entity
   parent: LeviathanExplosiveRocketBox
   id: LeviathanConcussionRocketBox
-  name: Leviathan rocket box (concussive)
-  description: 4 tungsten projectiles stored in a flimsy container. It feels as if they'll tear out through the bottom.
+  name: "Ящик з ракетами Левіафана (контузійні)"
+  description: "4 вольфрамові снаряди, що зберігаються в крихкому контейнері. Здається, ніби вони вирвуться крізь дно."
   components:
   - type: StorageFill
     contents:
@@ -49,8 +49,8 @@
 - type: entity
   parent: [BoxCardboard, BaseSyndicateContraband]
   id: AdderBox
-  name: Adder bundle box
-  description: A state-of-the-art plasma pistol, bundled with 2 canisters of its proprietary fuel.
+  name: "Коробка з набором Гадюки"
+  description: "Сучасний плазмовий пістолет у комплекті з 2 каністрами фірмового палива."
   components:
   - type: Storage
     grid:

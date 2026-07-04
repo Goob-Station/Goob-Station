@@ -11,8 +11,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckChameleon
-  name: striped red scarf
-  description: A stylish striped red scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
+  name: "смугастий червоний шарф"
+  description: "Стильний смугастий червоний шарф. Ідеальний зимовий аксесуар для тих, хто стежить за модою, і тих, хто просто не може терпіти холодний вітерець на шиї."
   suffix: Chameleon
   components:
     - type: Tag

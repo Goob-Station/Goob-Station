@@ -88,10 +88,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: chair
+  name: "крісло"
   id: SeatBase
   abstract: true
-  description: You sit in this. Either by will or force.
+  description: "Ти сидиш у цьому. Чи то з волі, чи то з примусу."
   placement:
     mode: PlaceFree
   components:
@@ -144,7 +144,7 @@
 
 #Starts unanchored, cannot be rotated while anchored
 - type: entity
-  name: chair
+  name: "крісло"
   id: UnanchoredChairBase
   parent: SeatBase
   abstract: true
@@ -154,7 +154,7 @@
 
 #Start anchored, cannot be rotated while anchored
 - type: entity
-  name: chair
+  name: "крісло"
   id: ChairBase
   abstract: true
   parent: UnanchoredChairBase
@@ -168,7 +168,7 @@
 
 #Starts unanchored, can be rotated while anchored
 - type: entity
-  name: chair
+  name: "крісло"
   id: OfficeChairBase
   parent: UnanchoredChairBase
   abstract: true
@@ -178,9 +178,9 @@
 
 # Goobstation - rolly chairs that actually roll!
 - type: entity
-  name: chair
+  name: "крісло"
   id: RollingOfficeChairBase
-  description: Scoot from desk to desk because standing is for interns.
+  description: "Пересувайтесь від столу до столу, бо стояти – це для інтернів."
   parent: BaseVehicle
   abstract: true
   components:
@@ -244,7 +244,7 @@
 
 #Starts anchored, can be rotated while anchored
 - type: entity
-  name: stool
+  name: "табурет"
   id: StoolBase
   parent: OfficeChairBase
   abstract: true
@@ -257,7 +257,7 @@
     anchored: true
 
 - type: entity
-  name: chair
+  name: "крісло"
   id: Chair
   parent: ChairBase
   components:
@@ -268,7 +268,7 @@
     node: chair
 
 - type: entity
-  name: chair
+  name: "крісло"
   id: ChairGreyscale
   parent: Chair
   suffix: White
@@ -279,10 +279,10 @@
     convertTo: CosmicChair
 
 - type: entity
-  name: stool
+  name: "табурет"
   id: Stool
   parent: UnanchoredChairBase
-  description: Apply butt.
+  description: "Ти сидиш у цьому. Чи то з волі, чи то з примусу."
   components:
   - type: Sprite
     state: stool
@@ -291,7 +291,7 @@
     node: stool
 
 - type: entity
-  name: bar stool
+  name: "барний стілець"
   id: StoolBar
   parent: StoolBase
   components:
@@ -302,7 +302,7 @@
     node: stoolBar
 
 - type: entity
-  name: brass chair
+  name: "латунний стілець"
   id: ChairBrass
   parent: StoolBase
   components:
@@ -315,7 +315,7 @@
     convertTo: CosmicChair
 
 - type: entity
-  name: white office chair
+  name: "білий офісний стілець"
   id: ChairOfficeLight
   parent: RollingOfficeChairBase # Goobstation - make the rolly chairs roll!
   components:
@@ -326,7 +326,7 @@
     node: chairOffice
 
 - type: entity
-  name: dark office chair
+  name: "темне офісне крісло"
   id: ChairOfficeDark
   parent: ChairOfficeLight
   components:
@@ -337,10 +337,10 @@
     node: chairOfficeDark
 
 - type: entity
-  name: comfy chair
+  name: "зручне крісло"
   id: ComfyChair
   parent: ChairBase
-  description: It looks comfy.
+  description: "Виглядає зручно."
   components:
   - type: Sprite
     state: comfy
@@ -351,10 +351,10 @@
     convertTo: CosmicChair
 
 - type: entity
-  name: pilot seat
+  name: "крісло пілота"
   id: ChairPilotSeat
   parent: ChairBase
-  description: The pilot seat of a prestigious ship.
+  description: "Місце пілота престижного корабля."
   components:
   - type: Sprite
     state: shuttle
@@ -365,7 +365,7 @@
     convertTo: CosmicChair
 
 - type: entity
-  name: wooden chair
+  name: "дерев'яний стілець"
   id: ChairWood
   parent: UnanchoredChairBase
   components:
@@ -409,10 +409,10 @@
     price: 75
 
 - type: entity
-  name: ritual chair
+  name: "ритуальний стілець"
   id: ChairRitual
   parent: ChairWood
-  description: Looks uncomfortable.
+  description: "Дивно вирізьблений стілець."
   components:
   - type: Sprite
     state: ritual
@@ -423,8 +423,8 @@
 - type: entity
   id: ChairMeat
   parent: UnanchoredChairBase
-  name: meat chair
-  description: Uncomfortably sweaty.
+  name: "м'ясний стілець"
+  description: "Неприємно спітніла."
   components:
   - type: Sprite
     state: meat
@@ -433,10 +433,10 @@
     node: chairMeat
 
 - type: entity
-  name: cursed chair
+  name: "проклятий стілець"
   id: ChairCursed
   parent: ChairWood
-  description: It's staring back.
+  description: "Воно дивиться назад."
   components:
   - type: Sprite
     state: cursed
@@ -473,9 +473,9 @@
     node: chairCursed
 
 - type: entity
-  name: web chair
+  name: "павутинне крісло"
   id: ChairWeb
-  description: For true web developers.
+  description: "Хочеш серйозно зайнятися веб-розробкою? Сідай на цей стілець!"
   parent: UnanchoredChairBase
   components:
   - type: Sprite
@@ -520,8 +520,8 @@
 - type: entity
   parent: [SeatBase, BaseDeployFoldable]
   id: ChairFolding
-  name: folding chair
-  description: If you carry six of these you become the coolest kid at church.
+  name: "розкладний стілець"
+  description: "Стілець, який легко переносити."
   components:
   - type: Rotatable
   - type: Sprite
@@ -557,10 +557,10 @@
     enabled: False
 
 - type: entity
-  name: steel bench
+  name: "сталева лавка"
   id: SteelBench
   parent: ChairBase
-  description: A long chair made for a metro. Really standard design.
+  description: "Довгий стілець, зроблений для метро. Дійсно стандартний дизайн."
   components:
   - type: Sprite
     state: steel-bench
@@ -569,10 +569,10 @@
     node: chairSteelBench
 
 - type: entity
-  name: cardboard stool
+  name: "картонний табурет"
   id: CardStool
   parent: UnanchoredChairBase
-  description: Make sure you sit *really* gently.
+  description: "Сідайте *дуже* обережно."
   components:
   - type: Sprite
     state: card-stool
@@ -603,10 +603,10 @@
         acts: ["Destruction"]
 
 - type: entity
-  name: wooden bench
+  name: "дерев'яна лавка"
   id: WoodenBench
   parent: ChairBase
-  description: Did you get a splinter? Well, at least it’s eco friendly.
+  description: "У тебе заноза? Ну, принаймні, це екологічно чисто."
   components:
   - type: Sprite
     state: wooden-bench

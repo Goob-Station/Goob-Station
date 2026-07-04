@@ -1,6 +1,6 @@
 - type: body
   id: XenomorphQueen
-  name: xenomorph queen
+  name: "королева ксеноморфів"
   root: chest
   slots:
     head:

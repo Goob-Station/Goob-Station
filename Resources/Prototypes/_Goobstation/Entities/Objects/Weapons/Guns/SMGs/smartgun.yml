@@ -9,10 +9,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: Abielle
+  name: "Абіель"
   parent: [BaseWeaponSubMachineGun, BaseSecurityContraband]
   id: WeaponSubMachineSmart
-  description: An experimental weapons platform that fires gyrojets—miniature rockets that communicate with the onboard targeting system to self-correct their flight paths. While sporting minimal recoil, the Abielle is prone to ridiculously wide spread when not homing due to the non-existent barrel. Feeds from .160 Smart magazines.
+  description: "Експериментальна платформа озброєння, що стріляє гіроджетами — мініатюрними ракетами, які взаємодіють із бортовою системою наведення, щоб самостійно коригувати траєкторію польоту. Хоч віддача й мінімальна, «Абіель» має сміховинно великий розкид, коли самонаведення не працює, через фактичну відсутність ствола. Живиться з магазинів .160 Smart."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/SMGs/smartgun.rsi

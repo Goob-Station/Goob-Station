@@ -88,11 +88,11 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: basic slime
+  name: "базовий слайм"
   id: BaseMobAdultSlime # Goob
   parent: [ SimpleMobBase, MobCombat ]
   abstract: true
-  description: It looks so much like jelly. I wonder what it tastes like?
+  description: "Воно так схоже на желе. Цікаво, яке воно на смак?"
   components:
   - type: VentCrawler # goobstation - Ventcrawl
   - type: Sprite
@@ -202,11 +202,11 @@
     proto: slime
 
 - type: entity
-  name: basic slime
+  name: "базовий слайм"
   id: MobAdultSlimes
   parent: BaseMobAdultSlime # Goob
   abstract: true
-  description: It looks so much like jelly. I wonder what it tastes like?
+  description: "Воно так схоже на желе. Цікаво, яке воно на смак?"
   components:
   - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
@@ -241,7 +241,7 @@
       task: SimpleHostileCompound
 
 - type: entity
-  name: blue slime
+  name: "синій слиз"
   id: MobAdultSlimesBlue
   parent: MobAdultSlimes
   components:
@@ -253,7 +253,7 @@
         Base: blue_adult_slime_dead
 
 - type: entity
-  name: blue slime
+  name: "синій слиз"
   parent: MobAdultSlimesBlue
   id: MobAdultSlimesBlueAngry
   suffix: Angry
@@ -270,7 +270,7 @@
         settings: short
 
 - type: entity
-  name: green slime
+  name: "зелений слиз"
   parent: MobAdultSlimes
   id: MobAdultSlimesGreen
   components:
@@ -293,7 +293,7 @@
           Poison: 4
 
 - type: entity
-  name: green slime
+  name: "зелений слиз"
   parent: MobAdultSlimesGreen
   id: MobAdultSlimesGreenAngry
   suffix: Angry
@@ -310,7 +310,7 @@
         settings: short
 
 - type: entity
-  name: yellow slime
+  name: "жовтий слиз"
   parent: MobAdultSlimes
   id: MobAdultSlimesYellow
   components:
@@ -332,7 +332,7 @@
           Caustic: 4
 
 - type: entity
-  name: yellow slime
+  name: "жовтий слиз"
   parent: MobAdultSlimesYellow
   id: MobAdultSlimesYellowAngry
   suffix: Angry

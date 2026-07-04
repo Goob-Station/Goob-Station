@@ -8,8 +8,8 @@
 - type: entity
   parent: [ClothingShoesBase, BaseMinorContraband]
   id: ClothingShoesWizardSkates
-  name: wizard skates
-  description: "A pair of Wizard Federation Roller Skates, imbued with a protection spell against collision."
+  name: "ковзани-чарівники"
+  description: "Пара роликових ковзанів Wizard Federation, просякнута захисним заклинанням від зіткнення."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Shoes/Specific/skateswizard.rsi

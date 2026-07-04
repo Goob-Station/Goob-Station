@@ -121,7 +121,7 @@
 - type: entity
   parent: BaseItemRecharger
   id: PowerCellRecharger
-  name: cell recharger
+  name: "зарядник батарей"
   components:
   - type: Sprite
     sprite: Structures/Power/cell_recharger.rsi
@@ -161,7 +161,7 @@
 - type: entity
   parent: [ BaseItemRecharger, ConstructibleMachine ]
   id: PowerCageRecharger
-  name: cage recharger
+  name: "зарядник кліток"
   components:
   - type: Fixtures
     fixtures:
@@ -201,7 +201,7 @@
 - type: entity
   parent: BaseItemRecharger
   id: WeaponCapacitorRecharger
-  name: recharger
+  name: "зарядник"
   components:
   - type: Sprite
     sprite: Structures/Power/recharger.rsi
@@ -247,7 +247,7 @@
 - type: entity
   parent: BaseItemRecharger
   id: TurboItemRecharger
-  name: turbo recharger
+  name: "турбозарядник"
   description: An overclocked recharger that's been adapted with a global port.
   components:
   - type: Sprite
@@ -294,7 +294,7 @@
 - type: entity
   parent: [ BaseItemRecharger, BaseWallmount ]
   id: WallWeaponCapacitorRecharger
-  name: wall recharger
+  name: "настінний зарядник"
   components:
   - type: Sprite
     sprite: Structures/Power/wall_recharger.rsi
@@ -333,8 +333,8 @@
 - type: entity
   parent: BaseRecharger
   id: BorgCharger
-  name: cyborg recharging station
-  description: A stationary charger for various robotic and cyborg entities. Surprisingly spacious.
+  name: "станція підзарядки кіборгів"
+  description: "Стаціонарний зарядний пристрій для різноманітних роботів та кіборгів. Напрочуд місткий."
   components:
   - type: Sprite
     sprite: Structures/Power/borg_charger.rsi

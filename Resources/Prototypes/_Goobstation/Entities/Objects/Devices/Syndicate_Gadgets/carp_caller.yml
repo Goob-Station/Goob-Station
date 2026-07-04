@@ -6,8 +6,8 @@
 - type: entity
   id: CarpCaller
   parent: [BaseMachinePowered, BaseSyndicateAnchoredContraband]
-  name: carp caller
-  description: A syndicate device that seems interesting to wild space carp.
+  name: "приманка для коропів"
+  description: "Пристрій синдикату, який здається цікавим для диких космічних коропів."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Devices/carp_caller.rsi

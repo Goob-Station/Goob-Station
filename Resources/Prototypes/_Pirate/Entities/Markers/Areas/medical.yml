@@ -4,7 +4,7 @@
   abstract: true
   parent: BaseAreaStation
   id: BaseAreaMedical
-  name: medical
+  name: "медичний відділ"
   components:
   - type: DepartmentArea
     department: Medical
@@ -12,7 +12,7 @@
 - type: entity
   parent: BaseAreaMedical
   id: AreaMedical
-  name: medbay
+  name: "медвідсік"
   components:
   - type: Sprite
     state: medbay
@@ -20,7 +20,7 @@
 - type: entity
   parent: BaseAreaMedical
   id: AreaMedicalBreak
-  name: medbay breakroom
+  name: "кімната відпочинку медвідсіку"
   components:
   - type: Sprite
     state: medbay_break
@@ -28,7 +28,7 @@
 - type: entity
   parent: BaseAreaMedical
   id: AreaMedicalLobby
-  name: medbay lobby
+  name: "вестибюль медвідсіку"
   components:
   - type: Sprite
     state: medbay_lobby
@@ -36,7 +36,7 @@
 - type: entity
   parent: BaseAreaMedical
   id: AreaMedicalStorage
-  name: medbay storage
+  name: "склад медвідсіку"
   components:
   - type: Sprite
     state: medbay_storage
@@ -44,7 +44,7 @@
 - type: entity
   parent: BaseAreaMedical
   id: AreaSurgery
-  name: surgery
+  name: "хірургія"
   components:
   - type: Sprite
     state: surgery
@@ -52,7 +52,7 @@
 - type: entity
   parent: BaseAreaMedical
   id: AreaSurgeryTheatre
-  name: surgery theatre
+  name: "операційна зала"
   components:
   - type: Sprite
     state: surgery_theatre
@@ -60,7 +60,7 @@
 - type: entity
   parent: BaseAreaMedical
   id: AreaMorgue
-  name: morgue
+  name: "морг"
   components:
   - type: Sprite
     state: morgue
@@ -68,7 +68,7 @@
 - type: entity
   parent: BaseAreaMedical
   id: AreaPsychology
-  name: psychology
+  name: "психологія"
   components:
   - type: Sprite
     state: psychology
@@ -76,7 +76,7 @@
 - type: entity
   parent: BaseAreaMedical
   id: AreaCloning
-  name: cloning
+  name: "клонування"
   components:
   - type: Sprite
     state: cloning
@@ -84,7 +84,7 @@
 - type: entity
   parent: BaseAreaMedical
   id: AreaParamedic
-  name: paramedic
+  name: "парамедик"
   components:
   - type: Sprite
     state: paramed
@@ -92,7 +92,7 @@
 - type: entity
   parent: BaseAreaMedical
   id: AreaPatientRoom
-  name: patient room
+  name: "палата пацієнтів"
   components:
   - type: Sprite
     state: patient_room
@@ -100,7 +100,7 @@
 - type: entity
   parent: BaseAreaMedical
   id: AreaPharmacy
-  name: pharmacy
+  name: "аптека"
   components:
   - type: Sprite
     state: pharmacy
@@ -108,7 +108,7 @@
 - type: entity
   parent: BaseAreaMedical
   id: AreaChem
-  name: chem
+  name: "хімлабораторія"
   components:
   - type: Sprite
     state: chem
@@ -116,7 +116,7 @@
 - type: entity
   parent: BaseAreaMedical
   id: AreaVirology
-  name: virology
+  name: "вірусологія"
   components:
   - type: Sprite
     state: virology

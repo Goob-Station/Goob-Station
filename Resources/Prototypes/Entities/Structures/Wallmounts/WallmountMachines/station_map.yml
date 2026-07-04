@@ -11,8 +11,8 @@
 - type: entity
   parent: BaseWallmountMetallic
   id: StationMapBroken
-  name: station map
-  description: A virtual map of the surrounding station.
+  name: "мапа станції"
+  description: "Віртуальна карта околиць станції."
   suffix: Wall broken
   components:
     - type: Sprite
@@ -35,8 +35,8 @@
 - type: entity
   parent: BaseWallmountMachine
   id: StationMap
-  name: station map
-  description: A virtual map of the surrounding station.
+  name: "мапа станції"
+  description: "Віртуальна карта околиць станції."
   suffix: Wall
   components:
     - type: WallMount
@@ -109,8 +109,8 @@
 - type: entity
   parent: BaseWallmountMetallic
   id: StationMapAssembly
-  name: station map assembly
-  description: A station map assembly.
+  name: "збірка мапи станції"
+  description: "Збірка дисплею мапи станції."
   components:
   - type: WallMount
     arc: 360

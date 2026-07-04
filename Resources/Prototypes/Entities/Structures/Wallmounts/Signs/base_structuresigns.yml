@@ -19,7 +19,7 @@
 - type: entity
   parent: BaseWallmountMetallic
   id: BaseSign
-  name: base sign
+  name: "основний знак"
   abstract: true
   components:
   - type: WallMount

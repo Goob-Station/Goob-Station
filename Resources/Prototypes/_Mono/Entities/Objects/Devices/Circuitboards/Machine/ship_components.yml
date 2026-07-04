@@ -1,8 +1,8 @@
 - type: entity
   id: MachineGCSLowCircuitboard
   parent: BaseMachineCircuitboard
-  name: low-power gunnery control server board
-  description: A machine board for a GCS.
+  name: "плата малопотужного сервера керування зброєю"
+  description: "Машинна плата для СКЗ."
   components:
   - type: Sprite
     state: security
@@ -16,8 +16,8 @@
 - type: entity
   id: MachineGCSMediumCircuitboard
   parent: BaseMachineCircuitboard
-  name: medium-power gunnery control server board
-  description: A machine board for a GCS.
+  name: "плата сервера керування зброєю середньої потужності"
+  description: "Машинна плата для СКЗ."
   components:
   - type: Sprite
     state: security
@@ -31,8 +31,8 @@
 - type: entity
   id: MachineGCSHighCircuitboard
   parent: BaseMachineCircuitboard
-  name: high-power gunnery control server board
-  description: A machine board for a GCS.
+  name: "плата потужного сервера керування зброєю"
+  description: "Машинна плата для СКЗ."
   components:
   - type: Sprite
     state: security
@@ -46,8 +46,8 @@
 - type: entity
   id: MachineGCSUltraCircuitboard
   parent: BaseMachineCircuitboard
-  name: ultra-high-power gunnery control server board
-  description: A machine board for a GCS.
+  name: "плата надпотужного сервера керування зброєю"
+  description: "Машинна плата для СКЗ."
   components:
   - type: Sprite
     state: security

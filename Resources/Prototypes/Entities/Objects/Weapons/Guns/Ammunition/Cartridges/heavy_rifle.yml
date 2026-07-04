@@ -50,7 +50,7 @@
 
 - type: entity
   id: CartridgeMinigun
-  name: cartridge (.10 rifle)
+  name: "патрон (.10 rifle)"
   parent: BaseCartridgeHeavyRifle
   components:
   - type: CartridgeAmmo

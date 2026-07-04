@@ -1,5 +1,5 @@
 - type: entity
-  name: explosive payload
+  name: "вибуховий заряд"
   parent: [ BasePayload, BaseSyndicateContraband ]
   id: ExplosivePayload
   components:

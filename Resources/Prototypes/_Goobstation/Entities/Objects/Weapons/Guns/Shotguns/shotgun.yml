@@ -1,8 +1,8 @@
 - type: entity
-  name: Foxhound
+  name: "Фоксхаунд"
   parent: [BaseItem, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponShotgunBulldogLegallyDistinct # """legally distinct"""
-  description: A completely original NanoTrasen design, legally distinct from any other weapons that might be on the market. Feeds from 12 Gauge drum magazines.
+  description: "Цілком оригінальна розробка NanoTrasen, юридично відмінна від будь-якої іншої зброї, що може бути на ринку. Живиться з барабанних магазинів 12 Gauge."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi

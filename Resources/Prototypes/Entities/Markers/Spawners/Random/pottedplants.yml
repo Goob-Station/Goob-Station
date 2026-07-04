@@ -8,7 +8,7 @@
 - type: entity
   parent: MarkerBase
   id: PottedPlantRandom
-  name: random potted plant spawner
+  name: "спавнер випадкової рослини в горщику"
   components:
   - type: Sprite
     layers:
@@ -48,7 +48,7 @@
 - type: entity
   parent: MarkerBase
   id: PottedPlantRandomPlastic
-  name: random plastic potted plant spawner
+  name: "спавнер випадкової штучної рослини в горщику"
   components:
   - type: Sprite
     layers:

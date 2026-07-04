@@ -101,9 +101,9 @@
 
 - type: entity
   id: BoozeDispenserEmpty
-  name: booze dispenser
+  name: "алкодиспенсер"
   suffix: Empty
-  description: A booze dispenser with a single slot for a container to be filled.
+  description: "Алкодиспенсер з одним слотом для контейнера, який можна наповнювати."
   parent: ReagentDispenserBase
   components:
   - type: Rotatable

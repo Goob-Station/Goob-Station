@@ -30,10 +30,10 @@
 
 - type: entity
   save: false
-  name: pathfinding dummy
+  name: "манекен для пошуку шляхів"
   parent: BaseMobHuman
   id: MobHumanPathDummy
-  description: A miserable pile of secrets.
+  description: "Жалюгідна купа секретів."
   suffix: AI
   components:
   - type: InputMover

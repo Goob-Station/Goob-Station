@@ -42,8 +42,8 @@
 - type: entity
   suffix: fent
   parent: PrefilledSyringe
-  name: used fent syringe
-  description: What the fuck?!
+  name: "використаний шприц з фентанілом"
+  description: "Що за чортівня?!"
   id: SyringePoisonFentUsed
   components:
   - type: Label
@@ -59,8 +59,8 @@
 - type: entity
   suffix: fent
   parent: PrefilledSyringe
-  name: fentanyl syringe
-  description: What the fuck?!
+  name: "шприц з фентанілом"
+  description: "Що за чортівня?!"
   id: SyringePoisonFent
   components:
   - type: Label
@@ -75,8 +75,8 @@
 
 - type: entity
   parent: PrefilledSyringe
-  name: syringe
-  description: A somewhat humane way to put down prisoners.
+  name: "шприц"
+  description: "Дещо гуманний спосіб страти ув'язнених."
   id: SyringePoisonLethalInjection
   suffix: lethal injection
   components:
@@ -93,7 +93,7 @@
           Quantity: 5
 
 - type: entity
-  name: pill
+  name: "пігулка"
   suffix: Tramadol 7.5u
   parent: Pill
   id: PillTramadol
@@ -113,7 +113,7 @@
           Quantity: 7.5 # Half OD
 
 - type: entity
-  name: pill canister
+  name: "контейнер для пігулок"
   parent: PillCanister
   id: PillCanisterTramadol
   suffix: Tramadol 7.5u, 15
@@ -126,7 +126,7 @@
       amount: 15
 
 - type: entity
-  name: pill
+  name: "пігулка"
   suffix: Oxycodone 5u
   parent: Pill
   id: PillOxycodone
@@ -146,7 +146,7 @@
           Quantity: 5
 
 - type: entity
-  name: pill canister
+  name: "контейнер для пігулок"
   parent: PillCanister
   id: PillCanisterOxycodone
   suffix: Oxycodone 5u, 15
@@ -159,7 +159,7 @@
       amount: 15
 
 - type: entity
-  name: pill
+  name: "пігулка"
   suffix: Ibuprofen 10u, 15
   parent: Pill
   id: PillIbuprofen
@@ -179,7 +179,7 @@
           Quantity: 10
 
 - type: entity
-  name: pill canister
+  name: "контейнер для пігулок"
   parent: PillCanister
   id: PillCanisterIbuprofen
   suffix: Ibuprofen 10u, 15
@@ -193,8 +193,8 @@
 
 - type: entity
   parent: PrefilledSyringe
-  name: syringe
-  description: A potent painkiller.
+  name: "шприц"
+  description: "Потужний знеболюючий засіб."
   id: SyringeTramadol
   suffix: Tramadol 15u
   components:
@@ -210,8 +210,8 @@
 
 - type: entity
   parent: PrefilledSyringe
-  name: syringe
-  description: A potent painkiller.
+  name: "шприц"
+  description: "Потужний знеболюючий засіб."
   id: SyringeOxycodone
   suffix: Oxycodone 15u
   components:
@@ -227,8 +227,8 @@
 
 - type: entity
   parent: PrefilledSyringe
-  name: syringe
-  description: A mild painkiller.
+  name: "шприц"
+  description: "Легкий знеболюючий засіб."
   id: SyringeIbuprofen
   suffix: Ibuprofen 15u
   components:
@@ -244,8 +244,8 @@
 
 - type: entity
   parent: PrefilledSyringe
-  name: syringe
-  description: Damn.
+  name: "шприц"
+  description: "Чорт забирай."
   id: SyringeHeroin
   suffix: heroin 15u
   components:
@@ -263,7 +263,7 @@
   suffix: microplastics
   parent: PrefilledSyringe
   id: SyringeMicroplastics
-  description: Humanity used to macrodose themselves with this. Now its just a medicine for vox.
+  description: "Людство колись макродозувалося цим. Тепер це лише ліки для воксів."
   components:
   - type: Label
     currentLabel: reagent-name-microplastics

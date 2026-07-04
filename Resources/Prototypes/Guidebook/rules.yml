@@ -14,49 +14,49 @@
 
 - type: guideEntry
   id: RuleU0Base
-  name: guide-entry-rules-u0
+  name: "guide-entry-rules-u0"
   ruleEntry: true
   priority: 0
   text: "/ServerInfo/Guidebook/ServerRules/UA/RuleU0Base.xml"
 
 - type: guideEntry
   id: RuleU1Etiquette
-  name: guide-entry-rules-u1
+  name: "guide-entry-rules-u1"
   ruleEntry: true
   priority: 1
   text: "/ServerInfo/Guidebook/ServerRules/UA/RuleU1Etiquette.xml"
 
 - type: guideEntry
   id: RuleU2MetaNrp
-  name: guide-entry-rules-u2
+  name: "guide-entry-rules-u2"
   ruleEntry: true
   priority: 2
   text: "/ServerInfo/Guidebook/ServerRules/UA/RuleU2MetaNrp.xml"
 
 - type: guideEntry
   id: RuleU3Griefing
-  name: guide-entry-rules-u3
+  name: "guide-entry-rules-u3"
   ruleEntry: true
   priority: 3
   text: "/ServerInfo/Guidebook/ServerRules/UA/RuleU3Griefing.xml"
 
 - type: guideEntry
   id: RuleU4CmdSec
-  name: guide-entry-rules-u4
+  name: "guide-entry-rules-u4"
   ruleEntry: true
   priority: 4
   text: "/ServerInfo/Guidebook/ServerRules/UA/RuleU4CmdSec.xml"
 
 - type: guideEntry
   id: RuleU5CrewAntag
-  name: guide-entry-rules-u5
+  name: "guide-entry-rules-u5"
   ruleEntry: true
   priority: 5
   text: "/ServerInfo/Guidebook/ServerRules/UA/RuleU5CrewAntag.xml"
 
 - type: guideEntry
   id: RuleU6Sandbox
-  name: guide-entry-rules-u6
+  name: "guide-entry-rules-u6"
   ruleEntry: true
   priority: 6
   text: "/ServerInfo/Guidebook/ServerRules/UA/RuleU6Sandbox.xml"

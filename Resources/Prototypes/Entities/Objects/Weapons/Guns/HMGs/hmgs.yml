@@ -89,10 +89,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: BaseWeaponHeavyMachineGun
+  name: "BaseWeaponHeavyMachineGun"
   parent: BaseItem
   id: BaseWeaponHeavyMachineGun
-  description: Spray and pray.
+  description: "Стріляй і молись."
   abstract: true
   components:
   - type: Sprite
@@ -129,10 +129,10 @@
   # Goobstation edit end
 
 - type: entity
-  name: minigun
+  name: "мініган"
   id: WeaponMinigun
   parent: [ BaseWeaponHeavyMachineGun, BaseMajorContraband ]
-  description: Vzzzzzt! Rahrahrahrah! Vrrrrr! Uses .10 rifle ammo.
+  description: "Взззззз! Rahrahrahrahrah! Врррррр! Використовує гвинтівкові патрони 10-го калібру."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/HMGs/minigun.rsi

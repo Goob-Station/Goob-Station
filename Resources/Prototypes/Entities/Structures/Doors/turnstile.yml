@@ -1,8 +1,8 @@
 - type: entity
   id: Turnstile
   parent: BaseStructure
-  name: turnstile
-  description: A mechanical door that permits one-way access and prevents tailgating.
+  name: "турнікет"
+  description: "Механічні двері, що дозволяють односторонній прохід і запобігають проходженню \"хвостом\"."
   components:
   - type: Sprite
     sprite: Structures/Doors/turnstile.rsi

@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseBlueprint
   id: BlueprintExplosivePayload
-  name: explosive payload blueprint
-  description: A blueprint with a schematic of a seismic charge. It can be inserted into an autolathe.
+  name: "креслення вибухового заряду"
+  description: "Креслення зі схемою сейсмічного заряду. Можна вставити в автолат."
   components:
   - type: Blueprint
     providedRecipes:

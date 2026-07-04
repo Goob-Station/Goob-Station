@@ -6,8 +6,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatCOG
-  name: Old robe
-  description: An ancient crimson draping from a now-defunct cult.
+  name: "Стара мантія"
+  description: "Стародавнє багряне вбрання з нині неіснуючого культу."
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Head/Cloaks/cogcloak.rsi

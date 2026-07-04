@@ -7,8 +7,8 @@
 - type: entity
   id: BaseFishingSpot
   abstract: true
-  name: suspicious waves
-  description: Something is floating here...
+  name: "підозрілі хвилі"
+  description: "Щось тут плаває..."
   placement:
     mode: SnapgridCenter
   components:

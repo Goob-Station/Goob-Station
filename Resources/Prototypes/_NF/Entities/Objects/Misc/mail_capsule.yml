@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: mail capsule
+  name: "поштова капсула"
   suffix: Primed
   id: MailCapsulePrimed
   parent: BaseItem
@@ -127,10 +127,10 @@
         Blunt: 4.5 # Goobstation
 
 - type: entity
-  name: mail capsule box
+  name: "поштова капсульна скринька"
   parent: BoxCardboard
   id: BoxMailCapsulePrimed
-  description: A box of primed mail capsules.
+  description: "Коробка заґрунтованих поштових капсул."
   components:
   - type: Storage
     grid:

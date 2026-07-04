@@ -6,8 +6,8 @@
 - type: entity
   parent: BaseItem
   id: BalloonPackageBasic
-  name: balloon package
-  description: A package containing one random balloon.
+  name: "набір кульок"
+  description: "Пакунок, що містить одну випадкову кульку."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/balloon_package.rsi
@@ -52,8 +52,8 @@
 - type: entity
   parent: BaseItem
   id: BalloonPackagePremium
-  name: premium balloon package
-  description: A package containing one random balloon.
+  name: "преміум-набір кульок"
+  description: "Пакунок, що містить одну випадкову кульку."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/balloon_package.rsi
@@ -93,10 +93,10 @@
 
 
 - type: entity
-  name: balloon package box
+  name: "коробка з пакунками кульок"
   parent: BoxCardboard
   id: BoxBalloonPackage
-  description: A box full of soon to be balloons.
+  description: "Коробка, повна майбутніх кульок."
   components:
   - type: StorageFill
     contents:
@@ -106,10 +106,10 @@
     sprite: _Goobstation/Objects/Storage/boxes.rsi
 
 - type: entity
-  name: premium balloon package box
+  name: "коробка преміум-набору кульок"
   parent: BoxCardboard
   id: PremiumBoxBalloonPackage
-  description: A box full of soon to be balloons.
+  description: "Коробка, повна майбутніх кульок."
   components:
   - type: StorageFill
     contents:
@@ -122,8 +122,8 @@
 - type: entity
   id: CrateBalloonPackage
   parent: CratePlastic
-  name: balloon popper's package
-  description: A crate containing 2 full balloon boxes and some additional popping equipment.
+  name: "пакунок для лопання кульок"
+  description: "Ящик, що містить 2 повні коробки з кульками та додаткове обладнання для їх лопання."
   components:
   - type: StorageFill
     contents:
@@ -143,8 +143,8 @@
 - type: entity
   id: PremiumCrateBalloonPackage
   parent: CratePirate
-  name: premium balloon warrior's package
-  description: Contains the most elite balloons and some additional popping equipment. WARNING! SEVERAL MOAB CLASS BALLOONS INCOMING!
+  name: "преміум-набір воїна проти кульок"
+  description: "Містить найелітніші кульки та додаткове спорядження для лускання. УВАГА! НАБЛИЖАЮТЬСЯ КІЛЬКА КУЛЬОК КЛАСУ MOAB!"
   components:
   - type: StorageFill
     contents:

@@ -11,8 +11,8 @@
 - type: entity
   id: MachinePowerTransmissionLaser
   parent: [ BaseMachine ]
-  name: power transmission laser
-  description: Sends power over a giant laser beam to an NT power processing facility. Simply plug it in and come back tomorrow for a big stack of cash (that is if you have power running). Also don't step in front of the firing line please.
+  name: "лазер передачі енергії"
+  description: "Надсилає енергію гігантським лазерним променем до установки обробки енергії NT. Просто підключіть його і поверніться завтра за великою купою грошей (якщо у вас є енергія). Також, будь ласка, не ставайте перед лінією вогню."
   placement:
     mode: SnapgridCenter
   components:

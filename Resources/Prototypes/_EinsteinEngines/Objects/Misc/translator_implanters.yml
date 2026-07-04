@@ -9,7 +9,7 @@
   id: BaseTranslatorImplanter
   abstract: true
   parent: BaseImplantOnlyImplanter
-  name: translator implanter
+  name: "базовий перекладач-імплантатор"
 
 # Gives ability to understand TauCetiBasic.
 - type: entity

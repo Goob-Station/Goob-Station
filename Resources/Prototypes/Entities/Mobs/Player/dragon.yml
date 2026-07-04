@@ -134,8 +134,8 @@
   parent: [ SimpleSpaceMobBase, FlyingMobBase ]
   id: BaseMobDragon
   suffix: ""
-  name: space dragon
-  description: A flying leviathan, loosely related to space carps.
+  name: "космічний дракон"
+  description: "Літаючий левіафан, віддалено пов'язаний з космічними коропами."
   abstract: true
   components:
   - type: Body # Shitmed
@@ -359,8 +359,8 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   id: DragonsBreathGun
-  name: dragon's lung
-  description: For dragon's breathing.
+  name: "легені дракона"
+  description: "Для дихання дракона."
   components:
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 5
@@ -406,8 +406,8 @@
 - type: entity
   parent: BaseAction
   id: ActionSpawnRift
-  name: Summon Carp Rift
-  description: Summons a carp rift that will periodically spawns carps.
+  name: "Викликати Carp Rift"
+  description: "Викликає короповий розлом, який періодично буде нереститися коропами."
   components:
   - type: Action
     icon:
@@ -421,8 +421,8 @@
 - type: entity
   parent: BaseAction
   id: ActionDevour
-  name: "[color=red]Devour[/color]"
-  description: Attempt to break a structure with your jaws or swallow a creature.
+  name: "[color=red]Поглинути[/color]"
+  description: "Спробуйте зламати конструкцію щелепами або проковтнути істоту."
   components:
   - type: Action
     icon: { sprite : Interface/Actions/devour.rsi, state: icon }
@@ -444,8 +444,8 @@
 - type: entity
   parent: BaseAction
   id: ActionDragonsBreath
-  name: "[color=orange]Dragon's Breath[/color]"
-  description: Spew out flames at anyone foolish enough to attack you!
+  name: "[color=помаранчевий]Подих дракона[/color]"
+  description: "Вивергайте полум'я на всіх, хто наважиться напасти на вас!"
   components:
   - type: Action
     # TODO: actual sprite and iconOn
@@ -462,8 +462,8 @@
 - type: entity
   parent: BaseAction
   id: ActionRiseFish
-  name: Summon Carp Horde
-  description: Summons 3 carps on the spot to protect you from danger!
+  name: "Викликати орду коропів"
+  description: "Викликає 3 коропів на місці, щоб захистити вас від небезпеки!"
   components:
   - type: Action
     icon:
@@ -477,8 +477,8 @@
 - type: entity
   parent: BaseAction
   id: ActionDragonRoar
-  name: Wing flap
-  description: Flap your wings to stun all enemies around you!
+  name: "Помах крилами"
+  description: "Змахніть крилами, щоб приголомшити всіх ворогів навколо вас!"
   components:
   - type: Action
     icon:

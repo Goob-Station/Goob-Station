@@ -6,7 +6,7 @@
 
 - type: body
   id: Bot
-  name: "bot"
+  name: "бот"
   root: hand 1
   slots:
     hand 1:

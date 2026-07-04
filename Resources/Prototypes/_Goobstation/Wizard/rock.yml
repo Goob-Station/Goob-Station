@@ -5,7 +5,7 @@
 
 - type: entity
   id: FloraRockSolidFading
-  description: A volcanic rock. Pioneers used to ride these babies for miles.
+  description: "Вулканічний камінь. Першопрохідці їздили на цих малюках на кілометри."
   parent: FloraRockSolid
   suffix: Fading
   components:

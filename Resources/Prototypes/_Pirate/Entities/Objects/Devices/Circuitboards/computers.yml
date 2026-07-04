@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseComputerCircuitboard
   id: MassDriverComputerCircuitboard
-  name: mass driver computer board
-  description: A computer printed circuit board for a mass driver computer.
+  name: "плата комп’ютера мас-драйвера"
+  description: "Комп’ютерна друкована плата для комп’ютера мас-драйвера."
   components:
   - type: Sprite
     state: net_wired

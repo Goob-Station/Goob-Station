@@ -41,10 +41,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: handheld mass scanner
+  name: "ручний масовий сканер"
   parent: BaseHandheldComputer
   id: HandHeldMassScanner
-  description: A hand-held mass scanner.
+  description: "Ручний масовий сканер."
   components:
   - type: Item
     sprite: Objects/Tools/handheld_mass_scanner.rsi

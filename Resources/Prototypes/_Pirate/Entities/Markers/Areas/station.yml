@@ -3,7 +3,7 @@
 - type: entity
   parent: BaseAreaStation
   id: AreaMaints
-  name: maints
+  name: "технічні тунелі"
   components:
   - type: Sprite
     state: maints
@@ -12,7 +12,7 @@
 - type: entity
   parent: BaseAreaStation
   id: AreaRadstorm
-  name: radstorm shelter
+  name: "укриття від радіаційної бурі"
   components:
   - type: Sprite
     state: radstorm_shelter
@@ -20,7 +20,7 @@
 - type: entity
   parent: BaseAreaStation
   id: AreaHolodeck
-  name: holodeck
+  name: "голодек"
   components:
   - type: Sprite
     state: holodeck
@@ -28,7 +28,7 @@
 - type: entity
   parent: BaseAreaStation
   id: AreaLootRoom
-  name: loot room
+  name: "сховище здобичі"
   components:
   - type: Sprite
     state: loot_room

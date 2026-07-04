@@ -26,8 +26,8 @@
 - type: entity
   parent: BaseWallmountMachine
   id: FireAlarm
-  name: fire alarm
-  description: A fire alarm. Spicy!
+  name: "пожежна сигналізація"
+  description: "Пожежна тривога. Гаряче!"
   components:
   - type: LightningTarget
     priority: 0
@@ -136,8 +136,8 @@
 - type: entity
   parent: BaseWallmountMetallic
   id: FireAlarmAssembly
-  name: fire alarm assembly
-  description: A fire alarm assembly. Very mild.
+  name: "монтаж пожежної сигналізації"
+  description: "Пожежна сигналізація. Дуже м'який."
   components:
   - type: Sprite
     sprite: Structures/Wallmounts/air_monitors.rsi

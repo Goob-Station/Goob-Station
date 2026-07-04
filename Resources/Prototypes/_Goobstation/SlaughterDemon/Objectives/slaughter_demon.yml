@@ -83,7 +83,7 @@
 - type: entity
   parent: SlaughterFluffBaseObjective
   id: AnnihilateAllJanitorsObjectiveFluff
-  description: Wipe out all Janitors and their synthetic kin, no broom shall stand.
+  description: "Знищити всіх прибиральників та їхніх синтетичних родичів, жодна мітла не встоїть."
   components:
   - type: Objective
     icon:
@@ -95,7 +95,7 @@
 - type: entity
   parent: SlaughterFluffBaseObjective
   id: SpareCrewObjectiveFluff
-  description: Let some survive… only to suffer longer.
+  description: "Дозвольте деяким вижити... лише для того, щоб вони страждали довше."
   components:
   - type: Objective
     icon:
@@ -107,7 +107,7 @@
 - type: entity
   parent: SlaughterFluffBaseObjective
   id: HuntTheBraveObjectiveFluff
-  description: Find and punish those foolish enough to face you.
+  description: "Знайдіть і покарайте тих, хто достатньо дурний, щоб протистояти вам."
   components:
   - type: Objective
     icon:
@@ -119,7 +119,7 @@
 - type: entity
   parent: SlaughterFluffBaseObjective
   id: HuntTheCowardsObjectiveFluff
-  description: Track down the ones who run, fear only prolongs their agony.
+  description: "Вистежуйте тих, хто тікає, страх лише продовжує їхню агонію."
   components:
   - type: Objective
     icon:
@@ -131,7 +131,7 @@
 - type: entity
   parent: SlaughterFluffBaseObjective
   id: ShowCrewPowerObjectiveFluff
-  description: Let them witness your awful might firsthand.
+  description: "Нехай вони на власні очі побачать вашу жахливу могутність."
   components:
   - type: Objective
     icon:
@@ -144,7 +144,7 @@
 - type: entity
   parent: SlaughterFluffBaseObjective
   id: DriveInsaneObjectiveFluff
-  description: Whisper they break, madness is your gift.
+  description: "Шепочіть, доки вони не зламаються, божевілля - ваш дар."
   components:
   - type: Objective
     icon:
@@ -157,7 +157,7 @@
 - type: entity
   parent: SlaughterFluffBaseObjective
   id: SpreadBloodObjectiveFluff
-  description: Paint it in red, let no clean tile remain.
+  description: "Зафарбуйте все червоним, нехай не залишиться жодної чистої плитки."
   components:
   - type: Objective
     icon:

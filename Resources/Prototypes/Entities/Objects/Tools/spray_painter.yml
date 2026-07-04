@@ -15,8 +15,8 @@
 - type: entity
   parent: BaseItem
   id: SprayPainter
-  name: spray painter
-  description: A spray painter for painting airlocks, pipes, and other items.
+  name: "розпилювач фарби"
+  description: "Розпилювач для фарбування шлюзів, труб та інших предметів."
   components:
   - type: Sprite
     sprite: Objects/Tools/spray_painter.rsi
@@ -76,8 +76,8 @@
 - type: entity
   parent: BaseItem
   id: SprayPainterAmmo
-  name: compressed paint
-  description: A cartridge of highly compressed paint, commonly used in spray painters.
+  name: "стиснена фарба"
+  description: "Картридж з сильно стисненою фарбою, що зазвичай використовується в розпилювачах."
   components:
   - type: SprayPainterAmmo
   - type: Sprite

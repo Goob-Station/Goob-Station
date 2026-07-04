@@ -16,8 +16,8 @@
 - type: entity
   parent: [BaseStructure, ScryingOrbBase]
   id: PonderingOrbWizard
-  name: pondering orb
-  description: Ponder your plans for the station using this farsight artefact.
+  name: "замислена куля"
+  description: "Обміркуйте свої плани щодо станції, використовуючи цей далекоглядний артефакт."
   components:
   - type: InteractionOutline
   - type: Physics
@@ -41,8 +41,8 @@
 - type: entity
   parent: [BaseItem, ScryingOrbBase, BaseMagicalContraband]
   id: ScryingOrbWizard
-  name: scrying orb
-  description: An incandescent orb of otherworldly energy, staring into it gives you vision beyond mortal means.
+  name: "скрайбістська куля"
+  description: "Розжарена куля потойбічної енергії, вдивляючись в яку, ви отримуєте бачення, що виходить за межі смертних можливостей."
   components:
   - type: ActionGrant
     actions:

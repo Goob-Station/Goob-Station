@@ -1,7 +1,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobCharonicLeech
-  name: Charonic Leech Spawner
+  name: "спавнер харонічної п'явки"
   categories: [ HideSpawnMenu ]
   components:
   - type: ConditionalSpawner
@@ -13,7 +13,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobCharonicWisp
-  name: Charonic Wisp Spawner
+  name: "спавнер харонічного вогника"
   categories: [ HideSpawnMenu ]
   components:
   - type: ConditionalSpawner
@@ -25,7 +25,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobCharonicSlime
-  name: Charonic Slime Spawner
+  name: "спавнер харонічного слизу"
   categories: [ HideSpawnMenu ]
   components:
   - type: ConditionalSpawner
@@ -37,7 +37,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobCharonicWispElder
-  name: Elder Charonic Wisp Spawner
+  name: "спавнер старшого харонічного вогника"
   categories: [ HideSpawnMenu ]
   components:
   - type: ConditionalSpawner

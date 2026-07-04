@@ -5,8 +5,8 @@
 
 - type: entity
   id: BaseHandheldStationMapSupermatterCe
-  name: handheld supermatter console
-  description: Fine-crafted handheld supermatter console for Chief Engineers. Allows the user to view the supermatter's status.
+  name: "портативна консоль надматерії"
+  description: "Якісно виготовлена портативна консоль надматерії для головних інженерів. Дозволяє переглядати стан надматерії."
   parent: BaseItem
   components:
     - type: StationMap

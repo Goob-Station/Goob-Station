@@ -1,6 +1,6 @@
 - type: body
   id: XenomorphHunter
-  name: xenomorph hunter
+  name: "ксеноморф-мисливець"
   root: chest
   slots:
     head:

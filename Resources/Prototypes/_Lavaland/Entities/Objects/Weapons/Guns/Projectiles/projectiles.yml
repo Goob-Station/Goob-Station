@@ -23,10 +23,10 @@
 
 - type: entity
   id: BulletKinetic
-  name: kinetic bolt
+  name: "кінетичний болт"
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
-  description: Not too bad, but you still don't want to get hit by it.
+  description: "Не так вже й погано, але ви все одно не хочете, щоб він вас зачепив."
   components:
   - type: Reflective
     reflective:
@@ -75,7 +75,7 @@
 
 - type: entity
   id: RapidBulletKinetic # Used for PK repeater and pistol
-  name: rapid kinetic bolt
+  name: "швидкий кінетичний снаряд"
   parent: BulletKinetic
   categories: [ HideSpawnMenu ]
   components:
@@ -113,10 +113,10 @@
 
 - type: entity
   id: BulletCharge
-  name: charge bolt
+  name: "зарядний болт"
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
-  description: Marks a target for additional damage.
+  description: "Позначає ціль для нанесення додаткової шкоди."
   components:
   - type: Reflective
     reflective:

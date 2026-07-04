@@ -133,8 +133,8 @@
 #Basic lights
 - type: entity
   id: AlwaysPoweredWallLight
-  name: light
-  description: "An always powered light."
+  name: "світло"
+  description: "Постійно ввімкнене світло."
   suffix: Always powered
   components:
   - type: MeleeSound
@@ -221,8 +221,8 @@
     - Wallmount
 
 - type: entity
-  name: light
-  description: "A light fixture. Draws power and produces light when equipped with a light tube."
+  name: "світло"
+  description: "Світильник. Споживає енергію і виробляє світло, якщо оснащений світловою трубкою."
   id: PoweredlightEmpty
   suffix: Empty
   parent: AlwaysPoweredWallLight
@@ -267,7 +267,7 @@
 
 - type: entity
   id: Poweredlight
-  description: "A light fixture. Draws power and produces light when equipped with a light tube."
+  description: "Світильник. Споживає енергію і виробляє світло, якщо оснащений світловою трубкою."
   suffix: ""
   parent: PoweredlightEmpty
   components:
@@ -292,7 +292,7 @@
 #LED lights
 - type: entity
   id: PoweredlightLED
-  description: "A light fixture. Draws power and produces light when equipped with a light tube."
+  description: "Світильник. Споживає енергію і виробляє світло, якщо оснащений світловою трубкою."
   suffix: LED
   parent: Poweredlight
   components:
@@ -323,7 +323,7 @@
 #Exterior lights
 - type: entity
   id: PoweredlightExterior
-  description: "A light fixture. Draws power and produces light when equipped with a light tube."
+  description: "Світильник. Споживає енергію і виробляє світло, якщо оснащений світловою трубкою."
   suffix: Exterior
   parent: Poweredlight
   components:
@@ -349,7 +349,7 @@
 #Sodium lights
 - type: entity
   id: PoweredlightSodium
-  description: "A light fixture. Draws power and produces light when equipped with a light tube."
+  description: "Світильник. Споживає енергію і виробляє світло, якщо оснащений світловою трубкою."
   suffix: Sodium
   parent: Poweredlight
   components:
@@ -379,8 +379,8 @@
 
 #Small lights
 - type: entity
-  name: small light
-  description: "An always powered light."
+  name: "маленький світильник"
+  description: "Постійно ввімкнене світло."
   id: SmallLight
   suffix: Always Powered
   parent: AlwaysPoweredWallLight
@@ -438,8 +438,8 @@
       node: bulbLight
 
 - type: entity
-  name: small light
-  description: "A light fixture. Draws power and produces light when equipped with a light bulb."
+  name: "маленький світильник"
+  description: "Освітлювальний прилад. Споживає енергію і виробляє світло, коли оснащений лампочкою."
   id: PoweredSmallLightEmpty
   suffix: Empty
   parent: SmallLight
@@ -566,8 +566,8 @@
 #Emergency Lights
 - type: entity
   id: EmergencyLight
-  name: emergency light
-  description: A small light with an internal battery that turns on as soon as it stops receiving any power. Nanotrasen technology allows it to adapt its color to alert crew to the conditions of the station.
+  name: "аварійне світло"
+  description: "Невеликий ліхтар з внутрішнім акумулятором, який вмикається, як тільки перестає отримувати енергію. Технологія Nanotrasen дозволяє йому змінювати свій колір, щоб попередити екіпаж про умови на станції."
   parent: AlwaysPoweredWallLight
   suffix: ""
   components:

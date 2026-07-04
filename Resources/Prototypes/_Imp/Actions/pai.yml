@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseAction
   id: ActionDronePlayMidi
-  name: Play MIDI
-  description: Contribute to the ambiance.
+  name: "Грати MIDI"
+  description: "Створіть атмосферу."
   components:
   - type: Action
     checkCanInteract: false

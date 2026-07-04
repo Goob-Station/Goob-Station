@@ -8,8 +8,8 @@
 - type: entity
   parent: BaseItem
   id: SupermatterSliver
-  name: supermatter sliver
-  description: A shard from the station's supermatter crystal. Highly radioactive.
+  name: "осколок суперматерії"
+  description: "Осколок кристала суперматерії станції. Високорадіоактивний."
   components:
     - type: PointLight
       enabled: true

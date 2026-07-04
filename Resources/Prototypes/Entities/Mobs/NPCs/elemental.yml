@@ -146,7 +146,7 @@
 - type: entity
   abstract: true
   id: MobOreCrab
-  name: ore crab
+  name: "рудний краб"
   parent: [ MobElementalBase, MobCombat ]
   components:
   - type: Sprite
@@ -174,7 +174,7 @@
 - type: entity
   parent: MobOreCrab
   id: MobQuartzCrab
-  description: An ore crab made from Quartz.
+  description: "Рудний краб з кварцу."
   suffix: Quartz
   components:
   - type: Sprite
@@ -199,7 +199,7 @@
 - type: entity
   parent: MobOreCrab
   id: MobIronCrab
-  description: An ore crab made from iron.
+  description: "Рудний краб із заліза."
   suffix: Iron
   components:
   - type: Sprite
@@ -231,7 +231,7 @@
 - type: entity
   parent: MobOreCrab
   id: MobCoalCrab
-  description: An ore crab made from coal.
+  description: "Рудяний краб, зроблений з вугілля."
   suffix: Coal
   components:
   - type: Sprite
@@ -263,7 +263,7 @@
 - type: entity
   parent: MobOreCrab
   id: MobUraniumCrab
-  description: An ore crab made from uranium.
+  description: "Рудний краб з урану."
   suffix: Uranium
   components:
   - type: FactionException
@@ -298,7 +298,7 @@
 - type: entity
   parent: MobOreCrab
   id: MobBananiumCrab
-  description: An ore crab made from bananium.
+  description: "Рудовий краб, зроблений з бананію."
   suffix: Bananium
   components:
   - type: Sprite
@@ -354,7 +354,7 @@
 - type: entity
   parent: MobOreCrab
   id: MobSilverCrab
-  description: An ore crab made from silver.
+  description: "Рудий краб, зроблений зі срібла."
   suffix: Silver
   components:
   - type: Sprite
@@ -383,7 +383,7 @@
 - type: entity
   parent: MobOreCrab
   id: MobGoldCrab
-  description: An ore crab made from gold.
+  description: "Рудий краб, зроблений із золота."
   suffix: Gold
   components:
   - type: Sprite
@@ -410,11 +410,11 @@
         acts: [ "Destruction" ]
 
 - type: entity
-  name: reagent slime
+  name: "реагентний слиз"
   id: ReagentSlime
   suffix: Water
   parent: [ MobAdultSlimes, MobCombat ]
-  description: It consists of a liquid, and it wants to dissolve you in itself.
+  description: "Він складається з рідини, і він хоче розчинити вас у собі."
   components:
   - type: GhostRole
     prob: 0
@@ -488,7 +488,7 @@
   - type: Fauna # Lavaland Change
 
 - type: entity
-  name: Reagent Slime Spawner
+  name: "Спавн Реагентного Слизу"
   id: ReagentSlimeSpawner
   parent: MarkerBase
   components:

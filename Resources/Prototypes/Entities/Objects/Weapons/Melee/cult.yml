@@ -14,10 +14,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: ritual dagger
+  name: "ритуальний кинджал"
   parent: BaseItem
   id: RitualDagger
-  description: A strange dagger used by sinister groups for rituals and sacrifices.
+  description: "Дивний кинджал, що використовується зловісними групами для ритуалів і жертвоприношень."
   components:
   - type: Sharp
   - type: Sprite
@@ -43,10 +43,10 @@
     - Knife
 
 - type: entity
-  name: eldritch blade
+  name: "лезо елдрича"
   parent: BaseItem
   id: EldritchBlade
-  description: A sword humming with unholy energy.
+  description: "Меч гуде нечистою енергією."
   components:
   - type: Sharp
   - type: Sprite
@@ -69,10 +69,10 @@
   - type: DisarmMalus
 
 - type: entity
-  name: unholy halberd
+  name: "нечестива алебарда"
   parent: BaseItem
   id: UnholyHalberd
-  description: A poleaxe that seems to be linked to its wielder.
+  description: "Посох, який, здається, пов'язаний з його власником."
   components:
   - type: Tag
     tags:

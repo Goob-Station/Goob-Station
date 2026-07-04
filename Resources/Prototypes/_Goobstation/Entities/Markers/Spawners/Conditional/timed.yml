@@ -1,5 +1,5 @@
 - type: entity
-  name: Ancient Xeno AI Timed Spawner
+  name: "Древній ШІ-спавнер ксеноморфів"
   id: AncientXenoAITimedSpawner
   parent: MarkerBase
   components:

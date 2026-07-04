@@ -8,8 +8,8 @@
 - type: entity
   parent: BaseComputer
   id: AbductorConsole
-  name: abductor console
-  description: A computer that is used for spying on the station.
+  name: "консоль викрадача"
+  description: "Комп'ютер, який використовується для шпигунства за станцією."
   components:
   - type: AbductorConsole
   - type: Sprite
@@ -32,8 +32,8 @@
 - type: entity
   parent: ComputerComms
   id: CentCommSectoralConsole
-  name: centcomm sectoral console
-  description: Use this to annoy captains of all stations at once.
+  name: "секторальна консоль centcomm"
+  description: "Використовуйте це, щоб дратувати капітанів усіх станцій одночасно."
   components:
     - type: AccessReader
       access: [[ "Command" ]]
@@ -44,8 +44,8 @@
 - type: entity
   parent: BaseComputer
   id: AbductorHumanObservationConsole
-  name: human observation console
-  description: Use this to set teleporter destination or retrieve people marked by scientist tools. Also used for buying replacement gear and linking the agent's vest.
+  name: "консоль спостереження за людиною"
+  description: "Використовуйте його, щоб задати місце призначення телепорту або витягти людей, позначених науковими інструментами. Також використовується для купівлі запасного спорядження та зв'язування жилета агента."
   components:
   - type: Sprite
     sprite: _Shitmed/Structures/Machines/abductor_camera_console.rsi
@@ -70,8 +70,8 @@
   - Incorporeal
   - BaseMob
   id: AbductorHumanObservationConsoleEye
-  name: abductor eye
-  description: The abductor's viewer.
+  name: "око викрадача"
+  description: "Глядач викрадача."
   categories: [ HideSpawnMenu, DoNotMap ]
   suffix: DO NOT MAP
   components:

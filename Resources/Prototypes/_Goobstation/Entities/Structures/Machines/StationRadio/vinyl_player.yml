@@ -1,8 +1,8 @@
 - type: entity
   id: VinylPlayer
-  name: vinyl player
+  name: "програвач платівок"
   parent: [ BaseMachinePowered, SmallConstructibleMachine ]
-  description: An old school vinyl record player sat on a set of drawers.
+  description: "Старий програвач вінілових платівок, що стоїть на тумбі."
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Machines/StationRadio/vinylplayer.rsi

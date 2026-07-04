@@ -4,10 +4,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: nanite swarm
+  name: "рій нанітів"
   id: MobNanites
   parent: [ SimpleSpaceMobBase, MobCombat ]
-  description: A swarm of angry nanites.
+  description: "Рій розлючених нанітів."
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -77,11 +77,11 @@
     factor: 0.5 # times more dangerous than a crew-member
 
 - type: entity
-  name: gunbot
+  name: "ганбот"
   id: MobGunbotBase
   abstract: true
   parent: [ BaseMob, MobCombat ]
-  description: A Security Robot, something seems a bit off.
+  description: "Робот-охоронець, щось з ним не так."
   components:
   - type: Sprite
     sprite: /Textures/_Goobstation/Mobs/Silicon/Bots/gunbot.rsi
@@ -158,14 +158,14 @@
 
 - type: entity
   id: GunBot
-  name: gunbot
+  name: "ганбот"
   parent: MobGunbotBase
 
 - type: entity
   id: NukeBot
   parent: MobGunbotBase
-  name: syndicate gunbot
-  description: An older model of the syndicate assault borg, specialized for close quarter combat.
+  name: "ганбот синдикату"
+  description: "Старіша модель штурмового борга синдикату, спеціалізована для ближнього бою."
   components:
   - type: Sprite
     sprite: /Textures/_Goobstation/Mobs/Silicon/Bots/gunbot.rsi

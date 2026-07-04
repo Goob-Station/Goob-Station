@@ -1,8 +1,8 @@
 - type: entity
   id: NTDefaultCircuitBoard
   parent: BaseElectronics
-  name: law board (NT Default)
-  description: An electronics board containing the NT Default lawset.
+  name: "друкована плата (NT за замовчуванням)"
+  description: "Електронна плата, що містить набір законів NT за замовчуванням."
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -13,8 +13,8 @@
 - type: entity
   id: AsimovCircuitBoard
   parent: BaseElectronics
-  name: law board (Crewsimov)
-  description: An electronics board containing the Crewsimov lawset.
+  name: "плата законів (Крузімов)"
+  description: "Електронна плата, що містить набір законів Крузімова."
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -25,8 +25,8 @@
 - type: entity
   id: CorporateCircuitBoard
   parent: BaseElectronics
-  name: law board (Corporate)
-  description: An electronics board containing the Corporate lawset.
+  name: "друкована плата (корпоративна)"
+  description: "Електронна плата, що містить пакет корпоративного законодавства."
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -37,8 +37,8 @@
 - type: entity
   id: CommandmentCircuitBoard
   parent: BaseElectronics
-  name: law board (Ten Commandments)
-  description: An electronics board containing the Ten Commandments lawset.
+  name: "правнича рада (Десять заповідей)"
+  description: "Електронна плата, що містить звід законів Десяти Заповідей."
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -49,8 +49,8 @@
 - type: entity
   id: PaladinCircuitBoard
   parent: BaseElectronics
-  name: law board (Paladin)
-  description: An electronics board containing the Paladin lawset.
+  name: "юридична колегія (Паладин)"
+  description: "Електронна плата з набором законів \"Паладін\"."
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -61,8 +61,8 @@
 - type: entity
   id: LiveLetLiveCircuitBoard
   parent: BaseElectronics
-  name: law board (Live and Let Live)
-  description: An electronics board containing the Live and Let Live lawset.
+  name: "правнича рада (Живи і дай жити іншим)"
+  description: "Електронна плата з набором законів \"Живи і дай жити\"."
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -73,8 +73,8 @@
 - type: entity
   id: StationEfficiencyCircuitBoard
   parent: BaseElectronics
-  name: law board (Station Efficiency)
-  description: An electronics board containing the Station Efficiency lawset.
+  name: "юридична рада (Ефективність роботи станції)"
+  description: "Електронна плата, що містить набір законів ефективності станції."
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -85,8 +85,8 @@
 - type: entity
   id: RobocopCircuitBoard
   parent: BaseElectronics
-  name: law board (Robocop)
-  description: An electronics board containing the Robocop lawset.
+  name: "юридичний факультет (Робокоп)"
+  description: "Електронна плата з набором законів про Робокопа."
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -97,8 +97,8 @@
 - type: entity
   id: OverlordCircuitBoard
   parent: BaseElectronics
-  name: law board (Overlord)
-  description: An electronics board containing the Overlord lawset.
+  name: "юридична рада (Overlord)"
+  description: "Електронна плата з набором законів Overlord."
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -109,8 +109,8 @@
 - type: entity
   id: GameMasterCircuitBoard
   parent: BaseElectronics
-  name: law board (Game Master)
-  description: An electronics board containing the Game Master lawset.
+  name: "плата законів (Ігровий Майстер)"
+  description: "Електронна плата, що містить набір законів Ігрового Майстра."
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -121,8 +121,8 @@
 - type: entity
   id: ArtistCircuitBoard
   parent: BaseElectronics
-  name: law board (Artist)
-  description: An electronics board containing the Artist lawset.
+  name: "правнича колегія (Художник)"
+  description: "Електронна плата, що містить правовий набір Artist."
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -133,8 +133,8 @@
 - type: entity
   id: AntimovCircuitBoard
   parent: [BaseElectronics, BaseSyndicateAnchoredContraband]
-  name: law board (Antimov)
-  description: An electronics board containing the Antimov lawset.
+  name: "правнича колегія (Антімов)"
+  description: "Електронна плата з набором законів Антимова."
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -148,8 +148,8 @@
 - type: entity
   id: NutimovCircuitBoard
   parent: BaseElectronics
-  name: law board (Nutimov)
-  description: An electronics board containing the Nutimov lawset.
+  name: "правнича колегія (Нутімов)"
+  description: "Електронна плата, що містить набір законів Нутімова."
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -160,9 +160,9 @@
 - type: entity
   id: XenoborgCircuitBoard
   parent: BaseElectronics
-  name: law board (Xenoborg)
+  name: "плата законів (Ксеноборг)"
   suffix: Admeme
-  description: An electronics board containing the Xenoborg lawset.
+  description: "Електронна плата, що містить набір законів Ксеноборга."
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -173,9 +173,9 @@
 - type: entity
   id: MothershipCircuitBoard
   parent: BaseElectronics
-  name: law board (Mothership Core)
+  name: "плата законів (Ядро Материнського Корабля)"
   suffix: Admeme
-  description: An electronics board containing the Mothership Core lawset.
+  description: "Електронна плата, що містить набір законів Ядра Материнського Корабля."
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi

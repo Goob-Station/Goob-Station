@@ -2,8 +2,8 @@
   parent: BaseWallmountMachine
   id: WallmountTelescreen
   suffix: camera monitor
-  name: telescreen
-  description: Finally, some decent reception around here...
+  name: "телеекран"
+  description: "Монітор для камери спостереження на стіну."
   components:
   - type: Sprite
     sprite: Structures/Machines/computers.rsi
@@ -49,8 +49,8 @@
 - type: entity
   parent: BaseWallmountMetallic
   id: WallmountTelescreenFrame
-  name: telescreen frame
-  description: Finally, some decent reception around here...
+  name: "рама телескопічного екрану"
+  description: "Монітор для камери спостереження на стіну."
   components:
   - type: Construction
     graph: WallmountTelescreen

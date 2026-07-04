@@ -6,7 +6,7 @@
 
 - type: entity
   id: EntropicPlume
-  name: entropic plume
+  name: "ентропійний шлейф"
   categories: [ HideSpawnMenu ]
   components:
   - type: MovementIgnoreGravity
@@ -125,8 +125,8 @@
 - type: entity
   id: ShadowCloakEntity
   save: false
-  name: a shadow?
-  description: Something is there! Against all reason, this shadow lurks at the corners of your vision. You close your eyes, but still, it is there. No matter how far you run, it is there. In pitchest black, it is there.
+  name: "тінь?"
+  description: "Щось є! Всупереч усякому глузду, ця тінь ховається в кутках вашого зору. Ви заплющуєте очі, але вона все одно там. Неважливо, як далеко ви біжите, вона там. У найчорнішій темряві, вона там."
   components:
   - type: TimedDespawn
     lifetime: 185 # Time of the cloak to wear off + time of particles to disappear
@@ -288,8 +288,8 @@
 
 - type: entity
   id: VoidConduit
-  name: Void Conduit
-  description: An open gate which leads to nothingness. Releases pulses which you do not want to get hit by.
+  name: "Канал Пустки"
+  description: "Відкриті ворота, що ведуть у нікуди. Випускає імпульси, під які ви не хочете потрапити."
   placement:
     mode: SnapgridCenter
   components:

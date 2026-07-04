@@ -18,7 +18,7 @@
 
 - type: entity
   id: ChestShadowling
-  name: "Shadowling chest"
+  name: "Торс тіньовика"
   parent: [BaseChest, PartShadowling]
   components:
   - type: Extractable
@@ -31,7 +31,7 @@
 
 - type: entity
   id: GroinShadowling
-  name: "Shadowling groin"
+  name: "Пах тіньовика"
   parent: [BaseGroin, PartShadowling]
   components:
   - type: Sprite
@@ -39,7 +39,7 @@
 
 - type: entity
   id: HeadShadowling
-  name: "Shadowling head"
+  name: "Голова Тіньовика"
   parent: [BaseHead, PartShadowling]
   components:
   - type: Sprite
@@ -47,7 +47,7 @@
 
 - type: entity
   id: LeftArmShadowling
-  name: "left Shadowling arm"
+  name: "ліва рука Тіньовика"
   parent: [BaseLeftArm, PartShadowling]
   components:
   - type: Sprite
@@ -55,7 +55,7 @@
 
 - type: entity
   id: RightArmShadowling
-  name: "right Shadowling arm"
+  name: "права рука Тіньовика"
   parent: [BaseRightArm, PartShadowling]
   components:
   - type: Sprite
@@ -63,7 +63,7 @@
 
 - type: entity
   id: LeftHandShadowling
-  name: "left Shadowling hand"
+  name: "ліва кисть Тіньовика"
   parent: [BaseLeftHand, PartShadowling]
   components:
   - type: Sprite
@@ -71,7 +71,7 @@
 
 - type: entity
   id: RightHandShadowling
-  name: "right Shadowling hand"
+  name: "права кисть Тіньовика"
   parent: [BaseRightHand, PartShadowling]
   components:
   - type: Sprite
@@ -79,7 +79,7 @@
 
 - type: entity
   id: LeftLegShadowling
-  name: "left Shadowling leg"
+  name: "ліва нога Тіньовика"
   parent: [BaseLeftLeg, PartShadowling]
   components:
   - type: Sprite
@@ -87,7 +87,7 @@
 
 - type: entity
   id: RightLegShadowling
-  name: "right Shadowling leg"
+  name: "права нога Тіньовика"
   parent: [BaseRightLeg, PartShadowling]
   components:
   - type: Sprite
@@ -95,7 +95,7 @@
 
 - type: entity
   id: LeftFootShadowling
-  name: "left Shadowling foot"
+  name: "ліва стопа Тіньовика"
   parent: [BaseLeftFoot, PartShadowling]
   components:
   - type: Sprite
@@ -103,7 +103,7 @@
 
 - type: entity
   id: RightFootShadowling
-  name: "right Shadowling foot"
+  name: "права стопа Тіньовика"
   parent: [BaseRightFoot, PartShadowling]
   components:
   - type: Sprite

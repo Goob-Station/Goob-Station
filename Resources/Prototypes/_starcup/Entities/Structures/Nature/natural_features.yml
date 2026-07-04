@@ -1,7 +1,7 @@
 - type: entity
   id: BaseShroomSolid
-  name: mushrooms
-  description: Now that's one BIG mushroom.
+  name: "гриби"
+  description: "Оце так ВЕЛИКИЙ гриб."
   abstract: true
   components:
   - type: Clickable

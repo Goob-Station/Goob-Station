@@ -18,8 +18,8 @@
 - type: entity
   id: InflatableWallStack
   parent: BaseItem
-  name: inflatable barricade
-  description: A folded membrane which rapidly expands into a large cubical shape on activation.
+  name: "надувна барикада"
+  description: "Складчаста мембрана, яка при активації швидко розширюється у велику кубічну форму."
   suffix: Full
   components:
     - type: Stack
@@ -45,8 +45,8 @@
 - type: entity
   id: InflatableDoorStack
   parent: BaseItem
-  name: inflatable door
-  description: A folded membrane which rapidly expands into a large cubical shape on activation.
+  name: "надувні двері"
+  description: "Складчаста мембрана, яка при активації швидко розширюється у велику кубічну форму."
   suffix: Full
   components:
     - type: Stack

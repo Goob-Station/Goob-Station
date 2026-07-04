@@ -1,9 +1,9 @@
 - type: entity
   id: CigaretteMedical
   suffix: Medical
-  description: An extra absorbant chemlab cigarette, tastes kinda like asbestos.
+  description: "Надабсорбуюча сигарета хімлабораторії, на смак трохи нагадує азбест."
   parent: Cigarette
-  name: cigarette
+  name: "сигарета"
   components:
   - type: SolutionContainerManager
     solutions:
@@ -14,9 +14,9 @@
 
 - type: entity
   id: ECigarette
-  description: A reusable e-cigarette, tastes like how magic smoke smells.
+  description: "Багаторазова електронна сигарета, смакує так, як пахне магічний дим."
   parent: BaseCigar
-  name: e-cigarette
+  name: "електронна сигарета"
   components:
   - type: Cigar
     selfIgniting: true
@@ -46,9 +46,9 @@
 
 - type: entity
   id: CryostasisCigarette
-  description: A cryostasis e-cigarette, chemicals inside the pod cannot react.
+  description: "Кріостазна електронна сигарета; хімікати всередині капсули не можуть реагувати."
   parent: BaseCigar
-  name: cryostasis cigarette
+  name: "кріостазна сигарета"
   components:
   - type: Cigar
     selfIgniting: true

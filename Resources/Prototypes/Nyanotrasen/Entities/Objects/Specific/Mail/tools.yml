@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: mail bag
+  name: "поштова сумка"
   id: MailBag
   parent: BaseStorageItem
   description: Here's the mail, it never fails...

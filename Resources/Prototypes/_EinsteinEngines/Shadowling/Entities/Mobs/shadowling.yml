@@ -1,10 +1,10 @@
 - type: entity
   parent: [SimpleSpaceMobBase,FlyingMobBase]
   id: BaseMobShadowlingAscendant
-  name: shadowling ascendant
+  name: "вознесений тіньовик"
   suffix: ""
   categories: [HideSpawnMenu]
-  description: A shadowling ascendant. If you're seeing this, you're probably dead.
+  description: "Вознесений тіньовик. Якщо ви це бачите, ви, ймовірно, мертві."
   components:
   - type: Bloodstream
     bloodMaxVolume: 650
@@ -97,9 +97,9 @@
 - type: entity
   parent: [BaseMobShadowlingAscendant]
   id: BaseMobShadowlingAscendantAdminSpawn
-  name: shadowling ascendant
+  name: "вознесений тіньовик"
   suffix: ""
-  description: A shadowling ascendant. If you're seeing this, you're probably dead.
+  description: "Вознесений тіньовик. Якщо ви це бачите, ви, ймовірно, мертві."
   components:
   - type: ShadowlingVeil
   - type: ShadowlingIcyVeins

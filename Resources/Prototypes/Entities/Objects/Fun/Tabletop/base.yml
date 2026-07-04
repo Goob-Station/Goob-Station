@@ -11,9 +11,9 @@
 - type: entity
   parent: BaseItem
   id: BaseBoardEntity # Board item
-  name: board
+  name: "дошка"
   abstract: true
-  description: A blank board.
+  description: "Чиста дошка."
   components:
     - type: TabletopGame
       size: 256, 256
@@ -39,7 +39,7 @@
 
 - type: entity
   id: BaseBoardTabletop
-  name: baseboard
+  name: "плінтус"
   abstract: true
   categories: [ HideSpawnMenu ]
   components:

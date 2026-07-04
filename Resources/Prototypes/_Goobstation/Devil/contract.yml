@@ -9,8 +9,8 @@
   id: BaseDevilContract
   parent: [BaseItem, BaseMagicalContraband]
   abstract: true
-  name: contract from below
-  description: A devilish piece of black parchment detailing a contract. All ink that touches the page seems to turn to blood.
+  name: "контракт з пекла"
+  description: "Диявольський шматок чорного пергаменту, що детально описує контракт. Усе чорнило, що торкається сторінки, здається, перетворюється на кров."
   components:
   - type: PaperLabelType
   - type: Paper
@@ -83,8 +83,8 @@
   id: PaperDevilContractRevival
   suffix: "Devil Contract, Revival"
   parent: BaseDevilContract
-  name: contract from the depths
-  description: A devilish piece of black parchment detailing a contract of revival. All ink that touches the page seems to turn to blood.
+  name: "контракт з глибин"
+  description: "Диявольський шматок чорного пергаменту, що детально описує контракт на воскресіння. Усе чорнило, що торкається сторінки, здається, перетворюється на кров."
   components:
   - type: RevivalContract
   - type: Paper

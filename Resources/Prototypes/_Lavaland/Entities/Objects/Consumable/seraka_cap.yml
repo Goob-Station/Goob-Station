@@ -1,8 +1,8 @@
 - type: entity
-  name: seraka cap
+  name: "шапка сераки"
   parent: FoodProduceBase
   id: FoodMealSerakaCap
-  description: Small, deeply flavourful mushrooms originally native to Tizira.
+  description: "Маленькі, надзвичайно ароматні гриби, батьківщиною яких є Тізіра."
   components:
   - type: Food
   - type: FlavorProfile

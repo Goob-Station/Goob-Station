@@ -1,5 +1,5 @@
 - type: entity
-  name: random T1 xenobio slime spawner
+  name: "випадковий спавнер ксенобіо-слаймів T1"
   id: XenobioSlimeBabySpawner
   parent: MarkerBase
   components:

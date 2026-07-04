@@ -10,8 +10,8 @@
 # SPDX-License-Identifier: MIT
 
 - type: entity
-  name: spider clan charge
-  description: A modified C-4 charge supplied to you by the Spider Clan. Its explosive power has been juiced up, but only works in one specific area.
+  name: "звинувачення клану павуків"
+  description: "Модифікований заряд С-4, наданий вам Кланом Павуків. Його вибухова сила була збільшена, але працює лише в одній конкретній області."
   # not actually modified C-4! oh the horror!
   parent: [ BaseItem, BaseMajorContraband ]
   id: SpiderCharge

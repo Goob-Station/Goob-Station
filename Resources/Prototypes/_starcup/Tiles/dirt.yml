@@ -1,7 +1,7 @@
 - type: tile
   id: FloorPlanetDirtPale
   parent: BaseFloorPlanet
-  name: pale dirt
+  name: "блідий ґрунт"
   sprite: /Textures/_starcup/Tiles/Planet/dirt_pale.rsi/dirt.png
   variants: 5
   placementVariants:
@@ -23,7 +23,7 @@
 - type: tile
   id: FloorPlanetDirtTwilight
   parent: FloorPlanetDirtPale
-  name: twilight dirt
+  name: "сутінковий ґрунт"
   sprite: /Textures/_starcup/Tiles/Planet/dirt_twilight.rsi/dirt.png
   variants: 8
   placementVariants:
@@ -48,7 +48,7 @@
 - type: tile
   id: FloorPlanetGrassyDirtTwilight
   parent: FloorPlanetDirtTwilight
-  name: grassy twilight dirt
+  name: "трав'янистий сутінковий ґрунт"
   sprite: /Textures/_starcup/Tiles/Planet/dirt_twilight_grassy.rsi/dirt.png
   variants: 8
   placementVariants:

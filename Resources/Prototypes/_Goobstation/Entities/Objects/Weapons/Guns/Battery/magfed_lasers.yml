@@ -5,10 +5,10 @@
 
 # ER-5 Torrent SMG
 - type: entity
-  name: ER-5 Torrent
+  name: "ER-5 «Торрент»"
   parent: [ BaseWeaponCustomCell, BaseSecurityContraband ]
   id: WeaponLaserCellSMG
-  description: A specialized laser SMG, designed to put down suppressive fire through cover and be reloaded on the fly. Takes SMG power cells.
+  description: "Спеціалізований лазерний ПП, створений для ведення придушувального вогню крізь укриття та перезаряджання на ходу. Використовує елементи живлення ПП."
   components:
   - type: Item
     size: Large
@@ -62,10 +62,10 @@
 
 # ES-7 Multilens Sniper Rifle
 - type: entity
-  name:  ES-7 Multilens
+  name: "ES-7 «Мультилінз»"
   parent: [ BaseWeaponCustomCell, BaseGunWieldable, BaseSecurityContraband ]
   id: WeaponLaserCellSniper
-  description: A burst-fire laser sniper rifle that retains its power across extreme distances. Fitted with a standard magnifying scope. Takes sniper power cells.
+  description: "Лазерна снайперська гвинтівка зі стрільбою чергами, що зберігає потужність на екстремальних дистанціях. Оснащена стандартним збільшувальним прицілом. Використовує снайперські елементи живлення."
   components:
   - type: Item
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/cell_sniper.rsi
@@ -130,10 +130,10 @@
 
 # EG-1 Taro Revolver
 - type: entity
-  name: EG-1 Taro
+  name: "EG-1 «Таро»"
   parent: [ BaseWeaponCustomCellSmall, BaseSecurityContraband ]
   id: WeaponLaserCellRevolver
-  description: Originally designed as a sidearm for NanoTrasen security teams, the Taro is an obscure break action laser revolver platform. It was quickly scrapped due to an annoying firerate cap included to prevent overheating. Takes revolver power cells.
+  description: "Спершу «Таро» розробляли як бічну зброю для підрозділів безпеки NanoTrasen, але вийшла маловідома переломна платформа лазерного револьвера. Її швидко списали через дратівливе обмеження скорострільності, введене для запобігання перегріву. Використовує револьверні елементи живлення."
   components:
   - type: Item
     size: Small
@@ -204,10 +204,10 @@
 
 # EL-20 HAMRR
 - type: entity
-  name: EL-20 HAMRR
+  name: "EL-20 HAMRR"
   parent: [BaseItem, BaseSecurityContraband]
   id: WeaponLaserLMG
-  description: An unwieldy laser LMG that draws power from its dedicated backpack storage rig. The compromises taken to allow for its overwhelming firerate and onboard cooling system make it both heavy and inaccurate.
+  description: "Незграбний лазерний ручний кулемет, що живиться від спеціального ранцевого енергоблоку. Компроміси, потрібні для його шаленої скорострільності та бортової системи охолодження, роблять його одночасно важким і неточним."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/energy_lmg_icon_48x.rsi

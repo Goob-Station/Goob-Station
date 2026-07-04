@@ -30,7 +30,7 @@
   abstract: true
   parent: BaseItem
   id: BoxDonkSoftBase
-  name: foamdart box
+  name: "коробка пінних дротиків"
   components:
   # Goobstation edit start
   - type: EmitSoundOnPickup
@@ -73,7 +73,7 @@
 - type: entity
   parent: BaseMagazineBoxMagnum
   id: BoxCartridgeCap
-  name: cap gun cartridge box
+  name: "коробка патронів для пістолета з пістонами"
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeCap

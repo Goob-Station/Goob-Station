@@ -11,8 +11,8 @@
 - type: entity
   id: Memorial
   parent: BaseStructure
-  name: memorial
-  description: Commemorating something.
+  name: "меморіал"
+  description: "Вшанування чогось."
   components:
   - type: Sprite
     sprite: Structures/Furniture/Memorials/generic_memorial.rsi
@@ -42,11 +42,8 @@
 - type: entity
   id: SS13Memorial
   parent: BaseStructure
-  name: tomb of the unknown employee
-  description: |
-    Here rests an unknown employee
-    Unknown by name or rank
-    Whose acts will not be forgotten
+  name: "могила невідомого співробітника"
+  description: "Тут спочиває невідомий співробітник\nНевідомий за іменем чи званням\nЧиї вчинки не будуть забуті\n"
   components:
     - type: Sprite
       sprite: Structures/Furniture/Memorials/ss13_memorial.rsi
@@ -58,10 +55,8 @@
 - type: entity
   parent: Memorial
   id: Monolith
-  name: monolith
-  description: |
-    Holy shit modern art.
-    I bet it's worth a fortune.
+  name: "моноліт"
+  description: "Оце так сучасне мистецтво.\nБ'юся об заклад, воно коштує цілий статок.\n"
   components:
   - type: Sprite
     color: "#1a1a22" #yes, I bothered to get the actual color from 2001 a space odyssey

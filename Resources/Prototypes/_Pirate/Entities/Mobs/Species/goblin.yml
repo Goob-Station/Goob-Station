@@ -1,6 +1,6 @@
 - type: entity
   parent: BaseMobHuman
-  name: Urist McGoblin
+  name: "Уріст МакГоблін"
   id: MobGoblinBase
   abstract: true
   components:
@@ -118,11 +118,11 @@
 
 - type: entity
   save: false
-  name: Urist McGoblin
+  name: "Уріст МакГоблін"
   parent: MobHumanDummy
   id: MobGoblinDummy
   categories: [ HideSpawnMenu ]
-  description: A dummy goblin meant to be used in character setup.
+  description: "Манекен гобліна, призначений для використання в налаштуванні персонажа."
   components:
   - type: HumanoidAppearance
     species: Goblin

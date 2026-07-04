@@ -12,8 +12,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: CentcomAgentSkirt
-  name: centcom agent skirt
-  description: A skirt worn by CentComs legal team. Smells of burnt coffee.
+  name: "спідниця агента центкома"
+  description: "Спідниця, яку носить юридична команда CentComs. Пахне горілою кавою."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Centcom/centcom_agent.rsi
@@ -23,8 +23,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtNanotrasenRepresentative
-  name: nanotrasen representative skirt
-  description: A black skirt worn by officials.
+  name: "спідниця представника Нанотрейзен"
+  description: "Чорна спідниця, яку носять офіційні особи."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Centcom/nanotrasen_representative.rsi
@@ -34,8 +34,8 @@
 - type: entity
   parent: [ClothingUniformBase,  ClothingUniformFoldableBase]
   id: ClothingUniformJumpskirtBlueshieldOfficer
-  name: blueshield officer jumpskirt
-  description: A short-sleeved grey and blue jumpskirt, made out of a sturdy material. Blueshield standard issue.
+  name: "офіцерський комбінезон з синім щитом"
+  description: "Сіро-блакитний комбінезон з короткими рукавами, виготовлений з міцного матеріалу. Стандартна комплектація Blueshield."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Centcom/blueshield_officer.rsi
@@ -45,8 +45,8 @@
 - type: entity
   parent: ClothingUniformJumpsuitNavyGold
   id: ClothingUniformJumpskirtTrainer
-  name: NCT Jumpskirt
-  description: A jumpskirt issued to Nanotrasen Career Trainers. Fills you with a feeling of pride.
+  name: "комбінезон-спідниця NCT"
+  description: "Комбінезон-спідниця, що видається кар'єрним тренерам NanoTrasen. Наповнює вас почуттям гордості."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Centcom/trainer.rsi
@@ -56,8 +56,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformSkirtMailCarrier
-  name: mail carrier's jumpskirt
-  description: Enemy of dogs everywhere.
+  name: "комбінезон листоноші"
+  description: "Ворог собак скрізь і всюди."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/mailman.rsi
@@ -67,8 +67,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpskirtCommandMaid
-  name: command maid uniform
-  description: A stylish maid uniform specially designed for elite Command Maids. Combines professionalism with a touch of elegance.
+  name: "уніформа командної покоївки"
+  description: "Стильна уніформа покоївки, спеціально створена для елітних командних покоївок. Поєднує професіоналізм із ноткою елегантності."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Other/command_maid.rsi
@@ -80,8 +80,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpskirtSalvageSpecialist
-  name: salvage specialist's jumpskirt
-  description: It's a snappy jumpskirt with a sturdy set of overalls. It's very dirty.
+  name: "спідниця-комбінезон спеціаліста з утилізації"
+  description: "Це стильна спідниця-комбінезон із міцного матеріалу. Дуже брудна."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/salvage.rsi
@@ -91,8 +91,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ClothingUniformJumpskirtShaftMiner
-  name: shaft miner's jumpskirt
-  description: It's a snappy jumpskirt with a sturdy set of overalls. It looks burnt.
+  name: "спідниця-комбінезон шахтаря"
+  description: "Це стильна спідниця-комбінезон із міцного матеріалу. На вигляд трохи підгоріла."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Cargo/shaft_miner.rsi
@@ -104,8 +104,8 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase, BaseCommandContraband]
   id: ClothingUniformJumpskirtResearchDirectorAlt
-  name: research director's turtleneck
-  description: It's a turtleneck worn by those with the know-how to achieve the position of Research Director. Its fabric provides minor protection from biological contaminants.
+  name: "водолазка наукового керівника"
+  description: "Це водолазка, яку носять ті, хто має достатньо знань, щоб обіймати посаду наукового керівника. Її тканина забезпечує незначний захист від біологічних забруднень."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/RND/rndturtle.rsi
@@ -126,8 +126,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtReporter
-  name: reporter's dress
-  description: An extravagant black dress designed to catch the attention of as many people as possible.
+  name: "сукня репортера"
+  description: "Екстравагантна чорна сукня, розроблена, щоб привернути увагу якомога більшої кількості людей."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Civilian/reporter_dress.rsi # goob
@@ -138,8 +138,8 @@
 - type: entity
   parent: [ ClothingUniformSkirtBase, BaseCentcommContraband ]
   id: ClothingUniformJumpskirtCentcomPencilSkirt
-  name: centcom pencil skirt
-  description: An elegant green formal blouse paired with a sleek black pencil skirt, decorated with exquisite golden detailing.
+  name: "спідниця-олівець Центрального Командування"
+  description: "Елегантна зелена формальна блуза в парі з гладкою чорною спідницею-олівцем, оздоблена вишуканими золотими деталями."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Centcom/centcomm_pencilskirt.rsi

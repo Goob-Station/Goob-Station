@@ -8,7 +8,7 @@
 
 - type: entity
   id: MagazinePistolCaselessRifleEmpty
-  name: pistol magazine (9.5mm any)
+  name: "пістолетний магазин (9.5мм будь-який)"
   parent: BaseMagazinePistolCaselessRifle
   components:
   - type: BallisticAmmoProvider
@@ -16,7 +16,7 @@
 
 - type: entity
   id: MagazineCaselessRifleEmpty
-  name: magazine (9.5mm any)
+  name: "магазин (9.5мм будь-який)"
   parent: BaseMagazineCaselessRifle
   components:
   - type: BallisticAmmoProvider
@@ -24,7 +24,7 @@
 
 - type: entity
   id: MagazinePistolCaselessRifleSAPHE
-  name: "pistol magazine (9.5mm SAP-HE)"
+  name: "пістолетний магазин (9.5мм SAP-HE)"
   parent: BaseMagazinePistolCaselessRifle
   components:
   - type: BallisticAmmoProvider

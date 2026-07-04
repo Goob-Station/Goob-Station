@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseResearchAndDevelopmentPointSource
   id: GlimmerProber
-  name: glimmer prober
-  description: Probes the noösphere to generate research points. Might be worth turning off if glimmer is a problem.
+  name: "глімерний пробник"
+  description: "Збільшує кількість мерехтінь і точок дослідження."
   components:
   - type: Psionic
     removable: false
@@ -93,8 +93,8 @@
 - type: entity
   parent: BaseMachinePowered
   id: GlimmerDrain
-  name: glimmer drain
-  description: Uses electricity to try and sort out the noösphere, reducing its level of entropy.
+  name: "глімерний злив"
+  description: "Зменшує мерехтіння."
   components:
   - type: Psionic
     removable: false
@@ -132,8 +132,8 @@
 
 - type: entity
   id: GlimmerDeviceFrame
-  name: glimmer device frame
-  description: A frame for a glimmer drain or glimmer prober.
+  name: "рамка пристрою мерехтіння"
+  description: "Рамка для зливу відблисків або зонда відблисків."
   placement:
     mode: SnapgridCenter
   components:

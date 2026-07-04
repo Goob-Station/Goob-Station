@@ -6,8 +6,8 @@
 - type: entity
   id: ShelfWallFreezerWhite
   parent: ShelfBaseReinforced
-  name: wall freezer
-  description: A convenient place to store perishables.
+  name: "настінна морозильна камера"
+  description: "Зручне місце для зберігання швидкопсувних продуктів."
   suffix: Frontier, White
   components:
   - type: ExplosionResistance
@@ -63,7 +63,7 @@
 - type: entity
   id: ShelfWallFreezerDark
   parent: ShelfWallFreezerWhite
-  name: wall freezer
+  name: "настінна морозильна камера"
   suffix: Frontier, Dark
   components:
   - type: Sprite

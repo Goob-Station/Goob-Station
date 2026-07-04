@@ -1,7 +1,7 @@
 - type: entity
   parent: MaterialBase
   id: MaterialAshwoodPlank
-  name: ashwood
+  name: "ашвуд"
   suffix: Full
   components:
   - type: Material

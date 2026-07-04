@@ -23,7 +23,7 @@
 - type: entity
   parent: BaseStorageItem
   id: BriefcaseBase
-  description: Useful for carrying items in your hands.
+  description: "Зручні для перенесення предметів у руках."
   abstract: true
   components:
   - type: Item
@@ -42,7 +42,7 @@
 - type: entity
   parent: BriefcaseBase
   id: BriefcaseBrown
-  name: brown briefcase
+  name: "коричневий портфель"
   components:
   - type: Sprite
     sprite: Objects/Storage/Briefcases/briefcase_brown.rsi

@@ -1,8 +1,8 @@
 - type: entity
   parent: ReinforcementRadio
   id: ReinforcementRadioSyndicateSyndiCatReject
-  name: syndicat reject reinforcement radio
-  description: Calls in an untrained syndicat.
+  name: "рація підкріплення СиндіКіта-відмовника"
+  description: "Викликає нетренованого СиндіКіта."
   components:
   - type: Sprite
     sprite: _Pirate/Objects/Devices/syndicatyarn.rsi
@@ -29,8 +29,8 @@
 - type: entity
   parent: ReinforcementRadio
   id: ReinforcementRadioSyndicateMothroachSyndicate
-  name: syndicate mothroach reinforcement radio
-  description: Calls in what might be the most devastating thing this side of the galaxy, a mothroach.
+  name: "рація підкріплення тарганомолі Синдикату"
+  description: "Викликає те, що може бути найруйнівнішою істотою по цей бік галактики: тарганоміль."
   components:
   - type: Sprite
     sprite: _Pirate/Objects/Devices/communication.rsi

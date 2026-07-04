@@ -13,8 +13,8 @@
 
 - type: entity
   id: FloorChasmEntity
-  name: chasm
-  description: You can't even see the bottom.
+  name: "прірва"
+  description: "Навіть дна не видно."
   placement:
     mode: SnapgridCenter
     snap:

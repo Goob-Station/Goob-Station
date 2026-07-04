@@ -6,8 +6,8 @@
 - type: entity
   id: CrateCargoGatewayLavaland
   parent: CrateGenericSteel
-  name: lavaland gateway crate
-  description: Allows you to teleport straight to Lavaland.
+  name: "вантажний ящик з воротами до Лаваленду"
+  description: "Дозволяє телепортуватися прямо до Лаваленду."
   components:
   - type: StorageFill
     contents:
@@ -15,8 +15,8 @@
 
 - type: entity
   id: CrateCargoClarkeAssembly
-  name: clarke assembly crate
-  description: At long last, you will finally feel secure inside this brand new spankin machine! Assembly required.
+  name: "ящик для збірки \"Кларк"
+  description: "Нарешті, ви відчуєте себе в безпеці всередині цієї новенької машини! Потрібна збірка."
   parent: CratePrivateSecure
   components:
   - type: StorageFill

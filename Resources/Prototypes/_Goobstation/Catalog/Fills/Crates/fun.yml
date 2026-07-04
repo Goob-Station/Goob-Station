@@ -9,8 +9,8 @@
 - type: entity
   id: CrateFunATV
   parent: CrateLivestock
-  name: ATV crate
-  description: An Absolutely Taxable Vehicle to help cargo with hauling.
+  name: "ящик з квадроциклом"
+  description: "Абсолютно оподатковуваний транспортний засіб, щоб допомогти вантажу з перевезенням."
   components:
   - type: StorageFill
     contents:
@@ -20,8 +20,8 @@
 - type: entity
   id: CrateFunSyndicateSegway
   parent: CrateLivestock
-  name: Syndicate segway crate
-  description: A crate containing a two-wheeler that will help you escape from the security officers. Or not.
+  name: "ящик із сегвеєм Синдикату"
+  description: "Ящик, що містить двоколісний транспорт, який допоможе вам втекти від офіцерів служби безпеки. Або ні."
   components:
     - type: StorageFill
       contents:
@@ -32,7 +32,7 @@
 - type: entity
   id: CrateFunBingleLoot
   parent: CrateBingle
-  name: Bingle loot
+  name: "Трофеї Бінгла"
   components:
   - type: StorageFill
     contents:
@@ -47,7 +47,7 @@
   id: CrateFunBingleAdmeme
   parent: CrateBingle
   suffix: Admeme voice triggered bingle crate
-  name: Bingle
+  name: "Бінгл"
   components:
   - type: SpawnOnTrigger
     proto: MobBingle
@@ -59,8 +59,8 @@
 - type: entity
   id: CrateFunDiscoBeachBall
   parent: CrateGenericSteel
-  name: disco beach ball crate
-  description: A crate containing a Disco Beach Ball that turns any beach trip into Studio 54.
+  name: "ящик з диско пляжним м'ячем"
+  description: "Ящик, що містить диско-пляжний м'яч, який перетворює будь-яку поїздку на пляж на Студію 54."
   components:
   - type: StorageFill
     contents:
@@ -69,8 +69,8 @@
 
 - type: entity
   id: CrateWizardAnomCore
-  name: Crate of Enchanting
-  description: A box containing stolen anomaly cores, used for enchanting.
+  name: "Ящик зачарування"
+  description: "Скриня з викраденими ядрами аномалій, що використовуються для зачарування."
   parent: CratePirate
   components:
   #ONLY contains anomalies with enchantcomp.

@@ -4,7 +4,7 @@
   abstract: true
   parent: BaseAreaStation
   id: BaseAreaCargo
-  name: cargo
+  name: "карго"
   components:
   - type: DepartmentArea
     department: Cargo
@@ -12,7 +12,7 @@
 - type: entity
   parent: BaseAreaCargo
   id: AreaCargoBay
-  name: cargo bay
+  name: "вантажний відсік"
   components:
   - type: Sprite
     state: cargo_bay
@@ -20,7 +20,7 @@
 - type: entity
   parent: BaseAreaCargo
   id: AreaCargoLobby
-  name: cargo lobby
+  name: "вестибюль карго"
   components:
   - type: Sprite
     state: cargo_lobby
@@ -28,7 +28,7 @@
 - type: entity
   parent: BaseAreaCargo
   id: AreaCargoOffice
-  name: cargo office
+  name: "офіс карго"
   components:
   - type: Sprite
     state: cargo_office
@@ -36,7 +36,7 @@
 - type: entity
   parent: BaseAreaCargo
   id: AreaPodBay
-  name: podbay
+  name: "ангар капсул"
   components:
   - type: Sprite
     state: podbay
@@ -44,7 +44,7 @@
 - type: entity
   parent: BaseAreaCargo
   id: AreaSalvage
-  name: salv
+  name: "утилізація"
   components:
   - type: Sprite
     state: salv

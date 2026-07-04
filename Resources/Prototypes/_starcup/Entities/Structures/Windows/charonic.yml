@@ -1,8 +1,8 @@
 - type: entity
   parent: Window
   id: WindowCharonic
-  name: charonic window
-  description: A glass pane reinforced with crystallized wisp shards. It hums faintly.
+  name: "харонічне вікно"
+  description: "Скляна панель, укріплена кристалізованими уламками вогників. Вона тихо гуде."
   components:
   - type: Sprite
     color: "#A8E6FF"

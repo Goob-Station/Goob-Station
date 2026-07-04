@@ -62,9 +62,9 @@
 - type: entity
   id: PlasticFlapsClear
   parent: PlasticFlapsBase
-  name: plastic flaps
+  name: "пластикові клапани"
   suffix: Clear
-  description: Heavy duty, plastic flaps. Definitely can't get past those. No way.
+  description: "Пластиковий клапан, щоб пропускати предмети і не пускати людей."
   components:
   - type: Construction
     graph: PlasticFlapsGraph
@@ -73,9 +73,9 @@
 - type: entity
   id: PlasticFlapsOpaque
   parent: PlasticFlapsBase
-  name: plastic flaps
+  name: "пластикові клапани"
   suffix: Opaque
-  description: Heavy duty, plastic flaps. Definitely can't get past those. No way.
+  description: "Пластиковий клапан, щоб пропускати предмети і не пускати людей."
   components:
   - type: Fixtures
     fixtures:
@@ -98,9 +98,9 @@
 - type: entity
   id: PlasticFlapsAirtightClear
   parent: PlasticFlapsBase
-  name: airtight plastic flaps
+  name: "герметичні пластикові стулки"
   suffix: Airtight, Clear
-  description: Heavy duty, slightly stronger, airtight plastic flaps. Definitely can't get past those. No way.
+  description: "Надміцні, трохи міцніші, герметичні пластикові клапани. Через них точно не пройдеш. Нізащо."
   components:
   - type: Destructible
     thresholds:
@@ -117,9 +117,9 @@
 - type: entity
   id: PlasticFlapsAirtightOpaque
   parent: PlasticFlapsBase
-  name: airtight plastic flaps
+  name: "герметичні пластикові стулки"
   suffix: Airtight, Opaque
-  description: Heavy duty, slightly stronger, airtight plastic flaps. Definitely can't get past those. No way.
+  description: "Надміцні, трохи міцніші, герметичні пластикові клапани. Через них точно не пройдеш. Нізащо."
   components:
   - type: Destructible
     thresholds:

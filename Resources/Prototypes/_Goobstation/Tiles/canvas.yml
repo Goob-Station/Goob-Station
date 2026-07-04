@@ -19,7 +19,7 @@
 - type: entity
   parent: FloorTileItemBase
   id: FloorTileItemCanvas
-  name: canvas floor
+  name: "полотняна підлога"
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Tiles/canvas.rsi

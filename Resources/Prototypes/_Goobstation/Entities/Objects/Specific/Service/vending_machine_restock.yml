@@ -7,8 +7,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockSweetToof
-  name: SweetToof restock box
-  description: A box jampacked with a heinous amount of candy. Load it into a SweetToof vendor to begin.
+  name: "Коробка для поповнення SweetToof"
+  description: "Коробка, набита жахливою кількістю цукерок. Завантажте її в автомат SweetToof, щоб почати."
   components:
   - type: VendingMachineRestock
     canRestock:

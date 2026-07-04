@@ -1,10 +1,10 @@
 # Chromite-alloy tools.
 
 - type: entity
-  name: chromite pickaxe
+  name: "хромітова кирка"
   id: PickaxeChromite
   parent: Pickaxe
-  description: A pickaxe forged from chromite alloy. Heavier and harder than standard steel.
+  description: "Кирка, викувана з хромітового сплаву. Важча й твердіша за стандартну сталь."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/pickaxe.rsi

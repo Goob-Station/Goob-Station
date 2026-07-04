@@ -12,7 +12,7 @@
 - type: entity
   parent: [ ClothingOuterBase, AllowSuitStorageClothing, BaseMajorContraband ]
   id: ClothingOuterArmorAbductor
-  name: agent vest
+  name: "жилет агента"
   components:
   - type: Sprite
     sprite: _Shitmed/Clothing/OuterClothing/Armor/abductor.rsi
@@ -103,8 +103,8 @@
 - type: entity
   parent: [ ClothingOuterStorageBase, AllowSuitStorageClothing, BaseMajorContraband]
   id: ClothingOuterCoatAbductor
-  name: alien lab coat
-  description: A suit of alien origin that protects from various injuries, as well as from chemical spills.
+  name: "лабораторний халат викрадача"
+  description: "Костюм інопланетного походження, що захищає від різних травм, а також від розливів хімікатів."
   components:
   - type: Sprite
     sprite: _Shitmed/Clothing/OuterClothing/Coats/abductor.rsi

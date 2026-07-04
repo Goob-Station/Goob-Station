@@ -7,7 +7,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeAloeCream
-  name: aloe cream recipe
+  name: "рецепт крему з алое"
   result: AloeCream
   time: 10
   group: Medicinal
@@ -16,7 +16,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeMedicatedSuture
-  name: medicated suture recipe
+  name: "рецепт лікувального шва"
   result: MedicatedSuture
   time: 10
   group: Medicinal
@@ -30,7 +30,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeRegenerativeMesh
-  name: regenerative mesh recipe
+  name: "рецепт регенеративної сітки"
   result: RegenerativeMesh
   time: 10
   group: Medicinal

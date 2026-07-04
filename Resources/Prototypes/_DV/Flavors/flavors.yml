@@ -1,7 +1,7 @@
 - type: flavor
   id: UnholyWater
   flavorType: Complex
-  description: flavor-complex-unholy-water
+  description: "смак нечестивої води"
 
 - type: flavor
   id: BeastBlood

@@ -25,8 +25,8 @@
 - type: entity
   parent: DrinkBasePlastic
   id: DrinkFitnessShakerBlack
-  name: fitness shaker
-  description: Big enough to contain enough protein to get perfectly swole. Don't mind the bits.
+  name: "фітнес-шейкер"
+  description: "Досить великий, щоб містити достатньо білка для ідеального набухання. Не звертайте уваги на шматочки."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Consumable/Drinks/shakerblack.rsi
@@ -71,8 +71,8 @@
 - type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottlePlasticSmallBaseFull]
   id: DrinkMilkBottleFull
-  name: milk bottle
-  description: How do plasmamen even drink this?
+  name: "пляшка молока"
+  description: "Як плазмові люди взагалі це п'ють?"
   components:
   - type: SolutionContainerManager
     solutions:

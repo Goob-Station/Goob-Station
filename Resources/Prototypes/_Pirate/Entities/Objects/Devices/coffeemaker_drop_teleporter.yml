@@ -1,7 +1,7 @@
 - type: entity
   id: SpawnPodCoffeemakerImpressaPirate
   categories: [ HideSpawnMenu ]
-  name: "coffeemaker supply drop"
+  name: "кавовий вантажний дроппод"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -10,7 +10,7 @@
 - type: entity
   id: SpawnPodCoffeemakerModelloPirate
   categories: [ HideSpawnMenu ]
-  name: "coffeemaker supply drop"
+  name: "кавовий вантажний дроппод"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -19,8 +19,8 @@
 - type: entity
   parent: BaseItem
   id: CoffeemakerDropTeleporterPirate
-  name: "impressa coffee delivery beacon"
-  description: "Summon an Impressa coffee crate with supplies to get started brewing."
+  name: "маяк доставки кави Impressa"
+  description: "Викликає ящик із кавоваркою Impressa та всім необхідним для старту."
   components:
   - type: Sprite
     sprite: Objects/Devices/station_beacon.rsi
@@ -38,8 +38,8 @@
 - type: entity
   parent: CoffeemakerDropTeleporterPirate
   id: CoffeemakerDropTeleporterModelloPirate
-  name: "modello coffee delivery beacon"
-  description: "Summon a Modello 3 coffee crate with supplies to get started brewing."
+  name: "маяк доставки кави Modello"
+  description: "Викликає ящик із кавоваркою Modello 3 та всім необхідним."
   components:
   - type: SpawnItemsOnUse
     sound: /Audio/Items/Mining/fultext_launch.ogg

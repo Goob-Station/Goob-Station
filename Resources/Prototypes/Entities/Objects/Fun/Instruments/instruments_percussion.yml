@@ -22,7 +22,7 @@
 - type: entity
   parent: BasePercussionInstrument
   id: GlockenspielInstrument
-  name: glockenspiel
+  name: "глокеншпіль"
   components:
   - type: Instrument
     program: 9
@@ -32,8 +32,8 @@
 - type: entity
   parent: BasePercussionInstrument
   id: MusicBoxInstrument
-  name: music box
-  description: Playing this makes you feel safe from scary animatronics.
+  name: "музична шкатулка"
+  description: "Граючи в неї, ви відчуваєте себе в безпеці від страшної аніматроніки."
   components:
   - type: Instrument
     program: 10
@@ -45,8 +45,8 @@
 - type: entity
   parent: BasePercussionInstrument
   id: XylophoneInstrument
-  name: xylophone
-  description: Rainbow colored glockenspiel.
+  name: "ксилофон"
+  description: "Райдужний глокеншпіль."
   components:
   - type: Instrument
     program: 13
@@ -57,8 +57,8 @@
 - type: entity
   parent: BaseHandheldInstrument
   id: MicrophoneInstrument
-  name: microphone
-  description: Perfect for singing your heart out.
+  name: "мікрофон"
+  description: "Ідеально підходить для того, щоб співати від душі."
   components:
   - type: Instrument
     program: 52
@@ -75,8 +75,8 @@
 - type: entity
   parent: BasePercussionInstrument
   id: WoodblockInstrument
-  name: woodblock
-  description: If you listen to this enough it'll start driving itself into your mind.
+  name: "ксилографія"
+  description: "Якщо ви послухаєте її достатньо, вона почне в'їжджати у вашу свідомість."
   components:
   - type: Instrument
     program: 115
@@ -86,8 +86,8 @@
 - type: entity
   parent: BasePercussionInstrument
   id: ReverseCymbalsInstrument
-  name: reverse cymbals
-  description: I think you have it the wrong way around?
+  name: "зворотні тарілки"
+  description: "Я думаю, що ви все неправильно зрозуміли"
   components:
   - type: Instrument
     program: 119

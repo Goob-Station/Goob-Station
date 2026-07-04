@@ -6,7 +6,7 @@
 - type: entity
   id: MachinePowerTransmissionLaserCrate
   parent: CrateGenericSteel
-  name: power transmission laser crate
+  name: "ящик з лазером передачі енергії"
   components:
   - type: StorageFill
     contents:
@@ -15,8 +15,8 @@
 - type: entity
   id: CrateEngineeringTEG
   parent: CrateEngineeringSecure
-  name: thermo-electric generator crate
-  description: Containing thermo-electric generator flatpack to make atmosian happy.
+  name: "ящик термоелектричного генератора"
+  description: "Містить флетпак термоелектричного генератора, щоб потішити атмосіана."
   components:
   - type: StorageFill
     contents:

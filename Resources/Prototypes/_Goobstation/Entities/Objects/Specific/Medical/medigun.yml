@@ -6,8 +6,8 @@
 - type: entity
   parent: BaseItem
   id: MedicalBeamGun
-  name: medical beam gun
-  description: Delivers volatile medical nanites in a focused beam. Uber mode heals the patient much more powerfully, but makes them suffocate. Don't cross the beams! Recharges in 60 or 90 seconds.
+  name: "медична променева гармата"
+  description: "Доставляє нестабільні медичні наніти сфокусованим променем. Uber-режим лікує пацієнта значно потужніше, але змушує його задихатися. Не перехрещуйте промені! Перезаряджається за 60 або 90 секунд."
   suffix: Unlimited
   components:
   - type: Sprite
@@ -89,7 +89,7 @@
 - type: entity
   parent: [ MedicalBeamGun, BaseSyndicateContraband ]
   id: MedicalBeamGunSyndicate
-  name: syndicate medical beam gun
+  name: "медична променева гармата Синдикату"
   suffix: Syndicate, Unlimited
   components:
   - type: Sprite

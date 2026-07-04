@@ -1,8 +1,8 @@
 - type: entity
   id: FireEffect
-  name: fire
+  name: "вогонь"
   parent: Acidifier
-  description: A burst of flames!
+  description: "Спалах полум'я!"
   components:
   - type: Sprite
     sprite: /Textures/Effects/fire.rsi

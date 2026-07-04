@@ -10,7 +10,7 @@
 - type: entity
   parent: BaseKeyedInstrument
   id: SynthesizerInstrument
-  name: synthesizer
+  name: "синтезатор"
   components:
   - type: Instrument
     program: 62
@@ -26,8 +26,8 @@
 - type: entity
   parent: BaseKeyedInstrument
   id: SuperSynthesizerInstrument
-  name: super synthesizer
-  description: Blasting the ghetto with Touhou MIDIs since 2020.
+  name: "суперсинтезатор"
+  description: "Підриває гетто з Touhou MIDI з 2020 року."
   components:
   - type: Instrument
     allowPercussion: true
@@ -42,7 +42,7 @@
 - type: entity
   parent: BaseKeyedInstrument
   id: AccordionInstrument
-  name: accordion
+  name: "акордеон"
   components:
   - type: Instrument
     program: 21
@@ -56,8 +56,8 @@
 - type: entity
   parent: BaseKeyedInstrument
   id: KalimbaInstrument
-  name: kalimba
-  description: The power of a piano right at your thumbs.
+  name: "калімба"
+  description: "Сила фортепіано прямо у ваших пальцях."
   components:
   - type: Instrument
     program: 108

@@ -1,7 +1,7 @@
 - type: entity
   id: BoxFolderNuclearCodes
   parent: BaseItem
-  name: nuclear code folder
+  name: "папка з ядерними кодами"
   components:
   - type: Sprite
     sprite: Objects/Misc/folders.rsi
@@ -21,8 +21,8 @@
 - type: entity
   id: BoxFolderBase
   parent: BoxBase
-  name: folder
-  description: A folder filled with top secret paperwork.
+  name: "папка"
+  description: "Папка з надсекретними документами."
   components:
   - type: Sprite
     sprite: Objects/Misc/folders.rsi
@@ -153,10 +153,10 @@
 
 - type: entity
   id: BoxFolderCentCom
-  name: CentComm folder
+  name: "папка ЦентКому"
   parent: BoxFolderBase
   categories: [ DoNotMap ]
-  description: CentComm's miserable little pile of secrets!
+  description: "Жалюгідна купка секретів ЦентКому!"
   components:
   - type: Sprite
     layers:
@@ -166,8 +166,8 @@
 - type: entity
   id: BoxFolderClipboard
   parent: BoxFolderBase
-  name: clipboard
-  description: The weapon of choice for those on the front lines of bureaucracy.
+  name: "буфер обміну"
+  description: "Зброя вибору для тих, хто знаходиться на передовій лінії бюрократії."
   components:
   - type: Sprite
     sprite: Objects/Misc/clipboard.rsi
@@ -226,8 +226,8 @@
 - type: entity
   id: BoxFolderCentComClipboard
   parent: BoxFolderClipboard
-  name: CentComm clipboard
-  description: A luxurious clipboard upholstered with green velvet. Often seen carried by CentComm officials, seldom seen actually used.
+  name: "планшет ЦентКому"
+  description: "Розкішний планшет, оббитий зеленим оксамитом. Часто бачили, як його носять чиновники ЦентКому, рідко бачили, щоб ним справді користувалися."
   components:
   - type: Sprite
     sprite: Objects/Misc/cc-clipboard.rsi
@@ -248,8 +248,8 @@
 - type: entity
   id: BoxFolderQmClipboard
   parent: [BoxFolderClipboard, BaseGrandTheftContraband]
-  name: requisition digi-board
-  description: A bulky electric clipboard, filled with shipping orders and financing details. With so many compromising documents, you ought to keep this safe.
+  name: "електроплата замовлень"
+  description: "Громіздкий електричний буфер обміну, заповнений замовленнями на доставку та фінансовими деталями. Маючи стільки компрометуючих документів, ви повинні зберігати його в безпеці."
   components:
   - type: Sprite
     sprite: Objects/Misc/qm_clipboard.rsi

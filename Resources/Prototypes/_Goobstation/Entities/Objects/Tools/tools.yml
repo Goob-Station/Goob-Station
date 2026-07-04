@@ -17,11 +17,11 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: sonic screwdriver
+  name: "звукова викрутка"
   parent: BaseItem
   id: SonicScrewdriver
   suffix: DO NOT MAP
-  description: Wzzzzz....
+  description: "Wzzzzz...."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Tools/sonic_screwdriver.rsi
@@ -90,10 +90,10 @@
 
 
 - type: entity
-  name: futuristic RCD
+  name: "футуристичний УЗК"
   parent: RCD
   id: RCDChrono
-  description: A tool that can build a station from scratch in minutes.
+  description: "Інструмент, за допомогою якого можна побудувати станцію з нуля за лічені хвилини."
   components:
   - type: LimitedCharges
     maxCharges: 100
@@ -109,10 +109,10 @@
   - type: RCD
 
 - type: entity
-  name: handheld fax
+  name: "портативний факс"
   parent: BaseItem
   id: HandheldFax
-  description: A tool that can send ton of paper on Centcomm fax.
+  description: "Інструмент, який може надсилати тонни паперу на факс Центкому."
   components:
   - type: Item
     size: Huge
@@ -166,7 +166,7 @@
       Paper: !type:ContainerSlot
 
 - type: entity
-  name: nanotrasen representative handheld fax
+  name: "портативний факс представника Нанотрейзен"
   parent: HandheldFax
   id: HandheldFaxNanorep
   suffix: Nanotrasen Representative
@@ -191,7 +191,7 @@
   - type: MultiHandedItem
 
 - type: entity
-  name: CentComm official handheld fax
+  name: "офіційний ручний факс ЦентКому"
   parent: HandheldFax
   id: HandheldFaxOfficial
   suffix: CentComm Official
@@ -218,10 +218,10 @@
       shader: unshaded
 
 - type: entity
-  name: borg multitool
+  name: "мультитул борга"
   parent: Multitool
   id: MultitoolBorg
-  description: An advanced tool to copy, store, and send electrical pulses and signals through wires and machines.
+  description: "Удосконалений інструмент для копіювання, зберігання та надсилання електричних імпульсів та сигналів через дроти та машини."
   components:
   - type: Tool
     qualities:
@@ -231,8 +231,8 @@
 - type: entity
   id: RPDRecharging
   parent: RPD
-  name: experimental RPD
-  description: A bluespace-enhanced rapid piping device that passively generates its own compressed matter.
+  name: "експериментальний RPD"
+  description: "Пристрій швидкого прокладання труб, вдосконалений блюспейсом, який пасивно генерує власну стиснену матерію."
   suffix: AutoRecharge
   components:
   - type: LimitedCharges
@@ -243,8 +243,8 @@
 - type: entity
   parent: RCD
   id: RCDRechargingCE
-  name: experimental RCD
-  description: Rapid Construction Device which creates compressed matter on the fly using an internal fabricator.
+  name: "експериментальний УЗК"
+  description: "Універсальний Засіб Конструювання, який створює стиснуту матерію на ходу за допомогою внутрішнього фабрикатора."
   suffix: AutoRecharge
   components:
   - type: LimitedCharges

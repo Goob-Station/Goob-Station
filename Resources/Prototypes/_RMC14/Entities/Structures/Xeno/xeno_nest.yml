@@ -1,7 +1,7 @@
 - type: entity
   id: XenoNest
-  name: alien nest
-  description: It's a gruesome pile of thick, sticky resin shaped like a nest.
+  name: "гніздо чужих"
+  description: "Це жахлива купа густої, липкої смоли у формі гнізда."
   placement:
     mode: SnapgridCenter
     snap:

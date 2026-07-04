@@ -6,7 +6,7 @@
 - type: entity
   parent: [OrganAnimalHeart, BaseMagicalContraband]
   id: OrganSlaughterHeart
-  name: demonic heart
+  name: "демонічне серце"
   components:
   - type: Sprite
     sprite: _Goobstation/SlaughterDemon/heart.rsi

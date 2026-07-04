@@ -9,8 +9,8 @@
   categories: [ DoNotMap ]
   parent: [BaseItem, BaseSyndicateContraband]
   id: MantisBlade
-  name: mantis blade
-  description: They won’t see the steel until it’s too late.
+  name: "лезо богомола"
+  description: "Вони не побачать сталі, поки не буде занадто пізно."
   components:
   - type: Sharp
   - type: Execution

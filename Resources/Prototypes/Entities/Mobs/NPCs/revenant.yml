@@ -103,8 +103,8 @@
   parent:
   - Incorporeal
   - BaseMob
-  name: revenant
-  description: A spooky ghostie.
+  name: "ревенант"
+  description: "Моторошний привид."
   components:
   - type: Emag
     emagType: All

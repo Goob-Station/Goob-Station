@@ -5,7 +5,7 @@
 
 - type: body
   id: Slimes
-  name: "slimes"
+  name: "слизи"
   root: chest
   slots:
     chest:
@@ -28,7 +28,7 @@
 
 - type: body # Goobstation add
   id: XenobioSlimes
-  name: "xenobio slimes"
+  name: "ксенобіо-слими"
   root: chest
   slots:
     chest:

@@ -28,8 +28,8 @@
 - type: entity
   id: TableBase
   parent: BaseStructure
-  name: table
-  description: A square piece of metal standing on four metal legs.
+  name: "таблиця"
+  description: "Квадратний шматок металу, що стоїть на чотирьох металевих ніжках."
   abstract: true
   components:
   - type: Animateable
@@ -75,7 +75,7 @@
 - type: entity
   id: CounterBase
   parent: TableBase
-  name: counter
+  name: "лічильник"
   abstract: true
   components:
   - type: Fixtures

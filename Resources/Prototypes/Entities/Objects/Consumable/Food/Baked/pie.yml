@@ -131,7 +131,7 @@
   parent: FoodInjectableBase # Not sliceable
   id: FoodPieSliceBase
   abstract: true
-  description: A slice of pie. Tasty!
+  description: "Шматочок пирога. Смакота!"
   components:
   - type: Item
     size: Tiny
@@ -157,10 +157,10 @@
 # Pie
 
 - type: entity
-  name: apple pie
+  name: "яблучний пиріг"
   parent: FoodPieBase
   id: FoodPieApple
-  description: A pie containing sweet, sweet love... or apple.
+  description: "Пиріг із солодким, солодким коханням... або яблуком."
   components:
   - type: FlavorProfile
     flavors:
@@ -178,7 +178,7 @@
     - Pie
 
 - type: entity
-  name: slice of apple pie
+  name: "шматочок яблучного пирога"
   parent: FoodPieSliceBase
   id: FoodPieAppleSlice
   components:
@@ -199,10 +199,10 @@
 # Tastes like pie, apple.
 
 - type: entity
-  name: baklava
+  name: "пахлава"
   parent: FoodPieBase
   id: FoodPieBaklava
-  description: A delightful healthy snack made of nut layers with thin bread.
+  description: "Чудова корисна закуска з горіхових шарів з тонким хлібом."
   components:
   - type: FlavorProfile
     flavors:
@@ -216,10 +216,10 @@
     slice: FoodPieBaklavaSlice
 
 - type: entity
-  name: slice of baklava
+  name: "шматочок пахлави"
   parent: FoodPieSliceBase
   id: FoodPieBaklavaSlice
-  description: A portion of a delightful healthy snack made of nut layers with thin bread.
+  description: "Порція чудової корисної закуски з горіхових шарів з тонким хлібом."
   components:
   - type: FlavorProfile
     flavors:
@@ -230,10 +230,10 @@
 # Tastes like pie, nuts.
 
 - type: entity
-  name: banana cream pie
+  name: "бананово-кремовий пиріг"
   parent: FoodPieBase
   id: FoodPieBananaCream
-  description: Just like back home, on clown planet! HONK!
+  description: "Як вдома, на планеті клоунів! ДЗЕНЬ!"
   components:
   - type: FlavorProfile
     flavors:
@@ -273,10 +273,10 @@
     behavior: Destroy
 
 - type: entity
-  name: slice of banana cream pie
+  name: "шматочок бананового пирога з кремом"
   parent: FoodPieSliceBase
   id: FoodPieBananaCreamSlice
-  description: Just like back home, on clown planet! HONK!
+  description: "Як вдома, на планеті клоунів! ДЗЕНЬ!"
   components:
   - type: FlavorProfile
     flavors:
@@ -293,10 +293,10 @@
 # Tastes like pie, cream, banana.
 
 - type: entity
-  name: berry clafoutis
+  name: "ягідний клафуті"
   parent: FoodPieBase
   id: FoodPieClafoutis
-  description: No black birds, this is a good sign.
+  description: "Немає чорних птахів - це хороший знак."
   components:
   - type: FlavorProfile
     flavors:
@@ -315,7 +315,7 @@
     - Pie
 
 - type: entity
-  name: slice of berry clafoutis
+  name: "шматочок ягідного клафуті"
   parent: FoodPieSliceBase
   id: FoodPieClafoutisSlice
   components:
@@ -336,10 +336,10 @@
 # Tastes like pie, blackberries.
 
 - type: entity
-  name: cherry pie
+  name: "вишневий пиріг"
   parent: FoodPieBase
   id: FoodPieCherry
-  description: Tastes good enough to make a grown man cry.
+  description: "Смак досить хороший, щоб змусити дорослого чоловіка плакати."
   components:
   - type: FlavorProfile
     flavors:
@@ -356,7 +356,7 @@
     - Pie
 
 - type: entity
-  name: slice of cherry pie
+  name: "шматочок вишневого пирога"
   parent: FoodPieSliceBase
   id: FoodPieCherrySlice
   components:
@@ -376,10 +376,10 @@
 # Tastes like pie, cherries.
 
 - type: entity
-  name: meat pie
+  name: "м'ясний пиріг"
   parent: FoodPieBase
   id: FoodPieMeat
-  description: An old barber recipe, very delicious!
+  description: "Старовинний перукарський рецепт, дуже смачний!"
   components:
   - type: FlavorProfile
     flavors:
@@ -396,7 +396,7 @@
     - Pie
 
 - type: entity
-  name: slice of meat pie
+  name: "шматок м'ясного пирога"
   parent: FoodPieSliceBase
   id: FoodPieMeatSlice
   components:
@@ -416,10 +416,10 @@
 # Tastes like pie, meat.
 
 - type: entity
-  name: pumpkin pie
+  name: "гарбузовий пиріг"
   parent: FoodPieBase
   id: FoodPiePumpkin
-  description: Someone should turn this into a latte!
+  description: "Хтось повинен зробити з цього лате!"
   components:
   - type: FlavorProfile
     flavors:
@@ -436,7 +436,7 @@
     - Pie
 
 - type: entity
-  name: slice of pumpkin pie
+  name: "шматочок гарбузового пирога"
   parent: FoodPieSliceBase
   id: FoodPiePumpkinSlice
   components:
@@ -453,7 +453,7 @@
     - Slice
 
 - type: entity
-  name: xeno pie
+  name: "ксенопиріг"
   parent: FoodPieBase
   id: FoodPieXeno
   components:
@@ -473,7 +473,7 @@
     - Pie
 
 - type: entity
-  name: slice of xeno pie
+  name: "шматок ксенопирога"
   parent: FoodPieSliceBase
   id: FoodPieXenoSlice
   components:
@@ -494,10 +494,10 @@
 # Tastes like pie, meat, acid.
 
 - type: entity
-  name: frosty pie
+  name: "морозний пиріг"
   parent: FoodPieBase
   id: FoodPieFrosty
-  description: Tastes like blue and cold.
+  description: "На смак - синій і холодний."
   components:
   - type: FlavorProfile
     flavors:
@@ -510,7 +510,7 @@
     slice: FoodPieFrostySlice
 
 - type: entity
-  name: slice of frosty pie
+  name: "шматочок морозного пирога"
   parent: FoodPieSliceBase
   id: FoodPieFrostySlice
   components:
@@ -525,7 +525,7 @@
 # Tastes like pie, mint.
 
 - type: entity
-  name: mime tart
+  name: "пантоміма"
   parent: FoodPieBase
   id: FoodTartMime
   description: "\"      \""
@@ -541,7 +541,7 @@
     slice: FoodTartMimeSlice
 
 - type: entity
-  name: slice of mime tart
+  name: "шматочок мімового пирога"
   parent: FoodPieSliceBase
   id: FoodTartMimeSlice
   components:
@@ -558,10 +558,10 @@
 # No Slice
 
 - type: entity
-  name: amanita pie
+  name: "пиріг з аманітою"
   parent: FoodPieBase
   id: FoodPieAmanita
-  description: Sweet and tasty poison pie.
+  description: "Солодкий і смачний пиріг з отрутою."
   components:
   - type: FlavorProfile
     flavors:
@@ -582,10 +582,10 @@
 # Tastes like pie, mushrooms.
 
 - type: entity
-  name: plump pie
+  name: "пухкий пиріг"
   parent: FoodPieBase
   id: FoodPiePlump
-  description: I bet you love stuff made out of plump helmets!
+  description: "Б'юся об заклад, ви обожнюєте речі, зроблені з товстих шоломів!"
   components:
   - type: FlavorProfile
     flavors:
@@ -597,10 +597,10 @@
 # Tart
 
 - type: entity
-  name: grape tart
+  name: "виноградний пиріг"
   parent: FoodPieBase
   id: FoodTartGrape
-  description: A tasty dessert that reminds you of the wine you didn't make.
+  description: "Смачний десерт, який нагадує вам про вино, яке ви не зробили."
   components:
   - type: FlavorProfile
     flavors:
@@ -614,10 +614,10 @@
 # Tastes like tart, grape.
 
 - type: entity
-  name: golden apple streusel tart
+  name: "пиріг із золотистим яблучним штрейзелем"
   parent: FoodPieBase
   id: FoodTartGapple
-  description: A tasty dessert that won't make it through a metal detector.
+  description: "Смачний десерт, який не пройде через металошукач."
   components:
   - type: FlavorProfile
     flavors:
@@ -631,10 +631,10 @@
 # Tastes like tart, apple, expensive metal.
 
 - type: entity
-  name: chocolate lava tart
+  name: "шоколадний пиріг з лавою"
   parent: FoodPieBase
   id: FoodTartCoco
-  description: A tasty dessert made of chocolate, with a liquid core.
+  description: "Смачний десерт з шоколаду, з рідкою серцевиною."
   components:
   - type: FlavorProfile
     flavors:

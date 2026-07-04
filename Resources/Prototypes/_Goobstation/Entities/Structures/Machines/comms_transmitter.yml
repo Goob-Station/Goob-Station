@@ -1,8 +1,8 @@
 - type: entity
   parent: [ BaseMachinePowered, ConstructibleMachine ]
   id: TelecomTransmitter
-  name: telecommunication transmitter
-  description: When powered, it allows telecomunication servers to expand their signal.
+  name: "телекомунікаційний передавач"
+  description: "При підключенні живлення дозволяє телекомунікаційним серверам розширювати свій сигнал."
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Machines/comms_transmitter.rsi

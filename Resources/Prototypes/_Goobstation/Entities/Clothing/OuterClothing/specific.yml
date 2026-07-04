@@ -20,8 +20,8 @@
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterSuitHEV
-  name: H.E.V suit
-  description: Full-body hazardous suit designed to protect wearer from radiation, energy discarges, blunt-force trauma during the handling of hazardous material.
+  name: "костюм H.E.V"
+  description: "Повнотілий костюм для небезпечних умов, розроблений для захисту власника від радіації, енергетичних розрядів, тупих травм під час роботи з небезпечними матеріалами."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Suits/hev.rsi
@@ -58,8 +58,8 @@
 - type: entity
   parent: ClothingOuterBase
   id: SurveillanceWirelessCameraBodyEntertainment
-  name: nopro camera
-  description: A body mounted camera. It's watching you.
+  name: "камера nopro"
+  description: "Натільна камера. Вона стежить за вами."
   components:
     - type: DeviceNetwork
       deviceNetId: Wireless
@@ -94,8 +94,8 @@
 - type: entity
   parent: ClothingOuterWizardCentCommReal
   id: WhiteRobes
-  name: robes of the chosen one
-  description: theses white robes are worn by only the finest of Nanotrasen's special operations department.
+  name: "шати Обраного"
+  description: "ці білі шати носять лише найкращі з відділу спецоперацій Нанотрасен."
   suffix: chosen one
   components:
   - type: Sprite
@@ -106,8 +106,8 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingOuterSuitHotDog
-  name: hotdog costume
-  description: Hot-diggity-dog!
+  name: "костюм хот-дога"
+  description: "Гаряча сосиска!"
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Misc/hotdog.rsi
@@ -123,8 +123,8 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingOuterSuitPickle
-  name: pickle suit
-  description: Smells horribly of vinegar.
+  name: "костюм огірка"
+  description: "Жахливо пахне оцтом."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Misc/pickle.rsi
@@ -140,8 +140,8 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingOuterSuitTutu
-  name: tutu
-  description: Why?..
+  name: "пачка"
+  description: "Навіщо?.."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Misc/tutu.rsi
@@ -152,8 +152,8 @@
 - type: entity
   parent: ClothingOuterBaseToggleable
   id: ClothingOuterArmorHereticCostume
-  name: occult robes
-  description: A ragged, dusty set of robes. Strange smudgy eyes line the inside.
+  name: "окультні шати"
+  description: "Потертий, запилений комплект шат. Усередині вздовж швів тягнуться дивні розмиті очі."
   components:
   - type: Sprite
     sprite: _Goobstation/Heretic/Clothing/OuterClothing/toy_armor.rsi
@@ -167,8 +167,8 @@
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseMajorContraband]
   id: ClothingOuterBrassArmor
-  name: brass armor
-  description: Old Slavic brass armor, like that of our ancestors.
+  name: "латунна броня"
+  description: "Стара слов'янська латунна броня, як у наших предків."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Misc/brass_armor.rsi

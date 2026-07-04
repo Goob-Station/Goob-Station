@@ -9,7 +9,7 @@
 - type: entity
   parent: BaseEnchant
   id: EnchantUnbreaking
-  name: Unbreaking
+  name: "Незламність"
   components:
   - type: Enchant
     whitelist:

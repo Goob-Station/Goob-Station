@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: blueshield locker unique marker
+  name: "унікальний маркер для шафки blueshield"
   id: UniqueMarkerBlueshieldLocker
   parent: MarkerBase
   categories: [ HideSpawnMenu ]
@@ -18,7 +18,7 @@
     markerName: BlueshieldLocker
 
 - type: entity
-  name: nanorep locker unique marker
+  name: "унікальний маркер для шафки нанореп"
   id: UniqueMarkerNanorepLocker
   parent: MarkerBase
   categories: [ HideSpawnMenu ]

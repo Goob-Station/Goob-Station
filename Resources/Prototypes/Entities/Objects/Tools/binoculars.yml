@@ -6,10 +6,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: binoculars
+  name: "бінокль"
   parent: BaseItem
   id: Binoculars
-  description: Used for long-distance surveillance.
+  description: "Використовується для спостереження на великій відстані."
   components:
   - type: Sprite
     sprite: Objects/Tools/binoculars.rsi

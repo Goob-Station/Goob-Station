@@ -1,4 +1,4 @@
 - type: entity
-  name: Singuloth's hammer
+  name: "молот Синґулота"
   parent: [SingularityHammer, BaseMagicalContraband]
   id: SingulothsHammer

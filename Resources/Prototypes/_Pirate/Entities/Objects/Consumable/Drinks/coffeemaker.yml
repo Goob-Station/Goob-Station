@@ -1,8 +1,8 @@
 - type: entity
   id: BlankCoffeeCartridgePirate
   parent: BaseItem
-  name: blank coffee cartridge
-  description: A blank coffee cartridge for use with the Modello 3 coffeemaker system.
+  name: "порожній картридж для кави"
+  description: "Порожній картридж для використання в системі кавоварки Моделло 3."
   components:
     - type: Sprite
       sprite: _Pirate/Objects/Consumable/Drinks/coffeemaker_cartridges.rsi
@@ -34,8 +34,8 @@
 - type: entity
   id: CoffeeCartridgePirate
   parent: BlankCoffeeCartridgePirate
-  name: coffeemaker cartridge - Caffe Generico
-  description: A coffee cartridge manufactured for use with the Modello 3 coffeemaker system.
+  name: "картридж для кавоварки — Caffè Generico"
+  description: "Звичайний картридж із кавою для кавоварки Modello 3."
   components:
     - type: CoffeeCartridge
       charges: 5
@@ -51,8 +51,8 @@
 - type: entity
   id: CoffeeCartridgeFancyPirate
   parent: CoffeeCartridgePirate
-  name: coffeemaker cartridge - Caffe Fantasioso
-  description: A fancy coffee cartridge manufactured for use with the Modello 3 coffeemaker system.
+  name: "картридж для кавоварки — Caffè Fantasioso"
+  description: "Вишуканий картридж із кавою для системи Modello 3."
   components:
     - type: CoffeeCartridge
       brewReagent: Coffee
@@ -74,8 +74,8 @@
 - type: entity
   id: CoffeeCartridgeDecafPirate
   parent: CoffeeCartridgePirate
-  name: coffeemaker cartridge - Caffe Decaffeinato
-  description: A cartridge with decaf coffee for use with the Modello 3 coffeemaker system.
+  name: "картридж Каффе Декаффеінато"
+  description: "Картридж із безкофеїновою кавою для системи кавоварки Моделло 3."
   components:
     - type: CoffeeCartridge
       variant: Decaf
@@ -85,8 +85,8 @@
 - type: entity
   id: CoffeeCartridgeBootlegPirate
   parent: CoffeeCartridgePirate
-  name: coffeemaker cartridge - Botany blend
-  description: A jury-rigged cartridge. It works, but probably voids the warranty.
+  name: "картридж для кавоварки — ботанічна суміш"
+  description: "Кустарний картридж. Працює, але гарантію анульовано."
   components:
     - type: CoffeeCartridge
       brewReagent: Coffee
@@ -103,8 +103,8 @@
 - type: entity
   id: CoffeeCartridgeSyntheticPirate
   parent: CoffeeCartridgePirate
-  name: coffeemaker cartridge - Caffe Sintetico
-  description: A synthetic coffee cartridge for use with the Modello 3 coffeemaker system.
+  name: "картридж Каффе Синтетіко"
+  description: "Картридж із синтетичною кавою для системи кавоварки Моделло 3."
   components:
     - type: CoffeeCartridge
       brewReagent: SyntheticCoffee
@@ -121,8 +121,8 @@
 - type: entity
   id: DrinkCoffeepotPirate
   parent: DrinkBaseCup
-  name: coffeepot
-  description: A large pot for dispensing coffee. Contains four standard cups.
+  name: "кавник"
+  description: "Великий кавник. Вистачає на чотири стандартні чашки."
   components:
     - type: SolutionContainerManager
       solutions:
@@ -154,8 +154,8 @@
 - type: entity
   id: DrinkCoffeeCupPirate
   parent: DrinkBaseCup
-  name: coffee cup
-  description: A heat-formed plastic coffee cup.
+  name: "кавова чашка"
+  description: "Пластикова чашка для гарячих напоїв."
   components:
     - type: SolutionContainerManager
       solutions:
@@ -197,8 +197,8 @@
 - type: entity
   id: FoodCoffeeBeansPirate
   parent: BaseItem
-  name: arabica coffee beans
-  description: Dry coffee beans for impressa coffeemakers.
+  name: "зерна арабіки"
+  description: "Сухі кавові зерна для кавоварок Імпресса."
   components:
     - type: Sprite
       sprite: _Pirate/Objects/Specific/Hydroponics/coffee_beans.rsi
@@ -220,7 +220,7 @@
 - type: entity
   id: FoodCoffeeBeansRobustaPirate
   parent: FoodCoffeeBeansPirate
-  name: robusta coffee beans
+  name: "зерна робусти"
   components:
     - type: Sprite
       state: coffee_robusta
@@ -234,7 +234,7 @@
 - type: entity
   id: FoodCoffeeBeansSynthetic
   parent: FoodCoffeeBeansPirate
-  name: synthetic coffee beans
+  name: "зерна синтетичної кави"
   components:
     - type: Sprite
       state: coffee_synthetic
@@ -251,7 +251,7 @@
 - type: entity
   id: FoodCoffeeBeansStenophylla
   parent: FoodCoffeeBeansPirate
-  name: stenophylla coffee beans
+  name: "зерна стенофілли"
   components:
     - type: Sprite
       state: coffee_stenophylla
@@ -275,8 +275,8 @@
 - type: entity
   id: FoodCondimentPacketCreamerPirate
   parent: BaseFoodCondimentPacket
-  name: creamer packet
-  description: A tiny packet of coffee creamer.
+  name: "пакетик вершків"
+  description: "Маленький пакетик із кавовими вершками."
   components:
     - type: Tag
       tags:
@@ -306,8 +306,8 @@
 - type: entity
   id: FoodCondimentPacketSugarPirate
   parent: BaseFoodCondimentPacket
-  name: sugar packet
-  description: Tasty spacey sugar!
+  name: "пакетик цукру"
+  description: "Той самий космічний цукор"
   components:
     - type: Tag
       tags:
@@ -337,8 +337,8 @@
 - type: entity
   id: FoodCondimentPacketAstrotamePirate
   parent: BaseFoodCondimentPacket
-  name: astrotame packet
-  description: The sweetness of a thousand sugars, but none of the calories.
+  name: "пакетик астротаму"
+  description: "Солодкий, як тисяча цукрів, але без калорій."
   components:
     - type: Tag
       tags:
@@ -368,8 +368,8 @@
 - type: entity
   id: DrinkCreamCartonPirate
   parent: DrinkCreamCarton
-  name: cream carton
-  description: A compact cream carton for coffee stations.
+  name: "пакет вершків"
+  description: "Компактний пакет вершків для кавових станцій."
   components:
     - type: SolutionContainerManager
       solutions:
@@ -382,8 +382,8 @@
 - type: entity
   id: DrinkSugarBottlePirate
   parent: [DrinkBottleVisualsOpenable, DrinkBottlePlasticBaseFull]
-  name: sugar bottle
-  description: A smaller sugar bottle used for coffee stations.
+  name: "пляшка цукру"
+  description: "Невелика пляшка цукру-піску."
   components:
     - type: SolutionContainerManager
       solutions:
@@ -401,8 +401,8 @@
 - type: entity
   id: FoodCondimentPacketChocolatePirate
   parent: BaseFoodCondimentPacket
-  name: chocolate packet
-  description: A tiny packet of cocoa powder for coffee.
+  name: "пакетик какао"
+  description: "Дрібка какао-порошку для кави."
   components:
     - type: Tag
       tags:

@@ -71,7 +71,7 @@
 - type: entity
   parent: RehydratableItem
   id: RehydratableAnimalCube
-  description: Just add water!
+  description: "Просто додай води!"
   abstract: true
   components:
   - type: Sprite
@@ -100,7 +100,7 @@
 - type: entity
   parent: RehydratableAnimalCube
   id: MonkeyCube
-  name: monkey cube
+  name: "куб з мавпою"
   components:
   - type: Rehydratable
     possibleSpawns:
@@ -113,7 +113,7 @@
 - type: entity
   parent: RehydratableAnimalCube
   id: KoboldCube
-  name: kobold cube
+  name: "кобольдський кубик"
   components:
   - type: Rehydratable
     possibleSpawns:
@@ -122,7 +122,7 @@
 - type: entity
   parent: RehydratableAnimalCube
   id: CowCube
-  name: cow cube
+  name: "коров'ячий куб"
   components:
   - type: Rehydratable
     possibleSpawns:
@@ -131,7 +131,7 @@
 - type: entity
   parent: RehydratableAnimalCube
   id: GoatCube
-  name: goat cube
+  name: "козячий кубик"
   components:
   - type: Rehydratable
     possibleSpawns:
@@ -140,7 +140,7 @@
 - type: entity
   parent: RehydratableAnimalCube
   id: MothroachCube
-  name: mothroach cube
+  name: "кубик тарганомолі"
   components:
   - type: Rehydratable
     possibleSpawns:
@@ -149,7 +149,7 @@
 - type: entity
   parent: RehydratableAnimalCube
   id: MoproachCube
-  name: moproach cube
+  name: "куб мопроча"
   components:
   - type: Rehydratable
     possibleSpawns:
@@ -158,7 +158,7 @@
 - type: entity
   parent: RehydratableAnimalCube
   id: MouseCube
-  name: mouse cube
+  name: "мишачий куб"
   components:
   - type: Rehydratable
     possibleSpawns:
@@ -167,8 +167,8 @@
 - type: entity
   parent: RehydratableAnimalCube
   id: CockroachCube
-  name: cockroach cube
-  description: Just add wa- OH GOD!
+  name: "кубик для тарганів"
+  description: "Просто додайте ва- О, БОЖЕ!"
   components:
   - type: Rehydratable
     possibleSpawns:
@@ -177,8 +177,8 @@
 - type: entity
   parent: RehydratableAnimalCube
   id: SpaceCarpCube
-  name: carp cube
-  description: Just add water! At your own risk.
+  name: "короповий кубик"
+  description: "Просто додай води! На свій страх і ризик."
   components:
   - type: SolutionContainerManager
     solutions:
@@ -198,8 +198,8 @@
 - type: entity
   parent: RehydratableAnimalCube
   id: SpaceTickCube
-  name: tick cube
-  description: Just add water! At your own risk.
+  name: "кубик для галочок"
+  description: "Просто додай води! На свій страх і ризик."
   components:
   - type: Rehydratable
     possibleSpawns:
@@ -208,8 +208,8 @@
 - type: entity
   parent: RehydratableAnimalCube
   id: AbominationCube
-  name: abomination cube
-  description: Just add blood!
+  name: "куб мерзоти"
+  description: "Просто додай крові!"
   components:
   - type: Reactive
     reactions:
@@ -228,8 +228,8 @@
 - type: entity
   parent: [PlushieCarp, RehydratableItem, BaseSyndicateContraband]
   id: DehydratedSpaceCarp
-  name: dehydrated space carp
-  description: Looks like a plush toy carp, but just add water and it becomes a real-life space carp!
+  name: "зневоднений космічний короп"
+  description: "Виглядає як плюшевий іграшковий короп, але просто додайте води, і він стане справжнім космічним коропом!"
   components:
   - type: SolutionContainerManager
     solutions:
@@ -290,8 +290,8 @@
 - type: entity
   parent: RehydratableItem
   id: MopBucketCube
-  name: mop bucket cube
-  description: Just add water! And then more water!
+  name: "куб з відром для швабри"
+  description: "Просто додай води! А потім ще води!"
   components:
   - type: Sprite
     sprite: Objects/Specific/Janitorial/janitorial.rsi

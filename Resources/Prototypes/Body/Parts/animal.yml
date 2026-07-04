@@ -44,7 +44,7 @@
 - type: entity
   parent: PartAnimalBase
   id: HandsAnimal
-  name: animal hands
+  name: "руки тварини"
   components:
   - type: Sprite
     layers:
@@ -60,7 +60,7 @@
 - type: entity
   parent: PartAnimalBase
   id: LegsAnimal
-  name: animal legs
+  name: "ноги тварини"
   components:
   - type: Sprite
     layers:
@@ -76,7 +76,7 @@
 - type: entity
   parent: PartAnimalBase
   id: FeetAnimal
-  name: animal feet
+  name: "лапи тварини"
   components:
   - type: Sprite
     layers:
@@ -91,7 +91,7 @@
 - type: entity
   parent: [ PartAnimalBase, BaseChest ]
   id: ChestAnimal
-  name: animal chest
+  name: "груди тварини"
   components:
   - type: Sprite
     layers:
@@ -112,7 +112,7 @@
 - type: entity
   parent: [ PartAnimalBase, BaseGroin ]
   id: GroinAnimal
-  name: animal groin
+  name: "пах тварини"
   components:
   - type: Sprite
     layers:
@@ -134,7 +134,7 @@
 - type: entity
   parent: [ PartAnimalBase, BaseLeftHand ]
   id: LeftHandSmartCorgi
-  name: corgi hand
+  name: "рука коргі"
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -147,7 +147,7 @@
 - type: entity
   parent: [ PartAnimalBase, BaseRightHand ]
   id: RightHandSmartCorgi
-  name: corgi hand
+  name: "рука коргі"
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

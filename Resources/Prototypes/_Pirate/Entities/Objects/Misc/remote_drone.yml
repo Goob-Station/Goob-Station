@@ -27,8 +27,8 @@
 - type: entity
   parent: BaseItem
   id: RemoteDroneLaptop
-  name: drone control laptop
-  description: Controls drones. Must be linked to a drone to work.
+  name: "ноутбук керування дроном"
+  description: "Керує дронами. Для роботи має бути прив’язаний до дрона."
   components:
   - type: Sprite
     sprite: _Pirate/Objects/Misc/modular_laptop.rsi
@@ -62,8 +62,8 @@
 - type: entity
   parent: [ BaseMob, BaseStructureDynamic ]
   id: RemoteDroneFpv
-  name: fpv drone
-  description: A relic of a historic war. Must be linked to a drone controller to work. Uses about 0.6 joules of energy per second when active.
+  name: "fPV-дрон"
+  description: "Реліквія історичної війни. Для роботи має бути прив’язаний до контролера дрона. В активному стані використовує приблизно 0.6 джоуля енергії на секунду."
   components:
   # Misc
   - type: Sprite

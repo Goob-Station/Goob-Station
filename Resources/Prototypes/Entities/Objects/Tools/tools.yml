@@ -155,10 +155,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: wirecutter
+  name: "кусачки"
   parent: BaseItem
   id: Wirecutter
-  description: This kills the wire.
+  description: "Воно ріже дріт."
   components:
   # Goobstation edit start
   - type: EmitSoundOnPickup
@@ -224,10 +224,10 @@
         variation: 0.125
 
 - type: entity
-  name: screwdriver
+  name: "викрутка"
   parent: BaseItem
   id: Screwdriver
-  description: Industrial grade torque in a small screwdriving package.
+  description: "Крутний момент промислового класу в невеликій викрутці."
   components:
   # Goobstation edit start
   - type: EmitSoundOnPickup
@@ -287,10 +287,10 @@
       path: /Audio/_Shitmed/Medical/Surgery/retractor2.ogg
 
 - type: entity
-  name: wrench
+  name: "гайковий ключ"
   parent: BaseItem
   id: Wrench
-  description: 'A common tool for assembly and disassembly. Remember: lefty latchy, righty removey.'
+  description: "Поширений інструмент для збирання та розбирання. Пам'ятайте: ліворуч - затискай, праворуч - відпускай."
   components:
   # Goobstation edit start
   - type: EmitSoundOnPickup
@@ -343,10 +343,10 @@
     - Construction
 
 - type: entity
-  name: multitool
+  name: "мультитул"
   parent: BaseItem
   id: Multitool
-  description: An advanced tool to copy, store, and send electrical pulses and signals through wires and machines.
+  description: "Вдосконалений інструмент для копіювання, зберігання та надсилання електричних імпульсів та сигналів через дроти та машини."
   components:
   # Goobstation edit start
   - type: EmitSoundOnPickup
@@ -406,10 +406,10 @@
     - InspectingPower
 
 - type: entity
-  name: network configurator
+  name: "конфігуратор мережі"
   parent: BaseItem
   id: NetworkConfigurator
-  description: A tool for linking devices together. Has two modes, a list mode for mass linking devices and a linking mode for advanced device linking.
+  description: "Інструмент для зв'язування пристроїв між собою. Має два режими: режим списку для масового зв'язування пристроїв і режим зв'язування для розширеного зв'язування пристроїв."
   components:
     - type: EmitSoundOnLand
       sound:
@@ -463,10 +463,10 @@
 #Power tools
 #Later on these should switch probably switch damage when changing the tool behavior.
 - type: entity
-  name: power drill
+  name: "електродриль"
   parent: BaseItem
   id: PowerDrill
-  description: A simple powered hand drill.
+  description: "Проста ручна дриль з електроприводом."
   components:
   - type: Tag
     tags:
@@ -527,8 +527,8 @@
 - type: entity
   id: RCD
   parent: [ BaseItem, BaseEngineeringContraband ]
-  name: RCD
-  description: The rapid construction device can be used to quickly place and remove various station structures and fixtures. Requires compressed matter to function.
+  name: "УЗК"
+  description: "Універсальний засіб конструювання можна використовувати для швидкого встановлення та демонтажу різних станційних конструкцій і пристосувань. Для роботи потрібна стиснута речовина."
   components:
   - type: RCD
     availablePrototypes:
@@ -583,8 +583,8 @@
 - type: entity
   id: RPD
   parent: RCD
-  name: RPD
-  description: The rapid piping device allows for the quick placement and removal of atmospheric-related buildings requires compressive matter to use.
+  name: "ШТП"
+  description: "Швидкий трубопровідний пристрій дозволяє швидко розміщувати та видаляти будівлі, пов'язані з атмосферою, для використання потребує стисливу матерію."
   components:
   - type: RCD
     isRpd: true
@@ -631,8 +631,8 @@
 - type: entity
   id: RCDRecharging
   parent: RCD
-  name: experimental RCD
-  description: Cyborg-mounted Rapid Construction Device which creates compressed matter on the fly using an internal fabricator.
+  name: "експериментальний УЗК"
+  description: "Встановлений на кіборга Універсальний засіб конструювання (УЗК), який створює стиснуту матерію на льоту за допомогою внутрішнього фабрикатора."
   suffix: AutoRecharge
   components:
   - type: LimitedCharges
@@ -644,17 +644,17 @@
   id: RCDExperimental
   parent: RCD
   suffix: Admeme
-  name: experimental RCD
-  description: A bluespace-enhanced rapid construction device that passively generates its own compressed matter.
+  name: "експериментальний УЗК"
+  description: "Універсальний засіб конструювання, що пасивно генерує власну стиснуту матерію, на основі блюспейсу."
   components:
   - type: AutoRecharge
     rechargeDuration: 1
 
 - type: entity
-  name: compressed matter
+  name: "стиснута речовина"
   parent: BaseItem
   id: RCDAmmo
-  description: A cartridge of raw matter compacted by bluespace technology. Used in rapid construction devices.
+  description: "Картридж із сировиною, спресованою за технологією блюспейс. Використовується в універсальних засобах конструювання."
   components:
   - type: RCDAmmo
   - type: Sprite
@@ -671,10 +671,10 @@
     price: 60
 
 - type: entity
-  name: omnitool
+  name: "омнітул"
   parent: BaseItem
   id: Omnitool
-  description: A drone's best friend.
+  description: "Найкращий друг дрона."
   components:
   - type: Sprite
     sprite: Objects/Tools/omnitool.rsi
@@ -739,10 +739,10 @@
 
 #Other
 - type: entity
-  name: shovel
+  name: "лопата"
   parent: BaseItem
   id: Shovel
-  description: A large tool for digging and moving dirt.
+  description: "Великий інструмент для копання та переміщення ґрунту."
   components:
   - type: Sprite
     sprite: Objects/Tools/shovel.rsi
@@ -769,8 +769,8 @@
 - type: entity
   parent: BaseItem
   id: RollingPin
-  name: rolling pin
-  description: A tool used to shape and flatten dough.
+  name: "качалка"
+  description: "Інструмент, який використовується для формування та розрівнювання тіста."
   components:
   - type: Sprite
     sprite: Objects/Tools/rolling_pin.rsi

@@ -9,8 +9,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticFleshSurgery
-  name: Knit Flesh
-  description: A touch spell that allows you to either perform quick surgery or restore flesh of target.
+  name: "хірургія плоті"
+  description: "Видаліть у когось випадковий орган або зціліть своїх товаришів по команді."
   components:
   - type: Action
     useDelay: 1

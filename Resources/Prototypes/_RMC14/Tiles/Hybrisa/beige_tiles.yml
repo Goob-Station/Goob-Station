@@ -2,12 +2,12 @@
   abstract: true
   parent: CMTileBase
   id: RMCFloorHybrisaBeigeBase
-  name: tiles-cm-default-beige
+  name: "плитка CM стандартна бежева"
 
 - type: tile
   parent: RMCFloorHybrisaBeigeBase
   id: RMCFloorHybrisaBeige
-  name: beige metal tile
+  name: "бежева металева плитка"
   sprite: /Textures/_RMC14/Tiles/hybrisa/tilebeige.png
 
 - type: tile
@@ -43,7 +43,7 @@
 - type: tile
   parent: RMCFloorHybrisaBeigeBase
   id: RMCFloorHybrisaBeigeCarpet
-  name: beige carpet
+  name: "бежевий килим"
   sprite: /Textures/_RMC14/Tiles/hybrisa/carpetbeige.png
 
 - type: tile
@@ -54,5 +54,5 @@
 - type: tile
   parent: RMCFloorHybrisaBeigeCarpet
   id: RMCFloorHybrisaBrownPatternCarpet
-  name: brown metal tile
+  name: "коричнева металева плитка"
   sprite: /Textures/_RMC14/Tiles/hybrisa/carpetpatternbrown.png

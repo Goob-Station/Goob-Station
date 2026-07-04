@@ -6,8 +6,8 @@
 
 - type: entity
   id: PlantBox
-  name: plant box
-  description: A large storage container for holding plants and seeds.
+  name: "ящик для рослин"
+  description: "Великий контейнер для зберігання рослин та насіння."
   parent: BaseStructureDynamic
   components:
   - type: StaticPrice

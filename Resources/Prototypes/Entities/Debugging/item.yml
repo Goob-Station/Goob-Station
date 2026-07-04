@@ -8,8 +8,8 @@
 - type: entity
   parent: BaseItem
   id: DebugItemShapeWeird
-  name: weirdly shaped item
-  description: What is it...?
+  name: "предмет дивної форми"
+  description: "Що це...?"
   suffix: DEBUG
   components:
   - type: Tag
@@ -30,8 +30,8 @@
 - type: entity
   parent: PonderingOrb
   id: PonderingOrbRadioactive
-  name: pönderıng örb [700 rads]
-  description: If you can read this you are dead.. also someone is türking it
+  name: "зäдумливий шäр [700 рад]"
+  description: "Якщо ви можете це прочитати, ви мертві... також хтось його крäде"
   suffix: DEBUG
   components:
   - type: RadiationSource
@@ -39,8 +39,8 @@
 - type: entity
   parent: PonderingOrb
   id: PonderingOrbRadioactiveM
-  name: pönderıng örb [100 rads]
-  description: In glory of Richard Turk
+  name: "зäдумливий шäр [100 рад]"
+  description: "На славу Річарда Турка"
   suffix: DEBUG
   components:
   - type: RadiationSource
@@ -48,14 +48,14 @@
 - type: entity
   parent: PonderingOrb
   id: PonderingOrbRadioactiveS
-  name: pönderıng örb [7 rads]
-  description: Local artifact gone emmisive
+  name: "зäдумливий шäр [7 рад]"
+  description: "Місцевий артефакт став випромінюючим"
   suffix: DEBUG
   components:
   - type: RadiationSource
     intensity: 7
 - type: entity
-  name: N2 gas miner
+  name: "газовий добувач азоту"
   parent: GasMinerNitrogen
   id: GasMinerNitrogenSM
   suffix: SM DEBUG, 4500kPa

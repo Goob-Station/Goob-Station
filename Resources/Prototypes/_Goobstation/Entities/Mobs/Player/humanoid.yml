@@ -21,7 +21,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: lost frontier salvager spawner
+  name: "спавнер сальважера загубленого фронтиру"
   id: LostFrontierSalvagerSpawner
   parent: MarkerBase
   components:
@@ -37,7 +37,7 @@
 
 - type: entity
   id: RandomHumanoidLostFrontierSalvager
-  name: lost salvager ghost role
+  name: "роль привида загубленого сальважера"
   components:
     - type: Sprite
       sprite: Objects/Tools/appraisal-tool.rsi
@@ -62,7 +62,7 @@
 - type: entity
   parent: MobHuman
   id: MobHumanRandom
-  name: Urist McHuman
+  name: "Уріст МакЛюдина"
   suffix: Random Appearance
   components:
   - type: RandomHumanoidAppearance
@@ -75,7 +75,7 @@
 - type: entity
   parent: MobDiona
   id: MobDionaRandom
-  name: Urist McPlants
+  name: "Уріст МакРослина"
   suffix: Random Appearance
   components:
   - type: RandomHumanoidAppearance
@@ -88,7 +88,7 @@
 - type: entity
   parent: MobFelinid
   id: MobFelinidRandom
-  name: Urist McFelinid
+  name: "Уріст МакФелінід"
   suffix: Random Appearance
   components:
   - type: RandomHumanoidAppearance
@@ -101,7 +101,7 @@
 - type: entity
   parent: MobTajaran
   id: MobTajaranRandom
-  name: Urist McTajaran
+  name: "Уріст МакТаяран"
   suffix: Random Appearance
   components:
   - type: RandomHumanoidAppearance
@@ -115,7 +115,7 @@
 - type: entity
   parent: MobGingerbread
   id: MobGingerbreadRandom
-  name: Urist McCookie
+  name: "Уріст МакПечиво"
   suffix: Random Appearance
   components:
   - type: RandomHumanoidAppearance
@@ -128,7 +128,7 @@
 - type: entity
   parent: MobMoth
   id: MobMothRandom
-  name: Urist McFluff
+  name: "Уріст МакПухнастик"
   suffix: Random Appearance
   components:
   - type: RandomHumanoidAppearance
@@ -141,7 +141,7 @@
 - type: entity
   parent: MobDwarf
   id: MobDwarfRandom
-  name: Urist McDwarf
+  name: "Уріст МакДварф"
   suffix: Random Appearance
   components:
   - type: RandomHumanoidAppearance
@@ -154,7 +154,7 @@
 - type: entity
   parent: MobHarpy
   id: MobHarpyRandom
-  name: Urist McHarpy
+  name: "Уріст МакГарпія"
   suffix: Random Appearance
   components:
   - type: RandomHumanoidAppearance
@@ -167,7 +167,7 @@
 - type: entity
   parent: MobRodentia
   id: MobRodentiaRandom
-  name: Urist McRat
+  name: "Уріст МакЩур"
   suffix: Random Appearance
   components:
   - type: RandomHumanoidAppearance
@@ -180,7 +180,7 @@
 - type: entity
   parent: MobReptilian
   id: MobReptilianRandom
-  name: Urist McScales
+  name: "Уріст МакЛускатий"
   suffix: Random Appearance
   components:
   - type: RandomHumanoidAppearance
@@ -191,7 +191,7 @@
 - type: entity
   parent: MobVulpkanin
   id: MobVulpkaninRandom
-  name: Urist McVulp
+  name: "Уріст МакВулп"
   suffix: Random Appearance
   components:
   - type: RandomHumanoidAppearance
@@ -204,7 +204,7 @@
 - type: entity
   parent: MobSlimePerson
   id: MobSlimePersonRandom
-  name: Urist McSlime
+  name: "Уріст МакСлайм"
   suffix: Random Appearance
   components:
   - type: RandomHumanoidAppearance
@@ -217,7 +217,7 @@
 - type: entity
   parent: MobYowie
   id: MobYowieRandom
-  name: Urist McYow
+  name: "Уріст МакЙов"
   suffix: Random Appearance
   components:
   - type: RandomHumanoidAppearance
@@ -228,7 +228,7 @@
 - type: entity
   parent: MobVox
   id: MobVoxRandom
-  name: Uristiti McVox
+  name: "Урістіті МакВокс"
   suffix: Random Appearance
   components:
   - type: RandomHumanoidAppearance
@@ -239,7 +239,7 @@
 - type: entity # mono
   parent: MobHydrakin
   id: MobHydrakinRandom
-  name: Urist McHydra
+  name: "Уріст МакГідра"
   suffix: Random Appearance
   components:
   - type: RandomHumanoidAppearance
@@ -250,7 +250,7 @@
 - type: entity
   parent: MobShadowkin
   id: MobShadowkinRandom
-  name: Urist McShadowkin
+  name: "Уріст МакТінелюд"
   suffix: Random Appearance
   components:
   - type: RandomHumanoidAppearance
@@ -262,7 +262,7 @@
 - type: entity
   parent: MobChitinid
   id: MobChitinidRandom
-  name: Urist McAnt
+  name: "Уріст МакМураха"
   suffix: Random Appearance
   components:
   - type: RandomHumanoidAppearance
@@ -273,7 +273,7 @@
 - type: entity
   parent: MobFeroxi
   id: MobFeroxiRandom
-  name: Urist McFin
+  name: "Юріст МакПлавець"
   suffix: Random Appearance
   components:
   - type: RandomHumanoidAppearance
@@ -289,7 +289,7 @@
 - type: entity
   id: RandomHumanoidSpawnerDeathSquadNoReq
   parent: RandomHumanoidSpawnerDeathSquad
-  name: Death Squad Lackey
+  name: "Лакей Смертного Загону"
   suffix: ERTRole, Death Squad, No Requirements
   components:
     - type: RandomHumanoidSpawner
@@ -312,7 +312,7 @@
 - type: entity
   id: RandomHumanoidSpawnerERTLeaderNoReq
   parent: RandomHumanoidSpawnerERTLeader
-  name: ERT Leader Stand-in
+  name: "Заступник лідера ЗШР"
   suffix: ERTRole, Basic, No Requirements
   components:
     - type: RandomHumanoidSpawner
@@ -333,7 +333,7 @@
 - type: entity
   id: RandomHumanoidSpawnerERTLeaderEVANoReq
   parent: RandomHumanoidSpawnerERTLeaderNoReq
-  name: ERT Leader Stand-in
+  name: "Заступник лідера ЗШР"
   suffix: ERTRole, Armored EVA, No Requirements
   components:
     - type: RandomHumanoidSpawner
@@ -356,7 +356,7 @@
 - type: entity
   id: RandomHumanoidSpawnerERTChaplainNoReq
   parent: RandomHumanoidSpawnerERTLeader
-  name: ERT Deacon
+  name: "Диякон ЗШР"
   suffix: ERTRole, Basic, No Requirements
   components:
     - type: RandomHumanoidSpawner
@@ -377,7 +377,7 @@
 - type: entity
   id: RandomHumanoidSpawnerERTChaplainEVANoReq
   parent: RandomHumanoidSpawnerERTChaplainNoReq
-  name: ERT Deacon
+  name: "Диякон ЗШР"
   suffix: ERTRole, Enviro EVA
   components:
     - type: RandomHumanoidSpawner
@@ -400,7 +400,7 @@
 - type: entity
   id: RandomHumanoidSpawnerERTJanitorNoReq
   parent: RandomHumanoidSpawnerERTLeaderNoReq
-  name: ERT Janitor Intern
+  name: "Прибиральник-стажер ЗШР"
   suffix: ERTRole, Basic, No Requirements
   components:
     - type: RandomHumanoidSpawner
@@ -421,7 +421,7 @@
 - type: entity
   id: RandomHumanoidSpawnerERTJanitorEVANoReq
   parent: RandomHumanoidSpawnerERTJanitorNoReq
-  name: ERT Janitor Intern
+  name: "Прибиральник-стажер ЗШР"
   suffix: ERTRole, Enviro EVA, No Requirements
   components:
     - type: RandomHumanoidSpawner
@@ -444,7 +444,7 @@
 - type: entity
   id: RandomHumanoidSpawnerERTEngineerNoReq
   parent: RandomHumanoidSpawnerERTLeaderNoReq
-  name: ERT Engineer Intern
+  name: "Інженер-стажер ЗШР"
   suffix: ERTRole, Basic, No Requirements
   components:
     - type: RandomHumanoidSpawner
@@ -465,7 +465,7 @@
 - type: entity
   id: RandomHumanoidSpawnerERTEngineerEVANoReq
   parent: RandomHumanoidSpawnerERTEngineerNoReq
-  name: ERT Engineer Intern
+  name: "Інженер-стажер ЗШР"
   suffix: ERTRole, Enviro EVA, No Requirements
   components:
     - type: RandomHumanoidSpawner
@@ -488,7 +488,7 @@
 - type: entity
   id: RandomHumanoidSpawnerERTSecurityNoReq
   parent: RandomHumanoidSpawnerERTLeaderNoReq
-  name: ERT Security Cadet
+  name: "Кадет служби безпеки ЗШР"
   suffix: ERTRole, Basic, No Requirements
   components:
     - type: RandomHumanoidSpawner
@@ -510,7 +510,7 @@
 - type: entity
   id: RandomHumanoidSpawnerERTSecurityEVANoReq
   parent: RandomHumanoidSpawnerERTSecurity
-  name: ERT Security Cadet
+  name: "Кадет служби безпеки ЗШР"
   suffix: ERTRole, Armored EVA, No Requirements
   components:
     - type: RandomHumanoidSpawner
@@ -534,7 +534,7 @@
 - type: entity
   id: RandomHumanoidSpawnerERTMedicalNoReq
   parent: RandomHumanoidSpawnerERTLeaderNoReq
-  name: ERT Medic Intern
+  name: "Медик-стажер ЗШР"
   suffix: ERTRole, Basic, No Requirements
   components:
     - type: RandomHumanoidSpawner
@@ -556,7 +556,7 @@
 - type: entity
   id: RandomHumanoidSpawnerERTMedicalEVANoReq
   parent: RandomHumanoidSpawnerERTMedical
-  name: ERT Medic Intern
+  name: "Медик-стажер ЗШР"
   suffix: ERTRole, Armored EVA, No Requirements
   components:
     - type: RandomHumanoidSpawner
@@ -579,7 +579,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerCBURNUnitNoReq
-  name: CBURN Agent Cadet
+  name: "Агент-кадет CBURN"
   suffix: ERTRole, No Requirements
   components:
     - type: RandomHumanoidSpawner

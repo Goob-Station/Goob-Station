@@ -40,10 +40,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: piano
+  name: "фортепіано"
   parent: BasePlaceableInstrumentRotatable
   id: PianoInstrument
-  description: Play Needles Piano Now.
+  description: "Грайте на піаніно \"Голки\" зараз."
   components:
   - type: Instrument
     program: 1
@@ -52,10 +52,10 @@
   - type: Climbable
 
 - type: entity
-  name: upright piano
+  name: "піаніно"
   parent: BasePlaceableInstrumentRotatable
   id: UprightPianoInstrument
-  description: I said Piannie!
+  description: "Я сказав П'яні!"
   components:
   - type: Instrument
     program: 3
@@ -64,10 +64,10 @@
   - type: Climbable
 
 - type: entity
-  name: vibraphone
+  name: "вібрафон"
   id: VibraphoneInstrument
   parent: BasePlaceableInstrumentRotatable
-  description: Good vibes all around.
+  description: "Хороші вібрації навколо."
   components:
   - type: Instrument
     program: 11
@@ -75,7 +75,7 @@
     state: vibraphone
 
 - type: entity
-  name: marimba
+  name: "маримба"
   id: MarimbaInstrument
   parent: BasePlaceableInstrumentRotatable
   components:
@@ -85,10 +85,10 @@
     state: marimba
 
 - type: entity
-  name: church organ
+  name: "церковний орган"
   parent: BasePlaceableInstrumentRotatable
   id: ChurchOrganInstrument
-  description: This thing really blows!
+  description: "Ця штука дійсно крута!"
   components:
   - type: Instrument
     program: 19
@@ -96,10 +96,10 @@
     state: church-organ
 
 - type: entity
-  name: tuba
+  name: "туба"
   parent: BasePlaceableInstrument
   id: TubaInstrument
-  description: The big daddy of the brass family. Standing next to its majesty makes you feel insecure.
+  description: "Великий тато сімейства духових. Стоячи поруч з його величністю, відчуваєш себе невпевнено."
   components:
   - type: Instrument
     program: 58
@@ -109,8 +109,8 @@
 - type: entity
   id: HarpInstrument
   parent: BasePlaceableInstrument
-  name: harp
-  description: Plucking at the strings cuts your fingers, but at least the music is pretty.
+  name: "арфа"
+  description: "Якщо щипати за струни, можна порізати пальці, але, принаймні, музика гарна."
   components:
   - type: Instrument
     program: 46
@@ -120,8 +120,8 @@
 - type: entity
   id: TimpaniInstrument
   parent: BasePlaceableInstrumentRotatable
-  name: timpani
-  description: It goes BOOM BOOM BOOM BOOM!
+  name: "литаври"
+  description: "Це БУМ-БУМ-БУМ-БУМ!"
   components:
   - type: Instrument
     program: 47
@@ -131,8 +131,8 @@
 - type: entity
   id: TaikoInstrument
   parent: BasePlaceableInstrumentRotatable
-  name: taiko
-  description: A large drum. Looking at it fills you with the urge to slap it.
+  name: "тайко"
+  description: "Великий барабан. Дивлячись на нього, хочеться вдарити по ньому."
   components:
   - type: Instrument
     program: 116
@@ -142,8 +142,8 @@
 - type: entity
   id: ContrabassInstrument
   parent: BasePlaceableInstrument
-  name: contrabass
-  description: Perfect for laying down a nice jazzy beat.
+  name: "контрабас"
+  description: "Ідеально підходить для створення приємного джазового ритму."
   components:
   - type: Instrument
     program: 43
@@ -167,10 +167,10 @@
         - BulletImpassable
 
 - type: entity
-  name: minimoog
+  name: "мінімуг"
   parent: BasePlaceableInstrumentRotatable
   id: MinimoogInstrument
-  description: This is a minimoog, like a space piano, but more spacey!
+  description: "Це мінімуг, схожий на космічне піаніно, але більш космічний!"
   components:
   - type: Instrument
     program: 81
@@ -180,8 +180,8 @@
 - type: entity
   id: TomDrumsInstrument
   parent: BasePlaceableInstrumentRotatable
-  name: tom drums
-  description: Where'd the rest of the kit go?
+  name: "томні барабани"
+  description: "Куди поділася решта набору?"
   components:
   - type: Instrument
     program: 117
@@ -191,8 +191,8 @@
 - type: entity
   parent: [ BasePlaceableInstrumentRotatable, ConstructibleMachine]
   id: DawInstrument
-  name: digital audio workstation
-  description: Cutting edge music technology, straight from the 90s.
+  name: "цифрова аудіо робоча станція"
+  description: "Найсучасніші музичні технології, прямо з 90-х років."
   components:
   - type: Sprite
     layers:

@@ -22,7 +22,7 @@
 - type: entity
   parent: BaseMindRoleAntag
   id: MindRolePirate
-  name: Pirate Role
+  name: "Роль пірата"
   components:
   - type: MindRole
     antagPrototype: Pirate

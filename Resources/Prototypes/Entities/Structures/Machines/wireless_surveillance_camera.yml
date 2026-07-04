@@ -14,8 +14,8 @@
   abstract: true
   parent: [ BaseStructureDynamic, SmallConstructibleMachine ]
   id: SurveillanceWirelessCameraBase
-  name: wireless camera
-  description: A camera. It's watching you. Kinda.
+  name: "бездротова камера"
+  description: "Камера. Вона стежить за тобою. Типу того."
   components:
     - type: InteractionOutline
     - type: Eye

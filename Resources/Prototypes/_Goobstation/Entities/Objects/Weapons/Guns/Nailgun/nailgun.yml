@@ -7,10 +7,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: nail gun
+  name: "цвяхомет"
   parent: [BaseItem, BaseEngineeringContraband]
   id: WeaponNailgun
-  description: Standard-issue Nanotrasen tool that fires high-velocity nails. Ideal for quick wall repairs, and occasionally for kicking tiders out of your department.
+  description: "Стандартний інструмент Nanotrasen, що стріляє цвяхами з високою швидкістю. Ідеально підходить для швидкого ремонту стін і, час від часу, для вигнання шкідників з вашого відділу."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Nailgun/nailgun.rsi

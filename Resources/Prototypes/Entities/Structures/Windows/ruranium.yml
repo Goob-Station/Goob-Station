@@ -22,7 +22,7 @@
 
 - type: entity
   id: ReinforcedUraniumWindow
-  name: reinforced uranium window
+  name: "армоване уранове вікно"
   parent: WindowRCDResistant
   components:
   - type: Sprite
@@ -80,8 +80,8 @@
 - type: entity
   id: UraniumReinforcedWindowDirectional
   parent: WindowDirectionalRCDResistant
-  name: directional reinforced uranium window
-  description: Don't smudge up the glass down there.
+  name: "спрямоване армоване уранове вікно"
+  description: "Не заляпайте скло внизу."
   placement:
     mode: SnapgridCenter
     snap:

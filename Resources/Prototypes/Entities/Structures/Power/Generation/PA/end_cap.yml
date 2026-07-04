@@ -15,8 +15,8 @@
 - type: entity
   parent: ParticleAcceleratorFinishedPart
   id: ParticleAcceleratorEndCap
-  name: PA end-cap
-  description: Formally known as the Alpha Particle Generation Array. This is where Alpha particles are generated from [REDACTED].
+  name: "Торцева заглушка для ПЧ"
+  description: "Офіційно відома як Масив генерації альфа-частинок. Це місце, де альфа-частинки генеруються з [ВИДАЛЕНО]."
   components:
   - type: Sprite
     sprite: Structures/Power/Generation/PA/end_cap.rsi
@@ -33,9 +33,9 @@
 - type: entity
   parent: ParticleAcceleratorUnfinishedBase
   id: ParticleAcceleratorEndCapUnfinished
-  name: PA end-cap
+  name: "Торцева заглушка для ПЧ"
   suffix: Unfinished
-  description: Formally known as the Alpha Particle Generation Array. This is where Alpha particles are generated from [REDACTED]. It looks unfinished.
+  description: "Офіційно відома як Масив генерації альфа-частинок. Це місце, де альфа-частинки генеруються з [ВИДАЛЕНО]. Виглядає незавершеним."
   components:
   - type: Sprite
     sprite: Structures/Power/Generation/PA/end_cap.rsi

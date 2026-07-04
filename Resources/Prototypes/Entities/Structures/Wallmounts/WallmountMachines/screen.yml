@@ -12,8 +12,8 @@
 - type: entity
   parent: BaseWallmountMachine
   id: Screen
-  name: screen
-  description: Displays text or time.
+  name: "екран"
+  description: "Відображає текст або час."
   components:
   - type: Rotatable
   - type: TextScreenVisuals
@@ -48,8 +48,8 @@
 - type: entity
   id: ArrivalsShuttleTimer
   parent: Screen
-  name: arrivals screen
-  description: Displays time of arrivals shuttle ETA.
+  name: "екран прибуття"
+  description: "Показує орієнтовний час прибуття шатла прибуття."
   components:
   - type: DeviceNetwork
     deviceNetId: Private

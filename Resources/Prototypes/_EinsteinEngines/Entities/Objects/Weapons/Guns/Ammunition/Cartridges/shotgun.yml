@@ -1,6 +1,6 @@
 - type: entity
   id: ShellSoulbreaker
-  name: shell (.50 soulbreaker)
+  name: "снаряд (.50 soulbreaker)"
   parent: [ BaseShellShotgun, BaseMantisContraband ]
   components:
   - type: Tag

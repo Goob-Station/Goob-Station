@@ -1,7 +1,7 @@
 - type: entity
   parent: MarkerBase
   id: RandomWallRockSnowOreSpawner
-  name: snowdrift ore spawner
+  name: "спавнер руди в сніговому заметі"
   components:
   - type: Sprite
     sprite: Structures/Walls/rock.rsi

@@ -24,8 +24,8 @@
 - type: entity
   parent: BaseItem
   id: DefaultStationBeacon
-  name: station beacon
-  description: A small device that transmits information to station maps. Can be configured.
+  name: "станційний маяк"
+  description: "Невеликий пристрій, який передає інформацію на мапи станцій. Може бути налаштований."
   placement:
     mode: SnapgridCenter
   suffix: General
@@ -123,8 +123,8 @@
 - type: entity
   parent: BaseItem
   id: StationBeaconPart
-  name: station beacon flatpack
-  description: A flatpack used for constructing a station beacon.
+  name: "флетпак станцйного маяку"
+  description: "Флетпак, що використовується для побудови станційного радіомаяка."
   components:
   - type: Item
     size: Small

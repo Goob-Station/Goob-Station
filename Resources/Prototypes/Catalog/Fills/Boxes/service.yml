@@ -8,10 +8,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: cleanades box
+  name: "коробка чисткогранат"
   parent: BoxCardboard
   id: BoxCleanerGrenades
-  description: A box full of cleanades.
+  description: "Коробка, повна чисткогранат."
   components:
   - type: StorageFill
     contents:
@@ -23,10 +23,10 @@
       - state: flashbang
 
 - type: entity
-  name: NT "AgriChem Is Fun" kit
+  name: "Набір НТ «АгроХім - це весело»"
   parent: BoxCardboard
   id: BoxAgrichem
-  description: For the budding botanist ready to learn about maximizing farm output. This faded box must be at least 50 years old.
+  description: "Для початківця-ботаніка, готового дізнатися про максимізацію врожайності ферми. Цій вицвілій коробці, мабуть, не менше 50 років."
   components:
   - type: StorageFill
     contents:
@@ -51,7 +51,7 @@
 - type: entity
   parent: BoxLightbulb
   id: BoxLightbulbColorfulMixed
-  name: mixed colorful lightbulb box
+  name: "коробка з різнокольоровими лампочками"
   components:
   - type: StorageFill
     contents:
@@ -71,7 +71,7 @@
 - type: entity
   parent: BoxLighttube
   id: BoxLighttubeColorfulMixed
-  name: mixed colorful lighttube box
+  name: "коробка з різнокольоровими світловими трубками"
   components:
   - type: StorageFill
     contents:

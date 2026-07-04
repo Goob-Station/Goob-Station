@@ -262,7 +262,7 @@
 - type: entity
   id: ClothingBeltMilitaryWebbingGrenadeFilled
   parent: ClothingBeltMilitaryWebbing
-  name: grenadier chest rig
+  name: "розвантажувальний жилет гренадера"
   suffix: Filled
   components:
   - type: Item

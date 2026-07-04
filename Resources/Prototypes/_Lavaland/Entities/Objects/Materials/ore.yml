@@ -23,7 +23,7 @@
 - type: entity
   parent: OreBase
   id: ArtifactFragmentOre
-  name: artifact fragment ore
+  name: "руда з уламками артефактів"
   suffix: Full
   components:
   - type: Stack
@@ -64,7 +64,7 @@
 - type: entity
   parent: GoldOre
   id: GoldOreUnprocessed
-  name: unprocessed gold ore
+  name: "необроблена золота руда"
   suffix: Full
   components:
   - type: Stack
@@ -75,7 +75,7 @@
 - type: entity
   parent: GoldOreUnprocessed
   id: GoldOre1Unprocessed
-  name: unprocessed gold ore
+  name: "необроблена золота руда"
   suffix: Single
   components:
   - type: Stack
@@ -84,7 +84,7 @@
 - type: entity
   parent: DiamondOre
   id: DiamondOreUnprocessed
-  name: unprocessed diamond ore
+  name: "необроблена алмазна руда"
   suffix: Full
   components:
   - type: Stack
@@ -95,7 +95,7 @@
 - type: entity
   parent: DiamondOreUnprocessed
   id: DiamondOre1Unprocessed
-  name: unprocessed diamond ore
+  name: "необроблена алмазна руда"
   suffix: Single
   components:
   - type: Stack
@@ -104,7 +104,7 @@
 - type: entity
   parent: SteelOre
   id: SteelOreUnprocessed
-  name: unprocessed iron ore
+  name: "необроблена залізна руда"
   suffix: Thirty
   components:
   - type: Stack
@@ -115,7 +115,7 @@
 - type: entity
   id: SteelOre1Unprocessed
   parent: SteelOreUnprocessed
-  name: unprocessed iron ore
+  name: "необроблена залізна руда"
   suffix: Single
   components:
   - type: Stack
@@ -124,7 +124,7 @@
 - type: entity
   id: SteelOre60Unprocessed
   parent: SteelOreUnprocessed
-  name: unprocessed iron ore
+  name: "необроблена залізна руда"
   suffix: Sixty
   components:
   - type: Stack
@@ -133,7 +133,7 @@
 - type: entity
   id: SteelOre90Unprocessed
   parent: SteelOreUnprocessed
-  name: unprocessed iron ore
+  name: "необроблена залізна руда"
   suffix: Full
   components:
   - type: Stack
@@ -142,7 +142,7 @@
 - type: entity
   parent: PlasmaOre
   id: PlasmaOreUnprocessed
-  name: необроблений форон # Pirate
+  name: "необроблений форон" # Pirate
   suffix: Full
   components:
   - type: Stack
@@ -153,7 +153,7 @@
 - type: entity
   parent: PlasmaOreUnprocessed
   id: PlasmaOre1Unprocessed
-  name: необроблений форон # Pirate
+  name: "необроблений форон" # Pirate
   suffix: Single
   components:
   - type: Stack
@@ -162,7 +162,7 @@
 - type: entity
   parent: SilverOre
   id: SilverOreUnprocessed
-  name: unprocessed silver ore
+  name: "необроблена срібна руда"
   suffix: Full
   components:
   - type: Stack
@@ -173,7 +173,7 @@
 - type: entity
   parent: SilverOreUnprocessed
   id: SilverOre1Unprocessed
-  name: unprocessed silver ore
+  name: "необроблена срібна руда"
   suffix: Single
   components:
   - type: Stack
@@ -182,7 +182,7 @@
 - type: entity
   parent: SpaceQuartz
   id: SpaceQuartzUnprocessed
-  name: unprocessed space quartz
+  name: "необроблений космічний кварц"
   suffix: Thirty
   components:
   - type: Stack
@@ -193,7 +193,7 @@
 - type: entity
   parent: SpaceQuartzUnprocessed
   id: SpaceQuartz1Unprocessed
-  name: unprocessed space quartz
+  name: "необроблений космічний кварц"
   suffix: Single
   components:
   - type: Stack
@@ -202,7 +202,7 @@
 - type: entity
   parent: SpaceQuartzUnprocessed
   id: SpaceQuartz60Unprocessed
-  name: unprocessed space quartz
+  name: "необроблений космічний кварц"
   suffix: Sixty
   components:
   - type: Stack
@@ -211,7 +211,7 @@
 - type: entity
   parent: SpaceQuartzUnprocessed
   id: SpaceQuartz90Unprocessed
-  name: unprocessed space quartz
+  name: "необроблений космічний кварц"
   suffix: Full
   components:
   - type: Stack
@@ -220,7 +220,7 @@
 - type: entity
   parent: UraniumOre
   id: UraniumOreUnprocessed
-  name: unprocessed uranium ore
+  name: "необроблена уранова руда"
   suffix: Full
   components:
   - type: Stack
@@ -231,7 +231,7 @@
 - type: entity
   parent: UraniumOreUnprocessed
   id: UraniumOre1Unprocessed
-  name: unprocessed uranium ore
+  name: "необроблена уранова руда"
   suffix: Single
   components:
   - type: Stack
@@ -240,7 +240,7 @@
 - type: entity
   parent: BananiumOre
   id: BananiumOreUnprocessed
-  name: unprocessed bananium ore
+  name: "необроблена бананієва руда"
   suffix: Full
   components:
   - type: Stack
@@ -251,7 +251,7 @@
 - type: entity
   parent: BananiumOreUnprocessed
   id: BananiumOre1Unprocessed
-  name: unprocessed bananium ore
+  name: "необроблена бананієва руда"
   suffix: Single
   components:
   - type: Stack
@@ -260,7 +260,7 @@
 - type: entity
   parent: Coal
   id: CoalUnprocessed
-  name: unprocessed coal
+  name: "необроблене вугілля"
   suffix: Thirty
   components:
   - type: Stack
@@ -271,7 +271,7 @@
 - type: entity
   parent: CoalUnprocessed
   id: Coal1Unprocessed
-  name: unprocessed coal
+  name: "необроблене вугілля"
   suffix: Single
   components:
   - type: Stack
@@ -280,7 +280,7 @@
 - type: entity
   parent: CoalUnprocessed
   id: Coal5Unprocessed
-  name: unprocessed coal
+  name: "необроблене вугілля"
   suffix: Five
   components:
   - type: Stack
@@ -289,7 +289,7 @@
 - type: entity
   parent: CoalUnprocessed
   id: Coal10Unprocessed
-  name: unprocessed coal
+  name: "необроблене вугілля"
   suffix: Ten
   components:
   - type: Stack
@@ -298,7 +298,7 @@
 - type: entity
   parent: CoalUnprocessed
   id: Coal15Unprocessed
-  name: unprocessed coal
+  name: "необроблене вугілля"
   suffix: Fifteen
   components:
   - type: Stack
@@ -307,7 +307,7 @@
 - type: entity
   parent: CoalUnprocessed
   id: Coal60Unprocessed
-  name: unprocessed coal
+  name: "необроблене вугілля"
   suffix: Sixty
   components:
   - type: Stack
@@ -316,7 +316,7 @@
 - type: entity
   parent: CoalUnprocessed
   id: Coal90Unprocessed
-  name: unprocessed coal
+  name: "необроблене вугілля"
   suffix: Full
   components:
   - type: Stack
@@ -325,7 +325,7 @@
 - type: entity
   parent: ArtifactFragmentOre
   id: ArtifactFragmentOreUnprocessed
-  name: unprocessed artifact fragment ore
+  name: "необроблена руда з уламками артефактів"
   suffix: Full
   components:
   - type: Stack
@@ -336,7 +336,7 @@
 - type: entity
   parent: ArtifactFragmentOreUnprocessed
   id: ArtifactFragmentOre1Unprocessed
-  name: unprocessed artifact fragment ore
+  name: "необроблена руда з уламками артефактів"
   suffix: Single
   components:
   - type: Stack

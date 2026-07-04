@@ -1,5 +1,5 @@
 - type: entity
-  name: Mining Rock Spawner
+  name: "спавнер шахтних каменів"
   id: RandomRockSpawner
   parent: MarkerBase
   components:
@@ -23,7 +23,7 @@
     rareChance: 0.15
 
 - type: entity
-  name: Crystal Spawner
+  name: "спавнер кристалів"
   id: RandomCrystalSpawner
   suffix: 100%
   parent: MarkerBase
@@ -43,7 +43,7 @@
       - CrystalCyan
 
 - type: entity
-  name: Wall Rock Spawner
+  name: "спавнер кам’яних стін"
   id: RandomWallRockSpawner
   parent: MarkerBase
   components:
@@ -64,7 +64,7 @@
       - WallRockArtifactFragment
 
 - type: entity
-  name: Basalt Rock Spawner
+  name: "спавнер базальтових каменів"
   id: RandomBasaltRockSpawner
   parent: MarkerBase
   components:
@@ -85,7 +85,7 @@
 
 - type: entity
   id: RandomWoodenStructure
-  name: wooden wall or support spawner
+  name: "спавнер дерев’яної стіни або опори"
   parent: MarkerBase
   components:
   - type: Sprite

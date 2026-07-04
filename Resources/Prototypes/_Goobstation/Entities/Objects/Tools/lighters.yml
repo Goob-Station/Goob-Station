@@ -6,10 +6,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: blue flippo
+  name: "синя запальничка фліппо"
   parent: [BaseItem, BaseCentcommContraband]
   id: FlippoLighterBlueshield
-  description: "A specialized blue lighter given only to specific officers. Great for a smoke after a long day."
+  description: "Спеціалізована синя запальничка, що видається лише певним офіцерам. Чудово підходить для перекуру після довгого дня."
   components:
   - type: Sprite
     sprite: /Textures/_Goobstation/Objects/Tools/lighters.rsi

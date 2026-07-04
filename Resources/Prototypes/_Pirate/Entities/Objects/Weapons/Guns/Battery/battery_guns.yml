@@ -1,8 +1,8 @@
 - type: entity
-  name: x-02 енерго-поліморф
+  name: "x-02 енерго-поліморф"
   parent: BaseWeaponBatterySmall
   id: WeaponEnergyGunMultiphasePolymorh
-  description: Чаклунська модифікація енерго-пістолету, що викликає небачені результати.
+  description: "Чаклунська модифікація енерго-пістолету, що викликає небачені результати."
   components:
   - type: Sprite
     sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
@@ -93,10 +93,10 @@
     autoRechargeRate: 5
 
 - type: entity
-  name: energy gun
+  name: "енергетична зброя"
   parent: [BaseWeaponBattery, BaseSecurityContraband]
   id: WeaponEnergyGun
-  description: "Базова гібридна енергетична зброя з двома режимами: дизейбер і летальний."
+  description: "Базова гібридна енергетична зброя з двома режимами: дизейблер і летальний."
   components:
   - type: Sprite
     sprite: _Pirate/Objects/Weapons/Guns/Battery/energygun.rsi
@@ -157,10 +157,10 @@
   - type: Multishot
 
 - type: entity
-  name: miniature energy gun
+  name: "мініатюрна енергетична зброя"
   parent: [BaseWeaponBatterySmall, BaseSecurityContraband]
   id: WeaponEnergyGunMini
-  description: "Легка версія енергетичної пушки з меншим обсягом заряду."
+  description: "Легка версія енергетичної зброї з меншим об'ємом заряду."
   components:
   - type: Sprite
     sprite: _Pirate/Objects/Weapons/Guns/Battery/mini_energygun.rsi
@@ -220,7 +220,7 @@
         shader: unshaded
   - type: Multishot
 - type: entity
-  name: IK-60 laser carbine
+  name: "IK-60 лазерний карабін"
   parent: [BaseWeaponBattery, BaseSecurityContraband, BaseGunWieldable]
   id: WeaponGunLaserCarbineAutomatic
   description: "Напівавтоматичний лазерний карабін, який широко використовується штурмовими загонами поліції Республіки Бізель."
@@ -280,7 +280,7 @@
   - type: Appearance
 
 - type: entity
-  name: PDW-9 Energy Pistol
+  name: "PDW-9 енергетичний пістолет"
   parent: [BaseWeaponBatterySmall, BaseSecurityContraband]
   id: WeaponEnergyGunPistol
   description: "Військовий пістолет, який широко використовується загонами поліції Республіки Бізель."
@@ -363,7 +363,7 @@
   - type: Multishot
 
 - type: entity
-  name: PDW-9 Energy Pistol
+  name: "PDW-9 енергетичний пістолет"
   parent: WeaponEnergyGunPistol
   id: WeaponEnergyGunPistolSecurity
   description: "Військовий пістолет, який широко використовується загонами поліції Республіки Бізель. Символ на ручці вказує, що ця зброя належить до офіцера безпеки SCC."

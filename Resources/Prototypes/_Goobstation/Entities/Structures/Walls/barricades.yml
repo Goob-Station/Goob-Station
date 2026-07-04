@@ -106,14 +106,14 @@
 - type: entity
   parent: [BaseMetalBarricade, BaseBarricadeSteel]
   id: BarricadeSteel
-  name: steel barricade
-  description: A tough barricade built to keep the bad out.
+  name: "сталева барикада"
+  description: "Міцна барикада, збудована для того, щоб не пускати поганих хлопців."
 
 - type: entity
   parent: [BaseMetalBarricadeFolding, BaseBarricadeSteel]
   id: BarricadeSteelFolding
-  name: folding steel barricade
-  description: A tough barricade built to keep the bad out. This one can be opened with a latch.
+  name: "складана сталева барикада"
+  description: "Міцна барикада, збудована для того, щоб не пускати поганих хлопців. Цю можна відкрити засувкою."
   components:
   - type: Damageable
     damageModifierSet: BarricadeSteelFolding
@@ -134,14 +134,14 @@
 - type: entity
   parent: [BaseMetalBarricade, BaseBarricadePlasteel]
   id: BarricadePlasteel
-  name: plasteel barricade
-  description: A hardened barricade built to keep the extra bad out.
+  name: "пласталева барикада"
+  description: "Зміцнена барикада, збудована для того, щоб не пускати особливо поганих хлопців."
 
 - type: entity
   parent: [BaseMetalBarricadeFolding, BaseBarricadePlasteel]
   id: BarricadePlasteelFolding
-  name: folding plasteel barricade
-  description: A hardened barricade built to keep the extra bad out. This one can be opened with a latch.
+  name: "складана пласталева барикада"
+  description: "Зміцнена барикада, збудована для того, щоб не пускати особливо поганих хлопців. Цю можна відкрити засувкою."
   components:
   - type: Damageable
     damageModifierSet: BarricadePlasteelFolding

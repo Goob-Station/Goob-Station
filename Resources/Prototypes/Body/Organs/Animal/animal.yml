@@ -114,7 +114,7 @@
 - type: entity
   id: OrganAnimalStomach
   parent: BaseAnimalOrgan
-  name: stomach
+  name: "шлунок"
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -155,7 +155,7 @@
 - type: entity
   id: OrganMouseStomach
   parent: OrganAnimalStomach
-  name: stomach
+  name: "шлунок"
   categories: [ HideSpawnMenu ]
   components:
   - type: SolutionContainerManager

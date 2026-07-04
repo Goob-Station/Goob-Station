@@ -1,9 +1,9 @@
 - type: entity
   parent: FloraTreeLarge
   id: FloraTreeLargeDark
-  name: dark wood
+  name: "темне дерево"
   suffix: large
-  description: A foreboding canopy to hide the stars.
+  description: "Зловісний намет крон, що ховає зорі."
   components:
   - type: Sprite
     sprite: _starcup/Structures/Nature/Flora/Trees/DeciduousTrees/flora_treeslarge_dark.rsi
@@ -49,9 +49,9 @@
 - type: entity
   parent: BaseTree
   id: FloraTreeDeadPurple
-  name: tree
+  name: "дерево"
   suffix: dead, purple
-  description: The bones of the earth make for a beautifully haunting tombstone.
+  description: "Кістки землі стають прекрасно моторошним надгробком."
   components:
   - type: Sprite
     sprite: _starcup/Structures/Nature/Flora/Trees/DeciduousTrees/flora_dead_trees_purple.rsi
