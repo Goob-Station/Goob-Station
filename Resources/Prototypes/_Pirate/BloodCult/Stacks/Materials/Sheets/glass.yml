@@ -4,7 +4,7 @@
 
 - type: stack
   id: RunedGlass
-  name: runed glass
+  name: stack-runed-glass
   icon: { sprite: /Textures/_Pirate/BloodCult/Sheets/glass.rsi, state: runedglass }
   spawn: SheetRunedGlass1
   maxCount: 30

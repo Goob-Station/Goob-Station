@@ -275,6 +275,10 @@ ent-SheetRunedPlasteel10 = рунічний пласталь
 ent-SheetRunedPlasteel1 = рунічний пласталь
     .desc = Лист потойбічного пласталю, яким культисти бронюють свої роби.
 
+stack-runed-steel = рунічна сталь
+stack-runed-glass = рунічне скло
+stack-runed-plasteel = рунічний пласталь
+
 ent-BaseBloodCultRune = руна
     .desc = Виглядає так, наче її вимазали кров'ю...
 ent-BarrierRune = руна бар'єра

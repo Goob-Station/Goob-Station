@@ -4,7 +4,7 @@
 
 - type: stack
   id: RunedPlasteel
-  name: runed plasteel
+  name: stack-runed-plasteel
   icon: { sprite: /Textures/Objects/Materials/Sheets/metal.rsi, state: plasteel }
   spawn: SheetRunedPlasteel1
   maxCount: 30

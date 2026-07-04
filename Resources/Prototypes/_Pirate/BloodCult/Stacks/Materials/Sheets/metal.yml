@@ -7,7 +7,7 @@
 
 - type: stack
   id: RunedSteel
-  name: runed steel
+  name: stack-runed-steel
   icon: { sprite: /Textures/Objects/Materials/Sheets/metal.rsi, state: steel }
   spawn: SheetRunedSteel1
   maxCount: 30
