@@ -1909,3 +1909,9 @@ Entries:
       message: Виправлено Outpost
   id: 177
   time: '2026-07-04T11:01:16.0000000+00:00'
+- author: v0idRift
+  changes:
+    - type: Add
+      message: Додано режим Blood Cult.
+  id: 178
+  time: '2026-07-04T13:33:29.0000000+00:00'
