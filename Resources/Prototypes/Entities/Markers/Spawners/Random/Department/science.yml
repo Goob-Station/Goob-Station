@@ -109,7 +109,7 @@
       state: generic
   - type: RandomSpawner
     rarePrototypes:
-    # - BorgModuleAdvancedChemical # Goob edit
+    - BorgModuleAdvancedTopical
     - BorgModuleAdvancedCleaning
     - BorgModuleAdvancedTool
 

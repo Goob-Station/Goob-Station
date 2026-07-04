@@ -148,16 +148,16 @@ public sealed partial class PuddleSystem
 
             var splitSolution = _solutionContainerSystem.SplitSolution(soln.Value, totalSplit / hitCount);
 
-            _adminLogger.Add(LogType.MeleeHit, $"{ToPrettyString(args.User)} splashed {SharedSolutionContainerSystem.ToPrettyString(splitSolution):solution} from {ToPrettyString(entity.Owner):entity} onto {ToPrettyString(hit):target}");
+            AdminLogger.Add(LogType.MeleeHit, $"{ToPrettyString(args.User)} splashed {SharedSolutionContainerSystem.ToPrettyString(splitSolution):solution} from {ToPrettyString(entity.Owner):entity} onto {ToPrettyString(hit):target}");
             RaiseLocalEvent(hit, new SpilledOnEvent(entity.Owner, splitSolution.Clone())); // Pirate: stains
-            _reactive.DoEntityReaction(hit, splitSolution, ReactionMethod.Touch);
+            Reactive.DoEntityReaction(hit, splitSolution, ReactionMethod.Touch);
 
-            _popups.PopupEntity(
+            Popups.PopupEntity(
                 Loc.GetString("spill-melee-hit-attacker", ("amount", totalSplit / hitCount), ("spillable", entity.Owner),
                     ("target", Identity.Entity(hit, EntityManager))),
                 hit, args.User);
 
-            _popups.PopupEntity(
+            Popups.PopupEntity(
                 Loc.GetString("spill-melee-hit-others", ("attacker", Identity.Name(args.User, EntityManager)), ("spillable", entity.Owner), // Goobstation - indentity hidden on splash
                     ("target", Identity.Entity(hit, EntityManager))),
                 hit, Filter.PvsExcept(args.User), true, PopupType.SmallCaution);
@@ -166,23 +166,14 @@ public sealed partial class PuddleSystem
 
     private void SpillOnLand(Entity<SpillableComponent> entity, ref LandEvent args)
     {
-        if (!_solutionContainerSystem.TryGetSolution(entity.Owner, entity.Comp.SolutionName, out var soln, out var solution))
+        if (!entity.Comp.SpillWhenThrown || Openable.IsClosed(entity.Owner))
             return;
 
-        if (Openable.IsClosed(entity.Owner))
-            return;
-
-        if (!entity.Comp.SpillWhenThrown)
-            return;
-
-        if (args.User != null)
+        if (TrySplashSpillAt(entity.Owner, Transform(entity).Coordinates, out _, out var solution) && args.User != null)
         {
-            _adminLogger.Add(LogType.Landed,
+            AdminLogger.Add(LogType.Landed,
                 $"{ToPrettyString(entity.Owner):entity} spilled a solution {SharedSolutionContainerSystem.ToPrettyString(solution):solution} on landing");
         }
-
-        var drainedSolution = _solutionContainerSystem.Drain(entity.Owner, soln.Value, solution.Volume);
-        TrySplashSpillAt(entity.Owner, Transform(entity).Coordinates, drainedSolution, out _);
     }
 
     private void OnDoAfter(Entity<SpillableComponent> entity, ref SpillDoAfterEvent args)

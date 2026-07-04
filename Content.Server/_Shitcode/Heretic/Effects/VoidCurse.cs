@@ -8,22 +8,27 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server._Goobstation.Heretic.EntitySystems.PathSpecific;
-using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared.EntityEffects;
+using Content.Shared.Humanoid;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._Goobstation.Heretic.Effects;
 
-public sealed partial class VoidCurse : EntityEffect
+public sealed partial class VoidCurseSystemEffect : EntityEffectSystem<HumanoidAppearanceComponent, VoidCurse> // HumanoidAppearanceComponent here is ass but i cba
+{
+    [Dependency] private readonly VoidCurseSystem _voidCurse = default!;
+
+    protected override void Effect(Entity<HumanoidAppearanceComponent> entity, ref EntityEffectEvent<VoidCurse> args)
+    {
+        _voidCurse.DoCurse(entity.Owner, args.Effect.Stacks);
+    }
+}
+
+public sealed partial class VoidCurse : EntityEffectBase<VoidCurse>
 {
     [DataField]
     public int Stacks = 1;
 
-    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => "Inflicts void curse.";
-
-    public override void Effect(EntityEffectBaseArgs args)
-    {
-        args.EntityManager.System<VoidCurseSystem>().DoCurse(args.TargetEntity, Stacks);
-    }
 }

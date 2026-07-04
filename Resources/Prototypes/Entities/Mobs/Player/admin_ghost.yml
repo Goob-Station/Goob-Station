@@ -158,6 +158,7 @@
     - PreventAccessLogging
     - AllowBiomeLoading
     - IgnoreBalanceChecks # Pirate banking
+    - NotGhostnadoWarpable
   - type: Input
     context: "aghost"
   - type: Ghost
@@ -177,11 +178,8 @@
     needsHands: false
   - type: CombatMode
   - type: Physics
+    bodyType: Kinematic # Admin ghosts should ignore the laws of physics.
     ignorePaused: true
-    bodyType: Kinematic
-  - type: Body
-    prototype: Aghost
-    thermalVisibility: false # WD EDIT
   - type: Access
     groups:
     - AllAccess

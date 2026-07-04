@@ -113,3 +113,22 @@
 #   category: Disabilities
 #   components:
 #   - type: PainNumbness
+
+- type: trait
+  id: Hemophilia
+  name: trait-hemophilia-name
+  description: trait-hemophilia-desc
+  category: Disabilities
+  specials:
+  - !type:ApplyStatusEffectSpecial
+    statusEffects:
+    - StatusEffectHemophiliaTrait
+
+- type: trait
+  id: ImpairedMobility
+  name: trait-impaired-mobility-name
+  description: trait-impaired-mobility-desc
+  traitGear: OffsetCane
+  category: Disabilities
+  components:
+    - type: ImpairedMobility

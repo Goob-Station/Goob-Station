@@ -267,26 +267,6 @@ public sealed partial class StationRecordsSystem : SharedStationRecordsSystem
     #endregion
 
     /// <summary>
-    ///     Try to get a record from this station's record entries,
-    ///     from the provided station record key. Will always return
-    ///     null if the key does not match the station.
-    /// </summary>
-    /// <param name="key">Station and key to try and index from the record set.</param>
-    /// <param name="entry">The resulting entry.</param>
-    /// <param name="records">Station record component.</param>
-    /// <typeparam name="T">Type to get from the record set.</typeparam>
-    /// <returns>True if the record was obtained, false otherwise.</returns>
-    public bool TryGetRecord<T>(StationRecordKey key, [NotNullWhen(true)] out T? entry, StationRecordsComponent? records = null)
-    {
-        entry = default;
-
-        if (!Resolve(key.OriginStation, ref records))
-            return false;
-
-        return records.Records.TryGetRecordEntry(key.Id, out entry);
-    }
-
-    /// <summary>
     /// Gets a random record from the station's record entries.
     /// </summary>
     /// <param name="ent">The EntityId of the station from which you want to get the record.</param>
@@ -360,21 +340,6 @@ public sealed partial class StationRecordsSystem : SharedStationRecordsSystem
            return string.Empty;
 
         return record.Name;
-    }
-
-    /// <summary>
-    ///     Gets all records of a specific type from a station.
-    /// </summary>
-    /// <param name="station">The station to get the records from.</param>
-    /// <param name="records">Station records component.</param>
-    /// <typeparam name="T">Type of record to fetch</typeparam>
-    /// <returns>Enumerable of pairs with a station record key, and the entry in question of type T.</returns>
-    public IEnumerable<(uint, T)> GetRecordsOfType<T>(EntityUid station, StationRecordsComponent? records = null)
-    {
-        if (!Resolve(station, ref records))
-            return Array.Empty<(uint, T)>();
-
-        return records.Records.GetRecordsOfType<T>();
     }
 
     /// <summary>

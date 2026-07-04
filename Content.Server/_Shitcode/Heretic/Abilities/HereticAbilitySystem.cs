@@ -83,6 +83,7 @@ using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Tag;
 using Content.Shared.Inventory; // Pirate
 using Content.Shared._Pirate.Heretic.Components; // Pirate
+using Content.Shared.Temperature.Components;
 using Robust.Server.Containers;
 
 namespace Content.Server.Heretic.Abilities;
@@ -560,7 +561,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
             }
 
             if (bloodQuery.TryComp(uid, out var blood))
-                _blood.FlushChemicals((uid, blood), leech.ExcludedReagent, leech.ChemPurgeRate * multiplier);
+                _blood.FlushChemicals((uid, blood), leech.ChemPurgeRate * multiplier, leech.ExcludedReagent);
 
             if (temperatureQuery.TryComp(uid, out var temperature))
                 _temperature.ForceChangeTemperature(uid, leech.TargetTemperature, temperature);

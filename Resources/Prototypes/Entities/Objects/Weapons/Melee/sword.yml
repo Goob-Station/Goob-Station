@@ -165,6 +165,9 @@
   - type: Tool
     qualities:
     - Slicing
+  - type: CosmicTransmutable # DeltaV
+    transmutesTo: SwordCosmicCult
+    requiredGlyphType: CosmicGlyphBlades
 
 #Shortswords
 - type: entity
@@ -173,9 +176,6 @@
   id: Cutlass
   description: A wickedly curved blade, often seen in the hands of space pirates.
   components:
-  - type: Tag
-    tags:
-    - Machete
   - type: Sprite
     sprite: Objects/Weapons/Melee/cutlass.rsi
   - type: MeleeWeapon
@@ -200,9 +200,6 @@
   id: Machete
   description: A large, vicious looking blade.
   components:
-  - type: Tag
-    tags:
-    - Machete
   - type: Sprite
     sprite: Objects/Weapons/Melee/machete.rsi
   - type: MeleeWeapon
@@ -263,6 +260,8 @@
     weight: 0.0002 # 5,000 times less likely than 1 regular animal
   - type: PirateAccent
     # not putting a BlockMovement component here cause that's funny.
+  - type: StealTarget
+    stealGroup: CaptainSword
 
 - type: entity
   name: katana
@@ -315,6 +314,8 @@
   - type: Tag # Pirate: kataba
     tags: # Pirate: kataba
     - Katana # Pirate: kataba
+  - type: Contraband
+    severity: HighlyIllegal
   - type: Sprite
     sprite: Objects/Weapons/Melee/energykatana.rsi
   - type: MeleeWeapon # Pirate: katana

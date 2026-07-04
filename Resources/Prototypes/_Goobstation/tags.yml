@@ -242,6 +242,9 @@
   id: FrozenIgnoreMindAction
 
 - type: Tag
+  id: GasTank
+
+- type: Tag
   id: GasMask
 
 - type: Tag
@@ -370,6 +373,9 @@
 
 - type: Tag
   id: Lungs
+
+- type: Tag
+  id: Machete
 
 - type: Tag
   id: MagazineAntiMateriel
@@ -501,6 +507,9 @@
   id: InquisitorChainSword
 
 - type: Tag
+  id: Injector
+
+- type: Tag
   id: ReptilianEmotes
 
 - type: Tag
@@ -532,6 +541,21 @@
 
 - type: Tag
   id: SiliconMob
+
+- type: Tag
+  id: SkeletonMotorcycleKeys
+
+- type: Tag
+  id: SecwayKeys
+
+- type: Tag
+  id: SyndicateSegwayKeys
+
+- type: Tag
+  id: ATVKeys
+
+- type: Tag
+  id: Debug
 
 - type: Tag
   id: SnapPop
@@ -595,9 +619,6 @@
 
 - type: Tag
   id: Tongue
-
-- type: Tag
-  id: Tourniquet
 
 - type: Tag
   id: ToyGrenade

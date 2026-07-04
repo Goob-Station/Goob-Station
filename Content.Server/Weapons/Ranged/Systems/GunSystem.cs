@@ -123,41 +123,39 @@ using Content.Goobstation.Common.Projectiles; // Goobstation
 using Content.Shared.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Cargo.Systems;
-using Content.Server.Power.EntitySystems;
 using Content.Server.Weapons.Ranged.Components;
+using Content.Shared.Cargo;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
-using Content.Shared.Database;
-using Content.Shared.Effects;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
-using Content.Shared.Weapons.Reflect;
-using Content.Shared.Damage.Components;
+using Content.Shared.Weapons.Hitscan.Components;
+using Content.Shared.Weapons.Hitscan.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Configuration; // Goobstation
 using Robust.Shared.Map;
-using Robust.Shared.Physics;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Robust.Shared.Containers;
-using Content.Server.PowerCell;
 using Content.Shared._Lavaland.Weapons.Ranged.Events; // Lavaland Change
 using Robust.Server.GameObjects; // Goobstation
 using Content.Goobstation.Common.Weapons.Ranged;
 using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Body.Components;
+using Content.Shared.Effects;
+using Content.Shared.PowerCell;
 using Robust.Shared.Random; // Lavaland Change
 
 namespace Content.Server.Weapons.Ranged.Systems;
 
 public sealed partial class GunSystem : SharedGunSystem
 {
-    [Dependency] private readonly DamageExamineSystem _damageExamine = default!;
     [Dependency] private readonly PricingSystem _pricing = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
@@ -181,27 +179,26 @@ public sealed partial class GunSystem : SharedGunSystem
         _cfg.OnValueChanged(GoobCVars.CrawlHitzoneSize, value => _crawlHitzoneSize = value, true); // Goobstation
     }
 
-    private void OnBallisticPrice(EntityUid uid, BallisticAmmoProviderComponent component, ref PriceCalculationEvent args)
+    private void OnBallisticPrice(Entity<BallisticAmmoProviderComponent> ent, ref PriceCalculationEvent args)
     {
-        if (string.IsNullOrEmpty(component.Proto) || component.UnspawnedCount == 0)
+        if (string.IsNullOrEmpty(ent.Comp.Proto) || ent.Comp.UnspawnedCount == 0)
             return;
 
-        if (!ProtoManager.TryIndex<EntityPrototype>(component.Proto, out var proto))
+        if (!ProtoManager.TryIndex<EntityPrototype>(ent.Comp.Proto, out var proto))
         {
-            Log.Error($"Unable to find fill prototype for price on {component.Proto} on {ToPrettyString(uid)}");
+            Log.Error($"Unable to find fill prototype for price on {ent.Comp.Proto} on {ToPrettyString(ent)}");
             return;
         }
 
         // Probably good enough for most.
         var price = _pricing.GetEstimatedPrice(proto);
-        args.Price += price * component.UnspawnedCount;
+        args.Price += price * ent.Comp.UnspawnedCount;
     }
 
-    public override void Shoot(EntityUid gunUid, GunComponent gun, List<(EntityUid? Entity, IShootable Shootable)> ammo,
+    public override void Shoot(Entity<GunComponent> gun, List<(EntityUid? Entity, IShootable Shootable)> ammo,
         EntityCoordinates fromCoordinates, EntityCoordinates toCoordinates, out bool userImpulse, EntityUid? user = null, bool throwItems = false)
     {
-        // Pirate: gunplay
-        SharedShoot(gunUid, gun, ammo, fromCoordinates, toCoordinates, out userImpulse, user, throwItems);
+        SharedShoot(gun.Owner, gun.Comp, ammo, fromCoordinates, toCoordinates, out userImpulse, user, throwItems); // Pirate: gunplay
     }
 
     // Goobstation start
@@ -251,9 +248,10 @@ public sealed partial class GunSystem : SharedGunSystem
     }
     // Goobstation end
 
-    private void ShootOrThrow(EntityUid uid, Vector2 mapDirection, Vector2 gunVelocity, GunComponent gun, EntityUid gunUid, EntityUid? user, Vector2? targetCoordinates = null) // Goobstation
+    private void ShootOrThrow(EntityUid uid, Vector2 mapDirection, Vector2 gunVelocity, Entity<GunComponent> gun, EntityUid? user,
+        Vector2? targetCoordinates = null) // Goobstation
     {
-        if (gun.Target is { } target && !TerminatingOrDeleted(target))
+        if (gun.Comp.Target is { } target && !TerminatingOrDeleted(target))
         {
             var targeted = EnsureComp<TargetedProjectileComponent>(uid);
             targeted.Target = target;
@@ -265,11 +263,12 @@ public sealed partial class GunSystem : SharedGunSystem
         {
             RemoveShootable(uid);
             // TODO: Someone can probably yeet this a billion miles so need to pre-validate input somewhere up the call stack.
-            ThrowingSystem.TryThrow(uid, mapDirection, gun.ProjectileSpeedModified, user);
+            ThrowingSystem.TryThrow(uid, mapDirection, gun.Comp.ProjectileSpeedModified, user);
             return;
         }
 
-        ShootProjectile(uid, mapDirection, gunVelocity, gunUid, user, gun.ProjectileSpeedModified, targetCoordinates); // Goobstation
+        ShootProjectile(uid, mapDirection, gunVelocity, gun, user, gun.Comp.ProjectileSpeedModified,
+        targetCoordinates); // Goobstation
     }
 
     /// <summary>
@@ -309,7 +308,7 @@ public sealed partial class GunSystem : SharedGunSystem
         RaiseNetworkEvent(message, filter);
     }
 
-    public void PlayImpactSound(EntityUid otherEntity, DamageSpecifier? modifiedDamage, SoundSpecifier? weaponSound, bool forceWeaponSound)
+    public override void PlayImpactSound(EntityUid otherEntity, DamageSpecifier? modifiedDamage, SoundSpecifier? weaponSound, bool forceWeaponSound)
     {
         DebugTools.Assert(!Deleted(otherEntity), "Impact sound entity was deleted");
 
@@ -340,76 +339,4 @@ public sealed partial class GunSystem : SharedGunSystem
             Audio.PlayPvs(weaponSound, otherEntity);
         }
     }
-
-    // TODO: Pseudo RNG so the client can predict these.
-    #region Hitscan effects
-
-    private void FireEffects(EntityCoordinates fromCoordinates, float distance, Angle angle, HitscanPrototype hitscan, EntityUid? hitEntity = null, EntityUid? user = null) // Pirate: gunplay
-    {
-        // Lord
-        // Forgive me for the shitcode I am about to do
-        // Effects tempt me not
-        var sprites = new List<(NetCoordinates coordinates, Angle angle, SpriteSpecifier sprite, float scale)>();
-        var fromXform = Transform(fromCoordinates.EntityId);
-
-        // We'll get the effects relative to the grid / map of the firer
-        // Look you could probably optimise this a bit with redundant transforms at this point.
-
-        var gridUid = fromXform.GridUid;
-        if (gridUid != fromCoordinates.EntityId && TryComp(gridUid, out TransformComponent? gridXform))
-        {
-            var (_, gridRot, gridInvMatrix) = TransformSystem.GetWorldPositionRotationInvMatrix(gridXform);
-            var map = TransformSystem.ToMapCoordinates(fromCoordinates);
-            fromCoordinates = new EntityCoordinates(gridUid.Value, Vector2.Transform(map.Position, gridInvMatrix));
-            angle -= gridRot;
-        }
-        else
-        {
-            angle -= TransformSystem.GetWorldRotation(fromXform);
-        }
-
-        if (distance >= 1f)
-        {
-            if (hitscan.MuzzleFlash != null)
-            {
-                var coords = fromCoordinates.Offset(angle.ToVec().Normalized() / 2);
-                var netCoords = GetNetCoordinates(coords);
-
-                sprites.Add((netCoords, angle, hitscan.MuzzleFlash, 1f));
-            }
-
-            if (hitscan.TravelFlash != null)
-            {
-                var coords = fromCoordinates.Offset(angle.ToVec() * (distance + 0.5f) / 2);
-                var netCoords = GetNetCoordinates(coords);
-
-                sprites.Add((netCoords, angle, hitscan.TravelFlash, distance - 1.5f));
-            }
-        }
-
-        if (hitscan.ImpactFlash != null)
-        {
-            var coords = fromCoordinates.Offset(angle.ToVec() * distance);
-            var netCoords = GetNetCoordinates(coords);
-
-            sprites.Add((netCoords, angle.FlipPositive(), hitscan.ImpactFlash, 1f));
-        }
-
-        if (sprites.Count > 0)
-        {
-            #region Pirate: gunplay
-            var filter = Filter.Pvs(fromCoordinates, entityMan: EntityManager);
-
-            if (TryComp<ActorComponent>(user, out var actor))
-                filter.RemovePlayer(actor.PlayerSession);
-
-            RaiseNetworkEvent(new HitscanEvent
-            {
-                Sprites = sprites,
-            }, filter);
-            #endregion
-        }
-    }
-
-    #endregion
 }

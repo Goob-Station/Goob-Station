@@ -92,7 +92,7 @@ namespace Content.Client.RoundEnd
             _roundEndTabs.AddChild(MakeStationReportTab()); //goob
             AddOrUpdatePhotoReportTab(); // Pirate: camera
 
-            Contents.AddChild(_roundEndTabs);
+            ContentsContainer.AddChild(_roundEndTabs);
 
             OpenCenteredRight();
             MoveToFront();

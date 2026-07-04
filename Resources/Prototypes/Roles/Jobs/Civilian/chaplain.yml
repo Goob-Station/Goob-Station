@@ -70,7 +70,7 @@
   playTimeTracker: JobChaplain
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 18000 # 15 hours
+      time: 15h # 15 hours
     - !type:SpeciesRequirement # Pirate no ipc-psionics
       inverted: true
       species:
@@ -117,6 +117,7 @@
     back:
     - ChaplainUndeterminedBible
     - RubberStampChaplain
+    - CosmicCenser # DeltaV - Cosmic Cult
     - Nullrod
     - Nullrod # Pirate
     - ArmamentsBeacon # Goobstation

@@ -99,6 +99,7 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
     /// <summary>
     /// Loadout specific name.
     /// </summary>
+    [DataField]
     public string? EntityName;
 
     /*
@@ -383,14 +384,14 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
             var loadouts = new List<Loadout>();
             SelectedLoadouts[group] = loadouts;
 
-            if (groupProto.MinLimit > 0)
+            if (groupProto.MinLimit > 0 || loadouts.Count < groupProto.DefaultSelected)
             {
                 // Apply any loadouts we can.
                 //foreach (var protoId in groupProto.Loadouts)
                 foreach (var protoId in groupProto.GetAllLoadouts(protoManager).Distinct()) // Pirate - port frontier subgroups
                 {
                     // Reached the limit, time to stop
-                    if (loadouts.Count >= groupProto.MinLimit)
+                    if (loadouts.Count >= Math.Max(groupProto.MinLimit, groupProto.DefaultSelected))
                         break;
 
                     if (!protoManager.TryIndex(protoId, out var loadoutProto))

@@ -86,14 +86,20 @@
     - localdelete
     - fullstatereset
     - dumpentities
+    - showwallmounts
     - showaccessreaders
     - showaudiomuffle # Pirate: audio muffle
+    - quickinspect
 
 - Flags: MAPPING
   Commands:
     - mapping
+    - mappingclientsidesetup
+    - showsubfloor
+    - showsubfloorforever
     - toggleautosave
     - toggledecals
+    - showwallmounts
     - showaccessreaders
 
 - Flags: QUERY

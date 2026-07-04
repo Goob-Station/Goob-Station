@@ -17,7 +17,7 @@
     Sodium:
       amount: 1
   effects:
-    - !type:ExplosionReactionEffect
+    - !type:Explosion
       explosionType: Default
       maxIntensity: 100
       intensityPerUnit: 0.5 # 50+50 reagent for maximum explosion
@@ -34,7 +34,7 @@
     Nitrogen:
       amount: 1
   products:
-    Cryostylane: 1  
+    Cryostylane: 1
 
 - type: reaction
   id: CryostylaneOxygenCooling
@@ -46,9 +46,8 @@
     Oxygen:
       amount: 1
   effects:
-    - !type:AdjustSolutionThermalEnergyEffect
+    - !type:AdjustSolutionThermalEnergy
       delta: -100 # I know noone will use this one since hotbeakering and second recipe, but one can dream
-      scaled: true
 
 - type: reaction
   id: CryostylaneIodineCooling
@@ -60,6 +59,5 @@
     Iodine:
       amount: 1
   effects:
-    - !type:AdjustSolutionThermalEnergyEffect
+    - !type:AdjustSolutionThermalEnergy
       delta: -200
-      scaled: true

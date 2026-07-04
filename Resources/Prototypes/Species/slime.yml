@@ -34,8 +34,8 @@
     Head: MobSlimeHead
     Hair: MobSlimeMarkingFollowSkin
     FacialHair: MobSlimeMarkingFollowSkin
-    Underwear: MobHumanoidAnyMarking
-    Undershirt: MobHumanoidAnyMarking
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
     Chest: MobSlimeChest
     Groin: MobSlimeGroin
     Eyes: MobHumanoidEyes
@@ -65,10 +65,10 @@
     Chest:
       points: 8
       required: false
-    Underwear:
+    UndergarmentBottom: # Goob
       points: 1
       required: false
-    Undershirt:
+    UndergarmentTop: # Goob
       points: 1
       required: false
     RightLeg:

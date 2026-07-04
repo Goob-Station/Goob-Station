@@ -72,7 +72,7 @@
   playTimeTracker: JobLawyer
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 9000 # 2.5 hrs
+      time: 2.5h
     # Pirate contractor start
     - !type:CharacterEmployerRequirement
       employers:

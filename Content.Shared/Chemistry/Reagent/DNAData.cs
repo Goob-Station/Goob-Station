@@ -85,8 +85,15 @@ namespace Content.Shared.Chemistry.Reagent;
 public sealed partial class DnaData : ReagentData
 {
     [DataField]
-    public string DNA = String.Empty;
+    public string DNA = string.Empty;
 
+    public override ReagentData Clone()
+    {
+        return new DnaData
+        {
+            DNA = DNA,
+        };
+    }
     [DataField] // Goobstation
     public TimeSpan Freshness = TimeSpan.Zero; // Goobstation
 
@@ -99,11 +106,6 @@ public sealed partial class DnaData : ReagentData
         DNA = other.DNA;
         Freshness = other.Freshness;
         VampireToxin = other.VampireToxin; // Pirate
-    }
-
-    public override DnaData Clone()
-    {
-        return new DnaData(this);
     }
     // Goobstation End
 

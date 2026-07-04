@@ -33,3 +33,8 @@
   id: TerrorSpider
   announcement: terror-spider
   rule: TerrorSpidersSpawn
+
+- type: ninjaHackingThreat # DeltaV start
+  id: Colossus
+  announcement: terror-colossus
+  rule: ColossusSpawn # DeltaV end

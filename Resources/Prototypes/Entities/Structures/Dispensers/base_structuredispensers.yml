@@ -140,7 +140,7 @@
       storagebase: !type:Container
   - type: StaticPrice
     price: 1000
-  - type: WiresPanel 
+  - type: WiresPanel
   # Pirate: chem plumbing
   - type: NodeContainer
     nodes:
@@ -170,3 +170,7 @@
     - outletWest
     containerSlotId: beakerSlot
     enabled: false
+  - type: EmptyOnMachineDeconstruct
+    containers:
+    - storagebase
+    - beakerSlot

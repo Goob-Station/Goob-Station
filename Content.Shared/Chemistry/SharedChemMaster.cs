@@ -108,7 +108,6 @@ namespace Content.Shared.Chemistry
     {
     }
     #endregion
-
     public enum ChemMasterMode
     {
         Transfer,
@@ -218,9 +217,9 @@ namespace Content.Shared.Chemistry
 
         public readonly bool UpdateLabel;
 
-        public readonly ChemMasterDrawSource DrawSource; // Pirate: chem plumbing
+    public readonly ChemMasterDrawSource DrawSource; // Pirate: chem plumbing
 
-        public readonly bool ValveOpen; // Pirate: chem plumbing
+    public readonly bool ValveOpen; // Pirate: chem plumbing
 
         public ChemMasterBoundUserInterfaceState(
             ChemMasterMode mode, ChemMasterSortingType sortingType, ContainerInfo? inputContainerInfo, ContainerInfo? outputContainerInfo,

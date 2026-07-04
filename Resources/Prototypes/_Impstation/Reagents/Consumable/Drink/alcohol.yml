@@ -50,22 +50,20 @@
         factor: 4
       - !type:SatiateHunger
         conditions:
-        - !type:OrganType
-          type: Moth
-          shouldHave: true
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
         factor: 4
       - !type:Emote
         conditions:
-        - !type:OrganType
-          type: Moth
-          shouldHave: true
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
         emote: Squeak
         showInChat: true
         force: true
         probability: 0.35
     Medicine:
       effects:
-      - !type:ModifyBleedAmount
+      - !type:ModifyBleed
         amount: -0.75
   fizziness: .1
 
@@ -124,7 +122,8 @@
           types:
             Poison: 5
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Reaganomics
           min: 20
         - !type:MobStateCondition
           mobstate: Alive
@@ -161,7 +160,8 @@
           types:
             Poison: 10
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Rotgut
           min: 20
         - !type:MobStateCondition
           mobstate: Alive
@@ -349,7 +349,7 @@
         factor: 5
       - !type:Emote
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: StarryNight
           min: 27
           max: 27
@@ -480,7 +480,7 @@
         showInChat: true
         force: true
         probability: 0.05
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 0.85
         sprintSpeedModifier: 0.85
       - !type:GenericStatusEffect
@@ -544,7 +544,8 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: MinotaursLament
           min: 20
         probability: 0.75
         damage:
@@ -580,7 +581,8 @@
           amount: 250
         - !type:HealthChange
           conditions:
-            - !type:ReagentThreshold
+            - !type:ReagentCondition
+              reagent: BurnChamber
               min: 10
           damage:
             types:
@@ -671,7 +673,7 @@
         refresh: false
       - !type:ChemRemovePsionic
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
             reagent: DoubleGreen
             min: 50
   fizziness: 0.1

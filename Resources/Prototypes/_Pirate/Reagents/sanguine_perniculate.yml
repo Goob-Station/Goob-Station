@@ -23,9 +23,9 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Bloodsucker
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Bloodsucker ]
+          inverted: true
         damage:
           types:
             Poison: 2

@@ -137,13 +137,13 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobSecurityOfficer
-      time: 36000 #10 hrs # Pirate
+      time: 10h # Pirate
     #- !type:RoleTimeRequirement # Pirate remove - Warden doesn't have to know medicine
     #  role: JobBrigmedic
     #  time: 18000 #5 hrs
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 90000 #25 hrs # Pirate
+      time: 25h # Pirate
     - !type:TraitsRequirement # Pirate
       inverted: true
       traits:
@@ -183,10 +183,11 @@
   - Brig
   - Armory
   - Maintenance
-  - Service
   - External
   - Detective
   - Cryogenics
+  - GenpopEnter
+  - GenpopLeave
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

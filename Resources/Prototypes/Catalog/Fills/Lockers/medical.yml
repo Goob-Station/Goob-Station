@@ -94,10 +94,11 @@
         weight: 0.5
       - id: UniformScrubsColorGreen
         weight: 0.1
-      - id: UniformScrubsColorPurple
-        weight: 0.05
+    - id: UniformScrubsColorPurple
+      weight: 0.05
     - id: ClothingMaskSterile
     - id: Eftpos #Pirate banking
+    - id: JetInjector
 
 - type: entity
   parent: LockerMedical
@@ -171,6 +172,7 @@
     - id: MedkitFilled
       prob: 0.3
     - id: Eftpos #Pirate banking
+    - id: JetInjector
 
 - type: entity
   parent: LockerParamedic

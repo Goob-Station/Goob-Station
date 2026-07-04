@@ -1,7 +1,7 @@
 using System.Numerics;
-using Content.Goobstation.Common.Weapons.Ranged;
-using Content.Shared._Pirate.Weapons.Ranged.Events;
 using Content.Shared.Projectiles;
+using Content.Shared.Weapons.Hitscan.Components;
+using Content.Shared.Weapons.Hitscan.Events;
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
@@ -15,30 +15,6 @@ public abstract partial class SharedGunSystem
 
     protected virtual void Recoil(EntityUid? user, Vector2 recoil, float recoilScalar)
     {
-    }
-
-    protected virtual void HandleHitscanShot(
-        EntityUid gunUid,
-        GunComponent gun,
-        HitscanPrototype hitscan,
-        EntityCoordinates fromCoordinates,
-        EntityCoordinates fromEffect,
-        MapCoordinates fromMap,
-        Vector2 toMapBeforeRecoil,
-        Vector2 mapDirection,
-        EntityUid? user,
-        ref bool userImpulse,
-        List<EntityUid> shotProjectiles)
-    {
-        if (Timing.IsFirstTimePredicted)
-            Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
-    }
-
-    protected bool TryAttemptHitscanBlock(EntityUid? user, EntityUid gunUid, EntityUid hitEntity, HitscanPrototype hitscan)
-    {
-        var blockEv = new HitScanBlockAttemptEvent(user, gunUid, hitEntity, hitscan.Damage);
-        RaiseLocalEvent(hitEntity, ref blockEv);
-        return blockEv.Cancelled;
     }
 
     protected void SharedShoot(
@@ -101,7 +77,7 @@ public abstract partial class SharedGunSystem
                     {
                         SetCartridgeSpent(ent!.Value, cartridge, true);
 
-                        var projectile = PredictedSpawnAtPosition(cartridge.Prototype, fromEnt);
+                        var projectile = EntityManager.PredictedSpawn(cartridge.Prototype, fromEnt);
                         CreateAndFireProjectiles(projectile, cartridge);
 
                         RaiseLocalEvent(ent.Value, new AmmoShotEvent
@@ -132,19 +108,21 @@ public abstract partial class SharedGunSystem
 
                     CreateAndFireProjectiles(ent.Value, newAmmo);
                     break;
-                case HitscanPrototype hitscan:
-                    HandleHitscanShot(
-                        gunUid,
-                        gun,
-                        hitscan,
-                        fromCoordinates,
-                        fromCoordinates,
-                        fromMap,
-                        toMapBeforeRecoil,
-                        mapDirection,
-                        user,
-                        ref userImpulse,
-                        shotProjectiles);
+                case HitscanAmmoComponent:
+                    if (ent == null)
+                        break;
+
+                    var hitscanEv = new HitscanTraceEvent
+                    {
+                        FromCoordinates = fromCoordinates,
+                        ShotDirection = mapDirection.Normalized(),
+                        Gun = gunUid,
+                        Shooter = user,
+                        Target = gun.Target,
+                    };
+                    RaiseLocalEvent(ent.Value, ref hitscanEv);
+                    PredictedDel(ent.Value);
+                    Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -186,7 +164,7 @@ public abstract partial class SharedGunSystem
 
                 for (var i = 1; i < ammoSpreadComp.Count; i++)
                 {
-                    var pellet = PredictedSpawnAtPosition(ammoSpreadComp.Proto, fromEnt);
+                    var pellet = EntityManager.PredictedSpawn(ammoSpreadComp.Proto, fromEnt);
                     SetProjectilePerfectHitEntities(pellet, user, new MapCoordinates(toMap, fromMap.MapId));
                     ShootOrThrowPredicted(pellet, angles[i].ToVec(), gunVelocity, gun, gunUid, user, toMapBeforeRecoil);
                     shotProjectiles.Add(pellet);

@@ -118,6 +118,7 @@
     shape:
     - 0,0,1,0
     - 0,1,0,1
+    storedOffset: 0,-4
   - type: Tag
     tags:
     - Sidearm
@@ -149,10 +150,10 @@
         whitelist:
           tags:
             - MagazinePistol
+            - MagazinePistolHighCapacity
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: CartridgePistol
         priority: 1
         whitelist:
           tags:
@@ -224,7 +225,7 @@
           - GunUpgradeFlashlight
       gun_magazine:
         name: Magazine
-        startingItem: MagazinePistol
+        startingItem: MagazinePistolHighCapacity
         insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
         priority: 2
@@ -235,7 +236,6 @@
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: CartridgePistol
         priority: 1
         whitelist:
           tags:
@@ -288,15 +288,16 @@
           components:
           - GunUpgradeFlashlight
   - type: ItemUpgradeable # DOWNSTREAM-TPirates: gun flashlights
-  - type: ProjectileBatteryAmmoProvider
-    proto: BulletPistol
-    fireCost: 100
-  - type: Battery
-    maxCharge: 1000
-    startingCharge: 1000
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 25
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - CartridgePistol
+    capacity: 10
+    proto: CartridgePistol
+    cycleable: false # No synthesizing ammo for your syndicate masters.
+  - type: BallisticAmmoSelfRefiller
+    autoRefillRate: 4s
+    affectedByEmp: true
   - type: AmmoCounter
 
 - type: entity
@@ -349,7 +350,6 @@
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: CartridgeCaselessRifle
         priority: 1
         whitelist:
           tags:
@@ -380,6 +380,8 @@
     offset: "0, 0.15625"
   - type: Clothing
     sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
+  - type: Item
+    storedOffset: 0,-2
   - type: Gun
     fireRate: 5
     availableModes:
@@ -419,6 +421,8 @@
       flashlight: !type:ContainerSlot
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
+  - type: StealTarget
+    stealGroup: OfficerHandgun
 
 - type: entity
   name: N1984
@@ -471,7 +475,6 @@
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: CartridgeMagnum
         priority: 1
         whitelist:
           tags:

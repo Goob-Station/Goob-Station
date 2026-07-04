@@ -53,7 +53,7 @@
   id: DefaultMapPool
   maps:
   - Atlas
-  - Amber
+  #- Amber kil by upstream we still have ours but it testfails oh well.
   - Bagel
   - BoxTP # Pirate
   #- Box # Pirate
@@ -71,7 +71,6 @@
   - Origin
   - Saltern
   - Packed
-  #- Reach # Goobstation, removed from map pool
   #- Train # Goobstation - all my friends hate train
   - FlandHighPop
   - OasisHighPop
@@ -86,3 +85,7 @@
   - PerditionTP # Pirate
   - PiramideTP # Pirate
   - EventCharonEpsilon # Event map
+  #- Plasma # Goob - No. Leave it to the mappers.
+  #- Reach
+  - Exo
+  - Snowball

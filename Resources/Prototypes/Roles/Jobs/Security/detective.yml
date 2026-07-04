@@ -71,18 +71,18 @@
   requirements:
   - !type:RoleTimeRequirement
     role: JobSecurityOfficer
-    time: 18000 #5 hrs
+    time: 5h
   - !type:TraitsRequirement # Pirate
-      inverted: true
-      traits:
-      - Foreigner
-      - ForeignerLight
-      - DeafTrait
-      - MovementImpaired
-      - Blindness
-      - Narcolepsy
-      - Muted
-      - WheelchairBound # Pirate end
+    inverted: true
+    traits:
+    - Foreigner
+    - ForeignerLight
+    - DeafTrait
+    - MovementImpaired
+    - Blindness
+    - Narcolepsy
+    - Muted
+    - WheelchairBound # Pirate end
   # Pirate contractor start
   - !type:CharacterEmployerRequirement
     employers:
@@ -103,7 +103,6 @@
   - Security
   - Brig
   - Maintenance
-  - Service
   - Detective
   - Cryogenics
   - External

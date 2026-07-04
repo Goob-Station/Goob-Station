@@ -25,7 +25,10 @@
     - id: FoodMeatChicken
       amount: 5
   - type: Bloodstream
-    bloodReagent: AmmoniaBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: AmmoniaBlood
+        Quantity: 200
   - type: MeleeWeapon
     soundHit:
       collection: AlienClaw
@@ -38,6 +41,7 @@
     prototype: Hydrakin
     requiredLegs: 2
   - type: Temperature
+  - type: TemperatureDamage
     coldDamageThreshold: 10 # Mono - Absurd cold resistance
     heatDamageThreshold: 332 # no. just no. suffer.
     coldDamage:

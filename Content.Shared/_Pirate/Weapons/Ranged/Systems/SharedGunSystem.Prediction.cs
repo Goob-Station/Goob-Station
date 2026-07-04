@@ -1,5 +1,4 @@
 using System.Numerics;
-using Content.Goobstation.Common.Weapons.Ranged;
 using Content.Shared.Audio;
 using Content.Shared.Projectiles;
 using Content.Shared.Random.Helpers;

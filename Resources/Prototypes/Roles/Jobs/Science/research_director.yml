@@ -142,22 +142,22 @@
     time: 18000 # 5 hours
   - !type:RoleTimeRequirement
     role: JobScientist
-    time: 21600 #6 hrs
+    time: 6h # Goobstation
   - !type:DepartmentTimeRequirement
     department: Science
-    time: 36000 #10 hrs
+    time: 10h
   - !type:SpeciesRequirement # Pirate no ipc psionics
-      inverted: true
-      species:
-        - IPC
+    inverted: true
+    species:
+    - IPC
   - !type:TraitsRequirement
-      inverted: true
-      traits:
-      - DeafTrait
-      - Blindness
-      - Narcolepsy
-      - Muted
-      - WheelchairBound # Pirate end
+    inverted: true
+    traits:
+    - DeafTrait
+    - Blindness
+    - Narcolepsy
+    - Muted
+    - WheelchairBound # Pirate end
   #- !type:SpeciesRequirement # Pirate remove requirement
   #  inverted: true
   #  species:
@@ -211,10 +211,10 @@
   equipment:
     id: RnDPDA
     ears: ClothingHeadsetAltScience # Goobstation
-  #storage: # Pirate
-    #back: # Pirate
-    #- Flash # Pirate
-    #- TelescopicBaton # Goobstation # PIRATE, moved to loadouts
+  storage:
+    back:
+    - CosmicCenser # DeltaV - Cosmic Cult
+    # Pirate: Flash and TelescopicBaton moved to loadouts.
 
 - type: chameleonOutfit
   id: ResearchDirectorChameleonOutfit

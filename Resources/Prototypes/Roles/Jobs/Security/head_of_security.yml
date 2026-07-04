@@ -141,13 +141,13 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobWarden
-      time: 36000 #10 hrs # Pirate
+      time: 10h # Pirate
     - !type:RoleTimeRequirement
       role: JobSecurityOfficer
-      time: 108000 #30 hrs # Pirate
+      time: 30h # Pirate
     - !type:RoleTimeRequirement
       role: JobDetective
-      time: 3600 #1 hrs
+      time: 1h # knowing how to use the tools is important
     #- !type:DepartmentTimeRequirement # Pirate remove
     #  department: Security
     #  time: 36000 # 10 hrs
@@ -199,10 +199,11 @@
   - Security
   - Armory
   - Maintenance
-  - Service
   - External
   - Detective
   - Cryogenics
+  - GenpopEnter
+  - GenpopLeave
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

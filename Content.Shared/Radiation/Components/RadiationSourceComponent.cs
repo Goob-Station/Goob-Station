@@ -22,6 +22,17 @@ public sealed partial class RadiationSourceComponent : Component
     [DataField("intensity")]
     public float Intensity = 1;
 
+    /* Goobstation disabled and replaced with the one below
+    /// <summary>
+    ///     Defines how fast radiation rays will loose intensity
+    ///     over distance. The bigger the value, the shorter range
+    ///     of radiation source will be.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("slope")]
+    public float Slope = 0.5f;
+    */
+
     /// <summary>
     ///     GOOBSTATION
     ///     Defines how fast radiation rays will loose intensity

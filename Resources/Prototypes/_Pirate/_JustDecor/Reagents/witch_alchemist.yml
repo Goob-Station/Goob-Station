@@ -693,10 +693,10 @@
         effectProto: StatusEffectAlchemistGravityPotion
         time: 10
         type: Add
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 0.85
         sprintSpeedModifier: 0.85
-        statusLifetime: 6
+        time: 6
       - !type:PopupMessage
         type: Local
         visualType: Medium
@@ -856,7 +856,7 @@
     Medicine:
       metabolismRate: 0.36
       effects:
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 1.25
         sprintSpeedModifier: 1.25
       - !type:ModifyStatusEffect
@@ -926,10 +926,10 @@
         - witch-serenity-message-7
         - witch-serenity-message-8
         probability: 0.12
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 0.9
         sprintSpeedModifier: 0.9
-        statusLifetime: 20
+        time: 20
       - !type:HealthChange
         damage:
           types:
@@ -940,7 +940,8 @@
         time: 15
         type: Add
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: WitchSerenity
           min: 10
 
 - type: reagent
@@ -970,10 +971,10 @@
         - "Кожна думка - це нова можливість для творчості."
         - "Ви натхнені робити щось прекрасне прямо зараз."
         probability: 0.14
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 1.05
         sprintSpeedModifier: 1.05
-        statusLifetime: 12
+        time: 12
       - !type:Emote
         emote: Clap
         showInChat: true
@@ -1177,10 +1178,10 @@
         - "Ви готові захищати тих, кого любите."
         - "Страх - це лише слово, а ви - воїн!"
         probability: 0.15
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 1.1
         sprintSpeedModifier: 1.1
-        statusLifetime: 15
+        time: 15
       - !type:HealthChange
         damage:
           types:
@@ -1220,10 +1221,10 @@
         damage:
           types:
             Blunt: -0.3
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 1.08
         sprintSpeedModifier: 1.08
-        statusLifetime: 18
+        time: 18
 
 - type: reagent
   id: AlchemistElixirOfLife
@@ -1267,7 +1268,7 @@
             Airloss: -2
       - !type:ModifyBloodLevel
         amount: 4
-      - !type:ModifyBleedAmount
+      - !type:ModifyBleed
         amount: -0.8
       - !type:ReduceRotting
         seconds: 4

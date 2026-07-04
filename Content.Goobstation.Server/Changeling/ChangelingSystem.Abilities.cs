@@ -78,6 +78,7 @@ using Content.Shared.Tools.Systems;
 using Content.Goobstation.Shared.Devour.Events;
 using Content.Shared.Nutrition.Components;
 using Content.Goobstation.Shared.InternalResources.Components;
+using Content.Shared.Light.Components;
 
 namespace Content.Goobstation.Server.Changeling;
 
@@ -303,7 +304,7 @@ public sealed partial class ChangelingSystem
 
         var target = args.Target;
 
-        if (!TryComp<FoodComponent>(target, out var food))
+        if (!TryComp<EdibleComponent>(target, out var food))
             return;
 
         if (!TryComp<SolutionContainerManagerComponent>(target, out var solMan))
@@ -549,7 +550,7 @@ public sealed partial class ChangelingSystem
 
         var pos = _transform.GetMapCoordinates(uid);
         var power = comp.ShriekPower;
-        _emp.EmpPulse(pos, power, 5000f, power * 2);
+        _emp.EmpPulse(pos, power, 5000f,  TimeSpan.FromSeconds(power * 2));
 
         args.Handled = true;
     }
@@ -736,9 +737,9 @@ public sealed partial class ChangelingSystem
 
         if (TryComp<CuffableComponent>(uid, out var cuffs) && cuffs.Container.ContainedEntities.Count > 0)
         {
-            var cuff = cuffs.LastAddedCuffs;
+            var cuff = cuffs.Container.ContainedEntities[^1];
 
-            _cuffs.Uncuff(uid, cuffs.LastAddedCuffs, cuff);
+            _cuffs.Uncuff(uid, uid, cuff, cuffs);
             QueueDel(cuff);
         }
 

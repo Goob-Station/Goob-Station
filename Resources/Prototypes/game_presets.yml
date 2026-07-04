@@ -104,12 +104,14 @@
     - Traitor
     - Revolutionary
     - Zombie
-    - Thief
-    - Heretic
-    - BlobGameMode
-    - LoneAbductorSpawn
-    - KesslerSyndromeScheduler
     - Wizard
+    - CosmicCult # DeltaV
+    - Xenoborgs
+    - Thief
+    - Heretic # Goob
+    - BlobGameMode # Goob
+    - LoneAbductorSpawn # Goob
+    - KesslerSyndromeScheduler
     - RampingStationEventScheduler
     - Changeling # Goobstation - changeling playtest
     - SpaceTrafficControlEventScheduler
@@ -136,6 +138,7 @@
     - BlobGameMode
     - LoneAbductorSpawn
     - Wizard
+    - Xenoborgs
     - BasicStationEventScheduler
     - KesslerSyndromeScheduler
     - MeteorSwarmMildScheduler # Goob Edit
@@ -175,6 +178,23 @@
   - SpaceTrafficControlFriendlyEventScheduler
   - BasicRoundstartVariation
   - PsionicEventsScheduler # Pirate
+
+- type: gamePreset
+  id: Dynamic
+  alias:
+  - dynamic
+  - multiantag
+  - director
+  name: dynamic-title
+  showInVote: false # admin-only for now until we fix some bugs
+  description: dynamic-description
+  rules:
+  - DynamicRule
+  - DummyNonAntag
+  - DynamicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
 
 - type: gamePreset
   id: Secret
@@ -237,7 +257,7 @@
   rules:
   - DummyNonAntagChance
   - Traitor
-  - SubGamemodesRule
+  #- SubGamemodesRuleNoWizard # Goob
   - BasicStationEventScheduler
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
@@ -267,7 +287,7 @@
   rules:
   - Nukeops
   - DummyNonAntagChance
-  - SubGamemodesRule
+  # - SubGamemodesRuleNoWizard Goob
   - BasicStationEventScheduler
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
@@ -286,7 +306,23 @@
   rules:
   - DummyNonAntagChance
   - Revolutionary
-  - SubGamemodesRule
+  # - SubGamemodesRuleNoWizard Goob
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
+
+- type: gamePreset
+  id: Xenoborgs
+  alias:
+    - xenoborgs
+  name: xenoborgs-title
+  description: xenoborgs-description
+  showInVote: false
+  rules:
+  - Xenoborgs
+  - DummyNonAntagChance
+  - SubGamemodesRuleNoWizardNoXenoborg # no two motherships
   - BasicStationEventScheduler
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler

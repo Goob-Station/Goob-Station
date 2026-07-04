@@ -83,8 +83,6 @@ using System.Numerics;
 using Content.Server.Announcements;
 using Content.Server.Discord;
 using Content.Server.GameTicking.Events;
-using Content.Server.Ghost;
-using Content.Server.Maps;
 using Content.Server.Roles;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
@@ -93,6 +91,7 @@ using Content.Pirate.Common.Voting;
 using Content.Shared.Mind;
 using Content.Shared.Players;
 using Content.Shared.Preferences;
+using Content.Shared.Roles.Components;
 using JetBrains.Annotations;
 using Prometheus;
 using Robust.Shared.Asynchronous;
@@ -100,7 +99,6 @@ using Robust.Shared.Audio;
 using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map;
-using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
@@ -114,6 +112,8 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.Mind.Components;
+using Content.Server.Maps;
+using Content.Shared.Maps;
 
 namespace Content.Server.GameTicking
 {
@@ -488,7 +488,9 @@ namespace Content.Server.GameTicking
                 }
                 else
                 {
-                    profile = HumanoidCharacterProfile.Random();
+                    var speciesToBlacklist =
+                        new HashSet<string>(_cfg.GetCVar(CCVars.ICNewAccountSpeciesBlacklist).Split(","));
+                    profile = HumanoidCharacterProfile.Random(speciesToBlacklist);
                 }
                 readyPlayerProfiles.Add(userId, profile);
             }

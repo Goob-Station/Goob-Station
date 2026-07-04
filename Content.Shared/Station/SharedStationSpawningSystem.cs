@@ -213,7 +213,7 @@ public abstract class SharedStationSpawningSystem : EntitySystem
             name = loadout.EntityName;
         }
 
-        if (string.IsNullOrEmpty(name) && PrototypeManager.TryIndex(roleProto.NameDataset, out var nameData))
+        if (string.IsNullOrEmpty(name) && PrototypeManager.Resolve(roleProto.NameDataset, out var nameData))
         {
             name = Loc.GetString(_random.Pick(nameData.Values));
         }
@@ -251,7 +251,7 @@ public abstract class SharedStationSpawningSystem : EntitySystem
         string? pirateLoadoutName = null, // Pirate: loadout
         string? pirateLoadoutDescription = null) // Pirate: loadout
     {
-        PrototypeManager.TryIndex(startingGear, out var gearProto);
+        PrototypeManager.Resolve(startingGear, out var gearProto);
         // Pirate: cameras (photo persistence)
         EquipStartingGear(entity, gearProto, raiseEvent, pirateFromSelectedLoadout, pirateLoadoutTint, pirateLoadoutName, pirateLoadoutDescription); // Pirate: loadout
     }
@@ -407,7 +407,7 @@ public abstract class SharedStationSpawningSystem : EntitySystem
 
             foreach (var items in group.Value)
             {
-                if (!PrototypeManager.TryIndex(items.Prototype, out var loadoutPrototype))
+                if (!PrototypeManager.Resolve(items.Prototype, out var loadoutPrototype))
                     return null;
 
                 var gear = ((IEquipmentLoadout) loadoutPrototype).GetGear(slot);

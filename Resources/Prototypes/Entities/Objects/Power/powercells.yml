@@ -99,9 +99,16 @@
     tags:
       - PowerCell
       - DroneUsable # Goobstation
-  - type: Appearance
-  - type: PowerCellVisuals
   - type: Riggable
+  - type: Appearance
+  - type: BatteryVisuals
+  - type: GenericVisualizer
+    visuals:
+      enum.BatteryVisuals.State:
+        enum.PowerCellVisualLayers.Unshaded:
+          Full: {visible: true, state: o2}
+          Neither: {visible: true, state: o1}
+          Empty: {visible: false}
   - type: StealTarget #Goobstation - IPC steal
     stealGroup: Battery
   - type: BatteryDrinkerSource # Goobstation - Energycrit
@@ -144,7 +151,7 @@
     sprite: Structures/Power/power.rsi
     state: generator
   - type: Anchorable # goob end
-  - type: HitscanBatteryAmmoProvider # goob edit - svalinn buff fix
+  - type: BatteryAmmoProvider # goob edit - svalinn buff fix
     proto: MediumOverchargedLaser # hot potato
     fireCost: 70
 
@@ -174,7 +181,7 @@
       Steel: 12
     chemicalComposition:
       Zinc: 5
-  - type: HitscanBatteryAmmoProvider # goob edit - svalinn buff fix
+  - type: BatteryAmmoProvider # goob edit - svalinn buff fix
     proto: RedLightLaser
     fireCost: 45 # 8 shots
 
@@ -202,9 +209,7 @@
   description: A self rechargeable power cell, designed for fast recharge rate at the expense of capacity.
   components:
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 36 # 10 seconds to recharge
-    autoRechargePause: true
     autoRechargePauseTime: 30
 
 - type: entity
@@ -224,7 +229,7 @@
   - type: Battery
     maxCharge: 720
     startingCharge: 720
-  - type: HitscanBatteryAmmoProvider # goob edit - battery hitscan buff
+  - type: BatteryAmmoProvider # goob edit - battery hitscan buff
     proto: MediumRedLaser
     fireCost: 90 # 8 shots
   - type: PhysicalComposition #Goobstation - Recycle update
@@ -270,7 +275,7 @@
   - type: Battery
     maxCharge: 1080
     startingCharge: 1080
-  - type: HitscanBatteryAmmoProvider # goob edit - battery hitscan buff
+  - type: BatteryAmmoProvider # goob edit - battery hitscan buff
     proto: RedLaser
     fireCost: 135 # 8 shots
   - type: PhysicalComposition #Goobstation - Recycle update
@@ -316,7 +321,7 @@
   - type: Battery
     maxCharge: 1800
     startingCharge: 1800
-  - type: HitscanBatteryAmmoProvider # goob edit - battery hitscan buff
+  - type: BatteryAmmoProvider # goob edit - battery hitscan buff
     proto: HeavyRedLaser
     fireCost: 225 # 8 shots
 
@@ -355,11 +360,10 @@
     maxCharge: 720
     startingCharge: 720
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 12 # takes 1 minute to charge itself back to full
     # Goobstation
     canEmp: true
-  - type: HitscanBatteryAmmoProvider # goob edit - battery hitscan buff
+  - type: BatteryAmmoProvider # goob edit - battery hitscan buff
     proto: MediumRedLaser
     fireCost: 90 # 8 shots
   - type: PhysicalComposition #Goobstation - Recycle update
@@ -404,9 +408,8 @@
       maxCharge: 1200
       startingCharge: 1200
     - type: BatterySelfRecharger
-      autoRecharge: true
       autoRechargeRate: 40
-    - type: HitscanBatteryAmmoProvider # goob edit - svalinn buff fix
+    - type: BatteryAmmoProvider # goob edit - svalinn buff fix
       proto: RedLaser
       fireCost: 75 # 16 shots
 

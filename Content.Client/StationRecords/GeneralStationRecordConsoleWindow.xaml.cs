@@ -82,7 +82,7 @@ public sealed partial class GeneralStationRecordConsoleWindow : DefaultWindow
 
         StationRecordsFilterType.OnItemSelected += eventArgs =>
         {
-            var type = (StationRecordFilterType) eventArgs.Id;
+            var type = (StationRecordFilterType)eventArgs.Id;
 
             if (_currentFilterType != type)
             {

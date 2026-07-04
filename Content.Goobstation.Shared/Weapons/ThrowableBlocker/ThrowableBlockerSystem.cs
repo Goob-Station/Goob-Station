@@ -37,13 +37,13 @@ public sealed class ThrowableBlockerSystem : EntitySystem
     {
         base.Initialize();
 
-        Subs.SubscribeWithRelay<ReflectComponent, ThrowHitByEvent>(
+        Subs.SubscribeWithRelay<ReflectComponent, ThrowAttemptEvent>(
             OnThrowHit, baseEvent: false);
     }
 
-    private void OnThrowHit(Entity<ReflectComponent> ent, ref ThrowHitByEvent args)
+    private void OnThrowHit(Entity<ReflectComponent> ent, ref ThrowAttemptEvent args)
     {
-        var thrown = args.Thrown;
+        var thrown = args.ItemUid;
 
         if (!TryComp(thrown, out ThrowableBlockedComponent? blockedComp))
             return;
@@ -57,7 +57,7 @@ public sealed class ThrowableBlockerSystem : EntitySystem
 
         var blockerComp = Comp<ThrowableBlockerComponent>(blocked);
 
-        args.Handled = true;
+        args.Cancel();
 
         if (_net.IsServer)
         {

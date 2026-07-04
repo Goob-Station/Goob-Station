@@ -52,6 +52,7 @@
     ClothingNeckScarfStripedBrown: 3
     ClothingShoesBootsWinterCargo: 2
     ClothingHeadHatBunnyearsCargo: 3 # Pirate
+    MailBag: 2
   contrabandInventory:
     ToyFigurineCargoTech: 1
     ToyFigurineSalvage: 1

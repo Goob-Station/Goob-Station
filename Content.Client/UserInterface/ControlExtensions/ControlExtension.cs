@@ -3,9 +3,10 @@
 //
 // SPDX-License-Identifier: MIT
 
-using System.Diagnostics.CodeAnalysis; // Pirate
-using System.Numerics; // Pirate end
+using System.Diagnostics.CodeAnalysis;
+using System.Numerics;
 using Content.Client.Guidebook.Controls;
+using Content.Client.Guidebook.RichText;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 

@@ -123,6 +123,11 @@
   - type: Input
     context: human
   - type: MMI
+    brainSlot:
+      name: positronic-brain-slot-component-slot-name-brain
+      whitelist:
+        components:
+        - Brain
   - type: BorgBrain
   - type: BlockMovement
   - type: Examiner
@@ -183,14 +188,13 @@
   id: MMIFilled
   suffix: Filled
   components:
-  - type: ItemSlots
-    slots:
-      brain_slot:
-        name: "Brain"
-        startingItem: OrganHumanBrain
-        whitelist:
-          components:
-            - Brain
+  - type: MMI
+    brainSlot:
+      name: positronic-brain-slot-component-slot-name-brain
+      startingItem: OrganHumanBrain
+      whitelist:
+        components:
+        - Brain
 
 - type: entity
   parent: BaseItem
@@ -248,9 +252,11 @@
       proto: robot
     - type: Speech
       speechSounds: Pai
+    - type: Alerts
     - type: MobState
       allowedStates:
       - Alive
+      - Dead
     - type: Appearance
     - type: Tag
       tags:

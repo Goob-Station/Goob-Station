@@ -39,7 +39,7 @@
         damage:
           types:
             Asphyxiation: -0.25
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 1.1
         sprintSpeedModifier: 1.1
 
@@ -61,12 +61,13 @@
             Brute: -0.5
             Burn: -0.5
             Toxin: -0.25
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 1.2
         sprintSpeedModifier: 1.2
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Mutonin
           min: 15
         damage:
           types:

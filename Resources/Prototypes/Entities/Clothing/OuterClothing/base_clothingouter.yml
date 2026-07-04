@@ -426,6 +426,9 @@
     equipDelay: 4
     unequipDelay: 3
   # Pirate clothingDelay end
+  - type: CosmicTransmutable # DeltaV
+    transmutesTo: ClothingOuterHardsuitCosmicCult
+    requiredGlyphType: CosmicGlyphWarding
 
 - type: entity
   abstract: true
@@ -476,6 +479,9 @@
     equipDelay: 1.25
     unequipDelay: 1
   # Pirate clothingDelay end
+  - type: CosmicTransmutable # DeltaV
+    transmutesTo: ClothingOuterHardsuitCosmicCult
+    requiredGlyphType: CosmicGlyphWarding
 
 - type: entity
   parent: ClothingOuterBase

@@ -105,6 +105,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   recognizable: true
+  standsout: true
   physicalDesc: reagent-physical-desc-ferrous
   metabolisms:
     Drink:
@@ -112,81 +113,81 @@
       - !type:SatiateThirst
         factor: 0.5
         conditions:
-          - !type:OrganType
-            type: Human
-            shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Human ]
+          inverted: true
       - !type:SatiateHunger # Pirate
         factor: 1.5
         conditions:
-        - !type:OrganType
-          type: Vampiric
+        - !type:MetabolizerTypeCondition
+          type: [ Vampiric ]
         - !type:HasVampireToxin
           invert: true
       - !type:AdjustReagent
         conditions:
-        - !type:OrganType
-          type: Vampiric
+        - !type:MetabolizerTypeCondition
+          type: [ Vampiric ]
         - !type:HasVampireToxin
           invert: true
         reagent: Water
         amount: 0.5
       - !type:AdjustReagent
         conditions:
-        - !type:OrganType
-          type: Vampiric
+        - !type:MetabolizerTypeCondition
+          type: [ Vampiric ]
         - !type:HasVampireToxin
           invert: true
         reagent: Omnizine
         amount: 0.3
-      - !type:ModifyBleedAmount
+      - !type:ModifyBleed
         amount: -0.05
         conditions:
-        - !type:OrganType
-          type: Vampiric
+        - !type:MetabolizerTypeCondition
+          type: [ Vampiric ]
         - !type:HasVampireToxin
           invert: true
       - !type:ModifyBloodLevel
         amount: 0.05
         conditions:
-        - !type:OrganType
-          type: Vampiric
+        - !type:MetabolizerTypeCondition
+          type: [ Vampiric ]
         - !type:HasVampireToxin
           invert: true # Pirate end
       - !type:ChemAddMoodlet # Pirate - port EE mood system
         moodPrototype: DrankBlood
         conditions:
-          - !type:OrganType
-            type: Human
+        - !type:MetabolizerTypeCondition
+          type: [ Human ]
       - !type:ChemAddMoodlet # Pirate - port EE mood system
         moodPrototype: DrankBloodVampiric
         conditions:
-          - !type:OrganType
-            type: Vampiric
-          - !type:HasVampireToxin
-            invert: true
+        - !type:MetabolizerTypeCondition
+          type: [ Vampiric ]
+        - !type:HasVampireToxin
+          invert: true
     Food:
       effects:
         - !type:AdjustReagent
           reagent: UncookedAnimalProteins
           amount: 0.1
-          conditions: # Pirate
-            - !type:OrganType
-              type: Vampiric
-              shouldHave: false
+          conditions:
+          - !type:MetabolizerTypeCondition # Pirate
+            type: [ Vampiric ]
+            inverted: true
         - !type:AdjustReagent
           reagent: UncookedAnimalProteins
           amount: 0.1
-          conditions: # Pirate
-            - !type:OrganType
-              type: Vampiric
-            - !type:HasVampireToxin
-              invert: true # Pirate end
+          conditions:
+          - !type:MetabolizerTypeCondition # Pirate
+            type: [ Vampiric ]
+          - !type:HasVampireToxin
+            invert: true # Pirate end
     Medicine:
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Bloodsucker
+        - !type:MetabolizerTypeCondition
+          type: [ Bloodsucker ]
         damage:
           groups:
             Brute: -3
@@ -223,6 +224,7 @@
   flavor: slimy
   color: "#2cf274"
   recognizable: true
+  standsout: true
   physicalDesc: reagent-physical-desc-viscous
   viscosity: 0.25
   tileReactions:
@@ -233,6 +235,15 @@
       effects:
       - !type:SatiateHunger
         factor: 1
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [Slime]
+          inverted: true
+      - !type:ModifyBloodLevel
+        amount: 0.5 # drawing 15u removes 5% blood level from a slimeperson, this will add 5% when injecting 15u
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [Slime]
   footstepSound:
     collection: FootstepSlime # makes sense
     params:
@@ -279,8 +290,8 @@
         - !type:ChemAddMoodlet # Pirate - port EE mood system
           moodPrototype: DrankBlood
           conditions:
-            - !type:OrganType
-              type: Human
+          - !type:MetabolizerTypeCondition
+            type: [ Human ]
 
 - type: reagent
   parent: Blood
@@ -298,8 +309,8 @@
         - !type:ChemAddMoodlet # Pirate - port EE mood system
           moodPrototype: DrankBlood
           conditions:
-            - !type:OrganType
-              type: Human
+          - !type:MetabolizerTypeCondition
+            type: [ Human ]
 
 - type: reagent
   id: ZombieBlood
@@ -321,17 +332,17 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         damage:
           types:
             Poison: 4
-      - !type:ChemVomit
+      - !type:Vomit
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         probability: 0.25
 - type: reagent
   id: Ichor
@@ -345,6 +356,9 @@
   metabolisms:
     Drink:
       effects:
+      - !type:SatiateThirst
+        factor: 1.5
+      # Goob start
       - !type:SuppressPain
         amount: 4
         time: 28
@@ -362,16 +376,15 @@
             Blunt: -5
             Slash: -5
             Piercing: -5
-
       - !type:ModifyBloodLevel
-            amount: 3
-
-      - !type:ModifyBleedAmount
-            amount: -1.5
-  # Goobstation, just in case you REALLY  REALLY want to water your plants
+        amount: 3
+      - !type:ModifyBleed
+        amount: -1.5
+      # Goob end
+  # Just in case you REALLY  REALLY want to water your plants
   plantMetabolism:
   - !type:PlantAdjustWater
-    amount: 1
+    amount: 1 # Goobstation
   footstepSound:
     collection: FootstepBlood
     params:

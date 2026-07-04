@@ -70,7 +70,7 @@
     - id: HandLabeler
     - id: WeaponRussianRevolver # Goobstation
     - id: MagazineBoxMagnumPractice # Goobstation
-    - id: DrinkBottleBeer
+    - id: DrinkBeerBottleFull
       amount: !type:BinomialNumberSelector
         trials: 3
     - !type:AllSelector

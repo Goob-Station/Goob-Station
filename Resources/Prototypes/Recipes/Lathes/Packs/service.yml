@@ -60,6 +60,7 @@
   - BoozeDispenserMachineCircuitboard
   - SodaDispenserMachineCircuitboard
   - WashingMachineCircuitboard # Pirate: stains
+  - SmartFridgeCircuitboard
 
 ## Dynamic
 

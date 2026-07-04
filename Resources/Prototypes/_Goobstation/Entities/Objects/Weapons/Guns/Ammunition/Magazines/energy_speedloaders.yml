@@ -19,9 +19,7 @@
   - type: BatteryDrinkerSource
     maxAmount: 100
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 40
-    autoRechargePause: true
     autoRechargePauseTime: 12
   - type: AmmoCounter
   - type: Appearance
@@ -35,7 +33,7 @@
   name: energy speedloader (lethal)
   description: A rather volatile powercell utilizing phoron to charge lethal bolts over time. Phoron will make us all rich.
   components:
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletEnergyGunMagnum
     fireCost: 100
   - type: Tag
@@ -51,7 +49,7 @@
   components:
   - type: Sprite
     state: icon-disabling
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletEnergyGunDisabler
     fireCost: 50
   - type: Tag
@@ -65,7 +63,7 @@
   name: energy speedloader (pulse)
   description: A rather volatile powercell utilizing phoron to charge destructive energy pulses over time. Phoron will make us all rich.
   components:
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: LightPulse
     fireCost: 50
   - type: Tag

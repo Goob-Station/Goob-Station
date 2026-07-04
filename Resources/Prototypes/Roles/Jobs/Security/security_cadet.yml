@@ -101,7 +101,7 @@
   playTimeTracker: JobSecurityCadet
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 36000 #10 hrs # Pirate
+      time: 10h # Pirate
     - !type:TraitsRequirement # Pirate
       inverted: true
       traits:
@@ -137,7 +137,6 @@
   - Security
   - Brig
   - Maintenance
-  - Service
   - External
   - Cryogenics
   special:

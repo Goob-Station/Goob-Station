@@ -34,6 +34,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
 
 namespace Content.Shared.Preferences.Loadouts;
 
@@ -41,10 +42,19 @@ namespace Content.Shared.Preferences.Loadouts;
 /// Corresponds to a set of loadouts for a particular slot.
 /// </summary>
 [Prototype]
-public sealed partial class LoadoutGroupPrototype : IPrototype
+public sealed partial class LoadoutGroupPrototype : IPrototype, IInheritingPrototype
 {
     [IdDataField]
     public string ID { get; private set; } = string.Empty;
+
+    /// <inheritdoc />
+    [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<LoadoutGroupPrototype>))]
+    public string[]? Parents { get; private set; }
+
+    /// <inheritdoc />
+    [NeverPushInheritance]
+    [AbstractDataField]
+    public bool Abstract { get; private set; }
 
     /// <summary>
     /// User-friendly name for the group.
@@ -57,6 +67,12 @@ public sealed partial class LoadoutGroupPrototype : IPrototype
     /// </summary>
     [DataField]
     public int MinLimit = 1;
+
+    /// <summary>
+    /// Number of loadouts that are selected by default.
+    /// </summary>
+    [DataField]
+    public int DefaultSelected = 0;
 
     /// <summary>
     /// Maximum limit for the category.
@@ -78,6 +94,7 @@ public sealed partial class LoadoutGroupPrototype : IPrototype
     public bool Deprecated;
     #endregion Pirate: loadout
 
+    [AlwaysPushInheritance]
     [DataField(required: true)]
     public List<ProtoId<LoadoutPrototype>> Loadouts = new();
 

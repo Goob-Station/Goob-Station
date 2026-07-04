@@ -49,8 +49,9 @@
   - type: Flammable
     firestackFade: -0.08 # until you light it up, cuz it's oily too. 20% lower than default
   - type: Temperature
-    coldDamageThreshold: 248.15 # -25 degrees centigrade, like 12 degrees below normal "takes cold damage"
     currentTemperature: 311.76  # Body temperature of cat
+  - type: TemperatureDamage
+    coldDamageThreshold: 248.15 # -25 degrees centigrade, like 12 degrees below normal "takes cold damage"
     coldDamage:
       types:
         Cold: 0.080 # in line with cold resist
@@ -85,7 +86,7 @@
     - reagents: [ Water, SpaceCleaner ]
       methods: [ Touch ]
       effects:
-      - !type:WashCreamPieReaction
+      - !type:WashCreamPie
     - reagents: [ Water ]
       methods: [ Touch ]
       effects:
@@ -105,7 +106,7 @@
       types:
         Blunt: 1
   - type: Stamina
-    critThreshold: 75 # Goobstation - Siouxcide, felinids take 3 disabler shots to down
+    baseCritThreshold: 75 # Goobstation - Siouxcide, felinids take 3 disabler shots to down
     animationThreshold: 40 # Goob edit
   - type: TypingIndicator
     proto: felinid

@@ -12,7 +12,8 @@
   - type: Objective
     issuer: objective-issuer-nanotrasen
   - type: NotJobRequirement
-    job: BlueshieldOfficer
+    jobs:
+    - BlueshieldOfficer
     inverted: true
 
 

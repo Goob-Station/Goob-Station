@@ -17,10 +17,7 @@ using Content.Shared.RCD.Components;
 using Robust.Client.Placement;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
-using Robust.Shared.Input;
-using Robust.Shared.Input.Binding;
 using Robust.Shared.Prototypes;
-
 
 namespace Content.Client.RCD;
 
@@ -88,7 +85,6 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
         return true;
     }
 
-
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -108,10 +104,10 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
 
         var heldEntity = _hands.GetActiveItem(player);
 
-        #region Pirate: chem plumbing
+        // Don't open the placement overlay for client-side RCDs.
+        // This may happen when predictively spawning one in your hands.
         if (heldEntity != null && IsClientSide(heldEntity.Value))
             return;
-        #endregion
 
         if (!TryComp<RCDComponent>(heldEntity, out var rcd))
         {
@@ -143,6 +139,7 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
             _placementDirection = _placementManager.Direction;
             RaiseNetworkEvent(new RCDConstructionGhostRotationEvent(GetNetEntity(heldEntity.Value), _placementDirection));
         }
+
         // If the placer has not changed build it.
         #region Pirate: chem plumbing
         if (heldEntity != placerEntity ||
@@ -152,7 +149,6 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
         {
             CreatePlacer(heldEntity.Value, useProto, prototype.Mode, desiredMode); // Pirate: chem plumbing
         }
-
 
     }
 

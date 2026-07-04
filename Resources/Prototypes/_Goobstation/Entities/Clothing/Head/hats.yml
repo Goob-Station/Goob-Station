@@ -293,7 +293,7 @@
     damageCoefficient: 0.75
   # Pirate end
 
-- type: entity
+- type: entity # todo <mailfix>
   parent: ClothingHeadBase
   id: ClothingHeadMailCarrier
   name: mail carrier's hat

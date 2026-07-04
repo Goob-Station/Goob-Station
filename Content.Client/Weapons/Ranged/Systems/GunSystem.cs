@@ -42,6 +42,8 @@ using Content.Client.Weapons.Ranged.Components;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared.Camera;
 using Content.Shared.CombatMode;
+using Content.Shared.Damage;
+using Content.Shared.Weapons.Hitscan.Components;
 using Content.Shared.Mech.Components; // Goobstation
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
@@ -54,6 +56,7 @@ using Robust.Client.Input;
 using Robust.Client.Player;
 using Robust.Client.State;
 using Robust.Shared.Animations;
+using Robust.Shared.Audio;
 using Robust.Shared.Input;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -68,12 +71,13 @@ namespace Content.Client.Weapons.Ranged.Systems;
 
 public sealed partial class GunSystem : SharedGunSystem
 {
+    [Dependency] private readonly AnimationPlayerSystem _animPlayer = default!;
     [Dependency] private readonly IEyeManager _eyeManager = default!;
     [Dependency] private readonly IInputManager _inputManager = default!;
+    [Dependency] private readonly InputSystem _inputSystem = default!;
+    [Dependency] private readonly IOverlayManager _overlayManager = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IStateManager _state = default!;
-    [Dependency] private readonly AnimationPlayerSystem _animPlayer = default!;
-    [Dependency] private readonly InputSystem _inputSystem = default!;
     [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
     [Dependency] private readonly SharedMapSystem _maps = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
@@ -90,11 +94,10 @@ public sealed partial class GunSystem : SharedGunSystem
                 return;
 
             _spreadOverlay = value;
-            var overlayManager = IoCManager.Resolve<IOverlayManager>();
 
             if (_spreadOverlay)
             {
-                overlayManager.AddOverlay(new GunSpreadOverlay(
+                _overlayManager.AddOverlay(new GunSpreadOverlay(
                     EntityManager,
                     _eyeManager,
                     Timing,
@@ -105,7 +108,7 @@ public sealed partial class GunSystem : SharedGunSystem
             }
             else
             {
-                overlayManager.RemoveOverlay<GunSpreadOverlay>();
+                _overlayManager.RemoveOverlay<GunSpreadOverlay>();
             }
         }
     }
@@ -117,7 +120,6 @@ public sealed partial class GunSystem : SharedGunSystem
         base.Initialize();
         UpdatesOutsidePrediction = true;
         SubscribeLocalEvent<AmmoCounterComponent, ItemStatusCollectMessage>(OnAmmoCounterCollect);
-        SubscribeLocalEvent<AmmoCounterComponent, UpdateClientAmmoEvent>(OnUpdateClientAmmo);
         SubscribeAllEvent<MuzzleFlashEvent>(OnMuzzleFlash);
 
         // Plays animated effects on the client.
@@ -127,10 +129,6 @@ public sealed partial class GunSystem : SharedGunSystem
         InitializeSpentAmmo();
     }
 
-    private void OnUpdateClientAmmo(EntityUid uid, AmmoCounterComponent ammoComp, ref UpdateClientAmmoEvent args)
-    {
-        UpdateAmmoCount(uid, ammoComp);
-    }
 
     private void OnMuzzleFlash(MuzzleFlashEvent args)
     {
@@ -195,6 +193,8 @@ public sealed partial class GunSystem : SharedGunSystem
 
     public override void Update(float frameTime)
     {
+        base.Update(frameTime);
+
         if (!Timing.IsFirstTimePredicted)
             return;
 
@@ -210,7 +210,7 @@ public sealed partial class GunSystem : SharedGunSystem
         if (TryComp<MechPilotComponent>(entity, out var mechPilot)) // Goobstation
             entity = mechPilot.Mech;
 
-        if (!TryGetGun(entity, out var gunUid, out var gun))
+        if (!TryGetGun(entity, out var gun))
         {
             return;
         }
@@ -219,24 +219,24 @@ public sealed partial class GunSystem : SharedGunSystem
             affected.NextAttack + TimeSpan.FromSeconds(0.1f) > Timing.CurTime) // Goobstation
             return;
 
-        var useKey = gun.UseKey ? EngineKeyFunctions.Use : EngineKeyFunctions.UseSecondary;
+        var useKey = gun.Comp.UseKey ? EngineKeyFunctions.Use : EngineKeyFunctions.UseSecondary;
 
-        if (_inputSystem.CmdStates.GetState(useKey) != BoundKeyState.Down && !gun.BurstActivated)
+        if (_inputSystem.CmdStates.GetState(useKey) != BoundKeyState.Down && !gun.Comp.BurstActivated)
         {
-            if (gun.ShotCounter != 0)
-                RaisePredictiveEvent(new RequestStopShootEvent { Gun = GetNetEntity(gunUid) });
+            if (gun.Comp.ShotCounter != 0)
+                RaisePredictiveEvent(new RequestStopShootEvent { Gun = GetNetEntity(gun) });
             return;
         }
 
-        if (gun.NextFire > Timing.CurTime)
+        if (gun.Comp.NextFire > Timing.CurTime)
             return;
 
         var mousePos = _eyeManager.PixelToMap(_inputManager.MouseScreenPosition);
 
         if (mousePos.MapId == MapId.Nullspace)
         {
-            if (gun.ShotCounter != 0)
-                RaisePredictiveEvent(new RequestStopShootEvent { Gun = GetNetEntity(gunUid) });
+            if (gun.Comp.ShotCounter != 0)
+                RaisePredictiveEvent(new RequestStopShootEvent { Gun = GetNetEntity(gun) });
 
             return;
         }
@@ -254,17 +254,15 @@ public sealed partial class GunSystem : SharedGunSystem
         {
             Target = target,
             Coordinates = GetNetCoordinates(coordinates),
-            Gun = GetNetEntity(gunUid),
-            // Pirate: gunplay
-            Continuous = true,
+            Gun = GetNetEntity(gun),
+            Continuous = true, // Pirate: gunplay
         });
     }
 
-    public override void Shoot(EntityUid gunUid, GunComponent gun, List<(EntityUid? Entity, IShootable Shootable)> ammo,
+    public override void Shoot(Entity<GunComponent> gun, List<(EntityUid? Entity, IShootable Shootable)> ammo,
         EntityCoordinates fromCoordinates, EntityCoordinates toCoordinates, out bool userImpulse, EntityUid? user = null, bool throwItems = false)
     {
-        // Pirate: gunplay
-        SharedShoot(gunUid, gun, ammo, fromCoordinates, toCoordinates, out userImpulse, user, throwItems);
+        SharedShoot(gun.Owner, gun.Comp, ammo, fromCoordinates, toCoordinates, out userImpulse, user, throwItems); // Pirate: gunplay
     }
 
     // Pirate: gunplay
@@ -398,4 +396,7 @@ public sealed partial class GunSystem : SharedGunSystem
         _animPlayer.Stop(gunUid, uidPlayer, "muzzle-flash-light");
         _animPlayer.Play((gunUid, uidPlayer), animTwo, "muzzle-flash-light");
     }
+
+    // TODO: Move RangedDamageSoundComponent to shared so this can be predicted.
+    public override void PlayImpactSound(EntityUid otherEntity, DamageSpecifier? modifiedDamage, SoundSpecifier? weaponSound, bool forceWeaponSound) { }
 }

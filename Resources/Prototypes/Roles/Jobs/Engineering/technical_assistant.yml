@@ -64,7 +64,7 @@
   playTimeTracker: JobTechnicalAssistant
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 7200 # 2 hrs
+      time: 2h # Goobstation
     # - !type:DepartmentTimeRequirement # Pirate
     #   department: Engineering # Pirate
     #   time: 18000 #5 hrs # Pirate
