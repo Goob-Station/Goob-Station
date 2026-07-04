@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Common.Barks;
 
-[Prototype("bark")]
+[Prototype]
 public sealed partial class BarkPrototype : IPrototype
 {
     [IdDataField] public string ID { get; private set; } = default!;
@@ -67,5 +67,5 @@ public sealed partial class BarkPrototype : IPrototype
     /// Whether it is available for selection in the character editor.
     /// </summary>
     [DataField]
-    public bool RoundStart { get; } = true;
+    public bool RoundStart = true;
 }

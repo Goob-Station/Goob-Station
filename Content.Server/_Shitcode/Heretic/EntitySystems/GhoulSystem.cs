@@ -65,6 +65,12 @@ using Content.Shared.Roles;
 using Content.Shared.Species.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
+using Content.Shared.Polymorph;
+using Content.Server.Polymorph.Systems;
+using Content.Shared._Shitcode.Roles;
+using Content.Shared.Administration.Systems;
+using Content.Shared.Roles.Components;
+using Content.Shared.Temperature.Components;
 
 namespace Content.Server.Heretic.EntitySystems;
 

@@ -5,10 +5,10 @@
   playTimeTracker: JobSecurityClown
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 36000 #10 hrs
+      time: 10h #10 hrs
     - !type:RoleTimeRequirement
       role: JobClown
-      time: 3600 #1 hr
+      time: 1h #1 hr
   startingGear: SecurityClownGear
   icon: "JobIconSecurityClown"
   supervisors: job-supervisors-security

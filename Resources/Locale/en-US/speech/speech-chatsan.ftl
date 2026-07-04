@@ -206,16 +206,22 @@ chatsan-replacement-66 = something
 chatsan-word-67 = allg
 chatsan-replacement-67 = all good
 
+chatsan-word-68 = idk
+chatsan-replacement-68 = i don't know
+
+chatsan-word-69 = wya
+chatsan-replacement-69 = where you at
+
 # goob start
-chatsan-word-68 = ts
-chatsan-replacement-68 = this shit
+chatsan-word-70 = ts
+chatsan-replacement-70 = this shit
 
-chatsan-word-69 = pmo
-chatsan-replacement-69 = pisses me off
+chatsan-word-71 = pmo
+chatsan-replacement-71 = pisses me off
 
-chatsan-word-70 = sybau
-chatsan-replacement-70 = shut your bitch ass up
+chatsan-word-72 = sybau
+chatsan-replacement-72 = shut your bitch ass up
 
-chatsan-word-71 = icl
-chatsan-replacement-71 = i can't lie
+chatsan-word-73 = icl
+chatsan-replacement-73 = i can't lie
 # goob end

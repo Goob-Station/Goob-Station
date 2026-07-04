@@ -85,25 +85,6 @@ public sealed class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeSystem
             }
         }
 
-        if (prototype.SpriteBodyMovementState is { } movementState)
-        {
-            var spriteMovement = EnsureComp<SpriteMovementComponent>(entity);
-            spriteMovement.NoMovementLayers.Clear();
-            spriteMovement.NoMovementLayers["movement"] = new PrototypeLayerData
-            {
-                State = prototype.SpriteBodyState,
-            };
-            spriteMovement.MovementLayers.Clear();
-            spriteMovement.MovementLayers["movement"] = new PrototypeLayerData
-            {
-                State = movementState,
-            };
-        }
-        else
-        {
-            RemComp<SpriteMovementComponent>(entity);
-        }
-
-        base.UpdateEntityAppearance(entity, prototype, subtypePrototype);
+        base.UpdateEntityAppearance(entity, prototype, subtypePrototype); // Goob pass along subtypePrototype. No i don't know what the fuck happened here and im too tired to care.
     }
 }

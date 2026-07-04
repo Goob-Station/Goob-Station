@@ -99018,7 +99018,7 @@ entities:
     - type: Transform
       pos: 7.5,33.5
       parent: 2
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 25536
 - proto: Carpet
   entities:
@@ -132045,7 +132045,7 @@ entities:
       parent: 18033
     - type: Physics
       canCollide: False
-- proto: EnergyChemDispenser
+- proto: ChemDispenser
   entities:
   - uid: 14666
     components:
@@ -186684,7 +186684,7 @@ entities:
     - type: Transform
       pos: -13.332681,1.5413071
       parent: 2
-- proto: MaterialSilo
+- proto: MachineMaterialSilo
   entities:
   - uid: 25536
     components:
@@ -186694,11 +186694,11 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         12896:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
+        - - OreSilo
+          - OreSiloClient
         15465:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
+        - - OreSilo
+          - OreSiloClient
 - proto: MaterialSmileExtract
   entities:
   - uid: 25537
@@ -188200,7 +188200,7 @@ entities:
       - Arsenal
       - Experimental
       - CivilianServices
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 25536
 - proto: OrganDionaStomach
   entities:
@@ -216720,7 +216720,6 @@ entities:
       parent: 2
     - type: BatterySelfRecharger
       autoRechargeRate: 8000000
-      autoRecharge: True
 - proto: SMESBasicEmpty
   entities:
   - uid: 29936

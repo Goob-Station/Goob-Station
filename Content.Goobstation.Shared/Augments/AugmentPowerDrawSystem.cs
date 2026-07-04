@@ -10,7 +10,7 @@ public sealed class AugmentPowerDrawSystem : EntitySystem
     [Dependency] private readonly AugmentSystem _augment = default!;
     [Dependency] private readonly ItemToggleSystem _toggle = default!;
     [Dependency] private readonly SharedAugmentPowerCellSystem _augmentPower = default!;
-    [Dependency] private readonly SharedPowerCellSystem _powerCell = default!;
+    [Dependency] private readonly PowerCellSystem _powerCell = default!;
 
     public override void Initialize()
     {
@@ -39,7 +39,7 @@ public sealed class AugmentPowerDrawSystem : EntitySystem
     {
         if (_augment.GetBody(ent) is not {} body ||
             _augmentPower.GetBodyAugment(body) is not {} slot ||
-            !_powerCell.HasActivatableCharge(slot))
+            !_powerCell.HasActivatableCharge(slot.Owner))
         {
             args.Cancelled = true;
         }

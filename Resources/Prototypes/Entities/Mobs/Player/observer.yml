@@ -217,7 +217,7 @@
   components:
   - type: Spectral
   - type: Tag
-    tags:
+    tags: # BAD: Intentional removal of inherited tag
     - AllowGhostShownByEvent
   # <Goobstation>
   - type: UserInterface
@@ -241,7 +241,7 @@
   components:
   - type: Action
     icon: { sprite: Interface/Actions/actions_ai.rsi, state: mass_scanner }
-    iconOn: Interface/Actions/actions_ai.rsi/mass_scanner.png
+    iconOn: { sprite: Interface/Actions/actions_ai.rsi, state: mass_scanner }
     keywords: [ "AI", "console", "interface" ]
     priority: 10
     checkCanInteract: false

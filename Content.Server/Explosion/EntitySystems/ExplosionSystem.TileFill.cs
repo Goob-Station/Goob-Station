@@ -85,6 +85,7 @@
 
 using System.Linq;
 using System.Numerics;
+using Content.Server.Explosion.Components;
 using Content.Shared.Administration;
 using Content.Shared.Explosion.Components;
 using Robust.Shared.Map;
@@ -125,11 +126,7 @@ public sealed partial class ExplosionSystem
         if (totalIntensity <= 0 || slope <= 0)
             return null;
 
-        if (!_explosionTypes.TryGetValue(typeID, out var typeIndex))
-        {
-            Log.Error("Attempted to spawn explosion using a prototype that was not defined during initialization. Explosion prototype hot-reload is not currently supported.");
-            return null;
-        }
+        var typeIndex = _explosionTypes[typeID];
 
         Vector2i initialTile;
         EntityUid? epicentreGrid = null;
@@ -137,7 +134,7 @@ public sealed partial class ExplosionSystem
 
         // get the epicenter tile indices
         if (_mapManager.TryFindGridAt(epicenter, out var gridUid, out var candidateGrid) &&
-            _mapSystem.TryGetTileRef(gridUid, candidateGrid, _mapSystem.WorldToTile(gridUid, candidateGrid, epicenter.Position), out var tileRef) &&
+            _map.TryGetTileRef(gridUid, candidateGrid, _map.WorldToTile(gridUid, candidateGrid, epicenter.Position), out var tileRef) &&
             !tileRef.Tile.IsEmpty)
         {
             epicentreGrid = gridUid;
@@ -147,7 +144,7 @@ public sealed partial class ExplosionSystem
         {
             // reference grid defines coordinate system that the explosion in space will use
             var gridComp = Comp<MapGridComponent>(referenceGrid.Value);
-            initialTile = _mapSystem.WorldToTile(referenceGrid.Value, gridComp, epicenter.Position);
+            initialTile = _map.WorldToTile(referenceGrid.Value, gridComp, epicenter.Position);
         }
         else
         {
@@ -188,11 +185,10 @@ public sealed partial class ExplosionSystem
             // set up the initial `gridData` instance
             encounteredGrids.Add(epicentreGrid.Value);
 
-            if (!_airtightMap.TryGetValue(epicentreGrid.Value, out var airtightMap))
-                airtightMap = new();
+            var airtightMap = CompOrNull<ExplosionAirtightGridComponent>(epicentreGrid)?.Tiles ?? new();
 
             var initialGridData = new ExplosionGridTileFlood(
-                Comp<MapGridComponent>(epicentreGrid.Value),
+                (epicentreGrid.Value, Comp<MapGridComponent>(epicentreGrid.Value)),
                 airtightMap,
                 maxIntensity,
                 stepSize,
@@ -200,7 +196,8 @@ public sealed partial class ExplosionSystem
                 _gridEdges[epicentreGrid.Value],
                 referenceGrid,
                 spaceMatrix,
-                spaceAngle);
+                spaceAngle,
+                this);
 
             gridData[epicentreGrid.Value] = initialGridData;
 
@@ -277,11 +274,10 @@ public sealed partial class ExplosionSystem
                 // is this a new grid, for which we must create a new explosion data set
                 if (!gridData.TryGetValue(grid, out var data))
                 {
-                    if (!_airtightMap.TryGetValue(grid, out var airtightMap))
-                        airtightMap = new();
+                    var airtightMap = CompOrNull<ExplosionAirtightGridComponent>(grid)?.Tiles ?? new();
 
                     data = new ExplosionGridTileFlood(
-                        Comp<MapGridComponent>(grid),
+                        (grid, Comp<MapGridComponent>(grid)),
                         airtightMap,
                         maxIntensity,
                         stepSize,
@@ -289,7 +285,8 @@ public sealed partial class ExplosionSystem
                         _gridEdges[grid],
                         referenceGrid,
                         spaceMatrix,
-                        spaceAngle);
+                        spaceAngle,
+                        this);
 
                     gridData[grid] = data;
                 }
@@ -360,7 +357,7 @@ public sealed partial class ExplosionSystem
         radius = Math.Min(radius, MaxIterations / 4);
 
         EntityUid? referenceGrid = null;
-        float mass = 0;
+        var mass = float.MinValue;
 
         // First attempt to find a grid that is relatively close to the explosion's center. Instead of looking in a
         // diameter x diameter sized box, use a smaller box with radius sized sides:
@@ -370,7 +367,7 @@ public sealed partial class ExplosionSystem
         _mapManager.FindGridsIntersecting(epicenter.MapId, box, ref _grids);
         foreach (var grid in _grids)
         {
-            if (TryComp(grid.Owner, out PhysicsComponent? physics) && physics.Mass > mass)
+            if (TryComp(grid.Owner, out PhysicsComponent? physics) && physics.FixturesMass > mass)
             {
                 mass = physics.Mass;
                 referenceGrid = grid.Owner;
@@ -400,7 +397,7 @@ public sealed partial class ExplosionSystem
         {
             if (TryComp(grid.Owner, out PhysicsComponent? physics) && physics.Mass > mass)
             {
-                mass = physics.Mass;
+                mass = physics.FixturesMass;
                 referenceGrid = grid.Owner;
             }
         }

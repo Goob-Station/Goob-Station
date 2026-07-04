@@ -26,7 +26,7 @@
     sprite: _DV/CosmicCult/Objects/glyphs.rsi
     state: warding
   entity: CosmicGlyphWarding
-  tier: 2
+  tier: 3
 
 - type: glyph
   id: ccGlyphBlades
@@ -46,7 +46,7 @@
     sprite: _DV/CosmicCult/Objects/glyphs.rsi
     state: cessation
   entity: CosmicGlyphCessation
-  tier: 3
+  tier: 2
 
 - type: glyph
   id: ccGlyphTruth
