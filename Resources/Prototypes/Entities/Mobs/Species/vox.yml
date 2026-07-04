@@ -291,6 +291,13 @@
           32:
             sprite: Mobs/Species/Vox/displacement.rsi
             state: shoes
+  # Goobstation - Socks start
+      socks:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi
+            state: shoes
+  # Goobstation - Socks end
       outerClothing: # Goob
         sizeMaps:
           32:

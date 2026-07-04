@@ -211,24 +211,31 @@
       jumpsuit:
         sizeMaps:
           32:
-            sprite: _White/Mobs/Species/displacement.rsi
+            sprite: _White/Mobs/Species/Reptiles/displacement.rsi # Goob - Fix pathing
             state: jumpsuit-female
       shoes:
         sizeMaps:
           32:
-            sprite: _White/Mobs/Species/displacement.rsi
+            sprite: _White/Mobs/Species/Reptiles/displacement.rsi # Goob - Fix pathing
             state: shoes
     displacements:
       jumpsuit:
         sizeMaps:
           32:
-            sprite: _White/Mobs/Species/displacement.rsi
+            sprite: _White/Mobs/Species/Reptiles/displacement.rsi # Goob - Fix pathing
             state: jumpsuit
       shoes:
         sizeMaps:
           32:
-            sprite: _White/Mobs/Species/displacement.rsi
+            sprite: _White/Mobs/Species/Reptiles/displacement.rsi # Goob - Fix pathing
             state: shoes
+  # Goobstation - Socks start
+      socks:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Reptiles/displacement.rsi
+            state: shoes
+  # Goobstation - Socks end
     # WWDP-Edit-End
   - type: Consciousness # Idk they are kinda more resistant to pain
     threshold: 105

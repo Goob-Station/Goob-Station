@@ -302,6 +302,13 @@
           32:
             sprite: Mobs/Species/Moth/displacement.rsi
             state: shoes
+  # Goobstation - Socks start
+      socks:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Moth/displacement.rsi
+            state: shoes
+  # Goobstation - Socks end
   - type: Fixtures # Goob edit - make moths lighter
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:
