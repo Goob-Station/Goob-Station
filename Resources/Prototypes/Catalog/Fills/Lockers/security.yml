@@ -256,7 +256,7 @@
     - id: BoxTapeRecorder # DeltaV
     - id: PhotoCameraFilled # Pirate: camera
     - id: PoliceBaton # Goobstation
-    - id: ObraDinnClock # Goobstation
+    #- id: ObraDinnClock # Goobstation # Pirate disable
 
 - type: entity
   id: ClosetBombFilled
