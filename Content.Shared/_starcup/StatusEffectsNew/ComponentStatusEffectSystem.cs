@@ -1,12 +1,10 @@
 using Content.Shared.StatusEffectNew;
-using Robust.Shared.Timing;
 
 namespace Content.Shared._starcup.StatusEffectsNew;
 
 public sealed partial class ComponentStatusEffectSystem : EntitySystem
 {
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -16,11 +14,11 @@ public sealed partial class ComponentStatusEffectSystem : EntitySystem
         SubscribeLocalEvent<ComponentStatusEffectComponent, StatusEffectRemovedEvent>(OnEffectRemoved);
     }
 
+    /// <summary>
+    /// Gives the entity the component if they don't already have it.
+    /// </summary>
     private void OnEffectApplied(Entity<ComponentStatusEffectComponent> entity, ref StatusEffectAppliedEvent args)
     {
-        if (_timing.ApplyingState)
-            return;
-
         var component = _componentFactory.GetComponent(entity.Comp.Component);
         if (!HasComp(args.Target, component.GetType()))
         {
@@ -28,11 +26,11 @@ public sealed partial class ComponentStatusEffectSystem : EntitySystem
         }
     }
 
+    /// <summary>
+    /// Handles removing the component.
+    /// </summary>
     private void OnEffectRemoved(Entity<ComponentStatusEffectComponent> entity, ref StatusEffectRemovedEvent args)
     {
-        if (_timing.ApplyingState)
-            return;
-
         var component = _componentFactory.GetComponent(entity.Comp.Component);
         RemComp(args.Target, component.GetType());
     }

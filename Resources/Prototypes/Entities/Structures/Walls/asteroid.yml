@@ -2128,9 +2128,6 @@
       state: rock_chromite_north
     - map: [ "enum.EdgeLayer.West" ]
       state: rock_chromite_west
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreChromite
 
 - type: entity
   id: WallRockChromiteCoal
