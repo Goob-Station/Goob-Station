@@ -407,7 +407,7 @@ public sealed partial class CultHealingSourceSystem : EntitySystem
 			if (bloodstream.BloodMaxVolume > FixedPoint2.Zero)
 			{
 				// Check current blood level
-				var currentBloodLevel = _bloodstreamSystem.GetBloodLevelPercentage(uid, bloodstream);
+				var currentBloodLevel = _bloodstreamSystem.GetBloodLevelPercentage((uid, bloodstream));
 				
 				// Only restore if below 100%
 				if (currentBloodLevel < 1.0f)
@@ -417,7 +417,7 @@ public sealed partial class CultHealingSourceSystem : EntitySystem
 					var bloodRecovery = (bloodstream.BloodMaxVolume / 240.0f) * time;
 					
 					// Restore blood
-					_bloodstreamSystem.TryModifyBloodLevel(uid, bloodRecovery, bloodstream);
+					_bloodstreamSystem.TryModifyBloodLevel((uid, bloodstream), bloodRecovery);
 				}
 			}
 		}

@@ -24,7 +24,7 @@ using Content.Shared.Trigger;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.AlertLevel;
 using Content.Server.Station.Systems;
-using Content.Server.Station.Components;
+using Content.Shared.Station.Components;
 using Content.Shared.Mind.Components;
 using Content.Server.Chat.Systems;
 

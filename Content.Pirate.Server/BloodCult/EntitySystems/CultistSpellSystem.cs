@@ -294,13 +294,13 @@ public sealed partial class CultistSpellSystem : EntitySystem
 		// Remove actions that match spells in KnownSpells
 		foreach (var action in actions)
 		{
-			if (!TryComp<CultistSpellComponent>(action.Id, out var spellComp))
+			if (!TryComp<CultistSpellComponent>(action.Owner, out var spellComp))
 				continue;
 
 			// Check if this action's AbilityId matches any spell in KnownSpells
 			if (knownSpellIds.Contains(spellComp.AbilityId))
 			{
-				_action.RemoveAction(uid, action.Id);
+				_action.RemoveAction(action);
 			}
 		}
 	}
@@ -418,7 +418,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 				);
 			_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/Effects/holy.ogg"), Transform(ent).Coordinates);
 			// Knock down the cultist who cast the spell. Might need balancing
-			_stun.TryKnockdown(ent, TimeSpan.FromSeconds(selfStunTime), true);
+			_stun.TryKnockdown(ent.Owner, TimeSpan.FromSeconds(selfStunTime), true);
 		}
 		else if (HasComp<SiliconComponent>(target) &&
 			_powerCell.TryGetBatteryFromSlot(target, out EntityUid? ipcBatteryUid, out BatteryComponent? _) &&
@@ -451,7 +451,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			sleepSolution.AddReagent("Nocturine", FixedPoint2.New(15));  // 15u Nocturine
 			sleepSolution.AddReagent("EdgeEssentia", FixedPoint2.New(5));  // 5u Edge Essentia
 			
-			_bloodstream.TryAddToChemicals(target, sleepSolution, bloodstream);
+			_bloodstream.TryAddToChemicals((target, bloodstream), sleepSolution);
 			
 			// Show the dream message
 			_popup.PopupEntity(

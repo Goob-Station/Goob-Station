@@ -110,7 +110,7 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 		// (e.g., 5 plastic on tile + 5 cloth in hands = forsaken boots)
 		if (TryComp<HandsComponent>(user, out var handsComp))
 		{
-			foreach (var heldItem in _handsSystem.EnumerateHeld(user, handsComp))
+			foreach (var heldItem in _handsSystem.EnumerateHeld((user, handsComp)))
 			{
 				// Add items that have a StackComponent (resources) or ClothingComponent (for outerwear)
 				if (TryComp<StackComponent>(heldItem, out _) || TryComp<ClothingComponent>(heldItem, out _))
@@ -790,4 +790,3 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 		return false;
 	}
 }
-

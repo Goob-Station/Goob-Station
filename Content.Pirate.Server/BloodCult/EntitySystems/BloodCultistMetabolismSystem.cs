@@ -64,7 +64,7 @@ public sealed class BloodCultistMetabolismSystem : EntitySystem
             // Only if they have a valid bloodstream component
             try
             {
-                _bloodstream.ChangeBloodReagent(uid, "SanguinePerniculate", bloodstream);
+                _bloodstream.ChangeBloodReagent((uid, bloodstream), "SanguinePerniculate");
             }
             catch (Exception ex)
             {
@@ -101,7 +101,7 @@ public sealed class BloodCultistMetabolismSystem : EntitySystem
             // Restore the blood type with error handling
             try
             {
-                _bloodstream.ChangeBloodReagent(uid, restoreReagent, bloodstream);
+                _bloodstream.ChangeBloodReagent((uid, bloodstream), restoreReagent);
             }
             catch (Exception ex)
             {
@@ -133,7 +133,7 @@ public sealed class BloodCultistMetabolismSystem : EntitySystem
         // Restore the blood type with error handling
         try
         {
-            _bloodstream.ChangeBloodReagent(uid, restoreReagent, bloodstream);
+            _bloodstream.ChangeBloodReagent((uid, bloodstream), restoreReagent);
         }
         catch (Exception ex)
         {

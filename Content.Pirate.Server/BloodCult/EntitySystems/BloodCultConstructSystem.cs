@@ -32,6 +32,7 @@ using Content.Shared.NPC.Systems;
 using Content.Shared.NPC.Components;
 using Content.Server.GameTicking.Rules;
 using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
@@ -60,7 +61,7 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 	private void GrantCommuneAction(EntityUid juggernaut)
 	{
 		EntityUid? communeAction = null;
-		BaseActionComponent? actionComp = null;
+		ActionComponent? actionComp = null;
 		if (_actions.AddAction(juggernaut, ref communeAction, out actionComp, "ActionCultistCommune") && communeAction != null && actionComp != null)
 		{
 			// Ensure the event is raised on the juggernaut so it can be handled

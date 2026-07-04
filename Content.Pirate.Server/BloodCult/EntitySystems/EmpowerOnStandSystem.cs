@@ -53,7 +53,7 @@ public sealed class EmpowerOnStandSystem : EntitySystem
 		var actions = _action.GetActions(args.User);
 		foreach (var action in actions)
 		{
-			if (!TryComp<CultistSpellComponent>(action.Id, out var spellComp))
+			if (!TryComp<CultistSpellComponent>(action.Owner, out var spellComp))
 				continue;
 
 			if (spellComp.AbilityId != "SpellsSelect")

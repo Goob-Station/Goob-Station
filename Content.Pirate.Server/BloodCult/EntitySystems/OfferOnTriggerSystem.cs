@@ -41,6 +41,7 @@ using Content.Shared.Roles;
 using Content.Server.Roles;
 using Content.Server.Mind;
 using Content.Server.Chat.Systems;
+using Content.Shared.Chat;
 using Content.Server.GameTicking;
 using Content.Shared.Stunnable;
 using Content.Shared.StatusEffect;
@@ -924,21 +925,21 @@ namespace Content.Server.BloodCult.EntitySystems
 		// Apply heavy bleeding (5 units/second)
 		if (TryComp<BloodstreamComponent>(participant, out var bloodstream))
 		{
-			_bloodstream.TryModifyBleedAmount(participant, 5.0f, bloodstream);
+			_bloodstream.TryModifyBleedAmount((participant, bloodstream), 5.0f);
 		}
 		
 		// Apply stun and knockdown
-		if (TryComp<StatusEffectsComponent>(participant, out var status))
+		if (HasComp<StatusEffectsComponent>(participant))
 		{
-			_stun.TryParalyze(participant, TimeSpan.FromSeconds(3), true, status);
+			_stun.TryUpdateParalyzeDuration(participant, TimeSpan.FromSeconds(3));
 		}
 	}
 		
 		// Stun the victim as well, so they don't run away. 
 		// This stun should apply even if they're waking up from nocturine.
-		if (TryComp<StatusEffectsComponent>(victim, out var victimStatus))
+		if (HasComp<StatusEffectsComponent>(victim))
 		{
-			_stun.TryParalyze(victim, TimeSpan.FromSeconds(10), true, victimStatus);
+			_stun.TryUpdateParalyzeDuration(victim, TimeSpan.FromSeconds(10));
 		}
 		
 	// NOW remove the mindshield from the victim (at the end of the ritual)

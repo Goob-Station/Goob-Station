@@ -444,7 +444,7 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 			// Add bleeding effect
 			if (TryComp<BloodstreamComponent>(ent, out var bloodstream))
 			{
-				_bloodstream.TryModifyBleedAmount(ent, ev.BleedOnCarve / 10f, bloodstream);
+				_bloodstream.TryModifyBleedAmount((ent, bloodstream), ev.BleedOnCarve / 10f);
 			}
 		}
 		else if (ent.Comp.Damage.DamageDict.ContainsKey(IonDamageType.Id))

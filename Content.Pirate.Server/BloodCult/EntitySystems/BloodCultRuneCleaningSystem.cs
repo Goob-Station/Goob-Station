@@ -48,7 +48,7 @@ public sealed class BloodCultRuneCleaningSystem : EntitySystem
 	{
 
 		// Check if mop has a solution
-		if (!_solutionContainer.TryGetSolution(mop, AbsorbentComponent.SolutionName, out var absorberSoln))
+		if (!_solutionContainer.TryGetSolution(mop, component.SolutionName, out var absorberSoln))
 			return false;
 
 		// Check if mop is on cooldown
@@ -79,4 +79,3 @@ public sealed class BloodCultRuneCleaningSystem : EntitySystem
 		return _forensics.TryStartCleaning((mop, cleansForensics), user, target);
 	}
 }
-

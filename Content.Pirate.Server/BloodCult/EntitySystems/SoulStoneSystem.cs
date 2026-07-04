@@ -175,7 +175,7 @@ public sealed class SoulStoneSystem : EntitySystem
 				if (TryComp<BloodstreamComponent>(args.User, out var bloodstream))
 				{
 					// Add 10 units/second bleed - this is a massive bleed that will rapidly drain blood
-					_bloodstream.TryModifyBleedAmount(args.User, 10.0f, bloodstream);
+					_bloodstream.TryModifyBleedAmount((args.User, bloodstream), 10.0f);
 				}
 			}
 

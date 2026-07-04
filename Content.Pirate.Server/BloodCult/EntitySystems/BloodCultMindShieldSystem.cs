@@ -74,7 +74,7 @@ public sealed class BloodCultMindShieldSystem : EntitySystem
 
         var stunTime = stunDuration ?? TimeSpan.FromSeconds(4);
         if (stunTime > TimeSpan.Zero)
-            _sharedStun.TryParalyze(uid, stunTime, true);
+            _sharedStun.TryUpdateParalyzeDuration(uid, stunTime);
 
         if (popupLocId != null && name != null)
             _popupSystem.PopupEntity(Loc.GetString(popupLocId, ("name", name!)), uid);
@@ -89,10 +89,10 @@ public sealed class BloodCultMindShieldSystem : EntitySystem
     {
         foreach (var action in _actions.GetActions(uid))
         {
-            if (!TryComp<CultistSpellComponent>(action.Id, out _))
+            if (!TryComp<CultistSpellComponent>(action.Owner, out _))
                 continue;
 
-            _actions.RemoveAction(uid, action.Id);
+            _actions.RemoveAction(action);
         }
 
         if (!removeVisuals)

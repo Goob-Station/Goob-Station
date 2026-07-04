@@ -44,7 +44,7 @@ public sealed partial class BleedSanguinePerniculate : EntityEffect
         // Change their blood type to Sanguine Perniculate so that when they bleed, it comes out as Sanguine Perniculate
         // This happens every metabolism tick, ensuring their blood type stays as SanguinePerniculate while Edge Essentia is active
         var bloodstreamSystem = args.EntityManager.System<BloodstreamSystem>();
-        bloodstreamSystem.ChangeBloodReagent(args.TargetEntity, "SanguinePerniculate", bloodstream);
+        bloodstreamSystem.ChangeBloodReagent((args.TargetEntity, bloodstream), "SanguinePerniculate");
     }
 
     private bool TryGetPrototypeBloodReagent(EntityUid uid, IEntityManager entityManager, out ProtoId<ReagentPrototype> bloodReagent)

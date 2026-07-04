@@ -78,7 +78,7 @@ public sealed class EdgeEssentiaBloodSystem : EntitySystem
 				continue;
 
 			// No Edge Essentia left - restore their original blood type and remove the component
-			_bloodstream.ChangeBloodReagent(uid, edgeEssentia.OriginalBloodReagent, bloodstream);
+			_bloodstream.ChangeBloodReagent((uid, bloodstream), edgeEssentia.OriginalBloodReagent);
 			RemCompDeferred<EdgeEssentiaBloodComponent>(uid);
 		}
 		while (query.MoveNext(out uid, out edgeEssentia, out bloodstream));
