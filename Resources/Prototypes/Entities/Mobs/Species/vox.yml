@@ -213,6 +213,11 @@
     - map: [ "gloves" ]
     - map: [ "shoes" ]
     - map: [ "ears" ]
+    - map: [ "culteyes" ] # Pirate - Blood Cult
+      sprite: "_Pirate/BloodCult/Effects/culteyes.rsi"
+      state: "vox"
+      shader: unshaded
+      visible: false
     - map: [ "eyes" ]
     - map: [ "id" ]
     - map: [ "outerClothing" ]
@@ -239,6 +244,11 @@
     - map: [ "clownedon" ]
       sprite: "Effects/creampie.rsi"
       state: "creampie_vox" # Not default
+      visible: false
+    - map: [ "culthalo" ] # Pirate - Blood Cult
+      sprite: "_Pirate/BloodCult/Effects/halo.rsi"
+      state: "halo"
+      shader: unshaded
       visible: false
   - type: HumanoidAppearance
     species: Vox

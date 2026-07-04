@@ -1,0 +1,390 @@
+# SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
+# SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
+
+bloodcult-title = Культ крові
+bloodcult-description = Культ Нар'Сі проник на станцію.
+
+roles-antag-cult-name = Культист крові
+roles-antag-cult-objective = Ваша мета - прикликати вашу володарку, Геометриню Крові Нар'Сі. Через навернення, панування і кров Вона повернеться у цей світ. Співпрацюйте з іншими культистами, розірвіть завісу і наблизьте Її прихід!
+
+cult-role-greeting =
+    Ви - культист крові. Використовуйте культовий кинджал проти ворогів культу, зцілюйтеся біля Її пілонів і приносьте Їй душі!
+
+cult-briefing = Допомагайте іншим членам культу навертати екіпаж і приносити жертви, щоб прикликати ваше божество.
+cult-start-briefing = Геометриня Крові має для вас завдання.
+cult-briefing-targets = Нар'Сі вимагає крові. Дослідіть завісу, щоб збагнути Її волю.
+
+admin-verb-make-cultist = Зробити ціль культистом крові.
+admin-verb-text-make-cultist = Зробити культистом крові
+
+cult-dagger-equip-fail = Кинджал розсипається попелом у ваших руках!
+cult-attack-repelled = Свята магія відбиває вашу атаку!
+cult-attack-teamhit = Ваша атака завмирає, не торкнувшись культиста.
+
+contraband-examine-text-BloodCult = [color=crimson]Цей предмет є вкрай незаконним творінням магії культу крові![/color]
+
+cult-rune-drawing-novowel = Ви починаєте вимазувати руну кров'ю на підлозі...
+cult-rune-drawing-vowel-first = Ви починаєте вимазувати
+cult-rune-drawing-vowel-second = на підлозі кров'ю...
+cult-rune-select = Обрати руну
+
+cult-veil-drawing-toostrong = Завіса тут надто міцна, щоб її розірвати.
+cult-veil-drawing-pleaseconfirm = Використайте кинджал знову, щоб підтвердити зону {$name}.
+cult-veil-drawing-wronglocation = Ви маєте намалювати цю руну в зоні {$name}!
+cult-veil-drawing-alreadyexists-location = Руна розриву завіси вже намальована в {$name}. Оберіть інше місце.
+cult-veil-drawing-confirmed = Тепер ви можете намалювати руну Розірвати Завісу в {$name}!
+
+cult-veil-ritual-already-in-progress = Ритуал Розірвати Завісу вже триває!
+cult-veil-ritual-not-enough-cultists = Недостатньо культистів на рунах Розірвати Завісу! Присутньо {$current}, потрібно {$required}.
+cult-veil-ritual-started = Ритуал Розірвати Завісу розпочато! {$required} культистів мають лишатися на своїх рунах до завершення.
+cult-veil-ritual-not-enough-at-end = Ритуал провалено! На рунах лишилося недостатньо культистів. Присутньо {$current}, потрібно {$required}.
+cult-veil-ritual-failed = Ритуал Розірвати Завісу провалився! Культисти не змогли втримати ритуал.
+cult-veil-ritual-success = Ритуал Розірвати Завісу завершено! Завісу послаблено, і сила Нар'Сі зростає!
+cult-veil-ritual-already-completed = Ритуал Розірвати Завісу вже завершено. Завісу більше не послабити.
+cult-veil-ritual-central-command-announcement = Увага всьому персоналу: виявлено аномалії, що спотворюють реальність. Завісу між вимірами пошкоджено. Увесь персонал служби безпеки має негайно озброїтися. Уникайте, затримуйте або зупиняйте членів екіпажу, що проявляють позавимірні здібності. Станція переходить у протоколи максимальної тривоги.
+
+cult-final-ritual-already-in-progress = Фінальний ритуал прикликання вже триває!
+cult-final-ritual-not-enough-cultists = На рунах прикликання недостатньо культистів! Присутньо {$current}, потрібно {$required}.
+cult-final-ritual-started = ФІНАЛЬНИЙ РИТУАЛ ПОЧИНАЄТЬСЯ! Усі культисти мають лишатися на рунах прикликання! Прихід Нар'Сі близько!
+cult-final-ritual-not-enough-at-end = Прикликання провалено! На рунах лишилося недостатньо культистів. Присутньо {$current}, потрібно {$required}.
+cult-final-ritual-failed = Фінальне прикликання провалилося! Гнів Нар'Сі буде жахливим!
+cult-final-ritual-success = НАР'СІ ПРИХОДИТЬ! ГЕОМЕТРИНЯ КРОВІ ПРОРИВАЄ ЗАВІСУ!
+cult-final-ritual-too-early = Кривава данина неповна! Зібрано {$collected}u, потрібно {$required}u перед фінальним прикликанням.
+
+cult-rift-spawned = Реальність розривається, і розлом кровоточить нечестивою сутністю у світ! Місце фінального ритуалу підготовлено!
+
+cult-invocation-blood-drain = Ви відчуваєте, як ваші жили стискаються, а кров витікає!
+cult-invocation-revive-fail = Нар'Сі вимагає більшої жертви!
+cult-invocation-fail-nosoul = Нар'Сі відкидає цю бездушну оболонку!
+cult-invocation-fail-teamkill = Нар'Сі відкидає жертву іншого культиста!
+cult-invocation-fail-mindshielded = Жертва опирається впливу Нар'Сі!
+cult-invocation-fail-resisted = Ця істота опирається впливу Нар'Сі!
+cult-invocation-fail = Потрібно більше культистів!
+cult-invocation-fail-noshell = Для жертви на руні має бути порожня оболонка джагернаута!
+cult-invocation-interrupted = Ритуал перервано!
+cult-revive-success = Ритуал завершено! Життя повертається до тіла!
+cult-revive-success-noncultist = Ритуал завершено! Життя повертається до тіла, але Нар'Сі вимагає свою криваву данину!
+cult-revive-fail-notarget = Немає придатної цілі для воскресіння! Ціль має бути мертвою і лежати на руні.
+cult-sanguine-perniculate-heal = Кривава пернікулята заспокоює ваші рани, зцілюючи {$amount} святої шкоди!
+cult-holywater-burn = Свята вода починає виганяти Нар'Сі з вашої душі!
+cult-invocation-mindshield-break = Ви починаєте ритуал руйнування ментального щита. Нар'Сі вимагає жертви!
+cult-invocation-mindshield-success = Сила Нар'Сі розтрощує ментальний щит! Ритуал рве саму вашу сутність!
+cult-invocation-mindshield-too-early = Завіса надто міцна! Сили Нар'Сі ще недостатньо, щоб руйнувати ментальні щити. Має пролитися більше крові!
+cult-invocation-target-fail = Має бути більше культистів, щоб принести в жертву того, кого бажає Нар'Сі!
+cult-invocation-narsie-fail = Щонайменше дев'ять культистів мають стояти на руні рівномірно, щоб розірвати завісу.
+
+cult-invocation-barrier = Khari'd! Eske'te tannin!
+cult-invocation-revive = Pasnar val'keriam usinar. Savrae ines amutan. Yam'toth remium il'tarat!
+cult-invocation-offering = Mah'weyh pleggh at e'ntrath!
+cult-invocation-empowering = H'drak v'loso, mir'kanas verbot!
+
+cult-spell-carving = Потойбічні щупальця починають грубо вирізати знак у вашій плоті.
+cult-spell-carving-rune = Посилення руни робить вирізання знака у плоті майже невідчутним.
+cult-spell-exceeded = Ви не можете вирізати ще одне закляття!
+cult-spell-havealready = У вас уже є це закляття!
+cult-spell-fail = Вам не вдається застосувати закляття!
+cult-spell-repelled = Свята магія захищає вашу ціль!
+cult-spell-repelled-mindshield = Огидна технологія не дає вашому закляттю досягти цілі!
+cult-spell-mindshield-buzzing = Ви відчуваєте дзижчання у своєму імпланті ментального щита.
+cult-spell-sleep-dream = Вас накриває непереборна сонливість, а розум заповнюють кошмари про закривавлені ножі!
+cult-spell-allied-cultist = Ви не можете цілити у побратима-служителя Нар'Сі!
+
+cult-empowering-rune-not-in-range = Ви не в межах впливу руни.
+cult-empowering-rune-no-action = У вас немає здатності готувати закляття!
+
+cult-shade-summoned = Викрадена душа матеріалізується як служниця-тінь!
+cult-shade-recalled = Ви повертаєте викрадену душу, відновлюючи її!
+cult-shade-servant = Вас випущено з в'язниці, але ви досі пов'язані волею {$name}. Допомагайте їм досягти мети за будь-яку ціну.
+cult-shade-death-return = Сутність тіні повертається до каменя душі.
+
+cult-juggernaut-created = Душу прив'язано до оболонки, створивши могутнього джагернаута!
+cult-juggernaut-reactivated = Душа повертається до джагернаута! Він лишається пораненим і потребує крові для повного відновлення.
+cult-juggernaut-shell-needs-dead = Оболонка приймає лише мертві тіла з душами!
+cult-juggernaut-critical-soulstone-ejected = Форма джагернаута руйнується, і камінь душі викидає назовні!
+
+cult-soulstone-empty = Ви не можете зв'язатися з жодною душею в цьому камені - можливо, він порожній.
+cult-soulstone-created = Мозок істоти захоплено кристалізованою кров'ю Нар'Сі!
+cult-soulstone-shattered = Камінь душі розколюється, і душа повертається до свого первісного тіла!
+
+cult-blood-transmuted = Кров темніє і стає нечестивою під впливом Нар'Сі!
+cult-blood-consumed = Ви поглинаєте кров і відчуваєте, як вона пульсує у ваших жилах!
+bloodcult-juggernaut-healed-by-blood = Джагернаут поглинає кров, і його рани стягуються!
+
+cult-status-veil-strong = [italic]Завісу потрібно послабити, перш ніж ми зможемо прикликати Темну.[/italic]
+cult-status-veil-weak = [italic]Ви і ваші послідовники підготували станцію до остаточного ритуалу![/italic]
+cult-status-veil-weak-pending = [italic]Кров'яна аномалія незабаром проявиться - готуйте руни навернення і жертви.[/italic]
+cult-status-veil-weak-anomaly = [italic][color=red]Кров'яна аномалія проявилася![/color] Живіть її жертвами, щоб посилити фінальний ритуал прикликання.[/italic]
+cult-veil-torn = Завісу... розірвано!
+cult-rift-spawn-soon = Завіса кричить. Кров'яна аномалія проявиться за дві хвилини - готуйте дари!
+
+cult-status-veil-strong-goal = [italic]Поточна мета: принесіть у жертву {$targetName}, {$targetJob}, активувавши руну підношення з тілом або мозком цілі на ній і щонайменше {$cultistsRequired} культистами поруч.[/italic]
+cult-status-veil-weak-goal = [italic]Поточна мета: прикличте Нар'Сі, активувавши руну "Розірвати Завісу" з 9 культистами, конструктами або прикликаними привидами на ній.
+    Прикликання можна здійснити лише в зоні {$firstLoc}, зоні {$secondLoc} або зоні {$thirdLoc} - там завіса достатньо слабка для початку ритуалу.[/italic]
+cult-status-veil-weak-goal-pending = [italic]Поточна мета: дочекайтеся прибуття святої крові Нар'Сі, проливаючи більше крові в Її ім'я![/italic]
+cult-status-veil-weak-rift-location = [italic]Фінальний розлом згущується біля [bold][color=#FF3333]{$location}[/color][/bold]. Ритуал має бути завершено там.[/italic]
+cult-status-veil-weak-direction = [italic]{$location} розташовано на {$direction} від вас. Ідіть на поклик розлому.[/italic]
+cult-status-veil-weak-direction-here = [italic]Ви стоїте в {$location}; розлом поруч.[/italic]
+cult-status-veil-weak-direction-nosense = [italic]Розлом поза межами ваших відчуттів; знайдіть кращу позицію.[/italic]
+cult-central-rift-warning = Увага! У {$location} відкрився розлом у реальності. Якщо його розірвуть, станцію буде втрачено!
+
+cult-status-cultdata = Поточні члени культу: {$cultMembers} культистів і {$constructCount} конструктів
+
+cult-blood-progress = [italic]{ $isComplete ->
+    [true] Очікуйте наступну фазу {$nextPhase} у прикликанні Нар'Сі
+   *[false] Пролийте ще {$bloodNeeded}u крові або наверніть більше людей для фази {$nextPhase} Нар'Сі
+}[/italic]
+
+cult-blood-progress-tear-veil = [italic]Наступна мета: проведіть ритуал Розірвати Завісу в {$location1}, {$location2} або {$location3} з {$required} культистами.[/italic]
+cult-blood-progress-final-summon = [italic]Наступна мета: знайдіть розлом реальності й проведіть фінальний ритуал прикликання з 9 культистами.[/italic]
+cult-blood-progress-final-summon-pending = [italic]Наступна мета: дочекайтеся проявлення кров'яного розлому.[/italic]
+cult-blood-progress-final-summon-ready = [italic]Наступна мета: виголосіть фінальний ритуал прикликання, щоб привести Нар'Сі у цю реальність![/italic]
+cult-blood-progress-final-summon-location = [italic]Місце фінального прикликання: [bold][color=#FF3333]{$location}[/color][/bold].[/italic]
+cult-blood-progress-complete = [italic]Пролито крові: {$bloodCollected}u. Усі криваві пороги виконано![/italic]
+
+cult-narsie-sacrifice-accept = "Я приймаю твою жертву."
+cult-narsie-target-down = "Так! Це саме той, кого я бажаю! Ти добре послужив."
+
+cult-ascend-1 = Завіса слабшає зі зростанням вашого культу, і ваші очі починають світитися...
+cult-ascend-2 = Завіса слабшає зі зростанням вашого культу, і ви вже не можете приховати свою справжню природу!
+
+cult-deconverted = Ви раптово втрачаєте навернення і більше не вважаєте себе культистом!
+cult-break-control = Ви розгублено озираєтеся, коли вплив Нар'Сі розбивається! Ви не пам'ятаєте свого часу в культі.
+cult-deconverted-memory-loss = Ви втрачаєте спогади за останні кілька годин.
+
+cult-evac-called-announcement = Незвичні вимірні збурення згасли. Евакуацію викликано, поки ЦентКом розслідує цю вимірну аномалію. Час прибуття: {$time} {$units}
+cult-evac-sender-announcement = Центральне Командування
+
+cult-commune-window = Спілкування
+cult-commune-info = Прошепотіть у завісу, щоб зв'язатися з іншими поклонниками.
+cult-commune-send = Надіслати
+cult-commune-fallback-job = член екіпажу
+cult-commune-message = Послідовник {$name} як {$job}: {$message}
+cult-commune-incantation = Y'll tor tz'ul z'nik rar.
+
+cult-narsie-spawning = Реальність руйнується навколо вас.
+
+cult-win-announcement-shuttle-call = Через просторово-часові ускладнення станцію визнано нерентабельною для порятунку. До станції спрямовано шатл переведення екіпажу. Неприбуття на шатл і неповернення до Центрального Командування для дебрифінгу буде витлумачено як залишення контракту, а ваші родини зазнаватимуть штрафів, доки витрати не буде компенсовано.
+    Час прибуття: {$time} {$units}.
+cult-win-announcement = Через просторово-часові ускладнення станцію визнано нерентабельною для порятунку. Неповернення до Центрального Командування для дебрифінгу буде витлумачено як залишення контракту, а ваші родини зазнаватимуть штрафів, доки витрати не буде компенсовано.
+
+cult-ghost-role-name = Пробуджений культист крові
+cult-ghost-role-desc = Завзятий культист крові Нар'Сі, повторно пробуджений після кататонії.
+cult-ghost-role-rules = Ви командний антагоніст. Працюйте з іншими культистами, щоб досягти своїх цілей.
+                        Приносьте в жертву членів екіпажу, яких жадає ваше божество, і розривайте завісу, що стримує Її.
+
+cult-roundend-victory = Культ крові прикликав Нар'Сі й заявив права
+    на сектор від Її імені.
+cult-roundend-failure = Культ крові не зміг прикликати свою володарку.
+cult-roundend-count = За раунд культ крові здійснив {$count} {$count ->
+    [1] навернення
+    *[other] навернень
+}.
+cult-roundend-sacrifices = Культ крові віддав {$sacrifices} душ Геометрині Крові.
+
+cult-soulstone-role-name = Полонена душа
+cult-soulstone-role-description = Ви замкнені в камені душі. Ви можете говорити і будете випущені як тінь, коли культист використає камінь.
+cult-soulstone-role-rules = Ви служите культу крові. Виконуйте накази культиста, який тримає ваш камінь душі, і допомагайте йому досягти мети.
+
+cult-summoning-juggernaut-shell = Руна пульсує темною енергією, і матеріалізується оболонка джагернаута!
+cult-summoning-pylon = Руна багряно сяє, і пілон закріплюється в реальності!
+cult-summoning-forsaken-boots = Руна здригається, і прокляті черевики матеріалізуються з порожнечі!
+cult-summoning-acolyte-armor = Руна сяє нечестивим світлом, і матеріалізуються броня послушника та культовий шолом!
+cult-summoning-no-materials = Покладіть на руну прикликання рунічну сталь, рунічне скло, рунічний пласталь, пластик, тканину або дюратканину.
+cult-summoning-insufficient-materials = Недостатньо матеріалів! Потрібно 30 рунічної сталі для оболонки джагернаута, 10 рунічного скла для пілона, 10 рунічного пласталю й верхній одяг для броні послушника або 5 пластику й 5 тканини (чи 5 дюратканини) для проклятих черевиків.
+cult-summoning-need-more-steel = Недостатньо рунічної сталі! Є {$have}, потрібно {$needed} для оболонки джагернаута.
+cult-summoning-need-more-glass = Недостатньо рунічного скла! Є {$have}, потрібно {$needed} для пілона.
+cult-summoning-need-more-plastic = Недостатньо пластику! Є {$have}, потрібно {$needed} для проклятих черевиків.
+cult-summoning-need-more-cloth = Недостатньо тканини! Є {$have}, потрібно {$needed} для проклятих черевиків.
+cult-summoning-need-more-plasteel = Недостатньо рунічного пласталю! Є {$have}, але потрібно {$needed} і верхній одяг для броні послушника.
+cult-summoning-need-outerwear = Потрібно покласти верхній одяг на руну разом із рунічним пласталем, щоб створити броню послушника.
+cult-summoning-pylon-location-blocked = Тут не можна прикликати пілон - місце заблоковане!
+cult-summoning-pylon-no-grid = Тут не можна прикликати пілон.
+cult-summoning-pylon-anchor-failed = Пілон не вдалося закріпити на місці руни, але його прикликано поруч.
+cult-summoning-pylon-failed = Прикликання пілона провалилося! Ваші матеріали повернено.
+
+cult-rune-clean-verb-text = Очистити руну
+cult-rune-clean-verb-message = Очистити руну культу крові милом
+cult-rune-cleaning = Ви починаєте очищати руну...
+cult-rune-cleaned = Ви успішно змили руну!
+
+## Entity names
+
+ent-ActionCultistStudyVeil = Дослідити завісу
+    .desc = Оглянути стан завіси та силу вашого культу.
+ent-ActionCultistCommune = Спілкування
+    .desc = Надіслати повідомлення побратимам-культистам. Обережно: непосвячені бачать, як ви шепочете закляття.
+ent-ActionCultistSpellsSelect = Підготувати закляття
+    .desc = Підготуйте криваве закляття, вирізавши його на своєму тілі. Без руни посилення можна підготувати не більше одного закляття.
+ent-ActionCultistSummonDagger = Прикликати кинджал
+    .desc = Скористайтеся благословенням Нар'Сі, щоб сформувати ритуальний кинджал із власного тіла. Поки ваше серце б'ється, Вона дозволятиме створювати нові.
+ent-ActionCultistSanguineDream = Кривавий сон
+    .desc = Зловісне закляття, що занурює ціль у сон із кошмарами. Викликає ЕМІ у кіборгів. Цілі з ментальним щитом натомість ненадовго приголомшує.
+ent-ActionCultistTwistedConstruction = Викривлене будівництво
+    .desc = Зловісне закляття, що перетворює сталь або скло на рунічну сталь чи рунічне скло.
+
+ent-MindRoleCultist = Роль культиста
+
+ent-ClothingOuterRobesBloodCult = роби культу крові
+    .desc = Зловісна тканинна роба, заляпана кров'ю й підсилена бронепластинами, із прикріпленим каптуром.
+ent-ClothingHeadHatHoodBloodCult = каптур культу крові
+    .desc = Покрив для голови, оздоблений символами культу крові.
+ent-ClothingShoesBootsForsaken = прокляті черевики
+    .desc = Прокляті черевики, що тримаються за підлогу з неприродною чіпкістю. Темна магія культу крові не дасть вам посковзнутися.
+
+ent-CultDagger = культовий кинджал
+    .desc = Моторошний грубий кістяний клинок. З леза капає смоляниста рідина, отруюючи ворогів і захищаючи союзників від ваших ударів. Корисний і в ближньому бою, і як метальний ніж. Вени пульсують від передчуття - образи рун уже спалахують у вашому розумі, щойно ви берете його до рук.
+ent-CultDaggerCurved = культовий кинджал
+    .desc = Моторошний грубий кістяний клинок. З леза капає смоляниста рідина, отруюючи ворогів і захищаючи союзників від ваших ударів. Корисний і в ближньому бою, і як метальний ніж. Вени пульсують від передчуття - образи рун уже спалахують у вашому розумі, щойно ви берете його до рук.
+ent-CultDaggerSerrated = культовий кинджал
+    .desc = Моторошний грубий кістяний клинок. З леза капає смоляниста рідина, отруюючи ворогів і захищаючи союзників від ваших ударів. Корисний і в ближньому бою, і як метальний ніж. Вени пульсують від передчуття - образи рун уже спалахують у вашому розумі, щойно ви берете його до рук.
+ent-CultDaggerStraight = культовий кинджал
+    .desc = Моторошний грубий кістяний клинок. З леза капає смоляниста рідина, отруюючи ворогів і захищаючи союзників від ваших ударів. Корисний і в ближньому бою, і як метальний ніж. Вени пульсують від передчуття - образи рун уже спалахують у вашому розумі, щойно ви берете його до рук.
+
+ent-CultSoulStone = камінь душі
+    .desc = Кристалізована кров Нар'Сі, що містить мозок і душу проклятого.
+ent-CultSoulStoneShard = уламок каменя душі
+    .desc = Уламок кристалізованої крові Нар'Сі, який досі гуде полоненими душами.
+ent-CultHamstone = камінь хом'ячої душі
+    .desc = Кристалізована кров Нар'Сі, що містить мозок і душу проклятого хом'яка.
+
+ent-SheetRunedSteel = рунічна сталь
+    .desc = Лист потойбічної сталі, яку послушники космічних сутностей використовують для складання викривлених конструктів.
+ent-SheetRunedSteel30 = рунічна сталь
+    .desc = Лист потойбічної сталі, яку послушники космічних сутностей використовують для складання викривлених конструктів.
+ent-SheetRunedSteel10 = рунічна сталь
+    .desc = Лист потойбічної сталі, яку послушники космічних сутностей використовують для складання викривлених конструктів.
+ent-SheetRunedSteel1 = рунічна сталь
+    .desc = Лист потойбічної сталі, яку послушники космічних сутностей використовують для складання викривлених конструктів.
+ent-SheetRunedGlass = рунічне скло
+    .desc = Лист потойбічного скла, яке послушники космічних сутностей використовують для складання викривлених конструктів.
+ent-SheetRunedGlass30 = рунічне скло
+    .desc = Лист потойбічного скла, яке послушники космічних сутностей використовують для складання викривлених конструктів.
+ent-SheetRunedGlass10 = рунічне скло
+    .desc = Лист потойбічного скла, яке послушники космічних сутностей використовують для складання викривлених конструктів.
+ent-SheetRunedGlass1 = рунічне скло
+    .desc = Лист потойбічного скла, яке послушники космічних сутностей використовують для складання викривлених конструктів.
+ent-SheetRunedPlasteel = рунічний пласталь
+    .desc = Лист потойбічного пласталю, яким культисти бронюють свої роби.
+ent-SheetRunedPlasteel30 = рунічний пласталь
+    .desc = Лист потойбічного пласталю, яким культисти бронюють свої роби.
+ent-SheetRunedPlasteel10 = рунічний пласталь
+    .desc = Лист потойбічного пласталю, яким культисти бронюють свої роби.
+ent-SheetRunedPlasteel1 = рунічний пласталь
+    .desc = Лист потойбічного пласталю, яким культисти бронюють свої роби.
+
+stack-runed-steel = рунічна сталь
+stack-runed-glass = рунічне скло
+stack-runed-plasteel = рунічний пласталь
+
+ent-BaseBloodCultRune = руна
+    .desc = Виглядає так, наче її вимазали кров'ю...
+ent-BarrierRune = руна бар'єра
+    .desc = Виглядає так, наче її вимазали кров'ю...
+ent-BarrierRune_drawing = руна бар'єра
+    .desc = Виглядає так, наче її вимазали кров'ю...
+ent-BloodBoilRune = руна кипіння крові
+    .desc = Виглядає так, наче її вимазали кров'ю...
+ent-EmpoweringRune = руна посилення
+    .desc = Виглядає так, наче її вимазали кров'ю...
+ent-EmpoweringRune_drawing = руна посилення
+    .desc = Виглядає так, наче її вимазали кров'ю...
+ent-OfferingRune = руна навернення
+    .desc = Виглядає так, наче її вимазали кров'ю...
+ent-OfferingRune_drawing = руна навернення
+    .desc = Виглядає так, наче її вимазали кров'ю...
+ent-FinalRiftRune = руна фінального розлому
+    .desc = Виглядає так, наче її вимазали кров'ю...
+ent-ReviveRune = руна воскресіння
+    .desc = Просякнута кров'ю руна, що повертає мертвих до життя, висмоктуючи кров заклинача.
+ent-ReviveRune_drawing = руна воскресіння
+    .desc = Просякнута кров'ю руна, що повертає мертвих до життя, висмоктуючи кров заклинача.
+ent-SpiritRealmRune = руна світу духів
+    .desc = Виглядає так, наче її вимазали кров'ю...
+ent-SummoningRune = руна прикликання
+    .desc = Виглядає так, наче її вимазали кров'ю...
+ent-SummoningRune_drawing = руна прикликання
+    .desc = Виглядає так, наче її вимазали кров'ю...
+ent-TeleportRune = руна телепортації
+    .desc = Виглядає так, наче її вимазали кров'ю...
+ent-TearVeilRune = руна розриву завіси
+    .desc = Виглядає так, наче її вимазали кров'ю...
+ent-TearVeilRune_drawing = руна розриву завіси
+    .desc = Виглядає так, наче її вимазали кров'ю...
+
+ent-FxBloodCultRuneBarrier = руна бар'єра
+ent-FxBloodCultRuneEmpowering = руна посилення
+ent-FxBloodCultRuneOffering = руна навернення
+ent-FxBloodCultRuneRevive = руна воскресіння
+ent-FxBloodCultRuneTearVeil = руна розриву завіси
+
+ent-CultJuggernautShell = оболонка джагернаута
+    .desc = Велика інертна потвора з рунічної сталі. Її можна завершити, перетягнувши на неї мертве тіло або використавши наповнений камінь душі.
+ent-MobBloodCultJuggernaut = Джагернаут
+    .desc = Сильний, повільний і дуже живучий. Більшість проблем вирішує кулаками. Несприйнятливий до слабких атак.
+ent-MobBloodCultShade = Тінь
+    .desc = Душа, що набула тіла й поневолена волею культу крові.
+
+ent-CultPylon = пілон
+    .desc = Ширяючий кристал, що повільно зцілює вірних Нар'Сі.
+ent-CultForge = кузня
+    .desc = Кузня для створення нечестивої зброї, якою озброюватимуться армії Нар'Сі.
+ent-CultArchives = архіви
+    .desc = Стіл, укритий окультними рукописами та томами, написаними невідомими мовами. Від погляду на текст шкіра вкривається сиротами.
+ent-CultAltar = вівтар
+    .desc = Закривавлений вівтар, присвячений Нар'Сі.
+
+ent-BloodCultRift = розлом реальності
+    .desc = Завіса розривається, випускаючи нечестиву сутність у реальність. Повітря довкола здається густим від злоби.
+ent-ForceBarrierSpawnAnimation = незавершений силовий бар'єр
+    .desc = Силовий бар'єр, що матеріалізується.
+ent-ForceBarrier = силовий бар'єр
+    .desc = Магічний бар'єр! На жаль, запізно.
+
+cult-chant-1 = Нар'Сі!
+cult-chant-2 = Геом'тра!
+cult-chant-3 = Sas'so c'arta forbici!
+cult-chant-4 = Ka'ra'ankh
+cult-chant-5 = Setesh m'khet!
+cult-chant-6 = Nefer ka ma'at
+cult-chant-7 = Khepri suten ankh
+cult-chant-8 = Ptah netjer!
+cult-chant-9 = Sobek wesir
+cult-chant-10 = Anpu sa'anh!
+cult-chant-11 = Thoth heqa
+cult-chant-12 = Bastet sekhem
+cult-chant-13 = Heru neb!
+cult-chant-14 = Ra hotep ankh
+cult-chant-15 = Пролийте кров для Нар'Сі!
+cult-chant-16 = Sekhem ba ka
+
+accent-words-juggernaut-1 = Кров...
+accent-words-juggernaut-2 = Нар'Сі!
+accent-words-juggernaut-3 = Вічність...
+accent-words-juggernaut-4 = Жертва!
+accent-words-juggernaut-5 = Геометриня...
+accent-words-juggernaut-6 = Страждайте...
+accent-words-juggernaut-7 = Коріться!
+
+reagent-name-edge-essentia = крайова есенція
+reagent-desc-edge-essentia = Темна проклята речовина, що спотворює кров поранених жертв, перетворюючи їхні кровоточиві рани на джерела кривавої пернікуляти.
+reagent-name-sanguine-perniculate = кривава пернікулята
+reagent-desc-sanguine-perniculate = Темно-багряна кров, що ніби звивається від зловісної енергії. Торкатися її неправильно.
+reagent-physical-desc-profane = нечестива
+flavor-complex-forbidden = наче заборонена кривава магія
+
+reagent-effect-guidebook-bleed-sanguine-perniculate =
+    перетворює кровотечу на криваву пернікуляту
+
+reagent-effect-guidebook-juggernaut-blood-corruption =
+    оскверняє кров біля джагернаута, перетворюючи її на криваву пернікуляту
+
+reagent-effect-condition-guidebook-is-blood-cultist = { $invert ->
+    [true] ціль не є культистом крові
+    *[false] ціль є культистом крові
+    }
+
+sanguine-perniculate-holywater-reaction = Нечестива кров люто реагує зі святою водою, очищаючи себе!

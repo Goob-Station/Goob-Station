@@ -103,6 +103,10 @@ public abstract class SharedAbsorbentSystem : EntitySystem
             && _useDelay.IsDelayed((absorbEnt.Owner, useDelay)))
             return;
 
+        // Pirate: allow downstream systems to consume mop targets before puddle/refillable handling.
+        if (TryBeforeMopTarget(absorbEnt, user, target))
+            return;
+
         // Try to slurp up the puddle.
         // We're then done if our mop doesn't use absorber solutions, since those don't need refilling.
         if (TryPuddleInteract((absorbEnt.Owner, absorbEnt.Comp, useDelay), absorberSoln.Value, user, target)
@@ -111,6 +115,11 @@ public abstract class SharedAbsorbentSystem : EntitySystem
 
         // If it's refillable try to transfer
         TryRefillableInteract((absorbEnt.Owner, absorbEnt.Comp, useDelay), absorberSoln.Value, user, target);
+    }
+
+    protected virtual bool TryBeforeMopTarget(Entity<AbsorbentComponent> absorbEnt, EntityUid user, EntityUid target)
+    {
+        return false;
     }
 
     /// <summary>

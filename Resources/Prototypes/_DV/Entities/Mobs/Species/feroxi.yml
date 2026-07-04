@@ -67,6 +67,11 @@
       - map: [ "shoes" ]
       - map: [ "ears" ]
       - map: [ "outerClothing" ]
+      - map: [ "culteyes" ] # Pirate - Blood Cult
+        sprite: "_Pirate/BloodCult/Effects/culteyes.rsi"
+        state: "human"
+        shader: unshaded
+        visible: false
       - map: [ "belt" ] # Goob
       - map: [ "eyes" ]
       - map: [ "neck" ]
@@ -85,6 +90,11 @@
       - map: [ "clownedon" ] # Dynamically generated
         sprite: "_DV/Effects/creampie.rsi"
         state: "creampie_feroxi"
+        visible: false
+      - map: [ "culthalo" ] # Pirate - Blood Cult
+        sprite: "_Pirate/BloodCult/Effects/halo.rsi"
+        state: "halo"
+        shader: unshaded
         visible: false
   - type: MeleeWeapon
     hidden: true

@@ -1,0 +1,15 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Paradise Station",
+
+    "size": {
+        "x": 10,
+        "y": 10
+    },
+    "states": [
+        {
+            "name": "Cultist"
+        }
+    ]
+}

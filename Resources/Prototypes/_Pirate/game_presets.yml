@@ -37,7 +37,7 @@
   - SpaceTrafficControlFriendlyEventScheduler
   - BasicRoundstartVariation
   - PsionicEventsScheduler # Pirate
-  
+
 - type: gamePreset
   id: PirateRelaxed
   alias:
@@ -83,3 +83,20 @@
     rules:
     - id: Devil
       prob: 0.3
+
+- type: gamePreset
+  id: BloodCult
+  alias:
+  - bloodcult
+  - bcult
+  name: bloodcult-title
+  description: bloodcult-description
+  showInVote: false
+  rules:
+  - DummyNonAntagChance
+  - BloodCult
+  - SubGamemodesRule
+  - BasicStationEventScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
+  - PsionicEventsScheduler # Pirate

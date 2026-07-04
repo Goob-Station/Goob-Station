@@ -1,0 +1,68 @@
+# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
+
+- type: entity
+  parent: [ SheetGlassBase, BaseBloodCultContraband ]
+  id: SheetRunedGlass
+  name: runed glass
+  suffix: Full
+  description: A sheet of otherworldly glass, used by acolytes of cosmic entities to assemble twisted constructs.
+  components:
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      RunedGlass: 100
+  - type: Stack
+    stackType: RunedGlass
+    baseLayer: base
+    layerStates:
+    - runedglass
+    - runedglass_2
+    - runedglass_3
+  - type: Sprite
+    sprite: _Pirate/BloodCult/Sheets/glass.rsi
+    state: runedglass_3
+    layers:
+    - state: runedglass_3
+      map: ["base"]
+  - type: Item
+    sprite: _Pirate/BloodCult/Sheets/glass.rsi
+    heldPrefix: runedglass
+  - type: Appearance
+
+- type: entity
+  parent: SheetRunedGlass
+  id: SheetRunedGlass30
+  name: runed glass
+  suffix: 30
+  components:
+  - type: Sprite
+    state: runedglass_3
+  - type: Stack
+    stackType: RunedGlass
+    count: 30
+
+- type: entity
+  parent: SheetRunedGlass
+  id: SheetRunedGlass10
+  name: runed glass
+  suffix: 10
+  components:
+  - type: Sprite
+    state: runedglass_2
+  - type: Stack
+    stackType: RunedGlass
+    count: 10
+
+- type: entity
+  parent: SheetRunedGlass
+  id: SheetRunedGlass1
+  name: runed glass
+  suffix: Single
+  components:
+  - type: Sprite
+    state: runedglass
+  - type: Stack
+    stackType: RunedGlass
+    count: 1

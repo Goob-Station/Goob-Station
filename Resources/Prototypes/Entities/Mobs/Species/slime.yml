@@ -110,6 +110,12 @@
         type: VampireClassBui # Pirate
       enum.VampireLocateUiKey.Key:
         type: VampireLocateBui # Pirate
+      enum.BloodCultistCommuneUIKey.Key: # Pirate - Blood Cult
+        type: BloodCultCommuneBoundUserInterface
+        requireInputValidation: false
+      enum.SpellsUiKey.Key: # Pirate - Blood Cult
+        type: SpellsBoundUserInterface
+        requireInputValidation: false
   # to prevent bag open/honk spam
   - type: UseDelay
     delay: 0.5

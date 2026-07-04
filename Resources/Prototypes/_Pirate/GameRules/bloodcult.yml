@@ -1,0 +1,39 @@
+# SPDX-FileCopyrightText: 2025 Skye <57879983+Rainbeon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
+# SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
+# SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 kbarkevich <24629810+kbarkevich@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 misghast <51974455+misterghast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+- type: entity
+  id: BloodCult
+  parent: BaseGameRule
+  components:
+  - type: GameRule
+    minPlayers: 20
+  - type: BloodCultRule
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
+    definitions:
+    - prefRoles: [ BloodCultist ]
+      min: 3
+      max: 5
+      playerRatio: 10
+      startingGear: BloodCultistGear
+      briefing:
+        text: cult-start-briefing
+        color: CornflowerBlue
+        sound: "/Audio/_Pirate/Ambience/Antag/cultist_start.ogg"
+      blacklist:
+        components:
+        - BibleUser
+      components:
+      - type: BloodCultist
+      mindRoles:
+      - MindRoleCultist
+  - type: Tag
+    tags:
+      - RoundstartAntag

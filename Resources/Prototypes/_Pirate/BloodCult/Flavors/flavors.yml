@@ -1,0 +1,8 @@
+# SPDX-FileCopyrightText: 2026 Space Station 14 Contributors
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+- type: flavor
+  id: forbidden
+  flavorType: Complex
+  description: flavor-complex-forbidden

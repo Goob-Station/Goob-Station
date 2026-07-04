@@ -1,0 +1,93 @@
+# SPDX-FileCopyrightText: 2025 MaiaArai <158123176+YaraaraY@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Middleson5 <Chance@thethiers.com>
+# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
+# SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2026 Xcybitt <197952719+Xcybitt@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 YaraaraY <158123176+YaraaraY@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+- type: entity
+  parent: [ ClothingOuterBaseLarge, BaseMajorContraband, AllowSuitStorageClothing ]
+  id: ClothingOuterRobesBloodCult
+  name: bloodcult robes
+  description: An evil-looking cloth robe, dripping with blood and reinforced with armor plates, with an attached hood.
+  components:
+  - type: Sprite
+    sprite: _Pirate/BloodCult/Clothing/cult_robes.rsi
+  - type: Clothing
+    sprite: _Pirate/BloodCult/Clothing/cult_robes.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.5
+        Radiation: 0.5
+        Caustic: 0.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: StaminaResistance
+    damageCoefficient: 0.75
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHatHoodBloodCult
+    slot: head
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:Container {}
+  - type: GroupExamine
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatHoodBloodCult
+  categories: [ HideSpawnMenu ]
+  name: bloodcult hood
+  description: A covering for the head, adorned with symbols of the blood cult.
+  components:
+  - type: Sprite
+    sprite: _Pirate/BloodCult/Clothing/cult_hood.rsi
+  - type: Clothing
+    sprite: _Pirate/BloodCult/Clothing/cult_hood.rsi
+    equipSound: /Audio/Effects/rustle1.ogg
+    unequipSound: /Audio/Effects/rustle2.ogg
+    quickEquip: false
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+      head-reptilian:
+      - state: equipped-HELMET-reptilian
+      head-vox:
+      - state: equipped-HELMET-vox
+      head-vulpkanin:
+      - state: equipped-HELMET-vulpkanin
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.90
+        Heat: 0.90
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: HideLayerClothing
+    slots:
+    - Hair
+
+- type: entity
+  parent: [ ClothingShoesBaseButcherable, BaseMinorContraband ]
+  id: ClothingShoesBootsForsaken
+  name: forsaken boots
+  description: Cursed boots that grip the ground with an unnatural tenacity. The blood cult's dark magic ensures you'll never slip.
+  components:
+  - type: Sprite
+    sprite: _Pirate/BloodCult/Clothing/cult_boots.rsi
+  - type: Clothing
+    sprite: _Pirate/BloodCult/Clothing/cult_boots.rsi
+  - type: NoSlip
+  - type: SlowedOverSlippery
+    slowdownModifier: 0.7
+  - type: SpeedModifierContactCapClothing
+    maxContactSprintSlowdown: 0.7
+    maxContactWalkSlowdown: 0.7

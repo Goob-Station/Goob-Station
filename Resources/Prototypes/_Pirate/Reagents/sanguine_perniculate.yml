@@ -1,0 +1,35 @@
+# SPDX-FileCopyrightText: 2025 Terkala <appleorange64@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
+
+- type: reagent
+  parent: Blood
+  id: SanguinePerniculate
+  name: reagent-name-sanguine-perniculate
+  group: Biological
+  desc: reagent-desc-sanguine-perniculate
+  physicalDesc: reagent-physical-desc-profane
+  flavor: forbidden
+  color: "#660000"
+  boilingPoint: 100.0
+  meltingPoint: 0.0
+  recognizable: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 0.5
+    Poison:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Bloodsucker
+          shouldHave: false
+        damage:
+          types:
+            Poison: 2
+  footstepSound:
+    collection: FootstepBlood
+    params:
+      volume: 6

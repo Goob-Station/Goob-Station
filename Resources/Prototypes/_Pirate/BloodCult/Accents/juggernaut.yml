@@ -1,0 +1,10 @@
+- type: accent
+  id: juggernaut
+  fullReplacements:
+  - accent-words-juggernaut-1
+  - accent-words-juggernaut-2
+  - accent-words-juggernaut-3
+  - accent-words-juggernaut-4
+  - accent-words-juggernaut-5
+  - accent-words-juggernaut-6
+  - accent-words-juggernaut-7

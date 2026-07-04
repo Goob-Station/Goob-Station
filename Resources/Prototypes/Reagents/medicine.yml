@@ -1528,6 +1528,17 @@
         - !type:HasComponentCondition
           components:
           - WeakToHoly
+    Medicine:
+      effects:
+      - !type:DeCultify # Pirate - Blood Cult deconversion
+        amount: 2.5
+      - !type:HealthChange # Pirate - Holy water harms blood cultists
+        conditions:
+        - !type:IsBloodCultist
+        ignoreResistances: false
+        damage:
+          types:
+            Heat: 1
 
   reactiveEffects:
     Extinguish:

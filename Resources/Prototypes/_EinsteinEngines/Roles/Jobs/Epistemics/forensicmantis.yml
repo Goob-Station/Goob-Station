@@ -41,7 +41,7 @@
         powersToAdd:
           - MetapsionicPower
           - TelepathyPower
-          - MantisSummonBlackBlade
+          # Pirate: stale old BloodCult black blade power removed.
           - AssayPower
       - type: Telepathy
 

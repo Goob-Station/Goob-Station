@@ -154,6 +154,11 @@
         - map: ["shoes"]
         - map: ["ears"]
         - map: ["outerClothing"]
+        - map: [ "culteyes" ] # Pirate - Blood Cult
+          sprite: "_Pirate/BloodCult/Effects/culteyes.rsi"
+          state: "human"
+          shader: unshaded
+          visible: false
         - map: ["eyes"]
         - map: ["belt"]
         - map: ["neck"]
@@ -172,6 +177,11 @@
         - map: ["clownedon"] # Dynamically generated
           sprite: "Effects/creampie.rsi"
           state: "creampie_human"
+          visible: false
+        - map: [ "culthalo" ] # Pirate - Blood Cult
+          sprite: "_Pirate/BloodCult/Effects/halo.rsi"
+          state: "halo"
+          shader: unshaded
           visible: false
     - type: CanEnterCryostorage # Goobstation
     - type: StatusIcon # Goobstation
@@ -230,6 +240,14 @@
           clownedon: # Not 'creampied' bc I can already see Skyrat complaining about conflicts.
             True: { visible: true }
             False: { visible: false }
+        enum.CultHaloVisuals.CultHalo: # Pirate - Blood Cult
+          culthalo:
+            True: { visible: true }
+            False: { visible: false }
+        enum.CultEyesVisuals.CultEyes: # Pirate - Blood Cult
+          culteyes:
+            True: { visible: true }
+            False: { visible: false }
     - type: Cuffable
     - type: AnimationPlayer
     - type: Buckle
@@ -249,8 +267,14 @@
         enum.WizardTeleportUiKey.Key: # Goobstation - wizard
           type: WizardTeleportBoundUserInterface
           requireInputValidation: false
-      enum.RadarConsoleUiKey.Key: #goob - contractor
-        type: RadarConsoleBoundUserInterface
+        enum.BloodCultistCommuneUIKey.Key: # Pirate - Blood Cult
+          type: BloodCultCommuneBoundUserInterface
+          requireInputValidation: false
+        enum.SpellsUiKey.Key: # Pirate - Blood Cult
+          type: SpellsBoundUserInterface
+          requireInputValidation: false
+        enum.RadarConsoleUiKey.Key: #goob - contractor
+          type: RadarConsoleBoundUserInterface
     - type: Emoting
     - type: Grammar
       attributes:
