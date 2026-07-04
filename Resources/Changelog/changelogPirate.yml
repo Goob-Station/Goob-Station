@@ -1901,3 +1901,11 @@ Entries:
       message: Додані нові крісла
   id: 176
   time: '2026-07-03T17:45:43.0000000+00:00'
+- author: AgentMaper
+  changes:
+    - type: Fix
+      message: Виправлено Perdition Island
+    - type: Fix
+      message: Виправлено Outpost
+  id: 177
+  time: '2026-07-04T11:01:16.0000000+00:00'
