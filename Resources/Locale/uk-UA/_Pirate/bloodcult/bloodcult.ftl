@@ -19,6 +19,7 @@ cult-start-briefing = Геометриня Крові має для вас за�
 cult-briefing-targets = Нар'Сі вимагає крові. Дослідіть завісу, щоб збагнути Її волю.
 
 admin-verb-make-cultist = Зробити ціль культистом крові.
+admin-verb-text-make-cultist = Зробити культистом крові
 
 cult-dagger-equip-fail = Кинджал розсипається попелом у ваших руках!
 cult-attack-repelled = Свята магія відбиває вашу атаку!

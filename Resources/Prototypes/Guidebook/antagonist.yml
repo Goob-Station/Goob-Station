@@ -33,6 +33,7 @@
   children:
   - Traitors
   - BloodBrothers # Pirate
+  - BloodCult # Pirate
   - CorporateAgents # Goobstation - Corporate Agents
   - Changelings # Goobstation - changelings
   - Heretics # Goobstation - heretics
