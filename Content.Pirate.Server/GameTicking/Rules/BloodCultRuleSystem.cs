@@ -176,7 +176,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	[Dependency] private readonly NpcFactionSystem _npcFaction = default!;
 	[Dependency] private readonly IAdminLogManager _adminLogger = default!;
 	[Dependency] private readonly IConsoleHost _consoleHost = default!;
-	//[Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+	[Dependency] private readonly SharedTransformSystem _transformSystem = default!;
 	[Dependency] private readonly BloodCultMindShieldSystem _mindShield = default!;
 	[Dependency] private readonly SleepingSystem _sleeping = default!;
 	[Dependency] private readonly IPrototypeManager _proto = default!;
@@ -1393,9 +1393,8 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			purpleMessage += "\n" + Loc.GetString("cult-status-veil-weak-rift-location",
 				("location", summonLocation.Name));
 
-			if (specificCultist != null)
-				purpleMessage += "\n" + Loc.GetString("cult-blood-progress-final-summon-location",
-					("location", summonLocation.Name));
+			if (specificCultist != null && TryGetRiftDirectionMessage(specificCultist.Value, summonLocation, out var directionMessage))
+				purpleMessage += "\n" + directionMessage;
 		}
 		if (specificCultist != null)
 			AnnounceToCultist(purpleMessage,
@@ -1513,12 +1512,36 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			("isComplete", isComplete));
 	}
 
-	// private bool TryGetRiftDirectionMessage(EntityUid cultistUid, WeakVeilLocation location, out string message)
-	// {
-	// 	message = Loc.GetString("cult-blood-progress-final-summon-location",
-	// 		("location", location.Name));
-	// 	return true;
-	// }
+	private bool TryGetRiftDirectionMessage(EntityUid cultistUid, WeakVeilLocation location, out string message)
+	{
+		message = string.Empty;
+
+		if (TerminatingOrDeleted(cultistUid))
+			return false;
+
+		var cultistCoords = _transformSystem.GetMapCoordinates(cultistUid);
+		var riftCoords = _transformSystem.ToMapCoordinates(location.Coordinates);
+
+		if (cultistCoords.MapId != riftCoords.MapId)
+		{
+			message = Loc.GetString("cult-status-veil-weak-direction-nosense");
+			return true;
+		}
+
+		var offset = riftCoords.Position - cultistCoords.Position;
+		if (offset.Length() <= location.ValidRadius)
+		{
+			message = Loc.GetString("cult-status-veil-weak-direction-here",
+				("location", location.Name));
+			return true;
+		}
+
+		var direction = ContentLocalizationManager.FormatDirection(offset.ToWorldAngle().GetDir());
+		message = Loc.GetString("cult-status-veil-weak-direction",
+			("location", location.Name),
+			("direction", direction));
+		return true;
+	}
 
 	/// <summary>
 	/// Dispatches a commune action: forces the sender to whisper a single chant word
