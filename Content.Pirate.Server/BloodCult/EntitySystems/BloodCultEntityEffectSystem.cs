@@ -14,6 +14,7 @@ using Content.Shared.EntityEffects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameObjects;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.BloodCult.EntitySystems;
 
