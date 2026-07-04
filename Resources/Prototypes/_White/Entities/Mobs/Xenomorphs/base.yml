@@ -159,8 +159,9 @@
   abstract: true
   components:
   - type: Prying #Switched from Tools component to this
-    speedModifier: 1.5
+    speedModifier: 5 # Goob - xeno buff
     pryPowered: true
+    useSound: /Audio/Machines/airlock_creaking.ogg
   - type: ComplexInteraction
   - type: Hands
   - type: ShowHealthIcons
@@ -189,6 +190,7 @@
     - DoorBumpOpener
     - FootstepSound
   - type: XenomorphShoveTracker
+  - type: CanMoveInAir
 
 - type: entity
   id: BaseMobXenomorphDungeon
