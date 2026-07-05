@@ -18,18 +18,20 @@ SPDX-License-Identifier: AGPL-3.0-or-later
       <Configurations>Debug;Release;Tools;DebugOpt</Configurations>
       <Platforms>AnyCPU</Platforms>
     </PropertyGroup>
+    <Import Project="../MSBuild/Content.props" />
 
     <ItemGroup>
       <PackageReference Include="JetBrains.Annotations" PrivateAssets="All" />
     </ItemGroup>
+
+    <Import Project="..\RobustToolbox\Imports\Client.props" />
+    <Import Project="..\RobustToolbox\Imports\Shared.props" />
 
     <ItemGroup>
       <ProjectReference Include="..\Content.Client\Content.Client.csproj" />
       <ProjectReference Include="..\Content.Goobstation.Shared\Content.Goobstation.Shared.csproj" />
       <ProjectReference Include="..\Content.Goobstation.Client\Content.Goobstation.Client.csproj" />
       <ProjectReference Include="..\Content.Pirate.Shared\Content.Pirate.Shared.csproj" />
-      <ProjectReference Include="..\RobustToolbox\Robust.Client\Robust.Client.csproj" Private="false" />
-      <ProjectReference Include="..\RobustToolbox\Robust.Shared\Robust.Shared.csproj" Private="false" />
     </ItemGroup>
 
     <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />

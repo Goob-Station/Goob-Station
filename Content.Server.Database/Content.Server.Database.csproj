@@ -25,8 +25,8 @@
     <ProjectReference Include="..\Content.Shared.Database\Content.Shared.Database.csproj" />
 
     <ProjectReference Include="..\Content.Pirate.Shared\Content.Pirate.Shared.csproj" />
-    <ProjectReference Include="..\RobustToolbox\Robust.Shared\Robust.Shared.csproj" />
   </ItemGroup>
 
+  <Import Project="..\RobustToolbox\Imports\Shared.props" />
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
 </Project>
