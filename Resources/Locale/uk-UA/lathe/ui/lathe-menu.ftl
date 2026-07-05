@@ -31,3 +31,10 @@ lathe-menu-recipe-count = { $count ->
 }
 lathe-menu-queue-reset-title = Скинути чергу
 lathe-menu-queue-reset-material-overflow = Ви помічаєте, що автолат заповнений.
+lathe-menu-silo-linked-message = Силос підключено
+lathe-menu-delete-fabricating-tooltip = Скасувати друк поточного предмета.
+lathe-menu-delete-item-tooltip = Скасувати друк цієї партії.
+lathe-menu-move-up-tooltip = Перемістити цю партію вперед у черзі.
+lathe-menu-move-down-tooltip = Перемістити цю партію назад у черзі.
+lathe-menu-item-single = {$index}. {$name}
+lathe-menu-item-batch = {$index}. {$name} ({$printed}/{$total})

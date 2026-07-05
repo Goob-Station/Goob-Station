@@ -1,0 +1,9 @@
+npc-debug-overlay-window-title = Налагодження NPC
+npc-debug-overlay-window-section-npc-label = NPC
+npc-debug-overlay-window-section-pathfinder-label = Пошук шляху
+npc-debug-overlay-window-show-htn-tree-checkbox = Thonk
+npc-debug-overlay-window-path-breadcrumbs-checkbox = Сліди
+npc-debug-overlay-window-path-polygons-checkbox = Полігони
+npc-debug-overlay-window-path-neighbors-checkbox = Сусіди
+npc-debug-overlay-window-path-route-costs-checkbox = Вартість маршрутів
+npc-debug-overlay-window-path-routes-checkbox = Маршрути

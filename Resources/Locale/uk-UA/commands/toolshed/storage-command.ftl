@@ -1,0 +1,2 @@
+command-description-storage-fasttake = Бере останній покладений предмет із переданої через pipe сутності сховища.
+command-description-storage-insert = Вставляє передану через pipe сутність у задану сутність сховища.

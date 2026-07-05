@@ -1,0 +1,12 @@
+cmd-substepatmos-desc = Виконує один підкрок симуляції атмосфери на один atmostick для наданої сутності сітки. Неявно призупиняє симуляцію атмосферики.
+cmd-substepatmos-help = Використання: {$command} <EntityUid>
+cmd-error-no-grid-provided-or-invalid-grid = Ви маєте або надати сутність сітки, або стояти на сітці для підкроку.
+cmd-error-couldnt-parse-entity = Надану сутність не вдалося розібрати або вона не існує. Спробуйте стати на сітку, для якої потрібен підкрок.
+cmd-error-no-gridatmosphere = Надана сутність не має GridAtmosphereComponent.
+cmd-error-no-gastileoverlay = Надана сутність не має GasTileOverlayComponent.
+cmd-error-no-mapgrid = Надана сутність не має MapGridComponent.
+cmd-error-no-xform = Надана сутність не має TransformComponent?
+cmd-error-no-valid-map = Надана сітка не на коректній мапі?
+cmd-substepatmos-info-implicitly-paused-simulation = Неявно призупинено симуляцію атмосферики на {$grid}.
+cmd-substepatmos-info-substepped-grid = Симуляцію атмосферики на {$grid} просунуто на один atmostick.
+cmd-substepatmos-completion-grid-substep = EntityUid сітки, для якої потрібен підкрок. Якщо порожньо, автоматично використовується сітка, на якій ви стоїте.

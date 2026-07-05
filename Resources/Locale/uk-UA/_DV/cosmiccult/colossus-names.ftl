@@ -1,0 +1,15 @@
+cosmiccolossus-names-dataset-1 = Батоліт
+cosmiccolossus-names-dataset-2 = Протоліт
+cosmiccolossus-names-dataset-3 = Нефеліт
+cosmiccolossus-names-dataset-4 = Гіалокласт
+cosmiccolossus-names-dataset-5 = Катакласт
+cosmiccolossus-names-dataset-6 = Тефрокласт
+cosmiccolossus-titles-dataset-1 = Титанічний
+cosmiccolossus-titles-dataset-2 = Височенний
+cosmiccolossus-titles-dataset-3 = Колосальний
+cosmiccolossus-titles-lone-dataset-1 = Геркулесовий
+cosmiccolossus-titles-lone-dataset-2 = Міфічний
+cosmiccolossus-titles-lone-dataset-3 = Апокрифічний
+cosmiccolossus-titles-lone-dataset-4 = Гігантський
+cosmiccolossus-titles-lone-dataset-5 = Монументальний
+name-format-colossus = {$part0}, {$part1}

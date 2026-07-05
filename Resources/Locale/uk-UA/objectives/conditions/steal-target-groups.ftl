@@ -20,8 +20,6 @@ steal-target-groups-jetpack-captain-filled = джетпак капітана
 steal-target-groups-weapon-antique-laser = антикварний лазерний пістолет
 steal-target-groups-nuke-disk = диск ядерної автентифікації
 steal-target-groups-weapon-energy-shot-gun = енергетичний дробовик
-
-# Колекція злодія
 steal-target-groups-figurines = фігурка
 steal-target-groups-heads-cloaks = плащ голови відділу
 steal-target-groups-heads-bedsheets = простирадло голови відділу
@@ -49,9 +47,7 @@ steal-target-groups-clothing-eyes-hud-beer = пивні окуляри
 steal-target-groups-bible = біблія
 steal-target-groups-clothing-neck-goldmedal = золота медаль екіпажу
 steal-target-groups-clothing-neck-clownmedal = медаль клоуна
-steal-target-groups-wanted-list-cartridge = картридж зі списком розшукуваних
-
-# Структури злодія
+steal-target-groups-wanted-list-cartridge = картридж списку розшукуваних
 steal-target-groups-teg = частина генератора ТЕГ
 steal-target-groups-freezer-heater = морозильник або нагрівач
 steal-target-groups-altar-nanotrasen = вівтар Nanotrasen (будь-який)
@@ -72,3 +68,8 @@ steal-target-groups-animal-morty = Морті
 steal-target-groups-animal-renault = Рено
 steal-target-groups-animal-shiva = Шива
 steal-target-groups-animal-tropico = Тропіко
+steal-target-groups-weapon-energy-magnum = енергетичний магнум
+steal-target-groups-mail = пошта
+steal-target-groups-officer-handguns = пістолет офіцера СБ
+steal-target-groups-belt-ce = пояс інструментів головного інженера
+steal-target-groups-captain-sword = шабля капітана

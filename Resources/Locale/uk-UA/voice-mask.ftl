@@ -8,3 +8,7 @@ voice-mask-name-change-speech-style = Стиль мовлення
 voice-mask-default-name-override = Невідомо
 voice-mask-icon-label = Професія (для вашої іконки в радіо)
 voice-mask-name-current-name = Поточне ім'я
+voice-mask-name-change-toggle = Перемкнути маску голосу
+voice-mask-name-change-accent-toggle = Блокувати акцент
+voice-mask-popup-toggle = Маску голосу перемкнено.
+voice-mask-popup-accent-toggle = Акцент перемкнено.

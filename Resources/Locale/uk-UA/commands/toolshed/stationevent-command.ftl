@@ -1,0 +1,4 @@
+command-description-stationevent-simulate = Моделює N кількість раундів, у яких відбудуться події, і виводить значення кожної події після кожного раунду.
+command-description-stationevent-lsprob = Перераховує ймовірність виникнення різних подій на станціях з усього пулу.
+command-description-stationevent-lsprobtheoretical = Враховуючи прототип BasicStationEventScheduler, кількість гравців та час раунду, перелічує ймовірність виникнення різних станційних подій на основі зазначеної кількості гравців та часу раунду.
+command-description-stationevent-prob = Повертає ймовірність того, що відбудеться подія для однієї станції з усього пулу.

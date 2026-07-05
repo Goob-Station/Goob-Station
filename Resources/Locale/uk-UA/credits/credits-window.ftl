@@ -16,3 +16,6 @@ credits-window-attributions-copyright = [color=white]Авторське прав
 credits-window-attributions-license = [color=white]Ліцензія:[/color] {$license}
 credits-window-attributions-source = [color=white]Джерело:[/color] {$source}
 credits-window-attributions-failed = [color=red]Не вдалося прочитати файл:[/color] {$file}
+credits-window-immortals-title = Памяті
+credits-window-previous-page-button = Попередня сторінка
+credits-window-next-page-button = Наступна сторінка

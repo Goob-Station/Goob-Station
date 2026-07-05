@@ -1,0 +1,1 @@
+window-taking-damage = [color=orange]Воно напружується під тиском![/color]

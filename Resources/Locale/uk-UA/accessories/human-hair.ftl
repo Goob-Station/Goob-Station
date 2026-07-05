@@ -199,3 +199,6 @@ marking-HumanHairShaped = У формі
 marking-HumanHairBAlt = Зачіска Джинкс
 marking-HumanHairLongWithBangs = Довге з чубчиком
 marking-HumanHairNiko = Ніко
+marking-HumanHairBaby = Бебі
+marking-HumanHairCube = Куб
+marking-HumanHairOverEyePigtail = Косичка (над оком)

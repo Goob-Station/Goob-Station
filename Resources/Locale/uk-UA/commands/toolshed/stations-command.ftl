@@ -1,0 +1,10 @@
+command-description-stations-list = Повертає список усіх станцій.
+command-description-stations-get = Отримує активну станцію, якщо і тільки якщо вона є тільки одна.
+command-description-stations-getowningstation = Отримує станцію, якій "належить" даний об'єкт (в межах якої він знаходиться)
+command-description-stations-grids = Повертає всі сітки, пов'язані з вхідною станцією.
+command-description-stations-config = Повертає конфігурацію, пов'язану з вхідною станцією, якщо така є.
+command-description-stations-addgrid = Додає сітку до заданої станції.
+command-description-stations-rmgrid = Видаляє сітку з даної станції.
+command-description-stations-rename = Перейменовує задану станцію.
+command-description-stations-largestgrid = Повертає найбільшу сітку, яку має дана станція, якщо така є.
+command-description-stations-rerollBounties = Очищає всі поточні винагороди для станції і отримує новий вибір.

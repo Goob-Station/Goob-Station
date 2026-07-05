@@ -9,3 +9,5 @@ flatpacker-ui-cost-label = Вартість Упаковки
 flatpacker-ui-no-board-label = Плата відсутня!
 flatpacker-ui-insert-board = Для початку вставте плату.
 flatpacker-ui-pack-button = Пакувати
+flatpacker-ui-board-invalid-label = [color=red]Некоректна плата!
+    Неможливо надрукувати![/color]

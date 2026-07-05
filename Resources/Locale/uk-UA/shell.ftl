@@ -51,3 +51,5 @@ shell-must-have-body = Ви повинні мати тіло, щоб викон�
 ## Аргументи
 shell-need-exactly-zero-arguments = Ця команда не приймає аргументів.
 shell-missing-required-permission = Вам потрібен дозвіл {$perm} для цієї команди!
+shell-can-only-run-from-pre-round-lobby = Цю команду можна виконувати лише коли гра у передраундовому лобі.
+shell-can-only-run-while-round-is-active = Цю команду можна виконувати лише під час раунду.

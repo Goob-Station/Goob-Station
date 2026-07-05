@@ -1,0 +1,1 @@
+command-description-polymorph = Поліморфує вхідний об'єкт за заданим прототипом.

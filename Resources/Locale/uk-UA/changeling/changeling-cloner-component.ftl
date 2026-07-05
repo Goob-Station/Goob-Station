@@ -1,0 +1,9 @@
+changeling-cloner-component-empty = Він порожній.
+changeling-cloner-component-filled = У ньому є зразок ДНК.
+changeling-cloner-component-spent = Його вже використали.
+changeling-cloner-component-reset-verb = Скинути ДНК
+changeling-cloner-component-reset-popup = Ви очищаєте ДНК-сховище інжектора.
+changeling-cloner-component-draw-user = Ви починаєте забирати ДНК з {THE($target)}.
+changeling-cloner-component-draw-target = {CAPITALIZE(THE($user))} починає забирати ДНК з вас.
+changeling-cloner-component-inject-user = Ви починаєте вводити ДНК у {THE($target)}.
+changeling-cloner-component-inject-target = {CAPITALIZE(THE($user))} починає вводити ДНК у вас.

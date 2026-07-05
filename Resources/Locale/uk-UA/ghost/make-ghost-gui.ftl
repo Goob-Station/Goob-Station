@@ -1,0 +1,15 @@
+make-ghost-roles-window-title = Створити роль привида
+make-ghost-roles-window-entity-label = Сутність
+make-ghost-roles-window-role-name-label = Назва ролі
+make-ghost-roles-window-role-description-label = Опис ролі
+make-ghost-roles-window-role-rules-label = Правила ролі
+make-ghost-roles-window-make-sentient-label = Зробити розумним
+make-ghost-roles-window-initial-duration-label = Початкова тривалість (с)
+make-ghost-roles-window-join-extends-by-label = Приєднання подовжує на (с)
+make-ghost-roles-window-max-duration-label = Макс. тривалість (с)
+make-ghost-roles-window-make-button = Створити
+make-ghost-roles-window-raffle-not-button = Не розігрувати
+make-ghost-roles-window-raffle-custom-settings-button = Власні налаштування
+make-ghost-roles-window-raffle-role-label = Розігрувати роль?
+make-ghost-roles-window-raffle-settings-label = {$id} (початкова {$initialDuration}с, макс. {$maxDuration}с, приєднання додає {$joinExtendsDurationBy}с)
+make-ghost-roles-window-raffle-warning-tooltip = Початкова тривалість не має перевищувати максимальну тривалість.

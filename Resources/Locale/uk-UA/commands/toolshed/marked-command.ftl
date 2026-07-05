@@ -1,0 +1,1 @@
+command-description-marked = Повертає значення $marked як List<EntityUid>.

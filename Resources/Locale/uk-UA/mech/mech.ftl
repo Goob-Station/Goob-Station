@@ -12,3 +12,4 @@ mech-slot-display = Доступні місця: {$amount}
 mech-no-enter = Ви не можете пілотувати це.
 mech-energy-missing = Енергія: ВІДСУТНЯ
 mech-eject-pilot-alert = {$user} витягує пілота з {$item}!
+mech-construction-guide-string = Усі частини меха мають бути прикріплені до каркаса.

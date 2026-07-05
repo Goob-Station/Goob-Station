@@ -144,3 +144,4 @@ chat-speech-verb-wawa-2 = стверджує
 chat-speech-verb-wawa-3 = заявляє
 chat-speech-verb-wawa-4 = розмірковує
 chat-manager-send-ooc-patron-wrap-message-no-icon = OOC: [bold][color={$patronColor}]{$playerName}[/color]:[/bold] {$message}
+chat-manager-send-hook-admin-wrap-message = АДМІН: [bold](D){$senderName}:[/bold] {$message}

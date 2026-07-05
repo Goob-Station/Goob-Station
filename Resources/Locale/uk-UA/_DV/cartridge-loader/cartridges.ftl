@@ -182,8 +182,4 @@ mail-metrics-count-header = Посилки
 mail-metrics-money-header = Спесо
 mail-metrics-total = Всього
 mail-metrics-progress = {$opened} з {$total} посилок відкрито!
-mail-metrics-progress-percent = Рейтинг успіху: {$successRate}%
-
-## NanoChat
-
-# Загальне
+mail-metrics-progress-percent = Успішність: {$successRate}%

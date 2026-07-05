@@ -30,3 +30,4 @@ marking-VoxHairMadScientist = Вокс божевільний вчений
 marking-VoxHairHedgehog = Вокс Їжак
 marking-VoxHairBushy = Вокс густі голки
 marking-VoxHairSlick = Вокс гладкі голки
+marking-VoxHairCatfish = Вокс-сомик

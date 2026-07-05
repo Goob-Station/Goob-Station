@@ -1,0 +1,1 @@
+inflatable-safe-disassembly = Ви майстерно використовуєте { THE($item) }, щоб відкрити клапан на { THE($target) }, і починаєте здувати { OBJECT($target) }, не завдаючи пошкоджень.

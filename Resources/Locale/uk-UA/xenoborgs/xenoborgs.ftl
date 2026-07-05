@@ -1,0 +1,3 @@
+xenoborgs-no-more-threat-mothership-core-alive-announcement = Далекобійні сенсори вказують, що всіх ксеноборгів знищено. Ядро материнського корабля лишається дрейфувати в космосі.
+xenoborgs-no-more-threat-mothership-core-dead-announcement = Далекобійні сенсори вказують, що всіх ксеноборгів знищено разом із ядром материнського корабля.
+mothership-destroyed-announcement = Далекобійні сенсори вказують, що ядро материнського корабля було знищено.

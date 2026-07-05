@@ -15,3 +15,4 @@ robotics-console-disable = Вимкнути
 robotics-console-destroy = Знищити
 robotics-console-cyborg-destroyed = Кіборг {$name} був дистанційно знищений.
 robotics-console-cyborg-destroying = {$name} дистанційно підривається!
+robotics-console-hp = [color=gray]Цілісність:[/color] [color={$color}]{$hp}[/color]%

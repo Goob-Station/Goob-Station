@@ -245,7 +245,7 @@ ghost-role-information-nukeop-reinforcement-rules = Ви [color={role-type-team-
 ghost-role-information-syndicate-cyborg-assault-name = Штурмовий кіборг Синдикату
 ghost-role-information-syndicate-cyborg-saboteur-name = Кіборг-диверсант Синдикату
 ghost-role-information-syndicate-cyborg-description = Синдикату потрібне підкріплення. Ви, холодна кремнієва машина для вбивств, допоможете їм.
-ghost-role-information-derelict-cyborg-name = Покинутий кіборг
+ghost-role-information-derelict-cyborg-name = Покинутий універсальний кіборг
 ghost-role-information-derelict-cyborg-description = Ви звичайний кіборг, що загубився в космосі. Після років впливу іонних штормів ви опиняєтеся біля космічної станції.
 ghost-role-information-security-name = Охорона
 ghost-role-information-security-description = Ви є частиною оперативної групи безпеки, але, схоже, опинилися в дивній ситуації...
@@ -306,3 +306,19 @@ ghost-role-information-paradox-clone-rules = Ви — парадоксальни
                                              Пам'ятайте, якщо ваш двійник помре - то ви помрете разом з ним!
                                              Ви можете, але не забов'язані пам'ятати події з життя вашого двійника.
                                              Вам категорично [color=red]ЗАБОРОНЕНО[/color] пам'ятати події вашого попереднього персонажа.
+ghost-role-information-cancer-mouse-name = Ракова миша
+ghost-role-information-cancer-mouse-description = Опромінена миша. Поширюйте свою недугу й шукайте їжу.
+ghost-role-information-derelict-engineering-cyborg-name = Покинутий інженерний кіборг
+ghost-role-information-derelict-engineering-cyborg-description = Ви інженерний кіборг, що загубився в космосі. Після років впливу іонних бур ви опинилися біля космічної станції.
+ghost-role-information-derelict-janitor-cyborg-name = Покинутий кіборг-прибиральник
+ghost-role-information-derelict-janitor-cyborg-description = Ви кіборг-прибиральник, що загубився в космосі. Після років впливу іонних бур ви опинилися біля космічної станції.
+ghost-role-information-derelict-medical-cyborg-name = Покинутий медичний кіборг
+ghost-role-information-derelict-medical-cyborg-description = Ви медичний кіборг, що загубився в космосі. Після років впливу іонних бур ви опинилися біля космічної станції.
+ghost-role-information-derelict-mining-cyborg-name = Покинутий утилізаційний кіборг
+ghost-role-information-derelict-mining-cyborg-description = Ви утилізаційний кіборг, що загубився в космосі. Після років впливу іонних бур ви опинилися біля космічної станції.
+ghost-role-information-derelict-syndicate-assault-cyborg-name = Покинутий штурмовий кіборг Синдикату
+ghost-role-information-derelict-syndicate-assault-cyborg-description = Ви рання модель штурмового кіборга Синдикату, що загубилася в космосі. Після років впливу іонних бур ви опинилися біля космічної станції.
+ghost-role-information-mothership-core-name = Ядро материнського корабля
+ghost-role-information-mothership-core-desc = Ви ядро материнського корабля ксеноборгів. Допоможіть їм розмножуватися, боргуючи будь-який мозок, який вони вам принесуть.
+ghost-role-information-xenoborg-name = Ксеноборг
+ghost-role-information-xenoborg-desc = Дивний кіборг, створений для самовідтворення й захоплення станції шляхом перетворення будь-якої розумної істоти на ксеноборга.

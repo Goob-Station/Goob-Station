@@ -30,3 +30,6 @@ role-subtype-survivor = Вцілілий
 role-subtype-subverted = Підкорений
 role-subtype-paradox-clone = Парадокс
 role-subtype-wizard = Чарівник
+role-subtype-xenoborg = Ксеноборг
+role-subtype-xenoborg-core = Ядро ксеноборгів
+role-subtype-changeling = Лінг
