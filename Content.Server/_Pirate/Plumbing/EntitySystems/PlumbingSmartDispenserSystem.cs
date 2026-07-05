@@ -516,15 +516,10 @@ public sealed partial class PlumbingSmartDispenserSystem : EntitySystem
                 || !mode.Behavior.HasFlag(InjectorBehavior.Inject))
                 continue;
 
-            if (user is { Valid: true } userUid)
-            {
-                _injectorSystem.ToggleMode(injector, userUid, mode);
+            if (user is not { Valid: true } userUid)
                 return;
-            }
 
-            // Pirate: UI fills can come from server-side helpers without an actor.
-            injector.Comp.ActiveModeProtoId = modeId;
-            Dirty(injector);
+            _injectorSystem.ToggleMode(injector, userUid, mode);
             return;
         }
     }

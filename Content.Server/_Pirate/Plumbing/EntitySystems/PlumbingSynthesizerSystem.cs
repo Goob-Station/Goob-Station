@@ -112,7 +112,7 @@ public sealed partial class PlumbingSynthesizerSystem : EntitySystem
             if (!_powerCell.TryGetBatteryFromSlot(ent.Owner, out var batteryCheck))
                 return;
 
-            var availableCharge = batteryCheck.Value.Comp.CurrentCharge;
+            var availableCharge = _battery.GetCharge(batteryCheck.Value.AsNullable());
             if (availableCharge <= 0)
                 return;
 
@@ -145,10 +145,11 @@ public sealed partial class PlumbingSynthesizerSystem : EntitySystem
         if (!_powerCell.TryGetBatteryFromSlot(ent.Owner, out var battery))
             return;
 
-        if (battery.Value.Comp.CurrentCharge >= battery.Value.Comp.MaxCharge)
+        var currentCharge = _battery.GetCharge(battery.Value.AsNullable());
+        if (currentCharge >= battery.Value.Comp.MaxCharge)
             return;
 
-        _battery.SetCharge(battery.Value.AsNullable(), battery.Value.Comp.CurrentCharge + ent.Comp.CellRechargeRate * dt);
+        _battery.SetCharge(battery.Value.AsNullable(), currentCharge + ent.Comp.CellRechargeRate * dt);
     }
 
     /// <summary>
@@ -197,9 +198,7 @@ public sealed partial class PlumbingSynthesizerSystem : EntitySystem
         var batteryCharge = 0f;
         if (_powerCell.TryGetBatteryFromSlot(ent.Owner, out var battery))
         {
-            batteryCharge = battery.Value.Comp.MaxCharge > 0
-                ? battery.Value.Comp.CurrentCharge / battery.Value.Comp.MaxCharge
-                : 0f;
+            batteryCharge = _battery.GetChargeLevel(battery.Value.AsNullable());
         }
 
         var generatableReagents = new Dictionary<string, float>();

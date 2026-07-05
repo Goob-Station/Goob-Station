@@ -170,7 +170,7 @@ public sealed partial class RuneRadialMenu : RadialMenu
         }
     }
 
-    public sealed class RunesMenuButton : RadialMenuTextureButton
+    public sealed class RunesMenuButton : RadialMenuButton
     {
 		public required string ProtoId { get; set; }
     }
