@@ -53,6 +53,7 @@ job-name-hop = Head of Personnel
 job-name-captain = Captain
 job-name-serviceworker = Service Worker
 job-name-centcomoff = CentComm Official
+job-name-centcommoff = CentComm Official
 job-name-cburn = Centcomm Quarantine Officer
 job-name-deathsquad = Deathsquad Operative
 job-name-reporter = Reporter

@@ -1,0 +1,348 @@
+- type: quickPhrase
+  id: BaseCommonPhraseImp
+  tab: Common use
+  abstract: true
+
+- type: quickPhrase
+  id: BaseCommonPhraseImpGroup
+  parent: BaseCommonPhraseImp
+  group: Common phrases
+  abstract: true
+
+- type: quickPhrase
+  id: BaseCommonPhraseImpPronouns
+  parent: BaseCommonPhraseImp
+  group: Pronouns
+  abstract: true
+
+- type: quickPhrase
+  id: BaseCommonPhraseImpIdentity
+  parent: BaseCommonPhraseImp
+  group: Identity
+  abstract: true
+
+- type: quickPhrase
+  id: BaseCommonPhraseImpQ
+  parent: BaseCommonPhraseImp
+  group: Question words
+  abstract: true
+
+ # common sle
+
+- type: quickPhrase
+  id: IPhraseImp
+  parent: BaseCommonPhraseImp
+  text: imp-phrase-i
+
+- type: quickPhrase
+  id: YouPhraseImp
+  parent: BaseCommonPhraseImp
+  text: imp-phrase-you
+
+- type: quickPhrase
+  id: MePhraseImp
+  parent: BaseCommonPhraseImp
+  text: imp-phrase-me
+
+- type: quickPhrase
+  id: WePhraseImp
+  parent: BaseCommonPhraseImp
+  text: imp-phrase-we
+
+- type: quickPhrase
+  id: AndPhraseImp
+  parent: BaseCommonPhraseImp
+  text: imp-phrase-and
+
+- type: quickPhrase
+  id: OrPhraseImp
+  parent: BaseCommonPhraseImp
+  text: imp-phrase-or
+
+- type: quickPhrase
+  id: DoPhraseImp
+  parent: BaseCommonPhraseImp
+  text: imp-phrase-do
+
+- type: quickPhrase
+  id: NotPhraseImp
+  parent: BaseCommonPhraseImp
+  text: imp-phrase-not
+
+- type: quickPhrase
+  id: IfPhraseImp
+  parent: BaseCommonPhraseImp
+  text: imp-phrase-if
+
+- type: quickPhrase
+  id: HelloPhraseImp
+  parent: BaseCommonPhraseImp
+  text: imp-phrase-hello
+
+- type: quickPhrase
+  id: ByePhraseImp
+  parent: BaseCommonPhraseImp
+  text: imp-phrase-bye
+
+- type: quickPhrase
+  id: YesPhraseImp
+  parent: BaseCommonPhraseImp
+  text: imp-phrase-yes
+
+- type: quickPhrase
+  id: NoPhraseImp
+  parent: BaseCommonPhraseImp
+  text: imp-phrase-no
+
+- type: quickPhrase
+  id: MaybePhraseImp
+  parent: BaseCommonPhraseImp
+  text: imp-phrase-maybe
+
+- type: quickPhrase
+  id: SomewhatPhraseImp
+  parent: BaseCommonPhraseImp
+  text: imp-phrase-somewhat
+
+- type: quickPhrase
+  id: PleasePhraseImp
+  parent: BaseCommonPhraseImp
+  text: imp-phrase-please
+
+- type: quickPhrase
+  id: ThanksPhraseImp
+  parent: BaseCommonPhraseImp
+  text: imp-phrase-ty
+
+- type: quickPhrase
+  id: SorryPhraseImp
+  parent: BaseCommonPhraseImp
+  text: imp-phrase-sorry
+
+- type: quickPhrase
+  id: HelpPhraseImp
+  parent: BaseCommonPhraseImp
+  text: imp-phrase-help
+
+  # common group
+
+- type: quickPhrase
+  id: HowAreYouPhraseImp
+  parent: BaseCommonPhraseImpGroup
+  text: imp-phrase-hru
+
+- type: quickPhrase
+  id: IAmPhraseImp
+  parent: BaseCommonPhraseImpGroup
+  text: imp-phrase-iam
+
+- type: quickPhrase
+  id: IWantPhraseImp
+  parent: BaseCommonPhraseImpGroup
+  text: imp-phrase-iwant
+
+- type: quickPhrase
+  id: HereToHelpPhraseImp
+  parent: BaseCommonPhraseImpGroup
+  text: imp-phrase-heretohelp
+
+- type: quickPhrase
+  id: IDontUnderstandPhraseImp
+  parent: BaseCommonPhraseImpGroup
+  text: imp-phrase-dontunderstand
+
+- type: quickPhrase
+  id: ICantSayPhraseImp
+  parent: BaseCommonPhraseImpGroup
+  text: imp-phrase-icantsay
+
+- type: quickPhrase
+  id: WaitForMePhraseImp
+  parent: BaseCommonPhraseImpGroup
+  text: imp-phrase-waitforme
+
+- type: quickPhrase
+  id: SignPhraseImp
+  parent: BaseCommonPhraseImpGroup
+  text: imp-phrase-sign
+
+- type: quickPhrase
+  id: FollowMePhraseImp
+  parent: BaseCommonPhraseImpGroup
+  text: imp-phrase-followme
+
+- type: quickPhrase
+  id: ComeHerePhraseImp
+  parent: BaseCommonPhraseImpGroup
+  text: imp-phrase-comehere
+
+- type: quickPhrase
+  id: GoAwayPhraseImp
+  parent: BaseCommonPhraseImpGroup
+  text: imp-phrase-goaway
+
+- type: quickPhrase
+  id: IDontKnowPhraseImp
+  parent: BaseCommonPhraseImpGroup
+  text: imp-phrase-idk
+
+- type: quickPhrase
+  id: SeeYouLaterPhraseImp
+  parent: BaseCommonPhraseImpGroup
+  text: imp-phrase-culater
+
+- type: quickPhrase
+  id: NoProblemPhraseImp
+  parent: BaseCommonPhraseImpGroup
+  text: imp-phrase-np
+
+- type: quickPhrase
+  id: YoureWelcomePhraseImp
+  parent: BaseCommonPhraseImpGroup
+  text: imp-phrase-yw
+
+- type: quickPhrase
+  id: DontWorryPhraseImp
+  parent: BaseCommonPhraseImpGroup
+  text: imp-phrase-dw
+
+- type: quickPhrase
+  id: GoodLuckPhraseImp
+  parent: BaseCommonPhraseImpGroup
+  text: imp-phrase-gl
+
+- type: quickPhrase
+  id: BeCarefulPhraseImp
+  parent: BaseCommonPhraseImpGroup
+  text: imp-phrase-becareful
+
+- type: quickPhrase
+  id: ConcernPhraseImp
+  parent: BaseCommonPhraseImpGroup
+  text: imp-phrase-concern
+
+  # pronouns
+
+- type: quickPhrase
+  id: HePhraseImp
+  parent: BaseCommonPhraseImpPronouns
+  text: imp-phrase-he
+
+- type: quickPhrase
+  id: ShePhraseImp
+  parent: BaseCommonPhraseImpPronouns
+  text: imp-phrase-she
+
+- type: quickPhrase
+  id: ItPhraseImp
+  parent: BaseCommonPhraseImpPronouns
+  text: imp-phrase-it
+
+- type: quickPhrase
+  id: TheyPhraseImp
+  parent: BaseCommonPhraseImpPronouns
+  text: imp-phrase-they
+
+  # identity
+
+- type: quickPhrase
+  id: GayPhraseImp
+  parent: BaseCommonPhraseImpIdentity
+  text: imp-phrase-gay
+
+- type: quickPhrase
+  id: LesbianPhraseImp
+  parent: BaseCommonPhraseImpIdentity
+  text: imp-phrase-lesbian
+
+- type: quickPhrase
+  id: AcePhraseImp
+  parent: BaseCommonPhraseImpIdentity
+  text: imp-phrase-ace
+
+- type: quickPhrase
+  id: AroPhraseImp
+  parent: BaseCommonPhraseImpIdentity
+  text: imp-phrase-aro
+
+- type: quickPhrase
+  id: BiPhraseImp
+  parent: BaseCommonPhraseImpIdentity
+  text: imp-phrase-bi
+
+- type: quickPhrase
+  id: PanPhraseImp
+  parent: BaseCommonPhraseImpIdentity
+  text: imp-phrase-pan
+
+- type: quickPhrase
+  id: TransPhraseImp
+  parent: BaseCommonPhraseImpIdentity
+  text: imp-phrase-trans
+
+- type: quickPhrase
+  id: QueerPhraseImp
+  parent: BaseCommonPhraseImpIdentity
+  text: imp-phrase-queer
+
+- type: quickPhrase
+  id: NonbinaryPhraseImp
+  parent: BaseCommonPhraseImpIdentity
+  text: imp-phrase-nb
+
+- type: quickPhrase
+  id: ManPhraseImp
+  parent: BaseCommonPhraseImpIdentity
+  text: imp-phrase-man
+
+- type: quickPhrase
+  id: WomanPhraseImp
+  parent: BaseCommonPhraseImpIdentity
+  text: imp-phrase-woman
+
+- type: quickPhrase
+  id: PersonPhraseImp
+  parent: BaseCommonPhraseImpIdentity
+  text: imp-phrase-person
+
+  # question words
+
+- type: quickPhrase
+  id: WhoPhraseImp
+  parent: BaseCommonPhraseImpQ
+  text: imp-phrase-who
+
+- type: quickPhrase
+  id: WhatPhraseImp
+  parent: BaseCommonPhraseImpQ
+  text: imp-phrase-what
+
+- type: quickPhrase
+  id: WhenPhraseImp
+  parent: BaseCommonPhraseImpQ
+  text: imp-phrase-when
+
+- type: quickPhrase
+  id: WherePhraseImp
+  parent: BaseCommonPhraseImpQ
+  text: imp-phrase-where
+
+- type: quickPhrase
+  id: WhyPhraseImp
+  parent: BaseCommonPhraseImpQ
+  text: imp-phrase-why
+
+- type: quickPhrase
+  id: HowPhraseImp
+  parent: BaseCommonPhraseImpQ
+  text: imp-phrase-how
+
+- type: quickPhrase
+  id: QuestionPhraseImp
+  parent: BaseCommonPhraseImpQ
+  text: imp-phrase-question
+
+- type: quickPhrase
+  id: ExplainPhraseImp
+  parent: BaseCommonPhraseImpQ
+  text: imp-phrase-explain

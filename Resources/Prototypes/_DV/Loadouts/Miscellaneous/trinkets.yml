@@ -38,3 +38,9 @@
   storage:
     back:
     - DrinkOniGourd
+
+- type: loadout
+  id: AACTablet
+  storage:
+    back:
+    - AACTablet

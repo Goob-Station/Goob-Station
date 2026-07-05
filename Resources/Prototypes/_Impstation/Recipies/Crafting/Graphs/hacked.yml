@@ -1,0 +1,27 @@
+- type: constructionGraph
+  id: AACHack
+  start: start
+  graph:
+  - node: start
+    entity: AACTablet
+    edges:
+    - to: hacked
+      steps:
+      - tool: Cutting
+        doAfter: 5
+  - node: hacked
+    entity: AACTabletHacked
+
+- type: constructionGraph
+  id: AACUnHack
+  start: start
+  graph:
+  - node: start
+    entity: AACTabletHacked
+    edges:
+    - to: hacked
+      steps:
+      - tool: Cutting
+        doAfter: 5
+  - node: hacked
+    entity: AACTablet
