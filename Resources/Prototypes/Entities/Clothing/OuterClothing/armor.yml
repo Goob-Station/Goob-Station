@@ -176,8 +176,8 @@
       - sprite: _Pirate/Effects/blood.rsi
         state: armorblood
     iconVisuals:
-  - sprite: _Pirate/Effects/blood.rsi
-    state: armorbloodicon
+    - sprite: _Pirate/Effects/blood.rsi
+      state: armorbloodicon
   #endregion Pirate: stains
     # Goob start
   - type: Armor
