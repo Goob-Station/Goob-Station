@@ -22,12 +22,12 @@ public sealed class SolutionCartridgeSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<HyposprayComponent, EntInsertedIntoContainerMessage>(OnCartridgeInserted);
-        SubscribeLocalEvent<HyposprayComponent, EntRemovedFromContainerMessage>(OnCartridgeRemoved);
-        SubscribeLocalEvent<HyposprayComponent, AfterHyposprayInjectsEvent>(OnHyposprayInjected);
+        SubscribeLocalEvent<InjectorComponent, EntInsertedIntoContainerMessage>(OnCartridgeInserted);
+        SubscribeLocalEvent<InjectorComponent, EntRemovedFromContainerMessage>(OnCartridgeRemoved);
+        SubscribeLocalEvent<InjectorComponent, AfterHyposprayInjectsEvent>(OnHyposprayInjected);
     }
 
-    private void OnCartridgeInserted(Entity<HyposprayComponent> ent, ref EntInsertedIntoContainerMessage args)
+    private void OnCartridgeInserted(Entity<InjectorComponent> ent, ref EntInsertedIntoContainerMessage args)
     {
         if (!TryComp<SolutionCartridgeComponent>(args.Entity, out var cartridge)
         || !TryComp(ent, out SolutionContainerManagerComponent? manager)
@@ -40,7 +40,7 @@ public sealed class SolutionCartridgeSystem : EntitySystem
         _solution.TryAddSolution(solutionEntity.Value, cartridge.Solution);
     }
 
-    private void OnCartridgeRemoved(Entity<HyposprayComponent> ent, ref EntRemovedFromContainerMessage args)
+    private void OnCartridgeRemoved(Entity<InjectorComponent> ent, ref EntRemovedFromContainerMessage args)
     {
         if (!TryComp<SolutionCartridgeComponent>(args.Entity, out var cartridge)
         || !TryComp(ent, out SolutionContainerManagerComponent? manager)
@@ -53,7 +53,7 @@ public sealed class SolutionCartridgeSystem : EntitySystem
         _solution.RemoveAllSolution(solutionEntity.Value);
     }
 
-    private void OnHyposprayInjected(Entity<HyposprayComponent> ent, ref AfterHyposprayInjectsEvent args)
+    private void OnHyposprayInjected(Entity<InjectorComponent> ent, ref AfterHyposprayInjectsEvent args)
     {
         if (!_container.TryGetContainer(ent, "item", out var container))
             return;

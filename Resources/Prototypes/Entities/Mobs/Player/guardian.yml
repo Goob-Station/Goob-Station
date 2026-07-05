@@ -150,7 +150,7 @@
         settings: default
       requirements: # Goobstation - ghost roles requirements
       - !type:OverallPlaytimeRequirement
-        time: 18000 #5 hours
+        time: 5h #5 hours
     - type: GhostTakeoverAvailable
     - type: Input
       context: "human"
@@ -386,8 +386,7 @@
         types:
           Blunt: 5
           Piercing: 4
-        groups:
-          Burn: 3
+          Heat: 3
       catchingFailDamage:
         types:
           Blunt: 1

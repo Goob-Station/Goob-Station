@@ -133,7 +133,7 @@ public sealed class SanguineStrikeSystem : SharedSanguineStrikeSystem
             return;
 
         Solution tempSol = new();
-        var missingBlood = userBlood.BloodMaxVolume - userBlood.BloodSolution.Value.Comp.Solution.Volume;
+        var missingBlood = userBlood.BloodReferenceSolution.Volume - userBlood.BloodSolution.Value.Comp.Solution.Volume;
         missingBlood = FixedPoint2.Max(FixedPoint2.Zero, missingBlood);
         var bloodSuckAmount = bloodStealAmount / bloodEntities.Count;
         foreach (var (entity, blood, solution) in bloodEntities)

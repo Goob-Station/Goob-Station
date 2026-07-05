@@ -48,7 +48,6 @@
     group: GenericNumber
   - type: StatusEffects
     allowed:
-    - Stutter
     - Electrocution
     - TemporaryBlindness
     - RadiationProtection
@@ -87,8 +86,10 @@
     baseWalkSpeed : 1.5 # Goob - accounts for decreased range, more likely to catch up to you when stunned by tendrils
     baseSprintSpeed : 1.5
   - type: Bloodstream
-    bloodMaxVolume: 350
-    chemicalMaxVolume: 0
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 350
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -385,6 +386,8 @@
   - type: Tag
     tags:
     - HivelordRemains
+    - Meat
+    - Raw
 
 - type: entity
   id: FoodHivelordRemainsInert
@@ -404,7 +407,8 @@
   - type: Tag
     tags:
     - HivelordRemains
-
+    - Meat
+    - Raw
 
 - type: entity
   id: MobBasilisk
@@ -455,8 +459,10 @@
     capacity: 1
     count: 1
   - type: Bloodstream
-    bloodMaxVolume: 200
-    chemicalMaxVolume: 0
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 200
   - type: NpcFactionMember
     factions:
     - SimpleHostile

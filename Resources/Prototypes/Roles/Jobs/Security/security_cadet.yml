@@ -101,10 +101,10 @@
   playTimeTracker: JobSecurityCadet
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 36000 #10 hrs
+      time: 10h
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 36000 #10 hrs
+      time: 10h # Goobstation
       inverted: true # stop playing intern if you're good at security!
   startingGear: SecurityCadetGear
   icon: "JobIconSecurityCadet"
@@ -119,7 +119,6 @@
   - Security
   - Brig
   - Maintenance
-  - Service
   - External
   - Cryogenics
   special:
