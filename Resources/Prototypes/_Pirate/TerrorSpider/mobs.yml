@@ -483,7 +483,7 @@
     thresholds:
       0: Alive
       180: Dead
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletAcidHitscan
     fireCost: 50
   - type: BatterySelfRecharger
