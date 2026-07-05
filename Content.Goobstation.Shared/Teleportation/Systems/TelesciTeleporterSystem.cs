@@ -129,7 +129,7 @@ public sealed class TelesciTeleporterSystem : EntitySystem
                 return;
             }
 
-            var probability = list.Count * ent.Comp.TeleportFaliureMultiplyer;
+            var probability = list.Count * ent.Comp.TeleportFailureChance;
 
             if (random < probability)
                 TeleportFailure(ent, target, list);
@@ -149,12 +149,12 @@ public sealed class TelesciTeleporterSystem : EntitySystem
 
         _pullingSystem.StopAllPulls(entitiesToTeleport[thisOne]);
         SpawnAtPosition("EffectTelesciTeleportation", Transform(entitiesToTeleport[thisOne]).Coordinates);
-        _audio.PlayPvs(ent.Comp.SoundSucess, Transform(entitiesToTeleport[thisOne]).Coordinates);
+        _audio.PlayPvs(ent.Comp.SoundSuccess, Transform(entitiesToTeleport[thisOne]).Coordinates);
 
         _xform.SetWorldPosition(entitiesToTeleport[thisOne], target);
 
         SpawnAttachedTo("EffectTelesciTeleportation", Transform(entitiesToTeleport[thisOne]).Coordinates);
-        _audio.PlayPvs(ent.Comp.SoundSucess, Transform(entitiesToTeleport[thisOne]).Coordinates);
+        _audio.PlayPvs(ent.Comp.SoundSuccess, Transform(entitiesToTeleport[thisOne]).Coordinates);
     }
 
     private void TeleportFailure(Entity<TelesciTeleporterComponent> ent, Vector2 target, List<EntityUid> entitiesToTeleport)
@@ -163,7 +163,7 @@ public sealed class TelesciTeleporterSystem : EntitySystem
         {
             case <25: // one goliath
                 PredictedSpawnAtPosition("EffectTelesciTeleportation", Transform(ent).Coordinates);
-                _audio.PlayPvs(ent.Comp.SoundFaliure, Transform(ent).Coordinates);
+                _audio.PlayPvs(ent.Comp.SoundFailure, Transform(ent).Coordinates);
                 SpawnAtPosition("MobLavalandGoliath", Transform(ent).Coordinates);
                 break;
 
@@ -171,7 +171,7 @@ public sealed class TelesciTeleporterSystem : EntitySystem
                 var carpAmount = Math.Min(_random.Next(1, entitiesToTeleport.Count), 10); // max 10 carps
 
                 PredictedSpawnAtPosition("EffectTelesciTeleportation", Transform(ent).Coordinates);
-                _audio.PlayPvs(ent.Comp.SoundFaliure, Transform(ent).Coordinates);
+                _audio.PlayPvs(ent.Comp.SoundFailure, Transform(ent).Coordinates);
 
                 for (int i = 0; i < carpAmount; i++)
                 {
@@ -191,12 +191,12 @@ public sealed class TelesciTeleporterSystem : EntitySystem
                         _body.GibBody(gib);
                     }
                 }
-                _audio.PlayPvs(ent.Comp.SoundFaliure, Transform(ent).Coordinates);
+                _audio.PlayPvs(ent.Comp.SoundFailure, Transform(ent).Coordinates);
                 QueueDel(ent);
                 break;
 
             default: // 50 - 90 is safe, 40% no bad stuff chance
-                _audio.PlayPvs(ent.Comp.SoundFaliure, Transform(ent).Coordinates);
+                _audio.PlayPvs(ent.Comp.SoundFailure, Transform(ent).Coordinates);
                 break;
         }
     }

@@ -29,16 +29,16 @@ public sealed partial class TelesciTeleporterComponent : Component
     public EntityUid? Computer;
 
     [DataField]
-    public SoundSpecifier SoundSucess = new SoundCollectionSpecifier("sparks"); //TODO FIND BETTER SOUNDS
+    public SoundSpecifier SoundSuccess = new SoundCollectionSpecifier("sparks"); //TODO FIND BETTER SOUNDS
 
     [DataField]
-    public SoundSpecifier SoundFaliure = new SoundCollectionSpecifier("sparks"); //TODO FIND BETTER SOUNDS
+    public SoundSpecifier SoundFailure = new SoundCollectionSpecifier("sparks"); //TODO FIND BETTER SOUNDS
 
     [DataField]
-    public float TeleportFaliureMultiplyer = 5f;
+    public float TeleportFailureChance = 5f;
 
     [DataField]
-    public float TeleportMaxDistance= 500f;
+    public float TeleportMaxDistance = 500f;
 }
 
 // Events
