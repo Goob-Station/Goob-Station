@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Goobstation.Common.Weapons.Ranged;
 using Content.Shared.Audio;
 using Content.Shared.Projectiles;
 using Content.Shared.Random.Helpers;
@@ -97,7 +98,7 @@ public abstract partial class SharedGunSystem
         {
             component.UnspawnedCount--;
             DirtyField(uid, component, nameof(BallisticAmmoProviderComponent.UnspawnedCount));
-            var ent = EntityManager.PredictedSpawn(component.Proto, coordinates);
+            var ent = EntityManager.PredictedSpawnAttachedTo(component.Proto, coordinates);
             EnsureShootable(ent);
             EjectCartridgePredicted(PredictedRandom(uid), user, ent);
         }

@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Goobstation.Common.Weapons.Ranged;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Hitscan.Components;
 using Content.Shared.Weapons.Hitscan.Events;
@@ -77,7 +78,7 @@ public abstract partial class SharedGunSystem
                     {
                         SetCartridgeSpent(ent!.Value, cartridge, true);
 
-                        var projectile = EntityManager.PredictedSpawn(cartridge.Prototype, fromEnt);
+                        var projectile = EntityManager.PredictedSpawnAttachedTo(cartridge.Prototype, fromEnt);
                         CreateAndFireProjectiles(projectile, cartridge);
 
                         RaiseLocalEvent(ent.Value, new AmmoShotEvent
@@ -164,7 +165,7 @@ public abstract partial class SharedGunSystem
 
                 for (var i = 1; i < ammoSpreadComp.Count; i++)
                 {
-                    var pellet = EntityManager.PredictedSpawn(ammoSpreadComp.Proto, fromEnt);
+                    var pellet = EntityManager.PredictedSpawnAttachedTo(ammoSpreadComp.Proto, fromEnt);
                     SetProjectilePerfectHitEntities(pellet, user, new MapCoordinates(toMap, fromMap.MapId));
                     ShootOrThrowPredicted(pellet, angles[i].ToVec(), gunVelocity, gun, gunUid, user, toMapBeforeRecoil);
                     shotProjectiles.Add(pellet);

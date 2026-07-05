@@ -134,7 +134,7 @@ public partial struct NanoChatRecipient
 #region Pirate: camera (nanochat gallery)
 
 [Serializable, NetSerializable, DataRecord]
-public struct NanoChatPhotoData
+public partial struct NanoChatPhotoData
 {
     public string FileName;
     public byte[]? ImageData;

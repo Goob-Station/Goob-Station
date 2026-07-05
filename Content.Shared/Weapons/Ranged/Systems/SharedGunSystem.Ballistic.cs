@@ -347,7 +347,7 @@ public abstract partial class SharedGunSystem
             {
                 ent.Comp.UnspawnedCount--;
                 DirtyField(ent.AsNullable(), nameof(BallisticAmmoProviderComponent.UnspawnedCount));
-                ammoEntity = EntityManager.PredictedSpawn(ent.Comp.Proto, args.Coordinates); // Pirate: gunplay
+                ammoEntity = EntityManager.PredictedSpawnAttachedTo(ent.Comp.Proto, args.Coordinates); // Pirate: gunplay
             }
 
             if (ammoEntity is not { } ammoEnt)

@@ -12,7 +12,7 @@ namespace Content.Shared.PsionicsRecords;
 /// Can be viewed and edited in a psionics records console by epistemics.
 /// </summary>
 [Serializable, NetSerializable, DataRecord]
-public sealed record PsionicsRecord
+public sealed partial record PsionicsRecord
 {
     /// <summary>
     /// Status of the person (None, Suspect, Registered, Abusing).

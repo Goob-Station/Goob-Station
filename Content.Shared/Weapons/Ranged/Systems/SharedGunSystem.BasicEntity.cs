@@ -54,7 +54,7 @@ public abstract partial class SharedGunSystem
 
             // Pirate: gunplay
             var proto = ent.Comp.Proto ?? prototypes!.Pick(rand);
-            var ammoEnt = EntityManager.PredictedSpawn(proto, args.Coordinates);
+            var ammoEnt = EntityManager.PredictedSpawnAttachedTo(proto, args.Coordinates);
             args.Ammo.Add((ammoEnt, EnsureShootable(ammoEnt)));
         }
 
