@@ -29,6 +29,9 @@ jobs:
         echo "::set-output name=out::$(git rev-parse HEAD)"
       id: engine_version
     - name: Run script on centcomm
+      env:
+        CENTCOMM_ROBUST_BENCHMARK_RUNNER_KEY: ${{ secrets.CENTCOMM_ROBUST_BENCHMARK_RUNNER_KEY }}
+      if: env.CENTCOMM_ROBUST_BENCHMARK_RUNNER_KEY # stop it from being fucking annoying
       uses: appleboy/ssh-action@master
       with:
         host: centcomm.spacestation14.io
