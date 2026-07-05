@@ -1927,3 +1927,9 @@ Entries:
       message: Мапа Аванпост Харон Епсілон відправляється на подальшу доробку
   id: 180
   time: '2026-07-05T07:44:28.0000000+00:00'
+- author: AgentMaper
+  changes:
+    - type: Fix
+      message: Виправлена мапа Perdition Island
+  id: 181
+  time: '2026-07-05T15:19:04.0000000+00:00'
