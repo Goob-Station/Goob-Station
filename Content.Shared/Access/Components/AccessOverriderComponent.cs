@@ -22,6 +22,12 @@ public sealed partial class AccessOverriderComponent : Component
 {
     public static string PrivilegedIdCardSlotId = "AccessOverrider-privilegedId";
 
+    /// <summary>
+    /// If the Access Overrider UI will show info about the privileged ID
+    /// </summary>
+    [DataField]
+    public bool ShowPrivilegedId = true;
+
     [DataField]
     public ItemSlot PrivilegedIdSlot = new();
 
@@ -57,6 +63,7 @@ public sealed partial class AccessOverriderComponent : Component
         public readonly string PrivilegedIdName;
         public readonly bool IsPrivilegedIdPresent;
         public readonly bool IsPrivilegedIdAuthorized;
+        public readonly bool ShowPrivilegedIdGrid;
         public readonly ProtoId<AccessLevelPrototype>[]? TargetAccessReaderIdAccessList;
         public readonly ProtoId<AccessLevelPrototype>[]? AllowedModifyAccessList;
         public readonly ProtoId<AccessLevelPrototype>[]? MissingPrivilegesList;
@@ -68,7 +75,8 @@ public sealed partial class AccessOverriderComponent : Component
             ProtoId<AccessLevelPrototype>[]? missingPrivilegesList,
             string privilegedIdName,
             string targetLabel,
-            Color targetLabelColor)
+            Color targetLabelColor,
+            bool showPrivilegedIdGrid)
         {
             IsPrivilegedIdPresent = isPrivilegedIdPresent;
             IsPrivilegedIdAuthorized = isPrivilegedIdAuthorized;
@@ -78,6 +86,7 @@ public sealed partial class AccessOverriderComponent : Component
             PrivilegedIdName = privilegedIdName;
             TargetLabel = targetLabel;
             TargetLabelColor = targetLabelColor;
+            ShowPrivilegedIdGrid = showPrivilegedIdGrid;
         }
     }
 

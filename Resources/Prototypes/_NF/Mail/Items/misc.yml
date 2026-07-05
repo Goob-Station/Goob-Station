@@ -3,22 +3,23 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
+
 # Mail-only items. If/when these get used for anything else, please move them to another folder.
 # Pranks: admin items or effects put into an envelope, released when opened or damaged.
-- type: entity
-  id: DelayedSmoke
-  parent: BaseItem
-  categories: [ HideSpawnMenu ]
-  name: delayed smoke
-  suffix: "(10s)"
-  components:
-  - type: Sprite #DeltaV: Apparently these want sprites, probably because they're baseitems
-    sprite: /Textures/Objects/Fun/goldbikehorn.rsi
-    visible: false
-    state: icon
-  - type: DelayedItem
-    item: AdminInstantEffectSmoke10
-
+#- type: entity todo <mailfix>
+#  id: DelayedSmoke
+#  parent: BaseItem
+#  categories: [ HideSpawnMenu ]
+#  name: delayed smoke
+#  suffix: "(10s)"
+#  components:
+#  - type: Sprite #DeltaV: Apparently these want sprites, probably because they're baseitems
+#    sprite: /Textures/Objects/Fun/goldbikehorn.rsi
+#    visible: false
+#    state: icon
+#  - type: DelayedItem
+#    item: AdminInstantEffectSmoke10
+#
 - type: entity
   id: AdminInstantEffectEMP7
   categories: [ HideSpawnMenu ]
@@ -29,47 +30,47 @@
     range: 7
     energyConsumption: 50000
 
-- type: entity
-  id: DelayedEMP
-  parent: BaseItem
-  categories: [ HideSpawnMenu ]
-  name: delayed EMP (7 meters)
-  components:
-  - type: Sprite #DeltaV: Apparently these want sprites, probably because they're baseitems
-    sprite: /Textures/Objects/Fun/goldbikehorn.rsi
-    visible: false
-    state: icon
-  - type: DelayedItem
-    item: AdminInstantEffectEMP7
-
-# Miscellaneous Items
-
-- type: entity
-  id: SyringeCognizine
-  parent: Syringe
-  name: cognizine syringe
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 15
-        reagents:
-        - ReagentId: Cognizine
-          Quantity: 15 # Surely three friends is enough.
-
-- type: entity
-  id: SyringeOpporozidone
-  parent: Syringe
-  name: opporozidone syringe
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 15
-        reagents:
-        - ReagentId: Opporozidone
-          Quantity: 15
-
+#- type: entity
+#  id: DelayedEMP
+#  parent: BaseItem
+#  categories: [ HideSpawnMenu ]
+#  name: delayed EMP (7 meters)
+#  components:
+#  - type: Sprite #DeltaV: Apparently these want sprites, probably because they're baseitems
+#    sprite: /Textures/Objects/Fun/goldbikehorn.rsi
+#    visible: false
+#    state: icon
+#  - type: DelayedItem
+#    item: AdminInstantEffectEMP7
+#
+## Miscellaneous Items
+#
+#- type: entity
+#  id: SyringeCognizine
+#  parent: Syringe
+#  name: cognizine syringe
+#  components:
+#  - type: SolutionContainerManager
+#    solutions:
+#      drink:
+#        maxVol: 15
+#        reagents:
+#        - ReagentId: Cognizine
+#          Quantity: 15 # Surely three friends is enough.
+#
+#- type: entity
+#  id: SyringeOpporozidone
+#  parent: Syringe
+#  name: opporozidone syringe
+#  components:
+#  - type: SolutionContainerManager
+#    solutions:
+#      drink:
+#        maxVol: 15
+#        reagents:
+#        - ReagentId: Opporozidone
+#          Quantity: 15
+#
 - type: entity
   id: NecrosolChemistryBottle
   parent: BaseChemistryBottleFilled
@@ -83,8 +84,8 @@
         - ReagentId: Necrosol
           Quantity: 30
 
-# Premium Alcohol: wait, it's just marketing?
-# TODO: different sprites would be nice.
+## Premium Alcohol: wait, it's just marketing?
+## TODO: different sprites would be nice.
 - type: entity
   id: DrinkPremiumVodkaBottleFull
   parent: DrinkVodkaBottleFull

@@ -28,6 +28,7 @@ using Content.Client.Atmos.Components;
 using Content.Client.Atmos.EntitySystems;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
+using Content.Shared.Atmos.EntitySystems;
 using Content.Shared.Atmos.Prototypes;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
@@ -48,6 +49,7 @@ namespace Content.Client.Atmos.Overlays
 
         private readonly IEntityManager _entManager;
         private readonly IMapManager _mapManager;
+        private readonly SharedAtmosphereSystem _atmosphereSystem;
         private readonly SharedMapSystem _mapSystem;
         private readonly SharedTransformSystem _xformSys;
 
@@ -79,6 +81,7 @@ namespace Content.Client.Atmos.Overlays
         {
             _entManager = entManager;
             _mapManager = IoCManager.Resolve<IMapManager>();
+            _atmosphereSystem = entManager.System<SharedAtmosphereSystem>();
             _mapSystem = entManager.System<SharedMapSystem>();
             _xformSys = xformSys;
             _shader = protoMan.Index(UnshadedShader).Instance();
@@ -92,7 +95,7 @@ namespace Content.Client.Atmos.Overlays
 
             for (var i = 0; i < _gasCount; i++)
             {
-                var gasPrototype = protoMan.Index<GasPrototype>(system.VisibleGasId[i].ToString());
+                var gasPrototype = _atmosphereSystem.GetGas(system.VisibleGasId[i]);
 
                 SpriteSpecifier overlay;
 

@@ -80,7 +80,7 @@ public sealed partial class GatewayWindow : FancyWindow,
         _isUnlockPending = _nextUnlock >= _timing.CurTime;
         _isCooldownPending = _nextReady >= _timing.CurTime;
 
-        Container.DisposeAllChildren();
+        Container.RemoveAllChildren();
 
         if (_destinations.Count == 0)
         {
@@ -167,7 +167,7 @@ public sealed partial class GatewayWindow : FancyWindow,
 
             if (Pressable())
             {
-                openButton.AddStyleClass(StyleBase.ButtonCaution);
+                openButton.AddStyleClass(StyleClass.Negative);
             }
 
             var buttonContainer = new BoxContainer()

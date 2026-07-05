@@ -24,7 +24,7 @@
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 50
   - type: BatteryWeaponFireModes
@@ -58,7 +58,7 @@
   - type: Item
     shape:
     - 0,0,5,1
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletDeclone
     fireCost: 125
   - type: Battery

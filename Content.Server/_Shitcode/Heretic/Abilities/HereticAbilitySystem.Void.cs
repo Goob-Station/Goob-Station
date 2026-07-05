@@ -25,6 +25,7 @@ using Content.Goobstation.Common.Temperature.Components;
 using Content.Goobstation.Common.Religion;
 using Content.Server.Polymorph.Components;
 using Content.Shared._Shitcode.Heretic.Components;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Coordinates;
 using Content.Shared.Movement.Events;
 using Content.Shared.Physics.Controllers;

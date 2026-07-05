@@ -93,4 +93,18 @@ public abstract class SharedLanguageSystem : EntitySystem
 
         return ent.Comp.SpokenLanguages.Contains(language);
     }
+
+    /// <summary>
+    ///     Returns the current language of the given entity, assumes Universal if it's not a language speaker.
+    /// </summary>
+    public LanguagePrototype GetLanguage(Entity<LanguageSpeakerComponent?> ent)
+    {
+        if (!Resolve(ent, ref ent.Comp, logMissing: false)
+            || string.IsNullOrEmpty(ent.Comp.CurrentLanguage)
+            || !_prototype.TryIndex<LanguagePrototype>(ent.Comp.CurrentLanguage, out var proto)
+           )
+            return Universal;
+
+        return proto;
+    }
 }

@@ -146,9 +146,6 @@
     solution: bucket
   - type: ExaminableSolution
     solution: bucket
-  - type: Tag
-    tags:
-      - Wringer
   - type: ItemMapper
     mapLayers:
       mopbucket_shark_blue:
@@ -197,8 +194,11 @@
   - type: ReactiveContainer
     solution: bucket
     container: item_slot
-  - type: Drink
+  - type: Edible
+    edible: Drink
     solution: bucket
+    destroyOnEmpty: false
+    utensil: Spoon
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 3
@@ -303,11 +303,7 @@
           whitelist:
             tags:
               - Plunger
-        goldenplunger_slot:
-          name: janitorial-trolley-slot-component-slot-name-goldenplunger
-          whitelist:
-            tags:
-            - GoldenPlunger
+              - GoldenPlunger
           priority: 8
         wetfloorsign_slot4:
           name: janitorial-trolley-slot-component-slot-name-sign
@@ -387,9 +383,6 @@
       solution: bucket
     - type: ExaminableSolution
       solution: bucket
-    - type: Tag
-      tags:
-        - Wringer
     - type: Damageable
       damageContainer: Inorganic
       damageModifierSet: Metallic
@@ -474,8 +467,11 @@
       interfaces:
         enum.StorageUiKey.Key:
           type: StorageBoundUserInterface
-    - type: Drink
+    - type: Edible
+      edible: Drink
       solution: bucket
+      destroyOnEmpty: false
+      utensil: Spoon
     - type: ContainerContainer
       containers:
         storagebase: !type:Container

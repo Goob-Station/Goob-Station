@@ -109,7 +109,7 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.Audio;
 using Content.Shared.Body.Components;
 using Content.Shared.CCVar;
-using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Climbing.Events;
 using Content.Shared.Construction.Components;
 using Content.Shared.Database;
@@ -149,6 +149,7 @@ namespace Content.Server.Medical.BiomassReclaimer
         [Dependency] private readonly SharedAmbientSoundSystem _ambientSoundSystem = default!;
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly PuddleSystem _puddleSystem = default!;
+        [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
         [Dependency] private readonly ThrowingSystem _throwing = default!;
         [Dependency] private readonly IRobustRandom _robustRandom = default!;
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
@@ -172,10 +173,8 @@ namespace Content.Server.Medical.BiomassReclaimer
 
                 if (reclaimer.RandomMessTimer <= 0)
                 {
-                    if (_robustRandom.Prob(0.2f) && reclaimer.BloodReagents.Count > 0) // Goobstation
+                    if (_robustRandom.Prob(0.2f) && reclaimer.BloodReagents is { } blood)
                     {
-                        Solution blood = new();
-                        blood.AddReagent(_robustRandom.Pick(reclaimer.BloodReagents), 50); // Goobstation
                         _puddleSystem.TrySpillAt(uid, blood, out _);
                     }
                     if (_robustRandom.Prob(0.03f) && reclaimer.SpawnedEntities.Count > 0)
@@ -196,8 +195,7 @@ namespace Content.Server.Medical.BiomassReclaimer
                 reclaimer.CurrentExpectedYield = reclaimer.CurrentExpectedYield - actualYield; // store non-integer leftovers
                 _material.SpawnMultipleFromMaterial(actualYield, BiomassPrototype, Transform(uid).Coordinates);
 
-                reclaimer.ProcessingTimer = 0; // Goobstation
-                reclaimer.BloodReagents.Clear(); // Goobstation
+                reclaimer.BloodReagents = null;
                 reclaimer.SpawnedEntities.Clear();
                 RemCompDeferred<ActiveBiomassReclaimerComponent>(uid);
             }
@@ -380,9 +378,11 @@ namespace Content.Server.Medical.BiomassReclaimer
         {
             var component = ent.Comp;
 
-            if (TryComp<BloodstreamComponent>(toProcess, out var stream))
+            if (TryComp<BloodstreamComponent>(toProcess, out var stream) &&
+                _solution.ResolveSolution(toProcess, stream.BloodSolutionName, ref stream.BloodSolution, out var solution))
             {
-                component.BloodReagents.Add((string)stream.BloodReagent); // Goobstation
+                component.BloodReagents = solution.Clone();
+                component.BloodReagents.ScaleSolution(50 / component.BloodReagents.Volume);
             }
             if (TryComp<ButcherableComponent>(toProcess, out var butcherableComponent))
             {

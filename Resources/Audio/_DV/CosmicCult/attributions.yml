@@ -15,6 +15,7 @@
 - files:
   - a_new_dawn.ogg
   - premonition.ogg
+  - finale.ogg
   license: "CC-BY-SA-3.0"
   copyright: "Custom music composed by Nahu Pyrope for Cosmic Cult."
   source: "https://linktr.ee/nahupyrope"
@@ -26,6 +27,7 @@
   - insert_entropy.ogg
   - tier2.ogg
   - tier3.ogg
+  - tile_detonate.ogg
   - spire_draining.ogg
   - monument_spawn.ogg
   - monument_relocation.ogg
@@ -33,8 +35,14 @@
   - god_spawn.ogg
   - god_ambient.ogg
   - glyph_trigger.ogg
+  - effigy_supercritical.ogg
+  - effigy_pulse.ogg
+  - effigy_ambience.ogg
   - door_open.ogg
   - door_close.ogg
+  - chantry_alarm.ogg
+  - colossus_death.ogg
+  - colossus_spawn.ogg
   - cosmicweapon_swing.ogg
   - cosmicsword_hit.ogg
   - cosmicsword_glance.ogg
@@ -52,9 +60,34 @@
   - ability_glare.ogg
   - ability_blank.ogg
   - ability_siphon.ogg
-  - ascendant_noise.ogg
-  - ascendant_shatter.ogg
-  - ascendant_shunt.ogg
   license: "CC-BY-SA-3.0"
   copyright: "By AftrLite(GitHub) for Cosmic Cult. Made using a combination of (Creative Commons 0) samples from freesound.org and personally-recorded foley."
+  source: "https://freesound.org/"
+
+- files:
+  - antag_cosmic_AI_briefing.ogg
+  license: "CC-BY-SA-3.0"
+  copyright: "A bitcrushy and digitized edit of Octofoss' antag_cosmic_briefing.ogg by AftrLite(Github)."
+  source: "https://octofoss.bandcamp.com/"
+
+- files:
+  - colossus_ambience.ogg
+  license: "CC-BY-SA-3.0"
+  copyright: "By widgetbeck & AftrLite(GitHub) for Cosmic Cult. Made using a combination of (Creative Commons 0) samples from freesound.org and personally-recorded foley."
+  source: "https://freesound.org/"
+
+- files:
+  - colossus_ask.ogg
+  - colossus_exclaim.ogg
+  - colossus_say.ogg
+  - colossus_scream.ogg
+  license: "CC-BY-SA-3.0"
+  copyright: "By widgetbeck for Cosmic Cult. Made using a combination of (Creative Commons 0) samples from freesound.org."
+  source: "https://freesound.org/"
+
+- files:
+  - glyph_charge.ogg
+  - glyph_fail.ogg
+  license: "CC-BY-SA-3.0"
+  copyright: "By NoElkaTheGod(GitHub) for Cosmic Cult. Made using a combination of (Creative Commons 0) samples from freesound.org."
   source: "https://freesound.org/"

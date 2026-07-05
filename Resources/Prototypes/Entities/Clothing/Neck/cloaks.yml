@@ -84,7 +84,7 @@
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
-  id: ClothingNeckCloakWhiteCe
+  id: ClothingNeckCloakWhiteCe # Goobstation This is so fucking stupid i blame the guys who approved this for not catching a rename of an internal ID, like why.
   name: chief engineer's white cloak
   description: A white cloak with orange adornments, given to those who proved themselves to master the precise art of engineering.
   components:
@@ -243,7 +243,7 @@
   parent: ClothingNeckBase
   id: ClothingNeckCloakMoth
   name: moth cloak
-  description: A cloak in the form of moth wings is an unusual and original element of the wardrobe that can attract the attention of others. It is made of a thin fabric imitating moth wings, with soft and fluffy edges. The raincoat is fastened around the neck with Velcro, and has a hood in the shape of a moths head.
+  description: A cloak in the form of moth wings is an unusual and original element of the wardrobe that can attract the attention of others. It is made of a thin fabric imitating moth wings, with soft and fluffy edges. The raincoat is fastened around the neck with straps, and has a hood in the shape of a moths head.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/moth.rsi

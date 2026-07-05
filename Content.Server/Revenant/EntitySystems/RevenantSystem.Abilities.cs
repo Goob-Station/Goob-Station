@@ -116,6 +116,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Emag.Systems;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Humanoid;
+using Content.Shared.Light.Components;
 using Content.Shared.Maps;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -445,7 +446,7 @@ public sealed partial class RevenantSystem
         foreach (var ent in _lookup.GetEntitiesInRange(uid, component.MalfunctionRadius))
         {
             if (_whitelistSystem.IsWhitelistFail(component.MalfunctionWhitelist, ent) ||
-                _whitelistSystem.IsBlacklistPass(component.MalfunctionBlacklist, ent))
+                _whitelistSystem.IsWhitelistPass(component.MalfunctionBlacklist, ent))
                 continue;
 
             _emagSystem.TryEmagEffect(uid, uid, ent);
