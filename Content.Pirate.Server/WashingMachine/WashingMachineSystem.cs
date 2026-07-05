@@ -1,12 +1,15 @@
 using Content.Pirate.Shared.Stains.Components;
 using Content.Pirate.Shared.Stains.Systems;
 using Content.Pirate.Shared.WashingMachine;
+using Content.Pirate.Shared.Wetness.Components;
+using Content.Pirate.Shared.Wetness.Systems;
 using Content.Server.Forensics;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Damage;
+using Content.Shared.Inventory;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Destructible;
@@ -23,7 +26,11 @@ public sealed class WashingMachineSystem : SharedWashingMachineSystem
 {
     [Dependency] private readonly SharedSolutionContainerSystem _solution = null!;
     [Dependency] private readonly SharedStainSystem _stains = null!;
+    [Dependency] private readonly SharedWetnessSystem _wetness = null!;
     [Dependency] private readonly ForensicsSystem _forensics = null!;
+
+    /// <summary>How long after a wash cycle wearing a laundered inner uniform grants the buff.</summary>
+    private static readonly TimeSpan FreshLaundryWindow = TimeSpan.FromMinutes(5);
     [Dependency] private readonly DamageableSystem _damageable = null!;
     [Dependency] private readonly IPrototypeManager _proto = null!;
     [Dependency] private readonly IRobustRandom _random = null!;
@@ -134,6 +141,20 @@ public sealed class WashingMachineSystem : SharedWashingMachineSystem
 
                 _solution.RemoveAllSolution(sol.Value);
                 _stains.UpdateVisuals((item, stain));
+            }
+
+            // Output is clean and dry.
+            foreach (var item in items)
+            {
+                if (TryComp<WettableComponent>(item, out var wettable))
+                    _wetness.DryFully((item, wettable));
+
+                // Stamp inner uniforms so wearing them within the window grants a fresh-laundry buff.
+                if (TryComp<ClothingComponent>(item, out var clothing) && (clothing.Slots & SlotFlags.INNERCLOTHING) != 0)
+                {
+                    var fresh = EnsureComp<FreshLaundryComponent>(item);
+                    fresh.Expiry = Timing.CurTime + FreshLaundryWindow;
+                }
             }
         }
 

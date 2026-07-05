@@ -132,6 +132,9 @@
     - sprite: _Pirate/Effects/blood.rsi
       state: glovebloodicon
   #endregion Pirate: stains
+  #region Pirate: wetness
+  - type: Wettable
+  #endregion Pirate: wetness
   - type: DamageOnInteractProtection
     damageProtection:
       flatReductions:

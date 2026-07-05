@@ -32,6 +32,11 @@ namespace Content.Pirate.Shared.Showers
 
         [ViewVariables]
         public float StainCleanAccumulator;
+
+        /// <summary>Wetness added to affected wettable clothing each clean tick.</summary>
+        [DataField]
+        public Content.Goobstation.Maths.FixedPoint.FixedPoint2 WetnessPerTick =
+            Content.Goobstation.Maths.FixedPoint.FixedPoint2.New(3);
     }
 
 

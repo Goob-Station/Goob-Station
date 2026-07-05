@@ -102,7 +102,7 @@ public partial class InventorySystem
         SubscribeLocalEvent<InventoryComponent, ElectrocutionAttemptEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, SlipAttemptEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, RefreshMovementSpeedModifiersEvent>(RelayInventoryEvent);
-        SubscribeLocalEvent<InventoryComponent, PirateMakeFootstepSoundEvent>(RelayInventoryEvent); // Pirate: gear step sounds
+        SubscribeLocalEvent<InventoryComponent, PirateMakeFootstepSoundEvent>(RefRelayInventoryEvent); // Pirate: gear step sounds (ref so wet shoes can suppress the base footstep)
         SubscribeLocalEvent<InventoryComponent, BeforeStripEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, SeeIdentityAttemptEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, ModifyChangedTemperatureEvent>(RelayInventoryEvent);

@@ -8,25 +8,19 @@ using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
-using Content.Shared.DoAfter;
-using Content.Shared.Fluids;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
 using Content.Shared.Item;
-using Content.Shared.Popups;
 using Content.Shared.Standing;
-using Content.Shared.Verbs;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Goobstation.Maths.FixedPoint;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
-using Robust.Shared.Utility;
 
 namespace Content.Pirate.Shared.Stains.Systems;
 
@@ -37,6 +31,10 @@ public enum StainVisuals : byte
 
     BodySlots
 }
+
+/// <summary>Raised on a stainable item when its stain amount changes.</summary>
+[ByRefEvent]
+public readonly record struct StainChangedEvent;
 
 public abstract class SharedStainSystem : EntitySystem
 {
@@ -52,10 +50,6 @@ public abstract class SharedStainSystem : EntitySystem
     [Dependency] private readonly INetManager _net = null!;
     [Dependency] private readonly InventorySystem _inventory = null!;
     [Dependency] private readonly SharedBloodstreamSystem _bloodstream = null!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = null!;
-    [Dependency] private readonly SharedPuddleSystem _puddle = null!;
-    [Dependency] private readonly SharedPopupSystem _popup = null!;
-    [Dependency] private readonly SharedAudioSystem _audio = null!;
     [Dependency] private readonly IRobustRandom _random = null!;
     [Dependency] private readonly IGameTiming _timing = null!;
 
@@ -66,11 +60,12 @@ public abstract class SharedStainSystem : EntitySystem
         SubscribeLocalEvent<StainableComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<StainableComponent, SpilledOnEvent>(OnSpilledOn);
         SubscribeLocalEvent<StainableComponent, InventoryRelayedEvent<SpilledOnEvent>>(OnInventorySpilledOn);
-        SubscribeLocalEvent<StainableComponent, GetVerbsEvent<Verb>>(OnGetVerbs);
-        SubscribeLocalEvent<StainableComponent, WringStainDoAfterEvent>(OnWring);
+        // Wringing moved to WettableComponent (wetness owns it now); stains no longer wring out.
         SubscribeLocalEvent<StainableComponent, SolutionContainerChangedEvent>(OnSolutionChanged);
         SubscribeLocalEvent<StainableComponent, ReactionEntityEvent>(OnReaction);
-        SubscribeLocalEvent<InventoryComponent, ReactionEntityEvent>(OnMobReaction);
+        // Mob-level reagent touch (water + SpaceCleaner) is owned by SharedWetnessSystem, which
+        // depends on this system and calls back into it. A given (component, event) pair can only
+        // have one directed subscription, so it cannot live here too.
         SubscribeLocalEvent<HandsComponent, SpilledOnEvent>(OnHandsSpilledOn);
         SubscribeLocalEvent<FootprintOwnerComponent, SpilledOnEvent>(OnFootSpilledOn);
         SubscribeLocalEvent<MeleeWeaponComponent, MeleeHitEvent>(OnMeleeHit);
@@ -78,8 +73,15 @@ public abstract class SharedStainSystem : EntitySystem
 
     private void OnSolutionChanged(Entity<StainableComponent> ent, ref SolutionContainerChangedEvent args)
     {
-        if (args.SolutionId == ent.Comp.SolutionName)
-            UpdateVisuals(ent);
+        if (args.SolutionId != ent.Comp.SolutionName)
+            return;
+
+        UpdateVisuals(ent);
+
+        // Let other Pirate systems (e.g. the wetness mood roll-up) react to stain amount changes
+        // without needing a second subscription to the shared SolutionContainerChangedEvent.
+        var changed = new StainChangedEvent();
+        RaiseLocalEvent(ent.Owner, ref changed);
     }
 
     private void OnMapInit(Entity<StainableComponent> ent, ref MapInitEvent args)
@@ -223,14 +225,6 @@ public abstract class SharedStainSystem : EntitySystem
             return;
 
         TryCleanStain(ent.Owner);
-    }
-
-    private void OnMobReaction(Entity<InventoryComponent> ent, ref ReactionEntityEvent args)
-    {
-        if (args.Method != ReactionMethod.Touch || args.Reagent.ID != "SpaceCleaner")
-            return;
-
-        CleanEntityAndEquipment(ent.Owner);
     }
 
     private void OnMeleeHit(Entity<MeleeWeaponComponent> ent, ref MeleeHitEvent args)
@@ -453,7 +447,50 @@ public abstract class SharedStainSystem : EntitySystem
 
     private static bool IsCleaningReagent(string reagent)
     {
-        return reagent is "Water" or "SoapReagent" or "SpaceCleaner";
+        // Plain water no longer full-cleans; it routes to gradual dilution instead (see DiluteStains).
+        return reagent is "SoapReagent" or "SpaceCleaner";
+    }
+
+    // Dilution tuning: a small splash chips a stain, repeated splashes eventually finish it.
+    private const float DiluteFractionPerUnit = 0.1f;
+    private const float DiluteMinFraction = 0.05f;
+    private const float DiluteMaxFraction = 0.5f;
+    private static readonly FixedPoint2 DiluteResidue = FixedPoint2.New(0.2);
+
+    /// <summary>
+    /// Gradually washes stains out proportional to the water volume, without ever fully clearing
+    /// from a single small splash. Used by the wetness water-contact path.
+    /// </summary>
+    public void DiluteStains(EntityUid uid, FixedPoint2 waterVolume)
+    {
+        if (waterVolume <= 0 ||
+            !TryComp<StainableComponent>(uid, out var stainable) ||
+            !_solution.TryGetSolution(uid, stainable.SolutionName, out var solComp, out var sol) ||
+            sol.Volume <= 0)
+        {
+            return;
+        }
+
+        var fraction = Math.Clamp(waterVolume.Float() * DiluteFractionPerUnit, DiluteMinFraction, DiluteMaxFraction);
+        var removeAmount = FixedPoint2.New(sol.Volume.Float() * fraction);
+
+        // Wash out the last dregs so repeated splashes can finish the clean.
+        if (sol.Volume - removeAmount <= DiluteResidue)
+            removeAmount = sol.Volume;
+
+        if (removeAmount <= 0)
+            return;
+
+        _solution.SplitSolution(solComp.Value, removeAmount);
+
+        var ent = (uid, stainable);
+        if (sol.Volume <= 0)
+        {
+            stainable.BodyStainSlots = SlotFlags.NONE;
+            OnCleaned(ent);
+        }
+
+        UpdateVisuals(ent);
     }
 
     public void UpdateVisuals(Entity<StainableComponent> ent)
@@ -489,49 +526,4 @@ public abstract class SharedStainSystem : EntitySystem
         }
     }
 
-    private void OnGetVerbs(Entity<StainableComponent> ent, ref GetVerbsEvent<Verb> args)
-    {
-        if (!args.CanInteract || !args.CanAccess || args.Using != ent.Owner)
-            return;
-
-        if (!_solution.TryGetSolution(ent.Owner, ent.Comp.SolutionName, out _, out var sol) || sol.Volume <= 0)
-            return;
-
-        var user = args.User;
-        args.Verbs.Add(new Verb
-        {
-            Text = Loc.GetString("stain-verb-wring"),
-            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/bubbles.svg.192dpi.png")),
-            Act = () =>
-            {
-                if (_doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, ent.Comp.WringDoAfterDuration, new WringStainDoAfterEvent(), ent.Owner)
-                    {
-                        BreakOnMove = true,
-                        BreakOnDamage = true,
-                        NeedHand = true
-                    }))
-                {
-                    // Verb Acts run predicted and server-side; play this once for the user.
-                    _audio.PlayPredicted(ent.Comp.WringSound, ent.Owner, user);
-                }
-            }
-        });
-    }
-
-    private void OnWring(Entity<StainableComponent> ent, ref WringStainDoAfterEvent args)
-    {
-        if (args.Handled || args.Cancelled)
-            return;
-        args.Handled = true;
-
-        if (!_solution.TryGetSolution(ent.Owner, ent.Comp.SolutionName, out var solComp, out var sol))
-            return;
-
-        if (!_puddle.TrySpillAt(args.User, sol.Clone(), out _))
-            return;
-
-        _solution.RemoveAllSolution(solComp.Value);
-        UpdateVisuals(ent);
-        _popup.PopupEntity(Loc.GetString("stain-verb-wring-success"), args.User, args.User);
-    }
 }

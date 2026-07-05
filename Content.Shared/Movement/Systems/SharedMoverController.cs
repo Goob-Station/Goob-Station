@@ -704,9 +704,17 @@ public abstract partial class SharedMoverController : VirtualController
             return false;
 
         var movementSoundEv = new PirateMakeFootstepSoundEvent(); // Pirate: gear step sounds
-        RaiseLocalEvent(uid, movementSoundEv); // Pirate: gear step sounds
+        RaiseLocalEvent(uid, ref movementSoundEv); // Pirate: gear step sounds
 
         mobMover.StepSoundDistance -= distanceNeeded;
+
+        // Pirate: wetness - worn wet shoes replace the footstep sound, routed through this same path
+        // so it plays at the normal step cadence/volume instead of as an extra overlapping sound.
+        if (movementSoundEv.OverrideSound != null)
+        {
+            sound = movementSoundEv.OverrideSound;
+            return true;
+        }
 
         // DeltaV - Don't play the sound if they have no shoes and the component
         if (NoShoesSilentQuery.HasComp(uid) &&

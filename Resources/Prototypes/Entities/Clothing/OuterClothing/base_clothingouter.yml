@@ -186,6 +186,12 @@
   - type: StainBlocker
     slots: [INNERCLOTHING]
   #endregion Pirate: stains
+  #region Pirate: wetness
+  - type: Wettable
+  # Outer gear takes the splash so the inner uniform underneath stays dry.
+  - type: WetnessBlocker
+    slots: [INNERCLOTHING]
+  #endregion Pirate: wetness
 
 - type: entity
   abstract: true
@@ -217,6 +223,12 @@
   - type: StainBlocker
     slots: [INNERCLOTHING]
   #endregion Pirate: stains
+  #region Pirate: wetness
+  - type: Wettable
+  # Outer gear takes the splash so the inner uniform underneath stays dry.
+  - type: WetnessBlocker
+    slots: [INNERCLOTHING]
+  #endregion Pirate: wetness
 
 - type: entity
   abstract: true
@@ -325,6 +337,12 @@
   id: ClothingOuterHardsuitBase
   name: base hardsuit
   components:
+  #region Pirate: wetness
+  # Hardsuits can be stained but never wet: the OUTERCLOTHING entry self-blocks the suit, and it
+  # keeps the inner uniform dry too. Always blocks while worn (no sealed state needed).
+  - type: WetnessBlocker
+    slots: [OUTERCLOTHING, INNERCLOTHING]
+  #endregion Pirate: wetness
 # SlotBlocker blocked until UI change
 #  - type: SlotBlock
 #    slots: [innerclothing, feet]

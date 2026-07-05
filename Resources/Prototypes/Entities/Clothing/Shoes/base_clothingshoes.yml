@@ -90,6 +90,11 @@
     - sprite: _Pirate/Effects/blood.rsi
       state: shoebloodicon
   #endregion Pirate: stains
+  #region Pirate: wetness
+  - type: Wettable
+  # Wet shoes get a distinct wet step sound; the sound only plays while they are wet.
+  - type: WetFootstep
+  #endregion Pirate: wetness
   - type: ProtectedFromStepTriggers
   - type: Armor # provide minimal covering to your feet
     coverage:

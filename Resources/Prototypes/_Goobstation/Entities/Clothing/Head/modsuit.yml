@@ -116,6 +116,12 @@
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
+  #region Pirate: wetness
+  # Sealed modsuit helmet blocks water to its own head slot and the face beneath.
+  - type: WetnessBlocker
+    slots: [HEAD, MASK, EYES]
+    requiresSealed: true
+  #endregion Pirate: wetness
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:
@@ -227,6 +233,12 @@
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
+  #region Pirate: wetness
+  # Sealed modsuit helmet blocks water to its own head slot and the face beneath.
+  - type: WetnessBlocker
+    slots: [HEAD, MASK, EYES]
+    requiresSealed: true
+  #endregion Pirate: wetness
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:
@@ -336,6 +348,12 @@
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
+  #region Pirate: wetness
+  # Sealed modsuit helmet blocks water to its own head slot and the face beneath.
+  - type: WetnessBlocker
+    slots: [HEAD, MASK, EYES]
+    requiresSealed: true
+  #endregion Pirate: wetness
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:
@@ -427,6 +445,12 @@
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
+  #region Pirate: wetness
+  # Sealed modsuit helmet blocks water to its own head slot and the face beneath.
+  - type: WetnessBlocker
+    slots: [HEAD, MASK, EYES]
+    requiresSealed: true
+  #endregion Pirate: wetness
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:
@@ -512,6 +536,12 @@
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
+  #region Pirate: wetness
+  # Sealed modsuit helmet blocks water to its own head slot and the face beneath.
+  - type: WetnessBlocker
+    slots: [HEAD, MASK, EYES]
+    requiresSealed: true
+  #endregion Pirate: wetness
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:
@@ -609,6 +639,12 @@
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
+  #region Pirate: wetness
+  # Sealed modsuit helmet blocks water to its own head slot and the face beneath.
+  - type: WetnessBlocker
+    slots: [HEAD, MASK, EYES]
+    requiresSealed: true
+  #endregion Pirate: wetness
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:
@@ -710,6 +746,12 @@
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
+  #region Pirate: wetness
+  # Sealed modsuit helmet blocks water to its own head slot and the face beneath.
+  - type: WetnessBlocker
+    slots: [HEAD, MASK, EYES]
+    requiresSealed: true
+  #endregion Pirate: wetness
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:
@@ -805,6 +847,12 @@
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
+  #region Pirate: wetness
+  # Sealed modsuit helmet blocks water to its own head slot and the face beneath.
+  - type: WetnessBlocker
+    slots: [HEAD, MASK, EYES]
+    requiresSealed: true
+  #endregion Pirate: wetness
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:

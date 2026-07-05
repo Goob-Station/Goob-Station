@@ -146,6 +146,9 @@
     - sprite: _Pirate/Effects/blood.rsi
       state: helmetbloodicon
   #endregion Pirate: stains
+  #region Pirate: wetness
+  - type: Wettable
+  #endregion Pirate: wetness
 
 - type: entity
   abstract: true
@@ -341,6 +344,11 @@
     - sprite: _Pirate/Effects/blood.rsi
       state: helmetbloodicon
   #endregion Pirate: stains
+  #region Pirate: wetness
+  # Hardsuit helmet blocks its own head slot (can be stained, never wet) and the face beneath.
+  - type: WetnessBlocker
+    slots: [HEAD, MASK, EYES]
+  #endregion Pirate: wetness
 
 - type: entity
   abstract: true
