@@ -81,8 +81,6 @@ public sealed partial class PuddleSystem
         base.InitializeSpillable();
 
         SubscribeLocalEvent<SpillableComponent, LandEvent>(SpillOnLand);
-        // Openable handles the event if it's closed
-        SubscribeLocalEvent<SpillableComponent, MeleeHitEvent>(SplashOnMeleeHit, after: [typeof(OpenableSystem)]);
         SubscribeLocalEvent<SpillableComponent, SolutionContainerOverflowEvent>(OnOverflow);
         SubscribeLocalEvent<SpillableComponent, SpillDoAfterEvent>(OnDoAfter);
     }
@@ -96,7 +94,7 @@ public sealed partial class PuddleSystem
         args.Handled = true;
     }
 
-    private void SplashOnMeleeHit(Entity<SpillableComponent> entity, ref MeleeHitEvent args)
+    protected override void SplashOnMeleeHit(Entity<SpillableComponent> entity, ref MeleeHitEvent args)
     {
         if (args.Handled)
             return;

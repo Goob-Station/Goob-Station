@@ -132,7 +132,7 @@ public abstract partial class SharedPuddleSystem
         args.Verbs.Add(verb);
     }
 
-    private void SplashOnMeleeHit(Entity<SpillableComponent> entity, ref MeleeHitEvent args)
+    protected virtual void SplashOnMeleeHit(Entity<SpillableComponent> entity, ref MeleeHitEvent args)
     {
         if (args.Handled)
             return;
