@@ -132,7 +132,7 @@ public sealed class WitchHungerPotionSystem : EntitySystem
 
         var boost = new Solution();
         boost.AddReagent(StasiziumReagentId, FixedPoint2.New(ent.Comp.StasiziumPerVictim));
-        _bloodstream.TryAddToChemicals((ent.Owner, bloodstream), boost);
+        _bloodstream.TryAddToBloodstream((ent.Owner, bloodstream), boost);
     }
 
     private void RegurgitateVictims(EntityUid uid, bool showPopup = false)

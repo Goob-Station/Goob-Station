@@ -1,6 +1,5 @@
 using Content.Pirate.Server.Vampire.Components;
 using Content.Pirate.Shared.Vampire.Components;
-using Content.Server.Light.Components;
 using Content.Server.Light.EntitySystems;
 using Content.Shared.Light.Components;
 using Robust.Server.GameObjects;

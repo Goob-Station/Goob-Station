@@ -581,7 +581,7 @@ public sealed class PirateEntityEffectSystem : EntitySystem
 
         var reagent = _random.Pick(args.Effect.Reagents);
         var solution = new Solution(reagent, FixedPoint2.New(args.Effect.Quantity));
-        _bloodstream.TryAddToChemicals((reagentArgs.TargetEntity, bloodstream), solution);
+        _bloodstream.TryAddToBloodstream((reagentArgs.TargetEntity, bloodstream), solution);
     }
 
     private readonly record struct PhilosopherStoneStackTransmutation(string OutputPrototype, int InputRatio, int OutputMultiplier = 1);

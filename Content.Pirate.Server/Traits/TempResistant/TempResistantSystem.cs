@@ -1,4 +1,4 @@
-using Content.Server.Temperature.Components;
+using Content.Shared.Temperature.Components;
 
 namespace Content.Pirate.Server.Traits.HeatResistant;
 

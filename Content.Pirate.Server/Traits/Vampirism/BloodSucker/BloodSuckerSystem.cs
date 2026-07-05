@@ -212,7 +212,7 @@ namespace Content.Pirate.Server.Traits.Vampirism.Systems
                 return false;
 
             // No blood left, yikes.
-            if (_bloodstreamSystem.GetBloodLevelPercentage((victim, bloodstream)) == 0.0f)
+            if (_bloodstreamSystem.GetBloodLevel((victim, bloodstream)) == 0.0f)
             {
                 _popups.PopupEntity(Loc.GetString("bloodsucker-fail-no-blood", ("target", victim)), victim, bloodsucker, PopupType.Medium);
                 return false;

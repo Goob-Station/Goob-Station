@@ -37,8 +37,7 @@ public sealed class TerrorSpiderEmpScreamSystem : EntitySystem
         _emp.EmpPulse(_transform.GetMapCoordinates(performer),
             args.Power,
             args.EnergyConsumption,
-            // Pirate - local EmpPulse duration is seconds, while Starlight passes a TimeSpan.
-            args.Power * (float) args.DurationMultiply.TotalSeconds);
+            args.DurationMultiply * args.Power);
     }
 
     private void ScreamEffect(EntityUid source, float screamPower, SoundSpecifier? sound)

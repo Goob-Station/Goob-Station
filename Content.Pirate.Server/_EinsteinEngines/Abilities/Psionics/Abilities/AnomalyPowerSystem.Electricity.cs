@@ -24,7 +24,7 @@ public sealed partial class AnomalyPowerSystem
     {
         var range = args.Electricity!.Value.MaxElectrocuteRange * component.CurrentAmplification;
 
-        _emp.EmpPulse(_xform.GetMapCoordinates(uid), range, args.Electricity!.Value.EmpEnergyConsumption, args.Electricity!.Value.EmpDisabledDuration);
+        _emp.EmpPulse(_xform.GetMapCoordinates(uid), range, args.Electricity!.Value.EmpEnergyConsumption, TimeSpan.FromSeconds(args.Electricity!.Value.EmpDisabledDuration));
         _lightning.ShootRandomLightnings(uid, range, args.Electricity!.Value.MaxBoltCount * (int) component.CurrentAmplification, arcDepth: (int) component.CurrentDampening);
     }
 

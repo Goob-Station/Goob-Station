@@ -48,6 +48,7 @@ using Content.Server.Body.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
 using Content.Shared.Roles.Jobs;
+using Content.Shared.Roles.Components;
 using Content.Shared.Localizations;
 using Content.Shared.Pinpointer;
 using Content.Shared.Ghost;

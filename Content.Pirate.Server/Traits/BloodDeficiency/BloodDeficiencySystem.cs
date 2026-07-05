@@ -20,6 +20,6 @@ public sealed class BloodDeficiencySystem : EntitySystem
             return;
 
         args.Amount = FixedPoint2.Min(args.Amount, 0) // If the blood regen amount already was negative, we keep it.
-                      - bloodstream.BloodMaxVolume * ent.Comp.BloodLossPercentage;
+                      - bloodstream.BloodReferenceSolution.Volume * bloodstream.MaxVolumeModifier * ent.Comp.BloodLossPercentage;
     }
 }

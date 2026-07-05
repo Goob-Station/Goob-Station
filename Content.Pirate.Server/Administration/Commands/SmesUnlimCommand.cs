@@ -1,7 +1,9 @@
 using Content.Server.Administration;
 using Content.Server.Administration.Components;
+using Content.Shared.Administration.Components;
 using Content.Server.Power.Components;
 using Content.Shared.Administration;
+using Content.Shared.Power.Components;
 using Robust.Shared.Console;
 
 namespace Content.Pirate.Server.Administration.Commands
