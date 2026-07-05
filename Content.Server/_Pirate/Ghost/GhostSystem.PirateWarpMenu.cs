@@ -349,7 +349,7 @@ public sealed partial class GhostSystem
                     continue;
                 mindId = mindContainer.Mind!.Value;
             }
-            else if (!mindContainer.ShowExamineInfo)
+            else if (!HasComp<MindExaminableComponent>(ownerUid))
             {
                 continue;
             }

@@ -333,13 +333,13 @@ namespace Content.Server.Chemistry.EntitySystems
                     return false;
 
                 _openable.SetOpen(source.Container, true);
-                var transferred = _solutionTransferSystem.Transfer(
+                var transferred = _solutionTransferSystem.Transfer(new SolutionTransferData(
                     reagentDispenser,
                     source.Container,
                     srcDrainable,
                     outputContainer.Value,
                     dstRefillable.Value,
-                    quantity);
+                    quantity));
 
                 if (transferred < quantity)
                     return false;

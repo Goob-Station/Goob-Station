@@ -53,6 +53,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Server._Pirate.Radio.Components;
 using Content.Server.Chat.Systems;
 using Content.Server.Interaction;
 using Content.Server._EinsteinEngines.Language;
@@ -224,7 +225,7 @@ public sealed class RadioDeviceSystem : SharedRadioDeviceSystem
         using (args.PushGroup(nameof(RadioMicrophoneComponent)))
         {
             // Pirate start - Handheld Radios port
-            args.PushMarkup(Loc.GetString("handheld-radio-component-on-examine", ("frequency", component.Frequency), ("color", proto.Color.ToHex())));
+            args.PushMarkup(Loc.GetString("handheld-radio-component-on-examine", ("frequency", GetHandheldRadioFrequency(uid, proto)), ("color", proto.Color.ToHex())));
             args.PushMarkup(Loc.GetString("handheld-radio-component-channel-examine", ("channel", proto.LocalizedName), ("color", proto.Color.ToHex())));
             // Pirate end - Handheld Radios port
         }
@@ -237,7 +238,7 @@ public sealed class RadioDeviceSystem : SharedRadioDeviceSystem
 
         var channel = _protoMan.Index<RadioChannelPrototype>(component.BroadcastChannel)!;
         if (_recentlySent.Add((args.Message, args.Source, channel)))
-            _radio.SendRadioMessage(args.Source, args.Message, channel, uid, /*Pirate-handheld-radios-start*/ frequency: component.Frequency /*Pirate-handheld-radios-end*/);
+            _radio.SendRadioMessage(args.Source, args.Message, channel, uid, /*Pirate-handheld-radios-start*/ frequency: GetHandheldRadioFrequency(uid, channel) /*Pirate-handheld-radios-end*/);
     }
 
     private void OnAttemptListen(EntityUid uid, RadioMicrophoneComponent component, ListenAttemptEvent args)
@@ -333,7 +334,7 @@ public sealed class RadioDeviceSystem : SharedRadioDeviceSystem
         {
             mic.BroadcastChannel = channel.Value;
             if(_protoMan.TryIndex<RadioChannelPrototype>(channel.Value, out var channelProto)) // Pirate - Handheld Radios port
-                mic.Frequency = _radio.GetFrequency(ent, channelProto); // Pirate - Handheld Radios port
+                SetHandheldRadioFrequency(ent, GetHandheldRadioFrequency(ent, channelProto)); // Pirate - Handheld Radios port
         }
 
         if (TryComp<RadioSpeakerComponent>(ent, out var speaker))
@@ -373,14 +374,15 @@ public sealed class RadioDeviceSystem : SharedRadioDeviceSystem
             return;
 
         if (args.Frequency >= MinRadioFrequency && args.Frequency <= MaxRadioFrequency)
-            microphone.Comp.Frequency = args.Frequency;
+            SetHandheldRadioFrequency(microphone, args.Frequency);
         UpdateHandheldRadioUi(microphone);
     }
 
     private void UpdateHandheldRadioUi(Entity<RadioMicrophoneComponent> radio)
     {
         var speakerComp = CompOrNull<RadioSpeakerComponent>(radio);
-        var frequency = radio.Comp.Frequency;
+        var channel = _protoMan.Index<RadioChannelPrototype>(radio.Comp.BroadcastChannel);
+        var frequency = GetHandheldRadioFrequency(radio, channel);
 
         var micEnabled = radio.Comp.Enabled;
         var speakerEnabled = speakerComp?.Enabled ?? false;
@@ -389,14 +391,30 @@ public sealed class RadioDeviceSystem : SharedRadioDeviceSystem
             _ui.SetUiState((radio.Owner, uiComp), HandheldRadioUiKey.Key, state);
     }
 
+    private int GetHandheldRadioFrequency(EntityUid uid, RadioChannelPrototype channel)
+    {
+        if (TryComp<HandheldRadioFrequencyComponent>(uid, out var radioFrequency)
+            && radioFrequency.Frequency != 0)
+        {
+            return radioFrequency.Frequency;
+        }
+
+        return channel.Frequency;
+    }
+
+    private void SetHandheldRadioFrequency(EntityUid uid, int frequency)
+    {
+        EnsureComp<HandheldRadioFrequencyComponent>(uid).Frequency = frequency;
+    }
+
     #endregion
     private void OnMapInit(EntityUid uid, IntercomComponent ent, MapInitEvent args)
     {
         if (ent.CurrentChannel != null &&
                 _protoMan.TryIndex(ent.CurrentChannel, out var channel) &&
-                TryComp(uid, out RadioMicrophoneComponent? mic))
+                HasComp<RadioMicrophoneComponent>(uid))
         {
-            mic.Frequency = channel.Frequency;
+            SetHandheldRadioFrequency(uid, channel.Frequency);
         }
     }
     // Pirate end - Handheld Radios port

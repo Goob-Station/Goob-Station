@@ -24,15 +24,15 @@ public sealed class PirateEmoteCooldownSystem : EntitySystem
         SubscribeLocalEvent<PirateEmoteCooldownCommitEvent>(OnEmoteCooldownCommit);
     }
 
-    private void OnEmoteCooldownAttempt(EntityUid uid, ref PirateEmoteCooldownAttemptEvent args)
+    private void OnEmoteCooldownAttempt(ref PirateEmoteCooldownAttemptEvent args)
     {
-        if (!CanEmote(uid))
+        if (!CanEmote(args.Source))
             args.Cancel();
     }
 
-    private void OnEmoteCooldownCommit(EntityUid uid, ref PirateEmoteCooldownCommitEvent args)
+    private void OnEmoteCooldownCommit(ref PirateEmoteCooldownCommitEvent args)
     {
-        CommitEmote(uid);
+        CommitEmote(args.Source);
     }
 
     public bool CanEmote(EntityUid uid)

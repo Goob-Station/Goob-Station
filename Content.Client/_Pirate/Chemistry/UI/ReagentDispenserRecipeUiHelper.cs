@@ -258,7 +258,7 @@ public static class ReagentDispenserRecipeUiHelper
         var nameButton = new Button
         {
             Text = recipe.Name,
-            StyleClasses = { StyleBase.ButtonSquare },
+            StyleClasses = { StyleClass.ButtonSquare },
             HorizontalExpand = true,
             MinHeight = RecipeChipHeight,
             SetHeight = RecipeChipHeight,
@@ -274,7 +274,7 @@ public static class ReagentDispenserRecipeUiHelper
         var secondaryButton = new Button
         {
             HorizontalExpand = false,
-            StyleClasses = { StyleBase.ButtonSquare },
+            StyleClasses = { StyleClass.ButtonSquare },
             MinWidth = RecipeChipActionButtonSize,
             SetWidth = RecipeChipActionButtonSize,
             Disabled = secondaryDisabled,
@@ -287,7 +287,7 @@ public static class ReagentDispenserRecipeUiHelper
         var deleteButton = new Button
         {
             HorizontalExpand = false,
-            StyleClasses = { StyleBase.ButtonSquare },
+            StyleClasses = { StyleClass.ButtonSquare },
             MinWidth = RecipeChipActionButtonSize,
             SetWidth = RecipeChipActionButtonSize,
             ToolTip = deleteTooltip,

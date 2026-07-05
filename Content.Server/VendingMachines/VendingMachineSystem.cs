@@ -461,7 +461,7 @@ namespace Content.Server.VendingMachines
             if (!IsAuthorized(uid, args.Actor, component))
                 return;
                 
-            _stackSystem.Spawn(component.Credits, PrototypeManager.Index(component.CreditStackPrototype),
+            _stackSystem.SpawnAtPosition(component.Credits, PrototypeManager.Index(component.CreditStackPrototype),
                 Transform(uid).Coordinates);
             component.Credits = 0;
             Audio.PlayPvs(component.SoundWithdrawCurrency, uid);

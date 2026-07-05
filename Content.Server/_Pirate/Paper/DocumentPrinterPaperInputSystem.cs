@@ -64,7 +64,7 @@ public sealed class DocumentPrinterPaperInputSystem : EntitySystem
 
     private void InsertConvertedPaper(Entity<DocumentPrinterPaperInputComponent> ent, InteractUsingEvent args, int amount)
     {
-        var printerPaper = _stack.Spawn(amount, PrinterPaperStack, Transform(ent).Coordinates);
+        var printerPaper = _stack.SpawnAtPosition(amount, PrinterPaperStack, Transform(ent).Coordinates);
         if (!_materialStorage.TryInsertMaterialEntity(args.User, printerPaper, ent))
         {
             QueueDel(printerPaper);

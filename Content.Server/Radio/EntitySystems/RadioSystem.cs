@@ -65,6 +65,7 @@ using Content.Shared.Chat.RadioIconsEvents; // Goobstation
 using Content.Shared.Whitelist; // Goobstation
 using Content.Shared.StatusIcon; // Goobstation
 using Content.Goobstation.Shared.Radio; // Goobstation
+using Content.Server._Pirate.Radio.Components; // Pirate - Handheld Radios port
 using Content.Shared._Pirate.Radio; // Pirate: radio sounds
 
 namespace Content.Server.Radio.EntitySystems;
@@ -113,8 +114,11 @@ public sealed partial class RadioSystem : EntitySystem
     // Pirate start - Handheld Radios port
     public int GetFrequency(EntityUid source, RadioChannelPrototype channel)
     {
-        if (TryComp<RadioMicrophoneComponent>(source, out var radioMicrophone))
-            return radioMicrophone.Frequency;
+        if (TryComp<HandheldRadioFrequencyComponent>(source, out var radioFrequency)
+            && radioFrequency.Frequency != 0)
+        {
+            return radioFrequency.Frequency;
+        }
 
         return channel.Frequency;
     }

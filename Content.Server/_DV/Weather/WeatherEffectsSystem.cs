@@ -82,7 +82,7 @@ public sealed partial class WeatherEffectsSystem : EntitySystem
                     continue;
             }
 
-            if (hasDamage && _whitelist.IsBlacklistFailOrNull(weather.DamageBlacklist, uid))
+            if (hasDamage && _whitelist.IsWhitelistFailOrNull(weather.DamageBlacklist, uid))
                 _damageable.TryChangeDamage(uid, damage!, interruptsDoAfters: false);
 
             if (hasStatusEffect)

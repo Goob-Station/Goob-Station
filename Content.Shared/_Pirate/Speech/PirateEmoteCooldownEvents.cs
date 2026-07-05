@@ -3,11 +3,13 @@
 namespace Content.Shared._Pirate.Speech;
 
 [ByRefEvent]
-public sealed class PirateEmoteCooldownAttemptEvent : CancellableEntityEventArgs
+public sealed class PirateEmoteCooldownAttemptEvent(EntityUid source) : CancellableEntityEventArgs
 {
+    public EntityUid Source = source;
 }
 
 [ByRefEvent]
-public sealed class PirateEmoteCooldownCommitEvent : EntityEventArgs
+public sealed class PirateEmoteCooldownCommitEvent(EntityUid source) : EntityEventArgs
 {
+    public EntityUid Source = source;
 }
