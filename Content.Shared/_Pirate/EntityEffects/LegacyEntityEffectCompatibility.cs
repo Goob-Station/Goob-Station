@@ -32,6 +32,8 @@ public abstract partial class EventEntityEffect<T> : EntityEffectBase<T> where T
             return null;
 
         return Loc.GetString(ReagentEffectFormat,
+            ("reagent", string.Empty),
+            ("quantity", 0),
             ("effect", effect),
             ("chance", Probability),
             ("conditionCount", Conditions?.Length ?? 0),
