@@ -77,7 +77,7 @@
       # Pirate: coffeemaker - coffee warms below Leporazine's 20C / 293.15K cold threshold at 1/4 strength (start)
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 293.15 # Pirate: coffeemaker - intentional Leporazine cold threshold in Kelvin
         amount: 25000 # Pirate: coffeemaker
       # Pirate: coffeemaker (end)
@@ -149,7 +149,7 @@
         amount: 0.05
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 293.15 # Pirate: coffeemaker - intentional Leporazine cold threshold in Kelvin
         amount: 25000 # Pirate: coffeemaker
       - !type:Jitter # Goobstation: Coffee causes jitteriness and alters speed

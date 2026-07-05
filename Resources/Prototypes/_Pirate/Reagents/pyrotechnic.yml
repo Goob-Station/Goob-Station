@@ -23,5 +23,5 @@
             Poison: 1
             Heat: 1
             Radiation: 3
-      - !type:FlammableReaction
+      - !type:Flammable
         multiplier: 0.3

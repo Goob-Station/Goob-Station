@@ -1503,8 +1503,8 @@
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
           type: [Yowie]
           inverted: true
-          damage:
-            types:
+        damage:
+          types:
             Cold: 3 # Goobstation - 30 per u?
       - !type:ChemAddMoodlet # Pirate - port EE mood system
         moodPrototype: LacerinolEffect
@@ -1534,8 +1534,8 @@
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
           type: [Yowie]
           inverted: true
-          damage:
-            types:
+        damage:
+          types:
             Blunt: 5 # Goob
       - !type:ChemAddMoodlet # Pirate - port EE mood system
         moodPrototype: PuncturaseEffect
@@ -1566,8 +1566,8 @@
         - !type:MetabolizerTypeCondition # Goobstation - Yowie
           type: [Yowie]
           inverted: true
-          damage:
-            types:
+        damage:
+          types:
             Poison: 4 # Goob
       - !type:ChemAddMoodlet # Pirate - port EE mood system
         moodPrototype: BruizineEffect
@@ -1606,7 +1606,7 @@
         conditions:
         - !type:HasComponentCondition
           components:
-          - WeakToHoly
+          - type: WeakToHoly
       - !type:DeCultify # Pirate - Blood Cult deconversion
         amount: 2.5
       - !type:HealthChange # Pirate - Holy water harms blood cultists

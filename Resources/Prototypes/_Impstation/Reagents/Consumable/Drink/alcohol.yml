@@ -634,7 +634,7 @@
       effects:
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 200
         amount: -7500
   fizziness: 0.1

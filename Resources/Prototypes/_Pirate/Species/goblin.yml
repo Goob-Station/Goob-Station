@@ -25,8 +25,8 @@
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
-    Underwear: MobHumanoidAnyMarking
-    Undershirt: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
+    UndergarmentTop: MobHumanoidAnyMarking
     Chest: MobGoblinChest
     Groin: MobGoblinGroin
     HeadTop: MobHumanoidAnyMarking
@@ -59,10 +59,10 @@
       points: 2
       required: false
 #      defaultMarkings: [ GoblinNoseBasic ]
-    Underwear:
+    UndergarmentBottom:
       points: 1
       required: false
-    Undershirt:
+    UndergarmentTop:
       points: 1
       required: false
     Chest:

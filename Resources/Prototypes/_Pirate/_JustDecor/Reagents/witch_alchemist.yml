@@ -769,7 +769,7 @@
     Acidic:
       methods: [ Touch ]
       effects:
-      - !type:ExplosionReactionEffect
+      - !type:Explosion
         explosionType: Default
         maxIntensity: 0.75
         intensityPerUnit: 0.25
@@ -1289,7 +1289,7 @@
         amount: 0.25
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 263.15
         amount: -15000
 
@@ -1322,7 +1322,7 @@
     Acidic:
       methods: [ Touch ]
       effects:
-      - !type:ExplosionReactionEffect
+      - !type:Explosion
         explosionType: Default
         maxIntensity: 1.25
         intensityPerUnit: 0.35
@@ -1498,7 +1498,7 @@
     Flammable:
       methods: [ Touch ]
       effects:
-      - !type:FlammableReaction
+      - !type:Flammable
         multiplier: 1.1
 
 - type: reagent
@@ -1525,5 +1525,5 @@
     Flammable:
       methods: [ Touch ]
       effects:
-      - !type:FlammableReaction
+      - !type:Flammable
         multiplier: 0.6

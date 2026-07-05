@@ -267,7 +267,7 @@
         # Pirate - Starlight terror spiders ignore ammonia gas from their generator.
         - !type:HasComponentCondition
           components:
-          - TerrorSpider
+          - type: TerrorSpider
           invert: true
         ignoreResistances: true
         damage:
@@ -285,7 +285,7 @@
         # Pirate - Starlight terror spiders ignore ammonia gas from their generator.
         - !type:HasComponentCondition
           components:
-          - TerrorSpider
+          - type: TerrorSpider
           invert: true
       - !type:PopupMessage
         type: Local

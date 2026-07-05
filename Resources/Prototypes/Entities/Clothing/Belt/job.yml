@@ -30,6 +30,10 @@
       - WeldingMask
       - RemoteSignaller
       - UtilityKnife
+      - Hammer # Goobstation
+      - Nailgun # Goobstation
+      - MagazineNailgun # Goobstation
+      - MesonGoggles # Goobstation
       components:
       - StationMap
       - SprayPainter
@@ -43,6 +47,7 @@
       - TrayScanner
       - GasAnalyzer
       - HandLabeler
+      - RadarConsole # Goobstation
   - type: ItemMapper
     sprite: &BeltOverlay Clothing/Belt/belt_overlay.rsi
     mapLayers:
@@ -78,6 +83,20 @@
         whitelist:
           tags:
           - Multitool
+      weldmask:
+        whitelist:
+          tags:
+          - WeldingMask
+      mass_scanner:
+        whitelist:
+          tags:
+          - GPS
+          components:
+          - RadarConsole
+      meson:
+        whitelist:
+          tags:
+          - MesonGoggles
   - type: Appearance
 
 - type: entity
@@ -135,6 +154,7 @@
       - WetFloorSign
       - HolosignProjector
       - Plunger
+      - Keyring # Goobstation
       - GoldenPlunger
       - WireBrush
       components:
@@ -155,6 +175,10 @@
         whitelist:
           tags:
           - Wrench
+      keyring: # Goobstation
+        whitelist:
+          tags:
+          - Keyring
   - type: Appearance
 
 - type: entity
@@ -189,6 +213,7 @@
       - AutoinjectorCartridge # Goobstation
       - HandheldCrewMonitor # Goobstation
       components:
+      - Hypospray
       - Injector
       - Pill
       - HandLabeler
@@ -205,6 +230,8 @@
           - Bottle
       hypo:
         whitelist:
+          components:
+          - Hypospray
           tags:
           - Injector
       pill:
@@ -255,6 +282,7 @@
   - type: Storage
     whitelist:
       tags:
+      - PlantAnalyzer # Pirate
       - PlantSampleTaker
       - BotanyShovel
       - BotanyHoe
@@ -275,6 +303,10 @@
         whitelist:
           tags:
           - BotanyHatchet
+      hydro: # Pirate
+        whitelist:
+          tags:
+          - PlantAnalyzer
       hoe:
         whitelist:
           tags:
@@ -321,6 +353,15 @@
       - Skewer
       - MonkeyCube
       - Mayo
+      - Meat # Goobstation
+      - Mouse # Goobstation
+      - Vegetable # Goobstation
+      - Fruit # Goobstation
+      - Slice # Goobstation
+      - Cake # Goobstation
+      - Pie # Goobstation
+      - Crayon # Goobstation
+      - Bread # Goobstation
       components:
       - Mousetrap
       - Smokable
@@ -381,7 +422,7 @@
   - type: Clothing
     sprite: Clothing/Belt/security.rsi
   - type: ExplosionResistance
-    damageCoefficient: 0.9
+    damageCoefficient: 0.5 # Goobstation
   - type: Storage
     whitelist:
       tags:
@@ -394,6 +435,10 @@
       - MagazineMagnum
       - CombatKnife
       - Truncheon
+      - BolaEnergy # Goobstation
+      - EnergySpeedloader # Goobstation
+      - MilitaryPowerCell # Goobstation
+      - EnergyMagAmmo # Goobstation
       - HandGrenade
       components:
       - Stunbaton
@@ -406,6 +451,7 @@
       - DoorRemote
       - Whistle
       - BalloonPopper
+      - ScatteringGrenade # Goobstation
   - type: ItemMapper
     sprite: *BeltOverlay
     mapLayers:
@@ -422,3 +468,8 @@
           components:
           - SmokeOnTrigger
   - type: Appearance
+  - type: EmitsSoundOnMove # Pirate: gear step sounds
+    soundCollection: # Pirate: gear step sounds
+      collection: PirateFootstepTacticalWebbing # Pirate: gear step sounds
+      params: # Pirate: gear step sounds
+        volume: -10 # Pirate: gear step sounds

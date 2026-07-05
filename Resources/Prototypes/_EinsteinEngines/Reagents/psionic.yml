@@ -128,8 +128,8 @@
               Burn: 5
         - !type:Drunk
           boozePower: 50
-        - !type:Paralyze
-          paralyzeTime: 10 #too much reagent needed for arrows to be toooo powerful with this, but still useful for tratiors or robust CMOs that want a long stun and are friends with Epi
+        - !type:ModifyParalysis
+          time: 10 #too much reagent needed for arrows to be toooo powerful with this, but still useful for tratiors or robust CMOs that want a long stun and are friends with Epi
           conditions:
             - !type:ReagentCondition
               reagent: OusianaDust

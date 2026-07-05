@@ -14,7 +14,7 @@
       amount: 5 # DeltaV - Change from 10 to 5 to fit the guidebook recipe
       catalyst: true
   effects:
-    - !type:CreateEntityReactionEffect
+    - !type:CreateRQuantityEntityReactionEffect
       entity: MaterialNormality1
     - !type:ChangeGlimmerReactionEffect
       count: -10

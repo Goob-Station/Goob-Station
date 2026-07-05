@@ -1,14 +1,20 @@
-- type: hitscan
+- type: entity
+  parent: BasicHitscan
   id: EchionLaser
-  damage:
-    types:
-      Heat: 18
-  muzzleFlash:
-    sprite: _Pirate/Objects/Weapons/Guns/Projectiles/hitscan.rsi
-    state: muzzle_synd
-  travelFlash:
-    sprite: _Pirate/Objects/Weapons/Guns/Projectiles/hitscan.rsi
-    state: beam_synd
-  impactFlash:
-    sprite: _Pirate/Objects/Weapons/Guns/Projectiles/hitscan.rsi
-    state: impact_synd
+  name: echion laser ray
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 18
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Pirate/Objects/Weapons/Guns/Projectiles/hitscan.rsi
+      state: muzzle_synd
+    travelFlash:
+      sprite: _Pirate/Objects/Weapons/Guns/Projectiles/hitscan.rsi
+      state: beam_synd
+    impactFlash:
+      sprite: _Pirate/Objects/Weapons/Guns/Projectiles/hitscan.rsi
+      state: impact_synd
