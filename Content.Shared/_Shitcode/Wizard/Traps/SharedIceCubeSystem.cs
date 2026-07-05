@@ -6,7 +6,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.ActionBlocker;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Emoting;
@@ -21,8 +20,6 @@ using Content.Shared.Standing;
 using Content.Shared.Throwing;
 using Robust.Shared.Network;
 using Robust.Shared.Physics;
-using Robust.Shared.Physics.Collision.Shapes;
-using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Serialization;
@@ -32,15 +29,12 @@ namespace Content.Shared._Goobstation.Wizard.Traps;
 
 public abstract class SharedIceCubeSystem : EntitySystem
 {
-    [Dependency] private readonly FixtureSystem _fixtures = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly ActionBlockerSystem _blocker = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] protected readonly SharedPhysicsSystem Physics = default!;
+    [Dependency] protected readonly SharedPopupSystem Popup = default!;
 
-    private const string IceCubeFixture = "ice-cube-fixture";
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
     {
@@ -51,8 +45,6 @@ public abstract class SharedIceCubeSystem : EntitySystem
         SubscribeLocalEvent<IceCubeComponent, TileFrictionEvent>(OnTileFriction);
         SubscribeLocalEvent<IceCubeComponent, MoveInputEvent>(OnMoveInput);
         SubscribeLocalEvent<IceCubeComponent, BreakFreeDoAfterEvent>(OnBreakFree);
-        SubscribeLocalEvent<IceCubeComponent, ComponentStartup>(IceCubeAdded);
-        SubscribeLocalEvent<IceCubeComponent, ComponentShutdown>(IceCubeRemoved);
         SubscribeLocalEvent<IceCubeComponent, UseAttemptEvent>(OnAttempt);
         SubscribeLocalEvent<IceCubeComponent, PickupAttemptEvent>(OnAttempt);
         SubscribeLocalEvent<IceCubeComponent, ThrowAttemptEvent>(OnAttempt);
@@ -85,10 +77,10 @@ public abstract class SharedIceCubeSystem : EntitySystem
             args.OtherBody.LinearVelocity.Normalized(),
             args.OurBody.CollisionLayer);
 
-        if (ent.Owner != _physics.IntersectRay(xform.MapID, ray, 1f, args.OtherEntity).FirstOrNull()?.HitEntity)
+        if (ent.Owner != Physics.IntersectRay(xform.MapID, ray, 1f, args.OtherEntity).FirstOrNull()?.HitEntity)
             return;
 
-        _physics.ApplyLinearImpulse(ent,
+        Physics.ApplyLinearImpulse(ent,
             args.OtherBody.LinearVelocity * args.OtherBody.Mass * ent.Comp.VelocityMultiplier,
             body: args.OurBody);
     }
@@ -126,7 +118,7 @@ public abstract class SharedIceCubeSystem : EntitySystem
         };
 
         if (_doAfter.TryStartDoAfter(doArgs) && _net.IsServer)
-            _popup.PopupEntity(Loc.GetString("ice-cube-break-free-start"), uid, uid);
+            Popup.PopupEntity(Loc.GetString("ice-cube-break-free-start"), uid, uid);
     }
 
     private void OnInteractAttempt(Entity<IceCubeComponent> ent, ref InteractionAttemptEvent args)
@@ -151,82 +143,6 @@ public abstract class SharedIceCubeSystem : EntitySystem
             return;
 
         args.Cancel();
-    }
-
-    private void IceCubeRemoved(Entity<IceCubeComponent> ent, ref ComponentShutdown args)
-    {
-        var (uid, comp) = ent;
-
-        if (TerminatingOrDeleted(uid))
-            return;
-
-        Shutdown(ent);
-
-        _blocker.UpdateCanMove(uid);
-
-        if (_net.IsClient)
-            return;
-
-        _popup.PopupEntity(Loc.GetString("ice-cube-melt"), uid);
-
-        if (!TryComp(uid, out PhysicsComponent? physics) || !TryComp(uid, out FixturesComponent? fixtures))
-            return;
-
-        var xform = Transform(uid);
-
-        var fixture = _fixtures.GetFixtureOrNull(uid, IceCubeFixture, fixtures);
-
-        if (fixture != null)
-            _fixtures.DestroyFixture(uid, IceCubeFixture, fixture, body: physics, manager: fixtures, xform: xform);
-        else
-            _fixtures.FixtureUpdate(uid, manager: fixtures, body: physics);
-
-        if (comp.OldBodyType != null)
-            _physics.SetBodyType(uid, comp.OldBodyType.Value, fixtures, physics, xform);
-    }
-
-    private void IceCubeAdded(Entity<IceCubeComponent> ent, ref ComponentStartup args)
-    {
-        Startup(ent);
-
-        var (uid, comp) = ent;
-
-        _blocker.UpdateCanMove(uid);
-
-        if (_net.IsClient)
-            return;
-
-        if (!TryComp(uid, out PhysicsComponent? physics) || !TryComp(uid, out FixturesComponent? fixtures))
-            return;
-
-        var xform = Transform(uid);
-
-        // For whatever reason I can't set bounds on PhysShapeAabb in code so I have to use polygon shape
-        var shape = new PolygonShape();
-        shape.SetAsBox(new Box2(-0.4f, -0.4f, 0.4f, 0.4f));
-        _fixtures.TryCreateFixture(uid,
-            shape,
-            IceCubeFixture,
-            collisionLayer: comp.CollisionLayer,
-            collisionMask: comp.CollisionMask,
-            restitution: comp.Restitution,
-            manager: fixtures,
-            body: physics,
-            xform: xform);
-
-        if (physics.BodyType != BodyType.KinematicController)
-            return;
-
-        comp.OldBodyType = physics.BodyType;
-        _physics.SetBodyType(uid, comp.FrozenBodyType, fixtures, physics, xform);
-    }
-
-    protected virtual void Startup(Entity<IceCubeComponent> ent)
-    {
-    }
-
-    protected virtual void Shutdown(Entity<IceCubeComponent> ent)
-    {
     }
 }
 

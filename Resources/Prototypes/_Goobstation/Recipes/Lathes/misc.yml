@@ -29,3 +29,11 @@
   materials:
     Steel: 200
     Glass: 200
+
+- type: latheRecipe
+  id: ServiceEnergyChemMachineCircuitboard
+  parent: BaseGoldCircuitboardRecipe
+  result: ServiceEnergyChemMachineCircuitboard
+  icon:
+    sprite: _Goobstation/Structures/Machines/service_dispenser.rsi
+    state: industrial-working

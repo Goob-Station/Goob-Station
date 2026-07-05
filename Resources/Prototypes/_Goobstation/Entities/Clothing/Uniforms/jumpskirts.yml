@@ -53,7 +53,7 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Centcom/trainer.rsi
 
-- type: entity
+- type: entity # todo <mailfix>
   parent: ClothingUniformSkirtBase
   id: ClothingUniformSkirtMailCarrier
   name: mail carrier's jumpskirt
@@ -121,7 +121,7 @@
       - state: inhand-right
         color: "#620b73"
         sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/color.rsi
-        
+
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -134,3 +134,14 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Civilian/reporter_dress.rsi # goob
 
+# Central Command pencil skirt
+- type: entity
+  parent: [ ClothingUniformSkirtBase, BaseCentcommContraband ]
+  id: ClothingUniformJumpskirtCentcomPencilSkirt
+  name: centcom pencil skirt
+  description: An elegant green formal blouse paired with a sleek black pencil skirt, decorated with exquisite golden detailing.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Centcom/centcomm_pencilskirt.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/Centcom/centcomm_pencilskirt.rsi

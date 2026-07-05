@@ -9,8 +9,30 @@ public abstract partial class SharedHereticAbilitySystem
 {
     protected virtual void SubscribeSide()
     {
+        SubscribeLocalEvent<EventHereticCloak>(OnCloak);
         SubscribeLocalEvent<EventHereticRustCharge>(OnRustCharge);
         SubscribeLocalEvent<EventHereticIceSpear>(OnIceSpear);
+    }
+
+    private void OnCloak(EventHereticCloak args)
+    {
+        var ent = args.Performer;
+
+        if (_statusNew.TryEffectsWithComp<HereticCloakedStatusEffectComponent>(ent, out var effects))
+        {
+            foreach (var effect in effects)
+            {
+                PredictedQueueDel(effect.Owner);
+            }
+            args.Handled = true;
+            return;
+        }
+
+        // TryUseAbility only if we are not cloaked so that we can uncloak without focus
+        if (!TryUseAbility(args))
+            return;
+
+        _statusNew.TryAddStatusEffect(ent, args.Status, out _, args.Lifetime);
     }
 
     private void OnIceSpear(EventHereticIceSpear args)

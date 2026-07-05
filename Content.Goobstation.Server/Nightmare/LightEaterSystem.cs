@@ -8,11 +8,11 @@ using System.Linq;
 using Content.Goobstation.Shared.Nightmare;
 using Content.Goobstation.Shared.Nightmare.Components;
 using Content.Server.Light.Components;
-using Content.Server.PowerCell;
 using Content.Shared.Actions;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
 using Content.Shared.Light.Components;
+using Content.Shared.PowerCell;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Weapons.Melee.Events;
 

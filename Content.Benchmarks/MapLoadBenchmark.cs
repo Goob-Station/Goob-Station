@@ -35,7 +35,7 @@ using System.Threading.Tasks;
 using BenchmarkDotNet.Attributes;
 using Content.IntegrationTests;
 using Content.IntegrationTests.Pair;
-using Content.Server.Maps;
+using Content.Shared.Maps;
 using Robust.Shared;
 using Robust.Shared.Analyzers;
 using Robust.Shared.EntitySerialization.Systems;
@@ -77,7 +77,7 @@ public class MapLoadBenchmark
         PoolManager.Shutdown();
     }
 
-    public static readonly string[] MapsSource = { "Empty", "Satlern", "Box", "Bagel", "Dev", "CentComm", "Atlas", "Core", "TestTeg", "Packed", "Origin", "Omega", "Cluster", "Reach", "Meta", "Marathon", "Europa", "MeteorArena", "Fland", "Oasis", "FlandHighPop", "OasisHighPop", "OriginHighPop", "Barratry", "Kettle", "Lambda", "Leonid", "Delta", "Amber", "Chloris", "Cog", "Serpentcrest", "Gate"}; //Goobstation, readds maps
+    public static readonly string[] MapsSource = { "Empty", "Satlern", "Box", "Bagel", "Dev", "CentComm", "Atlas", "Core", "TestTeg", "Packed", "Origin", "Omega", "Cluster", "Reach", "Meta", "Marathon", "Europa", "MeteorArena", "Fland", "Oasis", "FlandHighPop", "OasisHighPop", "OriginHighPop", "Barratry", "Kettle", "Lambda", "Leonid", "Delta", "Amber", "Chloris", "Cog", "Serpentcrest"}; //Goobstation, readds maps
 
     [ParamsSource(nameof(MapsSource))]
     public string Map;

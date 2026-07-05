@@ -15,6 +15,7 @@
 using Content.Goobstation.Common.Speech;
 using Content.Server.Actions;
 using Content.Server.Chat.Systems;
+using Content.Shared.Chat;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Humanoid;
 using Content.Shared.Speech;
@@ -42,6 +43,7 @@ public sealed class VocalSystem : EntitySystem
         SubscribeLocalEvent<VocalComponent, SexChangedEvent>(OnSexChanged);
         SubscribeLocalEvent<VocalComponent, EmoteEvent>(OnEmote);
         SubscribeLocalEvent<VocalComponent, ScreamActionEvent>(OnScreamAction);
+        SubscribeLocalEvent<VocalComponent, SoundsChangedEvent>(OnSoundsChanged); // DeltaV - support for changing vocal sounds on the go. Why it wasn't there in the first place is beyond me.
     }
 
     private void OnMapInit(EntityUid uid, VocalComponent component, MapInitEvent args)
@@ -65,6 +67,13 @@ public sealed class VocalSystem : EntitySystem
         LoadSounds(uid, component, args.NewSex);
     }
 
+// Begin DeltaV additions
+    private void OnSoundsChanged(EntityUid uid, VocalComponent component, ref SoundsChangedEvent args)
+    {
+        LoadSounds(uid, component);
+    }
+// End DeltaV additions
+
     private void OnEmote(EntityUid uid, VocalComponent component, ref EmoteEvent args)
     {
         if (args.Handled || !args.Emote.Category.HasFlag(EmoteCategory.Vocal))
@@ -80,11 +89,16 @@ public sealed class VocalSystem : EntitySystem
         // Goobstation start
         var getSoundEv = new GetEmoteSoundsEvent();
         RaiseLocalEvent(uid, ref getSoundEv);
-        if (getSoundEv.EmoteSoundProtoId != null &&
-            _proto.TryIndex(getSoundEv.EmoteSoundProtoId, out EmoteSoundsPrototype? evSounds))
+        if (getSoundEv.Handled)
         {
-            args.Handled = _chat.TryPlayEmoteSound(uid, evSounds, args.Emote);
-            return;
+            if (getSoundEv.EmoteSoundProtoId is not { } proto)
+                return;
+
+            if (_proto.TryIndex(proto, out EmoteSoundsPrototype? evSounds))
+            {
+                args.Handled = _chat.TryPlayEmoteSound(uid, evSounds, args.Emote);
+                return;
+            }
         }
         // Goobstation end
 
@@ -109,9 +123,14 @@ public sealed class VocalSystem : EntitySystem
         // Goobstation start
         var getSoundEv = new GetEmoteSoundsEvent();
         RaiseLocalEvent(uid, ref getSoundEv);
-        if (getSoundEv.EmoteSoundProtoId != null &&
-            _proto.TryIndex(getSoundEv.EmoteSoundProtoId, out EmoteSoundsPrototype? evSounds))
-            return _chat.TryPlayEmoteSound(uid, evSounds, component.ScreamId);
+        if (getSoundEv.Handled)
+        {
+            if (getSoundEv.EmoteSoundProtoId is not { } proto)
+                return false;
+
+            if (_proto.TryIndex(proto, out EmoteSoundsPrototype? evSounds))
+                return _chat.TryPlayEmoteSound(uid, evSounds, component.ScreamId);
+        }
         // Goobstation end
 
         if (_random.Prob(component.WilhelmProbability))

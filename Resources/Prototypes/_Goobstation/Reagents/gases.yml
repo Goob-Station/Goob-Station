@@ -12,27 +12,26 @@
       effects:
       - !type:Emote
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: BZ
           min: 0.2
-        - !type:OrganType
-          type: Slime
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Slime ]
+          inverted: true
         emote: Cough
         showInChat: true
         probability: 0.1
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: BZ
           min: 0.5
-        - !type:OrganType
-          type: Slime
-          shouldHave: false
-        - !type:OrganType # Shitmed - Cybernetic Organs
-          type: Cybernetic
-          shouldHave: false
-        scaleByQuantity: true
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type:
+          - Slime
+          - Cybernetic # Shitmed - Cybernetic Organs
+          - Hydrakin # Go fuck yourself
+          inverted: true
         ignoreResistances: true
         damage:
           types:
@@ -40,179 +39,199 @@
             Poison: 2.5
       - !type:GenericStatusEffect
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: BZ
           min: 0.3
-        - !type:OrganType
-          type: Slime
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type:
+          - Slime
+          - Hydrakin # Go fuck yourself
+          inverted: true
         key: SeeingRainbows
         component: SeeingRainbows
         type: Add
         time: 150
-        refresh: false
       - !type:Emote
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: BZ
           min: 0.2
-        - !type:OrganType
-          type: Slime
+        - !type:MetabolizerTypeCondition
+          type: [ Slime ]
         emote: Laugh
         showInChat: true
         probability: 0.1
       - !type:Emote
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: BZ
           min: 0.2
-        - !type:OrganType
-          type: Slime
+        - !type:MetabolizerTypeCondition
+          type: [ Slime ]
         emote: Scream
         showInChat: true
         probability: 0.01
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: BZ
           min: 0.5
-        - !type:OrganType
-          type: Slime
-        - !type:BloodReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Slime ]
+        - !type:BloodReagentThresholdCondition
           reagent: NitrosylPlasmide
           max: 0.1
         type: Local
         visualType: Medium
         messages: [ "effect-sleepy" ]
         probability: 0.1
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: BZ
           min: 1
-        - !type:OrganType
-          type: Slime
-        - !type:BloodReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Slime ]
+        - !type:BloodReagentThresholdCondition
           reagent: NitrosylPlasmide
           max: 0.1
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
       - !type:GenericStatusEffect
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: BZ
           min: 1
-        - !type:OrganType
-          type: Slime
-        - !type:BloodReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Slime ]
+        - !type:BloodReagentThresholdCondition
           reagent: NitrosylPlasmide
           max: 0.1
         key: ForcedSleep
         component: ForcedSleeping
         time: 10
         type: Add
+      - !type:Oxygenate
+        conditions:
+        - !type:MetabolizerTypeCondition # Fuck you
+          type: [Hydrakin]
     Gas:
       effects:
       - !type:Emote
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: BZ
           min: 0.2
-        - !type:OrganType
-          type: Slime
+        - !type:MetabolizerTypeCondition
+          type: [ Slime ]
         emote: Cough
         showInChat: true
         probability: 0.1
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: BZ
           min: 0.5
-        - !type:OrganType
-          type: Slime
-          shouldHave: false
-        - !type:OrganType # Shitmed - Cybernetic Organs
-          type: Cybernetic
-          shouldHave: false
-        scaleByQuantity: true
+        - !type:MetabolizerTypeCondition
+          type:
+          - Slime
+          - Cybernetic # shitmed oir whatever
+          - Hydrakin # Go fuck yourself
+          inverted: true
         ignoreResistances: true
         damage:
           types:
             Asphyxiation: 10
             Poison: 2.5
+      - !type:HealthChange # Mono
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type:
+          - Hydrakin # Go fuck yourself
+        - !type:ReagentCondition
+          reagent: BZ
+          min: 0.5
+        damage:
+          types:
+            Cellular: -0.5
+            Poison: -2.0
       - !type:GenericStatusEffect
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: BZ
           min: 0.3
-        - !type:OrganType
-          type: Slime
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type:
+          - Slime
+          - Hydrakin # Go fuck yourself
         key: SeeingRainbows
         component: SeeingRainbows
         type: Add
         time: 150
-        refresh: false
       - !type:Emote
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: BZ
           min: 0.2
-        - !type:OrganType
-          type: Slime
+        - !type:MetabolizerTypeCondition
+          type: [ Slime ]
         emote: Laugh
         showInChat: true
         probability: 0.1
       - !type:Emote
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: BZ
           min: 0.2
-        - !type:OrganType
-          type: Slime
+        - !type:MetabolizerTypeCondition
+          type: [ Slime ]
         emote: Scream
         showInChat: true
         probability: 0.01
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: BZ
           min: 0.5
-        - !type:OrganType
-          type: Slime
-        - !type:BloodReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Slime ]
+        - !type:BloodReagentThresholdCondition
           reagent: NitrosylPlasmide
           max: 0.1
         type: Local
         visualType: Medium
         messages: [ "effect-sleepy" ]
         probability: 0.1
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: BZ
           min: 1
-        - !type:OrganType
-          type: Slime
-        - !type:BloodReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Slime ]
+        - !type:BloodReagentThresholdCondition
           reagent: NitrosylPlasmide
           max: 0.1
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
       - !type:GenericStatusEffect
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: BZ
           min: 1
-        - !type:OrganType
-          type: Slime
-        - !type:BloodReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Slime ]
+        - !type:BloodReagentThresholdCondition
           reagent: NitrosylPlasmide
           max: 0.1
         key: ForcedSleep
         component: ForcedSleeping
         time: 10
         type: Add
+      - !type:Oxygenate
+        conditions:
+        - !type:MetabolizerTypeCondition # Fuck you
+          type: [Hydrakin]
 
 - type: reagent
   id: Healium
@@ -226,10 +245,9 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Healium
           max: 24
-        scaleByQuantity: true
         ignoreResistances: true
         damage:
           groups:
@@ -238,7 +256,7 @@
             Brute: -2
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Healium
           min: 24
         ignoreResistances: true
@@ -249,10 +267,10 @@
             Brute: -20
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Healium
           min: 4
-        - !type:BloodReagentThreshold
+        - !type:BloodReagentThresholdCondition
           reagent: NitrosylPlasmide
           max: 0.1
         type: Local
@@ -261,10 +279,10 @@
         probability: 0.01
       - !type:GenericStatusEffect
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Healium
           min: 8
-        - !type:BloodReagentThreshold
+        - !type:BloodReagentThresholdCondition
           reagent: NitrosylPlasmide
           max: 0.01
         key: ForcedSleep
@@ -274,17 +292,20 @@
       - !type:Drunk
         boozePower: 45
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Healium
           min: 4
+      - !type:Oxygenate
+        conditions:
+        - !type:MetabolizerTypeCondition # Fuck you
+          type: [Hydrakin]
     Gas:
       effects:
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Healium
           max: 24
-        scaleByQuantity: true
         ignoreResistances: true
         damage:
           groups:
@@ -293,7 +314,7 @@
             Brute: -2
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Healium
           min: 24
         ignoreResistances: true
@@ -304,10 +325,10 @@
             Brute: -20
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Healium
           min: 4
-        - !type:BloodReagentThreshold
+        - !type:BloodReagentThresholdCondition
           reagent: NitrosylPlasmide
           max: 0.1
         type: Local
@@ -316,10 +337,10 @@
         probability: 0.01
       - !type:GenericStatusEffect
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Healium
           min: 8
-        - !type:BloodReagentThreshold
+        - !type:BloodReagentThresholdCondition
           reagent: NitrosylPlasmide
           max: 0.01
         key: ForcedSleep
@@ -329,9 +350,13 @@
       - !type:Drunk
         boozePower: 45
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Healium
           min: 4
+      - !type:Oxygenate
+        conditions:
+        - !type:MetabolizerTypeCondition # Fuck you
+          type: [ Hydrakin ]
 
 - type: reagent
   id: Nitrium
@@ -345,37 +370,34 @@
       effects:
       - !type:NitriumMovespeedModifier
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Nitrium
           min: 1
           max: 8
-        walkSpeedModifier: 1.25
-        sprintSpeedModifier: 1.25
+        speedModifier: 1.25
       - !type:NitriumMovespeedModifier
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Nitrium
           min: 8
           max: 12
-        walkSpeedModifier: 1.4
-        sprintSpeedModifier: 1.4
+        speedModifier: 1.4
       - !type:NitriumMovespeedModifier
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Nitrium
           min: 12
-        walkSpeedModifier: 1.6
-        sprintSpeedModifier: 1.6
+        speedModifier: 1.6
       - !type:AddReagentToBlood
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Nitrium
           min: 6
         reagent: NitrosylPlasmide
         amount: 2.5
       - !type:GenericStatusEffect
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Nitrium
           min: 8
         key: Stutter
@@ -383,48 +405,52 @@
         time: 8
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Nitrium
           min: 10
         ignoreResistances: true
         damage:
           types:
             Asphyxiation: 15
+      - !type:Oxygenate
+        conditions:
+        - !type:MetabolizerTypeCondition # Fuck you
+          type: [ Hydrakin ]
     Gas:
       effects:
       - !type:NitriumMovespeedModifier
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Nitrium
           min: 1
           max: 8
-        walkSpeedModifier: 1.25
-        sprintSpeedModifier: 1.25
+        speedModifier: 1.25
       - !type:NitriumMovespeedModifier
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Nitrium
           min: 8
           max: 12
-        walkSpeedModifier: 1.4
-        sprintSpeedModifier: 1.4
+        speedModifier: 1.4
       - !type:NitriumMovespeedModifier
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Nitrium
           min: 12
-        walkSpeedModifier: 1.6
-        sprintSpeedModifier: 1.6
+        speedModifier: 1.6
       - !type:AddReagentToBlood
         conditions:
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition # Fuck you
+          type: [Hydrakin]
+          inverted: true
+        - !type:ReagentCondition
           reagent: Nitrium
           min: 6
         reagent: NitrosylPlasmide
         amount: 2.5
       - !type:GenericStatusEffect
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Nitrium
           min: 8
         key: Stutter
@@ -432,13 +458,20 @@
         time: 8
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition # Fuck you
+          type: [Hydrakin]
+          inverted: true
+        - !type:ReagentCondition
           reagent: Nitrium
           min: 10
         ignoreResistances: true
         damage:
           types:
             Asphyxiation: 15
+      - !type:Oxygenate
+        conditions:
+        - !type:MetabolizerTypeCondition # Fuck you
+          type: [ Hydrakin ]
 
 - type: reagent
   id: Pluoxium
@@ -453,42 +486,46 @@
       - !type:Oxygenate
         factor: 8
         conditions:
-        - !type:OrganType
-          type: Human
+        - !type:MetabolizerTypeCondition
+          type: [ Human ]
       - !type:Oxygenate
         factor: 8
         conditions:
-        - !type:OrganType
-          type: Animal
+        - !type:MetabolizerTypeCondition
+          type: [ Animal ]
       - !type:Oxygenate
         factor: 8
         conditions:
-        - !type:OrganType
-          type: Rat
+        - !type:MetabolizerTypeCondition
+          type: [ Rat ]
       - !type:Oxygenate
         factor: 8
         conditions:
-        - !type:OrganType
-          type: Plant
+        - !type:MetabolizerTypeCondition
+          type: [ Plant ]
       - !type:Oxygenate
         factor: 8
         conditions:
-        - !type:OrganType
-          type: Cybernetic # Woundmed - Cybernetic Organs
+        - !type:MetabolizerTypeCondition # Goobstation - Cybernetics
+          type: [ Cybernetic ]
       # Convert Pluox into CO2.
+      - !type:Oxygenate
+        factor: 8
+        conditions:
+        - !type:MetabolizerTypeCondition # Fuck you
+          type: [Hydrakin]
       - !type:ModifyLungGas
         conditions:
-        - !type:OrganType
-          type: Vox
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Vox ]
+          inverted: true
         ratios:
           CarbonDioxide: 1.0
           Oxygen: -1.0
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Vox
-        scaleByQuantity: true
+        - !type:MetabolizerTypeCondition
+          type: [ Vox ]
         ignoreResistances: true
         damage:
           types:
@@ -497,10 +534,11 @@
       - !type:AdjustAlert
         alertType: Toxins
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: Pluoxium
             min: 0.5
-          - !type:OrganType
-            type: Vox
+          - !type:MetabolizerTypeCondition
+            type: [ Vox ]
         clear: true
         time: 5
     Gas:
@@ -508,42 +546,42 @@
       - !type:Oxygenate
         factor: 8
         conditions:
-        - !type:OrganType
-          type: Human
+        - !type:MetabolizerTypeCondition
+          type: [ Human ]
       - !type:Oxygenate
         factor: 8
         conditions:
-        - !type:OrganType
-          type: Animal
+        - !type:MetabolizerTypeCondition
+          type: [ Animal ]
       - !type:Oxygenate
         factor: 8
         conditions:
-        - !type:OrganType
-          type: Rat
+        - !type:MetabolizerTypeCondition
+          type: [ Rat ]
       - !type:Oxygenate
         factor: 8
         conditions:
-        - !type:OrganType
-          type: Plant
+        - !type:MetabolizerTypeCondition
+          type: [ Plant ]
       - !type:Oxygenate
         factor: 8
         conditions:
-        - !type:OrganType
-          type: Cybernetic
+        - !type:MetabolizerTypeCondition
+          type: [ Cybernetic, Hydrakin ]
       # Convert Pluoxium into CO2.
       - !type:ModifyLungGas
         conditions:
-        - !type:OrganType
-          type: Cybernetic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Cybernetic
+          type: [ Cybernetic ]
+          inverted: true
         ratios:
           CarbonDioxide: 1.0
           Pluoxium: -1.0
       - !type:ModifyLungGas
         conditions:
-        - !type:OrganType
-          type: Cybernetic
-          shouldHave: true
+        - !type:MetabolizerTypeCondition
+          type: [ Cybernetic ]
+          inverted: true
         ratios:
           CarbonDioxide: 0.5
           Pluoxium: -0.5

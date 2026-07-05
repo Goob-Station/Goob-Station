@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "coookies369",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "chips1"
+    },
+    {
+      "name": "chips2"
+    },
+    {
+      "name": "chips3"
+    },
+    {
+      "name": "chips4"
+    },
+    {
+      "name": "chips5"
+    },
+    {
+      "name": "chips6"
+    },
+    {
+      "name": "chips7"
+    },
+    {
+      "name": "chips8"
+    }
+  ]
+}

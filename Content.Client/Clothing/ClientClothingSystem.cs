@@ -211,6 +211,7 @@ public sealed class ClientClothingSystem : ClothingSystem
         var layer = new PrototypeLayerData();
         layer.RsiPath = rsi.Path.ToString();
         layer.State = state;
+        layer.Scale = clothing.Scale;
         layers = new() { layer };
 
         return true;

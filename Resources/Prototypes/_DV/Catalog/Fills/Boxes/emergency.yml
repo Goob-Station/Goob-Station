@@ -8,14 +8,16 @@
   id: BoxSurvivalWaterVapor
   suffix: Standard H2O
   components:
-  - type: StorageFill
-    contents:
-    - id: ClothingMaskBreath
-    - id: EmergencyWaterVaporTankFilled
-    - id: EmergencyMedipen
-    - id: Flare
-    - id: FoodSnackNutribrick
-    - id: DrinkWaterBottleFull
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskBreath
+        - id: EmergencyWaterVaporTankFilled
+        - id: EmergencyMedipen
+        - id: Flare
+        - id: FoodSnackNutribrick
+        - id: DrinkWaterBottleFull
   - type: Sprite
     layers:
     - state: internals
@@ -28,14 +30,16 @@
   id: BoxSurvivalEngineeringWaterVapor
   suffix: Extended H2O
   components:
-  - type: StorageFill
-    contents:
-    - id: ClothingMaskBreath
-    - id: ExtendedEmergencyWaterVaporTankFilled
-    - id: EmergencyMedipen
-    - id: Flare
-    - id: FoodSnackNutribrick
-    - id: DrinkWaterBottleFull
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskBreath
+        - id: ExtendedEmergencyWaterVaporTankFilled
+        - id: EmergencyMedipen
+        - id: Flare
+        - id: FoodSnackNutribrick
+        - id: DrinkWaterBottleFull
   - type: Sprite
     layers:
     - state: internals
@@ -48,14 +52,16 @@
   id: BoxSurvivalSecurityWaterVapor
   suffix: Security H2O
   components:
-  - type: StorageFill
-    contents:
-    - id: ClothingMaskGasSecurity
-    - id: EmergencyWaterVaporTankFilled
-    - id: EmergencyMedipen
-    - id: Flare
-    - id: FoodSnackNutribrick
-    - id: DrinkWaterBottleFull
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskGasSecurity
+        - id: EmergencyWaterVaporTankFilled
+        - id: EmergencyMedipen
+        - id: Flare
+        - id: FoodSnackNutribrick
+        - id: DrinkWaterBottleFull
   - type: Sprite
     layers:
     - state: internals
@@ -68,14 +74,16 @@
   id: BoxSurvivalMedicalWaterVapor
   suffix: Medical H2O
   components:
-  - type: StorageFill
-    contents:
-    - id: ClothingMaskBreathMedical
-    - id: EmergencyWaterVaporTankFilled
-    - id: EmergencyMedipen
-    - id: Flare
-    - id: FoodSnackNutribrick
-    - id: DrinkWaterBottleFull
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskBreathMedical
+        - id: EmergencyWaterVaporTankFilled
+        - id: EmergencyMedipen
+        - id: Flare
+        - id: FoodSnackNutribrick
+        - id: DrinkWaterBottleFull
   - type: Sprite
     layers:
     - state: internals
@@ -88,30 +96,34 @@
   id: BoxHugWaterVapor
   suffix: Emergency H2O
   components:
-  - type: StorageFill
-    contents:
-    - id: ClothingMaskBreath
-    - id: EmergencyWaterVaporTankFilled
-    - id: EmergencyMedipen
-    - id: Flare
-    - id: FoodSnackNutribrick
-    - id: DrinkWaterBottleFull
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskBreath
+        - id: EmergencyWaterVaporTankFilled
+        - id: EmergencyMedipen
+        - id: Flare
+        - id: FoodSnackNutribrick
+        - id: DrinkWaterBottleFull
   - type: Label
     currentLabel: reagent-name-water
 
 - type: entity
-  parent: BoxSurvivalNitrogen
+  parent: BoxSurvivalWaterVapor
   id: BoxMimeWaterVapor
   suffix: Mime, Emergency H2O
   components:
-  - type: StorageFill
-    contents:
-    - id: ClothingMaskBreath
-    - id: EmergencyWaterVaporTankFilled
-    - id: EmergencyMedipen
-    - id: Flare
-    - id: FoodSnackNutribrick
-    - id: DrinkWaterBottleFull
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskBreath
+        - id: EmergencyWaterVaporTankFilled
+        - id: EmergencyMedipen
+        - id: Flare
+        - id: FoodSnackNutribrick
+        - id: DrinkWaterBottleFull
   - type: Sprite
     layers:
     - state: internals
@@ -124,16 +136,19 @@
   id: BoxSurvivalSyndicateWaterVapor
   suffix: Syndicate H2O
   components:
-  - type: StorageFill
-    contents:
-    - id: ClothingMaskGasSyndicate
-    - id: ExtendedEmergencyWaterVaporTankFilled
-    - id: EmergencyMedipen
-    - id: Flare
-    - id: FoodSnackNutribrick
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskGasSyndicate
+        - id: ExtendedEmergencyWaterVaporTankFilled
+        - id: EmergencyMedipen
+        - id: Flare
+        - id: FoodSnackNutribrick
   - type: Sprite
     layers:
     - state: internals
     - state: watertank
   - type: Label
     currentLabel: reagent-name-water
+

@@ -83,7 +83,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobChiefEngineer
-      time: 72000 #20 hrs
+      time: 20h
 
 # Goobstation - For Ensembles
 - type: loadoutEffectGroup
@@ -140,31 +140,52 @@
 
 # Neck
 - type: loadout
-  id: ChiefEngineerCloak
+  id: ClothingNeckCloakWhiteCe # Goobstation?
   equipment:
-    neck: ClothingNeckCloakCe
+    neck: ClothingNeckCloakWhiteCe # Goobstation
+  groupBy: "cecloak"
 
 - type: loadout
-  id: ChiefEngineerMantle
+  id: ClothingNeckCloakGreenCe # Goobstation
   equipment:
-    neck: ClothingNeckMantleCE
+    neck: ClothingNeckCloakGreenCe # Goobstation
+  groupBy: "cecloak"
+
+- type: loadout
+  id: ClothingNeckMantleWhiteCE # Goobstation
+  equipment:
+    neck: ClothingNeckMantleWhiteCE # Goob edit
   effects:
   - !type:GroupLoadoutEffect
     proto: MasterCE
+  groupBy: "cemantle"
 
-- type: startingGear
-  id: ChiefEngineerMantle
+- type: loadout
+  id: ClothingNeckMantleOrangeCE # Goobstation
   equipment:
-    neck: ClothingNeckMantleCE
+    neck: ClothingNeckMantleOrangeCE # Goob edit
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterCE
+  groupBy: "cemantle"
 
 - type: loadout # Goobstation - Ensembles
-  id: ChiefEngineerEnsemble
+  id: ClothingNeckEnsembleChiefEngineerWhite
   equipment:
-    neck: ClothingNeckEnsembleChiefEngineer
+    neck: ClothingNeckEnsembleChiefEngineerWhite
   effects:
   - !type:GroupLoadoutEffect
     proto: GrandMasterCE
+  groupBy: "ce_ensemble"
 
+- type: loadout # Goobstation - Ensembles
+  id: ClothingNeckEnsembleChiefEngineerGreen
+  equipment:
+    neck: ClothingNeckEnsembleChiefEngineerGreen
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: GrandMasterCE
+  groupBy: "ce_ensemble"
 # OuterClothing
 - type: loadout
   id: ChiefEngineerWintercoat

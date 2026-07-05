@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "made by realfakesoof on discord for goobstation, vulp sprites made by YERO",
+  "copyright": "made by realfakesoof on discord for goobstation, vulp sprites made by YERO. Hydrakin sprites by bobbble (discord)",
   "size": {
     "x": 32,
     "y": 32
@@ -27,6 +27,14 @@
     },
     {
       "name": "on-equipped-HELMET-vulpkanin",
+      "directions": 4
+    },
+    {
+      "name": "on-equipped-HELMET-hydrakin",
+      "directions": 4
+    },
+    {
+      "name": "off-equipped-HELMET-hydrakin",
       "directions": 4
     }
   ]
