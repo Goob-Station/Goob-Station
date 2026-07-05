@@ -1,4 +1,5 @@
 using Content.Shared.Roles;
+using Content.Shared.Roles.Components;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared._Pirate.Roles.Components;
