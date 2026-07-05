@@ -10,7 +10,7 @@ public sealed partial class MobPhaseSpriteComponent : Component
 }
 
 [DataRecord]
-public sealed record PhaseSpriteData
+public sealed partial record PhaseSpriteData
 {
     /// <summary>
     /// Should this phase switch modify the sprite?
