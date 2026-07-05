@@ -28,7 +28,7 @@ public sealed partial class PaginatedRadialMenu : RadialMenu
         RobustXamlLoader.Load(this);
     }
 
-    public new void SetButtons(IEnumerable<RadialMenuOption> models, SimpleRadialMenuSettings? settings = null)
+    public new void SetButtons(IEnumerable<RadialMenuOptionBase> models, SimpleRadialMenuSettings? settings = null)
     {
         ClearExistingChildrenRadialButtons();
 
@@ -59,7 +59,7 @@ public sealed partial class PaginatedRadialMenu : RadialMenu
         }
 
         // Pagination: Split into pages
-        var pages = new List<List<RadialMenuOption>>();
+        var pages = new List<List<RadialMenuOptionBase>>();
         for (var i = 0; i < optionsList.Count; i += ItemsPerPage)
         {
             pages.Add(optionsList.GetRange(i, Math.Min(ItemsPerPage, optionsList.Count - i)));
@@ -112,18 +112,18 @@ public sealed partial class PaginatedRadialMenu : RadialMenu
         }
     }
 
-    private RadialMenuTextureButton ConvertToButton(
-        RadialMenuOption model,
+    private RadialMenuButton ConvertToButton(
+        RadialMenuOptionBase model,
         SpriteSystem sprites,
         SimpleRadialMenuSettings settings)
     {
         var button = settings.UseSectors
-            ? new RadialMenuTextureButtonWithSector
+            ? new RadialMenuButtonWithSector
             {
                 DrawBorder = settings.DisplayBorders,
                 DrawBackground = !settings.NoBackground
             }
-            : new RadialMenuTextureButton();
+            : new RadialMenuButton();
 
         // Standard size 64x64
         button.SetSize = new Vector2(StandardButtonSize, StandardButtonSize);
@@ -169,25 +169,31 @@ public sealed partial class PaginatedRadialMenu : RadialMenu
                 button.AddChild(textureRect);
             }
         }
-        else if (model.Sprite != null)
+        else if (model.IconSpecifier is RadialMenuTextureIconSpecifier textureSpecifier)
         {
             var scale = Vector2.One;
-            var texture = sprites.Frame0(model.Sprite);
+            var texture = sprites.Frame0(textureSpecifier.Sprite);
             
             if (texture.Width <= 32)
             {
                 scale *= 2;
             }
 
-            button.TextureNormal = texture;
-            button.Scale = scale;
+            button.AddChild(new TextureRect
+            {
+                Texture = texture,
+                TextureScale = scale,
+                VerticalAlignment = VAlignment.Center,
+                HorizontalAlignment = HAlignment.Center,
+                MouseFilter = MouseFilterMode.Ignore,
+            });
         }
 
-        if (model is RadialMenuActionOption actionOption)
+        if (model is RadialMenuActionOptionBase actionOption)
         {
             button.OnPressed += _ =>
             {
-                actionOption.OnPressed?.Invoke();
+                actionOption.OnPressed.Invoke();
                 Close();
             };
         }
@@ -195,30 +201,32 @@ public sealed partial class PaginatedRadialMenu : RadialMenu
         return button;
     }
 
-    private RadialMenuTextureButton CreateNavigationButton(
+    private RadialMenuButton CreateNavigationButton(
         string tooltip,
         ResPath texturePath,
         SimpleRadialMenuSettings settings,
         SpriteSystem sprites)
     {
         var button = settings.UseSectors
-            ? new RadialMenuTextureButtonWithSector
+            ? new RadialMenuButtonWithSector
             {
                 DrawBorder = settings.DisplayBorders,
                 DrawBackground = !settings.NoBackground
             }
-            : new RadialMenuTextureButton();
+            : new RadialMenuButton();
 
         // 2x smaller -> 32x32 (standard is 64x64)
         button.SetSize = new Vector2(32f, 32f); 
         button.ToolTip = tooltip;
 
         var texture = sprites.Frame0(new SpriteSpecifier.Texture(texturePath));
-        button.TextureNormal = texture;
-        // Adjust scale if needed, but 32x32 should fit standard icons fine
-        // If texture is small (<= 32), we usually scale up, but here we want small button. 
-        // Let's keep scale 1.0 or scale down if too big.
-        button.Scale = Vector2.One;
+        button.AddChild(new TextureRect
+        {
+            Texture = texture,
+            VerticalAlignment = VAlignment.Center,
+            HorizontalAlignment = HAlignment.Center,
+            MouseFilter = MouseFilterMode.Ignore,
+        });
 
         return button;
     }
@@ -234,7 +242,7 @@ public sealed partial class PaginatedRadialMenu : RadialMenu
     }
 }
 
-public sealed class RadialMenuScreenSaverOption : RadialMenuActionOption
+public sealed class RadialMenuScreenSaverOption : RadialMenuActionOptionBase
 {
     public SpriteSpecifier? HeadSprite { get; }
     public SpriteSpecifier? ScreenSprite { get; }

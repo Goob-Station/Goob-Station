@@ -1,7 +1,6 @@
 using Content.Goobstation.Common.Traits;
 using Content.Server.Chat.Systems;
 using Content.Server.Radio;
-using Content.Server.Radio.Components;
 using Content.Shared.Chat;
 using Content.Shared.CCVar;
 using Content.Shared.Radio;

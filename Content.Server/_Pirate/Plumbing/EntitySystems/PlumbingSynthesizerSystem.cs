@@ -1,6 +1,5 @@
 using Content.Server._Pirate.Plumbing.Components;
 using Content.Server.Power.EntitySystems;
-using Content.Server.PowerCell;
 using Content.Shared._Pirate.Plumbing;
 using Content.Shared._Pirate.Plumbing.Components;
 using Content.Shared.Chemistry.EntitySystems;

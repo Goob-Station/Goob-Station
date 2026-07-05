@@ -60,7 +60,7 @@ public sealed class ScreenSaverUIController : UIController
             }
 
             var screens = _markingManager.Markings;
-            var options = new List<RadialMenuOption>();
+            var options = new List<RadialMenuOptionBase>();
 
             foreach (var markingPrototype in screens.Values)
             {
