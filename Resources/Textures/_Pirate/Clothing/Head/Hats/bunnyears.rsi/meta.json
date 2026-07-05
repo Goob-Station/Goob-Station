@@ -13,6 +13,20 @@
     {
       "name": "equipped-HELMET",
       "directions": 4
+    },
+    {
+      "name": "bar"
+    },
+    {
+      "name": "bar-equipped-HELMET",
+      "directions": 4
+    },
+    {
+      "name": "doctor"
+    },
+    {
+      "name": "doctor-equipped-HELMET",
+      "directions": 4
     }
   ]
 }

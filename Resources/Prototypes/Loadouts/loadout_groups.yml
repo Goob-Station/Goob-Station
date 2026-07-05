@@ -322,7 +322,6 @@
   - CaptainHead
   - CaptainCap
   - CaptainCapcapSenior # goob
-  - CaptainBunnyears # Pirate
 
 - type: loadoutGroup
   id: CaptainJumpsuit
@@ -369,7 +368,6 @@
   minLimit: 0
   loadouts:
   - HoPHead
-  - HOPHeadBunnyears # Pirate
 
 - type: loadoutGroup
   id: HoPJumpsuit
@@ -870,7 +868,6 @@
   loadouts:
   - QuartermasterHead
   - QuartermasterBeret
-  - QuartermasterHeadBunnyears # Pirate
 
 - type: loadoutGroup
   id: QuartermasterJumpsuit
@@ -982,7 +979,6 @@
   - ChiefEngineerHead
   - ChiefEngineerBeret
   - HatAwaria
-  - ChiefEngineerHeadBunnyears
 
 - type: loadoutGroup
   id: ChiefEngineerJumpsuit
@@ -1283,7 +1279,6 @@
   - HeadofSecurityHead
   - HeadofSecurityBeret
   - HeadofSecuritySpecialBeret # Goobstation
-  - HeadOfSecurityBunnyears # Pirate
 
 - type: loadoutGroup
   id: HeadofSecurityJumpsuit

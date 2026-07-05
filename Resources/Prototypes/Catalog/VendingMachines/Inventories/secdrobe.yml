@@ -40,7 +40,6 @@
     ClothingBackpackSatchelSecurity: 3
     ClothingBackpackDuffelSecurity: 3
     ClothingBackpackMessengerSecurity: 3 # Frontier
-    ClothingUniformJumpsuitCadet: 3 # Pirate
     ClothingUniformJumpsuitSec: 3
     ClothingShoesBootsJack: 3
     ClothingHeadHatBeretSecurity: 3
@@ -77,9 +76,7 @@
     ClothingHeadHelmetJustice: 1
     ClothingHeadHelmetBasic: 2
     ClothingHeadHelmetBasicAlt: 2
-    ClothingHeadHatBunnyearsSecurity: 3 # Pirate
   contrabandInventory:
-    ClothingUniformJumpsuitSecurityMaid: 1 # Pirate
     ClothingMaskClownSecurity: 1
     ClothingMaskMimeSecurity: 1
     ToyFigurineSecurity: 1
