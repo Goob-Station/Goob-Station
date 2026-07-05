@@ -148,7 +148,7 @@ public record class EntityEffectBaseArgs
 
     public IEntityManager EntityManager = default!;
 
-    public FixedPoint2 Scale = FixedPoint2.One;
+    public FixedPoint2 Scale = FixedPoint2.New(1);
 
     public EntityUid? User;
 
