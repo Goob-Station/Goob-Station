@@ -381,7 +381,7 @@
 
 - type: entity
   id: DrinkSugarBottlePirate
-  parent: [DrinkBottleVisualsOpenable, DrinkBottlePlasticBaseFull]
+  parent: [DrinkVisualsOpenable, DrinkBottlePlasticBaseFull]
   name: sugar bottle
   description: A smaller sugar bottle used for coffee stations.
   components:
