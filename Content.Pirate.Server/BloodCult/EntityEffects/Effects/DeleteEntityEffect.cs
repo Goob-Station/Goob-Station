@@ -6,8 +6,6 @@
 using Content.Shared.BloodCult.Components;
 using Content.Shared.EntityEffects;
 using JetBrains.Annotations;
-using Robust.Shared.GameObjects;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.BloodCult.EntityEffects.Effects;
 
@@ -19,26 +17,22 @@ namespace Content.Server.BloodCult.EntityEffects.Effects;
 [UsedImplicitly]
 public sealed partial class DeleteEntityEffect : EntityEffect
 {
-    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+    public override void RaiseEvent(EntityUid target, IEntityEffectRaiser raiser, float scale, EntityUid? user)
     {
-        return null; // Not shown in guidebook
-    }
+        var entMan = IoCManager.Resolve<IEntityManager>();
 
-    public override void Effect(EntityEffectBaseArgs args)
-    {
         // Only delete basic runes (not tear veil or final summoning runes)
-        if (args.EntityManager.HasComponent<TearVeilComponent>(args.TargetEntity) ||
-            args.EntityManager.HasComponent<FinalSummoningRuneComponent>(args.TargetEntity))
+        if (entMan.HasComponent<TearVeilComponent>(target) ||
+            entMan.HasComponent<FinalSummoningRuneComponent>(target))
         {
             return;
         }
 
         // Only delete if it's a cleanable rune
-        if (!args.EntityManager.HasComponent<CleanableRuneComponent>(args.TargetEntity))
+        if (!entMan.HasComponent<CleanableRuneComponent>(target))
             return;
 
         // Delete the target entity
-        args.EntityManager.QueueDeleteEntity(args.TargetEntity);
+        entMan.QueueDeleteEntity(target);
     }
 }
-
