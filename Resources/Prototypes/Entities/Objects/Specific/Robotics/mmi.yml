@@ -128,6 +128,9 @@
       whitelist:
         components:
         - Brain
+      blacklist: # Pirate port: DeltaV - unborgable trait
+        components:
+        - Unborgable
   - type: BorgBrain
   - type: BlockMovement
   - type: Examiner
@@ -153,15 +156,6 @@
   - type: Speech
     speechSounds: Pai
   - type: ItemSlots
-    slots:
-      brain_slot:
-        name: positronic-brain-slot-component-slot-name-brain
-        whitelist:
-          components:
-          - Brain
-        blacklist: # Pirate port: DeltaV - unborgable trait
-          components:
-          - Unborgable
   - type: ContainerContainer
     containers:
       brain_slot: !type:ContainerSlot
@@ -195,6 +189,9 @@
       whitelist:
         components:
         - Brain
+      blacklist: # Pirate port: DeltaV - unborgable trait
+        components:
+        - Unborgable
 
 - type: entity
   parent: BaseItem
