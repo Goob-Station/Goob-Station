@@ -206,9 +206,7 @@
     - type: BloodCultConstruct
     - type: Bloodstream
       bloodReferenceSolution:
-        reagents:
-        - ReagentId: Blood
-          Quantity: 0
+        reagents: []
       maxBleedAmount: 0
     - type: MindContainer
     - type: Shade

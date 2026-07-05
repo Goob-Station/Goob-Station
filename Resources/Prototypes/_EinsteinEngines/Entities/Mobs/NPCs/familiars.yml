@@ -31,9 +31,7 @@
             - FlyingMobLayer
   - type: Bloodstream
     bloodReferenceSolution:
-      reagents:
-      - ReagentId: Phlogiston
-        Quantity: 0
+      reagents: []
   - type: MeleeWeapon
     altDisarm: false # No shoving
     angle: 0
