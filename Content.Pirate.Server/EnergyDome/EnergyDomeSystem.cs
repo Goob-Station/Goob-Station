@@ -180,9 +180,9 @@ public sealed partial class EnergyDomeSystem : EntitySystem
             _powerCell.TryGetBatteryFromSlot(generatorUid, out var cell);
             if (cell != null)
             {
-                _battery.UseCharge(cell.Value, energyLeak);
+                _battery.UseCharge(cell.Value.AsNullable(), energyLeak);
 
-                if (_battery.GetCharge(cell.Value) == 0)
+                if (_battery.GetCharge(cell.Value.AsNullable()) == 0)
                     TurnOff((generatorUid, generatorComp), true);
             }
         }
