@@ -392,7 +392,6 @@
           reagents:
             - ReagentId: Sugar
               Quantity: 100
-    - type: Drink
     - type: Label
       currentLabel: reagent-name-sugar
     - type: Sprite
