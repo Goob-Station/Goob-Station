@@ -1,5 +1,5 @@
 ﻿- type: entity
-  parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
+  parent: [DrinkVisualsAllFilled, DrinkBottleGlassBaseFull]
   id: DrinkJaegermisterBottleFull
   name: jaegermister bottle
   description: A bittersweet alcohol that hasn't changed its recipe in nearly a thousand years.
