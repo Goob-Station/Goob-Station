@@ -1,6 +1,6 @@
 ﻿using Content.Server.Botany.Components;
 using Content.Shared._NF.PlantAnalyzer;
-using Content.Server.PowerCell;
+using Content.Shared.PowerCell;
 using Content.Shared.Atmos;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
@@ -14,6 +14,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using System.Linq;
+using Content.Server.PowerCell;
 
 namespace Content.Server.Botany.Systems;
 
