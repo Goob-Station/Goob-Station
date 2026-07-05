@@ -25,14 +25,13 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
     projectileSpeed: 25
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletKineticShuttle
     fireCost: 0.1
   - type: Appearance
   - type: AmmoCounter
   - type: PressureDamageChange
-  - type: UpgradeableWeapon
-    maxUpgradeCapacity: 40
+  - type: ItemUpgradeable
   - type: ContainerContainer
     containers:
       upgrade_slot_1: !type:ContainerSlot

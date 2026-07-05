@@ -57,3 +57,13 @@
   license: "CC-BY-4.0"
   copyright: "Recorded by nightcustard, trimmed and converted to mono by XWASHERE (github)"
   source: "https://freesound.org/people/nightcustard/sounds/655404/"
+
+- files: ["sande_start.ogg, sande_loop.ogg, sande_end.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Made by Loltart"
+  source: "https://goida.zip/"
+
+- files: ["sande_overload.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Made by DRAGON-STUDIO, modified by Loltart"
+  source: "https://pixabay.com/sound-effects/horror-glitch-sound-effect-450447/"

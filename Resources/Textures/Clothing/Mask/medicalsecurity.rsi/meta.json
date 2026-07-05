@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Sprited by LinkUyx#6557. Reptilian edit by Nairod(Github), equipped-MASK-feroxi by RedTerror",
+    "copyright": "Sprited by LinkUyx#6557. Reptilian edit by Nairod(Github), equipped-MASK-feroxi by RedTerror. hydrakin sprite by Zethine / @synthetic_086 (discord).",
     "size": {
         "x": 32,
         "y": 32
@@ -72,6 +72,10 @@
         },
         {
             "name": "up-equipped-MASK-feroxi",
+            "directions": 4
+        },
+        {
+            "name": "equipped-MASK-hydrakin",
             "directions": 4
         }
     ]

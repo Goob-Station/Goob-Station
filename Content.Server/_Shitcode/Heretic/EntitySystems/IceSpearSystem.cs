@@ -8,6 +8,7 @@ using Content.Shared.Ghost;
 using Content.Shared.Heretic;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Projectiles;
+using Content.Shared.Temperature.Components;
 using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;

@@ -7,7 +7,6 @@
 
 using System.Linq;
 using Content.Server.Popups;
-using Content.Server.PowerCell;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item.ItemToggle.Components;

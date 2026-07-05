@@ -409,6 +409,12 @@
   - type: UseDelay
   - type: IgnitionSource
     ignited: false
+  - type: MeleeWeapon
+    animationRotation: 180
+    wideAnimationRotation: 180
+    damage:
+      types:
+        Blunt: 0
   # Goobstation
   - type: Tag
     tags:
@@ -659,7 +665,7 @@
     sprite: Objects/Tools/Lighters/honkco.rsi
   - type: Item
     sprite: Objects/Tools/Lighters/honkco.rsi
-  - type: ComponentToggler
+  - type: ComponentToggler # This is super cursed and ends up deleting the fixtures when toggled off
     components:
     - type: Slippery
     - type: StepTrigger
@@ -734,7 +740,7 @@
       - cheap
   - type: ComponentToggler
     components:
-    - type: Food
+    - type: Edible # This shouldn't be component toggler, but doesn't work when it's not
   - type: PointLight
     enabled: false
     netsync: false

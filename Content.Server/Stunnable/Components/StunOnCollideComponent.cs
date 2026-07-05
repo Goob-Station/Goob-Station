@@ -9,6 +9,7 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Stunnable.Systems;
+using Content.Shared.Whitelist;
 
 namespace Content.Server.Stunnable.Components
 {
@@ -72,5 +73,10 @@ namespace Content.Server.Stunnable.Components
         /// Fixture we track for the collision.
         /// </summary>
         [DataField("fixture")] public string FixtureID = "projectile";
+
+        // Begin DeltaV Additions
+        [DataField]
+        public EntityWhitelist? Blacklist;
+        // End DeltaV Additions
     }
 }

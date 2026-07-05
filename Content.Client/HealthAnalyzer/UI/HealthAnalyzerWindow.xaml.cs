@@ -273,6 +273,17 @@ namespace Content.Client.HealthAnalyzer.UI
             DamageLabelHeading.Visible = true;
             DamageLabel.Visible = true;
             DamageLabel.Text = damageable.TotalDamage.ToString();
+
+            // Alerts
+
+            var showAlerts = msg.Unrevivable == true || msg.Bleeding.Values.Any(v => v); // Goobstation?
+
+
+            AlertsDivider.Visible = showAlerts;
+            AlertsContainer.Visible = showAlerts;
+
+            if (showAlerts)
+                AlertsContainer.RemoveAllChildren();
             // Goobstation start
             DamageLabelHeadingVital.Visible = true;
             DamageLabelVital.Visible = true;
@@ -299,6 +310,15 @@ namespace Content.Client.HealthAnalyzer.UI
             }
 
             ConditionsListContainer.RemoveAllChildren();
+
+            // Goob start - low blood alert
+            if (msg.BloodLevelLow)
+                ConditionsListContainer.AddChild(new RichTextLabel
+                {
+                    Text = Loc.GetString("condition-body-low-blood", ("entity", Identity.Name(_target.Value, _entityManager))),
+                    Margin = new Thickness(0, 4),
+                });
+            // Goob end
 
             if (msg.Unrevivable == true)
                 ConditionsListContainer.AddChild(new RichTextLabel

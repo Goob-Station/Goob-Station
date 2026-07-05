@@ -1,0 +1,43 @@
+- type: tile
+  id: FloorCanvas
+  name: tiles-canvas-floor
+  sprite: /Textures/_Goobstation/Tiles/canvas.png
+  variants: 1
+  placementVariants:
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  deconstructTimeMultiplier: 3
+  footstepSounds:
+    collection: FootstepCarpet
+  itemDrop: FloorTileItemCanvas
+  heatCapacity: 10000
+  tileRipResistance: 175
+  protectDecals: true
+
+- type: entity
+  parent: FloorTileItemBase
+  id: FloorTileItemCanvas
+  name: canvas floor
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Tiles/canvas.rsi
+    state: canvas-tile
+  - type: Item
+    heldPrefix: canvas
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorCanvas
+  - type: Construction
+    graph: TileCanvas
+    node: canvastile
+  - type: Stack
+    stackType: FloorTileCanvas
+
+- type: stack
+  id: FloorTileCanvas
+  name: stack-canvas-tile
+  spawn: FloorTileItemCanvas
+  maxCount: 30

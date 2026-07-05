@@ -48,8 +48,10 @@ using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Storage.EntitySystems;
+using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.Input.Binding;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Network;
 using Robust.Shared.Utility;
 
@@ -66,6 +68,7 @@ public abstract partial class SharedHandsSystem
     [Dependency] private readonly SharedStorageSystem _storage = default!;
     [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
     [Dependency] private readonly SharedVirtualItemSystem _virtualSystem = default!;
+    [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
 
     public event Action<Entity<HandsComponent>, string, HandLocation>? OnPlayerAddHand;
     public event Action<Entity<HandsComponent>, string>? OnPlayerRemoveHand;
@@ -109,9 +112,9 @@ public abstract partial class SharedHandsSystem
     /// <summary>
     /// Adds a hand with the given container id and supplied location to the specified entity.
     /// </summary>
-    public void AddHand(Entity<HandsComponent?> ent, string handName, HandLocation handLocation)
+    public void AddHand(Entity<HandsComponent?> ent, string handName, HandLocation handLocation, LocId? emptyLabel = null, EntProtoId? emptyRepresentative = null, EntityWhitelist? whitelist = null, EntityWhitelist? blacklist = null)
     {
-        AddHand(ent, handName, new Hand(handLocation));
+        AddHand(ent, handName, new Hand(handLocation, emptyLabel, emptyRepresentative, whitelist, blacklist));
     }
 
     /// <summary>
@@ -459,6 +462,9 @@ public abstract partial class SharedHandsSystem
         return GetHeldItem(ent, handId) == null;
     }
 
+    /// <summary>
+    /// Counts the number of hands on this entity.
+    /// </summary>
     public int GetHandCount(Entity<HandsComponent?> ent)
     {
         if (!Resolve(ent, ref ent.Comp, false))
@@ -467,6 +473,9 @@ public abstract partial class SharedHandsSystem
         return ent.Comp.Hands.Count;
     }
 
+    /// <summary>
+    /// Counts the number of hands that are empty.
+    /// </summary>
     public int CountFreeHands(Entity<HandsComponent?> ent)
     {
         if (!Resolve(ent, ref ent.Comp, false))
@@ -482,12 +491,17 @@ public abstract partial class SharedHandsSystem
         return free;
     }
 
-    public int CountFreeableHands(Entity<HandsComponent> hands, bool excludeActiveHand = false) // Goob edit
+    /// <summary>
+    /// Counts the number of hands that are empty or can be emptied by dropping an item.
+    /// Unremoveable items will cause a hand to not be freeable.
+    /// </summary>
+    /// <param name="except">The hand this entity is in will be ignored when counting.</param>
+    public int CountFreeableHands(Entity<HandsComponent> hands, EntityUid? except = null)
     {
         var freeable = 0;
         foreach (var name in hands.Comp.Hands.Keys)
         {
-            if (excludeActiveHand && hands.Comp.ActiveHandId != null && name == hands.Comp.ActiveHandId)
+            if (except != null && GetHeldItem(hands.AsNullable(), name) == except)
                 continue;
 
             if (HandIsEmpty(hands.AsNullable(), name) || CanDropHeld(hands, name))

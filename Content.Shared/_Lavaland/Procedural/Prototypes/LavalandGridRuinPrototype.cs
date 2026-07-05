@@ -32,12 +32,12 @@ namespace Content.Shared._Lavaland.Procedural.Prototypes;
 [Prototype]
 public sealed partial class LavalandGridRuinPrototype : IPrototype
 {
-    [IdDataField] public string ID { get; } = default!;
+    [IdDataField] public string ID { get; private set; } = default!;
 
     [DataField] public LocId Name = "lavaland-ruin-unknown";
 
     [DataField(required: true)]
-    public ResPath Path { get; }
+    public ResPath Path;
 
     [DataField]
     public int SpawnAttempts = 8;

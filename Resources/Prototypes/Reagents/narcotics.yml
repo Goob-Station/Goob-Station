@@ -57,17 +57,19 @@
   group: Narcotics
   desc: reagent-desc-desoxyephedrine
   physicalDesc: reagent-physical-desc-translucent
+  contrabandSeverity: Minor
   flavor: bitter
   color: "#FAFAFA"
   boilingPoint: 212.0  # Dexosyephedrine vape when?
   meltingPoint: 170.0
   metabolisms:
     Poison:
+      # Main effects
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [Yowie]
         damage:
           groups:
             Brute: -1
@@ -78,43 +80,49 @@
             Radiation: -0.5
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         damage:
           types:
-            Poison: 0.75
+            Poison: 2 # Goobstation
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:ReagentThreshold
-          min: 30
+        - !type:ReagentCondition
+          reagent: Desoxyephedrine
+          min: 16
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [Yowie]
+          inverted: true
         damage:
           types:
-            Poison: 2 # this is added to the base damage of the meth.
+            Poison: 2.75 # this is added to the base damage of the meth. // Goobstation +0.75  damage
             Asphyxiation: 2
     Narcotic:
       effects:
-      - !type:MovespeedModifier
-        walkSpeedModifier: 1.35
-        sprintSpeedModifier: 1.35
+      # Main effects
+      - !type:MovementSpeedModifier
+        walkSpeedModifier: 1.20
+        sprintSpeedModifier: 1.20
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectDesoxyStamina # You are on meth. You keep going.
+        time: 3
+      - !type:GenericStatusEffect
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 3
+      # Side effects
+      - !type:Jitter
       - !type:GenericStatusEffect
         key: Stutter
         component: StutteringAccent
-      - !type:Jitter
-      - !type:ModifyStatusEffect 
-        effectProto: StatusEffectStunned
-        time: 3
-        type: Remove
-      - !type:GenericStatusEffect
-        key: KnockedDown
-        time: 3
-        type: Remove
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectPainNumbness
+        time: 2
+      # Interactions
       - !type:ModifyStatusEffect
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Haloperidol
           max: 0.01
         effectProto: StatusEffectDrowsiness
@@ -129,10 +137,12 @@
         locale: reagent-effect-guidebook-remove-delayed-knockdown
     Medicine:
       effects:
+      # Side effects
       - !type:ResetNarcolepsy
         conditions:
-        - !type:ReagentThreshold
-          min: 20
+        - !type:ReagentCondition
+          reagent: Desoxyephedrine
+          min: 5
 
 - type: reagent
   id: Ephedrine
@@ -147,10 +157,12 @@
   metabolisms:
     Narcotic:
       effects:
+      # Main effects
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         damage:
           groups:
             Brute: -1
@@ -159,32 +171,40 @@
             Shock: -0.5
             Cold: -0.5
             Radiation: -0.5
-      - !type:MovespeedModifier
-        walkSpeedModifier: 1.25
-        sprintSpeedModifier: 1.25
-      - !type:HealthChange
-        conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:ReagentThreshold
-          min: 20
-        damage:
-          types:
-            Poison: 2 # this is added to the base damage of the meth.
-            Asphyxiation: 2
-      - !type:Jitter
-      - !type:ModifyStatusEffect 
+      - !type:MovementSpeedModifier
+        walkSpeedModifier: 1.15
+        sprintSpeedModifier: 1.15
+      - !type:ModifyStatusEffect
         effectProto: StatusEffectStunned
         time: 1
         type: Remove
-      - !type:GenericStatusEffect
-        key: KnockedDown
+      - !type:ModifyKnockdown
         time: 1
         type: Remove
+      # Side effects
+      - !type:Jitter
+      - !type:PopupMessage
+        visualType: Medium
+        messages: ["ephedrine-effect-tight-pain", "ephedrine-effect-heart-pounds"]
+        type: Local
+        probability: 0.05
+      # OD
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: Ephedrine
+          min: 20
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [Yowie]
+          inverted: true
+        damage:
+          types:
+            Poison: 2
+            Asphyxiation: 2
+      # Interactions
       - !type:ModifyStatusEffect
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Haloperidol
           max: 0.01
         effectProto: StatusEffectDrowsiness
@@ -207,10 +227,12 @@
         time: 10 # it accumulated 1.2*quantity and then exists for 30 seconds.
     Medicine:
       effects:
+      # Side effects
       - !type:ResetNarcolepsy
         conditions:
-        - !type:ReagentThreshold
-          min: 30
+        - !type:ReagentCondition
+          reagent: Ephedrine
+          min: 15
 
 - type: reagent
   id: Stimulants
@@ -218,18 +240,20 @@
   group: Narcotics
   desc: reagent-desc-stimulants
   physicalDesc: reagent-physical-desc-energizing
+  contrabandSeverity: Syndicate
   flavor: sharp
   color: "#9A040E"
   boilingPoint: 212.0
   meltingPoint: 170.0
   metabolisms:
     Narcotic:
-      metabolismRate: 0.25 # Goobstation edit
       effects:
+      # Main effects
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         damage:
           groups:
             Brute: -1
@@ -238,51 +262,72 @@
             Shock: -0.5
             Cold: -0.5
             Radiation: -0.5
-      - !type:MovespeedModifier
-        walkSpeedModifier: 1.3
-        sprintSpeedModifier: 1.3
+      - !type:MovementSpeedModifier
+        walkSpeedModifier: 1.25
+        sprintSpeedModifier: 1.25
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:ReagentThreshold
-          min: 20 #please wait 3 minutes before using another stimpack, also goob edit
+          - !type:ReagentCondition
+            reagent: Stimulants
+            min: 20 # Goob edit
+          - !type:MetabolizerTypeCondition # Goobstation - Yowie
+            type: [ Yowie ]
+            inverted: true
         damage:
           types:
             Poison: 1
       - !type:AdjustReagent
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: ChloralHydrate
           min: 1
         reagent: ChloralHydrate
         amount: -10
-      - !type:ModifyStatusEffect 
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectStimulantsStamina # You are on meth. You keep going.
+        time: 3
+      - !type:ModifyStatusEffect
         effectProto: StatusEffectStunned
-        time: 3
+        time: 3.5
         type: Remove
-      - !type:GenericStatusEffect
-        key: KnockedDown
-        time: 3
+      - !type:ModifyKnockdown
+        time: 3.5
         type: Remove
-      - !type:GenericStatusEffect
-        key: StaminaModifier
-        component: StaminaModifier
-        time: 3
-        type: Add
       - !type:ModifyStatusEffect
         effectProto: StatusEffectForcedSleeping
         time: 3
         type: Remove
+      - !type:GenericStatusEffect
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 3
+      # Side effects
+      - !type:Jitter
+      # OD
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: Stimulants
+          min: 50
+        damage:
+          types:
+            Poison: 1
+      # Interactions
       - !type:ModifyStatusEffect
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Haloperidol
           max: 0.01
         effectProto: StatusEffectDrowsiness
         time: 10
         type: Remove
+      - !type:AdjustReagent
+        conditions:
+        - !type:ReagentCondition
+          reagent: ChloralHydrate
+          min: 1
+        reagent: ChloralHydrate
+        amount: -10
       - !type:GenericStatusEffect # goob edit
         key: Adrenaline
         component: IgnoreSlowOnDamage
@@ -297,21 +342,30 @@
           amount: 1.2
           time: 30 # it accumulated 1.2*quantity and then exists for 30 seconds.
     Medicine:
-      metabolismRate: 0.25 # Goobstation edit
       effects:
-        - !type:ResetNarcolepsy
-        - !type:SatiateHunger
-          factor: 1
-        - !type:SatiateThirst
-          factor: 1
-        - !type:HealthChange
-          conditions:
-          - !type:TotalDamage
-            min: 70 # only heals when you're more dead than alive
-          damage: # heals at the same rate as tricordrazine, doesn't heal poison because if you OD'd I'm not giving you a safety net
-            groups:
-              Burn: -1
-              Brute: -1
+      # Main effects
+      - !type:ModifyBleed
+        amount: -1.5
+      - !type:EvenHealthChange
+        conditions:
+        - !type:TotalDamageCondition
+          min: 70 # only heals when you're more dead than alive
+        damage: # Doesn't heal poison because if you OD'd I'm not giving you a safety net
+          Burn: -0.5
+          Brute: -0.5
+      - !type:HealthChange
+        conditions:
+        - !type:TotalDamageCondition
+          min: 95 # Just to bring you back from the brink of death
+        damage:
+          types:
+            Asphyxiation: -2
+      # Side effects
+      - !type:ResetNarcolepsy
+      - !type:SatiateHunger
+        factor: 1
+      - !type:SatiateThirst
+        factor: 1
 
 - type: reagent
   id: THC
@@ -332,8 +386,8 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
         damage:
           groups:
             Brute: -1
@@ -346,7 +400,6 @@
         effectProto: StatusEffectSeeingRainbow
         time: 16
         type: Add
-        refresh: false
 
 - type: reagent
   id: Nicotine
@@ -364,8 +417,8 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
         damage:
           groups:
             Brute: -0.2
@@ -382,6 +435,7 @@
   group: Narcotics
   desc: reagent-desc-impedrezene
   physicalDesc: reagent-physical-desc-acrid
+  contrabandSeverity: Minor
   flavor: bitter
   color: "#215263"
   metabolisms:
@@ -389,8 +443,9 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         damage:
           groups:
             Brute: -1
@@ -399,14 +454,14 @@
             Shock: -0.5
             Cold: -0.5
             Radiation: -0.5
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         damage:
           types:
             Poison: 2
@@ -414,8 +469,7 @@
         effectProto: StatusEffectSeeingRainbow
         time: 10
         type: Add
-        refresh: false
-      - !type:ChemVomit # Vomiting is a symptom of brain damage
+      - !type:Vomit # Vomiting is a symptom of brain damage
         probability: 0.05
       - !type:Drunk # Headaches and slurring are major symptoms of brain damage, this is close enough
         boozePower: 5
@@ -433,8 +487,8 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
         damage:
           groups:
             Brute: -1
@@ -447,7 +501,6 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
-        refresh: false
 
 - type: reagent
   id: Bananadine
@@ -462,8 +515,9 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         damage:
           groups:
             Brute: -1
@@ -476,7 +530,6 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
-        refresh: false
 
 # Probably replace this one with sleeping chem when putting someone in a comatose state is easier
 - type: reagent
@@ -485,23 +538,27 @@
   group: Narcotics
   desc: reagent-desc-nocturine
   physicalDesc: reagent-physical-desc-powdery
+  contrabandSeverity: Syndicate
   color: "#128e80"
   boilingPoint: 444.0
   meltingPoint: 128.0
   metabolisms:
     Narcotic:
-      effects:
+      effects: # It would be nice to have speech slurred or mumbly, but accents are a bit iffy atm. Same for distortion effects.
+      - !type:MovementSpeedModifier
+        walkSpeedModifier: 0.65
+        sprintSpeedModifier: 0.65
       - !type:ModifyStatusEffect
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Nocturine
           min: 8
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         effectProto: StatusEffectForcedSleeping
-        time: 3
-        type: Add
+        time: 6
+        delay: 5
 
 - type: reagent
   id: MuteToxin
@@ -509,6 +566,7 @@
   group: Narcotics
   desc: reagent-desc-mute-toxin
   physicalDesc: reagent-physical-desc-syrupy
+  contrabandSeverity: Syndicate
   color: "#000000"
   boilingPoint: 255.0
   meltingPoint: 36.0
@@ -517,14 +575,13 @@
       effects:
       - !type:GenericStatusEffect
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         key: Muted
         component: Muted
         type: Add
         time: 10
-        refresh: false
 
 - type: reagent
   id: NorepinephricAcid
@@ -532,6 +589,7 @@
   group: Narcotics
   desc: reagent-desc-norepinephric-acid
   physicalDesc: reagent-physical-desc-milky
+  contrabandSeverity: Minor
   flavor: salty
   color: "#96a8b5"
   boilingPoint: 255.0
@@ -559,7 +617,8 @@
         - norepinephricacid-effect-darkness
         - norepinephricacid-effect-blindness
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: NorepinephricAcid
           min: 20
         probability: 0.03
         #If anyone wants to add a light dimming or grayscale effect when under 20u, be my guest
@@ -567,7 +626,8 @@
         key: TemporaryBlindness
         component: TemporaryBlindness
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: NorepinephricAcid
           min: 20
 
 - type: reagent
@@ -576,6 +636,8 @@
   group: Narcotics
   desc: reagent-desc-tear-gas
   physicalDesc: reagent-physical-desc-milky
+  allowedDepartments:
+  - Security
   flavor: salty
   color: "#ffffff4d"
   boilingPoint: 255.0
@@ -604,13 +666,15 @@
         - norepinephricacid-effect-darkness
         - norepinephricacid-effect-blindness
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: TearGas
           min: 5
       - !type:Emote
         emote: Scream
         probability: 0.08
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: TearGas
           min: 4
       - !type:Emote
         emote: Cough
@@ -619,14 +683,16 @@
         key: TemporaryBlindness
         component: TemporaryBlindness
         conditions:
-        - !type:ReagentThreshold
-          min: 5
-      - !type:MovespeedModifier
+        - !type:ReagentCondition
+          reagent: TearGas
+          min: 4
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
-        statusLifetime: 1.5
+        time: 1.5
         conditions: # because of the remainding after effect, threshold is given so the effects ends simultaniously
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: TearGas
           min: 4
 
 - type: reagent
@@ -642,8 +708,9 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
+          inverted: true
         damage:
           groups:
             Brute: -1
@@ -657,21 +724,24 @@
         showInChat: true
         probability: 0.1
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Happiness
           max: 20
       - !type:Emote
         emote: Whistle
         showInChat: true
         probability: 0.1
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Happiness
           max: 20
       - !type:Emote
         emote: Crying
         showInChat: true
         probability: 0.1
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Happiness
           min: 20
       - !type:PopupMessage # we dont have sanity/mood so this will have to do
         type: Local
@@ -682,13 +752,13 @@
         - "psicodine-effect-at-peace"
         probability: 0.2
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Happiness
           max: 20
       - !type:ModifyStatusEffect
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
-        refresh: false
 
 - type: reagent # Assmos - /tg/ gases
   id: NitrosylPlasmide
@@ -705,7 +775,7 @@
     Narcotic:
       effects:
       - !type:Jitter
-      - !type:ModifyStatusEffect 
+      - !type:ModifyStatusEffect
         effectProto: StatusEffectStunned
         time: 3
         type: Remove
@@ -733,5 +803,6 @@
       effects:
       - !type:ResetNarcolepsy
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: NitrosylPlasmide
           min: 1

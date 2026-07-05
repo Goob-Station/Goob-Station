@@ -1,25 +1,14 @@
-<!--
-SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
-SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-
-SPDX-License-Identifier: MIT
--->
-
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
     <ServerGarbageCollection>True</ServerGarbageCollection>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Content.ModuleManager\Content.ModuleManager.csproj" />
-    <ProjectReference Include="..\RobustToolbox\Robust.Packaging\Robust.Packaging.csproj" />
   </ItemGroup>
+  <Import Project="../MSBuild/Content.props" />
 
   <ItemGroup>
     <PackageReference Include="AsmResolver" />
@@ -27,4 +16,7 @@ SPDX-License-Identifier: MIT
   </ItemGroup>
 
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
+
+  <Import Project="..\RobustToolbox\Imports\Shared.props" />
+  <Import Project="..\RobustToolbox\Imports\Packaging.props" />
 </Project>

@@ -21,11 +21,11 @@
         component: BlurryVision
         time: 6.0
       31:
-      - !type:MovespeedModifier
+      - !type:ModifyStatusEffect
+        effectProto: DisgustSlowDownEffect
         probability: 0.03
-        walkSpeedModifier: 0.7
-        sprintSpeedModifier: 0.7
-        statusLifetime: 6.0
+        type: Add
+        time: 6
       32:
       - !type:TakeStaminaDamage
         probability: 0.06
@@ -38,7 +38,7 @@
           types:
             Poison: 1
       60:
-      - !type:ChemVomit
+      - !type:Vomit
         probability: 0.06
         thirstAmount: -50
         hungerAmount: -50

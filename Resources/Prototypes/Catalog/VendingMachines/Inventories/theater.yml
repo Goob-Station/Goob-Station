@@ -126,8 +126,11 @@
     ClothingShoesBling: 1
     ClothingShoesBootsCowboyFancy: 1
     ClothingOuterDogi: 1
-    ClothingMaskSexyClown: 1
-    ClothingMaskSexyMime: 1
+    ClothingOuterSuitCarp: 1
+    #ClothingMaskBlushingClown: 1 # Goob
+    #ClothingMaskBlushingMime: 1 # Goob
+    ClothingMaskSexyClown: 1 # Goobstation
+    ClothingMaskSexyMime: 1 # Goobstation
     ClothingHeadHatCowboyBountyHunter: 1
     ToyFigurineBoxer: 1
     ToyFigurineMusician: 1
