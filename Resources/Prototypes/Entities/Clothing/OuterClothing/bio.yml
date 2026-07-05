@@ -18,7 +18,7 @@
 # SPDX-License-Identifier: MIT
 
 - type: entity
-  parent: ClothingOuterBaseLarge
+  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothingGasTanks] # Goobstation
   id: ClothingOuterBioGeneral
   name: bio suit
   suffix: Generic
@@ -61,7 +61,7 @@
         Blood: 0.5
 
 - type: entity
-  parent: ClothingOuterBioGeneral
+  parent: [ClothingOuterBioGeneral, AllowSuitStorageClothingGasTanks] # Goobstation
   id: ClothingOuterBioCmo
   name: bio suit
   suffix: CMO
@@ -73,7 +73,7 @@
     sprite: Clothing/OuterClothing/Bio/cmo.rsi
 
 - type: entity
-  parent: ClothingOuterBioGeneral
+  parent: [ClothingOuterBioGeneral, AllowSuitStorageClothingGasTanks] # Goobstation
   id: ClothingOuterBioJanitor
   name: bio suit
   suffix: Janitor
@@ -89,7 +89,7 @@
         Caustic: 0.4
 
 - type: entity
-  parent: ClothingOuterBioGeneral
+  parent: [ClothingOuterBioGeneral, AllowSuitStorageClothingGasTanks] # Goobstation
   id: ClothingOuterBioScientist
   name: bio suit
   suffix: Science
@@ -101,7 +101,7 @@
     sprite: Clothing/OuterClothing/Bio/scientist.rsi
 
 - type: entity
-  parent: [ClothingOuterBioGeneral, BaseSecurityContraband]
+  parent: [ClothingOuterBioGeneral, BaseSecurityContraband, AllowSuitStorageClothingGasTanks] # Goobstation
   id: ClothingOuterBioSecurity
   name: bio suit
   suffix: Security
@@ -131,7 +131,7 @@
     zombificationResistanceCoefficient: 0.3 # Goobstation
 
 - type: entity
-  parent: ClothingOuterBioGeneral
+  parent: [ClothingOuterBioGeneral, AllowSuitStorageClothingGasTanks] # Goobstation
   id: ClothingOuterBioVirology
   name: bio suit
   suffix: Virology
