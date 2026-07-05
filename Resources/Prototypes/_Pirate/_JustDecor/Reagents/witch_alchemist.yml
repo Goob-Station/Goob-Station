@@ -178,7 +178,6 @@
         time: 4
       - !type:Drunk
         boozePower: 2.5
-        slurSpeech: false
       - !type:PopupMessage
         type: Local
         visualType: Medium

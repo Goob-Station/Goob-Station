@@ -11,11 +11,6 @@
   - type: Damageable
     damageModifierSet: Wood
   - type: Temperature
-    heatDamage:
-      types:
-        Heat: 5
-    coldDamage: {}
-    coldDamageThreshold: 0
   - type: TemperatureDamage
     heatDamage:
       types:

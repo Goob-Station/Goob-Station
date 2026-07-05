@@ -21,7 +21,7 @@
   parent: BaseFlatpack
   id: JustDecorWitchCauldronFlatpack
   name: плаский ящик казана відьми
-  description: Розкладний набір для ритуального казана. Після встановлення лишається тільки закріпити його ключем. 
+  description: Розкладний набір для ритуального казана. Після встановлення лишається тільки закріпити його ключем.
   suffix: Відьма, JustDecor
   components:
   - type: Flatpack
@@ -34,7 +34,7 @@
   parent: BaseFlatpack
   id: JustDecorAlchemistApparatusFlatpack
   name: плаский ящик алхімічного апарата
-  description: Розкладний набір для алхіміка. Після встановлення лишається тільки закріпити його ключем. 
+  description: Розкладний набір для алхіміка. Після встановлення лишається тільки закріпити його ключем.
   suffix: Алхім., JustDecor
   components:
   - type: Flatpack
@@ -42,3 +42,33 @@
   - type: Sprite
     layers:
     - state: fax-machine
+
+- type: entity
+  id: ChemistryBottleHappiness
+  suffix: happiness
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-happiness
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Happiness
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleRazorium
+  suffix: razorium
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-razorium
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Razorium
+          Quantity: 30

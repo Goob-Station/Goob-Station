@@ -33,7 +33,6 @@
     damageContainer: CorporealSpirit
     damageModifierSet: CorporealSpirit
   - type: MindContainer
-    showExamineInfo: false
   - type: NpcFactionMember
     factions:
     - PsionicInterloper

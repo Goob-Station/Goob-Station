@@ -16,6 +16,11 @@
 
 - type: entity
   parent: WeaponEnergyTurretStationControlPanelElectronicsBase
+  id: WeaponEnergyTurretStationControlPanelElectronics
+  suffix: Station
+
+- type: entity
+  parent: WeaponEnergyTurretStationControlPanelElectronicsBase
   id: WeaponEnergyTurretSecurityControlPanelElectronics
   suffix: Security
 
@@ -40,4 +45,3 @@
     state: command
   - type: ElectronicsBoard
     prototype: WeaponEnergyTurretCommandControlPanel
-

@@ -212,8 +212,8 @@
       - MedicalPatch # Goobstation
       - AutoinjectorCartridge # Goobstation
       - HandheldCrewMonitor # Goobstation
-      components:
       - Hypospray
+      components:
       - Injector
       - Pill
       - HandLabeler
@@ -230,9 +230,8 @@
           - Bottle
       hypo:
         whitelist:
-          components:
-          - Hypospray
           tags:
+          - Hypospray
           - Injector
       pill:
         whitelist:

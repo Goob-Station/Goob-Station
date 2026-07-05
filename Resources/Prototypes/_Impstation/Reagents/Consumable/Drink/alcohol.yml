@@ -113,7 +113,6 @@
         component: SeeingRainbows
         type: Add
         time: 5
-        refresh: false
     Medicine:
       effects:
       - !type:HealthChange
@@ -582,7 +581,7 @@
         - !type:HealthChange
           conditions:
             - !type:ReagentCondition
-              reagent: BurnChamber
+              reagent: Burnchamber
               min: 10
           damage:
             types:
@@ -624,7 +623,6 @@
         component: SeeingRainbows
         type: Add
         time: 4
-        refresh: false
       - !type:PopupMessage
         type: Local
         visualType: Medium
@@ -670,7 +668,6 @@
         component: SeeingRainbows
         type: Add
         time: 5
-        refresh: false
       - !type:ChemRemovePsionic
         conditions:
           - !type:ReagentCondition

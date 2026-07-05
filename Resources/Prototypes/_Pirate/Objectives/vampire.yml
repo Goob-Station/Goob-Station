@@ -31,7 +31,7 @@
   id: CMOHyposprayVampireStealObjective
   components:
   - type: NotJobRequirement
-    job: ChiefMedicalOfficer
+    jobs: [ ChiefMedicalOfficer ]
   - type: StealCondition
     owner: job-name-cmo
     stealGroup: Hypospray
@@ -41,7 +41,7 @@
   id: RDHardsuitVampireStealObjective
   components:
   - type: NotJobRequirement
-    job: ResearchDirector
+    jobs: [ ResearchDirector ]
   - type: StealCondition
     owner: job-name-rd
     stealGroup: ClothingOuterHardsuitRd
@@ -53,7 +53,7 @@
   id: MagbootsVampireStealObjective
   components:
   - type: NotJobRequirement
-    job: ChiefEngineer
+    jobs: [ ChiefEngineer ]
   - type: StealCondition
     stealGroup: ClothingShoesBootsMagAdv
     owner: job-name-ce
@@ -63,7 +63,7 @@
   id: ClipboardVampireStealObjective
   components:
   - type: NotJobRequirement
-    job: Quartermaster
+    jobs: [ Quartermaster ]
   - type: StealCondition
     stealGroup: BoxFolderQmClipboard
     owner: job-name-qm
@@ -76,7 +76,7 @@
   - type: Objective
     difficulty: 2.5
   - type: NotJobRequirement
-    job: Captain
+    jobs: [ Captain ]
 
 - type: entity
   parent: BaseCaptainVampireObjective

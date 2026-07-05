@@ -33,6 +33,7 @@
   - type: RadioMicrophone
     broadcastChannel: Handheld
     toggleOnInteract: false # Pirate - Handheld Radios port
+  - type: HandheldRadioFrequency
     frequency: 1330 # Pirate - Handheld Radios port
   - type: RadioSpeaker
     toggleOnInteract: false # Pirate - Handheld Radios port

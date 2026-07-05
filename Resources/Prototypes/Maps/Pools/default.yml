@@ -53,7 +53,6 @@
   id: DefaultMapPool
   maps:
   - Atlas
-  - Amber
   - Bagel
   - BoxTP # Pirate
   #- Box # Pirate

@@ -16,9 +16,6 @@
     - MindRoleGhostRoleFreeAgent
     raffle:
       settings: default
-    requirements: # Pirate: match local callable ally ghost-role gating.
-    - !type:OverallPlaytimeRequirement
-      time: 18000 # 5 hours
   - type: GhostRoleMobSpawner
     prototype: MobCatSyndyReject
   - type: EmitSoundOnUse
@@ -44,9 +41,6 @@
     - MindRoleGhostRoleTeamAntagonist
     raffle:
       settings: default
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 18000 # 5 hours
   - type: GhostRoleMobSpawner
     prototype: MobMothroachSyndicate
   - type: EmitSoundOnUse

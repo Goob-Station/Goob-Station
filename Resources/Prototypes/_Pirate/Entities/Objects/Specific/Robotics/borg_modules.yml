@@ -9,13 +9,12 @@
     # Pirate: local borgmodule.rsi has no plumbing layer yet.
     - state: icon-rcd
   - type: ItemBorgModule
-    moduleId: AdvancedPlumbing
     hands:
     - item: RPLDRecharging
     - item: Crowbar
     - item: Wrench
     - item: trayScanner
-    - item: CableApcStackLingering10
+    - item: CableApcStack10
     - item: Plunger
   - type: BorgModuleIcon
     icon: { sprite: _Pirate/Interface/Actions/actions_borg.rsi, state: plumbing-module }

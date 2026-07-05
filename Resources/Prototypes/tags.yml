@@ -1097,6 +1097,9 @@
   id: KitchenKnife # Storage whitelist: ClothingBeltChef. ItemMapper: ClothingBeltChef
 
 - type: Tag
+  id: Katana # Storage whitelist: katana variants.
+
+- type: Tag
   id: Knife # MachineBoard construction: BiomassReclaimerMachineCircuitboard. Storage whitelist: ClothingShoesMilitaryBase, ClothingShoesClownBase
 
 - type: Tag
@@ -1337,6 +1340,9 @@
 
 - type: Tag
   id: Paper # A writeable piece of paper. Subset of Document tag. SpecialDigestible: OrganMothStomach, OrganReptilianStomach. Storage whitelist: MailCart
+
+- type: Tag
+  id: PlantAnalyzer # Storage whitelist: ClothingBeltPlant
 
 - type: Tag
   id: ParadoxCloneObjectiveBlacklist # objective entities with this tag don't get copied to paradox clones

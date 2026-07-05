@@ -268,7 +268,7 @@
         - !type:HasComponentCondition
           components:
           - type: TerrorSpider
-          invert: true
+          inverted: true
         ignoreResistances: true
         damage:
           types:
@@ -286,7 +286,7 @@
         - !type:HasComponentCondition
           components:
           - type: TerrorSpider
-          invert: true
+          inverted: true
       - !type:PopupMessage
         type: Local
         visualType: Medium

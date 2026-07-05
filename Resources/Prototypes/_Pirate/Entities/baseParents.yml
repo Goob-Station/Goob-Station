@@ -11,6 +11,7 @@
     - type: RadioMicrophone
       broadcastChannel: Handheld
       toggleOnInteract: false
+    - type: HandheldRadioFrequency
       frequency: 2132
     - type: RadioSpeaker
       toggleOnInteract: false

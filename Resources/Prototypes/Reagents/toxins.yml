@@ -447,7 +447,6 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 10
-        refresh: false
       - !type:ChemRemovePsionic #PIRATE
         conditions:
         - !type:ReagentCondition

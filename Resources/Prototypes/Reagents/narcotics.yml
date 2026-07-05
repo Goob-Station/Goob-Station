@@ -509,7 +509,6 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
-        refresh: false
       - !type:ChemAddMoodlet # Pirate - port EE mood system
         moodPrototype: SpaceDrugsBenefit
 
@@ -772,7 +771,6 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
-        refresh: false
       - !type:ChemAddMoodlet # Pirate - port EE mood system
         moodPrototype: PsicodineEffect
 

@@ -205,8 +205,10 @@
       damageModifierSet: CultShade
     - type: BloodCultConstruct
     - type: Bloodstream
-      bloodMaxVolume: 0
-      bloodReagent: Blood
+      bloodReferenceSolution:
+        reagents:
+        - ReagentId: Blood
+          Quantity: 0
       maxBleedAmount: 0
     - type: MindContainer
     - type: Shade

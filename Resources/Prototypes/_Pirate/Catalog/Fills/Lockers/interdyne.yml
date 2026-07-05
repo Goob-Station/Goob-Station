@@ -13,7 +13,7 @@
       - id: Bloodpack
         amount: 4
       - id: ParamedHypo
-      - id: HandheldHealthAnalyzerUnpowered
+      - id: HandheldHealthAnalyzer
       - id: ClothingUniformJumpskirtOfLife
       - id: ClothingUniformJumpskirtBrigmedic
       - id: ClothingUniformJumpsuitBrigmedic
