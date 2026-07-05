@@ -11,7 +11,6 @@
 using Content.Server.Shuttles.Systems;
 using Content.Shared.Dataset;
 using Content.Shared.Procedural;
-using Robust.Shared.Maths;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
@@ -124,17 +123,5 @@ public sealed partial class GridSpawnGroup : IGridSpawnGroup
     public bool Hide { get; set; } = false;
     public bool NameGrid { get; set; } = true;
     public bool StationGrid { get; set; } = true;
-
-    /// <summary>
-    /// If set, the spawned grid will be rotated to this angle before FTL proximity placement.
-    /// </summary>
-    [DataField]
-    public Angle? Rotation { get; set; }
-
-    /// <summary>
-    /// If true, the spawned grid will be given a random rotation before FTL proximity placement.
-    /// </summary>
-    [DataField]
-    public bool RandomRotation { get; set; }
 }
 

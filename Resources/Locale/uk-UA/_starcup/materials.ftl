@@ -1,9 +1,0 @@
-materials-raw-chromite = необроблений хроміт
-materials-chromite = хроміт
-materials-unit-ingot = злиток
-stack-chromite-ore = хромітова руда
-stack-chromite = хромітовий злиток
-stack-floor-tile-charonic = харонічна плитка підлоги
-construction-charonic-wall = харонічна стіна
-construction-charonic-window = харонічне вікно
-construction-charonic-floor-tile = харонічна плитка підлоги

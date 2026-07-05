@@ -1915,3 +1915,15 @@ Entries:
       message: Додано режим Blood Cult.
   id: 178
   time: '2026-07-04T13:33:29.0000000+00:00'
+- author: Vareniko
+  changes:
+    - type: Remove
+      message: Годинник детектива в його шафі
+  id: 179
+  time: '2026-07-04T22:45:30.0000000+00:00'
+- author: SpaceCowboyServer
+  changes:
+    - type: Remove
+      message: Мапа Аванпост Харон Епсілон відправляється на подальшу доробку
+  id: 180
+  time: '2026-07-05T07:44:28.0000000+00:00'
