@@ -34,10 +34,10 @@
   parent: BaseCrewSpeciesPhrase
   text: species-name-slime
 
-- type: quickPhrase
-  id: SpeciesThavenPhrase
-  parent: BaseCrewSpeciesPhrase
-  text: species-name-thaven
+#- type: quickPhrase
+#  id: SpeciesThavenPhrase
+#  parent: BaseCrewSpeciesPhrase
+#  text: species-name-thaven
 
 - type: quickPhrase
   id: SpeciesSkeletonPhrase

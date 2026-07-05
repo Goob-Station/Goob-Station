@@ -62,10 +62,10 @@
   id: CentralCommandOfficialPhrase
   text: job-name-centcommoff
 
-- type: quickPhrase
-  parent: BaseCommandJobPhrase
-  id: AdminAssistantPhrase
-  text: job-name-admin-assistant
+#- type: quickPhrase
+#  parent: BaseCommandJobPhrase
+#  id: AdminAssistantPhrase
+#  text: job-name-admin-assistant
 
 - type: quickPhrase
   parent: BaseCommandJobPhrase
@@ -138,10 +138,10 @@
   id: SalvageSpecialistPhrase
   text: job-name-salvagespec
 
-- type: quickPhrase
-  parent: BaseCargoJobPhrase
-  id: CourierPhrase
-  text: job-name-courier
+#- type: quickPhrase
+#  parent: BaseCargoJobPhrase
+#  id: CourierPhrase
+#  text: job-name-courier
 
 # Medical
 
@@ -256,10 +256,10 @@
 
 # Wildcard
 
-- type: quickPhrase
-  parent: BaseCivilianJobPhrase
-  id: BoxerPhrase
-  text: job-name-boxer
+#- type: quickPhrase
+#  parent: BaseCivilianJobPhrase
+#  id: BoxerPhrase
+#  text: job-name-boxer
 
 - type: quickPhrase
   parent: BaseMedicalJobPhrase
@@ -271,7 +271,7 @@
   id: ReporterPhrase
   text: job-name-reporter
 
-- type: quickPhrase
-  parent: BaseServiceJobPhrase
-  id: ZookeeperPhrase
-  text: job-name-zookeeper
+#- type: quickPhrase
+#  parent: BaseServiceJobPhrase
+#  id: ZookeeperPhrase
+#  text: job-name-zookeeper
