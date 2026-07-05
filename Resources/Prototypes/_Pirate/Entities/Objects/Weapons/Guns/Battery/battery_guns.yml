@@ -89,7 +89,6 @@
   - type: StaticPrice
     price: 750
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 5
 
 - type: entity

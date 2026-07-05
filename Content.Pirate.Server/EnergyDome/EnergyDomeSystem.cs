@@ -1,3 +1,4 @@
+using System;
 using Content.Shared.DeviceLinking.Events;
 using Content.Server.DeviceLinking.Systems;
 using Content.Server.Power.Components;
@@ -285,8 +286,12 @@ public sealed partial class EnergyDomeSystem : EntitySystem
         }
 
         _powerCell.SetDrawEnabled(generator.Owner, true);
-        if (TryComp<BatterySelfRechargerComponent>(generator, out var recharger)) {
-            recharger.AutoRecharge = true;
+        if (TryComp<BatterySelfRechargerComponent>(generator, out var recharger) &&
+            TryComp<BatteryComponent>(generator, out var battery))
+        {
+            recharger.NextAutoRecharge = null;
+            Dirty(generator.Owner, recharger);
+            _battery.RefreshChargeRate((generator.Owner, battery));
         }
 
         generator.Comp.SpawnedDome = newDome;
@@ -303,9 +308,13 @@ public sealed partial class EnergyDomeSystem : EntitySystem
         QueueDel(generator.Comp.SpawnedDome);
 
         _powerCell.SetDrawEnabled(generator.Owner, false);
-        if (TryComp<BatterySelfRechargerComponent>(generator, out var recharger) && generator.Comp.AlwaysCharge == false)
+        if (TryComp<BatterySelfRechargerComponent>(generator, out var recharger) &&
+            TryComp<BatteryComponent>(generator, out var battery) &&
+            generator.Comp.AlwaysCharge == false)
         {
-            recharger.AutoRecharge = false;
+            recharger.NextAutoRecharge = TimeSpan.MaxValue;
+            Dirty(generator.Owner, recharger);
+            _battery.RefreshChargeRate((generator.Owner, battery));
         }
 
         _audio.PlayPvs(generator.Comp.TurnOffSound, generator);

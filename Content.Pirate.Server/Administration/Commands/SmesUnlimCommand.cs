@@ -1,5 +1,7 @@
+using System;
 using Content.Server.Administration;
 using Content.Server.Administration.Components;
+using Content.Server.Power.EntitySystems;
 using Content.Shared.Administration.Components;
 using Content.Server.Power.Components;
 using Content.Shared.Administration;
@@ -18,6 +20,7 @@ namespace Content.Pirate.Server.Administration.Commands
         public void Execute(IConsoleShell shell, string argStr, string[] args)
         {
             var entityManager = IoCManager.Resolve<IEntityManager>();
+            var batterySystem = entityManager.System<BatterySystem>();
             var query = entityManager
                 .EntityQueryEnumerator<StationInfiniteBatteryTargetComponent, BatteryComponent, MetaDataComponent>();
             while (query.MoveNext(out var uid, out _, out var battery, out var metadata))
@@ -26,9 +29,11 @@ namespace Content.Pirate.Server.Administration.Commands
                     continue;
 
                 var recharger = entityManager.EnsureComponent<BatterySelfRechargerComponent>(uid);
-                recharger.AutoRecharge = true;
                 recharger.AutoRechargeRate = battery.MaxCharge; // Instant refill.
-                recharger.AutoRechargePause = false; // No delay.
+                recharger.AutoRechargePauseTime = TimeSpan.Zero; // No delay.
+                recharger.NextAutoRecharge = null; // Recharge immediately.
+                entityManager.Dirty(uid, recharger);
+                batterySystem.RefreshChargeRate((uid, battery));
             }
 
             shell.WriteLine("Виконано!");
