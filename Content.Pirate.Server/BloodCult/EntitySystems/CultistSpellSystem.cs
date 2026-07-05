@@ -35,7 +35,6 @@ using Content.Shared.Stunnable;
 using Content.Shared.Emp;
 using Content.Server.Emp;
 using Content.Shared.Popups;
-using Content.Server.PowerCell;
 using Content.Shared.PowerCell;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Silicons.Borgs.Components;

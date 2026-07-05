@@ -1,5 +1,6 @@
 using Content.Pirate.Shared.Blinking;
 using Content.Server.Chat.Systems;
+using Content.Shared.Chat;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;

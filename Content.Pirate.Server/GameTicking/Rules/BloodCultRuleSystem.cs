@@ -36,7 +36,7 @@ using Content.Shared.BloodCult.Components;
 using Content.Server.BloodCult.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
-using Content.Server.Administration.Systems;
+using Content.Shared.Administration.Systems;
 using Content.Server.Popups;
 using Content.Shared.Popups;
 using Content.Shared.Body.Systems;

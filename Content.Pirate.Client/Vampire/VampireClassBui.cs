@@ -60,7 +60,7 @@ public sealed class VampireClassBui(EntityUid owner, Enum uiKey) : BoundUserInte
         {
             buttons.Add(new RadialMenuActionOption<string>(HandleClassChoice, proto.ID)
             {
-                Sprite = proto.Icon,
+                IconSpecifier = RadialMenuIconSpecifier.With(proto.Icon),
                 ToolTip = Loc.GetString(proto.Tooltip)
             });
         }

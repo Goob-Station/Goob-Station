@@ -38,9 +38,9 @@ public sealed partial class EggsLayingMenu : RadialMenu
 
     private void AddButton(RadialContainer main, string tooltip, Texture sprite, EntProtoId prototype)
     {
-        var button = new RadialMenuTextureButtonWithSector
+        var button = new RadialMenuButtonWithSector
         {
-            StyleClasses = { "RadialMenuTextureButtonWithSector" },
+            StyleClasses = { "RadialMenuButtonWithSector" },
             SetSize = new Vector2(64f, 64f),
             ToolTip = tooltip
         };

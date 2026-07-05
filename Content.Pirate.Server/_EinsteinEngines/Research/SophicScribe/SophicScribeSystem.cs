@@ -1,12 +1,12 @@
 using Content.Server.Abilities.Psionics;
 using Content.Server.Chat.Systems;
-using Content.Server.Radio.Components;
 using Content.Server.Radio.EntitySystems;
 using Content.Pirate.Server.StationEvents.Events;
 using Content.Shared.Chat;
 using Content.Shared.Interaction;
 using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Radio;
+using Content.Shared.Radio.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
