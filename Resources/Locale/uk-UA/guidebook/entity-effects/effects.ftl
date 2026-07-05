@@ -107,37 +107,37 @@ entity-effect-guidebook-status-effect-old = { $type ->
         [update]{ $chance ->
                     [1] Спричиняє
                      *[other] спричинити
-                 } {LOC($key)} щонайменше на {NATURALFIXED($time, 3)} {MANY("секунду", "секунди", "секунд", $time)} без накопичення
+                 } {LOC($key)} щонайменше на {NATURALFIXED($time, 3)} сек. без накопичення
         [add]   { $chance ->
                     [1] Спричиняє
                     *[other] спричинити
-                } {LOC($key)} щонайменше на {NATURALFIXED($time, 3)} {MANY("секунду", "секунди", "секунд", $time)} з накопиченням
+                } {LOC($key)} щонайменше на {NATURALFIXED($time, 3)} сек. з накопиченням
         [set]  { $chance ->
                     [1] Спричиняє
                     *[other] спричинити
-                } {LOC($key)} на {NATURALFIXED($time, 3)} {MANY("секунду", "секунди", "секунд", $time)} без накопичення
+                } {LOC($key)} на {NATURALFIXED($time, 3)} сек. без накопичення
         *[remove]{ $chance ->
                     [1] Видаляє
                     *[other] видалити
-                } {NATURALFIXED($time, 3)} {MANY("секунду", "секунди", "секунд", $time)} {LOC($key)}
+                } {NATURALFIXED($time, 3)} сек. {LOC($key)}
     }
 entity-effect-guidebook-status-effect = { $type ->
     [update]{ $chance ->
     [1] Спричиняє
     *[other] спричинити
-                     } {LOC($key)} щонайменше на {NATURALFIXED($time, 3)} {MANY("секунду", "секунди", "секунд", $time)} без накопичення
+                     } {LOC($key)} щонайменше на {NATURALFIXED($time, 3)} сек. без накопичення
     [add]   { $chance ->
     [1] Спричиняє
     *[other] спричинити
-                    } {LOC($key)} щонайменше на {NATURALFIXED($time, 3)} {MANY("секунду", "секунди", "секунд", $time)} з накопиченням
+                    } {LOC($key)} щонайменше на {NATURALFIXED($time, 3)} сек. з накопиченням
     [set]  { $chance ->
     [1] Спричиняє
     *[other] спричинити
-                    } {LOC($key)} щонайменше на {NATURALFIXED($time, 3)} {MANY("секунду", "секунди", "секунд", $time)} без накопичення
+                    } {LOC($key)} щонайменше на {NATURALFIXED($time, 3)} сек. без накопичення
     *[remove]{ $chance ->
     [1] Видаляє
     *[other] видалити
-                    } {NATURALFIXED($time, 3)} {MANY("секунду", "секунди", "секунд", $time)} {LOC($key)}
+                    } {NATURALFIXED($time, 3)} сек. {LOC($key)}
         } { $delay ->
     [0] негайно
     *[other] після затримки {NATURALFIXED($delay, 3)} секунди
@@ -146,15 +146,15 @@ reagent-effect-guidebook-status-effect-delay = { $type ->
         [add]   { $chance ->
                     [1] Спричиняє
                     *[other] спричинити
-                } {LOC($key)} щонайменше на {NATURALFIXED($time, 3)} {MANY("секунду", "секунди", "секунд", $time)} з накопиченням
+                } {LOC($key)} щонайменше на {NATURALFIXED($time, 3)} сек. з накопиченням
         *[set]  { $chance ->
                     [1] Спричиняє
                     *[other] спричинити
-                } {LOC($key)} щонайменше на {NATURALFIXED($time, 3)} {MANY("секунду", "секунди", "секунд", $time)} без накопичення
+                } {LOC($key)} щонайменше на {NATURALFIXED($time, 3)} сек. без накопичення
         [remove]{ $chance ->
                     [1] Видаляє
                     *[other] видалити
-                } {NATURALFIXED($time, 3)} {MANY("секунду", "секунди", "секунд", $time)} {LOC($key)}
+                } {NATURALFIXED($time, 3)} сек. {LOC($key)}
     } після затримки {NATURALFIXED($delay, 3)} секунди
 entity-effect-guidebook-status-effect-indef = { $type ->
     [update]{ $chance ->
@@ -181,15 +181,15 @@ reagent-effect-guidebook-knockdown = { $type ->
         [add]   { $chance ->
                     [1] Спричиняє
                     *[other] спричинити
-                } {LOC($key)} щонайменше на {NATURALFIXED($time, 3)} {MANY("секунду", "секунди", "секунд", $time)} з накопиченням
+                } {LOC($key)} щонайменше на {NATURALFIXED($time, 3)} сек. з накопиченням
         *[set]  { $chance ->
                     [1] Спричиняє
                     *[other] спричинити
-                } {LOC($key)} щонайменше на {NATURALFIXED($time, 3)} {MANY("секунду", "секунди", "секунд", $time)} без накопичення
+                } {LOC($key)} щонайменше на {NATURALFIXED($time, 3)} сек. без накопичення
         [remove]{ $chance ->
                     [1] Видаляє
                     *[other] видалити
-                } {NATURALFIXED($time, 3)} {MANY("секунду", "секунди", "секунд", $time)} {LOC($key)}
+                } {NATURALFIXED($time, 3)} сек. {LOC($key)}
     } після затримки {NATURALFIXED($delay, 3)} секунди
 entity-effect-guidebook-set-solution-temperature-effect = { $chance ->
         [1] Встановлює
@@ -303,7 +303,7 @@ entity-effect-guidebook-drunk = { $chance ->
 entity-effect-guidebook-electrocute = { $chance ->
         [1] Бє струмом
         *[other] бити струмом
-    } метаболізатор протягом {NATURALFIXED($time, 3)} {MANY("секунду", "секунди", "секунд", $time)}
+    } метаболізатор протягом {NATURALFIXED($time, 3)} сек.
 entity-effect-guidebook-emote = { $chance ->
         [1] Змусить
         *[other] змусити
@@ -351,11 +351,11 @@ entity-effect-guidebook-modify-blood-level = { $chance ->
 entity-effect-guidebook-paralyze = { $chance ->
         [1] Паралізує
         *[other] паралізувати
-    } метаболізатор щонайменше на {NATURALFIXED($time, 3)} {MANY("секунду", "секунди", "секунд", $time)}
+    } метаболізатор щонайменше на {NATURALFIXED($time, 3)} сек.
 entity-effect-guidebook-movespeed-modifier = { $chance ->
         [1] Змінює
         *[other] змінити
-    } швидкість руху на {NATURALFIXED($sprintspeed, 3)}x щонайменше на {NATURALFIXED($time, 3)} {MANY("секунду", "секунди", "секунд", $time)}
+    } швидкість руху на {NATURALFIXED($sprintspeed, 3)}x щонайменше на {NATURALFIXED($time, 3)} сек.
 entity-effect-guidebook-reset-narcolepsy = { $chance ->
         [1] Тимчасово стримує
         *[other] тимчасово стримати
@@ -379,11 +379,11 @@ entity-effect-guidebook-innoculate-zombie-infection = { $chance ->
 entity-effect-guidebook-reduce-rotting = { $chance ->
         [1] Відновлює
         *[other] відновити
-    } {NATURALFIXED($time, 3)} {MANY("секунду", "секунди", "секунд", $time)} гниття
+    } {NATURALFIXED($time, 3)} сек. гниття
 entity-effect-guidebook-area-reaction = { $chance ->
         [1] Спричиняє
         *[other] спричинити
-    } реакцію диму або піни на {NATURALFIXED($duration, 3)} {MANY("секунду", "секунди", "секунд", $duration)}
+    } реакцію диму або піни на {NATURALFIXED($duration, 3)} сек.
 entity-effect-guidebook-add-to-solution-reaction = { $chance ->
         [1] Спричиняє
         *[other] спричинити
