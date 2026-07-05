@@ -84,12 +84,13 @@ public sealed class BloodRegenerationPirateSystem : EntitySystem
         // If we do it by _bloodstream.TryModifyBloodLevel, it will create blood puddles, soo we do it manually
         if (amount < FixedPoint2.Zero)
         {
-            if (ent.Comp.BloodSolution == null)
+            if (ent.Comp.BloodSolution == null || ent.Comp.BloodReferenceSolution.Contents.Count == 0)
                 return false;
 
+            var bloodReagent = ent.Comp.BloodReferenceSolution.Contents[0].Reagent.Prototype;
             return _solutions.RemoveReagent(
                        ent.Comp.BloodSolution.Value,
-                       new ReagentId(ent.Comp.BloodReagent, _bloodstream.GetEntityBloodData(ent.Owner)),
+                       new ReagentId(bloodReagent, _bloodstream.GetEntityBloodData(ent.Owner)),
                        -amount) > FixedPoint2.Zero;
         }
 

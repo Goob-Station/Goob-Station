@@ -136,7 +136,7 @@ public sealed class SharedLegendaryCQCSystem : EntitySystem
             return;
 
         DoDamage(ent, target, "Blunt", proto.ExtraDamage);
-        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true);
+        _stun.TryKnockdown(target, proto.ParalyzeTime, true);
 
         var staminaDamage = new DamageSpecifier();
         staminaDamage.DamageDict.Add("Stamina", 40f);
@@ -182,7 +182,7 @@ public sealed class SharedLegendaryCQCSystem : EntitySystem
         var dir = (hitPos - mapPos).Normalized();
 
         DoDamage(ent, target, "Blunt", proto.ExtraDamage);
-        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true);
+        _stun.TryKnockdown(target, proto.ParalyzeTime, true);
         _grabThrowing.Throw(target, ent, dir, 8f);
 
         if (TryComp<PullableComponent>(target, out var pullable))

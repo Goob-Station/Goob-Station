@@ -63,7 +63,7 @@ public sealed class EdgeEssentiaBloodSystem : EntitySystem
 				continue;
 
 			// Track how much Sanguine Perniculate they're bleeding out (only if cult rule is active)
-			if (_bloodCultRuleActive && bloodstream.BloodReagent == "SanguinePerniculate")
+			if (_bloodCultRuleActive && HasBloodReagent(bloodstream, "SanguinePerniculate"))
 			{
 				TrackSanguinePerniculateLoss(uid, edgeEssentia, bloodstream);
 			}
@@ -96,7 +96,7 @@ public sealed class EdgeEssentiaBloodSystem : EntitySystem
 			return;
 
 	// Only track if their blood type is SanguinePerniculate AND they're bleeding
-	if (bloodstream.BloodReagent != "SanguinePerniculate" || bloodstream.BleedAmount <= 0)
+	if (!HasBloodReagent(bloodstream, "SanguinePerniculate") || bloodstream.BleedAmount <= 0)
 		return;
 
 		// Track based on how much they're bleeding per second
@@ -125,12 +125,23 @@ public sealed class EdgeEssentiaBloodSystem : EntitySystem
 
 	private bool HasEdgeEssentia(EntityUid uid, BloodstreamComponent bloodstream)
 	{
-		if (!_solutionContainer.ResolveSolution(uid, bloodstream.ChemicalSolutionName, ref bloodstream.ChemicalSolution, out var chemSolution))
+		if (!_solutionContainer.ResolveSolution(uid, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var chemSolution))
 			return false;
 
 		foreach (var reagent in chemSolution.Contents)
 		{
 			if (reagent.Reagent.Prototype == "EdgeEssentia")
+				return true;
+		}
+
+		return false;
+	}
+
+	private static bool HasBloodReagent(BloodstreamComponent bloodstream, string reagent)
+	{
+		foreach (var reference in bloodstream.BloodReferenceSolution.Contents)
+		{
+			if (reference.Reagent.Prototype == reagent)
 				return true;
 		}
 

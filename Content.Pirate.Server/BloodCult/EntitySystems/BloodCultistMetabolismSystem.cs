@@ -51,9 +51,9 @@ public sealed class BloodCultistMetabolismSystem : EntitySystem
                     originalBlood = prototypeBlood;
                 }
                 // Fallback to current blood reagent if available
-                else if (!string.IsNullOrEmpty(bloodstream.BloodReagent))
+                else if (!string.IsNullOrEmpty(GetPrimaryBloodReagent(bloodstream)))
                 {
-                    originalBlood = bloodstream.BloodReagent;
+                    originalBlood = GetPrimaryBloodReagent(bloodstream);
                 }
                 // Otherwise use default "Blood"
                 
@@ -154,10 +154,11 @@ public sealed class BloodCultistMetabolismSystem : EntitySystem
 			if (!meta.EntityPrototype.TryGetComponent(_componentFactory.GetComponentName<BloodstreamComponent>(), out BloodstreamComponent? prototypeBloodstream))
 				return false;
 
+			var prototypeReagent = GetPrimaryBloodReagent(prototypeBloodstream);
 			// Only return the prototype blood reagent if it's not null or empty
-			if (!string.IsNullOrEmpty(prototypeBloodstream.BloodReagent))
+			if (!string.IsNullOrEmpty(prototypeReagent))
 			{
-				bloodReagent = prototypeBloodstream.BloodReagent;
+				bloodReagent = prototypeReagent;
 				return true;
 			}
 			
@@ -169,5 +170,12 @@ public sealed class BloodCultistMetabolismSystem : EntitySystem
 			Log.Warning($"Error getting prototype blood reagent for {ToPrettyString(uid)}: {ex}");
 			return false;
 		}
+	}
+
+	private static string GetPrimaryBloodReagent(BloodstreamComponent bloodstream)
+	{
+		return bloodstream.BloodReferenceSolution.Contents.Count == 0
+			? "Blood"
+			: bloodstream.BloodReferenceSolution.Contents[0].Reagent.Prototype;
 	}
 }

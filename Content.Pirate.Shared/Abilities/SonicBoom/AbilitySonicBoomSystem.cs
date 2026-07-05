@@ -84,13 +84,11 @@ public sealed partial class AbilitySonicBoomSystem : EntitySystem
     {
         var sourceNet = GetNetEntity(source);
         var targetNet = GetNetEntity(target);
-        var seed = SharedRandomExtensions.HashCodeCombine(new()
-        {
+        var seed = SharedRandomExtensions.HashCodeCombine(
             (int) _timing.CurTick.Value,
             sourceNet.Id,
             targetNet.Id,
-            0x50495241,
-        });
+            0x50495241);
 
         return new System.Random(seed);
     }

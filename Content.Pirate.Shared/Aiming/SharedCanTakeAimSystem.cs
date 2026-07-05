@@ -138,7 +138,7 @@ public sealed partial class SharedCanTakeAimSystem : EntitySystem
 
         if (ammo == null)
             return;
-        _gun.Shoot(uid, gunComp, ammo.Value, gunCoords, targetCoords, out _, component.User);
+        _gun.Shoot((uid, gunComp), ammo.Value, gunCoords, targetCoords, out _, component.User);
         if (component.User == null)
             return;
         if (ballisticComp != null)
