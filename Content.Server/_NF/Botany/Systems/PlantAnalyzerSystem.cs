@@ -14,7 +14,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using System.Linq;
-using Content.Server.PowerCell;
+
 
 namespace Content.Server.Botany.Systems;
 
