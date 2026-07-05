@@ -721,7 +721,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         }
 
         // todo: expand this to allow for more fine antag-selection logic for game rules.
-        if (!_jobs.CanBeAntag(session))
+        if (!_jobs.CanBeAntag(session) && !def.IgnoreJobAntagRestriction) // Goob-MalfAi: rules like Malf AI target jobs that are normally antag-immune
             return false;
 
         return true;

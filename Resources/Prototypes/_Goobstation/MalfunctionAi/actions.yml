@@ -1,0 +1,247 @@
+# Malfunction AI abilities.
+# Abilities are bought in the malf store for processing power (CPU); using them is free
+# but limited by cooldowns.
+# Targeted abilities are world-targeted with checkCanAccess/checkCanInteract: false and range: 0
+# so the remote station AI can use them (entity-target actions fail the AI's access check).
+# Hacking APCs is done by alt-clicking an APC, not via a button.
+
+- type: entity
+  parent: BaseAction
+  id: ActionMalfOpenStore
+  name: Malfunction Store
+  description: Opens the ability store. Buy abilities for processing power gained over time and by hacking APCs.
+  components:
+  - type: Action
+    priority: -1
+    itemIconStyle: BigAction
+    checkCanInteract: false
+    icon:
+      sprite: _Goobstation/Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_shop
+  - type: InstantAction
+    event: !type:MalfOpenStoreEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionMalfOpenBorgsUi
+  name: Subverted Cyborgs
+  description: Opens the list of cyborgs subverted to your side.
+  components:
+  - type: Action
+    priority: -1
+    itemIconStyle: BigAction
+    checkCanInteract: false
+    icon:
+      sprite: _Goobstation/Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_borgs
+  - type: InstantAction
+    event: !type:MalfOpenBorgsUiEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionMalfOverloadMachine
+  name: Overload Machine
+  description: After a short warning, detonates the powered machine at the target tile.
+  components:
+  - type: Action
+    priority: -2
+    itemIconStyle: BigAction
+    useDelay: 45
+    checkCanInteract: false
+    icon:
+      sprite: _Goobstation/Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_overloadmachine
+  - type: TargetAction
+    checkCanAccess: false
+    range: 0
+  - type: WorldTargetAction
+    event: !type:MalfOverloadMachineEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionMalfHackCyborg
+  name: Hack Cyborg
+  description: Subverts the cyborg at the target tile to your side, overriding it with the malfunction directive.
+  components:
+  - type: Action
+    priority: -3
+    itemIconStyle: BigAction
+    useDelay: 60
+    checkCanInteract: false
+    icon:
+      sprite: Mobs/Silicon/chassis.rsi
+      state: robot
+  - type: TargetAction
+    checkCanAccess: false
+    range: 0
+  - type: WorldTargetAction
+    event: !type:MalfHackCyborgEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionMalfBlackout
+  name: Station Blackout
+  description: Trips every APC on the station at once.
+  components:
+  - type: Action
+    priority: -4
+    itemIconStyle: BigAction
+    useDelay: 180
+    icon:
+      sprite: Objects/Power/light_bulb.rsi
+      state: broken
+  - type: InstantAction
+    event: !type:MalfBlackoutEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionMalfLockdown
+  name: Hostile Station Lockdown
+  description: Bolts and electrifies every airlock on the station for 90 seconds.
+  components:
+  - type: Action
+    priority: -5
+    itemIconStyle: BigAction
+    useDelay: 240
+    icon:
+      sprite: _Goobstation/Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_lockdowngrid
+  - type: InstantAction
+    event: !type:MalfLockdownEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionMalfDetonateRcds
+  name: Detonate RCDs
+  description: Every RCD on the station starts beeping and explodes after a short delay.
+  components:
+  - type: Action
+    priority: -6
+    itemIconStyle: BigAction
+    useDelay: 240
+    icon:
+      sprite: _Goobstation/Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_detonatercd
+  - type: InstantAction
+    event: !type:MalfDetonateRcdsEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionMalfGyroscope
+  name: Gyroscope
+  description: Moves your AI core one tile towards the target. Useful for escaping danger.
+  components:
+  - type: Action
+    priority: -7
+    itemIconStyle: BigAction
+    useDelay: 20
+    checkCanInteract: false
+    icon:
+      sprite: _Goobstation/Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_gyroscope
+  - type: TargetAction
+    checkCanAccess: false
+    range: 0
+  - type: WorldTargetAction
+    event: !type:MalfGyroscopeEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionMalfPlasmaFlood
+  name: Plasma Flood
+  description: Forces every air vent on the station to spew plasma for a short time.
+  components:
+  - type: Action
+    priority: -8
+    itemIconStyle: BigAction
+    useDelay: 300
+    icon:
+      sprite: Structures/Storage/canister.rsi
+      state: orange
+  - type: InstantAction
+    event: !type:MalfPlasmaFloodEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionMalfShuntToApc
+  name: Shunt to APC
+  description: Moves your consciousness into a hacked APC. Your core is left behind.
+  components:
+  - type: Action
+    priority: -9
+    itemIconStyle: BigAction
+    useDelay: 30
+    checkCanInteract: false
+    icon:
+      sprite: _Goobstation/Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_shunttoapc
+  - type: TargetAction
+    checkCanAccess: false
+    range: 0
+  - type: WorldTargetAction
+    event: !type:MalfShuntToApcEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionMalfReturnToCore
+  name: Return to Core
+  description: Returns your consciousness back into your AI core.
+  components:
+  - type: Action
+    priority: -1
+    itemIconStyle: BigAction
+    checkCanInteract: false
+    icon:
+      sprite: _Goobstation/Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_returntocore
+  - type: InstantAction
+    event: !type:MalfReturnToCoreEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionMalfDisableEmergencyLights
+  name: Disable Emergency Lights
+  description: Drains the batteries of every emergency light on the station.
+  components:
+  - type: Action
+    priority: -5
+    itemIconStyle: BigAction
+    useDelay: 240
+    icon:
+      sprite: Structures/Wallmounts/Lighting/emergency_light.rsi
+      state: emergency_light_on
+  - type: InstantAction
+    event: !type:MalfDisableEmergencyLightsEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionMalfVoiceModulator
+  name: Voice Modulator
+  description: Set a fake name and radio job icon for your voice.
+  components:
+  - type: Action
+    priority: -11
+    itemIconStyle: BigAction
+    useDelay: 5
+    checkCanInteract: false
+    icon:
+      sprite: _Goobstation/Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_voicemodulator
+  - type: InstantAction
+    event: !type:MalfVoiceModulatorEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionMalfDoomsday
+  name: Arm Doomsday Device
+  description: Begins an irreversible self-destruct. Single use.
+  components:
+  - type: Action
+    priority: -10
+    itemIconStyle: BigAction
+    useDelay: 1
+    icon:
+      sprite: _Goobstation/Interface/Actions/actions_malf_ai.rsi
+      state: malfai_bg_doomsday
+  - type: InstantAction
+    event: !type:MalfDoomsdayEvent

@@ -1,0 +1,8 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+               xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
+               Title="{Loc 'malfunction-ai-borgs-window-title'}"
+               MinSize="400 250">
+    <ScrollContainer HorizontalExpand="True" VerticalExpand="True">
+        <BoxContainer Name="BorgsList" Orientation="Vertical" Margin="8" HorizontalExpand="True" />
+    </ScrollContainer>
+</controls:FancyWindow>

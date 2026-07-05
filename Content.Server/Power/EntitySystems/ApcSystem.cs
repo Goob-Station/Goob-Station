@@ -254,6 +254,11 @@ public sealed class ApcSystem : EntitySystem
         if (_emag.CheckFlag(uid, EmagType.Interaction))
             return ApcChargeState.Emag;
 
+        // Goob-MalfAi-Start: APCs hacked by a malfunctioning AI show the same blue glitched screen.
+        if (HasComp<Content.Goobstation.Shared.MalfunctionAi.MalfHackedApcComponent>(uid))
+            return ApcChargeState.Emag;
+        // Goob-MalfAi-End
+
         if (battery.CurrentStorage / battery.Capacity > ApcComponent.HighPowerThreshold)
         {
             return ApcChargeState.Full;

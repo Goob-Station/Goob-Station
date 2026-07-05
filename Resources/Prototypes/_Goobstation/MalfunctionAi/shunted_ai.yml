@@ -1,0 +1,21 @@
+# The entity a Malfunction AI's consciousness lives in while shunted into a hacked APC.
+# Parented to the APC on spawn: destroying the APC destroys the presence (and the player ghosts).
+# Deliberately has no sprite: the crew should not be able to tell which APC the AI is hiding in.
+- type: entity
+  id: MalfShuntedAi
+  name: malfunctioning AI presence
+  description: A corrupted process running somewhere it really should not be.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: MindContainer
+  - type: Eye
+    drawFov: false
+  - type: Examiner
+  - type: Speech
+    speechVerb: Robotic
+  - type: Actions
+  - type: ActionGrant
+    actions:
+    - ActionMalfReturnToCore
+  - type: Input
+    context: "human"

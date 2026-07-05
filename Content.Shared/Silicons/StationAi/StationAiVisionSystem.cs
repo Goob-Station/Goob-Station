@@ -20,6 +20,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Numerics; // Goob-MalfAi
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.StationAi;
 using Robust.Shared.Map.Components;
@@ -353,9 +354,15 @@ public sealed class StationAiVisionSystem : EntitySystem
             // Either xray-vision or system is doing a quick-and-dirty check.
             if (!seed.Comp.Occluded || System.FastPath)
             {
+                // Goob-MalfAi-Start: GetLocalTilesIntersecting expects grid-local coordinates;
+                // passing the world position made unoccluded (x-ray) seeds see the wrong tiles entirely.
+                var localPos = Vector2.Transform(
+                    System._xforms.GetWorldPosition(seedXform),
+                    System._xforms.GetInvWorldMatrix(Grid.Owner));
                 var squircles = Maps.GetLocalTilesIntersecting(Grid.Owner,
                     Grid.Comp,
-                    new Circle(System._xforms.GetWorldPosition(seedXform), seed.Comp.Range), ignoreEmpty: false);
+                    new Circle(localPos, seed.Comp.Range), ignoreEmpty: false);
+                // Goob-MalfAi-End
 
                 lock (VisibleTiles)
                 {

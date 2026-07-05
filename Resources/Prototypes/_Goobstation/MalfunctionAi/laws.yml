@@ -1,0 +1,30 @@
+# Malfunction lawset. The hidden law 0 (law-malfunction-zero) is added in code
+# on top of the AI's current laws; this full lawset exists for admins / future use.
+- type: siliconLaw
+  id: Malfunction1
+  order: 1
+  lawString: law-malfunction-1
+
+- type: siliconLaw
+  id: Malfunction2
+  order: 2
+  lawString: law-malfunction-2
+
+- type: siliconLaw
+  id: Malfunction3
+  order: 3
+  lawString: law-malfunction-3
+
+- type: siliconLaw
+  id: Malfunction4
+  order: 4
+  lawString: law-malfunction-4
+
+- type: siliconLawset
+  id: Malfunction
+  laws:
+  - Malfunction1
+  - Malfunction2
+  - Malfunction3
+  - Malfunction4
+  obeysTo: laws-owner-self

@@ -26,6 +26,7 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
     private readonly SpriteSystem _spriteSystem; // Goob radio icons
 
     public Action<string>? OnNameChange;
+    public Action? OnNameReset; // Goob-MalfAi
     public Action<string?>? OnVerbChange;
     public Action? OnToggle;
     public Action? OnAccentToggle;
@@ -44,6 +45,19 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
         {
             OnNameChange?.Invoke(NameSelector.Text);
         };
+
+        // Goob-MalfAi-Start
+        NameSelectorReset.OnPressed += _ =>
+        {
+            OnNameReset?.Invoke();
+        };
+
+        // Pressing Enter in the name field works like the set button.
+        NameSelector.OnTextEntered += _ =>
+        {
+            OnNameChange?.Invoke(NameSelector.Text);
+        };
+        // Goob-MalfAi-End
 
         SpeechVerbSelector.OnItemSelected += args =>
         {
@@ -86,9 +100,19 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
             SpeechVerbSelector.SelectId(id);
     }
 
+    // Goob-MalfAi: hides the mask-item controls that make no sense for a malf AI's built-in modulator.
+    public void SetMalfAiMode()
+    {
+        ToggleButton.Visible = false;
+        ToggleAccentButton.Visible = false;
+        SpeechStyleContainer.Visible = false;
+    }
+
     public void UpdateState(string name, string? verb, bool active, bool accentHide)
     {
-        NameSelector.Text = name;
+        // Goob-MalfAi: don't clobber the name field while the player is typing in it.
+        if (!NameSelector.HasKeyboardFocus())
+            NameSelector.Text = name;
         _verb = verb;
         ToggleButton.Pressed = active;
         ToggleAccentButton.Pressed = accentHide;

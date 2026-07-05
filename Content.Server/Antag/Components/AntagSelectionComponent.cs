@@ -243,6 +243,16 @@ public partial struct AntagSelectionDefinition()
     [DataField]
     public bool AllowNonHumans = false;
 
+    // Goob-MalfAi-Start
+    /// <summary>
+    /// If true, players whose job normally forbids being an antagonist (canBeAntag: false)
+    /// can still be selected by this definition. Used by rules that specifically target
+    /// such jobs, e.g. the Malfunction AI targeting the station AI.
+    /// </summary>
+    [DataField]
+    public bool IgnoreJobAntagRestriction;
+    // Goob-MalfAi-End
+
     /// <summary>
     /// A whitelist for selecting which players can become this antag.
     /// </summary>

@@ -1,0 +1,271 @@
+# Malfunction AI ability store: abilities are bought for processing power (CPU),
+# which accrues passively (up to a cap) and from hacking APCs.
+
+- type: currency
+  id: MalfCpu
+  displayName: store-currency-display-malf-cpu
+  canWithdraw: false
+
+- type: storeCategory
+  id: MalfAiAbilities
+  name: store-category-malf-abilities
+  priority: 0
+
+- type: listing
+  id: MalfAiOverloadMachine
+  name: malfunction-ai-listing-overload-name
+  description: malfunction-ai-listing-overload-desc
+  categories:
+  - MalfAiAbilities
+  cost:
+    MalfCpu: 50
+  icon:
+    sprite: _Goobstation/Interface/Actions/actions_malf_ai.rsi
+    state: malfai_overloadmachine
+  productAction: ActionMalfOverloadMachine
+  priority: 10
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: MalfAiHackCyborg
+  name: malfunction-ai-listing-hack-cyborg-name
+  description: malfunction-ai-listing-hack-cyborg-desc
+  categories:
+  - MalfAiAbilities
+  cost:
+    MalfCpu: 75
+  icon:
+    sprite: _Goobstation/Interface/Actions/actions_malf_ai.rsi
+    state: malfai_bg_borgs
+  productAction: ActionMalfHackCyborg
+  priority: 9
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: MalfAiBlackout
+  name: malfunction-ai-listing-blackout-name
+  description: malfunction-ai-listing-blackout-desc
+  categories:
+  - MalfAiAbilities
+  cost:
+    MalfCpu: 50
+  icon:
+    sprite: Objects/Power/light_bulb.rsi
+    state: broken
+  productAction: ActionMalfBlackout
+  priority: 8
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: MalfAiLockdown
+  name: malfunction-ai-listing-lockdown-name
+  description: malfunction-ai-listing-lockdown-desc
+  categories:
+  - MalfAiAbilities
+  cost:
+    MalfCpu: 75
+  icon:
+    sprite: _Goobstation/Interface/Actions/actions_malf_ai.rsi
+    state: malfai_lockdowngrid
+  productAction: ActionMalfLockdown
+  priority: 7
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: MalfAiDetonateRcds
+  name: malfunction-ai-listing-rcd-name
+  description: malfunction-ai-listing-rcd-desc
+  categories:
+  - MalfAiAbilities
+  cost:
+    MalfCpu: 75
+  icon:
+    sprite: _Goobstation/Interface/Actions/actions_malf_ai.rsi
+    state: malfai_detonatercd
+  productAction: ActionMalfDetonateRcds
+  priority: 6
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: MalfAiGyroscope
+  name: malfunction-ai-listing-gyroscope-name
+  description: malfunction-ai-listing-gyroscope-desc
+  categories:
+  - MalfAiAbilities
+  cost:
+    MalfCpu: 50
+  icon:
+    sprite: _Goobstation/Interface/Actions/actions_malf_ai.rsi
+    state: malfai_gyroscope
+  productAction: ActionMalfGyroscope
+  priority: 5
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: MalfAiDecryptSyndicateKeys
+  name: malfunction-ai-listing-decrypt-name
+  description: malfunction-ai-listing-decrypt-desc
+  categories:
+  - MalfAiAbilities
+  cost:
+    MalfCpu: 25
+  icon:
+    sprite: _Goobstation/Interface/Actions/actions_malf_ai.rsi
+    state: malfai_decrypt
+  productEvent: !type:MalfDecryptSyndicateKeysEvent
+  raiseProductEventOnUser: true
+  priority: 4
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: MalfAiPlasmaFlood
+  name: malfunction-ai-listing-plasma-flood-name
+  description: malfunction-ai-listing-plasma-flood-desc
+  categories:
+  - MalfAiAbilities
+  cost:
+    MalfCpu: 100
+  icon:
+    sprite: Structures/Storage/canister.rsi
+    state: orange
+  productAction: ActionMalfPlasmaFlood
+  priority: 3
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: MalfAiShuntToApc
+  name: malfunction-ai-listing-shunt-name
+  description: malfunction-ai-listing-shunt-desc
+  categories:
+  - MalfAiAbilities
+  cost:
+    MalfCpu: 50
+  icon:
+    sprite: _Goobstation/Interface/Actions/actions_malf_ai.rsi
+    state: malfai_shunttoapc
+  productAction: ActionMalfShuntToApc
+  priority: 2
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: MalfAiDisableEmergencyLights
+  name: malfunction-ai-listing-emergency-lights-name
+  description: malfunction-ai-listing-emergency-lights-desc
+  categories:
+  - MalfAiAbilities
+  cost:
+    MalfCpu: 25
+  icon:
+    sprite: Structures/Wallmounts/Lighting/emergency_light.rsi
+    state: emergency_light_on
+  productAction: ActionMalfDisableEmergencyLights
+  priority: 4
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: MalfAiVoiceModulator
+  name: malfunction-ai-listing-voice-name
+  description: malfunction-ai-listing-voice-desc
+  categories:
+  - MalfAiAbilities
+  cost:
+    MalfCpu: 25
+  icon:
+    sprite: _Goobstation/Interface/Actions/actions_malf_ai.rsi
+    state: malfai_voicemodulator
+  productAction: ActionMalfVoiceModulator
+  priority: 4
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: MalfAiCameraMics
+  name: malfunction-ai-listing-camera-mics-name
+  description: malfunction-ai-listing-camera-mics-desc
+  categories:
+  - MalfAiAbilities
+  cost:
+    MalfCpu: 50
+  icon:
+    sprite: _Goobstation/Interface/Actions/actions_malf_ai.rsi
+    state: malfai_cameramic
+  productEvent: !type:MalfCameraMicsEvent
+  raiseProductEventOnUser: true
+  priority: 4
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: MalfAiCameraUpgrade
+  name: malfunction-ai-listing-camera-upgrade-name
+  description: malfunction-ai-listing-camera-upgrade-desc
+  categories:
+  - MalfAiAbilities
+  cost:
+    MalfCpu: 75
+  icon:
+    sprite: _Goobstation/Interface/Actions/actions_malf_ai.rsi
+    state: malfai_cameraupgrade
+  productEvent: !type:MalfCameraUpgradeEvent
+  raiseProductEventOnUser: true
+  priority: 4
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: MalfAiTurretUpgrade
+  name: malfunction-ai-listing-turrets-name
+  description: malfunction-ai-listing-turrets-desc
+  categories:
+  - MalfAiAbilities
+  cost:
+    MalfCpu: 75
+  icon:
+    sprite: Objects/Weapons/Guns/Turrets/sentry_turret.rsi
+    state: lethal
+  productEvent: !type:MalfTurretUpgradeEvent
+  raiseProductEventOnUser: true
+  priority: 3
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: MalfAiDoomsday
+  name: malfunction-ai-listing-doomsday-name
+  description: malfunction-ai-listing-doomsday-desc
+  categories:
+  - MalfAiAbilities
+  cost:
+    MalfCpu: 130
+  icon:
+    sprite: _Goobstation/Interface/Actions/actions_malf_ai.rsi
+    state: malfai_doomsday
+  productAction: ActionMalfDoomsday
+  priority: 1
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1

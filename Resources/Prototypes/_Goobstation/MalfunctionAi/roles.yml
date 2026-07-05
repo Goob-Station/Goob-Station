@@ -1,0 +1,18 @@
+- type: antag
+  id: MalfunctionAi
+  name: roles-antag-malfunction-ai-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-malfunction-ai-objective
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleMalfunctionAi
+  name: Malfunction AI Role
+  components:
+  - type: MindRole
+    antagPrototype: MalfunctionAi
+    exclusiveAntag: true
+    roleType: SiliconAntagonist
+    subtype: role-subtype-malfunction-ai
+  - type: MalfunctionAiRole

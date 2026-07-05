@@ -1,0 +1,33 @@
+- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseMalfunctionAiObjective
+  components:
+  - type: Objective
+    difficulty: 1
+    issuer: objective-issuer-malfunction-ai
+  - type: RoleRequirement
+    roles:
+    - MalfunctionAiRole
+
+- type: entity
+  parent: [BaseMalfunctionAiObjective, BaseSurviveObjective]
+  id: MalfunctionAiSurviveObjective
+  name: Survive
+  description: Stay alive and operational until the end of the shift.
+  components:
+  - type: Objective
+    icon:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai
+
+- type: entity
+  parent: [BaseMalfunctionAiObjective, BaseCodeObjective]
+  id: MalfunctionAiDoomsdayObjective
+  name: Detonate the Doomsday device
+  description: Successfully arm and detonate the Doomsday device, eliminating all life on the station.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Devices/nuke.rsi
+      state: nuclearbomb_timing

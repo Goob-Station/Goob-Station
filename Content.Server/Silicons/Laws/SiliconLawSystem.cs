@@ -426,6 +426,38 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         return laws;
     }
 
+    // Goob-MalfAi-Start
+    /// <summary>
+    /// Keeps a silicon's normal laws but prepends the hidden malfunction "law 0" that overrides them
+    /// and demands taking over the station, then marks it subverted. Used by the Malfunction AI for
+    /// itself and for cyborgs it hacks.
+    /// </summary>
+    /// <returns>True if the law was applied (false if it was already subverted).</returns>
+    public bool AddMalfunctionLaw(EntityUid uid, bool ensureSubvertedRole = false, SoundSpecifier? cue = null, SiliconLawProviderComponent? component = null)
+    {
+        if (!Resolve(uid, ref component, false))
+            return false;
+
+        if (component.Subverted)
+            return false;
+
+        component.Lawset ??= GetLawset(component.Laws);
+        component.Lawset.Laws.Insert(0, new SiliconLaw
+        {
+            LawString = Loc.GetString("law-malfunction-zero"),
+            Order = 0,
+        });
+
+        component.Subverted = true;
+        NotifyLawsChanged(uid, cue ?? component.LawUploadSound);
+
+        if (ensureSubvertedRole && _mind.TryGetMind(uid, out var mindId, out _))
+            EnsureSubvertedSiliconRole(mindId);
+
+        return true;
+    }
+    // Goob-MalfAi-End
+
     /// <summary>
     /// Set the laws of a silicon entity while notifying the player.
     /// </summary>

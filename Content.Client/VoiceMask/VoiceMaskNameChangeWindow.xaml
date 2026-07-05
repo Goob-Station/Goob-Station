@@ -15,8 +15,9 @@ SPDX-License-Identifier: MIT
         <BoxContainer Orientation="Horizontal" Margin="5">
             <LineEdit Name="NameSelector" HorizontalExpand="True" />
             <Button Name="NameSelectorSet" Text="{Loc 'voice-mask-name-change-set'}" />
+            <Button Name="NameSelectorReset" Text="{Loc 'voice-mask-name-reset'}" /> <!-- Goob-MalfAi -->
         </BoxContainer>
-        <BoxContainer Orientation="Horizontal" Margin="5">
+        <BoxContainer Name="SpeechStyleContainer" Orientation="Horizontal" Margin="5"> <!-- Goob-MalfAi: named so it can be hidden -->
             <Label Text="{Loc 'voice-mask-name-change-speech-style'}" />
             <OptionButton Name="SpeechVerbSelector" /> <!-- Populated in LoadVerbs -->
         </BoxContainer>

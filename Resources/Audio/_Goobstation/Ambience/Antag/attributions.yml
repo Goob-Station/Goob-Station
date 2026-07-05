@@ -35,4 +35,14 @@
   copyright: "Taken from TG station"
   source: "https://github.com/tgstation/tgstation/tree/master"
 
+- files: ["malf.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Malfunction AI greeting theme from /tg/station"
+  source: "https://github.com/tgstation/tgstation/tree/master"
+
+- files: ["aimalf.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "AI malfunction announcer clip from /tg/station"
+  source: "https://github.com/tgstation/tgstation/tree/master"
+
 

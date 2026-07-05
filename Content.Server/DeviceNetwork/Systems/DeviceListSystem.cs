@@ -81,6 +81,12 @@ public sealed class DeviceListSystem : SharedDeviceListSystem
                 Log.Error("Failed to find DeviceNetworkComponent in DeviceListComponent Devices");
                 continue;
             }
+            // Goob-MalfAi-Start: mass deletions (e.g. large explosions) shut down several listed devices
+            // in the same tick; a sibling device may have already cleared its DeviceLists in its own
+            // shutdown while still pending deletion, which used to trip this assert and kill the server.
+            if (dev_comp.LifeStage >= ComponentLifeStage.Stopping)
+                continue;
+            // Goob-MalfAi-End
             DebugTools.Assert(dev_comp.DeviceLists.Contains(listUid));
         }
     }

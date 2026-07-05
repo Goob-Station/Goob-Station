@@ -42,12 +42,17 @@ public sealed class VoiceMaskBoundUserInterface : BoundUserInterface
         _window.ReloadVerbs(_protomanager);
         _window.AddVerbs();
 
+        // Goob-MalfAi: the malf AI's built-in modulator has no mask item to toggle.
+        if (EntMan.HasComponent<Content.Goobstation.Shared.MalfunctionAi.MalfunctionAiComponent>(Owner))
+            _window.SetMalfAiMode();
+
         // GabyStation start Radio icons
         _window.ReloadJobIcons();
         _window.AddJobIcons();
         // GabyStation end Radio icons
 
         _window.OnNameChange += OnNameSelected;
+        _window.OnNameReset += () => SendMessage(new Content.Goobstation.Shared.MalfunctionAi.VoiceMaskResetNameMessage()); // Goob-MalfAi
         _window.OnVerbChange += verb => SendMessage(new VoiceMaskChangeVerbMessage(verb));
         _window.OnToggle += OnToggle;
         _window.OnAccentToggle += OnAccentToggle;

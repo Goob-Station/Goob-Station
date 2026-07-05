@@ -23,8 +23,11 @@ voice-mask-popup-accent-toggle = Toggled accent.
 
 voice-mask-popup-success = Name set successfully.
 voice-mask-popup-failure = Name could not be set.
+# Goob-MalfAi
+voice-mask-name-reset = Reset
+voice-mask-popup-reset = Voice restored.
 
 # Goobstation / GabyStation Job Icons
-voice-mask-icon-label = Job (for your radio icon)
+voice-mask-icon-label = Job
 voice-mask-name-current-name = Current name
 

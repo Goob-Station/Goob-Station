@@ -1,0 +1,43 @@
+- type: entity
+  id: MalfunctionAi
+  parent: BaseGameRule
+  components:
+  - type: GameRule
+    minPlayers: 15
+  - type: MalfunctionAiRule
+  - type: AntagObjectives
+    objectives:
+    - MalfunctionAiSurviveObjective
+    - MalfunctionAiDoomsdayObjective
+  - type: AntagSelection
+    selectionTime: PostPlayerSpawn # The StationAi player must already be spawned for the whitelist to match.
+    agentName: malfunction-ai-round-end-agent-name
+    definitions:
+    - prefRoles: [ MalfunctionAi ]
+      max: 1
+      playerRatio: 1
+      allowNonHumans: true
+      lateJoinAdditional: true # A latejoining station AI can still become the malf.
+      ignoreJobAntagRestriction: true # The StationAi job has canBeAntag: false; this rule targets it specifically.
+      whitelist:
+        components:
+        - StationAiHeld
+      mindRoles:
+      - MindRoleMalfunctionAi
+
+- type: gamePreset
+  id: MalfunctionAi
+  alias:
+    - malf
+    - malfai
+    - malfunction
+  name: malfunction-ai-title
+  description: malfunction-ai-description
+  showInVote: false
+  rules:
+  - MalfunctionAi
+  - SubGamemodesRule
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
