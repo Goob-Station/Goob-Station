@@ -309,12 +309,11 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:OrganType
-          type: Slime
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type:
+          - Slime
+          - Yowie # Goobstation - Yowie
+          inverted: true
         damage:
           types:
             Poison: 1

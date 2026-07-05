@@ -49,7 +49,7 @@
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Items/Toys/mousesqueek.ogg
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/Items/Toys/mousesqueek.ogg
@@ -107,7 +107,7 @@
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/Effects/adminhelp.ogg
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: false
     useSound:
       path: /Audio/Effects/adminhelp.ogg
@@ -160,7 +160,7 @@
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/Effects/falling.ogg
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/Effects/falling.ogg
@@ -250,7 +250,7 @@
   - type: EmitSoundOnCollide
     sound:
       collection: ToySqueak
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/_Shitmed/Misc/abductor.ogg

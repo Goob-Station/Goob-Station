@@ -16,7 +16,7 @@
     integrityThresholds:
       Normal: 28
       Damaged: 16
-      Destroyed: 0  
+      Destroyed: 0
     onAdd:
     - type: BreathingImmunity
 
@@ -31,7 +31,7 @@
     integrityThresholds:
       Normal: 21
       Damaged: 12
-      Destroyed: 0  
+      Destroyed: 0
     onAdd:
     - type: PressureImmunity
 
@@ -65,11 +65,10 @@
   components:
   - type: Organ
     onAdd:
-    - type: HitscanBatteryAmmoProvider
+    - type: BatteryAmmoProvider
       proto: RedLightLaser
       fireCost: 50
     - type: BatterySelfRecharger
-      autoRecharge: true
       autoRechargeRate: 25
     - type: Battery
       maxCharge: 100

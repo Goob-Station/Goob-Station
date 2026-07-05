@@ -178,6 +178,16 @@
     Heat: 5
     Structural: 5
 
+# Glass without the flat reductions
+- type: damageModifierSet
+  id: FlimsyGlass
+  coefficients:
+    Blunt: 1.2
+    Slash: 0.5
+    Piercing: 1.0
+    Heat: 0.8
+    Shock: 0 #glass is an insulator!
+
 - type: damageModifierSet
   id: RGlass
   coefficients:
@@ -209,7 +219,7 @@
   id: Card
   coefficients:
     Slash: 2.0
-    Piercing: 0.1 # Holes easily poked through, but do little to structural integrity 
+    Piercing: 0.1 # Holes easily poked through, but do little to structural integrity
     Heat: 3.0
 
 - type: damageModifierSet
@@ -262,12 +272,8 @@
   id: Moth # Slightly worse at everything but cold
   coefficients:
     Cold: 0.7
-    Heat: 1.3
-  # Goobstation
-    Blunt: 1.065
-    Slash: 1.065
-    Piercing: 1.065
-  ignoreArmorPierceFlags: All
+    Heat: 1.2
+  ignoreArmorPierceFlags: All # Goobstation
 
 - type: damageModifierSet
   id: Vox
@@ -287,7 +293,7 @@
     Radiation: 0.0
   ignoreArmorPierceFlags: All # Goobstation
 
-# immune to everything except physical and heat damage
+# immune to everything except physical and heat damage; vulnerable to holy damage because they're undead, but not as vulnerable as a ghost or demon would be
 # Goob edit
 - type: damageModifierSet
   id: Skeleton
@@ -298,7 +304,10 @@
     Asphyxiation: 0.0
     Bloodloss: 0.0
     Cellular: 0.0
+    Holy: 0.5
   ignoreArmorPierceFlags: All # Goobstation
+  flatReductions:
+    Blunt: 5
 
 # hurt a lot by blunt, immune to a good amount of other stuff because they're a cookie
 - type: damageModifierSet
@@ -396,7 +405,7 @@
   coefficients:
     Holy: 2
 
-- type: damageModifierSet
+- type: damageModifierSet # Goobstation?
   id: AdvancedSpirit
   coefficients:
     Blunt: 0.0

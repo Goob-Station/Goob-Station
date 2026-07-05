@@ -29,7 +29,7 @@ public sealed partial class GunCanFirePrecondition : HTNPrecondition
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
         var gunSystem = _entManager.System<GunSystem>();
 
-        if (!gunSystem.TryGetGun(owner, out var gunUid, out _))
+        if (!gunSystem.TryGetGun(owner, out var gunUid))
             return false;
 
         return CanFire(gunSystem, gunUid) ^ Invert;
