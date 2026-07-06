@@ -13,4 +13,4 @@
 - type: moodEffect
   id: FreshLaundry
   moodChange: 4
-  timeout: 300
+  timeout: 600

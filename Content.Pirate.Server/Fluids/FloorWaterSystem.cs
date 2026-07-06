@@ -1,0 +1,71 @@
+using Content.Pirate.Shared.Fluids;
+using Content.Pirate.Shared.Wetness.Systems;
+using Content.Shared.Fluids.Components;
+using Content.Shared.Inventory;
+using Content.Shared.StepTrigger.Systems;
+using Robust.Shared.Map.Components;
+
+namespace Content.Pirate.Server.Fluids;
+
+/// <summary>
+/// Integrates standing water (<see cref="FloorWaterComponent"/>) with wetness: wading into it soaks
+/// worn clothing, and it drains any puddle that lands on its own tile.
+/// </summary>
+public sealed class FloorWaterSystem : EntitySystem
+{
+    [Dependency] private readonly SharedWetnessSystem _wetness = null!;
+    [Dependency] private readonly EntityLookupSystem _lookup = null!;
+    [Dependency] private readonly SharedMapSystem _map = null!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+        SubscribeLocalEvent<FloorWaterComponent, StepTriggerAttemptEvent>(OnStepAttempt);
+        SubscribeLocalEvent<FloorWaterComponent, StepTriggeredOffEvent>(OnStepTriggered);
+    }
+
+    private void OnStepAttempt(Entity<FloorWaterComponent> ent, ref StepTriggerAttemptEvent args)
+    {
+        args.Continue = true;
+    }
+
+    private void OnStepTriggered(Entity<FloorWaterComponent> ent, ref StepTriggeredOffEvent args)
+    {
+        // Wading into the water soaks whatever you're wearing and washes its stains down.
+        if (HasComp<InventoryComponent>(args.Tripper))
+            _wetness.ImmerseInWater(args.Tripper, ent.Comp.ImmersionFlow);
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<FloorWaterComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            comp.AbsorbAccumulator += frameTime;
+            if (comp.AbsorbAccumulator < comp.AbsorbInterval)
+                continue;
+
+            comp.AbsorbAccumulator = 0f;
+            AbsorbTilePuddles(uid);
+        }
+    }
+
+    // Like a drain: any puddle sitting on the water's own tile is soaked up and removed.
+    private void AbsorbTilePuddles(EntityUid uid)
+    {
+        var xform = Transform(uid);
+        if (xform.GridUid is not { } gridUid || !TryComp<MapGridComponent>(gridUid, out var grid))
+            return;
+
+        var tile = _map.TileIndicesFor(gridUid, grid, xform.Coordinates);
+
+        foreach (var (puddle, _) in _lookup.GetEntitiesInRange<PuddleComponent>(xform.Coordinates, 0.8f))
+        {
+            var puddleXform = Transform(puddle);
+            if (puddleXform.GridUid == gridUid && _map.TileIndicesFor(gridUid, grid, puddleXform.Coordinates) == tile)
+                QueueDel(puddle);
+        }
+    }
+}

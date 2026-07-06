@@ -1,4 +1,5 @@
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
@@ -21,6 +22,20 @@ namespace Content.Pirate.Shared.Showers
             SubscribeLocalEvent<ShowerComponent, MapInitEvent>(OnMapInit);
             SubscribeLocalEvent<ShowerComponent, GetVerbsEvent<AlternativeVerb>>(OnToggleShowerVerb);
             SubscribeLocalEvent<ShowerComponent, ActivateInWorldEvent>(OnActivateInWorld);
+            SubscribeLocalEvent<ShowerComponent, ExaminedEvent>(OnExamined);
+        }
+
+        private void OnExamined(Entity<ShowerComponent> ent, ref ExaminedEvent args)
+        {
+            if (!args.IsInDetailsRange ||
+                !_solution.TryGetSolution(ent.Owner, ent.Comp.SolutionName, out _, out var solution))
+            {
+                return;
+            }
+
+            args.PushMarkup(Loc.GetString("shower-examine-water",
+                ("current", solution.Volume),
+                ("max", solution.MaxVolume)));
         }
 
         private void OnMapInit(EntityUid uid, ShowerComponent component, MapInitEvent args)

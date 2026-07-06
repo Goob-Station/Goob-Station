@@ -101,8 +101,6 @@ public sealed class WashingMachineSystem : SharedWashingMachineSystem
 
         if (_random.Prob(comp.ThumpSoundChance * frameTime))
             Audio.PlayPvs(HitSound, uid);
-
-        comp.AccumulatedSelfDamage += comp.SelfDamagePerSecond * frameTime;
     }
 
     protected override bool TryStartWash(Entity<WashingMachineComponent> ent, EntityUid user)
@@ -168,14 +166,6 @@ public sealed class WashingMachineSystem : SharedWashingMachineSystem
         }
 
         UpdateForensics((uid, comp), items);
-
-        if (comp.AccumulatedSelfDamage > 0)
-        {
-            var bluntProto = _proto.Index<DamageTypePrototype>("Blunt");
-            var selfDamage = new DamageSpecifier(bluntProto, comp.AccumulatedSelfDamage);
-            _damageable.TryChangeDamage(uid, selfDamage, ignoreResistances: true);
-            comp.AccumulatedSelfDamage = 0;
-        }
 
         Dirty(uid, comp);
         Storage.OpenStorage(uid);

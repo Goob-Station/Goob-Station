@@ -1,5 +1,6 @@
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.Clothing.Components;
+using Content.Pirate.Shared.Fluids;
 using Content.Pirate.Shared.Stains.Systems;
 using Content.Pirate.Shared.Wetness.Components;
 using Content.Shared.Chemistry;
@@ -146,6 +147,18 @@ public abstract class SharedWetnessSystem : EntitySystem
         return TryComp<WettableComponent>(uid, out var wettable) && wettable.Wetness > 0;
     }
 
+    /// <summary>
+    /// Immersion in water (e.g. wading into floor water): flows <paramref name="flow"/> units over the
+    /// mob so it both soaks worn clothing and washes stains off it (same as any water contact), but the
+    /// dirty runoff is drained away instead of pooled. A large flow fully soaks and rinses.
+    /// </summary>
+    public void ImmerseInWater(EntityUid mob, FixedPoint2 flow)
+    {
+        var worn = GetWornItems(mob, SlotFlags.WITHOUT_POCKET);
+        var washTargets = new List<EntityUid>(worn) { mob };
+        ApplyWater(mob, flow, worn, washTargets, drainRunoff: true);
+    }
+
     #endregion
 
     #region Water contact
@@ -188,7 +201,7 @@ public abstract class SharedWetnessSystem : EntitySystem
     /// The water that can't soak in anywhere, together with the washed-out stains, pools below as a
     /// mixture — so a shower leaves, e.g., a red puddle while it rinses blood off someone.
     /// </summary>
-    private void ApplyWater(EntityUid at, FixedPoint2 water, List<EntityUid> wetTargets, List<EntityUid> washTargets)
+    private void ApplyWater(EntityUid at, FixedPoint2 water, List<EntityUid> wetTargets, List<EntityUid> washTargets, bool drainRunoff = false)
     {
         // Wetness, stain removal, and puddles are all server-authoritative.
         if (water <= 0 || !_net.IsServer)
@@ -202,8 +215,17 @@ public abstract class SharedWetnessSystem : EntitySystem
         if (excess > 0)
             runoff.AddReagent(WaterReagent, excess);
 
-        if (runoff.Volume > 0)
+        // Pool the runoff on the floor, unless it should drain away instead: the caller asked for it
+        // (immersion in floor water) or the target is inside a draining container (washing machine).
+        if (runoff.Volume > 0 && !drainRunoff && !IsRunoffDrained(at))
             _puddle.TrySpillAt(Transform(at).Coordinates, runoff, out _, sound: false);
+    }
+
+    /// <summary>True when the target is inside a container that drains liquid runoff (e.g. a washing machine).</summary>
+    private bool IsRunoffDrained(EntityUid target)
+    {
+        return _container.TryGetContainingContainer(target, out var container)
+               && HasComp<RunoffDrainComponent>(container.Owner);
     }
 
     /// <summary>

@@ -1,3 +1,4 @@
+using Content.Pirate.Shared.Fluids;
 using Content.Pirate.Shared.Stains.Components;
 using Content.Goobstation.Common.Footprints;
 using Content.Shared._Pirate.Fluids;
@@ -191,9 +192,17 @@ public abstract class SharedStainSystem : EntitySystem
             OnStained(ent, solComp);
         }
 
-        // Old stains pushed off the clothing run down to the floor.
-        if (displaced.Volume > 0)
+        // Old stains pushed off the clothing run down to the floor (but not while the wearer is
+        // inside a draining container, e.g. a washing machine, or the runoff spills out around it).
+        if (displaced.Volume > 0 && !IsRunoffDrained(mob.Owner))
             _puddle.TrySpillAt(Transform(mob.Owner).Coordinates, displaced, out _, sound: false);
+    }
+
+    /// <summary>True when the target is inside a container that drains liquid runoff (e.g. a washing machine).</summary>
+    private bool IsRunoffDrained(EntityUid target)
+    {
+        return _container.TryGetContainingContainer(target, out var container)
+               && HasComp<RunoffDrainComponent>(container.Owner);
     }
 
     // Feet constantly contact floor puddles, so staining them must not rotate old stains back onto
@@ -201,10 +210,10 @@ public abstract class SharedStainSystem : EntitySystem
     private static bool RotatesToFloor(SlotFlags slot) => (slot & SlotFlags.FEET) == 0;
 
     // Chance for a walked-on puddle to stain footwear, scaling linearly with puddle depth:
-    // below 5u never stains; then 1% per unit, capped at 20% from 20u upward.
+    // below 5u never stains; then 1.5% per unit, capped at 30% from 20u upward.
     private static readonly FixedPoint2 FeetStainMinVolume = FixedPoint2.New(5);
-    private const float FeetStainChancePerUnit = 0.01f;
-    private const float FeetStainMaxChance = 0.20f;
+    private const float FeetStainChancePerUnit = 0.015f;
+    private const float FeetStainMaxChance = 0.30f;
 
     /// <summary>
     /// Rolls whether walking over a puddle stains footwear this step. Shallow puddles (below
@@ -312,7 +321,7 @@ public abstract class SharedStainSystem : EntitySystem
         UpdateVisuals(ent);
         OnStained(ent, stainSolution);
 
-        if (displaced.Volume > 0)
+        if (displaced.Volume > 0 && !IsRunoffDrained(ent.Owner))
             _puddle.TrySpillAt(Transform(ent.Owner).Coordinates, displaced, out _, sound: false);
 
         return true;
