@@ -85,6 +85,11 @@ internal sealed class ChatManager : IChatManager
         // See server-side manager. This just exists for shared code.
     }
 
+    public void SendAdminAlertNoFormatOrEscape(string message)
+    {
+        // See server-side manager. This just exists for shared code.
+    }
+
     public void ChatMessageToAll( // Einstein Engines: Make ChatMessageToAll available in Shared
         ChatChannel channel,
         string message,

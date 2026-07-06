@@ -5,6 +5,13 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+#- type: entityTable # Goob unused
+#  id: BasicCalmEventsTableDeltaV
+#  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+#    children:
+#    - id: MothroachSpawn
+#    - id: MalignRiftSpawn # DeltaV
+
 - type: entity
   id: MothroachSpawn
   parent: BaseGameRule
@@ -46,5 +53,5 @@
     chaosScore: -50
   - type: RandomMultipleSpawnRule
     prototype: CosmicMalignRift
-    minAmount: 2
-    maxAmount: 4
+    minAmount: 1
+    maxAmount: 3

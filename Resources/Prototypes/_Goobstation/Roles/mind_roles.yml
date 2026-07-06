@@ -43,7 +43,7 @@
 - type: entity
   parent: BaseMindRoleAntag
   id: MindRoleGhoul
-  name: Ghoul
+  name: Ghoul Role
   components:
   - type: MindRole
     antagPrototype: Ghoul
@@ -85,7 +85,7 @@
   - type: MindRole
     roleType: SentientAnimal
     sortWeight: 30
-    
+
 #contractor
 - type: entity
   parent: BaseMindRoleAntag
@@ -97,3 +97,111 @@
     exclusiveAntag: true
     roleType: SoloAntagonist
     subtype: role-subtype-contractor
+
+# Gemini
+
+- type: entity
+  parent: MindRoleGhostRoleFamiliar
+  id: MindRoleGemini
+  name: Gemini Role
+  components:
+  - type: MindRole
+    antag: true # This is bad
+    antagPrototype: TempGeminiGhostRoleAntag # todo marty clean this up and fix other mindroles too
+    exclusiveAntag: true  # This is bad
+    roleType: Familiar
+    subtype: role-subtype-gemini
+  - type: GeminiRole
+
+# Other shit but idc this codebase is dying.
+
+- type: entity
+  parent: BaseMindRole
+  id: BaseMindRoleAntagGhostGoob
+  abstract: true
+  components:
+  - type: MindRole
+    antag: true
+    antagPrototype: GenericGhostAntagonistGoob
+    roleType: SoloAntagonist
+    sortWeight: 50
+
+- type: entity
+  parent: [ BaseMindRoleAntagGhostGoob, MindRoleGhostRoleNeutral ]
+  id: MindRoleGhostRoleSoloAntagonistGoob
+  name: Ghost Role (Solo Antagonist)
+
+- type: entity
+  parent: [ BaseMindRoleAntag, MindRoleGhostRoleNeutral ]
+  id: MindRoleGhostRoleFreeAgentGoob
+  name: Ghost Role (Free Agent)
+  components:
+  - type: MindRole
+    roleType: FreeAgent
+    antagPrototype: GenericFreeAgentGoob
+    sortWeight: 30
+
+- type: entity
+  parent: [ MindRoleGhostRoleFreeAgentGoob ]
+  id: MindRoleGhostRoleFreeAgentEngineeringGoob
+  name: Ghost Role (Free Agent)
+  components:
+  - type: MindRole
+    roleType: FreeAgent
+    antagPrototype: EngineeringFreeAgentGoob
+    sortWeight: 30
+
+- type: entity
+  parent: [ MindRoleGhostRoleFreeAgentGoob ]
+  id: MindRoleGhostRoleFreeAgentSecurityGoob
+  name: Ghost Role (Free Agent)
+  components:
+  - type: MindRole
+    roleType: FreeAgent
+    antagPrototype: SecurityFreeAgentGoob
+    sortWeight: 30
+
+- type: entity
+  parent: [ MindRoleGhostRoleSoloAntagonistGoob ]
+  id: MindRoleGhostRoleSoloAntagonistMimeGoob
+  name: Antag Mind role
+  components:
+  - type: MindRole
+    antag: true
+    antagPrototype: MimeGhostAntagonistGoob
+    roleType: SoloAntagonist
+    sortWeight: 50
+
+- type: entity
+  parent: [ MindRoleGhostRoleSoloAntagonistMimeGoob ]
+  id: MindRoleGhostRoleSoloAntagonistPassengerGoob
+  name: Antag Mind role
+  components:
+  - type: MindRole
+    antag: true
+    antagPrototype: PassengerGhostAntagonistGoob
+    roleType: SoloAntagonist
+    sortWeight: 50
+
+- type: entity
+  parent: [ MindRoleGhostRoleSoloAntagonistMimeGoob ]
+  id: MindRoleGhostRoleSoloAntagonistBorgGoob
+  name: Antag Mind role
+  components:
+  - type: MindRole
+    antag: true
+    antagPrototype: BorgGhostAntagonistGoob
+    roleType: SoloAntagonist
+    sortWeight: 50
+
+- type: entity
+  parent: [ MindRoleGhostRoleSoloAntagonistMimeGoob ]
+  id: MindRoleGhostRoleSoloAntagonistClownGoob
+  name: Antag Mind role
+  components:
+  - type: MindRole
+    antag: true
+    antagPrototype: ClownGhostAntagonistGoob
+    roleType: SoloAntagonist
+    sortWeight: 50
+

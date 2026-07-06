@@ -249,8 +249,9 @@
     endSound:
       path: /Audio/_Goobstation/Weapons/Guns/Gunshots/laser_lmg.ogg
   - type: ClothingSlotAmmoProvider
+  - type: SlotBasedConnectedContainer
     targetSlot: BACK
-    providerWhitelist:
+    containerWhitelist:
       tags:
       - LaserLMGBackpack
   - type: Tag

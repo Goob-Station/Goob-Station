@@ -29,7 +29,7 @@ public sealed class BoomerangSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<BoomerangComponent, LandEvent>(OnLanded);
-        SubscribeLocalEvent<BoomerangComponent, ThrownEvent>(OnThrown);
+        SubscribeLocalEvent<BoomerangComponent, ThrowEvent>(OnThrown);
     }
 
     public override void Update(float frameTime)
@@ -45,7 +45,7 @@ public sealed class BoomerangSystem : EntitySystem
         _toThrow.Clear();
     }
 
-    private void OnThrown(Entity<BoomerangComponent> ent, ref ThrownEvent args)
+    private void OnThrown(Entity<BoomerangComponent> ent, ref ThrowEvent args)
     {
         if (ent.Comp.Thrower == null)
             SetThrower(ent, args.User);

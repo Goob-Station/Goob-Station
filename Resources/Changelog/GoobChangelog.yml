@@ -23582,3 +23582,81 @@ Entries:
       message: Chaplain Chain sword cannot be dropped while active
   id: 2707
   time: '2026-06-20T12:18:31.0000000+00:00'
+- author: winkkk-k
+  changes:
+    - type: Add
+      message: >-
+        Amber alert level. It indicates that all crew must be armed to fight the
+        threats.
+  id: 2708
+  time: '2026-06-21T13:10:29.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Tweak
+      message: Desoxypehedrine poison 0.75 > 2
+    - type: Tweak
+      message: Desoxypehedrine OD poison 2 > 2.75
+  id: 2709
+  time: '2026-06-21T13:12:48.0000000+00:00'
+- author: UmbiMax
+  changes:
+    - type: Fix
+      message: Emitter projectiles no longer pass through the supermatter crystal.
+  id: 2710
+  time: '2026-06-21T13:55:57.0000000+00:00'
+- author: shoebill
+  changes:
+    - type: Add
+      message: Added a low blood alert to the health analyzer.
+  id: 2711
+  time: '2026-06-23T12:32:06.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Fix
+      message: Fixed Artifact crusher spawning too much fragments.
+  id: 2712
+  time: '2026-06-26T19:27:30.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Remove
+      message: removed healing values from nutriment
+    - type: Tweak
+      message: increased vitamin and protein healing
+    - type: Tweak
+      message: reduced amount of nutriment in nutribricks
+    - type: Fix
+      message: fixed cocoa powder not being toxic to animals
+  id: 2713
+  time: '2026-07-02T12:58:43.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Add
+      message: >-
+        Sci techfab can now access some advanced medical recipes such as the
+        biomass reclaimer.
+    - type: Remove
+      message: Removed mapped energy chem dispensers.
+    - type: Tweak
+      message: Made the energy chem dispenser board more expensive.
+    - type: Tweak
+      message: >-
+        Energy food synthesizer research now requires bluespace chemistry
+        research.
+    - type: Tweak
+      message: >-
+        Moved energy chem dispenser board into bluespace chemistry research and
+        out of roundstart recipes.
+    - type: Tweak
+      message: Increased the amount of some jugs in the chemvend.
+    - type: Fix
+      message: Syndicate chemvend now has the proper amount of empty jugs (8).
+  id: 2714
+  time: '2026-07-02T13:00:02.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Add
+      message: >-
+        Upstream merge will break things. Make a github issue or check upstream
+        bugs threads in the discord and report things breaking for fixes.
+  id: 2715
+  time: '2026-07-04T02:14:46.0000000+00:00'

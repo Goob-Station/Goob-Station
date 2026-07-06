@@ -38,5 +38,4 @@
   - type: Item
     size: Small
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 5

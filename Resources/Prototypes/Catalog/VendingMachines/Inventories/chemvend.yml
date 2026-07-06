@@ -21,24 +21,24 @@
     Jug: 8 #Goob edit - Energy Chem
     JugAluminium: 2
     JugCarbon: 4
-    JugChlorine: 1
+    JugChlorine: 2 #Goob edit
     JugCopper: 2
     JugEthanol: 2
-    JugFluorine: 1
+    JugFluorine: 2 #Goob edit
     JugHydrogen: 3
-    JugIodine: 1
+    JugIodine: 2 #Goob edit
     JugIron: 2
     JugLithium: 2
-    JugMercury: 1
+    JugMercury: 2 #Goob edit
     JugNitrogen: 3
     JugOxygen: 3
-    JugPhosphorus: 1
+    JugPhosphorus: 2 #Goob edit
     JugPotassium: 2
-    JugRadium: 1
+    JugRadium: 2 #Goob edit
     JugSilicon: 2
     JugSodium: 2
     JugSugar: 3
-    JugSulfur: 1
+    JugSulfur: 2 #Goob edit
   contrabandInventory:
     DrinkLithiumFlask: 1
     StrangePill: 3
@@ -50,29 +50,29 @@
 - type: vendingMachineInventory
   id: ChemVendInventorySyndicate
   startingInventory:
-    Jug: 4
+    Jug: 8 #Goob edit
     JugAluminium: 2
     JugCarbon: 4
-    JugChlorine: 1
+    JugChlorine: 2 #Goob edit
     JugCopper: 2
     JugEthanol: 2
-    JugFluorine: 1
+    JugFluorine: 2 #Goob edit
     JugHydrogen: 3
-    JugIodine: 1
+    JugIodine: 2 #Goob edit
     JugIron: 2
     JugLithium: 2
-    JugMercury: 1
+    JugMercury: 2 #Goob edit
     JugNitrogen: 3
     JugOxygen: 3
-    JugPhosphorus: 1
+    JugPhosphorus: 2 #Goob edit
     JugPotassium: 2
-    JugRadium: 1
+    JugRadium: 2 #Goob edit
     JugSilicon: 2
     JugSodium: 2
     JugSugar: 3
-    JugSulfur: 1
-    JugWeldingFuel: 1
-    PlasmaChemistryVial: 1
+    JugSulfur: 2 #Goob edit
+    JugWeldingFuel: 2 #Goob edit
+    PlasmaChemistryVial: 2 #Goob edit
   contrabandInventory:
     DrinkLithiumFlask: 1
     StrangePill: 3

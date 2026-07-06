@@ -1,82 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 CaasGit <87243814+CaasGit@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
-// SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
-// SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kukutis96513 <146854220+Kukutis96513@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Lye <128915833+Lyroth001@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MerrytheManokit <167581110+MerrytheManokit@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 OrangeMoronage9622 <whyteterry0092@gmail.com>
-// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-// SPDX-FileCopyrightText: 2024 Partmedia <kevinz5000@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
-// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2024 Vigers Ray <60344369+VigersRay@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
-// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-// SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
-// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Diagnostics;
 using System.IO.Compression;
 using Content.ModuleManager;
@@ -99,20 +20,23 @@ public static class ServerPackaging
         new PlatformReg("osx-x64", "MacOS", true),
         new PlatformReg("osx-arm64", "MacOS", true),
         // Non-default platforms (i.e. for Watchdog Git)
-        new PlatformReg("win-x86", "Windows", false),
-        new PlatformReg("linux-x86", "Linux", false),
-        new PlatformReg("linux-arm", "Linux", false),
         new PlatformReg("freebsd-x64", "FreeBSD", false),
     };
 
+    private static IReadOnlySet<string> ServerContentIgnoresResources { get; } = new HashSet<string>
+    {
+        "ServerInfo",
+        "Changelog",
+    };
+
     private static List<string> PlatformRids => Platforms
-        .Select(o => o.Rid)
-        .ToList();
+    .Select(o => o.Rid)
+    .ToList();
 
     private static List<string> PlatformRidsDefault => Platforms
-        .Where(o => o.BuildByDefault)
-        .Select(o => o.Rid)
-        .ToList();
+    .Where(o => o.BuildByDefault)
+    .Select(o => o.Rid)
+    .ToList();
 
     private static readonly List<string> CoreServerContentAssemblies = new()
     {
@@ -123,17 +47,9 @@ public static class ServerPackaging
         "Content.ModuleManager", // I cant be fucked to figure out how to this dynamically
     };
 
-    private static readonly List<string> ServerExtraAssemblies = new()
-    {
-        // Python script had Npgsql. though we want Npgsql.dll as well soooo
-        "Npgsql",
-        "Microsoft",
-        "Concentus",
-    };
-
     private static readonly List<string> ServerNotExtraAssemblies = new()
     {
-        "Microsoft.CodeAnalysis",
+        "JetBrains.Annotations",
     };
 
     private static readonly HashSet<string> BinSkipFolders = new()
@@ -197,13 +113,13 @@ public static class ServerPackaging
                     {
                         "build",
                         Path.Combine(module, $"{module}.csproj"),
-                        "-c", configuration,
-                        "--nologo",
-                        "/v:m",
-                        $"/p:TargetOs={platform.TargetOs}",
-                        "/t:Rebuild",
-                        "/p:FullRelease=true",
-                        "/m"
+                                              "-c", configuration,
+                                              "--nologo",
+                                              "/v:m",
+                                              $"/p:TargetOs={platform.TargetOs}",
+                                              "/t:Rebuild",
+                                              "/p:FullRelease=true",
+                                              "/m"
                     }
                 });
             }
@@ -216,7 +132,7 @@ public static class ServerPackaging
         var sw = RStopwatch.StartNew();
         {
             await using var zipFile =
-                File.Open(Path.Combine("release", $"SS14.Server_{platform.Rid}.zip"), FileMode.Create, FileAccess.ReadWrite);
+            File.Open(Path.Combine("release", $"SS14.Server_{platform.Rid}.zip"), FileMode.Create, FileAccess.ReadWrite);
             using var zip = new ZipArchive(zipFile, ZipArchiveMode.Update);
             var writer = new AssetPassZipWriter(zip);
 
@@ -254,9 +170,9 @@ public static class ServerPackaging
     {
         var modules = new List<string>(CoreServerContentAssemblies);
         modules.AddRange(ModuleDiscovery.DiscoverModules(path)
-            .Where(m => m.Type is not ModuleType.Client)
-            .Select(m => m.Name)
-            .Distinct()
+        .Where(m => m.Type is not ModuleType.Client)
+        .Select(m => m.Name)
+        .Distinct()
         );
 
         var directories = Directory.GetDirectories(path, "Content.*");
@@ -313,31 +229,15 @@ public static class ServerPackaging
         var inputPassCore = graph.InputCore;
         var inputPassResources = graph.InputResources;
 
-        var contentAssemblies = FindAllServerModules();
-
-        // Additional assemblies that need to be copied such as EFCore.
-        var sourcePath = Path.Combine(contentDir, "bin", "Content.Server");
-
-        // Should this be an asset pass?
-        // For future archaeologists I just want audio rework to work and need the audio pass so
-        // just porting this as is from python.
-        foreach (var fullPath in Directory.EnumerateFiles(sourcePath, "*.*", SearchOption.AllDirectories))
-        {
-            var fileName = Path.GetFileNameWithoutExtension(fullPath);
-
-            if (!ServerNotExtraAssemblies.Any(o => fileName.StartsWith(o)) && ServerExtraAssemblies.Any(o => fileName.StartsWith(o)))
-            {
-                contentAssemblies.Add(fileName);
-            }
-        }
+        var contentAssemblies = FindAllServerModules(); // Trauma - use goobmod lookup instead of deps.json
 
         await RobustSharedPackaging.DoResourceCopy(
             Path.Combine("RobustToolbox", "bin", "Server",
-            platform.Rid,
-            "publish"),
-            inputPassCore,
-            BinSkipFolders,
-            cancel: cancel);
+                         platform.Rid,
+                         "publish"),
+                         inputPassCore,
+                         BinSkipFolders,
+                         cancel: cancel);
 
         await RobustSharedPackaging.WriteContentAssemblies(
             inputPassResources,
@@ -346,7 +246,11 @@ public static class ServerPackaging
             contentAssemblies,
             cancel: cancel);
 
-        await RobustServerPackaging.WriteServerResources(contentDir, inputPassResources, cancel);
+        await RobustServerPackaging.WriteServerResources(
+            contentDir,
+            inputPassResources,
+            ServerContentIgnoresResources.Concat(SharedPackaging.AdditionalIgnoredResources).ToHashSet(),
+                                                         cancel);
 
         if (hybridAcz)
         {
@@ -355,6 +259,22 @@ public static class ServerPackaging
 
         inputPassCore.InjectFinished();
         inputPassResources.InjectFinished();
+    }
+
+    // This returns both content assemblies (e.g. Content.Server.dll) and dependencies (e.g. Npgsql)
+    private static IEnumerable<string> GetContentAssemblyNamesToCopy(DepsHandler deps)
+    {
+        var depsContent = deps.RecursiveGetLibrariesFrom("Content.Server").SelectMany(GetLibraryNames);
+        var depsRobust = deps.RecursiveGetLibrariesFrom("Robust.Server").SelectMany(GetLibraryNames);
+
+        var depsContentExclusive = depsContent.Except(depsRobust).ToHashSet();
+
+        // Remove .dll suffix and apply filtering.
+        var names = depsContentExclusive.Select(p => p[..^4]).Where(p => !ServerNotExtraAssemblies.Any(p.StartsWith));
+
+        return names;
+
+        IEnumerable<string> GetLibraryNames(string library) => deps.Libraries[library].GetDllNames();
     }
 
     private readonly record struct PlatformReg(string Rid, string TargetOs, bool BuildByDefault);

@@ -35,13 +35,15 @@
   suffix: Filled
   parent: Medkit
   components:
-  - type: StorageFill
-    contents:
-      - id: Brutepack
-      - id: Ointment
-      - id: Gauze
-      - id: PillCanisterTricordrazine
-      - id: PillCanisterIron # Goobstation
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Brutepack
+        - id: Ointment
+        - id: Gauze
+        - id: PillCanisterTricordrazine
+        - id: PillCanisterIron # Goobstation
       # see https://github.com/tgstation/blob/master/code/game/objects/items/storage/firstaid.dm for example contents
 
 - type: entity
@@ -49,98 +51,115 @@
   suffix: Filled
   parent: MedkitBurn
   components:
-  - type: StorageFill
-    contents:
-      - id: Ointment
-        amount: 2
-      - id: SprayBottleSilverSulfadiazine # Goobstation
-      - id: BurnAutoInjector # Goobstation
-      - id: PillCanisterDermaline
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Ointment
+          amount: 2
+        #- id: PillCanisterKelotane # Goobstation
+        - id: PillCanisterDermaline
+        - id: SprayBottleSilverSulfadiazine # Goobstation
+        - id: BurnAutoInjector # Goobstation
 
 - type: entity
   id: MedkitBruteFilled
   suffix: Filled
   parent: MedkitBrute
   components:
-  - type: StorageFill
-    contents:
-      - id: Brutepack
-      - id: Gauze
-      - id: SprayBottleStypticPowder # Goobstation
-      - id: BruteAutoInjector # Goobstation
-      - id: PillCanisterIron
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Brutepack
+        - id: Gauze
+        - id: PillCanisterIron
+        #- id: PillCanisterCopper # Goobstation
+        - id: SprayBottleStypticPowder # Goobstation
+        - id: BruteAutoInjector # Goobstation
 
 - type: entity
   id: MedkitToxinFilled
   suffix: Filled
   parent: MedkitToxin
   components:
-  - type: StorageFill
-    contents:
-      - id: SyringeIpecac
-      - id: SyringeEthylredoxrazine
-      - id: AntiPoisonMedipen
-      - id: PillCanisterDylovene
-      - id: PillCanisterCharcoal
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: SyringeIpecac
+        - id: SyringeEthylredoxrazine
+        - id: AntiPoisonMedipen
+        - id: PillCanisterDylovene
+        - id: PillCanisterCharcoal
 
 - type: entity
   id: MedkitOxygenFilled
   suffix: Filled
   parent: MedkitO2
   components:
-  - type: StorageFill
-    contents:
-      - id: ClothingMaskBreathMedical
-      - id: EmergencyOxygenTankFilled
-      - id: EmergencyMedipen
-      - id: SyringeInaprovaline
-      - id: PillCanisterDexalin
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskBreathMedical
+        - id: EmergencyOxygenTankFilled
+        - id: EmergencyMedipen
+        - id: SyringeInaprovaline
+        - id: PillCanisterDexalin
 
 - type: entity
   id: MedkitRadiationFilled
   suffix: Filled
   parent: MedkitRadiation
   components:
-  - type: StorageFill
-    contents:
-      - id: SyringePhalanximine
-      - id: RadAutoInjector
-      - id: PillCanisterPotassiumIodide
-      - id: PillCanisterHyronalin
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: SyringePhalanximine
+        - id: RadAutoInjector
+        - id: PillCanisterPotassiumIodide
+        - id: PillCanisterHyronalin
 
 - type: entity
   id: MedkitAdvancedFilled
   suffix: Filled
   parent: MedkitAdvanced
   components:
-  - type: StorageFill
-    contents:
-      - id: MedicatedSuture
-      - id: RegenerativeMesh
-      - id: Bloodpack
-        amount: 2
-      - id: Tourniquet # Shitmed Change
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: MedicatedSuture
+        - id: RegenerativeMesh
+        - id: Bloodpack
+          amount: 2
+        - id: Tourniquet # Shitmed Change
 
 - type: entity
   id: MedkitCombatFilled
   suffix: Filled
   parent: MedkitCombat
   components:
-  - type: StorageFill
-    contents:
-      - id: MedicatedSuture
-      - id: RegenerativeMesh
-      - id: SyringeEphedrine
-      - id: SyringeSaline
-      - id: BruteAutoInjector
-      - id: BurnAutoInjector
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: MedicatedSuture
+        - id: RegenerativeMesh
+        - id: SyringeEphedrine
+        - id: SyringeSaline
+        - id: BruteAutoInjector
+        - id: BurnAutoInjector
 
 - type: entity
   id: StimkitFilled
   suffix: Stimkit, Filled
   parent: Medkit
   components:
-  - type: StorageFill
-    contents:
-      - id: StimpackMini
-        amount: 8 # Goob
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: StimpackMini
+        amount: 8 # Goobstation

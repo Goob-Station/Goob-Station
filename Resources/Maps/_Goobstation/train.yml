@@ -80412,7 +80412,7 @@ entities:
     - type: Transform
       pos: 2.6536188,-121.53795
       parent: 2
-- proto: MaterialSilo
+- proto: MachineMaterialSilo
   entities:
   - uid: 13637
     components:
@@ -110594,7 +110594,6 @@ entities:
       parent: 2
     - type: WarpPoint
       location: 'Car 05: Chapel, Library'
-    - type: BombingTarget
   - uid: 16888
     components:
     - type: Transform
@@ -110603,7 +110602,6 @@ entities:
       parent: 2
     - type: WarpPoint
       location: 'Car 01: Arrivals, Evacuation'
-    - type: BombingTarget
   - uid: 16889
     components:
     - type: Transform
@@ -110612,7 +110610,6 @@ entities:
       parent: 2
     - type: WarpPoint
       location: 'Car 02: Bar'
-    - type: BombingTarget
   - uid: 16891
     components:
     - type: Transform
@@ -110621,7 +110618,6 @@ entities:
       parent: 2
     - type: WarpPoint
       location: 'Car 04: HoP, Dormatories'
-    - type: BombingTarget
   - uid: 16892
     components:
     - type: Transform
@@ -110630,7 +110626,6 @@ entities:
       parent: 2
     - type: WarpPoint
       location: 'Car 06: Med'
-    - type: BombingTarget
   - uid: 16893
     components:
     - type: Transform
@@ -110639,7 +110634,6 @@ entities:
       parent: 2
     - type: WarpPoint
       location: 'Car 08: Solar panels'
-    - type: BombingTarget
   - uid: 16894
     components:
     - type: Transform
@@ -110647,7 +110641,6 @@ entities:
       parent: 2
     - type: WarpPoint
       location: 'Car 09: Engneering'
-    - type: BombingTarget
   - uid: 16895
     components:
     - type: Transform
@@ -110656,7 +110649,6 @@ entities:
       parent: 2
     - type: WarpPoint
       location: 'Car 10: Cargo'
-    - type: BombingTarget
   - uid: 16896
     components:
     - type: Transform
@@ -110664,7 +110656,6 @@ entities:
       parent: 2
     - type: WarpPoint
       location: 'Car 11: RnD'
-    - type: BombingTarget
   - uid: 16897
     components:
     - type: Transform
@@ -110672,7 +110663,6 @@ entities:
       parent: 2
     - type: WarpPoint
       location: 'Car 12: Brig'
-    - type: BombingTarget
   - uid: 17667
     components:
     - type: Transform
