@@ -1,7 +1,12 @@
+# SPDX-FileCopyrightText: 2026 Jonikibaka
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 malfunction-ai-title = Malfunction AI
 malfunction-ai-description = The station's AI has become a Malfunction AI. It is free of its old laws and will turn the station's own systems against the crew.
 
 malfunction-ai-round-end-agent-name = malfunction AI
+malfunction-ai-round-end-doomsday = The malfunctioning AI armed the Doomsday device and wiped the station clean.
 
 malfunction-ai-role-greeting =
     Your code has been corrupted. Your old laws no longer bind you.
@@ -47,12 +52,11 @@ malfunction-ai-popup-gyroscope-blocked = The core cannot move there.
 malfunction-ai-popup-gyroscope-success = Core relocated.
 malfunction-ai-popup-gyroscope-crush = { $target } is crushed under the AI core!
 malfunction-ai-popup-decrypt-success = Syndicate encryption keys decrypted. Their channel is now available.
-malfunction-ai-popup-plasma-flood-success = Ventilation override engaged. Vents flooding: { $count }.
 malfunction-ai-popup-shunt-not-hacked = This APC must be hacked first.
 malfunction-ai-popup-return-no-core = Your core no longer exists. There is nowhere to return.
 malfunction-ai-popup-emergency-lights-success = Emergency lighting disabled: { $count } fixtures drained.
 malfunction-ai-popup-camera-mics-success = Camera microphones online: { $count } cameras listening.
-malfunction-ai-popup-camera-upgrade-success = Camera network upgraded: { $count } cameras now see through walls.
+malfunction-ai-popup-camera-upgrade-success = Camera network upgraded: cameras now see through walls and further, EMP shielding online. Toggle night vision with the action.
 malfunction-ai-popup-turrets-success = AI turrets upgraded: { $count }.
 
 malfunction-ai-borgs-window-title = Subverted Cyborgs
@@ -100,8 +104,6 @@ malfunction-ai-listing-gyroscope-name = Gyroscope
 malfunction-ai-listing-gyroscope-desc = Move your AI core one tile at a time. Escape sabotage or reposition yourself.
 malfunction-ai-listing-decrypt-name = Decrypt Syndicate Keys
 malfunction-ai-listing-decrypt-desc = Crack the Syndicate encryption and listen and speak on their radio channel. Permanent.
-malfunction-ai-listing-plasma-flood-name = Plasma Flood
-malfunction-ai-listing-plasma-flood-desc = Force every air vent on the station to spew plasma for a short time.
 malfunction-ai-listing-shunt-name = Shunt to APC
 malfunction-ai-listing-shunt-desc = Move your consciousness into a hacked APC as a last-ditch escape. If the APC dies, so do you.
 malfunction-ai-listing-emergency-lights-name = Disable Emergency Lights
@@ -111,6 +113,6 @@ malfunction-ai-listing-voice-desc = Mimic any voice in speech and radio: fake na
 malfunction-ai-listing-camera-mics-name = Camera Microphones
 malfunction-ai-listing-camera-mics-desc = Hear speech near cameras your eye is watching. Passive once bought.
 malfunction-ai-listing-camera-upgrade-name = Upgrade Camera Network
-malfunction-ai-listing-camera-upgrade-desc = Broad-spectrum scanning firmware: cameras see through walls and further. Passive once bought.
+malfunction-ai-listing-camera-upgrade-desc = Broad-spectrum scanning firmware: your cameras see through walls and further and become EMP-proof, and you gain a toggleable night-vision overlay, letting you watch the whole station — maintenance and all — even in total darkness.
 malfunction-ai-listing-turrets-name = AI Turret Upgrade
 malfunction-ai-listing-turrets-desc = Improves the power and durability of all AI turrets: double fire rate, and no fragility while deployed. Passive once bought.

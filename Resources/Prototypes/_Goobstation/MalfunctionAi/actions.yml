@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2026 Jonikibaka
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 # Malfunction AI abilities.
 # Abilities are bought in the malf store for processing power (CPU); using them is free
 # but limited by cooldowns.
@@ -147,22 +151,6 @@
 
 - type: entity
   parent: BaseAction
-  id: ActionMalfPlasmaFlood
-  name: Plasma Flood
-  description: Forces every air vent on the station to spew plasma for a short time.
-  components:
-  - type: Action
-    priority: -8
-    itemIconStyle: BigAction
-    useDelay: 300
-    icon:
-      sprite: Structures/Storage/canister.rsi
-      state: orange
-  - type: InstantAction
-    event: !type:MalfPlasmaFloodEvent
-
-- type: entity
-  parent: BaseAction
   id: ActionMalfShuntToApc
   name: Shunt to APC
   description: Moves your consciousness into a hacked APC. Your core is left behind.
@@ -229,6 +217,23 @@
       state: malfai_bg_voicemodulator
   - type: InstantAction
     event: !type:MalfVoiceModulatorEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionMalfToggleNightVision
+  name: Toggle Night Vision
+  description: Toggles your night vision on or off, letting you see the station even in total darkness.
+  components:
+  - type: Action
+    priority: -12
+    itemIconStyle: BigAction
+    useDelay: 1
+    checkCanInteract: false
+    icon:
+      sprite: _Goobstation/Interface/Actions/actions_malf_ai.rsi
+      state: malfai_cameraupgrade
+  - type: InstantAction
+    event: !type:ToggleNightVisionEvent
 
 - type: entity
   parent: BaseAction

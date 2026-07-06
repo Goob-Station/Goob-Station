@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2026 Jonikibaka
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.StationAi;
 using Robust.Shared.Prototypes;
 
@@ -8,8 +12,8 @@ namespace Content.Shared.Silicons.StationAi;
 public abstract partial class SharedStationAiSystem
 {
     /// <summary>
-    /// Reconfigures a vision source: whether walls block it and how far it sees.
-    /// Used by the Malfunction AI camera network upgrade (X-ray vision).
+    /// Reconfigures a vision source (e.g. a camera): whether walls block it and how far it sees.
+    /// Used by the Malfunction AI camera network upgrade (see-through-walls + extended range).
     /// </summary>
     public void SetVisionUpgrade(Entity<StationAiVisionComponent> entity, bool occluded, float range)
     {

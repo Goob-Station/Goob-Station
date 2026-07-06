@@ -1,8 +1,10 @@
+// SPDX-FileCopyrightText: 2026 Jonikibaka
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Alert;
-using Content.Shared.Damage;
 using Content.Shared.Store;
-using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -96,117 +98,6 @@ public sealed partial class MalfunctionAiComponent : Component
     [DataField]
     public EntityUid? OpenStoreActionEntity;
 
-    // --- Tuning ---
-
-    /// <summary>
-    /// Intensity for the overload-machine explosion.
-    /// </summary>
-    [DataField]
-    public float OverloadIntensity = 60f;
-
-    /// <summary>
-    /// Tile intensity cap for the overload-machine explosion.
-    /// </summary>
-    [DataField]
-    public float OverloadMaxTileIntensity = 10f;
-
-    /// <summary>
-    /// Falloff slope of the overload explosion. Lower values make a wider, more even blast.
-    /// </summary>
-    [DataField]
-    public float OverloadExplosionSlope = 2f;
-
-    /// <summary>
-    /// Falloff slope of the RCD detonation explosion.
-    /// </summary>
-    [DataField]
-    public float RcdExplosionSlope = 3f;
-
-    /// <summary>
-    /// Delay between triggering an overload and the explosion, giving a warning window.
-    /// </summary>
-    [DataField]
-    public TimeSpan OverloadDelay = TimeSpan.FromSeconds(5);
-
-    /// <summary>
-    /// Warning sound played at the targeted machine when an overload starts.
-    /// </summary>
-    [DataField]
-    public SoundSpecifier OverloadWarningSound = new SoundPathSpecifier("/Audio/Machines/vessel_warning.ogg");
-
-    /// <summary>
-    /// Delay between rigging RCDs and their explosion, giving holders a warning window.
-    /// </summary>
-    [DataField]
-    public TimeSpan RcdDetonationDelay = TimeSpan.FromSeconds(5);
-
-    /// <summary>
-    /// Intensity for the RCD detonation explosion. Kept small: this is a utility, not a bomb.
-    /// </summary>
-    [DataField]
-    public float RcdExplosionIntensity = 10f;
-
-    /// <summary>
-    /// Tile intensity cap for the RCD detonation explosion.
-    /// </summary>
-    [DataField]
-    public float RcdMaxTileIntensity = 4f;
-
-    /// <summary>
-    /// Warning beep played at each rigged RCD.
-    /// </summary>
-    [DataField]
-    public SoundSpecifier RcdWarningSound = new SoundPathSpecifier("/Audio/Machines/Nuke/general_beep.ogg");
-
-    /// <summary>
-    /// Radio channel unlocked by the "Decrypt Syndicate Keys" purchase.
-    /// </summary>
-    [DataField]
-    public string SyndicateRadioChannel = "Syndicate";
-
-    /// <summary>
-    /// Played to a cyborg player when the AI subverts it — the same malfunction theme
-    /// the AI hears on becoming the antagonist.
-    /// </summary>
-    [DataField]
-    public SoundSpecifier HackCyborgSound = new SoundPathSpecifier("/Audio/_Goobstation/Ambience/Antag/malf.ogg");
-
-    /// <summary>
-    /// How long air vents keep spewing plasma after a plasma flood is triggered.
-    /// </summary>
-    [DataField]
-    public TimeSpan PlasmaFloodDuration = TimeSpan.FromSeconds(30);
-
-    /// <summary>
-    /// Moles of plasma each vent adds to its tile per second during a plasma flood.
-    /// </summary>
-    [DataField]
-    public float PlasmaMolesPerSecond = 5f;
-
-    /// <summary>
-    /// Entity spawned inside an APC when the AI shunts its consciousness into it.
-    /// </summary>
-    [DataField]
-    public EntProtoId ShuntEntity = "MalfShuntedAi";
-
-    /// <summary>
-    /// Whether the Camera Microphones upgrade has been bought.
-    /// </summary>
-    [DataField]
-    public bool CameraMicsUnlocked;
-
-    /// <summary>
-    /// Whether the camera network upgrade (X-ray vision) has been bought.
-    /// </summary>
-    [DataField]
-    public bool CameraXrayUnlocked;
-
-    /// <summary>
-    /// Camera vision range after the camera network upgrade (base is 7.5).
-    /// </summary>
-    [DataField]
-    public float CameraUpgradeRange = 10f;
-
     /// <summary>
     /// Cyborgs this AI has subverted, shown in the malf borgs window.
     /// </summary>
@@ -224,63 +115,6 @@ public sealed partial class MalfunctionAiComponent : Component
     /// </summary>
     [DataField]
     public EntityUid? OpenBorgsActionEntity;
-
-    /// <summary>
-    /// Whether the AI turret upgrade has been bought.
-    /// </summary>
-    [DataField]
-    public bool TurretsUpgraded;
-
-    /// <summary>
-    /// Fire rate multiplier applied to AI turrets by the turret upgrade.
-    /// </summary>
-    [DataField]
-    public float TurretFireRateMultiplier = 2f;
-
-    /// <summary>
-    /// How far from a camera the AI's eye must be for that camera's microphone to relay speech.
-    /// </summary>
-    [DataField]
-    public float CameraMicEyeRange = 4f;
-
-    /// <summary>
-    /// How far cameras can hear once the Camera Microphones upgrade is bought.
-    /// </summary>
-    [DataField]
-    public float CameraMicListenRange = 8f;
-
-    /// <summary>
-    /// Damage dealt to living beings the core lands on when moved with the gyroscope.
-    /// </summary>
-    [DataField]
-    public DamageSpecifier GyroscopeCrushDamage = new()
-    {
-        DamageDict = new() { { "Blunt", 200 } },
-    };
-
-    /// <summary>
-    /// Sound played when the core crushes someone.
-    /// </summary>
-    [DataField]
-    public SoundSpecifier GyroscopeCrushSound = new SoundCollectionSpecifier("gib");
-
-    /// <summary>
-    /// How long a station lockdown keeps doors bolted and electrified, in seconds.
-    /// </summary>
-    [DataField]
-    public float LockdownDuration = 90f;
-
-    /// <summary>
-    /// When the current lockdown ends. Null if no lockdown is active.
-    /// </summary>
-    [DataField]
-    public TimeSpan? LockdownEndTime;
-
-    /// <summary>
-    /// Doors affected by the current lockdown, to be reverted when it ends.
-    /// </summary>
-    [DataField]
-    public List<EntityUid> LockedDoors = new();
 
     /// <summary>
     /// Whether the Doomsday device has already been used this round.

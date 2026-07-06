@@ -1,7 +1,12 @@
+// SPDX-FileCopyrightText: 2026 Jonikibaka
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Server.MalfunctionAi;
 using Content.Server.Store.Systems;
 using Content.Goobstation.Shared.MalfunctionAi;
+using Content.Shared.Actions;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
 using Robust.Shared.GameObjects;
@@ -48,6 +53,44 @@ public sealed class MalfunctionAiTest
             Assert.That(malfSystem.TryHackApc((ai, malf), apc), Is.False);
             Assert.That(store.Balance[malf.Currency], Is.EqualTo(malf.StartingPower + malf.CpuPerApc));
             Assert.That(malf.HackedApcCount, Is.EqualTo(1));
+        });
+
+        await pair.CleanReturnAsync();
+    }
+
+    /// <summary>
+    /// Buying the camera network upgrade must grant exactly one night-vision toggle action.
+    /// Adding NightVisionComponent at runtime map-inits it, which auto-adds the overlay's default
+    /// toggle; the system must strip that so the AI is not left with a duplicate goggles toggle.
+    /// </summary>
+    [Test]
+    public async Task CameraUpgradeGrantsSingleNightVisionToggle()
+    {
+        await using var pair = await PoolManager.GetServerClient();
+        var server = pair.Server;
+        var testMap = await pair.CreateTestMap();
+        var entMan = server.ResolveDependency<IEntityManager>();
+        var coordinates = testMap.GridCoords;
+
+        await server.WaitAssertion(() =>
+        {
+            var actions = entMan.System<SharedActionsSystem>();
+
+            var ai = entMan.SpawnEntity(null, coordinates);
+            entMan.AddComponent<MalfunctionAiComponent>(ai);
+
+            entMan.EventBus.RaiseLocalEvent(ai, new MalfCameraUpgradeEvent());
+
+            var nightVisionToggles = 0;
+            foreach (var action in actions.GetActions(ai))
+            {
+                var proto = entMan.GetComponent<MetaDataComponent>(action.Owner).EntityPrototype?.ID;
+                if (proto is "ActionMalfToggleNightVision" or "ToggleNightVision")
+                    nightVisionToggles++;
+            }
+
+            Assert.That(nightVisionToggles, Is.EqualTo(1),
+                "Camera upgrade should grant exactly one night-vision toggle (no duplicate)");
         });
 
         await pair.CleanReturnAsync();

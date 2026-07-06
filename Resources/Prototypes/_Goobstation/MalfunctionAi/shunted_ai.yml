@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2026 Jonikibaka
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 # The entity a Malfunction AI's consciousness lives in while shunted into a hacked APC.
 # Parented to the APC on spawn: destroying the APC destroys the presence (and the player ghosts).
 # Deliberately has no sprite: the crew should not be able to tell which APC the AI is hiding in.

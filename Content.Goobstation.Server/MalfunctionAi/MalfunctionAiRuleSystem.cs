@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2026 Jonikibaka
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Goobstation.Server.MalfunctionAi;
 using Content.Goobstation.Server.MalfunctionAi;
 using Content.Server.AlertLevel;
@@ -191,5 +195,8 @@ public sealed partial class MalfunctionAiRuleSystem : GameRuleSystem<Malfunction
 
         // Mark the Doomsday objective as completed for the AI's mind.
         _codeCondition.SetCompleted(ai, "MalfunctionAiDoomsdayObjective");
+
+        // The station is wiped: end the round.
+        GameTicker.EndRound(Loc.GetString("malfunction-ai-round-end-doomsday"));
     }
 }

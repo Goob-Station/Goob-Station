@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2026 Jonikibaka
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Administration.Managers;
 using Content.Server.Antag;
 using Content.Shared.Administration;

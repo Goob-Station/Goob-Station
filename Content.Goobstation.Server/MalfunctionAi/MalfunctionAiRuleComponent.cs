@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2026 Jonikibaka
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Goobstation.Server.MalfunctionAi;
 using Content.Shared.Silicons.StationAi;
 using Robust.Shared.Audio;

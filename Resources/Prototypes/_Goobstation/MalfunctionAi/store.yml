@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2026 Jonikibaka
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 # Malfunction AI ability store: abilities are bought for processing power (CPU),
 # which accrues passively (up to a cap) and from hacking APCs.
 
@@ -127,23 +131,6 @@
   productEvent: !type:MalfDecryptSyndicateKeysEvent
   raiseProductEventOnUser: true
   priority: 4
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-
-- type: listing
-  id: MalfAiPlasmaFlood
-  name: malfunction-ai-listing-plasma-flood-name
-  description: malfunction-ai-listing-plasma-flood-desc
-  categories:
-  - MalfAiAbilities
-  cost:
-    MalfCpu: 100
-  icon:
-    sprite: Structures/Storage/canister.rsi
-    state: orange
-  productAction: ActionMalfPlasmaFlood
-  priority: 3
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1

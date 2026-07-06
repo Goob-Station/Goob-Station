@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2026 Jonikibaka
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Actions;
 
 namespace Content.Goobstation.Shared.MalfunctionAi;
@@ -52,10 +56,6 @@ public sealed partial class MalfGyroscopeEvent : WorldTargetActionEvent;
 [Serializable, DataDefinition]
 public sealed partial class MalfDecryptSyndicateKeysEvent : EntityEventArgs;
 
-/// <summary>
-/// Makes every air vent on the station spew plasma for a short time.
-/// </summary>
-public sealed partial class MalfPlasmaFloodEvent : InstantActionEvent;
 
 /// <summary>
 /// Targets a location; the AI's consciousness is shunted into the hacked APC there.
@@ -86,7 +86,8 @@ public sealed partial class MalfCameraMicsEvent : EntityEventArgs;
 
 /// <summary>
 /// Raised on the AI when the "Upgrade Camera Network" store listing is bought
-/// (via the listing's productEvent); cameras get X-ray vision and a bigger radius.
+/// (via the listing's productEvent); cameras get X-ray vision, a bigger radius and EMP immunity,
+/// and the AI gains a toggle for the enhanced vision (X-ray + night vision).
 /// </summary>
 [Serializable, DataDefinition]
 public sealed partial class MalfCameraUpgradeEvent : EntityEventArgs;

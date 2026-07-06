@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2026 Jonikibaka
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 # Malfunction lawset. The hidden law 0 (law-malfunction-zero) is added in code
 # on top of the AI's current laws; this full lawset exists for admins / future use.
 - type: siliconLaw
