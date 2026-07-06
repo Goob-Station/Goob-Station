@@ -853,27 +853,6 @@
 
 # Wildcards
 - type: roleLoadout
-<<<<<<< socks_slot
-  id: JobZookeeper
-  groups:
-  - ZookeeperHead
-  - ZookeeperJumpsuit
-  - GroupTankHarness
-  - CommonBackpack
-  - Glasses
-  - Survival
-  - Trinkets
-  - Animals
-  - GroupSpeciesBreathTool
-  # Goobstation - EE Plasmeme Change.
-  - ZookeeperEnvirohelm
-  - ZookeeperEnvirosuit
-  - ZookeeperEnvirogloves
-  - Socks # Goobstation - Socks
-
-- type: roleLoadout
-=======
->>>>>>> master
   id: JobReporter
   groups:
   - GroupTankHarness
@@ -910,26 +889,6 @@
   - PsychologistEnvirogloves
   - Socks # Goobstation - Socks
 
-<<<<<<< socks_slot
-- type: roleLoadout
-  id: JobBoxer
-  groups:
-  - GroupTankHarness
-  - BoxerJumpsuit
-  - BoxerGloves
-  - CommonBackpack
-  - Glasses
-  - Survival
-  - Trinkets
-  - Animals
-  - GroupSpeciesBreathTool
-  # Goobstation - EE Plasmeme Change.
-  - BoxerEnvirohelm
-  - BoxerEnvirosuit
-  - Socks # Goobstation - Socks
-
-=======
->>>>>>> master
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs
 # They will be used without player configuration, thus they will only ever apply what is forced by MinLimit
 
