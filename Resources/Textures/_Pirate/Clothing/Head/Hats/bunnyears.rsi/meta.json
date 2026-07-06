@@ -13,6 +13,13 @@
     {
       "name": "equipped-HELMET",
       "directions": 4
+    },
+    {
+      "name": "dark"
+    },
+    {
+      "name": "dark-equipped-HELMET",
+      "directions": 4
     }
   ]
 }

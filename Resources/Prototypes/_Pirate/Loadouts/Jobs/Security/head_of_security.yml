@@ -3,9 +3,3 @@
   id: HeadOfSecurityBlueSkirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtSecurityHosBlue
-
-# Head - капелюхи
-- type: loadout
-  id: HeadOfSecurityBunnyears
-  equipment:
-    head: ClothingHeadHatBunnyearsHOS

@@ -37,3 +37,4 @@ loadout-group-mantis-Eyes = Окуляри Мантіса
 loadout-group-mantis-Neck = Нашийний одяг Мантіса
 loadout-group-mantis-Ears = Гарнітура Мантіса
 loadout-group-mantis-Mask = Маска Мантіса
+loadout-group-service-worker-head = Головний убір сервісника

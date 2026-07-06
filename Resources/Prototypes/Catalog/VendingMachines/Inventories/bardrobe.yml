@@ -40,7 +40,7 @@
     ClothingOuterVest: 2
     ClothingBeltBandolier: 2
     ClothingEyesGlassesSunglasses: 2
-    ClothingHeadHatBunnyearsBar: 2 # Pirate
+    ClothingHeadHatBunnyearsDark: 2 # Pirate
     Eftpos: 4 #Pirate banking
   contrabandInventory:
     ToyFigurineBartender: 1

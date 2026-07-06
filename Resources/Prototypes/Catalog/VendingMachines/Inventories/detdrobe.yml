@@ -60,8 +60,6 @@
     ClothingHandsGlovesLatex: 2
     ClothingHeadsetAltSecurityRegular: 2 # Goobstation
     ClothingHeadsetSecurity: 2
-    ClothingHeadHatBunnyearsDetective: 1 # Pirate
-    ClothingHeadHatBunnyearsDetectiveNoir: 1 # Pirate
   contrabandInventory:
     ToyFigurineDetective: 1
   emaggedInventory: # Goobstation
