@@ -290,3 +290,19 @@
   - type: Sprite
     sprite: Objects/Decoration/Flora/flora_treeslight.rsi
     state: tree06
+
+- type: entity
+  parent: BaseStructure
+  id: Bush
+  components:
+  - type: Sprite
+    sprite: _Pirate/Objects/Decoration/Flora/bush.rsi
+    state: bush01
+
+- type: entity
+  parent: BaseStructure
+  id: Hedge
+  components:
+  - type: Sprite
+    sprite: _Pirate/Objects/Decoration/Flora/hedge.rsi
+    state: icon
