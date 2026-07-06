@@ -705,9 +705,9 @@
   suffix: indestructible
   components:
     - type: Sprite
-      sprite: Structures/Walls/plastitanium.rsi
+      sprite: _Pirate/Structures/Walls/plastitanium.rsi # Pirate
     - type: Icon
-      sprite: Structures/Walls/plastitanium.rsi
+      sprite: _Pirate/Structures/Walls/plastitanium.rsi # Pirate
     - type: IconSmooth
       key: walls
       base: plastitanium
@@ -813,9 +813,9 @@
   name: reinforced wall
   components:
   - type: Sprite
-    sprite: Structures/Walls/solid.rsi
+    sprite: _Pirate/Structures/Walls/solid.rsi # Pirate Changes
   - type: Icon
-    sprite: Structures/Walls/solid.rsi
+    sprite: _Pirate/Structures/Walls/solid.rsi # Pirate Changes
     state: rgeneric
   - type: Construction
     graph: Girder
@@ -948,10 +948,10 @@
     - Diagonal
   - type: Sprite
     drawdepth: Walls
-    sprite: Structures/Walls/reinforced_diagonal.rsi
+    sprite: _Pirate/Structures/Walls/reinforced_diagonal.rsi # Pirate
     state: state0
   - type: Icon
-    sprite: Structures/Walls/reinforced_diagonal.rsi
+    sprite: _Pirate/Structures/Walls/reinforced_diagonal.rsi # Pirate
     state: state0
   - type: Damageable
     damageContainer: StructuralInorganic
@@ -1253,7 +1253,7 @@
   name: solid wall
   components:
   - type: Sprite
-    sprite: Structures/Walls/solid.rsi
+    sprite: _Pirate/Structures/Walls/solid.rsi # Pirate
   - type: WallReplacementMarker
   - type: Construction
     graph: Girder
@@ -1308,10 +1308,10 @@
   components:
   - type: Sprite
     drawdepth: Walls
-    sprite: Structures/Walls/solid_diagonal.rsi
+    sprite: _Pirate/Structures/Walls/solid_diagonal.rsi # Pirate
     state: state0
   - type: Icon
-    sprite: Structures/Walls/solid_diagonal.rsi
+    sprite: _Pirate/Structures/Walls/solid_diagonal.rsi # Pirate
     state: state0
   - type: Destructible
     thresholds:

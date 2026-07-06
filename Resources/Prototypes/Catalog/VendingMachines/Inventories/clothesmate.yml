@@ -166,7 +166,7 @@
     ClothingNeckPonchoSmallPurple: 3 # Monolith
     ClothingNeckPonchoSmallBlack: 3 # Monolith
     ClothingNeckPonchoSmallWhite: 3 # Monolith
-    ClothingHeadHatBunnyearsStandard: 3 # Pirate
+    ClothingHeadHatBunnyears: 3 # Pirate
     # DO NOT ADD MORE, USE UNIFORM DYING
   contrabandInventory:
     ClothingMaskNeckGaiter: 2

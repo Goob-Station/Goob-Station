@@ -1,0 +1,23 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from SPLURT-station (space station 13)",
+    "size": {
+        "x": 64,
+        "y": 64
+    },
+    "states": [
+        {
+            "name": "bush01"
+        },
+        {
+            "name": "bush02"
+        },
+        {
+            "name": "bush03"
+        },
+        {
+            "name": "bush04"
+        }
+    ]
+}

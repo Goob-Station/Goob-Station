@@ -1,0 +1,62 @@
+{
+    "version": 1,
+    "license": "CC0-1.0",
+    "copyright": "Taken from SPLURT-station (space station 13)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "sidin_box"
+        },
+        {
+            "name": "sidin_corner_ne"
+        },
+        {
+            "name": "sidin_corner_se"
+        },
+        {
+            "name": "sidin_corner_nw"
+        },
+        {
+            "name": "sidin_corner_sw"
+        },
+        {
+            "name": "sidin_end_n"
+        },
+        {
+            "name": "sidin_end_e"
+        },
+        {
+            "name": "sidin_end_s"
+        },
+        {
+            "name": "sidin_end_w"
+        },
+        {
+            "name": "sidin_line_n"
+        },
+        {
+            "name": "sidin_line_e"
+        },
+        {
+            "name": "sidin_line_s"
+        },
+        {
+            "name": "sidin_line_w"
+        },
+        {
+            "name": "sidin_inner_ne"
+        },
+        {
+            "name": "sidin_inner_se"
+        },
+        {
+            "name": "sidin_inner_nw"
+        },
+        {
+            "name": "sidin_inner_sw"
+        }
+    ]
+}

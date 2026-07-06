@@ -1,0 +1,10 @@
+# Head
+- type: loadout
+  id: Bunnyears
+  equipment:
+    head: ClothingHeadHatBunnyears
+
+- type: loadout
+  id: BunnyearsDark
+  equipment:
+    head: ClothingHeadHatBunnyearsDark

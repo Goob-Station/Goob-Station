@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by Saivox for Saivox, from Saivox with Saivox",
+    "size": {
+      "x": 39,
+      "y": 35
+    },
+    "states": [
+        {
+          "name": "animated",
+          "delays": [
+            [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2]
+          ]
+        }
+      ]
+  }

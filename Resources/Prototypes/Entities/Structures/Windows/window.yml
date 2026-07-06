@@ -73,9 +73,9 @@
       - Window
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/window.rsi
+    sprite: _Pirate/Structures/Windows/window.rsi # Pirate Changes
   - type: Icon
-    sprite: Structures/Windows/window.rsi
+    sprite: _Pirate/Structures/Windows/window.rsi # Pirate Changes
     state: full
   - type: Physics
     bodyType: Static
@@ -156,9 +156,9 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/tinted_window.rsi
+    sprite: _Pirate/Structures/Windows/tinted_window.rsi # Pirate
   - type: Icon
-    sprite: Structures/Windows/tinted_window.rsi
+    sprite: _Pirate/Structures/Windows/tinted_window.rsi # Pirate
   - type: IconSmooth
     base: twindow
   - type: Construction
@@ -324,7 +324,7 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/window_diagonal.rsi
+    sprite: _Pirate/Structures/Windows/window_diagonal.rsi # Pirate Changes
     state: state0
   - type: Tag
     tags:
@@ -335,7 +335,7 @@
     key: walls # Pirate
     base: state
   - type: Icon
-    sprite: Structures/Windows/window_diagonal.rsi
+    sprite: _Pirate/Structures/Windows/window_diagonal.rsi # Pirate Changes
     state: state0
   - type: Fixtures
     fixtures:
