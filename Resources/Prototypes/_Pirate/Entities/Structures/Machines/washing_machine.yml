@@ -24,13 +24,13 @@
     cooldown: 6
     bluntDamagePerSecond: 12
     waterSprayAmount: 150
-  - type: RunoffDrain
     washLoopSound:
       path: /Audio/_Pirate/Machines/washing_loop.ogg
       params:
         loop: true
     washFinishedSound:
       path: /Audio/_Pirate/Machines/washing_open.ogg
+  - type: RunoffDrain
   - type: EntityStorage
     isCollidableWhenOpen: false
     open: false

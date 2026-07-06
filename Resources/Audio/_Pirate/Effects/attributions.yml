@@ -16,8 +16,8 @@
 
 - files:
   - Footsteps/wet_shoes_step.ogg
-  license: "GPL-3.0-or-later"
-  copyright: "Taken from TauCeti Classic"
+  license: "Custom"
+  copyright: "GPL-3.0-or-later, taken from TauCeti Classic"
   source: "https://github.com/TauCetiStation/TauCetiClassic/blob/master/sound/effects/mob/footstep/wet_shoes_step.ogg"
 
 - files: ["fpv_drone_static.ogg", "fpv_drone_flyby.ogg"]
