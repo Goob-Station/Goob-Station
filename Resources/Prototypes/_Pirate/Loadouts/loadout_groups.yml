@@ -731,6 +731,16 @@
   subgroups:
   - PiratePassengerOuterClothing
 
+# Сервісний працівник
+- type: loadoutGroup
+  id: ServiceWorkerHead
+  name: loadout-group-service-worker-head
+  minLimit: 0
+  loadouts:
+  - Bunnyears
+  - BunnyearsDark
+  subgroups:
+  - BartenderHead
 
 
 ## Cargo - Карго

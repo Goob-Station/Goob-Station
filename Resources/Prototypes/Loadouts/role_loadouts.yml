@@ -220,6 +220,7 @@
   id: JobServiceWorker
   groups:
   - GroupTankHarness
+  - ServiceWorkerHead # Pirate
   - BartenderJumpsuit
   - CommonBackpack
   - Glasses

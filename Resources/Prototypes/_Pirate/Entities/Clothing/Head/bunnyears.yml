@@ -1,7 +1,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunnyears
-  name: bunnyears
+  name: кролячі вушка
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/bunnyears.rsi
@@ -16,7 +16,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBunnyearsDark
-  name: dark bunnyears
+  name: темні кролячі вушка
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/bunnyears.rsi
