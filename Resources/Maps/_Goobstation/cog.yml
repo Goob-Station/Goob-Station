@@ -21135,7 +21135,7 @@ entities:
       - Arsenal
       - Experimental
       - CivilianServices
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 22568
 - proto: BananaPhoneInstrument
   entities:
@@ -21313,7 +21313,7 @@ entities:
       rot: -31.415926535897945 rad
       pos: 1.474453,-68.41351
       parent: 2
-- proto: BaseChemistryEmptyVial
+- proto: ChemistryEmptyVial
   entities:
   - uid: 1280
     components:
@@ -97143,7 +97143,7 @@ entities:
     - type: Transform
       pos: 33.51501,-6.2675023
       parent: 2
-- proto: EnergyChemDispenser
+- proto: ChemDispenser
   entities:
   - uid: 15505
     components:
@@ -148375,7 +148375,7 @@ entities:
     - type: Transform
       pos: -33.443954,20.520542
       parent: 2
-- proto: MaterialSilo
+- proto: MachineMaterialSilo
   entities:
   - uid: 22568
     components:
@@ -148385,14 +148385,14 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         1251:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
+        - - OreSilo
+          - OreSiloClient
         23712:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
+        - - OreSilo
+          - OreSiloClient
         30340:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
+        - - OreSilo
+          - OreSiloClient
 - proto: Mattress
   entities:
   - uid: 22569
@@ -155649,7 +155649,7 @@ entities:
       - Arsenal
       - Experimental
       - CivilianServices
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 22568
 - proto: ProtolatheMachineCircuitboard
   entities:
@@ -164925,7 +164925,7 @@ entities:
       - Arsenal
       - Experimental
       - CivilianServices
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 22568
 - proto: ShardGlass
   entities:

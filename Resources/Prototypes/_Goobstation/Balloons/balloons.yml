@@ -6,7 +6,7 @@
 - type: entity
   name: base balloon
   parent: BaseStructureDynamic
-  id: BaseBalloon       # Base balloon
+  id: BaseBalloonTD      # Base balloon
   abstract: true # Make sure it doesn't appear
   components:
   - type: Sprite
@@ -42,7 +42,7 @@
 # Red Balloon
 - type: entity
   name: red balloon
-  parent: BaseBalloon
+  parent: BaseBalloonTD
   description: The weakest balloon.
   id: RedBalloon
   components:
@@ -71,7 +71,7 @@
 # Blue Balloon
 - type: entity
   name: blue balloon
-  parent: BaseBalloon
+  parent: BaseBalloonTD
   description: A pretty chill balloon.
   id: BlueBalloon
   components:
@@ -103,7 +103,7 @@
 # Green Balloon
 - type: entity
   name: green balloon
-  parent: BaseBalloon
+  parent: BaseBalloonTD
   description: The most strategically minded balloon of the bunch. Capable of planning advanced waves, if only it had a track to follow.
   id: GreenBalloon
   components:
@@ -135,7 +135,7 @@
 # Yellow Balloon
 - type: entity
   name: yellow balloon
-  parent: BaseBalloon
+  parent: BaseBalloonTD
   description: The greediest balloon, always flaunting its wealth to the other balloons.
   id: YellowBalloon
   components:
@@ -167,7 +167,7 @@
 # Pink Balloon
 - type: entity
   name: pink balloon
-  parent: BaseBalloon
+  parent: BaseBalloonTD
   description: The most annoying and insufferable balloon.
   id: PinkBalloon
   components:
@@ -199,7 +199,7 @@
 # Black Balloon
 - type: entity
   name: black balloon
-  parent: BaseBalloon
+  parent: BaseBalloonTD
   description: The edgiest balloon, never grew out of its emo phase. Immune to heat and shock damage!
   id: BlackBalloon
   components:
@@ -232,7 +232,7 @@
 # White Balloon
 - type: entity
   name: white balloon
-  parent: BaseBalloon
+  parent: BaseBalloonTD
   description: The most emotionless balloon. Isn't even given a proper name, only a purpose. Immune to cold damage!
   id: WhiteBalloon
   components:
@@ -266,7 +266,7 @@
 # Zebra Balloon
 - type: entity
   name: zebra balloon
-  parent: BaseBalloon
+  parent: BaseBalloonTD
   description: Belongs in a zoo. Immune to all burn damage!
   id: ZebraBalloon
   components:
@@ -303,7 +303,7 @@
 # steel balloon
 - type: entity
   name: steel balloon
-  parent: BaseBalloon
+  parent: BaseBalloonTD
   description: The most armored balloon. So feared that even animals don't attack it. Immune to brute damage!
   id: SteelBalloon
   components:
@@ -340,7 +340,7 @@
 # rainbow balloon
 - type: entity
   name: rainbow balloon
-  parent: BaseBalloon
+  parent: BaseBalloonTD
   description: The most evil balloon of them all. Don't let the pretty colors fool you.
   id: RainbowBalloon
   components:
@@ -371,7 +371,7 @@
         # Bloons 2
 - type: entity
   name: carp balloon
-  parent: BaseBalloon
+  parent: BaseBalloonTD
   description: Is it a combination of balloon and carp DNA? Or a balloon in a carp suit? Nobody knows.
   id: CeramicBalloon
   components:
@@ -403,7 +403,7 @@
 # This fucking kills server performance
 #- type: entity
 #  name: dragon zepplin
-#  parent: BaseBalloon
+#  parent: BaseBalloonTD
 #  description: Tier 1 Moab Class Balloon. Summons four carp balloons on death.
 #  id: MoabBalloon
 #  components:
@@ -438,7 +438,7 @@
 #
 #- type: entity
 #  name: B.R.B.
-#  parent: BaseBalloon
+#  parent: BaseBalloonTD
 #  description: Tier 2 Moab Class Balloon. Stands for Blood Red Balloon.
 #  id: BfbBalloon
 #  components:
@@ -471,7 +471,7 @@
 #
 #- type: entity
 #  name: Z.O.M.B.
-#  parent: BaseBalloon
+#  parent: BaseBalloonTD
 #  description: Tier 3 Moab Class Balloon. Stands for Zoh Oh Mbee Balloon. The Acronym department was underfunded.
 #  id: ZomgBalloon
 #  components:

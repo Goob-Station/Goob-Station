@@ -130,7 +130,7 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
         {
             _configurator = configurator;
             _keyBindingName = keyBindingName;
-            _label = new RichTextLabel { StyleClasses = { StyleNano.StyleClassItemStatus } };
+            _label = new RichTextLabel { StyleClasses = { StyleClass.ItemStatus } };
             if (_configurator.ShowLabel) // Shitmed - Starlight Abductors: Allow hiding the label on multitools that dont need List mode.
                 AddChild(_label);
         }

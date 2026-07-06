@@ -19,8 +19,8 @@
       - chest
       organs:
         brain: OrganHumanBrain
-        eyes: OrganHumanEyes
-    chest:
+        eyes: OrganVoxEyes
+    chest: # Goob
       part: ChestVox
       connections:
       - right arm
@@ -37,8 +37,8 @@
       - left leg
       organs:
         stomach: OrganVoxStomach
-        liver: OrganHumanLiver
-        kidneys: OrganHumanKidneys
+        liver: OrganVoxLiver
+        kidneys: OrganVoxKidneys
     right arm:
       part: RightArmVox
       connections:

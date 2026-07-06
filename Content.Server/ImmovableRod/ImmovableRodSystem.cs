@@ -31,6 +31,7 @@ using Content.Shared.Body.Components;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Popups;
+using Content.Shared.Storage.Components;
 using Content.Shared.Tag;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
@@ -172,7 +173,9 @@ public sealed class ImmovableRodSystem : EntitySystem
             return;
         }
 
-        _entityStorage.EmptyContents(ent); // Goobstation
+        // trycomp cause otherwise tests log emptycontents errors. goob.
+        if (TryComp<EntityStorageComponent>(ent, out var entStore))// Goobstation
+            _entityStorage.EmptyContents(ent, entStore); // Goobstation
 
         _destructible.DestroyEntity(ent);
     }

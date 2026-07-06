@@ -856,7 +856,7 @@
   - type: EntityTargetAction
     whitelist:
       components:
-      - Food
+      - Edible
     canTargetSelf: false
     event: !type:AbsorbBiomatterEvent {}
   - type: ChangelingAction

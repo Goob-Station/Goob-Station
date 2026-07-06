@@ -106,8 +106,6 @@
 
 using Content.Server.Body.Components;
 using Content.Server.Medical.Components;
-using Content.Server.PowerCell;
-using Content.Server.Temperature.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
@@ -120,11 +118,14 @@ using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.MedicalScanner;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
+using Content.Shared.PowerCell;
+using Content.Shared.Temperature.Components;
 using Content.Shared.Traits.Assorted;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
+using Content.Server.Body.Systems;
 
 // Shitmed Change
 using Content.Shared._Shitmed.Medical.HealthAnalyzer;
@@ -159,6 +160,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly TransformSystem _transformSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
     [Dependency] private readonly WoundSystem _woundSystem = default!; // Shitmed Change
     [Dependency] private readonly TraumaSystem _trauma = default!; // Shitmed Change
     [Dependency] private readonly MobThresholdSystem _threshold = default!; // Goobstation
@@ -229,7 +231,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     /// </summary>
     private void OnAfterInteract(Entity<HealthAnalyzerComponent> uid, ref AfterInteractEvent args)
     {
-        if (args.Target == null || !args.CanReach || !HasComp<MobStateComponent>(args.Target) || !_cell.HasDrawCharge(uid, user: args.User))
+        if (args.Target == null || !args.CanReach || !HasComp<MobStateComponent>(args.Target) || !_cell.HasDrawCharge(uid.Owner, user: args.User))
             return;
 
         _audio.PlayPvs(uid.Comp.ScanningBeginSound, uid);
@@ -249,7 +251,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
 
     private void OnDoAfter(Entity<HealthAnalyzerComponent> uid, ref HealthAnalyzerDoAfterEvent args)
     {
-        if (args.Handled || args.Cancelled || args.Target == null || !_cell.HasDrawCharge(uid, user: args.User))
+        if (args.Handled || args.Cancelled || args.Target == null || !_cell.HasDrawCharge(uid.Owner, user: args.User))
             return;
 
         if (!uid.Comp.Silent)
@@ -385,16 +387,21 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             bodyTemperature = temp.CurrentTemperature;
 
         var bloodAmount = float.NaN;
+        var unrevivable = false;
+        var bloodLow = false; // Goobstation
 
         if (TryComp<BloodstreamComponent>(target, out var bloodstream) &&
             _solutionContainerSystem.ResolveSolution(target, bloodstream.BloodSolutionName,
                 ref bloodstream.BloodSolution, out var bloodSolution))
+        {
             bloodAmount = bloodSolution.FillFraction;
-
-        var bodyStatus = _woundSystem.GetDamageableStatesOnBody(target);
-        Dictionary<TargetBodyPart, bool> bleeding; // Goobstation - removed unnecessary allocation
+            bloodLow = bloodAmount < bloodstream.BloodlossThreshold; // Goobstation
+        }
 
         // Goobstation start
+        var bodyStatus = _woundSystem.GetDamageableStatesOnBody(target); // Goob
+        Dictionary<TargetBodyPart, bool> bleeding; // Goobstation - removed unnecessary allocation
+
         var vitalDamage = FixedPoint2.Zero;
         if (TryComp<DamageableComponent>(target, out var damageableComponent))
             vitalDamage = _threshold.CheckVitalDamage(target, damageableComponent);
@@ -403,7 +410,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         switch (mode)
         {
             case HealthAnalyzerMode.Body:
-                var unrevivable = false;
+                unrevivable = false;
                 FetchBodyData(target, body, out var traumas, out var pain, out bleeding);
                 if (TryComp<UnrevivableComponent>(target, out var unrevivableComp) && unrevivableComp.Analyzable)
                     unrevivable = true;
@@ -419,6 +426,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
                     vitalDamage, // Goobstation
                     traumas,
                     pain,
+                    bloodLow, // Goobstation
                     part != null ? GetNetEntity(part) : null
                 ));
                 break;

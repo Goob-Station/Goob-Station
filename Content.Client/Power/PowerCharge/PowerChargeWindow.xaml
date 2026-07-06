@@ -29,7 +29,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                 <Label
                     Text="{Loc 'power-charge-window-power'}"
                     HorizontalExpand="True"
-                    StyleClasses="StatusFieldTitle" />
+                    StyleClasses="highlight" />
 
                 <BoxContainer
                     Orientation="Horizontal"
@@ -60,21 +60,21 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                 <!-- Status -->
                 <Label
                     Text="{Loc 'power-charge-window-status'}"
-                    StyleClasses="StatusFieldTitle" />
+                    StyleClasses="highlight" />
                 <Label Name="StatusLabel"
                     Text="{Loc 'power-charge-window-status-fully-charged'}" />
 
                 <!-- ETA -->
                 <Label
                     Text="{Loc 'power-charge-window-eta'}"
-                    StyleClasses="StatusFieldTitle" />
+                    StyleClasses="highlight" />
                 <Label Name="EtaLabel"
                     Text="N/A" />
 
                 <!-- Charge -->
                 <Label
                     Text="{Loc 'power-charge-window-charge'}"
-                    StyleClasses="StatusFieldTitle" />
+                    StyleClasses="highlight" />
 
                 <ProgressBar Name="ChargeBar"
                     MaxValue="255">

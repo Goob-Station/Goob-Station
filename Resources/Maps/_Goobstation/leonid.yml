@@ -40509,7 +40509,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 18.635092,-53.639267
       parent: 2
-- proto: BaseChemistryEmptyVial
+- proto: ChemistryEmptyVial
   entities:
   - uid: 4864
     components:
@@ -42451,7 +42451,7 @@ entities:
     - type: Transform
       pos: -60.75722,-52.476006
       parent: 2
-- proto: BoxFolderBlue
+- proto: BoxFolderBlueEmpty
   entities:
   - uid: 5161
     components:
@@ -99603,7 +99603,7 @@ entities:
     - type: Transform
       pos: -57.5,-49.5
       parent: 2
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 24372
 - proto: CleanerDispenser
   entities:
@@ -114848,7 +114848,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -0.8063518,-47.42559
       parent: 2
-- proto: EnergyChemDispenser
+- proto: ChemDispenser
   entities:
   - uid: 16091
     components:
@@ -114923,7 +114923,7 @@ entities:
     - type: Transform
       pos: -67.5,-49.5
       parent: 2
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 24372
 - proto: ExtendedEmergencyNitrogenTankFilled
   entities:
@@ -156150,16 +156150,6 @@ entities:
       angularDamping: 0
       linearDamping: 0
       bodyType: Static
-- proto: GygaxChassis
-  entities:
-  - uid: 23851
-    components:
-    - type: Transform
-      pos: -71.555115,-49.870975
-      parent: 2
-    - type: Construction
-      step: 3
-      edge: 0
 - proto: GyroscopeUnanchored
   entities:
   - uid: 23852
@@ -159663,28 +159653,6 @@ entities:
     - type: Transform
       pos: 6.5,71.5
       parent: 2
-  - uid: 24259
-    components:
-    - type: Transform
-      pos: 1.5,54.5
-      parent: 2
-    - type: MindContainer
-    - type: InputMover
-    - type: MobMover
-    - type: MovementSpeedModifier
-    - type: Speech
-      suffixSpeechVerbs:
-        chat-speech-verb-suffix-exclamation-strong: DefaultExclamationStrong
-        chat-speech-verb-suffix-exclamation: DefaultExclamation
-        chat-speech-verb-suffix-question: DefaultQuestion
-        chat-speech-verb-suffix-stutter: DefaultStutter
-        chat-speech-verb-suffix-mumble: DefaultMumble
-      allowedEmotes: []
-    - type: Emoting
-    - type: Examiner
-    - type: Eye
-    - type: TypingIndicator
-    - type: Appearance
   - uid: 24260
     components:
     - type: Transform
@@ -160280,7 +160248,7 @@ entities:
     - type: Transform
       pos: -82.30938,71.82704
       parent: 2
-- proto: MaterialSilo
+- proto: MachineMaterialSilo
   entities:
   - uid: 24372
     components:
@@ -160290,20 +160258,20 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         24393:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
+        - - OreSilo
+          - OreSiloClient
         28395:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
+        - - OreSilo
+          - OreSiloClient
         28396:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
+        - - OreSilo
+          - OreSiloClient
         18514:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
+        - - OreSilo
+          - OreSiloClient
         16140:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
+        - - OreSilo
+          - OreSiloClient
 - proto: MaterialWoodPlank
   entities:
   - uid: 24373
@@ -160427,7 +160395,7 @@ entities:
     - type: Transform
       pos: -61.5,-23.5
       parent: 2
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 24372
 - proto: MedkitAdvancedFilled
   entities:
@@ -183769,7 +183737,7 @@ entities:
       - Arsenal
       - Experimental
       - CivilianServices
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 24372
   - uid: 28396
     components:
@@ -183782,7 +183750,7 @@ entities:
       - Arsenal
       - Experimental
       - CivilianServices
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 24372
 - proto: SeedExtractor
   entities:
