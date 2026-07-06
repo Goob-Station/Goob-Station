@@ -20,8 +20,6 @@
     state: icon
   - type: Item
     size: Normal
-  - type: Food
-    requiresSpecialDigestion: true
   - type: SolutionContainerManager
     solutions:
       food:
