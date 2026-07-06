@@ -14,6 +14,7 @@ using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
@@ -44,6 +45,7 @@ public abstract class SharedWetnessSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = null!;
     [Dependency] private readonly SharedStainSystem _stains = null!;
     [Dependency] private readonly INetManager _net = null!;
+    [Dependency] private readonly IPrototypeManager _proto = null!;
     [Dependency] private readonly IRobustRandom _random = null!;
     [Dependency] protected readonly IGameTiming Timing = null!;
 
@@ -126,20 +128,17 @@ public abstract class SharedWetnessSystem : EntitySystem
         RemoveWetness(ent, ent.Comp.Wetness);
     }
 
-    /// <summary>Wets every wettable item worn in the given slots (showers, splashes, deep water).</summary>
-    public void WetEquippedSlots(EntityUid mob, SlotFlags slots, FixedPoint2 amount)
+    /// <summary>Collects the items worn in the given slots.</summary>
+    private List<EntityUid> GetWornItems(EntityUid mob, SlotFlags slots)
     {
-        if (!_inventory.TryGetContainerSlotEnumerator(mob, out var enumerator, slots))
-            return;
-
-        while (enumerator.NextItem(out var item))
+        var items = new List<EntityUid>();
+        if (_inventory.TryGetContainerSlotEnumerator(mob, out var enumerator, slots))
         {
-            if (TryComp<WettableComponent>(item, out var wettable))
-                AddWetness((item, wettable), amount);
-
-            // The same water event that wets also washes out stains.
-            _stains.DiluteStains(item, amount);
+            while (enumerator.NextItem(out var item))
+                items.Add(item);
         }
+
+        return items;
     }
 
     public bool IsWet(EntityUid uid)
@@ -156,9 +155,9 @@ public abstract class SharedWetnessSystem : EntitySystem
         if (args.Method != ReactionMethod.Touch || args.Reagent.ID != WaterReagent)
             return;
 
-        var volume = args.ReagentQuantity.Quantity;
-        AddWetness(ent, volume);
-        _stains.DiluteStains(ent.Owner, volume);
+        // A loose item soaks up what it can and washes its own stains; the rest pools beneath it.
+        var single = new List<EntityUid> { ent.Owner };
+        ApplyWater(ent.Owner, args.ReagentQuantity.Quantity, single, single);
     }
 
     // Owns the mob-level reagent touch for both wetness and stains (a (component, event) pair can
@@ -171,15 +170,141 @@ public abstract class SharedWetnessSystem : EntitySystem
         switch (args.Reagent.ID)
         {
             case WaterReagent:
-                var volume = args.ReagentQuantity.Quantity;
-                WetEquippedSlots(ent.Owner, SlotFlags.WITHOUT_POCKET, volume);
-                // Bare-body stains (feet/hands) live on the mob itself.
-                _stains.DiluteStains(ent.Owner, volume);
+                var worn = GetWornItems(ent.Owner, SlotFlags.WITHOUT_POCKET);
+                // Wetting spreads over worn clothing; washing also covers bare-body stains.
+                var washTargets = new List<EntityUid>(worn) { ent.Owner };
+                ApplyWater(ent.Owner, args.ReagentQuantity.Quantity, worn, washTargets);
                 break;
             case "SpaceCleaner":
                 _stains.CleanEntityAndEquipment(ent.Owner);
                 break;
         }
+    }
+
+    /// <summary>
+    /// Applies a water contact of <paramref name="water"/> units at <paramref name="at"/>: it soaks
+    /// into <paramref name="wetTargets"/> (spread evenly, overflowing from full items onto the rest)
+    /// and rinses stains off <paramref name="washTargets"/> (1u water per 1u stain, spread evenly).
+    /// The water that can't soak in anywhere, together with the washed-out stains, pools below as a
+    /// mixture — so a shower leaves, e.g., a red puddle while it rinses blood off someone.
+    /// </summary>
+    private void ApplyWater(EntityUid at, FixedPoint2 water, List<EntityUid> wetTargets, List<EntityUid> washTargets)
+    {
+        // Wetness, stain removal, and puddles are all server-authoritative.
+        if (water <= 0 || !_net.IsServer)
+            return;
+
+        var absorbed = DistributeWetness(wetTargets, water);
+        var runoff = CollectWashedStains(washTargets, water);
+
+        // "Excessive water that can't get on us" runs off with the washed-out stains.
+        var excess = water - absorbed;
+        if (excess > 0)
+            runoff.AddReagent(WaterReagent, excess);
+
+        if (runoff.Volume > 0)
+            _puddle.TrySpillAt(Transform(at).Coordinates, runoff, out _, sound: false);
+    }
+
+    /// <summary>
+    /// Spreads <paramref name="water"/> evenly across the wettable, unblocked items among
+    /// <paramref name="targets"/>, cascading each full item's share onto the ones that still have
+    /// spare capacity. Returns how much water was actually absorbed.
+    /// </summary>
+    private FixedPoint2 DistributeWetness(List<EntityUid> targets, FixedPoint2 water)
+    {
+        // Items that can still take water, with their remaining capacity and running allocation.
+        var items = new List<(Entity<WettableComponent> Ent, FixedPoint2 Cap, FixedPoint2 Alloc)>();
+        foreach (var target in targets)
+        {
+            if (!TryComp<WettableComponent>(target, out var wettable))
+                continue;
+
+            Entity<WettableComponent> ent = (target, wettable);
+            if (IsWetBlocked(ent))
+                continue;
+
+            var capacity = wettable.MaxWetness - wettable.Wetness;
+            if (capacity > 0)
+                items.Add((ent, capacity, FixedPoint2.Zero));
+        }
+
+        var remaining = water;
+        var progressed = true;
+        while (remaining > 0 && progressed)
+        {
+            progressed = false;
+
+            var open = 0;
+            foreach (var item in items)
+            {
+                if (item.Alloc < item.Cap)
+                    open++;
+            }
+
+            if (open == 0)
+                break;
+
+            var share = remaining / open;
+            if (share <= 0)
+                break;
+
+            for (var i = 0; i < items.Count; i++)
+            {
+                var item = items[i];
+                var free = item.Cap - item.Alloc;
+                if (free <= 0)
+                    continue;
+
+                var give = FixedPoint2.Min(share, free);
+                if (give <= 0)
+                    continue;
+
+                items[i] = (item.Ent, item.Cap, item.Alloc + give);
+                remaining -= give;
+                progressed = true;
+            }
+        }
+
+        var absorbed = FixedPoint2.Zero;
+        foreach (var item in items)
+        {
+            if (item.Alloc <= 0)
+                continue;
+
+            AddWetness(item.Ent, item.Alloc);
+            absorbed += item.Alloc;
+        }
+
+        return absorbed;
+    }
+
+    /// <summary>
+    /// Spreads <paramref name="water"/> evenly across whichever targets are actually stained (1u
+    /// water removes 1u stain) and returns the washed-out reagents.
+    /// </summary>
+    private Solution CollectWashedStains(List<EntityUid> targets, FixedPoint2 water)
+    {
+        var stained = new List<EntityUid>();
+        foreach (var target in targets)
+        {
+            if (_stains.GetStainVolume(target) > 0)
+                stained.Add(target);
+        }
+
+        var runoff = new Solution();
+        if (stained.Count == 0)
+            return runoff;
+
+        var share = water / stained.Count;
+        foreach (var item in stained)
+        {
+            var washed = _stains.WashStain(item, share);
+            if (washed != null)
+                runoff.AddSolution(washed, _proto);
+        }
+
+        return runoff;
     }
 
     #endregion

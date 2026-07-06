@@ -161,7 +161,8 @@ public partial class InventorySystem
 
         SubscribeLocalEvent<InventoryComponent, GetVerbsEvent<EquipmentVerb>>(OnGetEquipmentVerbs);
         SubscribeLocalEvent<InventoryComponent, GetVerbsEvent<InnateVerb>>(OnGetInnateVerbs);
-        SubscribeLocalEvent<InventoryComponent, SpilledOnEvent>(RelayInventoryEvent); // Pirate: stains
+        // Pirate: stains - SpilledOnEvent is handled centrally on the mob by SharedStainSystem
+        // (it distributes the spill across worn items itself), so it is no longer relayed here.
     }
 
     protected void RefRelayInventoryEvent<T>(EntityUid uid, InventoryComponent component, ref T args) where T : IInventoryRelayEvent
