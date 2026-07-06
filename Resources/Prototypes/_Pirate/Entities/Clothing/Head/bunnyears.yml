@@ -1,6 +1,6 @@
 - type: entity
   parent: ClothingHeadBase
-  id: ClothingHeadHatBunnyearsBase
+  id: ClothingHeadHatBunnyears
   name: bunnyears
   components:
   - type: Sprite
@@ -15,30 +15,15 @@
 
 - type: entity
   parent: ClothingHeadBase
-  id: ClothingHeadHatBunnyearsDoctor
-  name: medical bunnyears
+  id: ClothingHeadHatBunnyearsDark
+  name: dark bunnyears
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Hats/bunnyears.rsi
-    state: doctor
+    state: dark
   - type: Clothing
     sprite: _Pirate/Clothing/Head/Hats/bunnyears.rsi
     clothingVisuals:
       head:
-      - state: doctor-equipped-HELMET
-        offset: "0, 0.5"
-
-- type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadHatBunnyearsBar
-  name: bar bunnyears
-  components:
-  - type: Sprite
-    sprite: _Pirate/Clothing/Head/Hats/bunnyears.rsi
-    state: bar
-  - type: Clothing
-    sprite: _Pirate/Clothing/Head/Hats/bunnyears.rsi
-    clothingVisuals:
-      head:
-      - state: bar-equipped-HELMET
+      - state: dark-equipped-HELMET
         offset: "0, 0.5"
