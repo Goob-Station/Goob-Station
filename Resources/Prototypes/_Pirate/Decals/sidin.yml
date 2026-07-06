@@ -1,0 +1,118 @@
+- type: decal
+  id: SidinBox
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _Pirate/Decals/sidin.rsi
+    state: sidin_box
+
+- type: decal
+  id: SidinCornerNe
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _Pirate/Decals/sidin.rsi
+    state: sidin_corner_ne
+
+- type: decal
+  id: SidinCornerSe
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _Pirate/Decals/sidin.rsi
+    state: sidin_corner_se
+
+- type: decal
+  id: SidinCornerNw
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _Pirate/Decals/sidin.rsi
+    state: sidin_corner_nw
+
+- type: decal
+  id: SidinCornerSw
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _Pirate/Decals/sidin.rsi
+    state: sidin_corner_sw
+
+- type: decal
+  id: SidinInnerNe
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _Pirate/Decals/sidin.rsi
+    state: sidin_inner_ne
+
+- type: decal
+  id: SidinInnerSe
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _Pirate/Decals/sidin.rsi
+    state: sidin_inner_se
+
+- type: decal
+  id: SidinInnerNw
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _Pirate/Decals/sidin.rsi
+    state: sidin_inner_nw
+
+- type: decal
+  id: SidinInnerSw
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _Pirate/Decals/sidin.rsi
+    state: sidin_inner_sw
+
+- type: decal
+  id: SidinEndN
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _Pirate/Decals/sidin.rsi
+    state: sidin_end_n
+
+- type: decal
+  id: SidinEndE
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _Pirate/Decals/sidin.rsi
+    state: sidin_end_e
+
+- type: decal
+  id: SidinEndS
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _Pirate/Decals/sidin.rsi
+    state: sidin_end_s
+
+- type: decal
+  id: SidinEndW
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _Pirate/Decals/sidin.rsi
+    state: sidin_end_w
+
+- type: decal
+  id: SidinLineN
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _Pirate/Decals/sidin.rsi
+    state: sidin_line_n
+
+- type: decal
+  id: SidinLineE
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _Pirate/Decals/sidin.rsi
+    state: sidin_line_e
+
+- type: decal
+  id: SidinLineS
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _Pirate/Decals/sidin.rsi
+    state: sidin_line_s
+
+- type: decal
+  id: SidinLineW
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _Pirate/Decals/sidin.rsi
+    state: sidin_line_w

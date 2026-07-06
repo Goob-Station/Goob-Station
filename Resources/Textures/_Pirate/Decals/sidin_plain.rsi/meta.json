@@ -1,0 +1,62 @@
+{
+    "version": 1,
+    "license": "CC0-1.0",
+    "copyright": "Taken from SPLURT-station (space station 13)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "plain_box"
+        },
+        {
+            "name": "plain_corner_ne"
+        },
+        {
+            "name": "plain_corner_se"
+        },
+        {
+            "name": "plain_corner_nw"
+        },
+        {
+            "name": "plain_corner_sw"
+        },
+        {
+            "name": "plain_end_n"
+        },
+        {
+            "name": "plain_end_e"
+        },
+        {
+            "name": "plain_end_s"
+        },
+        {
+            "name": "plain_end_w"
+        },
+        {
+            "name": "plain_line_n"
+        },
+        {
+            "name": "plain_line_e"
+        },
+        {
+            "name": "plain_line_s"
+        },
+        {
+            "name": "plain_line_w"
+        },
+        {
+            "name": "plain_inner_ne"
+        },
+        {
+            "name": "plain_inner_se"
+        },
+        {
+            "name": "plain_inner_nw"
+        },
+        {
+            "name": "plain_inner_sw"
+        }
+    ]
+}

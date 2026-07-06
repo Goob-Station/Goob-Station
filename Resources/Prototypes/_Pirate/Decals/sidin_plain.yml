@@ -1,0 +1,118 @@
+- type: decal
+  id: PlainTrimplainBox
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _Pirate/Decals/sidin_plain.rsi
+    state: plain_box
+
+- type: decal
+  id: PlainTrimplainCornerNe
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _Pirate/Decals/sidin_plain.rsi
+    state: plain_corner_ne
+
+- type: decal
+  id: PlainTrimplainCornerSe
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _Pirate/Decals/sidin_plain.rsi
+    state: plain_corner_se
+
+- type: decal
+  id: PlainTrimplainCornerNw
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _Pirate/Decals/sidin_plain.rsi
+    state: plain_corner_nw
+
+- type: decal
+  id: PlainTrimplainCornerSw
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _Pirate/Decals/sidin_plain.rsi
+    state: plain_corner_sw
+
+- type: decal
+  id: PlainTrimplainInnerNe
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _Pirate/Decals/sidin_plain.rsi
+    state: plain_inner_ne
+
+- type: decal
+  id: PlainTrimplainInnerSe
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _Pirate/Decals/sidin_plain.rsi
+    state: plain_inner_se
+
+- type: decal
+  id: PlainTrimplainInnerNw
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _Pirate/Decals/sidin_plain.rsi
+    state: plain_inner_nw
+
+- type: decal
+  id: PlainTrimplainInnerSw
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _Pirate/Decals/sidin_plain.rsi
+    state: plain_inner_sw
+
+- type: decal
+  id: PlainTrimplainEndN
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _Pirate/Decals/sidin_plain.rsi
+    state: plain_end_n
+
+- type: decal
+  id: PlainTrimplainEndE
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _Pirate/Decals/sidin_plain.rsi
+    state: plain_end_e
+
+- type: decal
+  id: PlainTrimplainEndS
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _Pirate/Decals/sidin_plain.rsi
+    state: plain_end_s
+
+- type: decal
+  id: PlainTrimplainEndW
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _Pirate/Decals/sidin_plain.rsi
+    state: plain_end_w
+
+- type: decal
+  id: PlainTrimplainLineN
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _Pirate/Decals/sidin_plain.rsi
+    state: plain_line_n
+
+- type: decal
+  id: PlainTrimplainLineE
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _Pirate/Decals/sidin_plain.rsi
+    state: plain_line_e
+
+- type: decal
+  id: PlainTrimplainLineS
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _Pirate/Decals/sidin_plain.rsi
+    state: plain_line_s
+
+- type: decal
+  id: PlainTrimplainLineW
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _Pirate/Decals/sidin_plain.rsi
+    state: plain_line_w
