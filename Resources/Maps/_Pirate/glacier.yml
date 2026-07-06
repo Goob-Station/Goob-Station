@@ -90322,7 +90322,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: MaterialSilo
+- proto: MachineMaterialSilo
   entities:
   - uid: 12157
     components:

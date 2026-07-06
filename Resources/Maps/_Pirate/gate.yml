@@ -155626,7 +155626,7 @@ entities:
     - type: Transform
       pos: -19.146719,81.546844
       parent: 2
-- proto: MaterialSilo
+- proto: MachineMaterialSilo
   entities:
   - uid: 22968
     components:
