@@ -14,15 +14,13 @@
         offset: "0, 0.5"
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadHatBunnyears
   id: ClothingHeadHatBunnyearsDark
   name: темні кролячі вушка
   components:
   - type: Sprite
-    sprite: _Pirate/Clothing/Head/Hats/bunnyears.rsi
     state: dark
   - type: Clothing
-    sprite: _Pirate/Clothing/Head/Hats/bunnyears.rsi
     clothingVisuals:
       head:
       - state: dark-equipped-HELMET
