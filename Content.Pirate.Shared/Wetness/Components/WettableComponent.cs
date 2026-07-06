@@ -18,7 +18,7 @@ public sealed partial class WettableComponent : Component
 
     /// <summary>Maximum absorbed water.</summary>
     [DataField]
-    public FixedPoint2 MaxWetness = FixedPoint2.New(15);
+    public FixedPoint2 MaxWetness = FixedPoint2.New(20);
 
     /// <summary>Wetness required for the droplet visual.</summary>
     [DataField]
