@@ -5,9 +5,7 @@ using JetBrains.Annotations;
 namespace Content.Pirate.Server.Construction;
 
 /// <summary>
-/// Construction completion action that empties a named solution on the finished entity. Used so a
-/// freshly built shower starts with an empty tank and refills over time, while mapped showers keep
-/// the full tank they spawn with (mapped entities never traverse the build edge this runs on).
+/// Empties a solution after construction.
 /// </summary>
 [UsedImplicitly]
 [DataDefinition]

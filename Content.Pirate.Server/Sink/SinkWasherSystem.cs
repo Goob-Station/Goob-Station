@@ -84,7 +84,6 @@ public sealed class SinkWasherSystem : EntitySystem
             ? WashHands(ent, args.User)
             : _stains.TryCleanStain(target);
 
-        // A sink wash also leaves the item wet.
         if (target != args.User)
             TryWet(ent, target);
 

@@ -14,9 +14,7 @@ public record struct PirateMakeFootstepSoundEvent : IInventoryRelayEvent
     public SlotFlags TargetSlots => SlotFlags.WITHOUT_POCKET;
 
     /// <summary>
-    /// Set by worn gear whose movement sound replaces the normal footstep (e.g. wet shoes). When
-    /// non-null the mover plays this instead of the tile/shoe footstep, through the same footstep
-    /// audio path, so it uses the same cadence, volume, and prediction as a normal step.
+    /// Optional replacement for the normal footstep sound.
     /// </summary>
     public SoundSpecifier? OverrideSound;
 }

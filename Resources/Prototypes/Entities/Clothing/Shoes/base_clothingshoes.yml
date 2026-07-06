@@ -92,7 +92,7 @@
   #endregion Pirate: stains
   #region Pirate: wetness
   - type: Wettable
-  # Wet shoes get a distinct wet step sound; the sound only plays while they are wet.
+  # Wet shoes override footstep sound.
   - type: WetFootstep
   #endregion Pirate: wetness
   - type: ProtectedFromStepTriggers

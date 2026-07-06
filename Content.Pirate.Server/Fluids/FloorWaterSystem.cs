@@ -9,8 +9,7 @@ using Robust.Shared.Random;
 namespace Content.Pirate.Server.Fluids;
 
 /// <summary>
-/// Integrates standing water (<see cref="FloorWaterComponent"/>) with wetness: wading into it soaks
-/// worn clothing, and it drains any puddle that lands on its own tile.
+/// Soaks wading mobs and drains puddles on standing water.
 /// </summary>
 public sealed class FloorWaterSystem : EntitySystem
 {
@@ -29,8 +28,7 @@ public sealed class FloorWaterSystem : EntitySystem
 
     private void OnMapInit(Entity<FloorWaterComponent> ent, ref MapInitEvent args)
     {
-        // Stagger the first absorb cycle so a whole lake of water tiles doesn't scan puddles on the
-        // same tick (mirrors how the engine's DrainSystem randomises its accumulator).
+        // Stagger absorb scans across water tiles.
         ent.Comp.AbsorbAccumulator = _random.NextFloat(ent.Comp.AbsorbInterval);
     }
 
@@ -41,7 +39,7 @@ public sealed class FloorWaterSystem : EntitySystem
 
     private void OnStepTriggered(Entity<FloorWaterComponent> ent, ref StepTriggeredOffEvent args)
     {
-        // Wading into the water soaks whatever you're wearing and washes its stains down.
+        // Wading soaks worn clothing and rinses stains.
         if (HasComp<InventoryComponent>(args.Tripper))
             _wetness.ImmerseInWater(args.Tripper, ent.Comp.ImmersionFlow);
     }
@@ -62,7 +60,6 @@ public sealed class FloorWaterSystem : EntitySystem
         }
     }
 
-    // Like a drain: any puddle sitting on the water's own tile is soaked up and removed.
     private void AbsorbTilePuddles(EntityUid uid)
     {
         var xform = Transform(uid);

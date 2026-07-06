@@ -7,7 +7,7 @@
         - to: shower
           completed:
             - !type:SnapToGrid { }
-            # Built showers start dry and refill over time; mapped ones keep their full tank.
+            # Built showers start dry; mapped showers stay full.
             - !type:EmptySolution
               solution: tank
           steps:

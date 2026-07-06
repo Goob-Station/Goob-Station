@@ -188,7 +188,7 @@
   #endregion Pirate: stains
   #region Pirate: wetness
   - type: Wettable
-  # Outer gear takes the splash so the inner uniform underneath stays dry.
+  # Outer gear keeps the inner uniform dry.
   - type: WetnessBlocker
     slots: [INNERCLOTHING]
   #endregion Pirate: wetness
@@ -223,7 +223,7 @@
   - type: StainBlocker
     slots: [INNERCLOTHING]
   #endregion Pirate: stains
-  # Wettable + WetnessBlocker are inherited unchanged from ClothingOuterBase.
+  # Inherits wetness behavior from ClothingOuterBase.
 
 - type: entity
   abstract: true
@@ -333,8 +333,7 @@
   name: base hardsuit
   components:
   #region Pirate: wetness
-  # Hardsuits can be stained but never wet: the OUTERCLOTHING entry self-blocks the suit, and it
-  # keeps the inner uniform dry too. Always blocks while worn (no sealed state needed).
+  # Hardsuits stay dry and protect inner clothing.
   - type: WetnessBlocker
     slots: [OUTERCLOTHING, INNERCLOTHING]
   #endregion Pirate: wetness

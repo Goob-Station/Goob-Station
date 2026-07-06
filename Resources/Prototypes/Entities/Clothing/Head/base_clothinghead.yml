@@ -345,7 +345,7 @@
       state: helmetbloodicon
   #endregion Pirate: stains
   #region Pirate: wetness
-  # Hardsuit helmet blocks its own head slot (can be stained, never wet) and the face beneath.
+  # Hardsuit helmets stay dry and protect face slots.
   - type: WetnessBlocker
     slots: [HEAD, MASK, EYES]
   #endregion Pirate: wetness

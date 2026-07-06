@@ -24,15 +24,13 @@ using Robust.Shared.Utility;
 namespace Content.Pirate.Shared.Wetness.Systems;
 
 /// <summary>
-/// Raised on a wettable item (server only) whenever its wetness changes, so the mood roll-up can react.
+/// Raised when wetness changes.
 /// </summary>
 [ByRefEvent]
 public readonly record struct WetnessChangedEvent;
 
 /// <summary>
-/// Wetness core: clean-water absorption tracked separately from stains. Deliberately mirrors
-/// <see cref="SharedStainSystem"/> so the two stay reviewable side by side. State is
-/// server-authoritative; only visuals/sound react to the replicated value.
+/// Clean-water wetness tracked separately from stains.
 /// </summary>
 public abstract class SharedWetnessSystem : EntitySystem
 {
@@ -60,7 +58,7 @@ public abstract class SharedWetnessSystem : EntitySystem
         SubscribeLocalEvent<WettableComponent, WringWetnessDoAfterEvent>(OnWring);
         SubscribeLocalEvent<WettableComponent, ExaminedEvent>(OnExamined);
 
-        // Keep the wearer droplet flag correct as wet clothing is put on and taken off.
+        // Refresh wearer droplets on equip changes.
         SubscribeLocalEvent<InventoryComponent, DidEquipEvent>(OnDidEquip);
         SubscribeLocalEvent<InventoryComponent, DidUnequipEvent>(OnDidUnequip);
     }
@@ -100,7 +98,6 @@ public abstract class SharedWetnessSystem : EntitySystem
         var wasWet = ent.Comp.Wetness > 0;
         ent.Comp.Wetness = newWetness;
 
-        // Server drives the drying schedule; the field is networked so clients mirror it.
         if (!wasWet && _net.IsServer)
             ent.Comp.NextDryTime = Timing.CurTime + NextDryDelay(ent.Comp);
 
@@ -148,9 +145,7 @@ public abstract class SharedWetnessSystem : EntitySystem
     }
 
     /// <summary>
-    /// Immersion in water (e.g. wading into floor water): flows <paramref name="flow"/> units over the
-    /// mob so it both soaks worn clothing and washes stains off it (same as any water contact), but the
-    /// dirty runoff is drained away instead of pooled. A large flow fully soaks and rinses.
+    /// Soaks worn clothing and rinses stains without pooling runoff.
     /// </summary>
     public void ImmerseInWater(EntityUid mob, FixedPoint2 flow)
     {
@@ -168,13 +163,12 @@ public abstract class SharedWetnessSystem : EntitySystem
         if (args.Method != ReactionMethod.Touch || args.Reagent.ID != WaterReagent)
             return;
 
-        // A loose item soaks up what it can and washes its own stains; the rest pools beneath it.
+        // Loose items pool leftover water beneath themselves.
         var single = new List<EntityUid> { ent.Owner };
         ApplyWater(ent.Owner, args.ReagentQuantity.Quantity, single, single);
     }
 
-    // Owns the mob-level reagent touch for both wetness and stains (a (component, event) pair can
-    // only have one directed subscription, so the stain system delegates SpaceCleaner cleaning here).
+    // Owns mob-level touch reactions for wetness and stain cleaning.
     private void OnMobReaction(Entity<InventoryComponent> ent, ref ReactionEntityEvent args)
     {
         if (args.Method != ReactionMethod.Touch)
@@ -184,7 +178,7 @@ public abstract class SharedWetnessSystem : EntitySystem
         {
             case WaterReagent:
                 var worn = GetWornItems(ent.Owner, SlotFlags.WITHOUT_POCKET);
-                // Wetting spreads over worn clothing; washing also covers bare-body stains.
+                // Bare-body stains are washed with worn clothing.
                 var washTargets = new List<EntityUid>(worn) { ent.Owner };
                 ApplyWater(ent.Owner, args.ReagentQuantity.Quantity, worn, washTargets);
                 break;
@@ -194,48 +188,33 @@ public abstract class SharedWetnessSystem : EntitySystem
         }
     }
 
-    /// <summary>
-    /// Applies a water contact of <paramref name="water"/> units at <paramref name="at"/>: it soaks
-    /// into <paramref name="wetTargets"/> (spread evenly, overflowing from full items onto the rest)
-    /// and rinses stains off <paramref name="washTargets"/> (1u water per 1u stain, spread evenly).
-    /// The water that can't soak in anywhere, together with the washed-out stains, pools below as a
-    /// mixture — so a shower leaves, e.g., a red puddle while it rinses blood off someone.
-    /// </summary>
     private void ApplyWater(EntityUid at, FixedPoint2 water, List<EntityUid> wetTargets, List<EntityUid> washTargets, bool drainRunoff = false)
     {
-        // Wetness, stain removal, and puddles are all server-authoritative.
+        // Wetness, stain removal, and puddles are server-only.
         if (water <= 0 || !_net.IsServer)
             return;
 
         var absorbed = DistributeWetness(wetTargets, water);
         var runoff = CollectWashedStains(washTargets, water);
 
-        // "Excessive water that can't get on us" runs off with the washed-out stains.
+        // Unabsorbed water runs off with washed stains.
         var excess = water - absorbed;
         if (excess > 0)
             runoff.AddReagent(WaterReagent, excess);
 
-        // Pool the runoff on the floor, unless it should drain away instead: the caller asked for it
-        // (immersion in floor water) or the target is inside a draining container (washing machine).
+        // Draining containers and immersion discard runoff.
         if (runoff.Volume > 0 && !drainRunoff && !IsRunoffDrained(at))
             _puddle.TrySpillAt(Transform(at).Coordinates, runoff, out _, sound: false);
     }
 
-    /// <summary>True when the target is inside a container that drains liquid runoff (e.g. a washing machine).</summary>
     private bool IsRunoffDrained(EntityUid target)
     {
         return _container.TryGetContainingContainer(target, out var container)
                && HasComp<RunoffDrainComponent>(container.Owner);
     }
 
-    /// <summary>
-    /// Spreads <paramref name="water"/> evenly across the wettable, unblocked items among
-    /// <paramref name="targets"/>, cascading each full item's share onto the ones that still have
-    /// spare capacity. Returns how much water was actually absorbed.
-    /// </summary>
     private FixedPoint2 DistributeWetness(List<EntityUid> targets, FixedPoint2 water)
     {
-        // Items that can still take water, with their remaining capacity and running allocation.
         var items = new List<(Entity<WettableComponent> Ent, FixedPoint2 Cap, FixedPoint2 Alloc)>();
         foreach (var target in targets)
         {
@@ -301,10 +280,6 @@ public abstract class SharedWetnessSystem : EntitySystem
         return absorbed;
     }
 
-    /// <summary>
-    /// Spreads <paramref name="water"/> evenly across whichever targets are actually stained (1u
-    /// water removes 1u stain) and returns the washed-out reagents.
-    /// </summary>
     private Solution CollectWashedStains(List<EntityUid> targets, FixedPoint2 water)
     {
         var stained = new List<EntityUid>();
@@ -334,8 +309,7 @@ public abstract class SharedWetnessSystem : EntitySystem
     #region Blocking
 
     /// <summary>
-    /// Mirrors <see cref="SharedStainSystem"/> blocking: walk the wearer's other worn items and
-    /// stop if any covers this item's slot. Modsuit blockers only count while sealed.
+    /// Checks worn gear that blocks this item's slot.
     /// </summary>
     protected bool IsWetBlocked(Entity<WettableComponent> ent)
     {
@@ -359,7 +333,7 @@ public abstract class SharedWetnessSystem : EntitySystem
                 continue;
             }
 
-            // Sealed-gated blockers (modsuits) only block once their suit is sealed.
+            // Sealed blockers only count while sealed.
             if (blocker.RequiresSealed &&
                 (!TryComp<SealableClothingComponent>(slotEnt, out var sealable) || !sealable.IsSealed))
             {
@@ -377,19 +351,17 @@ public abstract class SharedWetnessSystem : EntitySystem
     #region Visuals
 
     /// <summary>
-    /// Rolls up worn wettable items onto the WEARER's appearance so the client can draw the
-    /// droplet overlay in response to the replicated state (see <see cref="SharedStainSystem.UpdateVisuals"/>).
+    /// Updates the wearer's droplet marker.
     /// </summary>
     public void UpdateVisuals(Entity<WettableComponent> ent)
     {
-        // Only worn clothing shows the wearer droplet effect.
+        // Only worn items affect wearer droplets.
         if (_container.TryGetContainingContainer(ent.Owner, out var container))
             UpdateWearerVisuals(container.Owner);
     }
 
     /// <summary>
-    /// Rolls up every worn wettable item onto the wearer's droplet marker. Server-authoritative:
-    /// the client draws the overlay purely from the replicated <see cref="WetVisualsComponent"/>.
+    /// Rolls worn wetness into the wearer's droplet marker.
     /// </summary>
     public void UpdateWearerVisuals(EntityUid wearer)
     {
@@ -450,15 +422,15 @@ public abstract class SharedWetnessSystem : EntitySystem
         if (args.Handled || args.Cancelled || ent.Comp.Wetness <= 0)
             return;
 
-        // Wetness mutation and spilling are server-authoritative.
+        // Wetness mutation and spilling are server-only.
         if (!_net.IsServer)
             return;
 
-        // Wringing only dumps the clothing's clean water. Stains stay in the item.
+        // Wringing dumps only clean water.
         var water = new Solution();
         water.AddReagent(WaterReagent, ent.Comp.Wetness);
 
-        // Don't consume the DoAfter or clear the item's wetness if the spill couldn't happen.
+        // Keep wetness if the spill fails.
         if (!_puddle.TrySpillAt(args.User, water, out _))
             return;
 

@@ -40,8 +40,7 @@ public abstract class SharedWashingMachineSystem : EntitySystem
         if (args.Handled || !args.Complex)
             return;
 
-        // Normal click turns the machine on. Opening/closing the door lives on alt-click, so we
-        // always mark the interaction handled to stop EntityStorage from toggling the door here.
+        // Normal click starts washing; alt-click owns the door.
         args.Handled = true;
 
         if (ent.Comp.State != WashingMachineState.Idle || !_power.IsPowered(ent.Owner) || Storage.IsOpen(ent.Owner))
@@ -59,7 +58,6 @@ public abstract class SharedWashingMachineSystem : EntitySystem
         TryStartWash(ent, args.User);
     }
 
-    // Alt-click opens/closes the door (executed as the top-priority alternative verb).
     private void OnGetAltVerbs(Entity<WashingMachineComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
     {
         if (!args.CanInteract || !args.CanComplexInteract || ent.Comp.State == WashingMachineState.Washing)

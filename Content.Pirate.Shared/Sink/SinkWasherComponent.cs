@@ -17,7 +17,7 @@ public sealed partial class SinkWasherComponent : Component
     [DataField]
     public SoundSpecifier WashSound = new SoundPathSpecifier("/Audio/_Pirate/Machines/sink_faucet.ogg");
 
-    /// <summary>Wetness added to the washed clothing (a sink is a strong, targeted wash).</summary>
+    /// <summary>Wetness added by a sink wash.</summary>
     [DataField]
     public Content.Goobstation.Maths.FixedPoint.FixedPoint2 WetnessAdded =
         Content.Goobstation.Maths.FixedPoint.FixedPoint2.New(8);

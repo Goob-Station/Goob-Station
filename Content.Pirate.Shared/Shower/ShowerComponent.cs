@@ -6,15 +6,13 @@ using Robust.Shared.Serialization;
 namespace Content.Pirate.Shared.Showers
 {
     /// <summary>
-    /// A shower that draws from an internal water tank. While running it sprays water onto its own
-    /// tile every tick (wetting people/items and diluting stains through the water reaction), and it
-    /// passively refills the tank when idle. Runs dry and shuts off if the tank empties.
+    /// Shower with a refilling internal water tank.
     /// </summary>
     [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
     public sealed partial class ShowerComponent : Component
     {
         /// <summary>
-        /// Whether the user wants the shower running. It can still shut itself off if it runs dry.
+        /// Requested running state; dry tanks can still shut it off.
         /// </summary>
         [DataField, AutoNetworkedField]
         public bool ToggleShower;
@@ -36,8 +34,7 @@ namespace Content.Pirate.Shared.Showers
         public string Reagent = "Water";
 
         /// <summary>
-        /// Radius of the on-tile lookup. Results are still filtered to the shower's own tile, so this
-        /// only needs to reach the tile's corners; a plain radius would bleed onto neighbours.
+        /// Lookup radius before filtering to the shower's own tile.
         /// </summary>
         [DataField]
         public float SprayRange = 0.8f;

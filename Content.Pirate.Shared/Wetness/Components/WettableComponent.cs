@@ -7,26 +7,24 @@ using Robust.Shared.Serialization;
 namespace Content.Pirate.Shared.Wetness.Components;
 
 /// <summary>
-/// Clothing that can absorb clean water. Wetness is a scalar field, tracked separately from the
-/// stain solution (see <see cref="Content.Pirate.Shared.Stains.Components.StainableComponent"/>).
-/// The first pass only ever stores water, so a plain field is used instead of a solution.
+/// Clothing that can absorb clean water.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class WettableComponent : Component
 {
-    /// <summary>Current absorbed water, in units. Default dry.</summary>
+    /// <summary>Current absorbed water, in units.</summary>
     [DataField, AutoNetworkedField]
     public FixedPoint2 Wetness;
 
-    /// <summary>Design default capacity; override per item only when needed.</summary>
+    /// <summary>Maximum absorbed water.</summary>
     [DataField]
     public FixedPoint2 MaxWetness = FixedPoint2.New(15);
 
-    /// <summary>At or above this wetness the worn droplet visual shows.</summary>
+    /// <summary>Wetness required for the droplet visual.</summary>
     [DataField]
     public FixedPoint2 VisualThreshold = FixedPoint2.New(5);
 
-    // Drying / dripping tunables (design baselines).
+    // Drying and dripping.
     [DataField]
     public FixedPoint2 DryPerStep = FixedPoint2.New(1);
 
@@ -42,7 +40,7 @@ public sealed partial class WettableComponent : Component
     [DataField]
     public FixedPoint2 DripAmount = FixedPoint2.New(2);
 
-    /// <summary>Server-driven schedule for the next drying step.</summary>
+    /// <summary>Next drying step time.</summary>
     [DataField, AutoNetworkedField]
     public TimeSpan NextDryTime;
 

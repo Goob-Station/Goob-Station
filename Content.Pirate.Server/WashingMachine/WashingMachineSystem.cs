@@ -29,7 +29,7 @@ public sealed class WashingMachineSystem : SharedWashingMachineSystem
     [Dependency] private readonly SharedWetnessSystem _wetness = null!;
     [Dependency] private readonly ForensicsSystem _forensics = null!;
 
-    /// <summary>How long after a wash cycle wearing a laundered inner uniform grants the buff.</summary>
+    /// <summary>Fresh-laundry buff window after washing.</summary>
     private static readonly TimeSpan FreshLaundryWindow = TimeSpan.FromMinutes(5);
     [Dependency] private readonly DamageableSystem _damageable = null!;
     [Dependency] private readonly IPrototypeManager _proto = null!;
@@ -141,13 +141,13 @@ public sealed class WashingMachineSystem : SharedWashingMachineSystem
                 _stains.UpdateVisuals((item, stain));
             }
 
-            // Output is clean and dry.
+            // Finished laundry is clean and dry.
             foreach (var item in items)
             {
                 if (TryComp<WettableComponent>(item, out var wettable))
                     _wetness.DryFully((item, wettable));
 
-                // Stamp inner uniforms so wearing them within the window grants a fresh-laundry buff.
+                // Inner uniforms can grant the fresh-laundry buff.
                 if (TryComp<ClothingComponent>(item, out var clothing) && (clothing.Slots & SlotFlags.INNERCLOTHING) != 0)
                 {
                     var fresh = EnsureComp<FreshLaundryComponent>(item);

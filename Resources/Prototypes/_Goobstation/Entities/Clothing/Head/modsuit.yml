@@ -77,7 +77,7 @@
       state: helmetbloodicon
   #endregion Pirate: stains
   #region Pirate: wetness
-  # All modsuit helmets seal the head/mask/eyes against water once the suit is sealed.
+  # Sealed modsuit helmets protect face slots.
   - type: WetnessBlocker
     slots: [HEAD, MASK, EYES]
     requiresSealed: true

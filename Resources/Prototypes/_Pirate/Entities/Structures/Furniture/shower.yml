@@ -1,7 +1,7 @@
 - type: entity
   name: Душ
   id: Shower
-  description: Душ із внутрішнім резервуаром для води, що поволі поповнюється.
+  description: Душ, з якого тече блюспейсова вода.
   placement:
     mode: SnapgridCenter
     snap:

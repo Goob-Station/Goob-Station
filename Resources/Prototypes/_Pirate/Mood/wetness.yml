@@ -1,6 +1,4 @@
-# Wet/dirty worn clothing penalties. The modifier passed by WetnessMoodSystem is the count of
-# worn wet (or dirty) items, so each item contributes one step of the penalty. Fresh laundry is a
-# short positive buff granted when a freshly washed inner uniform is worn soon after the cycle.
+# Wet/dirty penalties scale by worn item count; fresh laundry is timed.
 
 - type: moodEffect
   id: WetClothing

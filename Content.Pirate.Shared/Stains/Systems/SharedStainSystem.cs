@@ -65,14 +65,10 @@ public abstract class SharedStainSystem : EntitySystem
 
         SubscribeLocalEvent<StainableComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<StainableComponent, SpilledOnEvent>(OnSpilledOn);
-        // Owns the mob-level spill (was an inventory relay): distributes the spill across worn items.
+        // Mob spills are distributed across worn items here.
         SubscribeLocalEvent<InventoryComponent, SpilledOnEvent>(OnMobSpilledOn);
-        // Wringing moved to WettableComponent (wetness owns it now); stains no longer wring out.
         SubscribeLocalEvent<StainableComponent, SolutionContainerChangedEvent>(OnSolutionChanged);
         SubscribeLocalEvent<StainableComponent, ReactionEntityEvent>(OnReaction);
-        // Mob-level reagent touch (water + SpaceCleaner) is owned by SharedWetnessSystem, which
-        // depends on this system and calls back into it. A given (component, event) pair can only
-        // have one directed subscription, so it cannot live here too.
         SubscribeLocalEvent<HandsComponent, SpilledOnEvent>(OnHandsSpilledOn);
         SubscribeLocalEvent<FootprintOwnerComponent, SpilledOnEvent>(OnFootSpilledOn);
         SubscribeLocalEvent<MeleeWeaponComponent, MeleeHitEvent>(OnMeleeHit);
@@ -85,8 +81,7 @@ public abstract class SharedStainSystem : EntitySystem
 
         UpdateVisuals(ent);
 
-        // Let other Pirate systems (e.g. the wetness mood roll-up) react to stain amount changes
-        // without needing a second subscription to the shared SolutionContainerChangedEvent.
+        // Let other systems react without sharing SolutionContainerChangedEvent.
         var changed = new StainChangedEvent();
         RaiseLocalEvent(ent.Owner, ref changed);
     }
@@ -112,30 +107,23 @@ public abstract class SharedStainSystem : EntitySystem
         TryStain(ent, args.Solution);
     }
 
-    // Distributes a spill across the mob's worn stainable clothing. Bare skin (empty glove/shoe
-    // slots), held items and the mob's own body stains are still handled by their own subscriptions.
+    // Worn clothing spills; bare skin and held items are handled separately.
     private void OnMobSpilledOn(Entity<InventoryComponent> ent, ref SpilledOnEvent args)
     {
         if (args.Handled || args.TargetSlots == SlotFlags.NONE)
             return;
 
-        // Footwear only stains by walking through a puddle (a feet-only spill), and only sometimes:
-        // the deeper the puddle the likelier it sticks. Slipping/other spills never stain feet.
+        // Footwear only stains from puddle steps.
         var stainFeet = args.TargetSlots == SlotFlags.FEET && RollFeetStain(args.Source);
         StainWornItems(ent, args.Solution, args.TargetSlots, stainFeet);
     }
 
     /// <summary>
-    /// Spreads the staining reagents of a spill evenly across the mob's worn, unblocked stainable
-    /// items in <paramref name="slots"/>. Most items are a fixed-capacity FIFO buffer, so a full item
-    /// lets the new reagents displace its oldest stains, which pool below as a puddle (e.g. cola on a
-    /// blood-soaked jumpsuit drips the old blood out). Footwear is the exception: feet constantly
-    /// walk over floor puddles, so they only absorb up to capacity and never rotate stains back onto
-    /// the floor (that would spawn a fresh puddle with every step).
+    /// Spreads spill stains across worn items, rotating overflow to the floor except for footwear.
     /// </summary>
     private void StainWornItems(Entity<InventoryComponent> mob, Solution spill, SlotFlags slots, bool stainFeet)
     {
-        // Stain removal and puddles are server-authoritative.
+        // Stain transfer and puddles are server-only.
         if (!_net.IsServer)
             return;
 
@@ -143,7 +131,7 @@ public abstract class SharedStainSystem : EntitySystem
         var enumerator = _inventory.GetSlotEnumerator(mob.AsNullable(), slots);
         while (enumerator.NextItem(out var item, out var slot))
         {
-            // Footwear only stains via the gated walking roll; skip it otherwise (e.g. slipping).
+            // Footwear needs the puddle-step roll.
             if ((slot.SlotFlags & SlotFlags.FEET) != 0 && !stainFeet)
                 continue;
 
@@ -160,7 +148,7 @@ public abstract class SharedStainSystem : EntitySystem
         if (targets.Count == 0)
             return;
 
-        // Only the staining part matters; water doesn't stain (it washes, handled elsewhere).
+        // Water washes elsewhere; it does not stain.
         var stainingVolume = spill.Volume - WaterVolume(spill);
         if (stainingVolume <= 0)
             return;
@@ -170,9 +158,7 @@ public abstract class SharedStainSystem : EntitySystem
 
         foreach (var (ent, solComp, rotate) in targets)
         {
-            // Footwear only absorbs what fits (no floor rotation); everything else takes its full
-            // share and rotates the overflow out. The un-consumed remainder stays in the spill and
-            // is returned to the source puddle by the caller, so nothing is duplicated.
+            // Footwear does not rotate overflow back onto the floor.
             var want = rotate
                 ? share
                 : FixedPoint2.Min(share, ent.Comp.MaxStainVolume - solComp.Comp.Solution.Volume);
@@ -192,34 +178,25 @@ public abstract class SharedStainSystem : EntitySystem
             OnStained(ent, solComp);
         }
 
-        // Old stains pushed off the clothing run down to the floor (but not while the wearer is
-        // inside a draining container, e.g. a washing machine, or the runoff spills out around it).
+        // Old stains pushed off clothing run down to the floor.
         if (displaced.Volume > 0 && !IsRunoffDrained(mob.Owner))
             _puddle.TrySpillAt(Transform(mob.Owner).Coordinates, displaced, out _, sound: false);
     }
 
-    /// <summary>True when the target is inside a container that drains liquid runoff (e.g. a washing machine).</summary>
     private bool IsRunoffDrained(EntityUid target)
     {
         return _container.TryGetContainingContainer(target, out var container)
                && HasComp<RunoffDrainComponent>(container.Owner);
     }
 
-    // Feet constantly contact floor puddles, so staining them must not rotate old stains back onto
-    // the floor (it just spawns puddles as you walk). Every other slot rotates (FIFO) normally.
+    // Feet do not rotate old stains back onto the floor.
     private static bool RotatesToFloor(SlotFlags slot) => (slot & SlotFlags.FEET) == 0;
 
-    // Chance for a walked-on puddle to stain footwear, scaling linearly with puddle depth:
-    // below 5u never stains; then 1.5% per unit, capped at 30% from 20u upward.
+    // Footwear stain chance scales with puddle depth.
     private static readonly FixedPoint2 FeetStainMinVolume = FixedPoint2.New(5);
     private const float FeetStainChancePerUnit = 0.015f;
     private const float FeetStainMaxChance = 0.30f;
 
-    /// <summary>
-    /// Rolls whether walking over a puddle stains footwear this step. Shallow puddles (below
-    /// <see cref="FeetStainMinVolume"/>) never stain; above that the chance scales with the puddle's
-    /// volume (deeper = likelier). Non-puddle sources (deliberate splashes) always stain.
-    /// </summary>
     private bool RollFeetStain(EntityUid source)
     {
         if (!TryComp<PuddleComponent>(source, out var puddle) ||
@@ -270,12 +247,11 @@ public abstract class SharedStainSystem : EntitySystem
         if (args.Handled)
             return;
 
-        // Bare feet only stain by walking through a puddle (a feet-only spill), and only sometimes
-        // (scales with puddle depth). Slipping and other spills never stain feet.
+        // Bare feet only stain from puddle steps.
         if (args.TargetSlots != SlotFlags.FEET || !RollFeetStain(args.Source))
             return;
 
-        // Worn shoes are handled by the mob spill handler.
+        // Worn shoes are handled with clothing.
         if (_inventory.TryGetSlotEntity(ent.Owner, ShoesSlot, out var shoes) &&
             HasComp<StainableComponent>(shoes))
         {
@@ -296,8 +272,7 @@ public abstract class SharedStainSystem : EntitySystem
 
         var transferAmount = FixedPoint2.Min(solution.Volume, ent.Comp.SpillTransferAmount);
 
-        // Bare feet keep walking over floor puddles, so they only absorb up to capacity and never
-        // rotate old stains back onto the floor. Capping the intake keeps AddStainFifo from evicting.
+        // Bare feet do not rotate old stains back onto the floor.
         if (!rotate)
         {
             transferAmount = FixedPoint2.Min(transferAmount, ent.Comp.MaxStainVolume - stainSolution.Comp.Solution.Volume);
@@ -311,8 +286,7 @@ public abstract class SharedStainSystem : EntitySystem
         if (split.Volume <= 0)
             return false;
 
-        // Full items aren't rejected: the new stain displaces the oldest (FIFO); the pushed-out
-        // stains run down to the floor.
+        // Full items rotate their oldest stains out.
         var displaced = AddStainFifo(ent, stainSolution, split);
 
         if (_net.IsServer)
@@ -327,7 +301,7 @@ public abstract class SharedStainSystem : EntitySystem
         return true;
     }
 
-    /// <summary>Fetches the item's stain solution, creating it server-side if missing.</summary>
+    /// <summary>Gets or creates the stain solution.</summary>
     private bool TryGetStainSolution(Entity<StainableComponent> ent, out Entity<SolutionComponent> solComp)
     {
         if (_solution.TryGetSolution(ent.Owner, ent.Comp.SolutionName, out var found))
@@ -350,9 +324,7 @@ public abstract class SharedStainSystem : EntitySystem
     }
 
     /// <summary>
-    /// Adds <paramref name="toAdd"/> to a stain solution treated as a fixed-capacity FIFO buffer:
-    /// once at <see cref="StainableComponent.MaxStainVolume"/>, the incoming reagents displace the
-    /// oldest ones. Returns the displaced reagents (with their DNA) so the caller can pool them.
+    /// Adds stains as FIFO, returning displaced reagents.
     /// </summary>
     private Solution AddStainFifo(Entity<StainableComponent> ent, Entity<SolutionComponent> solComp, Solution toAdd)
     {
@@ -362,11 +334,11 @@ public abstract class SharedStainSystem : EntitySystem
 
         var max = ent.Comp.MaxStainVolume;
 
-        // If the incoming alone overflows capacity, only its newest `max` units can land.
+        // If incoming alone overflows, keep only its newest max units.
         if (toAdd.Volume > max)
             EvictOldest(toAdd, toAdd.Volume - max, displaced);
 
-        // Evict the oldest existing stains to make room for the incoming (FIFO).
+        // Evict oldest existing stains for the incoming.
         var overflow = solComp.Comp.Solution.Volume + toAdd.Volume - max;
         if (overflow > 0)
             EvictOldest(solComp, overflow, displaced);
@@ -375,23 +347,19 @@ public abstract class SharedStainSystem : EntitySystem
         return displaced;
     }
 
-    /// <summary>Pulls the oldest <paramref name="amount"/> units out of a container solution into <paramref name="into"/>.</summary>
+    /// <summary>Moves oldest container-solution reagents into <paramref name="into"/>.</summary>
     private void EvictOldest(Entity<SolutionComponent> solComp, FixedPoint2 amount, Solution into)
     {
         EvictOldest(solComp.Comp.Solution, amount, into,
             (reagent, take) => _solution.RemoveReagent(solComp, reagent, take));
     }
 
-    /// <summary>Pulls the oldest <paramref name="amount"/> units out of a standalone solution into <paramref name="into"/>.</summary>
+    /// <summary>Moves oldest solution reagents into <paramref name="into"/>.</summary>
     private static void EvictOldest(Solution source, FixedPoint2 amount, Solution into)
     {
         EvictOldest(source, amount, into, (reagent, take) => source.RemoveReagent(reagent, take));
     }
 
-    /// <summary>
-    /// Shared FIFO eviction: pulls the oldest <paramref name="amount"/> units out of <paramref name="from"/>
-    /// into <paramref name="into"/>, using <paramref name="remove"/> to remove each reagent from the source.
-    /// </summary>
     private static void EvictOldest(Solution from, FixedPoint2 amount, Solution into, Func<ReagentId, FixedPoint2, FixedPoint2> remove)
     {
         var remaining = amount;
@@ -664,11 +632,11 @@ public abstract class SharedStainSystem : EntitySystem
 
     private static bool IsCleaningReagent(string reagent)
     {
-        // Plain water no longer full-cleans; it routes to gradual dilution instead (see DiluteStains).
+        // Plain water dilutes stains through wetness.
         return reagent is "SoapReagent" or "SpaceCleaner";
     }
 
-    /// <summary>Current stain volume on an item, or zero if it has no stain solution.</summary>
+    /// <summary>Current stain volume, or zero.</summary>
     public FixedPoint2 GetStainVolume(EntityUid uid)
     {
         return TryComp<StainableComponent>(uid, out var stainable) &&
@@ -678,9 +646,7 @@ public abstract class SharedStainSystem : EntitySystem
     }
 
     /// <summary>
-    /// Washes up to <paramref name="amount"/> units of stain off the item (1u of water removes 1u
-    /// of stain) and returns the washed-out reagents so the caller can deposit them as runoff.
-    /// Returns null when there was nothing to wash.
+    /// Washes stain into runoff.
     /// </summary>
     public Solution? WashStain(EntityUid uid, FixedPoint2 amount)
     {

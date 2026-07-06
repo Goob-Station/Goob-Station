@@ -40,7 +40,6 @@ namespace Content.Pirate.Shared.Showers
 
         private void OnMapInit(EntityUid uid, ShowerComponent component, MapInitEvent args)
         {
-            // Showers spawn off; the player turns them on.
             component.ToggleShower = false;
             UpdateAppearance(uid, component);
         }
@@ -87,7 +86,7 @@ namespace Content.Pirate.Shared.Showers
 
             var newState = !component.ToggleShower;
 
-            // Refuse to turn on a dry shower; it needs to refill first.
+            // Dry showers must refill before use.
             if (newState && IsDry(uid, component))
             {
                 if (user != null)
@@ -101,7 +100,7 @@ namespace Content.Pirate.Shared.Showers
                 _audio.PlayPvs(component.EnableShowerSound, uid);
         }
 
-        /// <summary>Force the shower on or off (the drying loop uses this to shut off when dry).</summary>
+        /// <summary>Forces the shower on or off.</summary>
         public void SetShower(EntityUid uid, bool on, ShowerComponent? component = null)
         {
             if (!Resolve(uid, ref component) || component.ToggleShower == on)
@@ -112,11 +111,10 @@ namespace Content.Pirate.Shared.Showers
             UpdateAppearance(uid, component);
         }
 
-        /// <summary>True only when the tank is known to hold less than one spray dose.</summary>
+        /// <summary>True when the tank holds less than one spray dose.</summary>
         private bool IsDry(EntityUid uid, ShowerComponent component)
         {
-            // If the solution can't be read (e.g. client without it in PVS), don't block; the server
-            // is authoritative and will refuse there if it's actually dry.
+            // Missing client-side solution data should not block interaction.
             return _solution.TryGetSolution(uid, component.SolutionName, out _, out var solution)
                    && solution.Volume < component.SprayAmount;
         }

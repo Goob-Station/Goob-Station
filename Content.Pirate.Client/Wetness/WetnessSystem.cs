@@ -6,10 +6,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Pirate.Client.Wetness;
 
 /// <summary>
-/// Draws an animated droplet overlay on a wearer while their equipped clothing is wet enough.
-/// Ports tgstation's <c>/particles/droplets</c> effect as an auto-animated RSI layer (SS14 loops
-/// multi-frame states automatically, the same way fire visuals work). Reacts purely to the
-/// replicated <see cref="WetVisualsComponent"/> the server rolls up; kept separate from the stain shader.
+/// Draws the worn-clothing droplet overlay.
 /// </summary>
 public sealed class WetnessSystem : SharedWetnessSystem
 {

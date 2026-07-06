@@ -6,8 +6,7 @@ using Robust.Shared.Console;
 namespace Content.Pirate.Client.Wetness;
 
 /// <summary>
-/// Toggles the <see cref="WetnessDebugOverlay"/>, which labels every visible character with their
-/// worn clothing, per-item wetness, and the reagents contributing to each item's stains.
+/// Toggles the wetness debug overlay.
 /// </summary>
 public sealed class ShowWetnessCommand : LocalizedCommands
 {

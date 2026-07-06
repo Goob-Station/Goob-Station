@@ -35,7 +35,6 @@ public sealed class ShowerSystem : SharedShowerSystem
             if (!_solution.TryGetSolution(uid, shower.SolutionName, out var tank, out var solution))
                 continue;
 
-            // Passive refill: faster while off, slower while running.
             var regen = shower.ToggleShower ? shower.RegenOn : shower.RegenOff;
             var room = solution.AvailableVolume;
             if (regen > FixedPoint2.Zero && room > FixedPoint2.Zero)
@@ -44,7 +43,6 @@ public sealed class ShowerSystem : SharedShowerSystem
             if (!shower.ToggleShower)
                 continue;
 
-            // Not enough water for a full dose: shut off so the faster off-regen can refill it.
             if (solution.Volume < shower.SprayAmount)
             {
                 SetShower(uid, false, shower);
@@ -56,11 +54,6 @@ public sealed class ShowerSystem : SharedShowerSystem
         }
     }
 
-    /// <summary>
-    /// Applies one spray dose to the shower's own tile. Mobs and loose wettable items get the water
-    /// reaction (wetting + gradual stain dilution via the wetness system); if nothing wettable is
-    /// there, the dose hits the floor as a puddle.
-    /// </summary>
     private void Spray(EntityUid uid, ShowerComponent shower, Solution spray)
     {
         var xform = Transform(uid);
@@ -72,19 +65,18 @@ public sealed class ShowerSystem : SharedShowerSystem
 
         var wetAnything = false;
 
-        // Mobs: their worn clothing gets wet and stains diluted via the water reaction.
+        // Mobs react through worn clothing and bare-body stains.
         foreach (var (target, _) in _lookup.GetEntitiesInRange<InventoryComponent>(coords, shower.SprayRange))
         {
             if (!OnTile(target, gridUid, grid, tile))
                 continue;
 
-            // Each target reacts to its own copy: an effect that consumes/mutates the source must not
-            // change the dose seen by later targets or by the puddle spill below.
+            // Each target gets an independent dose.
             _reactive.DoEntityReaction(target, spray.Clone(), ReactionMethod.Touch);
             wetAnything = true;
         }
 
-        // Loose wettable items under the spray (worn items are handled above via the mob).
+        // Loose wettable items under the spray.
         foreach (var (item, _) in _lookup.GetEntitiesInRange<WettableComponent>(coords, shower.SprayRange))
         {
             if (HasComp<InventoryComponent>(item) || !OnTile(item, gridUid, grid, tile))
@@ -94,7 +86,6 @@ public sealed class ShowerSystem : SharedShowerSystem
             wetAnything = true;
         }
 
-        // Nothing to wet: the water pools on the floor.
         if (!wetAnything)
             _puddle.TrySpillAt(coords, spray, out _, sound: false);
     }

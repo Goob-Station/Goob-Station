@@ -11,8 +11,7 @@ using Robust.Shared.Random;
 namespace Content.Pirate.Server.Wetness;
 
 /// <summary>
-/// Server-authoritative drying and dripping loop. Wet clothing loses a little water on a randomized
-/// cadence and occasionally drips a clean water puddle while doing so.
+/// Server-side drying and clean-water dripping.
 /// </summary>
 public sealed class WetnessSystem : SharedWetnessSystem
 {
@@ -33,13 +32,11 @@ public sealed class WetnessSystem : SharedWetnessSystem
 
             var ent = (uid, comp);
 
-            // Work out this tick's total loss up front — the drying step plus an optional drip — so
-            // wetness is refreshed only once instead of twice.
+            // Apply drying and any drip as one wetness change.
             var dried = FixedPoint2.Min(comp.DryPerStep, comp.Wetness);
             var remaining = comp.Wetness - dried;
 
             var drip = FixedPoint2.Zero;
-            // Each drying step has a small chance to shed a clean water drip from what's left.
             if (remaining > 0 && _random.Prob(comp.DripChance) && CanDrip(uid))
                 drip = FixedPoint2.Min(comp.DripAmount, remaining);
 
@@ -49,7 +46,6 @@ public sealed class WetnessSystem : SharedWetnessSystem
             {
                 var water = new Solution();
                 water.AddReagent("Water", drip);
-                // Spilling at the item coalesces with any puddle already on its tile.
                 _puddle.TrySpillAt(uid, water, out _, sound: false);
             }
 
@@ -59,7 +55,7 @@ public sealed class WetnessSystem : SharedWetnessSystem
     }
 
     /// <summary>
-    /// Worn, held, or loose items may drip; items tucked inside storage should not puddle the floor.
+    /// Only worn, held, or loose items drip onto the floor.
     /// </summary>
     private bool CanDrip(EntityUid item)
     {

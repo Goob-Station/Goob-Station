@@ -470,11 +470,9 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
             RaiseLocalEvent(args.OtherEntity, new SpilledOnEvent(entity.Owner, splitSol, SlotFlags.NONE));
         }
 
-        // A spill handler may have emptied and deleted this puddle (e.g. staining that re-spills onto
-        // the same tile the mob is standing on), which clears the cached solution ref. Only return the
-        // rejected sample if the puddle still exists, otherwise the sample is simply lost.
-        if (splitSol.Volume > 0 && entity.Comp.Solution is { } puddleSolution)
-            _solutionContainerSystem.TryAddSolution(puddleSolution, splitSol);
+        // Pirate: stains - spill handlers may delete this puddle.
+        if (splitSol.Volume > 0 && entity.Comp.Solution is { } puddleSolution) // Pirate: stains
+            _solutionContainerSystem.TryAddSolution(puddleSolution, splitSol); // Pirate: stains
     }
 #endregion Pirate: stains
     /// <inheritdoc/>

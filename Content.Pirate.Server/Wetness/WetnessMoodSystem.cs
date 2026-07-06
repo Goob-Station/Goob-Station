@@ -13,8 +13,7 @@ using Robust.Shared.Timing;
 namespace Content.Pirate.Server.Wetness;
 
 /// <summary>
-/// Rolls up worn wet/dirty clothing into mood penalties, and grants a timed fresh-laundry buff.
-/// Wet and dirty are separate effect ids, so an item that is both applies both penalties.
+/// Applies wet, dirty, and fresh-laundry mood effects.
 /// </summary>
 public sealed class WetnessMoodSystem : EntitySystem
 {

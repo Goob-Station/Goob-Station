@@ -13,9 +13,7 @@ using Robust.Shared.Enums;
 namespace Content.Pirate.Client.Wetness;
 
 /// <summary>
-/// Debug overlay that draws, to the left of every entity with an inventory, its worn clothing with
-/// current wetness and the reagents making up each item's stains. Toggle with the "showwetness"
-/// console command. Reads only replicated client-side state, so it's purely visual.
+/// Debug overlay for worn wetness and stain reagents.
 /// </summary>
 public sealed class WetnessDebugOverlay : Overlay
 {
@@ -53,8 +51,6 @@ public sealed class WetnessDebugOverlay : Overlay
         var uiScale = _ui.RootControl.UIScale;
         var lineHeight = 11f * uiScale;
 
-        // Only entities within the current viewport can be drawn, so query the lookup for those
-        // instead of scanning every inventory holder on the map each frame.
         foreach (var uid in _lookup.GetEntitiesIntersecting(args.MapId, args.WorldBounds))
         {
             if (!_entMan.TryGetComponent<InventoryComponent>(uid, out var inv))
@@ -65,7 +61,7 @@ public sealed class WetnessDebugOverlay : Overlay
                 continue;
 
             var screen = _eye.WorldToScreen(_lookup.GetWorldAABB(uid).Center).Rounded();
-            // Anchor the block up-and-left of the entity so it sits beside the character.
+            // Keep the block beside the character.
             var start = new Vector2(screen.X - 280f * uiScale, screen.Y - lineHeight * lines.Count / 2f);
 
             var offset = Vector2.Zero;
@@ -81,14 +77,13 @@ public sealed class WetnessDebugOverlay : Overlay
     {
         var lines = new List<(string, Color, bool)>();
 
-        // Bare-body wetness/stains (feet/hands) live on the mob itself.
+        // Bare-body feet/hands state lives on the mob.
         AppendItem(lines, uid, "(body)");
 
         var enumerator = _inventory.GetSlotEnumerator((uid, inv));
         while (enumerator.NextItem(out var item, out _))
             AppendItem(lines, item, GetName(item));
 
-        // Only label the character when they actually have something wet or stained to show.
         if (lines.Count > 0)
             lines.Insert(0, (GetName(uid), Color.White, true));
 
@@ -97,12 +92,12 @@ public sealed class WetnessDebugOverlay : Overlay
 
     private void AppendItem(List<(string, Color, bool)> lines, EntityUid item, string label)
     {
-        // Only wet clothing counts (wetness is a scalar; by design clean water is its sole source).
+        // Wetness only tracks clean water.
         WettableComponent? wet = null;
         if (_entMan.TryGetComponent<WettableComponent>(item, out var w) && w.Wetness > FixedPoint2.Zero)
             wet = w;
 
-        // Only stained clothing counts: the reagents held in the item's stain solution.
+        // Stains come from the item's stain solution.
         StainableComponent? stainComp = null;
         Solution? stainSol = null;
         if (_entMan.TryGetComponent<StainableComponent>(item, out var stain)
@@ -113,7 +108,6 @@ public sealed class WetnessDebugOverlay : Overlay
             stainSol = sol;
         }
 
-        // Ignore dry & clean items entirely.
         if (wet == null && stainSol == null)
             return;
 
