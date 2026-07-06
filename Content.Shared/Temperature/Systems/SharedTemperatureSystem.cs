@@ -78,10 +78,16 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Common.Temperature;
+using Content.Shared._DV.CosmicCult.Components;
+using Content.Shared.Atmos;
 using Content.Goobstation.Common.Temperature; // goob
+using Content.Shared.Atmos;
+using Content.Shared._DV.CosmicCult.Components; // DeltaV
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Temperature.Components;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Temperature.Systems;
@@ -89,28 +95,45 @@ namespace Content.Shared.Temperature.Systems;
 /// <summary>
 /// This handles predicting temperature based speedup.
 /// </summary>
-public sealed class SharedTemperatureSystem : EntitySystem
+public abstract class SharedTemperatureSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
+
+    protected EntityQuery<TemperatureComponent> TemperatureQuery;
 
     /// <summary>
     /// Band-aid for unpredicted atmos. Delays the application for a short period so that laggy clients can get the replicated temperature.
     /// </summary>
     private static readonly TimeSpan SlowdownApplicationDelay = TimeSpan.FromSeconds(1f);
+    private EntityQuery<TemperatureImmunityComponent> _immuneQuery; // DeltaV
 
     public override void Initialize()
     {
         base.Initialize();
+        _immuneQuery = GetEntityQuery<TemperatureImmunityComponent>(); // DeltaV
 
         SubscribeLocalEvent<TemperatureSpeedComponent, OnTemperatureChangeEvent>(OnTemperatureChanged);
         SubscribeLocalEvent<TemperatureSpeedComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovementSpeedModifiers);
+
+        TemperatureQuery = GetEntityQuery<TemperatureComponent>();
 
         SubscribeLocalEvent<TemperatureSpeedComponent, GetTemperatureThresholdsEvent>(OnGetTemperatureThresholds); // goob edit
     }
 
     private void OnTemperatureChanged(Entity<TemperatureSpeedComponent> ent, ref OnTemperatureChangeEvent args)
     {
+        // Begin DeltaV Additions - no slowdown for temp immune cultists
+        if (_immuneQuery.HasComp(ent))
+        {
+            if (ent.Comp.CurrentSpeedModifier != 1f)
+            {
+                ent.Comp.CurrentSpeedModifier = 1f;
+                Dirty(ent);
+            }
+            return;
+        }
+        // End DeltaV Additions
         foreach (var (threshold, modifier) in ent.Comp.Thresholds)
         {
             if (args.CurrentTemperature < threshold && args.LastTemperature > threshold ||
@@ -165,5 +188,20 @@ public sealed class SharedTemperatureSystem : EntitySystem
             _movementSpeedModifier.RefreshMovementSpeedModifiers(uid, movement);
             Dirty(uid, temp);
         }
+    }
+
+    public virtual void ChangeHeat(EntityUid uid, float heatAmount, bool ignoreHeatResistance = false, TemperatureComponent? temperature = null)
+    {
+
+    }
+
+    public float GetHeatCapacity(EntityUid uid, TemperatureComponent? comp = null, PhysicsComponent? physics = null)
+    {
+        if (!TemperatureQuery.Resolve(uid, ref comp) || !Resolve(uid, ref physics, false) || physics.FixturesMass <= 0)
+        {
+            return Atmospherics.MinimumHeatCapacity;
+        }
+
+        return comp.SpecificHeat * physics.FixturesMass;
     }
 }

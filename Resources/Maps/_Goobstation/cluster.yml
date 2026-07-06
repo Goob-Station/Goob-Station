@@ -23450,7 +23450,7 @@ entities:
     - type: Transform
       pos: 13.5,-20.5
       parent: 2
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 504
 - proto: Carpet
   entities:
@@ -34164,7 +34164,7 @@ entities:
       parent: 5189
     - type: Physics
       canCollide: False
-- proto: EnergyChemDispenser
+- proto: ChemDispenser
   entities:
   - uid: 4119
     components:
@@ -58623,7 +58623,7 @@ entities:
     - type: Transform
       pos: 0.4215492,21.564632
       parent: 2
-- proto: MaterialSilo
+- proto: MachineMaterialSilo
   entities:
   - uid: 504
     components:
@@ -58633,11 +58633,11 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         8695:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
+        - - OreSilo
+          - OreSiloClient
         443:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
+        - - OreSilo
+          - OreSiloClient
 - proto: MaterialWoodPlank
   entities:
   - uid: 8618
@@ -59173,7 +59173,7 @@ entities:
     - type: Transform
       pos: 17.5,-23.5
       parent: 2
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 504
 - proto: OreProcessorMachineCircuitboard
   entities:

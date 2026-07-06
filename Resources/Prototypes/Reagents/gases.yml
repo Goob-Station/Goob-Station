@@ -35,6 +35,9 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+# TODO: Reagent Args which allow more selective scaling.
+# Currently all Gas metabolisms scale by reagent quantity metabolized, where other Metabolisms are modified by metabolism rate!
+
 - type: reagent
   id: Oxygen
   name: reagent-name-oxygen
@@ -49,70 +52,45 @@
       effects:
       - !type:Oxygenate
         conditions:
-        - !type:OrganType
-          type: Human
-      - !type:Oxygenate # Mono - Hydrakin
-        conditions:
-        - !type:OrganType
-          type: Hydrakin
-      - !type:Oxygenate
-        conditions:
-        - !type:OrganType
-          type: Animal
-      - !type:Oxygenate
-        conditions:
-        - !type:OrganType
-          type: Rat
-      - !type:Oxygenate
-        conditions:
-        - !type:OrganType
-          type: Plant
-      - !type:Oxygenate # DeltaV - Feroxi Still need to breathe
-        conditions:
-        - !type:OrganType
-          type: Feroxi
+        - !type:MetabolizerTypeCondition
+          type: [ Human, Animal, Rat, Plant,
+                  Feroxi, Hydrakin ] # DeltaV - Feroxi Still need to breathe # And hydrakin fucks
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
         conditions:
-        - !type:OrganType
-          type: Vox
-          shouldHave: false
-        - !type:OrganType # EE Plasmeme
-          type: Plasmaman
-          shouldHave: false
-        - !type:OrganType # Shitmed - Cybernetic Organs
-          type: Cybernetic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type:
+          - Vox
+          - Plasmaman # EE Plasmeme
+          - Cybernetic # Shitmed - Cybernetic Organs
+          inverted: true
         ratios:
           CarbonDioxide: 1.0
           Oxygen: -1.0
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Vox
-        scaleByQuantity: true
+        - !type:MetabolizerTypeCondition
+          type: [ Vox ]
         ignoreResistances: true
         damage:
           types:
-            Poison:
-              3
+            Poison: 1.5
       - !type:AdjustAlert
         alertType: Toxins
+        minScale: 1
         conditions:
-          - !type:ReagentThreshold
-            min: 0.5
-          - !type:OrganType
-            type: Vox
+          - !type:MetabolizerTypeCondition
+            type: [ Vox ]
         clear: true
         time: 5
       - !type:Oxygenate # Shitmed - Cybernetic Organs
         conditions:
-        - !type:OrganType
-          type: Cybernetic
+        - !type:MetabolizerTypeCondition # Goobstation - Cybernetic
+          type: [ Cybernetic ]
       - !type:ModifyLungGas
         conditions:
-        - !type:OrganType
-          type: Cybernetic
+        - !type:MetabolizerTypeCondition # Goobstation - Cybernetic
+          type: [ Cybernetic ]
         ratios:
           CarbonDioxide: 0.5
           Oxygen: -0.5
@@ -120,79 +98,54 @@
       effects:
       - !type:Oxygenate
         conditions:
-        - !type:OrganType
-          type: Human
-      - !type:Oxygenate # Mono - Hydrakin
-        conditions:
-        - !type:OrganType
-          type: Hydrakin
-      - !type:Oxygenate
-        conditions:
-        - !type:OrganType
-          type: Animal
-      - !type:Oxygenate
-        conditions:
-        - !type:OrganType
-          type: Rat
-      - !type:Oxygenate
-        conditions:
-        - !type:OrganType
-          type: Plant
-      - !type:Oxygenate # DeltaV - Feroxi Still need to breathe
-        conditions:
-        - !type:OrganType
-          type: Feroxi
+        - !type:MetabolizerTypeCondition
+          type: [ Human, Animal, Rat, Plant,
+                  Feroxi, Hydrakin]  # DeltaV - Feroxi Still need to breathe # fuck hydrakin
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
         conditions:
-        - !type:OrganType
-          type: Vox
-          shouldHave: false
-        - !type:OrganType # Shitmed - Cybernetic Organs
-          type: Cybernetic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type:
+          - Vox
+          - Cybernetic # Shitmed - Cybernetic Organs
+          inverted: true
         ratios:
           CarbonDioxide: 1.0
           Oxygen: -1.0
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Vox
-        scaleByQuantity: true
+        - !type:MetabolizerTypeCondition
+          type: [ Vox ]
         ignoreResistances: true
         damage:
           types:
-            Poison:
-              7
+            Poison: 0.7
       - !type:AdjustAlert
-        alertType: HighOxygen
+        alertType: Toxins
+        minScale: 0.5
         conditions:
-          - !type:ReagentThreshold
-            min: 0.5
-          - !type:OrganType
-            type: Vox
+          - !type:MetabolizerTypeCondition
+            type: [ Vox ]
         clear: true
         time: 5
       - !type:Oxygenate
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-      - !type:Oxygenate # Shitmed - Cybernetic Organs
-        conditions:
-        - !type:OrganType
-          type: Cybernetic
+        - !type:MetabolizerTypeCondition # Goobstation
+          type:
+          - Yowie # Goobstation - Yowie
+          - Cybernetic # Shitmed - Cybernetic Organs
       - !type:ModifyLungGas
         conditions:
-        - !type:OrganType
-          type: Cybernetic
+        - !type:MetabolizerTypeCondition
+          type:
+          - Cybernetic # Shitmed - Cybernetic Organs
         ratios:
           CarbonDioxide: 0.5
           Oxygen: -0.5
       - !type:HealthChange # EE Plasmeme
         conditions:
-        - !type:OrganType
-          type: Plasmaman
-        scaleByQuantity: true
+        - !type:MetabolizerTypeCondition
+          type: [ Plasmaman ]
         ignoreResistances: true
         damage:
           types:
@@ -201,10 +154,11 @@
       - !type:AdjustAlert
         alertType: HighOxygen
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: Oxygen
             min: 0.5
-          - !type:OrganType
-            type: Plasmaman
+          - !type:MetabolizerTypeCondition
+            type: [ Plasmaman ]
         clear: true
         time: 5
 
@@ -226,87 +180,83 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:OrganType # EE - Plasmeme
-          type: Plasmaman
-          shouldHave: false
-        - !type:OrganType # Shitmed - Cybernetic Organs
-          type: Cybernetic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type:
+          - Yowie # Goobstation - Yowie
+          - Plasmaman # EE Plasmeme
+          - Cybernetic # Shitmed - Cybernetic Organs
+          inverted: true
         damage:
           types:
-            Poison: 3
+            Poison: 1.5
       - !type:AdjustReagent
         conditions:
-        - !type:OrganType
-          type: Plasmaman
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Plasmaman ]
+          inverted: true
         reagent: Inaprovaline
         amount: -2.0
       - !type:HealthChange # Shitmed - Cybernetic Organs
         conditions:
-        - !type:OrganType
-          type: Cybernetic
+        - !type:MetabolizerTypeCondition
+          type: [ Cybernetic ]
         damage:
           types:
             Poison: 1.5
     Gas:
       effects:
       - !type:HealthChange
+# Goobstation start
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:OrganType # EE - Plasmeme
-          type: Plasmaman
-          shouldHave: false
-        - !type:OrganType # Shitmed - Cybernetic Organs
-          type: Cybernetic
-          shouldHave: false
-        - !type:OrganType
-          type: Hydrakin
-          shouldHave: false
-        scaleByQuantity: true
+        - !type:MetabolizerTypeCondition
+          type:
+          - Yowie # Goobstation - Yowie
+          - Plasmaman  # EE - Plasmeme
+          - Cybernetic # Shitmed - Cybernetic Organs
+          - Hydrakin # Fuc kyou
+          inverted: true
+# Goobstation end
         ignoreResistances: true
         damage:
           types:
             Poison:
-              1
+              0.1
       # We need a metabolism effect on reagent removal
       - !type:AdjustAlert
         alertType: Toxins
-        conditions:
-          - !type:OrganType
-            type: Plasmaman
-            shouldHave: false
-          - !type:ReagentThreshold
-            min: 1.5
+        minScale: 1.5
         clear: True
         time: 5
+# Goobstation start
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Plasmaman ]
+          inverted: true
+        - !type:ReagentCondition
+          reagent: Plasma
+          min: 1.5
+        # Goobstation end
       - !type:Oxygenate
         factor: 4
         conditions:
-        - !type:OrganType
-          type: Plasmaman
+        - !type:MetabolizerTypeCondition
+          type: [ Plasmaman ]
       - !type:Oxygenate # Mono - Hydrakin
         factor: 4
         conditions:
-        - !type:OrganType
-          type: Hydrakin
+        - !type:MetabolizerTypeCondition # fuck you
+          type: [ Hydrakin ]
       - !type:ModifyLungGas
         conditions:
-        - !type:OrganType
-          type: Plasmaman
+        - !type:MetabolizerTypeCondition
+          type: [ Plasmaman ]
         ratios:
           Nitrogen: 1.0 # Interesting exhale for plasmamen
           Plasma: -1.0
       - !type:HealthChange # Shitmed - Cybernetic Organs
         conditions:
-        - !type:OrganType
-          type: Cybernetic
-        scaleByQuantity: true
+        - !type:MetabolizerTypeCondition
+          type: [ Cybernetic ]
         ignoreResistances: true
         damage:
           types:
@@ -314,8 +264,8 @@
               0.5
       - !type:HealthChange # Mono
         conditions:
-        - !type:OrganType
-          type: Hydrakin
+        - !type:MetabolizerTypeCondition # Fuck you
+          type: [Hydrakin]
         damage:
           types:
             Heat: -0.8
@@ -323,8 +273,8 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Plasmaman
+        - !type:MetabolizerTypeCondition
+          type: [ Plasmaman ]
         damage:
           groups:
             Brute: -2
@@ -338,13 +288,15 @@
     Flammable:
       methods: [ Touch ]
       effects:
-      - !type:FlammableReaction
+      - !type:Flammable
 
 - type: reagent
   id: Tritium
   name: reagent-name-tritium
   desc: reagent-desc-tritium
   physicalDesc: reagent-physical-desc-ionizing
+  allowedDepartments:
+  - Engineering
   flavor: bitter
   color: "#66ff33"
   tileReactions:
@@ -354,41 +306,43 @@
     Flammable:
       methods: [ Touch ]
       effects:
-      - !type:FlammableReaction
+      - !type:Flammable
         multiplier: 0.8
   metabolisms:
     Poison:
       effects:
       - !type:HealthChange
+# Goobstation start
         conditions:
-        - !type:OrganType # Shitmed - Cybernetic Organs
-          type: Cybernetic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Shitmed - Cybernetic
+          type: [ Cybernetic, Hydrakin ] # Fuck you
+          inverted: true
+# Goobstation end
         damage:
           types:
-            Radiation: 3
+            Radiation: 3 # Goobstation
+# Goobstation start
       - !type:HealthChange # Shitmed - Cybernetic Organs
         conditions:
-        - !type:OrganType
-          type: Cybernetic
+        - !type:MetabolizerTypeCondition
+          type: [Cybernetic]
         damage:
           types:
             Radiation: 1.5
+# Goobstation end
     Gas:
       effects:
       - !type:Oxygenate # Mono - Hydrakin
         conditions:
-        - !type:OrganType
-          type: Hydrakin
+        - !type:MetabolizerTypeCondition # Fuck you
+          type: [Hydrakin]
       - !type:HealthChange
+# Goobstation start
         conditions:
-        - !type:OrganType # Shitmed - Cybernetic Organs
-          type: Cybernetic
-          shouldHave: false
-        - !type:OrganType # Mono
-          type: Hydrakin
-          shouldHave: false
-        scaleByQuantity: true
+        - !type:MetabolizerTypeCondition # Shitmed - Cybernetic Organs
+          type: [Cybernetic, Hydrakin] # and hydrakin fuck you this is a webedited conflict resolution.
+          inverted: true
+# Goobstation end
         ignoreResistances: true
         damage:
           types:
@@ -397,16 +351,13 @@
       # We need a metabolism effect on reagent removal
       - !type:AdjustAlert
         alertType: Toxins
-        conditions:
-          - !type:ReagentThreshold
-            min: 1.5
+        minScale: 1.5
         clear: True
         time: 5
       - !type:HealthChange # Shitmed - Cybernetic Organs
         conditions:
-        - !type:OrganType
-          type: Cybernetic
-        scaleByQuantity: true
+        - !type:MetabolizerTypeCondition
+          type: [ Plasmaman ]
         ignoreResistances: true
         damage:
           types:
@@ -414,9 +365,9 @@
               0.5
       - !type:HealthChange # Mono
         conditions:
-        - !type:OrganType
-          type: Hydrakin
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition # Fuck you
+          type: [Hydrakin]
+        - !type:ReagentCondition
           reagent: Tritium
           min: 0.01
         damage:
@@ -436,62 +387,48 @@
       effects:
       - !type:Oxygenate
         conditions:
-        - !type:OrganType
-          type: Plant
+        - !type:MetabolizerTypeCondition
+          type: [ Plant ]
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Plant
-          shouldHave: false
-        - !type:OrganType
-          type: Vox
-          shouldHave: false
-        - !type:OrganType # Shitmed - Cybernetic Organs
-          type: Cybernetic
-          shouldHave: false
-        scaleByQuantity: true
+        - !type:MetabolizerTypeCondition
+          type:
+          - Plant
+          - Vox
+          - Cybernetic # Shitmed - Cybernetic Organs
+          inverted: true
         ignoreResistances: true
         damage:
           types:
             Poison:
-              0.8
+              0.4
       - !type:Oxygenate
         conditions:
-        - !type:OrganType
-          type: Plant
-          shouldHave: false
-        - !type:OrganType # Shitmed - Cybernetic Organs
-          type: Cybernetic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type:
+          - Plant
+          - Cybernetic  # Shitmed - Cybernetic Organs
+          inverted: true
         factor: -4
     Gas:
       effects:
       - !type:Oxygenate
         conditions:
-        - !type:OrganType
-          type: Plant
+        - !type:MetabolizerTypeCondition
+          type: [ Plant ]
       - !type:HealthChange
+        minScale: 0.5
         conditions:
-        - !type:OrganType
-          type: Plant
-          shouldHave: false
-        - !type:OrganType
-          type: Vox
-          shouldHave: false
-        - !type:OrganType
-          type: Hydrakin
-          shouldHave: false
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:OrganType # Shitmed - Cybernetic Organs
-          type: Cybernetic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type:
+          - Plant
+          - Vox
+          - Yowie # Goobstation - Yowie
+          - Cybernetic # Shitmed - Cybernetic Organs
+          - Hydrakin # Bro
+          inverted: true
         # Don't want people to get toxin damage from the gas they just
         # exhaled, right?
-        - !type:ReagentThreshold
-          min: 0.5
-        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
@@ -499,15 +436,12 @@
               0.8
       - !type:Oxygenate # carbon dioxide displaces oxygen from the bloodstream, causing asphyxiation
         conditions:
-        - !type:OrganType
-          type: Plant
-          shouldHave: false
-        - !type:OrganType
-          type: Hydrakin
-          shouldHave: false
-        - !type:OrganType # Shitmed - Cybernetic Organs
-          type: Cybernetic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type:
+          - Plant
+          - Cybernetic # Shitmed - Cybernetic Organs3
+          - Hydrakin # fuck you
+          inverted: true
         factor: -4
       # We need a metabolism effect on reagent removal
       #- !type:AdjustAlert
@@ -528,44 +462,36 @@
       - !type:HealthChange
         damage:
           types:
-            Cold: 1 # liquid nitrogen is cold
+            Cold: 0.5 # liquid nitrogen is cold
     Gas:
       effects:
       - !type:Oxygenate
         conditions:
-        - !type:OrganType
-          type: Vox
-      - !type:Oxygenate # Mono - Hydrakin
-        conditions:
-        - !type:OrganType
-          type: Hydrakin
-      - !type:Oxygenate
-        conditions:
-        - !type:OrganType
-          type: Slime
-      - !type:Oxygenate # Shitmed - Cybernetic Organs
-        conditions:
-        - !type:OrganType
-          type: Cybernetic
-      # Converts Nitrogen into CO2
+        - !type:MetabolizerTypeCondition
+          type:
+          - Vox
+          - Slime
+          - Cybernetic # Shitmed - Cybernetic Organs
+          - Hydrakin # Bro
+      # Converts Nitrogen into Ammonia
       - !type:ModifyLungGas
         conditions:
-        - !type:OrganType
-          type: Vox
+        - !type:MetabolizerTypeCondition
+          type: [ Vox ]
         ratios:
           Ammonia: 1.0
           Nitrogen: -1.0
       - !type:ModifyLungGas
         conditions:
-        - !type:OrganType
-          type: Slime
+        - !type:MetabolizerTypeCondition
+          type: [ Slime ]
         ratios:
           NitrousOxide: 1.0
           Nitrogen: -1.0
       - !type:ModifyLungGas # Shitmed - Cybernetic Organs
         conditions:
-        - !type:OrganType
-          type: Cybernetic
+        - !type:MetabolizerTypeCondition
+          type: [ Cybernetic ]
         ratios:
           NitrousOxide: 0.5
           Nitrogen: -0.5
@@ -585,120 +511,110 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: 2
+            Poison: 1
     Gas:
       effects:
       - !type:Oxygenate # Mono - Hydrakin
         conditions:
-        - !type:OrganType
-          type: Hydrakin
-      - !type:MovespeedModifier # Mono - Hydrakin
-        walkSpeedModifier: 1.15
-        sprintSpeedModifier: 1.15
+        - !type:MetabolizerTypeCondition # Fuck you
+          type: [Hydrakin]
+      - !type:NitrousMovespeedModifier # Mono - Hydrakin
         conditions:
-        - !type:OrganType
-          type: Hydrakin
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: NitrousOxide
           min: 0.05
+        - !type:MetabolizerTypeCondition # Fuck you
+          type: [ Hydrakin ]
+        speedModifier: 1.25
       - !type:Emote
+        minScale: 0.2
         conditions:
-        - !type:ReagentThreshold
-          reagent: NitrousOxide
-          min: 0.2
-          max: 0.5
-        - !type:OrganType
-          type: Slime
-          shouldHave: false
-        - !type:OrganType # Shitmed - Cybernetic Organs
-          type: Cybernetic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type:
+          - Slime
+          - Cybernetic # Shitmed - Cybernetic Organs
+          inverted: true
         emote: Laugh
         showInChat: true
         probability: 0.1
-      - !type:PopupMessage
+      - !type:Emote
+        minScale: 0.2
         conditions:
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Slime ]
+          inverted: true
+        emote: Scream
+        showInChat: true
+        probability: 0.01
+      - !type:PopupMessage
+        minScale: 0.5
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type:
+          - Slime
+          - Cybernetic # Shitmed - Cybernetic Organs
+          - Hydrakin # Fuck you
+          inverted: true
+        - !type:BloodReagentThresholdCondition #  Assmos - /tg/ gases
           reagent: NitrousOxide
           min: 0.5
-        - !type:OrganType
-          type: Slime
-          shouldHave: false
-        - !type:OrganType # Mono - Hydrakin
-          type: Hydrakin
-          shouldHave: false
-        - !type:OrganType # Shitmed - Cybernetic Organs
-          type: Cybernetic
-          shouldHave: false
-        - !type:BloodReagentThreshold #  Assmos - /tg/ gases
+        - !type:MetabolizerTypeCondition
+          type:
+          - Slime
+          - Cybernetic # Shitmed - Cybernetic Organs
+          - Hydrakin # Fuck you
+          inverted: true
+        - !type:BloodReagentThresholdCondition #  Assmos - /tg/ gases
           reagent: NitrosylPlasmide
           max: 0.1
         type: Local
         visualType: Medium
         messages: [ "effect-sleepy" ]
         probability: 0.1
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
+        minScale: 1
         conditions:
-        - !type:ReagentThreshold
-          reagent: NitrousOxide
-          min: 1
-        - !type:OrganType
-          type: Slime
-          shouldHave: false
-        - !type:OrganType # Shitmed - Cybernetic Organs
-          type: Cybernetic
-          shouldHave: false
-        - !type:OrganType
-          type: Cybernetic
-          shouldHave: false
-        - !type:BloodReagentThreshold #  Assmos - /tg/ gases
+        - !type:MetabolizerTypeCondition
+          type:
+          - Slime
+          - Cybernetic # Shitmed - Cybernetic Organs
+          inverted: true
+        - !type:BloodReagentThresholdCondition #  Assmos - /tg/ gases
           reagent: NitrosylPlasmide
           max: 0.1
-        - !type:OrganType # Mono - Hydrakin
-          type: Hydrakin
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Fuck you
+          type: [Hydrakin]
+          inverted: true
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
       - !type:ModifyStatusEffect
+        minScale: 1.8
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:ReagentThreshold
-          reagent: NitrousOxide
-          min: 1
-        - !type:OrganType
-          type: Slime
-          shouldHave: false
-        - !type:OrganType # Shitmed - Cybernetic Organs
-          type: Cybernetic
-          shouldHave: false
-        - !type:BloodReagentThreshold #  Assmos - /tg/ gases
+        - !type:MetabolizerTypeCondition
+          type:
+          - Slime
+          - Cybernetic # Shitmed - Cybernetic Organs
+          - Yowie  # Goobstation - Yowie
+          inverted: true
+        - !type:BloodReagentThresholdCondition #  Assmos - /tg/ gases
           reagent: NitrosylPlasmide
           max: 0.1
-        - !type:OrganType # Mono - Hydrakin
-          type: Hydrakin
-          shouldHave: false
+        - !type:MetabolizerTypeCondition # Fuck you
+          type: [Hydrakin]
+          inverted: true
         effectProto: StatusEffectForcedSleeping
         time: 3
-        type: Add
+        type: Update
       - !type:HealthChange
+        minScale: 3.5
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:OrganType # Shitmed - Cybernetic Organs
-          type: Cybernetic
-          shouldHave: false
-        - !type:ReagentThreshold
-          reagent: NitrousOxide
-          min: 3.5
-        - !type:OrganType
-          type: Slime
-          shouldHave: false
-        - !type:OrganType # Mono - Hydrakin
-          type: Hydrakin
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type:
+          - Slime
+          - Cybernetic # Shitmed - Cybernetic Organs
+          - Yowie # Goobstation - Yowie
+          - Hydrakin # i hate them
+          inverted: true
         ignoreResistances: true
         damage:
           types:
@@ -709,6 +625,10 @@
   name: reagent-name-frezon
   desc: reagent-desc-frezon
   physicalDesc: reagent-physical-desc-gaseous
+  allowedDepartments:
+  - Engineering
+  allowedJobs:
+  - Chemist
   flavor: bitter
   color: "#3a758c"
   boilingPoint: -195.8
@@ -717,45 +637,40 @@
     Narcotic:
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
-            Cellular: 1
+            Cellular: 0.5
       - !type:ModifyStatusEffect
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 15
-        refresh: false
       - !type:Drunk
         boozePower: 15
       - !type:PopupMessage
         type: Local
         messages: [ "frezon-lungs-cold" ]
         probability: 0.1
-        conditions:
-        - !type:ReagentThreshold
-          reagent: Frezon
-          min: 0.5
+        minScale: 1
       - !type:PopupMessage
         type: Local
         visualType: Medium
         messages: [ "frezon-euphoric" ]
         probability: 0.1
         conditions:
-        - !type:ReagentThreshold
-          reagent: Frezon
-          min: 1
+        minScale: 2
     Gas:
       effects:
       - !type:Oxygenate # Mono - Hydrakin
         conditions:
-        - !type:OrganType
-          type: Hydrakin
+        - !type:MetabolizerTypeCondition # Fuck you
+          type: [Hydrakin]
       - !type:HealthChange
+        minScale: 0.5
+# Goobstation start
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie, Hydrakin ] # Hydrakin
         damage:
           groups:
             Brute: -1
@@ -766,99 +681,100 @@
             Radiation: -0.5
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Hydrakin
-          type: Hydrakin
-        damage:
-          groups:
-            Brute: -1
-          types:
-            Heat: -0.5
-            Shock: -0.5
-            Cold: -0.5
-            Radiation: -0.5
-      - !type:HealthChange
-        conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        - !type:OrganType # Shitmed - Cybernetic Organs
-          type: Cybernetic
-          shouldHave: false
-        - !type:OrganType # Mono - Hydrakin
-          type: Hydrakin
-          shouldHave: false
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type:
+          - Yowie
+          - Cybernetic
+          - Hydrakin # man
+          inverted: true
+# Goobstation End
+        - !type:ReagentCondition
           reagent: Frezon
           min: 0.5
-        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
-            Cellular: 0.5
+            Cellular: 0.5 # Goobstation
+# Goobstation Start
       - !type:HealthChange # Shitmed - Cybernetic Organs
         conditions:
-        - !type:OrganType
-          type: Cybernetic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Cybernetic ]
+        - !type:ReagentCondition
           reagent: Frezon
           min: 0.5
-        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
             Cellular: 0.25
+# Goobstation End
       - !type:ModifyStatusEffect
+        minScale: 1
+        # Goob start
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Frezon
           min: 1
-        - !type:OrganType # Mono
-          type: Hydrakin
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type:
+          - Hydrakin # i hate them
+          inverted: true
+        # Goob end
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 500
-        refresh: false
       - !type:Drunk
         boozePower: 500
+        minScale: 1
+        # Goob start
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Frezon
           min: 1
-        - !type:OrganType # Mono
-          type: Hydrakin
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type:
+          - Hydrakin # i hate them
+          inverted: true
+        # Goob end
       - !type:PopupMessage
         type: Local
         messages: [ "frezon-lungs-cold" ]
         probability: 0.1
+        minScale: 1
+        # Goob start
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Frezon
-          min: 0.5
-        - !type:OrganType # Mono
-          type: Hydrakin
-          shouldHave: false
+          min: 1
+        - !type:MetabolizerTypeCondition
+          type:
+          - Hydrakin # i hate them
+          inverted: true
+        # Goob end
       - !type:PopupMessage
         type: Local
         visualType: Medium
         messages: [ "frezon-euphoric" ]
         probability: 0.1
+        minScale: 1
+        # Goob start
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Frezon
           min: 1
-        - !type:OrganType # Mono
-          type: Hydrakin
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type:
+          - Hydrakin # i hate them
+          inverted: true
       - !type:AdjustTemperature # Mono - Hydrakin
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Frezon
           min: 0.045
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 215.15
-        - !type:OrganType
-          type: Hydrakin
+        - !type:MetabolizerTypeCondition
+          type:
+          - Hydrakin # i hate them
         amount: -10000
-
+        # Goob end

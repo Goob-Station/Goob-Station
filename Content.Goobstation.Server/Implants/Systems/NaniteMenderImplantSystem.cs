@@ -10,6 +10,7 @@ using Content.Goobstation.Shared.Implants;
 using Content.Server.Administration.Systems;
 using Content.Server.Jittering;
 using Content.Server.Popups;
+using Content.Shared.Administration.Systems;
 using Content.Shared.Popups;
 
 namespace Content.Goobstation.Server.Implants.Systems;

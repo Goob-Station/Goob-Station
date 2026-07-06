@@ -22,7 +22,7 @@
       - SlowedDown
       - Electrocution
       - PressureImmunity
-      - StaminaModifier
+      - StaminaModifierStatusEffectComponent
       - SeeAll
       - Flashed
     - type: Reactive

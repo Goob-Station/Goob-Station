@@ -106,7 +106,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
 
         if (TryComp<BloodstreamComponent>(ent, out var bloodstream)
             && _solutionContainer.ResolveSolution(ent.Owner, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var blood)
-            && _solutionContainer.ResolveSolution(ent.Owner, bloodstream.ChemicalSolutionName, ref bloodstream.ChemicalSolution, out var chem))
+            && _solutionContainer.ResolveSolution(ent.Owner, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var chem))
         {
             FixedPoint2 bloodProportion = blood.Volume/(chem.Volume + blood.Volume);
             FixedPoint2 chemProportion = 1 - bloodProportion;
