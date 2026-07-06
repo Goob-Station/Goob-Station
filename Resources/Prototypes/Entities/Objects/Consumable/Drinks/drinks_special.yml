@@ -100,7 +100,7 @@
     sprite: Objects/Consumable/Drinks/shotglass.rsi
   - type: SolutionContainerVisuals
     maxFillLevels: 2
-    fillBaseName: fill
+    fillBaseName: fill-
     inHandsMaxFillLevels: 1
   # Pirate banking start
   - type: StaticPrice

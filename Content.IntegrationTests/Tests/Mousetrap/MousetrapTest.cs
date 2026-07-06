@@ -141,6 +141,7 @@ public sealed class MousetrapHumanMoveOverTest : MovementTest
         await PlaceInHands(ShoesProtoId);
         // Thanks to quick-equip, using the shoes will wear them
         await UseInHand();
+        await RunSeconds(0.6f);
 
         // Move back over the trap
         await Move(DirectionFlag.West, 1f);

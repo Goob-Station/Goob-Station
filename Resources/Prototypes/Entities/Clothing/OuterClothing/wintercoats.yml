@@ -176,6 +176,17 @@
     - ClothMade
     - WhitelistChameleon
     - WinterCoat
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 30
+      #region Pirate: stains
+      stain:
+        maxVol: 5
+      #endregion Pirate: stains
 
 - type: entity
   parent: ClothingOuterWinterCoatToggleable

@@ -178,6 +178,9 @@
       layers:
         - map: ["coffee_cup_base"]
           state: coffee
+        - map: ["enum.SolutionContainerLayers.Fill"]
+          state: coffee_full_1
+          visible: false
     - type: Icon
       sprite: _Pirate/Objects/Consumable/Drinks/coffeemaker_drinks.rsi
       state: coffee

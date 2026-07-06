@@ -75,6 +75,8 @@ public sealed class HungerThirstTest : InteractionTest
         Assert.That(ingestionSystem.CanConsume(SPlayer, SPlayer, ToServer(drink), out var solution, out _),
             "Unable to get the solution or the entity can not be consumed");
 
+        previousThirstValue = thirstComponent.CurrentThirst;
+
         // Find the initial amount of solution in the drink
         var initialSolutionVolume = solution.Value.Comp.Solution.Volume;
 

@@ -70,7 +70,7 @@
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
   product: CrateVendingMachineRestockBoozeFilled
-  cost: 8500 # Pirate
+  cost: 9500 # Pirate
   category: cargoproduct-category-name-service
   group: market
 

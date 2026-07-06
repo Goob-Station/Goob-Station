@@ -105,6 +105,7 @@
   category: cargoproduct-category-name-service
   group: market
 
+
 - type: cargoProduct
   id: ServiceTheatre
   icon:
@@ -191,7 +192,7 @@
     sprite: Objects/Consumable/Drinks/generic_jug.rsi
     state: icon
   product: CrateServiceSodaDispenser
-  cost: 850
+  cost: 1000 # Pirate
   category: cargoproduct-category-name-service
   group: market
 
@@ -284,4 +285,3 @@
   cost: 500
   category: cargoproduct-category-name-service
   group: market
-
