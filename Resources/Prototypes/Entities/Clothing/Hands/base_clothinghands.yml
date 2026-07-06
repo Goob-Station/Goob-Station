@@ -134,6 +134,11 @@
   #endregion Pirate: stains
   #region Pirate: wetness
   - type: Wettable
+  # Sealed gloves (deployed modsuit gauntlets) are watertight. Plain gloves have no SealableClothing
+  # so this blocker is skipped for them and they still get wet normally.
+  - type: WetnessBlocker
+    slots: [GLOVES]
+    requiresSealed: true
   #endregion Pirate: wetness
   - type: DamageOnInteractProtection
     damageProtection:

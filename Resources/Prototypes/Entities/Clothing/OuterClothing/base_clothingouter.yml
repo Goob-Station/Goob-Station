@@ -333,9 +333,9 @@
   name: base hardsuit
   components:
   #region Pirate: wetness
-  # Hardsuits stay dry and protect inner clothing.
+  # Hardsuits stay dry and keep the inner uniform, gloves and boots dry too.
   - type: WetnessBlocker
-    slots: [OUTERCLOTHING, INNERCLOTHING]
+    slots: [OUTERCLOTHING, INNERCLOTHING, GLOVES, FEET]
   #endregion Pirate: wetness
 # SlotBlocker blocked until UI change
 #  - type: SlotBlock
