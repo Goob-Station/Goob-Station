@@ -33,14 +33,20 @@ public sealed class WetnessSystem : SharedWetnessSystem
 
             var ent = (uid, comp);
 
-            RemoveWetness(ent, comp.DryPerStep);
+            // Work out this tick's total loss up front — the drying step plus an optional drip — so
+            // wetness is refreshed only once instead of twice.
+            var dried = FixedPoint2.Min(comp.DryPerStep, comp.Wetness);
+            var remaining = comp.Wetness - dried;
 
-            // Each drying step has a small chance to shed a clean water drip.
-            if (comp.Wetness > 0 && _random.Prob(comp.DripChance) && CanDrip(uid))
+            var drip = FixedPoint2.Zero;
+            // Each drying step has a small chance to shed a clean water drip from what's left.
+            if (remaining > 0 && _random.Prob(comp.DripChance) && CanDrip(uid))
+                drip = FixedPoint2.Min(comp.DripAmount, remaining);
+
+            RemoveWetness(ent, dried + drip);
+
+            if (drip > 0)
             {
-                var drip = FixedPoint2.Min(comp.DripAmount, comp.Wetness);
-                RemoveWetness(ent, drip);
-
                 var water = new Solution();
                 water.AddReagent("Water", drip);
                 // Spilling at the item coalesces with any puddle already on its tile.

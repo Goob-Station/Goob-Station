@@ -110,9 +110,6 @@
     - sprite: _Pirate/Effects/blood.rsi
       state: uniformbloodicon
   #endregion Pirate: stains
-  #region Pirate: wetness
-  - type: Wettable
-  #endregion Pirate: wetness
 
 
 - type: entity
@@ -165,9 +162,6 @@
     - sprite: _Pirate/Effects/blood.rsi
       state: uniformbloodicon
   #endregion Pirate: stains
-  #region Pirate: wetness
-  - type: Wettable
-  #endregion Pirate: wetness
 
 # Goobstation
 

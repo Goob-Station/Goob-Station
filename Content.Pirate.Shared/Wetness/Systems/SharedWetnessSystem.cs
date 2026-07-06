@@ -449,15 +449,20 @@ public abstract class SharedWetnessSystem : EntitySystem
     {
         if (args.Handled || args.Cancelled || ent.Comp.Wetness <= 0)
             return;
-        args.Handled = true;
+
+        // Wetness mutation and spilling are server-authoritative.
+        if (!_net.IsServer)
+            return;
 
         // Wringing only dumps the clothing's clean water. Stains stay in the item.
         var water = new Solution();
         water.AddReagent(WaterReagent, ent.Comp.Wetness);
 
+        // Don't consume the DoAfter or clear the item's wetness if the spill couldn't happen.
         if (!_puddle.TrySpillAt(args.User, water, out _))
             return;
 
+        args.Handled = true;
         ent.Comp.Wetness = FixedPoint2.Zero;
         Dirty(ent);
         NotifyChanged(ent);

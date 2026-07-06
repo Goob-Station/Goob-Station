@@ -78,7 +78,9 @@ public sealed class ShowerSystem : SharedShowerSystem
             if (!OnTile(target, gridUid, grid, tile))
                 continue;
 
-            _reactive.DoEntityReaction(target, spray, ReactionMethod.Touch);
+            // Each target reacts to its own copy: an effect that consumes/mutates the source must not
+            // change the dose seen by later targets or by the puddle spill below.
+            _reactive.DoEntityReaction(target, spray.Clone(), ReactionMethod.Touch);
             wetAnything = true;
         }
 
@@ -88,7 +90,7 @@ public sealed class ShowerSystem : SharedShowerSystem
             if (HasComp<InventoryComponent>(item) || !OnTile(item, gridUid, grid, tile))
                 continue;
 
-            _reactive.DoEntityReaction(item, spray, ReactionMethod.Touch);
+            _reactive.DoEntityReaction(item, spray.Clone(), ReactionMethod.Touch);
             wetAnything = true;
         }
 

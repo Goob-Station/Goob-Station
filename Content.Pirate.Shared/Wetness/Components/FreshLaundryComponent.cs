@@ -5,10 +5,10 @@ namespace Content.Pirate.Shared.Wetness.Components;
 /// inner slot before <see cref="Expiry"/> grants a timed fresh-laundry mood buff (TauCeti-style).
 /// Only ever read server-side (mood), so it is not networked.
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, AutoGenerateComponentPause]
 public sealed partial class FreshLaundryComponent : Component
 {
-    /// <summary>Time after which wearing the item no longer grants the buff.</summary>
-    [DataField]
+    /// <summary>Time after which wearing the item no longer grants the buff. Pauses with the entity.</summary>
+    [DataField, AutoPausedField]
     public TimeSpan Expiry;
 }

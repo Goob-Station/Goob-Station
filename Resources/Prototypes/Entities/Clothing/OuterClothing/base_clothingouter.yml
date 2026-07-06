@@ -223,12 +223,7 @@
   - type: StainBlocker
     slots: [INNERCLOTHING]
   #endregion Pirate: stains
-  #region Pirate: wetness
-  - type: Wettable
-  # Outer gear takes the splash so the inner uniform underneath stays dry.
-  - type: WetnessBlocker
-    slots: [INNERCLOTHING]
-  #endregion Pirate: wetness
+  # Wettable + WetnessBlocker are inherited unchanged from ClothingOuterBase.
 
 - type: entity
   abstract: true

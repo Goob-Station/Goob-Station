@@ -378,30 +378,30 @@ public abstract class SharedStainSystem : EntitySystem
     /// <summary>Pulls the oldest <paramref name="amount"/> units out of a container solution into <paramref name="into"/>.</summary>
     private void EvictOldest(Entity<SolutionComponent> solComp, FixedPoint2 amount, Solution into)
     {
-        var remaining = amount;
-        foreach (var content in new List<ReagentQuantity>(solComp.Comp.Solution.Contents))
-        {
-            if (remaining <= 0)
-                break;
-
-            var take = FixedPoint2.Min(remaining, content.Quantity);
-            var removed = _solution.RemoveReagent(solComp, content.Reagent, take);
-            into.AddReagent(content.Reagent, removed);
-            remaining -= removed;
-        }
+        EvictOldest(solComp.Comp.Solution, amount, into,
+            (reagent, take) => _solution.RemoveReagent(solComp, reagent, take));
     }
 
     /// <summary>Pulls the oldest <paramref name="amount"/> units out of a standalone solution into <paramref name="into"/>.</summary>
     private static void EvictOldest(Solution source, FixedPoint2 amount, Solution into)
     {
+        EvictOldest(source, amount, into, (reagent, take) => source.RemoveReagent(reagent, take));
+    }
+
+    /// <summary>
+    /// Shared FIFO eviction: pulls the oldest <paramref name="amount"/> units out of <paramref name="from"/>
+    /// into <paramref name="into"/>, using <paramref name="remove"/> to remove each reagent from the source.
+    /// </summary>
+    private static void EvictOldest(Solution from, FixedPoint2 amount, Solution into, Func<ReagentId, FixedPoint2, FixedPoint2> remove)
+    {
         var remaining = amount;
-        foreach (var content in new List<ReagentQuantity>(source.Contents))
+        foreach (var content in new List<ReagentQuantity>(from.Contents))
         {
             if (remaining <= 0)
                 break;
 
             var take = FixedPoint2.Min(remaining, content.Quantity);
-            var removed = source.RemoveReagent(content.Reagent, take);
+            var removed = remove(content.Reagent, take);
             into.AddReagent(content.Reagent, removed);
             remaining -= removed;
         }

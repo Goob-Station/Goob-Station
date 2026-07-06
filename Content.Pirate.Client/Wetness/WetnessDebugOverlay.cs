@@ -52,23 +52,19 @@ public sealed class WetnessDebugOverlay : Overlay
         var handle = args.ScreenHandle;
         var uiScale = _ui.RootControl.UIScale;
         var lineHeight = 11f * uiScale;
-        var viewport = args.WorldAABB;
 
-        var query = _entMan.AllEntityQueryEnumerator<InventoryComponent, TransformComponent>();
-        while (query.MoveNext(out var uid, out var inv, out var xform))
+        // Only entities within the current viewport can be drawn, so query the lookup for those
+        // instead of scanning every inventory holder on the map each frame.
+        foreach (var uid in _lookup.GetEntitiesIntersecting(args.MapId, args.WorldBounds))
         {
-            if (xform.MapID != args.MapId)
-                continue;
-
-            var aabb = _lookup.GetWorldAABB(uid);
-            if (!aabb.Intersects(viewport))
+            if (!_entMan.TryGetComponent<InventoryComponent>(uid, out var inv))
                 continue;
 
             var lines = BuildLines(uid, inv);
             if (lines.Count == 0)
                 continue;
 
-            var screen = _eye.WorldToScreen(aabb.Center).Rounded();
+            var screen = _eye.WorldToScreen(_lookup.GetWorldAABB(uid).Center).Rounded();
             // Anchor the block up-and-left of the entity so it sits beside the character.
             var start = new Vector2(screen.X - 280f * uiScale, screen.Y - lineHeight * lines.Count / 2f);
 

@@ -4,6 +4,7 @@ using Content.Shared.Fluids.Components;
 using Content.Shared.Inventory;
 using Content.Shared.StepTrigger.Systems;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Random;
 
 namespace Content.Pirate.Server.Fluids;
 
@@ -16,12 +17,21 @@ public sealed class FloorWaterSystem : EntitySystem
     [Dependency] private readonly SharedWetnessSystem _wetness = null!;
     [Dependency] private readonly EntityLookupSystem _lookup = null!;
     [Dependency] private readonly SharedMapSystem _map = null!;
+    [Dependency] private readonly IRobustRandom _random = null!;
 
     public override void Initialize()
     {
         base.Initialize();
+        SubscribeLocalEvent<FloorWaterComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<FloorWaterComponent, StepTriggerAttemptEvent>(OnStepAttempt);
         SubscribeLocalEvent<FloorWaterComponent, StepTriggeredOffEvent>(OnStepTriggered);
+    }
+
+    private void OnMapInit(Entity<FloorWaterComponent> ent, ref MapInitEvent args)
+    {
+        // Stagger the first absorb cycle so a whole lake of water tiles doesn't scan puddles on the
+        // same tick (mirrors how the engine's DrainSystem randomises its accumulator).
+        ent.Comp.AbsorbAccumulator = _random.NextFloat(ent.Comp.AbsorbInterval);
     }
 
     private void OnStepAttempt(Entity<FloorWaterComponent> ent, ref StepTriggerAttemptEvent args)
