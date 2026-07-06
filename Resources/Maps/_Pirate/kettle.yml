@@ -58025,8 +58025,6 @@ entities:
     - type: Transform
       pos: -0.5,3.5
       parent: 27897
-    - type: SiloUtilizer
-      silo: 18970
 - proto: Carpet
   entities:
   - uid: 8705
@@ -130433,8 +130431,6 @@ entities:
     - type: Transform
       pos: 2.5,1.5
       parent: 27897
-    - type: SiloUtilizer
-      silo: 18970
 - proto: OreProcessorMachineCircuitboard
   entities:
   - uid: 19102
