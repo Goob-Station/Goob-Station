@@ -28,14 +28,13 @@ public sealed class WashingMachineSystem : SharedWashingMachineSystem
     [Dependency] private readonly SharedStainSystem _stains = null!;
     [Dependency] private readonly SharedWetnessSystem _wetness = null!;
     [Dependency] private readonly ForensicsSystem _forensics = null!;
-
-    /// <summary>Fresh-laundry buff window after washing.</summary>
-    private static readonly TimeSpan FreshLaundryWindow = TimeSpan.FromMinutes(5);
     [Dependency] private readonly DamageableSystem _damageable = null!;
     [Dependency] private readonly IPrototypeManager _proto = null!;
     [Dependency] private readonly IRobustRandom _random = null!;
     [Dependency] private readonly ReactiveSystem _reactive = null!;
 
+    /// <summary>How long after a wash cycle wearing a laundered inner uniform grants the buff.</summary>
+    private static readonly TimeSpan FreshLaundryWindow = TimeSpan.FromMinutes(5);
     private static readonly SoundSpecifier HitSound = new SoundCollectionSpecifier("MetalThud");
 
     public override void Initialize()
