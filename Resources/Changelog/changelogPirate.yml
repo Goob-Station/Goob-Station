@@ -1949,3 +1949,13 @@ Entries:
         офіціанток-зайок)
   id: 182
   time: '2026-07-06T10:22:26.0000000+00:00'
+- author: AgentMaper
+  changes:
+    - type: Add
+      message: Нові декалі
+    - type: Add
+      message: Нові декоративні рослини
+    - type: Tweak
+      message: Респрайт стін та вікон під сс13
+  id: 183
+  time: '2026-07-06T13:36:27.0000000+00:00'
