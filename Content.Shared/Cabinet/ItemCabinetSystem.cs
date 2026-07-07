@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Containers.ItemSlots;
@@ -44,7 +37,7 @@ public sealed class ItemCabinetSystem : EntitySystem
     private void OnMapInit(Entity<ItemCabinetComponent> ent, ref MapInitEvent args)
     {
         // update at mapinit to avoid copy pasting locked: true and locked: false for each closed/open prototype
-        SetSlotLock(ent, !_openable.IsOpen(ent));
+        SetSlotLock(ent, _openable.IsClosed(ent, null));
     }
 
     private void UpdateAppearance(Entity<ItemCabinetComponent> ent)

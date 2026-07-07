@@ -1,20 +1,15 @@
-// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: MIT
 
 using System.Numerics;
-using Content.Server.Administration.Components;
 using Content.Shared.Administration;
+using Content.Shared.Administration.Components;
+using Content.Shared.Administration.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
 
 namespace Content.Server.Administration.Systems;
 
-public sealed class BufferingSystem : EntitySystem
+public sealed class BufferingSystem : SharedBufferingSystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
 
