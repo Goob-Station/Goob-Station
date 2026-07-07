@@ -48,7 +48,7 @@ namespace Content.Pirate.Shared.Showers
 
         /// <summary>Water drawn from the tank and applied to the tile each spray tick.</summary>
         [DataField]
-        public FixedPoint2 SprayAmount = FixedPoint2.New(5);
+        public FixedPoint2 SprayAmount = FixedPoint2.New(10);
 
         /// <summary>Water regenerated into the tank each tick while running.</summary>
         [DataField]
