@@ -77,7 +77,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Kitchen.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Stack;
 using Content.Shared.Chemistry.EntitySystems;
@@ -98,15 +97,15 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
 using System.Linq;
-using Content.Server.Construction.Completions;
 using Content.Server.Jittering;
 using Content.Shared.Jittering;
+using Content.Shared.Kitchen.EntitySystems;
 using Content.Shared.Power;
 
 namespace Content.Server.Kitchen.EntitySystems
 {
     [UsedImplicitly]
-    internal sealed class ReagentGrinderSystem : EntitySystem
+    internal sealed class ReagentGrinderSystem : SharedReagentGrinderSystem
     {
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly SharedSolutionContainerSystem _solutionContainersSystem = default!;
@@ -145,6 +144,8 @@ namespace Content.Server.Kitchen.EntitySystems
         {
             entity.Comp.AutoMode = (GrinderAutoMode) (((byte) entity.Comp.AutoMode + 1) % Enum.GetValues(typeof(GrinderAutoMode)).Length);
 
+            Dirty(entity);
+
             UpdateUiState(entity);
         }
 
@@ -168,12 +169,7 @@ namespace Content.Server.Kitchen.EntitySystems
 
                 foreach (var item in inputContainer.ContainedEntities.ToList())
                 {
-                    var solution = active.Program switch
-                    {
-                        GrinderProgram.Grind => GetGrindSolution(item),
-                        GrinderProgram.Juice => CompOrNull<ExtractableComponent>(item)?.JuiceSolution,
-                        _ => null,
-                    };
+                    var solution = GetGrinderSolution(item, active.Program);
 
                     if (solution is null)
                         continue;
@@ -196,7 +192,7 @@ namespace Content.Server.Kitchen.EntitySystems
                         scaledSolution.ScaleSolution(fitsCount);
                         solution = scaledSolution;
 
-                        _stackSystem.SetCount(item, stack.Count - fitsCount); // Setting to 0 will QueueDel
+                        _stackSystem.ReduceCount((item, stack), fitsCount); // Setting to 0 will QueueDel
                     }
                     else
                     {
@@ -299,8 +295,8 @@ namespace Content.Server.Kitchen.EntitySystems
                 && _solutionContainersSystem.TryGetFitsInDispenser(outputContainer.Value, out _, out containerSolution)
                 && inputContainer.ContainedEntities.Count > 0)
             {
-                canGrind = inputContainer.ContainedEntities.All(CanGrind);
-                canJuice = inputContainer.ContainedEntities.All(CanJuice);
+                canGrind = inputContainer.ContainedEntities.All(x => CanGrind(x));
+                canJuice = inputContainer.ContainedEntities.All(x => CanJuice(x));
             }
 
             var state = new ReagentGrinderInterfaceState(
@@ -374,10 +370,10 @@ namespace Content.Server.Kitchen.EntitySystems
             SoundSpecifier? sound;
             switch (program)
             {
-                case GrinderProgram.Grind when inputContainer.ContainedEntities.All(CanGrind):
+                case GrinderProgram.Grind when inputContainer.ContainedEntities.All(x => CanGrind(x)):
                     sound = reagentGrinder.GrindSound;
                     break;
-                case GrinderProgram.Juice when inputContainer.ContainedEntities.All(CanJuice):
+                case GrinderProgram.Juice when inputContainer.ContainedEntities.All(x => CanJuice(x)):
                     sound = reagentGrinder.JuiceSound;
                     break;
                 default:
@@ -397,30 +393,6 @@ namespace Content.Server.Kitchen.EntitySystems
         private void ClickSound(Entity<ReagentGrinderComponent> reagentGrinder)
         {
             _audioSystem.PlayPvs(reagentGrinder.Comp.ClickSound, reagentGrinder.Owner, AudioParams.Default.WithVolume(-2f));
-        }
-
-        private Solution? GetGrindSolution(EntityUid uid)
-        {
-            if (TryComp<ExtractableComponent>(uid, out var extractable)
-                && extractable.GrindableSolution is not null
-                && _solutionContainersSystem.TryGetSolution(uid, extractable.GrindableSolution, out _, out var solution))
-            {
-                return solution;
-            }
-            else
-                return null;
-        }
-
-        private bool CanGrind(EntityUid uid)
-        {
-            var solutionName = CompOrNull<ExtractableComponent>(uid)?.GrindableSolution;
-
-            return solutionName is not null && _solutionContainersSystem.TryGetSolution(uid, solutionName, out _, out _);
-        }
-
-        private bool CanJuice(EntityUid uid)
-        {
-            return CompOrNull<ExtractableComponent>(uid)?.JuiceSolution is not null;
         }
     }
 }

@@ -37,7 +37,7 @@
   - type: Battery
     maxCharge: 1500
     startingCharge: 1500
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 50
   - type: AmmoSelector

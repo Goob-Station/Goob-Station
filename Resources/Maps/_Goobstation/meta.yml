@@ -16527,7 +16527,7 @@ entities:
     - type: Transform
       pos: -17.5,17.5
       parent: 2
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 1079
     - type: TechnologyDatabase
       supportedDisciplines:
@@ -54409,7 +54409,7 @@ entities:
     - type: Transform
       pos: -33.5,18.5
       parent: 2
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 1079
 - proto: Carpet
   entities:
@@ -61228,7 +61228,7 @@ entities:
     - type: Transform
       pos: 1.5,-37.5
       parent: 2
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 1079
     - type: MaterialStorage
       materialWhiteList:
@@ -76617,7 +76617,7 @@ entities:
     - type: Transform
       pos: 66.5,28.5
       parent: 2
-- proto: EnergyChemDispenser
+- proto: ChemDispenser
   entities:
   - uid: 9547
     components:
@@ -76641,7 +76641,7 @@ entities:
     - type: Transform
       pos: 52.5,14.5
       parent: 2
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 1079
 - proto: ExosuitFabricator
   entities:
@@ -76650,14 +76650,14 @@ entities:
     - type: Transform
       pos: 0.5,-41.5
       parent: 2
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 1079
   - uid: 11913
     components:
     - type: Transform
       pos: 0.5,-39.5
       parent: 2
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 1079
 - proto: ExplosivesSignMed
   entities:
@@ -126607,7 +126607,7 @@ entities:
     - type: Transform
       pos: -17.38306,-3.5393329
       parent: 2
-- proto: MaterialSilo
+- proto: MachineMaterialSilo
   entities:
   - uid: 1079
     components:
@@ -126617,44 +126617,44 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         25431:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
+        - - OreSilo
+          - OreSiloClient
         25430:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
+        - - OreSilo
+          - OreSiloClient
         8257:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
+        - - OreSilo
+          - OreSiloClient
         19036:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
+        - - OreSilo
+          - OreSiloClient
         18906:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
+        - - OreSilo
+          - OreSiloClient
         11912:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
+        - - OreSilo
+          - OreSiloClient
         11913:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
+        - - OreSilo
+          - OreSiloClient
         9588:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
+        - - OreSilo
+          - OreSiloClient
         21222:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
+        - - OreSilo
+          - OreSiloClient
         21262:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
+        - - OreSilo
+          - OreSiloClient
         11911:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
+        - - OreSilo
+          - OreSiloClient
         21255:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
+        - - OreSilo
+          - OreSiloClient
         21256:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
+        - - OreSilo
+          - OreSiloClient
 - proto: MaterialWoodPlank1
   entities:
   - uid: 18900
@@ -126718,7 +126718,7 @@ entities:
     - type: Transform
       pos: -34.5,-30.5
       parent: 2
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 1079
     - type: MaterialStorage
       materialWhiteList:
@@ -128041,7 +128041,7 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 1079
     - type: Conveyed
 - proto: OxygenCanister
@@ -135246,7 +135246,7 @@ entities:
     - type: Transform
       pos: -17.5,16.5
       parent: 2
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 1079
     - type: TechnologyDatabase
       supportedDisciplines:
@@ -141186,7 +141186,7 @@ entities:
     - type: Transform
       pos: 14.5,-30.5
       parent: 2
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 1079
     - type: TechnologyDatabase
       supportedDisciplines:
@@ -141456,7 +141456,7 @@ entities:
     - type: Transform
       pos: -3.5,42.5
       parent: 2
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 1079
     - type: TechnologyDatabase
       supportedDisciplines:
@@ -141469,7 +141469,7 @@ entities:
     - type: Transform
       pos: -1.5,36.5
       parent: 2
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 1079
     - type: TechnologyDatabase
       supportedDisciplines:
@@ -141516,7 +141516,7 @@ entities:
     - type: Transform
       pos: 19.5,6.5
       parent: 2
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 1079
     - type: TechnologyDatabase
       supportedDisciplines:

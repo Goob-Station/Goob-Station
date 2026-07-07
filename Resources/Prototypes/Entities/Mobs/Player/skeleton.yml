@@ -126,12 +126,9 @@
     description: ghost-role-information-closet-skeleton-description
     rules: ghost-role-information-freeagent-rules
     mindRoles:
-    - MindRoleGhostRoleFreeAgent
+    - MindRoleGhostRoleFreeAgentGoob # Goob
     raffle:
       settings: default
-    requirements: # Goobstation - ghost roles requirements
-    - !type:OverallPlaytimeRequirement
-      time: 3600 #1 hour
   - type: GhostTakeoverAvailable
   - type: Loadout
     prototypes: [LimitedPassengerGear]

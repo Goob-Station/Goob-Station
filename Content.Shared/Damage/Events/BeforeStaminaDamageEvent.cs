@@ -14,7 +14,8 @@ namespace Content.Shared.Damage.Events;
 /// </summary>
 [ByRefEvent]
 // Goobstation change, added Source param.
-public record struct BeforeStaminaDamageEvent(float Value, EntityUid? Source = null, bool Cancelled = false) : IInventoryRelayEvent 
+// DV change FromMelee
+public record struct BeforeStaminaDamageEvent(float Value, EntityUid? Source = null, bool Cancelled = false, bool FromMelee = false) : IInventoryRelayEvent
 {
     SlotFlags IInventoryRelayEvent.TargetSlots =>  ~SlotFlags.POCKET;
 }
