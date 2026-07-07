@@ -1,6 +1,6 @@
-using Content.Shared._EinsteinEngines.Flight.Events; // Goobstation
-using Robust.Shared.Map;
 using System.Numerics;
+using Robust.Shared.Map;
+using Content.Shared._EinsteinEngines.Flight.Events; // Goobstation
 
 namespace Content.Shared.Gravity;
 
