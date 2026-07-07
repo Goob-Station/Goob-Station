@@ -55,6 +55,11 @@ public sealed class BlobResourceSystem : EntitySystem
             points += 1;
         }
 
+        if (blobCoreComponent.CurrentChem == BlobChemType.ChainCoating)
+        {
+            points -= 1;
+        }
+
         if (_blobCoreSystem.ChangeBlobPoint(blobTileComponent.Core.Value, points))
         {
             _popup.PopupClient(Loc.GetString("blob-get-resource", ("point", points)),

@@ -29,6 +29,16 @@ public abstract partial class BlobChemTypedStorage<T> : IEnumerable
     public virtual T ExplosiveLattice { get; set; }= default!;
     [DataField]
     public virtual T ElectromagneticWeb { get; set; }= default!;
+    [DataField]
+    public virtual T ComatoseFiber { get; set; } = default!;
+    [DataField]
+    public virtual T ChainCoating { get; set; } = default!;
+    [DataField]
+    public virtual T SinewyTendons { get; set; } = default!;
+    [DataField]
+    public virtual T CorrosiveSlime { get; set; } = default!;
+    [DataField]
+    public virtual T CryogenicPoison { get; set; } = default!;
 
     // Indexer to access fields via BlobChemType enumeration
     [Pure]
@@ -41,6 +51,11 @@ public abstract partial class BlobChemTypedStorage<T> : IEnumerable
             BlobChemType.RegenerativeMateria => RegenerativeMateria,
             BlobChemType.ExplosiveLattice => ExplosiveLattice,
             BlobChemType.ElectromagneticWeb => ElectromagneticWeb,
+            BlobChemType.ComatoseFiber => ComatoseFiber,
+            BlobChemType.ChainCoating => ChainCoating,
+            BlobChemType.SinewyTendons => SinewyTendons,
+            BlobChemType.CorrosiveSlime => CorrosiveSlime,
+            BlobChemType.CryogenicPoison => CryogenicPoison,
             _ => throw new ArgumentOutOfRangeException(nameof(type), $"Unknown chemical type: {type}")
         };
         set
@@ -62,6 +77,21 @@ public abstract partial class BlobChemTypedStorage<T> : IEnumerable
                 case BlobChemType.ElectromagneticWeb:
                     ElectromagneticWeb = value;
                     break;
+                case BlobChemType.ComatoseFiber:
+                    ComatoseFiber = value;
+                    break;
+                case BlobChemType.ChainCoating:
+                    ChainCoating = value;
+                    break;
+                case BlobChemType.SinewyTendons:
+                    SinewyTendons = value;
+                    break;
+                case BlobChemType.CorrosiveSlime:
+                    CorrosiveSlime = value;
+                    break;
+                case BlobChemType.CryogenicPoison:
+                    CryogenicPoison = value;
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(type), $"Unknown chemical type: {type}");
             }
@@ -82,6 +112,11 @@ public abstract partial class BlobChemTypedStorage<T> : IEnumerable
         yield return new KeyValuePair<BlobChemType, T>(BlobChemType.RegenerativeMateria, RegenerativeMateria);
         yield return new KeyValuePair<BlobChemType, T>(BlobChemType.ExplosiveLattice, ExplosiveLattice);
         yield return new KeyValuePair<BlobChemType, T>(BlobChemType.ElectromagneticWeb, ElectromagneticWeb);
+        yield return new KeyValuePair<BlobChemType, T>(BlobChemType.ComatoseFiber, ComatoseFiber);
+        yield return new KeyValuePair<BlobChemType, T>(BlobChemType.ChainCoating, ChainCoating);
+        yield return new KeyValuePair<BlobChemType, T>(BlobChemType.SinewyTendons, SinewyTendons);
+        yield return new KeyValuePair<BlobChemType, T>(BlobChemType.CorrosiveSlime, CorrosiveSlime);
+        yield return new KeyValuePair<BlobChemType, T>(BlobChemType.CryogenicPoison, CryogenicPoison);
     }
 
     IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
