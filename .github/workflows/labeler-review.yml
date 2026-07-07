@@ -22,9 +22,6 @@ jobs:
     steps:
     - uses: tspascoal/get-user-teams-membership@v3
       id: checkUserMember
-      env:
-        BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
-      if: env.BOT_TOKEN
       with:
         username: ${{ github.actor }}
         team: "maintainers"
