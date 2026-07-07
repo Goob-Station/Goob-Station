@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2026 Jonikibaka
+// SPDX-FileCopyrightText: 2026 Jonikibaka <153797633+Jonikibaka@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -61,8 +61,6 @@ namespace Content.Goobstation.Server.MalfunctionAi;
 
 public sealed partial class MalfunctionAiSystem
 {
-
-    // --- Voice modulator ---
     // Reuses the built-in voice-mask window (name + speech verb + job-icon selector) on the AI itself,
     // so a spoofed radio message no longer shows the giveaway Station AI icon.
 

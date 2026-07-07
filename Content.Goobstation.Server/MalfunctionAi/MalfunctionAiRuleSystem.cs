@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2026 Jonikibaka
+// SPDX-FileCopyrightText: 2026 Jonikibaka <153797633+Jonikibaka@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -60,7 +60,6 @@ public sealed partial class MalfunctionAiRuleSystem : GameRuleSystem<Malfunction
         _antag.SendBriefing(aiUid, MakeBriefing(), Color.Red, ent.Comp.GreetSound);
     }
 
-    // Character screen briefing.
     private void OnGetBriefing(Entity<MalfunctionAiRoleComponent> role, ref GetBriefingEvent args)
     {
         args.Append(MakeBriefing());

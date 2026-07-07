@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2026 Jonikibaka
+// SPDX-FileCopyrightText: 2026 Jonikibaka <153797633+Jonikibaka@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -61,9 +61,6 @@ namespace Content.Goobstation.Server.MalfunctionAi;
 
 public sealed partial class MalfunctionAiSystem
 {
-
-    // --- Alt-click verbs ---
-
     private void OnApcAltVerb(Entity<ApcComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
     {
         var user = args.User;
@@ -123,8 +120,6 @@ public sealed partial class MalfunctionAiSystem
         });
     }
 
-    // --- APC hacking (income) ---
-
     public bool TryHackApc(Entity<MalfunctionAiComponent> ent, EntityUid target)
     {
         if (!HasComp<ApcComponent>(target))
@@ -170,8 +165,6 @@ public sealed partial class MalfunctionAiSystem
             ent.Owner);
         return true;
     }
-
-    // --- Overload machine ---
 
     private void OnOverloadMachine(Entity<MalfunctionAiComponent> ent, ref MalfOverloadMachineEvent args)
     {
@@ -242,8 +235,6 @@ public sealed partial class MalfunctionAiSystem
         _popups.PopupCursor(Loc.GetString("malfunction-ai-popup-overload-success"), ent.Owner);
         return true;
     }
-
-    // --- Blackout ---
 
     private void OnBlackout(Entity<MalfunctionAiComponent> ent, ref MalfBlackoutEvent args)
     {

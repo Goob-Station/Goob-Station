@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2026 Jonikibaka
+// SPDX-FileCopyrightText: 2026 Jonikibaka <153797633+Jonikibaka@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -61,9 +61,6 @@ namespace Content.Goobstation.Server.MalfunctionAi;
 
 public sealed partial class MalfunctionAiSystem
 {
-
-    // --- Hack cyborg ---
-
     private void OnHackCyborg(Entity<MalfunctionAiComponent> ent, ref MalfHackCyborgEvent args)
     {
         if (args.Handled)
@@ -122,8 +119,6 @@ public sealed partial class MalfunctionAiSystem
         _popups.PopupCursor(Loc.GetString("malfunction-ai-popup-hack-cyborg-success"), ent.Owner);
         return true;
     }
-
-    // --- Subverted borgs window ---
 
     private void OnOpenBorgsUi(Entity<MalfunctionAiComponent> ent, ref MalfOpenBorgsUiEvent args)
     {

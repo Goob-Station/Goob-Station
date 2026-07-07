@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2026 Jonikibaka
+// SPDX-FileCopyrightText: 2026 Jonikibaka <153797633+Jonikibaka@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -62,9 +62,6 @@ namespace Content.Goobstation.Server.MalfunctionAi;
 
 public sealed partial class MalfunctionAiSystem
 {
-
-    // --- Lockdown ---
-
     private void OnLockdown(Entity<MalfunctionAiComponent> ent, ref MalfLockdownEvent args)
     {
         if (args.Handled || !TryComp<MalfLockdownComponent>(ent.Owner, out var lockdown))
@@ -117,8 +114,6 @@ public sealed partial class MalfunctionAiSystem
         ent.Comp.EndTime = null;
     }
 
-    // --- Doomsday ---
-
     private void OnDoomsday(Entity<MalfunctionAiComponent> ent, ref MalfDoomsdayEvent args)
     {
         if (args.Handled)
@@ -148,8 +143,6 @@ public sealed partial class MalfunctionAiSystem
         RaiseLocalEvent(ref doomEv);
         args.Handled = true;
     }
-
-    // --- Detonate RCDs ---
 
     private void OnDetonateRcds(Entity<MalfunctionAiComponent> ent, ref MalfDetonateRcdsEvent args)
     {
@@ -184,8 +177,6 @@ public sealed partial class MalfunctionAiSystem
         args.Handled = true;
     }
 
-    // --- Disable emergency lights ---
-
     private void OnDisableEmergencyLights(Entity<MalfunctionAiComponent> ent, ref MalfDisableEmergencyLightsEvent args)
     {
         if (args.Handled)
@@ -210,8 +201,6 @@ public sealed partial class MalfunctionAiSystem
         _popups.PopupCursor(Loc.GetString("malfunction-ai-popup-emergency-lights-success", ("count", count)), ent.Owner);
         args.Handled = true;
     }
-
-    // --- Decrypt Syndicate keys ---
 
     private static readonly ProtoId<RadioChannelPrototype> SyndicateChannel = "Syndicate";
 

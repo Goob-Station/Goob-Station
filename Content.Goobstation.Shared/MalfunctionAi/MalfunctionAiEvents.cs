@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2026 Jonikibaka
+// SPDX-FileCopyrightText: 2026 Jonikibaka <153797633+Jonikibaka@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -55,7 +55,6 @@ public sealed partial class MalfGyroscopeEvent : WorldTargetActionEvent;
 /// </summary>
 [Serializable, DataDefinition]
 public sealed partial class MalfDecryptSyndicateKeysEvent : EntityEventArgs;
-
 
 /// <summary>
 /// Targets a location; the AI's consciousness is shunted into the hacked APC there.

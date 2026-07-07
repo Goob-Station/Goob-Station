@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2026 Jonikibaka
+// SPDX-FileCopyrightText: 2026 Jonikibaka <153797633+Jonikibaka@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -61,7 +61,6 @@ namespace Content.Goobstation.Server.MalfunctionAi;
 
 public sealed partial class MalfunctionAiSystem
 {
-
     private void OnOpenStore(Entity<MalfunctionAiComponent> ent, ref MalfOpenStoreEvent args)
     {
         if (args.Handled)

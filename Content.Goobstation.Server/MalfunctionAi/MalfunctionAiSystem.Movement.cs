@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2026 Jonikibaka
+// SPDX-FileCopyrightText: 2026 Jonikibaka <153797633+Jonikibaka@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -61,9 +61,6 @@ namespace Content.Goobstation.Server.MalfunctionAi;
 
 public sealed partial class MalfunctionAiSystem
 {
-
-    // --- Gyroscope (move the AI core) ---
-
     private void OnGyroscope(Entity<MalfunctionAiComponent> ent, ref MalfGyroscopeEvent args)
     {
         if (args.Handled || !TryComp<MalfGyroscopeComponent>(ent.Owner, out var gyro))
@@ -141,8 +138,6 @@ public sealed partial class MalfunctionAiSystem
         _popups.PopupCursor(Loc.GetString("malfunction-ai-popup-gyroscope-success"), ent.Owner);
         args.Handled = true;
     }
-
-    // --- Shunt to APC ---
 
     private void OnShuntToApc(Entity<MalfunctionAiComponent> ent, ref MalfShuntToApcEvent args)
     {

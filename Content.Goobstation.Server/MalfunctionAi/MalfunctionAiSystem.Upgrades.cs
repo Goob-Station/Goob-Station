@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2026 Jonikibaka
+// SPDX-FileCopyrightText: 2026 Jonikibaka <153797633+Jonikibaka@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -61,11 +61,8 @@ namespace Content.Goobstation.Server.MalfunctionAi;
 
 public sealed partial class MalfunctionAiSystem
 {
-    // --- AI turret upgrade ---
-
     private void OnTurretUpgrade(Entity<MalfunctionAiComponent> ent, ref MalfTurretUpgradeEvent args)
     {
-        // Presence of the component marks the upgrade as bought.
         var upgrade = EnsureComp<MalfTurretUpgradeComponent>(ent.Owner);
 
         var count = 0;
@@ -81,7 +78,6 @@ public sealed partial class MalfunctionAiSystem
 
     private void ApplyTurretUpgrade(EntityUid turret, MalfTurretUpgradeComponent upgrade)
     {
-        // Power: the turret shoots faster.
         if (TryComp<GunComponent>(turret, out var gun))
         {
             gun.FireRate *= upgrade.FireRateMultiplier;

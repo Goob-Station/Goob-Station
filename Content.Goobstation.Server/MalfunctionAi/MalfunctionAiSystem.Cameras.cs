@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2026 Jonikibaka
+// SPDX-FileCopyrightText: 2026 Jonikibaka <153797633+Jonikibaka@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -64,11 +64,8 @@ public sealed partial class MalfunctionAiSystem
 {
     private static readonly EntProtoId NightVisionToggleAction = "ActionMalfToggleNightVision";
 
-    // --- Camera microphones ---
-
     private void OnCameraMics(Entity<MalfunctionAiComponent> ent, ref MalfCameraMicsEvent args)
     {
-        // Presence of the component marks the upgrade as bought.
         var mics = EnsureComp<MalfCameraMicsComponent>(ent.Owner);
 
         // Existing cameras start listening; new cameras are handled on map init.
@@ -106,8 +103,6 @@ public sealed partial class MalfunctionAiSystem
         if (EntityManager.Count<MalfCameraUpgradeComponent>() > 0)
             args.Cancelled = true;
     }
-
-    // --- Camera network upgrade (night vision + EMP immunity) ---
 
     private void OnCameraUpgrade(Entity<MalfunctionAiComponent> ent, ref MalfCameraUpgradeEvent args)
     {

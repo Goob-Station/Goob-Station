@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2026 Jonikibaka
+// SPDX-FileCopyrightText: 2026 Jonikibaka <153797633+Jonikibaka@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -68,8 +68,6 @@ public sealed partial class MalfunctionAiComponent : Component
     /// </summary>
     [DataField]
     public int DoomsdayRequiredApcs = 8;
-
-    // --- Store ---
 
     /// <summary>
     /// The store currency used for malf abilities.
