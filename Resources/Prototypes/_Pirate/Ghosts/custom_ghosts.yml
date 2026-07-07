@@ -365,3 +365,12 @@
   alpha: 1
   ghostName: The_Question
   ghostDescription: I have a questions
+
+- type: customGhost
+  id: Saivox-ghost
+  ckey: Saivox
+  sprite:
+    - _Pirate/Ghosts/Saivox.rsi
+  alpha: 1
+  ghostName: Saivox
+  ghostDescription: Б-будь ласка, погладьте мен-не!~
