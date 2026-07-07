@@ -19,6 +19,13 @@
       noRot: false
     - type: Clickable
     - type: Shower
+    - type: SolutionContainerManager
+      solutions:
+        tank:
+          maxVol: 200
+          reagents:
+          - ReagentId: Water
+            Quantity: 200
     - type: Physics
       bodyType: Static
       canCollide: false

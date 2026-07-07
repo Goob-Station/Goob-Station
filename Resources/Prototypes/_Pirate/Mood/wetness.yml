@@ -1,0 +1,14 @@
+# Wet/dirty penalties scale by worn item count; fresh laundry is timed.
+
+- type: moodEffect
+  id: WetClothing
+  moodChange: -1.5
+
+- type: moodEffect
+  id: DirtyClothing
+  moodChange: -1.5
+
+- type: moodEffect
+  id: FreshLaundry
+  moodChange: 4
+  timeout: 600

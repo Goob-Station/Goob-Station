@@ -65,6 +65,9 @@
     - sprite: _Pirate/Effects/blood.rsi
       state: maskbloodicon
   #endregion Pirate: stains
+  #region Pirate: wetness
+  - type: Wettable
+  #endregion Pirate: wetness
   - type: Armor # provide minimal covering to your head
     coverage:
     - Head

@@ -7,6 +7,9 @@
         - to: shower
           completed:
             - !type:SnapToGrid { }
+            # Built showers start dry; mapped showers stay full.
+            - !type:EmptySolution
+              solution: tank
           steps:
             - material: Steel
               amount: 5

@@ -14,6 +14,12 @@
   copyright: "Valve Software, Non-Commercial Steam Subscriber Agreement"
   source: "https://store.steampowered.com/app/220/HalfLife_2/"
 
+- files:
+  - Footsteps/wet_shoes_step.ogg
+  license: "Custom"
+  copyright: "GPL-3.0-or-later, taken from TauCeti Classic"
+  source: "https://github.com/TauCetiStation/TauCetiClassic/blob/master/sound/effects/mob/footstep/wet_shoes_step.ogg"
+
 - files: ["fpv_drone_static.ogg", "fpv_drone_flyby.ogg"]
   license: "CC0-1.0"
   copyright: "Created by `bruno.auzet` on freesound.org, edited and converted to .ogg"

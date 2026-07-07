@@ -26,6 +26,7 @@ public abstract class SharedWashingMachineSystem : EntitySystem
         SubscribeLocalEvent<WashingMachineComponent, StorageOpenAttemptEvent>(OnStorageOpenAttempt);
         SubscribeLocalEvent<WashingMachineComponent, ActivateInWorldEvent>(OnActivate, before: [typeof(SharedEntityStorageSystem)]);
         SubscribeLocalEvent<WashingMachineComponent, GetVerbsEvent<ActivationVerb>>(OnGetVerbs);
+        SubscribeLocalEvent<WashingMachineComponent, GetVerbsEvent<AlternativeVerb>>(OnGetAltVerbs);
     }
 
     private void OnStorageOpenAttempt(Entity<WashingMachineComponent> ent, ref StorageOpenAttemptEvent args)
@@ -39,6 +40,9 @@ public abstract class SharedWashingMachineSystem : EntitySystem
         if (args.Handled || !args.Complex)
             return;
 
+        // Normal click starts washing; alt-click owns the door.
+        args.Handled = true;
+
         if (ent.Comp.State != WashingMachineState.Idle || !_power.IsPowered(ent.Owner) || Storage.IsOpen(ent.Owner))
             return;
 
@@ -48,12 +52,28 @@ public abstract class SharedWashingMachineSystem : EntitySystem
         if (Timing.CurTime < ent.Comp.NextWashAllowed)
         {
             _popup.PopupClient(Loc.GetString("washing-machine-cooldown"), ent.Owner, args.User);
-            args.Handled = true;
             return;
         }
 
-        args.Handled = true;
         TryStartWash(ent, args.User);
+    }
+
+    private void OnGetAltVerbs(Entity<WashingMachineComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
+    {
+        if (!args.CanInteract || !args.CanComplexInteract || ent.Comp.State == WashingMachineState.Washing)
+            return;
+
+        var user = args.User;
+        var open = Storage.IsOpen(ent.Owner);
+        args.Verbs.Add(new AlternativeVerb
+        {
+            Text = Loc.GetString(open ? "washing-machine-close" : "washing-machine-open"),
+            Icon = new SpriteSpecifier.Texture(new ResPath(open
+                ? "/Textures/Interface/VerbIcons/close.svg.192dpi.png"
+                : "/Textures/Interface/VerbIcons/open.svg.192dpi.png")),
+            Priority = 10,
+            Act = () => Storage.ToggleOpen(user, ent.Owner)
+        });
     }
 
     private void OnGetVerbs(Entity<WashingMachineComponent> ent, ref GetVerbsEvent<ActivationVerb> args)

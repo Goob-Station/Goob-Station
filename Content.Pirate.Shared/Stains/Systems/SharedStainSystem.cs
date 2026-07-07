@@ -1,3 +1,4 @@
+using Content.Pirate.Shared.Fluids;
 using Content.Pirate.Shared.Stains.Components;
 using Content.Goobstation.Common.Footprints;
 using Content.Shared._Pirate.Fluids;
@@ -8,25 +9,22 @@ using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
-using Content.Shared.DoAfter;
 using Content.Shared.Fluids;
+using Content.Shared.Fluids.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
 using Content.Shared.Item;
-using Content.Shared.Popups;
 using Content.Shared.Standing;
-using Content.Shared.Verbs;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Goobstation.Maths.FixedPoint;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
-using Robust.Shared.Utility;
 
 namespace Content.Pirate.Shared.Stains.Systems;
 
@@ -38,6 +36,10 @@ public enum StainVisuals : byte
     BodySlots
 }
 
+/// <summary>Raised on a stainable item when its stain amount changes.</summary>
+[ByRefEvent]
+public readonly record struct StainChangedEvent;
+
 public abstract class SharedStainSystem : EntitySystem
 {
     private const string FootprintSolutionName = "print";
@@ -45,6 +47,8 @@ public abstract class SharedStainSystem : EntitySystem
     private const string GlovesSlot = "gloves";
 
     [Dependency] private readonly SharedSolutionContainerSystem _solution = null!;
+    [Dependency] private readonly SharedPuddleSystem _puddle = null!;
+    [Dependency] private readonly IPrototypeManager _proto = null!;
     [Dependency] private readonly SharedItemSystem _item = null!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = null!;
     [Dependency] private readonly SharedContainerSystem _container = null!;
@@ -52,10 +56,6 @@ public abstract class SharedStainSystem : EntitySystem
     [Dependency] private readonly INetManager _net = null!;
     [Dependency] private readonly InventorySystem _inventory = null!;
     [Dependency] private readonly SharedBloodstreamSystem _bloodstream = null!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = null!;
-    [Dependency] private readonly SharedPuddleSystem _puddle = null!;
-    [Dependency] private readonly SharedPopupSystem _popup = null!;
-    [Dependency] private readonly SharedAudioSystem _audio = null!;
     [Dependency] private readonly IRobustRandom _random = null!;
     [Dependency] private readonly IGameTiming _timing = null!;
 
@@ -65,12 +65,10 @@ public abstract class SharedStainSystem : EntitySystem
 
         SubscribeLocalEvent<StainableComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<StainableComponent, SpilledOnEvent>(OnSpilledOn);
-        SubscribeLocalEvent<StainableComponent, InventoryRelayedEvent<SpilledOnEvent>>(OnInventorySpilledOn);
-        SubscribeLocalEvent<StainableComponent, GetVerbsEvent<Verb>>(OnGetVerbs);
-        SubscribeLocalEvent<StainableComponent, WringStainDoAfterEvent>(OnWring);
+        // Mob spills are distributed across worn items here.
+        SubscribeLocalEvent<InventoryComponent, SpilledOnEvent>(OnMobSpilledOn);
         SubscribeLocalEvent<StainableComponent, SolutionContainerChangedEvent>(OnSolutionChanged);
         SubscribeLocalEvent<StainableComponent, ReactionEntityEvent>(OnReaction);
-        SubscribeLocalEvent<InventoryComponent, ReactionEntityEvent>(OnMobReaction);
         SubscribeLocalEvent<HandsComponent, SpilledOnEvent>(OnHandsSpilledOn);
         SubscribeLocalEvent<FootprintOwnerComponent, SpilledOnEvent>(OnFootSpilledOn);
         SubscribeLocalEvent<MeleeWeaponComponent, MeleeHitEvent>(OnMeleeHit);
@@ -78,8 +76,14 @@ public abstract class SharedStainSystem : EntitySystem
 
     private void OnSolutionChanged(Entity<StainableComponent> ent, ref SolutionContainerChangedEvent args)
     {
-        if (args.SolutionId == ent.Comp.SolutionName)
-            UpdateVisuals(ent);
+        if (args.SolutionId != ent.Comp.SolutionName)
+            return;
+
+        UpdateVisuals(ent);
+
+        // Let other systems react without sharing SolutionContainerChangedEvent.
+        var changed = new StainChangedEvent();
+        RaiseLocalEvent(ent.Owner, ref changed);
     }
 
     private void OnMapInit(Entity<StainableComponent> ent, ref MapInitEvent args)
@@ -103,13 +107,109 @@ public abstract class SharedStainSystem : EntitySystem
         TryStain(ent, args.Solution);
     }
 
-    private void OnInventorySpilledOn(Entity<StainableComponent> ent, ref InventoryRelayedEvent<SpilledOnEvent> args)
+    // Worn clothing spills; bare skin and held items are handled separately.
+    private void OnMobSpilledOn(Entity<InventoryComponent> ent, ref SpilledOnEvent args)
     {
-        if (args.Args.Handled)
+        if (args.Handled || args.TargetSlots == SlotFlags.NONE)
             return;
 
-        if (TryStain(ent, args.Args.Solution.Clone()) && args.Args.TargetSlots == SlotFlags.FEET)
-            args.Args.Handled = true;
+        // Footwear only stains from puddle steps.
+        var stainFeet = args.TargetSlots == SlotFlags.FEET && RollFeetStain(args.Source);
+        StainWornItems(ent, args.Solution, args.TargetSlots, stainFeet);
+    }
+
+    /// <summary>
+    /// Spreads spill stains across worn items, rotating overflow to the floor except for footwear.
+    /// </summary>
+    private void StainWornItems(Entity<InventoryComponent> mob, Solution spill, SlotFlags slots, bool stainFeet)
+    {
+        // Stain transfer and puddles are server-only.
+        if (!_net.IsServer)
+            return;
+
+        var targets = new List<(Entity<StainableComponent> Ent, Entity<SolutionComponent> Sol, bool Rotate)>();
+        var enumerator = _inventory.GetSlotEnumerator(mob.AsNullable(), slots);
+        while (enumerator.NextItem(out var item, out var slot))
+        {
+            // Footwear needs the puddle-step roll.
+            if ((slot.SlotFlags & SlotFlags.FEET) != 0 && !stainFeet)
+                continue;
+
+            if (!TryComp<StainableComponent>(item, out var stainable))
+                continue;
+
+            Entity<StainableComponent> ent = (item, stainable);
+            if (IsStainBlocked(ent) || !TryGetStainSolution(ent, out var solComp))
+                continue;
+
+            targets.Add((ent, solComp, RotatesToFloor(slot.SlotFlags)));
+        }
+
+        if (targets.Count == 0)
+            return;
+
+        // Water washes elsewhere; it does not stain.
+        var stainingVolume = spill.Volume - WaterVolume(spill);
+        if (stainingVolume <= 0)
+            return;
+
+        var displaced = new Solution();
+        var share = stainingVolume / targets.Count;
+
+        foreach (var (ent, solComp, rotate) in targets)
+        {
+            // Footwear does not rotate overflow back onto the floor.
+            var want = rotate
+                ? share
+                : FixedPoint2.Min(share, ent.Comp.MaxStainVolume - solComp.Comp.Solution.Volume);
+            if (want <= 0)
+                continue;
+
+            var portion = spill.SplitSolutionWithout(want, "Water");
+            if (portion.Volume <= 0)
+                continue;
+
+            var pushedOut = AddStainFifo(ent, solComp, portion);
+            if (pushedOut.Volume > 0)
+                displaced.AddSolution(pushedOut, _proto);
+
+            EnsureComp<AppearanceComponent>(ent.Owner);
+            UpdateVisuals(ent);
+            OnStained(ent, solComp);
+        }
+
+        // Old stains pushed off clothing run down to the floor.
+        if (displaced.Volume > 0 && !IsRunoffDrained(mob.Owner))
+            _puddle.TrySpillAt(Transform(mob.Owner).Coordinates, displaced, out _, sound: false);
+    }
+
+    private bool IsRunoffDrained(EntityUid target)
+    {
+        return _container.TryGetContainingContainer(target, out var container)
+               && HasComp<RunoffDrainComponent>(container.Owner);
+    }
+
+    // Feet do not rotate old stains back onto the floor.
+    private static bool RotatesToFloor(SlotFlags slot) => (slot & SlotFlags.FEET) == 0;
+
+    // Footwear stain chance scales with puddle depth.
+    private static readonly FixedPoint2 FeetStainMinVolume = FixedPoint2.New(5);
+    private const float FeetStainChancePerUnit = 0.015f;
+    private const float FeetStainMaxChance = 0.30f;
+
+    private bool RollFeetStain(EntityUid source)
+    {
+        if (!TryComp<PuddleComponent>(source, out var puddle) ||
+            !_solution.TryGetSolution(source, puddle.SolutionName, out _, out var solution))
+        {
+            return true;
+        }
+
+        if (solution.Volume < FeetStainMinVolume)
+            return false;
+
+        var chance = Math.Min(solution.Volume.Float() * FeetStainChancePerUnit, FeetStainMaxChance);
+        return _random.Prob(chance);
     }
 
     private void OnHandsSpilledOn(Entity<HandsComponent> ent, ref SpilledOnEvent args)
@@ -147,10 +247,11 @@ public abstract class SharedStainSystem : EntitySystem
         if (args.Handled)
             return;
 
-        if ((args.TargetSlots & SlotFlags.FEET) == 0)
+        // Bare feet only stain from puddle steps.
+        if (args.TargetSlots != SlotFlags.FEET || !RollFeetStain(args.Source))
             return;
 
-        // Worn shoes are handled by the inventory relay.
+        // Worn shoes are handled with clothing.
         if (_inventory.TryGetSlotEntity(ent.Owner, ShoesSlot, out var shoes) &&
             HasComp<StainableComponent>(shoes))
         {
@@ -160,53 +261,139 @@ public abstract class SharedStainSystem : EntitySystem
         var stainable = EnsureComp<StainableComponent>(ent.Owner);
         stainable.BodyStainSlots |= SlotFlags.FEET;
 
-        if (TryStain((ent.Owner, stainable), args.TargetSlots == SlotFlags.FEET ? args.Solution : args.Solution.Clone()) &&
-            args.TargetSlots == SlotFlags.FEET)
-        {
+        if (TryStain((ent.Owner, stainable), args.Solution, rotate: false))
             args.Handled = true;
-        }
     }
 
-    private bool TryStain(Entity<StainableComponent> ent, Solution solution)
+    private bool TryStain(Entity<StainableComponent> ent, Solution solution, bool rotate = true)
     {
-        if (IsStainBlocked(ent))
-            return false;
-
-        if (!_solution.TryGetSolution(ent.Owner, ent.Comp.SolutionName, out var stainSolution))
-        {
-            if (!_net.IsServer ||
-                !_solution.EnsureSolution(ent.Owner, ent.Comp.SolutionName, out _, ent.Comp.MaxStainVolume) ||
-                !_solution.TryGetSolution(ent.Owner, ent.Comp.SolutionName, out stainSolution))
-            {
-                return false;
-            }
-
-            stainSolution.Value.Comp.Solution.CanReact = false;
-        }
-
-        // Stop repeat stain churn once the stain reservoir is full.
-        if (stainSolution.Value.Comp.Solution.Volume >= ent.Comp.MaxStainVolume)
+        if (IsStainBlocked(ent) || !TryGetStainSolution(ent, out var stainSolution))
             return false;
 
         var transferAmount = FixedPoint2.Min(solution.Volume, ent.Comp.SpillTransferAmount);
-        var split = solution.SplitSolution(transferAmount);
 
-        for (var i = split.Contents.Count - 1; i >= 0; i--)
+        // Bare feet do not rotate old stains back onto the floor.
+        if (!rotate)
         {
-            if (split.Contents[i].Reagent.Prototype == "Water")
-                split.RemoveReagent(split.Contents[i].Reagent, split.Contents[i].Quantity);
+            transferAmount = FixedPoint2.Min(transferAmount, ent.Comp.MaxStainVolume - stainSolution.Comp.Solution.Volume);
+            if (transferAmount <= 0)
+                return false;
         }
+
+        var split = solution.SplitSolution(transferAmount);
+        RemoveWater(split);
 
         if (split.Volume <= 0)
             return false;
 
-        _solution.TryAddSolution(stainSolution.Value, split);
+        // Full items rotate their oldest stains out.
+        var displaced = AddStainFifo(ent, stainSolution, split);
+
         if (_net.IsServer)
             EnsureComp<AppearanceComponent>(ent.Owner);
 
         UpdateVisuals(ent);
-        OnStained(ent, stainSolution.Value);
+        OnStained(ent, stainSolution);
+
+        if (displaced.Volume > 0 && !IsRunoffDrained(ent.Owner))
+            _puddle.TrySpillAt(Transform(ent.Owner).Coordinates, displaced, out _, sound: false);
+
         return true;
+    }
+
+    /// <summary>Gets or creates the stain solution.</summary>
+    private bool TryGetStainSolution(Entity<StainableComponent> ent, out Entity<SolutionComponent> solComp)
+    {
+        if (_solution.TryGetSolution(ent.Owner, ent.Comp.SolutionName, out var found))
+        {
+            solComp = found.Value;
+            return true;
+        }
+
+        if (_net.IsServer &&
+            _solution.EnsureSolution(ent.Owner, ent.Comp.SolutionName, out _, ent.Comp.MaxStainVolume) &&
+            _solution.TryGetSolution(ent.Owner, ent.Comp.SolutionName, out found))
+        {
+            found.Value.Comp.Solution.CanReact = false;
+            solComp = found.Value;
+            return true;
+        }
+
+        solComp = default;
+        return false;
+    }
+
+    /// <summary>
+    /// Adds stains as FIFO, returning displaced reagents.
+    /// </summary>
+    private Solution AddStainFifo(Entity<StainableComponent> ent, Entity<SolutionComponent> solComp, Solution toAdd)
+    {
+        var displaced = new Solution();
+        if (toAdd.Volume <= 0)
+            return displaced;
+
+        var max = ent.Comp.MaxStainVolume;
+
+        // If incoming alone overflows, keep only its newest max units.
+        if (toAdd.Volume > max)
+            EvictOldest(toAdd, toAdd.Volume - max, displaced);
+
+        // Evict oldest existing stains for the incoming.
+        var overflow = solComp.Comp.Solution.Volume + toAdd.Volume - max;
+        if (overflow > 0)
+            EvictOldest(solComp, overflow, displaced);
+
+        _solution.TryAddSolution(solComp, toAdd);
+        return displaced;
+    }
+
+    /// <summary>Moves oldest container-solution reagents into <paramref name="into"/>.</summary>
+    private void EvictOldest(Entity<SolutionComponent> solComp, FixedPoint2 amount, Solution into)
+    {
+        EvictOldest(solComp.Comp.Solution, amount, into,
+            (reagent, take) => _solution.RemoveReagent(solComp, reagent, take));
+    }
+
+    /// <summary>Moves oldest solution reagents into <paramref name="into"/>.</summary>
+    private static void EvictOldest(Solution source, FixedPoint2 amount, Solution into)
+    {
+        EvictOldest(source, amount, into, (reagent, take) => source.RemoveReagent(reagent, take));
+    }
+
+    private static void EvictOldest(Solution from, FixedPoint2 amount, Solution into, Func<ReagentId, FixedPoint2, FixedPoint2> remove)
+    {
+        var remaining = amount;
+        foreach (var content in new List<ReagentQuantity>(from.Contents))
+        {
+            if (remaining <= 0)
+                break;
+
+            var take = FixedPoint2.Min(remaining, content.Quantity);
+            var removed = remove(content.Reagent, take);
+            into.AddReagent(content.Reagent, removed);
+            remaining -= removed;
+        }
+    }
+
+    private static void RemoveWater(Solution solution)
+    {
+        for (var i = solution.Contents.Count - 1; i >= 0; i--)
+        {
+            if (solution.Contents[i].Reagent.Prototype == "Water")
+                solution.RemoveReagent(solution.Contents[i].Reagent, solution.Contents[i].Quantity);
+        }
+    }
+
+    private static FixedPoint2 WaterVolume(Solution solution)
+    {
+        var total = FixedPoint2.Zero;
+        foreach (var content in solution.Contents)
+        {
+            if (content.Reagent.Prototype == "Water")
+                total += content.Quantity;
+        }
+
+        return total;
     }
 
     protected virtual void OnStained(Entity<StainableComponent> ent, Entity<SolutionComponent> solution)
@@ -223,14 +410,6 @@ public abstract class SharedStainSystem : EntitySystem
             return;
 
         TryCleanStain(ent.Owner);
-    }
-
-    private void OnMobReaction(Entity<InventoryComponent> ent, ref ReactionEntityEvent args)
-    {
-        if (args.Method != ReactionMethod.Touch || args.Reagent.ID != "SpaceCleaner")
-            return;
-
-        CleanEntityAndEquipment(ent.Owner);
     }
 
     private void OnMeleeHit(Entity<MeleeWeaponComponent> ent, ref MeleeHitEvent args)
@@ -453,7 +632,43 @@ public abstract class SharedStainSystem : EntitySystem
 
     private static bool IsCleaningReagent(string reagent)
     {
-        return reagent is "Water" or "SoapReagent" or "SpaceCleaner";
+        // Plain water dilutes stains through wetness.
+        return reagent is "SoapReagent" or "SpaceCleaner";
+    }
+
+    /// <summary>Current stain volume, or zero.</summary>
+    public FixedPoint2 GetStainVolume(EntityUid uid)
+    {
+        return TryComp<StainableComponent>(uid, out var stainable) &&
+               _solution.TryGetSolution(uid, stainable.SolutionName, out _, out var sol)
+            ? sol.Volume
+            : FixedPoint2.Zero;
+    }
+
+    /// <summary>
+    /// Washes stain into runoff.
+    /// </summary>
+    public Solution? WashStain(EntityUid uid, FixedPoint2 amount)
+    {
+        if (amount <= 0 ||
+            !TryComp<StainableComponent>(uid, out var stainable) ||
+            !_solution.TryGetSolution(uid, stainable.SolutionName, out var solComp, out var sol) ||
+            sol.Volume <= 0)
+        {
+            return null;
+        }
+
+        var removed = _solution.SplitSolution(solComp.Value, FixedPoint2.Min(amount, sol.Volume));
+
+        var ent = (uid, stainable);
+        if (sol.Volume <= 0)
+        {
+            stainable.BodyStainSlots = SlotFlags.NONE;
+            OnCleaned(ent);
+        }
+
+        UpdateVisuals(ent);
+        return removed;
     }
 
     public void UpdateVisuals(Entity<StainableComponent> ent)
@@ -489,49 +704,4 @@ public abstract class SharedStainSystem : EntitySystem
         }
     }
 
-    private void OnGetVerbs(Entity<StainableComponent> ent, ref GetVerbsEvent<Verb> args)
-    {
-        if (!args.CanInteract || !args.CanAccess || args.Using != ent.Owner)
-            return;
-
-        if (!_solution.TryGetSolution(ent.Owner, ent.Comp.SolutionName, out _, out var sol) || sol.Volume <= 0)
-            return;
-
-        var user = args.User;
-        args.Verbs.Add(new Verb
-        {
-            Text = Loc.GetString("stain-verb-wring"),
-            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/bubbles.svg.192dpi.png")),
-            Act = () =>
-            {
-                if (_doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, ent.Comp.WringDoAfterDuration, new WringStainDoAfterEvent(), ent.Owner)
-                    {
-                        BreakOnMove = true,
-                        BreakOnDamage = true,
-                        NeedHand = true
-                    }))
-                {
-                    // Verb Acts run predicted and server-side; play this once for the user.
-                    _audio.PlayPredicted(ent.Comp.WringSound, ent.Owner, user);
-                }
-            }
-        });
-    }
-
-    private void OnWring(Entity<StainableComponent> ent, ref WringStainDoAfterEvent args)
-    {
-        if (args.Handled || args.Cancelled)
-            return;
-        args.Handled = true;
-
-        if (!_solution.TryGetSolution(ent.Owner, ent.Comp.SolutionName, out var solComp, out var sol))
-            return;
-
-        if (!_puddle.TrySpillAt(args.User, sol.Clone(), out _))
-            return;
-
-        _solution.RemoveAllSolution(solComp.Value);
-        UpdateVisuals(ent);
-        _popup.PopupEntity(Loc.GetString("stain-verb-wring-success"), args.User, args.User);
-    }
 }

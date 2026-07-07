@@ -20,10 +20,9 @@
       map: [ "washing" ]
       visible: false
   - type: WashingMachine
-    washTime: 5
+    washTime: 10
     cooldown: 6
-    bluntDamagePerSecond: 6
-    selfDamagePerSecond: 6
+    bluntDamagePerSecond: 12
     waterSprayAmount: 150
     washLoopSound:
       path: /Audio/_Pirate/Machines/washing_loop.ogg
@@ -31,6 +30,7 @@
         loop: true
     washFinishedSound:
       path: /Audio/_Pirate/Machines/washing_open.ogg
+  - type: RunoffDrain
   - type: EntityStorage
     isCollidableWhenOpen: false
     open: false

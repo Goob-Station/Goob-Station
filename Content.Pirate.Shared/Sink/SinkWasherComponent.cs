@@ -12,10 +12,16 @@ namespace Content.Pirate.Shared.Sink;
 public sealed partial class SinkWasherComponent : Component
 {
     [DataField]
-    public float WashDuration = 6f;
+    public float WashDuration = 3f;
 
+    // sink_faucet-3s.ogg is sink_faucet.ogg trimmed to match the 3s wash; the original is kept for reference.
     [DataField]
-    public SoundSpecifier WashSound = new SoundPathSpecifier("/Audio/_Pirate/Machines/sink_faucet.ogg");
+    public SoundSpecifier WashSound = new SoundPathSpecifier("/Audio/_Pirate/Machines/sink_faucet-3s.ogg");
+
+    /// <summary>Wetness added by a sink wash.</summary>
+    [DataField]
+    public Content.Goobstation.Maths.FixedPoint.FixedPoint2 WetnessAdded =
+        Content.Goobstation.Maths.FixedPoint.FixedPoint2.New(15);
 }
 
 [Serializable, NetSerializable]

@@ -8,7 +8,7 @@ namespace Content.Pirate.Shared.WashingMachine;
 public sealed partial class WashingMachineComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public TimeSpan WashTime = TimeSpan.FromSeconds(5);
+    public TimeSpan WashTime = TimeSpan.FromSeconds(10);
 
     [DataField, AutoNetworkedField]
     public TimeSpan? WashFinishTime;
@@ -31,7 +31,7 @@ public sealed partial class WashingMachineComponent : Component
     public EntityUid? AudioStream;
 
     [DataField, AutoNetworkedField]
-    public float BluntDamagePerSecond = 6.0f;
+    public float BluntDamagePerSecond = 12.0f;
 
     [DataField, AutoNetworkedField]
     public float ThumpSoundChance = 0.8f;
@@ -45,11 +45,6 @@ public sealed partial class WashingMachineComponent : Component
     [DataField, AutoNetworkedField]
     public float WaterSprayChance = 1.0f;
 
-    [DataField, AutoNetworkedField]
-    public float SelfDamagePerSecond = 6.0f;
-
-    [ViewVariables, AutoNetworkedField]
-    public float AccumulatedSelfDamage;
 }
 
 [Serializable, NetSerializable]

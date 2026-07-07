@@ -470,8 +470,9 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
             RaiseLocalEvent(args.OtherEntity, new SpilledOnEvent(entity.Owner, splitSol, SlotFlags.NONE));
         }
 
-        if (splitSol.Volume > 0)
-            _solutionContainerSystem.TryAddSolution(entity.Comp.Solution.Value, splitSol);
+        // Pirate: stains - spill handlers may delete this puddle.
+        if (splitSol.Volume > 0 && entity.Comp.Solution is { } puddleSolution) // Pirate: stains
+            _solutionContainerSystem.TryAddSolution(puddleSolution, splitSol); // Pirate: stains
     }
 #endregion Pirate: stains
     /// <inheritdoc/>

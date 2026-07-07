@@ -69,6 +69,12 @@
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-chestplate
     sealDownPopup: sealable-clothing-seal-down-chestplate
+  #region Pirate: wetness
+  # Sealed modsuit body stays dry and protects inner clothing.
+  - type: WetnessBlocker
+    slots: [OUTERCLOTHING, INNERCLOTHING]
+    requiresSealed: true
+  #endregion Pirate: wetness
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:
@@ -138,6 +144,12 @@
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-chestplate
     sealDownPopup: sealable-clothing-seal-down-chestplate
+  #region Pirate: wetness
+  # Sealed modsuit body stays dry and protects inner clothing.
+  - type: WetnessBlocker
+    slots: [OUTERCLOTHING, INNERCLOTHING]
+    requiresSealed: true
+  #endregion Pirate: wetness
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:
@@ -215,6 +227,12 @@
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-chestplate
     sealDownPopup: sealable-clothing-seal-down-chestplate
+  #region Pirate: wetness
+  # Sealed modsuit body stays dry and protects inner clothing.
+  - type: WetnessBlocker
+    slots: [OUTERCLOTHING, INNERCLOTHING]
+    requiresSealed: true
+  #endregion Pirate: wetness
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:
@@ -298,6 +316,12 @@
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-chestplate
     sealDownPopup: sealable-clothing-seal-down-chestplate
+  #region Pirate: wetness
+  # Sealed modsuit body stays dry and protects inner clothing.
+  - type: WetnessBlocker
+    slots: [OUTERCLOTHING, INNERCLOTHING]
+    requiresSealed: true
+  #endregion Pirate: wetness
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:
@@ -375,6 +399,12 @@
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-chestplate
     sealDownPopup: sealable-clothing-seal-down-chestplate
+  #region Pirate: wetness
+  # Sealed modsuit body stays dry and protects inner clothing.
+  - type: WetnessBlocker
+    slots: [OUTERCLOTHING, INNERCLOTHING]
+    requiresSealed: true
+  #endregion Pirate: wetness
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:
@@ -453,6 +483,12 @@
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-chestplate
     sealDownPopup: sealable-clothing-seal-down-chestplate
+  #region Pirate: wetness
+  # Sealed modsuit body stays dry and protects inner clothing.
+  - type: WetnessBlocker
+    slots: [OUTERCLOTHING, INNERCLOTHING]
+    requiresSealed: true
+  #endregion Pirate: wetness
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:
@@ -529,6 +565,12 @@
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-chestplate
     sealDownPopup: sealable-clothing-seal-down-chestplate
+  #region Pirate: wetness
+  # Sealed modsuit body stays dry and protects inner clothing.
+  - type: WetnessBlocker
+    slots: [OUTERCLOTHING, INNERCLOTHING]
+    requiresSealed: true
+  #endregion Pirate: wetness
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:
@@ -609,6 +651,12 @@
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-chestplate
     sealDownPopup: sealable-clothing-seal-down-chestplate
+  #region Pirate: wetness
+  # Sealed modsuit body stays dry and protects inner clothing.
+  - type: WetnessBlocker
+    slots: [OUTERCLOTHING, INNERCLOTHING]
+    requiresSealed: true
+  #endregion Pirate: wetness
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:
