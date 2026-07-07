@@ -15,7 +15,6 @@ jobs:
         uses: "pascalgn/size-label-action@v0.5.5"
         env:
           GITHUB_TOKEN: "${{ secrets.BOT_TOKEN }}"
-        if: env.GITHUB_TOKEN
         with:
           # Custom size configuration
           sizes: >
