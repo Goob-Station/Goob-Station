@@ -21,7 +21,6 @@ public sealed class EmaggedFultonSystem : EntitySystem
         if (TryComp<EmaggedComponent>(ent, out var emaggedComp))
             return;
         args.Handled = true;
-        comp.Removeable = true;
         ChangeWhitelistToEvac(comp, "MindContainer"); // All mobs can be extracted by fulton after emagging
         _popup.PopupEntity(Loc.GetString("fulton-emagged"), ent);
         _audio.PlayPredicted(comp.FultonSoundEmag, ent, ent);
