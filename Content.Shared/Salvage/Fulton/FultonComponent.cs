@@ -60,7 +60,7 @@ public sealed partial class FultonComponent : Component
     public SoundSpecifier? FultonSound = new SoundPathSpecifier("/Audio/Items/Mining/fultext_deploy.ogg");
 
     /// <summary>
-    /// Sound of emmaging of fulton
+    /// Goobstation - Sound used when emagging fulton
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("soundFultonEmag"), AutoNetworkedField]
     public SoundSpecifier? FultonSoundEmag = new SoundCollectionSpecifier("sparks");
