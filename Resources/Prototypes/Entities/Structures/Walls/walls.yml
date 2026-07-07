@@ -702,9 +702,9 @@
   suffix: indestructible
   components:
     - type: Sprite
-      sprite: _Pirate/Structures/Walls/plastitanium.rsi # Pirate
+      sprite: Structures/Walls/plastitanium.rsi
     - type: Icon
-      sprite: _Pirate/Structures/Walls/plastitanium.rsi # Pirate
+      sprite: Structures/Walls/plastitanium.rsi
     - type: IconSmooth
       key: walls
       base: plastitanium
