@@ -22,7 +22,7 @@
       - Lava
   - type: TileEntityEffect
     effects:
-    - !type:FlammableReaction
+    - !type:Flammable
       multiplier: 3.75
       multiplierOnExisting: 0.75
     - !type:Ignite
@@ -93,13 +93,13 @@
         - Lava
   - type: TileEntityEffect
     effects:
-    - !type:FlammableReaction
+    - !type:Flammable
       multiplier: 2.5 # Lavaland Change
       multiplierOnExisting: 0.75
     - !type:Ignite
     - !type:AdjustTemperature
       amount: 10000 # thermal energy, not temperature!
-    - !type:MovespeedModifier
+    - !type:MovementSpeedModifier
       walkSpeedModifier: 0.6
       sprintSpeedModifier: 0.6
   - type: FishingSpot

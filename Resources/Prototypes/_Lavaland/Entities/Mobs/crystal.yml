@@ -89,7 +89,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 1
     baseSprintSpeed: 1
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletFlock
     fireCost: 50
   - type: BatterySelfRecharger
