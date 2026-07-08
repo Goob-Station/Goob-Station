@@ -72,6 +72,7 @@
         maxDistance: 10
         variation: 0.05
   - type: SpamEmitSoundRequirePower # Goobstation
+  - type: OreSiloClient
 
 # a lathe that can be sped up with space lube / slowed down with glue
 - type: entity
