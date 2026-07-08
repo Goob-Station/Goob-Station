@@ -3,7 +3,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Goobstation.Shared.Terror.Prototypes;
 
 [Prototype("terrorSpider")]
-public sealed class TerrorSpiderPrototype : IPrototype
+public sealed partial class TerrorSpiderPrototype : IPrototype
 {
     [IdDataField]
     public string ID { get; private set; } = default!;

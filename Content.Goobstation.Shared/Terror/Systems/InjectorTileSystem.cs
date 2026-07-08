@@ -27,6 +27,6 @@ public sealed class InjectorTileSystem : EntitySystem
 
         var solution = new Solution();
         solution.AddReagent(comp.ReagentId, comp.Amount);
-        _bloodstream.TryAddToChemicals((ev.Tripper, bloodstream), solution);
+        _bloodstream.TryAddToBloodstream((ev.Tripper, bloodstream), solution);
     }
 }
