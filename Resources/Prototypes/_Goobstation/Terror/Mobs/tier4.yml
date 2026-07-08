@@ -28,14 +28,13 @@
         reagents:
         - ReagentId: Toxin
           Quantity: 1000
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletToxicTerror
     fireCost: 50
   - type: Battery
     maxCharge: 500
     startingCharge: 500
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 25
   - type: Gun
     fireRate: 1
