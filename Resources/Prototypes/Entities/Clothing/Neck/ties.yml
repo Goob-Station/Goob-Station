@@ -1,16 +1,15 @@
-# SPDX-FileCopyrightText: 2020 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2020 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 cOrigin <96662984+c0rigin@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
   parent: ClothingNeckBase
+  id: ClothingNeckTieBase
+  abstract: true
+  components:
+  - type: Item
+    storedRotation: -45
+
+- type: entity
+  parent: ClothingNeckTieBase
   id: ClothingNeckTieRed
   name: red-tie
   description: A neosilk clip-on red tie.
@@ -27,10 +26,10 @@
     - Recyclable
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Cloth: 25  
+      Cloth: 25
 
 - type: entity
-  parent: ClothingNeckTieRed
+  parent: ClothingNeckTieBase
   id: ClothingNeckTieDet
   name: detective's tie
   description: A loosely tied necktie, a perfect accessory for the over-worked detective.
@@ -39,9 +38,9 @@
     sprite: Clothing/Neck/Ties/dettie.rsi
   - type: Clothing
     sprite: Clothing/Neck/Ties/dettie.rsi
-    
+
 - type: entity
-  parent: ClothingNeckTieRed
+  parent: ClothingNeckTieBase
   id: ClothingNeckTieSci
   name: scientist's tie
   description: Why do we all have to wear these ridiculous ties?

@@ -1,17 +1,13 @@
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Chat.Systems;
-using Content.Shared.Radio;
-using Content.Server.Radio.Components;
+using Content.Shared.Radio.Components;
 using Content.Server.Radio.EntitySystems;
 using Content.Server.Speech.Components;
 using Content.Server.Wires;
-using Content.Shared.Wires;
+using Content.Shared.Radio;
 using Content.Shared.Speech;
+using Content.Shared.Wires;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Speech;

@@ -1,10 +1,8 @@
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Examine;
+using Content.Shared.Verbs;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.Power.Generator;
 
@@ -17,6 +15,7 @@ public abstract class SharedPowerSwitchableSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<PowerSwitchableComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<PowerSwitchableComponent, GetVerbsEvent<InteractionVerb>>(GetVerbs);
     }
 
     private void OnExamined(EntityUid uid, PowerSwitchableComponent comp, ExaminedEvent args)
@@ -25,6 +24,41 @@ public abstract class SharedPowerSwitchableSystem : EntitySystem
         var voltage = VoltageColor(GetVoltage(uid, comp));
         args.PushMarkup(Loc.GetString(comp.ExamineText, ("voltage", voltage)));
     }
+
+    private void GetVerbs(EntityUid uid, PowerSwitchableComponent comp, GetVerbsEvent<InteractionVerb> args)
+    {
+        if (!args.CanAccess || !args.CanInteract)
+            return;
+
+        var voltage = VoltageColor(GetNextVoltage(uid, comp));
+        var msg = Loc.GetString("power-switchable-switch-voltage", ("voltage", voltage));
+
+        InteractionVerb verb = new()
+        {
+            Act = () =>
+            {
+                // don't need to check it again since if its disabled server wont let the verb act
+                Cycle(uid, args.User, comp);
+            },
+            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/zap.svg.192dpi.png")),
+            Text = msg
+        };
+
+        var ev = new SwitchPowerCheckEvent();
+        RaiseLocalEvent(uid, ref ev);
+        if (ev.DisableMessage != null)
+        {
+            verb.Message = ev.DisableMessage;
+            verb.Disabled = true;
+        }
+
+        args.Verbs.Add(verb);
+    }
+
+    /// <summary>
+    /// Cycles voltage then updates nodes and optionally power supplier to match it.
+    /// </summary>
+    public virtual void Cycle(EntityUid uid, EntityUid user, PowerSwitchableComponent? comp = null) { }
 
     /// <summary>
     /// Helper to get the colored markup string for a voltage type.
@@ -76,3 +110,10 @@ public abstract class SharedPowerSwitchableSystem : EntitySystem
         return comp.Cables[NextIndex(uid, comp)].Voltage;
     }
 }
+
+/// <summary>
+/// Raised on a <see cref="PowerSwitchableComponent"/> to see if its verb should work.
+/// If <see cref="DisableMessage"/> is non-null, the verb is disabled with that as the message.
+/// </summary>
+[ByRefEvent]
+public record struct SwitchPowerCheckEvent(string? DisableMessage = null);

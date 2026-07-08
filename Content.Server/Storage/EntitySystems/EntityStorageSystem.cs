@@ -1,23 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2022 Bright0 <55061890+Bright0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Lucas <luc4s.rib3iro@gmail.com>
-// SPDX-FileCopyrightText: 2022 Moony <moony@hellomouse.net>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 zero <ribeirolucasdev@gmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
@@ -25,21 +5,10 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Systems;
 using Content.Server.Construction;
 using Content.Server.Construction.Components;
-using Content.Server.Storage.Components;
-using Content.Shared.Destructible;
-using Content.Shared.Explosion;
-using Content.Shared.Foldable;
-using Content.Shared.Interaction;
-using Content.Shared.Lock;
 using Content.Shared.Materials;
-using Content.Shared.Movement.Events;
 using Content.Shared.Storage.Components;
 using Content.Shared.Storage.EntitySystems;
-using Content.Shared.Tools.Systems;
-using Content.Shared.Verbs;
 using Robust.Server.GameObjects;
-using Robust.Shared.Containers;
-using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 
 namespace Content.Server.Storage.EntitySystems;
@@ -55,31 +24,12 @@ public sealed class EntityStorageSystem : SharedEntityStorageSystem
     {
         base.Initialize();
 
-        /* CompRef things */
-        SubscribeLocalEvent<EntityStorageComponent, EntityUnpausedEvent>(OnEntityUnpausedEvent);
-        SubscribeLocalEvent<EntityStorageComponent, ComponentInit>(OnComponentInit);
-        SubscribeLocalEvent<EntityStorageComponent, ComponentStartup>(OnComponentStartup);
-        SubscribeLocalEvent<EntityStorageComponent, ActivateInWorldEvent>(OnInteract, after: new[] { typeof(LockSystem) });
-        SubscribeLocalEvent<EntityStorageComponent, LockToggleAttemptEvent>(OnLockToggleAttempt);
-        SubscribeLocalEvent<EntityStorageComponent, DestructionEventArgs>(OnDestruction);
-        SubscribeLocalEvent<EntityStorageComponent, GetVerbsEvent<InteractionVerb>>(AddToggleOpenVerb);
-        SubscribeLocalEvent<EntityStorageComponent, ContainerRelayMovementEntityEvent>(OnRelayMovement);
-        SubscribeLocalEvent<EntityStorageComponent, FoldAttemptEvent>(OnFoldAttempt);
-        SubscribeLocalEvent<EntityStorageComponent, GotReclaimedEvent>(OnReclaimed); // Goobstation - Recycle update
-
-        SubscribeLocalEvent<EntityStorageComponent, ComponentGetState>(OnGetState);
-        SubscribeLocalEvent<EntityStorageComponent, ComponentHandleState>(OnHandleState);
-        /* CompRef things */
-
         SubscribeLocalEvent<EntityStorageComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<EntityStorageComponent, WeldableAttemptEvent>(OnWeldableAttempt);
-        SubscribeLocalEvent<EntityStorageComponent, BeforeExplodeEvent>(OnExploded);
 
         SubscribeLocalEvent<InsideEntityStorageComponent, InhaleLocationEvent>(OnInsideInhale);
         SubscribeLocalEvent<InsideEntityStorageComponent, ExhaleLocationEvent>(OnInsideExhale);
         SubscribeLocalEvent<InsideEntityStorageComponent, AtmosExposedGetAirEvent>(OnInsideExposed);
-
-        SubscribeLocalEvent<InsideEntityStorageComponent, EntGotRemovedFromContainerMessage>(OnRemoved);
+        SubscribeLocalEvent<EntityStorageComponent, GotReclaimedEvent>(OnReclaimed); // Goobstation - Recycle update
     }
 
     private void OnMapInit(EntityUid uid, EntityStorageComponent component, MapInitEvent args)
@@ -100,64 +50,30 @@ public sealed class EntityStorageSystem : SharedEntityStorageSystem
             _construction.AddContainer(uid, ContainerName, construction);
     }
 
-    public override bool ResolveStorage(EntityUid uid, [NotNullWhen(true)] ref EntityStorageComponent? component)
-    {
-        if (component != null)
-            return true;
-
-        TryComp<EntityStorageComponent>(uid, out var storage);
-        component = storage;
-        return component != null;
-    }
-
-    private void OnWeldableAttempt(EntityUid uid, EntityStorageComponent component, WeldableAttemptEvent args)
-    {
-        if (component.Open)
-        {
-            args.Cancel();
-            return;
-        }
-
-        if (component.Contents.Contains(args.User))
-        {
-            var msg = Loc.GetString("entity-storage-component-already-contains-user-message");
-            Popup.PopupEntity(msg, args.User, args.User);
-            args.Cancel();
-        }
-    }
-
-    private void OnExploded(Entity<EntityStorageComponent> ent, ref BeforeExplodeEvent args)
-    {
-        args.Contents.AddRange(ent.Comp.Contents.ContainedEntities);
-    }
-
     protected override void TakeGas(EntityUid uid, EntityStorageComponent component)
     {
         if (!component.Airtight)
             return;
 
-        var serverComp = (EntityStorageComponent) component;
-        var tile = GetOffsetTileRef(uid, serverComp);
+        var tile = GetOffsetTileRef(uid, component);
 
-        if (tile != null && _atmos.GetTileMixture(tile.Value.GridUid, null, tile.Value.GridIndices, true) is {} environment)
+        if (tile != null && _atmos.GetTileMixture(tile.Value.GridUid, null, tile.Value.GridIndices, true) is { } environment)
         {
-            _atmos.Merge(serverComp.Air, environment.RemoveVolume(serverComp.Air.Volume));
+            _atmos.Merge(component.Air, environment.RemoveVolume(component.Air.Volume));
         }
     }
 
     public override void ReleaseGas(EntityUid uid, EntityStorageComponent component)
     {
-        var serverComp = (EntityStorageComponent) component;
-
-        if (!serverComp.Airtight)
+        if (!component.Airtight)
             return;
 
-        var tile = GetOffsetTileRef(uid, serverComp);
+        var tile = GetOffsetTileRef(uid, component);
 
-        if (tile != null && _atmos.GetTileMixture(tile.Value.GridUid, null, tile.Value.GridIndices, true) is {} environment)
+        if (tile != null && _atmos.GetTileMixture(tile.Value.GridUid, null, tile.Value.GridIndices, true) is { } environment)
         {
-            _atmos.Merge(environment, serverComp.Air);
-            serverComp.Air.Clear();
+            _atmos.Merge(environment, component.Air);
+            component.Air.Clear();
         }
     }
 
@@ -171,13 +87,6 @@ public sealed class EntityStorageSystem : SharedEntityStorageSystem
         }
 
         return null;
-    }
-
-    private void OnRemoved(EntityUid uid, InsideEntityStorageComponent component, EntGotRemovedFromContainerMessage args)
-    {
-        if (args.Container.Owner != component.Storage)
-            return;
-        RemComp(uid, component);
     }
 
     #region Gas mix event handlers

@@ -1,10 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 FoxxoTrystan <45297731+FoxxoTrystan@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2024 Pspritechologist <naaronn@gmail.com>
-# SPDX-FileCopyrightText: 2024 VMSolidus <evilexecutive@gmail.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
@@ -18,7 +11,7 @@
         maxVol: 25
 
 - type: entity
-  parent: [DrinkCartonVisualsOpenable, DrinkCartonBaseFull]
+  parent: [DrinkBaseMaterialCardboard, DrinkCartonBaseFull, DrinkBaseOpenable, DrinkVisualsOpenable]
   id: DrinkMilkCartonMini
   name: mini milk
   description: An opaque white liquid produced by the mammary glands of mammals.
@@ -35,7 +28,7 @@
     state: icon
 
 - type: entity
-  parent: [DrinkCartonVisualsOpenable, DrinkCartonBaseFull]
+  parent: [DrinkBaseMaterialCardboard, DrinkCartonBaseFull, DrinkBaseOpenable, DrinkVisualsOpenable]
   id: DrinkMilkCartonMiniChocolate
   name: mini choco milk
   description: A milk drink flavored with chocolate.
