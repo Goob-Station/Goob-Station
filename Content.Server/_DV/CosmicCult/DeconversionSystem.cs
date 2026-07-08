@@ -58,11 +58,8 @@ public sealed class DeconversionSystem : EntitySystem
     private void OnCleanseCult(ref ExecuteEntityEffectEvent<CleanseCult> args)
     {
         var uid = args.Args.TargetEntity;
-        if (HasComp<CosmicCultComponent>(uid)
-            || HasComp<RogueAscendedInfectionComponent>(uid))
-        {
+        if (HasComp<CosmicCultComponent>(uid))
             EnsureComp<CleanseCultComponent>(uid);
-        }
     }
 #endregion
 
@@ -79,8 +76,8 @@ public sealed class DeconversionSystem : EntitySystem
         var deconCultTimer = EntityQueryEnumerator<CleanseCultComponent>();
         while (deconCultTimer.MoveNext(out var uid, out var comp))
         {
-            if (!HasComp<CosmicCultComponent>(uid) && !HasComp<RogueAscendedInfectionComponent>(uid)) // Pirate: blood cult
-                continue; // Pirate: blood cult
+            if (!HasComp<CosmicCultComponent>(uid))
+                continue;
 
             if (_timing.CurTime >= comp.CleanseTime && !HasComp<CosmicBlankComponent>(uid))
             {
