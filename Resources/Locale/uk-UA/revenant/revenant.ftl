@@ -11,7 +11,7 @@ revenant-soul-yield-low = {CAPITALIZE(THE($target))} має душу нижче 
 revenant-soul-begin-harvest = {CAPITALIZE(THE($target))} несподівано злегка підіймається в повітря, шкіра {POSS-ADJ($target)} стає попелясто-сірою.
 revenant-soul-finish-harvest = {CAPITALIZE(THE($target))} падає на землю!
 
-#UI
+# UI
 revenant-user-interface-title = Магазин Здібностей
 revenant-user-interface-essence-amount = [color=plum]{$amount}[/color] Викраденої Есенції
 revenant-user-interface-cost = {$price} Есенції
