@@ -1,14 +1,3 @@
-// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
-// SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Hagvan <22118902+Hagvan@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
-// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
@@ -27,6 +16,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Server.Gravity;
 using Content.Goobstation.Common.CCVar;
+using Content.Shared.Chemistry.Reagent;
 using Robust.Shared.Configuration;
 
 namespace Content.Goobstation.Server.Footprints;
@@ -76,7 +66,7 @@ public sealed class FootprintSystem : EntitySystem
         if (_noFootprintsQuery.HasComp(entity))
             return;
 
-        if (_gravity.IsWeightless(entity) || !e.OldPosition.IsValid(EntityManager) || !e.NewPosition.IsValid(EntityManager))
+        if (_gravity.IsWeightless(entity.Owner) || !e.OldPosition.IsValid(EntityManager) || !e.NewPosition.IsValid(EntityManager))
             return;
 
         var oldPosition = _transform.ToMapCoordinates(e.OldPosition).Position;
@@ -142,7 +132,7 @@ public sealed class FootprintSystem : EntitySystem
 
         var puddleSolSol = puddleSolution.Value.Comp.Solution;
         // don't transfer reagents that don't stick to skin to our footsteps
-        var nonStickProtos = new List<string>(); // has to be string or it dies
+        var nonStickProtos = new List<ProtoId<ReagentPrototype>>();
         foreach (var (proto, amt) in puddleSolSol.GetReagentPrototypes(_prototype))
         {
             if (!proto.SticksToSkin)

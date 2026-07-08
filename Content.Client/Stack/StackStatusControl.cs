@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2022 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: MIT
 
 using Content.Client.Message;
@@ -14,6 +9,9 @@ using Robust.Shared.Timing;
 
 namespace Content.Client.Stack;
 
+/// <summary>
+/// Used by hands in player UI to display the stack count.
+/// </summary>
 public sealed class StackStatusControl : Control
 {
     private readonly StackComponent _parent;
@@ -22,7 +20,7 @@ public sealed class StackStatusControl : Control
     public StackStatusControl(StackComponent parent)
     {
         _parent = parent;
-        _label = new RichTextLabel {StyleClasses = {StyleNano.StyleClassItemStatus}};
+        _label = new RichTextLabel {StyleClasses = {StyleClass.ItemStatus}};
         _label.SetMarkup(Loc.GetString("comp-stack-status", ("count", _parent.Count)));
         AddChild(_label);
     }

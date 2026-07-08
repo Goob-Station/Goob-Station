@@ -1,11 +1,4 @@
 <!--
-SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-SPDX-FileCopyrightText: 2023 James Simonson <jamessimo89@gmail.com>
-SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
-SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-
 SPDX-License-Identifier: MIT
 -->
 
@@ -29,15 +22,15 @@ SPDX-License-Identifier: MIT
                     <GridContainer Margin="10 0 0 0" Columns="2">
                         <!-- Power On/Off -->
                         <Label Text="{Loc 'apc-menu-breaker-label'}" HorizontalExpand="True"
-                                StyleClasses="StatusFieldTitle" MinWidth="120"/>
-                        <BoxContainer Orientation="Horizontal" MinWidth="90">
-                            <Button Name="BreakerButton" Text="{Loc 'apc-menu-breaker-button'}" HorizontalExpand="True"/>
+                                StyleClasses="highlight" MinWidth="120"/>
+                        <BoxContainer Orientation="Horizontal" MinWidth="150">
+                            <Button Name="BreakerButton" Text="{Loc 'apc-menu-breaker-button'}" HorizontalExpand="True" ToggleMode="True"/>
                         </BoxContainer>
                         <!--Charging Status-->
-                        <Label Text="{Loc 'apc-menu-external-label'}" StyleClasses="StatusFieldTitle" MinWidth="120" />
+                        <Label Text="{Loc 'apc-menu-external-label'}" StyleClasses="highlight" MinWidth="120" />
                         <Label Name="ExternalPowerStateLabel" Text="{Loc 'apc-menu-power-state-good'}" />
                         <!--Battery Power-->
-                        <Label Text="{Loc 'apc-menu-power-label'}" StyleClasses="StatusFieldTitle" MinWidth="120" />
+                        <Label Text="{Loc 'apc-menu-power-label'}" StyleClasses="highlight" MinWidth="120" />
                         <Label Name="PowerLabel"/>
                     </GridContainer>
                 </BoxContainer>
