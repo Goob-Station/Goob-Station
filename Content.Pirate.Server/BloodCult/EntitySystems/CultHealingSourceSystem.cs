@@ -406,6 +406,9 @@ public sealed partial class CultHealingSourceSystem : EntitySystem
 			// Only restore if blood max volume > 0 (constructs have 0)
 			if (bloodstream.BloodMaxVolume > FixedPoint2.Zero)
 			{
+				if (bloodstream.BleedAmount > 0f)
+					_bloodstreamSystem.TryModifyBleedAmount((uid, bloodstream), -(adjustedHealing * time));
+
 				// Check current blood level
 				var currentBloodLevel = _bloodstreamSystem.GetBloodLevelPercentage((uid, bloodstream));
 				

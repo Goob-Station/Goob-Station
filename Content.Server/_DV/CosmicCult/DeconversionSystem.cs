@@ -3,8 +3,10 @@ using Content.Server._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult.Components.Examine;
+using Content.Shared._DV.CosmicCult.EntityEffects; // Pirate: blood cult
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
+using Content.Shared.EntityEffects; // Pirate: blood cult
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Jittering;
@@ -31,10 +33,21 @@ public sealed class DeconversionSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<CleanseOnUseComponent, AfterInteractEvent>(OnAfterInteract);
-        SubscribeLocalEvent<CleanseOnUseComponent, CleanseOnDoAfterEvent>(OnDoAfter);
+        SubscribeLocalEvent<ExecuteEntityEffectEvent<CleanseCult>>(OnCleanseCult); // Pirate: blood cult
         SubscribeLocalEvent<CleanseCultComponent, ComponentInit>(OnCompInit);
     }
+
+#region Pirate: blood cult
+    private void OnCleanseCult(ref ExecuteEntityEffectEvent<CleanseCult> args)
+    {
+        var uid = args.Args.TargetEntity;
+        if (HasComp<CosmicCultComponent>(uid)
+            || HasComp<RogueAscendedInfectionComponent>(uid))
+        {
+            EnsureComp<CleanseCultComponent>(uid);
+        }
+    }
+#endregion
 
     private void OnCompInit(Entity<CleanseCultComponent> uid, ref ComponentInit args)
     {
@@ -49,6 +62,9 @@ public sealed class DeconversionSystem : EntitySystem
         var deconCultTimer = EntityQueryEnumerator<CleanseCultComponent>();
         while (deconCultTimer.MoveNext(out var uid, out var comp))
         {
+            if (!HasComp<CosmicCultComponent>(uid) && !HasComp<RogueAscendedInfectionComponent>(uid)) // Pirate: blood cult
+                continue; // Pirate: blood cult
+
             if (_timing.CurTime >= comp.CleanseTime && !HasComp<CosmicBlankComponent>(uid))
             {
                 RemComp<CleanseCultComponent>(uid);
