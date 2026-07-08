@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Chat.Systems;
@@ -40,7 +35,7 @@ public sealed class SpookySpeakerSystem : EntitySystem
         if (curTime < entity.Comp.NextSpeakTime)
             return;
 
-        if (!_proto.TryIndex(entity.Comp.MessageSet, out var messages))
+        if (!_proto.Resolve(entity.Comp.MessageSet, out var messages))
             return;
 
         // Grab a random localized message from the set

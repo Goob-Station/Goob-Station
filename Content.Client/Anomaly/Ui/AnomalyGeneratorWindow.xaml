@@ -1,8 +1,4 @@
 <!--
-SPDX-FileCopyrightText: 2023 James Simonson <jamessimo89@gmail.com>
-SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-
 SPDX-License-Identifier: MIT
 -->
 
@@ -22,7 +18,7 @@ SPDX-License-Identifier: MIT
                               VerticalExpand="True"
                               Margin="0 0 0 0"
                               VerticalAlignment="Center">
-                    <Label Text="{Loc 'anomaly-generator-fuel-display'}" StyleClasses="StatusFieldTitle" />
+                    <Label Text="{Loc 'anomaly-generator-fuel-display'}" StyleClasses="highlight" />
                     <ProgressBar Name="FuelBar"
                                  HorizontalExpand="True"
                                  MaxValue="1"
@@ -35,8 +31,8 @@ SPDX-License-Identifier: MIT
                                Text="0 %" />
                     </ProgressBar>
                 </BoxContainer>
-                <RichTextLabel Name="CooldownLabel" StyleClasses="StatusFieldTitle" />
-                <RichTextLabel Name="ReadyLabel" StyleClasses="StatusFieldTitle" />
+                <RichTextLabel Name="CooldownLabel" StyleClasses="highlight" />
+                <RichTextLabel Name="ReadyLabel" StyleClasses="highlight" />
             </BoxContainer>
             <!--Sprite View-->
             <PanelContainer Margin="12 0 0 0"

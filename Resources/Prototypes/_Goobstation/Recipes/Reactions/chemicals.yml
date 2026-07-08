@@ -1,10 +1,3 @@
-# SPDX-FileCopyrightText: 2024 John Doe <johndoe@example.com>
-# SPDX-FileCopyrightText: 2024 Speebro <100388782+Speebr0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: reaction
@@ -17,7 +10,7 @@
     Sodium:
       amount: 1
   effects:
-    - !type:ExplosionReactionEffect
+    - !type:Explosion
       explosionType: Default
       maxIntensity: 100
       intensityPerUnit: 0.5 # 50+50 reagent for maximum explosion
@@ -34,7 +27,7 @@
     Nitrogen:
       amount: 1
   products:
-    Cryostylane: 1  
+    Cryostylane: 1
 
 - type: reaction
   id: CryostylaneOxygenCooling
@@ -46,9 +39,8 @@
     Oxygen:
       amount: 1
   effects:
-    - !type:AdjustSolutionThermalEnergyEffect
+    - !type:AdjustSolutionThermalEnergy
       delta: -100 # I know noone will use this one since hotbeakering and second recipe, but one can dream
-      scaled: true
 
 - type: reaction
   id: CryostylaneIodineCooling
@@ -60,6 +52,5 @@
     Iodine:
       amount: 1
   effects:
-    - !type:AdjustSolutionThermalEnergyEffect
+    - !type:AdjustSolutionThermalEnergy
       delta: -200
-      scaled: true

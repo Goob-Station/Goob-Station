@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Administration.BanList;
@@ -12,13 +9,13 @@ using static Robust.Client.UserInterface.Controls.BaseButton;
 namespace Content.Client.Administration.UI.BanList.RoleBans;
 
 [GenerateTypedNameReferences]
-public sealed partial class RoleBanListLine : BoxContainer, IBanListLine<SharedServerRoleBan>
+public sealed partial class RoleBanListLine : BoxContainer, IBanListLine<SharedBan>
 {
-    public SharedServerRoleBan Ban { get; }
+    public SharedBan Ban { get; }
 
     public event Action<RoleBanListLine>? IdsClicked;
 
-    public RoleBanListLine(SharedServerRoleBan ban)
+    public RoleBanListLine(SharedBan ban)
     {
         RobustXamlLoader.Load(this);
 
@@ -26,7 +23,7 @@ public sealed partial class RoleBanListLine : BoxContainer, IBanListLine<SharedS
         IdsHidden.OnPressed += IdsPressed;
 
         BanListEui.SetData(this, ban);
-        Role.Text = ban.Role;
+        Role.Text = string.Join(", ", ban.Roles ?? []);
     }
 
     private void IdsPressed(ButtonEventArgs buttonEventArgs)
