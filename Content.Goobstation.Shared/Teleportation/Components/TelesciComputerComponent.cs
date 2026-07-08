@@ -22,7 +22,7 @@ public sealed partial class TelesciComputerComponent : Component
     /// Can be null if not linked.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public NetEntity? TeleporterEntity;
+    public EntityUid? TeleporterUid;
 
     [DataField, AutoNetworkedField]
     public TimeSpan CooldownTime = TimeSpan.Zero;

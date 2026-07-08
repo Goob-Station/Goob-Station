@@ -1,6 +1,7 @@
 using System.Numerics;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Map;
 using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.Teleportation.Components;
@@ -9,16 +10,16 @@ namespace Content.Goobstation.Shared.Teleportation.Components;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 public sealed partial class TelesciTeleporterComponent : Component
 {
-    [DataField]
+    [DataField,AutoNetworkedField]
     public Vector2 Position;
 
     [DataField]
-    public float TeleportSize = 0.5f; // area teleported  1 tile
+    public float TeleportSize = 0.5f; // area teleported 1 tile
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public TimeSpan Cooldown = TimeSpan.Zero;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public TimeSpan CooldownInterval = TimeSpan.FromSeconds(10);
 
     /// <summary>
@@ -41,13 +42,15 @@ public sealed partial class TelesciTeleporterComponent : Component
     public float TeleportMaxDistance = 500f;
 }
 
-// Events
+
 
 [Serializable, NetSerializable]
 public enum TelesciUiKey
 {
     Key,
 }
+
+#region events
 
 [Serializable, NetSerializable]
 public sealed class TelesciBoundUserInterfaceState : BoundUserInterfaceState;
@@ -77,19 +80,21 @@ public sealed class TelesciOpenPortaleMessage : BoundUserInterfaceMessage;
 public sealed class TelesciScanMessage : BoundUserInterfaceMessage;
 
 [Serializable, NetSerializable]
-public sealed class TelesciSendEvent(Vector2 coordinates) : EventArgs
+public sealed class TelesciSendEvent(Vector2 coordinates, MapId? map = null) : EntityEventArgs
+{
+    public Vector2 Coordinates = coordinates;
+    public MapId? Map = map;
+}
+
+[Serializable, NetSerializable]
+public sealed class TelesciRetrieveEvent(Vector2 coordinates) : EntityEventArgs
 {
     public Vector2 Coordinates = coordinates;
 }
 
 [Serializable, NetSerializable]
-public sealed class TelesciRetrieveEvent(Vector2 coordinates) : EventArgs
-{
-    public Vector2 Coordinates = coordinates;
-}
-
-[Serializable, NetSerializable]
-public sealed class TelesciCooldowneEvent(TimeSpan time) : EventArgs
+public sealed class TelesciCooldowneEvent(TimeSpan time) : EntityEventArgs
 {
     public TimeSpan Cooldown = time;
 }
+#endregion

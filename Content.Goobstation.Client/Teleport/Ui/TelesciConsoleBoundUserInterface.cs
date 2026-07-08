@@ -42,17 +42,8 @@ public sealed class TelesciConsoleBoundUserInterface : BoundUserInterface
         _window?.Dispose();
     }
 
-    // protected override void UpdateState(BoundUserInterfaceState state) => _window?.Update();
 
-    private void SendButtonPresed(Vector2 location)
-        => SendMessage(new TelesciSendMessage(location));
-
-    private void RetrieveButtonPresed(Vector2 location)
-        => SendMessage(new TelesciRetrieveMessage(location));
-
-    public void Update(Entity<TelesciComputerComponent> ent)
-        => _window?.Update(ent);
-
-    private void PositionChanged(Vector2 position)
-        => SendMessage(new TelesciPositionMessage(position));
+    private void SendButtonPresed(Vector2 location) => SendMessage(new TelesciSendMessage(location));
+    private void RetrieveButtonPresed(Vector2 location) => SendMessage(new TelesciRetrieveMessage(location));
+    private void PositionChanged(Vector2 position) => SendMessage(new TelesciPositionMessage(position));
 }

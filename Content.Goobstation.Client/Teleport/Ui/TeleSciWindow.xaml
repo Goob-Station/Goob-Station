@@ -2,7 +2,7 @@
 <controls:FancyWindow xmlns="https://spacestation14.io"
                       xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
                       Title="{Loc 'teleporter-computer-title'}"
-                      SetSize="350 110"
+                      SetSize="350 210"
                       Resizable="False">
     <BoxContainer Orientation="Vertical" Margin="5 5 5 5" SeparationOverride="10">
         <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
@@ -11,7 +11,7 @@
         </BoxContainer>
         <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
             <Control MinSize="10 0" />
-            <Label Text="X"/>
+            <Label Text="X" />
             <Control MinSize="5 0" />
             <FloatSpinBox Name="XNodeInput" MinSize="60 0" Value="0"/>
             <Control MinSize="15 0" />
@@ -25,7 +25,12 @@
             <Control MinSize="5 0" />
             <Button Name="RetrieveButton" Text="{Loc 'teleporter-computer-button-retrieve'}" />
             <Control MinSize="5 0" />
-            <Button Name="PortalButton" Text="{Loc 'teleporter-computer-button-portal'}" />
+            <Button Name="PortalButton" Text="{Loc 'teleporter-computer-button-portal'}" ToggleMode="True" Disabled="True" />
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal" Margin="5 5 5 5" SeparationOverride="10">
+            <ProgressBar Name="ChargeBar" Access="Public" HorizontalExpand="True" MinValue="0" Value="0" MaxValue="1" Vertical="True" VerticalExpand="True">
+                <Label Name="ChargeBarText" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5 0 0 0"/>
+            </ProgressBar>
         </BoxContainer>
     </BoxContainer>
 </controls:FancyWindow>

@@ -22,7 +22,7 @@ public sealed class TelesciComputerSystem : EntitySystem
         if (!TryComp<TelesciTeleporterComponent>(arg.Sink, out var telepad))
             return;
 
-        ent.Comp.TeleporterEntity = GetNetEntity(arg.Sink);
+        ent.Comp.TeleporterUid = arg.Sink;
         telepad.Computer = ent;
         Dirty(arg.Sink, telepad);
         Dirty(ent);
@@ -30,45 +30,41 @@ public sealed class TelesciComputerSystem : EntitySystem
 
     private void OnPortDisconnected(Entity<TelesciComputerComponent> ent, ref PortDisconnectedEvent arg)
     {
-        var teleporterNetEntity = ent.Comp.TeleporterEntity;
-        if (arg.Port != ent.Comp.LinkingPort || teleporterNetEntity == null)
+
+        if (arg.Port != ent.Comp.LinkingPort || ent.Comp.TeleporterUid == null)
             return;
 
-        var teleporterEntityUid = GetEntity(teleporterNetEntity);
-        if (TryComp<TelesciTeleporterComponent>(teleporterEntityUid, out var telepad))
+        if (TryComp<TelesciTeleporterComponent>(ent.Comp.TeleporterUid, out var telepad))
         {
             telepad.Computer = null;
-            Dirty(teleporterEntityUid.Value, telepad);
+            Dirty(ent.Comp.TeleporterUid.Value, telepad);
         }
 
-        ent.Comp.TeleporterEntity = null;
+        ent.Comp.TeleporterUid = null;
         Dirty(ent);
     }
 
     private void OnSendMessage(Entity<TelesciComputerComponent> ent, ref  TelesciSendMessage arg)
     {
-        var teleporter = GetEntity(ent.Comp.TeleporterEntity);
-        if (teleporter == null)
+        if (ent.Comp.TeleporterUid == null)
             return;
 
         ent.Comp.Position = arg.Coordinates;
         Dirty(ent);
-
         var ev = new TelesciSendEvent(arg.Coordinates);
-        RaiseLocalEvent(teleporter.Value, ev);
+        RaiseLocalEvent(ent.Comp.TeleporterUid.Value, ev);
     }
 
     private void OnRetrieveMessage(Entity<TelesciComputerComponent> ent, ref TelesciRetrieveMessage arg)
     {
-        var teleporter = GetEntity(ent.Comp.TeleporterEntity);
-        if (teleporter == null)
+        if (ent.Comp.TeleporterUid == null)
             return;
 
         ent.Comp.Position = arg.Coordinates;
         Dirty(ent);
 
         var ev = new TelesciRetrieveEvent(arg.Coordinates);
-        RaiseLocalEvent(teleporter.Value, ev);
+        RaiseLocalEvent(ent.Comp.TeleporterUid.Value, ev);
     }
 
     private void OnPositionMessage(Entity<TelesciComputerComponent> ent, ref TelesciPositionMessage arg)

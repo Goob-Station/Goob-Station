@@ -11,8 +11,11 @@ namespace Content.Goobstation.Client.Teleport.Ui;
 public sealed partial class TeleSciWindow : FancyWindow
 {
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IEntityManager _ent = default!;
 
     private TelesciState _state;
+
+    private Entity<TelesciComputerComponent>? _computer;
 
     public event Action<Vector2>? OnSendButtonPressed;
     public event Action<Vector2>? OnRetrieveButtonPressed;
@@ -23,36 +26,36 @@ public sealed partial class TeleSciWindow : FancyWindow
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
+        _computer = (owner, computer);
 
         SendButton.OnPressed += _ => OnSendButtonPressed?.Invoke(new Vector2(XNodeInput.Value, YNodeInput.Value));
         RetrieveButton.OnPressed += _ => OnRetrieveButtonPressed?.Invoke(new Vector2(XNodeInput.Value, YNodeInput.Value));
         XNodeInput.OnValueChanged += _ => OnPositionChange?.Invoke(new Vector2(XNodeInput.Value, YNodeInput.Value));
         YNodeInput.OnValueChanged += _ => OnPositionChange?.Invoke(new Vector2(XNodeInput.Value, YNodeInput.Value));
 
-        PortalButton.Disabled = true;
-        PortalButton.ToggleMode = true;
-
         Update((owner, computer));
     }
 
-    public void Update(Entity<TelesciComputerComponent> ent)
+    private void Update(Entity<TelesciComputerComponent> ent)
     {
-       UpdateState(ent);
+       UpdateState();
        UpdateButton();
        UpdateStatusText();
        SetCoordinates(ent);
     }
 
-    private void UpdateState(Entity<TelesciComputerComponent> ent)
+    private void UpdateState()
     {
+        if (_computer == null)
+            return;
         _state = TelesciState.Unknown;
 
-        if (ent.Comp.TeleporterEntity == null)
+        if (_computer.Value.Comp.TeleporterUid == null)
             _state = TelesciState.NotConnected;
         else
             _state = TelesciState.Ready;
 
-        if (ent.Comp.CooldownTime > _timing.CurTime)
+        if (_computer.Value.Comp.CooldownTime > _timing.CurTime)
             _state = TelesciState.Cooldown;
     }
 
@@ -76,7 +79,7 @@ public sealed partial class TeleSciWindow : FancyWindow
 
     private void UpdateStatusText()
     {
-        var output = "";
+        var output = Loc.GetString("teleporter-computer-status-unknown");
         switch (_state)
         {
             case TelesciState.Ready:
@@ -103,6 +106,46 @@ public sealed partial class TeleSciWindow : FancyWindow
         Unknown,
         NotConnected,
         Ready,
-        Cooldown
+        Cooldown,
+    }
+
+    protected override void FrameUpdate(FrameEventArgs args)
+    {
+        base.FrameUpdate(args);
+        if (_computer == null)
+            return;
+
+        UpdateState();
+        UpdateButton();
+        UpdateStatusText();
+        CooldownProgressBar();
+    }
+
+    private void CooldownProgressBar()
+    {
+        if (_computer == null || _state <= TelesciState.NotConnected)
+        {
+            ChargeBar.Value = 0;
+            ChargeBarText.Text = "0%";
+            return;
+        }
+
+        if (_state == TelesciState.Cooldown)
+        {
+            var (_, computer) = _computer.Value;
+
+            if (computer.TeleporterUid == null ||
+                !_ent.TryGetComponent<TelesciTeleporterComponent>(computer.TeleporterUid, out var teleporter))
+                return;
+
+            var progress= (float) 1 - (computer.CooldownTime - _timing.CurTime) / teleporter.CooldownInterval;
+
+            ChargeBar.Value = (float)progress;
+            ChargeBarText.Text = $"{progress:P0}";
+            return;
+        }
+
+        ChargeBar.Value = 1;
+        ChargeBarText.Text = "100%";
     }
 }

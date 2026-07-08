@@ -7,6 +7,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Power.EntitySystems;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Map;
 using Robust.Shared.Random;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
@@ -23,13 +24,14 @@ public sealed class TelesciTeleporterSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<TelesciTeleporterComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<TelesciTeleporterComponent, TelesciSendEvent>(OnSendEvent);
-        SubscribeLocalEvent<TelesciTeleporterComponent, TelesciRetrieveEvent>(OnRetriveEvent);
+        SubscribeLocalEvent<TelesciTeleporterComponent, TelesciRetrieveEvent>(OnRetrieveEvent);
     }
 
     private void OnMapInit(Entity<TelesciTeleporterComponent> ent, ref MapInitEvent arg)
@@ -42,7 +44,7 @@ public sealed class TelesciTeleporterSystem : EntitySystem
             if (!TryComp<TelesciComputerComponent>(source, out var computer))
                 continue;
 
-            computer.TeleporterEntity = GetNetEntity(ent);
+            computer.TeleporterUid = ent;
             ent.Comp.Computer = source;
             Dirty(source, computer);
             Dirty(ent);
@@ -70,7 +72,7 @@ public sealed class TelesciTeleporterSystem : EntitySystem
         Dirty(ent);
     }
 
-    private void OnRetriveEvent(Entity<TelesciTeleporterComponent> ent, ref TelesciRetrieveEvent arg)
+    private void OnRetrieveEvent(Entity<TelesciTeleporterComponent> ent, ref TelesciRetrieveEvent arg)
     {
         if (!_power.IsPowered(ent.Owner))
             return;
@@ -148,12 +150,12 @@ public sealed class TelesciTeleporterSystem : EntitySystem
         var thisOne =_random.Next(0, entitiesToTeleport.Count);
 
         _pullingSystem.StopAllPulls(entitiesToTeleport[thisOne]);
-        SpawnAtPosition("EffectTelesciTeleportation", Transform(entitiesToTeleport[thisOne]).Coordinates);
+        PredictedSpawnAtPosition("EffectTelesciTeleportation", Transform(entitiesToTeleport[thisOne]).Coordinates);
         _audio.PlayPvs(ent.Comp.SoundSuccess, Transform(entitiesToTeleport[thisOne]).Coordinates);
 
         _xform.SetWorldPosition(entitiesToTeleport[thisOne], target);
 
-        SpawnAttachedTo("EffectTelesciTeleportation", Transform(entitiesToTeleport[thisOne]).Coordinates);
+        PredictedSpawnAtPosition("EffectTelesciTeleportation", Transform(entitiesToTeleport[thisOne]).Coordinates);
         _audio.PlayPvs(ent.Comp.SoundSuccess, Transform(entitiesToTeleport[thisOne]).Coordinates);
     }
 
@@ -164,7 +166,7 @@ public sealed class TelesciTeleporterSystem : EntitySystem
             case <25: // one goliath
                 PredictedSpawnAtPosition("EffectTelesciTeleportation", Transform(ent).Coordinates);
                 _audio.PlayPvs(ent.Comp.SoundFailure, Transform(ent).Coordinates);
-                SpawnAtPosition("MobLavalandGoliath", Transform(ent).Coordinates);
+                PredictedSpawnAtPosition("MobLavalandGoliath", Transform(ent).Coordinates);
                 break;
 
             case <50: // a random number of carps
@@ -182,7 +184,7 @@ public sealed class TelesciTeleporterSystem : EntitySystem
                 break;
 
             case >90: // gib all living targets and send teleporter to void
-                SpawnAttachedTo("EffectTelesciTeleportation", Transform(ent).Coordinates);
+                PredictedSpawnAtPosition("EffectTelesciTeleportation", Transform(ent).Coordinates);
                 foreach (var gib in entitiesToTeleport)
                 {
                     if (HasComp<MobStateComponent>(gib))
