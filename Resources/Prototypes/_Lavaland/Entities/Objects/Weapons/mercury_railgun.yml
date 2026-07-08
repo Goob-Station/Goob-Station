@@ -21,7 +21,7 @@
     startingCharge: 1000
   - type: MaterialEnergy
     materialWhiteList: [Plasma]
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletMercuryRailgun
     fireCost: 100
   - type: Appearance

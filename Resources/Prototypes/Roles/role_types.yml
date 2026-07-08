@@ -29,7 +29,7 @@
   name: role-type-free-agent-name
   color: '#ffff00'
   symbol: "☯"
-  
+
 - type: roleType
   id: Familiar
   name: role-type-familiar-name
@@ -47,3 +47,4 @@
   name: role-type-silicon-antagonist-name
   color: '#c832e6'
   symbol: "⛞"
+

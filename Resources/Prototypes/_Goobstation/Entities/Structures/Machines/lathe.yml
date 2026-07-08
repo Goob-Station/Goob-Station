@@ -1,26 +1,8 @@
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
-# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
-# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
-# SPDX-FileCopyrightText: 2025 NotActuallyMarty <martynashagriefer@gmail.com>
-# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
-# SPDX-FileCopyrightText: 2025 SomethingUnbearable <mewatcher102@gmail.com>
-# SPDX-FileCopyrightText: 2025 Speebro <100388782+Speebr0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Speebro <speebro@notreal.com>
-# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
   id: EngineeringTechFab
-  parent: [BaseLatheLube, BaseSiloUtilizer]
+  parent: [BaseLatheLube]
   name: engineering techfab
   description: Prints equipment and circuitboards for use by engineering department.
   components:
@@ -87,10 +69,11 @@
         - Sheet
         - RawMaterial
         - Ingot
+        - SheetPlasma
 
 - type: entity
   id: CargoTechFab
-  parent: [BaseLatheLube, BaseSiloUtilizer]
+  parent: [BaseLatheLube]
   name: cargo techfab
   description: Prints equipment and circuitboards for use by cargo department.
   components:
@@ -153,10 +136,11 @@
         - Sheet
         - RawMaterial
         - Ingot
+        - SheetPlasma
 
 - type: entity
   id: ScienceTechFab
-  parent: [BaseLatheLube, BaseSiloUtilizer]
+  parent: [BaseLatheLube]
   name: science techfab
   description: Prints equipment and circuitboards for use by science department.
   components:
@@ -211,6 +195,7 @@
     - Chemistry
     - Janitor
     - Equipment
+    - MedicalBoards #Goob
     # - ServiceWeapons
     - Surgery
     - SpecOpsGoogles
@@ -242,10 +227,11 @@
         - Sheet
         - RawMaterial
         - Ingot
+        - SheetPlasma
 
 - type: entity
   id: ServiceTechFab
-  parent: [BaseLatheLube, BaseSiloUtilizer]
+  parent: [BaseLatheLube]
   name: service techfab
   description: Prints equipment and circuitboards for use by service department.
   components:
@@ -305,10 +291,11 @@
         - Sheet
         - RawMaterial
         - Ingot
+        - SheetPlasma
 
 - type: entity
   id: ERTTechFab
-  parent: [BaseLatheLube, BaseSiloUtilizer]
+  parent: [BaseLatheLube]
   name: ERT techfab
   description: Standard-issue ammunition and gear for Emergency Response Team deployments. Fast, basic, reliable.
   components:
@@ -342,3 +329,4 @@
           - Sheet
           - RawMaterial
           - Ingot
+          - SheetPlasma

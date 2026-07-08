@@ -75,7 +75,6 @@
   materials:
     ORTKeratin: 266
     Diamond: 66
-    Plasma: 399
 
 - type: stack
   id: ORTAlloy

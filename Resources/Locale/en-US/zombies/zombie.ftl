@@ -21,6 +21,8 @@ zombie-permadeath = This time, you're dead for real.
 
 zombification-resistance-coefficient-value = - [color=violet]Infection[/color] chance reduced by [color=lightblue]{$value}%[/color].
 
+zombie-roleban-ghosted = You have been ghosted because you are banned from playing the Zombie role.
+
 # Goob
 zombie-cured-popup = The zombie infection vanishes without a trace!
 zombie-cure-failed-popup = The cure fails to take hold!

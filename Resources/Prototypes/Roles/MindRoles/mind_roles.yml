@@ -1,16 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
@@ -212,6 +199,14 @@
   - type: MindRole
     antagPrototype: NukeopsCommander
 
+- type: entity
+  parent: MindRoleNukeops
+  id: MindRoleLoneops
+  name: Loneops Operative Role
+  components:
+  - type: MindRole
+    roleType: SoloAntagonist
+
 # Revolutionaries
 - type: entity
   parent: BaseMindRoleAntag
@@ -233,6 +228,17 @@
   - type: MindRole
     antagPrototype: Rev
     subtype: role-subtype-revolutionary
+
+# Survivors (Wizard)
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleSurvivor
+  name: Survivor Role
+  components:
+  - type: MindRole
+    antagPrototype: Survivor
+    roleType: FreeAgent
+  - type: SurvivorRole
 
 # Thief
 - type: entity
@@ -275,6 +281,31 @@
     subtype: role-subtype-traitor-reinforcement
 
 
+# Xenoborgs
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleMothershipCore
+  name: Mothership Core Role
+  components:
+  - type: MindRole
+    antagPrototype: MothershipCore
+    exclusiveAntag: true
+    roleType: Silicon
+    subtype: role-subtype-xenoborg-core
+  - type: XenoborgRole
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleXenoborg
+  name: Xenoborg Role
+  components:
+  - type: MindRole
+    antagPrototype: Xenoborg
+    exclusiveAntag: true
+    roleType: Silicon
+    subtype: role-subtype-xenoborg
+  - type: XenoborgRole
+
 # Zombie Squad
 - type: entity
   parent: BaseMindRoleAntag
@@ -298,3 +329,5 @@
     exclusiveAntag: true
     subtype: role-subtype-zombie
   - type: ZombieRole
+
+# Changeling - Goob DO N O T

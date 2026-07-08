@@ -56,6 +56,7 @@
     fadeInTime: 5
   - type: FloatingVisuals
     floatRegardlessOfGravity: true
+    canFloat: true
   - type: FadingTimedDespawn
     lifetime: 30
     fadeOutTime: 5

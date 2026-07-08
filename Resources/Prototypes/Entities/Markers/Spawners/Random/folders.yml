@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2023 Jeff <velcroboy333@hotmail.com>
-# SPDX-FileCopyrightText: 2023 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-#
 # SPDX-License-Identifier: MIT
 
 - type: entity
@@ -16,15 +12,15 @@
   - type: Sprite
     sprite: Objects/Misc/folders.rsi
     layers:
-      - state: folder-base
-      - state: folder-colormap
+    - state: folder-base
+    - state: folder-colormap
   - type: RandomSpawner
     offset: 0
     prototypes:
-      - BoxFolderRed
-      - BoxFolderBlue
-      - BoxFolderYellow
-      - BoxFolderWhite
-      - BoxFolderGrey
-      - BoxFolderBlack
-      - BoxFolderGreen
+    - BoxFolderBase
+    - BoxFolderRed
+    - BoxFolderBlue
+    - BoxFolderYellow
+    - BoxFolderGrey
+    - BoxFolderBlack
+    - BoxFolderGreen
