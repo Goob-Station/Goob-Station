@@ -39,9 +39,9 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/plasma_window.rsi
+    sprite: _Pirate/Structures/Windows/plasma_window.rsi # Pirate
   - type: Icon
-    sprite: Structures/Windows/plasma_window.rsi
+    sprite: _Pirate/Structures/Windows/plasma_window.rsi # Pirate
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Glass
@@ -162,7 +162,7 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/plasma_diagonal.rsi
+    sprite: _Pirate/Structures/Windows/plasma_diagonal.rsi # Pirate
     state: state0
   - type: Tag
     tags:
@@ -172,7 +172,7 @@
     key: walls # Pirate
     base: state
   - type: Icon
-    sprite: Structures/Windows/plasma_diagonal.rsi
+    sprite: _Pirate/Structures/Windows/plasma_diagonal.rsi # Pirate
     state: state0
   - type: Fixtures
     fixtures:

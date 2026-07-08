@@ -42,9 +42,9 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/reinforced_plasma_window.rsi
+    sprite: _Pirate/Structures/Windows/reinforced_plasma_window.rsi # Pirate
   - type: Icon
-    sprite: Structures/Windows/reinforced_plasma_window.rsi
+    sprite: _Pirate/Structures/Windows/reinforced_plasma_window.rsi # Pirate
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: RGlass

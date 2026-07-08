@@ -987,9 +987,9 @@
   name: riveted wall
   components:
   - type: Sprite
-    sprite: Structures/Walls/riveted.rsi
+    sprite: _Pirate/Structures/Walls/riveted.rsi # Pirate
   - type: Icon
-    sprite: Structures/Walls/riveted.rsi
+    sprite: _Pirate/Structures/Walls/riveted.rsi # Pirate
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
