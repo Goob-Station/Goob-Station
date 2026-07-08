@@ -1505,7 +1505,7 @@
       effects:
       - !type:SatiateThirst
         factor: 3
-      - !type:CleanseCult # DeltaV - Cosmic Cult
+      - !type:CleanseCult # Pirate: stains - shared cosmic/blood cult deconversion
         conditions:
         - !type:ReagentThreshold
           min: 10
@@ -1530,8 +1530,6 @@
           - WeakToHoly
     Medicine:
       effects:
-      - !type:DeCultify # Pirate - Blood Cult deconversion
-        amount: 2.5
       - !type:HealthChange # Pirate - Holy water harms blood cultists
         conditions:
         - !type:IsBloodCultist

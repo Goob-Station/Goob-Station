@@ -8,7 +8,6 @@ using Content.Server.Popups;
 using Content.Server.Roles;
 using Content.Shared.Database;
 using Content.Shared.IdentityManagement;
-using Content.Shared.Mindshield.Components;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
 using Content.Shared.BloodCult;
@@ -23,7 +22,7 @@ using Content.Shared.BloodCult.Components;
 namespace Content.Server.BloodCult.EntitySystems;
 
 /// <summary>
-/// System that handles Blood Cult deconversion when a mindshield is implanted.
+/// System that handles Blood Cult deconversion cleanup.
 /// </summary>
 public sealed class BloodCultMindShieldSystem : EntitySystem
 {
@@ -35,13 +34,6 @@ public sealed class BloodCultMindShieldSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
-
-    public override void Initialize()
-    {
-        base.Initialize();
-        // Subscribe to MindShieldComponent being added to avoid duplicate subscriptions with other systems
-        SubscribeLocalEvent<MindShieldComponent, ComponentAdd>(OnMindShieldAdded);
-    }
 
     /// <summary>
     /// Attempts to deconvert a blood cultist, stripping their abilities and restoring their faction alignment.
@@ -104,17 +96,5 @@ public sealed class BloodCultMindShieldSystem : EntitySystem
             _appearance.SetData(uid, CultEyesVisuals.CultEyes, false, appearance);
             _appearance.SetData(uid, CultHaloVisuals.CultHalo, false, appearance);
         }
-    }
-
-    /// <summary>
-    /// When a mindshield component is added to an entity, check if they're a cultist and deconvert them.
-    /// </summary>
-    private void OnMindShieldAdded(EntityUid uid, MindShieldComponent comp, ComponentAdd args)
-    {
-        // Only process if they're a blood cultist
-        if (!HasComp<BloodCultistComponent>(uid))
-            return;
-
-        TryDeconvert(uid);
     }
 }

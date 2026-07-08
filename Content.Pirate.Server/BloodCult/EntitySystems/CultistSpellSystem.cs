@@ -60,6 +60,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 	private static readonly ProtoId<StackPrototype> RunedSteelStack = "RunedSteel";
 	private static readonly ProtoId<StackPrototype> RunedGlassStack = "RunedGlass";
 	private static readonly ProtoId<StackPrototype> RunedPlasteelStack = "RunedPlasteel";
+	private const int MaxPreparedSpells = 4;
 
 	[Dependency] private readonly IRobustRandom _random = default!;
 	[Dependency] private readonly IPrototypeManager _proto = default!;
@@ -166,19 +167,10 @@ public sealed partial class CultistSpellSystem : EntitySystem
 
 		bool standingOnRune = IsStandingOnEmpoweringRune(uid);
 
-		if (comp.KnownSpells.Count > 3)
+		if (!standingOnRune && comp.KnownSpells.Count > 0)
 		{
 			_popup.PopupEntity(Loc.GetString("cult-spell-exceeded"), uid, uid);
 			return;
-		}
-
-		// If not on an empowering rune and they have existing spells, remove the actions matching those spells
-		if (!standingOnRune && comp.KnownSpells.Count > 0)
-		{
-			RemoveActionsMatchingKnownSpells(uid, comp);
-			// Clear KnownSpells since they can only have 0 spells when not on rune
-			comp.KnownSpells.Clear();
-			Dirty(uid, comp);
 		}
 
         if (data.Event != null)
@@ -207,16 +199,20 @@ public sealed partial class CultistSpellSystem : EntitySystem
 		}
 		else
 		{
+			if (standingOnRune)
+				MakeRoomForPreparedSpell(uid, comp);
+
 			foreach (var act in data.ActionPrototypes)
 				_action.AddAction(uid, act);
 			if (recordKnownSpell)
 				comp.KnownSpells.Add(data);
+			Dirty(uid, comp);
 		}
 	}
 
 	public void OnCarveSpellDoAfter(Entity<BloodCultistComponent> ent, ref CarveSpellDoAfterEvent args)
 	{
-		if (ent.Comp.KnownSpells.Count > 3 || (!args.StandingOnRune && ent.Comp.KnownSpells.Count > 0))
+		if (!args.StandingOnRune && ent.Comp.KnownSpells.Count > 0)
 		{
 			_popup.PopupEntity(Loc.GetString("cult-spell-exceeded"), ent, ent);
 			return;
@@ -231,6 +227,9 @@ public sealed partial class CultistSpellSystem : EntitySystem
 
         if (!args.Cancelled)
 		{
+			if (args.StandingOnRune)
+				MakeRoomForPreparedSpell(ent, ent.Comp);
+
 			foreach (var act in args.CultAbility.ActionPrototypes)
 			{
 				_action.AddAction(args.CarverUid, act);
@@ -256,6 +255,18 @@ public sealed partial class CultistSpellSystem : EntitySystem
 		comp.KnownSpells.Remove(GetSpell(id));
 	}
 
+	private void MakeRoomForPreparedSpell(EntityUid uid, BloodCultistComponent cultist)
+	{
+		while (cultist.KnownSpells.Count >= MaxPreparedSpells)
+		{
+			var spellToRemove = cultist.KnownSpells[0];
+			RemoveFirstActionForSpell(uid, spellToRemove);
+			cultist.KnownSpells.RemoveAt(0);
+		}
+
+		Dirty(uid, cultist);
+	}
+
 	/// <summary>
 	/// Checks if a cultist is currently standing on an EmpoweringRune.
 	/// </summary>
@@ -279,29 +290,20 @@ public sealed partial class CultistSpellSystem : EntitySystem
 		return false;
 	}
 
-	/// <summary>
-	/// Removes actions that match spells in the cultist's KnownSpells list.
-	/// This is called when adding a new spell while not on an empowering rune.
-	/// </summary>
-	private void RemoveActionsMatchingKnownSpells(EntityUid uid, BloodCultistComponent cultist)
+	private void RemoveFirstActionForSpell(EntityUid uid, ProtoId<CultAbilityPrototype> spellId)
 	{
-		// Get all actions for this cultist
 		var actions = _action.GetActions(uid);
-		
-		// Create a set of spell IDs for quick lookup
-		var knownSpellIds = new HashSet<ProtoId<CultAbilityPrototype>>(cultist.KnownSpells);
 
-		// Remove actions that match spells in KnownSpells
 		foreach (var action in actions)
 		{
 			if (!TryComp<CultistSpellComponent>(action.Owner, out var spellComp))
 				continue;
 
-			// Check if this action's AbilityId matches any spell in KnownSpells
-			if (knownSpellIds.Contains(spellComp.AbilityId))
-			{
-				_action.RemoveAction(action.Owner);
-			}
+			if (spellComp.AbilityId != spellId)
+				continue;
+
+			_action.RemoveAction(action.Owner);
+			return;
 		}
 	}
 
@@ -333,11 +335,9 @@ public sealed partial class CultistSpellSystem : EntitySystem
 
 	private void OnSpellSelectedMessage(Entity<BloodCultistComponent> ent, ref SpellsMessage args)
 	{
-		if (!CultistSpellComponent.ValidSpells.Contains(args.ProtoId) || ent.Comp.KnownSpells.Contains(args.ProtoId))
-		{
-			_popup.PopupEntity(Loc.GetString("cult-spell-havealready"), ent, ent);
+		if (!CultistSpellComponent.ValidSpells.Contains(args.ProtoId))
 			return;
-		}
+
 		AddSpell(ent, ent.Comp, args.ProtoId, recordKnownSpell:true);
 	}
 
