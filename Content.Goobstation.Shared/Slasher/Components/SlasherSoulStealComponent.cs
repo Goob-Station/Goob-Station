@@ -64,7 +64,7 @@ public sealed partial class SlasherSoulStealComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier SoulStealSound =
-               new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/SlasherSoulSteal.ogg")
+               new SoundPathSpecifier("/Audio/_Goobstation/Slasher/Effects/SlasherSoulSteal.ogg")
                {
                    Params = AudioParams.Default
                        .WithMaxDistance(10f)
@@ -75,7 +75,7 @@ public sealed partial class SlasherSoulStealComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier AscendanceSound =
-               new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/SlasherAscendance.ogg")
+               new SoundPathSpecifier("/Audio/_Goobstation/Slasher/Effects/SlasherAscendance.ogg")
                {
                    Params = AudioParams.Default
                        .WithVolume(-7f)
@@ -101,6 +101,13 @@ public sealed partial class SlasherSoulStealComponent : Component
 
     [ViewVariables]
     public string AscendanceAnnouncementKey = "slasher-soulsteal-ascendance";
+
+    /// <summary>
+    /// Prestige token recorded for the player when this slasher ascends (set by kit selection).
+    /// If null, ascending grants no prestige unlock.
+    /// </summary>
+    [ViewVariables]
+    public string? AscensionId;
 
     /// <summary>
     /// Number of total souls required to unlock possession ability.

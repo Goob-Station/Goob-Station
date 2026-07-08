@@ -41,13 +41,16 @@ public sealed partial class SlasherRegenerateComponent : Component
     /// The sound that plays when regenerating
     /// </summary>
     [DataField]
-    public SoundSpecifier? RegenerateSound = new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/SlasherRegenerate.ogg");
+    public SoundSpecifier? RegenerateSound = new SoundPathSpecifier("/Audio/_Goobstation/Slasher/Effects/SlasherRegenerate.ogg");
 
     /// <summary>
     /// The effect entity that is spawned when regenerating (includes light, sprite, and auto-despawn)
     /// </summary>
     [DataField]
     public EntProtoId RegenerateEffect = "SlasherRegenerateEffect";
+
+    [DataField]
+    public float RegenerateEffectRange = 10f;
 }
 
 

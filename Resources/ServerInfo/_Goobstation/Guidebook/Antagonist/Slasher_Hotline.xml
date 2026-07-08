@@ -1,0 +1,28 @@
+<Document>
+# Slasher: Chicken Mask
+
+[color=#ac3a0d]"Do you like hurting other people?"[/color]
+
+The Chicken Mask is a prestige kit - ascend (reach 15 souls) as the [bold]Butcher[/bold] to unlock it.
+
+<Box>
+  <GuideEntityEmbed Entity="ClothingHeadHatSlasherMaskChicken" Caption="Richard Mask"/>
+  <GuideEntityEmbed Entity="SlasherBat" Caption="Bat"/>
+</Box>
+
+  ## What's different
+
+  - [bold]Hotline vision.[/bold] Gives your game a unique view, complete with a drunk cam.
+
+  - [bold]Shared dread.[/bold] Victims you hunt get the same pulled-back hotline vision.
+
+  Everything else - soul steal, jaunt, massacre, meat spikes, regeneration - works exactly like the default Slasher.
+
+  ## How to play
+
+  1. Unlock it by ascending as the Butcher, then select the Chicken Mask.
+  2. Use the wider top-down view to track multiple targets and avoid getting flanked.
+  3. Lean on blunt damage and staggers to knock victims down, then grab and spike them.
+
+  [textlink="Back to the Slasher guide" link="Slasher"]
+</Document>

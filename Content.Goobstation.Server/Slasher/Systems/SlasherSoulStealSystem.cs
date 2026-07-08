@@ -25,6 +25,7 @@ using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weather;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -67,6 +68,8 @@ public sealed class SlasherSoulStealSystem : EntitySystem
     [Dependency] private readonly SlasherRegenerateSystem _regenerate = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedStationSpawningSystem _spawning = default!;
+    [Dependency] private readonly SlasherPrestigeSystem _prestige = default!;
+    [Dependency] private readonly IdolSlasherCharmSystem _lovestruck = default!;
 
     public override void Initialize()
     {
@@ -213,6 +216,9 @@ public sealed class SlasherSoulStealSystem : EntitySystem
         // Used to prevent stealing from the same person multiple times
         EnsureComp<SoullessComponent>(target);
 
+        if (HasComp<SlasherIdolComponent>(user))
+            _lovestruck.TryConvert(user, target);
+
         //TryFlavorTwistLimbs(user, target); // TODO Originally intended to take off their limbs and replace them with limbs from random species but I couldn't get it working properly
         ApplyArmorBonus(user, armorBonus, comp);
         ApplyMacheteBonus(user, bruteBonus, comp);
@@ -238,14 +244,17 @@ public sealed class SlasherSoulStealSystem : EntitySystem
         {
             comp.HasAscended = true;
 
+            // Record the prestige unlock for this player so they can pick gated variants later.
+            if (comp.AscensionId != null && TryComp<ActorComponent>(user, out var actor))
+                _prestige.GrantAscension(actor.PlayerSession.UserId, comp.AscensionId);
+
             // Initialize the light flicker timer when ascending
             comp.NextLightFlicker = _timing.CurTime + comp.LightFlickerInterval;
 
             var station = _stationSystem.GetOwningStation(user);
             if (station != null)
             {
-                // Set station to red alert
-                _alertLevel.SetLevel(station.Value, "red", true, true, true, false);
+                _alertLevel.SetLevel(station.Value, "red", true, false, true, false);
 
                 // Make it rain in space
                 var xform = Transform(user);
@@ -266,6 +275,9 @@ public sealed class SlasherSoulStealSystem : EntitySystem
 
                 _audio.PlayGlobal(comp.AscendanceSound, _stationSystem.GetInOwningStation(station.Value), true);
             }
+
+            if (HasComp<SlasherIdolComponent>(user))
+                _lovestruck.AnnounceAscension(user);
         }
 
         // Grant a soul for regenerate

@@ -1,0 +1,30 @@
+<Document>
+  # Slasher: The Idol
+
+  [color=#ff6b99]Why hunt in the dark when the crew will love you to death? The Idol trades terror for adoration.[/color]
+
+  The Idol is a prestige kit - ascend (reach 15 souls) as the [bold]False Idol[/bold] to unlock it.
+
+  <Box>
+  <GuideEntityEmbed Entity="SlasherMacheteFalseIdol" Caption="False Idol's Wand"/>
+  <GuideEntityEmbed Entity="SlasherMacheteIdol" Caption="Idol's Wand"/>
+</Box>
+
+  ## What's different
+
+  - [bold]Lovestruck.[/bold] Your damage and soul-steals no longer just hurt - they [italic]charm[/italic]. Struck victims become devoted, [bold]lovestruck[/bold] fans: while charmed they cannot bring themselves to harm you, and cheer you on instead, dealing 70% less damage. The effect fades over time, so keep working the crowd.
+
+  - [bold]Adoring dread.[/bold] Victims in your sight get the rose-tinted valentine fear grade instead of the cold default one - a heart-shaped vignette that closes in as their infatuation deepens.
+
+  - [bold]Star eyes.[/bold] Your gaze is unmistakable - glowing stars mark the Idol.
+
+  - [bold]Themed ascension.[/bold] The Idol's ascendance triggers its own station-wide announcement warning the crew not to meet its gaze or listen to its song.
+
+  ## Crew Tips
+
+  [bold]Do not get charmed.[/bold]
+  - Anyone the Idol wounds or soulsteals are effectively useless in a fight.
+  - If you see someone with upside down hearts in place of their eyes, they've been charmed.
+
+  [textlink="Back to the Slasher guide" link="Slasher"]
+</Document>

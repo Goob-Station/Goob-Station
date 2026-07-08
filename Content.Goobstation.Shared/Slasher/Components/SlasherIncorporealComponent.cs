@@ -84,9 +84,9 @@ public sealed partial class SlasherIncorporealComponent : Component
 
     [DataField]
     public SoundSpecifier JauntAppear =
-        new SoundPathSpecifier(new ResPath("/Audio/_Goobstation/Effects/Slasher/SlasherJauntAppear.ogg"));
+        new SoundPathSpecifier(new ResPath("/Audio/_Goobstation/Slasher/Effects/SlasherJauntAppear.ogg"));
 
     [DataField]
     public SoundSpecifier JauntDisappear =
-        new SoundPathSpecifier(new ResPath("/Audio/_Goobstation/Effects/Slasher/SlasherJauntDisappear.ogg"));
+        new SoundPathSpecifier(new ResPath("/Audio/_Goobstation/Slasher/Effects/SlasherJauntDisappear.ogg"));
 }
