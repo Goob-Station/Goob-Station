@@ -53,7 +53,7 @@ public sealed class BloodCultEntityEffectSystem : EntitySystem
                 continue;
 
             RemComp<CleanseCultComponent>(uid);
-            _deconversion.TryDeconvert(uid, popupLocId: null, stunDuration: TimeSpan.Zero, log: false);
+            _deconversion.TryDeconvert(uid, popupLocId: null, stunDuration: TimeSpan.Zero, log: true);
         }
     }
 

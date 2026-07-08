@@ -323,6 +323,11 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 		if (args.Handled)
 			return;
 
+		// Transient drawing runes (…Rune_drawing) inherit BloodCultRuneComponent but aren't finished
+		// runes yet - don't let them be activated mid-carve.
+		if (MetaData(rune).EntityPrototype?.ID.EndsWith("_drawing") == true)
+			return;
+
 		// Only cultists can invoke runes.
 		if (!HasComp<BloodCultistComponent>(args.User))
 			return;
