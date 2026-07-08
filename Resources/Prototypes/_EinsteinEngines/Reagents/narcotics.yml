@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2025 GNUtopia <erainach14@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: reagent
@@ -17,8 +14,8 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Yowie
+        - !type:MetabolizerTypeCondition # Goobstation - Yowie
+          type: [ Yowie ]
         damage:
           groups:
             Brute: -1
@@ -36,16 +33,14 @@
         component: Drowsiness
         time: 2.5
         type: Add
-        refresh: false
       - !type:SuppressPain
         amount: 50
         time: 30
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Plant ]
+        - !type:ReagentCondition
           reagent: Morphine
           min: 16
         damage:
@@ -53,7 +48,8 @@
             Asphyxiation: 2
       - !type:AdjustConsciousness
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Morphine
           min: 16
         allowNewModifiers: true
         modifierType: Pain

@@ -1,24 +1,3 @@
-// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 moonheart08 <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 c4llv07e <38111072+c4llv07e@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
@@ -121,6 +100,18 @@ namespace Content.Client.Access.UI
                 JobPresetOptionButton.AddItem(Loc.GetString(job.Name), _jobPrototypeIds.Count - 1);
             }
 
+            SelectAllButton.OnPressed += _ =>
+            {
+                SetAllAccess(true);
+                SubmitData();
+            };
+
+            DeselectAllButton.OnPressed += _ =>
+            {
+                SetAllAccess(false);
+                SubmitData();
+            };
+
             JobPresetOptionButton.OnItemSelected += SelectJobPreset;
             _accessButtons.Populate(accessLevels, prototypeManager);
             AccessLevelControlContainer.AddChild(_accessButtons);
@@ -131,14 +122,13 @@ namespace Content.Client.Access.UI
             }
         }
 
-        private void ClearAllAccess()
+        /// <param name="enabled">If true, every individual access button will be pressed. If false, each will be depressed.</param>
+        private void SetAllAccess(bool enabled)
         {
             foreach (var button in _accessButtons.ButtonsList.Values)
             {
-                if (button.Pressed)
-                {
-                    button.Pressed = false;
-                }
+                if (!button.Disabled && button.Pressed != enabled)
+                    button.Pressed = enabled;
             }
         }
 
@@ -152,7 +142,7 @@ namespace Content.Client.Access.UI
             JobTitleLineEdit.Text = Loc.GetString(job.Name);
             args.Button.SelectId(args.Id);
 
-            ClearAllAccess();
+            SetAllAccess(false);
 
             // this is a sussy way to do this
             foreach (var access in job.Access)
@@ -165,7 +155,7 @@ namespace Content.Client.Access.UI
 
             foreach (var group in job.AccessGroups)
             {
-                if (!_prototypeManager.TryIndex(group, out AccessGroupPrototype? groupPrototype))
+                if (!_prototypeManager.Resolve(group, out AccessGroupPrototype? groupPrototype))
                 {
                     continue;
                 }

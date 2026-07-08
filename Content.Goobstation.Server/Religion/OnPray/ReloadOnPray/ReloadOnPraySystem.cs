@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.Religion.Nullrod;
@@ -26,7 +22,7 @@ public sealed partial class ReloadOnPraySystem : EntitySystem
         if (!TryComp<BasicEntityAmmoProviderComponent>(uid, out var ammoProvider) || ammoProvider.Capacity == null)
             return;
 
-        if (!_gun.UpdateBasicEntityAmmoCount(uid, ammoProvider.Capacity.Value, ammoProvider))
+        if (!_gun.UpdateBasicEntityAmmoCount((uid, ammoProvider), ammoProvider.Capacity.Value))
             return;
 
         _audioSystem.PlayPvs(comp.ReloadSoundPath, uid);

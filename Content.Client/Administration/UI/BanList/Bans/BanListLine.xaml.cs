@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Administration.BanList;
@@ -12,13 +9,13 @@ using static Robust.Client.UserInterface.Controls.BaseButton;
 namespace Content.Client.Administration.UI.BanList.Bans;
 
 [GenerateTypedNameReferences]
-public sealed partial class BanListLine : BoxContainer, IBanListLine<SharedServerBan>
+public sealed partial class BanListLine : BoxContainer, IBanListLine<SharedBan>
 {
-    public SharedServerBan Ban { get; }
+    public SharedBan Ban { get; }
 
     public event Action<BanListLine>? IdsClicked;
 
-    public BanListLine(SharedServerBan ban)
+    public BanListLine(SharedBan ban)
     {
         RobustXamlLoader.Load(this);
 

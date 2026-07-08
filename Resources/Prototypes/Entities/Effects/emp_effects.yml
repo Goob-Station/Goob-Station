@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
@@ -16,17 +10,14 @@
     drawdepth: Effects
     noRot: true
     layers:
-      - shader: unshaded
-        map: ["enum.EffectLayers.Unshaded"]
-        sprite: Effects/emp.rsi
-        state: emp_pulse
+    - shader: unshaded
+      map: ["enum.EffectLayers.Unshaded"]
+      sprite: Effects/emp.rsi
+      state: emp_pulse
   - type: EffectVisuals
   - type: Tag
     tags:
-      - HideContextMenu
-  - type: EmitSoundOnSpawn
-    sound: 
-      path: /Audio/Effects/Lightning/lightningbolt.ogg
+    - HideContextMenu
   - type: AnimationPlayer
 
 - type: entity
@@ -39,12 +30,12 @@
     drawdepth: Effects
     noRot: true
     layers:
-      - shader: unshaded
-        map: ["enum.EffectLayers.Unshaded"]
-        sprite: Effects/emp.rsi
-        state: emp_disable
+    - shader: unshaded
+      map: ["enum.EffectLayers.Unshaded"]
+      sprite: Effects/emp.rsi
+      state: emp_disable
   - type: EffectVisuals
   - type: Tag
     tags:
-      - HideContextMenu
+    - HideContextMenu
   - type: AnimationPlayer

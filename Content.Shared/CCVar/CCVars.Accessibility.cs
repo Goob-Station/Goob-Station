@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 noirogen <raethertechnologies@gmail.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Shared.Configuration;
@@ -67,5 +62,17 @@ public sealed partial class CCVars
     public static readonly CVarDef<float> SpeechBubbleBackgroundOpacity =
         CVarDef.Create("accessibility.speech_bubble_background_opacity", 0.75f, CVar.CLIENTONLY | CVar.ARCHIVE);
 
+    /// <summary>
+    /// If enabled, censors character nudity by forcing clothes markings on characters, selected by the client.
+    /// Both this and AccessibilityServerCensorNudity must be false to display nudity on the client.
+    /// </summary>
+    public static readonly CVarDef<bool> AccessibilityClientCensorNudity =
+        CVarDef.Create("accessibility.censor_nudity", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
+    /// <summary>
+    /// If enabled, censors character nudity by forcing clothes markings on characters, selected by the server.
+    /// Both this and AccessibilityClientCensorNudity must be false to display nudity on the client.
+    /// </summary>
+    public static readonly CVarDef<bool> AccessibilityServerCensorNudity =
+            CVarDef.Create("accessibility.server_censor_nudity", false, CVar.ARCHIVE | CVar.REPLICATED | CVar.SERVER);
 }

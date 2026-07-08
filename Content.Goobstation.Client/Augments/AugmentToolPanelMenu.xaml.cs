@@ -36,7 +36,7 @@ public sealed partial class AugmentToolPanelMenu : RadialMenu
 
         foreach (var (entity, _) in storage.StoredItems)
         {
-            var button = new RadialMenuTextureButtonWithSector()
+            var button = new RadialMenuButtonWithSector()
             {
                 SetSize = new Vector2(64f, 64f),
             };
@@ -54,7 +54,7 @@ public sealed partial class AugmentToolPanelMenu : RadialMenu
             };
         }
 
-        var nilButton = new RadialMenuTextureButtonWithSector()
+        var nilButton = new RadialMenuButtonWithSector()
         {
             SetSize = new Vector2(64f, 64f),
         };

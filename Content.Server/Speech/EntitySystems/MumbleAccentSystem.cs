@@ -1,10 +1,8 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 themias <89101928+themias@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Chat.Systems;
 using Content.Server.Speech.Components;
+using Content.Shared.Chat;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Speech;
 using Content.Shared.Speech.Components;

@@ -1,23 +1,16 @@
-# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, BaseChameleon]
   id: ClothingUniformJumpsuitChameleon
   name: black jumpsuit
   description: A generic black jumpsuit with no rank markings.
   suffix: Chameleon
   components:
     - type: Tag
-      tags:
+      tags: # ignore "WhitelistChameleon" tag
+      - ClothMade
+      - Recyclable
       - Skirt # Goobstation
     - type: Sprite
       sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
@@ -30,11 +23,11 @@
         left:
         - state: inhand-left
           color: "#3f3f3f"
-  
+
         right:
         - state: inhand-right
           color: "#3f3f3f"
-  
+
     - type: Clothing
       sprite: Clothing/Shoes/color.rsi
       clothingVisuals:
@@ -48,7 +41,3 @@
     - type: ChameleonClothing
       slot: [innerclothing]
       default: ClothingUniformJumpsuitColorBlack
-    - type: UserInterface
-      interfaces:
-        enum.ChameleonUiKey.Key:
-          type: ChameleonBoundUserInterface

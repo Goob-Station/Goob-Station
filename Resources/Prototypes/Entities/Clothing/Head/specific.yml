@@ -1,20 +1,15 @@
-# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: [ClothingHeadBase, BaseChameleon]
   id: ClothingHeadHatChameleon
   name: beret
   description: A beret, an artists favorite headwear.
   suffix: Chameleon
   components:
     - type: Tag
-      tags: [] # ignore "WhitelistChameleon" tag
+      tags: # ignore "WhitelistChameleon" tag
+      - ClothMade
     - type: Sprite
       sprite: Clothing/Head/Hats/beret.rsi
     - type: Clothing
@@ -22,10 +17,6 @@
     - type: ChameleonClothing
       slot: [HEAD]
       default: ClothingHeadHatBeret
-    - type: UserInterface
-      interfaces:
-        enum.ChameleonUiKey.Key:
-          type: ChameleonBoundUserInterface
 
 - type: entity
   parent: ClothingHeadHatFedoraBrown
@@ -36,7 +27,7 @@
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
   - type: TriggerOnVoice
-    keyPhrase: "go go gadget"
+    defaultKeyPhrase: key-phrase-gadget
     listenRange: 0
   - type: ActiveListener
     range: 0

@@ -1,18 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Bixkitts <72874643+Bixkitts@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 faint <46868845+ficcialfaint@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Jake Huxell <JakeHuxell@pm.me>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Tornado Tech <54727692+Tornado-Technology@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Atmos.Components;
@@ -200,7 +185,7 @@ public sealed class SpreaderSystem : EntitySystem
         occupiedTiles = [];
         neighbors = [];
         // TODO remove occupiedTiles -- its currently unused and just slows this method down.
-        if (!_prototype.TryIndex(prototype, out var spreaderPrototype))
+        if (!_prototype.Resolve(prototype, out var spreaderPrototype))
             return;
 
         if (!TryComp<MapGridComponent>(comp.GridUid, out var grid))
@@ -325,35 +310,38 @@ public sealed class SpreaderSystem : EntitySystem
     /// This function activates all spreaders that are adjacent to a given entity. This also activates other spreaders
     /// on the same tile as the current entity (for thin airtight entities like windoors).
     /// </summary>
-    public void ActivateSpreadableNeighbors(EntityUid uid, (EntityUid Grid, Vector2i Tile)? position = null)
+    public void ActivateSpreadableNeighbors(EntityUid origin, (EntityUid Grid, Vector2i Tile)? position = null)
     {
         Vector2i tile;
-        EntityUid ent;
-        MapGridComponent? grid;
+        EntityUid gridUid;
+        MapGridComponent? gridComp;
 
         if (position == null)
         {
-            var transform = Transform(uid);
-            if (!TryComp(transform.GridUid, out grid) || TerminatingOrDeleted(transform.GridUid.Value))
+            var transform = Transform(origin);
+            if (!TryComp(transform.GridUid, out gridComp) || TerminatingOrDeleted(transform.GridUid.Value))
                 return;
 
-            tile = _map.TileIndicesFor(transform.GridUid.Value, grid, transform.Coordinates);
-            ent = transform.GridUid.Value;
+            tile = _map.TileIndicesFor(transform.GridUid.Value, gridComp, transform.Coordinates);
+            gridUid = transform.GridUid.Value;
         }
         else
         {
-            if (!TryComp(position.Value.Grid, out grid))
+            if (!TryComp(position.Value.Grid, out gridComp))
                 return;
-            (ent, tile) = position.Value;
+            (gridUid, tile) = position.Value;
         }
 
-        var anchored = _map.GetAnchoredEntitiesEnumerator(ent, grid, tile);
+        var anchored = _map.GetAnchoredEntitiesEnumerator(gridUid, gridComp, tile);
         while (anchored.MoveNext(out var entity))
         {
-            if (entity == uid) // Goob edit
+            // Don't re-activate the terminating entity
+            if (entity == origin)
                 continue;
             DebugTools.Assert(Transform(entity.Value).Anchored);
-            if (_query.HasComponent(entity) && !TerminatingOrDeleted(entity.Value)) // Goob edit
+
+            // Activate any edge spreaders that are non-terminating
+            if (_query.HasComponent(entity) && !TerminatingOrDeleted(entity))
                 EnsureComp<ActiveEdgeSpreaderComponent>(entity.Value);
         }
 
@@ -361,12 +349,14 @@ public sealed class SpreaderSystem : EntitySystem
         {
             var direction = (AtmosDirection) (1 << i);
             var adjacentTile = SharedMapSystem.GetDirection(tile, direction.ToDirection());
-            anchored = _map.GetAnchoredEntitiesEnumerator(ent, grid, adjacentTile);
+            anchored = _map.GetAnchoredEntitiesEnumerator(gridUid, gridComp, adjacentTile);
 
             while (anchored.MoveNext(out var entity))
             {
                 DebugTools.Assert(Transform(entity.Value).Anchored);
-                if (_query.HasComponent(entity) && !TerminatingOrDeleted(entity.Value)) // Goob edit
+
+                // Activate any edge spreaders that are non-terminating
+                if (_query.HasComponent(entity) && !TerminatingOrDeleted(entity))
                     EnsureComp<ActiveEdgeSpreaderComponent>(entity.Value);
             }
         }

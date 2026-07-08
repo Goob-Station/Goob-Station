@@ -1,16 +1,7 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <drsmugleaf@gmail.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 keronshb <keronshb@live.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-//
 // SPDX-License-Identifier: MIT
 
 using System.Threading.Tasks;
+using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
@@ -20,10 +11,16 @@ namespace Content.Shared.DoAfter;
 [Access(typeof(SharedDoAfterSystem))]
 public sealed partial class DoAfterComponent : Component
 {
-    [DataField("nextId")]
+    /// <summary>
+    /// The id of the next doafter
+    /// </summary>
+    [DataField]
     public ushort NextId;
 
-    [DataField("doAfters")]
+    /// <summary>
+    /// collection of id + doafter
+    /// </summary>
+    [DataField]
     public Dictionary<ushort, DoAfter> DoAfters = new();
 
     /// <summary>

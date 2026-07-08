@@ -1,30 +1,6 @@
-// SPDX-FileCopyrightText: 2023 Chronophylos <nikolai@chronophylos.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
-// SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
-// SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
-// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Zachary Higgs <compgeek223@gmail.com>
-// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-// SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Clothing.Components;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Inventory;
@@ -79,6 +55,9 @@ public abstract class SharedArmorSystem : EntitySystem
     /// <param name="args">The event, contains the running count of armor percentage as a coefficient</param>
     private void OnCoefficientQuery(Entity<ArmorComponent> ent, ref InventoryRelayedEvent<CoefficientQueryEvent> args)
     {
+        if (TryComp<MaskComponent>(ent, out var mask) && mask.IsToggled)
+            return;
+
         foreach (var armorCoefficient in ent.Comp.Modifiers.Coefficients)
         {
             args.Args.DamageModifiers.Coefficients[armorCoefficient.Key] = args.Args.DamageModifiers.Coefficients.TryGetValue(armorCoefficient.Key, out var coefficient) ? coefficient * armorCoefficient.Value : armorCoefficient.Value;
@@ -87,21 +66,20 @@ public abstract class SharedArmorSystem : EntitySystem
 
     private void OnRelayDamageModify(EntityUid uid, ArmorComponent component, InventoryRelayedEvent<DamageModifyEvent> args)
     {
-        if (args.Args.TargetPart == null)
+        if (TryComp<MaskComponent>(uid, out var mask) && mask.IsToggled)
             return;
 
-        var (partType, _) = _body.ConvertTargetBodyPart(args.Args.TargetPart);
-
-        if (component.ArmorCoverage.Contains(partType))
-            args.Args.Damage = DamageSpecifier.ApplyModifierSet(args.Args.Damage,
-            DamageSpecifier.PenetrateArmor(component.Modifiers, args.Args.Damage.ArmorPenetration));
+        args.Args.Damage = DamageSpecifier.ApplyModifierSet(args.Args.Damage, component.Modifiers);
     }
 
     private void OnBorgDamageModify(EntityUid uid, ArmorComponent component,
         ref BorgModuleRelayedEvent<DamageModifyEvent> args)
     {
+        if (TryComp<MaskComponent>(uid, out var mask) && mask.IsToggled)
+            return;
+
         args.Args.Damage = DamageSpecifier.ApplyModifierSet(args.Args.Damage,
-            DamageSpecifier.PenetrateArmor(component.Modifiers, args.Args.Damage.ArmorPenetration)); // Goob edit
+        DamageSpecifier.PenetrateArmor(component.Modifiers, args.Args.Damage.ArmorPenetration)); // Goob edit
     }
 
     private void OnArmorVerbExamine(EntityUid uid, ArmorComponent component, GetVerbsEvent<ExamineVerb> args)

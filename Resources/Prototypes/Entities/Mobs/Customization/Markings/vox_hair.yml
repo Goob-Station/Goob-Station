@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: marking
@@ -153,7 +149,7 @@
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
       state: mange_s
-      
+
 - type: marking
   id: VoxHairMohawk
   bodyPart: Hair
@@ -273,7 +269,7 @@
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
       state: wise_braid_s
-      
+
 - type: marking
   id: VoxHairYasu
   bodyPart: Hair
@@ -283,3 +279,13 @@
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
       state: yasu_s
+
+- type: marking
+  id: VoxHairCatfish
+  bodyPart: Hair
+  markingCategory: Hair
+  canBeDisplaced: false
+  speciesRestriction: [Vox]
+  sprites:
+    - sprite: Mobs/Customization/vox_hair.rsi
+      state: catfish_s

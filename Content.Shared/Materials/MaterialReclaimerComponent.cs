@@ -1,14 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 LucasTheDrgn <kirbyfan.95@gmail.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Whitelist;
@@ -81,6 +70,20 @@ public sealed partial class MaterialReclaimerComponent : Component
     /// </summary>
     [DataField]
     public string? SolutionContainerId;
+
+    /// <summary>
+    /// Can this reclaimer reclaim materials?
+    /// They will be spawned as material stacks.
+    /// </summary>
+    [DataField]
+    public bool ReclaimMaterials = true;
+
+    /// <summary>
+    /// Can this reclaimer reclaim solutions?
+    /// The reclaimed reagents will be stored in a buffer or spilled on the ground if that is full.
+    /// </summary>
+    [DataField]
+    public bool ReclaimSolutions = true;
 
     /// <summary>
     /// If the reclaimer should attempt to reclaim all solutions or just drainable ones

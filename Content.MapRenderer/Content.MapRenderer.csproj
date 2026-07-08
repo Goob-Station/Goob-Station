@@ -1,32 +1,29 @@
-<!--
-SPDX-FileCopyrightText: 2022 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
-SPDX-FileCopyrightText: 2022 github-actions <github-actions@users.noreply.github.com>
-SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-
-SPDX-License-Identifier: MIT
--->
-
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <OutputPath>..\bin\Content.MapRenderer\</OutputPath>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    <Nullable>enable</Nullable>
     <ServerGarbageCollection>true</ServerGarbageCollection>
+    <IsTestingPlatformApplication>false</IsTestingPlatformApplication>
   </PropertyGroup>
+
+  <Import Project="../MSBuild/Content.props" />
 
   <ItemGroup>
     <ProjectReference Include="..\Content.IntegrationTests\Content.IntegrationTests.csproj" />
-    <ProjectReference Include="..\RobustToolbox\Robust.UnitTesting\Robust.UnitTesting.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="NUnit" />
+    <PackageReference Include="Moq" />
     <PackageReference Include="SixLabors.ImageSharp" />
   </ItemGroup>
 
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
+
+  <Import Project="..\RobustToolbox\Imports\Client.props" />
+  <Import Project="..\RobustToolbox\Imports\Server.props" />
+  <Import Project="..\RobustToolbox\Imports\Shared.props" />
+  <Import Project="..\RobustToolbox\Imports\Testing.props" />
+
 </Project>

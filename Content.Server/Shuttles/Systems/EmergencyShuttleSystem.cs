@@ -1,66 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 LittleBuilderJane <63973502+LittleBuilderJane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Myctai <108953437+Myctai@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
-// SPDX-FileCopyrightText: 2023 Checkraze <71046427+Cheackraze@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 moonheart08 <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2024 12rabbits <53499656+12rabbits@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Dimastra <65184747+Dimastra@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Dimastra <dimastra@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 JIPDawg <51352440+JIPDawg@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 JIPDawg <JIPDawg93@gmail.com>
-// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Moomoobeef <62638182+Moomoobeef@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 PopGamer46 <yt1popgamer@gmail.com>
-// SPDX-FileCopyrightText: 2024 PursuitInAshes <pursuitinashes@gmail.com>
-// SPDX-FileCopyrightText: 2024 QueerNB <176353696+QueerNB@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Saphire Lattice <lattice@saphi.re>
-// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Spessmann <156740760+Spessmann@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 avery <51971268+graevy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 stellar-novas <stellar_novas@riseup.net>
-// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
@@ -72,16 +9,17 @@ using Content.Server.Administration.Managers;
 using Content.Server.Chat.Systems;
 using Content.Server.Communications;
 using Content.Server.DeviceNetwork.Systems;
+using Content.Server.GameTicking;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.GameTicking.Events;
 using Content.Server.Pinpointer;
-using Content.Server.Popups;
 using Content.Server.RoundEnd;
 using Content.Server.Screens.Components;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
 using Content.Server.Station.Events;
 using Content.Server.Station.Systems;
+using Content.Server._DV.Shuttles.Events; // DeltaV
 using Content.Shared.Access.Systems;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
@@ -91,11 +29,11 @@ using Content.Shared.GameTicking;
 using Content.Shared.Localizations;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Events;
+using Content.Shared.Shuttles.Systems;
 using Content.Shared.Tag;
 using Content.Shared.Tiles;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Configuration;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
@@ -106,7 +44,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Shuttles.Systems;
 
-public sealed partial class EmergencyShuttleSystem : EntitySystem
+public sealed partial class EmergencyShuttleSystem : SharedEmergencyShuttleSystem
 {
     /*
      * Handles the escape shuttle + CentCom.
@@ -114,7 +52,6 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
 
     [Dependency] private readonly IAdminLogManager _logger = default!;
     [Dependency] private readonly IAdminManager _admin = default!;
-    [Dependency] private readonly IConfigurationManager _configManager = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
@@ -123,11 +60,11 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
     [Dependency] private readonly CommunicationsConsoleSystem _commsConsole = default!;
     [Dependency] private readonly DeviceNetworkSystem _deviceNetworkSystem = default!;
     [Dependency] private readonly DockingSystem _dock = default!;
+    [Dependency] private readonly GameTicker _ticker = default!;
     [Dependency] private readonly IdCardSystem _idSystem = default!;
     [Dependency] private readonly NavMapSystem _navMap = default!;
     [Dependency] private readonly MapLoaderSystem _loader = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly RoundEndSystem _roundEnd = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly ShuttleSystem _shuttle = default!;
@@ -144,9 +81,11 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
 
     public override void Initialize()
     {
-        _emergencyShuttleEnabled = _configManager.GetCVar(CCVars.EmergencyShuttleEnabled);
+        base.Initialize();
+
+        _emergencyShuttleEnabled = ConfigManager.GetCVar(CCVars.EmergencyShuttleEnabled);
         // Don't immediately invoke as roundstart will just handle it.
-        Subs.CVar(_configManager, CCVars.EmergencyShuttleEnabled, SetEmergencyShuttleEnabled);
+        Subs.CVar(ConfigManager, CCVars.EmergencyShuttleEnabled, SetEmergencyShuttleEnabled);
 
         SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundCleanup);
@@ -224,7 +163,9 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-        UpdateEmergencyConsole(frameTime);
+        // Don't handle any of this logic if in lobby
+        if (_ticker.RunLevel != GameRunLevel.PreRoundLobby)
+            UpdateEmergencyConsole(frameTime);
     }
 
     /// <summary>
@@ -292,7 +233,7 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
     /// </summary>
     private void OnEmergencyFTLComplete(EntityUid uid, EmergencyShuttleComponent component, ref FTLCompletedEvent args)
     {
-        var countdownTime = TimeSpan.FromSeconds(_configManager.GetCVar(CCVars.RoundRestartTime));
+        var countdownTime = TimeSpan.FromSeconds(ConfigManager.GetCVar(CCVars.RoundRestartTime));
         var shuttle = args.Entity;
         if (TryComp<DeviceNetworkComponent>(shuttle, out var net))
         {
@@ -429,7 +370,7 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
             result.Station,
             Loc.GetString(
                 locKey,
-                ("time", $"{ConsoleAccumulator:0}"),
+                ("time", $"{_consoleAccumulator:0}"),
                 ("direction", direction),
                 ("location", location),
                 ("extended", extendedText)),
@@ -437,7 +378,7 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
 
         // Trigger shuttle timers on the shuttle.
 
-        var time = TimeSpan.FromSeconds(ConsoleAccumulator);
+        var time = TimeSpan.FromSeconds(_consoleAccumulator);
         if (TryComp<DeviceNetworkComponent>(shuttle, out var netComp))
         {
             var payload = new NetworkPayload
@@ -502,8 +443,10 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
             return;
         }
 
-        ConsoleAccumulator = _configManager.GetCVar(CCVars.EmergencyShuttleDockTime);
+        _consoleAccumulator = ConfigManager.GetCVar(CCVars.EmergencyShuttleDockTime);
         EmergencyShuttleArrived = true;
+
+        RaiseLocalEvent(new EvacShuttleDockedEvent()); // DeltaV
 
         var query = AllEntityQuery<StationEmergencyShuttleComponent>();
 
@@ -521,16 +464,16 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
         var worstResult = dockResults.Max(x => x.ResultType);
         var multiplier = worstResult switch
         {
-            ShuttleDockResultType.OtherDock => _configManager.GetCVar(
+            ShuttleDockResultType.OtherDock => ConfigManager.GetCVar(
                 CCVars.EmergencyShuttleDockTimeMultiplierOtherDock),
-            ShuttleDockResultType.NoDock => _configManager.GetCVar(
+            ShuttleDockResultType.NoDock => ConfigManager.GetCVar(
                 CCVars.EmergencyShuttleDockTimeMultiplierNoDock),
             // GoodLuck doesn't get a multiplier.
             // Quite frankly at that point the round is probably so fucked that you'd rather it be over ASAP.
             _ => 1,
         };
 
-        ConsoleAccumulator *= multiplier;
+        _consoleAccumulator *= multiplier;
 
         foreach (var shuttleDockResult in dockResults)
         {

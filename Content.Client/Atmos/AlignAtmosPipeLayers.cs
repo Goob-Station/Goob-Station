@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Client.Construction;
@@ -140,7 +136,7 @@ public sealed class AlignAtmosPipeLayers : SnapgridCenter
 
         var newProtoId = altPrototypes[(int)layer];
 
-        if (!_protoManager.TryIndex(newProtoId, out var newProto))
+        if (!_protoManager.Resolve(newProtoId, out var newProto))
             return;
 
         if (newProto.Type != ConstructionType.Structure)

@@ -1,25 +1,9 @@
-// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Antag.Components;
 using Content.Server.GameTicking.Rules.Components;
-using Content.Server.Objectives;
 using Content.Shared.Antag;
 using Content.Shared.Chat;
 using Content.Shared.GameTicking.Components;
@@ -194,33 +178,37 @@ public sealed partial class AntagSelectionSystem
     }
 
     /// <summary>
-    /// Checks if a given session has the primary antag preferences for a given definition
+    /// Checks if a given session has enabled the antag preferences for a given definition,
+    /// and if it is blocked by any requirements or bans.
     /// </summary>
-    public bool HasPrimaryAntagPreference(ICommonSession? session, AntagSelectionDefinition def)
+    /// <returns>Returns true if at least one role from the provided list passes every condition</returns>>
+    public bool ValidAntagPreference(ICommonSession? session, List<ProtoId<AntagPrototype>> roles)
     {
         if (session == null)
             return true;
 
-        if (def.PrefRoles.Count == 0)
+        if (roles.Count == 0)
             return false;
 
-        var pref = (HumanoidCharacterProfile) _pref.GetPreferences(session.UserId).SelectedCharacter;
-        return pref.AntagPreferences.Any(p => def.PrefRoles.Contains(p));
-    }
-
-    /// <summary>
-    /// Checks if a given session has the fallback antag preferences for a given definition
-    /// </summary>
-    public bool HasFallbackAntagPreference(ICommonSession? session, AntagSelectionDefinition def)
-    {
-        if (session == null)
-            return true;
-
-        if (def.FallbackRoles.Count == 0)
+        if (!_pref.TryGetCachedPreferences(session.UserId, out var pref))
             return false;
 
-        var pref = (HumanoidCharacterProfile) _pref.GetPreferences(session.UserId).SelectedCharacter;
-        return pref.AntagPreferences.Any(p => def.FallbackRoles.Contains(p));
+        var character = (HumanoidCharacterProfile) pref.SelectedCharacter;
+
+        var valid = false;
+
+        // Check each individual antag role
+        foreach (var role in roles)
+        {
+            var list = new List<ProtoId<AntagPrototype>>{role};
+
+            if (character.AntagPreferences.Contains(role)
+                && !_ban.IsRoleBanned(session, list)
+                && _playTime.IsAllowed(session, list))
+                valid = true;
+        }
+
+        return valid;
     }
 
     /// <summary>

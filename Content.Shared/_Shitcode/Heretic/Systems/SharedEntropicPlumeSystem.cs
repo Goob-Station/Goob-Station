@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
@@ -138,21 +132,21 @@ public abstract class SharedEntropicPlumeSystem : EntitySystem
                     return;
 
                 if (HasComp<StunnedComponent>(uid) || HasComp<FrozenComponent>(uid) ||
-                    HasComp<AdminFrozenComponent>(uid) || HasComp<IceCubeComponent>(uid))
+                    HasComp<AdminFrozenComponent>(uid) || HasComp<Wizard.Traps.IceCubeComponent>(uid))
                     return;
 
-                _gun.TryGetGun(uid, out var gun, out var gunComp);
+                var hasGun = _gun.TryGetGun(uid, out var gun);
                 _weapon.TryGetWeapon(uid, out var weapon, out var meleeComp);
 
                 float range;
                 float attackRate;
 
-                if (gunComp != null)
+                if (hasGun)
                 {
-                    if (gunComp.NextFire > curTime)
+                    if (gun.Comp.NextFire > curTime)
                         return;
 
-                    attackRate = gunComp.FireRate;
+                    attackRate = gun.Comp.FireRate;
                     range = 3f;
                 }
                 else if (meleeComp != null)
@@ -181,8 +175,8 @@ public abstract class SharedEntropicPlumeSystem : EntitySystem
                 var target = rand.Pick(targets);
                 var coords = Transform(target).Coordinates;
 
-                if (gunComp != null)
-                    _gun.AttemptShoot(uid, gun, gunComp, coords, target);
+                if (hasGun)
+                    _gun.AttemptShoot(uid, gun, coords, target);
                 else if (meleeComp != null)
                     _weapon.AttemptLightAttack(uid, weapon, meleeComp, target);
             }

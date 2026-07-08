@@ -60,9 +60,9 @@ public abstract class SharedInternalResourcesSystem : EntitySystem
         var show = entity.Comp.HasResourceData(proto.ID, out _);
 
         if (show)
-            _alertsSystem.ShowAlert(entity, proto.AlertPrototype);
+            _alertsSystem.ShowAlert(entity.Owner, proto.AlertPrototype);
         else
-            _alertsSystem.ClearAlert(entity, proto.AlertPrototype);
+            _alertsSystem.ClearAlert(entity.Owner, proto.AlertPrototype);
     }
 
     /// <summary>

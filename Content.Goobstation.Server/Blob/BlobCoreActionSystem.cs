@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
@@ -19,6 +11,7 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.Emp;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Popups;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Damage;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
@@ -256,7 +249,7 @@ public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
             case BlobChemType.ElectromagneticWeb:
             {
                 if (_random.Prob(0.2f))
-                    _empSystem.EmpPulse(_transform.GetMapCoordinates(target), 3f, 50f, 3f);
+                    _empSystem.EmpPulse(_transform.GetMapCoordinates(target), 3f, 50f, TimeSpan.FromSeconds(3f));
                 break;
             }
             case BlobChemType.BlazingOil:

@@ -1,19 +1,3 @@
-// SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2022 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
-// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2022 Jezithyr <jmaster9999@gmail.com>
-// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2022 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <wrexbe@protonmail.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 no <165581243+pissdemon@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
@@ -80,8 +64,8 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
             RaffleMaxDuration.ValueChanged += OnRaffleDurationChanged;
 
 
-            RaffleButton.AddItem("Don't raffle", RaffleDontRaffleId);
-            RaffleButton.AddItem("Custom settings", RaffleCustomRaffleId);
+            RaffleButton.AddItem(Loc.GetString("make-ghost-roles-window-raffle-not-button"), RaffleDontRaffleId);
+            RaffleButton.AddItem(Loc.GetString("make-ghost-roles-window-raffle-custom-settings-button"), RaffleCustomRaffleId);
 
             var raffleProtos =
                 _prototypeManager.EnumeratePrototypes<GhostRoleRaffleSettingsPrototype>();
@@ -92,7 +76,7 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
                 _rafflePrototypes.Add(raffleProto);
                 var s = raffleProto.Settings;
                 var label =
-                    $"{raffleProto.ID} (initial {s.InitialDuration}s, max {s.MaxDuration}s, join adds {s.JoinExtendsDurationBy}s)";
+                    Loc.GetString("make-ghost-roles-window-raffle-settings-label", ("id", raffleProto.ID), ("initialDuration", s.InitialDuration), ("maxDuration", s.MaxDuration), ("joinExtendsDurationBy", s.JoinExtendsDurationBy));
                 RaffleButton.AddItem(label, idx++);
             }
 
@@ -110,7 +94,7 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
             if (RaffleInitialDuration.Value > RaffleMaxDuration.Value)
             {
                 MakeButton.Disabled = true;
-                MakeButton.ToolTip = "The initial duration must not exceed the maximum duration.";
+                MakeButton.ToolTip = Loc.GetString("make-ghost-roles-window-raffle-warning-tooltip");
             }
             else
             {

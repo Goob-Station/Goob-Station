@@ -1,24 +1,3 @@
-// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2023 Bakke <luringens@protonmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2023 keronshb <keronshb@live.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Zachary Higgs <compgeek223@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
@@ -157,7 +136,7 @@ public abstract class SharedImplanterSystem : EntitySystem
     //Set to draw mode if not implant only
     public void Implant(EntityUid user, EntityUid target, EntityUid implanter, ImplanterComponent component)
     {
-        if (!CanImplant(user, target, implanter, component, out var implant, out var implantComp))
+        if (!CanImplant(user, target, implanter, component, out var implant, out _))
             return;
 
         // Check if we are trying to implant a implant which is already implanted
@@ -176,7 +155,6 @@ public abstract class SharedImplanterSystem : EntitySystem
 
         if (component.ImplanterSlot.ContainerSlot != null)
             _container.Remove(implant.Value, component.ImplanterSlot.ContainerSlot);
-        implantComp.ImplantedEntity = target;
         implantContainer.OccludesLight = false;
         _container.Insert(implant.Value, implantContainer);
 
@@ -222,7 +200,7 @@ public abstract class SharedImplanterSystem : EntitySystem
     protected bool CheckTarget(EntityUid target, EntityWhitelist? whitelist, EntityWhitelist? blacklist)
     {
         return _whitelistSystem.IsWhitelistPassOrNull(whitelist, target) &&
-            _whitelistSystem.IsBlacklistFailOrNull(blacklist, target);
+            _whitelistSystem.IsWhitelistFailOrNull(blacklist, target);
     }
 
     //Draw the implant out of the target
@@ -324,7 +302,6 @@ public abstract class SharedImplanterSystem : EntitySystem
     private void DrawImplantIntoImplanter(EntityUid implanter, EntityUid target, EntityUid implant, BaseContainer implantContainer, ContainerSlot implanterContainer, SubdermalImplantComponent implantComp)
     {
         _container.Remove(implant, implantContainer);
-        implantComp.ImplantedEntity = null;
         _container.Insert(implant, implanterContainer);
 
         var ev = new TransferDnaEvent { Donor = target, Recipient = implanter };

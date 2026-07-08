@@ -21,6 +21,8 @@
     Groin: MobChitinidGroin
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
     Eyes: MobChitinidEyes
     LArm: MobChitinidLArm

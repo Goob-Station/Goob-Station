@@ -1,19 +1,3 @@
-// SPDX-FileCopyrightText: 2021 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Watermelon914 <3052169-Watermelon914@users.noreply.gitlab.com>
-// SPDX-FileCopyrightText: 2021 Watermelon914 <37270891+Watermelon914@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Client.UserInterface.CustomControls;
@@ -34,6 +18,7 @@ namespace Content.Client.Labels.UI
         // TODO LineEdit Make this a bool on the LineEdit control
 
         private string _label = string.Empty;
+        private string _initialLabel = string.Empty;
 
         public HandLabelerWindow()
         {
@@ -43,6 +28,7 @@ namespace Content.Client.Labels.UI
             {
                 _label = e.Text;
                 OnLabelChanged?.Invoke(_label);
+                UpdateButtons();
             };
 
             LabelLineEdit.OnFocusEnter += _ => _focused = true;
@@ -51,12 +37,14 @@ namespace Content.Client.Labels.UI
                 _focused = false;
                 LabelLineEdit.Text = _label;
             };
+            ResetLabelButton.OnPressed += _ => LabelLineEdit.SetText(_initialLabel, true);
+            ClearLabelButton.OnPressed += _ => LabelLineEdit.SetText("", true);
         }
 
         protected override void Opened()
         {
             base.Opened();
-            
+
             // Give the editor keyboard focus, since that's the only
             // thing the user will want to be doing with this UI
             LabelLineEdit.GrabKeyboardFocus();
@@ -69,7 +57,25 @@ namespace Content.Client.Labels.UI
 
             _label = label;
             if (!_focused)
+            {
                 LabelLineEdit.Text = label;
+                UpdateButtons();
+            }
+        }
+
+        public void SetInitialLabelState()
+        {
+            LabelLineEdit.Text = _label;
+            LabelLineEdit.CursorPosition = _label.Length;
+            LabelLineEdit.SelectionStart = 0;
+            _initialLabel = _label;
+            UpdateButtons();
+        }
+
+        public void UpdateButtons()
+        {
+            ResetLabelButton.Disabled = (LabelLineEdit.Text == _initialLabel);
+            ClearLabelButton.Disabled = (LabelLineEdit.Text == "");
         }
 
         public void SetMaxLabelLength(int maxLength)

@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
-// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Client.Weapons.Ranged.Systems;
@@ -59,7 +50,7 @@ public sealed class GunSpreadOverlay : Overlay
         if (mapPos.MapId == MapId.Nullspace)
             return;
 
-        if (!_guns.TryGetGun(player.Value, out var gunUid, out var gun))
+        if (!_guns.TryGetGun(player.Value, out var gun))
             return;
 
         var mouseScreenPos = _input.MouseScreenPosition;
@@ -69,12 +60,12 @@ public sealed class GunSpreadOverlay : Overlay
             return;
 
         // (☞ﾟヮﾟ)☞
-        var maxSpread = gun.MaxAngleModified;
-        var minSpread = gun.MinAngleModified;
-        var timeSinceLastFire = (_timing.CurTime - gun.NextFire).TotalSeconds;
-        var currentAngle = new Angle(MathHelper.Clamp(gun.CurrentAngle.Theta - gun.AngleDecayModified.Theta * timeSinceLastFire,
-            gun.MinAngleModified.Theta, gun.MaxAngleModified.Theta));
-        var direction = (mousePos.Position - mapPos.Position);
+        var maxSpread = gun.Comp.MaxAngleModified;
+        var minSpread = gun.Comp.MinAngleModified;
+        var timeSinceLastFire = (_timing.CurTime - gun.Comp.NextFire).TotalSeconds;
+        var currentAngle = new Angle(MathHelper.Clamp(gun.Comp.CurrentAngle.Theta - gun.Comp.AngleDecayModified.Theta * timeSinceLastFire,
+            gun.Comp.MinAngleModified.Theta, gun.Comp.MaxAngleModified.Theta));
+        var direction = mousePos.Position - mapPos.Position;
 
         worldHandle.DrawLine(mapPos.Position, mousePos.Position + direction, Color.Orange);
 

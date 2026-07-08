@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Objectives.Components;
@@ -33,7 +27,7 @@ public sealed class ObjectiveBlacklistRequirementSystem : EntitySystem
 
         foreach (var objective in args.Mind.Objectives)
         {
-            if (_whitelistSystem.IsBlacklistPass(comp.Blacklist, objective))
+            if (_whitelistSystem.IsWhitelistPass(comp.Blacklist, objective))
             {
                 args.Cancelled = true;
                 return;

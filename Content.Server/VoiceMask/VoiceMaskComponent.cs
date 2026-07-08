@@ -1,15 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
-// SPDX-FileCopyrightText: 2025 GabyChangelog <agentepanela2@gmail.com>
-// SPDX-FileCopyrightText: 2025 Kyoth25f <kyoth25f@gmail.com>
-// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-// SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Speech;
@@ -42,6 +30,12 @@ public sealed partial class VoiceMaskComponent : Component
     public ProtoId<SpeechVerbPrototype>? VoiceMaskSpeechVerb;
 
     /// <summary>
+    ///     If true will override the users identity with whatever <see cref="VoiceMaskName"/> is.
+    /// </summary>
+    [DataField]
+    public bool OverrideIdentity;
+
+    /// <summary>
     ///     The action that gets displayed when the voice mask is equipped.
     /// </summary>
     [DataField]
@@ -52,6 +46,19 @@ public sealed partial class VoiceMaskComponent : Component
     /// </summary>
     [DataField]
     public EntityUid? ActionEntity;
+
+    /// <summary>
+    ///     If user's voice is getting changed when they speak.
+    /// </summary>
+    [DataField]
+    public bool Active = true;
+
+    /// <summary>
+    ///     If user's accent is getting hidden when they speak.
+    /// </summary>
+    [DataField]
+    public bool AccentHide = true;
+
     /// <summary>
     ///     if UI Action shud be added on equipt
     /// </summary>
@@ -72,3 +79,4 @@ public sealed partial class VoiceMaskComponent : Component
     public string? JobName; // GabyStation -> Radio icons
     #endregion
 }
+

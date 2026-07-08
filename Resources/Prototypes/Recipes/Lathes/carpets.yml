@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 kosticia <kosticia46@gmail.com>
-# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: latheRecipe
@@ -32,6 +28,11 @@
   parent: BaseCarpetRecipe
   id: CarpetBlue
   result: FloorCarpetItemBlue
+
+- type: latheRecipe
+  parent: BaseCarpetRecipe
+  id: CarpetSkyBlue
+  result: FloorCarpetItemSkyBlue
 
 - type: latheRecipe
   parent: BaseCarpetRecipe

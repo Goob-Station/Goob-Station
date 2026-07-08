@@ -411,19 +411,19 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
 
         if (bloodHeal == FixedPoint2.Zero || !TryComp(uid, out SolutionContainerManagerComponent? sol) ||
             !_solution.ResolveSolution((uid, sol), blood.BloodSolutionName, ref blood.BloodSolution) ||
-            blood.BloodSolution.Value.Comp.Solution.Volume >= blood.BloodMaxVolume)
+            blood.BloodSolution.Value.Comp.Solution.Volume >= blood.BloodReferenceSolution.Volume)
             return;
 
         if (bloodHeal == null)
         {
             _blood.TryModifyBloodLevel((uid, blood),
-                blood.BloodMaxVolume - blood.BloodSolution.Value.Comp.Solution.Volume);
+                blood.BloodReferenceSolution.Volume - blood.BloodSolution.Value.Comp.Solution.Volume);
         }
         else
         {
             _blood.TryModifyBloodLevel((uid, blood),
                 FixedPoint2.Min(bloodHeal.Value,
-                    blood.BloodMaxVolume - blood.BloodSolution.Value.Comp.Solution.Volume));
+                    blood.BloodReferenceSolution.Volume - blood.BloodSolution.Value.Comp.Solution.Volume));
         }
     }
 

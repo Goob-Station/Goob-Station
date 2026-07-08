@@ -1,51 +1,3 @@
-# SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
-# SPDX-FileCopyrightText: 2021 Julian Giebel <j.giebel@netrocks.info>
-# SPDX-FileCopyrightText: 2021 Julian Giebel <juliangiebel@live.de>
-# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-# SPDX-FileCopyrightText: 2022 ElectroJr <leonsfriedrich@gmail.com>
-# SPDX-FileCopyrightText: 2022 Kai Shiba <100050424+KaiShibaa@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Mervill <mervills.email@gmail.com>
-# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 T-Stalker <le0nel_1van@hotmail.com>
-# SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
-# SPDX-FileCopyrightText: 2022 themias <89101928+themias@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Alekshhh <44923899+Alekshhh@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Doru991 <75124791+Doru991@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Segonist <74138556+Segonist@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lapatison <100279397+lapatison@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
-# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-# SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
-# SPDX-FileCopyrightText: 2025 Eris <eris@erisws.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 RatherUncreative <RatherUncreativeName@proton.me>
-# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
@@ -63,6 +15,8 @@
   - type: Appearance
   - type: Charger
     slotId: charger_slot
+  - type: ApcPowerReceiver
+    powerLoad: 1 # same as draw given in ChargerComponent.PassiveDraw; increased when it is actually charging something
   - type: Anchorable
     delay: 1
   - type: Destructible
@@ -122,6 +76,7 @@
   parent: BaseItemRecharger
   id: PowerCellRecharger
   name: cell recharger
+  description: An older model recharger that can recharge power cells.
   components:
   - type: Sprite
     sprite: Structures/Power/cell_recharger.rsi
@@ -157,11 +112,15 @@
           tags:
           - PowerCell
           - PowerCellSmall
+        blacklist:
+          tags:
+          - PotatoBattery
 
 - type: entity
   parent: [ BaseItemRecharger, ConstructibleMachine ]
   id: PowerCageRecharger
   name: cage recharger
+  description: A specialized machine made for recharging the heavy cage batteries used by ship-mounted weapons.
   components:
   - type: Fixtures
     fixtures:
@@ -202,6 +161,7 @@
   parent: BaseItemRecharger
   id: WeaponCapacitorRecharger
   name: recharger
+  description: A modern recharging station that can fit both power cells and small electronic devices.
   components:
   - type: Sprite
     sprite: Structures/Power/recharger.rsi
@@ -229,26 +189,28 @@
         ejectOnInteract: true
         whitelist:
           components:
-          - HitscanBatteryAmmoProvider
-          - ProjectileBatteryAmmoProvider
+          - BatteryAmmoProvider
           - Stunbaton
-        # Goobstation
-          tags:
+          - PowerCell
+          tags: # Goobstation
           - FitsInCharger
         blacklist:
           tags:
+          - PotatoBattery
+          # Goob start
           - WizardWand
           components:
           - MaterialEnergy
   - type: ItemSlotRenderer # WWDP
     mapping:
       charger_slot: enum.PowerChargerVisualLayers.ItemDisplay
+      # Goob end
 
 - type: entity
   parent: BaseItemRecharger
   id: TurboItemRecharger
   name: turbo recharger
-  description: An overclocked recharger that's been adapted with a global port.
+  description: An overclocked recharger. Not recommended for use around asthmatics.
   components:
   - type: Sprite
     sprite: Structures/Power/turbo_recharger.rsi
@@ -275,8 +237,7 @@
         ejectOnInteract: true
         whitelist:
           components:
-          - HitscanBatteryAmmoProvider
-          - ProjectileBatteryAmmoProvider
+          - BatteryAmmoProvider
           - Stunbaton
           - PowerCell
           tags:
@@ -295,6 +256,7 @@
   parent: [ BaseItemRecharger, BaseWallmount ]
   id: WallWeaponCapacitorRecharger
   name: wall recharger
+  description: A compact wall-mounted recharger. It can only recharge electronic devices and has no space for power cells.
   components:
   - type: Sprite
     sprite: Structures/Power/wall_recharger.rsi
@@ -320,15 +282,17 @@
         ejectOnInteract: true
         whitelist:
           components:
-          - HitscanBatteryAmmoProvider
-          - ProjectileBatteryAmmoProvider
+          - BatteryAmmoProvider
           - Stunbaton
-        blacklist:  # Goobstation
+        blacklist:
           tags:
+          - PotatoBattery
+          # Goobstation start
           - WizardWand
   - type: ItemSlotRenderer # WWDP
     mapping:
       charger_slot: enum.PowerChargerVisualLayers.ItemDisplay
+    # Goobstation end
 
 - type: entity
   parent: BaseRecharger
@@ -410,3 +374,12 @@
       entity_storage: !type:Container
       machine_board: !type:Container
       machine_parts: !type:Container
+
+- type: entity
+  parent: BorgCharger
+  id: BorgChargerXenoborg
+  name: xenoborg recharging station
+  description: A stationary charger for xenoborgs. Feels claustrophobic.
+  components:
+  - type: Sprite
+    sprite: Structures/Power/xenoborg_charger.rsi

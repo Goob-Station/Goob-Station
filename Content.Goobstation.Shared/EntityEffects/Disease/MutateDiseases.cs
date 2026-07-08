@@ -1,4 +1,3 @@
-using Content.Goobstation.Shared.Disease;
 using Content.Goobstation.Shared.Disease.Components;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
@@ -8,7 +7,25 @@ namespace Content.Goobstation.Shared.EntityEffects.Disease;
 /// <summary>
 /// Mutates diseases on the entity.
 /// </summary>
-public sealed partial class MutateDiseases : EventEntityEffect<MutateDiseases>
+public sealed partial class MutateDiseasesSystem
+    : EntityEffectSystem<DiseaseCarrierComponent, MutateDiseases>
+{
+    protected override void Effect(Entity<DiseaseCarrierComponent> entity, ref EntityEffectEvent<MutateDiseases> args)
+    {
+        var effect = args.Effect;
+
+        var ev = new MutateDiseases(
+            effect.MutationRate,
+            effect.Scaled,
+            args.Scale,
+            effect.Quantity
+        );
+
+        EntityManager.EventBus.RaiseLocalEvent(entity.Owner, ev);
+    }
+}
+
+public sealed partial class MutateDiseases : EntityEffectBase<MutateDiseases>
 {
     /// <summary>
     /// How much to mutate.
@@ -21,8 +38,11 @@ public sealed partial class MutateDiseases : EventEntityEffect<MutateDiseases>
 
     [DataField]
     public float Scale = 1f;
+
     [DataField]
     public float Quantity = 1f;
+
+    public MutateDiseases() { }
 
     public MutateDiseases(float mutationRate, bool scaled, float scale, float quantity)
     {
@@ -32,25 +52,9 @@ public sealed partial class MutateDiseases : EventEntityEffect<MutateDiseases>
         Quantity = quantity;
     }
 
-    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
     {
         return Loc.GetString("reagent-effect-guidebook-disease-mutate",
             ("amount", MutationRate));
-    }
-
-    public override void Effect(EntityEffectBaseArgs args)
-    {
-        if (!args.EntityManager.TryGetComponent<DiseaseCarrierComponent>(args.TargetEntity, out var carrier))
-            return;
-
-        var ev = new MutateDiseases(MutationRate, Scaled, Scale, Quantity);
-
-        if (args is EntityEffectReagentArgs reagentArgs)
-        {
-            ev.Scale = reagentArgs.Scale.Float();
-            ev.Quantity = reagentArgs.Quantity.Float();
-        }
-
-        args.EntityManager.EventBus.RaiseLocalEvent(args.TargetEntity, ev);
     }
 }

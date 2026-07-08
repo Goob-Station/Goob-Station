@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Firewatch <54725557+musicmanvr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mr. 27 <koolthunder019@gmail.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Clothing;
@@ -50,7 +42,7 @@ public sealed partial class LoadoutContainer : BoxContainer
             SelectButton.TooltipSupplier = _ => tooltip;
         }
 
-        if (_protoManager.TryIndex(proto, out var loadProto))
+        if (_protoManager.Resolve(proto, out var loadProto))
         {
             var ent = loadProto.DummyEntity ?? _entManager.System<LoadoutSystem>().GetFirstOrNull(loadProto);
 

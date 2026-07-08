@@ -3,6 +3,6 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-#!/bin/sh
+#!/usr/bin/env bash
 dotnet run --project Content.Goobstation.Client
 read -p "Press enter to continue"

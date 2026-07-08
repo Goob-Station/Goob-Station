@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Atmos;
@@ -79,7 +76,7 @@ public sealed class SharedFleshmendSystem : EntitySystem
             RemoveFleshmendEffects(ent);
 
         if (ent.Comp.AlertId != null)
-            _alerts.ClearAlert(ent, (ProtoId<AlertPrototype>) ent.Comp.AlertId); // incase there was still time left on removal
+            _alerts.ClearAlert(ent.Owner, (ProtoId<AlertPrototype>) ent.Comp.AlertId); // incase there was still time left on removal
     }
 
     public override void Update(float frameTime)

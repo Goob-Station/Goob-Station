@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Administration.Logs;
@@ -43,7 +40,7 @@ public sealed class BlindHealingSystem : SharedBlindHealingSystem
 
         if (TryComp<StackComponent>(uid, out var stackComponent)
             && TryComp<StackPriceComponent>(uid, out var stackPrice))
-            _stackSystem.SetCount(uid, (int) (_stackSystem.GetCount(uid, stackComponent) - stackPrice.Price), stackComponent);
+            _stackSystem.SetCount(uid, (int) (_stackSystem.GetCount((uid, stackComponent)) - stackPrice.Price), stackComponent);
 
         _blindableSystem.AdjustEyeDamage((args.Target.Value, blindComp), -blindComp.EyeDamage);
 
@@ -55,7 +52,7 @@ public sealed class BlindHealingSystem : SharedBlindHealingSystem
         _popup.PopupEntity(str, uid, args.User);
 
     }
-    
+
     private bool TryHealBlindness(EntityUid uid, EntityUid user, EntityUid target, float delay)
     {
         var doAfterEventArgs =

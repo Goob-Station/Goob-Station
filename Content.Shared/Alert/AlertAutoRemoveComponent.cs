@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: MIT
 
 using Robust.Shared.GameStates;
@@ -18,7 +15,7 @@ public sealed partial class AlertAutoRemoveComponent : Component
     /// </summary>
     [AutoNetworkedField]
     [DataField]
-    public List<AlertKey> AlertKeys = new();
+    public HashSet<AlertKey> AlertKeys = new();
 
     public override bool SendOnlyToOwner => true;
 }

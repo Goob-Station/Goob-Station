@@ -1,23 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
-// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2022 Jezithyr <jmaster9999@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <wrexbe@protonmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 dffdff2423 <57052305+dffdff2423@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 c4llv07e <igor@c4llv07e.xyz>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
@@ -38,6 +18,7 @@ using Content.Shared.Input;
 using JetBrains.Annotations;
 using Robust.Client.Audio;
 using Robust.Client.Graphics;
+using Robust.Client.Input;
 using Robust.Client.Player;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
@@ -59,6 +40,7 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IClyde _clyde = default!;
     [Dependency] private readonly IUserInterfaceManager _uiManager = default!;
+    [Dependency] private readonly IInputManager _input = default!;
     [UISystemDependency] private readonly AudioSystem _audio = default!;
 
     private BwoinkSystem? _bwoinkSystem;
@@ -120,15 +102,13 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
         _bwoinkSystem = system;
         _bwoinkSystem.OnBwoinkTextMessageRecieved += ReceivedBwoink;
 
-        CommandBinds.Builder
-            .Bind(ContentKeyFunctions.OpenAHelp,
-                InputCmdHandler.FromDelegate(_ => ToggleWindow()))
-            .Register<AHelpUIController>();
+        _input.SetInputCommand(ContentKeyFunctions.OpenAHelp,
+            InputCmdHandler.FromDelegate(_ => ToggleWindow()));
     }
 
     public void OnSystemUnloaded(BwoinkSystem system)
     {
-        CommandBinds.Unregister<AHelpUIController>();
+        _input.SetInputCommand(ContentKeyFunctions.OpenAHelp, null);
 
         DebugTools.Assert(_bwoinkSystem != null);
         _bwoinkSystem!.OnBwoinkTextMessageRecieved -= ReceivedBwoink;
@@ -254,7 +234,7 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
         helper.ClydeWindow = _clyde.CreateWindow(new WindowCreateParameters
         {
             Maximized = false,
-            Title = "Admin Help",
+            Title = Loc.GetString("bwoink-admin-title"),
             Monitor = monitor,
             Width = 900,
             Height = 500
@@ -272,15 +252,15 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
 
     private void UnreadAHelpReceived()
     {
-        GameAHelpButton?.StyleClasses.Add(MenuButton.StyleClassRedTopButton);
-        LobbyAHelpButton?.StyleClasses.Add(StyleNano.StyleClassButtonColorRed);
+        GameAHelpButton?.StyleClasses.Add(StyleClass.Negative);
+        LobbyAHelpButton?.StyleClasses.Add(StyleClass.Negative);
         _hasUnreadAHelp = true;
     }
 
     private void UnreadAHelpRead()
     {
-        GameAHelpButton?.StyleClasses.Remove(MenuButton.StyleClassRedTopButton);
-        LobbyAHelpButton?.StyleClasses.Remove(StyleNano.StyleClassButtonColorRed);
+        GameAHelpButton?.StyleClasses.Remove(StyleClass.Negative);
+        LobbyAHelpButton?.StyleClasses.Remove(StyleClass.Negative);
         _hasUnreadAHelp = false;
     }
 

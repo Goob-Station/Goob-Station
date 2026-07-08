@@ -1,16 +1,3 @@
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
-// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-// SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
-// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Chat.Systems;
@@ -20,10 +7,12 @@ using Content.Server.Telephone;
 using Content.Shared.Access.Systems;
 using Content.Shared.Audio;
 using Content.Shared.Chat; // Einstein Engines - Language
+using Content.Shared.Chat;
 using Content.Shared.Chat.TypingIndicator;
 using Content.Shared.Holopad;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Labels.Components;
+using Content.Shared.Mobs;
 using Content.Shared.Power;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.Speech;
@@ -93,6 +82,8 @@ public sealed class HolopadSystem : SharedHolopadSystem
         SubscribeLocalEvent<HolopadComponent, EntRemovedFromContainerMessage>(OnAiRemove);
         SubscribeLocalEvent<HolopadComponent, EntParentChangedMessage>(OnParentChanged);
         SubscribeLocalEvent<HolopadComponent, PowerChangedEvent>(OnPowerChanged);
+        SubscribeLocalEvent<HolopadUserComponent, MobStateChangedEvent>(OnMobStateChanged);
+
     }
 
     #region: Holopad UI bound user interface messages
@@ -242,7 +233,7 @@ public sealed class HolopadSystem : SharedHolopadSystem
             if (!_stationAiSystem.TryGetHeld((receiver, receiverStationAiCore), out var insertedAi))
                 continue;
 
-            if (_userInterfaceSystem.TryOpenUi(receiverUid, HolopadUiKey.AiRequestWindow, insertedAi))
+            if (_userInterfaceSystem.TryOpenUi(receiverUid, HolopadUiKey.AiRequestWindow, insertedAi.Value))
                 LinkHolopadToUser(entity, args.Actor);
         }
 
@@ -417,6 +408,9 @@ public sealed class HolopadSystem : SharedHolopadSystem
         if (!this.IsPowered(entity, EntityManager))
             return;
 
+        if (HasComp<StationAiCoreComponent>(entity))
+            return;
+
         if (!TryComp<TelephoneComponent>(entity, out var entityTelephone) ||
             _telephoneSystem.IsTelephoneEngaged((entity, entityTelephone)))
             return;
@@ -460,6 +454,17 @@ public sealed class HolopadSystem : SharedHolopadSystem
     {
         if (args.Powered)
             UpdateHolopadControlLockoutStartTime(entity);
+    }
+
+    private void OnMobStateChanged(Entity<HolopadUserComponent> ent, ref MobStateChangedEvent args)
+    {
+        if (!HasComp<StationAiHeldComponent>(ent))
+            return;
+
+        foreach (var holopad in ent.Comp.LinkedHolopads)
+        {
+            ShutDownHolopad(holopad);
+        }
     }
 
     #endregion
@@ -623,25 +628,23 @@ public sealed class HolopadSystem : SharedHolopadSystem
         if (entity.Comp.Hologram != null)
             DeleteHologram(entity.Comp.Hologram.Value, entity);
 
-        if (entity.Comp.User != null)
+        // Check if the associated holopad user is an AI
+        if (HasComp<StationAiHeldComponent>(entity.Comp.User) &&
+            _stationAiSystem.TryGetCore(entity.Comp.User.Value, out var stationAiCore))
         {
-            // Check if the associated holopad user is an AI
-            if (TryComp<StationAiHeldComponent>(entity.Comp.User, out var stationAiHeld) &&
-                _stationAiSystem.TryGetCore(entity.Comp.User.Value, out var stationAiCore))
+            // Return the AI eye to free roaming
+            _stationAiSystem.SwitchRemoteEntityMode(stationAiCore, true);
+
+            // If the AI core is still broadcasting, end its calls
+            if (TryComp<TelephoneComponent>(stationAiCore, out var stationAiCoreTelephone) &&
+                _telephoneSystem.IsTelephoneEngaged((stationAiCore.Owner, stationAiCoreTelephone)))
             {
-                // Return the AI eye to free roaming
-                _stationAiSystem.SwitchRemoteEntityMode(stationAiCore, true);
-
-                // If the AI core is still broadcasting, end its calls
-                if (entity.Owner != stationAiCore.Owner &&
-                    TryComp<TelephoneComponent>(stationAiCore, out var stationAiCoreTelephone) &&
-                    _telephoneSystem.IsTelephoneEngaged((stationAiCore.Owner, stationAiCoreTelephone)))
-                {
-                    _telephoneSystem.EndTelephoneCalls((stationAiCore.Owner, stationAiCoreTelephone));
-                }
+                _telephoneSystem.EndTelephoneCalls((stationAiCore.Owner, stationAiCoreTelephone));
             }
-
-            UnlinkHolopadFromUser(entity, entity.Comp.User.Value);
+        }
+        else
+        {
+            UnlinkHolopadFromUser(entity, entity.Comp.User);
         }
 
         Dirty(entity);

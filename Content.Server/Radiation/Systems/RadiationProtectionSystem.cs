@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Radiation.Components;
@@ -22,7 +19,7 @@ public sealed class RadiationProtectionSystem : EntitySystem
 
     private void OnInit(EntityUid uid, RadiationProtectionComponent component, ComponentInit args)
     {
-        if (!_prototypeManager.TryIndex(component.RadiationProtectionModifierSetId, out var modifier))
+        if (!_prototypeManager.Resolve(component.RadiationProtectionModifierSetId, out var modifier))
             return;
         var buffComp = EnsureComp<DamageProtectionBuffComponent>(uid);
         // add the damage modifier if it isn't in the dict yet

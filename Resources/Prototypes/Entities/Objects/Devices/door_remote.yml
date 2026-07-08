@@ -1,23 +1,3 @@
-# SPDX-FileCopyrightText: 2022 Chris V <HoofedEar@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
-# SPDX-FileCopyrightText: 2022 WlarusFromDaSpace <44726328+WlarusFromDaSpace@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2023 Colin-Tel <113523727+Colin-Tel@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nairod <110078045+Nairodian@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Tom Leys <tom@crump-leys.com>
-# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lzk228 <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Baptr0b0t <152836416+Baptr0b0t@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 a_person <alexanderbeaumont05@hotmail.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
@@ -33,8 +13,53 @@
     storedRotation: -90
   - type: Access
   - type: DoorRemote
+    options:
+    - mode: OpenClose
+      tooltip: &TextOpenClose door-remote-open-close-text
+      icon: &IconOpenClose
+        sprite: /Textures/Structures/Doors/Airlocks/Standard/basic.rsi
+        state: assembly
+    - mode: ToggleBolts
+      tooltip: &TextToggleBolt door-remote-toggle-bolt-text
+      icon: &IconToggleBolt
+        sprite: /Textures/Interface/Actions/actions_ai.rsi
+        state: bolt_door
+    - mode: ToggleEmergencyAccess
+      tooltip: &TextEmergencyAccess door-remote-emergency-access-text
+      icon: &IconEmergencyAccess
+        sprite: /Textures/Interface/Actions/actions_ai.rsi
+        state: emergency_on
   - type: StealTarget
     stealGroup: DoorRemote
+  - type: ActivatableUI
+    inHandsOnly: true
+    key: enum.DoorRemoteUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.DoorRemoteUiKey.Key:
+        type: DoorRemoteBoundUserInterface
+
+- type: entity
+  parent: DoorRemoteDefault
+  id: DoorRemoteCanEletrifyDoors
+  abstract: true
+  components:
+  - type: DoorRemote
+    options:
+    - mode: ToggleOvercharge
+      tooltip: door-remote-toggle-eletrify-text
+      icon:
+        sprite: /Textures/Interface/Actions/actions_ai.rsi
+        state: door_overcharge_on
+    - mode: OpenClose
+      tooltip: *TextOpenClose
+      icon: *IconOpenClose
+    - mode: ToggleBolts
+      tooltip: *TextToggleBolt
+      icon: *IconToggleBolt
+    - mode: ToggleEmergencyAccess
+      tooltip: *TextEmergencyAccess
+      icon: *IconEmergencyAccess
 
 - type: entity
   parent: [DoorRemoteDefault, BaseCommandContraband]
@@ -183,7 +208,7 @@
     - Engineering
 
 - type: entity
-  parent: [DoorRemoteDefault, BaseCommandContraband]
+  parent: [DoorRemoteCanEletrifyDoors, BaseCommandContraband]
   id: DoorRemoteAll
   name: super door remote
   suffix: Admeme
@@ -208,7 +233,7 @@
     - Xenoborg
 
 - type: entity
-  parent: [ DoorRemoteDefault, BaseXenoborgContraband ]
+  parent: [DoorRemoteCanEletrifyDoors, BaseXenoborgContraband]
   id: DoorRemoteXenoborg
   name: xenoborg door remote
   components:

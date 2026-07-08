@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 RenQ <164364533+ImRenQ@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - files:
@@ -37,3 +32,10 @@
   license: "CC-BY-SA-3.0"
   copyright: "Taken from tgstation at https://github.com/tgstation/tgstation/commit/948ad3dd5b22803a01cd74c27f37e509dc61395b"
   source: "https://github.com/tgstation/tgstation/blob/948ad3dd5b22803a01cd74c27f37e509dc61395b/sound/voice/moth/moth_death.ogg"
+
+- files:
+  - vox_DeathGasp.ogg
+  - vox_gasp.ogg
+  license: "CC-BY-SA-3.0"
+  copyright: "Made by TrixxedHeart, modified from shriek1.ogg"
+  source: "https://github.com/space-wizards/space-station-14/pull/39914"

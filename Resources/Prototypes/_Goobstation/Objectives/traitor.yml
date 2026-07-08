@@ -1,21 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Mary <mary@thughunt.ing>
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
-# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Kill
 
@@ -91,7 +73,8 @@
     # HoS will have this on them a lot of the time so..
     difficulty: 3
   - type: NotJobRequirement
-    job: HeadOfSecurity
+    jobs:
+    - HeadOfSecurity
   - type: StealCondition
     stealGroup: WeaponEnergyGunLawbringer
     owner: job-name-hos
@@ -103,7 +86,8 @@
   - type: Objective
     difficulty: 5 #Cannot be pocketed/bagged like Lawbringer or similar, requires your belt slot or hand to hold.
   - type: NotJobRequirement
-    job: HeadOfSecurity
+    jobs:
+    - HeadOfSecurity
   - type: StealCondition
     stealGroup: WeaponSecHeadSword
     owner: job-name-hos
@@ -124,7 +108,8 @@
   - type: Objective
     difficulty: 3 # its an item that you cant store anywhere without being noticed, good luck
   - type: NotJobRequirement
-    job: NanotrasenRepresentative
+    jobs:
+    - NanotrasenRepresentative
   - type: StealCondition
     stealGroup: ExecutiveBriefcase
 
@@ -133,7 +118,8 @@
   id: GeminiProjectorStealObjective
   components:
   - type: NotJobRequirement
-    job: ResearchDirector
+    jobs:
+    - ResearchDirector
   - type: StealCondition
     stealGroup: ClothingBeltGeminiHoloProjector
     descriptionText: objective-condition-steal-gemini-projector-description

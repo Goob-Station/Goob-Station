@@ -21,3 +21,8 @@
   id: CosmicCultDeconversion
   name: guide-entry-cosmiccult-deconversion
   text: "/ServerInfo/_DV/Guidebook/Antagonist/CosmicCultDeconversion.xml"
+
+- type: guideEntry
+  id: CosmicColossus
+  name: guide-entry-cosmiccolossus
+  text: "/ServerInfo/_DV/Guidebook/Antagonist/CosmicColossus.xml"

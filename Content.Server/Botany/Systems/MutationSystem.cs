@@ -1,19 +1,3 @@
-// SPDX-FileCopyrightText: 2023 612 <125925684+612git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Doru991 <75124791+Doru991@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Duke <112821543+DukeVanity@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Sailor <109166122+Equivocateur@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TomaszKawalec <40093912+TK-A369@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 drteaspoon420 <87363733+drteaspoon420@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Crotalus <Crotalus@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kevin Zheng <kevinz5000@gmail.com>
-// SPDX-FileCopyrightText: 2024 drakewill-CRL <46307022+drakewill-CRL@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Atmos;
@@ -31,6 +15,7 @@ public sealed class MutationSystem : EntitySystem
 
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly SharedEntityEffectsSystem _entityEffects = default!;
     private RandomPlantMutationListPrototype _randomMutations = default!;
 
     public override void Initialize()
@@ -50,10 +35,8 @@ public sealed class MutationSystem : EntitySystem
             if (Random(Math.Min(mutation.BaseOdds * severity, 1.0f)))
             {
                 if (mutation.AppliesToPlant)
-                {
-                    var args = new EntityEffectBaseArgs(plantHolder, EntityManager);
-                    mutation.Effect.Effect(args);
-                }
+                    _entityEffects.TryApplyEffect(plantHolder, mutation.Effect);
+
                 // Stat adjustments do not persist by being an attached effect, they just change the stat.
                 if (mutation.Persists && !seed.Mutations.Any(m => m.Name == mutation.Name))
                     seed.Mutations.Add(mutation);

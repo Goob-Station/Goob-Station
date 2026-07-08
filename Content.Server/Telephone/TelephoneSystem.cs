@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Access.Systems;
@@ -350,7 +346,7 @@ public sealed class TelephoneSystem : SharedTelephoneSystem
         name = FormattedMessage.EscapeText(name);
 
         SpeechVerbPrototype speech;
-        if (ev.SpeechVerb != null && _prototype.TryIndex(ev.SpeechVerb, out var evntProto))
+        if (ev.SpeechVerb != null && _prototype.Resolve(ev.SpeechVerb, out var evntProto))
             speech = evntProto;
         else
             speech = _chat.GetSpeechVerb(messageSource, message);

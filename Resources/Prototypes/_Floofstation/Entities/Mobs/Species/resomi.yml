@@ -1,16 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
-# SPDX-FileCopyrightText: 2025 NotActuallyMarty <martynashagriefer@gmail.com>
-# SPDX-FileCopyrightText: 2025 PECK <74548962+PeccNeck@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 PeccNeck <74548962+PeccNeck@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
-# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
@@ -53,6 +40,8 @@
     alternateState: Resomi_burning
   - type: HumanoidAppearance
     species: Resomi
+    undergarmentTop: null # none made, but they might not even need these too diff bodytype
+    undergarmentBottom: null
   - type: Icon
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
     state: full
@@ -205,7 +194,10 @@
             sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
             state: belt
   - type: Bloodstream # Goobstation - lore stuff
-    bloodReagent: AmmoniaBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: AmmoniaBlood
+        Quantity: 200
   - type: MeleeWeapon # Goobstation - aliem raptors probably use their claws
     soundHit:
       collection: AlienClaw
@@ -217,6 +209,9 @@
   - type: Damageable # Goobstation - resomi damage modifiers
     damageModifierSet: Resomi
   - type: Temperature
+    currentTemperature: 310.15 # todo goob redo this
+    specificHeat: 50
+  - type: TemperatureDamage
     coldDamageThreshold: 0 # Goobstation - hyperborean velociraptors or some shit, ice planes of norway is where they came from, but in space
     heatDamageThreshold: 320.15 # Goobstation - space chickens can't tolerate reasonable temperatures, but requiring them to stay icy would be cringe, so instead make their heat damage threshold dangerously close to standard atmos, at 47°C
     coldDamage:
@@ -293,6 +288,8 @@
   components:
   - type: HumanoidAppearance
     species: Resomi
+    undergarmentTop: null # none made, but they might not even need these too diff bodytype
+    undergarmentBottom: null
   - type: Hands
     handDisplacement:
       sizeMaps:

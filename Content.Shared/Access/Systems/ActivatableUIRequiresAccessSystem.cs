@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Popups;
@@ -29,7 +25,7 @@ public sealed class ActivatableUIRequiresAccessSystem : EntitySystem
         if (!_access.IsAllowed(args.User, activatableUI))
         {
             args.Cancel();
-            if (activatableUI.Comp.PopupMessage != null)
+            if (activatableUI.Comp.PopupMessage != null && !args.Silent)
                 _popup.PopupClient(Loc.GetString(activatableUI.Comp.PopupMessage), activatableUI, args.User);
         }
     }

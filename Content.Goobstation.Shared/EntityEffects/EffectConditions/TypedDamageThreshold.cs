@@ -1,18 +1,11 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.EntityEffects;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.EntityConditions;
+using Content.Shared.EntityConditions.Conditions;
 using Content.Shared.Localizations;
 using Robust.Shared.Prototypes;
 
@@ -28,7 +21,59 @@ namespace Content.Goobstation.Shared.EntityEffects.EffectConditions;
 /// group total. Use multiple conditions if you want to explicitly avoid that behaviour,
 /// or don't use damage types within a group when specifying prototypes.
 /// </remarks>
-public sealed partial class TypedDamageThreshold : EntityEffectCondition
+public sealed partial class TypedDamageThresholdEntityConditionSystem : EntityConditionSystem<DamageableComponent, TypedDamageThresholdCondition>
+{
+    protected override void Condition(Entity<DamageableComponent> entity, ref EntityConditionEvent<TypedDamageThresholdCondition> args)
+    {
+        var protoManager = IoCManager.Resolve<IPrototypeManager>();
+        var comparison = new DamageSpecifier(args.Condition.Damage);
+        foreach (var group in protoManager.EnumeratePrototypes<DamageGroupPrototype>())
+        {
+            // Greedily revert the split and check; Quickly skip when not relevant
+            var lowestDamage = FixedPoint2.MaxValue;
+            foreach (var damageType in group.DamageTypes)
+            {
+                if (comparison.DamageDict.TryGetValue(damageType, out var value))
+                    lowestDamage = value < lowestDamage ? value : lowestDamage;
+                else
+                {
+                    lowestDamage = FixedPoint2.Zero;
+                    break;
+                }
+            }
+            if (lowestDamage == FixedPoint2.MaxValue || lowestDamage == FixedPoint2.Zero)
+                continue;
+            var groupDamage = lowestDamage * group.DamageTypes.Count;
+            if (MathF.Abs(groupDamage.Float() - MathF.Round(groupDamage.Float())) < 0.02)
+                groupDamage = MathF.Round(groupDamage.Float()); // otherwise brutes split unevenly
+
+            if (entity.Comp.Damage.TryGetDamageInGroup(group, out var total) && total > groupDamage)
+            {
+                args.Result = !args.Condition.Inverse;
+                return;
+            }
+
+            // we finished comparing this group, remove future interferences
+            foreach (var damageType in group.DamageTypes)
+            {
+                comparison.DamageDict[damageType] -= lowestDamage;
+                // not a fan, but it's needed
+                if (MathF.Abs(comparison.DamageDict[damageType].Float()
+                    - MathF.Round(comparison.DamageDict[damageType].Float()))
+                    < 0.02)
+                    comparison.DamageDict[damageType] = MathF.Round(comparison.DamageDict[damageType].Float());
+            }
+            comparison.ClampMin(0);
+            comparison.TrimZeros();
+        }
+        comparison.ExclusiveAdd(-entity.Comp.Damage);
+        comparison = -comparison;
+        args.Result = comparison.AnyPositive() ^ args.Condition.Inverse;
+    }
+}
+
+/// <inheritdoc cref="EntityCondition"/>
+public sealed partial class TypedDamageThresholdCondition : EntityConditionBase<TypedDamageThresholdCondition>
 {
     [DataField(required: true)]
     public DamageSpecifier Damage = default!;
@@ -36,54 +81,7 @@ public sealed partial class TypedDamageThreshold : EntityEffectCondition
     [DataField]
     public bool Inverse = false;
 
-    public override bool Condition(EntityEffectBaseArgs args)
-    {
-        if (args.EntityManager.TryGetComponent<DamageableComponent>(args.TargetEntity, out var damage))
-        {
-            var protoManager = IoCManager.Resolve<IPrototypeManager>();
-            var comparison = new DamageSpecifier(Damage);
-            foreach (var group in protoManager.EnumeratePrototypes<DamageGroupPrototype>())
-            {
-                // Greedily revert the split and check; Quickly skip when not relevant
-                var lowestDamage = FixedPoint2.MaxValue;
-                foreach (var damageType in group.DamageTypes)
-                {
-                    if (comparison.DamageDict.TryGetValue(damageType, out var value))
-                        lowestDamage = value < lowestDamage ? value : lowestDamage;
-                    else
-                    {
-                        lowestDamage = FixedPoint2.Zero;
-                        break;
-                    }
-                }
-                if (lowestDamage == FixedPoint2.MaxValue || lowestDamage == FixedPoint2.Zero)
-                    continue;
-                var groupDamage = lowestDamage * group.DamageTypes.Count;
-                if (MathF.Abs(groupDamage.Float() - MathF.Round(groupDamage.Float())) < 0.02)
-                    groupDamage = MathF.Round(groupDamage.Float()); // otherwise brutes split unevenly
-                if (damage.Damage.TryGetDamageInGroup(group, out var total) && total > groupDamage)
-                    return !Inverse;
-                // we finished comparing this group, remove future interferences
-                foreach (var damageType in group.DamageTypes)
-                {
-                    comparison.DamageDict[damageType] -= lowestDamage;
-                    // not a fan, but it's needed
-                    if (MathF.Abs(comparison.DamageDict[damageType].Float()
-                        - MathF.Round(comparison.DamageDict[damageType].Float()))
-                        < 0.02)
-                        comparison.DamageDict[damageType] = MathF.Round(comparison.DamageDict[damageType].Float());
-                }
-                comparison.ClampMin(0);
-                comparison.TrimZeros();
-            }
-            comparison.ExclusiveAdd(-damage.Damage);
-            comparison = -comparison;
-            return comparison.AnyPositive() ^ Inverse;
-        }
-        return false;
-    }
-
-    public override string GuidebookExplanation(IPrototypeManager prototype)
+    public override string EntityConditionGuidebookText(IPrototypeManager prototype)
     {
         var damages = new List<string>();
         var comparison = new DamageSpecifier(Damage);

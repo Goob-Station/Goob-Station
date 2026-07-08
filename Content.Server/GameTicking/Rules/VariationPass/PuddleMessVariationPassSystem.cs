@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Fluids.EntitySystems;
@@ -22,7 +19,7 @@ public sealed class PuddleMessVariationPassSystem : VariationPassSystem<PuddleMe
     {
         var totalTiles = Stations.GetTileCount(args.Station.AsNullable());
 
-        if (!_proto.TryIndex(ent.Comp.RandomPuddleSolutionFill, out var proto))
+        if (!_proto.Resolve(ent.Comp.RandomPuddleSolutionFill, out var proto))
             return;
 
         var puddleMod = Random.NextGaussian(ent.Comp.TilesPerSpillAverage, ent.Comp.TilesPerSpillStdDev);

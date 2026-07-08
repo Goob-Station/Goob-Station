@@ -1,36 +1,3 @@
-# SPDX-FileCopyrightText: 2020 20kdc <asdd2808@gmail.com>
-# SPDX-FileCopyrightText: 2020 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 Exp <theexp111@gmail.com>
-# SPDX-FileCopyrightText: 2020 Metal Gear Sloth <metalgearsloth@gmail.com>
-# SPDX-FileCopyrightText: 2020 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2020 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <zddm@outlook.es>
-# SPDX-FileCopyrightText: 2020 peptron1 <57651027+peptron1@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 py01 <60152240+collinlunn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 py01 <pyronetics01@gmail.com>
-# SPDX-FileCopyrightText: 2021 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Mith-randalf <84274729+Mith-randalf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2021 ZeroDayDaemon <60460608+ZeroDayDaemon@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 fishfish458 <fishfish458>
-# SPDX-FileCopyrightText: 2022 ElectroJr <leonsfriedrich@gmail.com>
-# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 Lamrr <96937466+Lamrr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 T-Stalker <le0nel_1van@hotmail.com>
-# SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
-# SPDX-FileCopyrightText: 2022 ike709 <ike709@github.com>
-# SPDX-FileCopyrightText: 2022 ike709 <ike709@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
-# SPDX-FileCopyrightText: 2023 Puro <103608145+PuroSlavKing@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 potato1234_x <79580518+potato1234x@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-#
 # SPDX-License-Identifier: MIT
 
 - type: entity
@@ -39,10 +6,11 @@
   id: BoxHandcuff
   description: A box full of handcuffs.
   components:
-  - type: StorageFill
-    contents:
-    - id: Handcuffs
-      amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: Handcuffs
+        amount: 4
   - type: Sprite
     layers:
     - state: box_security
@@ -54,10 +22,11 @@
   id: BoxZiptie
   description: A box full of zipties.
   components:
-  - type: StorageFill
-    contents:
-    - id: Zipties
-      amount: 9
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: Zipties
+        amount: 9
   - type: Sprite
     layers:
     - state: box_security
@@ -69,10 +38,11 @@
   id: BoxFlashbang
   description: 'WARNING: These devices are extremely dangerous and can cause blindness or deafness in repeated use.'
   components:
-  - type: StorageFill
-    contents:
-    - id: GrenadeFlashBang
-      amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: GrenadeFlashBang
+        amount: 4
   - type: Sprite
     layers:
     - state: box_security
@@ -84,10 +54,11 @@
   id: BoxStinger
   description: A box full of stinger grenades. Disperse!
   components:
-  - type: StorageFill
-    contents:
-    - id: GrenadeStinger
-      amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: GrenadeStinger
+        amount: 4
   - type: Sprite
     layers:
     - state: box_security
@@ -99,10 +70,11 @@
   id: BoxTearGas
   description: A box full of tear gas grenades. Hold your breath.
   components:
-  - type: StorageFill
-    contents:
-    - id: TearGasGrenade
-      amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: TearGasGrenade
+        amount: 4
   - type: Sprite
     layers:
     - state: box_security
@@ -114,10 +86,11 @@
   id: BoxSechud
   description: A box of sechuds.
   components:
-  - type: StorageFill
-    contents:
-    - id: ClothingEyesHudSecurity
-      amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: ClothingEyesHudSecurity
+        amount: 4
   - type: Sprite
     layers:
     - state: box_security
@@ -129,10 +102,11 @@
   id: BoxSecglasses
   description: A box of security glasses.
   components:
-  - type: StorageFill
-    contents:
-    - id: ClothingEyesGlassesSecurity
-      amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: ClothingEyesGlassesSecurity
+        amount: 4
   - type: Sprite
     layers:
     - state: box_security
@@ -144,10 +118,11 @@
   id: BoxSunglasses
   description: A box of cool flash-proof sunglasses.
   components:
-  - type: StorageFill
-    contents:
-    - id: ClothingEyesGlassesSunglasses
-      amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: ClothingEyesGlassesSunglasses
+        amount: 4
   - type: Sprite
     layers:
     - state: box_security
@@ -162,11 +137,35 @@
   - type: Item
     shape:
     - 0,0,1,1
-  - type: StorageFill
-    contents:
-    - id: ForensicPad
-      amount: 9
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: ForensicPad
+        amount: 9
   - type: Sprite
     layers:
     - state: box_security
     - state: forensic
+
+- type: entity
+  parent: BoxCardboard
+  id: BoxDetonator
+  name: detonator box
+  description: A box of explosive detonators and triggers.
+  components:
+  - type: Item
+    shape:
+    - 0,0,1,1
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: EmptyDetonator
+          amount: 3
+        - id: TimerTrigger
+          amount: 2
+        - id: VoiceTrigger
+  - type: Sprite
+    layers:
+    - state: box_security
+    - state: trigger

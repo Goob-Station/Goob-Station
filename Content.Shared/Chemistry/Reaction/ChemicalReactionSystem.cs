@@ -1,31 +1,3 @@
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Kara D <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2021 Metal Gear Sloth <metalgearsloth@gmail.com>
-// SPDX-FileCopyrightText: 2021 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2021 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2021 py01 <60152240+collinlunn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 py01 <pyronetics01@gmail.com>
-// SPDX-FileCopyrightText: 2022 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Timothy Teakettle <59849408+timothyteakettle@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Trevor Day <tday93@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Collections.Frozen;
@@ -61,7 +33,7 @@ namespace Content.Shared.Chemistry.Reaction
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-        [Dependency] private readonly SharedEntityEffectSystem _effect = default!; // goob edit - use system instead
+        [Dependency] private readonly SharedEntityEffectsSystem _entityEffects = default!;
 
         /// <summary>
         /// A cache of all reactions indexed by at most ONE of their required reactants.
@@ -236,27 +208,12 @@ namespace Content.Shared.Chemistry.Reaction
 
         private void OnReaction(Entity<SolutionComponent> soln, ReactionPrototype reaction, ReagentPrototype? reagent, FixedPoint2 unitReactions)
         {
-            var args = new EntityEffectReagentArgs(soln, EntityManager, null, soln.Comp.Solution, unitReactions, reagent, null, 1f);
-
             var posFound = _transformSystem.TryGetMapOrGridCoordinates(soln, out var gridPos);
 
             _adminLogger.Add(LogType.ChemicalReaction, reaction.Impact,
                 $"Chemical reaction {reaction.ID:reaction} occurred with strength {unitReactions:strength} on entity {ToPrettyString(soln):metabolizer} at Pos:{(posFound ? $"{gridPos:coordinates}" : "[Grid or Map not Found]")}");
 
-            foreach (var effect in reaction.Effects)
-            {
-                if (!effect.ShouldApply(args))
-                    continue;
-
-                if (effect.ShouldLog)
-                {
-                    var entity = args.TargetEntity;
-                    _adminLogger.Add(LogType.ReagentEffect, effect.LogImpact,
-                        $"Reaction effect {effect.GetType().Name:effect} of reaction {reaction.ID:reaction} applied on entity {ToPrettyString(entity):entity} at Pos:{(posFound ? $"{gridPos:coordinates}" : "[Grid or Map not Found")}");
-                }
-
-                _effect.Effect(effect, args); // goob edit - use system instead
-            }
+            _entityEffects.ApplyEffects(soln, reaction.Effects, unitReactions);
 
             // Someday, some brave soul will thread through an optional actor
             // argument in from every call of OnReaction up, all just to pass

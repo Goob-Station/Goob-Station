@@ -1,21 +1,9 @@
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Actions;
 using Content.Shared.Clothing.EntitySystems;
+using Content.Shared.Examine;
 using Content.Shared.Item;
-using Content.Shared.Light;
 using Content.Shared.Light.Components;
 using Content.Shared.Toggleable;
 using Content.Shared.Verbs;
@@ -38,7 +26,7 @@ public abstract class SharedHandheldLightSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<HandheldLightComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<HandheldLightComponent, ComponentHandleState>(OnHandleState);
-
+        SubscribeLocalEvent<HandheldLightComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<HandheldLightComponent, GetVerbsEvent<ActivationVerb>>(AddToggleLightVerb);
     }
 
@@ -57,6 +45,13 @@ public abstract class SharedHandheldLightSystem : EntitySystem
 
         component.Level = state.Charge;
         SetActivated(uid, state.Activated, component, false);
+    }
+
+    private void OnExamine(EntityUid uid, HandheldLightComponent component, ExaminedEvent args)
+    {
+        args.PushMarkup(component.Activated
+            ? Loc.GetString("handheld-light-component-on-examine-is-on-message")
+            : Loc.GetString("handheld-light-component-on-examine-is-off-message"));
     }
 
     public void SetActivated(EntityUid uid, bool activated, HandheldLightComponent? component = null, bool makeNoise = true)

@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: MIT
 
 using Content.Client.Administration.UI.CustomControls;
@@ -21,7 +18,7 @@ public sealed partial class BanListControl : Control
         RobustXamlLoader.Load(this);
     }
 
-    public void SetBans(List<SharedServerBan> bans)
+    public void SetBans(List<SharedBan> bans)
     {
         for (var i = Bans.ChildCount - 1; i >= 1; i--)
         {

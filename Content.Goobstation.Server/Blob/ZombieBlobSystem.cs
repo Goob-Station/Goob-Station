@@ -1,17 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
-// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.Blob;
@@ -36,6 +22,7 @@ using Content.Shared.NPC.Systems;
 using Content.Shared.Physics;
 using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Tag;
+using Content.Shared.Temperature.Components;
 using Content.Shared.Trigger.Systems;
 using Content.Shared.Zombies;
 using Robust.Server.Player;
@@ -143,10 +130,10 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
 
         EnsureComp<PressureImmunityComponent>(uid);
 
-        if (TryComp<TemperatureComponent>(uid, out var temperatureComponent))
+        if (TryComp<TemperatureDamageComponent>(uid, out var temperatureDamageComponent))
         {
-            component.OldColdDamageThreshold = temperatureComponent.ColdDamageThreshold;
-            temperatureComponent.ColdDamageThreshold = 0;
+            component.OldColdDamageThreshold = temperatureDamageComponent.ColdDamageThreshold;
+            temperatureDamageComponent.ColdDamageThreshold = 0;
         }
 
         if (TryComp<FixturesComponent>(uid, out var fixturesComp))
@@ -201,9 +188,9 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
         // RemComp<ReplacementAccentComponent>(uid); // Languages - No need for accents.
         RemComp<PressureImmunityComponent>(uid);
 
-        if (TryComp<TemperatureComponent>(uid, out var temperatureComponent) && component.OldColdDamageThreshold != null)
+        if (TryComp<TemperatureDamageComponent>(uid, out var temperatureDamageComponent) && component.OldColdDamageThreshold != null)
         {
-            temperatureComponent.ColdDamageThreshold = component.OldColdDamageThreshold.Value;
+            temperatureDamageComponent.ColdDamageThreshold = component.OldColdDamageThreshold.Value;
         }
 
         _tagSystem.RemoveTag(uid, "BlobMob");

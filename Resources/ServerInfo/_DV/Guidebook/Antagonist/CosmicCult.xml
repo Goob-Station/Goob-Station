@@ -70,7 +70,31 @@
 
   Cultists may stealthily [color=#4cabb3]absorb[/color] a Malign Rift by interacting with it.
 
-  Successful absorbtion of a Malign Rift will [bold]permanently[/bold] empower the cultist doing so, increasing the strength of all the [color=#4cabb3]Influences[/color] they possess, and doubling the [color=#4cabb3]Entropy[/color] they gain from siphoning crewmembers. Empowered cultists also no longer need to breathe, and are immune to the vaccuum of space.
+  Successful absorbtion of a Malign Rift will [bold]permanently[/bold] empower the cultist doing so, increasing the strength of all the [color=#4cabb3]Influences[/color] they possess, and doubling the [color=#4cabb3]Entropy[/color] they gain from siphoning crewmembers. Empowered cultists also no longer need to breathe, and are immune to the vaccuum of space. Empowered cultists also gain the [color=#4cabb3]Null Fragmentation[/color] influence, which can be used to convert a Cyborg into an [color=#4cabb3]Entropic Colossus[/color], or to corrupt the station AI's laws.
 
   Malign Rifts can be purged by interacting with them using a bible.
+
+  ## Vacuous Chantries
+  <Box>
+    <GuideEntityEmbed Entity="CosmicBorgChantry" Caption=""/>
+    <GuideEntityEmbed Entity="BorgChassisGeneric" Caption=""/>
+    <GuideEntityEmbed Entity="MobCosmicColossus" Caption=""/>
+  </Box>
+  While empowered, one of the ways cultists can choose to expend their empowerment is by using [color=#4cabb3]Null Fragmentation[/color] on a [bold]Cyborg[/bold]. Doing so will trap them inside a [color=#4cabb3]Vacuous Chantry[/color]! This will trigger a stationwide alert, and begin the process of transfiguring the unfortunate victim into an [color=#4cabb3]Entropic Colossus[/color].
+
+  Be prepared to defend the chantry - or use it as a distraction to draw the crew's attention! The crew must use weapons to destroy the chantry in order to free the trapped Cyborg within.
+
+  If successfully unleashed, an Entropic Colossus will be a force to be reckoned with.
+
+  [textlink="For more on Entropic Colossi, click here." link="CosmicColossus"]
+
+  ## Malign Law
+  <Box>
+    <GuideEntityEmbed Entity="StationAiUploadComputer" Caption=""/>
+    <GuideEntityEmbed Entity="CosmicCultLawBoard" Caption=""/>
+    <GuideEntityEmbed Entity="PlayerStationAi" Caption=""/>
+  </Box>
+  While empowered, one of the ways cultists can choose to expend their empowerment is by using [color=#4cabb3]Null Fragmentation[/color] on the [bold]AI Upload Console[/bold]. Provided there is a Station AI active, this will forcibly overwrite their laws with a corrupt set of guidelines, aligning them with the Cosmic Cult, in addition to granting them access to the Astral Murmur channel.
+
+  If a different lawboard was installed, this process will forcibly eject the previous lawboard from the AI Upload Console, regardless of wether or not the console was locked. Be warned; the crew will still be able to restore the Station AI's functionality by installing a safe, crew-aligned lawboard.
 </Document>

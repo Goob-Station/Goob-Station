@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Text.RegularExpressions;
@@ -38,6 +34,7 @@ using Content.Shared._Lavaland.Chasm;
 using Content.Shared._Shitmed.Body.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared.Actions;
+using Content.Shared.Administration.Systems;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
@@ -51,6 +48,7 @@ using Content.Shared.Shuttles.Components;
 using Content.Shared.Speech;
 using Content.Shared.Speech.Components;
 using Content.Shared.Temperature.Components;
+using Content.Shared.Zombies;
 using Robust.Server.Containers;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;

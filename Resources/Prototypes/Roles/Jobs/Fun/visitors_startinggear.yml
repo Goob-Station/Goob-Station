@@ -1,11 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Aineias1 <142914808+Aineias1@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 ### Visitors with Visitor ID
 
@@ -49,7 +41,7 @@
     jumpsuit: ClothingUniformJumpsuitChiefEngineer
     shoes: ClothingShoesColorWhite
     head: ClothingHeadHatBeretEngineering
-    neck: ClothingNeckCloakWhiteCe
+    neck: ClothingNeckCloakWhiteCe # Goobstation
     id: VisitorPDA
     belt: ClothingBeltChiefEngineerFilled
     back: ClothingBackpackDuffelEngineering
@@ -759,7 +751,7 @@
 - type: startingGear
   id: VisitorParamedic
   equipment:
-    jumpsuit: ClothingUniformJumpsuitParamedicNT
+    jumpsuit: ClothingUniformJumpsuitParamedic
     shoes: ClothingShoesSwat
     gloves: ClothingHandsGlovesLatex
     head: ClothingHeadHatParamedicsoft
@@ -1266,7 +1258,7 @@
     pocket1: BookSun
     pocket2: BookRandomStory
   inhand:
-  - BoxFolderClipboard
+  - BoxFolderClipboardThreePapers
 
 - type: startingGear
   id: VisitorMusicianFancyAltA
@@ -1536,7 +1528,7 @@
     back: ClothingBackpackSatchel
     ears: ClothingHeadsetService
     pocket1: MicrophoneInstrument
-    pocket2: BoxFolderClipboard
+    pocket2: BoxFolderClipboardThreePapers
 
 - type: startingGear
   id: VisitorReporterAlt
@@ -1547,7 +1539,7 @@
     back: ClothingBackpackSatchel
     ears: ClothingHeadsetService
     pocket1: MicrophoneInstrument
-    pocket2: BoxFolderClipboard
+    pocket2: BoxFolderClipboardThreePapers
 
 - type: startingGear
   id: VisitorServiceWorker
@@ -1700,7 +1692,7 @@
     jumpsuit: ClothingUniformJumpsuitChiefEngineer
     shoes: ClothingShoesColorWhite
     head: ClothingHeadHatBeretEngineering
-    neck: ClothingNeckCloakWhiteCe
+    neck: ClothingNeckCloakWhiteCe # Goobstation
     id: VisitorPDA
     #belt: ClothingBeltChiefEngineerFilled # probably too strong?
     back: ClothingBackpackDuffelEngineering

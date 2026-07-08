@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2023 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: MIT
 
 using Robust.Shared.GameStates;
@@ -39,6 +36,6 @@ public struct PowerCableChunk
     public PowerCableChunk(Vector2i origin)
     {
         Origin = origin;
-        PowerCableData = new int[3];
+        PowerCableData = new int[Enum.GetNames(typeof(CableType)).Length];
     }
 }

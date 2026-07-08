@@ -1,23 +1,12 @@
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Jake Huxell <JakeHuxell@pm.me>
-// SPDX-FileCopyrightText: 2024 Vyacheslav Kovalevsky <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Objectives.Components;
-using Content.Server.Roles;
 using Content.Shared.Objectives.Components;
-using Content.Shared.Ninja.Components;
 using Content.Shared.Roles;
 using Content.Shared.Warps;
+using Content.Shared.Roles.Components;
+using Content.Shared.Warps;
+using Content.Shared.Whitelist;
 using Robust.Shared.Random;
 
 namespace Content.Server.Objectives.Systems;
@@ -28,6 +17,7 @@ namespace Content.Server.Objectives.Systems;
 /// </summary>
 public sealed class NinjaConditionsSystem : EntitySystem
 {
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly NumberObjectiveSystem _number = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -67,10 +57,13 @@ public sealed class NinjaConditionsSystem : EntitySystem
 
         // choose spider charge detonation point
         var warps = new List<EntityUid>();
-        var query = EntityQueryEnumerator<BombingTargetComponent, WarpPointComponent>();
-        while (query.MoveNext(out var warpUid, out _, out var warp))
+        var allEnts = EntityQueryEnumerator<WarpPointComponent>();
+        var bombingBlacklist = comp.Blacklist;
+
+        while (allEnts.MoveNext(out var warpUid, out var warp))
         {
-            if (warp.Location != null)
+            if (_whitelist.IsWhitelistFail(bombingBlacklist, warpUid)
+                && !string.IsNullOrWhiteSpace(warp.Location))
             {
                 warps.Add(warpUid);
             }

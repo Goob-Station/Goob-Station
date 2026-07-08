@@ -8,6 +8,12 @@
     },
     "states": [
         {
+            "name": "dead"
+        },
+        {
+            "name": "dead_unshaded"
+        },
+        {
             "name": "custodian",
             "directions": 4,
             "delays": [

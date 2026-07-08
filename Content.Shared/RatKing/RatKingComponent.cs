@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-//
 // SPDX-License-Identifier: MIT
 
 using Robust.Shared.GameStates;
@@ -66,7 +58,7 @@ public sealed partial class RatKingComponent : Component
     /// </summary>
     [DataField("currentOrders"), ViewVariables(VVAccess.ReadWrite)]
     [AutoNetworkedField]
-    public RatKingOrderType CurrentOrder = RatKingOrderType.Follow; // Trauma, changed "Loose" to "Follow"
+    public RatKingOrderType CurrentOrder = RatKingOrderType.Follow;
 
     /// <summary>
     /// The servants that the rat king is currently controlling

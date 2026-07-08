@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 MarkerWicker <markerWicker@proton.me>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-//
 // SPDX-License-Identifier: MIT
 
 using System.Numerics;
@@ -87,11 +78,13 @@ namespace Content.Shared.Movement.Components
         public TimeSpan LerpTarget;
 
         public const float LerpTime = 1.0f;
+        public const float SprintingSoundModifier = 3.5f;
+        public const float WalkingSoundModifier = 1.5f;
 
         public bool Sprinting => DefaultSprinting
-        ? (HeldMoveButtons & MoveButtons.Walk) != 0x0
-        : (HeldMoveButtons & MoveButtons.Walk) == 0x0;
-        
+            ? (HeldMoveButtons & MoveButtons.Walk) == 0x0
+            : (HeldMoveButtons & MoveButtons.Walk) != 0x0;
+
         public bool DefaultSprinting = true;
 
         [ViewVariables(VVAccess.ReadWrite)]

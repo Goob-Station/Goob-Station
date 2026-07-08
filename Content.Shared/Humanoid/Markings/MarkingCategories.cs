@@ -1,17 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ScyronX <166930367+ScyronX@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Froffy025 <78222136+Froffy025@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Froffy025 <scotttaco025@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-// SPDX-FileCopyrightText: 2025 Sapphire <98045970+sapphirescript@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Shared.Serialization;
@@ -29,7 +15,10 @@ namespace Content.Shared.Humanoid.Markings
         HeadSide,
         Face, // Plasmeme Port
         Snout,
+        SnoutCover,
         Chest,
+        UndergarmentTop,
+        UndergarmentBottom,
         RightArm,
         RightHand,
         LeftArm,
@@ -42,8 +31,6 @@ namespace Content.Shared.Humanoid.Markings
         Legs,
         Groin, // Shitmed Change
         Wings, // For IPC wings porting from SimpleStation
-        Underwear,
-        Undershirt,
         Tail,
         Overlay
     }
@@ -62,19 +49,19 @@ namespace Content.Shared.Humanoid.Markings
                 HumanoidVisualLayers.HeadTop => MarkingCategories.HeadTop,
                 HumanoidVisualLayers.HeadSide => MarkingCategories.HeadSide,
                 HumanoidVisualLayers.Snout => MarkingCategories.Snout,
-                HumanoidVisualLayers.Undershirt => MarkingCategories.Undershirt,
-                HumanoidVisualLayers.Underwear => MarkingCategories.Underwear,
                 HumanoidVisualLayers.Chest => MarkingCategories.Chest,
+                HumanoidVisualLayers.UndergarmentTop => MarkingCategories.UndergarmentTop,
+                HumanoidVisualLayers.UndergarmentBottom => MarkingCategories.UndergarmentBottom,
                 HumanoidVisualLayers.Groin => MarkingCategories.Groin, // Shitmed Change
-                HumanoidVisualLayers.RArm => MarkingCategories.RightArm,
-                HumanoidVisualLayers.LArm => MarkingCategories.LeftArm,
-                HumanoidVisualLayers.RHand => MarkingCategories.RightHand,
-                HumanoidVisualLayers.LHand => MarkingCategories.LeftHand,
-                HumanoidVisualLayers.LLeg => MarkingCategories.LeftLeg,
-                HumanoidVisualLayers.RLeg => MarkingCategories.RightLeg,
-                HumanoidVisualLayers.LFoot => MarkingCategories.LeftFoot,
-                HumanoidVisualLayers.RFoot => MarkingCategories.RightFoot,
-                HumanoidVisualLayers.Wings => MarkingCategories.Wings,
+                HumanoidVisualLayers.RArm => MarkingCategories.RightArm, // Goobstation
+                HumanoidVisualLayers.LArm => MarkingCategories.LeftArm, // Goobstation
+                HumanoidVisualLayers.RHand => MarkingCategories.RightHand, // Goobstation
+                HumanoidVisualLayers.LHand => MarkingCategories.LeftHand, // Goobstation
+                HumanoidVisualLayers.LLeg => MarkingCategories.LeftLeg, // Goobstation
+                HumanoidVisualLayers.RLeg => MarkingCategories.RightLeg, // Goobstation
+                HumanoidVisualLayers.LFoot => MarkingCategories.LeftFoot, // Goobstation
+                HumanoidVisualLayers.RFoot => MarkingCategories.RightFoot, // Goobstation
+                HumanoidVisualLayers.Wings => MarkingCategories.Wings, // Goobstation
                 HumanoidVisualLayers.Tail => MarkingCategories.Tail,
                 _ => MarkingCategories.Overlay
             };

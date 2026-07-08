@@ -1,0 +1,156 @@
+
+
+# Not parenting this shit to BaseItem cause i dont want this to be an item.
+- type: entity
+  id: PartColossus
+  name: "Colossus body part"
+  abstract: true
+  components:
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      collection: GenericPickup
+      params:
+        volume: -7
+  - type: EmitSoundOnDrop
+    sound:
+      collection: GenericDrop
+      params:
+        volume: -7
+  # Goobstation edit end
+  - type: Pullable
+  - type: DamageExaminable
+  - type: Animateable
+  - type: Clickable
+  - type: InteractionOutline
+  - type: MovedByPressure
+  - type: EmitSoundOnCollide
+    sound:
+      collection: WeakHit
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Effects/drop.ogg
+      params:
+        volume: 2
+  - type: DamageOnHighSpeedImpact
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+  - type: BodyPart
+    partComposition: Inorganic
+  - type: SurgeryTool # Shitmed Change
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/organ1.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/organ2.ogg
+  - type: Gibbable
+  - type: ContainerContainer
+    containers:
+      bodypart: !type:Container
+        ents: [ ]
+      Wounds: !type:Container # Shitmed Change
+        ents: [ ]
+      Bone: !type:Container # Shitmed Change
+        ents: [ ]
+  - type: Appearance
+  - type: StaticPrice
+    price: 100
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Mobs/Species/Colossus/parts.rsi/
+    layers:
+    - state: chest
+      map: [ "base" ]
+    - state: dead
+      visible: false
+      map: [ "corpse" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.ColossusVisuals.Status:
+        base:
+          Alive: { visible: true }
+          Dead: { visible: false }
+          Action: { visible: false }
+        corpse:
+          Alive: { visible: false }
+          Dead: { visible: true }
+          Action: { visible: false }
+  - type: Icon
+    sprite: _Goobstation/Mobs/Species/Colossus/parts.rsi/
+  - type: Physics
+    bodyType: Dynamic
+    fixedRotation: false
+    canCollide: True
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.42
+        density: 2500
+        mask:
+        - MobMask
+        - SmallMobMask
+        layer:
+        - WallLayer
+  - type: Damageable
+    damageContainer: InorganicMetaphysical
+    damageModifierSet: EntropicColossus
+  - type: Butcherable
+    butcherDelay: 16
+    spawned:
+    - id: CosmicCultMindSink
+      amount: 1
+
+
+- type: entity
+  id: ChestColossus
+  name: colossus chest
+  parent: [PartColossus]
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Mobs/Species/Colossus/parts.rsi/
+    layers:
+    - state: chest
+      map: [ "base" ]
+    - state: dead
+      visible: false
+      map: [ "corpse" ]
+  - type: Icon
+    state: "chest"
+  - type: BodyPart
+    partType: Chest
+    # Shitmed Change Start
+    toolName: "a chest"
+    containerName: "chest_slot"
+  - type: Woundable
+    damageContainer: InorganicMetaphysical
+    integrity: 450
+    integrityCap: 450
+    thresholds:
+      Minor: 405
+      Moderate: 270
+      Severe: 135
+      Critical: 67.5
+      Mangled: 0
+  - type: ConsciousnessRequired
+    identifier: "chest"
+    causesDeath: true
+  - type: ContainerContainer
+    containers:
+      chest_slot: !type:ContainerSlot { }
+      Wounds: !type:Container # Shitmed Change
+        ents: [ ]
+      Bone: !type:Container # Shitmed Change
+        ents: [ ]
+
+- type: body
+  id: ColossusBody
+  name: colossusbody
+  root: chest
+  slots:
+    chest:
+      part: ChestColossus

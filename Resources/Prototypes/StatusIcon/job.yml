@@ -1,134 +1,255 @@
-# SPDX-FileCopyrightText: 2023 Nairod <110078045+Nairodian@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Alice 'Arimah' Heurlin <30327355+arimah@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 CaasGit <87243814+CaasGit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
-# SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
-# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Golinth <amh2023@gmail.com>
-# SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kukutis96513 <146854220+Kukutis96513@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Lye <128915833+Lyroth001@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MerrytheManokit <167581110+MerrytheManokit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 OrangeMoronage9622 <whyteterry0092@gmail.com>
-# SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 PopGamer46 <yt1popgamer@gmail.com>
-# SPDX-FileCopyrightText: 2024 PrPleGoo <PrPleGoo@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Spessmann <156740760+Spessmann@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
-# SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2024 Vigers Ray <60344369+VigersRay@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 coolboy911 <85909253+coolboy911@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
-# SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-# SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lunarcomets <140772713+lunarcomets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-# SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
-# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: jobIcon
-  id: JobIcon
   abstract: true
+  id: JobIcon
   priority: 1
   locationPreference: Right
   isShaded: true
 
+# Cargo
+
 - type: jobIcon
   parent: JobIcon
-  id: JobIconDetective
+  id: JobIconCargoTechnician
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: Detective
-  jobName: job-name-detective
+    sprite: &icon-rsi /Textures/Interface/Misc/job_icons.rsi
+    state: CargoTechnician
+  jobName: job-name-cargotech
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconShaftMiner
+  icon:
+    sprite: *icon-rsi
+    state: ShaftMiner
+  jobName: job-name-salvagespec
+
+# Command
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCaptain
+  icon:
+    sprite: *icon-rsi
+    state: Captain
+  jobName: job-name-captain
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconChiefEngineer
+  icon:
+    sprite: *icon-rsi
+    state: ChiefEngineer
+  jobName: job-name-ce
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconChiefMedicalOfficer
+  icon:
+    sprite: *icon-rsi
+    state: ChiefMedicalOfficer
+  jobName: job-name-cmo
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconHeadOfPersonnel
+  icon:
+    sprite: *icon-rsi
+    state: HeadOfPersonnel
+  jobName: job-name-hop
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconHeadOfSecurity
+  icon:
+    sprite: *icon-rsi
+    state: HeadOfSecurity
+  jobName: job-name-hos
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconResearchDirector
+  icon:
+    sprite: *icon-rsi
+    state: ResearchDirector
+  jobName: job-name-rd
 
 - type: jobIcon
   parent: JobIcon
   id: JobIconQuarterMaster
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
+    sprite: *icon-rsi
     state: QuarterMaster
   jobName: job-name-qm
 
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconBorg
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: Borg
-  jobName: job-name-borg
+# Engineering
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconStationAi
+  id: JobIconAtmosphericTechnician
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: StationAi
-  jobName: job-name-station-ai
+    sprite: *icon-rsi
+    state: AtmosphericTechnician
+  jobName: job-name-atmostech
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconStationEngineer
+  icon:
+    sprite: *icon-rsi
+    state: StationEngineer
+  jobName: job-name-engineer
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconTechnicalAssistant
+  icon:
+    sprite: *icon-rsi
+    state: TechnicalAssistant
+  jobName: job-name-technical-assistant
+
+# Medical
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconChemist
+  icon:
+    sprite: *icon-rsi
+    state: Chemist
+  jobName: job-name-chemist
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconGeneticist
+  icon:
+    sprite: *icon-rsi
+    state: Geneticist
+  jobName: job-name-geneticist
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconMedicalDoctor
+  icon:
+    sprite: *icon-rsi
+    state: MedicalDoctor
+  jobName: job-name-doctor
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconMedicalIntern
+  icon:
+    sprite: *icon-rsi
+    state: MedicalIntern
+  jobName: job-name-intern
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconParamedic
+  icon:
+    sprite: *icon-rsi
+    state: Paramedic
+  jobName: job-name-paramedic
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconPsychologist
+  icon:
+    sprite: *icon-rsi
+    state: Psychologist
+  jobName: job-name-psychologist
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconVirologist
+  icon:
+    sprite: *icon-rsi
+    state: Virologist
+  jobName: job-name-virologist
+
+# Research
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconResearchAssistant
+  icon:
+    sprite: *icon-rsi
+    state: ResearchAssistant
+  jobName: job-name-research-assistant
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconRoboticist
+  icon:
+    sprite: *icon-rsi
+    state: Roboticist
+  jobName: job-name-roboticist
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconScientist
+  icon:
+    sprite: *icon-rsi
+    state: Scientist
+  jobName: job-name-scientist
+
+# Security
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconBrigmedic
+  icon:
+    sprite: *icon-rsi
+    state: Brigmedic
+  jobName: job-name-brigmedic
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconDetective
+  icon:
+    sprite: *icon-rsi
+    state: Detective
+  jobName: job-name-detective
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSecurityCadet
+  icon:
+    sprite: *icon-rsi
+    state: SecurityCadet
+  jobName: job-name-cadet
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSecurityOfficer
+  icon:
+    sprite: *icon-rsi
+    state: SecurityOfficer
+  jobName: job-name-security
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconWarden
+  icon:
+    sprite: *icon-rsi
+    state: Warden
+  jobName: job-name-warden
+
+# Service
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconBartender
+  icon:
+    sprite: *icon-rsi
+    state: Bartender
+  jobName: job-name-bartender
 
 - type: jobIcon
   parent: JobIcon
   id: JobIconBotanist
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
+    sprite: *icon-rsi
     state: Botanist
   jobName: job-name-botanist
 
@@ -136,287 +257,89 @@
   parent: JobIcon
   id: JobIconBoxer
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
+    sprite: *icon-rsi
     state: Boxer
   jobName: job-name-boxer
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconAtmosphericTechnician
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: AtmosphericTechnician
-  jobName: job-name-atmostech
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconNanotrasen
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: Nanotrasen
-  jobName: job-name-centcomoff
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconPrisoner
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: Prisoner
-  jobName: job-name-prisoner
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconJanitor
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: Janitor
-  jobName: job-name-janitor
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconChemist
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: Chemist
-  jobName: job-name-chemist
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconStationEngineer
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: StationEngineer
-  jobName: job-name-engineer
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconSecurityOfficer
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: SecurityOfficer
-  jobName: job-name-security
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconNoId
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: NoId
-  jobName: job-name-no-id
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconChiefMedicalOfficer
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: ChiefMedicalOfficer
-  jobName: job-name-cmo
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconRoboticist
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: Roboticist
-  jobName: job-name-roboticist
-
-- type: jobIcon
-  parent: JobIcon
   id: JobIconChaplain
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
+    sprite: *icon-rsi
     state: Chaplain
   jobName: job-name-chaplain
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconLawyer
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: Lawyer
-  jobName: job-name-lawyer
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconUnknown
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: Unknown
-  jobName: job-name-unknown
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconLibrarian
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: Librarian
-  jobName: job-name-librarian
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconCargoTechnician
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: CargoTechnician
-  jobName: job-name-cargotech
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconScientist
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: Scientist
-  jobName: job-name-scientist
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconResearchAssistant
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: ResearchAssistant
-  jobName: job-name-research-assistant
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconGeneticist
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: Geneticist
-  jobName: job-name-geneticist
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconClown
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: Clown
-  jobName: job-name-clown
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconCluwne
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: Cluwne
-  jobName: job-name-cluwne
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconCaptain
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: Captain
-  jobName: job-name-captain
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconHeadOfPersonnel
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: HeadOfPersonnel
-  jobName: job-name-hop
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconVirologist
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: Virologist
-  jobName: job-name-virologist
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconShaftMiner
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: ShaftMiner
-  jobName: job-name-salvagespec
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconPassenger
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: Passenger
-  jobName: job-name-passenger
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconChiefEngineer
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: ChiefEngineer
-  jobName: job-name-ce
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconBartender
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: Bartender
-  jobName: job-name-bartender
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconHeadOfSecurity
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: HeadOfSecurity
-  jobName: job-name-hos
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconBrigmedic
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: Brigmedic
-  jobName: job-name-brigmedic
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconMedicalDoctor
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: MedicalDoctor
-  jobName: job-name-doctor
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconParamedic
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: Paramedic
-  jobName: job-name-paramedic
-
-- type: jobIcon
-  parent: JobIcon
   id: JobIconChef
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
+    sprite: *icon-rsi
     state: Chef
   jobName: job-name-chef
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconWarden
+  id: JobIconJanitor
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: Warden
-  jobName: job-name-warden
+    sprite: *icon-rsi
+    state: Janitor
+  jobName: job-name-janitor
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconResearchDirector
+  id: JobIconLawyer
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: ResearchDirector
-  jobName: job-name-rd
+    sprite: *icon-rsi
+    state: Lawyer
+  jobName: job-name-lawyer
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconLibrarian
+  icon:
+    sprite: *icon-rsi
+    state: Librarian
+  jobName: job-name-librarian
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconReporter
+  icon:
+    sprite: *icon-rsi
+    state: Reporter
+  jobName: job-name-reporter
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconServiceWorker
+  icon:
+    sprite: *icon-rsi
+    state: ServiceWorker
+  jobName: job-name-serviceworker
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconZookeeper
+  icon:
+    sprite: *icon-rsi
+    state: Zookeeper
+  jobName: job-name-zookeeper
+
+# Entertainer (like service, but not actually service)
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconClown # :o)
+  icon:
+    sprite: *icon-rsi
+    state: Clown
+  jobName: job-name-clown
 
 - type: jobIcon
   parent: JobIcon
   id: JobIconMime
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
+    sprite: *icon-rsi
     state: Mime
   jobName: job-name-mime
 
@@ -424,87 +347,103 @@
   parent: JobIcon
   id: JobIconMusician
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
+    sprite: *icon-rsi
     state: Musician
   jobName: job-name-musician
 
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconReporter
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: Reporter
-  jobName: job-name-reporter
+# Passenger
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconPsychologist
+  id: JobIconPassenger
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: Psychologist
-  jobName: job-name-psychologist
+    sprite: *icon-rsi
+    state: Passenger
+  jobName: job-name-passenger
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconMedicalIntern
+  id: JobIconVisitor
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: MedicalIntern
-  jobName: job-name-intern
+    sprite: *icon-rsi
+    state: Visitor
+  jobName: job-name-visitor
+
+# Silicon
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconTechnicalAssistant
+  id: JobIconBorg
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: TechnicalAssistant
-  jobName: job-name-technical-assistant
+    sprite: *icon-rsi
+    state: Borg
+  jobName: job-name-borg
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconServiceWorker
+  id: JobIconStationAi
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: ServiceWorker
-  jobName: job-name-serviceworker
+    sprite: *icon-rsi
+    state: StationAi
+  jobName: job-name-station-ai
+
+# Bad guys
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconSecurityCadet
+  id: JobIconCluwne # >:o(
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: SecurityCadet
-  jobName: job-name-cadet
+    sprite: *icon-rsi
+    state: Cluwne
+  jobName: job-name-cluwne
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconZombie # This is a perfectly legitimate profession to pursue
+  id: JobIconPrisoner
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: Zombie
-  jobName: job-name-zombie
+    sprite: *icon-rsi
+    state: Prisoner
+  jobName: job-name-prisoner
 
 - type: jobIcon
   parent: JobIcon
   id: JobIconSyndicate # Just in case you want to make it official which side you are on
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
+    sprite: *icon-rsi
     state: Syndicate
   jobName: job-name-syndicate
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconZookeeper
+  id: JobIconZombie # This is a perfectly legitimate profession to pursue
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: Zookeeper
-  jobName: job-name-zookeeper
+    sprite: *icon-rsi
+    state: Zombie
+  jobName: job-name-zombie
+
+# Admin
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconNanotrasen
+  icon:
+    sprite: *icon-rsi
+    state: Nanotrasen
+  jobName: job-name-centcomoff
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconAdmin
+  icon:
+    sprite: *icon-rsi
+    state: Admin
+  allowSelection: false
 
 - type: jobIcon
   parent: JobIcon
   id: JobIconSeniorPhysician
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
+    sprite: *icon-rsi
     state: SeniorPhysician
   allowSelection: false
 
@@ -512,7 +451,7 @@
   parent: JobIcon
   id: JobIconSeniorOfficer
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
+    sprite: *icon-rsi
     state: SeniorOfficer
   allowSelection: false
 
@@ -520,7 +459,7 @@
   parent: JobIcon
   id: JobIconSeniorEngineer
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
+    sprite: *icon-rsi
     state: SeniorEngineer
   allowSelection: false
 
@@ -528,25 +467,27 @@
   parent: JobIcon
   id: JobIconSeniorResearcher
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
+    sprite: *icon-rsi
     state: SeniorResearcher
   allowSelection: false
 
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconVisitor
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: Visitor
-  jobName: job-name-visitor
+# Other
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconAdmin
+  id: JobIconNoId
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: Admin
-  allowSelection: false
+    sprite: *icon-rsi
+    state: NoId
+  jobName: job-name-no-id
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconUnknown
+  icon:
+    sprite: *icon-rsi
+    state: Unknown
+  jobName: job-name-unknown
 
 - type: jobIcon
   parent: JobIcon

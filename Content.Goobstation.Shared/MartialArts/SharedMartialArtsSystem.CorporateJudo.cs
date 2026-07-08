@@ -1,15 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Grab;
@@ -95,7 +83,7 @@ public partial class SharedMartialArtsSystem
 
         _movementMod.TryUpdateMovementSpeedModDuration(target, MartsGenericSlow, TimeSpan.FromSeconds(5), 0.5f, 0.5f);
 
-        _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
+        _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
 
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
         ComboPopup(ent, target, proto.Name);
@@ -136,7 +124,7 @@ public partial class SharedMartialArtsSystem
             || !TryComp<PullableComponent>(target, out var pullable))
             return;
 
-        var knockdownTime = TimeSpan.FromSeconds(proto.ParalyzeTime);
+        var knockdownTime = proto.ParalyzeTime;
 
         var ev = new BeforeStaminaDamageEvent(1f);
         RaiseLocalEvent(target, ref ev);
@@ -145,7 +133,7 @@ public partial class SharedMartialArtsSystem
 
         _stun.TryKnockdown(target, knockdownTime, true, true, proto.DropItems);
 
-        _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
+        _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
 
         _pulling.TryStopPull(target, pullable, ent, true);
 
@@ -165,7 +153,7 @@ public partial class SharedMartialArtsSystem
             || !TryComp<GrabbableComponent>(target, out var grabbable))
             return;
 
-        var knockdownTime = TimeSpan.FromSeconds(proto.ParalyzeTime);
+        var knockdownTime = proto.ParalyzeTime;
 
         var ev = new BeforeStaminaDamageEvent(1f);
         RaiseLocalEvent(target, ref ev);
@@ -174,7 +162,7 @@ public partial class SharedMartialArtsSystem
 
         if (!HasComp<ArmbarredComponent>(target))
         {
-            _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
+            _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
             AddComp<ArmbarredComponent>(target).Puller = ent;
         }
 
@@ -200,7 +188,7 @@ public partial class SharedMartialArtsSystem
             || armbarred.Puller != ent.Owner)
             return;
 
-        _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
+        _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
 
         _pulling.TryStopPull(target, pullable, ent, true);
         _grabThrowing.Throw(target,
@@ -226,7 +214,7 @@ public partial class SharedMartialArtsSystem
             || !TryComp<PullableComponent>(target, out var pullable))
             return;
 
-        _stun.TryUpdateParalyzeDuration(target, TimeSpan.FromSeconds(proto.ParalyzeTime));
+        _stun.TryUpdateParalyzeDuration(target, proto.ParalyzeTime);
 
         _pulling.TryStopPull(target, pullable, ent, true);
 

@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Anomaly.Components;
@@ -41,5 +37,13 @@ public sealed class SecretDataAnomalySystem : EntitySystem
         {
             component.Secret.Add(_random.PickAndTake(_deita));
         }
+    }
+
+    public bool IsSecret(EntityUid uid, AnomalySecretData item, SecretDataAnomalyComponent? component = null)
+    {
+        if (!Resolve(uid, ref component, logMissing: false))
+            return false;
+
+        return component.Secret.Contains(item);
     }
 }

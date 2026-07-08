@@ -1,14 +1,9 @@
-// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
-// SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Chat.Systems;
 using Content.Server.Lightning;
 using Content.Server.Popups;
-using Content.Server.PowerCell;
+using Content.Shared.PowerCell;
 using Content.Server._EinsteinEngines.Silicon.Charge;
 using Content.Server.Lightning.Components; // Goobstation - Fix IPC shock loops
 using Content.Server.Power.EntitySystems; // Goobstation - Energycrit
@@ -94,11 +89,11 @@ public sealed class DeadStartupButtonSystem : SharedDeadStartupButtonSystem
             || !TryComp<MobStateComponent>(uid, out var mobStateComponent)
             || !_mobState.IsDead(uid, mobStateComponent)
             || !_siliconChargeSystem.TryGetSiliconBattery(uid, out var bateria, out var batteryEnt) // Goobstation - Added batteryEnt argument
-            || bateria.CurrentCharge <= 0)
+            || bateria.LastCharge <= 0)
             return;
 
         _lightning.ShootRandomLightnings(uid, 2, 4);
-        _battery.TryUseCharge(batteryEnt.Value, bateria.CurrentCharge); // Goobstation - Added batteryEnt argument
+        _battery.TryUseCharge(batteryEnt.Value, bateria.LastCharge); // Goobstation - Added batteryEnt argument
     }
 
     private void OnMobStateChanged(EntityUid uid, DeadStartupButtonComponent comp, MobStateChangedEvent args)

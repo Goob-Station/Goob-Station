@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 csqrb <56765288+CaptainSqrBeard@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: MIT
 
 using Robust.Shared.Utility;
@@ -95,7 +91,7 @@ public static class MarkingColoring
 public sealed partial class LayerColoringDefinition
 {
     [DataField("type")]
-    public LayerColoringType Type = new SkinColoring();
+    public LayerColoringType? Type = new SkinColoring();
 
     /// <summary>
     ///     Coloring types that will be used if main coloring type will return nil
@@ -111,7 +107,9 @@ public sealed partial class LayerColoringDefinition
 
     public Color GetColor(Color? skin, Color? eyes, MarkingSet markingSet)
     {
-        var color = Type.GetColor(skin, eyes, markingSet);
+        Color? color = null;
+        if (Type != null)
+            color = Type.GetColor(skin, eyes, markingSet);
         if (color == null)
         {
             foreach (var type in FallbackTypes)

@@ -56,7 +56,7 @@
     jumpsuit: ClothingUniformJumpsuitColorWhite
     outerClothing: WhiteRobes
     shoes: ClothingShoesBootsJack
-    belt: ClothingBeltAssaultFilled
+    belt: ClothingBeltMilitaryWebbingFilled
     id: CentcomPDA
   inhand:
   - PinpointerDarkLord

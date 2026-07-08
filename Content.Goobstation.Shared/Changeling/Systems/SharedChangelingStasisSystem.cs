@@ -293,7 +293,7 @@ public abstract partial class SharedChangelingStasisSystem : EntitySystem
         if (_bloodQuery.TryComp(ent, out var bloodComp))
         {
             _blood.TryModifyBleedAmount((ent, bloodComp), -bloodComp.BleedAmount);
-            _blood.TryModifyBloodLevel((ent, bloodComp), bloodComp.BloodMaxVolume);
+            _blood.TryModifyBloodLevel((ent, bloodComp), bloodComp.BloodReferenceSolution.Volume);
         }
 
         ResetTemperature(ent);

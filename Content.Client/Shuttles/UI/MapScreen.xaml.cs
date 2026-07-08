@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
@@ -163,7 +153,7 @@ public sealed partial class MapScreen : BoxContainer
                 break;
         }
 
-        if (IsFTLBlocked())
+        if (IsPingBlocked())
         {
             MapRebuildButton.Disabled = true;
             ClearMapObjects();
@@ -247,7 +237,7 @@ public sealed partial class MapScreen : BoxContainer
     private void ClearMapObjects()
     {
         _mapObjectControls.Clear();
-        HyperspaceDestinations.DisposeAllChildren();
+        HyperspaceDestinations.RemoveAllChildren();
         _pendingMapObjects.Clear();
         _mapObjects.Clear();
         _mapHeadings.Clear();
@@ -418,9 +408,21 @@ public sealed partial class MapScreen : BoxContainer
         }
     }
 
+    /// <summary>
+    /// Returns true if we shouldn't be able to select the Scan for Objects button.
+    /// </summary>
+    private bool IsPingBlocked()
+    {
+        return _state switch
+        {
+            FTLState.Available or FTLState.Cooldown => false,
+            _ => true,
+        };
+    }
+
     private void OnMapObjectPress(IMapObject mapObject)
     {
-        if (IsFTLBlocked())
+        if (IsPingBlocked())
             return;
 
         var coordinates = _shuttles.GetMapCoordinates(mapObject);
@@ -516,7 +518,7 @@ public sealed partial class MapScreen : BoxContainer
             BumpMapDequeue();
         }
 
-        if (!IsFTLBlocked() && _nextPing < curTime)
+        if (!IsPingBlocked() && _nextPing < curTime)
         {
             MapRebuildButton.Disabled = false;
         }

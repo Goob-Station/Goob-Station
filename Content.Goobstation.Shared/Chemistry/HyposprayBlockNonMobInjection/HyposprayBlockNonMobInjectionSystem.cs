@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Chemistry.EntitySystems;
@@ -19,9 +14,9 @@ public sealed class HyposprayBlockNonMobInjectionSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<HyposprayBlockNonMobInjectionComponent, AfterInteractEvent>(OnAfterInteract, before: new []{typeof(HypospraySystem)});
-        SubscribeLocalEvent<HyposprayBlockNonMobInjectionComponent, MeleeHitEvent>(OnAttack, before: new []{typeof(HypospraySystem)});
-        SubscribeLocalEvent<HyposprayBlockNonMobInjectionComponent, UseInHandEvent>(OnUseInHand, before: new []{typeof(HypospraySystem)});
+        SubscribeLocalEvent<HyposprayBlockNonMobInjectionComponent, AfterInteractEvent>(OnAfterInteract, before: new []{typeof(InjectorSystem)});
+        SubscribeLocalEvent<HyposprayBlockNonMobInjectionComponent, MeleeHitEvent>(OnAttack, before: new []{typeof(InjectorSystem)});
+        SubscribeLocalEvent<HyposprayBlockNonMobInjectionComponent, UseInHandEvent>(OnUseInHand, before: new []{typeof(InjectorSystem)});
     }
 
     private void OnUseInHand(Entity<HyposprayBlockNonMobInjectionComponent> ent, ref UseInHandEvent args)

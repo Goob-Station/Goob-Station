@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
-// SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 the biggest bruh <199992874+thebiggestbruh@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Objectives.Components;
@@ -25,8 +18,6 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
 {
     [Dependency] private readonly TargetObjectiveSystem _target = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly TraitorRuleSystem _traitorRule = default!;
 
     public override void Initialize()
     {

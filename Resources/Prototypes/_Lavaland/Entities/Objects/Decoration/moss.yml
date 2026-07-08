@@ -43,13 +43,14 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Temperature
+  - type: TemperatureDamage
     heatDamage: { }
     coldDamageThreshold: 293 # Doesn't survive room temperature
     coldDamage:
       types:
         Cold: 5
-  - type: Food
-    requiredStomachs: 2 # ruminants have 4 stomachs but i dont care to give them literally 4 stomachs. 2 is good
+  - type: Edible
+    requiresSpecialDigestion: true
     delay: 0.5
   - type: FlavorProfile
     flavors:
@@ -69,7 +70,6 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
         damage:
           types:
             Heat: 0.5
@@ -79,3 +79,6 @@
     ignoreWhitelist:
       components:
       - IgnoreKudzu
+  - type: Tag
+    tags:
+    - Ruminant

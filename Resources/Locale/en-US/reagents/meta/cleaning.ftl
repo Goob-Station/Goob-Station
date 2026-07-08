@@ -9,7 +9,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 reagent-name-bleach = bleach
-reagent-desc-bleach = Heavy duty cleaner that can clean tiles the same as Space Cleaner and also decontaminate clothes. Extremely toxic when ingested.
+reagent-desc-bleach = Heavy duty cleaner that can clean tiles better than Space Cleaner. Extremely toxic when ingested.
 
 reagent-name-space-cleaner = space cleaner
 reagent-desc-space-cleaner = This is able to clean almost all surfaces of almost anything that may dirty them. The janitor is likely to appreciate refills.

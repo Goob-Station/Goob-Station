@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: MIT
 
 using Robust.Shared.Map;
@@ -22,4 +19,14 @@ public sealed class DockingPortState
     public bool Connected => GridDockedWith != null;
 
     public NetEntity? GridDockedWith;
+
+    /// <summary>
+    /// The default colour used to shade a dock on a radar screen
+    /// </summary>
+    public Color Color;
+
+    /// <summary>
+    /// The colour used to shade a dock on a radar screen if it is highlighted (hovered over/selected on docking screen/shown in the main ship radar)
+    /// </summary>
+    public Color HighlightedColor;
 }

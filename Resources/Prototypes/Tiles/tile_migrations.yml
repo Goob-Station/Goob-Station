@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: tileAlias
@@ -56,6 +51,8 @@
   id: FloorAsteroidCoarseSandDug
   target: FloorAsteroidSandDug
 
+# 2023-09-09
+
 - type: tileAlias
   id: FloorGlassAlt
   target: FloorGlass
@@ -63,3 +60,15 @@
 - type: tileAlias
   id: FloorRGlassAlt
   target: FloorRGlass
+
+# 2024-11-15
+# Burnt tiles now exist, but they don't use the tiles system. They're decals.
+# There's presently no way to add decals over existing tiles, so this will have to suffice for now.
+
+- type: tileAlias
+  id: PlatingBurnt
+  target: PlatingDamaged
+
+- type: tileAlias
+  id: FloorSteelBurnt
+  target: FloorSteelDamaged

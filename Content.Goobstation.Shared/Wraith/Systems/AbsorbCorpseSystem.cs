@@ -144,7 +144,7 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
     private bool RemoveReagent(EntityUid target, Entity<AbsorbCorpseComponent> ent)
     {
         if (!TryComp<BloodstreamComponent>(target, out var blood)
-            || !_solution.ResolveSolution(target, blood.ChemicalSolutionName, ref blood.ChemicalSolution, out var chemSolution))
+            || !_solution.ResolveSolution(target, blood.BloodSolutionName, ref blood.BloodSolution, out var chemSolution))
             return false;
 
         foreach (var (reagentId, qty) in chemSolution.Contents)
@@ -152,7 +152,7 @@ public sealed partial class AbsorbCorpseSystem : EntitySystem
             if (reagentId.Prototype != ent.Comp.Reagent || qty < ent.Comp.FormaldehydeThreshhold)
                     continue;
 
-            _solution.RemoveReagent(blood.ChemicalSolution.Value, reagentId, ent.Comp.ChemToRemove);
+            _solution.RemoveReagent(blood.BloodSolution.Value, reagentId, ent.Comp.ChemToRemove);
 
             _damageable.TryChangeDamage(ent.Owner, ent.Comp.Damage, ignoreResistances: true);
             _popup.PopupClient(Loc.GetString("wraith-absorb-tainted"), ent.Owner, ent.Owner, PopupType.MediumCaution);

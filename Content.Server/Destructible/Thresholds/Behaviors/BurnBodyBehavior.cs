@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Body.Part; // Shitmed Change
@@ -20,6 +15,11 @@ namespace Content.Server.Destructible.Thresholds.Behaviors;
 [DataDefinition]
 public sealed partial class BurnBodyBehavior : IThresholdBehavior
 {
+    /// <summary>
+    ///     The popup displayed upon destruction.
+    /// </summary>
+    [DataField]
+    public LocId PopupMessage = "bodyburn-text-others";
 
     public void Execute(EntityUid bodyId, DestructibleSystem system, EntityUid? cause = null)
     {
@@ -36,7 +36,8 @@ public sealed partial class BurnBodyBehavior : IThresholdBehavior
         }
 
         var bodyIdentity = Identity.Entity(bodyId, system.EntityManager);
-        sharedPopupSystem.PopupCoordinates(Loc.GetString("bodyburn-text-others", ("name", bodyIdentity)), transformSystem.GetMoverCoordinates(bodyId), PopupType.LargeCaution);
+        sharedPopupSystem.PopupCoordinates(Loc.GetString(PopupMessage, ("name", bodyIdentity)), transformSystem.GetMoverCoordinates(bodyId), PopupType.LargeCaution);
+
         system.EntityManager.QueueDeleteEntity(bodyId);
     }
 }

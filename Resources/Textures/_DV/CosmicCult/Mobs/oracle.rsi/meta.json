@@ -8,6 +8,12 @@
     },
     "states": [
         {
+            "name": "dead"
+        },
+        {
+            "name": "dead_unshaded"
+        },
+        {
             "name": "oracle",
             "directions": 4,
             "delays": [

@@ -1,24 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Colin-Tel <113523727+Colin-Tel@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Chat.Managers;
@@ -38,7 +17,7 @@ public sealed class RoleSystem : SharedRoleSystem
     {
         if (mindId == null)
         {
-            Log.Error($"MingGetBriefing failed for mind {mindId}");
+            Log.Error($"MindGetBriefing failed for mind {mindId}");
             return null;
         }
 
@@ -46,7 +25,7 @@ public sealed class RoleSystem : SharedRoleSystem
 
         if (mindComp is null)
         {
-            Log.Error($"MingGetBriefing failed for mind {mindId}");
+            Log.Error($"MindGetBriefing failed for mind {mindId}");
             return null;
         }
 
@@ -59,7 +38,7 @@ public sealed class RoleSystem : SharedRoleSystem
 
         // Briefing is no longer raised on the mind entity itself
         // because all the components that briefings subscribe to should be on Mind Role Entities
-        foreach(var role in mindComp.MindRoles)
+        foreach (var role in mindComp.MindRoleContainer.ContainedEntities)
         {
             RaiseLocalEvent(role, ref ev);
         }
@@ -72,7 +51,7 @@ public sealed class RoleSystem : SharedRoleSystem
         if (!Player.TryGetSessionById(mind.UserId, out var session))
             return;
 
-        if (!_proto.TryIndex(mind.RoleType, out var proto))
+        if (!_proto.Resolve(mind.RoleType, out var proto))
             return;
 
         var roleText = Loc.GetString(proto.Name);

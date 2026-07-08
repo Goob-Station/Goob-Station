@@ -1,14 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-// SPDX-FileCopyrightText: 2025 mhamster <81412348+mhamsterr@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
@@ -66,7 +55,7 @@ public sealed partial class ChameleonMenu : DefaultWindow
 
         foreach (var id in _possibleIds)
         {
-            if (!_prototypeManager.TryIndex(id, out EntityPrototype? proto))
+            if (!_prototypeManager.Resolve(id, out EntityPrototype? proto))
                 continue;
 
             var lowId = id.Id.ToLowerInvariant();
@@ -79,7 +68,7 @@ public sealed partial class ChameleonMenu : DefaultWindow
                 MinSize = new Vector2(48, 48),
                 HorizontalExpand = true,
                 Group = group,
-                StyleClasses = {StyleBase.ButtonSquare},
+                StyleClasses = {StyleClass.ButtonSquare},
                 ToggleMode = true,
                 Pressed = _selectedId == id,
                 ToolTip = proto.Name

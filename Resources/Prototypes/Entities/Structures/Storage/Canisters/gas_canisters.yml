@@ -1,70 +1,9 @@
-# SPDX-FileCopyrightText: 2020 20kdc <asdd2808@gmail.com>
-# SPDX-FileCopyrightText: 2020 Clement-O <topy72.mine@gmail.com>
-# SPDX-FileCopyrightText: 2020 Clément <clement.orlandini@gmail.com>
-# SPDX-FileCopyrightText: 2020 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-# SPDX-FileCopyrightText: 2020 ike709 <ike709@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 py01 <60152240+collinlunn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 py01 <pyronetics01@gmail.com>
-# SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-# SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Galactic Chimp <GalacticChimpanzee@gmail.com>
-# SPDX-FileCopyrightText: 2021 Metal Gear Sloth <metalgearsloth@gmail.com>
-# SPDX-FileCopyrightText: 2021 Paul <ritter.paul1+git@googlemail.com>
-# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2021 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <zddm@outlook.es>
-# SPDX-FileCopyrightText: 2021 collinlunn <60152240+collinlunn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2021 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2021 moonheart08 <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Electro <no>
-# SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Justin Trotter <trotter.justin@gmail.com>
-# SPDX-FileCopyrightText: 2022 Mervill <mervills.email@gmail.com>
-# SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2022 Profane McBane <profanedbane+github@gmail.com>
-# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Rinkashikachi <15rinkashikachi15@gmail.com>
-# SPDX-FileCopyrightText: 2022 TekuNut <13456422+TekuNut@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <gradientvera@outlook.com>
-# SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
-# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 potato1234_x <79580518+potato1234x@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Łukasz Mędrek <lukaszm210@gmail.com>
-# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Jeff <velcroboy333@hotmail.com>
-# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 TGRCDev <tgrc@tgrc.dev>
-# SPDX-FileCopyrightText: 2024 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lapatison <100279397+lapatison@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-# SPDX-FileCopyrightText: 2024 taydeo <td12233a@gmail.com>
-# SPDX-FileCopyrightText: 2025 ActiveMammmoth <140334666+ActiveMammmoth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ActiveMammmoth <kmcsmooth@gmail.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
-# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-# SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
   abstract: true
-  parent: [ BaseStructureDynamic, BaseAutomatedMachine ] # Goob: Automation
+  parent: [ BaseStructureDynamic, BasePaperLabelableVisualized,
+            BaseAutomatedMachine ] # Goob: Automation
   id: GasCanister
   name: gas canister
   description: A canister that can contain any type of gas. It can be attached to connector ports using a wrench.
@@ -78,6 +17,9 @@
       noRot: true
       layers:
         - state: grey
+        - state: paper
+          visible: false
+          map: [ "enum.PaperLabelVisuals.Layer" ]
     - type: Appearance
     - type: GenericVisualizer
       visuals:
@@ -99,9 +41,24 @@
             1: { state: can-o1, shader: "unshaded" }
             2: { state: can-o2, shader: "unshaded" }
             3: { state: can-o3, shader: "unshaded" }
+        enum.PaperLabelVisuals.HasLabel:
+          enum.PaperLabelVisuals.Layer:
+            True: { visible: true }
+            False: { visible: false }
+        enum.StorageVisuals.Open:
+          enum.PaperLabelVisuals.Layer:
+            True: { visible: false }
+        enum.PaperLabelVisuals.LabelType:
+          enum.PaperLabelVisuals.Layer:
+            Paper: { state: paper }
+            Bounty: { state: bounty }
+            CaptainsPaper: { state: captains_paper }
+            Invoice: { state: invoice }
     - type: ActivatableUI
       key: enum.GasCanisterUiKey.Key
-    - type: ActivatableUIRequiresLock
+    - type: UIRequiresLock
+      userInterfaceKeys:
+      - enum.GasCanisterUiKey.Key
     - type: UserInterface
       interfaces:
         enum.GasCanisterUiKey.Key:
@@ -151,6 +108,7 @@
     - type: ContainerContainer
       containers:
         tank_slot: !type:ContainerSlot {}
+        paper_label: !type:ContainerSlot
     - type: NodeContainer
       nodes:
         port:
@@ -158,7 +116,6 @@
           nodeGroupID: Pipe
           rotationsEnabled: false
           volume: 1
-    - type: ItemSlots
     - type: AutomationSlots # Goobstation
       slots:
       - !type:AutomatedItemSlot
@@ -200,17 +157,7 @@
         - state: yellow
     - type: GasCanister
       gasMixture:
-        volume: 1000
-        moles: # List of gasses for easy reference
-          - 0 # oxygen
-          - 0 # nitrogen
-          - 0 # CO2
-          - 0 # Plasma
-          - 0 # Tritium
-          - 0 # Water vapor
-          - 0 # Ammonia
-          - 0 # N2O
-          - 0 # Frezon
+        volume: 1500
         temperature: 293.15
     - type: Destructible
       thresholds:
@@ -251,8 +198,8 @@
     gasMixture:
       volume: 1000
       moles:
-        - 393.0592071 # oxygen 21%
-        - 1478.6513029 # nitrogen 79%
+        Oxygen: 581.56 # oxygen 21%
+        Nitrogen: 2187.79 # nitrogen 79%
       temperature: 293.15
   - type: Destructible
     thresholds:
@@ -291,7 +238,7 @@
     gasMixture:
       volume: 1000
       moles:
-        - 1871.71051 # oxygen
+        Oxygen: 2769.36 # oxygen
       temperature: 293.15
   - type: Destructible
     thresholds:
@@ -327,7 +274,7 @@
     gasMixture:
       volume: 1000
       moles:
-        - 18710.71051 # oxygen
+        Oxygen: 18710.71051 # oxygen
       temperature: 72
   - type: AccessReader
     access: [["Atmospherics"]]
@@ -345,8 +292,7 @@
       gasMixture:
         volume: 1000
         moles:
-          - 0 # oxygen
-          - 1871.71051 # nitrogen
+          Nitrogen: 2769.36 # nitrogen
         temperature: 293.15
     - type: Destructible
       thresholds:
@@ -382,8 +328,7 @@
     gasMixture:
       volume: 1000
       moles:
-        - 0 # oxygen
-        - 18710.71051 # nitrogen
+        Nitrogen: 18710.71051 # nitrogen
       temperature: 72
   - type: AccessReader
     access: [["Atmospherics"]]
@@ -401,9 +346,7 @@
       gasMixture:
         volume: 1000
         moles:
-          - 0 # oxygen
-          - 0 # nitrogen
-          - 1871.71051 # CO2
+          CarbonDioxide: 2769.36 # CO2
         temperature: 293.15
     - type: Destructible
       thresholds:
@@ -441,9 +384,7 @@
     gasMixture:
       volume: 1000
       moles:
-        - 0 # oxygen
-        - 0 # nitrogen
-        - 18710.71051 # CO2
+        CarbonDioxide: 18710.71051 # CO2
       temperature: 72
   - type: AccessReader
     access: [["Atmospherics"]]
@@ -461,10 +402,7 @@
       gasMixture:
         volume: 1000
         moles:
-          - 0 # oxygen
-          - 0 # nitrogen
-          - 0 # carbon dioxide
-          - 1871.71051 # plasma
+          Plasma: 2769.36 # plasma
         temperature: 293.15
     - type: Destructible
       thresholds:
@@ -505,11 +443,7 @@
       gasMixture:
         volume: 1000
         moles:
-          - 0 # oxygen
-          - 0 # nitrogen
-          - 0 # CO2
-          - 0 # Plasma
-          - 1871.71051 # Tritium
+          Tritium: 2769.36 # Tritium
         temperature: 293.15
     - type: Destructible
       thresholds:
@@ -550,12 +484,7 @@
       gasMixture:
         volume: 1000
         moles:
-          - 0 # oxygen
-          - 0 # nitrogen
-          - 0 # CO2
-          - 0 # Plasma
-          - 0 # Tritium
-          - 1871.71051 # Water vapor
+          WaterVapor: 2769.36 # Water vapor
         temperature: 293.15
     - type: Destructible
       thresholds:
@@ -594,13 +523,7 @@
       gasMixture:
         volume: 1000
         moles:
-          - 0 # oxygen
-          - 0 # nitrogen
-          - 0 # CO2
-          - 0 # Plasma
-          - 0 # Tritium
-          - 0 #  Water vapor
-          - 1871.71051 # Ammonia
+          Ammonia: 2769.36 # Ammonia
         temperature: 293.15
     - type: Destructible
       thresholds:
@@ -641,14 +564,7 @@
       gasMixture:
         volume: 1000
         moles:
-          - 0 # oxygen
-          - 0 # nitrogen
-          - 0 # CO2
-          - 0 # Plasma
-          - 0 # Tritium
-          - 0 #  Water vapor
-          - 0 # Ammonia
-          - 1871.71051 # N2O
+          NitrousOxide: 2769.36 # N2O
         temperature: 293.15
     - type: Destructible
       thresholds:
@@ -689,15 +605,7 @@
     gasMixture:
       volume: 1000
       moles:
-      - 0 # oxygen
-      - 0 # nitrogen
-      - 0 # CO2
-      - 0 # Plasma
-      - 0 # Tritium
-      - 0 # Water vapor
-      - 0 # Ammonia
-      - 0 # N2O
-      - 1871.71051 # Frezon
+        Frezon: 2769.36 # Frezon
       temperature: 293.15
   - type: Destructible
     thresholds:

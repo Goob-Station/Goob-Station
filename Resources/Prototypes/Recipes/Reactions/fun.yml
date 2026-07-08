@@ -1,32 +1,3 @@
-# SPDX-FileCopyrightText: 2021 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2023 CrigCrag <137215465+CrigCrag@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Kit0vras <123590995+Kit0vras@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 mhamster <81412348+mhamsterr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Avalon <148660190+BYONDFuckery@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 CatMagic <135462166+CatMagic1@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Doggo5852 <bombasticsideeye614@gmail.com>
-# SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2024 potato1234_x <79580518+potato1234x@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Minty642 <42335609+Minty642@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 RatherUncreative <RatherUncreativeName@proton.me>
-# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 UpAndLeaves <92269094+Alpha-Two@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: reaction
@@ -56,34 +27,6 @@
     BuzzochloricBees: 3
 
 - type: reaction
-  id: CreateSoap
-  impact: Low
-  quantized: true
-  reactants:
-    Fat:
-      amount: 15
-    Saline:
-      amount: 25
-  effects:
-    - !type:CreateEntityReactionEffect
-      entity: Soap
-
-- type: reaction
-  id: CreateSoapHomemade
-  impact: Low
-  quantized: true
-  reactants:
-    Fat:
-      amount: 15
-    TableSalt:
-      amount: 10
-    Blood:
-      amount: 10
-  effects:
-    - !type:CreateEntityReactionEffect
-      entity: SoapHomemade
-
-- type: reaction
   id: Meatification
   impact: Low
   quantized: true
@@ -97,11 +40,13 @@
     Carbon:
       amount: 10
   effects:
-    - !type:CreateEntityReactionEffect
+    - !type:SpawnEntity
       entity: FoodMeat
 
 - type: reaction
   id: SpaceGlue
+  requiredMixerCategories:
+  - Stir # prevents turning slimes to glue, TODO: make it react only X units per second; make bloodstream an open thermal system
   minTemp: 370
   reactants:
     SpaceLube:
@@ -115,11 +60,9 @@
   id: Licoxide
   maxTemp: 265 # goob edit
   reactants:
-    Lead:
+    Lithium:
       amount: 1
     Zinc:
-      amount: 1
-    Lithium: # goob edit
       amount: 1
   products:
     Licoxide: 1
@@ -137,8 +80,8 @@
     SulfuricAcid:
       amount: 4 # Goob edit - revert that once we get energy chem
   effects:
-    - !type:CreateEntityReactionEffect
-      entity: SheetPlastic10
+    - !type:SpawnEntity
+      entity: SheetPlastic1
 
 - type: reaction
   id: FlashFreezeIce
@@ -215,7 +158,7 @@
     Ethanol:
       amount: 5
   effects:
-    - !type:CreateEntityReactionEffect
+    - !type:SpawnEntity
       entity: ShardCrystalRandom
 
 - type: reaction
@@ -231,7 +174,7 @@
     Charcoal:
       amount: 2
   effects:
-    - !type:CreateEntityReactionEffect
+    - !type:SpawnEntity
       entity: MaterialGunpowder
 
 - type: reaction
@@ -244,7 +187,7 @@
     FrostOil:
       amount: 5
   effects:
-  - !type:CreateEntityReactionEffect
+  - !type:SpawnEntity
     entity: IngotGold1
 
 - type: reaction
@@ -257,7 +200,7 @@
     FrostOil:
       amount: 5
   effects:
-  - !type:CreateEntityReactionEffect
+  - !type:SpawnEntity
     entity: IngotSilver1
 
 - type: reaction
@@ -270,7 +213,7 @@
     JuiceThatMakesYouHew:
       amount: 1
   effects:
-  - !type:ExplosionReactionEffect
+  - !type:Explosion
     explosionType: Radioactive
     maxIntensity: 200
     intensityPerUnit: 2
@@ -289,3 +232,50 @@
       amount: 1
   products:
     CorgiJuice: 2
+
+- type: reaction
+  id: Felinase
+  reactants:
+    Haloperidol:
+      amount: 3
+    Psicodine:
+      amount: 2
+    CarpoToxin:
+      amount: 2
+    Enzyme:
+      amount: 1
+  products:
+    Felinase: 2
+
+- type: reaction
+  id: Caninase
+  reactants:
+    Haloperidol:
+      amount: 3
+    Psicodine:
+      amount: 2
+    Happiness:
+      amount: 2
+    Enzyme:
+      amount: 1
+  products:
+    Caninase: 2
+
+- type: reaction
+  id: CaninaseFelinaseReaction
+  impact: High
+  priority: 20
+  reactants:
+    Caninase:
+      amount: 1
+    Felinase:
+      amount: 1
+  products:
+    Razorium: 2
+  effects:
+  - !type:Explosion
+    explosionType: Radioactive
+    maxIntensity: 5
+    intensityPerUnit: 1
+    intensitySlope: 2.7
+    maxTotalIntensity: 50

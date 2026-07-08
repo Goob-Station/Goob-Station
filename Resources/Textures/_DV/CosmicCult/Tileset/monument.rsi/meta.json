@@ -367,6 +367,15 @@
             ]
         },
         {
+            "name": "stage0"
+        },
+        {
+            "name": "stage0-placement-ghost-1"
+        },
+        {
+            "name": "stage0-placement-ghost-2"
+        },
+        {
             "name": "stage1-placement-ghost-1"
         },
         {

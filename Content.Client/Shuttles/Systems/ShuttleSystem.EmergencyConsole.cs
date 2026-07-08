@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 TemporalOroboros <TemporalOroboros@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
@@ -26,20 +18,20 @@ public sealed partial class ShuttleSystem : SharedShuttleSystem
         get => _enableShuttlePosition;
         set
         {
-            if (_enableShuttlePosition == value) return;
+            if (_enableShuttlePosition == value)
+                return;
 
             _enableShuttlePosition = value;
-            var overlayManager = IoCManager.Resolve<IOverlayManager>();
 
             if (_enableShuttlePosition)
             {
                 _overlay = new EmergencyShuttleOverlay(EntityManager.TransformQuery, XformSystem);
-                overlayManager.AddOverlay(_overlay);
+                _overlays.AddOverlay(_overlay);
                 RaiseNetworkEvent(new EmergencyShuttleRequestPositionMessage());
             }
             else
             {
-                overlayManager.RemoveOverlay(_overlay!);
+                _overlays.RemoveOverlay(_overlay!);
                 _overlay = null;
             }
         }

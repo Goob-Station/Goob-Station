@@ -69819,7 +69819,7 @@ entities:
     - type: Transform
       pos: 18.624886,-3.516942
       parent: 2
-- proto: MaterialSilo
+- proto: MachineMaterialSilo
   entities:
   - uid: 15273
     components:

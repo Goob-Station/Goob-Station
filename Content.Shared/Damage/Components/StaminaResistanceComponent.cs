@@ -35,4 +35,16 @@ public sealed partial class StaminaResistanceComponent : Component
     /// </summary>
     [DataField]
     public LocId Examine = "stamina-resistance-coefficient-value";
+
+
+    /// <summary>
+    /// DeltaV - Whether or not this includes melee resistance. By default, DeltaV assigns melee stamina resistance to
+    /// blunt damage, but if this is set to true, it was override that and use the stamina resistance value.
+    ///
+    /// If this is true, then the stamina resistance will double-dip with any blunt resistance, since stamina damage due to
+    /// blunt damage is calculated after blunt resistance is applied. Basically, use this when you want to make something even
+    /// resistant or even immune to melee stamina damage.
+    /// </summary>
+    [DataField]
+    public bool MeleeResistance = false;
 }

@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Riggle <27156122+RigglePrime@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Administration.Notes;
@@ -41,9 +34,9 @@ public sealed partial class AdminNotesLinePopup : Popup
         IdLabel.Text = Loc.GetString("admin-notes-id", ("id", note.Id));
         TypeLabel.Text = Loc.GetString("admin-notes-type", ("type", note.NoteType));
         SeverityLabel.Text = Loc.GetString("admin-notes-severity", ("severity", note.NoteSeverity ?? NoteSeverity.None));
-        RoundIdLabel.Text = note.Round == null
+        RoundIdLabel.Text = note.Rounds.Length == 0
             ? Loc.GetString("admin-notes-round-id-unknown")
-            : Loc.GetString("admin-notes-round-id", ("id", note.Round));
+            : Loc.GetString("admin-notes-round-id", ("id", string.Join(',', note.Rounds)));
         CreatedByLabel.Text = Loc.GetString("admin-notes-created-by", ("author", note.CreatedByName));
         CreatedAtLabel.Text = Loc.GetString("admin-notes-created-at", ("date", note.CreatedAt.ToLocalTime().ToString("yyyy-MM-dd HH:mm:ss")));
         EditedByLabel.Text = Loc.GetString("admin-notes-last-edited-by", ("author", note.EditedByName));

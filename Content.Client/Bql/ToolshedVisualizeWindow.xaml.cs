@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 moonheart08 <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: MIT
 
 using System.Numerics;
@@ -28,8 +22,6 @@ internal sealed partial class ToolshedVisualizeWindow : DefaultWindow
 
         RobustXamlLoader.Load(this);
     }
-
-    protected override Vector2 ContentsMinimumSize => new(500, 700);
 
     public void Update((string name, NetEntity entity)[] entities)
     {

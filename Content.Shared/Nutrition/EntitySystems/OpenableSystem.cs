@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Chemistry.EntitySystems;
@@ -155,18 +147,6 @@ public sealed partial class OpenableSystem : EntitySystem
         // can't lock something while it's open
         if (ent.Comp.Opened)
             args.Cancelled = true;
-    }
-
-    /// <summary>
-    /// Returns true if the entity either does not have OpenableComponent or it is opened.
-    /// Drinks that don't have OpenableComponent are automatically open, so it returns true.
-    /// </summary>
-    public bool IsOpen(EntityUid uid, OpenableComponent? comp = null)
-    {
-        if (!Resolve(uid, ref comp, false))
-            return true;
-
-        return comp.Opened;
     }
 
     /// <summary>

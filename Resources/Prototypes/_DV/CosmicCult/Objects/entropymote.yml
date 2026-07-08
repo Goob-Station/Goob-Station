@@ -26,9 +26,6 @@
     sprite: _DV/CosmicCult/Objects/entropymote.rsi
     size: Small
   - type: CosmicEntropyMote
-  - type: Tag
-    tags:
-      - Entropy
   - type: Extractable
     grindableSolutionName: grind
   - type: SolutionContainerManager

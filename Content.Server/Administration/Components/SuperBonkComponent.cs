@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2023 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Administration.Systems;
@@ -11,7 +8,8 @@ namespace Content.Server.Administration.Components;
 /// <summary>
 /// Component to track the timer for the SuperBonk smite.
 /// </summary>
-[RegisterComponent, AutoGenerateComponentPause, Access(typeof(SuperBonkSystem))]
+[RegisterComponent, AutoGenerateComponentPause]
+[Access(typeof(SuperBonkSystem))]
 public sealed partial class SuperBonkComponent : Component
 {
     /// <summary>

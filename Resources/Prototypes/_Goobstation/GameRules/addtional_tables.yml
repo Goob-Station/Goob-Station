@@ -28,7 +28,6 @@
     - id: SleeperAgents
    # - id: ZombieOutbreak removed for low pop too little sec
    # - id: LoneOpsSpawn removed for low pop too little sec
-    - id: DerelictCyborgSpawn
     #- id: BlobSpawn # Goobstation - removed for low pop too little sec
     - id: LoneAbductorSpawn
     - id: DuoAbductorSpawn

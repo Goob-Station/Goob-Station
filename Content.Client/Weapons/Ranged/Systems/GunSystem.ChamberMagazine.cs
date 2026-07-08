@@ -1,14 +1,3 @@
-// SPDX-FileCopyrightText: 2022 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 T-Stalker <le0nel_1van@hotmail.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
-// SPDX-FileCopyrightText: 2023 TaralGit <76408146+TaralGit@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 and_a <and_a@DESKTOP-RJENGIR>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: MIT
 
 using Content.Client.Weapons.Ranged.Components;
@@ -31,11 +20,11 @@ public sealed partial class GunSystem
         SubscribeLocalEvent<ChamberMagazineAmmoProviderComponent, AppearanceChangeEvent>(OnChamberMagazineAppearance);
     }
 
-    private void OnChamberMagazineAppearance(EntityUid uid, ChamberMagazineAmmoProviderComponent component, ref AppearanceChangeEvent args)
+    private void OnChamberMagazineAppearance(Entity<ChamberMagazineAmmoProviderComponent> ent, ref AppearanceChangeEvent args)
     {
         if (args.Sprite == null ||
-            !_sprite.LayerMapTryGet((uid, args.Sprite), GunVisualLayers.Base, out var boltLayer, false) ||
-            !Appearance.TryGetData(uid, AmmoVisuals.BoltClosed, out bool boltClosed))
+            !_sprite.LayerMapTryGet((ent, args.Sprite), GunVisualLayers.Base, out var boltLayer, false) ||
+            !Appearance.TryGetData(ent, AmmoVisuals.BoltClosed, out bool boltClosed))
         {
             return;
         }
@@ -43,11 +32,11 @@ public sealed partial class GunSystem
         // Maybe re-using base layer for this will bite me someday but screw you future sloth.
         if (boltClosed)
         {
-            _sprite.LayerSetRsiState((uid, args.Sprite), boltLayer, "base");
+            _sprite.LayerSetRsiState((ent, args.Sprite), boltLayer, "base");
         }
         else
         {
-            _sprite.LayerSetRsiState((uid, args.Sprite), boltLayer, "bolt-open");
+            _sprite.LayerSetRsiState((ent, args.Sprite), boltLayer, "bolt-open");
         }
     }
 
@@ -68,17 +57,17 @@ public sealed partial class GunSystem
         // to avoid 6-7 additional entity spawns.
     }
 
-    private void OnChamberMagazineCounter(EntityUid uid, ChamberMagazineAmmoProviderComponent component, AmmoCounterControlEvent args)
+    private void OnChamberMagazineCounter(Entity<ChamberMagazineAmmoProviderComponent> ent, ref AmmoCounterControlEvent args)
     {
         args.Control = new ChamberMagazineStatusControl();
     }
 
-    private void OnChamberMagazineAmmoUpdate(EntityUid uid, ChamberMagazineAmmoProviderComponent component, UpdateAmmoCounterEvent args)
+    private void OnChamberMagazineAmmoUpdate(Entity<ChamberMagazineAmmoProviderComponent> ent, ref UpdateAmmoCounterEvent args)
     {
         if (args.Control is not ChamberMagazineStatusControl control) return;
 
-        var chambered = GetChamberEntity(uid);
-        var magEntity = GetMagazineEntity(uid);
+        var chambered = GetChamberEntity(ent);
+        var magEntity = GetMagazineEntity(ent);
         var ammoCountEv = new GetAmmoCountEvent();
 
         if (magEntity != null)

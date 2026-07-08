@@ -1,28 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 Kara D <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2023 moonheart08 <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ShadowCommander <shadowjjt@gmail.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
@@ -62,6 +37,7 @@ public sealed class FollowerSystem : EntitySystem
     [Dependency] private readonly ISharedAdminManager _adminManager = default!;
 
     private static readonly ProtoId<TagPrototype> ForceableFollowTag = "ForceableFollow";
+    private static readonly ProtoId<TagPrototype> PreventGhostnadoWarpTag = "NotGhostnadoWarpable";
 
     public override void Initialize()
     {
@@ -349,11 +325,17 @@ public sealed class FollowerSystem : EntitySystem
         var query = EntityQueryEnumerator<FollowerComponent, GhostComponent, ActorComponent>();
         while (query.MoveNext(out _, out var follower, out _, out var actor))
         {
-            // Exclude admins
+            // Don't count admin followers so that players cannot notice if admins are in stealth mode and following someone.
             if (_adminManager.IsAdmin(actor.PlayerSession))
                 continue;
 
             var followed = follower.Following;
+
+            // If the followed entity cannot be ghostnado'd to, we don't count it.
+            // Used for making admins not warpable to, but IsAdmin isn't used for cases where the admin wants to be followed, for example during events.
+            if (_tagSystem.HasTag(followed, PreventGhostnadoWarpTag))
+                continue;
+
             // Add new entry or increment existing
             followedEnts.TryGetValue(followed, out var currentValue);
             followedEnts[followed] = currentValue + 1;

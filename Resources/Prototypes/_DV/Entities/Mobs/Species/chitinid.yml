@@ -9,6 +9,8 @@
     species: Chitinid
     hideLayersOnEquip:
     - HeadTop
+    #undergarmentTop:
+    #undergarmentBottom: todo marty bottom needs adjusting
   - type: Hunger
     baseDecayRate: 0.0467 #needs to eat more to survive
   - type: Thirst
@@ -47,17 +49,21 @@
     - id: FoodMeat
       amount: 5
   - type: Bloodstream
-    bloodReagent: InsectBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: InsectBlood
+        Quantity: 200
   - type: Vocal
     sounds:
       Male: UnisexChitinid
       Female: UnisexChitinid
       Unsexed: UnisexChitinid
-  - type: Temperature # Ants hate the cold
-    heatDamageThreshold: 320
-    coldDamageThreshold: 230
+  - type: Temperature
     currentTemperature: 310.15
     specificHeat: 46
+  - type : TemperatureDamage # Ants hate the cold
+    heatDamageThreshold: 320
+    coldDamageThreshold: 230
     coldDamage:
       types:
         Cold : 1.25 #per second, scales with temperature & other constants
@@ -129,6 +135,8 @@
     item: Chitzite
     action: ActionChitzite
     coughPopup: chitzite-cough
+  - type: CosmicMarkVisuals
+    subtleState: moth
 
 - type: entity
   parent: BaseSpeciesDummy

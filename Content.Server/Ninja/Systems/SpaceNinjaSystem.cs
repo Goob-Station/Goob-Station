@@ -1,18 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Vyacheslav Kovalevsky <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Effects;
@@ -20,9 +5,6 @@ using Content.Server.Communications;
 using Content.Server.CriminalRecords.Systems;
 using Content.Server.Objectives.Components;
 using Content.Server.Objectives.Systems;
-using Content.Server.Power.Components;
-using Content.Server.Power.EntitySystems;
-using Content.Server.PowerCell;
 using Content.Server.Research.Systems;
 using Content.Shared.Alert;
 using Content.Shared.Doors.Components;
@@ -30,6 +12,9 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Mind;
 using Content.Shared.Ninja.Components;
 using Content.Shared.Ninja.Systems;
+using Content.Shared.Power.Components;
+using Content.Shared.Power.EntitySystems;
+using Content.Shared.PowerCell;
 using Content.Shared.Popups;
 using Content.Shared.Rounding;
 using System.Diagnostics.CodeAnalysis;
@@ -42,7 +27,7 @@ namespace Content.Server.Ninja.Systems;
 public sealed class SpaceNinjaSystem : SharedSpaceNinjaSystem
 {
     [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly BatterySystem _battery = default!;
+    [Dependency] private readonly SharedBatterySystem _battery = default!;
     [Dependency] private readonly CodeConditionSystem _codeCondition = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
@@ -58,6 +43,8 @@ public sealed class SpaceNinjaSystem : SharedSpaceNinjaSystem
         SubscribeLocalEvent<SpaceNinjaComponent, CriminalRecordsHackedEvent>(OnCriminalRecordsHacked);
     }
 
+    // TODO: Make this charge rate based instead of updating it every single tick.
+    // Or make it client side, since power cells are predicted.
     public override void Update(float frameTime)
     {
         var query = EntityQueryEnumerator<SpaceNinjaComponent>();
@@ -81,7 +68,7 @@ public sealed class SpaceNinjaSystem : SharedSpaceNinjaSystem
         return newCount - oldCount;
     }
 
-    // TODO: can probably copy paste borg code here
+    // TODO: Generic charge indicator that is combined with borg code.
     /// <summary>
     /// Update the alert for the ninja's suit power indicator.
     /// </summary>
@@ -94,10 +81,10 @@ public sealed class SpaceNinjaSystem : SharedSpaceNinjaSystem
             return;
         }
 
-        if (GetNinjaBattery(uid, out _, out var battery))
+        if (GetNinjaBattery(uid, out var batteryUid, out var batteryComp))
         {
-            var severity = ContentHelpers.RoundToLevels(MathF.Max(0f, battery.CurrentCharge), battery.MaxCharge, 8);
-            _alerts.ShowAlert(uid, comp.SuitPowerAlert, (short) severity);
+            var severity = ContentHelpers.RoundToLevels(MathF.Max(0f, _battery.GetCharge((batteryUid.Value, batteryComp))), batteryComp.MaxCharge, 8);
+            _alerts.ShowAlert(uid, comp.SuitPowerAlert, (short)severity);
         }
         else
         {
@@ -108,24 +95,26 @@ public sealed class SpaceNinjaSystem : SharedSpaceNinjaSystem
     /// <summary>
     /// Get the battery component in a ninja's suit, if it's worn.
     /// </summary>
-    public bool GetNinjaBattery(EntityUid user, [NotNullWhen(true)] out EntityUid? uid, [NotNullWhen(true)] out BatteryComponent? battery)
+    public bool GetNinjaBattery(EntityUid user, [NotNullWhen(true)] out EntityUid? batteryUid, [NotNullWhen(true)] out BatteryComponent? batteryComp)
     {
         if (TryComp<SpaceNinjaComponent>(user, out var ninja)
             && ninja.Suit != null
-            && _powerCell.TryGetBatteryFromSlot(ninja.Suit.Value, out uid, out battery))
+            && _powerCell.TryGetBatteryFromSlot(ninja.Suit.Value, out var battery))
         {
+            batteryUid = battery.Value.Owner;
+            batteryComp = battery.Value.Comp;
             return true;
         }
 
-        uid = null;
-        battery = null;
+        batteryUid = null;
+        batteryComp = null;
         return false;
     }
 
     /// <inheritdoc/>
     public override bool TryUseCharge(EntityUid user, float charge)
     {
-        return GetNinjaBattery(user, out var uid, out var battery) && _battery.TryUseCharge(uid.Value, charge, battery);
+        return GetNinjaBattery(user, out var uid, out var battery) && _battery.TryUseCharge((uid.Value, battery), charge);
     }
 
     /// <summary>

@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2023 Morb <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Chat.TypingIndicator;
@@ -40,7 +30,7 @@ public sealed class TypingIndicatorVisualizerSystem : VisualizerSystem<TypingInd
         if (overrideIndicator != null)
             currentTypingIndicator = overrideIndicator.Value;
 
-        if (!_prototypeManager.TryIndex(currentTypingIndicator, out var proto))
+        if (!_prototypeManager.Resolve(currentTypingIndicator, out var proto))
         {
             Log.Error($"Unknown typing indicator id: {component.TypingIndicatorPrototype}");
             return;
@@ -50,8 +40,7 @@ public sealed class TypingIndicatorVisualizerSystem : VisualizerSystem<TypingInd
         if (!layerExists)
             layer = _sprite.LayerMapReserve((uid, args.Sprite), TypingIndicatorLayers.Base);
 
-        _sprite.LayerSetRsi((uid, args.Sprite), layer, proto.SpritePath);
-        _sprite.LayerSetRsiState((uid, args.Sprite), layer, proto.TypingState);
+        SpriteSystem.LayerSetRsi((uid, args.Sprite), layer, proto.SpritePath, proto.TypingState);
         args.Sprite.LayerSetShader(layer, proto.Shader);
         _sprite.LayerSetOffset((uid, args.Sprite), layer, proto.Offset);
 

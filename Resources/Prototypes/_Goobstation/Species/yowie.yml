@@ -1,13 +1,3 @@
-# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 BeeRobynn <166929042+BeeRobynn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
-# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: species
@@ -18,7 +8,7 @@
   sprites: MobYowieSprites
   markingLimits: MobYowieMarkingLimits
   dollPrototype: MobYowieDummy
-  skinColoration: NoColor
+  skinColoration: TintedHues
   defaultSkinTone: "#7d7d7d" # added here to make skin-tone markings work better
   naming: First
   maleFirstNames: NamesYowieMale
@@ -47,8 +37,8 @@
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
-    Underwear: MobHumanoidAnyMarking
-    Undershirt: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
+    UndergarmentTop: MobHumanoidAnyMarking
     Chest: MobYowieChest
     Groin: MobYowieGroin
     Eyes: MobHumanoidEyes
@@ -87,10 +77,10 @@
     Chest:
       points: 10
       required: false
-    Underwear:
+    UndergarmentBottom:
       points: 1
       required: false
-    Undershirt:
+    UndergarmentTop:
       points: 1
       required: false
     RightLeg:

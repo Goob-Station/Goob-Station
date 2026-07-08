@@ -1,14 +1,4 @@
 <!--
-SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-SPDX-FileCopyrightText: 2022 20kdc <asdd2808@gmail.com>
-SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
-SPDX-FileCopyrightText: 2024 Vigers Ray <60344369+VigersRay@users.noreply.github.com>
-SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-
 SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
@@ -19,7 +9,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
          xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls">
     <parallax:ParallaxControl SpeedX="20"/>
     <Control HorizontalAlignment="Center" VerticalAlignment="Center">
-        <PanelContainer StyleClasses="AngleRect" />
+        <PanelContainer StyleClasses="BackgroundPanel" />
         <BoxContainer Orientation="Vertical" MinSize="300 200">
             <BoxContainer Orientation="Horizontal">
                 <Label Margin="8 0 0 0" Text="{Loc 'connecting-title'}"
@@ -82,7 +72,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         </BoxContainer>
     </Control>
     <!-- Bottom window for tips -->
-    <PanelContainer Name="LoginTips" StyleClasses="AngleRect" Margin="0 10" MaxWidth="600" VerticalExpand="True" VerticalAlignment="Bottom">
+    <PanelContainer Name="LoginTips" StyleClasses="BackgroundPanel" Margin="0 10" MaxWidth="600" VerticalExpand="True" VerticalAlignment="Bottom">
         <BoxContainer Orientation="Vertical" VerticalExpand="True">
             <controls:StripeBack>
                 <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center">

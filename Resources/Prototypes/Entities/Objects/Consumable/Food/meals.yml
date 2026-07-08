@@ -1,96 +1,3 @@
-# SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
-# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2021 Ygg01 <y.laughing.man.y@gmail.com>
-# SPDX-FileCopyrightText: 2022 CrudeWax <75271456+CrudeWax@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Michael Phillips <1194692+MeltedPixel@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2023 Fluffiest Floofers <thebluewulf@gmail.com>
-# SPDX-FileCopyrightText: 2023 Jeff <velcroboy333@hotmail.com>
-# SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-# SPDX-FileCopyrightText: 2023 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lapatison <100279397+lapatison@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 nmajask <nmajask@gmail.com>
-# SPDX-FileCopyrightText: 2023 phunnyguy <90366172+phunnyguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Арт <123451459+JustArt1m@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 CaasGit <87243814+CaasGit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 CheddaCheez <cheddacheezy@gmail.com>
-# SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
-# SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
-# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kukutis96513 <146854220+Kukutis96513@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Lye <128915833+Lyroth001@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MerrytheManokit <167581110+MerrytheManokit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 OrangeMoronage9622 <whyteterry0092@gmail.com>
-# SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 SpaceLizard <the.justice.league.of.canada@gmail.com>
-# SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
-# SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2024 Vigers Ray <60344369+VigersRay@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 degradka <69397649+degradka@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
-# SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-# SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-# SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
-# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # When adding new food also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\food_meal.yml
 # A bunch of different meals. This stuff doesn't come off their plates because
@@ -99,14 +6,14 @@
 # Base
 
 - type: entity
+  abstract: true
   parent: FoodInjectableBase
   id: FoodMealBase
-  abstract: true
   description: A delicious meal, cooked with love.
   components:
   - type: Item
-    storedRotation: -90
-  - type: Food
+    shape:
+    - 0,0,1,0
   - type: Sprite
     sprite: Objects/Consumable/Food/meals.rsi
   - type: SolutionContainerManager
@@ -120,11 +27,13 @@
 # Meals
 
 - type: entity
-  name: loaded baked potato
   parent: FoodMealBase
   id: FoodMealPotatoLoaded
+  name: loaded baked potato
   description: Totally baked.
   components:
+  - type: Item
+    storedOffset: 0,-2
   - type: FlavorProfile
     flavors:
       - cheesy
@@ -134,11 +43,13 @@
 # Tastes like potato.
 
 - type: entity
-  name: space fries
   parent: FoodMealBase
   id: FoodMealFries
+  name: space fries
   description: AKA, French Fries, Freedom Fries, etc.
   components:
+  - type: Item
+    storedOffset: 0,-3
   - type: FlavorProfile
     flavors:
       - potatoes
@@ -148,11 +59,13 @@
 # Tastes like fries, salt.
 
 - type: entity
-  name: cheesy fries
   parent: FoodMealBase
   id: FoodMealFriesCheesy
+  name: cheesy fries
   description: Fries. Covered in cheese. Duh.
   components:
+  - type: Item
+    storedOffset: 0,-3
   - type: FlavorProfile
     flavors:
       - potatoes
@@ -163,11 +76,13 @@
 # Tastes like fries, cheese.
 
 - type: entity
-  name: carrot fries
   parent: FoodMealBase
   id: FoodMealFriesCarrot
+  name: carrot fries
   description: Tasty fries from fresh carrots.
   components:
+  - type: Item
+    storedOffset: 0,-3
   - type: FlavorProfile
     flavors:
       - carrots
@@ -187,12 +102,14 @@
 # Tastes like carrots, salt.
 
 - type: entity
-  name: nachos
   parent: FoodMealBase
   id: FoodMealNachos
+  name: nachos
   description: Chips from Space Mexico.
   components:
-  - type: Food
+  - type: Item
+    storedOffset: 0,-2
+  - type: Edible
     trash:
     - FoodPlateSmall
   - type: FlavorProfile
@@ -214,12 +131,14 @@
 # Tastes like nachos.
 
 - type: entity
-  name: cheesy nachos
   parent: FoodMealBase
   id: FoodMealNachosCheesy
+  name: cheesy nachos
   description: The delicious combination of nachos and melting cheese.
   components:
-  - type: Food
+  - type: Item
+    storedOffset: 0,-2
+  - type: Edible
     trash:
     - FoodPlateSmall
   - type: FlavorProfile
@@ -242,12 +161,14 @@
 # Tastes like nachos, cheese.
 
 - type: entity
-  name: Cuban nachos
   parent: FoodMealBase
   id: FoodMealNachosCuban
+  name: Cuban nachos
   description: That's some dangerously spicy nachos.
   components:
-  - type: Food
+  - type: Item
+    storedOffset: 0,-2
+  - type: Edible
     trash:
     - FoodPlateSmall
   - type: FlavorProfile
@@ -271,11 +192,13 @@
 # Tastes like nachos, hot pepper.
 
 - type: entity
-  name: mint
   parent: FoodMealBase
   id: FoodMealMint
+  name: mint
   description: It's wafer thin.
   components:
+  - type: Item
+    storedOffset: 0,-1
   - type: FlavorProfile
     flavors:
       - minty
@@ -292,11 +215,13 @@
 # Tastes like parsnips, salt.
 
 - type: entity
-  name: eggplant parmigiana
   parent: FoodMealBase
   id: FoodMealEggplantParm
+  name: eggplant parmigiana
   description: The only good recipe for eggplant.
   components:
+  - type: Item
+    storedOffset: 0,-2
   - type: FlavorProfile
     flavors:
       - eggplant
@@ -318,11 +243,13 @@
 # Tastes like eggplant, cheese.
 
 - type: entity
-  name: yaki imo
   parent: FoodMealBase
   id: FoodMealPotatoYaki
+  name: yaki imo
   description: Made with roasted sweet potatoes!
   components:
+  - type: Item
+    storedOffset: 0,-2
   - type: FlavorProfile
     flavors:
       - sweet
@@ -332,11 +259,13 @@
 # Tastes like sweet potato.
 
 - type: entity
-  name: Cuban carp
   parent: FoodMealBase
   id: FoodMealCubancarp
+  name: Cuban carp
   description: A grifftastic sandwich that burns your tongue and then leaves it numb!
   components:
+  - type: Item
+    storedOffset: 3,-7
   - type: FlavorProfile
     flavors:
       - fishy
@@ -360,11 +289,13 @@
 # Tastes like fish, batter, hot peppers.
 
 - type: entity
-  name: corned beef and cabbage
   parent: FoodMealBase
   id: FoodMealCornedbeef
+  name: corned beef and cabbage
   description: Now you can feel like a real tourist vacationing in Ireland.
   components:
+  - type: Item
+    storedOffset: 0,-1
   - type: FlavorProfile
     flavors:
       - meaty
@@ -386,11 +317,16 @@
 # Tastes like meat, cabbage.
 
 - type: entity
-  name: filet migrawr
   parent: FoodMealBase
   id: FoodMealBearsteak
+  name: filet migrawr
   description: Because eating bear wasn't manly enough.
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+    storedOffset: -1,4
   - type: FlavorProfile
     flavors:
       - meaty
@@ -412,11 +348,15 @@
 # Tastes like meat, salmon.
 
 - type: entity
-  name: pig in a blanket
   parent: FoodMealBase
   id: FoodMealPigblanket
+  name: pig in a blanket
   description: A tiny sausage wrapped in a flakey, buttery roll. Free this pig from its blanket prison by eating it.
   components:
+  - type: Item
+    size: Tiny
+    shape:
+    - 0,0,0,0
   - type: FlavorProfile
     flavors:
       - meaty
@@ -438,12 +378,14 @@
 # Tastes like meat, butter.
 
 - type: entity
-  name: bbq ribs
   parent: FoodMealBase
   id: FoodMealRibs
+  name: bbq ribs
   description: BBQ ribs, slathered in a healthy coating of BBQ sauce. The least vegan thing to ever exist.
   components:
-  - type: Food
+  - type: Item
+    storedOffset: 0,-4
+  - type: Edible
     trash:
     - FoodKebabSkewer
   - type: FlavorProfile
@@ -469,9 +411,9 @@
 # Tastes like meat, smokey sauce.
 
 - type: entity
-  name: eggs benedict
   parent: FoodMealBase
   id: FoodMealEggsbenedict
+  name: eggs benedict
   description: There is only one egg on this, how rude.
   components:
   - type: FlavorProfile
@@ -496,11 +438,13 @@
 # Tastes like eggs, bacon, bun.
 
 - type: entity
-  name: cheese omelette
   parent: FoodMealBase
   id: FoodMealOmelette
+  name: cheese omelette
   description: Cheesy.
   components:
+  - type: Item
+    storedOffset: 0,-1
   - type: FlavorProfile
     flavors:
       - egg
@@ -520,11 +464,13 @@
 # Tastes like egg, cheese.
 
 - type: entity
-  name: fried egg
   parent: FoodMealBase
   id: FoodMealFriedegg
+  name: fried egg
   description: A fried egg, with a touch of salt and pepper.
   components:
+  - type: Item
+    storedOffset: 0,-1
   - type: FlavorProfile
     flavors:
       - egg
@@ -549,11 +495,15 @@
 # Tastes like egg, salt, pepper.
 
 - type: entity
-  name: milk ape
   parent: FoodMealBase
   id: FoodMealMilkape
+  name: milk ape
   description: The king of Jungle Thick.
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
   - type: FlavorProfile
     flavors:
       - milk
@@ -563,11 +513,14 @@
 # Tastes like milk, chocolate, the jungle.
 
 - type: entity
-  name: memory leek
   parent: FoodMealBase
   id: FoodMealMemoryleek
+  name: memory leek
   description: This should refresh your memory.
   components:
+  - type: Item
+    shape:
+    - 0,0,0,1
   - type: FlavorProfile
     flavors:
       - memoryleek
@@ -585,11 +538,16 @@
 # Tastes like pain.
 
 - type: entity
-  name: salty sweet miso cola soup
   parent: FoodMealBase
   id: DisgustingSweptSoup
+  name: salty sweet miso cola soup
   description: Jesus christ.
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+    storedOffset: 0,-2
   - type: Sprite
     state: saltysweet
   - type: SolutionContainerManager
@@ -606,11 +564,13 @@
 # Tastes awesome.
 
 - type: entity
-  name: queso
   parent: FoodMealBase
   id: FoodMealQueso
+  name: queso
   description: A classic dipping sauce that you can't go wrong with.
   components:
+    - type: Item
+      storedOffset: 0,-6
     - type: FlavorProfile
       flavors:
         - cheesy
@@ -644,11 +604,13 @@
 # tastes exotic
 
 - type: entity
-  name: enchiladas
   parent: FoodMealBase
   id: FoodMealEnchiladas
+  name: enchiladas
   description: Viva La Mexico!
   components:
+    - type: Item
+      storedOffset: -1,0
     - type: FlavorProfile
       flavors:
         - meaty
@@ -669,11 +631,13 @@
 # What do Europeans eat instead of enchiladas? 25.4 millimeter-iladas.
 
 - type: entity
-  name: melon fruit bowl
   parent: FoodMealBase
   id: FoodSaladWatermelonFruitBowl
+  name: melon fruit bowl
   description: The only salad where you can eat the bowl.
   components:
+  - type: Item
+    storedOffset: 0,-3
   - type: FlavorProfile
     flavors:
       - fruity
@@ -700,12 +664,14 @@
     - Fruit
 
 - type: entity
-  name: corn in butter
   parent: FoodMealBase
   id: FoodMealCornInButter
+  name: corn in butter
   description: Buttery.
   components:
-  - type: Food
+  - type: Item
+    storedOffset: 0,-5
+  - type: Edible
     trash:
     - FoodPlate
   - type: FlavorProfile

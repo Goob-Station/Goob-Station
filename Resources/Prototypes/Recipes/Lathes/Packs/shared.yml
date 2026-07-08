@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
-# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 ## Static
 
@@ -10,6 +5,7 @@
   id: MaterialsStatic
   recipes:
   - SheetRGlass
+  - MaterialDurathread
 
 - type: latheRecipePack
   id: PartsStatic
@@ -43,6 +39,17 @@
   - CableStack
   - CableMVStack
   - CableHVStack
+
+- type: latheRecipePack
+  id: PaperworkStatic
+  recipes:
+  - BoxFolderClipboardEmpty
+  - BoxFolderPlasticClipboardEmpty
+
+- type: latheRecipePack
+  id: TowelsStatic # This is used for both the autolathe and the uniform printer, so "unique" towels that only HoP can print shouldn't be included!
+  recipes:
+  - TowelColorWhite
 
 ## Dynamic
 

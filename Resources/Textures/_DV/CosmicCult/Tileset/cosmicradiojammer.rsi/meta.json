@@ -1,0 +1,28 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 64
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "A custom item by HTMLSystem (Github).",
+    "states": [
+        {
+            "name": "base"
+        },
+        {
+            "name": "overlay",
+            "delays": [
+                [
+                    0.15,
+                    0.15,
+                    0.15,
+                    0.15,
+                    0.15,
+                    0.15,
+                    0.15
+                ]
+            ]
+        }
+    ]
+}

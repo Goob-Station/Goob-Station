@@ -1,29 +1,4 @@
 - type: entity
-  abstract: true
-  parent: BaseItem
-  id: CrayonInedible
-  components:
-  - type: Sprite
-    sprite: Objects/Fun/crayons.rsi
-  - type: Item
-    sprite: Objects/Fun/crayons.rsi
-    size: Tiny
-  - type: Tag
-    tags:
-    - Write
-    - Crayon
-    - Trash
-  - type: SpaceGarbage
-  - type: UserInterface
-    interfaces:
-      enum.CrayonUiKey.Key:
-        type: CrayonBoundUserInterface
-  - type: Crayon
-    capacity: 25
-  - type: StaticPrice
-    price: 5
-
-- type: entity
   parent: CrayonInedible
   id: CrayonRainbowLarge
   name: plasmic rainbow crayon
@@ -36,7 +11,8 @@
   - type: Crayon
     color: Red
     selectableColor: true
-    capacity: 1000
+  - type: AutoRecharge
+    rechargeDuration: 1
   - type: Tag
     tags:
     - Write

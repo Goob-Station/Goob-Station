@@ -1,108 +1,13 @@
-# SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
-# SPDX-FileCopyrightText: 2021 Matz05 <Matz05@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Ygg01 <y.laughing.man.y@gmail.com>
-# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 ZeroDayDaemon <60460608+ZeroDayDaemon@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Jeff <velcroboy333@hotmail.com>
-# SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lapatison <100279397+lapatison@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 nmajask <nmajask@gmail.com>
-# SPDX-FileCopyrightText: 2023 potato1234_x <79580518+potato1234x@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 CaasGit <87243814+CaasGit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
-# SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
-# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kukutis96513 <146854220+Kukutis96513@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 LevitatingTree <114672939+LevitatingTree@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 LevitatingTree <None>
-# SPDX-FileCopyrightText: 2024 Lye <128915833+Lyroth001@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MerrytheManokit <167581110+MerrytheManokit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 OrangeMoronage9622 <whyteterry0092@gmail.com>
-# SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 SpaceLizard <the.justice.league.of.canada@gmail.com>
-# SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 TurboTrackerss14 <130304754+TurboTrackerss14@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
-# SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2024 Vigers Ray <60344369+VigersRay@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
-# SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-# SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-# SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
-# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # When adding new food also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\food_single.yml
 # Bun
 
 - type: entity
-  name: bun
   parent: FoodBreadSliceBase
   id: FoodBreadBun
+  name: bun
   description: A hamburger bun. Round and convenient to hold.
   components:
-  - type: Food
   - type: Sprite
     sprite: Objects/Consumable/Food/burger.rsi
     layers:
@@ -123,14 +28,13 @@
         amount: 1
 
 - type: entity
-  id: FoodBreadBunBottom
   parent: FoodBreadSliceBase
+  id: FoodBreadBunBottom
   name: bottom bun
   description: It's time to start building the burger tower.
   components:
   - type: Item
     size: Normal #patch until there is an adequate resizing system in place
-  - type: Food
   - type: Sprite
     drawdepth: Mobs
     noRot: true
@@ -159,12 +63,11 @@
           Quantity: 3.3 # 1/2 of a bun
 
 - type: entity
-  id: FoodBreadBunTop
   parent: FoodBreadSliceBase
+  id: FoodBreadBunTop
   name: top bun
   description: The perfect finish for your burger tower.
   components:
-  - type: Food
   - type: Sprite
     sprite: Objects/Consumable/Food/burger_sequence.rsi
     layers:
@@ -183,9 +86,9 @@
 # Base
 
 - type: entity
+  abstract: true
   parent: FoodInjectableBase
   id: FoodBurgerBase
-  abstract: true
   components:
   - type: FlavorProfile
     flavors:
@@ -204,6 +107,8 @@
           Quantity: 3
   - type: Item
     sprite: Objects/Consumable/Food/burger.rsi
+    shape:
+    - 0,0,1,0
 
 # Custom Burger Example
 
@@ -223,6 +128,20 @@
     - state: custburg-filling
       color: red
     - state: custburg-top
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: bun-inhand-left
+      - state: alpha-patty-inhand-left
+        color: "#f70000"
+      - state: alpha-filling-inhand-left
+        color: "#f70000"
+      right:
+      - state: bun-inhand-right
+      - state: alpha-patty-inhand-right
+        color: "#f70000"
+      - state: alpha-filling-inhand-right
+        color: "#f70000"
 
 # Burger
 
@@ -252,6 +171,20 @@
   - type: Tag
     tags:
     - Meat
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: bun-inhand-left
+      - state: alpha-patty-inhand-left
+        color: "#382010"
+      - state: alpha-filling-inhand-left
+        color: "#bd9451"
+      right:
+      - state: bun-inhand-right
+      - state: alpha-patty-inhand-right
+        color: "#382010"
+      - state: alpha-filling-inhand-right
+        color: "#bd9451"
 # Tastes like bun, grass.
 
 - type: entity
@@ -278,6 +211,20 @@
   - type: Tag
     tags:
     - Meat
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: bun-inhand-left
+      - state: alpha-patty-inhand-left
+        color: "#b37659"
+      - state: alpha-filling-inhand-left
+        color: "#e8634f"
+      right:
+      - state: bun-inhand-right
+      - state: alpha-patty-inhand-right
+        color: "#b37659"
+      - state: alpha-filling-inhand-right
+        color: "#e8634f"
 # Tastes like bun, bacon.
 
 - type: entity
@@ -306,13 +253,30 @@
   - type: Tag
     tags:
     - Meat
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: alpha-bun-inhand-left
+        color: "#f7f7f7"
+      - state: burger-inhand-left
+      right:
+      - state: alpha-bun-inhand-right
+        color: "#f7f7f7"
+      - state: burger-inhand-right
 
 - type: entity
-  name: bearger
   parent: FoodBurgerBase
   id: FoodBurgerBear
+  name: bearger
   description: Best served rawr.
   components:
+  - type: Item
+    storedOffset: 0,1
+    inhandVisuals:
+      left:
+      - state: bear-inhand-left
+      right:
+      - state: bear-inhand-right
   - type: FlavorProfile
     flavors:
       - bun
@@ -335,11 +299,21 @@
     - Meat
 
 - type: entity
-  name: big bite burger
   parent: FoodBurgerBase
   id: FoodBurgerBig
+  name: big bite burger
   description: Forget the Big Mac. THIS is the future!
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+    storedOffset: 0,3
+    inhandVisuals:
+      left:
+      - state: burger-big-inhand-left
+      right:
+      - state: burger-big-inhand-right
   - type: FlavorProfile
     flavors: # What bun?
       - meaty
@@ -362,11 +336,18 @@
 # Tastes like bun, silver, magic.
 
 - type: entity
-  name: brain burger
   parent: FoodBurgerBase
   id: FoodBurgerBrain
+  name: brain burger
   description: A strange looking burger. It looks almost sentient.
   components:
+  - type: Item
+    storedOffset: 0,1
+    inhandVisuals:
+      left:
+      - state: brain-inhand-left
+      right:
+      - state: brain-inhand-right
   - type: FlavorProfile
     flavors:
       - bun
@@ -390,11 +371,20 @@
 # Tastes like bun, brains.
 
 - type: entity
-  name: cat burger
   parent: FoodBurgerBase
   id: FoodBurgerCat
+  name: cat burger
   description: Finally those cats and catpeople are worth something!
   components:
+  - type: Item
+    storedOffset: -1,1
+    inhandVisuals:
+      left:
+      - state: cat-inhand-left
+      - state: plain-inhand-left
+      right:
+      - state: cat-inhand-right
+      - state: plain-inhand-right
   - type: Sprite
     state: cat
   - type: FlavorProfile
@@ -444,6 +434,12 @@
   - type: Tag
     tags:
     - Meat
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: plain-inhand-left
+      right:
+      - state: plain-inhand-right
 # TODO: Make this work.
   # - type: Sprite
   #   state: plate
@@ -482,14 +478,35 @@
   - type: Tag
     tags:
     - Meat
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: bun-inhand-left
+      - state: alpha-filling-inhand-left
+        color: "#98d966"
+      - state: alpha-patty-inhand-left
+        color: "#f7b125"
+      right:
+      - state: bun-inhand-right
+      - state: alpha-filling-inhand-right
+        color: "#98d966"
+      - state: alpha-patty-inhand-right
+        color: "#f7b125"
 # Tastes like bun, chicken.
 
 - type: entity
-  name: clown burger
   parent: FoodBurgerBase
   id: FoodBurgerClown
+  name: clown burger
   description: This tastes funny...
   components:
+  - type: Item
+    storedOffset: 0,1
+    inhandVisuals:
+      left:
+      - state: clown-inhand-left
+      right:
+      - state: clown-inhand-right
   - type: FlavorProfile
     flavors:
       - bun
@@ -535,6 +552,12 @@
   - type: Tag
     tags:
     - Meat
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: dog-inhand-left
+      right:
+      - state: dog-inhand-right
 
 - type: entity
   name: crab burger
@@ -562,13 +585,37 @@
   - type: Tag
     tags:
     - Meat
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: bun-inhand-left
+      - state: alpha-filling-inhand-left
+        color: "#7e1a07"
+      - state: alpha-patty-inhand-left
+        color: "#7e1a07"
+      right:
+      - state: bun-inhand-right
+      - state: alpha-filling-inhand-right
+        color: "#7e1a07"
+      - state: alpha-patty-inhand-right
+        color: "#7e1a07"
 
 - type: entity
-  name: crazy hamburger # Burger for you euro-cucks
   parent: FoodBurgerBase
   id: FoodBurgerCrazy
+  name: crazy hamburger # Burger for you euro-cucks
   description: This looks like the sort of food that a demented clown in a trenchcoat would make.
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+    storedOffset: -2,0
+    inhandVisuals:
+      left:
+      - state: crazy-inhand-left
+      right:
+      - state: crazy-inhand-right
   - type: FlavorProfile
     flavors:
       - bun
@@ -597,11 +644,26 @@
     - Meat
 
 - type: entity
-  name: duck sandwich # Burger for you sick bastards
   parent: FoodBurgerBase
   id: FoodBurgerDuck
+  name: duck sandwich # Burger for you sick bastards
   description: A duck sandwich, only the criminally insane would dare to eat the meat of such an adorable creature.
   components:
+  - type: Item
+    storedOffset: 0,1
+    inhandVisuals:
+      left:
+      - state: bun-inhand-left
+      - state: alpha-filling-inhand-left
+        color: "#98d966"
+      - state: alpha-patty-inhand-left
+        color: "#e8b348"
+      right:
+      - state: bun-inhand-right
+      - state: alpha-filling-inhand-right
+        color: "#98d966"
+      - state: alpha-patty-inhand-right
+        color: "#e8b348"
   - type: FlavorProfile
     flavors:
       - bun
@@ -625,11 +687,18 @@
 # Tastes like bun, duck.
 
 - type: entity
-  name: empowered burger
   parent: FoodBurgerBase
   id: FoodBurgerEmpowered
+  name: empowered burger
   description: It's shockingly good, if you live off of electricity that is.
   components:
+  - type: Item
+    storedOffset: -2,1
+    inhandVisuals:
+      left:
+      - state: plasma-inhand-left
+      right:
+      - state: plasma-inhand-right
   - type: Sprite
     state: empowered
   - type: FlavorProfile
@@ -648,11 +717,26 @@
 # Tastes like bun, pure electricity.
 
 - type: entity
-  name: fillet-o-carp burger
   parent: FoodBurgerBase
   id: FoodBurgerCarp
+  name: fillet-o-carp burger
   description: Almost like a carp is yelling somewhere...
   components:
+  - type: Item
+    storedOffset: 0,1
+    inhandVisuals:
+      left:
+      - state: bun-inhand-left
+      - state: alpha-filling-inhand-left
+        color: "#feffba"
+      - state: alpha-patty-inhand-left
+        color: "#f4bb53"
+      right:
+      - state: bun-inhand-right
+      - state: alpha-filling-inhand-right
+        color: "#feffba"
+      - state: alpha-patty-inhand-right
+        color: "#f4bb53"
   - type: FlavorProfile
     flavors:
       - bun
@@ -665,11 +749,21 @@
 # Tastes like bun, fish.
 
 - type: entity
-  name: five alarm burger
   parent: FoodBurgerBase
   id: FoodBurgerFive
+  name: five alarm burger
   description: HOT! HOT! HOT!
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+    storedOffset: 0,1
+    inhandVisuals:
+      left:
+      - state: plain-inhand-left
+      right:
+      - state: plain-inhand-right
   - type: FlavorProfile
     flavors:
       - meaty
@@ -696,11 +790,31 @@
 # Tastes like bun, HEAT.
 
 - type: entity
-  name: ghost burger
   parent: FoodBurgerBase
   id: FoodBurgerGhost
+  name: ghost burger
   description: Too spooky!
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+    storedOffset: 0,3
+    inhandVisuals:
+      left:
+      - state: alpha-bun-inhand-left
+        color: "#cededa"
+      - state: alpha-filling-inhand-left
+        color: "#6a6281"
+      - state: alpha-patty-inhand-left
+        color: "#95a79f"
+      right:
+      - state: alpha-bun-inhand-right
+        color: "#cededa"
+      - state: alpha-filling-inhand-right
+        color: "#6a6281"
+      - state: alpha-patty-inhand-right
+        color: "#95a79f"
   - type: FlavorProfile
     flavors:
       - bun
@@ -748,13 +862,34 @@
   - type: Tag
     tags:
     - Meat
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: plain-inhand-left
+      right:
+      - state: plain-inhand-right
 
 - type: entity
-  name: McGuffin
   parent: FoodBurgerBase
   id: FoodBurgerMcguffin
+  name: McGuffin
   description: A cheap and greasy imitation of an eggs Benedict.
   components:
+  - type: Item
+    storedOffset: 0,1
+    inhandVisuals:
+      left:
+      - state: bun-inhand-left
+      - state: alpha-filling-inhand-left
+        color: "#f2efce"
+      - state: alpha-patty-inhand-left
+        color: "#e3756d"
+      right:
+      - state: bun-inhand-right
+      - state: alpha-filling-inhand-right
+        color: "#f2efce"
+      - state: alpha-patty-inhand-right
+        color: "#e3756d"
   - type: FlavorProfile
     flavors:
       - muffin
@@ -777,12 +912,12 @@
     - Meat
 
 - type: entity
-  name: BBQ Rib Sandwich
   parent: FoodBurgerBase
   id: FoodBurgerMcrib
+  name: BBQ Rib Sandwich
   description: An elusive rib shaped burger with limited availability across the galaxy. Not as good as you remember it.
   components:
-  - type: Food
+  - type: Edible
     trash:
     - FoodKebabSkewer
   - type: FlavorProfile
@@ -807,6 +942,20 @@
   - type: Tag
     tags:
     - Meat
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: bun-inhand-left
+      - state: alpha-filling-inhand-left
+        color: "#899660"
+      - state: alpha-patty-inhand-left
+        color: "#a94a31"
+      right:
+      - state: bun-inhand-right
+      - state: alpha-filling-inhand-right
+        color: "#899660"
+      - state: alpha-patty-inhand-right
+        color: "#a94a31"
 # Tastes like bun, pork patty.
 
 - type: entity
@@ -834,6 +983,12 @@
           Quantity: 4
         - ReagentId: Nothing
           Quantity: 1
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: mime-inhand-left
+      right:
+      - state: mime-inhand-right
 # Tastes like  .
 
 - type: entity
@@ -862,6 +1017,12 @@
   - type: Tag
     tags:
     - Meat
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: plain-inhand-left
+      right:
+      - state: plain-inhand-right
 
 - type: entity
   name: rat burger
@@ -889,6 +1050,15 @@
   - type: Tag
     tags:
     - Meat
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: bun-inhand-left
+      - state: rat-inhand-left
+      right:
+      - state: bun-inhand-right
+      - state: rat-inhand-right
+
 # Tastes like bun, HEAT.
 
 - type: entity
@@ -916,14 +1086,45 @@
   - type: Tag
     tags:
     - Meat
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: alpha-bun-inhand-left
+        color: "#7f7f7f"
+      - state: alpha-patty-inhand-left
+        color: "#c0c0c0"
+      - state: alpha-filling-inhand-left
+        color: "#141414"
+      right:
+      - state: alpha-bun-inhand-right
+        color: "#7f7f7f"
+      - state: alpha-patty-inhand-right
+        color: "#c0c0c0"
+      - state: alpha-filling-inhand-right
+        color: "#141414"
 # Tastes like bun, lettuce, sludge.
 
 - type: entity
-  name: soylent burger
   parent: FoodBurgerBase
   id: FoodBurgerSoy
+  name: soylent burger
   description: After eating this you have the overwhelming urge to purchase overpriced figurines of superheroes.
   components:
+  - type: Item
+    storedOffset: 0,1
+    inhandVisuals:
+      left:
+      - state: bun-inhand-left
+      - state: alpha-patty-inhand-left
+        color: "#91d90b"
+      - state: alpha-filling-inhand-left
+        color: "#91d90b"
+      right:
+      - state: bun-inhand-right
+      - state: alpha-patty-inhand-right
+        color: "#91d90b"
+      - state: alpha-filling-inhand-right
+        color: "#91d90b"
   - type: FlavorProfile
     flavors:
       - bun
@@ -940,15 +1141,25 @@
         - ReagentId: Protein
           Quantity: 6
         - ReagentId: Vitamin
-          Quantity: 4
+          Quantity: 5
 # Tastes like bun, redditors.
 
 - type: entity
-  name: spell burger
   parent: FoodBurgerBase
   id: FoodBurgerSpell
+  name: spell burger
   description: This is absolutely Ei Nath.
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+    storedOffset: -1,2
+    inhandVisuals:
+      left:
+      - state: spell-inhand-left
+      right:
+      - state: spell-inhand-right
   - type: FlavorProfile
     flavors:
       - bun
@@ -969,11 +1180,21 @@
 # Tastes like bun, silver.
 
 - type: entity
-  name: super bite burger
   parent: FoodBurgerBase
   id: FoodBurgerSuper
+  name: super bite burger
   description: This is a mountain of a burger. FOOD!
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+    storedOffset: 0,4
+    inhandVisuals:
+      left:
+      - state: burger-super-inhand-left
+      right:
+      - state: burger-super-inhand-right
   - type: FlavorProfile
     flavors: # What bun?
       - meaty
@@ -1022,6 +1243,20 @@
           Quantity: 6
         - ReagentId: Vitamin
           Quantity: 3
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: bun-inhand-left
+      - state: alpha-patty-inhand-left
+        color: "#f0d8a1"
+      - state: alpha-filling-inhand-left
+        color: "#e5ad29"
+      right:
+      - state: bun-inhand-right
+      - state: alpha-patty-inhand-right
+        color: "#f0d8a1"
+      - state: alpha-filling-inhand-right
+        color: "#e5ad29"
 # Tastes like bun, tofu.
 
 - type: entity
@@ -1051,17 +1286,39 @@
   - type: Tag
     tags:
     - Meat
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: bun-inhand-left
+      - state: alpha-patty-inhand-left
+        color: "#00cc33"
+      - state: alpha-filling-inhand-left
+        color: "#9900cc"
+      right:
+      - state: bun-inhand-right
+      - state: alpha-patty-inhand-right
+        color: "#00cc33"
+      - state: alpha-filling-inhand-right
+        color: "#9900cc"
 # Tastes like bun, acid.
 
 # Note: I would put a bunch of colored burgers here as listed in the tg .dm but
 # I'd rather wait for a custom burger component.
 
 - type: entity
-  name: mothroachburger
   parent: FoodBurgerBase
   id: FoodBurgerMothRoach
+  name: mothroachburger
   description: The last lamp it saw was the one inside the microwave.
   components:
+  - type: Item
+    shape:
+    - 0,0,0,1
+    inhandVisuals:
+      left:
+      - state: mothroach-inhand-left
+      right:
+      - state: mothroach-inhand-right
   - type: FlavorProfile
     flavors:
       - bun

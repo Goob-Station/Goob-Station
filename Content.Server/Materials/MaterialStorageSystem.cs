@@ -1,23 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Kevin Zheng <kevinz5000@gmail.com>
-// SPDX-FileCopyrightText: 2023 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2023 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Vasilis <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
@@ -107,7 +87,7 @@ public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
             // Goobstation Change End
 
             var volumePerSheet = composition.MaterialComposition.FirstOrDefault(kvp => kvp.Key == msg.Material).Value;
-            var sheetsToExtract = Math.Min(msg.SheetsToExtract, _stackSystem.GetMaxCount(material.StackEntity));
+            var sheetsToExtract = Math.Min(msg.SheetsToExtract, _stackSystem.GetMaxCount(material.StackEntity.Value));
 
             volume = sheetsToExtract * volumePerSheet;
         }
@@ -144,15 +124,19 @@ public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
         if (!base.TryInsertMaterialEntity(user, toInsert, receiver, storage, material, composition))
             return false;
         _audio.PlayPvs(storage.InsertingSound, receiver);
-        if (user != receiver) // Goobstation - for automation to not spam popups
-            _popup.PopupEntity(Loc.GetString("machine-insert-item", ("user", user), ("machine", receiver),
-                ("item", toInsert)), receiver);
+        if (user != receiver) // Goobstation - add check to make sure automation doesnt spam popups
+            _popup.PopupEntity(Loc.GetString("machine-insert-item",
+                    ("user", user),
+                    ("machine", receiver),
+                    ("item", toInsert)),
+                receiver);
         QueueDel(toInsert);
 
         // Logging
         TryComp<StackComponent>(toInsert, out var stack);
         var count = stack?.Count ?? 1;
-        _adminLogger.Add(LogType.Action, LogImpact.Low,
+        _adminLogger.Add(LogType.Action,
+            LogImpact.Low,
             $"{ToPrettyString(user):player} inserted {count} {ToPrettyString(toInsert):inserted} into {ToPrettyString(receiver):receiver}");
         return true;
     }
@@ -222,7 +206,7 @@ public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
         if (amountToSpawn == 0)
             return new List<EntityUid>();
 
-        return _stackSystem.SpawnMultiple(materialProto.StackEntity, amountToSpawn, coordinates);
+        return _stackSystem.SpawnMultipleAtPosition(materialProto.StackEntity.Value, amountToSpawn, coordinates);
     }
 
     /// <summary>

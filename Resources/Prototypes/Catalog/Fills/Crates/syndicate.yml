@@ -1,21 +1,8 @@
-# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-# SPDX-FileCopyrightText: 2022 Rinkashikachi <15rinkashikachi15@gmail.com>
-# SPDX-FileCopyrightText: 2023 Hyenh <108431937+Hyenh@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 AlexUm & XGabriel08X <159550239+AlexUmAndXGabriel08X@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 AlexUm <alexum444@gmail.com>
-# SPDX-FileCopyrightText: 2024 CMDR-Piboy314 <92357316+CMDR-Piboy314@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <92357316+Piras314@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  id: CrateSyndicateSurplusBundle
   parent: [ CrateSyndicate, StorePresetUplink, BaseSyndicateContraband ]
+  id: CrateSyndicateSurplusBundle
   name: Syndicate surplus crate
   # Goobstation - Telecrystal rework
   description: Contains 250 telecrystals worth of completely random Syndicate items. It can be useless junk or really good.
@@ -24,24 +11,23 @@
       totalPrice: 250
 
 - type: entity
-  id: CrateCybersunJuggernautBundle
-  suffix: Filled
   parent: CrateSyndicate
+  id: CrateCybersunJuggernautBundle
   name: Cybersun juggernaut bundle
+  suffix: Filled
   description: Contains everything except a big gun to go postal.
   components:
-  - type: StorageFill
-    contents:
-      - id: ClothingOuterHardsuitJuggernaut
-      - id: ClothingMaskGasSyndicate
-      - id: ClothingHandsGlovesCombat
-      - id: DoubleEmergencyOxygenTankFilled
-      - id: DoubleEmergencyNitrogenTankFilled
-      - id: DoubleEmergencyPlasmaTankFilled # EE Plasmeme Change
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ClothingOuterHardsuitJuggernaut
+        - !type:NestedSelector
+          tableId: SyndicateHardsuitExtrasEntityTable
 
 - type: entity
-  id: CrateSyndicateSuperSurplusBundle
   parent: [ CrateSyndicate, StorePresetUplink, BaseSyndicateContraband ]
+  id: CrateSyndicateSuperSurplusBundle
   name: Syndicate super surplus crate
   # Goobstation - Telecrystal rework
   description: Contains 625 telecrystals worth of completely random Syndicate items.

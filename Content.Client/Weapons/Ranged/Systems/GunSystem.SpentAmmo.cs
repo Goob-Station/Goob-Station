@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2022 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 T-Stalker <le0nel_1van@hotmail.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
-// SPDX-FileCopyrightText: 2024 PoorMansDreams <150595537+PoorMansDreams@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: MIT
 
 using Content.Client.Weapons.Ranged.Components;
@@ -22,7 +13,7 @@ public sealed partial class GunSystem
         SubscribeLocalEvent<SpentAmmoVisualsComponent, AppearanceChangeEvent>(OnSpentAmmoAppearance);
     }
 
-    private void OnSpentAmmoAppearance(EntityUid uid, SpentAmmoVisualsComponent component, ref AppearanceChangeEvent args)
+    private void OnSpentAmmoAppearance(Entity<SpentAmmoVisualsComponent> ent, ref AppearanceChangeEvent args)
     {
         var sprite = args.Sprite;
         if (sprite == null) return;
@@ -32,15 +23,15 @@ public sealed partial class GunSystem
             return;
         }
 
-        var spent = (bool) varSpent;
+        var spent = (bool)varSpent;
         string state;
 
         if (spent)
-            state = component.Suffix ? $"{component.State}-spent" : "spent";
+            state = ent.Comp.Suffix ? $"{ent.Comp.State}-spent" : "spent";
         else
-            state = component.State;
+            state = ent.Comp.State;
 
-        _sprite.LayerSetRsiState((uid, sprite), AmmoVisualLayers.Base, state);
-        _sprite.RemoveLayer((uid, sprite), AmmoVisualLayers.Tip, false);
+        _sprite.LayerSetRsiState((ent, sprite), AmmoVisualLayers.Base, state);
+        _sprite.RemoveLayer((ent, sprite), AmmoVisualLayers.Tip, false);
     }
 }

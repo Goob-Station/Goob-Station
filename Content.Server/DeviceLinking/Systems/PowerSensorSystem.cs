@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: MIT
 
 using Content.Server.DeviceLinking.Components;
@@ -105,28 +100,19 @@ public sealed class PowerSensorSystem : EntitySystem
         var nodeContainer = Comp<NodeContainerComponent>(uid);
         var deviceNode = (CableDeviceNode) nodeContainer.Nodes[cable.Node];
 
-        var charge = 0f;
-        var chargingState = false;
-        var dischargingState = false;
-
         // update state based on the power stats retrieved from the selected power network
         var xform = _xformQuery.GetComponent(uid);
         if (!TryComp(xform.GridUid, out MapGridComponent? grid))
             return;
 
-        var cables = deviceNode.GetReachableNodes(xform, _nodeQuery, _xformQuery, grid, EntityManager);
-        foreach (var node in cables)
-        {
-            if (node.NodeGroup == null)
-                continue;
+        if (deviceNode.NodeGroup == null)
+            return;
 
-            var group = (IBasePowerNet) node.NodeGroup;
-            var stats = _powerNet.GetNetworkStatistics(group.NetworkNode);
-            charge = comp.Output ? stats.OutStorageCurrent : stats.InStorageCurrent;
-            chargingState = charge > comp.LastCharge;
-            dischargingState = charge < comp.LastCharge;
-            break;
-        }
+        var group = (IBasePowerNet) deviceNode.NodeGroup;
+        var stats = _powerNet.GetNetworkStatistics(group.NetworkNode);
+        var charge = comp.Output ? stats.OutStorageCurrent : stats.InStorageCurrent;
+        var chargingState = charge > comp.LastCharge;
+        var dischargingState = charge < comp.LastCharge;
 
         comp.LastCharge = charge;
 

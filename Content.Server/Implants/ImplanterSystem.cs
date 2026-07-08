@@ -1,22 +1,3 @@
-// SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <drsmugleaf@gmail.com>
-// SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 keronshb <keronshb@live.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
-// SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Zachary Higgs <compgeek223@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
@@ -48,6 +29,7 @@ public sealed partial class ImplanterSystem : SharedImplanterSystem
         SubscribeLocalEvent<ImplanterComponent, DrawEvent>(OnDraw);
     }
 
+    // TODO: This all needs to be moved to shared and predicted.
     private void OnImplanterAfterInteract(EntityUid uid, ImplanterComponent component, AfterInteractEvent args)
     {
         if (args.Target == null || !args.CanReach || args.Handled)
@@ -113,7 +95,7 @@ public sealed partial class ImplanterSystem : SharedImplanterSystem
         if (!_doAfter.TryStartDoAfter(args))
             return;
 
-        _popup.PopupEntity(Loc.GetString("injector-component-injecting-user"), target, user);
+        _popup.PopupEntity(Loc.GetString("injector-component-needle-injecting-user"), target, user);
 
         var userName = Identity.Entity(user, EntityManager);
         _popup.PopupEntity(Loc.GetString("implanter-component-implanting-target", ("user", userName)), user, target, PopupType.LargeCaution);
@@ -137,7 +119,7 @@ public sealed partial class ImplanterSystem : SharedImplanterSystem
         };
 
         if (_doAfter.TryStartDoAfter(args))
-            _popup.PopupEntity(Loc.GetString("injector-component-injecting-user"), target, user);
+            _popup.PopupEntity(Loc.GetString("injector-component-needle-injecting-user"), target, user);
 
     }
 

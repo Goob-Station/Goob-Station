@@ -1,92 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Tom Leys <tom@crump-leys.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2023 moonheart08 <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 CaasGit <87243814+CaasGit@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
-// SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Fildrance <fildrance@gmail.com>
-// SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
-// SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kukutis96513 <146854220+Kukutis96513@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Lye <128915833+Lyroth001@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MerrytheManokit <167581110+MerrytheManokit@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 OrangeMoronage9622 <whyteterry0092@gmail.com>
-// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ScarKy0 <scarky0@onet.eu>
-// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
-// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2024 Vigers Ray <60344369+VigersRay@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 c4llv07e <38111072+c4llv07e@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
-// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 pa.pecherskij <pa.pecherskij@interfax.ru>
-// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-// SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
-// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
@@ -97,8 +8,6 @@ using Content.Server.Atmos.Components;
 using Content.Server.Cargo.Components;
 using Content.Server.Doors.Systems;
 using Content.Server.Hands.Systems;
-using Content.Server.Power.Components;
-using Content.Server.Power.EntitySystems;
 using Content.Server.Stack;
 using Content.Server.Station.Systems;
 using Content.Server.Weapons.Ranged.Systems;
@@ -106,6 +15,8 @@ using Content.Shared.Access;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Administration;
+using Content.Shared.Administration.Components;
+using Content.Shared.Administration.Systems;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Construction.Components;
@@ -116,6 +27,8 @@ using Content.Shared.Doors.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Inventory;
 using Content.Shared.PDA;
+using Content.Shared.Power.Components;
+using Content.Shared.Power.EntitySystems;
 using Content.Shared.Stacks;
 using Content.Shared.Station.Components;
 using Content.Shared.Verbs;
@@ -142,7 +55,7 @@ public sealed partial class AdminVerbSystem
     [Dependency] private readonly AdminTestArenaSystem _adminTestArenaSystem = default!;
     [Dependency] private readonly StationJobsSystem _stationJobsSystem = default!;
     [Dependency] private readonly JointSystem _jointSystem = default!;
-    [Dependency] private readonly BatterySystem _batterySystem = default!;
+    [Dependency] private readonly SharedBatterySystem _batterySystem = default!;
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly GunSystem _gun = default!;
 
@@ -160,7 +73,7 @@ public sealed partial class AdminVerbSystem
         {
             Verb bolt = new()
             {
-                Text = bolts.BoltsDown ? "Unbolt" : "Bolt",
+                Text = Loc.GetString(bolts.BoltsDown ? "admin-verbs-unbolt" : "admin-verbs-bolt"),
                 Category = VerbCategory.Tricks,
                 Icon = bolts.BoltsDown
                     ? new SpriteSpecifier.Texture(new("/Textures/Interface/AdminActions/unbolt.png"))
@@ -182,7 +95,7 @@ public sealed partial class AdminVerbSystem
         {
             Verb emergencyAccess = new()
             {
-                Text = airlockComp.EmergencyAccess ? "Emergency Access Off" : "Emergency Access On",
+                Text = Loc.GetString(airlockComp.EmergencyAccess ? "admin-verbs-emergency-access-off" : "admin-verbs-emergency-access-on"),
                 Category = VerbCategory.Tricks,
                 Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/AdminActions/emergency_access.png")),
                 Act = () =>
@@ -202,7 +115,7 @@ public sealed partial class AdminVerbSystem
         {
             Verb rejuvenate = new()
             {
-                Text = "Rejuvenate",
+                Text = Loc.GetString("admin-verbs-rejuvenate"),
                 Category = VerbCategory.Tricks,
                 Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/AdminActions/rejuvenate.png")),
                 Act = () =>
@@ -220,7 +133,7 @@ public sealed partial class AdminVerbSystem
         {
             Verb makeIndestructible = new()
             {
-                Text = "Make Indestructible",
+                Text = Loc.GetString("admin-verbs-make-indestructible"),
                 Category = VerbCategory.Tricks,
                 Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/plus.svg.192dpi.png")),
                 Act = () =>
@@ -237,7 +150,7 @@ public sealed partial class AdminVerbSystem
         {
             Verb makeVulnerable = new()
             {
-                Text = "Make Vulnerable",
+                Text = Loc.GetString("admin-verbs-make-vulnerable"),
                 Category = VerbCategory.Tricks,
                 Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/plus.svg.192dpi.png")),
                 Act = () =>
@@ -255,12 +168,12 @@ public sealed partial class AdminVerbSystem
         {
             Verb refillBattery = new()
             {
-                Text = "Refill Battery",
+                Text = Loc.GetString("admin-verbs-refill-battery"),
                 Category = VerbCategory.Tricks,
                 Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/AdminActions/fill_battery.png")),
                 Act = () =>
                 {
-                    _batterySystem.SetCharge(args.Target, battery.MaxCharge, battery);
+                    _batterySystem.SetCharge((args.Target, battery), battery.MaxCharge);
                 },
                 Impact = LogImpact.Medium,
                 Message = Loc.GetString("admin-trick-refill-battery-description"),
@@ -270,12 +183,12 @@ public sealed partial class AdminVerbSystem
 
             Verb drainBattery = new()
             {
-                Text = "Drain Battery",
+                Text = Loc.GetString("admin-verbs-drain-battery"),
                 Category = VerbCategory.Tricks,
                 Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/AdminActions/drain_battery.png")),
                 Act = () =>
                 {
-                    _batterySystem.SetCharge(args.Target, 0, battery);
+                    _batterySystem.SetCharge((args.Target, battery), 0);
                 },
                 Impact = LogImpact.Medium,
                 Message = Loc.GetString("admin-trick-drain-battery-description"),
@@ -285,15 +198,16 @@ public sealed partial class AdminVerbSystem
 
             Verb infiniteBattery = new()
             {
-                Text = "Infinite Battery",
+                Text = Loc.GetString("admin-verbs-infinite-battery"),
                 Category = VerbCategory.Tricks,
                 Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/AdminActions/infinite_battery.png")),
                 Act = () =>
                 {
                     var recharger = EnsureComp<BatterySelfRechargerComponent>(args.Target);
-                    recharger.AutoRecharge = true;
                     recharger.AutoRechargeRate = battery.MaxCharge; // Instant refill.
-                    recharger.AutoRechargePause = false; // No delay.
+                    recharger.AutoRechargePauseTime = TimeSpan.Zero; // No delay.
+                    Dirty(args.Target, recharger);
+                    _batterySystem.RefreshChargeRate((args.Target, battery));
                 },
                 Impact = LogImpact.Medium,
                 Message = Loc.GetString("admin-trick-infinite-battery-object-description"),
@@ -306,7 +220,7 @@ public sealed partial class AdminVerbSystem
         {
             Verb blockUnanchor = new()
             {
-                Text = "Block Unanchoring",
+                Text = Loc.GetString("admin-verbs-block-unanchoring"),
                 Category = VerbCategory.Tricks,
                 Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/anchor.svg.192dpi.png")),
                 Act = () =>
@@ -324,7 +238,7 @@ public sealed partial class AdminVerbSystem
         {
             Verb refillInternalsO2 = new()
             {
-                Text = "Refill Internals Oxygen",
+                Text = Loc.GetString("admin-verbs-refill-internals-oxygen"),
                 Category = VerbCategory.Tricks,
                 Icon = new SpriteSpecifier.Rsi(new("/Textures/Objects/Tanks/oxygen.rsi"), "icon"),
                 Act = () =>
@@ -339,7 +253,7 @@ public sealed partial class AdminVerbSystem
 
             Verb refillInternalsN2 = new()
             {
-                Text = "Refill Internals Nitrogen",
+                Text = Loc.GetString("admin-verbs-refill-internals-nitrogen"),
                 Category = VerbCategory.Tricks,
                 Icon = new SpriteSpecifier.Rsi(new("/Textures/Objects/Tanks/red.rsi"), "icon"),
                 Act = () =>
@@ -354,7 +268,7 @@ public sealed partial class AdminVerbSystem
 
             Verb refillInternalsPlasma = new()
             {
-                Text = "Refill Internals Plasma",
+                Text = Loc.GetString("admin-verbs-refill-internals-plasma"),
                 Category = VerbCategory.Tricks,
                 Icon = new SpriteSpecifier.Rsi(new("/Textures/Objects/Tanks/plasma.rsi"), "icon"),
                 Act = () =>
@@ -372,7 +286,7 @@ public sealed partial class AdminVerbSystem
         {
             Verb refillInternalsO2 = new()
             {
-                Text = "Refill Internals Oxygen",
+                Text = Loc.GetString("admin-verbs-refill-internals-oxygen"),
                 Category = VerbCategory.Tricks,
                 Icon = new SpriteSpecifier.Rsi(new("/Textures/Objects/Tanks/oxygen.rsi"), "icon"),
                 Act = () => RefillEquippedTanks(args.User, Gas.Oxygen),
@@ -384,7 +298,7 @@ public sealed partial class AdminVerbSystem
 
             Verb refillInternalsN2 = new()
             {
-                Text = "Refill Internals Nitrogen",
+                Text = Loc.GetString("admin-verbs-refill-internals-nitrogen"),
                 Category = VerbCategory.Tricks,
                 Icon = new SpriteSpecifier.Rsi(new("/Textures/Objects/Tanks/red.rsi"), "icon"),
                 Act = () => RefillEquippedTanks(args.User, Gas.Nitrogen),
@@ -396,7 +310,7 @@ public sealed partial class AdminVerbSystem
 
             Verb refillInternalsPlasma = new()
             {
-                Text = "Refill Internals Plasma",
+                Text = Loc.GetString("admin-verbs-refill-internals-plasma"),
                 Category = VerbCategory.Tricks,
                 Icon = new SpriteSpecifier.Rsi(new("/Textures/Objects/Tanks/plasma.rsi"), "icon"),
                 Act = () => RefillEquippedTanks(args.User, Gas.Plasma),
@@ -409,7 +323,7 @@ public sealed partial class AdminVerbSystem
 
         Verb sendToTestArena = new()
         {
-            Text = "Send to test arena",
+            Text = Loc.GetString("admin-verbs-send-to-test-arena"),
             Category = VerbCategory.Tricks,
             Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/eject.svg.192dpi.png")),
 
@@ -430,7 +344,7 @@ public sealed partial class AdminVerbSystem
         {
             Verb grantAllAccess = new()
             {
-                Text = "Grant All Access",
+                Text = Loc.GetString("admin-verbs-grant-all-access"),
                 Category = VerbCategory.Tricks,
                 Icon = new SpriteSpecifier.Rsi(new("/Textures/Objects/Misc/id_cards.rsi"), "centcom"),
                 Act = () =>
@@ -445,7 +359,7 @@ public sealed partial class AdminVerbSystem
 
             Verb revokeAllAccess = new()
             {
-                Text = "Revoke All Access",
+                Text = Loc.GetString("admin-verbs-revoke-all-access"),
                 Category = VerbCategory.Tricks,
                 Icon = new SpriteSpecifier.Rsi(new("/Textures/Objects/Misc/id_cards.rsi"), "default"),
                 Act = () =>
@@ -463,7 +377,7 @@ public sealed partial class AdminVerbSystem
         {
             Verb grantAllAccess = new()
             {
-                Text = "Grant All Access",
+                Text = Loc.GetString("admin-verbs-grant-all-access"),
                 Category = VerbCategory.Tricks,
                 Icon = new SpriteSpecifier.Rsi(new("/Textures/Objects/Misc/id_cards.rsi"), "centcom"),
                 Act = () =>
@@ -478,7 +392,7 @@ public sealed partial class AdminVerbSystem
 
             Verb revokeAllAccess = new()
             {
-                Text = "Revoke All Access",
+                Text = Loc.GetString("admin-verbs-revoke-all-access"),
                 Category = VerbCategory.Tricks,
                 Icon = new SpriteSpecifier.Rsi(new("/Textures/Objects/Misc/id_cards.rsi"), "default"),
                 Act = () =>
@@ -496,15 +410,15 @@ public sealed partial class AdminVerbSystem
         {
             Verb adjustStack = new()
             {
-                Text = "Adjust Stack",
+                Text = Loc.GetString("admin-verbs-adjust-stack"),
                 Category = VerbCategory.Tricks,
                 Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/AdminActions/adjust-stack.png")),
                 Act = () =>
                 {
                     // Unbounded intentionally.
-                    _quickDialog.OpenDialog(player, "Adjust stack", $"Amount (max {_stackSystem.GetMaxCount(stack)})", (int newAmount) =>
+                    _quickDialog.OpenDialog(player, Loc.GetString("admin-verbs-adjust-stack"), Loc.GetString("admin-verbs-dialog-adjust-stack-amount", ("max", _stackSystem.GetMaxCount(stack))), (int newAmount) =>
                     {
-                        _stackSystem.SetCount(args.Target, newAmount, stack);
+                        _stackSystem.SetCount((args.Target, stack), newAmount);
                     });
                 },
                 Impact = LogImpact.Medium,
@@ -515,12 +429,12 @@ public sealed partial class AdminVerbSystem
 
             Verb fillStack = new()
             {
-                Text = "Fill Stack",
+                Text = Loc.GetString("admin-verbs-fill-stack"),
                 Category = VerbCategory.Tricks,
                 Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/AdminActions/fill-stack.png")),
                 Act = () =>
                 {
-                    _stackSystem.SetCount(args.Target, _stackSystem.GetMaxCount(stack), stack);
+                    _stackSystem.SetCount((args.Target, stack), _stackSystem.GetMaxCount(stack));
                 },
                 Impact = LogImpact.Medium,
                 Message = Loc.GetString("admin-trick-fill-stack-description"),
@@ -531,12 +445,12 @@ public sealed partial class AdminVerbSystem
 
         Verb rename = new()
         {
-            Text = "Rename",
+            Text = Loc.GetString("admin-verbs-rename"),
             Category = VerbCategory.Tricks,
             Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/AdminActions/rename.png")),
             Act = () =>
             {
-                _quickDialog.OpenDialog(player, "Rename", "Name", (string newName) =>
+                _quickDialog.OpenDialog(player, Loc.GetString("admin-verbs-dialog-rename-title"), Loc.GetString("admin-verbs-dialog-rename-name"), (string newName) =>
                 {
                     _metaSystem.SetEntityName(args.Target, newName);
                 });
@@ -549,12 +463,12 @@ public sealed partial class AdminVerbSystem
 
         Verb redescribe = new()
         {
-            Text = "Redescribe",
+            Text = Loc.GetString("admin-verbs-redescribe"),
             Category = VerbCategory.Tricks,
             Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/AdminActions/redescribe.png")),
             Act = () =>
             {
-                _quickDialog.OpenDialog(player, "Redescribe", "Description", (LongString newDescription) =>
+                _quickDialog.OpenDialog(player, Loc.GetString("admin-verbs-dialog-redescribe-title"), Loc.GetString("admin-verbs-dialog-redescribe-description"), (LongString newDescription) =>
                 {
                     _metaSystem.SetEntityDescription(args.Target, newDescription.String);
                 });
@@ -567,12 +481,12 @@ public sealed partial class AdminVerbSystem
 
         Verb renameAndRedescribe = new()
         {
-            Text = "Redescribe",
+            Text = Loc.GetString("admin-verbs-rename-and-redescribe"),
             Category = VerbCategory.Tricks,
             Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/AdminActions/rename_and_redescribe.png")),
             Act = () =>
             {
-                _quickDialog.OpenDialog(player, "Rename & Redescribe", "Name", "Description",
+                _quickDialog.OpenDialog(player, Loc.GetString("admin-verbs-dialog-rename-and-redescribe-title"), Loc.GetString("admin-verbs-dialog-rename-name"), Loc.GetString("admin-verbs-dialog-redescribe-description"),
                     (string newName, LongString newDescription) =>
                     {
                         var meta = MetaData(args.Target);
@@ -592,7 +506,7 @@ public sealed partial class AdminVerbSystem
             {
                 Verb barJobSlots = new()
                 {
-                    Text = "Bar job slots",
+                    Text = Loc.GetString("admin-verbs-bar-job-slots"),
                     Category = VerbCategory.Tricks,
                     Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/AdminActions/bar_jobslots.png")),
                     Act = () =>
@@ -611,7 +525,7 @@ public sealed partial class AdminVerbSystem
 
             Verb locateCargoShuttle = new()
             {
-                Text = "Locate Cargo Shuttle",
+                Text = Loc.GetString("admin-verbs-locate-cargo-shuttle"),
                 Category = VerbCategory.Tricks,
                 Icon = new SpriteSpecifier.Rsi(new("/Textures/Clothing/Head/Soft/cargosoft.rsi"), "icon"),
                 Act = () =>
@@ -634,7 +548,7 @@ public sealed partial class AdminVerbSystem
         {
             Verb refillBattery = new()
             {
-                Text = "Refill Battery",
+                Text = Loc.GetString("admin-verbs-refill-battery"),
                 Category = VerbCategory.Tricks,
                 Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/AdminActions/fill_battery.png")),
                 Act = () =>
@@ -644,7 +558,7 @@ public sealed partial class AdminVerbSystem
                         if (!HasComp<StationInfiniteBatteryTargetComponent>(ent))
                             continue;
                         var battery = EnsureComp<BatteryComponent>(ent);
-                        _batterySystem.SetCharge(ent, battery.MaxCharge, battery);
+                        _batterySystem.SetCharge((ent, battery), battery.MaxCharge);
                     }
                 },
                 Impact = LogImpact.Extreme,
@@ -655,7 +569,7 @@ public sealed partial class AdminVerbSystem
 
             Verb drainBattery = new()
             {
-                Text = "Drain Battery",
+                Text = Loc.GetString("admin-verbs-drain-battery"),
                 Category = VerbCategory.Tricks,
                 Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/AdminActions/drain_battery.png")),
                 Act = () =>
@@ -665,7 +579,7 @@ public sealed partial class AdminVerbSystem
                         if (!HasComp<StationInfiniteBatteryTargetComponent>(ent))
                             continue;
                         var battery = EnsureComp<BatteryComponent>(ent);
-                        _batterySystem.SetCharge(ent, 0, battery);
+                        _batterySystem.SetCharge((ent, battery), 0);
                     }
                 },
                 Impact = LogImpact.Extreme,
@@ -676,7 +590,7 @@ public sealed partial class AdminVerbSystem
 
             Verb infiniteBattery = new()
             {
-                Text = "Infinite Battery",
+                Text = Loc.GetString("admin-verbs-infinite-battery"),
                 Category = VerbCategory.Tricks,
                 Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/AdminActions/infinite_battery.png")),
                 Act = () =>
@@ -690,9 +604,8 @@ public sealed partial class AdminVerbSystem
                         var recharger = EnsureComp<BatterySelfRechargerComponent>(ent);
                         var battery = EnsureComp<BatteryComponent>(ent);
 
-                        recharger.AutoRecharge = true;
                         recharger.AutoRechargeRate = battery.MaxCharge; // Instant refill.
-                        recharger.AutoRechargePause = false; // No delay.
+                        recharger.AutoRechargePauseTime = TimeSpan.Zero; // No delay.
                     }
                 },
                 Impact = LogImpact.Extreme,
@@ -706,7 +619,7 @@ public sealed partial class AdminVerbSystem
         {
             Verb haltMovement = new()
             {
-                Text = "Halt Movement",
+                Text = Loc.GetString("admin-verbs-halt-movement"),
                 Category = VerbCategory.Tricks,
                 Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/AdminActions/halt.png")),
                 Act = () =>
@@ -729,7 +642,7 @@ public sealed partial class AdminVerbSystem
                 {
                     Verb unpauseMap = new()
                     {
-                        Text = "Unpause Map",
+                        Text = Loc.GetString("admin-verbs-unpause-map"),
                         Category = VerbCategory.Tricks,
                         Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/AdminActions/play.png")),
                         Act = () =>
@@ -746,7 +659,7 @@ public sealed partial class AdminVerbSystem
                 {
                     Verb pauseMap = new()
                     {
-                        Text = "Pause Map",
+                        Text = Loc.GetString("admin-verbs-pause-map"),
                         Category = VerbCategory.Tricks,
                         Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/AdminActions/pause.png")),
                         Act = () =>
@@ -766,7 +679,7 @@ public sealed partial class AdminVerbSystem
         {
             Verb snapJoints = new()
             {
-                Text = "Snap Joints",
+                Text = Loc.GetString("admin-verbs-snap-joints"),
                 Category = VerbCategory.Tricks,
                 Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/AdminActions/snap_joints.png")),
                 Act = () =>
@@ -784,7 +697,7 @@ public sealed partial class AdminVerbSystem
         {
             Verb minigunFire = new()
             {
-                Text = "Make Minigun",
+                Text = Loc.GetString("admin-verbs-make-minigun"),
                 Category = VerbCategory.Tricks,
                 Icon = new SpriteSpecifier.Rsi(new("/Textures/Objects/Weapons/Guns/HMGs/minigun.rsi"), "icon"),
                 Act = () =>
@@ -803,18 +716,18 @@ public sealed partial class AdminVerbSystem
         {
             Verb setCapacity = new()
             {
-                Text = "Set Bullet Amount",
+                Text = Loc.GetString("admin-verbs-set-bullet-amount"),
                 Category = VerbCategory.Tricks,
                 Icon = new SpriteSpecifier.Rsi(new("/Textures/Objects/Fun/caps.rsi"), "mag-6"),
                 Act = () =>
                 {
-                    _quickDialog.OpenDialog(player, "Set Bullet Amount", $"Amount (standard {ballisticAmmo.Capacity}):", (string amount) =>
+                    _quickDialog.OpenDialog(player, Loc.GetString("admin-verbs-dialog-set-bullet-amount-title"), Loc.GetString("admin-verbs-dialog-set-bullet-amount-amount", ("cap", ballisticAmmo.Capacity)), (string amount) =>
                     {
                         if (!int.TryParse(amount, out var result))
                             return;
 
                         _gun.SetBallisticUnspawned((args.Target, ballisticAmmo), result);
-                        _gun.UpdateBallisticAppearance(args.Target, ballisticAmmo);
+                        _gun.UpdateBallisticAppearance((args.Target, ballisticAmmo));
                     });
                 },
                 Impact = LogImpact.Medium,

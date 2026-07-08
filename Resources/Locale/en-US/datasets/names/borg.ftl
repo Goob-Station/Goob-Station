@@ -37,9 +37,11 @@ names-borg-dataset-36 = Makeshifter
 names-borg-dataset-37 = Twin
 names-borg-dataset-38 = S.A.U.L
 names-borg-dataset-39 = Honker
+# Goobstation - 40 - I guess we're keeping it?
 names-borg-dataset-40 = Clanker
 names-borg-dataset-41 = Is-The-Robot
 names-borg-dataset-42 = 9 of 7
 names-borg-dataset-43 = Dank bot
+# Goobstation
 names-borg-dataset-44 = AUT0
 names-borg-dataset-45 = Delta

@@ -1,15 +1,6 @@
-// SPDX-FileCopyrightText: 2022 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <drsmugleaf@gmail.com>
-// SPDX-FileCopyrightText: 2023 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: MIT
 
+using Content.Shared.Chemistry.Components;
 using Content.Shared.Storage;
 
 namespace Content.Server.Medical.BiomassReclaimer
@@ -46,10 +37,10 @@ namespace Content.Server.Medical.BiomassReclaimer
         public float CurrentExpectedYield = 0f;
 
         /// <summary>
-        /// The reagents that will be spilled while processing.
+        /// The reagents that will be spilled while processing a mob.
         /// </summary>
         [ViewVariables]
-        public List<string> BloodReagents = new(); // Goobstation, updated to List.
+        public Solution? BloodReagents = null;
 
         /// <summary>
         /// Entities that can be randomly spawned while processing.

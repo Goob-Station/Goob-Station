@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # BASE
 - type: entity
@@ -267,14 +262,14 @@
       - state: clasp-inhand-right
         color: "#5f539a"
 
-- type: entity
-  parent: ClothingBackpackMessengerBase
-  id: ClothingBackpackMessengerMailman
-  name: mailman messenger bag
-  description: A robust bag for transportation of letters and parcels.
-  components:
-  - type: Sprite
-    sprite: _NF/Clothing/Back/Messenger/mailman.rsi
+#- type: entity # upstreamrr todo <mailfix>
+#  parent: ClothingBackpackMessengerBase
+#  id: ClothingBackpackMessengerMailman
+#  name: mailman messenger bag
+#  description: A robust bag for transportation of letters and parcels.
+#  components:
+#  - type: Sprite
+#    sprite: _NF/Clothing/Back/Messenger/mailman.rsi
 
 # Medical
 - type: entity

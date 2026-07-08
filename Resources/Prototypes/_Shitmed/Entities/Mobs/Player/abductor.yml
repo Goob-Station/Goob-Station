@@ -1,14 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
-# SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2025 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-# SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Entity Prototypes
 
@@ -51,16 +40,7 @@
     name: abductor-lone-ghost-role-name
     description: abductor-lone-ghost-role-desc
     mindRoles:
-    - MindRoleGhostRoleSoloAntagonist
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 18000 #5 hours
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 7200 #2 hours
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 7200 #2 hours
+    - MindRoleLoneAbductor
   - type: AbductorScientist
   - type: SurgeryIgnoreClothing
   - type: Sanitized
@@ -79,13 +59,7 @@
     name: abductor-scientist-ghost-role-name
     description: abductor-scientist-ghost-role-desc
     mindRoles:
-    - MindRoleGhostRoleTeamAntagonist
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 18000 #5 hours
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 10800 #3 hours
+    - MindRoleAbductorScientist
   - type: AbductorScientist
   - type: SurgeryIgnoreClothing
   - type: Sanitized
@@ -104,13 +78,7 @@
     name: abductor-agent-ghost-role-name
     description: abductor-agent-ghost-role-desc
     mindRoles:
-    - MindRoleGhostRoleTeamAntagonist
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 18000 #5 hours
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 10800 #3 hours
+    - MindRoleAbductorAgent
   - type: RandomMetadata
     nameSegments:
       - AbductorAgentPrefix
@@ -197,18 +165,9 @@
     description: abductor-lone-ghost-role-desc
     rules: abductors-ghost-role-rules
     mindRoles:
-    - MindRoleGhostRoleSoloAntagonist
+    - MindRoleLoneAbductor
     raffle:
       settings: default
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 18000 #5 hours
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 7200 #2 hours
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 7200 #2 hours
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
@@ -239,15 +198,9 @@
     description: abductor-agent-ghost-role-desc
     rules: abductors-ghost-role-rules
     mindRoles:
-    - MindRoleGhostRoleTeamAntagonist
+    - MindRoleAbductorAgent
     raffle:
       settings: default
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 18000 #5 hours
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 10800 #3 hours
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
@@ -278,15 +231,9 @@
     description: abductor-scientist-ghost-role-desc
     rules: abductors-ghost-role-rules
     mindRoles:
-    - MindRoleGhostRoleTeamAntagonist
+    - MindRoleAbductorScientist
     raffle:
       settings: default
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 18000 #5 hours
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 10800 #3 hours
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:

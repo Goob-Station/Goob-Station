@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Julian Giebel <juliangiebel@live.de>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Text.Json.Serialization;
@@ -47,14 +43,8 @@ public sealed partial class BanManager
 
     private async void ProcessBanNotification(BanNotificationData data)
     {
-        if ((await _entryManager.ServerEntity).Id == data.ServerId)
-        {
-            _sawmill.Verbose("Not processing ban notification: came from this server");
-            return;
-        }
-
         _sawmill.Verbose($"Processing ban notification for ban {data.BanId}");
-        var ban = await _db.GetServerBanAsync(data.BanId);
+        var ban = await _db.GetBanAsync(data.BanId);
         if (ban == null)
         {
             _sawmill.Warning($"Ban in notification ({data.BanId}) didn't exist?");
@@ -92,15 +82,5 @@ public sealed partial class BanManager
         /// </summary>
         [JsonRequired, JsonPropertyName("ban_id")]
         public int BanId { get; init; }
-
-        /// <summary>
-        /// The id of the server the ban was made on.
-        /// This is used to avoid double work checking the ban on the originating server.
-        /// </summary>
-        /// <remarks>
-        /// This is optional in case the ban was made outside a server (SS14.Admin)
-        /// </remarks>
-        [JsonPropertyName("server_id")]
-        public int? ServerId { get; init; }
     }
 }

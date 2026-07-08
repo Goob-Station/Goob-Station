@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.MartialArts;
@@ -111,7 +104,7 @@ public abstract partial class SharedMartialArtsSystem
             return;
 
         _stun.TryKnockdown(target,
-            TimeSpan.FromSeconds(proto.ParalyzeTime * power),
+            proto.ParalyzeTime * power,
             true,
             true,
             proto.DropItems);
@@ -143,7 +136,7 @@ public abstract partial class SharedMartialArtsSystem
             return;
 
         _stun.TryKnockdown(target,
-            TimeSpan.FromSeconds(proto.ParalyzeTime * power),
+            proto.ParalyzeTime * power,
             true,
             true,
             proto.DropItems);
@@ -191,7 +184,7 @@ public abstract partial class SharedMartialArtsSystem
         var mapPos = _transform.GetMapCoordinates(ent).Position;
         var hitPos = _transform.GetMapCoordinates(target).Position;
         var dir = hitPos - mapPos;
-        var time = TimeSpan.FromSeconds(proto.ParalyzeTime * power);
+        var time = proto.ParalyzeTime * power;
 
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);

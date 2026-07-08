@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Saphire Lattice <lattice@saphi.re>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 TGRCDev <tgrc@tgrc.dev>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Collections;
@@ -20,22 +13,14 @@ namespace Content.Server.IP
     {
         // Npgsql used to map inet types as a tuple like this.
         // I'm upgrading the dependencies and I don't wanna rewrite a bunch of DB code, so a few helpers it shall be.
-        [return: NotNullIfNotNull(nameof(tuple))]
-        public static NpgsqlInet? ToNpgsqlInet(this (IPAddress, int)? tuple)
+        public static NpgsqlInet ToNpgsqlInet(this (IPAddress, int) tuple)
         {
-            if (tuple == null)
-                return null;
-
-            return new NpgsqlInet(tuple.Value.Item1, (byte) tuple.Value.Item2);
+            return new NpgsqlInet(tuple.Item1, (byte)tuple.Item2);
         }
 
-        [return: NotNullIfNotNull(nameof(inet))]
-        public static (IPAddress, int)? ToTuple(this NpgsqlInet? inet)
+        public static (IPAddress, int) ToTuple(this NpgsqlInet inet)
         {
-            if (inet == null)
-                return null;
-
-            return (inet.Value.Address, inet.Value.Netmask);
+            return (inet.Address, inet.Netmask);
         }
 
         // Taken from https://stackoverflow.com/a/56461160/4678631

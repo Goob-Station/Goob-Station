@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Damage;
@@ -34,15 +29,15 @@ public sealed partial class GunSystem
                 if (!autoShoot.Enabled)
                     continue;
 
-                AttemptShoot(uid, gun);
+                AttemptShoot((uid, gun));
             }
             else if (gun.BurstActivated)
             {
                 var parent = TransformSystem.GetParentUid(uid);
                 if (HasComp<DamageableComponent>(parent))
-                    AttemptShoot(parent, uid, gun, gun.ShootCoordinates ?? new EntityCoordinates(uid, gun.DefaultDirection));
+                    AttemptShoot(parent, (uid, gun), gun.ShootCoordinates ?? new EntityCoordinates(uid, gun.DefaultDirection));
                 else
-                    AttemptShoot(uid, gun);
+                    AttemptShoot((uid, gun));
             }
         }
     }

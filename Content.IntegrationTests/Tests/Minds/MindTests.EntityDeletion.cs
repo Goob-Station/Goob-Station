@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ShadowCommander <shadowjjt@gmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 #nullable enable
@@ -124,7 +114,7 @@ public sealed partial class MindTests
             Assert.That(entMan.EntityExists(attachedEntity), Is.True);
             Assert.That(attachedEntity, Is.Not.EqualTo(playerEnt));
             Assert.That(entMan.HasComponent<GhostComponent>(attachedEntity));
-            var transform = entMan.GetComponent<TransformComponent>(attachedEntity.Value);
+            var transform = entMan.GetComponent<TransformComponent>(attachedEntity!.Value);
             Assert.That(transform.MapID, Is.Not.EqualTo(MapId.Nullspace));
             Assert.That(transform.MapID, Is.Not.EqualTo(testMap.MapId));
 #pragma warning restore NUnit2045
@@ -187,7 +177,7 @@ public sealed partial class MindTests
         Assert.That(player.AttachedEntity, Is.Not.Null);
         Assert.That(entMan.EntityExists(player.AttachedEntity));
 #pragma warning restore NUnit2045
-        var originalEntity = player.AttachedEntity.Value;
+        var originalEntity = player.AttachedEntity!.Value;
 
         EntityUid ghost = default!;
         await server.WaitAssertion(() =>
@@ -260,7 +250,7 @@ public sealed partial class MindTests
         var mindId = player.ContentData()?.Mind;
         Assert.That(mindId, Is.Not.Null);
 
-        var mind = entMan.GetComponent<MindComponent>(mindId.Value);
+        var mind = entMan.GetComponent<MindComponent>(mindId!.Value);
         Assert.That(mind.VisitingEntity, Is.Null);
 
         await pair.CleanReturnAsync();

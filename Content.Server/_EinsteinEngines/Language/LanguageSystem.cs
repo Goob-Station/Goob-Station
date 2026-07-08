@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
@@ -71,23 +68,6 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
     #endregion
 
     #region public api
-
-    //public bool CanUnderstand(Entity<LanguageSpeakerComponent?> ent, ProtoId<LanguagePrototype> language) // - Goob : moved to Shared
-    //public bool CanSpeak(Entity<LanguageSpeakerComponent?> ent, ProtoId<LanguagePrototype> language) // - Goob : moved to Shared
-
-    /// <summary>
-    ///     Returns the current language of the given entity, assumes Universal if it's not a language speaker.
-    /// </summary>
-    public LanguagePrototype GetLanguage(Entity<LanguageSpeakerComponent?> ent)
-    {
-        if (!Resolve(ent, ref ent.Comp, logMissing: false)
-            || string.IsNullOrEmpty(ent.Comp.CurrentLanguage)
-            || !_prototype.TryIndex<LanguagePrototype>(ent.Comp.CurrentLanguage, out var proto)
-        )
-            return Universal;
-
-        return proto;
-    }
 
     /// <summary>
     ///     Returns the list of languages this entity can speak.

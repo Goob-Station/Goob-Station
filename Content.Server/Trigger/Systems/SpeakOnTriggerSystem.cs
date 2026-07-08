@@ -1,15 +1,10 @@
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Chat;
 using Content.Shared.Timing;
 using Content.Server.Chat.Systems;
+using Content.Shared.Chat;
 using Content.Shared.Trigger;
 using Content.Shared.Trigger.Components.Effects;
 using Robust.Shared.Prototypes;
@@ -45,7 +40,7 @@ public sealed class SpeakOnTriggerSystem : EntitySystem
             message = Loc.GetString(ent.Comp.Text);
         else
         {
-            if (!_prototypeManager.TryIndex(ent.Comp.Pack, out var messagePack))
+            if (!_prototypeManager.Resolve(ent.Comp.Pack, out var messagePack))
                 return;
             message = Loc.GetString(_random.Pick(messagePack.Values));
         }

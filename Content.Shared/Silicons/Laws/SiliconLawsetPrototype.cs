@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 Jajsha <101492056+Zap527@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Shared.Prototypes;
@@ -71,6 +65,12 @@ public sealed partial class SiliconLawsetPrototype : IPrototype
     /// <inheritdoc/>
     [IdDataField]
     public string ID { get; private set; } = default!;
+
+    /// <summary>
+    /// The locstring of the lawset for the guidebook entry, if no name is provided, defaults to the ID
+    /// </summary>    
+    [DataField]
+    public LocId? Name = null;
 
     /// <summary>
     /// List of law prototype ids in this lawset.

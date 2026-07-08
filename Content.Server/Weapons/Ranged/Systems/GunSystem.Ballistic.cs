@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 T-Stalker <le0nel_1van@hotmail.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Weapons.Ranged.Components;
@@ -18,32 +8,32 @@ namespace Content.Server.Weapons.Ranged.Systems;
 
 public sealed partial class GunSystem
 {
-    protected override void Cycle(EntityUid uid, BallisticAmmoProviderComponent component, MapCoordinates coordinates)
+    protected override void Cycle(Entity<BallisticAmmoProviderComponent> ent, MapCoordinates coordinates)
     {
-        EntityUid? ent = null;
+        EntityUid? ammoEnt = null;
 
         // TODO: Combine with TakeAmmo
-        if (component.Entities.Count > 0)
+        if (ent.Comp.Entities.Count > 0)
         {
-            var existing = component.Entities[^1];
-            component.Entities.RemoveAt(component.Entities.Count - 1);
-            DirtyField(uid, component, nameof(BallisticAmmoProviderComponent.Entities));
+            var existing = ent.Comp.Entities[^1];
+            ent.Comp.Entities.RemoveAt(ent.Comp.Entities.Count - 1);
+            DirtyField(ent.AsNullable(), nameof(BallisticAmmoProviderComponent.Entities));
 
-            Containers.Remove(existing, component.Container);
+            Containers.Remove(existing, ent.Comp.Container);
             EnsureShootable(existing);
         }
-        else if (component.UnspawnedCount > 0)
+        else if (ent.Comp.UnspawnedCount > 0)
         {
-            component.UnspawnedCount--;
-            DirtyField(uid, component, nameof(BallisticAmmoProviderComponent.UnspawnedCount));
-            ent = Spawn(component.Proto, coordinates);
-            EnsureShootable(ent.Value);
+            ent.Comp.UnspawnedCount--;
+            DirtyField(ent.AsNullable(), nameof(BallisticAmmoProviderComponent.UnspawnedCount));
+            ammoEnt = Spawn(ent.Comp.Proto, coordinates);
+            EnsureShootable(ammoEnt.Value);
         }
 
-        if (ent != null)
-            EjectCartridge(ent.Value);
+        if (ammoEnt != null)
+            EjectCartridge(ammoEnt.Value);
 
         var cycledEvent = new GunCycledEvent();
-        RaiseLocalEvent(uid, ref cycledEvent);
+        RaiseLocalEvent(ent, ref cycledEvent);
     }
 }

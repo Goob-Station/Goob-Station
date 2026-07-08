@@ -1,25 +1,3 @@
-// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Paul <ritter.paul1+git@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2021 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2022 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2022 Timothy Teakettle <59849408+timothyteakettle@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Chemistry.Reaction;
@@ -74,11 +52,12 @@ namespace Content.IntegrationTests.Tests.Chemistry
                     beaker = entityManager.SpawnEntity("TestSolutionContainer", coordinates);
                     Assert.That(solutionContainerSystem
                         .TryGetSolution(beaker, "beaker", out solutionEnt, out solution));
+                    solutionEnt.Value.Comp.Solution.CanReact = false;
                     foreach (var (id, reactant) in reactionPrototype.Reactants)
                     {
 #pragma warning disable NUnit2045
                         Assert.That(solutionContainerSystem
-                            .TryAddReagent(solutionEnt.Value, id, reactant.Amount, out var quantity));
+                            .TryAddReagent(solutionEnt.Value, id, reactant.Amount, out var quantity, reactionPrototype.MinimumTemperature));
                         Assert.That(reactant.Amount, Is.EqualTo(quantity));
 #pragma warning restore NUnit2045
                     }
@@ -92,7 +71,7 @@ namespace Content.IntegrationTests.Tests.Chemistry
                     //Check if the reaction is the first to occur when heated
                     foreach (var possibleReaction in possibleReactions.OrderBy(r => r.MinimumTemperature))
                     {
-                        if (possibleReaction.MinimumTemperature < reactionPrototype.MinimumTemperature && possibleReaction.MixingCategories == reactionPrototype.MixingCategories)
+                        if (possibleReaction.Priority >= reactionPrototype.Priority && possibleReaction.MinimumTemperature < reactionPrototype.MinimumTemperature && possibleReaction.MixingCategories == reactionPrototype.MixingCategories)
                         {
                             Assert.Fail($"The {possibleReaction.ID} reaction may occur before {reactionPrototype.ID} when heated.");
                         }
@@ -101,14 +80,16 @@ namespace Content.IntegrationTests.Tests.Chemistry
                     //Check if the reaction is the first to occur when freezing
                     foreach (var possibleReaction in possibleReactions.OrderBy(r => r.MaximumTemperature))
                     {
-                        if (possibleReaction.MaximumTemperature > reactionPrototype.MaximumTemperature && possibleReaction.MixingCategories == reactionPrototype.MixingCategories)
+                        if (possibleReaction.Priority >= reactionPrototype.Priority && possibleReaction.MaximumTemperature > reactionPrototype.MaximumTemperature && possibleReaction.MixingCategories == reactionPrototype.MixingCategories)
                         {
                             Assert.Fail($"The {possibleReaction.ID} reaction may occur before {reactionPrototype.ID} when freezing.");
                         }
                     }
                     */
                     //Now safe set the temperature and mix the reagents
+                    solutionEnt.Value.Comp.Solution.CanReact = true;
                     solutionContainerSystem.SetTemperature(solutionEnt.Value, reactionPrototype.MinimumTemperature);
+                    solutionContainerSystem.UpdateChemicals(solutionEnt.Value);
 
                     if (reactionPrototype.MixingCategories != null)
                     {

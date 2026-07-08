@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
-# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
@@ -36,6 +32,7 @@
         layer:
         - MachineLayer
   - type: Battery
+    netsync: false
     maxCharge: 1500
     startingCharge: 1500
   - type: ApcPowerReceiverBattery
@@ -149,6 +146,7 @@
         layer:
         - MachineLayer
   - type: Battery
+    netsync: false
     maxCharge: 1500
     startingCharge: 1500
   - type: ApcPowerReceiverBattery

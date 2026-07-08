@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 qwerltaz <69696513+qwerltaz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: MIT
 
 using System.Numerics;
@@ -27,7 +21,7 @@ namespace Content.Client.UserInterface.Controls
 
         public void Clear()
         {
-            DisposeAllChildren();
+            RemoveAllChildren();
         }
 
         public void AddEntry(float amount, Color color, string? tooltip = null)

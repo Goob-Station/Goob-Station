@@ -1,17 +1,3 @@
-// SPDX-FileCopyrightText: 2021 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <drsmugleaf@gmail.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Baa <9057997+Baa14453@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Sirionaut <148076704+Sirionaut@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 sirionaut <sirionaut@gmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Chemistry.Components;
@@ -127,6 +113,10 @@ public record struct BeforeIngestedEvent(FixedPoint2 Min, FixedPoint2 Max, Solut
     // Whether this event, and therefore eat attempt, should be cancelled.
     public bool Cancelled;
 
+    // When and if we eat this solution, should we actually remove solution or should it get replaced?
+    // This bool basically only exists because of stackable system.
+    public bool Refresh;
+
     public bool TryNewMinimum(FixedPoint2 newMin)
     {
         if (newMin > Max)
@@ -146,6 +136,12 @@ public record struct BeforeIngestedEvent(FixedPoint2 Min, FixedPoint2 Max, Solut
     }
 }
 
+/// <summary>
+/// Raised on an entity while it is eating
+/// </summary>
+/// <param name="Food">The item being ingested</param>
+/// <param name="Split">The solution being ingested</param>
+/// <param name="ForceFed">Whether or not we're being forced</param>
 [ByRefEvent]
 public record struct IngestingEvent(EntityUid Food, Solution Split, bool ForceFed);
 
@@ -159,10 +155,6 @@ public record struct IngestingEvent(EntityUid Food, Solution Split, bool ForceFe
 [ByRefEvent]
 public record struct IngestedEvent(EntityUid User, EntityUid Target, Solution Split, bool ForceFed)
 {
-    // Should we refill the solution now that we've eaten it?
-    // This bool basically only exists because of stackable system.
-    public bool Refresh;
-
     // Should we destroy the ingested entity?
     public bool Destroy;
 

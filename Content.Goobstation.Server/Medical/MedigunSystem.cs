@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Physics;
@@ -23,6 +19,7 @@ using Content.Shared.Damage;
 using Content.Shared.Interaction;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
+using Content.Shared.Power.Components;
 using Content.Shared.Timing;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
@@ -127,9 +124,9 @@ public sealed class MedigunSystem : SharedMedigunSystem
 
         var batteryToWithdraw = comp.UberActivated ? comp.UberBatteryWithdraw: comp.BatteryWithdraw;
         if (_batteryQuery.TryComp(ent.Owner, out var batteryComp)
-            && !_battery.TryUseCharge(ent, batteryToWithdraw, batteryComp))
+            && !_battery.TryUseCharge(ent.Owner, batteryToWithdraw))
         {
-            _battery.SetCharge(ent, 0f, batteryComp); // Trigger recharging & cooldown
+            _battery.SetCharge(ent.Owner, 0f); // Trigger recharging & cooldown
             return false;
         }
 

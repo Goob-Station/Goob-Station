@@ -6,7 +6,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 action-speech-spell-clown = NWOLC YRGNA
-action-speech-spell-cluwne = NWOLC EGNEVER
+action-speech-spell-cluwne-goob = NWOLC EGNEVER
 action-speech-spell-magic-missile = FORTI GY AMA
 action-speech-spell-emp = NEC CANTIO
 action-speech-spell-repulse = GITTAH WEIGH
@@ -30,7 +30,7 @@ action-speech-spell-sanguine-strike = SHAPSDAY
 action-speech-spell-soul-tap = AT ANY COST!
 action-speech-spell-thrown-lightning = LIGHTNINGBOLT!!
 action-speech-spell-rod-form = CLANG!
-action-speech-spell-charge = DI'RI CEL
+action-speech-spell-charge-goob = DI'RI CEL
 action-speech-spell-gorilla-form = B'NA NAH-SLEMA!
 action-speech-spell-summon-stick-minions = Rise, my creations! Off your page into this realm!
 action-speech-spell-tile-toggle = RUK'AT

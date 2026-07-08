@@ -1,63 +1,52 @@
-using System.Text.Json.Serialization;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Pain.Systems;
-using Content.Shared.EntityEffects;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Body;
+using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
-using JetBrains.Annotations;
+using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
-namespace Content.Shared.EntityEffects.Effects;
+namespace Content.Shared._Shitmed.EntityEffects.Effects;
 
-[UsedImplicitly]
-public sealed partial class AdjustPainFeels : EntityEffect
+public sealed partial class AdjustPainFeels : EntityEffectBase<AdjustPainFeels>
 {
     [DataField(required: true)]
-    [JsonPropertyName("amount")]
     public FixedPoint2 Amount = default!;
 
     [DataField]
-    [JsonPropertyName("identifier")]
     public string ModifierIdentifier = "PainSuppressant";
 
-    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => Loc.GetString("reagent-effect-guidebook-suppress-pain", ("chance", Probability));
+}
 
-    public override void Effect(EntityEffectBaseArgs args)
+public sealed class AdjustPainFeelsEffectSystem : EntityEffectSystem<BodyComponent, AdjustPainFeels>
+{
+    [Dependency] private readonly ConsciousnessSystem _consciousness = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly PainSystem _pain = default!;
+    [Dependency] private readonly SharedBodySystem _body = default!;
+
+    protected override void Effect(Entity<BodyComponent> ent, ref EntityEffectEvent<AdjustPainFeels> args)
     {
-        var scale = FixedPoint2.New(1);
-
-        if (args is EntityEffectReagentArgs reagentArgs)
-        {
-            scale = reagentArgs.Quantity * reagentArgs.Scale;
-        }
-
-        if (!args.EntityManager.System<ConsciousnessSystem>().TryGetNerveSystem(args.TargetEntity, out var nerveSys))
+        var scale = FixedPoint2.New(args.Scale);
+        if (!_consciousness.TryGetNerveSystem(ent, out var nerveSys))
             return;
 
-        foreach (var bodyPart in args.EntityManager.System<SharedBodySystem>().GetBodyChildren(args.TargetEntity))
+        var nerves = nerveSys.Value;
+        var ident = args.Effect.ModifierIdentifier;
+        var amount = args.Effect.Amount * scale;
+        foreach (var (bodyPart, _) in _body.GetBodyChildren(ent.Owner, ent.Comp))
         {
-            if (!args.EntityManager.System<PainSystem>()
-                    .TryGetPainFeelsModifier(bodyPart.Id, nerveSys.Value, ModifierIdentifier, out var modifier))
-            {
-                args.EntityManager.System<PainSystem>()
-                    .TryAddPainFeelsModifier(
-                        nerveSys.Value,
-                        ModifierIdentifier,
-                        bodyPart.Id,
-                        IoCManager.Resolve<IRobustRandom>().Prob(0.3f) ? Amount * scale : -Amount * scale);
-            }
+            // TODO SHITMED: predicted rng
+            var add = _random.Prob(0.3f) ? amount : -amount;
+            // TODO SHITMED: modifier isnt used bruh make it better
+            if (_pain.TryGetPainFeelsModifier(bodyPart, nerves, ident, out var modifier))
+                _pain.TryChangePainFeelsModifier(nerves, ident, bodyPart, add);
             else
-            {
-                var add = IoCManager.Resolve<IRobustRandom>().Prob(0.3f) ? Amount : -Amount;
-                args.EntityManager.System<PainSystem>()
-                    .TryChangePainFeelsModifier(
-                        nerveSys.Value,
-                        ModifierIdentifier,
-                        bodyPart.Id,
-                        add * scale);
-            }
+                _pain.TryAddPainFeelsModifier(nerves, ident, bodyPart, add);
         }
     }
 }

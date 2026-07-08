@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Armok <155400926+ARMOKS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 NULL882 <gost6865@yandex.ru>
-# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
@@ -23,7 +17,7 @@
       - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: Pulse
     fireCost: 40
   - type: Appearance
@@ -46,7 +40,7 @@
       - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: RedHeavyLaser
     fireCost: 30
   - type: Appearance
@@ -69,7 +63,7 @@
       - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 30
   - type: Appearance
@@ -92,7 +86,7 @@
       - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: RedLaser
     fireCost: 10
   - type: Appearance
@@ -118,7 +112,7 @@
       path: /Audio/Effects/Lightning/lightningshock.ogg
       params:
         variation: 0.2
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: TeslaGunBullet
     fireCost: 99
   - type: Appearance
@@ -141,7 +135,7 @@
       - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 10
   - type: Appearance
@@ -164,7 +158,7 @@
       - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletTaser
     fireCost: 19
   - type: Appearance
@@ -187,7 +181,7 @@
       - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ShellShotgun
     fireCost: 30
   - type: Appearance
@@ -210,7 +204,7 @@
       - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ShellShotgunIncendiary
     fireCost: 40
   - type: Appearance
@@ -233,7 +227,7 @@
       - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: CartridgeLightRifle
     fireCost: 5
   - type: Appearance
@@ -256,7 +250,7 @@
       - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletWeakRocket
     fireCost: 25
   - type: Appearance
@@ -279,7 +273,7 @@
       - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: GrenadeBlast
     fireCost: 300
   - type: Battery
@@ -307,7 +301,7 @@
       path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: GrenadeFlash
     fireCost: 30
   - type: Appearance

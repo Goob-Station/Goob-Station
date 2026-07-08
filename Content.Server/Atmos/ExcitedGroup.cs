@@ -1,29 +1,46 @@
-// SPDX-FileCopyrightText: 2020 Campbell Suter <znix@znix.xyz>
-// SPDX-FileCopyrightText: 2020 ComicIronic <comicironic@gmail.com>
-// SPDX-FileCopyrightText: 2020 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2020 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <zddm@outlook.es>
-// SPDX-FileCopyrightText: 2020 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 silicons <2003111+silicons@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: MIT
 
-namespace Content.Server.Atmos
+namespace Content.Server.Atmos;
+
+/// <summary>
+/// <para>Internal Atmospherics class that stores data about a group of <see cref="TileAtmosphere"/>s
+/// that are excited and need to be processed.</para>
+///
+/// <para>Excited Groups is an optimization routine executed during LINDA
+/// that bunches small groups of active <see cref="TileAtmosphere"/>s
+/// together and performs equalization processing on the entire group when the group dissolves.
+/// Dissolution happens when LINDA operations between the tiles decrease to very low mole deltas.</para>
+/// </summary>
+public sealed class ExcitedGroup
 {
-    public sealed class ExcitedGroup
-    {
-        [ViewVariables] public bool Disposed = false;
+    /// <summary>
+    /// Whether this Active Group has been disposed of.
+    /// Used to make sure we don't perform operations on active groups that
+    /// we've already dissolved.
+    /// </summary>
+    [ViewVariables]
+    public bool Disposed = false;
 
-        [ViewVariables] public readonly List<TileAtmosphere> Tiles = new(100);
+    /// <summary>
+    /// List of tiles that belong to this excited group.
+    /// </summary>
+    [ViewVariables]
+    public readonly List<TileAtmosphere> Tiles = new(100);
 
-        [ViewVariables] public int DismantleCooldown { get; set; } = 0;
+    /// <summary>
+    /// Cycles before this excited group will be queued for dismantling.
+    /// Dismantling is the process of equalizing the atmosphere
+    /// across all tiles in the excited group and removing the group.
+    /// </summary>
+    [ViewVariables]
+    public int DismantleCooldown = 0;
 
-        [ViewVariables] public int BreakdownCooldown { get; set; } = 0;
-    }
+    /// <summary>
+    /// Cycles before this excited group will be allowed to break down and deactivate.
+    /// Breakdown occurs when the excited group is small enough and inactive enough
+    /// to be safely removed without equalization. Used where the mole deltas across
+    /// the group are very low but not high enough for an equalization to occur.
+    /// </summary>
+    [ViewVariables]
+    public int BreakdownCooldown = 0;
 }

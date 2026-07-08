@@ -1,25 +1,6 @@
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 PrPleGoo <PrPleGoo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 moonheart08 <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 c4llv07e <38111072+c4llv07e@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 chavonadelal <156101927+chavonadelal@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Chat.Systems;
 using Content.Server.Containers;
@@ -29,6 +10,7 @@ using static Content.Shared.Access.Components.IdCardConsoleComponent;
 using Content.Shared.Access.Systems;
 using Content.Shared.Access;
 using Content.Shared.Administration.Logs;
+using Content.Shared.Chat;
 using Content.Shared.Construction;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
@@ -105,7 +87,7 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
         {
             newState = new IdCardConsoleBoundUserInterfaceState(
                 component.PrivilegedIdSlot.HasItem,
-                PrivilegedIdIsAuthorized(uid, component),
+                PrivilegedIdIsAuthorized(uid, component, out _),
                 false,
                 null,
                 null,
@@ -120,7 +102,7 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
             var targetIdComponent = Comp<IdCardComponent>(targetId);
             var targetAccessComponent = Comp<AccessComponent>(targetId);
 
-            var jobProto = targetIdComponent.JobPrototype ?? new ProtoId<AccessLevelPrototype>(string.Empty);
+            var jobProto = targetIdComponent.JobPrototype ?? new ProtoId<JobPrototype>(string.Empty);
             if (TryComp<StationRecordKeyStorageComponent>(targetId, out var keyStorage)
                 && keyStorage.Key is { } key
                 && _record.TryGetRecord<GeneralStationRecord>(key, out var record))
@@ -130,7 +112,7 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
 
             newState = new IdCardConsoleBoundUserInterfaceState(
                 component.PrivilegedIdSlot.HasItem,
-                PrivilegedIdIsAuthorized(uid, component),
+                PrivilegedIdIsAuthorized(uid, component, out _),
                 true,
                 targetIdComponent.FullName,
                 targetIdComponent.LocalizedJobTitle,
@@ -152,21 +134,21 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
         string newFullName,
         string newJobTitle,
         List<ProtoId<AccessLevelPrototype>> newAccessList,
-        ProtoId<AccessLevelPrototype> newJobProto,
+        ProtoId<JobPrototype> newJobProto,
         EntityUid player,
         IdCardConsoleComponent? component = null)
     {
         if (!Resolve(uid, ref component))
             return;
 
-        if (component.TargetIdSlot.Item is not { Valid: true } targetId || !PrivilegedIdIsAuthorized(uid, component))
+        if (component.TargetIdSlot.Item is not { Valid: true } targetId || !PrivilegedIdIsAuthorized(uid, component, out var privilegedId))
             return;
 
         _idCard.TryChangeFullName(targetId, newFullName, player: player);
         _idCard.TryChangeJobTitle(targetId, newJobTitle, player: player);
 
-        if (_prototype.TryIndex<JobPrototype>(newJobProto, out var job)
-            && _prototype.TryIndex(job.Icon, out var jobIcon))
+        if (_prototype.Resolve(newJobProto, out var job)
+            && _prototype.Resolve(job.Icon, out var jobIcon))
         {
             _idCard.TryChangeJobIcon(targetId, jobIcon, player: player);
             _idCard.TryChangeJobDepartment(targetId, job);
@@ -187,10 +169,7 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
             return;
         }
 
-        var oldTags = _access.TryGetTags(targetId) ?? new List<ProtoId<AccessLevelPrototype>>();
-        oldTags = oldTags.ToList();
-
-        var privilegedId = component.PrivilegedIdSlot.Item;
+        var oldTags = _access.TryGetTags(targetId)?.ToList() ?? new List<ProtoId<AccessLevelPrototype>>();
 
         if (oldTags.SequenceEqual(newAccessList))
             return;
@@ -198,8 +177,7 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
         // I hate that C# doesn't have an option for this and don't desire to write this out the hard way.
         // var difference = newAccessList.Difference(oldTags);
         var difference = newAccessList.Union(oldTags).Except(newAccessList.Intersect(oldTags)).ToHashSet();
-        // NULL SAFETY: PrivilegedIdIsAuthorized checked this earlier.
-        var privilegedPerms = _accessReader.FindAccessTags(privilegedId!.Value).ToHashSet();
+        var privilegedPerms = _accessReader.FindAccessTags(privilegedId.Value);
         if (!difference.IsSubsetOf(privilegedPerms))
         {
             _sawmill.Warning($"User {ToPrettyString(uid)} tried to modify permissions they could not give/take!");
@@ -212,26 +190,24 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
 
         /*TODO: ECS SharedIdCardConsoleComponent and then log on card ejection, together with the save.
         This current implementation is pretty shit as it logs 27 entries (27 lines) if someone decides to give themselves AA*/
-        _adminLogger.Add(LogType.Action, LogImpact.Medium,
-            $"{ToPrettyString(player):player} has modified {ToPrettyString(targetId):entity} with the following accesses: [{string.Join(", ", addedTags.Union(removedTags))}] [{string.Join(", ", newAccessList)}]");
+        _adminLogger.Add(LogType.Action,
+            $"{player} has modified {targetId} with the following accesses: [{string.Join(", ", addedTags.Union(removedTags))}] [{string.Join(", ", newAccessList)}]");
     }
 
     /// <summary>
     /// Returns true if there is an ID in <see cref="IdCardConsoleComponent.PrivilegedIdSlot"/> and said ID satisfies the requirements of <see cref="AccessReaderComponent"/>.
     /// </summary>
-    /// <remarks>
-    /// Other code relies on the fact this returns false if privileged Id is null. Don't break that invariant.
-    /// </remarks>
-    private bool PrivilegedIdIsAuthorized(EntityUid uid, IdCardConsoleComponent? component = null)
+    private bool PrivilegedIdIsAuthorized(EntityUid uid, IdCardConsoleComponent component, [NotNullWhen(true)] out EntityUid? id)
     {
-        if (!Resolve(uid, ref component))
-            return true;
+        id = null;
+        if (component.PrivilegedIdSlot.Item == null)
+            return false;
 
+        id = component.PrivilegedIdSlot.Item;
         if (!TryComp<AccessReaderComponent>(uid, out var reader))
             return true;
 
-        var privilegedId = component.PrivilegedIdSlot.Item;
-        return privilegedId != null && _accessReader.IsAllowed(privilegedId.Value, uid, reader);
+        return _accessReader.IsAllowed(id.Value, uid, reader);
     }
 
     private void UpdateStationRecord(EntityUid uid, EntityUid targetId, string newFullName, ProtoId<AccessLevelPrototype> newJobTitle, JobPrototype? newJobProto)

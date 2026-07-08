@@ -1,59 +1,3 @@
-// SPDX-FileCopyrightText: 2022 CommieFlowers <rasmus.cedergren@hotmail.com>
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
-// SPDX-FileCopyrightText: 2022 rolfero <45628623+rolfero@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Doru991 <75124791+Doru991@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Errant <35878406+errant@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2023 PixelTK <85175107+PixelTheKermit@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 Adeinitas <147965189+adeinitas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Callmore <22885888+Callmore@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Dakamakat <52600490+dakamakat@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Danger Revolution! <142105406+DangerRevolution@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Timemaster99 <57200767+Timemaster99@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Avalon <jfbentley1@gmail.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 nikitosych <boriszyn@gmail.com>
-// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-// SPDX-FileCopyrightText: 2025 vanx <61917534+Vaaankas@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
@@ -165,11 +109,14 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         {
             RemCompDeferred<ActiveStaminaComponent>(entity);
         }
-        _alerts.ClearAlert(entity, entity.Comp.StaminaAlert);
+        _alerts.ClearAlert(entity.Owner, entity.Comp.StaminaAlert);
     }
 
     private void OnStartup(Entity<StaminaComponent> entity, ref ComponentStartup args)
     {
+        // Set the base threshold here since ModifiedCritThreshold can't be modified via yaml.
+        entity.Comp.CritThreshold = entity.Comp.BaseCritThreshold;
+
         // Goobstation edit start - prevent a server crash from YAMLmaxxing
         if (entity.Comp.CritThreshold <= entity.Comp.AnimationThreshold)
             Log.Error($"Entity {ToPrettyString(entity)} failed to initialize StaminaComponent properly: {nameof(StaminaComponent.CritThreshold)} is lower or equal to {nameof(StaminaComponent.AnimationThreshold)}. Please fix its YAML prototype!");
@@ -212,7 +159,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         if (component.Critical)
             return;
 
-        TakeStaminaDamage(uid, args.StaminaDamage, component, source: args.Source, applyResistances: true);
+        TakeStaminaDamage(uid, args.StaminaDamage, component, source: args.Source);
 
         args.PopupPrefix = "disarm-action-shove-";
         args.IsStunned = component.Critical;
@@ -294,7 +241,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         if (!TryComp<StaminaComponent>(args.Embedded, out var stamina))
             return;
 
-        TakeStaminaDamage(args.Embedded, component.Damage, stamina, source: uid, applyResistances: true);
+        TakeStaminaDamage(args.Embedded, component.Damage, stamina, source: uid);
     }
 
     private void OnThrowHit(EntityUid uid, StaminaDamageOnCollideComponent component, ThrowDoHitEvent args)
@@ -382,7 +329,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
 
     // goob edit - stunmeta
     public void TakeStaminaDamage(EntityUid uid, float value, StaminaComponent? component = null,
-        EntityUid? source = null, EntityUid? with = null, bool visual = true, SoundSpecifier? sound = null, bool immediate = true, bool applyResistances = false, bool logDamage = true)
+        EntityUid? source = null, EntityUid? with = null, bool visual = true, SoundSpecifier? sound = null, bool immediate = true, bool ignoreResist = false, bool logDamage = true)
     {
         if (!Resolve(uid, ref component, false)
         || value == 0) // no damage???
@@ -393,7 +340,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         if (ev.Cancelled)
             return;
 
-        if (applyResistances)
+        if (!ignoreResist)
             value = ev.Value;
 
         value = UniversalStaminaDamageModifier * value;
@@ -524,7 +471,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
                     comp,
                     source: GetEntity(source),
                     visual: false,
-                    applyResistances: applyResistances);
+                    ignoreResist: !applyResistances); // todo unfuck this shit. goob.
 
             // Shouldn't need to consider paused time as we're only iterating non-paused stamina components.
             var nextUpdate = comp.NextUpdate;
@@ -628,7 +575,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         {
             var key = thres.Key.Float();
 
-            if (ent.Comp.StaminaDamage >= key && key > closest && closest < ent.Comp.CritThreshold)
+            if ((ent.Comp.StaminaDamage / ent.Comp.CritThreshold) >= key && key > closest && closest < 1f)
                 closest = thres.Key;
         }
 

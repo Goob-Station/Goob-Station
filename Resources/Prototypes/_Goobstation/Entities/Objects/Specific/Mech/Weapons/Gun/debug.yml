@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2024 NULL882 <gost6865@yandex.ru>
-# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
@@ -32,7 +27,7 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: AmmoCounter
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: CartridgeLightRifle
     fireCost: 9
   - type: MagazineVisuals
@@ -56,7 +51,7 @@
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 19
   - type: MagazineVisuals
@@ -94,7 +89,7 @@
       - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 19
   - type: MagazineVisuals

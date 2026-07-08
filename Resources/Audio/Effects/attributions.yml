@@ -1,24 +1,3 @@
-# SPDX-FileCopyrightText: 2022 Bright0 <55061890+Bright0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Chronophylos <nikolai@chronophylos.com>
-# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Hmeister-fake <144629361+Hmeister-fake@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 DEATHB4DEFEAT <77995199+DEATHB4DEFEAT@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 KISS <59531932+YuriyKiss@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2024 Sphiral <145869023+SphiraI@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Yurii Kis <yurii.kis@smartteksas.com>
-# SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Chaboricks <95505064+Chaboricks@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - files: ["balloon-pop"]
@@ -281,11 +260,11 @@
   source: "https://freesound.org/people/CheChoDj/sounds/609353/"
 
 - files: [card_drag.ogg]
-  copyright: 'created by Tao7891'
+  copyright: 'created by Tao7891; perryprog (GitHub) downmixed to mono'
   license: CC0-1.0
   source: https://github.com/space-wizards/space-station-14/pull/37363
 
-- files: [card_tube_bonk.ogg]
-  copyright: 'created by Crinkem on Freesound'
+- files: ["balloon_hits.ogg"]
+  copyright: "by brokendot(github)"
   license: "CC0-1.0"
-  source: https://freesound.org/people/Crinkem/sounds/492027/
+  source: https://github.com/space-wizards/space-station-14/pull/41102

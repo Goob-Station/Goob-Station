@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Popups;
@@ -37,14 +34,14 @@ public sealed class ActivatableUIRequiresAnchorSystem : EntitySystem
         if (args.Cancelled)
             return;
 
-        if (!Transform(ent.Owner).Anchored)
-        {
-            if (ent.Comp.Popup != null)
-            {
-                _popup.PopupClient(Loc.GetString(ent.Comp.Popup), args.User);
-            }
+        if (Transform(ent.Owner).Anchored)
+            return;
 
-            args.Cancel();
+        if (ent.Comp.Popup != null && !args.Silent)
+        {
+            _popup.PopupClient(Loc.GetString(ent.Comp.Popup), args.User);
         }
+
+        args.Cancel();
     }
 }

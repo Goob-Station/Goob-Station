@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Client.Info;
@@ -78,7 +74,7 @@ namespace Content.Client.Lobby.UI
         public void ReloadCharacterPickers()
         {
             _createNewCharacterButton.Orphan();
-            Characters.DisposeAllChildren();
+            Characters.RemoveAllChildren();
 
             var numberOfFullSlots = 0;
             var characterButtonsGroup = new ButtonGroup();
