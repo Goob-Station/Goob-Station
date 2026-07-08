@@ -31,9 +31,9 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/uranium_window.rsi
+    sprite: _Pirate/Structures/Windows/uranium_window.rsi # Pirate
   - type: Icon
-    sprite: Structures/Windows/uranium_window.rsi
+    sprite: _Pirate/Structures/Windows/uranium_window.rsi # Pirate
     state: full
   - type: Damageable
     damageContainer: StructuralInorganic

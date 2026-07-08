@@ -48,6 +48,7 @@
   #      Quantity: 100
   - type: DrainableSolution
     solution: pool
+  - type: FloorWater # Pirate: wetness
   - type: SpeedModifierContacts
     walkSpeedModifier: 0.5
     sprintSpeedModifier: 0.5

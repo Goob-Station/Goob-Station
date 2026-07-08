@@ -37,6 +37,9 @@
     containers:
       toggleable-clothing: !type:Container {}
   - type: GroupExamine
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
 
 - type: entity
   parent: ClothingHeadBase
@@ -86,6 +89,9 @@
   - type: Clothing
     sprite: _Pirate/BloodCult/Clothing/cult_boots.rsi
   - type: NoSlip
+  - type: ClothingSpeedModifier
+    walkModifier: 1.15
+    sprintModifier: 1.15
   - type: SlowedOverSlippery
     slowdownModifier: 0.7
   - type: SpeedModifierContactCapClothing

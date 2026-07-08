@@ -5,6 +5,8 @@
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Damage.Systems;
+using Content.Shared._DV.CosmicCult.Components;
+using Content.Shared._DV.CosmicCult.EntityEffects;
 using Content.Shared.BloodCult;
 using Content.Shared.BloodCult.Components;
 using Content.Shared.BloodCult.EntityEffects;
@@ -15,6 +17,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Server.BloodCult.EntitySystems;
 
@@ -27,6 +30,8 @@ public sealed class BloodCultEntityEffectSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly StaminaSystem _stamina = default!;
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly BloodCultMindShieldSystem _deconversion = default!;
 
     public override void Initialize()
     {
@@ -34,6 +39,29 @@ public sealed class BloodCultEntityEffectSystem : EntitySystem
 
         SubscribeLocalEvent<ExecuteEntityEffectEvent<BleedSanguinePerniculate>>(OnBleedSanguinePerniculate);
         SubscribeLocalEvent<ExecuteEntityEffectEvent<DeCultify>>(OnDeCultify);
+        SubscribeLocalEvent<ExecuteEntityEffectEvent<CleanseCult>>(OnCleanseCult);
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<BloodCultistComponent, CleanseCultComponent>();
+        while (query.MoveNext(out var uid, out _, out var cleanse))
+        {
+            if (_timing.CurTime < cleanse.CleanseTime)
+                continue;
+
+            RemComp<CleanseCultComponent>(uid);
+            _deconversion.TryDeconvert(uid, popupLocId: null, stunDuration: TimeSpan.Zero, log: true);
+        }
+    }
+
+    private void OnCleanseCult(ref ExecuteEntityEffectEvent<CleanseCult> args)
+    {
+        var target = args.Args.TargetEntity;
+        if (HasComp<BloodCultistComponent>(target))
+            EnsureComp<CleanseCultComponent>(target);
     }
 
     private void OnBleedSanguinePerniculate(ref ExecuteEntityEffectEvent<BleedSanguinePerniculate> args)

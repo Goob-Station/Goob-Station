@@ -19,9 +19,9 @@
   source: "https://freesound.org/people/Acekat13X31/sounds/515685/"
 
 
-- files: ["sink_faucet.ogg"]
+- files: ["sink_faucet.ogg", "sink_faucet-3s.ogg"]
   license: "CC0-1.0"
-  copyright: "Made by FOSSarts on freesound, ported from tgstation"
+  copyright: "Made by FOSSarts on freesound, ported from tgstation. sink_faucet-3s.ogg is the same sound trimmed to 3s."
   source: "https://freesound.org/people/FOSSarts/sounds/740086/"
 
 - files: ["wring.ogg"]

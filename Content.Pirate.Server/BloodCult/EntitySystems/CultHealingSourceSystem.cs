@@ -407,6 +407,9 @@ public sealed partial class CultHealingSourceSystem : EntitySystem
 			var bloodMaxVolume = bloodstream.BloodReferenceSolution.Volume * bloodstream.MaxVolumeModifier;
 			if (bloodMaxVolume > FixedPoint2.Zero)
 			{
+				if (bloodstream.BleedAmount > 0f)
+					_bloodstreamSystem.TryModifyBleedAmount((uid, bloodstream), -(adjustedHealing * time));
+
 				// Check current blood level
 				var currentBloodLevel = _bloodstreamSystem.GetBloodLevel((uid, bloodstream)) / bloodstream.MaxVolumeModifier;
 

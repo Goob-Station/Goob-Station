@@ -209,7 +209,6 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
 		SubscribeLocalEvent<BloodCultistComponent, MindAddedMessage>(OnMindAdded);
 		SubscribeLocalEvent<BloodCultistComponent, MindRemovedMessage>(OnMindRemoved);
-		SubscribeLocalEvent<BloodCultistComponent, ComponentRemove>(OnCultistRemoved);
 
 		// Ensure halos are applied when AppearanceComponent is added to cultists
 		SubscribeLocalEvent<AppearanceComponent, ComponentStartup>(OnAppearanceStartup);
@@ -955,12 +954,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	private void OnMindRemoved(EntityUid uid, BloodCultistComponent cultist, MindRemovedMessage args)
 	{
 		_role.MindRemoveRole<BloodCultRoleComponent>(args.Mind.Owner);
-		CheckCultistCountAndCallEvac();
-	}
-
-	private void OnCultistRemoved(EntityUid uid, BloodCultistComponent cultist, ComponentRemove args)
-	{
-		CheckCultistCountAndCallEvac();
+		// No auto-evac when the cult dies out - the round continues normally.
 	}
 
 	/// <summary>
@@ -1026,32 +1020,6 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
 
 
-	private void CheckCultistCountAndCallEvac()
-	{
-		// Only check if there's an active rule
-		if (!TryGetActiveRule(out var rule))
-			return;
-
-		// Don't call evac if it's already been called
-		if (_roundEnd.IsRoundEndRequested())
-			return;
-
-		// Get all cultists (excluding constructs)
-		var cultists = GetCultists(includeConstructs: false);
-		var cultistCount = cultists.Count;
-
-		// Pirate: a lone cultist should still be able to continue the round.
-		if (cultistCount <= 0)
-		{
-			_roundEnd.RequestRoundEnd(
-				TimeSpan.FromMinutes(10),
-				null,
-				false,
-				"cult-evac-called-announcement",
-				"cult-evac-sender-announcement"
-			);
-		}
-	}
 
 	/// <summary>
 	/// Minimum gap between two forced cult chants from the same speaker.

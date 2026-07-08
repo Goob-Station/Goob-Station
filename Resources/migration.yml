@@ -409,7 +409,7 @@ SpeedLoaderPistolHighVelocity: SpeedLoaderPistol
 #MountainRockMining: AsteroidRockMining # Pirate
 
 # 2023-08-08
-WindowTintedDirectional: WindowFrostedDirectional
+#WindowTintedDirectional: WindowFrostedDirectional # Pirate
 
 # 2023-08-10
 SyringeSpaceacillin: null

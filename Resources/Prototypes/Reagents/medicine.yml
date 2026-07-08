@@ -1585,6 +1585,11 @@
       effects:
       - !type:SatiateThirst
         factor: 3
+      - !type:CleanseCult # Pirate: blood cult
+        conditions:
+        - !type:ReagentCondition
+          reagent: Holywater
+          min: 10
     Medicine:
       effects:
       - !type:HealthChange

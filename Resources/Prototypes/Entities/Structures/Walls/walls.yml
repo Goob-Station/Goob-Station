@@ -705,9 +705,9 @@
   suffix: indestructible
   components:
     - type: Sprite
-      sprite: _Pirate/Structures/Walls/plastitanium.rsi # Pirate
+      sprite: Structures/Walls/plastitanium.rsi
     - type: Icon
-      sprite: _Pirate/Structures/Walls/plastitanium.rsi # Pirate
+      sprite: Structures/Walls/plastitanium.rsi
     - type: IconSmooth
       key: walls
       base: plastitanium
@@ -990,9 +990,9 @@
   name: riveted wall
   components:
   - type: Sprite
-    sprite: Structures/Walls/riveted.rsi
+    sprite: _Pirate/Structures/Walls/riveted.rsi # Pirate
   - type: Icon
-    sprite: Structures/Walls/riveted.rsi
+    sprite: _Pirate/Structures/Walls/riveted.rsi # Pirate
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong

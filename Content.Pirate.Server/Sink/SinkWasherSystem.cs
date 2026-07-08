@@ -1,6 +1,8 @@
 using Content.Pirate.Server.Stains;
 using Content.Pirate.Shared.Sink;
 using Content.Pirate.Shared.Stains.Components;
+using Content.Pirate.Shared.Wetness.Components;
+using Content.Pirate.Shared.Wetness.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
@@ -20,6 +22,7 @@ public sealed class SinkWasherSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = null!;
     [Dependency] private readonly SharedAudioSystem _audio = null!;
     [Dependency] private readonly StainSystem _stains = null!;
+    [Dependency] private readonly SharedWetnessSystem _wetness = null!;
     [Dependency] private readonly InventorySystem _inventory = null!;
 
     public override void Initialize()
@@ -78,19 +81,32 @@ public sealed class SinkWasherSystem : EntitySystem
 
         var target = args.Target.Value;
         var cleaned = target == args.User
-            ? WashHands(args.User)
+            ? WashHands(ent, args.User)
             : _stains.TryCleanStain(target);
+
+        if (target != args.User)
+            TryWet(ent, target);
 
         if (cleaned)
             _popup.PopupEntity(Loc.GetString("stain-cleaned"), target, args.User);
     }
 
-    private bool WashHands(EntityUid user)
+    private bool WashHands(Entity<SinkWasherComponent> ent, EntityUid user)
     {
-        if (_inventory.TryGetSlotEntity(user, GlovesSlot, out var gloves) && _stains.HasStain(gloves.Value))
-            return _stains.TryCleanStain(gloves.Value);
+        if (_inventory.TryGetSlotEntity(user, GlovesSlot, out var gloves))
+        {
+            TryWet(ent, gloves.Value);
+            if (_stains.HasStain(gloves.Value))
+                return _stains.TryCleanStain(gloves.Value);
+        }
 
         return _stains.TryCleanBodyStain(user, SlotFlags.GLOVES);
+    }
+
+    private void TryWet(Entity<SinkWasherComponent> ent, EntityUid item)
+    {
+        if (TryComp<WettableComponent>(item, out var wettable))
+            _wetness.AddWetness((item, wettable), ent.Comp.WetnessAdded);
     }
 
     private bool HandsNeedWashing(EntityUid user)

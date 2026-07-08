@@ -76,6 +76,12 @@
     - sprite: _Pirate/Effects/blood.rsi
       state: helmetbloodicon
   #endregion Pirate: stains
+  #region Pirate: wetness
+  # Sealed modsuit helmets protect face slots.
+  - type: WetnessBlocker
+    slots: [HEAD, MASK, EYES]
+    requiresSealed: true
+  #endregion Pirate: wetness
 
 - type: entity
   abstract: true

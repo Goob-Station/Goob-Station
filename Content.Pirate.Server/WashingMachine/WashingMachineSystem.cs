@@ -1,12 +1,15 @@
 using Content.Pirate.Shared.Stains.Components;
 using Content.Pirate.Shared.Stains.Systems;
 using Content.Pirate.Shared.WashingMachine;
+using Content.Pirate.Shared.Wetness.Components;
+using Content.Pirate.Shared.Wetness.Systems;
 using Content.Server.Forensics;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Damage;
+using Content.Shared.Inventory;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Destructible;
@@ -23,12 +26,15 @@ public sealed class WashingMachineSystem : SharedWashingMachineSystem
 {
     [Dependency] private readonly SharedSolutionContainerSystem _solution = null!;
     [Dependency] private readonly SharedStainSystem _stains = null!;
+    [Dependency] private readonly SharedWetnessSystem _wetness = null!;
     [Dependency] private readonly ForensicsSystem _forensics = null!;
     [Dependency] private readonly DamageableSystem _damageable = null!;
     [Dependency] private readonly IPrototypeManager _proto = null!;
     [Dependency] private readonly IRobustRandom _random = null!;
     [Dependency] private readonly ReactiveSystem _reactive = null!;
 
+    /// <summary>How long after a wash cycle wearing a laundered inner uniform grants the buff.</summary>
+    private static readonly TimeSpan FreshLaundryWindow = TimeSpan.FromMinutes(5);
     private static readonly SoundSpecifier HitSound = new SoundCollectionSpecifier("MetalThud");
 
     public override void Initialize()
@@ -94,8 +100,6 @@ public sealed class WashingMachineSystem : SharedWashingMachineSystem
 
         if (_random.Prob(comp.ThumpSoundChance * frameTime))
             Audio.PlayPvs(HitSound, uid);
-
-        comp.AccumulatedSelfDamage += comp.SelfDamagePerSecond * frameTime;
     }
 
     protected override bool TryStartWash(Entity<WashingMachineComponent> ent, EntityUid user)
@@ -135,6 +139,20 @@ public sealed class WashingMachineSystem : SharedWashingMachineSystem
                 _solution.RemoveAllSolution(sol.Value);
                 _stains.UpdateVisuals((item, stain));
             }
+
+            // Finished laundry is clean and dry.
+            foreach (var item in items)
+            {
+                if (TryComp<WettableComponent>(item, out var wettable))
+                    _wetness.DryFully((item, wettable));
+
+                // Inner uniforms can grant the fresh-laundry buff.
+                if (TryComp<ClothingComponent>(item, out var clothing) && (clothing.Slots & SlotFlags.INNERCLOTHING) != 0)
+                {
+                    var fresh = EnsureComp<FreshLaundryComponent>(item);
+                    fresh.Expiry = Timing.CurTime + FreshLaundryWindow;
+                }
+            }
         }
 
         var machineEv = new WashingMachineFinishedWashingEvent(items);
@@ -147,14 +165,6 @@ public sealed class WashingMachineSystem : SharedWashingMachineSystem
         }
 
         UpdateForensics((uid, comp), items);
-
-        if (comp.AccumulatedSelfDamage > 0)
-        {
-            var bluntProto = _proto.Index<DamageTypePrototype>("Blunt");
-            var selfDamage = new DamageSpecifier(bluntProto, comp.AccumulatedSelfDamage);
-            _damageable.TryChangeDamage(uid, selfDamage, ignoreResistances: true);
-            comp.AccumulatedSelfDamage = 0;
-        }
 
         Dirty(uid, comp);
         Storage.OpenStorage(uid);

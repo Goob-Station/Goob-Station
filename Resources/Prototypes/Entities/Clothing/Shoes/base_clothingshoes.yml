@@ -90,6 +90,16 @@
     - sprite: _Pirate/Effects/blood.rsi
       state: shoebloodicon
   #endregion Pirate: stains
+  #region Pirate: wetness
+  - type: Wettable
+  # Wet shoes override footstep sound.
+  - type: WetFootstep
+  # Sealed footwear (deployed modsuit boots) is watertight. Plain shoes have no SealableClothing so
+  # this blocker is skipped for them and they still get wet normally.
+  - type: WetnessBlocker
+    slots: [FEET]
+    requiresSealed: true
+  #endregion Pirate: wetness
   - type: ProtectedFromStepTriggers
   - type: Armor # provide minimal covering to your feet
     coverage:
