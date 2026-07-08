@@ -16,13 +16,13 @@
     maxFillLevels: 1
     changeColor: false
     emptySpriteName: survivalpen_empty
-  - type: Injector
-    solutionName: hypospray
-    ignoreClosed: false
-    activeModeProtoId: HyposprayDynamicMode
-    allowedModes:
-    - HyposprayDynamicMode
-    - HyposprayInjectMode
+  #- type: Injector
+  #  solutionName: hypospray
+  #  ignoreClosed: false
+  #  activeModeProtoId: HyposprayDynamicMode
+  #  allowedModes:
+  #  - HyposprayDynamicMode
+  #  - HyposprayInjectMode - Goob fix
   - type: SolutionContainerManager
     solutions:
       pen:
@@ -52,13 +52,13 @@
     maxFillLevels: 1
     changeColor: false
     emptySpriteName: luxpen_empty
-  - type: Injector
-    solutionName: hypospray
-    ignoreClosed: false
-    activeModeProtoId: HyposprayDynamicMode
-    allowedModes:
-    - HyposprayDynamicMode
-    - HyposprayInjectMode
+  #- type: Injector
+  #  solutionName: hypospray
+  #  ignoreClosed: false
+  #  activeModeProtoId: HyposprayDynamicMode
+  #  allowedModes:
+  #  - HyposprayDynamicMode
+  #  - HyposprayInjectMode - Goob fix
   - type: SolutionContainerManager
     solutions:
       pen:
