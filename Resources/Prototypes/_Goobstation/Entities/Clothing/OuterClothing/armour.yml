@@ -153,6 +153,12 @@
     sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/cap_armored_winter_coat.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/cap_armored_winter_coat.rsi
+  - type: SolutionContainerManager
+    solutions:
+      stain:
+        maxVol: 5
+      food:
+        maxVol: 0
   - type: Item
     size: Normal
   - type: Armor

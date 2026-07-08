@@ -143555,7 +143555,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -35.5,101.5
       parent: 2
-- proto: GlowstickBase
+- proto: Glowstick
   entities:
   - uid: 20952
     components:

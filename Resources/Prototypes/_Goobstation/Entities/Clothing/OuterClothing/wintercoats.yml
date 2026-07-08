@@ -41,6 +41,12 @@
     sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/secvestcoat.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/secvestcoat.rsi
+  - type: SolutionContainerManager
+    solutions:
+      stain:
+        maxVol: 5
+      food:
+        maxVol: 0
   - type: ToggleableClothing
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterSec
@@ -78,4 +84,3 @@
     state: icon
   - type: Clothing
     sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/cosmic.rsi
-

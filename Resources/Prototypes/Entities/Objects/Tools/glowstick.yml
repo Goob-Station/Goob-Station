@@ -89,6 +89,10 @@
 
 - type: entity
   parent: GlowstickBase
+  id: Glowstick
+
+- type: entity
+  parent: GlowstickBase
   id: GlowstickRed
   name: red glowstick
   components:
