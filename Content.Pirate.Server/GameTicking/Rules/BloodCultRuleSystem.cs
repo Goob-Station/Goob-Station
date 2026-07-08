@@ -953,7 +953,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	private void OnMindRemoved(EntityUid uid, BloodCultistComponent cultist, MindRemovedMessage args)
 	{
 		_role.MindRemoveRole<BloodCultRoleComponent>(args.Mind.Owner);
-		// Pirate: no auto-evac when the cult dies out - the round continues normally.
+		// No auto-evac when the cult dies out - the round continues normally.
 	}
 
 	/// <summary>

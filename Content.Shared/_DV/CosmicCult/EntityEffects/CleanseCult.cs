@@ -3,7 +3,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._DV.CosmicCult.EntityEffects;
 
-public sealed partial class CleanseCult : EventEntityEffect<CleanseCult> // Pirate: stains
+public sealed partial class CleanseCult : EventEntityEffect<CleanseCult> // Pirate: blood cult
 {
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
     {
