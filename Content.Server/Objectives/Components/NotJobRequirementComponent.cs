@@ -3,7 +3,6 @@
 using Content.Server.Objectives.Systems;
 using Content.Shared.Roles;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-using Robust.Shared.Prototypes;
 
 /// <summary>
 /// Requires that the player not have a certain job to have this objective.
@@ -11,12 +10,11 @@ using Robust.Shared.Prototypes;
 [RegisterComponent, Access(typeof(NotJobRequirementSystem))]
 public sealed partial class NotJobRequirementComponent : Component
 {
-
     /// <summary>
-    /// List of job prototype IDs to ban from having this objective.
+    /// ID of the job to ban from having this objective.
     /// </summary>
-    [DataField]
-    public List<ProtoId<JobPrototype>> Jobs = new List<ProtoId<JobPrototype>>();
+    [DataField(required: true, customTypeSerializer: typeof(PrototypeIdSerializer<JobPrototype>))]
+    public string Job = string.Empty;
 
     // MisandryBox/JobObjectives - Double negative to not break compatibility
     [DataField]

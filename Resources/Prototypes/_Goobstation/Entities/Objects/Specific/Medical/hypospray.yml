@@ -20,13 +20,11 @@
         maxVol: 10
   - type: ExaminableSolution
     solution: hypospray
-  - type: Injector
+  - type: Hypospray
     solutionName: hypospray
-    ignoreClosed: false
-    activeModeProtoId: HyposprayDynamicMode
-    allowedModes:
-    - HyposprayDynamicMode
-    - HyposprayInjectMode
+    transferAmount: 10
+    onlyAffectsMobs: false
+    injectOnly: true
   - type: HyposprayBlockNonMobInjection
   - type: UseDelay
     delay: 30
@@ -93,13 +91,11 @@
         maxVol: 10
   - type: ExaminableSolution
     solution: hypospray
-  - type: Injector
+  - type: Hypospray
     solutionName: hypospray
-    ignoreClosed: false
-    activeModeProtoId: HyposprayDynamicMode
-    allowedModes:
-    - HyposprayDynamicMode
-    - HyposprayInjectMode
+    transferAmount: 10
+    onlyAffectsMobs: false
+    injectOnly: true
   - type: HyposprayBlockNonMobInjection
   - type: ContainerContainer
     containers:
@@ -337,10 +333,11 @@
         reagents:
         - ReagentId: Amnestizine
           Quantity: 10
-  - type: Edible
+  - type: Food
     delay: 0.2
     forceFeedDelay: 1.5
     transferAmount: null
+    eatMessage: edible-swallow
     useSound: /Audio/Items/pill.ogg
   - type: BadFood
   - type: FlavorProfile
@@ -364,13 +361,9 @@
     maxFillLevels: 1
     changeColor: false
     emptySpriteName: stasipen_empty
-  - type: Injector
-    solutionName: hypospray
-    ignoreClosed: false
-    activeModeProtoId: HyposprayDynamicMode
-    allowedModes:
-    - HyposprayDynamicMode
-    - HyposprayInjectMode
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 10
   - type: SolutionContainerManager
     solutions:
       pen:
@@ -406,13 +399,11 @@
     maxFillLevels: 1
     changeColor: false
     emptySpriteName: ntstimpen_empty
-  - type: Injector
-    solutionName: hypospray
-    ignoreClosed: false
-    activeModeProtoId: HyposprayDynamicMode
-    allowedModes:
-    - HyposprayDynamicMode
-    - HyposprayInjectMode
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 50
+    onlyAffectsMobs: false
+    injectOnly: true
   - type: StaticPrice
     price: 500
 
@@ -497,12 +488,7 @@
     solution: hypospray
   - type: ExaminableSolution
     solution: hypospray
-  - type: Injector
-    solutionName: hypospray
-    ignoreClosed: false
-    activeModeProtoId: HyposprayDynamicMode
-    allowedModes:
-    - HyposprayDynamicMode
-    - HyposprayInjectMode
+  - type: Hypospray
+    onlyAffectsMobs: false
   - type: UseDelay
     delay: 0.2

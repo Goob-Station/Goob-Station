@@ -16,10 +16,7 @@
       part: ChestArachnid
       organs:
         heart: OrganArachnidHeart
-        lungs: OrganArachnidLungs
-        stomach: OrganArachnidStomach
-        liver: OrganArachnidLiver
-        kidneys: OrganArachnidKidneys
+        lungs: OrganAnimalLungs
       connections:
       - right arm
       - left arm

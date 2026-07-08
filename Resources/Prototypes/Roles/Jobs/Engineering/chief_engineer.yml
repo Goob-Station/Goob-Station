@@ -8,13 +8,13 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobAtmosphericTechnician
-      time: 2.5h
+      time: 18000 #5 hrs
     - !type:RoleTimeRequirement
       role: JobStationEngineer
-      time: 5h
+      time: 21600 #6 hrs
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 10h
+      time: 36000 #10 hrs
     - !type:SpeciesRequirement # Goob - None Felinid
       inverted: true
       species:
@@ -68,7 +68,7 @@
   equipment:
     head: ClothingHeadHatBeretEngineering
     mask: ClothingMaskBreath
-    neck: ClothingNeckCloakWhiteCe # GOOB
+    neck: ClothingNeckCloakWhiteCe
     outerClothing: ClothingOuterWinterCE
     gloves: ClothingHandsGlovesColorYellow
     shoes: ClothingShoesBootsMagAdv

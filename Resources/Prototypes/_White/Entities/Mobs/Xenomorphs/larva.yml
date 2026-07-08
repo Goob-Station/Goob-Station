@@ -54,10 +54,7 @@
       types:
         Blunt: 2
   - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: SulfuricAcid
-        Quantity: 50
+    bloodMaxVolume: 50
   - type: MobPrice
     price: 250
   - type: Organ

@@ -14,7 +14,6 @@
   - type: Tag
     tags:
     - Sheet
-    - ConstructionMaterial
     - DroneUsable # Goobstation
   - type: Damageable
     damageContainer: Inorganic
@@ -111,9 +110,10 @@
         - ReagentId: Plasma
           Quantity: 10
         canReact: false
-  - type: Tag # Goobstation
+  - type: Tag
     tags:
-    - SheetPlasma # Goobstation
+    - Sheet
+    - SheetPlasma
 
 - type: entity
   parent: SheetPlasma
@@ -137,6 +137,16 @@
     count: 1
 
 - type: entity
+  parent: SheetPlasma
+  id: SheetPlasmaLingering0
+  name: plasma
+  suffix: 0, Lingering
+  components:
+  - type: Stack
+    lingering: true
+    count: 0
+
+- type: entity
   parent: SheetOtherBase
   id: SheetPlastic
   name: plastic
@@ -146,7 +156,6 @@
     tags:
     - Plastic
     - Sheet
-    - ConstructionMaterial
     - DroneUsable # Goobstation
   - type: Material
   - type: PhysicalComposition
@@ -210,7 +219,7 @@
   suffix: Full
   components:
   - type: Material
-  - type: Edible
+  - type: Food
     transferAmount: 10
   - type: BadFood
   - type: PhysicalComposition

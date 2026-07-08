@@ -2,7 +2,6 @@
 
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
-using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Labels.Components;
 using Content.Shared.Popups;
@@ -30,7 +29,6 @@ public abstract class SharedHandLabelerSystem : EntitySystem
 
         SubscribeLocalEvent<HandLabelerComponent, AfterInteractEvent>(AfterInteractOn);
         SubscribeLocalEvent<HandLabelerComponent, GetVerbsEvent<UtilityVerb>>(OnUtilityVerb);
-        SubscribeLocalEvent<HandLabelerComponent, ExaminedEvent>(OnExamined);
         // Bound UI subscriptions
         SubscribeLocalEvent<HandLabelerComponent, HandLabelerLabelChangedMessage>(OnHandLabelerLabelChanged);
         SubscribeLocalEvent<HandLabelerComponent, ComponentGetState>(OnGetState);
@@ -63,77 +61,76 @@ public abstract class SharedHandLabelerSystem : EntitySystem
     {
     }
 
-    private void AddLabelTo(Entity<HandLabelerComponent> ent, EntityUid user, EntityUid target)
+    private void AddLabelTo(EntityUid uid, HandLabelerComponent? handLabeler, EntityUid target, out string? result)
     {
-        if (ent.Comp.AssignedLabel == string.Empty)
+        if (!Resolve(uid, ref handLabeler))
         {
-            RemoveLabelFrom(ent, user, target);
+            result = null;
             return;
         }
 
-        if (_netManager.IsServer)
-            _labelSystem.Label(target, ent.Comp.AssignedLabel);
-
-        _popupSystem.PopupClient(Loc.GetString("hand-labeler-successfully-applied"), user, user);
-
-        // Log labeling
-        _adminLogger.Add(LogType.Action, LogImpact.Low,
-            $"{ToPrettyString(user):user} labeled {ToPrettyString(target):target} with {ToPrettyString(ent):labeler}");
-    }
-
-    private void RemoveLabelFrom(EntityUid uid, EntityUid user, EntityUid target)
-    {
-        if (_netManager.IsServer)
-            _labelSystem.Label(target, null);
-
-        _popupSystem.PopupClient(Loc.GetString("hand-labeler-successfully-removed"), user, user);
-
-        // Log labeling
-        _adminLogger.Add(LogType.Action, LogImpact.Low,
-            $"{ToPrettyString(user):user} removed label from {ToPrettyString(target):target} with {ToPrettyString(uid):labeler}");
-    }
-
-    private void OnUtilityVerb(Entity<HandLabelerComponent> ent, ref GetVerbsEvent<UtilityVerb> args)
-    {
-        if (args.Target is not { Valid: true } target || _whitelistSystem.IsWhitelistFail(ent.Comp.Whitelist, target) || !args.CanAccess)
-            return;
-
-        var user = args.User;   // can't use ref parameter in lambdas
-
-        if (ent.Comp.AssignedLabel != string.Empty)
+        if (handLabeler.AssignedLabel == string.Empty)
         {
-            var labelVerb = new UtilityVerb()
-            {
-                Act = () =>
-                {
-                    AddLabelTo(ent, user, target);
-                },
-                Text = Loc.GetString("hand-labeler-add-label-text")
-            };
-
-            args.Verbs.Add(labelVerb);
+            if (_netManager.IsServer)
+                _labelSystem.Label(target, null);
+            result = Loc.GetString("hand-labeler-successfully-removed");
+            return;
         }
 
-        // add the unlabel verb to the menu even when the labeler has text
-        var unLabelVerb = new UtilityVerb()
+        // Goobstation
+        if (_netManager.IsServer)
+        {
+            _labelSystem.Label(target, handLabeler.AssignedLabel);
+        }
+
+        result = Loc.GetString("hand-labeler-successfully-applied");
+    }
+
+    private void OnUtilityVerb(EntityUid uid, HandLabelerComponent handLabeler, GetVerbsEvent<UtilityVerb> args)
+    {
+        if (args.Target is not { Valid: true } target || _whitelistSystem.IsWhitelistFail(handLabeler.Whitelist, target) || !args.CanAccess)
+            return;
+
+        var labelerText = handLabeler.AssignedLabel == string.Empty ? Loc.GetString("hand-labeler-remove-label-text") : Loc.GetString("hand-labeler-add-label-text");
+
+        var verb = new UtilityVerb()
         {
             Act = () =>
             {
-                RemoveLabelFrom(ent, user, target);
+                Labeling(uid, target, args.User, handLabeler);
             },
-            Text = Loc.GetString("hand-labeler-remove-label-text"),
-            Priority = -1,
+            Text = labelerText
         };
 
-        args.Verbs.Add(unLabelVerb);
+        args.Verbs.Add(verb);
     }
 
-    private void AfterInteractOn(Entity<HandLabelerComponent> ent, ref AfterInteractEvent args)
+    private void AfterInteractOn(EntityUid uid, HandLabelerComponent handLabeler, AfterInteractEvent args)
     {
-        if (args.Target is not { Valid: true } target || _whitelistSystem.IsWhitelistFail(ent.Comp.Whitelist, target) || !args.CanReach)
+        if (args.Target is not { Valid: true } target || _whitelistSystem.IsWhitelistFail(handLabeler.Whitelist, target) || !args.CanReach)
             return;
 
-        AddLabelTo(ent, args.User, target);
+        Labeling(uid, target, args.User, handLabeler);
+    }
+
+    private void Labeling(EntityUid uid, EntityUid target, EntityUid User, HandLabelerComponent handLabeler)
+    {
+        AddLabelTo(uid, handLabeler, target, out var result);
+
+        // Goobstation
+        if (_netManager.IsServer)
+        {
+            _audio.PlayPvs(handLabeler.PrintSound, uid, handLabeler.PrintSound.Params);
+        }
+
+        if (result == null)
+            return;
+
+        _popupSystem.PopupClient(result, User, User);
+
+        // Log labeling
+        _adminLogger.Add(LogType.Action, LogImpact.Low,
+            $"{ToPrettyString(User):user} labeled {ToPrettyString(target):target} with {ToPrettyString(uid):labeler}");
     }
 
     private void OnHandLabelerLabelChanged(EntityUid uid, HandLabelerComponent handLabeler, HandLabelerLabelChangedMessage args)
@@ -146,16 +143,5 @@ public abstract class SharedHandLabelerSystem : EntitySystem
         // Log label change
         _adminLogger.Add(LogType.Action, LogImpact.Low,
             $"{ToPrettyString(args.Actor):user} set {ToPrettyString(uid):labeler} to apply label \"{handLabeler.AssignedLabel}\"");
-    }
-
-    private void OnExamined(Entity<HandLabelerComponent> ent, ref ExaminedEvent args)
-    {
-        if (!args.IsInDetailsRange)
-            return;
-
-        var text = ent.Comp.AssignedLabel == string.Empty
-            ? Loc.GetString("hand-labeler-examine-blank")
-            : Loc.GetString("hand-labeler-examine-label-text", ("label-text", ent.Comp.AssignedLabel));
-        args.PushMarkup(text);
     }
 }

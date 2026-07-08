@@ -53,22 +53,22 @@ public sealed partial class DocumentParsingManager
         _sawmill = Logger.GetSawmill("Guidebook");
     }
 
-    public bool TryAddMarkup(Control control, ProtoId<GuideEntryPrototype> entryId)
+    public bool TryAddMarkup(Control control, ProtoId<GuideEntryPrototype> entryId, bool log = true)
     {
-        if (!_prototype.Resolve(entryId, out var entry))
+        if (!_prototype.TryIndex(entryId, out var entry))
             return false;
 
         using var file = _resourceManager.ContentFileReadText(entry.Text);
-        return TryAddMarkup(control, file.ReadToEnd());
+        return TryAddMarkup(control, file.ReadToEnd(), log);
     }
 
-    public bool TryAddMarkup(Control control, GuideEntry entry)
+    public bool TryAddMarkup(Control control, GuideEntry entry, bool log = true)
     {
         using var file = _resourceManager.ContentFileReadText(entry.Text);
-        return TryAddMarkup(control, file.ReadToEnd());
+        return TryAddMarkup(control, file.ReadToEnd(), log);
     }
 
-    public bool TryAddMarkup(Control control, string text)
+    public bool TryAddMarkup(Control control, string text, bool log = true)
     {
         try
         {

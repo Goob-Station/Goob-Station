@@ -1,14 +1,4 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
-
-- type: loadoutEffectGroup
-  id: SeniorBar
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobBartender
-      time: 52h # 1 hour per week for 1 year
-
 # Head
 - type: loadout
   id: BartenderHead
@@ -56,13 +46,3 @@
   id: BartenderWintercoat
   equipment:
     outerClothing: ClothingOuterWinterBar
-
-# Misc
-- type: loadout
-  id: BartenderGoldenShaker
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorBar
-  storage:
-    back:
-    - DrinkShakerGold

@@ -3,29 +3,26 @@
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.PowerCell;
-using Content.Shared.Power;
-using Content.Shared.Power.Components;
 
 namespace Content.Shared.UserInterface;
 
 public sealed partial class ActivatableUISystem
 {
     [Dependency] private readonly ItemToggleSystem _toggle = default!;
-    [Dependency] private readonly PowerCellSystem _cell = default!;
+    [Dependency] private readonly SharedPowerCellSystem _cell = default!;
 
     private void InitializePower()
     {
-        SubscribeLocalEvent<ActivatableUIRequiresPowerCellComponent, ItemToggledEvent>(OnToggled);
+        SubscribeLocalEvent<ActivatableUIRequiresPowerCellComponent, ActivatableUIOpenAttemptEvent>(OnBatteryOpenAttempt);
         SubscribeLocalEvent<ActivatableUIRequiresPowerCellComponent, BoundUIOpenedEvent>(OnBatteryOpened);
         SubscribeLocalEvent<ActivatableUIRequiresPowerCellComponent, BoundUIClosedEvent>(OnBatteryClosed);
-        SubscribeLocalEvent<ActivatableUIRequiresPowerCellComponent, BatteryStateChangedEvent>(OnBatteryStateChanged);
-        SubscribeLocalEvent<ActivatableUIRequiresPowerCellComponent, ActivatableUIOpenAttemptEvent>(OnBatteryOpenAttempt);
+        SubscribeLocalEvent<ActivatableUIRequiresPowerCellComponent, ItemToggledEvent>(OnToggled);
     }
 
     private void OnToggled(Entity<ActivatableUIRequiresPowerCellComponent> ent, ref ItemToggledEvent args)
     {
         // only close ui when losing power
-        if (args.Activated || !TryComp<ActivatableUIComponent>(ent, out var activatable))
+        if (!TryComp<ActivatableUIComponent>(ent, out var activatable) || args.Activated)
             return;
 
         if (activatable.Key == null)
@@ -59,26 +56,35 @@ public sealed partial class ActivatableUISystem
             _toggle.TryDeactivate(uid);
     }
 
-    private void OnBatteryStateChanged(Entity<ActivatableUIRequiresPowerCellComponent> ent, ref BatteryStateChangedEvent args)
+    /// <summary>
+    /// Call if you want to check if the UI should close due to a recent battery usage.
+    /// </summary>
+    public void CheckUsage(EntityUid uid, ActivatableUIComponent? active = null, ActivatableUIRequiresPowerCellComponent? component = null, PowerCellDrawComponent? draw = null)
     {
-        // Deactivate when empty.
-        if (args.NewState != BatteryState.Empty)
+        if (!Resolve(uid, ref component, ref draw, ref active, false))
             return;
 
-        var activatable = Comp<ActivatableUIComponent>(ent);
-        if (activatable.Key != null)
-            _uiSystem.CloseUi(ent.Owner, activatable.Key);
+        if (active.Key == null)
+        {
+            Log.Error($"Encountered null key in activatable ui on entity {ToPrettyString(uid)}");
+            return;
+        }
+
+        if (_cell.HasActivatableCharge(uid))
+            return;
+
+        _uiSystem.CloseUi(uid, active.Key);
     }
 
     private void OnBatteryOpenAttempt(EntityUid uid, ActivatableUIRequiresPowerCellComponent component, ActivatableUIOpenAttemptEvent args)
     {
-        if (args.Cancelled)
+        if (!TryComp<PowerCellDrawComponent>(uid, out var draw))
             return;
 
         // Check if we have the appropriate drawrate / userate to even open it.
-        // Don't pass in the user for the popup if silent.
-        if (!_cell.HasActivatableCharge(uid, user: args.Silent ? null : args.User, predicted: true) ||
-            !_cell.HasDrawCharge(uid, user: args.Silent ? null : args.User, predicted: true))
+        if (args.Cancelled ||
+            !_cell.HasActivatableCharge(uid, draw, user: args.User) ||
+            !_cell.HasDrawCharge(uid, draw, user: args.User))
         {
             args.Cancel();
         }

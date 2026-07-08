@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
-using Content.Client.Graphics;
 using Content.Client.Parallax;
 using Content.Client.Weather;
 using Content.Shared.Salvage;
@@ -37,7 +36,7 @@ public sealed partial class StencilOverlay : Overlay
 
     public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowFOV;
 
-    private readonly OverlayResourceCache<CachedResources> _resources = new();
+    private IRenderTexture? _blep;
 
     private readonly ShaderInstance _shader;
 
@@ -58,49 +57,30 @@ public sealed partial class StencilOverlay : Overlay
         var mapUid = _map.GetMapOrInvalid(args.MapId);
         var invMatrix = args.Viewport.GetWorldToLocalMatrix();
 
-        var res = _resources.GetForViewport(args.Viewport, static _ => new CachedResources());
-
-        if (res.Blep?.Texture.Size != args.Viewport.Size)
+        if (_blep?.Texture.Size != args.Viewport.Size)
         {
-            res.Blep?.Dispose();
-            res.Blep = _clyde.CreateRenderTarget(args.Viewport.Size, new RenderTargetFormatParameters(RenderTargetColorFormat.Rgba8Srgb), name: "weather-stencil");
+            _blep?.Dispose();
+            _blep = _clyde.CreateRenderTarget(args.Viewport.Size, new RenderTargetFormatParameters(RenderTargetColorFormat.Rgba8Srgb), name: "weather-stencil");
         }
 
         if (_entManager.TryGetComponent<WeatherComponent>(mapUid, out var comp))
         {
             foreach (var (proto, weather) in comp.Weather)
             {
-                if (!_protoManager.Resolve<WeatherPrototype>(proto, out var weatherProto))
+                if (!_protoManager.TryIndex<WeatherPrototype>(proto, out var weatherProto))
                     continue;
 
                 var alpha = _weather.GetPercent(weather, mapUid);
-                DrawWeather(args, res, weatherProto, alpha, invMatrix);
+                DrawWeather(args, weatherProto, alpha, invMatrix);
             }
         }
 
         if (_entManager.TryGetComponent<RestrictedRangeComponent>(mapUid, out var restrictedRangeComponent))
         {
-            DrawRestrictedRange(args, res, restrictedRangeComponent, invMatrix);
+            DrawRestrictedRange(args, restrictedRangeComponent, invMatrix);
         }
 
         args.WorldHandle.UseShader(null);
         args.WorldHandle.SetTransform(Matrix3x2.Identity);
-    }
-
-    protected override void DisposeBehavior()
-    {
-        _resources.Dispose();
-
-        base.DisposeBehavior();
-    }
-
-    private sealed class CachedResources : IDisposable
-    {
-        public IRenderTexture? Blep;
-
-        public void Dispose()
-        {
-            Blep?.Dispose();
-        }
     }
 }

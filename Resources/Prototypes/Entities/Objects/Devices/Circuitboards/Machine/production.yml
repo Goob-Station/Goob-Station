@@ -663,10 +663,10 @@
       stackRequirements:
         Manipulator: 2
         Cable: 5
-    - type: PhysicalComposition
+    - type: PhysicalComposition #Goobstation - Recycle update
       materialComposition:
-        Steel: 25
-        Plastic: 25
+        Steel: 12
+        Plastic: 12
     - type: StaticPrice
       price: 15
     - type: Tag # Goobstation - augment construction
@@ -689,10 +689,10 @@
         Manipulator: 4
         Steel: 5
         Cable: 10
-    - type: PhysicalComposition
+    - type: PhysicalComposition #Goobstation - Recycle update
       materialComposition:
-        Steel: 30
-        Plastic: 30
+        Steel: 25
+        Glass: 125
     - type: StaticPrice
       price: 30
 
@@ -710,10 +710,10 @@
       stackRequirements:
         Manipulator: 2
         Cable: 5
-    - type: PhysicalComposition
+    - type: PhysicalComposition #Goobstation - Recycle update
       materialComposition:
-        Steel: 25
-        Plastic: 25
+        Steel: 12
+        Plastic: 12
     - type: StaticPrice
       price: 15
     - type: Tag # Goobstation - augment construction
@@ -735,10 +735,10 @@
       stackRequirements:
         Manipulator: 2
         CableMV: 5
-    - type: PhysicalComposition
+    - type: PhysicalComposition #Goobstation - Recycle update
       materialComposition:
-        Steel: 25
-        Plastic: 25
+        Steel: 12
+        Plastic: 12
     - type: StaticPrice
       price: 15
 
@@ -833,11 +833,11 @@
       stackRequirements:
         Manipulator: 1
         CableHV: 5
-    - type: PhysicalComposition
+    - type: PhysicalComposition #Goobstation - Recycle update
       materialComposition:
-        Glass: 200
+        Glass: 125
       chemicalComposition:
-        Silicon: 20
+        Silicon: 5
     - type: StaticPrice
       price: 40
 
@@ -879,11 +879,11 @@
       stackRequirements:
         Manipulator: 2
         CableHV: 10
-    - type: PhysicalComposition
+    - type: PhysicalComposition #Goobstation - Recycle update
       materialComposition:
-        Glass: 200
+        Glass: 125
       chemicalComposition:
-        Silicon: 20
+        Silicon: 5
     - type: StaticPrice
       price: 40
 
@@ -899,11 +899,11 @@
       stackRequirements:
         Manipulator: 1
         Cable: 10
-    - type: PhysicalComposition
+    - type: PhysicalComposition #Goobstation - Recycle update
       materialComposition:
-        Glass: 200
+        Glass: 125
       chemicalComposition:
-        Silicon: 20
+        Silicon: 5
     - type: StaticPrice
       price: 40
 
@@ -1001,7 +1001,7 @@
   - type: Sprite
     state: supply
   - type: MachineBoard
-    prototype: MachineMaterialSilo
+    prototype: MaterialSilo #Goobstation - Silo
     stackRequirements:
       Manipulator: 4
       Cable: 1
@@ -1062,7 +1062,7 @@
 
 - type: entity
   id: SyndicateMicrowaveMachineCircuitboard
-  parent: [ BaseMachineCircuitboard, BaseSyndicateContraband ]
+  parent: BaseMachineCircuitboard
   name: donk co. microwave machine board
   components:
     - type: Sprite
@@ -1139,20 +1139,6 @@
     state: service
   - type: MachineBoard
     prototype: SurveillanceCameraWirelessRouterConstructed
-    stackRequirements:
-      Cable: 2
-      Glass: 1
-
-- type: entity
-  parent: BaseMachineCircuitboard
-  id: SurveillanceCameraWirelessRouterXenoborgCircuitboard
-  name: xenoborg camera wireless router
-  description: A machine printed circuit board for a xenoborg camera wireless router.
-  components:
-  - type: Sprite
-    state: generic
-  - type: MachineBoard
-    prototype: SurveillanceCameraWirelessRouterXenoborg
     stackRequirements:
       Cable: 2
       Glass: 1
@@ -1241,7 +1227,7 @@
   - type: Sprite
     state: supply
   - type: MachineBoard
-    prototype: CargoMailTeleporter
+    prototype: MailTeleporter #Goobstation
     stackRequirements:
       Manipulator: 2
       Steel: 5
@@ -1362,24 +1348,6 @@
       Steel: 2
       Manipulator: 2
       Cable: 1
-
-- type: entity
-  parent: BaseMachineCircuitboard
-  id: SmartFridgeCircuitboard
-  name: SmartFridge machine board
-  description: A machine printed circuit board for a SmartFridge.
-  components:
-  - type: Sprite
-    state: service
-  - type: MachineBoard
-    prototype: SmartFridge
-    stackRequirements:
-      Glass: 5
-      Manipulator: 2
-    tagRequirements:
-        GlassBeaker:
-          amount: 2
-          defaultPrototype: Beaker
 
 # Shitmed Change Start
 - type: entity

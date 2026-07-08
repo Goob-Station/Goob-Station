@@ -9,7 +9,6 @@ using Content.Server.Popups;
 using Content.Shared.Atmos;
 using Content.Shared.Body.Systems;
 using Content.Shared.Camera;
-using Content.Shared.Chat;
 using Robust.Server.Audio;
 using Robust.Server.Player;
 using Robust.Shared.Audio;

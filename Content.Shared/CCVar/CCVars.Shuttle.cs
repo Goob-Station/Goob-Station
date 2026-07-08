@@ -98,17 +98,10 @@ public sealed partial class CCVars
         CVarDef.Create("shuttle.arrival_time", 10f, CVar.SERVERONLY); // Frontier edit: 5 -> 10
 
     /// <summary>
-    ///     How much time in seconds that needs to pass before a non-arrivals shuttle can FTL again.
+    ///     How much time needs to pass before a shuttle can FTL again.
     /// </summary>
     public static readonly CVarDef<float> FTLCooldown =
-        CVarDef.Create("shuttle.cooldown", 90f, CVar.SERVERONLY);
-
-    /// <summary>
-    ///     How much time in seconds that needs to pass before the arrivals shuttle can FTL again.
-    ///     If this is adjusted, ensure that shuttle.arrivals_cooldown is longer than this value.
-    /// </summary>
-    public static readonly CVarDef<float> ArrivalsFTLCooldown =
-        CVarDef.Create("shuttle.arrivals_ftl_cooldown", 10f, CVar.SERVERONLY);
+        CVarDef.Create("shuttle.cooldown", 90f, CVar.SERVERONLY); // Frontier edit: 10 -> 90
 
     /// <summary>
     ///     The maximum <see cref="PhysicsComponent.Mass"/> a grid can have before it becomes unable to FTL.
@@ -127,7 +120,7 @@ public sealed partial class CCVars
     ///     Is the emergency shuttle allowed to be early launched.
     /// </summary>
     public static readonly CVarDef<bool> EmergencyEarlyLaunchAllowed =
-        CVarDef.Create("shuttle.emergency_early_launch_allowed", false, CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("shuttle.emergency_early_launch_allowed", false, CVar.SERVERONLY);
 
     /// <summary>
     ///     How long the emergency shuttle remains docked with the station, in seconds.

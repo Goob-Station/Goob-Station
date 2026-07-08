@@ -90,18 +90,14 @@ public sealed class LatheTest
                     // Check each recipe assigned to this lathe
                     foreach (var recipeId in recipes)
                     {
-                        if (!protoMan.TryIndex(recipeId, out var recipeProto))
-                        {
-                            Assert.Fail($"Lathe recipe '{recipeId}' does not exist");
-                            continue;
-                        }
+                        Assert.That(protoMan.TryIndex(recipeId, out var recipeProto));
 
                         // Track the total material volume of the recipe
                         var totalQuantity = 0;
                         // Check each material called for by the recipe
                         foreach (var (materialId, quantity) in recipeProto.Materials)
                         {
-                            Assert.That(protoMan.HasIndex(materialId), $"Material '{materialId}' does not exist");
+                            Assert.That(protoMan.TryIndex(materialId, out var materialProto));
                             // Make sure the material is accepted by the lathe
                             Assert.That(acceptedMaterials, Does.Contain(materialId), $"Lathe {latheProto.ID} has recipe {recipeId} but does not accept any materials containing {materialId}");
                             totalQuantity += quantity;

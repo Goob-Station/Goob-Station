@@ -46,14 +46,14 @@
   parent: ClothingBeltHolster
   suffix: Filled, N1984
   components:
-  - type: EntityTableContainerFill
+  - type: ContainerFill
     containers:
       item:
-        id: WeaponPistolN1984
-      storagebase: !type:AllSelector
-        children:
-        - id: MagazineMagnum
-          amount: 2
+      - WeaponPistolN1984
+  - type: StorageFill
+    contents:
+    - id: MagazineMagnum
+    - id: MagazineMagnum
 
 - type: entity
   id: ClothingBeltSecurityWebbingFilledMedical
@@ -178,8 +178,8 @@
     - id: Zipties
 
 - type: entity
-  id: ClothingBeltMilitaryWebbingFilled
-  parent: ClothingBeltMilitaryWebbing
+  id: ClothingBeltAssaultFilled
+  parent: ClothingBeltAssault
   suffix: Filled, BSO
   components:
   - type: EntityTableContainerFill
@@ -197,7 +197,7 @@
     - id: Jug
     - id: LargeBeaker
     - id: Beaker
-    - id: ChemistryEmptyVial
+    - id: BaseChemistryEmptyVial
     - id: Syringe
 
 - type: entity
@@ -227,15 +227,15 @@
   parent: ClothingBeltHolster
   suffix: Filled, EG-4
   components:
-  - type: EntityTableContainerFill
+  - type: ContainerFill
     containers:
       item:
-        id: WeaponEnergyRevolver
-      storagebase: !type:AllSelector
-        children:
-        - id: EnergySpeedloaderLethal
-        - id: EnergySpeedloaderLethal
-        - id: EnergySpeedloaderDisabler
+      - WeaponEnergyRevolver
+  - type: StorageFill
+    contents:
+    - id: EnergySpeedloaderLethal
+    - id: EnergySpeedloaderLethal
+    - id: EnergySpeedloaderDisabler
 
 - type: entity
   id: ClothingBeltMilitaryRigGrenadierFilled

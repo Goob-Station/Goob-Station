@@ -29,17 +29,17 @@ public sealed class ChameleonControllerSystem : SharedChameleonControllerSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ChameleonControllerImplantComponent, ChameleonControllerSelectedOutfitMessage>(OnSelected);
+        SubscribeLocalEvent<SubdermalImplantComponent, ChameleonControllerSelectedOutfitMessage>(OnSelected);
 
         SubscribeLocalEvent<ChameleonClothingComponent, InventoryRelayedEvent<ChameleonControllerOutfitSelectedEvent>>(ChameleonControllerOutfitItemSelected);
     }
 
-    private void OnSelected(Entity<ChameleonControllerImplantComponent> ent, ref ChameleonControllerSelectedOutfitMessage args)
+    private void OnSelected(Entity<SubdermalImplantComponent> ent, ref ChameleonControllerSelectedOutfitMessage args)
     {
-        if (!TryComp<SubdermalImplantComponent>(ent, out var implantComp) || implantComp.ImplantedEntity == null || !_delay.TryResetDelay(ent.Owner, true))
+        if (!_delay.TryResetDelay(ent.Owner, true) || ent.Comp.ImplantedEntity == null || !HasComp<ChameleonControllerImplantComponent>(ent))
             return;
 
-        ChangeChameleonClothingToOutfit(implantComp.ImplantedEntity.Value, args.SelectedChameleonOutfit);
+        ChangeChameleonClothingToOutfit(ent.Comp.ImplantedEntity.Value, args.SelectedChameleonOutfit);
     }
 
     /// <summary>
@@ -49,8 +49,8 @@ public sealed class ChameleonControllerSystem : SharedChameleonControllerSystem
     {
         var outfitPrototype = _proto.Index(outfit);
 
-        _proto.Resolve(outfitPrototype.Job, out var jobPrototype);
-        _proto.Resolve(outfitPrototype.StartingGear, out var startingGearPrototype);
+        _proto.TryIndex(outfitPrototype.Job, out var jobPrototype);
+        _proto.TryIndex(outfitPrototype.StartingGear, out var startingGearPrototype);
 
         GetJobEquipmentInformation(jobPrototype, user, out var customRoleLoadout, out var defaultRoleLoadout, out var jobStartingGearPrototype);
 
@@ -81,7 +81,7 @@ public sealed class ChameleonControllerSystem : SharedChameleonControllerSystem
         if (jobPrototype == null)
             return;
 
-        _proto.Resolve(jobPrototype.StartingGear, out jobStartingGearPrototype);
+        _proto.TryIndex(jobPrototype.StartingGear, out jobStartingGearPrototype);
 
         if (!TryComp<ActorComponent>(user, out var actorComponent))
             return;

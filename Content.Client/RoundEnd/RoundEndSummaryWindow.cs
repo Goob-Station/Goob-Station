@@ -40,7 +40,7 @@ namespace Content.Client.RoundEnd
             roundEndTabs.AddChild(MakePlayerManifestTab(info));
             roundEndTabs.AddChild(MakeStationReportTab()); //goob
 
-            ContentsContainer.AddChild(roundEndTabs);
+            Contents.AddChild(roundEndTabs);
 
             OpenCenteredRight();
             MoveToFront();

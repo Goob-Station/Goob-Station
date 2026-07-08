@@ -16,7 +16,7 @@ public abstract class SharedCurseHolderSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedEntityEffectsSystem _effect = default!;
+    [Dependency] private readonly SharedEntityEffectSystem _effect = default!;
 
     public override void Initialize()
     {
@@ -100,15 +100,14 @@ public abstract class SharedCurseHolderSystem : EntitySystem
         if (!_proto.TryIndex(curse, out var curseIndex))
             return;
 
+        var args = new EntityEffectBaseArgs(target, EntityManager);
         // roll the chance
         foreach (var (chance, curseEffects) in curseIndex.Effects)
         {
             if (_random.Prob(chance))
             {
                 foreach (var effect in curseEffects)
-                {
-                    _effect.TryApplyEffect(target, effect);
-                }
+                    _effect.Effect(effect, args);
 
                 curseHolder.CurseUpdate[curse] = _timing.CurTime + TimeSpan.FromSeconds(curseIndex.Update);
                 Dirty(target, curseHolder);

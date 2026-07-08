@@ -47,10 +47,10 @@
     Chest:
       points: 10
       required: false
-    UndergarmentTop:
+    Underwear:
       points: 1
       required: false
-    UndergarmentBottom:
+    Undershirt:
       points: 1
       required: false
     RightLeg:
@@ -87,8 +87,6 @@
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
-    UndergarmentBottom: MobHumanoidAnyMarking
-    UndergarmentTop: MobHumanoidAnyMarking
     Chest: MobTajaranChest
     Groin: MobTajaranGroin
     Eyes: MobTajaranEyes

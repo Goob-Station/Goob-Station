@@ -236,7 +236,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         {
             Stun.TryUpdateParalyzeDuration(ev.Target, ev.ParalyzeDuration);
             _jitter.DoJitter(ev.Target, ev.JitterStutterDuration, true, status: status);
-            _stutter.DoStutter(ev.Target, ev.JitterStutterDuration, true);
+            _stutter.DoStutter(ev.Target, ev.JitterStutterDuration, true, status);
         }
 
         var targetWizard = HasComp<WizardComponent>(ev.Target) || HasComp<ApprenticeComponent>(ev.Target);
@@ -1160,7 +1160,7 @@ public abstract class SharedSpellsSystem : EntitySystem
                     basicAmmoComp is { Count: not null, Capacity: not null } &&
                     basicAmmoComp.Count < basicAmmoComp.Capacity)
                 {
-                    _gunSystem.UpdateBasicEntityAmmoCount((item, basicAmmoComp), basicAmmoComp.Capacity.Value);
+                    _gunSystem.UpdateBasicEntityAmmoCount(item, basicAmmoComp.Capacity.Value, basicAmmoComp);
                     PopupCharged(item, ev.Performer);
                     break;
                 }

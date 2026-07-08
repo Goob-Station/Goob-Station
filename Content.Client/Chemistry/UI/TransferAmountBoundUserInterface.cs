@@ -6,29 +6,38 @@ using Content.Goobstation.Maths.FixedPoint;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 
-namespace Content.Client.Chemistry.UI;
-
-[UsedImplicitly]
-public sealed class TransferAmountBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
+namespace Content.Client.Chemistry.UI
 {
-    [ViewVariables]
-    private TransferAmountWindow? _window;
-
-    protected override void Open()
+    [UsedImplicitly]
+    public sealed class TransferAmountBoundUserInterface : BoundUserInterface
     {
-        base.Open();
-        _window = this.CreateWindow<TransferAmountWindow>();
+        private IEntityManager _entManager;
+        private EntityUid _owner;
+        [ViewVariables]
+        private TransferAmountWindow? _window;
 
-        if (EntMan.TryGetComponent<SolutionTransferComponent>(Owner, out var comp))
-            _window.SetBounds(comp.MinimumTransferAmount.Int(), comp.MaximumTransferAmount.Int());
-
-        _window.ApplyButton.OnPressed += _ =>
+        public TransferAmountBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
         {
-            if (int.TryParse(_window.AmountLineEdit.Text, out var i))
+          _owner = owner;
+          _entManager = IoCManager.Resolve<IEntityManager>();
+        }
+
+        protected override void Open()
+        {
+            base.Open();
+            _window = this.CreateWindow<TransferAmountWindow>();
+
+            if (_entManager.TryGetComponent<SolutionTransferComponent>(_owner, out var comp))
+                _window.SetBounds(comp.MinimumTransferAmount.Int(), comp.MaximumTransferAmount.Int());
+
+            _window.ApplyButton.OnPressed += _ =>
             {
-                SendPredictedMessage(new TransferAmountSetValueMessage(FixedPoint2.New(i)));
-                _window.Close();
-            }
-        };
+                if (int.TryParse(_window.AmountLineEdit.Text, out var i))
+                {
+                    SendMessage(new TransferAmountSetValueMessage(FixedPoint2.New(i)));
+                    _window.Close();
+                }
+            };
+        }
     }
 }

@@ -25,18 +25,18 @@ public sealed partial class CurrencyPrototype : IPrototype
     /// doesn't necessarily refer to the full name of the currency, only
     /// that which is displayed to the user.
     /// </summary>
-    [DataField]
+    [DataField("displayName")]
     public string DisplayName { get; private set; } = string.Empty;
 
     /// <summary>
     /// The physical entity of the currency
     /// </summary>
-    [DataField]
-    public Dictionary<FixedPoint2, EntProtoId>? Cash { get; private set; }
+    [DataField("cash", customTypeSerializer: typeof(PrototypeIdValueDictionarySerializer<FixedPoint2, EntityPrototype>))]
+    public Dictionary<FixedPoint2, string>? Cash { get; private set; }
 
     /// <summary>
     /// Whether or not this currency can be withdrawn from a shop by a player. Requires a valid entityId.
     /// </summary>
-    [DataField]
+    [DataField("canWithdraw")]
     public bool CanWithdraw { get; private set; } = true;
 }

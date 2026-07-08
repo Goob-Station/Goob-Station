@@ -9,7 +9,6 @@ using Content.Server.Lathe.Components;
 using Content.Server.Materials;
 using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
-using Content.Server.Radio.EntitySystems;
 using Content.Server.Stack;
 using Content.Shared.Atmos;
 using Content.Shared.Chemistry.Components;
@@ -22,7 +21,6 @@ using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Lathe;
 using Content.Shared.Lathe.Prototypes;
-using Content.Shared.Localizations;
 using Content.Shared.Materials;
 using Content.Shared.Power;
 using Content.Shared.ReagentSpeed;
@@ -38,7 +36,6 @@ using Robust.Shared.Timing;
 using Content.Server.Chat.Systems;
 using Content.Goobstation.Common.NTR.Scan; // Goobstation
 using Content.Shared.Chat;
-using Content.Shared.Prototypes;
 
 namespace Content.Server.Lathe
 {
@@ -61,7 +58,6 @@ namespace Content.Server.Lathe
         [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
         [Dependency] private readonly StackSystem _stack = default!;
         [Dependency] private readonly TransformSystem _transform = default!;
-        [Dependency] private readonly RadioSystem _radio = default!;
 
         /// <summary>
         /// Per-tick cache
@@ -75,14 +71,11 @@ namespace Content.Server.Lathe
             SubscribeLocalEvent<LatheComponent, MapInitEvent>(OnMapInit);
             SubscribeLocalEvent<LatheComponent, PowerChangedEvent>(OnPowerChanged);
             SubscribeLocalEvent<LatheComponent, TechnologyDatabaseModifiedEvent>(OnDatabaseModified);
-            SubscribeLocalEvent<LatheAnnouncingComponent, TechnologyDatabaseModifiedEvent>(OnTechnologyDatabaseModified);
             SubscribeLocalEvent<LatheComponent, ResearchRegistrationChangedEvent>(OnResearchRegistrationChanged);
 
             SubscribeLocalEvent<LatheComponent, LatheQueueRecipeMessage>(OnLatheQueueRecipeMessage);
             SubscribeLocalEvent<LatheComponent, LatheSyncRequestMessage>(OnLatheSyncRequestMessage);
-            SubscribeLocalEvent<LatheComponent, LatheDeleteRequestMessage>(OnLatheDeleteRequestMessage);
-            SubscribeLocalEvent<LatheComponent, LatheMoveRequestMessage>(OnLatheMoveRequestMessage);
-            SubscribeLocalEvent<LatheComponent, LatheAbortFabricationMessage>(OnLatheAbortFabricationMessage);
+            SubscribeLocalEvent<LatheComponent, LatheQueueResetMessage>(OnLatheQueueResetMessage); // Goobstation
 
             SubscribeLocalEvent<LatheComponent, BeforeActivatableUIOpenEvent>((u, c, _) => UpdateUserInterfaceState(u, c));
             SubscribeLocalEvent<LatheComponent, MaterialAmountChangedEvent>(OnMaterialAmountChanged);
@@ -143,7 +136,7 @@ namespace Content.Server.Lathe
             var recipes = GetAvailableRecipes(uid, component, true);
             foreach (var id in recipes)
             {
-                if (!_proto.Resolve(id, out var proto))
+                if (!_proto.TryIndex(id, out var proto))
                     continue;
                 foreach (var (mat, _) in proto.Materials)
                 {
@@ -176,25 +169,23 @@ namespace Content.Server.Lathe
             return ev.Recipes.ToList();
         }
 
-        public bool TryAddToQueue(EntityUid uid, LatheRecipePrototype recipe, int quantity, LatheComponent? component = null)
+        public bool TryAddToQueue(EntityUid uid, LatheRecipePrototype recipe, LatheComponent? component = null)
         {
             if (!Resolve(uid, ref component))
                 return false;
 
-            if (quantity <= 0)
-                return false;
-            quantity = int.Min(quantity, MaxItemsPerRequest);
-
-            if (!CanProduce(uid, recipe, quantity, component))
+            if (!CanProduce(uid, recipe, 1, component))
                 return false;
 
-            foreach (var (mat, amount) in GetAdjustedAmount(component, recipe))
-                _materialStorage.TryChangeMaterialAmount(uid, mat, -amount * quantity);
+            foreach (var (mat, amount) in recipe.Materials)
+            {
+                var adjustedAmount = recipe.ApplyMaterialDiscount
+                    ? (int) (-amount * component.MaterialUseMultiplier)
+                    : -amount;
 
-            if (component.Queue.Last is { } node && node.ValueRef.Recipe == recipe.ID)
-                node.ValueRef.ItemsRequested += quantity;
-            else
-                component.Queue.AddLast(new LatheRecipeBatch(recipe.ID, 0, quantity));
+                _materialStorage.TryChangeMaterialAmount(uid, mat, adjustedAmount);
+            }
+            component.Queue.Enqueue(recipe);
 
             return true;
         }
@@ -206,11 +197,8 @@ namespace Content.Server.Lathe
             if (component.CurrentRecipe != null || component.Queue.Count <= 0 || !this.IsPowered(uid, EntityManager))
                 return false;
 
-            var batch = component.Queue.First();
-            batch.ItemsPrinted++;
-            if (batch.ItemsPrinted >= batch.ItemsRequested || batch.ItemsPrinted < 0) // Rollover sanity check
-                component.Queue.RemoveFirst();
-            var recipe = _proto.Index(batch.Recipe);
+            var recipeProto = component.Queue.Dequeue();
+            var recipe = _proto.Index(recipeProto);
 
             var time = _reagentSpeed.ApplySpeed(uid, recipe.CompleteTime) * component.TimeMultiplier;
 
@@ -302,8 +290,8 @@ namespace Content.Server.Lathe
                 return;
 
             var producing = component.CurrentRecipe;
-            if (producing == null && component.Queue.First is { } node)
-                producing = node.Value.Recipe;
+            if (producing == null && component.Queue.TryPeek(out var next))
+                producing = next;
 
             var state = new LatheUpdateState(GetAvailableRecipes(uid, component), component.Queue.ToArray(), producing);
             _uiSys.SetUiState(uid, LatheUiKey.Key, state);
@@ -380,10 +368,12 @@ namespace Content.Server.Lathe
         {
             if (!args.Powered)
             {
-                AbortProduction(uid);
+                RemComp<LatheProducingComponent>(uid);
+                UpdateRunningAppearance(uid, false);
             }
-            else
+            else if (component.CurrentRecipe != null)
             {
+                EnsureComp<LatheProducingComponent>(uid);
                 TryStartProducing(uid, component);
             }
         }
@@ -391,48 +381,24 @@ namespace Content.Server.Lathe
         private void OnDatabaseModified(EntityUid uid, LatheComponent component, ref TechnologyDatabaseModifiedEvent args)
         {
             UpdateUserInterfaceState(uid, component);
-        }
 
-        private void OnTechnologyDatabaseModified(Entity<LatheAnnouncingComponent> ent, ref TechnologyDatabaseModifiedEvent args)
-        {
-            if (args.NewlyUnlockedRecipes is null)
+            // Goobstation - Lathe message on recipes update - Start
+            if (args.UnlockedRecipes == null || args.UnlockedRecipes.Count == 0)
                 return;
 
-            if (!TryGetAvailableRecipes(ent.Owner, out var potentialRecipes))
-                return;
+            var recipesCount = 0;
 
-            var recipeNames = new List<string>();
-            foreach (var recipeId in args.NewlyUnlockedRecipes)
+            foreach (var pack in component.DynamicPacks)
             {
-                if (!potentialRecipes.Contains(new(recipeId)))
+                _proto.TryIndex(pack, out var proto);
+                if (proto is null)
                     continue;
-
-                if (!_proto.TryIndex(recipeId, out LatheRecipePrototype? recipe))
-                    continue;
-
-                var itemName = GetRecipeName(recipe!);
-                recipeNames.Add(Loc.GetString("lathe-unlock-recipe-radio-broadcast-item", ("item", itemName)));
+                recipesCount += proto.Recipes.Intersect(args.UnlockedRecipes).Count(); // which recipes we can use are the ones just unlocked?
             }
 
-            if (recipeNames.Count == 0)
-                return;
-
-            var message =
-                recipeNames.Count > ent.Comp.MaximumItems ?
-                    Loc.GetString(
-                        "lathe-unlock-recipe-radio-broadcast-overflow",
-                        ("items", ContentLocalizationManager.FormatList(recipeNames.GetRange(0, ent.Comp.MaximumItems))),
-                        ("count", recipeNames.Count)
-                    ) :
-                    Loc.GetString(
-                        "lathe-unlock-recipe-radio-broadcast",
-                        ("items", ContentLocalizationManager.FormatList(recipeNames))
-                    );
-
-            foreach (var channel in ent.Comp.Channels)
-            {
-                _radio.SendRadioMessage(ent.Owner, message, channel, ent.Owner, escapeMarkup: false);
-            }
+            if (recipesCount > 0)
+                _chatSystem.TrySendInGameICMessage(uid, Loc.GetString("lathe-technology-recipes-update-message", ("count", recipesCount)), InGameICChatType.Speak, hideChat: true);
+            // Goobstation - Lathe message on recipes update - End
         }
 
         private void OnResearchRegistrationChanged(EntityUid uid, LatheComponent component, ref ResearchRegistrationChangedEvent args)
@@ -445,89 +411,25 @@ namespace Content.Server.Lathe
             return GetAvailableRecipes(uid, component).Contains(recipe.ID);
         }
 
-        /// <summary>
-        /// Iterator returning adjusted amount of material needed to
-        /// produce a given recipe
-        /// </summary>
-        private static IEnumerable<(ProtoId<MaterialPrototype> mat, int amount)> GetAdjustedAmount(LatheComponent lathe, LatheRecipePrototype recipe)
-        {
-            foreach (var (mat, amount) in recipe.Materials)
-            {
-                var adjustedAmount = recipe.ApplyMaterialDiscount
-                    ? (int)(amount * lathe.MaterialUseMultiplier)
-                    : amount;
-
-                yield return (mat, adjustedAmount);
-            }
-        }
-
-        /// <summary>
-        /// Refunds the material cost of the currently running recipe,
-        /// without cancelling production
-        /// </summary>
-        private void RefundCurrentRecipe(EntityUid uid, LatheComponent lathe)
-        {
-            _proto.Resolve(lathe.CurrentRecipe, out var recipe);
-
-            foreach (var (mat, amount) in GetAdjustedAmount(lathe, recipe!))
-                _materialStorage.TryChangeMaterialAmount(uid, mat, amount);
-        }
-
-        /// <summary>
-        /// Refunds the material cost of a given batch,
-        /// without deleting it
-        /// </summary>
-        private void RefundBatch(EntityUid uid, LatheComponent lathe, LatheRecipeBatch batch)
-        {
-            var delta = batch.ItemsRequested - batch.ItemsPrinted;
-
-            _proto.Resolve(batch.Recipe, out var recipe);
-
-            foreach (var (mat, amount) in GetAdjustedAmount(lathe, recipe!))
-                _materialStorage.TryChangeMaterialAmount(uid, mat, amount * delta);
-        }
-
-        public void AbortProduction(EntityUid uid, LatheComponent? component = null)
-        {
-            if (!Resolve(uid, ref component))
-                return;
-
-            if (component.CurrentRecipe != null)
-            {
-                if (component.Queue.Count > 0)
-                {
-                    // Batch abandoned while printing last item, need to create a one-item batch
-                    var batch = component.Queue.First();
-                    if (batch.Recipe != component.CurrentRecipe)
-                    {
-                        var newBatch = new LatheRecipeBatch(component.CurrentRecipe.Value, 0, 1);
-                        component.Queue.AddFirst(newBatch);
-                    }
-                    else if (batch.ItemsPrinted > 0)
-                    {
-                        batch.ItemsPrinted--;
-                    }
-                }
-
-                RefundCurrentRecipe(uid, component);
-                component.CurrentRecipe = null;
-            }
-            RemCompDeferred<LatheProducingComponent>(uid);
-            UpdateUserInterfaceState(uid, component);
-            UpdateRunningAppearance(uid, false);
-        }
-
         #region UI Messages
 
         private void OnLatheQueueRecipeMessage(EntityUid uid, LatheComponent component, LatheQueueRecipeMessage args)
         {
             if (_proto.TryIndex(args.ID, out LatheRecipePrototype? recipe))
             {
-                if (TryAddToQueue(uid, recipe, args.Quantity, component))
+                var count = 0;
+                for (var i = 0; i < args.Quantity; i++)
+                {
+                    if (TryAddToQueue(uid, recipe, component))
+                        count++;
+                    else
+                        break;
+                }
+                if (count > 0)
                 {
                     _adminLogger.Add(LogType.Action,
                         LogImpact.Low,
-                        $"{ToPrettyString(args.Actor):player} queued {args.Quantity} {GetRecipeName(recipe)} at {ToPrettyString(uid):lathe}");
+                        $"{ToPrettyString(args.Actor):player} queued {count} {GetRecipeName(recipe)} at {ToPrettyString(uid):lathe}");
                 }
             }
             TryStartProducing(uid, component);
@@ -537,100 +439,6 @@ namespace Content.Server.Lathe
         private void OnLatheSyncRequestMessage(EntityUid uid, LatheComponent component, LatheSyncRequestMessage args)
         {
             UpdateUserInterfaceState(uid, component);
-        }
-
-        /// <summary>
-        /// Removes a batch from the batch queue by index.
-        /// If the index given does not exist or is outside of the bounds of the lathe's batch queue, nothing happens.
-        /// </summary>
-        /// <param name="uid">The lathe whose queue is being altered.</param>
-        /// <param name="component"></param>
-        /// <param name="args"></param>
-        public void OnLatheDeleteRequestMessage(EntityUid uid, LatheComponent component, ref LatheDeleteRequestMessage args)
-        {
-            if (args.Index < 0 || args.Index >= component.Queue.Count)
-                return;
-
-            var node = component.Queue.First;
-            for (int i = 0; i < args.Index; i++)
-                node = node?.Next;
-
-            if (node == null) // Shouldn't happen with checks above.
-                return;
-
-            var batch = node.Value;
-            _adminLogger.Add(LogType.Action,
-                LogImpact.Low,
-                $"{ToPrettyString(args.Actor):player} deleted a lathe job for ({batch.ItemsPrinted}/{batch.ItemsRequested}) {GetRecipeName(batch.Recipe)} at {ToPrettyString(uid):lathe}");
-
-            RefundBatch(uid, component, batch);
-            component.Queue.Remove(node);
-            UpdateUserInterfaceState(uid, component);
-        }
-
-        public void OnLatheMoveRequestMessage(EntityUid uid, LatheComponent component, ref LatheMoveRequestMessage args)
-        {
-            if (args.Change == 0 || args.Index < 0 || args.Index >= component.Queue.Count)
-                return;
-
-            // New index must be within the bounds of the batch.
-            var newIndex = args.Index + args.Change;
-            if (newIndex < 0 || newIndex >= component.Queue.Count)
-                return;
-
-            var node = component.Queue.First;
-            for (int i = 0; i < args.Index; i++)
-                node = node?.Next;
-
-            if (node == null) // Something went wrong.
-                return;
-
-            if (args.Change > 0)
-            {
-                var newRelativeNode = node.Next;
-                for (int i = 1; i < args.Change; i++) // 1-indexed: starting from Next
-                    newRelativeNode = newRelativeNode?.Next;
-
-                if (newRelativeNode == null) // Something went wrong.
-                    return;
-
-                component.Queue.Remove(node);
-                component.Queue.AddAfter(newRelativeNode, node);
-            }
-            else
-            {
-                var newRelativeNode = node.Previous;
-                for (int i = 1; i < -args.Change; i++) // 1-indexed: starting from Previous
-                    newRelativeNode = newRelativeNode?.Previous;
-
-                if (newRelativeNode == null) // Something went wrong.
-                    return;
-
-                component.Queue.Remove(node);
-                component.Queue.AddBefore(newRelativeNode, node);
-            }
-
-            UpdateUserInterfaceState(uid, component);
-        }
-
-        public void OnLatheAbortFabricationMessage(EntityUid uid, LatheComponent component, ref LatheAbortFabricationMessage args)
-        {
-            AbortFabrication(uid, component, args.Actor); // Goobstation moved this method into the method below
-        }
-
-        public void AbortFabrication(EntityUid uid, LatheComponent component, EntityUid? actor) // goob moved this separately
-        {
-            if (component.CurrentRecipe == null)
-                return;
-
-            if (actor != null) // goob cause this is optional if you just want to stop fabricating
-                _adminLogger.Add(LogType.Action,
-                    LogImpact.Low,
-                    $"{ToPrettyString(actor):player} aborted printing {GetRecipeName(component.CurrentRecipe.Value)} at {ToPrettyString(uid):lathe}");
-
-            RefundCurrentRecipe(uid, component);
-            component.CurrentRecipe = null;
-            FinishProducing(uid, component);
         }
         #endregion
     }

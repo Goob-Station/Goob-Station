@@ -13,7 +13,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
             <Button Name="ResetButton"
                     Text="{Loc 'ui-options-reset-all'}"
-                    StyleClasses="negative" />
+                    StyleClasses="Caution" />
             <Button Name="ApplyButton"
                     Text="{Loc 'ui-options-apply'}"
                     StyleClasses="OpenLeft" />

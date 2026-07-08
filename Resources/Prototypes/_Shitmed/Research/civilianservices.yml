@@ -20,9 +20,10 @@
   - EnergyCautery # Shitmed
   - AdvancedBoneGel # Shitmed
   # - BorgModuleDefibrillator # Goobstation, medical cyborgs start with this
+  - BorgModuleAdvancedSurgery # Shitmed
   technologyPrerequisites:
-  - MechanizedTreatment
-  position: -2,5
+  - AdvancedEntertainment
+  position: -2,4
 
 - type: technology
   id: BasicCybernetics
@@ -46,7 +47,7 @@
   - BasicCyberneticHeart
   - BasicCyberneticLungs
   - BasicCyberneticLiver
-  position: -2,6
+  position: -2,5
   technologyPrerequisites:
   - AdvancedTreatment
   - BasicRobotics
@@ -62,7 +63,7 @@
   cost: 10000
   recipeUnlocks:
   - AutodocCircuitboard
-  position: -2,7
+  position: -2,6
   technologyPrerequisites:
   - BasicCybernetics
 
@@ -140,7 +141,7 @@
   - DiagnosticCyberneticEyes
   - SecurityCyberneticEyes
   - MedicalCyberneticEyes
-  position: -1,7
+  position: -2,7
   technologyPrerequisites:
   - Autodoc
 

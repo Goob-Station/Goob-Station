@@ -37,11 +37,15 @@ namespace Content.Shared.ActionBlocker
             base.Initialize();
 
             _complexInteractionQuery = GetEntityQuery<ComplexInteractionComponent>();
+
+            SubscribeLocalEvent<InputMoverComponent, ComponentStartup>(OnMoverStartup);
         }
 
-        // These two methods should probably both live in SharedMoverController
-        // but they're called in a million places and I'm not doing that
-        // refactor right now.
+        private void OnMoverStartup(EntityUid uid, InputMoverComponent component, ComponentStartup args)
+        {
+            UpdateCanMove(uid, component);
+        }
+
         public bool CanMove(EntityUid uid, InputMoverComponent? component = null)
         {
             return Resolve(uid, ref component, false) && component.CanMove;
@@ -145,7 +149,7 @@ namespace Content.Shared.ActionBlocker
 
         public bool CanThrow(EntityUid user, EntityUid itemUid)
         {
-            var ev = new ThrowAttemptEvent(user, itemUid, null); // Goob pass target.
+            var ev = new ThrowAttemptEvent(user, itemUid);
             RaiseLocalEvent(user, ev);
 
             if (ev.Cancelled)
@@ -174,21 +178,15 @@ namespace Content.Shared.ActionBlocker
             return !ev.Cancelled;
         }
 
-        /// <summary>
-        /// Whether a user can pickup the given item.
-        /// </summary>
-        /// <param name="user">The mob trying to pick up the item.</param>
-        /// <param name="item">The item being picked up.</param>
-        /// <param name="showPopup">Whether or not to show a popup to the player telling them why the attempt failed.</param>
-        public bool CanPickup(EntityUid user, EntityUid item, bool showPopup = false)
+        public bool CanPickup(EntityUid user, EntityUid item)
         {
-            var userEv = new PickupAttemptEvent(user, item, showPopup);
+            var userEv = new PickupAttemptEvent(user, item);
             RaiseLocalEvent(user, userEv);
 
             if (userEv.Cancelled)
                 return false;
 
-            var itemEv = new GettingPickedUpAttemptEvent(user, item, showPopup);
+            var itemEv = new GettingPickedUpAttemptEvent(user, item);
             RaiseLocalEvent(item, itemEv);
 
             return !itemEv.Cancelled;

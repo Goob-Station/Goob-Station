@@ -30,7 +30,7 @@
     materialComposition:
       Cloth: 150 #Goob end
   - type: StaticPrice
-    price: 12
+    price: 100
   - type: Tag
     tags:
     - Recyclable #Goobstation

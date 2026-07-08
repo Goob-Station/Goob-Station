@@ -110,8 +110,8 @@
       volume: 5
       temperature: 293.15
       moles:
-        Oxygen: 1.025689525 # oxygen
-        Nitrogen: 1.025689525 # nitrogen
+        - 1.025689525 # oxygen
+        - 1.025689525 # nitrogen
 
 #Empty black
 - type: entity
@@ -145,8 +145,8 @@
       volume: 5
       temperature: 293.15
       moles:
-        Oxygen: 1.025689525 # oxygen
-        Nitrogen: 1.025689525 # nitrogen
+        - 1.025689525 # oxygen
+        - 1.025689525 # nitrogen
 
 #Empty captain
 - type: entity
@@ -185,8 +185,8 @@
       volume: 5
       temperature: 293.15
       moles:
-        Oxygen: 1.025689525 # oxygen
-        Nitrogen: 1.025689525 # nitrogen
+        - 1.025689525 # oxygen
+        - 1.025689525 # nitrogen
 
 #Empty mini
 - type: entity
@@ -226,15 +226,14 @@
       volume: 1.5
       temperature: 293.15
       moles:
-        Oxygen: 0.307706858 # oxygen
-        Nitrogen: 0.307706858 # nitrogen
+        - 0.307706858 # oxygen
+        - 0.307706858 # nitrogen
 
 #Empty security
 - type: entity
   id: JetpackSecurity
-  parent: [JetpackMini, BaseSecurityContraband]
-  name: security mini jetpack
-  description: A compact jetpack utilized by station security when patrolling the station's exterior. Not intended for long range travel, it holds only 1.5 L of gas.
+  parent: [BaseJetpack, BaseSecurityContraband]
+  name: security jetpack
   suffix: Empty
   components:
   - type: Item
@@ -243,6 +242,8 @@
     sprite: Objects/Tanks/Jetpacks/security.rsi
   - type: Clothing
     sprite: Objects/Tanks/Jetpacks/security.rsi
+    slots:
+      - Back
 
 #Filled security
 - type: entity
@@ -254,12 +255,12 @@
   - type: GasTank
     outputPressure: 42.6
     air:
-      # 4 minutes of thrust
-      volume: 1.5
+      # 13 minutes thrust
+      volume: 5
       temperature: 293.15
       moles:
-        Oxygen: 0.307706858 # oxygen
-        Nitrogen: 0.307706858 # nitrogen
+        - 1.025689525 # oxygen
+        - 1.025689525 # nitrogen
 
 #Empty void
 - type: entity
@@ -293,8 +294,8 @@
       volume: 5
       temperature: 293.15
       moles:
-        Oxygen: 1.025689525 # oxygen
-        Nitrogen: 1.025689525 # nitrogen
+        - 1.025689525 # oxygen
+        - 1.025689525 # nitrogen
 
 # Infinite jetpack
 - type: entity

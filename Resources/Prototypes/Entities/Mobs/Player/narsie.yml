@@ -91,6 +91,7 @@
     channels:
     - Binary
   - type: Physics
+    bodyType: Dynamic
     bodyStatus: InAir
   - type: CanMoveInAir
   # singulose components
@@ -100,12 +101,6 @@
   - type: GravityWell
     baseRadialAcceleration: 6
     maxRange: 8
-  - type: Tag
-    tags:
-    - GhostOnlyWarp
   - type: WarpPoint
     follow: true
     location: Nar'Sie
-    blacklist:
-      tags:
-      - GhostOnlyWarp

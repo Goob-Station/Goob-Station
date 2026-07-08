@@ -86,7 +86,7 @@ public sealed partial class EmotesTabControl : BaseTabControl
             return false;
 
         if (!whitelistSystem.IsWhitelistPassOrNull(emote.Whitelist, player) ||
-            whitelistSystem.IsWhitelistPass(emote.Blacklist, player))
+            whitelistSystem.IsBlacklistPass(emote.Blacklist, player))
             return false;
 
         if (!emote.Available &&

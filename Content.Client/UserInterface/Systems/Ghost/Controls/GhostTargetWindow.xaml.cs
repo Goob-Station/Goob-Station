@@ -47,7 +47,7 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
 
         public void Populate()
         {
-            ButtonContainer.RemoveAllChildren();
+            ButtonContainer.DisposeAllChildren();
             AddButtons();
         }
 

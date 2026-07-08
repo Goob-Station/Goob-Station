@@ -185,7 +185,7 @@ public sealed class SpreaderSystem : EntitySystem
         occupiedTiles = [];
         neighbors = [];
         // TODO remove occupiedTiles -- its currently unused and just slows this method down.
-        if (!_prototype.Resolve(prototype, out var spreaderPrototype))
+        if (!_prototype.TryIndex(prototype, out var spreaderPrototype))
             return;
 
         if (!TryComp<MapGridComponent>(comp.GridUid, out var grid))
@@ -310,38 +310,35 @@ public sealed class SpreaderSystem : EntitySystem
     /// This function activates all spreaders that are adjacent to a given entity. This also activates other spreaders
     /// on the same tile as the current entity (for thin airtight entities like windoors).
     /// </summary>
-    public void ActivateSpreadableNeighbors(EntityUid origin, (EntityUid Grid, Vector2i Tile)? position = null)
+    public void ActivateSpreadableNeighbors(EntityUid uid, (EntityUid Grid, Vector2i Tile)? position = null)
     {
         Vector2i tile;
-        EntityUid gridUid;
-        MapGridComponent? gridComp;
+        EntityUid ent;
+        MapGridComponent? grid;
 
         if (position == null)
         {
-            var transform = Transform(origin);
-            if (!TryComp(transform.GridUid, out gridComp) || TerminatingOrDeleted(transform.GridUid.Value))
+            var transform = Transform(uid);
+            if (!TryComp(transform.GridUid, out grid) || TerminatingOrDeleted(transform.GridUid.Value))
                 return;
 
-            tile = _map.TileIndicesFor(transform.GridUid.Value, gridComp, transform.Coordinates);
-            gridUid = transform.GridUid.Value;
+            tile = _map.TileIndicesFor(transform.GridUid.Value, grid, transform.Coordinates);
+            ent = transform.GridUid.Value;
         }
         else
         {
-            if (!TryComp(position.Value.Grid, out gridComp))
+            if (!TryComp(position.Value.Grid, out grid))
                 return;
-            (gridUid, tile) = position.Value;
+            (ent, tile) = position.Value;
         }
 
-        var anchored = _map.GetAnchoredEntitiesEnumerator(gridUid, gridComp, tile);
+        var anchored = _map.GetAnchoredEntitiesEnumerator(ent, grid, tile);
         while (anchored.MoveNext(out var entity))
         {
-            // Don't re-activate the terminating entity
-            if (entity == origin)
+            if (entity == uid) // Goob edit
                 continue;
             DebugTools.Assert(Transform(entity.Value).Anchored);
-
-            // Activate any edge spreaders that are non-terminating
-            if (_query.HasComponent(entity) && !TerminatingOrDeleted(entity))
+            if (_query.HasComponent(entity) && !TerminatingOrDeleted(entity.Value)) // Goob edit
                 EnsureComp<ActiveEdgeSpreaderComponent>(entity.Value);
         }
 
@@ -349,14 +346,12 @@ public sealed class SpreaderSystem : EntitySystem
         {
             var direction = (AtmosDirection) (1 << i);
             var adjacentTile = SharedMapSystem.GetDirection(tile, direction.ToDirection());
-            anchored = _map.GetAnchoredEntitiesEnumerator(gridUid, gridComp, adjacentTile);
+            anchored = _map.GetAnchoredEntitiesEnumerator(ent, grid, adjacentTile);
 
             while (anchored.MoveNext(out var entity))
             {
                 DebugTools.Assert(Transform(entity.Value).Anchored);
-
-                // Activate any edge spreaders that are non-terminating
-                if (_query.HasComponent(entity) && !TerminatingOrDeleted(entity))
+                if (_query.HasComponent(entity) && !TerminatingOrDeleted(entity.Value)) // Goob edit
                     EnsureComp<ActiveEdgeSpreaderComponent>(entity.Value);
             }
         }

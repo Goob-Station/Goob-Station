@@ -13,7 +13,6 @@
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
     - BasicStationEventScheduler
-    # - GlimmerEventScheduler Goob
 
 - type: gamePreset #Runs Cosmic Cult but shows "Secret" in lobby.
   id: SecretCosmicCult
@@ -29,4 +28,3 @@
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
     - BasicStationEventScheduler
-    # - GlimmerEventScheduler # Goobstation

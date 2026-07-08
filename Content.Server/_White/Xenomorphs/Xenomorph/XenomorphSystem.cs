@@ -110,7 +110,7 @@ private void ProcessBloodLoss(EntityUid uid, BloodstreamComponent bloodstream)
             bloodstream.BloodSolutionName,
             ref bloodstream.BloodSolution,
             out var bloodSolution)
-            || bloodSolution.Volume >= bloodstream.BloodReferenceSolution.Volume)
+            || bloodSolution.Volume >= bloodstream.BloodMaxVolume)
     {
         return;
     }

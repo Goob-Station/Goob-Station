@@ -31,8 +31,6 @@
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
-    UndergarmentBottom: MobHumanoidAnyMarking
-    UndergarmentTop: MobHumanoidAnyMarking
     Chest: MobRodentiaChest
     Groin: MobRodentiaGroin
     HeadTop: MobHumanoidAnyMarking
@@ -74,10 +72,10 @@
     Chest:
       points: 10
       required: false
-    UndergarmentBottom:
+    Underwear:
       points: 1
       required: false
-    UndergarmentTop:
+    Undershirt:
       points: 1
       required: false
     RightLeg:

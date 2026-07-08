@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Collections.Immutable;
 using System.Net;
 using Content.Shared.Database;
 using Robust.Shared.Network;
@@ -15,9 +14,9 @@ public interface IAdminRemarksRecord
 {
     public int Id { get; }
 
-    public ImmutableArray<RoundRecord> Rounds { get; }
+    public RoundRecord? Round { get; }
 
-    public ImmutableArray<PlayerRecord> Players { get; }
+    public PlayerRecord? Player { get; }
     public TimeSpan PlaytimeAtNote { get; }
 
     public string Message { get; }
@@ -34,11 +33,27 @@ public interface IAdminRemarksRecord
     public bool Deleted { get; }
 }
 
-public sealed record BanNoteRecord(
+public sealed record ServerRoleBanNoteRecord(
     int Id,
-    BanType Type,
-    ImmutableArray<RoundRecord> Rounds,
-    ImmutableArray<PlayerRecord> Players,
+    RoundRecord? Round,
+    PlayerRecord? Player,
+    TimeSpan PlaytimeAtNote,
+    string Message,
+    NoteSeverity Severity,
+    PlayerRecord? CreatedBy,
+    DateTimeOffset CreatedAt,
+    PlayerRecord? LastEditedBy,
+    DateTimeOffset? LastEditedAt,
+    DateTimeOffset? ExpirationTime,
+    bool Deleted,
+    string[] Roles,
+    PlayerRecord? UnbanningAdmin,
+    DateTime? UnbanTime) : IAdminRemarksRecord;
+
+public sealed record ServerBanNoteRecord(
+    int Id,
+    RoundRecord? Round,
+    PlayerRecord? Player,
     TimeSpan PlaytimeAtNote,
     string Message,
     NoteSeverity Severity,
@@ -49,8 +64,7 @@ public sealed record BanNoteRecord(
     DateTimeOffset? ExpirationTime,
     bool Deleted,
     PlayerRecord? UnbanningAdmin,
-    DateTime? UnbanTime,
-    ImmutableArray<BanRoleDef> Roles) : IAdminRemarksRecord;
+    DateTime? UnbanTime) : IAdminRemarksRecord;
 
 public sealed record AdminNoteRecord(
     int Id,
@@ -67,11 +81,7 @@ public sealed record AdminNoteRecord(
     bool Deleted,
     PlayerRecord? DeletedBy,
     DateTimeOffset? DeletedAt,
-    bool Secret) : IAdminRemarksRecord
-{
-    ImmutableArray<RoundRecord> IAdminRemarksRecord.Rounds => Round != null ? [Round] : [];
-    ImmutableArray<PlayerRecord> IAdminRemarksRecord.Players => Player != null ? [Player] : [];
-}
+    bool Secret) : IAdminRemarksRecord;
 
 public sealed record AdminWatchlistRecord(
     int Id,
@@ -86,11 +96,7 @@ public sealed record AdminWatchlistRecord(
     DateTimeOffset? ExpirationTime,
     bool Deleted,
     PlayerRecord? DeletedBy,
-    DateTimeOffset? DeletedAt) : IAdminRemarksRecord
-{
-    ImmutableArray<RoundRecord> IAdminRemarksRecord.Rounds => Round != null ? [Round] : [];
-    ImmutableArray<PlayerRecord> IAdminRemarksRecord.Players => Player != null ? [Player] : [];
-}
+    DateTimeOffset? DeletedAt) : IAdminRemarksRecord;
 
 public sealed record AdminMessageRecord(
     int Id,
@@ -107,18 +113,15 @@ public sealed record AdminMessageRecord(
     PlayerRecord? DeletedBy,
     DateTimeOffset? DeletedAt,
     bool Seen,
-    bool Dismissed) : IAdminRemarksRecord
-{
-    ImmutableArray<RoundRecord> IAdminRemarksRecord.Rounds => Round != null ? [Round] : [];
-    ImmutableArray<PlayerRecord> IAdminRemarksRecord.Players => Player != null ? [Player] : [];
-}
+    bool Dismissed) : IAdminRemarksRecord;
+
 
 public sealed record PlayerRecord(
     NetUserId UserId,
     DateTimeOffset FirstSeenTime,
     string LastSeenUserName,
     DateTimeOffset LastSeenTime,
-    IPAddress? LastSeenAddress,
+    IPAddress LastSeenAddress,
     ImmutableTypedHwid? HWId);
 
 public sealed record RoundRecord(int Id, DateTimeOffset? StartDate, ServerRecord Server);

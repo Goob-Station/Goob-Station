@@ -67,7 +67,7 @@ public sealed class HulkSystem : SharedHulkSystem
             return;
 
         RemComp<GunComponent>(ent);
-        RemComp<BatteryAmmoProviderComponent>(ent);
+        RemComp<HitscanBatteryAmmoProviderComponent>(ent);
     }
 
     private void OnInit(Entity<HulkComponent> ent, ref ComponentInit args)

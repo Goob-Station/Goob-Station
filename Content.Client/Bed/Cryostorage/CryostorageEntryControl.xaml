@@ -11,7 +11,10 @@ SPDX-License-Identifier: MIT
     Orientation="Vertical"
     HorizontalExpand="True"
     Margin="0 0 0 5">
-    <PanelContainer StyleClasses="PanelDark">
+    <PanelContainer>
+        <PanelContainer.PanelOverride>
+            <graphics:StyleBoxFlat BackgroundColor="{xNamespace:Static style:StyleNano.ButtonColorDisabled}" />
+        </PanelContainer.PanelOverride>
         <Collapsible Name="Collapsible">
             <CollapsibleHeading Name="Heading" MinHeight="35"/>
             <CollapsibleBody Name="Body">

@@ -12,7 +12,7 @@ public sealed partial class SpecialAnimationPrototype : IPrototype
 {
     /// <inheritdoc/>
     [IdDataField]
-    public string ID { get; private set; } = default!;
+    public string ID { get; } = default!;
 
     [DataField]
     public SpecialAnimationData Animation = SpecialAnimationData.DefaultAnimation;

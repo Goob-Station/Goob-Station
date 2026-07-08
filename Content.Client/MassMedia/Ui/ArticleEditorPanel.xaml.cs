@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Client.Message;
-using Content.Client.RichText;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.RichText;
 using Content.Shared.MassMedia.Systems;
@@ -41,8 +40,8 @@ public sealed partial class ArticleEditorPanel : Control
     {
         RobustXamlLoader.Load(this);
 
-        ButtonPublish.StyleClasses.Add(StyleClass.ButtonOpenLeft);
-        ButtonPublish.StyleClasses.Add(StyleClass.Positive);
+        ButtonPublish.StyleClasses.Add(StyleBase.ButtonOpenLeft);
+        ButtonPublish.StyleClasses.Add(StyleNano.StyleClassButtonColorGreen);
 
         ContentField.GetChild(0).Margin = new Thickness(9, 3);
         // Customize scrollbar width and margin. This is not possible in xaml
@@ -102,7 +101,7 @@ public sealed partial class ArticleEditorPanel : Control
         PreviewPanel.Visible = _preview;
 
         var articleBody = Rope.Collapse(ContentField.TextRope);
-        PreviewLabel.SetMessage(FormattedMessage.FromMarkupPermissive(articleBody), UserFormattableTags.BaseAllowedTags);
+        PreviewLabel.SetMessage(FormattedMessage.FromMarkupPermissive(articleBody), AllowedTags);
     }
 
     private void OnCancel(BaseButton.ButtonEventArgs eventArgs)

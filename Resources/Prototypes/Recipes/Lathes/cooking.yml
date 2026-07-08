@@ -21,7 +21,7 @@
   id: BaseGlasswareRecipe
   completetime: 0.8
   materials:
-    Glass: 200
+    Glass: 100
 
 - type: latheRecipe
   parent: BaseGlasswareRecipe

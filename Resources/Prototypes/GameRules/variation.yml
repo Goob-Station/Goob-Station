@@ -69,7 +69,7 @@
     - id: DecalSpawnerGraffiti
 
 - type: entity
-  id: BasicDecalBurnsVariationPass
+  id: BasicDecalBrunsVariationPass
   parent: BaseVariationPass
   components:
   - type: EntitySpawnVariationPass

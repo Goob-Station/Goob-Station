@@ -39,7 +39,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitJacketMonkey
-  name: bartender's monkey jacket
+  name: bartender's jacket monkey
   description: A decent jacket, for a decent monkey.
   components:
   - type: Sprite

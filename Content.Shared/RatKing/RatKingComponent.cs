@@ -58,7 +58,7 @@ public sealed partial class RatKingComponent : Component
     /// </summary>
     [DataField("currentOrders"), ViewVariables(VVAccess.ReadWrite)]
     [AutoNetworkedField]
-    public RatKingOrderType CurrentOrder = RatKingOrderType.Follow;
+    public RatKingOrderType CurrentOrder = RatKingOrderType.Follow; // Trauma, changed "Loose" to "Follow"
 
     /// <summary>
     /// The servants that the rat king is currently controlling

@@ -13,7 +13,6 @@
     - type: RandomSpawner
       prototypes:
         - TableFancyBlue
-        - TableFancySkyBlue
         - TableFancyCyan
         - TableFancyBlack
         - TableFancyRed

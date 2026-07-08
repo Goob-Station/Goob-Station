@@ -37,7 +37,7 @@
             Brute: -0.75 #goob
             Burn: -0.75 #goob
       # Helps you stop bleeding to an extent.
-      - !type:ModifyBleed
+      - !type:ModifyBleedAmount
         amount: -0.25
       - !type:SatiateHunger #Numbers are balanced with this in mind + it helps limit how much healing you can get from food
       - !type:ImmunityModifier #Goobstation # 1/3 of immurin
@@ -87,7 +87,7 @@
       effects:
       - !type:SatiateHunger
         conditions:
-        - !type:ReagentCondition #Only satiates when eaten with nutriment
+        - !type:ReagentThreshold #Only satiates when eaten with nutriment
           reagent: Nutriment
           min: 0.1
         factor: 1

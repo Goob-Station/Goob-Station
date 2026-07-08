@@ -8,18 +8,17 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobChemist
-      time: 2.5h
+      time: 18000 #5 hrs
     - !type:RoleTimeRequirement
       role: JobMedicalDoctor
-      time: 5h
+      time: 28000 #8 hrs
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 10h
+      time: 36000 #10 hrs
     - !type:SpeciesRequirement # Goob - None Felinid
       inverted: true
       species:
       - Felinid
-  weight: 10
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"
   supervisors: job-supervisors-captain
@@ -32,6 +31,7 @@
   - Chemicals
   - Virology
   goobcoins: 40 #Goob content
+  weight: 10 #Goob Edit
   access:
   - Medical
   - Command

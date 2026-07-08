@@ -3,7 +3,7 @@
 
 - type: entity
   name: cannabis leaves
-  parent: ProduceBaseRuminant
+  parent: ProduceBase
   id: LeavesCannabis
   description: "Recently legalized in most galaxies."
   components:
@@ -11,7 +11,7 @@
     sprite: Objects/Specific/Hydroponics/cannabis.rsi
   - type: Produce
     seedId: cannabis
-  - type: Edible # Precursor to the one true edible
+  - type: Food
   - type: SolutionContainerManager
     solutions:
       food:
@@ -168,7 +168,7 @@
 
 - type: entity
   name: tea leaves
-  parent: ProduceBaseRuminant
+  parent: ProduceBase
   id: LeavesTea
   description: "Can be dried out to make tea."
   components:
@@ -185,7 +185,7 @@
 
 - type: entity
   name: dried tea leaves
-  parent: ProduceBaseRuminant
+  parent: ProduceBase
   id: LeavesTeaDried
   description: "Dried tea leaves, ready to be ground."
   components:
@@ -201,7 +201,7 @@
 
 - type: entity
   name: tobacco leaves
-  parent: ProduceBaseRuminant
+  parent: ProduceBase
   id: LeavesTobacco
   description: "Dry them out to make some smokes."
   components:
@@ -209,12 +209,6 @@
     sprite: Objects/Specific/Hydroponics/tobacco.rsi
   - type: Produce
     seedId: tobacco
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Nicotine
-          Quantity: 2
 
 - type: entity
   name: dried tobacco leaves

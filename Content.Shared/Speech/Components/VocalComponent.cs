@@ -53,9 +53,3 @@ public sealed partial class VocalComponent : Component
     [AutoNetworkedField]
     public ProtoId<EmoteSoundsPrototype>? EmoteSounds = null;
 }
-
-/// <summary>
-///     DeltaV: raised when the component's Sounds field changes.
-/// </summary>
-[ByRefEvent]
-public record struct SoundsChangedEvent();

@@ -79,11 +79,11 @@ public sealed partial class MaterialDisplay : PanelContainer
         {
             var sheetsToEject = sheetsToEjectArray[i];
 
-            var styleClass = StyleClass.ButtonOpenBoth;
+            var styleClass = StyleBase.ButtonOpenBoth;
             if (i == 0)
-                styleClass = StyleClass.ButtonOpenRight;
+                styleClass = StyleBase.ButtonOpenRight;
             else if (i == sheetsToEjectArray.Length - 1)
-                styleClass = StyleClass.ButtonOpenLeft;
+                styleClass = StyleBase.ButtonOpenLeft;
 
             var button = new Button
             {

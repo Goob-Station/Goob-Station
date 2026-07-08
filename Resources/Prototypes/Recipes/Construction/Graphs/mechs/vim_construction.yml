@@ -8,9 +8,6 @@
     edges:
     - to: vim
       steps:
-      - assemblyId: Vim
-        guideString: mech-construction-guide-string
-
       - tag: VoiceTrigger
         name: construction-graph-tag-voice-trigger
         icon:

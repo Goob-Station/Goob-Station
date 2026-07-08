@@ -16,11 +16,11 @@ public static partial class PoolManager
     // Content.Common is not a thing by default but will be considered a core module if found.
     private static readonly string ContentPrefix = "Content.";
     private static readonly string[] Suffixes = [".Shared", ".Client", ".Server", ".Common", ".UIKit", ".Maths"];
-    public static readonly Assembly CurrentAssembly = typeof(PoolManager).Assembly; // Goob
+    private static readonly Assembly CurrentAssembly = typeof(PoolManager).Assembly;
 
-    public static readonly HashSet<Assembly> Client = []; // Goob
-    public static readonly HashSet<Assembly> Shared = []; // Holds both .Shared and .Common modules // Goob
-    public static readonly HashSet<Assembly> Server = []; // Goob
+    private static readonly HashSet<Assembly> Client = [];
+    private static readonly HashSet<Assembly> Shared = []; // Holds both .Shared and .Common modules
+    private static readonly HashSet<Assembly> Server = [];
 
     private static readonly IReadOnlyList<ModuleMap> ModuleTypes = new[]
     {
@@ -49,7 +49,7 @@ public static partial class PoolManager
     },
     LazyThreadSafetyMode.ExecutionAndPublication);
 
-    public static void DiscoverModules() // Goob
+    private static void DiscoverModules()
     {
         _ = Discovered.Value;
     }

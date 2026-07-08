@@ -7016,7 +7016,7 @@ entities:
   - uid: 955
     components:
     - type: Transform
-      pos: 7.5,-4.5
+      pos: 5.5,-4.5
       parent: 2
     - type: WarpPoint
       location: Automated Trade Station

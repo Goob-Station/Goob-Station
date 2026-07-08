@@ -15,6 +15,7 @@ namespace Content.Goobstation.Server.MisandryBox.Appender;
 
 public sealed class AccountAppenderSystem : EntitySystem
 {
+    [Dependency] private readonly IComponentFactory _compFactory = default!;
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
 
     FrozenDictionary<string, AccountAppendPrototype> _protoIds = default!;
@@ -30,34 +31,47 @@ public sealed class AccountAppenderSystem : EntitySystem
     private void OnPlayerAttached(Entity<MobStateComponent> ent, ref PlayerAttachedEvent args)
     {
         var sesh = args.Player;
-        if (GetComps(sesh) is not {} comps)
+        if (!TryGetComps(sesh, out var comps))
             return;
 
-            EntityManager.AddComponents(ent, comps);
+        foreach (var comp in comps)
+        {
+            AddComp(args.Entity, comp, overwrite: true);
+        }
     }
 
     private void OnPlayerDetached(Entity<MobStateComponent> ent, ref PlayerDetachedEvent args)
     {
         var sesh = args.Player;
-        if (GetComps(sesh) is not {} comps)
+        if (!TryGetComps(sesh, out var comps))
             return;
 
-            EntityManager.RemoveComponents(ent, comps);
+        foreach (var comp in comps)
+        {
+            RemComp(args.Entity, comp);
+        }
     }
 
-    private ComponentRegistry? GetComps(ICommonSession sesh)
+    private bool TryGetComps(ICommonSession sesh, [NotNullWhen(true)] out List<IComponent>? comps)
     {
+        comps = [];
+
         if (!_protoIds.TryGetValue(sesh.Name.ToLowerInvariant(), out var proto))
         {
             if (!TryGuidFallback(sesh, out proto))
-                return null;
+                return false;
         }
 
-        return proto.Components;
+        foreach (var comp in proto.Components)
+        {
+            comps.Add((Component) _compFactory.GetComponent(comp, true));
+        }
+
+        return comps.Count > 0;
     }
 
     private bool TryGuidFallback(ICommonSession sesh,
-                                 [NotNullWhen(true)] out AccountAppendPrototype? prototype)
+        [NotNullWhen(true)] out AccountAppendPrototype? prototype)
     {
         prototype = null;
         var userid = sesh.UserId;

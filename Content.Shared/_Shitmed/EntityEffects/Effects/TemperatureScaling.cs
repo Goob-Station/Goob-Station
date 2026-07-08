@@ -13,7 +13,7 @@ namespace Content.Shared._Shitmed.EntityEffects.Effects;
 /// <param name="Scale">The scale to use for the efficiency.</param>
 /// </summary>
 [DataRecord, Serializable]
-public partial record struct TemperatureScaling(FixedPoint2 Min, FixedPoint2 Max, FixedPoint2 Scale)
+public record struct TemperatureScaling(FixedPoint2 Min, FixedPoint2 Max, FixedPoint2 Scale)
 {
 
     public static implicit operator (FixedPoint2, FixedPoint2, FixedPoint2)(TemperatureScaling p) => (p.Min, p.Max, p.Scale);

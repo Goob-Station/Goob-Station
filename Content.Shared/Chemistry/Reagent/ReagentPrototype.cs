@@ -1,19 +1,22 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Collections.Frozen;
 using System.Linq;
-using System.Text.Json.Serialization;
 using Content.Goobstation.Maths.FixedPoint;
+using System.Text.Json.Serialization;
+using Content.Shared.Administration.Logs;
 using Content.Shared.Body.Prototypes;
+using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reaction;
-using Content.Shared.Contraband;
 using Content.Shared.EntityEffects;
-using Content.Shared.Localizations;
+using Content.Shared.Database;
 using Content.Shared.Nutrition;
-using Content.Shared.Roles;
+using Content.Shared.Prototypes;
 using Content.Shared.Slippery;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
 using Robust.Shared.Utility;
@@ -57,35 +60,10 @@ namespace Content.Shared.Chemistry.Reagent
         public string LocalizedPhysicalDescription => Loc.GetString(PhysicalDescription);
 
         /// <summary>
-        ///     The degree of contraband severity this reagent is considered to have.
-        ///     If AllowedDepartments or AllowedJobs are set, they take precedent and override this value.
-        /// </summary>
-        [DataField]
-        public ProtoId<ContrabandSeverityPrototype>? ContrabandSeverity = null;
-
-        /// <summary>
-        ///     Which departments is this reagent restricted to, if any?
-        /// </summary>
-        [DataField]
-        public HashSet<ProtoId<DepartmentPrototype>> AllowedDepartments = new();
-
-        /// <summary>
-        ///     Which jobs is this reagent restricted to, if any?
-        /// </summary>
-        [DataField]
-        public HashSet<ProtoId<JobPrototype>> AllowedJobs = new();
-
-        /// <summary>
         ///     Is this reagent recognizable to the average spaceman (water, welding fuel, ketchup, etc)?
         /// </summary>
         [DataField]
         public bool Recognizable;
-
-        /// <summary>
-        /// Whether this reagent stands out (blood, slime).
-        /// </summary>
-        [DataField]
-        public bool Standsout;
 
         [DataField]
         public ProtoId<FlavorPrototype>? Flavor;
@@ -130,6 +108,7 @@ namespace Content.Shared.Chemistry.Reagent
         /// </summary>
         [DataField]
         public bool SticksToSkin = true;
+
 
         /// <summary>
         /// If not null, makes something slippery. Also defines slippery interactions like stun time and launch mult.
@@ -200,7 +179,6 @@ namespace Content.Shared.Chemistry.Reagent
         [DataField]
         public SoundSpecifier FootstepSound = new SoundCollectionSpecifier("FootstepPuddle");
 
-        // TODO: Reaction tile doesn't work properly and destroys reagents way too quickly
         public FixedPoint2 ReactionTile(TileRef tile, FixedPoint2 reactVolume, IEntityManager entityManager, List<ReagentData>? data)
         {
             var removed = FixedPoint2.Zero;
@@ -222,32 +200,28 @@ namespace Content.Shared.Chemistry.Reagent
             return removed;
         }
 
-        public IEnumerable<string> GuidebookReagentEffectsDescription(IPrototypeManager prototype, IEntitySystemManager entSys, IEnumerable<EntityEffect> effects, FixedPoint2 metabolism)
+        public void ReactionPlant(EntityUid? plantHolder, ReagentQuantity amount, Solution solution)
         {
-            return effects.Select(x => GuidebookReagentEffectDescription(prototype, entSys, x, metabolism))
-                .Where(x => x is not null)
-                .Select(x => x!)
-                .ToArray();
-        }
+            if (plantHolder == null)
+                return;
 
-        public string? GuidebookReagentEffectDescription(IPrototypeManager prototype, IEntitySystemManager entSys, EntityEffect effect, FixedPoint2 metabolism)
-        {
-            if (effect.EntityEffectGuidebookText(prototype, entSys) is not { } description)
-                return null;
+            var entMan = IoCManager.Resolve<IEntityManager>();
+            var random = IoCManager.Resolve<IRobustRandom>();
+            var args = new EntityEffectReagentArgs(plantHolder.Value, entMan, null, solution, amount.Quantity, this, null, 1f);
+            foreach (var plantMetabolizable in PlantMetabolisms)
+            {
+                if (!plantMetabolizable.ShouldApply(args, random))
+                    continue;
 
-            var quantity = (double)(effect.MinScale * metabolism);
+                if (plantMetabolizable.ShouldLog)
+                {
+                    var entity = args.TargetEntity;
+                    entMan.System<SharedAdminLogSystem>().Add(LogType.ReagentEffect, plantMetabolizable.LogImpact,
+                        $"Plant metabolism effect {plantMetabolizable.GetType().Name:effect} of reagent {ID:reagent} applied on entity {entMan.ToPrettyString(entity):entity} at {entMan.GetComponent<TransformComponent>(entity).Coordinates:coordinates}");
+                }
 
-            return Loc.GetString(
-                "guidebook-reagent-effect-description",
-                ("reagent", LocalizedName),
-                ("quantity", quantity),
-                ("effect", description),
-                ("chance", effect.Probability),
-                ("conditionCount", effect.Conditions?.Length ?? 0),
-                ("conditions",
-                    ContentLocalizationManager.FormatList(
-                        effect.Conditions?.Select(x => x.EntityConditionGuidebookText(prototype)).ToList() ?? new List<string>()
-                    )));
+                plantMetabolizable.Effect(args);
+            }
         }
     }
 
@@ -256,7 +230,6 @@ namespace Content.Shared.Chemistry.Reagent
     {
         public string ReagentPrototype;
 
-        // TODO: Kill Metabolism groups!
         public Dictionary<ProtoId<MetabolismGroupPrototype>, ReagentEffectsGuideEntry>? GuideEntries;
 
         public List<string>? PlantMetabolisms = null;
@@ -265,12 +238,15 @@ namespace Content.Shared.Chemistry.Reagent
         {
             ReagentPrototype = proto.ID;
             GuideEntries = proto.Metabolisms?
-                .Select(x => (x.Key, x.Value.MakeGuideEntry(prototype, entSys, proto)))
+                .Select(x => (x.Key, x.Value.MakeGuideEntry(prototype, entSys)))
                 .ToDictionary(x => x.Key, x => x.Item2);
             if (proto.PlantMetabolisms.Count > 0)
             {
-                PlantMetabolisms =
-                    new List<string>(proto.GuidebookReagentEffectsDescription(prototype, entSys, proto.PlantMetabolisms, FixedPoint2.New(1f)));
+                PlantMetabolisms = new List<string>(proto.PlantMetabolisms
+                    .Select(x => x.GuidebookEffectDescription(prototype, entSys))
+                    .Where(x => x is not null)
+                    .Select(x => x!)
+                    .ToArray());
             }
         }
     }
@@ -293,11 +269,14 @@ namespace Content.Shared.Chemistry.Reagent
         [DataField("effects", required: true)]
         public EntityEffect[] Effects = default!;
 
-        public string EntityEffectFormat => "guidebook-reagent-effect-description";
-
-        public ReagentEffectsGuideEntry MakeGuideEntry(IPrototypeManager prototype, IEntitySystemManager entSys, ReagentPrototype proto)
+        public ReagentEffectsGuideEntry MakeGuideEntry(IPrototypeManager prototype, IEntitySystemManager entSys)
         {
-            return new ReagentEffectsGuideEntry(MetabolismRate, proto.GuidebookReagentEffectsDescription(prototype, entSys, Effects, MetabolismRate).ToArray());
+            return new ReagentEffectsGuideEntry(MetabolismRate,
+                Effects
+                    .Select(x => x.GuidebookEffectDescription(prototype, entSys)) // hate.
+                    .Where(x => x is not null)
+                    .Select(x => x!)
+                    .ToArray());
         }
     }
 

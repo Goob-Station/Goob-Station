@@ -7,7 +7,6 @@ using Content.Shared.Body.Events;
 using Content.Shared.Body.Organ;
 using Content.Shared.Body.Part;
 using Content.Shared.Movement.Components;
-using Content.Shared.Standing;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -291,17 +290,7 @@ public partial class SharedBodySystem
         bodyEnt.Comp.LegEntities.Remove(legEnt);
         UpdateMovementSpeed(bodyEnt);
         Dirty(bodyEnt, bodyEnt.Comp);
-
-        if (bodyEnt.Comp.LegEntities.Count != 0)
-            return;
-
-        if (!TryComp<StandingStateComponent>(bodyEnt, out var standingState)
-            || !standingState.Standing
-            || !Standing.Down(bodyEnt, standingState: standingState))
-            return;
-
-        var ev = new DropHandItemsEvent();
-        RaiseLocalEvent(bodyEnt, ref ev);
+        Standing.Down(bodyEnt);
     }
 
     /// <summary>

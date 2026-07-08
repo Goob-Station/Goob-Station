@@ -33,7 +33,6 @@ public sealed class ResourceSiphonSystem : EntitySystem
     [Dependency] private readonly TransformSystem _xform = default!;
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedStackSystem _stack = default!;
 
     private float _tickTimer = 1f;
 
@@ -174,7 +173,8 @@ public sealed class ResourceSiphonSystem : EntitySystem
         DeactivateSiphon(ent, "broken");
 
         var speso = Spawn("SpaceCash", Transform(ent).Coordinates);
-        _stack.SetCount(speso, (int) ent.Comp.Credits);
+        if (TryComp<StackComponent>(speso, out var stack))
+            stack.Count = (int) ent.Comp.Credits;
     }
     #endregion
 

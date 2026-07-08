@@ -15,12 +15,6 @@ namespace Content.Goobstation.Server.Xenobiology.XenobiologyBountyConsole;
 public sealed partial class StationXenobiologyBountyDatabaseComponent : Component
 {
     /// <summary>
-    /// Maximum amount of bounties a station can have.
-    /// </summary>
-    [DataField]
-    public int MaxBounties = 6;
-
-    /// <summary>
     /// A list of all the bounties currently active for a station.
     /// </summary>
     [DataField]
@@ -50,7 +44,7 @@ public sealed partial class StationXenobiologyBountyDatabaseComponent : Componen
     /// The group that bounties are pulled from.
     /// </summary>
     [DataField]
-    public ProtoId<XenobioBountyGroupPrototype> Group = "XenobioBounty";
+    public ProtoId<CargoBountyGroupPrototype> Group = "StationBounty";
 
     /// <summary>
     /// The time at which players will be able to skip the next bounty.

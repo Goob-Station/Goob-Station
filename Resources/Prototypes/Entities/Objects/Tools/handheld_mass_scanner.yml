@@ -21,14 +21,12 @@
     maxRange: 256
     followEntity: true
   - type: Appearance
-  - type: BatteryVisuals
   - type: GenericVisualizer
     visuals:
-      enum.BatteryVisuals.State:
+      enum.PowerCellSlotVisuals.Enabled:
         enum.PowerDeviceVisualLayers.Powered:
-          Full: { visible: true }
-          Neither: { visible: true }
-          Empty: { visible: false }
+          True: { visible: true }
+          False: { visible: false }
   - type: PowerCellDraw
     drawRate: 1.5
   - type: ToggleCellDraw

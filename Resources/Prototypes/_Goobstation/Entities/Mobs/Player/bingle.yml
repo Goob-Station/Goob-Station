@@ -63,10 +63,8 @@
       Dead:
         Base: dead
   - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: Nitrogen # by request
-        Quantity: 100
+    bloodMaxVolume: 100
+    bloodReagent: Nitrogen # by request
   - type: MeleeWeapon
     altDisarm: false
     soundHit:
@@ -86,7 +84,7 @@
   - type: Sprinter
     staminaDrainRate: 27 #fat legs
   - type: Stamina
-    baseCritThreshold: 120
+    critThreshold: 120
   - type: StaminaDamageOnHit # Should consistently stamcrit in 3 hits, 4-5 against sec
     damage: 25
     overtime: 15

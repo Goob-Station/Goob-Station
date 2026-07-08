@@ -8,7 +8,7 @@
   },
   "states": [
     {
-      "name": "icon_empty"
+      "name": "jug"
     },
     {
       "name": "inhand-left",
@@ -59,22 +59,22 @@
       "directions": 4
     },
     {
-      "name": "fill-1"
+      "name": "jug1"
     },
     {
-      "name": "fill-2"
+      "name": "jug2"
     },
     {
-      "name": "fill-3"
+      "name": "jug3"
     },
     {
-      "name": "fill-4"
+      "name": "jug4"
     },
     {
-      "name": "fill-5"
+      "name": "jug5"
     },
     {
-      "name": "fill-6"
+      "name": "jug6"
     }
   ]
 }

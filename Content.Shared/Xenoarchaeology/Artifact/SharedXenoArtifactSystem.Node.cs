@@ -33,14 +33,21 @@ public abstract partial class SharedXenoArtifactSystem
         SetNodeDurability((ent, ent), nodeComponent.MaxDurability);
     }
 
+    /// <summary> Gets node component by node entity uid. </summary>
+    public XenoArtifactNodeComponent XenoArtifactNode(EntityUid uid)
+    {
+        return _nodeQuery.Get(uid);
+    }
+
     public void SetNodeUnlocked(Entity<XenoArtifactNodeComponent?> ent)
     {
         if (!Resolve(ent, ref ent.Comp))
             return;
 
-        if (ent.Comp.Attached is not { } artifact)
+        if (ent.Comp.Attached is not { } netArtifact)
             return;
 
+        var artifact = GetEntity(netArtifact);
         if (!TryComp<XenoArtifactComponent>(artifact, out var artifactComponent))
             return;
 
@@ -190,10 +197,7 @@ public abstract partial class SharedXenoArtifactSystem
             foreach (var netNode in segment)
             {
                 var node = GetEntity(netNode);
-                if (!_nodeQuery.TryComp(node, out var comp))
-                    continue;
-
-                outSegment.Add((node, comp));
+                outSegment.Add((node, XenoArtifactNode(node)));
             }
 
             output.Add(outSegment);
@@ -381,7 +385,7 @@ public abstract partial class SharedXenoArtifactSystem
             return;
         }
 
-        var artifact = _xenoArtifactQuery.Get(nodeComponent.Attached.Value);
+        var artifact = _xenoArtifactQuery.Get(GetEntity(nodeComponent.Attached.Value));
 
         var nonactiveNodes = GetActiveNodes(artifact);
         var durabilityEffect = MathF.Pow((float)nodeComponent.Durability / nodeComponent.MaxDurability, 2);

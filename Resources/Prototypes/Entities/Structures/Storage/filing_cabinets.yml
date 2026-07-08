@@ -8,13 +8,12 @@
       rolls: !type:RangeNumberSelector
         range: 2, 4
       children:
-      - id: BoxFolderBase
-      - id: BoxFolderRed
       - id: BoxFolderBlue
+      - id: BoxFolderRed
       - id: BoxFolderYellow
+      - id: BoxFolderWhite
       - id: BoxFolderGrey
       - id: BoxFolderBlack
-      - id: BoxFolderGreen
     - !type:GroupSelector
       rolls: !type:RangeNumberSelector
         range: 0, 3

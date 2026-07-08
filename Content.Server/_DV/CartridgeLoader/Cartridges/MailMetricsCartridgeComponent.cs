@@ -1,6 +1,4 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-/*
- todo <mailfix>
 
 namespace Content.Server._DV.CartridgeLoader.Cartridges;
 
@@ -13,4 +11,3 @@ public sealed partial class MailMetricsCartridgeComponent : Component
     [DataField]
     public EntityUid? Station;
 }
-*/

@@ -87,7 +87,7 @@ public sealed partial class SpellbladeMenu : RadialMenu
     }
 }
 
-public sealed class SpellbladeMenuButton : RadialMenuButtonWithSector
+public sealed class SpellbladeMenuButton : RadialMenuTextureButtonWithSector
 {
     public ProtoId<SpellbladeEnchantmentPrototype> ProtoId { get; set; }
 }

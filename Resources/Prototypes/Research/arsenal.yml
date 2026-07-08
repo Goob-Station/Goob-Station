@@ -142,32 +142,6 @@
   # Goobstation R&D Console rework end
 
 - type: technology
-  id: ExplosiveTechnology
-  name: research-technology-explosive-technology
-  icon:
-    sprite: Objects/Devices/payload.rsi
-    state: payload-explosive-armed
-  discipline: Arsenal
-  tier: 1
-  cost: 10000
-  recipeUnlocks:
-  - SignallerAdvanced
-  #- SignalTrigger # Goob roundstart
-  #- VoiceTrigger
-  #- TimerTrigger
-  #- FlashPayload
-  - ShrapnelPayload # Goob
-  #- ExplosivePayload # Goob if you uncomment this its the syndie exploding version
-  #- ChemicalPayload # Goobstation roundstart?
-  - CableDetStack1
-  - EmptyDetonator
-  # Goobstation R&D Console rework start
-  position: 4,3
-  technologyPrerequisites:
-  - AdvancedRiotControl
-  # Goobstation R&D Console rework end
-
-- type: technology
   id: SpecialMeans
   name: research-technology-special-means
   icon:
@@ -179,8 +153,9 @@
   recipeUnlocks:
   - ClothingBackpackElectropack
   # Goobstation R&D Console rework start
-  position: 5,3
+  position: 4,3
   technologyPrerequisites:
+  - AdvancedRiotControl
   - RestraintTechnology
   # Goobstation R&D Console rework end
 
@@ -263,7 +238,7 @@
   technologyPrerequisites: # Goobstation R&D Console rework
   - SmartWeaponry
   - SpecialMeans
-  position: 6, 3 # Goobstation R&D Console rework
+  position: 5, 3 # Goobstation R&D Console rework
 
 # Tier 3
 

@@ -9,7 +9,6 @@ using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
-using Content.Shared.Shuttles.Components;
 
 namespace Content.Goobstation.Server.Shuttle;
 
@@ -50,7 +49,7 @@ public sealed class GoobEmergencyShuttleSystem : EntitySystem
 
     private void OnEmagged(EntityUid uid, EmergencyShuttleConsoleComponent component, ref GotEmaggedEvent args)
     {
-        if (_emerg.EarlyLaunchAuthorized || !_emerg.EmergencyShuttleArrived || _emerg._consoleAccumulator <= _emerg.AuthorizeTime)
+        if (_emerg.EarlyLaunchAuthorized || !_emerg.EmergencyShuttleArrived || _emerg.ConsoleAccumulator <= _emerg.AuthorizeTime)
             return;
 
         if (!_emag.CompareFlag(args.Type, EmagType.Interaction))

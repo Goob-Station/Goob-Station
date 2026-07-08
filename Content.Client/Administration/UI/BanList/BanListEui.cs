@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: MIT
 
-using System.Linq;
 using System.Numerics;
 using Content.Client.Administration.UI.BanList.Bans;
 using Content.Client.Administration.UI.BanList.RoleBans;
@@ -76,7 +75,7 @@ public sealed class BanListEui : BaseEui
         return date.ToString("MM/dd/yyyy h:mm tt");
     }
 
-    public static void SetData<T>(IBanListLine<T> line, SharedBan ban) where T : SharedBan
+    public static void SetData<T>(IBanListLine<T> line, SharedServerBan ban) where T : SharedServerBan
     {
         line.Reason.Text = ban.Reason;
         line.BanTime.Text = FormatDate(ban.BanTime);
@@ -97,20 +96,20 @@ public sealed class BanListEui : BaseEui
         line.BanningAdmin.Text = ban.BanningAdminName;
     }
 
-    private void OnLineIdsClicked<T>(IBanListLine<T> line) where T : SharedBan
+    private void OnLineIdsClicked<T>(IBanListLine<T> line) where T : SharedServerBan
     {
         _popup?.Close();
         _popup = null;
 
         var ban = line.Ban;
         var id = ban.Id == null ? string.Empty : Loc.GetString("ban-list-id", ("id", ban.Id.Value));
-        var ip = ban.Addresses.Length == 0
+        var ip = ban.Address == null
             ? string.Empty
-            : Loc.GetString("ban-list-ip", ("ip", string.Join(',', ban.Addresses.Select(a => a.address))));
-        var hwid = ban.HWIds.Length == 0 ? string.Empty : Loc.GetString("ban-list-hwid", ("hwid", string.Join(',', ban.HWIds)));
-        var guid = ban.UserIds.Length == 0
+            : Loc.GetString("ban-list-ip", ("ip", ban.Address.Value.address));
+        var hwid = ban.HWId == null ? string.Empty : Loc.GetString("ban-list-hwid", ("hwid", ban.HWId));
+        var guid = ban.UserId == null
             ? string.Empty
-            : Loc.GetString("ban-list-guid", ("guid", string.Join(',', ban.UserIds)));
+            : Loc.GetString("ban-list-guid", ("guid", ban.UserId.Value.ToString()));
 
         _popup = new BanListIdsPopup(id, ip, hwid, guid);
 

@@ -1,71 +1,63 @@
-using Content.Goobstation.Maths.FixedPoint;
+using System.Text.Json.Serialization;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Pain.Systems;
-using Content.Shared.Body.Components;
+using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 using Content.Shared.EntityEffects;
+using Content.Goobstation.Maths.FixedPoint;
+using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
-namespace Content.Shared._Shitmed.EntityEffects.Effects;
+namespace Content.Shared.EntityEffects.Effects;
 
-// Todo this is half-baked yoinkage from Trauma actually fix this I just don't have the time rn.
-public sealed partial class SuppressPain : EntityEffectBase<SuppressPain>
+[UsedImplicitly]
+public sealed partial class SuppressPain : EntityEffect
 {
     [DataField(required: true)]
+    [JsonPropertyName("amount")]
     public FixedPoint2 Amount = default!;
 
     [DataField(required: true)]
+    [JsonPropertyName("time")]
     public TimeSpan Time = default!;
 
     [DataField]
+    [JsonPropertyName("identifier")]
     public string ModifierIdentifier = "PainSuppressant";
 
-    /// <summary>
-    /// The body part to change the pain for.
-    /// </summary>
-    [DataField]
-    public string OrganCategory = "Chest";
-
-    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => Loc.GetString("reagent-effect-guidebook-suppress-pain");
-}
 
-public sealed class SuppressPainEffectSystem : EntityEffectSystem<BodyComponent, SuppressPain>
-{
-    [Dependency] private readonly ConsciousnessSystem _consciousness = default!;
-    [Dependency] private readonly PainSystem _pain = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!;
-
-    protected override void Effect(Entity<BodyComponent> ent, ref EntityEffectEvent<SuppressPain> args)
+    public override void Effect(EntityEffectBaseArgs args)
     {
-        var scale = FixedPoint2.New(args.Scale);
+        var scale = FixedPoint2.New(1);
 
-        if (!_consciousness.TryGetNerveSystem(ent, out var nerveSys))
-            return;
-
-        var effect = args.Effect;
-
-        EntityUid? organ = null;
-        foreach (var (id, part) in _body.GetBodyChildren(ent.Owner, ent.Comp))
+        if (args is EntityEffectReagentArgs reagentArgs)
         {
-            if (part.PartType.ToString().Equals(effect.OrganCategory, StringComparison.OrdinalIgnoreCase))
-            {
-                organ = id;
-                break;
-            }
+            scale = reagentArgs.Quantity * reagentArgs.Scale;
         }
 
-        if (organ is not { } foundOrgan)
+        if (!args.EntityManager.System<ConsciousnessSystem>().TryGetNerveSystem(args.TargetEntity, out var nerveSys))
             return;
 
-        var nerves = nerveSys.Value;
-        var ident = effect.ModifierIdentifier;
-        var amount = effect.Amount * scale;
-        var time = effect.Time;
+        var bodyPart = args.EntityManager.System<SharedBodySystem>()
+            .GetBodyChildrenOfType(args.TargetEntity, BodyPartType.Head)
+            .FirstOrNull();
 
-        if (_pain.TryGetPainModifier(nerves, foundOrgan, ident, out var modifier))
-            _pain.TryChangePainModifier(nerves, foundOrgan, ident, modifier.Value.Change - amount, time: time);
+        if (bodyPart == null)
+            return;
+
+        if (!args.EntityManager.System<PainSystem>()
+                .TryGetPainModifier(nerveSys.Value, bodyPart.Value.Id, ModifierIdentifier, out var modifier))
+        {
+            args.EntityManager.System<PainSystem>()
+                .TryAddPainModifier(nerveSys.Value, bodyPart.Value.Id, ModifierIdentifier, -Amount * scale, time: Time);
+        }
         else
-            _pain.TryAddPainModifier(nerves, foundOrgan, ident, -amount, time: time);
+        {
+            args.EntityManager.System<PainSystem>()
+                .TryChangePainModifier(nerveSys.Value, bodyPart.Value.Id, ModifierIdentifier, modifier.Value.Change - Amount * scale, time: Time);
+        }
     }
 }

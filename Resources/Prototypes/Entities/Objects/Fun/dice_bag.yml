@@ -1,0 +1,49 @@
+# SPDX-FileCopyrightText: 2022 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 fishfish458 <fishfish458>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  parent: BaseStorageItem
+  id: DiceBag
+  name: bag of dice
+  description: Contains all the luck you'll ever need.
+  components:
+  - type: StorageFill
+    contents:
+      - id: d4Dice
+      - id: d6Dice
+      - id: d8Dice
+      - id: d10Dice
+      - id: d12Dice
+      - id: d20Dice
+      - id: PercentileDie
+  - type: Sprite
+    sprite: Objects/Fun/dice.rsi
+    state: dicebag
+  - type: Item
+    size: Small
+  - type: Storage
+    grid:
+    - 0,0,3,1
+    whitelist:
+      tags:
+      - Dice
+
+- type: entity
+  parent: DiceBag
+  id: MagicDiceBag
+  name: bag of dice
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/dice.rsi
+    state: magicdicebag
+  - type: Storage
+    grid:
+    - 0,0,4,3

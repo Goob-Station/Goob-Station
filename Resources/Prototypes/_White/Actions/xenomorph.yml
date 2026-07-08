@@ -281,7 +281,7 @@
     whitelist:
       requireAll: true
       components:
-        - Xenomorph # Goobstation end
+        - XenomorphComponent # Goobstation end
     event: !type:PromotionActionEvent
   - type: PlasmaCostAction
     plasmaCost: 500

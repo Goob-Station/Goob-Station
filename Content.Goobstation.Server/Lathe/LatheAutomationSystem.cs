@@ -34,8 +34,7 @@ public sealed class LatheAutomationSystem : EntitySystem
         if (ent.Comp.LastRecipe is not {} recipe)
             return;
 
-        _lathe.TryAddToQueue(ent.Owner, recipe, 1);
-        _lathe.TryStartProducing(ent.Owner);
+        _lathe.TryAddToQueue(ent.Owner, recipe);
+        _lathe.TryStartProducing(ent.Owner); // Won't do anything otherwise
     }
-
 }

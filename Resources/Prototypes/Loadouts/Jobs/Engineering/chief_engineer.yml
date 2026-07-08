@@ -7,7 +7,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobChiefEngineer
-      time: 20h
+      time: 72000 #20 hrs
 
 # Goobstation - For Ensembles
 - type: loadoutEffectGroup
@@ -64,19 +64,19 @@
 
 # Neck
 - type: loadout
-  id: ClothingNeckCloakWhiteCe # Goobstation?
+  id: ClothingNeckCloakWhiteCe
   equipment:
-    neck: ClothingNeckCloakWhiteCe # Goobstation
+    neck: ClothingNeckCloakWhiteCe
   groupBy: "cecloak"
 
 - type: loadout
-  id: ClothingNeckCloakGreenCe # Goobstation
+  id: ClothingNeckCloakGreenCe
   equipment:
-    neck: ClothingNeckCloakGreenCe # Goobstation
+    neck: ClothingNeckCloakGreenCe
   groupBy: "cecloak"
 
 - type: loadout
-  id: ClothingNeckMantleWhiteCE # Goobstation
+  id: ClothingNeckMantleWhiteCE
   equipment:
     neck: ClothingNeckMantleWhiteCE # Goob edit
   effects:
@@ -85,7 +85,7 @@
   groupBy: "cemantle"
 
 - type: loadout
-  id: ClothingNeckMantleOrangeCE # Goobstation
+  id: ClothingNeckMantleOrangeCE
   equipment:
     neck: ClothingNeckMantleOrangeCE # Goob edit
   effects:

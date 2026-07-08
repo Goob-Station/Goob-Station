@@ -6,18 +6,15 @@ using Content.Server.Advertise.EntitySystems;
 using Content.Shared.Advertise.Components;
 using Content.Shared.Arcade;
 using Content.Shared.Power;
-using Content.Shared.Random.Helpers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Server.Arcade.SpaceVillain;
 
 public sealed partial class SpaceVillainArcadeSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
@@ -57,7 +54,7 @@ public sealed partial class SpaceVillainArcadeSystem : EntitySystem
     /// <returns>A fight-verb.</returns>
     public string GenerateFightVerb(SpaceVillainArcadeComponent arcade)
     {
-        return _random.Pick(_prototypeManager.Index(arcade.PossibleFightVerbs));
+        return _random.Pick(arcade.PossibleFightVerbs);
     }
 
     /// <summary>
@@ -66,10 +63,7 @@ public sealed partial class SpaceVillainArcadeSystem : EntitySystem
     /// <returns>An enemy-name.</returns>
     public string GenerateEnemyName(SpaceVillainArcadeComponent arcade)
     {
-        var possibleFirstEnemyNames = _prototypeManager.Index(arcade.PossibleFirstEnemyNames);
-        var possibleLastEnemyNames = _prototypeManager.Index(arcade.PossibleLastEnemyNames);
-
-        return $"{_random.Pick(possibleFirstEnemyNames)} {_random.Pick(possibleLastEnemyNames)}";
+        return $"{_random.Pick(arcade.PossibleFirstEnemyNames)} {_random.Pick(arcade.PossibleLastEnemyNames)}";
     }
 
     private void OnComponentInit(EntityUid uid, SpaceVillainArcadeComponent component, ComponentInit args)

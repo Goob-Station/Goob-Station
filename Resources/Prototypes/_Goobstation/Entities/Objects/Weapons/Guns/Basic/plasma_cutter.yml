@@ -22,7 +22,7 @@
     startingCharge: 1500
   - type: MaterialEnergy
     materialWhiteList: [Plasma]
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: BulletPlasmaCutter
     fireCost: 100
   - type: Appearance

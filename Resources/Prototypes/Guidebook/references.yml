@@ -9,7 +9,6 @@
   - Drinks
   - FoodRecipes
   - Writing
-  - Lawsets
   - Enchanting # Goob - Enchanting guidebook
 
 - type: guideEntry
@@ -137,9 +136,3 @@
   id: Writing
   name: guide-entry-writing
   text: "/ServerInfo/Guidebook/Writing.xml"
-
-- type: guideEntry
-  id: Lawsets
-  name: guide-entry-lawsets
-  text: "/ServerInfo/Guidebook/ReferenceTables/Lawsets.xml"
-  filterEnabled: True

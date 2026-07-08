@@ -12,12 +12,7 @@ public sealed partial class StencilOverlay
 {
     private List<Entity<MapGridComponent>> _grids = new();
 
-    private void DrawWeather(
-        in OverlayDrawArgs args,
-        CachedResources res,
-        WeatherPrototype weatherProto,
-        float alpha,
-        Matrix3x2 invMatrix)
+    private void DrawWeather(in OverlayDrawArgs args, WeatherPrototype weatherProto, float alpha, Matrix3x2 invMatrix)
     {
         var worldHandle = args.WorldHandle;
         var mapId = args.MapId;
@@ -28,7 +23,7 @@ public sealed partial class StencilOverlay
         // Cut out the irrelevant bits via stencil
         // This is why we don't just use parallax; we might want specific tiles to get drawn over
         // particularly for planet maps or stations.
-        worldHandle.RenderInRenderTarget(res.Blep!, () =>
+        worldHandle.RenderInRenderTarget(_blep!, () =>
         {
             var xformQuery = _entManager.GetEntityQuery<TransformComponent>();
             _grids.Clear();
@@ -62,7 +57,7 @@ public sealed partial class StencilOverlay
 
         worldHandle.SetTransform(Matrix3x2.Identity);
         worldHandle.UseShader(_protoManager.Index(StencilMask).Instance());
-        worldHandle.DrawTextureRect(res.Blep!.Texture, worldBounds);
+        worldHandle.DrawTextureRect(_blep!.Texture, worldBounds);
         var curTime = _timing.RealTime;
         var sprite = _sprite.GetFrame(weatherProto.Sprite, curTime);
 

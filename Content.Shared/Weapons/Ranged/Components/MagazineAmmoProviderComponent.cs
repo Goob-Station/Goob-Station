@@ -13,12 +13,12 @@ namespace Content.Shared.Weapons.Ranged;
 [Access(typeof(SharedGunSystem))]
 public partial class MagazineAmmoProviderComponent : AmmoProviderComponent
 {
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite), DataField("soundAutoEject")]
     public SoundSpecifier? SoundAutoEject = new SoundPathSpecifier("/Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg");
 
     /// <summary>
     /// Should the magazine automatically eject when empty.
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite), DataField("autoEject")]
     public bool AutoEject = false;
 }

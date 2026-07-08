@@ -15,9 +15,9 @@ public partial class SharedGunSystem
         SubscribeLocalEvent<SolutionAmmoProviderComponent, GetAmmoCountEvent>(OnSolutionAmmoCount);
     }
 
-    private void OnSolutionTakeAmmo(Entity<SolutionAmmoProviderComponent> ent, ref TakeAmmoEvent args)
+    private void OnSolutionTakeAmmo(EntityUid uid, SolutionAmmoProviderComponent component, TakeAmmoEvent args)
     {
-        var shots = Math.Min(args.Shots, ent.Comp.Shots);
+        var shots = Math.Min(args.Shots, component.Shots);
 
         // Don't dirty if it's an empty fire.
         if (shots == 0)
@@ -25,35 +25,38 @@ public partial class SharedGunSystem
 
         for (var i = 0; i < shots; i++)
         {
-            args.Ammo.Add(GetSolutionShot(ent, args.Coordinates));
-            ent.Comp.Shots--;
+            args.Ammo.Add(GetSolutionShot(uid, component, args.Coordinates));
+            component.Shots--;
         }
 
-        UpdateSolutionShots(ent);
-        UpdateSolutionAppearance(ent);
+        UpdateSolutionShots(uid, component);
+        UpdateSolutionAppearance(uid, component);
     }
 
-    private void OnSolutionAmmoCount(Entity<SolutionAmmoProviderComponent> ent, ref GetAmmoCountEvent args)
+    private void OnSolutionAmmoCount(EntityUid uid, SolutionAmmoProviderComponent component, ref GetAmmoCountEvent args)
     {
-        args.Count = ent.Comp.Shots;
-        args.Capacity = ent.Comp.MaxShots;
+        args.Count = component.Shots;
+        args.Capacity = component.MaxShots;
     }
 
-    protected virtual void UpdateSolutionShots(Entity<SolutionAmmoProviderComponent> ent, Solution? solution = null) { }
-
-    protected virtual (EntityUid Entity, IShootable) GetSolutionShot(Entity<SolutionAmmoProviderComponent> ent, EntityCoordinates position)
+    protected virtual void UpdateSolutionShots(EntityUid uid, SolutionAmmoProviderComponent component, Solution? solution = null)
     {
-        var shot = Spawn(ent.Comp.Prototype, position);
-        return (shot, EnsureShootable(shot));
+
     }
 
-    protected void UpdateSolutionAppearance(Entity<SolutionAmmoProviderComponent> ent)
+    protected virtual (EntityUid Entity, IShootable) GetSolutionShot(EntityUid uid, SolutionAmmoProviderComponent component, EntityCoordinates position)
     {
-        if (!TryComp<AppearanceComponent>(ent, out var appearance))
+        var ent = Spawn(component.Prototype, position);
+        return (ent, EnsureShootable(ent));
+    }
+
+    protected void UpdateSolutionAppearance(EntityUid uid, SolutionAmmoProviderComponent component)
+    {
+        if (!TryComp<AppearanceComponent>(uid, out var appearance))
             return;
 
-        Appearance.SetData(ent, AmmoVisuals.HasAmmo, ent.Comp.Shots != 0, appearance);
-        Appearance.SetData(ent, AmmoVisuals.AmmoCount, ent.Comp.Shots, appearance);
-        Appearance.SetData(ent, AmmoVisuals.AmmoMax, ent.Comp.MaxShots, appearance);
+        Appearance.SetData(uid, AmmoVisuals.HasAmmo, component.Shots != 0, appearance);
+        Appearance.SetData(uid, AmmoVisuals.AmmoCount, component.Shots, appearance);
+        Appearance.SetData(uid, AmmoVisuals.AmmoMax, component.MaxShots, appearance);
     }
 }

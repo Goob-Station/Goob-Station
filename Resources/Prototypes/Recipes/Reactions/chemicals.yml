@@ -113,7 +113,7 @@
     Potassium:
       amount: 1
   effects:
-    - !type:Explosion
+    - !type:ExplosionReactionEffect
       explosionType: Default
       intensityPerUnit: 0.25
       maxTotalIntensity: 100
@@ -207,8 +207,8 @@
     Aluminium:
       amount: 1
   effects:
-    - !type:Emp
-      rangeModifier: 0.2
+    - !type:EmpReactionEffect
+      rangePerUnit: 0.2
       maxRange: 6
       energyConsumption: 12500
       duration: 15
@@ -226,7 +226,7 @@
     Sulfur:
       amount: 1
   effects:
-    - !type:Flash
+    - !type:FlashReactionEffect
 
 - type: reaction
   id: TableSalt
@@ -535,13 +535,3 @@
       amount: 1
   products:
     ArtifactGlue: 2
-
-- type: reaction
-  id: Lye
-  reactants:
-    Water:
-      amount: 1
-    Ash:
-      amount: 1
-  products:
-    Lye: 2

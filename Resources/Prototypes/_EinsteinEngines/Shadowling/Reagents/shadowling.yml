@@ -22,6 +22,5 @@
       effects:
       - !type:BlindNonShadowling
         conditions:
-        - !type:ReagentCondition
-          reagent: ShadowlingToxin
+        - !type:ReagentThreshold
           min: 5

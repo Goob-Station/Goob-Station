@@ -16,7 +16,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.Emp;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Fluids.EntitySystems;
-using Content.Shared.IdentityManagement;
+using Content.Server.IdentityManagement;
 using Content.Server.Inventory;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Power.Components;
@@ -74,15 +74,6 @@ using Robust.Shared.Random;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using Content.Shared.Actions.Components;
-using Content.Shared.Body.Components;
-using Content.Shared.Construction.Components;
-using Content.Shared.Friction;
-using Content.Shared.Item;
-using Content.Shared.Tag;
-using Content.Goobstation.Shared.Teleportation.Systems;
-using Content.Shared._Shitcode.Wizard.Components;
-using Content.Shared.Power.Components;
 
 namespace Content.Server._Goobstation.Wizard.Systems; //todo refactor wiz
 
@@ -194,7 +185,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
             if (_divineIntervention.TouchSpellDenied(uid))
                 continue;
 
-            _emp.TryEmpEffects(uid, ev.EnergyConsumption, TimeSpan.FromSeconds(ev.DisableDuration));
+            _emp.TryEmpEffects(uid, ev.EnergyConsumption, ev.DisableDuration);
         }
 
 
@@ -347,7 +338,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
         Faction.AddFaction(newEntity, WizardRuleSystem.Faction);
         RemCompDeferred<TransferMindOnGibComponent>(newEntity);
         EnsureComp<WizardComponent>(newEntity);
-        if (!Role.MindHasRole<GoobWizardRoleComponent>(mind, out _))
+        if (!Role.MindHasRole<WizardRoleComponent>(mind, out _))
             Role.MindAddRole(mind, WizardRuleSystem.Role.Id, mindComponent, true);
 
         EnsureComp<PhylacteryComponent>(item);
@@ -659,21 +650,21 @@ public sealed class SpellsSystem : SharedSpellsSystem
 
     protected override bool ChargeItem(EntityUid uid, ChargeMagicEvent ev)
     {
-        if (!TryComp(uid, out BatteryComponent? battery) || battery.LastCharge >= battery.MaxCharge)
+        if (!TryComp(uid, out BatteryComponent? battery) || battery.CurrentCharge >= battery.MaxCharge)
             return false;
 
         if (Tag.HasTag(uid, ev.WandTag))
         {
-            var difference = battery.MaxCharge - battery.LastCharge;
+            var difference = battery.MaxCharge - battery.CurrentCharge;
             var charge = MathF.Min(difference, ev.WandChargeRate);
             var degrade = charge * ev.WandDegradePercentagePerCharge;
             var afterDegrade = MathF.Max(ev.MinWandDegradeCharge, battery.MaxCharge - degrade);
             if (battery.MaxCharge > ev.MinWandDegradeCharge)
-                _battery.SetMaxCharge(uid, afterDegrade);
-            _battery.SetCharge(uid, battery.LastCharge + charge);
+                _battery.SetMaxCharge(uid, afterDegrade, battery);
+            _battery.AddCharge(uid, charge, battery);
         }
         else
-            _battery.SetCharge(uid, battery.MaxCharge);
+            _battery.SetCharge(uid, battery.MaxCharge, battery);
 
         PopupCharged(uid, ev.Performer, false);
         return true;

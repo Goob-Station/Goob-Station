@@ -23,15 +23,13 @@
     whitelist:
       tags:
         - Medal
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: ClothingNeckGoldmedal
-        - id: ClothingNeckBronzeheart
-        - id: ClothingNeckCargomedal
-        - id: ClothingNeckEngineermedal
-        - id: ClothingNeckMedicalmedal
-        - id: ClothingNeckSciencemedal
-        - id: ClothingNeckSecuritymedal
-        - id: ClothingNeckClownmedal
+  - type: StorageFill
+    contents:
+    - id: ClothingNeckGoldmedal
+    - id: ClothingNeckBronzeheart
+    - id: ClothingNeckCargomedal
+    - id: ClothingNeckEngineermedal
+    - id: ClothingNeckMedicalmedal
+    - id: ClothingNeckSciencemedal
+    - id: ClothingNeckSecuritymedal
+    - id: ClothingNeckClownmedal

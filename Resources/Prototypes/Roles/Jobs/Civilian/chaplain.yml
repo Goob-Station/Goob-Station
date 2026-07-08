@@ -7,7 +7,7 @@
   playTimeTracker: JobChaplain
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 15h # 15 hours
+      time: 18000 # 15 hours
   startingGear: ChaplainGear
   icon: "JobIconChaplain"
   supervisors: job-supervisors-hop
@@ -35,7 +35,6 @@
     back:
     - ChaplainUndeterminedBible
     - RubberStampChaplain
-    - CosmicCenser # DeltaV - Cosmic Cult
     - Nullrod
     - ArmamentsBeacon # Goobstation
 

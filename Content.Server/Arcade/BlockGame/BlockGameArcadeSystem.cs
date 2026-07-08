@@ -54,12 +54,12 @@ public sealed class BlockGameArcadeSystem : EntitySystem
     private void OnAfterUIOpen(EntityUid uid, BlockGameArcadeComponent component, AfterActivatableUIOpenEvent args)
     {
         if (component.Player == null)
-            component.Player = args.User;
+            component.Player = args.Actor;
         else
-            component.Spectators.Add(args.User);
+            component.Spectators.Add(args.Actor);
 
-        UpdatePlayerStatus(uid, args.User, component);
-        component.Game?.UpdateNewPlayerUI(args.User);
+        UpdatePlayerStatus(uid, args.Actor, component);
+        component.Game?.UpdateNewPlayerUI(args.Actor);
     }
 
     private void OnAfterUiClose(EntityUid uid, BlockGameArcadeComponent component, BoundUIClosedEvent args)

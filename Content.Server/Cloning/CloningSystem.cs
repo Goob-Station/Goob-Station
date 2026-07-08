@@ -1,17 +1,18 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Cloning;
 using Content.Server.Humanoid;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Cloning;
 using Content.Shared.Cloning.Events;
 using Content.Shared.Database;
 using Content.Shared.Humanoid;
+using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Inventory;
 using Content.Shared.Implants;
 using Content.Shared.Implants.Components;
 using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.StatusEffect;
-using Content.Shared.StatusEffectNew.Components;
 using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Whitelist;
@@ -20,17 +21,15 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Content.Goobstation.Common.Cloning;
 using Content.Goobstation.Shared.CloneProjector.Clone;
 using Content.Goobstation.Shared.Clothing.Components;
 using Content.Goobstation.Shared.Clothing.Systems;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
-using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Interaction.Components;
-using Content.Shared.Radio.Components;
+using Content.Shared.Radio.Components; // Goobstation
 using Content.Shared.Radio.EntitySystems;
-using Robust.Shared.Utility;
+using Robust.Shared.Utility; // Goobstation
 
 namespace Content.Server.Cloning;
 
@@ -38,7 +37,7 @@ namespace Content.Server.Cloning;
 ///     System responsible for making a copy of a humanoid's body.
 ///     For the cloning machines themselves look at CloningPodSystem, CloningConsoleSystem and MedicalScannerSystem instead.
 /// </summary>
-public sealed partial class CloningSystem : SharedCloningSystem
+public sealed partial class CloningSystem : EntitySystem
 {
     [Dependency] private readonly HumanoidAppearanceSystem _humanoidSystem = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
@@ -50,7 +49,6 @@ public sealed partial class CloningSystem : SharedCloningSystem
     [Dependency] private readonly SharedStorageSystem _storage = default!;
     [Dependency] private readonly SharedSubdermalImplantSystem _subdermalImplant = default!;
     [Dependency] private readonly NameModifierSystem _nameMod = default!;
-    [Dependency] private readonly Shared.StatusEffectNew.StatusEffectsSystem _statusEffects = default!; //TODO: This system has to support both the old and new status effect systems, until the old is able to be fully removed.
     [Dependency] private readonly ToggleableClothingSystem _toggleable = default!; // Goobstation
     [Dependency] private readonly SharedSealableClothingSystem _sealable = default!; // Goobstation
 
@@ -60,27 +58,27 @@ public sealed partial class CloningSystem : SharedCloningSystem
     public bool TryCloning(EntityUid original, MapCoordinates? coords, ProtoId<CloningSettingsPrototype> settingsId, [NotNullWhen(true)] out EntityUid? clone)
     {
         clone = null;
-        if (!_prototype.Resolve(settingsId, out var settings))
+        if (!_prototype.TryIndex(settingsId, out var settings))
             return false; // invalid settings
 
         // Goobstation start
-        if (!TryComp<HumanoidAppearanceComponent>(original, out var humanoid) && !settings.AllowNonHumanoid || humanoid == null)
+        if (!TryComp<HumanoidAppearanceComponent>(original, out var humanoid) && !settings.AllowNonHumanoid)
             return false; // whatever body was to be cloned, was not a humanoid
 
-        if (!_prototype.Resolve(humanoid.Species, out var speciesPrototype))
+        SpeciesPrototype? speciesPrototype = null;
+        if (humanoid != null && !_prototype.TryIndex(humanoid.Species, out speciesPrototype))
             return false; // invalid species
 
         var proto = speciesPrototype?.Prototype.ToString() ?? Prototype(original)?.ID;
         if (proto == null)
             return false;
+        // Goobstation end
 
         if (HasComp<HolographicCloneComponent>(original) && !settings.ForceCloning) // Goobstation - This has to be separate because I don't want to touch the other check.
             return false;
 
         if (HasComp<UncloneableComponent>(original) && !settings.ForceCloning) // Goob: enable forcecloning bypass for antagctrl admemes on vox/ipc.
             return false; // Goobstation: Don't clone IPCs and voxes. It could be argued it should be in the CloningPodSystem instead
-
-        // Goobstation end
 
         var attemptEv = new CloningAttemptEvent(settings);
         RaiseLocalEvent(original, ref attemptEv);
@@ -94,7 +92,7 @@ public sealed partial class CloningSystem : SharedCloningSystem
 
         // Add equipment first so that SetEntityName also renames the ID card.
         if (settings.CopyEquipment != null)
-            CopyEquipment(original, clone.Value, settings.CopyEquipment.Value, settings.Whitelist, settings.Blacklist);
+            CopyEquipment(original, clone.Value, settings.CopyEquipment.Value, settings.Whitelist, settings.Blacklist, settings.MakeEquipmentUnremoveable, settings.CopyStorage, settings.InternalContentsUnremoveable); // Goob edit
 
         // Copy storage on the mob itself as well.
         // This is needed for slime storage.
@@ -105,10 +103,6 @@ public sealed partial class CloningSystem : SharedCloningSystem
         if (settings.CopyImplants)
             CopyImplants(original, clone.Value, settings.CopyInternalStorage, settings.Whitelist, settings.Blacklist);
 
-        // Copy permanent status effects
-        if (settings.CopyStatusEffects)
-            CopyStatusEffects(original, clone.Value);
-
         var originalName = _nameMod.GetBaseName(original);
 
         // Set the clone's name. The raised events will also adjust their PDA and ID card names.
@@ -118,15 +112,13 @@ public sealed partial class CloningSystem : SharedCloningSystem
         return true;
     }
 
-    public override void CloneComponents(EntityUid original, EntityUid clone, ProtoId<CloningSettingsPrototype> settings)
-    {
-        if (!_prototype.Resolve(settings, out var proto))
-            return;
-
-        CloneComponents(original, clone, proto);
-    }
-
-    public override void CloneComponents(EntityUid original, EntityUid clone, CloningSettingsPrototype settings)
+    /// <summary>
+    ///     Copy components from one entity to another based on a CloningSettingsPrototype.
+    /// </summary>
+    /// <param name="original">The orignal Entity to clone components from.</param>
+    /// <param name="clone">The target Entity to clone components to.</param>
+    /// <param name="settings">The clone settings prototype containing the list of components to clone.</param>
+    public void CloneComponents(EntityUid original, EntityUid clone, CloningSettingsPrototype settings)
     {
         var componentsToCopy = settings.Components;
         var componentsToEvent = settings.EventComponents;
@@ -200,8 +192,7 @@ public sealed partial class CloningSystem : SharedCloningSystem
             }
 
             // If the original does not have the component, then the clone shouldn't have it either.
-            if (!HasComp(original, componentRegistration.Type))
-                RemComp(clone, componentRegistration.Type);
+            RemComp(clone, componentRegistration.Type);
         }
 
         var cloningEv = new CloningEvent(settings, clone);
@@ -223,7 +214,7 @@ public sealed partial class CloningSystem : SharedCloningSystem
         var slotEnumerator = _inventory.GetSlotEnumerator(original, slotFlags);
         while (slotEnumerator.NextItem(out var item, out var slot))
         {
-            var cloneItem = CopyItem(item, coords, whitelist, blacklist);
+            var cloneItem = CopyItem(item, coords, whitelist, blacklist, copyStorage);
 
             // Goob edit start
             if (cloneItem == null)
@@ -409,34 +400,5 @@ public sealed partial class CloningSystem : SharedCloningSystem
                 CopyStorage(originalImplant, targetImplant.Value, whitelist, blacklist); // only needed for storage implants
         }
 
-    }
-
-    /// <summary>
-    ///    Scans all permanent status effects applied to the original entity and transfers them to the clone.
-    /// </summary>
-    public void CopyStatusEffects(Entity<StatusEffectContainerComponent?> original, Entity<StatusEffectContainerComponent?> target)
-    {
-        if (!Resolve(original, ref original.Comp, false))
-            return;
-
-        if (original.Comp.ActiveStatusEffects is null)
-            return;
-
-        foreach (var effect in original.Comp.ActiveStatusEffects.ContainedEntities)
-        {
-            if (!TryComp<StatusEffectComponent>(effect, out var effectComp))
-                continue;
-
-            //We are not interested in temporary effects, only permanent ones.
-            if (effectComp.EndEffectTime is not null)
-                continue;
-
-            var effectProto = Prototype(effect);
-
-            if (effectProto is null)
-                continue;
-
-            _statusEffects.TrySetStatusEffectDuration(target, effectProto);
-        }
     }
 }

@@ -21,7 +21,7 @@ namespace Content.Client.UserInterface.Controls
 
         public void Clear()
         {
-            RemoveAllChildren();
+            DisposeAllChildren();
         }
 
         public void AddEntry(float amount, Color color, string? tooltip = null)

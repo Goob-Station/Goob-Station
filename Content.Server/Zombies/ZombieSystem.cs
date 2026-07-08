@@ -13,7 +13,6 @@ using Content.Shared.Anomaly.Components;
 using Content.Shared.Armor;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Cloning.Events;
-using Content.Shared.Chat;
 using Content.Shared.Damage;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
@@ -23,8 +22,6 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
-using Content.Shared.Roles;
-using Content.Shared.Roles.Components;
 using Content.Shared.Roles;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Zombies;
@@ -60,8 +57,6 @@ using Content.Shared.CombatMode.Pacification;
 using Content.Server.Speech.Components;
 using Content.Goobstation.Shared.Sprinting;
 using Content.Shared.Prying.Components;
-using Content.Shared.Temperature.Components;
-
 // Goob end
 
 namespace Content.Server.Zombies
@@ -120,8 +115,6 @@ namespace Content.Server.Zombies
             // Goob Edit - Prevent Zombies Speaking/Understanding Languages
             SubscribeLocalEvent<ZombieComponent, DetermineEntityLanguagesEvent>(OnLanguageApply);
             SubscribeLocalEvent<ZombieComponent, ComponentShutdown>(OnShutdown);
-            // more goob something something unzombify this shit needs cleanup
-            SubscribeLocalEvent<ZombieComponent, EntityUnZombifiedEvent>(OnUnZombifyEvent);
         }
 
         private void OnBeforeRemoveAnomalyOnDeath(Entity<PendingZombieComponent> ent, ref BeforeRemoveAnomalyOnDeathEvent args)
@@ -254,7 +247,7 @@ namespace Content.Server.Zombies
             if (args.Handled)
                 return;
 
-            _protoManager.Resolve(component.EmoteSoundsId, out var sounds);
+            _protoManager.TryIndex(component.EmoteSoundsId, out var sounds);
 
             args.Handled = _chat.TryPlayEmoteSound(uid, sounds, args.Emote);
         }
@@ -311,54 +304,46 @@ namespace Content.Server.Zombies
             return MathF.Max(chance, zombieComponent.MinZombieInfectionChance);
         }
 
-        private void OnMeleeHit(Entity<ZombieComponent> entity, ref MeleeHitEvent args)
+        private void OnMeleeHit(EntityUid uid, ZombieComponent component, MeleeHitEvent args)
         {
-            if (!args.IsHit)
+            if (!TryComp<ZombieComponent>(args.User, out _))
                 return;
 
-            var cannotSpread = HasComp<NonSpreaderZombieComponent>(args.User);
+            if (!args.HitEntities.Any())
+                return;
 
-            foreach (var uid in args.HitEntities)
+            foreach (var entity in args.HitEntities)
             {
-                if (args.User == uid)
+                if (args.User == entity)
                     continue;
 
-                if (!TryComp<MobStateComponent>(uid, out var mobState))
+                if (!TryComp<MobStateComponent>(entity, out var mobState))
                     continue;
 
-                if (HasComp<ZombieComponent>(uid) || HasComp<IncurableZombieComponent>(uid))
+                if (TryComp<BlockingUserComponent>(entity, out var blockingUser) && IsUserBlocking(blockingUser)) // Goobstation edit - prevents infection if user is actively blocking
+                    return;
+
+                if (HasComp<ZombieComponent>(entity) || HasComp<InitialInfectedComponent>(entity)) // Goobstation edit - prevent zombies from damaging IIs
                 {
-                    // Don't infect, don't deal damage, do not heal from bites, don't pass go!
-                    args.Handled = true;
-                    continue;
-                }
-
-                if (_mobState.IsAlive(uid, mobState))
-                {
-                    _damageable.TryChangeDamage(args.User, entity.Comp.HealingOnBite, true, false);
-
-                    // If we cannot infect the living target, the zed will just heal itself.
-                    if (HasComp<ZombieImmuneComponent>(uid) || cannotSpread ||
-                        _random.Prob(GetZombieInfectionChance(uid, entity.Comp)))
-                        continue;
-
-
-                    if (TryComp<BlockingUserComponent>(entity, out var blockingUser) &&
-                        IsUserBlocking(
-                            blockingUser)) // Goobstation edit - prevents infection if user is actively blocking
-                        return;
-
-                    EnsureComp<PendingZombieComponent>(uid);
-                    EnsureComp<ZombifyOnDeathComponent>(uid);
+                    args.BonusDamage = -args.BaseDamage;
                 }
                 else
                 {
-                    if (HasComp<ZombieImmuneComponent>(uid) || cannotSpread)
-                        continue;
+                    if (!HasComp<ZombieImmuneComponent>(entity) && !HasComp<NonSpreaderZombieComponent>(args.User) && _random.Prob(GetZombieInfectionChance(entity, component)))
+                    {
+                        EnsureComp<PendingZombieComponent>(entity);
+                        EnsureComp<ZombifyOnDeathComponent>(entity);
+                    }
+                }
 
-                    // If the target is dead and can be infected, infect.
-                    ZombifyEntity(uid);
-                    args.Handled = true;
+                if (_mobState.IsIncapacitated(entity, mobState) && !HasComp<ZombieComponent>(entity) && !HasComp<ZombieImmuneComponent>(entity) && !HasComp<InitialInfectedComponent>(entity)) // Goobstation edit - prevent zombies from damaging IIs
+                {
+                    ZombifyEntity(entity);
+                    args.BonusDamage = -args.BaseDamage;
+                }
+                else if (mobState.CurrentState == MobState.Alive) //heals when zombies bite live entities
+                {
+                    _damageable.TryChangeDamage(uid, component.HealingOnBite, true, false);
                 }
             }
         }
@@ -433,8 +418,8 @@ namespace Content.Server.Zombies
             if (TryComp(reference, out BloodstreamComponent? referenceBloodstream))
             {
                 EnsureComp<BloodstreamComponent>(target);
-                _humanoidAppearance.SetSkinColor(target, zombieComp.BeforeZombifiedSkinColor, false);
-                _bloodstream.ChangeBloodReagents(target, zombieComp.BeforeZombifiedBloodReagents);
+                _bloodstream.ChangeBloodReagent(target, referenceBloodstream.BloodReagent);
+                _bloodstream.SetBloodLossThreshold(target, referenceBloodstream.BloodlossThreshold);
             }
 
             // seems to fix no hand being selected
@@ -463,26 +448,6 @@ namespace Content.Server.Zombies
         {
             UnZombify(ent.Owner, args.CloneUid, ent.Comp);
         }
-
-        // Goob start holy fuck clean this shit up sometimes todo marty
-        private void OnUnZombifyEvent(Entity<ZombieComponent> ent, ref EntityUnZombifiedEvent args)
-        {
-            if (UnZombify(ent, ent, ent.Comp))
-            {
-                _popup.PopupEntity(
-                    Loc.GetString("zombie-cured-popup"),
-                    ent,
-                    PopupType.Medium
-                );
-                return;
-            }
-            _popup.PopupEntity(
-                Loc.GetString("zombie-cure-failed-popup"),
-                ent,
-                PopupType.Medium
-            );
-        }
-        // Goob end
 
         // Make sure players that enter a zombie (for example via a ghost role or the mind swap spell) count as an antagonist.
         private void OnMindAdded(Entity<ZombieComponent> ent, ref MindAddedMessage args)

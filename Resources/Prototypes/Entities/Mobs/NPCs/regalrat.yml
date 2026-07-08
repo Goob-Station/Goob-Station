@@ -63,8 +63,8 @@
         Slash: 12
         Piercing: 8
   - type: Body
-    prototype: RatKing # Goobstation?
-    requiredLegs: 0 # TODO: Make more than 1 leg, set to 0 to avoid sprint speed being reset by the body system
+    prototype: RatKing
+    requiredLegs: 1 # TODO: More than 1 leg
   - type: Hunger # probably should be prototyped
     thresholds:
       Overfed: 400
@@ -96,19 +96,22 @@
     description: ghost-role-information-rat-king-description
     rules: ghost-role-information-antagonist-rules
     mindRoles:
-    - MindRoleGhostRoleSoloAntagonistGoob
+    - MindRoleGhostRoleSoloAntagonist
     raffle:
       settings: default
+    requirements: # Goobstation - ghost roles requirements
+    - !type:OverallPlaytimeRequirement
+      time: 18000 #5 hours
   - type: GhostTakeoverAvailable
   - type: Tag
     tags:
       - CannotSuicide
       - FootstepSound
   - type: NoSlip
-  - type: Rummager
   - type: RatKing
     hungerPerArmyUse: 25
     hungerPerDomainUse: 50
+  - type: Rummager # DeltaV: Make rummaging a generic component
   - type: MobsterAccent
   - type: Speech
     speechVerb: SmallMob
@@ -273,10 +276,7 @@
       0: Alive
       15: Dead #goob
   - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: Blood
-        Quantity: 10 #goob (he is very small)
+    bloodMaxVolume: 10 #goob (he is very small)
   - type: Destructible
     thresholds:
     - trigger:
@@ -287,7 +287,7 @@
         gibContents: Skip # goob - rat servants dont spawn organs.
         recursive: false
   - type: Stamina
-    baseCritThreshold: 60
+    critThreshold: 60
     animationThreshold: 30 # Goob edit
   - type: MeleeWeapon
     soundHit:
@@ -300,7 +300,7 @@
         Piercing: 3
   - type: Body
     prototype: Rat
-    requiredLegs: 0 # TODO: Make more than 1 leg, set to 0 to avoid sprint speed being reset by the body system
+    requiredLegs: 1 # TODO: More than 1 leg
   - type: Hunger # probably should be prototyped
     thresholds:
       Overfed: 200
@@ -354,7 +354,7 @@
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
   - type: FelinidFood # Nyanotrasen - Felinid, ability to eat rat, see Content.Server/Nyanotrasen/Abilities/Felinid/FelinidSystem.cs
-  - type: Edible
+  - type: Food
   - type: Item
     size: Tiny # Delta V - Make them edible and pickable.
   - type: NightVision # Goobstation - Nigthvision
@@ -362,16 +362,13 @@
     activateSound: null
     deactivateSound: null
 
-- type: entityTable
+- type: weightedRandomEntity
   id: RatKingLoot
-  table: !type:GroupSelector
-    children:
-    - id: RandomSpawner100
-      weight: 66
-    - id: FoodCheese
-      weight: 28
-    - id: IngotGold1
-      weight: 5
+  weights: # DeltaV: Rebalanced for Rodentia rummaging because we don't have Rat King
+    RandomSpawner100: 50 #garbage
+    FoodCheeseSlice: 25 #food
+    RandomSnacks: 10
+    RandomFoodSingle: 15
 
 - type: entity
   parent: BaseAction

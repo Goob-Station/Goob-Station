@@ -33,7 +33,6 @@ public sealed partial class ResearchSystem
 
     private void OnConsoleUnlock(EntityUid uid, ResearchConsoleComponent component, ConsoleUnlockTechnologyMessage args)
     {
-
         // goob edit - spirates
         var eqe = EntityQueryEnumerator<ResourceSiphonComponent>();
         while (eqe.MoveNext(out var siphon))
@@ -91,19 +90,6 @@ public sealed partial class ResearchSystem
         if (!Resolve(uid, ref component, ref clientComponent, false))
             return;
 
-        /* goob - rework.
-        ResearchConsoleBoundInterfaceState state;
-
-        if (TryGetClientServer(uid, out _, out var serverComponent, clientComponent))
-        {
-            var points = clientComponent.ConnectedToServer ? serverComponent.Points : 0;
-            state = new ResearchConsoleBoundInterfaceState(points);
-        }
-        else
-        {
-            state = new ResearchConsoleBoundInterfaceState(default);
-        }*/
-
         // R&D Console Rework Start
         var allTechs = PrototypeManager.EnumeratePrototypes<TechnologyPrototype>().ToList();
         Dictionary<string, ResearchAvailability> techList;
@@ -123,11 +109,13 @@ public sealed partial class ResearchSystem
                     var prereqsMet = proto.TechnologyPrerequisites.All(p => unlockedTechs.Contains(p));
                     var canAfford = server.Points >= proto.Cost;
 
-                    return prereqsMet ? (canAfford ? ResearchAvailability.Available : ResearchAvailability.PrereqsMet)
+                    return prereqsMet ?
+                        (canAfford ? ResearchAvailability.Available : ResearchAvailability.PrereqsMet)
                         : ResearchAvailability.Unavailable;
                 });
 
-            points = clientComponent.ConnectedToServer ? server.Points : 0;
+            if (clientComponent != null)
+                points = clientComponent.ConnectedToServer ? server.Points : 0;
         }
         else
         {

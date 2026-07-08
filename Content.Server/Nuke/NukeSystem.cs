@@ -16,7 +16,6 @@ using Content.Shared.Coordinates.Helpers;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Item;
-using Content.Shared.Kitchen;
 using Content.Shared.Maps;
 using Content.Shared.Nuke;
 using Content.Shared.Popups;
@@ -24,10 +23,10 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
+using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
-using Robust.Shared.Timing;
 
 namespace Content.Server.Nuke;
 
@@ -51,7 +50,6 @@ public sealed class NukeSystem : EntitySystem
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!; // Goobstation
     [Dependency] private readonly TurfSystem _turf = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
 
     /// <summary>
     ///     Used to calculate when the nuke song should start playing for maximum kino with the nuke sfx
@@ -238,12 +236,6 @@ public sealed class NukeSystem : EntitySystem
     {
         if (component.Status != NukeStatus.AWAIT_CODE)
             return;
-
-        var curTime = _timing.CurTime;
-        if (curTime < component.LastCodeEnteredAt + SharedNukeComponent.EnterCodeCooldown)
-            return; // Validate that they are not entering codes faster than the cooldown.
-
-        component.LastCodeEnteredAt = curTime;
 
         UpdateStatus(uid, component);
         UpdateUserInterface(uid, component);

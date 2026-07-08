@@ -40,8 +40,6 @@
     alternateState: Resomi_burning
   - type: HumanoidAppearance
     species: Resomi
-    undergarmentTop: null # none made, but they might not even need these too diff bodytype
-    undergarmentBottom: null
   - type: Icon
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
     state: full
@@ -194,10 +192,7 @@
             sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
             state: belt
   - type: Bloodstream # Goobstation - lore stuff
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: AmmoniaBlood
-        Quantity: 200
+    bloodReagent: AmmoniaBlood
   - type: MeleeWeapon # Goobstation - aliem raptors probably use their claws
     soundHit:
       collection: AlienClaw
@@ -209,9 +204,6 @@
   - type: Damageable # Goobstation - resomi damage modifiers
     damageModifierSet: Resomi
   - type: Temperature
-    currentTemperature: 310.15 # todo goob redo this
-    specificHeat: 50
-  - type: TemperatureDamage
     coldDamageThreshold: 0 # Goobstation - hyperborean velociraptors or some shit, ice planes of norway is where they came from, but in space
     heatDamageThreshold: 320.15 # Goobstation - space chickens can't tolerate reasonable temperatures, but requiring them to stay icy would be cringe, so instead make their heat damage threshold dangerously close to standard atmos, at 47°C
     coldDamage:
@@ -288,8 +280,6 @@
   components:
   - type: HumanoidAppearance
     species: Resomi
-    undergarmentTop: null # none made, but they might not even need these too diff bodytype
-    undergarmentBottom: null
   - type: Hands
     handDisplacement:
       sizeMaps:

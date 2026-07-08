@@ -21,7 +21,7 @@
         messages: [ "xeno-extract-reaction" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:SpawnEntity
+      - !type:CreateEntityReactionEffect
         entity: FloorTileItemBluespace
         number: 30
     - reagents: [ Plasma ]
@@ -33,7 +33,7 @@
         messages: [ "xeno-extract-reaction" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:SpawnEntity
+      - !type:CreateEntityReactionEffect
         entity: MaterialBSCrystal1
         number: 5
     - reagents: [ Blood ]

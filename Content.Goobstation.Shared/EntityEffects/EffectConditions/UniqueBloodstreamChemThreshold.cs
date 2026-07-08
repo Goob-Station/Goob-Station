@@ -2,28 +2,12 @@
 
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.EntityConditions;
+using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.EntityEffects.EffectConditions;
 
-public sealed partial class UniqueBloodstreamChemThresholdSystem : EntityConditionSystem<BloodstreamComponent, UniqueBloodstreamChemThreshold>
-{
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
-
-    protected override void Condition(Entity<BloodstreamComponent> entity, ref EntityConditionEvent<UniqueBloodstreamChemThreshold> args)
-    {
-        if (_solution.ResolveSolution(entity.Owner, entity.Comp.BloodSolutionName, ref entity.Comp.BloodSolution, out var chemSolution))
-        {
-            args.Result = chemSolution.Contents.Count > args.Condition.Min &&
-                          chemSolution.Contents.Count < args.Condition.Max;
-            return;
-        }
-        args.Result = false;
-    }
-}
-
-public sealed partial class UniqueBloodstreamChemThreshold : EntityConditionBase<UniqueBloodstreamChemThreshold>
+public sealed partial class UniqueBloodstreamChemThreshold : EntityEffectCondition
 {
     [DataField]
     public int Max = int.MaxValue;
@@ -31,7 +15,18 @@ public sealed partial class UniqueBloodstreamChemThreshold : EntityConditionBase
     [DataField]
     public int Min = -1;
 
-    public override string EntityConditionGuidebookText(IPrototypeManager prototype)
+    public override bool Condition(EntityEffectBaseArgs args)
+    {
+        if (args.EntityManager.TryGetComponent<BloodstreamComponent>(args.TargetEntity, out var blood))
+        {
+            if (args.EntityManager.System<SharedSolutionContainerSystem>().ResolveSolution(args.TargetEntity, blood.ChemicalSolutionName, ref blood.ChemicalSolution, out var chemSolution))
+                return chemSolution.Contents.Count >= Min && chemSolution.Contents.Count <= Max;
+            return false;
+        }
+        throw new NotImplementedException();
+    }
+
+    public override string GuidebookExplanation(IPrototypeManager prototype)
     {
         return Loc.GetString("reagent-effect-condition-guidebook-unique-bloodstream-chem-threshold",
             ("max", Max),

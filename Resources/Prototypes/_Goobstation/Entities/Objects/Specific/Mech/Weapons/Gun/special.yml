@@ -23,7 +23,7 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: AmmoCounter
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: MousetrapArmed
     fireCost: 100
   - type: Appearance
@@ -51,7 +51,7 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: AmmoCounter
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: TrashBananaPeel
     fireCost: 100
   - type: Appearance

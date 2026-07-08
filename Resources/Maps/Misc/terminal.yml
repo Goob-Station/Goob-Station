@@ -1389,6 +1389,7 @@ entities:
     - type: Godmode
     - type: BatterySelfRecharger
       autoRechargeRate: 50000
+      autoRecharge: True
     missingComponents:
     - Construction
     - Destructible
@@ -1403,6 +1404,7 @@ entities:
     - type: Godmode
     - type: BatterySelfRecharger
       autoRechargeRate: 50000
+      autoRecharge: True
     missingComponents:
     - Construction
     - Destructible
@@ -1417,6 +1419,7 @@ entities:
     - type: Godmode
     - type: BatterySelfRecharger
       autoRechargeRate: 50000
+      autoRecharge: True
     missingComponents:
     - Construction
     - Destructible
@@ -1431,6 +1434,7 @@ entities:
     - type: Godmode
     - type: BatterySelfRecharger
       autoRechargeRate: 50000
+      autoRecharge: True
     missingComponents:
     - Construction
     - Destructible
@@ -1446,6 +1450,7 @@ entities:
     - type: Godmode
     - type: BatterySelfRecharger
       autoRechargeRate: 50000
+      autoRecharge: True
     missingComponents:
     - Construction
     - Destructible
@@ -1460,6 +1465,7 @@ entities:
     - type: Godmode
     - type: BatterySelfRecharger
       autoRechargeRate: 50000
+      autoRecharge: True
     missingComponents:
     - Construction
     - Destructible

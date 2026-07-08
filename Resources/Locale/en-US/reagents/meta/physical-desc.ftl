@@ -124,5 +124,3 @@ reagent-physical-desc-slimy = slimy
 reagent-physical-desc-neural = neural
 reagent-physical-desc-unidentifiable = unidentifiable
 reagent-physical-desc-non-newtonian = non-newtonian
-reagent-physical-desc-thin = thin
-reagent-physical-desc-arcryox = icy blue

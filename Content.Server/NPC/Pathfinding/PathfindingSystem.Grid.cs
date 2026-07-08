@@ -4,7 +4,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using System.Threading;
 using System.Threading.Tasks;
-using Content.Goobstation.Common.CCVar;
 using Content.Shared.NPC;
 using Content.Shared.Physics;
 using Robust.Shared.Collections;
@@ -80,7 +79,6 @@ public sealed partial class PathfindingSystem
 
     private void UpdateGrid(ParallelOptions options)
     {
-        PauseUpdating = _cfg.GetCVar(GoobCVars.DisablePathfinding); // Omu. Disabling pathfinding for certain tests. // cba porting omu shit
         if (PauseUpdating)
             return;
 

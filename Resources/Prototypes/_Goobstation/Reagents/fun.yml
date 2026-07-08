@@ -20,21 +20,18 @@
         key: Muted
         component: Muted
         conditions:
-        - !type:ReagentCondition
-          reagent: Tranquility
+        - !type:ReagentThreshold
           min: 5
       - !type:GenericStatusEffect
         key: Pacified
         component: Pacified
         conditions:
-        - !type:ReagentCondition
-          reagent: Tranquility
+        - !type:ReagentThreshold
           min: 10
       - !type:Polymorph
         prototype: Gondola
         conditions:
-        - !type:ReagentCondition
-          reagent: Tranquility
+        - !type:ReagentThreshold
           min: 25
 
 - type: reagent
@@ -56,8 +53,7 @@
       - !type:Polymorph
         prototype: Bingle
         conditions:
-        - !type:ReagentCondition
-          reagent: BingleJuice
+        - !type:ReagentThreshold
           min: 25
 
 - type: reagent
@@ -75,15 +71,13 @@
       - !type:Polymorph
         prototype: ForcedCarpSentient
         conditions:
-        - !type:ReagentCondition
-          reagent: Carpolin
+        - !type:ReagentThreshold
           min: 9
       - !type:AdjustReagent
         reagent: Carpolin
         amount: -10
         conditions:
-        - !type:ReagentCondition
-          reagent: Carpolin
+        - !type:ReagentThreshold
           min: 9 # keep it the same as above
       - !type:PopupMessage
         type: Local
@@ -91,11 +85,10 @@
         probability: 0.3
       - !type:HealthChange
         conditions:
-        - !type:ReagentCondition
-          reagent: Carpolin
+        - !type:ReagentThreshold
           min: 1
-        - !type:MetabolizerTypeCondition
-          type: [ Animal ]
+        - !type:OrganType
+          type: Animal
         damage:
           types:
             Poison: 0.06
@@ -158,18 +151,17 @@
       - !type:Polymorph
         prototype: Cat
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Animal ]
-        - !type:ReagentCondition
-          reagent: CatDrugs
+        - !type:OrganType
+          type: Animal
+          shouldHave: false
+        - !type:ReagentThreshold
           min: 50
       - !type:AdjustReagent
         reagent: CatDrugs
         amount: -20
         conditions:
-        - !type:ReagentCondition
+        - !type:ReagentThreshold
           min: 50
-          reagent: CatDrugs
 
 - type: reagent
   id: Nostalgia

@@ -8,19 +8,19 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 4h # Goobstation
+      time: 14400 # 4 hours
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 4h # Goobstation
+      time: 14400 # 4 hours
     - !type:DepartmentTimeRequirement
       department: Science
-      time: 4h # Goobstation
+      time: 14400 # 4 hours
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 4h # Goobstation
+      time: 14400 # 4 hours
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 4h # Goobstation
+      time: 14400 # 4 hours
     - !type:SpeciesRequirement # Goob - None Felinid
       inverted: true
       species:
@@ -80,7 +80,7 @@
     id: HoPPDA
     #gloves: ClothingHandsGlovesHop
     ears: ClothingHeadsetAltCommand
-    belt: BoxFolderClipboardThreePapers
+    belt: BoxFolderClipboard
     eyes: ClothingEyesHudCommand
   storage:
     back:

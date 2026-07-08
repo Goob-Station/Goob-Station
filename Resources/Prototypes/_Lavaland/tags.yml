@@ -7,6 +7,18 @@
   id: ExplorerSuit
 
 - type: Tag
+  id: GunUpgradeDamage
+
+- type: Tag
+  id: GunUpgradePressure
+
+- type: Tag
+  id: GunUpgradeReloadSpeed
+
+- type: Tag
+  id: GunUpgradeRange
+
+- type: Tag
   id: LavalandGateway
 
 - type: Tag
@@ -20,6 +32,9 @@
 
 - type: Tag
   id: LegionSkull
+
+- type: Tag
+  id: PKAUpgrade
 
 - type: Tag
   id: PKAUpgradeSpace

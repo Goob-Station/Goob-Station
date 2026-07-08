@@ -7,7 +7,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobHeadOfPersonnel
-      time: 20h
+      time: 72000 #20 hrs
 
 # Goobstation - For Ensembles
 - type: loadoutEffectGroup
@@ -27,7 +27,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobHeadOfPersonnel
-      time: 15h # special reward for HoP mains
+      time: 54000 #15 hrs, special reward for HoP mains
 
 # Jumpsuit
 - type: loadout

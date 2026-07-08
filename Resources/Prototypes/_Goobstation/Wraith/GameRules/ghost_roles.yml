@@ -8,7 +8,10 @@
     description: ghost-role-information-wraith-description
     rules: ghost-role-information-wraith-rules
     mindRoles:
-    - MindRoleGhostRoleSoloAntagonistGoob
+    - MindRoleGhostRoleSoloAntagonist
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 54000 # 15 hours
     raffle:
       settings: default
   - type: Sprite

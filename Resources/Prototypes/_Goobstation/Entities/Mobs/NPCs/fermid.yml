@@ -42,10 +42,8 @@
     - id: FoodMeatSpider
       amount: 2
   - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: InsectBlood
-        Quantity: 50
+    bloodMaxVolume: 50
+    bloodReagent: InsectBlood
   - type: Fixtures
     fixtures:
       fix1:

@@ -65,8 +65,6 @@
       weight: 4.0
     - id: XenoArtifactFaunaSpawn
       weight: 10.0
-    - id: XenoArtifactHostileFaunaSpawn
-      weight: 10.0
     - id: XenoArtifactCashSpawn
       weight: 10.0
     - id: XenoArtifactShatterWindows
@@ -269,11 +267,8 @@
       solution: beaker
     - type: SolutionTransfer
       canChangeTransferAmount: true
-    - type: Edible
-      edible: Drink
+    - type: Drink
       solution: beaker
-      destroyOnEmpty: false
-      utensil: None
 
 - type: entity
   id: XenoArtifactSpeedUp
@@ -493,9 +488,10 @@
         - !type:NestedSelector
           tableId: GenericTrashItems
           weight: 35
-        - !type:NestedSelector
-          tableId: AllPlushiesTable
+        - !type:AllSelector
           weight: 1
+          children:
+          - id: ToySpawner
 
 - type: entity
   id: XenoArtifactEffectLightFlicker
@@ -883,7 +879,7 @@
           weight: 1.0
         - id: MobCarpHolo
           weight: 1.0
-        - id: MobDragonDungeon # Goobstation?
+        - id: MobDragonDungeon
           weight: 0.01
         - id: MobShark
           weight: 0.25
@@ -906,7 +902,15 @@
       deleteSpawnerAfterSpawn: false
       table: !type:GroupSelector
         children:
+        - id: MobAdultSlimesYellowAngry
+        - id: MobAngryBee
+        - id: MobBearSpace
+        - id: CMMobXenoRavager
+        - id: MobTick
+        - id: MobSpiderSpace
+        - id: MobPurpleSnake
         - id: MobMouse
+        - id: MobKangarooSpace
         - id: MobPig
         - id: MobParrot
         - id: MobKangaroo
@@ -934,33 +938,6 @@
             range: 1, 3
         - id: MobMonkeySyndicateAgent #so lucky
           prob: 0.03
-
-- type: entity
-  id: XenoArtifactHostileFaunaSpawn
-  parent: BaseXenoArtifactEffect
-  description: Create hostile fauna
-  components:
-  - type: XenoArtifactNode
-    maxDurability: 4
-    maxDurabilityCanDecreaseBy:
-      min: 0
-      max: 3
-  - type: XAEApplyComponents
-    applyIfAlreadyHave: true
-    refreshOnReactivate: true
-    components:
-    - type: EntityTableSpawner
-      deleteSpawnerAfterSpawn: false
-      table: !type:GroupSelector
-        children:
-        - id: MobAdultSlimesYellowAngry
-        - id: MobAngryBee
-        - id: MobBearSpace
-        - id: CMMobXenoRavager # Goobstation?
-        - id: MobTick
-        - id: MobSpiderSpace
-        - id: MobPurpleSnake
-        - id: MobKangarooSpace
 
 - type: entity
   id: XenoArtifactCashSpawn

@@ -4,7 +4,6 @@ using Content.Shared.Damage.Events;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Events;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.StatusEffectNew;
 
 namespace Content.Shared.Traits.Assorted;
 
@@ -14,37 +13,36 @@ public sealed class PainNumbnessSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<PainNumbnessStatusEffectComponent, StatusEffectAppliedEvent>(OnEffectApplied);
-        SubscribeLocalEvent<PainNumbnessStatusEffectComponent, StatusEffectRemovedEvent>(OnEffectRemoved);
-        SubscribeLocalEvent<PainNumbnessStatusEffectComponent, StatusEffectRelayedEvent<BeforeForceSayEvent>>(OnChangeForceSay);
-        SubscribeLocalEvent<PainNumbnessStatusEffectComponent, StatusEffectRelayedEvent<BeforeAlertSeverityCheckEvent>>(OnAlertSeverityCheck);
+        SubscribeLocalEvent<PainNumbnessComponent, ComponentInit>(OnComponentInit);
+        SubscribeLocalEvent<PainNumbnessComponent, ComponentRemove>(OnComponentRemove);
+        SubscribeLocalEvent<PainNumbnessComponent, BeforeForceSayEvent>(OnChangeForceSay);
+        SubscribeLocalEvent<PainNumbnessComponent, BeforeAlertSeverityCheckEvent>(OnAlertSeverityCheck);
     }
 
-    private void OnEffectApplied(Entity<PainNumbnessStatusEffectComponent> ent, ref StatusEffectAppliedEvent args)
+    private void OnComponentRemove(EntityUid uid, PainNumbnessComponent component, ComponentRemove args)
     {
-        if (!HasComp<MobThresholdsComponent>(args.Target))
+        if (!HasComp<MobThresholdsComponent>(uid))
             return;
 
-        _mobThresholdSystem.VerifyThresholds(args.Target);
+        _mobThresholdSystem.VerifyThresholds(uid);
     }
 
-    private void OnEffectRemoved(Entity<PainNumbnessStatusEffectComponent> ent, ref StatusEffectRemovedEvent args)
+    private void OnComponentInit(EntityUid uid, PainNumbnessComponent component, ComponentInit args)
     {
-        if (!HasComp<MobThresholdsComponent>(args.Target))
+        if (!HasComp<MobThresholdsComponent>(uid))
             return;
 
-        _mobThresholdSystem.VerifyThresholds(args.Target);
+        _mobThresholdSystem.VerifyThresholds(uid);
     }
 
-    private void OnChangeForceSay(Entity<PainNumbnessStatusEffectComponent> ent, ref StatusEffectRelayedEvent<BeforeForceSayEvent> args)
+    private void OnChangeForceSay(Entity<PainNumbnessComponent> ent, ref BeforeForceSayEvent args)
     {
-        if (ent.Comp.ForceSayNumbDataset != null)
-            args.Args.Prefix = ent.Comp.ForceSayNumbDataset.Value;
+        args.Prefix = ent.Comp.ForceSayNumbDataset;
     }
 
-    private void OnAlertSeverityCheck(Entity<PainNumbnessStatusEffectComponent> ent, ref StatusEffectRelayedEvent<BeforeAlertSeverityCheckEvent> args)
+    private void OnAlertSeverityCheck(Entity<PainNumbnessComponent> ent, ref BeforeAlertSeverityCheckEvent args)
     {
-        if (args.Args.CurrentAlert == "HumanHealth")
-            args.Args.CancelUpdate = true;
+        if (args.CurrentAlert == "HumanHealth")
+            args.CancelUpdate = true;
     }
 }

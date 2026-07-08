@@ -12,7 +12,6 @@ using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Examine;
 using Content.Shared.Power;
-using Content.Shared.Power.Components;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Map;
@@ -61,7 +60,7 @@ public sealed partial class SpaceArtillerySystem : EntitySystem
         if (!TryComp<ApcPowerReceiverComponent>(uid, out var apc) && !hasBattery)
             return;
 
-        if (apc is { Powered: true } || battery?.LastCharge >= component.PowerUseActive)
+        if (apc is { Powered: true } || battery?.CurrentCharge >= component.PowerUseActive)
             TryFireArtillery(uid, Transform(uid), component);
         else
             OnMalfunction(uid, component);
@@ -74,10 +73,12 @@ public sealed partial class SpaceArtillerySystem : EntitySystem
         {
             if (args.Powered)
             {
+                batteryCharger.AutoRecharge = true;
                 batteryCharger.AutoRechargeRate = component.PowerChargeRate;
             }
             else
             {
+                batteryCharger.AutoRecharge = true;
                 batteryCharger.AutoRechargeRate = component.PowerUsePassive * -1;
             }
         }
@@ -88,7 +89,7 @@ public sealed partial class SpaceArtillerySystem : EntitySystem
     {
         if (TryComp<ApcPowerReceiverComponent>(uid, out var apcPowerReceiver) && TryComp<BatteryComponent>(uid, out var battery))
         {
-            apcPowerReceiver.Load = battery.LastCharge >= battery.MaxCharge * 0.99 ? component.PowerUsePassive : component.PowerUsePassive + component.PowerChargeRate;
+            apcPowerReceiver.Load = battery.CurrentCharge >= battery.MaxCharge * 0.99 ? component.PowerUsePassive : component.PowerUsePassive + component.PowerChargeRate;
         }
     }
 
@@ -99,7 +100,7 @@ public sealed partial class SpaceArtillerySystem : EntitySystem
             return;
         }
 
-        if (!_gun.TryGetGun(uid, out var gun))
+        if (!_gun.TryGetGun(uid, out var gunUid, out var gun))
         {
             OnMalfunction(uid, component);
             return;
@@ -116,11 +117,11 @@ public sealed partial class SpaceArtillerySystem : EntitySystem
 
         // We need to set the ShootCoordinates for the gun component
         // This is important to ensure it uses the proper calculations in SharedGunSystem
-        gun.Comp.ShootCoordinates = targetCoordinates;
+        gun.ShootCoordinates = targetCoordinates;
 
         // Call AttemptShoot with the correct signature that includes target coordinates
         // This will eventually call GunSystem.Shoot which correctly handles grid velocity
-        _gun.AttemptShoot(uid, gun, targetCoordinates);
+        _gun.AttemptShoot(uid, gunUid, gun, targetCoordinates);
     }
 
     private void OnShotEvent(EntityUid uid, SpaceArtilleryComponent component, AmmoShotEvent args)
@@ -131,9 +132,9 @@ public sealed partial class SpaceArtillerySystem : EntitySystem
             return;
         }
 
-        if (HasComp<BatteryComponent>(uid))
+        if (TryComp<BatteryComponent>(uid, out var battery))
         {
-            _battery.UseCharge(uid, component.PowerUseActive);
+            _battery.UseCharge(uid, component.PowerUseActive, battery);
         }
     }
 

@@ -226,9 +226,6 @@
   - type: HideClothingLayerClothing # Goobstation
     hiddenSlots:
     - jumpsuit
-  - type: CosmicTransmutable # DeltaV
-    transmutesTo: ClothingOuterHardsuitCosmicCult
-    requiredGlyphType: CosmicGlyphWarding
 
 - type: entity
   abstract: true
@@ -274,9 +271,6 @@
   - type: Tag
     tags:
     - PlasmamanSafe # EE Plasmeme Change
-  - type: CosmicTransmutable # DeltaV
-    transmutesTo: ClothingOuterHardsuitCosmicCult
-    requiredGlyphType: CosmicGlyphWarding
 
 - type: entity
   parent: ClothingOuterBase

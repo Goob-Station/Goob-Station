@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Server.Destructible.Thresholds;
 using Content.Server.Destructible.Thresholds.Behaviors;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
@@ -60,7 +61,7 @@ namespace Content.IntegrationTests.Tests.Destructible
                     Assert.That(threshold.Behaviors, Has.Count.EqualTo(3));
                 });
 
-                var spawnEntitiesBehavior = (SpawnEntitiesBehavior)threshold.Behaviors.Single(b => b is SpawnEntitiesBehavior);
+                var spawnEntitiesBehavior = (SpawnEntitiesBehavior) threshold.Behaviors.Single(b => b is SpawnEntitiesBehavior);
 
                 Assert.Multiple(() =>
                 {

@@ -25,7 +25,7 @@ public sealed class JumpSystem : EntitySystem
         SubscribeLocalEvent<JumpComponent, ComponentShutdown>(OnJumpShutdown);
         SubscribeLocalEvent<JumpComponent, JumpActionEvent>(OnJump);
         SubscribeLocalEvent<JumpComponent, StopThrowEvent>(OnStopThrow);
-        SubscribeLocalEvent<JumpComponent, ThrowAttemptEvent>(OnThrowDoHit);
+        SubscribeLocalEvent<JumpComponent, ThrowDoHitEvent>(OnThrowDoHit);
     }
 
     private void OnJumpStartup(EntityUid uid, JumpComponent component, ComponentStartup args) =>
@@ -51,25 +51,22 @@ public sealed class JumpSystem : EntitySystem
     private void OnStopThrow(EntityUid uid, JumpComponent component, StopThrowEvent args) =>
         _appearance.SetData(uid, JumpVisuals.Jumping, false);
 
-    private void OnThrowDoHit(EntityUid uid, JumpComponent component, ref ThrowAttemptEvent args)
+    private void OnThrowDoHit(EntityUid uid, JumpComponent component, ThrowDoHitEvent args)
     {
-
-        if (args.Cancelled
-            || !TryComp<ThrownItemComponent>(args.ItemUid, out var thrownComp)
-            || args.TargetUid == null)
+        if (args.Handled)
             return;
 
-        _throwingItem.StopThrow(uid, thrownComp);
+        _throwingItem.StopThrow(uid, args.Component);
 
-        if (Transform(args.TargetUid.Value).Anchored)
+        if (Transform(args.Target).Anchored)
         {
             _stun.TryUpdateParalyzeDuration(uid, component.StunTime);
             return;
         }
 
-        _stun.TryKnockdown(args.TargetUid.Value, component.StunTime, true);
+        _stun.TryKnockdown(args.Target, component.StunTime, true);
 
-        args.Cancel();
+        args.Handled = true;
     }
 }
 

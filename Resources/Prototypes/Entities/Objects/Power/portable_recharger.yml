@@ -10,12 +10,7 @@
     size: Huge
   - type: Sprite
     sprite: Objects/Power/portable_recharger.rsi
-    layers:
-    - map: ["enum.PowerChargerVisualLayers.Base"]
-      state: charging
-    - map: ["enum.PowerChargerVisualLayers.Light"]
-      state: charging-unlit
-      shader: unshaded
+    state: charging
   - type: Clothing
     equippedPrefix: charging
     quickEquip: false
@@ -25,6 +20,9 @@
     slotId: charger_slot
     portable: true
   - type: PowerChargerVisuals
+  - type: ApcPowerReceiver
+    needsPower: false
+    powerLoad: 0
   - type: StaticPrice
     price: 500
   - type: Tag
@@ -38,7 +36,8 @@
         ejectOnInteract: true
         whitelist:
           components:
-          - BatteryAmmoProvider
+          - HitscanBatteryAmmoProvider
+          - ProjectileBatteryAmmoProvider
         blacklist: # Goobstation
           tags:
           - WizardWand

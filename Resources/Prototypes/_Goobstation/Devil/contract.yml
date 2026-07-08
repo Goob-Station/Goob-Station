@@ -34,7 +34,7 @@
   - type: ArrivalsBlacklist # Nope.
   - type: FTLSmashImmune # Nope.
   - type: FaxableObject
-  - type: Edible
+  - type: Food
     requiresSpecialDigestion: true
     delay: 12 # contracts take slightly longer to eat so shitters can't weaponize the explosions
     forceFeedDelay: 12

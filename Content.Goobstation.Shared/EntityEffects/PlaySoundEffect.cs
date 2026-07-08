@@ -1,31 +1,26 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.EntityEffects;
-using Content.Shared.Chemistry.Reaction;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.EntityEffects;
-
-public sealed partial class PlaySoundEffectSystem : EntityEffectSystem<ReactiveComponent, PlaySoundEffect>
+namespace Content.Goobstation.Shared.EntityEffects
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-
-    protected override void Effect(Entity<ReactiveComponent> entity, ref EntityEffectEvent<PlaySoundEffect> args)
+    public sealed partial class PlaySoundEffect : EntityEffect
     {
-        _audio.PlayPredicted(
-            args.Effect.Sound,
-            Transform(entity.Owner).Coordinates,
-            entity.Owner);
+        [DataField(required: true)]
+        public SoundSpecifier Sound;
+
+        protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+            => null;
+
+        public override void Effect(EntityEffectBaseArgs args)
+        {
+            var transform = args.EntityManager.GetComponent<TransformComponent>(args.TargetEntity);
+            var audioSys = args.EntityManager.EntitySysManager.GetEntitySystem<SharedAudioSystem>();
+
+            audioSys.PlayPredicted(Sound, transform.Coordinates, args.TargetEntity);
+        }
     }
-}
-
-public sealed partial class PlaySoundEffect : EntityEffectBase<PlaySoundEffect>
-{
-    [DataField(required: true)]
-    public SoundSpecifier Sound;
-
-    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => null;
 }

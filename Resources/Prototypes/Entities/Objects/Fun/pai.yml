@@ -10,8 +10,8 @@
   - type: Instrument
     allowPercussion: false
     handheld: false
+    bank: 1
     program: 2
-    bank: 100 # Defined in space-station-14.sf2
   - type: UserInterface
     interfaces:
       enum.StoreUiKey.Key:
@@ -69,9 +69,6 @@
   - type: IntellicardableMind # Goobstation - intellicard on more AIs
   - type: DoAfter
   - type: Actions
-  - type: ActionGrant
-    actions:
-    - ActionPAIOpenShop
   - type: Store
     categories:
     - PAIAbilities
@@ -211,6 +208,8 @@
       shader: unshaded
       map: ["screen"]
   - type: Appearance
+  - type: StaticPrice
+    price: 5000
 
 - type: entity
   parent: PersonalAI
@@ -243,13 +242,16 @@
     graph: PotatoAI
     node: potatoai
 
-# PAI Actions
-
 - type: entity
-  parent: ActionIntrinsicStore
+  parent: BaseMentalAction
   id: ActionPAIOpenShop
   name: Software Catalog
   description: Install new software to assist your owner.
+  components:
+  - type: Action
+    icon: Interface/Actions/shop.png
+  - type: InstantAction
+    event: !type:PAIShopActionEvent
 
 - type: entity
   parent: BaseMentalAction

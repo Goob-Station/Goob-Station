@@ -28,7 +28,7 @@ public sealed partial class HulkComponent : Component
     public SoundSpecifier? SoundGunshot = new SoundPathSpecifier("/Audio/Weapons/Guns/Gunshots/laser_cannon.ogg");
 
     [DataField]
-    public EntProtoId ShotProto = "RedHeavyLaser";
+    public ProtoId<HitscanPrototype> ShotProto = "RedHeavyLaser";
 
     [ViewVariables(VVAccess.ReadOnly)]
     public Dictionary<HumanoidVisualLayers, CustomBaseLayerInfo> OldCustomBaseLayers = new();

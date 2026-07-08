@@ -108,9 +108,9 @@ public abstract class BasedRadialSelectorMenuBUI : BoundUserInterface
         return result;
     }
 
-    private RadialMenuButton CreateButton(string name, Texture icon)
+    private RadialMenuTextureButton CreateButton(string name, Texture icon)
     {
-        var button = new RadialMenuButton
+        var button = new RadialMenuTextureButton
         {
             ToolTip = Loc.GetString(name),
             StyleClasses = { "RadialMenuButton" },
@@ -130,9 +130,9 @@ public abstract class BasedRadialSelectorMenuBUI : BoundUserInterface
         return button;
     }
 
-    private RadialMenuButton CreateButton(string name, List<Texture> icons)
+    private RadialMenuTextureButton CreateButton(string name, List<Texture> icons)
     {
-        var button = new RadialMenuButton
+        var button = new RadialMenuTextureButton
         {
             ToolTip = Loc.GetString(name),
             StyleClasses = { "RadialMenuButton" },

@@ -5,7 +5,6 @@ using System.Numerics;
 using Content.Client.Clickable;
 using Content.Client.UserInterface;
 using Content.Client.Viewport;
-using Content.Shared.CCVar;
 using Content.Shared.Damage;
 using Content.Shared.Input;
 using Robust.Client.ComponentTrees;
@@ -17,7 +16,6 @@ using Robust.Client.State;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
-using Robust.Shared.Configuration;
 using Robust.Shared.Console;
 using Robust.Shared.Graphics;
 using Robust.Shared.Input;
@@ -44,7 +42,6 @@ namespace Content.Client.Gameplay
         [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly IViewVariablesManager _vvm = default!;
         [Dependency] private readonly IConsoleHost _conHost = default!;
-        [Dependency] private readonly IConfigurationManager _configurationManager = default!;
 
         private ClickableEntityComparer _comparer = default!;
 
@@ -88,8 +85,6 @@ namespace Content.Client.Gameplay
             _comparer = new ClickableEntityComparer();
             CommandBinds.Builder
                 .Bind(ContentKeyFunctions.InspectEntity, new PointerInputCmdHandler(HandleInspect, outsidePrediction: true))
-                .Bind(ContentKeyFunctions.InspectServerComponent, new PointerInputCmdHandler(HandleInspectServerComponent, outsidePrediction: true))
-                .Bind(ContentKeyFunctions.InspectClientComponent, new PointerInputCmdHandler(HandleInspectClientComponent, outsidePrediction: true))
                 .Register<GameplayStateBase>();
         }
 
@@ -103,21 +98,6 @@ namespace Content.Client.Gameplay
         private bool HandleInspect(ICommonSession? session, EntityCoordinates coords, EntityUid uid)
         {
             _conHost.ExecuteCommand($"vv /c/enthover");
-            return true;
-        }
-
-        private bool HandleInspectServerComponent(ICommonSession? session, EntityCoordinates coords, EntityUid uid)
-        {
-            var component = _configurationManager.GetCVar(CCVars.DebugQuickInspect);
-            if (_entityManager.TryGetNetEntity(uid, out var net))
-                _conHost.ExecuteCommand($"vv /entity/{net.Value.Id}/{component}");
-            return true;
-        }
-
-        private bool HandleInspectClientComponent(ICommonSession? session, EntityCoordinates coords, EntityUid uid)
-        {
-            var component = _configurationManager.GetCVar(CCVars.DebugQuickInspect);
-            _conHost.ExecuteCommand($"vv /c/entity/{uid}/{component}");
             return true;
         }
 

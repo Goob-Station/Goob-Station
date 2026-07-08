@@ -1,8 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+
     <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
         <RootNamespace>Content.ModuleManager</RootNamespace>
     </PropertyGroup>
 
-    <Import Project="../RobustToolbox/MSBuild/Robust.Properties.targets" />
+
 </Project>

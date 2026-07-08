@@ -28,7 +28,6 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using System.Numerics;
-using Content.Shared.Movement.Events;
 
 namespace Content.Goobstation.Shared.Sprinting;
 public abstract class SharedSprintingSystem : EntitySystem
@@ -86,7 +85,7 @@ public abstract class SharedSprintingSystem : EntitySystem
         base.Update(frameTime);
 
         // We dont add it to the EQE since the comp might get added as this runs.
-        var query = EntityQueryEnumerator<SprinterComponent, StaminaModifierStatusEffectComponent>();
+        var query = EntityQueryEnumerator<SprinterComponent, StaminaModifierComponent>();
         while (query.MoveNext(out var uid, out var sprinterComp, out var staminaComp))
         {
             if (!sprinterComp.IsSprinting
@@ -190,7 +189,7 @@ public abstract class SharedSprintingSystem : EntitySystem
 
     private void OnStandingStateSprintAttempt(EntityUid uid, StandingStateComponent component, ref SprintAttemptEvent args)
     {
-        if (!_standing.IsDown(uid))
+        if (!_standing.IsDown(uid, component))
             return;
 
         _popupSystem.PopupClient(Loc.GetString("no-sprint-while-lying"), uid, uid, PopupType.Medium);
@@ -286,7 +285,7 @@ public abstract class SharedSprintingSystem : EntitySystem
         if (!sprinter.IsSprinting)
             return;
 
-        _staminaSystem.TakeStaminaDamage(uid, sprinter.StaminaPenaltyOnShove, logDamage: false);
+        _staminaSystem.TakeStaminaDamage(uid, sprinter.StaminaPenaltyOnShove, applyResistances: true, logDamage: false);
         ToggleSprint(uid, sprinter, false, gracefulStop: true);
     }
 

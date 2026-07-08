@@ -6,10 +6,9 @@
   name: thruster crate
   description: Contains a thruster flatpack.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage:
-        id: ThrusterFlatpack
+  - type: StorageFill
+    contents:
+      - id: ThrusterFlatpack
 
 - type: entity
   parent: CrateEngineering
@@ -17,7 +16,6 @@
   name: gyroscope crate
   description: Contains a gyroscope flatpack.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage:
-        id: GyroscopeFlatpack
+  - type: StorageFill
+    contents:
+      - id: GyroscopeFlatpack

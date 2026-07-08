@@ -253,7 +253,7 @@
   description: A severely disfigured human torso which is forcibly kept alive by the mechanical parts...
   components:
   - type: MindContainer
-  - type: MindExaminable
+    showExamineInfo: true
   - type: SpamEmitSound
     minInterval: 5
     maxInterval: 25
@@ -323,7 +323,7 @@
         maxDistance: 12
         variation: 0.01
   - type: MindContainer
-  - type: MindExaminable
+    showExamineInfo: true
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
@@ -407,7 +407,7 @@
     damageContainer: Biological
     damageModifierSet: Bingle
   - type: MindContainer
-  - type: MindExaminable
+    showExamineInfo: true
   - type: MobState
   - type: MobThresholds
     thresholds:

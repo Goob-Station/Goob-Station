@@ -21,8 +21,7 @@
     sprite: _Goobstation/Objects/Consumable/Smokeables/Cigarettes/Packs/chem.rsi
   - type: Item
     sprite: _Goobstation/Objects/Consumable/Smokeables/Cigarettes/Packs/chem.rsi
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: CigaretteMedical
-        amount: 10
+  - type: StorageFill
+    contents:
+    - id: CigaretteMedical
+      amount: 10

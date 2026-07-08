@@ -75,7 +75,6 @@ public sealed partial class TimerTriggerComponent : Component
 
     /// <summary>
     /// The entity that activated this trigger.
-    /// TODO: use WeakEntityReference once the engine PR is merged!
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityUid? User;

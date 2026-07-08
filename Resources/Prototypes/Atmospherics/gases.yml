@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: gas
-  id: Oxygen
+  id: 0
   name: gases-oxygen
   specificHeat: 20
   heatCapacityRatio: 1.4
@@ -11,7 +11,7 @@
   pricePerMole: 0
 
 - type: gas
-  id: Nitrogen
+  id: 1
   name: gases-nitrogen
   specificHeat: 30
   heatCapacityRatio: 1.4
@@ -21,7 +21,7 @@
   pricePerMole: 0
 
 - type: gas
-  id: CarbonDioxide
+  id: 2
   name: gases-co2
   specificHeat: 30
   heatCapacityRatio: 1.3
@@ -31,7 +31,7 @@
   pricePerMole: 0
 
 - type: gas
-  id: Plasma
+  id: 3
   name: gases-plasma
   specificHeat: 200
   heatCapacityRatio: 1.7
@@ -43,7 +43,7 @@
   pricePerMole: 0
 
 - type: gas
-  id: Tritium
+  id: 4
   name: gases-tritium
   specificHeat: 10
   heatCapacityRatio: 1.3
@@ -55,7 +55,7 @@
   pricePerMole: 2.5
 
 - type: gas
-  id: WaterVapor
+  id: 5
   name: gases-water-vapor
   specificHeat: 40
   heatCapacityRatio: 1.33
@@ -67,7 +67,7 @@
   pricePerMole: 0
 
 - type: gas
-  id: Ammonia
+  id: 6
   name: gases-ammonia
   specificHeat: 20
   heatCapacityRatio: 1.4
@@ -81,7 +81,7 @@
   pricePerMole: 1 # Goobstation - Gas Prices
 
 - type: gas
-  id: NitrousOxide
+  id: 7
   name: gases-n2o
   specificHeat: 40
   heatCapacityRatio: 1.3
@@ -91,7 +91,7 @@
   pricePerMole: 0.1 # Goobstation - Gas Prices
 
 - type: gas
-  id: Frezon
+  id: 8
   name: gases-frezon
   specificHeat: 600 # Strongest by far
   heatCapacityRatio: 1.33

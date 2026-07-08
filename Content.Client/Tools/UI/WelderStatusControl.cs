@@ -22,7 +22,7 @@ public sealed class WelderStatusControl : PollingItemStatusControl<WelderStatusC
         _parent = parent;
         _entityManager = entityManager;
         _toolSystem = toolSystem;
-        _label = new RichTextLabel { StyleClasses = { StyleClass.ItemStatus } };
+        _label = new RichTextLabel { StyleClasses = { StyleNano.StyleClassItemStatus } };
         AddChild(_label);
 
         UpdateDraw();

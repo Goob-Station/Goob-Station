@@ -1,7 +1,5 @@
 // SPDX-License-Identifier: MIT
 
-using Content.Shared.Atmos.Prototypes;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Atmos.Piping.Trinary.Components
@@ -52,8 +50,13 @@ namespace Content.Shared.Atmos.Piping.Trinary.Components
     }
 
     [Serializable, NetSerializable]
-    public sealed class GasFilterSelectGasMessage(Gas? gas) : BoundUserInterfaceMessage
+    public sealed class GasFilterSelectGasMessage : BoundUserInterfaceMessage
     {
-        public readonly Gas? Gas = gas;
+        public int? ID { get; }
+
+        public GasFilterSelectGasMessage(int? id)
+        {
+            ID = id;
+        }
     }
 }

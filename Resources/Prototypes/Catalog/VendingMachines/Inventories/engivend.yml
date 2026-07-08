@@ -4,7 +4,7 @@
   id: EngiVendInventory
   startingInventory:
     ClothingEyesGlassesMeson: 4
-    ClothingEyesHudDiagnostic: 4
+    ClothingEyesHudDiagnostic: 8 # Goob - TODO; Give more engi usees for these - also we add more cause engi dont spawn with these
     ClothingHeadHatWelding: 6
     CrowbarYellow: 8
     Multitool: 4

@@ -2,14 +2,6 @@
 
 - type: entity
   parent: ClothingNeckBase
-  id: ClothingNeckTieBase
-  abstract: true
-  components:
-  - type: Item
-    storedRotation: -45
-
-- type: entity
-  parent: ClothingNeckTieBase
   id: ClothingNeckTieRed
   name: red-tie
   description: A neosilk clip-on red tie.
@@ -26,10 +18,10 @@
     - Recyclable
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Cloth: 25
+      Cloth: 25  
 
 - type: entity
-  parent: ClothingNeckTieBase
+  parent: ClothingNeckTieRed
   id: ClothingNeckTieDet
   name: detective's tie
   description: A loosely tied necktie, a perfect accessory for the over-worked detective.
@@ -38,9 +30,9 @@
     sprite: Clothing/Neck/Ties/dettie.rsi
   - type: Clothing
     sprite: Clothing/Neck/Ties/dettie.rsi
-
+    
 - type: entity
-  parent: ClothingNeckTieBase
+  parent: ClothingNeckTieRed
   id: ClothingNeckTieSci
   name: scientist's tie
   description: Why do we all have to wear these ridiculous ties?

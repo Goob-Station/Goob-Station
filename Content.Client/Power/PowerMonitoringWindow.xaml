@@ -71,11 +71,11 @@ SPDX-License-Identifier: MIT
 
                 <!-- Power overview -->
                 <GridContainer Columns="2">
-                    <Label StyleClasses="highlight" Text="{Loc 'power-monitoring-window-total-sources'}"/>
+                    <Label StyleClasses="StatusFieldTitle" Text="{Loc 'power-monitoring-window-total-sources'}"/>
                     <Label Name="TotalSources" Text="?" Margin="10 0 0 0"/>
-                    <Label StyleClasses="highlight" Text="{Loc 'power-monitoring-window-total-battery-usage'}"/>
+                    <Label StyleClasses="StatusFieldTitle" Text="{Loc 'power-monitoring-window-total-battery-usage'}"/>
                     <Label Name="TotalBatteryUsage" Text="?" Margin="10 0 0 0"/>
-                    <Label StyleClasses="highlight" Text="{Loc 'power-monitoring-window-total-loads'}"/>
+                    <Label StyleClasses="StatusFieldTitle" Text="{Loc 'power-monitoring-window-total-loads'}"/>
                     <Label Name="TotalLoads" Text="?" Margin="10 0 0 0"/>
                 </GridContainer>
 

@@ -22,7 +22,6 @@ public abstract class SharedMonumentSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedCosmicCultSystem _cosmicCult = default!;
-    [Dependency] private readonly SharedCosmicGlyphSystem _glyph = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
 
@@ -107,7 +106,8 @@ public abstract class SharedMonumentSystem : EntitySystem
         var localTile = _map.GetTileRef(xform.GridUid.Value, grid, xform.Coordinates);
         var targetIndices = localTile.GridIndices + new Vector2i(0, -1);
 
-        if (ent.Comp.CurrentGlyph is { } curGlyph) _glyph.EraseGlyph(curGlyph);
+        if (ent.Comp.CurrentGlyph is not null)
+            QueueDel(ent.Comp.CurrentGlyph);
 
         var glyphEnt = Spawn(proto.Entity, _map.ToCenterCoordinates(xform.GridUid.Value, targetIndices, grid));
         var glyphComp = AddComp<MonumentGlyphComponent>(glyphEnt);
@@ -121,7 +121,8 @@ public abstract class SharedMonumentSystem : EntitySystem
 
     private void OnGlyphRemove(Entity<MonumentComponent> ent, ref GlyphRemovedMessage args)
     {
-        if (ent.Comp.CurrentGlyph is { } curGlyph) _glyph.EraseGlyph(curGlyph);
+        if (ent.Comp.CurrentGlyph is not null)
+            QueueDel(ent.Comp.CurrentGlyph);
 
         _ui.SetUiState(ent.Owner, MonumentKey.Key, new MonumentBuiState(ent.Comp));
     }

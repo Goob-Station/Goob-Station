@@ -4,6 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Antag.Components;
 using Content.Server.GameTicking.Rules.Components;
+using Content.Server.Objectives;
 using Content.Shared.Antag;
 using Content.Shared.Chat;
 using Content.Shared.GameTicking.Components;
@@ -178,37 +179,33 @@ public sealed partial class AntagSelectionSystem
     }
 
     /// <summary>
-    /// Checks if a given session has enabled the antag preferences for a given definition,
-    /// and if it is blocked by any requirements or bans.
+    /// Checks if a given session has the primary antag preferences for a given definition
     /// </summary>
-    /// <returns>Returns true if at least one role from the provided list passes every condition</returns>>
-    public bool ValidAntagPreference(ICommonSession? session, List<ProtoId<AntagPrototype>> roles)
+    public bool HasPrimaryAntagPreference(ICommonSession? session, AntagSelectionDefinition def)
     {
         if (session == null)
             return true;
 
-        if (roles.Count == 0)
+        if (def.PrefRoles.Count == 0)
             return false;
 
-        if (!_pref.TryGetCachedPreferences(session.UserId, out var pref))
+        var pref = (HumanoidCharacterProfile) _pref.GetPreferences(session.UserId).SelectedCharacter;
+        return pref.AntagPreferences.Any(p => def.PrefRoles.Contains(p));
+    }
+
+    /// <summary>
+    /// Checks if a given session has the fallback antag preferences for a given definition
+    /// </summary>
+    public bool HasFallbackAntagPreference(ICommonSession? session, AntagSelectionDefinition def)
+    {
+        if (session == null)
+            return true;
+
+        if (def.FallbackRoles.Count == 0)
             return false;
 
-        var character = (HumanoidCharacterProfile) pref.SelectedCharacter;
-
-        var valid = false;
-
-        // Check each individual antag role
-        foreach (var role in roles)
-        {
-            var list = new List<ProtoId<AntagPrototype>>{role};
-
-            if (character.AntagPreferences.Contains(role)
-                && !_ban.IsRoleBanned(session, list)
-                && _playTime.IsAllowed(session, list))
-                valid = true;
-        }
-
-        return valid;
+        var pref = (HumanoidCharacterProfile) _pref.GetPreferences(session.UserId).SelectedCharacter;
+        return pref.AntagPreferences.Any(p => def.FallbackRoles.Contains(p));
     }
 
     /// <summary>

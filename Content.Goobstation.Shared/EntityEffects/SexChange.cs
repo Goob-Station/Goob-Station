@@ -8,35 +8,34 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.EntityEffects;
 
-public sealed partial class SexChangeSystem : EntityEffectSystem<HumanoidAppearanceComponent, SexChange>
-{
-    [Dependency] private readonly SharedGoobHumanoidAppearanceSystem _goobHumanoid = default!;
-    [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoid = default!;
-
-    protected override void Effect(Entity<HumanoidAppearanceComponent> entity, ref EntityEffectEvent<SexChange> args)
-    {
-        var uid = entity.Owner;
-        var newSex = args.Effect.NewSex;
-
-        if (newSex.HasValue)
-        {
-            _humanoid.SetSex(uid, newSex.Value);
-            return;
-        }
-
-        if (entity.Comp.Sex != Sex.Unsexed)
-            _goobHumanoid.SwapSex(uid);
-    }
-}
-
 [UsedImplicitly]
-public sealed partial class SexChange : EntityEffectBase<SexChange>
+public sealed partial class SexChange : EntityEffect
 {
     /// <summary>
     ///     What sex is the consumer changed to? If not set then swap between male/female.
     /// </summary>
     [DataField] public Sex? NewSex;
 
-    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => Loc.GetString("reagent-effect-guidebook-sex-change", ("chance", Probability));
+
+    public override void Effect(EntityEffectBaseArgs args)
+    {
+        if (!args.EntityManager.TryGetComponent<HumanoidAppearanceComponent>(args.TargetEntity, out var appearance))
+            return;
+
+        var uid = args.TargetEntity;
+        var newSex = NewSex;
+        var goobHumanoidAppearanceSystem = args.EntityManager.System<SharedGoobHumanoidAppearanceSystem>();
+        var humanoidAppearanceSystem = args.EntityManager.System<SharedHumanoidAppearanceSystem>();
+
+        if (newSex.HasValue)
+        {
+            humanoidAppearanceSystem.SetSex(uid, newSex.Value);
+            return;
+        }
+
+        if (appearance.Sex != Sex.Unsexed)
+            goobHumanoidAppearanceSystem.SwapSex(uid);
+    }
 }

@@ -55,8 +55,8 @@ public sealed partial class PowerMonitoringWindow
             // Selection action
             windowEntry.Button.OnButtonUp += args =>
             {
-                windowEntry.SourcesContainer.RemoveAllChildren();
-                windowEntry.LoadsContainer.RemoveAllChildren();
+                windowEntry.SourcesContainer.DisposeAllChildren();
+                windowEntry.LoadsContainer.DisposeAllChildren();
                 ButtonAction(windowEntry, masterContainer);
             };
         }
@@ -87,10 +87,10 @@ public sealed partial class PowerMonitoringWindow
 
         // Update button style
         if (netEntity == _focusEntity)
-            button.AddStyleClass(StyleClass.Positive);
+            button.AddStyleClass(StyleNano.StyleClassButtonColorGreen);
 
         else
-            button.RemoveStyleClass(StyleClass.Positive);
+            button.RemoveStyleClass(StyleNano.StyleClassButtonColorGreen);
 
         // Update sprite
         if (entry.MetaData.Value.SpritePath != string.Empty && entry.MetaData.Value.SpriteState != string.Empty)
@@ -187,7 +187,7 @@ public sealed partial class PowerMonitoringWindow
         // Toggle off button?
         if (entry.NetEntity == _focusEntity)
         {
-            entry.Button.RemoveStyleClass(StyleClass.Positive);
+            entry.Button.RemoveStyleClass(StyleNano.StyleClassButtonColorGreen);
             _focusEntity = null;
 
             // Request an update from the power monitoring system
@@ -197,7 +197,7 @@ public sealed partial class PowerMonitoringWindow
         }
 
         // Otherwise, toggle on
-        entry.Button.AddStyleClass(StyleClass.Positive);
+        entry.Button.AddStyleClass(StyleNano.StyleClassButtonColorGreen);
 
         ActivateAutoScrollToFocus();
 
@@ -208,7 +208,7 @@ public sealed partial class PowerMonitoringWindow
             {
                 if (sibling.NetEntity == _focusEntity)
                 {
-                    sibling.Button.RemoveStyleClass(StyleClass.Positive);
+                    sibling.Button.RemoveStyleClass(StyleNano.StyleClassButtonColorGreen);
                     break;
                 }
             }

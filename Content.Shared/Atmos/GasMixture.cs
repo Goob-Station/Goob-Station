@@ -22,7 +22,7 @@ namespace Content.Shared.Atmos
 
         // No access, to ensure immutable mixtures are never accidentally mutated.
         [Access(typeof(SharedAtmosphereSystem), typeof(SharedAtmosDebugOverlaySystem), typeof(GasEnumerator), Other = AccessPermissions.None)]
-        [DataField(customTypeSerializer: typeof(GasArraySerializer))]
+        [DataField]
         public float[] Moles = new float[Atmospherics.AdjustedNumberOfGases];
 
         public float this[int gas] => Moles[gas];

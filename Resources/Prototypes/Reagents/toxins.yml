@@ -8,7 +8,6 @@
   flavor: bitter
   color: "#cf3600"
   physicalDesc: reagent-physical-desc-opaque
-  contrabandSeverity: Minor
   plantMetabolism:
   - !type:PlantAdjustToxins
     amount: 10
@@ -19,9 +18,9 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [Yowie]
-          inverted: true
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         damage:
           types:
             Poison: 4
@@ -34,8 +33,6 @@
   flavor: bitter
   color: "#e2a38c"
   physicalDesc: reagent-physical-desc-exotic-smelling
-  allowedDepartments:
-  - Medical
   plantMetabolism:
   - !type:PlantAdjustToxins
     amount: 10
@@ -46,17 +43,17 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
-          inverted: true
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         damage:
           types:
             Poison: 4
       - !type:PopupMessage
         conditions:
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
-          inverted: true
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-burning-insides" ]
@@ -70,8 +67,6 @@
   flavor: bitter
   color: "#000067"
   physicalDesc: reagent-physical-desc-nondescript
-  allowedDepartments:
-  - Medical
   metabolisms:
     Poison:
       effects:
@@ -79,29 +74,30 @@
         emote: Yawn
         showInChat: true
         probability: 0.1
-      - !type:MovementSpeedModifier
+      - !type:MovespeedModifier
         conditions:
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
-          inverted: true
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
       - !type:ModifyStatusEffect
         conditions:
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
-          inverted: true
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         effectProto: StatusEffectDrowsiness
         time: 4
-        type: Update
+        type: Add
+        refresh: false
       - !type:HealthChange
         conditions:
-        - !type:ReagentCondition
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        - !type:ReagentThreshold
           reagent: ChloralHydrate
           min: 20
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
-          inverted: true
         damage:
           types:
             Poison: 1.5
@@ -119,20 +115,19 @@
       effects:
         - !type:HealthChange
           conditions:
-          - !type:MetabolizerTypeCondition # Goobstation - Yowie
-            type: [ Yowie ]
-            inverted: true
+          - !type:OrganType # Goobstation - Yowie
+            type: Yowie
+            shouldHave: false
           damage:
             types:
               Poison: 2
-        - !type:Vomit
+        - !type:ChemVomit
           conditions:
-          - !type:ReagentCondition
-            reagent: GastroToxin
+          - !type:OrganType # Goobstation - Yowie
+            type: Yowie
+            shouldHave: false
+          - !type:ReagentThreshold
             min: 2
-          - !type:MetabolizerTypeCondition # Goobstation - Yowie
-            type: [ Yowie ]
-            inverted: true
           probability: 0.2
 
 - type: reagent
@@ -149,9 +144,9 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
-          inverted: true
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         damage:
           types:
             Poison: 1
@@ -162,7 +157,6 @@
   group: Toxins
   desc: reagent-desc-polytrinic-acid
   physicalDesc: reagent-physical-desc-strong-smelling
-  contrabandSeverity: Major
   flavor: acid
   color: "#a1000b"
   boilingPoint: 78.2 # This isn't a real chemical...
@@ -179,6 +173,7 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
+        scaleByQuantity: true
         ignoreResistances: false
         damage:
           types:
@@ -217,6 +212,7 @@
       - !type:SatiateThirst
         factor: -1.5
       - !type:HealthChange
+        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
@@ -229,7 +225,6 @@
   group: Toxins
   desc: reagent-desc-fluorosulfuric-acid
   physicalDesc: reagent-physical-desc-strong-smelling
-  contrabandSeverity: Minor
   flavor: acid
   color: "#5050ff"
   boilingPoint: 165
@@ -239,6 +234,7 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
+        scaleByQuantity: true
         ignoreResistances: false
         damage:
           types:
@@ -269,8 +265,6 @@
   group: Toxins
   desc: reagent-desc-sulfuric-acid
   physicalDesc: reagent-physical-desc-oily
-  allowedJobs:
-  - Chemist
   flavor: acid
   color: "#BF8C00"
   recognizable: true
@@ -288,6 +282,7 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
+        scaleByQuantity: true
         ignoreResistances: false
         damage:
           types:
@@ -318,9 +313,6 @@
   group: Toxins
   desc: reagent-desc-unstable-mutagen
   physicalDesc: reagent-physical-desc-glowing
-  allowedJobs:
-  - Chemist
-  - Botanist
   flavor: bitter
   color: "#00ff5f"
   boilingPoint: 340282300000000000000000000000000000000 # Ethidium bromide, which doesn't boil.
@@ -346,16 +338,15 @@
   group: Toxins
   desc: reagent-desc-heartbreaker-toxin
   physicalDesc: reagent-physical-desc-strong-smelling
-  contrabandSeverity: Major
   color: "#5f959c"
   metabolisms:
     Poison:
       effects:
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
-          inverted: true
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         damage:
           types:
             Asphyxiation: 5
@@ -369,7 +360,6 @@
   group: Toxins
   desc: reagent-desc-lexorin
   physicalDesc: reagent-physical-desc-pungent
-  contrabandSeverity: Syndicate
   color: "#6b0007"
   metabolisms:
     Poison:
@@ -397,6 +387,7 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 10
+        refresh: false
   # TODO: PROPER hallucinations
 
 - type: reagent
@@ -417,12 +408,11 @@
       # todo: cough, sneeze
       - !type:HealthChange
         conditions:
-        - !type:ReagentCondition
-          reagent: Histamine
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        - !type:ReagentThreshold
           min: 45
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
-          inverted: true
         damage:
           groups:
             Brute: 2
@@ -435,8 +425,7 @@
         probability: 0.1
       - !type:PopupMessage
         conditions:
-        - !type:ReagentCondition
-          reagent: Histamine
+        - !type:ReagentThreshold
           min: 45
         type: Local
         visualType: Medium
@@ -458,16 +447,16 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [Animal] # Applying damage to the mobs with lower metabolism capabilities
+        - !type:OrganType
+          type: Animal # Applying damage to the mobs with lower metabolism capabilities
         damage:
           types:
             Poison: 0.4
-      - !type:Vomit
+      - !type:ChemVomit
         probability: 0.04 #Scaled for time, not metabolismrate.
         conditions:
-          - !type:MetabolizerTypeCondition
-            type: [Animal]
+          - !type:OrganType
+            type: Animal
 
 - type: reagent
   id: Amatoxin
@@ -475,7 +464,6 @@
   group: Toxins
   desc: reagent-desc-amatoxin
   physicalDesc: reagent-physical-desc-nondescript
-  contrabandSeverity: Major
   color: "#D6CE7B"
   metabolisms:
     Poison:
@@ -483,9 +471,9 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
-          inverted: true
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         damage:
           types:
             Poison: 3
@@ -503,11 +491,12 @@
       effects:
         - !type:HealthChange
           conditions:
-          - !type:MetabolizerTypeCondition
-            type:
-            - Yowie # Goobstation - Yowie
-            - Vox # Goob, Vox are stinky
-            inverted: true
+          - !type:OrganType # Goobstation - Yowie
+            type: Yowie
+            shouldHave: false
+          - !type:OrganType # Goob, Vox are stinky
+            type: Vox
+            shouldHave: false
           damage:
             types:
               Poison: 2
@@ -515,9 +504,9 @@
      effects:
       - !type:SatiateHunger
         conditions:
-        - !type:MetabolizerTypeCondition # Goobstation - Vox
-          type: [ Vox ]
-          inverted: true
+        - !type:OrganType # Goob, Vox are stinky
+          type: Vox
+          shouldHave: true
 
 - type: reagent
   id: Romerol
@@ -525,7 +514,6 @@
   group: Toxins
   desc: reagent-desc-romerol
   physicalDesc: reagent-physical-desc-necrotic
-  contrabandSeverity: Syndicate
   flavor: bitter
   color: "#7e916e"
   worksOnTheDead: true
@@ -534,8 +522,7 @@
       effects:
         - !type:CauseZombieInfection
           conditions:
-            - !type:ReagentCondition
-              reagent: Romerol
+            - !type:ReagentThreshold
               min: 5
 
 - type: reagent
@@ -551,74 +538,85 @@
       effects:
       - !type:PopupMessage
         conditions:
-        - !type:MetabolizerTypeCondition
-          type:
-          - Animal
-          - Vox
-          - Yowie # Goobstation - Yowie
-          - XenobioSlime # Goobstation - XenobioSlime
-          - Hydrakin # Fuck you
-          inverted: true
+          - !type:OrganType
+            type: Animal
+            shouldHave: false
+          - !type:OrganType # Mono - Hydrakin
+            type: Hydrakin
+            shouldHave: false
+          - !type:OrganType
+            type: Vox
+            shouldHave: false
+          - !type:OrganType # Goobstation - Yowie
+            type: Yowie
+            shouldHave: false
+          - !type:OrganType # Goobstation - XenobioSlime
+            type: XenobioSlime
+            shouldHave: false
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-sick" ]
         probability: 0.5
-      - !type:Vomit
+      - !type:ChemVomit
         probability: 0.1
         conditions:
-        - !type:MetabolizerTypeCondition
-          type:
-          - Animal
-          - Vox
-          - Plant
-          - Yowie # Goobstation - Yowie
-          - XenobioSlime # Goobstation - XenobioSlime
-          - Hydrakin # Fuck you
-          inverted: true
+          - !type:OrganType
+            type: Animal
+            shouldHave: false
+          - !type:OrganType # Mono - Hydrakin
+            type: Hydrakin
+            shouldHave: false
+          - !type:OrganType
+            type: Vox
+            shouldHave: false
+          - !type:OrganType # Goobstation - Yowie
+            type: Yowie
+            shouldHave: false
+          - !type:OrganType # Goobstation - XenobioSlime
+            type: XenobioSlime # slimes shouldn't vomit from blood and raw meat
+            shouldHave: false
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition
-          type:
-          - Animal
-          - Vox
-          - Plant
-          - Yowie # Goobstation - Yowie
-          - XenobioSlime # Goobstation - XenobioSlime
-          - Hydrakin # Fuck you
-          inverted: true
+        - !type:OrganType
+          type: Animal
+          shouldHave: false
+        - !type:OrganType # Mono - Hydrakin
+          type: Hydrakin
+          shouldHave: false
+        - !type:OrganType
+          type: Vox
+          shouldHave: false
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        - !type:OrganType # Goobstation - XenobioSlime
+          type: XenobioSlime
+          shouldHave: false
         damage:
           types:
             Poison: 1
-      - !type:HealthChange
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Plant ]
-        damage:
-          types:
-            Poison: .25
       - !type:AdjustReagent
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Animal ]
+        - !type:OrganType
+          type: Animal
         reagent: Protein
         amount: 0.5
       - !type:AdjustReagent # Goobstation - XenobioSlime
         conditions:
-        - !type:MetabolizerTypeCondition # Goobstation - XenobioSlime
-          type: [ XenobioSlime ]
+        - !type:OrganType
+          type: XenobioSlime
         reagent: Protein
         amount: 0.5
       - !type:AdjustReagent # Mono - Hydrakin
         conditions:
-        - !type:MetabolizerTypeCondition
-          type:
-          - Hydrakin # Go fuck yourself
+        - !type:OrganType
+          type: Hydrakin
         reagent: Protein
         amount: 0.5
       - !type:AdjustReagent
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Vox ]
+        - !type:OrganType
+          type: Vox
         reagent: Protein
         amount: 0.25
 
@@ -642,11 +640,10 @@
 #      effects: Goobstation end
       - !type:HealthChange
         conditions:
-        - !type:ReagentCondition
-          reagent: Allicin
+        - !type:ReagentThreshold
           min: 1
-        - !type:MetabolizerTypeCondition
-          type: [Animal]
+        - !type:OrganType
+          type: Animal
         damage:
           types:
             Poison: 0.1 #goobstation, was 0.06
@@ -657,9 +654,6 @@
   group: Narcotics
   desc: reagent-desc-pax
   physicalDesc: reagent-physical-desc-soothing
-  allowedDepartments:
-  - Security
-  - Medical
   color: "#AAAAAA"
   metabolisms:
     Poison:
@@ -667,6 +661,7 @@
       - !type:GenericStatusEffect
         key: Pacified
         component: Pacified
+        type: Add
         time: 4
       - !type:ImmunityModifier #Goobstation
         gainRateModifier: -0.00111111111111 #double spaceacilin penalty
@@ -688,8 +683,7 @@
       - !type:SpeciesChange
         newSpecies: BananaMen
         conditions:
-        - !type:ReagentCondition
-          reagent: Honk
+        - !type:ReagentThreshold
           min: 30
       - !type:Emote
         emote: Honk
@@ -699,11 +693,10 @@
         probability: 0.2
       - !type:HealthChange
         conditions:
-        - !type:ReagentCondition
-          reagent: Honk
+        - !type:ReagentThreshold
           min: 1
-        - !type:MetabolizerTypeCondition
-          type: [ Animal ]
+        - !type:OrganType
+          type: Animal
         damage:
           types:
             Poison: 0.06
@@ -715,7 +708,6 @@
   group: Toxins
   desc: reagent-desc-lead
   physicalDesc: reagent-physical-desc-metallic
-  contrabandSeverity: Major
   color: "#5C6274"
   metabolisms:
     Poison:
@@ -723,9 +715,9 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
-          inverted: true
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         damage:
           types:
             Poison: 0.6 # Makes it 20 damage per unit.
@@ -736,7 +728,6 @@
   group: Toxins
   desc: reagent-desc-bungotoxin
   physicalDesc: reagent-physical-desc-nondescript
-  contrabandSeverity: Major
   color: "#EBFF8E"
   metabolisms:
     Poison:
@@ -744,9 +735,9 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
-          inverted: true
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         damage:
           types:
             Poison: 1.8
@@ -757,30 +748,23 @@
   group: Toxins
   desc: reagent-desc-vestine
   physicalDesc: reagent-physical-desc-shiny
-  contrabandSeverity: Syndicate
   flavor: medicine
   color: "#435166"
-  plantMetabolism:
-  - !type:PlantMutateChemicals
-    randomPickBotanyReagent: EvilRandomFillSolution
-  - !type:PlantAdjustToxins
-    amount: 10
   metabolisms:
     Poison:
       effects:
       - !type:Jitter
         conditions:
-        - !type:ReagentCondition
-          reagent: Vestine
+        - !type:ReagentThreshold
           min: 5
-      - !type:MovementSpeedModifier
+      - !type:MovespeedModifier
         walkSpeedModifier: 0.8
         sprintSpeedModifier: 0.8
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
-          inverted: true
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         damage:
           groups:
             Airloss: 2
@@ -791,7 +775,6 @@
   group: Toxins
   desc: reagent-desc-tazinide
   physicalDesc: reagent-physical-desc-metallic
-  contrabandSeverity: Syndicate
   flavor: shocking
   color: "#FDD023"
   metabolisms:
@@ -806,8 +789,6 @@
   group: Toxins
   desc: reagent-desc-lipolicide
   physicalDesc: reagent-physical-desc-strong-smelling
-  allowedDepartments:
-  - Medical
   flavor: mothballs #why does weightloss juice taste like mothballs
   color: "#F0FFF0"
   metabolisms:
@@ -815,11 +796,11 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:HungerCondition
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        - !type:Hunger
           max: 50
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
-          inverted: true
         damage:
           types:
             Poison: 2
@@ -842,36 +823,39 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition
-          type:
-          - Arachnid
-          - Yowie # Goobstation - Yowie
-          inverted: true
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        - !type:OrganType
+          type: Arachnid
+          shouldHave: false
         damage:
           types:
             Poison: 1.6
-      - !type:MovementSpeedModifier
+      - !type:MovespeedModifier
         conditions:
-        - !type:ReagentCondition
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        - !type:ReagentThreshold
           reagent: Mechanotoxin
           min: 2
-        - !type:MetabolizerTypeCondition
-          type:
-          - Arachnid
-          - Yowie # Goobstation - Yowie
-          inverted: true
+        - !type:OrganType
+          type: Arachnid
+          shouldHave: false
         walkSpeedModifier: 0.8
         sprintSpeedModifier: 0.8
-      - !type:MovementSpeedModifier
+      - !type:MovespeedModifier
         conditions:
-        - !type:ReagentCondition
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        - !type:ReagentThreshold
           reagent: Mechanotoxin
           min: 4
-        - !type:MetabolizerTypeCondition
-          type:
-          - Arachnid
-          - Yowie # Goobstation - Yowie
-          inverted: true
+        - !type:OrganType
+          type: Arachnid
+          shouldHave: false
         walkSpeedModifier: 0.4
         sprintSpeedModifier: 0.4
 
@@ -888,24 +872,5 @@
       - !type:SatiateHunger
         factor: 1
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [Vox]
-
-- type: reagent
-  id: Hemorrhinol
-  name: reagent-name-hemorrhinol
-  group: Toxins
-  desc: reagent-desc-hemorrhinol
-  physicalDesc: reagent-physical-desc-thin
-  contrabandSeverity: Major
-  flavor: sharp
-  color: "#96424f"
-  metabolisms:
-    Poison:
-      effects:
-      - !type:ModifyStatusEffect
-        effectProto: StatusEffectHemorrhage
-        time: 21 # 7 bleed ticks, you bleed every 3 seconds by default.
-        type: Update
-      - !type:ModifyBleed
-        amount: 0.5
+        - !type:OrganType
+          type: Vox

@@ -36,10 +36,8 @@
       Dead:
         Base: dead
   - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: Nitrogen
-        Quantity: 100
+    bloodMaxVolume: 100
+    bloodReagent: Nitrogen
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
@@ -55,7 +53,7 @@
     baseWalkSpeed: 2
     baseSprintSpeed: 4
   - type: Stamina
-    baseCritThreshold: 120
+    critThreshold: 120
   - type: StaminaDamageOnHit
     damage: 5 # shove (x2 with overtime)
     overtime: 5

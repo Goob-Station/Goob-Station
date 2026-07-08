@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Botany.Components;
+using Content.Server.Kitchen.Components;
 using Content.Server.Popups;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Botany;
@@ -19,7 +20,6 @@ using Content.Goobstation.Common.NTR.Scan;
 using Content.Server.EntityEffects; // Goobstation
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
-using Content.Shared.Kitchen.Components;
 using Content.Shared.EntityEffects;
 
 namespace Content.Server.Botany.Systems;
@@ -35,6 +35,7 @@ public sealed partial class BotanySystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly RandomHelperSystem _randomHelper = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly SharedEntityEffectSystem _effect = default!; // goob edit
 
     public override void Initialize()
     {

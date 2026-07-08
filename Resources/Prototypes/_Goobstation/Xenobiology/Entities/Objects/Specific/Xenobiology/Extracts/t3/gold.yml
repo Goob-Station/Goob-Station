@@ -24,9 +24,10 @@
       - !type:Jitter
         time: 3
         frequency: 20
-      - !type:SpawnEntity
+      - !type:CreateEntityReactionEffect
         entity: RPassiveMobSpawner
         number: 5
+        delay: 3
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
@@ -39,9 +40,10 @@
       - !type:Jitter
         time: 3
         frequency: 20
-      - !type:SpawnEntity
+      - !type:CreateEntityReactionEffect
         entity: RHostileMobSpawner
         number: 5
+        delay: 3
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
@@ -54,9 +56,10 @@
       - !type:Jitter
         time: 3
         frequency: 20
-      - !type:SpawnEntity
+      - !type:CreateEntityReactionEffect
         entity: RNeutralMobSpawner
         number: 5
+        delay: 3
   - type: Tag
     tags:
     - XenobiologyGoldExtract

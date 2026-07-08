@@ -42897,7 +42897,7 @@ entities:
     - type: Transform
       pos: 47.320854,40.58717
       parent: 2
-- proto: Bloodpack
+- proto: Bloodpack10Lingering
   entities:
   - uid: 37024
     components:
@@ -158791,7 +158791,7 @@ entities:
     - type: Transform
       pos: 47.545647,40.521706
       parent: 2
-- proto: Gauze
+- proto: Gauze10Lingering
   entities:
   - uid: 37019
     components:
@@ -174377,7 +174377,7 @@ entities:
     - type: Transform
       pos: 17.644705,33.63328
       parent: 2
-- proto: MachineMaterialSilo
+- proto: MaterialSilo
   entities:
   - uid: 25843
     components:

@@ -10,7 +10,6 @@ using Content.Shared.Implants;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Revolutionary; // GoobStation
 using Content.Shared.Revolutionary.Components;
-using Content.Shared.Roles.Components;
 using Robust.Shared.Containers;
 
 namespace Content.Server.Mindshield;
@@ -32,13 +31,16 @@ public sealed class MindShieldSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<MindShieldImplantComponent, ImplantImplantedEvent>(OnImplantImplanted);
-        SubscribeLocalEvent<MindShieldImplantComponent, ImplantRemovedEvent>(OnImplantRemoved);
+        SubscribeLocalEvent<MindShieldImplantComponent, EntGotRemovedFromContainerMessage>(OnImplantDraw);
     }
 
     private void OnImplantImplanted(Entity<MindShieldImplantComponent> ent, ref ImplantImplantedEvent ev)
     {
-        EnsureComp<MindShieldComponent>(ev.Implanted);
-        MindShieldRemovalCheck(ev.Implanted, ev.Implant);
+        if (ev.Implanted == null)
+            return;
+
+        EnsureComp<MindShieldComponent>(ev.Implanted.Value);
+        MindShieldRemovalCheck(ev.Implanted.Value, ev.Implant);
 
         // GoobStation
         if (!TryComp<CommandStaffComponent>(ev.Implanted, out var commandComp))
@@ -69,9 +71,14 @@ public sealed class MindShieldSystem : EntitySystem
             RemComp<Goobstation.Shared.Mindcontrol.MindcontrolledComponent>(implanted);
     }
 
-    private void OnImplantRemoved(Entity<MindShieldImplantComponent> ent, ref ImplantRemovedEvent args)
+    private void OnImplantDraw(Entity<MindShieldImplantComponent> ent, ref EntGotRemovedFromContainerMessage args)
     {
-        RemComp<MindShieldComponent>(args.Implanted);
+        _popupSystem.PopupEntity(Loc.GetString("mindshield-implant-effect-removed"), args.Container.Owner, args.Container.Owner);
+
+        if (TryComp<HeadRevolutionaryComponent>(args.Container.Owner, out var headRevComp))
+            _revolutionarySystem.ToggleConvertAbility((args.Container.Owner, headRevComp), true);
+
+        RemComp<MindShieldComponent>(args.Container.Owner);
     }
 }
 

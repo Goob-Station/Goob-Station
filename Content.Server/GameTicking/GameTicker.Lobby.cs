@@ -64,7 +64,7 @@ namespace Content.Server.GameTicking
             {
                 foundOne = true;
                 if (stationNames.Length > 0)
-                    stationNames.Append('\n');
+                        stationNames.Append('\n');
 
                 stationNames.Append(meta.EntityName);
             }
@@ -115,7 +115,7 @@ namespace Content.Server.GameTicking
 
         private TickerLobbyInfoEvent GetInfoMsg()
         {
-            return new(GetInfoText());
+            return new (GetInfoText());
         }
 
         private void UpdateLateJoinStatus()
@@ -185,6 +185,7 @@ namespace Content.Server.GameTicking
                 return;
             }
 
+            var status = ready ? PlayerGameStatus.ReadyToPlay : PlayerGameStatus.NotReadyToPlay;
             _playerGameStatuses[player.UserId] = ready ? PlayerGameStatus.ReadyToPlay : PlayerGameStatus.NotReadyToPlay;
             RaiseNetworkEvent(GetStatusMsg(player), player.Channel);
             // update server info to reflect new ready count

@@ -35,8 +35,8 @@
   result: Dropper
   completetime: 2
   materials:
-    Glass: 50
-    Plastic: 50
+    Glass: 200
+    Plastic: 100
 
 - type: latheRecipe
   id: Syringe
@@ -79,7 +79,7 @@
   result: ChemistryEmptyBottle01
   completetime: 2
   materials:
-    Glass: 100
+    Glass: 50
 
 - type: latheRecipe
   id: Vape
@@ -93,16 +93,8 @@
     Steel: 250
 
 - type: latheRecipe
-  id: ChemistryEmptyVial
-  result: ChemistryEmptyVial
-  completetime: 2
-  materials:
-    Glass: 100
-    Wood: 20
-
-- type: latheRecipe
-  id: ChemistryEmptyVialSmall
-  result: ChemistryEmptyVialSmall
+  id: BaseChemistryEmptyVial
+  result: BaseChemistryEmptyVial
   completetime: 2
   materials:
     Glass: 50

@@ -53,6 +53,7 @@
             - MagazineLightRifleBox
       gun_chamber:
         name: Chamber
+        startingItem: CartridgeLightRifle
         priority: 1
         whitelist:
           tags:
@@ -145,16 +146,12 @@
     - type: ContainerContainer
       containers:
         ballistic-ammo: !type:Container
-    - type: BallisticAmmoProvider
-      whitelist:
-        tags:
-        - CartridgeLightRifle
-      capacity: 100
+    - type: ProjectileBatteryAmmoProvider
       proto: CartridgeLightRifle
-      cycleable: false # No synthesizing ammo for your syndicate masters.
-    - type: BallisticAmmoSelfRefiller
-      autoRefillRate: 4s
-      affectedByEmp: true
+      fireCost: 100
+    - type: Battery
+      maxCharge: 10000
+      startingCharge: 10000
     - type: RestrictGunshotsByUserTag # Goobstation
       doesntContain:
       - Oni
@@ -162,4 +159,7 @@
       - oni-cannot-shoot-guns-1
       - oni-cannot-shoot-guns-2
       - oni-cannot-shoot-guns-3
+    - type: BatterySelfRecharger
+      autoRecharge: true
+      autoRechargeRate: 25
     - type: AmmoCounter

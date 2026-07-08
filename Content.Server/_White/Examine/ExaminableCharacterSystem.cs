@@ -1,12 +1,13 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Chat.Managers;
-using Content.Shared.IdentityManagement;
+using Content.Server.IdentityManagement;
 using Content.Goobstation.Common.Examine; // Goobstation Change
 using Content.Goobstation.Common.CCVar; // Goobstation Change
 using Content.Shared._Goobstation.Heretic.Components; // Goobstation Change
 using Content.Shared.Chat;
 using Content.Shared.Examine;
+using Content.Shared._White.Examine;
 using Content.Shared.Inventory;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
@@ -22,8 +23,6 @@ public sealed class ExaminableCharacterSystem : EntitySystem
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly INetConfigurationManager _netConfigManager = default!;
 
-    private List<string> _logLines = new();
-
     public override void Initialize()
     {
         SubscribeLocalEvent<ExaminableCharacterComponent, ExaminedEvent>(HandleExamine);
@@ -36,10 +35,11 @@ public sealed class ExaminableCharacterSystem : EntitySystem
             || !args.IsInDetailsRange)
             return;
 
-        var showExamine =
-            _netConfigManager.GetClientCVar(actorComponent.PlayerSession.Channel, GoobCVars.DetailedExamine);
+        var showExamine = _netConfigManager.GetClientCVar(actorComponent.PlayerSession.Channel, GoobCVars.DetailedExamine);
 
         var selfaware = args.Examiner == args.Examined;
+        var logLines = new List<string>();
+
         string canseeloc = "examine-can-see";
         string nameloc = "examine-name";
 
@@ -51,8 +51,7 @@ public sealed class ExaminableCharacterSystem : EntitySystem
         var identity = _identitySystem.GetEntityIdentity(uid);
         var name = Loc.GetString(nameloc, ("name", identity));
         var cansee = Loc.GetString(canseeloc, ("ent", uid));
-        _logLines.Clear();
-        _logLines.Add($"[color=DarkGray][font size=10]{cansee}[/font][/color]");
+        logLines.Add($"[color=DarkGray][font size=10]{cansee}[/font][/color]");
 
         var slotLabels = new Dictionary<string, string>
         {
@@ -89,11 +88,10 @@ public sealed class ExaminableCharacterSystem : EntitySystem
             if (_entityManager.TryGetComponent<MetaDataComponent>(slotEntity, out var metaData)
                 && !HasComp<StripMenuInvisibleComponent>(slotEntity))
             {
-                var itemName = FormattedMessage.EscapeText(metaData.EntityName);
-                var itemTex = Loc.GetString(slotLabel, ("item", itemName), ("ent", uid), ("id", GetNetEntity(slotEntity.Value, metaData).Id), ("size", 14));
+                var itemTex = Loc.GetString(slotLabel, ("item", metaData.EntityName), ("ent", uid), ("id", GetNetEntity(slotEntity.Value).Id), ("size", 14));
                 if (showExamine)
-                    args.PushMarkup($"[font size=10]{Loc.GetString(slotLabel, ("item", itemName), ("ent", uid), ("id", "empty"))}[/font]", priority);
-                _logLines.Add($"[color=DarkGray][font size=10]{itemTex}[/font][/color]");
+                    args.PushMarkup($"[font size=10]{Loc.GetString(slotLabel, ("item", metaData.EntityName), ("ent", uid), ("id", "empty"))}[/font]", priority);
+                logLines.Add($"[color=DarkGray][font size=10]{itemTex}[/font][/color]");
                 priority--;
             }
         }
@@ -111,25 +109,25 @@ public sealed class ExaminableCharacterSystem : EntitySystem
                 canseenothingloc += "-selfaware";
 
             var canseenothing = Loc.GetString(canseenothingloc, ("ent", uid));
-            _logLines.Add($"[color=DarkGray][font size=10]{canseenothing}[/font][/color]");
+            logLines.Add($"[color=DarkGray][font size=10]{canseenothing}[/font][/color]");
         }
 
         FormattedMessage message = new();
         message.PushTag(new MarkupNode("examineborder", null, null)); // border
         message.PushNewline();
-        message.AddMarkupPermissive($"[color=DarkGray][font size=11]{name}[/font][/color]");
+        message.AddText($"[color=DarkGray][font size=11]{name}[/font][/color]");
         message.PushNewline();
         AddLine(message);
-        foreach (var line in _logLines)
+        foreach (var line in logLines)
         {
-            message.AddMarkupPermissive(line);
+            message.AddText(line);
             message.PushNewline();
         }
         AddLine(message);
         message.Pop();
         if (showExamine && _netConfigManager.GetClientCVar(actorComponent.PlayerSession.Channel, GoobCVars.LogInChat))
         {
-            _chatManager.ChatMessageToOne(ChatChannel.Emotes, message.ToString(), ToMarkup(message), EntityUid.Invalid, false, actorComponent.PlayerSession.Channel, recordReplay: false, canCoalesce: false); // Goobstation Edit
+            _chatManager.ChatMessageToOne(ChatChannel.Emotes, message.ToString(), message.ToMarkup(), EntityUid.Invalid, false, actorComponent.PlayerSession.Channel, recordReplay: false, canCoalesce: false); // Goobstation Edit
         }
     }
 
@@ -143,6 +141,8 @@ public sealed class ExaminableCharacterSystem : EntitySystem
             && _netConfigManager.GetClientCVar(actorComponent.PlayerSession.Channel, GoobCVars.DetailedExamine)
             && _netConfigManager.GetClientCVar(actorComponent.PlayerSession.Channel, GoobCVars.LogInChat))
         {
+            var logLines = new List<string>();
+
             FormattedMessage message = new();
             message.PushTag(new MarkupNode("examineborder", null, null)); // border
             message.PushNewline();
@@ -151,19 +151,17 @@ public sealed class ExaminableCharacterSystem : EntitySystem
             if (!args.IsSecondaryInfo)
             {
                 TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
-                var name = textInfo.ToTitleCase(metaData.EntityName);
-                name = FormattedMessage.EscapeText(name);
-                var item = Loc.GetString("examine-present-tex", ("name", name), ("id", GetNetEntity(uid, metaData).Id), ("size", 14));
-                message.AddMarkupPermissive($"[color=DarkGray][font size=11]{item}[/font][/color]");
+                var item = Loc.GetString("examine-present-tex", ("name", textInfo.ToTitleCase(metaData.EntityName)), ("id", GetNetEntity(uid).Id), ("size", 14));
+                message.AddText($"[color=DarkGray][font size=11]{item}[/font][/color]");
                 message.PushNewline();
             }
             AddLine(message);
-            message.AddMarkupPermissive($"[font size=10]{args.Message.ToMarkup()}[/font]");
+            message.AddText($"[font size=10]{args.Message}[/font]");
             message.PushNewline();
             AddLine(message);
             message.Pop();
 
-            _chatManager.ChatMessageToOne(ChatChannel.Emotes, message.ToString(), ToMarkup(message), EntityUid.Invalid, false, actorComponent.PlayerSession.Channel, recordReplay: false, canCoalesce: false); // Goobstation Edit
+            _chatManager.ChatMessageToOne(ChatChannel.Emotes, message.ToString(), message.ToMarkup(), EntityUid.Invalid, false, actorComponent.PlayerSession.Channel, recordReplay: false, canCoalesce: false); // Goobstation Edit
         }
     }
 
@@ -173,34 +171,5 @@ public sealed class ExaminableCharacterSystem : EntitySystem
         message.AddText(Loc.GetString("examine-border-line"));
         message.PushNewline();
         message.Pop();
-    }
-
-    // TODO ENGINE: kill this after next engine update
-    // todo marty holy fuck delta
-    private System.Text.StringBuilder _sb = new();
-    private string ToMarkup(FormattedMessage message)
-    {
-        _sb.Clear();
-        foreach (var node in message.Nodes)
-        {
-            if (node.Name is not {} name)
-            {
-                _sb.Append(FormattedMessage.EscapeText(node.Value.StringValue ?? ""));
-                continue;
-            }
-
-            _sb.Append('[');
-            if (node.Closing)
-                _sb.Append('/');
-            _sb.Append(name);
-            _sb.Append(node.Value.ToString().ReplaceLineEndings("\\n"));
-            foreach (var (k, v) in node.Attributes)
-            {
-                _sb.Append($" {k}{v}");
-            }
-
-            _sb.Append(']');
-        }
-        return _sb.ToString();
     }
 }

@@ -30,7 +30,7 @@
   objective: roles-antag-wizard-description
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 35h # 35h
+    time: 126000 # 35h
   - !type:SpeciesRequirement
     inverted: true
     species:

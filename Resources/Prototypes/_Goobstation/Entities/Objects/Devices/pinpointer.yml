@@ -43,7 +43,7 @@
     targetName: artifacts
     whitelist: # Goob edit: pinpointer whitelist
       components:
-      - XenoArtifact
+      - Artifact
 
 - type: entity
   name: borg pinpointer

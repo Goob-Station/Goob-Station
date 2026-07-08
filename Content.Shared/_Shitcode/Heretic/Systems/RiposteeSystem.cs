@@ -135,7 +135,7 @@ public sealed class RiposteeSystem : EntitySystem
                     continue;
             }
 
-            if (!data.CanRiposteWhileProne && _standing.IsDown(ent.Owner))
+            if (!data.CanRiposteWhileProne && _standing.IsDown(ent))
                 continue;
 
             if (data.RiposteChance is > 0f and < 1f)

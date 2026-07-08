@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Power.Components;
-using Content.Shared.Power.Components;
 
 namespace Content.Server.SensorMonitoring;
 

@@ -6,7 +6,7 @@
   description: A diseased looking rat.
   components:
   - type: MindContainer
-  - type: MindExaminable
+    showExamineInfo: true
   - type: CollectiveMind
     defaultChannel: Wraithmind
     channels:

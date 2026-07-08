@@ -7,6 +7,9 @@
   description: sever yer parts a week from now
   suffix: DEBUG
   components:
+  - type: Tag
+    tags:
+      - Debug
   - type: Sprite
     sprite: Objects/Weapons/Melee/debug.rsi
     state: icon
@@ -24,6 +27,9 @@
   parent: MeleeDebugSever
   id: MeleeDebugSever100
   components:
+  - type: Tag
+    tags:
+      - Debug
   - type: MeleeWeapon
     damage:
       types:
@@ -34,6 +40,9 @@
   parent: MeleeDebugSever
   id: MeleeDebugSever200
   components:
+  - type: Tag
+    tags:
+      - Debug
   - type: MeleeWeapon
     damage:
       types:
@@ -46,6 +55,9 @@
   description: burn yer parts
   suffix: DEBUG
   components:
+  - type: Tag
+    tags:
+      - Debug
   - type: Sprite
     sprite: Objects/Weapons/Melee/debug.rsi
     state: icon
@@ -63,6 +75,9 @@
   parent: MeleeDebugBurner
   id: MeleeDebugBurner200
   components:
+  - type: Tag
+    tags:
+      - Debug
   - type: MeleeWeapon
     damage:
       types:

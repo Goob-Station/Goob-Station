@@ -88,11 +88,7 @@ public static class ClientPackaging
             contentAssemblies, // Goob edit
             cancel: cancel);
 
-        await RobustClientPackaging.WriteClientResources(
-            contentDir,
-            inputPass,
-            SharedPackaging.AdditionalIgnoredResources,
-            cancel);
+        await RobustClientPackaging.WriteClientResources(contentDir, inputPass, cancel);
 
         inputPass.InjectFinished();
     }

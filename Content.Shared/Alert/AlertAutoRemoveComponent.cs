@@ -15,7 +15,7 @@ public sealed partial class AlertAutoRemoveComponent : Component
     /// </summary>
     [AutoNetworkedField]
     [DataField]
-    public HashSet<AlertKey> AlertKeys = new();
+    public List<AlertKey> AlertKeys = new();
 
     public override bool SendOnlyToOwner => true;
 }

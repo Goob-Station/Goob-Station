@@ -68,7 +68,7 @@
       toAdd:
       - type: Cluwne
   - type: SpeakOnAction
-    sentence: action-speech-spell-cluwne-goob # Goobstation?
+    sentence: action-speech-spell-cluwne
   - type: Magic
     requiresClothes: true
 
@@ -94,4 +94,4 @@
   - type: SpeakOnAction
     sentence: action-speech-spell-slip
   - type: Magic
-    requiresClothes: false
+    requiresClothes: true

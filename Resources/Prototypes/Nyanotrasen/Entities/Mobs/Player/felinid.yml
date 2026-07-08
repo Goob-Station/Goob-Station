@@ -13,7 +13,7 @@
     interactSuccessSound: /Audio/Effects/thudswoosh.ogg
     messagePerceivedByOthers: hugging-success-generic-others
   - type: MindContainer
-  - type: MindExaminable
+    showExamineInfo: true
   - type: Input
     context: "human"
   - type: Speech
@@ -29,7 +29,7 @@
     - reagents: [ Water, SpaceCleaner ]
       methods: [ Touch ]
       effects:
-      - !type:WashCreamPie
+      - !type:WashCreamPieReaction
     - reagents: [ Water ]
       methods: [ Touch ]
       effects:

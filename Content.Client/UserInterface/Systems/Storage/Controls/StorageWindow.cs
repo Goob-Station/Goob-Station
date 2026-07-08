@@ -113,7 +113,7 @@ public sealed class StorageWindow : BaseWindow
             HorizontalExpand = true,
             Name = "StorageLabel",
             ClipText = true,
-            Text = Loc.GetString("comp-storage-window-dummy"),
+            Text = "Dummy",
             StyleClasses =
             {
                 "FancyWindowTitle",

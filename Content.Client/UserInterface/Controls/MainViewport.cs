@@ -67,8 +67,7 @@ namespace Content.Client.UserInterface.Controls
                     Viewport.StretchMode = filterMode switch
                     {
                         "nearest" => ScalingViewportStretchMode.Nearest,
-                        "bilinear" => ScalingViewportStretchMode.Bilinear,
-                        _ => ScalingViewportStretchMode.Nearest
+                        "bilinear" => ScalingViewportStretchMode.Bilinear
                     };
                     Viewport.IgnoreDimension = verticalFit ? ScalingViewportIgnoreDimension.Horizontal : ScalingViewportIgnoreDimension.None;
 

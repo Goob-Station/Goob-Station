@@ -2,7 +2,7 @@
 
 - type: entity
   id: EngineeringTechFab
-  parent: [BaseLatheLube]
+  parent: [BaseLatheLube, BaseSiloUtilizer]
   name: engineering techfab
   description: Prints equipment and circuitboards for use by engineering department.
   components:
@@ -69,11 +69,10 @@
         - Sheet
         - RawMaterial
         - Ingot
-        - SheetPlasma
 
 - type: entity
   id: CargoTechFab
-  parent: [BaseLatheLube]
+  parent: [BaseLatheLube, BaseSiloUtilizer]
   name: cargo techfab
   description: Prints equipment and circuitboards for use by cargo department.
   components:
@@ -136,11 +135,10 @@
         - Sheet
         - RawMaterial
         - Ingot
-        - SheetPlasma
 
 - type: entity
   id: ScienceTechFab
-  parent: [BaseLatheLube]
+  parent: [BaseLatheLube, BaseSiloUtilizer]
   name: science techfab
   description: Prints equipment and circuitboards for use by science department.
   components:
@@ -227,11 +225,10 @@
         - Sheet
         - RawMaterial
         - Ingot
-        - SheetPlasma
 
 - type: entity
   id: ServiceTechFab
-  parent: [BaseLatheLube]
+  parent: [BaseLatheLube, BaseSiloUtilizer]
   name: service techfab
   description: Prints equipment and circuitboards for use by service department.
   components:
@@ -291,11 +288,10 @@
         - Sheet
         - RawMaterial
         - Ingot
-        - SheetPlasma
 
 - type: entity
   id: ERTTechFab
-  parent: [BaseLatheLube]
+  parent: [BaseLatheLube, BaseSiloUtilizer]
   name: ERT techfab
   description: Standard-issue ammunition and gear for Emergency Response Team deployments. Fast, basic, reliable.
   components:
@@ -329,4 +325,3 @@
           - Sheet
           - RawMaterial
           - Ingot
-          - SheetPlasma

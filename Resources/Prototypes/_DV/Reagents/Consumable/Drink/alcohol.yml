@@ -16,25 +16,24 @@
     Narcotic:
       metabolismRate: 1.0
       effects:
-      - !type:MovementSpeedModifier
+      - !type:MovespeedModifier
         walkSpeedModifier: 1.3
         sprintSpeedModifier: 1.3
       - !type:HealthChange
         conditions:
-        - !type:ReagentCondition
-          reagent: BeastBlood
+        - !type:ReagentThreshold
           min: 30 # Don't down it all at once
         damage:
           types:
             Poison: 1
       - !type:AdjustReagent
         conditions:
-        - !type:ReagentCondition
+        - !type:ReagentThreshold
           reagent: ChloralHydrate
           min: 1
         reagent: ChloralHydrate
         amount: -10
-      - !type:ModifyStatusEffect
+      - !type:ModifyStatusEffect 
         effectProto: StatusEffectStunned
         time: 3
         type: Remove
@@ -43,8 +42,8 @@
         time: 3
         type: Remove
       - !type:GenericStatusEffect
-        key: StaminaModifierStatusEffect
-        component: StaminaModifierStatusEffect
+        key: StaminaModifier
+        component: StaminaModifier
         time: 3
         type: Add
       - !type:GenericStatusEffect
@@ -53,7 +52,7 @@
         type: Remove
       - !type:GenericStatusEffect
         conditions:
-        - !type:ReagentCondition
+        - !type:ReagentThreshold
           reagent: Haloperidol
           max: 0.01
         key: Drowsiness

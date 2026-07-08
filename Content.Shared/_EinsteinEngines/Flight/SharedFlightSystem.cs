@@ -79,7 +79,7 @@ public abstract class SharedFlightSystem : EntitySystem
             }
 
             // We make it 0.7f to compensate by how comparatively lame it is vs sprinting while on stimulants as another species.
-            if (TryComp<StaminaModifierStatusEffectComponent>(uid, out var staminaComp))
+            if (TryComp<StaminaModifierComponent>(uid, out var staminaComp))
                 _staminaSystem.ModifyStaminaDrain(uid,
                     component.StaminaDrainKey,
                     component.StaminaDrainRate * staminaComp.Modifier * component.StaminaDrainMultiplier);
@@ -262,7 +262,7 @@ public abstract class SharedFlightSystem : EntitySystem
 
     private void OnStandingStateFlightAttempt(EntityUid uid, StandingStateComponent component, ref FlightAttemptEvent args)
     {
-        if (!_standing.IsDown(uid))
+        if (!_standing.IsDown(uid, component))
             return;
 
         _popupSystem.PopupClient(Loc.GetString("no-flight-while-lying"), uid, uid, PopupType.Medium);

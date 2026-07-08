@@ -22,7 +22,6 @@
   id: Status
   name: signal-port-name-status-transmitter
   description: signal-port-description-status-transmitter
-  defaultLinks: [ Toggle ]
 
 - type: sourcePort
   id: Left
@@ -164,7 +163,7 @@
   id: Trigger
   name: signal-port-name-trigger-sender
   description: signal-port-description-trigger-sender
-  defaultLinks: [ Toggle, Trigger, Timer ]
+  defaultLinks: [ AutoClose, On, Open, Forward, Trigger, Timer ]
 
 - type: sourcePort
   id: ItemDetected

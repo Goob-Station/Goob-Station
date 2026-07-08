@@ -1,5 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Server.Storage.Components;
+using Content.Shared.Examine;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Morgue;
 using Content.Shared.Morgue.Components;
 using Content.Shared.Storage.Components;

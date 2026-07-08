@@ -220,7 +220,6 @@
       types:
         Heat: 0
   - type: Temperature
-  - type: TemperatureDamage
     heatDamage:
       types:
         Heat: 0
@@ -231,10 +230,8 @@
   - type: Damageable
     damageModifierSet: FireShark
   - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: Plasma
-        Quantity: 10
+    bloodReagent: Plasma
+    bloodMaxVolume: 10
     bleedReductionAmount: 0.1
     maxBleedAmount: 0.5
 

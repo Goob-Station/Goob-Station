@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: MIT
 
 using System.Threading.Tasks;
-using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
@@ -11,16 +10,10 @@ namespace Content.Shared.DoAfter;
 [Access(typeof(SharedDoAfterSystem))]
 public sealed partial class DoAfterComponent : Component
 {
-    /// <summary>
-    /// The id of the next doafter
-    /// </summary>
-    [DataField]
+    [DataField("nextId")]
     public ushort NextId;
 
-    /// <summary>
-    /// collection of id + doafter
-    /// </summary>
-    [DataField]
+    [DataField("doAfters")]
     public Dictionary<ushort, DoAfter> DoAfters = new();
 
     /// <summary>

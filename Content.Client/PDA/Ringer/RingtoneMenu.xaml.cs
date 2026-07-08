@@ -45,12 +45,12 @@ namespace Content.Client.PDA.Ringer
                     if (!isValid)
                     {
                         input.Text = PreviousNoteInputs[index];
-                        input.AddStyleClass("highlight");
+                        input.AddStyleClass("Caution");
                     }
                     else
                     {
                         PreviousNoteInputs[index] = input.Text;
-                        input.RemoveStyleClass("highlight");
+                        input.RemoveStyleClass("Caution");
                     }
 
                     input.CursorPosition = input.Text.Length;
@@ -69,7 +69,7 @@ namespace Content.Client.PDA.Ringer
                     if (!IsNote(input.Text))
                     {
                         input.Text = PreviousNoteInputs[index];
-                        input.RemoveStyleClass("highlight");
+                        input.RemoveStyleClass("Caution");
                     }
                 };
 
@@ -78,7 +78,7 @@ namespace Content.Client.PDA.Ringer
                     if (!IsNote(input.Text))
                     {
                         input.Text = PreviousNoteInputs[index];
-                        input.RemoveStyleClass("highlight");
+                        input.RemoveStyleClass("Caution");
                     }
                     input.CursorPosition = input.Text.Length;
                 };

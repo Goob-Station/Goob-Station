@@ -25,29 +25,31 @@ public sealed class BorgBoundUserInterface : BoundUserInterface
 
         _menu.BrainButtonPressed += () =>
         {
-            SendPredictedMessage(new BorgEjectBrainBuiMessage());
+            SendMessage(new BorgEjectBrainBuiMessage());
         };
 
         _menu.EjectBatteryButtonPressed += () =>
         {
-            SendPredictedMessage(new BorgEjectBatteryBuiMessage());
+            SendMessage(new BorgEjectBatteryBuiMessage());
         };
 
         _menu.NameChanged += name =>
         {
-            SendPredictedMessage(new BorgSetNameBuiMessage(name));
+            SendMessage(new BorgSetNameBuiMessage(name));
         };
 
         _menu.RemoveModuleButtonPressed += module =>
         {
-            SendPredictedMessage(new BorgRemoveModuleBuiMessage(EntMan.GetNetEntity(module)));
+            SendMessage(new BorgRemoveModuleBuiMessage(EntMan.GetNetEntity(module)));
         };
     }
 
-    public override void Update()
+    protected override void UpdateState(BoundUserInterfaceState state)
     {
-        _menu?.UpdateBatteryButton();
-        _menu?.UpdateBrainButton();
-        _menu?.UpdateModulePanel();
+        base.UpdateState(state);
+
+        if (state is not BorgBuiState msg)
+            return;
+        _menu?.UpdateState(msg);
     }
 }

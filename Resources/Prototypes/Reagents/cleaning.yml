@@ -5,9 +5,6 @@
   name: reagent-name-bleach
   desc: reagent-desc-bleach
   physicalDesc: reagent-physical-desc-strong-smelling
-  allowedJobs:
-  - Janitor
-  - Chemist
   flavor: bitter
   color: "#a1000b"
   boilingPoint: 111.0
@@ -17,9 +14,9 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
-          inverted: true
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         damage:
           types:
             Poison: 2
@@ -31,20 +28,15 @@
         probability: 0.33
       - !type:Emote
         conditions:
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
-          inverted: true
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         emote: Scream
         probability: 0.15
       # Goobstation
       - !type:DiseaseProgressChange
         affectedType: Viral
         progressModifier: -0.15 # extremely strong antiviral
-  tileReactions:
-  - !type:CleanTileReaction
-    cleanCost: 0.13
-  - !type:CleanDecalsReaction
-    cleanCost: 0.13
 
 - type: reagent
   id: SpaceCleaner
@@ -73,30 +65,22 @@
   metabolisms:
     Food:
       effects:
-      - !type:Vomit
+      - !type:ChemVomit
         conditions:
-        - !type:ReagentCondition
-          reagent: SoapReagent
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type:
-          - Yowie
-          inverted: true
-        - !type:ReagentCondition
-          reagent: SoapReagent
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        - !type:ReagentThreshold
           min: 6
         probability: 0.20
     Drink:
       effects:
-      - !type:Vomit
+      - !type:ChemVomit
         conditions:
-        - !type:ReagentCondition
-          reagent: SoapReagent
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type:
-          - Yowie
-          inverted: true
-        - !type:ReagentCondition
-          reagent: SoapReagent
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        - !type:ReagentThreshold
           min: 6
         probability: 0.20
 
@@ -136,7 +120,7 @@
       methods: [ Touch ]
       effects:
       # pva glue? no, antibiotic glue for sealing wounds
-      - !type:ModifyBleed
+      - !type:ModifyBleedAmount
         amount: -1.5
   metabolisms:
     Narcotic:
@@ -145,11 +129,14 @@
         effectProto: StatusEffectSeeingRainbow
         time: 5
         type: Add
+        refresh: false
     Drink:
       effects:
       - !type:GenericStatusEffect
         key: Muted
         component: Muted
+        type: Add
         time: 5
+        refresh: false
   footstepSound:
     collection: FootstepSlime

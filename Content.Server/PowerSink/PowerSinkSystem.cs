@@ -1,15 +1,12 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Chat.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Power.Components;
-using Content.Server.Power.EntitySystems;
-using Content.Server.Station.Systems;
 using Content.Shared.Examine;
-using Content.Shared.Power.Components;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Server.Chat.Systems;
+using Content.Server.Station.Systems;
+using Robust.Shared.Timing;
 using Robust.Shared.Audio.Systems;
 using Content.Server.Power.EntitySystems;
 
@@ -70,9 +67,9 @@ namespace Content.Server.PowerSink
                 if (!transform.Anchored)
                     continue;
 
-                _battery.ChangeCharge((entity, battery), networkLoad.NetworkLoad.ReceivingPower * frameTime);
+                _battery.SetCharge(entity, battery.CurrentCharge + networkLoad.NetworkLoad.ReceivingPower / 1000, battery);
 
-                var currentBatteryThreshold = _battery.GetChargeLevel((entity, battery));
+                var currentBatteryThreshold = battery.CurrentCharge / battery.MaxCharge;
 
                 // Check for warning message threshold
                 if (!component.SentImminentExplosionWarningMessage &&
@@ -94,7 +91,7 @@ namespace Content.Server.PowerSink
                 }
 
                 // Check for explosion
-                if (!_battery.IsFull((entity, battery)))
+                if (battery.CurrentCharge < battery.MaxCharge)
                     continue;
 
                 if (component.ExplosionTime == null)

@@ -7,6 +7,7 @@
   id: FoodBakedBase
   abstract: true
   components:
+  - type: Food
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/misc.rsi
   - type: SolutionContainerManager
@@ -27,7 +28,7 @@
   id: FoodBakedMuffin
   description: A delicious and spongy little cake.
   components:
-  - type: Edible
+  - type: Food
     trash:
     - FoodPlateMuffinTin
   - type: Sprite
@@ -625,7 +626,7 @@
     - cotton
   - type: Sprite
     state: chevrechaud-cotton
-  - type: Edible
+  - type: Food
     requiresSpecialDigestion: true
   - type: Tag
     tags:
@@ -643,9 +644,9 @@
           Quantity: 0.5
 
 - type: entity
+  name: brownies
   parent: FoodBakedBase
   id: FoodBakedBrownieBatch
-  name: brownies
   description: A pan of brownies.
   components:
   - type: Item
@@ -699,9 +700,9 @@
     - Slice
 
 - type: entity
+  name: special brownies
   parent: FoodBakedBase
   id: FoodBakedCannabisBrownieBatch
-  name: special brownies
   description: A pan of "special" brownies.
   components:
   - type: Item
@@ -731,9 +732,9 @@
     slice: FoodBakedCannabisBrownie
 
 - type: entity
+  name: special brownie
   parent: FoodBakedBase
   id: FoodBakedCannabisBrownie
-  name: special brownie
   description: A "special" brownie.
   components:
   - type: FlavorProfile
@@ -784,9 +785,9 @@
             Quantity: 1
 
 - type: entity
+  name: croissant
   parent: FoodBakedBase
   id: FoodBakedCroissant
-  name: croissant
   description: Buttery, flaky goodness.
   components:
   - type: Item
@@ -818,9 +819,9 @@
         Blunt: 0 # so the damage stats icon doesn't immediately give away the syndie ones
 
 - type: entity
+  name: cotton croissant
   parent: FoodBakedCroissant
   id: FoodBakedCroissantCotton
-  name: cotton croissant
   description: Buttery, flaky, fibery goodness.
   components:
   - type: Item
@@ -835,7 +836,7 @@
     - cotton
   - type: Sprite
     state: croissant-cotton
-  - type: Edible
+  - type: Food
     requiresSpecialDigestion: true
   - type: Tag
     tags:
@@ -854,16 +855,14 @@
         - ReagentId: Vitamin
           Quantity: 1
 
-- type: entity
+- type: entity         
+  name: grilled cheese sandwich
   parent: FoodBakedBase
   id: FoodBakedGrilledCheeseSandwich
-  name: grilled cheese sandwich
   description: Bread and cheese toasted with butter, perfect for a chilly day in space.
   components:
   - type: Item
     size: Small
-    shape:
-    - 0,0,1,0
   - type: FlavorProfile
     flavors:
       - cheesy
@@ -884,7 +883,7 @@
           Quantity: 3
 
 - type: entity
-  parent: FoodBakedGrilledCheeseSandwich
+  parent: FoodBakedBase
   id: FoodBakedGrilledCheeseSandwichCotton
   name: cotton grilled cheese sandwich
   description: Cotton bread slightly burnt in butter, with melted cheese. Moths find it difficult to resist this combination.
@@ -899,7 +898,7 @@
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/misc.rsi
     state: grilled-cheese-cotton
-  - type: Edible
+  - type: Food
     requiresSpecialDigestion: true
   - type: Tag
     tags:

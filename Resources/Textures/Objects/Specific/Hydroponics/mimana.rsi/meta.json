@@ -11,6 +11,14 @@
             "name": "dead"
         },
         {
+            "name": "equipped-HELMET",
+            "directions": 4
+        },
+        {
+            "name": "equipped-HELMET-hamster",
+            "directions": 4
+        },
+        {
             "name": "harvest"
         },
         {
@@ -24,14 +32,6 @@
         },
         {
             "name": "peel3"
-        },
-        {
-            "name": "peel-equipped-HELMET",
-            "directions": 4
-        },
-        {
-            "name": "peel-equipped-HELMET-hamster",
-            "directions": 4
         },
         {
             "name": "peel-inhand-left",

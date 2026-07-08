@@ -114,7 +114,7 @@
       Destroyed: 0
     slotId: heart
     onAdd:
-    - type: StaminaModifierStatusEffect
+    - type: StaminaModifier
       modifier: 1.35
   - type: Metabolizer
     maxPoisonsProcessable: 2
@@ -151,7 +151,7 @@
       Destroyed: 0
     slotId: heart
     onAdd:
-    - type: StaminaModifierStatusEffect
+    - type: StaminaModifier
       modifier: 1.7
   - type: Metabolizer
     maxPoisonsProcessable: 2
@@ -234,8 +234,6 @@
       Lung:
         maxVol: 100.0
         canReact: false
-      food:
-        maxVol: 0
   - type: Tag
     tags:
     - Organ

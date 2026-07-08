@@ -28,13 +28,14 @@
       slots:
         - suitStorage
         - Belt
-    - type: BatteryAmmoProvider
+    - type: ProjectileBatteryAmmoProvider
       proto: BulletDislippler
       fireCost: 100
     - type: Multishot
       spreadMultiplier: 1.25
       spreadAddition: 10
     - type: BatterySelfRecharger
+      autoRecharge: true
       autoRechargeRate: 50
 
 - type: entity

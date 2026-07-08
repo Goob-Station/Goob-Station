@@ -1,7 +1,7 @@
 using Content.Goobstation.Common.Barks;
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Common.Speech;
-using Content.Shared.Chat;
+using Content.Server.Chat.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 

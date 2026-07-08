@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Chat;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
@@ -19,59 +20,60 @@ namespace Content.Shared.InteractionVerbs;
 ///     - {$selfTarget} - A boolean value that indicates whether the action is used on the user itself.
 ///     - {$hasUsed} - A boolean value that indicates whether the user is holding an item ($used is not null).
 /// </remarks>
-[Prototype("InteractionPopup")]
+[Prototype("InteractionPopup"), Serializable]
 public sealed partial class InteractionPopupPrototype : IPrototype
 {
     [IdDataField]
-    public string ID { get; private set; } = default!;
+    public string ID { get; } = default!;
 
     [DataField]
     public PopupType PopupType = PopupType.Medium;
 
     /// <summary>
-    ///     If true, the respective success/fail popups will be logged into chat.
+    ///     If true, the respective success/fail popups will be logged into chat, as players perceive them.
     /// </summary>
     [DataField]
     public bool LogPopup = true;
 
     /// <summary>
-    ///     Chat channel to which popups will be logged.
+    ///     Chat channel to which popups will be logged if <see cref="LogPopup"/> is true.
     /// </summary>
     [DataField]
     public ChatChannel LogChannel = ChatChannel.Emotes;
 
     /// <summary>
-    ///     Color of the chat message sent.
+    ///     Color of the chat message sent if <see cref="LogPopup"/> is true. If null, defaults based on <see cref="Type"/>.
     /// </summary>
     [DataField]
     public Color? LogColor = null;
 
     /// <summary>
-    ///     If true, entities who cannot directly see the popup target will not chat log.
+    ///     If true, entities who cannot directly see the popup target will not chat log. Only has effect if <see cref="LogPopup"/> is true.
     /// </summary>
     [DataField]
     public bool DoClipping = true;
 
     /// <summary>
-    ///     Range in which other entities can see the chat log.
+    ///     Range in which other entities, given that they can directly see the performer, see the chat log.
+    ///     This does not affect the user and target. Only has effect if <see cref="LogPopup"/> is true.
     /// </summary>
     [DataField]
     public float VisibilityRange = 20f;
 
     /// <summary>
-    ///     Popup suffix for the performer.
+    ///     Loc prefix for popups shown for the performer of the verb. If set to null, defaults to <see cref="OthersSuffix"/>.
     /// </summary>
     [DataField("self")]
     public string? SelfSuffix = "self";
 
     /// <summary>
-    ///     Popup suffix for the target.
+    ///     Loc prefix for popups shown for the target of the verb. If set to null, defaults to <see cref="OthersSuffix"/>.
     /// </summary>
     [DataField("target")]
     public string? TargetSuffix = "target";
 
     /// <summary>
-    ///     Popup suffix for observers.
+    ///     Loc prefix for popups shown for other people observing the verb. If null, no popup will be shown for others.
     /// </summary>
     [DataField("others")]
     public string? OthersSuffix = "others";

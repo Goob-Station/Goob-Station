@@ -32,10 +32,7 @@
         Slash: 15
         Piercing: 15
   - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: Blood
-        Quantity: 200
+    bloodReagent: Blood
 
 - type: entity
   name: Simmons
@@ -128,6 +125,7 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
+        scaleByQuantity: true
         damage:
           types:
             Cellular: 1

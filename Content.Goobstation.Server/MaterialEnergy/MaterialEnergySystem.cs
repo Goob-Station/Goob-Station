@@ -56,15 +56,23 @@ namespace Content.Goobstation.Server.MaterialEnergy
                 return;
 
             var totalMaterial = materialPerSheet * sheetsInStack;
+            var materialLeft = totalMaterial - chargeDiff;
+            var chargeToAdd = 0;
 
-            var chargeToAddFloat = MathF.Min(chargeDiff, totalMaterial);
-            var chargeToAdd = (int) MathF.Floor(chargeToAddFloat);
+            if (materialLeft == 0)
+            {
+                chargeToAdd = totalMaterial;
+            }
+            else if (materialLeft > 0)
+            {
+                chargeToAdd = (totalMaterial - materialLeft);
+            }
+            else
+            {
+                chargeToAdd = Math.Abs(Math.Abs(materialLeft) - chargeDiff);
+            }
 
-            if (chargeToAdd <= 0)
-                return;
-
-            if (_batterySystem.TryGetBatteryComponent(cutter, out var batteryComponent, out _))
-                _batterySystem.SetCharge(cutter, batteryComponent.LastCharge + chargeToAdd);
+            _batterySystem.AddCharge(cutter, chargeToAdd);
 
             var toDel = _stack.Split(
                 (EntityUid) _material,

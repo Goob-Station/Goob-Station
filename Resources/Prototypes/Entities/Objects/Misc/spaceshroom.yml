@@ -94,7 +94,6 @@
   - type: AtmosExposed
   - type: Temperature
     currentTemperature: 290
-  - type: TemperatureDamage
   - type: InternalTemperature
     thickness: 0.02
     area: 0.02

@@ -103,7 +103,7 @@
   id: TechnologyDiskStealCollectionObjective
   components:
   - type: NotJobRequirement
-    jobs: [ Scientist ]
+    job: Scientist
   - type: StealCondition
     stealGroup: TechnologyDisk
     minCollectionSize: 5
@@ -114,24 +114,8 @@
 
 - type: entity
   parent: BaseThiefStealCollectionObjective
-  id: MailStealCollectionObjective
-  components:
-  - type: NotJobRequirement
-    jobs: [ CargoTechnician, SalvageSpecialist ]
-  - type: StealCondition
-    stealGroup: Mail
-    minCollectionSize: 4
-    maxCollectionSize: 8
-    verifyMapExistence: false
-  - type: Objective
-    difficulty: 0.8
-
-- type: entity
-  parent: BaseThiefStealCollectionObjective
   id: IDCardsStealCollectionObjective
   components:
-  - type: NotJobRequirement #Here cause you can buy a personnel crate from cargo which is 8 ID cards. Meaning the ID you start with is number nine and you only need to steal one.
-    jobs: [ CargoTechnician, SalvageSpecialist ]
   - type: StealCondition
     stealGroup: IDCard
     minCollectionSize: 5
@@ -139,20 +123,6 @@
     verifyMapExistence: false
   - type: Objective
     difficulty: 0.7
-
-- type: entity
-  parent: BaseThiefStealCollectionObjective
-  id: OfficerHandgunsStealCollectionObjective
-  components:
-  - type: NotJobRequirement
-    jobs: [ SecurityOfficer, HeadOfSecurity, Detective, Warden ]
-  - type: StealCondition
-    stealGroup: OfficerHandgun
-    minCollectionSize: 2
-    maxCollectionSize: 5
-    verifyMapExistence: false
-  - type: Objective
-    difficulty: 1.2
 
 - type: entity
   parent: BaseThiefStealCollectionObjective
@@ -167,7 +137,7 @@
     maxCollectionSize: 10
     verifyMapExistence: true
   - type: Objective
-    difficulty: 0.1 # just for fun, collecting LAMP on Moth
+    difficulty: 0.5 # just for fun, collectings LAMP on Moth
 
 - type: entity  # Goobstation
   parent: BaseThiefStealCollectionObjective
@@ -190,7 +160,7 @@
   id: ForensicScannerStealObjective
   components:
   - type: NotJobRequirement
-    jobs: [ Detective ]
+    job: Detective
   - type: StealCondition
     stealGroup: ForensicScanner
   - type: Objective
@@ -201,7 +171,7 @@
   id: FlippoEngravedLighterStealObjective
   components:
   - type: NotJobRequirement
-    jobs: [ Detective ]
+    job: Detective
   - type: StealCondition
     stealGroup: FlippoEngravedLighter
   - type: Objective
@@ -230,7 +200,7 @@
   id: ClothingOuterHardsuitVoidParamedStealObjective
   components:
   - type: NotJobRequirement
-    jobs: [ MedicalDoctor, Paramedic, Chemist, Psychologist ]
+    job: Paramedic
   - type: StealCondition
     stealGroup: ClothingOuterHardsuitVoidParamed
   - type: Objective
@@ -241,7 +211,7 @@
   id: MedicalTechFabCircuitboardStealObjective
   components:
   - type: NotJobRequirement
-    jobs: [ MedicalDoctor, Paramedic, Chemist, Psychologist ]
+    job: MedicalDoctor
   - type: StealCondition
     stealGroup: MedicalTechFabCircuitboard
   - type: Objective
@@ -252,7 +222,7 @@
   id: ClothingHeadsetAltMedicalStealObjective
   components:
   - type: NotJobRequirement
-    jobs: [ ChiefMedicalOfficer ]
+    job: ChiefMedicalOfficer
   - type: StealCondition
     stealGroup: ClothingHeadsetAltMedical
   - type: Objective
@@ -263,7 +233,7 @@
   id: FireAxeStealObjective
   components:
   - type: NotJobRequirement
-    jobs: [ AtmosphericTechnician ]
+    job: AtmosphericTechnician
   - type: StealCondition
     stealGroup: FireAxe
   - type: Objective
@@ -274,29 +244,18 @@
   id: AmePartFlatpackStealObjective
   components:
   - type: NotJobRequirement
-    jobs: [ StationEngineer, AtmosphericTechnician ]
+    job: StationEngineer
   - type: StealCondition
     stealGroup: AmePartFlatpack
   - type: Objective
     difficulty: 1
 
-- type: entity
-  parent: BaseThiefStealObjective
-  id: ChiefEngineerToolbeltStealObjective
-  components:
-  #- type: NotJobRequirement                      Is this really necessary? it's a pickpocket objective. Only thing is that it would be easier to get to CE
-  #  jobs: [ StationEngineer, AtmosphericTechnician ]
-  - type: StealCondition
-    stealGroup: ChiefEngineerToolBelt
-  - type: Objective
-    difficulty: .7
-
 #- type: entity                                      #Cargo subgroup
 #  parent: BaseThiefStealObjective
-#  id: ExpeditionsCircuitboardStealObjective     #Goob edit - Removed due to Lavaland
+#  id: ExpeditionsCircuitboardStealObjective
 #  components:
-#  - type: NotJobRequirement
-#    jobs: [ SalvageSpecialist ]
+#  - type: NotJobRequirement                          Goob edit - Removed due to Lavaland
+#    job: SalvageSpecialist
 #  - type: StealCondition
 #    stealGroup: SalvageExpeditionsComputerCircuitboard
 #  - type: Objective
@@ -307,7 +266,7 @@
   id: CargoShuttleCircuitboardStealObjective
   components:
   - type: NotJobRequirement
-    jobs: [ CargoTechnician, SalvageSpecialist ]
+    job: CargoTechnician
   - type: StealCondition
     stealGroup: CargoShuttleConsoleCircuitboard
   - type: Objective
@@ -318,7 +277,7 @@
   id: ClothingEyesHudBeerStealObjective
   components:
   - type: NotJobRequirement
-    jobs: [ Bartender, ServiceWorker ]
+    job: Bartender
   - type: StealCondition
     stealGroup: ClothingEyesHudBeer
   - type: Objective
@@ -329,7 +288,7 @@
   id: BibleStealObjective
   components:
   - type: NotJobRequirement
-    jobs: [ Chaplain ]
+    job: Chaplain
   - type: StealCondition
     stealGroup: Bible
   - type: Objective
@@ -340,7 +299,7 @@
   id: ClothingNeckGoldmedalStealObjective
   components:
   - type: NotJobRequirement
-    jobs: [ HeadOfPersonnel ]
+    job: HeadOfPersonnel
   - type: StealCondition
     stealGroup: ClothingNeckGoldmedal
   - type: Objective
@@ -351,22 +310,11 @@
   id: ClothingNeckClownmedalStealObjective
   components:
   - type: NotJobRequirement
-    jobs: [ Captain ]
+    job: Captain
   - type: StealCondition
     stealGroup: ClothingNeckClownmedal
   - type: Objective
     difficulty: 1
-
-- type: entity
-  parent: BaseThiefStealObjective
-  id: CaptainSwordStealObjective
-  components:
-  - type: NotJobRequirement
-    jobs: [ Captain ]
-  - type: StealCondition
-    stealGroup: CaptainSword
-  - type: Objective
-    difficulty: 1.5
 
 # Structures
 
@@ -375,7 +323,7 @@
   id: NuclearBombStealObjective
   components:
   - type: NotJobRequirement
-    jobs: [ Captain ]
+    job: Captain
   - type: StealCondition
     stealGroup: NuclearBomb
   - type: Objective
@@ -386,7 +334,7 @@
   id: FaxMachineCaptainStealObjective
   components:
   - type: NotJobRequirement
-    jobs: [ Captain ]
+    job: Captain
   - type: StealCondition
     stealGroup: FaxMachineCaptain
   - type: Objective
@@ -397,7 +345,7 @@
   id: ChemDispenserStealObjective
   components:
   - type: NotJobRequirement
-    jobs: [ Chemist, Scientist ]
+    job: Chemist
   - type: StealCondition
     stealGroup: ChemDispenser
   - type: Objective
@@ -408,7 +356,7 @@
   id: XenoArtifactStealObjective
   components:
   - type: NotJobRequirement
-    jobs: [ Scientist ]
+    job: Scientist
   - type: StealCondition
     stealGroup: XenoArtifact
   - type: Objective
@@ -419,7 +367,7 @@
   id: FreezerHeaterStealObjective
   components:
   - type: NotJobRequirement
-    jobs: [ AtmosphericTechnician, MedicalDoctor, Chemist, Paramedic, Psychologist, Scientist, Chef ]
+    job: AtmosphericTechnician
   - type: StealCondition
     stealGroup: FreezerHeater
   - type: Objective
@@ -430,7 +378,7 @@
   id: TegStealObjective
   components:
   - type: NotJobRequirement
-    jobs: [ AtmosphericTechnician, StationEngineer ]
+    job: AtmosphericTechnician
   - type: StealCondition
     stealGroup: Teg
   - type: Objective
@@ -441,7 +389,7 @@
   id: BoozeDispenserStealObjective
   components:
   - type: NotJobRequirement
-    jobs: [ Bartender, ServiceWorker ]
+    job: Bartender
   - type: StealCondition
     stealGroup: BoozeDispenser
   - type: Objective
@@ -452,7 +400,7 @@
   id: AltarNanotrasenStealObjective
   components:
   - type: NotJobRequirement
-    jobs: [ Chaplain ]
+    job: Chaplain
   - type: StealCondition
     stealGroup: AltarNanotrasen
   - type: Objective
@@ -463,7 +411,7 @@
   id: PlantRDStealObjective
   components:
   - type: NotJobRequirement
-    jobs: [ Scientist ]
+    job: Scientist
   - type: StealCondition
     stealGroup: PlantRD
   - type: Objective
@@ -474,7 +422,7 @@
   id: ToiletGoldenStealObjective
   components:
   - type: NotJobRequirement
-    jobs: [ Captain ]
+    job: Captain
   - type: StealCondition
     stealGroup: ToiletGoldenDirtyWater
   - type: Objective
@@ -487,7 +435,7 @@
   id: IanStealObjective
   components:
   - type: NotJobRequirement
-    jobs: [ HeadOfPersonnel ]
+    job: HeadOfPersonnel
   - type: StealCondition
     stealGroup: AnimalIan
   - type: Objective
@@ -507,7 +455,7 @@
   id: McGriffStealObjective
   components:
   - type: NotJobRequirement
-    jobs: [ Detective ]
+    job: Detective
   - type: StealCondition
     stealGroup: AnimalMcGriff
   - type: Objective
@@ -518,7 +466,7 @@
   id: WalterStealObjective
   components:
   - type: NotJobRequirement
-    jobs: [ Chemist ]
+    job: Chemist
   - type: StealCondition
     stealGroup: AnimalWalter
   - type: Objective
@@ -538,7 +486,7 @@
   id: RenaultStealObjective
   components:
   - type: NotJobRequirement
-    jobs: [ Captain ]
+    job: Captain
   - type: StealCondition
     stealGroup: AnimalRenault
   - type: Objective
@@ -549,7 +497,7 @@
   id: ShivaStealObjective
   components:
   - type: NotJobRequirement
-    jobs: [ SecurityOfficer ]
+    job: SecurityOfficer
   - type: StealCondition
     stealGroup: AnimalShiva
   - type: Objective
@@ -560,7 +508,7 @@
   id: TropicoStealObjective
   components:
   - type: NotJobRequirement
-    jobs: [ AtmosphericTechnician ]
+    job: AtmosphericTechnician
   - type: StealCondition
     stealGroup: AnimalTropico
   - type: Objective
@@ -571,8 +519,8 @@
 - type: entity
   parent: [BaseThiefObjective, BaseLivingObjective]
   id: EscapeThiefShuttleObjective
-  name: Escape to CentComm alive and unrestrained via the escape shuttle.
-  description: You don't want your illegal activities to be discovered by anyone, do you?
+  name: Escape to centcomm alive and unrestrained.
+  description: You don't want your illegal activities to be discovered by anyone, do you? Get out on the evacuation shuttle. # Goobstation
   components:
   - type: Objective
     difficulty: 1.3

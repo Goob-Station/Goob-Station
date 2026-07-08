@@ -6,10 +6,9 @@
   id: MonkeyCubeBox
   description: Drymate brand monkey cubes. Just add water!
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: MonkeyCubeWrapped
+  - type: StorageFill
+    contents:
+      - id: MonkeyCubeWrapped
         amount: 8
   - type: Sprite
     sprite: Objects/Misc/monkeycube.rsi
@@ -50,10 +49,9 @@
   id: KoboldCubeBox
   description: Condensed kobolds in a cube. Just add water!
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: KoboldCubeWrapped
+  - type: StorageFill
+    contents:
+      - id: KoboldCubeWrapped
         amount: 8
   - type: Sprite
     sprite: Objects/Misc/monkeycube.rsi
@@ -65,14 +63,12 @@
   id: VariantCubeBox
   description: Both kobold cubes and monkey cubes. Just add water!
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: KoboldCubeWrapped
-          amount: 4
-        - id: MonkeyCubeWrapped
-          amount: 4
+  - type: StorageFill
+    contents:
+      - id: KoboldCubeWrapped
+        amount: 4
+      - id: MonkeyCubeWrapped
+        amount: 4
   - type: Sprite
     sprite: Objects/Misc/monkeycube.rsi
     state: box_variant
@@ -96,10 +92,9 @@
   id: SyndicateSpongeBox
   description: Drymate brand monkey cubes. Just add water!
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: SyndicateSpongeWrapped
+  - type: StorageFill
+    contents:
+      - id: SyndicateSpongeWrapped
         amount: 6
   - type: Sprite
     sprite: Objects/Misc/monkeycube.rsi

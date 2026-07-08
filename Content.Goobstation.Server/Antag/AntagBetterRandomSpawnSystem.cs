@@ -7,7 +7,6 @@ using Content.Server.Storage.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Physics;
-using Content.Shared.SurveillanceCamera.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;

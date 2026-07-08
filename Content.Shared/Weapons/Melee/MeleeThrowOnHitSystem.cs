@@ -24,11 +24,11 @@ public sealed class MeleeThrowOnHitSystem : EntitySystem
     {
         SubscribeLocalEvent<MeleeThrowOnHitComponent, MeleeHitEvent>(OnMeleeHit);
         SubscribeLocalEvent<MeleeThrowOnHitComponent, ThrowDoHitEvent>(OnThrowHit);
-        SubscribeLocalEvent<MeleeThrowOnHitComponent, ThrowEvent>(OnThrow);
+        SubscribeLocalEvent<MeleeThrowOnHitComponent, ThrownEvent>(OnThrow);
         SubscribeLocalEvent<MeleeThrowOnHitComponent, LandEvent>(OnLand);
     }
 
-    private void OnThrow(Entity<MeleeThrowOnHitComponent> ent, ref ThrowEvent args)
+    private void OnThrow(Entity<MeleeThrowOnHitComponent> ent, ref ThrownEvent args)
     {
         if (_delay.IsDelayed(ent.Owner))
             return;

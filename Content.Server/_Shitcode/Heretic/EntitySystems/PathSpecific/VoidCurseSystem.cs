@@ -7,7 +7,6 @@ using Content.Shared._Goobstation.Heretic.Systems;
 using Content.Shared.Atmos;
 using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffect;
-using Content.Shared.Temperature.Components;
 
 namespace Content.Server._Goobstation.Heretic.EntitySystems.PathSpecific;
 

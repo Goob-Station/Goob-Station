@@ -381,8 +381,6 @@ namespace Content.Server.Forensics
             Dirty(target, component);
         }
 
-        // TODO: Delete this. A lot of systems are manually raising this method event instead of calling the identical <see cref="TransferDna"/> method.
-        // According to our code conventions we should not use method events.
         private void OnTransferDnaEvent(EntityUid uid, DnaComponent component, ref TransferDnaEvent args)
         {
             if (component.DNA == null)
@@ -415,7 +413,13 @@ namespace Content.Server.Forensics
             Dirty(ent);
         }
 
-        public override void TransferDna(EntityUid recipient, EntityUid donor, bool canDnaBeCleaned = true)
+        /// <summary>
+        /// Transfer DNA from one entity onto the forensics of another
+        /// </summary>
+        /// <param name="recipient">The entity receiving the DNA</param>
+        /// <param name="donor">The entity applying its DNA</param>
+        /// <param name="canDnaBeCleaned">If this DNA be cleaned off of the recipient. e.g. cleaning a knife vs cleaning a puddle of blood</param>
+        public void TransferDna(EntityUid recipient, EntityUid donor, bool canDnaBeCleaned = true)
         {
             if (TryComp<DnaComponent>(donor, out var donorComp) && donorComp.DNA != null)
             {

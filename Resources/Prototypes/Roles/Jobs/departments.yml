@@ -20,6 +20,7 @@
   roles:
   - Bartender
   - Botanist
+  - Boxer
   - Chaplain
   - Chef
   - Clown
@@ -32,6 +33,7 @@
   - Passenger
   - Reporter
   - Visitor
+  - Zookeeper
   - ServiceWorker
   - PartyMaker # event-restricted, Goobstation
 
@@ -161,6 +163,8 @@
   weight: 10
   roles:
   - RadioHost # Goobstation
+  - Boxer
   - Reporter
+  - Zookeeper
   - Psychologist
   primary: false

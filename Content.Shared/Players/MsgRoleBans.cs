@@ -1,9 +1,7 @@
 // SPDX-License-Identifier: MIT
 
-using Content.Shared.Roles;
 using Lidgren.Network;
 using Robust.Shared.Network;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Players;
@@ -15,40 +13,24 @@ public sealed class MsgRoleBans : NetMessage
 {
     public override MsgGroups MsgGroup => MsgGroups.EntityEvent;
 
-    public List<ProtoId<JobPrototype>> JobBans = new();
-    public List<ProtoId<AntagPrototype>> AntagBans = new();
+    public List<string> Bans = new();
 
     public override void ReadFromBuffer(NetIncomingMessage buffer, IRobustSerializer serializer)
     {
-        var jobCount = buffer.ReadVariableInt32();
-        JobBans.EnsureCapacity(jobCount);
+        var count = buffer.ReadVariableInt32();
+        Bans.EnsureCapacity(count);
 
-        for (var i = 0; i < jobCount; i++)
+        for (var i = 0; i < count; i++)
         {
-            JobBans.Add(buffer.ReadString());
-        }
-
-        var antagCount = buffer.ReadVariableInt32();
-        AntagBans.EnsureCapacity(antagCount);
-
-        for (var i = 0; i < antagCount; i++)
-        {
-            AntagBans.Add(buffer.ReadString());
+            Bans.Add(buffer.ReadString());
         }
     }
 
     public override void WriteToBuffer(NetOutgoingMessage buffer, IRobustSerializer serializer)
     {
-        buffer.WriteVariableInt32(JobBans.Count);
+        buffer.WriteVariableInt32(Bans.Count);
 
-        foreach (var ban in JobBans)
-        {
-            buffer.Write(ban);
-        }
-
-        buffer.WriteVariableInt32(AntagBans.Count);
-
-        foreach (var ban in AntagBans)
+        foreach (var ban in Bans)
         {
             buffer.Write(ban);
         }

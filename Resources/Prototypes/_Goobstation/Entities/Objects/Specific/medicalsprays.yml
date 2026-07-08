@@ -4,12 +4,11 @@
   name: styptic powder spray bottle
   id: SprayBottleStypticPowder
   suffix: Filled, Styptic powder
-  parent: SprayBottleBase # Can't parent actual spray bottles because solution fill visuals. todo goob.
+  parent: SprayBottle
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Medical/Stypticspray.rsi
-    layers:
-    - state: icon
+    state: icon
   - type: Tag
     tags:
     - Spray
@@ -25,12 +24,11 @@
   name: silver sulfadiazine spray bottle
   id: SprayBottleSilverSulfadiazine
   suffix: Filled, Silver sulfadiazine
-  parent: SprayBottleBase # Can't parent actual spray bottles because solution fill visuals. todo goob.
+  parent: SprayBottle
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Medical/Silverspray.rsi
-    layers:
-    - state: icon
+    state: icon
   - type: Tag
     tags:
     - Spray

@@ -60,41 +60,6 @@
     spreadAddition: 40
 
 - type: entity
-  parent: [BaseWeaponBattery, BaseGunWieldable]
-  id: BaseLaserRifle
-  abstract: true
-  components:
-  - type: Item
-    size: Large
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-unshaded-4
-      map: ["enum.GunVisualLayers.MagUnshaded"]
-      shader: unshaded
-  - type: MagazineVisuals
-    magState: mag
-    steps: 5
-    zeroVisible: false
-  - type: Appearance
-  - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
-  - type: Gun
-    selectedMode: SemiAuto
-    availableModes:
-    - SemiAuto
-  - type: BatteryAmmoProvider
-    proto: RedLaser
-    fireCost: 62.5
-  - type: StaticPrice
-    price: 420
-  - type: Tag
-    tags:
-    - LaserWeapon
-
-- type: entity
   id: BaseWeaponPowerCell
   parent: BaseItem
   abstract: true
@@ -110,7 +75,7 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: RedLightLaser
     fireCost: 50
   - type: ItemSlots
@@ -221,10 +186,6 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Item
-    shape:
-    - 0,0,1,0
-    - 0,1,0,1
-    storedOffset: 0,-7
     sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
   - type: RestrictGunshotsByUserTag # Goobstation
     doesntContain:
@@ -237,10 +198,6 @@
     magState: mag
     steps: 5
     zeroVisible: true
-  - type: Tag
-    tags:
-    - Sidearm
-    - LaserWeapon
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Steel: 500
@@ -272,8 +229,6 @@
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
-  - type: Item
-    storedOffset: 0,-5
   - type: RestrictGunshotsByUserTag # Goobstation
     doesntContain:
     - Oni
@@ -281,7 +236,7 @@
     - oni-cannot-shoot-guns-1
     - oni-cannot-shoot-guns-2
     - oni-cannot-shoot-guns-3
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 62.5
   - type: MagazineVisuals
@@ -289,10 +244,6 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
-  - type: Tag
-    tags:
-    - Sidearm
-    - LaserWeapon
 
 - type: entity
   name: makeshift laser pistol
@@ -308,8 +259,6 @@
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
-  - type: Item
-    storedOffset: 0,-4
   - type: RestrictGunshotsByUserTag # Goobstation
     doesntContain:
     - Oni
@@ -324,16 +273,12 @@
   - type: Appearance
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/makeshift.rsi
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: RedLaser
     fireCost: 62.5
   - type: Battery
     maxCharge: 500
     startingCharge: 500
-  - type: Tag
-    tags:
-    - Sidearm
-    - LaserWeapon
 
 - type: entity
   name: tesla gun
@@ -341,10 +286,6 @@
   id: WeaponTeslaGun
   description: The power of the primordial element of lightning in your hands.
   components:
-  - type: Item
-    size: Large
-    shape:
-    - 0,0,2,1
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/tesla_gun.rsi
     layers:
@@ -359,7 +300,7 @@
       path: /Audio/Effects/Lightning/lightningshock.ogg
       params:
         variation: 0.2
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: TeslaGunBullet
     fireCost: 300
   - type: MagazineVisuals
@@ -369,32 +310,75 @@
   - type: Appearance
 
 - type: entity
-  name: laser carbine
-  parent: [BaseLaserRifle, BaseGunWieldable, BaseSecurityContraband]
-  id: WeaponLaserCarbine
-  description: Favoured by Nanotrasen Security for being cheap and easy to use.
+  name: practice laser carbine # Goobstation
+  parent: [BaseWeaponBattery, BaseGunWieldable]
+  id: WeaponLaserCarbinePractice
+  description: A modified laser carbine that fires nearly harmless beams in the 40-watt range, for target practice or training scenarios. # Goobstation
   components:
-  - type: BatteryAmmoProvider
-    proto: RedLaser
-    fireCost: 50 # Goobstation
-  - type: Gun # Goobstation
-    fireRate: 4 # <- its for this
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
+  - type: Gun
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
-
-- type: entity
-  name: practice laser carbine
-  parent: [BaseLaserRifle, BaseGunWieldable]
-  id: WeaponLaserCarbinePractice
-  description: This modified laser carbine fires nearly harmless beams in the 40-watt range, for target practice.
-  components:
-  - type: StaticPrice
-    price: 300
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: RedLaserPractice
     fireCost: 62.5
+  - type: StaticPrice
+    price: 300
   - type: PacifismAllowedGun
+  # Goobstation
+  - type: Item
+    size: Large
+
+
+- type: entity
+  name: laser carbine # Goobstation
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband]
+  id: WeaponLaserCarbine
+  description: An ergonomic and light laser weapon favored by NanoTrasen security teams because of its low capacity for structural damage. # Goobstation
+  components:
+  - type: StaticPrice
+    price: 420
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
+  - type: Gun
+    fireRate: 4 # Goobstation
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+  - type: HitscanBatteryAmmoProvider
+    proto: RedLaser
+    fireCost: 50 # Goobstation
+  - type: Item
+    size: Large
+
 
 - type: entity
   name: pulse pistol
@@ -410,8 +394,6 @@
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
-  - type: Item
-    storedOffset: -2,-5
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -425,17 +407,14 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: LightPulse # Goobstation
     fireCost: 200
   - type: Battery
     maxCharge: 2000
     startingCharge: 2000
-  - type: Tag
-    tags:
-    - Sidearm
-    - LaserWeapon
   - type: BatterySelfRecharger # Goobstation - CentComm Job Revamp
+    autoRecharge: true
     autoRechargeRate: 40
 
 - type: entity
@@ -444,8 +423,6 @@
   id: WeaponPulseCarbine
   description: A state-of-the-art laser carbine that fires a rapidly pulsing beam. Cheaper than its advanced counterpart, though lacks the ability to self-recharge. # Goobstation
   components:
-#  - type: Item #Goob
-#    size: Large
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/pulse_carbine.rsi
     layers:
@@ -469,7 +446,7 @@
       - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: Pulse
     fireCost: 200
   - type: AmmoSelector # Goobstation - Start
@@ -503,10 +480,6 @@
   id: WeaponPulseRifle
   description: A weapon almost as infamous as its users. # Goobstation - Sometimes less is more.
   components:
-  - type: Item
-    size: Huge
-    shape:
-    - 0,0,4,1
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/pulse_rifle.rsi
     layers:
@@ -526,7 +499,7 @@
     fireRate: 1.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: HeavyPulse # Goobstation - Start
     fireCost: 100
   - type: AmmoSelector
@@ -550,6 +523,10 @@
   - type: Tag
     tags:
     - Rifle
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,5,1
 
 - type: entity
   name: laser cannon
@@ -557,10 +534,6 @@
   id: WeaponLaserCannon
   description: A heavy and advanced laser weapon that trades out the capacity of a carbine for greatly increased power. Known to inflict third-degree burns straight through bulletproof armor.
   components:
-  - type: Item
-    size: Huge
-    shape:
-    - 0,0,4,1
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/laser_cannon.rsi
     layers:
@@ -580,13 +553,17 @@
     fireRate: 2 # Goobstation
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: RedHeavyLaser
     fireCost: 100
   - type: Tag
     tags:
     - TurretCompatibleWeapon
     - Rifle # Goobstation
+  - type: Item # Goobstation
+    size: Huge
+    shape:
+    - 0,0,4,1
 
 - type: entity
   name: portable particle decelerator
@@ -612,7 +589,7 @@
         path: /Audio/Weapons/emitter.ogg
         params:
           pitch: 2
-    - type: BatteryAmmoProvider
+    - type: ProjectileBatteryAmmoProvider
       proto: AntiParticlesProjectile
       fireCost: 500
     - type: Battery
@@ -633,10 +610,6 @@
   id: WeaponXrayCannon
   description: An experimental laser weapon that fires a dense x-ray beam. Leaves intense radiation burns.
   components:
-  - type: Item
-    size: Huge
-    shape:
-    - 0,0,4,1
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/xray.rsi
     layers:
@@ -650,7 +623,7 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: XrayLaser
     fireCost: 100
   - type: MagazineVisuals
@@ -669,6 +642,10 @@
   - type: Tag
     tags:
     - Rifle
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,4,1
 
 - type: entity
   name: practice disabler
@@ -684,8 +661,6 @@
     - state: mag-unshaded-0
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
-  - type: Item
-    storedOffset: -1,-5
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/practice_disabler.rsi
     quickEquip: false
@@ -703,7 +678,7 @@
     #projectileSpeed: 35 # Goobstation - nuh uh
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerPractice
     fireCost: 62.5
   - type: Tag
@@ -734,7 +709,7 @@
     slots:
       - suitStorage
       - Belt
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 62.5
   - type: GuideHelp
@@ -758,8 +733,6 @@
   components:
   - type: Item
     size: Large
-    shape:
-    - 0,0,2,1
   - type: Tag
     tags:
       - Taser
@@ -779,7 +752,7 @@
       - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerSmg
     fireCost: 25
   - type: MagazineVisuals
@@ -818,11 +791,9 @@
     slots:
     - Belt
   - type: Gun
-    fireRate: 0.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser.ogg
-    projectileSpeed: 25
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: BulletTaser
     fireCost: 200
   - type: MagazineVisuals
@@ -847,7 +818,7 @@
       path: /Audio/Effects/tesla_collapse.ogg # The wrath of god...
       params:
         volume: -6
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: BulletTaserSuper
     fireCost: 200
 
@@ -870,10 +841,11 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
   - type: BatterySelfRecharger
+    autoRecharge: true
     autoRechargeRate: 40
   - type: MagazineVisuals
     magState: mag
@@ -885,7 +857,6 @@
     - HighRiskItem
     - Sidearm
     - WeaponAntiqueLaser
-    - LaserWeapon
   - type: StaticPrice
     price: 750
   - type: StealTarget
@@ -902,9 +873,7 @@
   description: An experimental laser pistol fitted with a self-charging nuclear battery. # Goobstation
   components:
   - type: Item
-    #size: Normal # Goob we want the L shaped size
-    #shape:
-    #- 0,0,1,1
+    # size: Normal  # Intentionally larger than other pistols # Goobstation - no fuck you
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/advancedlasergun.rsi
     layers:
@@ -918,10 +887,11 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
   - type: BatterySelfRecharger
+    autoRecharge: true
     autoRechargeRate: 30
   - type: RestrictGunshotsByUserTag # Goobstation
     doesntContain:
@@ -937,10 +907,6 @@
   - type: Appearance
   - type: StaticPrice
     price: 63
-  - type: Tag
-    tags:
-    - Sidearm
-    - LaserWeapon
 
 - type: entity
   name: C.H.I.M.P. handcannon
@@ -957,8 +923,6 @@
       visible: false
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
-  - type: Item
-    storedOffset: 0,-6
   - type: Appearance
   - type: MagazineVisuals
     magState: mag
@@ -971,7 +935,7 @@
     fireRate: 1.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: AnomalousParticleDeltaStrong
     fireCost: 100
   - type: BatteryWeaponFireModes
@@ -1030,21 +994,18 @@
     fireRate: 0.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_clown.ogg
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
   - type: BatterySelfRecharger
-    autoRechargeRate: 40
+    autoRecharge: true
+    autoRechargeRate: 10
   - type: StaticPrice
     price: 750
-  - type: Tag
-    tags:
-    - Sidearm
-    - LaserWeapon
 
 - type: entity
   name: Energy Shotgun # Goobstation
-  parent: [BaseWeaponBattery, BaseGunWieldable, BaseGrandTheftContraband] # Goobstation
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseGrandTheftContraband]
   id: WeaponEnergyShotgun
   description: A one-of-a-kind energy weapon that fires a barrage of red-hot plasma rather than a laser beam. Comes with a fire selector between narrow, wide, and disabling, making it a diverse weapon in the right hands. # Goobstation
   components:
@@ -1067,17 +1028,18 @@
     fireRate: 2
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: BatteryAmmoProvider
-    proto: BulletLaserSpreadNarrow
-    fireCost: 80
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletLaserSpread
+    fireCost: 150
   # Goob edit start
-  #  - type: BatteryWeaponFireModes
-  #    fireModes:
-  #    - proto: BulletLaserSpreadNarrow
-  #      fireCost: 80
-  #    - proto: BulletDisablerSmgSpread
-  #      fireCost: 48
-  #      pacifismAllowedMode: true
+  #- type: BatteryWeaponFireModes
+  #  fireModes:
+  #  - proto: BulletLaserSpread
+  #    fireCost: 150
+  #  - proto: BulletLaserSpreadNarrow
+  #    fireCost: 200
+  #  - proto: BulletDisablerSmgSpread
+  #    fireCost: 120
   - type: AmmoSelector
     prototypes:
       - BulletLaserSpread
@@ -1099,57 +1061,21 @@
   # Goob edit end
     sprite: Objects/Weapons/Guns/Battery/inhands_64x.rsi
     heldPrefix: energy
-  - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
-  - type: Battery
-    maxCharge: 1200 # Goobstation
-    startingCharge: 1200 # Goobstation
-
-- type: entity
-  name: energy magnum
-  parent: [BaseWeaponBatterySmall, BaseGrandTheftContraband]
-  id: WeaponEnergyMagnum
-  description: A high powered self-charging energy pistol designed for elite security personnel. It has has three firing modes allowing for either high damage, window piercing, or non-lethal disabling.
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/energy_magnum.rsi
-    layers:
-    - state: base
-      map: [ "enum.GunVisualLayers.Base" ]
-    - state: mag-unshaded-1
-      visible: false
-      map: [ "enum.GunVisualLayers.MagUnshaded" ]
-      shader: unshaded
-  - type: MagazineVisuals
-    magState: mag
-    steps: 4
-    zeroVisible: true
-  - type: Appearance
-  - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/energy_magnum.rsi
   - type: Tag
     tags:
     - HighRiskItem
-    - Sidearm
   - type: StealTarget
-    stealGroup: WeaponEnergyMagnum
-  - type: Gun
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: BatteryAmmoProvider
-    proto: BulletLaserMagnum
-    fireCost: 150
-  - type: BatteryWeaponFireModes
-    fireModes:
-    - proto: BulletLaserMagnum
-      fireCost: 150
-    - proto: BulletLaserWindowPiercingMagnum
-      fireCost: 150
-    - proto: BulletDisabler
-      fireCost: 62.5
-      pacifismAllowedMode: true
-  - type: BatterySelfRecharger
-    autoRechargeRate: 48
-    autoRechargePauseTime: 10
+    stealGroup: WeaponEnergyShotgun
+  - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
+  - type: Battery
+    maxCharge: 1050 # Goobstation
+    startingCharge: 1050
+  # Goob - remove self recharge
+  # - type: BatterySelfRecharger
+  #   autoRecharge: true
+  #   autoRechargeRate: 24
+  #   autoRechargePause: true
+  #   autoRechargePauseTime: 30
 
 - type: entity
   name: temperature gun # Goobstation
@@ -1183,7 +1109,7 @@
     fireRate: 1
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: BulletTemperatureCold # Goobstation
     fireCost: 100
   - type: BatteryWeaponFireModes
@@ -1205,22 +1131,14 @@
           Heating: { state: mode-heating }
 
 - type: entity
-  parent: [WeaponAdvancedLaser, BaseXenoborgContraband]
-  id: WeaponLaserGunXenoborg
   name: xenoborg laser gun
+  parent: [WeaponAdvancedLaser, BaseXenoborgContraband]
+  id: XenoborgLaserGun
 
 - type: entity
-  parent: [WeaponLaserCannon, BaseXenoborgContraband]
-  id: WeaponLaserCannonXenoborg
-  name: xenoborg laser cannon
+  name: xenoborg heavy laser gun
+  parent: [WeaponAdvancedLaser, BaseXenoborgContraband]
+  id: XenoborgHeavyLaserGun
   components:
-  - type: BatterySelfRecharger
-    autoRechargeRate: 30
-  # "remove" wield bonus and penalty so borgs can use it
-  - type: GunWieldBonus
-    minAngle: 0
-    maxAngle: 0
-  - type: Gun
-    fireRate: 2
-    minAngle: 1
-    maxAngle: 2
+  - type: HitscanBatteryAmmoProvider
+    proto: RedHeavyLaser

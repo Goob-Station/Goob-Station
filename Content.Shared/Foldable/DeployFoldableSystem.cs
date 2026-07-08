@@ -39,7 +39,7 @@ public sealed class DeployFoldableSystem : EntitySystem
     private void OnDragDropDragged(Entity<DeployFoldableComponent> ent, ref DragDropDraggedEvent args)
     {
         if (!TryComp<FoldableComponent>(ent, out var foldable)
-            || !_foldable.TrySetFolded(ent, foldable, true, args.User))
+            || !_foldable.TrySetFolded(ent, foldable, true))
             return;
 
         _hands.PickupOrDrop(args.User, ent.Owner);
@@ -79,7 +79,7 @@ public sealed class DeployFoldableSystem : EntitySystem
             || !_hands.TryDrop((args.User, hands), args.Used, targetDropLocation: args.ClickLocation))
             return;
 
-        if (!_foldable.TrySetFolded(ent, foldable, false, args.User))
+        if (!_foldable.TrySetFolded(ent, foldable, false))
         {
             _hands.TryPickup(args.User, args.Used, handsComp: hands);
             return;

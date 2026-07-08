@@ -18,20 +18,20 @@ public sealed partial class ShuttleSystem : SharedShuttleSystem
         get => _enableShuttlePosition;
         set
         {
-            if (_enableShuttlePosition == value)
-                return;
+            if (_enableShuttlePosition == value) return;
 
             _enableShuttlePosition = value;
+            var overlayManager = IoCManager.Resolve<IOverlayManager>();
 
             if (_enableShuttlePosition)
             {
                 _overlay = new EmergencyShuttleOverlay(EntityManager.TransformQuery, XformSystem);
-                _overlays.AddOverlay(_overlay);
+                overlayManager.AddOverlay(_overlay);
                 RaiseNetworkEvent(new EmergencyShuttleRequestPositionMessage());
             }
             else
             {
-                _overlays.RemoveOverlay(_overlay!);
+                overlayManager.RemoveOverlay(_overlay!);
                 _overlay = null;
             }
         }

@@ -28,9 +28,9 @@ public abstract partial class SharedGunSystem
             : Loc.GetString("gun-cartridge-unspent"));
     }
 
-    private void OnCartridgeDamageExamine(Entity<CartridgeAmmoComponent> ent, ref DamageExamineEvent args)
+    private void OnCartridgeDamageExamine(EntityUid uid, CartridgeAmmoComponent component, ref DamageExamineEvent args)
     {
-        var damageSpec = GetProjectileDamage(ent.Comp.Prototype);
+        var damageSpec = GetProjectileDamage(component.Prototype);
 
         if (damageSpec == null)
             return;
@@ -38,7 +38,7 @@ public abstract partial class SharedGunSystem
         _damageExamine.AddDamageExamine(args.Message, Damageable.ApplyUniversalAllModifiers(damageSpec), Loc.GetString("damage-projectile"));
 
         // Goobstation START - partial armor penetration
-        var ap = GetProjectilePenetration(ent.Comp.Prototype);
+        var ap = GetProjectilePenetration(component.Prototype);
         if (ap == 0)
             return;
         var abs = Math.Abs(ap);

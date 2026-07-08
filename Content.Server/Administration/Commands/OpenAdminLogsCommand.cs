@@ -12,8 +12,7 @@ public sealed class OpenAdminLogsCommand : LocalizedEntityCommands
 {
     [Dependency] private readonly EuiManager _euiManager = default!;
 
-    public override string Command => Cmd;
-    public const string Cmd = "adminlogs";
+    public override string Command => "adminlogs";
 
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {

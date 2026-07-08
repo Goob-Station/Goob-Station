@@ -94,7 +94,7 @@
     enabled: false
     castShadows: false
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#39b8ee"
   - type: LitOnPowered
   - type: GenericVisualizer
@@ -186,9 +186,6 @@
       key_slots: !type:Container
       machine_board: !type:Container
       machine_parts: !type:Container
-  - type: CosmicTransmutable # DeltaV
-    transmutesTo: CosmicRadioJammer
-    requiredGlyphType: CosmicGlyphCessation
 
 - type: entity
   parent: TelecomServer

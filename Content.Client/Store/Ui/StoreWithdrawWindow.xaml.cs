@@ -35,7 +35,7 @@ public sealed partial class StoreWithdrawWindow : DefaultWindow
         _validCurrencies.Clear();
         foreach (var currency in balance)
         {
-            if (!_prototypeManager.Resolve(currency.Key, out var proto))
+            if (!_prototypeManager.TryIndex(currency.Key, out var proto))
                 continue;
 
             _validCurrencies.Add(proto, currency.Value);

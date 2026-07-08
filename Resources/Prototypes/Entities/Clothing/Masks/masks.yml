@@ -310,24 +310,9 @@
     color: "#e93790"
 
 - type: entity
-  parent: [ClothingMaskClownBase, BaseFoldable]
+  parent: ClothingMaskClownBase
   id: ClothingMaskClown
-  description: A clown mask featuring a foldable wig; a true prankster's attire.
   components:
-  - type: Appearance
-  - type: Foldable
-    canFoldInsideContainer: true
-  - type: FoldableClothing
-    foldedEquippedPrefix: opened
-    foldedHeldPrefix: opened
-  - type: Sprite
-    sprite: Clothing/Mask/clown.rsi
-    layers:
-    - state: icon
-      map: [ "unfoldedLayer" ]
-    - state: icon-opened
-      map: [ "foldedLayer" ]
-      visible: false
   - type: Tag
     tags:
     - ClownMask
@@ -338,7 +323,7 @@
     - Snout
 
 - type: entity
-  parent: ClothingMaskClownBase
+  parent: ClothingMaskClown
   id: ClothingMaskClownBanana
   name: banana clown wig and mask
   components:
@@ -349,17 +334,9 @@
   - type: Construction
     graph: BananaClownMask
     node: mask
-  - type: Tag
-    tags:
-    - ClownMask
-    - HamsterWearable
-    - WhitelistChameleon
-  - type: HideLayerClothing
-    slots:
-    - Snout
 
 - type: entity
-  parent: [ClothingMaskClownBase, BaseSecurityContraband]
+  parent: [ClothingMaskClown, BaseSecurityContraband]
   id: ClothingMaskClownSecurity
   name: security clown wig and mask
   description: A debatably oxymoronic but protective mask and wig.
@@ -373,18 +350,10 @@
     - Head
     modifiers:
       coefficients:
-        Blunt: 0.95
-        Slash: 0.95
-        Piercing: 0.95
-        Heat: 0.95
-  - type: Tag
-    tags:
-    - ClownMask
-    - HamsterWearable
-    - WhitelistChameleon
-  - type: HideLayerClothing
-    slots:
-    - Snout
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
   - type: IngestionBlocker
     blockSmokeIngestion: true # Goobstation
 
@@ -988,16 +957,3 @@
   - type: HideLayerClothing
     slots:
     - Snout
-
-# Entity tables
-- type: entityTable
-  id: AnimalMaskTable
-  table: !type:GroupSelector
-    children:
-    - id: ClothingMaskFox
-    - id: ClothingMaskBat
-    - id: ClothingMaskBear
-    - id: ClothingMaskBee
-    - id: ClothingMaskRaven
-    - id: ClothingMaskRat
-    - id: ClothingMaskJackal

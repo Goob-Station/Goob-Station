@@ -10,7 +10,6 @@ using Robust.Shared.Utility;
 
 // Shitmed Change
 using Content.Shared.Random;
-using Robust.Shared.Timing;
 
 namespace Content.Shared.Inventory;
 
@@ -19,7 +18,6 @@ public partial class InventorySystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IViewVariablesManager _vvm = default!;
     [Dependency] private readonly RandomHelperSystem _randomHelper = default!; // Shitmed Change
-    [Dependency] private readonly IGameTiming _gameTiming = default!; // Goob
 
     private void InitializeSlots()
     {

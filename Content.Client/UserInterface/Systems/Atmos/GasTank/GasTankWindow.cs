@@ -97,7 +97,7 @@ public sealed class GasTankWindow
         _topLabel = new Label
         {
             FontOverride = font,
-           StyleClasses = { StyleClass.LabelKeyText },
+            FontColorOverride = StyleNano.NanoGold,
             VerticalAlignment = VAlignment.Center,
             HorizontalExpand = true,
             HorizontalAlignment = HAlignment.Left,

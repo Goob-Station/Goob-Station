@@ -21,16 +21,17 @@
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.5
+    damageCoefficient: 0.4
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.7
+        Blunt: 0.5
+        Slash: 0.5
         Piercing: 0.5
         Heat: 0.5
-        Caustic: 0.7
-        Holy: 1.25 # Goobstation
+        Radiation: 0.5
+        Caustic: 0.5
+        Holy: 1.25
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -42,7 +43,6 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
-    - HidesHarpyWings
 #Shoulder mounted flashlight
   - type: ToggleableVisuals
     spriteLayer: light
@@ -84,6 +84,7 @@
     maxCharge: 100
     startingCharge: 100
   - type: BatterySelfRecharger
+    autoRecharge: true
     autoRechargeRate: 5
   - type: UnholyItem # Goobstation Shitchap
 
@@ -115,13 +116,5 @@
         Radiation: 0.5
         Caustic: 0.5
   - type: UnholyItem # Goobstation Shitchap
+  - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
-  - type: EyeProtection
-  - type: TypingIndicatorClothing
-    proto: CosmicTyping
-  - type: SpeechOverride
-    overrideIDs:
-      Male: CosmicEmotesMale
-      Female: CosmicEmotesFemale
-      Unsexed: CosmicEmotesMale # Humans use male soudns for unsexed so here we are.
-

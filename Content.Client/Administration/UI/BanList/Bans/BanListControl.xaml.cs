@@ -18,7 +18,7 @@ public sealed partial class BanListControl : Control
         RobustXamlLoader.Load(this);
     }
 
-    public void SetBans(List<SharedBan> bans)
+    public void SetBans(List<SharedServerBan> bans)
     {
         for (var i = Bans.ChildCount - 1; i >= 1; i--)
         {

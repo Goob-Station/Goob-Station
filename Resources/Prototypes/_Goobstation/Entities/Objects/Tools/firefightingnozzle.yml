@@ -53,11 +53,8 @@
       path: /Audio/Items/hiss.ogg
     clumsyProof: true
   - type: ClothingSlotAmmoProvider
-  - type: SlotBasedConnectedContainer
-    targetSlot:
-    - BACK
-    - suitStorage #goob edit
-    containerWhitelist:
+    targetSlot: BACK
+    providerWhitelist:
       tags:
       - AtmosBackTank
   - type: UseDelay

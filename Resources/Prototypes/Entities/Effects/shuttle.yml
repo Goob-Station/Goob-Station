@@ -6,7 +6,7 @@
   description: Visualizer for shuttles arriving. You shouldn't see this!
   components:
   - type: Transform
-    noRot: false
+    noRot: true
     gridTraversal: false
   - type: FtlVisualizer
     sprite:

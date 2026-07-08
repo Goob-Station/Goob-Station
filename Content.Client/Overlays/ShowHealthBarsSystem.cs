@@ -38,9 +38,6 @@ public sealed class ShowHealthBarsSystem : EquipmentHudSystem<ShowHealthBarsComp
     {
         base.UpdateInternal(component);
 
-        _overlay.DamageContainers.Clear();
-        _overlay.StatusIcon = null;
-
         foreach (var comp in component.Components)
         {
             foreach (var damageContainerId in comp.DamageContainers)

@@ -2,7 +2,7 @@
 
 using Content.Goobstation.Shared.SlaughterDemon;
 using Content.Server.Administration;
-using Content.Shared.IdentityManagement;
+using Content.Server.IdentityManagement;
 using Content.Server.Popups;
 using Content.Server.Prayer;
 using Robust.Shared.Player;

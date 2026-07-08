@@ -35,7 +35,7 @@
   - type: Battery
     maxCharge: 10000
     startingCharge: 10000
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: ProjectileFireball
     fireCost: 250
   - type: Appearance

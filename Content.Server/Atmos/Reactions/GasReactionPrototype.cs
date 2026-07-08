@@ -17,7 +17,7 @@ namespace Content.Server.Atmos.Reactions
         /// <summary>
         ///     Minimum gas amount requirements.
         /// </summary>
-        [DataField("minimumRequirements", customTypeSerializer: typeof(GasArraySerializer))]
+        [DataField("minimumRequirements")]
         public float[] MinimumRequirements { get; private set; } = new float[Atmospherics.TotalNumberOfGases];
 
         /// <summary>

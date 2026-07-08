@@ -88,7 +88,6 @@
           Structural: 50
     - type: Insulated
     - type: Temperature
-    - type: TemperatureDamage
       heatDamageThreshold: 10000
       coldDamageThreshold: -300
     - type: Flammable
@@ -119,10 +118,8 @@
       alwaysTakeHoly: true
     - type: NoSlip
     - type: Bloodstream
-      bloodReferenceSolution:
-        reagents:
-        - ReagentId: Haloperidol
-          Quantity: 300
+      bloodMaxVolume: 300
+      bloodReagent: Haloperidol
     - type: FootstepModifier
       footstepSoundCollection:
         collection: TentacleWalk
@@ -151,7 +148,7 @@
 
 - type: entity
   name: ????
-  parent: SimpleSpaceMobBase
+  parent: SimpleSpaceMobBase 
   id: MobHasturClone
   suffix: DO NOT MAP
   description: He who must not be named...

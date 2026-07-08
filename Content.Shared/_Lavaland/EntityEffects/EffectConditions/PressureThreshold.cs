@@ -1,22 +1,12 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
 using Content.Shared.Atmos.EntitySystems;
-using Content.Shared.EntityConditions;
-using Content.Shared.EntityConditions.Conditions;
 
-namespace Content.Shared._Lavaland.EntityEffects.EffectConditions;
+namespace Content.Shared.EntityEffects.EffectConditions;
 
-public sealed partial class PressureThresholdEntityConditionSystem : EntityConditionSystem<TransformComponent, PressureThresholdCondition>
-{
-    protected override void Condition(Entity<TransformComponent> entity, ref EntityConditionEvent<PressureThresholdCondition> args)
-    {
-        args.Result = false;
-    }
-}
-
-/// <inheritdoc cref="EntityCondition"/>
-public sealed partial class PressureThresholdCondition : EntityConditionBase<PressureThresholdCondition>
+public sealed partial class PressureThreshold : EntityEffectCondition
 {
     [DataField]
     public bool WorksOnLavaland = false;
@@ -27,10 +17,15 @@ public sealed partial class PressureThresholdCondition : EntityConditionBase<Pre
     [DataField]
     public float Max = float.MaxValue;
 
-    public override string EntityConditionGuidebookText(IPrototypeManager prototype)
+    public override bool Condition(EntityEffectBaseArgs args)
+    {
+        return false;
+    }
+    public override string GuidebookExplanation(IPrototypeManager prototype)
     {
         return Loc.GetString("reagent-effect-condition-pressure-threshold",
             ("min", Min),
             ("max", Max));
     }
+
 }

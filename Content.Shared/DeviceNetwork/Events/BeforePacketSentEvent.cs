@@ -25,17 +25,11 @@ public sealed class BeforePacketSentEvent : CancellableEntityEventArgs
     /// </summary>
     public readonly string NetworkId;
 
-    /// <summary>
-    /// The frequency the packet is sent on.
-    /// </summary>
-    public readonly uint Frequency;
-
-    public BeforePacketSentEvent(EntityUid sender, TransformComponent xform, Vector2 senderPosition, string networkId, uint frequency)
+    public BeforePacketSentEvent(EntityUid sender, TransformComponent xform, Vector2 senderPosition, string networkId)
     {
         Sender = sender;
         SenderTransform = xform;
         SenderPosition = senderPosition;
         NetworkId = networkId;
-        Frequency = frequency;
     }
 }

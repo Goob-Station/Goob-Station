@@ -35,7 +35,8 @@
       - !type:Jitter
         time: 3
         frequency: 20
-      - !type:SpawnEntity
+      - !type:CreateEntityReactionEffect
+        delay: 3
         entity: MobSlimeXenobioBabyGrey
         number: 3
     - reagents: [ Blood ]
@@ -47,7 +48,7 @@
         messages: [ "xeno-extract-reaction" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:SpawnEntity
+      - !type:CreateEntityReactionEffect
         entity: MonkeyCube
         number: 3
   - type: Tag

@@ -1,0 +1,57 @@
+# SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: MaterialSilo
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  name: material silo
+  description: Bluespace storage connected to most lathes on the station.
+  components:
+  - type: Physics
+    bodyType: Static
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Sprite
+    sprite: _Goobstation/Structures/Machines/silo.rsi
+    layers:
+    - state: ore_silo
+    - state: inserting
+      visible: false
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+  - type: WirelessNetworkConnection
+    range: 1000
+  - type: DeviceLinkSource
+    range: 1000
+    ports:
+      - MaterialSilo
+  - type: Machine
+    board: MaterialSiloMachineCircuitboard
+  - type: Appearance
+  - type: MaterialStorage
+    ignoreColor: true
+  - type: Silo
+  - type: DeviceLinkSink
+    ports:
+      - FillbotAnyItem
+
+- type: entity
+  id: BaseSiloUtilizer
+  abstract: true
+  components:
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+  - type: WirelessNetworkConnection
+    range: 1000
+  - type: DeviceLinkSink
+    ports:
+      - FillbotAnyItem
+      - MaterialSiloUtilizer
+  - type: SiloUtilizer
+  - type: MaterialStorage
+    connectToSilo: true

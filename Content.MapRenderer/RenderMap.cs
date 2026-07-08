@@ -1,5 +1,5 @@
 using System.IO;
-using Content.Shared.Maps;
+using Content.Server.Maps;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 

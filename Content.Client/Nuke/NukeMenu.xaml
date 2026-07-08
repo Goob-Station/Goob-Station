@@ -43,7 +43,7 @@ SPDX-License-Identifier: MIT
                 <Button Name="ArmButton"
                         Text="{Loc 'nuke-user-interface-arm-button'}"
                         Access="Public"
-                        StyleClasses="negative"/>
+                        StyleClasses="Caution"/>
             </BoxContainer>
         </BoxContainer>
     </BoxContainer>

@@ -6,13 +6,12 @@
   name: electrical disruption kit
   suffix: Filled
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
+    - type: StorageFill
+      contents:
         - id: EmpGrenade
           amount: 3
         - id: EmpImplanter
+          amount: 1
 
 - type: entity
   parent: [BoxVial, BaseSyndicateContraband]
@@ -23,37 +22,31 @@
   - type: Storage
     grid:
     - 0,0,3,2
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: Beaker
-        #  amount: 2
-        - id: TimerTrigger # Goobstation
-        - id: Dropper
-        # It would be cool to have special "syndicate" chemical analysis goggles
-        - id: ClothingEyesGlassesChemical
-        - id: VestineChemistryVial
-          amount: 2
-        #- id: ChemistryEmptyVial # Goobstation
-        # - id: Syringe # Goobstation
-        - id: ChemicalPayload # Goobstation
-        - id: SyringeStimulants
+  - type: StorageFill
+    contents:
+      - id: Beaker
+      - id: TimerTrigger # Goobstation
+      - id: Dropper
+      # It would be cool to have special "syndicate" chemical analysis goggles
+      - id: ClothingEyesGlassesChemical
+      - id: VestineChemistryVial
+        amount: 2
+      - id: ChemicalPayload # Goobstation
+      - id: SyringeStimulants
 
 - type: entity
   parent: [BoxCardboard, BaseSyndicateContraband]
   id: ThrowingKnivesKit
   name: throwing knives kit
-  description: A set of 8 syndicate branded throwing knives, perfect for embedding into the body of your victims.
+  description: A set of 4 syndicate branded throwing knives, perfect for embedding into the body of your victims.
   components:
   - type: Storage
     grid:
-    - 0,0,3,3
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: ThrowingKnife
-        amount: 8
+    - 0,0,3,1
+  - type: StorageFill
+    contents:
+      - id: ThrowingKnife
+        amount: 4
   - type: Sprite
     layers:
       - state: box_of_doom
@@ -72,10 +65,9 @@
   - type: Storage
     grid:
     - 0,0,5,3
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: DeathRattleImplanter
+  - type: StorageFill
+    contents:
+      - id: DeathRattleImplanter
         amount: 6
 
 - type: entity
@@ -96,12 +88,10 @@
     layers:
       - state: box_of_doom
       - state: france
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: WeaponCroissant
-          amount: 2
-        - id: WeaponBaguette
-        - id: SyndicateMicrowaveMachineCircuitboard
-        - id: PaperWrittenCombatBakeryKit
+  - type: StorageFill
+    contents:
+      - id: WeaponCroissant
+        amount: 2
+      - id: WeaponBaguette
+      - id: SyndicateMicrowaveMachineCircuitboard
+      - id: PaperWrittenCombatBakeryKit

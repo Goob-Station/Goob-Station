@@ -18,7 +18,7 @@
       - !type:MakeUnreactiveEntityEffect
       - !type:CreateGas
         gas: Healium
-        moles: 55
+        multiplier: 55
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Plasma ]
@@ -30,7 +30,7 @@
         messages: [ "xeno-extract-reaction" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
-      - !type:SpawnEntity
+      - !type:CreateEntityReactionEffect
         entity: XenobioAdamantineBar
         number: 1
     - reagents: [ Blood ]

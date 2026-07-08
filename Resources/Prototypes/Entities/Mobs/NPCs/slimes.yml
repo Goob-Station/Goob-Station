@@ -56,10 +56,7 @@
     damageContainer: Biological
     damageModifierSet: Slime
   - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: Slime
-        Quantity: 150
+    bloodReagent: Slime
     bloodlossDamage:
       types:
         Bloodloss:
@@ -80,11 +77,12 @@
     - reagents: [ Water, SpaceCleaner ]
       methods: [ Touch ]
       effects:
-      - !type:WashCreamPie
+      - !type:WashCreamPieReaction
     - reagents: [ Water ]
       methods: [ Touch ]
       effects:
       - !type:HealthChange
+        scaleByQuantity: true
         damage:
           types:
             Caustic: 5 # Goobstation

@@ -13,7 +13,7 @@
     sprite: _Goobstation/Objects/Consumable/Food/bay_food.rsi
     state: proteinbar
   - type: Item
-  - type: Edible
+  - type: Food
     trash:
     - FoodPacketProteinbarTrash
   - type: SolutionContainerManager
@@ -60,7 +60,7 @@
         - ReagentId: Protein
           Quantity: 10
   - type: Appearance
-  - type: Edible
+  - type: Food
     trash:
     - FoodSnackMothdogTrash
 
@@ -186,7 +186,7 @@
     sprite: _Goobstation/Objects/Consumable/Food/bay_food.rsi
     state: tidegobs
   - type: Item
-  - type: Edible
+  - type: Food
     trash:
     - FoodPacketTidegobsTrash
 
@@ -203,7 +203,7 @@
     sprite: _Goobstation/Objects/Consumable/Food/bay_food.rsi
     state: saturno
   - type: Item
-  - type: Edible
+  - type: Food
     trash:
     - FoodPacketSaturnosTrash
 
@@ -220,7 +220,7 @@
     sprite: _Goobstation/Objects/Consumable/Food/bay_food.rsi
     state: jupiter
   - type: Item
-  - type: Edible
+  - type: Food
     trash:
     - FoodPacketJoveGelloTrash
 
@@ -237,7 +237,7 @@
     sprite: _Goobstation/Objects/Consumable/Food/bay_food.rsi
     state: pluto
   - type: Item
-  - type: Edible
+  - type: Food
     trash:
     - FoodPacketPlutoniumrodsTrash
 
@@ -256,7 +256,7 @@
     sprite: _Goobstation/Objects/Consumable/Food/bay_food.rsi
     state: mars
   - type: Item
-  - type: Edible
+  - type: Food
     trash:
     - FoodPacketMarsFroukaTrash
 
@@ -273,7 +273,7 @@
     sprite: _Goobstation/Objects/Consumable/Food/bay_food.rsi
     state: venus
   - type: Item
-  - type: Edible
+  - type: Food
     trash:
     - FoodPacketVenusTrash
 
@@ -291,7 +291,7 @@
     sprite: _Goobstation/Objects/Consumable/Food/bay_food.rsi
     state: oort
   - type: Item
-  - type: Edible
+  - type: Food
     trash:
     - FoodPacketOortrocksTrash
 
@@ -309,7 +309,7 @@
     sprite: _Goobstation/Objects/Consumable/Food/bay_food.rsi
     state: weebonuts
   - type: Item
-  - type: Edible
+  - type: Food
     trash:
     - FoodPacketRedalertnutsTrash
 
@@ -356,7 +356,7 @@
     sprite: _Goobstation/Objects/Consumable/Food/bay_food.rsi
     state: chocobanana
   - type: Item
-  - type: Edible
+  - type: Food
     trash:
     - FoodPacketStickTrash
 
@@ -374,7 +374,7 @@
     sprite: _Goobstation/Objects/Consumable/Food/bay_food.rsi
     state: dango
   - type: Item
-  - type: Edible
+  - type: Food
     trash:
     - FoodPacketStickTrash
 
@@ -558,7 +558,7 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Consumable/Food/mothdog.rsi
     state: mothdognt
-  - type: Edible
+  - type: Food
     solution: food
   - type: FlavorProfile
     flavors:

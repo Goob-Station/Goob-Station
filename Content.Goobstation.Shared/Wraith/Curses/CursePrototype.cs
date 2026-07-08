@@ -6,13 +6,13 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 namespace Content.Goobstation.Shared.Wraith.Curses;
 
 [Prototype]
-public sealed partial class CursePrototype : IPrototype
+public sealed class CursePrototype : IPrototype
 {
     [IdDataField]
-    public string ID { get; private set; } = default!;
+    public string ID { get; } = default!;
 
     [DataField]
-    public string Name { get; private set; } = string.Empty;
+    public string Name { get; } = string.Empty;
 
     /// <summary>
     /// A dictionary that holds the random value that determines which list of entity effects will happen on the user.

@@ -56,10 +56,8 @@
       0: Alive
       60: Dead
   - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: InsectBlood
-        Quantity: 40
+    bloodReagent: InsectBlood
+    bloodMaxVolume: 40
   - type: Tag
     tags:
     - Trash
@@ -87,7 +85,7 @@
   - type: DodgeWideswing
     staminaRatio: 2
   - type: Stamina
-    baseCritThreshold: 20
+    critThreshold: 20
     animationThreshold: 10 # Goob edit
   - type: Respirator
     damage:

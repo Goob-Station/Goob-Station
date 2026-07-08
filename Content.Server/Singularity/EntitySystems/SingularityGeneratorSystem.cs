@@ -19,6 +19,7 @@ public sealed class SingularityGeneratorSystem : SharedSingularityGeneratorSyste
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly PhysicsSystem _physics = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly MetaDataSystem _metadata = default!;
     #endregion Dependencies
 
     public override void Initialize()
@@ -54,9 +55,6 @@ public sealed class SingularityGeneratorSystem : SharedSingularityGeneratorSyste
             return;
 
         SetPower(uid, 0, comp);
-
-        // Other particle entities from the same wave could trigger additional teslas to spawn, so we must block the generator
-        comp.Inert = true;
         Spawn(comp.SpawnPrototype, Transform(uid).Coordinates);
 
         // Goobstation - since it's reusable also trigger failsafe to avoid unintentional tesla spam
@@ -119,8 +117,7 @@ public sealed class SingularityGeneratorSystem : SharedSingularityGeneratorSyste
         if (!TryComp<SingularityGeneratorComponent>(args.OtherEntity, out var generatorComp))
             return;
 
-        if (generatorComp.Inert ||
-            _timing.CurTime < generatorComp.NextFailsafe && !generatorComp.FailsafeDisabled)
+        if (_timing.CurTime < _metadata.GetPauseTime(uid) + generatorComp.NextFailsafe && !generatorComp.FailsafeDisabled)
         {
             QueueDel(uid);
             return;
@@ -184,11 +181,10 @@ public sealed class SingularityGeneratorSystem : SharedSingularityGeneratorSyste
 
         foreach (var result in rayCastResults)
         {
-            if (!genQuery.HasComponent(result.HitEntity))
-                continue;
+            if (genQuery.HasComponent(result.HitEntity))
+                closestResult = result;
 
-            closestResult = result;
-            break;
+            // break; // Goobstation - still trigger with stuff inside the field
         }
 
         if (closestResult == null)

@@ -29,14 +29,14 @@ public sealed partial class GivePrototype : IGraphAction
         if (EntityPrototypeHelpers.HasComponent<StackComponent>(Prototype))
         {
             var stackSystem = entityManager.EntitySysManager.GetEntitySystem<StackSystem>();
-            var stacks = stackSystem.SpawnMultipleNextToOrDrop(Prototype, Amount, userUid ?? uid);
+            var stacks = stackSystem.SpawnMultiple(Prototype, Amount, userUid ?? uid);
 
             if (userUid is null || !entityManager.TryGetComponent(userUid, out HandsComponent? handsComp))
                 return;
 
             foreach (var item in stacks)
             {
-                stackSystem.TryMergeToHands(item, (userUid.Value, handsComp));
+                stackSystem.TryMergeToHands(item, userUid.Value, hands: handsComp);
             }
         }
         else

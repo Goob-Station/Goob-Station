@@ -13,7 +13,7 @@ public sealed partial class LavalandLayoutPrototype : IPrototype
 {
     /// <inheritdoc/>
     [IdDataField]
-    public string ID { get; private set; } = default!;
+    public string ID { get; } = default!;
 
     [DataField(required: true)]
     public List<LavalandLayoutEntry> Layouts = new();

@@ -1,29 +1,22 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Access;
-using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._Goobstation.Heretic.Effects;
 
-public sealed partial class RemoveAccessSystem : EntityEffectSystem<AccessReaderComponent, RemoveAccess>
+public sealed partial class RemoveAccess : EntityEffect
 {
-    [Dependency] private readonly SharedIdCardSystem _id = default!;
-    [Dependency] private readonly SharedAccessSystem _access = default!;
+    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+        => "Removes all target access.";
 
-    protected override void Effect(Entity<AccessReaderComponent> entity, ref EntityEffectEvent<RemoveAccess> args)
+    public override void Effect(EntityEffectBaseArgs args)
     {
-        if (!_id.TryFindIdCard(entity.Owner, out var idCard))
+        if (!args.EntityManager.System<SharedIdCardSystem>().TryFindIdCard(args.TargetEntity, out var id))
             return;
 
-        _access.TrySetTags(idCard, new List<ProtoId<AccessLevelPrototype>>());
+        args.EntityManager.System<SharedAccessSystem>().TrySetTags(id, new List<ProtoId<AccessLevelPrototype>>());
     }
-}
-
-public sealed partial class RemoveAccess : EntityEffectBase<RemoveAccess>
-{
-    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => "Removes all target access.";
 }

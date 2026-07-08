@@ -42,7 +42,7 @@
     Fluorine:
       amount: 3
   effects:
-  - !type:Explosion
+  - !type:ExplosionReactionEffect
     explosionType: Default # 15 damage per intensity.
     maxIntensity: 200
     intensityPerUnit: 5

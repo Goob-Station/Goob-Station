@@ -1,11 +1,14 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: BaseBullet
   id: PelletClusterRubber
-  categories: [ HideSpawnMenu ]
   name: pellet (ball, rubber)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
   components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: buckshot
   - type: Projectile
     deleteOnCollide: false
     damage:
@@ -17,11 +20,14 @@
     lifetime: 0.25
 
 - type: entity
-  parent: BaseBullet
   id: PelletClusterLethal
-  categories: [ HideSpawnMenu ]
   name: pellet (ball, lethal)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
   components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: buckshot
   - type: Projectile
     deleteOnCollide: false
     damage:
@@ -31,11 +37,14 @@
     lifetime: 0.25
 
 - type: entity
-  parent: BaseBulletIncendiary
   id: PelletClusterIncendiary
-  categories: [ HideSpawnMenu ]
   name: pellet (ball, incendiary)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBulletIncendiary
   components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: buckshot-flare
   - type: Projectile
     deleteOnCollide: false
     damage:
@@ -49,11 +58,14 @@
     lifetime: 0.25
 
 - type: entity
-  parent: BaseBullet
   id: PelletClusterLessLethal
-  categories: [ HideSpawnMenu ]
   name: pellet (ball, less lethal)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
   components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: buckshot
   - type: Projectile
     deleteOnCollide: false
     damage:

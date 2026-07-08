@@ -51,23 +51,7 @@ public sealed class ToggleableGhostRoleSystem : EntitySystem
 
         args.Handled = true;
 
-        ActivateGhostRole((uid, component));
-    }
-
-    public void ActivateGhostRole(Entity<ToggleableGhostRoleComponent?> ent)
-    {
-        if (!Resolve(ent, ref ent.Comp))
-            return;
-
-        var ghostRole = EnsureComp<GhostRoleComponent>(ent);
-        EnsureComp<GhostTakeoverAvailableComponent>(ent);
-
-        // GhostRoleComponent inherits custom settings from the ToggleableGhostRoleComponent
-        ghostRole.RoleName = Loc.GetString(ent.Comp.RoleName);
-        ghostRole.RoleDescription = Loc.GetString(ent.Comp.RoleDescription);
-        ghostRole.RoleRules = Loc.GetString(ent.Comp.RoleRules);
-        ghostRole.JobProto = ent.Comp.JobProto;
-        ghostRole.MindRoles = ent.Comp.MindRoles;
+        TryActivate(uid, component, args.User);
     }
 
     private void OnExamined(EntityUid uid, ToggleableGhostRoleComponent component, ExaminedEvent args)

@@ -16,7 +16,13 @@ public sealed partial class CosmicEntropyDebuffComponent : Component
     public TimeSpan CheckTimer = default!;
 
     [DataField]
-    public TimeSpan CheckWait = TimeSpan.FromSeconds(10); // Goobstation
+    public TimeSpan CheckWait = TimeSpan.FromSeconds(10);
+
+    /// <summary>
+    /// The chance to recieve a message popup while under the effects of Entropic Degen.
+    /// </summary>
+    [DataField]
+    public float PopupChance = 0.00f;
 
     /// <summary>
     /// The debuff applied while the component is present.

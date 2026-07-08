@@ -18,7 +18,7 @@ public sealed class GeigerItemControl : Control
     public GeigerItemControl(GeigerComponent component)
     {
         _component = component;
-        _label = new RichTextLabel { StyleClasses = { StyleClass.ItemStatus } };
+        _label = new RichTextLabel { StyleClasses = { StyleNano.StyleClassItemStatus } };
         AddChild(_label);
 
         Update();

@@ -113,7 +113,7 @@
   id: pain
   clauseWeight: -5
   addedComponents:
-  - type: PainNumbnessStatusEffect
+  - type: PainNumbness
   - type: SlowOnDamage
     speedModifierThresholds:
       60: 1
@@ -181,10 +181,8 @@
   clauseWeight: 35
   addedComponents:
   - type: Narcolepsy
-    maxTimeBetweenIncidents: 600
-    minTimeBetweenIncidents: 300
-    maxDurationOfIncident: 30
-    minDurationOfIncident: 10
+    timeBetweenIncidents: 300, 600
+    durationOfIncident: 10, 30
 
 - type: clause
   id: anorgan

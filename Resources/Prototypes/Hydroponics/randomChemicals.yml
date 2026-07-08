@@ -7,12 +7,11 @@
     weight: 0.5
     reagents:
     - Omnizine
-    - Impedrezene
-    - Fresium
-    - HeartbreakerToxin
+    - Nocturine
+    - Lexorin
     - Honk
     - BuzzochloricBees
-    - Stimulants # Goob
+    - Stimulants
     # Goobstation
     - JuiceThatMakesYouHew
     - Carpolin
@@ -37,9 +36,6 @@
     - ChangelingSting
     - CogChamp
     - JuiceThatMakesYouWeh
-    - TearGas
-    - Lipolicide
-    - Benzene
     # Goobstation
     - Genecide
     - Fentanyl
@@ -69,8 +65,6 @@
     - Cola
     - Diphenhydramine
     - Iron
-    - Bleach
-    - Mannitol
     # Goobstation
     - Ibuprofen
     - Tilenol
@@ -95,7 +89,7 @@
     - Ash
     - SodiumCarbonate
     - SpaceDrugs
-    - SpaceGlue
+    - MuteToxin
     - JuiceBerryPoison
     - Pilk
     - Posca
@@ -108,9 +102,6 @@
     - Potassium
     - Fluorine
     - Aluminium
-    - Wine
-    - Coffee
-    - Beer
     # Goobstation
     - Tirimol
     - Probital
@@ -136,23 +127,3 @@
     - TableSalt
     - Chlorine
     - Mercury
-
-- type: weightedRandomFillSolution
-  id: EvilRandomFillSolution
-  fills:
-  - quantity: 0.05 # Common but very low quantity
-    weight: 40
-    reagents:
-    - Nocturine
-    - MuteToxin
-    - Lead
-  - quantity: 0.1
-    weight: 5 # 99.9% chance of appearing at least once with 60u of vestine with an average of 6.5 occurances.
-    reagents:
-    - Vestine
-  - quantity: 1.0 # High quantity but on average only 1 per chemical kit
-    weight: 1
-    reagents:
-    - Tazinide
-    - Stimulants
-    - Lexorin

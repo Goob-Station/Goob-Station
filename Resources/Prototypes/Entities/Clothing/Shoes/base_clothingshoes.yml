@@ -33,7 +33,7 @@
     state: icon
   - type: Item
     size: Normal
-  - type: Edible
+  - type: Food
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
     solutions:
@@ -82,7 +82,6 @@
     slots:
       item:
         name: clothing-boots-sidearm
-        priority: 4
         whitelist:
           tags:
           - Knife

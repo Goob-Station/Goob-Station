@@ -4,20 +4,15 @@ namespace Content.Shared.Throwing
 {
     public sealed class ThrowAttemptEvent : CancellableEntityEventArgs
     {
-        public ThrowAttemptEvent(EntityUid uid, EntityUid itemUid,
-            EntityUid? targetUid // Goob pass along target
-            )
+        public ThrowAttemptEvent(EntityUid uid, EntityUid itemUid)
         {
             Uid = uid;
             ItemUid = itemUid;
-            TargetUid = targetUid;  // Goob pass along target
         }
 
         public EntityUid Uid { get; }
 
         public EntityUid ItemUid { get; }
-
-        public EntityUid? TargetUid { get; } // Goob pass along target
     }
 
     /// <summary>

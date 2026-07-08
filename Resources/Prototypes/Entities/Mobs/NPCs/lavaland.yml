@@ -54,10 +54,11 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 1.65 # Lavaland change // Slightly slower than regular walkspeed, makes it not annoying as fuck to catch
     baseSprintSpeed: 1.65 # Lavaland change
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: WatcherBolt
     fireCost: 50
   - type: BatterySelfRecharger
+    autoRecharge: true
     autoRechargeRate: 50
   - type: Battery
     maxCharge: 1000
@@ -92,8 +93,8 @@
       shader: unshaded
       color: red
   - type: PointLight
-    radius: 1
-    energy: 3
+    radius: 1.5
+    energy: 0.5
     color: red
   - type: Butcherable # Lavaland Change
     spawned:
@@ -115,10 +116,10 @@
       shader: unshaded
       color: deepskyblue
   - type: PointLight
-    radius: 1
-    energy: 3
+    radius: 1.5
+    energy: 1
     color: deepskyblue
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: WatcherBoltIcewing
     fireCost: 50
   - type: Butcherable # Lavaland Change
@@ -141,10 +142,10 @@
       shader: unshaded
       color: orangered
   - type: PointLight
-    radius: 1
-    energy: 3
+    radius: 1.5
+    energy: 1
     color: orangered
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: WatcherBoltMagmawing
     fireCost: 50
   - type: Butcherable # Lavaland Change
@@ -168,7 +169,7 @@
       state: unshaded
       shader: unshaded
   - type: PointLight
-    radius: 1
-    energy: 3
+    radius: 1.5
+    energy: 1
   - type: RgbLightController
     layers: [ 1 ]

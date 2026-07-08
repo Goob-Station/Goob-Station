@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 using Content.Server.Speech.Components;
 using Content.Shared.Speech;
 using Content.Shared.Speech.EntitySystems;
-using Content.Shared.StatusEffectNew;
+using Content.Shared.StatusEffect;
 using Robust.Shared.Random;
 
 namespace Content.Server.Speech.EntitySystems
@@ -22,31 +22,22 @@ namespace Content.Server.Speech.EntitySystems
         public override void Initialize()
         {
             SubscribeLocalEvent<StutteringAccentComponent, AccentGetEvent>(OnAccent);
-
-            SubscribeLocalEvent<StutteringAccentComponent, StatusEffectRelayedEvent<AccentGetEvent>>(OnAccent);
         }
 
-        public override void DoStutter(EntityUid uid, TimeSpan time, bool refresh)
+        public override void DoStutter(EntityUid uid, TimeSpan time, bool refresh, StatusEffectsComponent? status = null)
         {
-            if (refresh)
-                Status.TryUpdateStatusEffectDuration(uid, Stuttering, time);
-            else
-                Status.TryAddStatusEffectDuration(uid, Stuttering, time);
+            if (!Resolve(uid, ref status, false))
+                return;
+
+            if (Terminating(uid))
+                return;
+
+            _statusEffectsSystem.TryAddStatusEffect(uid, StutterKey.Id, out _, time); //todo goobstation migrate stutter.
         }
 
-        public override void DoRemoveStutterTime(EntityUid uid, TimeSpan timeRemoved)
+        private void OnAccent(EntityUid uid, StutteringAccentComponent component, AccentGetEvent args)
         {
-            Status.TryAddTime(uid, Stuttering, -timeRemoved);
-        }
-
-        private void OnAccent(Entity<StutteringAccentComponent> entity, ref AccentGetEvent args)
-        {
-            args.Message = Accentuate(args.Message, entity.Comp);
-        }
-
-        private void OnAccent(Entity<StutteringAccentComponent> entity, ref StatusEffectRelayedEvent<AccentGetEvent> args)
-        {
-            args.Args.Message = Accentuate(args.Args.Message, entity.Comp);
+            args.Message = Accentuate(args.Message, component);
         }
 
         public string Accentuate(string message, StutteringAccentComponent component)

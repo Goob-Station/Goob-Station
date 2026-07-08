@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
-using Content.Client.Graphics;
 using Content.Shared.Silicons.StationAi;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
@@ -30,7 +29,8 @@ public sealed class StationAiOverlay : Overlay
 
     private readonly HashSet<Vector2i> _visibleTiles = new();
 
-    private readonly OverlayResourceCache<CachedResources> _resources = new();
+    private IRenderTexture? _staticTexture;
+    private IRenderTexture? _stencilTexture;
 
     private float _updateRate = 1f / 30f;
     private float _accumulator;
@@ -44,14 +44,12 @@ public sealed class StationAiOverlay : Overlay
 
     protected override void Draw(in OverlayDrawArgs args)
     {
-        var res = _resources.GetForViewport(args.Viewport, static _ => new CachedResources());
-
-        if (res.StencilTexture?.Texture.Size != args.Viewport.Size)
+        if (_stencilTexture?.Texture.Size != args.Viewport.Size)
         {
-            res.StaticTexture?.Dispose();
-            res.StencilTexture?.Dispose();
-            res.StencilTexture = _clyde.CreateRenderTarget(args.Viewport.Size, new RenderTargetFormatParameters(RenderTargetColorFormat.Rgba8Srgb), name: "station-ai-stencil");
-            res.StaticTexture = _clyde.CreateRenderTarget(args.Viewport.Size,
+            _staticTexture?.Dispose();
+            _stencilTexture?.Dispose();
+            _stencilTexture = _clyde.CreateRenderTarget(args.Viewport.Size, new RenderTargetFormatParameters(RenderTargetColorFormat.Rgba8Srgb), name: "station-ai-stencil");
+            _staticTexture = _clyde.CreateRenderTarget(args.Viewport.Size,
                 new RenderTargetFormatParameters(RenderTargetColorFormat.Rgba8Srgb),
                 name: "station-ai-static");
         }
@@ -109,7 +107,7 @@ public sealed class StationAiOverlay : Overlay
             var matty =  Matrix3x2.Multiply(gridMatrix, invMatrix);
 
             // Draw visible tiles to stencil
-            worldHandle.RenderInRenderTarget(res.StencilTexture!, () =>
+            worldHandle.RenderInRenderTarget(_stencilTexture!, () =>
             {
                 worldHandle.SetTransform(matty);
 
@@ -122,7 +120,7 @@ public sealed class StationAiOverlay : Overlay
             Color.Transparent);
 
             // Once this is gucci optimise rendering.
-            worldHandle.RenderInRenderTarget(res.StaticTexture!,
+            worldHandle.RenderInRenderTarget(_staticTexture!,
             () =>
             {
                 worldHandle.SetTransform(invMatrix);
@@ -135,12 +133,12 @@ public sealed class StationAiOverlay : Overlay
         // Not on a grid
         else
         {
-            worldHandle.RenderInRenderTarget(res.StencilTexture!, () =>
+            worldHandle.RenderInRenderTarget(_stencilTexture!, () =>
             {
             },
             Color.Transparent);
 
-            worldHandle.RenderInRenderTarget(res.StaticTexture!,
+            worldHandle.RenderInRenderTarget(_staticTexture!,
             () =>
             {
                 worldHandle.SetTransform(Matrix3x2.Identity);
@@ -150,33 +148,14 @@ public sealed class StationAiOverlay : Overlay
 
         // Use the lighting as a mask
         worldHandle.UseShader(_proto.Index(StencilMaskShader).Instance());
-        worldHandle.DrawTextureRect(res.StencilTexture!.Texture, worldBounds);
+        worldHandle.DrawTextureRect(_stencilTexture!.Texture, worldBounds);
 
         // Draw the static
         worldHandle.UseShader(_proto.Index(StencilDrawShader).Instance());
-        worldHandle.DrawTextureRect(res.StaticTexture!.Texture, worldBounds);
+        worldHandle.DrawTextureRect(_staticTexture!.Texture, worldBounds);
 
         worldHandle.SetTransform(Matrix3x2.Identity);
         worldHandle.UseShader(null);
 
-    }
-
-    protected override void DisposeBehavior()
-    {
-        _resources.Dispose();
-
-        base.DisposeBehavior();
-    }
-
-    private sealed class CachedResources : IDisposable
-    {
-        public IRenderTexture? StaticTexture;
-        public IRenderTexture? StencilTexture;
-
-        public void Dispose()
-        {
-            StaticTexture?.Dispose();
-            StencilTexture?.Dispose();
-        }
     }
 }

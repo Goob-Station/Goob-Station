@@ -78,7 +78,7 @@ namespace Content.Client.Access.UI
 
         public void SetAllowedIcons(string currentJobIconId)
         {
-            IconGrid.RemoveAllChildren();
+            IconGrid.DisposeAllChildren();
 
             var jobIconButtonGroup = new ButtonGroup();
             var i = 0;
@@ -86,12 +86,12 @@ namespace Content.Client.Access.UI
             icons.Sort((x, y) => string.Compare(x.LocalizedJobName, y.LocalizedJobName, StringComparison.CurrentCulture));
             foreach (var jobIcon in icons)
             {
-                String styleBase = StyleClass.ButtonOpenBoth;
+                String styleBase = StyleBase.ButtonOpenBoth;
                 var modulo = i % JobIconColumnCount;
                 if (modulo == 0)
-                    styleBase = StyleClass.ButtonOpenRight;
+                    styleBase = StyleBase.ButtonOpenRight;
                 else if (modulo == JobIconColumnCount - 1)
-                    styleBase = StyleClass.ButtonOpenLeft;
+                    styleBase = StyleBase.ButtonOpenLeft;
 
                 // Generate buttons
                 var jobIconButton = new Button

@@ -15,7 +15,7 @@ namespace Content.Server.Worldgen.Prototypes;
 public sealed partial class BiomePrototype : IPrototype, IInheritingPrototype
 {
     /// <inheritdoc />
-    [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<BiomePrototype>))]
+    [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<EntityPrototype>))]
     public string[]? Parents { get; private set; }
 
     /// <inheritdoc />

@@ -39,7 +39,7 @@ public sealed partial class MappingPrototypeList : Control
     {
         _prototypes.Clear();
 
-        PrototypeList.RemoveAllChildren();
+        PrototypeList.DisposeAllChildren();
 
         _prototypes.AddRange(prototypes);
 
@@ -101,7 +101,7 @@ public sealed partial class MappingPrototypeList : Control
     public void Search(List<MappingPrototype> prototypes)
     {
         _search.Clear();
-        SearchList.RemoveAllChildren();
+        SearchList.DisposeAllChildren();
         _lastIndices = (0, -1);
 
         _search.AddRange(prototypes);

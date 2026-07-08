@@ -12,10 +12,10 @@ public sealed partial class GunAmmoPrecondition : HTNPrecondition
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
 
-    [DataField]
+    [DataField("minPercent")]
     public float MinPercent = 0f;
 
-    [DataField]
+    [DataField("maxPercent")]
     public float MaxPercent = 1f;
 
     public override bool IsMet(NPCBlackboard blackboard)
@@ -23,19 +23,19 @@ public sealed partial class GunAmmoPrecondition : HTNPrecondition
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
         var gunSystem = _entManager.System<GunSystem>();
 
-        if (!gunSystem.TryGetGun(owner, out var gun))
+        if (!gunSystem.TryGetGun(owner, out var gunUid, out _))
         {
             return false;
         }
 
         var ammoEv = new GetAmmoCountEvent();
-        _entManager.EventBus.RaiseLocalEvent(gun, ref ammoEv);
+        _entManager.EventBus.RaiseLocalEvent(gunUid, ref ammoEv);
         float percent;
 
         if (ammoEv.Capacity == 0)
             percent = 0f;
         else
-            percent = ammoEv.Count / (float)ammoEv.Capacity;
+            percent = ammoEv.Count / (float) ammoEv.Capacity;
 
         percent = System.Math.Clamp(percent, 0f, 1f);
 

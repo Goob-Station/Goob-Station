@@ -14,7 +14,7 @@
   name: cotton bun recipe
   result: FoodCottonBun
   time: 5
-  group: Moth
+  group: Breads
   solids:
     FoodDoughCottonSlice: 1
 
@@ -403,7 +403,7 @@
   name: banana bread recipe
   result: FoodBreadBanana
   time: 15
-  group: Breads
+  group: LoafCakes
   solids:
     FoodDough: 1
     FoodBanana: 1
@@ -1709,8 +1709,8 @@
   time: 5
   group: Cake
   solids:
-    FoodCakeBlueberry: 1
-    FoodBerries: 2
+    FoodCakePlain: 1
+    FoodBerries: 5
   reagents:
     Milk: 10
 
@@ -2390,17 +2390,6 @@
     FoodOnionSlice: 2
 
 - type: microwaveMealRecipe
-  id: RecipeTacoDragon
-  name: draco recipe
-  result: FoodTacoDragon
-  time: 10
-  group: Savory
-  solids:
-    FoodTacoShell: 1
-    FoodMeatDragonCutlet: 2
-    FoodChiliPepper: 1
-
-- type: microwaveMealRecipe
   id: RecipeCroissant
   name: croissant recipe
   result: FoodBakedCroissant
@@ -2464,7 +2453,6 @@
   name: grilled cheese sandwich recipe
   result: FoodBakedGrilledCheeseSandwich
   time: 10
-  group: Savory
   solids:
     FoodBreadPlainSlice: 2
     FoodCheeseSlice: 1
@@ -2475,7 +2463,6 @@
   name: cotton grilled cheese sandwich recipe
   result: FoodBakedGrilledCheeseSandwichCotton
   time: 10
-  group: Moth
   solids:
     FoodBreadCottonSlice: 2
     FoodCheeseSlice: 1
@@ -2526,8 +2513,9 @@
   name: cotton cake recipe
   result: FoodCakeCotton
   time: 5
-  group: Moth
+  group: Cake
   reagents:
     Fiber: 10
   solids:
     FoodCakePlain: 1
+    

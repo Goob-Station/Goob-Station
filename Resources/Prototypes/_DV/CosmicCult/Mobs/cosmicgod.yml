@@ -16,7 +16,6 @@
 
 # spawn animation, spawns actual god when it ends
 - type: entity
-  categories: [ HideSpawnMenu ]
   parent: MobCosmicGodBase
   id: MobCosmicGodSpawn
   suffix: Spawn
@@ -50,7 +49,6 @@
        enabled: true
 
 - type: entity
-  categories: [ HideSpawnMenu ]
   parent: [MobCosmicGodBase, BaseMob]
   id: MobCosmicGod
   components:
@@ -87,14 +85,11 @@
   - type: MovementIgnoreGravity
   - type: GhostHearing
   - type: Physics
-    bodyType: KinematicController
+    bodyType: Dynamic
     bodyStatus: InAir
   - type: CanMoveInAir
   - type: WarpPoint
     follow: true
-    blacklist:
-      tags:
-      - GhostOnlyWarp
     location: The Unknown
   - type: CosmicGod
   - type: CosmicCultExamine
@@ -125,6 +120,3 @@
     raffle:
         settings: short
   - type: GhostTakeoverAvailable
-  - type: Tag
-    tags:
-      - GhostOnlyWarp

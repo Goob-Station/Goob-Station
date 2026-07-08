@@ -14,8 +14,8 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
+        - !type:OrganType
+          type: Yowie
         damage:
           groups:
             Brute: -1
@@ -33,14 +33,16 @@
         component: Drowsiness
         time: 2.5
         type: Add
+        refresh: false
       - !type:SuppressPain
         amount: 50
         time: 30
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Plant ]
-        - !type:ReagentCondition
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        - !type:ReagentThreshold
           reagent: Morphine
           min: 16
         damage:
@@ -48,8 +50,7 @@
             Asphyxiation: 2
       - !type:AdjustConsciousness
         conditions:
-        - !type:ReagentCondition
-          reagent: Morphine
+        - !type:ReagentThreshold
           min: 16
         allowNewModifiers: true
         modifierType: Pain

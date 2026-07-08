@@ -47,7 +47,7 @@ public abstract class SharedVoidAdaptionSystem : EntitySystem
     {
         // incase something removes the component
         _alerts.ClearAlert(
-            ent.Owner,
+            ent,
             ent.Comp.Alert);
     }
 
@@ -164,11 +164,11 @@ public abstract class SharedVoidAdaptionSystem : EntitySystem
 
             // void adaption recovering from fire can have these alerts show up (mainly when in space/vacuum)
             _alerts.ClearAlert(
-            ent.Owner,
+            ent,
             LowPressureAlert);
 
             _alerts.ClearAlert(
-            ent.Owner,
+            ent,
             LowTempAlert);
 
             return true;
@@ -218,7 +218,7 @@ public abstract class SharedVoidAdaptionSystem : EntitySystem
             return;
 
         _alerts.ShowAlert(
-            ent.Owner,
+            ent,
             ent.Comp.Alert);
     }
 
@@ -229,7 +229,7 @@ public abstract class SharedVoidAdaptionSystem : EntitySystem
             return;
 
         _alerts.ClearAlert(
-            ent.Owner,
+            ent,
             ent.Comp.Alert);
     }
 

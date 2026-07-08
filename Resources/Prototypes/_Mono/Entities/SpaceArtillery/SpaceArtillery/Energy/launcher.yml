@@ -32,7 +32,7 @@
     powerUsePassive: 2000
     powerUseActive: 0
   - type: Actions
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: ShipRubiconProjectile
     fireCost: 400
   - type: Destructible
@@ -90,13 +90,14 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
   #- type: BatterySelfRecharger
+  #  autoRecharge: true
   #  autoRechargeRate: 350
   - type: SpaceArtillery
     powerChargeRate: 100
     powerUsePassive: 500
     powerUseActive: 0
   - type: Actions
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: ShipMediumPlasmaProjectile
     fireCost: 1000
   - type: Destructible
@@ -164,7 +165,7 @@
     powerUsePassive: 20000
     powerUseActive: 0
   - type: Actions
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: ShipDymereProjectile
     fireCost: 20000
   - type: RadarBlip

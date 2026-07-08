@@ -19,11 +19,7 @@ public sealed class StationMapBoundUserInterface : BoundUserInterface
         base.Open();
         EntityUid? gridUid = null;
 
-        if (EntMan.TryGetComponent<StationMapComponent>(Owner, out var comp) && comp.TargetGrid != null)
-        {
-            gridUid = comp.TargetGrid;
-        }
-        else if (EntMan.TryGetComponent<TransformComponent>(Owner, out var xform))
+        if (EntMan.TryGetComponent<TransformComponent>(Owner, out var xform))
         {
             gridUid = xform.GridUid;
         }
@@ -36,8 +32,8 @@ public sealed class StationMapBoundUserInterface : BoundUserInterface
         {
             stationName = gridMetaData.EntityName;
         }
-
-        if (comp != null && comp.ShowLocation)
+        
+        if (EntMan.TryGetComponent<StationMapComponent>(Owner, out var comp) && comp.ShowLocation)
             _window.Set(stationName, gridUid, Owner);
         else
             _window.Set(stationName, gridUid, null);

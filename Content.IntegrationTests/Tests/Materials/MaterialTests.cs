@@ -56,7 +56,7 @@ namespace Content.IntegrationTests.Tests.Materials
                             $"{proto.ID} material has no stack prototype");
 
                         if (stackProto != null)
-                            Assert.That(proto.StackEntity, Is.EqualTo(stackProto.Spawn.Id));
+                            Assert.That(proto.StackEntity, Is.EqualTo(stackProto.Spawn));
                     }
                 });
 

@@ -21,26 +21,31 @@ public sealed class BarSignBoundUserInterface(EntityUid owner, Enum uiKey) : Bou
         var sign = EntMan.GetComponentOrNull<BarSignComponent>(Owner)?.Current is { } current
             ? _prototype.Index(current)
             : null;
-        var allSigns = BarSignSystem.GetAllBarSigns(_prototype)
+        var allSigns = Shared.BarSign.BarSignSystem.GetAllBarSigns(_prototype)
             .OrderBy(p => Loc.GetString(p.Name))
             .ToList();
         _menu = new(sign, allSigns);
 
         _menu.OnSignSelected += id =>
         {
-            SendPredictedMessage(new SetBarSignMessage(id));
+            SendMessage(new SetBarSignMessage(id));
         };
 
         _menu.OnClose += Close;
         _menu.OpenCentered();
     }
 
-    public override void Update()
+    public void Update(ProtoId<BarSignPrototype>? sign)
     {
-        if (!EntMan.TryGetComponent<BarSignComponent>(Owner, out var signComp))
-            return;
-
-        if (_prototype.Resolve(signComp.Current, out var signPrototype))
+        if (_prototype.TryIndex(sign, out var signPrototype))
             _menu?.UpdateState(signPrototype);
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+        base.Dispose(disposing);
+        if (!disposing)
+            return;
+        _menu?.Dispose();
     }
 }

@@ -69,12 +69,6 @@
   - type: Storage
     storageOpenSound:
       collection: BikeHorn
-      params:
-        variation: 0.125
-    storageInsertSound:
-      collection: FootstepClown
-      params:
-        variation: 0.125
 
 - type: entity
   parent: ClothingBackpack
@@ -150,9 +144,6 @@
   components:
   - type: Sprite
     sprite: Clothing/Back/Backpacks/mime.rsi
-  - type: Storage
-    storageOpenSound: null
-    storageInsertSound: null
 
 - type: entity
   parent: ClothingBackpack
@@ -231,14 +222,14 @@
   parent: [ ClothingBackpack, ContentsExplosionResistanceBase, BaseCentcommContraband ] # Goobstation
   id: ClothingBackpackERTLeader
   name: ERT leader backpack
-  description: A spacious backpack with lots of pockets, worn by the Leader of an Emergency Response Team.
+  description: A spacious backpack with lots of pockets, worn by the Commander of an Emergency Response Team.
   components:
   - type: Sprite
     sprite: Clothing/Back/Backpacks/ertleader.rsi
   - type: Storage
     grid:
-    - 0,0,8,3
-  - type: ExplosionResistance
+    - 0,0,10,3
+  - type: ExplosionResistance # Goobstation
     damageCoefficient: 0.1
 
 - type: entity
@@ -401,7 +392,7 @@
   id: ClothingBackpackDebug
   name: wackpack
   description: What the fuck is this?
-  suffix: DEBUG
+  suffix: Debug
   components:
   - type: Storage
     grid:
@@ -419,7 +410,7 @@
   id: ClothingBackpackDebug2
   name: big wackpack
   description: What the fuck is this?
-  suffix: DEBUG
+  suffix: Debug
   components:
   - type: Storage
     grid:
@@ -432,7 +423,7 @@
   id: ClothingBackpackDebug3
   name: gay wackpack
   description: What the fuck is this?
-  suffix: DEBUG
+  suffix: Debug
   components:
   - type: Storage
     grid:
@@ -455,7 +446,7 @@
   id: ClothingBackpackDebug4
   name: offset wackpack
   description: What the fuck is this?
-  suffix: DEBUG
+  suffix: Debug
   components:
   - type: Storage
     grid:

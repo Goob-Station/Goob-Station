@@ -8,9 +8,6 @@
     - !type:GroupSelector
       weight: 75
       children:
-      - !type:NestedSelector
-        weight: 5 # Roughly 7% chance
-        tableId: AllToysTable
       # Smoker's specialty
       - !type:AllSelector
         children:
@@ -118,8 +115,13 @@
         - id: ClothingNeckCloakGay
         - id: ClothingNeckCloakEnby
         - id: ClothingNeckCloakPan
-      - id: ToyFigurineSkeleton
+      - id: ToySkeleton
+      - id: Basketball
+      - id: Football
+      - id: BalloonNT
+      - id: BalloonCorgi
       - id: MysteryFigureBox
+      - id: RubberChicken
       - id: FoodSnackLollypopWrappedMysteryNeutral # Goobstation - Lollypops!
       - id: RevolutionaryManifesto # Einstein Engines - Revolutionary Manifesto
       # Cult
@@ -166,10 +168,9 @@
     - !type:GroupSelector
       weight: 2
       children:
-      - id: Skub # Goobstation Start
+      - id: Skub
       - id: PonderingOrb
       - id: CluwneHorn
-      - id: ClothingShoesSkates # Goobstation End
       - id: DrinkMugDog
       - id: CigarGold
       - id: ClothingUniformJumpsuitFamilyGuy
@@ -178,7 +179,7 @@
       - id: ClothingShoesWizardSkates #GoobStation - Wizard Skates
       - id: FoodSnackLollypopWrappedMysteryEvil # Goobstation - Lollypops!
       - id: MysteryLighterBox
-      - id: GoldenPersonalAI # Goobstation
+      - id: GoldenPersonalAI
 
 - type: entity
   name: Maint Loot Spawner
@@ -241,8 +242,7 @@
       - id: Plunger
       - id: PowerCellMedium
       - id: PowerCellSmall
-      - !type:NestedSelector
-        tableId: AllSoapsTable
+      - id: Soap
       - id: Wirecutter
       - id: Screwdriver
       - id: Wrench
@@ -288,7 +288,7 @@
       - id: trayScanner
       - id: HandheldGPSBasic
       - id: HandLabeler
-      - id: GlowstickGreen
+      - id: GlowstickBase
       - id: Bucket
       - id: RadioHandheld
       - id: AppraisalTool
@@ -342,7 +342,6 @@
       weight: 95
       children:
       - id: Machete
-      - id: Claymore
       - id: BaseBallBat
       - id: CombatKnife
       - id: Spear
@@ -375,8 +374,6 @@
       - id: SawImprov
       - id: HydroponicsToolMiniHoe
       - id: ClothingHandsKnuckleDusters
-      - !type:NestedSelector
-        tableId: AllToyWeaponsTable
 
 - type: entity
   name: Maint Loot Spawner

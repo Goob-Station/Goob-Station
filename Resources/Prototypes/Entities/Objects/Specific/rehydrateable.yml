@@ -18,8 +18,7 @@
     - reagents: [Water]
       methods: [Touch, Ingestion, Injection]
       effects:
-      - !type:AddReagentToSolution
-        reagent: Water
+      - !type:AddToSolutionReaction
         solution: cube
   - type: Rehydratable
   - type: CollisionWake
@@ -59,7 +58,7 @@
           Quantity: 9
         - ReagentId: Fat
           Quantity: 9
-  - type: Edible
+  - type: Food
     solution: cube
   - type: FlavorProfile
     flavors:
@@ -189,8 +188,7 @@
     - reagents: [Blood]
       methods: [Touch, Ingestion, Injection]
       effects:
-      - !type:AddReagentToSolution
-        reagent: Blood
+      - !type:AddToSolutionReaction
         solution: cube
   - type: Rehydratable
     catalyst: Blood # blood is fuel
@@ -209,8 +207,6 @@
     solutions:
       cube:
         maxVol: 1 # needs room for water
-  - type: Edible
-    solution: cube
   - type: Fixtures # BaseItem from PlushieCarp overrides fixtures, making carp not react to extinguishers
     fixtures:
       fix1:

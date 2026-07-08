@@ -27,7 +27,7 @@ public sealed class ObjectiveBlacklistRequirementSystem : EntitySystem
 
         foreach (var objective in args.Mind.Objectives)
         {
-            if (_whitelistSystem.IsWhitelistPass(comp.Blacklist, objective))
+            if (_whitelistSystem.IsBlacklistPass(comp.Blacklist, objective))
             {
                 args.Cancelled = true;
                 return;

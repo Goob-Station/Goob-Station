@@ -92,15 +92,7 @@ public sealed class BanCommand : LocalizedCommands
         var targetUid = located.UserId;
         var targetHWid = located.LastHWId;
 
-        var banInfo = new CreateServerBanInfo(reason);
-        banInfo.WithBanningAdmin(player?.UserId);
-        banInfo.AddUser(targetUid, target);
-        banInfo.AddHWId(targetHWid);
-        if (minutes > 0)
-            banInfo.WithMinutes(minutes);
-        banInfo.WithSeverity(severity);
-
-        _bans.CreateServerBan(banInfo);
+        _bans.CreateServerBan(targetUid, target, player?.UserId, null, targetHWid, minutes, severity, reason);
     }
 
     public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)

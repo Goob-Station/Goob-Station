@@ -130,7 +130,11 @@ public partial class NavMapControl : MapGridControl
 
         var topPanel = new PanelContainer()
         {
-            StyleClasses = { StyleClass.PanelDark },
+            PanelOverride = new StyleBoxFlat()
+            {
+                BackgroundColor = StyleNano.ButtonColorContext.WithAlpha(1f),
+                BorderColor = StyleNano.PanelDark
+            },
             VerticalExpand = false,
             HorizontalExpand = true,
             SetWidth = 650f,

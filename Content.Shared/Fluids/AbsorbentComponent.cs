@@ -31,7 +31,7 @@ public sealed partial class AbsorbentComponent : Component
     /// <summary>
     /// How much solution we can transfer in one interaction.
     /// </summary>
-    [DataField]
+    [DataField("pickupAmount")]
     public FixedPoint2 PickupAmount = FixedPoint2.New(100);
 
     /// <summary>

@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Collections.Immutable;
-using System.Linq;
 using System.Net;
 using Content.Server.IP;
 using Content.Shared.Database;
@@ -10,7 +9,7 @@ using Robust.Shared.Network;
 namespace Content.Server.Database;
 
 /// <summary>
-/// Implements logic to match a <see cref="BanDef"/> against a player query.
+/// Implements logic to match a <see cref="ServerBanDef"/> against a player query.
 /// </summary>
 /// <remarks>
 /// <para>
@@ -32,7 +31,7 @@ public static class BanMatcher
     /// <param name="ban">The ban information.</param>
     /// <param name="player">Information about the player to match against.</param>
     /// <returns>True if the ban matches the provided player info.</returns>
-    public static bool BanMatches(BanDef ban, in PlayerInfo player)
+    public static bool BanMatches(ServerBanDef ban, in PlayerInfo player)
     {
         var exemptFlags = player.ExemptFlags;
         // Any flag to bypass BlacklistedRange bans.
@@ -42,44 +41,39 @@ public static class BanMatcher
         if ((ban.ExemptFlags & exemptFlags) != 0)
             return false;
 
-        var playerAddr = player.Address;
         if (!player.ExemptFlags.HasFlag(ServerBanExemptFlags.IP)
-            && playerAddr != null
-            && ban.Addresses.Any(addr => playerAddr.IsInSubnet(addr))
+            && player.Address != null
+            && ban.Address is not null
+            && player.Address.IsInSubnet(ban.Address.Value)
             && (!ban.ExemptFlags.HasFlag(ServerBanExemptFlags.BlacklistedRange) || player.IsNewPlayer))
         {
             return true;
         }
 
-        if (player.UserId is { } id && ban.UserIds.Contains(id))
+        if (player.UserId is { } id && ban.UserId == id.UserId)
         {
             return true;
         }
 
-        foreach (var banHwid in ban.HWIds)
+        switch (ban.HWId?.Type)
         {
-            switch (banHwid.Type)
-            {
-                case HwidType.Legacy:
-                    if (player.HWId is { Length: > 0 } hwIdVar
-                        && hwIdVar.AsSpan().SequenceEqual(banHwid.Hwid.AsSpan()))
+            case HwidType.Legacy:
+                if (player.HWId is { Length: > 0 } hwIdVar
+                    && hwIdVar.AsSpan().SequenceEqual(ban.HWId.Hwid.AsSpan()))
+                {
+                    return true;
+                }
+                break;
+            case HwidType.Modern:
+                if (player.ModernHWIds is { Length: > 0 } modernHwIdVar)
+                {
+                    foreach (var hwid in modernHwIdVar)
                     {
-                        return true;
+                        if (hwid.AsSpan().SequenceEqual(ban.HWId.Hwid.AsSpan()))
+                            return true;
                     }
-
-                    break;
-                case HwidType.Modern:
-                    if (player.ModernHWIds is { Length: > 0 } modernHwIdVar)
-                    {
-                        foreach (var hwid in modernHwIdVar)
-                        {
-                            if (hwid.AsSpan().SequenceEqual(banHwid.Hwid.AsSpan()))
-                                return true;
-                        }
-                    }
-
-                    break;
-            }
+                }
+                break;
         }
 
         return false;

@@ -67,7 +67,6 @@
   - GasCanisters
   - Thermomachines
   - GasCondensing
-  - GasRecycling
 
 - type: guideEntry
   id: Pipes
@@ -174,11 +173,6 @@
   text: "/ServerInfo/Guidebook/Engineering/GasCondensing.xml"
 
 - type: guideEntry
-  id: GasRecycling
-  name: guide-entry-gasrecycling
-  text: "/ServerInfo/Guidebook/Engineering/GasRecycling.xml"
-
-- type: guideEntry
   id: Radiators
   name: guide-entry-radiators
   text: "/ServerInfo/Guidebook/Engineering/Radiators.xml"
@@ -239,7 +233,6 @@
   children:
   - Fires
   - Spacing
-  - DeltaPressure
 
 - type: guideEntry
   id: Fires
@@ -250,11 +243,6 @@
   id: Spacing
   name: guide-entry-spacing
   text: "/ServerInfo/Guidebook/Engineering/Spacing.xml"
-
-- type: guideEntry
-  id: DeltaPressure
-  name: guide-entry-deltapressure
-  text: "/ServerInfo/Guidebook/Engineering/DeltaPressure.xml"
 
 - type: guideEntry
   id: AtmosTools

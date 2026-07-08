@@ -19,12 +19,14 @@ public sealed partial class DisassembleOnAltVerbSystem : EntitySystem
         SubscribeLocalEvent<DisassembleOnAltVerbComponent, GetVerbsEvent<AlternativeVerb>>(AddDisassembleVerb);
         SubscribeLocalEvent<DisassembleOnAltVerbComponent, DisassembleDoAfterEvent>(OnDisassembleDoAfter);
     }
-
-    public void StartDisassembly(Entity<DisassembleOnAltVerbComponent> entity, EntityUid user)
+    private void AddDisassembleVerb(Entity<DisassembleOnAltVerbComponent> entity, ref GetVerbsEvent<AlternativeVerb> args)
     {
+        if (!args.CanInteract || !args.CanAccess || args.Hands == null)
+            return;
+
         // Doafter setup
         var doAfterArgs = new DoAfterArgs(EntityManager,
-            user,
+            args.User,
             entity.Comp.DisassembleTime,
             new DisassembleDoAfterEvent(),
             entity,
@@ -33,22 +35,12 @@ public sealed partial class DisassembleOnAltVerbSystem : EntitySystem
             BreakOnMove = true,
         };
 
-        _doAfter.TryStartDoAfter(doAfterArgs);
-    }
-
-    private void AddDisassembleVerb(Entity<DisassembleOnAltVerbComponent> entity, ref GetVerbsEvent<AlternativeVerb> args)
-    {
-        if (!args.CanInteract || !args.CanAccess || args.Hands == null)
-            return;
-
-        var user = args.User;
-
         // Actual verb stuff
         AlternativeVerb verb = new()
         {
             Act = () =>
             {
-                StartDisassembly(entity, user);
+                _doAfter.TryStartDoAfter(doAfterArgs);
             },
             Text = Loc.GetString("disassemble-system-verb-disassemble"),
             Priority = 2

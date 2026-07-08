@@ -6,8 +6,6 @@
   parent: BallisticArtillery
   description: A cheap and light 20mm autocannon. Can be remotely activated, or linked up to a GCS.
   components:
-  - type: ApcPowerReceiver
-    powerLoad: 200
   - type: StaticPrice
     price: 250
   - type: Sprite
@@ -34,6 +32,7 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
+    autoRecharge: true
     autoRechargeRate: 550
   - type: SpaceArtillery
     powerChargeRate: 100
@@ -42,7 +41,7 @@
   - type: CombatMode
     isInCombatMode: true
   - type: Airtight
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: 20mmBulletArmorPiercing
     fireCost: 15
   - type: RadiationBlocker
@@ -85,13 +84,14 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
+    autoRecharge: true
     autoRechargeRate: 220
   - type: SpaceArtillery
     powerChargeRate: 220
     powerUsePassive: 750
     powerUseActive: 0
   - type: Actions
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: ShipDravonProjectile
     fireCost: 250
   - type: RadarBlip
@@ -101,8 +101,6 @@
     shipType: Ballistic
   - type: ShipGunClass
     shipClass: Medium
-  - type: ApcPowerReceiver
-    powerLoad: 970
 
 # AK570 90mm
 
@@ -112,8 +110,6 @@
   parent: BallisticArtillery
   description: A dual barrel, heavy autocannon. Can be remotely activated, or linked up to a GCS.
   components:
-  - type: ApcPowerReceiver
-    powerLoad: 725
   - type: StaticPrice
     price: 1250
   - type: Sprite
@@ -141,13 +137,14 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
+    autoRecharge: true
     autoRechargeRate: 125
   - type: SpaceArtillery
     powerChargeRate: 125
     powerUsePassive: 600
     powerUseActive: 0
   - type: Actions
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: 90mmBulletArmorPiercing
     fireCost: 50
   - type: RadarBlip
@@ -166,8 +163,6 @@
   parent: BallisticArtilleryUnanchorable
   description: A heavy EMP Cannon made by Aetherion Dynamics. It can disable massive parts of an enemy ship, making it effective in asymmetric combat. Can be remotely activated, or linked up to a GCS.
   components:
-  - type: ApcPowerReceiver
-    powerLoad: 3714
   - type: StaticPrice
     price: 10000
   - type: Sprite
@@ -190,13 +185,14 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
+    autoRecharge: true
     autoRechargeRate: 214
   - type: SpaceArtillery
     powerChargeRate: 214
     powerUsePassive: 3500
     powerUseActive: 0
   - type: Actions
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: ShipTarnyxProjectile
     fireCost: 17500 # low shot weapon moved back to the original spot
   - type: RadarBlip
@@ -215,8 +211,6 @@
   parent: BallisticArtilleryUnanchorable
   description: A dual barrel, main-battery cannon firing 220mm auto shells with slight reduction in brute strength. Can be remotely activated, or linked up to a GCS.
   components:
-  - type: ApcPowerReceiver
-    powerLoad: 13500
   - type: StaticPrice
     price: 20000
   - type: Sprite
@@ -256,13 +250,14 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
+    autoRecharge: true
     autoRechargeRate: 12000
   - type: SpaceArtillery
     powerChargeRate: 12000
     powerUsePassive: 1500
     powerUseActive: 0
   - type: Actions
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: ShipCyrexaProjectile
     fireCost: 6000
   - type: RadarBlip
@@ -281,8 +276,6 @@
   parent: BallisticArtilleryUnanchorable
   description: One of the largest chemical-based kinetic weapons in the sector. Its power is only rivaled by mass drivers such as the M381.
   components:
-  - type: ApcPowerReceiver
-    powerLoad: 13500
   - type: StaticPrice
     price: 40000
   - type: Sprite
@@ -322,13 +315,14 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
+    autoRecharge: true
     autoRechargeRate: 12000
   - type: SpaceArtillery
     powerChargeRate: 12000
     powerUsePassive: 1500
     powerUseActive: 0
   - type: Actions
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: ShipHadesProjectile
     fireCost: 6000
   - type: RadarBlip
@@ -347,8 +341,6 @@
   parent: BallisticArtilleryUnanchorable
   description: A heavy linear accelerator, capable of devastating targets with kinetic energy. Can be remotely activated, or linked up to a GCS.
   components:
-  - type: ApcPowerReceiver
-    powerLoad: 1350
   - type: StaticPrice
     price: 40000
   - type: Sprite
@@ -371,13 +363,14 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
   - type: BatterySelfRecharger
+    autoRecharge: true
     autoRechargeRate: 350
   - type: SpaceArtillery
     powerChargeRate: 350
     powerUsePassive: 1000
     powerUseActive: 7500
   - type: Actions
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: ShipRailgunProjectile
     fireCost: 1500
   - type: Fixtures
@@ -424,8 +417,6 @@
   parent: BallisticArtilleryUnanchorable
   description: A single barrelled, heavy artillery cannon. Can be remotely activated, or linked up to a GCS.
   components:
-  - type: ApcPowerReceiver
-    powerLoad: 2300
   - type: StaticPrice
     price: 20000
   - type: Sprite
@@ -460,14 +451,15 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
+    autoRecharge: true
     autoRechargeRate: 12000
-    autoRechargePauseTime: 300
+    autoRechargePause: true
   - type: SpaceArtillery
     powerChargeRate: 800
     powerUsePassive: 1500
     powerUseActive: 0
   - type: Actions
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: ShipBoforsProjectile
     fireCost: 6000
   - type: RadarBlip
@@ -486,8 +478,6 @@
   parent: BallisticArtilleryUnanchorable
   description: A single barrelled, medium-heavy artillery cannon. Can be remotely activated, or linked up to a GCS.
   components:
-  - type: ApcPowerReceiver
-    powerLoad: 2200
   - type: StaticPrice
     price: 20000
   - type: Sprite
@@ -522,14 +512,15 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
+    autoRecharge: true
     autoRechargeRate: 12000
-    autoRechargePauseTime: 300
+    autoRechargePause: true
   - type: SpaceArtillery
     powerChargeRate: 700
     powerUsePassive: 1500
     powerUseActive: 0
   - type: Actions
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: ShipKargilProjectile
     fireCost: 6000
   - type: RadarBlip

@@ -4,9 +4,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Mind
-  - type: LastWords # Goob
-  - type: MindLastMob
+  - type: LastWords
   - type: ContainerContainer
-    containers:
-      mind_roles: !type:Container
-        ents: []
+  - type: MindLastMob

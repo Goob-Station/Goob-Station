@@ -73,13 +73,6 @@ namespace Content.Server.Shuttles.Components
         public float DampingModifier;
 
         /// <summary>
-        /// Optional override for the FTL cooldown for this shuttle.
-        /// If not null, then the value will be used instead of the shuttle.cooldown CCVar.
-        /// </summary>
-        [DataField]
-        public TimeSpan? FTLCooldownOverride = null;
-
-        /// <summary>
         /// Frontier
         /// Contains info about BodyModifiers for all Dampening modes.
         /// </summary>

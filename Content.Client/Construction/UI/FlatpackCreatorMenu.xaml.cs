@@ -2,6 +2,7 @@
 
 using System.Linq;
 using Content.Client.Materials;
+using Content.Client.Materials.UI;
 using Content.Client.Message;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Construction.Components;
@@ -61,48 +62,57 @@ public sealed partial class FlatpackCreatorMenu : FancyWindow
             !_itemSlots.TryGetSlot(_owner, flatpacker.SlotId, out var itemSlot))
             return;
 
-        var flatpackerEnt = (_owner, flatpacker);
-
         if (flatpacker.Packing)
         {
             PackButton.Disabled = true;
         }
         else if (_currentBoard != null)
         {
-            PackButton.Disabled = !_flatpack.TryGetFlatpackCreationCost(flatpackerEnt, _currentBoard.Value, out var curCost)
-                || !_materialStorage.CanChangeMaterialAmount(_owner, curCost);
+            Dictionary<string, int> cost;
+            if (_entityManager.TryGetComponent<MachineBoardComponent>(_currentBoard, out var machineBoardComp))
+                cost = _flatpack.GetFlatpackCreationCost((_owner, flatpacker), (_currentBoard.Value, machineBoardComp));
+            else
+                cost = _flatpack.GetFlatpackCreationCost((_owner, flatpacker), null);
+
+            PackButton.Disabled = !_materialStorage.CanChangeMaterialAmount(_owner, cost);
         }
 
         if (_currentBoard == itemSlot.Item)
             return;
 
         _currentBoard = itemSlot.Item;
-        CostHeaderLabel.Visible = false;
+        CostHeaderLabel.Visible = _currentBoard != null;
         InsertLabel.Visible = _currentBoard == null;
 
-        if (_currentBoard is null)
+        if (_currentBoard is not null)
         {
-            MachineSprite.SetPrototype(NoBoardEffectId);
-            CostLabel.SetMessage(Loc.GetString("flatpacker-ui-no-board-label"));
-            MachineNameLabel.SetMessage(string.Empty);
-            PackButton.Disabled = true;
-            return;
-        }
+            string? prototype = null;
+            Dictionary<string, int>? cost = null;
 
-        if (_flatpack.TryGetFlatpackResultPrototype(_currentBoard.Value, out var prototype) &&
-            _flatpack.TryGetFlatpackCreationCost(flatpackerEnt, _currentBoard.Value, out var cost))
-        {
-            var proto = _prototypeManager.Index<EntityPrototype>(prototype);
-            MachineSprite.SetPrototype(prototype);
-            MachineNameLabel.SetMessage(proto.Name);
-            CostLabel.SetMarkup(GetCostString(cost));
-            CostHeaderLabel.Visible = true;
+            if (_entityManager.TryGetComponent<MachineBoardComponent>(_currentBoard, out var newMachineBoardComp))
+            {
+                prototype = newMachineBoardComp.Prototype;
+                cost = _flatpack.GetFlatpackCreationCost((_owner, flatpacker), (_currentBoard.Value, newMachineBoardComp));
+            }
+            else if (_entityManager.TryGetComponent<ComputerBoardComponent>(_currentBoard, out var computerBoard))
+            {
+                prototype = computerBoard.Prototype;
+                cost = _flatpack.GetFlatpackCreationCost((_owner, flatpacker), null);
+            }
+
+            if (prototype is not null && cost is not null)
+            {
+                var proto = _prototypeManager.Index<EntityPrototype>(prototype);
+                MachineSprite.SetPrototype(prototype);
+                MachineNameLabel.SetMessage(proto.Name);
+                CostLabel.SetMarkup(GetCostString(cost));
+            }
         }
         else
         {
             MachineSprite.SetPrototype(NoBoardEffectId);
-            CostLabel.SetMarkup(Loc.GetString("flatpacker-ui-board-invalid-label"));
-            MachineNameLabel.SetMessage(string.Empty);
+            CostLabel.SetMessage(Loc.GetString("flatpacker-ui-no-board-label"));
+            MachineNameLabel.SetMessage(" ");
             PackButton.Disabled = true;
         }
     }

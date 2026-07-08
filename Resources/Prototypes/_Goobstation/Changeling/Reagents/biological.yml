@@ -3,7 +3,6 @@
 - type: reagent
   parent: Blood
   id: BloodChangeling
-  standsout: true
 
 - type: reaction
   id: ChangelingBloodBreakdown
@@ -20,9 +19,9 @@
     CarbonDioxide: 3
     Protein: 4
   effects:
-    - !type:SpawnEntity
+    - !type:CreateEntityReactionEffect
       entity: FleshKudzu
-    - !type:Explosion
+    - !type:ExplosionReactionEffect
       explosionType: Default
       maxIntensity: 2
       intensityPerUnit: 0.5

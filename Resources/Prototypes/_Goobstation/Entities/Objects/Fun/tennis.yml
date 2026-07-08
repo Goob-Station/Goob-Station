@@ -1,6 +1,6 @@
 ﻿- type: entity
   parent: [BaseItem, BaseStash, ClothingMaskBase]
-  id: TennisBallGoob
+  id: TennisBall
   name: tennis ball
   description: Made for testing security's patience.
   components:

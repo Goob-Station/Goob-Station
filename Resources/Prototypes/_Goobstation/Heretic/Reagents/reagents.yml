@@ -23,8 +23,8 @@
         - !type:HasComponentCondition
           checkMind: true
           components:
-          - type: Heretic
-          - type: Ghoul
+            - Heretic
+            - Ghoul
           guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
       - !type:HealthChange
         damage:
@@ -39,26 +39,26 @@
         - !type:HasComponentCondition
           checkMind: true
           components:
-          - type: Heretic
-          - type: Ghoul
+            - Heretic
+            - Ghoul
           guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
-      - !type:ModifyBleed
+      - !type:ModifyBleedAmount
         amount: -1
         conditions:
         - !type:HasComponentCondition
           checkMind: true
           components:
-          - type: Heretic
-          - type: Ghoul
+            - Heretic
+            - Ghoul
           guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
-      - !type:CleanBloodstream
+      - !type:ChemCleanBloodstream
         cleanseRate: 3
         conditions:
         - !type:HasComponentCondition
           checkMind: true
           components:
-          - type: Heretic
-          - type: Ghoul
+            - Heretic
+            - Ghoul
           guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
       - !type:GenericStatusEffect
         key: SeeingRainbows
@@ -68,8 +68,8 @@
         - !type:HasComponentCondition
           checkMind: true
           components:
-          - type: Heretic
-          - type: Ghoul
+            - Heretic
+            - Ghoul
           guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
       - !type:TakeStaminaDamage
         amount: -10
@@ -78,8 +78,8 @@
         - !type:HasComponentCondition
           checkMind: true
           components:
-          - type: Heretic
-          - type: Ghoul
+            - Heretic
+            - Ghoul
           guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
     Poison:
       effects:
@@ -88,10 +88,10 @@
         - !type:HasComponentCondition
           checkMind: true
           components:
-          - type: Heretic
-          - type: Ghoul
+            - Heretic
+            - Ghoul
           guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
-          inverted: true
+          invert: true
         probability: 0.5
       - !type:HealthChange
         damage:
@@ -101,9 +101,9 @@
         - !type:HasComponentCondition
           checkMind: true
           components:
-          - type: Heretic
-          - type: Ghoul
+            - Heretic
+            - Ghoul
           guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
-          inverted: true
+          invert: true
   tileReactions:
   - !type:ChangeTileReaction # Rusts tile

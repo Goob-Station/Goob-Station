@@ -355,7 +355,6 @@ public enum DuplicateConditions : byte
     All = SameTool | SameTarget | SameEvent,
 }
 
-[Serializable, NetSerializable]
 public enum AttemptFrequency : byte
 {
     /// <summary>

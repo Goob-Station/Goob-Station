@@ -31,11 +31,6 @@
 
 - type: latheRecipe
   parent: BaseCarpetRecipe
-  id: CarpetSkyBlue
-  result: FloorCarpetItemSkyBlue
-
-- type: latheRecipe
-  parent: BaseCarpetRecipe
   id: CarpetGreen
   result: FloorCarpetItemGreen
 

@@ -2,7 +2,6 @@ using Content.Server.Medical.SuitSensors;
 using Content.Shared.Electrocution;
 using Content.Shared.Inventory;
 using Content.Shared.Medical.SuitSensor;
-using Content.Shared.Medical.SuitSensors;
 using Content.Shared.Popups;
 using Robust.Shared.Random;
 
@@ -35,7 +34,7 @@ public sealed class SuitSensorShockableSystem : EntitySystem
                 || sensor.User != args.TargetUid)
                 continue;
 
-            _suitSensorSystem.SetSensor(new Entity<SuitSensorComponent>(item, sensor).AsNullable(), _random.Pick(modes), args.TargetUid);
+            _suitSensorSystem.SetSensor(new Entity<SuitSensorComponent>(item, sensor), _random.Pick(modes), args.TargetUid);
             _popup.PopupEntity(Loc.GetString("suit-sensor-got-shocked", ("suit", item)),
                 args.TargetUid,
                 args.TargetUid,

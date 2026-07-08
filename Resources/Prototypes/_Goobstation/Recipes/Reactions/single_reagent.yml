@@ -9,7 +9,7 @@
     Desoxyephedrine:
       amount: 1
   effects:
-    - !type:Explosion
+    - !type:ExplosionReactionEffect
       explosionType: Methsplosion
       maxIntensity: 50
       intensityPerUnit: 0.7 # I don't want it too spicy as just a lab accident thing
@@ -25,7 +25,7 @@
     BlackPowder:
       amount: 1
   effects:
-    - !type:Explosion
+    - !type:ExplosionReactionEffect
       explosionType: Default
       maxIntensity: 10
       intensityPerUnit: 2 # this is scary

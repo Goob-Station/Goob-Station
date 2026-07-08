@@ -427,7 +427,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
         if (!TryComp(comp.AttachedUid, out ToggleableClothingComponent? toggleableComp))
             return;
 
-        if (LifeStage(attached.Comp.AttachedUid) > EntityLifeStage.MapInitialized) // Goobstation
+        if (toggleableComp.LifeStage > ComponentLifeStage.Running)
             return;
 
         // As unequipped gets called in the middle of container removal, we cannot call a container-insert without causing issues.

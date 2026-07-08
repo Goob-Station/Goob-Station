@@ -51,10 +51,7 @@
   categories: [ DoNotMap ]
   components:
   - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: Blood
-        Quantity: 1984
+    bloodMaxVolume: 1984
     bleedReductionAmount: 5
   - type: Destructible
     thresholds:
@@ -175,7 +172,6 @@
     damage:
       types: {}
   - type: Temperature
-  - type: TemperatureDamage
     damageCap: 0 # immune to temperature damage
   - type: Puller
     needsHands: false

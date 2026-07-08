@@ -1,16 +1,25 @@
+#- type: startingGear # <//fixborghands>
+#  id: MothershipCoreGear
+#  inhand:
+#  - DoorRemoteXenoborg
+#  - Omnitool
+
 - type: entity
-  parent: [ BaseControllable, BaseStructure ]
+  parent:
+  #- BaseMachinePowered  # <//fixborghands>
+  - BaseStructure # <//fixborghands>
+  - BaseMob
   id: MothershipCore
   name: mothership core
   description: A sentient machine that can produce Xenoborgs. Without this the Xenoborgs are doomed.
   components:
-  - type: InputMover # needs this to pilot the mothership
-  - type: BlockMovement # They should never be moving!
-    blockInteraction: false
-    blockUse: false
+  - type: InputMover # needs this to pilot the mothership  # <//fixborghands>
+  - type: MovementSpeedModifier  # <//fixborghands>
+    baseWalkSpeed: 0 # shouldn't move
+    baseSprintSpeed: 0 # shouldn't move
   - type: Appearance
   - type: WiresVisuals
-  - type: Damageable
+  - type: Damageable  # <//fixborghands>
     damageContainer: Inorganic
   - type: Fixtures
     fixtures:
@@ -22,7 +31,7 @@
         mask:
         - MachineMask
         layer:
-        - MachineLayer
+          - MachineLayer
   - type: Sprite
     sprite: Mobs/Silicon/mothership_core.rsi
     layers:
@@ -32,9 +41,10 @@
       map: ["enum.MaterialStorageVisualLayers.Inserting"]
     - state: core-o
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
-    - state: core-e
-      map: ["enum.BorgVisualLayers.Light"]
+    - state: core-e  # <//fixborghands>
+      map: [ "enum.BorgVisualLayers.Light" ]
       shader: unshaded
+      visible: false
   - type: Machine
     board: null
   - type: Lathe
@@ -78,29 +88,19 @@
         gasMixture:
           volume: 1000
           moles:
-            CarbonDioxide: 340.5701689 # carbon dioxide
+            - 0 # oxygen
+            - 0 # nitrogen
+            - 340.5701689 # carbon dioxide
           temperature: 373.15
   - type: Repairable
     doAfterDelay: 30 # you can heal the mothership core, but it takes a while
   - type: DamagedSiliconAccent
     enableChargeCorruption: false
-  # TODO: make it explosive again once until issue https://github.com/space-wizards/space-station-14/issues/40606 is fixed
-  # - type: Explosive
-  #   explosionType: Default
-  #   maxIntensity: 100
-  #   intensitySlope: 2
-  #   totalIntensity: 200
-  - type: SurveillanceCameraSpeaker
-  - type: SurveillanceCameraMonitor
-  - type: RoboticsConsole
-    allowBorgControl: false
-    radioChannel: Xenoborg
-  - type: DeviceNetwork
-    deviceNetId: Wireless
-    receiveFrequencyId: Mothership
-    transmitFrequencyId: Mothership
-  - type: WirelessNetworkConnection
-    range: 10000 # mothership can see them from very far
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 100
+    intensitySlope: 2
+    totalIntensity: 200
   - type: WiresPanel
   - type: ActivatableUI
     key: enum.LatheUiKey.Key
@@ -112,14 +112,12 @@
         requireInputValidation: false
       enum.RadarConsoleUiKey.Key:
         type: RadarConsoleBoundUserInterface
-      enum.RoboticsConsoleUiKey.Key:
-        type: RoboticsConsoleBoundUserInterface
-      enum.SurveillanceCameraMonitorUiKey.Key:
-        type: SurveillanceCameraMonitorBoundUserInterface
       enum.LatheUiKey.Key:
         type: LatheBoundUserInterface
       enum.ResearchClientUiKey.Key:
         type: ResearchClientBoundUserInterface
+  - type: Transform
+    anchored: true
   - type: Pullable
   - type: StaticPrice
     price: 800
@@ -144,37 +142,37 @@
     channels:
     - Mothership
     - Xenoborg
-    #- Binary Goob
+    #- Binary # Goobstation binary hivemind
+  - type: CollectiveMind # Goobstation binary hivemind
+    defaultChannel: Binary
+    channels:
+    - Binary
   - type: ActiveRadio
     channels:
     - Mothership
     - Xenoborg
-    #- Binary Goob
-  - type: Xenoborg
-    mindRole: MindRoleMothershipCore
-    briefingText: mothership-welcome
-  - type: MothershipCore
+    #- Binary # Goobstation binary hivemind
+  - type: XenoborgMothership
   - type: Tag
     tags:
     - SiliconEmotes
     - CanPilot
     - Structure
-  - type: GuideHelp
-    guides:
-    - Robotics
-    - Xenoborgs
   - type: Inventory
     templateId: borg
+  #- type: Loadout # <//fixborghands>
+  #  prototypes: [MothershipCoreGear]
   - type: NpcFactionMember
     factions:
     - Xenoborg
+  #- type: Body <//fixborghands>
+  #  prototype: MothershipCoreBody
   - type: Hands
-    showInHands: false
+    showInHands: false # <fixborghands>
     disableExplosionRecursion: true
     canBeStripped: false
   - type: BorgChassis
-    canOpenSelfUi: true
-    maxModules: 2
+    maxModules: 3
     hasMindState: core-e
     noMindState: core-e
     moduleWhitelist:
@@ -186,6 +184,7 @@
       borg_module:
       - MothershipModule
       - BorgModuleAdvancedTool
+      - BorgModuleConstruction # Accursed
   - type: ContainerContainer
     containers:
       cell_slot: !type:ContainerSlot { }
@@ -196,9 +195,8 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellMicroreactor
-  - type: Puller
-    needsHands: false
+        startingItem: PowerCellMicroreactor # </fixborghands>
+  # - type: Puller # use the conveyor
   - type: Eye
     drawFov: false
   # - type: StationAiOverlay # removed until is no longer buggy
@@ -229,42 +227,9 @@
     uis:
       enum.RadarConsoleUiKey.Key:
         toggleAction: ActionAGhostShowRadar
-      enum.RoboticsConsoleUiKey.Key:
-        toggleAction: ActionXenoborgControlMonitor
-      enum.SurveillanceCameraMonitorUiKey.Key:
-        toggleAction: ActionXenoborgCameraMonitor
   - type: ShowElectrocutionHUD
   - type: PowerMonitoringCableNetworks
   - type: RadarConsole
-  - type: CollectiveMind # Goobstation collectivemind binary
-    defaultChannel: Binary
-    channels:
-    - Binary
 
-- type: entity
-  parent: BaseAGhostAction
-  id: ActionXenoborgControlMonitor
-  name: Xenoborgs Control Console
-  description: View the Xenoborgs Control Console
-  components:
-  - type: Action
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-control-computer }
-    iconOn: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-control-computer }
-    keywords: [ "Mothership Core", "console", "interface" ]
-    priority: -6
-  - type: InstantAction
-    event: !type:ToggleIntrinsicUIEvent { key: enum.RoboticsConsoleUiKey.Key }
-
-- type: entity
-  parent: BaseAGhostAction
-  id: ActionXenoborgCameraMonitor
-  name: Xenoborgs Camera Monitor
-  description: View the Xenoborgs Camera Monitor
-  components:
-  - type: Action
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-camera-computer }
-    iconOn: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-camera-computer }
-    keywords: [ "Mothership Core", "console", "interface" ]
-    priority: -6
-  - type: InstantAction
-    event: !type:ToggleIntrinsicUIEvent { key: enum.SurveillanceCameraMonitorUiKey.Key }
+# TODO: add xenoborg control interface action (part 5)
+# TODO: add xenoborg camera monitor interface action (part 5)

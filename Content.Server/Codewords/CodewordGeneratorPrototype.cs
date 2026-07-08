@@ -11,13 +11,13 @@ public sealed partial class CodewordGeneratorPrototype : IPrototype
 {
     /// <inheritdoc/>
     [IdDataField]
-    public string ID { get; private set; } = default!;
+    public string ID { get; } = default!;
 
     /// <summary>
     /// List of datasets to use for word generation. All values will be concatenated into one list and then randomly chosen from
     /// </summary>
     [DataField]
-    public List<ProtoId<LocalizedDatasetPrototype>> Words { get; private set; } =
+    public List<ProtoId<LocalizedDatasetPrototype>> Words { get; } =
     [
         "Adjectives",
         "Verbs",

@@ -65,8 +65,8 @@ namespace Content.Server.Engineering.EntitySystems
             if (component.Deleted || !IsTileClear())
                 return;
 
-            if (TryComp<StackComponent>(uid, out var stackComp)
-                && component.RemoveOnInteract && !_stackSystem.TryUse((uid, stackComp), 1))
+            if (TryComp(uid, out StackComponent? stackComp)
+                && component.RemoveOnInteract && !_stackSystem.Use(uid, 1, stackComp))
             {
                 return;
             }

@@ -2,8 +2,8 @@
 
 - type: marking
   id: UnderwearDefault
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: Underwear
+  markingCategory: Underwear
   speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Yowie] # goob edit - yowies
   coloring:
     default:
@@ -16,8 +16,8 @@
 
 - type: marking
   id: UnderwearBriefs
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: Underwear
+  markingCategory: Underwear
   speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Yowie] # goob edit - yowies
   coloring:
     default:
@@ -30,8 +30,8 @@
 
 - type: marking
   id: UnderwearLowriders
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: Underwear
+  markingCategory: Underwear
   speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Yowie] # goob edit - yowies
   coloring:
     default:
@@ -44,8 +44,8 @@
 
 - type: marking
   id: UnderwearSatin
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: Underwear
+  markingCategory: Underwear
   speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Yowie] # goob edit - yowies
   coloring:
     default:
@@ -58,8 +58,8 @@
 
 - type: marking
   id: UnderwearTanga
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: Underwear
+  markingCategory: Underwear
   speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Yowie] # goob edit - yowies
   coloring:
     default:

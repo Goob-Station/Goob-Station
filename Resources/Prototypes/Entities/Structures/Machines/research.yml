@@ -20,8 +20,8 @@
   - type: PointLight
     enabled: false
     castShadows: false
-    radius: 1.2
-    energy: 3.0
+    radius: 1.5
+    energy: 1.6
     color: "#b211b2"
   - type: LitOnPowered
   - type: ResearchServer
@@ -100,7 +100,7 @@
     active: true
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#3db83b"
   - type: ActivatableUI
     key: enum.ResearchClientUiKey.Key

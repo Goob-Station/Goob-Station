@@ -13,6 +13,7 @@
     rules: ghost-role-information-antagonist-rules
     raffle:
       settings: default
-    mindRoles:
-    - MindRoleGhostRoleSoloAntagonistGoob
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000
 

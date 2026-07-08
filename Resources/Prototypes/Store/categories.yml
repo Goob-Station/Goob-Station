@@ -108,12 +108,6 @@
   name: store-category-pointless
   priority: 10
 
-#nukie delivery
-
-- type: storeCategory
-  id: NukieDelivery
-  name: store-category-nukie-delivery
-
 #revenant
 - type: storeCategory
   id: RevenantAbilities

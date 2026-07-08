@@ -17,7 +17,6 @@ using Content.Server._Goobstation.Objectives.Components;
 using Content.Shared.Mind;
 using Robust.Server.GameObjects;
 using Content.Server.Popups;
-using Content.Shared.Roles.Components;
 using Content.Shared.Station.Components;
 
 namespace Content.Server.GameTicking.Rules;

@@ -4,4 +4,4 @@ using Robust.Shared.GameStates;
 namespace Content.Shared.Abilities;
 
 [RegisterComponent, NetworkedComponent]
-public sealed partial class DvRummagerComponent : Component;
+public sealed partial class RummagerComponent : Component;

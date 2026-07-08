@@ -11,15 +11,16 @@ namespace Content.Shared.Gravity;
 /// </summary>
 public abstract class SharedFloatingVisualizerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedGravitySystem _gravity = default!;
+    [Dependency] private readonly SharedGravitySystem GravitySystem = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<FloatingVisualsComponent, ComponentStartup>(OnComponentStartup);
-        SubscribeLocalEvent<FloatingVisualsComponent, WeightlessnessChangedEvent>(OnWeightlessnessChanged);
-        SubscribeLocalEvent<FloatingVisualsComponent, FlightEvent>(OnFlight); // Goobstation
+        SubscribeLocalEvent<GravityChangedEvent>(OnGravityChanged);
+        SubscribeLocalEvent<FloatingVisualsComponent, EntParentChangedMessage>(OnEntParentChanged);
+        SubscribeLocalEvent<FloatingVisualsComponent, FlightEvent>(OnFlight);
     }
 
     /// <summary>
@@ -27,32 +28,44 @@ public abstract class SharedFloatingVisualizerSystem : EntitySystem
     /// </summary>
     public virtual void FloatAnimation(EntityUid uid, Vector2 offset, string animationKey, float animationTime, bool stop = false) { }
 
-    protected bool CanFloat(Entity<FloatingVisualsComponent> entity)
+    protected bool CanFloat(EntityUid uid, FloatingVisualsComponent component, TransformComponent? transform = null)
     {
-        entity.Comp.CanFloat = _gravity.IsWeightless(entity.Owner);
-        Dirty(entity);
-        return entity.Comp.CanFloat;
+        if (!Resolve(uid, ref transform))
+            return false;
+
+        if (transform.MapID == MapId.Nullspace)
+            return false;
+
+        component.CanFloat = GravitySystem.IsWeightless(uid, xform: transform);
+        Dirty(uid, component);
+        return component.CanFloat;
     }
 
-    private void OnComponentStartup(Entity<FloatingVisualsComponent> entity, ref ComponentStartup args)
+    private void OnComponentStartup(EntityUid uid, FloatingVisualsComponent component, ComponentStartup args)
     {
-        if (CanFloat(entity))
-            FloatAnimation(entity, entity.Comp.Offset, entity.Comp.AnimationKey, entity.Comp.AnimationTime);
+        if (CanFloat(uid, component))
+            FloatAnimation(uid, component.Offset, component.AnimationKey, component.AnimationTime);
     }
 
-    private void OnWeightlessnessChanged(Entity<FloatingVisualsComponent> entity, ref WeightlessnessChangedEvent args)
+    private void OnGravityChanged(ref GravityChangedEvent args)
     {
-        if (entity.Comp.CanFloat == args.Weightless)
-            return;
+        var query = EntityQueryEnumerator<FloatingVisualsComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var floating, out var transform))
+        {
+            if (transform.MapID == MapId.Nullspace)
+                continue;
 
-        entity.Comp.CanFloat = CanFloat(entity);
-        Dirty(entity);
+            if (transform.GridUid != args.ChangedGridIndex)
+                continue;
 
-        if (args.Weightless)
-            FloatAnimation(entity, entity.Comp.Offset, entity.Comp.AnimationKey, entity.Comp.AnimationTime);
+            floating.CanFloat = !args.HasGravity;
+            Dirty(uid, floating);
+
+            if (!args.HasGravity)
+                FloatAnimation(uid, floating.Offset, floating.AnimationKey, floating.AnimationTime);
+        }
     }
 
-    // Goobstation Start
     private void OnFlight(EntityUid uid, FloatingVisualsComponent component, FlightEvent args)
     {
         component.CanFloat = args.IsFlying;
@@ -63,5 +76,11 @@ public abstract class SharedFloatingVisualizerSystem : EntitySystem
 
         FloatAnimation(uid, component.Offset, component.AnimationKey, component.AnimationTime);
     }
-    // Goobstation End
+
+    private void OnEntParentChanged(EntityUid uid, FloatingVisualsComponent component, ref EntParentChangedMessage args)
+    {
+        var transform = args.Transform;
+        if (CanFloat(uid, component, transform))
+            FloatAnimation(uid, component.Offset, component.AnimationKey, component.AnimationTime);
+    }
 }

@@ -49,11 +49,7 @@ public sealed class AutoEmoteSystem : EntitySystem
 
                 if (autoEmotePrototype.WithChat)
                 {
-                    _chatSystem.TryEmoteWithChat(uid,
-                        autoEmotePrototype.EmoteId,
-                        autoEmotePrototype.HiddenFromChatWindow ? ChatTransmitRange.HideChat : ChatTransmitRange.Normal,
-                        ignoreActionBlocker: autoEmotePrototype.IgnoreActionBlocker,
-                        forceEmote: autoEmotePrototype.Force);
+                    _chatSystem.TryEmoteWithChat(uid, autoEmotePrototype.EmoteId, autoEmotePrototype.HiddenFromChatWindow ? ChatTransmitRange.HideChat : ChatTransmitRange.Normal, forceEmote: true); // goob edit
                 }
                 else
                 {

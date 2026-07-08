@@ -7,10 +7,10 @@
   playTimeTracker: JobTechnicalAssistant
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 2h # Goobstation
+      time: 7200 # 2 hrs
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 10h # Goobstation
+      time: 36000 #10 hrs
       inverted: true # stop playing intern if you're good at engineering!
   startingGear: TechnicalAssistantGear
   icon: "JobIconTechnicalAssistant"

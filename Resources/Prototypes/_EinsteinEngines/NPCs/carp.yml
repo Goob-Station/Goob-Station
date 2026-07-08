@@ -104,7 +104,7 @@
     - type: NpcFactionMember
       factions:
         - Mouse
-    - type: Edible
+    - type: Food
     - type: BadFood
     - type: FlavorProfile
       flavors:

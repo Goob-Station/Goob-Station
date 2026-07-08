@@ -102,8 +102,6 @@
         orGroup: GiftPool
       - id: ClothingNeckCloakMoth
         orGroup: GiftPool
-      - id: TennisBall
-        orGroup: GiftPool
       - id: ToyMouse
         orGroup: GiftPool
       - id: ToyAi
@@ -112,7 +110,7 @@
         orGroup: GiftPool
       - id: ToyFigurinePassenger
         orGroup: GiftPool
-      - id: ToyFigurineGriffin
+      - id: ToyGriffin
         orGroup: GiftPool
       - id: ToyHonk
         orGroup: GiftPool
@@ -126,7 +124,7 @@
         orGroup: GiftPool
       - id: ToyOdysseus
         orGroup: GiftPool
-      - id: ToyFigurineOwlman
+      - id: ToyOwlman
         orGroup: GiftPool
       - id: ToyDeathRipley
         orGroup: GiftPool
@@ -142,7 +140,7 @@
         orGroup: GiftPool
       - id: ToyDurand
         orGroup: GiftPool
-      - id: ToyFigurineSkeleton
+      - id: ToySkeleton
         orGroup: GiftPool
       - id: FoamBlade
         orGroup: GiftPool
@@ -202,7 +200,7 @@
         orGroup: GiftPool
       - id: ClothingNeckCloakAdmin
         orGroup: GiftPool
-      - id: ToyFigurineSkeleton
+      - id: ToySkeleton
         orGroup: GiftPool
       - id: Basketball
         orGroup: GiftPool
@@ -364,7 +362,7 @@
         orGroup: GiftPool
       - id: Bola
         orGroup: GiftPool
-      - id: GlowstickGreen
+      - id: GlowstickBase
         orGroup: GiftPool
       - id: GlowstickBlue
         orGroup: GiftPool

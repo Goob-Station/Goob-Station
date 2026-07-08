@@ -842,7 +842,7 @@ entities:
     - type: Transform
       pos: -5.5,-9.5
       parent: 2
-- proto: BoxFolderBlueEmpty
+- proto: BoxFolderBlue
   entities:
   - uid: 33
     components:

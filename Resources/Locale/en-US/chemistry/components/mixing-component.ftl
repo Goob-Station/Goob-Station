@@ -22,5 +22,4 @@ mixing-verb-shake = shake
 default-mixing-success = You mix the {$mixed} with the {$mixer}
 bible-mixing-success = You bless the {$mixed} with the {$mixer}
 spoon-mixing-success = You stir the {$mixed} with the {$mixer}
-handheld-centrifuge-success = You seperate chemicals in the {$mixed}
 

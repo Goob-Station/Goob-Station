@@ -20,7 +20,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                             Text="{Loc 'ui-rules-accept'}"
                             Disabled="True" />
                     <Button Name="QuitButton"
-                            StyleClasses="negative"
+                            StyleClasses="Caution"
                             Text="{Loc 'ui-escape-quit'}" />
                 </BoxContainer>
             </BoxContainer>

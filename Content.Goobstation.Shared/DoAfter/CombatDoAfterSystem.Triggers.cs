@@ -16,7 +16,7 @@ public sealed partial class CombatDoAfterSystem
     private void InitializeTriggers()
     {
         SubscribeLocalEvent<CombatDoAfterComponent, MeleeHitEvent>(OnHit);
-        SubscribeLocalEvent<CombatDoAfterComponent, ThrowEvent>(OnThrow);
+        SubscribeLocalEvent<CombatDoAfterComponent, ThrownEvent>(OnThrow);
 
         SubscribeLocalEvent<InjectorComponent, CombatSyringeTriggerEvent>(OnCombatSyringeHit);
         SubscribeLocalEvent<EnsnaringComponent, CombatDoAfterThrownEvent>(OnEnsnaringThrow);
@@ -74,7 +74,7 @@ public sealed partial class CombatDoAfterSystem
         QueueDel(ent);
     }
 
-    private void OnThrow(Entity<CombatDoAfterComponent> ent, ref ThrowEvent args)
+    private void OnThrow(Entity<CombatDoAfterComponent> ent, ref ThrownEvent args)
     {
         if (args.User == null)
             return;

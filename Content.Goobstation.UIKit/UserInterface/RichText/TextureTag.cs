@@ -58,10 +58,14 @@ public sealed class TextureTag : BaseTextureTag, IMarkupTagHandler
             tex = EntitySystemManager.GetEntitySystem<SpriteSystem>().Frame0(sprite);
         }
 
-        control = DrawIcon(tex,
-            scaleValue.Value,
-            new Vector2((float) x, (float) y),
-            tooltip);
+        if (!TryDrawIcon(tex,
+                scaleValue.Value,
+                new Vector2((float) x, (float) y),
+                tooltip,
+                out var texture))
+            return false;
+
+        control = texture;
         return true;
     }
 }

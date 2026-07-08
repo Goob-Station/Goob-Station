@@ -5,7 +5,6 @@ using Content.Goobstation.Shared.Devil.Condemned;
 using Content.Goobstation.Shared.Devil.UI;
 using Content.Server.Administration.Systems;
 using Content.Server.Mind;
-using Content.Shared.Administration.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;

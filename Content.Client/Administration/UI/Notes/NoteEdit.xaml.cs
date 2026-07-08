@@ -110,7 +110,7 @@ public sealed partial class NoteEdit : FancyWindow
     private bool IsSecret { get; set; }
     private NoteType NoteType { get; set; }
 
-    public NoteSeverity? NoteSeverity
+    private NoteSeverity? NoteSeverity
     {
         get => _noteSeverity;
         set

@@ -1,7 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Server._Goobstation.Heretic.EntitySystems.PathSpecific;
+using Content.Server.Body.Systems;
 using Content.Server.Fluids.EntitySystems;
+using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.EntityEffects;
@@ -9,25 +12,27 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server._Goobstation.Heretic.Effects;
 
-public sealed partial class SpillBloodSystem : EntityEffectSystem<BloodstreamComponent, SpillBlood>
-{
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
-    [Dependency] private readonly PuddleSystem _puddle = default!;
-
-    protected override void Effect(Entity<BloodstreamComponent> entity, ref EntityEffectEvent<SpillBlood> args)
-    {
-        if (!_solution.ResolveSolution(entity.Owner, entity.Comp.BloodSolutionName, ref entity.Comp.BloodSolution, out var bloodSolution))
-            return;
-
-        _puddle.TrySpillAt(entity.Owner, bloodSolution.SplitSolution(args.Effect.Amount), out _);
-    }
-}
-
-public sealed partial class SpillBlood : EntityEffectBase<SpillBlood>
+public sealed partial class SpillBlood : EntityEffect
 {
     [DataField(required: true)]
     public FixedPoint2 Amount;
 
-    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => "Spills target blood.";
+
+    public override void Effect(EntityEffectBaseArgs args)
+    {
+        if (!args.EntityManager.TryGetComponent(args.TargetEntity, out BloodstreamComponent? bloodStream))
+            return;
+
+        if (!args.EntityManager.System<SharedSolutionContainerSystem>()
+                .ResolveSolution(args.TargetEntity,
+                    bloodStream.BloodSolutionName,
+                    ref bloodStream.BloodSolution,
+                    out var bloodSolution))
+            return;
+
+        args.EntityManager.System<PuddleSystem>()
+            .TrySpillAt(args.TargetEntity, bloodSolution.SplitSolution(Amount), out _);
+    }
 }

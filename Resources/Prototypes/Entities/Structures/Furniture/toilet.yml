@@ -1,11 +1,11 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  abstract: true
-  parent: [ DisposalUnitBase, SeatBase ]
-  id: BaseToilet
   name: toilet
+  id: BaseToilet
+  parent: [ DisposalUnitBase, SeatBase ]
   description: The HT-451, a torque rotation-based, waste disposal unit for small matter. This one seems remarkably clean.
+  abstract: true
   components:
   - type: Sprite
     sprite: Structures/Furniture/toilet.rsi
@@ -26,6 +26,8 @@
       map: [ "enum.DisposalUnitVisualLayers.OverlayFull" ]
     - state: dispover-handle
       map: [ "enum.DisposalUnitVisualLayers.OverlayEngaged" ]
+    - map: [ "DoorVisualState.DoorOpen" ]
+    - map: [ "SeatVisualState.SeatUp" ]
   - type: Rotatable
   - type: Transform
     noRot: false
@@ -94,9 +96,7 @@
     interfaces:
       enum.DisposalUnitUiKey.Key:
         type: DisposalUnitBoundUserInterface
-  - type: Rummageable
-    table: !type:NestedSelector
-      tableId: RatKingLoot
+  - type: RatKingRummageable
   - type: SolutionContainerManager
     solutions:
       drainBuffer:
@@ -121,38 +121,31 @@
   - type: ReagentTank
   - type: DumpableSolution
     solution: drainBuffer
-  - type: Edible
-    edible: Drink
-    solution: tank
-    destroyOnEmpty: false
-    utensil: Spoon
   - type: GenericVisualizer
     visuals:
-      enum.ToolOpenableVisuals.ToolOpenableVisualState:
-        ToolOpenableVisualState.StashOpen:
-          Open: { state: disposal-open }
-          Closed: { state: disposal-closed }
       enum.ToiletVisuals.SeatVisualState:
         SeatVisualState.SeatUp:
           SeatUp: { state: disposal-up }
           SeatDown: { state: disposal-down }
+      enum.ToolOpenableVisuals.ToolOpenableVisualState:
+        ToolOpenableVisualState.StashOpen:
+          Open: { state: disposal-open }
+          Closed: { state: disposal-closed }
 
 - type: entity
-  parent: BaseToilet
-  id: ToiletEmpty
   name: toilet
   description: The HT-451, a torque rotation-based, waste disposal unit for small matter. This one seems remarkably clean.
+  id: ToiletEmpty
+  parent: BaseToilet
   suffix: Empty
   components:
   - type: Construction
     graph: Toilet
     node: toilet
 
-# so theres not actually any way to replenish the gastrotoxin / gold in these.
-# I wouldn't add it to the solutionregeneration comp because that doesn't make a lot of sense imo.
 - type: entity
-  parent: ToiletEmpty
   id: ToiletDirtyWater
+  parent: ToiletEmpty
   suffix: Dirty Water
   components:
   - type: SolutionContainerManager
@@ -168,32 +161,8 @@
           Quantity: 20
 
 - type: entity
-  parent: ToiletEmpty
-  id: ToiletFilled
-  suffix: Empty, Random Cistern Loot
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      stash: !type:NestedSelector
-        tableId: ToiletCisternLoot
-        rolls: !type:RangeNumberSelector
-          range: 0, 1
-
-- type: entity
-  parent: ToiletDirtyWater
-  id: ToiletDirtyWaterFilled
-  suffix: Dirty Water, Random Cistern Loot
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      stash: !type:NestedSelector
-        tableId: ToiletCisternLoot
-        rolls: !type:RangeNumberSelector
-          range: 0, 1
-
-- type: entity
-  parent: BaseToilet
   id: ToiletGoldenEmpty
+  parent: BaseToilet
   name: golden toilet
   description: The HT-451G is the gold version of the device. It says on the side that it is made of the purest Mercurian gold and a real leather seat.
   suffix: Empty
@@ -228,8 +197,8 @@
             max: 5
 
 - type: entity
-  parent: ToiletGoldenEmpty
   id: ToiletGoldenDirtyWater
+  parent: ToiletGoldenEmpty
   suffix: Dirty Water, StealTarget
   components:
   - type: StealTarget

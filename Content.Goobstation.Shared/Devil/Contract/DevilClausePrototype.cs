@@ -6,10 +6,10 @@ using Robust.Shared.Prototypes;
 namespace Content.Goobstation.Shared.Devil.Contract;
 
 [Prototype("clause")]
-public sealed partial class DevilClausePrototype : IPrototype
+public sealed class DevilClausePrototype : IPrototype
 {
     [IdDataField]
-    public string ID { get; private set; } = default!;
+    public string ID { get; private init; } = default!;
 
     [DataField(required: true)]
     public int ClauseWeight;

@@ -3,7 +3,6 @@
 
 - type: entity
   abstract: true
-  parent: BaseMachine
   id: BaseGenerator
   description: A high efficiency thermoelectric generator.
   name: generator
@@ -14,6 +13,10 @@
     range: 5
     sound:
       path: /Audio/Ambience/Objects/engine_hum.ogg
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
   - type: Fixtures
     fixtures:
       fix1:
@@ -25,6 +28,9 @@
         - MachineMask
         layer:
         - MachineLayer
+  - type: Transform
+    anchored: true
+    noRot: true
   - type: Sprite
     sprite: Structures/Power/power.rsi
     state: generator
@@ -44,7 +50,8 @@
     supplyRate: 3000
     supplyRampRate: 500
     supplyRampTolerance: 500
-  - type: Anchorable # Reduces anchor time to 1 second
+  - type: Anchorable
+  - type: Pullable
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic
@@ -102,7 +109,7 @@
       path: /Audio/Ambience/Objects/hdd_buzz.ogg
   - type: PointLight
     radius: 1.5
-    energy: 3.0
+    energy: 1.6
     color: "#3db83b"
     castShadows: false
     netsync: false

@@ -5,21 +5,13 @@
         "y": 32
     },
     "license": "CC-BY-SA-3.0",
-    "copyright": "Github #DrMelon. Inhands by Tiniest Shark (Github)",
+    "copyright": "Github #DrMelon",
     "states": [
         {
             "name": "icon"
         },
         {
             "name": "icon_open"
-        },
-        {
-            "name": "inhand-right",
-            "directions": 4
-        },
-        {
-            "name": "inhand-left",
-            "directions": 4
         }
     ]
 }

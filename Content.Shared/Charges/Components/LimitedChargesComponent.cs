@@ -19,7 +19,7 @@ public sealed partial class LimitedChargesComponent : Component
     /// <summary>
     ///     The max charges this action has.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField, AutoNetworkedField] // Goob Change: Stupid fuckin set accessors.
     public int MaxCharges = 3;
 
     /// <summary>

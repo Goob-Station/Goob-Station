@@ -37,7 +37,7 @@ namespace Content.Server.Administration.Commands
 
         public override void Execute(IConsoleShell shell, string argStr, string[] args)
         {
-            _roundEndSystem.CancelRoundEndCountdown(shell.Player?.AttachedEntity, forceRecall: true);
+            _roundEndSystem.CancelRoundEndCountdown(shell.Player?.AttachedEntity, false);
         }
     }
 }

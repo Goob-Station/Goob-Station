@@ -10,7 +10,6 @@ using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Chat; // Einstein Engines - Language
 using Content.Shared.Database;
-using Content.Shared.Kitchen;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -48,7 +47,7 @@ public sealed class IdCardSystem : SharedIdCardSystem
             //roll microwave exploding -Space
             if (!micro.CanMicrowaveIdsSafely)
             {
-                var explodeCheck = _random.NextFloat();
+                float explodeCheck = _random.NextFloat();
 
                 if (explodeCheck <= micro.ExplosionChance)
                 {
@@ -77,12 +76,6 @@ public sealed class IdCardSystem : SharedIdCardSystem
                 return;
             }
 
-            //Explode if the microwave can't handle it
-            if (!micro.CanMicrowaveIdsSafely)
-            {
-                _microwave.Explode((args.Microwave, micro));
-                return;
-            }
 
             // If they're unlucky, brick their ID
             if (randomPick <= 0.4f)
@@ -129,7 +122,7 @@ public sealed class IdCardSystem : SharedIdCardSystem
             _chat.TrySendInGameICMessage(
                 ent,
                 Loc.GetString(ent.Comp.ExpireMessage),
-                InGameICChatType.Speak,
+                Shared.Chat.InGameICChatType.Speak,
                 ChatTransmitRange.Normal,
                 true);
         }

@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: MIT
 
-using Content.Shared.Maps;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;

@@ -1,10 +1,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: BaseItem
-  id: Dart
   name: dart
   description: Light throwing dart for playing darts. Don't get in the eye!
+  parent: BaseItem
+  id: Dart
   components:
   - type: EmbeddableProjectile
     minimumSpeed: 3
@@ -69,7 +69,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 50 #excess damage avoids cost of spawning entities.
+        damage: 30 #excess damage avoids cost of spawning entities.
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]

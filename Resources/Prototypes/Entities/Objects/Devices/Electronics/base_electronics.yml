@@ -21,6 +21,5 @@
     materialComposition:
       Glass: 12
     chemicalComposition:
-      Silicon: 20
-  - type: Circuitboard
+      Silicon: 2
   - type: Electronics # Goobstation

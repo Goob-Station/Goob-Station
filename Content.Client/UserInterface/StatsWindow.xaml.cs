@@ -18,7 +18,7 @@ namespace Content.Client.UserInterface
 
         public void UpdateValues(List<string> headers, List<string[]> values)
         {
-            Values.RemoveAllChildren();
+            Values.DisposeAllChildren();
             Values.Columns = headers.Count;
 
             for (var i = 0; i < headers.Count; i++)

@@ -42,9 +42,12 @@
     description: ghost-role-information-revenant-description
     rules: ghost-role-information-antagonist-rules
     mindRoles:
-    - MindRoleGhostRoleSoloAntagonistGoob # Goob hour req
+    - MindRoleGhostRoleSoloAntagonist
     raffle:
       settings: default
+    requirements: # Goobstation - ghost roles requirements
+    - !type:OverallPlaytimeRequirement
+      time: 18000 #5 hours
   - type: GhostTakeoverAvailable
   - type: Revenant
     malfunctionWhitelist:
@@ -68,9 +71,6 @@
         type: StoreBoundUserInterface
   - type: Visibility
     layer: 2 #ghost vis layer
-  - type: ActionGrant
-    actions:
-    - ActionRevenantShop
   - type: Store
     categories:
     - RevenantAbilities

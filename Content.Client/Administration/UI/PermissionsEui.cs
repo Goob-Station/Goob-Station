@@ -25,7 +25,7 @@ namespace Content.Client.Administration.UI
         [Dependency] private readonly IClientAdminManager _adminManager = default!;
 
         private readonly Menu _menu;
-        private readonly List<BaseWindow> _subWindows = new();
+        private readonly List<DefaultWindow> _subWindows = new();
 
         private Dictionary<int, PermissionsEuiState.AdminRankData> _ranks =
             new();
@@ -214,7 +214,7 @@ namespace Content.Client.Administration.UI
                 var titleControl = new Label { Text = admin.Title ?? Loc.GetString("permissions-eui-edit-admin-title-control-text").ToLowerInvariant() };
                 if (admin.Title == null) // none
                 {
-                    titleControl.StyleClasses.Add(StyleClass.Italic);
+                    titleControl.StyleClasses.Add(StyleBase.StyleClassItalic);
                 }
 
                 al.AddChild(titleControl);
@@ -238,7 +238,7 @@ namespace Content.Client.Administration.UI
                 var rankControl = new Label { Text = rank };
                 if (italic)
                 {
-                    rankControl.StyleClasses.Add(StyleClass.Italic);
+                    rankControl.StyleClasses.Add(StyleBase.StyleClassItalic);
                 }
 
                 al.AddChild(rankControl);
@@ -338,9 +338,10 @@ namespace Content.Client.Administration.UI
                 tab.AddChild(adminVBox);
                 tab.AddChild(rankVBox);
 
-                ContentsContainer.AddChild(tab);
-                ContentsContainer.MinSize = new(600, 400);
+                Contents.AddChild(tab);
             }
+
+            protected override Vector2 ContentsMinimumSize => new Vector2(600, 400);
         }
 
         private sealed class EditAdminWindow : DefaultWindow
@@ -416,21 +417,21 @@ namespace Content.Client.Administration.UI
                     var inherit = new Button
                     {
                         Text = "I",
-                        StyleClasses = { StyleClass.ButtonOpenRight },
+                        StyleClasses = { StyleBase.ButtonOpenRight },
                         Disabled = disable,
                         Group = group,
                     };
                     var sub = new Button
                     {
                         Text = "-",
-                        StyleClasses = { StyleClass.ButtonOpenBoth },
+                        StyleClasses = { StyleBase.ButtonOpenBoth },
                         Disabled = disable,
                         Group = group
                     };
                     var plus = new Button
                     {
                         Text = "+",
-                        StyleClasses = { StyleClass.ButtonOpenLeft },
+                        StyleClasses = { StyleBase.ButtonOpenLeft },
                         Disabled = disable,
                         Group = group
                     };
@@ -476,7 +477,7 @@ namespace Content.Client.Administration.UI
 
                 bottomButtons.AddChild(SaveButton);
 
-                ContentsContainer.AddChild(new BoxContainer
+                Contents.AddChild(new BoxContainer
                 {
                     Orientation = LayoutOrientation.Vertical,
                     Children =
@@ -602,7 +603,7 @@ namespace Content.Client.Administration.UI
 
                 bottomButtons.AddChild(SaveButton);
 
-                ContentsContainer.AddChild(new BoxContainer
+                Contents.AddChild(new BoxContainer
                 {
                     Orientation = LayoutOrientation.Vertical,
                     Children =

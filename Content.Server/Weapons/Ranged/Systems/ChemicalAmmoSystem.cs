@@ -2,49 +2,50 @@
 
 using Content.Server.Weapons.Ranged.Components;
 using Content.Shared.Chemistry.Components;
-using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Weapons.Ranged.Events;
+using Content.Shared.Chemistry.EntitySystems;
 using System.Linq;
 
-namespace Content.Server.Weapons.Ranged.Systems;
-
-public sealed class ChemicalAmmoSystem : EntitySystem
+namespace Content.Server.Weapons.Ranged.Systems
 {
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
-
-    public override void Initialize()
+    public sealed class ChemicalAmmoSystem : EntitySystem
     {
-        SubscribeLocalEvent<ChemicalAmmoComponent, AmmoShotEvent>(OnFire);
-    }
+        [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
 
-    private void OnFire(Entity<ChemicalAmmoComponent> entity, ref AmmoShotEvent args)
-    {
-        if (!_solutionContainerSystem.TryGetSolution(entity.Owner, entity.Comp.SolutionName, out var ammoSoln, out var ammoSolution))
-            return;
-
-        var projectiles = args.FiredProjectiles;
-
-        var projectileSolutionContainers = new List<(EntityUid, Entity<SolutionComponent>)>();
-        foreach (var projectile in projectiles)
+        public override void Initialize()
         {
-            if (_solutionContainerSystem
-                .TryGetSolution(projectile, entity.Comp.SolutionName, out var projectileSoln, out _))
+            SubscribeLocalEvent<ChemicalAmmoComponent, AmmoShotEvent>(OnFire);
+        }
+
+        private void OnFire(Entity<ChemicalAmmoComponent> entity, ref AmmoShotEvent args)
+        {
+            if (!_solutionContainerSystem.TryGetSolution(entity.Owner, entity.Comp.SolutionName, out var ammoSoln, out var ammoSolution))
+                return;
+
+            var projectiles = args.FiredProjectiles;
+
+            var projectileSolutionContainers = new List<(EntityUid, Entity<SolutionComponent>)>();
+            foreach (var projectile in projectiles)
             {
-                projectileSolutionContainers.Add((projectile, projectileSoln.Value));
+                if (_solutionContainerSystem
+                    .TryGetSolution(projectile, entity.Comp.SolutionName, out var projectileSoln, out _))
+                {
+                    projectileSolutionContainers.Add((projectile, projectileSoln.Value));
+                }
             }
+
+            if (!projectileSolutionContainers.Any())
+                return;
+
+            var solutionPerProjectile = ammoSolution.Volume * (1 / projectileSolutionContainers.Count);
+
+            foreach (var (_, projectileSolution) in projectileSolutionContainers)
+            {
+                var solutionToTransfer = _solutionContainerSystem.SplitSolution(ammoSoln.Value, solutionPerProjectile);
+                _solutionContainerSystem.TryAddSolution(projectileSolution, solutionToTransfer);
+            }
+
+            _solutionContainerSystem.RemoveAllSolution(ammoSoln.Value);
         }
-
-        if (!projectileSolutionContainers.Any())
-            return;
-
-        var solutionPerProjectile = ammoSolution.Volume * (1 / projectileSolutionContainers.Count);
-
-        foreach (var (_, projectileSolution) in projectileSolutionContainers)
-        {
-            var solutionToTransfer = _solutionContainerSystem.SplitSolution(ammoSoln.Value, solutionPerProjectile);
-            _solutionContainerSystem.TryAddSolution(projectileSolution, solutionToTransfer);
-        }
-
-        _solutionContainerSystem.RemoveAllSolution(ammoSoln.Value);
     }
 }

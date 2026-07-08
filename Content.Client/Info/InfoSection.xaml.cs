@@ -20,7 +20,7 @@ public sealed partial class InfoSection : BoxContainer
     {
         TitleLabel.Text = title;
         if (markup)
-            Content.SetMessage(FormattedMessage.FromMarkupOrThrow(text.Trim()), tagsAllowed: null);
+            Content.SetMessage(FormattedMessage.FromMarkupOrThrow(text.Trim()));
         else
             Content.SetMessage(text);
     }

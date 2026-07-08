@@ -27,7 +27,7 @@
       components:
       - MobState
       - Body
-      - Edible
+      - Food
       - EntityStorage
       - Solution
     searchRange: 14 # why not

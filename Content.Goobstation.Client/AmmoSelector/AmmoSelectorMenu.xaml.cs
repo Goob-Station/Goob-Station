@@ -89,7 +89,7 @@ public sealed partial class AmmoSelectorMenu : RadialMenu
     }
 }
 
-public sealed class AmmoSelectorMenuButton : RadialMenuButtonWithSector
+public sealed class AmmoSelectorMenuButton : RadialMenuTextureButtonWithSector
 {
     public ProtoId<SelectableAmmoPrototype> ProtoId { get; set; }
 }

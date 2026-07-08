@@ -53,19 +53,13 @@
             "name": "stride"
         },
         {
-            "name": "sunder"
-        },
-        {
-            "name": "slumber"
-        },
-        {
-            "name": "corruption"
-        },
-        {
             "name": "rogueinfect"
         },
         {
             "name": "roguenova"
+        },
+        {
+            "name": "rogueshatter"
         },
         {
             "name": "rogueshunt"

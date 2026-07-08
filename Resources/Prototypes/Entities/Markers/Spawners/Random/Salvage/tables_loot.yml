@@ -105,7 +105,7 @@
       rolls: !type:RangeNumberSelector
         range: 1, 2
     - !type:NestedSelector
-      tableId: SalvageInstrumentTable
+      tableId: RandomInstrumentTable
 
 - type: entityTable
   id: SalvageTreasureUncommon

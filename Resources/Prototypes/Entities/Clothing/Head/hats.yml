@@ -553,7 +553,7 @@
     sprite: Clothing/Head/Hats/redwizard.rsi
   - type: Tag
     tags:
-    - PetWearable # Goobstation
+    - PetWearable
     - CorgiWearable
     - ClothMade
     - WhitelistChameleon
@@ -586,8 +586,6 @@
     - state: icon-nobeard
       map: [ "foldedLayer" ]
       visible: true
-  - type: Item
-    storedRotation: 0
   - type: Tag
     tags:
     - PetWearable
@@ -613,7 +611,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatSurgcapBlue
-  name: blue surgical cap
+  name: surgical cap
   description: A blue cap surgeons wear during operations. Keeps their hair from tickling your internal organs.
   components:
   - type: Sprite
@@ -636,7 +634,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatSurgcapGreen
-  name: green surgical cap
+  name: surgical cap
   description: A green cap surgeons wear during operations. Keeps their hair from tickling your internal organs.
   components:
   - type: Sprite
@@ -652,7 +650,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatSurgcapPurple
-  name: purple surgical cap
+  name: surgical cap
   description: A purple cap surgeons wear during operations. Keeps their hair from tickling your internal organs.
   components:
   - type: Sprite
@@ -767,7 +765,7 @@
     sprite: Clothing/Head/Hats/violetwizard.rsi
   - type: Tag
     tags:
-    - PetWearable # Goobstation
+    - PetWearable
     - CorgiWearable
     - ClothMade
     - WhitelistChameleon
@@ -858,7 +856,6 @@
     - HamsterWearable
     - MouseWearable # Goobstation
     - WhitelistChameleon
-    - CorgiWearable
 
 - type: entity
   parent: ClothingHeadBase
@@ -1287,8 +1284,6 @@
     sprite: Clothing/Head/Hats/party_red.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/party_red.rsi
-  - type: Item
-    storedRotation: 0
   - type: Tag
     tags:
     - PetWearable
@@ -1307,6 +1302,13 @@
     sprite: Clothing/Head/Hats/party_yellow.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/party_yellow.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - WhitelistChameleon
+    - HamsterWearable
+    - MouseWearable # Goobstation
 
 - type: entity
   parent: ClothingHeadHatPartyRed
@@ -1317,6 +1319,13 @@
     sprite: Clothing/Head/Hats/party_green.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/party_green.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - WhitelistChameleon
+    - HamsterWearable
+    - MouseWearable # Goobstation
 
 - type: entity
   parent: ClothingHeadHatPartyRed
@@ -1327,6 +1336,13 @@
     sprite: Clothing/Head/Hats/party_blue.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/party_blue.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - WhitelistChameleon
+    - HamsterWearable
+    - MouseWearable # Goobstation
 
 - type: entity
   parent: ClothingHeadHatPartyRed

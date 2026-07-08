@@ -6,6 +6,7 @@ using Content.Server.Power.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Server.Temperature.Components;
 using Content.Shared.Atmos.Components;
+using Content.Server.Atmos.EntitySystems;
 using Content.Server.Popups;
 using Content.Shared.Popups;
 using Content.Shared._EinsteinEngines.Silicon.Systems;
@@ -15,19 +16,12 @@ using Content.Shared.Mind.Components;
 using System.Diagnostics.CodeAnalysis;
 using Content.Goobstation.Common.CCVar;
 using Content.Server.Power.EntitySystems; // Goobstation - Energycrit
-using Content.Shared.PowerCell;
+using Content.Server.PowerCell;
 using Robust.Shared.Timing;
 using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Alert;
-using Content.Shared.Atmos.Components;
-using Content.Shared.Power.Components;
-using Content.Shared.Temperature.Components;
-// Begin TheDen - IPC Dynamic Power draw
-using Content.Shared.Movement.Components;
-using Robust.Shared.Physics.Components;
-// End TheDen
 
 namespace Content.Server._EinsteinEngines.Silicon.Charge;
 
@@ -35,6 +29,7 @@ public sealed class SiliconChargeSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly FlammableSystem _flammable = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _moveMod = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -66,12 +61,16 @@ public sealed class SiliconChargeSystem : EntitySystem
         }
 
         // Try to get inserted battery
-        if (_powerCell.TryGetBatteryFromSlot(silicon, out var battery))
-        {
-            batteryComp = battery.Value.Comp;
-            batteryEnt = battery.Value.Owner;
+        if (_powerCell.TryGetBatteryFromSlot(silicon, out batteryEnt, out batteryComp))
             return true;
-        }
+
+        // Goobstation - Energycrit: Deshitcodified this
+        /*
+        // try get a battery directly on the inserted entity
+        if (TryComp(silicon, out batteryComp)
+            || _powerCell.TryGetBatteryFromSlot(silicon, out batteryComp))
+            return true;
+        */
 
         //DebugTools.Assert("SiliconComponent does not contain Battery");
         return false;
@@ -146,7 +145,7 @@ public sealed class SiliconChargeSystem : EntitySystem
             _battery.TryUseCharge(batteryEnt.Value, frameTime * drainRate); // Goobstation - Use BatterySystem instead of PowerCellSystem
 
             // Figure out the current state of the Silicon.
-            var chargePercent = (short) MathF.Round(batteryComp.LastCharge / batteryComp.MaxCharge * 10f);
+            var chargePercent = (short) MathF.Round(batteryComp.CurrentCharge / batteryComp.MaxCharge * 10f);
 
             UpdateChargeState(silicon, chargePercent, siliconComp);
         }
@@ -174,8 +173,7 @@ public sealed class SiliconChargeSystem : EntitySystem
     private float SiliconHeatEffects(EntityUid silicon, SiliconComponent siliconComp, float frameTime)
     {
         if (!TryComp<TemperatureComponent>(silicon, out var temperComp)
-            || !TryComp<ThermalRegulatorComponent>(silicon, out var thermalComp)
-            || !TryComp<TemperatureDamageComponent>(silicon, out var damageComp))
+            || !TryComp<ThermalRegulatorComponent>(silicon, out var thermalComp))
             return 0;
 
         // If the Silicon is hot, drain the battery faster, if it's cold, drain it slower, capped.
@@ -198,7 +196,7 @@ public sealed class SiliconChargeSystem : EntitySystem
 
             if (!EntityManager.TryGetComponent<FlammableComponent>(silicon, out var flamComp)
                 || flamComp is { OnFire: true }
-                || !(temperComp.CurrentTemperature > damageComp.HeatDamageThreshold))
+                || !(temperComp.CurrentTemperature > temperComp.HeatDamageThreshold))
                 return hotTempMulti;
 
             _popup.PopupEntity(Loc.GetString("silicon-overheating"), silicon, silicon, PopupType.MediumCaution);

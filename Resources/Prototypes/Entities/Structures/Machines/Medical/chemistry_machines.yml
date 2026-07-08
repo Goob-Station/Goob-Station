@@ -78,7 +78,6 @@
   - type: Machine
     board: ElectrolysisUnitMachineCircuitboard
 
-# TODO centrifuge should spill the vial if the lid is off
 - type: entity
   id: MachineCentrifuge
   parent: BaseTabletopChemicalMachine

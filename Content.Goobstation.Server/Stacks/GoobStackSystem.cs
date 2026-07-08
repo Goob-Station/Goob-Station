@@ -29,6 +29,6 @@ public sealed class GoobStackSystem : GoobSharedStackSystem
             return;
 
         var amount = message.Amount;
-        _stackSystem.UserSplit((uid, comp), user, amount);
+        _stackSystem.UserSplit(uid, user, amount, comp);
     }
 }

@@ -24,7 +24,6 @@
   - type: Damageable
     damageModifierSet: Wood
   - type: Temperature
-  - type: TemperatureDamage
     heatDamage:
       types:
         Heat: 5
@@ -128,7 +127,7 @@
   - type: FlavorProfile
     flavors:
       - sweet
-  - type: Edible
+  - type: Food
     delay: 2
   - type: SolutionContainerManager
     solutions:

@@ -35,8 +35,8 @@
     - ClothMade
     - Recyclable
   - type: HideLayerClothing
-    layers: # Goobstation
-      Snout: MASK
+    slots:
+    - Snout
     hideOnToggle: true
 
 - type: entity

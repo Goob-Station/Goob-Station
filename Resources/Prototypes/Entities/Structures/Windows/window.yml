@@ -2,7 +2,7 @@
 
 - type: entity
   id: Window
-  parent: [BaseDeltaPressureGlass, BaseStructure]
+  parent: BaseStructure
   name: window
   description: Don't smudge up the glass down there.
   placement:
@@ -10,10 +10,6 @@
     snap:
     - Window
   components:
-  - type: Anchorable
-    flags:
-    - Anchorable
-  - type: Rotatable
   - type: MeleeSound
     soundGroups:
       Brute:
@@ -145,7 +141,7 @@
 
 - type: entity
   id: WindowDirectional
-  parent: [BaseDeltaPressureGlassQuarter, BaseStructure]
+  parent: BaseStructure
   name: directional window
   description: Don't smudge up the glass down there.
   placement:

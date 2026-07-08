@@ -33,7 +33,7 @@ public abstract partial class SharedMartialArtsSystem
 
         SubscribeLocalEvent<GrantNinjutsuComponent, UseInHandEvent>(OnGrantCQCUse);
 
-        SubscribeLocalEvent<ThrowEvent>(OnThrow);
+        SubscribeLocalEvent<ThrownEvent>(OnThrow);
         SubscribeLocalEvent<MobStateChangedEvent>(OnMobStateChanged);
 
         SubscribeLocalEvent<NinjutsuSneakAttackComponent, SelfBeforeGunShotEvent>(OnBeforeGunShot);
@@ -52,7 +52,7 @@ public abstract partial class SharedMartialArtsSystem
     private void OnAlertEffectEnded(Entity<NinjutsuSneakAttackComponent> ent, ref StatusEffectEndedEvent args)
     {
         if (args.Key == "LossOfSurprise")
-            _alerts.ShowAlert(ent.Owner, ent.Comp.Alert);
+            _alerts.ShowAlert(ent, ent.Comp.Alert);
     }
 
     private void OnSneakAttackRemove(Entity<NinjutsuSneakAttackComponent> ent, ref ComponentRemove args)
@@ -60,12 +60,12 @@ public abstract partial class SharedMartialArtsSystem
         if (TerminatingOrDeleted(ent))
             return;
 
-        _alerts.ClearAlertCategory(ent.Owner, NinjutsuAlertCategory);
+        _alerts.ClearAlertCategory(ent, NinjutsuAlertCategory);
     }
 
     private void OnSneakAttackInit(Entity<NinjutsuSneakAttackComponent> ent, ref ComponentInit args)
     {
-        _alerts.ShowAlert(ent.Owner, ent.Comp.Alert);
+        _alerts.ShowAlert(ent, ent.Comp.Alert);
     }
 
     private void OnMobStateChanged(MobStateChangedEvent ev)
@@ -81,7 +81,7 @@ public abstract partial class SharedMartialArtsSystem
         _modifier.RefreshMovementSpeedModifiers(ev.Origin.Value);
     }
 
-    private void OnThrow(ref ThrowEvent ev)
+    private void OnThrow(ref ThrownEvent ev)
     {
         if (HasComp<NinjutsuSneakAttackComponent>(ev.User))
             ResetDebuff(ev.User.Value);
@@ -196,7 +196,7 @@ public abstract partial class SharedMartialArtsSystem
 
         // Swift Strike
         if (args.Performer == args.Weapon)
-            _stamina.TakeStaminaDamage(args.Target, 30f);
+            _stamina.TakeStaminaDamage(args.Target, 30f, applyResistances: true);
         var fireRate = TimeSpan.FromSeconds(1f / _melee.GetAttackRate(args.Weapon, args.Performer, melee));
         var minFireRate = TimeSpan.FromSeconds(1f / 8f); // This is basically the attack speed of a HF Blade.
 
@@ -220,7 +220,7 @@ public abstract partial class SharedMartialArtsSystem
         }
 
         // Paralyze, not knockdown
-        var time = proto.ParalyzeTime;
+        var time = TimeSpan.FromSeconds(proto.ParalyzeTime);
         if (_status.TryGetTime(target, "KnockedDown", out var knockdownStartEnd))
         {
             var knockdownTime = knockdownStartEnd.Value.Item2 - _timing.CurTime;
@@ -255,7 +255,7 @@ public abstract partial class SharedMartialArtsSystem
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
 
-        _stun.TryKnockdown(target, proto.ParalyzeTime, true, true, proto.DropItems);
+        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, true, proto.DropItems);
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * GetDamageMultiplier(ent), out _);
         _audio.PlayPvs(args.Sound, target);
         ComboPopup(ent, target, proto.Name);

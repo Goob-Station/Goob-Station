@@ -11,7 +11,7 @@
         maxVol: 25
 
 - type: entity
-  parent: [DrinkBaseMaterialCardboard, DrinkCartonBaseFull, DrinkBaseOpenable, DrinkVisualsOpenable]
+  parent: [DrinkCartonVisualsOpenable, DrinkCartonBaseFull]
   id: DrinkMilkCartonMini
   name: mini milk
   description: An opaque white liquid produced by the mammary glands of mammals.
@@ -28,7 +28,7 @@
     state: icon
 
 - type: entity
-  parent: [DrinkBaseMaterialCardboard, DrinkCartonBaseFull, DrinkBaseOpenable, DrinkVisualsOpenable]
+  parent: [DrinkCartonVisualsOpenable, DrinkCartonBaseFull]
   id: DrinkMilkCartonMiniChocolate
   name: mini choco milk
   description: A milk drink flavored with chocolate.

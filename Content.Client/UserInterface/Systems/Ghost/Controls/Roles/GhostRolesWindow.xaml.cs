@@ -28,7 +28,7 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
         public void ClearEntries()
         {
             NoRolesMessage.Visible = true;
-            EntryContainer.RemoveAllChildren();
+            EntryContainer.DisposeAllChildren();
             _collapsibleBoxes.Clear();
         }
 

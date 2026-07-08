@@ -4,9 +4,9 @@ using System.Linq;
 using Content.Shared.CCVar;
 using Content.Shared.Chemistry;
 using Content.Shared.Damage.Prototypes;
-using Content.Shared.Explosion.EntitySystems;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Inventory;
+using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Radiation.Events;
@@ -33,7 +33,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.Damage
 {
-    public sealed partial class DamageableSystem : EntitySystem
+    public sealed class DamageableSystem : EntitySystem
     {
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
@@ -41,7 +41,6 @@ namespace Content.Shared.Damage
         [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
         [Dependency] private readonly IConfigurationManager _config = default!;
         [Dependency] private readonly SharedChemistryGuideDataSystem _chemistryGuideData = default!;
-        [Dependency] private readonly SharedExplosionSystem _explosion = default!;
 
         // Shitmed Dependencies
         [Dependency] private readonly SharedBodySystem _body = default!;
@@ -51,6 +50,7 @@ namespace Content.Shared.Damage
         [Dependency] private readonly IGameTiming _timing = default!;
         private EntityQuery<AppearanceComponent> _appearanceQuery;
         private EntityQuery<DamageableComponent> _damageableQuery;
+        private EntityQuery<MindContainerComponent> _mindContainerQuery;
 
         // Shitmed Ent Queries
         private EntityQuery<BodyComponent> _bodyQuery;
@@ -80,6 +80,7 @@ namespace Content.Shared.Damage
 
             _appearanceQuery = GetEntityQuery<AppearanceComponent>();
             _damageableQuery = GetEntityQuery<DamageableComponent>();
+            _mindContainerQuery = GetEntityQuery<MindContainerComponent>();
 
             // Shitmed Queries
             _bodyQuery = GetEntityQuery<BodyComponent>();
@@ -92,7 +93,6 @@ namespace Content.Shared.Damage
             {
                 UniversalAllDamageModifier = value;
                 _chemistryGuideData.ReloadAllReagentPrototypes();
-                _explosion.ReloadMap();
             }, true);
             Subs.CVar(_config, CCVars.PlaytestAllHealModifier, value =>
             {
@@ -113,11 +113,7 @@ namespace Content.Shared.Damage
                  UniversalReagentHealModifier = value;
                  _chemistryGuideData.ReloadAllReagentPrototypes();
             }, true);
-            Subs.CVar(_config, CCVars.PlaytestExplosionDamageModifier, value =>
-            {
-                UniversalExplosionDamageModifier = value;
-                _explosion.ReloadMap();
-            }, true);
+            Subs.CVar(_config, CCVars.PlaytestExplosionDamageModifier, value => UniversalExplosionDamageModifier = value, true);
             Subs.CVar(_config, CCVars.PlaytestThrownDamageModifier, value => UniversalThrownDamageModifier = value, true);
             Subs.CVar(_config, CCVars.PlaytestTopicalsHealModifier, value => UniversalTopicalsHealModifier = value, true);
             Subs.CVar(_config, CCVars.PlaytestMobDamageModifier, value => UniversalMobDamageModifier = value, true);
@@ -129,8 +125,7 @@ namespace Content.Shared.Damage
         private void DamageableInit(EntityUid uid, DamageableComponent component, ComponentInit _)
         {
             if (component.DamageContainerID != null &&
-                _prototypeManager.Resolve(component.DamageContainerID, // Shitmed Change
-                out var damageContainerPrototype))
+                _prototypeManager.TryIndex(component.DamageContainerID, out var damageContainerPrototype)) // Shitmed Change
             {
                 // Initialize damage dictionary, using the types and groups from the damage
                 // container prototype
@@ -199,9 +194,6 @@ namespace Content.Shared.Damage
                 var data = new DamageVisualizerGroupData(component.DamagePerGroup.Keys.ToList());
                 _appearance.SetData(uid, DamageVisualizerKeys.DamageUpdateGroups, data, appearance);
             }
-
-            // TODO DAMAGE
-            // byref struct event.
             RaiseLocalEvent(uid, new DamageChangedEvent(component, damageDelta, interruptsDoAfters, origin, ignoreBlockers, uncappedDamage)); // Goob edit
         }
 
@@ -217,13 +209,7 @@ namespace Content.Shared.Damage
         ///     Returns a <see cref="DamageSpecifier"/> with information about the actual damage changes. This will be
         ///     null if the user had no applicable components that can take damage.
         /// </returns>
-        /// <param name="ignoreResistances">If true, this will ignore the entity's damage modifier (<see cref="DamageableComponent.DamageModifierSetId"/> and skip raising a <see cref="DamageModifyEvent"/>.</param>
-        /// <param name="interruptsDoAfters">Whether the damage should cancel any damage sensitive do-afters</param>
-        /// <param name="origin">The entity that is causing this damage</param>
-        /// <param name="ignoreGlobalModifiers">If true, this will skip over applying the universal damage modifiers (see <see cref="ApplyUniversalAllModifiers"/>).</param>
-        /// <returns></returns>
-        public DamageSpecifier? TryChangeDamage(
-            EntityUid? uid,
+        public DamageSpecifier? TryChangeDamage(EntityUid? uid,
             DamageSpecifier damage,
             bool ignoreResistances = false,
             bool interruptsDoAfters = true,
@@ -237,12 +223,7 @@ namespace Content.Shared.Damage
             bool canMiss = true)
         {
             if (!uid.HasValue || !_damageableQuery.Resolve(uid.Value, ref damageable, false))
-            {
-                // TODO BODY SYSTEM pass damage onto body system
-                // BOBBY WHEN?
-
                 return null;
-            }
 
             if (damage.Empty)
                 return damage;
@@ -466,7 +447,7 @@ namespace Content.Shared.Damage
             if (!ignoreResistances)
             {
                 if (damageable.DamageModifierSetId != null &&
-                    _prototypeManager.Resolve(damageable.DamageModifierSetId, out var modifierSet)) // Shitmed Change
+                    _prototypeManager.TryIndex(damageable.DamageModifierSetId, out var modifierSet))
                 {
                     damage = DamageSpecifier.ApplyModifierSet(damage,
                         DamageSpecifier.PenetrateArmor(modifierSet, damage.ArmorPenetration)); // Goob edit
@@ -500,8 +481,7 @@ namespace Content.Shared.Damage
                     return damage;
             }
 
-            if (!ignoreResistances)
-                damage = ApplyUniversalAllModifiers(damage);
+            damage = ApplyUniversalAllModifiers(damage);
 
             var delta = new DamageSpecifier(damage.ArmorPenetration,
                 damage.PartDamageVariation,

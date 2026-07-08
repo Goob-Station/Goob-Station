@@ -1,0 +1,36 @@
+<!--
+SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
+SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+SPDX-FileCopyrightText: 2021 Leo <lzimann@users.noreply.github.com>
+SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+SPDX-FileCopyrightText: 2021 moonheart08 <moonheart08@users.noreply.github.com>
+SPDX-FileCopyrightText: 2022 E F R <602406+Efruit@users.noreply.github.com>
+SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+SPDX-FileCopyrightText: 2024 MetalSage <74924875+MetalSage@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<DefaultWindow
+    xmlns="https://spacestation14.io"
+    xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    Title="{Loc admin-player-actions-window-title}" MinSize="425 272">
+    <BoxContainer Orientation="Vertical">
+        <BoxContainer Orientation="Horizontal">
+            <Label Text="{Loc admin-player-actions-reason}" MinWidth="100" />
+            <Control MinWidth="50" />
+            <LineEdit Name="ReasonLine" MinWidth="100" HorizontalExpand="True" />
+        </BoxContainer>
+        <cc:PlayerListControl Name="PlayerList" VerticalExpand="True" />
+        <BoxContainer Orientation="Horizontal">
+            <controls:ConfirmButton Name="SubmitKickButton" Text="{Loc admin-player-actions-kick}" ConfirmationText="{Loc 'admin-player-actions-confirm'}" Disabled="True"/>
+            <Button Name="SubmitAHelpButton" Text="{Loc admin-player-actions-ahelp}" Disabled="True"/>
+            <controls:ConfirmButton Name="SubmitRespawnButton" Text="{Loc admin-player-actions-respawn}" ConfirmationText="{Loc 'admin-player-actions-confirm'}" Disabled="True"/>
+        </BoxContainer>
+    </BoxContainer>
+</DefaultWindow>

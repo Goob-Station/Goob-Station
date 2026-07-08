@@ -5,7 +5,6 @@ using Content.Shared.Database;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory.VirtualItem;
-using Content.Shared.Storage.Components;
 using Content.Shared.Tag;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -23,7 +22,6 @@ public abstract partial class SharedHandsSystem
     private void InitializeDrop()
     {
         SubscribeLocalEvent<HandsComponent, EntRemovedFromContainerMessage>(HandleEntityRemoved);
-        SubscribeLocalEvent<HandsComponent, EntityStorageIntoContainerAttemptEvent>(OnEntityStorageDump);
     }
 
     protected virtual void HandleEntityRemoved(EntityUid uid, HandsComponent hands, EntRemovedFromContainerMessage args)
@@ -41,14 +39,6 @@ public abstract partial class SharedHandsSystem
 
         if (TryComp(args.Entity, out VirtualItemComponent? @virtual))
             _virtualSystem.DeleteVirtualItem((args.Entity, @virtual), uid);
-    }
-
-
-    private void OnEntityStorageDump(Entity<HandsComponent> ent, ref EntityStorageIntoContainerAttemptEvent args)
-    {
-        // If you're physically carrying an EntityStroage which tries to dump its contents out,
-        // we want those contents to fall to the floor.
-        args.Cancelled = true;
     }
 
     private bool ShouldIgnoreRestrictions(EntityUid user)

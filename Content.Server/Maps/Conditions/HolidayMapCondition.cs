@@ -2,7 +2,6 @@
 
 using System.Linq;
 using Content.Server.Holiday;
-using Content.Shared.Maps;
 
 namespace Content.Server.Maps.Conditions;
 

@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Chat;
-using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;
 
 namespace Content.Shared.Radio.Components;
 
@@ -10,15 +10,15 @@ namespace Content.Shared.Radio.Components;
 ///     This component is currently used for providing access to channels for "HeadsetComponent"s.
 ///     It should be used for intercoms and other radios in future.
 /// </summary>
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent]
 public sealed partial class EncryptionKeyComponent : Component
 {
-    [DataField]
-    public HashSet<ProtoId<RadioChannelPrototype>> Channels = new();
+    [DataField("channels", customTypeSerializer: typeof(PrototypeIdHashSetSerializer<RadioChannelPrototype>))]
+    public HashSet<string> Channels = new();
 
     /// <summary>
     ///     This is the channel that will be used when using the default/department prefix (<see cref="SharedChatSystem.DefaultChannelKey"/>).
     /// </summary>
-    [DataField]
-    public ProtoId<RadioChannelPrototype>? DefaultChannel;
+    [DataField("defaultChannel", customTypeSerializer: typeof(PrototypeIdSerializer<RadioChannelPrototype>))]
+    public string? DefaultChannel;
 }

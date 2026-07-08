@@ -25,7 +25,7 @@ public sealed class JobWhitelistSystem : EntitySystem
     {
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
         SubscribeLocalEvent<StationJobsGetCandidatesEvent>(OnStationJobsGetCandidates);
-        SubscribeLocalEvent<IsRoleAllowedEvent>(OnIsRoleAllowed);
+        SubscribeLocalEvent<IsJobAllowedEvent>(OnIsJobAllowed);
         SubscribeLocalEvent<GetDisallowedJobsEvent>(OnGetDisallowedJobs);
 
         CacheJobs();
@@ -53,18 +53,11 @@ public sealed class JobWhitelistSystem : EntitySystem
         }
     }
 
-    private void OnIsRoleAllowed(ref IsRoleAllowedEvent ev)
+    private void OnIsJobAllowed(ref IsJobAllowedEvent ev)
     {
-        if (ev.Jobs is null)
-            return;
-
-        foreach (var proto in ev.Jobs)
-        {
-            if (!_manager.IsAllowed(ev.Player, proto))
-                ev.Cancelled = true;
-        }
+        if (!_manager.IsAllowed(ev.Player, ev.JobId))
+            ev.Cancelled = true;
     }
-    //TODO: Antagonist role whitelists?
 
     private void OnGetDisallowedJobs(ref GetDisallowedJobsEvent ev)
     {

@@ -3,7 +3,7 @@
 - type: entity
   id: PlasmaWindow
   name: plasma window
-  parent: [BaseDeltaPressurePlasma, WindowRCDResistant]
+  parent: WindowRCDResistant
   components:
   - type: Sprite
     drawdepth: WallTops
@@ -62,7 +62,7 @@
 
 - type: entity
   id: PlasmaWindowDirectional
-  parent: [BaseDeltaPressurePlasmaQuarter, WindowDirectionalRCDResistant]
+  parent: WindowDirectionalRCDResistant
   name: directional plasma window
   description: Don't smudge up the glass down there.
   placement:
@@ -135,7 +135,6 @@
   - type: Tag
     tags:
     - Diagonal
-    - Window
   - type: IconSmooth
     mode: Diagonal
     key: windows

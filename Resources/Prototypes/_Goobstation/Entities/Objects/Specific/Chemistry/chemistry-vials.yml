@@ -3,7 +3,7 @@
 
 - type: entity
   id: GoldChemistryVial
-  parent: ChemistryEmptyVial
+  parent: BaseChemistryEmptyVial
   suffix: gold
   components:
   - type: Label
@@ -18,7 +18,7 @@
 
 - type: entity
   id: SilverChemistryVial
-  parent: ChemistryEmptyVial
+  parent: BaseChemistryEmptyVial
   suffix: silver
   components:
   - type: Label
@@ -33,7 +33,7 @@
 
 - type: entity
   id: UraniumChemistryVial
-  parent: ChemistryEmptyVial
+  parent: BaseChemistryEmptyVial
   suffix: uranium
   components:
   - type: Label
@@ -48,7 +48,7 @@
 
 - type: entity
   id: TirimolChemistryVial
-  parent: ChemistryEmptyVial
+  parent: BaseChemistryEmptyVial
   suffix: tirimol
   components:
   - type: Label
@@ -63,7 +63,7 @@
 
 - type: entity
   id: OmnizineChemistryVial
-  parent: ChemistryEmptyVial
+  parent: BaseChemistryEmptyVial
   suffix: omnizine
   components:
   - type: Label
@@ -78,7 +78,7 @@
 
 - type: entity
   id: SyriniverChemistryVial
-  parent: ChemistryEmptyVial
+  parent: BaseChemistryEmptyVial
   suffix: syriniver
   components:
   - type: Label
@@ -93,7 +93,7 @@
 
 - type: entity
   id: ProcenylLazideChemistryVial
-  parent: ChemistryEmptyVial
+  parent: BaseChemistryEmptyVial
   suffix: procenyl lazide
   components:
   - type: Label
@@ -108,7 +108,7 @@
 
 - type: entity
   id: EbifinlLazideChemistryVial
-  parent: ChemistryEmptyVial
+  parent: BaseChemistryEmptyVial
   suffix: ebifin
   components:
   - type: Label

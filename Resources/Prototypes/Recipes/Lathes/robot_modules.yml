@@ -35,16 +35,6 @@
   id: BorgModuleFireExtinguisher
   result: BorgModuleFireExtinguisher
 
-- type: latheRecipe
-  parent: BaseBorgModuleRecipe
-  id: BorgModuleInflatable
-  result: BorgModuleInflatable
-
-- type: latheRecipe
-  parent: BaseBorgModuleRecipe
-  id: BorgModuleArtistry
-  result: BorgModuleArtistry
-
 # Cargo Modules
 
 - type: latheRecipe
@@ -70,8 +60,8 @@
 
 - type: latheRecipe
   parent: BaseGoldBorgModuleRecipe
-  id: BorgModuleAdvancedTopical
-  result: BorgModuleAdvancedTopical
+  id: BorgModuleAdvancedChemical
+  result: BorgModuleAdvancedChemical
 
 # Science Modules
 

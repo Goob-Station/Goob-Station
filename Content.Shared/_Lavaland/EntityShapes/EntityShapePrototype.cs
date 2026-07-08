@@ -11,7 +11,7 @@ public sealed partial class EntityShapePrototype : IPrototype
 {
     /// <inheritdoc/>
     [IdDataField]
-    public string ID { get; private set; } = default!;
+    public string ID { get; } = default!;
 
     [DataField(required: true)]
     public EntityShape Shape = default!;

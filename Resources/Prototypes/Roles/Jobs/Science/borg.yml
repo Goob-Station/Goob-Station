@@ -9,10 +9,10 @@
   requirements:
   - !type:RoleTimeRequirement
     role: JobBorg
-    time: 5h
-  weight: 10
+    time: 18000  # 5 hrs
   canBeAntag: false
   goobcoins: 40 #Goob content
+  weight: 10 # Goob Edit
   icon: JobIconStationAi
   supervisors: job-supervisors-rd
   jobEntity: StationAiBrain
@@ -26,7 +26,7 @@
   playTimeTracker: JobBorg
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 10h
+      time: 36000 # 10 hrs
   canBeAntag: false
   goobcoins: 20 #Goob content
   icon: JobIconBorg

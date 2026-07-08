@@ -16,23 +16,23 @@ public sealed class SwapTeleportOnThrowSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<SwapTeleportOnThrowComponent, ThrowAttemptEvent>(OnThrowHit);
+        SubscribeLocalEvent<SwapTeleportOnThrowComponent, ThrowDoHitEvent>(OnThrowHit);
     }
 
-    private void OnThrowHit(Entity<SwapTeleportOnThrowComponent> ent, ref ThrowAttemptEvent args)
+    private void OnThrowHit(Entity<SwapTeleportOnThrowComponent> ent, ref ThrowDoHitEvent args)
     {
-        if (args.Cancelled
-            || args.TargetUid == null)
+        if (args.Handled)
             return;
 
-        var thrower = args.Uid;
-        var target = args.TargetUid;
+        var thrower = args.Component.Thrower;
+        var target = args.Target;
 
-        if (!HasComp<MobStateComponent>(target))
+        if (thrower == null
+            || !HasComp<MobStateComponent>(target))
             return;
 
-        var throwerTransform = Transform(thrower);
-        var targetTransform = Transform(target.Value);
+        var throwerTransform = Transform(thrower.Value);
+        var targetTransform = Transform(target);
 
         var throwerPos = throwerTransform.Coordinates;
         var targetPos = targetTransform.Coordinates;
@@ -40,19 +40,19 @@ public sealed class SwapTeleportOnThrowSystem : EntitySystem
         var throwerParent = throwerTransform.ParentUid;
         var targetParent = targetTransform.ParentUid;
 
-        _transform.SetCoordinates(thrower, targetPos);
-        _transform.SetCoordinates(target.Value, throwerPos);
+        _transform.SetCoordinates(thrower.Value, targetPos);
+        _transform.SetCoordinates(target, throwerPos);
 
         if (!HasComp<MapGridComponent>(targetParent))
-            _transform.SetParent(thrower, throwerParent);
+            _transform.SetParent(thrower.Value, throwerParent);
 
         if (!HasComp<MapGridComponent>(throwerParent))
-            _transform.SetParent(target.Value, targetParent);
+            _transform.SetParent(target, targetParent);
 
         _audio.PlayPvs(ent.Comp.OriginSound, throwerPos);
         _audio.PlayPvs(ent.Comp.TargetSound, targetPos);
 
         PredictedQueueDel(ent.Owner);
-        args.Cancel();
+        args.Handled = true;
     }
 }

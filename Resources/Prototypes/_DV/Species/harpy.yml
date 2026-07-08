@@ -29,8 +29,6 @@
     Groin: MobHarpyGroin
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
-    UndergarmentTop: MobHumanoidAnyMarking
-    UndergarmentBottom: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
     Eyes: MobHumanoidEyes
     LArm: MobHarpyLArm
@@ -69,10 +67,10 @@
       points: 1
       required: true
       defaultMarkings: [ HarpyChestDefault ]
-    UndergarmentBottom:
+    Underwear:
       points: 1
       required: false
-    UndergarmentTop:
+    Undershirt:
       points: 1
       required: false
     RightLeg:

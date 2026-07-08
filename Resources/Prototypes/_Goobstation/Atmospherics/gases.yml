@@ -1,7 +1,7 @@
 # /tg/ gases
 
 - type: gas
-  id: BZ
+  id: 9
   name: gases-bz
   specificHeat: 20
   heatCapacityRatio: 1.6
@@ -11,7 +11,7 @@
   pricePerMole: 2
 
 - type: gas
-  id: Healium
+  id: 10
   name: gases-healium
   specificHeat: 10
   heatCapacityRatio: 1.4
@@ -23,7 +23,7 @@
   pricePerMole: 3
 
 - type: gas
-  id: Nitrium
+  id: 11
   name: gases-nitrium
   specificHeat: 10
   heatCapacityRatio: 1.4
@@ -35,7 +35,7 @@
   pricePerMole: 3
 
 - type: gas
-  id: Pluoxium
+  id: 12
   name: gases-pluoxium
   specificHeat: 80
   heatCapacityRatio: 1.33

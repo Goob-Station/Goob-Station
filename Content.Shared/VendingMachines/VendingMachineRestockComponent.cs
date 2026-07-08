@@ -14,20 +14,23 @@ public sealed partial class VendingMachineRestockComponent : Component
     /// <summary>
     /// The time (in seconds) that it takes to restock a machine.
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("restockDelay")]
     public TimeSpan RestockDelay = TimeSpan.FromSeconds(5.0f);
 
     /// <summary>
     /// What sort of machine inventory does this restock?
     /// This is checked against the VendingMachineComponent's pack value.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(PrototypeIdHashSetSerializer<VendingMachineInventoryPrototype>))]
-    public HashSet<string> CanRestock = [];
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("canRestock", customTypeSerializer: typeof(PrototypeIdHashSetSerializer<VendingMachineInventoryPrototype>))]
+    public HashSet<string> CanRestock = new();
 
     /// <summary>
     ///     Sound that plays when starting to restock a machine.
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("soundRestockStart")]
     public SoundSpecifier SoundRestockStart = new SoundPathSpecifier("/Audio/Machines/vending_restock_start.ogg")
     {
         Params = new AudioParams
@@ -40,10 +43,12 @@ public sealed partial class VendingMachineRestockComponent : Component
     /// <summary>
     ///     Sound that plays when finished restocking a machine.
     /// </summary>
-    [DataField]
-    public SoundSpecifier SoundRestockDone = new SoundPathSpecifier("/Audio/Machines/vending_restock_done.ogg",
-        AudioParams.Default.WithVolume(-2f).WithVariation(0.2f));
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("soundRestockDone")]
+    public SoundSpecifier SoundRestockDone = new SoundPathSpecifier("/Audio/Machines/vending_restock_done.ogg");
 }
 
 [Serializable, NetSerializable]
-public sealed partial class RestockDoAfterEvent : SimpleDoAfterEvent;
+public sealed partial class RestockDoAfterEvent : SimpleDoAfterEvent
+{
+}

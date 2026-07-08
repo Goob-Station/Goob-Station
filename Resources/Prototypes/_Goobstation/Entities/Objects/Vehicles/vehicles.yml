@@ -22,7 +22,7 @@
   - type: InteractionOutline
   - type: Access
   - type: Physics
-    bodyType: KinematicController
+    bodyType: Dynamic
   - type: Fixtures
     fixtures:
       fix1:

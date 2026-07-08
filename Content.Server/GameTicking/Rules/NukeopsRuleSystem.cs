@@ -19,7 +19,6 @@ using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Nuke;
 using Content.Shared.NukeOps;
-using Content.Shared.Roles.Components;
 using Content.Shared.Store;
 using Content.Shared.Tag;
 using Content.Shared.Zombies;
@@ -98,8 +97,6 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
             return;
 
         component.TargetStation = RobustRandom.Pick(eligible);
-        var ev = new NukeopsTargetStationSelectedEvent(uid, component.TargetStation);
-        RaiseLocalEvent(ref ev);
     }
 
     #region Event Handlers
@@ -124,9 +121,8 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
 
         foreach (var (_, sessionData, name) in antags)
         {
-            args.AddLine(Loc.GetString("nukeops-list-name-user", ("name", name), ("user", sessionData.UserName)));
-        }
-        args.AddLine("");*/
+            args.AddLine(Loc.GetString($"{component.LocalePrefix}list-name-user", ("name", name), ("user", sessionData.UserName)));
+        } */
     }
 
     private void OnNukeExploded(NukeExplodedEvent ev)
@@ -557,21 +553,4 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
 
         return null;
     }
-}
-
-/// <summary>
-/// Raised when a station has been assigned as a target for the NukeOps rule.
-/// </summary>
-[ByRefEvent]
-public readonly struct NukeopsTargetStationSelectedEvent(EntityUid ruleEntity, EntityUid? targetStation)
-{
-    /// <summary>
-    /// The entity containing the NukeOps gamerule.
-    /// </summary>
-    public readonly EntityUid RuleEntity = ruleEntity;
-
-    /// <summary>
-    /// The target station, if it exists.
-    /// </summary>
-    public readonly EntityUid? TargetStation = targetStation;
 }

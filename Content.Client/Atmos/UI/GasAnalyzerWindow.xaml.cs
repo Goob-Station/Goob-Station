@@ -210,7 +210,7 @@ namespace Content.Client.Atmos.UI
             });
             presBox.AddChild(new Label
             {
-                Text = Loc.GetString("gas-analyzer-window-pressure-val-text", ("pressure", $"{gasMix.Pressure:0.00}")),
+                Text = Loc.GetString("gas-analyzer-window-pressure-val-text", ("pressure", $"{gasMix.Pressure:0.##}")),
                 Align = Label.AlignMode.Right,
                 HorizontalExpand = true
             });
@@ -234,8 +234,8 @@ namespace Content.Client.Atmos.UI
                 tempBox.AddChild(new Label
                 {
                     Text = Loc.GetString("gas-analyzer-window-temperature-val-text",
-                        ("tempK", $"{gasMix.Temperature:0.0}"),
-                        ("tempC", $"{TemperatureHelpers.KelvinToCelsius(gasMix.Temperature):0.0}")),
+                        ("tempK", $"{gasMix.Temperature:0.#}"),
+                        ("tempC", $"{TemperatureHelpers.KelvinToCelsius(gasMix.Temperature):0.#}")),
                     Align = Label.AlignMode.Right,
                     HorizontalExpand = true
                 });

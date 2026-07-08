@@ -6,11 +6,10 @@
   id: BoxHandcuff
   description: A box full of handcuffs.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: Handcuffs
-        amount: 4
+  - type: StorageFill
+    contents:
+    - id: Handcuffs
+      amount: 4
   - type: Sprite
     layers:
     - state: box_security
@@ -22,11 +21,10 @@
   id: BoxZiptie
   description: A box full of zipties.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: Zipties
-        amount: 9
+  - type: StorageFill
+    contents:
+    - id: Zipties
+      amount: 9
   - type: Sprite
     layers:
     - state: box_security
@@ -38,11 +36,10 @@
   id: BoxFlashbang
   description: 'WARNING: These devices are extremely dangerous and can cause blindness or deafness in repeated use.'
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: GrenadeFlashBang
-        amount: 4
+  - type: StorageFill
+    contents:
+    - id: GrenadeFlashBang
+      amount: 4
   - type: Sprite
     layers:
     - state: box_security
@@ -54,11 +51,10 @@
   id: BoxStinger
   description: A box full of stinger grenades. Disperse!
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: GrenadeStinger
-        amount: 4
+  - type: StorageFill
+    contents:
+    - id: GrenadeStinger
+      amount: 4
   - type: Sprite
     layers:
     - state: box_security
@@ -70,11 +66,10 @@
   id: BoxTearGas
   description: A box full of tear gas grenades. Hold your breath.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: TearGasGrenade
-        amount: 4
+  - type: StorageFill
+    contents:
+    - id: TearGasGrenade
+      amount: 4
   - type: Sprite
     layers:
     - state: box_security
@@ -86,11 +81,10 @@
   id: BoxSechud
   description: A box of sechuds.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: ClothingEyesHudSecurity
-        amount: 4
+  - type: StorageFill
+    contents:
+    - id: ClothingEyesHudSecurity
+      amount: 4
   - type: Sprite
     layers:
     - state: box_security
@@ -102,11 +96,10 @@
   id: BoxSecglasses
   description: A box of security glasses.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: ClothingEyesGlassesSecurity
-        amount: 4
+  - type: StorageFill
+    contents:
+    - id: ClothingEyesGlassesSecurity
+      amount: 4
   - type: Sprite
     layers:
     - state: box_security
@@ -118,11 +111,10 @@
   id: BoxSunglasses
   description: A box of cool flash-proof sunglasses.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: ClothingEyesGlassesSunglasses
-        amount: 4
+  - type: StorageFill
+    contents:
+    - id: ClothingEyesGlassesSunglasses
+      amount: 4
   - type: Sprite
     layers:
     - state: box_security
@@ -137,35 +129,11 @@
   - type: Item
     shape:
     - 0,0,1,1
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: ForensicPad
-        amount: 9
+  - type: StorageFill
+    contents:
+    - id: ForensicPad
+      amount: 9
   - type: Sprite
     layers:
     - state: box_security
     - state: forensic
-
-- type: entity
-  parent: BoxCardboard
-  id: BoxDetonator
-  name: detonator box
-  description: A box of explosive detonators and triggers.
-  components:
-  - type: Item
-    shape:
-    - 0,0,1,1
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: EmptyDetonator
-          amount: 3
-        - id: TimerTrigger
-          amount: 2
-        - id: VoiceTrigger
-  - type: Sprite
-    layers:
-    - state: box_security
-    - state: trigger

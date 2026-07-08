@@ -3,7 +3,6 @@
 using Content.Server.Administration.Systems;
 using Content.Shared._Lavaland.Megafauna.Components;
 using Content.Shared._Lavaland.Megafauna.Events;
-using Content.Shared.Administration.Systems;
 
 namespace Content.Server._Lavaland.Megafauna.Systems;
 

@@ -1,0 +1,63 @@
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailCommandPipebombIntern
+  suffix: Command smoke and drink
+  components:
+  - type: Mail
+    isFragile: true
+    contents:
+      - id: SmokingPipeFilledTobacco
+      - id: DrinkAtomicBombGlass
+      - id: PaperMailNFPipebombIntern
+
+# Head of Personnel
+- type: entity
+  parent: BaseMailLarge
+  id: MailHoPSupplement
+  suffix: HoP supplement
+  components:
+  - type: Mail
+    contents:
+    - id: ClearPDA
+    - id: ClothingHeadsetGrey
+    - id: Paper
+      maxAmount: 10
+
+# Chief Medical Officer
+- type: entity
+  parent: BaseMailLarge
+  id: MailMedkit
+  suffix: Medkit
+  components:
+  - type: Mail
+    contents:
+      - id: MedkitAdvancedFilled
+        orGroup: Medkit
+        prob: 0.75
+      - id: MedkitCombatFilled
+        orGroup: Medkit
+        prob: 0.25
+
+# Research Director
+- type: entity
+  parent: BaseMail
+  id: MailResearchDisk
+  suffix: Research Disk
+  components:
+  - type: Mail
+    contents:
+    - id: ResearchDisk
+      orGroup: Disk
+      prob: 0.6
+    - id: ResearchDisk5000
+      orGroup: Disk
+      prob: 0.3
+    - id: ResearchDisk10000
+      orGroup: Disk
+      prob: 0.1

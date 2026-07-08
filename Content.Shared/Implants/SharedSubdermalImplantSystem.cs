@@ -3,77 +3,95 @@
 using System.Linq;
 using Content.Shared.Actions;
 using Content.Shared.Implants.Components;
+using Content.Shared.Interaction;
+using Content.Shared.Interaction.Events;
+using Content.Shared.Mobs;
+using Content.Shared.Tag;
+using JetBrains.Annotations;
 using Robust.Shared.Containers;
-using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
 
 namespace Content.Shared.Implants;
 
-public abstract partial class SharedSubdermalImplantSystem : EntitySystem
+public abstract class SharedSubdermalImplantSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+
+    public const string BaseStorageId = "storagebase";
+
+    private static readonly ProtoId<TagPrototype> MicroBombTag = "MicroBomb";
+    private static readonly ProtoId<TagPrototype> MacroBombTag = "MacroBomb";
 
     public override void Initialize()
     {
-        base.Initialize();
-        InitializeRelay();
-
         SubscribeLocalEvent<SubdermalImplantComponent, EntGotInsertedIntoContainerMessage>(OnInsert);
         SubscribeLocalEvent<SubdermalImplantComponent, ContainerGettingRemovedAttemptEvent>(OnRemoveAttempt);
         SubscribeLocalEvent<SubdermalImplantComponent, EntGotRemovedFromContainerMessage>(OnRemove);
+
+        SubscribeLocalEvent<ImplantedComponent, MobStateChangedEvent>(RelayToImplantEvent);
+        SubscribeLocalEvent<ImplantedComponent, AfterInteractUsingEvent>(RelayToImplantEvent);
+        SubscribeLocalEvent<ImplantedComponent, SuicideEvent>(RelayToImplantEvent);
     }
 
-    private void OnInsert(Entity<SubdermalImplantComponent> ent, ref EntGotInsertedIntoContainerMessage args)
+    private void OnInsert(EntityUid uid, SubdermalImplantComponent component, EntGotInsertedIntoContainerMessage args)
     {
-        // The results of the container change are already networked on their own
-        if (_timing.ApplyingState)
+        if (component.ImplantedEntity == null)
             return;
 
-        if (args.Container.ID != ImplanterComponent.ImplantSlotId)
-            return;
+        if (!string.IsNullOrWhiteSpace(component.ImplantAction))
+        {
+            _actionsSystem.AddAction(component.ImplantedEntity.Value, ref component.Action, component.ImplantAction, uid);
+        }
 
-        ent.Comp.ImplantedEntity = args.Container.Owner;
-        Dirty(ent);
+        // replace micro bomb with macro bomb
+        // TODO: this shouldn't be hardcoded here
+        if (_container.TryGetContainer(component.ImplantedEntity.Value, ImplanterComponent.ImplantSlotId, out var implantContainer) && _tag.HasTag(uid, MacroBombTag))
+        {
+            foreach (var implant in implantContainer.ContainedEntities)
+            {
+                if (_tag.HasTag(implant, MicroBombTag))
+                {
+                    _container.Remove(implant, implantContainer);
+                    PredictedQueueDel(implant);
+                }
+            }
+        }
 
-        EntityManager.AddComponents(ent.Comp.ImplantedEntity.Value, ent.Comp.ImplantComponents);
-        if (ent.Comp.ImplantAction != null)
-            _actions.AddAction(ent.Comp.ImplantedEntity.Value, ref ent.Comp.Action, ent.Comp.ImplantAction, ent.Owner);
-
-        var ev = new ImplantImplantedEvent(ent.Owner, ent.Comp.ImplantedEntity.Value);
-        RaiseLocalEvent(ent.Owner, ref ev);
+        var ev = new ImplantImplantedEvent(uid, component.ImplantedEntity.Value);
+        RaiseLocalEvent(uid, ref ev);
     }
 
-    private void OnRemoveAttempt(Entity<SubdermalImplantComponent> ent, ref ContainerGettingRemovedAttemptEvent args)
+    private void OnRemoveAttempt(EntityUid uid, SubdermalImplantComponent component, ContainerGettingRemovedAttemptEvent args)
     {
-        if (ent.Comp.Permanent && ent.Comp.ImplantedEntity != null)
+        if (component.Permanent && component.ImplantedEntity != null)
             args.Cancel();
     }
 
-    private void OnRemove(Entity<SubdermalImplantComponent> ent, ref EntGotRemovedFromContainerMessage args)
+    private void OnRemove(EntityUid uid, SubdermalImplantComponent component, EntGotRemovedFromContainerMessage args)
     {
-        // The results of the container change are already networked on their own
-        if (_timing.ApplyingState)
+        if (component.ImplantedEntity == null || Terminating(component.ImplantedEntity.Value))
             return;
 
-        if (args.Container.ID != ImplanterComponent.ImplantSlotId)
+        if (component.ImplantAction != null)
+            _actionsSystem.RemoveProvidedActions(component.ImplantedEntity.Value, uid);
+
+        // <GoobStation>
+        var ev = new ImplantRemovedEvent(uid, component.ImplantedEntity.Value);
+        RaiseLocalEvent(uid, ref ev);
+        // </GoobStation>
+
+        if (!_container.TryGetContainer(uid, BaseStorageId, out var storageImplant))
             return;
 
-        if (ent.Comp.ImplantedEntity == null || Terminating(ent.Comp.ImplantedEntity.Value))
-            return;
+        var containedEntites = storageImplant.ContainedEntities.ToArray();
 
-        EntityManager.RemoveComponents(ent.Comp.ImplantedEntity.Value, ent.Comp.ImplantComponents);
-        _actions.RemoveAction(ent.Comp.ImplantedEntity.Value, ent.Comp.Action);
-        ent.Comp.Action = null;
-
-        var ev = new ImplantRemovedEvent(ent.Owner, ent.Comp.ImplantedEntity.Value);
-        RaiseLocalEvent(ent.Owner, ref ev);
-
-        ent.Comp.ImplantedEntity = null;
-        Dirty(ent);
+        foreach (var entity in containedEntites)
+        {
+            _transformSystem.DropNextTo(entity, uid);
+        }
     }
 
     /// <summary>
@@ -95,26 +113,23 @@ public abstract partial class SharedSubdermalImplantSystem : EntitySystem
     /// <returns>
     /// The implant, if it was successfully created. Otherwise, null.
     /// </returns>>
-    public EntityUid? AddImplant(EntityUid target, EntProtoId implantId)
+    public EntityUid? AddImplant(EntityUid uid, String implantId)
     {
-        if (_net.IsClient)
-            return null; // can't interact with predicted spawns yet
+        var coords = Transform(uid).Coordinates;
+        var ent = Spawn(implantId, coords);
 
-        var coords = Transform(target).Coordinates;
-        var implant = Spawn(implantId, coords);
-
-        if (TryComp<SubdermalImplantComponent>(implant, out var implantComp))
+        if (TryComp<SubdermalImplantComponent>(ent, out var implant))
         {
-            ForceImplant(target, (implant, implantComp));
+            ForceImplant(uid, ent, implant);
         }
         else
         {
-            Log.Warning($"Tried to inject implant '{implantId}' without SubdermalImplantComponent into {ToPrettyString(target):implanted}");
-            Del(implant);
+            Log.Warning($"Found invalid starting implant '{implantId}' on {uid} {ToPrettyString(uid):implanted}");
+            Del(ent);
             return null;
         }
 
-        return implant;
+        return ent;
     }
 
     /// <summary>
@@ -123,16 +138,15 @@ public abstract partial class SharedSubdermalImplantSystem : EntitySystem
     /// </summary>
     /// <param name="target">The entity to be implanted</param>
     /// <param name="implant"> The implant</param>
-    public void ForceImplant(EntityUid target, Entity<SubdermalImplantComponent?> implant)
+    /// <param name="component">The implant component</param>
+    public void ForceImplant(EntityUid target, EntityUid implant, SubdermalImplantComponent component)
     {
-        if (!Resolve(implant, ref implant.Comp))
-            return;
-
         //If the target doesn't have the implanted component, add it.
         var implantedComp = EnsureComp<ImplantedComponent>(target);
+        var implantContainer = implantedComp.ImplantContainer;
 
-        implant.Comp.ImplantedEntity = target;
-        _container.Insert(implant.Owner, implantedComp.ImplantContainer);
+        component.ImplantedEntity = target;
+        _container.Insert(implant, implantContainer);
     }
 
     /// <summary>
@@ -140,25 +154,60 @@ public abstract partial class SharedSubdermalImplantSystem : EntitySystem
     /// </summary>
     /// <param name="target">the implanted entity</param>
     /// <param name="implant">the implant</param>
-    public void ForceRemove(Entity<ImplantedComponent?> target, EntityUid implant)
+    [PublicAPI]
+    public void ForceRemove(EntityUid target, EntityUid implant)
     {
-        if (!Resolve(target, ref target.Comp))
+        if (!TryComp<ImplantedComponent>(target, out var implanted))
             return;
 
-        _container.Remove(implant, target.Comp.ImplantContainer);
-        PredictedQueueDel(implant);
+        var implantContainer = implanted.ImplantContainer;
+
+        _container.Remove(implant, implantContainer);
+        QueueDel(implant);
     }
 
     /// <summary>
     /// Removes and deletes implants by force
     /// </summary>
     /// <param name="target">The entity to have implants removed</param>
-    public void WipeImplants(Entity<ImplantedComponent?> target)
+    [PublicAPI]
+    public void WipeImplants(EntityUid target)
     {
-        if (!Resolve(target, ref target.Comp, false))
+        if (!TryComp<ImplantedComponent>(target, out var implanted))
             return;
 
-        _container.CleanContainer(target.Comp.ImplantContainer);
+        var implantContainer = implanted.ImplantContainer;
+
+        _container.CleanContainer(implantContainer);
+    }
+
+    //Relays from the implanted to the implant
+    private void RelayToImplantEvent<T>(EntityUid uid, ImplantedComponent component, T args) where T : notnull
+    {
+        if (!_container.TryGetContainer(uid, ImplanterComponent.ImplantSlotId, out var implantContainer))
+            return;
+
+        var relayEv = new ImplantRelayEvent<T>(args, uid);
+        foreach (var implant in implantContainer.ContainedEntities)
+        {
+            if (args is HandledEntityEventArgs { Handled : true })
+                return;
+
+            RaiseLocalEvent(implant, relayEv);
+        }
+    }
+}
+
+public sealed class ImplantRelayEvent<T> where T : notnull
+{
+    public readonly T Event;
+
+    public readonly EntityUid ImplantedEntity;
+
+    public ImplantRelayEvent(T ev, EntityUid implantedEntity)
+    {
+        Event = ev;
+        ImplantedEntity = implantedEntity;
     }
 }
 
@@ -170,19 +219,12 @@ public abstract partial class SharedSubdermalImplantSystem : EntitySystem
 /// implant implant implant implant
 /// </remarks>
 [ByRefEvent]
-public readonly record struct ImplantImplantedEvent
+public readonly struct ImplantImplantedEvent
 {
-    /// <summary>
-    /// The implant itself
-    /// </summary>
     public readonly EntityUid Implant;
+    public readonly EntityUid? Implanted;
 
-    /// <summary>
-    /// The entity getting implanted
-    /// </summary>
-    public readonly EntityUid Implanted;
-
-    public ImplantImplantedEvent(EntityUid implant, EntityUid implanted)
+    public ImplantImplantedEvent(EntityUid implant, EntityUid? implanted)
     {
         Implant = implant;
         Implanted = implanted;
@@ -190,19 +232,8 @@ public readonly record struct ImplantImplantedEvent
 }
 
 /// <summary>
-/// Event that is raised whenever an implant is removed from someone.
-/// Raised on the the implant entity.
+/// Goobstation - Event that is raised whenever an implant is removed from an implanted entity.
+/// Raised on the implant.
 /// </summary>
-
 [ByRefEvent]
-public readonly record struct ImplantRemovedEvent
-{
-    public readonly EntityUid Implant;
-    public readonly EntityUid Implanted;
-
-    public ImplantRemovedEvent(EntityUid implant, EntityUid implanted)
-    {
-        Implant = implant;
-        Implanted = implanted;
-    }
-}
+public readonly record struct ImplantRemovedEvent(EntityUid Implant, EntityUid Implanted);

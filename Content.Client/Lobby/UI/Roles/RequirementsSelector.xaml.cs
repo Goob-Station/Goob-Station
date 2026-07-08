@@ -33,9 +33,9 @@ public sealed partial class RequirementsSelector : BoxContainer
         RobustXamlLoader.Load(this);
         _options = new RadioOptions<int>(RadioOptionsLayout.Horizontal)
         {
-            FirstButtonStyle = StyleClass.ButtonOpenRight,
-            ButtonStyle = StyleClass.ButtonOpenBoth,
-            LastButtonStyle = StyleClass.ButtonOpenLeft,
+            FirstButtonStyle = StyleBase.ButtonOpenRight,
+            ButtonStyle = StyleBase.ButtonOpenBoth,
+            LastButtonStyle = StyleBase.ButtonOpenLeft,
             HorizontalExpand = true,
         };
         //Override default radio option button width
@@ -52,7 +52,7 @@ public sealed partial class RequirementsSelector : BoxContainer
             Text = Loc.GetString("role-timer-locked"),
             Visible = true,
             HorizontalAlignment = HAlignment.Center,
-            StyleClasses = {StyleClass.LabelSubText},
+            StyleClasses = {StyleBase.StyleClassLabelSubText},
         };
 
         _lockStripe = new StripeBack()

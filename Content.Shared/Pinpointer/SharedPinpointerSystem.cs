@@ -42,7 +42,7 @@ public abstract class SharedPinpointerSystem : EntitySystem
         args.Handled = true;
 
         if (Whitelist.IsWhitelistFail(component.RetargetingWhitelist, target) ||
-            Whitelist.IsWhitelistFail(component.RetargetingBlacklist, target))
+            Whitelist.IsBlacklistPass(component.RetargetingBlacklist, target))
         {
             return;
         }

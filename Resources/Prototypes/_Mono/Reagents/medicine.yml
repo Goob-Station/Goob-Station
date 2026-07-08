@@ -16,11 +16,11 @@
             Heat: -0.2
       - !type:AdjustTemperature
         conditions:
-        - !type:TemperatureCondition
+        - !type:Temperature
           min: 253.15
-        - !type:MetabolizerTypeCondition # Fuck you
-          type: [ Hydrakin ]
-          inverted: true
+        - !type:OrganType
+          type: Hydrakin
+          shouldHave: false
         amount: -360
       - !type:PopupMessage
         type: Local
@@ -29,9 +29,9 @@
         probability: 0.2
       - !type:AdjustTemperature
         conditions:
-        - !type:TemperatureCondition
+        - !type:Temperature
           min: 253.15
-        - !type:MetabolizerTypeCondition # Fuck you
-          type: [ Hydrakin ]
-          inverted: true
+        - !type:OrganType
+          type: Hydrakin
+          shouldHave: true
         amount: -7500

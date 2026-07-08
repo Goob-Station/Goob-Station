@@ -81,14 +81,14 @@ public sealed class FoldableSystem : EntitySystem
     /// <summary>
     /// Set the folded state of the given <see cref="FoldableComponent"/>
     /// </summary>
-    public void SetFolded(EntityUid uid, FoldableComponent component, bool folded, EntityUid? user = null)
+    public void SetFolded(EntityUid uid, FoldableComponent component, bool folded)
     {
         component.IsFolded = folded;
         Dirty(uid, component);
         _appearance.SetData(uid, FoldedVisuals.State, folded);
         _buckle.StrapSetEnabled(uid, !component.IsFolded);
 
-        var ev = new FoldedEvent(folded, user);
+        var ev = new FoldedEvent(folded);
         RaiseLocalEvent(uid, ref ev);
     }
 
@@ -100,7 +100,7 @@ public sealed class FoldableSystem : EntitySystem
 
     public bool TryToggleFold(EntityUid uid, FoldableComponent comp, EntityUid? folder = null)
     {
-        var result = TrySetFolded(uid, comp, !comp.IsFolded, folder);
+        var result = TrySetFolded(uid, comp, !comp.IsFolded);
         if (!result && folder != null)
         {
             if (comp.IsFolded)
@@ -132,7 +132,7 @@ public sealed class FoldableSystem : EntitySystem
     /// <summary>
     /// Try to fold/unfold
     /// </summary>
-    public bool TrySetFolded(EntityUid uid, FoldableComponent comp, bool state, EntityUid? user = null)
+    public bool TrySetFolded(EntityUid uid, FoldableComponent comp, bool state)
     {
         if (state == comp.IsFolded)
             return false;
@@ -140,7 +140,7 @@ public sealed class FoldableSystem : EntitySystem
         if (!CanToggleFold(uid, comp))
             return false;
 
-        SetFolded(uid, comp, state, user);
+        SetFolded(uid, comp, state);
         return true;
     }
 
@@ -183,7 +183,6 @@ public record struct FoldAttemptEvent(FoldableComponent Comp, bool Cancelled = f
 /// <summary>
 /// Event raised on an entity after it has been folded.
 /// </summary>
-/// <param name="IsFolded">True is it has been folded, false if it has been unfolded.</param>
-/// <param name="User">The player who did the folding.</param>
+/// <param name="IsFolded"></param>
 [ByRefEvent]
-public readonly record struct FoldedEvent(bool IsFolded, EntityUid? User);
+public readonly record struct FoldedEvent(bool IsFolded);

@@ -73,13 +73,13 @@ public sealed partial class IntrinsicVoiceModulatorWindow : DefaultWindow
         {
             var jobIcon = _protoManager.Index(_jobIcons[i]);
 
-            var styleBase = StyleClass.ButtonOpenBoth;
+            var styleBase = StyleBase.ButtonOpenBoth;
             var mod = i % JobIconColumnCount;
 
             if (mod == 0)
-                styleBase = StyleClass.ButtonOpenRight;
+                styleBase = StyleBase.ButtonOpenRight;
             else if (mod == JobIconColumnCount - 1)
-                styleBase = StyleClass.ButtonOpenLeft;
+                styleBase = StyleBase.ButtonOpenLeft;
 
             var jobIconButton = new Button
             {

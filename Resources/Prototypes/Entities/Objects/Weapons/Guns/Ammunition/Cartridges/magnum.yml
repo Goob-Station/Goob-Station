@@ -1,13 +1,14 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  abstract: true
-  parent: [ BaseCartridge, BaseSecurityCommandContraband ] # Goob edit - captain's N1984
   id: BaseCartridgeMagnum
   name: cartridge (.45 magnum)
+  parent: [ BaseCartridge, BaseSecurityCommandContraband ] # Goob edit - captain's N1984
+  abstract: true
   components:
   - type: Tag
     tags:
+      - Cartridge
       - CartridgeMagnum
   - type: CartridgeAmmo
     proto: BulletMagnum
@@ -20,19 +21,19 @@
   - type: SpentAmmoVisuals
 
 - type: entity
-  parent: BaseCartridgeMagnum
   id: CartridgeMagnum
   name: cartridge (.45 magnum)
+  parent: BaseCartridgeMagnum
   description: Heavy magnum cartridge mostly used by revolvers. Standard kinetic ammunition is common and useful in most situations.
   components:
   - type: CartridgeAmmo
     proto: BulletMagnum
 
 - type: entity
-  parent: BaseCartridgeMagnum
   id: CartridgeMagnumPractice
   name: cartridge (.45 magnum practice)
-  description: Heavy magnum cartridge mostly used by revolvers. Practice ammunition fires a chalk projectile that stings a little, but otherwise causes no lasting damage.
+  parent: BaseCartridgeMagnum
+  description: Heavy magnum cartridge mostly used by revolvers. Chalk ammunition is generally non-harmful, used for practice.
   components:
   - type: CartridgeAmmo
     proto: BulletMagnumPractice
@@ -45,10 +46,10 @@
         color: "#dbdbdb"
 
 - type: entity
-  parent: BaseCartridgeMagnum
   id: CartridgeMagnumIncendiary
   name: cartridge (.45 magnum incendiary)
-  description: Heavy magnum cartridge mostly used by revolvers. Incendiary ammunition contains a self-igniting compound that sets targets ablaze.
+  parent: BaseCartridgeMagnum
+  description: Heavy magnum cartridge mostly used by revolvers. Incendiary ammunition contains a self-igniting compound that sets the target ablaze.
   components:
   - type: CartridgeAmmo
     proto: BulletMagnumIncendiary
@@ -61,10 +62,10 @@
         color: "#ff6e52"
 
 - type: entity
-  parent: BaseCartridgeMagnum
   id: CartridgeMagnumAP
   name: cartridge (.45 magnum armor-piercing)
-  description: Heavy magnum cartridge mostly used by revolvers. Armor-piercing ammunition is renowned for its ability to cut straight through body armor.
+  parent: BaseCartridgeMagnum
+  description: Heavy magnum cartridge mostly used by revolvers. Armor piercing ammunition is renowned for its ability to cut straight through body armor.
   components:
   - type: CartridgeAmmo
     proto: BulletMagnumAP
@@ -77,10 +78,10 @@
         color: "#0a0a0a"
 
 - type: entity
-  parent: BaseCartridgeMagnum
   id: CartridgeMagnumUranium
   name: cartridge (.45 magnum uranium)
-  description: Heavy magnum cartridge mostly used by revolvers. Uranium ammunition replaces the lead core of the bullet with fissile material, irradiating targets from the inside.
+  parent: BaseCartridgeMagnum
+  description: Heavy magnum cartridge mostly used by revolvers. Uranium ammunition replaces the lead core of the bullet with fissile material, irradiating the target from the inside.
   components:
   - type: CartridgeAmmo
     proto: BulletMagnumUranium

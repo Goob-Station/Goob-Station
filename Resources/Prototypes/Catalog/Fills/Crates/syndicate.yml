@@ -1,8 +1,8 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: [ CrateSyndicate, StorePresetUplink, BaseSyndicateContraband ]
   id: CrateSyndicateSurplusBundle
+  parent: [ CrateSyndicate, StorePresetUplink, BaseSyndicateContraband ]
   name: Syndicate surplus crate
   # Goobstation - Telecrystal rework
   description: Contains 250 telecrystals worth of completely random Syndicate items. It can be useless junk or really good.
@@ -11,23 +11,24 @@
       totalPrice: 250
 
 - type: entity
-  parent: CrateSyndicate
   id: CrateCybersunJuggernautBundle
-  name: Cybersun juggernaut bundle
   suffix: Filled
+  parent: CrateSyndicate
+  name: Cybersun juggernaut bundle
   description: Contains everything except a big gun to go postal.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:AllSelector
-        children:
-        - id: ClothingOuterHardsuitJuggernaut
-        - !type:NestedSelector
-          tableId: SyndicateHardsuitExtrasEntityTable
+  - type: StorageFill
+    contents:
+      - id: ClothingOuterHardsuitJuggernaut
+      - id: ClothingMaskGasSyndicate
+      - id: ClothingHandsGlovesCombat
+      - id: DoubleEmergencyOxygenTankFilled
+      - id: DoubleEmergencyNitrogenTankFilled
+      - id: DoubleEmergencyPlasmaTankFilled # EE Plasmeme Change
 
 - type: entity
-  parent: [ CrateSyndicate, StorePresetUplink, BaseSyndicateContraband ]
   id: CrateSyndicateSuperSurplusBundle
+  parent: [ CrateSyndicate, StorePresetUplink, BaseSyndicateContraband ]
   name: Syndicate super surplus crate
   # Goobstation - Telecrystal rework
   description: Contains 625 telecrystals worth of completely random Syndicate items.

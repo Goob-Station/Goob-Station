@@ -1,8 +1,6 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Events;
-using Content.Shared.StatusEffectNew;
 
 namespace Content.Shared.Damage.Systems;
 
@@ -10,36 +8,47 @@ public partial class SharedStaminaSystem
 {
     private void InitializeModifier()
     {
-        SubscribeLocalEvent<StaminaModifierStatusEffectComponent, StatusEffectAppliedEvent>(OnEffectApplied);
-        SubscribeLocalEvent<StaminaModifierStatusEffectComponent, StatusEffectRemovedEvent>(OnEffectRemoved);
-        SubscribeLocalEvent<StaminaModifierStatusEffectComponent, StatusEffectRelayedEvent<RefreshStaminaCritThresholdEvent>>(OnRefreshCritThreshold);
+        SubscribeLocalEvent<StaminaModifierComponent, ComponentStartup>(OnModifierStartup);
+        SubscribeLocalEvent<StaminaModifierComponent, ComponentShutdown>(OnModifierShutdown);
     }
 
-    private void OnEffectApplied(Entity<StaminaModifierStatusEffectComponent> ent, ref StatusEffectAppliedEvent args)
+    private void OnModifierStartup(EntityUid uid, StaminaModifierComponent comp, ComponentStartup args)
     {
-        RefreshStaminaCritThreshold(args.Target);
-    }
-
-    private void OnEffectRemoved(Entity<StaminaModifierStatusEffectComponent> ent, ref StatusEffectRemovedEvent args)
-    {
-        RefreshStaminaCritThreshold(args.Target);
-    }
-
-    private void OnRefreshCritThreshold(Entity<StaminaModifierStatusEffectComponent> ent, ref StatusEffectRelayedEvent<RefreshStaminaCritThresholdEvent> args)
-    {
-        var evArgs = args.Args;
-        evArgs.Modifier = Math.Max(ent.Comp.Modifier, evArgs.Modifier); // We only pick the highest value, to avoid stacking different status effects.
-        args.Args = evArgs;
-    }
-
-    public void RefreshStaminaCritThreshold(Entity<StaminaComponent?> entity)
-    {
-        if (!Resolve(entity, ref entity.Comp))
+        if (!TryComp<StaminaComponent>(uid, out var stamina))
             return;
 
-        var ev = new RefreshStaminaCritThresholdEvent(entity.Comp.BaseCritThreshold);
-        RaiseLocalEvent(entity, ref ev);
+        stamina.CritThreshold *= comp.Modifier;
+    }
 
-        entity.Comp.CritThreshold = ev.ThresholdValue * ev.Modifier;
+    private void OnModifierShutdown(EntityUid uid, StaminaModifierComponent comp, ComponentShutdown args)
+    {
+        if (!TryComp<StaminaComponent>(uid, out var stamina))
+            return;
+
+        stamina.CritThreshold /= comp.Modifier;
+    }
+
+    /// <summary>
+    /// Change the stamina modifier for an entity.
+    /// If it has <see cref="StaminaComponent"/> it will also be updated.
+    /// </summary>
+    public void SetModifier(EntityUid uid, float modifier, StaminaComponent? stamina = null, StaminaModifierComponent? comp = null)
+    {
+        if (!Resolve(uid, ref comp))
+            return;
+
+        var old = comp.Modifier;
+
+        if (old.Equals(modifier))
+            return;
+
+        comp.Modifier = modifier;
+        Dirty(uid, comp);
+
+        if (Resolve(uid, ref stamina, false))
+        {
+            // scale to the new threshold, act as if it was removed then added
+            stamina.CritThreshold *= modifier / old;
+        }
     }
 }

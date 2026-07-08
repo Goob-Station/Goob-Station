@@ -36,6 +36,6 @@ public struct PowerCableChunk
     public PowerCableChunk(Vector2i origin)
     {
         Origin = origin;
-        PowerCableData = new int[Enum.GetNames(typeof(CableType)).Length];
+        PowerCableData = new int[3];
     }
 }

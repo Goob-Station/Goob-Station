@@ -1,8 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-using System.Linq;
+
 using Content.Shared.Clothing.Components;
 using Content.Shared.Foldable;
-using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Content.Shared.Item;
 
@@ -26,15 +25,11 @@ public sealed class FoldableClothingSystem : EntitySystem
     // Goobstation Start - #3632
     private void OnMapInit(Entity<FoldableClothingComponent> ent, ref MapInitEvent args)
     {
-        if (ent.Comp.FoldedHideLayers.Count == 0 && ent.Comp.UnfoldedHideLayers.Count == 0)
-            return;
-        var hideLayer = EnsureComp<HideLayerClothingComponent>(ent.Owner);
-        var slot = ent.Comp.UnfoldedSlots ?? ent.Comp.FoldedSlots ?? SlotFlags.NONE;
-
-        foreach (var layer in ent.Comp.UnfoldedHideLayers)
-            hideLayer.Layers[layer] = slot;
-
-        Dirty(ent.Owner, hideLayer);
+        if (ent.Comp.FoldedHideLayers != null || ent.Comp.UnfoldedHideLayers != null)
+        {
+            var hideLayer = EnsureComp<HideLayerClothingComponent>(ent.Owner);
+            hideLayer.Slots = ent.Comp.UnfoldedHideLayers;
+        }
     }
     // Goobstation end
     private void OnFoldAttempt(Entity<FoldableClothingComponent> ent, ref FoldAttemptEvent args)
@@ -82,20 +77,9 @@ public sealed class FoldableClothingSystem : EntitySystem
             // This should instead work via an event or something that gets raised to optionally modify the currently hidden layers.
             // Or at the very least it should stash the old layers and restore them when unfolded.
             // TODO CLOTHING fix this.
-            if ((ent.Comp.FoldedHideLayers.Count != 0 || ent.Comp.UnfoldedHideLayers.Count != 0) &&
-                TryComp<HideLayerClothingComponent>(ent.Owner, out var hideLayerComp))
-                // Goobstation Start
-            {
-                foreach (var layer in ent.Comp.UnfoldedHideLayers)
-                    hideLayerComp.Layers.Remove(layer);
+            if (TryComp<HideLayerClothingComponent>(ent.Owner, out var hideLayerComp)) // goob - removed layers != 0 check
+                hideLayerComp.Slots = ent.Comp.FoldedHideLayers;
 
-                var slot = ent.Comp.FoldedSlots ?? ent.Comp.UnfoldedSlots ?? SlotFlags.NONE;
-
-                foreach (var layer in ent.Comp.FoldedHideLayers)
-                    hideLayerComp.Layers[layer] = slot;
-                Dirty(ent.Owner, hideLayerComp);
-            }
-                // Goobstation End
         }
         else
         {
@@ -109,21 +93,9 @@ public sealed class FoldableClothingSystem : EntitySystem
                 _itemSystem.SetHeldPrefix(ent.Owner, null, false, itemComp);
 
             // TODO CLOTHING fix this.
-            if ((ent.Comp.FoldedHideLayers.Count != 0 || ent.Comp.UnfoldedHideLayers.Count != 0) &&
-                TryComp<HideLayerClothingComponent>(ent.Owner, out var hideLayerComp))
-                // Goobstation Start
-            {
-                foreach (var layer in ent.Comp.FoldedHideLayers)
-                    hideLayerComp.Layers.Remove(layer);
+            if (TryComp<HideLayerClothingComponent>(ent.Owner, out var hideLayerComp)) // goob - removed layers != 0 check
+                hideLayerComp.Slots = ent.Comp.UnfoldedHideLayers;
 
-                var slot = ent.Comp.UnfoldedSlots ?? ent.Comp.FoldedSlots ?? SlotFlags.NONE;
-
-                foreach (var layer in ent.Comp.UnfoldedHideLayers)
-                    hideLayerComp.Layers[layer] = slot;
-
-                Dirty(ent.Owner, hideLayerComp);
-            }
-            // Goobstation end
         }
     }
 }

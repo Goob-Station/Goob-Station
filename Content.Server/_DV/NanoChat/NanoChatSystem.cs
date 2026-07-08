@@ -8,7 +8,6 @@ using Content.Server.NameIdentifier;
 using Content.Shared.Database;
 using Content.Shared._DV.CartridgeLoader.Cartridges;
 using Content.Shared._DV.NanoChat;
-using Content.Shared.Kitchen;
 using Content.Shared.NameIdentifier;
 using Content.Shared.PDA;
 using Robust.Shared.Containers;

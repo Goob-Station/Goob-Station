@@ -7,7 +7,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobChiefMedicalOfficer
-      time: 20h
+      time: 72000 #20 hrs
 
 # Goobstation - For Ensembles
 - type: loadoutEffectGroup

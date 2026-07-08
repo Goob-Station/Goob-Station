@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Common.MartialArts;
 
-[Prototype]
+[Prototype("combo")]
 public sealed partial class ComboPrototype : IPrototype
 {
     [IdDataField] public string ID { get; private set; } = default!;
@@ -27,10 +27,10 @@ public sealed partial class ComboPrototype : IPrototype
     public float ExtraDamage;
 
     /// <summary>
-    /// Stun time.
+    /// Stun time in seconds
     /// </summary>
     [DataField]
-    public TimeSpan ParalyzeTime = TimeSpan.Zero;
+    public int ParalyzeTime;
 
     /// <summary>
     /// Can a lying person perform this combo
@@ -42,7 +42,7 @@ public sealed partial class ComboPrototype : IPrototype
     /// Should the target drop items on knockdown?
     /// </summary>
     [DataField]
-    public bool DropItems = true;
+    public bool DropItems = false;
 
     /// <summary>
     /// How much stamina damage should this move do on perform.
@@ -75,11 +75,11 @@ public sealed partial class ComboPrototype : IPrototype
     public bool PerformOnSelf;
 }
 
-[Prototype]
+[Prototype("comboList")]
 public sealed partial class ComboListPrototype : IPrototype
 {
-    [IdDataField] public string ID { get; private set; } = default!;
+    [IdDataField] public string ID { get; private init; } = default!;
 
-    [DataField(required: true)]
+    [DataField( required: true)]
     public List<ProtoId<ComboPrototype>> Combos = new();
 }

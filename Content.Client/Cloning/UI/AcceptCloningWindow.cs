@@ -18,7 +18,7 @@ namespace Content.Client.Cloning.UI
 
             Title = Loc.GetString("accept-cloning-window-title");
 
-            ContentsContainer.AddChild(new BoxContainer
+            Contents.AddChild(new BoxContainer
             {
                 Orientation = LayoutOrientation.Vertical,
                 Children =

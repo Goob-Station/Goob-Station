@@ -2,7 +2,7 @@
 
 - type: entity
   id: ClosetBase
-  parent: [ BaseStructureDynamic, BasePaperLabelableVisualized ]
+  parent: BaseStructureDynamic
   name: closet
   description: A standard-issue Nanotrasen storage unit.
   abstract: true
@@ -27,6 +27,17 @@
       sprite: Structures/Storage/closet_labels.rsi
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: MovedByPressure
+  - type: PaperLabel
+    labelSlot:
+      insertVerbText: comp-paper-label-insert
+      ejectVerbText: comp-paper-label-eject
+      whitelist:
+        components:
+        - Paper
+      blacklist:
+        tags:
+        - Book
+  - type: ItemSlots
   - type: DamageOnHighSpeedImpact
     damage:
       types:
@@ -65,13 +76,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 300
       behaviors:
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 50
+        damage: 150
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -164,13 +175,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 300
       behaviors:
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 50
+        damage: 150
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]

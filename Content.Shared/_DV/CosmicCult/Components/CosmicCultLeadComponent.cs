@@ -7,7 +7,7 @@ namespace Content.Shared._DV.CosmicCult.Components;
 /// <summary>
 /// Added to mind role entities to tag that they are the cosmic cult leader.
 /// </summary>
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedCosmicCultSystem))]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class CosmicCultLeadComponent : Component
 {
     public override bool SessionSpecific => true;

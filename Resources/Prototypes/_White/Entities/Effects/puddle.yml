@@ -42,7 +42,7 @@
     solution: print
   - type: BadDrink
   - type: IgnoresFingerprints
-  - type: Edible
+  - type: Drink
     delay: 3
     transferAmount: 0.5
     solution: print

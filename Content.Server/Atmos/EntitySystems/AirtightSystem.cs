@@ -27,17 +27,13 @@ namespace Content.Server.Atmos.EntitySystems
 
         private void OnAirtightInit(Entity<AirtightComponent> airtight, ref ComponentInit args)
         {
-            // If this entity blocks air in all directions (e.g. full tile walls, doors, and windows)
-            // we can skip some expensive logic.
-            if (airtight.Comp.InitialAirBlockedDirection == (int)AtmosDirection.All)
+            // TODO AIRTIGHT what FixAirBlockedDirectionInitialize even for?
+            if (!airtight.Comp.FixAirBlockedDirectionInitialize)
             {
-                airtight.Comp.CurrentAirBlockedDirection = airtight.Comp.InitialAirBlockedDirection;
                 UpdatePosition(airtight);
                 return;
             }
 
-            // Otherwise we need to determine its current blocked air directions based on rotation
-            // and check if it's still airtight.
             var xform = Transform(airtight);
             airtight.Comp.CurrentAirBlockedDirection =
                 (int) Rotate((AtmosDirection) airtight.Comp.InitialAirBlockedDirection, xform.LocalRotation);
@@ -129,7 +125,7 @@ namespace Content.Server.Atmos.EntitySystems
         public void InvalidatePosition(Entity<MapGridComponent?> grid, Vector2i pos)
         {
             var query = GetEntityQuery<AirtightComponent>();
-            _explosionSystem.UpdateAirtightMap(grid, pos, grid);
+            _explosionSystem.UpdateAirtightMap(grid, pos, grid, query);
             _atmosphereSystem.InvalidateTile(grid.Owner, pos);
         }
 

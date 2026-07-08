@@ -60,10 +60,7 @@
   - type: Targeting
   - type: SurgeryTarget
   - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: AlienBlood
-        Quantity: 200
+    bloodReagent: AlienBlood
   - type: GrabIntent #goob
   - type: Grabbable #goob
 

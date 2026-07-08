@@ -28,7 +28,7 @@ public sealed partial class BuyerWhitelistCondition : ListingCondition
         var whitelistSystem = ent.System<EntityWhitelistSystem>();
 
         if (whitelistSystem.IsWhitelistFail(Whitelist, args.Buyer) ||
-            whitelistSystem.IsWhitelistPass(Blacklist, args.Buyer))
+            whitelistSystem.IsBlacklistPass(Blacklist, args.Buyer))
             return false;
 
         return true;

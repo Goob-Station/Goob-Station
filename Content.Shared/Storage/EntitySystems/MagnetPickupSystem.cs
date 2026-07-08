@@ -79,7 +79,6 @@ public sealed class MagnetPickupSystem : EntitySystem
                 continue;
 
             comp.NextScan += ScanDelay;
-            Dirty(uid, comp);
 
                         // WD EDIT START. Added ForcePickup.
             if (!comp.ForcePickup && !_inventory.TryGetContainingSlot((uid, xform, meta), out _))

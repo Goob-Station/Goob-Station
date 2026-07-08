@@ -96,7 +96,7 @@ public record struct GetPryTimeModifierEvent
     public readonly EntityUid User;
     public readonly bool InstaPry; // Goobstation
     public float PryTimeModifier = 1.0f;
-    public TimeSpan BaseTime = TimeSpan.FromSeconds(5);
+    public float BaseTime = 5.0f;
 
     public GetPryTimeModifierEvent(EntityUid user, bool instaPry) // Goob edit
     {

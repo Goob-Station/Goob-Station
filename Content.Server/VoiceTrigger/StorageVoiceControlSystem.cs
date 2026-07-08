@@ -30,9 +30,10 @@ public sealed class StorageVoiceControlSystem : EntitySystem
 
     private void VoiceTriggered(Entity<StorageVoiceControlComponent> ent, ref VoiceTriggeredEvent args)
     {
+        // Check if the component has any slot restrictions via AllowedSlots
         // If it has slot restrictions, check if the item is in a slot that is allowed
-        if (ent.Comp.AllowedSlots is { } allowedSlots
-            && !_inventory.InSlotWithAnyFlags(ent.Owner, allowedSlots))
+        if (ent.Comp.AllowedSlots != null && _inventory.TryGetContainingSlot(ent.Owner, out var itemSlot) &&
+            (itemSlot.SlotFlags & ent.Comp.AllowedSlots) == 0)
             return;
 
         // Get the storage component

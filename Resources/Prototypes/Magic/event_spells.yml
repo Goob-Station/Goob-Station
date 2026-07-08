@@ -32,7 +32,6 @@
       state: base
   - type: InstantAction
     event: !type:RandomGlobalSpawnSpellEvent
-      makeSurvivorAntagonist: true
       spawns:
       - id: WeaponPistolViper
         orGroup: Guns
@@ -182,15 +181,12 @@
       state: magicmissile
   - type: InstantAction
     event: !type:RandomGlobalSpawnSpellEvent
-      makeSurvivorAntagonist: true
       spawns:
       - id: SpawnSpellbook
         orGroup: Magics
       - id: ForceWallSpellbook
         orGroup: Magics
       - id: BlinkBook
-        orGroup: Magics
-      - id: SmiteBook
         orGroup: Magics
       - id: KnockSpellbook
         orGroup: Magics
@@ -207,6 +203,8 @@
       - id: WeaponWandCluwne
         orGroup: Magics
       - id: WeaponWandPolymorphBread
+        orGroup: Magics
+      - id: WeaponStaffHealing
         orGroup: Magics
       - id: WeaponStaffPolymorphDoor
         orGroup: Magics

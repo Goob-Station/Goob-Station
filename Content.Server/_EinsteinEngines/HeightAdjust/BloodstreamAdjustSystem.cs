@@ -31,7 +31,7 @@ public sealed class BloodstreamAdjustSystem : EntitySystem
     {
         if (!TryComp<BloodstreamComponent>(ent, out var bloodstream)
             || !_solutionContainer.TryGetSolution(ent.Owner, bloodstream.BloodSolutionName, out var bloodSolutionEnt)
-            || bloodstream.BloodReferenceSolution.Volume == 0
+            || bloodstream.BloodMaxVolume == 0
             || !_config.GetCVar(CCVars.HeightAdjustModifiesBloodstream))
             return false;
 
@@ -39,7 +39,7 @@ public sealed class BloodstreamAdjustSystem : EntitySystem
 
         var factor = Math.Pow(_contests.MassContest(ent, bypassClamp: true, rangeFactor: 4f), ent.Comp.Power);
         factor = Math.Clamp(factor, ent.Comp.Min, ent.Comp.Max);
-        var newVolume = bloodstream.BloodReferenceSolution.Volume * factor;
+        var newVolume = bloodstream.BloodMaxVolume * factor;
         var newBloodLevel = bloodSolution.FillFraction * newVolume;
         bloodSolution.MaxVolume = newVolume;
 

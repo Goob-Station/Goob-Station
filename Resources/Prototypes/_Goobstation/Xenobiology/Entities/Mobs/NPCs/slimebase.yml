@@ -72,10 +72,7 @@
     damageContainer: Biological
     damageModifierSet: Slime
   - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: Slime
-        Quantity: 100
+    bloodReagent: Slime
     smokeImmune: true  #No more 50000 slime extracts midshift
     bloodlossDamage:
       types:
@@ -97,11 +94,12 @@
     - reagents: [ Water, SpaceCleaner ]
       methods: [ Touch ]
       effects:
-      - !type:WashCreamPie
+      - !type:WashCreamPieReaction
     - reagents: [ Water ]
       methods: [ Touch ]
       effects:
       - !type:HealthChange
+        scaleByQuantity: true
         damage:
           types:
             Caustic: 5

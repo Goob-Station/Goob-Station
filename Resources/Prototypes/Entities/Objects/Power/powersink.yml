@@ -42,13 +42,8 @@
           acts: [ "Destruction" ]
     - type: PowerSink
     - type: Battery
-      # Very important:
-      # Disable networking to prevent the battery getting continuously dirtied every tick as it interacts with the power network.
-      # This can not be done by changing the charge rate as the power supply ramps up over time.
-      # This disables prediction for this battery.
-      netsync: false
-      maxCharge: 250000000
-      pricePerJoule: 0.000009
+      maxCharge: 7500000
+      pricePerJoule: 0.0003
     - type: ExaminableBattery
     - type: PowerConsumer
       voltage: High
@@ -56,13 +51,10 @@
     - type: Sprite
       sprite: Objects/Power/powersink.rsi
       state: powersink
-    - type: Tag
-      tags:
-      - GhostOnlyWarp
     - type: WarpPoint
       location: powersink
-      blacklist:
-        tags:
-        - GhostOnlyWarp
+      #blacklist: Not merged yet?
+      #  tags:
+      #  - GhostOnlyWarp
     - type: StaticPrice
       price: 3000

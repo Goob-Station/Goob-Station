@@ -5,16 +5,28 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.Chemistry
 {
-    /// <summary>
-    /// Send by the client when setting the transfer amount using the BUI.
-    /// </summary>
     [Serializable, NetSerializable]
-    public sealed class TransferAmountSetValueMessage(FixedPoint2 value) : BoundUserInterfaceMessage
+    public sealed class TransferAmountBoundInterfaceState : BoundUserInterfaceState
     {
-        /// <summary>
-        /// The new transfer amount.
-        /// </summary>
-        public FixedPoint2 Value = value;
+        public FixedPoint2 Max;
+        public FixedPoint2 Min;
+
+        public TransferAmountBoundInterfaceState(FixedPoint2 max, FixedPoint2 min)
+        {
+            Max = max;
+            Min = min;
+        }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class TransferAmountSetValueMessage : BoundUserInterfaceMessage
+    {
+        public FixedPoint2 Value;
+
+        public TransferAmountSetValueMessage(FixedPoint2 value)
+        {
+            Value = value;
+        }
     }
 
     [Serializable, NetSerializable]

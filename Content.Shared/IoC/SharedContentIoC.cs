@@ -9,13 +9,13 @@ namespace Content.Shared.IoC
 {
     public static class SharedContentIoC
     {
-        public static void Register(IDependencyCollection deps)
+        public static void Register()
         {
-            deps.Register<MarkingManager, MarkingManager>();
-            deps.Register<ContentLocalizationManager, ContentLocalizationManager>();
+            IoCManager.Register<MarkingManager, MarkingManager>();
+            IoCManager.Register<ContentLocalizationManager, ContentLocalizationManager>();
             // Goob: to port EE Interaction Verbs. I hate this.
-            deps.Register<EntityWhitelistSystem>();
-            deps.Register<TagSystem>();
+            IoCManager.Register<EntityWhitelistSystem>();
+            IoCManager.Register<TagSystem>();
         }
     }
 }

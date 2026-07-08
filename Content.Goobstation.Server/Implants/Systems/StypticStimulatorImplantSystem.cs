@@ -25,10 +25,10 @@ public sealed class StypticStimulatorImplantSystem : EntitySystem
 
     private void OnImplant(Entity<StypticStimulatorImplantComponent> implant, ref ImplantImplantedEvent args)
     {
-        if (!args.Implanted.IsValid() || TerminatingOrDeleted(args.Implanted))
+        if (!args.Implanted.HasValue || TerminatingOrDeleted(args.Implanted.Value))
             return;
 
-        implant.Comp.User = args.Implanted;
+        implant.Comp.User = args.Implanted.Value;
     }
 
     public override void Update(float frameTime)

@@ -6,7 +6,7 @@
   id: InfluenceAberrantLapse
   name: influence-name-lapse
   influenceType: influence-type-active
-  cost: 3 # Goobstation
+  cost: 3
   description: influence-description-lapse
   icon:
     sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
@@ -15,22 +15,22 @@
   tier: 1
 
 # - type: influence
-#   id: InfluenceShuntSubjectivity
-#   name: influence-name-shunt
-#   influenceType: influence-type-active
-#   cost: 10
-#   description: influence-description-shunt
-#   icon:
-#     sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
-#     state: blank
-#   action: ActionCosmicBlank
-#   tier: 1
+# id: InfluenceShuntSubjectivity
+# name: influence-name-shunt
+# influenceType: influence-type-active
+# cost: 4
+# description: influence-description-shunt
+# icon:
+#   sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
+#   state: blank
+# action: ActionCosmicBlank
+# tier: 1
 
 - type: influence
   id: InfluenceForceIngress
   name: influence-name-ingress
   influenceType: influence-type-active
-  cost: 2 # Goobstation
+  cost: 2
   description: influence-description-ingress
   icon:
     sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
@@ -42,19 +42,19 @@
   id: InfluenceNullGlare
   name: influence-name-glare
   influenceType: influence-type-active
-  cost: 5 # Goobstation
+  cost: 5
   description: influence-description-glare
   icon:
     sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
     state: glare
   action: ActionCosmicGlare
-  tier: 2 # Goobstation
+  tier: 2
 
 - type: influence
   id: InfluenceVacuousImposition
   name: influence-name-imposition
   influenceType: influence-type-active
-  cost: 10 # Goobstation
+  cost: 10
   description: influence-description-imposition
   icon:
     sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
@@ -66,13 +66,13 @@
   id: InfluenceAstralNova
   name: influence-name-nova
   influenceType: influence-type-active
-  cost: 6 # Goobstation
+  cost: 6
   description: influence-description-nova
   icon:
     sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
     state: nova
   action: ActionCosmicNova
-  tier: 2 # Goobstation
+  tier: 2
 
 
 ### PASSIVE INFLUENCES
@@ -81,7 +81,7 @@
   id: InfluenceEschewMetabolism
   name: influence-name-eschew
   influenceType: influence-type-passive
-  cost: 1 # Goobstation
+  cost: 1
   description: influence-description-eschew
   icon:
     sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
@@ -95,37 +95,37 @@
   id: InfluenceUnboundStep
   name: influence-name-step
   influenceType: influence-type-passive
-  cost: 4 # Goobstation
+  cost: 4
   description: influence-description-step
   icon:
     sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
     state: step
   add:
   - type: MovementIgnoreGravity
-  tier: 2 # Goobstation
+  tier: 2
 
 - type: influence
   id: InfluenceAstralStride
   name: influence-name-stride
   influenceType: influence-type-passive
-  cost: 6 # Goobstation
+  cost: 6
   description: influence-description-stride
   icon:
     sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
     state: stride
   add:
   - type: InfluenceStride
-  tier: 2 # Goobstation
+  tier: 2
 
 - type: influence
   id: InfluenceVacuousVitality
   name: influence-name-vitality
   influenceType: influence-type-passive
-  cost: 8 # Goobstation
+  cost: 8
   description: influence-description-vitality
   icon:
     sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
     state: astral
   add:
   - type: InfluenceVitality
-  tier: 2 # Goobstation
+  tier: 2

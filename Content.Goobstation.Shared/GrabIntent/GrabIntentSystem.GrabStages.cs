@@ -241,7 +241,8 @@ public sealed partial class GrabIntentSystem
         if (grabIntentComp.GrabStage == GrabStage.Suffocate)
         {
             _stamina.TakeStaminaDamage(pullable.Owner,
-                grabIntentComp.SuffocateGrabStaminaDamage);
+                grabIntentComp.SuffocateGrabStaminaDamage,
+                applyResistances: true);
 
             var comboEv =
                 new ComboAttackPerformedEvent(pullerUid, pullable.Owner, pullerUid, ComboAttackType.Grab);

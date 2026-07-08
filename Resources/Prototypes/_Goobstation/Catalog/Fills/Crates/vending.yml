@@ -6,8 +6,7 @@
   name: SweetToof restock crate
   description: Contains a restock box for a Sweet-Toof candy dispenser.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage:
-        id: VendingMachineRestockSweetToof
-        amount: 2
+  - type: StorageFill
+    contents:
+    - id: VendingMachineRestockSweetToof
+      amount: 2

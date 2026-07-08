@@ -56,7 +56,7 @@ namespace Content.IntegrationTests.Tests.Access
                 system.ClearDenyTags(reader);
 
                 // test one list
-                system.TryAddAccess(reader, "A");
+                system.AddAccess(reader, "A");
                 Assert.Multiple(() =>
                 {
                     Assert.That(system.AreAccessTagsAllowed(new List<ProtoId<AccessLevelPrototype>> { "A" }, reader), Is.True);
@@ -64,10 +64,10 @@ namespace Content.IntegrationTests.Tests.Access
                     Assert.That(system.AreAccessTagsAllowed(new List<ProtoId<AccessLevelPrototype>> { "A", "B" }, reader), Is.True);
                     Assert.That(system.AreAccessTagsAllowed(Array.Empty<ProtoId<AccessLevelPrototype>>(), reader), Is.False);
                 });
-                system.TryClearAccesses(reader);
+                system.ClearAccesses(reader);
 
                 // test one list - two items
-                system.TryAddAccess(reader, new HashSet<ProtoId<AccessLevelPrototype>> { "A", "B" });
+                system.AddAccess(reader, new HashSet<ProtoId<AccessLevelPrototype>> { "A", "B" });
                 Assert.Multiple(() =>
                 {
                     Assert.That(system.AreAccessTagsAllowed(new List<ProtoId<AccessLevelPrototype>> { "A" }, reader), Is.False);
@@ -75,14 +75,14 @@ namespace Content.IntegrationTests.Tests.Access
                     Assert.That(system.AreAccessTagsAllowed(new List<ProtoId<AccessLevelPrototype>> { "A", "B" }, reader), Is.True);
                     Assert.That(system.AreAccessTagsAllowed(Array.Empty<ProtoId<AccessLevelPrototype>>(), reader), Is.False);
                 });
-                system.TryClearAccesses(reader);
+                system.ClearAccesses(reader);
 
                 // test two list
                 var accesses = new List<HashSet<ProtoId<AccessLevelPrototype>>>() {
                     new HashSet<ProtoId<AccessLevelPrototype>> () { "A" },
                     new HashSet<ProtoId<AccessLevelPrototype>> () { "B", "C" }
                 };
-                system.TryAddAccesses(reader, accesses);
+                system.AddAccesses(reader, accesses);
                 Assert.Multiple(() =>
                 {
                     Assert.That(system.AreAccessTagsAllowed(new List<ProtoId<AccessLevelPrototype>> { "A" }, reader), Is.True);
@@ -92,10 +92,10 @@ namespace Content.IntegrationTests.Tests.Access
                     Assert.That(system.AreAccessTagsAllowed(new List<ProtoId<AccessLevelPrototype>> { "C", "B", "A" }, reader), Is.True);
                     Assert.That(system.AreAccessTagsAllowed(Array.Empty<ProtoId<AccessLevelPrototype>>(), reader), Is.False);
                 });
-                system.TryClearAccesses(reader);
+                system.ClearAccesses(reader);
 
                 // test deny list
-                system.TryAddAccess(reader, new HashSet<ProtoId<AccessLevelPrototype>> { "A" });
+                system.AddAccess(reader, new HashSet<ProtoId<AccessLevelPrototype>> { "A" });
                 system.AddDenyTag(reader, "B");
                 Assert.Multiple(() =>
                 {
@@ -104,7 +104,7 @@ namespace Content.IntegrationTests.Tests.Access
                     Assert.That(system.AreAccessTagsAllowed(new List<ProtoId<AccessLevelPrototype>> { "A", "B" }, reader), Is.False);
                     Assert.That(system.AreAccessTagsAllowed(Array.Empty<ProtoId<AccessLevelPrototype>>(), reader), Is.False);
                 });
-                system.TryClearAccesses(reader);
+                system.ClearAccesses(reader);
                 system.ClearDenyTags(reader);
             });
             await pair.CleanReturnAsync();

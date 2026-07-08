@@ -13,7 +13,6 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/Magic/staff_animation.ogg
-    projectileSpeed: 25
   - type: BasicEntityAmmoProvider
     proto: ProjectilePolyboltCarp
     capacity: 5
@@ -55,7 +54,6 @@
     fireRate: 0.25
     soundGunshot:
       path: /Audio/Magic/fireball.ogg
-    projectileSpeed: 25
   - type: BasicEntityAmmoProvider
     proto: ProjectileFireball
     capacity: 5
@@ -77,7 +75,6 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/Magic/staff_animation.ogg
-    projectileSpeed: 25
   - type: BasicEntityAmmoProvider
     proto: ProjectileLocker
     capacity: 6 # Goob edit
@@ -115,7 +112,6 @@
   - type: Gun
     soundGunshot:
       path: /Audio/_Goobstation/Wizard/wandodeath.ogg # Goob edit
-    projectileSpeed: 25
   - type: BasicEntityAmmoProvider
     proto: ProjectileDeathBolt # Goob edit
     capacity: 3
@@ -135,7 +131,6 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/Magic/staff_door.ogg
-    projectileSpeed: 25
   - type: BasicEntityAmmoProvider
     proto: ProjectilePolyboltDoor
     capacity: 10

@@ -2,13 +2,10 @@
 
 using Content.Server.Administration.Logs;
 using Content.Server.Explosion.EntitySystems;
+using Content.Server.Kitchen.Components;
 using Content.Server.Power.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Database;
-using Content.Shared.Kitchen;
-using Content.Shared.Power;
-using Content.Shared.Power.Components;
-using Content.Shared.Power.EntitySystems;
 using Content.Shared.Rejuvenate;
 
 namespace Content.Server.Power.EntitySystems;
@@ -20,7 +17,6 @@ public sealed class RiggableSystem : EntitySystem
 {
     [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedBatterySystem _battery = default!;
 
     public override void Initialize()
     {
@@ -28,7 +24,6 @@ public sealed class RiggableSystem : EntitySystem
         SubscribeLocalEvent<RiggableComponent, RejuvenateEvent>(OnRejuvenate);
         SubscribeLocalEvent<RiggableComponent, BeingMicrowavedEvent>(OnMicrowaved);
         SubscribeLocalEvent<RiggableComponent, SolutionContainerChangedEvent>(OnSolutionChanged);
-        SubscribeLocalEvent<RiggableComponent, ChargeChangedEvent>(OnChargeChanged);
     }
 
     private void OnRejuvenate(Entity<RiggableComponent> entity, ref RejuvenateEvent args)
@@ -40,13 +35,14 @@ public sealed class RiggableSystem : EntitySystem
     {
         if (TryComp<BatteryComponent>(entity, out var batteryComponent))
         {
-            var charge = _battery.GetCharge((entity, batteryComponent));
-            if (charge == 0f)
+            if (batteryComponent.CurrentCharge == 0)
                 return;
-
-            Explode(entity, charge);
-            args.Handled = true;
         }
+
+        args.Handled = true;
+
+        // What the fuck are you doing???
+        Explode(entity.Owner, batteryComponent, args.User);
     }
 
     private void OnSolutionChanged(Entity<RiggableComponent> entity, ref SolutionContainerChangedEvent args)
@@ -64,26 +60,14 @@ public sealed class RiggableSystem : EntitySystem
         }
     }
 
-    public void Explode(EntityUid uid, float charge, EntityUid? cause = null)
+    public void Explode(EntityUid uid, BatteryComponent? battery = null, EntityUid? cause = null)
     {
-        var radius = MathF.Min(5, MathF.Sqrt(charge) / 9);
+        if (!Resolve(uid, ref battery))
+            return;
 
-        _explosionSystem.TriggerExplosive(uid, radius: radius, user: cause);
+        var radius = MathF.Min(5, MathF.Sqrt(battery.CurrentCharge) / 9);
+
+        _explosionSystem.TriggerExplosive(uid, radius: radius, user:cause);
         QueueDel(uid);
-    }
-
-    private void OnChargeChanged(Entity<RiggableComponent> ent, ref ChargeChangedEvent args)
-    {
-        if (!ent.Comp.IsRigged)
-            return;
-
-        if (args.CurrentCharge == 0f)
-            return; // No charge to cause an explosion.
-
-        // Don't explode if we are not using any charge.
-        if (args.CurrentChargeRate == 0f && args.Delta == 0f)
-            return;
-
-        Explode(ent, args.CurrentCharge);
     }
 }

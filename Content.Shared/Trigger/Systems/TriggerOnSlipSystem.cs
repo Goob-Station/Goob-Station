@@ -3,8 +3,10 @@ using Content.Shared.Trigger.Components.Triggers;
 
 namespace Content.Shared.Trigger.Systems;
 
-public sealed partial class TriggerOnSlipSystem : TriggerOnXSystem
+public sealed partial class TriggerOnSlipSystem : EntitySystem
 {
+    [Dependency] private readonly TriggerSystem _trigger = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -14,6 +16,6 @@ public sealed partial class TriggerOnSlipSystem : TriggerOnXSystem
 
     private void OnSlip(Entity<TriggerOnSlipComponent> ent, ref SlipEvent args)
     {
-        Trigger.Trigger(ent.Owner, args.Slipped, ent.Comp.KeyOut);
+        _trigger.Trigger(ent.Owner, args.Slipped, ent.Comp.KeyOut);
     }
 }

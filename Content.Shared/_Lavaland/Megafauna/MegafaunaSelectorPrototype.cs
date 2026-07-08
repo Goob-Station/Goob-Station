@@ -11,7 +11,7 @@ public sealed partial class MegafaunaSelectorPrototype : IPrototype
 {
     /// <inheritdoc/>
     [IdDataField]
-    public string ID { get; private set; } = default!;
+    public string ID { get; } = default!;
 
     [DataField(required: true)]
     public MegafaunaSelector Selector = default!;

@@ -11,10 +11,10 @@ namespace Content.Goobstation.Shared.NTR;
 /// to receive a monetary reward.
 /// </summary>
 [Prototype, Serializable, NetSerializable]
-public sealed partial class NtrTaskPrototype : IPrototype
+public sealed class NtrTaskPrototype : IPrototype
 {
     [DataField]
-    public string Proto { get; private set; } = default!;
+    public string Proto { get; init; } = default!;
 
     /// <inheritdoc/>
     [IdDataField]
@@ -54,16 +54,16 @@ public sealed partial class NtrTaskPrototype : IPrototype
     public float Cooldown; //in seconds
 
     [DataField]
-    public Dictionary<ProtoId<ReagentPrototype>, FixedPoint2> Reagents { get; private set; } = new();
+    public Dictionary<ProtoId<ReagentPrototype>, FixedPoint2> Reagents { get; init; } = new();
 
     [DataField]
     public string SolutionName { get; private set; } = "drink"; // i want to end it all already
 
     [DataField("reagentTask")] // shitcod
-    public bool IsReagentTask { get; private set; }
+    public bool IsReagentTask { get; init; }
 
     [DataField]
-    public int Penalty { get; private set; } = 1;
+    public int Penalty { get; } = 1;
 }
 
 [DataDefinition, Serializable, NetSerializable]

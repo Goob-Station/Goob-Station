@@ -59,7 +59,7 @@ public sealed class TentacleHookSystem : EntitySystem
         var visuals = EnsureComp<JointVisualsComponent>(proj);
         visuals.Sprite = ent.Comp.RopeSprite;
         visuals.OffsetA = new Vector2(0f, 0.5f);
-        visuals.Target = ent.Owner;
+        visuals.Target = GetNetEntity(ent.Owner);
         Dirty(proj, visuals);
 
         _audio.PlayPredicted(ent.Comp.HookSound, ent.Owner, ent.Owner);

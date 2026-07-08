@@ -35,7 +35,6 @@ public sealed class AbsorbentTest
   id: {AbsorbentDummyId}
   components:
   - type: Absorbent
-    useAbsorberSolution: true
   - type: SolutionContainerManager
     solutions:
       absorbed:

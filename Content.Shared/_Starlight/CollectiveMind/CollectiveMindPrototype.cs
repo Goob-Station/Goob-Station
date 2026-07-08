@@ -4,29 +4,29 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Starlight.CollectiveMind;
 
-[Prototype]
+[Prototype("collectiveMind")]
 public sealed partial class CollectiveMindPrototype : IPrototype
 {
-    [IdDataField]
-    public string ID { get; private set; } = default!;
+    [IdDataField, ViewVariables]
+    public string ID { get; } = default!;
 
-    [DataField]
-    public string Name = string.Empty;
+    [DataField("name")]
+    public string Name { get; private set; } = string.Empty;
 
-    [ViewVariables]
+    [ViewVariables(VVAccess.ReadOnly)]
     public string LocalizedName => Loc.GetString(Name);
 
     [DataField("keycode")]
-    public char KeyCode = '\0';
+    public char KeyCode { get; private set; } = '\0';
 
-    [DataField]
-    public Color Color = Color.Lime;
+    [DataField("color")]
+    public Color Color { get; private set; } = Color.Lime;
 
-    [DataField]
-    public List<string> RequiredComponents = new();
+    [DataField("requiredComponents")]
+    public List<string> RequiredComponents { get; set; } = new();
 
-    [DataField]
-    public List<string> RequiredTags = new();
+    [DataField("requiredTags")]
+    public List<string> RequiredTags { get; set; } = new();
 
     [DataField]
     public bool ShowNames = true;

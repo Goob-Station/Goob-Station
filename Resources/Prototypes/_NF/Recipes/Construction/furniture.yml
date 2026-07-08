@@ -278,7 +278,7 @@
 
 # Decorations (bonfire, fireplace)
 - type: construction
-  id: BonfireFrontier
+  id: Bonfire
   graph: FiresGraph
   startNode: start
   targetNode: BonfireNode

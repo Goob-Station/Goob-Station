@@ -97,7 +97,7 @@ public sealed partial class ToggleableClothingRadialMenu : RadialMenu
     }
 }
 
-public sealed class ToggleableClothingRadialMenuButton : RadialMenuButtonWithSector
+public sealed class ToggleableClothingRadialMenuButton : RadialMenuTextureButtonWithSector
 {
     public EntityUid AttachedClothingId { get; set; }
 }

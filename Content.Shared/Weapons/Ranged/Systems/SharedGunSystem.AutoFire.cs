@@ -6,8 +6,8 @@ namespace Content.Shared.Weapons.Ranged.Systems;
 
 public partial class SharedGunSystem
 {
-    public void SetEnabled(Entity<AutoShootGunComponent> ent, bool status)
+    public void SetEnabled(EntityUid uid, AutoShootGunComponent component, bool status)
     {
-        ent.Comp.Enabled = status;
+        component.Enabled = status;
     }
 }

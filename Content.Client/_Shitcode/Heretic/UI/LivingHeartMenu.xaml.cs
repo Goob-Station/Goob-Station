@@ -96,7 +96,7 @@ public sealed class LivingHeartMenu : RadialMenu
         }
     }
 
-    public sealed class EmbeddedEntityMenuButton : RadialMenuButtonWithSector
+    public sealed class EmbeddedEntityMenuButton : RadialMenuTextureButtonWithSector
     {
         public NetEntity NetEntity;
     }

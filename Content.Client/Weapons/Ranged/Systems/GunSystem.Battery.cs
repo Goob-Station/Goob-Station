@@ -9,20 +9,23 @@ public sealed partial class GunSystem
     protected override void InitializeBattery()
     {
         base.InitializeBattery();
+        // Hitscan
+        SubscribeLocalEvent<HitscanBatteryAmmoProviderComponent, AmmoCounterControlEvent>(OnControl);
+        SubscribeLocalEvent<HitscanBatteryAmmoProviderComponent, UpdateAmmoCounterEvent>(OnAmmoCountUpdate);
 
-        SubscribeLocalEvent<BatteryAmmoProviderComponent, UpdateAmmoCounterEvent>(OnAmmoCountUpdate);
-        SubscribeLocalEvent<BatteryAmmoProviderComponent, AmmoCounterControlEvent>(OnControl);
+        // Projectile
+        SubscribeLocalEvent<ProjectileBatteryAmmoProviderComponent, AmmoCounterControlEvent>(OnControl);
+        SubscribeLocalEvent<ProjectileBatteryAmmoProviderComponent, UpdateAmmoCounterEvent>(OnAmmoCountUpdate);
     }
 
-    private void OnAmmoCountUpdate(Entity<BatteryAmmoProviderComponent> ent, ref UpdateAmmoCounterEvent args)
+    private void OnAmmoCountUpdate(EntityUid uid, BatteryAmmoProviderComponent component, UpdateAmmoCounterEvent args)
     {
-        if (args.Control is not BoxesStatusControl boxes)
-            return;
+        if (args.Control is not BoxesStatusControl boxes) return;
 
-        boxes.Update(ent.Comp.Shots, ent.Comp.Capacity);
+        boxes.Update(component.Shots, component.Capacity);
     }
 
-    private void OnControl(Entity<BatteryAmmoProviderComponent> ent, ref AmmoCounterControlEvent args)
+    private void OnControl(EntityUid uid, BatteryAmmoProviderComponent component, AmmoCounterControlEvent args)
     {
         args.Control = new BoxesStatusControl();
     }

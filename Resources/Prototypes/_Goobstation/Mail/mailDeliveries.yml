@@ -1,0 +1,140 @@
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: mailDeliveryPool
+  id: BaseMailDeliveryPool
+  everyone:
+  # Consumables
+    MailAlcohol: 1
+    MailCakes: 1
+    MailCheese: 0.9
+    MailCigarettes: 1
+    MailGoldCigars: 0.2
+    MailCookies: 1
+    MailMuffins: 1
+    MailSnacks: 1
+    MailDonkPockets: 1
+    MailNFSodaPwrGame: 0.2
+    MailNFSodaRedBool: 0.2
+    MailNFSodaSpaceCola: 0.2
+    MailNFSodaSpaceMountainWind: 0.2
+    MailNFSodaSpaceUp: 0.2
+    MailJoints: 1
+    MailUnusualFood: 0.5
+    MailBakedGoods: 0.75
+  # Costumes
+    MailCosplayMaid: 0.6
+    MailCosplayWizard: 0.6
+    MailCosplayNurse: 0.6
+    MailCosplayTacticalMaid: 0.5
+    MailNoir: 0.4
+    MailFishingCap: 0.8
+    MailSunglasses: 0.8
+  # Fun
+    MailEMP: 0.2
+    MailSmoke: 0.3
+    MailPAI: 0.9
+    MailPlushie: 0.9
+    MailNFVagueThreat: 0.45
+    MailFigurines: 0.9
+    MailPlushieThrongler: 0.1
+    MailInstrumentSmall: 0.9
+    MailCritters: 0.5
+    MailFlowers: 0.8
+    MailCrayons: 0.9
+    MailLowMoney: 1
+  # Tools
+    MailSignallerKit: 0.5
+    MailFlashlight: 0.8
+  # Weapons
+    MailKnife: 0.3
+    MailSword: 0.2
+  departments: # Departments
+    Command:
+      MailCommandPipebombIntern: 2
+      MailLuxuryPen: 1.6
+    Medical:
+      MailMedicalBasicSupplies: 2
+      MailMedicalMedicinePills: 2
+      MailMedicalEmergencyPens: 2
+      MailMedicalStabilizers: 2
+    Engineering:
+      MailPowerTool: 1.2
+      MailCircuitboardService: 1.6
+      MailCircuitboardIndustrial: 1.2
+      MailEngineeringCables: 2
+      MailEngineeringMaterials: 2
+    Science:
+      MailScienceRareMaterials: 1.5
+    Security:
+      MailRestraints: 2
+      MailSecurityDonuts: 2
+      MailSecurityFlashlight: 2
+      MailSecurityNonlethalsKit: 1.6
+      MailSecuritySpaceLaw: 1
+  jobs: # Jobs
+    Botanist:
+      MailMutatedProduce: 1.6
+      MailBotanistChemicalBottles: 2
+      MailBotanistSeeds: 2
+      MailKudzuDeterrent: 2
+    Chaplain:
+      MailWitchery: 1.6
+    Chemist:
+      MailMedicalChemistrySupplement: 2
+    ChiefEngineer:
+      MailPowerTool: 1.2
+      MailCircuitboardService: 1.6
+      MailCircuitboardIndustrial: 1.2
+      MailEngineeringCables: 2
+      MailEngineeringMaterials: 2
+    ChiefMedicalOfficer:
+      MailMedicalBasicSupplies: 2
+      MailMedicalMedicinePills: 2
+      MailMedicalEmergencyPens: 2
+      MailMedicalStabilizers: 2
+      MailMedkit: 1.4
+    Clown:
+      MailBikehorn: 2
+      MailClownHonkSupplement: 2
+      MailSoaps: 2
+      MailSoapsOmega: 0.5
+    Detective:
+      MailDetectiveForensicSupplement: 2
+    HeadOfPersonnel:
+      MailHoPSupplement: 2
+    HeadOfSecurity:
+      MailRestraints: 2
+      MailSecurityDonuts: 2
+      MailSecurityFlashlight: 2
+      MailSecurityNonlethalsKit: 1.6
+      MailSecuritySpaceLaw: 2
+      MailWardenCrowdControl: 1.2
+      MailDetectiveForensicSupplement: 1.2
+    Janitor:
+      MailSoaps: 2
+      MailSoapsOmega: 0.5
+    Lawyer:
+      MailLuxuryPen: 2
+      MailSecuritySpaceLaw: 0.8
+    Librarian:
+      MailBooksGuide: 2
+      MailBooksAuthor: 2
+      MailLuxuryPen: 1.6
+    Mime:
+      MailMimeArtsCrafts: 2
+      MailMimeBottleOfNothing: 2
+      MailSoaps: 2
+      MailSoapsOmega: 0.5
+    Musician:
+      MailInstrumentLarge: 2
+    Reporter:
+      MailLuxuryPen: 2
+    ResearchDirector:
+      MailResearchDisk: 2
+      MailScienceRareMaterials: 2
+    Warden:
+      MailWardenCrowdControl: 2

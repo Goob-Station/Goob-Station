@@ -126,9 +126,6 @@
   - type: Tag
     tags:
     - Pickaxe
-  - type: CosmicTransmutable # DeltaV
-    transmutesTo: ScytheCosmicCult
-    requiredGlyphType: CosmicGlyphBlades
 
 - type: entity
   parent: [ BaseWeaponCrusher, BaseSalvageContraband ]

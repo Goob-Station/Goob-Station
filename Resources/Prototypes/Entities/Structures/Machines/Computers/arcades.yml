@@ -12,7 +12,7 @@
   - type: ExtensionCableReceiver
   - type: PointLight
     radius: 1.8
-    energy: 3.0
+    energy: 1.6
     color: "#3db83b"
   - type: LitOnPowered
   - type: Sprite
@@ -90,7 +90,7 @@
     - FoamBlade
     - FoamCutlass
     - Football
-    - GlowstickGreen
+    - GlowstickBase #green
     - GlowstickBlue
     - GlowstickYellow
     - GlowstickPurple
@@ -130,18 +130,17 @@
     - PlasticBanana
     - RevolverCapGun
     - SnapPopBox
-    - TennisBall
     - ToyMouse
     - ToyAi
     - ToyNuke
-    - ToyFigurineGriffin
+    - ToyGriffin
     - ToyHonk
     - ToyIan
     - ToyMarauder
     - ToyMauler
     - ToyGygax
     - ToyOdysseus
-    - ToyFigurineOwlman
+    - ToyOwlman
     - ToyDeathRipley
     - ToyPhazon
     - ToyFireRipley
@@ -149,7 +148,7 @@
     - ToyRipley
     - ToySeraph
     - ToyDurand
-    - ToyFigurineSkeleton
+    - ToySkeleton
     - ToySword
     - FoamWonderprod # Goob content
     - ToyAmongPequeno

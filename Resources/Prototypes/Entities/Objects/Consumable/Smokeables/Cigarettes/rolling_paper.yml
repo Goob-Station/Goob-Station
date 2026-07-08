@@ -13,10 +13,9 @@
       tags:
       - RollingPaper
       - CigFilter
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: PaperRolling
+  - type: StorageFill
+    contents:
+      - id: PaperRolling
         amount: 4
   - type: Sprite
     sprite: Objects/Consumable/Smokeables/Cigarettes/paper.rsi
@@ -30,14 +29,17 @@
   id: PackPaperRollingFilters
   description: A pack of filters and thin pieces of paper used to make fine smokeables.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: PaperRolling
-          amount: 2
-        - id: CigaretteFilter
-          amount: 2
+  - type: Storage
+    whitelist:
+      tags:
+      - RollingPaper
+      - CigFilter
+  - type: StorageFill
+    contents:
+      - id: PaperRolling
+        amount: 2
+      - id: CigaretteFilter
+        amount: 2
 
 - type: entity
   id: PaperRolling

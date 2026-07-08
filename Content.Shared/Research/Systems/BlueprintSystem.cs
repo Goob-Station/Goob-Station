@@ -9,7 +9,6 @@ using Content.Shared.Research.Prototypes;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
-using System.Linq;
 
 namespace Content.Shared.Research.Systems;
 
@@ -67,7 +66,7 @@ public sealed class BlueprintSystem : EntitySystem
 
         _container.Insert(blueprint.Owner, _container.GetContainer(ent, ent.Comp.ContainerId));
 
-        var ev = new TechnologyDatabaseModifiedEvent(blueprint.Comp.ProvidedRecipes.Select(it => it.Id).ToList());
+        var ev = new TechnologyDatabaseModifiedEvent();
         RaiseLocalEvent(ent, ref ev);
         return true;
     }

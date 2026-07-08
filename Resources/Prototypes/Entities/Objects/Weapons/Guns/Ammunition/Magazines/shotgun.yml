@@ -1,10 +1,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  abstract: true
-  parent: [ BaseItem, BaseSecurityContraband ]
   id: BaseMagazineShotgun
   name: ammo drum (12 Gauge shells) # Goobstation
+  parent: [ BaseItem, BaseSecurityContraband ]
+  abstract: true
   components:
   - type: Tag
     tags:
@@ -48,16 +48,15 @@
   id: MagazineShotgunEmpty
   name: ammo drum (12 Gauge shells any) # Goobstation
   suffix: empty
-  description: A large drum magazine used by some military-grade automatic shotguns.
   parent: BaseMagazineShotgun
   components:
   - type: BallisticAmmoProvider
     proto: null
 
 - type: entity
-  parent: BaseMagazineShotgun
   id: MagazineShotgun
   name: ammo drum (12 Gauge pellet) # Goobstation
+  parent: BaseMagazineShotgun
   components:
   - type: BallisticAmmoProvider
     proto: ShellShotgun
@@ -79,10 +78,9 @@
         color: "#ba7710"
 
 - type: entity
-  parent: BaseMagazineShotgun
   id: MagazineShotgunBeanbag
   name: ammo drum (12 Gauge beanbags) # Goobstation
-  description: A large drum magazine used by some military-grade automatic shotguns. Intended to hold less-than-lethal beanbag ammunition.
+  parent: BaseMagazineShotgun
   components:
   - type: BallisticAmmoProvider
     proto: ShellShotgunBeanbag
@@ -104,10 +102,9 @@
         color: "#30722d"
 
 - type: entity
-  parent: BaseMagazineShotgun
   id: MagazineShotgunSlug
   name: ammo drum (12 Gauge slug) # Goobstation
-  description: A large drum magazine used by some military-grade automatic shotguns. Intended to hold long-ranged slug ammunition.
+  parent: BaseMagazineShotgun
   components:
   - type: BallisticAmmoProvider
     proto: ShellShotgunSlug
@@ -129,10 +126,9 @@
         color: "#72382d"
 
 - type: entity
-  parent: BaseMagazineShotgun
   id: MagazineShotgunIncendiary
   name: ammo drum (12 Gauge incendiary) # Goobstation
-  description: A large drum magazine used by some military-grade automatic shotguns. Intended to hold self-igniting incendiary ammunition.
+  parent: BaseMagazineShotgun
   components:
   - type: BallisticAmmoProvider
     proto: ShellShotgunIncendiary

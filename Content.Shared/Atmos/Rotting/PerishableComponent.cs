@@ -9,7 +9,7 @@ namespace Content.Shared.Atmos.Rotting;
 /// This makes mobs eventually start rotting when they die.
 /// It may be expanded to food at some point, but it's just for mobs right now.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true), AutoGenerateComponentPause]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
 [Access(typeof(SharedRottingSystem))]
 public sealed partial class PerishableComponent : Component
 {
@@ -22,7 +22,7 @@ public sealed partial class PerishableComponent : Component
     /// <summary>
     /// How much rotting has occured
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public TimeSpan RotAccumulator = TimeSpan.Zero;
 
     /// <summary>

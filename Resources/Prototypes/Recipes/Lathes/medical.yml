@@ -75,7 +75,7 @@
 
 - type: latheRecipe
   id: HandheldHealthAnalyzer
-  result: HandheldHealthAnalyzer
+  result: HandheldHealthAnalyzerEmpty
   categories:
   - Tools
   completetime: 4
@@ -244,7 +244,7 @@
 #    Plastic: 200
 #    Glass: 100
 
-#- type: latheRecipe # Goob yeah we dont have em.
+#- type: latheRecipe # Goob
 #  id: MiniSyringe
 #  result: MiniSyringe
 #  completetime: 2
@@ -252,28 +252,3 @@
 #    Steel: 200
 #    Glass: 100
 #    Plastic: 100
-
-- type: latheRecipe
-  id: JetInjector
-  result: JetInjector
-  categories:
-  - Tools
-  completetime: 5
-  materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 250
-    Silver: 250
-
-- type: latheRecipe
-  id: AdvancedJetInjector
-  result: AdvancedJetInjector
-  categories:
-  - Tools
-  completetime: 5
-  materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 250
-    Silver: 400
-    Gold: 50 # A bit of gold for the gold ornaments on it!

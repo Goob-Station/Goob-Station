@@ -2,41 +2,13 @@
 
 using Content.Server._Lavaland.Procedural.Components;
 using Content.Server.Atmos.EntitySystems;
+using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
-using Content.Shared.EntityConditions;
-using Content.Shared.Atmos.Components;
+using Content.Shared.Atmos.EntitySystems;
 
 namespace Content.Server.EntityEffects.EffectConditions;
 
-// I Will in fact kill someone if i have to put this under TransformComponent
-public sealed partial class PressureThresholdSystem : EntityConditionSystem<MovedByPressureComponent, PressureThreshold>
-{
-    [Dependency] private readonly AtmosphereSystem _atmos = default!;
-
-    protected override void Condition(Entity<MovedByPressureComponent> entity, ref EntityConditionEvent<PressureThreshold> args)
-    {
-        var effect = args.Condition;
-
-        if (!TryComp<TransformComponent>(entity.Owner, out var transform))
-        {
-            args.Result = false;
-            return;
-        }
-
-        if (effect.WorksOnLavaland && HasComp<LavalandMapComponent>(transform.MapUid))
-        {
-            args.Result = true;
-            return;
-        }
-
-        var mix = _atmos.GetTileMixture((entity.Owner, transform));
-        var pressure = mix?.Pressure ?? 0f;
-
-        args.Result = pressure >= effect.Min && pressure <= effect.Max;
-    }
-}
-
-public sealed partial class PressureThreshold : EntityConditionBase<PressureThreshold>
+public sealed partial class PressureThreshold : EntityEffectCondition
 {
     [DataField]
     public bool WorksOnLavaland = false;
@@ -47,9 +19,22 @@ public sealed partial class PressureThreshold : EntityConditionBase<PressureThre
     [DataField]
     public float Max = float.MaxValue;
 
-    public override string EntityConditionGuidebookText(IPrototypeManager prototype)
+    public override bool Condition(EntityEffectBaseArgs args)
     {
-        return Loc.GetString("reagent-effect-condition-guidebook-pressure-threshold",
+        if (!args.EntityManager.TryGetComponent<TransformComponent>(args.TargetEntity, out var transform))
+            return false;
+
+        if (WorksOnLavaland && args.EntityManager.HasComponent<LavalandMapComponent>(transform.MapUid))
+            return true;
+
+        var mix = args.EntityManager.System<AtmosphereSystem>().GetTileMixture((args.TargetEntity, transform));
+        var pressure = mix?.Pressure ?? 0f;
+        return pressure >= Min && pressure <= Max;
+    }
+
+    public override string GuidebookExplanation(IPrototypeManager prototype)
+    {
+        return Loc.GetString("reagent-effect-condition-pressure-threshold",
             ("min", Min),
             ("max", Max));
     }

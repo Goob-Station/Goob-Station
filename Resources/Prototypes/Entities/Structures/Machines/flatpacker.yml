@@ -2,7 +2,7 @@
 
 - type: entity
   id: MachineFlatpacker
-  parent: [ BaseMachinePowered, ConstructibleMachine]
+  parent: [ BaseMachinePowered, ConstructibleMachine, BaseSiloUtilizer, BaseAutomatedMachine ] # Goob: Automation + silo
   name: Flatpacker 1001
   description: An industrial machine used for expediting machine construction across the station.
   components:
@@ -46,7 +46,6 @@
       - Sheet
       - RawMaterial
       - Ingot
-  - type: OreSiloClient
   - type: AmbientSound
     enabled: false
     volume: 5

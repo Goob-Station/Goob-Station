@@ -66,8 +66,8 @@ public sealed partial class DockingScreen : BoxContainer
     {
         DockingControl.BuildDocks(shuttle);
         var currentDock = DockingControl.ViewedDock;
-        // DockedWith.RemoveAllChildren();
-        DockPorts.RemoveAllChildren();
+        // DockedWith.DisposeAllChildren();
+        DockPorts.DisposeAllChildren();
         _ourDockButtons.Clear();
 
         if (shuttle == null)

@@ -22,7 +22,7 @@ public sealed partial class ReloadOnPraySystem : EntitySystem
         if (!TryComp<BasicEntityAmmoProviderComponent>(uid, out var ammoProvider) || ammoProvider.Capacity == null)
             return;
 
-        if (!_gun.UpdateBasicEntityAmmoCount((uid, ammoProvider), ammoProvider.Capacity.Value))
+        if (!_gun.UpdateBasicEntityAmmoCount(uid, ammoProvider.Capacity.Value, ammoProvider))
             return;
 
         _audioSystem.PlayPvs(comp.ReloadSoundPath, uid);

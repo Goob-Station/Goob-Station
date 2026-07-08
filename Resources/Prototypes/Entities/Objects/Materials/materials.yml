@@ -160,7 +160,6 @@
       - ClothMade
       - Gauze
       - RawMaterial
-      - ConstructionMaterial
       - DroneUsable # Goobstation
   - type: Construction
     graph: WebObjects # not sure if I should either keep this here or just make another prototype. Will keep it here just in case.
@@ -232,7 +231,6 @@
     tags:
       - ClothMade
       - RawMaterial
-      - ConstructionMaterial
       - DroneUsable # Goobstation
   - type: Item
     heldPrefix: durathread
@@ -246,6 +244,13 @@
     state: durathread
   - type: Stack
     count: 1
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents: #Hell if I know what durathread is made out of.
+        - ReagentId: Fiber
+          Quantity: 6
 
 - type: entity
   parent: MaterialBase
@@ -281,7 +286,6 @@
     tags:
     - Wooden
     - RawMaterial
-    - ConstructionMaterial
     - DroneUsable # Goobstation
   - type: Extractable
     grindableSolutionName: wood
@@ -366,7 +370,7 @@
       - HEAD
   - type: PointLight
     radius: 1.2
-    energy: 2.7
+    energy: 1.5
     color: "#4faffb"
     slots:
 
@@ -659,6 +663,8 @@
     interfaces:
       enum.StackCustomSplitUiKey.Key:
         type: StackCustomSplitBoundUserInterface
+  - type: Food
+    requiresSpecialDigestion: true
   - type: FlavorProfile
     flavors:
       - cobwebs

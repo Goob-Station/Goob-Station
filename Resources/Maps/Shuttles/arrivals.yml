@@ -393,6 +393,7 @@ entities:
       parent: 292
     - type: BatterySelfRecharger
       autoRechargeRate: 50000
+      autoRecharge: True
     - type: Godmode
     missingComponents:
     - Construction

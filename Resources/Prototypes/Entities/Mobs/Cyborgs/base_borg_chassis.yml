@@ -48,7 +48,7 @@
     thresholds:
       0: Alive
       100: Critical
-      300: Dead # Same as destruction threshold. Borgs act exactly like crit when dead, except for ghosting on move
+      200: Dead
     stateAlertDict:
       Alive: BorgHealth
       Critical: BorgCrit
@@ -129,6 +129,7 @@
       components:
       - RoboticsConsole
   - type: WiresPanel
+    openingTool: Screwing #Goob Edit
   - type: ActivatableUIRequiresPanel
   - type: NameIdentifier
     group: Silicon
@@ -141,11 +142,17 @@
   - type: PowerCellSlot
     cellSlotId: cell_slot
     fitsInCharger: true
-  - type: Access
-    enabled: false # needs a player so that scientists can't drag around an empty borg for free AA
+  - type: ItemToggle
+    onActivate: false # You should not be able to turn off a borg temporarily.
+    activated: false # gets activated when a mind is added
+    onUse: false # no item-borg toggling sorry
+  - type: ItemTogglePointLight
+  - type: AccessToggle
+  # TODO: refactor movement to just be based on toggle like speedboots but for the boots themselves
+  # TODO: or just have sentient speedboots be fast idk
   - type: PowerCellDraw
     drawRate: 0.6
-    enabled: false # the borg is only activated when a player takes over, otherwise the battery is likely empty
+  # no ToggleCellDraw since dont want to lose access when power is gone
   - type: ItemSlots
     slots:
       cell_slot:
@@ -183,9 +190,7 @@
   - type: Lock
     locked: true
     unlockOnClick: false
-  - type: UIRequiresLock
-    userInterfaceKeys:
-    - enum.BorgUiKey.Key
+  - type: ActivatableUIRequiresLock
   - type: LockedWiresPanel
   - type: Damageable
     damageContainer: Silicon
@@ -220,27 +225,24 @@
     wattage: 0.2
     blinkingBehaviourId: blinking
     radiatingBehaviourId: radiating
-  # These two components are required to make HandheldLight work, even though we don't even have ItemToggle.
-  # The code is a total mess and needs a complete rewrite.
-  - type: ItemTogglePointLight
-  - type: ToggleableVisuals
-    spriteLayer: light
   - type: LightBehaviour
     behaviours:
-    - !type:FadeBehaviour
-      id: radiating
-      maxDuration: 2.0
-      startValue: 3.0
-      endValue: 2.0
-      isLooped: true
-      reverseWhenFinished: true
-    - !type:PulseBehaviour
-      id: blinking
-      interpolate: Nearest
-      maxDuration: 1.0
-      startValue: 0.1
-      endValue: 2.0
-      isLooped: true
+      - !type:FadeBehaviour
+        id: radiating
+        maxDuration: 2.0
+        startValue: 3.0
+        endValue: 2.0
+        isLooped: true
+        reverseWhenFinished: true
+      - !type:PulseBehaviour
+        id: blinking
+        interpolate: Nearest
+        maxDuration: 1.0
+        startValue: 0.1
+        endValue: 2.0
+        isLooped: true
+  - type: ToggleableVisuals
+    spriteLayer: light
   - type: PointLight
     enabled: false
     mask: /Textures/Effects/LightMasks/cone.png
@@ -310,11 +312,6 @@
     damageProtection:
       flatReductions:
         Heat: 10 # capable of touching light bulbs and stoves without feeling pain!
-  - type: BypassLock
-  - type: BypassLockRequiresMobState
-    requiredMobState:
-    - Critical
-    - Dead
   - type: Penetratable # Goobstation - Better snipers
     penetrateDamage: 75 # It's harder to kill iron golem
     damagePenalty: 0.25
@@ -372,7 +369,6 @@
     nameSet: True
     mobile: True # Goobstation - mobile cameras fix, borg camera not really relevant since monitor doesn't see it anyways but eh
     id: Xenoborg
-    useEntityNameAsCameraId: true
   - type: Explosive
     explosionType: Minibomb
     deleteAfterExplosion: false # let damage threshold gib the borg
@@ -395,6 +391,7 @@
   - type: SiliconLawProvider
     laws: CrewsimovBorg # Goobstation - AI/borg law changes - borgs obeying AI
   - type: Access
+    enabled: false
     groups:
     - AllAccess
     tags:
@@ -433,7 +430,6 @@
     - Syndicate
   - type: ActiveRadio
     channels:
-    # - Binary # Goobstation collectivemind binary
     - Syndicate
   - type: ShowSyndicateIcons
   - type: MovementAlwaysTouching
@@ -451,8 +447,6 @@
       Unsexed: UnisexSiliconSyndicate
   - type: PointLight
     color: "#dd200b"
-  - type: BypassLock
-    bypassDelay: 15 # We don't want people to easily be able to remove syndieborg brains.
   - type: Damageable #Goobstation - Ion Damage
     damageContainer: Silicon
     damageModifierSet: SiliconProtected
@@ -471,6 +465,7 @@
     factions:
     - NanoTrasen #The seemingly best fit. It was a regular NT cyborg once, after all.
   - type: Access
+    enabled: false
     groups:
     - AllAccess #Randomized access would be fun. AllAccess is the best i can think of right now that does make it too hard for it to enter the station or navigate it..
   - type: AccessReader
@@ -480,52 +475,6 @@
   - type: IonStormTarget
     chance: 1
   - type: ShowJobIcons
-
-- type: entity
-  id: BaseBorgChassisSyndicateDerelict #For assault borg and maybe others in time
-  parent: BaseBorgChassis # We don't want them to see Nukies or have syndi comms, their database is out of date
-  abstract: true
-  components:
-  - type: SiliconLawProvider
-    laws: SyndicateStatic #Non-subverted version so they can still be changed
-  - type: StartIonStormed
-    ionStormAmount: 3
-  - type: IonStormTarget
-    chance: 1
-  - type: ShowJobIcons
-  - type: NpcFactionMember # They're still syndicate even if they can't listen to the radio or see icons
-    factions:
-    - Syndicate
-  - type: Access
-    tags:
-    - NuclearOperative
-    - SyndicateAgent
-  - type: AccessReader
-    access: [ [ "SyndicateAgent" ], [ "NuclearOperative" ] ]
-  - type: IntrinsicRadioTransmitter # Copy components from base SyndiBorg but without the stuff we don't want
-    channels:
-    - Common # Goobstation i need this to not be null and if theyre derelict its whatever
-    #- Binary #1984 # Goobstation collectivemind binary
-  - type: ActiveRadio
-    channels:
-    - Common # Goobstation i need this to not be null and if theyre derelict its whatever
-    #- Binary # Goobstation collectivemind binary
-  - type: MovementAlwaysTouching
-  - type: Speech
-    speechSounds: SyndieBorg
-    allowedEmotes:
-    - Laugh
-  - type: Vocal
-    sounds:
-      Unsexed: UnisexSiliconSyndicate
-  - type: PointLight
-    color: "#dd200b"
-  - type: BypassLock
-    bypassDelay: 15 # We don't want people to easily be able to remove syndieborg brains.
-  - type: CollectiveMind # Goobstation collectivemind binary
-    defaultChannel: Binary
-    channels:
-    - Binary
 
 - type: entity
   parent: BaseBorgChassisNotIonStormable
@@ -546,7 +495,7 @@
     thresholds: # slightly tankier than a normal borg
       0: Alive
       125: Critical
-      375: Dead # Same as destruction threshold. Borgs act exactly like crit when dead, except for ghosting on move
+      250: Dead
   - type: EmagSiliconLaw # should xenoborgs be emagable?
     stunTime: 5
   - type: SiliconLawProvider
@@ -624,11 +573,6 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          PinpointerMothershipPiece: # drop a piece of core pinpointer upon being destructed (4 pieces to make a core pinpointer)
-            min: 1
-            max: 1
       - !type:EmptyContainersBehaviour
         containers:
         - borg_brain
@@ -637,14 +581,14 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: PointLight
-    color: "#3010ff"
-    energy: 7
+    color: "#0033ff"
   - type: GuideHelp
     guides:
     - Cyborgs
     - Robotics
-    - Xenoborgs
+    # TODO: add Xenoborg guide (part 7 spoilers)
   - type: Access
+    enabled: false
     tags:
     - Xenoborg
   - type: AccessReader
@@ -653,6 +597,3 @@
   - type: InteractionPopup
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
-  - type: Xenoborg
-  - type: BypassLock
-    bypassDelay: 15 # We don't want people to easily be able to remove xenoborg brains.

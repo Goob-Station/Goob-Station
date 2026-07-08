@@ -41,7 +41,7 @@
     jumpsuit: ClothingUniformJumpsuitChiefEngineer
     shoes: ClothingShoesColorWhite
     head: ClothingHeadHatBeretEngineering
-    neck: ClothingNeckCloakWhiteCe # Goobstation
+    neck: ClothingNeckCloakWhiteCe
     id: VisitorPDA
     belt: ClothingBeltChiefEngineerFilled
     back: ClothingBackpackDuffelEngineering
@@ -751,7 +751,7 @@
 - type: startingGear
   id: VisitorParamedic
   equipment:
-    jumpsuit: ClothingUniformJumpsuitParamedic
+    jumpsuit: ClothingUniformJumpsuitParamedicNT
     shoes: ClothingShoesSwat
     gloves: ClothingHandsGlovesLatex
     head: ClothingHeadHatParamedicsoft
@@ -1258,7 +1258,7 @@
     pocket1: BookSun
     pocket2: BookRandomStory
   inhand:
-  - BoxFolderClipboardThreePapers
+  - BoxFolderClipboard
 
 - type: startingGear
   id: VisitorMusicianFancyAltA
@@ -1528,7 +1528,7 @@
     back: ClothingBackpackSatchel
     ears: ClothingHeadsetService
     pocket1: MicrophoneInstrument
-    pocket2: BoxFolderClipboardThreePapers
+    pocket2: BoxFolderClipboard
 
 - type: startingGear
   id: VisitorReporterAlt
@@ -1539,7 +1539,7 @@
     back: ClothingBackpackSatchel
     ears: ClothingHeadsetService
     pocket1: MicrophoneInstrument
-    pocket2: BoxFolderClipboardThreePapers
+    pocket2: BoxFolderClipboard
 
 - type: startingGear
   id: VisitorServiceWorker
@@ -1692,7 +1692,7 @@
     jumpsuit: ClothingUniformJumpsuitChiefEngineer
     shoes: ClothingShoesColorWhite
     head: ClothingHeadHatBeretEngineering
-    neck: ClothingNeckCloakWhiteCe # Goobstation
+    neck: ClothingNeckCloakWhiteCe
     id: VisitorPDA
     #belt: ClothingBeltChiefEngineerFilled # probably too strong?
     back: ClothingBackpackDuffelEngineering

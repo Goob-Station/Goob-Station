@@ -86,11 +86,11 @@
     state: icon
 
 - type: stealTargetGroup
-  id: WeaponEnergyMagnum
-  name: steal-target-groups-weapon-energy-magnum
+  id: WeaponEnergyShotgun
+  name: steal-target-groups-weapon-energy-shot-gun
   sprite:
-    sprite: Objects/Weapons/Guns/Battery/energy_magnum.rsi
-    state: icon
+    sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
+    state: base
 
 # Thief Collection
 
@@ -123,13 +123,6 @@
     state: door_remotebase
 
 - type: stealTargetGroup
-  id: OfficerHandgun
-  name: steal-target-groups-officer-handguns
-  sprite:
-    sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
-    state: base
-
-- type: stealTargetGroup
   id: EncryptionKey
   name: steal-target-groups-encryption-keys
   sprite:
@@ -142,13 +135,6 @@
   sprite:
     sprite: Objects/Misc/module.rsi
     state: datadisk_base
-
-- type: stealTargetGroup
-  id: Mail
-  name: steal-target-groups-mail
-  sprite:
-    sprite: Objects/Specific/Cargo/mail.rsi
-    state: icon
 
 - type: stealTargetGroup
   id: IDCard
@@ -243,14 +229,7 @@
     sprite: Objects/Devices/flatpack.rsi
     state: ame-part
 
-- type: stealTargetGroup
-  id: ChiefEngineerToolBelt
-  name: steal-target-groups-belt-ce
-  sprite:
-    sprite: Clothing/Belt/ce.rsi
-    state: icon
-
-#- type: stealTargetGroup # Goob edit - Removed because Lavaland
+#- type: stealTargetGroup                                Goob edit - Removed because Lavaland
 #  id: SalvageExpeditionsComputerCircuitboard
 #  name: steal-target-groups-salvage-expeditions-computer-circuitboard
 #  sprite:
@@ -298,13 +277,6 @@
   sprite:
     sprite: Objects/Devices/cartridge.rsi
     state: cart-sec
-
-- type: stealTargetGroup
-  id: CaptainSword
-  name: steal-target-groups-captain-sword
-  sprite:
-    sprite: Objects/Weapons/Melee/captain_sabre.rsi
-    state: icon
 
 #Thief structures
 

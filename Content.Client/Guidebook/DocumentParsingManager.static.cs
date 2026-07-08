@@ -84,7 +84,7 @@ public sealed partial class DocumentParsingManager
                     }
 
                     msg.Pop();
-                    rt.SetMessage(msg, tagsAllowed: null);
+                    rt.SetMessage(msg);
                     return rt;
                 },
                 TextParser)

@@ -3,10 +3,10 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
+using Content.Shared.Body.Components;
 using Content.Shared.Destructible;
 using Content.Shared.Foldable;
 using Content.Shared.Hands.Components;
-using Content.Shared.Explosion;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
 using Content.Shared.Lock;
@@ -21,6 +21,7 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
+using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Physics;
@@ -50,23 +51,31 @@ public abstract class SharedEntityStorageSystem : EntitySystem
 
     public const string ContainerName = "entity_storage";
 
-    public override void Initialize()
+    protected void OnEntityUnpausedEvent(EntityUid uid, EntityStorageComponent component, EntityUnpausedEvent args)
     {
-        base.Initialize();
+        component.NextInternalOpenAttempt += args.PausedTime;
+    }
 
-        SubscribeLocalEvent<EntityStorageComponent, ComponentInit>(OnComponentInit);
-        SubscribeLocalEvent<EntityStorageComponent, ComponentStartup>(OnComponentStartup);
-        SubscribeLocalEvent<EntityStorageComponent, ActivateInWorldEvent>(OnInteract, after: new[] { typeof(LockSystem) });
-        SubscribeLocalEvent<EntityStorageComponent, LockToggleAttemptEvent>(OnLockToggleAttempt);
-        SubscribeLocalEvent<EntityStorageComponent, DestructionEventArgs>(OnDestruction);
-        SubscribeLocalEvent<EntityStorageComponent, GetVerbsEvent<InteractionVerb>>(AddToggleOpenVerb);
-        SubscribeLocalEvent<EntityStorageComponent, ContainerRelayMovementEntityEvent>(OnRelayMovement);
-        SubscribeLocalEvent<EntityStorageComponent, FoldAttemptEvent>(OnFoldAttempt);
+    protected void OnGetState(EntityUid uid, EntityStorageComponent component, ref ComponentGetState args)
+    {
+        args.State = new EntityStorageComponentState(component.Open,
+            component.Capacity,
+            component.IsCollidableWhenOpen,
+            component.OpenOnMove,
+            component.EnteringRange,
+            component.NextInternalOpenAttempt);
+    }
 
-        SubscribeLocalEvent<EntityStorageComponent, WeldableAttemptEvent>(OnWeldableAttempt);
-        SubscribeLocalEvent<EntityStorageComponent, BeforeExplodeEvent>(OnExploded);
-
-        SubscribeLocalEvent<InsideEntityStorageComponent, EntGotRemovedFromContainerMessage>(OnRemoved);
+    protected void OnHandleState(EntityUid uid, EntityStorageComponent component, ref ComponentHandleState args)
+    {
+        if (args.Current is not EntityStorageComponentState state)
+            return;
+        component.Open = state.Open;
+        component.Capacity = state.Capacity;
+        component.IsCollidableWhenOpen = state.IsCollidableWhenOpen;
+        component.OpenOnMove = state.OpenOnMove;
+        component.EnteringRange = state.EnteringRange;
+        component.NextInternalOpenAttempt = state.NextInternalOpenAttempt;
     }
 
     protected virtual void OnComponentInit(EntityUid uid, EntityStorageComponent component, ComponentInit args)
@@ -76,12 +85,12 @@ public abstract class SharedEntityStorageSystem : EntitySystem
         component.Contents.OccludesLight = component.OccludesLight;
     }
 
-    private void OnComponentStartup(EntityUid uid, EntityStorageComponent component, ComponentStartup args)
+    protected virtual void OnComponentStartup(EntityUid uid, EntityStorageComponent component, ComponentStartup args)
     {
         _appearance.SetData(uid, StorageVisuals.Open, component.Open);
     }
 
-    private void OnInteract(EntityUid uid, EntityStorageComponent component, ActivateInWorldEvent args)
+    protected void OnInteract(EntityUid uid, EntityStorageComponent component, ActivateInWorldEvent args)
     {
         if (args.Handled || !args.Complex)
             return;
@@ -90,7 +99,9 @@ public abstract class SharedEntityStorageSystem : EntitySystem
         ToggleOpen(args.User, uid, component);
     }
 
-    private void OnLockToggleAttempt(EntityUid uid, EntityStorageComponent target, ref LockToggleAttemptEvent args)
+    public abstract bool ResolveStorage(EntityUid uid, [NotNullWhen(true)] ref EntityStorageComponent? component);
+
+    protected void OnLockToggleAttempt(EntityUid uid, EntityStorageComponent target, ref LockToggleAttemptEvent args)
     {
         // Cannot (un)lock open lockers.
         if (target.Open)
@@ -101,7 +112,7 @@ public abstract class SharedEntityStorageSystem : EntitySystem
             args.Cancelled = true;
     }
 
-    private void OnDestruction(EntityUid uid, EntityStorageComponent component, DestructionEventArgs args)
+    protected void OnDestruction(EntityUid uid, EntityStorageComponent component, DestructionEventArgs args)
     {
         component.Open = true;
         Dirty(uid, component);
@@ -117,7 +128,7 @@ public abstract class SharedEntityStorageSystem : EntitySystem
         }
     }
 
-    private void OnRelayMovement(EntityUid uid, EntityStorageComponent component, ref ContainerRelayMovementEntityEvent args)
+    protected void OnRelayMovement(EntityUid uid, EntityStorageComponent component, ref ContainerRelayMovementEntityEvent args)
     {
         if (!HasComp<HandsComponent>(args.Entity))
             return;
@@ -128,54 +139,21 @@ public abstract class SharedEntityStorageSystem : EntitySystem
         if (_timing.CurTime < component.NextInternalOpenAttempt)
             return;
 
-        component.NextInternalOpenAttempt = _timing.CurTime + component.InternalOpenAttemptDelay;
+        component.NextInternalOpenAttempt = _timing.CurTime + EntityStorageComponent.InternalOpenAttemptDelay;
         Dirty(uid, component);
 
         if (component.OpenOnMove)
             TryOpenStorage(args.Entity, uid);
     }
 
-    private void OnFoldAttempt(EntityUid uid, EntityStorageComponent component, ref FoldAttemptEvent args)
+    protected void OnFoldAttempt(EntityUid uid, EntityStorageComponent component, ref FoldAttemptEvent args)
     {
         if (args.Cancelled)
             return;
-
         args.Cancelled = component.Open || component.Contents.ContainedEntities.Count != 0;
     }
 
-    private void OnWeldableAttempt(EntityUid uid, EntityStorageComponent component, WeldableAttemptEvent args)
-    {
-        if (component.Open)
-        {
-            args.Cancel();
-            return;
-        }
-
-        if (component.Contents.Contains(args.User))
-        {
-            var msg = Loc.GetString("entity-storage-component-already-contains-user-message");
-            Popup.PopupEntity(msg, args.User, args.User);
-            args.Cancel();
-        }
-    }
-
-    private void OnExploded(Entity<EntityStorageComponent> ent, ref BeforeExplodeEvent args)
-    {
-        args.Contents.AddRange(ent.Comp.Contents.ContainedEntities);
-    }
-
-    private void OnRemoved(EntityUid uid, InsideEntityStorageComponent component, EntGotRemovedFromContainerMessage args)
-    {
-        if (_timing.ApplyingState)
-            return; // the component removal is already networked on its own
-
-        if (args.Container.Owner != component.Storage)
-            return;
-
-        RemComp(uid, component);
-    }
-
-    private void AddToggleOpenVerb(EntityUid uid, EntityStorageComponent component, GetVerbsEvent<InteractionVerb> args)
+    protected void AddToggleOpenVerb(EntityUid uid, EntityStorageComponent component, GetVerbsEvent<InteractionVerb> args)
     {
         if (!args.CanAccess || !args.CanInteract)
             return;
@@ -202,7 +180,7 @@ public abstract class SharedEntityStorageSystem : EntitySystem
 
     public void ToggleOpen(EntityUid user, EntityUid target, EntityStorageComponent? component = null)
     {
-        if (!Resolve(target, ref component))
+        if (!ResolveStorage(target, ref component))
             return;
 
         if (component.Open)
@@ -217,7 +195,7 @@ public abstract class SharedEntityStorageSystem : EntitySystem
 
     public void EmptyContents(EntityUid uid, EntityStorageComponent? component = null)
     {
-        if (!Resolve(uid, ref component))
+        if (!ResolveStorage(uid, ref component))
             return;
 
         var uidXform = Transform(uid);
@@ -230,7 +208,7 @@ public abstract class SharedEntityStorageSystem : EntitySystem
 
     public void OpenStorage(EntityUid uid, EntityStorageComponent? component = null)
     {
-        if (!Resolve(uid, ref component))
+        if (!ResolveStorage(uid, ref component))
             return;
 
         if (component.Open)
@@ -251,7 +229,7 @@ public abstract class SharedEntityStorageSystem : EntitySystem
 
     public void CloseStorage(EntityUid uid, EntityStorageComponent? component = null)
     {
-        if (!Resolve(uid, ref component))
+        if (!ResolveStorage(uid, ref component))
             return;
 
         if (!component.Open)
@@ -302,7 +280,7 @@ public abstract class SharedEntityStorageSystem : EntitySystem
 
     public bool Insert(EntityUid toInsert, EntityUid container, EntityStorageComponent? component = null)
     {
-        if (!Resolve(container, ref component))
+        if (!ResolveStorage(container, ref component))
             return false;
 
         if (component.Open)
@@ -311,14 +289,12 @@ public abstract class SharedEntityStorageSystem : EntitySystem
             return true;
         }
 
-        // TODO: This should be done automatically for all containers
         _joints.RecursiveClearJoints(toInsert);
         if (!_container.Insert(toInsert, component.Contents))
             return false;
 
         var inside = EnsureComp<InsideEntityStorageComponent>(toInsert);
         inside.Storage = container;
-        Dirty(toInsert, inside);
         return true;
     }
 
@@ -327,18 +303,15 @@ public abstract class SharedEntityStorageSystem : EntitySystem
         if (!Resolve(container, ref xform, false))
             return false;
 
-        if (!Resolve(container, ref component))
+        if (!ResolveStorage(container, ref component))
             return false;
 
         _container.Remove(toRemove, component.Contents);
 
-        if (_container.IsEntityInContainer(container)
-            && _container.TryGetOuterContainer(container, Transform(container), out var outerContainer))
+        if (_container.IsEntityInContainer(container))
         {
-
-            var attemptEvent = new EntityStorageIntoContainerAttemptEvent(outerContainer);
-            RaiseLocalEvent(outerContainer.Owner, ref attemptEvent);
-            if (!attemptEvent.Cancelled)
+            if (_container.TryGetOuterContainer(container, Transform(container), out var outerContainer) &&
+                !HasComp<HandsComponent>(outerContainer.Owner))
             {
                 _container.Insert(toRemove, outerContainer);
                 return true;
@@ -354,7 +327,7 @@ public abstract class SharedEntityStorageSystem : EntitySystem
 
     public bool CanInsert(EntityUid toInsert, EntityUid container, EntityStorageComponent? component = null)
     {
-        if (!Resolve(container, ref component))
+        if (!ResolveStorage(container, ref component))
             return false;
 
         if (component.Open)
@@ -368,14 +341,14 @@ public abstract class SharedEntityStorageSystem : EntitySystem
             return false;
 
         // Allow other systems to prevent inserting the item: e.g. the item is actually a ghost.
-        var attemptEvent = new InsertIntoEntityStorageAttemptEvent(component.Contents, toInsert);
+        var attemptEvent = new InsertIntoEntityStorageAttemptEvent(toInsert);
         RaiseLocalEvent(toInsert, ref attemptEvent);
 
         if (attemptEvent.Cancelled)
             return false;
 
         // Allow other components on the container to prevent inserting the item: e.g. the container is folded
-        var containerAttemptEvent = new EntityStorageInsertedIntoAttemptEvent(component.Contents, toInsert);
+        var containerAttemptEvent = new EntityStorageInsertedIntoAttemptEvent(toInsert);
         RaiseLocalEvent(container, ref containerAttemptEvent);
 
         if (containerAttemptEvent.Cancelled)
@@ -411,7 +384,7 @@ public abstract class SharedEntityStorageSystem : EntitySystem
 
     public bool IsOpen(EntityUid target, EntityStorageComponent? component = null)
     {
-        if (!Resolve(target, ref component))
+        if (!ResolveStorage(target, ref component))
             return false;
 
         return component.Open;
@@ -419,7 +392,7 @@ public abstract class SharedEntityStorageSystem : EntitySystem
 
     public bool CanOpen(EntityUid user, EntityUid target, bool silent = false, EntityStorageComponent? component = null)
     {
-        if (!Resolve(target, ref component))
+        if (!ResolveStorage(target, ref component))
             return false;
 
         if (!HasComp<HandsComponent>(user))
@@ -461,7 +434,7 @@ public abstract class SharedEntityStorageSystem : EntitySystem
 
     public bool AddToContents(EntityUid toAdd, EntityUid container, EntityStorageComponent? component = null)
     {
-        if (!Resolve(container, ref component))
+        if (!ResolveStorage(container, ref component))
             return false;
 
         if (toAdd == container)
@@ -472,7 +445,7 @@ public abstract class SharedEntityStorageSystem : EntitySystem
 
     private void ModifyComponents(EntityUid uid, EntityStorageComponent? component = null)
     {
-        if (!Resolve(uid, ref component))
+        if (!ResolveStorage(uid, ref component))
             return;
 
         if (!component.IsCollidableWhenOpen && TryComp<FixturesComponent>(uid, out var fixtures) &&
@@ -502,9 +475,15 @@ public abstract class SharedEntityStorageSystem : EntitySystem
         _appearance.SetData(uid, StorageVisuals.HasContents, component.Contents.ContainedEntities.Count > 0);
     }
 
-    protected virtual void TakeGas(EntityUid uid, EntityStorageComponent component) { }
+    protected virtual void TakeGas(EntityUid uid, EntityStorageComponent component)
+    {
 
-    public virtual void ReleaseGas(EntityUid uid, EntityStorageComponent component) { }
+    }
+
+    public virtual void ReleaseGas(EntityUid uid, EntityStorageComponent component)
+    {
+
+    }
 
     // Goobstation - Recycle update - Empty container in recycle
     protected void OnReclaimed(EntityUid uid, EntityStorageComponent component, GotReclaimedEvent args)

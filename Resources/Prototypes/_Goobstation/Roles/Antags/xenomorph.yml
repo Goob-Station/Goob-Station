@@ -7,4 +7,4 @@
   guides: [ Xenomorphs ]
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 50h
+    time: 180000

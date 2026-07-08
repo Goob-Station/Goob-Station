@@ -57,11 +57,10 @@
       - Cigarette
       - Lighter
       - MedicalPatch
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: Cigarette
-        amount: 10
+  - type: StorageFill
+    contents:
+    - id: Cigarette
+      amount: 10
   - type: ItemCounter
     count:
       tags: [Cigarette]
@@ -199,11 +198,10 @@
     sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/syndicate.rsi
   - type: Item
     sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/syndicate.rsi
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: CigaretteSyndicate
-        amount: 10
+  - type: StorageFill
+    contents:
+    - id: CigaretteSyndicate
+      amount: 10
 
 - type: entity
   id: CigPackMixed

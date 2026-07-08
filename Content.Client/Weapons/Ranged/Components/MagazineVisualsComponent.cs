@@ -13,20 +13,17 @@ public sealed partial class MagazineVisualsComponent : Component
     /// <summary>
     /// What RsiState we use.
     /// </summary>
-    [DataField]
-    public string? MagState;
+    [DataField("magState")] public string? MagState;
 
     /// <summary>
     /// How many steps there are
     /// </summary>
-    [DataField("steps")]
-    public int MagSteps;
+    [DataField("steps")] public int MagSteps;
 
     /// <summary>
     /// Should we hide when the count is 0
     /// </summary>
-    [DataField]
-    public bool ZeroVisible;
+    [DataField("zeroVisible")] public bool ZeroVisible;
 
     /// <summary>
     /// Goobstation.

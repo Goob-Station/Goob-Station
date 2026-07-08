@@ -7,7 +7,6 @@ using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Internals;
 using Content.Shared.Inventory;
-using Content.Shared.Movement.Components;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Robust.Shared.Containers;
@@ -159,12 +158,12 @@ public abstract class SharedInternalsSystem : EntitySystem
 
     private void OnInternalsStartup(Entity<InternalsComponent> ent, ref ComponentStartup args)
     {
-        _alerts.ShowAlert(ent.Owner, ent.Comp.InternalsAlert, GetSeverity(ent));
+        _alerts.ShowAlert(ent, ent.Comp.InternalsAlert, GetSeverity(ent));
     }
 
     private void OnInternalsShutdown(Entity<InternalsComponent> ent, ref ComponentShutdown args)
     {
-        _alerts.ClearAlert(ent.Owner, ent.Comp.InternalsAlert);
+        _alerts.ClearAlert(ent, ent.Comp.InternalsAlert);
     }
 
     public void ConnectBreathTool(Entity<InternalsComponent> ent, EntityUid toolEntity)
@@ -179,7 +178,7 @@ public abstract class SharedInternalsSystem : EntitySystem
         }
 
         Dirty(ent);
-        _alerts.ShowAlert(ent.Owner, ent.Comp.InternalsAlert, GetSeverity(ent));
+        _alerts.ShowAlert(ent, ent.Comp.InternalsAlert, GetSeverity(ent));
     }
 
     public void DisconnectBreathTool(Entity<InternalsComponent> ent, EntityUid toolEntity, bool forced = false)
@@ -200,7 +199,7 @@ public abstract class SharedInternalsSystem : EntitySystem
             DisconnectTank(ent, forced: forced);
         }
 
-        _alerts.ShowAlert(ent.Owner, ent.Comp.InternalsAlert, GetSeverity(ent));
+        _alerts.ShowAlert(ent, ent.Comp.InternalsAlert, GetSeverity(ent));
     }
 
     public void DisconnectTank(Entity<InternalsComponent> ent, bool forced = false)
@@ -223,7 +222,7 @@ public abstract class SharedInternalsSystem : EntitySystem
 
         ent.Comp.GasTankEntity = tankEntity;
         Dirty(ent);
-        _alerts.ShowAlert(ent.Owner, ent.Comp.InternalsAlert, GetSeverity(ent));
+        _alerts.ShowAlert(ent, ent.Comp.InternalsAlert, GetSeverity(ent));
         return true;
     }
 
@@ -259,15 +258,11 @@ public abstract class SharedInternalsSystem : EntitySystem
         Entity<HandsComponent?, InventoryComponent?, ContainerManagerComponent?> user)
     {
         // TODO use _respirator.CanMetabolizeGas() to prioritize metabolizable gasses
-        // Lookup order:
-        // 1. Back
-        // 2. Exo-slot
-        // 3. In-hand
-        // 4. Pocket/belt
-        // Jetpacks will only be used as a fallback if no other tank is found
-
-        // Store the first jetpack seen
-        Entity<GasTankComponent>? found = null;
+        // Prioritise
+        // 1. back equipped tanks
+        // 2. exo-slot tanks
+        // 3. in-hand tanks
+        // 4. pocket/belt tanks
 
         if (!Resolve(user, ref user.Comp2, ref user.Comp3))
             return null;
@@ -276,36 +271,22 @@ public abstract class SharedInternalsSystem : EntitySystem
             TryComp<GasTankComponent>(backEntity, out var backGasTank) &&
             _gasTank.CanConnectToInternals((backEntity.Value, backGasTank)))
         {
-            found = (backEntity.Value, backGasTank);
-            if (!HasComp<JetpackComponent>(backEntity.Value))
-            {
-                return found;
-            }
+            return (backEntity.Value, backGasTank);
         }
 
         if (_inventory.TryGetSlotEntity(user, "suitstorage", out var entity, user.Comp2, user.Comp3) &&
             TryComp<GasTankComponent>(entity, out var gasTank) &&
             _gasTank.CanConnectToInternals((entity.Value, gasTank)))
         {
-            found ??= (entity.Value, gasTank);
-            if (!HasComp<JetpackComponent>(entity.Value))
-            {
-                return (entity.Value, gasTank);
-            }
+            return (entity.Value, gasTank);
         }
 
         foreach (var item in _inventory.GetHandOrInventoryEntities((user.Owner, user.Comp1, user.Comp2)))
         {
             if (TryComp(item, out gasTank) && _gasTank.CanConnectToInternals((item, gasTank)))
-            {
-                found ??= (item, gasTank);
-                if (!HasComp<JetpackComponent>(item))
-                {
-                    return (item, gasTank);
-                }
-            }
+                return (item, gasTank);
         }
 
-        return found;
+        return null;
     }
 }

@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Reflection;
 using Content.Client.IoC;
 using Content.Server.IoC;
+using Content.Shared.IoC;
 using Robust.Shared.Analyzers;
-using Robust.Shared.IoC;
 using Robust.UnitTesting;
 using EntryPoint = Content.Server.Entry.EntryPoint;
 
@@ -17,15 +17,16 @@ namespace Content.Tests
         protected override void OverrideIoC()
         {
             base.OverrideIoC();
-            var dependencies = IoCManager.Instance!;
+
+            SharedContentIoC.Register();
 
             if (Project == UnitTestProject.Server)
             {
-                ServerContentIoC.Register(dependencies);
+                ServerContentIoC.Register();
             }
             else if (Project == UnitTestProject.Client)
             {
-                ClientContentIoC.Register(dependencies);
+                ClientContentIoC.Register();
             }
         }
 

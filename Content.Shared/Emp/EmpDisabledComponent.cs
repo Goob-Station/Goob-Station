@@ -7,30 +7,24 @@ namespace Content.Shared.Emp;
 
 /// <summary>
 /// While entity has this component it is "disabled" by EMP.
-/// Add desired behaviour in other systems.
+/// Add desired behaviour in other systems
 /// </summary>
-[RegisterComponent, NetworkedComponent]
-[AutoGenerateComponentState, AutoGenerateComponentPause]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentPause]
 [Access(typeof(SharedEmpSystem))]
 public sealed partial class EmpDisabledComponent : Component
 {
     /// <summary>
-    /// Moment of time when the component is removed and entity stops being "disabled".
+    /// Moment of time when component is removed and entity stops being "disabled"
     /// </summary>
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
-    [AutoNetworkedField, AutoPausedField]
-    public TimeSpan DisabledUntil = TimeSpan.Zero;
+    [DataField("timeLeft", customTypeSerializer: typeof(TimeOffsetSerializer)), ViewVariables(VVAccess.ReadWrite)]
+    [AutoPausedField]
+    public TimeSpan DisabledUntil;
+
+    [DataField("effectCoolDown"), ViewVariables(VVAccess.ReadWrite)]
+    public float EffectCooldown = 3f;
 
     /// <summary>
-    /// Default time between visual effect spawns.
-    /// This gets a random multiplier.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public TimeSpan EffectCooldown = TimeSpan.FromSeconds(3);
-
-    /// <summary>
-    /// When next effect will be spawned.
-    /// TODO: Particle system.
+    /// When next effect will be spawned
     /// </summary>
     [AutoPausedField]
     public TimeSpan TargetTime = TimeSpan.Zero;

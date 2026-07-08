@@ -16,7 +16,7 @@ public sealed partial class ObjectiveMindFilter : MindFilter
         foreach (var obj in mind.Comp.Objectives)
         {
             // mind has a blacklisted objective, remove it from the pool
-            if (whitelistSys.IsWhitelistPass(Blacklist, obj))
+            if (whitelistSys.IsBlacklistPass(Blacklist, obj))
                 return true;
         }
 

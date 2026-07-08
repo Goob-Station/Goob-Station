@@ -2,7 +2,7 @@
 
 - type: entity
   id: BodyBag
-  parent: [ BaseDeployFoldable, BasePaperLabelableVisualized ]
+  parent: BaseDeployFoldable
   name: body bag
   description: A plastic bag designed for the storage and transportation of cadavers to stop body decomposition.
   components:
@@ -41,7 +41,7 @@
         shape:
           !type:PhysShapeAabb
           bounds: "-0.25,-0.4,0.25,0.1"
-        density: 80
+        density: 20
         mask:
         - ItemMask
         layer:
@@ -59,6 +59,16 @@
     openSound:
       path: /Audio/Misc/zip.ogg
   - type: EntityStorageLayingDownOverride
+  - type: PaperLabel
+    labelSlot:
+      insertVerbText: comp-paper-label-insert
+      ejectVerbText: comp-paper-label-eject
+      whitelist:
+        components:
+        - Paper
+      blacklist:
+        tags:
+        - Book
   - type: Appearance
   - type: EntityStorageVisuals
     stateDoorOpen: open_overlay
@@ -83,6 +93,7 @@
           False: {visible: true}
   - type: Pullable
   - type: AntiRottingContainer
+  - type: ItemSlots
   - type: ContainerContainer
     containers:
       entity_storage: !type:Container
@@ -131,7 +142,6 @@
     state: ash
   - type: Tag
     tags:
-    - Burnt
     - Trash
     - Ash # Goobstation
   - type: SolutionContainerManager

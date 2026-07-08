@@ -63,5 +63,5 @@ public sealed partial class ElectricityAnomalyComponent : Component
     /// Duration of devices being disabled by the emp pulse upon going supercritical.
     /// <summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public TimeSpan EmpDisabledDuration = TimeSpan.FromSeconds(60);
+    public float EmpDisabledDuration = 60f;
 }

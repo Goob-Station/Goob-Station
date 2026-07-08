@@ -3,8 +3,10 @@ using Content.Shared.Trigger.Components.Triggers;
 
 namespace Content.Shared.Trigger.Systems;
 
-public sealed partial class TriggerOnVerbSystem : TriggerOnXSystem
+public sealed partial class TriggerOnVerbSystem : EntitySystem
 {
+    [Dependency] private readonly TriggerSystem _trigger = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -22,7 +24,7 @@ public sealed partial class TriggerOnVerbSystem : TriggerOnXSystem
         args.Verbs.Add(new AlternativeVerb
         {
             Text = Loc.GetString(ent.Comp.Text),
-            Act = () => Trigger.Trigger(ent.Owner, user, ent.Comp.KeyOut),
+            Act = () => _trigger.Trigger(ent.Owner, user, ent.Comp.KeyOut),
             Priority = 2 // should be above any timer settings
         });
     }

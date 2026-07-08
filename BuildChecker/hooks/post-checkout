@@ -1,10 +1,10 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-gitroot=$(git rev-parse --show-toplevel)
+gitroot=`git rev-parse --show-toplevel`
 
-cd "$gitroot/BuildChecker" || exit
+cd "$gitroot/BuildChecker"
 
-if [[ $(uname) == MINGW* || $(uname) == CYGWIN* ]]; then
+if [[ `uname` == MINGW* || `uname` == CYGWIN* ]]; then
     # Windows
     py -3 git_helper.py --quiet
 else

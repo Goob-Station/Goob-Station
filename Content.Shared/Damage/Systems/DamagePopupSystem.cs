@@ -31,8 +31,7 @@ public sealed class DamagePopupSystem : EntitySystem
                 _ => "Invalid type",
             };
 
-            // Turn this back into (msg, ent.Owner, args.Origin) when shooting gets predicted.
-            _popupSystem.PopupPredicted(msg, ent.Owner, null);
+            _popupSystem.PopupPredicted(msg, ent.Owner, args.Origin);
         }
     }
 

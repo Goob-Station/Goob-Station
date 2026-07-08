@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: [ClothingMaskBase, BaseChameleon]
+  parent: ClothingMaskBase
   id: ClothingMaskGasChameleon
   name: gas mask
   description: A face-covering mask that can be connected to an air supply.
@@ -18,6 +18,10 @@
       default: ClothingMaskGas
     - type: BreathMask
     - type: IdentityBlocker # need that for default ClothingMaskGas
+    - type: UserInterface
+      interfaces:
+        enum.ChameleonUiKey.Key:
+          type: ChameleonBoundUserInterface
     - type: HideLayerClothing
       slots:
       - Snout
@@ -28,12 +32,6 @@
   suffix: Voice Mask, Chameleon
   components:
     - type: VoiceMask
-    - type: UIRequiresLock
-      userInterfaceKeys:
-        - enum.ChameleonUiKey.Key
-        - enum.VoiceMaskUIKey.Key
-      accessDeniedSound: null
-      popup: null
     - type: HideLayerClothing
       slots:
       - Snout

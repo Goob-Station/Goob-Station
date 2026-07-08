@@ -26,10 +26,10 @@
 
 #These are for instruments that are larger, can't be picked up, or have collision
 - type: entity
-  abstract: true
-  parent: BaseStructureDynamic
-  id: BasePlaceableInstrument
   name: baseinstrument
+  id: BasePlaceableInstrument
+  parent: BaseStructureDynamic
+  abstract: true
   components:
   - type: Instrument
   - type: ActivatableUI
@@ -76,10 +76,10 @@
   - type: RequireProjectileTarget
 
 - type: entity
-  abstract: true
   parent: BasePlaceableInstrument
   id: BasePlaceableInstrumentRotatable
   name: baseinstrumentrotatable
+  abstract: true
   components:
   - type: Rotatable
     rotateWhileAnchored: true

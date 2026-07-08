@@ -2,7 +2,6 @@
 
 using Content.Server.Ninja.Systems;
 using Content.Server.Objectives.Systems;
-using Content.Shared.Whitelist;
 
 namespace Content.Server.Objectives.Components;
 
@@ -17,11 +16,4 @@ public sealed partial class SpiderChargeConditionComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public EntityUid? Target;
-
-    /// <summary>
-    /// Tags that should be used to exclude Warp Points
-    /// from the list of valid bombing targets
-    /// </summary>
-    [DataField]
-    public EntityWhitelist? Blacklist;
 }

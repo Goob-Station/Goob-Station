@@ -21,7 +21,7 @@ public sealed class ImplanterStatusControl : Control
     {
         IoCManager.InjectDependencies(this);
         _parent = parent;
-        _label = new RichTextLabel { StyleClasses = { StyleClass.ItemStatus } };
+        _label = new RichTextLabel { StyleClasses = { StyleNano.StyleClassItemStatus } };
         _label.MaxWidth = 350;
         AddChild(new ClipControl { Children = { _label } });
 
@@ -51,7 +51,7 @@ public sealed class ImplanterStatusControl : Control
         if (_parent.CurrentMode == ImplanterToggleMode.Draw)
         {
             string implantName = _parent.DeimplantChosen != null
-                ? (_prototype.Resolve(_parent.DeimplantChosen.Value, out EntityPrototype? implantProto) ? implantProto.Name : Loc.GetString("implanter-empty-text"))
+                ? (_prototype.TryIndex(_parent.DeimplantChosen.Value, out EntityPrototype? implantProto) ? implantProto.Name : Loc.GetString("implanter-empty-text"))
                 : Loc.GetString("implanter-empty-text");
 
             _label.SetMarkup(Loc.GetString("implanter-label-draw",

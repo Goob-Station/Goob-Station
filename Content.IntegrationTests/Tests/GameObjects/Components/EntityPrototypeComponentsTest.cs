@@ -28,7 +28,7 @@ namespace Content.IntegrationTests.Tests.GameObjects.Components
                 .ToList()
                 .AsParallel()
                 .Where(filePath => filePath.Extension == "yml" &&
-                                   !filePath.Filename.StartsWith('.'))
+                                   !filePath.Filename.StartsWith(".", StringComparison.Ordinal))
                 .ToArray();
 
             var cComponentFactory = client.ResolveDependency<IComponentFactory>();
@@ -36,7 +36,6 @@ namespace Content.IntegrationTests.Tests.GameObjects.Components
 
             var unknownComponentsClient = new List<(string entityId, string component)>();
             var unknownComponentsServer = new List<(string entityId, string component)>();
-            var doubleIgnoredComponents = new List<(string entityId, string component)>();
             var entitiesValidated = 0;
             var componentsValidated = 0;
 
@@ -75,32 +74,26 @@ namespace Content.IntegrationTests.Tests.GameObjects.Components
 
                             var componentType = component.GetNode("type").AsString();
                             var clientAvailability = cComponentFactory.GetComponentAvailability(componentType);
-                            var serverAvailability = sComponentFactory.GetComponentAvailability(componentType);
 
-                            var entityId = node.GetNode("id").AsString();
-
-                            if ((clientAvailability, serverAvailability) is
-                                (ComponentAvailability.Ignore, ComponentAvailability.Ignore))
+                            if (clientAvailability == ComponentAvailability.Unknown)
                             {
-                                doubleIgnoredComponents.Add((entityId, componentType));
-                                continue;
+                                var entityId = node.GetNode("id").AsString();
+                                unknownComponentsClient.Add((entityId, componentType));
                             }
 
-                            // NOTE: currently, the client's component factory is configured to ignore /all/
-                            // non-registered components, meaning this case will never succeed. This is here
-                            // mainly for future proofing plus any downstreams that were brave enough to not
-                            // ignore all unknown components on clientside.
-                            if (clientAvailability == ComponentAvailability.Unknown)
-                                unknownComponentsClient.Add((entityId, componentType));
+                            var serverAvailability = sComponentFactory.GetComponentAvailability(componentType);
 
                             if (serverAvailability == ComponentAvailability.Unknown)
+                            {
+                                var entityId = node.GetNode("id").AsString();
                                 unknownComponentsServer.Add((entityId, componentType));
+                            }
                         }
                     }
                 }
             }
 
-            if (unknownComponentsClient.Count + unknownComponentsServer.Count + doubleIgnoredComponents.Count == 0)
+            if (unknownComponentsClient.Count + unknownComponentsServer.Count == 0)
             {
                 await pair.CleanReturnAsync();
                 Assert.Pass($"Validated {entitiesValidated} entities with {componentsValidated} components in {paths.Length} files.");
@@ -119,12 +112,6 @@ namespace Content.IntegrationTests.Tests.GameObjects.Components
             {
                 message.Append(
                     $"SERVER: Unknown component {component} in prototype {entityId}\n");
-            }
-
-            foreach (var (entityId, component) in doubleIgnoredComponents)
-            {
-                message.Append(
-                    $"Component {component} in prototype {entityId} is ignored by both client and serverV\n");
             }
 
             Assert.Fail(message.ToString());

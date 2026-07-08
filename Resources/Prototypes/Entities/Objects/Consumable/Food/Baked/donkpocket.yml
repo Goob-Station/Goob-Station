@@ -6,7 +6,7 @@
   id: FoodDonkpocketBase
   abstract: true
   components:
-  - type: Edible
+  - type: Food
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/donkpocket.rsi
   - type: SolutionContainerManager
@@ -410,7 +410,7 @@
           Quantity: 5
   - type: Sprite
     state: moth
-  - type: Edible
+  - type: Food
     requiresSpecialDigestion: true
   - type: Tag
     tags:

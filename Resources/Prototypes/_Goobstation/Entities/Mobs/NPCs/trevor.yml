@@ -44,10 +44,8 @@
     - id: FoodMeat
       amount: 12
   - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: SpaceGlue
-        Quantity: 200
+    bloodMaxVolume: 200
+    bloodReagent: SpaceGlue
     bloodlossDamage:
       types:
         Bloodloss:

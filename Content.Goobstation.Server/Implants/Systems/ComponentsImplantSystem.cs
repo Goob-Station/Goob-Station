@@ -17,10 +17,13 @@ public sealed class ComponentsImplantSystem : EntitySystem
 
     public void OnImplanted(Entity<ComponentsImplantComponent> ent, ref ImplantImplantedEvent args)
     {
+        if (args.Implanted is not {} mob)
+            return;
+
         if (ent.Comp.Added is {} added)
-            EntityManager.AddComponents(args.Implanted, added);
+            EntityManager.AddComponents(mob, added);
         if (ent.Comp.Removed is {} removed)
-            EntityManager.RemoveComponents(args.Implanted, removed);
+            EntityManager.RemoveComponents(mob, removed);
     }
 
     public void OnRemoved(Entity<ComponentsImplantComponent> ent, ref ImplantRemovedEvent args)

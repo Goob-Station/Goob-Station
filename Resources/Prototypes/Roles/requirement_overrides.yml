@@ -6,13 +6,13 @@
     Captain:
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 1h
+      time: 3600 # 1 hours
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 1h
+      time: 3600 # 1 hours
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 1h
+      time: 3600 # 1 hours
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 1h
+      time: 3600 # 1 hour

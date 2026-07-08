@@ -6,7 +6,6 @@ using Content.Shared._Shitmed.ItemSwitch;
 using Content.Shared._Shitmed.ItemSwitch.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
-using Content.Shared.Power.Components;
 using Content.Shared.Weapons.Melee.Events;
 
 namespace Content.Server._Shitmed.ItemSwitch;
@@ -44,7 +43,7 @@ public sealed class ItemSwitchSystem : SharedItemSwitchSystem
         if (ent.Comp.State == ent.Comp.DefaultState)
             return;
 
-        var count = (int) (battery.LastCharge / state.EnergyPerUse);
+        var count = (int) (battery.CurrentCharge / state.EnergyPerUse);
         args.PushMarkup(Loc.GetString("melee-battery-examine", ("color", "yellow"), ("count", count)));
     }
 
@@ -55,7 +54,7 @@ public sealed class ItemSwitchSystem : SharedItemSwitchSystem
             || !component.States.TryGetValue(component.State, out var state))
             return;
 
-        component.IsPowered = battery.LastCharge >= state.EnergyPerUse;
+        component.IsPowered = battery.CurrentCharge >= state.EnergyPerUse;
 
         if (component is { IsPowered: false, DefaultState: { } defaultState } && component.State != defaultState)
             _itemSwitch.Switch((uid, component), defaultState);
@@ -68,7 +67,7 @@ public sealed class ItemSwitchSystem : SharedItemSwitchSystem
             || !ent.Comp.States.TryGetValue(ent.Comp.State, out var state))
             return;
 
-        _battery.TryUseCharge(ent.Owner, state.EnergyPerUse);
+        _battery.TryUseCharge(ent, state.EnergyPerUse, battery);
     }
 
     private void OnAttemptMelee(EntityUid uid, ItemSwitchComponent component, ref AttemptMeleeEvent args)

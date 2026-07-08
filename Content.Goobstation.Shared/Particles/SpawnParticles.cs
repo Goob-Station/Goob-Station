@@ -8,7 +8,7 @@ namespace Content.Goobstation.Shared.Particles;
 /// <summary>
 /// Spawns particles at the current position of the entity.
 /// </summary>
-public sealed partial class SpawnParticles : EntityEffectBase<SpawnParticles>
+public sealed partial class SpawnParticles : EventEntityEffect<SpawnParticles>
 {
     /// <summary>
     /// The particles to spawn
@@ -34,21 +34,29 @@ public sealed partial class SpawnParticles : EntityEffectBase<SpawnParticles>
     [DataField]
     public Color? Color;
 
-    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys) => null;
+    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys) => null;
 }
 
-public abstract class SharedSpawnParticlesEffectSystem : EntityEffectSystem<MetaDataComponent, SpawnParticles>
+public abstract class SharedSpawnParticlesEffectSystem : EntitySystem
 {
-    protected override void Effect(Entity<MetaDataComponent> entity, ref EntityEffectEvent<SpawnParticles> args)
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<ExecuteEntityEffectEvent<SpawnParticles>>(OnEffect);
+    }
+
+    private void OnEffect(ref ExecuteEntityEffectEvent<SpawnParticles> args)
     {
         var effect = args.Effect.ParticleProto;
-        var quantity = args.Effect.Number * (int)Math.Floor(args.Scale);
+        var scale = args.Args is EntityEffectReagentArgs reagentArgs ? reagentArgs.Scale.Float() : 1f;
+        var quantity = args.Effect.Number * (int)Math.Floor(scale);
         var color = args.Effect.Color;
         var attach = args.Effect.Attached;
 
         for (var i = 0; i < quantity; i++)
         {
-            SpawnParticles(effect, entity, color, attach);
+            SpawnParticles(effect, args.Args.TargetEntity, color, attach);
         }
     }
 

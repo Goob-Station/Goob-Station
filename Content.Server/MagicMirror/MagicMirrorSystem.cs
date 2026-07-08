@@ -109,8 +109,6 @@ public sealed class MagicMirrorSystem : SharedMagicMirrorSystem
 
     private void OnSelectSlotDoAfter(EntityUid uid, MagicMirrorComponent component, MagicMirrorSelectDoAfterEvent args)
     {
-        component.DoAfter = null;
-
         if (args.Handled || args.Target == null || args.Cancelled)
             return;
 
@@ -189,8 +187,6 @@ public sealed class MagicMirrorSystem : SharedMagicMirrorSystem
     }
     private void OnChangeColorDoAfter(EntityUid uid, MagicMirrorComponent component, MagicMirrorChangeColorDoAfterEvent args)
     {
-        component.DoAfter = null;
-
         if (args.Handled || args.Target == null || args.Cancelled)
             return;
 
@@ -271,8 +267,6 @@ public sealed class MagicMirrorSystem : SharedMagicMirrorSystem
 
     private void OnRemoveSlotDoAfter(EntityUid uid, MagicMirrorComponent component, MagicMirrorRemoveSlotDoAfterEvent args)
     {
-        component.DoAfter = null;
-
         if (args.Handled || args.Target == null || args.Cancelled)
             return;
 
@@ -350,8 +344,6 @@ public sealed class MagicMirrorSystem : SharedMagicMirrorSystem
     }
     private void OnAddSlotDoAfter(EntityUid uid, MagicMirrorComponent component, MagicMirrorAddSlotDoAfterEvent args)
     {
-        component.DoAfter = null;
-
         if (args.Handled || args.Target == null || args.Cancelled || !TryComp(component.Target, out HumanoidAppearanceComponent? humanoid))
             return;
 

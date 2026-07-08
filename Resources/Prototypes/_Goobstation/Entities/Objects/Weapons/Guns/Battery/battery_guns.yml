@@ -108,10 +108,11 @@
       path: /Audio/_Goobstation/Weapons/Guns/Gunshots/heavy_shot_suppressed.ogg
       params:
         volume: -5
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: BulletMic
     fireCost: 900
   - type: BatterySelfRecharger
+    autoRecharge: true
     autoRechargeRate: 900
   - type: Appearance
   - type: MagazineVisuals
@@ -149,7 +150,7 @@
     startingCharge: 600
   - type: MaterialEnergy
     materialWhiteList: [Plasma]
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: BulletPlasmaCutterStrong
     fireCost: 100
   - type: WeaponRandomExplode
@@ -248,11 +249,12 @@
     slots:
     - suitStorage
     - Belt
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 50
   - type: PacifismAllowedGun
   - type: BatterySelfRecharger
+    autoRecharge: true
     autoRechargeRate: 40
 
 - type: entity
@@ -284,13 +286,14 @@
       slots:
         - suitStorage
         - Belt
-    - type: BatteryAmmoProvider
+    - type: ProjectileBatteryAmmoProvider
       proto: BulletSyndicateDisabler
       fireCost: 100
     - type: Multishot
       spreadMultiplier: 1.25
       spreadAddition: 10
     - type: BatterySelfRecharger
+      autoRecharge: true
       autoRechargeRate: 50
 
 - type: entity
@@ -303,6 +306,7 @@
     tags:
     - Rifle
   - type: BatterySelfRecharger
+    autoRecharge: true
     autoRechargeRate: 80
 
 - type: entity
@@ -380,7 +384,7 @@
   - type: Battery
     maxCharge: 1000
     startingCharge: 1000
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: BulletDetain
     fireCost: 80
   - type: AmmoSelector
@@ -446,7 +450,9 @@
     deleteAfterExplosion: false
     repeatable: true
   - type: BatterySelfRecharger
+    autoRecharge: true
     autoRechargeRate: 50
+    autoRechargePause: true
     autoRechargePauseTime: 40
 
 - type: entity
@@ -482,7 +488,7 @@
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: RifleBulletEnergyGunIon # yes i just copy cr-2 ion bullet
     fireCost: 40
   - type: Battery

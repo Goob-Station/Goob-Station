@@ -137,7 +137,7 @@ public abstract partial class GameRuleSystem<T> where T: IComponent
                 continue;
 
             if (_atmosphere.IsTileSpace(grid.Owner, Transform(grid.Owner).MapUid, tile)
-                || _atmosphere.IsTileAirBlockedCached(grid.Owner, tile))
+                || _atmosphere.IsTileAirBlocked(grid.Owner, tile, mapGridComp: grid.Comp))
                 continue;
 
             targetCoords = _map.GridTileToLocal(grid.Owner, grid.Comp, tile);

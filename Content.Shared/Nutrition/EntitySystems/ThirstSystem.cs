@@ -127,15 +127,15 @@ public sealed class ThirstSystem : EntitySystem
         switch (component.CurrentThirstThreshold)
         {
             case ThirstThreshold.OverHydrated:
-                _prototype.Resolve(ThirstIconOverhydratedId, out prototype);
+                _prototype.TryIndex(ThirstIconOverhydratedId, out prototype);
                 break;
 
             case ThirstThreshold.Thirsty:
-                _prototype.Resolve(ThirstIconThirstyId, out prototype);
+                _prototype.TryIndex(ThirstIconThirstyId, out prototype);
                 break;
 
             case ThirstThreshold.Parched:
-                _prototype.Resolve(ThirstIconParchedId, out prototype);
+                _prototype.TryIndex(ThirstIconParchedId, out prototype);
                 break;
 
             default:

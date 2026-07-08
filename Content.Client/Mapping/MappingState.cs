@@ -863,7 +863,7 @@ public sealed class MappingState : GameplayStateBase
         }
         else
         {
-            button.ChildrenPrototypes.RemoveAllChildren();
+            button.ChildrenPrototypes.DisposeAllChildren();
             button.CollapseButton.Label.Text = "▶";
         }
     }

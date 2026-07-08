@@ -149,7 +149,7 @@
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
       state: mange_s
-
+      
 - type: marking
   id: VoxHairMohawk
   bodyPart: Hair
@@ -269,7 +269,7 @@
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
       state: wise_braid_s
-
+      
 - type: marking
   id: VoxHairYasu
   bodyPart: Hair
@@ -279,13 +279,3 @@
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
       state: yasu_s
-
-- type: marking
-  id: VoxHairCatfish
-  bodyPart: Hair
-  markingCategory: Hair
-  canBeDisplaced: false
-  speciesRestriction: [Vox]
-  sprites:
-    - sprite: Mobs/Customization/vox_hair.rsi
-      state: catfish_s

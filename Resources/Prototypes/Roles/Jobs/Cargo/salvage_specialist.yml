@@ -8,7 +8,7 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Cargo
-      time: 2.5h
+      time: 9000 # 2.5 hrs
   icon: "JobIconShaftMiner"
   startingGear: SalvageSpecialistGear
   guides: # goobstation

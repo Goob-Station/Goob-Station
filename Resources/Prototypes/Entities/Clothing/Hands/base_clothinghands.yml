@@ -15,7 +15,7 @@
       params:
         volume: -4
   # Goobstation edit end
-  - type: Edible
+  - type: Food
     requiresSpecialDigestion: true
   - type: Item
     size: Small

@@ -22,5 +22,5 @@ public sealed partial class XAEEmpInAreaComponent : Component
     /// Duration (in seconds) for which devices going to be disabled.
     /// </summary>
     [DataField]
-    public TimeSpan DisableDuration = TimeSpan.FromSeconds(60);
+    public float DisableDuration = 60f;
 }

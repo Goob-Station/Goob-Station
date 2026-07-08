@@ -176,14 +176,12 @@
   suffix: Filled
   parent: CowToolbox
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: Haycutters
-        - id: Moodriver
-        - id: Wronch
-        - id: Cowbar
-        - id: Mooltitool
-        - id: Cowelder
-        - id: Milkalyzer
+  - type: StorageFill
+    contents:
+    - id: Haycutters
+    - id: Moodriver
+    - id: Wronch
+    - id: Cowbar
+    - id: Mooltitool
+    - id: Cowelder
+    - id: Milkalyzer

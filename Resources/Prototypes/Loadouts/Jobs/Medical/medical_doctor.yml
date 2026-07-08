@@ -7,17 +7,17 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobChemist
-      time: 6h
+      time: 21600 #6 hrs
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
       role: JobMedicalDoctor
-      time: 6h
+      time: 21600 #6 hrs
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:DepartmentTimeRequirement
       department: Medical
-      time: 60h
+      time: 216000 # 60 hrs
 
 # Other Timers
 
@@ -28,7 +28,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobMedicalDoctor
-      time: 30h
+      time: 108000 #30 hrs
 
 # Head
 

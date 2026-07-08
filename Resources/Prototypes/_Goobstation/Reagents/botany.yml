@@ -16,8 +16,8 @@
       effects:
       - !type:SatiateHunger
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Plant ]
+        - !type:OrganType
+          type: Plant
 
 - type: reagent
   id: Saltpeter
@@ -42,8 +42,8 @@
       effects:
       - !type:SatiateHunger
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Plant ]
+        - !type:OrganType
+          type: Plant
     Medicine:
       metabolismRate: 0.2 # powerful at healing diona, but slow
       effects:
@@ -57,5 +57,5 @@
             Heat: -0.8
             Cold: -0.8
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Plant ]
+        - !type:OrganType
+          type: Plant

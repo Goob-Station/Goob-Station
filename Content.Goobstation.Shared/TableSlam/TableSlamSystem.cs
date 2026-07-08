@@ -126,7 +126,7 @@ public sealed class TableSlamSystem : EntitySystem
             _damageableSystem.TryChangeDamage(ent.Owner, bluntDamage);
         }
 
-        _staminaSystem.TakeStaminaDamage(ent, ent.Comp.TabledStaminaDamage);
+        _staminaSystem.TakeStaminaDamage(ent, ent.Comp.TabledStaminaDamage, applyResistances: true);
         _stunSystem.TryKnockdown(ent.Owner, stunDuration, false);
 
         var postTabled = EnsureComp<PostTabledComponent>(ent);

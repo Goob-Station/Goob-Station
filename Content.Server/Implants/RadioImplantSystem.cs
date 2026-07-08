@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Radio.Components;
+using Content.Server.Radio.Components;
 using Content.Shared.Implants;
 using Content.Shared.Implants.Components;
-using Content.Shared.Radio.Components;
+using Robust.Shared.Containers;
 
 namespace Content.Server.Implants;
 
@@ -14,7 +14,7 @@ public sealed class RadioImplantSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<RadioImplantComponent, ImplantImplantedEvent>(OnImplantImplanted);
-        SubscribeLocalEvent<RadioImplantComponent, ImplantRemovedEvent>(OnImplantRemoved);
+        SubscribeLocalEvent<RadioImplantComponent, EntGotRemovedFromContainerMessage>(OnRemove);
     }
 
     /// <summary>
@@ -22,16 +22,19 @@ public sealed class RadioImplantSystem : EntitySystem
     /// </summary>
     private void OnImplantImplanted(Entity<RadioImplantComponent> ent, ref ImplantImplantedEvent args)
     {
-        var activeRadio = EnsureComp<ActiveRadioComponent>(args.Implanted);
+        if (args.Implanted == null)
+            return;
+
+        var activeRadio = EnsureComp<ActiveRadioComponent>(args.Implanted.Value);
         foreach (var channel in ent.Comp.RadioChannels)
         {
             if (activeRadio.Channels.Add(channel))
                 ent.Comp.ActiveAddedChannels.Add(channel);
         }
 
-        EnsureComp<IntrinsicRadioReceiverComponent>(args.Implanted);
+        EnsureComp<IntrinsicRadioReceiverComponent>(args.Implanted.Value);
 
-        var intrinsicRadioTransmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(args.Implanted);
+        var intrinsicRadioTransmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(args.Implanted.Value);
         foreach (var channel in ent.Comp.RadioChannels)
         {
             if (intrinsicRadioTransmitter.Channels.Add(channel))
@@ -42,9 +45,9 @@ public sealed class RadioImplantSystem : EntitySystem
     /// <summary>
     /// Removes intrinsic radio components once the Radio Implant is removed
     /// </summary>
-    private void OnImplantRemoved(Entity<RadioImplantComponent> ent, ref ImplantRemovedEvent args)
+    private void OnRemove(Entity<RadioImplantComponent> ent, ref EntGotRemovedFromContainerMessage args)
     {
-        if (TryComp<ActiveRadioComponent>(args.Implanted, out var activeRadioComponent))
+        if (TryComp<ActiveRadioComponent>(args.Container.Owner, out var activeRadioComponent))
         {
             foreach (var channel in ent.Comp.ActiveAddedChannels)
             {
@@ -54,11 +57,11 @@ public sealed class RadioImplantSystem : EntitySystem
 
             if (activeRadioComponent.Channels.Count == 0)
             {
-                RemCompDeferred<ActiveRadioComponent>(args.Implanted);
+                RemCompDeferred<ActiveRadioComponent>(args.Container.Owner);
             }
         }
 
-        if (!TryComp<IntrinsicRadioTransmitterComponent>(args.Implanted, out var radioTransmitterComponent))
+        if (!TryComp<IntrinsicRadioTransmitterComponent>(args.Container.Owner, out var radioTransmitterComponent))
             return;
 
         foreach (var channel in ent.Comp.TransmitterAddedChannels)
@@ -69,7 +72,7 @@ public sealed class RadioImplantSystem : EntitySystem
 
         if (radioTransmitterComponent.Channels.Count == 0 || activeRadioComponent?.Channels.Count == 0)
         {
-            RemCompDeferred<IntrinsicRadioTransmitterComponent>(args.Implanted);
+            RemCompDeferred<IntrinsicRadioTransmitterComponent>(args.Container.Owner);
         }
     }
 }

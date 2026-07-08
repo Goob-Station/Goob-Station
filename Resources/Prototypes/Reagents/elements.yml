@@ -46,9 +46,9 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
-          inverted: true
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         damage:
           types:
             Poison: 2
@@ -69,11 +69,12 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition
-          type:
-          - Arachnid
-          - Yowie # Goobstation - Yowie
-          inverted: true
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        - !type:OrganType
+          type: Arachnid
+          shouldHave: false
         damage:
           types:
             Poison: 0.1
@@ -81,8 +82,9 @@
       effects:
       - !type:ModifyBloodLevel
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Arachnid ]
+        - !type:OrganType
+          type: Arachnid
+          shouldHave: true
         amount: 0.4
 
 - type: reagent
@@ -109,9 +111,9 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
-          inverted: true
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         damage:
           types:
             Caustic: 0.5
@@ -166,10 +168,12 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition
-          type:
-          - Arachnid
-          - Yowie # Goobstation - Yowie
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        - !type:OrganType
+          type: Arachnid
+          shouldHave: true
         damage:
           types:
             Poison: 0.1
@@ -177,9 +181,9 @@
       effects:
       - !type:ModifyBloodLevel
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Arachnid ]
-          inverted: true
+        - !type:OrganType
+          type: Arachnid
+          shouldHave: false
         amount: 0.4
 
 - type: reagent
@@ -198,17 +202,17 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
-          inverted: true
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         damage:
           types:
             Poison: 0.05
       - !type:Emote
         conditions:
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
-          inverted: true
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         emote: Scream
         probability: 0.05
       - !type:Emote
@@ -232,15 +236,15 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
-          inverted: true
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         damage:
           types:
             Poison: 1
-      - !type:ModifyStatusEffect
-        effectProto: StatusEffectScrambled
-        type: Update
+      - !type:GenericStatusEffect
+        key: Stutter
+        component: ScrambledAccent
 
 - type: reagent
   id: Potassium
@@ -298,9 +302,9 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
-          inverted: true
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         damage:
           types:
             Poison: 1.5

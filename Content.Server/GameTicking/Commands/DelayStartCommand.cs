@@ -4,44 +4,50 @@ using Content.Server.Administration;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
 
-namespace Content.Server.GameTicking.Commands;
-
-[AdminCommand(AdminFlags.Round)]
-public sealed class DelayStartCommand : LocalizedEntityCommands
+namespace Content.Server.GameTicking.Commands
 {
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-
-    public override string Command => "delaystart";
-
-    public override void Execute(IConsoleShell shell, string argStr, string[] args)
+    [AdminCommand(AdminFlags.Round)]
+    sealed class DelayStartCommand : IConsoleCommand
     {
-        if (_gameTicker.RunLevel != GameRunLevel.PreRoundLobby)
-        {
-            shell.WriteLine(Loc.GetString("shell-can-only-run-from-pre-round-lobby"));
-            return;
-        }
+        [Dependency] private readonly IEntityManager _e = default!;
 
-        switch (args.Length)
+        public string Command => "delaystart";
+        public string Description => "Delays the round start.";
+        public string Help => $"Usage: {Command} <seconds>\nPauses/Resumes the countdown if no argument is provided.";
+
+        public void Execute(IConsoleShell shell, string argStr, string[] args)
         {
-            case 0:
-                var paused = _gameTicker.TogglePause();
-                shell.WriteLine(Loc.GetString(paused ? "cmd-delaystart-paused" : "cmd-delaystart-unpaused"));
+            var ticker = _e.System<GameTicker>();
+            if (ticker.RunLevel != GameRunLevel.PreRoundLobby)
+            {
+                shell.WriteLine("This can only be executed while the game is in the pre-round lobby.");
                 return;
-            case 1:
-                break;
-            default:
-                shell.WriteError(Loc.GetString("shell-wrong-arguments-number"));
+            }
+
+            if (args.Length == 0)
+            {
+                var paused = ticker.TogglePause();
+                shell.WriteLine(paused ? "Paused the countdown." : "Resumed the countdown.");
                 return;
-        }
+            }
 
-        if (!uint.TryParse(args[0], out var seconds) || seconds == 0)
-        {
-            shell.WriteLine(Loc.GetString("cmd-delaystart-invalid-seconds", ("value", args[0])));
-            return;
-        }
+            if (args.Length != 1)
+            {
+                shell.WriteLine("Need zero or one arguments.");
+                return;
+            }
 
-        var time = TimeSpan.FromSeconds(seconds);
-        if (!_gameTicker.DelayStart(time))
-            shell.WriteLine(Loc.GetString("cmd-delaystart-too-late"));
+            if (!uint.TryParse(args[0], out var seconds) || seconds == 0)
+            {
+                shell.WriteLine($"{args[0]} isn't a valid amount of seconds.");
+                return;
+            }
+
+            var time = TimeSpan.FromSeconds(seconds);
+            if (!ticker.DelayStart(time))
+            {
+                shell.WriteLine("An unknown error has occurred.");
+            }
+        }
     }
 }

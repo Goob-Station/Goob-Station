@@ -1,7 +1,5 @@
 // SPDX-License-Identifier: MIT
 
-using Content.Shared.Destructible;
-
 namespace Content.Server.Destructible.Thresholds.Behaviors
 {
     [Serializable]

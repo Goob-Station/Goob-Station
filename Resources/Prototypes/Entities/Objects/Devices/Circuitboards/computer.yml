@@ -22,8 +22,7 @@
         Steel: 25
         Glass: 125
       chemicalComposition:
-        Silicon: 20
-    - type: Circuitboard
+        Silicon: 5
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -258,6 +257,17 @@
 
 - type: entity
   parent: BaseComputerCircuitboard
+  id: SalvageShuttleConsoleCircuitboard
+  name: salvage shuttle console board
+  description: A computer printed circuit board for a salvage shuttle console.
+  components:
+    - type: ComputerBoard
+      prototype: ComputerShuttleSalvage
+    - type: StealTarget
+      stealGroup: SalvageShuttleConsoleCircuitboard
+
+- type: entity
+  parent: BaseComputerCircuitboard
   id: SurveillanceCameraMonitorCircuitboard
   name: surveillance camera monitor board
   description: A computer printed circuit board for a surveillance camera monitor.
@@ -281,17 +291,6 @@
     state: cpu_service
   - type: ComputerBoard
     prototype: ComputerSurveillanceWirelessCameraMonitor
-
-- type: entity
-  parent: BaseComputerCircuitboard
-  id: XenoborgCameraMonitorCircuitboard
-  name: xenoborg camera monitor board
-  description: A computer printed circuit board for a xenoborg camera monitor.
-  components:
-  - type: Sprite
-    state: cpu_science
-  - type: ComputerBoard
-    prototype: ComputerSurveillanceWirelessXenoborgCameraMonitor
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -401,17 +400,6 @@
     prototype: SyndicateComputerComms
 
 - type: entity
-  parent: [ BaseComputerCircuitboard, BaseSyndicateContraband ]
-  id: WizardCommsComputerCircuitboard
-  name: wizard communications computer board
-  description: A computer printed circuit board for a wizard communications console.
-  components:
-  - type: Sprite
-    state: cpu_wizard
-  - type: ComputerBoard
-    prototype: WizardComputerComms
-
-- type: entity
   parent: [ BaseComputerCircuitboard, BaseCentcommContraband ]
   id: CentcommCommsComputerCircuitboard
   name: central command communications computer board
@@ -425,7 +413,7 @@
 - type: entity
   parent: BaseComputerCircuitboard
   id: RadarConsoleCircuitboard
-  name: mass scanner computer board
+  name: radar console computer board
   components:
   - type: Sprite
     state: cpu_supply
@@ -564,33 +552,11 @@
 
 - type: entity
   parent: BaseComputerCircuitboard
-  id: ComputerXenoborgsControlCircuitboard
-  name: xenoborg control console board
-  description: A computer printed circuit board for a xenoborg control console.
-  components:
-    - type: Sprite
-      state: cpu_science
-    - type: ComputerBoard
-      prototype: ComputerXenoborgsControl
-
-- type: entity
-  parent: BaseComputerCircuitboard
   id: StationAiUploadCircuitboard
   name: AI upload console board
-  description: A computer printed circuit board for an AI upload console.
+  description: A computer printed circuit board for a AI upload console.
   components:
     - type: Sprite
       state: cpu_science
     - type: ComputerBoard
       prototype: StationAiUploadComputer
-
-- type: entity
-  parent: BaseComputerCircuitboard
-  id: StationAiFixerCircuitboard
-  name: AI restoration console board
-  description: A computer printed circuit board for an AI restoration console console.
-  components:
-    - type: Sprite
-      state: cpu_science
-    - type: ComputerBoard
-      prototype: StationAiFixerComputer

@@ -1,0 +1,434 @@
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+#Librarian
+- type: entity
+  parent: BaseMail
+  id: MailBooksGuide
+  suffix: Guidebooks
+  components:
+  - type: Mail
+    contents:
+    - id: BookSpaceEncyclopedia
+      prob: 0.2
+      orGroup: bookguide
+    - id: BookTheBookOfControl
+      prob: 0.2
+      orGroup: bookguide
+    - id: BookBartendersManual
+      prob: 0.2
+      orGroup: bookguide
+    - id: BookHowToCookForFortySpaceman
+      prob: 0.2
+      orGroup: bookguide
+    - id: BookLeafLoversSecret
+      prob: 0.2
+      orGroup: bookguide
+    - id: BookEngineersHandbook
+      prob: 0.2
+      orGroup: bookguide
+    - id: BookScientistsGuidebook
+      prob: 0.15
+      orGroup: bookguide
+    - id: BookSecurity
+      prob: 0.2
+      orGroup: bookguide
+    - id: BookHowToKeepStationClean
+      prob: 0.2
+      orGroup: bookguide
+    - id: BookHowToRockAndStone
+      prob: 0.2
+      orGroup: bookguide
+    - id: BookMedicalReferenceBook
+      prob: 0.2
+      orGroup: bookguide
+    - id: BookHowToSurvive
+      prob: 0.3
+      orGroup: bookguide
+    - id: BookChemicalCompendium
+      prob: 0.15
+      orGroup: bookguide
+    - id: BookRandom
+      prob: 0.5
+      orGroup: bookguide
+
+- type: entity
+  parent: BaseMail
+  id: MailBooksAuthor
+  suffix: Authorbooks
+  components:
+  - type: Mail
+    contents:
+    - id: BookNarsieLegend
+      prob: 0.02
+      orGroup: bookauthor
+    - id: BookTruth
+      prob: 0.02
+      orGroup: bookauthor
+    - id: BookWorld
+      prob: 0.1
+      orGroup: bookauthor
+    - id: BookIanAntarctica
+      prob: 0.05
+      orGroup: bookauthor
+    - id: BookSlothClownSSS
+      prob: 0.04
+      orGroup: bookauthor
+    - id: BookSlothClownPranks
+      prob: 0.04
+      orGroup: bookauthor
+    - id: BookSlothClownMMD
+      prob: 0.04
+      orGroup: bookauthor
+    - id: BookStruck
+      prob: 0.1
+      orGroup: bookauthor
+    - id: BookSun
+      prob: 0.1
+      orGroup: bookauthor
+    - id: BookPossum
+      prob: 0.1
+      orGroup: bookauthor
+    - id: BookCafe
+      prob: 0.1
+      orGroup: bookauthor
+    - id: BookFeather
+      prob: 0.1
+      orGroup: bookauthor
+    - id: BookIanLostWolfPup
+      prob: 0.05
+      orGroup: bookauthor
+    - id: BookIanRanch
+      prob: 0.05
+      orGroup: bookauthor
+    - id: BookIanOcean
+      prob: 0.05
+      orGroup: bookauthor
+    - id: BookIanMountain
+      prob: 0.05
+      orGroup: bookauthor
+    - id: BookIanCity
+      prob: 0.05
+      orGroup: bookauthor
+    - id: BookIanArctic
+      prob: 0.05
+      orGroup: bookauthor
+    - id: BookIanDesert
+      prob: 0.05
+      orGroup: bookauthor
+    - id: BookNames
+      prob: 0.08
+      orGroup: bookauthor
+    - id: BookEarth
+      prob: 0.08
+      orGroup: bookauthor
+    - id: BookTemple
+      prob: 0.09
+      orGroup: bookauthor
+    - id: BookAurora
+      prob: 0.1
+      orGroup: bookauthor
+    - id: BookWatched
+      prob: 0.04
+      orGroup: bookauthor
+    - id: BookMedicalOfficer
+      prob: 0.06
+      orGroup: bookauthor
+    - id: BookMorgue
+      prob: 0.06
+      orGroup: bookauthor
+    - id: BookRufus
+      prob: 0.1
+      orGroup: bookauthor
+    - id: BookMap
+      prob: 0.08
+      orGroup: bookauthor
+    - id: BookJourney
+      prob: 0.1
+      orGroup: bookauthor
+    - id: BookInspiration
+      prob: 0.09
+      orGroup: bookauthor
+    - id: BookRandom # The "spawn nothing" in the 'orGroup'
+      prob: 0.3
+      orGroup: bookauthor
+
+- type: entity
+  parent: BaseMail
+  id: MailLuxuryPen # Also for lawyer. reporter and command staff
+  suffix: Luxury Pen
+  components:
+  - type: Mail
+    contents:
+    - id: LuxuryPen
+      orGroup: Pen
+      prob: 0.75
+    - id: PenHop
+      orGroup: Pen
+      prob: 0.25
+    - id: PenCap
+      orGroup: Pen
+      prob: 0.25
+    # Ultra-rare
+    - id: CyberPen
+      orGroup: Pen
+      prob: 0.005
+    - id: PenCentcom
+      orGroup: Pen
+      prob: 0.005
+    - id: PaperMailNFPaperPusherAd
+
+#Chaplain
+- type: entity
+  parent: BaseMailLarge
+  id: MailWitchery
+  suffix: Bible, Witchery
+  components:
+  - type: Mail
+    contents:
+    - id: Bible
+    - id: ClothingHeadHatWitch1
+    - id: ClothingOuterSuitWitchRobes
+
+#Clown and Mime
+- type: entity
+  parent: BaseMail
+  id: MailBikehorn
+  suffix: BikeHorn
+  components:
+  - type: Mail
+    contents:
+    - id: BikeHorn
+      orGroup: Horn
+      prob: 0.95
+    - id: CluwneHorn
+      orGroup: Horn
+      prob: 0.05
+
+- type: entity
+  parent: BaseMail
+  id: MailClownHonkSupplement
+  suffix: Honk
+  components:
+  - type: Mail
+    isFragile: true
+    contents:
+    - id: BikeHorn
+    - id: FoodPieBananaCream
+    - id: FoodBanana
+
+- type: entity
+  parent: BaseMail
+  id: MailMimeArtsCrafts
+  suffix: Mime Arts
+  components:
+  - type: Mail
+    contents:
+    - id: CrayonBox
+    - id: Paper
+      maxAmount: 5
+
+- type: entity
+  parent: BaseMail
+  id: MailMimeBottleOfNothing
+  suffix: Bottle of Nothing
+  components:
+  - type: Mail
+    contents:
+      - id: DrinkBottleOfNothingFull
+
+#Botanist
+- type: entity
+  parent: BaseMail
+  id: MailMutatedProduce
+  suffix: Mutated Produce
+  components:
+  - type: Mail
+    isPriority: true
+    isFragile: true
+    contents:
+    - id: FoodLaughinPeaPod
+      orGroup: Produce
+      amount: 5
+    - id: FoodMimana
+      orGroup: Produce
+      amount: 5
+    - id: FoodLemoon
+      orGroup: Produce
+      amount: 5
+    - id: FoodBlueTomato
+      orGroup: Produce
+      amount: 5
+    - id: FoodBloodTomato
+      orGroup: Produce
+      amount: 5
+    - id: FoodKoibean
+      orGroup: Produce
+      amount: 5
+    - id: FoodGoldenApple
+      orGroup: Produce
+      amount: 5
+    - id: FoodGlasstle
+      orGroup: Produce
+      amount: 5
+    - id: FoodLily
+      orGroup: Produce
+      amount: 5
+      prob: 0.5
+    - id: FoodAmbrosiaDeus
+      orGroup: Produce
+      amount: 5
+      prob: 0.5
+    - id: FoodSpacemansTrumpet
+      orGroup: Produce
+      amount: 5
+      prob: 0.25
+    - id: FoodFakeCapfruit
+      orGroup: Produce
+      amount: 5
+      prob: 0.05
+
+- type: entity
+  parent: BaseMailLarge
+  id: MailBotanistChemicalBottles
+  suffix: Botanist Chemicals
+  components:
+  - type: Mail
+    isFragile: true
+    isPriority: true
+    contents:
+    - id: ChemistryBottleRobustHarvest
+      orGroup: Chemical
+    - id: WeedSpray
+      orGroup: Chemical
+    - id: ChemistryBottleUnstableMutagen
+      orGroup: Chemical
+
+- type: entity
+  parent: BaseMail
+  id: MailBotanistSeeds
+  suffix: Seeds
+  components:
+  - type: Mail
+    contents:
+    - id: AloeSeeds
+      orGroup: Seeds
+    - id: AmbrosiaVulgarisSeeds
+      orGroup: Seeds
+    - id: AppleSeeds
+      orGroup: Seeds
+    - id: BananaSeeds
+      orGroup: Seeds
+    - id: CarrotSeeds
+      orGroup: Seeds
+    - id: ChanterelleSeeds
+      orGroup: Seeds
+    - id: ChiliSeeds
+      orGroup: Seeds
+    - id: CornSeeds
+      orGroup: Seeds
+    - id: EggplantSeeds
+      orGroup: Seeds
+    - id: GalaxythistleSeeds
+      orGroup: Seeds
+    - id: LemonSeeds
+      orGroup: Seeds
+    - id: LingzhiSeeds
+      orGroup: Seeds
+    - id: OatSeeds
+      orGroup: Seeds
+    - id: OnionSeeds
+      orGroup: Seeds
+    - id: PoppySeeds
+      orGroup: Seeds
+    - id: PotatoSeeds
+      orGroup: Seeds
+    - id: SugarcaneSeeds
+      orGroup: Seeds
+    - id: TomatoSeeds
+      orGroup: Seeds
+    - id: TowercapSeeds
+      orGroup: Seeds
+    - id: WheatSeeds
+      orGroup: Seeds
+
+- type: entity
+  parent: BaseMail
+  id: MailKudzuDeterrent
+  suffix: Antikudzu
+  components:
+  - type: Mail
+    contents:
+    - id: PlantBGoneSpray
+
+# Janitor
+- type: entity
+  parent: BaseMail
+  id: MailSoaps # Also for clown and mime
+  suffix: Soaps
+  components:
+  - type: Mail
+    contents:
+    - id: BoxSoapsAssorted
+    - id: PaperMailNTSoapAd1
+      orGroup: Ad
+    - id: PaperMailNTSoapAd2
+      orGroup: Ad
+
+- type: entity
+  parent: BaseMail
+  id: MailSoapsOmega # Also for clown and mime
+  suffix: Omega Soap
+  components:
+  - type: Mail
+    contents:
+    - id: BoxSoapsAssortedOmega
+    - id: PaperMailNTSoapAd1
+      orGroup: Ad
+    - id: PaperMailNTSoapAd2
+      orGroup: Ad
+
+# Musician
+- type: entity
+  parent: BaseMailLarge
+  id: MailInstrumentLarge
+  suffix: Instruments, Large
+  components:
+  - type: Mail
+    contents:
+    - id: TromboneInstrument
+      orGroup: Instrument
+    - id: FrenchHornInstrument
+      orGroup: Instrument
+    - id: SaxophoneInstrument
+      orGroup: Instrument
+    - id: EuphoniumInstrument
+      orGroup: Instrument
+    - id: AcousticGuitarInstrument
+      orGroup: Instrument
+    - id: ElectricGuitarInstrument
+      orGroup: Instrument
+    - id: BassGuitarInstrument
+      orGroup: Instrument
+    - id: RockGuitarInstrument
+      orGroup: Instrument
+    - id: BanjoInstrument
+      orGroup: Instrument
+    - id: ViolinInstrument
+      orGroup: Instrument
+    - id: CelloInstrument
+      orGroup: Instrument
+    - id: ViolaInstrument
+      orGroup: Instrument
+    - id: BagpipeInstrument # Fury.
+      orGroup: Instrument
+    - id: SynthesizerInstrument
+      orGroup: Instrument
+    - id: AccordionInstrument
+      orGroup: Instrument
+    - id: GlockenspielInstrument
+      orGroup: Instrument
+    - id: XylophoneInstrument
+      orGroup: Instrument

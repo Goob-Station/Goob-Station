@@ -13,9 +13,12 @@
       description: ghost-role-information-blob-description
       rules: You are an antagonist, destroy the station!
       mindRoles:
-      - MindRoleGhostRoleSoloAntagonistGoob
+      - MindRoleGhostRoleSoloAntagonist
       raffle:
         settings: default
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 18000 #5 hours
     - type: Sprite
       sprite: Markers/jobs.rsi
       layers:
@@ -31,7 +34,6 @@
   save: false
   components:
   - type: Temperature
-  - type: TemperatureDamage
     heatDamage:
       types:
         Heat: 5
@@ -99,10 +101,13 @@
     description: ghost-role-information-blob-description
     rules: You are an antagonist, destroy the station!
     mindRoles:
-    - MindRoleGhostRoleSoloAntagonistGoob
+    - MindRoleGhostRoleSoloAntagonist
     reregister: false
     raffle:
       settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000 #5 hours
   - type: GhostTakeoverAvailable
 
 - type: entity
@@ -113,7 +118,6 @@
   description: An ordinary part of yours required for the construction of more advanced tiles.
   components:
   - type: Temperature
-  - type: TemperatureDamage
     heatDamage:
       types:
         Heat: 5
@@ -178,7 +182,6 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Temperature
-    - type: TemperatureDamage
       heatDamage:
         types:
           Heat: 5
@@ -217,7 +220,6 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Temperature
-    - type: TemperatureDamage
       heatDamage:
         types:
           Heat: 5
@@ -258,7 +260,6 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Temperature
-    - type: TemperatureDamage
       heatDamage:
         types:
           Heat: 5

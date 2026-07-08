@@ -21,6 +21,7 @@
     baseSprintSpeed : 4
   - type: StatusEffects
     allowed:
+    - Stutter
     - Electrocution
     - TemporaryBlindness
     - Pacified
@@ -33,7 +34,6 @@
     tags:
     - DoorBumpOpener
     - StunImmune
-  - type: Blindable
   - type: StatusIcon # Goobstation
     bounds: -0.5,-0.5,0.5,0.5
 
@@ -98,17 +98,16 @@
     baseDecayRate: 0.04
   - type: StatusEffects
     allowed:
+    - Stutter
     - Electrocution
     - TemporaryBlindness
     - Pacified
+    - StaminaModifier
     - Flashed
     - RadiationProtection
     - Adrenaline
   - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: Blood
-        Quantity: 150
+    bloodMaxVolume: 150
   - type: MobPrice
     price: 150
   - type: FloatingVisuals

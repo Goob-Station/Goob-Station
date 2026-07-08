@@ -24,9 +24,9 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
-          inverted: true
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         damage:
           types:
             Caustic: 1
@@ -47,8 +47,7 @@
         damage:
           types:
             Poison: -1
-      - !type:CleanBloodstream
-        excluded: Charcoal
+      - !type:ChemCleanBloodstream
         cleanseRate: 3
 
 - type: reagent
@@ -57,21 +56,6 @@
   desc: reagent-desc-ash
   physicalDesc: reagent-physical-desc-powdery
   color: white
-
-- type: reagent
-  id: Lye
-  name: reagent-name-lye
-  desc: reagent-desc-lye
-  flavor: alkaline
-  physicalDesc: reagent-physical-desc-alkaline
-  color: "#e5420b"
-  metabolisms:
-    Poison:
-      effects:
-      - !type:HealthChange
-        damage:
-          types:
-            Caustic: 1
 
 - type: reagent
   id: SodiumCarbonate
@@ -86,8 +70,6 @@
   desc: reagent-desc-artifexium
   flavor: metallic
   physicalDesc: reagent-physical-desc-crystalline
-  allowedDepartments:
-  - Science
   color: "#776291"
   metabolisms:
     Poison:
@@ -101,7 +83,9 @@
       methods: [ Touch ]
       effects:
       - !type:ArtifactUnlock
-        minScale: 5
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
 
 - type: reagent
   parent: Artifexium
@@ -116,15 +100,15 @@
       methods: [ Touch ]
       effects:
       - !type:ArtifactDurabilityRestore
-        minScale: 5
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
 
 - type: reagent
   id: Benzene
   name: reagent-name-benzene
   desc: reagent-desc-benzene
   physicalDesc: reagent-physical-desc-acidic
-  allowedJobs:
-  - Chemist
   color: "#E7EA91"
   boilingPoint: 353.2
   meltingPoint: 278.7
@@ -158,24 +142,20 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type: [ Yowie ]
-          inverted: true
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         damage:
           types:
             Heat: 1.5
     Medicine:
       effects:
-      - !type:Vomit
+      - !type:ChemVomit
         conditions:
-        - !type:ReagentCondition
-          reagent: SodiumHydroxide
-        - !type:MetabolizerTypeCondition # Goobstation - Yowie
-          type:
-          - Yowie
-          inverted: true
-        - !type:ReagentCondition
-          reagent: SodiumHydroxide
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        - !type:ReagentThreshold
           min: 5
         probability: 0.1
 

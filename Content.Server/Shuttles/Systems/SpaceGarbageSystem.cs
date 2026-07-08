@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Shuttles.Components;
+using Content.Server.Shuttles.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Events;
 

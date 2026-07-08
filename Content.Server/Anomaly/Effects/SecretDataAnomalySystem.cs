@@ -38,12 +38,4 @@ public sealed class SecretDataAnomalySystem : EntitySystem
             component.Secret.Add(_random.PickAndTake(_deita));
         }
     }
-
-    public bool IsSecret(EntityUid uid, AnomalySecretData item, SecretDataAnomalyComponent? component = null)
-    {
-        if (!Resolve(uid, ref component, logMissing: false))
-            return false;
-
-        return component.Secret.Contains(item);
-    }
 }

@@ -108,7 +108,7 @@ public sealed partial class ReformSystem : EntitySystem
                 : SpawnNextToOrDrop(comp.ReformPrototype, container.Owner);
         }
         else
-            child = SpawnNextToOrDrop(comp.ReformPrototype, uid);
+            child = Spawn(comp.ReformPrototype, Transform(uid).Coordinates);
 
         // This transfers the mind to the new entity
         if (_mindSystem.TryGetMind(uid, out var mindId, out var mind))

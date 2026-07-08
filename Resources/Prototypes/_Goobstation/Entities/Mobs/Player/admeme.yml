@@ -38,7 +38,13 @@
   - type: Speech
     speechVerb: HolierThanThou
   - type: GhostRole
-    job: CentralCommandOfficial
+    requirements:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 36000 # Ten Hours
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 108000 # Thirty hours. Fuck you.
 
 # Navy Officer
 
@@ -474,10 +480,9 @@
       - !type:GibBehavior { }
   - type: NoSlip
   - type: Temperature
+    heatDamageThreshold: 5000
     currentTemperature: 310.15
     specificHeat: 42
-  - type: TemperatureDamage
-    heatDamageThreshold: 5000
     heatDamage:
       types:
         Heat: -1
@@ -488,7 +493,7 @@
       1000: 1.5
       1500: 2
   - type: Stamina
-    baseCritThreshold: 100000
+    critThreshold: 100000
   - type: PassiveDamage
     allowedStates:
     - Alive

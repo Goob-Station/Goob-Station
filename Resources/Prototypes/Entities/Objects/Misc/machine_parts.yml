@@ -29,9 +29,6 @@
         Steel: 12
         Plastic: 12
     - type: StockPart # Goobstation
-    - type: Tag
-      tags:
-      - ConstructionMaterial
 
 - type: entity
   id: MicroManipulatorStockPart

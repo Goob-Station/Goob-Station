@@ -175,7 +175,7 @@ public sealed class PinpointerSystem : SharedPinpointerSystem
                 if (!_xformQuery.TryGetComponent(otherUid, out var compXform) || compXform.MapID != mapId)
                     continue;
 
-                if (Whitelist.IsWhitelistPass(blacklist, otherUid))
+                if (Whitelist.IsBlacklistPass(blacklist, otherUid))
                     continue;
 
                 var dist = (_transform.GetWorldPosition(compXform) - worldPos).LengthSquared();
@@ -222,7 +222,7 @@ public sealed class PinpointerSystem : SharedPinpointerSystem
                 if (!_xformQuery.TryGetComponent(otherUid, out var compXform) || compXform.MapID != mapId)
                     continue;
 
-                if (Whitelist.IsWhitelistPass(blacklist, otherUid))
+                if (Whitelist.IsBlacklistPass(blacklist, otherUid))
                     continue;
 
                 list.Add(otherUid);

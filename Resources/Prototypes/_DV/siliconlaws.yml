@@ -3,11 +3,6 @@
 # Cosmic Cult LawSet
 
 - type: siliconLaw
-  id: CurtainCall0
-  order: 0
-  lawString: law-curtaincall-0
-
-- type: siliconLaw
   id: CurtainCall1
   order: 1
   lawString: law-curtaincall-1
@@ -30,7 +25,6 @@
 - type: siliconLawset
   id: CosmicCultLaws
   laws:
-  - CurtainCall0
   - CurtainCall1
   - CurtainCall2
   - CurtainCall3

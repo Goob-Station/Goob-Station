@@ -76,7 +76,7 @@
         - Catwalk
   - type: TileEntityEffect
     effects:
-    - !type:Extinguish
+    - !type:ExtinguishReaction
   # Goobstation - fishing
   - type: FishingSpot
     fishList: !type:NestedSelector

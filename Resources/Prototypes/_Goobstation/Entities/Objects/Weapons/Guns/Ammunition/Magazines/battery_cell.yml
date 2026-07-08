@@ -10,6 +10,7 @@
     pricePerJoule: 0.15
   - type: BatteryDrinkerSource
   - type: PowerCell
+    powerCellVisualsLevels: 4
   - type: Explosive
     explosionType: Default
     maxIntensity: 200
@@ -25,8 +26,9 @@
   - type: DrawableSolution
     solution: battery
   - type: Appearance
+  - type: PowerCellVisuals
   - type: Riggable
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: SmallRedLaser
     fireCost: 50
   - type: PhysicalComposition
@@ -71,7 +73,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_pistol_lethal.rsi
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: SMGLaser
     fireCost: 50
 # x-ray smg power cell
@@ -84,7 +86,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_pistol_xray.rsi
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: SMGLaserXray
     fireCost: 50
 # overclocked smg power cell
@@ -97,7 +99,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_pistol_overcharge.rsi
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: SMGLaserOvercharged
     fireCost: 100
 # bluespace smg power cell
@@ -113,7 +115,7 @@
     startingCharge: 1500
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_pistol_bluespace.rsi
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: SMGLaserBluespace
     fireCost: 50
 # pulse smg power cell
@@ -126,7 +128,7 @@
   components:
     - type: Sprite
       sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_pistol_bluespace.rsi
-    - type: BatteryAmmoProvider
+    - type: HitscanBatteryAmmoProvider
       proto: SMGLaserPulse
       fireCost: 50
 # ion smg power cell
@@ -139,7 +141,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_pistol_ion.rsi
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: SMGLaserIon
     fireCost: 50
 # endregion SMG Power Cells
@@ -185,7 +187,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_rifle_lethal.rsi
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: SniperRedLaser
     fireCost: 100
 # x-ray sniper power cell
@@ -198,7 +200,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_rifle_xray.rsi
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: SniperXrayLaser
     fireCost: 100
 # overclocked sniper power cell
@@ -211,7 +213,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_rifle_overcharge.rsi
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: SniperOverchargedLaser
     fireCost: 200
 # bluespace sniper power cell
@@ -227,7 +229,7 @@
     startingCharge: 1800
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_rifle_bluespace.rsi
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: SniperBluespaceLaser
     fireCost: 100
 # pulse sniper power cell
@@ -240,7 +242,7 @@
   components:
     - type: Sprite
       sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_rifle_bluespace.rsi
-    - type: BatteryAmmoProvider
+    - type: HitscanBatteryAmmoProvider
       proto: SniperPulseLaser
       fireCost: 100
 # ion sniper power cell
@@ -253,7 +255,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_cell_rifle_ion.rsi
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: SniperIonLaser
     fireCost: 100
 # endregion Sniper Power Cells
@@ -309,7 +311,7 @@
           False:
             state: lethal
             shader: null
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: RevolverRedLaser
     fireCost: 62.5
 # x-ray revolver power cell
@@ -335,7 +337,7 @@
           False:
             state: xray
             shader: null
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: RevolverXrayLaser
     fireCost: 62.5
 # overclocked revolver power cell
@@ -361,7 +363,7 @@
           False:
             state: overcharge
             shader: null
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: RevolverOverchargedLaser
     fireCost: 125
 # bluespace revolver power cell
@@ -379,7 +381,7 @@
       shader: unshaded
   - type: Battery
     maxCharge: 750
-    startingCharge: 750
+    startingCharge: 750    
   - type: GenericVisualizer
     visuals:
       enum.AmmoVisuals.HasAmmo:
@@ -390,7 +392,7 @@
           False:
             state: bluespace
             shader: null
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: RevolverBluespaceLaser
     fireCost: 62.5
 # ion revolver power cell
@@ -416,7 +418,7 @@
           False:
             state: ion
             shader: null
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: RevolverIonLaser
     fireCost: 62.5
 # endregion Revolver Power Cells
@@ -446,7 +448,7 @@
     startingCharge: 3000
   - type: BatteryDrinkerSource
     maxAmount: 500
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: LMGLaser
     fireCost: 15
   - type: Tag
@@ -463,7 +465,7 @@
       Plasma: 200
     chemicalComposition:
       Zinc: 20
-
+      
 - type: entity
   id: MilitaryPowerCellBluespaceLMG
   parent: BaseMilitaryPowerCell
@@ -487,7 +489,7 @@
       startingCharge: 2100
     - type: BatteryDrinkerSource
       maxAmount: 500
-    - type: BatteryAmmoProvider
+    - type: HitscanBatteryAmmoProvider
       proto: LMGLaserBluespace
       fireCost: 15
     - type: Tag

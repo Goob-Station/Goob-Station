@@ -10,5 +10,5 @@
     onUse: false # above component does the toggling
   - type: PowerCellDraw
     drawRate: 0
-    useCharge: 20
+    useRate: 20
   - type: ToggleCellDraw

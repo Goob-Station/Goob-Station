@@ -87,7 +87,7 @@ namespace Content.Client.Arcade
             newGame.OnPressed += _ => OnPlayerAction?.Invoke(SharedSpaceVillainArcadeComponent.PlayerAction.NewGame);
             grid.AddChild(newGame);
 
-            ContentsContainer.AddChild(grid);
+            Contents.AddChild(grid);
         }
 
         private void UpdateMetadata(SharedSpaceVillainArcadeComponent.SpaceVillainArcadeMetaDataUpdateMessage message)

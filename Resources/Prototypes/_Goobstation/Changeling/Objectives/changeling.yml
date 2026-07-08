@@ -143,8 +143,7 @@
   id: LingCMOStealObjective
   components:
   - type: NotJobRequirement
-    jobs:
-    - ChiefMedicalOfficer
+    job: ChiefMedicalOfficer
   - type: StealCondition
     owner: job-name-cmo
 
@@ -170,8 +169,7 @@
   id: LingRDStealObjective
   components:
   - type: NotJobRequirement
-    jobs:
-    - ResearchDirector
+    job: ResearchDirector
   - type: StealCondition
     owner: job-name-rd
 
@@ -196,8 +194,7 @@
   id: LingEnergyShotgunStealObjective
   components:
   - type: NotJobRequirement
-    jobs:
-    - Warden # Goob edit
+    job: Warden # Goob edit
   - type: StealCondition
     stealGroup: WeaponEnergyShotgun
     owner: job-name-warden # Goob edit
@@ -210,8 +207,7 @@
   id: LingCEStealObjective
   components:
   - type: NotJobRequirement
-    jobs:
-    - ChiefEngineer
+    job: ChiefEngineer
   - type: StealCondition
     owner: job-name-ce
 
@@ -229,8 +225,7 @@
   id: LingClipboardStealObjective
   components:
   - type: NotJobRequirement
-    jobs:
-    - Quartermaster
+    job: Quartermaster
   - type: StealCondition
     stealGroup: BoxFolderQmClipboard
     owner: job-name-qm
@@ -240,8 +235,7 @@
   id: LingKnuckleDustersStealObjective
   components:
   - type: NotJobRequirement
-    jobs:
-    - Quartermaster
+    job: Quartermaster
   - type: StealCondition
     stealGroup: ClothingHandsKnuckleDustersQM
     owner: job-name-qm
@@ -253,8 +247,7 @@
   id: LingCorgiMeatStealObjective
   components:
   - type: NotJobRequirement
-    jobs:
-    - HeadOfPersonnel
+    job: HeadOfPersonnel
   - type: StealCondition
     stealGroup: FoodMeatCorgi
     owner: objective-condition-steal-Ian
@@ -267,8 +260,7 @@
   id: LingCaptainObjective
   components:
   - type: NotJobRequirement
-    jobs:
-    - Captain
+    job: Captain
 
 - type: entity
   parent: LingCaptainObjective

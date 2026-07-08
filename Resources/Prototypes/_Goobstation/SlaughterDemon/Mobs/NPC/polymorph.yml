@@ -36,7 +36,7 @@
     - Normal
     - Ghost
   - type: MindContainer
-  - type: MindExaminable
+    showExamineInfo: true
   - type: ActionGrant
     actions:
     - DemonicWhisperAction

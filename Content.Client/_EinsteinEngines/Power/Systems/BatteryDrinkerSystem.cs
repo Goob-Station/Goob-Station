@@ -39,7 +39,7 @@ public sealed class BatteryDrinkerSystem : SharedBatteryDrinkerSystem
             return;
 
         if (!TryComp<BatteryDrinkerComponent>(args.User, out var drinker) ||
-            _whitelist.IsWhitelistPass(drinker.Blacklist, ent) ||
+            _whitelist.IsBlacklistPass(drinker.Blacklist, ent) ||
             !SearchForDrinker(args.User, out _) ||
             !SearchForSource(ent, out _))
             return;

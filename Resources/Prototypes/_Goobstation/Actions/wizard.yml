@@ -59,7 +59,7 @@
     canTargetSelf: false
     event: !type:CluwneCurseEvent
   - type: SpeakOnAction
-    sentence: action-speech-spell-cluwne-goob # Goobstation?
+    sentence: action-speech-spell-cluwne
   - type: Magic
     requiresClothes: true
     requiresSpeech: true

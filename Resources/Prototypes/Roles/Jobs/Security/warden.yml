@@ -8,13 +8,13 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobSecurityOfficer
-      time: 5h
-    - !type:RoleTimeRequirement # Goobstation
+      time: 18000 #5 hrs
+    - !type:RoleTimeRequirement
       role: JobBrigmedic
-      time: 5h
+      time: 18000 #5 hrs
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 10h
+      time: 36000 # 10 hrs
     - !type:SpeciesRequirement # Goob - None Felinid
       inverted: true
       species:
@@ -36,11 +36,10 @@
   - Brig
   - Armory
   - Maintenance
+  - Service
   - External
   - Detective
   - Cryogenics
-  - GenpopEnter
-  - GenpopLeave
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

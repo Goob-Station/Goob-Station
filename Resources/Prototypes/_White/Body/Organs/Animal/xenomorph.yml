@@ -6,7 +6,7 @@
   - type: Sprite
     sprite: _White/Mobs/Species/Xenomorph/organs.rsi
   - type: Organ
-  - type: Edible
+  - type: Food
   - type: Extractable
     grindableSolutionName: organ
   - type: SolutionContainerManager

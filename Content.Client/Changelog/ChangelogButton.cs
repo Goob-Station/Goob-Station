@@ -38,12 +38,12 @@ namespace Content.Client.Changelog
             if (_changelogManager.NewChangelogEntries)
             {
                 Text = Loc.GetString("changelog-button-new-entries");
-                StyleClasses.Add(StyleClass.Negative);
+                StyleClasses.Add(StyleBase.ButtonCaution);
             }
             else
             {
                 Text = Loc.GetString("changelog-button");
-                StyleClasses.Remove(StyleClass.Negative);
+                StyleClasses.Remove(StyleBase.ButtonCaution);
             }
         }
     }

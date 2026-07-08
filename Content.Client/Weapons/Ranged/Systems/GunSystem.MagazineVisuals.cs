@@ -15,24 +15,24 @@ public sealed partial class GunSystem
         SubscribeLocalEvent<MagazineVisualsComponent, AppearanceChangeEvent>(OnMagazineVisualsChange);
     }
 
-    private void OnMagazineVisualsInit(Entity<MagazineVisualsComponent> ent, ref ComponentInit args)
+    private void OnMagazineVisualsInit(EntityUid uid, MagazineVisualsComponent component, ComponentInit args)
     {
-        if (!TryComp<SpriteComponent>(ent, out var sprite)) return;
+        if (!TryComp<SpriteComponent>(uid, out var sprite)) return;
 
-        if (_sprite.LayerMapTryGet((ent, sprite), GunVisualLayers.Mag, out _, false))
+        if (_sprite.LayerMapTryGet((uid, sprite), GunVisualLayers.Mag, out _, false))
         {
-            _sprite.LayerSetRsiState((ent, sprite), GunVisualLayers.Mag, $"{ent.Comp.MagState}-{ent.Comp.MagSteps - 1}");
-            _sprite.LayerSetVisible((ent, sprite), GunVisualLayers.Mag, false);
+            _sprite.LayerSetRsiState((uid, sprite), GunVisualLayers.Mag, $"{component.MagState}-{component.MagSteps - 1}");
+            _sprite.LayerSetVisible((uid, sprite), GunVisualLayers.Mag, false);
         }
 
-        if (_sprite.LayerMapTryGet((ent, sprite), GunVisualLayers.MagUnshaded, out _, false))
+        if (_sprite.LayerMapTryGet((uid, sprite), GunVisualLayers.MagUnshaded, out _, false))
         {
-            _sprite.LayerSetRsiState((ent, sprite), GunVisualLayers.MagUnshaded, $"{ent.Comp.MagState}-unshaded-{ent.Comp.MagSteps - 1}");
-            _sprite.LayerSetVisible((ent, sprite), GunVisualLayers.MagUnshaded, false);
+            _sprite.LayerSetRsiState((uid, sprite), GunVisualLayers.MagUnshaded, $"{component.MagState}-unshaded-{component.MagSteps - 1}");
+            _sprite.LayerSetVisible((uid, sprite), GunVisualLayers.MagUnshaded, false);
         }
     }
 
-    private void OnMagazineVisualsChange(Entity<MagazineVisualsComponent> ent, ref AppearanceChangeEvent args)
+    private void OnMagazineVisualsChange(EntityUid uid, MagazineVisualsComponent component, ref AppearanceChangeEvent args)
     {
         // tl;dr
         // 1.If no mag then hide it OR
@@ -47,56 +47,56 @@ public sealed partial class GunSystem
         {
             if (!args.AppearanceData.TryGetValue(AmmoVisuals.AmmoMax, out var capacity))
             {
-                capacity = ent.Comp.MagSteps;
+                capacity = component.MagSteps;
             }
 
             if (!args.AppearanceData.TryGetValue(AmmoVisuals.AmmoCount, out var current))
             {
-                current = ent.Comp.MagSteps;
+                current = component.MagSteps;
             }
 
-            var step = ContentHelpers.RoundToLevels((int)current, (int)capacity, ent.Comp.MagSteps);
+            var step = ContentHelpers.RoundToLevels((int)current, (int)capacity, component.MagSteps);
 
-            if (ent.Comp.ZeroNoAmmo && step == 0 && (int) current > 0) // Goobstation
-                step = Math.Min(1, ent.Comp.MagSteps - 1);
+            if (component.ZeroNoAmmo && step == 0 && (int) current > 0) // Goobstation
+                step = Math.Min(1, component.MagSteps - 1);
 
-            if (step == 0 && !ent.Comp.ZeroVisible)
+            if (step == 0 && !component.ZeroVisible)
             {
-                if (_sprite.LayerMapTryGet((ent, sprite), GunVisualLayers.Mag, out _, false))
+                if (_sprite.LayerMapTryGet((uid, sprite), GunVisualLayers.Mag, out _, false))
                 {
-                    _sprite.LayerSetVisible((ent, sprite), GunVisualLayers.Mag, false);
+                    _sprite.LayerSetVisible((uid, sprite), GunVisualLayers.Mag, false);
                 }
 
-                if (_sprite.LayerMapTryGet((ent, sprite), GunVisualLayers.MagUnshaded, out _, false))
+                if (_sprite.LayerMapTryGet((uid, sprite), GunVisualLayers.MagUnshaded, out _, false))
                 {
-                    _sprite.LayerSetVisible((ent, sprite), GunVisualLayers.MagUnshaded, false);
+                    _sprite.LayerSetVisible((uid, sprite), GunVisualLayers.MagUnshaded, false);
                 }
 
                 return;
             }
 
-            if (_sprite.LayerMapTryGet((ent, sprite), GunVisualLayers.Mag, out _, false))
+            if (_sprite.LayerMapTryGet((uid, sprite), GunVisualLayers.Mag, out _, false))
             {
-                _sprite.LayerSetVisible((ent, sprite), GunVisualLayers.Mag, true);
-                _sprite.LayerSetRsiState((ent, sprite), GunVisualLayers.Mag, $"{ent.Comp.MagState}-{step}");
+                _sprite.LayerSetVisible((uid, sprite), GunVisualLayers.Mag, true);
+                _sprite.LayerSetRsiState((uid, sprite), GunVisualLayers.Mag, $"{component.MagState}-{step}");
             }
 
-            if (_sprite.LayerMapTryGet((ent, sprite), GunVisualLayers.MagUnshaded, out _, false))
+            if (_sprite.LayerMapTryGet((uid, sprite), GunVisualLayers.MagUnshaded, out _, false))
             {
-                _sprite.LayerSetVisible((ent, sprite), GunVisualLayers.MagUnshaded, true);
-                _sprite.LayerSetRsiState((ent, sprite), GunVisualLayers.MagUnshaded, $"{ent.Comp.MagState}-unshaded-{step}");
+                _sprite.LayerSetVisible((uid, sprite), GunVisualLayers.MagUnshaded, true);
+                _sprite.LayerSetRsiState((uid, sprite), GunVisualLayers.MagUnshaded, $"{component.MagState}-unshaded-{step}");
             }
         }
         else
         {
-            if (_sprite.LayerMapTryGet((ent, sprite), GunVisualLayers.Mag, out _, false))
+            if (_sprite.LayerMapTryGet((uid, sprite), GunVisualLayers.Mag, out _, false))
             {
-                _sprite.LayerSetVisible((ent, sprite), GunVisualLayers.Mag, false);
+                _sprite.LayerSetVisible((uid, sprite), GunVisualLayers.Mag, false);
             }
 
-            if (_sprite.LayerMapTryGet((ent, sprite), GunVisualLayers.MagUnshaded, out _, false))
+            if (_sprite.LayerMapTryGet((uid, sprite), GunVisualLayers.MagUnshaded, out _, false))
             {
-                _sprite.LayerSetVisible((ent, sprite), GunVisualLayers.MagUnshaded, false);
+                _sprite.LayerSetVisible((uid, sprite), GunVisualLayers.MagUnshaded, false);
             }
         }
     }

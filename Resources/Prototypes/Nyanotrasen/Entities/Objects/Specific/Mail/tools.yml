@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: mail bag
+  id: MailBag
+  parent: BaseStorageItem
+  description: Here's the mail, it never fails...
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Belt/mailbag.rsi
+    state: icon
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Belt/mailbag.rsi
+    quickEquip: false
+    slots:
+        - belt
+  - type: Item
+    size: Large
+  - type: Storage
+    grid:
+      - 0,0,5,3
+    quickInsert: true
+    whitelist:
+      components:
+        - Mail

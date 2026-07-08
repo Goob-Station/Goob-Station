@@ -2,7 +2,6 @@
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Nutrition.Prototypes;
-using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -78,13 +77,6 @@ public sealed partial class EdibleComponent : Component
     /// </summary>
     [DataField]
     public bool RequireDead = true;
-
-    /// <summary>
-    /// An optional override for the sound made when consuming this item.
-    /// Useful for if an edible type doesn't justify a new prototype, like with plushies.
-    /// </summary>
-    [DataField]
-    public SoundSpecifier? UseSound;
 
     /// <summary>
     /// Verb, icon, and sound data for our edible.

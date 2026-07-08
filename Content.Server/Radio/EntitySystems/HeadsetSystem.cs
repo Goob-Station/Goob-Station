@@ -1,11 +1,14 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Chat.Systems;
-using Content.Shared.Radio.Components;
+using Content.Server.Emp;
+using Content.Server.Radio.Components;
+using Content.Server.Speech;
 using Content.Server._EinsteinEngines.Language;
 using Content.Shared.Chat;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Radio;
+using Content.Shared.Radio.Components;
 using Content.Shared.Radio.EntitySystems;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -28,6 +31,8 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
 
         SubscribeLocalEvent<WearingHeadsetComponent, EntitySpokeEvent>(OnSpeak);
         SubscribeLocalEvent<HeadsetComponent, RadioReceiveAttemptEvent>(OnHeadsetReceiveAttempt); // Goobstation - Whitelisted radio channel
+
+        SubscribeLocalEvent<HeadsetComponent, EmpPulseEvent>(OnEmpPulse);
     }
 
     private void OnKeysChanged(EntityUid uid, HeadsetComponent component, EncryptionChannelsChangedEvent args)
@@ -75,6 +80,7 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
     protected override void OnGotUnequipped(EntityUid uid, HeadsetComponent component, GotUnequippedEvent args)
     {
         base.OnGotUnequipped(uid, component, args);
+        component.IsEquipped = false;
         RemComp<ActiveRadioComponent>(uid);
         RemComp<WearingHeadsetComponent>(args.Equipee);
     }
@@ -86,9 +92,6 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
 
         if (component.Enabled == value)
             return;
-
-        component.Enabled = value;
-        Dirty(uid, component);
 
         if (!value)
         {
@@ -106,10 +109,6 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
 
     private void OnHeadsetReceive(EntityUid uid, HeadsetComponent component, ref RadioReceiveEvent args)
     {
-        // TODO: change this when a code refactor is done
-        // this is currently done this way because receiving radio messages on an entity otherwise requires that entity
-        // to have an ActiveRadioComponent
-
         // Einstein Engines - Language begin
         var parent = Transform(uid).ParentUid;
 
@@ -129,6 +128,15 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
             _netMan.ServerSendMessage(msg, actor.PlayerSession.Channel);
         }
         // Einstein Engines - Language end
+    }
+
+    private void OnEmpPulse(EntityUid uid, HeadsetComponent component, ref EmpPulseEvent args)
+    {
+        if (component.Enabled)
+        {
+            args.Affected = true;
+            args.Disabled = true;
+        }
     }
 
     // Goobstation - Whitelisted radio channel

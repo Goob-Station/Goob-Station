@@ -7,7 +7,7 @@ using Robust.Shared.GameStates;
 
 namespace Content.Client.Atmos.EntitySystems;
 
-public sealed partial class AtmosphereSystem : SharedAtmosphereSystem
+public sealed class AtmosphereSystem : SharedAtmosphereSystem
 {
     public override void Initialize()
     {

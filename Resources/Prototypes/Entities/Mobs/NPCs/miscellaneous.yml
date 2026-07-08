@@ -51,21 +51,6 @@
     - type: Tag
       tags:
         - FootstepSound
-    - type: BatteryAmmoProvider
-      proto: RedLightLaser
-      fireCost: 50
-    - type: BatterySelfRecharger
-      autoRechargeRate: 50
-    - type: Battery
-      maxCharge: 1000
-      startingCharge: 1000
-    - type: Gun
-      fireRate: 1
-      useKey: false
-      selectedMode: SemiAuto
-      availableModes:
-        - SemiAuto
-      soundGunshot: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
     - type: CombatMode
     - type: InteractionPopup
       successChance: 0.3
@@ -109,38 +94,39 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
+        scaleByQuantity: true
         damage:
           groups:
-            Brute: -0.15
+            Brute: -0.25
     - reagents: [ Blood ]
       methods: [ Touch ]
       effects:
       - !type:HealthChange
+        scaleByQuantity: true
         damage:
           groups:
-            Brute: -0.25
-            Burn: -0.25
+            Brute: -0.5
+            Burn: -0.5
     - reagents: [ RobustHarvest ]
       methods: [ Touch ]
       effects:
       - !type:HealthChange
+        scaleByQuantity: true
         damage:
           groups:
-            Brute: -1
-            Burn: -1
+            Brute: -2
+            Burn: -2
     - reagents: [ WeedKiller, PlantBGone ]
       methods: [ Touch ]
       effects:
       - !type:HealthChange
+        scaleByQuantity: true
         damage:
           types:
-            Heat: 1
+            Heat: 2
   - type: ReplacementAccent
     accent: tomatoKiller
   - type: Item
-    size: Large
-    shape:
-    - 0,0,2,2
   - type: MultiHandedItem
   - type: NpcFactionMember
     factions:
@@ -159,10 +145,9 @@
       - map: [ "enum.DamageStateVisualLayers.Base" ]
         state: alive
   - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: JuiceTomato
-        Quantity: 50
+    bloodReagent: JuiceTomato
+    bloodMaxVolume: 50
+    chemicalMaxVolume: 30
   - type: DamageStateVisuals
     states:
       Alive:

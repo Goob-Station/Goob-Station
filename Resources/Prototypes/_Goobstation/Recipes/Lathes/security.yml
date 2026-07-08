@@ -496,6 +496,13 @@
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
+  id: MagazinePistolCaselessRifle
+  result: MagazinePistolCaselessRifle
+  materials:
+    Steel: 145
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
   id: MagazineLowCaliberM7S
   result: MagazineLowCaliberM7S
   materials:
@@ -639,6 +646,13 @@
     Steel: 400
 
 - type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxAntiMateriel
+  result: MagazineBoxAntiMateriel
+  materials:
+    Steel: 1500
+
+- type: latheRecipe
   parent: BaseEmptyAmmoRecipe
   id: MagazinePistolHighCapacityEmpty
   result: MagazinePistolHighCapacityEmpty
@@ -663,7 +677,7 @@
     Plasma: 500
     Uranium: 400
     BSCrystal: 100
-
+    
 - type: latheRecipe
   parent: BaseAmmoRecipe
   id: MilitaryPowerCellBluespaceLMG
@@ -734,3 +748,4 @@
     Plastic: 250
     Cloth: 200
 
+  

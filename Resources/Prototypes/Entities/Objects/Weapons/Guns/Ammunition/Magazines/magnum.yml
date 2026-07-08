@@ -1,10 +1,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  abstract: true
-  parent: [ BaseMagazinePistol, BaseSecurityContraband ]
   id: BaseMagazineMagnum
   name: pistol magazine (.45 magnum)
+  parent: [ BaseMagazinePistol, BaseSecurityContraband ]
+  abstract: true
   components:
   - type: Tag
     tags:
@@ -50,11 +50,11 @@
   - type: Appearance
 
 - type: entity
-  parent: BaseMagazineMagnum
   id: MagazineMagnumEmpty
   name: pistol magazine (.45 magnum any)
   suffix: empty
-  description: 7-round single stack magazine for large-caliber pistols.
+  parent: BaseMagazineMagnum
+  description: 7-round single stack pistol magazine.
   components:
   - type: BallisticAmmoProvider
     proto: null
@@ -72,10 +72,10 @@
       - state: inhand-right-mag
 
 - type: entity
-  parent: BaseMagazineMagnum
   id: MagazineMagnum
   name: pistol magazine (.45 magnum)
-  description: 7-round single stack magazine for large-caliber pistols. Intended to hold general-purpose kinetic ammunition.
+  parent: BaseMagazineMagnum
+  description: 7-round single stack pistol magazine. Intended to hold general-purpose kinetic ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnum
@@ -93,10 +93,10 @@
       - state: inhand-right-mag
 
 - type: entity
-  parent: BaseMagazineMagnum
   id: MagazineMagnumPractice
   name: pistol magazine (.45 magnum practice)
-  description: 7-round single stack magazine for large-caliber pistols. Intended to hold harmless practice ammunition.
+  parent: BaseMagazineMagnum
+  description: 7-round single stack pistol magazine. Intended to hold non-harmful chalk ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumPractice
@@ -120,10 +120,10 @@
         color: "#dbdbdb"
 
 - type: entity
-  parent: BaseMagazineMagnum
   id: MagazineMagnumUranium
   name: pistol magazine (.45 magnum uranium)
-  description: 7-round single stack magazine for large-caliber pistols. Intended to hold exotic uranium-core ammunition.
+  parent: BaseMagazineMagnum
+  description: 7-round single stack pistol magazine. Intended to hold exotic uranium-core ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumUranium
@@ -147,10 +147,10 @@
         color: "#00cd42"
 
 - type: entity
-  parent: BaseMagazineMagnum
   id: MagazineMagnumAP
   name: pistol magazine (.45 magnum armor-piercing)
-  description: 7-round single stack magazine for large-caliber pistols. Intended to hold specialized armor-piercing ammunition.
+  parent: BaseMagazineMagnum
+  description: 7-round single stack pistol magazine. Intended to hold rare armor-piercing ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumAP

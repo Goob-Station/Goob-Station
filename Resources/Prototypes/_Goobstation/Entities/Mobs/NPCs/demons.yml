@@ -8,10 +8,8 @@
   description: Exceedingly slow, but is immune to all forms of damage, except holy.
   components:
   - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: MindbreakerToxin
-        Quantity: 5
+    bloodMaxVolume: 5
+    bloodReagent: MindbreakerToxin
   - type: Sprite
     drawdepth: Mobs
     sprite: _Goobstation/Mobs/Demons/curse.rsi
@@ -197,10 +195,8 @@
     - type: StaticPrice
       price: 3000
     - type: Bloodstream
-      bloodReferenceSolution:
-        reagents:
-        - ReagentId: Laughter
-          Quantity: 300
+      bloodMaxVolume: 300
+      bloodReagent: Laughter
     - type: Fauna # Lavaland Change
     - type: CombatPower # Goobstation
       factor: 3 # times more dangerous than a crew-member
@@ -284,10 +280,8 @@
       - id: DiamondOre1 # not unprocessed
         amount: 1
     - type: Bloodstream
-      bloodReferenceSolution:
-        reagents:
-        - ReagentId: Haloperidol
-          Quantity: 300
+      bloodMaxVolume: 300
+      bloodReagent: Haloperidol
     - type: Fauna # Lavaland Change
     - type: CombatPower # Goobstation
       factor: 3 # times more dangerous than a crew-member

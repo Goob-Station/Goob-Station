@@ -19,9 +19,6 @@ namespace Content.Server.Database
     {
         public SqliteServerDbContext(DbContextOptions<SqliteServerDbContext> options) : base(options)
         {
-#if USE_SYSTEM_SQLITE
-            SQLitePCL.raw.SetProvider(new SQLitePCL.SQLite3Provider_sqlite3());
-#endif
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
@@ -60,7 +57,13 @@ namespace Content.Server.Database
             );
 
             modelBuilder
-                .Entity<BanAddress>()
+                .Entity<ServerBan>()
+                .Property(e => e.Address)
+                .HasColumnType("TEXT")
+                .HasConversion(ipMaskConverter);
+
+            modelBuilder
+                .Entity<ServerRoleBan>()
                 .Property(e => e.Address)
                 .HasColumnType("TEXT")
                 .HasConversion(ipMaskConverter);

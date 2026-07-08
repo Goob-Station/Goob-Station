@@ -26,7 +26,7 @@
     sprite: Objects/Specific/Chemistry/vial.rsi
     state: vial
   product: CrateChemistryVials
-  cost: 1100
+  cost: 1000
   category: cargoproduct-category-name-medical
   group: market
 

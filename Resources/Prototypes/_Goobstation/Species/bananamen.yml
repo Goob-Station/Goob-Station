@@ -8,7 +8,7 @@
   sprites: MobBananaMenSprites
   markingLimits: MobHumanMarkingLimits
   dollPrototype: MobBananaMenDummy
-  skinColoration: TintedHues
+  skinColoration: NoColor
 
 - type: speciesBaseSprites
   id: MobBananaMenSprites

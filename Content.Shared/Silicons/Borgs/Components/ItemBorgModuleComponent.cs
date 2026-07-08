@@ -1,71 +1,57 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 ﻿using Robust.Shared.Containers;
-using Content.Shared.Hands.Components;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
 
 namespace Content.Shared.Silicons.Borgs.Components;
 
 /// <summary>
 /// This is used for a <see cref="BorgModuleComponent"/> that provides items to the entity it's installed into.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-[Access(typeof(SharedBorgSystem))]
+[RegisterComponent, NetworkedComponent, Access(typeof(SharedBorgSystem))]
 public sealed partial class ItemBorgModuleComponent : Component
 {
     /// <summary>
-    /// The hands that are provided.
+    /// The items that are provided.
     /// </summary>
     [DataField(required: true)]
-    public List<BorgHand> Hands = new();
+    public List<EntProtoId> Items = new();
 
     /// <summary>
-    /// The items stored within the hands.
+    /// The entities from <see cref="Items"/> that were spawned.
     /// </summary>
-    [DataField, AutoNetworkedField]
-    public Dictionary<string, EntityUid> StoredItems = new();
+    [DataField("providedItems")]
+    public SortedDictionary<string, EntityUid> ProvidedItems = new();
 
     /// <summary>
-    /// Whether the provided items have been spawned.
-    /// This happens the first time the module is used.
+    /// A counter that ensures a unique
     /// </summary>
-    [DataField, AutoNetworkedField]
-    public bool Spawned;
+    [DataField("handCounter")]
+    public int HandCounter;
 
     /// <summary>
-    /// An ID for the container where items are stored when not in use.
+    /// Whether or not the items have been created and stored in <see cref="ProvidedContainer"/>
     /// </summary>
-    [DataField]
-    public string HoldingContainer = "holding_container";
-}
-
-/// <summary>
-/// A single hand provided by the module.
-/// </summary>
-[DataDefinition, Serializable, NetSerializable]
-public partial record struct BorgHand
-{
-    /// <summary>
-    /// The item to spawn in the hand, if any.
-    /// </summary>
-    [DataField]
-    public EntProtoId? Item;
+    [DataField("itemsCrated")]
+    public bool ItemsCreated;
 
     /// <summary>
-    /// The settings for the hand, including a whitelist.
+    /// A container where provided items are stored when not being used.
+    /// This is helpful as it means that items retain state.
     /// </summary>
-    [DataField]
-    public Hand Hand = new();
+    [ViewVariables]
+    public Container ProvidedContainer = default!;
 
-    [DataField]
-    public bool ForceRemovable = false;
+    /// <summary>
+    /// An ID for the container where provided items are stored when not used.
+    /// </summary>
+    [DataField("providedContainerId")]
+    public string ProvidedContainerId = "provided_container";
 
-    public BorgHand(EntProtoId? item, Hand hand, bool forceRemovable = false)
-    {
-        Item = item;
-        Hand = hand;
-        ForceRemovable = forceRemovable;
-    }
+    /// <summary>
+    /// Frontier: a module ID to check for equivalence // TODO: why not to make it automatically set itself to the prototype of the component's owner?
+    /// </summary>
+    [DataField(required: true)]
+    public string ModuleId = default!;
 }

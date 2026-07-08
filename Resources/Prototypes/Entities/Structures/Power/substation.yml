@@ -6,11 +6,6 @@
   components:
   # Core power behavior
   - type: Battery
-    # Very important:
-    # Disable networking to prevent the battery getting continuously dirtied every tick as it interacts with the power network.
-    # This can not be done by changing the charge rate as the power supply ramps up over time.
-    # This disables prediction for this battery.
-    netsync: false
   - type: ExaminableBattery
   - type: NodeContainer
     examinable: true
@@ -127,7 +122,9 @@
         gasMixture:
           volume: 1000
           moles:
-            CarbonDioxide: 340.5701689 # carbon dioxide
+          - 0 # oxygen
+          - 0 # nitrogen
+          - 340.5701689 # carbon dioxide
           temperature: 373.15
   - type: Explosive
     explosionType: Default

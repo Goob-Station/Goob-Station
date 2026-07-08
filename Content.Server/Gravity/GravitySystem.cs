@@ -20,7 +20,7 @@ namespace Content.Server.Gravity
         /// </summary>
         public void RefreshGravity(EntityUid uid, GravityComponent? gravity = null)
         {
-            if (!GravityQuery.Resolve(uid, ref gravity))
+            if (!Resolve(uid, ref gravity))
                 return;
 
             if (gravity.Inherent)
@@ -63,7 +63,7 @@ namespace Content.Server.Gravity
         /// </summary>
         public void EnableGravity(EntityUid uid, GravityComponent? gravity = null)
         {
-            if (!GravityQuery.Resolve(uid, ref gravity))
+            if (!Resolve(uid, ref gravity))
                 return;
 
             if (gravity.Enabled || gravity.Inherent)

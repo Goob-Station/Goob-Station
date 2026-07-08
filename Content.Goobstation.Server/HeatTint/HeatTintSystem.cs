@@ -2,7 +2,6 @@ using Content.Goobstation.Shared.HeatTint;
 using Content.Server.Temperature.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Temperature;
-using Content.Shared.Temperature.Components;
 
 namespace Content.Goobstation.Server.HeatTint;
 
