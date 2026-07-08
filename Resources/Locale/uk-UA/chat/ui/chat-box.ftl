@@ -52,7 +52,7 @@ hud-chatbox-channel-Visual = Дії
 hud-chatbox-channel-Damage = Шкода
 hud-chatbox-channel-Unspecified = Невизначений
 
-#PIRATE START
+# PIRATE START
 hud-chatbox-select-channel-Empathy = Емпатія
 hud-chatbox-channel-Empathy = Емпатія
 hud-chatbox-highlights = Підсвічування:
