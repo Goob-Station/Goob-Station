@@ -43,8 +43,10 @@
       Dead:
         Base: spiderling_dead
   - type: Bloodstream
-    bloodReagent: CopperBlood
-    bloodMaxVolume: 20
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: CopperBlood
+        Quantity: 150
   - type: SolutionContainerManager
     solutions:
       food:
