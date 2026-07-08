@@ -1,10 +1,7 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Server.Devil.Roles;
+using System.Text;
+using Content.Goobstation.Shared.Devil.Roles;
 using Content.Goobstation.Shared.Devil;
 using Content.Server.Antag;
 using Content.Server.Chat.Systems;
@@ -13,14 +10,10 @@ using Content.Server.Mind;
 using Content.Server.Objectives;
 using Content.Server.Roles;
 using Content.Shared.GameTicking.Components;
-using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
-using Content.Shared.Roles;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
-using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
-using System.Text;
 
 
 namespace Content.Goobstation.Server.Devil.GameTicking.Rules;

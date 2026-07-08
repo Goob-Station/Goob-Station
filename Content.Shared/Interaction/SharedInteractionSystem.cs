@@ -1,141 +1,9 @@
-// SPDX-FileCopyrightText: 2020 ComicIronic <comicironic@gmail.com>
-// SPDX-FileCopyrightText: 2020 FL-OZ <anotherscuffed@gmail.com>
-// SPDX-FileCopyrightText: 2020 Sam <Sam.V_@hotmail.com>
-// SPDX-FileCopyrightText: 2020 Tomeno <Tomeno@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Tomeno <tomeno@lulzsec.co.uk>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <zddm@outlook.es>
-// SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <zddm@outlook.es>
-// SPDX-FileCopyrightText: 2020 chairbender <kwhipke1@gmail.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2021 Clyybber <darkmine956@gmail.com>
-// SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Metal Gear Sloth <metalgearsloth@gmail.com>
-// SPDX-FileCopyrightText: 2021 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@gmail.com>
-// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <zddm@outlook.es>
-// SPDX-FileCopyrightText: 2021 Wrexbe <wrexbe@protonmail.com>
-// SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Paul <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 WlarusFromDaSpace <44726328+WlarusFromDaSpace@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Ilya Chvilyov <90278813+Telyonok@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Vyacheslav Kovalevsky <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <deltanedas@laptop>
-// SPDX-FileCopyrightText: 2023 deltanedas <user@zenith>
-// SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 keronshb <keronshb@live.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 CaasGit <87243814+CaasGit@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
-// SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
-// SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kukutis96513 <146854220+Kukutis96513@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Lye <128915833+Lyroth001@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MerrytheManokit <167581110+MerrytheManokit@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 OrangeMoronage9622 <whyteterry0092@gmail.com>
-// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 PopGamer46 <yt1popgamer@gmail.com>
-// SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Spessmann <156740760+Spessmann@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
-// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2024 Vigers Ray <60344369+VigersRay@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 coolboy911 <85909253+coolboy911@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
-// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 lunarcomets <140772713+lunarcomets@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-// SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
-// SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
-// SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 SpaceManiac <tad@platymuus.com>
-// SPDX-FileCopyrightText: 2025 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 themias <89101928+themias@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Goobstation.Common.Interactions;
+using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CCVar;
@@ -210,6 +78,9 @@ namespace Content.Shared.Interaction
         [Dependency] private readonly TagSystem _tagSystem = default!;
         [Dependency] private readonly UseDelaySystem _useDelay = default!;
 
+        // <Trauma>
+        private EntityQuery<TargetInteractionRelayComponent> _targetRelayQuery;
+        // </Trauma>
         private EntityQuery<IgnoreUIRangeComponent> _ignoreUiRangeQuery;
         private EntityQuery<FixturesComponent> _fixtureQuery;
         private EntityQuery<ItemComponent> _itemQuery;
@@ -238,6 +109,9 @@ namespace Content.Shared.Interaction
 
         public override void Initialize()
         {
+            // <Trauma>
+            _targetRelayQuery = GetEntityQuery<TargetInteractionRelayComponent>();
+            // </Trauma>
             _ignoreUiRangeQuery = GetEntityQuery<IgnoreUIRangeComponent>();
             _fixtureQuery = GetEntityQuery<FixturesComponent>();
             _itemQuery = GetEntityQuery<ItemComponent>();
@@ -374,6 +248,9 @@ namespace Content.Shared.Interaction
         /// </summary>
         private void OnUnequip(EntityUid uid, UnremoveableComponent item, GotUnequippedEvent args)
         {
+            if (_gameTiming.ApplyingState)
+                return; // The changes are already networked with the same gamestate as the container event.
+
             if (!item.DeleteOnDrop)
                 RemCompDeferred<UnremoveableComponent>(uid);
             else
@@ -382,6 +259,9 @@ namespace Content.Shared.Interaction
 
         private void OnUnequipHand(EntityUid uid, UnremoveableComponent item, GotUnequippedHandEvent args)
         {
+            if (_gameTiming.ApplyingState)
+                return; // The changes are already networked with the same gamestate as the container event.
+
             if (!item.DeleteOnDrop)
                 RemCompDeferred<UnremoveableComponent>(uid);
             else
@@ -390,6 +270,11 @@ namespace Content.Shared.Interaction
 
         private void OnDropped(EntityUid uid, UnremoveableComponent item, DroppedEvent args)
         {
+            if (_gameTiming.ApplyingState)
+                return; // The changes are already networked with the same gamestate as the container event.
+            // Other than the two cases above this is not a container event, but adding and removing hands is networked similarly
+            // and removing hands causes items to be dropped.
+
             if (!item.DeleteOnDrop)
                 RemCompDeferred<UnremoveableComponent>(uid);
             else
@@ -410,6 +295,12 @@ namespace Content.Shared.Interaction
 
             if (Deleted(uid))
                 return false;
+
+            // <Trauma>
+            if (_targetRelayQuery.TryComp(uid, out var relay) && relay.RelayPulls &&
+                Exists(relay.RelayEntity) && relay.RelayEntity.Value != uid)
+                return HandleTryPullObject(session, coords, relay.RelayEntity.Value);
+            // </Trauma>
 
             if (!InRangeUnobstructed(userEntity.Value, uid, popup: true))
                 return false;
@@ -547,6 +438,24 @@ namespace Content.Shared.Interaction
             if (target != null && Deleted(target.Value))
                 return;
 
+            // <Trauma>
+            if (_targetRelayQuery.TryComp(target, out var targetRelay) && Exists(targetRelay.RelayEntity) &&
+                targetRelay.RelayEntity.Value != target)
+            {
+                if (_actionBlockerSystem.CanInteract(user, target))
+                {
+                    UserInteraction(user,
+                        coordinates,
+                        targetRelay.RelayEntity.Value,
+                        altInteract,
+                        checkCanInteract,
+                        checkAccess,
+                        checkCanUse);
+                    return;
+                }
+            }
+            // </Trauma>
+
             if (!altInteract && _combatQuery.TryComp(user, out var combatMode) && combatMode.IsInCombatMode)
             {
                 if (!CombatModeCanHandInteract(user, target))
@@ -652,12 +561,16 @@ namespace Content.Shared.Interaction
             }
 
             DebugTools.Assert(!IsDeleted(user) && !IsDeleted(target));
+
             // all interactions should only happen when in range / unobstructed, so no range check is needed
             var message = new InteractHandEvent(user, target);
             RaiseLocalEvent(target, message, true);
-            _adminLogger.Add(LogType.InteractHand, LogImpact.Low, $"{ToPrettyString(user):user} interacted with {ToPrettyString(target):target}");
+            var userMessage = new UserInteractHandEvent(user, target);
+            RaiseLocalEvent(user, userMessage, true);
+
+            _adminLogger.Add(LogType.InteractHand, LogImpact.Low, $"{user} interacted with {target}");
             DoContactInteraction(user, target, message);
-            if (message.Handled)
+            if (message.Handled || userMessage.Handled)
                 return true; // Goobstation
 
             DebugTools.Assert(!IsDeleted(user) && !IsDeleted(target));
@@ -1190,10 +1103,14 @@ namespace Content.Shared.Interaction
             // all interactions should only happen when in range / unobstructed, so no range check is needed
             var interactUsingEvent = new InteractUsingEvent(user, used, target, clickLocation);
             RaiseLocalEvent(target, interactUsingEvent, true);
+
+            var userInteractUsingEvent = new UserInteractUsingEvent(user, used, target, clickLocation);
+            RaiseLocalEvent(user, userInteractUsingEvent, true);
+
             DoContactInteraction(user, used, interactUsingEvent);
             DoContactInteraction(user, target, interactUsingEvent);
             // Contact interactions are currently only used for forensics, so we don't raise used -> target
-            if (interactUsingEvent.Handled)
+            if (interactUsingEvent.Handled || userInteractUsingEvent.Handled)
                 return true;
 
             if (InteractDoAfter(user, used, target, clickLocation, canReach: true, checkDeletion: false))
@@ -1451,10 +1368,17 @@ namespace Content.Shared.Interaction
             var ev = new AccessibleOverrideEvent(user, target);
 
             RaiseLocalEvent(user, ref ev);
+            RaiseLocalEvent(target, ref ev);
 
+            // If either has handled it and neither has said we can't access it then we can access it.
             if (ev.Handled)
                 return ev.Accessible;
 
+            return CanAccess(user, target);
+        }
+
+        public bool CanAccess(EntityUid user, EntityUid target)
+        {
             if (_containerSystem.IsInSameOrParentContainer(user, target, out _, out var container))
                 return true;
 
@@ -1606,6 +1530,18 @@ namespace Content.Shared.Interaction
             return ev.Handled;
         }
 
+        /// <summary>
+        /// Get a list of entities which are currently considered to be interacting with the specified target entity.
+        /// Note: the result set is cleared on call.
+        /// </summary>
+        public void GetEntitiesInteractingWithTarget(EntityUid target, HashSet<EntityUid> result)
+        {
+            result.Clear();
+
+            var ev = new GetInteractingEntitiesEvent(target, result);
+            RaiseLocalEvent(target, ref ev, true);
+        }
+
         [Obsolete("Use ActionBlockerSystem")]
         public bool SupportsComplexInteractions(EntityUid user)
         {
@@ -1659,16 +1595,16 @@ namespace Content.Shared.Interaction
     /// <summary>
     /// Override event raised directed on the user to say the target is accessible.
     /// </summary>
-    /// <param name="User"></param>
-    /// <param name="Target"></param>
+    /// <param name="Target">Entity we're targeting</param>
     [ByRefEvent]
     public record struct AccessibleOverrideEvent(EntityUid User, EntityUid Target)
     {
         public readonly EntityUid User = User;
         public readonly EntityUid Target = Target;
 
+        // We set it to true by default for easier validation later.
         public bool Handled;
-        public bool Accessible = false;
+        public bool Accessible;
     }
 
     /// <summary>
@@ -1682,5 +1618,15 @@ namespace Content.Shared.Interaction
 
         public bool Handled;
         public bool InRange = false;
+    }
+
+    /// <summary>
+    /// Raised to allow systems to provide entities which are interacting with the target entity.
+    /// </summary>
+    [ByRefEvent]
+    public record struct GetInteractingEntitiesEvent(EntityUid Target, HashSet<EntityUid> InteractingEntities)
+    {
+        public readonly EntityUid Target = Target;
+        public HashSet<EntityUid> InteractingEntities = InteractingEntities;
     }
 }

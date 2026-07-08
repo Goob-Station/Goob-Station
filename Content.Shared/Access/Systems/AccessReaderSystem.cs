@@ -1,104 +1,18 @@
-// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@gmail.com>
-// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 Wrexbe <wrexbe@protonmail.com>
-// SPDX-FileCopyrightText: 2022 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2023 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2023 Julian Giebel <juliangiebel@live.de>
-// SPDX-FileCopyrightText: 2023 PrPleGoo <PrPleGoo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <deltanedas@laptop>
-// SPDX-FileCopyrightText: 2023 deltanedas <user@zenith>
-// SPDX-FileCopyrightText: 2024 AJCM <AJCM@tutanota.com>
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2024 Alex Pavlenko <diraven@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Alice "Arimah" Heurlin <30327355+arimah@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ArkiveDev <95712736+ArkiveDev@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Doomsdrayk <robotdoughnut@comcast.net>
-// SPDX-FileCopyrightText: 2024 DrEnzyme <DrEnzyme@gmail.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Elysium206 <151651971+Elysium206@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Fildrance <fildrance@gmail.com>
-// SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Floofi <126319569+Shadowtheprotogen546@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ghagliiarghii <68826635+Ghagliiarghii@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 HS <81934438+HolySSSS@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kevin Zheng <kevinz5000@gmail.com>
-// SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MetalSage <74924875+MetalSage@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MetalSage <metalsage.official@gmail.com>
-// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-// SPDX-FileCopyrightText: 2024 Partmedia <kevinz5000@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Redfire1331 <125223432+Redfire1331@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Truoizys <153248924+Truoizys@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2024 WarMechanic <69510347+WarMechanic@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 c4llv07e <38111072+c4llv07e@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 marbow <152051971+marboww@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2024 mhamster <81412348+mhamsterr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 neutrino <67447925+neutrino-laser@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 pa.pecherskij <pa.pecherskij@interfax.ru>
-// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-// SPDX-FileCopyrightText: 2024 redfire1331 <Redfire1331@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Text;
 using Content.Shared.Access.Components;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Emag.Systems;
+using Content.Shared.Examine;
 using Content.Shared.GameTicking;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
+using Content.Shared.Localizations;
+using Content.Shared.Lock;
 using Content.Shared.NameIdentifier;
 using Content.Shared.PDA;
 using Content.Shared.StationRecords;
@@ -129,17 +43,77 @@ public sealed class AccessReaderSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<AccessReaderComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<AccessReaderComponent, GotEmaggedEvent>(OnEmagged);
         SubscribeLocalEvent<AccessReaderComponent, LinkAttemptEvent>(OnLinkAttempt);
+        SubscribeLocalEvent<AccessReaderComponent, AccessReaderConfigurationAttemptEvent>(OnConfigurationAttempt);
+        SubscribeLocalEvent<AccessReaderComponent, FindAvailableLocksEvent>(OnFindAvailableLocks);
+        SubscribeLocalEvent<AccessReaderComponent, CheckUserHasLockAccessEvent>(OnCheckLockAccess);
 
         SubscribeLocalEvent<AccessReaderComponent, ComponentGetState>(OnGetState);
         SubscribeLocalEvent<AccessReaderComponent, ComponentHandleState>(OnHandleState);
     }
 
+    private void OnExamined(Entity<AccessReaderComponent> ent, ref ExaminedEvent args)
+    {
+        if (!GetMainAccessReader(ent, out var mainAccessReader))
+            return;
+
+        mainAccessReader.Value.Comp.AccessListsOriginal ??= new(mainAccessReader.Value.Comp.AccessLists);
+
+        var accessHasBeenModified = mainAccessReader.Value.Comp.AccessLists.Count != mainAccessReader.Value.Comp.AccessListsOriginal.Count;
+
+        if (!accessHasBeenModified)
+        {
+            foreach (var accessSubgroup in mainAccessReader.Value.Comp.AccessLists)
+            {
+                if (!mainAccessReader.Value.Comp.AccessListsOriginal.Any(y => y.SetEquals(accessSubgroup)))
+                {
+                    accessHasBeenModified = true;
+                    break;
+                }
+            }
+        }
+
+        var examiner = args.Examiner;
+        var canSeeAccessModification = accessHasBeenModified &&
+                                       (HasComp<ShowAccessReaderSettingsComponent>(examiner) ||
+                                        _inventorySystem.TryGetInventoryEntity<ShowAccessReaderSettingsComponent>(examiner, out _));
+
+        if (canSeeAccessModification)
+        {
+            var localizedCurrentNames = GetLocalizedAccessNames(mainAccessReader.Value.Comp.AccessLists);
+            var accessesFormatted = ContentLocalizationManager.FormatListToOr(localizedCurrentNames);
+            var currentSettingsMessage = localizedCurrentNames.Count > 0
+                ? Loc.GetString("access-reader-access-settings-modified-message", ("access", accessesFormatted))
+                : Loc.GetString("access-reader-access-settings-removed-message");
+
+            args.PushMarkup(currentSettingsMessage);
+
+            return;
+        }
+
+        var localizedOriginalNames = GetLocalizedAccessNames(mainAccessReader.Value.Comp.AccessListsOriginal);
+
+        // If the string list is empty either there were no access restrictions or the localized names were invalid
+        if (localizedOriginalNames.Count == 0)
+            return;
+
+        var originalAccessesFormatted = ContentLocalizationManager.FormatListToOr(localizedOriginalNames);
+        var originalSettingsMessage = Loc.GetString(mainAccessReader.Value.Comp.ExaminationText, ("access", originalAccessesFormatted));
+        args.PushMarkup(originalSettingsMessage);
+    }
+
     private void OnGetState(EntityUid uid, AccessReaderComponent component, ref ComponentGetState args)
     {
-        args.State = new AccessReaderComponentState(component.Enabled, component.DenyTags, component.AccessLists,
-            _recordsSystem.Convert(component.AccessKeys), component.AccessLog, component.AccessLogLimit);
+        args.State = new AccessReaderComponentState(
+            component.Enabled,
+            component.DenyTags,
+            component.AccessLists,
+            component.AccessListsOriginal,
+            _recordsSystem.Convert(component.AccessKeys),
+            component.AccessLog,
+            component.AccessLogLimit);
     }
 
     private void OnHandleState(EntityUid uid, AccessReaderComponent component, ref ComponentHandleState args)
@@ -158,6 +132,7 @@ public sealed class AccessReaderSystem : EntitySystem
         }
 
         component.AccessLists = new(state.AccessLists);
+        component.AccessListsOriginal = state.AccessListsOriginal == null ? null : new(state.AccessListsOriginal);
         component.DenyTags = new(state.DenyTags);
         component.AccessLog = new(state.AccessLog);
         component.AccessLogLimit = state.AccessLogLimit;
@@ -190,6 +165,29 @@ public sealed class AccessReaderSystem : EntitySystem
         accessReader.Value.Comp.AccessLists.Clear();
         accessReader.Value.Comp.AccessLog.Clear();
         Dirty(uid, reader);
+    }
+
+    private void OnConfigurationAttempt(Entity<AccessReaderComponent> ent, ref AccessReaderConfigurationAttemptEvent args)
+    {
+        // The first time that the access list of the reader is modified,
+        // make a copy of the original settings
+        ent.Comp.AccessListsOriginal ??= new(ent.Comp.AccessLists);
+    }
+
+    private void OnFindAvailableLocks(Entity<AccessReaderComponent> ent, ref FindAvailableLocksEvent args)
+    {
+        args.FoundReaders |= LockTypes.Access;
+    }
+
+    private void OnCheckLockAccess(Entity<AccessReaderComponent> ent, ref CheckUserHasLockAccessEvent args)
+    {
+        // Are we looking for an access lock?
+        if (!args.FoundReaders.HasFlag(LockTypes.Access))
+            return;
+
+        // If the user has access to this lock, we pass it into the event.
+        if (IsAllowed(args.User, ent))
+            args.HasAccess |= LockTypes.Access;
     }
 
     /// <summary>
@@ -441,15 +439,40 @@ public sealed class AccessReaderSystem : EntitySystem
     #region: AccessLists API
 
     /// <summary>
+    /// Tries to clear the entity's <see cref="AccessReaderComponent.AccessLists"/>.
+    /// </summary>
+    /// <param name="ent">The access reader entity which is having its access permissions cleared.</param>
+    public void TryClearAccesses(Entity<AccessReaderComponent> ent)
+    {
+        if (CanConfigureAccessReader(ent))
+        {
+            ClearAccesses(ent);
+        }
+    }
+
+    /// <summary>
     /// Clears the entity's <see cref="AccessReaderComponent.AccessLists"/>.
     /// </summary>
     /// <param name="ent">The access reader entity which is having its access permissions cleared.</param>
-    public void ClearAccesses(Entity<AccessReaderComponent> ent)
+    private void ClearAccesses(Entity<AccessReaderComponent> ent)
     {
         ent.Comp.AccessLists.Clear();
 
         Dirty(ent);
         RaiseLocalEvent(ent, new AccessReaderConfigurationChangedEvent());
+    }
+
+    /// <summary>
+    /// Tries to replace the access permissions in an entity's <see cref="AccessReaderComponent.AccessLists"/> with a supplied list.
+    /// </summary>
+    /// <param name="ent">The access reader entity which is having its list of access permissions replaced.</param>
+    /// <param name="accesses">The list of access permissions replacing the original one.</param>
+    public void TrySetAccesses(Entity<AccessReaderComponent> ent, List<HashSet<ProtoId<AccessLevelPrototype>>> accesses)
+    {
+        if (CanConfigureAccessReader(ent))
+        {
+            SetAccesses(ent, accesses);
+        }
     }
 
     /// <summary>
@@ -457,19 +480,39 @@ public sealed class AccessReaderSystem : EntitySystem
     /// </summary>
     /// <param name="ent">The access reader entity which is having its list of access permissions replaced.</param>
     /// <param name="accesses">The list of access permissions replacing the original one.</param>
-    public void SetAccesses(Entity<AccessReaderComponent> ent, List<HashSet<ProtoId<AccessLevelPrototype>>> accesses)
+    private void SetAccesses(Entity<AccessReaderComponent> ent, List<HashSet<ProtoId<AccessLevelPrototype>>> accesses)
     {
         ent.Comp.AccessLists.Clear();
-
         AddAccesses(ent, accesses);
     }
 
+    /// <inheritdoc cref = "TrySetAccesses"/>
+    public void TrySetAccesses(Entity<AccessReaderComponent> ent, List<ProtoId<AccessLevelPrototype>> accesses)
+    {
+        if (CanConfigureAccessReader(ent))
+        {
+            SetAccesses(ent, accesses);
+        }
+    }
+
     /// <inheritdoc cref = "SetAccesses"/>
-    public void SetAccesses(Entity<AccessReaderComponent> ent, List<ProtoId<AccessLevelPrototype>> accesses)
+    private void SetAccesses(Entity<AccessReaderComponent> ent, List<ProtoId<AccessLevelPrototype>> accesses)
     {
         ent.Comp.AccessLists.Clear();
-
         AddAccesses(ent, accesses);
+    }
+
+    /// <summary>
+    /// Tries to add a collection of access permissions to an access reader entity's <see cref="AccessReaderComponent.AccessLists"/>
+    /// </summary>
+    /// <param name="ent">The access reader entity to which the new access permissions are being added.</param>
+    /// <param name="accesses">The list of access permissions being added.</param>
+    public void TryAddAccesses(Entity<AccessReaderComponent> ent, List<HashSet<ProtoId<AccessLevelPrototype>>> accesses)
+    {
+        if (CanConfigureAccessReader(ent))
+        {
+            AddAccesses(ent, accesses);
+        }
     }
 
     /// <summary>
@@ -477,7 +520,7 @@ public sealed class AccessReaderSystem : EntitySystem
     /// </summary>
     /// <param name="ent">The access reader entity to which the new access permissions are being added.</param>
     /// <param name="accesses">The list of access permissions being added.</param>
-    public void AddAccesses(Entity<AccessReaderComponent> ent, List<HashSet<ProtoId<AccessLevelPrototype>>> accesses)
+    private void AddAccesses(Entity<AccessReaderComponent> ent, List<HashSet<ProtoId<AccessLevelPrototype>>> accesses)
     {
         foreach (var access in accesses)
         {
@@ -488,8 +531,17 @@ public sealed class AccessReaderSystem : EntitySystem
         RaiseLocalEvent(ent, new AccessReaderConfigurationChangedEvent());
     }
 
+    /// <inheritdoc cref = "TryAddAccesses"/>
+    public void TryAddAccesses(Entity<AccessReaderComponent> ent, List<ProtoId<AccessLevelPrototype>> accesses)
+    {
+        if (CanConfigureAccessReader(ent))
+        {
+            AddAccesses(ent, accesses);
+        }
+    }
+
     /// <inheritdoc cref = "AddAccesses"/>
-    public void AddAccesses(Entity<AccessReaderComponent> ent, List<ProtoId<AccessLevelPrototype>> accesses)
+    private void AddAccesses(Entity<AccessReaderComponent> ent, List<ProtoId<AccessLevelPrototype>> accesses)
     {
         foreach (var access in accesses)
         {
@@ -498,6 +550,20 @@ public sealed class AccessReaderSystem : EntitySystem
 
         Dirty(ent);
         RaiseLocalEvent(ent, new AccessReaderConfigurationChangedEvent());
+    }
+
+    /// <summary>
+    /// Tries to add an access permission to an access reader entity's <see cref="AccessReaderComponent.AccessLists"/>
+    /// </summary>
+    /// <param name="ent">The access reader entity to which the access permission is being added.</param>
+    /// <param name="access">The access permission being added.</param>
+    /// <param name="dirty">If true, the component will be  marked as changed afterward.</param>
+    public void TryAddAccess(Entity<AccessReaderComponent> ent, HashSet<ProtoId<AccessLevelPrototype>> access)
+    {
+        if (CanConfigureAccessReader(ent))
+        {
+            AddAccess(ent, access);
+        }
     }
 
     /// <summary>
@@ -506,7 +572,7 @@ public sealed class AccessReaderSystem : EntitySystem
     /// <param name="ent">The access reader entity to which the access permission is being added.</param>
     /// <param name="access">The access permission being added.</param>
     /// <param name="dirty">If true, the component will be  marked as changed afterward.</param>
-    public void AddAccess(Entity<AccessReaderComponent> ent, HashSet<ProtoId<AccessLevelPrototype>> access, bool dirty = true)
+    private void AddAccess(Entity<AccessReaderComponent> ent, HashSet<ProtoId<AccessLevelPrototype>> access, bool dirty = true)
     {
         ent.Comp.AccessLists.Add(access);
 
@@ -517,10 +583,32 @@ public sealed class AccessReaderSystem : EntitySystem
         RaiseLocalEvent(ent, new AccessReaderConfigurationChangedEvent());
     }
 
+    /// <inheritdoc cref = "TryAddAccess"/>
+    public void TryAddAccess(Entity<AccessReaderComponent> ent, ProtoId<AccessLevelPrototype> access)
+    {
+        if (CanConfigureAccessReader(ent))
+        {
+            AddAccess(ent, access);
+        }
+    }
+
     /// <inheritdoc cref = "AddAccess"/>
-    public void AddAccess(Entity<AccessReaderComponent> ent, ProtoId<AccessLevelPrototype> access, bool dirty = true)
+    private void AddAccess(Entity<AccessReaderComponent> ent, ProtoId<AccessLevelPrototype> access, bool dirty = true)
     {
         AddAccess(ent, new HashSet<ProtoId<AccessLevelPrototype>>() { access }, dirty);
+    }
+
+    /// <summary>
+    /// Tries to remove a collection of access permissions from an access reader entity's <see cref="AccessReaderComponent.AccessLists"/>
+    /// </summary>
+    /// <param name="ent">The access reader entity from which the access permissions are being removed.</param>
+    /// <param name="accesses">The list of access permissions being removed.</param>
+    public void TryRemoveAccesses(Entity<AccessReaderComponent> ent, List<HashSet<ProtoId<AccessLevelPrototype>>> accesses)
+    {
+        if (CanConfigureAccessReader(ent))
+        {
+            RemoveAccesses(ent, accesses);
+        }
     }
 
     /// <summary>
@@ -528,7 +616,7 @@ public sealed class AccessReaderSystem : EntitySystem
     /// </summary>
     /// <param name="ent">The access reader entity from which the access permissions are being removed.</param>
     /// <param name="accesses">The list of access permissions being removed.</param>
-    public void RemoveAccesses(Entity<AccessReaderComponent> ent, List<HashSet<ProtoId<AccessLevelPrototype>>> accesses)
+    private void RemoveAccesses(Entity<AccessReaderComponent> ent, List<HashSet<ProtoId<AccessLevelPrototype>>> accesses)
     {
         foreach (var access in accesses)
         {
@@ -539,8 +627,17 @@ public sealed class AccessReaderSystem : EntitySystem
         RaiseLocalEvent(ent, new AccessReaderConfigurationChangedEvent());
     }
 
+    /// <inheritdoc cref = "TryRemoveAccesses"/>
+    public void TryRemoveAccesses(Entity<AccessReaderComponent> ent, List<ProtoId<AccessLevelPrototype>> accesses)
+    {
+        if (CanConfigureAccessReader(ent))
+        {
+            RemoveAccesses(ent, accesses);
+        }
+    }
+
     /// <inheritdoc cref = "RemoveAccesses"/>
-    public void RemoveAccesses(Entity<AccessReaderComponent> ent, List<ProtoId<AccessLevelPrototype>> accesses)
+    private void RemoveAccesses(Entity<AccessReaderComponent> ent, List<ProtoId<AccessLevelPrototype>> accesses)
     {
         foreach (var access in accesses)
         {
@@ -549,6 +646,20 @@ public sealed class AccessReaderSystem : EntitySystem
 
         Dirty(ent);
         RaiseLocalEvent(ent, new AccessReaderConfigurationChangedEvent());
+    }
+
+    /// <summary>
+    /// Tries to removes an access permission from an access reader entity's <see cref="AccessReaderComponent.AccessLists"/>
+    /// </summary>
+    /// <param name="ent">The access reader entity from which the access permission is being removed.</param>
+    /// <param name="access">The access permission being removed.</param>
+    /// <param name="dirty">If true, the component will be marked as changed afterward.</param>
+    public void TryRemoveAccess(Entity<AccessReaderComponent> ent, HashSet<ProtoId<AccessLevelPrototype>> access)
+    {
+        if (CanConfigureAccessReader(ent))
+        {
+            RemoveAccess(ent, access);
+        }
     }
 
     /// <summary>
@@ -557,7 +668,7 @@ public sealed class AccessReaderSystem : EntitySystem
     /// <param name="ent">The access reader entity from which the access permission is being removed.</param>
     /// <param name="access">The access permission being removed.</param>
     /// <param name="dirty">If true, the component will be marked as changed afterward.</param>
-    public void RemoveAccess(Entity<AccessReaderComponent> ent, HashSet<ProtoId<AccessLevelPrototype>> access, bool dirty = true)
+    private void RemoveAccess(Entity<AccessReaderComponent> ent, HashSet<ProtoId<AccessLevelPrototype>> access, bool dirty = true)
     {
         for (int i = ent.Comp.AccessLists.Count - 1; i >= 0; i--)
         {
@@ -574,10 +685,27 @@ public sealed class AccessReaderSystem : EntitySystem
         RaiseLocalEvent(ent, new AccessReaderConfigurationChangedEvent());
     }
 
+    /// <inheritdoc cref = "TryRemoveAccess"/>
+    public void TryRemoveAccess(Entity<AccessReaderComponent> ent, ProtoId<AccessLevelPrototype> access)
+    {
+        if (CanConfigureAccessReader(ent))
+        {
+            RemoveAccess(ent, new HashSet<ProtoId<AccessLevelPrototype>>() { access });
+        }
+    }
+
     /// <inheritdoc cref = "RemoveAccess"/>
-    public void RemoveAccess(Entity<AccessReaderComponent> ent, ProtoId<AccessLevelPrototype> access, bool dirty = true)
+    private void RemoveAccess(Entity<AccessReaderComponent> ent, ProtoId<AccessLevelPrototype> access, bool dirty = true)
     {
         RemoveAccess(ent, new HashSet<ProtoId<AccessLevelPrototype>>() { access }, dirty);
+    }
+
+    private bool CanConfigureAccessReader(Entity<AccessReaderComponent> ent)
+    {
+        var ev = new AccessReaderConfigurationAttemptEvent();
+        RaiseLocalEvent(ent, ev);
+
+        return !ev.Cancelled;
     }
 
     #endregion
@@ -818,5 +946,39 @@ public sealed class AccessReaderSystem : EntitySystem
         ent.Comp.AccessLog.Enqueue(new AccessRecord(stationTime, name));
 
         Dirty(ent);
+    }
+
+    private List<string> GetLocalizedAccessNames(List<HashSet<ProtoId<AccessLevelPrototype>>> accessLists)
+    {
+        var localizedNames = new List<string>();
+        string? andSeparator = null;
+
+        foreach (var accessHashSet in accessLists)
+        {
+            var sb = new StringBuilder();
+            var accessSubset = accessHashSet.ToList();
+
+            // Combine the names of all access levels in the subset into a single string
+            foreach (var access in accessSubset)
+            {
+                var accessName = Loc.GetString("access-reader-unknown-id");
+
+                if (_prototype.Resolve(access, out var accessProto) && !string.IsNullOrWhiteSpace(accessProto.Name))
+                    accessName = Loc.GetString(accessProto.Name);
+
+                sb.Append(Loc.GetString("access-reader-access-label", ("access", accessName)));
+
+                if (accessSubset.IndexOf(access) < (accessSubset.Count - 1))
+                {
+                    andSeparator ??= " " + Loc.GetString("generic-and") + " ";
+                    sb.Append(andSeparator);
+                }
+            }
+
+            // Add this string to the list
+            localizedNames.Add(sb.ToString());
+        }
+
+        return localizedNames;
     }
 }

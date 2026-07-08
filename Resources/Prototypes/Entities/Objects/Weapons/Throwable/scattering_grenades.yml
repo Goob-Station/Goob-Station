@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # ScatteringGrenade is intended for grenades that spawn entities, especially those with timers
 - type: entity
@@ -17,14 +11,6 @@
       cluster-payload: !type:Container
   - type: Damageable
     damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 10
-      behaviors:
-      - !type:TriggerBehavior
-        keyOut: timer # explode immediately
   - type: ScatteringGrenade
   - type: TriggerOnUse
   - type: TimerTrigger
@@ -44,7 +30,7 @@
         friction: 0.2
 
 - type: entity
-  parent: [ScatteringGrenadeBase, BaseSecurityContraband]
+  parent: [FragileGrenadeBase, ScatteringGrenadeBase, BaseSecurityContraband]
   id: ClusterBang
   name: clusterbang
   description: Can be used only with flashbangs. Explodes several times.
@@ -64,7 +50,7 @@
 - type: entity
   parent: ClusterBang
   id: ClusterBangFull
-  name: ClusterBang
+  name: clusterbang
   description: Launches three flashbangs after the timer runs out.
   suffix: Full
   components:
@@ -94,9 +80,10 @@
     - timer
     sound:
       path: "/Audio/Machines/door_lock_off.ogg"
+    positional: true
 
 - type: entity
-  parent: [ScatteringGrenadeBase, BaseSyndicateContraband]
+  parent: [VolatileGrenadeBase, ScatteringGrenadeBase, BaseSyndicateContraband]
   id: ClusterGrenade
   name: clustergrenade
   description: Why use one grenade when you can use three at once!
@@ -121,11 +108,12 @@
     - timer
     sound:
       path: "/Audio/Machines/door_lock_off.ogg"
+    positional: true
   - type: StaticPrice
     price: 2500
 
 - type: entity
-  parent: [ScatteringGrenadeBase, BaseSyndicateContraband]
+  parent: [FragileGrenadeBase, ScatteringGrenadeBase, BaseSyndicateContraband]
   id: ClusterBananaPeel
   name: cluster banana peel
   description: Splits into 6 explosive banana peels after throwing, guaranteed fun!
@@ -147,6 +135,7 @@
     - timer
     sound:
       path: "/Audio/Items/bikehorn.ogg"
+    positional: true
 
 - type: entity
   parent: [SoapSyndie, ScatteringGrenadeBase, BaseSyndicateContraband]
@@ -158,6 +147,7 @@
     sprite: Objects/Specific/Janitorial/soap.rsi
     layers:
     - state: syndie-4
+      map: ["enum.SolutionContainerLayers.Fill"]
   - type: ScatteringGrenade
     fillPrototype: SoapletSyndie
     capacity: 30
@@ -174,11 +164,12 @@
     - timer
     sound:
       path: "/Audio/Effects/flash_bang.ogg"
+    positional: true
   - type: StaticPrice
     price: 1000
 
 - type: entity
-  parent: ScatteringGrenadeBase
+  parent: [FragileGrenadeBase, ScatteringGrenadeBase]
   id: GrenadeFoamDart
   name: foam dart grenade
   description: Releases a bothersome spray of foam darts that cause severe welching.
@@ -206,3 +197,4 @@
     - timer
     sound:
       path: "/Audio/Weapons/Guns/Gunshots/batrifle.ogg"
+    positional: true

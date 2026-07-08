@@ -1,95 +1,7 @@
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 KIBORG04 <bossmira4@gmail.com>
-// SPDX-FileCopyrightText: 2022 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 T-Stalker <le0nel_1van@hotmail.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
-// SPDX-FileCopyrightText: 2023 Arendian <137322659+Arendian@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <super.novalskiy_0135@inbox.ru>
-// SPDX-FileCopyrightText: 2023 TaralGit <76408146+TaralGit@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 and_a <and_a@DESKTOP-RJENGIR>
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 CaasGit <87243814+CaasGit@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
-// SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
-// SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kukutis96513 <146854220+Kukutis96513@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Lye <128915833+Lyroth001@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MerrytheManokit <167581110+MerrytheManokit@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 OrangeMoronage9622 <whyteterry0092@gmail.com>
-// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
-// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2024 Vigers Ray <60344369+VigersRay@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
-// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-// SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
-// SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-// SPDX-FileCopyrightText: 2025 themias <89101928+themias@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.DoAfter;
+using Content.Shared.Emp;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
@@ -107,7 +19,7 @@ public abstract partial class SharedGunSystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
 
-
+    [MustCallBase]
     protected virtual void InitializeBallistic()
     {
         SubscribeLocalEvent<BallisticAmmoProviderComponent, ComponentInit>(OnBallisticInit);
@@ -121,36 +33,32 @@ public abstract partial class SharedGunSystem
         SubscribeLocalEvent<BallisticAmmoProviderComponent, AfterInteractEvent>(OnBallisticAfterInteract);
         SubscribeLocalEvent<BallisticAmmoProviderComponent, AmmoFillDoAfterEvent>(OnBallisticAmmoFillDoAfter);
         SubscribeLocalEvent<BallisticAmmoProviderComponent, UseInHandEvent>(OnBallisticUse);
+
+        SubscribeLocalEvent<BallisticAmmoSelfRefillerComponent, MapInitEvent>(OnBallisticRefillerMapInit);
+        SubscribeLocalEvent<BallisticAmmoSelfRefillerComponent, EmpPulseEvent>(OnRefillerEmpPulsed);
     }
 
-    private void OnBallisticUse(EntityUid uid, BallisticAmmoProviderComponent component, UseInHandEvent args)
+    private void OnBallisticRefillerMapInit(Entity<BallisticAmmoSelfRefillerComponent> entity, ref MapInitEvent _)
+    {
+        entity.Comp.NextAutoRefill = Timing.CurTime + entity.Comp.AutoRefillRate;
+    }
+
+    private void OnBallisticUse(Entity<BallisticAmmoProviderComponent> ent, ref UseInHandEvent args)
     {
         if (args.Handled)
             return;
 
-        ManualCycle(uid, component, TransformSystem.GetMapCoordinates(uid), args.User);
+        ManualCycle(ent, TransformSystem.GetMapCoordinates(ent), args.User);
         args.Handled = true;
     }
 
-    private void OnBallisticInteractUsing(EntityUid uid, BallisticAmmoProviderComponent component, InteractUsingEvent args)
+    private void OnBallisticInteractUsing(Entity<BallisticAmmoProviderComponent> ent, ref InteractUsingEvent args)
     {
         if (args.Handled)
             return;
 
-        if (_whitelistSystem.IsWhitelistFailOrNull(component.Whitelist, args.Used))
-            return;
-
-        if (GetBallisticShots(component) >= component.Capacity)
-            return;
-
-        component.Entities.Add(args.Used);
-        Containers.Insert(args.Used, component.Container);
-        // Not predicted so
-        Audio.PlayPredicted(component.SoundInsert, uid, args.User);
-        args.Handled = true;
-        UpdateBallisticAppearance(uid, component);
-        UpdateAmmoCount(args.Target); // Goob - Upstream
-        DirtyField(uid, component, nameof(BallisticAmmoProviderComponent.Entities));
+        if (TryBallisticInsert(ent, args.Used, args.User))
+            args.Handled = true;
     }
 
     private void OnBallisticAfterInteract(EntityUid uid, BallisticAmmoProviderComponent component, AfterInteractEvent args)
@@ -245,7 +153,7 @@ public abstract partial class SharedGunSystem
                 Del(ent.Value);
         }
 
-        // repeat if there is more space in the target and more ammo to fill it
+        // repeat if there is more space in the target and more ammo to fill
         var moreSpace = target.Entities.Count + target.UnspawnedCount < target.Capacity;
         var moreAmmo = component.Entities.Count + component.UnspawnedCount > 0;
         args.Repeat = moreSpace && moreAmmo;
@@ -262,65 +170,65 @@ public abstract partial class SharedGunSystem
             {
                 Text = Loc.GetString("gun-ballistic-cycle"),
                 Disabled = GetBallisticShots(component) == 0,
-                Act = () => ManualCycle(uid, component, TransformSystem.GetMapCoordinates(uid), args.User),
+                Act = () => ManualCycle((uid, component), TransformSystem.GetMapCoordinates(uid), args.User),
             });
 
         }
     }
 
-    private void OnBallisticExamine(EntityUid uid, BallisticAmmoProviderComponent component, ExaminedEvent args)
+    private void OnBallisticExamine(Entity<BallisticAmmoProviderComponent> ent, ref ExaminedEvent args)
     {
         if (!args.IsInDetailsRange)
             return;
 
-        args.PushMarkup(Loc.GetString("gun-magazine-examine", ("color", AmmoExamineColor), ("count", GetBallisticShots(component))));
+        args.PushMarkup(Loc.GetString("gun-magazine-examine", ("color", AmmoExamineColor), ("count", GetBallisticShots(ent.Comp))));
     }
 
-    private void ManualCycle(EntityUid uid, BallisticAmmoProviderComponent component, MapCoordinates coordinates, EntityUid? user = null, GunComponent? gunComp = null)
+    private void ManualCycle(Entity<BallisticAmmoProviderComponent> ent, MapCoordinates coordinates, EntityUid? user = null, GunComponent? gunComp = null)
     {
-        if (!component.Cycleable)
+        if (!ent.Comp.Cycleable)
             return;
 
         // Reset shotting for cycling
-        if (Resolve(uid, ref gunComp, false) &&
+        if (Resolve(ent, ref gunComp, false) &&
             gunComp is { FireRateModified: > 0f } &&
-            !Paused(uid))
+            !Paused(ent))
         {
             gunComp.NextFire = Timing.CurTime + TimeSpan.FromSeconds(1 / gunComp.FireRateModified);
-            DirtyField(uid, gunComp, nameof(GunComponent.NextFire));
+            DirtyField(ent, gunComp, nameof(GunComponent.NextFire));
         }
 
-        Audio.PlayPredicted(component.SoundRack, uid, user);
+        Audio.PlayPredicted(ent.Comp.SoundRack, ent, user);
 
-        var shots = GetBallisticShots(component);
-        Cycle(uid, component, coordinates);
+        var shots = GetBallisticShots(ent.Comp);
+        Cycle(ent, coordinates);
 
         var text = Loc.GetString(shots == 0 ? "gun-ballistic-cycled-empty" : "gun-ballistic-cycled");
 
-        Popup(text, uid, user);
-        UpdateBallisticAppearance(uid, component);
-        UpdateAmmoCount(uid);
+        Popup(text, ent, user);
+        UpdateBallisticAppearance(ent);
+        UpdateAmmoCount(ent);
     }
 
-    protected abstract void Cycle(EntityUid uid, BallisticAmmoProviderComponent component, MapCoordinates coordinates);
+    protected abstract void Cycle(Entity<BallisticAmmoProviderComponent> ent, MapCoordinates coordinates);
 
-    private void OnBallisticInit(EntityUid uid, BallisticAmmoProviderComponent component, ComponentInit args)
+    private void OnBallisticInit(Entity<BallisticAmmoProviderComponent> ent, ref ComponentInit args)
     {
-        component.Container = Containers.EnsureContainer<Container>(uid, "ballistic-ammo");
+        ent.Comp.Container = Containers.EnsureContainer<Container>(ent, "ballistic-ammo");
         // TODO: This is called twice though we need to support loading appearance data (and we need to call it on MapInit
         // to ensure it's correct).
-        UpdateBallisticAppearance(uid, component);
+        UpdateBallisticAppearance(ent);
     }
 
-    private void OnBallisticMapInit(EntityUid uid, BallisticAmmoProviderComponent component, MapInitEvent args)
+    private void OnBallisticMapInit(Entity<BallisticAmmoProviderComponent> ent, ref MapInitEvent args)
     {
         // TODO this should be part of the prototype, not set on map init.
         // Alternatively, just track spawned count, instead of unspawned count.
-        if (component.Proto != null)
+        if (ent.Comp.Proto != null)
         {
-            component.UnspawnedCount = Math.Max(0, component.Capacity - component.Container.ContainedEntities.Count);
-            UpdateBallisticAppearance(uid, component);
-            DirtyField(uid, component, nameof(BallisticAmmoProviderComponent.UnspawnedCount));
+            ent.Comp.UnspawnedCount = Math.Max(0, ent.Comp.Capacity - ent.Comp.Container.ContainedEntities.Count);
+            UpdateBallisticAppearance(ent);
+            DirtyField(ent.AsNullable(), nameof(BallisticAmmoProviderComponent.UnspawnedCount));
         }
     }
 
@@ -329,59 +237,131 @@ public abstract partial class SharedGunSystem
         return component.Entities.Count + component.UnspawnedCount;
     }
 
-    private void OnBallisticTakeAmmo(EntityUid uid, BallisticAmmoProviderComponent component, TakeAmmoEvent args)
+    private void OnBallisticTakeAmmo(Entity<BallisticAmmoProviderComponent> ent, ref TakeAmmoEvent args)
     {
         for (var i = 0; i < args.Shots; i++)
         {
-            EntityUid entity;
-
-            if (component.Entities.Count > 0)
+            EntityUid? ammoEntity = null;
+            if (ent.Comp.Entities.Count > 0)
             {
-                entity = component.Entities[^1];
-
-                args.Ammo.Add((entity, EnsureShootable(entity)));
-
-                if (!component.AutoCycle) //  Goobstation - do not remove spent ammo from the gun it doesn't autocycle
+                if (!ent.Comp.AutoCycle) //  Goobstation - do not remove spent ammo from the gun it doesn't autocycle
                     break;
 
-                component.Entities.RemoveAt(component.Entities.Count - 1);
-                DirtyField(uid, component, nameof(BallisticAmmoProviderComponent.Entities));
-                Containers.Remove(entity, component.Container);
+                var existingEnt = ent.Comp.Entities[^1];
+                ent.Comp.Entities.RemoveAt(ent.Comp.Entities.Count - 1);
+                DirtyField(ent.AsNullable(), nameof(BallisticAmmoProviderComponent.Entities));
+                Containers.Remove(existingEnt, ent.Comp.Container);
+                ammoEntity = existingEnt;
             }
-            else if (component.UnspawnedCount > 0)
+            else if (ent.Comp.UnspawnedCount > 0)
             {
-                component.UnspawnedCount--;
-                DirtyField(uid, component, nameof(BallisticAmmoProviderComponent.UnspawnedCount));
-                entity = Spawn(component.Proto, args.Coordinates);
-                args.Ammo.Add((entity, EnsureShootable(entity)));
-
-                // Goobstation - put spent ammo back in the gun if it doesn't autocycle
-                if (!component.AutoCycle)
-                {
-                    component.Entities.Add(entity);
-                    Containers.Insert(entity, component.Container);
-                    DirtyField(uid, component, nameof(BallisticAmmoProviderComponent.Entities));
-                }
-                // Goobstation - end
+                ent.Comp.UnspawnedCount--;
+                DirtyField(ent.AsNullable(), nameof(BallisticAmmoProviderComponent.UnspawnedCount));
+                ammoEntity = Spawn(ent.Comp.Proto, args.Coordinates);
             }
+
+            if (ammoEntity is not { } ammoEnt)
+                continue;
+
+            args.Ammo.Add((ammoEnt, EnsureShootable(ammoEnt)));
+            if (TryComp<BallisticAmmoSelfRefillerComponent>(ent, out var refiller))
+            {
+                PauseSelfRefill((ent, refiller));
+            }
+            // Goobstation - put spent ammo back in the gun if it doesn't autocycle
+            if (!ent.Comp.AutoCycle)
+            {
+                ent.Comp.Entities.Add(ent);
+                Containers.Insert(ent.Owner, ent.Comp.Container);
+                DirtyField(ent.Owner, ent.Comp, nameof(BallisticAmmoProviderComponent.Entities));
+            }
+            // Goobstation - end
+
         }
 
-        UpdateBallisticAppearance(uid, component);
+        UpdateBallisticAppearance(ent);
     }
 
-    private void OnBallisticAmmoCount(EntityUid uid, BallisticAmmoProviderComponent component, ref GetAmmoCountEvent args)
+    private void OnBallisticAmmoCount(Entity<BallisticAmmoProviderComponent> ent, ref GetAmmoCountEvent args)
     {
-        args.Count = GetBallisticShots(component);
-        args.Capacity = component.Capacity;
+        args.Count = GetBallisticShots(ent.Comp);
+        args.Capacity = ent.Comp.Capacity;
     }
 
-    public void UpdateBallisticAppearance(EntityUid uid, BallisticAmmoProviderComponent component)
+    /// <summary>
+    /// Causes <paramref name="entity"/> to pause its refilling for either at least <paramref name="overridePauseDuration"/>
+    /// (if not null) or the entity's <see cref="BallisticAmmoSelfRefillerComponent.AutoRefillPauseDuration"/>. If the
+    /// entity's next refill would occur after the pause duration, this function has no effect.
+    /// </summary>
+    public void PauseSelfRefill(
+        Entity<BallisticAmmoSelfRefillerComponent> entity,
+        TimeSpan? overridePauseDuration = null
+    )
     {
-        if (!Timing.IsFirstTimePredicted || !TryComp<AppearanceComponent>(uid, out var appearance))
+        if (overridePauseDuration == null && !entity.Comp.FiringPausesAutoRefill)
             return;
 
-        Appearance.SetData(uid, AmmoVisuals.AmmoCount, GetBallisticShots(component), appearance);
-        Appearance.SetData(uid, AmmoVisuals.AmmoMax, component.Capacity, appearance);
+        var nextRefillByPause = Timing.CurTime + (overridePauseDuration ?? entity.Comp.AutoRefillPauseDuration);
+        if (nextRefillByPause > entity.Comp.NextAutoRefill)
+        {
+            entity.Comp.NextAutoRefill = nextRefillByPause;
+            DirtyField(entity.AsNullable(), nameof(BallisticAmmoSelfRefillerComponent.NextAutoRefill));
+        }
+    }
+
+    /// <summary>
+    /// Returns true if the given <paramref name="entity"/>'s ballistic ammunition is full, false otherwise.
+    /// </summary>
+    public bool IsFull(Entity<BallisticAmmoProviderComponent> entity)
+    {
+        return GetBallisticShots(entity.Comp) >= entity.Comp.Capacity;
+    }
+
+    /// <summary>
+    /// Returns whether or not <paramref name="inserted"/> can be inserted into <paramref name="entity"/>, based on
+    /// available space and whitelists.
+    /// </summary>
+    public bool CanInsertBallistic(Entity<BallisticAmmoProviderComponent> entity, EntityUid inserted)
+    {
+        return !_whitelistSystem.IsWhitelistFailOrNull(entity.Comp.Whitelist, inserted) &&
+               !IsFull(entity);
+    }
+
+    /// <summary>
+    /// Attempts to insert <paramref name="inserted"/> into <paramref name="entity"/> as ammunition. Returns true on
+    /// success, false otherwise.
+    /// </summary>
+    public bool TryBallisticInsert(
+        Entity<BallisticAmmoProviderComponent> entity,
+        EntityUid inserted,
+        EntityUid? user,
+        bool suppressInsertionSound = false
+    )
+    {
+        if (!CanInsertBallistic(entity, inserted))
+            return false;
+
+        entity.Comp.Entities.Add(inserted);
+        Containers.Insert(inserted, entity.Comp.Container);
+        if (!suppressInsertionSound)
+        {
+            Audio.PlayPredicted(entity.Comp.SoundInsert, entity, user);
+        }
+
+        UpdateBallisticAppearance(entity);
+        UpdateAmmoCount(entity);
+        DirtyField(entity.AsNullable(), nameof(BallisticAmmoProviderComponent.Entities));
+
+        return true;
+    }
+
+    public void UpdateBallisticAppearance(Entity<BallisticAmmoProviderComponent> ent)
+    {
+        if (!Timing.IsFirstTimePredicted || !TryComp<AppearanceComponent>(ent, out var appearance))
+            return;
+
+        Appearance.SetData(ent, AmmoVisuals.AmmoCount, GetBallisticShots(ent.Comp), appearance);
+        Appearance.SetData(ent, AmmoVisuals.AmmoMax, ent.Comp.Capacity, appearance);
     }
 
     public void SetBallisticUnspawned(Entity<BallisticAmmoProviderComponent> entity, int count)
@@ -390,9 +370,73 @@ public abstract partial class SharedGunSystem
             return;
 
         entity.Comp.UnspawnedCount = count;
-        UpdateBallisticAppearance(entity.Owner, entity.Comp);
+        UpdateBallisticAppearance(entity);
         UpdateAmmoCount(entity.Owner);
         Dirty(entity);
+    }
+
+    private void OnRefillerEmpPulsed(Entity<BallisticAmmoSelfRefillerComponent> entity, ref EmpPulseEvent args)
+    {
+        if (!entity.Comp.AffectedByEmp)
+            return;
+
+        PauseSelfRefill(entity, args.Duration);
+    }
+
+    private void UpdateBallistic(float frameTime)
+    {
+        var query = EntityQueryEnumerator<BallisticAmmoSelfRefillerComponent, BallisticAmmoProviderComponent>();
+        while (query.MoveNext(out var uid, out var refiller, out var ammo))
+        {
+            BallisticSelfRefillerUpdate((uid, ammo, refiller));
+        }
+    }
+
+    private void BallisticSelfRefillerUpdate(
+        Entity<BallisticAmmoProviderComponent, BallisticAmmoSelfRefillerComponent> entity
+    )
+    {
+        var ammo = entity.Comp1;
+        var refiller = entity.Comp2;
+        if (Timing.CurTime < refiller.NextAutoRefill)
+            return;
+
+        refiller.NextAutoRefill += refiller.AutoRefillRate;
+        DirtyField(entity, refiller, nameof(BallisticAmmoSelfRefillerComponent.NextAutoRefill));
+
+        if (!refiller.AutoRefill || IsFull(entity))
+            return;
+
+        if (refiller.AmmoProto is not { } refillerAmmoProto)
+        {
+            // No ammo proto on the refiller, so just increment the unspawned count on the provider
+            // if it has an ammo proto.
+            if (ammo.Proto is null)
+            {
+                Log.Error(
+                    $"Neither of {entity}'s {nameof(BallisticAmmoSelfRefillerComponent)}'s or {nameof(BallisticAmmoProviderComponent)}'s ammunition protos is specified. This is a configuration error as it means {nameof(BallisticAmmoSelfRefillerComponent)} cannot do anything.");
+                return;
+            }
+
+            SetBallisticUnspawned(entity, ammo.UnspawnedCount + 1);
+        }
+        else if (ammo.Proto == refillerAmmoProto)
+        {
+            // The ammo proto on the refiller and the provider match. Add an unspawned ammo.
+            SetBallisticUnspawned(entity, ammo.UnspawnedCount + 1);
+        }
+        else
+        {
+            // Can't use unspawned ammo, so spawn an entity and try to insert it.
+            var ammoEntity = PredictedSpawnAttachedTo(refiller.AmmoProto, Transform(entity).Coordinates);
+            var insertSucceeded = TryBallisticInsert(entity, ammoEntity, null, suppressInsertionSound: true);
+            if (!insertSucceeded)
+            {
+                PredictedQueueDel(ammoEntity);
+                Log.Error(
+                    $"Failed to insert ammo {ammoEntity} into non-full {entity}. This is a configuration error. Is the {nameof(BallisticAmmoSelfRefillerComponent)}'s {nameof(BallisticAmmoSelfRefillerComponent.AmmoProto)} incorrect for the {nameof(BallisticAmmoProviderComponent)}'s {nameof(BallisticAmmoProviderComponent.Whitelist)}?");
+            }
+        }
     }
 
     /// <summary>
@@ -411,7 +455,7 @@ public abstract partial class SharedGunSystem
 
         entity.Comp.Entities.Clear();
         entity.Comp.UnspawnedCount = entity.Comp.Capacity;
-        UpdateBallisticAppearance(entity.Owner, entity.Comp);
+        UpdateBallisticAppearance(entity);
         UpdateAmmoCount(entity.Owner);
         Dirty(entity);
     }

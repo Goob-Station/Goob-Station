@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Golinth <amh2023@gmail.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: htnCompound
@@ -13,8 +8,8 @@
           task: DouseFireTargetCompound
     - tasks:
         - !type:HTNCompoundTask
-          task: IdleCompound    
-          
+          task: IdleCompound
+
 - type: htnCompound
   id: DouseFireTargetCompound
   branches:
@@ -25,8 +20,9 @@
 
         - !type:HTNPrimitiveTask
           operator: !type:SpeakOperator
-            speech: firebot-fire-detected
-            hidden: true  
+            speech: !type:SingleSpeakOperatorSpeech
+              line: firebot-fire-detected
+            hidden: true
 
         - !type:HTNPrimitiveTask
           operator: !type:MoveToOperator

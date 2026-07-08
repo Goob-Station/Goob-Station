@@ -34,7 +34,7 @@
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateGas
         gas: Frezon
-        multiplier: 35
+        moles: 35
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:

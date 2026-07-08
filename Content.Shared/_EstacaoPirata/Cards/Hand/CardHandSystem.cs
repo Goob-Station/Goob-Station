@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 RadsammyT <32146976+RadsammyT@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
@@ -11,6 +6,7 @@ using Content.Shared._EstacaoPirata.Cards.Deck;
 using Content.Shared._EstacaoPirata.Cards.Stack;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
 using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Verbs;
@@ -48,6 +44,7 @@ public sealed class CardHandSystem : EntitySystem
         SubscribeLocalEvent<CardHandComponent, CardHandDrawMessage>(OnCardDraw);
         SubscribeLocalEvent<CardHandComponent, CardStackQuantityChangeEvent>(OnStackQuantityChange);
         SubscribeLocalEvent<CardHandComponent, GetVerbsEvent<AlternativeVerb>>(OnAlternativeVerb);
+        SubscribeLocalEvent<CardHandComponent, UseInHandEvent>(OnUse);
     }
 
     private void OnStackQuantityChange(EntityUid uid, CardHandComponent comp, CardStackQuantityChangeEvent args)
@@ -101,6 +98,15 @@ public sealed class CardHandSystem : EntitySystem
         {
             _hands.TryPickupAnyHand(args.Actor, leftover.Value);
         }
+    }
+
+    private void OnUse(EntityUid uid, CardHandComponent comp, UseInHandEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        FlipCards(uid, comp);
+        args.Handled = true;
     }
 
     private void OpenHandMenu(EntityUid user, EntityUid hand)

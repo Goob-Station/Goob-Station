@@ -1,26 +1,16 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.DelayedDeath;
 using Content.Goobstation.Shared.CheatDeath;
-using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devour.Events;
-using Content.Server._Shitmed.DelayedDeath;
 using Content.Server.Actions;
-using Content.Server.Administration.Systems;
 using Content.Server.Jittering;
-using Content.Shared.Actions.Components;
+using Content.Shared.Administration.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
-using Content.Shared.IdentityManagement;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Traits.Assorted;
-using Robust.Shared.Network;
 
 namespace Content.Goobstation.Server.Devil.CheatDeath;
 

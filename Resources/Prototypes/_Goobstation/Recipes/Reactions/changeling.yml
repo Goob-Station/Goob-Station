@@ -38,7 +38,7 @@
     Carbon:
       amount: 10
   effects:
-    - !type:CreateEntityReactionEffect
+    - !type:SpawnEntity
       entity: FoodMeat
 
 - type: reaction
@@ -53,7 +53,7 @@
     BloodChangeling:
       amount: 10
   effects:
-    - !type:CreateEntityReactionEffect
+    - !type:SpawnEntity
       entity: SoapHomemade
 
 - type: reaction
@@ -81,7 +81,7 @@
   products:
     Hydroxide: 5 # frankly it's there so that this recipe appears in the guidebook at all
   effects:
-    - !type:CreateEntityReactionEffect
+    - !type:SpawnEntity
       entity: FoodMeatSynth
 
 - type: reaction
@@ -96,7 +96,7 @@
     Sodium:
       amount: 10
   effects:
-    - !type:CreateEntityReactionEffect
+    - !type:SpawnEntity
       entity: ShardCrystalStyptic
 
 - type: reaction
