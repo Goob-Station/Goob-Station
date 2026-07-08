@@ -1,22 +1,22 @@
+using Content.Goobstation.Shared.Contraband;
 using Content.Goobstation.Shared.Slasher.Components;
-using Content.Goobstation.Shared.Slasher.Events;
-using Content.Server.Singularity.Events;
-using Content.Server.SurveillanceCamera;
+using Content.Goobstation.Shared.Slasher;
+using Content.Server.Atmos;
+using Content.Server.Atmos.EntitySystems;
 using Content.Server.Light.Components;
 using Content.Server.Light.EntitySystems;
-using Content.Server.Atmos.EntitySystems;
+using Content.Server.Singularity.Events;
+using Content.Server.SurveillanceCamera;
+using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
-using Content.Server.Atmos;
 using Content.Shared.Interaction;
-using Content.Shared.Physics;
 using Content.Shared.Light;
 using Content.Shared.Light.Components;
 using Content.Shared.Light.EntitySystems;
-using Content.Shared.Atmos;
+using Content.Shared.Physics;
 using Robust.Server.GameObjects;
-using Robust.Shared.Spawners;
 using Robust.Shared.Physics.Events;
-using Content.Goobstation.Shared.Contraband;
+using Robust.Shared.Spawners;
 
 namespace Content.Goobstation.Server.Slasher.Systems;
 

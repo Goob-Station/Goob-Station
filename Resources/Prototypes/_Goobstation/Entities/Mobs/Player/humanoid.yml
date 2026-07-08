@@ -236,6 +236,17 @@
     nameSegments:
     - NamesVox
 
+- type: entity # mono
+  parent: MobHydrakin
+  id: MobHydrakinRandom
+  name: Urist McHydra
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - NamesHydrakin
+
 - type: entity
   parent: MobShadowkin
   id: MobShadowkinRandom

@@ -2,43 +2,162 @@
   name: Urist McSlasher
   parent: MobHuman
   id: MobSlasher
-  description: A terrifying slasher with supernatural abilities.
+  description: Debug control to set variant.
   suffix: Debug
   components:
-  - type: Loadout
-    prototypes: [ SlasherGear ]
-  - type: Slasher
-  - type: SlasherSummonMachete
-  - type: SlasherStaggerArea
-  - type: SlasherRelentlessGrab
-  - type: SlasherRegenerate
-  - type: SlasherBloodTrail
-  - type: SlasherIncorporeal
-  - type: SlasherSoulSteal
-  - type: SlasherSummonMeatSpike
-  - type: NightVision
-    color: "#FF0000"
-    toggleAction: ActionSlasherNightVision
-    activateSound: !type:SoundCollectionSpecifier
-      collection: EyeOpen
-    deactivateSound: !type:SoundCollectionSpecifier
-      collection: EyeClose
-  - type: GrabIntent
-    grabThrownSpeed: 10
-    throwingDistance: 8
-    softGrabSpeedModifier: 1
-    hardGrabSpeedModifier: 1
-    chokeGrabSpeedModifier: 1
-  - type: Hunger
-    baseDecayRate: 0
-  - type: Thirst
-    baseDecayRate: 0
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      150: Dead
-  - type: RandomMetadata
-    nameSegments:
-    - NamesSlasherTitle
-    - NamesSlasher
-    nameFormat: name-format-slasher
+  - type: SlasherKitSelect
+    kits:
+      slasher-kit-butcher:
+        gear: SlasherGear
+        description: slasher-kit-butcher-desc
+        sprite:
+          sprite: _Goobstation/Objects/Specific/Slasher/mask.rsi
+          state: icon
+      slasher-kit-spring:
+        gear: SlasherGearSpring
+        description: slasher-kit-spring-desc
+        sprite:
+          sprite: _Goobstation/Objects/Specific/Slasher/spring_mask.rsi
+          state: icon
+        machetePrototype: SlasherMacheteSpring
+        bloodTrailMusic:
+          path: /Audio/_Goobstation/Music/fnaf_bonnies_lullaby.ogg
+          params:
+            volume: -4
+            loop: true
+      slasher-kit-billy:
+        gear: SlasherGearBilly
+        description: slasher-kit-billy-desc
+        sprite:
+          sprite: Objects/Tools/crowbar.rsi
+          state: icon
+        machetePrototype: SlasherCrowbar
+        bloodTrailMusic:
+          path: /Audio/_Goobstation/Music/that_handsome_devil_midi.ogg
+          params:
+            volume: -7
+            loop: true
+      slasher-kit-cult:
+        gear: SlasherGearCult
+        description: slasher-kit-cult-desc
+        sprite:
+          sprite: Clothing/Head/Hoods/cult.rsi
+          state: icon
+        machetePrototype: SlasherEldritchBlade
+        bloodTrailMusic:
+          path: /Audio/_Goobstation/Music/cultist_chant.ogg
+          params:
+            loop: true
+      slasher-kit-maintenance:
+        gear: SlasherGearMaintenance
+        description: slasher-kit-maintenance-desc
+        sprite:
+          sprite: Clothing/Head/Hats/papersacksmile.rsi
+          state: icon
+        machetePrototype: SlasherButchCleaver
+        bloodTrailMusic:
+          path: /Audio/_Goobstation/Music/scared_to_bits.ogg
+          params:
+            loop: true
+      slasher-kit-cannibal:
+        gear: SlasherGearCannibal
+        description: slasher-kit-cannibal-desc
+        sprite:
+          sprite: _Goobstation/Wizard/Clothing/Mask/pig.rsi
+          state: icon
+        machetePrototype: SlasherButchCleaver
+        bloodTrailMusic:
+          path: /Audio/_Goobstation/Music/horror_violin_string.ogg
+          params:
+            volume: -7
+            loop: true
+      slasher-kit-clown:
+        gear: SlasherGearClown
+        description: slasher-kit-clown-desc
+        sprite:
+          sprite: Clothing/Mask/clown.rsi
+          state: icon
+        machetePrototype: SlasherOffsetCaneClown
+        bloodTrailMusic:
+          path: /Audio/_Goobstation/Music/naktigonis_catwhisker.ogg
+          params:
+            volume: -7
+            loop: true
+        jumpscareSound:
+          path: /Audio/Items/Toys/pushHornHonk.ogg
+        meatSpikePrototype: SlasherMeatSpikeClown
+        bloodTrailReagent: Honk
+        soulStealSound:
+          path: /Audio/Items/Toys/pushHornHonk.ogg
+        ascensionGear: SlasherGearClownAscended
+        ascendanceAnnouncementKey: slasher-soulsteal-ascendance-clown
+        ascendanceSound:
+          path: /Audio/Items/Toys/pushHornHonk.ogg
+      slasher-kit-glutton:
+        gear: SlasherGearGlutton
+        description: slasher-kit-glutton-desc
+        sprite:
+          sprite: Clothing/OuterClothing/Hardsuits/lingspacesuit.rsi
+          state: icon
+        machetePrototype: SlasherButchCleaver
+        bloodTrailMusic:
+          path: /Audio/_Goobstation/Music/padtext_horror.ogg
+          params:
+            volume: -7
+            loop: true
+      slasher-kit-hockey:
+        gear: SlasherGearHockey
+        description: slasher-kit-hockey-desc
+        sprite:
+          sprite: _Goobstation/Objects/Specific/Slasher/hockymask/hockey_mask.rsi
+          state: icon
+        bloodTrailMusic:
+          path: /Audio/_Goobstation/Music/horror_synthwave.ogg
+          params:
+            volume: -7
+            loop: true
+        jumpscareSound:
+          path: /Audio/_Goobstation/Effects/Slasher/JasonJumpscare.ogg
+    postSelectionComponents:
+    - type: Slasher
+    - type: SlasherSummonMachete
+    - type: SlasherStaggerArea
+    - type: SlasherRelentlessGrab
+    - type: SlasherRegenerate
+    - type: SlasherBloodTrail
+    - type: SlasherSoulSteal
+    - type: SlasherSummonMeatSpike
+    - type: NightVision
+      color: "#FF0000"
+      toggleAction: ActionSlasherNightVision
+      activateSound: !type:SoundCollectionSpecifier
+        collection: EyeOpen
+      deactivateSound: !type:SoundCollectionSpecifier
+        collection: EyeClose
+    - type: GrabIntent
+      grabThrownSpeed: 10
+      throwingDistance: 8
+      softGrabSpeedModifier: 1
+      hardGrabSpeedModifier: 1
+      chokeGrabSpeedModifier: 1
+    - type: BreathingImmunity
+    - type: GunBlocked
+      popupText: slasher-cannot-use-guns # Seems to be broken inside AntagSelection
+    - type: WeakToHoly
+    - type: Hunger
+      baseDecayRate: 0
+    - type: Thirst
+      baseDecayRate: 0
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        150: Dead
+    - type: RandomMetadata
+      nameSegments:
+      - NamesSlasherTitle
+      - NamesSlasher
+      nameFormat: name-format-slasher
+  - type: UserInterface
+    interfaces:
+      enum.SlasherKitSelectUiKey.Key:
+        type: SlasherKitSelectBoundUserInterface

@@ -45,6 +45,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Content.Server.Stack; // Goobstation
 
 using TemperatureCondition = Content.Shared.EntityEffects.EffectConditions.Temperature; // disambiguate the namespace
 using PolymorphEffect = Content.Shared.EntityEffects.Effects.Polymorph;
@@ -82,6 +83,7 @@ public sealed class EntityEffectSystem : EntitySystem
     [Dependency] private readonly VomitSystem _vomit = default!;
     [Dependency] private readonly TurfSystem _turf = default!; //todo Goobstation? The only thing im using this for is meant to be in RT? Fix if you havent
     [Dependency] private readonly ZombieSystem _zombie = default!; // Goob - zombie cure
+    [Dependency] private readonly StackSystem _stack = default!; // Goobstation
 
     public override void Initialize()
     {
@@ -587,12 +589,14 @@ public sealed class EntityEffectSystem : EntitySystem
 
     private void OnExecuteCreateEntityReactionEffect(ref ExecuteEntityEffectEvent<CreateEntityReactionEffect> args)
     {
-        var transform = Comp<TransformComponent>(args.Args.TargetEntity);
+        // var transform = Comp<TransformComponent>(args.Args.TargetEntity); Goobstation
         var quantity = (int)args.Effect.Number;
         if (args.Args is EntityEffectReagentArgs reagentArgs)
             quantity *= reagentArgs.Quantity.Int();
 
-        for (var i = 0; i < quantity; i++)
+        _stack.SpawnMultiple(args.Effect.Entity, quantity, args.Args.TargetEntity); // Goobstation, also should spawn inside containers (tested on plastic creation reaction inside backpack)
+
+        /*for (var i = 0; i < quantity; i++) Goobstation
         {
             var uid = Spawn(args.Effect.Entity, _xform.GetMapCoordinates(args.Args.TargetEntity, xform: transform));
             _xform.AttachToGridOrMap(uid);
@@ -604,7 +608,7 @@ public sealed class EntityEffectSystem : EntitySystem
             // --> if it doesn't fit, iterate through parent storage until it attaches to the grid (again, DON'T attach to players).
             // if the reaction happens INSIDE a stomach? the bloodstream? I have no idea how to handle that.
             // presumably having cheese materialize inside of your blood would have "disadvantages".
-        }
+        }*/
     }
 
     private void OnExecuteCreateGas(ref ExecuteEntityEffectEvent<CreateGas> args)
@@ -635,7 +639,7 @@ public sealed class EntityEffectSystem : EntitySystem
         {
             RemComp<ZombifyOnDeathComponent>(args.Args.TargetEntity);
             RemComp<PendingZombieComponent>(args.Args.TargetEntity);
-            
+
             _popup.PopupEntity(
                 Loc.GetString("zombie-cured-popup"),
                 args.Args.TargetEntity,

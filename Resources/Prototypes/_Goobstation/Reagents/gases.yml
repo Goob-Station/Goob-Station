@@ -32,6 +32,9 @@
         - !type:OrganType # Shitmed - Cybernetic Organs
           type: Cybernetic
           shouldHave: false
+        - !type:OrganType
+          type: Hydrakin
+          shouldHave: false
         scaleByQuantity: true
         ignoreResistances: true
         damage:
@@ -45,6 +48,9 @@
           min: 0.3
         - !type:OrganType
           type: Slime
+          shouldHave: false
+        - !type:OrganType
+          type: Hydrakin
           shouldHave: false
         key: SeeingRainbows
         component: SeeingRainbows
@@ -111,6 +117,10 @@
         component: ForcedSleeping
         time: 10
         type: Add
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
     Gas:
       effects:
       - !type:Emote
@@ -134,12 +144,26 @@
         - !type:OrganType # Shitmed - Cybernetic Organs
           type: Cybernetic
           shouldHave: false
+        - !type:OrganType
+          type: Hydrakin
+          shouldHave: false
         scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
             Asphyxiation: 10
             Poison: 2.5
+      - !type:HealthChange # Mono
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
+        - !type:ReagentThreshold
+          reagent: BZ
+          min: 0.5
+        damage:
+          types:
+            Cellular: -0.5
+            Poison: -2.0
       - !type:GenericStatusEffect
         conditions:
         - !type:ReagentThreshold
@@ -147,6 +171,9 @@
           min: 0.3
         - !type:OrganType
           type: Slime
+          shouldHave: false
+        - !type:OrganType
+          type: Hydrakin
           shouldHave: false
         key: SeeingRainbows
         component: SeeingRainbows
@@ -213,6 +240,10 @@
         component: ForcedSleeping
         time: 10
         type: Add
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
 
 - type: reagent
   id: Healium
@@ -277,6 +308,10 @@
         - !type:ReagentThreshold
           reagent: Healium
           min: 4
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
     Gas:
       effects:
       - !type:HealthChange
@@ -332,6 +367,10 @@
         - !type:ReagentThreshold
           reagent: Healium
           min: 4
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
 
 - type: reagent
   id: Nitrium
@@ -390,6 +429,10 @@
         damage:
           types:
             Asphyxiation: 15
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
     Gas:
       effects:
       - !type:NitriumMovespeedModifier
@@ -417,6 +460,9 @@
         sprintSpeedModifier: 1.6
       - !type:AddReagentToBlood
         conditions:
+        - !type:OrganType
+          type: Hydrakin
+          shouldHave: false
         - !type:ReagentThreshold
           reagent: Nitrium
           min: 6
@@ -432,6 +478,9 @@
         time: 8
       - !type:HealthChange
         conditions:
+        - !type:OrganType
+          type: Hydrakin
+          shouldHave: false
         - !type:ReagentThreshold
           reagent: Nitrium
           min: 10
@@ -439,6 +488,10 @@
         damage:
           types:
             Asphyxiation: 15
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
 
 - type: reagent
   id: Pluoxium
@@ -476,6 +529,11 @@
         - !type:OrganType
           type: Cybernetic # Woundmed - Cybernetic Organs
       # Convert Pluox into CO2.
+      - !type:Oxygenate
+        factor: 8
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
       - !type:ModifyLungGas
         conditions:
         - !type:OrganType
@@ -530,6 +588,11 @@
         conditions:
         - !type:OrganType
           type: Cybernetic
+      - !type:Oxygenate
+        factor: 8
+        conditions:
+        - !type:OrganType
+          type: Hydrakin
       # Convert Pluoxium into CO2.
       - !type:ModifyLungGas
         conditions:

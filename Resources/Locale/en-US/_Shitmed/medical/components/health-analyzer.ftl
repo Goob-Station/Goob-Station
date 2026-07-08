@@ -10,6 +10,8 @@ condition-body-pain-decreased = • The {$woundable}'s nerves are numbed.
 condition-body-pain-increased = • The {$woundable}'s nerves are abnormally sensitive.
 condition-body-unrevivable = • {$entity} has a particularly weak constitution. They cannot withstand the shock of a defibrillator.
 condition-body-bleeding = • {$entity} is bleeding.
+# Goobstation - low blood alert
+condition-body-low-blood = • {$entity} has a [color=red]dangerously low[/color] blood level.
 
 condition-organ-damage-Normal = • The {$organ} is mostly good.
 condition-organ-damage-Damaged = • The {$organ} is damaged.

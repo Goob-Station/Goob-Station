@@ -12,7 +12,7 @@
     - 0,0,1,1
   - type: PressureDamageChange
     applyToMelee: false
-  - type: UpgradeableWeapon
+  - type: ItemUpgradeable
   - type: MeleeWeaponRelay # Used for the bayonet to work
   - type: ContainerContainer
     containers:
@@ -21,13 +21,14 @@
       upgrade_slot_1: !type:ContainerSlot
       upgrade_slot_2: !type:ContainerSlot
       upgrade_slot_3: !type:ContainerSlot
+      upgrade_slot_4: !type:ContainerSlot
   - type: ItemSlots
     slots:
       bayonet:
         name: weapon-upgrade-slot-name-bayonet
         priority: 6
-        insertDelay: 2.0
-        ejectDelay: 1.2
+        insertDelay: 0.4
+        ejectDelay: 0.4
         ejectOnBreak: true
         whitelist:
           components:
@@ -35,8 +36,8 @@
       flashlight:
         name: weapon-upgrade-slot-name-flashlight
         priority: 5
-        insertDelay: 0.8
-        ejectDelay: 0.4
+        insertDelay: 0.1
+        ejectDelay: 0.1
         ejectOnBreak: true
         occludesLight: false
         whitelist:
@@ -62,6 +63,15 @@
           - PKAUpgrade
       upgrade_slot_3:
         name: weapon-upgrade-slot-name-third
+        swap: false
+        priority: 2
+        insertDelay: 1.2
+        ejectDelay: 0.9
+        whitelist:
+          tags:
+          - PKAUpgrade
+      upgrade_slot_4:
+        name: weapon-upgrade-slot-name-fourth
         swap: false
         priority: 2
         insertDelay: 1.2

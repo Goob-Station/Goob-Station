@@ -1,0 +1,11 @@
+- type: reaction
+  id: Peranol
+  reactants:
+    Cryoxadone:
+      amount: 2
+    Leporazine:
+      amount: 1
+    Sulfur:
+      amount: 1
+  products:
+    Peranol: 4

@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprites by Zethine (discord: synthetic_086)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "hydrakin_arm_enforcer_L",
+      "directions": 4
+    },
+    {
+      "name": "hydrakin_arm_enforcer_R",
+      "directions": 4
+    },
+    {
+      "name": "hydrakin_head_enforcer",
+      "directions": 4
+    },
+    {
+      "name": "hydrakin_leg_enforcer_R",
+      "directions": 4
+    },
+    {
+      "name": "hydrakin_leg_enforcer_L",
+      "directions": 4
+    },
+    {
+      "name": "hydrakin_torso_enforcer",
+      "directions": 4
+    }
+  ]
+}

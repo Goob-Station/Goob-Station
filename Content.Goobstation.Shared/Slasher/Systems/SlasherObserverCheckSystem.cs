@@ -75,7 +75,8 @@ public sealed class SlasherObserverCheckSystem : EntitySystem
                 || !HasComp<HumanoidAppearanceComponent>(other)
                 || _mobState.IsDead(other)
                 || _mobState.IsCritical(other)
-                || TryComp<BlindableComponent>(other, out var blind) && blind.IsBlind)
+                || TryComp<BlindableComponent>(other, out var blind) && blind.IsBlind
+                || TryComp<SlasherIncorporealComponent>(other, out var otherSlasher) && otherSlasher.IsIncorporeal)
                 continue;
 
             if (_interaction.InRangeUnobstructed(other, uid, range, CollisionGroup.Opaque))

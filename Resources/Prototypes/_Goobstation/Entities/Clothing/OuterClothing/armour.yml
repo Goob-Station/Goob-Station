@@ -528,18 +528,6 @@
     stripDelay: null
     clothingPrototypes:
       head: ClothingHeadHatHelmetDragon
-  - type: TemperatureProtection
-    heatingCoefficient: 0.001
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.95
-  - type: ExplosionResistance
-    damageCoefficient: 0.8
-  - type: FireProtection
-    reduction: 0.8
 
 - type: entity
   parent: ClothingOuterArmorTemplar
@@ -551,6 +539,21 @@
     sprite: _ShitChap/Clothing/OuterClothing/Misc/inquisitor.rsi
   - type: Clothing
     sprite: _ShitChap/Clothing/OuterClothing/Misc/inquisitor.rsi
+
+- type: entity
+  parent: [ClothingOuterArmorTemplar, ClothingOuterBaseToggleable]
+  id: ClothingOuterSchemaMonk
+  name: monastic vestments
+  description: A sign of complete renunciation of the world and the acceptance of heroism. It is worn by those who have chosen the path of prayer and struggle for the human soul. In the silence of the cosmos, it seems especially appropriate.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/schema_monk.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/schema_monk.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatHoodSchemaMonk
+      
 #senior security
 - type: entity
   parent: ClothingOuterArmorBase

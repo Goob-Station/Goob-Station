@@ -590,10 +590,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 25
+        maxVol: 20 #Goobstation
         reagents:
         - ReagentId: Nutriment
-          Quantity: 20
+          Quantity: 15 #Goobstation
 
 - type: entity
   id: FoodSnackMREBrownie

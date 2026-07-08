@@ -277,6 +277,9 @@
           map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
           color: "#40a7d7"
           shader: unshaded
+    - type: NpcFactionMember
+      factions:
+        - Syndicate
     - type: HTN
       rootTask:
         task: SimpleHumanoidHostileCompound

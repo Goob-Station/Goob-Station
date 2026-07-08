@@ -60,7 +60,7 @@
     slots:
     - Back
     - suitStorage
-  - type: UpgradeableWeapon
+  - type: ItemUpgradeable
   - type: ContainerContainer
     containers:
       flashlight: !type:ContainerSlot

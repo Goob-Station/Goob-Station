@@ -3,6 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.ActionBlocker;
 using Content.Shared.Input;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
@@ -17,6 +18,7 @@ namespace Content.Goobstation.Shared.GrabReleaseBind;
 public sealed class GrabReleaseBindSystem : EntitySystem
 {
     [Dependency] private readonly PullingSystem _pullingSystem = default!;
+    [Dependency] private readonly ActionBlockerSystem _blocker = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -32,6 +34,10 @@ public sealed class GrabReleaseBindSystem : EntitySystem
         if (session?.AttachedEntity == null || !TryComp<PullableComponent>(session.AttachedEntity, out var pullable))
             return;
 
-        _pullingSystem.TryStopPull(session.AttachedEntity.Value, pullable, session.AttachedEntity.Value);
+        var uid = session.AttachedEntity.Value;
+        if (!_blocker.CanInteract(uid, null))
+            return;
+
+        _pullingSystem.TryStopPull(uid, pullable, uid);
     }
 }

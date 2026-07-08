@@ -343,10 +343,15 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
             loc = Loc.GetString(isOnStation ? "heretic-livingheart-onstation" : "heretic-livingheart-offstation",
                 ("state", locstate),
                 ("direction", locdir));
+
+            var distance = vector.Length();
+
+            if (isOnStation && distance <= 50f)
+                _aud.PlayGlobal(new SoundPathSpecifier("/Audio/_Goobstation/Heretic/heartbeat.ogg"), target.Value, AudioParams.Default.WithVolume(-distance * 0.5f)); // steep dropoff so it's more impactful when they're close
         }
 
         Popup.PopupEntity(loc, uid, uid, PopupType.Medium);
-        _aud.PlayPvs(new SoundPathSpecifier("/Audio/_Goobstation/Heretic/heartbeat.ogg"), uid, AudioParams.Default.WithVolume(-3f));
+        _aud.PlayGlobal(new SoundPathSpecifier("/Audio/_Goobstation/Heretic/heartbeat.ogg"), uid, AudioParams.Default.WithVolume(-3f));
     }
 
     public static ProtoId<CollectiveMindPrototype> MansusLinkMind = "MansusLink";

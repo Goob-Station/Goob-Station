@@ -203,7 +203,6 @@
     - id: XenomorphsInfestation # WD EDIT
     - id: SlasherSpawn # Goobstation - The Slasher
     - id: SpacePirates # Goobstation - you probably can read whom this rule spawns
-    - id: GreyTideAntagMidround # Goobstation - New Midrounds
     - id: SingulothKnightsMidround # Goobstation - New Midrounds
     #- id: DarkLordMidround # Goobstation - New Midrounds
     - id: MimeAssassinMidround # Goobstation - New Midrounds

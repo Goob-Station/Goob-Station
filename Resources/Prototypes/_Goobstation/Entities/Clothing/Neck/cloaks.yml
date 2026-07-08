@@ -117,3 +117,51 @@
   components:
   - type: Sprite
     sprite: _ShitChap/Clothing/Neck/Misc/inquisitor.rsi
+
+# High command cloak
+- type: entity
+  parent: [ClothingNeckBase, BaseCentcommContraband]
+  id: ClothingNeckCloakHighCommand
+  name: high central command cloak
+  description: A magnificent green cloak featuring luxurious gold-lined edges.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Cloaks/cchighcommand.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Cloaks/cchighcommand.rsi
+
+# High command CAPE
+- type: entity
+  parent: [ClothingNeckBase, BaseCentcommContraband]
+  id: ClothingNeckCloakHighCommandCape
+  name: high central command cape
+  description: A lavish green-and-red cape decorated with gold trim and ornate epaulettes.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Cloaks/highcmdcape.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Cloaks/highcmdcape.rsi
+
+# Golden central command cloak
+- type: entity
+  parent: [ClothingNeckBase, BaseCentcommContraband]
+  id: ClothingNeckCloakGoldenCentComm
+  name: gilded central command cloak
+  description: A luxurious gold-gilded cloak worn by the highest-ranking officials.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Cloaks/goldcentcom.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Cloaks/goldcentcom.rsi
+
+# Central command poncho
+- type: entity
+  parent: [ClothingNeckBase, BaseCentcommContraband]
+  id: ClothingNeckCloakCentComPoncho
+  name: central command poncho
+  description: A regal green-and-black poncho embellished with rich golden accents.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Cloaks/centcom_poncho.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Cloaks/centcom_poncho.rsi

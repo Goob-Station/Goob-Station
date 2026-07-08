@@ -1,5 +1,4 @@
 using Content.Goobstation.Shared.Slasher.Components;
-using Content.Goobstation.Shared.Slasher.Events;
 using Content.Shared.Actions;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;

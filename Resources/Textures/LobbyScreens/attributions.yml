@@ -180,3 +180,8 @@
   license: "CC-BY-SA-3.0"
   copyright: "seyriix"
   source: "https://github.com/seyriix"
+
+- files: ["etzilshungry.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "IdiotVibes"
+  source: "https://github.com/EtzilPretzel"

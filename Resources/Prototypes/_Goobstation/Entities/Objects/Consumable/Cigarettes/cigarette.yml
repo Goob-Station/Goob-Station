@@ -11,3 +11,68 @@
         maxVol: 10
   - type: RefillableSolution # it would make more sense for all cigerattes to work like this.
     solution: smokable
+
+- type: entity
+  id: ECigarette
+  description: A reusable e-cigarette, tastes like how magic smoke smells.
+  parent: BaseCigar
+  name: e-cigarette
+  components:
+  - type: Cigar
+    selfIgniting: true
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 20
+  - type: Tag
+    tags:
+      - Trash
+  - type: SpaceGarbage
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Smokeables/Cigarettes/ecigarette.rsi
+    state: unlit-icon
+  - type: Clothing
+    sprite: _Goobstation/Objects/Consumable/Smokeables/Cigarettes/ecigarette.rsi
+    slots: [ mask ]
+    equippedPrefix: unlit
+  - type: Item
+    size: Tiny
+    sprite: _Goobstation/Objects/Consumable/Smokeables/Cigarettes/ecigarette.rsi
+    heldPrefix: unlit
+  - type: RefillableSolution
+    solution: smokable
+  - type: DrawableSolution
+    solution: smokable
+
+- type: entity
+  id: CryostasisCigarette
+  description: A cryostasis e-cigarette, chemicals inside the pod cannot react.
+  parent: BaseCigar
+  name: cryostasis cigarette
+  components:
+  - type: Cigar
+    selfIgniting: true
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 20
+        canReact: false
+  - type: Tag
+    tags:
+      - Trash
+  - type: SpaceGarbage
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Smokeables/Cigarettes/cryostasiscigarette.rsi
+    state: unlit-icon
+  - type: Clothing
+    sprite: _Goobstation/Objects/Consumable/Smokeables/Cigarettes/cryostasiscigarette.rsi
+    slots: [ mask ]
+    equippedPrefix: unlit
+  - type: Item
+    size: Tiny
+    sprite: _Goobstation/Objects/Consumable/Smokeables/Cigarettes/cryostasiscigarette.rsi
+    heldPrefix: unlit
+  - type: RefillableSolution
+    solution: smokable
+  - type: DrawableSolution
+    solution: smokable

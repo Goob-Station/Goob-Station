@@ -32,7 +32,7 @@
     size: Tiny
   - type: UseDelay
     delay: 5 # avoid spamming popups when you know it will fail to spawn a room
-  - type: ShelterCapsule
+  - type: DeployableGrid
 
 - type: entity
   parent: BaseShelterCapsule
@@ -40,7 +40,7 @@
   name: bluespace shelter capsule
   description: An emergency shelter stored within a pocket of bluespace.
   components:
-  - type: ShelterCapsule
+  - type: DeployableGrid
     deployTime: 5.0
     preloadedGrid: ShelterCapsule5x5
     boxSize: 5,5
@@ -52,7 +52,7 @@
   name: luxury bluespace shelter capsule
   description: An exorbitantly expensive luxury suite stored within a pocket of bluespace.
   components:
-  - type: ShelterCapsule
+  - type: DeployableGrid
     deployTime: 8.0
     preloadedGrid: ShelterCapsule7x7
     boxSize: 7,7

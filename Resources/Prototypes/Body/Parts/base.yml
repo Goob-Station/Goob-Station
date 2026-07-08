@@ -199,7 +199,6 @@
   - type: Tag
     tags:
       - Head
-      - Unedible # Goobstation
   - type: Woundable
     boneEntity: BoneNeck
     integrity: 125 #Decaps should happen after the person is already dead

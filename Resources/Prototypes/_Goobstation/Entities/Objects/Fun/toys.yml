@@ -501,6 +501,12 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
     state: plushie_brizby
+  - type: Clothing
+    quickEquip: true
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    equippedPrefix: plushiebrizby
+    slots:
+    - HEAD
   - type: Item
     heldPrefix: plushiebrizby
   - type: EmitSoundOnUse
@@ -550,6 +556,12 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
     state: plushie_baldzby
+  - type: Clothing
+    quickEquip: true
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    equippedPrefix: plushiebaldzby
+    slots:
+    - HEAD
   - type: Item
     heldPrefix: plushiebaldzby
   - type: EmitSoundOnUse
@@ -1084,7 +1096,7 @@
   id: EvilPlushieTwofish
   suffix: Evil
 
-  
+
 - type: entity
   parent: BaseItem
   id: ToyBladeEldritch

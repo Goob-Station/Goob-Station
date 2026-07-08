@@ -81103,7 +81103,7 @@ entities:
       parent: 12763
     - type: Physics
       canCollide: False
-- proto: EnergyChemDispenser
+- proto: ChemDispenser
   entities:
   - uid: 10389
     components:

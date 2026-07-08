@@ -43,7 +43,7 @@ bypass_max_players = 1
 advertise = 1
 advertise_interval = 30
 use_dynamic_hostname = true
-hub_urls = "https://hub.spacestation14.com/,https://hub.singularity14.co.uk/"
+hub_urls = "https://hub.spacestation14.com/"
 
 [infolinks]
 discord = "https://discord.gg/goobstation"

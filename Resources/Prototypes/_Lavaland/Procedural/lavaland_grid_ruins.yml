@@ -190,3 +190,11 @@
   path: /Maps/Lavaland/temple.yml
   priority: 30
 
+#Goobstation ruins? Idk.
+
+- type: lavalandGridRuin
+  id: Reclaimer
+  name: lavaland-ruin-reclaimer
+  path: /Maps/_Lavaland/Lavaland/reclaimer_shuttle_ruin.yml
+  priority: -1 # highest priority
+  patchToPlanet: false

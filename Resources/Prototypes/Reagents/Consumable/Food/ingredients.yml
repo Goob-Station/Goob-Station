@@ -274,6 +274,9 @@
   metabolisms:
     Food:
       effects:
+      - !type:AdjustReagent
+        reagent: Theobromine #Goob - Fix
+        amount: 0.25
       - !type:SatiateHunger
         conditions:
         - !type:ReagentThreshold #Only satiates when eaten with nutriment

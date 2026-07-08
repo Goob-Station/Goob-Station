@@ -96,9 +96,9 @@
   description: For the master of goods and materials to rule over the department, a befitting mantle to show off superiority!
   components:
   - type: Sprite
-    sprite: Clothing/Neck/mantles/qmmantle.rsi
+    sprite: _Goobstation/Clothing/Neck/Mantle/qmmantle.rsi # Goob Station - mantle resprite
   - type: Clothing
-    sprite: Clothing/Neck/mantles/qmmantle.rsi
+    sprite: _Goobstation/Clothing/Neck/Mantle/qmmantle.rsi # Goob Station - mantle resprite
 
 - type: entity
   parent: ClothingNeckBase
