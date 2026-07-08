@@ -1,15 +1,9 @@
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # T3 chems for mapping
 
 - type: entity
   id: GoldChemistryVial
-  parent: BaseChemistryEmptyVial
+  parent: ChemistryEmptyVial
   suffix: gold
   components:
   - type: Label
@@ -24,7 +18,7 @@
 
 - type: entity
   id: SilverChemistryVial
-  parent: BaseChemistryEmptyVial
+  parent: ChemistryEmptyVial
   suffix: silver
   components:
   - type: Label
@@ -39,7 +33,7 @@
 
 - type: entity
   id: UraniumChemistryVial
-  parent: BaseChemistryEmptyVial
+  parent: ChemistryEmptyVial
   suffix: uranium
   components:
   - type: Label
@@ -54,7 +48,7 @@
 
 - type: entity
   id: TirimolChemistryVial
-  parent: BaseChemistryEmptyVial
+  parent: ChemistryEmptyVial
   suffix: tirimol
   components:
   - type: Label
@@ -69,7 +63,7 @@
 
 - type: entity
   id: OmnizineChemistryVial
-  parent: BaseChemistryEmptyVial
+  parent: ChemistryEmptyVial
   suffix: omnizine
   components:
   - type: Label
@@ -84,7 +78,7 @@
 
 - type: entity
   id: SyriniverChemistryVial
-  parent: BaseChemistryEmptyVial
+  parent: ChemistryEmptyVial
   suffix: syriniver
   components:
   - type: Label
@@ -99,7 +93,7 @@
 
 - type: entity
   id: ProcenylLazideChemistryVial
-  parent: BaseChemistryEmptyVial
+  parent: ChemistryEmptyVial
   suffix: procenyl lazide
   components:
   - type: Label
@@ -114,7 +108,7 @@
 
 - type: entity
   id: EbifinlLazideChemistryVial
-  parent: BaseChemistryEmptyVial
+  parent: ChemistryEmptyVial
   suffix: ebifin
   components:
   - type: Label

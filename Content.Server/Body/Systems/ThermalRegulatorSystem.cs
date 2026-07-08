@@ -1,18 +1,11 @@
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Body.Components;
-using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Shared.ActionBlocker;
+using Content.Shared.Temperature.Components;
+using Content.Shared.Mobs; // Mono
+using Content.Shared.Mobs.Components; // Mono
 using Robust.Shared.Timing;
 
 namespace Content.Server.Body.Systems;
@@ -61,6 +54,14 @@ public sealed class ThermalRegulatorSystem : EntitySystem
     {
         if (!Resolve(ent, ref ent.Comp2, logMissing: false))
             return;
+
+        // mono begin
+        if (ent.Comp1.ProcessWhileDead == false && TryComp<MobStateComponent>(ent, out var mobComp1) && mobComp1.CurrentState == MobState.Dead)
+            return;
+
+        if (ent.Comp1.ProcessWhileCrit == false && TryComp<MobStateComponent>(ent, out var mobComp2) && mobComp2.CurrentState == MobState.Critical)
+            return;
+        // mono end
 
         // TODO: Why do we have two datafields for this if they are only ever used once here?
         var totalMetabolismTempChange = ent.Comp1.MetabolismHeat - ent.Comp1.RadiatedHeat;

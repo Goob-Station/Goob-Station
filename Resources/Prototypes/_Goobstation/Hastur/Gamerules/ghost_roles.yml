@@ -8,10 +8,7 @@
     description: ghost-role-information-hastur-description
     rules: ghost-role-information-hastur-rules
     mindRoles:
-    - MindRoleGhostRoleSoloAntagonist
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 54000 # 15 hours.
+    - MindRoleGhostRoleSoloAntagonistGoob
     raffle:
       settings: default
   - type: Sprite
