@@ -23660,3 +23660,25 @@ Entries:
         bugs threads in the discord and report things breaking for fixes.
   id: 2715
   time: '2026-07-04T02:14:46.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Fix
+      message: Fixed materials not actually being added to storages.
+  id: 2716
+  time: '2026-07-08T16:21:43.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Fix
+      message: fixed vials not showing contained solutions
+    - type: Fix
+      message: fixed vials not being able to be drawn with syringes
+    - type: Fix
+      message: fixed combat injector not working
+    - type: Fix
+      message: fixed autoinjectors not injector the entire cartridge
+    - type: Fix
+      message: fix medipens not working
+    - type: Fix
+      message: fix random sentience localization error
+  id: 2717
+  time: '2026-07-08T19:35:44.0000000+00:00'
