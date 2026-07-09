@@ -7,15 +7,6 @@
     sprite: /Textures/_Goobstation/Structures/Decoration/Random/fluid.rsi
     state: airborne
     drawdepth: Effects
+    scale: 1.5,1.5
   - type: Transform
     anchored: true
-
-- type: entity
-  id: Mist
-  parent: WaterShower
-  name: Mist
-  description: Hard to see what's inside.
-  components:
-  - type: Sprite
-    state: mist
-    drawdepth: Effects
