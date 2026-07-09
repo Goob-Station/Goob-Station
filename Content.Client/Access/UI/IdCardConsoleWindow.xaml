@@ -1,20 +1,11 @@
 <!--
-SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
-SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-SPDX-FileCopyrightText: 2024 c4llv07e <38111072+c4llv07e@users.noreply.github.com>
-SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-
 SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <DefaultWindow xmlns="https://spacestation14.io"
             MinSize="650 290">
     <BoxContainer Orientation="Vertical">
+        <!-- Privileged and target IDs, crew manifest button. -->
         <GridContainer Columns="2">
             <GridContainer Columns="3" HorizontalExpand="True">
                 <Label Text="{Loc 'id-card-console-window-privileged-id'}" />
@@ -30,6 +21,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
             </BoxContainer>
         </GridContainer>
         <Control MinSize="0 8" />
+        <!-- Full name and job title editing. -->
         <GridContainer Columns="3" HSeparationOverride="4">
             <Label Name="FullNameLabel" Text="{Loc 'id-card-console-window-full-name-label'}" />
             <LineEdit Name="FullNameLineEdit" HorizontalExpand="True" />
@@ -40,10 +32,18 @@ SPDX-License-Identifier: AGPL-3.0-or-later
             <Button Name="JobTitleSaveButton" Text="{Loc 'id-card-console-window-save-button'}" Disabled="True" />
         </GridContainer>
         <Control MinSize="0 8" />
-        <GridContainer Columns="2">
-            <Label Text="{Loc 'id-card-console-window-job-selection-label'}" />
-            <OptionButton Name="JobPresetOptionButton" />
-        </GridContainer>
+        <!-- Job preset selection, grant/revoke all access buttons. -->
+        <BoxContainer Margin="0 8 0 4">
+            <BoxContainer>
+                <Label Text="{Loc 'id-card-console-window-job-selection-label'}" />
+                <OptionButton Name="JobPresetOptionButton" />
+            </BoxContainer>
+            <Control HorizontalExpand="True"/>
+            <BoxContainer>
+                <Button Name="SelectAllButton" Text="{Loc 'id-card-console-window-select-all-button'}" />
+                <Button Name="DeselectAllButton" Text="{Loc 'id-card-console-window-deselect-all-button'}" />
+            </BoxContainer>
+        </BoxContainer>
         <!-- Goobstation Start -->
         <GridContainer Columns="3">
             <Label Text="{Loc 'id-card-console-window-job-search-label'}" />

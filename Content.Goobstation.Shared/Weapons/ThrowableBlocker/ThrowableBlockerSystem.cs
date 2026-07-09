@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
@@ -37,13 +31,13 @@ public sealed class ThrowableBlockerSystem : EntitySystem
     {
         base.Initialize();
 
-        Subs.SubscribeWithRelay<ReflectComponent, ThrowHitByEvent>(
+        Subs.SubscribeWithRelay<ReflectComponent, ThrowAttemptEvent>(
             OnThrowHit, baseEvent: false);
     }
 
-    private void OnThrowHit(Entity<ReflectComponent> ent, ref ThrowHitByEvent args)
+    private void OnThrowHit(Entity<ReflectComponent> ent, ref ThrowAttemptEvent args)
     {
-        var thrown = args.Thrown;
+        var thrown = args.ItemUid;
 
         if (!TryComp(thrown, out ThrowableBlockedComponent? blockedComp))
             return;
@@ -57,7 +51,7 @@ public sealed class ThrowableBlockerSystem : EntitySystem
 
         var blockerComp = Comp<ThrowableBlockerComponent>(blocked);
 
-        args.Handled = true;
+        args.Cancel();
 
         if (_net.IsServer)
         {

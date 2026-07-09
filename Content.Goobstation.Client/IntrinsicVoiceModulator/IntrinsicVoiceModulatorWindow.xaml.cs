@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Dreykor <160512778+Dreykor@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GabyChangelog <agentepanela2@gmail.com>
-// SPDX-FileCopyrightText: 2025 Kyoth25f <kyoth25f@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tyranex <bobthezombie4@gmail.com>
-// SPDX-FileCopyrightText: 2025 funkystationbot <funky@funkystation.org>
-//
 // SPDX-License-Identifier: MIT
 
 using System.Linq;
@@ -79,13 +73,13 @@ public sealed partial class IntrinsicVoiceModulatorWindow : DefaultWindow
         {
             var jobIcon = _protoManager.Index(_jobIcons[i]);
 
-            var styleBase = StyleBase.ButtonOpenBoth;
+            var styleBase = StyleClass.ButtonOpenBoth;
             var mod = i % JobIconColumnCount;
 
             if (mod == 0)
-                styleBase = StyleBase.ButtonOpenRight;
+                styleBase = StyleClass.ButtonOpenRight;
             else if (mod == JobIconColumnCount - 1)
-                styleBase = StyleBase.ButtonOpenLeft;
+                styleBase = StyleClass.ButtonOpenLeft;
 
             var jobIconButton = new Button
             {
