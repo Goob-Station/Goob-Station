@@ -694,6 +694,9 @@
 
 ## D ##
 
+- type: Tag
+  id: Deckard # Storage whitelist and ItemMapper: DeckardBox
+
 - type: Tag # Exists on diagonal walls and windows
   id: Diagonal # Used by TileWallsCommand and FixRotationsCommand
 
