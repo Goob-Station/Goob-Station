@@ -155,24 +155,13 @@
       - state: base
         map: [ "enum.GunVisualLayers.Base" ]
       - state: piercing-6
+        sprite: _Carpmosia/Objects/Weapons/Guns/Ammunition/SpeedLoaders/pistol_speed_loader.rsi
         map: [ "enum.GunVisualLayers.Mag" ]
   - type: MagazineVisuals
     magState: piercing
     steps: 7
     zeroVisible: false
   - type: Appearance
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left-mag
-      - state: inhand-left-ammo
-      - state: inhand-left-stripe
-        color: "#540000"
-      right:
-      - state: inhand-right-mag
-      - state: inhand-right-ammo
-      - state: inhand-right-stripe
-        color: "#540000"
 
 - type: entity
   id: SpeedLoaderMagnumUranium
@@ -188,21 +177,10 @@
       - state: base
         map: [ "enum.GunVisualLayers.Base" ]
       - state: uranium-6
+        sprite: _Carpmosia/Objects/Weapons/Guns/Ammunition/SpeedLoaders/pistol_speed_loader.rsi
         map: [ "enum.GunVisualLayers.Mag" ]
   - type: MagazineVisuals
     magState: uranium
     steps: 7
     zeroVisible: false
   - type: Appearance
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left-mag
-      - state: inhand-left-ammo
-      - state: inhand-left-stripe
-        color: "#00cd42"
-      right:
-      - state: inhand-right-mag
-      - state: inhand-right-ammo
-      - state: inhand-right-stripe
-        color: "#00cd42"

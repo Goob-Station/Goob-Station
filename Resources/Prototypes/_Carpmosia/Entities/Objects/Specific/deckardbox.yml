@@ -1,0 +1,71 @@
+- type: entity
+  id: DeckardBox
+  parent: [ BaseStorageItem, BaseBagOpenClose ]
+  name: deckard box
+  description: An artisanal wooden box made to house the Deckard and two speed loaders. It has a good weight to it.
+  components:
+  - type: Sprite
+    sprite: _Carpmosia/Objects/Storage/deckardbox.rsi
+    layers:
+    - state: open
+      map: ["openLayer"]
+    - state: loader1
+      map: ["loader1"]
+      visible: false
+    - state: loader2
+      map: ["loader2"]
+      visible: false
+    - state: deckard
+      map: ["deckard"]
+      visible: false
+    - state: closed
+      map: ["closeLayer"]
+  - type: Item
+    sprite: _Carpmosia/Objects/Storage/deckardbox.rsi
+    size: Normal
+    shape:
+    - 0,0,2,1
+  - type: Storage
+    maxItemSize: Small
+    whitelist:
+      tags:
+        - Deckard
+        - SpeedLoaderMagnum
+    grid:
+    - 0,0,3,1
+  - type: ItemMapper
+    mapLayers:
+      deckard:
+        whitelist:
+          tags:
+          - Deckard
+      loader1:
+        whitelist:
+          tags:
+          - SpeedLoaderMagnum
+        minCount: 1
+      loader2:
+        whitelist:
+          tags:
+          - SpeedLoaderMagnum
+        minCount: 2
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+  - type: PhysicalComposition
+    materialComposition:
+      Wood: 200
+  - type: StaticPrice
+    price: 250
+  - type: Appearance
+
+- type: entity
+  id: DeckardBoxFilled
+  parent: DeckardBox
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: SpeedLoaderDeckard
+      amount: 2
+    - id: WeaponRevolverDeckard

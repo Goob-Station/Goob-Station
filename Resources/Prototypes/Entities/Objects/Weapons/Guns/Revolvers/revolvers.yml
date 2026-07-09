@@ -141,11 +141,11 @@
   description: A beautifully machined, custom-built revolver. Used when there is no time for the Voight-Kampff test. Loads 5 rounds of .45 magnum.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Revolvers/deckard.rsi
+    sprite: _Carpmosia/Objects/Weapons/Guns/Revolvers/deckard.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
-    - state: mag-unshaded-3
+    - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Gun
@@ -156,9 +156,13 @@
     ammoSlots: [ null, null, null, null, null ]
   - type: MagazineVisuals
     magState: mag
-    steps: 4
+    steps: 5
     zeroVisible: true
   - type: Appearance
+  - type: Tag
+    tags:
+    - Sidearm
+    - Deckard
   - type: StaticPrice
     price: 1500
 
