@@ -1018,7 +1018,7 @@
   - BlackShoes
   - CombatBoots
   - JackBoots
-  - NanotrasenRepresentativeBoots
+  - LaceupShoes # Pirate: upstream removed the duplicate NTR loadout.
 
 #Печатки
 - type: loadoutGroup
