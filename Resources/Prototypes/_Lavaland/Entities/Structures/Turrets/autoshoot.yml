@@ -98,7 +98,6 @@
       maxCharge: 9999
       startingCharge: 9999
     - type: BatterySelfRecharger
-      autoRecharge: true
       autoRechargeRate: 9999
     - type: BatteryAmmoProvider
       proto: RedLaser

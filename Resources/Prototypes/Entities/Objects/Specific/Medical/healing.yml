@@ -65,6 +65,15 @@
     count: 1
 
 - type: entity
+  id: Ointment10Lingering
+  parent: Ointment
+  suffix: Single
+  components:
+  - type: Stack
+    stackType: Ointment
+    count: 10
+
+- type: entity
   name: regenerative mesh
   description: Used to treat even the nastiest burns. Also effective against caustic burns.
   parent: BaseHealingItem
@@ -156,6 +165,15 @@
   - type: Stack
     stackType: Brutepack
     count: 1
+
+- type: entity
+  id: Brutepack10Lingering
+  parent: Brutepack
+  suffix: Single
+  components:
+  - type: Stack
+    stackType: Brutepack
+    count: 10
 
 - type: entity
   name: medicated suture
@@ -340,6 +358,14 @@
   components:
   - type: Stack
     count: 1
+
+- type: entity
+  id: Gauze10Lingering
+  parent: Gauze
+  suffix: Single
+  components:
+  - type: Stack
+    count: 10
 
 - type: entity
   name: aloe cream
