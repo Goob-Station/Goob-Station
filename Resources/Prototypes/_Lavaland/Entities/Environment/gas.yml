@@ -24,12 +24,12 @@
         hard: false
         mask:
           - MobMask
-  - type: ToxicGasDamage
-    interval: 1
-    damage:
-      types:
-        Poison: 0.1 # Fairly fast but you can tank a few seconds
-        Caustic: 0.1
+  #- type: ToxicGasDamage
+  #  interval: 1
+  #  damage:
+  #    types:
+  #      Poison: 0.1 # Fairly fast but you can tank a few seconds
+  #      Caustic: 0.1
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/Effects/space_wind.ogg

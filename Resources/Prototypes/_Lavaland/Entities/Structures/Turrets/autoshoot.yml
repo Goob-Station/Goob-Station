@@ -100,7 +100,7 @@
     - type: BatterySelfRecharger
       autoRecharge: true
       autoRechargeRate: 9999
-    - type: HitscanBatteryAmmoProvider # goob edit - svalinn buff fix
+    - type: BatteryAmmoProvider
       proto: RedLaser
       fireCost: 75 # 16 shots
 

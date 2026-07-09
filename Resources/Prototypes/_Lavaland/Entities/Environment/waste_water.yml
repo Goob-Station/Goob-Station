@@ -37,13 +37,13 @@
       collection: FootstepWater
       params:
         volume: 8
-  - type: TileEntityEffect
-    effects:
-    - !type:DamageTileEffect
-      damage:
-        types:
-          Caustic: 40 # Basically they should die but they should be able to get the fuck out as a final chance.
-          Genetic: 10
+  #- type: TileEntityEffect
+  #  effects:
+  #  - !type:DamageTileEffect
+  #    damage:
+  #      types:
+  #        Caustic: 40 # Basically they should die but they should be able to get the fuck out as a final chance.
+  #        Genetic: 10
 
 - type: entity
   id: EnvironmentalHazardFloorWasteWaterEntity
