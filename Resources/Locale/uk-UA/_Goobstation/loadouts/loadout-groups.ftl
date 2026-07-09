@@ -133,6 +133,7 @@ loadout-group-mime-envirohelm = Еко-шолом міма
 loadout-group-mime-envirosuit = Еко-костюм міма
 loadout-group-mime-envirogloves = Еко-рукавиці міма
 loadout-group-mime-gloves = Рукавиці міма
+loadout-group-mime-shoes = Взуття міма
 
 # Асистент
 loadout-group-assistant-envirohelm = Еко-шолом пасажира
@@ -180,6 +181,7 @@ loadout-group-captain-envirohelm = Еко-шолом капітана
 loadout-group-captain-envirosuit = Еко-костюм капітана
 loadout-group-captain-envirogloves = Еко-рукавиці капітана
 loadout-group-captain-gloves = Рукавиці капітана
+loadout-group-captain-shoes = Взуття капітана
 
 
 # Спеціаліст з утилізації
@@ -213,9 +215,11 @@ loadout-group-zookeeper-head = Капелюх доглядача зоопарк�
 # Боксер
 loadout-group-boxer-envirohelm = Еко-шолом боксера
 loadout-group-boxer-envirosuit = Еко-костюм боксера
+loadout-group-boxer-helmet = Шолом боксера
 
 # Різне
 loadout-group-plasma-tank = Плазмовий балон
+loadout-group-security-gloves = Рукавиці СБ
 
 # Спеціаліст з утилізації/Шахтар
 loadout-group-virology-envirohelm = Шолом ізолювального костюма вірусолога

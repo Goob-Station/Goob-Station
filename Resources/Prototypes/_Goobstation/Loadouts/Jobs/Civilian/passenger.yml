@@ -16,3 +16,148 @@
     proto: SophisticatedTider
   equipment:
     jumpsuit: ClothingUniformJumpsuitPassengerQuarterzip
+
+# Overalls
+- type: loadout
+  id: OverallsJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformOveralls
+
+# recruit jumpsuit
+
+- type: loadout
+  id: JumpsuitRecruit
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Noob
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitRecruitNT
+
+#colored military jumpsuits
+
+- type: loadout
+  id: GreyMJ
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorGrey
+  groupBy: "JumpsuitMilitaryColor" # Pirate
+
+
+- type: loadout
+  id: BlackMJ
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorBlack
+  groupBy: "JumpsuitMilitaryColor" # Pirate
+
+
+- type: loadout
+  id: BlueMJ
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorBlue
+  groupBy: "JumpsuitMilitaryColor" # Pirate
+
+
+- type: loadout
+  id: DarkBlueMJ
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorDarkBlue
+  groupBy: "JumpsuitMilitaryColor" # Pirate
+
+
+- type: loadout
+  id: TealMJ
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorTeal
+  groupBy: "JumpsuitMilitaryColor" # Pirate
+
+
+- type: loadout
+  id: GreenMJ
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorGreen
+  groupBy: "JumpsuitMilitaryColor" # Pirate
+
+
+- type: loadout
+  id: DarkGreenMJ
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorDarkGreen
+  groupBy: "JumpsuitMilitaryColor" # Pirate
+
+
+- type: loadout
+  id: OrangeMJ
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorOrange
+  groupBy: "JumpsuitMilitaryColor" # Pirate
+
+
+- type: loadout
+  id: PinkMJ
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorPink
+  groupBy: "JumpsuitMilitaryColor" # Pirate
+
+
+- type: loadout
+  id: RedMJ
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorRed
+  groupBy: "JumpsuitMilitaryColor" # Pirate
+
+
+- type: loadout
+  id: YellowMJ
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorYellow
+  groupBy: "JumpsuitMilitaryColor" # Pirate
+
+
+- type: loadout
+  id: PurpleMJ
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorPurple
+  groupBy: "JumpsuitMilitaryColor" # Pirate
+
+
+- type: loadout
+  id: LightBrownMJ
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorLightBrown
+  groupBy: "JumpsuitMilitaryColor" # Pirate
+
+
+- type: loadout
+  id: BrownMJ
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorBrown
+  groupBy: "JumpsuitMilitaryColor" # Pirate
+
+
+- type: loadout
+  id: MaroonMJ
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorMaroon
+  groupBy: "JumpsuitMilitaryColor" # Pirate
+
+- type: loadout
+  id: ContractorJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryContractor
+
+- type: loadout
+  id: ContractorJumpsuitTac
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryContractorTac
+
+- type: loadout
+  id: BlackMJAlt
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorBlackAlt
+
+# service jumpsuit - putting it here because frontier's only service jumpsuits are hydroponics and general lmao # goob change btw
+
+- type: loadout
+  id: ServiceMJ
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryService
+  groupBy: "JumpsuitMilitaryColor" # Pirate
