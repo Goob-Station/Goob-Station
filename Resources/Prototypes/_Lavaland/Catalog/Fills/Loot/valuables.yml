@@ -1,0 +1,51 @@
+# Very rare
+
+- type: entityTable
+  id: LootMiscVeryRareValuables
+  table: !type:GroupSelector
+    children:
+    - id: SpaceCash5000
+    - id: SpaceCash10000
+    - id: MaterialDiamond1
+    - id: AmmoTechFabCircuitboard
+
+- type: entityTable
+  id: LootMiscVeryRareAnomalies
+  table: !type:GroupSelector
+    children:
+    - id: AnomalyCorePyroclastic
+    - id: AnomalyCoreGravity
+    - id: AnomalyCoreIce
+    - id: AnomalyCoreFlesh
+    - id: AnomalyCoreLiquid
+    - id: AnomalyCoreBluespace
+    - id: AnomalyCoreElectricity
+    - id: AnomalyCoreFlora
+    - id: AnomalyCoreShadow
+
+# Ultra rare
+
+- type: entityTable
+  id: LootMiscUltraRareAnomalies
+  table: !type:GroupSelector
+    children:
+    - id: AnomalyCorePyroclastic
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: AnomalyCoreGravity
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: AnomalyCoreBluespace
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: AnomalyCoreShadow
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+
+- type: entityTable
+  id: LootMiscUltraRareValuables
+  table: !type:GroupSelector
+    children:
+    - id: AmmoTechFabCircuitboard
+    - id: SpaceCash10000
+    - id: MaterialDiamond1

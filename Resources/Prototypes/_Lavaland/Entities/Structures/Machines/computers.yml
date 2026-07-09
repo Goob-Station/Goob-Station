@@ -1,0 +1,174 @@
+- type: entity
+  id: BaseComputerTerminal
+  parent: BaseConsole
+  name: computer terminal
+  description: Ancient stuff.
+  abstract: true
+  components:
+  - type: PointLight
+    radius: 2
+    energy: 2
+
+- type: entity
+  id: OldTerminal
+  parent: BaseComputerTerminal
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: old
+
+- type: entity
+  id: OldTerminalIdle
+  parent: OldTerminal
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: old0
+
+- type: entity
+  id: OldTerminalBroken
+  parent: OldTerminal
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: oldb
+
+- type: entity
+  id: TourTerminalComputer
+  parent: OldTerminal
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: tour
+
+- type: entity
+  id: OldTerminalAlternateComputer
+  parent: OldTerminal
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: old_alt
+
+- type: entity
+  id: OldTerminalAlternateBrokenComputer
+  parent: OldTerminal
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: old_altb
+
+- type: entity
+  id: OldTerminalAlternateIdleComputer
+  parent: OldTerminal
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: old_alt0
+
+# Laptop
+
+- type: entity
+  id: OldTerminalLaptopComputer
+  parent: BaseComputerTerminal
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: oldlap
+
+- type: entity
+  id: OldTerminalLaptopIdleComputer
+  parent: BaseComputerTerminal
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: oldlap0
+
+- type: entity
+  id: OldTerminalLaptopBrokenComputer
+  parent: BaseComputerTerminal
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: oldlapb
+
+- type: entity
+  id: OldTerminalLaptopShutComputer
+  parent: BaseComputerTerminal
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: oldlapshut
+
+# Terminal
+
+- type: entity
+  id: DataTerminalIdleComputer
+  parent: BaseFloorMachine
+  name: terminal
+  description: Used to interact with complex facility mechanisms manually.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: dterm0
+
+- type: entity
+  id: DataTerminalComputer
+  parent: DataTerminalIdleComputer
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: dterm
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: Green
+
+- type: entity
+  id: DataTerminalBrokenComputer
+  parent: DataTerminalIdleComputer
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: dtermb
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: Green
+
+# Briefcase
+
+- type: entity
+  id: BriefcaseComputer
+  parent: BaseItem
+  name: briefcase computer
+  description: Surprisingly portable. May be worth something.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: bcase
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: Green
+  - type: StaticPrice
+    price: 2000
+
+- type: entity
+  id: BriefcaseBrokenComputer
+  parent: BriefcaseComputer
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: bcaseb
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: Blue
+
+- type: entity
+  id: BriefcaseIdleComputer
+  parent: BriefcaseComputer
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: bcase0

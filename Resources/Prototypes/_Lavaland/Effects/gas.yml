@@ -9,3 +9,13 @@
     drawdepth: Effects
   - type: Transform
     anchored: true
+
+- type: entity
+  id: Mist
+  parent: WaterShower
+  name: Mist
+  description: Hard to see what's inside.
+  components:
+  - type: Sprite
+    state: mist
+    drawdepth: Effects

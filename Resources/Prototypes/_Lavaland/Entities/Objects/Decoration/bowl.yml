@@ -1,0 +1,10 @@
+- type: entity
+  id: GoonBowl
+  parent: BaseItem
+  name: old bowl
+  description: What do you want? It's a bowl.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/kitchen2.rsi
+    state: bowl
