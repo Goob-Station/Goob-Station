@@ -180,6 +180,7 @@
     state: disk
   - type: Item
     sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+  - type: NukeDisk
 
 - type: entity
   id: FishGib
