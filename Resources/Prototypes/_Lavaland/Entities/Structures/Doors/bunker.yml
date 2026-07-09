@@ -50,7 +50,7 @@
     containers:
       board: [ DoorElectronicsWizard ]
   - type: StaticPrice
-    price: 3000 # fricking test fails
+    price: 10001 # fricking test fails
   - type: InteractionPopup
     interactSuccessString: comp-window-knock
     messagePerceivedByOthers: comp-window-knock

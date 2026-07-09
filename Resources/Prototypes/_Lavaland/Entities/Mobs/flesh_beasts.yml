@@ -393,10 +393,10 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      300: Dead
+      600: Dead
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2
-    baseSprintSpeed: 2
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
   - type: AutoEmote
     emotes:
     - FleshBreathing
@@ -443,8 +443,8 @@
       0: Alive
       1000: Dead
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2
-    baseSprintSpeed: 2
+    baseWalkSpeed: 4.5
+    baseSprintSpeed: 4.5
   - type: AutoEmote
     emotes:
     - FleshBreathing
@@ -461,4 +461,4 @@
     damage:
       types:
         Blunt: 15
-        Slash: 20
+        Slash: 25

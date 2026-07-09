@@ -32,7 +32,7 @@
 # Junction box
 
 - type: entity
-  id: JunctionBox
+  id: JunctionBox1
   parent: BaseWallPanel
   name: junction box
   description: Holds lots of wires inside. Became outdated once APCs became commonplace.
@@ -41,15 +41,15 @@
     state: junctionbox
 
 - type: entity
-  id: JunctionBoxOpen
-  parent: JunctionBox
+  id: JunctionBoxOpen1
+  parent: JunctionBox1
   components:
   - type: Sprite
     state: junctionbox_open
 
 - type: entity
   id: JunctionBox2
-  parent: JunctionBox
+  parent: JunctionBox1
   components:
   - type: Anchorable
   - type: Sprite
@@ -58,7 +58,7 @@
 
 - type: entity
   id: JunctionBoxOpen2
-  parent: JunctionBox
+  parent: JunctionBox1
   components:
   - type: Anchorable
   - type: Sprite
@@ -67,7 +67,7 @@
 
 - type: entity
   id: JunctionBox3
-  parent: JunctionBox
+  parent: JunctionBox1
   components:
   - type: Anchorable
   - type: Sprite
@@ -76,7 +76,7 @@
 
 - type: entity
   id: JunctionBoxOpen3
-  parent: JunctionBox
+  parent: JunctionBox1
   components:
   - type: Anchorable
   - type: Sprite
@@ -87,7 +87,7 @@
 
 - type: entity
   id: SecureKeypad
-  parent: JunctionBox
+  parent: JunctionBox1
   name: keypad
   description: Inputting the correct code may open something.
   components:
@@ -113,7 +113,7 @@
 
 - type: entity
   id: OccupancyLightOff
-  parent: JunctionBox
+  parent: JunctionBox1
   name: red indicator
   description: Glows red when powered.
   components:

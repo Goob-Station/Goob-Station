@@ -3,8 +3,8 @@
 - type: entity
   id: ShuttleGunSvalinnMachineGunAutoRegen
   parent: [ ShuttleGunBase, ConstructibleMachine ]
-  name: LSE-400c "Svalinn machine gun"
-  description: Basic stationary laser unit. Effective against live targets and electronics. Uses regular power cells to fire, and has an extremely high rate of fire.
+  name: A.D.S. "Svalin"
+  description: Automated defensive system with a Svalin-style laser barrel.
   suffix: Auto, Regen
   categories: [ Spawner ]
   components:
@@ -67,8 +67,8 @@
 - type: entity
   id: ShuttleGunPerforatorAutoRegen
   parent: [ ShuttleGunBase, ConstructibleMachine ]
-  name: LSE-1200c "Perforator"
-  description: Advanced stationary laser unit. Annihilates electronics and is extremely dangerous to health! Uses the power cage to fire.
+  name: A.D.S. "Perforator"
+  description: Advanced stationary laser unit.
   suffix: Auto, Regen
   categories: [ Spawner ]
   components:
@@ -131,8 +131,8 @@
 - type: entity
   id: ShuttleGunFriendshipAutoRegen
   parent: [ ShuttleGunBase, ConstructibleMachine ]
-  name: EXP-320g "Friendship"
-  description: A small stationary grenade launcher that holds 2 grenades.
+  name: A.D.S. "Friendship"
+  description: A small stationary grenade launcher that constantly fires through bluespace-fed grenades.
   suffix: Auto, Regen
   categories: [ Spawner ]
   components:
@@ -186,7 +186,7 @@
 - type: entity
   id: ShuttleGunDusterAutoRegen
   parent: [ ShuttleGunBase, ConstructibleMachine ]
-  name: EXP-2100g "Duster"
+  name: A.D.S. "Duster"
   description: A powerful stationary grenade launcher.
   suffix: Auto, Regen
   categories: [ Spawner ]
@@ -278,8 +278,8 @@
 - type: entity
   id: ShuttleGunKineticAuto
   parent: [ ShuttleGunBase, ConstructibleMachine ]
-  name: PTK-800 "Matter Dematerializer"
-  description: Salvage stationary mining turret. Gradually accumulates charges on its own, extremely effective for asteroid excavation.
+  name: A.D.S. "Matter Dematerializer"
+  description: Automated defense unit with kinetic projectiles.
   suffix: Auto
   categories: [ Spawner ]
   components:
