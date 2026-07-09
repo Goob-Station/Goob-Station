@@ -1,0 +1,125 @@
+- type: entity
+  name: Roaming biter Spawner
+  id: SpawnBaseMobFleshBiter
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: biter
+      sprite: _Lavaland/Mobs/Flesh/32x32.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobFleshBiter
+
+- type: entity
+  name: running flesh Spawner
+  id: SpawnBaseMobFleshRunner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: runner
+      sprite: _Lavaland/Mobs/Flesh/32x32.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobFleshRunner
+
+- type: entity
+  name: toxic spitter Spawner
+  id: SpawnBaseMobFleshSpitter
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: spitter
+      sprite: _Lavaland/Mobs/Flesh/32x32.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobFleshSpitter
+
+- type: entity
+  name: muscular flesh Spawner
+  id: SpawnBaseMobFleshTank
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: tank
+      sprite: _Lavaland/Mobs/Flesh/32x32.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobFleshTank
+
+- type: entity
+  name: bloated flesh Spawner
+  id: SpawnBaseMobFleshBloater
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: bloated
+      sprite: _Lavaland/Mobs/Flesh/32x32.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobFleshBloater
+
+- type: entity
+  name: horrific flesh Spawner
+  id: SpawnBaseMobFleshRunnerElite
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: runner2
+      sprite: _Lavaland/Mobs/Flesh/48x48.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobFleshRunnerElite
+
+- type: entity
+  name: toxic abomination Spawner
+  id: SpawnBaseMobFleshSpitterElite
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: spitter2
+      sprite: _Lavaland/Mobs/Flesh/48x48.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobFleshSpitterElite
+
+- type: entity
+  name: frenzied giant Spawner
+  id: SpawnBaseMobFleshTankElite
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: tank2
+      sprite: _Lavaland/Mobs/Flesh/48x48.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobFleshTankElite
+
+- type: entity
+  name: The Blind One Spawner
+  id: SpawnBaseMobFleshBlindOne
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: blindone
+      sprite: _Lavaland/Mobs/Flesh/48x48.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobFleshBlindOne

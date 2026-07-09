@@ -1,4 +1,5 @@
 using Content.Shared.Physics;
+using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Physics.Components;
@@ -88,4 +89,8 @@ public sealed partial class TriggerOnProximityComponent : BaseTriggerOnXComponen
     /// </summary>
     [DataField(customTypeSerializer: typeof(FlagSerializer<CollisionLayer>))]
     public int Layer = (int)(CollisionGroup.MidImpassable | CollisionGroup.LowImpassable | CollisionGroup.HighImpassable);
+
+    // Goobstation
+    [DataField]
+    public EntityWhitelist? Whitelist;
 }

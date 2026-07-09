@@ -59,6 +59,9 @@ public sealed partial class TriggerSystem
         if (args.OurFixtureId != TriggerOnProximityComponent.FixtureID)
             return;
 
+        if (!_whitelist.IsWhitelistPassOrNull(component.Whitelist, args.OtherEntity)) // Goobstation
+            return;
+
         component.Colliding[args.OtherEntity] = args.OtherBody;
     }
 
