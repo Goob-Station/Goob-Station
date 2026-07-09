@@ -22,6 +22,8 @@
     - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/gun_sentry.ogg
+  - type: StaticPrice
+    price: 3000
   - type: BallisticAmmoProvider
     proto: CartridgeCaselessRifle
     capacity: 5000
@@ -35,6 +37,8 @@
   name: Heavy laser turret
   description: A heavy auto-turret armed with an especially dense battery.
   components:
+  - type: StaticPrice
+    price: 3000
   - type: Sprite
     drawdepth: Mobs
     layers:

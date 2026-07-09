@@ -42,7 +42,7 @@
     - type: EntityTableContainerFill
       containers:
         storagebase: !type:NestedSelector
-          tableId: MaintToolsTable
+          tableId: PartialMaintsToolsTable
           rolls: !type:RangeNumberSelector
             range: 3, 6
 
