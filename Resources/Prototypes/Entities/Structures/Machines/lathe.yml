@@ -757,7 +757,6 @@
         - Sheet
         - RawMaterial
         - Ingot
-        - SheetMetalBase
         # </Goobstation>
     - type: Lathe
       idleState: icon
