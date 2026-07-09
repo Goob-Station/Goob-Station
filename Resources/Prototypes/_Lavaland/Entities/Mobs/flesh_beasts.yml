@@ -258,6 +258,8 @@
     layer:
     - MobMask
   - type: Body
+    bodyType: Complex
+    prototype: Monkey # What could it mean??
   - type: GibOnTrigger
   - type: SmokeOnTrigger
     duration: 2
