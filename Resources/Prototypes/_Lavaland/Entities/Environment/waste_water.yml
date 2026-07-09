@@ -58,7 +58,7 @@
         - WasteWater
     blacklist:
       components:
-        - HazardImmune
+        - Fauna
 
 - type: entity
   id: EnvironmentalHazardFloorWasteWaterEntitySafe
@@ -72,7 +72,7 @@
       tags:
         - Catwalk
       components:
-        - HazardImmune
+        - Fauna
     triggerGroups:
       types:
         - WasteWater

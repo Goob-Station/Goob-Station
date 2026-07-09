@@ -7,7 +7,7 @@
     sprintSpeedModifier: 0.8
     ignoreWhitelist:
       components:
-      - HazardImmune
+      - Fauna
 
 - type: entity
   id: EnvironmentalHazardSlow30
@@ -18,7 +18,7 @@
     sprintSpeedModifier: 0.65
     ignoreWhitelist:
       components:
-      - HazardImmune
+      - Fauna
 
 - type: entity
   id: EnvironmentalHazardSlow60
@@ -29,7 +29,7 @@
     sprintSpeedModifier: 0.35
     ignoreWhitelist:
       components:
-      - HazardImmune
+      - Fauna
 
 - type: entity
   id: EnvironmentalHazardSlow75
@@ -40,4 +40,4 @@
     sprintSpeedModifier: 0.2
     ignoreWhitelist:
       components:
-      - HazardImmune
+      - Fauna
