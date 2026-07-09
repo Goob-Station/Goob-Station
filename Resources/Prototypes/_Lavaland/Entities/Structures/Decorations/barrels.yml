@@ -1,44 +1,49 @@
 - type: entity
   id: UglyBarrel1
   name: storage barrel
+  suffix: Blue
   parent: BaseBarrel
   components:
   - type: Sprite
-    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi # TO DO: Resprite this junk
-    state: barrel1
+    sprite: _Goobstation/Structures/Decoration/Barrels/blackbarrel.rsi
+    state: barrel_blue
 
 - type: entity
   id: UglyBarrel2
   name: storage barrel
+  suffix: Green
   parent: BaseBarrel
   components:
   - type: Sprite
-    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi # TO DO: Resprite this junk
-    state: barrel2
+    sprite: _Goobstation/Structures/Decoration/Barrels/blackbarrel.rsi
+    state: barrel_green
 
 - type: entity
   id: UglyBarrel3
   name: storage barrel
+  suffix: Red
   parent: BaseBarrel
   components:
   - type: Sprite
-    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi # TO DO: Resprite this junk
-    state: barrel3
+    sprite: _Goobstation/Structures/Decoration/Barrels/blackbarrel.rsi
+    state: barrel_red
 
 - type: entity
   id: UglyBarrel4
   name: storage barrel
+  suffix: Yellow
   parent: BaseBarrel
   components:
   - type: Sprite
-    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi # TO DO: Resprite this junk
-    state: barrel4
+    sprite: _Goobstation/Structures/Decoration/Barrels/blackbarrel.rsi
+    state: barrel_yellow
 
 - type: entity
   id: UglyBarrel5
   name: storage barrel
+  suffix: White
   parent: BaseBarrel
   components:
   - type: Sprite
-    sprite: /Textures/_Goobstation/Structures/Decoration/Random/junk.rsi # TO DO: Resprite this junk
-    state: barrel5
+    sprite: _Goobstation/Structures/Decoration/Barrels/blackbarrel.rsi
+    state: barrel_white
