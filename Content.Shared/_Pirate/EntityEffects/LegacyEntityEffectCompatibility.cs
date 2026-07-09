@@ -2,7 +2,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Threading;
+using System.Collections.Concurrent;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
@@ -59,34 +59,30 @@ public abstract partial class EventEntityEffect<T> : EntityEffectBase<T> where T
 
 public static class LegacyEntityEffectContext
 {
-    private static readonly AsyncLocal<LegacyEntityEffectReaction?> CurrentReaction = new();
+    private static readonly ConcurrentDictionary<IEntityManager, LegacyEntityEffectReaction> CurrentReactions = new();
 
-    public static IDisposable PushReaction(ReactionEntityEvent reaction)
+    public static IDisposable PushReaction(IEntityManager entityManager, ReactionEntityEvent reaction)
     {
-        var previous = CurrentReaction.Value;
-        CurrentReaction.Value = new LegacyEntityEffectReaction(
+        LegacyEntityEffectReaction? previous = null;
+        if (CurrentReactions.TryGetValue(entityManager, out var current))
+            previous = current;
+
+        CurrentReactions[entityManager] = new LegacyEntityEffectReaction(
             reaction.Method,
             reaction.ReagentQuantity,
             reaction.Reagent);
 
-        return new ReactionScope(previous);
+        return new ReactionScope(entityManager, previous);
     }
 
-    public static bool TryGetReaction(out LegacyEntityEffectReaction reaction)
+    public static bool TryGetReaction(IEntityManager entityManager, out LegacyEntityEffectReaction reaction)
     {
-        if (CurrentReaction.Value is not { } current)
-        {
-            reaction = default!;
-            return false;
-        }
-
-        reaction = current;
-        return true;
+        return CurrentReactions.TryGetValue(entityManager, out reaction);
     }
 
     public static EntityEffectBaseArgs CreateArgs(EntityUid target, IEntityManager entMan, float scale = 1f)
     {
-        if (!TryGetReaction(out var reaction))
+        if (!TryGetReaction(entMan, out var reaction))
             return new EntityEffectBaseArgs(target, entMan);
 
         var source = new Solution();
@@ -103,11 +99,23 @@ public static class LegacyEntityEffectContext
             FixedPoint2.New(scale));
     }
 
-    private sealed class ReactionScope(LegacyEntityEffectReaction? previous) : IDisposable
+    private sealed class ReactionScope(
+        IEntityManager entityManager,
+        LegacyEntityEffectReaction? previous) : IDisposable
     {
+        private bool _disposed;
+
         public void Dispose()
         {
-            CurrentReaction.Value = previous;
+            if (_disposed)
+                return;
+
+            _disposed = true;
+
+            if (previous is { } reaction)
+                CurrentReactions[entityManager] = reaction;
+            else
+                CurrentReactions.TryRemove(entityManager, out _);
         }
     }
 }

@@ -27,7 +27,7 @@ public sealed partial class JuggernautBloodCorruption : EntityEffect
     {
         var entMan = IoCManager.Resolve<IEntityManager>();
 
-        if (!LegacyEntityEffectContext.TryGetReaction(out var reaction) ||
+        if (!LegacyEntityEffectContext.TryGetReaction(entMan, out var reaction) ||
             reaction.Reagent.ID == CorruptedReagent ||
             !BloodCultConstants.SacrificeBloodReagents.Contains(reaction.Reagent.ID) ||
             reaction.ReagentQuantity.Quantity <= 0)

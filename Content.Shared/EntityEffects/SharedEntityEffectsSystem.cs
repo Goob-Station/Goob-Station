@@ -28,7 +28,7 @@ public sealed partial class SharedEntityEffectsSystem : EntitySystem, IEntityEff
     private void OnReactive(Entity<ReactiveComponent> entity, ref ReactionEntityEvent args)
     {
         // Pirate: bridge new upstream entity effects to old downstream reagent-effect handlers.
-        using var legacyReaction = LegacyEntityEffectContext.PushReaction(args);
+        using var legacyReaction = LegacyEntityEffectContext.PushReaction(EntityManager, args);
 
         var scale = args.ReagentQuantity.Quantity.Float();
 
