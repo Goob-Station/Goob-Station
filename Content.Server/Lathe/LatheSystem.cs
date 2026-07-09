@@ -28,7 +28,6 @@ using Content.Shared.Power;
 using Content.Shared.ReagentSpeed;
 using Content.Shared.Research.Components;
 using Content.Shared.Research.Prototypes;
-using Content.Goobstation.Shared.Lathe; // Goobstation
 using JetBrains.Annotations;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
@@ -248,18 +247,18 @@ namespace Content.Server.Lathe
                 var currentRecipe = _proto.Index(comp.CurrentRecipe.Value);
                 if (currentRecipe.Result is { } resultProto)
                 {
-                    // Goobstation, output to material storage instead of spawning
+                    // Goobstation, output to material storage instead of spawning, if preferred & possible
                     var prototype = _proto.Index(resultProto);
-                    if (comp.OutputToStorage && prototype.TryGetComponent<PhysicalCompositionComponent>(out var composition, _factory))
-                    {
-                        _materialStorage.TryChangeMaterialAmount(uid, composition.MaterialComposition);
-                    }
-                    else
+                    if (!comp.OutputToStorage || !prototype.TryGetComponent<PhysicalCompositionComponent>(out var composition, _factory)
+                        || _materialStorage.TryChangeMaterialAmount(uid, composition.MaterialComposition))
                     {
                         var result = Spawn(resultProto, Transform(uid).Coordinates);
                         _stack.TryMergeToContacts(result);
-                        if (TryComp<ScannableForPointsComponent>(result, out var scannable)) // Goobstation
-                            scannable.Points = 0; // Goobstation, this thing is to prevent ntr duping points via an emagged lathe
+
+                        // <Goobstation> No NTR factorio
+                        if (TryComp<ScannableForPointsComponent>(result, out var scannable))
+                            scannable.Points = 0;
+                        // </Goobstation>
                     }
                 }
 
