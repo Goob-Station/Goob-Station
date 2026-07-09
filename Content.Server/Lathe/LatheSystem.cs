@@ -17,11 +17,9 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.UserInterface;
 using Content.Shared.Database;
-using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
-using Content.Shared.Examine;
-using Content.Shared.Lathe;
 using Content.Shared.Lathe.Prototypes;
+using Content.Shared.Lathe;
 using Content.Shared.Localizations;
 using Content.Shared.Materials;
 using Content.Shared.Power;
@@ -34,15 +32,12 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Content.Server.Chat.Systems;
 using Content.Goobstation.Common.NTR.Scan; // Goobstation
-using Content.Shared.Chat;
-using Content.Shared.Prototypes;
 
 namespace Content.Server.Lathe
 {
     [UsedImplicitly]
-    public sealed partial class LatheSystem : SharedLatheSystem // Goobstation edit - made partial
+    public sealed partial class LatheSystem : SharedLatheSystem
     {
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly IPrototypeManager _proto = default!;
