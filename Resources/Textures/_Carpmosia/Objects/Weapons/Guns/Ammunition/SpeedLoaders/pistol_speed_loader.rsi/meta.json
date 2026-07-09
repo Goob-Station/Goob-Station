@@ -1,0 +1,47 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from and modified https://github.com/discordia-space/CEV-Eris/raw/aed9cbddbf9039dae1e4f02bab592248b0539431/icons/obj/ammo_speed.dmi, inhands by TiniestShark. Piercing and Uranium layers by BrushTool.",
+    "states": [
+        {
+            "name": "piercing-1"
+        },
+        {
+            "name": "piercing-2"
+        },
+        {
+            "name": "piercing-3"
+        },
+        {
+            "name": "piercing-4"
+        },
+        {
+            "name": "piercing-5"
+        },
+        {
+            "name": "piercing-6"
+        },
+        {
+            "name": "uranium-1"
+        },
+        {
+            "name": "uranium-2"
+        },
+        {
+            "name": "uranium-3"
+        },
+        {
+            "name": "uranium-4"
+        },
+        {
+            "name": "uranium-5"
+        },
+        {
+            "name": "uranium-6"
+        }
+    ]
+}
