@@ -7,7 +7,7 @@ using Content.Server.GameTicking.Rules;
 using Content.Shared.Access.Components;
 using Content.Shared.PDA;
 using Content.Server.Pinpointer;
-using Content.Server.Radio.Components;
+using Content.Shared.Radio.Components;
 using Content.Server.Radio.EntitySystems;
 using Content.Shared._DV.NanoChat;
 using Robust.Server.Audio;

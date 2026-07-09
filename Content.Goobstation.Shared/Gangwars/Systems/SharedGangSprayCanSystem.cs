@@ -160,7 +160,7 @@ public sealed class SharedGangSprayCanSystem : EntitySystem
     private void PlaceSign(ProtoId<WeightedRandomPrototype> signPrototypes, EntityCoordinates location, Color color, EntityUid sprayCan)
     {
         var signs = _proto.Index(signPrototypes);
-        var seed = SharedRandomExtensions.HashCodeCombine(new() { (int) _timing.CurTick.Value, GetNetEntity(sprayCan).Id });
+        var seed = SharedRandomExtensions.HashCodeCombine((int) _timing.CurTick.Value, GetNetEntity(sprayCan).Id);
         var signProto = signs.Pick(new Random(seed));
         var uid = PredictedSpawnAtPosition(signProto, location);
 
