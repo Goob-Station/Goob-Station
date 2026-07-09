@@ -135,6 +135,7 @@
   - HoloprojectorSecurity
   - WeaponDisablerSMG
   - Terminus #Goobstation
+  - WeaponTaser # Goobstation
   # Goobstation R&D Console rework start
   position: 3,3
   technologyPrerequisites:
