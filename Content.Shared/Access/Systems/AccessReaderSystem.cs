@@ -22,6 +22,7 @@ using Robust.Shared.Collections;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Goobstation.Common.BlockMarkup; // Goobstation
 
 namespace Content.Shared.Access.Systems;
 
@@ -56,6 +57,9 @@ public sealed class AccessReaderSystem : EntitySystem
 
     private void OnExamined(Entity<AccessReaderComponent> ent, ref ExaminedEvent args)
     {
+        if (HasComp<BlockMarkupMessageComponent>(ent.Owner)) // Goobstation - here because Wanted Menu apply AccessReaderComponent to base species
+            return;
+
         if (!GetMainAccessReader(ent, out var mainAccessReader))
             return;
 

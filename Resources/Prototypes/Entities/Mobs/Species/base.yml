@@ -193,6 +193,7 @@
   - type: Stripping
   - type: AccessReader # Goobstation-WantedMenu
     access: [["Security"]]
+  - type: BlockMarkupMessage # Goobstation - Block markup message from access reader
   - type: UserInterface
     interfaces:
       enum.HumanoidMarkingModifierKey.Key:
