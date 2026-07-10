@@ -13,8 +13,8 @@
 - type: entity
   parent: [DrinkBaseMaterialCardboard, DrinkCartonBaseFull, DrinkBaseOpenable, DrinkVisualsOpenable]
   id: DrinkMilkCartonMini
-  name: "міні-молоко"
-  description: "Непрозора біла рідина, що виробляється молочними залозами ссавців."
+  name: mini milk
+  description: An opaque white liquid produced by the mammary glands of mammals.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -30,8 +30,8 @@
 - type: entity
   parent: [DrinkBaseMaterialCardboard, DrinkCartonBaseFull, DrinkBaseOpenable, DrinkVisualsOpenable]
   id: DrinkMilkCartonMiniChocolate
-  name: "міні-шоколадне молоко"
-  description: "Молочний напій зі смаком шоколаду."
+  name: mini choco milk
+  description: A milk drink flavored with chocolate.
   components:
   - type: SolutionContainerManager
     solutions:

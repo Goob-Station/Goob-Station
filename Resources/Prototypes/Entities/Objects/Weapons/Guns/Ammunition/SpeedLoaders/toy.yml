@@ -4,7 +4,7 @@
   abstract: true
   parent: BaseItem
   id: BaseSpeedLoaderCap
-  name: "зарядник пістолета з пістонами"
+  name: "cap gun loader"
   components:
   - type: Tag
     tags:
@@ -34,8 +34,8 @@
 - type: entity
   parent: BaseSpeedLoaderCap
   id: SpeedLoaderCap
-  name: "зарядник пістолета з пістонами"
-  description: "Створений для швидкого заряджання до шести патронів у порожній пістолет з пістонами."
+  name: "cap gun loader"
+  description: Designed to quickly load up to six cartridges into an empty cap gun.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeCap

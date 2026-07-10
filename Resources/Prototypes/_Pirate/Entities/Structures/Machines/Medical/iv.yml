@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseStructureDynamic
   id: IVDrip
-  name: "крапельниця"
-  description: "Дозволяє вводити кров пацієнту або забирати її для переливання."
+  name: IV drip
+  description: Allows you to inject blood into a patient or extract blood from them for a transfusion.
   suffix: Empty
   components:
   - type: Transform
@@ -52,8 +52,8 @@
 - type: entity
   parent: BaseItem
   id: IVBloodPack
-  name: "пакет крові для крапельниці"
-  description: "Пакет крові для переливань через крапельницю."
+  name: IV blood pack
+  description: A blood pack for transfusions through an IV drip.
   suffix: Empty
   components:
   - type: BloodPack
@@ -104,7 +104,7 @@
 - type: entity
   parent: IVBloodPack
   id: IVBloodPackFull
-  name: "пакет крові для крапельниці"
+  name: IV blood pack
   suffix: Full
   components:
   - type: SolutionContainerManager

@@ -2,7 +2,7 @@
 
 - type: entity
   id: ShuttleWindow
-  name: "вікно шаттла"
+  name: shuttle window
   parent: [BaseDeltaPressureReinforcedGlass, WindowRCDResistant]
   components:
   - type: Sprite

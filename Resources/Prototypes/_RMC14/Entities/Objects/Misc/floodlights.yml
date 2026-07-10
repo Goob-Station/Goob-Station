@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseStructureDynamic
   id: RMCSmallFloodlight
-  name: "маленький прожектор"
-  description: "Невелика цятка світла в темряві."
+  name: small floodlight
+  description: A small bit of light in the darkness.
   components:
   - type: Transform
     anchored: true
@@ -57,8 +57,8 @@
 - type: entity
   parent: BaseStructure
   id: RMCTallFloodlight
-  name: "високий прожектор"
-  description: "Стовп світла в темряві."
+  name: tall floodlight
+  description: A pillar of light in the darkness.
   placement:
     mode: SnapgridCenter
   components:
@@ -119,8 +119,8 @@
 - type: entity
   parent: BaseStructure
   id: RMCFloodlightBroken
-  name: "зламаний високий прожектор"
-  description: "Приклеєна записка каже: «Щоб полагодити, відкрутіть панель, виламайте ломиком пошкоджений модуль, заваріть його, додайте 2 відрізки кабелю, потім закрийте панель»"
+  name: tall broken floodlight
+  description: A pasted on note says 'To fix, unscrew the panel, crowbar out the damaged assembly, weld it fixed, add 2 cable, then close the panel.'
   components:
   - type: Transform
     anchored: true
@@ -153,8 +153,8 @@
 - type: entity
   parent: BaseStructure
   id: RMCLZFloodlight
-  name: "посадковий прожектор"
-  description: "Потужне світло, яке зазвичай встановлюють біля посадкових зон для кращої видимості. Цей, схоже, прикручений болтами й його неможливо зрушити."
+  name: landing light
+  description: A powerful light usually stationed near landing zones to provide better visibility. This one seems to have been bolted down and is unable to be moved.
   placement:
     mode: SnapgridCenter
   components:
@@ -185,8 +185,8 @@
 - type: entity
   parent: RMCLZFloodlight
   id: RMCEngineerShipLight
-  name: "круглий світильник"
-  description: "Величезний круглий світильник"
+  name: circular light
+  description: A huge circular light
   components:
   - type: Sprite
     sprite: _RMC14/Objects/Misc/Lights/engineer_ship.rsi
@@ -202,7 +202,7 @@
 - type: entity
   parent: RMCTallFloodlight
   id: RMCStreetlight
-  name: "колоніальний вуличний ліхтар"
+  name: colony streetlight
   components:
   - type: Fixtures
     fixtures:
@@ -233,7 +233,7 @@
   parent: RMCStreetlight
   id: RMCStreetlightOff
   suffix: Off
-  name: "колоніальний вуличний ліхтар"
+  name: colony streetlight
   components:
   - type: PointLight
     enabled: false
@@ -248,8 +248,8 @@
 - type: entity
   parent: RMCFloodlightBroken
   id: RMCStreetlightBroken
-  name: "зламаний колоніальний вуличний ліхтар"
-  description: "Ця штука — древня. Як ти взагалі збираєшся її тепер полагодити? Гарна робота, розумнику."
+  name: broken colony streetlight
+  description: This thing is ancient, how are you gonna fix it now? Good job, smartass.
   components:
   - type: Sprite
     noRot: true
@@ -274,8 +274,8 @@
 - type: entity
   parent: BaseStructure
   id: RMCTrafficLightBase
-  name: "світлофор"
-  description: "Світлофор."
+  name: traffic light
+  description: A traffic light.
   abstract: true
   placement:
     mode: SnapgridCenter
@@ -331,8 +331,8 @@
 - type: entity
   parent: RMCStreetlightBroken
   id: RMCTrafficLightBroken
-  name: "зламаний світлофор"
-  description: "Ця штука — древня. Як ти взагалі збираєшся її тепер полагодити? Гарна робота, розумнику."
+  name: broken traffic light
+  description: This thing is ancient, how are you gonna fix it now? Good job, smartass.
   components:
   - type: Sprite
     noRot: true

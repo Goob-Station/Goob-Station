@@ -6,7 +6,7 @@
   abstract: true
   parent: BaseItem
   id: BaseSoap
-  name: "мило"
+  name: soap
   components:
   - type: Tag
     tags:
@@ -80,7 +80,7 @@
 - type: entity
   parent: BaseSoap
   id: Soap
-  description: "Дешевий брусок мила. Не пахне."
+  description: A cheap bar of soap. Doesn't smell.
   components:
   - type: Sprite
     layers:
@@ -92,7 +92,7 @@
 - type: entity
   parent: BaseSoap
   id: SoapNT
-  description: "Брусок мила бренду Nanotrasen. Пахне плазмою."
+  description: A Nanotrasen brand bar of soap. Smells of plasma.
   components:
   - type: Sprite
     layers:
@@ -115,7 +115,7 @@
 - type: entity
   parent: BaseSoap
   id: SoapDeluxe
-  description: "Розкішний брусок мила бренду Waffle Co. Пахне полуницею."
+  description: A deluxe Waffle Co. brand bar of soap. Smells of strawberries.
   components:
   - type: Sprite
     layers:
@@ -131,7 +131,7 @@
 - type: entity
   parent: [BaseSoap, BaseSyndicateContraband]
   id: SoapSyndie
-  description: "Підозрілий брусок мила. Пахне страхом."
+  description: An untrustworthy bar of soap. Smells of fear.
   components:
   - type: Sprite
     layers:
@@ -162,8 +162,8 @@
 - type: entity
   parent: BaseSoap
   id: SoapletSyndie
-  name: "мило"
-  description: "Крихітний шматочок синдикатського мила."
+  name: soaplet
+  description: A tiny piece of syndicate soap.
   categories: [ HideSpawnMenu ]
   components:
   - type: SolutionContainerManager
@@ -217,7 +217,7 @@
 - type: entity
   parent: BaseSoap
   id: SoapHomemade
-  description: "Домашній брусок мила. Пахне... ну...."
+  description: A homemade bar of soap. Smells of... well....
   components:
   - type: Sprite
     layers:
@@ -241,8 +241,8 @@
 - type: entity
   parent: BaseSoap
   id: SoapOmega
-  name: "омега-мило"
-  description: "Найдосконаліше мило, відоме людству. Пахне блакитним простором."
+  name: omega soap
+  description: The most advanced soap known to mankind. Smells of bluespace.
   components:
   - type: Sprite
     layers:
@@ -268,10 +268,10 @@
     residueColor: residue-blue
 
 - type: entity
-  name: "мило"
+  name: soap
   id: SoapBorg # Intended for borg internals, not slippery or food, not a container for soap reagent
   parent: BaseItem
-  description: "Брусок мила марки Nanotrasen. Пахне плазмою та машинами."
+  description: A Nanotrasen brand bar of soap. Smells of plasma and machines.
   components:
   - type: Sprite
     sprite: Objects/Specific/Janitorial/soap.rsi

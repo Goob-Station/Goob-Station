@@ -2,8 +2,8 @@
   abstract: true
   parent: BaseElectronics
   id: WeaponEnergyTurretStationControlPanelElectronicsBase 
-  name: "електроніка панелі керування туреллю-стражем"
-  description: "Електронна плата, що використовується в панелі керування туреллю-стражем."
+  name: sentry turret control panel electronics
+  description: An electronics board used in a sentry turret control panel.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi

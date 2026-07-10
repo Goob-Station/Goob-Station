@@ -45,7 +45,7 @@
 - type: entity
   id: OrganAnimalLungs
   parent: BaseAnimalOrgan
-  name: "легені тварини"
+  name: animal lungs
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -91,7 +91,7 @@
 - type: entity
   id: OrganAnimalStomach
   parent: BaseAnimalOrgan
-  name: "шлунок тварини"
+  name: animal stomach
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -150,7 +150,7 @@
 - type: entity
   id: OrganAnimalLiver
   parent: BaseAnimalOrgan
-  name: "печінка тварини"
+  name: animal liver
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -181,7 +181,7 @@
 - type: entity
   id: OrganAnimalHeart
   parent: BaseAnimalOrgan
-  name: "серце тварини"
+  name: animal heart
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -214,7 +214,7 @@
 - type: entity
   id: OrganAnimalKidneys
   parent: BaseAnimalOrgan
-  name: "нирки тварини"
+  name: animal kidneys
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

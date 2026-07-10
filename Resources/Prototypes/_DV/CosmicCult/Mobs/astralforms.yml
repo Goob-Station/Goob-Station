@@ -2,8 +2,8 @@
 - type: entity
   parent: [ Incorporeal, BaseMob ]
   id: MobCosmicAstralProjection
-  name: "астральна проєкція"
-  description: "Ні тут, ні там."
+  name: astral projection
+  description: Neither here nor there.
   components:
   - type: ActionGrant
     actions:
@@ -65,8 +65,8 @@
 - type: entity
   parent: [ BaseSimpleMob ]
   id: MobCosmicAstralAscended
-  name: "астральний піднесений"
-  description: "Трансцендентний, піднесений."
+  name: astral ascended
+  description: Transcendant, ascendant.
   components:
   - type: Puller
     needsHands: false
@@ -126,8 +126,8 @@
 - type: entity
   parent: MobCosmicAstralAscended
   id: MobCosmicCustodian
-  name: "згубний доглядач"
-  description: "Мерзота, створена зі згубної маси. Вона ширяє з невагомою, тривожною грацією."
+  name: malign custodian
+  description: An abomination wrought of malign mass. It floats with a weightless, unnerving grace.
   components:
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
@@ -153,8 +153,8 @@
 - type: entity
   parent: MobCosmicAstralAscended
   id: MobCosmicOracle
-  name: "згубний оракул"
-  description: "Мерзота, створена зі згубної маси. Її погляд невпинно шукає."
+  name: malign oracle
+  description: An abomination wrought of malign mass. Its gaze seeks relentlessly.
   components:
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
@@ -180,8 +180,8 @@
 - type: entity
   parent: MobCosmicAstralAscended
   id: MobCosmicLodestar
-  name: "згубна провідна зоря"
-  description: "Мерзота, створена зі згубної маси. Усередині жевріє пекуче світло."
+  name: malign lodestar
+  description: An abomination wrought of malign mass. A searing light glimmers within.
   components:
   - type: Sprite
     sprite: _DV/CosmicCult/Mobs/lodestar.rsi

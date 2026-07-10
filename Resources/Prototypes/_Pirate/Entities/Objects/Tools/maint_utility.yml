@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseItem
   id: ESDoorJammer
-  name: "заклинювач дверей"
-  description: "Нашвидкуруч перероблена викрутка, здатна заблокувати будь-який шлюз, у який її кинуть."
+  name: door jammer
+  description: A jury-rigged screwdriver capable of bolting any airlock it's thrown at.
   suffix: ES
   components:
   - type: PirateDoorJammer
@@ -45,8 +45,8 @@
 - type: entity
   parent: BaseItem
   id: ESNet
-  name: "сітка"
-  description: "Однаково корисна для космічної риболовлі та вихоплення предметів із зайнятих рук простим кидком. Дивовижно корисна, навіть якщо її так само легко схопити в повітрі."
+  name: net
+  description: Used equally for spacefishing and yoinking items out of occupied hands with a simple toss. Remarkably useful, even when it can be grabbed out of the air just as easily.
   suffix: ES
   components:
   - type: PirateNet

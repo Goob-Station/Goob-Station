@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseWall
   id: SOLWallComposite
-  name: "композитна стіна"
+  name: композитна стіна
   suffix: SOL, НЕ МАПИТИ
   components:
     - type: Sprite

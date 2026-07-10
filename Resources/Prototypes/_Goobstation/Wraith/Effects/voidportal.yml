@@ -1,7 +1,7 @@
 - type: entity
   id: VoidPortalBase
   abstract: true
-  name: "портал Провісника"
+  name: Harbinger portal
   components:
   - type: Transform
     anchored: True
@@ -50,12 +50,12 @@
 - type: entity
   id: VoidPortalEmpty
   parent: VoidPortalBase
-  name: "портал Провісника"
+  name: Harbinger portal
 
 - type: entity
   id: VoidPortalSkeletonGoonWraith
   parent: VoidPortalBase
-  name: "портал Провісника"
+  name: Harbinger portal
   components:
   - type: Timer
   - type: TimedSpawner
@@ -68,7 +68,7 @@
 - type: entity
   id: VoidPortalCrunchedWraith
   parent: VoidPortalBase
-  name: "портал Провісника"
+  name: Harbinger portal
   components:
   - type: Timer
   - type: TimedSpawner
@@ -81,7 +81,7 @@
 - type: entity
   id: VoidPortalShadeWraith
   parent: VoidPortalBase
-  name: "портал Провісника"
+  name: Harbinger portal
   components:
   - type: Timer
   - type: TimedSpawner
@@ -94,7 +94,7 @@
 - type: entity
   id: VoidPortalMonstrosityHeadWraith
   parent: VoidPortalBase
-  name: "портал Провісника"
+  name: Harbinger portal
   components:
   - type: Timer
   - type: TimedSpawner
@@ -107,7 +107,7 @@
 - type: entity
   id: VoidPortalMonstrosityBodyWraith
   parent: VoidPortalBase
-  name: "портал Провісника"
+  name: Harbinger portal
   components:
   - type: Timer
   - type: TimedSpawner
@@ -120,7 +120,7 @@
 - type: entity
   id: VoidPortalLionWraith
   parent: VoidPortalBase
-  name: "портал Провісника"
+  name: Harbinger portal
   components:
   - type: Timer
   - type: TimedSpawner
@@ -133,7 +133,7 @@
 - type: entity
   id: VoidPortalAncientRepairBotWraith
   parent: VoidPortalBase
-  name: "портал Провісника"
+  name: Harbinger portal
   components:
   - type: Timer
   - type: TimedSpawner
@@ -146,7 +146,7 @@
 - type: entity
   id: VoidPortalAncientGuardBotWraith
   parent: VoidPortalBase
-  name: "портал Провісника"
+  name: Harbinger portal
   components:
   - type: Timer
   - type: TimedSpawner
@@ -159,7 +159,7 @@
 - type: entity
   id: VoidPortalAncientRobot1Wraith
   parent: VoidPortalBase
-  name: "портал Провісника"
+  name: Harbinger portal
   components:
   - type: Timer
   - type: TimedSpawner
@@ -172,7 +172,7 @@
 - type: entity
   id: VoidPortalAncientRobot2Wraith
   parent: VoidPortalBase
-  name: "портал Провісника"
+  name: Harbinger portal
   components:
   - type: Timer
   - type: TimedSpawner
@@ -185,7 +185,7 @@
 - type: entity
   id: VoidPortalAncientRobot3Wraith
   parent: VoidPortalBase
-  name: "портал Провісника"
+  name: Harbinger portal
   components:
   - type: Timer
   - type: TimedSpawner
@@ -198,7 +198,7 @@
 - type: entity
   id: VoidPortalAncientLegsWraith
   parent: VoidPortalBase
-  name: "портал Провісника"
+  name: Harbinger portal
   components:
   - type: Timer
   - type: TimedSpawner
@@ -211,7 +211,7 @@
 - type: entity
   id: VoidPortalBearGoonWraith
   parent: VoidPortalBase
-  name: "портал Провісника"
+  name: Harbinger portal
   components:
   - type: Timer
   - type: TimedSpawner
@@ -224,7 +224,7 @@
 - type: entity
   id: VoidPortalBrullbarWraith
   parent: VoidPortalBase
-  name: "портал Провісника"
+  name: Harbinger portal
   components:
   - type: Timer
   - type: TimedSpawner
@@ -237,7 +237,7 @@
 - type: entity
   id: VoidPortalBGunbotWraith
   parent: VoidPortalBase
-  name: "портал Провісника"
+  name: Harbinger portal
   components:
   - type: Timer
   - type: TimedSpawner
@@ -250,7 +250,7 @@
 - type: entity
   id: VoidPortalNukebotWraith
   parent: VoidPortalBase
-  name: "портал Провісника"
+  name: Harbinger portal
   components:
   - type: Timer
   - type: TimedSpawner

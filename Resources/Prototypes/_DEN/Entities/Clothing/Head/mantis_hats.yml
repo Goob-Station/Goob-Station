@@ -1,8 +1,8 @@
 - type: entity
   parent: [ClothingHeadHatFezMantis, BaseFoldable]
   id: ClothingHeadHatFezMantisInsulative
-  name: "ізоляційна феска Мантіса"
-  description: "Хтось обгорнув вашу стару феску Мантіса фольгою з мю-металу... Ну що ж. Принаймні вона захистить від псіонічних атак. М’яку верхівку можна загнути на будь-який бік."
+  name: insulative mantis fez
+  description: "Someone wrapped your old mantis fez in mu-metal foil... Oh well. At least it'll protect you from psionic attacks. The slouch can be folded to either side."
   components:
   - type: Sprite
     sprite: _DEN/Clothing/Head/Hats/mantis_fez_insulative.rsi
@@ -31,8 +31,8 @@
 - type: entity
   parent: [ClothingHeadHatFezMantis, BaseFoldable]
   id: ClothingHeadHatFezMantisAiry
-  name: "легка феска Мантіса"
-  description: "Скромна шапочка, прикрашена товстою китицею, яку можна носити над будь-яким оком. Але над оком її носити обов’язково, як велить традиція."
+  name: airy mantis fez
+  description: "A modest cap decorated with a thick tassle that can be worn over either eye. But it must be worn over an eye, as tradition dictates."
   components:
   - type: Sprite
     sprite: _DEN/Clothing/Head/Hats/mantis_fez_airy.rsi
@@ -55,8 +55,8 @@
 - type: entity
   parent: [ClothingHeadHatFezMantis, BaseFoldable]
   id: ClothingHeadHatFezMantisOrnate
-  name: "оздоблена феска Мантіса"
-  description: "Жорстка шапочка з вуаллю на ланцюжку, яку можна скласти вгору й прибрати з дороги, якщо у вас немає смаку. Або, можливо, очі вже прикриває щось інше? Ви певні, що все гаразд."
+  name: ornate mantis fez
+  description: "A structured cap with a chained veil that can be folded up and out of the way, if you have no taste. Or perhaps there's something else covering your eyes already? You're sure it's fine."
   components:
   - type: Sprite
     sprite: _DEN/Clothing/Head/Hats/mantis_fez_ornate.rsi

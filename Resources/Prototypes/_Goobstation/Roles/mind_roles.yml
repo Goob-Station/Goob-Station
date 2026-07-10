@@ -3,7 +3,7 @@
 - type: entity
   parent: BaseMindRoleAntag
   id: DevilMindRole
-  name: "Роль Диявола"
+  name: Devil Role
   components:
   - type: MindRole
     antagPrototype: Devil
@@ -15,7 +15,7 @@
 - type: entity
   parent: BaseMindRoleAntag
   id: MindRoleChangeling
-  name: "Роль Перевертня"
+  name: Changeling Role
   components:
   - type: MindRole
     antagPrototype: Changeling
@@ -27,7 +27,7 @@
 - type: entity
   parent: BaseMindRoleAntag
   id: MindRoleHeretic
-  name: "Роль Єретика"
+  name: Heretic Role
   components:
   - type: MindRole
     antagPrototype: Heretic
@@ -39,7 +39,7 @@
 - type: entity
   parent: BaseMindRoleAntag
   id: MindRoleGhoul
-  name: "Роль гуля"
+  name: Ghoul Role
   components:
   - type: MindRole
     antagPrototype: Ghoul
@@ -51,7 +51,7 @@
 - type: entity
   parent: BaseMindRoleAntag
   id: MindRoleBrainwashed
-  name: "Роль з промитими мізками"
+  name: Brainwashed Role
   components:
   - type: MindRole
     antagPrototype: Mindcontrolled
@@ -64,7 +64,7 @@
 - type: entity
   parent: BaseMindRoleAntag
   id: MindRoleSlasher
-  name: "Роль Слешера"
+  name: Slasher Role
   components:
   - type: MindRole
     antagPrototype: Slasher
@@ -76,7 +76,7 @@
 - type: entity
   parent: [ BaseMindRoleAntag, MindRoleGhostRoleNeutral ]
   id: MindRoleGhostRoleSentientAnimal
-  name: "Роль привида (розумна тварина)"
+  name: Ghost Role (SentientAnimal)
   components:
   - type: MindRole
     roleType: SentientAnimal
@@ -86,7 +86,7 @@
 - type: entity
   parent: BaseMindRoleAntag
   id: MindRoleContractor
-  name: "Роль контрактора"
+  name: Contractor Role
   components:
   - type: MindRole
     antagPrototype: Contractor
@@ -99,7 +99,7 @@
 - type: entity
   parent: MindRoleGhostRoleFamiliar
   id: MindRoleGemini
-  name: "Роль Джеміні"
+  name: Gemini Role
   components:
   - type: MindRole
     antag: true # This is bad
@@ -125,12 +125,12 @@
 - type: entity
   parent: [ BaseMindRoleAntagGhostGoob, MindRoleGhostRoleNeutral ]
   id: MindRoleGhostRoleSoloAntagonistGoob
-  name: "Роль привида (одиночний антагоніст)"
+  name: Ghost Role (Solo Antagonist)
 
 - type: entity
   parent: [ BaseMindRoleAntag, MindRoleGhostRoleNeutral ]
   id: MindRoleGhostRoleFreeAgentGoob
-  name: "Роль привида (вільний агент)"
+  name: Ghost Role (Free Agent)
   components:
   - type: MindRole
     roleType: FreeAgent
@@ -140,7 +140,7 @@
 - type: entity
   parent: [ MindRoleGhostRoleFreeAgentGoob ]
   id: MindRoleGhostRoleFreeAgentEngineeringGoob
-  name: "Роль привида (вільний агент)"
+  name: Ghost Role (Free Agent)
   components:
   - type: MindRole
     roleType: FreeAgent
@@ -150,7 +150,7 @@
 - type: entity
   parent: [ MindRoleGhostRoleFreeAgentGoob ]
   id: MindRoleGhostRoleFreeAgentSecurityGoob
-  name: "Роль привида (вільний агент)"
+  name: Ghost Role (Free Agent)
   components:
   - type: MindRole
     roleType: FreeAgent
@@ -160,7 +160,7 @@
 - type: entity
   parent: [ MindRoleGhostRoleSoloAntagonistGoob ]
   id: MindRoleGhostRoleSoloAntagonistMimeGoob
-  name: "Роль розуму антагоніста"
+  name: Antag Mind role
   components:
   - type: MindRole
     antag: true
@@ -171,7 +171,7 @@
 - type: entity
   parent: [ MindRoleGhostRoleSoloAntagonistMimeGoob ]
   id: MindRoleGhostRoleSoloAntagonistPassengerGoob
-  name: "Роль розуму антагоніста"
+  name: Antag Mind role
   components:
   - type: MindRole
     antag: true
@@ -182,7 +182,7 @@
 - type: entity
   parent: [ MindRoleGhostRoleSoloAntagonistMimeGoob ]
   id: MindRoleGhostRoleSoloAntagonistBorgGoob
-  name: "Роль розуму антагоніста"
+  name: Antag Mind role
   components:
   - type: MindRole
     antag: true
@@ -193,7 +193,7 @@
 - type: entity
   parent: [ MindRoleGhostRoleSoloAntagonistMimeGoob ]
   id: MindRoleGhostRoleSoloAntagonistClownGoob
-  name: "Роль розуму антагоніста"
+  name: Antag Mind role
   components:
   - type: MindRole
     antag: true

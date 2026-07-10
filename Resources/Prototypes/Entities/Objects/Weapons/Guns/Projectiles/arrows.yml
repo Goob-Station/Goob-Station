@@ -65,8 +65,8 @@
 - type: entity
   parent: BaseArrow
   id: ArrowRegular
-  name: "стрілка"
-  description: "Ви можете відчути силу степу всередині себе."
+  name: arrow
+  description: You can feel the power of the steppe within you.
   components:
   - type: Sprite
     layers:
@@ -86,8 +86,8 @@
 - type: entity
   parent: BaseArrow
   id: ArrowImprovised
-  name: "стріла з осколків скла"
-  description: "Улюблений снаряд сірої сорочки."
+  name: glass shard arrow
+  description: The greyshirt's preferred projectile.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/arrows.rsi
@@ -112,8 +112,8 @@
 - type: entity
   parent: BaseArrow
   id: ArrowImprovisedPlasma
-  name: "імпровізована стріла з плазмового скла"
-  description: "Улюблений снаряд грейширта. Тепер з додатковою летальністю!"
+  name: plasma glass shard arrow
+  description: The greyshirt's preferred projectile. Now with extra lethality!
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/arrows.rsi
@@ -138,8 +138,8 @@
 - type: entity
   parent: BaseArrow
   id: ArrowImprovisedUranium
-  name: "імпровізована стріла з уранового скла"
-  description: "Улюблений снаряд грейширта. Тепер з доданою радіацією!"
+  name: uranium glass shard arrow
+  description: The greyshirt's preferred projectile. Now with added radiation!
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/arrows.rsi
@@ -165,8 +165,8 @@
 - type: entity
   parent: BaseArrow
   id: ArrowImprovisedCarp
-  name: "саморобна стріла з зуба коропа"
-  description: "Улюблена стріла утилізатора. Вбивайте своїх ворогів зубами їхніх родичів."
+  name: carp tooth arrow
+  description: The salvager's preferred arrow. Kill your enemies with the teeth of their families.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/arrows.rsi
@@ -191,8 +191,8 @@
 - type: entity
   parent: BaseArrow
   id: ArrowCard
-  name: "картонна стріла"
-  description: "Обережно, виколете комусь око!"
+  name: cardboard arrow
+  description: Careful, you'll poke an eye out!
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/arrows.rsi

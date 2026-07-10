@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseFloorDecoration
   id: IronsandStep
-  name: "сходинка із залізного піску"
-  description: "Піднімає ваш залізний пісок на рівень вище."
+  name: ironsand step
+  description: Takes your ironsand up a level.
   components:
   - type: Sprite
     sprite: Structures/ironsand_steps.rsi
@@ -38,7 +38,7 @@
 - type: entity
   parent: IronsandStep
   id: IronsandStepConvexCorner
-  name: "опуклий кут сходинки із залізного піску"
+  name: ironsand step convex corner
   components:
   - type: Sprite
     state: corner_convex
@@ -46,7 +46,7 @@
 - type: entity
   parent: IronsandStep
   id: IronsandStepConcaveCorner
-  name: "увігнутий кут сходинки із залізного піску"
+  name: ironsand step concave corner
   components:
   - type: Sprite
     state: corner_concave

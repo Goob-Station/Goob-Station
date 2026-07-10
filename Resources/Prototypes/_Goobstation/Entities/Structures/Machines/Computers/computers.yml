@@ -1,8 +1,8 @@
 - type: entity
   id: ComputerNTRTasks
   parent: [BaseComputer]
-  name: "комп'ютер завдань NTR"
-  description: "Термінал, що надає доступ до місій NanoNet. Ваша лояльність буде винагороджена — виконуйте завдання, накопичуйте бали лояльності та витрачайте їх на ексклюзивні привілеї NTR."
+  name: NTR tasks computer
+  description: A terminal providing access to NanoNet missions. Your loyalty will be rewarded — complete tasks, accumulate loyalty points, and spend them on exclusive NTR privileges.
   components:
   - type: UserInterface
     interfaces:
@@ -52,8 +52,8 @@
 - type: entity
   id: ComputerContractor
   parent: [BaseComputer, StorePresetUplink, BaseSyndicateContraband]
-  name: "термінал аплінку контрактора"
-  description: "Термінал, що надає доступ до магазину Гільдії. Витрачайте свої чесно зароблені ТК на ексклюзивне спорядження та покращення, щоб допомогти у ваших фрилансерських справах."
+  name: contractor uplink computer
+  description: A terminal providing access to the guild store. Spend your hard earned TC on exclusive gear and upgrades to aid you in your freelancer endeavors.
   components:
   - type: UserInterface
     interfaces:

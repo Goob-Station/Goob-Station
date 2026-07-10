@@ -32,8 +32,8 @@
 - type: entity
   parent: BaseHandheldMixer
   id: HandheldMixerPaperCentrifuge
-  name: "паперова центрифуга"
-  description: "Мала портативна саморобна центрифуга. Працює, обертаючи аркуші паперу, коли тягнуть за її шнури."
+  name: paper centrifuge
+  description: A small portable makeshift centrifuge. Works by rotating the paper sheets when its cords are pulled.
   components:
   - type: Sprite
     sprite: Objects/Specific/Chemistry/paper_centrifuge.rsi

@@ -1,7 +1,7 @@
 - type: entity
   id: RitualCircleInact
-  name: "портал виклику"
-  description: "Він гуде і пульсує, коли ти дивишся на нього. Темні тіні снують туди-сюди в його глибині."
+  name: Summoning portal
+  description: It hums and thrums as you stare at it. Dark shadows weave in and out of sight within.
   categories: [ Spawner ]
   components:
   - type: Transform

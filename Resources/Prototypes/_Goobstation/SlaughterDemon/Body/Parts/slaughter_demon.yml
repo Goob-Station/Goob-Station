@@ -3,7 +3,7 @@
 - type: entity
   parent: [PartAnimalBase, ChestAnimal]
   id: ChestSlaughter
-  name: "груди різника"
+  name: slaughter chest
   categories: [ HideSpawnMenu ]
   components:
   - type: Woundable
@@ -19,7 +19,7 @@
 - type: entity
   parent: [PartAnimalBase, GroinAnimal]
   id: GroinSlaughter
-  name: "пах різника"
+  name: slaughter groin
   categories: [ HideSpawnMenu ]
   components:
   - type: Woundable
@@ -35,7 +35,7 @@
 - type: entity
   parent: [PartAnimalBase, BaseRightArm]
   id: RightArmSlaughter
-  name: "права рука різника"
+  name: "right arm slaughter"
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -45,7 +45,7 @@
 - type: entity
   parent: [PartAnimalBase, BaseLeftArm]
   id: LeftArmSlaughter
-  name: "ліва рука різника"
+  name: "left arm slaughter"
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -55,7 +55,7 @@
 - type: entity
   parent: [PartAnimalBase, BaseRightHand]
   id: RightHandSlaughter
-  name: "права долоня різника"
+  name: "right hand slaughter"
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -65,7 +65,7 @@
 - type: entity
   parent: [PartAnimalBase, BaseLeftHand]
   id: LeftHandSlaughter
-  name: "ліва долоня різника"
+  name: "left hand slaughter"
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

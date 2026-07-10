@@ -48,8 +48,8 @@
 - type: entity
   parent: PlumbingMachineBase
   id: PlumbingTank
-  name: "резервуар трубопроводу"
-  description: "Зберігає до 2000u реагентів. Використовуйте резервуари, щоб буферизувати реагенти між етапами виробництва або просто зберігати великі кількості реагентів."
+  name: plumbing tank
+  description: Stores up to 2000u of reagents. Use tanks to buffer reagents between production stages or just store large amounts of reagents.
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Piping/Plumbing/plumbers.rsi
@@ -116,8 +116,8 @@
 - type: entity
   parent: PlumbingTank
   id: PlumbingBuffer
-  name: "буфер трубопроводу"
-  description: "Зберігає до 200u реагентів. Корисний для постачання окремих мереж каналів через свої непід'єднані виходи."
+  name: plumbing buffer
+  description: Stores up to 200u of reagents. Useful for supplying separate duct networks with its unconnected outlets.
   components:
   - type: CollideOnAnchor
   - type: Physics
@@ -151,8 +151,8 @@
 - type: entity
   parent: PlumbingMachineBase
   id: PlumbingInput
-  name: "вхід трубопроводу"
-  description: "Малий резервуар, у який ви заливаєте реагенти. Інші машини беруть з нього. З'єднується в усіх напрямках."
+  name: plumbing input
+  description: A small tank you pour reagents into. Other machines pull from this. Connects in all directions.
   components:
   - type: CollideOnAnchor
   - type: Physics
@@ -221,8 +221,8 @@
 - type: entity
   parent: PlumbingMachineBase
   id: PlumbingSink
-  name: "раковина трубопроводу"
-  description: "Раковина, під'єднана до мережі трубопроводу. Набирайте з неї реагенти контейнером або зливайте реагенти в неї, щоб відправити їх у стік. З'єднується в усіх напрямках."
+  name: plumbing sink
+  description: A sink connected to the plumbing network. Draw reagents from it with a container, or dump reagents into it to send them down the drain. Connects in all directions.
   components:
   - type: Sprite
     sprite: Structures/Furniture/sink.rsi
@@ -301,8 +301,8 @@
 - type: entity
   parent: PlumbingMachineBase
   id: PlumbingOutput
-  name: "вихід трубопроводу"
-  description: "Малий резервуар, що витягує реагенти з мережі. Набирайте з нього контейнером. З'єднується в усіх напрямках."
+  name: plumbing output
+  description: A small tank that pulls reagents from the network. Draw from it with a container. Connects in all directions.
   components:
   - type: CollideOnAnchor
   - type: Physics
@@ -372,8 +372,8 @@
 - type: entity
   parent: PlumbingMachineBase
   id: PlumbingReactor
-  name: "реактор трубопроводу"
-  description: "Втягує цільові реагенти з входу в налаштованих кількостях і запускає реакції. Потребує живлення."
+  name: plumbing reactor
+  description: Pulls target reagents in up to configured quantities from its inlet and triggers reactions. Requires power.
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Piping/Plumbing/plumbers.rsi
@@ -456,8 +456,8 @@
 - type: entity
   parent: PlumbingMachineBase
   id: PlumbingSmartDispenser
-  name: "розумний дозатор трубопроводу"
-  description: "Втягує всі реагенти зі своїх входів і зберігає до 200u кожного типу. Використайте підписаний контейнер для автоматичного дозування відповідного реагенту або перезаправний контейнер для ручного дозування. Потребує живлення."
+  name: plumbing smart dispenser
+  description: Pulls in all reagents from its inlets and stores up to 200u of each type. Use a labeled container to auto-dispense a matching reagent, or use a refillable container on it to manually dispense. Requires power.
   components:
   - type: Sprite
     sprite: Structures/Machines/smartfridge.rsi
@@ -541,8 +541,8 @@
 - type: entity
   parent: PlumbingMachineBase
   id: PlumbingPillPress
-  name: "таблетковий прес трубопроводу"
-  description: "Втягує реагенти й пресує їх у пігулки або пластирі з налаштовуваною дозою. Має додаткові входи змішування для змішування з контрольованим співвідношенням. Потребує живлення."
+  name: plumbing pill press
+  description: Pulls in reagents and presses them into pills or patches at a configurable dosage. Has optional mixing inlets for ratio-controlled mixing. Requires power.
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Piping/Plumbing/plumbers.rsi
@@ -623,8 +623,8 @@
 - type: entity
   parent: PlumbingMachineBase
   id: PlumbingFilter
-  name: "фільтр трубопроводу"
-  description: "Фільтрує до 4 конкретних реагентів з мережі каналів. Відфільтровані реагенти надсилаються в бічний вихід, а інші реагенти проходять наскрізь."
+  name: plumbing filter
+  description: Filters up to 4 specific reagents from a duct network. Filtered reagents are sent to the side outlet while other reagents passthrough.
   components:
   - type: CollideOnAnchor
   - type: Physics
@@ -707,7 +707,7 @@
   parent: PlumbingFilter
   id: PlumbingFilterFlipped
   suffix: Flipped
-  description: "Фільтрує до 4 конкретних реагентів з мережі каналів. Відфільтровані реагенти надсилаються в бічний вихід, а інші реагенти проходять наскрізь."
+  description: Filters up to 4 specific reagents from a duct network. Filtered reagents are sent to the side outlet while other reagents passthrough.
   components:
   - type: Physics
     bodyType: Static
@@ -744,8 +744,8 @@
 - type: entity
   parent: PlumbingMachineBase
   id: PlumbingSynthesizer
-  name: "синтезатор трубопроводу"
-  description: "Генерує базові реагенти, використовуючи живлення з внутрішньої батареї."
+  name: plumbing synthesizer
+  description: Generates basic reagents using power from an internal battery.
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Piping/Plumbing/plumbers.rsi
@@ -861,8 +861,8 @@
 - type: entity
   parent: PlumbingMachineBase
   id: PlumbingDisposal
-  name: "утилізатор трубопроводу"
-  description: "Втягує реагенти з південного входу у внутрішній буфер на 200u й знищує їх."
+  name: plumbing disposal
+  description: Pulls reagents from a south inlet into an internal 200u buffer and destroys them.
   components:
   - type: Sprite
     drawdepth: FloorObjects
@@ -927,8 +927,8 @@
 - type: entity
   parent: PlumbingMachineBase
   id: PlumbingDrain
-  name: "стік трубопроводу"
-  description: "Підлоговий стік, що поглинає калюжі й спрямовує їх до мережі трубопроводу замість утилізації."
+  name: plumbing drain
+  description: A floor drain that absorbs puddles and routes them into the plumbing network instead of disposing them.
   placement:
     mode: SnapgridCenter
   components:

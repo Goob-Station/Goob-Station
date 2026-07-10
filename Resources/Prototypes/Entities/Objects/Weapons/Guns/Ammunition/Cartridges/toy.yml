@@ -4,7 +4,7 @@
   abstract: true
   parent: BaseCartridge
   id: BaseCartridgeCap
-  name: "картридж (ковпачок)"
+  name: cartridge (cap)
   components:
   - type: Tag
     tags:
@@ -23,8 +23,8 @@
 - type: entity
   parent: BaseCartridgeCap
   id: CartridgeCap
-  name: "патрон для пістолета з пістонами"
-  description: "Імітаційний пістолетний патрон, що створює шум і дим, але не має справжнього снаряда."
+  name: cap gun cartridge
+  description: A mock pistol cartridge that makes noise and smoke, but has no actual projectile.
   components:
   - type: CartridgeAmmo
     proto: BulletCap

@@ -5,7 +5,7 @@
 - type: flavor
   id: blueraspberry
   flavorType: Complex
-  description: "flavor-complex-artificial-blue-raspbery"
+  description: flavor-complex-artificial-blue-raspbery
 
 - type: flavor
   id: jaegermister

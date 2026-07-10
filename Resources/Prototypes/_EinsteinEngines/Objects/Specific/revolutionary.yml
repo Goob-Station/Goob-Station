@@ -1,8 +1,8 @@
 - type: entity
-  name: "революційний маніфест"
+  name: revolutionary manifesto
   parent: BaseItem
   id: RevolutionaryManifesto
-  description: "Маніфест, написаний самопроголошеним революційним лідером. Дуже критично ставиться до Nanotrasen."
+  description: A manifesto written by a self-proclaimed revolutionary leader. Very critical of Nanotrasen.
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi

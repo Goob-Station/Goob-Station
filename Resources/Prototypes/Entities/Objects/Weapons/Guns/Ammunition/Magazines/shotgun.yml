@@ -4,7 +4,7 @@
   abstract: true
   parent: [ BaseItem, BaseSecurityContraband ]
   id: BaseMagazineShotgun
-  name: "барабан з патронами (12 калібр)" # Goobstation
+  name: ammo drum (12 Gauge shells) # Goobstation
   components:
   - type: Tag
     tags:
@@ -46,9 +46,9 @@
 
 - type: entity
   id: MagazineShotgunEmpty
-  name: "барабанний магазин (набої 12 калібру будь-які)" # Goobstation
+  name: ammo drum (12 Gauge shells any) # Goobstation
   suffix: empty
-  description: "Великий барабанний магазин, що використовується деякими військовими автоматичними дробовиками."
+  description: A large drum magazine used by some military-grade automatic shotguns.
   parent: BaseMagazineShotgun
   components:
   - type: BallisticAmmoProvider
@@ -57,7 +57,7 @@
 - type: entity
   parent: BaseMagazineShotgun
   id: MagazineShotgun
-  name: "барабан з патронами (12 калібр картеч)" # Goobstation
+  name: ammo drum (12 Gauge pellet) # Goobstation
   components:
   - type: BallisticAmmoProvider
     proto: ShellShotgun
@@ -81,8 +81,8 @@
 - type: entity
   parent: BaseMagazineShotgun
   id: MagazineShotgunBeanbag
-  name: "барабан боєприпасів (12 Gauge мішечки)" # Goobstation
-  description: "Великий барабанний магазин, що використовується деякими автоматичними дробовиками військового класу. Призначений для менш ніж летальних боєприпасів-мішечків."
+  name: ammo drum (12 Gauge beanbags) # Goobstation
+  description: A large drum magazine used by some military-grade automatic shotguns. Intended to hold less-than-lethal beanbag ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: ShellShotgunBeanbag
@@ -106,8 +106,8 @@
 - type: entity
   parent: BaseMagazineShotgun
   id: MagazineShotgunSlug
-  name: "барабан боєприпасів (12 Gauge куля)" # Goobstation
-  description: "Великий барабанний магазин, що використовується деякими автоматичними дробовиками військового класу. Призначений для далекобійних кульових боєприпасів."
+  name: ammo drum (12 Gauge slug) # Goobstation
+  description: A large drum magazine used by some military-grade automatic shotguns. Intended to hold long-ranged slug ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: ShellShotgunSlug
@@ -131,8 +131,8 @@
 - type: entity
   parent: BaseMagazineShotgun
   id: MagazineShotgunIncendiary
-  name: "барабан боєприпасів (12 Gauge запалювальні)" # Goobstation
-  description: "Великий барабанний магазин, що використовується деякими автоматичними дробовиками військового класу. Призначений для самозаймистих запалювальних боєприпасів."
+  name: ammo drum (12 Gauge incendiary) # Goobstation
+  description: A large drum magazine used by some military-grade automatic shotguns. Intended to hold self-igniting incendiary ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: ShellShotgunIncendiary

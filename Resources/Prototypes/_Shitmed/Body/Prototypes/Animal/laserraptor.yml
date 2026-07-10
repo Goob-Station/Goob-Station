@@ -2,7 +2,7 @@
 
 - type: body
   id: LaserRaptor
-  name: "лазерний раптор"
+  name: "laser raptor"
   root: chest
   slots:
     head:

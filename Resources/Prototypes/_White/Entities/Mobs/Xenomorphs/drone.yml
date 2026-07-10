@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseMobXenomorphAdult
   id: BaseMobXenomorphDrone
-  name: "ксеноморф-трутень"
-  description: "Спеціалізована особина, призначена для будівництва та підтримки вулика. Менш агресивний, ніж інші форми ксеноморфів, але все ще смертельно небезпечний при наближенні."
+  name: xenomorph drone
+  description: A specialized individual designed to build and maintain a hive. Less aggressive than other xenomorph forms, but still deadly when approached.
   abstract: true
   components:
   - type: Sprite

@@ -3,8 +3,8 @@
 - type: entity
   parent: ClothingMaskBase
   id: FaceHuggerToys
-  name: "іграшковий лицехват"
-  description: "Іграшка, яку часто використовують для розіграшів над іншими членами екіпажу, підкладаючи її в ліжко. Потребує деякого часу на перезарядку після того, як до чогось причепиться."
+  name: xenomorph facehugger
+  description: A toy often used to play pranks on other crew members by putting it in their beds. It takes a bit to recharge after latching onto something.
   suffix: Toys
   components:
   - type: Sprite

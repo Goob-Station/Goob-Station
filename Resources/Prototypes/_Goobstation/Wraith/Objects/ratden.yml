@@ -1,7 +1,7 @@
 - type: entity
   id: RatDen
-  name: "щуряче кубло"
-  description: "Купа сміття, що віддалено нагадує гніздо."
+  name: rat den
+  description: A pile of garbage vaguely ressembling a nest.
   components:
   - type: DamageNearby
     whitelist:

@@ -1,8 +1,8 @@
 - type: entity
   parent: [ClothingOuterCoatMantis, BaseFoldable]
   id: ClothingOuterCoatMantisAiry
-  name: "легка перев’язь Мантіса"
-  description: "Барвиста перев’язь з рухомими китицями. Її можна носити через будь-яке плече."
+  name: airy mantis sash
+  description: "A colorful sash with swinging tassles. You can wear it over either shoulder."
   components:
   - type: Sprite
     sprite: _DEN/Clothing/OuterClothing/Coats/mantis_jacket_airy.rsi
@@ -36,8 +36,8 @@
 - type: entity
   parent: ClothingOuterCoatMantis
   id: ClothingOuterCoatMantisOrnate
-  name: "оздоблена поясна пластина Мантіса" # It's outerwear by design, not a belt
-  description: "Посилена обгортка з важкою грецькою пси, створена для захисту вашого тулуба."
+  name: ornate mantis waistplate # It's outerwear by design, not a belt
+  description: "A reinforced wrap fitted with a heavy Greek psi, built to protect your middle."
   components:
   - type: Sprite
     sprite: _DEN/Clothing/OuterClothing/Coats/mantis_jacket_ornate.rsi

@@ -1,8 +1,8 @@
 - type: entity
   id: JustDecorWitchCauldron
   parent: BaseStructure
-  name: "казан відьми"
-  description: "Важкий ритуальний казан для відьомського варіння. Працює лише тоді, коли міцно закріплений ключем."
+  name: казан відьми
+  description: Важкий ритуальний казан для відьомського варіння. Працює лише тоді, коли міцно закріплений ключем. 
   components:
   - type: Anchorable
   - type: Sprite
@@ -56,8 +56,8 @@
 - type: entity
   id: JustDecorAlchemistApparatus
   parent: BaseStructure
-  name: "алхімічний апарат"
-  description: "Перегінний алхімічний апарат для точного варіння еліксирів. Працює лише тоді, коли надійно закріплений ключем."
+  name: алхімічний апарат
+  description: Перегінний алхімічний апарат для точного варіння еліксирів. Працює лише тоді, коли надійно закріплений ключем. 
   components:
   - type: Anchorable
   - type: Sprite

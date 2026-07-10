@@ -11,7 +11,7 @@
 - type: entity
   parent: BaseAreaCommand
   id: AreaBridge
-  name: "місток"
+  name: bridge
   components:
   - type: Sprite
     state: bridge
@@ -19,7 +19,7 @@
 - type: entity
   parent: BaseAreaCommand
   id: AreaBridgeHall
-  name: "коридор містка"
+  name: bridge hall
   components:
   - type: Sprite
     state: bridge_hall
@@ -27,7 +27,7 @@
 - type: entity
   parent: BaseAreaCommand
   id: AreaCommand
-  name: "командування"
+  name: command
   components:
   - type: Sprite
     state: command
@@ -35,7 +35,7 @@
 - type: entity
   parent: BaseAreaCommand
   id: AreaCommandMeetingRoom
-  name: "конференц-зала командування"
+  name: command meeting room
   components:
   - type: Sprite
     state: meeting
@@ -43,7 +43,7 @@
 - type: entity
   parent: BaseAreaCommand
   id: AreaCommandGateway
-  name: "брама командування"
+  name: command gateway
   components:
   - type: Sprite
     state: gateway
@@ -51,7 +51,7 @@
 - type: entity
   parent: BaseAreaCommand
   id: AreaCommandShowroom
-  name: "виставкова зала командування"
+  name: command showroom
   components:
   - type: Sprite
     state: showroom
@@ -59,7 +59,7 @@
 - type: entity
   parent: BaseAreaCommand
   id: AreaCommandTeleporter
-  name: "телепорт командування"
+  name: command teleporter
   components:
   - type: Sprite
     state: tele
@@ -67,7 +67,7 @@
 - type: entity
   parent: BaseAreaCommand
   id: AreaEvaRoom
-  name: "кімната ЄВА"
+  name: eva room
   components:
   - type: Sprite
     state: eva
@@ -75,7 +75,7 @@
 - type: entity
   parent: BaseAreaCommand
   id: AreaVault
-  name: "сховище"
+  name: vault
   components:
   - type: Sprite
     state: vault
@@ -83,7 +83,7 @@
 - type: entity
   parent: AreaVault
   id: AreaNukeStorage
-  name: "сховище ядерного заряду"
+  name: nuke storage
   components:
   - type: Sprite
     state: nuke_storage
@@ -93,7 +93,7 @@
 - type: entity
   parent: BaseAreaCommand
   id: AreaCapQuarters
-  name: "каюта капітана"
+  name: cap quarters
   components:
   - type: Sprite
     state: captain
@@ -101,7 +101,7 @@
 - type: entity
   parent: BaseAreaCommand
   id: AreaOfficeCE
-  name: "кабінет головного інженера"
+  name: CE office
   components:
   - type: Sprite
     state: ce_office
@@ -109,7 +109,7 @@
 - type: entity
   parent: BaseAreaCommand
   id: AreaOfficeCmo
-  name: "кабінет головного лікаря"
+  name: CMO office
   components:
   - type: Sprite
     state: cmo_office
@@ -117,7 +117,7 @@
 - type: entity
   parent: BaseAreaCommand
   id: AreaOfficeHop
-  name: "кабінет голови персоналу"
+  name: HOP
   components:
   - type: Sprite
     state: hop_office
@@ -125,7 +125,7 @@
 - type: entity
   parent: BaseAreaCommand
   id: AreaOfficeHos
-  name: "кабінет голови служби безпеки"
+  name: HOS office
   components:
   - type: Sprite
     state: hos_office
@@ -133,7 +133,7 @@
 - type: entity
   parent: BaseAreaCommand
   id: AreaOfficeRd
-  name: "кабінет наукового керівника"
+  name: RD office
   components:
   - type: Sprite
     state: rd_office
@@ -141,7 +141,7 @@
 - type: entity
   parent: BaseAreaCommand
   id: AreaOfficeQm
-  name: "кабінет голови карго"
+  name: QM office
   components:
   - type: Sprite
     state: qm_office

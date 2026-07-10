@@ -1,7 +1,7 @@
 - type: entity
   parent: BasicHitscan
   id: EchionLaser
-  name: "ехіоновий лазерний промін"
+  name: echion laser ray
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanBasicDamage

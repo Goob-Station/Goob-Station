@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseAction
   id: ActionBloodBrotherConvert
-  name: "Навернути"
-  description: "Наверніть члена екіпажу до вашої кровної клятви."
+  name: Convert
+  description: Convert a crewmember to your blood oath.
   components:
   - type: Action
     icon:
@@ -20,8 +20,8 @@
 - type: entity
   parent: BaseAction
   id: ActionBloodBrotherCheckConvert
-  name: "Перевірити, чи можна навернути"
-  description: "Перевірте, чи піддається член екіпажу наверненню."
+  name: Check If Convertible
+  description: Check if a crewmember is susceptible to conversion.
   components:
   - type: Action
     icon: Interface/VerbIcons/vv.svg.192dpi.png

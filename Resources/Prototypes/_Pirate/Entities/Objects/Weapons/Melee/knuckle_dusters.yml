@@ -1,8 +1,8 @@
 - type: entity
-  name: "криваві кастети"
+  name: bloody knuckles
   parent: BaseItem
   id: BloodyKnuckleDuster
-  description: "Ви відчуваєте особливий приплив адреналіну, коли носите ці рукавички й відриваєте плоть кожним ударом. Вони дуже криваві."
+  description: You get a certain rush wearing these gloves while tearing flesh off with each swing. These are very bloody.
   components:
   - type: Sprite
     sprite: _Pirate/Objects/Weapons/Melee/bloody_knuckle_dusters.rsi

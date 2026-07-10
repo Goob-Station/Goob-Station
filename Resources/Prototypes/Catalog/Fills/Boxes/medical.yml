@@ -1,10 +1,10 @@
 # SPDX-License-Identifier: MIT
 
 - type: entity
-  name: "коробка з шприцами"
+  name: syringe box
   parent: BoxCardboard
   id: BoxSyringe
-  description: "Коробка, повна шприців."
+  description: A box full of syringes.
   components:
   - type: EntityTableContainerFill
     containers:
@@ -17,10 +17,10 @@
       - state: syringe
 
 - type: entity
-  name: "коробка з банками для таблеток"
+  name: pill canister box
   parent: BoxCardboard
   id: BoxPillCanister
-  description: "Коробка, повна банок з-під таблеток."
+  description: A box full of pill canisters.
   components:
   - type: EntityTableContainerFill
     containers:
@@ -33,10 +33,10 @@
       - state: pillbox
 
 - type: entity
-  name: "коробка з колбами"
+  name: bottle box
   parent: BoxCardboard
   id: BoxBottle
-  description: "Коробка, повна колб"
+  description: A box full of bottles.
   components:
   - type: EntityTableContainerFill
     containers:
@@ -49,10 +49,10 @@
       - state: bottle
 
 - type: entity
-  name: "коробка для стерильних масок"
+  name: sterile mask box
   parent: BoxCardboard
   id: BoxSterileMask
-  description: "У цій коробці знаходяться стерильні медичні маски."
+  description: This box contains sterile medical masks.
   components:
   - type: EntityTableContainerFill
     containers:
@@ -65,10 +65,10 @@
       - state: sterile
 
 - type: entity
-  name: "коробка з латексними рукавичками"
+  name: latex gloves box
   parent: BoxCardboard
   id: BoxLatexGloves
-  description: "Містить стерильні латексні рукавички."
+  description: Contains sterile latex gloves.
   components:
   - type: EntityTableContainerFill
     containers:
@@ -81,10 +81,10 @@
       - state: latex
 
 - type: entity
-  name: "коробка з нітриловими рукавичками"
+  name: nitrile gloves box
   parent: BoxCardboard
   id: BoxNitrileGloves
-  description: "Містить стерильні нітрилові рукавички. Краще, ніж латексні."
+  description: Contains sterile nitrile gloves. Better than latex.
   components:
   - type: EntityTableContainerFill
     containers:
@@ -97,10 +97,10 @@
       - state: nitrile
 
 - type: entity
-  name: "коробка з мішками для трупів"
+  name: body bag box
   parent: BoxCardboard
   id: BoxBodyBag
-  description: "Містить мішки для трупів."
+  description: Contains body bags.
   components:
   - type: EntityTableContainerFill
     containers:
@@ -117,10 +117,10 @@
         - BodyBag
 
 - type: entity
-  name: "коробка з флаконами"
+  name: vial box
   parent: BoxCardboard
   id: BoxVial
-  description: "Коробка, повна флаконів."
+  description: A box full of vials.
   components:
   - type: Storage
     grid:
