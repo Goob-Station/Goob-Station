@@ -15,13 +15,28 @@ on:
     branches: [ master, staging, stable ]
 
 jobs:
-  build:
+  tests:
+    name: ${{ matrix.name }}
     if: github.event.pull_request.draft == false
     strategy:
+      fail-fast: false
       matrix:
-        os: [ubuntu-latest]
+        include:
+          - name: Unit tests
+            project: Content.Tests/Content.Tests.csproj
+            filter: ""
+            nunit-args: NUnit.ConsoleOut=0
+          # Pirate: isolate the memory-heavy entity fixture while the catch-all shard covers new upstream tests.
+          - name: Integration tests
+            project: Content.IntegrationTests/Content.IntegrationTests.csproj
+            filter: "FullyQualifiedName!~Content.IntegrationTests.Tests.EntityTest"
+            nunit-args: NUnit.ConsoleOut=0 NUnit.MapWarningTo=Failed
+          - name: Entity integration tests
+            project: Content.IntegrationTests/Content.IntegrationTests.csproj
+            filter: "FullyQualifiedName~Content.IntegrationTests.Tests.EntityTest"
+            nunit-args: NUnit.ConsoleOut=0 NUnit.MapWarningTo=Failed
 
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     # Pirate: the expanded RT 270 integration suite exceeds the default job limit.
     timeout-minutes: 60
 
@@ -52,24 +67,30 @@ jobs:
     - name: Build Project
       run: dotnet build --configuration DebugOpt --no-restore /m
 
-    - name: Run Content.Tests
-      run: dotnet test --no-build --configuration DebugOpt Content.Tests/Content.Tests.csproj -- NUnit.ConsoleOut=0
-
-    - name: Run Content.IntegrationTests
+    - name: Run ${{ matrix.name }}
       timeout-minutes: 60
+      env:
+        TEST_FILTER: ${{ matrix.filter }}
+        TEST_PROJECT: ${{ matrix.project }}
+        NUNIT_ARGS: ${{ matrix.nunit-args }}
       run: |
         while sleep 60; do
-          echo "::notice::integration tests are still running..."
+          echo "::notice::${{ matrix.name }} are still running..."
         done &
         heartbeat_pid=$!
         trap 'kill "$heartbeat_pid" 2>/dev/null || true' EXIT
 
         export DOTNET_gcServer=1
-        dotnet test --no-build --configuration DebugOpt Content.IntegrationTests/Content.IntegrationTests.csproj -- NUnit.ConsoleOut=0 NUnit.MapWarningTo=Failed
+        test_args=(--no-build --configuration DebugOpt "$TEST_PROJECT")
+        if [[ -n "$TEST_FILTER" ]]; then
+          test_args+=(--filter "$TEST_FILTER")
+        fi
+
+        dotnet test "${test_args[@]}" -- $NUNIT_ARGS
   ci-success:
     name: Build & Test Debug
     needs:
-      - build
+      - tests
     runs-on: ubuntu-latest
     steps:
       - name: CI succeeded
