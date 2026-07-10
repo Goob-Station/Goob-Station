@@ -59,8 +59,8 @@ namespace Content.IntegrationTests.Tests
                 .ToList();
             // Goobstation edit end
 
-            // Goob start run this test in batches of 10k because fuck you. we got too much shit.
-            const int batchSize = 10000;
+            // Pirate: keep peak memory below GitHub runner limits while still covering every prototype.
+            const int batchSize = 5000;
 
             for (var batchStart = 0; batchStart < protoIds.Count; batchStart += batchSize)
             {
