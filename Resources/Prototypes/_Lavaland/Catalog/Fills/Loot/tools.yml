@@ -24,6 +24,7 @@
   id: LootUtilityRareTools
   table: !type:GroupSelector
     children:
+    - id: ClothingHandsGlovesColorYellow
     - id: MeleeHammer
     - id: WelderIndustrial
 
@@ -58,7 +59,9 @@
   id: LootUtilityUltraRareTools
   table: !type:GroupSelector
     children:
-    - id: MeleeHammer
+    - id: MiningDrillDiamond
+    - id: Omnitool
+    - id: OmnimedTool
 
 - type: entityTable
   id: LootUtilityUltraRarePower

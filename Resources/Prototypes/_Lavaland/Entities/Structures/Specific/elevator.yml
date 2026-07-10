@@ -1,0 +1,127 @@
+- type: entity
+  name: elevator
+  id: BaseLavalandElevator
+  description: Sometimes goes up, sometimes down. Just step into it and see.
+  abstract: true
+  components:
+  - type: Physics
+    bodyType: Static
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        hard: false
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.6,-0.3,1, 0.6"
+        density: 1000
+        mask:
+        - ItemMask
+        layer:
+        - SlipLayer
+  - type: Sprite
+    drawdepth: Doors
+    sprite: _Lavaland/Structures/Specific/elevator.rsi
+    noRot: true
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: elevatorUP
+  - type: StepTrigger
+    requiredTriggeredSpeed: 0
+    intersectRatio: 0.4
+    blacklist:
+      tags:
+      - Catwalk
+    triggerGroups:
+      types:
+      - Elevator
+
+# Floor 1
+- type: entity
+  parent: BaseLavalandElevator
+  id: BunkerElevatorFloor1DOWN
+  suffix: Goes down to floor 2
+  components:
+  - type: Sprite
+    drawdepth: Doors
+    sprite: _Lavaland/Structures/Specific/elevator.rsi
+    noRot: true
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: elevatorDOWN
+  - type: Elevator
+    destinationId: BunkerAlfaFloor2
+    mapPath: /Maps/_Lavaland/Lavaland/Dungeon/bunker_alfa_floor2.yml
+
+# Floor 2
+- type: entity
+  parent: BaseLavalandElevator
+  id: BunkerElevatorFloor2UP
+  suffix: Goes up to floor 1
+  components:
+  - type: Sprite
+    drawdepth: Doors
+    sprite: _Lavaland/Structures/Specific/elevator.rsi
+    noRot: true
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: elevatorUP
+  - type: Elevator
+    destinationId: BunkerAlfaFloor1
+
+- type: entity
+  parent: BaseLavalandElevator
+  id: BunkerElevatorFloor2DOWN
+  suffix: Goes down to floor 3
+  components:
+  - type: Sprite
+    drawdepth: Doors
+    sprite: _Lavaland/Structures/Specific/elevator.rsi
+    noRot: true
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: elevatorDOWN
+  - type: Elevator
+    destinationId: BunkerAlfaFloor3
+    mapPath: /Maps/_Lavaland/Lavaland/Dungeon/bunker_alfa_floor3.yml
+
+# Floor 3
+- type: entity
+  parent: BaseLavalandElevator
+  id: BunkerElevatorFloor3UP
+  suffix: Goes up to floor 2
+  components:
+  - type: Sprite
+    drawdepth: Doors
+    sprite: _Lavaland/Structures/Specific/elevator.rsi
+    noRot: true
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: elevatorUP
+  - type: Elevator
+    destinationId: BunkerAlfaFloor2
+    mapPath: /Maps/_Lavaland/Lavaland/Dungeon/bunker_alfa_floor2.yml
+
+# Beacons
+
+- type: entity
+  id: ElevatorBeaconBunkerAlfaFloor1
+  components:
+  - type: Transform  
+  - type: ElevatorBeacon
+    id: BunkerAlfaFloor1
+
+- type: entity
+  id: ElevatorBeaconBunkerAlfaFloor2
+  components:
+  - type: Transform    
+  - type: ElevatorBeacon
+    id: BunkerAlfaFloor2
+
+- type: entity
+  id: ElevatorBeaconBunkerAlfaFloor3
+  components:
+  - type: Transform    
+  - type: ElevatorBeacon
+    id: BunkerAlfaFloor3

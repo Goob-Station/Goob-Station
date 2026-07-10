@@ -11,6 +11,7 @@
     noRot: true
     sprite: /Textures/_Goobstation/Structures/Decoration/Barrels/blackbarrel.rsi
     state: barrel
+    drawdepth: LargeObjects
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong

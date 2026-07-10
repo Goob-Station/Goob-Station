@@ -15,10 +15,9 @@
         true
   - type: NpcFactionMember
     factions:
-    - SimpleHostile
+    - Lavafauna
   - type: Tag
     tags:
-    - DoorBumpOpener
     - Flesh
   - type: Sprite
     drawdepth: Mobs
@@ -160,8 +159,8 @@
       0: Alive
       60: Dead
   - type: MovementSpeedModifier
-    baseWalkSpeed: 3
-    baseSprintSpeed: 3
+    baseWalkSpeed: 4.5
+    baseSprintSpeed: 4.5
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Effects/bite.ogg
@@ -281,8 +280,8 @@
       0: Alive
       200: Dead
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2.8
-    baseSprintSpeed: 2.8
+    baseWalkSpeed: 2.5
+    baseSprintSpeed: 2.5
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Effects/bite.ogg
@@ -320,8 +319,8 @@
       0: Alive
       60: Dead
   - type: MovementSpeedModifier
-    baseWalkSpeed: 4
-    baseSprintSpeed: 4
+    baseWalkSpeed: 5
+    baseSprintSpeed: 5
   - type: TriggerOnProximity
     whitelist:
       components:
@@ -332,7 +331,7 @@
     triggerSpeed: 0.3
     shape:
       !type:PhysShapeCircle
-      radius: 2
+      radius: 1
     layer:
     - MobMask
   - type: Body
@@ -341,11 +340,11 @@
   - type: GibOnTrigger
   - type: SmokeOnTrigger
     duration: 2
-    spreadAmount: 30
+    spreadAmount: 45
     solution:
       reagents:
         - ReagentId: FluorosulfuricAcid
-          Quantity: 5
+          Quantity: 10
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Effects/bite.ogg
@@ -383,8 +382,8 @@
       0: Alive
       90: Dead
   - type: MovementSpeedModifier
-    baseWalkSpeed: 4.9
-    baseSprintSpeed: 4.9
+    baseWalkSpeed: 5.3
+    baseSprintSpeed: 5.3
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Effects/bite.ogg
@@ -471,10 +470,10 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      600: Dead
+      500: Dead
   - type: MovementSpeedModifier
-    baseWalkSpeed: 3
-    baseSprintSpeed: 3
+    baseWalkSpeed: 3.2
+    baseSprintSpeed: 3.2
   - type: AutoEmote
     emotes:
     - FleshBreathing
@@ -491,7 +490,7 @@
     damage:
       types:
         Blunt: 10
-        Slash: 15
+        Slash: 20
 
 # Boss (for now just a simplemob though)
 
@@ -538,5 +537,5 @@
     animation: WeaponArcSlash
     damage:
       types:
-        Blunt: 15
+        Blunt: 20
         Slash: 25
