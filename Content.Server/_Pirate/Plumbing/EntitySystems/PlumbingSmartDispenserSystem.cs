@@ -6,6 +6,7 @@ using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Chemistry.Prototypes;
 using Content.Shared.Chemistry.Reagent;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Interaction;
@@ -497,14 +498,30 @@ public sealed partial class PlumbingSmartDispenserSystem : EntitySystem
         {
             if (_solutionSystem.TryGetSolution(targetContainer, injectorComp.SolutionName, out _, out var injectorSolution)
                 && injectorSolution.AvailableVolume == 0
-                && !injectorComp.InjectOnly)
+                && _prototypeManager.TryIndex(injectorComp.ActiveModeProtoId, out InjectorModePrototype? activeMode)
+                && !activeMode.Behavior.HasFlag(InjectorBehavior.Inject))
             {
-                // Pirate: local injectors do not have Starlight mode prototypes, so switch directly.
-                _injectorSystem.SetMode((targetContainer, injectorComp), InjectorToggleMode.Inject);
+                SetInjectorToInjectMode((targetContainer, injectorComp), user);
             }
         }
 
         return accepted > FixedPoint2.Zero;
+    }
+
+    private void SetInjectorToInjectMode(Entity<InjectorComponent> injector, EntityUid? user)
+    {
+        foreach (var modeId in injector.Comp.AllowedModes)
+        {
+            if (!_prototypeManager.TryIndex(modeId, out InjectorModePrototype? mode)
+                || !mode.Behavior.HasFlag(InjectorBehavior.Inject))
+                continue;
+
+            if (user is not { Valid: true } userUid)
+                return;
+
+            _injectorSystem.ToggleMode(injector, userUid, mode);
+            return;
+        }
     }
 
     private ContainerInfo? BuildOutputContainerInfo(EntityUid? container)

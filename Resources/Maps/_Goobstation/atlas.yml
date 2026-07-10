@@ -25107,7 +25107,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -44.5,-16.5
       parent: 2
-- proto: EnergyChemDispenser
+- proto: ChemDispenser
   entities:
   - uid: 3211
     components:
@@ -41866,7 +41866,7 @@ entities:
       parent: 2
     - type: Physics
       canCollide: False
-- proto: MaterialSilo
+- proto: MachineMaterialSilo
   entities:
   - uid: 7206
     components:
@@ -47315,26 +47315,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -45.50386,5.5666485
       parent: 2
-    - type: Tag
-      tags:
-      - Sheet
-      - IgnoreBindSoul
-    - type: MindContainer
-    - type: InputMover
-    - type: MobMover
-    - type: MovementSpeedModifier
-    - type: Speech
-      suffixSpeechVerbs:
-        chat-speech-verb-suffix-exclamation-strong: DefaultExclamationStrong
-        chat-speech-verb-suffix-exclamation: DefaultExclamation
-        chat-speech-verb-suffix-question: DefaultQuestion
-        chat-speech-verb-suffix-stutter: DefaultStutter
-        chat-speech-verb-suffix-mumble: DefaultMumble
-      allowedEmotes: []
-    - type: Emoting
-    - type: Examiner
-    - type: Eye
-    - type: TypingIndicator
   - uid: 7151
     components:
     - type: Transform

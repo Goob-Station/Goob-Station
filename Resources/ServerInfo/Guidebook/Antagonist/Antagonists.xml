@@ -1,8 +1,4 @@
 <!--
-SPDX-FileCopyrightText: 2023 dribblydrone <119393097+dribblydrone@users.noreply.github.com>
-SPDX-FileCopyrightText: 2024 UBlueberry <161545003+UBlueberry@users.noreply.github.com>
-SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-
 SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
@@ -23,5 +19,6 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   - [textlink="Космічні ніндзя" link="SpaceNinja"], майстри шпигунства та саботажу зі спеціальним спорядженням.
   - [textlink="Злодії" link="Thieves"], керовані клептоманією, сповнені рішучості отримати своє за допомогою спеціальних рукавичок.
   - [textlink="Космічний культ" link="CosmicCult"], які прагнуть наблизити кінець усього сущого.
+  - [textlink="Ентропійні колоси" link="CosmicColossus"], велетенські потвори зі згубної обшивки.
   - [textlink="Різні негуманоїдні істоти" link="MinorAntagonists"], які зазвичай нападають на все, що рухається.
 </Document>

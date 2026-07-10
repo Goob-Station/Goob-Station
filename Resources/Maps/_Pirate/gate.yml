@@ -25161,8 +25161,6 @@ entities:
     - type: Transform
       pos: -70.5,170.5
       parent: 2
-    - type: SiloUtilizer
-      silo: 22968
   - uid: 1561
     components:
     - type: Transform
@@ -52257,7 +52255,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -60.42194,164.46962
       parent: 2
-- proto: CableApcStackLingering10
+- proto: CableApcStack10
   entities:
   - uid: 6712
     components:
@@ -72156,8 +72154,6 @@ entities:
       - Arsenal
       - Experimental
       - CivilianServices
-    - type: SiloUtilizer
-      silo: 22968
 - proto: Carpet
   entities:
   - uid: 10549
@@ -84936,15 +84932,11 @@ entities:
       - Arsenal
       - Experimental
       - CivilianServices
-    - type: SiloUtilizer
-      silo: 22968
   - uid: 12831
     components:
     - type: Transform
       pos: -70.5,171.5
       parent: 2
-    - type: SiloUtilizer
-      silo: 22968
 - proto: CleanerDispenser
   entities:
   - uid: 12832
@@ -103466,8 +103458,6 @@ entities:
       - Arsenal
       - Experimental
       - CivilianServices
-    - type: SiloUtilizer
-      silo: 22968
 - proto: EvilPlushieXeve
   entities:
   - uid: 15653
@@ -103482,8 +103472,6 @@ entities:
     - type: Transform
       pos: -70.5,177.5
       parent: 2
-    - type: SiloUtilizer
-      silo: 22968
 - proto: ExplosivesSignMed
   entities:
   - uid: 15655
@@ -143567,7 +143555,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -35.5,101.5
       parent: 2
-- proto: GlowstickBase
+- proto: Glowstick
   entities:
   - uid: 20952
     components:
@@ -155638,7 +155626,7 @@ entities:
     - type: Transform
       pos: -19.146719,81.546844
       parent: 2
-- proto: MaterialSilo
+- proto: MachineMaterialSilo
   entities:
   - uid: 22968
     components:
@@ -155752,8 +155740,6 @@ entities:
     - type: Transform
       pos: 2.5,198.5
       parent: 2
-    - type: SiloUtilizer
-      silo: 22968
 - proto: MedkitAdvancedFilled
   entities:
   - uid: 36087
@@ -156424,8 +156410,6 @@ entities:
     - type: Transform
       pos: -49.5,-7.5
       parent: 2
-    - type: SiloUtilizer
-      silo: 22968
 - proto: OrganHumanEyes
   entities:
   - uid: 23077
@@ -165183,8 +165167,6 @@ entities:
     - type: Transform
       pos: -70.5,169.5
       parent: 2
-    - type: SiloUtilizer
-      silo: 22968
 - proto: PsychBed
   entities:
   - uid: 24501
@@ -173438,8 +173420,6 @@ entities:
     - type: Transform
       pos: -71.5,170.5
       parent: 2
-    - type: SiloUtilizer
-      silo: 22968
     - type: TechnologyDatabase
       supportedDisciplines:
       - Industrial
@@ -173733,8 +173713,6 @@ entities:
     - type: Transform
       pos: 57.5,62.5
       parent: 2
-    - type: SiloUtilizer
-      silo: 22968
     - type: TechnologyDatabase
       supportedDisciplines:
       - Industrial
@@ -173752,8 +173730,6 @@ entities:
       - Arsenal
       - Experimental
       - CivilianServices
-    - type: SiloUtilizer
-      silo: 22968
 - proto: SeedExtractor
   entities:
   - uid: 26049
@@ -173784,8 +173760,6 @@ entities:
       - Arsenal
       - Experimental
       - CivilianServices
-    - type: SiloUtilizer
-      silo: 22968
 - proto: ShardCrystalPink
   entities:
   - uid: 26053

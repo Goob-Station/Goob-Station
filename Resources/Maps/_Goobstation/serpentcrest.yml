@@ -85039,7 +85039,7 @@ entities:
     - type: Transform
       pos: -46.72189,-33.300808
       parent: 2
-- proto: EnergyChemDispenser
+- proto: ChemDispenser
   entities:
   - uid: 595
     components:
@@ -134046,7 +134046,7 @@ entities:
     - type: Transform
       pos: 24.319485,47.492016
       parent: 2
-- proto: MaterialSilo
+- proto: MachineMaterialSilo
   entities:
   - uid: 27499
     components:

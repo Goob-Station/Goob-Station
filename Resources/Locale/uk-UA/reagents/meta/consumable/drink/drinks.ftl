@@ -79,3 +79,5 @@ reagent-name-posca = поска
 reagent-desc-posca = Напій бідних воїнів із забутої епохи.
 reagent-name-mopwata = швабровода
 reagent-desc-mopwata = Брудна, застояна вода зі швабри.
+reagent-name-orange-lime-soda = цитрусова суперечка
+reagent-desc-orange-lime-soda = Газованка має бути апельсиновою! Ні, лимонно-лаймовою!

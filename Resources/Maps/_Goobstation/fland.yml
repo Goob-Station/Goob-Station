@@ -111368,7 +111368,7 @@ entities:
       parent: 17127
     - type: Physics
       canCollide: False
-- proto: EnergyChemDispenser
+- proto: ChemDispenser
   entities:
   - uid: 17129
     components:
@@ -157257,7 +157257,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 35.5,20.5
       parent: 2
-- proto: GlowstickBase
+- proto: Glowstick
   entities:
   - uid: 23235
     components:
@@ -168587,7 +168587,7 @@ entities:
     - type: Transform
       pos: 46.429523,54.487045
       parent: 2
-- proto: MaterialSilo
+- proto: MachineMaterialSilo
   entities:
   - uid: 25105
     components:

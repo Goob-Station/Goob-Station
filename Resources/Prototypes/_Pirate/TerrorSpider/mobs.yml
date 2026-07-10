@@ -105,9 +105,10 @@
   - type: Bloodstream
     bleedReductionAmount: 1
     bloodRefreshAmount: 3
-    # Pirate - local Bloodstream lacks Starlight bloodReferenceSolution.
-    bloodReagent: CopperBlood
-    bloodMaxVolume: 150
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: CopperBlood
+        Quantity: 150
   - type: Speech
     speechVerb: Arachnid
     speechSounds: Arachnid
@@ -483,7 +484,7 @@
     thresholds:
       0: Alive
       180: Dead
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletAcidHitscan
     fireCost: 50
   - type: BatterySelfRecharger
@@ -735,9 +736,10 @@
   - type: NoSlip
   - type: IgnoreSpiderWeb
   - type: Bloodstream
-    # Pirate - local Bloodstream lacks Starlight bloodReferenceSolution.
-    bloodReagent: CopperBlood
-    bloodMaxVolume: 50
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: CopperBlood
+        Quantity: 50
   - type: Speech
     speechVerb: Arachnid
     speechSounds: Arachnid

@@ -15,3 +15,4 @@ cosmicability-monument-spawn-error-grid = Неправильне місце! М�
 cosmicability-monument-spawn-error-station = Неправильне місце! Монумент має бути викликаний на станції.
 cosmicability-monument-spawn-error-intersection = Занадто людно! Монумент вимагає порожньої зони 3x1 для виклику.
 cosmicability-monument-spawn-error-space = Занадто близько до космосу! Монумент має бути на відстані щонайменше {$DISTANCE}м.
+cosmicability-siphon-crit = Очі {CAPITALIZE(THE($user))} спалахують енергією, і {THE($target)} падає мертвим!

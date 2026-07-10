@@ -128,16 +128,16 @@ chatsan-replacement-65 = 65
 chatsan-word-66 = 66
 chatsan-replacement-66 = 66
 chatsan-word-67 = 67
-chatsan-replacement-67 = 67
-
-# goob start
-chatsan-word-68 = 68
-chatsan-replacement-68 = 68
-chatsan-word-69 = 69
-chatsan-replacement-69 = 69
-chatsan-word-70 = 70
-chatsan-replacement-70 = 70
-# goob end
-chatsan-word-71 = 71
-chatsan-replacement-71 = 71
-# кінець goob
+chatsan-replacement-67 = все гаразд
+chatsan-word-68 = idk
+chatsan-replacement-68 = я не знаю
+chatsan-word-69 = wya
+chatsan-replacement-69 = ти де
+chatsan-word-70 = ts
+chatsan-replacement-70 = це лайно
+chatsan-word-71 = pmo
+chatsan-replacement-71 = мене бісить
+chatsan-word-72 = sybau
+chatsan-replacement-72 = закрий свого довбаного рота
+chatsan-word-73 = icl
+chatsan-replacement-73 = я не можу брехати

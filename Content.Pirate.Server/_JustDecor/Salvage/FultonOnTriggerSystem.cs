@@ -73,7 +73,7 @@ public sealed class FultonOnTriggerSystem : EntitySystem
         // Handle stack consumption
         if (TryComp<StackComponent>(uid, out var stack))
         {
-            _stack.Use(uid, 1, stack);
+            _stack.TryUse((uid, stack), 1);
         }
         else
         {

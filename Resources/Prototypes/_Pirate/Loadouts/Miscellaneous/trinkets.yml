@@ -122,21 +122,6 @@
     - PlushiePocketAssistant
   groupBy: "Plushie"
 
-# Gambling / Азартні ігри
-- type: loadout
-  id: CardBoxBlack
-  storage:
-    back:
-    - CardBoxBlack
-  groupBy: "Gambling"
-
-- type: loadout
-  id: CardBoxNanotrasen
-  storage:
-    back:
-    - CardBoxNanotrasen
-  groupBy: "Gambling"
-
 - type: loadout
   id: CardBoxTarot
   storage:

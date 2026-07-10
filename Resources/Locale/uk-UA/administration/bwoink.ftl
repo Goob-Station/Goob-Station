@@ -21,3 +21,4 @@ admin-ahelp-admin-only-tooltip = Якщо позначено, повідомле
     але буде видимим для інших адміністраторів і все одно буде передано в Discord.
 bwoink-message-admin-only = (Лише для адміністраторів)
 bwoink-message-silent = (Т)
+bwoink-admin-title = Адмін-допомога

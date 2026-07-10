@@ -30,8 +30,8 @@
           layer:
             - FlyingMobLayer
   - type: Bloodstream
-    bloodReagent: Phlogiston
-    bloodMaxVolume: 0
+    bloodReferenceSolution:
+      reagents: []
   - type: MeleeWeapon
     altDisarm: false # No shoving
     angle: 0
@@ -57,7 +57,6 @@
     - Chapel
     - Research
   - type: MindContainer
-    showExamineInfo: true
   - type: Familiar
   - type: Dispellable
   - type: Damageable

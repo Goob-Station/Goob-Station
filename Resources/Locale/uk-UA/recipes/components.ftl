@@ -5,3 +5,4 @@ construction-graph-component-second-flash = другий спалах
 construction-graph-component-power-cell = елемент живлення
 construction-graph-component-apc-electronics = електроніка РКЕ
 construction-graph-component-payload-trigger = тригер
+construction-graph-component-borg-brain = MMI або позитронний мозок

@@ -52,7 +52,7 @@ hud-chatbox-channel-Visual = Дії
 hud-chatbox-channel-Damage = Шкода
 hud-chatbox-channel-Unspecified = Невизначений
 
-#PIRATE START
+# PIRATE START
 hud-chatbox-select-channel-Empathy = Емпатія
 hud-chatbox-channel-Empathy = Емпатія
 hud-chatbox-highlights = Підсвічування:
@@ -60,6 +60,6 @@ hud-chatbox-highlights-button = Підтвердити
 hud-chatbox-highlights-tooltip = Слова мають бути розділені новим рядком,
                                  якщо взяти їх у лапки "", вони будуть підсвічуватися
                                  тільки якщо розділені пробілами або знаками пунктуації.
-hud-chatbox-highlights-placeholder = МакРуки
+hud-chatbox-highlights-placeholder = @McHands
                                      "Суддя"
-                                     Медицина
+                                     Медичний

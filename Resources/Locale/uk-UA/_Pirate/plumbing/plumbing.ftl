@@ -2,7 +2,6 @@
 
 plumbing-input-full = Вхідний буфер заповнений!
 plumbing-input-poured = Вилито {$amount} од. у трубопровідну мережу.
-
 plumbing-output-empty = Вихідний буфер порожній!
 plumbing-output-filled = Контейнер наповнено {$amount} од. з трубопровідної мережі.
 

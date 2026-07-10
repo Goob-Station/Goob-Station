@@ -88,8 +88,7 @@ namespace Content.Server.Abilities.Psionics
 
             var solution = new Solution();
             solution.AddReagent("PsionicRegenerationEssence", FixedPoint2.New(component.EssenceAmount * percentageComplete));
-            _bloodstreamSystem.TryAddToChemicals((uid, stream), solution);
+            _bloodstreamSystem.TryAddToBloodstream((uid, stream), solution);
         }
     }
 }
-

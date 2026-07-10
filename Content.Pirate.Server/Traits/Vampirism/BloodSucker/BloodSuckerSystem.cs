@@ -173,7 +173,7 @@ namespace Content.Pirate.Server.Traits.Vampirism.Systems
                 _popups.PopupEntity(Loc.GetString("vampire-target-protected-by-faith"), bloodsucker, bloodsucker, PopupType.MediumCaution);
             }
 
-            if (stream.BloodReagent != "Blood")
+            if (GetPrimaryBloodReagent(stream) != "Blood")
                 _popups.PopupEntity(Loc.GetString("bloodsucker-not-blood", ("target", victim)), victim, bloodsucker, PopupType.Medium);
             else if (_solutionSystem.PercentFull(victim) != 0)
                 _popups.PopupEntity(Loc.GetString("bloodsucker-fail-no-blood", ("target", victim)), victim, bloodsucker, PopupType.Medium);
@@ -212,7 +212,7 @@ namespace Content.Pirate.Server.Traits.Vampirism.Systems
                 return false;
 
             // No blood left, yikes.
-            if (_bloodstreamSystem.GetBloodLevelPercentage((victim, bloodstream)) == 0.0f)
+            if (_bloodstreamSystem.GetBloodLevel((victim, bloodstream)) == 0.0f)
             {
                 _popups.PopupEntity(Loc.GetString("bloodsucker-fail-no-blood", ("target", victim)), victim, bloodsucker, PopupType.Medium);
                 return false;
@@ -343,6 +343,13 @@ namespace Content.Pirate.Server.Traits.Vampirism.Systems
             3 => comp.Rot3Efficiency,
             _ => comp.Rot4Efficiency,
         };
+
+        private static string GetPrimaryBloodReagent(BloodstreamComponent bloodstream)
+        {
+            return bloodstream.BloodReferenceSolution.Contents.Count == 0
+                ? "Blood"
+                : bloodstream.BloodReferenceSolution.Contents[0].Reagent.Prototype;
+        }
 
         private bool IsMouthBlocked(EntityUid uid)
         {

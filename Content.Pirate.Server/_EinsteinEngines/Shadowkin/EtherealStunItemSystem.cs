@@ -35,7 +35,7 @@ public sealed class EtherealStunItemSystem : EntitySystem
             return;
 
         if (TryComp<StackComponent>(uid, out var stack))
-            _sharedStackSystem.Use(uid, 1, stack);
+            _sharedStackSystem.TryUse((uid, stack), 1);
         else
             QueueDel(uid);
     }

@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.CCVar;
+using Content.Shared._Pirate.Speech;
 using Robust.Shared.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
@@ -19,6 +20,19 @@ public sealed class PirateEmoteCooldownSystem : EntitySystem
         base.Initialize();
 
         Subs.CVar(_config, CCVars.PirateEmoteCooldownSeconds, value => _emoteCooldown = TimeSpan.FromSeconds(value), true);
+        SubscribeLocalEvent<PirateEmoteCooldownAttemptEvent>(OnEmoteCooldownAttempt);
+        SubscribeLocalEvent<PirateEmoteCooldownCommitEvent>(OnEmoteCooldownCommit);
+    }
+
+    private void OnEmoteCooldownAttempt(ref PirateEmoteCooldownAttemptEvent args)
+    {
+        if (!CanEmote(args.Source))
+            args.Cancel();
+    }
+
+    private void OnEmoteCooldownCommit(ref PirateEmoteCooldownCommitEvent args)
+    {
+        CommitEmote(args.Source);
     }
 
     public bool CanEmote(EntityUid uid)

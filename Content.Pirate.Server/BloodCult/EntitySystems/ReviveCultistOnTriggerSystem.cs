@@ -30,7 +30,7 @@ using Content.Server.Body.Systems;
 using Content.Server.Body.Components;
 using Content.Shared.Body.Components;
 using Content.Server.GameTicking.Rules;
-using Content.Server.Administration.Systems;
+using Content.Shared.Administration.Systems;
 using Content.Shared.Chemistry.EntitySystems;
 
 namespace Content.Server.BloodCult.EntitySystems

@@ -433,8 +433,12 @@ public abstract class SharedStainSystem : EntitySystem
             if (!TryComp<BloodstreamComponent>(target, out var bloodstream))
                 continue;
 
+            if (bloodstream.BloodReferenceSolution.Contents.Count == 0)
+                continue;
+
             // Preserve the target's blood type.
-            solution.AddReagent(new ReagentId(bloodstream.BloodReagent.Id, _bloodstream.GetEntityBloodData(target)), 0.5f);
+            var bloodReagent = bloodstream.BloodReferenceSolution.Contents[0].Reagent.Prototype;
+            solution.AddReagent(new ReagentId(bloodReagent, _bloodstream.GetEntityBloodData(target)), 0.5f);
         }
 
         if (solution.Volume <= 0)

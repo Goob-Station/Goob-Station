@@ -1326,5 +1326,245 @@ Entries:
   id: 162
   time: '2025-08-08T19:00:41.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/35531
+- author: EmoGarbage404, soutbridge-fur
+  changes:
+  - message: Додано новий експериментальний ігровий режим "Dynamic" до варіантів голосування та вибору адміністратора.
+    type: Add
+  id: 163
+  time: '2025-08-15T14:06:51.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37783
+- author: Samuka
+  changes:
+  - message: Відредаговані плати законів тепер працюють коректно.
+    type: Fix
+  id: 164
+  time: '2025-08-19T23:04:24.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/39756
+- author: Southbridge
+  changes:
+  - message: Додано випадаючий список із додатковою інформацією до кожного запису в переглядачі адмін-логів.
+    type: Add
+  - message: Додано кольорове підсвічування результатів у пошуку логів.
+    type: Add
+  - message: Пошук у списку гравців і пошук логів змінено так, щоб вони використовували регулярні вирази замість звичайного пошуку рядків.
+    type: Tweak
+  id: 165
+  time: '2025-08-21T20:12:16.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/39130
+- author: slarticodefast
+  changes:
+  - message: Кнопка 'Delete' у вкладці об'єктів тепер вимагає підтвердження.
+    type: Tweak
+  - message: Виправлено кнопку 'Teleport' у вкладці об'єктів, яка не працювала для станцій і мап.
+    type: Fix
+  id: 166
+  time: '2025-08-22T22:37:52.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/39832
+- author: Samuka
+  changes:
+  - message: setgamepreset тепер приймає ще один аргумент, який визначає, яку назву та опис ігрового режиму буде показано на екрані лобі.
+    type: Tweak
+  - message: SecretGreenshift видалено з ігрових пресетів.
+    type: Remove
+  - message: SecretExtended видалено з ігрових пресетів.
+    type: Remove
+  id: 167
+  time: '2025-09-04T13:03:47.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40053
+- author: UpAndLeaves
+  changes:
+  - message: Додано 8 нових toolshed-команд для сховищ та інвентарю.
+    type: Add
+  id: 168
+  time: '2025-09-11T22:07:37.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/39046
+- author: slarticodefast
+  changes:
+  - message: Команда listplayers тепер вимагає дозволу PII, оскільки показує IP-адреси.
+    type: Tweak
+  id: 169
+  time: '2025-09-13T15:53:48.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40324
+- author: slarticodefast
+  changes:
+  - message: Команда listplayers тепер вимагає дозволу PII, оскільки показує IP-адреси.
+    type: Tweak
+  id: 170
+  time: '2025-09-16T07:59:11.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40395
+- author: Errant, beck-thompson, FairlySadPanda
+  changes:
+  - message: 'Антаг-бан тепер можна видати гравцям через інтерфейс Roleban. Антаг-бан може окремо блокувати всі раундстартові варіанти антагоністів і всі антаг-ghostrole (хоча деякі більш "загальні" антаг-ghostrole згруповані й не можуть банитися окремо). Перетворення на зомбі примусово робить забаненого за роллю гравця привидом. Деякі типи антагоністів поки не підтримуються: перетворення на революціонера, гравці, забанені лише на боргів-антагоністів, ion storm або emag, а також ефекти закляття чарівної гармати.'
+    type: Add
+  id: 171
+  time: '2025-09-17T21:59:07.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/35966
+- author: Kowlin
+  changes:
+  - message: Повідомлення "unbanned by" в адмін-нотатках тепер коректно форматує дату.
+    type: Tweak
+  id: 172
+  time: '2025-09-21T15:26:22.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40484
+- author: Samuka
+  changes:
+  - message: Додано кару Silicon Smite, яка змушує будь-кого дотримуватися законів синтетиків.
+    type: Add
+  id: 173
+  time: '2025-09-22T02:39:56.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40452
+- author: Princess-Cheeseballs
+  changes:
+  - message: Додано кару для вульпканінів.
+    type: Add
+  id: 174
+  time: '2025-09-22T06:22:25.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40360
+- author: IProduceWidgets
+  changes:
+  - message: Кара Homing Rod. Робить саме те, що написано в назві.
+    type: Add
+  - message: Кара Slowming Rod. Повільно переслідує ціль і знищує все на своєму шляху.
+    type: Add
+  id: 175
+  time: '2025-09-25T21:43:53.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40246
+- author: Kowlin
+  changes:
+  - message: Скориговано рівні важливості адмін-логів для м'ясних гаків.
+    type: Tweak
+  id: 176
+  time: '2025-10-03T11:31:37.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40604
+- author: Kowlin
+  changes:
+  - message: Створення електрошокових палиць тепер має високий рівень важливості в логах.
+    type: Tweak
+  id: 177
+  time: '2025-10-05T07:40:15.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40709
+- author: Samuka
+  changes:
+  - message: Додано toolshed-команди для банківських акаунтів.
+    type: Add
+  id: 178
+  time: '2025-10-15T15:21:56.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40614
+- author: Errant
+  changes:
+  - message: Старі кнопки Teleport і kick (панель дій гравця) видалено з першої вкладки адмін-меню.
+    type: Remove
+  id: 179
+  time: '2025-10-17T15:38:26.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40904
+- author: PJB3005
+  changes:
+  - message: Виправлено неправильний номер раунду в Discord ahelp з передраундового лобі.
+    type: Fix
+  id: 180
+  time: '2025-10-23T14:16:13.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41060
+- author: beck
+  changes:
+  - message: До адмін-логів, що стосуються гравців або координат, тепер додаються посилання команди TPTO.
+    type: Add
+  id: 181
+  time: '2025-10-27T02:51:40.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40472
+- author: slarticodefast
+  changes:
+  - message: Додано новий адмінський предмет - DNA injector.
+    type: Add
+  id: 182
+  time: '2025-11-03T12:14:21.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41271
+- author: ScarKy0
+  changes:
+  - message: Додано toolshed-команду clone для ДУЖЕ обмеженого клонування сутностей.
+    type: Add
+  id: 183
+  time: '2025-11-03T13:16:43.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41261
+- author: slarticodefast
+  changes:
+  - message: Додано команду "quickinspect" для швидкого огляду вибраного компонента сутності через клавішу.
+    type: Add
+  id: 184
+  time: '2025-11-12T23:22:27.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41348
+- author: ScarKy0
+  changes:
+  - message: Адмін-привидів більше не можна вибрати для "Warp To Most Followed". Видаліть тег NotGhostnadoWarpable зі своєї aghost-сутності, якщо хочете, щоб її все ще можна було вибирати.
+    type: Fix
+  id: 185
+  time: '2025-11-15T23:31:28.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41448
+- author: Errant
+  changes:
+  - message: Логи LOOC і Deadchat тепер показують інформацію про моба, подібно до логів IC-каналів чату.
+    type: Tweak
+  - message: Моби, до яких застосовано "Freeze and Muted", більше не можуть писати в LOOC або Deadchat.
+    type: Fix
+  id: 186
+  time: '2025-11-21T21:53:41.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41273
+- author: ScarKy0
+  changes:
+  - message: Killsign тепер можна налаштувати на використання будь-якого спрайта через його компонент.
+    type: Add
+  - message: Кара Hidden Kill Sign. Видима всім, окрім того, до кого її застосували.
+    type: Add
+  id: 187
+  time: '2025-12-14T02:16:52.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41845
+- author: AshBats
+  changes:
+  - message: Адмін-лог тепер показує взаємодії перемикання живлення APC.
+    type: Add
+  id: 188
+  time: '2025-12-14T03:27:37.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41839
+- author: Hitlinemoss
+  changes:
+  - message: Додано налагоджувальний гримуар чарівника. Містить 99999 WizCoin і має ownerOnly, встановлений у false. Його можна використовувати для адмінських жартів, але краще не варто, якщо ви не хочете ризикувати тим, що кожен на станції матиме всі закляття.
+    type: Add
+  id: 189
+  time: '2025-12-18T19:33:08.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41900
+- author: ScarKy0
+  changes:
+  - message: Радіальні дії станційного ШІ тепер логуються. Шукайте "Station AI Radial" у меню логів у розділі Actions.
+    type: Add
+  id: 190
+  time: '2025-12-20T18:23:43.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41911
+- author: eoineoineoin
+  changes:
+  - message: Виправлено помилку, через яку в списку гравців не було смуг прокрутки.
+    type: Fix
+  id: 191
+  time: '2025-12-22T16:54:32.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40525
+- author: ScarKy0
+  changes:
+  - message: Додано toolshed-команду Msg. Використовується для надсилання повідомлень цільовим сутностям через popup, чат, tippy або як subtle-повідомлення.
+    type: Add
+  id: 192
+  time: '2026-01-05T21:13:40.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41936
+- author: mikeysaurus
+  changes:
+  - message: Адміністратори тепер можуть vvwrite FTLCooldownOverride, щоб перевизначити таймер FTL Cooldown.
+    type: Add
+  id: 193
+  time: '2026-01-09T06:58:22.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42209
+- author: Kowlin
+  changes:
+  - message: Суперпульт дверей тепер може встановлювати overcharge на шлюзах.
+    type: Tweak
+  id: 194
+  time: '2026-01-13T01:02:06.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42370
 Name: Admin
-Order: 2
+Order: 3

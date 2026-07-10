@@ -10,3 +10,4 @@ door-remote-invalid-text = Недійсний
 door-remote-mode-label = Режим: [color=white]{$modeString}[/color]
 
 ## Сутність
+door-remote-toggle-eletrify-text = Перемкнути перевантаження

@@ -1,6 +1,5 @@
 using Content.Server._Pirate.Plumbing.Components;
 using Content.Server.Power.EntitySystems;
-using Content.Server.PowerCell;
 using Content.Shared._Pirate.Plumbing;
 using Content.Shared._Pirate.Plumbing.Components;
 using Content.Shared.Chemistry.EntitySystems;
@@ -113,7 +112,7 @@ public sealed partial class PlumbingSynthesizerSystem : EntitySystem
             if (!_powerCell.TryGetBatteryFromSlot(ent.Owner, out var batteryCheck))
                 return;
 
-            var availableCharge = batteryCheck.CurrentCharge;
+            var availableCharge = _battery.GetCharge(batteryCheck.Value.AsNullable());
             if (availableCharge <= 0)
                 return;
 
@@ -143,13 +142,14 @@ public sealed partial class PlumbingSynthesizerSystem : EntitySystem
         if (ent.Comp.CellRechargeRate <= 0f || !_power.IsPowered(ent.Owner))
             return;
 
-        if (!_powerCell.TryGetBatteryFromSlot(ent.Owner, out var batteryUid, out var battery))
+        if (!_powerCell.TryGetBatteryFromSlot(ent.Owner, out var battery))
             return;
 
-        if (battery.CurrentCharge >= battery.MaxCharge)
+        var currentCharge = _battery.GetCharge(battery.Value.AsNullable());
+        if (currentCharge >= battery.Value.Comp.MaxCharge)
             return;
 
-        _battery.SetCharge(batteryUid.Value, battery.CurrentCharge + ent.Comp.CellRechargeRate * dt, battery);
+        _battery.SetCharge(battery.Value.AsNullable(), currentCharge + ent.Comp.CellRechargeRate * dt);
     }
 
     /// <summary>
@@ -198,9 +198,7 @@ public sealed partial class PlumbingSynthesizerSystem : EntitySystem
         var batteryCharge = 0f;
         if (_powerCell.TryGetBatteryFromSlot(ent.Owner, out var battery))
         {
-            batteryCharge = battery.MaxCharge > 0
-                ? battery.CurrentCharge / battery.MaxCharge
-                : 0f;
+            batteryCharge = _battery.GetChargeLevel(battery.Value.AsNullable());
         }
 
         var generatableReagents = new Dictionary<string, float>();

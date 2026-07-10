@@ -1,0 +1,1 @@
+stat-values-ui-title = Стати ближнього бою

@@ -4,4 +4,6 @@
 
 construction-recipe-crate-freezer = морозильний ящик
 construction-recipe-big-box = велика картонна коробка
-construction-recipe-box-cardboard = маленька картонна коробка
+construction-recipe-box-cardboard = картонна коробка
+construction-recipe-box-cardboard-small = мала картонна коробка
+construction-recipe-box-tote = сумка для плат

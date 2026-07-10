@@ -18,4 +18,5 @@ public enum NodeGroupID : byte
     Teg,
 
     Plumbing, // Pirate: reagent plumbing ducts use a separate liquid node graph.
+    ExCable,
 }

@@ -4,6 +4,7 @@ using Content.Shared.Actions.Components;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Roles;
+using Content.Shared.Roles.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;

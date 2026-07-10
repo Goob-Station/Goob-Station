@@ -126,7 +126,7 @@
   category: Physical 
   cost: -2 
   components:
-  - type: PainNumbness
+  - type: PainNumbnessStatusEffect
 #endregion
 
 #region Movement

@@ -7,7 +7,7 @@ alerts-high-toxin-desc = Тут [color=red]надто багато токсин�
 alerts-low-pressure-name = [color=red]Низький Тиск[/color]
 alerts-low-pressure-desc = Повітря навколо має [color=red]недостатньо тиску[/color]. [color=green]Скафандр[/color] може захистити вас.
 alerts-high-pressure-name = [color=red]Високий Тиск[/color]
-alerts-high-pressure-desc = Повітря навколо [color=red]дуже щільне[/color]. [color=green]Скафандр[/color] може захистити вас.
+alerts-high-pressure-desc = Повітря навколо вас [color=red]небезпечно щільне[/color]. [color=green]Герметичний костюм[/color] буде достатнім, щоб захистити вас.
 alerts-on-fire-name = [color=red]Горю![/color]
 alerts-on-fire-desc = Ви [color=red]горите[/color]. Натисність на повідомлення аби зупинитись, впасти та кататись, аби зупинити вогонь, або перейдіть до зони вакууму.
 alerts-too-cold-name = [color=cyan]Надто Холодно[/color]

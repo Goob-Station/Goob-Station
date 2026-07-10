@@ -49,9 +49,9 @@
       - !type:SatiateHunger
         factor: 4
         conditions:
-        - !type:OrganType
-          type: Moth
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
+          inverted: true
   fizziness: 0.2
 
 - type: reagent
@@ -120,9 +120,8 @@
         factor: 2
       - !type:Emote
         conditions:
-        - !type:OrganType
-          type: Slime
-          shouldHave: true
+        - !type:MetabolizerTypeCondition
+          type: [ Slime ]
         emote: Pop
         showInChat: true
         force: true

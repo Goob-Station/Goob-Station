@@ -23,3 +23,4 @@ construction-recipe-pillow-engineering-wrapped = загорнута інжене
 construction-recipe-pillow-engineering-unwrapped = інженерна подушка
 construction-recipe-pillow-medical-wrapped = загорнута медична подушка
 construction-recipe-pillow-medical-unwrapped = медична подушка
+construction-recipe-table-fancy-sky-blue = вишуканий стіл (небесно-блакитний)

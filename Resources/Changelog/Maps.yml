@@ -436,4 +436,266 @@
   id: 51
   time: '2025-07-19T19:40:33.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/38956
-Order: 1
+- author: ArtisticRoomba
+  changes:
+  - message: На Exo головна камера згоряння атмосферики тепер зроблена з армованого плазмового скла замість смоли.
+    type: Fix
+  id: 78
+  time: '2025-09-06T06:02:26.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40152
+- author: SlamBamActionman
+  changes:
+  - message: 'Exo: Common Telecoms перенесено з ядра ШІ на місток.'
+    type: Tweak
+  - message: 'Exo: змінено освітлення станції, щоб зменшити візуальний вплив для користувачів з дальтонізмом.'
+    type: Fix
+  - message: 'Exo: незначні виправлення мапи в різних зонах.'
+    type: Fix
+  id: 79
+  time: '2025-09-11T01:46:55.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40199
+- author: F1restar4
+  changes:
+  - message: На Exo болти шлюзів інженерного відділу прив'язано до космосу.
+    type: Tweak
+  id: 88
+  time: '2025-09-25T21:36:16.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40546
+- author: Absotively
+  changes:
+  - message: Оновлено камери згоряння Elkridge для безпечнішої роботи з перепадом тиску.
+    type: Tweak
+  id: 89
+  time: '2025-09-30T03:45:17.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40590
+- author: ToastEnjoyer
+  changes:
+  - message: На Marathon додано різні покращення для інженерного відділу, частини техтунелів і кілька покращень сервісу.
+    type: Tweak
+  - message: На Marathon виправлено передню частину служби безпеки, щоб там було живлення на початку раунду.
+    type: Fix
+  id: 90
+  time: '2025-10-07T02:21:21.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40725
+- author: Vortebo
+  changes:
+  - message: На Relic внесено невеликі зміни для усунення небажаних ігрових проблем і подальшого підвищення історичної точності.
+    type: Tweak
+  id: 91
+  time: '2025-10-08T16:59:59.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40537
+- author: ToastEnjoyer
+  changes:
+  - message: На Box з офісу наглядача прибрано enforcer.
+    type: Remove
+  id: 92
+  time: '2025-10-08T20:41:46.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40785
+- author: ToastEnjoyer
+  changes:
+  - message: На Plasma додано більше каністр азоту в технічні коридори.
+    type: Add
+  id: 93
+  time: '2025-10-10T01:11:33.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40794
+- author: opl
+  changes:
+  - message: На Packed в'язні тепер можуть користуватися Megaseed у бригу.
+    type: Fix
+  id: 94
+  time: '2025-10-10T20:33:03.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40821
+- author: CoconutThunder
+  changes:
+  - message: Зменшено частоту нападів акул Синдикату.
+    type: Tweak
+  id: 95
+  time: '2025-10-12T18:45:54.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40855
+- author: CoconutThunder
+  changes:
+  - message: До камери згоряння TEG на станції Plasma додано регулятор тиску.
+    type: Tweak
+  id: 96
+  time: '2025-10-13T02:35:11.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40874
+- author: Southbridge
+  changes:
+  - message: На Amber перероблено кухню, зробивши її трохи більшою.
+    type: Tweak
+  - message: На Amber шлях до ядра ШІ замінено з утилізаційного жолоба на справжній sky-bridge.
+    type: Tweak
+  - message: На Amber додано багато камер, щоб ШІ тепер справді міг бачити станцію.
+    type: Fix
+  id: 97
+  time: '2025-10-13T21:06:19.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40717
+- author: F1restar4
+  changes:
+  - message: На Oasis перероблено TEG.
+    type: Tweak
+  id: 98
+  time: '2025-11-02T23:14:46.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40623
+- author: Hitlinemoss
+  changes:
+  - message: На Reach Клоун і Мім тепер доступні як ігрові посади.
+    type: Add
+  id: 99
+  time: '2025-11-03T09:45:56.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41072
+- author: F1restar4
+  changes:
+  - message: На Exo утилізаційні пристрої медвідділу під'єднано до мережі.
+    type: Fix
+  id: 100
+  time: '2025-11-07T08:36:02.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41329
+- author: Blackern5000
+  changes:
+  - message: Повністю перероблено уламок meatball magnet, щоб він краще працював як уламок для утилізації.
+    type: Tweak
+  id: 101
+  time: '2025-11-27T10:28:23.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41589
+- author: korczoczek
+  changes:
+  - message: До вантажного шатла Elkridge Depot додано додаткову пару бокових рушіїв.
+    type: Tweak
+  id: 102
+  time: '2025-11-27T10:55:46.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41570
+- author: Spessmann
+  changes:
+  - message: Додано нову станцію Snowball - круглу крижану lowpop-станцію.
+    type: Add
+  - message: Видалено станцію Amber.
+    type: Remove
+  id: 103
+  time: '2025-12-02T07:25:10.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40300
+- author: Hitlinemoss
+  changes:
+  - message: На Snowball шлюз між сховищем EVA та офісом голови персоналу тепер використовує доступ голови персоналу замість доступу Externals.
+    type: Fix
+  - message: На Snowball віндури офісу голови персоналу тепер пов'язані між собою, як на інших мапах.
+    type: Fix
+  id: 104
+  time: '2025-12-02T19:16:19.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41675
+- author: Spessmann
+  changes:
+  - message: На Snowball з шлюзів гуртожитків прибрано вимогу доступу Service.
+    type: Fix
+  - message: На Snowball до медичного відділу додано більше станційних маяків.
+    type: Add
+  id: 105
+  time: '2025-12-03T07:48:33.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41683
+- author: Hitlinemoss
+  changes:
+  - message: На Snowball скафандр голови служби безпеки більше не відсутній і тепер з'являється в його шафі.
+    type: Fix
+  id: 106
+  time: '2025-12-04T03:44:12.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41698
+- author: ArtisticRoomba
+  changes:
+  - message: На Bagel атомізовано LV-мережу для науки та хімії.
+    type: Fix
+  id: 107
+  time: '2025-12-07T22:40:48.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41769
+- author: ArtisticRoomba
+  changes:
+  - message: На Box атомізовано LV-мережу для медвідділу та телекомів.
+    type: Fix
+  id: 108
+  time: '2025-12-08T00:34:25.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41770
+- author: ArtisticRoomba
+  changes:
+  - message: На Центральному Командуванні посилено LV-мережу для медвідділу.
+    type: Fix
+  id: 109
+  time: '2025-12-08T00:35:01.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41771
+- author: ArtisticRoomba
+  changes:
+  - message: На Elkridge атомізовано LV-мережу для атмосферики.
+    type: Fix
+  id: 110
+  time: '2025-12-08T00:35:29.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41772
+- author: ArtisticRoomba
+  changes:
+  - message: На Fland атомізовано LV-мережу для атмосферики та телекомів.
+    type: Fix
+  id: 111
+  time: '2025-12-08T00:35:49.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41773
+- author: ArtisticRoomba
+  changes:
+  - message: На Oasis атомізовано LV-мережу живлення для хімії/медвідділу.
+    type: Fix
+  id: 112
+  time: '2025-12-08T01:02:48.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41776
+- author: ArtisticRoomba
+  changes:
+  - message: На Bagel театр тепер обирає один із кількох випадкових стилів/планувань.
+    type: Add
+  id: 113
+  time: '2025-12-08T15:26:05.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41787
+- author: Spessmann
+  changes:
+  - message: На Snowball спостерігачі тепер коректно з'являтимуться на станції.
+    type: Fix
+  - message: На Snowball до інженерного відділу додано автомат YouTool.
+    type: Add
+  - message: На Snowball зовнішня частина ядра ШІ тепер має освітлення.
+    type: Add
+  id: 114
+  time: '2025-12-09T06:54:33.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41806
+- author: Minemoder
+  changes:
+  - message: Енергомережу шатла прибуття змінено так, щоб вона не залежала від генераторів і була стійкішою до втручання.
+    type: Tweak
+  id: 115
+  time: '2025-12-18T20:37:25.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41884
+- author: Spessmann
+  changes:
+  - message: На Snowball утилізація тепер має роздатчик EVA-балонів.
+    type: Add
+  - message: На Snowball хімія тепер має подрібнювач реагентів.
+    type: Add
+  id: 116
+  time: '2025-12-20T08:32:14.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41908
+- author: jessicamaybe
+  changes:
+  - message: До бригу Marathon додано обладнання ботаніки.
+    type: Add
+  id: 117
+  time: '2025-12-24T00:43:15.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42028
+- author: EchoOfNothing
+  changes:
+  - message: На Plasma до телекомунікацій додано другий APC, тому APC більше не перевантажений на початку раунду.
+    type: Fix
+  id: 118
+  time: '2025-12-29T04:05:53.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42144
+- author: Spessmann
+  changes:
+  - message: На Snowball південніше служби безпеки додано стикувальний порт.
+    type: Add
+  - message: На Snowball предмети, що перезаряджаються, замінено на їхні звичайні варіанти.
+    type: Fix
+  id: 119
+  time: '2026-01-02T00:05:10.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42124
+Order: 2

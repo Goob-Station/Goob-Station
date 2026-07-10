@@ -40,6 +40,6 @@ names-borg-dataset-39 = Гудок
 names-borg-dataset-40 = Брязкач
 names-borg-dataset-41 = Це-Робот
 names-borg-dataset-42 = 9 з 7
-names-borg-dataset-43 = Крутий бот
+names-borg-dataset-43 = Мемний бот
 names-borg-dataset-44 = АВТ0
 names-borg-dataset-45 = Дельта

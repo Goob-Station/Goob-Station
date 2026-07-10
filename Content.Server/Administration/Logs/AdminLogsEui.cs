@@ -1,14 +1,3 @@
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
@@ -142,14 +131,14 @@ public sealed class AdminLogsEui : BaseEui
                 var roundId = _filter.Round ??= CurrentRoundId;
                 await LoadFromDb(roundId);
 
-                SendLogs(true);
+                SendLogs(true, _filter);
                 break;
             }
             case NextLogsRequest:
             {
                 _sawmill.Info($"Admin log next batch request from admin with id {Player.UserId.UserId} and name {Player.Name}");
 
-                SendLogs(false);
+                SendLogs(false, _filter);
                 break;
             }
         }
@@ -165,29 +154,33 @@ public sealed class AdminLogsEui : BaseEui
         SendMessage(message);
     }
 
-    private async void SendLogs(bool replace)
+    // Pirate: keep canceled admin log searches isolated from newer filters.
+    private async void SendLogs(bool replace, LogFilter filter)
     {
         var stopwatch = new Stopwatch();
         stopwatch.Start();
 
-        var logs = await Task.Run(async () => await _adminLogs.All(_filter, _adminLogListPool.Get),
-            _filter.CancellationToken);
+        var logs = await Task.Run(async () => await _adminLogs.All(filter, _adminLogListPool.Get),
+            filter.CancellationToken);
 
         if (logs.Count > 0)
         {
-            _filter.LogsSent += logs.Count;
+            filter.LogsSent += logs.Count;
 
-            var largestId = _filter.DateOrder switch
+            var largestId = filter.DateOrder switch
             {
                 DateOrder.Ascending => 0,
                 DateOrder.Descending => ^1,
-                _ => throw new ArgumentOutOfRangeException(nameof(_filter.DateOrder), _filter.DateOrder, null)
+                _ => throw new ArgumentOutOfRangeException(nameof(filter.DateOrder), filter.DateOrder, null)
             };
 
-            _filter.LastLogId = logs[largestId].Id;
+            filter.LastLogId = logs[largestId].Id;
         }
 
-        var message = new NewLogs(logs, replace, logs.Count >= _filter.Limit);
+        var message = new NewLogs(logs, replace, logs.Count >= filter.Limit);
+
+        if (filter.CancellationToken.IsCancellationRequested)
+            return;
 
         SendMessage(message);
 

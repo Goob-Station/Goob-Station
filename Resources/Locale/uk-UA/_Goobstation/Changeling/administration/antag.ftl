@@ -3,6 +3,3 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
-
-admin-verb-make-changeling = Зробити ціль ченджлінгом.
-admin-verb-text-make-changeling = Зробити ченджлінгом

@@ -7,7 +7,6 @@ using Content.Shared.BloodCult;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.EntityEffects;
-using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.BloodCult.EntityEffects;
@@ -21,37 +20,29 @@ public sealed partial class JuggernautBloodCorruption : EntityEffect
     [DataField]
     public ProtoId<ReagentPrototype> CorruptedReagent = "SanguinePerniculate";
 
-    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => Loc.GetString("reagent-effect-guidebook-juggernaut-blood-corruption", ("chance", Probability));
 
-    public override void Effect(EntityEffectBaseArgs args)
+    public override void RaiseEvent(EntityUid target, IEntityEffectRaiser raiser, float scale, EntityUid? user)
     {
-        // Only process if we have reagent args
-        if (args is not EntityEffectReagentArgs reagentArgs)
-            return;
+        var entMan = IoCManager.Resolve<IEntityManager>();
 
-        // Validate the reagent being applied
-        var reagentId = reagentArgs.Reagent?.ID;
-        if (string.IsNullOrEmpty(reagentId))
+        if (!LegacyEntityEffectContext.TryGetReaction(entMan, out var reaction) ||
+            reaction.Reagent.ID == CorruptedReagent ||
+            !BloodCultConstants.SacrificeBloodReagents.Contains(reaction.Reagent.ID) ||
+            reaction.ReagentQuantity.Quantity <= 0)
+        {
             return;
+        }
 
-        // Ignore already corrupted blood or reagents that shouldn't be corrupted.
-        if (reagentId == CorruptedReagent || !BloodCultConstants.SacrificeBloodReagents.Contains(reagentId))
-            return;
-
-        // No quantity, no corruption.
-        if (reagentArgs.Quantity <= FixedPoint2.Zero)
-            return;
-
-        var puddleSystem = args.EntityManager.System<PuddleSystem>();
-        var transform = args.EntityManager.GetComponent<TransformComponent>(args.TargetEntity);
+        var puddleSystem = entMan.System<PuddleSystem>();
+        var transform = entMan.GetComponent<TransformComponent>(target);
 
         // Create a solution of Sanguine Perniculate with the same volume as the reagent quantity that was applied
         var corruptedSolution = new Solution();
-        corruptedSolution.AddReagent(CorruptedReagent, reagentArgs.Quantity);
+        corruptedSolution.AddReagent(CorruptedReagent, reaction.ReagentQuantity.Quantity);
 
         // Spawn a puddle at the juggernaut's feet
         puddleSystem.TrySpillAt(transform.Coordinates, corruptedSolution, out _, sound: false);
     }
 }
-

@@ -16,3 +16,4 @@ changelog-version-unknown = Невідома версія
 changelog-tab-title-Maps = Мапи
 cmd-changelog-desc = Відкриває список змін.
 cmd-changelog-help = Використання: changelog
+changelog-tab-title-Rules = Правила

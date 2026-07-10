@@ -1,0 +1,1 @@
+command-description-unpolymorph = Повертає поліморф.

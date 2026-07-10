@@ -1,20 +1,3 @@
-# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Sam Weaver <weaversam8@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 corentt <36075110+corentt@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 moonheart08 <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Doru991 <75124791+Doru991@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 OctoRocket <88291550+OctoRocket@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Rane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 RumiTiger <154005209+RumiTiger@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 c4llv07e <kseandi@gmail.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # End points - the eventual goal is that almost all foods and drinks metabolize into either these, or reagents that build up (e.g. theobromine, caffeine,... )
 - type: reagent
@@ -29,36 +12,37 @@
     Food:
       effects:
       - !type:SatiateHunger
-        conditions: # Pirate
-          - !type:OrganType
-            type: Vampiric
-            shouldHave: false # Pirate end
+        conditions:
+        - !type:MetabolizerTypeCondition # Pirate
+          type: [ Vampiric ]
+          inverted: true
       - !type:HealthChange #GOOBSTART
         damage:
           groups:
             Brute: -0.2 #30 nutriment will heal 12 dmg/group, this will help make up for small, consistent damage, and make service more valued
             Burn: -0.2
-        conditions: # Pirate
-          - !type:OrganType
-            type: Vampiric
-            shouldHave: false # Pirate end
-      - !type:ModifyBleedAmount #makes bleeding healable outside of med WOW....
+        conditions:
+        - !type:MetabolizerTypeCondition # Pirate
+          type: [ Vampiric ]
+          inverted: true
+      - !type:ModifyBleed #makes bleeding healable outside of med WOW....
         amount: -0.1
-        conditions: # Pirate
-          - !type:OrganType
-            type: Vampiric
-            shouldHave: false # Pirate end
+        conditions:
+        - !type:MetabolizerTypeCondition # Pirate
+          type: [ Vampiric ]
+          inverted: true
       - !type:ModifyBloodLevel
         amount: 0.25 #GOOBEND
-        conditions: # Pirate
-          - !type:OrganType
-            type: Vampiric
-            shouldHave: false
-      - !type:ChemVomit
         conditions:
-        - !type:OrganType
-          type: Vampiric
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition # Pirate
+          type: [ Vampiric ]
+          inverted: true
+      - !type:Vomit
+        conditions:
+        - !type:MetabolizerTypeCondition # Pirate
+          type: [ Vampiric ]
+        - !type:ReagentCondition
+          reagent: Nutriment
           min: 10
         probability: 0.75 # Pirate end
   plantMetabolism:
@@ -83,32 +67,32 @@
         #        probability: 0.5, goob
         damage:
           groups:
-            Brute: -0.5 #vitamin will heal 1 dmg per 1u
-            Burn: -0.5
+            Brute: -0.75 #goob
+            Burn: -0.75 #goob
       # Helps you stop bleeding to an extent.
-        conditions: # Pirate
-          - !type:OrganType
-            type: Vampiric
-            shouldHave: false # Pirate end
-      - !type:ModifyBleedAmount
+        conditions:
+        - !type:MetabolizerTypeCondition # Pirate
+          type: [ Vampiric ]
+          inverted: true
+      - !type:ModifyBleed
         amount: -0.25
-        conditions: # Pirate
-          - !type:OrganType
-            type: Vampiric
-            shouldHave: false # Pirate end
+        conditions:
+        - !type:MetabolizerTypeCondition # Pirate
+          type: [ Vampiric ]
+          inverted: true
       - !type:SatiateHunger #Numbers are balanced with this in mind + it helps limit how much healing you can get from food
-        conditions: # Pirate
-          - !type:OrganType
-            type: Vampiric
-            shouldHave: false # Pirate end
+        conditions:
+        - !type:MetabolizerTypeCondition # Pirate
+          type: [ Vampiric ]
+          inverted: true
       - !type:ImmunityModifier #Goobstation # 1/3 of immurin
         gainRateModifier: 0.000211695098702 # sqrt(1/3) * immurin
         strengthModifier: 0.00256600119637 # sqrt(1/3) * immurin
         statusLifetime: 3
-        conditions: # Pirate
-          - !type:OrganType
-            type: Vampiric
-            shouldHave: false # Pirate end
+        conditions:
+        - !type:MetabolizerTypeCondition # Pirate
+          type: [ Vampiric ]
+          inverted: true
   # Lets plants benefit too
   plantMetabolism:
   - !type:PlantAdjustNutrition
@@ -132,22 +116,22 @@
         #        probability: 0.5, goob
         damage:
           groups:
-            Brute: -0.8 #goob, was -0.4
-        conditions: # Pirate
-          - !type:OrganType
-            type: Vampiric
-            shouldHave: false # Pirate end
+            Brute: -0.85 #goob, was -0.4
+        conditions:
+        - !type:MetabolizerTypeCondition # Pirate
+          type: [ Vampiric ]
+          inverted: true
       - !type:ModifyBloodLevel
         amount: 2 # Goob
-        conditions: # Pirate
-          - !type:OrganType
-            type: Vampiric
-            shouldHave: false # Pirate end
+        conditions:
+        - !type:MetabolizerTypeCondition # Pirate
+          type: [ Vampiric ]
+          inverted: true
       - !type:SatiateHunger
-        conditions: # Pirate
-          - !type:OrganType
-            type: Vampiric
-            shouldHave: false # Pirate end
+        conditions:
+        - !type:MetabolizerTypeCondition # Pirate
+          type: [ Vampiric ]
+          inverted: true
   pricePerUnit: 3
 
 - type: reagent
@@ -164,19 +148,19 @@
       effects:
       - !type:SatiateHunger
         conditions:
-        - !type:ReagentThreshold #Only satiates when eaten with nutriment
+        - !type:ReagentCondition #Only satiates when eaten with nutriment
           reagent: Nutriment
           min: 0.1
-        - !type:OrganType # Pirate
-          type: Vampiric
-          shouldHave: false # Pirate end
+        - !type:MetabolizerTypeCondition # Pirate
+          type: [ Vampiric ]
+          inverted: true
         factor: 1
       - !type:ChemAddMoodlet # Pirate - port EE mood system
         moodPrototype: SweetenerEffect
-        conditions: # Pirate
-        - !type:OrganType
-          type: Vampiric
-          shouldHave: false # Pirate end
+        conditions:
+        - !type:MetabolizerTypeCondition # Pirate
+          type: [ Vampiric ]
+          inverted: true
   plantMetabolism:
   - !type:PlantAdjustNutrition
     amount: 0.1

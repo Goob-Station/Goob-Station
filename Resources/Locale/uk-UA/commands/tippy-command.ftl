@@ -1,5 +1,5 @@
 cmd-tippy-desc = Передайте повідомлення від імені клоуна Тіппі.
-cmd-tippy-help = tippy <користувач | всі> <повідомлення> [прототип сутності] [час виступу] [час слайду] [інтервал між слайдами]
+cmd-tippy-help = tippy <user | all> <message> [entity prototype | null] [speak time] [slide time] [waddle interval]
 cmd-tippy-auto-1 = <user | all>
 cmd-tippy-auto-2 = повідомлення
 cmd-tippy-auto-3 = прототип сутності

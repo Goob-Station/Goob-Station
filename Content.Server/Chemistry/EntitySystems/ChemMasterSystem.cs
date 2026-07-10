@@ -1,35 +1,3 @@
-// SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2022 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2022 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Illiux <newoutlook@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DEATHB4DEFEAT <77995199+DEATHB4DEFEAT@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Skye <57879983+Rainbeon@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Dora <27211909+catdotjs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Chemistry.Components;
@@ -75,7 +43,6 @@ namespace Content.Server.Chemistry.EntitySystems
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
 
         private static readonly EntProtoId PillPrototypeId = "Pill";
-        private readonly Dictionary<EntityUid, ChemMasterDrawSource> _drawSources = new(); // Pirate: chem plumbing
 
         public override void Initialize()
         {
@@ -95,7 +62,6 @@ namespace Content.Server.Chemistry.EntitySystems
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterOutputToBottleMessage>(OnOutputToBottleMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterOutputDrawSourceMessage>(OnSetDrawSourceMessage); // Pirate: chem plumbing
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterToggleValveMessage>(OnToggleValveMessage); // Pirate: chem plumbing
-            SubscribeLocalEvent<ChemMasterComponent, ComponentShutdown>(OnComponentShutdown); // Pirate: chem plumbing
         }
 
         private void SubscribeUpdateUiState<T>(Entity<ChemMasterComponent> ent, ref T ev)
@@ -113,22 +79,14 @@ namespace Content.Server.Chemistry.EntitySystems
 
             var bufferReagents = bufferSolution.Contents;
             var bufferCurrentVolume = bufferSolution.Volume;
-            var drawSource = GetDrawSource(owner); // Pirate: chem plumbing
             var valveOpen = TryComp<PlumbingOutletComponent>(owner, out var plumbingOutlet) && plumbingOutlet.Enabled; // Pirate: chem plumbing
 
             var state = new ChemMasterBoundUserInterfaceState(
                 chemMaster.Mode, chemMaster.SortingType, BuildInputContainerInfo(inputContainer), BuildOutputContainerInfo(outputContainer),
-                bufferReagents, bufferCurrentVolume, chemMaster.PillType, chemMaster.PillDosageLimit, updateLabel, drawSource, valveOpen); // Pirate: chem plumbing
+                bufferReagents, bufferCurrentVolume, chemMaster.PillType, chemMaster.PillDosageLimit, updateLabel, chemMaster.DrawSource, valveOpen); // Pirate: chem plumbing
 
             _userInterfaceSystem.SetUiState(owner, ChemMasterUiKey.Key, state);
         }
-
-        #region Pirate: chem plumbing
-        private void OnComponentShutdown(Entity<ChemMasterComponent> ent, ref ComponentShutdown args)
-        {
-            _drawSources.Remove(ent.Owner);
-        }
-        #endregion
 
         private void OnSetModeMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterSetModeMessage message)
         {
@@ -183,17 +141,16 @@ namespace Content.Server.Chemistry.EntitySystems
             ClickSound(chemMaster);
         }
 
-        #region Pirate: chem plumbing
         private void OnSetDrawSourceMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterOutputDrawSourceMessage message)
         {
-            if (!Enum.IsDefined(typeof(ChemMasterDrawSource), message.DrawSource))
+            //Ensure draw source is valid, either from the internal buffer or the inserted beaker
+            if (!Enum.IsDefined(message.DrawSource))
                 return;
 
-            _drawSources[chemMaster.Owner] = message.DrawSource;
+            chemMaster.Comp.DrawSource = message.DrawSource;
             UpdateUiState(chemMaster);
             ClickSound(chemMaster);
         }
-        #endregion
 
         private void TransferReagents(Entity<ChemMasterComponent> chemMaster, ReagentId id, FixedPoint2 amount, bool fromBuffer, EntityUid? actor = null) // goob - logging
         {
@@ -277,9 +234,8 @@ namespace Content.Server.Chemistry.EntitySystems
                 return;
 
             var needed = message.Dosage * message.Number;
-            if (!WithdrawFromSource(chemMaster, needed, user, out var withdrawal)) // Pirate: chem plumbing
+            if (!WithdrawFromSource(chemMaster, needed, user, out var withdrawal))
                 return;
-
             _labelSystem.Label(container, message.Label);
 
             for (var i = 0; i < message.Number; i++)
@@ -288,7 +244,10 @@ namespace Content.Server.Chemistry.EntitySystems
                 _storageSystem.Insert(container, item, out _, user: user, storage);
                 _labelSystem.Label(item, message.Label);
 
-                _solutionContainerSystem.EnsureSolutionEntity(item, SharedChemMaster.PillSolutionName,out var itemSolution ,message.Dosage);
+                _solutionContainerSystem.EnsureSolutionEntity(item,
+                    SharedChemMaster.PillSolutionName,
+                    out var itemSolution,
+                    message.Dosage);
                 if (!itemSolution.HasValue)
                     return;
 
@@ -325,7 +284,7 @@ namespace Content.Server.Chemistry.EntitySystems
             if (message.Label.Length > SharedChemMaster.LabelMaxLength)
                 return;
 
-            if (!WithdrawFromSource(chemMaster, message.Dosage, user, out var withdrawal)) // Pirate: chem plumbing
+            if (!WithdrawFromSource(chemMaster, message.Dosage, user, out var withdrawal))
                 return;
 
             _labelSystem.Label(container, message.Label);
@@ -339,61 +298,76 @@ namespace Content.Server.Chemistry.EntitySystems
             ClickSound(chemMaster);
         }
 
-        private bool WithdrawFromSource( // Pirate: chem plumbing
+        private bool WithdrawFromSource(
             Entity<ChemMasterComponent> chemMaster,
-            FixedPoint2 neededVolume, EntityUid? user,
+            FixedPoint2 neededVolume,
+            EntityUid? user,
             [NotNullWhen(returnValue: true)] out Solution? outputSolution)
         {
             outputSolution = null;
 
-            #region Pirate: chem plumbing
             Solution? solution;
-            Entity<SolutionComponent>? solutionEnt = null;
-            var emptyMessage = "chem-master-window-buffer-empty-text";
-            var lowMessage = "chem-master-window-buffer-low-text";
+            Entity<SolutionComponent>? soln = null;
 
-            switch (GetDrawSource(chemMaster.Owner))
+            switch (chemMaster.Comp.DrawSource)
             {
                 case ChemMasterDrawSource.Internal:
                     if (!_solutionContainerSystem.TryGetSolution(chemMaster.Owner, SharedChemMaster.BufferSolutionName, out _, out solution))
                         return false;
-                    break;
-                case ChemMasterDrawSource.External:
-                    var container = _itemSlotsSystem.GetItemOrNull(chemMaster, SharedChemMaster.InputSlotName);
-                    if (container is not { Valid: true })
+
+                    if (solution.Volume == 0)
                     {
-                        if (user.HasValue)
-                            _popupSystem.PopupCursor(Loc.GetString("chem-master-window-no-container-loaded-text"), user.Value);
+                        if (user is { } uid)
+                            _popupSystem.PopupCursor(Loc.GetString("chem-master-window-buffer-empty-text"), uid);
+
+                        return false;
+                    }
+                    if (neededVolume > solution.Volume)
+                    {
+                        if (user is { } uid)
+                            _popupSystem.PopupCursor(Loc.GetString("chem-master-window-buffer-low-text"), uid);
+
                         return false;
                     }
 
-                    if (!_solutionContainerSystem.TryGetFitsInDispenser(container.Value, out solutionEnt, out solution))
-                        return false;
                     break;
+
+                case ChemMasterDrawSource.External:
+                    if (_itemSlotsSystem.GetItemOrNull(chemMaster, SharedChemMaster.InputSlotName) is not {} container)
+                    {
+                        if (user.HasValue)
+                            _popupSystem.PopupCursor(Loc.GetString("chem-master-window-no-beaker-text"), user.Value);
+                        return false;
+                    }
+
+                    if (!_solutionContainerSystem.TryGetFitsInDispenser(container, out soln, out solution))
+                        return false;
+
+                    if (solution.Volume == 0)
+                    {
+                        if (user is { } uid)
+                            _popupSystem.PopupCursor(Loc.GetString("chem-master-window-beaker-empty-text"), uid);
+
+                        return false;
+                    }
+                    if (neededVolume > solution.Volume)
+                    {
+                        if (user is { } uid)
+                            _popupSystem.PopupCursor(Loc.GetString("chem-master-window-beaker-low-text"), uid);
+
+                        return false;
+                    }
+
+                    break;
+
                 default:
                     return false;
             }
-            #endregion
-
-            if (solution.Volume == 0)
-            {
-                if (user.HasValue)
-                    _popupSystem.PopupCursor(Loc.GetString(emptyMessage), user.Value); // Pirate: chem plumbing
-                return false;
-            }
-
-            if (neededVolume > solution.Volume)
-            {
-                if (user.HasValue)
-                    _popupSystem.PopupCursor(Loc.GetString(lowMessage), user.Value); // Pirate: chem plumbing
-                return false;
-            }
 
             outputSolution = solution.SplitSolution(neededVolume);
-            #region Pirate: chem plumbing
-            if (solutionEnt is { } externalSolution)
-                _solutionContainerSystem.UpdateChemicals(externalSolution);
-            #endregion
+
+            if (soln.HasValue)
+                _solutionContainerSystem.UpdateChemicals(soln.Value);
 
             return true;
         }
@@ -456,13 +430,6 @@ namespace Content.Server.Chemistry.EntitySystems
         }
 
         #region Pirate: chem plumbing
-        private ChemMasterDrawSource GetDrawSource(EntityUid uid)
-        {
-            return _drawSources.TryGetValue(uid, out var drawSource)
-                ? drawSource
-                : ChemMasterDrawSource.Internal;
-        }
-
         private void OnToggleValveMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterToggleValveMessage message)
         {
             if (!TryComp<PlumbingOutletComponent>(chemMaster.Owner, out var plumbingOutlet))

@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Firewatch <54725557+musicmanvr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mr. 27 <koolthunder019@gmail.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
@@ -48,7 +42,7 @@ public sealed partial class LoadoutGroupContainer : BoxContainer
     {
         var protoMan = collection.Resolve<IPrototypeManager>();
         var loadoutSystem = collection.Resolve<IEntityManager>().System<LoadoutSystem>();
-        RestrictionsContainer.DisposeAllChildren();
+        RestrictionsContainer.RemoveAllChildren();
 
         if (_groupProto.MinLimit > 0)
         {
@@ -68,7 +62,7 @@ public sealed partial class LoadoutGroupContainer : BoxContainer
             });
         }
 
-        if (protoMan.TryIndex(loadout.Role, out var roleProto) && roleProto.Points != null && loadout.Points != null)
+        if (protoMan.Resolve(loadout.Role, out var roleProto) && roleProto.Points != null && loadout.Points != null)
         {
             RestrictionsContainer.AddChild(new Label()
             {
@@ -77,7 +71,7 @@ public sealed partial class LoadoutGroupContainer : BoxContainer
             });
         }
 
-        LoadoutsContainer.DisposeAllChildren();
+        LoadoutsContainer.RemoveAllChildren();
 
         // Pirate edit start - port frontier subgroups
         // Get all loadout prototypes for this group.
@@ -156,8 +150,8 @@ public sealed partial class LoadoutGroupContainer : BoxContainer
     /// <summary>
     /// Creates a UI container for a single Loadout item.
     ///
-    /// This method was extracted from RefreshLoadouts because the logic for creating 
-    /// individual loadout items is used multiple times inside that method, and duplicating 
+    /// This method was extracted from RefreshLoadouts because the logic for creating
+    /// individual loadout items is used multiple times inside that method, and duplicating
     /// the code made it harder to maintain.
     ///
     /// Logic:

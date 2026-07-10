@@ -28,6 +28,7 @@ using Content.Shared.Examine;
 using Content.Shared.Speech;
 using Content.Shared.Speech.Components;
 using Content.Server.Zombies;
+using Content.Shared.Zombies;
 using Content.Server.Atmos.Components;
 using Content.Server.Speech.Components;
 using Content.Server.Actions;

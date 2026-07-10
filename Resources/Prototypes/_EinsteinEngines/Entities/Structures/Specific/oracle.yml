@@ -34,7 +34,10 @@
     solutions:
       fountain:
         maxVol: 200
-  - type: Drink
+  - type: Edible
+    edible: Drink
+    destroyOnEmpty: false
+    utensil: None
     solution: fountain
   - type: DrawableSolution
     solution: fountain

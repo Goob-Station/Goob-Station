@@ -1,39 +1,3 @@
-// SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2021 Clyybber <darkmine956@gmail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <deltanedas@laptop>
-// SPDX-FileCopyrightText: 2023 deltanedas <user@zenith>
-// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2024 AWF <you@example.com>
-// SPDX-FileCopyrightText: 2024 Brandon Li <48413902+aspiringLich@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 GitHubUser53123 <110841413+GitHubUser53123@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Jake Huxell <JakeHuxell@pm.me>
-// SPDX-FileCopyrightText: 2024 Kevin Zheng <kevinz5000@gmail.com>
-// SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
-// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
@@ -117,7 +81,7 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
 
             if (TryComp<BatteryComponent>(reagentDispenser, out var battery))
             {
-                batteryCharge = battery.CurrentCharge;
+                batteryCharge = battery.LastCharge;
                 batteryMaxCharge = battery.MaxCharge;
             }
 
@@ -219,7 +183,7 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
 
             var powerRequired = GetPowerCostForReagent(message.ReagentId, amount.Float(), reagentDispenser.Comp); // Pirate: chem recipes
 
-            if (battery.CurrentCharge < powerRequired)
+            if (battery.LastCharge < powerRequired)
             {
                 _audioSystem.PlayPvs(reagentDispenser.Comp.PowerSound, reagentDispenser, AudioParams.Default.WithVolume(-2f));
                 return;
@@ -229,7 +193,7 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
             if (!_solutionContainerSystem.TryAddSolution(solution.Value, sol))
                 return;
 
-            _battery.SetCharge(reagentDispenser.Owner, battery.CurrentCharge - powerRequired);
+            _battery.SetCharge(reagentDispenser.Owner, battery.LastCharge - powerRequired);
             PlayClickSound(reagentDispenser); // Pirate: chem recipes
             UpdateUiState(reagentDispenser);
         }
@@ -243,7 +207,12 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
 
             var refundedPower = soln.Sum(reagent => GetPowerCostForReagent(reagent.Reagent.Prototype, reagent.Quantity.Float(), reagentDispenser)); // Pirate: chem recipes
             if (refundedPower > 0)
-                _battery.AddCharge(reagentDispenser, refundedPower);
+            {
+                _battery.TryGetBatteryComponent(reagentDispenser, out var batteryComponent, out _);
+                if (batteryComponent != null)
+                    _battery.SetCharge(reagentDispenser.Owner, batteryComponent.LastCharge + refundedPower);
+            }
+
 
             _solutionContainerSystem.RemoveAllSolution(solution.Value);
             UpdateUiState(reagentDispenser);
@@ -312,7 +281,7 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
                 totalPowerRequired += GetPowerCostForReagent(reagentId, quantity.Float(), reagentDispenser.Comp);
             }
 
-            if (battery.CurrentCharge < totalPowerRequired)
+            if (battery.LastCharge < totalPowerRequired)
                 return false;
 
             foreach (var (reagentId, quantity) in recipe)
@@ -321,7 +290,7 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
                     return false;
             }
 
-            _battery.SetCharge(reagentDispenser.Owner, battery.CurrentCharge - totalPowerRequired);
+            _battery.SetCharge(reagentDispenser.Owner, battery.LastCharge - totalPowerRequired);
             return true;
         }
 

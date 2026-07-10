@@ -9673,7 +9673,7 @@ entities:
     - type: Transform
       pos: -10.5,-14.5
       parent: 2
-- proto: GlowstickBase
+- proto: Glowstick
   entities:
   - uid: 1194
     components:

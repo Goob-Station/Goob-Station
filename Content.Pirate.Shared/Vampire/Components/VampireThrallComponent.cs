@@ -2,6 +2,7 @@ using Content.Shared.Chemistry.Reagent;
 using Content.Shared._Starlight.CollectiveMind;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Roles;
+using Content.Shared.Roles.Components;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 

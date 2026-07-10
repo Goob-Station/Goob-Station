@@ -77,7 +77,7 @@ public sealed class BloodCultEntityEffectSystem : EntitySystem
         {
             edgeEssentia = AddComp<EdgeEssentiaBloodComponent>(target);
             if (!TryGetPrototypeBloodReagent(target, out var originalBlood))
-                originalBlood = bloodstream.BloodReagent;
+                originalBlood = GetPrimaryBloodReagent(bloodstream);
 
             edgeEssentia.OriginalBloodReagent = originalBlood;
         }
@@ -121,7 +121,17 @@ public sealed class BloodCultEntityEffectSystem : EntitySystem
                 out BloodstreamComponent? prototypeBloodstream))
             return false;
 
-        bloodReagent = prototypeBloodstream.BloodReagent;
+        if (prototypeBloodstream.BloodReferenceSolution.Contents.Count == 0)
+            return false;
+
+        bloodReagent = prototypeBloodstream.BloodReferenceSolution.Contents[0].Reagent.Prototype;
         return true;
+    }
+
+    private static string GetPrimaryBloodReagent(BloodstreamComponent bloodstream)
+    {
+        return bloodstream.BloodReferenceSolution.Contents.Count == 0
+            ? "Blood"
+            : bloodstream.BloodReferenceSolution.Contents[0].Reagent.Prototype;
     }
 }

@@ -164,7 +164,7 @@ public sealed class DarkShardSystem : EntitySystem
                 out var bloodSolution))
             return;
 
-        var bloodMax = bloodstream.BloodMaxVolume;
+        var bloodMax = bloodstream.BloodReferenceSolution.Volume * bloodstream.MaxVolumeModifier;
         var drainAmount = FixedPoint2.New(bloodMax.Float() * costPercent);
         var currentVolume = bloodSolution.Volume;
 

@@ -54,5 +54,5 @@ loadout-group-virologist-backpack = Рюкзак вірусолога
 loadout-group-virologist-outerclothing = Верхній одяг вірусолога
 loadout-group-virologist-id = Посвідчення вірусолога
 
-#RadioHost
+# RadioHost
 loadout-group-radiohost-jumpsuit = Сорочка

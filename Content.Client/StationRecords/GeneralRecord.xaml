@@ -1,7 +1,4 @@
 <!--
-SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-
 SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
@@ -18,7 +15,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                StyleClasses="LabelBig" />
         <BoxContainer Orientation="Horizontal"
                       SeparationOverride="8">
-            <Label Text="{Loc 'crew-monitoring-user-interface-job'}"
+            <Label Text="{Loc 'crew-monitoring-ui-job-label'}"
                    FontColorOverride="DarkGray" />
             <TextureRect Name="PersonJobIcon"
                          TextureScale="2 2"

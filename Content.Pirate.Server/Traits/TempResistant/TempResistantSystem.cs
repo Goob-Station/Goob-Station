@@ -1,4 +1,4 @@
-using Content.Server.Temperature.Components;
+using Content.Shared.Temperature.Components;
 
 namespace Content.Pirate.Server.Traits.HeatResistant;
 
@@ -13,8 +13,10 @@ public sealed class TempResistantSystem : EntitySystem
 
     private void OnInit(Entity<TempResistantComponent> ent, ref MapInitEvent args)
     {
-        if (!TryComp<TemperatureComponent>(ent.Owner, out var temperature)) return;
-        temperature.HeatDamageThreshold *= ent.Comp.HeatModifier;
-        temperature.ColdDamageThreshold *= ent.Comp.ColdModifier;
+        if (!TryComp<TemperatureDamageComponent>(ent.Owner, out var temperatureDamage))
+            return;
+
+        temperatureDamage.HeatDamageThreshold *= ent.Comp.HeatModifier;
+        temperatureDamage.ColdDamageThreshold *= ent.Comp.ColdModifier;
     }
 }

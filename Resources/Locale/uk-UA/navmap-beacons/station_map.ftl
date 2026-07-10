@@ -15,3 +15,4 @@ nav-beacon-pos-format = [color={$color}]біля {$marker}[/color]
 nav-beacon-pos-format-direction = [color={$color}]{$modifier}{$direction} з {$marker}[/color]
 nav-beacon-pos-format-direction-mod-far = далеко {""}
 station-map-filter-placeholder = Пошук за назвою
+station-map-unknown-station = Невідома станція

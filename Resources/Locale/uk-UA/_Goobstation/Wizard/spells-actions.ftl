@@ -6,7 +6,6 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 action-speech-spell-clown = NWOLC YRGNA
-action-speech-spell-cluwne = NWOLC EGNEVER
 action-speech-spell-magic-missile = FORTI GY AMA
 action-speech-spell-emp = NEC CANTIO
 action-speech-spell-repulse = GITTAH WEIGH
@@ -30,9 +29,10 @@ action-speech-spell-sanguine-strike = SHAPSDAY
 action-speech-spell-soul-tap = ЗА БУДЬ-ЯКУ ЦІНУ!
 action-speech-spell-thrown-lightning = БЛИСКАВКА!!
 action-speech-spell-rod-form = БРЯЗК!
-action-speech-spell-charge = DI'RI CEL
 action-speech-spell-gorilla-form = B'NA NAH-SLEMA!
 action-speech-spell-summon-stick-minions = Повстаньте, мої творіння! Зі сторінок у цей світ!
 action-speech-spell-tile-toggle = РУК'АТ
 action-speech-spell-curse-of-byond = ПРОКЛЯТТЯ БІОНДУ!!
 action-speech-spell-rathen = АРС НАТ!!
+action-speech-spell-cluwne-goob = NWOLC EGNEVER
+action-speech-spell-charge-goob = DI'RI CEL

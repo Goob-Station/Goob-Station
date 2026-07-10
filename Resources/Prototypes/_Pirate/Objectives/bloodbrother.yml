@@ -3,7 +3,7 @@
   id: AccessConfiguratorStealObjective
   components:
   - type: NotJobRequirement
-    job: HeadOfPersonnel
+    jobs: [ HeadOfPersonnel ]
   - type: ObjectiveLimit
     limit: 3
   - type: StealCondition

@@ -1,0 +1,1 @@
+key-phrase-gadget = гоу гоу гаджет

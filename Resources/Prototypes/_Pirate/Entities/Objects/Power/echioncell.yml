@@ -16,7 +16,7 @@
   - type: Battery
     maxCharge: 540
     startingCharge: 540
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: EchionLaser
     fireCost: 45
   - type: Extractable

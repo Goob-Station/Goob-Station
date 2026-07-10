@@ -82,7 +82,10 @@
       Burn:
         sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
   - type: Bloodstream
-    bloodReagent: Blood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 300
   - type: GoblinAccent
   - type: TypingIndicator
     proto: goblin
@@ -98,7 +101,7 @@
     - reagents: [ Water, SpaceCleaner, SoapReagent ]
       methods: [ Touch ]
       effects:
-      - !type:WashCreamPieReaction
+      - !type:WashCreamPie
     - reagents: [ Water, SpaceCleaner, SoapReagent ]
       methods: [ Touch ]
       effects:

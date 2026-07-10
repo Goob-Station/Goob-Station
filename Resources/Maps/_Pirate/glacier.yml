@@ -83010,7 +83010,7 @@ entities:
     - type: Transform
       pos: 23.5,-28.5
       parent: 2
-- proto: GlowstickBase
+- proto: Glowstick
   entities:
   - uid: 11097
     components:
@@ -90322,7 +90322,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: MaterialSilo
+- proto: MachineMaterialSilo
   entities:
   - uid: 12157
     components:

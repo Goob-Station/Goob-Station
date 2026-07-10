@@ -31,7 +31,7 @@ public sealed partial class NpcInterrogatableComponent : Component
 /// </summary>
 [Prototype("npcInterrogation")]
 [Serializable, NetSerializable]
-public sealed class NpcInterrogationPrototype : IPrototype
+public sealed partial class NpcInterrogationPrototype : IPrototype
 {
     [IdDataField]
     public string ID { get; private set; } = default!;

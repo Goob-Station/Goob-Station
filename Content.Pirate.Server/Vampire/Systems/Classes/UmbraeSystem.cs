@@ -1,9 +1,7 @@
 using System.Numerics;
 using Content.Server.Actions;
 using Content.Goobstation.Common.Religion;
-using Content.Server.Light.Components;
 using Content.Server.Light.EntitySystems;
-using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Pirate.Shared.Vampire;
 using Content.Pirate.Shared.Vampire.Components;

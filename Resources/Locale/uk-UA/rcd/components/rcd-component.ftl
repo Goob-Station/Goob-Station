@@ -31,9 +31,6 @@ rcd-component-must-build-on-subfloor-message = Ви можете встанов�
 rcd-component-cannot-build-on-subfloor-message = Ви не можете побудувати це на відкритій підлозі!
 rcd-component-cannot-build-on-occupied-tile-message = Тут не можна будувати, місце вже зайняте!
 rcd-component-cannot-build-identical-tile = Ця плитка там вже є!
-
-
-### Назви категорій
 rcd-component-walls-and-flooring = Стіни та підлога
 rcd-component-windows-and-grilles = Вікна та решітки
 rcd-component-airlocks = Шлюзи
@@ -53,3 +50,4 @@ rcd-component-deconstruct-target-no-access = У вас немає доступу
 rcd-component-deconstruct-target-is-bolted = Болти механізму перешкоджають деконструкції!
 
 # Construction
+rcd-component-cannot-build-identical-entity = Там це вже існує!

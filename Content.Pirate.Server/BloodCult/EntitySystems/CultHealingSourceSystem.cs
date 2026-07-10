@@ -144,7 +144,7 @@ public sealed partial class CultHealingSourceSystem : EntitySystem
 			{
 				// For all cult healers...
 				stackQuery.TryGetComponent(uid, out var stack);
-				var intensity = source.Intensity * _stack.GetCount(uid, stack);
+				var intensity = source.Intensity * _stack.GetCount((uid, stack));
 
 				// send ray towards destination entity
 				var ray = CultHeal(uid, sourceTrs, sourceWorld, destUid,
@@ -183,7 +183,7 @@ public sealed partial class CultHealingSourceSystem : EntitySystem
 			{
 				// For all cult healers...
 				stackQuery.TryGetComponent(uid, out var stack);
-				var intensity = source.Intensity * _stack.GetCount(uid, stack);
+				var intensity = source.Intensity * _stack.GetCount((uid, stack));
 
 				// send ray towards destination entity
 				var ray = CultHeal(uid, sourceTrs, sourceWorld, destUid,
@@ -404,20 +404,21 @@ public sealed partial class CultHealingSourceSystem : EntitySystem
 		if (TryComp<BloodstreamComponent>(uid, out var bloodstream))
 		{
 			// Only restore if blood max volume > 0 (constructs have 0)
-			if (bloodstream.BloodMaxVolume > FixedPoint2.Zero)
+			var bloodMaxVolume = bloodstream.BloodReferenceSolution.Volume * bloodstream.MaxVolumeModifier;
+			if (bloodMaxVolume > FixedPoint2.Zero)
 			{
 				if (bloodstream.BleedAmount > 0f)
 					_bloodstreamSystem.TryModifyBleedAmount((uid, bloodstream), -(adjustedHealing * time));
 
 				// Check current blood level
-				var currentBloodLevel = _bloodstreamSystem.GetBloodLevelPercentage((uid, bloodstream));
-				
+				var currentBloodLevel = _bloodstreamSystem.GetBloodLevel((uid, bloodstream)) / bloodstream.MaxVolumeModifier;
+
 				// Only restore if below 100%
 				if (currentBloodLevel < 1.0f)
 				{
 					// Calculate blood recovery: restore 100% in 240 seconds (4 minutes)
 					// Blood recovery per update = (bloodMaxVolume / 240.0) * time
-					var bloodRecovery = (bloodstream.BloodMaxVolume / 240.0f) * time;
+					var bloodRecovery = (bloodMaxVolume / 240.0f) * time;
 					
 					// Restore blood
 					_bloodstreamSystem.TryModifyBloodLevel((uid, bloodstream), bloodRecovery);

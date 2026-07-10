@@ -8,3 +8,5 @@ trigger-on-voice-stop-recording = Запис зупинено.
 trigger-on-voice-record-failed-too-long = Повідомлення задовге, спробуйте ще раз.
 trigger-on-voice-record-failed-too-short = Повідомлення закоротке, спробуйте ще раз.
 trigger-on-voice-recorded = Успішно записано!
+trigger-on-voice-default = Скинути до типового
+trigger-on-voice-set-default = Встановлено типову ключову фразу: "{$keyphrase}"

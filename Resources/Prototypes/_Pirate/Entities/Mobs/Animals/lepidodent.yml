@@ -45,7 +45,10 @@
     - id: FoodMeatRat
       amount: 1
   - type: Bloodstream
-    bloodReagent: InsectBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: InsectBlood
+        Quantity: 300
   - type: SolutionContainerManager
     solutions:
       food:

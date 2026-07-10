@@ -13,16 +13,16 @@ namespace Content.Shared._Pirate.Contractors.Prototypes;
 public sealed partial class EmployerPrototype : IPrototype
 {
     [IdDataField, ViewVariables]
-    public string ID { get; } = string.Empty;
+    public string ID { get; private set; } = string.Empty;
 
     [DataField]
-    public string NameKey { get; } = string.Empty;
+    public string NameKey { get; private set; } = string.Empty;
 
     [DataField]
-    public string DescriptionKey { get; } = string.Empty;
+    public string DescriptionKey { get; private set; } = string.Empty;
 
     [DataField, ViewVariables]
-    public HashSet<ProtoId<EmployerPrototype>> Rivals { get; } = new();
+    public HashSet<ProtoId<EmployerPrototype>> Rivals { get; private set; } = new();
 
     [DataField]
     public List<JobRequirement> Requirements = new();

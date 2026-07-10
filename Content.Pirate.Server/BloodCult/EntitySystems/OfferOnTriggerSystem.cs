@@ -313,14 +313,18 @@ namespace Content.Server.BloodCult.EntitySystems
 				return;
 			}
 			// If humanoid and can bleed, convert
-			if (HasComp<HumanoidAppearanceComponent>(offerable) && HasComp<BloodstreamComponent>(offerable) && _CanBeConverted(offerable))
+			if (HasComp<HumanoidAppearanceComponent>(offerable) &&
+				TryComp<BloodstreamComponent>(offerable, out var offerableBloodstream) &&
+				_CanBeConverted(offerable))
 			{
 				_bloodCultist.UseConvertRune(offerable, user, uid, cultistsInRange);
 				
 				// Add blood to the ritual pool based on the victim's current blood level
 				// If they're at 50% blood, only add 50u instead of 100u
 				// Also account for blood already spilled from EdgeEssentia wounds
-				var bloodPercentage = _bloodstream.GetBloodLevelPercentage(offerable);
+				var bloodPercentage = offerableBloodstream.MaxVolumeModifier == 0f
+					? 0f
+					: _bloodstream.GetBloodLevel((offerable, offerableBloodstream)) / offerableBloodstream.MaxVolumeModifier;
 				var bloodFromConversion = 100.0 * bloodPercentage;
 				
 				// Check if this entity has already contributed blood via EdgeEssentia bleeding
@@ -1018,7 +1022,12 @@ namespace Content.Server.BloodCult.EntitySystems
 		// Add blood to the ritual pool based on the victim's current blood level
 		// If they're at 50% blood, only add 50u instead of 100u
 		// Also account for blood already spilled from EdgeEssentia wounds
-		var bloodPercentage = _bloodstream.GetBloodLevelPercentage(victim);
+		var bloodPercentage = 0f;
+		if (TryComp<BloodstreamComponent>(victim, out var victimBloodstream) &&
+			victimBloodstream.MaxVolumeModifier != 0f)
+		{
+			bloodPercentage = _bloodstream.GetBloodLevel((victim, victimBloodstream)) / victimBloodstream.MaxVolumeModifier;
+		}
 		var bloodFromConversion = 100.0 * bloodPercentage;
 		
 		// Check if this entity has already contributed blood via EdgeEssentia bleeding

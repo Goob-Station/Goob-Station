@@ -26,17 +26,19 @@
       "name": "magicmissile"
     },
     {
+      "name": "jaunt"
+    },
+    {
       "name": "gib"
     },
     {
-        "name":"heal"
+      "name": "heal"
     },
     {
-        "name":"tesla"
+      "name": "tesla"
     },
     {
-        "name":"jaunt"
+      "name": "repulse"
     }
-
   ]
 }

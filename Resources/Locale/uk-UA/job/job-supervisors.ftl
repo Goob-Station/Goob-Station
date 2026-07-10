@@ -27,3 +27,4 @@ job-supervisors-science = Науковці та науковий керівни�
 job-supervisors-hire = той, хто вас найме
 job-supervisors-everyone = абсолютно всі
 job-supervisors-command = командування станції
+job-supervisors-nobody = ніхто

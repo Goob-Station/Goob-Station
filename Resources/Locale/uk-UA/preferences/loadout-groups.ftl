@@ -205,7 +205,12 @@ loadout-group-medical-glasses = Медичні окуляри
 
 # Універсальні
 
-#Дрібнички
+# Дрібнички
 loadout-group-command-trinkets = Дрібнички командування
 loadout-group-medical-trinkets = Медичні дрібнички
 loadout-group-engineering-trinkets = Інженерні дрібнички
+loadout-group-jobtrinkets = Посадові дрібнички
+loadout-group-survival-military = Див. рядок 14, цього все одно ніхто ніколи не побачить, тож :3
+loadout-group-bartender-shaker = Шейкер бармена
+loadout-group-chaplain-bible = Священна книга
+loadout-group-cargo-technician-id = ID вантажного техніка

@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 chromiumboy <chromium.boy@gmail.com>
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Power.EntitySystems;
@@ -13,7 +8,7 @@ namespace Content.Shared.Power.Components;
 /// <summary>
 /// Attached to APC powered entities that possess a rechargeable internal battery.
 /// If external power is interrupted, the entity will draw power from this battery instead.
-/// Requires <see cref="Content.Server.Power.Components.ApcPowerReceiverComponent"/> and <see cref="Content.Server.Power.Components.BatteryComponent"/> to function.
+/// Requires <see cref="Content.Server.Power.Components.ApcPowerReceiverComponent"/> and <see cref="BatteryComponent"/> to function.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 [Access(typeof(SharedPowerNetSystem), typeof(SharedPowerReceiverSystem))]

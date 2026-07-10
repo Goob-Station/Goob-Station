@@ -278,7 +278,7 @@ uplink-adv-mimery-desc = Класична серія з двох частин п
 uplink-box-xenobio-name = Ящик зі слаймами ксенобіології
 uplink-box-xenobio-desc = Слайми для ваших потреб у ксенобіології. Містить 9 випадкових слаймів рівня T1.
 
-#Contractor
+# Contractor
 uplink-m90-ammo-name = Магазин для гвинтівки (.20)
 uplink-m90-ammo-desc = Гвинтівковий магазин на 25 патронів. Сумісний з М-90 та Лектером.
 

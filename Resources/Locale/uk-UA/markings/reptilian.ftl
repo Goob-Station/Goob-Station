@@ -83,3 +83,7 @@ marking-LizardTailAquatic-tail_aquatic = Хвіст Ящера (Водний)
 marking-LizardTailAquatic = Хвіст Ящера (Водний)
 marking-LizardChestFin-body_fin = Плавник Ящера
 marking-LizardChestFin = Плавник Ящера
+marking-LizardSnoutVisageSharp = Візаж ящірки (гострий)
+marking-LizardSnoutVisageSharp-visage_sharp = Візаж ящірки (гострий)
+marking-LizardSnoutVisageRound = Візаж ящірки (округлий)
+marking-LizardSnoutVisageRound-visage_round = Візаж ящірки (округлий)

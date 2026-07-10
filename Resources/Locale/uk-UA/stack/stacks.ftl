@@ -242,3 +242,20 @@ stack-white-marble-floor = підлога з білого мармуру
 stack-dark-marble-floor = підлога з темного мармуру
 stack-plasma-marble-floor = плазмармурова підлога
 stack-uranium-marble-floor = уранова мармурова підлога
+stack-explosive-cord = {$amount ->
+    [1] вибуховий шнур
+    *[other] вибухових шнурів
+}
+stack-charonic-hide = харонічна шкіра
+stack-charonic-leech-tooth = зуб харонічної п'явки
+stack-charonic-wisp-shard = уламок харонічного вогника
+stack-charonic-ichor = харонічний іхор
+stack-ironsand-concrete-tile = плитка залізопіщаного бетону
+stack-ironsand-concrete-mono-tile = моно-плитка залізопіщаного бетону
+stack-ironsand-concrete-smooth = гладкий залізопіщаний бетон
+stack-dark-astro-grass-floor = темна астро-травяна підлога
+stack-light-astro-grass-floor = світла астро-травяна підлога
+stack-desert-astro-sand-floor = пустельна астро-піщана підлога
+stack-xenoborg = плитка ксеноборга
+stack-astro-ironsand-floor = астро-залізопіщана підлога
+stack-astro-ironsand-floor-borderless = астро-залізопіщана підлога без країв

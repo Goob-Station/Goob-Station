@@ -1,6 +1,9 @@
-guidebook-reagent-effect-description = { $chance ->
+guidebook-reagent-effect-description = {$quantity ->
+        [0] {""}
+        *[other] Якщо є щонайменше {$quantity}u {$reagent},{" "}
+    }{$chance ->
         [1] { $effect }
-        *[other] Має { NATURALPERCENT($chance, 2) } шанс на { $effect }
+        *[other] з шансом { NATURALPERCENT($chance, 2) } { $effect }
     }{ $conditionCount ->
         [0] .
         *[other] {" "}коли { $conditions }.

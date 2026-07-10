@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2024 August Eymann <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2024 Steve <marlumpy@gmail.com>
-// SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Client.Hands.Systems;
@@ -20,7 +14,6 @@ using Robust.Shared.Enums;
 using Robust.Shared.Input;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Prototypes;
-
 
 namespace Content.Client.RCD;
 
@@ -88,7 +81,6 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
         return true;
     }
 
-
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -108,10 +100,10 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
 
         var heldEntity = _hands.GetActiveItem(player);
 
-        #region Pirate: chem plumbing
+        // Don't open the placement overlay for client-side RCDs.
+        // This may happen when predictively spawning one in your hands.
         if (heldEntity != null && IsClientSide(heldEntity.Value))
             return;
-        #endregion
 
         if (!TryComp<RCDComponent>(heldEntity, out var rcd))
         {
@@ -143,6 +135,7 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
             _placementDirection = _placementManager.Direction;
             RaiseNetworkEvent(new RCDConstructionGhostRotationEvent(GetNetEntity(heldEntity.Value), _placementDirection));
         }
+
         // If the placer has not changed build it.
         #region Pirate: chem plumbing
         if (heldEntity != placerEntity ||
@@ -152,7 +145,6 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
         {
             CreatePlacer(heldEntity.Value, useProto, prototype.Mode, desiredMode); // Pirate: chem plumbing
         }
-
 
     }
 

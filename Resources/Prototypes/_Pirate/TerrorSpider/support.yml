@@ -16,18 +16,25 @@
     Heat: 1.6
 
 # Pirate - Starlight uses a newer hitscan entity schema; this preserves its acid spit damage/visuals on local hitscan prototypes.
-- type: hitscan
+- type: entity
+  parent: BasicHitscan
   id: BulletAcidHitscan
-  damage:
-    types:
-      Caustic: 8
-  collisionMask: 64 # BulletImpassable
-  travelFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/xeno_toxic.rsi
-    state: xeno_toxic
-  impactFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/xeno_toxic.rsi
-    state: xeno_toxic
+  name: acid spit ray
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicRaycast
+    collisionMask: BulletImpassable
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Caustic: 8
+  - type: HitscanBasicVisuals
+    travelFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/xeno_toxic.rsi
+      state: xeno_toxic
+    impactFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/xeno_toxic.rsi
+      state: xeno_toxic
 
 - type: reagent
   id: RoyalJelly

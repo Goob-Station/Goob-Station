@@ -35,9 +35,9 @@ using Content.Shared.Stunnable;
 using Content.Shared.Emp;
 using Content.Server.Emp;
 using Content.Shared.Popups;
-using Content.Server.PowerCell;
 using Content.Shared.PowerCell;
 using Content.Shared.PowerCell.Components;
+using Content.Shared.Power.Components;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Weapons.Melee;
@@ -421,19 +421,17 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			_stun.TryKnockdown(ent.Owner, TimeSpan.FromSeconds(selfStunTime), true);
 		}
 		else if (HasComp<SiliconComponent>(target) &&
-			_powerCell.TryGetBatteryFromSlot(target, out EntityUid? ipcBatteryUid, out BatteryComponent? _) &&
-			ipcBatteryUid != null)
+			_powerCell.TryGetBatteryFromSlot(target, out var ipcBattery))
 		{
 			// Apply EMP damage directly to the IPC's battery
-			_emp.DoEmpEffects((EntityUid)ipcBatteryUid, empDamage, empDuration);
+			_emp.DoEmpEffects(ipcBattery.Value.Owner, empDamage, TimeSpan.FromSeconds(empDuration));
 			_statusEffect.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(empDuration), false);
 		}
 		else if (HasComp<BorgChassisComponent>(target) &&
-			_powerCell.TryGetBatteryFromSlot(target, out EntityUid? borgBatteryUid, out BatteryComponent? _) &&
-			borgBatteryUid != null)
+			_powerCell.TryGetBatteryFromSlot(target, out var borgBattery))
 		{
 			// Apply EMP damage directly to the borg's battery
-			_emp.DoEmpEffects((EntityUid)borgBatteryUid, empDamage, empDuration);
+			_emp.DoEmpEffects(borgBattery.Value.Owner, empDamage, TimeSpan.FromSeconds(empDuration));
 			_statusEffect.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(empDuration), false);
 		}
 		else if (HasComp<JuggernautComponent>(target))
@@ -451,7 +449,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			sleepSolution.AddReagent("Nocturine", FixedPoint2.New(15));  // 15u Nocturine
 			sleepSolution.AddReagent("EdgeEssentia", FixedPoint2.New(5));  // 5u Edge Essentia
 			
-			_bloodstream.TryAddToChemicals((target, bloodstream), sleepSolution);
+			_bloodstream.TryAddToBloodstream((target, bloodstream), sleepSolution);
 			
 			// Show the dream message
 			_popup.PopupEntity(
@@ -472,7 +470,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			// Fallback for entities without bloodstream (IPCs, rare cases)
 			// Apply EMP effects directly to the entity, and mute them.
 			// todo: Explore if this is a less fancy way to do it. Might be able to just do this for all entities?
-			_emp.DoEmpEffects(target, empDamage, empDuration);
+			_emp.DoEmpEffects(target, empDamage, TimeSpan.FromSeconds(empDuration));
 			_statusEffect.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(empDuration), false);
 		}
 	}
@@ -507,7 +505,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 
 			// Use StackSystem.SpawnMultiple to properly split stacks respecting max count (30)
 			var runedSteelProto = _proto.Index(RunedSteelStack);
-			_stackSystem.SpawnMultiple(runedSteelProto.Spawn.ToString(), count, targetCoords);
+			_stackSystem.SpawnMultipleAtPosition(runedSteelProto.Spawn, count, targetCoords);
 
 			QueueDel(args.Target);
 			args.Handled = true;
@@ -525,7 +523,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 
 			// Use StackSystem.SpawnMultiple to properly split stacks respecting max count (30)
 			var runedGlassProto = _proto.Index(RunedGlassStack);
-			_stackSystem.SpawnMultiple(runedGlassProto.Spawn.ToString(), count, targetCoords);
+			_stackSystem.SpawnMultipleAtPosition(runedGlassProto.Spawn, count, targetCoords);
 
 			QueueDel(args.Target);
 			args.Handled = true;
@@ -543,7 +541,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 
 			// Use StackSystem.SpawnMultiple to properly split stacks respecting max count (30)
 			var runedGlassProto = _proto.Index(RunedGlassStack);
-			_stackSystem.SpawnMultiple(runedGlassProto.Spawn.ToString(), count, targetCoords);
+			_stackSystem.SpawnMultipleAtPosition(runedGlassProto.Spawn, count, targetCoords);
 
 			QueueDel(args.Target);
 			args.Handled = true;
@@ -561,7 +559,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 
 			// Use StackSystem.SpawnMultiple to properly split stacks respecting max count (30)
 			var runedPlasteelProto = _proto.Index(RunedPlasteelStack);
-			_stackSystem.SpawnMultiple(runedPlasteelProto.Spawn.ToString(), count, targetCoords);
+			_stackSystem.SpawnMultipleAtPosition(runedPlasteelProto.Spawn, count, targetCoords);
 
 			QueueDel(args.Target);
 			args.Handled = true;

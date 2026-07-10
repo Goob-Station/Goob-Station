@@ -121,7 +121,7 @@ public sealed class ATMSystem : SharedATMSystem
         }
 
         var player = args.Actor;
-        var spawnedMoney = _stackSystem.Spawn(args.Amount, _prototypeManager.Index<StackPrototype>(component.CreditStackPrototype), Transform(player).Coordinates);
+        var spawnedMoney = _stackSystem.SpawnAtPosition(args.Amount, _prototypeManager.Index<StackPrototype>(component.CreditStackPrototype), Transform(player).Coordinates);
 
         if (!_handsSystem.TryPickupAnyHand(player, spawnedMoney))
         {

@@ -314,7 +314,7 @@
     spawned:
     - id: MaterialCloth1
       amount: 1
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
     solutions:
@@ -2846,7 +2846,7 @@
     state: icon
   - type: Item
     size: Normal
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
     solutions:
@@ -3967,5 +3967,4 @@
     sprite: _Pirate/Loadouts/EEGeneric/_EE/Clothing/Generic/Neck/fur_wrap.rsi
   - type: Clothing
     sprite: _Pirate/Loadouts/EEGeneric/_EE/Clothing/Generic/Neck/fur_wrap.rsi
-
 

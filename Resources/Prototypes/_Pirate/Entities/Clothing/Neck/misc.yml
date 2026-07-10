@@ -22,7 +22,6 @@
     maxCharge: 60          #<- max supply
     startingCharge: 60
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 1
 
 - type: entity

@@ -1,22 +1,3 @@
-# SPDX-FileCopyrightText: 2020 ComicIronic <comicironic@gmail.com>
-# SPDX-FileCopyrightText: 2020 Tyler Young <tyler.young@impromptu.ninja>
-# SPDX-FileCopyrightText: 2020 Ygg01 <y.laughing.man.y@gmail.com>
-# SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-# SPDX-FileCopyrightText: 2021 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 0x6273 <0x40@keemail.me>
-# SPDX-FileCopyrightText: 2022 Kara D <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 Zoldorf <silvertorch5@gmail.com>
-# SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Myra <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 name: Build & Test Debug
@@ -33,14 +14,111 @@ on:
     types: [ opened, reopened, synchronize, ready_for_review ]
     branches: [ master, staging, stable ]
 
+env:
+  # Pirate: mapped groups run independently; every other integration test falls through to the unmapped shard.
+  ENTITY_TEST_PATTERNS: Content.IntegrationTests.Tests.EntityTest
+  ATMOS_TILE_TEST_PATTERNS: Content.IntegrationTests.Tests.Atmos.TileAtmosphereTest
+  ATMOS_CORE_TEST_PATTERNS: >-
+    Content.IntegrationTests.Tests.Atmos.AirtightTest
+    Content.IntegrationTests.Tests.Atmos.AlarmThresholdTest
+    Content.IntegrationTests.Tests.Atmos.AtmosMonitoringTest
+    Content.IntegrationTests.Tests.Atmos.ConstantsTest
+    Content.IntegrationTests.Tests.Atmos.DeltaPressureTest
+    Content.IntegrationTests.Tests.Atmos.GasArrayTest
+    Content.IntegrationTests.Tests.Atmos.GasMixtureTest
+    Content.IntegrationTests.Tests.Atmos.GridJoinTest
+    Content.IntegrationTests.Tests.Atmos.RoomSpacingTest
+    Content.IntegrationTests.Tests.Atmos.SharedGasSpecificHeatsTest
+  VALIDATION_TEST_PATTERNS: >-
+    Content.IntegrationTests.Tests.ConfigPresetTests
+    Content.IntegrationTests.Tests.Guidebook
+    Content.IntegrationTests.Tests.Linter
+    Content.IntegrationTests.Tests.Localization
+    Content.IntegrationTests.Tests.Mapping
+    Content.IntegrationTests.Tests.PostMapInitTest
+    Content.IntegrationTests.Tests.PrototypeSaveTest
+    Content.IntegrationTests.Tests.PrototypeTests
+    Content.IntegrationTests.Tests.SaveLoad
+    Content.IntegrationTests.Tests.Sprite
+    Content.IntegrationTests.Tests.StartTest
+    Content.IntegrationTests.Tests.WizdenContentFreeze
+  WORLD_TEST_PATTERNS: >-
+    Content.IntegrationTests.Tests.Chasm
+    Content.IntegrationTests.Tests.Climbing
+    Content.IntegrationTests.Tests.Construction
+    Content.IntegrationTests.Tests.DeviceLinking
+    Content.IntegrationTests.Tests.DeviceNetwork
+    Content.IntegrationTests.Tests.Doors
+    Content.IntegrationTests.Tests.Disposal
+    Content.IntegrationTests.Tests.Explosion
+    Content.IntegrationTests.Tests.Fluids
+    Content.IntegrationTests.Tests.Gravity
+    Content.IntegrationTests.Tests.Physics
+    Content.IntegrationTests.Tests.Power
+    Content.IntegrationTests.Tests.Procedural
+    Content.IntegrationTests.Tests.Shuttle
+    Content.IntegrationTests.Tests.Station
+    Content.IntegrationTests.Tests.Tiles
+    Content.IntegrationTests.Tests.Weldable
+    Content.IntegrationTests.Tests.Wires
+  GAMEPLAY_TEST_PATTERNS: >-
+    Content.IntegrationTests.Tests.Actions
+    Content.IntegrationTests.Tests.Body
+    Content.IntegrationTests.Tests.Buckle
+    Content.IntegrationTests.Tests.Chemistry
+    Content.IntegrationTests.Tests.Damageable
+    Content.IntegrationTests.Tests.Destructible
+    Content.IntegrationTests.Tests.GameObjects
+    Content.IntegrationTests.Tests.GameRules
+    Content.IntegrationTests.Tests.Hands
+    Content.IntegrationTests.Tests.Interaction
+    Content.IntegrationTests.Tests.Minds
+    Content.IntegrationTests.Tests.Mousetrap
+    Content.IntegrationTests.Tests.Movement
+    Content.IntegrationTests.Tests.NPC
+    Content.IntegrationTests.Tests.Nutrition
+    Content.IntegrationTests.Tests.Puller
+    Content.IntegrationTests.Tests.Roles
+    Content.IntegrationTests.Tests.Storage
+    Content.IntegrationTests.Tests.Strip
+    Content.IntegrationTests.Tests.Weapons
+
 jobs:
-  build:
+  tests:
+    name: ${{ matrix.name }}
     if: github.event.pull_request.draft == false
     strategy:
+      fail-fast: false
       matrix:
-        os: [ubuntu-latest]
+        include:
+          - name: Unit tests
+            project: Content.Tests/Content.Tests.csproj
+            shard: unit
+          - name: Entity integration tests
+            project: Content.IntegrationTests/Content.IntegrationTests.csproj
+            shard: entity
+          - name: Atmos tile integration tests
+            project: Content.IntegrationTests/Content.IntegrationTests.csproj
+            shard: atmos-tile
+          - name: Atmos core integration tests
+            project: Content.IntegrationTests/Content.IntegrationTests.csproj
+            shard: atmos-core
+          - name: Validation integration tests
+            project: Content.IntegrationTests/Content.IntegrationTests.csproj
+            shard: validation
+          - name: World integration tests
+            project: Content.IntegrationTests/Content.IntegrationTests.csproj
+            shard: world
+          - name: Gameplay integration tests
+            project: Content.IntegrationTests/Content.IntegrationTests.csproj
+            shard: gameplay
+          - name: Unmapped integration tests
+            project: Content.IntegrationTests/Content.IntegrationTests.csproj
+            shard: unmapped
 
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
+    # Pirate: the expanded RT 270 integration suite exceeds the default job limit.
+    timeout-minutes: 60
 
     steps:
     - name: Checkout Master
@@ -61,7 +139,7 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v4.1.0
       with:
-        dotnet-version: 9.0.x
+        dotnet-version: 10.0.x
 
     - name: Install dependencies
       run: dotnet restore
@@ -69,29 +147,96 @@ jobs:
     - name: Build Project
       run: dotnet build --configuration DebugOpt --no-restore /m
 
-    - name: Run Content.Tests
-      run: dotnet test --no-build --configuration DebugOpt Content.Tests/Content.Tests.csproj -- NUnit.ConsoleOut=0
-
-    - name: Run Content.IntegrationTests
-      shell: pwsh
+    - name: Run ${{ matrix.name }}
       timeout-minutes: 60
+      env:
+        TEST_PROJECT: ${{ matrix.project }}
+        TEST_SHARD: ${{ matrix.shard }}
       run: |
-        $heartbeat = Start-Job -ScriptBlock { while ($true) { Start-Sleep -Seconds 60; Write-Host "::notice:: integration tests are still running..." } }
-        try {
-          $env:DOTNET_gcServer=1
-          dotnet test --no-build --configuration DebugOpt Content.IntegrationTests/Content.IntegrationTests.csproj -- NUnit.ConsoleOut=1 NUnit.MapWarningTo=Failed NUnit.ShowLabels=All --logger "console;verbosity=normal"
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-        }
-        finally {
-          if ($null -ne $heartbeat) {
-            Stop-Job -Job $heartbeat -ErrorAction SilentlyContinue | Out-Null
-            Remove-Job -Job $heartbeat -Force -ErrorAction SilentlyContinue | Out-Null
-          }
-        }
+        export DOTNET_gcServer=1
+        test_args=(--no-build --configuration DebugOpt "$TEST_PROJECT")
+        nunit_args=(NUnit.ConsoleOut=0)
+
+        read -r -a entity_patterns <<< "$ENTITY_TEST_PATTERNS"
+        read -r -a atmos_tile_patterns <<< "$ATMOS_TILE_TEST_PATTERNS"
+        read -r -a atmos_core_patterns <<< "$ATMOS_CORE_TEST_PATTERNS"
+        read -r -a validation_patterns <<< "$VALIDATION_TEST_PATTERNS"
+        read -r -a world_patterns <<< "$WORLD_TEST_PATTERNS"
+        read -r -a gameplay_patterns <<< "$GAMEPLAY_TEST_PATTERNS"
+
+        case "$TEST_SHARD" in
+          unit)
+            patterns=()
+            ;;
+          entity)
+            patterns=("${entity_patterns[@]}")
+            comparison="~"
+            separator="|"
+            ;;
+          atmos-tile)
+            patterns=("${atmos_tile_patterns[@]}")
+            comparison="~"
+            separator="|"
+            ;;
+          atmos-core)
+            patterns=("${atmos_core_patterns[@]}")
+            comparison="~"
+            separator="|"
+            ;;
+          validation)
+            patterns=("${validation_patterns[@]}")
+            comparison="~"
+            separator="|"
+            ;;
+          world)
+            patterns=("${world_patterns[@]}")
+            comparison="~"
+            separator="|"
+            ;;
+          gameplay)
+            patterns=("${gameplay_patterns[@]}")
+            comparison="~"
+            separator="|"
+            ;;
+          unmapped)
+            patterns=(
+              "${entity_patterns[@]}"
+              "${atmos_tile_patterns[@]}"
+              "${atmos_core_patterns[@]}"
+              "${validation_patterns[@]}"
+              "${world_patterns[@]}"
+              "${gameplay_patterns[@]}"
+            )
+            comparison="!~"
+            separator="&"
+            ;;
+          *)
+            echo "Unknown test shard: $TEST_SHARD" >&2
+            exit 1
+            ;;
+        esac
+
+        if [[ ${#patterns[@]} -gt 0 ]]; then
+          test_filter=""
+          for pattern in "${patterns[@]}"; do
+            if [[ -n "$test_filter" ]]; then
+              test_filter+="$separator"
+            fi
+            test_filter+="FullyQualifiedName${comparison}${pattern}"
+          done
+          test_args+=(--filter "$test_filter")
+        fi
+
+        if [[ "$TEST_SHARD" != "unit" ]]; then
+          test_args+=(--logger "console;verbosity=detailed")
+          nunit_args+=(NUnit.MapWarningTo=Failed)
+        fi
+
+        dotnet test "${test_args[@]}" -- "${nunit_args[@]}"
   ci-success:
     name: Build & Test Debug
     needs:
-      - build
+      - tests
     runs-on: ubuntu-latest
     steps:
       - name: CI succeeded

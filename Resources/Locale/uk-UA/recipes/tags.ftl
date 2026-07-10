@@ -7,9 +7,7 @@ construction-graph-tag-clown-recorder = диктофон клоуна
 construction-graph-tag-clown-bike-horn = велосипедний гудок
 construction-graph-tag-clowne-horn = зламаний велосипедний гудок
 construction-graph-tag-happy-honk-meal = щаслива хонк-їжа
-construction-graph-tag-woeful-cluwne-meal = сумна їжа клуна
-
-# мім
+construction-graph-tag-woeful-cluwne-meal = жалюгідна клувнська страва
 construction-graph-tag-suspenders = підтяжки
 construction-graph-tag-mime-meal = мімська версія щасливої хонк-їжі
 
@@ -99,8 +97,6 @@ construction-graph-tag-ripley-peripherals-control-module = модуль керу
 construction-graph-tag-door-electronics-circuit-board = плата електроніки дверей
 construction-graph-tag-firelock-electronics-circuit-board = плата електроніки вогнетривкого шлюзу
 construction-graph-tag-conveyor-belt-assembly = вузол конвеєрної стрічки
-
-# інструменти
 construction-graph-tag-multitool = мультитул
 construction-graph-tag-health-analyzer = аналізатор здоров'я
 
@@ -121,8 +117,6 @@ construction-graph-tag-wallmount-substation-circuit-board = плата наст�
 construction-graph-tag-surveillance-camera-monitor-board = плата монітора камери спостереження
 construction-graph-tag-television-board = плата телевізора
 construction-graph-tag-freezer-electronics = електроніка морозильної камери
-
-# кристали
 construction-graph-tag-cyan-crystal-shard = бірюзовий кристалічний уламок
 construction-graph-tag-blue-crystal-shard = синій кристалічний уламок
 construction-graph-tag-pink-crystal-shard = рожевий кристалічний уламок
@@ -146,5 +140,11 @@ soil-construction-graph-any-mushroom = будь-який гриб
 construction-graph-tag-manipulator = модульна частина машини
 construction-graph-tag-apron = фартух
 construction-graph-tag-utility-belt = пояс для інструментів
-construction-graph-tag-backpack = наплічник
+construction-graph-tag-backpack = рюкзак
 construction-graph-tag-mop-basic = швабра
+construction-graph-tag-boxhug = коробка обіймів
+construction-graph-tag-paper = офісний папір
+construction-graph-tag-core-pinpointer-piece = частина пінпойнтера ядра
+construction-graph-tag-station-ai-core-electronics = електроніка ядра станційного ШІ
+construction-graph-tag-turret-control-electronics = електроніка панелі керування туреллю-сторожем
+construction-graph-tag-centrifuge-compatible = контейнер, сумісний із центрифугою

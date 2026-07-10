@@ -29,7 +29,7 @@
   - type: Battery
     maxCharge: 500
     startingCharge: 500
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ProjectilePolyboltMouseTimed
     fireCost: 100
   - type: EnergyGun
@@ -89,7 +89,6 @@
   - type: StaticPrice
     price: 750
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 5
 
 - type: entity
@@ -120,7 +119,7 @@
   - type: Battery
     maxCharge: 1200
     startingCharge: 1200
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 50
   - type: AmmoSelector
@@ -184,7 +183,7 @@
   - type: Battery
     maxCharge: 500
     startingCharge: 500
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 50
   - type: AmmoSelector
@@ -251,7 +250,7 @@
   - type: Battery
     maxCharge: 4000
     startingCharge: 4000
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletEnergyGunLaser
     fireCost: 100
   - type: AmmoSelector
@@ -309,7 +308,7 @@
   - type: Battery
     maxCharge: 1200
     startingCharge: 1200
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 50
   - type: AmmoSelector

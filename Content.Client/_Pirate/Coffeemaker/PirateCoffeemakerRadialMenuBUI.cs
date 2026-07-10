@@ -52,9 +52,9 @@ public sealed class PirateCoffeemakerRadialMenuBUI : BoundUserInterface
         _menu.SetButtons(options);
     }
 
-    private List<RadialMenuOption> ConvertEntries(List<RadialSelectorEntry> entries)
+    private List<RadialMenuOptionBase> ConvertEntries(List<RadialSelectorEntry> entries)
     {
-        var result = new List<RadialMenuOption>(entries.Count);
+        var result = new List<RadialMenuOptionBase>(entries.Count);
 
         foreach (var entry in entries)
         {
@@ -63,7 +63,7 @@ public sealed class PirateCoffeemakerRadialMenuBUI : BoundUserInterface
                 var nested = ConvertEntries(entry.Category.Entries);
                 result.Add(new RadialMenuNestedLayerOption(nested)
                 {
-                    Sprite = entry.Category.Icon,
+                    IconSpecifier = RadialMenuIconSpecifier.With(entry.Category.Icon),
                     ToolTip = Loc.GetString(entry.Category.Name),
                 });
                 continue;
@@ -74,7 +74,7 @@ public sealed class PirateCoffeemakerRadialMenuBUI : BoundUserInterface
 
             result.Add(new RadialMenuActionOption<string>(OnSelected, entry.Prototype)
             {
-                Sprite = entry.Icon,
+                IconSpecifier = RadialMenuIconSpecifier.With(entry.Icon),
                 ToolTip = GetTooltip(entry.Prototype),
             });
         }

@@ -1,0 +1,26 @@
+﻿Entries:
+- author: Errant
+  changes:
+  - message: Вкладку створено.
+    type: Add
+  id: 1
+  time: '2025-10-30'
+- author: Errant
+  changes:
+  - message: Зміни правил тепер можна відстежувати тут.
+    type: Add
+  - message: Зміни правил тепер відстежуються в новій вкладці вікна чейнджлогу.
+    type: Add
+  - message: Тест автоматизації. Вам подобається читати правила, чи не так, ви ж Rulesreader.
+    type: Tweak
+  id: 2
+  time: '2025-10-30T21:42:03.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40257
+- author: PicklOH
+  changes:
+  - message: Уточнено використання слова "clanker".
+    type: Add
+  id: 3
+  time: '2026-01-06T04:38:55.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42264
+Order: 1

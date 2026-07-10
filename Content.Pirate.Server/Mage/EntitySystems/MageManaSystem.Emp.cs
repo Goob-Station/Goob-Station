@@ -57,7 +57,7 @@ public sealed class MageEmpSystem : EntitySystem
 
 
         var coords = Transform(args.Performer).MapPosition;
-        _emp.EmpPulse(coords, args.EmpRange, args.EmpConsumption, args.EmpDuration);
+        _emp.EmpPulse(coords, args.EmpRange, args.EmpConsumption, TimeSpan.FromSeconds(args.EmpDuration));
 
         // _mana.TryAddPowerLevel(comp.Owner, -args.ManaCost);
 

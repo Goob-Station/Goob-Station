@@ -1,14 +1,4 @@
 <!--
-SPDX-FileCopyrightText: 2023 BismarckShuffle <107375341+BismarckShuffle@users.noreply.github.com>
-SPDX-FileCopyrightText: 2023 Julian Giebel <juliangiebel@live.de>
-SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-SPDX-FileCopyrightText: 2023 Myakot <30875116+Myakot@users.noreply.github.com>
-SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-SPDX-FileCopyrightText: 2024 UBlueberry <161545003+UBlueberry@users.noreply.github.com>
-SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-SPDX-FileCopyrightText: 2025 GrownSamoyedDog <61863648+GrownSamoyedDog@users.noreply.github.com>
-
 SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
@@ -95,8 +85,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
   Стандартні взаємодії варіюються від натискання на [bold]столи[/bold], щоб покласти на них утримувані предмети, до [bold]використання[/bold] об'єктів у світі порожніми руками, і найчастіше, використання утримуваних предметів для взаємодії з мобами та іншими предметами.
 
-  У деяких ситуаціях ви можете безпосередньо [color=cyan]міняти предмети[/color], натискаючи.
-  Наприклад, тримаючи склянку, натисніть на машину, в якій є інша склянка.
+  У деяких ситуаціях ви можете безпосередньо [color=cyan]міняти предмети[/color], натиснувши на машину, коли тримаєте предмет.
+  Наприклад, тримаючи склянку, натисніть на машину, в якій є інша склянка. Це також працює з повітряними балонами та каністрами.
 
   Деякі предмети мають [color=cyan]альтернативні взаємодії[/color] — використовуйте [color=yellow][bold][keybind="AltActivateItemInWorld"][/bold][/color], щоб [bold]замикати[/bold] шафки, [bold]виймати[/bold] підпредмети, такі як батареї, з інших предметів тощо.
 
@@ -104,23 +94,24 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   Взаємодійте з об'єктами, такими як контейнери, навіть коли ваші руки зайняті, виконуючи [color=cyan]активаційні взаємодії[/color] за допомогою [color=yellow][bold][keybind="ActivateItemInWorld"][/bold][/color].
   Це дозволяє вам, наприклад, [bold]відкривати контейнери[/bold], не піднімаючи їх, [bold]відкривати двері[/bold], не використовуючи предмет, який ви тримаєте, і [bold]перезаряджати зброю[/bold].
 
-  Зокрема, натисніть [color=yellow][bold][keybind="ActivateItemInWorld"][/bold][/color] на моба, щоб відкрити [color=cyan]меню роздягання[/color], що дозволяє вам переглянути його інвентар — і спробувати його забрати.
+  Зокрема, натисніть [color=yellow][bold][keybind="ActivateItemInWorld"][/bold][/color] на моба, щоб відкрити [color=cyan]меню роздягання[/color], що дозволяє вам переглянути його інвентар — і спробувати зняти або вкрасти з нього предмети.
 
   ### В руці
-  Багато предметів також мають [bold]взаємодії використання в руці[/bold], такі як відкривання пляшок, [bold]тримання[/bold] дворучної зброї та великої холодної зброї обома руками (кийки, списи, сокири, швабри, дробовики тощо), або [bold]перезаряджання[/bold] зброї.
+  Багато предметів також мають [color=cyan]взаємодії використання в руці[/color], такі як [bold]відкривання[/bold] пляшок, [bold]утримання[/bold] дворучної зброї та великої холодної зброї обома руками (кийки, списи, сокири, швабри, дробовики тощо), [bold]передьоргування[/bold] зброї або [bold]перемикання[/bold] шприців між введенням і набиранням.
 
-  Ви можете просто виконати їх, натиснувши на свою активну руку, але варто запам'ятати гарячі клавіші — [color=yellow][bold][keybind="ActivateItemInHand"][/bold][/color] та [color=yellow][bold][keybind="AltActivateItemInHand"][/bold][/color] для [color=cyan]стандартних[/color] та [color=cyan]альтернативних[/color] взаємодій в руці, відповідно.
+  Ви можете просто виконати взаємодії в руці, натиснувши [color=yellow][bold][keybind="Use"][/bold][/color] або [color=yellow][bold][keybind="AltActivateItemInWorld"][/bold][/color] на свою активну руку, але варто запам'ятати гарячі клавіші — [color=yellow][bold][keybind="ActivateItemInHand"][/bold][/color] та [color=yellow][bold][keybind="AltActivateItemInHand"][/bold][/color] для [color=cyan]стандартних[/color] та [color=cyan]альтернативних[/color] взаємодій в руці, відповідно.
 
   ### Натискання та перетягування
-  Щоб "використати" моба (гравця або NPC) [italic]на[/italic] статичному об'єкті, натисніть і перетягніть його на цей об'єкт за допомогою [color=yellow][bold][keybind="Use"][/bold][/color].
-  \n(Не плутати з [italic]тягненням[/italic].)
+  Ви можете "використати" одну сутність на іншій, перетягнувши одну на іншу за допомогою [color=yellow][bold][keybind="Use"][/bold][/color]. (Не плутати з [italic]тягненням[/italic].)
 
   Використовуйте це, щоб:
-  - [color=cyan]Покласти[/color] моба на стілець, ліжко, в кріогенну камеру тощо.
+  - [color=cyan]Покласти[/color] або примусово перемістити моба (гравця чи NPC) на стілець, ліжко, у кріогенну камеру, сміттєпровід тощо.
 
   - [color=cyan]Залізти[/color] на стіл — ви також можете натиснути [color=yellow][bold][keybind="AltActivateItemInWorld"][/bold][/color] на стіл.
 
   - Відкрити [color=cyan]меню роздягання[/color], перетягнувши іншого моба на свого персонажа — що також можна зробити за допомогою [color=yellow][bold][keybind="ActivateItemInWorld"][/bold][/color], як згадувалося раніше.
+
+  - [color=cyan]Перелити[/color] вміст рідинного контейнера (візка прибиральника, відра, склянки) в інший контейнер, стік, машину тощо. Але спочатку не забудьте поставити контейнер на підлогу — з інвентарю це зробити не можна.
 
   ### Вказування
   Використовуйте [color=yellow][bold][keybind="Point"][/bold][/color], щоб [color=cyan]вказати[/color] на місце у світі, створюючи тимчасову стрілку, видиму для всіх.
@@ -132,7 +123,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   - [bold]активація[/bold] ([color=yellow][bold][keybind="ActivateItemInWorld"][/bold][/color]),
   - [bolditalic]використання в руці[/bolditalic] ([color=yellow][bold][keybind="ActivateItemInHand"][/bold][/color]),
   - [italic]альтернативне використання в руці[/italic] ([color=yellow][bold][keybind="AltActivateItemInHand"][/bold][/color]),
-  - натискання та перетягування (що є унікальним для розміщення мобів на об'єктах).
+  - натискання та перетягування.
 
   Не турбуйтеся про те, що доведеться їх запам'ятовувати — вони зазвичай інтуїтивно зрозумілі та послідовні для різних категорій сутностей, і ви побачите, що більшість сутностей використовують лише одну або дві взаємодії.
 
@@ -173,9 +164,12 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   Якщо у вас є сумка або пояс, відкрийте їхні інвентарі за допомогою [color=yellow][bold][keybind="ActivateItemInWorld"][/bold][/color] або натиснувши на міні-іконки в [bold]правому нижньому куті[/bold] їхніх іконок.
   Ви також можете використовувати гарячі клавіші [color=yellow][bold][keybind="OpenBackpack"][/bold][/color] та [color=yellow][bold][keybind="OpenBelt"][/bold][/color] для цього.
 
-  Натисніть [color=yellow][bold][keybind="SmartEquipBackpack"][/bold][/color], щоб [color=cyan]швидко екіпірувати[/color] — це швидко зберігає предмет з вашої активної руки у вашу сумку, або, якщо ваша рука порожня, швидко екіпірує останній доданий предмет з сумки у вашу активну руку.
-  \n[color=yellow][bold][keybind="SmartEquipBelt"][/bold][/color] робить те ж саме для вашого пояса, роблячи доступ до інструментів швидшим.
-  \n[italic]Порада: Ви також можете швидко екіпірувати окремі предмети, що зберігаються в слоті для спини.[/italic]
+  ### Швидке екіпірування
+  Ви можете [color=cyan]швидко переміщувати[/color] предмети між активною рукою та відповідним слотом. Якщо в цьому слоті є контейнер, ця дія [color=cyan]швидко покладе[/color] або [color=cyan]швидко дістане[/color] найновіший предмет із цього контейнера (він позначений золотою зірочкою в контейнері).
+
+  - [color=yellow][bold][keybind="SmartEquipBackpack"][/bold][/color] швидко екіпірує слот спини.
+  - [color=yellow][bold][keybind="SmartEquipBelt"][/bold][/color] швидко екіпірує слот пояса.
+  - [color=yellow][bold][keybind="SmartEquipPocket1"][/bold][/color], [color=yellow][bold][keybind="SmartEquipPocket2"][/bold][/color] та [color=yellow][bold][keybind="SmartEquipSuitStorage"][/bold][/color] швидко екіпірують ліву кишеню, праву кишеню та слот сховища костюма відповідно.
 
   ### Організація сіткових інвентарів
   [color=cyan]Переставляйте[/color] предмети, перетягуючи їх за допомогою [color=yellow][bold][keybind="MoveStoredItem"][/bold][/color].

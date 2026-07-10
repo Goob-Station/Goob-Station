@@ -11,3 +11,6 @@ generic-hours = годин
 generic-playtime-title = Час гри
 generic-confirm = Підтвердити
 generic-minutes = хвилин
+generic-and = і
+generic-or = або
+generic-seconds = секунд

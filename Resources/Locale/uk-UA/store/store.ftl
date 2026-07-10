@@ -14,3 +14,5 @@ store-preset-name-spellbook = Книга заклинань
 store-preset-name-uplink-ghost = Контрабандний Аплінк
 store-preset-name-spellbook-ghost = Примарна Крамниця Заклинань
 store-ui-refund-text = Повернути
+store-preset-name-nukie-delivery = Блюспейс-доставка NukeOps
+store-preset-name-changeling = Крамниця ДНК

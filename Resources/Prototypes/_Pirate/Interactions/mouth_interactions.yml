@@ -23,7 +23,7 @@
       whitelist:
         components: 
         - MobState
-        - Food
+        - Edible
     - !type:SlotObstructionRequirement
       slot: MASK
   action:
@@ -91,7 +91,7 @@
         components: 
         - MobState
         - Anomaly
-        - Food
+        - Edible
         tags: 
         - Window
         - Knife # жах

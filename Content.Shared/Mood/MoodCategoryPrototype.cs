@@ -9,5 +9,5 @@ namespace Content.Shared.Mood;
 public sealed partial class MoodCategoryPrototype : IPrototype
 {
     [IdDataField]
-    public string ID { get; } = default!;
+    public string ID { get; private set; } = default!;
 }

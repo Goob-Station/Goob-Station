@@ -112,7 +112,7 @@ public sealed partial class SpellRadialMenu : RadialMenu
         }
     }
 
-    public sealed class SpellsMenuButton : RadialMenuTextureButton
+    public sealed class SpellsMenuButton : RadialMenuButton
     {
 		public required ProtoId<CultAbilityPrototype> ProtoId { get; set; }
     }

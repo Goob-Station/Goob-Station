@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 pointer-to-null <91910481+pointer-to-null@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Vasilis <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: MIT
 
 using System.Text;
@@ -14,7 +5,7 @@ using System.Text.RegularExpressions;
 using Content.Server.Speech.Components;
 using Content.Shared.Speech;
 using Content.Shared.Speech.EntitySystems;
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Robust.Shared.Random;
 
 namespace Content.Server.Speech.EntitySystems
@@ -31,22 +22,31 @@ namespace Content.Server.Speech.EntitySystems
         public override void Initialize()
         {
             SubscribeLocalEvent<StutteringAccentComponent, AccentGetEvent>(OnAccent);
+
+            SubscribeLocalEvent<StutteringAccentComponent, StatusEffectRelayedEvent<AccentGetEvent>>(OnAccent);
         }
 
-        public override void DoStutter(EntityUid uid, TimeSpan time, bool refresh, StatusEffectsComponent? status = null)
+        public override void DoStutter(EntityUid uid, TimeSpan time, bool refresh)
         {
-            if (!Resolve(uid, ref status, false))
-                return;
-
-            if (Terminating(uid))
-                return;
-
-            _statusEffectsSystem.TryAddStatusEffect(uid, StutterKey.Id, out _, time); //todo goobstation migrate stutter.
+            if (refresh)
+                Status.TryUpdateStatusEffectDuration(uid, Stuttering, time);
+            else
+                Status.TryAddStatusEffectDuration(uid, Stuttering, time);
         }
 
-        private void OnAccent(EntityUid uid, StutteringAccentComponent component, AccentGetEvent args)
+        public override void DoRemoveStutterTime(EntityUid uid, TimeSpan timeRemoved)
         {
-            args.Message = Accentuate(args.Message, component);
+            Status.TryAddTime(uid, Stuttering, -timeRemoved);
+        }
+
+        private void OnAccent(Entity<StutteringAccentComponent> entity, ref AccentGetEvent args)
+        {
+            args.Message = Accentuate(args.Message, entity.Comp);
+        }
+
+        private void OnAccent(Entity<StutteringAccentComponent> entity, ref StatusEffectRelayedEvent<AccentGetEvent> args)
+        {
+            args.Args.Message = Accentuate(args.Args.Message, entity.Comp);
         }
 
         public string Accentuate(string message, StutteringAccentComponent component)

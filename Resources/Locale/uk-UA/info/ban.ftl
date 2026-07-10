@@ -72,10 +72,9 @@ ban-panel-permanent = Назавжди
 ban-panel-ip-hwid-tooltip = Залиште порожнім та поставте галочку нижче, щоб використовувати дані з останнього підключення
 ban-panel-severity = Серйозність:
 ban-panel-erase = Видалити повідомлення чату та гравця з раунду
-
-# Ban string
 server-ban-string = {$admin} створив бан з серйозністю {$severity}, який закінчується {$expires} для [{$name}, {$ip}, {$hwid}], з причиною: {$reason}
 server-ban-string-no-pii = {$admin} створив бан з серйозністю {$severity}, який закінчується {$expires} для {$name} з причиною: {$reason}
 server-ban-string-never = ніколи
 ban-kick-reason = Вас заблоковано
 cmd-banlist-hint = <ім'я/ID користувача>
+ban-panel-expiry-error = err

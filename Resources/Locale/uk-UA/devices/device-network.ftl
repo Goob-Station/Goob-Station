@@ -31,7 +31,7 @@ device-address-prefix-freezer = МЗН-
 device-address-prefix-volume-pump = НСП-
 device-address-prefix-smes = СМС-
 
-#КПК та термінали
+# КПК та термінали
 device-address-prefix-console = КОН-
 device-address-prefix-fire-alarm = ППО-
 device-address-prefix-air-alarm = ТНА-

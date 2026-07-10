@@ -603,7 +603,7 @@
     Water:
       amount: 1
   effects:
-    - !type:ExplosionReactionEffect
+    - !type:Explosion
       explosionType: Default
       intensityPerUnit: 0.18
       maxTotalIntensity: 12
@@ -621,7 +621,7 @@
     Blood:
       amount: 1
   effects:
-    - !type:ExplosionReactionEffect
+    - !type:Explosion
       explosionType: Default
       intensityPerUnit: 0.18
       maxTotalIntensity: 12

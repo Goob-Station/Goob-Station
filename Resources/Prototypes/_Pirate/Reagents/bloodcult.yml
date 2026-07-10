@@ -19,7 +19,7 @@
       effects:
       - !type:BleedSanguinePerniculate
         probability: 0.5
-      - !type:ModifyBleedAmount
+      - !type:ModifyBleed
         amount: 0.3  # Mild bleeding effect when metabolized
       - !type:AdjustReagent
         reagent: EdgeEssentia
@@ -28,5 +28,4 @@
         damage:
           types:
             Poison: 0.2
-
 

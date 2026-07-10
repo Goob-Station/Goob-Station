@@ -22,6 +22,12 @@ markings-category-Chest = Тулуб
 markings-category-Tail = Хвіст
 markings-category-Overlay = Накладення
 marking-slot = Слот {$number}
-
-# Категорії
 markings-category-Special = Особливі
+humanoid-marking-modifier-force = Примусово
+humanoid-marking-modifier-ignore-species = Ігнорувати вид
+humanoid-marking-modifier-base-layers = Базові шари
+humanoid-marking-modifier-enable = Увімкнути
+humanoid-marking-modifier-prototype-id = ID прототипу:
+markings-category-SnoutCover = Морда (покриття)
+markings-category-UndergarmentTop = Спідня білизна (верх)
+markings-category-UndergarmentBottom = Спідня білизна (низ)

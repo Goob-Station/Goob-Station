@@ -7,9 +7,7 @@
 mail-large-item-name-unaddressed = пакунок
 mail-large-item-name-addressed = пакунок ({$recipient})
 mail-large-desc-far = Великий пакунок.
-mail-large-desc-close = Великий пакунок, адресований {CAPITALIZE($name)}, {$job}.
-
-### Frontier: mailtestbulk
+mail-large-desc-close = Великий пакунок, адресований {CAPITALIZE($name)}, {$job}
 command-mailtestbulk = Надсилає по одному пакунку кожного типу на вказаний поштовий телепорт. Неявно викликає mailnow.
 command-mailtestbulk-help = Використання: {$command} <id_телепортера>
 command-mailtestbulk-success = Успіх! Усі поштові телепорти незабаром доставлять ще одну партію пошти.

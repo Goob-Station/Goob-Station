@@ -16,3 +16,5 @@ action-speech-spell-summon-guns = ЙОР'НІ ВЕС-КОРФА
 action-speech-spell-summon-magic = РІГОІН ФЕМА-ВЕРЕКО
 action-speech-spell-mind-swap = ГІН'Ю КАПАН!
 action-speech-spell-slip = СЛІ ПАРРІ!
+action-speech-spell-cluwne = !KNOH
+action-speech-spell-charge = DI'RI CEL!

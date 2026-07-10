@@ -84,3 +84,5 @@ chat-emote-msg-gasp = зойкає.
 chat-emote-msg-weh = векає!
 chat-emote-msg-hew = хрумтить!
 chat-emote-msg-deathgasp-scurret = випускає останнє "ва" і затихає...
+chat-emote-name-clap-single = Одинарний плескіт
+chat-emote-msg-clap-single = плескає в долоні.

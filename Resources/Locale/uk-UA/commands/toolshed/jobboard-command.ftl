@@ -1,0 +1,1 @@
+command-description-jobboard-completeJob = Завершує вказане завдання з дошки завдань з утилізації для станції.

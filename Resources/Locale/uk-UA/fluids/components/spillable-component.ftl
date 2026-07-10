@@ -7,4 +7,4 @@ spill-melee-hit-attacker = Ви пролили {$amount}u {THE($spillable)} на
 spill-melee-hit-others = {CAPITALIZE(THE($attacker))} проливає частину {THE($spillable)} на {THE($target)}!
 spill-land-spilled-on-other = {CAPITALIZE(THE($spillable))} проливає частину свого розчину на {THE($target)}!
 spill-examine-is-spillable = Цей контейнер виглядає так, ніби його можна розлити.
-spill-examine-spillable-weapon = Ви можете виплеснути це на когось атакою ближнього бою.
+spill-examine-spillable-weapon = Ви можете хлюпнути цим на когось атакою.
