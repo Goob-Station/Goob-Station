@@ -16,3 +16,25 @@
     Structural: 0.5
   flatReductions:
     Blunt: 6 # Just a bit more tough
+
+- type: damageModifierSet
+  id: FleshBeast
+  coefficients:
+    Blunt: 0.9
+    Piercing: 0.8
+    Slash: 1
+    Cold: 0.3
+    Heat: 1
+    Poison: 0.0
+  ignoreArmorPierceFlags: All # Goobstation
+
+- type: damageModifierSet
+  id: ColdFauna
+  coefficients:
+    Blunt: 0.5
+    Piercing: 0.5
+    Slash: 0.5
+    Cold: 0.1
+    Heat: 1.5
+    Poison: 0.0
+  ignoreArmorPierceFlags: All # Goobstation

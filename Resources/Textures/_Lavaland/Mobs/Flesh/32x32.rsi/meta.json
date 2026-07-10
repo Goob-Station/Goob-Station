@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Sprited by WitchBlaade (Discord), bloated and dead edit by OnsenCapy",
+    "copyright": "Sprited by WitchBlaade (Discord), bloated, snow and dead edits by OnsenCapy",
     "size": {
         "x": 32,
         "y": 32
@@ -21,6 +21,14 @@
         },
         {
             "name": "biter",
+            "directions": 4
+        },
+        {
+            "name": "biter_snow",
+            "directions": 4
+        },
+        {
+            "name": "tank_snow",
             "directions": 4
         },
         {

@@ -13,6 +13,20 @@
     - MobFleshBiter
 
 - type: entity
+  name: Numb biter Spawner
+  id: SpawnBaseMobFleshBiterSnow
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: biter_snow
+      sprite: _Lavaland/Mobs/Flesh/32x32.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobFleshBiterSnow
+
+- type: entity
   name: running flesh Spawner
   id: SpawnBaseMobFleshRunner
   parent: MarkerBase
@@ -53,6 +67,20 @@
   - type: ConditionalSpawner
     prototypes:
     - MobFleshTank
+
+- type: entity
+  name: frozen muscle Spawner
+  id: SpawnBaseMobFleshTankSnow
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: tank_snow
+      sprite: _Lavaland/Mobs/Flesh/32x32.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobFleshTankSnow
 
 - type: entity
   name: bloated flesh Spawner
