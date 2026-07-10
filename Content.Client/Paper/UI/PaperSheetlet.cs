@@ -1,4 +1,3 @@
-using System.Numerics;
 using Content.Client.Resources;
 using Content.Client.Stylesheets;
 using Content.Client.Stylesheets.SheetletConfigs;
