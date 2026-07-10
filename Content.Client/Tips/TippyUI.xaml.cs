@@ -25,8 +25,6 @@ public sealed partial class TippyUI : UIWidget
         if (visuals == null)
             return;
 
-        Label.ModulateSelfOverride = visuals.FontAccentColor;
-
         if (visuals.BackgroundImagePath == null)
             return;
 

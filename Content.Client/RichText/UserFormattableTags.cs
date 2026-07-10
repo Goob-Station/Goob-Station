@@ -21,10 +21,5 @@ public static class UserFormattableTags
         typeof(HeadingTag),
         typeof(ItalicTag),
         typeof(MonoTag),
-        // Starlight paperwork edit
-        typeof(FormTagHandler), //
-        typeof(SignatureTagHandler),
-        typeof(CheckTagHandler)
-        // Starlight paperwork end
     ];
 }

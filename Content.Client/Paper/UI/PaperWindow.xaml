@@ -1,7 +1,3 @@
-<!--
-SPDX-License-Identifier: AGPL-3.0-or-later
--->
-
 <paper:PaperWindow xmlns="https://spacestation14.io"
     xmlns:paper="clr-namespace:Content.Client.Paper.UI"
     MouseFilter="Stop" Resizable="True" MinSize="150 150"
@@ -17,16 +13,10 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                     <BoxContainer Orientation="Vertical" VerticalAlignment="Stretch">
                         <TextureButton Name="HeaderImage" HorizontalAlignment="Center" VerticalAlignment="Top" MouseFilter="Ignore"/>
                         <Control Name="TextAlignmentPadding" VerticalAlignment="Top"/>
-                        <RichTextLabel Name="BlankPaperIndicator" StyleClasses="LabelSecondaryColor" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-                        <!-- upstreamer note: This line below is replaced by starlight edit. Take ours here likely.
-                         <RichTextLabel StyleClasses="PaperWrittenText" Name="WrittenTextLabel" VerticalAlignment="Top"/> -->
-                        <!-- Starlight-start -->
-                        <RichTextLabel Name="WrittenTextLabel" VerticalAlignment="Top"/>
-                        <BoxContainer Name="WrittenTextContainer" Orientation="Horizontal" VerticalAlignment="Top" StyleClasses="PaperWrittenText">
-                        </BoxContainer>
-                        <!-- Starlight-end -->
-                        <BoxContainer Name="InputContainer" Orientation="Vertical" VerticalExpand="True" VerticalAlignment="Stretch">
-                            <PanelContainer StyleClasses="PaperEditBackground" MinHeight="100"
+                        <RichTextLabel Name="BlankPaperIndicator" StyleClasses="LabelWeak" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                        <RichTextLabel StyleClasses="PaperWrittenText" Name="WrittenTextLabel" VerticalAlignment="Top"/>
+                        <BoxContainer Name="InputContainer" StyleIdentifier="PaperContainer" Orientation="Vertical" VerticalExpand="True" VerticalAlignment="Stretch">
+                            <PanelContainer StyleIdentifier="PaperEditBackground" MinHeight="100"
                                 VerticalAlignment="Stretch" VerticalExpand="True" HorizontalExpand="True">
                                 <TextEdit Name="Input" StyleClasses="PaperLineEdit" Access="Public" />
                             </PanelContainer>

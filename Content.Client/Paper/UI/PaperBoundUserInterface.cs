@@ -1,5 +1,3 @@
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
@@ -25,7 +23,6 @@ public sealed class PaperBoundUserInterface : BoundUserInterface
 
         _window = this.CreateWindow<PaperWindow>();
         _window.OnSaved += InputOnTextEntered;
-        _window.OnSignatureRequested += OnSignatureRequested; // Starlight-edit
 
         if (EntMan.TryGetComponent<PaperComponent>(Owner, out var paper))
         {
@@ -53,7 +50,4 @@ public sealed class PaperBoundUserInterface : BoundUserInterface
             _window.Input.CursorPosition = new TextEdit.CursorPos(0, TextEdit.LineBreakBias.Top);
         }
     }
-
-    // Starlight
-    private void OnSignatureRequested(int signatureIndex) => SendMessage(new PaperSignatureRequestMessage(signatureIndex));
 }
