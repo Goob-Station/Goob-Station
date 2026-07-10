@@ -44,6 +44,7 @@
   <Project Path="Content.Goobstation.Common/Content.Goobstation.Common.csproj" />
   <Project Path="Content.Goobstation.Maths/Content.Goobstation.Maths.csproj" />
   <Project Path="Content.Goobstation.UIKit/Content.Goobstation.UIKit.csproj" />
+  <Project Path="Content.ModuleManager/Content.ModuleManager.csproj" />
   <!-- </Goob End> -->
   <Project Path="Content.Tests/Content.Tests.csproj" />
   <Project Path="Content.Tools/Content.Tools.csproj" />
