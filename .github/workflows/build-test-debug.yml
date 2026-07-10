@@ -14,6 +14,64 @@ on:
     types: [ opened, reopened, synchronize, ready_for_review ]
     branches: [ master, staging, stable ]
 
+env:
+  # Pirate: mapped groups run independently; every other integration test falls through to the unmapped shard.
+  ENTITY_TEST_PATTERNS: Content.IntegrationTests.Tests.EntityTest
+  VALIDATION_TEST_PATTERNS: >-
+    Content.IntegrationTests.Tests.ConfigPresetTests
+    Content.IntegrationTests.Tests.Guidebook
+    Content.IntegrationTests.Tests.Linter
+    Content.IntegrationTests.Tests.Localization
+    Content.IntegrationTests.Tests.Mapping
+    Content.IntegrationTests.Tests.PostMapInitTest
+    Content.IntegrationTests.Tests.PrototypeSaveTest
+    Content.IntegrationTests.Tests.PrototypeTests
+    Content.IntegrationTests.Tests.SaveLoad
+    Content.IntegrationTests.Tests.Sprite
+    Content.IntegrationTests.Tests.StartTest
+    Content.IntegrationTests.Tests.WizdenContentFreeze
+  WORLD_TEST_PATTERNS: >-
+    Content.IntegrationTests.Tests.Atmos
+    Content.IntegrationTests.Tests.Chasm
+    Content.IntegrationTests.Tests.Climbing
+    Content.IntegrationTests.Tests.Construction
+    Content.IntegrationTests.Tests.DeviceLinking
+    Content.IntegrationTests.Tests.DeviceNetwork
+    Content.IntegrationTests.Tests.Doors
+    Content.IntegrationTests.Tests.Disposal
+    Content.IntegrationTests.Tests.Explosion
+    Content.IntegrationTests.Tests.Fluids
+    Content.IntegrationTests.Tests.Gravity
+    Content.IntegrationTests.Tests.Physics
+    Content.IntegrationTests.Tests.Power
+    Content.IntegrationTests.Tests.Procedural
+    Content.IntegrationTests.Tests.Shuttle
+    Content.IntegrationTests.Tests.Station
+    Content.IntegrationTests.Tests.Tiles
+    Content.IntegrationTests.Tests.Weldable
+    Content.IntegrationTests.Tests.Wires
+  GAMEPLAY_TEST_PATTERNS: >-
+    Content.IntegrationTests.Tests.Actions
+    Content.IntegrationTests.Tests.Body
+    Content.IntegrationTests.Tests.Buckle
+    Content.IntegrationTests.Tests.Chemistry
+    Content.IntegrationTests.Tests.Damageable
+    Content.IntegrationTests.Tests.Destructible
+    Content.IntegrationTests.Tests.GameObjects
+    Content.IntegrationTests.Tests.GameRules
+    Content.IntegrationTests.Tests.Hands
+    Content.IntegrationTests.Tests.Interaction
+    Content.IntegrationTests.Tests.Minds
+    Content.IntegrationTests.Tests.Mousetrap
+    Content.IntegrationTests.Tests.Movement
+    Content.IntegrationTests.Tests.NPC
+    Content.IntegrationTests.Tests.Nutrition
+    Content.IntegrationTests.Tests.Puller
+    Content.IntegrationTests.Tests.Roles
+    Content.IntegrationTests.Tests.Storage
+    Content.IntegrationTests.Tests.Strip
+    Content.IntegrationTests.Tests.Weapons
+
 jobs:
   tests:
     name: ${{ matrix.name }}
@@ -24,17 +82,22 @@ jobs:
         include:
           - name: Unit tests
             project: Content.Tests/Content.Tests.csproj
-            filter: ""
-            nunit-args: NUnit.ConsoleOut=0
-          # Pirate: isolate the memory-heavy entity fixture while the catch-all shard covers new upstream tests.
-          - name: Integration tests
-            project: Content.IntegrationTests/Content.IntegrationTests.csproj
-            filter: "FullyQualifiedName!~Content.IntegrationTests.Tests.EntityTest"
-            nunit-args: NUnit.ConsoleOut=0 NUnit.MapWarningTo=Failed
+            shard: unit
           - name: Entity integration tests
             project: Content.IntegrationTests/Content.IntegrationTests.csproj
-            filter: "FullyQualifiedName~Content.IntegrationTests.Tests.EntityTest"
-            nunit-args: NUnit.ConsoleOut=0 NUnit.MapWarningTo=Failed
+            shard: entity
+          - name: Validation integration tests
+            project: Content.IntegrationTests/Content.IntegrationTests.csproj
+            shard: validation
+          - name: World integration tests
+            project: Content.IntegrationTests/Content.IntegrationTests.csproj
+            shard: world
+          - name: Gameplay integration tests
+            project: Content.IntegrationTests/Content.IntegrationTests.csproj
+            shard: gameplay
+          - name: Unmapped integration tests
+            project: Content.IntegrationTests/Content.IntegrationTests.csproj
+            shard: unmapped
 
     runs-on: ubuntu-latest
     # Pirate: the expanded RT 270 integration suite exceeds the default job limit.
@@ -70,23 +133,75 @@ jobs:
     - name: Run ${{ matrix.name }}
       timeout-minutes: 60
       env:
-        TEST_FILTER: ${{ matrix.filter }}
         TEST_PROJECT: ${{ matrix.project }}
-        NUNIT_ARGS: ${{ matrix.nunit-args }}
+        TEST_SHARD: ${{ matrix.shard }}
       run: |
-        while sleep 60; do
-          echo "::notice::${{ matrix.name }} are still running..."
-        done &
-        heartbeat_pid=$!
-        trap 'kill "$heartbeat_pid" 2>/dev/null || true' EXIT
-
         export DOTNET_gcServer=1
         test_args=(--no-build --configuration DebugOpt "$TEST_PROJECT")
-        if [[ -n "$TEST_FILTER" ]]; then
-          test_args+=(--filter "$TEST_FILTER")
+        nunit_args=(NUnit.ConsoleOut=0)
+
+        read -r -a entity_patterns <<< "$ENTITY_TEST_PATTERNS"
+        read -r -a validation_patterns <<< "$VALIDATION_TEST_PATTERNS"
+        read -r -a world_patterns <<< "$WORLD_TEST_PATTERNS"
+        read -r -a gameplay_patterns <<< "$GAMEPLAY_TEST_PATTERNS"
+
+        case "$TEST_SHARD" in
+          unit)
+            patterns=()
+            ;;
+          entity)
+            patterns=("${entity_patterns[@]}")
+            comparison="~"
+            separator="|"
+            ;;
+          validation)
+            patterns=("${validation_patterns[@]}")
+            comparison="~"
+            separator="|"
+            ;;
+          world)
+            patterns=("${world_patterns[@]}")
+            comparison="~"
+            separator="|"
+            ;;
+          gameplay)
+            patterns=("${gameplay_patterns[@]}")
+            comparison="~"
+            separator="|"
+            ;;
+          unmapped)
+            patterns=(
+              "${entity_patterns[@]}"
+              "${validation_patterns[@]}"
+              "${world_patterns[@]}"
+              "${gameplay_patterns[@]}"
+            )
+            comparison="!~"
+            separator="&"
+            ;;
+          *)
+            echo "Unknown test shard: $TEST_SHARD" >&2
+            exit 1
+            ;;
+        esac
+
+        if [[ ${#patterns[@]} -gt 0 ]]; then
+          test_filter=""
+          for pattern in "${patterns[@]}"; do
+            if [[ -n "$test_filter" ]]; then
+              test_filter+="$separator"
+            fi
+            test_filter+="FullyQualifiedName${comparison}${pattern}"
+          done
+          test_args+=(--filter "$test_filter")
         fi
 
-        dotnet test "${test_args[@]}" -- $NUNIT_ARGS
+        if [[ "$TEST_SHARD" != "unit" ]]; then
+          test_args+=(--logger "console;verbosity=detailed")
+          nunit_args+=(NUnit.MapWarningTo=Failed)
+        fi
+
+        dotnet test "${test_args[@]}" -- "${nunit_args[@]}"
   ci-success:
     name: Build & Test Debug
     needs:
