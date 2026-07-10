@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.DoAfter;
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -41,8 +42,22 @@ public sealed partial class ReactionMixerComponent : Component
     [DataField, AutoNetworkedField]
     public TimeSpan TimeToMix = TimeSpan.Zero;
 
-    // Used to cancel the played sound.
+    /// <summary>
+    /// Used to cancel the played sound.
+    /// </summary>
     public EntityUid? AudioStream;
+
+    /// <summary>
+    /// Goobstation - Determine entity that is allowed to use this Reaction Mixer
+    /// </summary>
+    [DataField]
+    public EntityWhitelist? Whitelist;
+
+    /// <summary>
+    /// Goobstation - Entity that using this mixer
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public EntityUid User;
 }
 
 [Serializable, NetSerializable]

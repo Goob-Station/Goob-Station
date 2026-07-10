@@ -118,6 +118,9 @@
     mixMessage: "bible-mixing-success"
     reactionTypes:
     - Holy
+    whitelist:
+      components:
+        - BibleUser
   - type: Sprite
     sprite: Objects/Specific/Chapel/bible.rsi
     state: icon

@@ -37,6 +37,8 @@ public sealed partial class ReactionMixerSystem : EntitySystem
         if (ent.Comp.MixerType != ReactionMixerType.Handheld)
             return;
 
+        ent.Comp.User = args.User; // Goobstation
+
         args.Handled = true;
 
         if (!CanMix(ent.AsNullable(), ent))
@@ -67,6 +69,8 @@ public sealed partial class ReactionMixerSystem : EntitySystem
     {
         if (!args.Target.HasValue || !args.CanReach || ent.Comp.MixerType != ReactionMixerType.Machine)
             return;
+
+        ent.Comp.User = args.User; // Goobstation
 
         if (!CanMix(ent.AsNullable(), args.Target.Value))
             return;
