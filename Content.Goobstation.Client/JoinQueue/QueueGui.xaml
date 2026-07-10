@@ -6,7 +6,7 @@
          xmlns:queue="clr-namespace:Content.Goobstation.Client.JoinQueue">
     <parallax:ParallaxControl />
     <Control HorizontalAlignment="Center" VerticalAlignment="Center">
-        <PanelContainer StyleClasses="AngleRect" />
+        <PanelContainer StyleClasses="BackgroundPanel" /> <!-- Pirate: ui fixes (legacy style migration; prefer upstream on conflict) -->
         <BoxContainer Orientation="Vertical" MinSize="300 0" Margin="12 8">
             <!-- Header -->
             <BoxContainer Orientation="Horizontal" Margin="0 0 0 4">
@@ -24,14 +24,14 @@
                           HorizontalAlignment="Center" SeparationOverride="24">
                 <BoxContainer Orientation="Vertical" HorizontalAlignment="Center">
                     <Label Text="{Loc 'queue-position-label'}"
-                           StyleClasses="LabelSecondaryColor" Align="Center" />
+                           StyleClasses="LabelWeak" Align="Center" /> <!-- Pirate: ui fixes (legacy style migration; prefer upstream on conflict) -->
                     <Label Name="QueuePosition"
                            StyleClasses="LabelHeadingBigger" Align="Center"
                            Margin="0 2 0 0" />
                 </BoxContainer>
                 <BoxContainer Orientation="Vertical" HorizontalAlignment="Center">
                     <Label Text="{Loc 'queue-total-label'}"
-                           StyleClasses="LabelSecondaryColor" Align="Center" />
+                           StyleClasses="LabelWeak" Align="Center" /> <!-- Pirate: ui fixes (legacy style migration; prefer upstream on conflict) -->
                     <Label Name="QueueTotal"
                            StyleClasses="LabelHeadingBigger" Align="Center"
                            Margin="0 2 0 0" />
@@ -39,19 +39,22 @@
             </BoxContainer>
 
             <!-- Estimated wait -->
+            <!-- Pirate: ui fixes (legacy style migration; prefer upstream on conflict) -->
             <Label Name="EstimatedWait"
-                   StyleClasses="LabelSecondaryColor" Align="Center"
+                   StyleClasses="LabelWeak" Align="Center"
                    Margin="0 0 0 8" />
 
             <controls:HighDivider />
 
             <!-- Server info -->
+            <!-- Pirate: ui fixes (legacy style migration; prefer upstream on conflict) -->
             <Label Name="ServerInfo"
-                   StyleClasses="LabelSecondaryColor" Align="Center"
+                   StyleClasses="LabelWeak" Align="Center"
                    Margin="0 8 0 4" />
 
             <!-- Patron message -->
-            <PanelContainer Name="PatronPanel" StyleClasses="AngleRect"
+            <!-- Pirate: ui fixes (legacy style migration; prefer upstream on conflict) -->
+            <PanelContainer Name="PatronPanel" StyleClasses="BackgroundPanel"
                             Margin="0 4 0 4" Visible="False">
                 <Label Name="PatronText" Text="{Loc 'queue-patreon'}"
                        StyleClasses="LabelKeyText" Align="Center"

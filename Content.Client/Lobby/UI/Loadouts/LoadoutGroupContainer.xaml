@@ -9,7 +9,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         <BoxContainer Name="LoadoutsContainer" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True"/>
     </PanelContainer>
     <!-- Buffer space so we have 10 margin between controls but also 10 to the borders -->
-    <PanelContainer StyleClasses="AngleRect" HorizontalExpand="True" Margin="5">
+    <PanelContainer StyleClasses="BackgroundPanel" HorizontalExpand="True" Margin="5"> <!-- Pirate: ui fixes -->
         <BoxContainer Orientation="Vertical">
             <Label Text="{Loc 'loadout-restrictions'}"/>
             <BoxContainer Name="RestrictionsContainer" Orientation="Vertical" HorizontalExpand="True" />

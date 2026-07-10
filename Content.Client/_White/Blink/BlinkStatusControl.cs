@@ -16,7 +16,7 @@ public sealed class BlinkStatusControl : PollingItemStatusControl<BlinkStatusCon
     public BlinkStatusControl(Entity<BlinkComponent> parent)
     {
         _parent = parent;
-        _label = new RichTextLabel { StyleClasses = { StyleNano.StyleClassItemStatus } };
+        _label = new RichTextLabel { StyleClasses = { StyleClass.ItemStatus } }; // Pirate: ui fixes (legacy style migration; prefer upstream on conflict)
         AddChild(_label);
 
         UpdateDraw();

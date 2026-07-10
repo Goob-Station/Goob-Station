@@ -23,7 +23,7 @@ public sealed class CrewManifestSection : BoxContainer
 
         AddChild(new Label()
         {
-            StyleClasses = { "LabelBig" },
+            StyleClasses = { "font-large" }, // Pirate: ui fixes (legacy style migration; prefer upstream on conflict)
             Text = Loc.GetString(section.Name)
         });
 

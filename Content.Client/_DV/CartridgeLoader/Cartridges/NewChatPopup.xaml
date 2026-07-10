@@ -5,7 +5,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 <DefaultWindow xmlns="https://spacestation14.io"
                Title="{Loc nano-chat-new-title}"
                MinSize="300 200">
-    <PanelContainer StyleClasses="AngleRect">
+    <PanelContainer StyleClasses="BackgroundPanel"> <!-- Pirate: ui fixes -->
         <BoxContainer Orientation="Vertical" Margin="4">
             <!-- Number input -->
             <BoxContainer Orientation="Vertical" Margin="0 4">

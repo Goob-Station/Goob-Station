@@ -7,7 +7,7 @@ SPDX-License-Identifier: MIT
     xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
     HorizontalExpand="True"
     Margin="0 1"
-    StyleClasses="AngleRect">
+    StyleClasses="BackgroundPanel"> <!-- Pirate: ui fixes (legacy style migration; prefer upstream on conflict) -->
 
     <!-- Main Container -->
     <BoxContainer Orientation="Vertical"

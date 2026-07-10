@@ -108,7 +108,7 @@
                       VerticalExpand="True"
                       HorizontalExpand="True"
                       Margin="0 7 0 0">
-            <PanelContainer StyleClasses="PanelBackgroundBaseDark"
+            <PanelContainer StyleClasses="PanelDark"
                             VerticalExpand="True"
                             MinWidth="164"
                             MaxWidth="164">
@@ -135,7 +135,7 @@
 
             <Control MinSize="8 0" MaxSize="8 0" />
 
-            <PanelContainer StyleClasses="PanelBackgroundBaseLight"
+            <PanelContainer StyleClasses="PanelLight"
                             VerticalExpand="True"
                             HorizontalExpand="True">
                 <BoxContainer Orientation="Vertical"
@@ -179,7 +179,7 @@
                         <PanelContainer Name="AttachmentBanner"
                                         Visible="False"
                                         Margin="0 0 0 6"
-                                        StyleClasses="PanelBackgroundBaseDark">
+                                        StyleClasses="PanelDark">
                             <BoxContainer Orientation="Horizontal"
                                           HorizontalExpand="True"
                                           Margin="6 4">
@@ -235,7 +235,7 @@
                       HorizontalExpand="True"
                       Margin="0 7 0 0"
                       Visible="False">
-            <PanelContainer StyleClasses="PanelBackgroundBaseDark"
+            <PanelContainer StyleClasses="PanelDark"
                             VerticalExpand="True"
                             MinWidth="164"
                             MaxWidth="164">
@@ -262,7 +262,7 @@
 
             <Control MinSize="8 0" MaxSize="8 0" />
 
-            <PanelContainer StyleClasses="PanelBackgroundBaseLight"
+            <PanelContainer StyleClasses="PanelLight"
                             VerticalExpand="True"
                             HorizontalExpand="True">
                 <BoxContainer Orientation="Vertical"
@@ -275,7 +275,7 @@
                                   MinSize="0 30"
                                   Margin="0 0 0 6">
                         <Label Name="GalleryPreviewName"
-                               StyleClasses="LabelBig"
+                               StyleClasses="font-large"
                                HorizontalExpand="True"
                                HorizontalAlignment="Stretch"
                                VerticalAlignment="Center"

@@ -106,7 +106,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                       HorizontalExpand="True"
                       Margin="0 5 0 0">
             <!-- Left panel: Chat list -->
-            <PanelContainer StyleClasses="AngleRect"
+            <!-- Pirate: ui fixes -->
+            <PanelContainer StyleClasses="BackgroundPanel"
                             VerticalExpand="True"
                             MaxWidth="150">
                 <ScrollContainer VerticalExpand="True"
@@ -131,7 +132,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
             <customControls:VSeparator Margin="3 0" />
 
             <!-- Right panel: Current chat -->
-            <PanelContainer StyleClasses="AngleRect"
+            <!-- Pirate: ui fixes -->
+            <PanelContainer StyleClasses="BackgroundPanel"
                             VerticalExpand="True"
                             HorizontalExpand="True">
                 <BoxContainer Orientation="Vertical"

@@ -14,7 +14,7 @@ public sealed class LoadoutLimitPill : PanelContainer
         VerticalAlignment = VAlignment.Center;
         _label = new Label
         {
-            StyleClasses = { "LabelSmall" },
+            StyleClasses = { "font-small" },
             HorizontalAlignment = HAlignment.Center,
             VerticalAlignment = VAlignment.Center,
             Margin = new Thickness(0, 0, 0, 0),

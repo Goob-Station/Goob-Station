@@ -122,7 +122,7 @@ namespace Content.Client.LateJoin
                             {
                                 new Label()
                                 {
-                                    StyleClasses = { "LabelBig" },
+                                    StyleClasses = { "font-large" }, // Pirate: ui fixes (legacy style migration; prefer upstream on conflict)
                                     Text = name,
                                     Align = Label.AlignMode.Center,
                                 },
@@ -219,7 +219,7 @@ namespace Content.Client.LateJoin
                         {
                             new Label
                             {
-                                StyleClasses = { "LabelBig" },
+                                StyleClasses = { "font-large" }, // Pirate: ui fixes (legacy style migration; prefer upstream on conflict)
                                 Text = Loc.GetString("late-join-gui-department-jobs-label", ("departmentName", departmentName))
                             }
                         }

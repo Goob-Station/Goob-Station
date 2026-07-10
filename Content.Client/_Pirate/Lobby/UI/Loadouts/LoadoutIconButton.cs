@@ -16,6 +16,9 @@ namespace Content.Client._Pirate.Lobby.UI.Loadouts;
 
 public sealed class LoadoutIconButton : Button
 {
+    private const int MaxCaptionNameLength = 13;
+    private const int TrimmedCaptionLength = 12;
+
     [Dependency] private readonly IEntityManager _entManager = default!;
 
     public event Action<string, string>? OnCustomizePressed;
@@ -87,7 +90,9 @@ public sealed class LoadoutIconButton : Button
         spriteRegion.AddChild(sprite);
 
         // Full name remains in the tooltip.
-        var captionText = displayName.Length > 15 ? string.Concat(displayName.AsSpan(0, 14), "...") : displayName;
+        var captionText = displayName.Length > MaxCaptionNameLength
+            ? string.Concat(displayName.AsSpan(0, TrimmedCaptionLength), "...")
+            : displayName;
 
         // ClipText labels must stay stretched.
         _caption = new Label
@@ -97,7 +102,7 @@ public sealed class LoadoutIconButton : Button
             Align = Label.AlignMode.Center,
             HorizontalExpand = true,
             MinSize = new Vector2(0, 26),
-            StyleClasses = { "LabelSmall" },
+            StyleClasses = { "font-small" },
         };
 
         AddChild(new BoxContainer

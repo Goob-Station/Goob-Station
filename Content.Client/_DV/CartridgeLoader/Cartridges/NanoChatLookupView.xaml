@@ -7,7 +7,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     xmlns:cartridges="clr-namespace:Content.Client._DV.CartridgeLoader.Cartridges"
     HorizontalExpand="True"
     VerticalExpand="True"
-    StyleClasses="AngleRect">
+    StyleClasses="BackgroundPanel"> <!-- Pirate: ui fixes -->
     <ScrollContainer Margin="-10"
                      VerticalExpand="True"
                      HorizontalExpand="True">

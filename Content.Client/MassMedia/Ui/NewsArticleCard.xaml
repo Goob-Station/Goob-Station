@@ -18,9 +18,9 @@ SPDX-License-Identifier: MIT
             <Label Name="TitleLabel" Margin="12 0 6 0" HorizontalAlignment="Left"/>
         </Control>
         <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
-            <Label FontColorOverride="#b1b1b2" StyleClasses="LabelSmall" Name="AuthorLabel" Margin="14 6 6 6"/>
+            <Label FontColorOverride="#b1b1b2" StyleClasses="font-small" Name="AuthorLabel" Margin="14 6 6 6"/> <!-- Pirate: ui fixes (legacy style migration; prefer upstream on conflict) -->
             <Control HorizontalExpand="True"/>
-            <Label FontColorOverride="#b1b1b2" StyleClasses="LabelSmall" Name="PublishTimeLabel" Margin="6 6 6 6"/>
+            <Label FontColorOverride="#b1b1b2" StyleClasses="font-small" Name="PublishTimeLabel" Margin="6 6 6 6"/> <!-- Pirate: ui fixes (legacy style migration; prefer upstream on conflict) -->
             <controls:ConfirmButton Name="DeleteButton" Text="{Loc news-write-ui-delete-text}"
                     HorizontalAlignment="Right" Margin="8 6 6 6" SetHeight="19" SetWidth="52" Access="Public">
                 <Button.StyleClasses>

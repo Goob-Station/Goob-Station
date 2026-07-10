@@ -28,20 +28,20 @@
                                  TextureScale="2 2"
                                  Margin="0 0 0 10" />
                     <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Label HorizontalAlignment="Center" Text="{Loc 'monument-interface-entropy-available-label'}" Margin="0 0 5 0"  StyleClasses="LabelSmall" />
-                        <Label HorizontalAlignment="Center" Name="AvailableEntropy" FontColorOverride="#4CA7AD" StyleClasses="LabelSmall" />
+                        <Label HorizontalAlignment="Center" Text="{Loc 'monument-interface-entropy-available-label'}" Margin="0 0 5 0"  StyleClasses="font-small" /> <!-- Pirate: ui fixes (legacy style migration; prefer upstream on conflict) -->
+                        <Label HorizontalAlignment="Center" Name="AvailableEntropy" FontColorOverride="#4CA7AD" StyleClasses="font-small" /> <!-- Pirate: ui fixes (legacy style migration; prefer upstream on conflict) -->
                     </BoxContainer>
                     <BoxContainer Orientation="Horizontal" Margin="0 5 0 0" HorizontalAlignment="Center">
-                        <Label HorizontalAlignment="Center" Text="{Loc 'monument-interface-entropy-next-stage-title'}" Margin="0 0 5 0"  StyleClasses="LabelSmall" />
-                        <Label HorizontalAlignment="Center" Name="EntropyUntilNextStage" FontColorOverride="#4CA7AD" StyleClasses="LabelSmall" />
+                        <Label HorizontalAlignment="Center" Text="{Loc 'monument-interface-entropy-next-stage-title'}" Margin="0 0 5 0"  StyleClasses="font-small" /> <!-- Pirate: ui fixes (legacy style migration; prefer upstream on conflict) -->
+                        <Label HorizontalAlignment="Center" Name="EntropyUntilNextStage" FontColorOverride="#4CA7AD" StyleClasses="font-small" /> <!-- Pirate: ui fixes (legacy style migration; prefer upstream on conflict) -->
                     </BoxContainer>
                     <BoxContainer Orientation="Horizontal" Margin="0 5 0 0" HorizontalAlignment="Center">
-                        <Label HorizontalAlignment="Center" Text="{Loc 'monument-interface-entropy-seperator'}" Margin="0 0 5 0"  StyleClasses="LabelSmall" />
-                        <Label HorizontalAlignment="Center" Name="OrSeperator" FontColorOverride="#4CA7AD" StyleClasses="LabelSmall" />
+                        <Label HorizontalAlignment="Center" Text="{Loc 'monument-interface-entropy-seperator'}" Margin="0 0 5 0"  StyleClasses="font-small" /> <!-- Pirate: ui fixes (legacy style migration; prefer upstream on conflict) -->
+                        <Label HorizontalAlignment="Center" Name="OrSeperator" FontColorOverride="#4CA7AD" StyleClasses="font-small" /> <!-- Pirate: ui fixes (legacy style migration; prefer upstream on conflict) -->
                     </BoxContainer>
                     <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Label HorizontalAlignment="Center" Text="{Loc 'monument-interface-entropy-crew-convert-title'}" Margin="0 0 5 0"  StyleClasses="LabelSmall" />
-                        <Label HorizontalAlignment="Center" Name="CrewToConvertUntilNextStage" FontColorOverride="#4CA7AD" StyleClasses="LabelSmall" />
+                        <Label HorizontalAlignment="Center" Text="{Loc 'monument-interface-entropy-crew-convert-title'}" Margin="0 0 5 0"  StyleClasses="font-small" /> <!-- Pirate: ui fixes (legacy style migration; prefer upstream on conflict) -->
+                        <Label HorizontalAlignment="Center" Name="CrewToConvertUntilNextStage" FontColorOverride="#4CA7AD" StyleClasses="font-small" /> <!-- Pirate: ui fixes (legacy style migration; prefer upstream on conflict) -->
                     </BoxContainer>
                 </BoxContainer>
                 <!-- Second section (Glyphs) -->

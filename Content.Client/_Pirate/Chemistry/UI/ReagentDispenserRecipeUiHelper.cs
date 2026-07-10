@@ -96,7 +96,7 @@ public static class ReagentDispenserRecipeUiHelper
             containerInfo.Children.Add(new Label
             {
                 Text = Loc.GetString("reagent-dispenser-window-recipes-virtual-container-empty"),
-                StyleClasses = { StyleNano.StyleClassLabelSecondaryColor },
+                StyleClasses = { StyleClass.LabelWeak },
             });
             return;
         }
@@ -111,7 +111,7 @@ public static class ReagentDispenserRecipeUiHelper
             var quantityLabel = new Label
             {
                 Text = Loc.GetString("reagent-dispenser-window-quantity-label-text", ("quantity", reagent.Quantity)),
-                StyleClasses = { StyleNano.StyleClassLabelSecondaryColor },
+                StyleClasses = { StyleClass.LabelWeak },
             };
 
             containerInfo.Children.Add(new BoxContainer
@@ -161,7 +161,7 @@ public static class ReagentDispenserRecipeUiHelper
             recipeList.AddChild(new Label
             {
                 Text = Loc.GetString("reagent-dispenser-window-recipes-none"),
-                StyleClasses = { StyleNano.StyleClassLabelSecondaryColor },
+                StyleClasses = { StyleClass.LabelWeak },
             });
         }
 
@@ -190,7 +190,7 @@ public static class ReagentDispenserRecipeUiHelper
             recipeDiskList.AddChild(new Label
             {
                 Text = Loc.GetString("reagent-dispenser-window-recipes-disk-none"),
-                StyleClasses = { StyleNano.StyleClassLabelSecondaryColor },
+                StyleClasses = { StyleClass.LabelWeak },
             });
         }
     }

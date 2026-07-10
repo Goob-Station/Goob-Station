@@ -8,7 +8,8 @@
     MinSize="555 300"
     SetSize="555 400">
     <BoxContainer Orientation="Vertical">
-        <PanelContainer StyleClasses="AngleRect">
+        <!-- Pirate: ui fixes (legacy style migration; prefer upstream on conflict) -->
+        <PanelContainer StyleClasses="BackgroundPanel">
             <BoxContainer Orientation="Vertical" Margin="10 8" HorizontalExpand="True">
                 <Label Text="{Loc 'patron-support-window-header'}"
                        StyleClasses="LabelHeadingBigger" />
@@ -29,7 +30,7 @@
 
             <ScrollContainer HorizontalExpand="True" VerticalExpand="True">
                 <BoxContainer Orientation="Vertical" SeparationOverride="10" Margin="8 4">
-                    <PanelContainer StyleClasses="AngleRect" HorizontalExpand="True">
+                    <PanelContainer StyleClasses="BackgroundPanel" HorizontalExpand="True"> <!-- Pirate: ui fixes (legacy style migration; prefer upstream on conflict) -->
                         <BoxContainer Orientation="Vertical" Margin="8 6" HorizontalExpand="True">
                             <Label Text="{Loc 'patron-support-window-tier1-name'}" StyleClasses="LabelHeading" />
                             <cc:HSeparator />
@@ -43,7 +44,7 @@
                         </BoxContainer>
                     </PanelContainer>
 
-                    <PanelContainer StyleClasses="AngleRect" HorizontalExpand="True">
+                    <PanelContainer StyleClasses="BackgroundPanel" HorizontalExpand="True"> <!-- Pirate: ui fixes (legacy style migration; prefer upstream on conflict) -->
                         <BoxContainer Orientation="Vertical" Margin="8 6" HorizontalExpand="True">
                             <Label Text="{Loc 'patron-support-window-tier2-name'}" StyleClasses="LabelHeading" />
                             <cc:HSeparator />
@@ -53,7 +54,7 @@
                         </BoxContainer>
                     </PanelContainer>
 
-                    <PanelContainer StyleClasses="AngleRect" HorizontalExpand="True">
+                    <PanelContainer StyleClasses="BackgroundPanel" HorizontalExpand="True"> <!-- Pirate: ui fixes (legacy style migration; prefer upstream on conflict) -->
                         <BoxContainer Orientation="Vertical" Margin="8 6" HorizontalExpand="True">
                             <Label Text="{Loc 'patron-support-window-tier3-name'}" StyleClasses="LabelHeading" />
                             <cc:HSeparator />
@@ -63,7 +64,7 @@
                         </BoxContainer>
                     </PanelContainer>
 
-                    <PanelContainer StyleClasses="AngleRect" HorizontalExpand="True">
+                    <PanelContainer StyleClasses="BackgroundPanel" HorizontalExpand="True"> <!-- Pirate: ui fixes (legacy style migration; prefer upstream on conflict) -->
                         <BoxContainer Orientation="Vertical" Margin="8 6" HorizontalExpand="True">
                             <Label Text="{Loc 'patron-support-window-tier4-name'}" StyleClasses="LabelHeading" />
                             <cc:HSeparator />
@@ -73,7 +74,7 @@
                         </BoxContainer>
                     </PanelContainer>
 
-                    <PanelContainer StyleClasses="AngleRect" HorizontalExpand="True">
+                    <PanelContainer StyleClasses="BackgroundPanel" HorizontalExpand="True"> <!-- Pirate: ui fixes (legacy style migration; prefer upstream on conflict) -->
                         <BoxContainer Orientation="Vertical" Margin="8 6" HorizontalExpand="True">
                             <Label Text="{Loc 'patron-support-window-tier5-name'}" StyleClasses="LabelHeading" />
                             <cc:HSeparator />
