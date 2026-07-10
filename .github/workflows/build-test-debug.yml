@@ -22,6 +22,8 @@ jobs:
         os: [ubuntu-latest]
 
     runs-on: ${{ matrix.os }}
+    # Pirate: the expanded RT 270 integration suite exceeds the default job limit.
+    timeout-minutes: 60
 
     steps:
     - name: Checkout Master
