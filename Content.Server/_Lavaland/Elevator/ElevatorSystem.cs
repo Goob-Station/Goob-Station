@@ -4,7 +4,7 @@ using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map;
 
-namespace Content.Server.Elevator;
+namespace Content.Server._Lavaland.Elevator;
 
 /// <summary>
 /// Teleport system that is basically a reskinned portal but that loads new grids.
