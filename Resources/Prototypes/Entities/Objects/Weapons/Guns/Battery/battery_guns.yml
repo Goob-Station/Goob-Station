@@ -818,7 +818,6 @@
     slots:
     - Belt
   - type: Gun
-    fireRate: 0.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser.ogg
     projectileSpeed: 25
