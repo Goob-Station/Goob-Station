@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from Beestation at commit https://github.com/BeeStation/BeeStation-Hornet/commit/9a035f9365bcb74ac40fbe79c74c43c4c80cc1e4",
+    "copyright": "Taken from Beestation at commit https://github.com/BeeStation/BeeStation-Hornet/commit/9a035f9365bcb74ac40fbe79c74c43c4c80cc1e4, wielded sprites done by Tea(@teasq.bsky.social, recolored wielded sprites by mkanke",
     "size": {
         "x": 32,
         "y": 32
@@ -21,6 +21,14 @@
         {
             "name": "inhand-right",
 			"directions": 4
+        },
+        {
+            "name": "wielded-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "wielded-inhand-right",
+            "directions": 4
         }
     ]
 }

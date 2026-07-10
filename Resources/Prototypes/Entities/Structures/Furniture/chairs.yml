@@ -536,11 +536,17 @@
     size: Huge
   - type: Appearance
   - type: MeleeWeapon
+    wideAnimationRotation: 270
     damage:
       types:
-        Blunt: 8
+        Blunt: 6
     soundHit:
       collection: MetalThud
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 6
   - type: Construction
     graph: Seat
     node: chairFolding
