@@ -57,7 +57,7 @@ public sealed class BloodRegenerationPirateSystem : EntitySystem
         // Amount scaled by component; allows negative for loss if desired.
         var amount = ev.Amount;
 
-        if (amount > FixedPoint2.Zero && bloodSolution.Volume >= bloodSolution.MaxVolume)
+        if (amount > FixedPoint2.Zero && _bloodstream.GetBloodLevel(ent.AsNullable()) >= 1f)
             return false;
 
         // Costs
