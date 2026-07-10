@@ -8,6 +8,7 @@
   - TrinketsPhotoCameraFilled
   - NoviceMark
   - Pillow
+  - TrinketsTrainWhistle
   subgroups:
   - PiratePlushies
   - PirateGambling
@@ -475,6 +476,7 @@
   - WardrobeBandGreen
   - WardrobeBandBlue
   - WardrobeBandBlack
+  - WardrobeConductorHat
 
 
 - type: loadoutGroup
