@@ -171,3 +171,10 @@
     back:
     - CardBoxNuno
   groupBy: "Gambling"
+
+- type: loadout
+  id: TrinketsTrainWhistle
+  storage:
+    back:
+    - TrainWhistle
+  groupBy: "Trinkets"
