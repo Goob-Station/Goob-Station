@@ -142,29 +142,6 @@
   - type: AmmoCounter
 
 - type: entity
-  id: WeaponMechCombatTaser
-  name: PBT "Pacifier" Mounted Taser
-  description: A mounted non-lethal taser that allows you to stun intruders.
-  suffix: Mech Weapon, Gun, Combat, Disabler, admeme
-  parent: [ BaseMechWeaponRange, CombatMechEquipment ]
-  components:
-  - type: Sprite
-    sprite: Objects/Specific/Mech/mecha_equipment.rsi
-    state: mecha_taser
-  - type: Gun
-    fireRate: 1
-    selectedMode: SemiAuto
-    availableModes:
-      - SemiAuto
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
-  - type: BatteryAmmoProvider
-    proto: BulletTaser
-    fireCost: 19
-  - type: Appearance
-  - type: AmmoCounter
-
-- type: entity
   id: WeaponMechCombatShotgun
   name: LBX AC 10 "Scattershot"
   description: A mounted shotgun for use against enemy manpower.
