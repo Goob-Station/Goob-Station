@@ -47,7 +47,7 @@
           Quantity: 30
       #region Pirate: stains
       stain:
-        maxVol: 5
+        maxVol: 10
       #endregion Pirate: stains
   - type: Tag
     tags:

@@ -197,7 +197,7 @@ public abstract class SharedStainSystem : EntitySystem
     private const float FeetStainChancePerUnit = 0.015f;
     private const float FeetStainMaxChance = 0.30f;
 
-    private bool RollFeetStain(EntityUid source)
+    private bool RollFeetStain(EntityUid source, bool ignoreMinVolume = false)
     {
         if (!TryComp<PuddleComponent>(source, out var puddle) ||
             !_solution.TryGetSolution(source, puddle.SolutionName, out _, out var solution))
@@ -205,7 +205,8 @@ public abstract class SharedStainSystem : EntitySystem
             return true;
         }
 
-        if (solution.Volume < FeetStainMinVolume)
+        // Worn boots shrug off shallow puddles; bare feet don't get that protection.
+        if (!ignoreMinVolume && solution.Volume < FeetStainMinVolume)
             return false;
 
         var chance = Math.Min(solution.Volume.Float() * FeetStainChancePerUnit, FeetStainMaxChance);
@@ -247,8 +248,8 @@ public abstract class SharedStainSystem : EntitySystem
         if (args.Handled)
             return;
 
-        // Bare feet only stain from puddle steps.
-        if (args.TargetSlots != SlotFlags.FEET || !RollFeetStain(args.Source))
+        // Bare feet only stain from puddle steps, but unlike boots they aren't shielded from shallow puddles.
+        if (args.TargetSlots != SlotFlags.FEET || !RollFeetStain(args.Source, ignoreMinVolume: true))
             return;
 
         // Worn shoes are handled with clothing.
@@ -270,7 +271,9 @@ public abstract class SharedStainSystem : EntitySystem
         if (IsStainBlocked(ent) || !TryGetStainSolution(ent, out var stainSolution))
             return false;
 
-        var transferAmount = FixedPoint2.Min(solution.Volume, ent.Comp.SpillTransferAmount);
+        // Take the whole dose (capped at capacity by AddStainFifo), same as worn clothing — bare
+        // skin used to be throttled to a tiny amount per spill.
+        var transferAmount = solution.Volume;
 
         // Bare feet do not rotate old stains back onto the floor.
         if (!rotate)
@@ -412,6 +415,10 @@ public abstract class SharedStainSystem : EntitySystem
         TryCleanStain(ent.Owner);
     }
 
+    // Melee blood splatter scales with the hit's damage, down to a floor.
+    private const float MeleeBloodPerDamage = 0.1f;
+    private static readonly FixedPoint2 MinMeleeBlood = FixedPoint2.New(1);
+
     private void OnMeleeHit(Entity<MeleeWeaponComponent> ent, ref MeleeHitEvent args)
     {
         if (!args.IsHit ||
@@ -426,6 +433,9 @@ public abstract class SharedStainSystem : EntitySystem
         if (!_random.Prob(Math.Clamp((25f + damage.Float() * 2f) / 100f, 0f, 1f)))
             return;
 
+        // Bigger hits splatter more blood; small hits still draw at least the floor amount.
+        var bloodPerTarget = FixedPoint2.Max(MinMeleeBlood, damage * MeleeBloodPerDamage);
+
         var solution = new Solution();
 
         foreach (var target in args.HitEntities)
@@ -438,7 +448,7 @@ public abstract class SharedStainSystem : EntitySystem
 
             // Preserve the target's blood type.
             var bloodReagent = bloodstream.BloodReferenceSolution.Contents[0].Reagent.Prototype;
-            solution.AddReagent(new ReagentId(bloodReagent, _bloodstream.GetEntityBloodData(target)), 0.5f);
+            solution.AddReagent(new ReagentId(bloodReagent, _bloodstream.GetEntityBloodData(target)), bloodPerTarget);
         }
 
         if (solution.Volume <= 0)

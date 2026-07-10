@@ -290,15 +290,31 @@ public abstract class SharedWetnessSystem : EntitySystem
         }
 
         var runoff = new Solution();
-        if (stained.Count == 0)
-            return runoff;
+        var remaining = water;
 
-        var share = water / stained.Count;
-        foreach (var item in stained)
+        // Spread the water evenly, redistributing what a lightly-stained target doesn't need so an
+        // ample splash fully cleans everything up to its volume instead of wasting water on light stains.
+        var progressed = true;
+        while (remaining > 0 && stained.Count > 0 && progressed)
         {
-            var washed = _stains.WashStain(item, share);
-            if (washed != null)
-                runoff.AddSolution(washed, _proto);
+            progressed = false;
+            var share = remaining / stained.Count;
+            if (share <= 0)
+                break;
+
+            for (var i = stained.Count - 1; i >= 0; i--)
+            {
+                var washed = _stains.WashStain(stained[i], share);
+                if (washed != null && washed.Volume > 0)
+                {
+                    runoff.AddSolution(washed, _proto);
+                    remaining -= washed.Volume;
+                    progressed = true;
+                }
+
+                if (_stains.GetStainVolume(stained[i]) <= 0)
+                    stained.RemoveAt(i);
+            }
         }
 
         return runoff;

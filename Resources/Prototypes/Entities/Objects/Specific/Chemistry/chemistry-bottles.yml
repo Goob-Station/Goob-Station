@@ -62,7 +62,7 @@
     solution: drink
   - type: MeleeWeapon
     soundNoDamage:
-      path: "/Audio/Effects/Fluids/splat.ogg"
+      collection: WeakHit # Pirate: stains
     damage:
       types:
         Blunt: 0

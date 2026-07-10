@@ -7,6 +7,7 @@ using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Chemistry;
 using Content.Shared.Database;
 using Content.Shared._Pirate.Fluids; // Pirate: stains
+using Content.Shared.Audio; // Pirate: stains
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Fluids.Components;
 using Content.Shared.IdentityManagement;
@@ -15,12 +16,19 @@ using Content.Shared.Popups;
 using Content.Shared.Spillable;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Events;
+using Robust.Shared.Audio; // Pirate: stains
 using Robust.Shared.Player;
 
 namespace Content.Server.Fluids.EntitySystems;
 
 public sealed partial class PuddleSystem
 {
+    #region Pirate: stains
+    private static readonly SoundSpecifier MeleeSplashSound = new SoundPathSpecifier(
+        "/Audio/_Pirate/Effects/Fluids/slosh.ogg",
+        AudioParams.Default.WithVariation(SharedContentAudioSystem.DefaultVariation).WithVolume(-3f));
+    #endregion Pirate: stains
+
     protected override void InitializeSpillable()
     {
         base.InitializeSpillable();
@@ -93,6 +101,7 @@ public sealed partial class PuddleSystem
 
             AdminLogger.Add(LogType.MeleeHit, $"{ToPrettyString(args.User)} splashed {SharedSolutionContainerSystem.ToPrettyString(splitSolution):solution} from {ToPrettyString(entity.Owner):entity} onto {ToPrettyString(hit):target}");
             RaiseLocalEvent(hit, new SpilledOnEvent(entity.Owner, splitSolution.Clone())); // Pirate: stains
+            PlayMeleeSplashEffect(hit, splitSolution); // Pirate: stains
             Reactive.DoEntityReaction(hit, splitSolution, ReactionMethod.Touch);
 
             Popups.PopupEntity(
@@ -106,6 +115,15 @@ public sealed partial class PuddleSystem
                 hit, Filter.PvsExcept(args.User), true, PopupType.SmallCaution);
         }
     }
+
+    #region Pirate: stains
+    private void PlayMeleeSplashEffect(EntityUid target, Solution solution)
+    {
+        Audio.PlayPvs(MeleeSplashSound, target);
+        RaiseNetworkEvent(new LiquidSplashEffectEvent(GetNetEntity(target), solution.GetColor(_prototypeManager)),
+            Filter.Pvs(target, entityManager: EntityManager));
+    }
+    #endregion Pirate: stains
 
     private void SpillOnLand(Entity<SpillableComponent> entity, ref LandEvent args)
     {

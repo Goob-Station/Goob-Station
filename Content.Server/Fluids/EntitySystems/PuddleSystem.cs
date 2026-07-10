@@ -307,6 +307,11 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
     }
 
     #region Pirate: stains
+    // How much puddle a step/crawl picks up: scales with depth, floored at the old fixed sample and capped.
+    private const float PuddleContactFraction = 0.15f;
+    private static readonly FixedPoint2 PuddleContactMin = FixedPoint2.New(0.5);
+    private static readonly FixedPoint2 PuddleContactMax = FixedPoint2.New(5);
+
     private void OnPuddleStartCollide(Entity<PuddleComponent> entity, ref StartCollideEvent args)
     {
         if (!args.OtherFixture.Hard)
@@ -323,8 +328,10 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
             return;
         }
 
-        // Split a real sample so rejected stain fluid can be returned to the puddle.
-        var splitSol = _solutionContainerSystem.SplitSolution(entity.Comp.Solution.Value, FixedPoint2.Min(solution.Volume, 0.5f));
+        // Split a real sample so rejected stain fluid can be returned to the puddle. The sample scales
+        // with puddle depth (floored at the old fixed 0.5u, capped so a lake doesn't dump on you).
+        var contact = FixedPoint2.Min(PuddleContactMax, FixedPoint2.Max(PuddleContactMin, solution.Volume * PuddleContactFraction));
+        var splitSol = _solutionContainerSystem.SplitSolution(entity.Comp.Solution.Value, FixedPoint2.Min(solution.Volume, contact));
         if (splitSol.Volume <= 0)
             return;
 
@@ -499,24 +506,33 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         var reactive = new HashSet<Entity<ReactiveComponent>>();
         _lookup.GetEntitiesInRange(coordinates, 1.0f, reactive);
 
-        // Get reactive entities nearby--if there are some, it'll spill a bit on them instead.
+        // Pirate: stains - capture the colour before the solution is distributed away.
+        var splashColor = spilled.GetColor(_prototypeManager);
+
+        // Pirate: stains - split the spill EVENLY across every reachable target, staining and wetting
+        // each (SpilledOnEvent + touch reaction); whatever the targets can't absorb overflows to the
+        // floor via those handlers, and any undistributed remainder puddles below. Previously each
+        // target grabbed a random 5-30% and stainable liquids never actually stained.
+        var remaining = reactive.Count;
         foreach (var ent in reactive)
         {
             // sorry! no overload for returning uid, so .owner must be used
             var owner = ent.Owner;
 
-            // between 5 and 30%
-            var splitAmount = spilled.Volume * _random.NextFloat(0.05f, 0.30f);
-            var splitSolution = spilled.SplitSolution(splitAmount);
+            var share = spilled.SplitSolution(spilled.Volume / remaining);
+            remaining--;
+            if (share.Volume <= 0)
+                continue;
 
             if (user != null)
             {
                 AdminLogger.Add(LogType.Landed,
-                    $"{ToPrettyString(user.Value):user} threw {ToPrettyString(entity):entity} which splashed a solution {SharedSolutionContainerSystem.ToPrettyString(spilled):solution} onto {ToPrettyString(owner):target}");
+                    $"{ToPrettyString(user.Value):user} threw {ToPrettyString(entity):entity} which splashed a solution {SharedSolutionContainerSystem.ToPrettyString(share):solution} onto {ToPrettyString(owner):target}");
             }
 
             targets.Add(owner);
-            Reactive.DoEntityReaction(owner, splitSolution, ReactionMethod.Touch);
+            RaiseLocalEvent(owner, new SpilledOnEvent(entity, share.Clone())); // Pirate: stains
+            Reactive.DoEntityReaction(owner, share, ReactionMethod.Touch);
             Popups.PopupEntity(Loc.GetString("spill-land-spilled-on-other",
                     ("spillable", entity),
                     ("target", Identity.Entity(owner, EntityManager))),
@@ -524,7 +540,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
                 PopupType.SmallCaution);
         }
 
-        _color.RaiseEffect(spilled.GetColor(_prototypeManager), targets,
+        _color.RaiseEffect(splashColor, targets,
             Filter.Pvs(entity, entityManager: EntityManager));
 
         return TrySpillAt(coordinates, spilled, out puddleUid, sound);
