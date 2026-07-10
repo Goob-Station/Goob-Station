@@ -188,16 +188,6 @@
     Plastic: 750
     Gold: 500
 
-- type: latheRecipe
-  parent: BaseWeaponRecipeLong
-  id: WeaponTaser
-  result: WeaponTaser
-  materials:
-    Steel: 1000
-    Plastic: 1000
-    Gold: 500
-    Glass: 500
-
 # Smartgun
 
 - type: latheRecipe

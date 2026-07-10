@@ -137,7 +137,6 @@
   - WeaponXrayCannon
   - WeaponTemperatureGun # Goobstation
   - Terminus # Goobstation
-  - WeaponTaser # Goobstation
 
 - type: latheRecipePack
   id: SecurityDisablers
