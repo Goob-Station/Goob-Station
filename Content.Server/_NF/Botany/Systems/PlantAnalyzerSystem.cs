@@ -44,7 +44,7 @@ public sealed partial class PlantAnalyzerSystem : EntitySystem
 
     private void OnAfterInteract(Entity<PlantAnalyzerComponent> ent, ref AfterInteractEvent args)
     {
-        if (args.Target == null || !args.CanReach || !_cell.HasActivatableCharge(ent, user: args.User))
+        if (args.Target == null || !args.CanReach || !_cell.HasActivatableCharge(ent.Owner, user: args.User))
             return;
 
         if (ent.Comp.DoAfter != null)
