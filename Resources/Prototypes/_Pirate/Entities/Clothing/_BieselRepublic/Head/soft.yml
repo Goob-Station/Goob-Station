@@ -1,0 +1,11 @@
+- type: entity
+  parent: [ClothingHeadHeadHatBaseFlippable]
+  id: ClothingHeadHatTCAFSoftCap
+  name: кепка TCAF
+  suffix: TCAF
+  description: М'яка вовняна кепка, яку носять чинні та колишні військовослужбовці збройних сил Тау-Кита.
+  components:
+    - type: Sprite
+      sprite: _Pirate/Clothing/_BieselRepublic/Head/Soft/TCAF_softcap.rsi
+    - type: Clothing
+      sprite: _Pirate/Clothing/_BieselRepublic/Head/Soft/TCAF_softcap.rsi

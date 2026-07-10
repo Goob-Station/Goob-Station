@@ -1,0 +1,11 @@
+- type: entity
+  parent: ClothingHandsGlovesCombat
+  id: ClothingHandsGlovesCombatTCAF
+  name: бойові рукавички TCAF
+  description: Пара тактичних рукавиць давнього соларіанського зразка, що широко використовуються у збройних силах Республіки Бізеліта.
+  suffix: TCAF
+  components:
+  - type: Sprite
+    sprite: _Pirate/Clothing/_BieselRepublic/Hands/Gloves/TCAF_combat_gloves.rsi
+  - type: Clothing
+    sprite: _Pirate/Clothing/_BieselRepublic/Hands/Gloves/TCAF_combat_gloves.rsi

@@ -1,0 +1,18 @@
+- files:
+  - tacsuit_step_00.ogg
+  - tacsuit_step_01.ogg
+  - tacsuit_step_02.ogg
+  license: "CC-BY-SA-3.0"
+  copyright: "Made by majormoth(Discord)"
+  source: "https://discord.com/channels/1301753657024319488/1332696230572331048/1335279751866351759"
+
+- files:
+  - gear1.ogg
+  - gear2.ogg
+  - gear3.ogg
+  - gear4.ogg
+  - gear5.ogg
+  - gear6.ogg
+  license: "Custom"
+  copyright: "Valve Software, Non-Commercial Steam Subscriber Agreement"
+  source: "https://store.steampowered.com/app/220/HalfLife_2/"

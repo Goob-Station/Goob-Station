@@ -121,7 +121,6 @@
   - LoadoutBeltWaist
   - LoadoutBeltWaistThin
   - LoadoutBeltWaistbagColor
-  - ClothingBeltTCAFWebbing
 
 - type: loadoutGroup
   id: PirateEEGenericHands
@@ -133,7 +132,6 @@
   - LoadoutHandsGlovesEnviroglovesEvening
   - LoadoutHandsClothWrap
   - ClothingHandsTacticalMaidGlovesLoadout
-  - ClothingHandsGlovesCombatTCAF
 
 - type: loadoutGroup
   id: PirateEEGenericMask
@@ -281,11 +279,6 @@
   - LoadoutUniformJumpsuitFlannelBlackJeans
   - LoadoutUniformJumpsuitFlannelKhakis
   - LoadoutUniformJumpsuitFlannelBlackKhakis
-  - ClothingUniformTCAFArmsman
-  - ClothingUniformTCFLLegate
-  - ClothingUniformTCFLPilot
-  - ClothingUniformTCFLSentinel
-  - ClothingUniformTCFLVolunteer
   subgroups:
   - PiratePassengerJumpsuit
 
@@ -579,12 +572,6 @@
   - LoadoutHeadBowSmall
   - LoadoutHeadHatBeanieGreen
   - LoadoutHeadHatMountie
-  - ClothingHeadHatTCAFBeretDress
-  - ClothingHeadHatTCAFBeretField
-  - ClothingHeadHatTCFLBeretDress
-  - ClothingHeadHatTCFLBeretField
-  - ClothingHeadHatTCFLBeretSentinel
-  - ClothingHeadHatTCFLSoftCap
   subgroups:
   - PiratePassengerHead
 
@@ -729,7 +716,6 @@
   - LoadoutOuterCoatSubmarinerOpened
   - LoadoutOuterVestColorable
   - LoadoutOuterVestThick
-  - LoadoutOuterJacketTCAF
   subgroups:
   - PiratePassengerOuterClothing
 
