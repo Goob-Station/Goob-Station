@@ -135,12 +135,13 @@
 - type: entity
   suffix: JustDecor, Death
   id: BoxFolderCentComClipboardDeath
-  parent: BoxFolderCentComClipboard
+  parent: BoxFolderCentComClipboardEmpty
   components:
-  - type: StorageFill
-    contents:
-    - id: DeathTicket
-      amount: 10
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: DeathTicket
+        amount: 10
   - type: ItemSlots
     slots:
       pen_slot:
