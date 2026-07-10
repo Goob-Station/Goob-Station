@@ -24,9 +24,6 @@
     interfaces:
       enum.PlantAnalyzerUiKey.Key:
         type: PlantAnalyzerBoundUserInterface
-  - type: Tag
-    tags:
-    - PlantAnalyzer
   - type: ItemToggle
     onUse: false
   - type: PlantAnalyzer
@@ -37,7 +34,7 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.PowerCellSlotVisuals.Enabled:
+      enum.PowerDeviceVisualLayers.Powered:
         enum.PowerDeviceVisualLayers.Powered:
           True: { visible: true }
           False: { visible: false }
@@ -52,7 +49,7 @@
   components:
   - type: PowerCellDraw
     drawRate: 1.2
-    useRate: 40
+    chargeUseRate: 40
   - type: ToggleCellDraw
   - type: ActivatableUIRequiresPowerCell
 
