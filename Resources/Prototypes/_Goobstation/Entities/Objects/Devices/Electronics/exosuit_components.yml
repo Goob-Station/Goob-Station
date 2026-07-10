@@ -3,7 +3,7 @@
 - type: entity
   id: BaseExosuitParts
   parent: BaseItem
-  name: base components
+  name: "базові компоненти"
   abstract: true
   components:
   - type: Item
@@ -21,8 +21,8 @@
 - type: entity
   id: DurandArmorPlate
   parent: BaseExosuitParts
-  name: durand armor plates
-  description: Armor plates made of plasteel for Durand exosuit.
+  name: "дюралеві броньові пластини"
+  description: "Бронепластини з пластиліну для екзокостюму Durand."
   components:
     - type: Item
       storedRotation: 0
@@ -39,8 +39,8 @@
 - type: entity
   id: GygaxArmorPlate
   parent: BaseExosuitParts
-  name: gygax armor plates
-  description: Armor plates made of steel for Gygax exosuit.
+  name: "бронепластини gygax"
+  description: "Бронепластини зі сталі для екзокостюму Gygax."
   components:
     - type: Item
       storedRotation: 0
@@ -57,8 +57,8 @@
 - type: entity
   id: RipleyUpgradeKit
   parent: BaseExosuitParts
-  name: exosuit upgrade kit
-  description: This kit allows you to assemble an exosuit Ripley MK-II.
+  name: "комплект для модернізації екзокостюму"
+  description: "Цей комплект дозволяє зібрати екзокостюм Ripley MK-II."
   components:
     - type: Item
       storedRotation: 0
@@ -74,8 +74,8 @@
 - type: entity
   id: MechAirTank
   parent: BaseExosuitParts
-  name: exosuit air tank
-  description: A special air canister capable of holding a large amount of air.
+  name: "повітряний балон екзокостюму"
+  description: "Спеціальна повітряна каністра, здатна утримувати велику кількість повітря."
   components:
     - type: Item
       storedRotation: 0
@@ -91,8 +91,8 @@
 - type: entity
   id: MechThruster
   parent: BaseExosuitParts
-  name: exosuit thruster
-  description: A thruster with which the exosuit can safely move in the absence of gravity.
+  name: "екзокостюмний рушій"
+  description: "Рушій, за допомогою якого екзокостюм може безпечно рухатися за відсутності гравітації."
   components:
     - type: Item
       storedRotation: 0

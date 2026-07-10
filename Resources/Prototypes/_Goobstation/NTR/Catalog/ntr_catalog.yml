@@ -1,8 +1,8 @@
 # station
 - type: listing
   id: NTRExecutiveCargoBingle
-  name: Call a cargo bingle
-  description: After capture, pitless bingles have their sharp teeth removed and are transported through stations to assist with heavy cargo lifting. Their emotional well-being is disregarded.
+  name: "Викликати вантажного бінгла"
+  description: "Після захоплення, у безжальних бінглів видаляють гострі зуби і транспортують їх через станції для допомоги з піднімання важких вантажів. Їхнє емоційне благополуччя ігнорується."
   productEntity: SpawnPodCargoBingle
   icon:
     sprite: _Goobstation/Mobs/Bingle/cargo-bingle.rsi
@@ -17,8 +17,8 @@
 
 - type: listing
   id: NTRExecutiveCrateEVA
-  name: EVA crate
-  description: A crate containing 3 pairs of EVA hardsuits, to keep you and your people alive in a catastrophic situation.
+  name: "Ящик ЄВА"
+  description: "Ящик, що містить 3 пари скафандрів ЄВА, щоб зберегти вас і ваших людей живими в катастрофічній ситуації."
   productEntity: SpawnPodEvaKit
   icon:
     sprite: Clothing/OuterClothing/Suits/eva.rsi
@@ -33,8 +33,8 @@
 
 - type: listing
   id: NTRExecutiveMindshield
-  name: Mindshield crate
-  description: A crate containing 3 mindshield implants. Corporate advises you to buy them in cargo anyway.
+  name: "Ящик з майндшилдами"
+  description: "Ящик, що містить 3 імпланти майндшилд. Корпорація радить вам все одно купувати їх у вантажному відділі."
   productEntity: SpawnPodMindshield
   icon:
     sprite: Objects/Specific/Medical/implanter.rsi
@@ -149,8 +149,8 @@
 
 - type: listing
   id: NTRExecutiveWaterCoolerGold
-  name: premium water (?) cooler
-  description: Made from the finest 24-karat hardened whiskey in the sector. Its shiny and golden, just like its insides. Comes with 500u of whiskey. Every fine executive has one of these in their room.
+  name: "преміальний кулер «з водою»"
+  description: "Виготовлений з найкращого у секторі 24-каратного загартованого віскі. Він блискучий і золотий, як і його нутрощі. Постачається з 500 од. віскі. Кожен поважний керівник має такий у своїй кімнаті."
   productEntity: SpawnPodWaterCoolerGold
   icon:
     sprite: _Goobstation/Structures/Storage/watercooler.rsi
@@ -199,8 +199,8 @@
 
 - type: listing
   id: NTRExecutiveSingleIntern
-  name: single Intern Coin
-  description: Summons one basic intern. Interns are on your full command, order them to complete tasks instead of you doing it by yourself, or play cards with them.
+  name: "одна монета інтерна"
+  description: "Викликає одного базового інтерна."
   productEntity: SpawnPodCoin
   icon:
     sprite: Objects/Misc/coins.rsi
@@ -328,8 +328,8 @@
 
 - type: listing
   id: NTRExecutiveCigsDeluxe
-  name: Executive cig vendor
-  description: For those who know that lung cancer is non-existent, Nanotrasen made this, a vendor full of ciggaretes and expensive flippos for you to smoke.
+  name: "Елітний автомат із цигарками"
+  description: "Для тих, хто знає, що раку легенів не існує, Nanotrasen зробила це — автомат, повний цигарок і дорогих запальничок для вас."
   productEntity: SpawnPodNTRCigs
   icon:
     sprite: _Goobstation/Structures/Machines/cigvend.rsi
@@ -345,8 +345,8 @@
 
 - type: listing
   id: NTRExecutiveSoap
-  name: centcomm soap
-  description: An expensive soap made with our finest... who am i kidding its just a soap covered in lube with a print.
+  name: "мило Центкому"
+  description: "Дороге мило, зроблене з нашого найкращого... кого я обманюю, це просто мило, вкрите мастилом з принтом."
   productEntity: SpawnPodNTRSoap
   icon:
     sprite: _Goobstation/Objects/Fun/soap.rsi
@@ -378,8 +378,8 @@
 
 - type: listing
   id: NTRExecutiveMarlen
-  name: Marlen
-  description: A stylish Centcomm umbrella, made by "NanoFashion" for the rich people of central command. Surprisingly durable.
+  name: "Марлен"
+  description: "Стильна парасоля Центкому, створена \"NanoFashion\" для багатіїв центрального командування. Дивовижно міцна."
   productEntity: SpawnPodMarlen
   icon:
     sprite: _Goobstation/Objects/Weapons/Melee/marlen.rsi
@@ -396,8 +396,8 @@
 
 - type: listing
   id: NTRExecutiveFlatpack
-  name: task console flatpack # technically a flatpack but who cares lol
-  description: A normal flatpack containing a spare task console.
+  name: "плаский пакет з консоллю завдань" # technically a flatpack but who cares lol
+  description: "Звичайний плаский пакет, що містить запасну консоль завдань."
   productEntity: SpawnPodTaskFlatpack
   icon:
     sprite: Objects/Devices/flatpack.rsi
@@ -612,8 +612,8 @@
 # todo: add more debug stuff / and possibly make this open if emagged or something, but it was never intended for it tho.
 - type: listing
   id: NTRExecutiveDebugCodes
-  name: Nuclear codes
-  description: Stand ready for my arrival, worm.
+  name: "Ядерні коди"
+  description: "Готуйся до мого прибуття, черв'як."
   productEntity: BoxFolderNuclearCodes
   cost:
     NTLoyaltyPoint: 250

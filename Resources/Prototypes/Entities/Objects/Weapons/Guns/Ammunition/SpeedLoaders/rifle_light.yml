@@ -3,8 +3,8 @@
 - type: entity
   parent: [ BaseItem, BaseSecurityContraband ]
   id: SpeedLoaderLightRifle
-  name: "speed loader (.30 rifle)"
-  description: 5-round 'stripper clip' for quickly reloading the Kardashev-Mosin. Intended to hold general-purpose kinetic ammunition.
+  name: "швидкозарядник (.30 rifle)"
+  description: "Обойма на 5 набоїв для швидкого перезаряджання Кардашев-Мосіна. Призначена для універсальних кінетичних боєприпасів."
   components:
   - type: Tag
     tags:

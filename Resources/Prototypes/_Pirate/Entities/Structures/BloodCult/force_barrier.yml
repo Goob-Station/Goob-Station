@@ -7,8 +7,8 @@
 
 - type: entity
   id: ForceBarrierSpawnAnimation
-  name: unfinished force barrier
-  description: A materializing force barrier.
+  name: "незавершений силовий бар'єр"
+  description: "Силовий бар'єр, що матеріалізується."
   categories: [ HideSpawnMenu ]
   placement:
     mode: SnapgridCenter
@@ -21,8 +21,8 @@
 
 - type: entity
   id: ForceBarrier
-  name: force barrier
-  description: A magical barrier! Too late, alas.
+  name: "силовий бар'єр"
+  description: "Магічний бар'єр! Надто пізно, на жаль."
   placement:
     mode: SnapgridCenter
   components:

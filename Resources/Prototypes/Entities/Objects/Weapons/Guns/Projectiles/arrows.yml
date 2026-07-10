@@ -65,8 +65,8 @@
 - type: entity
   parent: BaseArrow
   id: ArrowRegular
-  name: arrow
-  description: You can feel the power of the steppe within you.
+  name: "стрілка"
+  description: "Ви можете відчути силу степу всередині себе."
   components:
   - type: Sprite
     layers:
@@ -86,8 +86,8 @@
 - type: entity
   parent: BaseArrow
   id: ArrowImprovised
-  name: glass shard arrow
-  description: The greyshirt's preferred projectile.
+  name: "стріла з осколків скла"
+  description: "Улюблений снаряд сірої сорочки."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/arrows.rsi
@@ -112,8 +112,8 @@
 - type: entity
   parent: BaseArrow
   id: ArrowImprovisedPlasma
-  name: plasma glass shard arrow
-  description: The greyshirt's preferred projectile. Now with extra lethality!
+  name: "імпровізована стріла з плазмового скла"
+  description: "Улюблений снаряд грейширта. Тепер з додатковою летальністю!"
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/arrows.rsi
@@ -138,8 +138,8 @@
 - type: entity
   parent: BaseArrow
   id: ArrowImprovisedUranium
-  name: uranium glass shard arrow
-  description: The greyshirt's preferred projectile. Now with added radiation!
+  name: "імпровізована стріла з уранового скла"
+  description: "Улюблений снаряд грейширта. Тепер з доданою радіацією!"
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/arrows.rsi
@@ -165,8 +165,8 @@
 - type: entity
   parent: BaseArrow
   id: ArrowImprovisedCarp
-  name: carp tooth arrow
-  description: The salvager's preferred arrow. Kill your enemies with the teeth of their families.
+  name: "саморобна стріла з зуба коропа"
+  description: "Улюблена стріла утилізатора. Вбивайте своїх ворогів зубами їхніх родичів."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/arrows.rsi
@@ -191,8 +191,8 @@
 - type: entity
   parent: BaseArrow
   id: ArrowCard
-  name: cardboard arrow
-  description: Careful, you'll poke an eye out!
+  name: "картонна стріла"
+  description: "Обережно, виколете комусь око!"
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/arrows.rsi

@@ -1,6 +1,6 @@
 - type: entity
   id: SpawnPointGhostMage
-  name: точка появи ролі мага
+  name: "точка появи ролі мага"
   suffix: wizard
   parent: MarkerBase
   components:

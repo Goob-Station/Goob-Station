@@ -1,8 +1,8 @@
 - type: entity
-  name: terror spider
+  name: "павук терору"
   parent: [ SimpleMobBase, MobCombat ]
   id: MobTerrorSpider
-  description: a deadly hybrid of a giant spider and xenomorph.
+  description: "смертоносний гібрид гігантського павука та ксеноморфа."
   abstract: true
   components:
   - type: Prying
@@ -159,7 +159,7 @@
     - ActionEntityWrap
 
 - type: entity
-  name: terror red
+  name: "червоний терор"
   parent: MobTerrorSpider
   id: MobTerrorRedUnevolvable
   abstract: true
@@ -202,7 +202,7 @@
     baseSprintSpeed: 4.00
 
 - type: entity
-  name: terror red
+  name: "червоний терор"
   parent: MobTerrorRedUnevolvable
   id: MobTerrorRed
   components:
@@ -213,7 +213,7 @@
       targetWebAmount: 36
 
 - type: entity
-  name: terror gray
+  name: "сірий терор"
   parent: MobTerrorSpider
   id: MobTerrorGrayUnevolvable
   abstract: true
@@ -269,7 +269,7 @@
     baseSprintSpeed: 5
 
 - type: entity
-  name: terror gray
+  name: "сірий терор"
   parent: MobTerrorGrayUnevolvable
   id: MobTerrorGray
   components:
@@ -280,7 +280,7 @@
       targetWebAmount: 36
 
 - type: entity
-  name: terror green
+  name: "зелений терор"
   parent: MobTerrorSpider
   id: MobTerrorGreenUnevolvable
   abstract: true
@@ -338,7 +338,7 @@
     - ActionEggInjection
 
 - type: entity
-  name: terror green
+  name: "зелений терор"
   parent: MobTerrorGreenUnevolvable
   id: MobTerrorGreen
   components:
@@ -348,7 +348,7 @@
     - !type:EggsInjectCondition
 
 - type: entity
-  name: terror black
+  name: "чорний терор"
   parent: MobTerrorGrayUnevolvable
   id: MobTerrorBlackUnevolvable
   abstract: true
@@ -391,7 +391,7 @@
         Airloss: -1.5
 
 - type: entity
-  name: terror black
+  name: "чорний терор"
   parent: MobTerrorBlackUnevolvable
   id: MobTerrorBlack
   components:
@@ -402,7 +402,7 @@
       targetWebAmount: 36
 
 - type: entity
-  name: terror purple
+  name: "фіолетовий терор"
   parent: MobTerrorRedUnevolvable
   id: MobTerrorPurpleUnevolvable
   abstract: true
@@ -444,7 +444,7 @@
         Airloss: -1.5
 
 - type: entity
-  name: terror purple
+  name: "фіолетовий терор"
   parent: MobTerrorPurpleUnevolvable
   id: MobTerrorPurple
   components:
@@ -455,7 +455,7 @@
       targetWebAmount: 36
 
 - type: entity
-  name: terror white
+  name: "білий терор"
   parent: MobTerrorGreenUnevolvable
   id: MobTerrorWhiteUnevolvable
   abstract: true
@@ -512,7 +512,7 @@
         Airloss: -1.5
 
 - type: entity
-  name: terror white
+  name: "білий терор"
   parent: MobTerrorWhiteUnevolvable
   id: MobTerrorWhite
   components:
@@ -523,7 +523,7 @@
       targetEggsAmount: 6
 
 - type: entity
-  name: prince of terror
+  name: "принц терору"
   parent: MobTerrorPurpleUnevolvable
   id: MobTerrorPrince
   components:
@@ -564,7 +564,7 @@
         Burn: -0.1
 
 - type: entity
-  name: princess of terror
+  name: "принцеса терору"
   parent: MobTerrorSpider
   id: MobTerrorPrincess
   components:
@@ -632,7 +632,7 @@
         type: EggsLayingBui
 
 - type: entity
-  name: mother of terror
+  name: "мати терору"
   parent: MobTerrorBlackUnevolvable
   id: MobTerrorMother
   components:
@@ -677,10 +677,10 @@
         Airloss: -2
 
 - type: entity
-  name: spiderling
+  name: "павученя"
   parent: SimpleMobBase
   id: MobSpiderlingBase
-  description: a small spider which growth into unknown big and dangerous spider.
+  description: "маленький павук, що виростає в невідомого великого й небезпечного павука."
   abstract: true
   components:
   - type: OptionsVisualizer
@@ -778,7 +778,7 @@
     requiredState: Alive
 
 - type: entity
-  name: spiderling
+  name: "павученя"
   parent: MobSpiderling
   id: MobSpiderlingTerrorRed
   suffix: Terror Red
@@ -790,7 +790,7 @@
     - MobTerrorRed
 
 - type: entity
-  name: spiderling
+  name: "павученя"
   parent: MobSpiderling
   id: MobSpiderlingTerrorGray
   suffix: Terror Gray
@@ -802,7 +802,7 @@
     - MobTerrorGray
 
 - type: entity
-  name: spiderling
+  name: "павученя"
   parent: MobSpiderling
   id: MobSpiderlingTerrorGreen
   suffix: Terror Green
@@ -814,7 +814,7 @@
     - MobTerrorGreen
 
 - type: entity
-  name: spiderling
+  name: "павученя"
   parent: MobSpiderling
   id: MobSpiderlingSpiderAngry
   suffix: Giant Spider
@@ -828,8 +828,8 @@
   parent: BaseItem
   id: TerrorEggSpiderBase
   abstract: true
-  name: egg spider
-  description: Is it a gemstone? Is it an egg? It looks expensive.
+  name: "павуче яйце"
+  description: "Це самоцвіт? Це яйце? Виглядає дорого."
   components:
   # Pirate - local EggSpider has different behavior; copy Starlight's base for terror eggs.
   - type: Damageable

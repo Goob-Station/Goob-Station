@@ -2,7 +2,7 @@
 - type: entity
   parent: BaseEnchant
   id: EnchantFortune
-  name: Fortune
+  name: "Удача"
   components:
   - type: Enchant
     whitelist:

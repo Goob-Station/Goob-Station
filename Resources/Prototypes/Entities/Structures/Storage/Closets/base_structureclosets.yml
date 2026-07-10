@@ -3,8 +3,8 @@
 - type: entity
   id: ClosetBase
   parent: [ BaseStructureDynamic, BasePaperLabelableVisualized ]
-  name: closet
-  description: A standard-issue Nanotrasen storage unit.
+  name: "шафа"
+  description: "Стандартний контейнер для зберігання від компанії Нанотрейзен."
   abstract: true
   components:
   - type: Animateable
@@ -129,8 +129,8 @@
   parent: BaseWallmountMetallic
   id: BaseWallCloset
   abstract: true
-  name: wall closet
-  description: A standard-issue Nanotrasen storage unit, now on walls.
+  name: "настінна шафа"
+  description: "Стандартний контейнер для зберігання від компанії Нанотрейзен, тепер на стінах."
   components:
   - type: ResistLocker
   - type: Weldable
@@ -227,8 +227,8 @@
 - type: entity
   id: SuitStorageBase
   parent: BaseStructure
-  name: suit storage unit
-  description: A fancy hi-tech storage unit made for storing space suits.
+  name: "шафа для зберігання костюмів"
+  description: "Химерна високотехнологічна шафа для зберігання скафандрів."
   components:
   - type: AccessReader
   - type: Lock

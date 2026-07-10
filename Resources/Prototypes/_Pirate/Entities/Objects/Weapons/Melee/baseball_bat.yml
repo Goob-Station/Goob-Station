@@ -1,8 +1,8 @@
 - type: entity
-  name: магічна бита
+  name: "магічна біта"
   parent: BaseBallBat
   id: WeaponMeleeMagicBat
-  description: Вибийте з них всю дурь.
+  description: "Вибийте з них всю дурість."
   # suffix: Do not map
   components:
   - type: Sprite

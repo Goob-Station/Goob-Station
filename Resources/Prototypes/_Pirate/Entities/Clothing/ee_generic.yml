@@ -43,14 +43,14 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformSchoolgirlBase
-  description: Ready for school!
+  description: "Готова до школи!"
   abstract: true
 
 - type: entity
   parent: ClothingHeadEyeBaseFlippable
   id: ClothingEyesEyepatchFake
-  name: eyepatch
-  description: Yarr.
+  name: "пов'язка на око"
+  description: "Ярр."
   suffix: fake
   components:
   - type: Sprite
@@ -66,8 +66,8 @@
 - type: entity
   parent: ClothingEyesEyepatch
   id: ClothingEyesEyepatchColor
-  name: eyepatch
-  description: Yarr.
+  name: "пов'язка на око"
+  description: "Ярр."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Eyes/Misc/eyepatch_color.rsi
@@ -84,8 +84,8 @@
 - type: entity
   parent: ClothingHeadEyeBaseFlippable
   id: ClothingEyesEyepatchColorFake
-  name: eyepatch
-  description: Yarr.
+  name: "пов'язка на око"
+  description: "Ярр."
   suffix: colorable, fake
   components:
   - type: Sprite
@@ -103,7 +103,7 @@
   parent: ClothingEyesBlindfold
   id: ClothingEyesBlindfoldColor
   suffix: colorable
-  description: The bind leading the blind. This version can be recolored.
+  description: "Сліпий поводир сліпих. Цю версію можна перефарбувати."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Eyes/Misc/blindfold_color.rsi
@@ -114,8 +114,8 @@
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesBlindfoldFake
-  name: blindfold
-  description: The bind leading the blind. Looks transparent.
+  name: "пов'язка на очі"
+  description: "Сліпий поводир сліпих. Виглядає прозорою."
   suffix: fake
   components:
   - type: Sprite
@@ -128,7 +128,7 @@
   parent: ClothingEyesBlindfoldFake
   id: ClothingEyesBlindfoldFakeColor
   suffix: colorable, fake
-  description: The bind leading the blind. Looks transparent.
+  description: "Сліпий поводир сліпих. Виглядає прозорою."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Eyes/Misc/blindfold_color.rsi
@@ -139,8 +139,8 @@
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesGlasses3D
-  name: 3D glasses
-  description: twiin armageddon2
+  name: "3D-окуляри"
+  description: "твіін армагедон2"
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Eyes/Glasses/3d.rsi
@@ -151,8 +151,8 @@
 - type: entity
   parent: ClothingEyesGlasses
   id: ClothingEyesGlassesHipster
-  name: hipster glasses
-  description: Made by Uncool. Co.
+  name: "хіпстерські окуляри"
+  description: "Виготовлено Анкул. Ко."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Eyes/Glasses/hipster.rsi
@@ -166,8 +166,8 @@
 - type: entity
   parent: ClothingEyesGlasses
   id: ClothingEyesGlassesMonocle
-  name: monocle
-  description: Such a dapper eyepiece!
+  name: "монокль"
+  description: "Такий чепурний окуляр!"
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Eyes/Glasses/monocle.rsi
@@ -181,8 +181,8 @@
 - type: entity
   parent: ClothingEyesGlasses
   id: ClothingEyesGlassesPanto
-  name: panto glasses
-  description: So iconic. So generic. The monobloc chair of the glasses world.
+  name: "окуляри панто"
+  description: "Такі культові. Такі універсальні. Монолітний стілець світу окулярів."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Eyes/Glasses/panto.rsi
@@ -196,8 +196,8 @@
 - type: entity
   parent: ClothingEyesGlassesCheapSunglasses
   id: ClothingEyesGlassesCheapSunglassesAviator
-  name: aviators
-  description: A pair of designer sunglasses.
+  name: "авіатори"
+  description: "Пара дизайнерських сонцезахисних окулярів."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Eyes/Glasses/aviators.rsi
@@ -211,8 +211,8 @@
 - type: entity
   parent: ClothingEyesGlassesCheapSunglasses
   id: ClothingEyesGlassesCheapSunglassesBig
-  name: big sunglasses
-  description: A pair of black sunglasses with big lenses.
+  name: "великі сонцезахисні окуляри"
+  description: "Пара чорних сонцезахисних окулярів з великими лінзами."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Eyes/Glasses/sunglasses_big.rsi
@@ -226,8 +226,8 @@
 - type: entity
   parent: ClothingEyesGlassesCheapSunglasses
   id: ClothingEyesGlassesCheapSunglassesVisor
-  name: visor sunglasses
-  description: A pair of visor sunglasses.
+  name: "візорні сонцезахисні окуляри"
+  description: "Пара візорних сонцезахисних окулярів."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Eyes/Glasses/sunglasses_visor.rsi
@@ -241,8 +241,8 @@
 - type: entity
   parent: ClothingHandsButcherable
   id: ClothingHandsGlovesFingerlessWhite
-  name: fingerless gloves
-  description: Plain gloves without fingertips.
+  name: "рукавички без пальців"
+  description: "Прості рукавички без кінчиків пальців."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Hands/Gloves/fingerlesswhite.rsi
@@ -260,8 +260,8 @@
 - type: entity
   parent: ClothingHandsButcherable
   id: ClothingHandsGlovesEvening
-  name: evening gloves
-  description: Gloves that reach past the elbow. Serving elegance and serving looks!
+  name: "вечірні рукавички"
+  description: "Рукавички, що сягають вище ліктя. Подають елегантність і ефектний вигляд!"
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Hands/Gloves/evening_gloves.rsi
@@ -272,8 +272,8 @@
 - type: entity
   parent: ClothingHandsButcherable
   id: ClothingHandsTacticalMaidGlovesCivilian
-  name: tactical maid gloves
-  description: Tactical maid gloves, every self-respecting maid should be able to discreetly eliminate her goals.
+  name: "тактичні рукавички покоївки"
+  description: "Тактичні рукавички покоївки; кожна поважна покоївка має вміти непомітно усувати свої цілі."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Hands/Gloves/tacticalmaidgloves.rsi
@@ -283,8 +283,8 @@
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesBase
   id: ClothingHandsGlovesEnviroglovesEvening
-  name: evening envirogloves
-  description: Who said Plasmamen can't serve elegance and looks?
+  name: "вечірні енвірорукавички"
+  description: "Хто сказав, що плазмени не можуть бути елегантними й ефектними?"
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Hands/Gloves/evening_gloves.rsi
@@ -295,8 +295,8 @@
 - type: entity
   parent: Clothing
   id: ClothingClothWrap
-  name: cloth wraps
-  description: A roll of treated canvas used for wrapping claws or paws.
+  name: "тканинні обмотки"
+  description: "Рулон обробленого полотна для обмотування кігтів чи лап."
   components:
   - type: Item
     size: Small
@@ -331,8 +331,8 @@
 - type: entity
   parent: ClothingBeltStorageWaistbag
   id: ClothingBeltStorageWaistbagColor
-  name: waist bag
-  description: A waist bag meant for carrying small items.
+  name: "поясна сумка"
+  description: "Поясна сумка, призначена для перенесення дрібних речей."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Belt/waistbag_color.rsi
@@ -362,8 +362,8 @@
 - type: entity
   parent: ClothingBeltBase
   id: ClothingBeltGeneric
-  name: belt
-  description: A plain belt made of leather.
+  name: "ремінь"
+  description: "Простий шкіряний ремінь."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Belt/generic.rsi
@@ -375,8 +375,8 @@
 - type: entity
   parent: ClothingBeltBase
   id: ClothingBeltGenericThin
-  name: thin belt
-  description: This is thinner than your usual belt.
+  name: "тонкий ремінь"
+  description: "Цей тонший за твій звичайний ремінь."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Belt/generic_thin.rsi
@@ -388,8 +388,8 @@
 - type: entity
   parent: ClothingBeltBase
   id: ClothingBeltGenericThick
-  name: thick belt
-  description: A bold fashion statement.
+  name: "товстий ремінь"
+  description: "Сміливе модне висловлювання."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Belt/generic_thick.rsi
@@ -401,8 +401,8 @@
 - type: entity
   parent: ClothingBeltBase
   id: ClothingBeltWaist
-  name: waist belt
-  description: A belt worn around the waist, giving outfits a more fitted silhouette.
+  name: "поясний ремінь"
+  description: "Ремінь, що носиться на талії, надаючи вбранню стрункішого силуету."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Belt/waist.rsi
@@ -414,8 +414,8 @@
 - type: entity
   parent: ClothingBeltBase
   id: ClothingBeltWaistThin
-  name: thin waist belt
-  description: For highlighting that snatched waist.
+  name: "тонкий поясний ремінь"
+  description: "Щоб підкреслити осину талію."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Belt/waist_thin.rsi
@@ -426,9 +426,9 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltTCAFWebbing
-  name: TCAF webbing
+  name: "розвантаження TCAF"
   suffix: TCFL
-  description: Ideal for storing everything from ammo to weapons and combat essentials.
+  description: "Ідеально підходить для зберігання всього — від набоїв до зброї та бойового спорядження."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/_EE/Clothing/BieselRepublic/Belt/TCAF_webbing.rsi
@@ -441,8 +441,8 @@
 - type: entity
   parent: [ClothingBackpackSatchel, BaseFoldable]
   id: ClothingBackpackSatchelPurse
-  name: purse
-  description: A small, fashionable bag typically worn over the shoulder.
+  name: "сумочка"
+  description: "Невелика модна сумка, яку зазвичай носять через плече."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Back/Satchels/purse.rsi
@@ -467,8 +467,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatPin
-  name: hair pin
-  description: A nice hair pin.
+  name: "шпилька для волосся"
+  description: "Гарна шпилька для волосся."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Head/Accessories/pin.rsi
@@ -481,8 +481,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatPinClover
-  name: clover pin
-  description: A hair pin in the shape of a clover leaf. Smells of mischief.
+  name: "шпилька-конюшина"
+  description: "Шпилька для волосся у формі листка конюшини. Пахне капостями."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Head/Accessories/pin_clover.rsi
@@ -495,8 +495,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatPinButterfly
-  name: butterfly pin
-  description: A hair pin in the shape of a butterfly.
+  name: "шпилька-метелик"
+  description: "Шпилька для волосся у формі метелика."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Head/Accessories/pin_butterfly.rsi
@@ -509,8 +509,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatPinMagnetic
-  name: magnetic pin
-  description: A pair of magnetic pins that stick to your head with magnetism.
+  name: "магнітна шпилька"
+  description: "Пара магнітних шпильок, що тримаються на голові завдяки магнетизму."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Head/Accessories/pin_magnetic.rsi
@@ -521,8 +521,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatRibbon
-  name: hair ribbon
-  description: A length of ribbon acting as a headband.
+  name: "стрічка для волосся"
+  description: "Відрізок стрічки, що слугує обручем."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Head/Accessories/ribbon.rsi
@@ -533,8 +533,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBow
-  name: hair bow
-  description: A hair bow with a small removable clip on the back.
+  name: "бант для волосся"
+  description: "Бант для волосся з невеликою знімною заколкою ззаду."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Head/Accessories/bow.rsi
@@ -545,8 +545,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBowSmall
-  name: small hair bow
-  description: A ribbon tied into a small bow with a clip on the back to attach to hair.
+  name: "маленький бант для волосся"
+  description: "Стрічка, зав'язана в невеликий бант із заколкою ззаду для кріплення до волосся."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Head/Accessories/bow_small.rsi
@@ -556,14 +556,14 @@
 - type: entity
   parent: [ClothingHeadBandBase, ClothingMaskBandWhite]
   id: ClothingHeadBandWhite
-  name: bandana
+  name: "бандана"
 
 
 - type: entity
   parent: ClothingHeadHatBeret
   id: ClothingHeadHatBeretWhite
-  name: beret
-  description: A beret, an artists favorite headwear.
+  name: "берет"
+  description: "Берет, улюблений головний убір художників."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Head/Hats/beretwhite.rsi
@@ -574,8 +574,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretArtist
-  name: artist beret
-  description: A beret fit for an artist.
+  name: "берет художника"
+  description: "Берет, що пасує художнику."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Head/Hats/beret_artist.rsi
@@ -589,8 +589,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretPeaked
-  name: peaked beret
-  description: A peaked beret.
+  name: "гострокінцевий берет"
+  description: "Гострокінцевий берет."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Head/Hats/beret_peaked.rsi
@@ -604,8 +604,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeanie
-  name: beanie
-  description: A head-hugging brimless winter cap. This one is tight.
+  name: "шапка-біні"
+  description: "Зимова шапка без полів, що щільно облягає голову. Ця тісна."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Head/Hats/beanie.rsi
@@ -619,8 +619,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeanieWinter
-  name: winter beanie
-  description: A head-hugging brimless winter cap. This one has flaps that cover the ears.
+  name: "зимова шапка-біні"
+  description: "Зимова шапка без полів, що щільно облягає голову. Ця має навушники, що прикривають вуха."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Head/Hats/beanie_winter.rsi
@@ -634,8 +634,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeanieSubmariner
-  name: submariner beanie
-  description: A design of tightly fitting beanie popular among Submarine station workers.
+  name: "шапка-біні підводника"
+  description: "Модель щільно прилеглої шапки-біні, популярна серед працівників підводної станції."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Head/Hats/beanie_submariner.rsi
@@ -649,8 +649,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeanieTight
-  name: tight beanie
-  description: A rather tight beanie that hides your hair.
+  name: "тісна шапка-біні"
+  description: "Доволі тісна шапка-біні, що ховає твоє волосся."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Head/Hats/beanie_tight.rsi
@@ -667,8 +667,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatSlouch
-  name: slouch hat
-  description: A wide brimmed hat folded to form a slouch.
+  name: "капелюх слауч"
+  description: "Широкополий капелюх, підгорнутий набік."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Head/Hats/slouch.rsi
@@ -679,8 +679,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatSunVisor
-  name: sun visor
-  description: A stylish visor intended for blocking out harsh sunlight.
+  name: "сонцезахисний козирок"
+  description: "Стильний козирок, призначений для захисту від яскравого сонячного світла."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Head/Hats/sun_visor.rsi
@@ -692,8 +692,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeanieGreen
-  name: green beanie
-  description: A dark green beanie.
+  name: "зелена шапка-біні"
+  description: "Темно-зелена шапка-біні."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/_Nuclear14/Clothing/Head/FalloutHats/beanie.rsi
@@ -704,8 +704,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatMountie
-  name: mountie hat
-  description: A flat hat made 100% of fur felt.
+  name: "капелюх маунті"
+  description: "Плаский капелюх, виготовлений на 100% з хутряного фетру."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/_Nuclear14/Clothing/Head/FalloutHats/mountiehat.rsi
@@ -715,8 +715,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatHeadBandBasic
-  name: basic headband
-  description: Perfect for martial artists, sweaty rogue operators, and tunnel gangsters.
+  name: "проста пов'язка на голову"
+  description: "Ідеальна для майстрів бойових мистецтв, спітнілих найманців-головорізів і тунельних бандитів."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Head/Misc/headband.rsi
@@ -726,8 +726,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatHijabColorable
-  name: hijab
-  description: Encompassing cloth headwear worn by some human cultures and religions.
+  name: "хіджаб"
+  description: "Огортаючий тканинний головний убір, який носять у деяких людських культурах і релігіях."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Head/ReligiousHeadgear/hijab.rsi
@@ -738,8 +738,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatTurbanColorable
-  name: turban
-  description: A sturdy cloth, worn around the head.
+  name: "тюрбан"
+  description: "Міцна тканина, що пов'язується навколо голови."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Head/ReligiousHeadgear/turban.rsi
@@ -750,8 +750,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatKippahColorable
-  name: kippah
-  description: A head covering commonly worn by those of Jewish faith.
+  name: "кіпа"
+  description: "Головний убір, який зазвичай носять люди юдейської віри."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Head/ReligiousHeadgear/kippah.rsi
@@ -761,8 +761,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBellhop
-  name: bellhop cap
-  description: All the inconvinience and humiliation of a fez with none of the style!
+  name: "кашкет коридорного"
+  description: "Уся незручність і приниження фески без жодного стилю!"
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Nyanotrasen/Clothing/Head/Hats/bellhop.rsi
@@ -773,8 +773,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatFedoraWhite
-  name: white fedora
-  description: A white fedora. Lookin' ritzy.
+  name: "біла федора"
+  description: "Біла федора. Виглядає шикарно."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/DeltaV/Clothing/Head/Hats/whitefedora.rsi
@@ -785,8 +785,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatFlatBlack
-  name: black flat cap
-  description: A black flat cap, for driving cabs and delivering the papers.
+  name: "чорний кашкет"
+  description: "Чорний плаский кашкет, для водіння таксі та доставлення газет."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/DeltaV/Clothing/Head/Hats/flatblack.rsi
@@ -797,8 +797,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatFlatBrown
-  name: brown flat cap
-  description: A brown flat cap, for driving cabs and delivering the papers.
+  name: "коричневий кашкет"
+  description: "Коричневий плаский кашкет, для водіння таксі та доставлення газет."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/DeltaV/Clothing/Head/Hats/flatbrown.rsi
@@ -809,8 +809,8 @@
 - type: entity
   parent: ClothingHandsButcherable
   id: ClothingHandsGlovesCombatTCAF
-  name: TCAF combat gloves
-  description: A pair of tactical gloves of an ancient Solarian design, which see common use in the Biesel Republic's armed forces.
+  name: "бойові рукавички TCAF"
+  description: "Пара тактичних рукавичок давнього соларіанського зразка, що широко використовуються у збройних силах Республіки Бізель."
   suffix: TCFL
   components:
   - type: Sprite
@@ -821,9 +821,9 @@
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatTCAFBeretDress
-  name: TCAF dress beret
+  name: "парадний берет TCAF"
   suffix: TCFL
-  description: A formal beret worn by current and former members of the Tau-Ceti Armed Forces.
+  description: "Формальний берет, який носять теперішні та колишні бійці Збройних сил Тау-Кита."
   components:
     - type: Sprite
       sprite: _Pirate/Loadouts/EEGeneric/_EE/Clothing/BieselRepublic/Helmet/TCAF_beret_dress.rsi
@@ -834,9 +834,9 @@
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatTCAFBeretField
-  name: TCAF field beret
+  name: "польовий берет TCAF"
   suffix: TCFL
-  description: A field beret worn by current and former members of the Tau-Ceti Armed Forces.
+  description: "Польовий берет, який носять теперішні та колишні бійці Збройних сил Тау-Кита."
   components:
     - type: Sprite
       sprite: _Pirate/Loadouts/EEGeneric/_EE/Clothing/BieselRepublic/Helmet/TCAF_beret_field.rsi
@@ -847,9 +847,9 @@
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatTCFLBeretDress
-  name: TCFL dress beret
+  name: "парадний берет TCFL"
   suffix: TCFL
-  description: A dress beret worn by current and former members of the Tau-Ceti Foreign Legion. This beret is a common sight in bars all across the Orion Spur.
+  description: "Парадний берет, який носять теперішні та колишні бійці Іноземного легіону Тау-Кита. Цей берет — звичне видовище в барах по всьому Рукаву Оріона."
   components:
     - type: Sprite
       sprite: _Pirate/Loadouts/EEGeneric/_EE/Clothing/BieselRepublic/Helmet/TCFL_beret_dress.rsi
@@ -860,9 +860,9 @@
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatTCFLBeretField
-  name: TCFL field beret
+  name: "польовий берет TCFL"
   suffix: TCFL
-  description: A field beret worn by current and former members of the Tau-Ceti Foreign Legion. This beret is a common sight in bars all across the Orion Spur.
+  description: "Польовий берет, який носять теперішні та колишні бійці Іноземного легіону Тау-Кита. Цей берет — звичне видовище в барах по всьому Рукаву Оріона."
   components:
     - type: Sprite
       sprite: _Pirate/Loadouts/EEGeneric/_EE/Clothing/BieselRepublic/Helmet/TCFL_beret_field.rsi
@@ -873,9 +873,9 @@
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatTCFLBeretSentinel
-  name: TCFL sentinel beret
+  name: "берет вартового TCFL"
   suffix: TCFL
-  description: A dress beret worn by the elite members of the Tau-Ceti Foreign Legion.
+  description: "Парадний берет, який носять елітні бійці Іноземного легіону Тау-Кита."
   components:
     - type: Sprite
       sprite: _Pirate/Loadouts/EEGeneric/_EE/Clothing/BieselRepublic/Helmet/TCFL_beret_sentinel.rsi
@@ -886,9 +886,9 @@
 - type: entity
   parent: ClothingHeadHeadHatBaseFlippable
   id: ClothingHeadHatTCFLSoftCap
-  name: TCFL soft cap
+  name: "м'яке кепі TCFL"
   suffix: TCFL
-  description: A soft wool hat worn by current and former members of the Tau-Ceti Foreign Legion.
+  description: "М'яка вовняна шапка, яку носять теперішні та колишні бійці Іноземного легіону Тау-Кита."
   components:
     - type: Sprite
       sprite: _Pirate/Loadouts/EEGeneric/_EE/Clothing/BieselRepublic/Helmet/TCFL_softcap.rsi
@@ -896,7 +896,7 @@
       sprite: _Pirate/Loadouts/EEGeneric/_EE/Clothing/BieselRepublic/Helmet/TCFL_softcap.rsi
 
 - type: entity
-  name: hairflower
+  name: "квітка для волосся"
   id: FoodPoppyWhite
   parent: FoodPoppy
   components:
@@ -907,8 +907,8 @@
 - type: entity
   parent: ClothingMaskBandanaBase
   id: ClothingMaskBandWhite
-  name: bandana
-  description: A bandana to make you look cool.
+  name: "бандана"
+  description: "Бандана, щоб ти мав крутий вигляд."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Head/Bandanas/white.rsi
@@ -919,7 +919,7 @@
 - type: entity
   parent: ClothingMaskNeckGaiter
   id: ClothingMaskNeckGaiterWhite
-  name: neck gaiter
+  name: "шийний бафф"
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Mask/neckgaiterwhite.rsi
@@ -932,8 +932,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSuitBlack
-  name: black suit
-  description: A crisp white shirt and charcoal slacks. Reminds you of the old times.
+  name: "чорний костюм"
+  description: "Хрустка біла сорочка та вугільно-сірі штани. Нагадує тобі давні часи."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/DeltaV/Clothing/Uniforms/Jumpsuit/suitblack.rsi
@@ -944,8 +944,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSuitBlackAlt
-  name: dark suit
-  description: A crisp grey shirt and charcoal slacks. Reminds you of overcast days.
+  name: "темний костюм"
+  description: "Хрустка сіра сорочка та вугільно-сірі штани. Нагадує тобі похмурі дні."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/DeltaV/Clothing/Uniforms/Jumpsuit/suitblackalt.rsi
@@ -956,8 +956,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSuitBlackMob
-  name: red suit
-  description: A crisp red shirt and charcoal slacks. Reminds you of law enforcement.
+  name: "червоний костюм"
+  description: "Хрустка червона сорочка та вугільно-сірі штани. Нагадує тобі правоохоронців."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/DeltaV/Clothing/Uniforms/Jumpsuit/suitblackmob.rsi
@@ -968,8 +968,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSuitBrown
-  name: brown suit
-  description: A crisp white shirt and chocolate slacks. Reminds you of dusty offices.
+  name: "коричневий костюм"
+  description: "Хрустка біла сорочка та шоколадно-коричневі штани. Нагадує тобі запилені офіси."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/DeltaV/Clothing/Uniforms/Jumpsuit/suitbrown.rsi
@@ -980,8 +980,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSuitBrownAlt
-  name: dubious suit
-  description: A crisp grey shirt and chocolate slacks. Reminds you of clandestine operators.
+  name: "сумнівний костюм"
+  description: "Хрустка сіра сорочка та шоколадно-коричневі штани. Нагадує тобі таємних агентів."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/DeltaV/Clothing/Uniforms/Jumpsuit/suitbrownalt.rsi
@@ -992,8 +992,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSuitBrownMob
-  name: mafioso suit
-  description: A crisp red shirt and chocolate slacks. Reminds you of family.
+  name: "костюм мафіозі"
+  description: "Хрустка червона сорочка та шоколадно-коричневі штани. Нагадує тобі родину."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/DeltaV/Clothing/Uniforms/Jumpsuit/suitbrownmob.rsi
@@ -1004,8 +1004,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSuitWhite
-  name: white suit
-  description: A crisp white shirt and ivory slacks. Reminds you of swans.
+  name: "білий костюм"
+  description: "Хрустка біла сорочка та штани кольору слонової кістки. Нагадує тобі лебедів."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/DeltaV/Clothing/Uniforms/Jumpsuit/suitwhite.rsi
@@ -1016,8 +1016,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSuitWhiteAlt
-  name: negative suit
-  description: A crisp grey shirt and ivory slacks. Reminds you of daguerreotypes.
+  name: "негативний костюм"
+  description: "Хрустка сіра сорочка та штани кольору слонової кістки. Нагадує тобі дагеротипи."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/DeltaV/Clothing/Uniforms/Jumpsuit/suitwhitealt.rsi
@@ -1028,8 +1028,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSuitWhiteMob
-  name: gangster suit
-  description: A crisp red shirt and ivory slacks. Reminds you of organized Japanese crime.
+  name: "гангстерський костюм"
+  description: "Хрустка червона сорочка та штани кольору слонової кістки. Нагадує тобі японську організовану злочинність."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/DeltaV/Clothing/Uniforms/Jumpsuit/suitwhitemob.rsi
@@ -1040,8 +1040,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSober
-  name: sober sweater
-  description: For the more lucid moments.
+  name: "тверезий светр"
+  description: "Для більш ясних моментів."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/DeltaV/Clothing/Uniforms/Jumpsuit/sober.rsi
@@ -1052,8 +1052,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitLostTourist
-  name: lost tourist uniform
-  description: The uniform of those who just want to relax on a beach... Where is the beach anyway?
+  name: "форма загубленого туриста"
+  description: "Форма тих, хто просто хоче відпочити на пляжі... До речі, де той пляж?"
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/DeltaV/Clothing/Uniforms/Jumpsuit/lost_tourist.rsi
@@ -1064,8 +1064,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitJeansRed
-  name: red sweater with jeans
-  description: A red sweater with blue jeans. This one has the dominant jeans.
+  name: "червоний светр із джинсами"
+  description: "Червоний светр із синіми джинсами. У цього домінують джинси."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/DeltaV/Clothing/Uniforms/Jumpsuit/jeans_red.rsi
@@ -1076,8 +1076,8 @@
 - type: entity
   parent: ClothingUniformBaseFlippable
   id: ClothingUniformJumpsuitBlackTurtleneck
-  name: black turtleneck
-  description: A simple black turtleneck. Perfect for any wannabe spy.
+  name: "чорна водолазка"
+  description: "Проста чорна водолазка. Ідеальна для будь-якого шпигуна-початківця."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/DeltaV/Clothing/Uniforms/Jumpsuit/black_turtleneck.rsi
@@ -1088,14 +1088,14 @@
 - type: entity
   parent: [ ClothingUniformBaseFlipped, ClothingUniformJumpsuitBlackTurtleneck ]
   id: ClothingUniformJumpsuitBlackTurtleneckFlipped
-  name: black turtleneck
+  name: "чорна водолазка"
 
 
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesMiscWhite
-  name: white leather shoes
-  description: Impeccably shined white leather shoes. Don't tread on these tootsies.
+  name: "білі шкіряні туфлі"
+  description: "Бездоганно начищені білі шкіряні туфлі. Не наступай на ці ніжки."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/DeltaV/Clothing/Shoes/Misc/whiteleather.rsi
@@ -1105,8 +1105,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesBootsFishing
-  name: fishing boots
-  description: Smells fishy!
+  name: "рибальські чоботи"
+  description: "Тхне рибою!"
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/DeltaV/Clothing/Shoes/Boots/fishing_boots.rsi
@@ -1116,8 +1116,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformSkirtTurtle
-  name: decorated turtle skirt
-  description: A turtle skirt with yellow straps and soft fabric.
+  name: "оздоблена спідниця-черепаха"
+  description: "Спідниця-черепаха з жовтими ремінцями та м'якою тканиною."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Nyanotrasen/Clothing/Uniforms/Jumpskirt/Decorskirt.rsi
@@ -1139,8 +1139,8 @@
 - type: entity
   parent: ClothingOuterLoadoutWinterCoat
   id: ClothingOuterCorporateJacket
-  name: Nanotrasen Corporate Jacket
-  description: A cozy jacket with the Nanotrasen logo printed on the back. Merchandise rewarded to stations with a safety factor of uhh... seven.
+  name: "корпоративна куртка Nanotrasen"
+  description: "Затишна куртка з логотипом Nanotrasen, надрукованим на спині. Мерч, що видається станціям з коефіцієнтом безпеки еее... сім."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/DeltaV/Clothing/OuterClothing/WinterCoats/corpo_jacket.rsi
@@ -1151,8 +1151,8 @@
 - type: entity
   parent: ClothingOuterLoadoutWinterCoat
   id: ClothingOuterDenimJacket
-  name: Denim jacket
-  description: A jean jacket with a warm inner lining.
+  name: "джинсова куртка"
+  description: "Джинсова куртка з теплою внутрішньою підкладкою."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/DeltaV/Clothing/OuterClothing/WinterCoats/denim_jacket.rsi
@@ -1163,8 +1163,8 @@
 - type: entity
   parent: ClothingOuterStorageBase
   id: ClothingOuterCoatOvercoat
-  name: overcoat
-  description: A warm, dark overcoat, suitable for formal occasions.
+  name: "пальто"
+  description: "Тепле темне пальто, що пасує для формальних подій."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/DeltaV/Clothing/OuterClothing/Coats/overcoat.rsi
@@ -1178,8 +1178,8 @@
 - type: entity
   parent: ClothingOuterStorageBase
   id: ClothingOuterCoatIdrisIncorporatedWindbreaker
-  name: idris incorporated windbreaker
-  description: A windbreaker, sporting the official heraldry of the Idris Incorporated Corporate Finances division. Its made of sturdy futuristic fiber.
+  name: "вітрівка Idris Incorporated"
+  description: "Вітрівка з офіційною геральдикою відділу корпоративних фінансів Idris Incorporated. Виготовлена з міцного футуристичного волокна."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/_EE/Clothing/idris_windbreaker.rsi
@@ -1202,8 +1202,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitTshirtJeans
-  name: white t-shirt and jeans
-  description: Even in space, this combo is still in style.
+  name: "біла футболка та джинси"
+  description: "Навіть у космосі це поєднання все ще в моді."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Nyanotrasen/Clothing/Uniforms/Jumpsuit/tshirtjeans.rsi
@@ -1214,8 +1214,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitTshirtJeansGray
-  name: gray t-shirt and jeans
-  description: Even though there are no forests in space, this combo is still practical.
+  name: "сіра футболка та джинси"
+  description: "Хоча в космосі немає лісів, це поєднання все ще практичне."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Nyanotrasen/Clothing/Uniforms/Jumpsuit/tshirtjeansgray.rsi
@@ -1226,8 +1226,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitTshirtJeansPeach
-  name: peach t-shirt and jeans
-  description: Even though your favorite emo clothing store is back at home, this combo is still edgy.
+  name: "персикова футболка та джинси"
+  description: "Хоча твій улюблений емо-магазин одягу лишився вдома, це поєднання все ще зухвале."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Nyanotrasen/Clothing/Uniforms/Jumpsuit/tshirtjeanspeach.rsi
@@ -1238,8 +1238,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformTShirtKhakiPants
-  name: drab t-shirt and khaki pants
-  description: Some drab but functional clothing.
+  name: "тьмяна футболка та штани кольору хакі"
+  description: "Дещо тьмяний, але функціональний одяг."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Nyanotrasen/Clothing/Uniforms/Jumpsuit/tshirt_khaki.rsi
@@ -1249,8 +1249,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingCostumeArcDress
-  name: white shirt and purple skirt
-  description: You feel a supernatural urge to put these on. It must be fate.
+  name: "біла сорочка та фіолетова спідниця"
+  description: "Ти відчуваєш надприродне бажання вдягнути це. Це, мабуть, доля."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Nyanotrasen/Clothing/Uniforms/Costume/arc.rsi
@@ -1261,8 +1261,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: UniformGeisha
-  name: geisha dress
-  description: For a good hostess.
+  name: "сукня гейші"
+  description: "Для гарної господині."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Nyanotrasen/Clothing/Uniforms/Costume/geisha.rsi
@@ -1273,8 +1273,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingCostumeMioSkirt
-  name: yellow skirt with rose hoodie
-  description: Soft and comfortable, it sports bright colors with a neat yellow bow at the neck.
+  name: "жовта спідниця з рожевим худі"
+  description: "М'яке й зручне, воно вирізняється яскравими кольорами та охайним жовтим бантом на шиї."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Nyanotrasen/Clothing/Misc/mio.rsi
@@ -1285,8 +1285,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingCostumeNaota
-  name: turquoise hoodie and shorts
-  description: A hoodie with a small kangaroo pouch.
+  name: "бірюзове худі та шорти"
+  description: "Худі з невеликою кишенею-кенгуру."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Nyanotrasen/Clothing/Uniforms/Costume/naota.rsi
@@ -1297,8 +1297,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformDressRed
-  name: red dress
-  description: A voluminous, fancy red dress.
+  name: "червона сукня"
+  description: "Об'ємна, вишукана червона сукня."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Nyanotrasen/Clothing/Uniforms/Costume/red_dress.rsi
@@ -1309,7 +1309,7 @@
 - type: entity
   parent: ClothingUniformSchoolgirlBase
   id: UniformSchoolgirlRed
-  name: red schoolgirl uniform
+  name: "червона форма школярки"
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Nyanotrasen/Clothing/Uniforms/Costume/Schoolgirl/red.rsi
@@ -1320,7 +1320,7 @@
 - type: entity
   parent: ClothingUniformSchoolgirlBase
   id: UniformSchoolgirlBlack
-  name: black schoolgirl uniform
+  name: "чорна форма школярки"
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Nyanotrasen/Clothing/Uniforms/Costume/Schoolgirl/black.rsi
@@ -1331,7 +1331,7 @@
 - type: entity
   parent: ClothingUniformSchoolgirlBase
   id: UniformSchoolgirlBlue
-  name: blue schoolgirl uniform
+  name: "синя форма школярки"
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Nyanotrasen/Clothing/Uniforms/Costume/Schoolgirl/blue.rsi
@@ -1342,7 +1342,7 @@
 - type: entity
   parent: ClothingUniformSchoolgirlBase
   id: UniformSchoolgirlCyan
-  name: cyan schoolgirl uniform
+  name: "блакитна форма школярки"
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Nyanotrasen/Clothing/Uniforms/Costume/Schoolgirl/cyan.rsi
@@ -1353,7 +1353,7 @@
 - type: entity
   parent: ClothingUniformSchoolgirlBase
   id: UniformSchoolgirlGreen
-  name: green schoolgirl uniform
+  name: "зелена форма школярки"
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Nyanotrasen/Clothing/Uniforms/Costume/Schoolgirl/green.rsi
@@ -1364,7 +1364,7 @@
 - type: entity
   parent: ClothingUniformSchoolgirlBase
   id: UniformSchoolgirlOrange
-  name: orange schoolgirl uniform
+  name: "помаранчева форма школярки"
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Nyanotrasen/Clothing/Uniforms/Costume/Schoolgirl/orange.rsi
@@ -1375,7 +1375,7 @@
 - type: entity
   parent: ClothingUniformSchoolgirlBase
   id: UniformSchoolgirlPink
-  name: pink schoolgirl uniform
+  name: "рожева форма школярки"
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Nyanotrasen/Clothing/Uniforms/Costume/Schoolgirl/pink.rsi
@@ -1386,7 +1386,7 @@
 - type: entity
   parent: ClothingUniformSchoolgirlBase
   id: UniformSchoolgirlPurple
-  name: purple schoolgirl uniform
+  name: "фіолетова форма школярки"
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Nyanotrasen/Clothing/Uniforms/Costume/Schoolgirl/purple.rsi
@@ -1399,8 +1399,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformKendoHakama
-  name: hakama
-  description: An elegant black and blue hakama that could be worn for kendo or formal events.
+  name: "хакама"
+  description: "Елегантна чорно-синя хакама, яку можна вдягати для кендо чи формальних подій."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Nyanotrasen/Clothing/Uniforms/Costume/hakama.rsi
@@ -1411,8 +1411,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformMartialGi
-  name: gi
-  description: A white top and bottom traditionally used in martial arts, often paired with a belt.
+  name: "ґі"
+  description: "Білі верх і низ, які традиційно використовуються в бойових мистецтвах, часто в парі з поясом."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Nyanotrasen/Clothing/Uniforms/Costume/gi.rsi
@@ -1425,8 +1425,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingKimonoBlue
-  name: blue kimono
-  description: I'm blue da ba dee da ba da-ee!
+  name: "синє кімоно"
+  description: "Я синій, да ба ді да ба да-і!"
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Nyanotrasen/Clothing/Uniforms/Costume/kimono-blue.rsi
@@ -1437,8 +1437,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingKimonoPink
-  name: pink kimono
-  description: Pretty in pink, isn't she?
+  name: "рожеве кімоно"
+  description: "Гарна в рожевому, чи не так?"
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Nyanotrasen/Clothing/Uniforms/Costume/kimono-pink.rsi
@@ -1449,8 +1449,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingKimonoPurple
-  name: purple kimono
-  description: You definitely won't look like a maroon in this.
+  name: "фіолетове кімоно"
+  description: "У цьому ти точно не виглядатимеш бовдуром."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Nyanotrasen/Clothing/Uniforms/Costume/kimono-purple.rsi
@@ -1461,8 +1461,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingKimonoSky
-  name: sky blue kimono
-  description: Reminds you of natsu matsuri.
+  name: "небесно-блакитне кімоно"
+  description: "Нагадує тобі нацу мацурі."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Nyanotrasen/Clothing/Uniforms/Costume/kimono-sky.rsi
@@ -1473,8 +1473,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingKimonoGreen
-  name: sea green kimono
-  description: Colors and textures reminiscent of seaweed.
+  name: "морсько-зелене кімоно"
+  description: "Кольори й текстури, що нагадують водорості."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Nyanotrasen/Clothing/Uniforms/Costume/kimono-green.rsi
@@ -1487,8 +1487,8 @@
 - type: entity
   parent: ClothingUniformSchoolgirlBase
   id: UniformSchoolgirlDusk
-  name: dusk schoolgirl uniform
-  description: Ready for school in modern style.
+  name: "сутінкова форма школярки"
+  description: "Готова до школи в сучасному стилі."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Nyanotrasen/Clothing/Uniforms/Costume/SchoolgirlModern/dusk.rsi
@@ -1499,8 +1499,8 @@
 - type: entity
   parent: ClothingUniformSchoolgirlBase
   id: UniformSchoolgirlBlazerTan
-  name: tan blazer schoolgirl uniform
-  description: Ready for school in modern style. This set comes with a tan blazer.
+  name: "форма школярки з бежевим блейзером"
+  description: "Готова до школи в сучасному стилі. Цей комплект іде з бежевим блейзером."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Nyanotrasen/Clothing/Uniforms/Costume/SchoolgirlModern/blazer-tan.rsi
@@ -1513,8 +1513,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformSchoolGakuranBlack
-  name: gakuran uniform
-  description: A sleek school uniform.
+  name: "форма ґакуран"
+  description: "Елегантна шкільна форма."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Nyanotrasen/Clothing/Uniforms/Costume/gakuran.rsi
@@ -1527,8 +1527,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesGeta
-  name: geta sandals
-  description: A pair of traditional japanese sandals.
+  name: "сандалі ґета"
+  description: "Пара традиційних японських сандалів."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Nyanotrasen/Clothing/Shoes/Misc/geta.rsi
@@ -1539,8 +1539,8 @@
 - type: entity
   parent: ClothingOuterStorageBase
   id: ClothingOuterCoatHyenhSweater
-  name: comfy sweater
-  description: It's comfy.
+  name: "затишний светр"
+  description: "Він затишний."
   components:
     - type: Sprite
       sprite: _Pirate/Loadouts/EEGeneric/Nyanotrasen/Clothing/OuterClothing/WinterCoats/hyenh.rsi
@@ -1554,8 +1554,8 @@
 - type: entity
   parent: ClothingOuterLoadoutWinterCoat
   id: ClothingOuterWinterCoatLong
-  name: long winter coat
-  description: Even your legs will be warm with this stylish coat.
+  name: "довге зимове пальто"
+  description: "Навіть твої ноги будуть у теплі з цим стильним пальтом."
   components:
     - type: Sprite
       sprite: _Pirate/Loadouts/EEGeneric/Nyanotrasen/Clothing/OuterClothing/WinterCoats/long_winter_coat.rsi
@@ -1566,8 +1566,8 @@
 - type: entity
   parent: ClothingOuterLoadoutWinterCoat
   id: ClothingOuterWinterCoatPlaid
-  name: plaid winter coat
-  description: It might be made out of actual wool.
+  name: "картате зимове пальто"
+  description: "Можливо, воно зроблене зі справжньої вовни."
   components:
     - type: Sprite
       sprite: _Pirate/Loadouts/EEGeneric/Nyanotrasen/Clothing/OuterClothing/WinterCoats/plaid_winter_coat.rsi
@@ -1578,8 +1578,8 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingOuterVestValet
-  name: valet vest
-  description: A goofy red vest almost certainly designed with the sole purpose of being demeaning.
+  name: "жилет камердинера"
+  description: "Безглуздий червоний жилет, майже напевно створений з єдиною метою — принижувати."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Nyanotrasen/Clothing/OuterClothing/Vests/valet.rsi
@@ -1589,8 +1589,8 @@
 - type: entity
   parent: ClothingOuterStorageBase
   id: ClothingOuterCoatLettermanBlue
-  name: blue letterman jacket
-  description: It's a blue highschool jacket with a big '14' stitched onto the back.
+  name: "синя студентська куртка"
+  description: "Це синя шкільна куртка з великою '14', вишитою на спині."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Nyanotrasen/Clothing/Misc/letterman_jacket_blue.rsi
@@ -1606,8 +1606,8 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatHoodAcidRaincoat
   categories: [ HideSpawnMenu ]
-  name: acid raincoat hood
-  description: Mostly transparent raincoat hood made out of acid resistant polymers.
+  name: "каптур кислотостійкого дощовика"
+  description: "Здебільшого прозорий каптур дощовика, виготовлений з кислотостійких полімерів."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/_NF/Clothing/Head/Hoods/Coat/acid_raincoat.rsi
@@ -1664,8 +1664,8 @@
 - type: entity
   parent: ClothingOuterStorageToggleableBase
   id: ClothingOuterCoatAcidRaincoat
-  name: acid raincoat
-  description: Mostly transparent raincoat made out of acid resistant polymers. Please, for the love of Space God, do wear undergarments.
+  name: "кислотостійкий дощовик"
+  description: "Здебільшого прозорий дощовик, виготовлений з кислотостійких полімерів. Будь ласка, заради Космічного Бога, вдягни спідню білизну."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/_NF/Clothing/OuterClothing/Coats/acid_raincoat.rsi
@@ -1682,7 +1682,7 @@
 - type: entity
   parent: ClothingOuterCoatAcidRaincoat
   id: ClothingOuterCoatAcidRaincoatBlue
-  name: blue acid raincoat
+  name: "синій кислотостійкий дощовик"
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/_NF/Clothing/OuterClothing/Coats/acid_raincoat_blue.rsi
@@ -1695,7 +1695,7 @@
 - type: entity
   parent: ClothingOuterCoatAcidRaincoat
   id: ClothingOuterCoatAcidRaincoatGreen
-  name: green acid raincoat
+  name: "зелений кислотостійкий дощовик"
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/_NF/Clothing/OuterClothing/Coats/acid_raincoat_green.rsi
@@ -1708,7 +1708,7 @@
 - type: entity
   parent: ClothingOuterCoatAcidRaincoat
   id: ClothingOuterCoatAcidRaincoatMagenta
-  name: magenta acid raincoat
+  name: "пурпуровий кислотостійкий дощовик"
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/_NF/Clothing/OuterClothing/Coats/acid_raincoat_magenta.rsi
@@ -1721,7 +1721,7 @@
 - type: entity
   parent: ClothingOuterCoatAcidRaincoat
   id: ClothingOuterCoatAcidRaincoatYellow
-  name: yellow acid raincoat
+  name: "жовтий кислотостійкий дощовик"
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/_NF/Clothing/OuterClothing/Coats/acid_raincoat_yellow.rsi
@@ -1735,8 +1735,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSuitAmish
-  name: amish suit
-  description: It's a very Amish-looking suit.
+  name: "амішський костюм"
+  description: "Костюм з дуже амішським виглядом."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpsuit/amish_suit.rsi
@@ -1747,8 +1747,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSuitAristocratic
-  name: aristocratic suit
-  description: A dapper-looking suit with blue accents that make you feel like an aristocrat.
+  name: "аристократичний костюм"
+  description: "Чепурний костюм із синіми акцентами, що змушує тебе почуватися аристократом."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpsuit/aristocratic_suit.rsi
@@ -1759,8 +1759,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSuitAristocraticTuxedo
-  name: aristocratic tuxedo
-  description: You can almost smell the spesos this was sewn from.
+  name: "аристократичний смокінг"
+  description: "Ти майже відчуваєш запах спесо, з яких це пошили."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpsuit/aristocratic_tuxedo.rsi
@@ -1771,8 +1771,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitAscetic
-  name: plain ascetic garb
-  description: A rather plain-looking uniform.
+  name: "просте аскетичне вбрання"
+  description: "Доволі простенька форма."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpsuit/ascetic.rsi
@@ -1783,8 +1783,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitBarber
-  name: barber jumpsuit
-  description: Makes you want to cut hair.
+  name: "комбінезон перукаря"
+  description: "Викликає бажання стригти волосся."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpsuit/barber.rsi
@@ -1795,8 +1795,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSuitBlueBlazer
-  name: blue blazer
-  description: A bold yet conservative outfit, red corduroys, navy blazer and a tie.
+  name: "синій блейзер"
+  description: "Сміливий, але стриманий образ: червоні вельветові штани, темно-синій блейзер і краватка."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpsuit/blue_blazer.rsi
@@ -1807,8 +1807,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitDisheveled
-  name: disheveled suit
-  description: What might pass as well-maintained formal attire, if you're blind.
+  name: "неохайний костюм"
+  description: "Те, що могло б зійти за доглянуте формальне вбрання, якби ти був сліпим."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpsuit/disheveled.rsi
@@ -1819,8 +1819,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSuitRegal
-  name: regal suit
-  description: An elegant red suit with yellow accents.
+  name: "королівський костюм"
+  description: "Елегантний червоний костюм із жовтими акцентами."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpsuit/regal_suit.rsi
@@ -1831,8 +1831,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSuitRegalTuxedo
-  name: regal tuxedo
-  description: An elegant dapper suit with a red coat.
+  name: "королівський смокінг"
+  description: "Елегантний чепурний костюм із червоним піджаком."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpsuit/regal_tuxedo.rsi
@@ -1843,8 +1843,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitRippedPunk
-  name: ripped punk jeans
-  description: Black ripped jeans and a fishnet top. How punk.
+  name: "рвані панк-джинси"
+  description: "Чорні рвані джинси та сітчастий топ. Як по-панківськи."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpsuit/rippedpunk.rsi
@@ -1855,8 +1855,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSailor
-  name: sailor suit
-  description: Popular in the Submarine station.
+  name: "матроський костюм"
+  description: "Популярний на підводній станції."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpsuit/sailor.rsi
@@ -1867,8 +1867,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSuitStriped
-  name: striped suit
-  description: A red and white striped ensemble with dark suspenders.
+  name: "смугастий костюм"
+  description: "Червоно-білий смугастий ансамбль із темними підтяжками."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpsuit/striped_suit.rsi
@@ -1879,8 +1879,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitTrackpants
-  name: track pants
-  description: A plain t-shirt and track pants.
+  name: "спортивні штани"
+  description: "Проста футболка та спортивні штани."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpsuit/trackpants.rsi
@@ -1891,8 +1891,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitTurtleneckGrey
-  name: grey turtleneck
-  description: A warm looking sweater and a pair of dark blue slacks.
+  name: "сіра водолазка"
+  description: "Теплий на вигляд светр і темно-сині штани."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpsuit/turtleneck_grey.rsi
@@ -1903,8 +1903,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSuitVictorianRedBlack
-  name: red and black victorian suit
-  description: A Victorian-style suit, fancy!
+  name: "червоно-чорний вікторіанський костюм"
+  description: "Костюм у вікторіанському стилі, вишукано!"
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpsuit/victorian_red_black.rsi
@@ -1915,8 +1915,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSuitVictorianRedVest
-  name: red victorian suit
-  description: A Victorian-style suit, fancy!
+  name: "червоний вікторіанський костюм"
+  description: "Костюм у вікторіанському стилі, вишукано!"
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpsuit/victorian_red_vest.rsi
@@ -1927,8 +1927,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSuitVictorianVest
-  name: victorian suit
-  description: A Victorian-style suit, fancy!
+  name: "вікторіанський костюм"
+  description: "Костюм у вікторіанському стилі, вишукано!"
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpsuit/victorian_vest.rsi
@@ -1939,8 +1939,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitWaiter
-  name: waiter's outfit
-  description: Waiter! Waiter! More serves with that outfit please!
+  name: "вбрання офіціанта"
+  description: "Офіціанте! Офіціанте! Більше подач у цьому вбранні, будь ласка!"
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpsuit/waiter.rsi
@@ -1951,8 +1951,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitYogaGymBra
-  name: yoga gym bra
-  description: A gym bra paired with yoga pants, perfect for working out and looking good at the same time.
+  name: "спортивний топ для йоги"
+  description: "Спортивний топ у парі зі штанами для йоги, ідеально, щоб тренуватися й гарно виглядати водночас."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpsuit/yoga_gym_bra.rsi
@@ -1964,8 +1964,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSuitRolledSleeves
-  name: rolled sleeves suit
-  description: A dapper suit with a vest and a red tie, sleeves rolled up to show your forearms.
+  name: "костюм із закатаними рукавами"
+  description: "Чепурний костюм із жилетом і червоною краваткою, рукави закатані, щоб показати твої передпліччя."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/_Nuclear14/Clothing/Uniforms/FalloutSuits/detectivealt.rsi
@@ -1976,8 +1976,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitBartenderGrey
-  name: grey bartender's uniform
-  description: A nice and tidy grey uniform. Shame about the bar, though.
+  name: "сіра форма бармена"
+  description: "Гарна й охайна сіра форма. От тільки бар шкода."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/_Nuclear14/Clothing/Uniforms/FalloutSuits/bartenderalt.rsi
@@ -1988,8 +1988,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCheckered
-  name: checkered suit
-  description: The game was rigged from the start.
+  name: "картатий костюм"
+  description: "Гру було підлаштовано з самого початку."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpsuit/checkered.rsi
@@ -2000,8 +2000,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitFlannelOveralls
-  name: flannel overalls
-  description: Oh, I'm goin' down this road feelin' bad... Lord, I'm goin' down this road feelin' bad...
+  name: "фланелевий комбінезон"
+  description: "Ох, іду я цією дорогою з тягарем на душі... Господи, іду я цією дорогою з тягарем на душі..."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/_Nuclear14/Clothing/Uniforms/FalloutSuits/caravaneer.rsi
@@ -2012,8 +2012,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCowboyBrown
-  name: brown cowboy outfit
-  description: Yeehaw, partner!
+  name: "коричневе ковбойське вбрання"
+  description: "Їгоу, партнере!"
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpsuit/cowboybrown.rsi
@@ -2024,8 +2024,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCowboyGrey
-  name: grey cowboy outfit
-  description: Yeehaw, partner!
+  name: "сіре ковбойське вбрання"
+  description: "Їгоу, партнере!"
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpsuit/cowboygrey.rsi
@@ -2036,8 +2036,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCamouflageShirt
-  name: camouflage shirt
-  description: A long-sleeve camouflage shirt paired with a classic pair of jeans.
+  name: "камуфляжна сорочка"
+  description: "Камуфляжна сорочка з довгим рукавом у парі з класичними джинсами."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/_Nuclear14/Clothing/Uniforms/FalloutSuits/fudd.rsi
@@ -2048,8 +2048,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitOliveSweater
-  name: olive sweater
-  description: A cozy sweater that fits snugly on top of grey work pants.
+  name: "оливковий светр"
+  description: "Затишний светр, що щільно сидить поверх сірих робочих штанів."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpsuit/olive_sweater.rsi
@@ -2060,8 +2060,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitDesertUniform
-  name: desert uniform
-  description: A replica of vintage Solarian combat uniforms, for LARPing purposes.
+  name: "пустельна форма"
+  description: "Репліка вінтажних соларіанських бойових форм, для цілей ЛАРПу."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/_Nuclear14/Clothing/Uniforms/FalloutSuits/desertbdu.rsi
@@ -2072,8 +2072,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitLumberjack
-  name: lumberjack overalls
-  description: Overalls that make you look like a lumberjack.
+  name: "комбінезон лісоруба"
+  description: "Комбінезон, що робить тебе схожим на лісоруба."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/_Nuclear14/Clothing/Uniforms/FalloutSuits/lumberjack.rsi
@@ -2084,8 +2084,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitLightBlueShirt
-  name: light blue shirt
-  description: A light blue shirt with pale khakis, lightweight and comfy.
+  name: "блакитна сорочка"
+  description: "Блакитна сорочка з блідими штанами кольору хакі, легка й зручна."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpsuit/lightblue_shirt.rsi
@@ -2096,8 +2096,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitGreyShirt
-  name: grey shirt and olive pants
-  description: Sometimes all you need is a tried but true combo, grey and olive.
+  name: "сіра сорочка та оливкові штани"
+  description: "Іноді все, що тобі потрібно — це перевірене поєднання, сіре й оливкове."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/_Nuclear14/Clothing/Uniforms/FalloutSuits/rangerv3.rsi
@@ -2108,8 +2108,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitFlannelJeans
-  name: flannel shirt and jeans
-  description: A red flannel shirt paired with pale blue jeans. How original.
+  name: "фланелева сорочка та джинси"
+  description: "Червона фланелева сорочка в парі з блідо-синіми джинсами. Як оригінально."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpsuit/flannel_jeans.rsi
@@ -2120,8 +2120,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitFlannelBlackJeans
-  name: black flannel shirt and jeans
-  description: Not just any flannel, a flannel shirt that's black! Daring today, aren't we?
+  name: "чорна фланелева сорочка та джинси"
+  description: "Не просто фланель, а фланелева сорочка, що чорна! Сміливо сьогодні, чи не так?"
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpsuit/black_flannel_jeans.rsi
@@ -2132,8 +2132,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitFlannelKhakis
-  name: flannel shirt and khakis
-  description: A red flannel shirt with tan khaki pants, a smart pairing.
+  name: "фланелева сорочка та штани хакі"
+  description: "Червона фланелева сорочка з бежевими штанами кольору хакі, розумне поєднання."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpsuit/flannel_khakis.rsi
@@ -2144,8 +2144,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitFlannelBlackKhakis
-  name: black flannel shirt and khakis
-  description: A black flannel shirt with tan khaki pants, a smart pairing.
+  name: "чорна фланелева сорочка та штани хакі"
+  description: "Чорна фланелева сорочка з бежевими штанами кольору хакі, розумне поєднання."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpsuit/black_flannel_khakis.rsi
@@ -2155,8 +2155,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressAsymmetric
-  name: asymmetric dress
-  description: This dress forced the mothermatter to deyassinate in slaygineering.
+  name: "асиметрична сукня"
+  description: "Ця сукня змусила першоматерію розяситися в слейджинірингу."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/asymmetric_dress.rsi
@@ -2167,8 +2167,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressEvening
-  name: evening gown
-  description: A floor-length dress to impress.
+  name: "вечірня сукня"
+  description: "Сукня в підлогу, щоб справити враження."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/evening_gown.rsi
@@ -2180,8 +2180,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressMidi
-  name: midi dress
-  description: Contrary to popular belief, you can't play music with this dress.
+  name: "сукня міді"
+  description: "Всупереч поширеній думці, цією сукнею не можна грати музику."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/midi_dress.rsi
@@ -2192,8 +2192,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressTea
-  name: tea-length dress
-  description: Perfect for tea time!
+  name: "сукня довжиною до литок"
+  description: "Ідеально для чаювання!"
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/tea_dress.rsi
@@ -2205,8 +2205,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressSleeveless
-  name: sleeveless A-line dress
-  description: A simple sleeveless dress with a flared bottom.
+  name: "сукня А-силуету без рукавів"
+  description: "Проста сукня без рукавів із розширеним низом."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/sleeveless_dress.rsi
@@ -2217,8 +2217,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressLongSleeve
-  name: long sleeve A-line dress
-  description: A dress with a flared bottom and sleeves that cover the arms.
+  name: "сукня А-силуету з довгим рукавом"
+  description: "Сукня з розширеним низом і рукавами, що вкривають руки."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/longsleeve_dress.rsi
@@ -2229,8 +2229,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressBlackAndGold
-  name: black and gold gown
-  description: Luckily it's not a white and blue gown.
+  name: "чорно-золота сукня"
+  description: "На щастя, це не біло-синя сукня."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/black_and_gold.rsi
@@ -2241,8 +2241,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressBlackTango
-  name: black tango dress
-  description: An earthen black tango dress.
+  name: "чорна сукня для танго"
+  description: "Землисто-чорна сукня для танго."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/black_tango.rsi
@@ -2266,8 +2266,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressCheongsamBlue
-  name: blue cheongsam
-  description: A Chinese dress that hugs the body. This one is blue, the fabric styled with flowering tree branches.
+  name: "блакитний чонсам"
+  description: "Китайська сукня, що облягає тіло. Ця синя, тканина оздоблена квітучими гілками дерев."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/cheongsamblue.rsi
@@ -2279,8 +2279,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressCheongsamGreen
-  name: green cheongsam
-  description: A Chinese dress that hugs the body. This one is green, patterned with overlapping jade fans.
+  name: "зелений чонсам"
+  description: "Китайська сукня, що облягає тіло. Ця зелена, з візерунком із накладених нефритових віял."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/cheongsamgreen.rsi
@@ -2292,8 +2292,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressCheongsamPurple
-  name: purple cheongsam
-  description: A Chinese dress that hugs the body. This one is purple, embroidered with plum blossoms.
+  name: "фіолетовий чонсам"
+  description: "Китайська сукня, що облягає тіло. Ця фіолетова, вишита квітами сливи."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/cheongsampurple.rsi
@@ -2305,8 +2305,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressCheongsamRed
-  name: red cheongsam
-  description: A Chinese dress that hugs the body. This one is red, with a golden leaf trim that climbs up the garment.
+  name: "червоний чонсам"
+  description: "Китайська сукня, що облягає тіло. Ця червона, із золотою облямівкою з листя, що в'ється вгору по вбранню."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/cheongsamred.rsi
@@ -2318,8 +2318,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressCheongsamWhite
-  name: white cheongsam
-  description: A Chinese dress that hugs the body. This one is white, embroidered with a bright golden dragon.
+  name: "білий чонсам"
+  description: "Китайська сукня, що облягає тіло. Ця біла, вишита яскравим золотим драконом."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/cheongsamwhite.rsi
@@ -2331,8 +2331,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtSuitBlueBlazer
-  name: blue blazer skirt
-  description: A bold yet conservative outfit, a red pencil skirt and a navy blazer.
+  name: "спідниця із синім блейзером"
+  description: "Сміливий, але стриманий образ: червона спідниця-олівець і темно-синій блейзер."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/blue_blazer.rsi
@@ -2343,8 +2343,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressBlueSundress
-  name: long blue sundress
-  description: A long blue sun dress with white frills towards the bottom.
+  name: "довгий синій сарафан"
+  description: "Довгий синій сарафан із білими оборками внизу."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/blue_sundress.rsi
@@ -2355,8 +2355,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressClub
-  name: club dress
-  description: This well-tailored dress ate and left no crumbs.
+  name: "клубна сукня"
+  description: "Ця добре пошита сукня просто розірвала."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/club_dress.rsi
@@ -2367,8 +2367,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressCoveter
-  name: coveter dress
-  description: Others will covet how your outfit slays with this dress.
+  name: "сукня заздрості"
+  description: "Інші заздритимуть, як шикарно виглядає твій образ у цій сукні."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/coveter.rsi
@@ -2379,8 +2379,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressFlamenco
-  name: flamenco dress
-  description: A Mexican flamenco dress.
+  name: "сукня для фламенко"
+  description: "Мексиканська сукня для фламенко."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/flamenco.rsi
@@ -2392,8 +2392,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressFire
-  name: flame dress
-  description: A small black dress with a blue flames print on it.
+  name: "вогняна сукня"
+  description: "Маленька чорна сукня з принтом синього полум'я."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/dress_fire.rsi
@@ -2404,8 +2404,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressOrange
-  name: orange dress
-  description: A fancy orange gown for those who like to show leg.
+  name: "помаранчева сукня"
+  description: "Вишукана помаранчева сукня для тих, хто любить показати ніжку."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/dress_orange.rsi
@@ -2417,8 +2417,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressYellow
-  name: yellow dress
-  description: A flirty, little yellow dress.
+  name: "жовта сукня"
+  description: "Грайлива маленька жовта сукня."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/dress_yellow.rsi
@@ -2429,8 +2429,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressFlowergirl
-  name: flower dress
-  description: What did the flowers do to deserve this?
+  name: "квіткова сукня"
+  description: "Чим квіти заслужили на таке?"
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/flowergirl.rsi
@@ -2441,8 +2441,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressFluffy
-  name: fluffy dress
-  description: A lovely fluffed out dress with a black lacy top.
+  name: "пухнаста сукня"
+  description: "Чарівна пишна сукня з чорним мереживним верхом."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/fluffy.rsi
@@ -2454,8 +2454,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressFormalRed
-  name: formal red dress
-  description: A big formal red dress, a totally regular outfit in NanoTrasen stations.
+  name: "офіційна червона сукня"
+  description: "Велика офіційна червона сукня, цілком звичайне вбрання на станціях НаноТрейзен."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/formalred.rsi
@@ -2467,8 +2467,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressGothic
-  name: gothic dress
-  description: A black dress with a sheer mesh over it, tastefully old-school goth.
+  name: "готична сукня"
+  description: "Чорна сукня з прозорою сіткою поверх, зі смаком виконана у старому готичному стилі."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/gothic.rsi
@@ -2480,8 +2480,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtKimonoColor
-  name: kimono
-  description: A traditional Japanese kimono.
+  name: "кімоно"
+  description: "Традиційне японське кімоно."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/kimono_color.rsi
@@ -2493,8 +2493,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressLacyGown
-  name: lacy gown
-  description: A beautiful lacy gown with laces at the bottom.
+  name: "мереживна сукня"
+  description: "Красива мереживна сукня зі шнурівкою внизу."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/lacy_gown.rsi
@@ -2506,8 +2506,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressLong
-  name: long dress
-  description: A long dress that reaches the floor.
+  name: "довга сукня"
+  description: "Довга сукня, що сягає підлоги."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/long_dress.rsi
@@ -2519,8 +2519,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressLongFlared
-  name: long flared dress
-  description: A long dress that flares out at the bottom.
+  name: "довга розкльошена сукня"
+  description: "Довга сукня, що розширюється донизу."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/long_flared_dress.rsi
@@ -2532,8 +2532,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtQipao
-  name: qipao
-  description: A traditional Solarian garment, typically made of (synthetic) silk.
+  name: "ципао"
+  description: "Традиційне соларіанське вбрання, зазвичай виготовлене з (синтетичного) шовку."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/qipao.rsi
@@ -2544,8 +2544,8 @@
 - type: entity
   parent: ClothingUniformJumpskirtQipao
   id: ClothingUniformJumpskirtQipaoSlim
-  name: slim qipao
-  description: A traditional Solarian garment, typically made of (synthetic) silk. This one is fairly slim.
+  name: "вузьке ципао"
+  description: "Традиційне соларіанське вбрання, зазвичай виготовлене з (синтетичного) шовку. Це доволі вузьке."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/qipao_slim.rsi
@@ -2557,8 +2557,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressRedSwept
-  name: red swept dress
-  description: A red dress that sweeps to the side.
+  name: "червона звивиста сукня"
+  description: "Червона сукня, що звивається вбік."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/red_swept_dress.rsi
@@ -2569,8 +2569,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtPencilSkirtGymBra
-  name: pencil skirt and gym bra
-  description: A fashion-forward pair popularized by an iconic space influencer.
+  name: "спідниця-олівець і спортивний топ"
+  description: "Модна парочка, популяризована культовою космічною інфлюенсеркою."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/skirt_pencil_gym_bra.rsi
@@ -2581,8 +2581,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressPuffy
-  name: puffy dress
-  description: An iconic dress with a very puffy bottom.
+  name: "пишна сукня"
+  description: "Культова сукня з дуже пишним низом."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/puffydress.rsi
@@ -2594,8 +2594,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtSailor
-  name: sailor dress
-  description: Formal wear for the leader.
+  name: "матроська сукня"
+  description: "Офіційне вбрання для лідера."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/sailor_dress.rsi
@@ -2606,8 +2606,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressSariGreen
-  name: green sari
-  description: A colorful red traditional dress originating from India.
+  name: "зелене сарі"
+  description: "Барвиста червона традиційна сукня родом з Індії."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/sari_green.rsi
@@ -2619,8 +2619,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressSariRed
-  name: red sari
-  description: A colorful red traditional dress originating from India.
+  name: "червоне сарі"
+  description: "Барвиста червона традиційна сукня родом з Індії."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/sari_red.rsi
@@ -2632,8 +2632,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressShort
-  name: short dress
-  description: A short, plain dress.
+  name: "коротка сукня"
+  description: "Коротка, проста сукня."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/short_dress.rsi
@@ -2644,8 +2644,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressSpider
-  name: spider dress
-  description: A black dress with spider web patterns that instills fear in your arachnophobic enemies.
+  name: "павуча сукня"
+  description: "Чорна сукня з візерунками павутини, що вселяє страх у ваших ворогів-арахнофобів."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/spider.rsi
@@ -2657,8 +2657,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressStriped
-  name: striped dress
-  description: Fashion in space.
+  name: "смугаста сукня"
+  description: "Мода в космосі."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/striped_dress.rsi
@@ -2669,8 +2669,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressSundress
-  name: sundress
-  description: Makes you want to frolic in a field of daisies.
+  name: "сарафан"
+  description: "Викликає бажання гасати по полю ромашок."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/sundress.rsi
@@ -2681,8 +2681,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressSundressWhite
-  name: white sundress
-  description: A white sundress decorated with purple lilies.
+  name: "білий сарафан"
+  description: "Білий сарафан, прикрашений фіолетовими ліліями."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/sundress_white.rsi
@@ -2693,8 +2693,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressVictorianBlack
-  name: black victorian dress
-  description: A black Victorian-style dress often paired with the black Victorian coat.
+  name: "чорна вікторіанська сукня"
+  description: "Чорна сукня у вікторіанському стилі, яку часто носять у парі з чорним вікторіанським пальтом."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/victorian_black_dress.rsi
@@ -2706,8 +2706,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressVictorianRed
-  name: red victorian dress
-  description: A red Victorian-style dress often paired with the red Victorian coat.
+  name: "червона вікторіанська сукня"
+  description: "Червона сукня у вікторіанському стилі, яку часто носять у парі з червоним вікторіанським пальтом."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/victorian_red_dress.rsi
@@ -2719,8 +2719,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtWaitress
-  name: waitress's outfit
-  description: Waitress! Waitress! More serves with that outfit please!
+  name: "вбрання офіціантки"
+  description: "Офіціантко! Офіціантко! Більше подач у цьому вбранні, будь ласка!"
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/waitress.rsi
@@ -2731,8 +2731,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressYellowSwoop
-  name: yellow swooped dress
-  description: A yellow dress that swoops to the side.
+  name: "жовта звивиста сукня"
+  description: "Жовта сукня, що звивається вбік."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Uniforms/Jumpskirt/yellowswoop.rsi
@@ -2742,8 +2742,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesHighHeels
-  name: high heels
-  description: These heels help you sashay into the station like it's a catwalk.
+  name: "високі підбори"
+  description: "Ці підбори допомагають тобі впевнено зайти на станцію, наче це подіум."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Shoes/Misc/high_heels.rsi
@@ -2762,8 +2762,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesHighHeelsLong
-  name: long high heels
-  description: Slay the house down boots!
+  name: "довгі високі підбори"
+  description: "Чоботи, від яких усі ахнуть!"
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Shoes/Misc/long_high_heels.rsi
@@ -2782,8 +2782,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesFlats
-  name: flats
-  description: Fashionable and comfortable flats.
+  name: "балетки"
+  description: "Модні та зручні балетки."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Shoes/Misc/flats.rsi
@@ -2797,8 +2797,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesSkater
-  name: skater shoes
-  description: A pair of wide shoes with thick soles. Designed for skating.
+  name: "скейтерські кросівки"
+  description: "Пара широких кросівок з товстою підошвою. Створені для катання."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Shoes/Misc/skater.rsi
@@ -2809,8 +2809,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesSandalsFlipFlops
-  name: flip flops
-  description: A pair of flip flops. For those not afraid to show a little ankle.
+  name: "шльопанці"
+  description: "Пара шльопанців. Для тих, хто не боїться показати трохи щиколотку."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Shoes/Sandals/flipflops.rsi
@@ -2821,7 +2821,7 @@
 - type: entity
   parent: ClothingShoesSandalsFlipFlops
   id: ClothingShoesSandalsFlipFlopsAlt
-  description: A pair of flip flops. The strap colors are lighter than the usual flip flops.
+  description: "Пара шльопанців. Кольори ремінців світліші, ніж у звичайних шльопанців."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Shoes/Sandals/flipflops_alt.rsi
@@ -2881,8 +2881,8 @@
 - type: entity
   parent: ClothingShoesLoadoutCivilianBase
   id: ClothingShoesBootsCowboyFancyLoadout
-  name: fancy cowboy boots
-  description: They got spurs that jingle and/or jangle.
+  name: "ошатні ковбойські чоботи"
+  description: "На них є шпори, що дзенькають і/або брязкають."
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Boots/cowboybootsfancy.rsi
@@ -2898,8 +2898,8 @@
 - type: entity
   parent: ClothingShoesLoadoutCivilianBase
   id: ClothingShoesBootsCowboyWhiteLoadout
-  name: white cowboy boots
-  description: They got spurs that jingle and/or jangle.
+  name: "білі ковбойські чоботи"
+  description: "На них є шпори, що дзенькають і/або брязкають."
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Boots/cowboybootswhite.rsi
@@ -2915,8 +2915,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesBootsWorkColor
-  name: workboots
-  description: Lace-up work boots for the especially blue-collar. In a variety of colors!
+  name: "робочі черевики"
+  description: "Робочі черевики на шнурівці для справжніх роботяг. У різних кольорах!"
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Shoes/Boots/workboots_color.rsi
@@ -2927,8 +2927,8 @@
 - type: entity
   parent: ClothingShoesLoadoutCivilianBase
   id: ClothingShoesBootsJackFake
-  name: jackboots
-  description: Civilian-grade replica of Nanotrasen Security combat boots. Looks the part but lacks the performance - ideal for the heated situations.
+  name: "берці"
+  description: "Цивільна репліка бойових черевиків служби безпеки НаноТрейзен. Виглядають як справжні, але не мають їхніх характеристик — ідеально для напружених ситуацій."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Shoes/Boots/jackboots.rsi
@@ -2939,8 +2939,8 @@
 - type: entity
   parent: ClothingShoesLoadoutCivilianBase
   id: ClothingShoesBootsJackColor
-  name: fashion jackboots
-  description: Civilian-grade replica of Nanotrasen Security combat boots, impractical but fashionable.
+  name: "модні берці"
+  description: "Цивільна репліка бойових черевиків Служби безпеки НаноТрейзен, непрактичні, але модні."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Shoes/Boots/jackboots_color.rsi
@@ -2951,8 +2951,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesBootsAnkle
-  name: ankle boots
-  description: A pair of low-heeled boots, if you need inclosed shoes.
+  name: "черевики до щиколотки"
+  description: "Пара черевиків на низьких підборах, якщо тобі потрібне закрите взуття."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Shoes/Boots/ankleboots.rsi
@@ -2963,8 +2963,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesBootsFull
-  name: full-length boots
-  description: A pair of boots that cover the entire leg.
+  name: "чоботи на всю довжину"
+  description: "Пара чобіт, що вкривають усю ногу."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Shoes/Boots/fullboots.rsi
@@ -2975,8 +2975,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesBootsMud
-  name: mudboots
-  description: A nice pair of weatherproof mudboots to keep your feet dry.
+  name: "гумаки"
+  description: "Гарна пара водонепроникних гумаків, щоб тримати твої ноги сухими."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Shoes/Boots/mudboots.rsi
@@ -2987,8 +2987,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesBootsMudThigh
-  name: thigh-high mudboots
-  description: A nice pair of weatherproof mudboots to keep your legs dry.
+  name: "гумаки до стегон"
+  description: "Гарна пара водонепроникних гумаків, щоб тримати твої ноги сухими."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Shoes/Boots/thighmudboots.rsi
@@ -2999,8 +2999,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesBootsThigh
-  name: thigh-high boots
-  description: A pair of casual boots that reach up to the thighs.
+  name: "чоботи до стегон"
+  description: "Пара повсякденних чобіт, що сягають стегон."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Shoes/Boots/thighboots.rsi
@@ -3010,8 +3010,8 @@
 - type: entity
   parent: ClothingOuterLoadoutWinterCoat
   id: ClothingOuterCsCorporateJacket
-  name: Cybersun Corporate Jacket
-  description: A cozy jacket with the Cybersun logo printed on the back. Merchandise rewarded to stations with a safety factor of uhh... seven.
+  name: "корпоративна куртка Кіберсан"
+  description: "Затишна куртка з логотипом Кіберсан, надрукованим на спині. Сувенір, що видається станціям з фактором безпеки в… е-е… сім."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/OuterClothing/WinterCoats/corpo_jacket_cybersun.rsi
@@ -3022,8 +3022,8 @@
 - type: entity
   parent: ClothingOuterLoadoutWinterCoat
   id: ClothingOuterEeCorporateJacket
-  name: Einstein Engines Corporate Jacket
-  description: A cozy jacket with the Einstein Engines logo printed on the back. Merchandise rewarded to stations with a safety factor of uhh... seven.
+  name: "корпоративна куртка Айнштайн Енджинс"
+  description: "Затишна куртка з логотипом Айнштайн Енджинс, надрукованим на спині. Сувенір, що видається станціям з фактором безпеки в… е-е… сім."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/OuterClothing/WinterCoats/corpo_jacket_einstein_engines.rsi
@@ -3034,8 +3034,8 @@
 - type: entity
   parent: ClothingOuterLoadoutWinterCoat
   id: ClothingOuterHiCorporateJacket
-  name: Hephaestus Industries Corporate Jacket
-  description: A cozy jacket with the Hephaestus Industries logo printed on the back. Merchandise rewarded to stations with a safety factor of uhh... seven.
+  name: "корпоративна куртка Гефест Індастріз"
+  description: "Затишна куртка з логотипом Гефест Індастріз, надрукованим на спині. Сувенір, що видається станціям з фактором безпеки в… е-е… сім."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/OuterClothing/WinterCoats/corpo_jacket_hephestus_industries.rsi
@@ -3046,8 +3046,8 @@
 - type: entity
   parent: ClothingOuterLoadoutWinterCoat
   id: ClothingOuterHmCorporateJacket
-  name: Hawkmoon Acquisitions Corporate Jacket
-  description: A cozy jacket with the Hawkmoon Acquisitions logo printed on the back. Merchandise rewarded to stations with a safety factor of uhh... seven.
+  name: "корпоративна куртка Гокмун Аквізішнз"
+  description: "Затишна куртка з логотипом Гокмун Аквізішнз, надрукованим на спині. Сувенір, що видається станціям з фактором безпеки в… е-е… сім."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/OuterClothing/WinterCoats/corpo_jacket_hawkmoon_aquisitions.rsi
@@ -3058,8 +3058,8 @@
 - type: entity
   parent: ClothingOuterLoadoutWinterCoat
   id: ClothingOuterIdCorporateJacket
-  name: Interdyne Corporate Jacket
-  description: A cozy jacket with the Interdyne logo printed on the back. Merchandise rewarded to stations with a safety factor of uhh... seven.
+  name: "корпоративна куртка Інтердайн"
+  description: "Затишна куртка з логотипом Інтердайн, надрукованим на спині. Сувенір, що видається станціям з фактором безпеки в… е-е… сім."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/OuterClothing/WinterCoats/corpo_jacket_interdyne.rsi
@@ -3070,8 +3070,8 @@
 - type: entity
   parent: ClothingOuterLoadoutWinterCoat
   id: ClothingOuterBcCorporateJacket
-  name: Bishop Cybernetics Corporate Jacket
-  description: A cozy jacket with the Bishop Cybernetics logo printed on the back. Merchandise rewarded to stations with a safety factor of uhh... seven.
+  name: "корпоративна куртка Бішоп Сайбернетікс"
+  description: "Затишна куртка з логотипом Бішоп Сайбернетікс, надрукованим на спині. Сувенір, що видається станціям з фактором безпеки в… е-е… сім."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/OuterClothing/WinterCoats/corpo_jacket_bishop_cybernetics.rsi
@@ -3082,8 +3082,8 @@
 - type: entity
   parent: ClothingOuterLoadoutWinterCoat
   id: ClothingOuterDdCorporateJacket
-  name: Discount Dan's Corporate Jacket
-  description: A cozy jacket with the Discount Dan's logo printed on the back. Merchandise rewarded to stations with a safety factor of uhh... seven.
+  name: "корпоративна куртка Діскаунт Денс"
+  description: "Затишна куртка з логотипом Діскаунт Денс, надрукованим на спині. Сувенір, що видається станціям з фактором безпеки в… е-е… сім."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/OuterClothing/WinterCoats/corpo_jacket_discount_dans.rsi
@@ -3094,8 +3094,8 @@
 - type: entity
   parent: ClothingOuterLoadoutWinterCoat
   id: ClothingOuterFaCorporateJacket
-  name: Five Points Armory Corporate Jacket
-  description: A cozy jacket with the Five Points Armory logo printed on the back. Merchandise rewarded to stations with a safety factor of uhh... seven.
+  name: "корпоративна куртка Файв Поінтс Армарі"
+  description: "Затишна куртка з логотипом Файв Поінтс Армарі, надрукованим на спині. Сувенір, що видається станціям з фактором безпеки в… е-е… сім."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/OuterClothing/WinterCoats/corpo_jacket_five_points_armory.rsi
@@ -3106,8 +3106,8 @@
 - type: entity
   parent: ClothingOuterLoadoutWinterCoat
   id: ClothingOuterGeCorporateJacket
-  name: Gilthari Exports Corporate Jacket
-  description: A cozy jacket with the Gilthari Exports logo printed on the back. Merchandise rewarded to stations with a safety factor of uhh... seven.
+  name: "корпоративна куртка Ґілтарі Експортс"
+  description: "Затишна куртка з логотипом Ґілтарі Експортс, надрукованим на спині. Сувенір, що видається станціям з фактором безпеки в… е-е… сім."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/OuterClothing/WinterCoats/corpo_jacket_gilthari_exports.rsi
@@ -3118,8 +3118,8 @@
 - type: entity
   parent: ClothingOuterLoadoutWinterCoat
   id: ClothingOuterZhCorporateJacket
-  name: Zeng-Hu Pharmaceuticals Corporate Jacket
-  description: A cozy jacket with the Zeng-Hu Pharmaceuticals logo printed on the back. Merchandise rewarded to stations with a safety factor of uhh... seven.
+  name: "корпоративна куртка Зенг-Ху Фармасьютікалз"
+  description: "Затишна куртка з логотипом Зенг-Ху Фармасьютікалз, надрукованим на спині. Сувенір, що видається станціям з фактором безпеки в… е-е… сім."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/OuterClothing/WinterCoats/corpo_jacket_zeng_hu_pharma.rsi
@@ -3130,8 +3130,8 @@
 - type: entity
   parent: ClothingOuterLoadoutWinterCoat
   id: ClothingOuterIiCorporateJacket
-  name: Idris Incorporated Corporate Jacket
-  description: A cozy jacket with the Idris Incorporated logo printed on the back. Merchandise rewarded to stations with a safety factor of uhh... seven.
+  name: "корпоративна куртка Айдріс Інкорпорейтед"
+  description: "Затишна куртка з логотипом Айдріс Інкорпорейтед, надрукованим на спині. Сувенір, що видається станціям з фактором безпеки в… е-е… сім."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/_EE/Clothing/corpo_jacket_idris_incorporated.rsi
@@ -3142,9 +3142,9 @@
 - type: entity
   parent: ClothingOuterLoadoutWinterCoat
   id: ClothingOuterOeCorporateJacket
-  name: Orion Express Corporate Jacket
+  name: "корпоративна куртка Оріон Експрес"
 
-  description: A cozy jacket with the Orion Express logo printed on the back. Merchandise rewarded to stations with a safety factor of uhh... seven.
+  description: "Затишна куртка з логотипом Оріон Експрес, надрукованим на спині. Сувенір, що видається станціям з фактором безпеки в… е-е… сім."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/_EE/Clothing/corpo_jacket_orion_express.rsi
@@ -3154,8 +3154,8 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingOuterVestColorable
-  name: vest
-  description: You have a vested interest in looking good, and this vest is the vest choice to achieve that!
+  name: "жилет"
+  description: "У тебе є кревний інтерес гарно виглядати, і цей жилет — найкращий вибір для цього!"
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/OuterClothing/Vests/vest_colorable.rsi
@@ -3166,8 +3166,8 @@
 - type: entity
   parent: ClothingOuterFoldableBase
   id: ClothingOuterVestThick
-  name: thick vest
-  description: A vest made of synthetic leather.
+  name: "товстий жилет"
+  description: "Жилет із синтетичної шкіри."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/OuterClothing/Vests/vest_thick.rsi
@@ -3177,8 +3177,8 @@
 - type: entity
   parent: ClothingOuterStorageFoldableBase
   id: ClothingOuterSuitJacket
-  name: suit jacket
-  description: A snappy dress jacket.
+  name: "піджак"
+  description: "Стильний костюмний піджак."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/OuterClothing/Misc/suit_jacket.rsi
@@ -3189,14 +3189,14 @@
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterSuitJacket]
   id: ClothingOuterSuitJacketOpened
-  name: suit jacket
+  name: "піджак"
 
 
 - type: entity
   parent: ClothingOuterFoldableBase
   id: ClothingOuterCardigan
-  name: cardigan
-  description: Only slightly worse than a blanket.
+  name: "кардиган"
+  description: "Лише трохи гірший за ковдру."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/OuterClothing/Misc/cardigan.rsi
@@ -3207,14 +3207,14 @@
 - type: entity
   parent: [ClothingOuterFoldableBaseOpened, ClothingOuterCardigan]
   id: ClothingOuterCardiganOpened
-  name: cardigan
+  name: "кардиган"
 
 
 - type: entity
   parent: ClothingOuterFoldableBase
   id: ClothingOuterCardiganSweater
-  name: sweater cardigan
-  description: Half as warm as a sweater, and half as fashionable as a cardigan. Not like it matters for coffee-house dwelling beatniks like yourself.
+  name: "светр-кардиган"
+  description: "Удвічі менш теплий за светр і вдвічі менш модний за кардиган. Та не те щоб це мало значення для таких завсідників кав'ярень, як ти."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/OuterClothing/Misc/cardigan_sweater.rsi
@@ -3225,14 +3225,14 @@
 - type: entity
   parent: [ClothingOuterFoldableBaseOpened, ClothingOuterCardiganSweater]
   id: ClothingOuterCardiganSweaterOpened
-  name: sweater cardigan
+  name: "светр-кардиган"
 
 
 - type: entity
   parent: ClothingOuterFoldableBase
   id: ClothingOuterCardiganArgyle
-  name: argyle cardigan
-  description: You'll never get dumped if you never get in a relationship in the first place. With this, you'll never have to worry again.
+  name: "кардиган з ромбами"
+  description: "Тебе ніколи не кинуть, якщо ти ніколи не почнеш стосунки. З цим тобі більше ніколи не доведеться хвилюватися."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/OuterClothing/Misc/cardigan_argyle.rsi
@@ -3243,14 +3243,14 @@
 - type: entity
   parent: [ClothingOuterFoldableBaseOpened, ClothingOuterCardiganArgyle]
   id: ClothingOuterCardiganArgyleOpened
-  name: argyle cardigan
+  name: "кардиган з ромбами"
 
 
 - type: entity
   parent: ClothingOuterFoldableBase
   id: ClothingOuterCardiganSlim
-  name: slim cardigan
-  description: A cozy sleek cardigan in a classic style.
+  name: "вузький кардиган"
+  description: "Затишний елегантний кардиган у класичному стилі."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/OuterClothing/Misc/cardigan_slim.rsi
@@ -3261,14 +3261,14 @@
 - type: entity
   parent: [ClothingOuterFoldableBaseOpened, ClothingOuterCardiganSlim]
   id: ClothingOuterCardiganSlimOpened
-  name: slim cardigan
+  name: "вузький кардиган"
 
 
 - type: entity
   parent: ClothingOuterBase
   id: ClothingOuterCowboyDuster
-  name: cowboy duster
-  description: A duster commonly seen on cowboys from Earth's late 1800's.
+  name: "ковбойський плащ"
+  description: "Плащ, який часто бачили на ковбоях із Землі кінця 1800-х років."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/OuterClothing/Misc/cowboy_duster.rsi
@@ -3279,8 +3279,8 @@
 - type: entity
   parent: ClothingOuterStorageFoldableBase
   id: ClothingOuterBlazer
-  name: blazer
-  description: A charming jacket for when you want to play ball sports like an aristocrat.
+  name: "блейзер"
+  description: "Чарівний піджак для тих, хто хоче грати в м'ячові спорти, як аристократ."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/OuterClothing/Misc/blazer.rsi
@@ -3291,14 +3291,14 @@
 - type: entity
   parent: [ClothingOuterFoldableBaseOpened, ClothingOuterBlazer]
   id: ClothingOuterBlazerOpened
-  name: blazer
+  name: "блейзер"
 
 
 - type: entity
   parent: ClothingOuterStorageFoldableBase
   id: ClothingOuterBlazerLong
-  name: long blazer
-  description: A charming long jacket that almost substitutes for a coat.
+  name: "довгий блейзер"
+  description: "Чарівний довгий піджак, що майже замінює пальто."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/OuterClothing/Misc/blazer_long.rsi
@@ -3309,14 +3309,14 @@
 - type: entity
   parent: [ClothingOuterFoldableBaseOpened, ClothingOuterBlazerLong]
   id: ClothingOuterBlazerLongOpened
-  name: long blazer
+  name: "довгий блейзер"
 
 
 - type: entity
   parent: ClothingOuterBase
   id: ClothingOuterBlazerFormal
-  name: formal blazer
-  description: A slim-fit blazer suitable for both smart casual and formal outfits.
+  name: "офіційний блейзер"
+  description: "Приталений блейзер, що пасує як до напівформального, так і до формального вбрання."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/OuterClothing/Misc/blazer_formal.rsi
@@ -3327,8 +3327,8 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingOuterBlazerLooseSleeve
-  name: loose sleeve blazer
-  description: One of those hippie-formal wannabe blazers.
+  name: "блейзер з вільними рукавами"
+  description: "Один із тих псевдоофіційних блейзерів у стилі хіпі."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/OuterClothing/Misc/blazer_loose_sleeve.rsi
@@ -3339,8 +3339,8 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingOuterBlazerFlatCollar
-  name: flat collar blazer
-  description: For those grown ups that didn't wanna.
+  name: "блейзер з пласким коміром"
+  description: "Для тих дорослих, які не хотіли дорослішати."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/OuterClothing/Misc/blazer_flat_collar.rsi
@@ -3351,8 +3351,8 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingOuterBlazerPosh
-  name: posh blazer
-  description: This is a bit fancy, like the new service worker in Saltern who is trying too hard to impress the heads.
+  name: "шикарний блейзер"
+  description: "Трохи вишукано, як новий працівник сервісу в Салтерні, який надто старається вразити голів відділів."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/OuterClothing/Misc/blazer_posh.rsi
@@ -3362,8 +3362,8 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingOuterCoatModern
-  name: modern coat
-  description: A coat that has a nice finished feel.
+  name: "сучасне пальто"
+  description: "Пальто, що має приємний завершений вигляд."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/OuterClothing/Coats/modern_coat.rsi
@@ -3374,8 +3374,8 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingOuterTailcoat
-  name: tailcoat
-  description: A fancy Victorian-style tailcoat.
+  name: "фрак"
+  description: "Вишуканий фрак у вікторіанському стилі."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/OuterClothing/Coats/tailcoat.rsi
@@ -3386,8 +3386,8 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingOuterCoatVictorian
-  name: black victorian coat
-  description: A fancy Victorian-style coat.
+  name: "чорне вікторіанське пальто"
+  description: "Вишукане пальто у вікторіанському стилі."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/OuterClothing/Coats/victorian_coat.rsi
@@ -3398,8 +3398,8 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingOuterCoatVictorianRed
-  name: red victorian coat
-  description: A fancy Victorian-style coat in a red hue.
+  name: "червоне вікторіанське пальто"
+  description: "Вишукане пальто у вікторіанському стилі червоного відтінку."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/OuterClothing/Coats/victorian_coat_red.rsi
@@ -3410,8 +3410,8 @@
 - type: entity
   parent: ClothingOuterStorageFoldableBase
   id: ClothingOuterCoatPeacoat
-  name: peacoat
-  description: A well-tailored, stylish peacoat.
+  name: "бушлат"
+  description: "Добре пошитий, стильний бушлат."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/OuterClothing/Coats/peacoat.rsi
@@ -3422,14 +3422,14 @@
 - type: entity
   parent: [ClothingOuterFoldableBaseOpened, ClothingOuterCoatPeacoat]
   id: ClothingOuterCoatPeacoatOpened
-  name: peacoat
+  name: "бушлат"
 
 
 - type: entity
   parent: ClothingOuterStorageFoldableBase
   id: ClothingOuterCoatAsymmetric
-  name: asymmetric coat
-  description: A solid sleeveless coat that only covers the upper body and the back of the legs.
+  name: "асиметричне пальто"
+  description: "Суцільне пальто без рукавів, що вкриває лише верхню частину тіла та задню частину ніг."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/OuterClothing/Coats/asymmetric_coat.rsi
@@ -3440,14 +3440,14 @@
 - type: entity
   parent: [ClothingOuterFoldableBaseOpened, ClothingOuterCoatAsymmetric]
   id: ClothingOuterCoatAsymmetricOpened
-  name: asymmetric coat
+  name: "асиметричне пальто"
 
 
 - type: entity
   parent: ClothingOuterStorageFoldableBase
   id: ClothingOuterCoatSubmariner
-  name: submariner coat
-  description: A leather jacket with a synthetic fur collar perfect for exploring the caves of Submarine.
+  name: "пальто підводника"
+  description: "Шкіряна куртка із синтетичним хутряним коміром, ідеальна для дослідження печер Сабмарину."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/OuterClothing/Coats/submariner.rsi
@@ -3458,13 +3458,13 @@
 - type: entity
   parent: [ClothingOuterFoldableBaseOpened, ClothingOuterCoatSubmariner]
   id: ClothingOuterCoatSubmarinerOpened
-  name: submariner coat
+  name: "пальто підводника"
 
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckTieColor
-  name: tie
-  description: A neosilk clip-on tie.
+  name: "краватка"
+  description: "Накладна краватка з неошовку."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Neck/Ties/color.rsi
@@ -3479,8 +3479,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckTieShort
-  name: short tie
-  description: A short tie, perfect for vests.
+  name: "коротка краватка"
+  description: "Коротка краватка, ідеальна для жилетів."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Neck/Ties/shorttie.rsi
@@ -3491,8 +3491,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckTieBow
-  name: neck bow
-  description: A bow for adorning the neck.
+  name: "шийний бант"
+  description: "Бант для прикрашання шиї."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Neck/Ties/bow.rsi
@@ -3503,8 +3503,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckTieBowTie
-  name: bow tie
-  description: A bow tie. Snazzy!
+  name: "краватка-метелик"
+  description: "Краватка-метелик. Шикарно!"
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Neck/Ties/bowtie.rsi
@@ -3515,8 +3515,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckTieRibbon
-  name: neck ribbon
-  description: A ribbon for adorning the neck.
+  name: "шийна стрічка"
+  description: "Стрічка для прикрашання шиї."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Neck/Ties/ribbon.rsi
@@ -3526,8 +3526,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCrucifixColor
-  name: crucifix
-  description: A small cross on a piece of string. Commonly associated with the Christian faith, it is a main symbol of this religion.
+  name: "розп'яття"
+  description: "Маленький хрест на шнурку. Зазвичай асоціюється з християнською вірою, є головним символом цієї релігії."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Neck/Crucifixes/color.rsi
@@ -3538,8 +3538,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCrucifixColorSaintPeter
-  name: Saint Peter crucifix
-  description: A small cross on a piece of string. Being inverted and thus upside down marks it as the cross of Saint Peter.
+  name: "розп'яття Святого Петра"
+  description: "Маленький хрест на шнурку. Будучи перевернутим догори дриґом, позначає його як хрест Святого Петра."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Neck/Crucifixes/color-inverted.rsi
@@ -3550,8 +3550,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCrucifixGold
-  name: gold crucifix
-  description: A small, gold cross on a piece of string. Commonly associated with the Christian faith, it is a main symbol of this religion.
+  name: "золоте розп'яття"
+  description: "Маленький золотий хрест на шнурку. Зазвичай асоціюється з християнською вірою, є головним символом цієї релігії."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Neck/Crucifixes/gold.rsi
@@ -3562,8 +3562,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCrucifixGoldSaintPeter
-  name: gold Saint Peter crucifix
-  description: A small, gold cross on a piece of string. Being inverted and thus upside down marks it as the cross of Saint Peter.
+  name: "золоте розп'яття Святого Петра"
+  description: "Маленький золотий хрест на шнурку. Будучи перевернутим догори дриґом, позначає його як хрест Святого Петра."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Neck/Crucifixes/gold-inverted.rsi
@@ -3574,8 +3574,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCrucifixSilver
-  name: silver crucifix
-  description: A small, silver cross on a piece of string. Commonly associated with the Christian faith, it is a main symbol of this religion.
+  name: "срібне розп'яття"
+  description: "Маленький срібний хрест на шнурку. Зазвичай асоціюється з християнською вірою, є головним символом цієї релігії."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Neck/Crucifixes/silver.rsi
@@ -3586,8 +3586,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCrucifixSilverSaintPeter
-  name: silver Saint Peter crucifix
-  description: A small, silver cross on a piece of string. Being inverted and thus upside down marks it as the cross of Saint Peter.
+  name: "срібне розп'яття Святого Петра"
+  description: "Маленький срібний хрест на шнурку. Будучи перевернутим догори дриґом, позначає його як хрест Святого Петра."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Neck/Crucifixes/silver-inverted.rsi
@@ -3598,8 +3598,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckScapular
-  name: scapular
-  description: As Christian garment that serves to remind the wearer of their commitment to live a Christian life.
+  name: "скапулярій"
+  description: "Християнський одяг, що нагадує власнику про його обітницю жити християнським життям."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Neck/Misc/scapular.rsi
@@ -3610,8 +3610,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckTallit
-  name: tallit
-  description: A fringed garment worn as a prayer shawl by Jewish people.
+  name: "таліт"
+  description: "Облямований одяг, який носять як молитовну шаль єврейські люди."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Neck/Misc/tallit.rsi
@@ -3621,8 +3621,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckNecklaceStandard
-  name: necklace
-  description: A piece of jewelry that goes around your neck.
+  name: "намисто"
+  description: "Прикраса, що носиться навколо шиї."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Neck/Necklaces/standard.rsi
@@ -3633,8 +3633,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckNecklaceLow
-  name: low-hanging necklace
-  description: A long piece of jewelry that hangs quite low from the neck of its wearer.
+  name: "низьке намисто"
+  description: "Довга прикраса, що звисає доволі низько з шиї власника."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Neck/Necklaces/low.rsi
@@ -3645,8 +3645,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckNecklaceRound
-  name: round necklace
-  description: A piece of jewelry that goes around your neck.
+  name: "кругле намисто"
+  description: "Прикраса, що носиться навколо шиї."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Neck/Necklaces/round.rsi
@@ -3657,8 +3657,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckNecklaceSmall
-  name: small necklace
-  description: A diminutive necklace.
+  name: "маленьке намисто"
+  description: "Крихітне намисто."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Neck/Necklaces/small.rsi
@@ -3669,8 +3669,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckNecklaceGold
-  name: gold necklace
-  description: A piece of golden jewelry that goes around your neck.
+  name: "золоте намисто"
+  description: "Золота прикраса, що носиться навколо шиї."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Neck/Necklaces/gold.rsi
@@ -3681,8 +3681,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckNecklaceSilver
-  name: silver necklace
-  description: A piece of silver jewelry that goes around your neck.
+  name: "срібне намисто"
+  description: "Срібна прикраса, що носиться навколо шиї."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Neck/Necklaces/silver.rsi
@@ -3693,8 +3693,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckNecklaceChainGold
-  name: gold chain necklace
-  description: A winding chain of golden links, fashioned into an exquisite necklace.
+  name: "золоте ланцюгове намисто"
+  description: "Звивистий ланцюг із золотих ланок, перетворений на вишукане намисто."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Neck/Necklaces/chain_gold.rsi
@@ -3705,8 +3705,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckNecklaceChainSilver
-  name: silver chain necklace
-  description: A winding chain of silver links, fashioned into an exquisite necklace.
+  name: "срібне ланцюгове намисто"
+  description: "Звивистий ланцюг зі срібних ланок, перетворений на вишукане намисто."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Neck/Necklaces/chain_silver.rsi
@@ -3717,8 +3717,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckNecklacePendantGold
-  name: gold pendant necklace
-  description: A heavy gemstone tethered to a golden necklace by a chain.
+  name: "золоте намисто з підвіскою"
+  description: "Важкий самоцвіт, прикріплений до золотого намиста ланцюжком."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Neck/Necklaces/pendant_gold.rsi
@@ -3736,8 +3736,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckNecklacePendantGoldLarge
-  name: large gold pendant necklace
-  description: A large gemstone tethered to a golden necklace by a chain.
+  name: "велике золоте намисто з підвіскою"
+  description: "Великий самоцвіт, прикріплений до золотого намиста ланцюжком."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Neck/Necklaces/pendant_gold_large.rsi
@@ -3755,8 +3755,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckNecklacePendantSilver
-  name: silver pendant necklace
-  description: A heavy gemstone tethered to a silver necklace by a chain.
+  name: "срібне намисто з підвіскою"
+  description: "Важкий самоцвіт, прикріплений до срібного намиста ланцюжком."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Neck/Necklaces/pendant_silver.rsi
@@ -3774,8 +3774,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckNecklacePendantSilverLarge
-  name: large silver pendant necklace
-  description: A large gemstone tethered to a silver necklace by a chain.
+  name: "велике срібне намисто з підвіскою"
+  description: "Великий самоцвіт, прикріплений до срібного намиста ланцюжком."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Neck/Necklaces/pendant_silver_large.rsi
@@ -3792,8 +3792,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckHeadphones
-  name: headphones
-  description: Quality headphones from Drunk Masters, with good sound insulation.
+  name: "навушники"
+  description: "Якісні навушники від Дранк Мастерс, з гарною звукоізоляцією."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Neck/Misc/headphones.rsi
@@ -3821,8 +3821,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckBellCollar
-  name: bell collar
-  description: A way to inform others about your presence, or just to annoy everyone around you!
+  name: "нашийник з дзвіночком"
+  description: "Спосіб повідомити інших про твою присутність або просто дратувати всіх навколо!"
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Neck/Misc/bellcollar.rsi
@@ -3832,8 +3832,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckDogtags
-  name: dogtags
-  description: A pair of engraved metal identification tags.
+  name: "жетони"
+  description: "Пара гравірованих металевих ідентифікаційних жетонів."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Neck/Misc/dogtags.rsi
@@ -3843,8 +3843,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckOldMantle
-  name: old wrap
-  description: A tattered fabric wrap, faded over the years. Smells faintly of cigars.
+  name: "стара накидка"
+  description: "Пошарпана тканинна накидка, вицвіла за роки. Ледь пахне сигарами."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Neck/mantles/oldmantle.rsi
@@ -3855,8 +3855,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckUnathiMantle
-  name: hide mantle
-  description: A rather grisly selection of cured hides and skin, sewn together to form a ragged mantle.
+  name: "шкіряна мантія"
+  description: "Доволі моторошний набір вичинених шкур, зшитих разом у пошарпану мантію."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/Clothing/Neck/mantles/unathimantle.rsi
@@ -3866,9 +3866,9 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitTCAFArmsman
-  name: TCAF Armsman uniform
+  name: "форма стрільця TCAF"
   suffix: TCFL
-  description: A uniform worn by current and former infantry in the Tau-Ceti Armed Forces
+  description: "Форма, яку носять чинні та колишні піхотинці Збройних сил Тау-Кита"
   components:
     - type: Sprite
       sprite: _Pirate/Loadouts/EEGeneric/_EE/Clothing/BieselRepublic/Uniforms/TCAF_armsman.rsi
@@ -3879,9 +3879,9 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ClothingUniformJumpsuitTCFLLegate
-  name: TCFL Legate uniform
+  name: "форма легата TCFL"
   suffix: TCFL
-  description: A uniform worn by commissioned officers in the Tau-Ceti Foreign Legion
+  description: "Форма, яку носять офіцери Іноземного легіону Тау-Кита"
   components:
     - type: Sprite
       sprite: _Pirate/Loadouts/EEGeneric/_EE/Clothing/BieselRepublic/Uniforms/TCFL_legate.rsi
@@ -3892,9 +3892,9 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ClothingUniformJumpsuitTCFLPilot
-  name: TCFL pilot uniform
+  name: "форма пілота TCFL"
   suffix: TCFL
-  description: A uniform worn by current and former pilots in the Tau-Ceti Foreign Legion
+  description: "Форма, яку носять чинні та колишні пілоти Іноземного легіону Тау-Кита"
   components:
     - type: Sprite
       sprite: _Pirate/Loadouts/EEGeneric/_EE/Clothing/BieselRepublic/Uniforms/TCFL_pilot.rsi
@@ -3905,9 +3905,9 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ClothingUniformJumpsuitTCFLSentinel
-  name: TCFL Sentinel uniform
+  name: "форма вартового TCFL"
   suffix: TCFL
-  description: A uniform worn by the non-commissioned officers of the Tau-Ceti Foreign Legion
+  description: "Форма, яку носять сержанти Іноземного легіону Тау-Кита"
   components:
     - type: Sprite
       sprite: _Pirate/Loadouts/EEGeneric/_EE/Clothing/BieselRepublic/Uniforms/TCFL_sentinel.rsi
@@ -3918,9 +3918,9 @@
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ClothingUniformJumpsuitTCFLVolunteer
-  name: TCFL volunteer uniform
+  name: "форма добровольця TCFL"
   suffix: TCFL
-  description: A uniform worn by the enlisted members of the Tau-Ceti Foreign Legion. As an all-volunteer service that accepts any, regardless of race, species, or creed, every member of the TCFL starts out at this level.
+  description: "Форма, яку носять рядові члени Іноземного легіону Тау-Кита. Оскільки це повністю добровольча служба, що приймає будь-кого, незалежно від раси, виду чи переконань, кожен член TCFL починає з цього рівня."
   components:
     - type: Sprite
       sprite: _Pirate/Loadouts/EEGeneric/_EE/Clothing/BieselRepublic/Uniforms/TCFL_volunteer.rsi
@@ -3930,9 +3930,9 @@
 - type: entity
   parent: [ClothingOuterStorageBase, AllowSuitStorageClothing]
   id: ClothingOuterJacketTCAF
-  name: TCAF Jacket
+  name: "куртка TCAF"
   suffix: TCFL
-  description: A high quality jacket made from a blend of tear resistant and fire retardant fabric. It's commonly worn by current and former members of the Tau-Ceti Armed Forces
+  description: "Високоякісна куртка, виготовлена із суміші зносостійкої та вогнетривкої тканини. Її зазвичай носять чинні та колишні члени Збройних сил Тау-Кита"
   components:
     - type: Sprite
       sprite: _Pirate/Loadouts/EEGeneric/_EE/Clothing/BieselRepublic/OuterClothing/TCAF_jacket.rsi
@@ -3945,8 +3945,8 @@
 - type: entity
   parent: [ClothingOuterStorageBase, AllowSuitStorageClothing]
   id: ClothingOuterCoatDetectiveLoadoutCivilian
-  name: detective trenchcoat
-  description: An 18th-century multi-purpose trenchcoat. Someone who wears this means serious business.
+  name: "детективний тренч"
+  description: "Багатоцільовий тренч XVIII століття. Той, хто його носить, налаштований серйозно."
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Coats/detective.rsi
@@ -3960,8 +3960,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckFurWrap
-  name: fur mantle
-  description: A synthetic fur mantle.
+  name: "хутряна мантія"
+  description: "Синтетична хутряна мантія."
   components:
   - type: Sprite
     sprite: _Pirate/Loadouts/EEGeneric/_EE/Clothing/Generic/Neck/fur_wrap.rsi

@@ -2,12 +2,12 @@
   abstract: true
   parent: CMTileBase
   id: RMCFloorHybrisaBlackBase
-  name: tiles-cm-default-black
+  name: "плитка CM стандартна чорна"
 
 - type: tile
   parent: RMCFloorHybrisaBlackBase
   id: RMCFloorHybrisaBlack
-  name: black metal tile
+  name: "чорна металева плитка"
   sprite: /Textures/_RMC14/Tiles/hybrisa/tileblack.png
 
 - type: tile
@@ -33,7 +33,7 @@
 - type: tile
   parent: RMCFloorHybrisaBlackBase
   id: RMCFloorHybrisaBlackCarpet
-  name: black carpet
+  name: "чорний килим"
   sprite: /Textures/_RMC14/Tiles/hybrisa/carpetblack.png
 
 - type: tile

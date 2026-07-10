@@ -4,7 +4,7 @@
 - type: entity
   id: PartArachnid
   parent: [BaseItem, BasePart]
-  name: "arachnid body part"
+  name: "частина тіла арахніда"
   abstract: true
   components:
   - type: BodyPart # Shitmed Change
@@ -27,7 +27,7 @@
 - type: entity
   id: PartArachnid2
   parent: [BaseItem, BasePart]
-  name: "arachnid body part"
+  name: "частина тіла арахніда"
   abstract: true
   components:
   - type: BodyPart # Shitmed Change
@@ -42,7 +42,7 @@
 
 - type: entity
   id: ChestArachnid
-  name: "arachnid chest"
+  name: "груди арахніда"
   parent: [PartArachnid, BaseChest]
   components:
   - type: Sprite
@@ -58,7 +58,7 @@
 
 - type: entity
   id: GroinArachnid
-  name: "arachnid groin"
+  name: "пах арахніда"
   parent: [PartArachnid, BaseGroin]
   components:
   - type: Sprite
@@ -74,7 +74,7 @@
 
 - type: entity
   id: HeadArachnid
-  name: "arachnid head"
+  name: "голова арахніда"
   parent: [PartArachnid2, BaseHead]
   components:
   - type: Sprite
@@ -90,7 +90,7 @@
 
 - type: entity
   id: LeftArmArachnid
-  name: "left arachnid arm"
+  name: "ліва рука арахніда"
   parent: [PartArachnid, BaseLeftArm]
   components:
   - type: Sprite
@@ -99,7 +99,7 @@
 
 - type: entity
   id: RightArmArachnid
-  name: "right arachnid arm"
+  name: "права рука арахніда"
   parent: [PartArachnid, BaseRightArm]
   components:
   - type: Sprite
@@ -108,7 +108,7 @@
 
 - type: entity
   id: LeftHandArachnid
-  name: "left arachnid hand"
+  name: "ліва долоня арахніда"
   parent: [PartArachnid, BaseLeftHand]
   components:
   - type: Sprite
@@ -117,7 +117,7 @@
 
 - type: entity
   id: RightHandArachnid
-  name: "right arachnid hand"
+  name: "права долоня арахніда"
   parent: [PartArachnid, BaseRightHand]
   components:
   - type: Sprite
@@ -126,7 +126,7 @@
 
 - type: entity
   id: LeftLegArachnid
-  name: "left arachnid leg"
+  name: "ліва нога арахніда"
   parent: [PartArachnid, BaseLeftLeg]
   components:
   - type: Sprite
@@ -136,7 +136,7 @@
 
 - type: entity
   id: RightLegArachnid
-  name: "right arachnid leg"
+  name: "права нога арахніда"
   parent: [PartArachnid, BaseRightLeg]
   components:
   - type: Sprite
@@ -146,7 +146,7 @@
 
 - type: entity
   id: LeftFootArachnid
-  name: "left arachnid foot"
+  name: "ліва стопа арахніда"
   parent: [PartArachnid, BaseLeftFoot]
   components:
   - type: Sprite
@@ -155,7 +155,7 @@
 
 - type: entity
   id: RightFootArachnid
-  name: "right arachnid foot"
+  name: "права стопа арахніда"
   parent: [PartArachnid, BaseRightFoot]
   components:
   - type: Sprite

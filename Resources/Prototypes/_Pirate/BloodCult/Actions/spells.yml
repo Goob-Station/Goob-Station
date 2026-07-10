@@ -15,8 +15,8 @@
 # actions
 - type: entity
   id: ActionCultistStudyVeil
-  name: Study Veil
-  description: Examine the state of the veil, and the strength of your cult.
+  name: "Вивчити Завісу"
+  description: "Дослідити стан завіси та силу вашого культу."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -39,8 +39,8 @@
 
 - type: entity
   id: ActionCultistCommune
-  name: Commune
-  description: Send a message to your fellow cultists. Beware - the uninitiated can see you whispering the incantation.
+  name: "Спілкування"
+  description: "Надіслати повідомлення іншим культистам. Стережіться - непосвячені можуть бачити, як ви шепочете закляття."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -64,8 +64,8 @@
 
 - type: entity
   id: ActionCultistSpellsSelect
-  name: Prepare Spell
-  description: Prepare a blood spell by carving it into your body. Up to 1 spell may be prepared without standing on an empowering rune.
+  name: "Підготувати Закляття"
+  description: "Підготуйте криваве закляття, вирізьбивши його на своєму тілі. До 1 закляття можна підготувати без стояння на руні підсилення."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -88,8 +88,8 @@
 
 - type: entity
   id: ActionCultistSummonDagger
-  name: Summon Dagger
-  description: Use Nar'Sie's blessing to shape a ritual dagger out of your body. As long as your heart continues to beat, She will allow you to make more.
+  name: "Призвати Кинджал"
+  description: "Скористайтеся благословенням Нар'Сі, щоб сформувати ритуальний кинджал зі свого тіла. Доки ваше серце продовжує битися, Вона дозволить вам створювати нові."
   categories: [ HideSpawnMenu ]
   components:
   - type: Icon
@@ -114,8 +114,8 @@
 
 - type: entity
   id: ActionCultistSanguineDream
-  name: Sanguine Dream
-  description: A sinister spell that plunges a target into a nightmare-filled sleep. EMPs Cyborgs. Those with mindshields will be briefly stunned instead of being put to sleep.
+  name: "Кривавий Сон"
+  description: "Зловісне закляття, що занурює ціль у сон, наповнений кошмарами. ЕМІть кіборгів. Ті, хто має майндшилд, будуть ненадовго оглушені замість занурення в сон."
   categories: [ HideSpawnMenu ]
   components:
   - type: Icon
@@ -158,8 +158,8 @@
 
 - type: entity
   id: ActionCultistTwistedConstruction
-  name: Twisted Construction
-  description: A sinister spell used to convert steel or glass into runed steel or runed glass.
+  name: "Викривлена Конструкція"
+  description: "Зловісне закляття, що використовується для перетворення сталі або скла на руновану сталь чи руноване скло."
   categories: [ HideSpawnMenu ]
   components:
   - type: Icon

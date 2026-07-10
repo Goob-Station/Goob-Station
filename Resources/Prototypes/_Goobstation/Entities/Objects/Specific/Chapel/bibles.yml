@@ -2,8 +2,8 @@
 
 - type: entity
   parent: Bible
-  name: Quaran
-  description: "Inshallah."
+  name: "Коран"
+  description: "Іншалла."
   id: BibleQuaran
   components:
   - type: Sprite
@@ -33,8 +33,8 @@
 
 - type: entity
   parent: Bible
-  name: clockwork slab
-  description: A strange metal tablet. A clock in the center turns around and around.
+  name: "годинникова плита"
+  description: "Дивна металева табличка. Годинник в центрі крутиться знову і знову."
   id: BibleSlabClockwork
   components:
   - type: Sprite
@@ -44,8 +44,8 @@
 
 - type: entity
   parent: Bible
-  name: slavic-Aryan Vedas
-  description: A book of the new religious movement Ynglism, one of the Slavic neopaganisms.
+  name: "слов'яно-арійські Веди"
+  description: "Книга нового релігійного руху інглізму, одного зі слов'янських неоязичництв."
   id: BibleVeda
   components:
   - type: Sprite
@@ -55,8 +55,8 @@
 
 - type: entity
   parent: Bible
-  name: book of veles
-  description: It plays a significant role in many directions of Slavic neopaganism, where it is used as a basis and proof of neopagan religiosity.
+  name: "книга Велеса"
+  description: "Вона відіграє значну роль у багатьох напрямах слов'янського неоязичництва, де використовується як основа й доказ неоязичницької релігійності."
   id: BibleVelesBook
   components:
   - type: Sprite

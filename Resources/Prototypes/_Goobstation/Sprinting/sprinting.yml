@@ -1,8 +1,8 @@
 - type: entity
   id: SprintAnimation
   categories: [ HideSpawnMenu ]
-  name: Dust cloud
-  description: Whoa, watch out!
+  name: "Хмара пилу"
+  description: "Ого, обережно!"
   components:
   - type: Sprite
     drawdepth: WallMountedItems
@@ -20,8 +20,8 @@
 
 - type: entity
   id: SmallSprintAnimation
-  name: Small dust cloud
-  description: Whoa, watch out!
+  name: "Маленька хмара пилу"
+  description: "Ого, обережно!"
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -40,8 +40,8 @@
 
 - type: entity
   id: TinySprintAnimation
-  name: Tiny dust cloud
-  description: Whoa, watch out!
+  name: "Крихітна хмара пилу"
+  description: "Ого, обережно!"
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

@@ -119,7 +119,7 @@
 - type: entity
   parent: Airlock
   id: AirlockMaint
-  name: maintenance access
+  name: "доступ до технічного обслуговування"
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Doors/Airlocks/Standard/maint.rsi # Pirate changes
@@ -155,7 +155,7 @@
 - type: entity
   parent: Airlock
   id: AirlockHatch
-  name: airtight hatch
+  name: "герметичний люк"
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Doors/Airlocks/Standard/hatch.rsi # Pirate Changes
@@ -165,7 +165,7 @@
 - type: entity
   parent: Airlock
   id: AirlockXenoborg
-  name: xenoborg airlock
+  name: "шлюз ксеноборга"
   components:
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Standard/xenoborg.rsi
@@ -175,7 +175,7 @@
 - type: entity
   parent: Airlock
   id: AirlockHatchMaintenance
-  name: maintenance hatch
+  name: "люк для обслуговування"
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Doors/Airlocks/Standard/hatch_maint.rsi # Pirate Changes
@@ -185,7 +185,7 @@
 - type: entity
   parent: Airlock
   id: AirlockHatchSyndicate
-  name: airtight hatch
+  name: "герметичний люк"
   suffix: Syndicate
   components:
   - type: Sprite

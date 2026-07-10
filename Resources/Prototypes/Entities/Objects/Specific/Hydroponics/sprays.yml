@@ -3,9 +3,9 @@
 - type: entity
   parent: SprayBottleBase
   id: PlantBGoneSpray
-  name: Plant-B-Gone
+  name: "Plant-B-Gone"
   suffix: "Filled"
-  description: Kills those pesky weeds!
+  description: "Вбиває ці настирливі бур'яни!"
   components:
   - type: Tag
     tags:
@@ -27,9 +27,9 @@
 - type: entity
   parent: SprayBottleBase
   id: WeedSpray
-  name: weed spray
+  name: "спрей від бур'янів"
   suffix: "Filled"
-  description: It's a toxic mixture, in spray form, to kill small weeds.
+  description: "Це токсична суміш у формі спрею для знищення дрібних бур'янів."
   components:
   - type: Sprite
     sprite: Objects/Tools/Hydroponics/sprays.rsi
@@ -52,9 +52,9 @@
 - type: entity
   parent: WeedSpray
   id: PestSpray
-  name: pest spray
+  name: "спрей від шкідників"
   suffix: "Filled"
-  description: It's some pest eliminator spray! Do not inhale!
+  description: "Це спрей для знищення шкідників! Не вдихайте!"
   components:
   - type: Sprite
     state: pestspray

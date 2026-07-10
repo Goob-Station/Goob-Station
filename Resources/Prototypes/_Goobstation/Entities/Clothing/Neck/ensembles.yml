@@ -1,8 +1,8 @@
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleCaptain
-  name: captain's ensemble
-  description: You're a hardened veteran, and you rule this station with an iron fist. That chess match? Never happened.
+  name: "ансамбль капітана"
+  description: "Ти загартований ветеран і керуєш цією станцією залізною рукою. Та шахова партія? Її ніколи не було."
   suffix: DO NOT MAP
   components:
   - type: Item
@@ -45,8 +45,8 @@
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleChiefEngineerWhite
-  name: chief engineer's white ensemble
-  description: In the event of a delamination, this won't protect you from the radiation. With how long you've been doing this, that wouldn't happen. Right?
+  name: "білий ансамбль головного інженера"
+  description: "У разі деламінації це не захистить тебе від радіації. За той час, що ти цим займаєшся, такого б не сталося. Так?"
   suffix: DO NOT MAP
   components:
   - type: Item
@@ -89,8 +89,8 @@
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleChiefEngineerGreen
-  name: chief engineer's green ensemble
-  description: In the event of a delamination, this won't protect you from the radiation. With how long you've been doing this, that wouldn't happen. Right?
+  name: "зелений ансамбль головного інженера"
+  description: "У разі деламінації це не захистить тебе від радіації. За той час, що ти цим займаєшся, такого б не сталося. Так?"
   suffix: DO NOT MAP
   components:
   - type: Item
@@ -133,8 +133,8 @@
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleChiefMedicalOfficer
-  name: chief medical officer's ensemble
-  description: With how many medbays you've seen, you're a real poly math-- unpacking people like packages, and mulching bodies like it's nothing. You WILL set up cloning, right?
+  name: "ансамбль головного лікаря"
+  description: "З огляду на кількість медблоків, які ти бачив, ти справжній полі-мат — розпаковуєш людей, мов посилки, і перемелюєш тіла, наче це дрібниці. ТИ ж налаштуєш клонування, так?"
   suffix: DO NOT MAP
   components:
   - type: Item
@@ -196,8 +196,8 @@
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleHeadOfSecurity
-  name: head of security's ensemble
-  description: Stained with the blood of tiders, and the tears of cadets. The word "shitsec" brings you joy, a tear to your eye.
+  name: "ансамбль начальника охорони"
+  description: "Заплямований кров'ю тайдерів і сльозами кадетів. Слово \"шитсек\" дарує тобі радість — сльоза на оці."
   suffix: DO NOT MAP
   components:
   - type: Item
@@ -240,8 +240,8 @@
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleResearchDirector
-  name: research director's ensemble
-  description: The endpoint of all research leads here. You truly are the pinnacle of science, a monument to Nanotrasens accomplishments and ability to glue you back together, must you explode so often?
+  name: "ансамбль директора досліджень"
+  description: "Кінцева точка всіх досліджень веде сюди. Ти справді вершина науки — монумент досягненням Нанотрейзен і здатності зліпити тебе докупи. Невже тобі так часто доводиться вибухати?"
   suffix: DO NOT MAP
   components:
   - type: Item
@@ -304,8 +304,8 @@
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleQuarterMaster
-  name: quartermaster's ensemble
-  description: Delicately crafted with the most premium materials purchaseable with spesos; a cloak that truly represents the Spirit of Cargonia... and your bank account.
+  name: "ансамбль квартирмейстера"
+  description: "Делікатно виготовлений з найпреміальніших матеріалів, які можна купити за спесоси; плащ, що справді уособлює Дух Каргонії... і твій банківський рахунок."
   suffix: DO NOT MAP
   components:
   - type: Item
@@ -348,8 +348,8 @@
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckEnsembleHeadOfPersonnel
-  name: head of personnel's ensemble
-  description: There's nothing sweeter in this world than the tears of someone who was made to fill out five paragraphs of paperwork. You denied them after, of course.
+  name: "ансамбль керівника персоналу"
+  description: "Немає в цьому світі нічого солодшого, ніж сльози людини, яку змусили написати п'ять абзаців паперової тяганини. І ти, звісно, все одно їй відмовив."
   suffix: DO NOT MAP
   components:
   - type: Item
@@ -392,8 +392,8 @@
 - type: entity
   parent: [ClothingNeckBase, BaseCentcommCommandContraband]
   id: ClothingNeckEnsembleBlueshield
-  name: blueshield officer's ensemble
-  description: After fending off countless tiders in defense of command, Nanotrasen has finally granted you the ability to die in style. Now get out there and protect the NTR soldier!
+  name: "ансамбль офіцера Блюшилд"
+  description: "Після того як ти відбив безліч тайдерів на захисті командування, Нанотрейзен нарешті дарувала тобі можливість померти зі стилем. Тож вперед — захищай солдата НТР!"
   suffix: DO NOT MAP
   components:
   - type: Item
@@ -444,8 +444,8 @@
 - type: entity
   parent: [ClothingNeckBase, BaseCentcommCommandContraband]
   id: ClothingNeckEnsembleNanotrasenRepresentative
-  name: nanotrasen representative's ensemble
-  description: After years of doing practically nothing, Central Command has gifted you this cloak. Now you can do nothing, while looking pretty!
+  name: "ансамбль представника Нанотрейзен"
+  description: "Після років, коли ти майже нічого не робив, Центральне Командування подарувало тобі цей плащ. Тепер ти можеш нічого не робити, зате гарно виглядати!"
   suffix: DO NOT MAP
   components:
   - type: Item
@@ -486,8 +486,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckEnsembleTrans
-  name: trans ensemble
-  description: Worn by high ranking vampires of the transylvanian society of vampires.
+  name: "трансильванський ансамбль"
+  description: "Його носять високопоставлені вампіри Трансильванського товариства вампірів."
   components:
   - type: Item
     size: Small
@@ -537,8 +537,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckEnsembleSalvager
-  name: salvager's ensemble
-  description: Who says you can't have style while slaying creatures beyond human comprehension?
+  name: "ансамбль сальваджера"
+  description: "Хто сказав, що не можна мати стиль, винищуючи істот поза межами людського розуміння?"
   suffix: DO NOT MAP
   components:
   - type: Item

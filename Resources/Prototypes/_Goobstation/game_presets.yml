@@ -103,8 +103,8 @@
   id: Blob
   alias:
   - blab
-  name: blob-title
-  description: blob-description
+  name: "крапля"
+  description: "опис краплі"
   showInVote: false
   rules:
   - BlobGameMode
@@ -220,8 +220,8 @@
   id: Xenomorphs
   alias:
   - ayyliens
-  name: xenomorph-title
-  description: xenomorph-description
+  name: "ксеноморфи"
+  description: "опис ксеноморфів"
   showInVote: false
   minPlayers: 1
   rules:

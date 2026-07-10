@@ -4,7 +4,7 @@
 - type: entity
   parent: MobStatusEffectBase
   id: StatusEffectTouchOfEvil
-  name: touch of evil
+  name: "дотик зла"
   components:
   - type: ActiveTouchOfEvil
 
@@ -13,7 +13,7 @@
 - type: entity
   parent: MobStatusEffectBase
   id: StatusEffectRally
-  name: rally
+  name: "зібрання"
   components:
   - type: Rallied
 
@@ -22,7 +22,7 @@
 - type: entity
   parent: MobStatusEffectBase
   id: StatusEffectShuffle
-  name: shuffle
+  name: "перемішування"
   components:
   - type: SpikerShuffleEffect
 
@@ -31,6 +31,6 @@
 - type: entity
   parent: MobStatusEffectBase
   id: StatusEffectWeakenedWraith
-  name: weakened
+  name: "ослаблений"
   components:
   - type: WraithWeakened

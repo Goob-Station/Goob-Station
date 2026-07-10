@@ -4,8 +4,8 @@
 - type: entity
   id: PirateBaseCrewMonitoringServer
   abstract: true
-  name: abstract crew monitoring server
-  description: Receives and relays the status of all active suit sensors on the station.
+  name: "абстрактний сервер моніторингу екіпажу"
+  description: "Отримує та ретранслює стан усіх активних датчиків костюмів на станції."
   components:
   - type: CrewMonitoringServer
   - type: SingletonDeviceNetServer

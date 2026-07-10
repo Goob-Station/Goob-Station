@@ -1,6 +1,6 @@
 # Mage
 - type: entity
-  name: Маг
+  name: "Маг"
   parent: MobHuman
   id: MobHumanMage
   components:

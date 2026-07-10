@@ -1,8 +1,8 @@
 - type: entity
   parent: [ BaseKnife, BaseMantisContraband ]
   id: AntiPsychicKnife
-  name: anti-psychic knife
-  description: A special knife designed for killing psychics.
+  name: "антипсихічний ніж"
+  description: "Спеціальний ніж, призначений для вбивства екстрасенсів."
   components:
   - type: MeleeWeapon
     attackRate: .6666

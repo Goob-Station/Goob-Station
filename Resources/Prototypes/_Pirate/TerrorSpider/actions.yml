@@ -1,7 +1,7 @@
 - type: entity
   id: ActionWebball
-  name: Webball
-  description: Fires a webball towards the clicked location.
+  name: "Павутинна куля"
+  description: "Стріляє павутинною кулею в обрану точку."
   components:
   - type: Action
     useDelay: 30
@@ -21,7 +21,7 @@
 
 - type: entity
   id: ProjectileWebball
-  name: webball
+  name: "павутинна куля"
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -39,8 +39,8 @@
 
 - type: entity
   id: ActionAcidVent
-  name: Acid Vent
-  description: Unwelds vents.
+  name: "Кислотна вентиляція"
+  description: "Розварює вентиляційні отвори."
   components:
   - type: Action
     useDelay: 30
@@ -59,8 +59,8 @@
 
 - type: entity
   id: ActionTerrorSpiderEvolve
-  name: Evolve
-  description: evolve into a new entity.
+  name: "Еволюціонувати"
+  description: "еволюціонувати в нову істоту."
   components:
   - type: Action
     useDelay: 3
@@ -74,8 +74,8 @@
 
 - type: entity
   id: ActionSpiderEMPScream
-  name: EMP Scream
-  description: Emit an EMP scream that disables electronics in a radius.
+  name: "ЕМІ-крик"
+  description: "Випускає ЕМІ-крик, що вимикає електроніку в радіусі."
   components:
   - type: Action
     useDelay: 3
@@ -93,8 +93,8 @@
 
 - type: entity
   id: ActionEggInjection
-  name: Egg injection
-  description: Injection of eggs into the body.
+  name: "Введення яєць"
+  description: "Вводить яйця в тіло."
   components:
   - type: Action
     useDelay: 3
@@ -114,8 +114,8 @@
 
 - type: entity
   id: ActionEggsLaying
-  name: Lay the egg.
-  description: Lay the egg.
+  name: "Відкласти яйце."
+  description: "Відкласти яйце."
   components:
   - type: Action
     itemIconStyle: BigAction
@@ -132,8 +132,8 @@
 
 - type: entity
   id: ActionRoyalJelly
-  name: Royal Jelly
-  description: lay royal jelly which can be eaten by spiders and heal them.
+  name: "Королівське желе"
+  description: "відкладає королівське желе, яке можуть їсти павуки, щоб лікуватися."
   components:
   - type: Action
     useDelay: 3
@@ -152,8 +152,8 @@
 - type: entity
   parent: BaseAction
   id: ActionSpiderBuildingPole
-  name: Web pole
-  description: Spawns a web pole that spawns webs around at free tiles.
+  name: "Павутинний стовп"
+  description: "Створює павутинний стовп, який породжує павутину навколо на вільних плитках."
   components:
   - type: Action
     icon:
@@ -171,8 +171,8 @@
 - type: entity
   parent: BaseAction
   id: ActionSpiderBuildingCocoon
-  name: Web cocoon
-  description: Spawns a web cocoon that heals spider which entered in it.
+  name: "Павутинний кокон"
+  description: "Створює павутинний кокон, який лікує павука, що заліз у нього."
   components:
   - type: Action
     icon:
@@ -191,8 +191,8 @@
 - type: entity
   parent: BaseAction
   id: ActionSpiderBuildingGenerator
-  name: Ammonia generator
-  description: Spawns an ammonia generator that fills rooms with atmosphere.
+  name: "Генератор аміаку"
+  description: "Створює генератор аміаку, який наповнює кімнати атмосферою."
   components:
   - type: Action
     icon:
@@ -209,8 +209,8 @@
 
 - type: entity
   id: ActionEntityWrap
-  name: Wrap
-  description: Wrap a target in web, immobilizing them.
+  name: "Обгорнути"
+  description: "Обгорнути ціль павутиною, знерухомивши її."
   components:
   - type: Action
     useDelay: 3

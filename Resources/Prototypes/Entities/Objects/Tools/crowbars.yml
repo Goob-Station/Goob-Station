@@ -4,8 +4,8 @@
   abstract: true
   parent: BaseItem
   id: BaseCrowbar
-  name: crowbar
-  description: A multipurpose tool used for many tasks, such as prying doors or bludgeoning interdimensional invaders.
+  name: "лом"
+  description: "Багатофункціональний інструмент для багатьох задач, як-от відчиняння дверей або побиття міжвимірних загарбників."
   components:
   # Goobstation edit start
   - type: EmitSoundOnPickup

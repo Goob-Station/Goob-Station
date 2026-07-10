@@ -18,7 +18,7 @@
 
 - type: entity
   id: ChestShadow
-  name: "Shadow chest"
+  name: "Тіньовий торс"
   parent: [BaseChest, PartShadow]
   components:
   - type: Extractable
@@ -31,7 +31,7 @@
 
 - type: entity
   id: GroinShadow
-  name: "Shadow groin"
+  name: "Тіньовий пах"
   parent: [BaseGroin, PartShadow]
   components:
   - type: Sprite
@@ -46,7 +46,7 @@
 
 - type: entity
   id: HeadShadow
-  name: "Shadow head"
+  name: "Тіньова голова"
   parent: [BaseHead, PartShadow]
   components:
   - type: Sprite
@@ -54,7 +54,7 @@
 
 - type: entity
   id: LeftArmShadow
-  name: "left Shadow arm"
+  name: "ліва Тіньова рука"
   parent: [BaseLeftArm, PartShadow]
   components:
   - type: Sprite
@@ -62,7 +62,7 @@
 
 - type: entity
   id: RightArmShadow
-  name: "right Shadow arm"
+  name: "права Тіньова рука"
   parent: [BaseRightArm, PartShadow]
   components:
   - type: Sprite
@@ -70,7 +70,7 @@
 
 - type: entity
   id: LeftHandShadow
-  name: "left Shadow hand"
+  name: "ліва Тіньова кисть"
   parent: [BaseLeftHand, PartShadow]
   components:
   - type: Sprite
@@ -78,7 +78,7 @@
 
 - type: entity
   id: RightHandShadow
-  name: "right Shadow hand"
+  name: "права Тіньова кисть"
   parent: [BaseRightHand, PartShadow]
   components:
   - type: Sprite
@@ -86,7 +86,7 @@
 
 - type: entity
   id: LeftLegShadow
-  name: "left Shadow leg"
+  name: "ліва Тіньова нога"
   parent: [BaseLeftLeg, PartShadow]
   components:
   - type: Sprite
@@ -94,7 +94,7 @@
 
 - type: entity
   id: RightLegShadow
-  name: "right Shadow leg"
+  name: "права Тіньова нога"
   parent: [BaseRightLeg, PartShadow]
   components:
   - type: Sprite
@@ -102,7 +102,7 @@
 
 - type: entity
   id: LeftFootShadow
-  name: "left Shadow foot"
+  name: "ліва Тіньова стопа"
   parent: [BaseLeftFoot, PartShadow]
   components:
   - type: Sprite
@@ -110,7 +110,7 @@
 
 - type: entity
   id: RightFootShadow
-  name: "right Shadow foot"
+  name: "права Тіньова стопа"
   parent: [BaseRightFoot, PartShadow]
   components:
   - type: Sprite

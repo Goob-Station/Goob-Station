@@ -2,6 +2,6 @@
 
 - type: entity
   save: false
-  name: Urist McRaptor
+  name: "Уріст МакРаптор"
   parent: BaseMobResomi
   id: MobResomi

@@ -2,7 +2,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnPointHeadOfSecurityWeapon
-  name: head of security weapon spawner
+  name: "спавнер зброї голови служби безпеки"
   components:
   - type: EntityTableSpawner
     offset: 0.2
@@ -21,7 +21,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnPointWardenWeapon
-  name: warden weapon spawner
+  name: "спавнер зброї наглядача"
   components:
   - type: EntityTableSpawner
     offset: 0.2

@@ -2,7 +2,7 @@
 
 - type: entity
   id: UraniumWindow
-  name: uranium window
+  name: "уранове вікно"
   parent: [BaseDeltaPressurePlasma, WindowRCDResistant]
   components:
   - type: Sprite
@@ -61,8 +61,8 @@
 - type: entity
   id: UraniumWindowDirectional
   parent: [BaseDeltaPressurePlasmaQuarter, WindowDirectionalRCDResistant]
-  name: directional uranium window
-  description: Don't smudge up the glass down there.
+  name: "спрямоване уранове вікно"
+  description: "Не заляпайте скло внизу."
   placement:
     mode: SnapgridCenter
     snap:

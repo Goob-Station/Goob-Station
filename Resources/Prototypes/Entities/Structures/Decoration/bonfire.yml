@@ -53,8 +53,8 @@
 - type: entity
   parent: BaseBonfire
   id: Bonfire
-  name: bonfire
-  description: What can be better than a late evening under the sky with guitar and friends?
+  name: "вогнище"
+  description: "Що може бути краще, ніж пізній вечір під небом з гітарою та друзями?"
   components:
   - type: Sprite
     layers:
@@ -66,8 +66,8 @@
 - type: entity
   parent: BaseBonfire
   id: BonfireStake
-  name: bonfire with stake
-  description: A sinister bonfire with a stake for... ceremonial purposes. Best not to ask.
+  name: "багаття з палом"
+  description: "Зловісне багаття з палом для... церемоніальних цілей. Краще не питайте."
   components:
   - type: Sprite
     sprite: Structures/Decoration/bonfire_stake.rsi
@@ -86,8 +86,8 @@
 - type: entity
   parent: BaseBonfire
   id: LegionnaireBonfire
-  name: legionnaire bonfire
-  description: There, in the land of lava and ash, place to to cook marshmallow and potato.
+  name: "вогнище легіонерів"
+  description: "Там, у країні лави і попелу, можна приготувати зефір і картоплю."
   components:
   - type: Sprite
     layers:

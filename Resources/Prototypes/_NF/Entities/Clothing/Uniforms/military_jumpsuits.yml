@@ -4,8 +4,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitMilitaryColorGrey
-  name: grey jumpsuit
-  description: A tasteful grey jumpsuit that reminds you of the good old days.
+  name: "сірий комбінезон"
+  description: "Смачний сірий комбінезон, що нагадує про старі добрі часи."
   suffix: Military
   components:
   - type: Sprite
@@ -47,8 +47,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitMilitaryColorBlack
-  name: black jumpsuit
-  description: A generic black jumpsuit with no rank markings.
+  name: "чорний комбінезон"
+  description: "Загальний чорний комбінезон без знаків розрізнення."
   suffix: Military
   components:
   - type: Sprite
@@ -90,8 +90,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitMilitaryColorBlue
-  name: blue jumpsuit
-  description: A generic blue jumpsuit with no rank markings.
+  name: "синій комбінезон"
+  description: "Загальний синій комбінезон без знаків розрізнення."
   suffix: Military
   components:
   - type: Sprite
@@ -133,8 +133,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitMilitaryColorDarkBlue
-  name: dark blue jumpsuit
-  description: A generic dark blue jumpsuit with no rank markings.
+  name: "темно-синій комбінезон"
+  description: "Загальний темно-синій комбінезон без знаків розрізнення."
   suffix: Military
   components:
   - type: Sprite
@@ -176,8 +176,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitMilitaryColorTeal
-  name: teal jumpsuit
-  description: A generic teal jumpsuit with no rank markings.
+  name: "бірюзовий комбінезон"
+  description: "Загальний бірюзовий комбінезон без знаків розрізнення."
   suffix: Military
   components:
   - type: Sprite
@@ -219,8 +219,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitMilitaryColorGreen
-  name: green jumpsuit
-  description: A generic green jumpsuit with no rank markings.
+  name: "зелений комбінезон"
+  description: "Загальний зелений комбінезон без знаків розрізнення."
   suffix: Military
   components:
   - type: Sprite
@@ -262,8 +262,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitMilitaryColorDarkGreen
-  name: dark green jumpsuit
-  description: A generic dark green jumpsuit with no rank markings.
+  name: "темно-зелений комбінезон"
+  description: "Загальний темно-зелений комбінезон без знаків розрізнення."
   suffix: Military
   components:
   - type: Sprite
@@ -305,8 +305,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitMilitaryColorOrange
-  name: orange jumpsuit
-  description: A generic orange jumpsuit with no rank markings.
+  name: "помаранчевий комбінезон"
+  description: "Загальний помаранчевий комбінезон без знаків розрізнення."
   suffix: Military
   components:
   - type: Sprite
@@ -348,8 +348,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitMilitaryColorPink
-  name: pink jumpsuit
-  description: A generic pink jumpsuit with no rank markings.
+  name: "рожевий комбінезон"
+  description: "Загальний рожевий комбінезон без знаків розрізнення."
   suffix: Military
   components:
   - type: Sprite
@@ -391,8 +391,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitMilitaryColorRed
-  name: red jumpsuit
-  description: A generic red jumpsuit with no rank markings.
+  name: "червоний комбінезон"
+  description: "Загальний червоний комбінезон без знаків розрізнення."
   suffix: Military
   components:
   - type: Sprite
@@ -434,8 +434,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitMilitaryColorYellow
-  name: yellow jumpsuit
-  description: A generic yellow jumpsuit with no rank markings.
+  name: "жовтий комбінезон"
+  description: "Загальний жовтий комбінезон без знаків розрізнення."
   suffix: Military
   components:
   - type: Sprite
@@ -477,8 +477,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitMilitaryColorPurple
-  name: purple jumpsuit
-  description: A generic purple jumpsuit with no rank markings.
+  name: "фіолетовий комбінезон"
+  description: "Загальний фіолетовий комбінезон без знаків розрізнення."
   suffix: Military
   components:
   - type: Sprite
@@ -520,8 +520,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitMilitaryColorLightBrown
-  name: light brown jumpsuit
-  description: A generic light brown jumpsuit with no rank markings.
+  name: "світло-коричневий комбінезон"
+  description: "Загальний світло-коричневий комбінезон без знаків розрізнення."
   suffix: Military
   components:
   - type: Sprite
@@ -563,8 +563,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitMilitaryColorBrown
-  name: brown jumpsuit
-  description: A generic brown jumpsuit with no rank markings.
+  name: "коричневий комбінезон"
+  description: "Загальний коричневий комбінезон без знаків розрізнення."
   suffix: Military
   components:
   - type: Sprite
@@ -606,8 +606,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitMilitaryColorMaroon
-  name: maroon jumpsuit
-  description: A generic maroon jumpsuit with no rank markings.
+  name: "бордовий комбінезон"
+  description: "Загальний бордовий комбінезон без знаків розрізнення."
   suffix: Military
   components:
   - type: Sprite
@@ -651,8 +651,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitMilitaryContractor
-  name: contractor jumpsuit
-  description: A sturdy jumpsuit, commonly issued to NT contractors.
+  name: "комбінезон підрядника"
+  description: "Міцний комбінезон, який зазвичай видають підрядникам НТ."
   suffix: Military
   components:
   - type: Sprite
@@ -694,8 +694,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitMilitaryContractorTac
-  name: contractor jumpsuit
-  description: A sturdy jumpsuit, commonly issued to NT contractors.
+  name: "комбінезон підрядника"
+  description: "Міцний комбінезон, який зазвичай видають підрядникам НТ."
   suffix: Military, Tac
   components:
   - type: Sprite
@@ -803,7 +803,7 @@
 - type: entity
   parent: ClothingUniformJumpsuitHoP
   id: ClothingUniformJumpsuitMilitaryHoP # goob - no SR
-  name: HoP's jumpsuit # goob - no SR
+  name: "комбінезон голови персоналу" # goob - no SR
   suffix: Military
   components:
   - type: Sprite
@@ -1026,7 +1026,7 @@
 - type: entity
   parent: ClothingUniformJumpsuitSalvageSpecialist
   id: ClothingUniformJumpsuitMilitaryShaftMiner #Goob
-  name: shaft miner's jumpsuit
+  name: "комбінезон шахтаря"
   suffix: Military
   components:
   - type: Sprite
@@ -1527,7 +1527,7 @@
 - type: entity
   parent: ClothingUniformJumpsuitResearchDirector
   id: ClothingUniformJumpsuitMilitaryResearchDirector
-  description: It's a jumpsuit worn by those with the know-how to achieve the position of Research Director. Its fabric provides minor protection from biological contaminants.
+  description: "Це комбінезон, який носять ті, хто має достатньо знань, щоб зайняти посаду наукового керівника. Його тканина забезпечує незначний захист від біологічних забруднень."
   suffix: Military
   components:
   - type: Sprite
@@ -1578,8 +1578,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitMilitaryService
-  name: service worker jumpsuit
-  description: A standard issue jumpsuit for NT service workers.
+  name: "комбінезон обслуговуючого персоналу"
+  description: "Стандартний комбінезон для обслуговуючого персоналу НТ."
   suffix: Military
   components:
   - type: Sprite
@@ -1717,7 +1717,7 @@
 - type: entity
   parent: ClothingUniformJumpsuitMercenary # goob - fix
   id: ClothingUniformJumpsuitMilitaryTurtleneckMercenaryMedic
-  name: mercenary medic jumpsuit
+  name: "комбінезон найманця-медика"
   suffix: Military
   components:
   - type: Sprite
@@ -1771,7 +1771,7 @@
 - type: entity
   parent: ClothingUniformJumpsuitMercenary # goob - fix
   id: ClothingUniformJumpsuitMilitaryTurtleneckMercenaryCaptain
-  name: mercenary captain jumpsuit
+  name: "комбінезон найманця-капітана"
   suffix: Military
   components:
   - type: Sprite
@@ -1882,7 +1882,7 @@
 - type: entity
   parent: ClothingUniformJumpsuitMercenary # goob - fix
   id: ClothingUniformJumpsuitMilitaryTurtleneckBlueMercenaryMedic
-  name: mercenary medic jumpsuit
+  name: "комбінезон найманця-медика"
   suffix: Military, Blue
   components:
   - type: Sprite
@@ -1936,7 +1936,7 @@
 - type: entity
   parent: ClothingUniformJumpsuitMercenary # goob - fix
   id: ClothingUniformJumpsuitMilitaryTurtleneckBlueMercenaryCaptain
-  name: mercenary captain jumpsuit
+  name: "комбінезон найманця-капітана"
   suffix: Military, Blue
   components:
   - type: Sprite

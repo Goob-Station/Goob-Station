@@ -1,8 +1,8 @@
 - type: entity
   parent: Katana
   id: CursedKatana
-  name: cursed katana
-  description: A cursed katana that clings to its wielder and refuses to be sheathed.
+  name: "проклята катана"
+  description: "Проклята катана, що чіпляється до свого власника й відмовляється від піхов."
   components:
   - type: Tag
     tags:

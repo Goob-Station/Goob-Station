@@ -4,8 +4,8 @@
   abstract: true
   parent: [ BaseMachinePowered, ConstructibleMachine ]
   id: SurveillanceCameraRouterBase
-  name: camera router
-  description: A surveillance camera router. It routes. Perhaps.
+  name: "роутер для камери"
+  description: "Маршрутизатор камер спостереження. Він прокладає маршрути. Можливо."
   components:
     - type: DeviceNetwork
       deviceNetId: Wired
@@ -65,7 +65,7 @@
 - type: entity
   parent: SurveillanceCameraRouterBase
   id: SurveillanceCameraRouterEngineering
-  name: engineering camera router
+  name: "маршрутизатор інженерних камер"
   suffix: Engineering
   components:
     - type: SurveillanceCameraRouter
@@ -74,7 +74,7 @@
 - type: entity
   parent: SurveillanceCameraRouterBase
   id: SurveillanceCameraRouterSecurity
-  name: security camera router
+  name: "маршрутизатор камер безпеки"
   suffix: Security
   components:
     - type: SurveillanceCameraRouter
@@ -83,7 +83,7 @@
 - type: entity
   parent: SurveillanceCameraRouterBase
   id: SurveillanceCameraRouterScience
-  name: science camera router
+  name: "маршрутизатор наукових камер"
   suffix: Science
   components:
     - type: SurveillanceCameraRouter
@@ -92,7 +92,7 @@
 - type: entity
   parent: SurveillanceCameraRouterBase
   id: SurveillanceCameraRouterSupply
-  name: supply camera router
+  name: "маршрутизатор камер постачання"
   suffix: Supply
   components:
     - type: SurveillanceCameraRouter
@@ -101,7 +101,7 @@
 - type: entity
   parent: SurveillanceCameraRouterBase
   id: SurveillanceCameraRouterCommand
-  name: command camera router
+  name: "маршрутизатор командних камер"
   suffix: Command
   components:
     - type: SurveillanceCameraRouter
@@ -110,7 +110,7 @@
 - type: entity
   parent: SurveillanceCameraRouterBase
   id: SurveillanceCameraRouterService
-  name: service camera router
+  name: "маршрутизатор сервісних камер"
   suffix: Service
   components:
     - type: SurveillanceCameraRouter
@@ -119,7 +119,7 @@
 - type: entity
   parent: SurveillanceCameraRouterBase
   id: SurveillanceCameraRouterMedical
-  name: medical camera router
+  name: "маршрутизатор медичних камер"
   suffix: Medical
   components:
     - type: SurveillanceCameraRouter
@@ -128,7 +128,7 @@
 - type: entity
   parent: SurveillanceCameraRouterBase
   id: SurveillanceCameraRouterGeneral
-  name: general camera router
+  name: "маршрутизатор загальних камер"
   suffix: General
   components:
     - type: SurveillanceCameraRouter
@@ -138,8 +138,8 @@
   abstract: true
   parent: [ BaseMachinePowered, ConstructibleMachine ]
   id: SurveillanceCameraWirelessRouterBase
-  name: wireless camera router
-  description: A wireless surveillance camera router. It routes. Perhaps.
+  name: "бездротовий маршрутизатор для камер"
+  description: "Бездротовий маршрутизатор для камер спостереження. Він прокладає маршрути. Можливо."
   components:
     - type: DeviceNetwork
       deviceNetId: Wireless
@@ -192,7 +192,7 @@
 - type: entity
   parent: SurveillanceCameraWirelessRouterBase
   id: SurveillanceCameraWirelessRouterEntertainment
-  name: entertainment camera router
+  name: "маршрутизатор розважальних камер"
   suffix: Entertainment
   components:
     - type: SurveillanceCameraRouter
@@ -201,7 +201,7 @@
 - type: entity
   parent: SurveillanceCameraWirelessRouterBase
   id: SurveillanceCameraWirelessRouterXenoborg
-  name: xenoborg camera wireless router
+  name: "бездротовий маршрутизатор камер ксеноборга"
   components:
   - type: DeviceNetwork
     deviceNetId: Wireless

@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseWall
   id: WallResin
-  name: resin wall
-  description: Thick resin solidified into a wall.
+  name: "смоляна стіна"
+  description: "Густа смола, що затверділа в стіну."
   components:
   - type: Sprite
     sprite: _RMC14/Structures/Xenos/xeno_resin_wall.rsi # Goobstation new sprites

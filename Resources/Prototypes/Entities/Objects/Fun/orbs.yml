@@ -6,8 +6,8 @@
 - type: entity
   parent: BaseItem
   id: SingularityToy
-  name: singuloth-brand toy
-  description: Mass-produced by a sadistic corporate conglomerate!
+  name: "сингулярна брендована іграшка"
+  description: "Масове виробництво садистського корпоративного конгломерату!"
   components:
   - type: Sprite
     sprite: Objects/Fun/toy_singularity.rsi
@@ -31,8 +31,8 @@
 - type: entity
   parent: BaseItem
   id: TeslaToy
-  name: Teddy Tesla
-  description: The favorite toy of the great engineer Nikola Tesla.
+  name: "Тедді Тесла"
+  description: "Улюблена іграшка великого інженера Ніколи Тесли."
   components:
   - type: Sprite
     sprite: Structures/Power/Generation/Tesla/energy_miniball.rsi
@@ -65,8 +65,8 @@
 - type: entity
   parent: [ BaseItem, BaseMagicalContraband ]
   id: PonderingOrb
-  name: pondering orb
-  description: Ponderous, man... Really ponderous.
+  name: "сфера роздумів"
+  description: "Обтяжливо, чувак... Дійсно обтяжливо."
   components:
   - type: Sprite
     sprite: Objects/Fun/pondering_orb.rsi

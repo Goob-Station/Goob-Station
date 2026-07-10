@@ -5,8 +5,8 @@
 - type: entity
   parent: BaseItem
   id: FoodKebabSkewer
-  name: skewer
-  description: A thin rod of metal used to skewer just about anything and cook it.
+  name: "шампур"
+  description: "Тонкий металевий стрижень, на який нанизували практично все, що завгодно, і готували."
   components:
   - type: Item
     shape:

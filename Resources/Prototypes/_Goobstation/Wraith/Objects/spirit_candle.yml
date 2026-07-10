@@ -1,8 +1,8 @@
 - type: entity
-  name: spirit candle
+  name: "свічка духів"
   parent: Candle
   id: SpiritCandle
-  description: Feels vaguely ominous!
+  description: "Навіює ледь відчутну тривогу!"
   components:
   - type: Item
     size: Small
@@ -63,8 +63,8 @@
 # In a live round, the wraith should be moving so its not gonna be a huge problem. Hopefully someone finds a solution tho
 - type: entity
   id: SpiritCandleRevealArea
-  name: spirit candle area
-  description: You shouldn't see this.
+  name: "зона свічки духів"
+  description: "Вам не слід цього бачити."
   categories: [ HideSpawnMenu ]
   components:
   - type: SpiritCandleArea

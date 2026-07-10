@@ -2,12 +2,12 @@
   abstract: true
   parent: CMTileBase
   id: RMCFloorHybrisaWhiteBase
-  name: tiles-cm-default-white
+  name: "плитка CM стандартна біла"
 
 - type: tile
   parent: RMCFloorHybrisaWhiteBase
   id: RMCFloorHybrisaWhite
-  name: white metal tile
+  name: "біла металева плитка"
   sprite: /Textures/_RMC14/Tiles/hybrisa/tilewhite.png
 
 - type: tile

@@ -1,7 +1,7 @@
 - type: entity
   id: CaptainUndeterminedSabre
-  name: кейс для холодної зброї капітана
-  description: Оздоблений золотом кейс для холодної зброї капітана, цьому кейсу уже не один десяток років.
+  name: "кейс для холодної зброї капітана"
+  description: "Оздоблений золотом кейс для холодної зброї капітана. Цьому кейсу вже не один десяток років."
   parent: [ BaseItem, BaseSetSelector, BaseCommandContraband ]
   components:
   - type: Sprite

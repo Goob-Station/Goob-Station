@@ -39,9 +39,9 @@
 - type: entity
   parent: [ SprayBottleBase, DrinkVisualsFill ]
   id: SprayBottle
-  name: spray bottle
+  name: "пляшка з розпилювачем"
   suffix: Empty
-  description: A spray bottle with an unscrewable top.
+  description: "Флакон з розпилювачем, що відкручується."
   components:
   - type: Sprite
     sprite: Objects/Specific/Janitorial/spray_bottle.rsi
@@ -57,9 +57,9 @@
 - type: entity
   parent: SprayBottle
   id: MegaSprayBottle
-  name: mega spray bottle
+  name: "мега пляшка з розпилювачем"
   suffix: Empty
-  description: A huge spray bottle, capable of unrivaled janitorial power.
+  description: "Величезна пляшка-розпилювач, здатна на неперевершену прибиральну силу."
   components:
   - type: Sprite
     sprite: Objects/Specific/Janitorial/spray_bottle.rsi
@@ -89,7 +89,7 @@
 - type: entity
   parent: SprayBottle
   id: SprayBottleWater
-  name: spray bottle
+  name: "пляшка з розпилювачем"
   suffix: Filled
   components:
   - type: Tag
@@ -107,7 +107,7 @@
   parent: SprayBottle
   id: SprayBottleSpaceCleaner
   suffix: Space Cleaner
-  description: BLAM!-brand non-foaming space cleaner!
+  description: "Космічний очищувач бренду BLAM!, що не піниться!"
   components:
   - type: SolutionContainerManager
     solutions:
@@ -127,7 +127,7 @@
   parent: MegaSprayBottle
   id: MegaSprayBottleSpaceCleaner
   suffix: Space Cleaner
-  description: BLAM!-brand non-foaming space cleaner, now in a bigger package for those huge blood puddles!
+  description: "Непінний космічний очищувач бренду BLAM!, тепер у більшій упаковці для тих величезних калюж крові!"
   components:
   - type: SolutionContainerManager
     solutions:
@@ -142,9 +142,9 @@
 - type: entity
   parent: SprayBottle
   id: BorgSprayBottle
-  name: internal spray jet
+  name: "внутрішній розпилювач"
   suffix: Filled
-  description: A pressurized vessel for spraying reagents, installed directly into a custodial cyborg. Typically filled with space cleaner for dealing with those nasty spills.
+  description: "Резервуар під тиском для розпилення реагентів, встановлений безпосередньо в кіборга-прибиральника. Зазвичай заповнений космічним очищувачем для боротьби з цими неприємними розливами."
   components:
   - type: SolutionContainerManager
     solutions:
@@ -157,9 +157,9 @@
 - type: entity
   parent: MegaSprayBottle
   id: BorgMegaSprayBottle
-  name: adv. internal spray jet
+  name: "покращений вбудований розпилювач"
   suffix: Filled
-  description: An upgraded version of the integrated spray bottle, installed directly into a custodial cyborg. This one is capable of creating space cleaner from moisture in the air.
+  description: "Покращена версія вбудованого розпилювача, встановлена безпосередньо в прибирального кіборга. Ця здатна створювати космічний очищувач з вологи в повітрі."
   components:
   - type: SolutionContainerManager
     solutions:
@@ -181,7 +181,7 @@
 - type: entity
   id: Vapor
   categories: [ HideSpawnMenu ]
-  name: "vapor"
+  name: "пара"
   components:
   - type: SolutionContainerManager
     solutions:

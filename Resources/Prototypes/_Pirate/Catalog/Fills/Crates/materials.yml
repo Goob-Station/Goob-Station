@@ -1,8 +1,8 @@
 - type: entity
   id: CrateMaterialPlastitanium
   parent: CrateGenericSteel
-  name: ящик пластитану
-  description: 30 листів пластитану.
+  name: "ящик пластитану"
+  description: "30 листів пластитану."
   components:
   - type: StorageFill
     contents:

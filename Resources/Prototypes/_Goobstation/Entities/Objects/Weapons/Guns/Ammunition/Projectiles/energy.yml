@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity 
-  name: Rifle energy bolt #yes it X-01 projectile modified for rifle usage-Creatorbot
+  name: "Енергетичний заряд гвинтівки" #yes it X-01 projectile modified for rifle usage-Creatorbot
   id: RifleBulletEnergyGunLethal
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -39,7 +39,7 @@
       collection: MeatLaserImpact
 
 - type: entity 
-  name: Rifle ion bolt
+  name: "Іонний заряд гвинтівки"
   id: RifleBulletEnergyGunIon
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -79,7 +79,7 @@
       collection: MeatLaserImpact
 
 - type: entity 
-  name: Rifle disabler bolt
+  name: "Дизейблерний заряд гвинтівки"
   id: RifleBulletEnergyGunDisabler
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -119,7 +119,7 @@
       collection: MeatLaserImpact
 
 - type: entity 
-  name: ashified energy bolt #oh dear me
+  name: "попелястий енергетичний заряд" #oh dear me
   suffix: DEBUG
   id: RifleBulletEnergyGunAsh
   parent: BaseBullet
@@ -158,7 +158,7 @@
       collection: MeatLaserImpact
 
 - type: entity 
-  name: overcharge rifle energy bolt #nukie killer projectile part uh i lost count
+  name: "перевантажений енергетичний заряд гвинтівки" #nukie killer projectile part uh i lost count
   id: RifleBulletEnergyGunOverchargeLethal
   parent: BaseBulletIncendiary
   categories: [ HideSpawnMenu ]

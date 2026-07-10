@@ -2,8 +2,8 @@
   abstract: true
   parent: BaseItem
   id: BaseWoodenHandle
-  name: wooden handle
-  description: A normal wooden handle that can be used in crafting.
+  name: "дерев'яна ручка"
+  description: "Звичайна дерев'яна ручка, яку можна використовувати для крафту."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/Crafting/wooden_handle.rsi
@@ -14,7 +14,7 @@
 - type: entity
   parent: BaseWoodenHandle
   id: WoodenHandleHammer
-  name: hammer handle
+  name: "ручка молотка"
   components:
   - type: Construction
     graph: Hammer

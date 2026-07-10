@@ -1,5 +1,5 @@
 - type: entity
   save: false
-  name: Urist McFin
+  name: "Юріст МакПлавець"
   parent: BaseMobFeroxi
   id: MobFeroxi

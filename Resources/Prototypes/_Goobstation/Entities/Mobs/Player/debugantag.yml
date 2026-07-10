@@ -5,7 +5,7 @@
   categories:
   parent: MobHuman
   id: MobHumanWizardDebug
-  name: Wizard
+  name: "маг"
   suffix: DEBUG
   components:
   - type: Loadout
@@ -21,7 +21,7 @@
   categories: [  ]
   parent: MobHumanWizardDebug
   id: MobHumanWizardDebugSuit
-  name: Wizard Suit
+  name: "маг в костюмі"
   suffix: DEBUG
   components:
   - type: Loadout
@@ -31,7 +31,7 @@
   categories:
   parent: MobHuman
   id: MobHumanChangelingArmor
-  name: Urist McChangeling
+  name: "Юріст МакГенокрад"
   suffix: DEBUG
   components:
   - type: Loadout
@@ -50,7 +50,7 @@
   categories:
   parent: MobHuman
   id: MobHumanNinjaArmor
-  name: Urist Ninja
+  name: "Юріст Ніндзя"
   suffix: DEBUG
   components:
   - type: Loadout
@@ -69,7 +69,7 @@
   categories:
   parent: MobHuman
   id: MobHumanHereticArmor
-  name: Urist Heretic
+  name: "Юріст Єретик"
   suffix: DEBUG
   components:
   - type: Loadout
@@ -85,7 +85,7 @@
   categories:
   parent: MobHuman
   id: MobHumanCaptainHardsuit
-  name: Urist McCaptain
+  name: "Юріст МакКапітан"
   suffix: DEBUG
   components:
   - type: Loadout
@@ -101,7 +101,7 @@
   categories:
   parent: [ MobHuman, MobHumanCaptainHardsuit ]
   id: MobHumanCaptainModsuit
-  name: Urist McCaptain Mogsuit
+  name: "Юріст МакКапітан з модкостюмом"
   suffix: DEBUG
   components:
   - type: Loadout
@@ -112,7 +112,7 @@
   categories:
   parent: [ MobHuman, MobHumanCaptainHardsuit ]
   id: MobHumanCaptainDebug
-  name: Urist McCaptain
+  name: "Юріст МакКапітан"
   suffix: DEBUG
   components:
   - type: Loadout

@@ -3,8 +3,8 @@
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackSatchel
-  name: satchel
-  description: A trendy looking satchel.
+  name: "рюкзак"
+  description: "Модний на вигляд рюкзак."
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/satchel.rsi
@@ -17,8 +17,8 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelLeather
-  name: leather satchel
-  description: A trend-setting satchel from a bygone era.
+  name: "шкіряна сумка"
+  description: "Трендовий рюкзак з минулої епохи."
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/leather.rsi
@@ -26,8 +26,8 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelEngineering
-  name: engineering satchel
-  description: A tough satchel with extra pockets.
+  name: "інженерний ранець"
+  description: "Міцний рюкзак з додатковими кишенями."
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/engineering.rsi
@@ -35,8 +35,8 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelAtmospherics
-  name: atmospherics satchel
-  description: A tough satchel made of fire resistant fibers. Smells like plasma.
+  name: "атмосферний рюкзак"
+  description: "Міцний рюкзак з вогнетривких волокон. Пахне плазмою."
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/atmospherics.rsi
@@ -44,8 +44,8 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelClown
-  name: clown satchel
-  description: For fast running from security.
+  name: "клоунська сумка"
+  description: "Для швидкої втечі від охорони."
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/clown.rsi
@@ -62,8 +62,8 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelMime
-  name: mime satchel
-  description: A satchel designed for the silent and expressive art of miming.
+  name: "пантоміма"
+  description: "Ранець, створений для мовчазного та виразного мистецтва міміки."
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/mime.rsi
@@ -74,8 +74,8 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelMedical
-  name: medical satchel
-  description: A sterile satchel used in medical departments.
+  name: "медична сумка"
+  description: "Стерильна сумка, яку використовують у медичних відділеннях."
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/medical.rsi
@@ -83,8 +83,8 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelChemistry
-  name: chemistry satchel
-  description: A sterile satchel with chemist colours.
+  name: "ранець з хімії"
+  description: "Стерильний саквояж з аптечними фарбами."
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/chemistry.rsi
@@ -92,8 +92,8 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelVirology
-  name: virology satchel
-  description: A satchel made of hypo-allergenic fibers. It's designed to help prevent the spread of disease. Smells like monkey.
+  name: "вірусологічна сумка"
+  description: "Сумка з гіпоалергенних волокон. Створена, щоб допомогти запобігти поширенню хвороб. Пахне мавпочкою."
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/virology.rsi
@@ -101,8 +101,8 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelGenetics
-  name: genetics satchel
-  description: A sterile satchel with geneticist colours.
+  name: "генетичний ранець"
+  description: "Стерильна сумка з кольорами генетика."
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/genetics.rsi
@@ -110,8 +110,8 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelScience
-  name: science satchel
-  description: Useful for holding research materials.
+  name: "наукова сумка"
+  description: "Корисна для зберігання дослідницьких матеріалів."
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/science.rsi
@@ -119,8 +119,8 @@
 - type: entity
   parent: [ClothingBackpackSatchel, BaseSecurityContraband]
   id: ClothingBackpackSatchelSecurity
-  name: security satchel
-  description: A robust satchel for security related needs.
+  name: "сумка служби безпеки"
+  description: "Міцний рюкзак для потреб, пов'язаних з безпекою."
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/security.rsi
@@ -128,8 +128,8 @@
 - type: entity
   parent: [ClothingBackpackSatchel, BaseSecurityContraband]
   id: ClothingBackpackSatchelBrigmedic
-  name: brigmedic satchel
-  description: A sterile satchel for medical related needs.
+  name: "сумка тюремного медика"
+  description: "Стерильна сумка для медичних потреб."
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/brigmedic.rsi
@@ -137,8 +137,8 @@
 - type: entity
   parent: [ClothingBackpackSatchel, BaseCommandContraband]
   id: ClothingBackpackSatchelCaptain
-  name: captain's satchel
-  description: An exclusive satchel for Nanotrasen officers.
+  name: "ранець капітана"
+  description: "Ексклюзивний ранець для офіцерів \"Нанотрейзену\"."
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/captain.rsi
@@ -146,8 +146,8 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelHydroponics
-  name: hydroponics satchel
-  description: A satchel made of all natural fibers.
+  name: "сумка для гідропоніки"
+  description: "Сумка виготовлена з натуральних волокон."
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/hydroponics.rsi
@@ -155,16 +155,16 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelCargo
-  name: cargo satchel
-  description: A robust satchel for stealing cargo's loot.
+  name: "вантажна сумка"
+  description: "Міцна сумка для крадіжки луту вантажного відділу."
   components:
     - type: Sprite
       sprite: _Goobstation/Clothing/Back/Satchels/cargo.rsi
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelSalvage
-  name: salvage satchel
-  description: A robust satchel for stashing your loot.
+  name: "сумка утилізтора"
+  description: "Міцний рюкзак для зберігання здобичі."
   components:
     - type: Sprite
       sprite: Clothing/Back/Satchels/salvage.rsi
@@ -172,8 +172,8 @@
 - type: entity
   parent: [ClothingBackpackSatchel, BaseHighlyIllegalContraband]
   id: ClothingBackpackSatchelNinja
-  name: spider clan satchel
-  description: A robust satchel for stashing your loot.
+  name: "сатчел клану Павука"
+  description: "Міцний рюкзак для зберігання здобичі."
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/ninja.rsi
@@ -184,8 +184,8 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelHolding
-  name: satchel of holding
-  description: A satchel that opens into a localized pocket of bluespace.
+  name: "сумка для утримання"
+  description: "Сумка, що відкривається в локальну кишеню блюзового простору."
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/holding.rsi
@@ -204,9 +204,9 @@
 - type: entity
   parent: ClothingBackpackSatchelHolding
   id: ClothingBackpackSatchelAdmin
-  name: satchel of administration
+  name: "сумка адміністрування"
   suffix: Admin
-  description: If you are somehow seeing this, no you're not.
+  description: "Якщо ви якимось чином це бачите, то ні, не бачите."
   components:
   - type: ExplosionResistance
     damageCoefficient: 0

@@ -2,12 +2,12 @@
   abstract: true
   parent: CMTileBase
   id: RMCFloorHybrisaBrownBase
-  name: tiles-cm-default-brown
+  name: "плитка CM стандартна коричнева"
 
 - type: tile
   parent: RMCFloorHybrisaBrownBase
   id: RMCFloorHybrisaBrown
-  name: brown metal tile
+  name: "коричнева металева плитка"
   sprite: /Textures/_RMC14/Tiles/hybrisa/zbrownfloorfull1.png
 
 - type: tile

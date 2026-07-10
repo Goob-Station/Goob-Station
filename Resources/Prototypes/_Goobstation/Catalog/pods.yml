@@ -1,7 +1,7 @@
 - type: entity
   id: SpawnArmamentsCursader
   categories: [ HideSpawnMenu ]
-  name: crusader armour
+  name: "обладунки хрестоносця"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnTableOnDespawn
@@ -13,7 +13,7 @@
 - type: entity
   id: SpawnArmamentsStudent
   categories: [ HideSpawnMenu ]
-  name: student robe
+  name: "мантія студента"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnTableOnDespawn
@@ -25,7 +25,7 @@
 - type: entity
   id: SpawnArmamentsAncient
   categories: [ HideSpawnMenu ]
-  name: ancient armour
+  name: "стародавні обладунки"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnTableOnDespawn
@@ -37,7 +37,7 @@
 - type: entity
   id: SpawnArmamentsWitchhunter
   categories: [ HideSpawnMenu ]
-  name: witch hunter garb
+  name: "вбрання мисливця на відьом"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnTableOnDespawn
@@ -49,7 +49,7 @@
 - type: entity
   id: SpawnArmamentsAdept
   categories: [ HideSpawnMenu ]
-  name: adept robes
+  name: "мантія адепта"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnTableOnDespawn
@@ -59,7 +59,7 @@
 - type: entity
   id: SpawnArmamentsClock
   categories: [ HideSpawnMenu ]
-  name: forgotten armour
+  name: "забуті обладунки"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnTableOnDespawn
@@ -71,7 +71,7 @@
 - type: entity
   id: SpawnArmamentsMonk
   categories: [ HideSpawnMenu ]
-  name: monk's habit
+  name: "ряса монаха"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnTableOnDespawn
@@ -81,7 +81,7 @@
 - type: entity
   id: SpawnArmamentsBishop
   categories: [ HideSpawnMenu ]
-  name: bishop's robes
+  name: "мантія єпископа"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnTableOnDespawn
@@ -93,7 +93,7 @@
 - type: entity
   id: SpawnArmamentsDraconic
   categories: [ HideSpawnMenu ]
-  name: dragon suit
+  name: "драконячий обладунок"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnTableOnDespawn
@@ -103,7 +103,7 @@
 - type: entity
   id: SpawnArmamentsInquisitor
   categories: [ HideSpawnMenu ]
-  name: inquisitor armour
+  name: "обладунок інквізитора"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnTableOnDespawn
@@ -116,7 +116,7 @@
 - type: entity
   id: SpawnSchemaMonk
   categories: [ HideSpawnMenu ]
-  name: monastic vestments
+  name: "монаше вбрання"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnTableOnDespawn

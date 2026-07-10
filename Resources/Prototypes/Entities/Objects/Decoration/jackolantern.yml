@@ -3,8 +3,8 @@
 - type: entity
   parent: BaseItem
   id: CarvedPumpkin
-  name: carved pumpkin
-  description: A traditional spooky decoration.
+  name: "різьблений гарбуз"
+  description: "Традиційна моторошна прикраса."
   components:
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/pumpkin.rsi
@@ -18,8 +18,8 @@
 - type: entity
   parent: CarvedPumpkin
   id: PumpkinLantern
-  name: jack o' lantern
-  description: A carved pumpkin, emitting an eerie glow.
+  name: "ліхтар Джека"
+  description: "Різьблений гарбуз, що випромінює моторошне сяйво."
   components:
     - type: Sprite
       state: lantern

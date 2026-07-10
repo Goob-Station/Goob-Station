@@ -4,7 +4,7 @@
   parent: BaseBullet
   id: BulletPistol
   categories: [ HideSpawnMenu ]
-  name: bullet (.35 auto)
+  name: "куля (.35 auto)"
   components:
   - type: Projectile
     damage:
@@ -15,7 +15,7 @@
   parent: BaseBulletPractice
   id: BulletPistolPractice
   categories: [ HideSpawnMenu ]
-  name: bullet (.35 auto practice)
+  name: "куля (.35 auto practice)"
   components:
   - type: Projectile
     damage:
@@ -26,7 +26,7 @@
   parent: BaseBulletIncendiary
   id: BulletPistolIncendiary
   categories: [ HideSpawnMenu ]
-  name: bullet (.35 auto incendiary)
+  name: "куля (.35 авто запальний)"
   components:
   - type: Projectile
     damage:
@@ -38,7 +38,7 @@
   parent: BaseBulletUranium
   id: BulletPistolUranium
   categories: [ HideSpawnMenu ]
-  name: bullet (.35 auto uranium)
+  name: "куля (.35 auto uranium)"
   components:
   - type: Projectile
     damage:
