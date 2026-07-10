@@ -8,6 +8,7 @@ using Content.Shared.Materials;
 using Content.Shared.Radio;
 using Robust.Shared.Audio;
 using Content.Shared.Physics;
+using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
@@ -90,7 +91,8 @@ public sealed partial class AnomalySystem
 
         var xform = Transform(grid);
 
-        var targetCoords = xform.Coordinates;
+        // Pirate: RT 270 rejects anchored spawners at map-level fallback coordinates.
+        EntityCoordinates? targetCoords = null;
         var gridBounds = gridComp.LocalAABB.Scale(_configuration.GetCVar(CCVars.AnomalyGenerationGridBoundsScale));
 
         for (var i = 0; i < 25; i++)
@@ -152,7 +154,10 @@ public sealed partial class AnomalySystem
             break;
         }
 
-        Spawn(toSpawn, targetCoords);
+        if (targetCoords is not { } coords)
+            return;
+
+        Spawn(toSpawn, coords);
     }
 
     private void OnGeneratingStartup(EntityUid uid, GeneratingAnomalyGeneratorComponent component, ComponentStartup args)
