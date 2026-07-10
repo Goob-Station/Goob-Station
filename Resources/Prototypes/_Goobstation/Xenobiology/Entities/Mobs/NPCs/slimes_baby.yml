@@ -1,7 +1,7 @@
 - type: entity
   parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyGrey
-  name: "сірий слайм"
+  name: grey slime
   components:
   - type: Slime
     breed: MobSlimeXenobioBabyGrey
@@ -17,7 +17,7 @@
 - type: entity
   parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyOrange
-  name: "помаранчевий слайм"
+  name: orange slime
   components:
   - type: Slime
     slimeColor: "#ff9f1a"
@@ -33,7 +33,7 @@
 - type: entity
   parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyPurple
-  name: "фіолетовий слайм"
+  name: purple slime
   components:
   - type: Slime
     slimeColor: "#BF77F6"
@@ -49,7 +49,7 @@
 - type: entity
   parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyBlue
-  name: "синій слайм"
+  name: blue slime
   components:
   - type: Slime
     slimeColor: "#79F6FC"
@@ -65,7 +65,7 @@
 - type: entity
   parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyMetal
-  name: "металевий слайм"
+  name: metal slime
   components:
   - type: Slime
     slimeColor: "#595959"
@@ -82,7 +82,7 @@
 - type: entity
   parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyYellow
-  name: "жовтий слайм"
+  name: yellow slime
   components:
   - type: Slime
     slimeColor: "#ffff1a"
@@ -97,7 +97,7 @@
 - type: entity
   parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyDarkPurple
-  name: "темно-фіолетовий слайм"
+  name: dark purple slime
   components:
   - type: Slime
     slimeColor: "#8e0ff0"
@@ -112,7 +112,7 @@
 - type: entity
   parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyDarkBlue
-  name: "темно-синій слайм"
+  name: dark blue slime
   components:
   - type: Slime
     slimeColor: "#1e8cfa"
@@ -127,7 +127,7 @@
 - type: entity
   parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabySilver
-  name: "срібний слайм"
+  name: silver slime
   components:
   - type: Slime
     slimeColor: "#c4c4c4"
@@ -143,7 +143,7 @@
 - type: entity
   parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyBluespace
-  name: "блюспейсовий слайм"
+  name: bluespace slime
   components:
   - type: Slime
     slimeColor: "#f0f8ff"
@@ -157,7 +157,7 @@
 - type: entity
   parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabySepia
-  name: "сепієвий слайм"
+  name: sepia slime
   components:
   - type: Slime
     slimeColor: "#704214"
@@ -171,7 +171,7 @@
 - type: entity
   parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyCerulean
-  name: "церулеановий слайм"
+  name: cerulean slime
   components:
   - type: Slime
     slimeColor: "#2A52BE"
@@ -184,7 +184,7 @@
 - type: entity
   parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyPyrite
-  name: "піритовий слайм"
+  name: pyrite slime
   components:
   - type: Slime
     slimeColor: "#dcaa4f"
@@ -198,7 +198,7 @@
 - type: entity
   parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyRed
-  name: "червоний слайм"
+  name: red slime
   components:
   - type: Slime
     slimeColor: "#ff3333"
@@ -212,7 +212,7 @@
 - type: entity
   parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyGreen
-  name: "зелений слайм"
+  name: green slime
   components:
   - type: Slime
     slimeColor: "#4dff4d"
@@ -226,7 +226,7 @@
 - type: entity
   parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyPink
-  name: "рожевий слайм"
+  name: pink slime
   components:
   - type: Slime
     slimeColor: "#ff33cc"
@@ -240,7 +240,7 @@
 - type: entity
   parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyGold
-  name: "золотий слайм"
+  name: gold slime
   components:
   - type: Slime
     slimeColor: "#e8b923"
@@ -255,7 +255,7 @@
 - type: entity
   parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyOil
-  name: "нафтовий слайм"
+  name: oil slime
   components:
   - type: Slime
     slimeColor: "#383936"
@@ -269,7 +269,7 @@
 - type: entity
   parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyLightPink
-  name: "світло-рожевий слайм"
+  name: light pink slime
   components:
   - type: Slime
     slimeColor: "#ffb3ec"
@@ -282,7 +282,7 @@
 - type: entity
   parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyBlack
-  name: "чорний слайм"
+  name: black slime
   components:
   - type: Slime
     slimeColor: "#000000"
@@ -295,7 +295,7 @@
 - type: entity
   parent: MobSlimeXenobioBaby
   id: MobSlimeXenobioBabyAdamantine
-  name: "адамантиновий слайм"
+  name: adamantite slime
   components:
   - type: Slime
     slimeColor: "#005c33"

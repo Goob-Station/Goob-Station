@@ -8,8 +8,8 @@
 - type: entity
   id: CultSoulStone
   parent: [ BaseItem, BaseBloodCultContraband ]
-  name: "камінь душі"
-  description: "Кристалізована кров Нар'Сі, що містить мозок і душу проклятого."
+  name: soul stone
+  description: "Crystalized blood of Nar'Sie, containing the brain and soul of the damned."
   components:
   - type: Sprite
     sprite: _Pirate/BloodCult/Objects/soulstone.rsi
@@ -44,8 +44,8 @@
 - type: entity
   id: CultSoulStoneShard
   parent: CultSoulStone
-  name: "уламок каменя душі"
-  description: "Фрагмент кристалізованої крові Нар'Сі, що досі гуде ув'язненими душами."
+  name: soulstone shard
+  description: A fragment of Nar'Sie's crystalized blood, still humming with trapped souls.
   components:
   - type: Sprite
     sprite: _Pirate/BloodCult/Objects/soulstone.rsi

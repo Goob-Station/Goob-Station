@@ -72,7 +72,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerDeathSquad
-  name: "Оперативник карального загону"
+  name: Death Squad Operative
   suffix: ERTRole, Death Squad
   components:
     - type: Sprite
@@ -116,7 +116,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerERTLeader
-  name: "лідер ГШР"
+  name: ERT leader
   suffix: ERTRole, Basic
   components:
     - type: Sprite
@@ -149,7 +149,7 @@
 - type: entity
   id: RandomHumanoidSpawnerERTLeaderEVA
   parent: RandomHumanoidSpawnerERTLeader
-  name: "лідер ГШР"
+  name: ERT leader
   suffix: ERTRole, EVA
   components:
     - type: Sprite
@@ -187,7 +187,7 @@
 - type: entity
   id: RandomHumanoidSpawnerERTChaplain
   parent: RandomHumanoidSpawnerERTLeader
-  name: "капелан ERT"
+  name: ERT chaplain
   suffix: ERTRole, Basic
   components:
     - type: Sprite
@@ -219,7 +219,7 @@
 - type: entity
   id: RandomHumanoidSpawnerERTChaplainEVA
   parent: RandomHumanoidSpawnerERTChaplain
-  name: "капелан ERT"
+  name: ERT chaplain
   suffix: ERTRole, EVA
   components:
     - type: Sprite
@@ -241,7 +241,7 @@
 - type: entity
   id: RandomHumanoidSpawnerERTJanitor
   parent: RandomHumanoidSpawnerERTLeader
-  name: "прибиральник ГШР"
+  name: ERT janitor
   suffix: ERTRole, Basic
   components:
     - type: Sprite
@@ -293,7 +293,7 @@
 - type: entity
   id: RandomHumanoidSpawnerERTEngineer
   parent: RandomHumanoidSpawnerERTLeader
-  name: "інженер ГШР"
+  name: ERT engineer
   suffix: ERTRole, Basic
   components:
     - type: Sprite
@@ -365,7 +365,7 @@
 - type: entity
   id: RandomHumanoidSpawnerERTSecurity
   parent: RandomHumanoidSpawnerERTLeader
-  name: "охоронець ГШР"
+  name: ERT security
   suffix: ERTRole, Basic
   components:
     - type: Sprite
@@ -398,7 +398,7 @@
 - type: entity
   id: RandomHumanoidSpawnerERTSecurityEVA
   parent: RandomHumanoidSpawnerERTSecurity
-  name: "охоронець ГШР"
+  name: ERT security
   suffix: ERTRole, EVA
   components:
     - type: Sprite
@@ -427,7 +427,7 @@
 - type: entity
   id: RandomHumanoidSpawnerERTSecurityArmedRifle
   parent: RandomHumanoidSpawnerERTSecurityEVA
-  name: "стрілець СБ ГШР"
+  name: ERT security rifleman
   suffix: ERTRole, Armed, EVA
   components:
   - type: RandomHumanoidSpawner
@@ -448,7 +448,7 @@
 - type: entity
   parent: RandomHumanoidSpawnerERTSecurityEVA
   id: RandomHumanoidSpawnerERTSecurityArmedGrenade
-  name: "гренадер СБ ГШР"
+  name: ERT security grenadier
   suffix: ERTRole, Armed, EVA
   components:
   - type: RandomHumanoidSpawner
@@ -469,7 +469,7 @@
 - type: entity
   parent: RandomHumanoidSpawnerERTSecurityEVA
   id: RandomHumanoidSpawnerERTSecurityArmedVanguard
-  name: "авангард СБ ГШР"
+  name: ERT security vanguard
   suffix: ERTRole, Armed, EVA
   components:
   - type: RandomHumanoidSpawner
@@ -490,7 +490,7 @@
 - type: entity
   parent: RandomHumanoidSpawnerERTSecurityEVA
   id: RandomHumanoidSpawnerERTSecurityArmedShotgun
-  name: "штурмовик СБ ГШР"
+  name: ERT security breacher
   suffix: ERTRole, Armed, EVA
   components:
   - type: RandomHumanoidSpawner
@@ -513,7 +513,7 @@
 - type: entity
   id: RandomHumanoidSpawnerERTMedical
   parent: RandomHumanoidSpawnerERTLeader
-  name: "медик ГШР"
+  name: ERT medic
   suffix: ERTRole, Basic
   components:
     - type: Sprite
@@ -588,7 +588,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerCBURNUnit
-  name: "Агент CBURN"
+  name: CBURN Agent
   suffix: ERTRole
   components:
     - type: Sprite
@@ -622,7 +622,7 @@
 ## Central Command
 
 - type: entity
-  name: "Представник Центкому"
+  name: CentComm official
   id: RandomHumanoidSpawnerCentcomOfficial
   components:
     - type: Sprite
@@ -652,7 +652,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerSyndicateAgent
-  name: "агент синдикату"
+  name: syndicate agent
   components:
     - type: Sprite
       sprite: Mobs/Species/Human/parts.rsi
@@ -674,7 +674,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerNukeOp
-  name: "Ядерний оперативник"
+  name: Nuclear Operative
   components:
     - type: Sprite
       sprite: Mobs/Species/Human/parts.rsi
@@ -692,7 +692,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerCluwne
-  name: "Клувня"
+  name: Cluwne
   suffix: spawns a cluwne
   components:
     - type: Sprite

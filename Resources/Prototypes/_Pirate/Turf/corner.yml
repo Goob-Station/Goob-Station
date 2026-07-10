@@ -2,7 +2,7 @@
 # Steel (сіра плитка)
 - type: tile
   id: FloorSteelCorner_ne
-  name: "tiles-corner-ne-floor"
+  name: tiles-corner-ne-floor
   sprite: /Textures/_Pirate/Tiles/corner_ne.png
   baseTurf: Plating
   isSubfloor: false
@@ -13,7 +13,7 @@
 
 - type: tile
   id: FloorSteelCorner_nw
-  name: "tiles-corner-nw-floor"
+  name: tiles-corner-nw-floor
   sprite: /Textures/_Pirate/Tiles/corner_nw.png
   baseTurf: Plating
   isSubfloor: false
@@ -24,7 +24,7 @@
 
 - type: tile
   id: FloorSteelCorner_se
-  name: "tiles-corner-se-floor"
+  name: tiles-corner-se-floor
   sprite: /Textures/_Pirate/Tiles/corner_se.png
   baseTurf: Plating
   isSubfloor: false
@@ -35,7 +35,7 @@
 
 - type: tile
   id: FloorSteelCorner_sw
-  name: "tiles-corner-sw-floor"
+  name: tiles-corner-sw-floor
   sprite: /Textures/_Pirate/Tiles/corner_sw.png
   baseTurf: Plating
   isSubfloor: false
@@ -47,7 +47,7 @@
 # Dark
 - type: tile
   id: FloorSteelCorner_neDark
-  name: "tiles-corner-ne-floor-dark"
+  name: tiles-corner-ne-floor-dark
   sprite: /Textures/_Pirate/Tiles/dark_corner_ne.png
   baseTurf: Plating
   isSubfloor: false
@@ -58,7 +58,7 @@
 
 - type: tile
   id: FloorSteelCorner_nwDark
-  name: "tiles-corner-nw-floor-dark"
+  name: tiles-corner-nw-floor-dark
   sprite: /Textures/_Pirate/Tiles/dark_corner_nw.png
   baseTurf: Plating
   isSubfloor: false
@@ -69,7 +69,7 @@
 
 - type: tile
   id: FloorSteelCorner_seDark
-  name: "tiles-corner-se-floor-dark"
+  name: tiles-corner-se-floor-dark
   sprite: /Textures/_Pirate/Tiles/dark_corner_se.png
   baseTurf: Plating
   isSubfloor: false
@@ -80,7 +80,7 @@
 
 - type: tile
   id: FloorSteelCorner_swDark
-  name: "tiles-corner-sw-floor-dark"
+  name: tiles-corner-sw-floor-dark
   sprite: /Textures/_Pirate/Tiles/dark_corner_sw.png
   baseTurf: Plating
   isSubfloor: false
@@ -92,7 +92,7 @@
 # White
 - type: tile
   id: FloorSteelCorner_neWhite
-  name: "tiles-corner-ne-floor-white"
+  name: tiles-corner-ne-floor-white
   sprite: /Textures/_Pirate/Tiles/white_corner_ne.png
   baseTurf: Plating
   isSubfloor: false
@@ -103,7 +103,7 @@
 
 - type: tile
   id: FloorSteelCorner_nwWhite
-  name: "tiles-corner-nw-floor-white"
+  name: tiles-corner-nw-floor-white
   sprite: /Textures/_Pirate/Tiles/white_corner_nw.png
   baseTurf: Plating
   isSubfloor: false
@@ -114,7 +114,7 @@
 
 - type: tile
   id: FloorSteelCorner_seWhite
-  name: "tiles-corner-se-floor-white"
+  name: tiles-corner-se-floor-white
   sprite: /Textures/_Pirate/Tiles/white_corner_se.png
   baseTurf: Plating
   isSubfloor: false
@@ -125,7 +125,7 @@
 
 - type: tile
   id: FloorSteelCorner_swWhite
-  name: "tiles-corner-sw-floor-white"
+  name: tiles-corner-sw-floor-white
   sprite: /Textures/_Pirate/Tiles/white_corner_sw.png
   baseTurf: Plating
   isSubfloor: false
@@ -140,7 +140,7 @@
 # Steel (сіра плитка)
 - type: tile
   id: FloorSteelEdgeDown
-  name: "tiles-edge-down-floor"
+  name: tiles-edge-down-floor
   sprite: /Textures/_Pirate/Tiles/edge-down.png
   baseTurf: Plating
   isSubfloor: false
@@ -151,7 +151,7 @@
 
 - type: tile
   id: FloorSteelEdgeRight
-  name: "tiles-edge-right-floor"
+  name: tiles-edge-right-floor
   sprite: /Textures/_Pirate/Tiles/edge-right.png
   baseTurf: Plating
   isSubfloor: false
@@ -162,7 +162,7 @@
 
 - type: tile
   id: FloorSteelEdgeLeft
-  name: "tiles-edge-left-floor"
+  name: tiles-edge-left-floor
   sprite: /Textures/_Pirate/Tiles/edge-left.png
   baseTurf: Plating
   isSubfloor: false
@@ -173,7 +173,7 @@
 
 - type: tile
   id: FloorSteelEdgeUp
-  name: "tiles-edge-Up-floor"
+  name: tiles-edge-Up-floor
   sprite: /Textures/_Pirate/Tiles/edge-up.png
   baseTurf: Plating
   isSubfloor: false
@@ -185,7 +185,7 @@
 # Dark
 - type: tile
   id: FloorSteelEdgeDownDark
-  name: "tiles-edge-down-floor-dark"
+  name: tiles-edge-down-floor-dark
   sprite: /Textures/_Pirate/Tiles/dark_edge-down.png
   baseTurf: Plating
   isSubfloor: false
@@ -196,7 +196,7 @@
 
 - type: tile
   id: FloorSteelEdgeRightDark
-  name: "tiles-edge-right-floor-dark"
+  name: tiles-edge-right-floor-dark
   sprite: /Textures/_Pirate/Tiles/dark_edge-right.png
   baseTurf: Plating
   isSubfloor: false
@@ -207,7 +207,7 @@
 
 - type: tile
   id: FloorSteelEdgeLeftDark
-  name: "tiles-edge-left-floor-dark"
+  name: tiles-edge-left-floor-dark
   sprite: /Textures/_Pirate/Tiles/dark_edge-left.png
   baseTurf: Plating
   isSubfloor: false
@@ -218,7 +218,7 @@
 
 - type: tile
   id: FloorSteelEdgeUpDark
-  name: "tiles-edge-Up-floor-dark"
+  name: tiles-edge-Up-floor-dark
   sprite: /Textures/_Pirate/Tiles/dark_edge-up.png
   baseTurf: Plating
   isSubfloor: false
@@ -230,7 +230,7 @@
 # White
 - type: tile
   id: FloorSteelEdgeDownWhite
-  name: "tiles-edge-down-floor-white"
+  name: tiles-edge-down-floor-white
   sprite: /Textures/_Pirate/Tiles/white_edge-down.png
   baseTurf: Plating
   isSubfloor: false
@@ -241,7 +241,7 @@
 
 - type: tile
   id: FloorSteelEdgeRightWhite
-  name: "tiles-edge-right-floor-white"
+  name: tiles-edge-right-floor-white
   sprite: /Textures/_Pirate/Tiles/white_edge-right.png
   baseTurf: Plating
   isSubfloor: false
@@ -252,7 +252,7 @@
 
 - type: tile
   id: FloorSteelEdgeLeftWhite
-  name: "tiles-edge-left-floor-white"
+  name: tiles-edge-left-floor-white
   sprite: /Textures/_Pirate/Tiles/white_edge-left.png
   baseTurf: Plating
   isSubfloor: false
@@ -263,7 +263,7 @@
 
 - type: tile
   id: FloorSteelEdgeUpWhite
-  name: "tiles-edge-Up-floor-white"
+  name: tiles-edge-Up-floor-white
   sprite: /Textures/_Pirate/Tiles/white_edge-up.png
   baseTurf: Plating
   isSubfloor: false

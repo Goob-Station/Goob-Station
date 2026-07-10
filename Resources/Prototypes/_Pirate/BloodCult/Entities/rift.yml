@@ -4,8 +4,8 @@
 
 - type: entity
   id: BloodCultRift
-  name: "розрив реальності"
-  description: "Завіса розривається, кровоточачи нечестивою есенцією в реальність. Повітря навколо нього здається густим від злоби."
+  name: reality rift
+  description: The veil tears open, bleeding profane essence into reality. The air around it feels thick with malevolence.
   components:
   - type: Sprite
     noRot: true

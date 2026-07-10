@@ -2,7 +2,7 @@
 - type: entity
   parent: MarkerBase
   id: BaseHierophantShape
-  name: "спавнер атаки ієрофанта"
+  name: hierophant attack spawner
   categories: [ HideSpawnMenu, Spawner ]
   abstract: true
   components:
@@ -15,7 +15,7 @@
 - type: entity
   parent: BaseHierophantShape
   id: HierophantShapeCrossBishop
-  name: "спавнер атаки ієрофанта: хрест «Слон»"
+  name: hierophant attack cross bishop spawner
   categories: [ HideSpawnMenu, Spawner ]
   components:
   - type: ShapeSpawner
@@ -26,7 +26,7 @@
 - type: entity
   parent: BaseHierophantShape
   id: HierophantShapeCrossRook
-  name: "спавнер атаки ієрофанта: хрест «Тура»"
+  name: hierophant attack cross rook spawner
   categories: [ HideSpawnMenu, Spawner ]
   components:
   - type: ShapeSpawner
@@ -37,7 +37,7 @@
 - type: entity
   parent: BaseHierophantShape
   id: HierophantShapeCrossQueen
-  name: "спавнер атаки ієрофанта: хрест «Ферзь»"
+  name: hierophant attack cross queen spawner
   categories: [ HideSpawnMenu, Spawner ]
   components:
   - type: ShapeSpawner
@@ -49,7 +49,7 @@
 - type: entity
   parent: BaseHierophantShape
   id: HierophantShapeBlink
-  name: "спавнер атаки ієрофанта: блінк"
+  name: hierophant attack blink spawner
   categories: [ HideSpawnMenu, Spawner ]
   components:
   - type: ShapeSpawner
@@ -60,7 +60,7 @@
 - type: entity
   parent: HierophantShapeBlink
   id: HierophantShapeBlinkSafe
-  name: "спавнер атаки ієрофанта: безпечний блінк"
+  name: hierophant attack safe blink spawner
   categories: [ HideSpawnMenu, Spawner ]
   components:
   - type: ShapeSpawner
@@ -70,7 +70,7 @@
 - type: entity
   parent: MarkerBase
   id: HierophantShapeBoxExpanding
-  name: "спавнер атаки ієрофанта: розширюваний квадрат"
+  name: hierophant attack box expanding spawner
   suffix: Anger
   categories: [ HideSpawnMenu, Spawner ]
   components:
@@ -92,7 +92,7 @@
 - type: entity
   parent: MarkerBase
   id: HierophantShapeCrossSequence
-  name: "спавнер атаки ієрофанта: послідовність хрестів"
+  name: hierophant attack cross sequence spawner
   suffix: Anger
   categories: [ HideSpawnMenu, Spawner ]
   components:

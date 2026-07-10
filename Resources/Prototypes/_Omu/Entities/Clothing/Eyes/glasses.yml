@@ -2,8 +2,8 @@
 - type: entity
   parent: [ClothingEyesBase, ShowMedicalIcons]
   id: ClothingEyesGlassesMedChem
-  name: "медхімічні захисні окуляри"
-  description: "Захисні окуляри, що можуть сканувати хімічний склад розчину, з вбудованим медичним HUD."
+  name: medichem goggles
+  description: Goggles that can scan the chemical composition of a solution, with an integrated medical hud.
   components:
   - type: Sprite
     sprite: _Omu/Clothing/Eyes/Glasses/medichem.rsi
@@ -21,8 +21,8 @@
 - type: entity
   parent: [ClothingEyesBase, ShowMedicalIcons, ClothingEyesGlassesSunglasses]
   id: ClothingEyesGlassesMedChemFlash
-  name: "медхімічні окуляри"
-  description: "Сонцезахисні окуляри з медичним HUD і аналізатором розчинів."
+  name: medichem glasses
+  description: Sunglasses with a medical hud and solution analyzer.
   components:
   - type: Sprite
     sprite: _Omu/Clothing/Eyes/Glasses/medichemglasses.rsi

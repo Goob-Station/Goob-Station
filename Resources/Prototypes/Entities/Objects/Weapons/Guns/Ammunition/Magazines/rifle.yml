@@ -4,7 +4,7 @@
   abstract: true
   parent: [ BaseItem, BaseSecurityContraband ]
   id: BaseMagazineRifle
-  name: "магазин (.20 rifle)"
+  name: "magazine (.20 rifle)"
   components:
   - type: Tag
     tags:
@@ -36,8 +36,8 @@
 - type: entity
   parent: BaseMagazineRifle
   id: MagazineRifle
-  name: "магазин (.20 rifle)"
-  description: "Дворядний магазин на 25 набоїв для бойових гвинтівок. Призначений для універсальних кінетичних боєприпасів."
+  name: "magazine (.20 rifle)"
+  description: 25-round double stack magazine for combat rifles. Intended to hold general-purpose kinetic ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeRifle
@@ -57,9 +57,9 @@
 - type: entity
   parent: MagazineRifle
   id: MagazineRifleEmpty
-  name: "магазин (.20 гвинтівкові будь-які)"
+  name: "magazine (.20 rifle any)"
   suffix: empty
-  description: "25-зарядний дворядний магазин для бойових гвинтівок."
+  description: 25-round double stack magazine for combat rifles.
   components:
   - type: BallisticAmmoProvider
     proto: null
@@ -79,8 +79,8 @@
 - type: entity
   parent: MagazineRifle
   id: MagazineRifleIncendiary
-  name: "магазин (.20 гвинтівкові запалювальні)"
-  description: "25-зарядний дворядний магазин для бойових гвинтівок. Призначений для самозаймистих запалювальних набоїв."
+  name: "magazine (.20 rifle incendiary)"
+  description: 25-round double stack magazine for combat rifles. Intended to hold self-igniting incendiary ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeRifleIncendiary
@@ -106,8 +106,8 @@
 - type: entity
   parent: BaseMagazineRifle
   id: MagazineRiflePractice
-  name: "магазин (.20 rifle тренувальний)"
-  description: "Дворядний магазин на 25 набоїв для бойових гвинтівок. Призначений для нешкідливих тренувальних боєприпасів."
+  name: "magazine (.20 rifle practice)"
+  description: 25-round double stack magazine for combat rifles. Intended to hold harmless practice ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeRiflePractice
@@ -133,8 +133,8 @@
 - type: entity
   parent: BaseMagazineRifle
   id: MagazineRifleUranium
-  name: "магазин (.20 rifle урановий)"
-  description: "Дворядний магазин на 25 набоїв для бойових гвинтівок. Призначений для екзотичних боєприпасів з урановим осердям."
+  name: "magazine (.20 rifle uranium)"
+  description: 25-round double stack magazine for combat rifles. Intended to hold exotic uranium-core ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeRifleUranium

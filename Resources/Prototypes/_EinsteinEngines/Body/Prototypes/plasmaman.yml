@@ -1,6 +1,6 @@
 - type: body
   id: Plasmaman
-  name: "плазмамен"
+  name: "plasmaman"
   root: chest
   slots:
     head:

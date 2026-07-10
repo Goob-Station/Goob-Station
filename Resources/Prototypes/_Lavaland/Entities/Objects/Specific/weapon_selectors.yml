@@ -1,7 +1,7 @@
 - type: entity
   id: UndeterminedWeaponShaftMiner
-  name: "селектор зброї шахтаря"
-  description: "Невеликий пульт на базі блюспейс-технологій, який доставляє зброю на ваш вибір."
+  name: shaft miner weapon selector
+  description: A small remote utilizing bluespace technology to drop in a weapon of your choosing.
   parent: [ BaseItem, BaseSetSelector, BaseSalvageContraband ]
   components:
   - type: Sprite
@@ -19,8 +19,8 @@
 
 - type: entity
   id: UndeterminedWeaponSalvageSpecialist
-  name: "селектор зброї спеціаліста з утилізації"
-  description: "Невеликий пульт на базі блюспейс-технологій, який доставляє зброю на ваш вибір."
+  name: salvage specialist weapon selector
+  description: A small remote utilizing bluespace technology to drop in a weapon of your choosing.
   parent: [ BaseItem, BaseSetSelector, BaseSalvageContraband ]
   components:
   - type: Sprite

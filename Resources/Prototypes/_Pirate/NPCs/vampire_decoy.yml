@@ -7,7 +7,7 @@
 
 - type: entity
   id: VampireDecoyEntity
-  name: "вампірська приманка"
+  name: vampire decoy
   components:
   - type: Transform
   - type: Sprite

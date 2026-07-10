@@ -28,7 +28,7 @@ public static class ClientPackaging
                 ArgumentList =
                 {
                     "build",
-                    Path.Combine("Content.Goobstation.Client", "Content.Goobstation.Client.csproj"), // Goob
+                    Path.Combine("Content.Pirate.Client", "Content.Pirate.Client.csproj"), // Pirate
                     "-c", configuration,
                     "--nologo",
                     "/v:m",
@@ -77,7 +77,7 @@ public static class ClientPackaging
         // Goob edit start
         // thanks 'dletandas'
         var sourcePath = Path.Combine(contentDir, "bin", "Content.Client");
-        var deps = DepsHandler.Load(Path.Combine(sourcePath, "Content.Goobstation.Client.deps.json"));
+        var deps = DepsHandler.Load(Path.Combine(sourcePath, "Content.Pirate.Client.deps.json")); // Pirate
         var contentAssemblies = ServerPackaging.GetContentAssemblyNamesToCopy(deps, "Client");
         // Good edit end
 

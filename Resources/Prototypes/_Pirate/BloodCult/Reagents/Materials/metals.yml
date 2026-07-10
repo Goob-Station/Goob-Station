@@ -8,6 +8,6 @@
 - type: material
   id: RunedSteel
   stackEntity: SheetRunedSteel1
-  name: "рунована сталь"
+  name: runed steel
   icon: { sprite: _Pirate/BloodCult/Sheets/metal.rsi, state: runedmetal }
   price: 0.0

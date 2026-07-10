@@ -40,8 +40,8 @@
 - type: entity
   parent: BoxBase
   id: ToteBase
-  name: "сумка для плат"
-  description: "Велика сумка для перенесення друкованих плат."
+  name: circuit tote
+  description: A large tote for carrying circuit boards.
   components:
   - type: Sprite
     layers:

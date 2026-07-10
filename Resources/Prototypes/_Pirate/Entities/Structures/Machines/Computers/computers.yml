@@ -1,9 +1,9 @@
 - type: entity
   parent: [ComputerComms, SolAllianceInfo]
   id: SANComputerComms
-  name: "консоль зв’язку соляріанського флоту"
+  name: "консоль зв'язку солоріанського флоту"
   suffix: SAN
-  description: "Використання її для оголошення сповістить станцію або ваших ворогів про вашу присутність."
+  description: "Використання його для оголошення сповістить станцію або вашів ворогів про вашу присутність."
   components:
   - type: Sprite
     layers:
@@ -35,8 +35,8 @@
 - type: entity
   parent: BaseComputerAiAccess
   id: MassDriverComputer
-  name: "комп’ютер мас-драйвера"
-  description: "Комп’ютер для керування мас-драйверами."
+  name: mass driver computer
+  description: A computer for controlling mass drivers.
   components:
   - type: MassDriverConsole
   - type: ActivatableUI

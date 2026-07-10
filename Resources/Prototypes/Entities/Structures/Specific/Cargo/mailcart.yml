@@ -1,9 +1,9 @@
 # Mailcart
 - type: entity
-  name: "поштовий візок"
+  name: mail cart
   id: MailCart
   parent: [BaseStructureDynamic, StructureWheeled]
-  description: "Доставляйте пакунки зі стилем та ефективністю."
+  description: Deliver packages with style and efficiency.
   components:
     - type: Sprite
       noRot: true

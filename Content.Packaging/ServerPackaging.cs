@@ -98,7 +98,7 @@ public static class ServerPackaging
                 ArgumentList =
                 {
                     "build",
-                    Path.Combine("Content.Goobstation.Server", "Content.Goobstation.Server.csproj"), // Goob
+                    Path.Combine("Content.Pirate.Server", "Content.Pirate.Server.csproj"), // Pirate
                     "-c", configuration,
                     "--nologo",
                     "/v:m",
@@ -169,7 +169,7 @@ public static class ServerPackaging
         // Additional assemblies that need to be copied such as EFCore.
         var sourcePath = Path.Combine(contentDir, "bin", "Content.Server");
 
-        var deps = DepsHandler.Load(Path.Combine(sourcePath, "Content.Goobstation.Server.deps.json")); // Goob
+        var deps = DepsHandler.Load(Path.Combine(sourcePath, "Content.Pirate.Server.deps.json")); // Pirate
 
         var contentAssemblies = GetContentAssemblyNamesToCopy(deps);
 
@@ -212,7 +212,8 @@ public static class ServerPackaging
 
     public static IEnumerable<string> GetContentAssemblyNamesToCopy(DepsHandler deps, string side)
     {
-        var depsContent = deps.RecursiveGetLibrariesFrom($"Content.Goobstation.{side}")
+        // Pirate: package from the downstream root module.
+        var depsContent = deps.RecursiveGetLibrariesFrom($"Content.Pirate.{side}")
             .SelectMany(GetLibraryNames);
         var depsRobust = deps.RecursiveGetLibrariesFrom($"Robust.{side}")
             .SelectMany(GetLibraryNames);

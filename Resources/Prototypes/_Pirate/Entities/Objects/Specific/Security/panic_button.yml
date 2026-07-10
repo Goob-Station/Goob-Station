@@ -1,7 +1,7 @@
 - type: entity
   id: PanicButtonInterdyne
-  name: "Сигналер Interdyne"
-  description: "Пристрій для виклику підкріплення."
+  name: Сигналер Інтердайну
+  description: Пристрій для виклику підкріплення.
   parent: [BaseItem, BaseInterdyneContraband]
   components:
   - type: Sprite

@@ -1,7 +1,7 @@
 - type: entity
   parent: MarkerBase
   id: RandomBook
-  name: "спавнер випадкових книг"
+  name: random book spawner
   placement:
     mode: PlaceFree # want to be able to free place books for stacks, etc.
   components:

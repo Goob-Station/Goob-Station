@@ -4,8 +4,8 @@
   abstract: true
   parent: BaseStructure
   id: BaseMaterialDoor
-  name: "двері"
-  description: "Двері, куди вони ведуть?"
+  name: door
+  description: A door, where will it lead?
   components:
   - type: Anchorable
     flags:
@@ -80,7 +80,7 @@
 - type: entity
   parent: BaseMaterialDoorNavMap
   id: MetalDoor
-  name: "металеві двері"
+  name: metal door
   components:
   - type: Construction
     graph: DoorGraph
@@ -111,7 +111,7 @@
 - type: entity
   parent: BaseMaterialDoorNavMap
   id: PlasmaDoor
-  name: "плазмові двері"
+  name: plasma door
   components:
   - type: Sprite
     sprite: Structures/Doors/MineralDoors/plasma_door.rsi
@@ -138,7 +138,7 @@
 - type: entity
   parent: BaseMaterialDoorNavMap
   id: GoldDoor
-  name: "золоті двері"
+  name: gold door
   components:
   - type: Sprite
     sprite: Structures/Doors/MineralDoors/gold_door.rsi
@@ -165,7 +165,7 @@
 - type: entity
   parent: BaseMaterialDoorNavMap
   id: SilverDoor
-  name: "срібні двері"
+  name: silver door
   components:
   - type: Sprite
     sprite: Structures/Doors/MineralDoors/silver_door.rsi
@@ -192,7 +192,7 @@
 - type: entity
   parent: BaseMaterialDoorNavMap
   id: BananiumDoor
-  name: "бананіумові двері"
+  name: bananium door
   components:
   - type: Sprite
     sprite: Structures/Doors/MineralDoors/bananium_door.rsi
@@ -227,7 +227,7 @@
 - type: entity
   parent: BaseMaterialDoorNavMap
   id: WoodDoor
-  name: "дерев'яні двері"
+  name: wooden door
   components:
   - type: Sprite
     sprite: Structures/Doors/MineralDoors/wood_door.rsi
@@ -263,7 +263,7 @@
 - type: entity
   parent: BaseMaterialDoorNavMap
   id: PaperDoor
-  name: "паперові двері"
+  name: paper door
   components:
   - type: Sprite
     sprite: Structures/Doors/MineralDoors/paper_door.rsi
@@ -299,8 +299,8 @@
 - type: entity
   parent: BaseMaterialDoorNavMap
   id: WebDoor
-  name: "павутинні двері"
-  description: "Ручні дверцята з павутиння, зазвичай розміщені безпосередньо перед ямою або пасткою."
+  name: web door
+  description: A door, leading to the lands of the spiders... or a spaced room.
   components:
   - type: Sprite
     sprite: Structures/Doors/web_door.rsi
@@ -336,7 +336,7 @@
 - type: entity
   parent: BaseMaterialDoorNavMap
   id: CardDoor
-  name: "картонні двері"
+  name: cardboard door
   components:
   - type: Sprite
     sprite: Structures/Doors/MineralDoors/card_door.rsi
@@ -377,8 +377,8 @@
 - type: entity
   parent: BaseMaterialDoorNavMap
   id: IronstoneDoor
-  name: "двері із залізного каменю"
-  description: "Таємничі двері з каменю, вкритого рунами."
+  name: ironstone door
+  description: A mysterious door made of rune-etched stone.
   components:
   - type: Sprite
     sprite: Structures/Doors/MineralDoors/ironstone_door.rsi
@@ -417,8 +417,8 @@
 - type: entity
   parent: IronstoneDoor
   id: EncrustedIronstoneDoor
-  name: "інкрустовані двері із залізного каменю"
-  description: "Кам'яні двері, вкриті перламутровими нашаруваннями невідомої речовини."
+  name: encrusted ironstone door
+  description: A stone door covered in nacreous blobs of an unknown substance.
   components:
   - type: Sprite
     sprite: Structures/Doors/MineralDoors/encrusted_ironstone_door.rsi

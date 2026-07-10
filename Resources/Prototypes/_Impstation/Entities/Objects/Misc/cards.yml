@@ -1,7 +1,7 @@
 - type: entity
   parent: CardBoxBase
   id: CardBoxTarot
-  name: "коробка колоди таро"
+  name: tarot deck box
   components:
   - type: Item
     size: Small
@@ -25,7 +25,7 @@
 - type: entity
   parent: CardDeckBase
   id: CardDeckTarot
-  name: "колода карт"
+  name: deck of cards
   components:
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
@@ -119,7 +119,7 @@
 - type: entity
   parent: BaseItem
   id: CardBaseTarot
-  name: "карта"
+  name: card
   categories: [ HideSpawnMenu ]
   components:
   - type: EmitSoundOnLand
@@ -144,7 +144,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScAceOfCups
-  description: "Келих над водоймою, оточений потоками води. Над келихом ширяє величний птах. Вода, нові почуття, духовність, інтуїція"
+  description: A chalice atop a pool, surrounded by flowing water. A grand bird hovers above the chalice. Water, New Feelings, Spirituality, Intuition
   components:
   - type: Card
     name: card-sc-ace-cups
@@ -156,7 +156,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScTwoOfCups
-  description: "Два келихи, з кожного здіймається змія. Вони переплітаються й обвивають одна одну. Вода, єдність, партнерство, зв’язок"
+  description: Two cups, each with a snake rising from it. They intertwine and wrap around each other. Water, Unity, Partnership, Connection
   components:
   - type: Card
     name: card-sc-two-cups
@@ -168,7 +168,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScThreeOfCups
-  description: "Три усміхнені жінки, кожна тримає келих. Одна стоїть попереду й підносить свій келих над головою. Дві інші тримають свої над її келихом. Вода, дружба, спільнота, щастя"
+  description: Three smiling women, each holding a cup. One is in front, holding hers above her head. The other two hold theirs above the first. Water, Friendship, Community, Happiness
   components:
   - type: Card
     name: card-sc-three-cups
@@ -180,7 +180,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScFourOfCups
-  description: "Постать подає келих, стоячи на столі. Світло сяє на нього. Біля ніг стоять три келихи. Постать виглядає невдоволеною. Вода, апатія, роздуми, відсторонення"
+  description: An individual presenting a cup, standing upon a table. Light shines upon it. Three cups stand at their feet. They look unhappy. Water, Apathy, Contemplation, Disconnection
   components:
   - type: Card
     name: card-sc-four-cups
@@ -192,7 +192,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScFiveOfCups
-  description: "Крупний план заплаканої постаті. Позаду стоять два келихи, ще три лежать розкидані внизу. Вода, втрата, скорбота, розчарування, жалоба"
+  description: A close-up of a crying individual. Two cups stand upright behind them, three others lie scattered beneath. Water, Loss, Grief, Disappointment, Mourning
   components:
   - type: Card
     name: card-sc-five-cups
@@ -204,7 +204,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScSixOfCups
-  description: "Два кролики обабіч високої квітки. Навколо них шість келихів, і з кожного проростають квіти. Вода, знайомість, спогади, зцілення, відновлення"
+  description: Two rabbits flanking a tall flower. Six cups surround them, flowers sprouting from each. Water, Familiarity, Memories, Healing, Restoration
   components:
   - type: Card
     name: card-sc-six-cups
@@ -216,7 +216,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScSevenOfCups
-  description: "Сім келихів на хмарі, у кожному щось інше: квітка, вежа, змія, корона, череп, іскри та маска. Вода, пошук мети, вибір, мрійливість"
+  description: Seven cups upon a cloud, each containing something different. A flower, a tower, a snake, a crown, a skull, sparkles, and a mask. Water, Searching for Purpose, Choices, Daydreaming
   components:
   - type: Card
     name: card-sc-seven-cups
@@ -228,7 +228,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScEightOfCups
-  description: "Постать у довгому вбранні проходить повз вісім келихів, складених один на один. Позаду вдалині видніється ліс. Вода, відхід, розчарування, залишення чогось позаду"
+  description: A long-robed individual stepping past eight cups, stacked upon each other. A forest lies in the distance behind them. Water, Walking Away, Disillusionment, Leaving Something Behind
   components:
   - type: Card
     name: card-sc-eight-cups
@@ -240,7 +240,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScNineOfCups
-  description: "Постать сидить на великій софі. Над нею на полиці стоять дев’ять келихів. Вода, задоволення, розкіш, емоційна стабільність"
+  description: An individual seated upon a large sofa. Nine cups stand shelved above them. Water, Satisfaction, Luxury, Emotional Stability
   components:
   - type: Card
     name: card-sc-nine-cups
@@ -252,7 +252,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScTenOfCups
-  description: "Десять келихів складені один на один, а з найвищого вистрибує риба. Над ними сяє сонце, перед ним розкинулася веселка. Вода, внутрішнє щастя, здійснення, мрії, що збуваються"
+  description: Cups stacked upon each other, counting ten, with a fish leaping from the top-most. The sun shines above them, a rainbow spread before it. Water, Inner Happiness, Fulfillment, Dreams Coming True
   components:
   - type: Card
     name: card-sc-ten-cups
@@ -264,7 +264,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScPageOfCups
-  description: "Паж стоїть, простягаючи свій келих, а другу руку тримає на стегні. З келиха вигинається риба. Вода, радісна несподіванка, мрійник, чутливість"
+  description: The Page stands holding their cup out, other hand on their hip. A fish curls out from the cup. Water, Happy Surprise, Dreamer, Sensitivity
   components:
   - type: Card
     name: card-sc-page-cups
@@ -276,7 +276,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScKnightOfCups
-  description: "Лицар їде верхи перед річкою. Він тримає келих обома руками. Вода, ідеалізм, романтичність, слідування поклику серця"
+  description: The Knight rides horseback before a river of water. They hold their cup with both hands. Water, Idealistic, Romantic, Following One's Heart
   components:
   - type: Card
     name: card-sc-knight-cups
@@ -288,7 +288,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScQueenOfCups
-  description: "Королева, зображена з нижньою половиною тіла риби, тримає келих низько перед собою. Її оточують мушлі та водорості. Вода, співчуття, спокій, розрада"
+  description: The Queen, depicted with the lower half of a fish, holds her cup low in front of her. Seashells and algae surround her. Water, Compassion, Calm, Comfort
   components:
   - type: Card
     name: card-sc-queen-cups
@@ -300,7 +300,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScKingOfCups
-  description: "Король, зображений з нижньою половиною тіла риби, підносить свій келих. Удалині на воді стоїть вітрильник. Вода, емоційний контроль, рівновага між серцем і розумом"
+  description: The King, depicted with the lower half of a fish, holds his cup aloft. A sailboat sits on the water in the distance. Water, Emotional Control, Balance Between Heart and Head
   components:
   - type: Card
     name: card-sc-king-cups
@@ -313,7 +313,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScAceOfPentacles
-  description: "Один величний пентакль, оточений лозами та квітами. Земля, можливість, процвітання, нова справа"
+  description: A single, grand pentacle surrounded by vines and flowers. Earth, Opportunity, Prosperity, New Venture
   components:
   - type: Card
     name: card-sc-ace-pentacles
@@ -325,7 +325,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScTwoOfPentacles
-  description: "Дві руки, кожна тримає пентакль. Між ними тягнуться лози, що завершуються квітами. Земля, баланс рішень, пріоритети, пристосування"
+  description: Two hands, each holding a pentacle. Vines spread between the two, ending in flowers. Earth, Balancing Decisions, Priorities, Adaptation
   components:
   - type: Card
     name: card-sc-two-pentacles
@@ -337,7 +337,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScThreeOfPentacles
-  description: "Три постаті стоять разом: одна в робі, одна у фартуху, одна в обладунках. Над кожною сяє пентакль. Земля, командна робота, співпраця, спільне творення"
+  description: Three individuals stand together; one robed, one aproned, one armored. A pentacle for each shines above them. Earth, Teamwork, Collaboration, Building Together
   components:
   - type: Card
     name: card-sc-three-pentacles
@@ -349,7 +349,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScFourOfPentacles
-  description: "Постать у костюмі стоїть на пентаклі, балансує одним на голові й тримає ще два в руках. Вона стоїть перед будівлею з колонами. Земля, збереження, безпека, ощадливість"
+  description: A suited individual stands atop a pentacle, balances one on their head, and holds two more in each hand. They stand before a columned building. Earth, Conservation, Security, Frugality
   components:
   - type: Card
     name: card-sc-four-pentacles
@@ -361,7 +361,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScFiveOfPentacles
-  description: "Складені човником руки простягнуті до зачинених дверей. Раму прикрашають п’ять пентаклів. Земля, потреба, бідність, небезпека, брак ресурсів"
+  description: Cupped hands are outstretched towards a closed door. The frame is adorned with pentacles counting five. Earth, Need, Poverty, Insecurity, Low Resources
   components:
   - type: Card
     name: card-sc-five-pentacles
@@ -373,7 +373,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScSixOfPentacles
-  description: "Зі складених рук шість пентаклів падають до двох відкритих долонь. Між відкритими долонями лежать терези. Земля, милосердя, щедрість, ділення"
+  description: Cupped hands drop six pentacles down towards two open hands. A scale rests between the two open hands. Earth, Charity, Generosity, Sharing
   components:
   - type: Card
     name: card-sc-six-pentacles
@@ -385,7 +385,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScSevenOfPentacles
-  description: "На полі проростають посіви з сімома квітучими пентаклями. Земля, важка праця, наполегливість, старанність"
+  description: Crops upon farmland sprout flowering pentacles counting seven. Earth, Hard Work, Perseverance, Diligence
   components:
   - type: Card
     name: card-sc-seven-pentacles
@@ -397,7 +397,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScEightOfPentacles
-  description: "Молот коваля яскраво сяє над ковадлом, оточений вісьмома пентаклями. Земля, старанність, пристрасть, високі стандарти"
+  description: A smith's hammer shines brightly above an anvil, surrounded by eight pentacles. Earth, Diligence, Passion, High Standards
   components:
   - type: Card
     name: card-sc-eight-pentacles
@@ -409,7 +409,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScNineOfPentacles
-  description: "Зачинена брама, прикрашена пентаклями, стоїть перед пишним лісом. На кожній стулці брами по чотири пентаклі, ще один над рамою. Земля, плоди праці, марнотратство, винагороди"
+  description: A closed gate adorned with pentacles lies before a lush woodland. Four pentacles on each gate door, one atop the frame. Earth, Fruits of Labor, Reckless Spending, Rewards
   components:
   - type: Card
     name: card-sc-nine-pentacles
@@ -421,7 +421,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScTenOfPentacles
-  description: "Велике дерево стоїть перед аркою, і шість пентаклів ростуть з його гілок. Ще чотири спочивають над ним. Земля, спадщина, наслідування, завершення"
+  description: A large tree stands before an arch with six pentacles growing from its branches. Four more rest above it. Earth, Legacy, Inheritance, Culmination
   components:
   - type: Card
     name: card-sc-ten-pentacles
@@ -433,7 +433,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScPageOfPentacles
-  description: "Паж стоїть з пентаклем в одній руці, другу тримає за спиною. Навколо нього проростають рослини. Земля, амбіція, бажання, старанність, потяг до нових пригод"
+  description: The Page stands with a pentacle in one hand, the other behind their back. Plants sprout around them. Earth, Ambition, Desire, Diligence, Craving New Adventure
   components:
   - type: Card
     name: card-sc-page-pentacles
@@ -445,7 +445,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScKnightOfPentacles
-  description: "Лицар їде верхи, тримаючи пентакль. Він стоїть перед полем високих посівів. Земля, ефективність, важка праця, відповідальність"
+  description: The Knight rides on horseback, pentacle in hand. They stand before farmland containing tall crops. Earth, Efficiency, Hard Work, Responsibility
   components:
   - type: Card
     name: card-sc-knight-pentacles
@@ -457,7 +457,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScQueenOfPentacles
-  description: "Королева стоїть з пентаклем у руці серед густої рослинності. Навколо неї ростуть лози, біля ніг проростки. Земля, практичність, тілесний затишок, безпека"
+  description: The Queen stands, pentacle in hand, within thick vegetation. Vines grow around her, sprouts are at her feet. Earth, Practicality, Creature Comforts, Security
   components:
   - type: Card
     name: card-sc-queen-pentacles
@@ -469,7 +469,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScKingOfPentacles
-  description: "Король з рогами на голові сидить на скромній лаві, тримаючи пентакль на колінах. Позаду — величний замок і відповідний ліс. Земля, достаток, процвітання, годувальник, щедрість"
+  description: The King, antlers upon his head, sits upon a modest bench, pentacle upon his lap. A grand castle and forest to match lie behind him. Earth, Abundance, Prosperity, Provider, Generosity
   components:
   - type: Card
     name: card-sc-king-pentacles
@@ -482,7 +482,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScAceOfSwords
-  description: "Один величний меч стоїть вістрям угору. Навколо нього звивається змія. Корона лежить біля самого вістря. Меч розтинає хмари, і крізь них сяє світло. Повітря, прорив, ясність, гострий розум"
+  description: A single, grand sword stands upright. A snake coils around it. A crown sits upon it, just before its end. It parts clouds, light shining past it. Air, Breakthrough, Clarity, Sharp Mind
   components:
   - type: Card
     name: card-sc-ace-swords
@@ -494,7 +494,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScTwoOfSwords
-  description: "Постать із зав’язаними очима сидить на самоті ясної ночі. Вона тримає два мечі зі схрещеними руків’ями. Повітря, складний вибір, нерішучість, глухий кут"
+  description: A blindfolded individual sits alone during a clear night. They hold two swords, their hilts crossing. Air, Difficult Choices, Indecision, Stalemate
   components:
   - type: Card
     name: card-sc-two-swords
@@ -506,7 +506,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScThreeOfSwords
-  description: "Серце з плачучим оком, у яке згори встромлені три мечі. Над ним дощать грозові хмари. Повітря, розбите серце, страждання, скорбота"
+  description: A heart with a crying eye, three swords piercing downward into it. Storm clouds rain upon it. Air, Heartbreak, Suffering, Grief
   components:
   - type: Card
     name: card-sc-three-swords
@@ -518,7 +518,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScFourOfSwords
-  description: "Втомлена постать стоїть за щитом. На стіні позаду неї висять чотири клинки. Повітря, відпочинок, відновлення, роздуми"
+  description: A tired-looking individual stands behind a shield. Blades adorn the wall behind them, counting four. Air, Rest, Restoration, Contemplation
   components:
   - type: Card
     name: card-sc-four-swords
@@ -530,7 +530,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScFiveOfSwords
-  description: "Чотири мечі підняті горизонтально, кожен перехрещений одним вертикальним мечем із черепом нагорі. Під клинками лежать надгробки. Повітря, нестримні амбіції, перемога будь-якою ціною, підступність"
+  description: Four swords raised horizontally, each crossed by one upright with a skull atop it. Gravestones lie beneath the blades. Air, Unbridled Ambition, Win At All Costs, Sneakiness
   components:
   - type: Card
     name: card-sc-five-swords
@@ -542,7 +542,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScSixOfSwords
-  description: "Шість клинків стоять вістрями донизу на борту човна, їхні руків’я спрямовані вгору. Судно рухається хвилями. Повітря, перехід, залишення позаду, рух уперед"
+  description: Six blades stand upright, their hilts pointing upward, aboard a boat. The vessel moves across the waves. Air, Transition, Leaving Behind, Moving On
   components:
   - type: Card
     name: card-sc-six-swords
@@ -554,7 +554,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScSevenOfSwords
-  description: "Шість клинків стоять вістрями донизу під зоряним небом. Лис кладе лапу на сьомий, діагонально спрямований клинок. Повітря, обман, хитрощі, тактика і стратегія"
+  description: Six blades stand upright, pointed downward, in a starry night. A fox rests its paw upon the seventh, the blade pointed diagonally. Air, Deception, Trickery, Tactics and Strategy
   components:
   - type: Card
     name: card-sc-seven-swords
@@ -566,7 +566,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScEightOfSwords
-  description: "Постать стоїть із зав’язаними очима та зв’язаними руками. Шість клинків стоять обабіч неї, по три з кожного боку. Ще два схрещені перед нею. Вона кровоточить, кров збирається біля її ніг. Повітря, ув’язнення, пастка, самовіктимізація"
+  description: An individual stands blindfolded and bound. Six blades flank them, three on each side. Two more cross in front of them. They are bleeding, blood pooling at their feet. Air, Imprisonment, Entrapment, Self-Victimization
   components:
   - type: Card
     name: card-sc-eight-swords
@@ -578,7 +578,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScNineOfSwords
-  description: "Заплакана постать стоїть з розпростертими руками. Сім клинків спрямовані донизу на неї, ще два загрожують пронизати кожну руку. Повітря, тривога, безнадія, травма"
+  description: A crying individual stands with their arms outstretched. Seven blades point downward toward them, two more threaten to pierce each arm. Air, Anxiety, Hopelessness, Trauma
   components:
   - type: Card
     name: card-sc-nine-swords
@@ -590,7 +590,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScTenOfSwords
-  description: "Постать стоїть розсічена навпіл, кров збирається біля її ніг. Десять клинків схрещуються й пронизують її тіло. Повітря, невдача, крах, поразка, удар у спину"
+  description: An individual stands bisected, blood pooling at their feet. Ten blades cross and pierce through their body. Air, Failure, Collapse, Defeat, Backstabbing
   components:
   - type: Card
     name: card-sc-ten-swords
@@ -602,7 +602,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScPageOfSwords
-  description: "Паж стоїть на скелі. Він тримає меч за руків’я і клинок, поклавши його за спину. Повітря, цікавість, непосидючість, розумова енергія"
+  description: The Page stands atop a rock. They hold their sword by hilt and blade, resting it behind their back. Air, Curiosity, Restlessness, Mental Energy
   components:
   - type: Card
     name: card-sc-page-swords
@@ -614,7 +614,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScKnightOfSwords
-  description: "Лицар їде верхи на пегасі, високо тримаючи клинок. Над ним здіймаються в небо птахи. На його табарді зображений щит. Повітря, дія, імпульсивність, захист переконань"
+  description: The Knight rides atop a pegasus, their blade held aloft. Birds soar skyward above them. A shield is emblazoned upon their tabard. Air, Action, Impulsiveness, Defending Beliefs
   components:
   - type: Card
     name: card-sc-knight-swords
@@ -626,7 +626,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScQueenOfSwords
-  description: "Королева стоїть, тримаючи меч ідеально вертикально, а другу руку ховає за спиною. Повітря, складність, проникливість, ясність думки"
+  description: The Queen stands with her sword held perfectly upright, her other hand behind her back. Air, Complexity, Perceptive, Clear Mindedness
   components:
   - type: Card
     name: card-sc-queen-swords
@@ -638,7 +638,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScKingOfSwords
-  description: "Король сидить на троні в повних обладунках. В одній руці він тримає меч вертикально, в іншій — глобус. Повітря, розум понад серце, істина, дисципліна"
+  description: The King sits upon his throne, full armored. His sword is held upright in one hand, a globe held in the other. Air, Head Over Heart, Truth, Discipline
   components:
   - type: Card
     name: card-sc-king-swords
@@ -651,7 +651,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScAceOfWands
-  description: "Один жезл із запаленим кінцем височіє над зеленню. Вогонь, творення, сила волі, натхнення, бажання"
+  description: A single wand, its end alight with flame, stands tall above greenery. Fire, Creation, Willpower, Inspiration, Desire
   components:
   - type: Card
     name: card-sc-ace-wands
@@ -663,7 +663,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScTwoOfWands
-  description: "Постать з двома жезлами стоїть перед кришталевою кулею. Далеко позаду здіймаються вкриті хмарами гори. Вогонь, планування, ухвалення рішень, відхід з дому"
+  description: An individual, holding two wands, stands before a crystal ball. Cloudy mountaintops loom far behind them. Fire, Planning, Making Decisions, Leaving Home
   components:
   - type: Card
     name: card-sc-two-wands
@@ -675,7 +675,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScThreeOfWands
-  description: "Постать у церемоніальному військовому костюмі. Позаду неї стяг із трьома жезлами. Ще далі видно замкові мури. Вогонь, погляд уперед, розширення, швидке зростання"
+  description: An individual wearing a ceremonial military suit. There is a banner emblazoned with three wands behind them. There are castle battlements further behind. Fire, Looking Ahead, Expansion, Rapid Growth
   components:
   - type: Card
     name: card-sc-three-wands
@@ -687,7 +687,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScFourOfWands
-  description: "Високий замок. Стежку до нього обрамляють чотири жезли, по два з кожного боку. Вогонь, спільнота, дім, святкування"
+  description: A castle standing tall. The path leading up to it is flanked by four wands, two on each side. Fire, Community, Home, Celebration
   components:
   - type: Card
     name: card-sc-four-wands
@@ -699,7 +699,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScFiveOfWands
-  description: "Один жезл, оточений щитами, піднятий до неба. Над ним перехрещуються чотири жезли. Вогонь, змагання, конфлікт, реальність"
+  description: One wand, flanked by shields is raised skyward. Four wands cross above it. Fire, Competition, Conflict, Reality
   components:
   - type: Card
     name: card-sc-five-wands
@@ -711,7 +711,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScSixOfWands
-  description: "Лицар повертається додому з турніру. Він тримає один жезл, а ще п’ять над ним як прапори. Вогонь, перемога, успіх, суспільна винагорода"
+  description: A knight returning home from a tour. They wield one wand, five others are banners above them. Fire, Victory, Success, Public Reward
   components:
   - type: Card
     name: card-sc-six-wands
@@ -723,7 +723,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScSevenOfWands
-  description: "Щит із двома схрещеними жезлами позаду. П’ять жезлів, зображених як списи, спрямовані на щит. Вогонь, наполегливість, організація оборони, збереження контролю"
+  description: A shield with two wands crossed behind it. Five wands, depicted as spears, point towards the shield. Fire, Perseverance, Mounting a Defense, Maintaining Control
   components:
   - type: Card
     name: card-sc-seven-wands
@@ -735,7 +735,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScEightOfWands
-  description: "Вісім жезлів, зображених як стріли, летять у небо. Птахи летять поруч із ними до сонця. Вогонь, швидка дія, рух, швидкі рішення"
+  description: Eight wands, depicted as arrows, shoot skyward. Birds fly alongside them, up towards the sun. Fire, Rapid Action, Movement, Quick Decisions
   components:
   - type: Card
     name: card-sc-eight-wands
@@ -747,7 +747,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScNineOfWands
-  description: "Постать стоїть на фортечному мурі, тримаючи жезл як посох. Перед стіною вертикально стоять вісім жезлів. Вогонь, стійкість, витримка, остання оборона"
+  description: An individual stands on a battlement, holding a wand as a staff. Eight wands stand upright before the wall. Fire, Resilience, Grit, Taking Last Stand
   components:
   - type: Card
     name: card-sc-nine-wands
@@ -759,7 +759,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScTenOfWands
-  description: "Скарабей тримає над собою око. Над ним схрещені десять жезлів. Вогонь, досягнення, відповідальність, тягар"
+  description: A scarab holds an eye above it. Ten wands cross above it. Fire, Accomplishment, Responsibility, Burden
   components:
   - type: Card
     name: card-sc-ten-wands
@@ -771,7 +771,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScPageOfWands
-  description: "Паж стоїть скромно, тримаючи поруч жезл як дорожній посох. Удалині видніються гори. Вогонь, дослідження, захват, свобода"
+  description: The Page stands humbly, their wand as a walking staff held beside them. Mountains are far off in the distance. Fire, Exploration, Excitement, Freedom
   components:
   - type: Card
     name: card-sc-page-wands
@@ -783,7 +783,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScKnightOfWands
-  description: "Лицар їде верхи, його жезл палає на кінці. За ним сяє сонце. Вогонь, дія, пригода, безстрашність"
+  description: The Knight rides on horseback, their wand alight with flame at its end. The sun shines behind them. Fire, Action, Adventure, Fearlessness
   components:
   - type: Card
     name: card-sc-knight-wands
@@ -795,7 +795,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScQueenOfWands
-  description: "Королева стоїть між двома жезлами, що палають обабіч неї. Сонце сяє за її увінчаною головою. Вогонь, сміливість, рішучість, пристрасть, радість"
+  description: The Queen stands with two wands, alight with flame, flanking her. The sun shines behind her crowned head. Fire, Courage, Determination, Passion, Joy
   components:
   - type: Card
     name: card-sc-queen-wands
@@ -807,7 +807,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScKingOfWands
-  description: "Король сидить на троні, біля його ніг горить вогонь. Трон обрамляють жезли з палаючими кінцями. Вогонь, широка картина, лідер, подолання викликів"
+  description: The King sits on his throne, a fire burns at his feet. Wands with burning ends frame his throne. Fire, Big Picture, Leader, Overcoming Challenges
   components:
   - type: Card
     name: card-sc-king-wands
@@ -819,7 +819,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScTheFool
-  description: "Початок шляху до просвітлення. Дурень стоїть, одягнений відповідно, і жонглює. Невинність, нові початки, диво, нерозсудливість"
+  description: The beginning of the path to enlightenment. The Fool stands, dressed as such, juggling. Innocence, New Beginnings, Wonder, Foolishness
   components:
   - type: Card
     name: card-sc-the-fool
@@ -831,7 +831,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScTheMagician
-  description: "Перший крок до просвітлення. Маг стоїть за столом, тримаючи Жезл. На столі лежать Келих, Пентакль і Меч. Сила волі, творення, майстерність, пристосування"
+  description: The first step to enlightenment. The Magician stands behind a table, wielding a Wand. A Cup, Pentacle, and Sword lie upon the table. Willpower, Creation, Mastery, Adaptation
   components:
   - type: Card
     name: card-sc-the-magician
@@ -843,7 +843,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScTheHighPriestess
-  description: "Другий крок до просвітлення. Верховна Жриця стоїть перед двома колонами, з книгою та кристалом у руках. Внутрішній голос, інтуїція, божественна істина, мудрість, несвідоме"
+  description: The second step to enlightenment. The High Priestess stands before two columns, book and crystal in hand. Inner Voice, Intuition, Divine Truth, Wisdom, Unconscious
   components:
   - type: Card
     name: card-sc-the-high-priestess
@@ -855,7 +855,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScTheEmpress
-  description: "Третій крок до просвітлення. Імператриця стоїть у розкішному полі, вбрана в королівські шати. Краса, родючість, плекання, розкіш, творчість"
+  description: The third step to enlightenment. The Empress stands, adorned in royal robes, in a lush field. Beauty, Fertility, Nurturing, Luxury, Creativity
   components:
   - type: Card
     name: card-sc-the-empress
@@ -867,7 +867,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScTheEmperor
-  description: "Четвертий крок до просвітлення. Імператор сидить коронований на троні зі скіпетром у руці. Позаду здіймаються гірські вершини. Структура, амбіція, влада, раціональність"
+  description: The fourth step to enlightenment. The Emperor sits, crowned, upon the throne, sceptre in hand. Mountaintops rise behind him. Structure, Ambition, Authority, Rationality
   components:
   - type: Card
     name: card-sc-the-emperor
@@ -879,7 +879,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScTheHierophant
-  description: "П’ятий крок до просвітлення. Ієрофант, служитель культу, стоїть за священним письмом. Перед ним стоять дві постаті у вуалях. Традиція, спадщина, суспільство, організована релігія"
+  description: The fifth step to enlightenment. The Hierophant, a man of the cloth, stands behind scripture. Two veiled individuals stand before him. Tradition, Legacy, Society, Organized Religion
   components:
   - type: Card
     name: card-sc-the-hierophant
@@ -891,7 +891,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScTheLovers
-  description: "Шостий крок до просвітлення. Закохані стоять у пишному саду, між ними плід... а над ним змія. Вибір, союз, любов, стосунки"
+  description: The sixth step to enlightenment. The Lovers stand in a lush garden, fruit between them... and a snake above it. Choices, Union, Love, Relationship
   components:
   - type: Card
     name: card-sc-the-lovers
@@ -903,7 +903,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScTheChariot
-  description: "Сьомий крок до просвітлення. Ракетний корабель, що летить до зірок, стрімко мчить уперед. Самоконтроль, дисципліна, успіх"
+  description: The seventh step to enlightenment. A rocket ship, shooting for the stars, rocketing onwards. Self Control, Discipline, Success
   components:
   - type: Card
     name: card-sc-the-chariot
@@ -915,7 +915,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScStrength
-  description: "Восьмий крок до просвітлення. Надійний тулбокс, побитий і трохи закривавлений, у руках грейтайдера. Усередині лежать інструменти й матеріали. Відвага, внутрішня сила, переконаність, співчуття"
+  description: The eighth step to enlightenment. The trusty toolbox, dinged and slightly bloody, wielded by the greytider. Tools and materials lie within. Courage, Inner Strength, Conviction, Compassion
   components:
   - type: Card
     name: card-sc-strength
@@ -927,7 +927,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScTheHermit
-  description: "Дев’ятий крок до просвітлення. Постать у робі стоїть на краю урвища, освітлюючи місцевість ліхтарем. Споглядання, самотність, прозріння, усвідомлення"
+  description: The ninth step to enlightenment. A robed figure stands at a cliffside, their lantern illuminating the area. Contemplation, Solitude, Insight, Awareness
   components:
   - type: Card
     name: card-sc-the-hermit
@@ -939,7 +939,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScTheWheel
-  description: "Десятий крок до просвітлення. Колесо стоїть на видному місці, навколо нього лежать зображення інших карт. Доля, карма, призначення, удача, цикли"
+  description: The tenth step to enlightenment. The Wheel stands prominent, other card's depictions lie around it. Fate, Karma, Destiny, Fortune, Cycles
   components:
   - type: Card
     name: card-sc-the-wheel
@@ -951,7 +951,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScJustice
-  description: "Одинадцятий крок до просвітлення. Меч, спрямований вістрям донизу, з терезами, що звисають з обох боків його руків’я. Істина, справедливість, закон, ясність, причина і наслідок"
+  description: The eleventh step to enlightenment. A sword, blade pointed downwards, with scales hanging off of both sides of its hilt. Truth, Faireness, Law, Clarity, Cause and Effect
   components:
   - type: Card
     name: card-sc-justice
@@ -963,7 +963,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScTheHangedMan
-  description: "Дванадцятий крок до просвітлення. Повішений висить догори дриґом на стовпі, прив’язаний за щиколотку. Навколо його голови святе сяйво. Жертва, призупинення, звільнення, мучеництво"
+  description: The twelfth step to enlightenment. The Hanged Man hangs upside-down off of a post, tied by the ankle. There is a holy glow around his head. Sacrifice, Suspension, Release, Martyrdom
   components:
   - type: Card
     name: card-sc-the-hanged-man
@@ -975,7 +975,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScDeath
-  description: "Тринадцятий крок до просвітлення. Скелет стоїть перед відкритою брамою, тримаючи в кожній руці косу, схрещену перед собою. Навколо брами пишна зелень. Кінець циклу, нові початки, зміна, метаморфоза"
+  description: The thirteenth step to enlightenment. A skeleton stands before an open gate, scythes in each hand, crossed in front of them. Around the gate is lush greenery. End of Cycle, New Beginnings, Change, Metamorphosis
   components:
   - type: Card
     name: card-sc-death
@@ -987,7 +987,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScTemperance
-  description: "Чотирнадцятий крок до просвітлення. Ангел стоїть із заплющеними очима між двома келихами. Вода тече перед ним і між келихами. Серединний шлях, терпіння, пошук сенсу"
+  description: The fourteenth step to enlightenment. An angel stands eyes closed between two cups. Water flows before them and between the cups. Middle Path, Patience, Finding Meaning
   components:
   - type: Card
     name: card-sc-temperance
@@ -999,7 +999,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScTheDevil
-  description: "П’ятнадцятий крок до просвітлення. Диявол стоїть, розкинувши руки над Закоханими. Матеріалізм, грайливість, насолода, залежність"
+  description: The fifteenth step to enlightenment. The Devil stands with his arms over the Lovers. Materialism, Playfulness, PLeasure, Addiction
   components:
   - type: Card
     name: card-sc-the-devil
@@ -1011,7 +1011,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScTheTower
-  description: "Шістнадцятий крок до просвітлення. Вежа височіє посеред сильної бурі, на її верхівці яскраво палає вогнище. Потрясіння, катастрофа, зміна основ"
+  description: The sixteenth step to enlightenment. The Tower stands tall in a heavy storm, a pyre burning bright atop it. Upheaval, Disaster, Foundational Shift
   components:
   - type: Card
     name: card-sc-the-tower
@@ -1023,7 +1023,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScTheStar
-  description: "Сімнадцятий крок до просвітлення. Жінка стоїть у водоспаді під зорями, наповнюючи келихи. Вода їй до колін, з неї проростає рогіз. Надія, віра, омолодження, відбудова, зцілення"
+  description: The seventeenth step to enlightenment. A woman stands, stars above her, filling cups in a waterfall. She is knee-deep in water, cattails sprouting from it. Hope, Faith, Rejuvenation, Rebuilding, Healing
   components:
   - type: Card
     name: card-sc-the-star
@@ -1035,7 +1035,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScTheMoon
-  description: "Вісімнадцятий крок до просвітлення. Місяць нависає над водоймою, яку обрамляють вежі на лісистих островах. У воді дві риби кружляють одна навколо одної. Несвідоме, ілюзії, інтуїція, неясність"
+  description: The eighteenth step to enlightenment. The Moon looms over a body of water, towers upon wooded islands flanking it. The water holds two fish circling each other. Unconscious, Illusions, Intuition, Unclarity
   components:
   - type: Card
     name: card-sc-the-moon
@@ -1047,7 +1047,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScTheSun
-  description: "Дев’ятнадцятий крок до просвітлення. Сонце яскраво сяє над пагорбом. До нього простягнута рука. Радість, успіх, святкування, насолода"
+  description: The nineteenth step to enlightenment. The Sun shines bright over a hill. A hand is outstretched towards it. Joy, Success, Celebration, Pleasure
   components:
   - type: Card
     name: card-sc-the-sun
@@ -1059,7 +1059,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScJudgement
-  description: "Двадцятий крок до просвітлення. Вісник Смерті тримає сурму над кладовищем. Із землі тягнуться руки. Роздуми, розплата, пробудження"
+  description: The twentieth step to enlightenment. A herald of Death holds a trumpet over a graveyard. Hands reach from the ground. Reflection, Reckoning, Awakening
   components:
   - type: Card
     name: card-sc-judgement
@@ -1071,7 +1071,7 @@
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
   id: CardScTheWorld
-  description: "Останній крок до просвітлення. Логотип Нанотрейзен разом з усіма стихіями зустрічає Дурня наприкінці його подорожі. Здійснення, гармонія, завершення"
+  description: The final step to enlightenment. The Nanotrasen logo, along with each of the elements, meet the Fool at the end of their journey. Fulfillment, Harmony, Completion
   components:
   - type: Card
     name: card-sc-the-world
@@ -1127,8 +1127,8 @@
 - type: entity
   parent: [ BoxCardboard, BaseBagOpenClose ]
   id: CardBoxTippyTrump
-  name: "коробка стартового набору ТіппіТрамп"
-  description: "Містить два таємничі пакунки ТіппіТрамп!"
+  name: TippyTrump starter pack box
+  description: Contains two Tippy Trump mystery packs!
   components:
   - type: Item
     size: Tiny
@@ -1159,8 +1159,8 @@
   parent: TippyTrumpMysteryPack
   id: TippyTrumpMysteryPackSyndicate
   suffix: Syndicate
-  name: "таємничий пакунок ТіппіТрамп"
-  description: "Містить п’ять випадкових карт."
+  name: TippyTrump mystery pack
+  description: Contains five random cards.
   components:
   - type: SpawnItemsOnUse
     items:
@@ -1171,8 +1171,8 @@
   suffix: syndicate
   categories: [ HideSpawnMenu ]
   parent: OpenTippyTrumpPack
-  name: "таємничий пакунок ТіппіТрамп"
-  description: "Містить п’ять випадкових карт."
+  name: TippyTrump mystery pack
+  description: Contains five random cards.
   components:
   - type: EntityTableContainerFill
     containers:
@@ -1241,8 +1241,8 @@
 - type: entity
   parent: BaseItem
   id: TippyTrumpMysteryPack
-  name: "таємничий пакунок ТіппіТрамп"
-  description: "Містить п’ять випадкових карт."
+  name: TippyTrump mystery pack
+  description: Contains five random cards.
   components:
   - type: Item
     size: Tiny
@@ -1260,8 +1260,8 @@
   id: OpenTippyTrumpPack
   categories: [ HideSpawnMenu ]
   parent: BoxCardboard
-  name: "таємничий пакунок ТіппіТрамп"
-  description: "Містить п’ять випадкових карт."
+  name: TippyTrump mystery pack
+  description: Contains five random cards.
   components:
   - type: Item
     size: Tiny
@@ -1453,8 +1453,8 @@
 - type: entity
   parent: BaseItem
   id: CardBaseTippyTrump
-  name: "карта ТіппіТрамп"
-  description: "Карта ТіппіТрамп з брендом Нанотрейзен!"
+  name: TippyTrump card
+  description: NT branded Tippy Trumps card!
   categories: [ HideSpawnMenu ]
   components:
   - type: EmitSoundOnLand

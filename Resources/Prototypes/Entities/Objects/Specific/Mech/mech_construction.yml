@@ -52,8 +52,8 @@
 - type: entity
   parent: BaseRipleyPart
   id: RipleyHarness
-  name: "джгути ріплі"
-  description: "Ядро АПЛУ Ріплі."
+  name: ripley harness
+  description: The core of the Ripley APLU.
   components:
   - type: Appearance
   - type: ItemMapper
@@ -99,8 +99,8 @@
 - type: entity
   parent: BaseRipleyPartItem
   id: RipleyLArm
-  name: "ліва рука ріплі"
-  description: "Лівий маніпулятор ПТРК Ріплі. Находиться на шасі меча."
+  name: ripley left arm
+  description: The left arm of the Ripley APLU. It belongs on the chassis of the mech.
   components:
   - type: Sprite
     state: ripley_l_arm
@@ -111,8 +111,8 @@
 - type: entity
   parent: BaseRipleyPartItem
   id: RipleyLLeg
-  name: "ліва нога ріплі"
-  description: "Ліва нога бронетранспортера Ripley APLU. Вона стоїть на шасі меча."
+  name: ripley left leg
+  description: The left leg of the Ripley APLU. It belongs on the chassis of the mech.
   components:
   - type: Sprite
     state: ripley_l_leg
@@ -123,8 +123,8 @@
 - type: entity
   parent: BaseRipleyPartItem
   id: RipleyRLeg
-  name: "права нога ріплі"
-  description: "Права нога бронетранспортера Ripley APLU. Стоїть на шасі меча."
+  name: ripley right leg
+  description: The right leg of the Ripley APLU. It belongs on the chassis of the mech.
   components:
   - type: Sprite
     state: ripley_r_leg
@@ -135,8 +135,8 @@
 - type: entity
   parent: BaseRipleyPartItem
   id: RipleyRArm
-  name: "права рука ріплі"
-  description: "Права рука ПТРК Ріплі. Находиться на шасі меча."
+  name: ripley right arm
+  description: The right arm of the Ripley APLU. It belongs on the chassis of the mech.
   components:
   - type: Sprite
     state: ripley_r_arm
@@ -167,8 +167,8 @@
 - type: entity
   parent: BaseHonkerPart
   id: HonkerHarness
-  name: "Упряж H.O.N.K"
-  description: "Ядро механізму H.O.N.K"
+  name: H.O.N.K. harness
+  description: The core of the H.O.N.K. mech
   components:
   - type: Appearance
   - type: ItemMapper
@@ -214,8 +214,8 @@
 - type: entity
   parent: BaseHonkerPartItem
   id: HonkerLArm
-  name: "H.O.N.K. ліва рука"
-  description: "Ліва рука H.O.N.K. з унікальними гніздами, які приймають дивну зброю, розроблену вченими-клоунами."
+  name: H.O.N.K. left arm
+  description: A H.O.N.K. left arm, with unique sockets that accept odd weaponry designed by clown scientists.
   components:
   - type: Sprite
     state: honker_l_arm
@@ -226,8 +226,8 @@
 - type: entity
   parent: BaseHonkerPartItem
   id: HonkerLLeg
-  name: "H.O.N.K. ліва нога"
-  description: "Ліва нога H.O.N.K. Стопа виглядає достатньо великою, щоб повністю вмістити клоунський черевик."
+  name: H.O.N.K. left leg
+  description: A H.O.N.K. left leg. The foot appears just large enough to fully accommodate a clown shoe.
   components:
   - type: Sprite
     state: honker_l_leg
@@ -238,8 +238,8 @@
 - type: entity
   parent: BaseHonkerPartItem
   id: HonkerRLeg
-  name: "H.O.N.K. права нога"
-  description: "Права нога H.O.N.K. Стопа виглядає достатньо великою, щоб повністю вмістити клоунський черевик."
+  name: H.O.N.K. right leg
+  description: A H.O.N.K. right leg. The foot appears just large enough to fully accommodate a clown shoe.
   components:
   - type: Sprite
     state: honker_r_leg
@@ -250,8 +250,8 @@
 - type: entity
   parent: BaseHonkerPartItem
   id: HonkerRArm
-  name: "H.O.N.K. права рука"
-  description: "Права рука H.O.N.K. з унікальними гніздами, які приймають дивну зброю, розроблену вченими-клоунами."
+  name: H.O.N.K. right arm
+  description: A H.O.N.K. right arm, with unique sockets that accept odd weaponry designed by clown scientists.
   components:
   - type: Sprite
     state: honker_r_arm
@@ -282,8 +282,8 @@
 - type: entity
   parent: BaseHamtrPart
   id: HamtrHarness
-  name: "Упряж HAMTR"
-  description: "Ядро HAMTR."
+  name: HAMTR harness
+  description: The core of the HAMTR.
   components:
   - type: Appearance
   - type: ItemMapper
@@ -329,8 +329,8 @@
 - type: entity
   parent: BaseHamtrPartItem
   id: HamtrLArm
-  name: "HAMTR ліва рука"
-  description: "Лівий кронштейн HAMTR. Він стоїть на шасі меча."
+  name: HAMTR left arm
+  description: The left arm of the HAMTR. It belongs on the chassis of the mech.
   components:
   - type: Sprite
     state: hamtr_l_arm
@@ -341,8 +341,8 @@
 - type: entity
   parent: BaseHamtrPartItem
   id: HamtrLLeg
-  name: "HAMTR ліва нога"
-  description: "Ліва нога HAMTR. Вона стоїть на шасі меча."
+  name: HAMTR left leg
+  description: The left leg of the HAMTR. It belongs on the chassis of the mech.
   components:
   - type: Sprite
     state: hamtr_l_leg
@@ -353,8 +353,8 @@
 - type: entity
   parent: BaseHamtrPartItem
   id: HamtrRLeg
-  name: "HAMTR права нога"
-  description: "Права нога HAMTR. Вона стоїть на шасі меча."
+  name: HAMTR right leg
+  description: The right leg of the HAMTR. It belongs on the chassis of the mech.
   components:
   - type: Sprite
     state: hamtr_r_leg
@@ -365,8 +365,8 @@
 - type: entity
   parent: BaseHamtrPartItem
   id: HamtrRArm
-  name: "HAMTR права рука"
-  description: "Права рука HAMTR. Він стоїть на шасі меча."
+  name: HAMTR right arm
+  description: The right arm of the HAMTR. It belongs on the chassis of the mech.
   components:
   - type: Sprite
     state: hamtr_r_arm
@@ -397,8 +397,8 @@
 - type: entity
   parent: BaseVimPartItem
   id: VimHarness
-  name: "vim harness"
-  description: "Невеликий монтажний кронштейн для деталей vim."
+  name: vim harness
+  description: A small mounting bracket for vim parts.
   components:
   - type: Appearance
   - type: ItemMapper

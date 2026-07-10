@@ -1,8 +1,8 @@
 - type: entity
   parent: HolyKatana
   id: NullrodHolyKatana
-  name: "сонцехват"
-  description: "Сонячний церемоніальний клинок із тьмяного золота, який носив полеглий мечник на шляху спокути."
+  name: suncatcher
+  description: A sunlit ceremonial blade of dull gold, borne by a fallen swordsman seeking atonement.
   components:
   - type: DivineIntervention
   - type: AlternatePrayable

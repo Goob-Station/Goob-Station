@@ -1,7 +1,7 @@
 - type: entity
   id: ChemistryBottleFormaldehyde
   suffix: formaldehyde
-  name: "пляшка бальзамувальної рідини"
+  name: embalming fluid bottle
   parent: BaseChemistryBottleFilled
   components:
   - type: Label
@@ -17,8 +17,8 @@
 - type: entity
   id: CrateMorgue
   parent: CrateMedical
-  name: "припаси для моргу"
-  description: "Містить 1× біблія, 1× шприц, 2× \"пляшка бальзамувальної рідини\", 10× мішок для тіла, 1× труна."
+  name: morgue supplies
+  description: Contains 1x bible, 1x syringe, 2x "embalming fluid bottle", 10x body bag, 1x coffin.
   components:
   - type: StorageFill
     contents:

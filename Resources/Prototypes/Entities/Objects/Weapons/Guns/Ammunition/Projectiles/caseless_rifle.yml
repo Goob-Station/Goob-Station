@@ -4,7 +4,7 @@
   id: BulletCaselessRifle
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
-  name: "куля (9.5мм HP)" # Goobstation edit
+  name: bullet (9.5mm HP) # Goobstation edit
   components:
   - type: Projectile
     damage:
@@ -16,7 +16,7 @@
   id: BulletCaselessRiflePractice
   parent: BaseBulletPractice
   categories: [ HideSpawnMenu ]
-  name: "куля (9.5мм тренувальна)" # Goobstation edit
+  name: bullet (9.5mm practice) # Goobstation edit
   components:
   - type: Projectile
     damage:

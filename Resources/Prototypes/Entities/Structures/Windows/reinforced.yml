@@ -2,7 +2,7 @@
 
 - type: entity
   id: ReinforcedWindow
-  name: "армоване вікно"
+  name: reinforced window
   parent: [BaseDeltaPressureReinforcedGlass, Window]
   components:
   - type: Sprite
@@ -70,8 +70,8 @@
 - type: entity
   id: WindowReinforcedDirectional
   parent: [BaseDeltaPressureReinforcedGlassQuarter, WindowDirectional]
-  name: "спрямоване армоване вікно"
-  description: "Чітко, але жорстко."
+  name: directional reinforced window
+  description: Don't smudge up the glass down there.
   placement:
     mode: SnapgridCenter
     snap:

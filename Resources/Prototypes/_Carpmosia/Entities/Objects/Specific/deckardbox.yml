@@ -1,8 +1,8 @@
 - type: entity
   id: DeckardBox
   parent: [ BaseStorageItem, BaseBagOpenClose ]
-  name: "коробка Декарда"
-  description: "Майстерно виготовлена дерев'яна коробка для зберігання Декарда та двох спідлоадерів. Має приємну вагу."
+  name: deckard box
+  description: An artisanal wooden box made to house the Deckard and two speed loaders. It has a good weight to it.
   components:
   - type: Sprite
     sprite: _Carpmosia/Objects/Storage/deckardbox.rsi

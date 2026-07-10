@@ -3,7 +3,7 @@
 - type: entity
   id: BaseBulletStarlight
   name: BaseBullet
-  description: "Якщо ви бачите це, ви, мабуть, мертві!"
+  description: If you can see this you're probably dead!
   abstract: true
   components:
   - type: Reflective
@@ -50,7 +50,7 @@
 
 - type: entity
   id: BulletDeclone
-  name: "болт детонатора"
+  name: decloner bolt
   parent: BaseBulletStarlight
   categories: [ HideSpawnMenu ]
   components:

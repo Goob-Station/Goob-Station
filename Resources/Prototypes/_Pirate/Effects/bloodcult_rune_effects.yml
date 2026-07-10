@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
 - type: entity
   id: FxBloodCultRuneBarrier
-  name: "бар'єрна руна"
+  name: barrier rune
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -19,7 +19,7 @@
 
 - type: entity
   id: FxBloodCultRuneEmpowering
-  name: "руна підсилення"
+  name: empowering rune
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -35,7 +35,7 @@
 
 - type: entity
   id: FxBloodCultRuneOffering
-  name: "руна навернення"
+  name: conversion rune
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -51,7 +51,7 @@
 
 - type: entity
   id: FxBloodCultRuneRevive
-  name: "руна воскресіння"
+  name: revive rune
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -67,7 +67,7 @@
 
 - type: entity
   id: FxBloodCultRuneTearVeil
-  name: "руна розриву завіси"
+  name: tear veil rune
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
