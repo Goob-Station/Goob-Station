@@ -11,7 +11,7 @@
     noRot: true
     sprite: /Textures/_Goobstation/Structures/Decoration/Barrels/blackbarrel.rsi
     state: barrel
-    drawdepth: LargeObjects
+    drawdepth: HighFloorObjects
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
@@ -38,7 +38,6 @@
     noRot: true
     sprite: /Textures/_Goobstation/Structures/Decoration/Barrels/blackbarrel.rsi
     state: barrel_planks
-
 
 - type: entity
   id: BarrelFire

@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseWeaponBallisticTurret
   id: WeaponTurretLavafauna
-  suffix: NanoTrasen
+  suffix: Lavafauna
   components:
   - type: NpcFactionMember
     factions:
@@ -12,6 +12,7 @@
   id: BaseWeaponHeavyBallisticTurret
   name: Heavy ballistic turret
   description: A heavy ballistic auto-turret.
+  suffix: Lavafauna
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -45,6 +46,7 @@
   id: BaseWeaponHeavyEnergyTurret
   name: Heavy laser turret
   description: A heavy auto-turret armed with an especially dense battery.
+  suffix: Lavafauna
   components:
   - type: StaticPrice
     price: 3000

@@ -22,6 +22,8 @@
   path: /Maps/_Lavaland/Lavaland/bunker_alfa.yml
   priority: -1 # highest priority
   patchToPlanet: false
+  componentsToGrant:
+  - type: BlockTeleport
 
 - type: lavalandGridRuin
   id: BiodomeSnow

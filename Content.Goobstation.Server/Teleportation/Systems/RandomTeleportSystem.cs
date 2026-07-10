@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.BlockTeleport;
 using Content.Goobstation.Shared.Teleportation.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Stack;
@@ -29,6 +30,9 @@ public sealed class RandomTeleportSystem : EntitySystem
             return;
 
         if (!_sharedRtp.RandomTeleport(args.User, component, out var wp))
+            return;
+
+        if (HasComp<BlockTeleportComponent>(args.User))
             return;
 
         if (component.ConsumeOnUse)
