@@ -2097,3 +2097,9 @@ Entries:
       message: Оновлено upstream та українську локалізацію.
   id: 191
   time: '2026-07-10T14:38:37.0000000+00:00'
+- author: v0idRift
+  changes:
+    - type: Tweak
+      message: Оновлено upstream та українську локалізацію.
+  id: 192
+  time: '2026-07-10T15:15:13.0000000+00:00'
