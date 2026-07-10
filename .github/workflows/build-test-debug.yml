@@ -17,6 +17,18 @@ on:
 env:
   # Pirate: mapped groups run independently; every other integration test falls through to the unmapped shard.
   ENTITY_TEST_PATTERNS: Content.IntegrationTests.Tests.EntityTest
+  ATMOS_TILE_TEST_PATTERNS: Content.IntegrationTests.Tests.Atmos.TileAtmosphereTest
+  ATMOS_CORE_TEST_PATTERNS: >-
+    Content.IntegrationTests.Tests.Atmos.AirtightTest
+    Content.IntegrationTests.Tests.Atmos.AlarmThresholdTest
+    Content.IntegrationTests.Tests.Atmos.AtmosMonitoringTest
+    Content.IntegrationTests.Tests.Atmos.ConstantsTest
+    Content.IntegrationTests.Tests.Atmos.DeltaPressureTest
+    Content.IntegrationTests.Tests.Atmos.GasArrayTest
+    Content.IntegrationTests.Tests.Atmos.GasMixtureTest
+    Content.IntegrationTests.Tests.Atmos.GridJoinTest
+    Content.IntegrationTests.Tests.Atmos.RoomSpacingTest
+    Content.IntegrationTests.Tests.Atmos.SharedGasSpecificHeatsTest
   VALIDATION_TEST_PATTERNS: >-
     Content.IntegrationTests.Tests.ConfigPresetTests
     Content.IntegrationTests.Tests.Guidebook
@@ -31,7 +43,6 @@ env:
     Content.IntegrationTests.Tests.StartTest
     Content.IntegrationTests.Tests.WizdenContentFreeze
   WORLD_TEST_PATTERNS: >-
-    Content.IntegrationTests.Tests.Atmos
     Content.IntegrationTests.Tests.Chasm
     Content.IntegrationTests.Tests.Climbing
     Content.IntegrationTests.Tests.Construction
@@ -86,6 +97,12 @@ jobs:
           - name: Entity integration tests
             project: Content.IntegrationTests/Content.IntegrationTests.csproj
             shard: entity
+          - name: Atmos tile integration tests
+            project: Content.IntegrationTests/Content.IntegrationTests.csproj
+            shard: atmos-tile
+          - name: Atmos core integration tests
+            project: Content.IntegrationTests/Content.IntegrationTests.csproj
+            shard: atmos-core
           - name: Validation integration tests
             project: Content.IntegrationTests/Content.IntegrationTests.csproj
             shard: validation
@@ -141,6 +158,8 @@ jobs:
         nunit_args=(NUnit.ConsoleOut=0)
 
         read -r -a entity_patterns <<< "$ENTITY_TEST_PATTERNS"
+        read -r -a atmos_tile_patterns <<< "$ATMOS_TILE_TEST_PATTERNS"
+        read -r -a atmos_core_patterns <<< "$ATMOS_CORE_TEST_PATTERNS"
         read -r -a validation_patterns <<< "$VALIDATION_TEST_PATTERNS"
         read -r -a world_patterns <<< "$WORLD_TEST_PATTERNS"
         read -r -a gameplay_patterns <<< "$GAMEPLAY_TEST_PATTERNS"
@@ -151,6 +170,16 @@ jobs:
             ;;
           entity)
             patterns=("${entity_patterns[@]}")
+            comparison="~"
+            separator="|"
+            ;;
+          atmos-tile)
+            patterns=("${atmos_tile_patterns[@]}")
+            comparison="~"
+            separator="|"
+            ;;
+          atmos-core)
+            patterns=("${atmos_core_patterns[@]}")
             comparison="~"
             separator="|"
             ;;
@@ -172,6 +201,8 @@ jobs:
           unmapped)
             patterns=(
               "${entity_patterns[@]}"
+              "${atmos_tile_patterns[@]}"
+              "${atmos_core_patterns[@]}"
               "${validation_patterns[@]}"
               "${world_patterns[@]}"
               "${gameplay_patterns[@]}"
