@@ -25,7 +25,7 @@ public sealed class HarpyVisualsSystem : EntitySystem
 
     private void OnDidEquipEvent(EntityUid uid, HarpySingerComponent component, DidEquipEvent args)
     {
-        if (args.Slot == "outerClothing" && _tagSystem.HasTag && HasComp<HarpyHideWingsComponent>(args.Equipment, HarpyWingsTag))
+        if (args.Slot == "outerClothing" && _tagSystem.HasTag(args.Equipment, HarpyWingsTag))
         {
             _humanoidSystem.SetLayerVisibility(uid, HumanoidVisualLayers.RArm, false);
             _humanoidSystem.SetLayerVisibility(uid, HumanoidVisualLayers.RArmExtension, false);
@@ -35,7 +35,7 @@ public sealed class HarpyVisualsSystem : EntitySystem
 
     private void OnDidUnequipEvent(EntityUid uid, HarpySingerComponent component, DidUnequipEvent args)
     {
-        if (args.Slot == "outerClothing" && _tagSystem.HasTag && HasComp<HarpyHideWingsComponent>(args.Equipment, HarpyWingsTag))
+        if (args.Slot == "outerClothing" && _tagSystem.HasTag(args.Equipment, HarpyWingsTag))
         {
             _humanoidSystem.SetLayerVisibility(uid, HumanoidVisualLayers.RArm, true);
             _humanoidSystem.SetLayerVisibility(uid, HumanoidVisualLayers.RArmExtension, true);

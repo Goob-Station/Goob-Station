@@ -624,10 +624,6 @@
           type: [ Vox ]
         reagent: Protein
         amount: 0.25
-        - !type:MetabolizerTypeCondition
-          type: [ Kodepiia ]
-        reagent: Protein
-        amount: 0.5
 
 - type: reagent
   id: Allicin

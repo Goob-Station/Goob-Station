@@ -15,7 +15,7 @@
 - type: entity
   id: TorsoKodepiia
   name: "kodepiia torso"
-  parent: [PartKodepiia, BaseTorso]
+  parent: [PartKodepiia, BaseChest]
   components:
   - type: Sprite
     sprite: _Impstation/Mobs/Species/Kodepiia/parts.rsi

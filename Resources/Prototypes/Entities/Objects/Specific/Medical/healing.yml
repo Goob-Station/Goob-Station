@@ -257,16 +257,6 @@
     count: 15 #Was 10, Buffed due to limb damage changes (Goobstation)
   - type: StackPrice
     price: 10
-  - type: Food # imp - kodepiia gogurt
-    requiresSpecialDigestion: true
-  - type: SolutionContainerManager # imp
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Blood
-          Quantity: 15
-
 
 - type: entity
   parent: Bloodpack

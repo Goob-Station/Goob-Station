@@ -73,12 +73,12 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [revs.]
+  chatMessages: [ revs. ]
   chatTriggers:
-    - revs
-    - rev
-    - revving
-    - revved
+  - revs
+  - rev
+  - revving
+  - revved
 
 #- type: emote
 #  id: Click
