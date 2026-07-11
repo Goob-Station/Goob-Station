@@ -4,8 +4,8 @@
   id: BaseFirelock
   abstract: true
   parent: BaseStructure
-  name: firelock
-  description: Apply crowbar.
+  name: "вогневий шлюз"
+  description: "Застосуй лом."
   components:
     - type: Anchorable
       flags:
@@ -177,7 +177,7 @@
 - type: entity
   id: FirelockGlass
   parent: Firelock
-  name: glass firelock
+  name: "вогневий шлюз з вікном"
   components:
     - type: StationAiWhitelist
     - type: Sprite
@@ -203,7 +203,7 @@
 - type: entity
   id: FirelockEdge
   parent: Firelock
-  name: firelock
+  name: "вогневий шлюз"
   components:
     - type: StationAiWhitelist
     - type: Sprite

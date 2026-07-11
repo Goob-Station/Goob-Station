@@ -1,8 +1,8 @@
 - type: entity
   parent: [BaseAmmoProvider, BaseCentcommContraband]
   id: BoxAmnestizineCartridge
-  name: amnestic cartridge dispenser
-  description: Dispenses amnestic cartridges to be loaded into cartridge dispensers. Almost like a forbidden pez-dispenser!
+  name: "дозатор картриджів з амнезіном"
+  description: "Видає картриджі з амнезіном для завантаження в дозатори. Майже як заборонений дозатор Pez!"
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Medical/amnestic_dispenser.rsi

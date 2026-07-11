@@ -1,8 +1,8 @@
 - type: entity
-  name: raw abyssal carp fillet
+  name: "сире філе абісального коропа"
   parent: FoodMeatFish
   id: FoodMeatAbyssalFish
-  description: Darker, richer... with an oddly enticing color.
+  description: "Темніше, насиченіше... з дивно привабливим кольором."
   components:
   - type: FlavorProfile
     flavors:
@@ -30,10 +30,10 @@
       - state: abyssal-inhand-right
 
 - type: entity
-  name: raw bad carp fillet
+  name: "сире філе поганого коропа"
   parent: FoodMeatFish
   id: FoodMeatBadFish
-  description: Pale, dry, and musty.
+  description: "Бліде, сухе й затхле."
   components:
   - type: FlavorProfile
     flavors:

@@ -2,7 +2,7 @@
 - type: entity
   parent: BaseMindRoleAntag
   id: MindRoleXenomorph
-  name: xenomorph role
+  name: "роль ксеноморфа"
   components:
   - type: MindRole
     antagPrototype: Xenomorph

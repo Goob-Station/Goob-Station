@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingHandsGlovesMantis
-  name: dated mantis gloves
-  description: "Made of tough cloth, and fingerless for dexterity. All the company would pay for prior to the mantis equipment refresh."
+  name: "старомодні рукавички Мантіса"
+  description: "Зроблені з міцної тканини та без пальців для спритності. Це все, за що компанія платила до оновлення спорядження Мантіса."
   components:
   - type: Appearance
   - type: Sprite
@@ -20,8 +20,8 @@
 - type: entity
   parent: [ClothingHandsGlovesMantis, BaseFoldable]
   id: ClothingHandsGlovesMantisAiry
-  name: airy mantis sleeves
-  description: "Wide-cuffed sleeves over finger-loop gloves. The left cuff can be fastened tighter, if it's in the way of your mantle. But...only the left cuff, for some reason... If you have a knife, you could probably tailor that button onto the other sleeve instead."
+  name: "легкі рукави Мантіса"
+  description: "Рукави з широкими манжетами поверх рукавичок з петлями для пальців. Ліву манжету можна затягнути тугіше, якщо вона заважає мантії. Але... чомусь лише ліву... Якщо маєте ніж, мабуть, зможете перешити той ґудзик на інший рукав."
   components:
   - type: Sprite
     sprite: _DEN/Clothing/Hands/Gloves/mantis_gloves_airy.rsi
@@ -52,8 +52,8 @@
 - type: entity
   parent: ClothingHandsGlovesMantisAiry
   id: ClothingHandsGlovesMantisAiryTailored # The only way to fold the right sleeve under the mantle, since folding is only a toggle
-  name: airy mantis sleeves (tailored)
-  description: "Wide-cuffed sleeves over finger-loop gloves. The right cuff can be fastened tighter, if it's in the way of your mantle. But...only the right cuff, for some reason... If you have a knife, you could probably tailor that button onto the other sleeve instead."
+  name: "легкі рукави Мантіса (підігнані)"
+  description: "Рукави з широкими манжетами поверх рукавичок з петлями для пальців. Праву манжету можна затягнути тугіше, якщо вона заважає мантії. Але... чомусь лише праву... Якщо маєте ніж, мабуть, зможете перешити той ґудзик на інший рукав."
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -74,8 +74,8 @@
 - type: entity
   parent: ClothingHandsGlovesMantis
   id: ClothingHandsGlovesMantisDark
-  name: dark mantis gloves
-  description: "Long, fingerless gloves made of durable fabric."
+  name: "темні рукавички Мантіса"
+  description: "Довгі рукавички без пальців з міцної тканини."
   components:
   - type: Sprite
     sprite: _DEN/Clothing/Hands/Gloves/mantis_gloves_dark.rsi
@@ -88,8 +88,8 @@
 - type: entity
   parent: [ClothingHandsGlovesMantis, BaseFoldable]
   id: ClothingHandsGlovesMantisOrnate
-  name: ornate mantis sleeve
-  description: "A flowing sleeve large enough to conceal your hand, with electrum chains to decorate your other arm. Can be worn on either side, possibly to hide the chains under your mantle, if you so choose."
+  name: "оздоблений рукав Мантіса"
+  description: "Плинний рукав, достатньо великий, щоб приховати руку, з електрумовими ланцюжками для оздоби іншої руки. Його можна носити з будь-якого боку, можливо, щоб сховати ланцюжки під мантією, якщо забажаєте."
   components:
   - type: Sprite
     sprite: _DEN/Clothing/Hands/Gloves/mantis_gloves_ornate.rsi
@@ -125,8 +125,8 @@
 - type: entity
   parent: ClothingHandsGlovesMantis
   id: ClothingHandsGlovesMantisChains
-  name: mantis arm chains
-  description: "Electrum chains to adorn your arms. Maybe you work out."
+  name: "ланцюжки на руки Мантіса"
+  description: "Електрумові ланцюжки для оздоби рук. Може, ви тренуєтесь."
   components:
   - type: Sprite
     sprite: _DEN/Clothing/Hands/Gloves/mantis_gloves_chains.rsi

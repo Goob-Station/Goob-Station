@@ -1,5 +1,5 @@
 - type: entity
-  name: plantbot spawner
+  name: "точка появи рослинобота"
   id: SpawnMobPlantbot
   parent: MarkerBase
   components:

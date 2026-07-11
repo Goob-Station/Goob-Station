@@ -1,7 +1,7 @@
 - type: entity
   id: BorgModuleAdvancedPlumbing
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
-  name: advanced plumbing cyborg module
+  name: "покращений модуль трубопроводу кіборга"
   components:
   - type: Sprite
     layers:

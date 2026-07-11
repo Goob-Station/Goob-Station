@@ -1,8 +1,8 @@
 - type: entity
   id: CargoMailTeleporter
   parent: [ BaseMachinePowered, ConstructibleMachine ]
-  name: mail teleporter
-  description: Periodically teleports in mail to deliver across the station.
+  name: "поштовий телепортер"
+  description: "Періодично телепортує пошту для доставки станцією."
   components:
   - type: Fixtures
     fixtures:

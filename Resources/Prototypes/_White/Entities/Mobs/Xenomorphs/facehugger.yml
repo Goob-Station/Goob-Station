@@ -1,8 +1,8 @@
 - type: entity
   parent: [BaseMob, ClothingMaskBase, MobDamageable]
   id: MobXenomorphFaceHugger
-  name: xenomorph facehugger
-  description: A writhing nightmare. The facehugger clings to its victim's face, forcibly inserting a xenomorph fetus.
+  name: "лицехват ксеноморфа"
+  description: "Кошмар, що звивається. Лицехват чіпляється за обличчя жертви, примусово вживлюючи ембріон ксеноморфа."
   components:
   - type: Sprite
     sprite: _White/Mobs/Aliens/Xenomorphs/facehugger.rsi

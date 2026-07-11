@@ -4,7 +4,7 @@
   abstract: true
   parent: BaseItem
   id: BaseMagazineBoxCaselessRifle
-  name: ammunition box (9.5mm HP) # Goob edit
+  name: "коробка з патронами (9.5мм HP)" # Goob edit
   components:
   # Goobstation edit start
   - type: EmitSoundOnPickup
@@ -41,7 +41,7 @@
 - type: entity
   parent: BaseMagazineBoxCaselessRifle
   id: MagazineBoxCaselessRifle10x24
-  name: ammunition box (9.5mm HP) # Goob edit
+  name: "коробка з патронами (9.5мм HP)" # Goob edit
   components:
   - type: BallisticAmmoProvider
     capacity: 200
@@ -61,7 +61,7 @@
 - type: entity
   parent: BaseMagazineBoxCaselessRifle
   id: MagazineBoxCaselessRifleBig
-  name: ammunition box (9.5mm HP) # Goob edit
+  name: "коробка з патронами (9.5мм HP)" # Goob edit
   components:
   - type: BallisticAmmoProvider
     capacity: 200
@@ -81,8 +81,8 @@
 - type: entity
   parent: BaseMagazineBoxCaselessRifle
   id: MagazineBoxCaselessRifle
-  name: ammunition box (9.5mm HP)
-  description: A cardboard box of 9.5mm caseless rounds. Intended to hold general-purpose kinetic ammunition.
+  name: "коробка з патронами (9.5мм HP)"
+  description: "Картонна коробка з 9.5мм безгільзовими патронами. Призначена для кінетичних боєприпасів загального призначення."
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeCaselessRifle
@@ -96,8 +96,8 @@
 - type: entity
   parent: BaseMagazineBoxCaselessRifle
   id: MagazineBoxCaselessRiflePractice
-  name: ammunition box (9.5mm practice) # Goob and Goob v
-  description: A cardboard box of 9.5mm caseless rounds. Intended to hold harmless practice ammunition.
+  name: "коробка боєприпасів (9.5мм тренувальні)" # Goob and Goob v
+  description: "Картонна коробка безгільзових набоїв 9.5мм. Призначена для нешкідливих тренувальних боєприпасів."
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeCaselessRiflePractice

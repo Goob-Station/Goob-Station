@@ -1,7 +1,7 @@
 - type: entity
   parent: OreBase
   id: TitaniumOre
-  name: титанова руда
+  name: "титанова руда"
   suffix: Full
   components:
   - type: Stack
@@ -34,7 +34,7 @@
 - type: entity
   parent: TitaniumOre
   id: TitaniumOreUnprocessed
-  name: необроблена титанова руда
+  name: "необроблена титанова руда"
   suffix: Full
   components:
   - type: Stack
@@ -45,7 +45,7 @@
 - type: entity
   parent: TitaniumOreUnprocessed
   id: TitaniumOre1Unprocessed
-  name: необроблена титанова руда
+  name: "необроблена титанова руда"
   suffix: Single
   components:
   - type: Stack

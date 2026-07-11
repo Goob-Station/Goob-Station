@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: MIT
 
 - type: entity
-  name: AI Timed Spawner
+  name: "AI Timed Spawner"
   id: AITimedSpawner
   parent: MarkerBase
   components:
@@ -22,7 +22,7 @@
       maximumEntitiesSpawned: 5
 
 - type: entity
-  name: Mouse Timed Spawner
+  name: "спавнер мишей з таймером"
   id: MouseTimedSpawner
   parent: MarkerBase
   components:
@@ -46,7 +46,7 @@
       maximumEntitiesSpawned: 1
 
 - type: entity
-  name: Cockroach Timed Spawner
+  name: "спавнер тарганів з таймером"
   id: CockroachTimedSpawner
   parent: MouseTimedSpawner
   components:

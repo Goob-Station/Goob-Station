@@ -1,5 +1,5 @@
 ﻿- type: entity
-  name: jaegermister bottle
+  name: "пляшка єгермістера"
   parent: DrinkBottleBaseEmpty
   id: DrinkBottleJaegermister
   components:

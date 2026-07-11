@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseFlatpack
   id: CoffeemakerFlatpackPirate
-  name: coffeemaker flatpack
-  description: A flatpack for assembling a Modello 3 coffeemaker.
+  name: "плоский пакет кавоварки"
+  description: "Набір для збирання кавоварки Modello 3."
   components:
   - type: Flatpack
     entity: CoffeemakerMachinePirate
@@ -11,8 +11,8 @@
 - type: entity
   parent: BaseFlatpack
   id: CoffeemakerImpressaFlatpackPirate
-  name: impressa coffeemaker flatpack
-  description: A flatpack for assembling an Impressa coffeemaker.
+  name: "плоский пакет кавоварки Impressa"
+  description: "Набір для збирання кавоварки Impressa."
   components:
   - type: Flatpack
     entity: CoffeemakerImpressaMachinePirate

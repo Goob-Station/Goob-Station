@@ -1,8 +1,8 @@
 - type: entity
-  name: Adder
+  name: "Гадюка"
   parent: [BaseItem, BaseSyndicateContraband]
   id: WeaponPlasmaAdder
-  description: The future of stellar warfare in the palm of your hand. Uses Echion, produced from advanced synthesizers.
+  description: "Майбутнє зоряних воєн у вашій долоні. Використовує Ехіон, що виробляється вдосконаленими синтезаторами."
   components:
   - type: Sprite
     sprite: _Pirate/Objects/Weapons/Guns/Special/adder.rsi
@@ -63,10 +63,10 @@
     price: 100
 
 - type: entity
-  name: Akurra
+  name: "Акурра"
   parent: [WeaponPlasmaAdder, BaseGunWieldable]
   id: WeaponPlasmaAkurra
-  description: A beautiful marriage of technology and malice in a single package. Uses Echion, produced from advanced synthesizers.
+  description: "Прекрасне поєднання технології та злоби в одному флаконі. Використовує Ехіон, що виробляється вдосконаленими синтезаторами."
   components:
   - type: Sprite
     sprite: _Pirate/Objects/Weapons/Guns/Special/akurra.rsi

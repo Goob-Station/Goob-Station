@@ -1,8 +1,8 @@
 # Dummy Entity for ghost roles to choose a void creature
 - type: entity
   id: SummonVoidGhost
-  name: ???
-  description: It looks unfinished.
+  name: "???"
+  description: "Виглядає незавершеним."
   suffix: DO NOT MAP
   components:
   - type: Sprite

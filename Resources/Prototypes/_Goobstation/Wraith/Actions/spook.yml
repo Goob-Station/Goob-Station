@@ -1,7 +1,7 @@
 - type: entity
   id: ActionFlipLights
-  name: Flip light switches
-  description: Light switches that are on turn off and off on.
+  name: "Перемикання вимикачів світла"
+  description: "Увімкнені перемикачі вимикаються, а вимкнені — вмикаються."
   components:
   - type: Sprite
     sprite: _Goobstation/Wraith/UI/spook.rsi
@@ -16,8 +16,8 @@
 
 - type: entity
   id: ActionBurnLights
-  name: Burn lights
-  description: Breaks up to four light tubes and bulbs in the area, creating sparks that can ignite flammables.
+  name: "Випалювання ламп"
+  description: "Ламає до чотирьох світлових трубок і ламп у зоні, створюючи іскри, що можуть підпалити займисті матеріали."
   components:
   - type: Sprite
     sprite: _Goobstation/Wraith/UI/spook.rsi
@@ -32,8 +32,8 @@
 
 - type: entity
   id: ActionOpenDoors
-  name: Open doors, lockers, crates
-  description: Opens and closes a few random doors, lockers, and crates in the area.
+  name: "Відкриття дверей, шафок і ящиків"
+  description: "Випадковим чином відкриває та закриває кілька дверей, шафок і ящиків у районі."
   components:
   - type: Sprite
     sprite: _Goobstation/Wraith/UI/spook.rsi
@@ -48,8 +48,8 @@
 
 - type: entity
   id: ActionCreateSmoke
-  name: Create smoke
-  description: Creates multiple clouds of smoke near you that can completely obscure people's vision. Clouds persist for about a minute.
+  name: "Створення диму"
+  description: "Створює кілька хмар диму поруч, які можуть повністю приховати поле зору людей. Хмари тримаються приблизно хвилину."
   components:
   - type: Sprite
     sprite: _Goobstation/Wraith/UI/spook.rsi
@@ -64,8 +64,8 @@
 
 - type: entity
   id: ActionCreateEctoplasm
-  name: Create ectoplasm
-  description: Spawns a few globs of ectoplasm in the area.
+  name: "Створення ектоплазми"
+  description: "Створює кілька грудок ектоплазми в зоні."
   components:
   - type: Sprite
     sprite: _Goobstation/Wraith/UI/spook.rsi
@@ -80,8 +80,8 @@
 
 - type: entity
   id: ActionSapApc
-  name: Sap APC
-  description: Drains a bit of power from the area's APC. The higher your WP regen rate, the more power drained. Cannot drain multiple APCs.
+  name: "Висмоктування APC"
+  description: "Висмоктує трохи енергії з APC району. Чим вищий твій показник відновлення ОП, тим більше енергії висмоктується. Не може виснажувати кілька APC."
   components:
   - type: Sprite
     sprite: _Goobstation/Wraith/UI/spook.rsi
@@ -96,8 +96,8 @@
 
 - type: entity
   id: ActionSpookRandom
-  name: Random
-  description: Does one random action.
+  name: "Випадкове"
+  description: "Виконує одну випадкову дію."
   components:
   - type: Sprite
     sprite: _Goobstation/Wraith/UI/spook.rsi

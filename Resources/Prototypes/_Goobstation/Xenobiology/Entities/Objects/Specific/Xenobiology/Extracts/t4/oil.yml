@@ -1,7 +1,7 @@
 - type: entity
   id: OilSlimeExtract
   parent: BaseSlimeExtract
-  name: oil slime extract
+  name: "нафтовий екстракт слайма"
   components:
   - type: Sprite
     layers:

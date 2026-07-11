@@ -1,7 +1,7 @@
 - type: entity
   id: FloorChasmOpeningSpawner
-  name: chasm opening
-  description: A rapidly opening chasm. If it's under you, RUN!!!
+  name: "провалля, що відкривається"
+  description: "Стрімко розкривається провалля. Якщо воно під тобою — ТІКАЙ!!!"
   placement:
     mode: SnapgridCenter
     snap:

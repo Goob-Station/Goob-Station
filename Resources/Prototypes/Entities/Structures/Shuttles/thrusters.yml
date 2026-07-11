@@ -3,8 +3,8 @@
 - type: entity
   id: BaseThruster
   parent: BaseStructureDynamic
-  name: thruster
-  description: A thruster that allows a shuttle to move.
+  name: "двигун"
+  description: "Двигун, який дозволяє шатлу рухатися."
   abstract: true
   components:
     - type: Fixtures
@@ -64,7 +64,7 @@
 
 - type: entity
   id: Thruster
-  name: thruster
+  name: "двигун"
   parent: [ BaseThruster, ConstructibleMachine ]
   components:
   - type: Machine
@@ -120,7 +120,7 @@
 
 - type: entity
   id: ThrusterLarge
-  name: large thruster
+  name: "великий двигун"
   parent: [ BaseThruster]
   placement:
     mode: AlignTileAny
@@ -219,8 +219,8 @@
 - type: entity
   id: Gyroscope
   parent: [ BaseThruster, ConstructibleMachine ]
-  name: gyroscope
-  description: Increases the shuttle's potential angular rotation.
+  name: "гіроскоп"
+  description: "Збільшує потенційний кутовий поворот шатла."
   components:
   - type: Thruster
     thrusterType: Angular
@@ -320,8 +320,8 @@
 - type: entity
   id: RustedThruster
   parent: BaseStructureDynamic
-  name: rusted thruster
-  description: An unrepairable thruster, broken down from wear and tear. Only useful for scrapping.
+  name: "іржавий двигун"
+  description: "Непридатний до ремонту двигун, зламаний від зносу. Корисний лише як брухт."
   components:
     - type: Fixtures
       fixtures:
@@ -367,8 +367,8 @@
 - type: entity
   id: ThrusterShuttleEvac # Can't be unanchored and hard to destroy
   parent: BaseStructure
-  name: thruster
-  description: A thruster that allows a shuttle to move.
+  name: "двигун"
+  description: "Двигун, який дозволяє шатлу рухатися."
   suffix: Evac shuttle, unanchorable
   components:
     - type: Fixtures

@@ -2,7 +2,7 @@
 
 - type: species
   id: Gingerbread
-  name: Gingerbread
+  name: "Пряник"
   roundStart: false
   prototype: MobGingerbread
   sprites: MobGingerbreadSprites

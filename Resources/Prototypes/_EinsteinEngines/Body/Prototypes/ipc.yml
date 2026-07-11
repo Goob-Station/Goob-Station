@@ -2,7 +2,7 @@
 
 - type: body
   id: IPC
-  name: "ipc"
+  name: "вид-назва-ipc"
   root: chest
   slots:
     head:

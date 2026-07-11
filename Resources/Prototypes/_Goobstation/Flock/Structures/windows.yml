@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseStructure
   id: FlockZoneWindow
-  name: Fibrewoven window
-  description: It's clearly glass, but it looks as if it was finely woven.
+  name: "Вікно з волокон"
+  description: "Це явно скло, але виглядає, ніби його тонко виткали."
   components:
   - type: InteractionOutline
   - type: Sprite

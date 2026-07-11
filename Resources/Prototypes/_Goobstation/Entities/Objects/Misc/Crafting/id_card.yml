@@ -1,8 +1,8 @@
 - type: entity
   parent: [ IDCardStandard, BaseMinorContraband ]
   id: IDCardTide
-  name: tide ID card
-  description: Makeshift ID card, made from god knows what.
+  name: "iD-картка навали"
+  description: "Кустарна ID-картка, зроблена бозна з чого."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Devices/makeshift_id.rsi
@@ -19,8 +19,8 @@
 - type: entity
   parent: BaseItem
   id: IDCardTideUnfinished
-  name: unfinished makeshift ID card
-  description: God have mercy.
+  name: "незавершена кустарна ID-картка"
+  description: "Боже, змилуйся."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Devices/makeshift_id.rsi

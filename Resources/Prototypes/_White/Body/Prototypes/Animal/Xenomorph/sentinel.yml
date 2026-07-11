@@ -1,6 +1,6 @@
 - type: body
   id: XenomorphSentinel
-  name: xenomorph sentinel
+  name: "ксеноморф-страж"
   root: chest
   slots:
     head:

@@ -1,7 +1,7 @@
 - type: entity
   id: MassDriver
-  name: mass driver
-  description: The finest in spring-loaded piston toy technology, now on a space station near you.
+  name: "мас-драйвер"
+  description: "Найкраще в технології іграшкових поршнів на пружинах, тепер на космічній станції поруч із вами."
   placement:
     mode: SnapgridCenter
   components:

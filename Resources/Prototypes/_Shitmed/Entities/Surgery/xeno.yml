@@ -18,7 +18,7 @@
 - type: entity
   parent: BaseSurgeryXenoCommon
   id: SurgeryXenoInciseExoskeleton
-  name: Incise Exoskeleton
+  name: "Розрізати екзоскелет"
   components:
   - type: Surgery
     steps:
@@ -30,7 +30,7 @@
 - type: entity
   parent: BaseSurgeryXenoCommon
   id: SurgeryXenoResealExoskeleton
-  name: Reseal Exoskeleton
+  name: "Запечатати екзоскелет"
   components:
   - type: Surgery
     requirement: SurgeryXenoResealEndoskeleton
@@ -41,7 +41,7 @@
 - type: entity
   parent: BaseSurgeryXenoCommon
   id: SurgeryXenoExposeEndoskeleton
-  name: Expose Endoskeleton
+  name: "Відкрити ендоскелет"
   components:
   - type: Surgery
     requirement: SurgeryXenoInciseExoskeleton
@@ -52,7 +52,7 @@
 - type: entity
   parent: BaseSurgeryXenoCommon
   id: SurgeryXenoResealEndoskeleton
-  name: Repair Endoskeleton
+  name: "Відремонтувати ендоскелет"
   components:
   - type: Surgery
     steps:
@@ -90,7 +90,7 @@
 - type: entity
   parent: BaseSurgeryXenoInsertOrgan
   id: SurgeryXenoInsertEyes
-  name: Insert Xeno Eyes
+  name: "Вставити очі ксеноморфа"
   components:
   - type: Surgery
     steps:
@@ -106,7 +106,7 @@
 - type: entity
   parent: BaseSurgeryXenoInsertOrgan
   id: SurgeryXenoInsertLiver
-  name: Insert Xeno Liver
+  name: "Вставити печінку ксеноморфа"
   components:
   - type: Surgery
     steps:
@@ -124,7 +124,7 @@
 - type: entity
   parent: BaseSurgeryXenoInsertOrgan
   id: SurgeryXenoInsertStomach
-  name: Insert Xeno Stomach
+  name: "Вставити шлунок ксеноморфа"
   components:
   - type: Surgery
     steps:
@@ -144,7 +144,7 @@
 - type: entity
   parent: BaseSurgeryXenoInsertOrgan
   id: SurgeryXenoInsertHiveNode
-  name: Insert Hive Node
+  name: "Вставити вузол вулика"
   components:
   - type: Surgery
     steps:
@@ -161,7 +161,7 @@
 - type: entity
   parent: BaseSurgeryXenoInsertOrgan
   id: SurgeryXenoInsertResinSpinner
-  name: Insert Resin Spinner
+  name: "Вставити смоляний прядильник"
   components:
   - type: Surgery
     steps:
@@ -178,7 +178,7 @@
 - type: entity
   parent: BaseSurgeryXenoInsertOrgan
   id: SurgeryXenoInsertNeurotoxinGland
-  name: Insert Neurotoxin Gland
+  name: "Вставити нейротоксинову залозу"
   components:
   - type: Surgery
     steps:
@@ -195,7 +195,7 @@
 - type: entity
   parent: BaseSurgeryXenoInsertOrgan
   id: SurgeryXenoInsertAcidGland
-  name: Insert Acid Gland
+  name: "Вставити кислотну залозу"
   components:
   - type: Surgery
     steps:
@@ -212,7 +212,7 @@
 - type: entity
   parent: BaseSurgeryXenoInsertOrgan
   id: SurgeryXenoInsertPlasmaVessel
-  name: Insert Plasma Vessel
+  name: "Вставити плазмовий міхур"
   components:
   - type: Surgery
     steps:
@@ -231,7 +231,7 @@
 - type: entity
   parent: BaseSurgeryXenoInsertOrgan
   id: SurgeryXenoInsertEggSack
-  name: Insert Egg Sack
+  name: "Вставити яєчний мішок"
   components:
   - type: Surgery
     steps:
@@ -268,7 +268,7 @@
 - type: entity
   parent: BaseSurgeryXenoRemoveOrgan
   id: SurgeryXenoRemoveEyes
-  name: Remove Xeno Eyes
+  name: "Видалити очі ксеноморфа"
   components:
   - type: SurgeryOrganCondition
     organ:
@@ -277,7 +277,7 @@
 - type: entity
   parent: BaseSurgeryXenoRemoveOrgan
   id: SurgeryXenoRemoveLiver
-  name: Remove Xeno Liver
+  name: "Видалити печінку ксеноморфа"
   components:
   - type: SurgeryPartCondition
     parts: [ Groin ]
@@ -288,7 +288,7 @@
 - type: entity
   parent: BaseSurgeryXenoRemoveOrgan
   id: SurgeryXenoRemoveStomach
-  name: Remove Xeno Stomach
+  name: "Видалити шлунок ксеноморфа"
   components:
   - type: SurgeryPartCondition
     parts: [ Groin ]
@@ -301,7 +301,7 @@
 - type: entity
   parent: BaseSurgeryXenoRemoveOrgan
   id: SurgeryXenoRemoveHiveNode
-  name: Remove Hive Node
+  name: "Видалити вузол вулика"
   components:
   - type: SurgeryOrganCondition
     organ:
@@ -310,7 +310,7 @@
 - type: entity
   parent: BaseSurgeryXenoRemoveOrgan
   id: SurgeryXenoRemoveResinSpinner
-  name: Remove Resin Spinner
+  name: "Видалити смоляний прядильник"
   components:
   - type: SurgeryOrganCondition
     organ:
@@ -319,7 +319,7 @@
 - type: entity
   parent: BaseSurgeryXenoRemoveOrgan
   id: SurgeryXenoRemoveNeurotoxinGland
-  name: Remove Neurotoxin Gland
+  name: "Видалити нейротоксинову залозу"
   components:
   - type: Surgery
     steps:
@@ -333,7 +333,7 @@
 - type: entity
   parent: BaseSurgeryXenoRemoveOrgan
   id: SurgeryXenoRemoveAcidGland
-  name: Remove Acid Gland
+  name: "Видалити кислотну залозу"
   components:
   - type: Surgery
     steps:
@@ -347,7 +347,7 @@
 - type: entity
   parent: BaseSurgeryXenoRemoveOrgan
   id: SurgeryXenoRemovePlasmaVessel
-  name: Remove Plasma Vessel
+  name: "Видалити плазмовий міхур"
   components:
   - type: Surgery
     steps:
@@ -364,7 +364,7 @@
 - type: entity
   parent: BaseSurgeryXenoRemoveOrgan
   id: SurgeryXenoRemoveEggSack
-  name: Remove Egg Sack
+  name: "Видалити яєчний мішок"
   components:
   - type: Surgery
     steps:
@@ -383,7 +383,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryXenoTakeSample
-  name: Take tissue sample
+  name: "Взяти зразок тканини"
   components:
   - type: Surgery
     requirement: SurgeryXenoExposeEndoskeleton

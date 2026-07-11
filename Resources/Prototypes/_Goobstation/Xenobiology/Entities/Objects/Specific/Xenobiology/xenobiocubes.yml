@@ -1,9 +1,9 @@
 
 - type: entity
   parent: BoxCardboard
-  name: slime cube box
+  name: "коробка слизокубів"
   id: SlimeCubeBox
-  description: Drymate brand slime cubes. Just add water!
+  description: "Слизокуби бренду Драймейт. Просто додайте води!"
   components:
   - type: StorageFill
     contents:
@@ -15,9 +15,9 @@
     
 - type: entity
   parent: BoxCardboard
-  name: syndicate slime cube box
+  name: "коробка синдикатських слизокубів"
   id: SlimeCubeBoxSyndie
-  description: Interdyne brand slime cubes. Just add water!
+  description: "Слизокуби бренду Інтердайн. Просто додайте води!"
   components:
   - type: StorageFill
     contents:
@@ -29,9 +29,9 @@
 
 - type: entity
   parent: BaseWrappedCube
-  name: slime cube wrapped
+  name: "загорнутий слизокуб"
   id: SlimeCubeWrapped
-  description: Unwrap this to get a slime cube.
+  description: "Розгорніть це, щоб отримати слизокуб."
   components:
   - type: SpawnItemsOnUse
     items:
@@ -41,9 +41,9 @@
 
 - type: entity
   parent: BaseWrappedCube
-  name: syndicate slime cube wrapped
+  name: "загорнутий синдикатський слизокуб"
   id: SlimeCubeWrappedSyndie
-  description: Unwrap this to get a slime cube.
+  description: "Розгорніть це, щоб отримати слизокуб."
   components:
     - type: SpawnItemsOnUse
       items:
@@ -55,7 +55,7 @@
 - type: entity
   parent: RehydratableAnimalCube
   id: SlimeCube
-  name: slime cube
+  name: "слизокуб"
   components:
     - type: Rehydratable
       possibleSpawns:
