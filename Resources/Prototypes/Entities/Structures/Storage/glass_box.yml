@@ -31,8 +31,8 @@
 - type: entity
   parent: [BaseGlassBox, BaseItemCabinetGlass]
   id: GlassBox
-  name: "скляна коробка"
-  description: "Міцна вітрина для дорогого експоната."
+  name: glass box
+  description: A sturdy showcase for an expensive exhibit.
   abstract: true # TODO: Temporarily abstract. Remove it after item scaling in cabinets is implemented.
   components:
   - type: Sprite
@@ -165,8 +165,8 @@
 - type: entity
   parent: BaseGlassBox
   id: GlassBoxFrame
-  name: "рама скляної коробки"
-  description: "Міцна вітрина без скла для дорогого експоната."
+  name: glass box frame
+  description: A glassless sturdy showcase for an expensive exhibit.
   suffix: Frame
   components:
   - type: Sprite
@@ -207,8 +207,8 @@
 - type: entity
   parent: GlassBoxFrame
   id: GlassBoxBroken
-  name: "розбита скляна коробка"
-  description: "Розбита вітрина для викраденого дорогого експоната."
+  name: broken glass box
+  description: A broken showcase for a stolen expensive exhibit.
   suffix: Broken
   components:
   - type: Sprite

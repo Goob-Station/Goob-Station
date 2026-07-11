@@ -2,9 +2,9 @@
 - type: entity
   parent: [ CableStack, BaseSecurityContraband ]
   id: CableDetStack
-  name: "вибуховий шнур"
+  name: explosive cord
   suffix: Full
-  description: "Вибуховий шнур для усунення всього, що стоїть на вашому шляху."
+  description: Explosive cord for removing whatever is in your way.
   components:
   - type: Stack
     stackType: CableDet

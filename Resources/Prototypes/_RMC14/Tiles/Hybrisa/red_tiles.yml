@@ -2,12 +2,12 @@
   abstract: true
   parent: CMTileBase
   id: RMCFloorHybrisaRedBase
-  name: "плитка CM стандартна червона"
+  name: tiles-cm-default-red
 
 - type: tile
   parent: RMCFloorHybrisaRedBase
   id: RMCFloorHybrisaRedMetal
-  name: "червона металева плитка"
+  name: red metal tile
   sprite: /Textures/_RMC14/Tiles/hybrisa/tilered.png
 
 - type: tile
@@ -18,7 +18,7 @@
 - type: tile
   parent: RMCFloorHybrisaRedBase
   id: RMCFloorHybrisaRedCarpet
-  name: "червоний килим"
+  name: red carpet
   sprite: /Textures/_RMC14/Tiles/hybrisa/carpetred.png
 
 - type: tile

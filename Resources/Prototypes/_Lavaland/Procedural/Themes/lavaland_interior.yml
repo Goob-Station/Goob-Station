@@ -115,7 +115,7 @@
 - type: entity
   id: LavalandInteriorRoomMarker
   parent: BaseRoomMarker
-  name: "маркер інтер'єру лаваланда"
+  name: Lavaland interior marker
   suffix: 5x5
   components:
   - type: RoomFill

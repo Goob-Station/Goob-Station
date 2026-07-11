@@ -1,7 +1,7 @@
 - type: entity
   id: PartGoblin
   parent: [BaseItem, BasePart]
-  name: "частина тіла гобліна"
+  name: "goblin body part"
   abstract: true
   components:
   - type: Extractable
@@ -14,7 +14,7 @@
 
 - type: entity
   id: ChestGoblin
-  name: "тулуб гобліна"
+  name: "goblin chest"
   parent: [PartGoblin, BaseChest]
   components:
   - type: Sprite
@@ -30,7 +30,7 @@
 
 - type: entity
   id: GroinGoblin
-  name: "пах гобліна"
+  name: "goblin groin"
   parent: [PartGoblin, BaseGroin]
   components:
   - type: Sprite
@@ -46,7 +46,7 @@
 
 - type: entity
   id: HeadGoblin
-  name: "голова гобліна"
+  name: "goblin head"
   parent: [PartGoblin, BaseHead]
   components:
   - type: Sprite
@@ -62,7 +62,7 @@
 
 - type: entity
   id: LeftArmGoblin
-  name: "ліва рука гобліна"
+  name: "left goblin arm"
   parent: [PartGoblin, BaseLeftArm]
   components:
   - type: Sprite
@@ -71,7 +71,7 @@
 
 - type: entity
   id: RightArmGoblin
-  name: "права рука гобліна"
+  name: "right goblin arm"
   parent: [PartGoblin, BaseRightArm]
   components:
   - type: Sprite
@@ -80,7 +80,7 @@
 
 - type: entity
   id: LeftHandGoblin
-  name: "ліва кисть гобліна"
+  name: "left goblin hand"
   parent: [PartGoblin, BaseLeftHand]
   components:
   - type: Sprite
@@ -89,7 +89,7 @@
 
 - type: entity
   id: RightHandGoblin
-  name: "права кисть гобліна"
+  name: "right goblin hand"
   parent: [PartGoblin, BaseRightHand]
   components:
   - type: Sprite
@@ -98,7 +98,7 @@
 
 - type: entity
   id: LeftLegGoblin
-  name: "ліва нога гобліна"
+  name: "left goblin leg"
   parent: [PartGoblin, BaseLeftLeg]
   components:
   - type: Sprite
@@ -107,7 +107,7 @@
 
 - type: entity
   id: RightLegGoblin
-  name: "права нога гобліна"
+  name: "right goblin leg"
   parent: [PartGoblin, BaseRightLeg]
   components:
   - type: Sprite
@@ -116,7 +116,7 @@
 
 - type: entity
   id: LeftFootGoblin
-  name: "ліва стопа гобліна"
+  name: "left goblin foot"
   parent: [PartGoblin, BaseLeftFoot]
   components:
   - type: Sprite
@@ -125,7 +125,7 @@
 
 - type: entity
   id: RightFootGoblin
-  name: "права стопа гобліна"
+  name: "right goblin foot"
   parent: [PartGoblin, BaseRightFoot]
   components:
   - type: Sprite

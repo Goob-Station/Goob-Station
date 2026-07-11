@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseItem
   id: ParcelWrap
-  name: "пакувальний папір"
-  description: "Папір, що використовується для пакування предметів для транспортування."
+  name: parcel wrap
+  description: Paper used contain items for transport.
   components:
   - type: Sprite
     sprite: Objects/Misc/ParcelWrap/parcel_wrap.rsi
@@ -32,9 +32,9 @@
 - type: entity
   parent: ParcelWrap
   id: ParcelWrapAdmeme
-  name: "блюспейс-обгортка"
+  name: bluespace wrap
   suffix: Admeme
-  description: "Папір для пакування предметів під час транспортування. Цей, здається, може зберігати всередині незвично багато простору."
+  description: Paper used contain items for transport. This one seems to be able to store an unusual amount of space within it.
   components:
   - type: ParcelWrap
     whitelist: null
@@ -45,8 +45,8 @@
   abstract: true
   parent: BasePaperLabelable # We use this instead of BasePaperLabelableVisualized because WrappedParcel needs its own GenericVisualizer component for the parcel itself, and WrappedParcelHumanoid currently doesn't have label sprites at all
   id: BaseWrappedParcel
-  name: "загорнута посилка"
-  description: "Щось загорнуте в папір. Цікаво, що всередині..."
+  name: wrapped parcel
+  description: Something wrapped up in paper. I wonder what's inside...
   components:
   - type: Physics
     bodyType: Dynamic
@@ -134,7 +134,7 @@
 - type: entity
   parent: BaseWrappedParcel
   id: WrappedParcelHumanoid
-  description: "Щось загорнуте в папір. Підозріло схоже на людину."
+  description: Something wrapped up in paper. It's suspiciously human-shaped.
   components:
   - type: Physics
     fixedRotation: false
@@ -160,8 +160,8 @@
   parent: BaseItem
   id: ParcelWrapTrash
   categories: [ HideSpawnMenu ]
-  name: "пакувальний папір"
-  description: "Сумні залишки розгорнутого пакунка."
+  name: parcel wrap
+  description: The disappointing remnants of an unwrapped parcel.
   components:
   - type: Sprite
     sprite: Objects/Misc/ParcelWrap/parcel_wrap_trash.rsi

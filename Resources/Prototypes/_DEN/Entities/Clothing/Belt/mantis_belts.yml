@@ -1,8 +1,8 @@
 - type: entity
   parent: [ClothingBeltMantis, BaseFoldable]
   id: ClothingBeltMantisAiry
-  name: "легкий пояс Мантіса"
-  description: "Тонко сплетений мотузяний пояс із петлями для спорядження Мантіса. Вільний кінець можна заправити, якщо вам до вподоби чисті лінії. Має піхви для певної зброї."
+  name: airy mantis belt
+  description: "A finely-woven rope belt with loops to carry mantis equipment. The loose end can be tucked in, if you prefer clean lines. It has sheaths for certain weapons."
   components:
   - type: Sprite
     sprite: _DEN/Clothing/Belt/mantis_belt_airy.rsi
@@ -25,8 +25,8 @@
 - type: entity
   parent: [ClothingBeltMantis, BaseFoldable]
   id: ClothingBeltMantisDark
-  name: "темний пояс Мантіса"
-  description: "Жорстка багатошарова перев’язь, спроєктована для перенесення спорядження Мантіса. Вільний кінець можна заправити, якщо вам до вподоби чисті лінії. Має піхви для певної зброї."
+  name: dark mantis belt
+  description: "A structured, layered sash designed to carry mantis equipment. The loose end can be tucked in, if you prefer clean lines. It has sheaths for certain weapons."
   components:
   - type: Sprite
     sprite: _DEN/Clothing/Belt/mantis_belt_dark.rsi
@@ -49,8 +49,8 @@
 - type: entity
   parent: ClothingBeltMantis
   id: ClothingBeltMantisOrnate
-  name: "оздоблений пояс Мантіса"
-  description: "Товста стрічка, застібнута електрумовим ланцюгом, із внутрішніми кишенями для спорядження Мантіса. Має піхви для певної зброї."
+  name: ornate mantis belt
+  description: "A thick band fastened by an electrum chain, with inner pockets designed to carry mantis equipment. It has sheaths for certain weapons."
   components:
   - type: Sprite
     sprite: _DEN/Clothing/Belt/mantis_belt_ornate.rsi

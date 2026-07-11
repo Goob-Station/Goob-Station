@@ -3,8 +3,8 @@
 - type: entity
   parent: [DrinkBaseMaterialGlass, DrinkBase, DrinkVisualsFillOverlay]
   id: DrinkShotGlass
-  name: "чарка"
-  description: "Ідеально підходить для того, щоб сердито грюкнути нею об стіл."
+  name: shot glass
+  description: Perfect for slamming down onto the table angrily.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -28,8 +28,8 @@
 - type: entity
   parent: [DrinkBaseMaterialMetal, DrinkBase]
   id: DrinkIceBucket
-  name: "відро з льодом"
-  description: "Спеціальне відерце з освіжаючим льодом. Заборонено використовувати для однойменного челенджу!"
+  name: ice bucket
+  description: A special bucket of refreshy ice. Prohibited use for challenge with the same name!
   components:
   - type: SolutionContainerManager
     solutions:
@@ -47,8 +47,8 @@
 - type: entity
   parent: [DrinkBaseMaterialPorcelain, DrinkBase]
   id: DrinkTeapot
-  name: "чайник"  # short and stout
-  description: "Елегантний чайник. Він просто випромінює клас."
+  name: teapot  # short and stout
+  description: An elegant teapot. It simply oozes class.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -67,7 +67,7 @@
 - type: entity
   parent: BaseStorageItem
   id: DrinkCanPack
-  name: "6 упаковок"
+  name: 6pack
   components:
   - type: Sprite
     sprite: Objects/Misc/6pack.rsi
@@ -117,8 +117,8 @@
 - type: entity
   parent: [DrinkBaseMaterialStrongMetal, DrinkBase]
   id: DrinkShaker
-  name: "шейкер"
-  description: "Вірний помічник бармена у змішуванні напоїв."
+  name: shaker
+  description: The trusty mixing buddy of the bartender.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -145,8 +145,8 @@
 - type: entity
   parent: DrinkShaker
   id: DrinkShakerGold
-  name: "золотий шейкер"
-  description: "Позолочений шейкер, подарований як знак вдячності за роки служби. Він не робить напої смачнішими."
+  name: golden shaker
+  description: A gold-plated shaker given as a token of appreciation for years of service. It doesn't make the drinks taste any different.
   components:
   - type: Sprite
     sprite: Objects/Consumable/Drinks/shaker_gold.rsi
@@ -160,8 +160,8 @@
 - type: entity
   parent: [DrinkBaseMaterialMetal, DrinkBase]
   id: DrinkJigger
-  name: "джиггер"
-  description: "Як шейкер, але менший. Використовується для контролю кількості інгредієнтів."
+  name: jigger
+  description: Like a shaker, but smaller. Used to control the amount of ingredients.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -186,8 +186,8 @@
 - type: entity
   parent: [DrinkBaseMaterialStrongMetal, DrinkBase, DrinkVisualsFill]
   id: Pitcher
-  name: "металевий глечик"
-  description: "Ізольований глечик з нержавіючої сталі. Найкращий друг кожного вранці."
+  name: metal pitcher
+  description: A stainless steel insulated pitcher. Everyone's best friend in the morning.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -217,7 +217,7 @@
 - type: entity
   parent: DrinkShakeBase
   id: DrinkShakeBlue
-  name: "синій молочний коктейль"
+  name: blue milkshake
   components:
   - type: Sprite
     sprite: Objects/Consumable/Drinks/shake-blue.rsi
@@ -225,7 +225,7 @@
 - type: entity
   parent: DrinkShakeBase
   id: DrinkShakeEmpty
-  name: "порожній шейк"
+  name: shakeempty
   components:
   - type: Sprite
     sprite: Objects/Consumable/Drinks/shake-empty.rsi
@@ -233,7 +233,7 @@
 - type: entity
   parent: DrinkShakeBase
   id: DrinkShakeMeat
-  name: "м’ясний шейк"
+  name: meat shake
   components:
   - type: Sprite
     sprite: Objects/Consumable/Drinks/shake-meat.rsi
@@ -241,7 +241,7 @@
 - type: entity
   parent: DrinkShakeBase
   id: DrinkShakeRobo
-  name: "робо-шейк"
+  name: robo shake
   components:
   - type: Sprite
     sprite: Objects/Consumable/Drinks/shake-robo.rsi
@@ -249,16 +249,16 @@
 - type: entity
   parent: DrinkShakeBase
   id: DrinkShakeWhite
-  name: "білий шейк"
+  name: white shake
   components:
   - type: Sprite
     sprite: Objects/Consumable/Drinks/shake-white.rsi
 
 - type: entity
-  name: "блюспейс-шейкер"
+  name: bluespace shaker
   parent: DrinkShaker
   id: DrinkShakerBluespace
-  description: "Масове змішування стало простим!"
+  description: Mass-Mixing made easy!
   components:
   - type: SolutionContainerManager
     solutions:

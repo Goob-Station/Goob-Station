@@ -2,7 +2,7 @@
 
 - type: body
   id: Diona
-  name: "діона"
+  name: diona
   root: chest
   slots:
     head:

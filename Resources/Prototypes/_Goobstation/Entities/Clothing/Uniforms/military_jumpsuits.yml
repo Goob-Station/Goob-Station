@@ -1,7 +1,7 @@
 ﻿- type: entity
   parent: ClothingUniformJumpsuitSalvageSpecialist
   id: ClothingUniformJumpsuitMilitarySalvageSpecialist
-  name: "комбінезон спеціаліста з утилізації"
+  name: salvage specialist's jumpsuit
   suffix: Military
   components:
   - type: Sprite
@@ -51,8 +51,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitMilitaryColorBlackAlt
-  name: "чорний комбінезон"
-  description: "Звичайний чорний комбінезон без знаків розрізнення."
+  name: black jumpsuit
+  description: A generic black jumpsuit with no rank markings.
   suffix: Military, Alt
   components:
   - type: Sprite
@@ -86,8 +86,8 @@
 - type: entity
   parent: [ClothingUniformBase, BaseSecurityContraband]
   id: ClothingUniformJumpsuitMilitarySecurity
-  name: "комбінезон служби безпеки"
-  description: "Комбінезон із міцного матеріалу, що забезпечує надійний захист."
+  name: security jumpsuit
+  description: A jumpsuit made of strong material, providing robust protection.
   suffix: Military
   components:
   - type: Sprite
@@ -137,8 +137,8 @@
 - type: entity
   parent: [ClothingUniformBase, BaseSecurityContraband]
   id: ClothingUniformJumpsuitMilitarySecuritySeniorOfficer
-  name: "комбінезон старшого офіцера СБ"
-  description: "Ознака майстерності та престижу у відділі служби безпеки."
+  name: senior officer jumpsuit
+  description: A sign of skill and prestige within the security department.
   suffix: Military
   components:
   - type: Sprite
@@ -196,8 +196,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitMilitaryMailCarrier
-  name: "комбінезон поштаря"
-  description: "Ворог усіх службових собак."
+  name: mail carrier's jumpsuit
+  description: Enemy of K9s everywhere.
   suffix: Military
   components:
   - type: Sprite
@@ -247,8 +247,8 @@
 - type: entity
   parent: ClothingUniformJumpsuitScientist
   id: ClothingUniformJumpsuitMilitarySeniorResearcher
-  name: "комбінезон старшого дослідника"
-  description: "Ознака майстерності та престижу в науковому відділі."
+  name: senior researcher jumpsuit
+  description: A sign of skill and prestige within the science department.
   suffix: Military
   components:
   - type: Sprite

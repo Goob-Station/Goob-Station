@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseAction
   id: ActionScreenSaver
-  name: "Змінити екран"
-  description: "Змінити зображення екрана"
+  name: Change Screen
+  description: Change screen display
   components:
   - type: Action
     icon: { sprite: _EinsteinEngines/Mobs/Customization/ipc_screens.rsi, state: ipc_screen_smile }

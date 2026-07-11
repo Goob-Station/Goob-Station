@@ -1,8 +1,8 @@
 - type: entity
   id: StationRadioReceiver
-  name: "станційне радіо"
+  name: station radio
   parent: [ BaseMachinePowered, ConstructibleMachine ]
-  description: "Слухайте топ-хіти місцевого радіо вашої станції."
+  description: Listen to the top hits of your stations local radio.
   components:
   - type: Appearance
   - type: Sprite

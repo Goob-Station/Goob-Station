@@ -41,8 +41,8 @@
 - type: entity
   parent: [BaseItem, BaseSyndicateContraband]
   id: PenExplodingBox
-  name: "вибухнула скринька з ручкою"
-  description: "Невеличка коробочка з вибуховою ручкою. Упаковка розпадається при відкритті, не залишаючи після себе жодних доказів."
+  name: exploding pen box
+  description: A small box containing an exploding pen. Packaging disintegrates when opened, leaving no evidence behind.
   components:
   - type: Item
     size: Tiny

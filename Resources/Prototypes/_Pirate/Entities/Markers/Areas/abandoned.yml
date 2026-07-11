@@ -9,7 +9,7 @@
 - type: entity
   parent: BaseAreaAbandoned
   id: AreaAbandonedGarden
-  name: "закинутий сад"
+  name: abandoned garden
   components:
   - type: Sprite
     state: abandoned_garden
@@ -17,7 +17,7 @@
 - type: entity
   parent: BaseAreaAbandoned
   id: AreaAbandonedKitchen
-  name: "закинута кухня"
+  name: abandoned kitchen
   components:
   - type: Sprite
     state: abandoned_kitchen
@@ -25,7 +25,7 @@
 - type: entity
   parent: BaseAreaAbandoned
   id: AreaAbandonedLibrary
-  name: "закинута бібліотека"
+  name: abandoned library
   components:
   - type: Sprite
     state: abandoned_library
@@ -33,7 +33,7 @@
 - type: entity
   parent: BaseAreaAbandoned
   id: AreaAbandonedMed
-  name: "закинутий медвідсік"
+  name: abandoned med
   components:
   - type: Sprite
     state: abandoned_med
@@ -41,7 +41,7 @@
 - type: entity
   parent: BaseAreaAbandoned
   id: AreaAbandonedSci
-  name: "закинута наука"
+  name: abandoned sci
   components:
   - type: Sprite
     state: abandoned_sci
@@ -49,7 +49,7 @@
 - type: entity
   parent: BaseAreaAbandoned
   id: AreaAbandonedTheatre
-  name: "закинутий театр"
+  name: abandoned theatre
   components:
   - type: Sprite
     state: abandoned_theatre

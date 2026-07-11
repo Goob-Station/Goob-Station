@@ -41,8 +41,8 @@
 - type: entity
   parent: BaseHandheldGrinder
   id: MortarAndPestle
-  name: "ступка й товкач"
-  description: "Використовується для подрібнення невеликих кількостей предметів."
+  name: mortar and pestle
+  description: Used for grinding small amounts of objects.
   components:
   - type: Sprite
     sprite: Objects/Specific/Kitchen/mortar_and_pestle.rsi
@@ -57,8 +57,8 @@
 - type: entity
   parent: MortarAndPestle
   id: MortarAndPestleMakeshift
-  name: "саморобна ступка й товкач"
-  description: "Використовується для подрібнення невеликих кількостей предметів. Гірша версія, зроблена з дерева."
+  name: makeshift mortar and pestle
+  description: Used for grinding small amounts of objects. Inferior version made out of wood.
   components:
   - type: Sprite
     sprite: Objects/Specific/Kitchen/mortar_and_pestle.rsi
@@ -83,8 +83,8 @@
 - type: entity
   parent: BaseHandheldGrinder
   id: HandheldJuicer
-  name: "ручна соковижималка"
-  description: "Використовується для вичавлювання соку з невеликих кількостей предметів."
+  name: handheld juicer
+  description: Used for juicing small amounts of objects.
   components:
   - type: Sprite
     sprite: Objects/Specific/Kitchen/handheld_juicer.rsi
@@ -105,8 +105,8 @@
 - type: entity
   parent: HandheldJuicer
   id: HandheldJuicerMakeshift
-  name: "саморобна соковижималка"
-  description: "Використовується для вичавлювання соку з невеликих кількостей предметів. Гірша версія, зроблена з дерева."
+  name: makeshift juicer
+  description: Used for juicing small amounts of objects. Inferior version made out of wood.
   components:
   - type: Sprite
     sprite: Objects/Specific/Kitchen/handheld_juicer.rsi
@@ -130,10 +130,10 @@
 
 # Construction
 - type: entity
-  name: "незавершена ступка й товкач"
+  name: incomplete mortar and pestle
   parent: BaseItem
   id: IncompleteMortarAndPestle
-  description: "Кілька дерев'яних дощок, скріплених разом."
+  description: A few planks of wood stuck together.
   components:
   - type: Sprite
     sprite: Objects/Specific/Kitchen/mortar_and_pestle.rsi
@@ -150,10 +150,10 @@
     node: incompleteMortarAndPestle
 
 - type: entity
-  name: "незавершена ручна соковижималка"
+  name: incomplete handheld juicer
   parent: BaseItem
   id: IncompleteHandheldJuicer
-  description: "Трохи дерева й пластику, скріплених разом."
+  description: A some wood and plastic stuck together.
   components:
   - type: Sprite
     sprite: Objects/Specific/Kitchen/handheld_juicer.rsi

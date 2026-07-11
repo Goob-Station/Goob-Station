@@ -4,7 +4,7 @@
   abstract: true
   parent: [ BaseCartridge, BaseSecurityContraband ]
   id: BaseCartridgeCaselessRifle
-  name: "патрон (9.5мм)" # Goob edit
+  name: cartridge (9.5mm) # Goob edit
   components:
   - type: Tag
     tags:
@@ -25,8 +25,8 @@
 - type: entity
   parent: BaseCartridgeCaselessRifle
   id: CartridgeCaselessRifle
-  name: "патрон (9.5мм HP)" # Goob edit
-  description: "Малокаліберний патрон, що використовує безгільзову технологію, замінюючи звичайну латунну гільзу на затверділий пропелент. Стандартні кінетичні боєприпаси поширені та корисні в більшості ситуацій."
+  name: cartridge (9.5mm HP) # Goob edit
+  description: A small caliber utilizing caseless technology, omitting conventional brass casing in favor of hardened propellant. Standard kinetic ammunition is common and useful in most situations.
   components:
   - type: CartridgeAmmo
     proto: BulletCaselessRifle
@@ -34,8 +34,8 @@
 - type: entity
   parent: BaseCartridgeCaselessRifle
   id: CartridgeCaselessRiflePractice
-  name: "патрон (9.5мм тренувальний)" # Goob edit
-  description: "Малий калібр із безгільзовою технологією, що відмовляється від звичайної латунної гільзи на користь затверділого метального заряду. Тренувальні боєприпаси стріляють крейдяним снарядом, який трохи щипає, але не завдає тривалої шкоди."
+  name: cartridge (9.5mm practice) # Goob edit
+  description: A small caliber utilizing caseless technology, omitting conventional brass casing in favor of hardened propellant. Practice ammunition fires a chalk projectile that stings a little, but otherwise causes no lasting damage.
   components:
   - type: CartridgeAmmo
     proto: BulletCaselessRiflePractice

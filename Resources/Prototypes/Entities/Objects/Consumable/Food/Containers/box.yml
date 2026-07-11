@@ -9,8 +9,8 @@
 - type: entity
   parent: [ BoxCardboard, BaseBagOpenClose ]
   id: FoodBoxDonut
-  name: "коробка для пончиків"
-  description: "Пончики."
+  name: donut box
+  description: Mmm, Donuts.
   components:
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/donut.rsi
@@ -77,8 +77,8 @@
 - type: entity
   parent: [ BoxCardboard, BaseBagOpenClose ]
   id: FoodContainerEgg
-  name: "коробка для яєць"
-  description: "Не кидай їх!"
+  name: egg carton
+  description: Don't drop 'em!
   components:
   - type: Sprite
     sprite: Objects/Consumable/Food/egg.rsi
@@ -208,8 +208,8 @@
 - type: entity
   parent: BoxCardboard
   id: FoodBoxPizza
-  name: "коробка для піци"
-  description: "Коробка для піци. Вона зберігає тепло, запах і спогади про найкращі п’ять хвилин вашого життя."
+  name: pizza box
+  description: A box for pizza. It keeps in the heat, the smell, and the memories of the best five minutes of your life.
   components:
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/pizza.rsi
@@ -291,8 +291,8 @@
 - type: entity
   parent: [ BoxCardboard, BaseBagOpenClose ]
   id: FoodBoxNugget
-  name: "курячі нагетси"
-  description: "У вас раптом виникло бажання торгувати на міжгалактичному фондовому ринку."
+  name: chicken nuggets
+  description: You suddenly have an urge to trade on the intergalactic stock market.
   components:
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/nuggets.rsi
@@ -351,8 +351,8 @@
 - type: entity
   parent: BoxCardboard
   id: FoodBoxDonkpocket
-  name: "коробка з донк-покет"
-  description: "Інструкція: Розігріти в мікрохвильовій печі. Продукт охолоне, якщо його не з'їсти протягом семи хвилин."
+  name: box of donk-pockets
+  description: 'Instructions: Heat in microwave. Product will cool if not eaten within seven minutes.'
   components:
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/donkpocket.rsi
@@ -381,7 +381,7 @@
 - type: entity
   parent: FoodBoxDonkpocket
   id: FoodBoxDonkpocketSpicy
-  name: "коробка донк-покетів з гострим смаком"
+  name: box of spicy-flavoured donk-pockets
   components:
   - type: Sprite
     state: spicy-box
@@ -394,7 +394,7 @@
 - type: entity
   parent: FoodBoxDonkpocket
   id: FoodBoxDonkpocketTeriyaki
-  name: "коробка донк-покетів зі смаком теріякі"
+  name: box of teriyaki-flavoured donk-pockets
   components:
   - type: Sprite
     state: teriyaki-box
@@ -407,7 +407,7 @@
 - type: entity
   parent: FoodBoxDonkpocket
   id: FoodBoxDonkpocketPizza
-  name: "коробка донк-покетів зі смаком піци"
+  name: box of pizza-flavoured donk-pockets
   components:
   - type: Sprite
     state: pizza-box
@@ -420,7 +420,7 @@
 - type: entity
   parent: FoodBoxDonkpocket
   id: FoodBoxDonkpocketStonk
-  name: "коробка з лімітованою серією стонк-покетів"
+  name: box of limited edition stonk-pockets
   components:
   - type: Sprite
     state: stonk-box
@@ -433,7 +433,7 @@
 - type: entity
   parent: FoodBoxDonkpocket
   id: FoodBoxDonkpocketCarp
-  name: "коробка короп-покетів"
+  name: box of carp-pockets
   components:
   - type: Sprite
     state: carp-box
@@ -446,7 +446,7 @@
 - type: entity
   parent: FoodBoxDonkpocket
   id: FoodBoxDonkpocketBerry
-  name: "коробка донк-покетів з ягідним смаком"
+  name: box of berry-flavoured donk-pockets
   components:
   - type: Sprite
     state: berry-box
@@ -459,7 +459,7 @@
 - type: entity
   parent: FoodBoxDonkpocket
   id: FoodBoxDonkpocketHonk
-  name: "коробка донк-покетів зі смаком банана"
+  name: box of banana-flavoured donk-pockets
   components:
   - type: Sprite
     state: banana-box
@@ -472,8 +472,8 @@
 - type: entity
   parent: FoodBoxDonkpocket
   id: FoodBoxDonkpocketDink
-  name: "коробка з ящірними донк-покетами"
-  description: "Не нуль вуглеводів! Не потрібно розігрівати!"
+  name: box of dink-pockets
+  description: Net Zero carbohydrates! No need for heating!
   components:
   - type: Sprite
     state: dink-box
@@ -486,7 +486,7 @@
 - type: entity
   parent: FoodBoxDonkpocket
   id: FoodBoxDonkpocketMoth
-  name: "коробка донк-кишеньок для метеликів"
+  name: box of moth-pockets
   components:
   - type: Sprite
     state: moth-box
@@ -499,9 +499,9 @@
 - type: entity
   id: HappyHonk
   parent: [ BoxCardboard, BaseBagOpenClose ]
-  name: "набір хеппі-хонк їжі"
+  name: happy honk meal
   suffix: Toy Safe
-  description: "Іграшка більш їстівна, ніж сама їжа."
+  description: The toy is more edible than the food.
   components:
   - type: Sprite
     sprite: Objects/Storage/Happyhonk/clown.rsi
@@ -531,7 +531,7 @@
 - type: entity
   id: HappyHonkMime
   parent: HappyHonk
-  description: "Лімітоване мімічне видання щасливої гудкової їжі."
+  description: A limited mime edition of the happy honk meal.
   suffix: Toy Safe
   components:
   - type: Tag
@@ -546,8 +546,8 @@
 - type: entity
   id: HappyHonkNukie
   parent: [HappyHonk, BaseSyndicateContraband]
-  name: "міцний нуковий шрот"
-  description: "Суха їжа з потенційно вибухонебезпечним сюрпризом."
+  name: robust nukie meal
+  description: A sus meal with a potentially explosive surprise.
   suffix: Toy Unsafe
   components:
   - type: Sprite
@@ -563,7 +563,7 @@
   parent: HappyHonkNukie
   id: HappyHonkNukieSnacks
   suffix: Toy Unsafe, Snacks
-  name: "ланчбокс Синдикату"
+  name: syndicate snack box
   components:
   - type: Storage
     grid:
@@ -596,8 +596,8 @@
 - type: entity
   id: HappyHonkCluwne
   parent: HappyHonk
-  name: "жалюгідна страва клувні"
-  description: "Нічого доброго з цього не вийде."
+  name: woeful cluwne meal
+  description: Nothing good can come of this.
   components:
   - type: Tag
     tags:
@@ -636,8 +636,8 @@
 - type: entity
   id: FoodMealHappyHonkBigBite
   parent: HappyHonk
-  name: "Хеппі Хонк Біг Байт"
-  description: "Хтось заплатив хороші гроші, щоб цей набір з фаст-фуду доставили сюди. Пахне свіжим, якимось дивом."
+  name: Happy Honk Big Bite Meal
+  description: Someone paid good money to get this fast food meal shipped out this way. It smells fresh, somehow.
   components:
   - type: EntityTableContainerFill
     containers:
@@ -653,8 +653,8 @@
 - type: entity
   parent: BoxCardboard
   id: FoodBoxCloth
-  name: "коробка тканини FlutterSoft"
-  description: "Клітковина - найважливіша їжа для молі протягом дня! Не пропускайте її та не використовуйте сміття з дна шафки, купуйте високоякісну тканину марки FlutterSoft."
+  name: box of FlutterSoft-brand cloth
+  description: Fiber is the most important moth meal of the day! Don't skip it or use bottom-of-the-locker junk, buy high-quality FlutterSoft-brand cloth instead.
   components:
   - type: Sprite
     sprite: Objects/Consumable/Food/ingredients.rsi

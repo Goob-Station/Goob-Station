@@ -3,8 +3,8 @@
 - type: entity
   parent: BaseItem
   id: BaseHandheldStationMap
-  name: "мапа станції"
-  description: "Відображає показання поточної станції."
+  name: station map
+  description: Displays a readout of the current station.
   abstract: true
   components:
     - type: StationMap
@@ -70,9 +70,9 @@
 - type: entity
   parent: HandheldStationMap
   id: HandheldStationMapNukeops
-  name: "мапа цільової станції"
+  name: target station map
   suffix: Handheld, NukeOps
-  description: "Показує дані про цільову станцію."
+  description: Displays a readout of the target station.
   components:
   - type: Sprite
     sprite: Objects/Devices/tablets.rsi

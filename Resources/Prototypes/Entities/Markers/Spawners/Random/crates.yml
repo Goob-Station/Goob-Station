@@ -3,7 +3,7 @@
 - type: entity
   parent: MarkerBase
   id: CrateEmptySpawner
-  name: "спавнер пустого ящику"
+  name: Empty Crate Spawner
   components:
   - type: Sprite
     layers:
@@ -160,7 +160,7 @@
       weight: 0.2
 
 - type: entity
-  name: "спавнер заповненого ящику"
+  name: Filled Crate Spawner
   id: CrateFilledSpawner
   suffix: Low Value
   parent: MarkerBase
@@ -177,7 +177,7 @@
     offset: 0.0
 
 - type: entity
-  name: "спавнер випадкового інженерного ящика"
+  name: random engineering crate spawner
   id: LootSpawnerRandomCrateEngineering
   parent: MarkerBase
   components:
@@ -220,7 +220,7 @@
     offset: 0.0
 
 - type: entity
-  name: "спавнер випадкового ящика служби безпеки"
+  name: random security crate spawner
   id: LootSpawnerRandomCrateSecurity
   parent: MarkerBase
   components:
@@ -262,7 +262,7 @@
     - id: CrateLockBoxService
 
 - type: entity
-  name: "спавнер випадкових сейфів"
+  name: random lockbox spawner
   id: LootSpawnerRandomLockbox
   parent: MarkerBase
   suffix: 90%

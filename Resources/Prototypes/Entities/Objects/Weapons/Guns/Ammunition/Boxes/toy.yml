@@ -4,7 +4,7 @@
   abstract: true
   parent: BaseItem
   id: BoxDonkSoftBase
-  name: "коробка іграшкових боєприпасів"
+  name: toy ammunition box
   components:
   # Goobstation edit start
   - type: EmitSoundOnPickup
@@ -30,8 +30,8 @@
 - type: entity
   parent: BoxDonkSoftBase
   id: BoxDonkSoftBox
-  name: "коробка пінних дротиків"
-  description: "Картонна коробка пінних дротиків."
+  name: foam dart box
+  description: A cardboard box of foam darts.
   components:
   - type: BallisticAmmoProvider
     whitelist:
@@ -48,8 +48,8 @@
 - type: entity
   parent: BaseMagazineBoxMagnum
   id: BoxCartridgeCap
-  name: "коробка патронів для пістолета з пістонами"
-  description: "Картонна коробка патронів для пістолета з пістонами."
+  name: cap gun cartridge box
+  description: A cardboard box of cap gun cartridges.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeCap

@@ -133,7 +133,7 @@
 
 - type: entity
   id: PuddleSparkle
-  name: "іскорка"
+  name: sparkle
   placement:
     mode: SnapgridCenter
   components:
@@ -152,9 +152,9 @@
       color: "#FFFFFF80"
 
 - type: entity
-  name: "калюжа"
+  name: puddle
   id: Puddle
-  description: "Калюжа рідини."
+  description: A puddle of liquid.
   placement:
     mode: SnapgridCenter
   components:

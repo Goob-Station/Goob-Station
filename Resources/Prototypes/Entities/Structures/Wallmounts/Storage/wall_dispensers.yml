@@ -50,8 +50,8 @@
 - type: entity
   parent: BaseDispenser
   id: CleanerDispenser
-  name: "диспенсер космічного очищувача"
-  description: "Настінний диспенсер космічного очищувача."
+  name: space cleaner dispenser
+  description: Wallmount Space Cleaner dispenser.
   components:
   - type: Sprite
     sprite: Structures/Wallmounts/walldispenser.rsi
@@ -74,8 +74,8 @@
 - type: entity
   parent: BaseDispenser
   id: FuelDispenser
-  name: "диспенсер пального"
-  description: "Настінний диспенсер пального."
+  name: fuel dispenser
+  description: Wallmount Fuel dispenser.
   components:
   - type: Sprite
     layers:

@@ -2,7 +2,7 @@
 
 - type: entity
   id: ReinforcedPlasmaWindow
-  name: "посилене плазмове вікно"
+  name: reinforced plasma window
   parent: [BaseDeltaPressureReinforcedPlasma, WindowRCDResistant]
   components:
   - type: Sprite
@@ -61,8 +61,8 @@
 - type: entity
   id: PlasmaReinforcedWindowDirectional
   parent: [BaseDeltaPressureReinforcedPlasmaQuarter, WindowDirectionalRCDResistant]
-  name: "спрямоване армоване плазмове вікно"
-  description: "Вогнестійкий і навіть міцніший, з фіолетовим відтінком."
+  name: directional reinforced plasma window
+  description: Don't smudge up the glass down there.
   placement:
     mode: SnapgridCenter
     snap:

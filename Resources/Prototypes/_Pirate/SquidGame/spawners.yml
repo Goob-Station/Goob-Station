@@ -1,7 +1,7 @@
 - type: entity
   id: SpawnPointSquidGamePlayer
   parent: SpawnPointJobBase
-  name: "гравець гри в кальмара"
+  name: squid game player
   components:
   - type: SpawnPoint
     spawn_type: LateJoin
@@ -14,7 +14,7 @@
 - type: entity
   id: SpawnPointSquidGameGuardCircle
   parent: SpawnPointJobBase
-  name: "охоронець гри в кальмара (коло)"
+  name: squid game guard (circle)
   components:
   - type: SpawnPoint
     spawn_type: LateJoin
@@ -27,7 +27,7 @@
 - type: entity
   id: SpawnPointSquidGameGuardTriangle
   parent: SpawnPointJobBase
-  name: "охоронець гри в кальмара (трикутник)"
+  name: squid game guard (triangle)
   components:
   - type: SpawnPoint
     spawn_type: LateJoin
@@ -40,7 +40,7 @@
 - type: entity
   id: SpawnPointSquidGameGuardSquare
   parent: SpawnPointJobBase
-  name: "охоронець гри в кальмара (квадрат)"
+  name: squid game guard (square)
   components:
   - type: SpawnPoint
     spawn_type: LateJoin
@@ -53,7 +53,7 @@
 - type: entity
   id: SpawnPointSquidGameGuardUwU
   parent: SpawnPointJobBase
-  name: "охоронець гри в кальмара (uwu)"
+  name: squid game guard (uwu)
   components:
   - type: SpawnPoint
     spawn_type: LateJoin

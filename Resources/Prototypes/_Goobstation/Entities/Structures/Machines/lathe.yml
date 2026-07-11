@@ -3,8 +3,8 @@
 - type: entity
   id: EngineeringTechFab
   parent: [BaseLatheLube]
-  name: "інженерний техфаб"
-  description: "Друкує обладнання та друковані плати для використання інженерним відділом."
+  name: engineering techfab
+  description: Prints equipment and circuitboards for use by engineering department.
   components:
   - type: Sprite
     sprite: Structures/Machines/techfab.rsi
@@ -82,8 +82,8 @@
 - type: entity
   id: CargoTechFab
   parent: [BaseLatheLube]
-  name: "вантажний техфаб"
-  description: "Друкує обладнання та друковані плати для використання вантажним відділом."
+  name: cargo techfab
+  description: Prints equipment and circuitboards for use by cargo department.
   components:
   - type: Sprite
     sprite: Structures/Machines/techfab.rsi
@@ -149,8 +149,8 @@
 - type: entity
   id: ScienceTechFab
   parent: [BaseLatheLube]
-  name: "науковий техфаб"
-  description: "Друкує обладнання та друковані плати для використання науковим відділом."
+  name: science techfab
+  description: Prints equipment and circuitboards for use by science department.
   components:
   - type: Sprite
     sprite: Structures/Machines/techfab.rsi
@@ -240,8 +240,8 @@
 - type: entity
   id: ServiceTechFab
   parent: [BaseLatheLube]
-  name: "сервісний техфаб"
-  description: "Друкує обладнання та друковані плати для використання сервісним відділом."
+  name: service techfab
+  description: Prints equipment and circuitboards for use by service department.
   components:
   - type: Sprite
     sprite: Structures/Machines/techfab.rsi
@@ -304,8 +304,8 @@
 - type: entity
   id: ERTTechFab
   parent: [BaseLatheLube]
-  name: "техфаб ЕРТ"
-  description: "Стандартні боєприпаси та спорядження для розгортань Групи екстреного реагування. Швидко, базово, надійно."
+  name: ERT techfab
+  description: Standard-issue ammunition and gear for Emergency Response Team deployments. Fast, basic, reliable.
   components:
     - type: Sprite
       sprite: Structures/Machines/techfab.rsi

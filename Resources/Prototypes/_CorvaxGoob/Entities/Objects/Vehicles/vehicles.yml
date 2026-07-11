@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseVehicle
   id: VehicleSkeletonMotorcycle
-  name: "скелетний мотоцикл"
-  description: "Поганий до кісток."
+  name: skeleton motorcycle
+  description: Bad to the Bone.
   components:
     - type: Vehicle
       renderOver: North, NorthEast, East, SouthEast, South, SouthWest, West, NorthWest

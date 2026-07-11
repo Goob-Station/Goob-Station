@@ -14,8 +14,8 @@
 - type: entity
   parent: [ BaseItem, BaseToyGun ]
   id: FoamCrossbow
-  name: "пінопластовий арбалет"
-  description: "Спрямувавши його на службу безпеки, ви можете наїстися свинцю."
+  name: foam crossbow
+  description: Aiming this at Security may get you filled with lead.
   components:
   - type: Sprite
     sprite: Objects/Fun/Foam/foam_crossbow.rsi
@@ -43,10 +43,10 @@
         ents: []
 
 - type: entity
-  name: "Піна Foam Force Astro Ace"
+  name: Foam Force Astro Ace
   parent: [ BaseToyGun, BaseWeaponShotgun, BaseGunWieldable ]
   id: WeaponRifleFoam
-  description: "Преміальна пістолетна гвинтівка найвищої якості. Її пластик здається міцним, а механізми - надійними."
+  description: A premium foam rifle of the highest quality. Its plastic feels rugged, and its mechanisms sturdy.
   components:
   - type: Sprite
     sprite: Objects/Fun/Foam/foam_rifle.rsi
@@ -77,8 +77,8 @@
 - type: entity
   parent: [ BaseItem, BaseToyGun ]
   id: RevolverCapGun
-  name: "іграшковий пістолет"
-  description: "Виглядає майже як справжній! Від 8 років і старше."
+  name: cap gun
+  description: Looks almost like the real thing! Ages 8 and up.
   components:
   - type: Sprite
     sprite: Objects/Fun/capgun.rsi
@@ -137,8 +137,8 @@
 - type: entity
   parent: [ BaseItem, BaseToyGun ]
   id: WeaponStickyHand
-  name: "липка рука"
-  description: "Вони кажуть, що ви занадто тягнетеся. Вони кажуть, що це натяжка. Ви їм усім покажете, і ще й прилипнете до них."
+  name: sticky hand
+  description: They're saying you're reaching. They're saying it's a stretch. You'll show them all, and you'll stick it to them.
   components:
   - type: GrapplingGun
     cycleSound: /Audio/Misc/woosh.ogg
@@ -176,8 +176,8 @@
 - type: entity
   parent: [ BaseItem, BaseToySword ]
   id: FoamBlade
-  name: "піноблейд"
-  description: "На ньому написано \"Найвідданійший фанат Жалослава Перевертовича\"."
+  name: foamblade
+  description: It says "Sternside Changs number 1 fan" on it.
   components:
   - type: Sprite
     sprite: Objects/Fun/Foam/foam_blade.rsi
@@ -201,8 +201,8 @@
 - type: entity
   parent: [ BaseItem, BaseToySword ]
   id: FoamCutlass
-  name: "пінопластовий ніж"
-  description: "Перевдягніться в пірата і змусьте своїх друзів пройтись по дошці."
+  name: foam cutlass
+  description: Cosplay as a pirate and force your friends to walk the plank.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/cutlass.rsi
@@ -222,8 +222,8 @@
 - type: entity
   parent: [ BaseItem, BaseToySword ]
   id: ToySword
-  name: "іграшковий меч"
-  description: "Новий пластиковий меч Sandy-Cat! Поставляється з реалістичним звуком і повним кольором! Виглядає майже як справжній!"
+  name: toy sword
+  description: New Sandy-Cat plastic sword! Comes with realistic sound and full color! Looks almost like the real thing!
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/e_sword.rsi
@@ -290,8 +290,8 @@
 - type: entity
   parent: [ BaseItem, BaseToySword ]
   id: CardSword
-  name: "картонний меч"
-  description: "Картонна трубка, якій надали форми меча."
+  name: cardboard sword
+  description: A cardboard tube fashioned into the shape of a sword.
   components:
   - type: Sprite
     sprite: Objects/Fun/card_sword.rsi
@@ -321,8 +321,8 @@
 - type: entity
   parent: [ BaseItem, BaseToySword ]
   id: ToyHammer
-  name: "гумовий молоток"
-  description: "Яскраво забарвлений молоток з гуми."
+  name: rubber hammer
+  description: A brightly colored hammer made of rubber.
   components:
   - type: Sprite
     sprite: Objects/Fun/rubber_hammer.rsi

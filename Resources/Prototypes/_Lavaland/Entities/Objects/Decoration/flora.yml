@@ -27,10 +27,10 @@
         acts: [ "Destruction" ]
 
 - type: entity
-  name: "запилений кущ"
+  name: dusty bush
   id: FloraAshBush
   parent: BaseLavalandFlora
-  description: "Кущ, вкритий попелом. Може здаватися мертвим, але насправді він живий!"
+  description: A bush that is covered in ash. It may look like it's dead, but it's actually alive!
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Decoration/Flora/Misc/bush.rsi
@@ -57,10 +57,10 @@
   #      - id: FoodSpaceshroom
 
 - type: entity
-  name: "сірі паростки"
+  name: gray sprouts
   id: FloraAshSprouts
   parent: BaseLavalandFlora
-  description: "Паростки, що виглядають цілком чистими, схоже, вони мають дуже гладеньку поверхню."
+  description: Sprouts that look completely clean, they seem to have a very smooth surface.
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Decoration/Flora/Misc/dark_sprouts.rsi
@@ -86,10 +86,10 @@
   #      - id: FoodSpaceshroom
 
 - type: entity
-  name: "бліді паростки"
+  name: pale sprouts
   id: FloraPaleSprouts
   parent: BaseLavalandFlora
-  description: "Паростки, що виглядають цілком чистими, схоже, вони мають дуже гладеньку поверхню. Ці виглядають більш природними."
+  description: Sprouts that look completely clean, they seem to have a very smooth surface. These ones look more natural.
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Decoration/Flora/Misc/light_sprouts.rsi
@@ -115,10 +115,10 @@
   #      - id: FoodSpaceshroom
 
 - type: entity
-  name: "бліді паростки"
+  name: pale sprouts
   id: FloraAshYellowFlowers
   parent: BaseLavalandFlora
-  description: "Група жовтих квітів. Вони виглядають слабкими, та все ж примудряються виживати в цьому місці."
+  description: A group of yellow flowers. They look weak, and yet still manage to survive in this place.
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Decoration/Flora/Misc/yellow_flowers.rsi

@@ -25,7 +25,7 @@
 - type: entity
   id: BagelTheaterRoomMarker
   parent: BaseRoomMarker
-  name: "маркер інтер'єру театру Бейґл"
+  name: Bagel Theater interior marker
   components:
   - type: RoomFill
     rotation: false

@@ -1,5 +1,5 @@
 - type: entity
-  name: "спавнер випадкових тварин"
+  name: Random Animal Spawner
   id: RandomAnimalSpawner
   parent: MarkerBase
   suffix: No Mice

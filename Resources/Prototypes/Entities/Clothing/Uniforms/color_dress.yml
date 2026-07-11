@@ -3,8 +3,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtBlackElegantDress
-  name: "чорна елегантна сукня"
-  description: "Елегантна сукня з красивим бантом."
+  name: black elegant dress
+  description: Elegant dress with a beautiful bow.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/elegantdress.rsi
@@ -32,8 +32,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtRedElegantDress
-  name: "червона елегантна сукня"
-  description: "Елегантна сукня з красивим бантом."
+  name: red elegant dress
+  description: Elegant dress with a beautiful bow.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/elegantdress.rsi
@@ -61,8 +61,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtGreenElegantDress
-  name: "зелена елегантна сукня"
-  description: "Елегантна сукня з красивим бантом."
+  name: green elegant dress
+  description: Elegant dress with a beautiful bow.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/elegantdress.rsi
@@ -90,8 +90,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtBlueElegantDress
-  name: "синя елегантна сукня"
-  description: "Елегантна сукня з красивим бантом."
+  name: blue elegant dress
+  description: Elegant dress with a beautiful bow.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/elegantdress.rsi
@@ -119,8 +119,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtPurpleElegantDress
-  name: "фіолетова елегантна сукня"
-  description: "Елегантна сукня з красивим бантом."
+  name: purple elegant dress
+  description: Elegant dress with a beautiful bow.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/elegantdress.rsi
@@ -148,8 +148,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtCyanStripedDress
-  name: "блакитна смугаста сукня"
-  description: "Мила смугаста сукня."
+  name: cyan striped dress
+  description: Cute striped dress.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/stripeddress.rsi
@@ -177,8 +177,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtRedStripedDress
-  name: "червона смугаста сукня"
-  description: "Мила смугаста сукня."
+  name: red striped dress
+  description: Cute striped dress.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/stripeddress.rsi
@@ -206,8 +206,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtGreenStripedDress
-  name: "зелена смугаста сукня"
-  description: "Мила смугаста сукня."
+  name: green striped dress
+  description: Cute striped dress.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/stripeddress.rsi
@@ -236,8 +236,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtPinkStripedDress
-  name: "рожева смугаста сукня"
-  description: "Мила смугаста сукня."
+  name: pink striped dress
+  description: Cute striped dress.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/stripeddress.rsi
@@ -265,8 +265,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtOrangeStripedDress
-  name: "помаранчева смугаста сукня"
-  description: "Мила смугаста сукня."
+  name: orange striped dress
+  description: Cute striped dress.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/stripeddress.rsi
@@ -294,8 +294,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtPurpleTurtleneckDress
-  name: "фіолетова сукня з високим коміром"
-  description: "Сукня з високим коміром та унікальним дизайном."
+  name: purple turtleneck dress
+  description: Turtleneck dress with a unique design.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/turtledress.rsi
@@ -323,8 +323,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtRedTurtleneckDress
-  name: "червона сукня з високим коміром"
-  description: "Сукня з високим коміром та унікальним дизайном."
+  name: red turtleneck dress
+  description: Turtleneck dress with a unique design.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/turtledress.rsi
@@ -352,8 +352,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtGreenTurtleneckDress
-  name: "зелена сукня з високим коміром"
-  description: "Сукня з високим коміром та унікальним дизайном."
+  name: green turtleneck dress
+  description: Turtleneck dress with a unique design.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/turtledress.rsi
@@ -381,8 +381,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtBlueTurtleneckDress
-  name: "синя сукня з високим коміром"
-  description: "Сукня з високим коміром та унікальним дизайном."
+  name: blue turtleneck dress
+  description: Turtleneck dress with a unique design.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/turtledress.rsi
@@ -410,8 +410,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtYellowTurtleneckDress
-  name: "жовта сукня з високим коміром"
-  description: "Сукня з високим коміром та унікальним дизайном."
+  name: yellow turtleneck dress
+  description: Turtleneck dress with a unique design.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/turtledress.rsi
@@ -439,8 +439,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtYellowOldDress
-  name: "жовта стара сукня"
-  description: "Класична сукня в стилі вестерн."
+  name: yellow old dress
+  description: Classic western dress.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/dresswestern.rsi

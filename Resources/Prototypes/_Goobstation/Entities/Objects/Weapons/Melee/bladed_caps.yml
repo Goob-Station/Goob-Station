@@ -1,8 +1,8 @@
 - type: entity
   parent: BladedFlatcapGrey
   id: BladedPlasmaFlatcapGrey
-  name: "сіра кепка"
-  description: "Модна і для робітничого класу, і для дідка Дженкінса. У козирку сховані уламки скла."
+  name: grey flatcap
+  description: "Fashionable for both the working class and old man Jenkins. It has glass shards hidden in the brim."
   suffix: Bladed Plasma
   components:
   - type: Construction
@@ -18,8 +18,8 @@
 - type: entity
   parent: BladedFlatcapBrown
   id: BladedPlasmaFlatcapBrown
-  name: "коричнева кепка"
-  description: "«Тупий клоуне! Ти змусив мене виглядати погано!» У козирку сховані уламки скла."
+  name: brown flatcap
+  description: "\"Stupid clown! You made me look bad!\" It has glass shards hidden in the brim."
   suffix: Bladed Plasma
   components:
   - type: Construction
@@ -35,8 +35,8 @@
 - type: entity
   parent: BladedFlatcapGrey
   id: BladedReinforcedFlatcapGrey
-  name: "сіра кепка"
-  description: "Модна і для робітничого класу, і для дідка Дженкінса. У козирку сховані уламки скла."
+  name: grey flatcap
+  description: "Fashionable for both the working class and old man Jenkins. It has glass shards hidden in the brim."
   suffix: Bladed Reinforced
   components:
   - type: Construction
@@ -52,8 +52,8 @@
 - type: entity
   parent: BladedFlatcapBrown
   id: BladedReinforcedFlatcapBrown
-  name: "коричнева кепка"
-  description: "«Тупий клоуне! Ти змусив мене виглядати погано!» У козирку сховані уламки скла."
+  name: brown flatcap
+  description: "\"Stupid clown! You made me look bad!\" It has glass shards hidden in the brim."
   suffix: Bladed Reinforced
   components:
   - type: Construction
@@ -69,8 +69,8 @@
 - type: entity
   parent: BladedFlatcapGrey
   id: BladedUraniumFlatcapGrey
-  name: "сіра кепка"
-  description: "Модна і для робітничого класу, і для дідка Дженкінса. У козирку сховані уламки скла."
+  name: grey flatcap
+  description: "Fashionable for both the working class and old man Jenkins. It has glass shards hidden in the brim."
   suffix: Bladed Uranium
   components:
   - type: Construction
@@ -87,8 +87,8 @@
 - type: entity
   parent: BladedFlatcapBrown
   id: BladedUraniumFlatcapBrown
-  name: "коричнева кепка"
-  description: "«Тупий клоуне! Ти змусив мене виглядати погано!» У козирку сховані уламки скла."
+  name: brown flatcap
+  description: "\"Stupid clown! You made me look bad!\" It has glass shards hidden in the brim."
   suffix: Bladed Uranium
   components:
   - type: Construction

@@ -1,8 +1,8 @@
 # Used for Skeleton Commander.
 - type: entity
   id: ActionRally
-  name: "Збір"
-  description: "Підсилює всіх навколишніх створінь, аби допомогти тобі в бою."
+  name: Rally
+  description: Buff all surrounding critters to help you fight.
   components:
   - type: Action
     sound: !type:SoundPathSpecifier
@@ -16,8 +16,8 @@
 
 - type: entity
   id: ActionSummonLesserSkeleton
-  name: "Призов меншого скелета"
-  description: "Матеріалізує скелета з Порожнечі, щоб допомогти тобі."
+  name: Summon lesser skeleton
+  description: Materialize a skeleton from the void to help you.
   components:
   - type: Action
     itemIconStyle: BigAction
@@ -39,8 +39,8 @@
 # Used for Void Piker.
 - type: entity
   id: ActionTentacleHook
-  name: "Щупальцевий гак"
-  description: "Запускає щупальце в ціль і притягує її до тебе"
+  name: Tentacle Hook
+  description: Launch a tentacle at your target and drag it to you
   components:
   - type: Action
     useDelay: 30
@@ -61,8 +61,8 @@
 
 - type: entity
   id: ActionShuffle
-  name: "Стиск"
-  description: "Стискає тебе, щоб скасувати оглушення, прослизнути крізь двері та втекти від нападників."
+  name: Shuffle
+  description: Squish yourself down to cancel stuns, squeeze through doors and escape assailants.
   components:
   - type: Action
     useDelay: 50
@@ -74,8 +74,8 @@
 
 - type: entity
   id: ActionLash
-  name: "Шаленство"
-  description: "Впадаєш у криваве шаленство, накидаючись на ціль і розриваючи її на шмаття."
+  name: Lash
+  description: Go into a bloody frenzy on a target and rip them to shreds.
   components:
   - type: Action
     useDelay: 50
@@ -93,8 +93,8 @@
 
 - type: entity
   id: ActionRushdown
-  name: "Ривок"
-  description: "Стрибаєш уперед і збиваєш тих, хто на шляху."
+  name: Rushdown
+  description: Leap forward and knock down those in your way.
   components:
   - type: Action
     useDelay: 40
@@ -106,8 +106,8 @@
 
 - type: entity
   id: ActionCloak
-  name: "Маскування"
-  description: "Пірнаєш у Порожнечу й на короткий час стаєш важкопомітним."
+  name: Cloak
+  description: Slip into the void and make yourself hard to discern for a short time.
   components:
   - type: Action
     useDelay: 40
@@ -121,8 +121,8 @@
 
 - type: entity
   id: ActionEatFilth
-  name: "Пожирання бруду"
-  description: "З'їдаєш трохи бруду, трохи зцілюючись і повільно зростаючи."
+  name: Eat filth
+  description: Eat some filth, healing you a little bit and slowly growing.
   components:
   - type: Action
     sound: !type:SoundPathSpecifier
@@ -140,8 +140,8 @@
 
 - type: entity
   id: ActionRatBite
-  name: "Укус"
-  description: "Кусаєш живу істоту, завдаючи трохи шкоди й вводячи їй щурячу отруту."
+  name: Bite
+  description: Bite a living creature, doing a little damage and injecting them with some rat poison.
   components:
   - type: Action
     sound: !type:SoundPathSpecifier
@@ -162,8 +162,8 @@
 
 - type: entity
   id: ActionRatDen
-  name: "Створити щуряче кубло"
-  description: "Створює твоє щуряче гніздо, зцілює тебе в радіусі дії й викликає кількох маленьких хворих мишей."
+  name: Spawn rat den
+  description: Spawn your rat nest, healing you when in range and summoning some tiny diseased mice.
   components:
   - type: Action
     itemIconStyle: BigAction
@@ -178,8 +178,8 @@
 
 - type: entity
   id: ActionRatSlam
-  name: "Таран"
-  description: "Врізаєшся в об'єкт. Під час зіткнення випромінює потужну ударну хвилю."
+  name: Slam
+  description: Slam into something. Emits a powerful shockwave on collision.
   components:
   - type: Action
     useDelay: 40
@@ -192,8 +192,8 @@
 # Used for summon void creature ghost entity
 - type: entity
   id: ActionChooseVoidCreature
-  name: "Вибір бійця"
-  description: "Обери одну з трьох істот Порожнечі, щоб з'явитися."
+  name: Choose your fighter
+  description: Choose one of the three void creatures to spawn in.
   components:
   - type: Action
     icon:
