@@ -417,9 +417,10 @@
       Dead:
         Base: cockroach_dead
   - type: Bloodstream
-    bloodReference Solution:
+    bloodReferenceSolution:
       reagents:
       - ReagentId: InsectBlood
+        Quantity: 20
   - type: Edible
   - type: Absorbable # imp edit
     biomassRestored: 0.1

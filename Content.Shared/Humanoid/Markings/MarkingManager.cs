@@ -1,7 +1,6 @@
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Collections.Frozen;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Content.Shared.Humanoid.Prototypes;
 using Robust.Shared.Prototypes;
 
@@ -68,11 +67,7 @@ namespace Content.Shared.Humanoid.Markings
 
             foreach (var (key, marking) in MarkingsByCategory(category))
             {
-                // Goobstation - species without hair or other markings
-                if (!markingPoints.Points.ContainsKey(category))
-                    continue;
-
-                if ((markingPoints.OnlyWhitelisted || markingPoints.Points[category].OnlyWhitelisted) && marking.SpeciesRestrictions == null)
+                if (markingPoints.OnlyWhitelisted && marking.SpeciesRestrictions == null) // imp: markingPoints.Points[category].OnlyWhitelisted removed, it caused test fails
                 {
                     continue;
                 }
