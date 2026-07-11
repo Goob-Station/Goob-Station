@@ -1,14 +1,14 @@
 - type: entity
-  parent: ClothingOuterHardsuitBase
-  id: ClothingOuterHardsuitTCFL
-  name: тактичний скафандр TCFL
+  parent: [ClothingOuterHardsuitBase, BaseClothingRadio]
+  id: ClothingOuterHardsuitTCAF
+  name: тактичний скафандр TCAF
   suffix: TCAF
-  description: Standard-issue body armor for Solarian marines. While the rest of their gear may be cheap, the armor worn on top was apparently made by the highest bidder. A suit of polymer fabric encases a large plastitanium plate. The inside is sewn with, "Manufactured by CyberSun Armaments, For Solarian-Use Only".
+  description: Стандартний тактичний скафандр, що використовується Збройними силами Тау-Кита. Зроблений з тонких листів пластитану він забезпечує базовий захист, а також захист від вибухів та високого тиску.
   components:
   - type: Sprite
-    sprite: _Pirate/Clothing/_BieselRepublic/OuterClothing/Hardsuits/TCFL_tacsuit.rsi
+    sprite: _Pirate/Clothing/_BieselRepublic/OuterClothing/Hardsuits/TCAF_tacsuit.rsi
   - type: Clothing
-    sprite: _Pirate/Clothing/_BieselRepublic/OuterClothing/Hardsuits/TCFL_tacsuit.rsi
+    sprite: _Pirate/Clothing/_BieselRepublic/OuterClothing/Hardsuits/TCAF_tacsuit.rsi
     clothingVisuals:
       outerClothing:
       - state: equipped-OUTERCLOTHING
@@ -40,9 +40,15 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototypes:
-      head: ClothingHeadHelmetHardsuitTCFLTacsuit
+      head: ClothingHeadHelmetHardsuitTCAFTacsuit
   - type: ModifyDelayedKnockdown
     delayDelta: 2
     knockdownTimeDelta: -2
   - type: StaminaResistance
     damageCoefficient: 0.6
+  - type: Reflect
+    reflectProb: 0.025
+    spread: 270
+    reflects:
+      - Energy
+      - NonEnergy

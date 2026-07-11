@@ -15,7 +15,7 @@
   id: ClothingUniformJumpsuitTCFLLegate
   name: Уніформа легата TCFL
   suffix: TCAF
-  description: Уніформа, яку носять офіцери-легати Легіону іноземців Тау Кита.
+  description: Уніформа, яку носять офіцери-легати іноземного легіону Тау Кита.
   components:
     - type: Sprite
       sprite: _Pirate/Clothing/_BieselRepublic/Uniforms/TCFL_legate.rsi

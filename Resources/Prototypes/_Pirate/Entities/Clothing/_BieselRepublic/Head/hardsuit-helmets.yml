@@ -1,15 +1,15 @@
 - type: entity
-  parent: [ClothingHeadHardsuitBase, BaseClothingRadio]
-  id: ClothingHeadHelmetHardsuitTCFLTacsuit
-  name: TCFL tacsuit helmet
+  parent: ClothingHeadHardsuitBase
+  id: ClothingHeadHelmetHardsuitTCAFTacsuit
+  name: шолом тактичного скафандру TCAF
   suffix: TCAF
-  description: A modern helmet used with the standard TCFL tacsuit
+  description: Сучасний шолом, що використовується зі стандартним тактичним скафандром TCAF
   categories: [HideSpawnMenu]
   components:
   - type: Sprite
-    sprite: _Pirate/Clothing/_BieselRepublic/Head/Hardsuits/TCFL_tacsuit_helmet.rsi
+    sprite: _Pirate/Clothing/_BieselRepublic/Head/Hardsuits/TCAF_tacsuit_helmet.rsi
   - type: Clothing
-    sprite: _Pirate/Clothing/_BieselRepublic/Head/Hardsuits/TCFL_tacsuit_helmet.rsi
+    sprite: _Pirate/Clothing/_BieselRepublic/Head/Hardsuits/TCAF_tacsuit_helmet.rsi
     clothingVisuals:
       head:
       - state: equipped-HELMET

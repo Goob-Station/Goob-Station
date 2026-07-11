@@ -25,9 +25,8 @@
     - type: ExplosionResistance
       damageCoefficient: 0.35
     - type: Reflect
-      reflectProb: 0.15
+      reflectProb: 0.075
       spread: 270
-      innate: true
       reflects:
         - Energy
         - NonEnergy
@@ -60,10 +59,3 @@
           Heat: 0.80
     - type: ExplosionResistance
       damageCoefficient: 0.70
-    - type: Reflect
-      reflectProb: 0.05
-      spread: 270
-      innate: true
-      reflects:
-        - Energy
-        - NonEnergy

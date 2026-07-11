@@ -51,7 +51,7 @@
     - type: Insulated
 
 - type: entity
-  parent: [ClothingModsuitHelmetStandard, SolAllianceInfo, ShowSecurityIcons, BaseClothingRadio, BaseSyndicateContraband]
+  parent: [ClothingModsuitHelmetStandard, SolAllianceInfo, ShowSecurityIcons, BaseSyndicateContraband]
   id: ClothingModsuitHelmetSANMarine
   name: шолом мод-костюма CSA-85x "Мазу"
   description: Сучасний шолом для мод-костюма "Мазу". Він має вбудований проєкційний HUD.
@@ -79,7 +79,7 @@
           shader: unshaded
 
 - type: entity
-  parent: [ClothingModsuitChestplateStandard, SolAllianceInfo, BaseSyndicateContraband]
+  parent: [ClothingModsuitChestplateStandard, SolAllianceInfo, BaseClothingRadio, BaseSyndicateContraband]
   id: ClothingModsuitChestplateSANMarine
   name: нагрудник мод-костюма CSA-85x "Мазу"
   description: Сучасний нагрудник для мод-костюма "Мазу".

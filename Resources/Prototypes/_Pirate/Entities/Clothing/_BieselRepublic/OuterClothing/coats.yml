@@ -17,4 +17,5 @@
           Piercing: 0.95
           Heat: 0.85
     - type: TemperatureProtection
-      coefficient: 0.1
+      heatingCoefficient: 0.01
+      coolingCoefficient: 0.01
