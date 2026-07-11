@@ -1,0 +1,112 @@
+# SPDX-FileCopyrightText: 2024 Remuchi <72476615+Remuchi@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 v0id <>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: BloodCultTeleportInEffect
+  name: blood cult teleport in effect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.8
+  - type: Transform
+    noRot: true
+    anchored: true
+  - type: Sprite
+    layers:
+    - sprite: _Pirate/BloodCult/Effects/teleport.rsi
+      state: blood_cult_in
+      shader: unshaded
+    netsync: false
+    drawdepth: Effects
+  - type: PointLight
+    color: "#FF0000"
+
+- type: entity
+  id: BloodCultTeleportOutEffect
+  name: blood cult teleport out effect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.8
+  - type: Transform
+    noRot: true
+    anchored: true
+  - type: Sprite
+    layers:
+    - sprite: _Pirate/BloodCult/Effects/teleport.rsi
+      state: blood_cult_out
+      shader: unshaded
+    netsync: false
+    drawdepth: Effects
+  - type: PointLight
+    color: "#FF0000"
+
+- type: entity
+  id: BloodCultTileSpawnEffect
+  name: blood cult tile effect
+  categories: [ HideSpawnMenu ]
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: Transform
+    noRot: true
+    anchored: true
+  - type: Sprite
+    layers:
+    - sprite: _Pirate/BloodCult/Effects/tiles_spawn.rsi
+      state: floor_glow
+      shader: unshaded
+    netsync: false
+    drawdepth: FloorObjects
+  - type: PointLight
+    color: "#FF0000"
+
+- type: entity
+  id: BloodCultWallSpawnEffect
+  name: blood cult wall effect
+  categories: [ HideSpawnMenu ]
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: SpawnOnDespawn
+    prototype: BloodCultWall
+  - type: Transform
+    noRot: true
+    anchored: true
+  - type: Sprite
+    layers:
+    - sprite: _Pirate/BloodCult/Effects/wall_spawn.rsi
+      state: wall_glow
+      shader: unshaded
+    netsync: false
+  - type: PointLight
+    color: "#FF0000"
+
+- type: entity
+  id: BloodCultDoorSpawnEffect
+  name: blood cult door effect
+  categories: [ HideSpawnMenu ]
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: SpawnOnDespawn
+    prototype: BloodCultDoor
+  - type: Transform
+    noRot: true
+    anchored: true
+  - type: Sprite
+    layers:
+    - sprite: _Pirate/BloodCult/Effects/door_spawn.rsi
+      state: door_glow
+      shader: unshaded
+    netsync: false
+  - type: PointLight
+    color: "#FF0000"

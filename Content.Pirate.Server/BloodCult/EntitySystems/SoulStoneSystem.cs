@@ -62,7 +62,6 @@ public sealed class SoulStoneSystem : EntitySystem
 
 		SubscribeLocalEvent<SoulStoneComponent, AfterInteractEvent>(OnTryCaptureSoul);
 		SubscribeLocalEvent<SoulStoneComponent, UseInHandEvent>(OnUseInHand);
-		SubscribeLocalEvent<ShadeComponent, MobStateChangedEvent>(OnShadeDeath);
 		SubscribeLocalEvent<SoulStoneComponent, DestructionEventArgs>(OnSoulStoneDestroyed);
 
 		// Prevent soulstones from moving or rotating
@@ -181,13 +180,21 @@ public sealed class SoulStoneSystem : EntitySystem
 
 				var summonCoordinates = Transform((EntityUid)args.User).Coordinates;
 				var shadeEntity = Spawn("MobBloodCultShade", summonCoordinates);
-				_mind.TransferTo((EntityUid)mindContainer.Mind, shadeEntity, mind:mindComp);
-
-				// Set the soulstone reference on the Shade so it knows where to return
-				if (TryComp<ShadeComponent>(shadeEntity, out var shadeComponent))
+				if (!TryComp<BloodCultConstructComponent>(shadeEntity, out var construct) ||
+					!_constructSystem.TrySetConstructSource(
+						(shadeEntity, construct),
+						ent,
+						BloodCultConstructSourceKind.SoulStone))
 				{
-					shadeComponent.SourceSoulstone = ent;
+					QueueDel(shadeEntity);
+					return;
 				}
+
+				_mind.TransferTo(
+					(EntityUid) mindContainer.Mind,
+					shadeEntity,
+					ghostCheckOverride: true,
+					mind: mindComp);
 
 				_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/Magic/blink.ogg"), summonCoordinates);
 				_popupSystem.PopupEntity(
@@ -205,42 +212,6 @@ public sealed class SoulStoneSystem : EntitySystem
 				);
 			}
 		}
-	}
-
-	private void OnShadeDeath(Entity<ShadeComponent> shade, ref MobStateChangedEvent args)
-	{
-		// Only handle when the Shade dies
-		if (args.NewMobState != MobState.Dead)
-			return;
-
-		// Check if the Shade has a source soulstone and a mind
-		if (shade.Comp.SourceSoulstone == null)
-			return;
-
-
-		var soulstone = shade.Comp.SourceSoulstone.Value;
-
-		// Verify the soulstone still exists
-		if (!Exists(soulstone))
-			return;
-
-		// Get the Shade's mind
-		EntityUid? mindId = CompOrNull<MindContainerComponent>(shade)?.Mind;
-		if (mindId == null || !TryComp<MindComponent>(mindId, out var mindComp))
-			return;
-
-	// Transfer the mind back to the soulstone
-	var coordinates = Transform(shade).Coordinates;
-	_mind.TransferTo((EntityUid)mindId, soulstone, mind: mindComp);
-
-	// Ensure the soulstone can speak but not move
-	EnsureComp<SpeechComponent>(soulstone);
-	EnsureComp<EmotingComponent>(soulstone);
-
-	_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/Magic/blink.ogg"), coordinates);
-
-		// Delete the Shade entity
-		QueueDel(shade);
 	}
 
 	private void OnSoulStoneDestroyed(Entity<SoulStoneComponent> soulstone, ref DestructionEventArgs args)

@@ -92,6 +92,7 @@ namespace Content.Server.BloodCult.EntitySystems
 		[Dependency] private readonly SharedPhysicsSystem _physics = default!;
 		[Dependency] private readonly IRobustRandom _random = default!;
 		[Dependency] private readonly NpcFactionSystem _npcFaction = default!;
+		[Dependency] private readonly BloodCultConstructSystem _constructSystem = default!;
 
 		private static readonly ProtoId<DamageTypePrototype> SlashDamageType = "Slash";
 
@@ -675,7 +676,21 @@ namespace Content.Server.BloodCult.EntitySystems
 			if (TryComp<MindComponent>((EntityUid)soulstoneMind.Mind, out var mind))
 			{
 				var shade = Spawn("MobBloodCultShade", coordinates);
-				_mind.TransferTo((EntityUid)soulstoneMind.Mind, shade, mind: mind);
+				if (!TryComp<BloodCultConstructComponent>(shade, out var construct) ||
+					!_constructSystem.TrySetConstructSource(
+						(shade, construct),
+						soulstone,
+						BloodCultConstructSourceKind.SoulStone))
+				{
+					QueueDel(shade);
+					return false;
+				}
+
+				_mind.TransferTo(
+					(EntityUid) soulstoneMind.Mind,
+					shade,
+					ghostCheckOverride: true,
+					mind: mind);
 
 				var shadeCultist = EnsureComp<BloodCultistComponent>(shade);
 
@@ -687,9 +702,6 @@ namespace Content.Server.BloodCult.EntitySystems
 				}
 
 				_npcFaction.AddFaction(shade, BloodCultRuleSystem.BloodCultistFactionId);
-
-				if (TryComp<ShadeComponent>(shade, out var shadeComp))
-					shadeComp.SourceSoulstone = soulstone;
 
 				_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/blink.ogg"), coordinates);
 			}

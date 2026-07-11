@@ -13,3 +13,10 @@ public enum CultStructureVisuals : byte
 {
     Anchored
 }
+
+[Serializable, NetSerializable]
+public enum BloodCultVisuals : byte
+{
+    Layer,
+    Active,
+}

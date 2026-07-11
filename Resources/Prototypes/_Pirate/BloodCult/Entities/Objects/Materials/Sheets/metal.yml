@@ -33,6 +33,22 @@
     sprite: _Pirate/BloodCult/Sheets/metal.rsi
     heldPrefix: runedmetal
   - type: Appearance
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: AttachedRadialSelectorMenuBUI
+  - type: ActivatableUI
+    inHandsOnly: true
+    key: enum.RadialSelectorUiKey.Key
+  - type: ActivatableUiUserWhitelist
+    whitelist:
+      components:
+      - BloodCultist
+  - type: CultConstructionMenu
+    entries:
+    - prototype: CultAltarConstruction
+    - prototype: CultForgeConstruction
+    - prototype: CultArchivesConstruction
 
 - type: entity
   parent: SheetRunedSteel

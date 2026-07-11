@@ -293,6 +293,25 @@ namespace Content.Server.RoundEnd
             }
         }
 
+        // Pirate: allow the blood cult's cursed orb to extend an active evacuation call.
+        public bool DelayShuttle(TimeSpan delay)
+        {
+            if (_countdownTokenSource == null || ExpectedCountdownEnd == null || delay <= TimeSpan.Zero)
+                return false;
+
+            var countdown = ExpectedCountdownEnd.Value - _gameTiming.CurTime + delay;
+            if (countdown <= TimeSpan.Zero)
+                return false;
+
+            _countdownTokenSource.Cancel();
+            _countdownTokenSource = new CancellationTokenSource();
+            ExpectedCountdownEnd = _gameTiming.CurTime + countdown;
+
+            Timer.Spawn(countdown, _shuttle.DockEmergencyShuttle, _countdownTokenSource.Token);
+            RaiseLocalEvent(RoundEndSystemChangedEvent.Default);
+            return true;
+        }
+
         public void EndRound(TimeSpan? countdownTime = null)
         {
             if (_gameTicker.RunLevel != GameRunLevel.InRound) return;

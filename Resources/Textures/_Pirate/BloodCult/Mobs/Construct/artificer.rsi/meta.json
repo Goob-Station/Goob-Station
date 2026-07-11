@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from TG station 13, commit https://github.com/tgstation/tgstation/commit/4eaa299c0b20ae8629910a6a25be4be9d58a559e",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "construct",
+      "directions": 4
+    },
+    {
+      "name": "glow_cult",
+      "directions": 4
+    },
+    {
+      "name": "glow_holy",
+      "directions": 4
+    },
+    {
+      "name": "spawn_construct",
+      "delays": [
+        [
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.35
+        ]
+      ]
+    },
+    {
+      "name": "spawn_glow_cult",
+      "delays": [
+        [
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.35
+        ]
+      ]
+    },
+    {
+      "name": "spawn_glow_holy",
+      "delays": [
+        [
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.35
+        ]
+      ]
+    }
+  ]
+}

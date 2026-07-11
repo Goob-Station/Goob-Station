@@ -22,3 +22,60 @@
 #   canBuildInImpassable: false
 #   conditions:
 #     - !type:TileNotBlocked
+
+- type: construction
+  id: CultAltarConstruction
+  name: cult-construction-altar-name
+  description: cult-construction-altar-description
+  graph: CultAltar
+  startNode: start
+  targetNode: altar
+  category: construction-category-structures
+  hide: true
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
+  entityWhitelist:
+    components:
+    - BloodCultist
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: CultForgeConstruction
+  name: cult-construction-forge-name
+  description: cult-construction-forge-description
+  graph: CultForge
+  startNode: start
+  targetNode: forge
+  category: construction-category-structures
+  hide: true
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
+  entityWhitelist:
+    components:
+    - BloodCultist
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: CultArchivesConstruction
+  name: cult-construction-archives-name
+  description: cult-construction-archives-description
+  graph: CultArchives
+  startNode: start
+  targetNode: archives
+  category: construction-category-structures
+  hide: true
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
+  entityWhitelist:
+    components:
+    - BloodCultist
+  conditions:
+  - !type:TileNotBlocked

@@ -177,4 +177,9 @@ public sealed partial class BloodCultRuleComponent : Component
 	/// Calculated at round start based on player count (1/8th of total players, minimum 3).
 	/// </summary>
 	[DataField] public int MinimumCultistsForVeilRitual = 3;
+
+	/// <summary>
+	/// Remaining round-wide uses of cursed orbs. Each use delays evacuation by three minutes.
+	/// </summary>
+	[DataField] public int ShuttleCurseCharges = 3;
 }

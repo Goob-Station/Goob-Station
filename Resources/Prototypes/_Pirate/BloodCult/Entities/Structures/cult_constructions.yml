@@ -1,0 +1,61 @@
+# SPDX-FileCopyrightText: 2024 Remuchi <72476615+Remuchi@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 v0id <>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: BloodCultWall
+  parent: BaseWall
+  name: cult wall
+  description: Keeps the cult in and the crew out.
+  components:
+  - type: Sprite
+    sprite: Structures/Walls/cult.rsi
+  - type: Icon
+    sprite: Structures/Walls/cult.rsi
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: walls
+    base: cult
+
+- type: entity
+  id: BloodCultDoor
+  parent: BaseMaterialDoor
+  name: runed door
+  description: A heavy door carrying a strange glowing rune.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _Pirate/BloodCult/Structures/Doors/blood_cult_door.rsi
+    layers:
+    - state: closed
+      map: [ "enum.DoorVisualLayers.Base" ]
+  - type: Door
+    bumpOpen: true
+    occludes: false
+    crushDamage:
+      types:
+        Blunt: 15
+  - type: BloodCultDoor
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        collection: GlassSmash
+  - type: Airtight
+    fixVacuum: true
+    noAirWhenFullyAirBlocked: false
+  - type: Occluder
+    enabled: false
+  - type: RadiationBlocker
+    resistance: 2
+  - type: RCDDeconstructable
+    deconstructable: false
+  - type: PlacementReplacement
+    key: walls

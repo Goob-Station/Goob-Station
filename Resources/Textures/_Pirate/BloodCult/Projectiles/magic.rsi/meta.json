@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "gauntlet_echo taken from BeeStation at https://github.com/BeeStation/BeeStation-Hornet/commit/6c4ff2d3c7e74daa8e874abbb01bddc02fbb67a8. blood_boil from TG station 13",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "blood_boil",
+      "delays": [
+        [
+          0.07,
+          0.07,
+          0.07
+        ]
+      ]
+    },
+    {
+      "name": "gauntlet_echo",
+      "delays": [
+        [
+          0.5,
+          0.05,
+          0.2
+        ]
+      ]
+    }
+  ]
+}

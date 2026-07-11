@@ -1,0 +1,222 @@
+# SPDX-FileCopyrightText: 2024 Remuchi <72476615+Remuchi@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 v0id <>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: MirrorShieldBloodCult
+  parent: [ BaseShield, BaseBloodCultContraband ]
+  name: mirror shield
+  description: A mirrored shield weighted for throwing and charged with disorienting magic.
+  components:
+  - type: Sprite
+    sprite: _Pirate/BloodCult/Objects/Shields/mirror_shield.rsi
+    state: icon
+  - type: Item
+    sprite: _Pirate/BloodCult/Objects/Shields/mirror_shield.rsi
+    heldPrefix: null
+  - type: BloodCultItem
+  - type: ReturnItemOnThrow
+    throwerWhitelist:
+      components:
+      - BloodCultist
+      - BloodCultConstruct
+    targetWhitelist:
+      components:
+      - MobState
+    targetBlacklist:
+      components:
+      - BloodCultist
+      - BloodCultConstruct
+  - type: StunOnCollide
+    stunAmount: 5
+    knockdownAmount: 5
+    slowdownAmount: 10
+    blacklist:
+      components:
+      - BloodCultist
+      - BloodCultConstruct
+  - type: Reflect
+    reflectProb: 0.75
+    reflects:
+    - Energy
+  - type: Blocking
+    passiveBlockModifier:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.8
+    activeBlockModifier:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.8
+      flatReductions:
+        Blunt: 1
+        Slash: 1
+        Piercing: 1
+        Heat: 1
+    blockSound: !type:SoundPathSpecifier
+      path: /Audio/Effects/glass_step.ogg
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+
+- type: entity
+  id: EldritchLongsword
+  parent: [ BaseSword, BaseBloodCultContraband ]
+  name: eldritch longsword
+  description: A sword humming with unholy energy and glowing with dim red light.
+  components:
+  - type: Sprite
+    sprite: _Pirate/BloodCult/Objects/Weapons/Melee/blood_cult_sword.rsi
+    state: icon
+  - type: PointLight
+    color: Red
+    radius: 2
+    softness: 1
+  - type: Item
+    size: Normal
+    sprite: _Pirate/BloodCult/Objects/Weapons/Melee/blood_cult_sword.rsi
+  - type: Clothing
+    slots:
+    - back
+    sprite: _Pirate/BloodCult/Objects/Weapons/Melee/blood_cult_sword.rsi
+  - type: MeleeWeapon
+    attackRate: 1.3333
+    range: 1.65
+    damage:
+      types:
+        Slash: 24
+    heavyStaminaCost: 10
+    maxTargets: 3
+    angle: 90
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: BonusMeleeDamage
+    heavyDamageMultiplier: 1.2
+  - type: DamageOtherOnHit
+    # Pirate: local DamageOtherOnHit does not derive thrown damage from the melee weapon.
+    damage:
+      types:
+        Slash: 24
+  - type: BloodCultThrowingCost
+    staminaCost: 8
+  - type: EmbeddableProjectile
+  # Pirate: local embedding events differ from White Dream's generic passive-damage component.
+  - type: BloodCultEmbedPassiveDamage
+    # Five percent of the sword's 24 thrown damage, matching the source implementation.
+    damage:
+      types:
+        Slash: 1.2
+  - type: ThrowingAngle
+    angle: 225
+  - type: DisarmMalus
+    malus: 0.8
+  - type: BloodCultItem
+
+- type: entity
+  id: ShuttleCurse
+  parent: [ BaseItem, BaseBloodCultContraband ]
+  name: cursed orb
+  description: Its smoky depths show terrible fates befalling the emergency shuttle.
+  components:
+  - type: Sprite
+    sprite: _Pirate/BloodCult/Objects/Misc/shuttle_curse.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: BloodCultItem
+  - type: ShuttleCurse
+
+- type: entity
+  id: VeilShifter
+  parent: [ BaseItem, BaseBloodCultContraband ]
+  name: veil shifter
+  description: A relic that carries its user and anything they pull several paces forward.
+  components:
+  - type: Sprite
+    sprite: _Pirate/BloodCult/Objects/Misc/veil_shifter.rsi
+    layers:
+    - state: icon
+      map: [ "enum.BloodCultVisuals.Layer" ]
+  - type: Item
+    size: Small
+  - type: BloodCultItem
+  - type: VeilShifter
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.BloodCultVisuals.Active:
+        enum.BloodCultVisuals.Layer:
+          True: { state: icon }
+          False: { state: icon_off }
+
+- type: entity
+  id: VoidTorch
+  parent: [ Torch, BaseBloodCultContraband ]
+  name: void torch
+  description: Sends an item through the veil to another cultist.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/torch.rsi
+    layers:
+    - map: [ "enum.ExpendableLightVisualLayers.Base" ]
+      state: torch_unlit
+    - map: [ "enum.ExpendableLightVisualLayers.Glow" ]
+      state: lit_overlay
+      color: "#FF3333"
+      visible: false
+      shader: unshaded
+    - map: [ "enum.ExpendableLightVisualLayers.Overlay" ]
+      state: torch_nocloth
+  - type: BloodCultItem
+  - type: VoidTorch
+  - type: UserInterface
+    interfaces:
+      enum.ListViewSelectorUiKey.Key:
+        type: ListViewSelectorBUI
+  - type: GenericVisualizer
+    visuals:
+      enum.BloodCultVisuals.Active:
+        enum.ExpendableLightVisualLayers.Glow:
+          True: { visible: true }
+          False: { visible: false }
+
+- type: entity
+  id: BloodCultWhetstone
+  parent: [ BaseItem, BaseBloodCultContraband ]
+  name: eldritch whetstone
+  description: A darkly empowered block that sharpens bladed weapons beyond mortal craft.
+  components:
+  - type: Sprite
+    sprite: _Pirate/BloodCult/Objects/Misc/Whetstone/blood_cult_whetstone.rsi
+    layers:
+    - state: icon
+      map: [ "enum.BloodCultVisuals.Layer" ]
+  - type: Item
+    size: Small
+  - type: BloodCultWhetstone
+    whitelist:
+      components:
+      - Sharp
+    blacklist:
+      components:
+      - EnergySword
+  - type: BloodCultItem
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.BloodCultVisuals.Active:
+        enum.BloodCultVisuals.Layer:
+          True: { state: icon }
+          False: { state: icon_off }

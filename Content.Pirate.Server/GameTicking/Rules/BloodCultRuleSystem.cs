@@ -720,6 +720,20 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		return false;
 	}
 
+	public int GetShuttleCurseCharges()
+	{
+		return TryGetActiveRule(out var component) ? component.ShuttleCurseCharges : 0;
+	}
+
+	public bool TryConsumeShuttleCurseCharge()
+	{
+		if (!TryGetActiveRule(out var component) || component.ShuttleCurseCharges <= 0)
+			return false;
+
+		component.ShuttleCurseCharges--;
+		return true;
+	}
+
 	private void OnGetBriefing(EntityUid uid, BloodCultRoleComponent comp, ref GetBriefingEvent args)
     {
 		args.Append(Loc.GetString("cult-briefing-targets"));
