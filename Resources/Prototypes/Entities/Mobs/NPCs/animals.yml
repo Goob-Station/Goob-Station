@@ -1983,9 +1983,6 @@
   - type: FlavorProfile
   - type: Absorbable # imp edit
     biomassRestored: 0.1
-  - type: FlavorProfile
-    flavors:
-    - meaty
   - type: Thirst
     startingThirst: 25  # spawn with Okay thirst state
     thresholds:
