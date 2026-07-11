@@ -12,7 +12,7 @@
 
 - type: entity
   id: HeadYowie
-  name: "голова йові"
+  name: "yowie head"
   parent: [PartYowie, BaseHead]
   components:
   - type: Sprite
@@ -21,7 +21,7 @@
 
 - type: entity
   id: ChestYowie
-  name: "груди йові"
+  name: "yowie chest"
   parent: [PartYowie, BaseChest]
   components:
   - type: Sprite
@@ -30,7 +30,7 @@
 
 - type: entity
   id: GroinYowie
-  name: "пах йові"
+  name: "yowie groin"
   parent: [PartYowie, BaseGroin]
   components:
   - type: Sprite
@@ -39,7 +39,7 @@
 
 - type: entity
   id: LeftArmYowie
-  name: "ліва рука йові"
+  name: "left yowie arm"
   parent: [PartYowie, BaseLeftArm]
   components:
   - type: Sprite
@@ -48,7 +48,7 @@
 
 - type: entity
   id: RightArmYowie
-  name: "права рука йові"
+  name: "right yowie arm"
   parent: [PartYowie, BaseRightArm]
   components:
   - type: Sprite
@@ -57,7 +57,7 @@
 
 - type: entity
   id: LeftHandYowie
-  name: "ліва долоня йові"
+  name: "left yowie hand"
   parent: [PartYowie, BaseLeftHand]
   components:
   - type: Sprite
@@ -66,7 +66,7 @@
 
 - type: entity
   id: RightHandYowie
-  name: "права долоня йові"
+  name: "right yowie hand"
   parent: [PartYowie, BaseRightHand]
   components:
   - type: Sprite
@@ -75,7 +75,7 @@
 
 - type: entity
   id: LeftLegYowie
-  name: "ліва нога йові"
+  name: "left yowie leg"
   parent: [PartYowie, BaseLeftLeg]
   components:
   - type: Sprite
@@ -84,7 +84,7 @@
 
 - type: entity
   id: RightLegYowie
-  name: "права нога йові"
+  name: "right yowie leg"
   parent: [PartYowie, BaseRightLeg]
   components:
   - type: Sprite
@@ -93,7 +93,7 @@
 
 - type: entity
   id: LeftFootYowie
-  name: "ліва ступня йові"
+  name: "left yowie foot"
   parent: [PartYowie, BaseLeftFoot]
   components:
   - type: Sprite
@@ -102,7 +102,7 @@
 
 - type: entity
   id: RightFootYowie
-  name: "права ступня йові"
+  name: "right yowie foot"
   parent: [PartYowie, BaseRightFoot]
   components:
   - type: Sprite

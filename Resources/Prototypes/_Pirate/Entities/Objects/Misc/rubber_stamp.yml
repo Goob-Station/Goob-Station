@@ -1,5 +1,5 @@
 - type: entity
-  name: "адміністративний асистент гумова печатка"
+  name: administrative assistant rubber stamp
   parent: RubberStampBase
   id: RubberStampAdminAssistant
   suffix: DO NOT MAP
@@ -13,7 +13,7 @@
     state: stamp-admin-assistant
 
 - type: entity
-  name: "печатка офіцера Інтердайну"
+  name: Печатка офіцера Інтердайну
   parent: RubberStampBase
   id: RubberStampOfficerInterdyne
   suffix: DO NOT MAP
@@ -26,7 +26,7 @@
     state: stamp-syndicate
 
 - type: entity
-  name: "печатка заступника офіцера Інтердайну"
+  name: Печатка Замістника Офіцера Інтердайну
   parent: RubberStampBase
   id: RubberStampDeputyInterdyne
   suffix: DO NOT MAP

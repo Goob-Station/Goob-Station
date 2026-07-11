@@ -1,7 +1,7 @@
 - type: entity
   parent: MobStatusEffectBase
   id: StatusEffectVampireBloodSwell
-  name: "криваве посилення"
+  name: blood swell
   components:
   - type: StatusEffect
   - type: StatusEffectAlert
@@ -11,7 +11,7 @@
 - type: entity
   parent: MobStatusEffectBase
   id: StatusEffectVampireBloodRush
-  name: "кров'яний ривок"
+  name: blood rush
   components:
   - type: StatusEffect
   - type: StatusEffectAlert

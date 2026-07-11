@@ -30,8 +30,8 @@
 - type: entity
   id: FoodCondimentBottleCaramelSyrupPirate
   parent: BaseFoodCondimentBottleSyrupPirate
-  name: "пляшка карамельного сиропу"
-  description: "Пляшка з помпою, наповнена карамелізованим цукром, також відомим як карамель. Не облизувати."
+  name: caramel syrup bottle
+  description: A pump bottle containing caramelized sugar, also known as caramel. Do not lick.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -43,8 +43,8 @@
 - type: entity
   id: FoodCondimentBottleCoffeeLiqueurSyrupPirate
   parent: BaseFoodCondimentBottleSyrupPirate
-  name: "пляшка сиропу з кавовим лікером"
-  description: "Пляшка з помпою, наповнена сиропом зі смаком кавового лікеру."
+  name: coffee liqueur syrup bottle
+  description: A pump bottle containing coffee-flavored liqueur syrup.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -61,8 +61,8 @@
 - type: entity
   id: FoodCondimentBottleKortaSyrupPirate
   parent: BaseFoodCondimentBottleSyrupPirate
-  name: "пляшка сиропу корта"
-  description: "Пляшка з помпою, наповнена сиропом корта, виготовленим із подрібнених солодких горіхів корта."
+  name: korta syrup bottle
+  description: A pump bottle containing korta syrup made from crushed sweet korta nuts.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -81,8 +81,8 @@
   parent:
   - BaseFoodCondimentBottleSyrupPirate
   - BaseSyndicateContraband
-  name: "пляшка сміхо-сиропу"
-  description: "Пляшка з помпою, наповнена сміхо-сиропом. Шипучий і неприродно солодкий."
+  name: laugh syrup bottle
+  description: A pump bottle containing laugh syrup. Fizzy and unsettlingly sweet.
   components:
   - type: SolutionContainerManager
     solutions:

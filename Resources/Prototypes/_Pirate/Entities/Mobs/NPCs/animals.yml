@@ -1,9 +1,9 @@
 - type: entity
   parent: MobCatSpace
   id: MobCatSyndyReject
-  name: "синдіКіт-відмовник"
+  name: syndicat
   suffix: Reject
-  description: "Котячий улюбленець у тактичному костюмі. На шиї — нашийник з іменною биркою."
+  description: Feline pet in a tactical suit. Around their neck is a collar with a name tag.
   components:
   - type: Sprite
     layers:

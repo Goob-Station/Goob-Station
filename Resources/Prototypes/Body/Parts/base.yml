@@ -8,7 +8,7 @@
   abstract: true
   parent: BaseItem
   id: BasePartInorganic
-  name: "частина тіла"
+  name: "body part"
   components:
   - type: Sprite
     sprite: Mobs/Species/Human/parts.rsi
@@ -43,7 +43,7 @@
 - type: entity
   abstract: true
   id: BaseChestInorganic
-  name: "груди"
+  name: "chest"
   components:
   - type: Sprite
     state: "chest_m"
@@ -106,7 +106,7 @@
 - type: entity
   abstract: true
   id: BaseGroinInorganic
-  name: "пах"
+  name: "groin"
   components:
   - type: Sprite
     state: "groin_m"
@@ -166,7 +166,7 @@
 - type: entity
   abstract: true
   id: BaseHead
-  name: "голова"
+  name: "head"
   components:
   - type: Damageable
     damageContainer: Biological
@@ -228,7 +228,7 @@
 - type: entity
   abstract: true
   id: BaseLeftArm
-  name: "ліва рука"
+  name: "left arm"
   components:
   - type: Sprite
     state: "l_arm"
@@ -265,7 +265,7 @@
 - type: entity
   abstract: true
   id: BaseRightArm
-  name: "права рука"
+  name: "right arm"
   components:
   - type: Sprite
     state: "r_arm"
@@ -302,7 +302,7 @@
 - type: entity
   abstract: true
   id: BaseLeftHand
-  name: "ліва долоня"
+  name: "left hand"
   components:
   - type: Sprite
     state: "l_hand"
@@ -335,7 +335,7 @@
 - type: entity
   abstract: true
   id: BaseRightHand
-  name: "права долоня"
+  name: "right hand"
   components:
   - type: Sprite
     state: "r_hand"
@@ -368,7 +368,7 @@
 - type: entity
   abstract: true
   id: BaseLeftLeg
-  name: "ліва нога"
+  name: "left leg"
   components:
   - type: Sprite
     state: "l_leg"
@@ -406,7 +406,7 @@
 - type: entity
   abstract: true
   id: BaseRightLeg
-  name: "права нога"
+  name: "right leg"
   components:
   - type: Sprite
     state: "r_leg"
@@ -444,7 +444,7 @@
 - type: entity
   abstract: true
   id: BaseLeftFoot
-  name: "ліва стопа"
+  name: "left foot"
   components:
   - type: Sprite
     state: "l_foot"
@@ -477,7 +477,7 @@
 - type: entity
   abstract: true
   id: BaseRightFoot
-  name: "права стопа"
+  name: "right foot"
   components:
   - type: Sprite
     state: "r_foot"

@@ -1,8 +1,8 @@
 - type: entity
   parent: Katana
   id: HolyKatana
-  name: "сонцехват"
-  description: "Сонячний церемоніальний клинок із тьмяного золота, який носив полеглий мечник на шляху спокути."
+  name: suncatcher
+  description: A sunlit ceremonial blade of dull gold, borne by a fallen swordsman seeking atonement.
   components:
   - type: Contraband
     severity: Restricted

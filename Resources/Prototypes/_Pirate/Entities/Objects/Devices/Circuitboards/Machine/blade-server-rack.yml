@@ -1,8 +1,8 @@
 - type: entity
   id: BladeServerRackMachineCircuitboard
   parent: BaseMachineCircuitboard
-  name: "плата стійки блейд-серверів"
-  description: "Машинна друкована плата для стійки блейд-серверів."
+  name: blade server rack circuit board
+  description: A machine printed circuit board for a blade server rack.
   components:
   - type: Sprite
     state: engineering

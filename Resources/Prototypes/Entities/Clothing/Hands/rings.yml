@@ -3,8 +3,8 @@
 - type: entity
   parent: [ RingBase, GoldRingBase ]
   id: GoldRing
-  name: "золота каблучка"
-  description: "Дорогоцінна каблучка."
+  name: gold ring
+  description: A precious ring.
   components:
   - type: Sprite
     layers:
@@ -14,8 +14,8 @@
 - type: entity
   parent: [ RingBase, SilverRingBase ]
   id: SilverRing
-  name: "срібна каблучка"
-  description: "Виглядає трохи менш цінною, ніж золота."
+  name: silver ring
+  description: Looks slightly less valuable than a gold one.
   components:
   - type: Sprite
     layers:
@@ -24,8 +24,8 @@
 - type: entity
   parent: [ RingBase, GoldRingBase ]
   id: GoldRingDiamond
-  name: "золота каблучка з діамантом"
-  description: "Зроблено з етично видобутих космічних діамантів."
+  name: gold diamond ring
+  description: Made from ethically mined space diamonds.
   components:
   - type: Sprite
     layers:
@@ -39,8 +39,8 @@
 - type: entity
   parent: [ RingBase, SilverRingBase ]
   id: SilverRingDiamond
-  name: "срібна каблучка з діамантом"
-  description: "Зроблено з етично видобутих космічних діамантів."
+  name: silver diamond ring
+  description: Made from ethically mined space diamonds.
   components:
   - type: Sprite
     layers:
@@ -53,8 +53,8 @@
 - type: entity
   parent: [ RingBase, GoldRingBase ]
   id: GoldRingGem
-  name: "золота каблучка з коштовним каменем"
-  description: "Блискуча та цінна!"
+  name: gold gem ring
+  description: Shiny and valuable!
   components:
   - type: Sprite
     layers:
@@ -73,8 +73,8 @@
 - type: entity
   parent: [ RingBase, SilverRingBase ]
   id: SilverRingGem
-  name: "срібна каблучка з коштовним каменем"
-  description: "Блискуча і не така вже й цінна!"
+  name: silver gem ring
+  description: Shiny and not quite as valuable!
   components:
   - type: Sprite
     layers:

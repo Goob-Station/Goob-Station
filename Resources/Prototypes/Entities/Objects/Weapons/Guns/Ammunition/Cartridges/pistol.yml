@@ -4,7 +4,7 @@
   abstract: true
   parent: [ BaseCartridge, BaseSecurityContraband ]
   id: BaseCartridgePistol
-  name: "патрон (.35 авто)"
+  name: cartridge (.35 auto)
   components:
   - type: Tag
     tags:
@@ -22,8 +22,8 @@
 - type: entity
   parent: BaseCartridgePistol
   id: CartridgePistol
-  name: "патрон (.35 авто)"
-  description: "Мабуть, найпопулярніший калібр на ринку, використовується всіма видами пістолетів та пістолетів-кулеметів. Стандартні кінетичні боєприпаси поширені та корисні в більшості ситуацій."
+  name: cartridge (.35 auto)
+  description: Arguably the most popular caliber on the market, used by all manner of pistols and submachine guns. Standard kinetic ammunition is common and useful in most situations.
   components:
   - type: CartridgeAmmo
     proto: BulletPistol
@@ -31,8 +31,8 @@
 - type: entity
   parent: BaseCartridgePistol
   id: CartridgePistolPractice
-  name: "патрон (.35 auto тренувальний)"
-  description: "Мабуть, найпопулярніший калібр на ринку, який використовується всілякими пістолетами й пістолетами-кулеметами. Тренувальні боєприпаси стріляють крейдяним снарядом, який трохи щипає, але не завдає тривалої шкоди."
+  name: cartridge (.35 auto practice)
+  description: Arguably the most popular caliber on the market, used by all manner of pistols and submachine guns. Practice ammunition fires a chalk projectile that stings a little, but otherwise causes no lasting damage.
   components:
   - type: CartridgeAmmo
     proto: BulletPistolPractice
@@ -47,8 +47,8 @@
 - type: entity
   parent: BaseCartridgePistol
   id: CartridgePistolIncendiary
-  name: "патрон (.35 auto запалювальний)"
-  description: "Мабуть, найпопулярніший калібр на ринку, який використовується всілякими пістолетами й пістолетами-кулеметами. Запалювальні боєприпаси містять самозаймисту суміш, яка підпалює цілі."
+  name: cartridge (.35 auto incendiary)
+  description: Arguably the most popular caliber on the market, used by all manner of pistols and submachine guns. Incendiary ammunition contains a self-igniting compound that sets targets ablaze.
   components:
   - type: CartridgeAmmo
     proto: BulletPistolIncendiary
@@ -62,8 +62,8 @@
 
 - type: entity
   id: CartridgePistolUranium
-  name: "патрон (.35 auto урановий)"
-  description: "Мабуть, найпопулярніший калібр на ринку, який використовується всілякими пістолетами й пістолетами-кулеметами. Уранові боєприпаси замінюють свинцеве осердя кулі на подільний матеріал, опромінюючи цілі зсередини."
+  name: cartridge (.35 auto uranium)
+  description: Arguably the most popular caliber on the market, used by all manner of pistols and submachine guns. Uranium ammunition replaces the lead core of the bullet with fissile material, irradiating targets from the inside.
   parent: BaseCartridgePistol
   components:
   - type: CartridgeAmmo
@@ -79,7 +79,7 @@
 - type: entity
   parent: BaseCartridgePistol
   id: CartridgePistolSpent
-  name: "патрон (.35 авто)"
+  name: cartridge (.35 auto)
   suffix: spent
   components:
   - type: Sprite

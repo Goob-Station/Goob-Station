@@ -13,7 +13,7 @@
 - type: entity
   parent: BaseAreaShuttle
   id: AreaShuttleAbductor
-  name: "шатл абдукторів"
+  name: abductor shuttle
   components:
   - type: Sprite
     state: abductor
@@ -21,7 +21,7 @@
 - type: entity
   parent: BaseAreaShuttle
   id: AreaShuttleNukie
-  name: "шатл ядерників"
+  name: nukie shuttle
   components:
   - type: Sprite
     state: nukie

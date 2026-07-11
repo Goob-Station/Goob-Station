@@ -2,7 +2,7 @@
 
 - type: entity
   id: BulletClownshot
-  name: "клоуншот"
+  name: clownshot
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -43,7 +43,7 @@
 
 - type: entity
   id: BulletPulse
-  name: "імпульс"
+  name: pulse
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -80,7 +80,7 @@
 
 - type: entity
   id: BulletDetain
-  name: "затримати"
+  name: detain
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -117,7 +117,7 @@
 
 - type: entity
   id: BulletExecute
-  name: "стратити"
+  name: execute
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -152,7 +152,7 @@
 
 - type: entity
   id: BulletHotshot
-  name: "гарячий постріл"
+  name: hotshot
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -189,7 +189,7 @@
 
 - type: entity
   id: BulletSleepshot
-  name: "сонний постріл"
+  name: sleepshot
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -239,7 +239,7 @@
 
 - type: entity
   id: BulletBigshot
-  name: "великий постріл"
+  name: bigshot
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:

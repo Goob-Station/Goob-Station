@@ -1,7 +1,7 @@
 - type: entity
   parent: MarkerBase
   id: DecalSpawnerBase
-  name: "Спавнер Декалей"
+  name: Decal Spawner
   abstract: true
   components:
   - type: Sprite

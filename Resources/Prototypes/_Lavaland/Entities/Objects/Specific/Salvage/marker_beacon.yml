@@ -1,8 +1,8 @@
 - type: entity
   id: MarkerBeacon
   parent: BaseItem
-  name: "сигнальний маячок"
-  description: "Освітлює тобі шлях крізь темряву. Корисний, щоб не заблукати на безкраїх просторах."
+  name: marker beacon
+  description: Shines you the way through the darkness. Useful to not get lost on vast landscapes.
   suffix: Unanchored
   components:
   - type: Sprite
@@ -73,8 +73,8 @@
 - type: entity
   parent: BaseAmmoProvider # this is for cycling swabs out and not spawning 30 entities, trust
   id: BoxMarkerBeacons
-  name: "диспенсер сигнальних маячків"
-  description: "Видає 30 сигнальних маячків, надзвичайно корисний для дослідження космосу та планет."
+  name: marker beacon dispenser
+  description: Dispenses 30 marker beacons, extremely useful for space and planet exploration.
   components:
   - type: Sprite
     layers:

@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingHeadHatFezMantis
   id: ClothingHeadHoodMantisDark
-  name: "темний каптур Мантіса"
-  description: "Похмурий каптур, що низько сидить на голові, прикрашений пурпуровими китицями. Він гарно пасує до вашого плаща, хоча його можна носити й окремо. Якщо маєте ніж, мабуть, зможете підшити його, щоб він зручніше лежав на плечах."
+  name: dark mantis hood
+  description: "A gloomy hood that sits low on the head, ornamented with magenta tassles. It matches your cloak nicely, though it can be worn on its own. If you have a knife, you could probably tailor it to fit more comfortably atop your shoulders."
   components:
   - type: Sprite
     sprite: _DEN/Clothing/Head/Hoods/mantis_hood_dark.rsi
@@ -26,9 +26,9 @@
 - type: entity # One day when HideLayerClothing can be affected by folding, this shouldn't require butchery
   parent: ClothingHeadHatFezMantis # When that day comes, parent it to ClothingHeadHoodMantisDark
   id: ClothingHeadHoodMantisDarkFolded
-  name: "темний каптур Мантіса"
+  name: dark mantis hood
   suffix: Lowered
-  description: "Похмурий каптур, що низько сидить на голові, прикрашений пурпуровими китицями. Він гарно пасує до вашого плаща, хоча його можна носити й окремо. Він постійно сповзає назад на плечі, але якщо маєте ніж, мабуть, зможете підшити його, щоб це виправити."
+  description: "A gloomy hood that sits low on the head, ornamented with magenta tassles. It matches your cloak nicely, though it can be worn on its own. It keeps sliding back onto your shoulders, but if you have a knife, you could probably tailor it to fix that."
   components:
   - type: Sprite
     sprite: _DEN/Clothing/Head/Hoods/mantis_hood_dark.rsi

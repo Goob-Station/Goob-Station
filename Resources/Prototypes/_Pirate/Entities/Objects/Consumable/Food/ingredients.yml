@@ -1,8 +1,8 @@
 - type: entity
   parent: ReagentContainerFlour
   id: ReagentContainerSalt
-  name: "пакет кухонної солі"
-  description: "Великий пакет солі."
+  name: table salt bag
+  description: A big bag of salt.
   components:
   - type: Appearance
   - type: GenericVisualizer
@@ -28,8 +28,8 @@
 - type: entity
   parent: ReagentContainerSalt
   id: ReagentContainerPepper
-  name: "пакет чорного перцю"
-  description: "Великий пакет меленого перцю."
+  name: black pepper bag
+  description: A big bag of ground pepper.
   components:
   - type: Sprite
     layers:

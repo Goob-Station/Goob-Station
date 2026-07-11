@@ -2,7 +2,7 @@
   id: JustDecorHandTeleporterInvisible
   suffix: JustDecor, Portal
   parent: BaseItem
-  name: "Невидимий"
+  name: Invisible
   components:
   - type: Sprite
     sprite: /Textures/Objects/Devices/hand_teleporter.rsi
@@ -18,7 +18,7 @@
 - type: entity
   id: JustDecorBasePortal
   abstract: true
-  name: "Портал"
+  name: Портал
   components:
   - type: Transform
     anchored: True

@@ -1,6 +1,6 @@
 - type: body
   id: XenomorphMaid
-  name: "ксеноморф-покоївка"
+  name: xenomorph maid
   root: chest
   slots:
     head:

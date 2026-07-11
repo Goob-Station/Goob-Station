@@ -1,8 +1,8 @@
 - type: entity
   parent: [BaseItem, BaseSyndicateContraband]
   id: LegendaryCQCManual
-  name: "посібник з легендарного CQC"
-  description: "Старий чорний посібник з легендарних технік ближнього бою."
+  name: посібник з легендарного CQC
+  description: Старий чорний посібник з легендарних технік ближнього бою.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/cqc_manual.rsi

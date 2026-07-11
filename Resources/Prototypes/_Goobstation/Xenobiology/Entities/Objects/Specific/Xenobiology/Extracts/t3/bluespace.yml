@@ -1,7 +1,7 @@
 - type: entity
   id: BluespaceSlimeExtract
   parent: BaseSlimeExtract
-  name: "блюспейсовий екстракт слайма"
+  name: bluespace slime extract
   components:
   - type: Sprite
     layers:

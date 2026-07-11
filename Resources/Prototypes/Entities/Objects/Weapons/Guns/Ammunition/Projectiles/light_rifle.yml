@@ -4,7 +4,7 @@
   parent: BaseBullet
   id: BulletLightRifle
   categories: [ HideSpawnMenu ]
-  name: "куля (.30 rifle)"
+  name: bullet (.30 rifle)
   components:
   - type: Projectile
     damage:
@@ -16,7 +16,7 @@
   parent: BaseBulletPractice
   id: BulletLightRiflePractice
   categories: [ HideSpawnMenu ]
-  name: "куля (.30 rifle тренувальна)"
+  name: bullet (.30 rifle practice)
   components:
   - type: Projectile
     damage:
@@ -27,7 +27,7 @@
   parent: BaseBulletIncendiary
   id: BulletLightRifleIncendiary
   categories: [ HideSpawnMenu ]
-  name: "куля (.30 rifle запалювальна)"
+  name: bullet (.30 rifle incendiary)
   components:
   - type: Projectile
     damage:
@@ -39,7 +39,7 @@
   parent: BaseBulletUranium
   id: BulletLightRifleUranium
   categories: [ HideSpawnMenu ]
-  name: "куля (.30 rifle уранова)"
+  name: bullet (.30 rifle uranium)
   components:
   - type: Projectile
     damage:

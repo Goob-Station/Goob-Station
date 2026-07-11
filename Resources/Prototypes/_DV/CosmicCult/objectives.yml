@@ -89,8 +89,8 @@
 - type: entity
   parent: [BaseCosmicColossusObjective, BaseSurviveObjective]
   id: ColossusSurviveObjective
-  name: "СТІЙ"
-  description: "Тримайтеся до кінця всіх речей."
+  name: PERSIST
+  description: Persist until the end of all things.
   components:
   - type: Objective
     icon:
@@ -100,8 +100,8 @@
 - type: entity
   parent: [BaseCosmicColossusObjective, BaseCodeObjective]
   id: ColossusEffigyObjective
-  name: "ЗАКЛИЧ"
-  description: "Покличте Ефігію Ентропії."
+  name: BECKON
+  description: Call forth an Effigy of Entropy.
   components:
   - type: Objective
     icon:

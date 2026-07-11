@@ -1,6 +1,6 @@
 - type: entity
   id: PlastitaniumWindowOnyx
-  name: "пластитанове вікно"
+  name: пластитанове вікно
   parent: PlastitaniumWindow
   suffix: Onyx
   components:
@@ -46,7 +46,7 @@
 
 - type: entity
   id: PlastitaniumWindowOnyxDiagonal
-  name: "пластитанове вікно"
+  name: пластитанове вікно
   parent: PlastitaniumWindowDiagonal
   suffix: diagonal, Onyx
   components:

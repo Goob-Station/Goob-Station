@@ -1,7 +1,7 @@
 - type: entity
   id: AlwaysPoweredFloorLight
-  name: "підлоговий світильник"
-  description: "Підлоговий світильник, що завжди під напругою."
+  name: floor light
+  description: "An always powered floor-mounted light."
   suffix: Always powered
   parent: AlwaysPoweredWallLight
   placement:
@@ -30,8 +30,8 @@
 
 - type: entity
   id: PoweredFloorLightEmpty
-  name: "підлоговий світильник"
-  description: "Підлоговий світильник. Споживає енергію та випромінює світло, коли в нього вставлена лампочка."
+  name: floor light
+  description: "A floor-mounted light fixture. Draws power and produces light when equipped with a light bulb."
   suffix: Empty
   parent: PoweredlightEmpty
   placement:
@@ -57,8 +57,8 @@
 
 - type: entity
   id: PoweredFloorLight
-  name: "підлоговий світильник"
-  description: "Підлоговий світильник. Споживає енергію та випромінює світло, коли в нього вставлена лампочка."
+  name: floor light
+  description: "A floor-mounted light fixture. Draws power and produces light when equipped with a light bulb."
   parent: Poweredlight
   placement:
     mode: SnapgridCenter

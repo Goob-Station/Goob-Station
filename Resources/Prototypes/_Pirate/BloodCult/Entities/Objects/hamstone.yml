@@ -8,8 +8,8 @@
 - type: entity
   id: CultHamstone
   parent: [ BaseItem, BaseBloodCultContraband ]
-  name: "хом'якамінь"
-  description: "Кристалізована кров Нар'Сі, що містить мозок і душу проклятого хом'яка."
+  name: hamstone
+  description: "Crystalized blood of Nar'Sie, containing the brain and soul of a damned hamster."
   components:
   - type: Sprite
     sprite: _Pirate/BloodCult/Objects/hamstone.rsi

@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseMindRoleAntag
   id: MindRoleCosmicCult
-  name: "Роль Космічного Культу"
+  name: Cosmic Cult Role
   components:
   - type: MindRole
     antagPrototype: CosmicAntagCultist
@@ -15,7 +15,7 @@
 - type: entity
   parent: BaseMindRoleAntag
   id: MindRoleCosmicColossus
-  name: "Роль Колоса"
+  name: Colossus Role
   components:
   - type: MindRole
     antagPrototype: CosmicAntagColossus

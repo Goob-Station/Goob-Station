@@ -1,10 +1,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "базовий щит"
+  name: base shield
   parent: BaseItem
   id: BaseShield
-  description: "Щит!"
+  description: A shield!
   abstract: true
   components:
     - type: Sprite
@@ -80,10 +80,10 @@
         collection: MetalThud #Goob end
 
 - type: entity
-  name: "базовий ремонтований щит"
+  name: base repairable shield
   parent: BaseShield
   id: BaseRepairableShield
-  description: "Ремонтований щит!"
+  description: A repairable shield!
   abstract: true
   components:
   - type: Repairable # Negative values represent healing
@@ -99,10 +99,10 @@
 #Security Shields
 
 - type: entity
-  name: "протиударний щит"
+  name: riot shield
   parent: [ BaseRepairableShield, BaseSecurityContraband ]
   id: RiotShield
-  description: "Великий баштовий щит. Добре підходить для контролю натовпу."
+  description: A large tower shield. Good for controlling crowds.
   components:
     - type: StaticPrice
       price: 90
@@ -120,10 +120,10 @@
           Slash: 1
 
 - type: entity
-  name: "лазерний щит"
+  name: laser shield
   parent: [ BaseRepairableShield, BaseSecurityContraband ]
   id: RiotLaserShield
-  description: "Щит, створений для захисту від лазерів, але не більше."
+  description: A shield built for withstanding lasers, but not much else.
   components:
     - type: Sprite
       state: riot_laser-icon
@@ -140,10 +140,10 @@
           Heat: 1
 
 - type: entity
-  name: "балістичний щит"
+  name: ballistic shield
   parent: [ BaseRepairableShield, BaseSecurityContraband ]
   id: RiotBulletShield
-  description: "Щит, створений для захисту від балістичних снарядів, але не більше."
+  description: A shield built for protecting against ballistics, but not much else.
   components:
     - type: Sprite
       sprite: _Goobstation/Objects/Shields/riotbulletshield.rsi # Goobstation
@@ -164,10 +164,10 @@
 #Craftable shields
 
 - type: entity
-  name: "дерев'яний баклер"
+  name: wooden buckler
   parent: BaseShield
   id: WoodenBuckler
-  description: "Гарно вирізьблений дерев'яний щит!"
+  description: A small round wooden makeshift shield.
   components:
     - type: Sprite
       state: buckler-icon
@@ -219,10 +219,10 @@
       price: 150
 
 - type: entity
-  name: "картонний щит"
+  name: cardboard shield
   parent: BaseShield
   id: CardShield
-  description: "Щит, зроблений з картону. Від багато чого він вас не захистить."
+  description: A shield made of cardboard. Won't protect you from much.
   components:
     - type: Sprite
       state: cardshield-icon
@@ -279,10 +279,10 @@
         path: /Audio/Items/Toys/card_tube_bonk.ogg #Goob end
 
 - type: entity
-  name: "імпровізований щит"
+  name: makeshift shield
   parent: BaseRepairableShield
   id: MakeshiftShield
-  description: "Сирий і розвалюється. Навіщо ви це робите?"
+  description: A rundown looking shield, not good for much.
   components:
     - type: Tag #goobstation
       tags:
@@ -336,10 +336,10 @@
                   max: 2
 
 - type: entity
-  name: "павутинний щит"
+  name: web shield
   parent: BaseShield
   id: WebShield
-  description: "Він достатньо товстий, щоб витримати кілька ударів, але, мабуть, не нагрівається."
+  description: A stringy shield. It's weak, and doesn't seem to do well against heat.
   components:
     - type: Sprite
       sprite: Objects/Weapons/Melee/web-shield.rsi
@@ -391,10 +391,10 @@
 #Magic/Cult Shields (give these to wizard for now)
 
 - type: entity
-  name: "щит з годинниковим механізмом"
+  name: clockwork shield
   parent: BaseRepairableShield
   id: ClockworkShield
-  description: "Ratvar oyrffrf lbh jvgu uvf cebgrpgvba."
+  description: Ratvar oyrffrf lbh jvgu uvf cebgrpgvba.
   components:
     - type: Sprite
       state: ratvarian-icon
@@ -420,10 +420,10 @@
       #Have it break into brass when clock cult is in
 
 - type: entity
-  name: "дзеркальний щит"
+  name: mirror shield
   parent: [ BaseShield, BaseMagicalContraband ]
   id: MirrorShield
-  description: "Моторошно світиться червоним... ви чуєте шепіт геометра"
+  description: Eerily glows red... you hear the geometer whispering
   components:
     - type: Sprite
       state: mirror-icon
@@ -468,10 +468,10 @@
                   max: 5
 
 - type: entity
-  name: "енергетичний щит"
+  name: energy shield
   parent: [BaseItem, BaseSyndicateContraband]
   id: EnergyShield
-  description: "Екзотичний енергетичний щит у складеному вигляді може поміститися навіть у кишені."
+  description: Exotic energy shield, when folded, can even fit in your pocket.
   components:
     - type: ItemToggle
       predictable: false # WD EDIT
@@ -587,10 +587,10 @@
       # WD EDIT END
 
 - type: entity
-  name: "зламаний енергетичний щит"
+  name: broken energy shield
   parent: BaseItem
   id: BrokenEnergyShield
-  description: "Щось всередині вигоріло, воно більше не функціонує."
+  description: Something inside is burned out, it is no longer functional.
   components:
     - type: Sprite
       sprite: Objects/Weapons/Melee/e_shield.rsi
@@ -601,10 +601,10 @@
       heldPrefix: eshield
 
 - type: entity
-  name: "телескопічний щит"
+  name: telescopic shield
   parent: BaseRepairableShield
   id: TelescopicShield
-  description: "Удосконалений щит для захисту від заворушень, виготовлений з легких матеріалів, який складається для зручності зберігання."
+  description: An advanced riot shield made of lightweight materials that collapses for easy storage.
   components:
     - type: ItemToggle
       soundActivate:

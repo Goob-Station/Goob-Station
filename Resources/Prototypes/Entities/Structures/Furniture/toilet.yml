@@ -4,8 +4,8 @@
   abstract: true
   parent: [ DisposalUnitBase, SeatBase ]
   id: BaseToilet
-  name: "унітаз"
-  description: "HT-451, пристрій для утилізації дрібних відходів на основі обертання крутного моменту. Цей здається напрочуд чистим."
+  name: toilet
+  description: The HT-451, a torque rotation-based, waste disposal unit for small matter. This one seems remarkably clean.
   components:
   - type: Sprite
     sprite: Structures/Furniture/toilet.rsi
@@ -140,8 +140,8 @@
 - type: entity
   parent: BaseToilet
   id: ToiletEmpty
-  name: "унітаз"
-  description: "HT-451, пристрій для утилізації дрібних відходів на основі обертання крутного моменту. Цей здається напрочуд чистим."
+  name: toilet
+  description: The HT-451, a torque rotation-based, waste disposal unit for small matter. This one seems remarkably clean.
   suffix: Empty
   components:
   - type: Construction
@@ -194,8 +194,8 @@
 - type: entity
   parent: BaseToilet
   id: ToiletGoldenEmpty
-  name: "золотий унітаз"
-  description: "HT-451G - це золота версія пристрою. Збоку написано, що він виготовлений з найчистішого меркуріанського золота та має сидіння з натуральної шкіри."
+  name: golden toilet
+  description: The HT-451G is the gold version of the device. It says on the side that it is made of the purest Mercurian gold and a real leather seat.
   suffix: Empty
   components:
   - type: Sprite

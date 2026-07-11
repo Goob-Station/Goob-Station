@@ -18,7 +18,7 @@
 
 - type: entity
   id: WraithAbilities
-  name: "Здібності Примари"
+  name: Wraith Abilities
   categories: [ HideSpawnMenu ]
   components:
   - type: Haunt
@@ -65,7 +65,7 @@
 
 - type: entity
   id: HarbingerAbilities
-  name: "Здібності Провісника"
+  name: Harbinger Abilities
   parent: WraithAbilities
   categories: [ HideSpawnMenu ]
   components:
@@ -84,7 +84,7 @@
 
 - type: entity
   id: PlaguebringerAbilities
-  name: "здібності чуморозносника"
+  name: Plaguebringer Abilities
   parent: WraithAbilities
   categories: [ HideSpawnMenu ]
   components:

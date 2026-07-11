@@ -19,7 +19,7 @@
 
 - type: entity
   id: BasicHitscan
-  name: "базовий лазерний промінь"
+  name: basic laser ray
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanAmmo
@@ -40,7 +40,7 @@
 - type: entity
   parent: BasicHitscan
   id: RedLightLaser
-  name: "червоний світловий лазерний промінь"
+  name: red light laser ray
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanBasicDamage
@@ -52,7 +52,7 @@
 - type: entity
   parent: BasicHitscan
   id: RedLaser
-  name: "червоний лазерний промінь"
+  name: red laser ray
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanBasicDamage
@@ -64,7 +64,7 @@
 - type: entity
   parent: BasicHitscan
   id: RedMediumLaser
-  name: "червоний посилений лазерний промінь"
+  name: red amplified laser ray
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanBasicDamage
@@ -76,7 +76,7 @@
 - type: entity
   parent: BasicHitscan
   id: RedHeavyLaser
-  name: "червоний високоенергетичний лазерний промінь"
+  name: red high-energy laser ray
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanBasicDamage
@@ -97,7 +97,7 @@
 - type: entity
   parent: BasicHitscan
   id: RedLaserPractice
-  name: "червоний тренувальний лазерний промінь"
+  name: red practice laser ray
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanBasicDamage
@@ -108,7 +108,7 @@
 - type: entity
   parent: BasicHitscan
   id: XrayLaser
-  name: "імпульсний рентгенівський промінь"
+  name: X-ray pulse beam
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanBasicDamage
@@ -132,7 +132,7 @@
 - type: entity
   parent: BasicHitscan
   id: Pulse
-  name: "синій високоенергетичний лазерний промінь"
+  name: blue high-energy laser ray
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanBasicDamage
@@ -154,7 +154,7 @@
 - type: entity
   parent: BasicHitscan
   id: RedShuttleLaser
-  name: "червоний лазерний промінь шатлового класу"
+  name: shuttle class red laser ray
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanBasicRaycast
@@ -179,7 +179,7 @@
 - type: entity
   parent: BasicHitscan
   id: DebugLaser
-  name: "налагоджувальний лазерний промінь"
+  name: debug laser ray
   suffix: DEBUG
   categories: [ HideSpawnMenu ]
   components:
@@ -201,7 +201,7 @@
 - type: entity
   parent: DebugLaser
   id: DebugLaserGib
-  name: "налагоджувальний промінь розчленування"
+  name: debug gibbing ray
   suffix: DEBUG
   categories: [ HideSpawnMenu ]
   components:

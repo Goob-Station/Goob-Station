@@ -5,6 +5,6 @@
 - type: material
   id: RunedPlasteel
   stackEntity: SheetRunedPlasteel1
-  name: "рунована пласталь"
+  name: runed plasteel
   icon: { sprite: _Pirate/BloodCult/Sheets/plasteel.rsi, state: runedplasteel }
   price: 0.0

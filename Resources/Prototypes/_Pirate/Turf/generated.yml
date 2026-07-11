@@ -1,307 +1,307 @@
 - type: tile
   id: LatticeHalfV
   parent: Lattice
-  name: "вертикальна напіврешітка"
+  name: V half-lattice
   sprite: /Textures/_Pirate/Tiles/lattice/script/half_v.png
   vertices: ['0.25, 0', '0.75, 0', '0.75, 1', '0.25, 1']
 
 - type: tile
   id: LatticeHalfH
   parent: Lattice
-  name: "горизонтальна напіврешітка"
+  name: H half-lattice
   sprite: /Textures/_Pirate/Tiles/lattice/script/half_h.png
   vertices: ['0, 0.25', '0, 0.75', '1, 0.75', '1, 0.25']
 
 - type: tile
   id: LatticeWedgeN
   parent: Lattice
-  name: "північна клиноподібна решітка"
+  name: north wedge lattice
   sprite: /Textures/_Pirate/Tiles/lattice/script/wedge_n.png
   vertices: ['0, 1', '1, 1', '0.5, 0.5']
 
 - type: tile
   id: LatticeWedgeE
   parent: Lattice
-  name: "східна клиноподібна решітка"
+  name: east wedge lattice
   sprite: /Textures/_Pirate/Tiles/lattice/script/wedge_e.png
   vertices: ['1, 1', '1, 0', '0.5, 0.5']
 
 - type: tile
   id: LatticeWedgeS
   parent: Lattice
-  name: "південна клиноподібна решітка"
+  name: south wedge lattice
   sprite: /Textures/_Pirate/Tiles/lattice/script/wedge_s.png
   vertices: ['1, 0', '0, 0', '0.5, 0.5']
 
 - type: tile
   id: LatticeWedgeW
   parent: Lattice
-  name: "західна клиноподібна решітка"
+  name: west wedge lattice
   sprite: /Textures/_Pirate/Tiles/lattice/script/wedge_w.png
   vertices: ['0, 0', '0, 1', '0.5, 0.5']
 
 - type: tile
   id: LatticeHalfTiltNESLower
   parent: Lattice
-  name: "нижня похила напіврешітка ПнСх-Пд"
+  name: NE-S lower half-tilt lattice
   sprite: /Textures/_Pirate/Tiles/lattice/script/halftilt_ne_s_l.png
   vertices: ['0, 1', '1, 1', '1, 0', '0.5, 0']
 
 - type: tile
   id: LatticeHalfTiltSEWLower
   parent: Lattice
-  name: "нижня похила напіврешітка ПдСх-Зх"
+  name: SE-W lower half-tilt lattice
   sprite: /Textures/_Pirate/Tiles/lattice/script/halftilt_se_w_l.png
   vertices: ['1, 1', '1, 0', '0, 0', '0, 0.5']
 
 - type: tile
   id: LatticeHalfTiltSWNLower
   parent: Lattice
-  name: "нижня похила напіврешітка ПдЗх-Пн"
+  name: SW-N lower half-tilt lattice
   sprite: /Textures/_Pirate/Tiles/lattice/script/halftilt_sw_n_l.png
   vertices: ['1, 0', '0, 0', '0, 1', '0.5, 1']
 
 - type: tile
   id: LatticeHalfTiltNWELower
   parent: Lattice
-  name: "нижня похила напіврешітка ПнЗх-Сх"
+  name: NW-E lower half-tilt lattice
   sprite: /Textures/_Pirate/Tiles/lattice/script/halftilt_nw_e_l.png
   vertices: ['0, 0', '0, 1', '1, 1', '1, 0.5']
 
 - type: tile
   id: LatticeHalfTiltNESUpper
   parent: Lattice
-  name: "верхня похила напіврешітка ПнСх-Пд"
+  name: NE-S upper half-tilt lattice
   sprite: /Textures/_Pirate/Tiles/lattice/script/halftilt_ne_s_u.png
   vertices: ['0.5, 1', '1, 1', '1, 0']
 
 - type: tile
   id: LatticeHalfTiltSEWUpper
   parent: Lattice
-  name: "верхня похила напіврешітка ПдСх-Зх"
+  name: SE-W upper half-tilt lattice
   sprite: /Textures/_Pirate/Tiles/lattice/script/halftilt_se_w_u.png
   vertices: ['1, 0.5', '1, 0', '0, 0']
 
 - type: tile
   id: LatticeHalfTiltSWNUpper
   parent: Lattice
-  name: "верхня похила напіврешітка ПдЗх-Пн"
+  name: SW-N upper half-tilt lattice
   sprite: /Textures/_Pirate/Tiles/lattice/script/halftilt_sw_n_u.png
   vertices: ['0.5, 0', '0, 0', '0, 1']
 
 - type: tile
   id: LatticeHalfTiltNWEUpper
   parent: Lattice
-  name: "верхня похила напіврешітка ПнЗх-Сх"
+  name: NW-E upper half-tilt lattice
   sprite: /Textures/_Pirate/Tiles/lattice/script/halftilt_nw_e_u.png
   vertices: ['0, 0.5', '0, 1', '1, 1']
 
 - type: tile
   id: LatticeHalfTiltNEWLower
   parent: Lattice
-  name: "нижня похила напіврешітка ПнСх-Зх"
+  name: NE-W lower half-tilt lattice
   sprite: /Textures/_Pirate/Tiles/lattice/script/halftilt_ne_w_l.png
   vertices: ['0, 1', '1, 1', '1, 0', '0, 0.5']
 
 - type: tile
   id: LatticeHalfTiltSENLower
   parent: Lattice
-  name: "нижня похила напіврешітка ПдСх-Пн"
+  name: SE-N lower half-tilt lattice
   sprite: /Textures/_Pirate/Tiles/lattice/script/halftilt_se_n_l.png
   vertices: ['1, 1', '1, 0', '0, 0', '0.5, 1']
 
 - type: tile
   id: LatticeHalfTiltSWELower
   parent: Lattice
-  name: "нижня похила напіврешітка ПдЗх-Сх"
+  name: SW-E lower half-tilt lattice
   sprite: /Textures/_Pirate/Tiles/lattice/script/halftilt_sw_e_l.png
   vertices: ['1, 0', '0, 0', '0, 1', '1, 0.5']
 
 - type: tile
   id: LatticeHalfTiltNWSLower
   parent: Lattice
-  name: "нижня похила напіврешітка ПнЗх-Пд"
+  name: NW-S lower half-tilt lattice
   sprite: /Textures/_Pirate/Tiles/lattice/script/halftilt_nw_s_l.png
   vertices: ['0, 0', '0, 1', '1, 1', '0.5, 0']
 
 - type: tile
   id: LatticeHalfTiltNEWUpper
   parent: Lattice
-  name: "верхня похила напіврешітка ПнСх-Зх"
+  name: NE-W upper half-tilt lattice
   sprite: /Textures/_Pirate/Tiles/lattice/script/halftilt_ne_w_u.png
   vertices: ['0, 1', '1, 1', '1, 0.5']
 
 - type: tile
   id: LatticeHalfTiltSENUpper
   parent: Lattice
-  name: "верхня похила напіврешітка ПдСх-Пн"
+  name: SE-N upper half-tilt lattice
   sprite: /Textures/_Pirate/Tiles/lattice/script/halftilt_se_n_u.png
   vertices: ['1, 1', '1, 0', '0.5, 0']
 
 - type: tile
   id: LatticeHalfTiltSWEUpper
   parent: Lattice
-  name: "верхня похила напіврешітка ПдЗх-Сх"
+  name: SW-E upper half-tilt lattice
   sprite: /Textures/_Pirate/Tiles/lattice/script/halftilt_sw_e_u.png
   vertices: ['1, 0', '0, 0', '0, 0.5']
 
 - type: tile
   id: LatticeHalfTiltNWSUpper
   parent: Lattice
-  name: "верхня похила напіврешітка ПнЗх-Пд"
+  name: NW-S upper half-tilt lattice
   sprite: /Textures/_Pirate/Tiles/lattice/script/halftilt_nw_s_u.png
   vertices: ['0, 0', '0, 1', '0.5, 1']
 
 - type: tile
   id: PlatingHalfV
   parent: Plating
-  name: "вертикальне напівпокриття"
+  name: V half-plating
   sprite: /Textures/_Pirate/Tiles/plating/script/half_v.png
   vertices: ['0.25, 0', '0.75, 0', '0.75, 1', '0.25, 1']
 
 - type: tile
   id: PlatingHalfH
   parent: Plating
-  name: "горизонтальне напівпокриття"
+  name: H half-plating
   sprite: /Textures/_Pirate/Tiles/plating/script/half_h.png
   vertices: ['0, 0.25', '0, 0.75', '1, 0.75', '1, 0.25']
 
 - type: tile
   id: PlatingWedgeN
   parent: Plating
-  name: "північне клиноподібне покриття"
+  name: north wedge plating
   sprite: /Textures/_Pirate/Tiles/plating/script/wedge_n.png
   vertices: ['0, 1', '1, 1', '0.5, 0.5']
 
 - type: tile
   id: PlatingWedgeE
   parent: Plating
-  name: "східне клиноподібне покриття"
+  name: east wedge plating
   sprite: /Textures/_Pirate/Tiles/plating/script/wedge_e.png
   vertices: ['1, 1', '1, 0', '0.5, 0.5']
 
 - type: tile
   id: PlatingWedgeS
   parent: Plating
-  name: "південне клиноподібне покриття"
+  name: south wedge plating
   sprite: /Textures/_Pirate/Tiles/plating/script/wedge_s.png
   vertices: ['1, 0', '0, 0', '0.5, 0.5']
 
 - type: tile
   id: PlatingWedgeW
   parent: Plating
-  name: "західне клиноподібне покриття"
+  name: west wedge plating
   sprite: /Textures/_Pirate/Tiles/plating/script/wedge_w.png
   vertices: ['0, 0', '0, 1', '0.5, 0.5']
 
 - type: tile
   id: PlatingHalfTiltNESLower
   parent: Plating
-  name: "нижнє похиле напівпокриття ПнСх-Пд"
+  name: NE-S lower half-tilt plating
   sprite: /Textures/_Pirate/Tiles/plating/script/halftilt_ne_s_l.png
   vertices: ['0, 1', '1, 1', '1, 0', '0.5, 0']
 
 - type: tile
   id: PlatingHalfTiltSEWLower
   parent: Plating
-  name: "нижнє похиле напівпокриття ПдСх-Зх"
+  name: SE-W lower half-tilt plating
   sprite: /Textures/_Pirate/Tiles/plating/script/halftilt_se_w_l.png
   vertices: ['1, 1', '1, 0', '0, 0', '0, 0.5']
 
 - type: tile
   id: PlatingHalfTiltSWNLower
   parent: Plating
-  name: "нижнє похиле напівпокриття ПдЗх-Пн"
+  name: SW-N lower half-tilt plating
   sprite: /Textures/_Pirate/Tiles/plating/script/halftilt_sw_n_l.png
   vertices: ['1, 0', '0, 0', '0, 1', '0.5, 1']
 
 - type: tile
   id: PlatingHalfTiltNWELower
   parent: Plating
-  name: "нижнє похиле напівпокриття ПнЗх-Сх"
+  name: NW-E lower half-tilt plating
   sprite: /Textures/_Pirate/Tiles/plating/script/halftilt_nw_e_l.png
   vertices: ['0, 0', '0, 1', '1, 1', '1, 0.5']
 
 - type: tile
   id: PlatingHalfTiltNESUpper
   parent: Plating
-  name: "верхнє похиле напівпокриття ПнСх-Пд"
+  name: NE-S upper half-tilt plating
   sprite: /Textures/_Pirate/Tiles/plating/script/halftilt_ne_s_u.png
   vertices: ['0.5, 1', '1, 1', '1, 0']
 
 - type: tile
   id: PlatingHalfTiltSEWUpper
   parent: Plating
-  name: "верхнє похиле напівпокриття ПдСх-Зх"
+  name: SE-W upper half-tilt plating
   sprite: /Textures/_Pirate/Tiles/plating/script/halftilt_se_w_u.png
   vertices: ['1, 0.5', '1, 0', '0, 0']
 
 - type: tile
   id: PlatingHalfTiltSWNUpper
   parent: Plating
-  name: "верхнє похиле напівпокриття ПдЗх-Пн"
+  name: SW-N upper half-tilt plating
   sprite: /Textures/_Pirate/Tiles/plating/script/halftilt_sw_n_u.png
   vertices: ['0.5, 0', '0, 0', '0, 1']
 
 - type: tile
   id: PlatingHalfTiltNWEUpper
   parent: Plating
-  name: "верхнє похиле напівпокриття ПнЗх-Сх"
+  name: NW-E upper half-tilt plating
   sprite: /Textures/_Pirate/Tiles/plating/script/halftilt_nw_e_u.png
   vertices: ['0, 0.5', '0, 1', '1, 1']
 
 - type: tile
   id: PlatingHalfTiltNEWLower
   parent: Plating
-  name: "нижнє похиле напівпокриття ПнСх-Зх"
+  name: NE-W lower half-tilt plating
   sprite: /Textures/_Pirate/Tiles/plating/script/halftilt_ne_w_l.png
   vertices: ['0, 1', '1, 1', '1, 0', '0, 0.5']
 
 - type: tile
   id: PlatingHalfTiltSENLower
   parent: Plating
-  name: "нижнє похиле напівпокриття ПдСх-Пн"
+  name: SE-N lower half-tilt plating
   sprite: /Textures/_Pirate/Tiles/plating/script/halftilt_se_n_l.png
   vertices: ['1, 1', '1, 0', '0, 0', '0.5, 1']
 
 - type: tile
   id: PlatingHalfTiltSWELower
   parent: Plating
-  name: "нижнє похиле напівпокриття ПдЗх-Сх"
+  name: SW-E lower half-tilt plating
   sprite: /Textures/_Pirate/Tiles/plating/script/halftilt_sw_e_l.png
   vertices: ['1, 0', '0, 0', '0, 1', '1, 0.5']
 
 - type: tile
   id: PlatingHalfTiltNWSLower
   parent: Plating
-  name: "нижнє похиле напівпокриття ПнЗх-Пд"
+  name: NW-S lower half-tilt plating
   sprite: /Textures/_Pirate/Tiles/plating/script/halftilt_nw_s_l.png
   vertices: ['0, 0', '0, 1', '1, 1', '0.5, 0']
 
 - type: tile
   id: PlatingHalfTiltNEWUpper
   parent: Plating
-  name: "верхнє похиле напівпокриття ПнСх-Зх"
+  name: NE-W upper half-tilt plating
   sprite: /Textures/_Pirate/Tiles/plating/script/halftilt_ne_w_u.png
   vertices: ['0, 1', '1, 1', '1, 0.5']
 
 - type: tile
   id: PlatingHalfTiltSENUpper
   parent: Plating
-  name: "верхнє похиле напівпокриття ПдСх-Пн"
+  name: SE-N upper half-tilt plating
   sprite: /Textures/_Pirate/Tiles/plating/script/halftilt_se_n_u.png
   vertices: ['1, 1', '1, 0', '0.5, 0']
 
 - type: tile
   id: PlatingHalfTiltSWEUpper
   parent: Plating
-  name: "верхнє похиле напівпокриття ПдЗх-Сх"
+  name: SW-E upper half-tilt plating
   sprite: /Textures/_Pirate/Tiles/plating/script/halftilt_sw_e_u.png
   vertices: ['1, 0', '0, 0', '0, 0.5']
 
 - type: tile
   id: PlatingHalfTiltNWSUpper
   parent: Plating
-  name: "верхнє похиле напівпокриття ПнЗх-Пд"
+  name: NW-S upper half-tilt plating
   sprite: /Textures/_Pirate/Tiles/plating/script/halftilt_nw_s_u.png
   vertices: ['0, 0', '0, 1', '0.5, 1']

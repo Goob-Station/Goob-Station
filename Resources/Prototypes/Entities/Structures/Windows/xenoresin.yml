@@ -1,8 +1,8 @@
 - type: entity
   parent: ReinforcedWindow
   id: XenoResinWindow
-  name: "смоляне вікно"
-  description: "Прозоре й загартоване, але трохи липке на дотик. Трохи міцніше за звичайне укріплене вікно."
+  name: resin window
+  description: Transparent and hardened, yet slightly sticky to the touch. Slightly stronger than a normal reinforced window.
   components:
   - type: Sprite
     drawdepth: WallTops

@@ -2,7 +2,7 @@
 
 - type: entity
   id: BaseRoomMarker
-  name: "спавнер кімнат"
+  name: room spawner
   parent: MarkerBase
   components:
   - type: RoomFill
