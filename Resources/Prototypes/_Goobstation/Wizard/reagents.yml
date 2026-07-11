@@ -85,6 +85,7 @@
           - type: Apprentice
           guidebookComponentName: reagent-comp-condition-wizard-or-apprentice
       - !type:CleanBloodstream
+        excluded: Mugwort # Pirate: do not purge the cleanser itself.
         cleanseRate: 6
         conditions:
         - !type:HasComponentCondition

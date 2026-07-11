@@ -52,6 +52,7 @@
           - type: Ghoul
           guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
       - !type:CleanBloodstream
+        excluded: EldritchEssence # Pirate: do not purge the cleanser itself.
         cleanseRate: 3
         conditions:
         - !type:HasComponentCondition
