@@ -2,7 +2,6 @@
 
 using System.Linq;
 using System.Text.RegularExpressions;
-using Content.Client.Implants;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Goobstation.Common.Paper;
 using Content.Goobstation.Server.Devil.Objectives.Components;

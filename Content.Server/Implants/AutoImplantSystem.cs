@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: MIT
 
-using Content.Client.Implants;
 using Content.Server.Implants.Components;
 
 namespace Content.Server.Implants;
