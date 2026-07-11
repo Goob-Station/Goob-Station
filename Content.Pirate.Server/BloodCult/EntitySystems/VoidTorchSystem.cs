@@ -5,6 +5,7 @@
 
 using Content.Server.BloodCult.Components;
 using Content.Server.Hands.Systems;
+using Content.Server.Interaction;
 using Content.Server.Popups;
 using Content.Shared._White.ListViewSelector;
 using Content.Shared.BloodCult.Components;

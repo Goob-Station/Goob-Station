@@ -11,6 +11,7 @@ using Content.Server.RoundEnd;
 using Content.Server.Shuttles.Systems;
 using Content.Shared.BloodCult.Components;
 using Content.Shared.Dataset;
+using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
