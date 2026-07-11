@@ -103,7 +103,7 @@ public sealed partial class MeleeWeaponComponent : Component
     public float HeavyStaminaCost = 5f;
 
     // Pirate: preserve per-weapon wide attack caps used by downstream ports.
-    [DataField, AutoNetworkedField]
+    [DataField]
     public int MaxTargets = SharedMeleeWeaponSystem.MaxTargets;
 
     /// <summary>
