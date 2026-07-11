@@ -1,0 +1,83 @@
+- type: jukebox
+  id: PirateCassetteSuperNovaInTheCatacombs
+  name: WigWoo1 - Super Nova in the Catacombs
+  path:
+    path: /Audio/_Pirate/Cassette/Lobby/Super_Nova_In_The_Catacombs.ogg
+
+- type: jukebox
+  id: PirateCassetteShadowInTheSilverNebula
+  name: Mendax - Shadow in the Silver Nebula
+  path:
+    path: /Audio/_Pirate/Cassette/Lobby/shadowinthesilvernebula.ogg
+
+- type: jukebox
+  id: PirateCassetteEnemyIsUnknown
+  name: Nighty - Enemy Is Unknown
+  path:
+    path: /Audio/_Pirate/Cassette/Lobby/enemy_is_unknown.ogg
+
+- type: jukebox
+  id: PirateCassetteTimeIsRunningOut
+  name: Nighty - Time Is Running Out
+  path:
+    path: /Audio/_Pirate/Cassette/Lobby/Time_Is_Running_Out.ogg
+
+- type: jukebox
+  id: PirateCassetteStormTheIronHive
+  name: Nighty - Storm the Iron Hive
+  path:
+    path: /Audio/_Pirate/Cassette/Hijack/storm_the_iron_hive.ogg
+
+- type: jukebox
+  id: PirateCassetteLastStand
+  name: Nighty - Last Stand
+  path:
+    path: /Audio/_Pirate/Cassette/Hijack/Last_Stand.ogg
+
+- type: jukebox
+  id: PirateCassetteDireSituation
+  name: GoodShowOldChap - Dire Situation
+  path:
+    path: /Audio/_Pirate/Cassette/Lobby/Dire_Situation.ogg
+
+- type: jukebox
+  id: PirateCassetteDropzone
+  name: Qwesta - Dropzone
+  path:
+    path: /Audio/_Pirate/Cassette/Lobby/Dropzone.ogg
+
+- type: jukebox
+  id: PirateCassetteGatecrashers
+  name: Qwesta - Gatecrashers
+  path:
+    path: /Audio/_Pirate/Cassette/Hijack/Gatecrashers.ogg
+
+- type: jukebox
+  id: PirateCassetteTheFallenQueen
+  name: Bolgarich - The Fallen Queen
+  path:
+    path: /Audio/_Pirate/Cassette/Lobby/the_fallen_queen.ogg
+
+- type: jukebox
+  id: PirateCassetteHikingInTheFog
+  name: Bolgarich - Hiking in the Fog
+  path:
+    path: /Audio/_Pirate/Cassette/Hijack/hiking_in_the_fog.ogg
+
+- type: jukebox
+  id: PirateCassetteTangoWithBloodshed
+  name: Bolgarich - Tango with Bloodshed
+  path:
+    path: /Audio/_Pirate/Cassette/Hijack/tango_with_bloodshed.ogg
+
+- type: jukebox
+  id: PirateCassetteDestinyOfColonists
+  name: Bolgarich - Destiny of Colonists
+  path:
+    path: /Audio/_Pirate/Cassette/Hijack/Destiny_of_Colonists.ogg
+
+- type: jukebox
+  id: PirateCassetteGigaXOWeLose
+  name: Bolgarich - GigaXO We Lose
+  path:
+    path: /Audio/_Pirate/Cassette/Hijack/GigaXO_we_lose.ogg
