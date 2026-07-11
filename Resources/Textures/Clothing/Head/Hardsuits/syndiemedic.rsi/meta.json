@@ -64,6 +64,10 @@
     {
       "name": "on-equipped-HELMET-hydrakin",
       "directions": 4
+    },
+    {
+      "name": "on-equipped-HELMET-kodepiia",
+      "directions": 4
     }
   ]
 }
