@@ -134,8 +134,15 @@ public sealed partial class UplinkMenu : FancyWindow
         else if (listing.ProductAction != null)
         {
             var actionId = _entityManager.Spawn(listing.ProductAction);
-            if (_entityManager.System<ActionsSystem>().GetAction(actionId)?.Comp?.Icon is {} icon)
-                texture = spriteSys.Frame0(icon);
+            try
+            {
+                if (_entityManager.System<ActionsSystem>().GetAction(actionId)?.Comp?.Icon is {} icon)
+                    texture = spriteSys.Frame0(icon);
+            }
+            finally
+            {
+                _entityManager.DeleteEntity(actionId);
+            }
         }
 
         string? extraText = GetExtraText(listing);
