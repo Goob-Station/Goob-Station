@@ -23,8 +23,8 @@
     groin:
       part: GroinKodepiia
       connections:
-      -right_leg
-      -left_leg
+      - right_leg
+      - left_leg
       organs:
         stomach: OrganKodepiiaStomach
         liver: OrganHumanLiver
