@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Chemistry.Components;
@@ -44,7 +38,7 @@ public sealed class ScoopableSolutionSystem : EntitySystem
             !_solution.TryGetRefillableSolution(beaker, out var target, out _))
             return false;
 
-        var scooped = _solutionTransfer.Transfer(user, ent, src.Value, beaker, target.Value, srcSolution.Volume);
+        var scooped = _solutionTransfer.Transfer(new SolutionTransferData(user, ent, src.Value, beaker, target.Value, srcSolution.Volume));
         if (scooped == 0)
             return false;
 

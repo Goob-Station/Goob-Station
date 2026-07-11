@@ -18138,7 +18138,7 @@ entities:
       - Arsenal
       - Experimental
       - CivilianServices
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 26504
 - proto: AutolatheMachineCircuitboard
   entities:
@@ -62509,7 +62509,7 @@ entities:
       - Arsenal
       - Experimental
       - CivilianServices
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 26504
 - proto: CircuitImprinterMachineCircuitboard
   entities:
@@ -79116,7 +79116,7 @@ entities:
       parent: 11943
     - type: Physics
       canCollide: False
-- proto: EnergyChemDispenser
+- proto: ChemDispenser
   entities:
   - uid: 9802
     components:
@@ -122708,7 +122708,7 @@ entities:
     - type: Transform
       pos: -8.322657,2.410325
       parent: 2
-- proto: MaterialSilo
+- proto: MachineMaterialSilo
   entities:
   - uid: 26504
     components:
@@ -122718,14 +122718,14 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         11907:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
+        - - OreSilo
+          - OreSiloClient
         9996:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
+        - - OreSilo
+          - OreSiloClient
         26963:
-        - - MaterialSilo
-          - MaterialSiloUtilizer
+        - - OreSilo
+          - OreSiloClient
 - proto: Mattress
   entities:
   - uid: 18198
@@ -129919,7 +129919,7 @@ entities:
       - Arsenal
       - Experimental
       - CivilianServices
-    - type: SiloUtilizer
+    - type: OreSiloClient
       silo: 26504
 - proto: ProtolatheMachineCircuitboard
   entities:

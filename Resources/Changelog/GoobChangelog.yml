@@ -23582,3 +23582,213 @@ Entries:
       message: Chaplain Chain sword cannot be dropped while active
   id: 2707
   time: '2026-06-20T12:18:31.0000000+00:00'
+- author: winkkk-k
+  changes:
+    - type: Add
+      message: >-
+        Amber alert level. It indicates that all crew must be armed to fight the
+        threats.
+  id: 2708
+  time: '2026-06-21T13:10:29.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Tweak
+      message: Desoxypehedrine poison 0.75 > 2
+    - type: Tweak
+      message: Desoxypehedrine OD poison 2 > 2.75
+  id: 2709
+  time: '2026-06-21T13:12:48.0000000+00:00'
+- author: UmbiMax
+  changes:
+    - type: Fix
+      message: Emitter projectiles no longer pass through the supermatter crystal.
+  id: 2710
+  time: '2026-06-21T13:55:57.0000000+00:00'
+- author: shoebill
+  changes:
+    - type: Add
+      message: Added a low blood alert to the health analyzer.
+  id: 2711
+  time: '2026-06-23T12:32:06.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Fix
+      message: Fixed Artifact crusher spawning too much fragments.
+  id: 2712
+  time: '2026-06-26T19:27:30.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Remove
+      message: removed healing values from nutriment
+    - type: Tweak
+      message: increased vitamin and protein healing
+    - type: Tweak
+      message: reduced amount of nutriment in nutribricks
+    - type: Fix
+      message: fixed cocoa powder not being toxic to animals
+  id: 2713
+  time: '2026-07-02T12:58:43.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Add
+      message: >-
+        Sci techfab can now access some advanced medical recipes such as the
+        biomass reclaimer.
+    - type: Remove
+      message: Removed mapped energy chem dispensers.
+    - type: Tweak
+      message: Made the energy chem dispenser board more expensive.
+    - type: Tweak
+      message: >-
+        Energy food synthesizer research now requires bluespace chemistry
+        research.
+    - type: Tweak
+      message: >-
+        Moved energy chem dispenser board into bluespace chemistry research and
+        out of roundstart recipes.
+    - type: Tweak
+      message: Increased the amount of some jugs in the chemvend.
+    - type: Fix
+      message: Syndicate chemvend now has the proper amount of empty jugs (8).
+  id: 2714
+  time: '2026-07-02T13:00:02.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Add
+      message: >-
+        Upstream merge will break things. Make a github issue or check upstream
+        bugs threads in the discord and report things breaking for fixes.
+  id: 2715
+  time: '2026-07-04T02:14:46.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Fix
+      message: Fixed materials not actually being added to storages.
+  id: 2716
+  time: '2026-07-08T16:21:43.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Fix
+      message: fixed vials not showing contained solutions
+    - type: Fix
+      message: fixed vials not being able to be drawn with syringes
+    - type: Fix
+      message: fixed combat injector not working
+    - type: Fix
+      message: fixed autoinjectors not injector the entire cartridge
+    - type: Fix
+      message: fix medipens not working
+    - type: Fix
+      message: fix random sentience localization error
+  id: 2717
+  time: '2026-07-08T19:35:44.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Fix
+      message: Fixed most lathes not being able to be linked to the Silo.
+    - type: Tweak
+      message: Doubled Silo range
+  id: 2718
+  time: '2026-07-09T11:18:09.0000000+00:00'
+- author: elioskmil
+  changes:
+    - type: Fix
+      message: >-
+        fixed a bug that prevented players from using the RPD to build straight
+        and bent pipes on top of eachother even if they were rotated.
+  id: 2719
+  time: '2026-07-09T11:18:36.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed surgery
+  id: 2720
+  time: '2026-07-09T11:19:07.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fix IPC not having their charge updated
+  id: 2721
+  time: '2026-07-09T11:20:02.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Add
+      message: >-
+        Added a bunch of existing jumpsuits and clothing options to some job
+        loadouts
+    - type: Add
+      message: Added a bunch of unused envirosuits to assistant and job loadouts.
+    - type: Add
+      message: New military jumpsuits!
+    - type: Add
+      message: >-
+        Recruit jumpsuit to assistant loadout. Can only be worn with under 5
+        hours of playtime.
+    - type: Fix
+      message: >-
+        Replaced filled advanced jackboots with empty advanced jackboots in HoS
+        loadout
+    - type: Fix
+      message: Warden no longer spawns with an extra secmask
+    - type: Tweak
+      message: Medical doctors must select eyewear
+    - type: Tweak
+      message: NTR fancy jumpsuit now has a 20 hour playtime requirement
+    - type: Tweak
+      message: >-
+        Recolored various military jumpsuits to be more accurate to the jobs
+        they represent.
+    - type: Remove
+      message: Removed Eyewear section from CMO loadout
+    - type: Remove
+      message: Combat boot values from high heeled boots
+  id: 2722
+  time: '2026-07-09T21:17:49.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Fix
+      message: Ore Processor no longer vaporizes mats.
+    - type: Fix
+      message: >-
+        Fixed Ore Processor "Claim points" button overlapping with materials
+        list.
+  id: 2723
+  time: '2026-07-09T21:31:10.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Mothership core now understand every language
+  id: 2724
+  time: '2026-07-10T07:34:03.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Fix
+      message: >-
+        Fixed a bug where when one AI tried to control another's B.O.R.I.S it
+        would kick them out and ghost them.
+  id: 2725
+  time: '2026-07-10T07:35:13.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Tweak
+      message: Trit fire is powerful like before!
+  id: 2726
+  time: '2026-07-10T12:42:01.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed being unable to use modsuit
+  id: 2727
+  time: '2026-07-10T12:44:01.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix eating organs as flesh heretic not empowering/healing you.
+  id: 2728
+  time: '2026-07-10T12:45:09.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Add
+      message: Burping
+  id: 2729
+  time: '2026-07-10T12:46:15.0000000+00:00'
