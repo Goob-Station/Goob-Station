@@ -180,7 +180,7 @@
   - type: UserInterface
     interfaces:
       enum.StoreUiKey.Key:
-        type: StoreBoundUserInterface
+        type: UplinkBoundUserInterface # imp edit, was StoreBoundUserInterface
 
 - type: entity
   parent: BaseSubdermalImplant

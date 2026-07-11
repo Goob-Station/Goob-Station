@@ -113,15 +113,20 @@ public abstract partial class SharedGunSystem
                     if (ent == null)
                         break;
 
-                    var hitscanEv = new HitscanTraceEvent
+                    // Pirate: hitscan tracing is authoritative and may send server-filtered network events.
+                    if (_netManager.IsServer)
                     {
-                        FromCoordinates = fromCoordinates,
-                        ShotDirection = mapDirection.Normalized(),
-                        Gun = gunUid,
-                        Shooter = user,
-                        Target = gun.Target,
-                    };
-                    RaiseLocalEvent(ent.Value, ref hitscanEv);
+                        var hitscanEv = new HitscanTraceEvent
+                        {
+                            FromCoordinates = fromCoordinates,
+                            ShotDirection = mapDirection.Normalized(),
+                            Gun = gunUid,
+                            Shooter = user,
+                            Target = gun.Target,
+                        };
+                        RaiseLocalEvent(ent.Value, ref hitscanEv);
+                    }
+
                     PredictedDel(ent.Value);
                     Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
                     break;
