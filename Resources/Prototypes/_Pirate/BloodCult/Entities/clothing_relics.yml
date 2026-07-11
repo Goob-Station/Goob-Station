@@ -1,0 +1,128 @@
+# SPDX-FileCopyrightText: 2024 Remuchi <72476615+Remuchi@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 v0id <>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: ClothingOuterBloodCultArmor
+  parent: [ ClothingOuterHardsuitBase, BaseBloodCultContraband ]
+  name: Nar'Sien hardened armor
+  description: A heavily armored exosuit worn by Nar'Sien warriors. It can withstand hard vacuum.
+  components:
+  - type: Sprite
+    sprite: _Pirate/BloodCult/Clothing/OuterClothing/Hardsuits/blood_cult_armor.rsi
+  - type: Clothing
+    sprite: _Pirate/BloodCult/Clothing/OuterClothing/Hardsuits/blood_cult_armor.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.7
+        Caustic: 0.2
+        Radiation: 0.2
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: TemperatureProtection
+    heatingCoefficient: 0.1
+    coolingCoefficient: 0.1
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetBloodCultArmor
+  - type: BloodCultItem
+
+- type: entity
+  id: ClothingHeadHelmetBloodCultArmor
+  parent: [ ClothingHeadHardsuitBase, BaseBloodCultContraband ]
+  categories: [ HideSpawnMenu ]
+  name: Nar'Sien hardened helmet
+  description: A heavily armored helmet that seals the hardened cult armor.
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: _Pirate/BloodCult/Clothing/Head/Hardsuits/blood_cult_helmet.rsi
+  - type: Clothing
+    sprite: _Pirate/BloodCult/Clothing/Head/Hardsuits/blood_cult_helmet.rsi
+    equipSound: /Audio/Effects/rustle1.ogg
+    unequipSound: /Audio/Effects/rustle2.ogg
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: BloodCultItem
+
+- type: entity
+  id: ClothingOuterRobesBloodCultFlagellant
+  parent: [ ClothingOuterBaseToggleable, BaseBloodCultContraband ]
+  name: flagellant's robe
+  description: Blood-soaked robes that grant unnatural speed at the cost of greatly increased damage taken.
+  components:
+  - type: Sprite
+    sprite: _Pirate/BloodCult/Clothing/OuterClothing/Misc/blood_cult_robe.rsi
+  - type: Clothing
+    sprite: _Pirate/BloodCult/Clothing/OuterClothing/Misc/blood_cult_robe.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 1.25
+    sprintModifier: 1.25
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 1.4
+        Slash: 1.4
+        Piercing: 1.4
+        Heat: 1.4
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHatHoodBloodCultFlagellant
+  - type: BloodCultItem
+
+- type: entity
+  id: ClothingHeadHatHoodBloodCultFlagellant
+  parent: [ ClothingHeadBase, BaseBloodCultContraband ]
+  categories: [ HideSpawnMenu ]
+  name: flagellant's hood
+  description: A blood-soaked hood infused with dark magic.
+  components:
+  - type: Sprite
+    sprite: _Pirate/BloodCult/Clothing/Head/Hoods/blood_cult_hood.rsi
+  - type: Clothing
+    sprite: _Pirate/BloodCult/Clothing/Head/Hoods/blood_cult_hood.rsi
+    equipSound: /Audio/Effects/rustle1.ogg
+    unequipSound: /Audio/Effects/rustle2.ogg
+  - type: HideLayerClothing
+    slots:
+    - Hair
+  - type: BloodCultItem
+
+- type: entity
+  id: ClothingEyeBloodCultBlindfold
+  parent: [ ClothingEyesBase, BaseBloodCultContraband ]
+  name: zealot's blindfold
+  description: May Nar'Sie guide you through darkness and shield you from the light.
+  components:
+  - type: Sprite
+    sprite: Clothing/Eyes/Misc/blindfold.rsi
+    state: icon
+  - type: Clothing
+    sprite: Clothing/Eyes/Misc/blindfold.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+  - type: NightVision
+    isActive: true
+    isEquipment: true
+    toggleAction: null
+    activateSound: null
+    deactivateSound: null
+    color: White
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - Inorganic
+  - type: ShowHealthIcons
+    damageContainers:
+    - Biological
+  - type: BloodCultItem

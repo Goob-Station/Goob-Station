@@ -1,0 +1,55 @@
+# SPDX-FileCopyrightText: 2024 White Dream Project contributors
+# SPDX-FileCopyrightText: 2026 v0id <>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: constructionGraph
+  id: CultAltar
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: altar
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - material: RunedSteel
+        amount: 3
+        doAfter: 3
+  - node: altar
+    entity: CultAltar
+
+- type: constructionGraph
+  id: CultForge
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: forge
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - material: RunedSteel
+        amount: 3
+        doAfter: 3
+  - node: forge
+    entity: CultForge
+
+- type: constructionGraph
+  id: CultArchives
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: archives
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - material: RunedSteel
+        amount: 3
+        doAfter: 3
+  - node: archives
+    entity: CultArchives

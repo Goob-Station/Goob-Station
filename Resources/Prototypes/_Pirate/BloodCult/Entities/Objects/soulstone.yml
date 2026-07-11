@@ -50,3 +50,21 @@
   - type: Sprite
     sprite: _Pirate/BloodCult/Objects/soulstone.rsi
     state: soulstone
+
+- type: entity
+  id: CultSoulStoneGhost
+  parent: CultSoulStone
+  suffix: Ghost Role
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: GhostRole
+    allowMovement: false
+    allowSpeech: true
+    name: cult-soulstone-role-name
+    description: cult-soulstone-role-description
+    rules: cult-soulstone-role-rules
+    mindRoles:
+    - MindRoleCultist
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable

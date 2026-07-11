@@ -525,6 +525,8 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 			{
 				var runeTransform = Transform(rune);
 				_transform.AnchorEntity((rune, runeTransform), ((EntityUid)gridUid, grid), targetTile.GridIndices);
+				var runeDrawn = new BloodCultRuneDrawnEvent(ent.Owner);
+				RaiseLocalEvent(rune, ref runeDrawn);
 				_damageableSystem.TryChangeDamage(ent, appliedDamageSpecifier, true, origin: ent);
 				_audioSystem.PlayPvs(ev.CarveSound, ent);
 				
@@ -615,6 +617,9 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
             case "BarrierRune":
                 drawingPrototype = "BarrierRune_drawing";
                 return true;
+            case "BloodBoilRune":
+                drawingPrototype = "BloodBoilRune_drawing";
+                return true;
             case "EmpoweringRune":
                 drawingPrototype = "EmpoweringRune_drawing";
                 return true;
@@ -624,11 +629,14 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
             case "ReviveRune":
                 drawingPrototype = "ReviveRune_drawing";
                 return true;
-		case "TearVeilRune":
-				drawingPrototype = "TearVeilRune_drawing";
+            case "TearVeilRune":
+                drawingPrototype = "TearVeilRune_drawing";
                 return true;
-		case "SummoningRune":
-				drawingPrototype = "SummoningRune_drawing";
+            case "SummoningRune":
+                drawingPrototype = "SummoningRune_drawing";
+                return true;
+            case "TeleportRune":
+                drawingPrototype = "TeleportRune_drawing";
                 return true;
             default:
                 drawingPrototype = null;

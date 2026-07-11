@@ -58,6 +58,28 @@
                 max: 4
 
 - type: entity
+  id: CultLesserConstructShell
+  parent: [ BaseItem, BaseBloodCultContraband ]
+  name: lesser construct shell
+  description: An empty shell that can bind a dead soul or a soul stone into a lesser construct.
+  components:
+  - type: Sprite
+    sprite: _Pirate/BloodCult/Objects/construct_shell.rsi
+    state: icon
+  - type: Item
+    size: Large
+  - type: BloodCultItem
+  - type: BloodCultConstructShell
+    constructs:
+    - prototype: MobBloodCultArtificer
+    - prototype: MobBloodCultWraith
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: TrackedRadialSelectorMenuBUI
+        interactionRange: 2
+
+- type: entity
   id: MobBloodCultJuggernaut
   name: Juggernaut
   description: Strong, slow, and has lots of health. Solves most problems by punching them. Immune to weak attacks.
@@ -73,14 +95,13 @@
       damageModifierSet: CultJuggernaut
     - type: IgnoreSlowOnDamage
     - type: BloodCultConstruct
+      ejectSourceOnCritical: true
     - type: Reactive
       groups:
         Flammable: [ Touch ]
         Extinguish: [ Touch ]
     - type: MindContainer
     - type: Juggernaut
-    - type: JuggernautBodyContainer
-      containerId: juggernaut_body_container
     - type: ContainerContainer
       containers:
         juggernaut_body_container: !type:ContainerSlot
@@ -281,3 +302,145 @@
     - type: GuideHelp
       guides:
       - BloodCult
+
+- type: entity
+  id: BaseMobBloodCultLesserConstruct
+  parent: [ SimpleSpaceMobBase, BaseBloodCultContraband ]
+  name: lesser construct
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ZombieImmune
+  - type: DamageOnHighSpeedImpact
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
+  - type: Damageable
+    damageContainer: ManifestedSpirit
+    damageModifierSet: CorporealSpirit
+  - type: BloodCultConstruct
+  - type: ContainerContainer
+    containers:
+      blood_cult_source_container: !type:ContainerSlot
+  - type: MindContainer
+  - type: Physics
+  - type: InputMover
+  - type: MobMover
+  - type: MovementIgnoreGravity
+  - type: Speech
+  - type: Emoting
+  - type: TypingIndicator
+    proto: guardian
+  - type: CombatMode
+  - type: Puller
+    needsHands: false
+  - type: Pullable
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+    blackboard:
+      NavSmash: !type:Bool
+        true
+  - type: NpcFactionMember
+    factions:
+    - BloodCultist
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
+  - type: StatusEffects
+    allowed:
+    - KnockedDown
+    - SlowedDown
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.35
+        density: 300
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      60: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: construct
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: glow_cult
+      shader: unshaded
+  - type: NightVision
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
+  - type: IsDeadIC
+  - type: GuideHelp
+    guides:
+    - BloodCult
+  - type: Body
+    prototype: null
+
+- type: entity
+  id: MobBloodCultArtificer
+  parent: BaseMobBloodCultLesserConstruct
+  name: Artificer
+  description: A bulbous construct dedicated to building and maintaining the cult's armies.
+  components:
+  - type: Sprite
+    sprite: _Pirate/BloodCult/Mobs/Construct/artificer.rsi
+  - type: MeleeWeapon
+    hidden: true
+    angle: 30
+    animation: WeaponArcPunch
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 5
+        Structural: 60
+  - type: ActionGrant
+    actions:
+    - ActionBloodCultSummonFloor
+    - ActionBloodCultSummonWall
+    - ActionBloodCultSummonDoor
+    - ActionBloodCultSummonSoulStone
+
+- type: entity
+  id: MobBloodCultWraith
+  parent: BaseMobBloodCultLesserConstruct
+  name: Wraith
+  description: A wicked, clawed shell made to assassinate enemies and sow chaos behind their lines.
+  components:
+  - type: Sprite
+    sprite: _Pirate/BloodCult/Mobs/Construct/wraith.rsi
+  - type: MeleeWeapon
+    hidden: true
+    angle: 30
+    animation: WeaponArcSmash
+    attackRate: 1
+    damage:
+      types:
+        Structural: 40
+        Blunt: 20
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 4
+  - type: StatusEffects
+    allowed:
+    - KnockedDown
+    - SlowedDown
+    - PhaseShifted
+  - type: ActionGrant
+    actions:
+    - ActionBloodCultPhaseShift

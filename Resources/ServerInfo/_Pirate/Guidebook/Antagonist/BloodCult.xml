@@ -35,10 +35,14 @@ SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
     <GuideEntityEmbed Entity="EmpoweringRune" Caption="Посилення"/>
     <GuideEntityEmbed Entity="ReviveRune" Caption="Відродження"/>
     <GuideEntityEmbed Entity="BarrierRune" Caption="Бар'єр"/>
+    <GuideEntityEmbed Entity="BloodBoilRune" Caption="Кипіння крові"/>
     <GuideEntityEmbed Entity="SummoningRune" Caption="Заклик"/>
+    <GuideEntityEmbed Entity="TeleportRune" Caption="Телепортація"/>
   </Box>
 
 Руни кресляться кинджалом культу вашою кров'ю. Руна жертви навертає слабких духом і може розбивати ментальний захист після пробудження Нар'Сі. Руна посилення пришвидшує підготовку заклять. Руна відродження повертає мертвих за ціну крові. Бар'єрна руна створює тимчасові стіни, а руна заклику матеріалізує споруди та слуг культу.
+
+[bold]Кипіння крові[/bold] потребує трьох живих культистів або конструктів поруч. Ритуал ранить учасників, підпалює та атакує до трьох живих ворогів у полі зору. [bold]Руни телепортації[/bold] отримують назву після створення; активуйте одну з них, щоб перенести всіх гуманоїдів на руні до іншої руни на тій самій мапі.
 
 ## Закляття та інструменти
 
@@ -46,18 +50,37 @@ SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
     <GuideEntityEmbed Entity="CultDaggerCurved" Caption="Кинджал культу"/>
     <GuideEntityEmbed Entity="CultPylon" Caption="Пілон"/>
     <GuideEntityEmbed Entity="CultJuggernautShell" Caption="Оболонка джагернаута"/>
+    <GuideEntityEmbed Entity="CultAltar" Caption="Вівтар"/>
+    <GuideEntityEmbed Entity="CultForge" Caption="Кузня"/>
+    <GuideEntityEmbed Entity="CultArchives" Caption="Архіви"/>
   </Box>
 
 Кинджал потрібен для бою та креслення рун. Криваві закляття допомагають отримати новий кинджал, приспати жертву або перетворити метал, скло й пласталь на рунічні матеріали. Пілони лікують культистів і зменшують прогрес очищення, тому база культу має бути захищеною.
+
+З трьох листів рунічної сталі культист може спорудити вівтар, кузню або архіви. Після створення предмета кожна споруда відновлює силу чотири хвилини. Вівтар створює малі оболонки й точила, кузня - зброю та обладунки, а архіви - допоміжні реліквії. Проклята куля з архівів затримує аварійний шатл на три хвилини; культ може зробити це не більш як тричі за раунд.
+
+  <Box>
+    <GuideEntityEmbed Entity="MirrorShieldBloodCult" Caption="Дзеркальний щит"/>
+    <GuideEntityEmbed Entity="EldritchLongsword" Caption="Потойбічний меч"/>
+    <GuideEntityEmbed Entity="ShuttleCurse" Caption="Проклята куля"/>
+    <GuideEntityEmbed Entity="VeilShifter" Caption="Зміщувач завіси"/>
+    <GuideEntityEmbed Entity="VoidTorch" Caption="Смолоскип порожнечі"/>
+  </Box>
 
 ## Конструкти
 
   <Box>
     <GuideEntityEmbed Entity="MobBloodCultShade" Caption="Тінь"/>
     <GuideEntityEmbed Entity="MobBloodCultJuggernaut" Caption="Джагернаут"/>
+    <GuideEntityEmbed Entity="MobBloodCultArtificer" Caption="Ремісник"/>
+    <GuideEntityEmbed Entity="MobBloodCultWraith" Caption="Примара"/>
   </Box>
 
 Тіні й джагернаути служать культу замість живих послідовників. Тінь швидка та повертається до каменя душі після вигнання. Джагернаут повільний, витривалий, ламає укріплення й може відновлюватися від крові.
+
+Мала оболонка приймає душу з мертвого тіла або наповненого каменя душі та дає обрати [bold]ремісника[/bold] або [bold]примару[/bold]. Ремісник створює культові підлоги, стіни, двері й камені душ. Примара швидка та може тимчасово проходити крізь стіни.
+
+Душею конструкта керує сам гравець. Якщо гравець виходить із гри або переходить у привида, конструктом тимчасово керує автоматика; після повернення гравця вона вимикається. У критичному стані джагернаута або після загибелі малого конструкта вкладене тіло чи камінь душі вивільняється. Душа повертається до джерела, а власник мертвого тіла може дочекатися реанімації та повернутися в нього.
 
 ## Ритуал Нар'Сі
 

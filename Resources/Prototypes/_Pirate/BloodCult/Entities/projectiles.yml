@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: 2024 Remuchi <72476615+Remuchi@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 v0id <>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: ProjectileBloodBoil
+  parent: BaseBullet
+  name: concentrated blood
+  description: Oh no.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Pirate/BloodCult/Projectiles/magic.rsi
+    layers:
+    - state: blood_boil
+      shader: unshaded
+  - type: Projectile
+    damage:
+      groups:
+        Burn: 10
+        Brute: 10
+  - type: PointLight
+    enabled: true
+    color: "#ff4300"
+    radius: 2
+    energy: 7
+  - type: BloodBoilProjectile

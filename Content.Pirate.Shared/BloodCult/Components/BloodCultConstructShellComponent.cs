@@ -5,6 +5,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 using Robust.Shared.GameStates;
+using Content.Shared._White.RadialSelector;
 
 namespace Content.Shared.BloodCult.Components;
 
@@ -14,4 +15,9 @@ namespace Content.Shared.BloodCult.Components;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class BloodCultConstructShellComponent : Component
 {
+	/// <summary>
+	/// Empty for the dedicated juggernaut shell. Lesser shells present these forms for selection.
+	/// </summary>
+	[DataField]
+	public List<RadialSelectorEntry> Constructs = new();
 }

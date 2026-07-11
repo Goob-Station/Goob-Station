@@ -1,0 +1,119 @@
+# SPDX-FileCopyrightText: 2024 Remuchi <72476615+Remuchi@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 v0id <>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: ActionBloodCultPhaseShift
+  parent: BaseAction
+  name: Phase Shift
+  description: Slip beyond the veil for a short time, passing through walls and attacks.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 30
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Pirate/BloodCult/Interface/Actions/blood_cult.rsi
+      state: phase_shift
+  - type: InstantAction
+    event: !type:BloodCultPhaseShiftActionEvent
+      duration: 10
+
+- type: entity
+  id: ActionBloodCultSummonFloor
+  parent: BaseAction
+  name: Summon Cult Floor
+  description: Twist the floor into a blood cult surface.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 10
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Pirate/BloodCult/Interface/Actions/blood_cult.rsi
+      state: create_cult_floor
+  - type: TargetAction
+    checkCanAccess: false
+    range: 5
+  - type: WorldTargetAction
+    event: !type:PlaceTileEntityEvent
+      entity: BloodCultTileSpawnEffect
+      tileId: BloodCultFloor
+      audio: !type:SoundPathSpecifier
+        path: /Audio/_Pirate/BloodCult/curse.ogg
+
+- type: entity
+  id: ActionBloodCultSummonWall
+  parent: BaseAction
+  name: Lesser Construction
+  description: Raise a cult wall at the chosen location.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 20
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Pirate/BloodCult/Interface/Actions/blood_cult.rsi
+      state: lesser_construct
+  - type: TargetAction
+    checkCanAccess: false
+    range: 5
+  - type: WorldTargetAction
+    event: !type:PlaceTileEntityEvent
+      entity: BloodCultWallSpawnEffect
+      length: 2
+      audio: !type:SoundPathSpecifier
+        path: /Audio/_Pirate/BloodCult/curse.ogg
+      blockedCollisionMask:
+      - FullTileMask
+      blockedCollisionLayer:
+      - WallLayer
+
+- type: entity
+  id: ActionBloodCultSummonDoor
+  parent: BaseAction
+  name: Summon Cult Door
+  description: Raise a runed door at the chosen location.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 30
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Pirate/BloodCult/Interface/Actions/blood_cult.rsi
+      state: lesser_construct
+  - type: TargetAction
+    checkCanAccess: false
+    range: 5
+  - type: WorldTargetAction
+    event: !type:PlaceTileEntityEvent
+      entity: BloodCultDoorSpawnEffect
+      audio: !type:SoundPathSpecifier
+        path: /Audio/_Pirate/BloodCult/curse.ogg
+      blockedCollisionMask:
+      - FullTileMask
+      blockedCollisionLayer:
+      - WallLayer
+
+- type: entity
+  id: ActionBloodCultSummonSoulStone
+  parent: BaseAction
+  name: Summon Soul Stone
+  description: Reach through the veil and summon a soul stone seeking a willing spirit.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 30
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Pirate/BloodCult/Interface/Actions/blood_cult.rsi
+      state: create_soul_stone
+  - type: TargetAction
+    checkCanAccess: false
+    range: 5
+  - type: WorldTargetAction
+    event: !type:PlaceTileEntityEvent
+      entity: CultSoulStoneGhost
+      audio: !type:SoundPathSpecifier
+        path: /Audio/_Pirate/BloodCult/curse.ogg

@@ -1,0 +1,6 @@
+# SPDX-FileCopyrightText: 2026 v0id <>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: statusEffect
+  id: PhaseShifted

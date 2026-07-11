@@ -82,11 +82,26 @@
   id: BloodBoilRune
   name: blood boil rune
   components:
+  - type: BloodBoilRune
   - type: Sprite
     drawdepth: HighFloorObjects
     layers:
     - state: bloodboil
       color: "#FF3300CC"
+
+- type: entity
+  parent: BaseBloodCultRune
+  id: BloodBoilRune_drawing
+  name: blood boil rune
+  components:
+  - type: Sprite
+    sprite: _Pirate/Structures/BloodCult/bloodrune.rsi
+    drawdepth: HighFloorObjects
+    layers:
+    - state: bloodboil
+      color: "#FF3300CC"
+  - type: TimedDespawn
+    lifetime: 15
 
 - type: entity
   parent: BaseBloodCultRune
@@ -224,11 +239,32 @@
   id: TeleportRune
   name: teleport rune
   components:
+  - type: TeleportRune
+  - type: UserInterface
+    interfaces:
+      enum.ListViewSelectorUiKey.Key:
+        type: ListViewSelectorBUI
+      enum.TeleportRuneNameUiKey.Key:
+        type: TeleportRuneNameBoundUserInterface
   - type: Sprite
     drawdepth: HighFloorObjects
     layers:
     - state: teleport
       color: "#FF3300CC"
+
+- type: entity
+  parent: BaseBloodCultRune
+  id: TeleportRune_drawing
+  name: teleport rune
+  components:
+  - type: Sprite
+    sprite: _Pirate/Structures/BloodCult/bloodrune.rsi
+    drawdepth: HighFloorObjects
+    layers:
+    - state: teleport
+      color: "#FF3300CC"
+  - type: TimedDespawn
+    lifetime: 15
 
 - type: entity
   parent: BaseBloodCultRune

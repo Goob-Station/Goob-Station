@@ -1,0 +1,17 @@
+# SPDX-FileCopyrightText: 2024 Remuchi <72476615+Remuchi@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 v0id <>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: tile
+  id: BloodCultFloor
+  name: tiles-blood-cult-floor
+  sprite: /Textures/_Pirate/BloodCult/Tiles/blood_cult.png
+  variants: 1
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemSteel
+  heatCapacity: 10000
