@@ -6,9 +6,9 @@
   description: Базовий тактичний шолом, який носять військовослужбовці збройних сил Тау-Кита.
   components:
     - type: Sprite
-      sprite: _Pirate/Clothing/_BieselRepublic/Head/Helmet/TCAF_tactical_Helmet_novisor.rsi
+      sprite: _Pirate/Clothing/_BieselRepublic/Head/Helmet/TCAF_tactical_helmet_novisor.rsi
     - type: Clothing
-      sprite: _Pirate/Clothing/_BieselRepublic/Head/Helmet/TCAF_tactical_Helmet_novisor.rsi
+      sprite: _Pirate/Clothing/_BieselRepublic/Head/Helmet/TCAF_tactical_helmet_novisor.rsi
       clothingVisuals:
         head:
         - state: equipped-HELMET
@@ -23,9 +23,9 @@
   description: Базовий тактичний шолом з встроєним тактичним візором, який носять військовослужбовці збройних сил Тау-Кита.
   components:
     - type: Sprite
-      sprite: _Pirate/Clothing/_BieselRepublic/Head/Helmet/TCAF_tactical_Helmet_visor.rsi
+      sprite: _Pirate/Clothing/_BieselRepublic/Head/Helmet/TCAF_tactical_helmet_visor.rsi
     - type: Clothing
-      sprite: _Pirate/Clothing/_BieselRepublic/Head/Helmet/TCAF_tactical_Helmet_visor.rsi
+      sprite: _Pirate/Clothing/_BieselRepublic/Head/Helmet/TCAF_tactical_helmet_visor.rsi
       clothingVisuals:
         head:
         - state: equipped-HELMET
@@ -43,9 +43,9 @@
   description: Значна частина спорядження, яке використовує TCAF, була перероблена зі старішого соляріанського військового спорядження. Цей передовий шолом оснащений балістичним полімерним лицевим щитком з встроєним візором.
   components:
     - type: Sprite
-      sprite: _Pirate/Clothing/_BieselRepublic/Head/Helmet/TCAF_tactical_Helmet_full.rsi
+      sprite: _Pirate/Clothing/_BieselRepublic/Head/Helmet/TCAF_tactical_helmet_full.rsi
     - type: Clothing
-      sprite: _Pirate/Clothing/_BieselRepublic/Head/Helmet/TCAF_tactical_Helmet_full.rsi
+      sprite: _Pirate/Clothing/_BieselRepublic/Head/Helmet/TCAF_tactical_helmet_full.rsi
       clothingVisuals:
         head:
         - state: equipped-HELMET
