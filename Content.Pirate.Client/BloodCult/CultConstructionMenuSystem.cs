@@ -32,9 +32,10 @@ public sealed class CultConstructionMenuSystem : EntitySystem
 
     private void OnSelected(Entity<CultConstructionMenuComponent> menu, ref RadialSelectorSelectedMessage args)
     {
+        var selectedItem = args.SelectedItem;
         if (!_timing.IsFirstTimePredicted ||
-            !menu.Comp.Entries.Any(entry => entry.Prototype == args.SelectedItem) ||
-            !_prototype.TryIndex(args.SelectedItem, out ConstructionPrototype? construction))
+            !menu.Comp.Entries.Any(entry => entry.Prototype == selectedItem) ||
+            !_prototype.TryIndex(selectedItem, out ConstructionPrototype? construction))
             return;
 
         if (construction.Type == ConstructionType.Item)

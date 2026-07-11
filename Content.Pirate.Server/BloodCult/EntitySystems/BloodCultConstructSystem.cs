@@ -5,6 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later OR MIT
 
+using System.Linq;
 using Robust.Shared.GameObjects;
 using Content.Server.Ghost;
 using Content.Server.Mind;
@@ -407,7 +408,7 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 		args.Handled = true;
 	}
 
-	private void OnPlayerDetached(Entity<BloodCultConstructComponent> construct, PlayerDetachedEvent args)
+	private void OnPlayerDetached(Entity<BloodCultConstructComponent> construct, ref PlayerDetachedEvent args)
 	{
 		if (construct.Comp.SourceEntity != null && !_mobState.IsIncapacitated(construct))
 			_npc.WakeNPC(construct);
@@ -520,31 +521,37 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 
 	private void OnConstructSelected(Entity<BloodCultConstructShellComponent> shell, ref RadialSelectorSelectedMessage args)
 	{
+		var selectedItem = args.SelectedItem;
 		if (!_pendingConstructs.Remove(shell, out var pending) || pending.User != args.Actor ||
-			!_ui.IsUiOpen(shell, RadialSelectorUiKey.Key, args.Actor) ||
-			!shell.Comp.Constructs.Any(entry => entry.Prototype == args.SelectedItem) ||
-			!_prototype.HasIndex<EntityPrototype>(args.SelectedItem) ||
+			!_ui.IsUiOpen(shell.Owner, RadialSelectorUiKey.Key, args.Actor) ||
+			!shell.Comp.Constructs.Any(entry => entry.Prototype == selectedItem) ||
+			!_prototype.HasIndex<EntityPrototype>(selectedItem) ||
 			!Exists(pending.Source) ||
-			(pending.SourceKind == BloodCultConstructSourceKind.Body && !_mobState.IsDead(pending.Source)) ||
-			!TryGetSourceMind(pending.Source, out var mindId, out var mind))
+			(pending.SourceKind == BloodCultConstructSourceKind.Body && !_mobState.IsDead(pending.Source)))
 		{
-			_ui.CloseUi(shell, RadialSelectorUiKey.Key, args.Actor);
+			_ui.CloseUi(shell.Owner, RadialSelectorUiKey.Key, args.Actor);
 			return;
 		}
 
-		var constructUid = Spawn(args.SelectedItem, _transform.GetMapCoordinates(shell));
+		if (!TryGetSourceMind(pending.Source, out var mindId, out var mind))
+		{
+			_ui.CloseUi(shell.Owner, RadialSelectorUiKey.Key, args.Actor);
+			return;
+		}
+
+		var constructUid = Spawn(selectedItem, _transform.GetMapCoordinates(shell));
 		if (!TryComp<BloodCultConstructComponent>(constructUid, out var construct) ||
 			!TrySetConstructSource((constructUid, construct), pending.Source, pending.SourceKind,
 				"blood_cult_source_container"))
 		{
 			QueueDel(constructUid);
-			_ui.CloseUi(shell, RadialSelectorUiKey.Key, args.Actor);
+			_ui.CloseUi(shell.Owner, RadialSelectorUiKey.Key, args.Actor);
 			_popup.PopupEntity(Loc.GetString("cult-construct-shell-failed"), shell, args.Actor, PopupType.Medium);
 			return;
 		}
 
 		_mind.TransferTo(mindId, constructUid, ghostCheckOverride: true, mind: mind);
-		_ui.CloseUi(shell, RadialSelectorUiKey.Key, args.Actor);
+		_ui.CloseUi(shell.Owner, RadialSelectorUiKey.Key, args.Actor);
 		_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/blink.ogg"), Transform(shell).Coordinates);
 		QueueDel(shell);
 	}
@@ -580,10 +587,11 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 		mind = default!;
 
 		if (CompOrNull<MindContainerComponent>(source)?.Mind is not { } sourceMind ||
-			!TryComp(sourceMind, out mind))
+			!TryComp<MindComponent>(sourceMind, out var sourceMindComponent))
 			return false;
 
 		mindId = sourceMind;
+		mind = sourceMindComponent;
 		return true;
 	}
 

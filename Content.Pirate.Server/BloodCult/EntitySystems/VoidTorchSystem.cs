@@ -8,6 +8,7 @@ using Content.Server.Hands.Systems;
 using Content.Server.Interaction;
 using Content.Server.Popups;
 using Content.Shared._White.ListViewSelector;
+using Content.Shared.BloodCult;
 using Content.Shared.BloodCult.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
@@ -82,8 +83,8 @@ public sealed class VoidTorchSystem : EntitySystem
         }
 
         _pendingTransfers[torch] = new PendingVoidTorchTransfer(args.User, item, targets);
-        _ui.SetUiState(torch, ListViewSelectorUiKey.Key, new ListViewSelectorState(entries));
-        if (!_ui.TryOpenUi(torch, ListViewSelectorUiKey.Key, args.User))
+        _ui.SetUiState(torch.Owner, ListViewSelectorUiKey.Key, new ListViewSelectorState(entries));
+        if (!_ui.TryOpenUi(torch.Owner, ListViewSelectorUiKey.Key, args.User))
             _pendingTransfers.Remove(torch);
     }
 
@@ -91,7 +92,7 @@ public sealed class VoidTorchSystem : EntitySystem
     {
         if (!_pendingTransfers.Remove(torch, out var pending) ||
             pending.Actor != args.Actor ||
-            !_ui.IsUiOpen(torch, ListViewSelectorUiKey.Key, args.Actor) ||
+            !_ui.IsUiOpen(torch.Owner, ListViewSelectorUiKey.Key, args.Actor) ||
             !EntityUid.TryParse(args.SelectedItem.Id, out var target) ||
             !pending.Targets.Contains(target) ||
             torch.Comp.Charges <= 0 ||
@@ -102,7 +103,7 @@ public sealed class VoidTorchSystem : EntitySystem
             !_hands.IsHolding(args.Actor, torch) ||
             !_interaction.InRangeUnobstructed(args.Actor, pending.Item))
         {
-            _ui.CloseUi(torch, ListViewSelectorUiKey.Key, args.Actor);
+            _ui.CloseUi(torch.Owner, ListViewSelectorUiKey.Key, args.Actor);
             return;
         }
 
@@ -110,7 +111,7 @@ public sealed class VoidTorchSystem : EntitySystem
             _hands.TryDrop(args.Actor, pending.Item);
         else if (_container.IsEntityOrParentInContainer(pending.Item))
         {
-            _ui.CloseUi(torch, ListViewSelectorUiKey.Key, args.Actor);
+            _ui.CloseUi(torch.Owner, ListViewSelectorUiKey.Key, args.Actor);
             return;
         }
 
@@ -122,7 +123,7 @@ public sealed class VoidTorchSystem : EntitySystem
         if (torch.Comp.Charges == 0)
             _appearance.SetData(torch, BloodCultVisuals.Active, false);
 
-        _ui.CloseUi(torch, ListViewSelectorUiKey.Key, args.Actor);
+        _ui.CloseUi(torch.Owner, ListViewSelectorUiKey.Key, args.Actor);
     }
 
     private void OnUiClosed(Entity<VoidTorchComponent> torch, ref BoundUIClosedEvent args)

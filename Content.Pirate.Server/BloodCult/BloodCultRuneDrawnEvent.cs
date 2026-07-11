@@ -4,6 +4,7 @@
 
 namespace Content.Server.BloodCult;
 
+[ByRefEvent]
 public sealed class BloodCultRuneDrawnEvent(EntityUid user) : EntityEventArgs
 {
     public EntityUid User { get; } = user;

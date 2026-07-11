@@ -9,6 +9,7 @@ using Content.Server.GameTicking.Rules;
 using Content.Server.Popups;
 using Content.Server.RoundEnd;
 using Content.Server.Shuttles.Systems;
+using Content.Shared.BloodCult;
 using Content.Shared.BloodCult.Components;
 using Content.Shared.Dataset;
 using Content.Shared.Interaction;

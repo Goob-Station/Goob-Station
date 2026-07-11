@@ -3,6 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Server.BloodCult.Components;
 using Content.Server.Hands.Systems;
 using Content.Server.Popups;
@@ -81,17 +82,18 @@ public sealed class TimedCultFactorySystem : EntitySystem
 
     private void OnSelected(Entity<TimedCultFactoryComponent> factory, ref RadialSelectorSelectedMessage args)
     {
+        var selectedItem = args.SelectedItem;
         if (!factory.Comp.Active ||
             (!HasComp<BloodCultistComponent>(args.Actor) &&
              !HasComp<BloodCultConstructComponent>(args.Actor)) ||
             !_ui.IsUiOpen(factory.Owner, RadialSelectorUiKey.Key, args.Actor))
             return;
 
-        var allowed = factory.Comp.Entries.Any(entry => entry.Prototype == args.SelectedItem);
-        if (!allowed || !_prototype.HasIndex<EntityPrototype>(args.SelectedItem))
+        var allowed = factory.Comp.Entries.Any(entry => entry.Prototype == selectedItem);
+        if (!allowed || !_prototype.HasIndex<EntityPrototype>(selectedItem))
             return;
 
-        var product = Spawn(args.SelectedItem, Transform(args.Actor).Coordinates);
+        var product = Spawn(selectedItem, Transform(args.Actor).Coordinates);
         _hands.TryPickupAnyHand(args.Actor, product);
 
         factory.Comp.Active = false;

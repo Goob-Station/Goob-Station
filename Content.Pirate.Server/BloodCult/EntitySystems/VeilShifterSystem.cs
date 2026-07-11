@@ -5,6 +5,7 @@
 
 using Content.Server.BloodCult.Components;
 using Content.Server.Popups;
+using Content.Shared.BloodCult;
 using Content.Shared.BloodCult.Components;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Examine;
@@ -70,7 +71,7 @@ public sealed class VeilShifterSystem : EntitySystem
             var distance = _random.Next(veil.Comp.TeleportDistanceMin, veil.Comp.TeleportDistanceMax + 1);
             destination = oldCoordinates.Offset(direction * distance).SnapToGrid();
 
-            if (!destination.TryGetTileRef(out var tile) || _turf.IsTileBlocked(tile.Value, CollisionGroup.MobMask))
+            if (!_turf.TryGetTileRef(destination, out var tile) || _turf.IsTileBlocked(tile.Value, CollisionGroup.MobMask))
                 continue;
 
             foundDestination = true;
