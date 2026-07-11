@@ -31,6 +31,9 @@ public sealed partial class DamageOnProximityComponent : Component
     [DataField]
     public EntityWhitelist? Blacklist;
 
+    [DataField]
+    public EntityWhitelist? Whitelist;
+
     /// <summary>
     /// Sound that plays when damage is dealt. You REALLY shouldn't put a sound if the damage interval is short.
     /// </summary>

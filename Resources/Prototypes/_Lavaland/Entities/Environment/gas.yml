@@ -27,8 +27,14 @@
           - MobMask
   - type: DamageOnProximity
     interval: 1
-    range: 0.7
+    range: 0.5
     group: ToxicGas
+    whitelist:
+      components:
+      - Actor
+    blacklist:
+      tags:
+      - Fauna
     damage:
       types:
         Poison: 2 # Fairly fast but you can tank a few seconds

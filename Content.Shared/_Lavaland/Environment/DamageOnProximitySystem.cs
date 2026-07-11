@@ -41,7 +41,7 @@ public sealed class DamageOnProximitySystem : EntitySystem
                 if (!HasComp<DamageableComponent>(ent))
                     continue;
 
-                if (_whitelist.IsWhitelistPass(comp.Blacklist, ent))
+                if (!_whitelist.CheckBoth(ent, comp.Blacklist, comp.Whitelist))
                     continue;
 
                 var key = (ent, comp.Group);

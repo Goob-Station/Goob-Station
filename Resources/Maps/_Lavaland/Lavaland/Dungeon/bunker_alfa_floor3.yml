@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 07/10/2026 22:05:37
-  entityCount: 4737
+  time: 07/11/2026 06:15:15
+  entityCount: 4738
 maps:
 - 1
 grids:
@@ -45,12 +45,12 @@ entities:
     components:
     - type: MetaData
       name: grid
-    - type: LavalandGridGrant
-      componentsToGrant:
-      - type: BlockTeleport
     - type: Transform
       pos: -0.53125,-0.546875
       parent: 1
+    - type: LavalandGridGrant
+      componentsToGrant:
+      - type: BlockTeleport
     - type: MapGrid
       chunks:
         0,0:
@@ -2393,11 +2393,6 @@ entities:
     - type: Transform
       pos: -2.5,-5.5
       parent: 2
-  - uid: 173
-    components:
-    - type: Transform
-      pos: 0.5,7.5
-      parent: 2
   - uid: 187
     components:
     - type: Transform
@@ -2462,6 +2457,13 @@ entities:
     components:
     - type: Transform
       pos: -30.5,27.5
+      parent: 2
+- proto: BunkerElevatorFloor3DOWN
+  entities:
+  - uid: 173
+    components:
+    - type: Transform
+      pos: 0.5,7.5
       parent: 2
 - proto: BunkerElevatorFloor3UP
   entities:
@@ -7603,6 +7605,13 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -20.5,14.5
       parent: 2
+- proto: PoweredSmallLight
+  entities:
+  - uid: 4738
+    components:
+    - type: Transform
+      pos: 0.5,7.5
+      parent: 2
 - proto: PuddleBloodSmall
   entities:
   - uid: 3550
@@ -12577,6 +12586,9 @@ entities:
         - - Pressed
           - Open
         132:
+        - - Pressed
+          - Open
+        17:
         - - Pressed
           - Open
     - type: Fixtures

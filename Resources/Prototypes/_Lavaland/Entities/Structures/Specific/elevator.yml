@@ -103,6 +103,73 @@
     destinationId: BunkerAlfaFloor2
     mapPath: /Maps/_Lavaland/Lavaland/Dungeon/bunker_alfa_floor2.yml
 
+- type: entity
+  parent: BaseLavalandElevator
+  id: BunkerElevatorFloor3DOWN
+  suffix: Goes down to floor 4
+  components:
+  - type: Sprite
+    drawdepth: Doors
+    sprite: _Lavaland/Structures/Specific/elevator.rsi
+    noRot: true
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: elevatorDOWN
+  - type: Elevator
+    destinationId: BunkerAlfaFloor4
+    mapPath: /Maps/_Lavaland/Lavaland/Dungeon/bunker_alfa_floor4.yml
+
+# Floor 4
+
+- type: entity
+  parent: BaseLavalandElevator
+  id: BunkerElevatorFloor4UP
+  suffix: Goes up to floor 3
+  components:
+  - type: Sprite
+    drawdepth: Doors
+    sprite: _Lavaland/Structures/Specific/elevator.rsi
+    noRot: true
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: elevatorUP
+  - type: Elevator
+    destinationId: BunkerAlfaFloor3
+    mapPath: /Maps/_Lavaland/Lavaland/Dungeon/bunker_alfa_floor4.yml
+
+- type: entity
+  parent: BaseLavalandElevator
+  id: BunkerElevatorFloor4DOWN
+  suffix: Goes down to floor 5
+  name: jammed elevator
+  description: This elevator seems to be out of order. Eventually, it might work, but it won't be today.
+  components:
+  - type: Sprite
+    drawdepth: Doors
+    sprite: _Lavaland/Structures/Specific/elevator.rsi
+    noRot: true
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: elevatorDOWN
+
+# Floor 5
+
+- type: entity
+  parent: BaseLavalandElevator
+  id: BunkerElevatorFloor5UP
+  suffix: Goes up to floor 4
+  components:
+  - type: Sprite
+    drawdepth: Doors
+    sprite: _Lavaland/Structures/Specific/elevator.rsi
+    noRot: true
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: elevatorUP
+  - type: Elevator
+    destinationId: BunkerAlfaFloor4
+    mapPath: /Maps/_Lavaland/Lavaland/Dungeon/bunker_alfa_floor4.yml
+
 # Beacons
 
 - type: entity
@@ -125,3 +192,18 @@
   - type: Transform    
   - type: ElevatorBeacon
     id: BunkerAlfaFloor3
+
+- type: entity
+  id: ElevatorBeaconBunkerAlfaFloor4
+  components:
+  - type: Transform    
+  - type: ElevatorBeacon
+    id: BunkerAlfaFloor4
+
+
+- type: entity
+  id: ElevatorBeaconBunkerAlfaFloor5
+  components:
+  - type: Transform    
+  - type: ElevatorBeacon
+    id: BunkerAlfaFloor5

@@ -30,7 +30,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 9999 # Go fuck yourself
+        damage: 99999 # Go fuck yourself
       behaviors:
       - !type:SpawnEntitiesBehavior
               spawn:
@@ -71,7 +71,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 9999
+        damage: 99999
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -103,7 +103,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 9999
+        damage: 99999
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]

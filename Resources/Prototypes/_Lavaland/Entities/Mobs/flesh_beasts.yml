@@ -331,7 +331,7 @@
     triggerSpeed: 0.3
     shape:
       !type:PhysShapeCircle
-      radius: 1
+      radius: 1.5
     layer:
     - MobMask
   - type: Body
@@ -340,11 +340,11 @@
   - type: GibOnTrigger
   - type: SmokeOnTrigger
     duration: 2
-    spreadAmount: 45
+    spreadAmount: 50
     solution:
       reagents:
-        - ReagentId: FluorosulfuricAcid
-          Quantity: 10
+        - ReagentId: Razorium
+          Quantity: 15
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Effects/bite.ogg
