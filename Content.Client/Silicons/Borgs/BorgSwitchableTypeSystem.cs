@@ -46,6 +46,8 @@ public sealed class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeSystem
         BorgTypePrototype prototype,
         BorgSubtypePrototype subtypePrototype)
     {
+        var hasMovementState = prototype.SpriteBodyMovementState is null;
+
         if (TryComp(entity, out SpriteComponent? sprite))
         {
             _sprite.LayerSetRsiState((entity, sprite), BorgVisualLayers.Body, prototype.SpriteBodyState);
@@ -58,6 +60,9 @@ public sealed class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeSystem
                 _sprite.LayerSetRsi((entity, sprite), BorgVisualLayers.Body, resource.RSI);
                 _sprite.LayerSetRsi((entity, sprite), BorgVisualLayers.Light, resource.RSI);
                 _sprite.LayerSetRsi((entity, sprite), BorgVisualLayers.LightStatus, resource.RSI);
+
+                if (prototype.SpriteBodyMovementState is { } movementState)
+                    hasMovementState = resource.RSI.TryGetState(movementState, out _);
             }
             _sprite.LayerSetRsiState((entity, sprite), BorgVisualLayers.Body, prototype.SpriteBodyState);
             _sprite.LayerSetRsiState((entity, sprite), BorgVisualLayers.LightStatus, prototype.SpriteToggleLightState);
@@ -80,5 +85,13 @@ public sealed class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeSystem
         }
 
         base.UpdateEntityAppearance(entity, prototype, subtypePrototype); // Goob pass along subtypePrototype. No i don't know what the fuck happened here and im too tired to care.
+
+        // Pirate: Custom subtype RSIs may only have an idle body state.
+        if (!hasMovementState &&
+            TryComp(entity, out SpriteMovementComponent? movement) &&
+            movement.MovementLayers.TryGetValue("movement", out var movementLayer))
+        {
+            movementLayer.State = prototype.SpriteBodyState;
+        }
     }
 }
