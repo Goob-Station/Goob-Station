@@ -1,0 +1,6 @@
+- type: weightedRandom
+  id: RandomThavenMoodDataset
+  weights:
+    ThavenMoodsYesAnd: 0.4
+    ThavenMoodsNoAnd: 0.4
+    ThavenMoodsWildcard: 0.2

@@ -1,0 +1,6 @@
+- type: foodSequenceElement
+  id: ThavenBurger
+  name: food-sequence-burger-content-thaven
+  sprites:
+  - sprite: Objects/Consumable/Food/meat.rsi
+    state: fish

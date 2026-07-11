@@ -1,0 +1,15 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="{Loc shared-moods-admin-init-ui-title}"
+                      MinSize="440 200"
+                      Resizable="False">
+    <BoxContainer Orientation="Vertical" VerticalAlignment="Center" Margin="4 4 4 8">
+        <RichTextLabel Text="{Loc shared-moods-admin-init-ui-desc}" HorizontalAlignment="Center" Margin="0 0 0 8" />
+        <Label Text="{Loc shared-moods-admin-init-ui-name}" HorizontalAlignment="Center" />
+        <LineEdit Name="NameInput" SetWidth="200" Margin="0 4 0 4" />
+        <Label Name="ErrorLabel" Text="{Loc shared-moods-admin-init-ui-error}" HorizontalAlignment="Center" StyleClasses="negative" Margin="0 0 0 4" Visible="False" />
+        <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Name="AcceptNameButton" Text="{Loc strange-moods-admin-init-ui-accept}" />
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>

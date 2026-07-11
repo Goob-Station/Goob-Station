@@ -1,0 +1,7 @@
+- type: metabolismGroup
+  id: Digestion
+  name: metabolism-group-digestion
+
+- type: metabolismGroup
+  id: Bloodstream
+  name: metabolism-group-bloodstream

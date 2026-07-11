@@ -1,0 +1,54 @@
+# Head
+- type: marking
+  id: ThavenCheekBarbels
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Thaven]
+  coloring: # Macro edit
+    default:
+      type:
+       !type:SkinColoring
+  sprites:
+  - sprite: _DV/Mobs/Customization/thaven/thaven.rsi
+    state: cheek_barbels
+
+- type: marking
+  id: ThavenEyebrowBarbels
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Thaven]
+  coloring: # Macro edit
+    default:
+      type:
+       !type:SkinColoring
+  sprites:
+  - sprite: _DV/Mobs/Customization/thaven/thaven.rsi
+    state: eyebrow_barbels
+
+# macrocosm, these were removed for being too animal-like, but I've altered them for nubody so they will function
+#- type: marking
+#  id: ThavenUnderbellyFace
+#  bodyPart: Head
+#  speciesRestriction: [Thaven]
+#  coloring: # macro edit
+#    default:
+#      type:
+#        !type:TattooColoring
+#      fallbackColor: "#FFFFFF"
+#  sprites:
+#  - sprite: _DV/Mobs/Customization/thaven/thaven.rsi
+#    state: underbelly_face
+
+# Torso
+#- type: marking
+#  id: ThavenUnderbellyTorso
+#  bodyPart: Chest
+#  speciesRestriction: [Thaven]
+#  coloring: # macro edit
+#    default:
+#      type:
+#        !type:TattooColoring
+#      fallbackColor: "#FFFFFF"
+#  sprites:
+#  - sprite: _DV/Mobs/Customization/thaven/thaven.rsi
+#    state: underbelly_torso

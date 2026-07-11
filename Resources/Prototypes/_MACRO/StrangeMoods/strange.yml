@@ -1,0 +1,26 @@
+## !! IMPORTANT !!
+## ONLY USE COMPONENTS THAT ARE RELEVANT FOR INTERACTING WITH MOODS (I.E. THAVEN MOODS COMPONENT).
+## COMPONENTS WILL BE REMOVED WHEN STRANGEMOODS IS REMOVED FROM THE ENTITY.
+## I AM NOT RESPONSIBLE FOR ANY BULLSHIT YOU PULL HERE.
+
+- type: strangeMoodDefinition
+  id: ThavenMoods
+  name: Thaven Moods
+  shared: Thaven
+  datasets:
+    ThavenMoodsYesAnd: 1
+    ThavenMoodsNoAnd: 1
+  components:
+  - type: ThavenMoods
+
+# ADMIN TOOL MOODS
+- type: strangeMoodDefinition
+  id: EmptyMoods
+  name: Empty
+
+- type: strangeMoodDefinition
+  id: ThavenMoodsEmpty
+  name: Thaven Moods (Empty)
+  shared: Thaven
+  components:
+  - type: ThavenMoods

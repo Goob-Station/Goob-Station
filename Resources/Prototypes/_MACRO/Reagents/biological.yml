@@ -1,0 +1,33 @@
+- type: reagent # can't parent it to blood because anybody should be able to drink it, the flesh/organs are the toxic parts (fugu moment)
+  id: ShimmeringBlood
+  name: reagent-name-shimmering-blood
+  group: Biological
+  desc: reagent-desc-shimmering-blood
+  flavor: shimmeringblood
+  color: "#ff624a"
+  recognizable: true
+  physicalDesc: reagent-physical-desc-shimmering-blood
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:SatiateHunger
+        factor: 1
+      - !type:SatiateThirst
+        factor: 1
+    Bloodstream:
+      effects:
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
+        type: Add
+        time: 5
+  plantMetabolism:
+    - !type:PlantAdjustToxins
+      amount: 2
+    - !type:PlantAdjustWeeds
+      amount: -2
+    - !type:PlantAdjustPests
+      amount: -2
+  footstepSound:
+    collection: FootstepBlood
+    params:
+      volume: 6

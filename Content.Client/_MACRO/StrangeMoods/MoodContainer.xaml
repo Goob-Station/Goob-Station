@@ -1,0 +1,25 @@
+<BoxContainer xmlns="https://spacestation14.io"
+        xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+        HorizontalExpand="True"
+        Orientation="Vertical">
+    <BoxContainer Name="StrangeMoodContainer" Orientation="Vertical">
+        <LineEdit Name="StrangeMoodTitle" Margin="4 0 0 0" />
+        <PanelContainer Margin="8 4 8 4" MinHeight="128">
+            <PanelContainer.PanelOverride>
+                <graphics:StyleBoxFlat BackgroundColor="#1B1B1B"/>
+            </PanelContainer.PanelOverride>
+            <BoxContainer Orientation="Horizontal" SeparationOverride="5">
+                <TextEdit Name="StrangeMoodContent" HorizontalExpand="True" Editable="True" MinWidth="500" MinHeight="80" />
+            </BoxContainer>
+        </PanelContainer>
+    </BoxContainer>
+    <BoxContainer Name="ControlsContainer" Orientation="Horizontal" Margin="0 4 0 4" MaxHeight="64">
+        <BoxContainer Orientation="Horizontal" HorizontalAlignment="Left">
+            <Button Name="MoveUp" Text="{Loc strange-mood-admin-ui-move-up}" StyleClasses="OpenRight"/>
+            <Button Name="MoveDown" Text="{Loc strange-mood-admin-ui-move-down}" StyleClasses="OpenLeft"/>
+        </BoxContainer>
+        <BoxContainer HorizontalAlignment="Right" HorizontalExpand="True">
+            <Button Name="Delete" Text="{Loc strange-mood-admin-ui-delete}" StyleClasses="negative" />
+        </BoxContainer>
+    </BoxContainer>
+</BoxContainer>

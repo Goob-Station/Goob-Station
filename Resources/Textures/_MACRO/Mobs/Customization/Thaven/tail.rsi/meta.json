@@ -1,0 +1,105 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "basic/big/tadpole by crocodilecarousel (github), stub/nurse/eel made by Sha-Seng (github), eel modified by crocodilecarousel (GitHub) and yesteryrui (GitHub), thresher by Faeling (discord),",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "basic",
+            "directions": 4
+        },
+        {
+            "name": "big1",
+            "directions": 4
+        },
+        {
+            "name": "big2",
+            "directions": 4
+        },
+        {
+            "name": "eel1",
+            "directions": 4
+        },
+        {
+            "name": "eel2",
+            "directions": 4
+        },
+        {
+            "name": "eel3",
+            "directions": 4,
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "eel4",
+            "directions": 4
+        },
+        {
+            "name": "nurse1",
+            "directions": 4
+        },
+        {
+            "name": "nurse2",
+            "directions": 4
+        },
+        {
+            "name": "stub1",
+            "directions": 4
+        },
+        {
+            "name": "stub2",
+            "directions": 4
+        },
+        {
+            "name": "tadpole1",
+            "directions": 4
+        },
+        {
+            "name": "tadpole2",
+            "directions": 4
+        },
+        {
+            "name": "thresher1",
+            "directions": 4
+        },
+        {
+            "name": "thresher2",
+            "directions": 4
+        }
+    ]
+}

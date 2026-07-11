@@ -112,6 +112,16 @@
     cutRandomProb: 0
 
 - type: trait
+  id: NoContractions
+  name: trait-nocontractions-name
+  description: trait-nocontractions-desc
+  category: SpeechTraits
+  cost: 0 # Pirate trait rework
+  components:
+  - type: ReplacementAccent
+    accent: nocontractions
+
+- type: trait
   id: FrontalLisp
   name: trait-frontal-lisp-name
   description: trait-frontal-lisp-desc

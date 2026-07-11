@@ -1,0 +1,9 @@
+- type: entity
+  id: OrganThavenBrain
+  parent: OrganHumanBrain
+  name: thaven brain
+  description: "A peculiar brain with a unique neural structure that synchronizes with nearby Thaven."
+  components:
+  - type: StrangeMoods
+    mood: ThavenMoods
+  - type: ThavenMoods
