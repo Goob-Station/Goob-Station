@@ -2,7 +2,7 @@
 
 - type: body
   id: Animal
-  name: "animal"
+  name: "тварина"
   root: chest
   slots:
     chest:
@@ -29,7 +29,7 @@
 
 - type: body
   id: Mouse
-  name: "mouse"
+  name: "миша"
   root: chest
   slots:
     chest:

@@ -1,8 +1,8 @@
 - type: entity
   id: SpaceLeviathan
   parent: [ SimpleSpaceMobBase, FlyingMobBase, MobCombat ]
-  name: space whale
-  description: When the space becomes too quiet, there is no hope, there is no escape, but there is this.
+  name: "космічний кит"
+  description: "Коли космос стає надто тихим, немає надії, немає втечі — є лише це."
   suffix: keeps tiles, no despawn
   components:
   - type: TailedEntity

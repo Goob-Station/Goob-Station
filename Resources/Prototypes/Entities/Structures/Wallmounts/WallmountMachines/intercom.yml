@@ -3,8 +3,8 @@
 - type: entity
   parent: BaseWallmountMachine
   id: BaseIntercom
-  name: intercom
-  description: An intercom. For when the station just needs to know something.
+  name: "інтерком"
+  description: "Переговорний пристрій. Для випадків, коли станція просто хоче щось дізнатися."
   abstract: true
   components:
   - type: StationAiWhitelist
@@ -122,8 +122,8 @@
 
 - type: entity
   id: IntercomAssembly
-  name: intercom assembly
-  description: An intercom. It doesn't seem very helpful right now.
+  name: "збірка інтеркому"
+  description: "Інтерком. Не думаю, що це зараз дуже корисно."
   components:
   - type: Sprite
     drawdepth: SmallObjects
@@ -223,7 +223,7 @@
   id: IntercomCommand
   parent: BaseIntercomSecure
   suffix: Command
-  description: An intercom. It's been reinforced with metal.
+  description: "Інтерком. Він був посилений металом."
   components:
   - type: ContainerFill
     containers:
@@ -276,7 +276,7 @@
   id: IntercomSecurity
   parent: BaseIntercomSecure
   suffix: Security
-  description: An intercom. It's been reinforced with metal from security helmets, making it a bitch-and-a-half to open.
+  description: "Інтерком. Він укріплений металом від шоломів охоронців, що робить його дуже складним для відкривання."
   components:
   - type: ContainerFill
     containers:

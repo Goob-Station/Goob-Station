@@ -4,8 +4,8 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltAssault
-  name: assault belt
-  description: A tactical assault belt.
+  name: "штурмовий пояс"
+  description: "Тактичний штурмовий пояс."
   components:
   - type: Sprite
     sprite: Clothing/Belt/assault.rsi
@@ -54,8 +54,8 @@
 - type: entity
   parent: [ClothingBeltBase, ClothingSlotBase, BaseCommandContraband]
   id: ClothingBeltSheath
-  name: sabre sheath
-  description: An ornate sheath designed to hold an officer's blade.
+  name: "піхви для шаблі"
+  description: "Витіюваті піхви, призначені для носіння офіцерського клинка."
   components:
   - type: Sprite
     sprite: Clothing/Belt/sheath.rsi
@@ -86,8 +86,8 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltQuiver
-  name: quiver
-  description: Can hold up to 15 arrows, and fits snug around your waist.
+  name: "сагайдак"
+  description: "Вміщує до 15 стріл і щільно облягає талію."
   components:
   - type: Sprite
     sprite: Clothing/Belt/quiver.rsi
@@ -117,8 +117,8 @@
 - type: entity
   parent: [ClothingBeltAmmoProviderBase, BaseSecurityBartenderContraband]
   id: ClothingBeltBandolier
-  name: bandolier
-  description: A bandolier for holding shotgun ammunition.
+  name: "бандольє"
+  description: "Бандольєр для зберігання набоїв до дробовика."
   components:
   - type: Sprite
     sprite: Clothing/Belt/bandolier.rsi
@@ -135,8 +135,8 @@
 - type: entity
   parent: [ ClothingBeltStorageBase, BaseMagicalContraband ]
   id: ClothingBeltWand
-  name: wand belt
-  description: A belt designed to hold various rods of power. A veritable fanny pack of exotic magic.
+  name: "ремінь для паличок"
+  description: "Пояс, призначений для зберігання різноманітних енергетичних жезлів. Справжня поясна сумка екзотичної магії."
   components:
   - type: Sprite
     sprite: Clothing/Belt/wand.rsi
@@ -155,8 +155,8 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltHolster
-  name: shoulder holster
-  description: 'A holster to carry a handgun and ammo. WARNING: Badasses only.'
+  name: "наплічна кобура"
+  description: "Кобура для носіння пістолета та набоїв. Попередження: тільки для крутих."
   components:
   - type: Sprite
     sprite: Clothing/Belt/holster.rsi
@@ -189,8 +189,8 @@
 - type: entity
   parent: [ClothingBeltHolster, BaseSyndicateContraband] # Goob - inherit from regular holster
   id: ClothingBeltSyndieHolster
-  name: syndicate shoulder holster
-  description: A deep shoulder holster capable of holding many types of ballistics.
+  name: "синдикатна наплічна кобура"
+  description: "Глибока наплічна кобура, здатна вмістити багато видів балістики."
   components:
   - type: Sprite
     sprite: Clothing/Belt/syndieholster.rsi
@@ -224,8 +224,8 @@
 - type: entity
   parent: ClothingBeltSecurity
   id: ClothingBeltSecurityWebbing
-  name: security carrier
-  description: Unique and versatile chest rig, can hold security gear.
+  name: "розвантажувальний жилет служби безпеки"
+  description: "Унікальний та універсальний нагрудний жилет, може вміщувати спорядження служби безпеки."
   components:
   - type: Sprite
     sprite: Clothing/Belt/securitywebbing.rsi
@@ -240,8 +240,8 @@
 - type: entity
   parent: [ ClothingBeltStorageBase, BaseSecurityCargoContraband ]
   id: ClothingBeltMercWebbing
-  name: mercenary webbing
-  description: Ideal for storing everything from ammo to weapons and combat essentials.
+  name: "найманська павутина"
+  description: "Ідеально підходить для зберігання всього, від боєприпасів до зброї та предметів першої необхідності."
   components:
   - type: Sprite
     sprite: Clothing/Belt/mercwebbing.rsi
@@ -256,8 +256,8 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltSalvageWebbing
-  name: salvage rig
-  description: Universal unloading system for work in space.
+  name: "утилізаційна установка"
+  description: "Універсальна розвантажувальна система для роботи в космосі."
   components:
   - type: Sprite
     sprite: Clothing/Belt/salvagewebbing.rsi
@@ -268,8 +268,8 @@
 - type: entity
   parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseSyndicateContraband]
   id: ClothingBeltMilitaryWebbing
-  name: chest rig
-  description: A set of tactical webbing worn by Syndicate boarding parties.
+  name: "військовий розвантажувальний жилет"
+  description: "Набір тактичних ременів, які носять абордажні групи Синдикату."
   components:
   - type: Sprite
     sprite: Clothing/Belt/militarywebbing.rsi
@@ -283,8 +283,8 @@
 - type: entity
   parent: ClothingBeltMilitaryWebbing
   id: ClothingBeltMilitaryWebbingMed
-  name: medical chest rig
-  description: A set of tactical webbing worn by Gorlex Marauder medic operatives.
+  name: "медичний нагрудний каркас"
+  description: "Набір тактичних ремінців, які носять спецпризначенці Gorlex Marauder."
   components:
   - type: Sprite
     sprite: Clothing/Belt/militarywebbingmed.rsi
@@ -300,8 +300,8 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingBeltMilitaryWebbing ] # Goobstation
   id: ClothingBeltMilitaryWebbingERT
-  name: ERT chest rig
-  description: A set of tactical webbing worn by Emergency Response Team operatives.
+  name: "розвантаження ГШР"
+  description: "Комплект тактичного розвантаження, який носять оперативники групи швидкого реагування."
   components:
   - type: Sprite
     sprite: Clothing/Belt/militarywebbingert.rsi

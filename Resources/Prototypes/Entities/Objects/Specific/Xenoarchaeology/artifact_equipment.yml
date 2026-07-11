@@ -3,8 +3,8 @@
 - type: entity
   parent: [ BaseStructureDynamic, BasePaperLabelableVisualized ]
   id: CrateArtifactContainer
-  name: artifact container
-  description: Used to safely contain and move artifacts.
+  name: "контейнер для артефактів"
+  description: "Використовується для безпечного зберігання та переміщення артефактів."
   components:
     - type: Transform
       noRot: true
@@ -97,8 +97,8 @@
 - type: entity
   parent: BaseStorageItem
   id: HandheldArtifactContainer
-  name: handheld artifact container
-  description: A handheld case used to safely contain and move small artifacts.
+  name: "ручний контейнер для артефактів"
+  description: "Ручний кейс, що використовується для безпечного зберігання та переміщення невеликих артефактів."
   components:
   - type: Sprite
     sprite: Objects/Storage/artifact_container.rsi

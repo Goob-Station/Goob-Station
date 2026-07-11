@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: MIT
 
 - type: entity
-  name: Operative Spawner
+  name: "спавнер оперативника"
   id: SpawnMobHumanLoneNuclearOperative
   parent: MarkerBase
   suffix: DEBUG
@@ -16,7 +16,7 @@
     - MobHumanLoneNuclearOperative
 
 - type: entity
-  name: Operative Suit Spawner
+  name: "спавнер оперативника в костюмі"
   id: SpawnMobHumanLoneNuclearOperativeSuit
   parent: MarkerBase
   suffix: DEBUG
@@ -31,7 +31,7 @@
     - MobHumanLoneNuclearOperativeSuitDebug
 
 - type: entity
-  name: Operative Suit Elite Spawner
+  name: "спавнер елітного оперативника в костюмі"
   id: SpawnMobHumanLoneNuclearOperativeSuitElite
   parent: MarkerBase
   suffix: DEBUG
@@ -46,7 +46,7 @@
     - MobHumanLoneNuclearOperativeSuitEliteDebug
 
 - type: entity
-  name: Operative Suit Jugg Spawner
+  name: "спавнер джаггернаута в костюмі"
   id: SpawnMobHumanLoneNuclearOperativeSuitJugg
   parent: MarkerBase
   suffix: DEBUG
@@ -61,7 +61,7 @@
     - MobHumanLoneNuclearOperativeSuitJuggDebug
 
 - type: entity
-  name: Operative Suit Commander Spawner
+  name: "спавнер командира в костюмі"
   id: SpawnMobHumanLoneNuclearOperativeSuitCommander
   parent: MarkerBase
   suffix: DEBUG
@@ -76,7 +76,7 @@
     - MobHumanLoneNuclearOperativeSuitCommanderDebug
 
 - type: entity
-  name: Operative Suit Stealth Spawner
+  name: "спавнер стелс-оперативника в костюмі"
   id: SpawnMobHumanLoneNuclearOperativeSuitStealth
   parent: MarkerBase
   suffix: DEBUG
@@ -91,7 +91,7 @@
     - MobHumanLoneNuclearOperativeSuitStealthDebug
 
 - type: entity
-  name: Operative Suit Medic Spawner
+  name: "спавнер медика-оперативника в костюмі"
   id: SpawnMobHumanLoneNuclearOperativeSuitMedic
   parent: MarkerBase
   suffix: DEBUG
@@ -106,7 +106,7 @@
     - MobHumanLoneNuclearOperativeSuitMedicDebug
 
 - type: entity
-  name: Operative Suit Dread Spawner
+  name: "спавнер дред-оперативника в костюмі"
   id: SpawnMobHumanLoneNuclearOperativeSuitDread
   parent: MarkerBase
   suffix: DEBUG
@@ -121,7 +121,7 @@
     - MobHumanLoneNuclearOperativeSuitDreadDebug
 
 - type: entity
-  name: Security Officer Suit Spawner
+  name: "спавнер офіцера СБ в костюмі"
   id: SpawnMobHumanSecurityOfficerSuit
   parent: MarkerBase
   suffix: DEBUG
@@ -136,7 +136,7 @@
     - MobHumanSecurityOfficerSuit
 
 - type: entity
-  name: Head of Security ModSuit Spawner
+  name: "спавнер ГСБ з модкостюмом"
   id: SpawnMobHumanHosModSuit
   parent: MarkerBase
   suffix: DEBUG
@@ -151,7 +151,7 @@
     - MobHumanHosModSuit
 
 - type: entity
-  name: Security Officer ModSuit Spawner
+  name: "спавнер офіцера СБ з модкостюмом"
   id: SpawnMobHumanSecurityOfficerModSuit
   parent: MarkerBase
   suffix: DEBUG
@@ -166,7 +166,7 @@
     - MobHumanSecurityOfficerModSuit
 
 - type: entity
-  name: Head of Security Suit Spawner
+  name: "спавнер ГСБ в костюмі"
   id: SpawnMobHumanHoSSuit
   parent: MarkerBase
   suffix: DEBUG
@@ -181,7 +181,7 @@
     - MobHumanHoSSuit
 
 - type: entity
-  name: Warden Suit Spawner
+  name: "спавнер смотрителя в костюмі"
   id: SpawnMobHumanWardenSuit
   parent: MarkerBase
   suffix: DEBUG
@@ -196,7 +196,7 @@
     - MobHumanWardenSuit
 
 - type: entity
-  name: Brigmedic Suit Spawner
+  name: "спавнер бригмедика в костюмі"
   id: SpawnMobHumanBrigmedicSuit
   parent: MarkerBase
   suffix: DEBUG
@@ -211,7 +211,7 @@
     - MobHumanBrigmedicSuit
 
 - type: entity
-  name: Security Officer Bulletproof Armor Spawner
+  name: "спавнер офіцера СБ з бронежилетом"
   id: SpawnMobHumanSecurityOfficerBulletproofArmorHelmet
   parent: MarkerBase
   suffix: DEBUG
@@ -226,7 +226,7 @@
     - MobHumanSecurityOfficerBulletproofArmorHelmet
 
 - type: entity
-  name: Security Officer Riot Armor Spawner
+  name: "спавнер офіцера СБ з протиударною бронею"
   id: SpawnMobHumanSecurityOfficerRiotArmorHelmet
   parent: MarkerBase
   suffix: DEBUG
@@ -241,7 +241,7 @@
     - MobHumanSecurityOfficerRiotArmorHelmet
 
 - type: entity
-  name: Security Officer Reflective Armor Spawner
+  name: "спавнер офіцера СБ з відбивною бронею"
   id: SpawnMobHumanSecurityOfficerReflectiveArmorHelmet
   parent: MarkerBase
   suffix: DEBUG
@@ -256,7 +256,7 @@
     - MobHumanSecurityOfficerReflectiveArmorHelmet
 
 - type: entity
-  name: Security Officer Basic Armor Spawner
+  name: "спавнер офіцера СБ з базовою бронею"
   id: SpawnMobHumanSecurityOfficerBasicArmorHelmet
   parent: MarkerBase
   suffix: DEBUG
@@ -271,7 +271,7 @@
     - MobHumanSecurityOfficerBasicArmorHelmet
 
 - type: entity
-  name: Head of Security Spawner
+  name: "спавнер глави служби безпеки"
   id: SpawnMobHumanHos
   parent: MarkerBase
   suffix: DEBUG
@@ -286,7 +286,7 @@
     - MobHumanHos
 
 - type: entity
-  name: Brigmedic Spawner
+  name: "спавнер бригмедика"
   id: SpawnMobHumanBrigmedic
   parent: MarkerBase
   suffix: DEBUG
@@ -301,7 +301,7 @@
     - MobHumanBrigmedic
 
 - type: entity
-  name: Warden Spawner
+  name: "спавнер смотрителя"
   id: SpawnMobHumanWarden
   parent: MarkerBase
   suffix: DEBUG
@@ -316,7 +316,7 @@
     - MobHumanWarden
 
 - type: entity
-  name: Blueshield Officer Base Spawner
+  name: "базовий спавнер офіцера синього щита"
   id: SpawnMobHumanBSOBase
   parent: MarkerBase
   suffix: DEBUG
@@ -331,7 +331,7 @@
     - MobHumanBSOBase
 
 - type: entity
-  name: Blueshield Officer Suit Spawner
+  name: "спавнер офіцера синього щита в костюмі"
   id: SpawnMobHumanBSOSuit
   parent: MarkerBase
   suffix: DEBUG
@@ -346,7 +346,7 @@
     - MobHumanBSOSuit
 
 - type: entity
-  name: Blueshield Officer ModSuit Spawner
+  name: "спавнер офіцера синього щита з модкостюмом"
   id: SpawnMobHumanBSOModSuit
   parent: MarkerBase
   suffix: DEBUG
@@ -361,7 +361,7 @@
     - MobHumanBSOModSuit
 
 - type: entity
-  name: Wizard Spawner
+  name: "спавнер мага"
   id: SpawnMobHumanWizardDebug
   parent: MarkerBase
   suffix: DEBUG
@@ -376,7 +376,7 @@
     - MobHumanWizardDebug
 
 - type: entity
-  name: Wizard Suit Spawner
+  name: "спавнер мага в костюмі"
   id: SpawnMobHumanWizardDebugSuit
   parent: MarkerBase
   suffix: DEBUG
@@ -391,7 +391,7 @@
     - MobHumanWizardDebugSuit
 
 - type: entity
-  name: Changeling Armor Spawner
+  name: "спавнер генокрада з бронею"
   id: SpawnMobHumanChangelingArmor
   parent: MarkerBase
   suffix: DEBUG
@@ -406,7 +406,7 @@
     - MobHumanChangelingArmor
 
 - type: entity
-  name: Space Ninja Armor Spawner
+  name: "спавнер космічного ніндзі з бронею"
   id: SpawnMobHumanNinjaArmor
   parent: MarkerBase
   suffix: DEBUG
@@ -421,7 +421,7 @@
     - MobHumanNinjaArmor
 
 - type: entity
-  name: Heretic Armor Spawner
+  name: "спавнер єретика з бронею"
   id: SpawnHumanHereticArmor
   parent: MarkerBase
   suffix: DEBUG
@@ -436,7 +436,7 @@
     - MobHumanHereticArmor
 
 - type: entity
-  name: Captain Armor Spawner Hardsuit
+  name: "спавнер капітана з хардс'ютом"
   id: SpawnMobHumanCaptainHardsuit
   parent: MarkerBase
   suffix: DEBUG
@@ -451,7 +451,7 @@
     - MobHumanCaptainHardsuit
 
 - type: entity
-  name: Captain Armor Spawner Modsuit
+  name: "спавнер капітана з модкостюмом"
   id: SpawnMobHumanCaptainModsuit
   parent: MarkerBase
   suffix: DEBUG
@@ -466,7 +466,7 @@
     - MobHumanCaptainModsuit
 
 - type: entity
-  name: Captain Armor Spawner
+  name: "спавнер капітана з бронею"
   id: SpawnMobHumanCaptainDebug
   parent: MarkerBase
   suffix: DEBUG

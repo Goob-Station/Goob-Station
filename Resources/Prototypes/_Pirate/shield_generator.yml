@@ -2,7 +2,7 @@
 - type: entity
   id: ShieldGeneratorBase
   parent: BaseMachinePowered
-  name: Shield Generator
+  name: "Генератор щита"
   abstract: true
   components:
   - type: AmbientOnPowered
@@ -101,7 +101,7 @@
 - type: entity
   id: ShieldGenerator
   parent: ShieldGeneratorBase
-  name: MS-500 "Titan" Shield Generator
+  name: "Генератор щита MS-500 \"Титан"
   components:
   - type: ShipShieldEmitter
     damageLimit: 8000
@@ -117,7 +117,7 @@
 - type: entity
   id: ShieldGeneratorMedium
   parent: ShieldGeneratorBase
-  name: MS-250 "Aegis" Shield Generator
+  name: "Генератор щита MS-250 \"Егіда"
   components:
   - type: ShipShieldEmitter
     healPerSecond: 100 # Base is 250
@@ -184,7 +184,7 @@
 - type: entity
   id: ShieldGeneratorSmall
   parent: ShieldGeneratorBase
-  name: MS-100 "Sentinel" Shield Generator
+  name: "Генератор щита MS-100 \"Сентінел"
   components:
   - type: ShipShieldEmitter
     healPerSecond: 80

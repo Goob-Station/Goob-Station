@@ -1,8 +1,8 @@
 - type: entity
   id: CoffeemakerMachinePirate
   parent: BaseMachinePowered
-  name: coffeemaker
-  description: A Modello 3 coffeemaker that brews coffee and keeps it hot.
+  name: "кавоварка"
+  description: "Кавоварка Modello 3. Варить каву та довго тримає її гарячою."
   components:
   - type: Coffeemaker
     usesBeans: false
@@ -92,8 +92,8 @@
 - type: entity
   id: CoffeemakerImpressaMachinePirate
   parent: BaseMachinePowered
-  name: impressa coffeemaker
-  description: An industry-grade impressa coffeemaker. Makes coffee from dried whole beans.
+  name: "кавоварка Impressa"
+  description: "Промислова кавоварка Impressa. Використовує цілі зерна."
   components:
   - type: Coffeemaker
     usesBeans: true

@@ -1,8 +1,8 @@
 - type: entity
   parent: [ BaseItem, BaseMagicalContraband ]
   id: HellRipScroll
-  name: hell ripte scroll
-  description: A dark scroll written in blood. Its text is brief, yet seems endless. You feel an urge to tear flesh and rip heads just by looking at it.
+  name: "сувій «Розрив Пекла»"
+  description: "Темний сувій, написаний кров'ю. Його текст короткий, але здається безкінечним. Лише дивлячись на нього, ти відчуваєш потяг дерти плоть і відривати голови."
   components:
   - type: Sprite
     sprite: Objects/Misc/bureaucracy.rsi

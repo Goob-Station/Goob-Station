@@ -1,8 +1,8 @@
 - type: entity
-  name: FG13 Xiuhcoatl
+  name: "FG13 Ксіукоатль"
   parent: [WeaponPlasmaAdder, BaseGunWieldable]
   id: WeaponFlamerXiuhcoatl
-  description: Simple as it is deadly, the Xiuhcoatl fulfills a long-standing craving of the Gorlex Marauders for Nanotrasen Barbeque. Uses welding fuel.
+  description: "Настільки ж простий, наскільки й смертоносний, Ксіукоатль задовольняє давню жагу Мародерів Горлексу до барбекю з Нанотрейзен. Використовує паливо для зварювання."
   components:
   - type: Sprite
     sprite: _Pirate/Objects/Weapons/Guns/Special/xiuhcoatl.rsi

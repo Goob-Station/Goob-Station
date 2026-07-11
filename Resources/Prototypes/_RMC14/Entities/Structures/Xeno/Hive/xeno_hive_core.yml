@@ -1,8 +1,8 @@
 - type: entity
   id: HiveCoreXeno
   parent: BaseHiveStructure
-  name: hive core
-  description: A giant pulsating mound of mass. It looks very much alive.
+  name: "ядро вулика"
+  description: "Гігантський пульсуючий курган маси. Виглядає дуже живим."
   components:
   - type: Transform
     anchored: true
@@ -32,8 +32,8 @@
 - type: entity
   id: HivePylonXeno
   parent: BaseHiveStructure
-  name: hive pylon
-  description: A towering spike of resin. Its base pulsates with large tendrils.
+  name: "пілон вулика"
+  description: "Височенний шип зі смоли. Його основа пульсує великими вусиками."
   components:
   - type: Sprite
     sprite: _RMC14/Structures/Xenos/hive_structures.rsi

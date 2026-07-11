@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseMobXenomorphAdult
   id: MobXenomorphMaid
-  name: xenomorph maid
-  description: I mean, I guess it is kinda cute?
+  name: "ксеноморф-покоївка"
+  description: "Гадаю, воно в якомусь сенсі миле?"
   components:
   - type: Sprite
     sprite: _White/Mobs/Aliens/Xenomorphs/maid.rsi

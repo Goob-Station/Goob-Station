@@ -1,8 +1,8 @@
 - type: entity
   id: VirologyServer
   parent: BaseMachinePowered
-  name: virology server
-  description: Stores the data of scanned diseases.
+  name: "сервер вірусології"
+  description: "Зберігає дані про проскановані хвороби."
   components:
     - type: Sprite
       sprite: Structures/Machines/server.rsi

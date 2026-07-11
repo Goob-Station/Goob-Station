@@ -28,8 +28,8 @@
 - type: entity
   parent: BaseSqueezeBottle
   id: DrinkSpaceGlue
-  name: space glue tube
-  description: High performance glue intended for maintenance of extremely complex mechanical equipment. DON'T DRINK!
+  name: "тюбик космічного клею"
+  description: "Високоефективний клей, призначений для обслуговування надзвичайно складного механічного обладнання. НЕ ПИТИ!"
   components:
   - type: Sprite
     sprite: Objects/Consumable/Drinks/glue-tube.rsi
@@ -45,8 +45,8 @@
 - type: entity
   parent: BaseSqueezeBottle
   id: DrinkSpaceLube
-  name: space lube tube
-  description: High performance lubricant intended for maintenance of extremely complex mechanical equipment.
+  name: "тюбик космічного мастила"
+  description: "Високоефективне мастило, призначене для обслуговування надзвичайно складного механічного обладнання."
   components:
   - type: Sprite
     sprite: Objects/Consumable/Drinks/lube-tube.rsi
@@ -63,9 +63,9 @@
 - type: entity
   parent: BluespaceBeaker
   id: BottomlessLube
-  name: bottomless lube beaker
+  name: "бездонний бекер лубриканту"
   suffix: DEBUG
-  description: This anomalous beaker infinitely produces space lube and as such is to be closely guarded such that it doesn't fall in the wrong hands.
+  description: "Цей аномальний бекер нескінченно виробляє космолюбрикант і тому має суворо охоронятися, щоб не потрапити в чужі руки."
   components:
   - type: SolutionContainerManager
     solutions:
@@ -84,8 +84,8 @@
 - type: entity
   parent: [DrinkBaseMaterialGlass, DrinkBase]
   id: DrinkJarWhat
-  name: jar of something
-  description: You can't really tell what this is.
+  name: "банку з чимось"
+  description: "Насправді не можна сказати, що це таке."
   components:
   - type: Sprite
     sprite: Objects/Consumable/Drinks/jar_what.rsi
@@ -142,8 +142,8 @@
 - type: entity
   parent: [DrinkVisualsAllFilled, DrinkBottleGlassSmallBaseFull]
   id: DrinkMopwataBottleRandom
-  name: delicious mopwata
-  description: A foggy brown bottle with a faded label depicting a mop. It comes full of murky... vintage.
+  name: "смачна мопвата"
+  description: "Каламутна коричнева пляшка з вицвілою етикеткою із зображенням швабри. Від неї віє каламутним... вінтажем."
   components:
   - type: SolutionContainerManager
     solutions:

@@ -3,8 +3,8 @@
 - type: entity
   parent: BaseAction
   id: ActionVampireGlare
-  name: Glare(Free)
-  description: Stare down nearby targets, dealing stamina damage. Targets in front are paralyzed, muted, and take extra stamina damage over time.
+  name: "Погляд (безкоштовно)"
+  description: "Пронизати поглядом найближчі цілі, завдаючи шкоди витривалості. Цілі перед тобою паралізуються, німіють і отримують додаткову шкоду витривалості з часом."
   components:
     - type: Action
       useDelay: 60
@@ -23,8 +23,8 @@
 - type: entity
   parent: BaseAction
   id: ActionVampireSleep
-  name: Sleep (15)
-  description: Put target to sleep for 10 seconds
+  name: "Сон (15)"
+  description: "Приспати ціль на 10 секунд"
   components:
     - type: Action
       useDelay: 120
@@ -50,8 +50,8 @@
 - type: entity
   parent: BaseAction
   id: ActionVampireRejuvenateI
-  name: Rejuvenate(Free)
-  description: Instantly remove stuns and knockdown, and reset your stamina damage.
+  name: "Відновлення (безкоштовно)"
+  description: "Миттєво знімає оглушення й повалення та скидає шкоду витривалості."
   components:
     - type: Action
       useDelay: 35
@@ -71,8 +71,8 @@
 - type: entity
   parent: BaseAction
   id: ActionVampireRejuvenateII
-  name: Rejuvenate(Free)
-  description: Remove stuns and knockdown, reset stamina, purge up to 10u of poisons, then heal 20 brute, 20 burn, 20 poison, and 25 asphyxiation over time.
+  name: "Відновлення (безкоштовно)"
+  description: "Знімає оглушення й повалення, скидає витривалість, очищає до 10u отрут, а потім з часом лікує 20 тупої шкоди, 20 опіків, 20 отруєння й 25 асфіксії."
   components:
     - type: Action
       useDelay: 30
@@ -103,8 +103,8 @@
 - type: entity
   parent: BaseAction
   id: ActionClassSelectId
-  name: Choose Vampire Class
-  description: Choose your vampire subclass
+  name: "Обрати клас вампіра"
+  description: "Обрати підклас вампіра"
   components:
     - type: Action
       useDelay: 2 # Toggle
@@ -124,8 +124,8 @@
 - type: entity
   parent: BaseAction
   id: ActionVampireHemomancerClaws
-  name: Vampiric Claws
-  description: Create undroppable blood claws. Successful blood-draining hits grant 5 blood, the claws dissipate after 15 draining hits or when used in hand.
+  name: "Вампірські кігті"
+  description: "Створює незнімні криваві кігті. Успішні удари з висмоктуванням крові дають 5 крові; кігті розвіюються після 15 таких ударів або при використанні в руці."
   components:
     - type: Action
       useDelay: 30
@@ -144,8 +144,8 @@
 - type: entity
   parent: BaseAction
   id: ActionVampireSanguinePool
-  name: Sanguine Pool
-  description: Transform into a pool of blood for 8 seconds, allowing movement through doors and windows.
+  name: "Кривава калюжа"
+  description: "Перетворися на калюжу крові на 8 секунд, що дозволяє рухатися крізь двері й вікна."
   components:
     - type: Action
       useDelay: 30
@@ -164,8 +164,8 @@
 - type: entity
   parent: BaseAction
   id: ActionVampireHemomancerTendrils
-  name: Blood Tendrils
-  description: After a short delay, tendrils erupt in a 3x3 area, poisoning and heavily slowing victims.
+  name: "Криваві щупальця"
+  description: "Після короткої затримки щупальця вириваються в зоні 3x3, отруюючи й сильно сповільнюючи жертв."
   components:
     - type: Action
       useDelay: 30
@@ -187,8 +187,8 @@
 - type: entity
   parent: BaseAction
   id: ActionVampireBloodBarrier
-  name: Blood Barrier
-  description: Creates up to 3 blood barriers in a line at the target location. You can pass through your own barriers.
+  name: "Кривавий бар'єр"
+  description: "Створює до 3 кривавих бар'єрів у лінію в цільовій точці. Ти можеш проходити крізь власні бар'єри."
   components:
     - type: Action
       useDelay: 60
@@ -211,8 +211,8 @@
 - type: entity
   parent: BaseAction
   id: ActionVampirePredatorSense
-  name: Predator Sense
-  description: Hunt down your prey, there's nowhere to hide...
+  name: "Чуття хижака"
+  description: "Вистежуй свою здобич, їй ніде сховатися..."
   components:
     - type: Action
       useDelay: 40
@@ -231,8 +231,8 @@
 - type: entity
   parent: BaseAction
   id: ActionVampireBloodEruption
-  name: Blood Eruption(100)
-  description: Erupt blood puddles within 10 tiles of you, dealing 50 blunt damage to targets on those puddles.
+  name: "Виверження крові (100)"
+  description: "Підіймає калюжі крові в межах 10 плиток від тебе, завдаючи 50 тупої шкоди цілям на цих калюжах."
   components:
     - type: Action
       useDelay: 90
@@ -255,8 +255,8 @@
 - type: entity
   parent: BaseAction
   id: ActionVampireBloodBringersRite
-  name: Blood Bringers Rite(Toggle)
-  description: Requires full power. Toggle a 4-tile aura that costs 10 blood every 2 seconds, drains nearby victims, damages them, and heals you.
+  name: "Обряд носіїв крові (перемикання)"
+  description: "Потребує повної сили. Вмикає ауру радіусом 4 плитки, яка коштує 10 крові кожні 2 секунди, висмоктує жертв поруч, шкодить їм і лікує тебе."
   components:
     - type: Action
       useDelay: 1 # Toggle
@@ -286,8 +286,8 @@
 - type: entity
   parent: BaseAction
   id: ActionVampireCloakOfDarkness
-  name: Cloak of Darkness(Toggle)
-  description: Toggle stealth that is strongest in darkness and weakest in bright light. Nearby mobs reveal you.
+  name: "Плащ темряви (перемикання)"
+  description: "Вмикає скритність, яка найсильніша в темряві й найслабша при яскравому світлі. Моби поблизу викривають тебе."
   components:
     - type: Action
       useDelay: 2 # Toggle
@@ -306,8 +306,8 @@
 - type: entity
   parent: BaseAction
   id: ActionVampireShadowSnare
-  name: Shadow Snare (20)
-  description: Place a fragile shadow trap at target location. Damages, blinds (20s) and heavily slows a non-vampire humanoid that steps on it. Trap is destroyed by flashes.
+  name: "Тіньова пастка (20)"
+  description: "Ставить крихку тіньову пастку в цільовій точці. Вона шкодить, засліплює на 20 секунд і сильно сповільнює нетралового гуманоїда, який наступить на неї. Пастка руйнується від спалахів."
   components:
     - type: Action
       useDelay: 25
@@ -329,8 +329,8 @@
 - type: entity
   parent: BaseAction
   id: ActionVampireShadowAnchor
-  name: Shadow Anchor (20)
-  description: First use channels for 5 seconds to place a shadow anchor at your feet. Use again to return to it, or return automatically after 2 minutes.
+  name: "Тіньовий якір (20)"
+  description: "Перше використання каналює 5 секунд, щоб поставити тіньовий якір під ногами. Використай знову, щоб повернутися до нього, або повернися автоматично через 2 хвилини."
   components:
     - type: Action
       useDelay: 60 # 1min
@@ -349,8 +349,8 @@
 - type: entity
   parent: BaseAction
   id: ActionVampireShadowBoxing
-  name: Shadow Boxing (50)
-  description: Target someone to have your shadow bats beat them up. You must stay within 4 tiles for this to work.
+  name: "Тіньовий бій (50)"
+  description: "Вибери ціль, щоб твої тіньові кажани побили її. Ти маєш залишатися в межах 4 плиток, щоб це працювало."
   components:
     - type: Action
       useDelay: 30
@@ -383,8 +383,8 @@
 - type: entity
   parent: BaseAction
   id: ActionVampireDarkPassage
-  name: Dark Passage (20)
-  description: Teleport to target location through shadows.
+  name: "Темний прохід (20)"
+  description: "Телепортує в цільову точку крізь тіні."
   components:
     - type: Action
       useDelay: 40
@@ -407,8 +407,8 @@
 - type: entity
   parent: BaseAction
   id: ActionVampireExtinguish
-  name: Extinguish Lights (0)
-  description: Destroy powered lights within 4 tiles.
+  name: "Погасити світло (0)"
+  description: "Знищує увімкнені світильники в межах 4 плиток."
   components:
     - type: Action
       useDelay: 20
@@ -427,8 +427,8 @@
 - type: entity
   parent: BaseAction
   id: ActionVampireEternalDarkness
-  name: Eternal Darkness (Toggle)
-  description: When toggled, you shroud the area around you in darkness and slowly lower the body temperature of people nearby.
+  name: "Вічна темрява (перемикання)"
+  description: "Коли ввімкнено, огортає місцевість навколо тебе темрявою й повільно знижує температуру тіла людей поруч."
   components:
     - type: Action
       useDelay: 2 # Toggle
@@ -456,8 +456,8 @@
 - type: entity
   parent: BaseAction
   id: ActionVampireEnthrall
-  name: Enthrall(150)
-  description: Channel for 15 seconds on a humanoid target to bind them to your will. Cancels if either of you moves.
+  name: "Поневолити (150)"
+  description: "Каналює 15 секунд на гуманоїдній цілі, щоб прив'язати її до твоєї волі. Скасовується, якщо хтось із вас рухається."
   components:
     - type: Action
       useDelay: 1 # Jus no CD
@@ -484,8 +484,8 @@
 - type: entity
   parent: BaseAction
   id: ActionVampirePacify
-  name: Pacify(10)
-  description: Flood a victim's mind with bliss, pacifying them for 40 seconds.
+  name: "Утихомирити (10)"
+  description: "Заливає розум жертви блаженством, пацифікуючи її на 40 секунд."
   components:
     - type: Action
       useDelay: 30
@@ -513,8 +513,8 @@
 - type: entity
   parent: BaseAction
   id: ActionVampireSubspaceSwap
-  name: Subspace Swap(30)
-  description: Swap positions with a living target within 7 tiles, slowing them for 4 seconds and afflicting them with hysteria for 15 seconds.
+  name: "Підпросторова заміна (30)"
+  description: "Міняє тебе місцями з живою ціллю в межах 7 плиток, сповільнюючи її на 4 секунди й накладаючи істерику на 15 секунд."
   components:
     - type: Action
       useDelay: 30
@@ -551,8 +551,8 @@
 - type: entity
   parent: BaseAction
   id: ActionVampireDecoy
-  name: Decoy(30)
-  description: Leave behind a fragile duplicate for 6 seconds and become invisible for 6 seconds. The decoy flashes attackers when harmed.
+  name: "Приманка (30)"
+  description: "Залишає крихкий дублікат на 6 секунд і робить тебе невидимим на 6 секунд. Приманка засліплює нападників, коли її пошкоджують."
   components:
     - type: Action
       useDelay: 40
@@ -573,8 +573,8 @@
 - type: entity
   parent: BaseAction
   id: ActionVampireRallyThralls
-  name: Rally Thralls(100)
-  description: Command thralls within 7 tiles to shake off stuns, wake up, and regain stamina.
+  name: "Зібрати тралів (100)"
+  description: "Наказує тралам у межах 7 плиток скинути оглушення, прокинутися й відновити витривалість."
   components:
     - type: Action
       useDelay: 100
@@ -593,8 +593,8 @@
 - type: entity
   parent: BaseAction
   id: ActionVampireBloodBond
-  name: Blood Bond(Toggle)
-  description: Toggle blood tethers to visible thralls within 3 tiles, splitting incoming damage across the linked group at the cost of 2.5 blood per second.
+  name: "Кровний зв'язок (перемикання)"
+  description: "Вмикає кровні пута до видимих тралів у межах 3 плиток, розділяючи отриману шкоду між зв'язаною групою ціною 2.5 крові за секунду."
   components:
     - type: Action
       useDelay: 2 # Toggle
@@ -617,8 +617,8 @@
 - type: entity
   parent: BaseAction
   id: ActionVampireMassHysteria
-  name: Mass Hysteria(70)
-  description: Requires full power. Flood nearby non-thrall humanoids within 8 tiles with terror, flashing them for 3 seconds and causing hysteria for 30 seconds.
+  name: "Масова істерія (70)"
+  description: "Потребує повної сили. Заливає страхом найближчих нетралових гуманоїдів у межах 8 плиток, засліплюючи їх на 3 секунди й спричиняючи істерику на 30 секунд."
   components:
     - type: Action
       useDelay: 180 # 3min
@@ -650,8 +650,8 @@
 - type: entity
   parent: BaseAction
   id: ActionVampireBloodSwell
-  name: Blood Swell(30)
-  description: For 30 seconds, reduces brute damage by 60%, stamina and burn by 50%, halves stun times. Cannot use guns. After 400 blood, also gain +14 melee damage.
+  name: "Криваве посилення (30)"
+  description: "На 30 секунд зменшує тупу шкоду на 60%, шкоду витривалості й опіків на 50%, удвічі скорочує тривалість станів оглушення. Не можна використовувати зброю. Після 400 крові також дає +14 шкоди ближнього бою."
   components:
     - type: Action
       useDelay: 40
@@ -684,8 +684,8 @@
 - type: entity
   parent: BaseAction
   id: ActionVampireBloodRush
-  name: Blood Rush(30)
-  description: For 10 seconds, increase your movement speed by 50%.
+  name: "Кров'яний ривок (30)"
+  description: "На 10 секунд збільшує твою швидкість руху на 50%."
   components:
     - type: Action
       useDelay: 30
@@ -706,8 +706,8 @@
 - type: entity
   parent: BaseAction
   id: ActionVampireSeismicStomp
-  name: Seismic Stomp(30)
-  description: Slam the ground, knocking down and throwing all creatures within 3 tiles away from you.
+  name: "Сейсмічний тупіт (30)"
+  description: "Вдаряє по землі, збиваючи з ніг і відкидаючи всіх істот у межах 3 плиток від тебе."
   components:
     - type: Action
       useDelay: 60
@@ -726,8 +726,8 @@
 - type: entity
   parent: BaseAction
   id: ActionVampireOverwhelmingForce
-  name: Overwhelming Force(Toggle)
-  description: Toggle - automatically pry open powered doors. While active, you cannot be shoved, body-pushed or pulled. Costs 15 blood per door.
+  name: "Непереборна сила (перемикання)"
+  description: "Перемикання: автоматично відчиняє силою запитані двері. Поки активне, тебе не можна штовхати, проштовхувати тілом або тягнути. Коштує 15 крові за двері."
   components:
     - type: Action
       useDelay: 2 # Toggle
@@ -746,8 +746,8 @@
 - type: entity
   parent: BaseAction
   id: ActionVampireDemonicGrasp
-  name: Demonic Grasp(20)
-  description: Launch a demonic hand up to 15 tiles. Immobilizes the target for 10 seconds. In combat mode, also pulls them to you.
+  name: "Демонічна хватка (20)"
+  description: "Запускає демонічну руку на відстань до 15 плиток. Знерухомлює ціль на 10 секунд. У бойовому режимі також притягує її до тебе."
   components:
     - type: Action
       useDelay: 30
@@ -775,8 +775,8 @@
 - type: entity
   parent: BaseAction
   id: ActionVampireCharge
-  name: Charge(30)
-  description: Requires full power. Charge in the target direction until hitting an obstacle or void. Creatures take 60 brute and are thrown 5 tiles; structures take 150 damage and walls are destroyed.
+  name: "Ривок (30)"
+  description: "Потребує повної сили. Ривок у вибраному напрямку до зіткнення з перешкодою або порожнечею. Істоти отримують 60 тупої шкоди й відкидаються на 5 плиток; структури отримують 150 шкоди, а стіни руйнуються."
   components:
     - type: Action
       useDelay: 30

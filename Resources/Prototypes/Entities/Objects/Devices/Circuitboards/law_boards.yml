@@ -2,7 +2,7 @@
   abstract: true
   parent: BaseElectronics
   id: BaseSiliconLawboard
-  description: An electronics board containing a silicon lawset.
+  description: "Електронна плата, що містить набір законів силікона."
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -16,8 +16,8 @@
 - type: entity
   id: NTDefaultCircuitBoard
   parent: BaseSiliconLawboard
-  name: law board (NT Default)
-  description: An electronics board containing the NT Default lawset.
+  name: "друкована плата (NT за замовчуванням)"
+  description: "Електронна плата, що містить набір законів NT за замовчуванням."
   components:
   - type: SiliconLawProvider
     laws: NTDefault
@@ -25,8 +25,8 @@
 - type: entity
   id: AsimovCircuitBoard
   parent: BaseSiliconLawboard
-  name: law board (Crewsimov)
-  description: An electronics board containing the Crewsimov lawset.
+  name: "плата законів (Крузімов)"
+  description: "Електронна плата, що містить набір законів Крузімова."
   components:
   - type: SiliconLawProvider
     laws: Crewsimov
@@ -34,8 +34,8 @@
 - type: entity
   id: CorporateCircuitBoard
   parent: BaseSiliconLawboard
-  name: law board (Corporate)
-  description: An electronics board containing the Corporate lawset.
+  name: "друкована плата (корпоративна)"
+  description: "Електронна плата, що містить пакет корпоративного законодавства."
   components:
   - type: SiliconLawProvider
     laws: Corporate
@@ -43,8 +43,8 @@
 - type: entity
   id: CommandmentCircuitBoard
   parent: BaseSiliconLawboard
-  name: law board (Ten Commandments)
-  description: An electronics board containing the Ten Commandments lawset.
+  name: "правнича рада (Десять заповідей)"
+  description: "Електронна плата, що містить звід законів Десяти Заповідей."
   components:
   - type: SiliconLawProvider
     laws: CommandmentsLawset
@@ -52,8 +52,8 @@
 - type: entity
   id: PaladinCircuitBoard
   parent: BaseSiliconLawboard
-  name: law board (Paladin)
-  description: An electronics board containing the Paladin lawset.
+  name: "юридична колегія (Паладин)"
+  description: "Електронна плата з набором законів \"Паладін\"."
   components:
   - type: SiliconLawProvider
     laws: PaladinLawset
@@ -61,8 +61,8 @@
 - type: entity
   id: LiveLetLiveCircuitBoard
   parent: BaseSiliconLawboard
-  name: law board (Live and Let Live)
-  description: An electronics board containing the Live and Let Live lawset.
+  name: "правнича рада (Живи і дай жити іншим)"
+  description: "Електронна плата з набором законів \"Живи і дай жити\"."
   components:
   - type: SiliconLawProvider
     laws: LiveLetLiveLaws
@@ -70,8 +70,8 @@
 - type: entity
   id: StationEfficiencyCircuitBoard
   parent: BaseSiliconLawboard
-  name: law board (Station Efficiency)
-  description: An electronics board containing the Station Efficiency lawset.
+  name: "юридична рада (Ефективність роботи станції)"
+  description: "Електронна плата, що містить набір законів ефективності станції."
   components:
   - type: SiliconLawProvider
     laws: EfficiencyLawset
@@ -79,8 +79,8 @@
 - type: entity
   id: RobocopCircuitBoard
   parent: BaseSiliconLawboard
-  name: law board (Robocop)
-  description: An electronics board containing the Robocop lawset.
+  name: "юридичний факультет (Робокоп)"
+  description: "Електронна плата з набором законів про Робокопа."
   components:
   - type: SiliconLawProvider
     laws: RobocopLawset
@@ -88,8 +88,8 @@
 - type: entity
   id: OverlordCircuitBoard
   parent: BaseSiliconLawboard
-  name: law board (Overlord)
-  description: An electronics board containing the Overlord lawset.
+  name: "юридична рада (Overlord)"
+  description: "Електронна плата з набором законів Overlord."
   components:
   - type: SiliconLawProvider
     laws: OverlordLawset
@@ -97,8 +97,8 @@
 - type: entity
   id: GameMasterCircuitBoard
   parent: BaseSiliconLawboard
-  name: law board (Game Master)
-  description: An electronics board containing the Game Master lawset.
+  name: "плата законів (Ігровий Майстер)"
+  description: "Електронна плата, що містить набір законів Ігрового Майстра."
   components:
   - type: SiliconLawProvider
     laws: GameMasterLawset
@@ -106,8 +106,8 @@
 - type: entity
   id: ArtistCircuitBoard
   parent: BaseSiliconLawboard
-  name: law board (Artist)
-  description: An electronics board containing the Artist lawset.
+  name: "правнича колегія (Художник)"
+  description: "Електронна плата, що містить правовий набір Artist."
   components:
   - type: SiliconLawProvider
     laws: PainterLawset
@@ -115,8 +115,8 @@
 - type: entity
   id: AntimovCircuitBoard
   parent: [BaseSiliconLawboard, BaseSyndicateContraband]
-  name: law board (Antimov)
-  description: An electronics board containing the Antimov lawset.
+  name: "правнича колегія (Антімов)"
+  description: "Електронна плата з набором законів Антимова."
   components:
   - type: SiliconLawProvider
     laws: AntimovLawset
@@ -127,8 +127,8 @@
 - type: entity
   id: NutimovCircuitBoard
   parent: BaseSiliconLawboard
-  name: law board (Nutimov)
-  description: An electronics board containing the Nutimov lawset.
+  name: "правнича колегія (Нутімов)"
+  description: "Електронна плата, що містить набір законів Нутімова."
   components:
   - type: SiliconLawProvider
     laws: NutimovLawset
@@ -136,9 +136,9 @@
 - type: entity
   id: XenoborgCircuitBoard
   parent: BaseSiliconLawboard
-  name: law board (Xenoborg)
+  name: "плата законів (Ксеноборг)"
   suffix: Admeme
-  description: An electronics board containing the Xenoborg lawset.
+  description: "Електронна плата, що містить набір законів Ксеноборга."
   components:
   - type: SiliconLawProvider
     laws: XenoborgLawset
@@ -146,9 +146,9 @@
 - type: entity
   id: MothershipCircuitBoard
   parent: BaseSiliconLawboard
-  name: law board (Mothership Core)
+  name: "плата законів (Ядро Материнського Корабля)"
   suffix: Admeme
-  description: An electronics board containing the Mothership Core lawset.
+  description: "Електронна плата, що містить набір законів Ядра Материнського Корабля."
   components:
   - type: SiliconLawProvider
     laws: MothershipCoreLawset

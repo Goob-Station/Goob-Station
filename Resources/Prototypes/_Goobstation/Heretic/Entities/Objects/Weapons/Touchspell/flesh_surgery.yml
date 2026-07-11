@@ -1,7 +1,7 @@
 - type: entity
   id: TouchSpellFleshSurgery
-  name: knit flesh
-  description: Let's go practice medicine.
+  name: "зшити плоть"
+  description: "Ходімо практикувати медицину."
   categories: [ HideSpawnMenu ]
   components:
   - type: Unremoveable

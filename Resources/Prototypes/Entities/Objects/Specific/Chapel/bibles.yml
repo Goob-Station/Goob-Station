@@ -3,8 +3,8 @@
 #START SET SELECTION
 - type: entity
   id: ChaplainUndeterminedBible
-  name: bluespace scripture beacon
-  description: Though I walk through the valley of the shadow of death I will fear no evil, for you are with me.
+  name: "маяк блюспейс-писання"
+  description: "Хоч я і йду долиною тіні смертної, не злякаюся зла, бо Ти зі мною."
   parent: [ BaseItem, BaseSetSelector ]
   components:
   - type: Sprite
@@ -23,8 +23,8 @@
 
 - type: selectableSet
   id: BibleSet
-  name: The Holy Bible
-  description: Sever any tie, but the ties that bind me to your service and to your heart.
+  name: "Свята Біблія"
+  description: "Розірви будь-який зв'язок, крім тих, що прив'язують мене до твоєї служби і до твого серця."
   sprite:
     sprite: Objects/Specific/Chapel/bible.rsi
     state: icon
@@ -33,8 +33,8 @@
 
 - type: selectableSet
   id: QuaranSet
-  name: The Quaran
-  description: Then which of your Lord’s favours will you ˹humans and jinn˺ both deny?
+  name: "Коран"
+  description: "Тож які з милостей Господа вашого ви ˹люди і джини˺ обидва заперечите?"
   sprite:
     sprite: _Goobstation/Objects/Specific/Chapel/allah.rsi
     state: icon
@@ -43,8 +43,8 @@
 
 - type: selectableSet
   id: TanakhSet
-  name: The Tanakh Scrolls
-  description: As you teach, you learn.
+  name: "Свитки Танаху"
+  description: "Навчаючи, ти вчишся."
   sprite:
     sprite: _Goobstation/Wizard/Objects/scroll.rsi
     state: scroll2
@@ -53,8 +53,8 @@
 
 - type: selectableSet
   id: ClockworkSet
-  name: The Clockwork Slab
-  description: A link between you and the Celestial Derelict. It contains information, recites scripture, and is your most vital tool as a Servant.
+  name: "Годинникова плита"
+  description: "Зв'язок між вами та Небесним Покинутим. Містить інформацію, декламує писання і є вашим найважливішим інструментом як Служителя."
   sprite:
     sprite: _ShitChap/Objects/clockwork_slab.rsi
     state: icon
@@ -63,8 +63,8 @@
 
 - type: selectableSet
   id: BibleVedaSet
-  name: Slavic-Aryan Vedas
-  description: Slavic neopaganisms.
+  name: "Слов'яно-арійські Веди"
+  description: "Слов'янські неоязичництва."
   sprite:
     sprite: _Goobstation/Objects/Specific/Chapel/veda.rsi
     state: icon
@@ -73,8 +73,8 @@
 
 - type: selectableSet
   id: VelesBookSet
-  name: Book of veles
-  description: Basis and proof of neopagan religiosity.
+  name: "Книга Велеса"
+  description: "Основа й доказ неоязичницької релігійності."
   sprite:
     sprite: _Goobstation/Objects/Specific/Chapel/veles_book.rsi
     state: icon
@@ -83,8 +83,8 @@
 ##END SET SELECTION
 
 - type: entity
-  name: bible
-  description: New Interstellar Version 2340.
+  name: "біблія"
+  description: "Нова міжзоряна версія 2340."
   parent: BaseStorageItem
   id: Bible
   components:
@@ -154,8 +154,8 @@
 
 - type: entity
   parent: [Bible]
-  name: necronomicon
-  description: "There's a note: Klatuu, Verata, Nikto -- Don't forget it again!"
+  name: "некрономікон"
+  description: "Там є примітка: Klatuu, Verata, Nikto - не забудьте її знову!"
   id: BibleNecronomicon
   components:
   - type: Bible
@@ -183,8 +183,8 @@
 - type: entity
   parent: BaseAction
   id: ActionBibleSummon
-  name: Summon familiar
-  description: Summon a familiar that will aid you and gain humanlike intelligence once inhabited by a soul.
+  name: "Викликати фамільяра"
+  description: "Викличте фамільяра, який допомагатиме вам і отримає розум подібний до людського, колись наділений душею."
   components:
   - type: Action
     icon: { sprite: Clothing/Head/Hats/witch.rsi, state: icon }
@@ -194,8 +194,8 @@
 
 - type: entity
   parent: Bible
-  name: tanakh
-  description: "For God's chosen crewmembers"
+  name: "танах"
+  description: "Для Божих обраних членів екіпажу"
   id: BibleTanakh
   components:
   - type: Sprite
@@ -211,8 +211,8 @@
 
 - type: entity
   parent: Bible
-  name: quran
-  description: "Prayer carpet not included"
+  name: "коран"
+  description: "Молитовний килимок не входить у комплект"
   id: BibleQuran
   components:
   - type: Sprite
@@ -222,9 +222,9 @@
 
 - type: entity
   id: BibleDruid
-  name: druidic tablet
+  name: "друїдська табличка"
   parent: Bible
-  description: "It's the mystery of the druids!"
+  description: "Це таємниця друїдів!"
   components:
   - type: Sprite
     sprite: Objects/Specific/Chapel/mysteryofthedruids.rsi
@@ -233,9 +233,9 @@
 
 - type: entity
   id: BibleCommunistManifesto
-  name: communist manifesto
+  name: "комуністичний маніфест"
   parent: Bible
-  description: "Remove the mask of humanity from Capital."
+  description: "Зніміть маску людяності з Капіталу."
   components:
   - type: Sprite
     sprite: Objects/Specific/Chapel/communistmanifesto.rsi
@@ -244,8 +244,8 @@
 
 - type: entity
   parent: Bible
-  name: satanic bible
-  description: "What could possibly go wrong?"
+  name: "сатанинська біблія"
+  description: "Що може піти не так?"
   id: BibleSatanic
   components:
   - type: Sprite
@@ -255,9 +255,9 @@
 
 - type: entity
   id: BibleNarsie
-  name: tome of nar'sie
+  name: "том Нар'Сі"
   parent: Bible
-  description: "What could possibly go wrong with a book covered in blood?"
+  description: "Що може піти не так із книгою, вкритою кров'ю?"
   components:
   - type: Sprite
     sprite: Objects/Specific/Chapel/tomeofnarsie.rsi
@@ -266,9 +266,9 @@
 
 - type: entity
   id: BibleNanoTrasen
-  name: codex nanotrasimus
+  name: "кодекс нанотрасімус"
   parent: Bible
-  description: "A familiar book containing the Sacred Operating Procedures."
+  description: "Знайома книга, що містить Священні Операційні Процедури."
   components:
   - type: Sprite
     sprite: Objects/Specific/Chapel/codexnanotrasimus.rsi
@@ -277,9 +277,9 @@
 
 - type: entity
   id: BibleHonk
-  name: mirth of the honkmother
+  name: "веселість Хонкматері"
   parent: Bible
-  description: "Oh great and glorious Mother, Mistress of Mirth, Matron of Mask and Merriments, Blessed is she amongst us jesters."
+  description: "О велика й славетна Мати, Володарко Веселощів, Матроно Масок і Радощів, благословенна вона серед нас, блазнів."
   components:
   - type: Sprite
     sprite: Objects/Specific/Chapel/honk.rsi
@@ -288,9 +288,9 @@
 
 - type: entity
   id: BibleRatvar
-  name: tablet of ratvar
+  name: "табличка Ратвара"
   parent: Bible
-  description: "A holy relic of the Clockwork Cult, blessed by the Clockwork Justice, Ratvar."
+  description: "Священна реліквія Заводного Культу, благословенна Заводною Справедливістю, Ратваром."
   components:
   - type: Sprite
     sprite: Objects/Specific/Chapel/ratvartablet.rsi

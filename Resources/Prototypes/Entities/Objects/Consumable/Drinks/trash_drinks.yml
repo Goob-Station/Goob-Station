@@ -104,13 +104,13 @@
   id: DrinkBottleGildlager
 
 - type: entity
-  name: coffee liqueur bottle
+  name: "пляшка кавового лікеру"
   parent: [DrinkBottleBaseEmpty, DrinkCoffeeLiqueurBottleFull]
   id: DrinkBottleCoffeeLiqueur
 
 # todo make a real cahors bottle
 - type: entity
-  name: nt cahors bottle
+  name: "пляшка nt cahors"
   parent: [DrinkBottleBaseEmpty, DrinkBottleGlassBaseFull]
   id: DrinkBottleNTCahors
   components:

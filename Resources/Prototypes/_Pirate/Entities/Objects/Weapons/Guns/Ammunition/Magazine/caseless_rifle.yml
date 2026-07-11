@@ -1,6 +1,6 @@
 - type: entity
   id: MagazineCaselessRifleStandard
-  name: "magazine (9.5mm)"
+  name: "магазин (9.5мм)"
   parent: BaseMagazineCaselessRifle
   components:
   - type: BallisticAmmoProvider
@@ -20,7 +20,7 @@
 
 - type: entity
   id: MagazineCaselessRifleStandardShort
-  name: "short magazine (9.5mm)"
+  name: "короткий магазин (9.5мм)"
   parent: BaseMagazineCaselessRifleShort
   components:
   - type: BallisticAmmoProvider

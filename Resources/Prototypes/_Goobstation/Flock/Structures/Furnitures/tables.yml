@@ -2,8 +2,8 @@
 - type: entity
   id: BaseTableFlock
   parent: BaseStructure
-  name: humming surface
-  description: A table? An alien supercomputer? Well, it's flat, you can put stuff on it.
+  name: "гудяча поверхня"
+  description: "Стіл? Інопланетний суперкомп'ютер? Ну, вона пласка, на неї можна щось покласти."
   suffix: "Full"
   components:
   - type: Sprite

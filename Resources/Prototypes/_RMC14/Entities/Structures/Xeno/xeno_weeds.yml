@@ -1,7 +1,7 @@
 - type: entity
   id: XenoWeeds
-  name: weeds
-  description: Weird black weeds...
+  name: "бур'яни"
+  description: "Дивні чорні бур'яни..."
   placement:
     mode: SnapgridCenter
     snap:
@@ -86,8 +86,8 @@
 - type: entity
   parent: XenoWeeds
   id: XenoWeedsSource
-  name: weed node
-  description: A weird, pulsating node
+  name: "вузол бур'янів"
+  description: "Дивний, пульсуючий вузол"
   components:
   - type: Sprite
     sprite: _RMC14/Structures/Xenos/xeno_weeds.rsi
@@ -110,7 +110,7 @@
 
 - type: entity
   id: XenoWeedsWall
-  name: weeds
+  name: "бур'яни"
   placement:
     mode: SnapgridCenter
     snap:
@@ -170,8 +170,8 @@
 - type: entity
   parent: XenoHardyWeeds
   id: XenoHardyWeedsSource
-  name: hardy weed node
-  description: A weird, pulsating node
+  name: "вузол стійких бур'янів"
+  description: "Дивний, пульсуючий вузол"
   components:
   - type: Sprite
     sprite: _RMC14/Structures/Xenos/xeno_weeds.rsi

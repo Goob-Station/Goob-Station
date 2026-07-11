@@ -2,8 +2,8 @@
 - type: entity
   parent: BaseItem
   id: MoproachShoes
-  name: moproach shoes
-  description: Three pairs of tiny mopshoes, perfectly fit for a moproach.
+  name: "черевики мопроча"
+  description: "Три пари крихітних черевиків-швабр, що ідеально підходять для мопроча."
   components:
   - type: Sprite
     sprite: Objects/Misc/moproach_shoes.rsi

@@ -3,8 +3,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCosmicSiphon
-  name: Siphon Entropy
-  description: Silently siphon entropy from your target.
+  name: "Висмоктати Ентропію"
+  description: "Безшумно висмокчіть ентропію зі своєї цілі."
   components:
   - type: Action
     useDelay: 30
@@ -26,8 +26,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCosmicBlank
-  name: Shunt Subjectivity
-  description: Shunt your target's mind out of their body and unto the cosmic dark, temporarily rendering their body mindless.
+  name: "Витіснити Суб'єктивність"
+  description: "Витіснити розум вашої цілі з її тіла в космічну темряву, тимчасово роблячи її тіло безглуздим."
   components:
   - type: Action
     useDelay: 120
@@ -50,8 +50,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCosmicPlaceMonument
-  name: Beckon The Monument
-  description: Call forth The Monument into realspace. Keep it hidden and safe from non-cultists!
+  name: "Покликати Монумент"
+  description: "Викликати Монумент у реальний простір. Тримайте його прихованим і в безпеці від не-культистів!"
   components:
   - type: Action
     useDelay: 999
@@ -70,8 +70,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCosmicMoveMonument
-  name: Relocate The Monument
-  description: Your work is imperative, and the end is inevitable. Ensure that it is completed under your watch.
+  name: "Перемістити Монумент"
+  description: "Ваша робота вкрай важлива, а кінець неминучий. Переконайтеся, що вона буде завершена під вашим наглядом."
   components:
   - type: Action
     useDelay: 600 # Goobstation
@@ -90,8 +90,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCosmicReturn
-  name: Return
-  description: Dissipate your astral projection and return to your body.
+  name: "Повернення"
+  description: "Розсіяти свою астральну проєкцію та повернутися до свого тіла."
   components:
   - type: Action
     checkCanInteract: false
@@ -106,8 +106,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCosmicLapse
-  name: Abberant Lapse
-  description: Lapse your target's corporeal form, temporarily rendering it immutable, impassible, and frozen in place.
+  name: "Аберантний Проміжок"
+  description: "Тимчасово розірвати тілесну форму вашої цілі, роблячи її незмінною, непрохідною та замороженою на місці."
   components:
   - type: Action
     useDelay: 45
@@ -129,8 +129,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCosmicGlare
-  name: Null Glare
-  description: Emit a horrific pulse of cosmic light, slowing and disorienting everyone around you. Its effects are amplified against silicon-based entities.
+  name: "Порожній Погляд"
+  description: "Випустіть жахливий імпульс космічного світла, що сповільнює й дезорієнтує всіх навколо вас. Його ефекти посилюються проти кремнієвих істот."
   components:
   - type: Action
     useDelay: 60
@@ -149,8 +149,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCosmicIngress
-  name: Force Ingress
-  description: Use a concentrated blast of power to force a secure doorway open.
+  name: "Примусовий Вхід"
+  description: "Використовуйте концентрований вибух сили, щоб змусити відчинити захищені двері."
   components:
   - type: Action
     useDelay: 15
@@ -168,8 +168,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCosmicImposition
-  name: Vacuous Imposition
-  description: You negate any incoming damage for a short time.
+  name: "Порожнисте Нав'язування"
+  description: "Ви зводите нанівець будь-яку вхідну шкоду протягом короткого часу."
   components:
   - type: Action
     useDelay: 80
@@ -184,8 +184,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCosmicNova
-  name: Astral Nova
-  description: Hurl a large and disruptive blast of astral energy.
+  name: "Астральна Нова"
+  description: "Кинути великий і руйнівний вибух астральної енергії."
   components:
   - type: Action
     useDelay: 60
@@ -201,8 +201,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCosmicFragmentation
-  name: Null Fragmentation
-  description: Transfer your malign empowerment into a digital system, such as an AI Upload Console or Cyborg, corrupting it in the process. Doing so will expend your empowerment.
+  name: "Порожня Фрагментація"
+  description: "Передайте своє згубне підсилення в цифрову систему, як-от консоль завантаження ШІ або кіборга, псуючи її в процесі. Це витратить ваше підсилення."
   components:
   - type: Action
     useDelay: 25
@@ -225,8 +225,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCosmicColossusSunder
-  name: Entropic Sunder
-  description: Warp to the target location and unleash a cascading detonation of malign energy.
+  name: "Ентропійний Розкол"
+  description: "Перемістіться до цільового місця й вивільніть каскадну детонацію згубної енергії."
   components:
   - type: Action
     useDelay: 18
@@ -242,8 +242,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCosmicColossusIngress
-  name: Colossal Ingress
-  description: Use your colossal strength to force open a doorway.
+  name: "Колосальне Вторгнення"
+  description: "Використайте свою колосальну силу, щоб силою відчинити дверний проріз."
   components:
   - type: Action
     useDelay: 8
@@ -262,8 +262,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCosmicColossusHibernate
-  name: Slumber Shell
-  description: Slumber your body for a period of time to regenerate integrity. Must be done on stable ground.
+  name: "Сон Оболонки"
+  description: "Приспіть своє тіло на певний час, щоб відновити цілісність. Потрібно виконувати на стабільній землі."
   components:
   - type: Action
     useDelay: 180
@@ -281,8 +281,8 @@
 
 - type: entity
   id: ActionCosmicColossusEffigy
-  name: Beckon an Effigy
-  description: Draw out an Effigy of Entropy into realspace.
+  name: "Закликати Ефігію"
+  description: "Витягніть Ефігію Ентропії в реальний простір."
   components:
   - type: Action
     useDelay: 999

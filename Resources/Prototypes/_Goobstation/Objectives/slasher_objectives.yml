@@ -16,8 +16,8 @@
 
 - type: entity
   id: SlasherSurviveObjective
-  name: Survive until the end
-  description: While death may be a foreign concept to you, getting banished is not.
+  name: "Вижити до кінця"
+  description: "Хоча смерть може бути для тебе чужим поняттям, вигнання — ні."
   components:
   - type: Objective
     difficulty: 1

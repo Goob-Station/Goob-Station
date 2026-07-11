@@ -1,8 +1,8 @@
 - type: entity
-  name: glimmer mite
+  name: "мерехтливий кліщ"
   parent: MobCockroach
   id: MobGlimmerMite
-  description: A strange pest from a world beyond the noosphere.
+  description: "Дивний шкідник зі світу поза ноосферою."
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Mobs/Ghosts/glimmermite.rsi
@@ -39,8 +39,8 @@
   - MobCombat
   - MobDamageable
   id: MobGlimmerWisp
-  name: glimmer wisp
-  description: A strange orb that moves with intent.
+  name: "мерехтливий клаптик"
+  description: "Дивна куля, яка рухається з наміром."
   components:
   # appearance
   - type: Sprite

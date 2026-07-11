@@ -1,7 +1,7 @@
 - type: entity
   id: SpawnPodEvaKit
   categories: [ HideSpawnMenu ]
-  name: SpawnSupplyEvaKit
+  name: "SpawnSupplyEvaKit"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -10,7 +10,7 @@
 - type: entity
   id: SpawnPodSpesos
   categories: [ HideSpawnMenu ]
-  name: SpawnSupplySpesosSmall
+  name: "SpawnSupplySpesosSmall"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -19,7 +19,7 @@
 - type: entity
   id: SpawnPodDisks
   categories: [ HideSpawnMenu ]
-  name: SpawnSupplyPointDisks
+  name: "SpawnSupplyPointDisks"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -28,7 +28,7 @@
 - type: entity
   id: SpawnPodEmergencyMed
   categories: [ HideSpawnMenu ]
-  name: SpawnSupplyEmergencyMed
+  name: "SpawnSupplyEmergencyMed"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -37,7 +37,7 @@
 - type: entity
   id: SpawnPodDisablers
   categories: [ HideSpawnMenu ]
-  name: SpawnSupplyDisablers
+  name: "SpawnSupplyDisablers"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -46,7 +46,7 @@
 - type: entity
   id: SpawnPodTools
   categories: [ HideSpawnMenu ]
-  name: SpawnSupplyTools
+  name: "SpawnSupplyTools"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -55,7 +55,7 @@
 - type: entity
   id: SpawnPodInterns
   categories: [ HideSpawnMenu ]
-  name: SpawnSupplyInterns
+  name: "SpawnSupplyInterns"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -64,7 +64,7 @@
 - type: entity
   id: SpawnPodDagger
   categories: [ HideSpawnMenu ]
-  name: SpawnSupplyDagger
+  name: "SpawnSupplyDagger"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -73,7 +73,7 @@
 - type: entity
   id: SpawnPodCoin
   categories: [ HideSpawnMenu ]
-  name: SpawnSupplyInternCoin
+  name: "SpawnSupplyInternCoin"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -82,7 +82,7 @@
 - type: entity
   id: SpawnPodBsd
   categories: [ HideSpawnMenu ]
-  name: SpawnSupplyBsd
+  name: "SpawnSupplyBsd"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -91,7 +91,7 @@
 - type: entity
   id: SpawnPodHardsuitExperimental
   categories: [ HideSpawnMenu ]
-  name: SpawnSupplyHardsuit
+  name: "Капсула постачання: екзокостюм"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -100,7 +100,7 @@
 - type: entity
   id: SpawnPodGoldCase
   categories: [ HideSpawnMenu ]
-  name: SpawnSupplyCigar
+  name: "SpawnSupplyCigar"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -109,7 +109,7 @@
 - type: entity
   id: SpawnPodWhiskey
   categories: [ HideSpawnMenu ]
-  name: SpawnSupplyWhiskey
+  name: "SpawnSupplyWhiskey"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -118,7 +118,7 @@
 - type: entity
   id: SpawnPodCentCommGlasses
   categories: [ HideSpawnMenu ]
-  name: SpawnPodCentCommGlasses
+  name: "SpawnPodCentCommGlasses"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -127,7 +127,7 @@
 - type: entity
   id: SpawnPodSvalinn
   categories: [ HideSpawnMenu ]
-  name: SpawnSupplySvallin
+  name: "SpawnSupplySvallin"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -136,7 +136,7 @@
 - type: entity
   id: SpawnPodDeckard
   categories: [ HideSpawnMenu ]
-  name: SpawnSupplyDeckard
+  name: "SpawnSupplyDeckard"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -145,7 +145,7 @@
 - type: entity
   id: SpawnPodTelecom
   categories: [ HideSpawnMenu ]
-  name: SpawnSupplyTelecom
+  name: "SpawnSupplyTelecom"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -154,7 +154,7 @@
 - type: entity
   id: SpawnPodFat
   categories: [ HideSpawnMenu ]
-  name: SpawnSupplyFat
+  name: "SpawnSupplyFat"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -163,7 +163,7 @@
 - type: entity
   id: SpawnPodGrav
   categories: [ HideSpawnMenu ]
-  name: SpawnSupplyGrav
+  name: "SpawnSupplyGrav"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -172,7 +172,7 @@
 - type: entity
   id: SpawnPodTeleporter
   categories: [ HideSpawnMenu ]
-  name: SpawnSupplyTeleporter
+  name: "SpawnSupplyTeleporter"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -181,7 +181,7 @@
 - type: entity
   id: SpawnPodHolopad
   categories: [ HideSpawnMenu ]
-  name: SpawnSupplyHolopad
+  name: "SpawnSupplyHolopad"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -190,7 +190,7 @@
 - type: entity
   id: SpawnPodMonitoring
   categories: [ HideSpawnMenu ]
-  name: SpawnSupplyMonitoring
+  name: "SpawnSupplyMonitoring"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -199,7 +199,7 @@
 - type: entity
   id: SpawnPodRnd
   categories: [ HideSpawnMenu ]
-  name: SpawnSupplyRnd
+  name: "SpawnSupplyRnd"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -208,7 +208,7 @@
 - type: entity
   id: SpawnPodComms
   categories: [ HideSpawnMenu ]
-  name: SpawnSupplyComms
+  name: "SpawnSupplyComms"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -217,7 +217,7 @@
 - type: entity
   id: SpawnPodCargo
   categories: [ HideSpawnMenu ]
-  name: SpawnSupplyCargo
+  name: "SpawnSupplyCargo"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -226,7 +226,7 @@
 - type: entity
   id: SpawnPodCargoShuttle
   categories: [ HideSpawnMenu ]
-  name: SpawnSupplyCargoShuttle
+  name: "SpawnSupplyCargoShuttle"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -235,7 +235,7 @@
 - type: entity
   id: SpawnPodShuttle
   categories: [ HideSpawnMenu ]
-  name: SpawnSupplyShuttle
+  name: "SpawnSupplyShuttle"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -244,7 +244,7 @@
 - type: entity
   id: SpawnPodMedkit
   categories: [ HideSpawnMenu ]
-  name: SpawnSupplyMedkit
+  name: "SpawnSupplyMedkit"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -253,7 +253,7 @@
 - type: entity
   id: SpawnPodMindshield
   categories: [ HideSpawnMenu ]
-  name: SpawnSupplyMindshield
+  name: "SpawnSupplyMindshield"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -262,7 +262,7 @@
 - type: entity
   id: SpawnPodSecHardsuit
   categories: [ HideSpawnMenu ]
-  name: SpawnSupplySecHardsuit
+  name: "SpawnSupplySecHardsuit"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -271,7 +271,7 @@
 - type: entity
   id: SpawnPodTaskFlatpack
   categories: [ HideSpawnMenu ]
-  name: SpawnSupplyTaskFlatpack
+  name: "SpawnSupplyTaskFlatpack"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -280,7 +280,7 @@
 - type: entity
   id: SpawnPodMarlen
   categories: [ HideSpawnMenu ]
-  name: SpawnPodMarlen
+  name: "Капсула постачання: Марлен"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -289,7 +289,7 @@
 - type: entity
   id: SpawnPodNTRCigs
   categories: [ HideSpawnMenu ]
-  name: SpawnPodNTRCigs
+  name: "Капсула постачання: NTR цигарки"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -298,7 +298,7 @@
 - type: entity
   id: SpawnPodNTRSoap
   categories: [ HideSpawnMenu ]
-  name: SpawnPodNTRSoap
+  name: "Капсула постачання: NTR мило"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -307,7 +307,7 @@
 - type: entity
   id: SpawnPodCargoBingle
   categories: [ HideSpawnMenu ]
-  name: SpawnPodCargoBingle
+  name: "SpawnPodCargoBingle"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn
@@ -317,7 +317,7 @@
 - type: entity
   id: SpawnPodWaterCoolerGold
   categories: [ HideSpawnMenu ]
-  name: SpawnPodWaterCoolerGold
+  name: "дроп-капсула: золотий кулер з водою"
   parent: SpawnSupplyEmpty
   components:
   - type: SpawnOnDespawn

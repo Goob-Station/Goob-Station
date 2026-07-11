@@ -56,7 +56,7 @@
 
 - type: entity
   id: BulletGrenadeSlug
-  name: slug grenade
+  name: "шрапнельна граната"
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:

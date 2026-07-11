@@ -57,7 +57,7 @@
 - type: entity
   parent: BaseMindRoleAntag
   id: MindRoleTerrorPrincess
-  name: Terror Princess Role
+  name: "Роль принцеси терору"
   components:
   - type: MindRole
     exclusiveAntag: true

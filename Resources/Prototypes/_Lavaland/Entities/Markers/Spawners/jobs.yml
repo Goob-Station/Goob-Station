@@ -1,7 +1,7 @@
 - type: entity
   id: SpawnPointShaftMiner
   parent: SpawnPointJobBase
-  name: shaft miner
+  name: "шахтар"
   components:
   - type: SpawnPoint
     job_id: ShaftMiner

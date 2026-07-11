@@ -1,8 +1,8 @@
 - type: entity
   parent: MobMothroach
   id: MobMothroachSyndicate
-  name: syndicate mothroach
-  description: A mothroach in its own little blood red suit. How adorable!
+  name: "тарганоміль Синдикату"
+  description: "Тарганоміль у власному маленькому криваво-червоному костюмчику. Як мило!"
   suffix: Syndicate
   components:
   - type: Sprite

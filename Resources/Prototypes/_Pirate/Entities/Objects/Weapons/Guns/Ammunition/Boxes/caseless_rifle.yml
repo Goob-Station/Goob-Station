@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseMagazineBoxCaselessRifle
   id: MagazineBoxCaselessRifleStandard
-  name: ammunition box (9.5mm)
-  description: A cardboard box of 9.5mm caseless rounds. Intended to hold general-purpose kinetic ammunition.
+  name: "коробка з набоями (9.5мм)"
+  description: "Картонна коробка з безгільзовими набоями 9.5мм. Призначена для зберігання кінетичних боєприпасів загального призначення."
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeCaselessRifleStandard

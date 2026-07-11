@@ -1,8 +1,8 @@
 - type: entity
-  name: mail bag
+  name: "поштова сумка"
   id: MailBag
   parent: BaseStorageItem
-  description: A bag for carrying mail around the station. Made from tanned space bear hide.
+  description: "Сумка для перенесення пошти станцією. Зроблена з дубленої шкіри космічного ведмедя."
   components:
   - type: Sprite
     sprite: Objects/Specific/Cargo/mail_bag.rsi

@@ -5,7 +5,7 @@
   categories: [ ]
   parent: MobHumanSecurityBase
   id: MobHumanSecurityOfficerSuit
-  name: Security Officer Suit
+  name: "офіцер СБ в костюмі"
   components:
   - type: Loadout
     prototypes: [ SecurityOfficerSuit ]
@@ -20,7 +20,7 @@
   categories: [ ]
   parent: MobHumanSecurityBase
   id: MobHumanSecurityOfficerModSuit
-  name: Security Officer ModSuit
+  name: "офіцер СБ з модкостюмом"
   components:
   - type: Loadout
     prototypes: [ SecurityOfficerModSuit ]
@@ -35,7 +35,7 @@
   categories: [ ]
   parent: MobHumanSecurityBase
   id: MobHumanHosModSuit
-  name: Head Of Security ModSuit
+  name: "ГСБ з модкостюмом"
   components:
   - type: Loadout
     prototypes: [ SecurityHoSModSuit ]
@@ -50,7 +50,7 @@
   categories: [ ]
   parent: MobHumanSecurityBase
   id: MobHumanHoSSuit
-  name: Head Of Security Suit
+  name: "ГСБ в костюмі"
   components:
   - type: Loadout
     prototypes: [ SecurityHoSSuit ]
@@ -65,7 +65,7 @@
   categories: [ ]
   parent: MobHumanSecurityBase
   id: MobHumanWardenSuit
-  name: Warden Suit
+  name: "смотритель в костюмі"
   components:
   - type: Loadout
     prototypes: [ SecurityWardenSuit ]
@@ -80,7 +80,7 @@
   categories: [ ]
   parent: MobHumanSecurityBase
   id: MobHumanBrigmedicSuit
-  name: Brigmedic Suit
+  name: "бригмедик в костюмі"
   components:
   - type: Loadout
     prototypes: [ SecurityBrigmedicSuit ]
@@ -95,7 +95,7 @@
   categories: [ ]
   parent: MobHumanSecurityBase
   id: MobHumanSecurityOfficerBulletproofArmorHelmet
-  name: Security Officer Bulletproof Armor
+  name: "офіцер СБ з бронежилетом"
   components:
   - type: Loadout
     prototypes: [ SecurityOfficerBulletproofArmorHelmet ]
@@ -110,7 +110,7 @@
   categories: [ ]
   parent: MobHumanSecurityBase
   id: MobHumanSecurityOfficerRiotArmorHelmet
-  name: Security Officer Riot Armor
+  name: "офіцер СБ з протиударною бронею"
   components:
   - type: Loadout
     prototypes: [ SecurityOfficerRiotArmorHelmet ]
@@ -125,7 +125,7 @@
   categories: [ ]
   parent: MobHumanSecurityBase
   id: MobHumanSecurityOfficerReflectiveArmorHelmet
-  name: Security Officer Reflective Armor
+  name: "офіцер СБ з відбивною бронею"
   components:
   - type: Loadout
     prototypes: [ SecurityOfficerReflectiveArmorHelmet ]
@@ -140,7 +140,7 @@
   categories: [ ]
   parent: MobHumanSecurityBase
   id: MobHumanSecurityOfficerBasicArmorHelmet
-  name: Security Officer Basic Armor
+  name: "офіцер СБ з базовою бронею"
   components:
   - type: Loadout
     prototypes: [ SecurityOfficerGearDebug ]
@@ -155,7 +155,7 @@
   categories: [ ]
   parent: MobHumanSecurityBase
   id: MobHumanHos
-  name: Head Of Security
+  name: "глава служби безпеки"
   components:
   - type: Loadout
     prototypes: [ HoSGearDebug ]
@@ -170,7 +170,7 @@
   categories: [ ]
   parent: MobHumanSecurityBase
   id: MobHumanBrigmedic
-  name: Brigmedic
+  name: "бригмедик"
   components:
   - type: Loadout
     prototypes: [ BrigmedicGearDebug ]
@@ -185,7 +185,7 @@
   categories: [ ]
   parent: MobHumanSecurityBase
   id: MobHumanWarden
-  name: Warden
+  name: "смотритель"
   components:
   - type: Loadout
     prototypes: [ WardenGearDebug ]
@@ -200,7 +200,7 @@
   categories: [ ]
   parent: MobHuman
   id: MobHumanSecurityBase
-  name: Security Base
+  name: "базовий охоронець"
   suffix: DEBUG
   components:
   - type: Loadout
@@ -219,7 +219,7 @@
   categories: [  ]
   parent: MobHuman
   id: MobHumanBSOBase
-  name: Blueshield Officer Base
+  name: "базовий офіцер синього щита"
   suffix: DEBUG
   components:
   - type: Loadout
@@ -239,7 +239,7 @@
   categories: [ ]
   parent: MobHuman
   id: MobHumanBSOSuit
-  name: Blueshield Officer
+  name: "офіцер синього щита"
   suffix: DEBUG
   components:
   - type: Loadout
@@ -259,7 +259,7 @@
   categories: [ ]
   parent: MobHuman
   id: MobHumanBSOModSuit
-  name: Blueshield Officer
+  name: "офіцер синього щита"
   suffix: DEBUG
   components:
   - type: Loadout

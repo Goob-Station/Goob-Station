@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseComputerCircuitboard
   id: GunneryControlComputerCircuitboard
-  name: gunnery control computer board
-  description: A computer printed circuit board for a gunnery control computer.
+  name: "плата комп'ютера керування зброєю"
+  description: "Друкована плата для комп'ютера керування зброєю."
   components:
     - type: Sprite
       state: cpu_command

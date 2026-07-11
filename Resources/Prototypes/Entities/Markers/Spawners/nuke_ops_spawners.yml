@@ -138,7 +138,7 @@
 # Spawners
 
 - type: entity
-  name: nuke ops loot spawner
+  name: "спавнер здобичі ядерних оперативників"
   id: NukeOpsLootSpawner
   parent: MarkerBase
   components:
@@ -154,7 +154,7 @@
     mode: AlignTileAny
 
 - type: entity
-  name: nuke ops weapon spawner
+  name: "спавнер зброї ядерних оперативників"
   id: NukeOpsWeaponSpawner
   parent: MarkerBase
   components:
@@ -171,7 +171,7 @@
     mode: AlignTileAny
 
 - type: entity
-  name: nuke ops brute medkit spawner
+  name: "спавнер медичного набору від фізичних ушкоджень ядерних оперативників"
   id: NukeOpsMedkitBruteSpawner
   parent: MarkerBase
   components:
@@ -187,7 +187,7 @@
     mode: AlignTileAny
 
 - type: entity
-  name: nuke ops general medkit spawner
+  name: "спавнер загального медичного набору ядерних оперативників"
   id: NukeOpsMedkitSpawner
   parent: MarkerBase
   components:
@@ -205,7 +205,7 @@
     mode: AlignTileAny
 
 - type: entity
-  name: nuke ops grenade spawner
+  name: "спавнер гранат ядерних оперативників"
   id: NukeOpsGrenadeSpawner
   parent: MarkerBase
   components:
@@ -224,7 +224,7 @@
     mode: AlignTileAny
 
 - type: entity
-  name: nuke ops ammo spawner
+  name: "спавнер боєприпасів ядерних оперативників"
   id: NukeOpsAmmoSpawner
   parent: MarkerBase
   components:
