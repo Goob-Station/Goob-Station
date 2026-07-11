@@ -88,6 +88,9 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
         if (!_mind.TryGetMind(ai, out var mindId, out var mind))
             return;
 
+        if (_mind.TryGetMind(entity, out _, out _)) // Don't take control of device with mind already. Would ghost them
+            return;
+
         if (!TryComp<StationAiHeldComponent>(ai, out var stationAiHeldComp))
             return;
 

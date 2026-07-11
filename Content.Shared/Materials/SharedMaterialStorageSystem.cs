@@ -145,6 +145,11 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
         if (ent.Comp.MaterialWhiteList == null)
             return true;
 
+        /// <Goobstation> this is STUPID STUPID STUPID. needed for ore silo self injection...
+        if (ent.Comp.IgnoreMaterialWhiteList)
+            return true;
+        /// </Goobstation>
+
         return ent.Comp.MaterialWhiteList.Contains(material);
     }
 
