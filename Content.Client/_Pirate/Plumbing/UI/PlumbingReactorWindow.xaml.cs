@@ -22,6 +22,7 @@ public sealed partial class PlumbingReactorWindow : DefaultWindow
 
     private bool _enabled = true;
     private string? _selectedTarget;
+    private string? _selectedReagentId;
 
     public PlumbingReactorWindow()
     {
@@ -51,7 +52,7 @@ public sealed partial class PlumbingReactorWindow : DefaultWindow
 
         AddTargetButton.OnPressed += _ =>
         {
-            var reagentId = ReagentIdInput.Text.Trim();
+            var reagentId = _selectedReagentId ?? ReagentIdInput.Text.Trim();
             if (string.IsNullOrEmpty(reagentId))
                 return;
 
@@ -64,13 +65,18 @@ public sealed partial class PlumbingReactorWindow : DefaultWindow
             SuggestionList.Visible = false;
         };
 
-        ReagentIdInput.OnTextChanged += _ => UpdateSuggestions(ReagentIdInput.Text);
+        ReagentIdInput.OnTextChanged += _ =>
+        {
+            _selectedReagentId = null;
+            UpdateSuggestions(ReagentIdInput.Text);
+        };
 
         SuggestionList.OnItemSelected += args =>
         {
             if (args.ItemList[args.ItemIndex].Metadata is string selected)
             {
-                ReagentIdInput.Text = selected;
+                ReagentIdInput.Text = GetLocalizedReagentName(selected);
+                _selectedReagentId = selected;
                 SuggestionList.Visible = false;
             }
         };
@@ -119,10 +125,11 @@ public sealed partial class PlumbingReactorWindow : DefaultWindow
         foreach (var (reagentId, targetQuantity) in state.ReagentTargets)
         {
             var currentAmount = state.BufferContents.GetValueOrDefault(reagentId, FixedPoint2.Zero);
+            var reagentName = GetLocalizedReagentName(reagentId);
             TargetsList.Add(new ItemList.Item(TargetsList)
             {
                 Metadata = reagentId,
-                Text = $"{reagentId}: {currentAmount}u / {targetQuantity}u"
+                Text = $"{reagentName}: {currentAmount}u / {targetQuantity}u"
             });
         }
 
@@ -132,10 +139,11 @@ public sealed partial class PlumbingReactorWindow : DefaultWindow
             if (state.ReagentTargets.ContainsKey(reagentId))
                 continue;
 
+            var reagentName = GetLocalizedReagentName(reagentId);
             TargetsList.Add(new ItemList.Item(TargetsList)
             {
                 Metadata = reagentId,
-                Text = $"{reagentId}: {currentAmount}u / 0u"
+                Text = $"{reagentName}: {currentAmount}u / 0u"
             });
         }
 
@@ -159,23 +167,29 @@ public sealed partial class PlumbingReactorWindow : DefaultWindow
 
         foreach (var reagent in _prototypeManager.EnumeratePrototypes<ReagentPrototype>())
         {
-            if (!reagent.ID.ToLowerInvariant().Contains(lowerFilter))
+            if (!reagent.ID.Contains(lowerFilter, StringComparison.OrdinalIgnoreCase) &&
+                !reagent.LocalizedName.Contains(filter.Trim(), StringComparison.CurrentCultureIgnoreCase))
                 continue;
 
             matches.Add(reagent);
         }
 
-        matches.Sort((a, b) => a.ID.Length.CompareTo(b.ID.Length));
+        matches.Sort((a, b) => string.Compare(a.LocalizedName, b.LocalizedName, StringComparison.CurrentCulture));
 
         foreach (var reagent in matches)
         {
             SuggestionList.Add(new ItemList.Item(SuggestionList)
             {
                 Metadata = reagent.ID,
-                Text = reagent.ID
+                Text = reagent.LocalizedName
             });
         }
 
         SuggestionList.Visible = SuggestionList.Count > 0;
     }
+
+    private string GetLocalizedReagentName(string reagentId)
+        => _prototypeManager.TryIndex<ReagentPrototype>(reagentId, out var reagent)
+            ? reagent.LocalizedName
+            : reagentId;
 }
