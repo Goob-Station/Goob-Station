@@ -1,10 +1,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Hacky for the stress test so don't even consider adding to this
 - type: entity
-  name: burrower
+  name: "риївник"
   id: MobXeno
   parent: SimpleSpaceMobBase
-  description: They mostly come at night. Mostly.
+  description: "Вони переважно приходять уночі. Переважно."
   components:
   - type: Insulated
   - type: CombatMode
@@ -124,7 +124,7 @@
     speechVerb: LargeMob
 
 - type: entity
-  name: praetorian
+  name: "преторіанець"
   parent: MobXeno
   id: MobXenoPraetorian
   components:
@@ -157,7 +157,7 @@
         - MobLayer
 
 - type: entity
-  name: drone
+  name: "дрон"
   parent: MobXeno
   id: MobXenoDrone
   components:
@@ -194,7 +194,7 @@
         - MobLayer
 
 - type: entity
-  name: queen
+  name: "королева"
   parent: MobXeno
   id: MobXenoQueen
   components:
@@ -233,7 +233,7 @@
     - CannotSuicide
 
 - type: entity
-  name: ravager
+  name: "спустошувач"
   parent: MobXeno
   id: MobXenoRavager
   components:
@@ -270,7 +270,7 @@
         - MobLayer
 
 - type: entity
-  name: runner
+  name: "бігун"
   parent: MobXeno
   id: MobXenoRunner
   components:
@@ -300,7 +300,7 @@
         - MobLayer
 
 - type: entity
-  name: rouny
+  name: "руні"
   parent: MobXenoRunner
   id: MobXenoRouny
   components:
@@ -315,7 +315,7 @@
       amount: 3
 
 - type: entity
-  name: spitter
+  name: "плювальник"
   parent: MobXeno
   id: MobXenoSpitter
   components:
@@ -362,10 +362,10 @@
         - MobLayer
 
 - type: entity
-  name: space adder
+  name: "просторовий суматор"
   parent: SimpleSpaceMobBase
   id: MobPurpleSnake
-  description: A menacing purple snake from Kepler-283c.
+  description: "Загрозлива фіолетова змія з Kepler-283c."
   components:
   - type: Body # Shitmed Change
     prototype: SpaceAdder
@@ -439,11 +439,11 @@
     - FootstepSound
 
 - type: entity
-  name: space adder
+  name: "просторовий суматор"
   parent: MobPurpleSnake
   id: MobSmallPurpleSnake
   suffix: small
-  description: A smaller version of the menacing purple snake from Kepler-283c.
+  description: "Зменшена версія загрозливої фіолетової змії з Kepler-283c."
   components:
   - type: Body # Shitmed Change
     prototype: SpaceAdder
@@ -476,8 +476,8 @@
 # Mob mapped to Xeno Station that can not be ghostrole / pry
 
 - type: entity
-  name: '"Dale"'
-  description: A praetorian left over from the station's initial security sweep. Has a pair of bloodied dog tags engraved with the name "Pvt. Dale" stuck in its maw.
+  name: "\"Дейл\""
+  description: "Преторіанець, що лишився після первинної зачистки станції службою безпеки. У його пащі застрягла пара закривавлених жетонів із вигравіруваним ім'ям \"ряд. Дейл\"."
   parent: SimpleSpaceMobBase
   id: MobXenoLonePraetorianNoGhost
   components:

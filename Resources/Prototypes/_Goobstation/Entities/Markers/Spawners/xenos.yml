@@ -3,7 +3,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobXenomorphLarva
-  name: xeno larva spawner
+  name: "спавнер личинки-ксеноморфа"
   suffix: Cant Evolve
   components:
   - type: Sprite
@@ -18,7 +18,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobXenomorphDrone
-  name: xeno drone spawner
+  name: "спавнер дрона-ксеноморфа"
   components:
   - type: Sprite
     layers:
@@ -32,7 +32,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobXenomorphHunter
-  name: xeno hunter spawner
+  name: "спавнер мисливця-ксеноморфа"
   components:
   - type: Sprite
     layers:
@@ -46,7 +46,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobXenomorphPraetorian
-  name: xeno praetorian spawner
+  name: "спавнер преторіанця-ксеноморфа"
   components:
   - type: Sprite
     layers:
@@ -60,7 +60,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobXenomorphSentinel
-  name: xeno sentinel spawner
+  name: "спавнер стража-ксеноморфа"
   components:
   - type: Sprite
     layers:
@@ -74,7 +74,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobXenomorphQueen
-  name: xeno queen spawner
+  name: "спавнер королеви-ксеноморфа"
   components:
   - type: Sprite
     layers:

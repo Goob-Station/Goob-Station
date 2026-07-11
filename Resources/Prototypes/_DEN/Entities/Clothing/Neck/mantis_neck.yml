@@ -1,8 +1,8 @@
 - type: entity
   parent: [ClothingNeckBase, BaseFoldable]
   id: ClothingNeckCloakMantisDark
-  name: dark mantis cloak
-  description: "A billowing cloak that you can bundle around yourself, if you feel your traditional uniforms are too revealing. The brooch is a Greek psi."
+  name: "темний плащ Мантіса"
+  description: "Розвіваний плащ, у який можна загорнутися, якщо традиційна уніформа здається надто відвертою. Брошка — грецька пси."
   components:
   - type: Sprite
     sprite: _DEN/Clothing/Neck/Cloaks/mantis_cloak_dark.rsi
@@ -41,8 +41,8 @@
 - type: entity
   parent: [ClothingNeckBase, BaseFoldable]
   id: ClothingNeckMantleMantisOrnate
-  name: ornate mantis mantle
-  description: "A long, finely-woven mantle generously decorated with tassles. It can easily be worn on either shoulder."
+  name: "оздоблена мантія Мантіса"
+  description: "Довга, тонко виткана мантія, щедро прикрашена китицями. Її легко носити на будь-якому плечі."
   components:
   - type: Sprite
     sprite: _DEN/Clothing/Neck/Mantles/mantis_mantle_airy.rsi
@@ -81,8 +81,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckMantisShackles
-  name: graven bindings
-  description: "A set of massive mu-metal bindings with hanging chains. Merely symbolic unless paired with the graven shackles."
+  name: "різьблені пута"
+  description: "Комплект масивних пут із мю-металу з підвішеними ланцюгами. Лише символічні, якщо не поєднані з різьбленими кайданами."
   components:
   - type: Sprite
     sprite: _DEN/Clothing/Neck/Misc/mantisshackles.rsi
@@ -97,8 +97,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckMantisPendulum
-  name: mantis pendulum
-  description: "A mnemolith eye on a sturdy electrum chain, used to test psionic ability. It grows uncomfortably hot in the wielder's hand if the subject lacks the gift. Basically harmless, though its use tends to annoy the crew, so do consider asking first. The chain is long enough to clasp around your neck, should you feel inclined."
+  name: "маятник Мантіса"
+  description: "Мнемолітове око на міцному електрумовому ланцюгу, яке використовують для перевірки псіонічних здібностей. Воно стає неприємно гарячим у руці користувача, якщо суб’єкт не має дару. Загалом нешкідливе, хоча його використання зазвичай дратує екіпаж, тож краще спершу запитати. Ланцюг достатньо довгий, щоб застібнути його на шиї, якщо вам так заманеться."
   components:
   - type: ItemToggle # You can toggle swinging it back and forth, though it's just cosmetic
     verbToggleOn: item-toggle-swingstart

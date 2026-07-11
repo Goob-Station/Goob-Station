@@ -1,8 +1,8 @@
 - type: entity
-  name: machete
+  name: "мачете"
   parent: [ BaseItem, BaseMajorContraband ]
   id: SlasherMachete
-  description: A large, vicious looking blade.
+  description: "Великий, зловісний на вигляд клинок."
   components:
   - type: Sharp
   - type: Execution
@@ -49,8 +49,8 @@
 - type: entity
   parent: WeldingMaskBase
   id: ClothingHeadHatSlasherMask
-  name: slasher mask
-  description: A head-mounted face cover designed to protect the wearer completely from space-arc eye.
+  name: "маска Слешера"
+  description: "Наголовна маска, що повністю захищає власника від дугового ураження очей у відкритому космосі."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Slasher/mask.rsi
@@ -89,8 +89,8 @@
 - type: entity
   parent: ClothingOuterStorageBase
   id: ClothingOuterSlasherApron
-  name: slasher apron
-  description: A fancy apron for a stylish person.
+  name: "фартух Слешера"
+  description: "Вишуканий фартух для стильної особи."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Slasher/apron.rsi
@@ -127,8 +127,8 @@
 - type: entity
   parent: ClothingHandsGlovesColorBlack
   id: ClothingHandsSlasherGloves
-  name: slasher gloves
-  description: Heavy black gloves, stained by time.
+  name: "рукавиці Слешера"
+  description: "Важкі чорні рукавиці, зіпсовані часом."
   components:
   - type: Armor
     coverage:
@@ -147,8 +147,8 @@
 - type: entity
   parent: ClothingShoesLeather
   id: ClothingShoesSlasher
-  name: slasher shoes
-  description: Old leather boots that have seen better days.
+  name: "черевики Слешера"
+  description: "Старі шкіряні черевики, що бачили кращі часи."
   components:
   - type: Armor
     coverage:
@@ -167,8 +167,8 @@
 - type: entity
   parent: ClothingUniformJumpsuitColorGrey
   id: ClothingUniformSlasher
-  name: grey jumpsuit
-  description: A grey jumpsuit that smells faintly of blood.
+  name: "сірий комбінезон"
+  description: "Сірий комбінезон, від якого ледь тхне кров'ю."
   components:
   - type: SelfUnremovableClothing
   - type: SelfEquipOnly
@@ -178,8 +178,8 @@
   parent: ClothingMaskBase
   id: ClothingMaskSlasher
   categories: [ HideSpawnMenu ]
-  name: slasher mask
-  description: A face-covering mask. You can't smell the fear through it, but you can cause it.
+  name: "маска Слешера"
+  description: "Маска, що закриває обличчя. Ви не можете відчути запах страху крізь неї, зате можете його спричинити."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Slasher/mask.rsi
@@ -195,19 +195,19 @@
 # Spring-locked kit
 
 - type: entity
-  name: purple knife
+  name: "фіолетовий ніж"
   parent: SlasherMachete
   id: SlasherMacheteSpring
-  description: A large, purple, vicious looking blade.
+  description: "Велике фіолетове лезо з жорстоким виглядом."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Slasher/spring_machete.rsi
 
 - type: entity
-  name: spring mask
+  name: "спринг-маска"
   parent: ClothingHeadHatSlasherMask
   id: ClothingHeadHatSlasherMaskSpring
-  description: A deeply unsettling and mechanical looking mask.
+  description: "Глибоко моторошна маска механічного вигляду."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Slasher/spring_mask.rsi
@@ -226,10 +226,10 @@
         offset: "-0.03, 0.32"
 
 - type: entity
-  name: spring suit
+  name: "спринг-костюм"
   parent: ClothingOuterSlasherApron
   id: ClothingOuterSlasherApronSpring
-  description: A suit with intricate springs all around the insides, as if it was made to move by itself. Better not let any liquids near it.
+  description: "Костюм із хитромудрими пружинами по всій внутрішній частині, ніби створений рухатися самостійно. Краще не підпускати до нього жодних рідин."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Slasher/spring_apron.rsi
@@ -248,11 +248,11 @@
 # Billy Kit
 
 - type: entity
-  name: combat gloves
+  name: "бойові рукавиці"
   parent: ClothingHandsSlasherGloves
   id: ClothingHandsSlasherBilly
   categories: [ HideSpawnMenu ]
-  description: Tactical gloves, permanently stained.
+  description: "Тактичні рукавиці, назавжди вкриті плямами."
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/combat.rsi
@@ -260,11 +260,11 @@
     sprite: Clothing/Hands/Gloves/combat.rsi
 
 - type: entity
-  name: gas mask
+  name: "протигаз"
   parent: ClothingHeadHatSlasherMask
   id: ClothingMaskSlasherBilly
   categories: [ HideSpawnMenu ]
-  description: A face-covering mask. You can smell the fear through it.
+  description: "Маска, що закриває обличчя. Ви можете відчути крізь неї запах страху."
   components:
   - type: Sprite
     sprite: Clothing/Mask/gas.rsi
@@ -275,11 +275,11 @@
       - state: equipped-MASK
 
 - type: entity
-  name: jensen coat
+  name: "пальто Дженсена"
   parent: ClothingOuterSlasherApron
   id: ClothingOuterSlasherBilly
   categories: [ HideSpawnMenu ]
-  description: Made out of the toughest synthleather for the toughest killer.
+  description: "Зроблене з найміцнішої синтетичної шкіри для найміцнішого вбивці."
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Coats/jensencoat.rsi
@@ -290,11 +290,11 @@
       - state: equipped-OUTERCLOTHING
 
 - type: entity
-  name: black jumpsuit
+  name: "чорний комбінезон"
   parent: ClothingUniformSlasher
   id: ClothingUniformSlasherBilly
   categories: [ HideSpawnMenu ]
-  description: A pitch-black jumpsuit. Stylish, in a murderous way.
+  description: "Геть чорний комбінезон. Стильний, у вбивчому сенсі."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
@@ -314,11 +314,11 @@
 
 
 - type: entity
-  name: crowbar
+  name: "лом"
   parent: SlasherMachete
   id: SlasherCrowbar
   categories: [ HideSpawnMenu ]
-  description: A multipurpose tool. Multipurpose includes murder.
+  description: "Багатоцільовий інструмент. Серед цілей є і вбивство."
   components:
   - type: Sprite
     sprite: Objects/Tools/crowbar.rsi
@@ -342,11 +342,11 @@
 # Cult Kit
 
 - type: entity
-  name: cult hood
+  name: "каптур культиста"
   parent: ClothingHeadHatSlasherMask
   id: ClothingHeadSlasherCult
   categories: [ HideSpawnMenu ]
-  description: There's no slasher without cult hoods.
+  description: "Який слешер без каптурів культистів."
   components:
   - type: Sprite
     sprite: Clothing/Head/Hoods/cult.rsi
@@ -357,11 +357,11 @@
       - state: equipped-HELMET
 
 - type: entity
-  name: abyssal mask
+  name: "маска безодні"
   parent: ClothingMaskSlasher
   id: ClothingMaskSlasherCult
   categories: [ HideSpawnMenu ]
-  description: A mask created from suffering. When you look into its eyes, it looks back.
+  description: "Маска, створена зі страждання. Коли ви дивитеся в її очі, вона дивиться у відповідь."
   components:
   - type: Sprite
     sprite: _Goobstation/Heretic/mad_mask.rsi
@@ -374,11 +374,11 @@
   - type: IdentityBlocker
 
 - type: entity
-  name: cult robes
+  name: "ризи культиста"
   parent: ClothingOuterSlasherApron
   id: ClothingOuterSlasherCult
   categories: [ HideSpawnMenu ]
-  description: There's no slasher without classic cult robes.
+  description: "Який слешер без класичних риз культиста."
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Misc/cultrobes.rsi
@@ -389,11 +389,11 @@
       - state: equipped-OUTERCLOTHING
 
 - type: entity
-  name: eldritch blade
+  name: "потойбічний клинок"
   parent: SlasherMachete
   id: SlasherEldritchBlade
   categories: [ HideSpawnMenu ]
-  description: A sword humming with unholy energy. The slasher has claimed it as their own.
+  description: "Меч, що гуде нечестивою енергією. Слешер привласнив його."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/cult_blade.rsi
@@ -410,11 +410,11 @@
 # Maintenance Kit
 
 - type: entity
-  name: paper bag
+  name: "паперовий пакет"
   parent: ClothingHeadHatSlasherMask
   id: ClothingHeadSlasherMaintenance
   categories: [ HideSpawnMenu ]
-  description: A smiling paper bag. Somehow more unsettling than any mask.
+  description: "Усміхнений паперовий пакет. Чомусь моторошніший за будь-яку маску."
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/papersacksmile.rsi
@@ -425,11 +425,11 @@
       - state: equipped-HELMET
 
 - type: entity
-  name: monastic robe
+  name: "чернеча ряса"
   parent: ClothingUniformSlasher
   id: ClothingUniformSlasherMaintenance
   categories: [ HideSpawnMenu ]
-  description: A light robe worn by a wandering something.
+  description: "Легка ряса, яку носить щось мандрівне."
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/monastic_robe_light.rsi
@@ -437,11 +437,11 @@
     sprite: Clothing/Uniforms/Jumpsuit/monastic_robe_light.rsi
 
 - type: entity
-  name: butcher's cleaver
+  name: "сікач м'ясника"
   parent: SlasherMachete
   id: SlasherButchCleaver
   categories: [ HideSpawnMenu ]
-  description: A huge blade used for chopping up meat. This includes the crew.
+  description: "Величезне лезо для рубання м'яса. Екіпаж теж рахується."
   components:
   - type: Tag
     tags:
@@ -458,11 +458,11 @@
     sprite: Objects/Weapons/Melee/cleaver.rsi
 
 - type: entity
-  name: basic armor
+  name: "проста броня"
   parent: ClothingOuterSlasherApron
   id: ClothingOuterSlasherMaintenance
   categories: [ HideSpawnMenu ]
-  description: Basic armor. Looks a bit worn down.
+  description: "Проста броня. Виглядає трохи зношеною."
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Armor/security.rsi
@@ -475,11 +475,11 @@
 # Cannibal Kit
 
 - type: entity
-  name: chef's uniform
+  name: "кухарська форма"
   parent: ClothingUniformSlasher
   id: ClothingUniformSlasherCannibal
   categories: [ HideSpawnMenu ]
-  description: A chef's uniform. Still warm from the last shift.
+  description: "Кухарська форма. Досі тепла після останньої зміни."
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/chef.rsi
@@ -487,11 +487,11 @@
     sprite: Clothing/Uniforms/Jumpsuit/chef.rsi
 
 - type: entity
-  name: chef's hat
+  name: "кухарський ковпак"
   parent: ClothingHeadHatSlasherMask
   id: ClothingHeadSlasherCannibal
   categories: [ HideSpawnMenu ]
-  description: A tall white chef's hat, stained with more than just grease.
+  description: "Високий білий кухарський ковпак, забруднений не лише жиром."
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/chefhat.rsi
@@ -502,11 +502,11 @@
       - state: equipped-HELMET
 
 - type: entity
-  name: pig mask
+  name: "свиняча маска"
   parent: ClothingMaskSlasher
   id: ClothingMaskSlasherCannibal
   categories: [ HideSpawnMenu ]
-  description: A squealing pig mask. Fitting for someone with a unique appetite.
+  description: "Вересклива свиняча маска. Пасує комусь з унікальним апетитом."
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/Mask/pig.rsi
@@ -517,11 +517,11 @@
       - state: equipped-MASK
 
 - type: entity
-  name: blood-soaked apron
+  name: "закривавлений фартух"
   parent: ClothingOuterSlasherApron
   id: ClothingOuterSlasherCannibal
   categories: [ HideSpawnMenu ]
-  description: An apron drenched in something you'd rather not think about.
+  description: "Фартух, просочений чимось, про що краще не думати."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Slasher/blood_apron.rsi
@@ -534,11 +534,11 @@
 # Glutton Kit
 
 - type: entity
-  name: organic space suit
+  name: "органічний космічний скафандр"
   parent: ClothingOuterSlasherApron
   id: ClothingOuterSlasherGlutton
   categories: [ HideSpawnMenu ]
-  description: You can't quite make out what it is.
+  description: "Ви не можете до пуття розібрати, що це."
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/lingspacesuit.rsi
@@ -549,11 +549,11 @@
       - state: equipped-OUTERCLOTHING
 
 - type: entity
-  name: organic space helmet
+  name: "органічний космічний шолом"
   parent: ClothingHeadHatSlasherMask
   id: ClothingHeadSlasherGlutton
   categories: [ HideSpawnMenu ]
-  description: You can't quite make out what it is.
+  description: "Ви не можете до пуття розібрати, що це."
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/lingspacehelmet.rsi
@@ -566,11 +566,11 @@
 # Clown Kit
 
 - type: entity
-  name: robes of the honkmother
+  name: "ризи Хонкматері"
   parent: ClothingOuterSlasherApron
   id: ClothingOuterSlasherClown
   categories: [ HideSpawnMenu ]
-  description: Meant for a clown of the cloth. And for murder, apparently.
+  description: "Призначені для клоуна духовного сану. І для вбивства, схоже."
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Coats/clownpriest.rsi
@@ -581,11 +581,11 @@
       - state: equipped-OUTERCLOTHING
 
 - type: entity
-  name: clown suit
+  name: "клоунський костюм"
   parent: ClothingUniformSlasher
   id: ClothingUniformSlasherClown
   categories: [ HideSpawnMenu ]
-  description: HONK!
+  description: "ХОНК!"
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/clown.rsi
@@ -593,11 +593,11 @@
     sprite: Clothing/Uniforms/Jumpsuit/clown.rsi
 
 - type: entity
-  name: large clown shoes
+  name: "великі клоунські черевики"
   parent: ClothingShoesSlasher
   id: ClothingShoesSlasherClown
   categories: [ HideSpawnMenu ]
-  description: When you need to stand out in a room full of clowns. Or crime scenes.
+  description: "Коли треба виділятися в кімнаті, повній клоунів. Або на місці злочину."
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Specific/large_clown.rsi
@@ -617,11 +617,11 @@
         variation: 0.20
 
 - type: entity
-  name: clown wig and mask
+  name: "клоунська перука й маска"
   parent: ClothingHeadHatSlasherMask
   id: ClothingMaskSlasherClown
   categories: [ HideSpawnMenu ]
-  description: A true prankster's facial attire. The slasher has claimed it as their own.
+  description: "Справжнє лицьове вбрання жартівника. Слешер привласнив його."
   components:
   - type: Sprite
     sprite: Clothing/Mask/clown.rsi
@@ -632,11 +632,11 @@
       - state: equipped-MASK
 
 - type: entity
-  name: rainbow offset cane
+  name: "райдужна тростина зі зміщеною ручкою"
   parent: SlasherMachete
   id: SlasherOffsetCaneClown
   categories: [ HideSpawnMenu ]
-  description: A rainbow offset cane. Perfect for clowns and for making a mess.
+  description: "Райдужна тростина зі зміщеною ручкою. Ідеальна для клоунів і для створення безладу."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/offset_canes/clown.rsi
@@ -654,11 +654,11 @@
     - 0,0,0,1
 
 - type: entity
-  name: Ominous Bananium Tower
+  name: "зловісна бананіумова вежа"
   parent: SlasherMeatSpike
   id: SlasherMeatSpikeClown
   categories: [ HideSpawnMenu ]
-  description: An unsettling bananium tower. You might want to run.
+  description: "Моторошна бананіумова вежа. Можливо, вам варто бігти."
   components:
   - type: Sprite
     sprite: Structures/Decoration/statues.rsi
@@ -671,11 +671,11 @@
 # Clown Kit – Ascended variants
 
 - type: entity
-  name: bling clown shoes
+  name: "блискучі клоунські черевики"
   parent: ClothingShoesSlasherClown
   id: ClothingShoesSlasherClownAscended
   categories: [ HideSpawnMenu ]
-  description: Made of refined bananium. You've achieved something truly unprecedented.
+  description: "Виготовлені з очищеного бананіуму. Ви досягли чогось справді безпрецедентного."
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Specific/bling.rsi
@@ -691,11 +691,11 @@
     color: "#FFD800"
 
 - type: entity
-  name: banana clown suit
+  name: "банановий клоунський костюм"
   parent: ClothingUniformSlasherClown
   id: ClothingUniformSlasherClownAscended
   categories: [ HideSpawnMenu ]
-  description: A banana-yellow clown suit, radiating with honk energy.
+  description: "Бананово-жовтий клоунський костюм, що випромінює хонк-енергію."
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/clown_banana.rsi
@@ -703,11 +703,11 @@
     sprite: Clothing/Uniforms/Jumpsuit/clown_banana.rsi
 
 - type: entity
-  name: banana clown wig and mask
+  name: "бананова клоунська перука й маска"
   parent: ClothingMaskSlasherClown
   id: ClothingMaskSlasherClownAscended
   categories: [ HideSpawnMenu ]
-  description: The wig and mask of the honkmother. HONK!
+  description: "Перука й маска Хонкматері. ХОНК!"
   components:
   - type: Sprite
     sprite: Clothing/Mask/clown_banana.rsi
@@ -722,8 +722,8 @@
 - type: entity
   parent: ClothingHeadHatSlasherMask
   id: ClothingMaskSlasherHockey
-  name: hockey mask
-  description: A white hockey mask, worn and cracked. The kind you see right before the lights go out.
+  name: "хокейна маска"
+  description: "Біла хокейна маска, потерта й потріскана. Така, яку бачиш саме перед тим, як гасне світло."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Slasher/hockymask/hockey_mask.rsi
@@ -736,8 +736,8 @@
 - type: entity
   parent: ClothingUniformSlasher
   id: ClothingUniformSlasherHockey
-  name: worn jumpsuit
-  description: A tattered, muddied jumpsuit. Smells like a forest after rain. And blood.
+  name: "зношений комбінезон"
+  description: "Подертий, забруднений багнюкою комбінезон. Пахне лісом після дощу. І кров'ю."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Slasher/hockymask/hocky_outfit.rsi
@@ -750,8 +750,8 @@
 - type: entity
   parent: ClothingOuterSlasherApron
   id: ClothingOuterSlasherHockey
-  name: hockey slasher coat
-  description: A heavy, weathered coat. Something dark stains the collar, and the stitching looks rough, like it was done in the dark.
+  name: "пальто хокейного слешера"
+  description: "Важке, потерте негодою пальто. Щось темне плямує комір, а шви виглядають грубими, ніби їх робили в темряві."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Slasher/hockymask/hocky_coat.rsi
@@ -765,8 +765,8 @@
 - type: entity
   id: SlasherMeatSpike
   parent: BaseStructure
-  name: Ominous Meat Spike
-  description: You might want to run.
+  name: "Зловісний кривавий шип"
+  description: "Можливо, тобі варто тікати."
   components:
   - type: InteractionOutline
   - type: Sprite

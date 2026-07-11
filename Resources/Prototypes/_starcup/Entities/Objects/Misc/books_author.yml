@@ -1,8 +1,8 @@
 - type: entity
   parent: BookBase
   id: BookSparotBook
-  name: the sparot book
-  description: A hefty tome detailing how to conduct a reading with a deck of Sparot cards.
+  name: "книга спароту"
+  description: "Важкий том, що пояснює, як проводити розклад колодою карт спароту."
   components:
   - type: Sprite
     sprite: Objects/Misc/books.rsi

@@ -4,7 +4,7 @@
   abstract: true
   parent: [ BaseCartridge, BaseSecurityContraband ]
   id: BaseCartridgeRifle
-  name: cartridge (.20 rifle)
+  name: "патрон (.20 rifle)"
   components:
   - type: Tag
     tags:
@@ -22,8 +22,8 @@
 - type: entity
   parent: BaseCartridgeRifle
   id: CartridgeRifle
-  name: cartridge (.20 rifle)
-  description: A modern intermediate cartridge for combat rifles. Standard kinetic ammunition is common and useful in most situations.
+  name: "патрон (.20 rifle)"
+  description: "Сучасний проміжний патрон для бойових гвинтівок. Стандартні кінетичні боєприпаси поширені й корисні в більшості ситуацій."
   components:
   - type: CartridgeAmmo
     proto: BulletRifle
@@ -31,8 +31,8 @@
 - type: entity
   parent: BaseCartridgeRifle
   id: CartridgeRiflePractice
-  name: cartridge (.20 rifle practice)
-  description: A modern intermediate cartridge for combat rifles. Practice ammunition fires a chalk projectile that stings a little, but otherwise causes no lasting damage.
+  name: "патрон (.20 rifle тренувальний)"
+  description: "Сучасний проміжний патрон для бойових гвинтівок. Тренувальні боєприпаси стріляють крейдяним снарядом, який трохи щипає, але не завдає тривалої шкоди."
   components:
   - type: CartridgeAmmo
     proto: BulletRiflePractice
@@ -47,8 +47,8 @@
 - type: entity
   parent: BaseCartridgeRifle
   id: CartridgeRifleIncendiary
-  name: cartridge (.20 rifle incendiary)
-  description: A modern intermediate cartridge for combat rifles. Incendiary ammunition contains a self-igniting compound that sets targets ablaze.
+  name: "патрон (.20 rifle запалювальний)"
+  description: "Сучасний проміжний патрон для бойових гвинтівок. Запалювальні боєприпаси містять самозаймисту суміш, яка підпалює цілі."
   components:
   - type: CartridgeAmmo
     proto: BulletRifleIncendiary
@@ -63,8 +63,8 @@
 - type: entity
   parent: BaseCartridgeRifle
   id: CartridgeRifleUranium
-  name: cartridge (.20 rifle uranium)
-  description: A modern intermediate cartridge for combat rifles. Uranium ammunition replaces the lead core of the bullet with fissile material, irradiating targets from the inside.
+  name: "патрон (.20 rifle урановий)"
+  description: "Сучасний проміжний патрон для бойових гвинтівок. Уранові боєприпаси замінюють свинцеве осердя кулі на подільний матеріал, опромінюючи цілі зсередини."
   components:
   - type: CartridgeAmmo
     proto: BulletRifleUranium

@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseItem
   id: SlimeScannerXenobio
-  name: slime scanner
-  description: Applying on a slime and it's produces will grant you all the info you'll ever need. A must for any slime rancher!
+  name: "сканер слаймів"
+  description: "Застосуйте на слаймі та його продукції — і отримаєте всю інформацію, яка вам будь-коли знадобиться. Обов’язково для будь-якого слайм-ранчера!"
   components:
   - type: SlimeScanner
   - type: Sprite

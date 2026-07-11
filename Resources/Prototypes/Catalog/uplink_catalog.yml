@@ -2461,8 +2461,8 @@
 
 - type: listing
   id: UplinkSawAdvanced
-  name: uplink-saw-advanced-name
-  description: uplink-saw-advanced-desc
+  name: "uplink-saw-advanced-name"
+  description: "uplink-saw-advanced-desc"
   icon: { sprite:  Objects/Specific/Medical/Surgery/saw.rsi, state: advanced}
   productEntity: SawAdvanced
   #discountCategory: rareDiscounts

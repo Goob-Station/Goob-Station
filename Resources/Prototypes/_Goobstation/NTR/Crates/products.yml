@@ -1,8 +1,8 @@
 - type: entity
   id: NTRCrateSpesosSmall
   parent: CratePrivateSecure
-  name: Spesos grant bonus
-  description: Tough times require capitalist solutions.
+  name: "Бонусний грант спесо"
+  description: "Важкі часи вимагають капіталістичних рішень."
   components:
   - type: StorageFill
     contents:
@@ -12,8 +12,8 @@
 - type: entity
   id: NTRCratePointDisks
   parent: CrateScienceSecure
-  name: Point disks grant bonus
-  description: Progress, my friend, progress.
+  name: "Бонусні диски з очками"
+  description: "Прогрес, мій друже, прогрес."
   components:
   - type: StorageFill
     contents:
@@ -23,8 +23,8 @@
 - type: entity
   id: NTRCrateEmergencyMed
   parent: CrateMedicalSecure
-  name: Emergency medical supplies
-  description: Think about how would you explain this to NT.
+  name: "Невідкладні медичні засоби"
+  description: "Подумайте, як би ви це пояснили NT."
   components:
   - type: StorageFill
     contents:
@@ -37,8 +37,8 @@
 - type: entity
   id: NTRCrateDisablers
   parent: CrateCommandSecure
-  name: Disablers crate
-  description: A crate with disablers, why would you need this?
+  name: "Ящик з дестабілізаторами"
+  description: "Ящик з дестабілізаторами, навіщо вам це?"
   components:
   - type: StorageFill
     contents:
@@ -49,8 +49,8 @@
 - type: entity
   id: NTRCrateToolsSmall
   parent: CrateEngineeringSecure
-  name: Tools crate
-  description: A crate with standard NanoTrasen tools.
+  name: "Ящик з інструментами"
+  description: "Ящик зі стандартними інструментами NanoTrasen."
   components:
   - type: StorageFill
     contents:
@@ -65,8 +65,8 @@
 - type: entity
   id: NTRBoardTelecom
   parent: CrateCommandSecure
-  name: Telecom server computer board crate
-  description: A crate, containing 2 telecom server machine boards.
+  name: "Ящик з платами для телеком-сервера"
+  description: "Ящик, що містить 2 плати для телеком-сервера."
   components:
   - type: StorageFill
     contents:
@@ -76,8 +76,8 @@
 - type: entity
   id: NTRBoardHolopad
   parent: CrateCommandSecure
-  name: Holopad crate
-  description: A crate, that contains 2 holopad machine boards.
+  name: "Ящик з голопадами"
+  description: "Ящик, що містить 2 плати для голопада."
   components:
   - type: StorageFill
     contents:
@@ -87,7 +87,7 @@
 - type: entity
   id: NTRBoardShuttle
   parent: CrateEngineeringSecure
-  name: Shuttle-maker bundle crate
+  name: "Ящик з комплектом для створення шатла"
   components:
   - type: StorageFill
     contents:

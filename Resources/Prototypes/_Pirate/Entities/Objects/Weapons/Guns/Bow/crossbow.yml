@@ -2,10 +2,10 @@
 # ammo tag: CrossbowBolt
 # Parents
 - type: entity
-  name: crossbow
+  name: "арбалет"
   parent: BaseItem
   id: BaseCrossbow
-  description: The original rooty tooty point and shooty.
+  description: "Оригінальний кореневищний зубастий гострий і пагонистий."
   abstract: true
   components:
   - type: Sprite
@@ -50,7 +50,7 @@
 - type: entity
   id: CrossbowImprovised
   parent: BaseCrossbow
-  name: impovised crossbow
+  name: "саморобний арбалет"
   components:
   - type: Sprite
     layers:
@@ -84,7 +84,7 @@
 - type: entity
   id: MagicCrossbow
   parent: CrossbowImprovised
-  name: impovised crossbow
+  name: "саморобний арбалет"
   components:
   - type: Item
     size: Large

@@ -4,8 +4,8 @@
 - type: entity
   parent: BaseStructure
   id: CosmicBorgChantry
-  name: vacuous chantry
-  description: Its surface churns with rampant malign light.
+  name: "порожня Каплиця"
+  description: "Її поверхня вирує нестримним згубним світлом."
   placement:
     mode: AlignTileAny
   components:

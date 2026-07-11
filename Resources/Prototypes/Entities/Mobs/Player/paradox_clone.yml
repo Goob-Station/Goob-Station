@@ -2,8 +2,8 @@
 - type: entity
   parent: BaseMob
   id: MobParadox
-  name: space-time paradox
-  description: A big ball of wibbly wobbly, timey wimey stuff.
+  name: "просторово-часовий парадокс"
+  description: "Велика кулька хистких-хитких, часо-просторових штук."
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -30,7 +30,7 @@
 - type: entity
   id: ParadoxCloneDummy
   categories: [ HideSpawnMenu ]
-  name: Paradox Clone
+  name: "Клон Парадоксу"
   components:
   - type: Sprite
     sprite: Mobs/Aliens/paradox_clone.rsi

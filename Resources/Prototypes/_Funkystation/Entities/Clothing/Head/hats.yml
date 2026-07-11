@@ -14,8 +14,8 @@
 - type: entity
   parent: [ClothingHeadBase]
   id: ClothingHeadHatConductor
-  name: conductor's hat
-  description: Even in the darkness of space, people love their trains.
+  name: "кашкет кондуктора"
+  description: "Навіть у темряві космосу люди люблять свої потяги."
   components:
   - type: Sprite
     sprite: _Funkystation/Clothing/Head/Hats/conductor_hat.rsi

@@ -1,7 +1,7 @@
 - type: entity
   id: ActionLightEater
-  name: Light Eater
-  description: Ash or disable every light that you hit with your arm blade.
+  name: "Пожирач Світла"
+  description: "Спопеліть або вимкніть кожне джерело світла, яке ви вдарите своїм ручним клинком."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

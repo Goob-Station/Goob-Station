@@ -1,6 +1,6 @@
 - type: entity
   id: RevenantAbilities
-  name: Revenant Abilities
+  name: "Здібності Ревенанта"
   categories: [ HideSpawnMenu ]
   components:
   - type: Aura

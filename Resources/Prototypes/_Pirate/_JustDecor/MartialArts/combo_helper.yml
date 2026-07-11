@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCqcComboHelperToggle
-  name: Перемкнути підказки комбо
-  description: Показує або приховує підказки комбінацій бойових мистецтв.
+  name: "Перемкнути підказки комбо"
+  description: "Показує або приховує підказки комбінацій бойових мистецтв."
   components:
   - type: Action
     useDelay: 1
@@ -18,8 +18,8 @@
 - type: entity
   parent: BaseItem
   id: ComboHelperManual
-  name: Посібник з комбо ближнього бою
-  description: Компактний посібник для запам'ятовування нотації комбінацій бойових мистецтв.
+  name: "Посібник з комбо ближнього бою"
+  description: "Компактний посібник для запам'ятовування нотації комбінацій бойових мистецтв."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/cqc_manual.rsi

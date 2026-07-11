@@ -3,8 +3,8 @@
 - type: entity
   id: OrganChitinidStomach
   parent: OrganAnimalStomach
-  name: stomach
-  description: "Gross. This is hard to stomach."
+  name: "шлунок"
+  description: "Гидота. Це важко переварити."
   components:
   - type: Organ # Shitmed Change
     slotId: stomach # Shitmed Change
@@ -32,7 +32,7 @@
 - type: entity
   id: OrganChitinidLiver
   parent: BaseAnimalOrgan
-  name: liver
+  name: "печінка"
   categories: [ HideSpawnMenu ]
   components:
   - type: Organ

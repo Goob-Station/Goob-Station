@@ -1,6 +1,6 @@
 - type: entity
   id: BaseMagazineUniversalMagnum
-  name: "mk 32 'Universal' magazine (.45 magnum)"
+  name: "мк 32 'Універсальний' магазин (.45 магнум)"
   parent: BaseMagazinePistol
   abstract: true
   components:
@@ -32,7 +32,7 @@
 
 - type: entity
   id: MagazineUniversalMagnumEmpty
-  name: "mk 32 'Universal' magazine (.45 magnum any)"
+  name: "мк 32 'Універсальний' магазин (.45 магнум будь-який)"
   suffix: empty
   parent: BaseMagazineUniversalMagnum
   components:
@@ -45,7 +45,7 @@
 
 - type: entity
   id: MagazineUniversalMagnum
-  name: "mk 32 'Universal' magazine (.45 magnum)"
+  name: "мк 32 'Універсальний' магазин (.45 магнум)"
   parent: BaseMagazineUniversalMagnum
   components:
   - type: BallisticAmmoProvider
@@ -64,7 +64,7 @@
 
 - type: entity
   id: MagazineUniversalMagnumPractice
-  name: "mk 32 'Universal' magazine (.45 magnum practice)"
+  name: "мк 32 'Універсальний' магазин (.45 магнум тренувальний)"
   parent: BaseMagazineUniversalMagnum
   components:
   - type: BallisticAmmoProvider
@@ -83,7 +83,7 @@
 
 - type: entity
   id: MagazineUniversalMagnumRubber
-  name: "mk 32 'Universal' magazine (.45 magnum rubber)"
+  name: "мк 32 'Універсальний' магазин (.45 магнум гумовий)"
   parent: BaseMagazineUniversalMagnum
   components:
   - type: BallisticAmmoProvider
@@ -102,7 +102,7 @@
 
 - type: entity
   id: MagazineUniversalMagnumIncendiary
-  name: "mk 32 'Universal' magazine (.45 magnum incendiary)"
+  name: "мк 32 'Універсальний' магазин (.45 магнум запалювальний)"
   parent: BaseMagazineUniversalMagnum
   components:
   - type: BallisticAmmoProvider
@@ -121,7 +121,7 @@
 
 - type: entity
   id: MagazineUniversalMagnumUranium
-  name: "mk 32 'Universal' magazine (.45 magnum uranium)"
+  name: "мк 32 'Універсальний' магазин (.45 магнум урановий)"
   parent: BaseMagazineUniversalMagnum
   components:
   - type: BallisticAmmoProvider

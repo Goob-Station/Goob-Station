@@ -3,8 +3,8 @@
 - type: entity
   parent: CrateChemistrySecure
   id: CrateChemistryP
-  name: chemicals crate (P)
-  description: Contains chemicals from the P-Block of elements. Requires Chemistry access to open.
+  name: "ящик хімікатів (P)"
+  description: "Містить хімічні речовини елементів P-блоку. Для відкриття потрібен доступ Хімії."
   components:
   - type: EntityTableContainerFill
     containers:
@@ -24,8 +24,8 @@
 - type: entity
   parent: CrateChemistrySecure
   id: CrateChemistryS
-  name: chemicals crate (S)
-  description: Contains chemicals from the S-Block of elements. Requires Chemistry access to open.
+  name: "ящик хімікатів (S)"
+  description: "Містить хімічні речовини елементів S-блоку. Для відкриття потрібен доступ до Хімії."
   components:
   - type: EntityTableContainerFill
     containers:
@@ -40,8 +40,8 @@
 - type: entity
   parent: CrateChemistrySecure
   id: CrateChemistryD
-  name: chemicals crate (D)
-  description: Contains chemicals from the D-Block of elements. Requires Chemistry access to open.
+  name: "ящик хімікатів (D)"
+  description: "Містить хімічні речовини елементів D-блоку. Для відкриття потрібен доступ до Хімії."
   components:
   - type: EntityTableContainerFill
     containers:
@@ -56,8 +56,8 @@
 - type: entity
   parent: CrateGenericSteel
   id: CratePlantBGone
-  name: bulk Plant-B-Gone crate
-  description: From Monstano. "Unwanted Weeds, Meet Your Celestial Roundup!"
+  name: "ящик Plant-B-Gone у балку"
+  description: "Від Монстано. \"Небажані Бур'яни, Зустрічайте Гнів Небожителя!\""
   components:
   - type: EntityTableContainerFill
     containers:

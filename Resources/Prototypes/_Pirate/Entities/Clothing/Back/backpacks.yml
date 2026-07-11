@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackInterdyne
-  name: Рюкзак інтердайна
-  description: Рюкзак здатний вмістити все необхідне.
+  name: "Рюкзак Інтердайну"
+  description: "Рюкзак здатний вмістити все необхідне."
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Back/Backpacks/interdyne.rsi
@@ -10,8 +10,8 @@
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackHOP
-  name: Рюкзак ГП
-  description: Будьте зі стилем! Тепер у вас є власна сумка яка буде вас виділяти серед звичайного персоналу.
+  name: "Рюкзак ГП"
+  description: "Будьте зі стилем! Тепер у вас є власна сумка яка буде вас виділяти серед звичайного персоналу."
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Back/Backpacks/hop.rsi

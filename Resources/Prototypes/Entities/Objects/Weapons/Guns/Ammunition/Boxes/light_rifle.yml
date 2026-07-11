@@ -4,7 +4,7 @@
   abstract: true
   parent: BaseItem
   id: BaseMagazineBoxLightRifle
-  name: ammunition box (.30 rifle)
+  name: "коробка з патронами (.30 гвинтівковий)"
   components:
   # Goobstation edit start
   - type: EmitSoundOnPickup
@@ -41,7 +41,7 @@
 - type: entity
   parent: BaseMagazineBoxLightRifle
   id: MagazineBoxLightRifleBig
-  name: ammunition box (.30 rifle)
+  name: "коробка з патронами (.30 гвинтівковий)"
   components:
   - type: BallisticAmmoProvider
     capacity: 200
@@ -61,8 +61,8 @@
 - type: entity
   parent: BaseMagazineBoxLightRifle
   id: MagazineBoxLightRifle
-  name: ammunition box (.30 rifle)
-  description: A cardboard box of .30 rifle rounds. Intended to hold general-purpose kinetic ammunition.
+  name: "коробка з патронами (.30 гвинтівковий)"
+  description: "Картонна коробка з патронами калібру .30. Призначена для зберігання кінетичних боєприпасів загального призначення."
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLightRifle
@@ -76,8 +76,8 @@
 - type: entity
   parent: BaseMagazineBoxLightRifle
   id: MagazineBoxLightRiflePractice
-  name: ammunition box (.30 rifle practice)
-  description: A cardboard box of .30 rifle rounds. Intended to hold harmless practice ammunition.
+  name: "коробка боєприпасів (.30 rifle тренувальні)"
+  description: "Картонна коробка набоїв .30 rifle. Призначена для нешкідливих тренувальних боєприпасів."
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLightRiflePractice
@@ -92,8 +92,8 @@
 - type: entity
   parent: BaseMagazineBoxLightRifle
   id: MagazineBoxLightRifleIncendiary
-  name: ammunition box (.30 rifle incendiary)
-  description: A cardboard box of .30 rifle rounds. Intended to hold self-igniting incendiary ammunition.
+  name: "коробка з патронами (.30 гвинтівковий запалювальний)"
+  description: "Картонна коробка з патронами калібру .30. Призначена для зберігання самозаймистих запалювальних боєприпасів."
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLightRifleIncendiary
@@ -108,8 +108,8 @@
 - type: entity
   parent: BaseMagazineBoxLightRifle
   id: MagazineBoxLightRifleUranium
-  name: ammunition box (.30 rifle uranium)
-  description: A cardboard box of .30 rifle rounds. Intended to hold exotic uranium-core ammunition.
+  name: "коробка з патронами (.30 гвинтівковий урановий)"
+  description: "Картонна коробка з патронами калібру .30. Призначена для зберігання екзотичних боєприпасів з урановим сердечником."
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLightRifleUranium

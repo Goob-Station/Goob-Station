@@ -2,8 +2,8 @@
 
 - type: entity
   id: RMCCarPileup
-  name: burned out vehicle pileup
-  description: Burned-out vehicles block your path, their charred frames and shattered glass hinting at recent chaos. The acrid smell of smoke lingers.
+  name: "завал вигорілих транспортних засобів"
+  description: "Вигорілі транспортні засоби блокують ваш шлях; їхні обвуглені каркаси та розбите скло натякають на нещодавній хаос. У повітрі ще тримається їдкий запах диму."
   placement:
     mode: SnapgridCenter
   components:
@@ -77,8 +77,8 @@
   parent: RMCPropVehicleBase
   id: RMCPropVehicleMonoSupronOrange
   suffix: Orange
-  name: Mono-Supron
-  description: The 'Mono-Supron', a mass-produced civilian vehicle for the colonial markets, in and outside of the United Nations. Produced by 'Mizutani' a car marque and associated operating division of the Weston-Yamada Corporation.
+  name: "Моно-Супрон"
+  description: "«Моно-Супрон» — масово вироблюваний цивільний транспортний засіб для колоніальних ринків у межах і за межами Організації Об’єднаних Націй. Виробляється «Мізутані» — автомобільною маркою та пов’язаним операційним підрозділом корпорації «Вестон-Ямада»."
   components:
   - type: Sprite
     sprite: _RMC14/Structures/Vehicles/vehicles.rsi

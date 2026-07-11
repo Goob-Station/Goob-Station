@@ -2,8 +2,8 @@
 - type: entity
   parent: PartBase
   id: MaterialHexNut
-  name: steel hex nut
-  description: A roughly bent nut made of steel.
+  name: "сталева шестигранна гайка"
+  description: "Грубо вигнута гайка, зроблена зі сталі."
   suffix: Full
   components:
   - type: PhysicalComposition
@@ -51,8 +51,8 @@
 - type: entity
   parent: PartBase
   id: MaterialScrew
-  name: steel screw
-  description: "This screw is really rusty, you wouldn't want to get cut by it..."
+  name: "сталевий гвинт"
+  description: "Цей гвинт справді іржавий, ви б не хотіли ним порізатися..."
   suffix: Full
   components:
   - type: PhysicalComposition

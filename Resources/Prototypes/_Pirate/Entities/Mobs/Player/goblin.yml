@@ -1,6 +1,6 @@
 - type: entity
   save: false
-  name: Urist McGoblin
+  name: "Уріст МакГоблін"
   parent: [MobGoblinBase, BaseMob]
   id: MobGoblin
   components:

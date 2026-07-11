@@ -3,7 +3,7 @@
 - type: entity
   parent: GasCanister
   id: BZCanister
-  name: bz canister
+  name: "каністра з BZ"
   components:
   - type: Sprite
     layers:
@@ -52,7 +52,7 @@
 - type: entity
   parent: GasCanister
   id: HealiumCanister
-  name: healium canister
+  name: "каністра з хіліумом"
   components:
   - type: Sprite
     layers:
@@ -102,7 +102,7 @@
 - type: entity
   parent: GasCanister
   id: NitriumCanister
-  name: nitrium canister
+  name: "каністра з нітріумом"
   components:
   - type: Sprite
     layers:
@@ -153,7 +153,7 @@
 - type: entity
   parent: GasCanister
   id: PluoxiumCanister
-  name: pluoxium canister
+  name: "каністра з плуоксіумом"
   components:
   - type: Sprite
     layers:

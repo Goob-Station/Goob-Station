@@ -17,8 +17,8 @@
 
 - type: entity
   id: ActionHaunt
-  name: Haunt
-  description: Become corporeal for 30 seconds. During this time, you gain additional wraith points, depending on the amount of humans in your vicinity. Use this ability again while corporeal to fade back into the aether.
+  name: "Примаріння"
+  description: "Стаєш тілесним на 30 секунд. За цей час ти отримуєш додаткові очки примари залежно від кількості людей поблизу. Використай цю здатність знову, перебуваючи тілесним, щоб розчинитися в ефірі."
   components:
   - type: Action
     sound: !type:SoundPathSpecifier
@@ -33,8 +33,8 @@
 - type: entity
   id: ActionWhisper
   parent: DemonicWhisperAction
-  name: Whisper
-  description: Send an ethereal message to a living being.
+  name: "Шепіт"
+  description: "Надсилає ефірне повідомлення живій істоті."
   components:
   - type: Action
     sound: !type:SoundPathSpecifier
@@ -46,8 +46,8 @@
 
 - type: entity
   id: ActionBloodWriting
-  name: Blood Writing
-  description: Write a spooky character on the ground.
+  name: "Криваве письмо"
+  description: "Напиши моторошний знак на підлозі."
   components:
   - type: Action
     useDelay: 5
@@ -59,8 +59,8 @@
 
 - type: entity
   id: ActionAbsorbCorpse
-  name: Absorb corpse
-  description: Steal life essence from a corpse. You cannot use this on a skeleton!
+  name: "Поглинути труп"
+  description: "Викрадає життєву есенцію з трупа. Не можна використовувати на скелеті!"
   components:
   - type: Action
     sound: !type:SoundPathSpecifier
@@ -90,8 +90,8 @@
 
 - type: entity
   id: ActionSpook
-  name: Spook
-  description: Cause freaky, weird, creepy or spooky stuff to happen in an area around you. Use this ability to spawn an entity as the origin of these events, then interact with it to select which action to use.
+  name: "Полохання"
+  description: "Спричиняє дивні, моторошні події в області навколо вас. Використайте цю здібність, щоб створити сутність — джерело цих явищ, а тоді взаємодійте з нею, щоб обрати дію."
   components:
   - type: Action
     sound: !type:SoundPathSpecifier
@@ -110,8 +110,8 @@
 
 - type: entity
   id: ActionDecay
-  name: Decay
-  description: Cause a human to lose stamina, or an object to malfunction.
+  name: "Зотління"
+  description: "Спричиняє втрату витривалості у людини або несправність об'єкта."
   components:
   - type: Action
     sound: !type:SoundPathSpecifier
@@ -135,8 +135,8 @@
 
 - type: entity
   id: ActionCommand
-  name: Command
-  description: Command a few objects to hurl themselves at the target location.
+  name: "Наказ"
+  description: "Наказує кільком об'єктам кинутися у вибрану точку."
   components:
   - type: Action
     useDelay: 40
@@ -158,8 +158,8 @@
 - type: entity
   id: ActionAnimateObject
   parent: ActionAnimateSpell
-  name: Animate object
-  description: Animate an inanimate object to attack nearby humans.
+  name: "Оживлення об'єкта"
+  description: "Оживляє неживий об'єкт, щоб він атакував людей поруч."
   components:
   - type: Action
     sound: !type:SoundPathSpecifier
@@ -173,8 +173,8 @@
 
 - type: entity
   id: ActionPossessObject
-  name: Possess object
-  description: Possess and control an everyday object. Freakout level high.
+  name: "Заволодіння об'єктом"
+  description: "Вселяєшся та керуєш буденним об'єктом. Рівень переляку високий."
   components:
   - type: ActionWraithPoints
     wpConsume: 300
@@ -258,8 +258,8 @@
 
 - type: entity
   id: ActionEvolve
-  name: Evolve
-  description: Choose a form to evolve into once you have absorbed at least 3 souls.
+  name: "Еволюція"
+  description: "Обери форму для еволюції після поглинання щонайменше 3 душ."
   components:
   - type: Action
     useDelay: 0
@@ -274,8 +274,8 @@
 # Harbinger Actions
 - type: entity
   id: ActionRaiseSkeleton
-  name: Raise skeleton
-  description: Raise a skeletonized dead body or fill a locker with an indurable skeletal servant.
+  name: "Підняття скелета"
+  description: "Підіймає скелетоване мертве тіло або наповнює шафку нестійким кістяним слугою."
   components:
   - type: Action
     sound: !type:SoundPathSpecifier
@@ -300,8 +300,8 @@
 
 - type: entity
   id: ActionSummonVoidPortal
-  name: Summon void portal
-  description: Summon a void portal from which otherworldly creatures pour out.
+  name: "Закликати портал порожнечі"
+  description: "Закликає портал порожнечі, з якого виливаються потойбічні істоти."
   components:
   - type: ConfirmableAction
     popup: wraith-portal-already
@@ -325,8 +325,8 @@
 
 - type: entity
   id: ActionSummonVoidCreature
-  name: Summon void creatures
-  description: Attempt to breach the veil between worlds to allow a lesser void creature to enter this realm.
+  name: "Призов істот Порожнечі"
+  description: "Намагається прорвати завісу між світами, щоб у цей вимір увійшла менша істота Порожнечі."
   components:
   - type: Action
     useDelay: 150
@@ -340,8 +340,8 @@
 
 - type: entity
   id: ActionMakeRevenant
-  name: Make revenant
-  description: Take control of an intact corpse as a powerful Revenant! You will not be able to absorb this corpse later. As a revenant, you gain increased point generation, but your revenant abilities cost much more points than normal.
+  name: "Створити ревенанта"
+  description: "Опановуєш неушкоджений труп як могутній Ревенант! Надалі ти не зможеш поглинути цей труп. Як ревенант, ти отримуєш більше очок, але здібності ревенанта коштують значно більше очок, ніж зазвичай."
   components:
   - type: Action
     useDelay: 60
@@ -380,9 +380,9 @@
 
 - type: entity
   id: ActionCurseBlindness
-  name: Curse of blindness
+  name: "Прокляття сліпоти"
   parent: BaseCurseAction
-  description: Curse the living with blindness.
+  description: "Накладає на живих прокляття сліпоти."
   components:
   - type: Action
     sound: !type:SoundPathSpecifier
@@ -399,9 +399,9 @@
 
 - type: entity
   id: ActionCurseWeakness
-  name: Curse of weakness
+  name: "Прокляття слабкості"
   parent: BaseCurseAction
-  description: Curse the living with weakness. Applies slowdown and makes the target feel dizzy.
+  description: "Накладає на живих прокляття слабкості. Сповільнює та спричиняє запаморочення в цілі."
   components:
   - type: Action
     sound: !type:SoundPathSpecifier
@@ -419,9 +419,9 @@
 
 - type: entity
   id: ActionCurseBlood
-  name: Curse of blood
+  name: "Прокляття крові"
   parent: BaseCurseAction
-  description: Curse the living with a plague of blood.
+  description: "Накладає на живих криваву пошесть."
   components:
   - type: Action
     sound: !type:SoundPathSpecifier
@@ -438,9 +438,9 @@
 
 - type: entity
   id: ActionCurseRot
-  name: Curse of rot
+  name: "Прокляття гниття"
   parent: BaseCurseAction
-  description: Curse the living with a netherworldly plague.
+  description: "Накладає на живих потойбічну пошесть."
   components:
   - type: Action
     sound: !type:SoundPathSpecifier
@@ -457,9 +457,9 @@
 
 - type: entity
   id: ActionCurseDeath
-  name: Curse of death
+  name: "Прокляття смерті"
   parent: BaseCurseAction
-  description: Reap a fully cursed being's soul!
+  description: "Забирає душу повністю проклятої істоти!"
   components:
   - type: Action
     sound: !type:SoundPathSpecifier
@@ -479,8 +479,8 @@
 
 - type: entity
   id: ActionDefile
-  name: Defile
-  description: Manifest some horrible poison inside a food item or a container. Use on self first to choose chemical.
+  name: "Осквернення"
+  description: "Створює жахливу отруту всередині продукту чи контейнера. Спершу використай на собі, щоб вибрати хімікат."
   components:
   - type: Action
     sound: !type:SoundPathSpecifier
@@ -499,8 +499,8 @@
 
 - type: entity
   id: ActionSummonPlagueRat
-  name: Summon Plague rat
-  description: Attempt to breach the veil between worlds to allow a plague rat to enter this realm.
+  name: "Призов чумного щура"
+  description: "Намагається прорвати завісу між світами, щоб у цей вимір увійшов чумний щур."
   components:
   - type: Action
     useDelay: 150
@@ -512,8 +512,8 @@
 
 - type: entity
   id: ActionSummonRotHulk
-  name: Summon Rot Hulk
-  description: Assimilate the filth in an area and create an unstable servant.
+  name: "Призов Гнилого Голіафа"
+  description: "Поглинає бруд у зоні та створює нестабільного слугу."
   components:
   - type: Action
     useDelay: 90

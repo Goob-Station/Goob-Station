@@ -4,7 +4,7 @@
   abstract: true
   parent: [ BaseItem, BaseSecurityContraband ]
   id: BaseMagazineBoxAntiMateriel
-  name: ammunition box (.60 anti-materiel)
+  name: "коробка боєприпасів (.60 anti-materiel)"
   components:
   # Goobstation edit start
   - type: EmitSoundOnPickup
@@ -41,7 +41,7 @@
 - type: entity
   parent: BaseMagazineBoxAntiMateriel
   id: MagazineBoxAntiMaterielBig
-  name: ammunition box (.60 anti-materiel)
+  name: "коробка боєприпасів (.60 anti-materiel)"
   components:
   - type: BallisticAmmoProvider
     capacity: 30
@@ -61,8 +61,8 @@
 - type: entity
   parent: BaseMagazineBoxAntiMateriel
   id: MagazineBoxAntiMateriel
-  name: ammunition box (.60 anti-materiel)
-  description: A cardboard box of .60 anti-materiel rounds.
+  name: "коробка боєприпасів (.60 anti-materiel)"
+  description: "Картонна коробка набоїв .60 anti-materiel."
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeAntiMateriel

@@ -2,18 +2,18 @@
   abstract: true
   parent: CMTileBase
   id: RMCFloorHybrisaYellowBase
-  name: tiles-cm-default-yellow
+  name: "плитка CM стандартна жовта"
 
 - type: tile
   parent: RMCFloorHybrisaYellowBase
   id: RMCFloorHybrisaYellow
-  name: yellow metal tile
+  name: "жовта металева плитка"
   sprite: /Textures/_RMC14/Tiles/hybrisa/yellow_bigtile.png
 
 - type: tile
   parent: RMCFloorHybrisaYellow
   id: RMCFloorHybrisaOrangeLine1
-  name: orange metal tile
+  name: "помаранчева металева плитка"
   sprite: /Textures/_RMC14/Tiles/hybrisa/orangeline_1.png
 
 - type: tile

@@ -4,7 +4,7 @@
   parent: BaseBullet
   id: PelletShotgunSlug
   categories: [ HideSpawnMenu ]
-  name: pellet (.50 slug)
+  name: "куля (.50 slug)"
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
@@ -20,7 +20,7 @@
   parent: BaseBullet
   id: PelletShotgunBeanbag
   categories: [ HideSpawnMenu ]
-  name: beanbag (.50)
+  name: "горошок (.50)"
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
@@ -37,7 +37,7 @@
   parent: BaseBullet
   id: PelletShotgun
   categories: [ HideSpawnMenu ]
-  name: pellet (.50)
+  name: "куля (.50)"
   components:
   - type: Projectile
     damage:
@@ -59,7 +59,7 @@
   parent: BaseBulletIncendiary
   id: PelletShotgunIncendiary
   categories: [ HideSpawnMenu ]
-  name: pellet (.50 incendiary)
+  name: "дробинка (.50 запальний)"
   components:
   - type: Projectile
     damage:
@@ -83,7 +83,7 @@
   parent: BaseBulletPractice
   id: PelletShotgunPractice
   categories: [ HideSpawnMenu ]
-  name: pellet (.50 practice)
+  name: "куля (.50 практика)"
   components:
   - type: Projectile
     damage:
@@ -104,7 +104,7 @@
   parent: BaseBullet
   id: PelletShotgunImprovised
   categories: [ HideSpawnMenu ]
-  name: improvised pellet
+  name: "імпровізована гранула"
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
@@ -131,7 +131,7 @@
   parent: BaseBulletPractice
   id: PelletShotgunTranquilizer
   categories: [ HideSpawnMenu ]
-  name: pellet (.50 tranquilizer)
+  name: "куля (.50 транквілізатор)"
   components:
   - type: Projectile
     damage:
@@ -148,7 +148,7 @@
 - type: entity
   id: PelletShotgunFlare
   categories: [ HideSpawnMenu ]
-  name: pellet (.50 flare)
+  name: "куля (.50 факел)"
   components:
   - type: Physics
     bodyType: Dynamic
@@ -196,7 +196,7 @@
   parent: BaseBulletUranium
   id: PelletShotgunUranium
   categories: [ HideSpawnMenu ]
-  name: pellet (.50 uranium)
+  name: "пелета (.50 урану)"
   components:
   - type: Projectile
     damage:
@@ -218,7 +218,7 @@
   parent: BaseBullet
   id: PelletGrapeshot #tally fucking ho
   categories: [ HideSpawnMenu ]
-  name: grapeshot pellet
+  name: "виноградна дробина"
   components:
   - type: Sprite
     noRot: false
@@ -246,7 +246,7 @@
   parent: BaseBullet
   id: PelletGlass
   categories: [ HideSpawnMenu ]
-  name: glass shard
+  name: "осколок скла"
   components:
   - type: Sprite
     noRot: false

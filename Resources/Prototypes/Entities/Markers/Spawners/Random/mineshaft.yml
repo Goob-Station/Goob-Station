@@ -2,7 +2,7 @@
 
 - type: entity
   id: RandomWoodenSupport
-  name: wooden support spawner
+  name: "спавнер дерев'яної опори"
   parent: MarkerBase
   components:
   - type: Sprite
@@ -20,7 +20,7 @@
 
 - type: entity
   id: RandomWoodenWall
-  name: wooden wall spawner
+  name: "спавнер дерев'яної стіни"
   parent: MarkerBase
   components:
   - type: Sprite
@@ -36,7 +36,7 @@
 
 - type: entity
   id: RandomStalagmiteOrCrystal
-  name: stalagmite or crystal spawner
+  name: "спавнер сталагміту або кристалу"
   parent: MarkerBase
   components:
   - type: Sprite
@@ -54,7 +54,7 @@
 
 - type: entity
   id: RandomBrownStalagmite
-  name: brown stalagmite spawner
+  name: "спавнер коричневого сталагміту"
   parent: MarkerBase
   components:
   - type: Sprite
@@ -70,7 +70,7 @@
 
 - type: entity
   id: RandomGreyStalagmite
-  name: grey stalagmite spawner
+  name: "спавнер сірого сталагміту"
   parent: MarkerBase
   components:
   - type: Sprite

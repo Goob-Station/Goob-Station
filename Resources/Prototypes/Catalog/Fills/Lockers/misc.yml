@@ -4,7 +4,7 @@
   id: LockerSyndicatePersonalFilled
   suffix: Nukie, Filled
   parent: LockerSyndicatePersonal
-  description: It's a personal storage unit for operative gear.
+  description: "Це персональний блок зберігання для спорядження оперативника."
   components:
   - type: AccessReader
     access: [["NuclearOperative"]]
@@ -24,7 +24,7 @@
   id: LockerSyndicateWallFilled
   suffix: Nukie, Filled
   parent: LockerWallSyndicate
-  description: It's a personal storage unit for operative gear.
+  description: "Це персональний блок зберігання для спорядження оперативника."
   components:
   - type: AccessReader
     access: [["NuclearOperative"]]

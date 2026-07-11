@@ -1,5 +1,5 @@
 - type: entity
-  name: "duffel bag"
+  name: "спортивна сумка"
   suffix: Tony Kit
   parent: ClothingBackpackDuffel
   id: SyndicateMiamiKitTony
@@ -18,7 +18,7 @@
         amount: 1
 
 - type: entity
-  name: "duffel bag"
+  name: "спортивна сумка"
   suffix: Mark Kit
   parent: ClothingBackpackDuffel
   id: SyndicateMiamiKitMark
@@ -39,7 +39,7 @@
         amount: 1
 
 - type: entity
-  name: "duffel bag"
+  name: "спортивна сумка"
   suffix: Richard Kit
   parent: ClothingBackpackDuffel
   id: SyndicateMiamiKitRichard

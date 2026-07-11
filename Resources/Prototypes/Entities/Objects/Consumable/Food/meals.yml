@@ -9,7 +9,7 @@
   abstract: true
   parent: FoodInjectableBase
   id: FoodMealBase
-  description: A delicious meal, cooked with love.
+  description: "Смачна їжа, приготована з любов'ю."
   components:
   - type: Item
     shape:
@@ -29,8 +29,8 @@
 - type: entity
   parent: FoodMealBase
   id: FoodMealPotatoLoaded
-  name: loaded baked potato
-  description: Totally baked.
+  name: "завантажена запечена картопля"
+  description: "Повністю запечена."
   components:
   - type: Item
     storedOffset: 0,-2
@@ -45,8 +45,8 @@
 - type: entity
   parent: FoodMealBase
   id: FoodMealFries
-  name: space fries
-  description: AKA, French Fries, Freedom Fries, etc.
+  name: "картопля фрі"
+  description: "Також відома як картопля фрі, картопля фрі, картопля фрі тощо."
   components:
   - type: Item
     storedOffset: 0,-3
@@ -61,8 +61,8 @@
 - type: entity
   parent: FoodMealBase
   id: FoodMealFriesCheesy
-  name: cheesy fries
-  description: Fries. Covered in cheese. Duh.
+  name: "сирна картопля фрі"
+  description: "Картопля фрі. Покрита сиром. Ага."
   components:
   - type: Item
     storedOffset: 0,-3
@@ -78,8 +78,8 @@
 - type: entity
   parent: FoodMealBase
   id: FoodMealFriesCarrot
-  name: carrot fries
-  description: Tasty fries from fresh carrots.
+  name: "рецепт моркви фрі"
+  description: "Смачна картопля фрі зі свіжої моркви."
   components:
   - type: Item
     storedOffset: 0,-3
@@ -104,8 +104,8 @@
 - type: entity
   parent: FoodMealBase
   id: FoodMealNachos
-  name: nachos
-  description: Chips from Space Mexico.
+  name: "начос"
+  description: "Чіпси з Космічної Мексики."
   components:
   - type: Item
     storedOffset: 0,-2
@@ -133,8 +133,8 @@
 - type: entity
   parent: FoodMealBase
   id: FoodMealNachosCheesy
-  name: cheesy nachos
-  description: The delicious combination of nachos and melting cheese.
+  name: "сирні начос"
+  description: "Смачне поєднання начос і сиру, що плавиться."
   components:
   - type: Item
     storedOffset: 0,-2
@@ -163,8 +163,8 @@
 - type: entity
   parent: FoodMealBase
   id: FoodMealNachosCuban
-  name: Cuban nachos
-  description: That's some dangerously spicy nachos.
+  name: "Кубинські начос"
+  description: "Це небезпечно гострі начос."
   components:
   - type: Item
     storedOffset: 0,-2
@@ -194,8 +194,8 @@
 - type: entity
   parent: FoodMealBase
   id: FoodMealMint
-  name: mint
-  description: It's wafer thin.
+  name: "м'ята"
+  description: "Він тонкий, як вафля."
   components:
   - type: Item
     storedOffset: 0,-1
@@ -217,8 +217,8 @@
 - type: entity
   parent: FoodMealBase
   id: FoodMealEggplantParm
-  name: eggplant parmigiana
-  description: The only good recipe for eggplant.
+  name: "баклажани парміджана"
+  description: "Єдиний хороший рецепт для баклажанів."
   components:
   - type: Item
     storedOffset: 0,-2
@@ -245,8 +245,8 @@
 - type: entity
   parent: FoodMealBase
   id: FoodMealPotatoYaki
-  name: yaki imo
-  description: Made with roasted sweet potatoes!
+  name: "яки імо"
+  description: "Приготований зі смаженою солодкою картоплею!"
   components:
   - type: Item
     storedOffset: 0,-2
@@ -261,8 +261,8 @@
 - type: entity
   parent: FoodMealBase
   id: FoodMealCubancarp
-  name: Cuban carp
-  description: A grifftastic sandwich that burns your tongue and then leaves it numb!
+  name: "Кубинський короп"
+  description: "Бутерброд, який обпікає язик, а потім залишає його онімілим!"
   components:
   - type: Item
     storedOffset: 3,-7
@@ -291,8 +291,8 @@
 - type: entity
   parent: FoodMealBase
   id: FoodMealCornedbeef
-  name: corned beef and cabbage
-  description: Now you can feel like a real tourist vacationing in Ireland.
+  name: "солонина з капустою"
+  description: "Тепер ви можете відчути себе справжнім туристом, який відпочиває в Ірландії."
   components:
   - type: Item
     storedOffset: 0,-1
@@ -319,8 +319,8 @@
 - type: entity
   parent: FoodMealBase
   id: FoodMealBearsteak
-  name: filet migrawr
-  description: Because eating bear wasn't manly enough.
+  name: "філе мігрант"
+  description: "Тому що з'їсти ведмедя було недостатньо мужньо."
   components:
   - type: Item
     size: Normal
@@ -350,8 +350,8 @@
 - type: entity
   parent: FoodMealBase
   id: FoodMealPigblanket
-  name: pig in a blanket
-  description: A tiny sausage wrapped in a flakey, buttery roll. Free this pig from its blanket prison by eating it.
+  name: "свиня в ковдрі"
+  description: "Крихітна ковбаска, загорнута в хрусткий, змащений маслом рулет. Звільніть цю свинку з ковдрової в'язниці, з'ївши її."
   components:
   - type: Item
     size: Tiny
@@ -380,8 +380,8 @@
 - type: entity
   parent: FoodMealBase
   id: FoodMealRibs
-  name: bbq ribs
-  description: BBQ ribs, slathered in a healthy coating of BBQ sauce. The least vegan thing to ever exist.
+  name: "реберця барбекю"
+  description: "Реберця барбекю, вкриті корисним соусом барбекю. Найменш веганська річ, яка коли-небудь існувала."
   components:
   - type: Item
     storedOffset: 0,-4
@@ -413,8 +413,8 @@
 - type: entity
   parent: FoodMealBase
   id: FoodMealEggsbenedict
-  name: eggs benedict
-  description: There is only one egg on this, how rude.
+  name: "яйця бенедикт"
+  description: "Тут лише одне яйце, як грубо."
   components:
   - type: FlavorProfile
     flavors:
@@ -440,8 +440,8 @@
 - type: entity
   parent: FoodMealBase
   id: FoodMealOmelette
-  name: cheese omelette
-  description: Cheesy.
+  name: "сирний омлет"
+  description: "Сирниий."
   components:
   - type: Item
     storedOffset: 0,-1
@@ -466,8 +466,8 @@
 - type: entity
   parent: FoodMealBase
   id: FoodMealFriedegg
-  name: fried egg
-  description: A fried egg, with a touch of salt and pepper.
+  name: "яєчня"
+  description: "Смажене яйце, злегка посолена і поперчена."
   components:
   - type: Item
     storedOffset: 0,-1
@@ -497,8 +497,8 @@
 - type: entity
   parent: FoodMealBase
   id: FoodMealMilkape
-  name: milk ape
-  description: The king of Jungle Thick.
+  name: "молочна мавпа"
+  description: "Король густих джунглів."
   components:
   - type: Item
     size: Normal
@@ -515,8 +515,8 @@
 - type: entity
   parent: FoodMealBase
   id: FoodMealMemoryleek
-  name: memory leek
-  description: This should refresh your memory.
+  name: "цибуля-порей пам'яті"
+  description: "Це має освіжити вашу пам'ять."
   components:
   - type: Item
     shape:
@@ -540,8 +540,8 @@
 - type: entity
   parent: FoodMealBase
   id: DisgustingSweptSoup
-  name: salty sweet miso cola soup
-  description: Jesus christ.
+  name: "солоно-солодкий місо-кола-суп"
+  description: "Господи Боже."
   components:
   - type: Item
     size: Normal
@@ -566,8 +566,8 @@
 - type: entity
   parent: FoodMealBase
   id: FoodMealQueso
-  name: queso
-  description: A classic dipping sauce that you can't go wrong with.
+  name: "кесо"
+  description: "Класичний соус для занурення, з яким неможливо помилитися."
   components:
     - type: Item
       storedOffset: 0,-6
@@ -579,10 +579,10 @@
 # Its queso! Everyone loves queso... Right?.
 
 - type: entity
-  name: sashimi
+  name: "сашимі"
   parent: FoodMealBase
   id: FoodMealSashimi
-  description: Its taste can only be described as "Exotic". The poisoning though? That's pretty common.
+  description: "Його смак можна описати лише як \"Екзотичний\". А отруєння? Це досить звична справа."
   components:
   - type: FlavorProfile
     flavors:
@@ -606,8 +606,8 @@
 - type: entity
   parent: FoodMealBase
   id: FoodMealEnchiladas
-  name: enchiladas
-  description: Viva La Mexico!
+  name: "енхиладас"
+  description: "Віва Ля Мехіко!"
   components:
     - type: Item
       storedOffset: -1,0
@@ -633,8 +633,8 @@
 - type: entity
   parent: FoodMealBase
   id: FoodSaladWatermelonFruitBowl
-  name: melon fruit bowl
-  description: The only salad where you can eat the bowl.
+  name: "динна фруктова миска"
+  description: "Єдиний салат, де можна з'їсти миску."
   components:
   - type: Item
     storedOffset: 0,-3
@@ -666,8 +666,8 @@
 - type: entity
   parent: FoodMealBase
   id: FoodMealCornInButter
-  name: corn in butter
-  description: Buttery.
+  name: "кукурудза в маслі"
+  description: "Масляниста."
   components:
   - type: Item
     storedOffset: 0,-5

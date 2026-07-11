@@ -1,7 +1,7 @@
 - type: entity
   id: AdamantineSlimeExtract
   parent: BaseSlimeExtract
-  name: adamantine slime extract
+  name: "адамантиновий екстракт слайма"
   components:
   - type: Sprite
     layers:

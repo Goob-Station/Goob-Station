@@ -102,8 +102,8 @@
 - type: entity
   parent: BaseClothingBeltEngineering
   id: ClothingBeltUtility
-  name: utility belt
-  description: Can hold various things.
+  name: "поясний ремінь"
+  description: "Може вміщати різні речі."
   components:
   - type: Sprite
     sprite: Clothing/Belt/utility.rsi
@@ -117,8 +117,8 @@
 - type: entity
   parent: BaseClothingBeltEngineering
   id: ClothingBeltChiefEngineer
-  name: chief engineer's toolbelt
-  description: Holds tools, looks snazzy.
+  name: "пояс головного інженера"
+  description: "Тримає інструменти, виглядає шикарно."
   components:
   - type: Sprite
     sprite: Clothing/Belt/ce.rsi
@@ -133,8 +133,8 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltJanitor
-  name: janibelt
-  description: A belt used to hold most janitorial supplies.
+  name: "прибиральницький пояс"
+  description: "Ремінь, на якому тримається більшість прибиральницького приладдя."
   components:
   - type: Sprite
     sprite: Clothing/Belt/janitor.rsi
@@ -184,8 +184,8 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltMedical
-  name: medical belt
-  description: Can hold various medical equipment.
+  name: "медичний пояс"
+  description: "Може вміщати різне медичне обладнання."
   components:
   - type: Sprite
     sprite: Clothing/Belt/medical.rsi
@@ -260,8 +260,8 @@
 - type: entity
   parent: ClothingBeltMedical
   id: ClothingBeltMedicalEMT
-  name: EMT belt
-  description: Perfect for holding various equipment for medical emergencies.
+  name: "Пояс EMT"
+  description: "Ідеально підходить для зберігання різного обладнання для екстреної медичної допомоги."
   components:
   - type: Sprite
     sprite: Clothing/Belt/emt.rsi
@@ -271,8 +271,8 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltPlant
-  name: botanical belt
-  description: A belt used to hold most hydroponics supplies. Suprisingly, not green.
+  name: "ботанічний пояс"
+  description: "Ремінь, який використовується для зберігання більшості матеріалів для гідропоніки. Дивно, але не зелений."
   components:
   - type: Sprite
     sprite: Clothing/Belt/plant.rsi
@@ -327,8 +327,8 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltChef
-  name: chef belt
-  description: A belt used to hold kitchen knives and condiments for quick access.
+  name: "пояс шеф-кухаря"
+  description: "Ремінь, який використовується для швидкого доступу до кухонних ножів і приправ."
   components:
   - type: Sprite
     sprite: Clothing/Belt/chef.rsi
@@ -413,8 +413,8 @@
 - type: entity
   parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseSecurityContraband]
   id: ClothingBeltSecurity
-  name: security belt
-  description: Can hold security gear like handcuffs and flashes.
+  name: "ремінь безпеки"
+  description: "Містить засоби захисту, такі як наручники та спалахи."
   components:
   - type: Sprite
     sprite: Clothing/Belt/security.rsi

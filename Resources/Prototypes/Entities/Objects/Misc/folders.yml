@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseItem
   id: BoxFolderNuclearCodes
-  name: nuclear code folder
+  name: "папка з ядерними кодами"
   components:
   - type: Sprite
     sprite: Objects/Misc/folders.rsi
@@ -24,8 +24,8 @@
 - type: entity
   parent: BoxBase
   id: BoxFolderBaseEmpty
-  name: folder
-  description: A folder filled with top secret paperwork.
+  name: "папка"
+  description: "Папка, заповнена цілком таємними паперами."
   components:
   - type: Sprite
     sprite: Objects/Misc/folders.rsi
@@ -260,8 +260,8 @@
   parent: BoxFolderBaseEmpty
   id: BoxFolderCentComEmpty
   categories: [ DoNotMap ]
-  name: CentComm folder
-  description: CentComm's miserable little pile of secrets!
+  name: "папка ЦентКому"
+  description: "Жалюгідна маленька купка таємниць ЦентКому!"
   components:
   - type: Sprite
     layers:
@@ -281,8 +281,8 @@
 - type: entity
   parent: BoxFolderBaseEmpty
   id: BoxFolderClipboardEmpty
-  name: clipboard
-  description: The weapon of choice for those on the front lines of bureaucracy.
+  name: "планшет-затискач"
+  description: "Зброя вибору для тих, хто на передовій бюрократії."
   components:
   - type: Sprite
     sprite: Objects/Misc/clipboard.rsi
@@ -353,8 +353,8 @@
 - type: entity
   parent: BoxFolderClipboardEmpty
   id: BoxFolderPlasticClipboardEmpty
-  name: plastic clipboard
-  description: A cheap clipboard made of blue plastic. For those who aren't yet ready to wield the bureaucratic might of a proper wooden clipboard.
+  name: "пластиковий планшет-затискач"
+  description: "Дешевий планшет-затискач із синього пластику. Для тих, хто ще не готовий володіти бюрократичною могутністю справжнього дерев'яного планшета."
   components:
   - type: Sprite
     sprite: Objects/Misc/plastic_clipboard.rsi
@@ -387,8 +387,8 @@
 - type: entity
   parent: BoxFolderClipboardEmpty
   id: BoxFolderCentComClipboardEmpty
-  name: CentComm clipboard
-  description: A luxurious clipboard upholstered with green velvet. Often seen carried by CentComm officials, seldom seen actually used.
+  name: "планшет-затискач ЦентКому"
+  description: "Розкішний планшет-затискач, оббитий зеленим оксамитом. Його часто носять посадовці ЦентКому, але рідко справді використовують."
   components:
   - type: Sprite
     sprite: Objects/Misc/cc-clipboard.rsi
@@ -422,8 +422,8 @@
 - type: entity
   parent: [BoxFolderClipboardEmpty, BaseGrandTheftContraband]
   id: BoxFolderQmClipboard
-  name: requisition digi-board
-  description: A bulky electric clipboard, filled with shipping orders and financing details. With so many compromising documents, you ought to keep this safe.
+  name: "електроплата замовлень"
+  description: "Громіздкий електричний буфер обміну, заповнений замовленнями на доставку та фінансовими деталями. Маючи стільки компрометуючих документів, ви повинні зберігати його в безпеці."
   components:
   - type: Sprite
     sprite: Objects/Misc/qm_clipboard.rsi

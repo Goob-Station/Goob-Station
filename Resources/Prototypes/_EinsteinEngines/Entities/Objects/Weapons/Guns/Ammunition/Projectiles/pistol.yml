@@ -1,6 +1,6 @@
 - type: entity
   id: BulletPistolCryptobiolin
-  name: bullet (.38 special Cryptobiolin)
+  name: "куля (.38 special Криптобіолін)"
   parent: BulletPistolPractice
   categories: [ HideSpawnMenu ]
   components:

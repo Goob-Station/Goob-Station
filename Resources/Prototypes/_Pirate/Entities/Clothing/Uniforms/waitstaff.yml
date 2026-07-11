@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitWaitstaffFormal
-  name: waitstaff suit
-  description: A sharp vest with comfortable slacks made for serving tables and looking professional.
+  name: "костюм офіціанта"
+  description: "Охайний жилет зі зручними штанами, створений для обслуговування столів і професійного вигляду."
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Uniforms/Jumpsuit/waitstaff_formal.rsi

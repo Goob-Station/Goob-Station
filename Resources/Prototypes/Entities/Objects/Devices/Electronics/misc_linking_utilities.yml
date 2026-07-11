@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseItem
   id: voicesensor
-  name: voice sensor
-  description: This microphone, invented by Micheal Phone during his time working at Michealsoft, sends signals when a prerecorded code phrase is uttered!
+  name: "голосовий сенсор"
+  description: "Цей мікрофон, винайдений Майклом Фоном під час роботи в Майклсофт, надсилає сигнали, коли промовляють попередньо записану кодову фразу!"
   components:
   - type: Sprite
     sprite: Objects/Devices/voicesensor.rsi

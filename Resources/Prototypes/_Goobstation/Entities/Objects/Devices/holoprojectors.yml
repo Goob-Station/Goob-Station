@@ -1,8 +1,8 @@
 - type: entity
   parent: Holoprojector
   id: HoloprojectorSecurityAdvanced
-  name: advanced holobarrier projector
-  description: An advanced barrier projector, capable of projecting more durable & secure barriers.
+  name: "вдосконалений голо-бар'єрний проектор"
+  description: "Вдосконалений бар'єрний проектор, здатний проектувати більш міцні та надійні бар'єри."
   components:
   - type: HolosignProjector
     signProto: HolosignSecurityAdvanced

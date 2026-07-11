@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseObjective
   id: NukeopsDetonateObjective
-  name: Destroy the station with a nuclear device.
-  description: Deliver the payload and get out before the payload detonates.
+  name: "Знищіть станцію ядерним пристроєм."
+  description: "Доставте заряд і забирайтеся звідси до того, як він детонує."
   components:
   - type: Objective
     issuer: objective-issuer-syndicate

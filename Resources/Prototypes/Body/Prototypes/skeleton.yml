@@ -2,7 +2,7 @@
 
 - type: body
   id: Skeleton
-  name: "skeleton"
+  name: "вид-назва-скелет"
   root: chest
   slots:
     head:

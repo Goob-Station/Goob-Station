@@ -2,7 +2,7 @@
 
 - type: body
   id: Hydrakin
-  name: "hydrakin"
+  name: "гідракін"
   root: torso
   slots:
     head:

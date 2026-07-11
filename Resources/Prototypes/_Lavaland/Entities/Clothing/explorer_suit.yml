@@ -4,8 +4,8 @@
   parent: [ ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseCargoContraband ]
   id: LavalandEquipmentExplorerSuit
   suffix: Lava
-  name: explorer suit
-  description: An armoured suit for exploring harsh environments.
+  name: "костюм дослідника"
+  description: "Броньований костюм для дослідження суворих умов."
   components:
   - type: Sprite
     sprite: _Lavaland/Equipment/explorer_suit.rsi
@@ -54,8 +54,8 @@
   parent: ClothingHeadBase
   id: LavalandEquipmentExplorerHood
   suffix: Lava
-  name: explorer hood
-  description: An armoured hood for exploring harsh environments.
+  name: "капюшон дослідника"
+  description: "Броньований капюшон для дослідження суворих умов."
   components:
   - type: Sprite
     sprite: _Lavaland/Equipment/explorer_suit.rsi
@@ -92,8 +92,8 @@
   parent: LavalandEquipmentExplorerSuit
   id: LavalandEquipmentExplorerSuitReinforced1
   suffix: Reinforced
-  name: reinforced explorer suit
-  description: An armoured suit for exploring harsh environments. Lightly reinforced with goliath plates.
+  name: "посилений костюм дослідника"
+  description: "Броньований костюм для дослідження суворих умов. Злегка посилений пластинами голіафа."
   components:
   - type: Armor
     modifiers:
@@ -124,8 +124,8 @@
   parent: LavalandEquipmentExplorerHood
   id: LavalandEquipmentExplorerHoodReinforced1
   suffix: Reinforced
-  name: reinforced explorer hood
-  description: An armoured hood for exploring harsh environments. Lightly reinforced with goliath plates.
+  name: "посилений капюшон дослідника"
+  description: "Броньований капюшон для дослідження суворих умов. Злегка посилений пластинами голіафа."
   components:
   - type: Sprite
     sprite: _Lavaland/Equipment/explorer_suit.rsi
@@ -146,8 +146,8 @@
   parent: LavalandEquipmentExplorerSuit
   id: LavalandEquipmentExplorerSuitReinforced2
   suffix: Reinforced
-  name: reinforced explorer suit
-  description: An armoured suit for exploring harsh environments. Mostly reinforced with goliath plates.
+  name: "посилений костюм дослідника"
+  description: "Броньований костюм для дослідження суворих умов. Значною мірою посилений пластинами голіафа."
   components:
   - type: Sprite
     sprite: _Lavaland/Equipment/explorer_suit.rsi
@@ -178,8 +178,8 @@
   parent: LavalandEquipmentExplorerHood
   id: LavalandEquipmentExplorerHoodReinforced2
   suffix: Reinforced
-  name: reinforced explorer hood
-  description: An armoured hood for exploring harsh environments. Mostly reinforced with goliath plates.
+  name: "посилений капюшон дослідника"
+  description: "Броньований капюшон для дослідження суворих умов. Значною мірою посилений пластинами голіафа."
   components:
   - type: Sprite
     sprite: _Lavaland/Equipment/explorer_suit.rsi
@@ -200,8 +200,8 @@
   parent: LavalandEquipmentExplorerSuit
   id: LavalandEquipmentExplorerSuitReinforced3
   suffix: Reinforced
-  name: reinforced explorer suit
-  description: An armoured suit for exploring harsh environments. Fully reinforced with goliath plates.
+  name: "посилений костюм дослідника"
+  description: "Броньований костюм для дослідження суворих умов. Повністю посилений пластинами голіафа."
   components:
   - type: Sprite
     sprite: _Lavaland/Equipment/explorer_suit.rsi
@@ -232,8 +232,8 @@
   parent: LavalandEquipmentExplorerHood
   id: LavalandEquipmentExplorerHoodReinforced3
   suffix: Reinforced
-  name: reinforced explorer hood
-  description: An armoured hood for exploring harsh environments. Fully reinforced with goliath plates.
+  name: "посилений капюшон дослідника"
+  description: "Броньований капюшон для дослідження суворих умов. Повністю посилений пластинами голіафа."
   components:
   - type: Sprite
     sprite: _Lavaland/Equipment/explorer_suit.rsi

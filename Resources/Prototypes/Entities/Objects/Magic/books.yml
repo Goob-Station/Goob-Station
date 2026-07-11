@@ -4,7 +4,7 @@
   abstract: true
   parent: [ BaseItem, BaseMagicalContraband ]
   id: BaseSpellbook
-  name: spellbook
+  name: "книга заклинань"
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -26,9 +26,9 @@
 - type: entity
   parent: [ BaseItem, BaseMagicalContraband, StorePresetSpellbook ] # Goob edit
   id: WizardsGrimoire
-  name: wizard's grimoire
+  name: "гримуар чарівника"
   suffix: Wizard
-  description: A heavy tome containing complicated arcane formulae for preparing magic spells and conjuring supernatural equipment. Decades of study went into researching this collection of mystical secrets; now go use them to ruin someone's day.
+  description: "Важкий том зі складними арканними формулами для підготовки магічних заклять і виклику надприродного спорядження. Десятиліття досліджень пішли на цю збірку містичних таємниць; тепер ідіть і зіпсуйте комусь день."
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -61,8 +61,8 @@
 # Used for the Antag Planet
 - type: entity
   id: WizardsGrimoireGhost
-  name: ghostly grimoire
-  description: A modified wizard grimoire that can by used by more than one person and has more wizcoins, but can't buy certain spells.
+  name: "примарний гримуар"
+  description: "Модифікований гримуар чарівника, який може використовуватися більш ніж однією людиною і має більше візкойнів, але не може купувати певні заклинання."
   suffix: Wizard
   parent: [ BaseItem, BaseMagicalContraband, GhostAntagSpellPreset ] # Goob edit
   components:
@@ -111,7 +111,7 @@
   parent: WizardsGrimoire
   id: WizardsGrimoireDebug
   suffix: Wizard, DEBUG
-  description: A heavy tome containing complicated arcane formulae for preparing magic spells and conjuring supernatural equipment. Someone wrote "FOR EXPERIMENTAL USE ONLY" on the inside cover.
+  description: "Важкий том зі складними арканними формулами для підготовки магічних заклять і виклику надприродного спорядження. Хтось написав \"ЛИШЕ ДЛЯ ЕКСПЕРИМЕНТАЛЬНОГО ВИКОРИСТАННЯ\" на внутрішній обкладинці."
   components:
     - type: Store
       ownerOnly: false # For ease of debugging.
@@ -121,7 +121,7 @@
 - type: entity
   parent: BaseSpellbook
   id: SpawnSpellbook
-  name: spawn spellbook
+  name: "книга заклинань відтворення"
   components:
     - type: Spellbook
       spellActions:
@@ -130,7 +130,7 @@
 - type: entity
   parent: BaseSpellbook
   id: ForceWallSpellbook
-  name: force wall spellbook
+  name: "книга заклинань силової стіни"
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -153,7 +153,7 @@
 - type: entity
   parent: BaseSpellbook
   id: BlinkBook
-  name: blink spellbook
+  name: "книга заклинань блимання"
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -174,7 +174,7 @@
 - type: entity
   parent: BaseSpellbook
   id: SmiteBook
-  name: smite spellbook
+  name: "книга заклинань удару"
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -197,7 +197,7 @@
 - type: entity
   parent: BaseSpellbook
   id: KnockSpellbook
-  name: knock spellbook
+  name: "книга заклинань оглушення"
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -219,7 +219,7 @@
 - type: entity
   parent: BaseSpellbook
   id: FireballSpellbook
-  name: fireball spellbook
+  name: "книга заклинань вогняної кулі"
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -243,7 +243,7 @@
 - type: entity
   parent: BaseSpellbook
   id: ScrollRunes
-  name: scroll of traps # Goob edit
+  name: "сувій рун" # Goob edit
   components:
   - type: Item
     size: Normal

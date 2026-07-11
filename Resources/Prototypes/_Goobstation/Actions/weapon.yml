@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseAction
   id: ActionLegSweep
-  name: Leg Sweep
-  description: Sweeps the legs out from under a target to knock them down for a few seconds.
+  name: "Підсічка"
+  description: "Підсікає ноги цілі, збиваючи її з ніг на кілька секунд."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -17,13 +17,13 @@
     event: !type:KravMagaActionEvent { }
   - type: KravMagaAction
     configuration: LegSweep
-    name: Leg Sweep
+    name: "Підсічка"
 
 - type: entity
   parent: BaseAction
   id: ActionNeckChop
-  name: Neck Chop
-  description: A hard swing with the side of your hand deals some damage and disables the target's ability to speak for twenty seconds
+  name: "Удар по шиї"
+  description: "Сильний удар боком долоні завдає певної шкоди і позбавляє ціль можливості говорити на двадцять секунд"
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -38,14 +38,14 @@
     event: !type:KravMagaActionEvent { }
   - type: KravMagaAction
     configuration: NeckChop
-    name: Neck Chop
+    name: "Удар по шиї"
     effectTime: 20
 
 - type: entity
   parent: BaseAction
   id: ActionLungPunch
-  name: Lung Punch
-  description: Deals 30 stamina damage and prevents breathing for ten seconds. Four of those will incapacitate a target less-than-lethally, but beware of the loss of breath you cause.
+  name: "Удар в легені"
+  description: "Завдає 30 одиниць шкоди витривалості і перешкоджає диханню на десять секунд. Чотири таких удари виведуть ціль з ладу нелетально, але остерігайтеся втрати дихання, яку ви спричиняєте."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -60,6 +60,6 @@
     event: !type:KravMagaActionEvent { }
   - type: KravMagaAction
     configuration: LungPunch
-    name: Lung Punch
+    name: "Удар в легені"
     staminaDamage: 40
     effectTime: 10

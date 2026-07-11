@@ -56,7 +56,7 @@
 - type: entity
   parent: BaseDelivery
   id: PackageDelivery
-  name: package
+  name: "пакунок"
   components:
   - type: Sprite
     sprite: Objects/Specific/Cargo/mail_large.rsi
@@ -111,7 +111,7 @@
 - type: entity
   parent: BaseDelivery
   id: LetterDelivery
-  name: letter
+  name: "лист"
   components:
   - type: Sprite
     sprite: Objects/Specific/Cargo/mail.rsi
@@ -172,14 +172,14 @@
 
 - type: entity
   id: DeliveryModifierPriority
-  description: Components to add when a delivery is rolled as priority.
+  description: "Компоненти, які додаються, коли доставка випадає як пріоритетна."
   categories: [ HideSpawnMenu ]
   components:
   - type: DeliveryPriority
 
 - type: entity
   id: DeliveryModifierFragile
-  description: Components to add when a delivery is rolled as fragile.
+  description: "Компоненти, які додаються, коли доставка випадає як крихка."
   categories: [ HideSpawnMenu ]
   components:
   - type: DeliveryFragile
@@ -210,7 +210,7 @@
 
 - type: entity
   id: DeliveryModifierBomb
-  description: Components to add when a delivery is rolled as a bomb.
+  description: "Компоненти, які додаються, коли доставка випадає як бомба."
   categories: [ HideSpawnMenu ]
   components:
   - type: DeliveryBomb

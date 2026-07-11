@@ -1,35 +1,35 @@
 - type: entity
   parent: MobStatusEffectBase
   id: StatusEffectFireBlasted
-  name: fire blasted
+  name: "обпалений вогнем"
   components:
   - type: FireBlastedStatusEffect
 
 - type: entity
   parent: MobStatusEffectBase
   id: StatusEffectStarMark
-  name: star mark
+  name: "зіркова мітка"
   components:
   - type: StarMarkStatusEffect
 
 - type: entity
   parent: MobStatusEffectBase
   id: StatusEffectStarTouched
-  name: star touched
+  name: "торкнутий зіркою"
   components:
   - type: StarTouchedStatusEffect
 
 - type: entity
   parent: MobStatusEffectBase
   id: CarvingAlertedStatusEffect
-  name: alerted
+  name: "стривожений"
   components:
   - type: CarvingAlertedStatusEffect
 
 - type: entity
   parent: MobStatusEffectBase
   id: ShadowCloakStatusEffect
-  name: shadow cloak
+  name: "тіньовий плащ"
   components:
   - type: StatusEffectAlert
     alert: ShadowCloak
@@ -45,7 +45,7 @@
 - type: entity
   parent: StatusEffectSlowdown
   id: ShadowCloakRevealStatusEffect
-  name: shadow cloak revealed
+  name: "тіньовий плащ викрито"
   components:
   - type: MovementModStatusEffect
     sprintSpeedModifier: 0.75

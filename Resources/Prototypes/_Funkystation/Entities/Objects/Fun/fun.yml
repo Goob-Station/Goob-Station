@@ -5,8 +5,8 @@
 - type: entity
   parent: BaseItem
   id: TrainWhistle
-  name: train whistle
-  description: Choo Choo!
+  name: "залізничний свисток"
+  description: "Ту-ту!"
   components:
   - type: Item
     sprite: _Funkystation/Objects/Fun/train_whistle.rsi

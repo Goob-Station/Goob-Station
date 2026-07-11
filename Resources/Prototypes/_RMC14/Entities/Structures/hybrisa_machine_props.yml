@@ -2,7 +2,7 @@
   parent: BaseStructure
   id: RMCMachinePropBase
   abstract: true
-  name: machinery
+  name: "обладнання"
   components:
   - type: Sprite
     noRot: true
@@ -44,7 +44,7 @@
 - type: entity
   id: RMCMachinePropBaseWall
   abstract: true
-  name: machinery
+  name: "обладнання"
   components:
   - type: Transform
   - type: Sprite
@@ -57,7 +57,7 @@
 - type: entity
   id: RMCMachinePropBaseOverhead
   abstract: true
-  name: machinery
+  name: "обладнання"
   placement:
     mode: SnapgridCenter
     snap:
@@ -214,7 +214,7 @@
 - type: entity
   parent: RMCMachinePropBaseWall
   id: RMCMachinePropSmallVent
-  name: wall vent
+  name: "настінний вентиляційний отвір"
   components:
   - type: Sprite
     state: smallwallvent1
@@ -222,7 +222,7 @@
 - type: entity
   parent: RMCMachinePropBaseWall
   id: RMCMachinePropSmallVent2
-  name: wall vent
+  name: "настінний вентиляційний отвір"
   components:
   - type: Sprite
     state: smallwallvent2
@@ -230,7 +230,7 @@
 - type: entity
   parent: RMCMachinePropBaseWall
   id: RMCMachinePropSmallVent3
-  name: wall vent
+  name: "настінний вентиляційний отвір"
   components:
   - type: Sprite
     state: smallwallvent3

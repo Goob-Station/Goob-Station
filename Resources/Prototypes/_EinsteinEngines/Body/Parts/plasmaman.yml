@@ -3,7 +3,7 @@
 - type: entity
   id: PartPlasmaman
   parent: [BaseItem, BasePart]
-  name: plasmaman body part
+  name: "частина тіла плазмомена"
   abstract: true
   components:
   - type: Sprite
@@ -29,7 +29,7 @@
 
 - type: entity
   id: ChestPlasmaman
-  name: plasmaman chest
+  name: "груди плазмової людини"
   parent: [PartPlasmaman, BaseChest]
   components:
   - type: Sprite
@@ -44,7 +44,7 @@
 
 - type: entity
   id: GroinPlasmaman
-  name: plasmaman groin
+  name: "пах плазмової людини"
   parent: [PartPlasmaman, BaseGroin]
   components:
   - type: Sprite
@@ -59,7 +59,7 @@
 
 - type: entity
   id: HeadPlasmaman
-  name: plasmaman head
+  name: "голова плазмомена"
   parent: [PartPlasmaman, BaseHead]
   components:
   - type: Sprite
@@ -71,7 +71,7 @@
 
 - type: entity
   id: LeftArmPlasmaman
-  name: left plasmaman arm
+  name: "ліва рука плазмомена"
   parent: [PartPlasmaman, BaseLeftArm]
   components:
   - type: Sprite
@@ -81,7 +81,7 @@
 
 - type: entity
   id: RightArmPlasmaman
-  name: right plasmaman arm
+  name: "права рука плазмомена"
   parent: [PartPlasmaman, BaseRightArm]
   components:
   - type: Sprite
@@ -91,7 +91,7 @@
 
 - type: entity
   id: LeftHandPlasmaman
-  name: left plasmaman hand
+  name: "ліва рука плазмомена"
   parent: [PartPlasmaman, BaseLeftHand]
   components:
   - type: Sprite
@@ -103,7 +103,7 @@
 
 - type: entity
   id: RightHandPlasmaman
-  name: right plasmaman hand
+  name: "права рука плазмомена"
   parent: [PartPlasmaman, BaseRightHand]
   components:
   - type: Sprite
@@ -115,7 +115,7 @@
 
 - type: entity
   id: LeftLegPlasmaman
-  name: left plasmaman leg
+  name: "ліва нога плазмомена"
   parent: [PartPlasmaman, BaseLeftLeg]
   components:
   - type: Sprite
@@ -125,7 +125,7 @@
 
 - type: entity
   id: RightLegPlasmaman
-  name: right plasmaman leg
+  name: "права нога плазмомена"
   parent: [PartPlasmaman, BaseRightLeg]
   components:
   - type: Sprite
@@ -135,7 +135,7 @@
 
 - type: entity
   id: LeftFootPlasmaman
-  name: left plasmaman foot
+  name: "ліва нога плазмомена"
   parent: [PartPlasmaman, BaseLeftFoot]
   components:
   - type: Sprite
@@ -147,7 +147,7 @@
 
 - type: entity
   id: RightFootPlasmaman
-  name: right plasmaman foot
+  name: "права нога плазмомена"
   parent: [PartPlasmaman, BaseRightFoot]
   components:
   - type: Sprite

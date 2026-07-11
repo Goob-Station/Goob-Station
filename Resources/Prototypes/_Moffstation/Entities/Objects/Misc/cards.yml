@@ -716,7 +716,7 @@
 - type: entity
   parent: CardBoxBase
   id: CardBoxNuno
-  name: box of Nuno™
+  name: "коробка Нуно™"
   components:
   - type: Item
     size: Small
@@ -739,7 +739,7 @@
 - type: entity
   parent: CardDeckBase
   id: CardDeckNuno
-  name: deck of Nuno™ cards
+  name: "колода карт Нуно™"
   components:
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/Cards/card_nuno.rsi

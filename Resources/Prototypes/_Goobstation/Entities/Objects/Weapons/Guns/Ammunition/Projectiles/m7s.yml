@@ -1,6 +1,6 @@
 - type: entity
   id: BulletLowCaliber
-  name: bullet (5x23mm)
+  name: "куля (5x23мм)"
   parent: BaseBullet
   components:
   - type: Projectile

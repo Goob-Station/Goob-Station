@@ -3,8 +3,8 @@
 - type: entity
   id: CosmicCultLawBoard
   parent: BaseElectronics
-  name: malign law board
-  description: An eerie circuit board, suited for slotting into an AI law upload console. Its circuitry is interwoven with dendritic strands that twitch of their own accord.
+  name: "згубна плата законів"
+  description: "Моторошна плата, придатна для встановлення в консоль завантаження законів ШІ. Її схеми переплетені дендритними пасмами, що сіпаються самі по собі."
   components:
   - type: Sprite
     sprite: _DV/CosmicCult/Objects/lawboard.rsi
@@ -17,8 +17,8 @@
 - type: entity
   id: CosmicCultMindSink
   parent: PositronicBrain
-  name: astral mindsink
-  description: A strange artifact. Though comprised of malign materials, it instills no feelings of discomfort.
+  name: "астральний розумостік"
+  description: "Дивний артефакт. Хоча він складається зі згубних матеріалів, він не вселяє відчуття дискомфорту."
   components:
   - type: Sprite
     sprite: _DV/CosmicCult/Objects/mindsink.rsi

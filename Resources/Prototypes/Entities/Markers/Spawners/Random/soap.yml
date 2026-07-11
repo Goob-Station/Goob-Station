@@ -34,7 +34,7 @@
 - type: entity
   parent: MarkerBase
   id: RandomSlip100
-  name: random slip spawner
+  name: "спавнер випадкового підсковзування"
   components:
   - type: Sprite
     layers:
@@ -48,7 +48,7 @@
 - type: entity
   parent: MarkerBase
   id: RandomSoap
-  name: random soap spawner
+  name: "випадковий спавнер мила"
   components:
   - type: Sprite
     layers:

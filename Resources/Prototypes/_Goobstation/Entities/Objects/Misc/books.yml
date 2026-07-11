@@ -2,8 +2,8 @@
   parent: [BaseGuidebook, BaseMagicalContraband]
   id: GuidebookCodexUmbra
   suffix: guidebook
-  name: Codex Umbra
-  description: An old book tightly wound in dark leather. It details various contracts and their effects.
+  name: "Кодекс Умбра"
+  description: "Стара книга, щільно обгорнута темною шкірою. Вона детально описує різні контракти та їхні ефекти."
   components:
   - type: Sprite # Change to a unique one
     layers:
@@ -24,8 +24,8 @@
 - type: entity
   id: AdvMimeryVol1
   parent: [BaseSyndicateContraband, BaseSpellbook]
-  name: Guide to Advanced Mimery Vol 1
-  description: The pages don't make any sound when turned.
+  name: "Посібник з просунутої мімії. Том 1"
+  description: "Сторінки не видають жодного звуку, коли їх перегортають."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/bookmime.rsi
@@ -39,8 +39,8 @@
 - type: entity
   id: AdvMimeryVol2
   parent: [BaseSyndicateContraband, BaseSpellbook]
-  name: Guide to Advanced Mimery Vol 2
-  description: There aren't any words written...
+  name: "Посібник з просунутої мімії. Том 2"
+  description: "Тут не написано жодного слова..."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/bookmime.rsi
@@ -54,7 +54,7 @@
 - type: entity
   id: BoxAdvMimery
   parent: [BaseSyndicateContraband, BoxCardboard]
-  name: Guide to Advanced Mimery series box
+  name: "Коробка серії «Посібник з просунутої мімії»"
   components:
   - type: StorageFill
     contents:
