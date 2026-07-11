@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 07/11/2026 06:15:15
-  entityCount: 4738
+  time: 07/11/2026 10:35:17
+  entityCount: 4749
 maps:
 - 1
 grids:
@@ -876,6 +876,11 @@ entities:
     components:
     - type: Transform
       pos: -10.5,-4.5
+      parent: 2
+  - uid: 3567
+    components:
+    - type: Transform
+      pos: 17.5,4.5
       parent: 2
 - proto: AlwaysPoweredlightBlue
   entities:
@@ -2346,13 +2351,6 @@ entities:
     - type: Transform
       pos: -11.587911,9.752958
       parent: 2
-- proto: BoxSyringe
-  entities:
-  - uid: 3567
-    components:
-    - type: Transform
-      pos: -27.502176,-0.15115845
-      parent: 2
 - proto: Bucket
   entities:
   - uid: 2952
@@ -2392,11 +2390,6 @@ entities:
     components:
     - type: Transform
       pos: -2.5,-5.5
-      parent: 2
-  - uid: 187
-    components:
-    - type: Transform
-      pos: 17.5,4.5
       parent: 2
   - uid: 226
     components:
@@ -2471,6 +2464,59 @@ entities:
     components:
     - type: Transform
       pos: -1.5,7.5
+      parent: 2
+- proto: BunkerTicketGreen1
+  entities:
+  - uid: 4748
+    components:
+    - type: Transform
+      pos: -9.445067,-1.5095019
+      parent: 2
+- proto: BunkerTicketGreen10
+  entities:
+  - uid: 4741
+    components:
+    - type: Transform
+      pos: 21.622389,2.5885315
+      parent: 2
+  - uid: 4747
+    components:
+    - type: Transform
+      pos: -9.616942,-1.3688769
+      parent: 2
+- proto: BunkerTicketOrange1
+  entities:
+  - uid: 4742
+    components:
+    - type: Transform
+      pos: 21.497389,3.0885315
+      parent: 2
+  - uid: 4743
+    components:
+    - type: Transform
+      pos: -24.566313,28.954908
+      parent: 2
+  - uid: 4744
+    components:
+    - type: Transform
+      pos: -24.378813,28.798658
+      parent: 2
+  - uid: 4745
+    components:
+    - type: Transform
+      pos: -24.128813,29.079908
+      parent: 2
+  - uid: 4749
+    components:
+    - type: Transform
+      pos: -9.616942,-1.5251269
+      parent: 2
+- proto: BunkerTicketRed1
+  entities:
+  - uid: 4746
+    components:
+    - type: Transform
+      pos: -23.441313,28.595533
       parent: 2
 - proto: CableApcExtensionUncuttable
   entities:
@@ -6041,11 +6087,6 @@ entities:
     - type: Transform
       pos: -10.5,-1.5
       parent: 2
-  - uid: 3875
-    components:
-    - type: Transform
-      pos: -9.5,-1.5
-      parent: 2
 - proto: ContainmentFieldGenerator
   entities:
   - uid: 3779
@@ -6825,6 +6866,21 @@ entities:
       parent: 2
 - proto: LockableButtonSalvage
   entities:
+  - uid: 187
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 17.5,3.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        3567:
+        - - Pressed
+          - Open
+        - - Pressed
+          - DoorBolt
+    - type: Fixtures
+      fixtures: {}
   - uid: 2890
     components:
     - type: Transform
@@ -7634,6 +7690,13 @@ entities:
     components:
     - type: Transform
       pos: -25.5,17.5
+      parent: 2
+- proto: Rack
+  entities:
+  - uid: 3875
+    components:
+    - type: Transform
+      pos: -9.5,-1.5
       parent: 2
 - proto: RadiatorMachine
   entities:
@@ -12570,9 +12633,6 @@ entities:
         115:
         - - Pressed
           - Open
-        187:
-        - - Pressed
-          - Open
     - type: Fixtures
       fixtures: {}
   - uid: 1895
@@ -13057,6 +13117,18 @@ entities:
     components:
     - type: Transform
       pos: -10.541036,8.302905
+      parent: 2
+- proto: TurboItemRecharger
+  entities:
+  - uid: 4739
+    components:
+    - type: Transform
+      pos: 21.5,3.5
+      parent: 2
+  - uid: 4740
+    components:
+    - type: Transform
+      pos: -27.5,-0.5
       parent: 2
 - proto: UglyBarrel1
   entities:

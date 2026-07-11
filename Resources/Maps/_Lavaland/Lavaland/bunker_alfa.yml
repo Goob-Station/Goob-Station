@@ -1,16 +1,16 @@
 meta:
   format: 7
-  category: Map
+  category: Grid
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 07/11/2026 07:02:42
-  entityCount: 3367
-maps:
-- 1
+  time: 07/11/2026 10:22:23
+  entityCount: 3369
+maps: []
 grids:
 - 2
-orphans: []
+orphans:
+- 2
 nullspace: []
 tilemap:
   1: Space
@@ -36,23 +36,13 @@ tilemap:
 entities:
 - proto: ""
   entities:
-  - uid: 1
-    components:
-    - type: MetaData
-      name: Map Entity
-    - type: Transform
-    - type: Map
-      mapPaused: True
-    - type: GridTree
-    - type: Broadphase
-    - type: OccluderTree
   - uid: 2
     components:
     - type: MetaData
       name: grid
     - type: Transform
       pos: -0.5106666,1.8781195
-      parent: 1
+      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -2223,6 +2213,18 @@ entities:
     components:
     - type: Transform
       pos: 8.5,15.5
+      parent: 2
+- proto: BunkerTicketGreen1
+  entities:
+  - uid: 1
+    components:
+    - type: Transform
+      pos: -14.0248575,35.45091
+      parent: 2
+  - uid: 3287
+    components:
+    - type: Transform
+      pos: -4.5133467,3.221549
       parent: 2
 - proto: CableApcExtension
   entities:
@@ -5221,6 +5223,13 @@ entities:
     - type: Transform
       pos: 9.5,-11.5
       parent: 2
+- proto: DefaultStationBeaconRuinBunkerAlfa
+  entities:
+  - uid: 2461
+    components:
+    - type: Transform
+      pos: 8.5,-17.5
+      parent: 2
 - proto: DefibrillatorCabinetOpen
   entities:
   - uid: 1871
@@ -6744,17 +6753,17 @@ entities:
     - type: Transform
       pos: 7.5,-17.5
       parent: 2
-- proto: JerseyBarrierAlt2
+- proto: JerseyBarrierAlt1
   entities:
   - uid: 262
     components:
     - type: Transform
-      pos: 7.5,-19.5
+      pos: 9.5,-19.5
       parent: 2
   - uid: 278
     components:
     - type: Transform
-      pos: 9.5,-19.5
+      pos: 7.5,-19.5
       parent: 2
 - proto: JunctionBox1
   entities:
@@ -7732,11 +7741,6 @@ entities:
     components:
     - type: Transform
       pos: -5.5,35.5
-      parent: 2
-  - uid: 3076
-    components:
-    - type: Transform
-      pos: -14.5,35.5
       parent: 2
 - proto: MaterialScrewSingle
   entities:
@@ -12317,6 +12321,13 @@ entities:
     components:
     - type: Transform
       pos: 28.5,39.5
+      parent: 2
+- proto: TurboItemRecharger
+  entities:
+  - uid: 3076
+    components:
+    - type: Transform
+      pos: -14.5,35.5
       parent: 2
 - proto: UglyBarrel1
   entities:

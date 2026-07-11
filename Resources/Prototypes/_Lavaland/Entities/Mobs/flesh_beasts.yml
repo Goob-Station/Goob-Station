@@ -33,7 +33,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      80: Dead
+      40: Dead
   - type: Stamina
     baseCritThreshold: 100
     animationThreshold: 25
@@ -94,7 +94,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      80: Dead
+      40: Dead
 
 - type: entity
   parent: BaseMobFleshBeast
@@ -192,7 +192,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      75: Dead
+      50: Dead
   - type: MovementSpeedModifier
     baseWalkSpeed: 2
     baseSprintSpeed: 2
@@ -243,7 +243,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      160: Dead
+      150: Dead
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
     baseSprintSpeed: 3
@@ -280,8 +280,8 @@
       0: Alive
       200: Dead
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2.5
-    baseSprintSpeed: 2.5
+    baseWalkSpeed: 2
+    baseSprintSpeed: 2
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Effects/bite.ogg
@@ -317,10 +317,10 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      60: Dead
+      35: Dead
   - type: MovementSpeedModifier
-    baseWalkSpeed: 5
-    baseSprintSpeed: 5
+    baseWalkSpeed: 4.8
+    baseSprintSpeed: 4.8
   - type: TriggerOnProximity
     whitelist:
       components:
@@ -331,7 +331,7 @@
     triggerSpeed: 0.3
     shape:
       !type:PhysShapeCircle
-      radius: 1.5
+      radius: 2
     layer:
     - MobMask
   - type: Body
@@ -382,8 +382,8 @@
       0: Alive
       90: Dead
   - type: MovementSpeedModifier
-    baseWalkSpeed: 5.3
-    baseSprintSpeed: 5.3
+    baseWalkSpeed: 5.2
+    baseSprintSpeed: 5.2
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Effects/bite.ogg
@@ -417,7 +417,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Dead
+      90: Dead
   - type: MovementSpeedModifier
     baseWalkSpeed: 1.5
     baseSprintSpeed: 1.5
@@ -470,7 +470,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      500: Dead
+      400: Dead
   - type: MovementSpeedModifier
     baseWalkSpeed: 3.2
     baseSprintSpeed: 3.2

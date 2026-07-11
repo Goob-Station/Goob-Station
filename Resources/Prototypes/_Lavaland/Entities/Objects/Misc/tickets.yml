@@ -1,0 +1,167 @@
+- type: stack
+  id: GreenCoupon
+  name: stack-ticket-green
+  icon: { sprite: /Textures/_Lavaland/Objects/Misc/tickets.rsi, state: ticket_green }
+  spawn: BunkerTicketGreen
+
+- type: stack
+  id: OrangeCoupon
+  name: stack-ticket-orange
+  icon: { sprite: /Textures/_Lavaland/Objects/Misc/tickets.rsi, state: ticket_orange }
+  spawn: BunkerTicketOrange
+
+- type: stack
+  id: RedCoupon
+  name: stack-ticket-red
+  icon: { sprite: /Textures/_Lavaland/Objects/Misc/tickets.rsi, state: ticket_red }
+  spawn: BunkerTicketRed
+
+# Base
+
+- type: entity
+  parent: BaseItem
+  id: BaseBunkerTicket
+  name: kit coupon
+  description: This ticket could be exchanged for special goods on the second floor of Bunker Alfa. Though, for now, it is worthless.
+  abstract: true
+  components:
+  - type: Appearance
+  - type: StaticPrice
+    price: 100
+  - type: Sprite
+    sprite: _Lavaland/Objects/Misc/tickets.rsi
+    state: ticket_green3
+    layers:
+    - state: ticket_green3
+      map: ["base"]
+  - type: Item
+    sprite: _Lavaland/Objects/Misc/tickets.rsi
+    size: Tiny
+
+# Green
+
+- type: entity
+  parent: BaseBunkerTicket
+  id: BunkerTicketGreen
+  name: common kit coupon
+  suffix: Full
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Misc/tickets.rsi
+    state: ticket_green3
+    layers:
+    - state: ticket_green3
+      map: ["base"]
+  - type: Stack
+    stackType: GreenCoupon
+    count: 30
+    baseLayer: base
+    layerStates:
+    - ticket_green
+    - ticket_green2
+    - ticket_green3
+
+- type: entity
+  parent: BunkerTicketGreen
+  id: BunkerTicketGreen1
+  suffix: One
+  components:
+  - type: Sprite
+    state: ticket_green
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: BunkerTicketGreen
+  id: BunkerTicketGreen10
+  suffix: Ten
+  components:
+  - type: Sprite
+    state: ticket_green2
+  - type: Stack
+    count: 10
+
+# Orange
+
+- type: entity
+  parent: BaseBunkerTicket
+  id: BunkerTicketOrange
+  name: rare kit coupon
+  suffix: Full
+  components:
+  - type: Appearance
+  - type: StaticPrice
+    price: 250
+  - type: Sprite
+    sprite: _Lavaland/Objects/Misc/tickets.rsi
+    state: ticket_green2
+    layers:
+    - state: ticket_green2
+      map: ["base"]
+  - type: Stack
+    stackType: OrangeCoupon
+    baseLayer: base
+    count: 20
+    layerStates:
+    - ticket_orange
+    - ticket_orange2
+
+- type: entity
+  parent: BunkerTicketOrange
+  id: BunkerTicketOrange1
+  suffix: One
+  components:
+  - type: Sprite
+    state: ticket_orange
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: BunkerTicketOrange
+  id: BunkerTicketOrange10
+  suffix: Ten
+  components:
+  - type: Sprite
+    state: ticket_orange2
+  - type: Stack
+    count: 10
+
+# Red
+
+- type: entity
+  parent: BaseBunkerTicket
+  id: BunkerTicketRed
+  name: very rare kit coupon
+  suffix: Full
+  components:
+  - type: StaticPrice
+    price: 250
+  - type: Sprite
+    sprite: _Lavaland/Objects/Misc/tickets.rsi
+    state: ticket_red
+    layers:
+    - state: ticket_red
+      map: ["base"]
+  - type: Stack
+    stackType: RedCoupon
+    baseLayer: base
+    count: 10
+    layerStates:
+    - ticket_red
+    - ticket_red
+
+- type: entity
+  parent: BunkerTicketRed
+  id: BunkerTicketRed1
+  suffix: One
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: BunkerTicketRed
+  id: BunkerTicketRed5
+  suffix: Five
+  components:
+  - type: Stack
+    count: 5

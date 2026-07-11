@@ -20,11 +20,11 @@
 - type: damageModifierSet
   id: FleshBeast
   coefficients:
-    Blunt: 0.9
-    Piercing: 0.8
+    Blunt: 1
+    Piercing: 1
     Slash: 1
     Cold: 0.3
-    Heat: 1
+    Heat: 1.1
     Poison: 0.0
   ignoreArmorPierceFlags: All # Goobstation
 
@@ -35,6 +35,6 @@
     Piercing: 0.5
     Slash: 0.5
     Cold: 0.1
-    Heat: 1.5
+    Heat: 1.8
     Poison: 0.0
   ignoreArmorPierceFlags: All # Goobstation

@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 07/11/2026 06:13:25
-  entityCount: 3879
+  time: 07/11/2026 10:40:23
+  entityCount: 3897
 maps:
 - 1
 grids:
@@ -2437,8 +2437,37 @@ entities:
       rot: 3.141592653589793 rad
       pos: -1.5,6.5
       parent: 2
+- proto: BunkerTicketOrange1
+  entities:
+  - uid: 3896
+    components:
+    - type: Transform
+      pos: -7.4990807,12.61935
+      parent: 2
+  - uid: 3897
+    components:
+    - type: Transform
+      pos: -7.4834557,12.4631
+      parent: 2
+- proto: BunkerTicketRed1
+  entities:
+  - uid: 3894
+    components:
+    - type: Transform
+      pos: -6.5008802,-15.5836525
+      parent: 2
 - proto: CableApcExtensionUncuttable
   entities:
+  - uid: 1467
+    components:
+    - type: Transform
+      pos: -9.5,-6.5
+      parent: 2
+  - uid: 1586
+    components:
+    - type: Transform
+      pos: -9.5,-5.5
+      parent: 2
   - uid: 1676
     components:
     - type: Transform
@@ -5799,17 +5828,62 @@ entities:
     - type: Transform
       pos: -0.5,5.5
       parent: 2
+  - uid: 3884
+    components:
+    - type: Transform
+      pos: -9.5,-4.5
+      parent: 2
+  - uid: 3885
+    components:
+    - type: Transform
+      pos: -9.5,-3.5
+      parent: 2
+  - uid: 3886
+    components:
+    - type: Transform
+      pos: -8.5,-3.5
+      parent: 2
+  - uid: 3887
+    components:
+    - type: Transform
+      pos: -7.5,-3.5
+      parent: 2
+  - uid: 3888
+    components:
+    - type: Transform
+      pos: -6.5,-3.5
+      parent: 2
+  - uid: 3889
+    components:
+    - type: Transform
+      pos: -5.5,-3.5
+      parent: 2
+  - uid: 3890
+    components:
+    - type: Transform
+      pos: -4.5,-3.5
+      parent: 2
+  - uid: 3891
+    components:
+    - type: Transform
+      pos: -3.5,-3.5
+      parent: 2
+  - uid: 3892
+    components:
+    - type: Transform
+      pos: -9.5,-10.5
+      parent: 2
+  - uid: 3893
+    components:
+    - type: Transform
+      pos: -9.5,-11.5
+      parent: 2
 - proto: CableApcStack
   entities:
-  - uid: 3125
+  - uid: 3883
     components:
     - type: Transform
-      pos: -36.77987,5.7959137
-      parent: 2
-  - uid: 3126
-    components:
-    - type: Transform
-      pos: -36.50468,5.6308007
+      pos: -29.625504,6.5023193
       parent: 2
 - proto: CableHVUncuttable
   entities:
@@ -9830,12 +9904,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 17.495483,-10.276259
       parent: 2
-  - uid: 1467
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -7.5033655,-15.462196
-      parent: 2
   - uid: 2788
     components:
     - type: Transform
@@ -9868,6 +9936,13 @@ entities:
     components:
     - type: Transform
       pos: -6.5,13.5
+      parent: 2
+- proto: GoonSupplyCrateFilledVeryRare
+  entities:
+  - uid: 3125
+    components:
+    - type: Transform
+      pos: -7.5,-15.5
       parent: 2
 - proto: GravityGenerator
   entities:
@@ -15407,10 +15482,10 @@ entities:
       parent: 2
 - proto: TechnologyDiskRare
   entities:
-  - uid: 1586
+  - uid: 3881
     components:
     - type: Transform
-      pos: 7.5,4.5
+      pos: 8.084113,4.517166
       parent: 2
 - proto: ToolShelfLarge
   entities:
@@ -15425,6 +15500,23 @@ entities:
     components:
     - type: Transform
       pos: 12.5,-36.5
+      parent: 2
+- proto: TurboItemRecharger
+  entities:
+  - uid: 3126
+    components:
+    - type: Transform
+      pos: 7.5,4.5
+      parent: 2
+  - uid: 3880
+    components:
+    - type: Transform
+      pos: 7.5,-5.5
+      parent: 2
+  - uid: 3882
+    components:
+    - type: Transform
+      pos: -36.5,5.5
       parent: 2
 - proto: UglyBarrel1
   entities:
@@ -22736,6 +22828,13 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -3.2233229,-10.039917
+      parent: 2
+- proto: WeaponLaserCarbine
+  entities:
+  - uid: 3895
+    components:
+    - type: Transform
+      pos: -5.5,-15.5
       parent: 2
 - proto: WeaponTurretLavafauna
   entities:

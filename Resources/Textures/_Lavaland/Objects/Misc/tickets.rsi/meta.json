@@ -1,0 +1,29 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Sprited by OnsenCapy",
+    "size": {
+        "x": 16,
+        "y": 16
+    },
+    "states": [
+        {
+            "name": "ticket_green"
+        },
+        {
+            "name": "ticket_green2"
+        },
+        {
+            "name": "ticket_green3"
+        },
+        {
+            "name": "ticket_orange"
+        },
+        {
+            "name": "ticket_orange2"
+        },
+        {
+            "name": "ticket_red"
+        }
+    ]
+}
