@@ -1,0 +1,69 @@
+<controls:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    Title="{Loc 'store-preset-name-uplink'}"
+    MinSize="512 512"
+    SetSize="850 600">
+    <BoxContainer Orientation="Vertical" Margin="8">
+        <BoxContainer Orientation="Horizontal" VerticalExpand="True">
+            <BoxContainer Orientation="Vertical">
+                <BoxContainer Orientation="Horizontal">
+                    <Button
+                        Name="WithdrawButton"
+                        HorizontalExpand="True">
+                        <RichTextLabel
+                            Name="BalanceInfo"
+                            HorizontalAlignment="Center"
+                            Access="Public"
+                            HorizontalExpand="True" />
+                    </Button>
+                    <Button
+                        Name="RefundButton"
+                        HorizontalAlignment="Right"
+                        Text="{Loc 'store-ui-refund-text'}" />
+                </BoxContainer>
+                <LineEdit Name="SearchBar" Margin="0,4,0,4" PlaceHolder="Search" HorizontalExpand="True" MinWidth="150"/>
+                <PanelContainer VerticalExpand="True">
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="#000000FF" />
+                    </PanelContainer.PanelOverride>
+                    <BoxContainer Name="CategoryListContainer" Orientation="Vertical" Margin="2,2,2,2">
+                    </BoxContainer>
+                </PanelContainer>
+            </BoxContainer>
+            <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True">
+                <PanelContainer VerticalExpand="True" Margin="8,0,0,0">
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="#000000FF" />
+                    </PanelContainer.PanelOverride>
+                    <ScrollContainer
+                        Name="StoreListingsScroll"
+                        HScrollEnabled="False"
+                        HorizontalExpand="True"
+                        MinSize="100 256"
+                        SizeFlagsStretchRatio="2"
+                        VerticalExpand="True">
+                        <BoxContainer
+                            Name="StoreListingsContainer"
+                            MinSize="100 256"
+                            Orientation="Vertical"
+                            SizeFlagsStretchRatio="2"
+                            VerticalExpand="True">
+                        </BoxContainer>
+                    </ScrollContainer>
+                </PanelContainer>
+            </BoxContainer>
+        </BoxContainer>
+        <BoxContainer Orientation="Vertical">
+            <PanelContainer StyleClasses="LowDivider" />
+            <BoxContainer Orientation="Horizontal" Margin="16 8 16 8" VerticalAlignment="Bottom">
+                <BoxContainer Orientation="Vertical">
+                    <Label Text="{Loc 'uplink-ui-flavor'}" StyleClasses="WindowFooterText" />
+                    <Label Text="{Loc 'uplink-ui-connection-secure'}" StyleClasses="WindowFooterText" FontColorOverride="#126128"/>
+                </BoxContainer>
+                <Label Text="{Loc 'uplink-ui-warning'}" StyleClasses="WindowFooterText" HorizontalAlignment="Right" VerticalAlignment="Top" HorizontalExpand="True"/>
+            </BoxContainer>
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>

@@ -1,5 +1,7 @@
 using Content.Shared.Power.EntitySystems;
+using Content.Shared.Popups;
 using JetBrains.Annotations;
+using Robust.Shared.Network;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Materials.OreSilo;
@@ -7,6 +9,8 @@ namespace Content.Shared.Materials.OreSilo;
 public abstract class SharedOreSiloSystem : EntitySystem
 {
     [Dependency] private readonly SharedMaterialStorageSystem _materialStorage = default!;
+    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _powerReceiver = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
@@ -36,7 +40,10 @@ public abstract class SharedOreSiloSystem : EntitySystem
         var client = GetEntity(args.Client);
 
         if (!_clientQuery.TryComp(client, out var clientComp))
+        {
+            PopupLinkFailure(ent, args.Actor, OreSiloLinkResult.Unavailable);
             return;
+        }
 
         if (ent.Comp.Clients.Contains(client)) // remove client
         {
@@ -49,8 +56,12 @@ public abstract class SharedOreSiloSystem : EntitySystem
         }
         else // add client
         {
-            if (!CanTransmitMaterials((ent, ent), client))
+            var result = GetLinkResult((ent, ent, Transform(ent)), client);
+            if (result != OreSiloLinkResult.Success)
+            {
+                PopupLinkFailure(ent, args.Actor, result);
                 return;
+            }
 
             var clientMats = _materialStorage.GetStoredMaterials(client, true);
             var inverseMats = new Dictionary<string, int>();
@@ -149,20 +160,51 @@ public abstract class SharedOreSiloSystem : EntitySystem
     /// Checks if a given client fulfills the criteria to link/receive materials from an ore silo.
     /// </summary>
     [PublicAPI]
-    public bool CanTransmitMaterials(Entity<OreSiloComponent?> silo, EntityUid client)
+    public bool CanTransmitMaterials(Entity<OreSiloComponent?, TransformComponent?> silo, EntityUid client)
     {
-        if (!Resolve(silo, ref silo.Comp))
-            return false;
+        return GetLinkResult(silo, client) == OreSiloLinkResult.Success;
+    }
+
+    private OreSiloLinkResult GetLinkResult(Entity<OreSiloComponent?, TransformComponent?> silo, EntityUid client)
+    {
+        if (!Resolve(silo, ref silo.Comp1, ref silo.Comp2))
+            return OreSiloLinkResult.Unavailable;
 
         if (!_powerReceiver.IsPowered(silo.Owner))
-            return false;
+            return OreSiloLinkResult.Unpowered;
 
         if (_transform.GetGrid(client) != _transform.GetGrid(silo.Owner))
-            return false;
+            return OreSiloLinkResult.DifferentGrid;
 
-        if (!_transform.InRange(silo.Owner, client, silo.Comp.Range))
-            return false;
+        if (!_transform.InRange((silo.Owner, silo.Comp2), client, silo.Comp1.Range))
+            return OreSiloLinkResult.OutOfRange;
 
-        return true;
+        return OreSiloLinkResult.Success;
+    }
+
+    // Pirate: surface server-side link rejection instead of silently ignoring the click.
+    private void PopupLinkFailure(EntityUid silo, EntityUid user, OreSiloLinkResult result)
+    {
+        if (!_net.IsServer)
+            return;
+
+        var message = result switch
+        {
+            OreSiloLinkResult.Unpowered => "ore-silo-ui-link-failed-unpowered",
+            OreSiloLinkResult.DifferentGrid => "ore-silo-ui-link-failed-different-grid",
+            OreSiloLinkResult.OutOfRange => "ore-silo-ui-link-failed-out-of-range",
+            _ => "ore-silo-ui-link-failed-unavailable",
+        };
+
+        _popup.PopupClient(Loc.GetString(message), silo, user, PopupType.SmallCaution);
+    }
+
+    private enum OreSiloLinkResult : byte
+    {
+        Success,
+        Unavailable,
+        Unpowered,
+        DifferentGrid,
+        OutOfRange,
     }
 }

@@ -305,9 +305,9 @@ public sealed class HealthAnalyzerSystem : EntitySystem
 
         if (TryComp<BloodstreamComponent>(target, out var bloodstream) &&
             _solutionContainerSystem.ResolveSolution(target, bloodstream.BloodSolutionName,
-                ref bloodstream.BloodSolution, out var bloodSolution))
+                ref bloodstream.BloodSolution))
         {
-            bloodAmount = bloodSolution.FillFraction;
+            bloodAmount = _bloodstreamSystem.GetBloodLevel((target, bloodstream)); // Pirate: reserve capacity is not missing blood.
             bloodLow = bloodAmount < bloodstream.BloodlossThreshold; // Goobstation
         }
 
