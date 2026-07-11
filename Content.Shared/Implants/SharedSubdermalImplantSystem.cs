@@ -3,11 +3,6 @@
 using System.Linq;
 using Content.Shared.Actions;
 using Content.Shared.Implants.Components;
-using Content.Shared.Interaction;
-using Content.Shared.Interaction.Events;
-using Content.Shared.Mobs;
-using Content.Shared.Tag;
-using JetBrains.Annotations;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
@@ -30,10 +25,6 @@ public abstract partial class SharedSubdermalImplantSystem : EntitySystem
         SubscribeLocalEvent<SubdermalImplantComponent, EntGotInsertedIntoContainerMessage>(OnInsert);
         SubscribeLocalEvent<SubdermalImplantComponent, ContainerGettingRemovedAttemptEvent>(OnRemoveAttempt);
         SubscribeLocalEvent<SubdermalImplantComponent, EntGotRemovedFromContainerMessage>(OnRemove);
-
-        SubscribeLocalEvent<ImplantedComponent, MobStateChangedEvent>(RelayToImplantEvent);
-        SubscribeLocalEvent<ImplantedComponent, AfterInteractUsingEvent>(RelayToImplantEvent);
-        SubscribeLocalEvent<ImplantedComponent, SuicideEvent>(RelayToImplantEvent);
     }
 
     private void OnInsert(Entity<SubdermalImplantComponent> ent, ref EntGotInsertedIntoContainerMessage args)
@@ -78,6 +69,11 @@ public abstract partial class SharedSubdermalImplantSystem : EntitySystem
         _actions.RemoveAction(ent.Comp.ImplantedEntity.Value, ent.Comp.Action);
         ent.Comp.Action = null;
 
+        var ev = new ImplantRemovedEvent(ent.Owner, ent.Comp.ImplantedEntity.Value);
+        RaiseLocalEvent(ent.Owner, ref ev);
+
+        ent.Comp.ImplantedEntity = null;
+        Dirty(ent);
     }
 
     /// <summary>
