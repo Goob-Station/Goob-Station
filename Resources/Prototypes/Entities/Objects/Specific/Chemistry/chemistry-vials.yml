@@ -42,6 +42,18 @@
       color: "#FF9880"
     affectedLayers:
     - "enum.SolutionContainerLayers.Fill"
+  - type: DrawableSolution #Goob
+    solution: beaker
+  - type: SolutionContainerVisuals #goob
+    maxFillLevels: 6
+    inHandsMaxFillLevels: 4
+    fillBaseName: fill-
+    inHandsFillBaseName: -fill-
+    solutionName: beaker
+  - type: SolutionContainerManager #goob
+    solutions:
+      beaker:
+        maxVol: 30
 
 ## Entities
 
@@ -58,10 +70,6 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 6
     inHandsMaxFillLevels: 4
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
   - type: SolutionTransfer
     maxTransferAmount: 30
   - type: StaticPrice
@@ -106,7 +114,7 @@
     inHandsMaxFillLevels: 4
   - type: SolutionContainerManager
     solutions:
-      drink:
+      beaker: #Goob
         maxVol: 10
   - type: SolutionTransfer
     maxTransferAmount: 10
@@ -139,7 +147,7 @@
     currentLabel: reagent-name-vestine
   - type: SolutionContainerManager
     solutions:
-      drink:
+      beaker: #Goob
         maxVol: 30
         reagents:
         - ReagentId: Vestine
@@ -157,7 +165,7 @@
     currentLabel: reagent-name-radium
   - type: SolutionContainerManager
     solutions:
-      drink:
+      beaker: #Goob
         maxVol: 30 # Goobstation
         reagents:
           - ReagentId: Radium
@@ -174,7 +182,7 @@
     currentLabel: reagent-name-chlorine
   - type: SolutionContainerManager
     solutions:
-      drink:
+      beaker: #Goob
         maxVol: 30 # Goobstation
         reagents:
           - ReagentId: Chlorine
@@ -191,7 +199,7 @@
     currentLabel: reagent-name-plasma
   - type: SolutionContainerManager
     solutions:
-      drink:
+      beaker: #Goob
         maxVol: 30 # Goobstation
         reagents:
           - ReagentId: Plasma

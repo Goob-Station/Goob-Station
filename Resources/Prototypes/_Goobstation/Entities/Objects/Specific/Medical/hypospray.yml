@@ -22,10 +22,9 @@
     solution: hypospray
   - type: Injector
     solutionName: hypospray
-    ignoreClosed: false
-    activeModeProtoId: HyposprayDynamicMode
+    currentTransferAmount: null
+    activeModeProtoId: HyposprayInjectMode
     allowedModes:
-    - HyposprayDynamicMode
     - HyposprayInjectMode
   - type: HyposprayBlockNonMobInjection
   - type: UseDelay
@@ -364,13 +363,6 @@
     maxFillLevels: 1
     changeColor: false
     emptySpriteName: stasipen_empty
-  - type: Injector
-    solutionName: hypospray
-    ignoreClosed: false
-    activeModeProtoId: HyposprayDynamicMode
-    allowedModes:
-    - HyposprayDynamicMode
-    - HyposprayInjectMode
   - type: SolutionContainerManager
     solutions:
       pen:
@@ -406,13 +398,6 @@
     maxFillLevels: 1
     changeColor: false
     emptySpriteName: ntstimpen_empty
-  - type: Injector
-    solutionName: hypospray
-    ignoreClosed: false
-    activeModeProtoId: HyposprayDynamicMode
-    allowedModes:
-    - HyposprayDynamicMode
-    - HyposprayInjectMode
   - type: StaticPrice
     price: 500
 
