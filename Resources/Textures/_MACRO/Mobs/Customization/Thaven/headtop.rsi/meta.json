@@ -1,0 +1,27 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "piercings sprited by Widgetbeck for Impstation, hibiscus by Faeling",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "piercings",
+            "directions": 4
+        },
+        {
+            "name": "piercings2",
+            "directions": 4
+        },
+        {
+            "name": "hibiscus1",
+            "directions": 4
+        },
+        {
+            "name": "hibiscus2",
+            "directions": 4
+        }
+    ]
+}

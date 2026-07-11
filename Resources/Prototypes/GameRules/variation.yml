@@ -117,6 +117,7 @@
     - Blood
     - CopperBlood
     - Slime
+    - ShimmeringBlood # MACRO
   - quantity: 25
     weight: 1
     reagents:

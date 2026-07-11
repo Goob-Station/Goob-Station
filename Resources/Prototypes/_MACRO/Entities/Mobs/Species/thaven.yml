@@ -1,0 +1,82 @@
+- type: entity
+  save: false
+  name: Urist McThaven
+  parent: BaseMobHuman
+  id: MobThavenBase
+  abstract: true
+  components:
+  - type: Sprite
+  - type: ScaleData
+  - type: HumanoidAppearance
+    species: Thaven
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 140
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Body
+    prototype: Thaven
+  - type: Damageable
+    damageModifierSet: Thaven
+  - type: MeleeWeapon
+    soundHit:
+      collection: Punch
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Blunt: 0
+        Slash: 0
+        Piercing: 0
+  - type: Speech
+    speechSounds: Alto
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    understands:
+    - TauCetiBasic
+  - type: Stamina
+    baseCritThreshold: 100
+    animationThreshold: 40
+  - type: TypingIndicator
+    proto: thaven
+  - type: PseudoItem
+    storedOffset: 0,17
+    shape:
+      - 0,0,1,4
+      - 0,2,3,4
+      - 4,0,5,4
+  - type: Vocal
+    sounds:
+      Male: MaleThaven
+      Female: FemaleThaven
+      Unsexed: MaleThaven
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
+  - type: Consciousness
+    cap: 160
+    threshold: 80
+  - type: StrangeMoods
+    mood: ThavenMoods
+  - type: ThavenMoods
+
+- type: entity
+  save: false
+  name: Urist McHands
+  parent: MobHumanDummy
+  id: MobThavenDummy
+  categories: [ HideSpawnMenu ]
+  description: A dummy thaven meant to be used in character setup.
+  components:
+  - type: HumanoidAppearance
+    species: Thaven

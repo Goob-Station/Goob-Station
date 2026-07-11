@@ -1,0 +1,12 @@
+- type: entity
+  name: raw thaven fillet
+  parent: FoodMeatFish
+  id: FoodThavenMeat
+  description: Concerning.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - thavenflesh
+  - type: FoodSequenceElement
+    entries:
+      Burger: ThavenBurger

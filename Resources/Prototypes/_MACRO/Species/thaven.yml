@@ -1,0 +1,228 @@
+- type: species
+  id: Thaven
+  name: species-name-thaven
+  roundStart: true
+#  randomViable: true
+  prototype: MobThaven
+  sprites: MobThavenSprites
+  markingLimits: MobThavenMarkingLimits
+  defaultSkinTone: "#ffffff"
+  dollPrototype: MobThavenDummy
+  skinColoration: Hues
+  maleFirstNames: NamesThaven
+  femaleFirstNames: NamesThaven
+  naming: First
+  sexes:
+  - Male
+  - Female
+  - Unsexed
+
+- type: speciesBaseSprites
+  id: MobThavenSprites
+  sprites:
+    Special: MobHumanoidAnyMarking
+    Head: MobThavenHead
+    Face: MobHumanoidAnyMarking
+    Hair: MobHumanoidAnyMarking
+    FacialHair: MobHumanoidAnyMarking
+    Snout: MobHumanoidAnyMarking
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
+    Chest: MobThavenChest
+    Groin: MobThavenGroin
+    Eyes: MobHumanoidEyes
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    LArm: MobThavenLArm
+    RArm: MobThavenRArm
+    LHand: MobThavenLHand
+    RHand: MobThavenRHand
+    LLeg: MobThavenLLeg
+    RLeg: MobThavenRLeg
+    LFoot: MobThavenLFoot
+    RFoot: MobThavenRFoot
+    Tail: MobHumanoidAnyMarking
+
+- type: humanoidBaseSprite
+  id: MobThavenHead
+  baseSprite:
+    sprite: _MACRO/Mobs/Species/Thaven/parts.rsi
+    state: head
+
+- type: humanoidBaseSprite
+  id: MobThavenHeadMale
+  baseSprite:
+    sprite: _MACRO/Mobs/Species/Thaven/parts.rsi
+    state: head
+
+- type: humanoidBaseSprite
+  id: MobThavenHeadFemale
+  baseSprite:
+    sprite: _MACRO/Mobs/Species/Thaven/parts.rsi
+    state: head
+
+- type: humanoidBaseSprite
+  id: MobThavenChest
+  baseSprite:
+    sprite: _MACRO/Mobs/Species/Thaven/parts.rsi
+    state: torso
+
+- type: humanoidBaseSprite
+  id: MobThavenChestMale
+  baseSprite:
+    sprite: _MACRO/Mobs/Species/Thaven/parts.rsi
+    state: torso
+
+- type: humanoidBaseSprite
+  id: MobThavenChestFemale
+  baseSprite:
+    sprite: _MACRO/Mobs/Species/Thaven/parts.rsi
+    state: torso
+
+- type: humanoidBaseSprite
+  id: MobThavenGroin
+  baseSprite:
+    sprite: _MACRO/Mobs/Species/Thaven/parts.rsi
+    state: torso
+
+- type: humanoidBaseSprite
+  id: MobThavenGroinMale
+  baseSprite:
+    sprite: _MACRO/Mobs/Species/Thaven/parts.rsi
+    state: torso
+
+- type: humanoidBaseSprite
+  id: MobThavenGroinFemale
+  baseSprite:
+    sprite: _MACRO/Mobs/Species/Thaven/parts.rsi
+    state: torso
+
+- type: humanoidBaseSprite
+  id: MobThavenLArm
+  baseSprite:
+    sprite: _MACRO/Mobs/Species/Thaven/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobThavenRArm
+  baseSprite:
+    sprite: _MACRO/Mobs/Species/Thaven/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobThavenLHand
+  baseSprite:
+    sprite: _MACRO/Mobs/Species/Thaven/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobThavenRHand
+  baseSprite:
+    sprite: _MACRO/Mobs/Species/Thaven/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobThavenLLeg
+  baseSprite:
+    sprite: _MACRO/Mobs/Species/Thaven/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobThavenRLeg
+  baseSprite:
+    sprite: _MACRO/Mobs/Species/Thaven/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobThavenLFoot
+  baseSprite:
+    sprite: _MACRO/Mobs/Species/Thaven/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobThavenRFoot
+  baseSprite:
+    sprite: _MACRO/Mobs/Species/Thaven/parts.rsi
+    state: r_foot
+
+- type: markingPoints
+  id: MobThavenMarkingLimits
+  points:
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 1
+      required: false
+    Snout:
+      points: 1
+      required: false
+    Tail:
+      points: 2
+      required: false
+    HeadTop:
+      points: 1
+      required: false
+    HeadSide:
+      points: 8
+      required: false
+    UndergarmentTop:
+      points: 1
+      required: false
+    UndergarmentBottom:
+      points: 8
+      required: false
+    Chest:
+      points: 10
+      required: false
+    Head:
+      points: 3
+      required: false
+    Overlay:
+      points: 2
+      required: false
+    RightArm:
+      points: 2
+      required: false
+    LeftArm:
+      points: 2
+      required: false
+    RightLeg:
+      points: 2
+      required: false
+    LeftLeg:
+      points: 2
+      required: false
+    RightHand:
+      points: 3
+      required: false
+    LeftHand:
+      points: 3
+      required: false
+    RightFoot:
+      points: 2
+      required: false
+    LeftFoot:
+      points: 2
+      required: false
+    Face:
+      points: 3
+      required: false
+
+# Developer Notes
+#
+# Thaven are a species of space elves with fish influences. Their main gameplay draw is the Strange Moods system.
+# Every thaven receives a random selection of moods, which are roleplay prompts that inform their behavior throughout the round.
+# The interface is reminiscent of borg laws. There is one shared mood that every thaven has and two personal ones.
+# Incapacitated thaven can be emagged to receive a more chaotic mood, and ion storms have a chance to add or remove or emag.
+#
+# The mood list included comes from impstation, any fork wanting to enable the species should look over the moods and datasets 
+# to consider making edits to better fit their server culture. 
+# Resources\Prototypes\_MACRO\StrangeMoods
+# Resources\Prototypes\_MACRO\Datasets\mood_datasets.yml
+#
+# The strange mood system admin verb can be used on any player regardless of species, and the moods they receive are customizable
+# using a simple interface. No view variables or console commands required.
+#
+# Aside from the moods, thaven are able to breathe all gases, their unarmed attack is a "nerve-pinch" stamina drain,
+# and they speak with no contractions.

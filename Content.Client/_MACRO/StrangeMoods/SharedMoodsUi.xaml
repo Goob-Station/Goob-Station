@@ -1,0 +1,23 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+        xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+        Title="{Loc shared-moods-admin-ui-title}"
+        MinSize="560 660">
+    <BoxContainer Orientation="Vertical" Margin="4">
+        <BoxContainer Orientation="Horizontal" Margin="0 0 0 4">
+            <BoxContainer Margin="4 0 0 0">
+                <Label Text="{Loc strange-moods-admin-ui-shared-mood}" Margin="0 0 4 0"/>
+                <OptionButton Name="SharedMoodDropDown" />
+            </BoxContainer>
+            <BoxContainer Orientation="Horizontal" HorizontalAlignment="Right" HorizontalExpand="True">
+                <Button Name="NewMoodButton" Text="{Loc strange-moods-admin-ui-new-mood}" StyleClasses="OpenRight" />
+                <Button Name="CreateSharedButton" Text="{Loc shared-moods-admin-ui-create-shared}" StyleClasses="OpenBoth" />
+                <Button Name="SaveButton" Text="{Loc strange-moods-admin-ui-save}" StyleClasses="OpenLeft" />
+            </BoxContainer>
+        </BoxContainer>
+        <ScrollContainer VerticalExpand="True" HorizontalExpand="True" HScrollEnabled="False">
+            <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True">
+                <BoxContainer Orientation="Vertical" Name="MoodContainer" />
+            </BoxContainer>
+        </ScrollContainer>
+    </BoxContainer>
+</controls:FancyWindow>

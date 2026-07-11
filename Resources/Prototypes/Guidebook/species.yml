@@ -30,6 +30,7 @@
     - Shadowkin
     - Hydrakin # Monolith/Obelisk
     - Goblin
+    - Thaven # MACRO
 
 - type: guideEntry
   id: Arachnid
@@ -131,3 +132,9 @@
   id: Hydrakin
   name: species-name-hydrakin
   text: "/ServerInfo/Guidebook/Mobs/Hydrakin.xml"
+
+# MACRO
+- type: guideEntry
+  id: Thaven
+  name: species-name-thaven
+  text: "/ServerInfo/_MACRO/Guidebook/Mobs/Thaven.xml"

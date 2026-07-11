@@ -19,7 +19,7 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Human, Animal, Rat, Plant,
-                  Feroxi, Hydrakin ] # DeltaV - Feroxi Still need to breathe # And hydrakin fucks
+                  Feroxi, Hydrakin, Thaven ] # DeltaV - Feroxi Still need to breathe # And hydrakin fucks
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
         conditions:

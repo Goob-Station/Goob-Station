@@ -352,6 +352,8 @@ public sealed partial class AdminVerbSystem
             args.Verbs.Add(refillInternalsPlasma);
         }
 
+        AddMACROTricks(args);
+
         Verb sendToTestArena = new()
         {
             Text = Loc.GetString("admin-verbs-send-to-test-arena"),
@@ -913,5 +915,6 @@ public sealed partial class AdminVerbSystem
         MakeMinigun = -28,
         SetBulletAmount = -29,
         SpawnPassport = -30, // Pirate - Allow Admins to Spawn a Passport for Players
+        AddRandomMood = -31, // MACRO
     }
 }

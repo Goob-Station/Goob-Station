@@ -5,7 +5,7 @@
         "y": 32
     },
     "license": "CC-BY-SA-3.0",
-    "copyright": "Felinid sprites made by Adrian16199 (Github), Rodentia sprites made by portfiend",
+    "copyright": "Felinid sprites made by Adrian16199 (Github), Rodentia sprites made by portfiend, Thaven sprites made by macrocosm",
     "states": [
         {
             "name": "felinid0",
@@ -74,6 +74,26 @@
         },
         {
             "name": "feroxi2"
+        },
+        {
+            "name": "thaven0",
+            "delays": [
+                [
+                    0.2,
+                    0.3,
+                    0.3,
+                    0.5
+                ]
+            ]
+        },
+        {
+            "name": "thaven1"
+        },
+        {
+            "name": "thaven2"
+        },
+        {
+            "name": "thaven3"
         }
     ]
 }

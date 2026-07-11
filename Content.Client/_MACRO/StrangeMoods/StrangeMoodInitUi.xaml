@@ -1,0 +1,20 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="{Loc strange-moods-admin-init-ui-title}"
+                      MinSize="440 200"
+                      Resizable="False">
+    <BoxContainer Orientation="Vertical" VerticalAlignment="Center" Margin="4 4 4 8">
+        <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center">
+            <RichTextLabel Text="{Loc strange-moods-admin-init-ui-desc}" HorizontalAlignment="Center" Margin="0 0 0 8" />
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center">
+            <Label Text="{Loc strange-moods-admin-init-ui-preset}" HorizontalAlignment="Center" />
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 4 0 4">
+            <OptionButton Name="MoodPresetDropDown" HorizontalExpand="True" />
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Name="AcceptPresetButton" Text="{Loc strange-moods-admin-init-ui-accept}" />
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>
