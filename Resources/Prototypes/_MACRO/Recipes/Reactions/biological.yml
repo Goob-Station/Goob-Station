@@ -1,15 +1,4 @@
 - type: reaction
-  id: GrayBloodBreakdown
-  source: true
-  requiredMixerCategories:
-  - Centrifuge
-  reactants:
-    GrayBlood:
-      amount: 5
-  products:
-    Radium: 5
-
-- type: reaction
   id: ShimmeringBloodBreakdown
   source: true
   requiredMixerCategories:

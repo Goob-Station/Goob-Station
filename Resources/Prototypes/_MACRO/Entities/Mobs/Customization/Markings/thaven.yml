@@ -4,7 +4,7 @@
   id: BodyhairThaven
   bodyPart: Chest
   markingCategory: Chest
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/chest.rsi
     state: hair
@@ -13,7 +13,7 @@
   id: Gills
   bodyPart: Chest
   markingCategory: Chest
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/chest.rsi
     state: gills
@@ -22,7 +22,7 @@
   id: ThavenAbs
   bodyPart: Chest
   markingCategory: Chest
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/chest.rsi
     state: muscular
@@ -31,7 +31,7 @@
   id: ThavenBiteMark
   bodyPart: Chest
   markingCategory: Chest
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/chest.rsi
     state: bitemark
@@ -40,7 +40,7 @@
   id: ThavenBodyStripes
   bodyPart: Chest
   markingCategory: Chest
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/chest.rsi
     state: stripes
@@ -49,7 +49,7 @@
   id: ThavenChestScales
   bodyPart: Chest
   markingCategory: Chest
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/chest.rsi
     state: scales
@@ -58,7 +58,7 @@
   id: ThavenChestTattoo1
   bodyPart: Chest
   markingCategory: Chest
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   coloring:
     default:
       type:
@@ -72,7 +72,7 @@
   id: ThavenSpinechill
   bodyPart: Chest
   markingCategory: Chest
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   coloring:
     default:
       type:
@@ -81,25 +81,23 @@
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/chest.rsi
     state: spinechill
-  shaders:
-    spinechill: unshaded
+  shader: unshaded
 
 - type: marking
   id: ThavenSpines
   bodyPart: Chest
   markingCategory: Chest
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/chest.rsi
     state: spines
-  shaders: 
-    spines: unshaded
+  shader: unshaded
 
 - type: marking
   id: ThavenTattooWave
   bodyPart: Chest
   markingCategory: Chest
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/chest.rsi
     state: tattoowave
@@ -108,7 +106,7 @@
   id: ThavenTattooVines
   bodyPart: Chest
   markingCategory: Chest
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/chest.rsi
     state: tattoovines
@@ -117,7 +115,7 @@
   id: ThavenTiger
   bodyPart: Chest
   markingCategory: Chest
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/chest.rsi
     state: tiger1
@@ -128,7 +126,7 @@
   id: ThavenTopSurgery
   bodyPart: Chest
   markingCategory: Chest
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   forcedColoring: true
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/chest.rsi
@@ -140,7 +138,7 @@
   id: ThavenHeadCap
   bodyPart: Head
   markingCategory: Head
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/head.rsi
     state: cap1
@@ -151,7 +149,7 @@
   id: ThavenHeadScales
   bodyPart: Head
   markingCategory: Head
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/head.rsi
     state: scales
@@ -160,7 +158,7 @@
   id: ThavenHeadStripes
   bodyPart: Head
   markingCategory: Head
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/head.rsi
     state: stripes
@@ -169,7 +167,7 @@
   id: ThavenShadow
   bodyPart: Head
   markingCategory: Head
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   forcedColoring: true
   coloring:
     default:
@@ -188,7 +186,7 @@
   id: SharkminnowEyeliner
   bodyPart: Eyes
   markingCategory: Overlay
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/eyes.rsi
     state: sharkminnoweyeliner
@@ -197,7 +195,7 @@
   id: ThavenEyesSharkminnow
   bodyPart: Eyes
   markingCategory: Overlay
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   coloring:
     default:
       type:
@@ -211,7 +209,7 @@
   id: ThavenEyesSharkminnowGlowing
   bodyPart: Eyes
   markingCategory: Overlay
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   coloring:
     default:
       type:
@@ -220,14 +218,13 @@
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/eyes.rsi
     state: sharkminnow
-  shaders: 
-    sharkminnow: unshaded
+  shader: unshaded
 
 - type: marking
   id: ThavenLEyeGlow
   bodyPart: Eyes
   markingCategory: Overlay
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   coloring:
     default:
       type:
@@ -236,14 +233,13 @@
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/eyes.rsi
     state: glowleft
-  shaders: 
-    glowleft: unshaded
+  shader: unshaded
 
 - type: marking
   id: ThavenREyeGlow
   bodyPart: Eyes
   markingCategory: Overlay
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   coloring:
     default:
       type:
@@ -252,8 +248,7 @@
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/eyes.rsi
     state: glowright
-  shaders: 
-    glowright: unshaded
+  shader: unshaded
 
 # RArm
 
@@ -261,7 +256,7 @@
   id: ThavenRArmScales
   bodyPart: RArm
   markingCategory: RightArm
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/rarm.rsi
     state: scales
@@ -270,7 +265,7 @@
   id: ThavenRArmTattoo1
   bodyPart: RArm
   markingCategory: RightArm
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   coloring:
     default:
       type:
@@ -284,7 +279,7 @@
   id: ThavenTigerRArm
   bodyPart: RArm
   markingCategory: RightArm
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/rarm.rsi
     state: tiger
@@ -295,7 +290,7 @@
   id: ThavenLArmScales
   bodyPart: LArm
   markingCategory: LeftArm
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/larm.rsi
     state: scales
@@ -304,7 +299,7 @@
   id: ThavenLArmTattoo1
   bodyPart: LArm
   markingCategory: LeftArm
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   coloring:
     default:
       type:
@@ -318,7 +313,7 @@
   id: ThavenTigerLArm
   bodyPart: LArm
   markingCategory: LeftArm
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/larm.rsi
     state: tiger
@@ -329,7 +324,7 @@
   id: ThavenRLegScales
   bodyPart: RLeg
   markingCategory: RightLeg
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/rleg.rsi
     state: scales
@@ -340,7 +335,7 @@
   id: ThavenLLegScales
   bodyPart: LLeg
   markingCategory: LeftLeg
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/lleg.rsi
     state: scales
@@ -351,7 +346,7 @@
   id: UnderwearBriefsT
   bodyPart: UndergarmentBottom
   markingCategory: UndergarmentBottom
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   coloring:
     default:
       type:
@@ -365,7 +360,7 @@
   id: UnderwearDefaultT
   bodyPart: UndergarmentBottom
   markingCategory: UndergarmentBottom
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   coloring:
     default:
       type:
@@ -379,7 +374,7 @@
   id: UnderwearLowridersT
   bodyPart: UndergarmentBottom
   markingCategory: UndergarmentBottom
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   coloring:
     default:
       type:
@@ -393,7 +388,7 @@
   id: UnderwearSatinT
   bodyPart: UndergarmentBottom
   markingCategory: UndergarmentBottom
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   coloring:
     default:
       type:
@@ -407,7 +402,7 @@
   id: UnderwearTangaT
   bodyPart: UndergarmentBottom
   markingCategory: UndergarmentBottom
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   coloring:
     default:
       type:
@@ -423,7 +418,7 @@
   id: UndergarmentTopBinderT
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   coloring:
     default:
       type: null
@@ -436,7 +431,7 @@
   id: UndershirtBraClassicT
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   coloring:
     default:
       type:
@@ -450,7 +445,7 @@
   id: UndershirtBraSportsT
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   coloring:
     default:
       type:
@@ -464,7 +459,7 @@
   id: UndershirtBraStraplessT
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   coloring:
     default:
       type:
@@ -478,7 +473,7 @@
   id: UndershirtDefaultT
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   coloring:
     default:
       type:
@@ -492,7 +487,7 @@
   id: UndershirtGrossSleevelessT
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   coloring:
     default:
       type:
@@ -506,7 +501,7 @@
   id: UndershirtNanotrasenT
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   coloring:
     default:
       type:
@@ -520,7 +515,7 @@
   id: UndershirtRolledT
   bodyPart: UndergarmentTop
   markingCategory: UndergarmentTop
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   coloring:
     default:
       type:
@@ -547,7 +542,7 @@
   id: BurqaSolidThaven
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: burqa
@@ -556,7 +551,7 @@
   id: HairFloralLongThaven
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   coloring:
     default:
       type:
@@ -572,7 +567,7 @@
   id: HairFloralMidThaven
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   coloring:
     default:
       type:
@@ -588,7 +583,7 @@
   id: HijabFashionableThaven
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: hijabchic
@@ -597,7 +592,7 @@
   id: HijabSimpleThaven
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: hijabsimple
@@ -606,7 +601,7 @@
   id: MessyPonytailThaven
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: messyponytail
@@ -615,7 +610,7 @@
   id: NiqabThaven
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: niqab
@@ -624,7 +619,7 @@
   id: ThavenHair80s
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: 80s
@@ -633,7 +628,7 @@
   id: ThavenHairA
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: a
@@ -642,7 +637,7 @@
   id: ThavenHairB
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: b
@@ -651,7 +646,7 @@
   id: ThavenHairBald
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: bald
@@ -660,7 +655,7 @@
   id: ThavenHairBaldfade
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: baldface
@@ -669,7 +664,7 @@
   id: ThavenHairBalding
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: e
@@ -678,7 +673,7 @@
   id: ThavenHairBedhead
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: bedhead
@@ -687,7 +682,7 @@
   id: ThavenHairBedheadv2
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: bedhead2
@@ -696,7 +691,7 @@
   id: ThavenHairBedheadv3
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: bedhead3
@@ -705,7 +700,7 @@
   id: ThavenHairBeehive
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: beehive
@@ -714,7 +709,7 @@
   id: ThavenHairBeehive2
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: beehive2
@@ -723,7 +718,7 @@
   id: ThavenHairBigflattop
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: bigflattop
@@ -732,7 +727,7 @@
   id: ThavenHairBigpompadour
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: bigpompadour
@@ -741,7 +736,7 @@
   id: ThavenHairBob
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: bob
@@ -750,7 +745,7 @@
   id: ThavenHairBob2
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: bob2
@@ -759,7 +754,7 @@
   id: ThavenHairBob4
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: bob4
@@ -768,7 +763,7 @@
   id: ThavenHairBob5
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: bob5
@@ -777,7 +772,7 @@
   id: ThavenHairBobcurl
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: bobcurl
@@ -786,7 +781,7 @@
   id: ThavenHairBobcut
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: bobcut
@@ -795,7 +790,7 @@
   id: ThavenHairBowlcut
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: bowlcut
@@ -804,7 +799,7 @@
   id: ThavenHairBowlcut2
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: bowlcut2
@@ -813,7 +808,7 @@
   id: ThavenHairBraid
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: braid
@@ -822,7 +817,7 @@
   id: ThavenHairBraid2
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: braid2
@@ -831,7 +826,7 @@
   id: ThavenHairBraided
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: braided
@@ -840,7 +835,7 @@
   id: ThavenHairBraidfront
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: braidfront
@@ -849,7 +844,7 @@
   id: ThavenHairBraidtail
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: braidtail
@@ -858,7 +853,7 @@
   id: ThavenHairBun
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: bun
@@ -867,7 +862,7 @@
   id: ThavenHairBun3
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: bun3
@@ -876,7 +871,7 @@
   id: ThavenHairBunhead2
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: bunhead2
@@ -885,7 +880,7 @@
   id: ThavenHairBusiness
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: business
@@ -894,7 +889,7 @@
   id: ThavenHairBusiness2
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: business2
@@ -903,7 +898,7 @@
   id: ThavenHairBusiness3
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: business3
@@ -912,7 +907,7 @@
   id: ThavenHairBusiness4
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: business4
@@ -921,7 +916,7 @@
   id: ThavenHairBuzzcut
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: buzzcut
@@ -930,7 +925,7 @@
   id: ThavenHairC
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: c
@@ -939,7 +934,7 @@
   id: ThavenHairCia
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: cia
@@ -948,7 +943,7 @@
   id: ThavenHairClassicAfro
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: classicafro
@@ -957,7 +952,7 @@
   id: ThavenHairClassicCia
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: classiccia
@@ -966,7 +961,7 @@
   id: ThavenHairClassicciaBusiness
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: classicciabusiness
@@ -975,7 +970,7 @@
   id: ThavenHairClassicCornrows
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: classiccornrows
@@ -984,7 +979,7 @@
   id: ThavenHairClassicFloorlengthBedhead
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: classicfloorlengthbedhead
@@ -993,7 +988,7 @@
   id: ThavenHairClassicLong2
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: classiclong2
@@ -1002,7 +997,7 @@
   id: ThavenHairClassicLong3
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: classiclong3
@@ -1011,7 +1006,7 @@
   id: ThavenHairClassicModern
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: classicmodern
@@ -1020,7 +1015,7 @@
   id: ThavenHairClassicMulder
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: classicmulder
@@ -1029,7 +1024,7 @@
   id: ThavenHairClassicWisp
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: classicwisp
@@ -1038,7 +1033,7 @@
   id: ThavenHairCoffeeHouse
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: coffeehouse
@@ -1047,7 +1042,7 @@
   id: ThavenHairCombover
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: combover
@@ -1056,7 +1051,7 @@
   id: ThavenHairCornrowbraid
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: cornrowbraid
@@ -1065,7 +1060,7 @@
   id: ThavenHairCornrowbun
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: cornrowbun
@@ -1074,7 +1069,7 @@
   id: ThavenHairCornrows
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: cornrows
@@ -1083,7 +1078,7 @@
   id: ThavenHairCornrows2
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: cornrows2
@@ -1092,7 +1087,7 @@
   id: ThavenHairCornrowtail
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: cornrowtail
@@ -1101,7 +1096,7 @@
   id: ThavenHairCountry
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: country
@@ -1110,7 +1105,7 @@
   id: ThavenHairCrewcut
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: crewcut
@@ -1119,7 +1114,7 @@
   id: ThavenHairCrewcut2
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: crewcut2
@@ -1128,7 +1123,7 @@
   id: ThavenHairCurls
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: curls
@@ -1137,7 +1132,7 @@
   id: ThavenHairDandypompadour
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: dandypompadour
@@ -1146,7 +1141,7 @@
   id: ThavenHairDevilock
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: devilock
@@ -1155,7 +1150,7 @@
   id: ThavenHairDoublebun
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: doublebun
@@ -1164,7 +1159,7 @@
   id: ThavenHairDoublebunLong
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: doublebunlong
@@ -1173,7 +1168,7 @@
   id: ThavenHairDreads
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: dreads
@@ -1182,7 +1177,7 @@
   id: ThavenHairDrillHair
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: drillhair
@@ -1191,7 +1186,7 @@
   id: ThavenHairDrillhairextended
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: drillhairextended
@@ -1200,7 +1195,7 @@
   id: ThavenHairDrillruru
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: drillruru
@@ -1209,7 +1204,7 @@
   id: ThavenHairDyedLong
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: dyedlong1
@@ -1218,7 +1213,7 @@
   id: ThavenHairDyedShort
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: dyedshort1
@@ -1227,7 +1222,7 @@
   id: ThavenHairEmo2
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: emo2
@@ -1236,7 +1231,7 @@
   id: ThavenHairEmofringe
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: emofringe
@@ -1245,7 +1240,7 @@
   id: ThavenHairFather
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: father
@@ -1254,7 +1249,7 @@
   id: ThavenHairFeather
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: feather
@@ -1263,7 +1258,7 @@
   id: ThavenHairFlair
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: flair
@@ -1272,7 +1267,7 @@
   id: ThavenHairFloorlengthBedhead
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: floorlengthbedhead
@@ -1281,7 +1276,7 @@
   id: ThavenHairFlow
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: f
@@ -1290,7 +1285,7 @@
   id: ThavenHairFrenchbraid
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: frenchbraid
@@ -1299,7 +1294,7 @@
   id: ThavenHairFringetail
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: fringetail
@@ -1308,7 +1303,7 @@
   id: ThavenHairGelled
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: gelled
@@ -1317,7 +1312,7 @@
   id: ThavenHairGentle
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: gentle
@@ -1326,7 +1321,7 @@
   id: ThavenHairHalfbang
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: halfbang
@@ -1335,7 +1330,7 @@
   id: ThavenHairHalfbang2
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: halfbang2
@@ -1344,7 +1339,7 @@
   id: ThavenHairHalfshaved
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: halfshaved
@@ -1353,7 +1348,7 @@
   id: ThavenHairHalfUpLong
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: halfuplong
@@ -1362,7 +1357,7 @@
   id: ThavenHairHalfUpShort
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: halfupshort
@@ -1371,7 +1366,7 @@
   id: ThavenHairHalfUpUndercut
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: halfupundercut
@@ -1380,7 +1375,7 @@
   id: ThavenHairHbraid
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: hbraid
@@ -1389,7 +1384,7 @@
   id: ThavenHairHedgehog
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: hedgehog
@@ -1398,7 +1393,7 @@
   id: ThavenHairHighfade
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: highfade
@@ -1407,7 +1402,7 @@
   id: ThavenHairHighponytail
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: highponytail
@@ -1416,7 +1411,7 @@
   id: ThavenHairHimecut
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: himecut
@@ -1425,7 +1420,7 @@
   id: ThavenHairHimecut2
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: himecut2
@@ -1434,7 +1429,7 @@
   id: ThavenHairHimeup
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: himeup
@@ -1443,7 +1438,7 @@
   id: ThavenHairHitop
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: hitop
@@ -1452,7 +1447,7 @@
   id: ThavenHairJade
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: jade
@@ -1461,7 +1456,7 @@
   id: ThavenHairJensen
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: jensen
@@ -1470,7 +1465,7 @@
   id: ThavenHairJoestar
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: joestar
@@ -1479,7 +1474,7 @@
   id: ThavenHairKagami
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: kagami
@@ -1488,7 +1483,7 @@
   id: ThavenHairKeanu
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: keanu
@@ -1497,7 +1492,7 @@
   id: ThavenHairKusanagi
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: kusanagi
@@ -1506,7 +1501,7 @@
   id: ThavenHairLargebun
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: largebun
@@ -1515,7 +1510,7 @@
   id: ThavenHairLbangs
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: lbangs
@@ -1524,7 +1519,7 @@
   id: ThavenHairLong
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: long
@@ -1533,7 +1528,7 @@
   id: ThavenHairLong2
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: long2
@@ -1542,7 +1537,7 @@
   id: ThavenHairLong3
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: long3
@@ -1551,7 +1546,7 @@
   id: ThavenHairLongBedhead
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: longbedhead
@@ -1560,7 +1555,7 @@
   id: ThavenHairLongBedhead2
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: longbedhead2
@@ -1569,7 +1564,7 @@
   id: ThavenHairLongeremo
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: longeremo
@@ -1578,7 +1573,7 @@
   id: ThavenHairLongest
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: longest
@@ -1587,7 +1582,7 @@
   id: ThavenHairLongest2
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: longest2
@@ -1596,7 +1591,7 @@
   id: ThavenHairLongfringe
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: longfringe
@@ -1605,7 +1600,7 @@
   id: ThavenHairLongovereye
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: longovereye
@@ -1614,7 +1609,7 @@
   id: ThavenHairLongsidepart
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: longsidepart
@@ -1623,7 +1618,7 @@
   id: ThavenHairLongstraightponytail
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: longstraightponytail
@@ -1632,7 +1627,7 @@
   id: ThavenHairLongWithBundles
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: longbundled
@@ -1641,7 +1636,7 @@
   id: ThavenHairLowfade
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: lowfade
@@ -1650,7 +1645,7 @@
   id: ThavenHairManbun
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: manbun
@@ -1659,7 +1654,7 @@
   id: ThavenHairMedfade
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: medfade
@@ -1668,7 +1663,7 @@
   id: ThavenHairMediumSidepart
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: mediumsidepart
@@ -1677,7 +1672,7 @@
   id: ThavenHairMegaeyebrows
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: megaeyebrows
@@ -1686,7 +1681,7 @@
   id: ThavenHairMessy
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: messy
@@ -1695,7 +1690,7 @@
   id: ThavenHairMidPartLong
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: midpartlong
@@ -1704,7 +1699,7 @@
   id: ThavenHairMidPartLonger
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: midpartlonger
@@ -1713,7 +1708,7 @@
   id: ThavenHairModern
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: modern
@@ -1722,7 +1717,7 @@
   id: ThavenHairMohawk
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: d
@@ -1731,7 +1726,7 @@
   id: ThavenHairMulder
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: mulder
@@ -1740,7 +1735,7 @@
   id: ThavenHairMullet
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: mullet
@@ -1749,7 +1744,7 @@
   id: ThavenHairMulletSideshave
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: mulletsideshave
@@ -1758,7 +1753,7 @@
   id: ThavenHairNitori
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: nitori
@@ -1767,7 +1762,7 @@
   id: ThavenHairNofade
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: nofade
@@ -1776,7 +1771,7 @@
   id: ThavenHairOdango
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: odango
@@ -1785,7 +1780,7 @@
   id: ThavenHairOmbre
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: ombre
@@ -1794,7 +1789,7 @@
   id: ThavenHairOneshoulder
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: oneshoulder
@@ -1803,7 +1798,7 @@
   id: ThavenHairOxton
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: oxton
@@ -1812,7 +1807,7 @@
   id: ThavenHairPart
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: part
@@ -1821,7 +1816,7 @@
   id: ThavenHairParted
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: parted
@@ -1830,7 +1825,7 @@
   id: ThavenHairPigtails
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: pigtails
@@ -1839,7 +1834,7 @@
   id: ThavenHairPigtails2
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: pigtails2
@@ -1848,7 +1843,7 @@
   id: ThavenHairPixie
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: pixie
@@ -1857,7 +1852,7 @@
   id: ThavenHairPompadour
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: pompadour
@@ -1866,7 +1861,7 @@
   id: ThavenHairPonytail
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: ponytail
@@ -1875,7 +1870,7 @@
   id: ThavenHairPonytail2
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: ponytail2
@@ -1884,7 +1879,7 @@
   id: ThavenHairPonytail3
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: ponytail3
@@ -1893,7 +1888,7 @@
   id: ThavenHairPonytail4
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: ponytail4
@@ -1902,7 +1897,7 @@
   id: ThavenHairPonytail5
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: ponytail5
@@ -1911,7 +1906,7 @@
   id: ThavenHairPonytail6
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: ponytail6
@@ -1920,7 +1915,7 @@
   id: ThavenHairPonytail7
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: ponytail7
@@ -1929,7 +1924,7 @@
   id: ThavenHairPoofy
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: poofy
@@ -1938,7 +1933,7 @@
   id: ThavenHairProtagonist
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: protagonist
@@ -1947,7 +1942,7 @@
   id: ThavenHairQuiff
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: quiff
@@ -1956,7 +1951,7 @@
   id: ThavenHairReversemohawk
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: reversemohawk
@@ -1965,7 +1960,7 @@
   id: ThavenHairRonin
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: ronin
@@ -1974,7 +1969,7 @@
   id: ThavenHairRosa
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: rosa
@@ -1983,7 +1978,7 @@
   id: ThavenHairSargeant
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: sargeant
@@ -1992,7 +1987,7 @@
   id: ThavenHairShaved
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: shaved
@@ -2001,7 +1996,7 @@
   id: ThavenHairShavedMohawk
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: shavedmohawk
@@ -2010,7 +2005,7 @@
   id: ThavenHairShavedpart
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: shavedpart
@@ -2019,7 +2014,7 @@
   id: ThavenHairShortbangs
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: shortbangs
@@ -2028,7 +2023,7 @@
   id: ThavenHairShortbraid
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: shortbraid
@@ -2037,7 +2032,7 @@
   id: ThavenHairShorthair2
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: shorthair2
@@ -2046,7 +2041,7 @@
   id: ThavenHairShorthair3
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: shorthair3
@@ -2055,7 +2050,7 @@
   id: ThavenHairShorthair9
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: shorthair9
@@ -2064,7 +2059,7 @@
   id: ThavenHairShorthime
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: shorthime
@@ -2073,7 +2068,7 @@
   id: ThavenHairShortovereye
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: shortovereye
@@ -2082,7 +2077,7 @@
   id: ThavenHairShoulderLengthOverEye
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: shoulderlengthovereye
@@ -2091,7 +2086,7 @@
   id: ThavenHairSidecut
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: sidecut
@@ -2100,7 +2095,7 @@
   id: ThavenHairSideshaveCurly
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: sideshavecurly
@@ -2109,7 +2104,7 @@
   id: ThavenHairSidetail
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: sidetail
@@ -2118,7 +2113,7 @@
   id: ThavenHairSidetail2
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: sidetail2
@@ -2127,7 +2122,7 @@
   id: ThavenHairSidetail3
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: sidetail3
@@ -2136,7 +2131,7 @@
   id: ThavenHairSidetail4
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: sidetail4
@@ -2145,7 +2140,7 @@
   id: ThavenHairSkinhead
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: skinhead
@@ -2154,7 +2149,7 @@
   id: ThavenHairSpiky
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: spiky
@@ -2163,7 +2158,7 @@
   id: ThavenHairSpikyponytailLong
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: spikyponytaillong
@@ -2172,7 +2167,7 @@
   id: ThavenHairSpikyponytail
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: spikyponytail
@@ -2181,7 +2176,7 @@
   id: ThavenHairSpookyLong
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: spookylong
@@ -2190,7 +2185,7 @@
   id: ThavenHairStail
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: stail
@@ -2199,7 +2194,7 @@
   id: ThavenHairSwept
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: swept
@@ -2208,7 +2203,7 @@
   id: ThavenHairSwept2
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: swept2
@@ -2217,7 +2212,7 @@
   id: ThavenHairTailed
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: tailed
@@ -2226,7 +2221,7 @@
   id: ThavenHairThinning
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: thinning
@@ -2235,7 +2230,7 @@
   id: ThavenHairThinningfront
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: thinningfront
@@ -2244,7 +2239,7 @@
   id: ThavenHairThinningrear
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: thinningrear
@@ -2253,7 +2248,7 @@
   id: ThavenHairTightbun
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: tightbun
@@ -2262,7 +2257,7 @@
   id: ThavenHairTopknot
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: topknot
@@ -2271,7 +2266,7 @@
   id: ThavenHairTressshoulder
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: tressshoulder
@@ -2280,7 +2275,7 @@
   id: ThavenHairTrimflat
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: trimflat
@@ -2289,7 +2284,7 @@
   id: ThavenHairTrimmed
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: trimmed
@@ -2298,7 +2293,7 @@
   id: ThavenHairTwintail
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: twintail
@@ -2307,7 +2302,7 @@
   id: ThavenHairTwoStrands
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: twostrands
@@ -2316,7 +2311,7 @@
   id: ThavenHairUndercut
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: undercut
@@ -2325,7 +2320,7 @@
   id: ThavenHairUndercutCurly
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: undercutcurly
@@ -2334,7 +2329,7 @@
   id: ThavenHairUndercutleft
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: undercutleft
@@ -2343,7 +2338,7 @@
   id: ThavenHairUndercutright
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: undercutright
@@ -2352,7 +2347,7 @@
   id: ThavenHairUneven
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: uneven
@@ -2361,7 +2356,7 @@
   id: ThavenHairUnkept
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: unkept
@@ -2370,7 +2365,7 @@
   id: ThavenHairVeryshortovereyealternate
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: veryshortovereyealternate
@@ -2379,7 +2374,7 @@
   id: ThavenHairVlong
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: vlong
@@ -2388,7 +2383,7 @@
   id: ThavenHairVlongfringe
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: vlongfringe
@@ -2397,7 +2392,7 @@
   id: ThavenHairVolaju
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: volaju
@@ -2406,7 +2401,7 @@
   id: ThavenHairWisp
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: wisp
@@ -2415,7 +2410,7 @@
   id: TichelFashionableThaven
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: tichelfashionable
@@ -2424,7 +2419,7 @@
   id: TichelSimpleThaven
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: tichelsimple
@@ -2433,7 +2428,7 @@
   id: ShaggyThaven
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: shaggythaven
@@ -2442,7 +2437,7 @@
   id: ShaggyLongerThaven
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: shaggylongerthaven
@@ -2451,7 +2446,7 @@
   id: SusieThaven
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: susiethaven
@@ -2460,7 +2455,7 @@
   id: SusieNoBangsThaven
   bodyPart: Hair
   markingCategory: Hair
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/hair.rsi
     state: susienobangsthaven
@@ -2471,7 +2466,7 @@
   id: ThavenEars1
   bodyPart: HeadSide
   markingCategory: HeadSide
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   forcedColoring: true
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/headside.rsi
@@ -2481,7 +2476,7 @@
   id: ThavenEars2
   bodyPart: HeadSide
   markingCategory: HeadSide
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   forcedColoring: true
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/headside.rsi
@@ -2491,7 +2486,7 @@
   id: ThavenEars3
   bodyPart: HeadSide
   markingCategory: HeadSide
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   forcedColoring: true
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/headside.rsi
@@ -2501,7 +2496,7 @@
   id: ThavenEars4
   bodyPart: HeadSide
   markingCategory: HeadSide
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   forcedColoring: true
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/headside.rsi
@@ -2511,7 +2506,7 @@
   id: ThavenEarsBigFins
   bodyPart: HeadSide
   markingCategory: HeadSide
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/headside.rsi
     state: bigfins
@@ -2522,7 +2517,7 @@
   id: ThavenEarsTwinFins
   bodyPart: HeadSide
   markingCategory: HeadSide
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   forcedColoring: true
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/headside.rsi
@@ -2532,7 +2527,7 @@
   id: ThavenFishEars
   bodyPart: HeadSide
   markingCategory: HeadSide
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   forcedColoring: true
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/headside.rsi
@@ -2542,7 +2537,7 @@
   id: ThavenNoEars
   bodyPart: HeadSide
   markingCategory: HeadSide
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   sprites:
   - sprite: _MACRO/Mobs/Customization/Thaven/headside.rsi
     state: noears
@@ -2553,7 +2548,7 @@
   id: ThavenHibiscus
   bodyPart: HeadTop
   markingCategory: HeadTop
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   coloring:
     default:
       type:
@@ -2569,7 +2564,7 @@
   id: ThavenPiercings
   bodyPart: HeadTop
   markingCategory: HeadTop
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   coloring:
     default:
       type:
@@ -2583,7 +2578,7 @@
   id: ThavenPiercings2
   bodyPart: HeadTop
   markingCategory: HeadTop
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   coloring:
     default:
       type:
@@ -2599,7 +2594,7 @@
   id: ThavenBasicTail
   bodyPart: Tail
   markingCategory: Tail
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   coloring:
     default:
       type:
@@ -2612,7 +2607,7 @@
   id: ThavenBigTail
   bodyPart: Tail
   markingCategory: Tail
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   coloring:
     default:
       type:
@@ -2627,7 +2622,7 @@
   id: ThavenTadpoleTail
   bodyPart: Tail
   markingCategory: Tail
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   coloring:
     default:
       type:
@@ -2642,7 +2637,7 @@
   id: ThavenTailEel
   bodyPart: Tail
   markingCategory: Tail
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   coloring:
     default:
       type:
@@ -2657,7 +2652,7 @@
   id: ThavenTailEelOverlay
   bodyPart: Tail
   markingCategory: Tail
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   coloring:
     default:
       type:
@@ -2668,15 +2663,13 @@
     state: eel3
   - sprite: _MACRO/Mobs/Customization/Thaven/tail.rsi
     state: eel4
-  shaders: 
-    eel3: unshaded
-    eel4: unshaded
+  shader: unshaded
 
 - type: marking
   id: ThavenTailNurse
   bodyPart: Tail
   markingCategory: Tail
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   coloring:
     default:
       type:
@@ -2691,7 +2684,7 @@
   id: ThavenTailStub
   bodyPart: Tail
   markingCategory: Tail
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   coloring:
     default:
       type:
@@ -2706,7 +2699,7 @@
   id: ThavenTailThresher
   bodyPart: Tail
   markingCategory: Tail
-  groupWhitelist: [ Thaven ]
+  speciesRestriction: [ Thaven ]
   coloring:
     default:
       type:

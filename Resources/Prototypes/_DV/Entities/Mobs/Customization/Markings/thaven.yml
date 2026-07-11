@@ -3,7 +3,7 @@
   id: ThavenCheekBarbels
   bodyPart: HeadTop
   markingCategory: HeadTop
-  groupWhitelist: [Thaven]
+  speciesRestriction: [Thaven]
   coloring: # Macro edit
     default:
       type:
@@ -16,7 +16,7 @@
   id: ThavenEyebrowBarbels
   bodyPart: HeadTop
   markingCategory: HeadTop
-  groupWhitelist: [Thaven]
+  speciesRestriction: [Thaven]
   coloring: # Macro edit
     default:
       type:
@@ -29,7 +29,7 @@
 #- type: marking
 #  id: ThavenUnderbellyFace
 #  bodyPart: Head
-#  groupWhitelist: [Thaven]
+#  speciesRestriction: [Thaven]
 #  coloring: # macro edit
 #    default:
 #      type:
@@ -43,7 +43,7 @@
 #- type: marking
 #  id: ThavenUnderbellyTorso
 #  bodyPart: Chest
-#  groupWhitelist: [Thaven]
+#  speciesRestriction: [Thaven]
 #  coloring: # macro edit
 #    default:
 #      type:
