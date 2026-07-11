@@ -23,6 +23,7 @@
     containers:
       cluster-payload: !type:Container
   - type: ProjectileGrenade
+    triggerKey: timer # Pirate
   - type: AnimationPlayer
   - type: GenericVisualizer
     visuals:
@@ -74,7 +75,7 @@
     initialBeepDelay: 0
     beepInterval: 2
     delay: 3.5
-    keyOut: trigger # Goobchange for shrapnel payloads.
+    keyOut: timer # Pirate
   - type: TimerTriggerVisuals
     primingSound:
       path: /Audio/Effects/countdown.ogg
@@ -102,7 +103,7 @@
     initialBeepDelay: 0
     beepInterval: 2
     delay: 3.5
-    keyOut: trigger # Goob modgrenade shrapnel
+    keyOut: timer # Pirate
   - type: EmitSoundOnTrigger
     keysIn:
     - timer
@@ -135,7 +136,7 @@
     initialBeepDelay: 0
     beepInterval: 2
     delay: 3.5
-    keyOut: trigger # Goob edit Shrapnel modgrenade
+    keyOut: timer # Pirate
   - type: EmitSoundOnTrigger
     keysIn:
     - timer
