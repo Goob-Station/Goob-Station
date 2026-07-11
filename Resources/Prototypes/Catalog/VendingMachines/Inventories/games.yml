@@ -24,6 +24,17 @@
     CardBoxTarot: 2 # GoobStation
     CardBoxNuno: 1 # GoobStation
     PokerChips100: 6 # GoobStation
+    # Pirate: CMU cassette players and tapes
+    RMCCassettePlayer: 3
+    RMCCassetteTapeWigWoo1: 2
+    RMCCassetteTapeMendax: 2
+    RMCCassetteTapeNighty: 2
+    RMCCassetteTapeGoodShowOldChap: 2
+    RMCCassetteTapeRedQwesta: 2
+    RMCCassetteTapeBolgarich: 2
+    RMCCassetteTapeQwertyquerty: 2
+    RMCCassetteTapePigeonBeans: 2
+    RMCCassetteTapeCustom: 3
   contrabandInventory:
     Basketball: 1
     FoodSnackBoritos: 3

@@ -1,0 +1,59 @@
+- type: loadout
+  id: LoadoutRMCCassettePlayer
+  storage:
+    back:
+    - RMCCassettePlayer
+
+- type: loadout
+  id: LoadoutRMCCassetteTapeWigWoo1
+  storage:
+    back:
+    - RMCCassetteTapeWigWoo1
+
+- type: loadout
+  id: LoadoutRMCCassetteTapeMendax
+  storage:
+    back:
+    - RMCCassetteTapeMendax
+
+- type: loadout
+  id: LoadoutRMCCassetteTapeNighty
+  storage:
+    back:
+    - RMCCassetteTapeNighty
+
+- type: loadout
+  id: LoadoutRMCCassetteTapeGoodShowOldChap
+  storage:
+    back:
+    - RMCCassetteTapeGoodShowOldChap
+
+- type: loadout
+  id: LoadoutRMCCassetteTapeRedQwesta
+  storage:
+    back:
+    - RMCCassetteTapeRedQwesta
+
+- type: loadout
+  id: LoadoutRMCCassetteTapeBolgarich
+  storage:
+    back:
+    - RMCCassetteTapeBolgarich
+
+- type: loadout
+  id: LoadoutRMCCassetteTapeQwertyquerty
+  storage:
+    back:
+    - RMCCassetteTapeQwertyquerty
+
+- type: loadout
+  id: LoadoutRMCCassetteTapePigeonBeans
+  storage:
+    back:
+    - RMCCassetteTapePigeonBeans
+
+- type: loadout
+  id: LoadoutRMCCassetteTapeCustom
+  storage:
+    back:
+    - RMCCassetteTapeCustom

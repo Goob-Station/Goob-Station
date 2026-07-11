@@ -12,6 +12,7 @@
   subgroups:
   - PiratePlushies
   - PirateGambling
+  - PirateCassettes
 
 
 - type: loadoutGroup
@@ -40,6 +41,23 @@
   - CardBoxTippyTrump
   - TippyTrumpMysteryPack
   - CardBoxNuno
+
+- type: loadoutGroup
+  id: PirateCassettes
+  name: loadout-group-pirate-cassettes
+  minLimit: 0
+  maxLimit: 3
+  loadouts:
+  - LoadoutRMCCassettePlayer
+  - LoadoutRMCCassetteTapeWigWoo1
+  - LoadoutRMCCassetteTapeMendax
+  - LoadoutRMCCassetteTapeNighty
+  - LoadoutRMCCassetteTapeGoodShowOldChap
+  - LoadoutRMCCassetteTapeRedQwesta
+  - LoadoutRMCCassetteTapeBolgarich
+  - LoadoutRMCCassetteTapeQwertyquerty
+  - LoadoutRMCCassetteTapePigeonBeans
+  - LoadoutRMCCassetteTapeCustom
 
 - type: loadoutGroup
   id: PirateEEGenericItems

@@ -1,0 +1,9 @@
+- files: ["click.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from cmss13"
+  source: "https://github.com/cmss13-devs/cmss13/blob/master/sound/machines/click.ogg"
+
+- files: ["handcuffs.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from cmss13"
+  source: "https://github.com/cmss13-devs/cmss13/blob/d5913ef37c373d523c9ea9f23ab8a4a534860e58/sound/weapons/handcuffs.ogg"
