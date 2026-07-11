@@ -33,7 +33,7 @@
       components:
       - Actor
     blacklist:
-      tags:
+      components:
       - Fauna
     damage:
       types:
