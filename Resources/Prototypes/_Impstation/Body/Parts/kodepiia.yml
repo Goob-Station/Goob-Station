@@ -32,6 +32,22 @@
         Quantity: 20
 
 - type: entity
+  id: GroinKodepiia
+  name: "kodepiia groin"
+  parent: [PartKodepiia, BaseGroin]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Kodepiia/parts.rsi
+    state: "groin_f"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
+- type: entity
   id: HeadKodepiia
   name: "kodepiia head"
   parent: [PartKodepiia, BaseHead]
