@@ -255,10 +255,6 @@
       - !type:SatiateHunger
         conditions:
         - !type:ReagentCondition #Only satiates when eaten with nutriment
-        - !type:OrganType # imp
-          type: Kodepiia
-          shouldHave: false
-        - !type:ReagentThreshold #Only satiates when eaten with nutriment
           reagent: Nutriment
           min: 0.1
         factor: 1

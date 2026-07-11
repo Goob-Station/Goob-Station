@@ -624,6 +624,13 @@
           type: [ Vox ]
         reagent: Protein
         amount: 0.25
+      - !type:AdjustReagent
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type:
+          - Kodepiia # Go fuck yourself
+        reagent: Protein
+        amount: 0.5
 
 - type: reagent
   id: Allicin
