@@ -1,8 +1,8 @@
 - type: entity
-  name: "Індустріальний RCD Інтердайну"
+  name: Індустріальний RCD Інтердайну
   parent: [ RCD, BaseInterdyneContraband ]
   id: RCDInterdyne
-  description: "RCD, виготовлений Кіберсаном, із товарним знаком Інтердайну"
+  description: RCD виготовлений Cybersun, товарний знак поміняний на знак Інтердайну
   components:
   - type: LimitedCharges
     maxCharges: 100

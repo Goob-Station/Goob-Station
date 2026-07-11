@@ -3,8 +3,8 @@
 - type: entity
   parent: BaseItem
   id: CandyBucket
-  name: "відерце з цукерками"
-  description: "Святкове відерце для всіх ваших смаколиків."
+  name: candy bucket
+  description: A festive bucket for all your treats.
   components:
   - type: Sprite
     sprite: Objects/Fun/candy_bucket.rsi

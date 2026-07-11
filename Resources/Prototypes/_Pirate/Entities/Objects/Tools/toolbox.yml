@@ -1,5 +1,5 @@
 - type: entity
-  name: "Мобільна турель НТ"
+  name: "Мобільна Турель НТ"
   suffix: NT, Turret
   parent: ToolboxElectrical
   id: ToolboxNTTurret

@@ -15,9 +15,9 @@
 - type: entity
   id: Stairs
   parent: BaseFloorDecoration
-  name: "сходи"
+  name: stairs
   suffix: Steel
-  description: "Найбільший винахід з часів реактивних гранатометів."
+  description: The greatest invention since rocket-propelled grenades.
   components:
   - type: Anchorable
     flags:

@@ -2,7 +2,7 @@
 
 - type: entity
   id: ApprenticeIconChaos
-  name: "хаос"
+  name: chaos
   categories: [ HideSpawnMenu ]
   components:
     - type: Sprite

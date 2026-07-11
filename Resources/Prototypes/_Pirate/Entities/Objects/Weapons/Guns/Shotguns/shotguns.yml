@@ -1,9 +1,9 @@
 - type: entity
-  name: "M63"
+  name: M63
   parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSecurityContraband, SolAllianceInfo]
   id: WeaponShotgunSol
   suffix: SAN
-  description: "Компактна бойова рушниця виробництва «Заводской Інтерстеллар» для Соляріанських збройних сил, M63 найчастіше використовується штурмовиками, що воюють у ближньому бою, хоча також рідко використовується як оборонна зброя екіпажами ВМС. Використовує дробь 12 калібру."
+  description: Компактна бойова рушниця виробництва Zavodskoi Interstellar для Соляріанських збройних сил, M63 найчастіше використовується штурмовиками, що воюють у ближньому бою, хоча також рідко використовується як оборонна зброя екіпажами ВМС. Використовує дробь 12 калібру.
   components:
   - type: Sprite
     sprite: _Pirate/Objects/Weapons/Guns/Shotguns/sol_shotgun.rsi

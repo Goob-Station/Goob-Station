@@ -14,8 +14,8 @@
 # Blood Cult Runes
 - type: entity
   id: BaseBloodCultRune
-  name: "руна"
-  description: "Схоже, її розмазали кров'ю..."
+  name: rune
+  description: It looks to have been smeared in blood...
   abstract: true
   placement:
     mode: SnapgridCenter
@@ -54,7 +54,7 @@
 - type: entity
   parent: BaseBloodCultRune
   id: BarrierRune
-  name: "бар'єрна руна"
+  name: barrier rune
   components:
   - type: BarrierOnTrigger
   - type: Sprite
@@ -66,7 +66,7 @@
 - type: entity
   parent: BaseBloodCultRune
   id: BarrierRune_drawing
-  name: "бар'єрна руна"
+  name: barrier rune
   components:
   - type: Sprite
     sprite: _Pirate/Structures/BloodCult/bloodrune.rsi
@@ -80,7 +80,7 @@
 - type: entity
   parent: BaseBloodCultRune
   id: BloodBoilRune
-  name: "руна кипіння крові"
+  name: blood boil rune
   components:
   - type: Sprite
     drawdepth: HighFloorObjects
@@ -91,7 +91,7 @@
 - type: entity
   parent: BaseBloodCultRune
   id: EmpoweringRune
-  name: "руна підсилення"
+  name: empowering rune
   components:
   - type: EmpowerOnStand
   - type: Sprite
@@ -103,7 +103,7 @@
 - type: entity
   parent: BaseBloodCultRune
   id: EmpoweringRune_drawing
-  name: "руна підсилення"
+  name: empowering rune
   components:
   - type: Sprite
     sprite: _Pirate/Structures/BloodCult/bloodrune.rsi
@@ -117,7 +117,7 @@
 - type: entity
   parent: BaseBloodCultRune
   id: OfferingRune
-  name: "руна навернення"
+  name: conversion rune
   components:
   - type: OfferOnTrigger
   - type: Sprite
@@ -129,7 +129,7 @@
 - type: entity
   parent: BaseBloodCultRune
   id: FinalRiftRune
-  name: "руна фінального розриву"
+  name: final rift rune
   components:
   - type: OfferOnTrigger
   - type: FinalSummoningRune
@@ -142,7 +142,7 @@
 - type: entity
   parent: BaseBloodCultRune
   id: OfferingRune_drawing
-  name: "руна навернення"
+  name: conversion rune
   components:
   - type: Sprite
     sprite: _Pirate/Structures/BloodCult/bloodrune.rsi
@@ -156,8 +156,8 @@
 - type: entity
   parent: BaseBloodCultRune
   id: ReviveRune
-  name: "руна воскресіння"
-  description: "Просочена кров'ю руна, що повертає мертвих до життя, виснажуючи кров закликача."
+  name: revive rune
+  description: A blood-soaked rune that brings the dead back to life by draining the invoker's blood.
   components:
   - type: ReviveCultistOnTrigger
   - type: Sprite
@@ -169,8 +169,8 @@
 - type: entity
   parent: BaseBloodCultRune
   id: ReviveRune_drawing
-  name: "руна воскресіння"
-  description: "Просочена кров'ю руна, що повертає мертвих до життя, виснажуючи кров закликача."
+  name: revive rune
+  description: A blood-soaked rune that brings the dead back to life by draining the invoker's blood.
   components:
   - type: Sprite
     sprite: _Pirate/Structures/BloodCult/bloodrune.rsi
@@ -184,7 +184,7 @@
 - type: entity
   parent: BaseBloodCultRune
   id: SpiritRealmRune
-  name: "руна світу духів"
+  name: rune of the spirit realm
   components:
   - type: Sprite
     drawdepth: HighFloorObjects
@@ -195,7 +195,7 @@
 - type: entity
   parent: BaseBloodCultRune
   id: SummoningRune
-  name: "руна призову"
+  name: summoning rune
   components:
   - type: SummonOnTrigger
   - type: TriggerOnActivate
@@ -208,7 +208,7 @@
 - type: entity
   parent: BaseBloodCultRune
   id: SummoningRune_drawing
-  name: "руна призову"
+  name: summoning rune
   components:
   - type: Sprite
     sprite: _Pirate/Structures/BloodCult/bloodrune.rsi
@@ -222,7 +222,7 @@
 - type: entity
   parent: BaseBloodCultRune
   id: TeleportRune
-  name: "руна телепортації"
+  name: teleport rune
   components:
   - type: Sprite
     drawdepth: HighFloorObjects
@@ -233,7 +233,7 @@
 - type: entity
   parent: BaseBloodCultRune
   id: TearVeilRune
-  name: "руна розриву завіси"
+  name: tear veil rune
   components:
   - type: TearVeil
   - type: Sprite

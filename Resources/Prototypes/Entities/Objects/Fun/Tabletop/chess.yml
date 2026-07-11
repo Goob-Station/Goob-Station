@@ -3,8 +3,8 @@
 - type: entity
   parent: BaseBoardEntity
   id: ChessBoard
-  name: "шахівниця"
-  description: "Шахова дошка. Фігури в комплекті!"
+  name: chessboard
+  description: A chessboard. Pieces included!
   components:
   - type: Sprite
     sprite: Objects/Fun/Tabletop/chessboard.rsi
@@ -19,7 +19,7 @@
 - type: entity
   parent: BaseBoardTabletop
   id: *ChessBoard
-  name: "шахівниця"
+  name: chessboard
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -30,7 +30,7 @@
 - type: entity
   parent: BaseTabletopPiece
   id: WhiteKing
-  name: "білий король"
+  name: white king
   components:
   - type: Sprite
     sprite: Objects/Fun/Tabletop/chess_pieces.rsi
@@ -39,7 +39,7 @@
 - type: entity
   parent: BaseTabletopPiece
   id: WhiteQueen
-  name: "біла королева"
+  name: white queen
   components:
   - type: Sprite
     sprite: Objects/Fun/Tabletop/chess_pieces.rsi
@@ -48,7 +48,7 @@
 - type: entity
   parent: BaseTabletopPiece
   id: WhiteRook
-  name: "біла тура"
+  name: white rook
   components:
   - type: Sprite
     sprite: Objects/Fun/Tabletop/chess_pieces.rsi
@@ -57,7 +57,7 @@
 - type: entity
   parent: BaseTabletopPiece
   id: WhiteBishop
-  name: "білий офіцер"
+  name: white bishop
   components:
   - type: Sprite
     sprite: Objects/Fun/Tabletop/chess_pieces.rsi
@@ -66,7 +66,7 @@
 - type: entity
   parent: BaseTabletopPiece
   id: WhiteKnight
-  name: "білий кінь"
+  name: white knight
   components:
   - type: Sprite
     sprite: Objects/Fun/Tabletop/chess_pieces.rsi
@@ -75,7 +75,7 @@
 - type: entity
   parent: BaseTabletopPiece
   id: WhitePawn
-  name: "білий пішак"
+  name: white pawn
   components:
   - type: Sprite
     sprite: Objects/Fun/Tabletop/chess_pieces.rsi
@@ -85,7 +85,7 @@
 - type: entity
   parent: BaseTabletopPiece
   id: BlackKing
-  name: "чорний король"
+  name: black king
   components:
   - type: Sprite
     sprite: Objects/Fun/Tabletop/chess_pieces.rsi
@@ -94,7 +94,7 @@
 - type: entity
   parent: BaseTabletopPiece
   id: BlackQueen
-  name: "чорна королева"
+  name: black queen
   components:
   - type: Sprite
     sprite: Objects/Fun/Tabletop/chess_pieces.rsi
@@ -103,7 +103,7 @@
 - type: entity
   parent: BaseTabletopPiece
   id: BlackRook
-  name: "чорна тура"
+  name: black rook
   components:
   - type: Sprite
     sprite: Objects/Fun/Tabletop/chess_pieces.rsi
@@ -112,7 +112,7 @@
 - type: entity
   parent: BaseTabletopPiece
   id: BlackBishop
-  name: "чорний офіцер"
+  name: black bishop
   components:
   - type: Sprite
     sprite: Objects/Fun/Tabletop/chess_pieces.rsi
@@ -121,7 +121,7 @@
 - type: entity
   parent: BaseTabletopPiece
   id: BlackKnight
-  name: "чорний кінь"
+  name: black knight
   components:
   - type: Sprite
     sprite: Objects/Fun/Tabletop/chess_pieces.rsi
@@ -130,7 +130,7 @@
 - type: entity
   parent: BaseTabletopPiece
   id: BlackPawn
-  name: "чорний пішак"
+  name: black pawn
   components:
   - type: Sprite
     sprite: Objects/Fun/Tabletop/chess_pieces.rsi

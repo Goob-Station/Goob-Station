@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Security 
 - type: entity
-  name: "точка появи базового охоронного луту"
+  name: security loot spawner
   suffix: Gear, Simple
   id: LootSpawnerSecurityBasic
   parent: MarkerBase
@@ -25,7 +25,7 @@
       chance: 0.85
 
 - type: entity
-  name: "точка появи базового охоронного луту"
+  name: security loot spawner
   suffix: Gear, Better
   id: LootSpawnerSecurity
   parent: MarkerBase
@@ -57,7 +57,7 @@
 # Armory loot spawner
 # Automatics are a complete mess right now, so the AK-MS And WT-550 have been commented out for consistency's sake. I have no idea what role these guns are supposed to fufill.
 - type: entity
-  name: "точка появи збройового луту"
+  name: armory loot spawner
   suffix: Guns, Armor
   id: LootSpawnerArmory
   parent: MarkerBase
@@ -95,7 +95,7 @@
       offset: 0.0
 
 - type: entity
-  name: "точка появи збройового луту"
+  name: armory loot spawner
   suffix: Guns
   id: LootSpawnerArmoryGunsOnly
   parent: MarkerBase
@@ -122,7 +122,7 @@
       offset: 0.0
 
 - type: entity
-  name: "точка появи збройового луту"
+  name: armory loot spawner
   suffix: Armor
   id: LootSpawnerArmoryArmorOnly
   parent: MarkerBase

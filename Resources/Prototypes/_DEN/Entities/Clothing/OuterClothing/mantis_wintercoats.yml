@@ -1,8 +1,8 @@
 - type: entity
   parent: [ClothingOuterWinterCoatMantis, BaseFoldable]
   id: ClothingOuterWinterCoatMantisDark
-  name: "темне пальто Мантіса"
-  description: "Величне тепле пальто з високим коміром. Рукави можна закотити до плечей, щоб похизуватися рукавичками."
+  name: dark mantis coat
+  description: "A grand, warm coat with a high collar. You can roll the sleeves up into the shoulders to show off your gloves."
   components:
   - type: Sprite
     sprite: _DEN/Clothing/OuterClothing/WinterCoats/mantis_winter_coat_dark.rsi
@@ -26,7 +26,7 @@
   parent: ClothingOuterWinterCoatMantisDark
   id: ClothingOuterWinterCoatMantisDarkFolded
   suffix: Rolled Sleeves
-  description: "Величне тепле пальто з високим коміром. Рукави можна розкотити, якщо вони не заважатимуть рукавичкам."
+  description: "A grand, warm coat with a high collar. You can unroll the sleeves, if they won't get in the way of your gloves."
   components:
   - type: Foldable
     folded: true
@@ -37,8 +37,8 @@
 - type: entity
   parent: ClothingOuterWinterCoatMantis
   id: ClothingOuterWinterCoatMantisMu
-  name: "табар Мантіса з мю-металу"
-  description: "Теплий табар з мотивом ока на розрізному комірі. Тканину прикрашають диски з мю-металу, які, як кажуть, допомагають Мантісу регулювати свої сили, принаймні теоретично."
+  name: mantis mu-metal tabard
+  description: "A warm tabard with an eye motif on its split collar. Mu-metal discs adorn the fabric, said to help the mantis regulate their powers, at least in theory."
   components:
   - type: Sprite
     sprite: _DEN/Clothing/OuterClothing/WinterCoats/mantis_winter_coat_mu.rsi

@@ -1,9 +1,9 @@
 - type: entity
   id: MobVampireSanguinePool
-  name: "кривава калюжа"
+  name: sanguine pool
   parent: BaseMob
   categories: [HideSpawnMenu]
-  description: "Свідома калюжа вампірської крові."
+  description: A sentient puddle of vampiric blood.
   components:
   - type: Sprite
     sprite: /Textures/_Pirate/Vampire/Effects.rsi

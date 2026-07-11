@@ -2,8 +2,8 @@
   parent: BaseWallmountMachine
   id: WallmountTelevision
   suffix: entertainment
-  name: "телебачення"
-  description: "Нарешті тут з'явився пристойний прийом..."
+  name: television
+  description: Finally, some decent reception around here...
   components:
   - type: Construction
     graph: WallmountTelevision
@@ -61,8 +61,8 @@
 - type: entity
   parent: BaseWallmountGlass
   id: WallmountTelevisionFrame
-  name: "телевізійна рамка"
-  description: "Нарешті тут з'явився пристойний прийом..."
+  name: television frame
+  description: Finally, some decent reception around here...
   components:
   - type: Construction
     graph: WallmountTelevision

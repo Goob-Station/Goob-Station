@@ -1,6 +1,6 @@
 - type: entity
-  name: "дивний скляний стілець"
-  description: "Виглядає зручно, незважаючи на гострі краї."
+  name: strange glass chair
+  description: Looks comfortable, despite the edges.
   id: ChairFlock
   parent: ChairBase
   components:

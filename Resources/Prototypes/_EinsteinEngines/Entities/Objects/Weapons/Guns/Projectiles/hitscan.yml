@@ -2,7 +2,7 @@
 - type: entity
   parent: BasicHitscan
   id: WispLash
-  name: "промін хлиста вогника"
+  name: wisp lash ray
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanBasicDamage

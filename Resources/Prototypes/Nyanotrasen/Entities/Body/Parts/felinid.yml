@@ -12,7 +12,7 @@
 
 - type: entity
   id: HeadFelinid
-  name: "фелінідська голова"
+  name: "felinid head"
   parent: [PartFelinid, BaseHead]
   components:
   - type: Sprite
@@ -21,7 +21,7 @@
 
 - type: entity
   id: ChestFelinid
-  name: "фелінідська грудна клітка"
+  name: "felinid chest"
   parent: [PartFelinid, BaseChest]
   components:
   - type: Sprite
@@ -30,7 +30,7 @@
 
 - type: entity
   id: GroinFelinid
-  name: "фелінідський пах"
+  name: "felinid groin"
   parent: [PartFelinid, BaseGroin]
   components:
   - type: Sprite
@@ -39,7 +39,7 @@
 
 - type: entity
   id: LeftArmFelinid
-  name: "ліва фелінідська рука"
+  name: "left felinid arm"
   parent: [PartFelinid, BaseLeftArm]
   components:
   - type: Sprite
@@ -48,7 +48,7 @@
 
 - type: entity
   id: RightArmFelinid
-  name: "права фелінідська рука"
+  name: "right felinid arm"
   parent: [PartFelinid, BaseRightArm]
   components:
   - type: Sprite
@@ -57,7 +57,7 @@
 
 - type: entity
   id: LeftHandFelinid
-  name: "ліва фелінідська кисть"
+  name: "left felinid hand"
   parent: [PartFelinid, BaseLeftHand]
   components:
   - type: Sprite
@@ -66,7 +66,7 @@
 
 - type: entity
   id: RightHandFelinid
-  name: "права фелінідська кисть"
+  name: "right felinid hand"
   parent: [PartFelinid, BaseRightHand]
   components:
   - type: Sprite
@@ -75,7 +75,7 @@
 
 - type: entity
   id: LeftLegFelinid
-  name: "ліва фелінідська нога"
+  name: "left felinid leg"
   parent: [PartFelinid, BaseLeftLeg]
   components:
   - type: Sprite
@@ -84,7 +84,7 @@
 
 - type: entity
   id: RightLegFelinid
-  name: "права фелінідська нога"
+  name: "right felinid leg"
   parent: [PartFelinid, BaseRightLeg]
   components:
   - type: Sprite
@@ -93,7 +93,7 @@
 
 - type: entity
   id: LeftFootFelinid
-  name: "ліва фелінідська стопа"
+  name: "left felinid foot"
   parent: [PartFelinid, BaseLeftFoot]
   components:
   - type: Sprite
@@ -102,7 +102,7 @@
 
 - type: entity
   id: RightFootFelinid
-  name: "права фелінідська стопа"
+  name: "right felinid foot"
   parent: [PartFelinid, BaseRightFoot]
   components:
   - type: Sprite

@@ -3,8 +3,8 @@
 - type: entity
   parent: BaseWallmountMachine
   id: FireAlarm
-  name: "пожежна тривога"
-  description: "Пожежна тривога. Гаряче!"
+  name: fire alarm
+  description: A fire alarm. Spicy!
   components:
   - type: LightningTarget
     priority: 0
@@ -113,8 +113,8 @@
 - type: entity
   parent: BaseWallmountMetallic
   id: FireAlarmAssembly
-  name: "збірка пожежної тривоги"
-  description: "Пожежна сигналізація. Дуже м'який."
+  name: fire alarm assembly
+  description: A fire alarm assembly. Very mild.
   components:
   - type: Sprite
     sprite: Structures/Wallmounts/air_monitors.rsi
@@ -154,8 +154,8 @@
 - type: entity
   id: FireAlarmXeno
   parent: FireAlarm
-  name: "пожежна тривога"
-  description: "Інопланетна пожежна тривога. Працює так само!"
+  name: fire alarm
+  description: An alien fire alarm. Works just the same!
   components:
   - type: Sprite
     sprite: Structures/Wallmounts/air_monitors_xeno.rsi
@@ -171,8 +171,8 @@
 - type: entity
   id: FireAlarmAssemblyXeno
   parent: FireAlarmAssembly
-  name: "збірка пожежної тривоги"
-  description: "Збірка інопланетної пожежної тривоги. Успіхів із дротами."
+  name: fire alarm assembly
+  description: An alien fire alarm assembly. Good luck with the wires.
   components:
   - type: Sprite
     sprite: Structures/Wallmounts/air_monitors_xeno.rsi

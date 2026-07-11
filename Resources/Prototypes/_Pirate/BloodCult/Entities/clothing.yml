@@ -10,8 +10,8 @@
 - type: entity
   parent: [ ClothingOuterBaseLarge, BaseMajorContraband, AllowSuitStorageClothing ]
   id: ClothingOuterRobesBloodCult
-  name: "роби кровокульту"
-  description: "Зловісна тканинна роба, що крапає кров'ю й укріплена бронепластинами, з пришитим каптуром."
+  name: bloodcult robes
+  description: An evil-looking cloth robe, dripping with blood and reinforced with armor plates, with an attached hood.
   components:
   - type: Sprite
     sprite: _Pirate/BloodCult/Clothing/cult_robes.rsi
@@ -45,8 +45,8 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatHoodBloodCult
   categories: [ HideSpawnMenu ]
-  name: "каптур кровокульту"
-  description: "Покриття для голови, прикрашене символами кровокульту."
+  name: bloodcult hood
+  description: A covering for the head, adorned with symbols of the blood cult.
   components:
   - type: Sprite
     sprite: _Pirate/BloodCult/Clothing/cult_hood.rsi
@@ -81,8 +81,8 @@
 - type: entity
   parent: [ ClothingShoesBaseButcherable, BaseMinorContraband ]
   id: ClothingShoesBootsForsaken
-  name: "черевики покинутих"
-  description: "Прокляті черевики, що чіпляються за землю з неприродною впертістю. Темна магія кровокульту гарантує, що ви ніколи не послизнетеся."
+  name: forsaken boots
+  description: Cursed boots that grip the ground with an unnatural tenacity. The blood cult's dark magic ensures you'll never slip.
   components:
   - type: Sprite
     sprite: _Pirate/BloodCult/Clothing/cult_boots.rsi

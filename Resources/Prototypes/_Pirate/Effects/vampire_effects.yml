@@ -1,6 +1,6 @@
 - type: entity
   id: VampireBloodTendrilVisual
-  name: "криваві щупальця"
+  name: blood tendrils
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -17,7 +17,7 @@
 # Shadow Boxing shadow punch visual
 - type: entity
   id: VampireShadowBoxingPunch
-  name: "тіньовий удар"
+  name: shadow punch
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -33,8 +33,8 @@
 
 - type: entity
   id: VampireBloodBarrier
-  name: "кривавий бар'єр"
-  description: "Бар'єр із застиглої крові, що блокує рух."
+  name: blood barrier
+  description: A barrier made of solidified blood that blocks movement.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -77,7 +77,7 @@
 
 - type: entity
   id: VampireSanguinePoolOut
-  name: "вихід вампіра з калюжі"
+  name: vampire transformation out
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -94,7 +94,7 @@
 
 - type: entity
   id: VampireSanguinePoolIn
-  name: "перетворення вампіра в калюжу"
+  name: vampire transformation in
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -113,7 +113,7 @@
 
 - type: entity
   id: VampireBloodEruptionVisual
-  name: "виверження крові"
+  name: blood eruption
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -129,8 +129,8 @@
 
 - type: entity
   id: VampireDrainBeam
-  name: "промінь висмоктування"
-  description: "Багряний промінь енергії, що висмоктує життя."
+  name: drain beam
+  description: A crimson beam of life-draining energy.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -147,8 +147,8 @@
 
 - type: entity
   id: VampireDrainBeamVisual
-  name: "візуал променя висмоктування"
-  description: "Плавний клієнтський вампірський промінь висмоктування."
+  name: drain beam visual
+  description: A smooth client-side vampire drain beam.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -220,8 +220,8 @@
 
 - type: entity
   id: VampireShadowAnchorBeacon
-  name: "тіньовий якір"
-  description: "Пульсуючий вузол тіні, до якого можна повернутися."
+  name: shadow anchor
+  description: A pulsing knot of shadow you can return to.
   categories: [HideSpawnMenu]
   components:
     - type: Transform
@@ -329,8 +329,8 @@
 # Shadow Snare trap for Umbrae vampires
 - type: entity
   id: VampireShadowSnare
-  name: "тіньова пастка"
-  description: "Майже невидима пастка зі згущених тіней."
+  name: shadow snare
+  description: A nearly invisible trap made of condensed shadows.
   categories: [HideSpawnMenu]
   components:
     - type: Damageable
@@ -377,8 +377,8 @@
 # Ensnare entity spawned when shadow snare triggers
 - type: entity
   id: VampireShadowSnareEnsnare
-  name: "тіньові щупальця"
-  description: "Темні щупальця, що зв'язують твої ноги."
+  name: shadow tendrils
+  description: Dark tendrils binding your legs.
   categories: [HideSpawnMenu]
   components:
     - type: Ensnaring

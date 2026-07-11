@@ -1,6 +1,6 @@
 - type: entity
-  name: "колода ашвуду дерев'яно-шапинкового гриба"
-  description: "Воно не просто непогане, воно хороше!"
+  name: tower-cap ashwood log
+  description: It's better than bad, it's good!
   id: AshwoodLog
   parent: ProduceBase
   components:

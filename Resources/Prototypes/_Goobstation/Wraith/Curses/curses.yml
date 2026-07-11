@@ -1,6 +1,6 @@
 - type: curse
   id: CurseWeakness
-  name: "прокляття ослаблення"
+  name: Curse of Enfeeblement
   statusIcon: CurseWeaknessIcon
   update: 30 # how often this curse updates in seconds.
   effects:
@@ -30,7 +30,7 @@
 
 - type: curse
   id: CurseBlood
-  name: "прокляття крові"
+  name: Curse of Blood
   statusIcon: CurseBloodIcon
   update: 25 #seconds
   effects:
@@ -52,7 +52,7 @@
 
 - type: curse # TO DO: Make them emote "blinks"
   id: CurseBlindness
-  name: "прокляття сліпоти"
+  name: Curse of Blindness
   statusIcon: CurseBlindnessIcon
   update: 90 #1.5 minutes
   effects:
@@ -66,7 +66,7 @@
 
 - type: curse
   id: CurseRot
-  name: "прокляття гниття"
+  name: Curse of Rot
   components:
   - type: UnableToEat
   statusIcon: CurseRotIcon
@@ -86,7 +86,7 @@
 
 - type: curse
   id: CurseDeath
-  name: "Прокляття смерті"
+  name: Curse of Death
   update: 10 #seconds
   components:
   - type: CurseDeath

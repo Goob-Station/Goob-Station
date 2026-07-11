@@ -19,8 +19,8 @@
 - type: entity
   parent: [ BaseItem, BaseSportsBall ]
   id: Basketball
-  name: "баскетбольний м'яч"
-  description: "Де знаходяться суди?"
+  name: basketball
+  description: Where dah courts at?
   components:
   - type: Sprite
     sprite: Objects/Fun/Balls/basketball.rsi
@@ -44,8 +44,8 @@
 - type: entity
   parent: [ BaseItem, BaseSportsBall ]
   id: Football
-  name: "футбольний м'яч"
-  description: "Інакше відома як гандеґґ."
+  name: football
+  description: Otherwise known as a handegg.
   components:
   - type: Sprite
     sprite: Objects/Fun/Balls/football.rsi
@@ -67,8 +67,8 @@
 - type: entity
   parent: [ BaseItem, BaseSportsBall ]
   id: TennisBall
-  name: "тенісний м'яч"
-  description: "Пухнаста куля нескінченної зради."
+  name: tennis ball
+  description: A fuzzy orb of endless betrayal.
   components:
   - type: Sprite
     sprite: Objects/Fun/Balls/tennisball.rsi
@@ -101,8 +101,8 @@
 - type: entity
   parent: [ BaseItem, BaseSportsBall ]
   id: BeachBall
-  name: "пляжний м'яч"
-  description: "Простий пляжний м'яч - один з найпопулярніших продуктів Nanotrasen. \"Чому ми робимо пляжні м'ячі? Тому що ми можемо! (ТМ)\" - Nanotrasen"
+  name: beach ball
+  description: The simple beach ball is one of Nanotrasen's most popular products. 'Why do we make beach balls? Because we can! (TM)' - Nanotrasen
   components:
   - type: Sprite
     sprite: Objects/Fun/Balls/beach_ball.rsi
@@ -128,7 +128,7 @@
   parent: BeachBall
   id: EvilBeachBall
   suffix: EVIL/ADMEME
-  description: "Хтось намалював \">:3c\" на боці цього пляжного м'яча незмивним чорнилом."
+  description: Someone's drawn ">:3c" on the side of this beach ball in indelible ink.
   components:
   - type: Fixtures
     fixtures:

@@ -1,8 +1,8 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "розривна граната"
-  description: "Граната, що створює невеликий, але руйнівний вибух."
+  name: explosive grenade
+  description: Grenade that creates a small but devastating explosion.
   parent: [VolatileGrenadeBase, GrenadeBase, BaseSyndicateContraband]
   id: ExGrenade
   components:
@@ -24,8 +24,8 @@
     beepInterval: 2 # 2 beeps total (at 0 and 2)
 
 - type: entity
-  name: "світлошумова граната"
-  description: "Ііііііііііііііііііііііііі."
+  name: flashbang
+  description: Eeeeeeeeeeeeeeeeeeeeee.
   parent: [ FragileGrenadeBase, GrenadeBase, BaseSecurityContraband ]
   id: GrenadeFlashBang
   components:
@@ -80,8 +80,8 @@
 #The explosive values for these are pretty god damn mediocre, but SS14's explosion system is hard to understand - this is a good enough approximation of how it was in SS13.
 #Ideally, there should be a weak radius around the bomb outside of its gibbing / spacing range capable of dealing fair damage to players / structures.
 - type: entity
-  name: "синдикатська міні-бомба"
-  description: "Вироблена синдикатом вибухівка, що використовується для руйнування та створення хаосу."
+  name: syndicate minibomb
+  description: A syndicate-manufactured explosive used to stow destruction and cause chaos.
   parent: [VolatileGrenadeBase, GrenadeBase, BaseSyndicateContraband]
   id: SyndieMiniBomb
   components:
@@ -109,8 +109,8 @@
     price: 2000
 
 - type: entity
-  name: "самознищення"
-  description: "Ідіть на своїх умовах!"
+  name: self destruct
+  description: Go out on your own terms!
   parent: GrenadeBase
   id: SelfDestructSeq
   categories: [ HideSpawnMenu ]
@@ -139,8 +139,8 @@
 - type: entity
   parent: [ FragileGrenadeBase, GrenadeBase, BaseSyndicateContraband ]
   id: SupermatterGrenade # Goobstation diff name
-  name: "сингулярна граната"
-  description: "Граната, що імітує деламінацію двигуна суперматерії, стягуючи речі в купу й вибухаючи через деякий час." # Goob
+  name: singularity grenade
+  description: Grenade that simulates delamination of the supermatter engine, pulling things in a heap and exploding after some time. # Goob
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/supermattergrenade.rsi # Goob
@@ -208,8 +208,8 @@
     price: 1000
 
 - type: entity
-  name: "світлодірова граната"
-  description: "Граната, яка на деякий час відбиває все навколо."
+  name: whitehole grenade
+  description: Grenade that repulses everything around for some time.
   parent: SupermatterGrenade
   id: WhiteholeGrenade
   components:
@@ -268,8 +268,8 @@
     price: 1000
 
 - type: entity
-  name: "ядерний варіант"
-  description: "Будь ласка, не кидайте його, подумайте про дітей."
+  name: the nuclear option
+  description: Please don't throw it, think of the children.
   parent: GrenadeBase
   id: NuclearGrenade
   components:
@@ -301,8 +301,8 @@
       path: /Audio/Effects/countdown.ogg
 
 - type: entity
-  name: "модульна граната"
-  description: "Корпус від гранати. Потрібен спусковий гачок і заряд."
+  name: modular grenade
+  description: A grenade casing. Requires a trigger and a payload.
   parent: BaseItem
   id: ModularGrenade
   components:
@@ -349,8 +349,8 @@
     price: 75
 
 - type: entity
-  name: "ЕМР-граната"
-  description: "Граната, призначена для виведення з ладу електронних систем."
+  name: EMP grenade
+  description: A grenade designed to wreak havoc on electronic systems.
   parent: [FragileGrenadeBase, GrenadeBase, BaseSyndicateContraband]
   id: EmpGrenade
   components:
@@ -372,8 +372,8 @@
     price: 666 # 2000 for 3, I love fractions
 
 - type: entity
-  name: "свята ручна граната"
-  description: "Господи, благослови цю ручну гранату Твою, щоб нею Ти міг рознести ворогів Твоїх на дрібні шматочки, по милості Твоїй."
+  name: holy hand grenade
+  description: O Lord, bless this thy hand grenade, that with it thou mayst blow thine enemies to tiny bits, in thy mercy.
   parent: [GrenadeBase, BaseSyndicateContraband]
   id: HolyHandGrenade
   components:
@@ -403,8 +403,8 @@
 # Non-explosive "dummy" grenades to use as a distraction.
 
 - type: entity
-  name: "граната-обманка"
-  description: "Гранате без бабаху."
+  name: trick grenade
+  description: All the grenade without any of the boom.
   parent: GrenadeBase
   id: GrenadeDummy
   components:
@@ -430,8 +430,8 @@
       path: /Audio/Effects/countdown.ogg
 
 - type: entity
-  name: "відволікаюча бомба синдикату"
-  description: "Вибухівка, виготовлена синдикатом, стала чудовим відволікаючим маневром."
+  name: syndicate trickybomb
+  description: A syndicate-manufactured explosive used to make an excellent distraction.
   parent: [GrenadeDummy, BaseSyndicateContraband]
   id: SyndieTrickyBomb
   components:

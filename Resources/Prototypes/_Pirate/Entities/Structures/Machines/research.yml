@@ -4,7 +4,7 @@
 - type: entity
   id: PirateBaseResearchAndDevelopmentServer
   abstract: true
-  name: "абстрактний сервер НДДКР"
+  name: abstract R&D server
   components:
   - type: ResearchServer
   - type: TechnologyDatabase

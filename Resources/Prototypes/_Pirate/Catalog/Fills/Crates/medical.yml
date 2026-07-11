@@ -2,8 +2,8 @@
 - type: entity
   id: CrateCombatSurgeryRed
   parent: CrateMedicalInterdyneSecure
-  name: "Ящик із компактною сумкою та приладдям польового хірурга"
-  description: "Контейнер із сумкою для парамедиків і бріг-лікарів, або для тих, хто полюбляє надійність."
+  name: Ящик з компактною сумкою та приладдям польового хірурга.
+  description: Контейнер з сумками для парамедиків, та бріг лікарів, чи для тих хто полюбляє надійність.
   components:
   - type: StorageFill
     contents:
@@ -12,8 +12,8 @@
 - type: entity
   id: CrateCombatSurgeryBlue
   parent: CrateMedicalInterdyneSecure
-  name: "Ящик із компактною сумкою та приладдям польового хірурга"
-  description: "Контейнер із сумкою для парамедиків і бріг-лікарів, або для тих, хто полюбляє надійність."
+  name: Ящик з компактною сумкою та приладдям польового хірурга.
+  description: Контейнер з сумками для парамедиків, та бріг лікарів, чи для тих хто полюбляє надійність.
   components:
   - type: StorageFill
     contents:
@@ -22,8 +22,8 @@
 - type: entity
   id: CrateCombatSurgeryRedKit
   parent: CrateMedicalInterdyneSecure
-  name: "Ящик із компактними сумками з приладдям польового хірурга"
-  description: "Контейнер містить три сумки: для бріг-лікаря, парамедика і, щоб ніхто не образився, для головного лікаря."
+  name: Ящик з компактними сумками з приладдям польового хірурга.
+  description: Контейнер містить в собі три сумки, для бріг лікаря, парамедика і в додачу головного лікаря, щоб не ображався.
   components:
   - type: StorageFill
     contents:
@@ -33,8 +33,8 @@
 - type: entity
   id: CrateCombatSurgeryBlueKit
   parent: CrateMedicalInterdyneSecure
-  name: "Ящик із компактними сумками з приладдям польового хірурга"
-  description: "Контейнер містить три сумки: для бріг-лікаря, парамедика і, щоб ніхто не образився, для головного лікаря."
+  name: Ящик з компактними сумками з приладдям польового хірурга.
+  description: Контейнер містить в собі три сумки, для бріг лікаря, парамедика і в додачу головного лікаря, щоб не ображався.
   components:
   - type: StorageFill
     contents:
@@ -45,8 +45,8 @@
 - type: entity
   id: CrateCombatSurgeryAdvancedRed
   parent: CrateMedicalInterdyneSecure
-  name: "Ящик із компактною сумкою та просунутим приладдям польового хірурга"
-  description: "Контейнер із сумкою для парамедиків і бріг-лікарів, або для тих, хто полюбляє надійність."
+  name: Ящик з компактною сумкою та просунутим приладдям польового хірурга.
+  description: Контейнер з сумками для парамедиків, та бріг лікарів, чи для тих хто полюбляє надійність.
   components:
   - type: StorageFill
     contents:
@@ -55,8 +55,8 @@
 - type: entity
   id: CrateCombatSurgeryAdvancedBlue
   parent: CrateMedicalInterdyneSecure
-  name: "Ящик із компактною сумкою та просунутим приладдям польового хірурга"
-  description: "Контейнер із сумкою для парамедиків і бріг-лікарів, або для тих, хто полюбляє надійність."
+  name: Ящик з компактною сумкою та просунутим приладдям польового хірурга.
+  description: Контейнер з сумками для парамедиків, та бріг лікарів, чи для тих хто полюбляє надійність.
   components:
   - type: StorageFill
     contents:

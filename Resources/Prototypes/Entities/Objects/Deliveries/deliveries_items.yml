@@ -5,8 +5,8 @@
 # Advertisements
 - type: entity
   id: MailRobustToolsSpam
-  name: "Робаст Тулбокс - Спеціальна пропозиція!"
-  description: "Реклама робастних ящиків для інструментів."
+  name: Robust Toolbox - Special Offer!
+  description: An advertisement for the robust toolboxes.
   parent: Paper
   components:
   - type: Paper
@@ -14,8 +14,8 @@
 
 - type: entity
   id: MailNanotrasenSpam
-  name: "Причини обрати Нанотрейзен!"
-  description: "Реклама Нанотрейзен."
+  name: Reasons to choose Nanotrasen!
+  description: An advertisement for the Nanotrasen.
   parent: Paper
   components:
   - type: Paper
@@ -23,8 +23,8 @@
 
 - type: entity
   id: MailSyndicateSpam
-  name: "Причини обрати Синдикат!"
-  description: "Реклама Синдикату."
+  name: Reasons to choose The Syndicate!
+  description: An advertisement for the The Syndicate.
   parent: Paper
   components:
   - type: Paper
@@ -32,8 +32,8 @@
 
 - type: entity
   id: MailAlternativeDimensionSpam
-  name: "Надішліть підкріплення!"
-  description: "Офіційне повідомлення з... альтернативної часової лінії?"
+  name: Send reinforcements!
+  description: An official notice from... an alternate timeline?
   parent: Paper
   components:
   - type: Paper
@@ -41,8 +41,8 @@
 
 - type: entity
   id: MailNarsieCultSpam
-  name: "Діти Нар'Сі"
-  description: "Місцевий культ шукає новобранців."
+  name: The Children of Nar'Sie
+  description: A local cult is looking for recruits.
   parent: Paper
   components:
   - type: Paper
@@ -50,8 +50,8 @@
 
 - type: entity
   id: MailRageCageSpam
-  name: "Хочете побитися?!"
-  description: "Реклама місцевого бійцівського клубу."
+  name: Do you want to fight?!
+  description: Advertisement for a local fighting club.
   parent: Paper
   components:
   - type: Paper
@@ -59,8 +59,8 @@
 
 - type: entity
   id: MailVoyageAdvertisementSpam
-  name: "Приєднуйтесь до нас у першій подорожі!"
-  description: "Реклама розслаблюючої подорожі."
+  name: Join us on the maiden voyage!
+  description: Advertisement for a relaxing voyage.
   parent: Paper
   components:
   - type: Paper
@@ -69,8 +69,8 @@
 # Scam Mail
 - type: entity
   id: MailScienceSpiderClanSpam
-  name: "Набридло, що наука вибухає?"
-  description: "Виконайте ці прості кроки, щоб цього більше ніколи не сталося!"
+  name: Tired of science blowing up?
+  description: Follow these simple steps to ensure it never happens again!
   parent: Paper
   components:
   - type: Paper
@@ -78,8 +78,8 @@
 
 - type: entity
   id: MailAllAccessSpam
-  name: "БЕЗКОШТОВНИЙ ВСЕ-ДОСТУП!!" # Spelling mistake intentional
-  description: "Ви колись хотіли безкоштовний повний доступ?!"
+  name: FREE ALL AXCESS!! # Spelling mistake intentional
+  description: Did you ever want free all access?!
   parent: Paper
   components:
   - type: Paper
@@ -87,8 +87,8 @@
 
 - type: entity
   id: MailCentcommRetributionSpam
-  name: "ПОВІДОМЛЕННЯ ВІД НАНОТРЕЙЗН!!" # Spelling mistake intentional
-  description: "Офіційне повідомлення від CEO Нанотрейнз?!"
+  name: NOTICE FROM NANOTRASN!! # Spelling mistake intentional
+  description: An official notice from the CEO of Nanotrasn?!
   parent: Paper
   components:
   - type: Paper
@@ -96,8 +96,8 @@
 
 - type: entity
   id: MailEvilLizardSpam
-  name: "НЕ ВІДКРИВАЙТЕ ЦЮ ПОШТУ"
-  description: "Вас проклято!"
+  name: DO NOT OPEN THIS MAIL
+  description: You have been cursed!
   parent: Paper
   components:
   - type: Paper
@@ -105,8 +105,8 @@
 
 - type: entity
   id: MailParentsNeedMoneySpam
-  name: "Допоможіть мамі й татові!"
-  description: "Батьки потребують фінансової підтримки."
+  name: Help mom and dad!
+  description: Parents in need of financial support.
   parent: Paper
   components:
   - type: Paper

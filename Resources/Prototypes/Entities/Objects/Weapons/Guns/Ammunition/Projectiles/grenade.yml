@@ -4,7 +4,7 @@
   parent: BaseBullet
   id: PelletClusterRubber
   categories: [ HideSpawnMenu ]
-  name: "картеч (куля, гумова)"
+  name: pellet (ball, rubber)
   components:
   - type: Projectile
     deleteOnCollide: false
@@ -20,7 +20,7 @@
   parent: BaseBullet
   id: PelletClusterLethal
   categories: [ HideSpawnMenu ]
-  name: "картеч (куля, летальна)"
+  name: pellet (ball, lethal)
   components:
   - type: Projectile
     deleteOnCollide: false
@@ -34,7 +34,7 @@
   parent: BaseBulletIncendiary
   id: PelletClusterIncendiary
   categories: [ HideSpawnMenu ]
-  name: "дробинка (кулька, запальна)"
+  name: pellet (ball, incendiary)
   components:
   - type: Projectile
     deleteOnCollide: false
@@ -52,7 +52,7 @@
   parent: BaseBullet
   id: PelletClusterLessLethal
   categories: [ HideSpawnMenu ]
-  name: "картеч (куляста, менш летальна)"
+  name: pellet (ball, less lethal)
   components:
   - type: Projectile
     deleteOnCollide: false

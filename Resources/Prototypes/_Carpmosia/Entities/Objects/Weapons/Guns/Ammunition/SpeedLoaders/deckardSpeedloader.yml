@@ -1,6 +1,6 @@
 - type: entity
   id: BaseSpeedLoaderDeckard
-  name: "спідлоадер Декарда (.45 магнум)"
+  name: "deckard speed loader (.45 magnum)"
   parent: [ BaseItem, BaseSecurityCommandContraband ]
   abstract: true
   components:
@@ -21,9 +21,9 @@
 
 - type: entity
   id: SpeedLoaderDeckard
-  name: "спідлоадер Декарда (.45 магнум)"
+  name: "deckard speed loader (.45 magnum)"
   parent: BaseSpeedLoaderDeckard
-  description: "Спідлоадер, виготовлений спеціально для Декарда. Має блискучу сріблясту ручку."
+  description: "A speedloader made specifically for Deckard. It has a shiny silver handle."
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnum

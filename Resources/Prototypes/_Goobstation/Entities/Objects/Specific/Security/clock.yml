@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseItem
   id: ObraDinnClock
-  name: "годинник страхового оцінювача"
-  description: "стара реліквія, що, здається, цокає назад"
+  name: clock of the insurance evaluator
+  description: an old heirloom that seems to be ticking backwards
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Security/Obradinnclock.rsi

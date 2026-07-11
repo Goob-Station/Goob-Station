@@ -1,8 +1,8 @@
 - type: entity
   id: DiseaseBehaviorHyperactive
   parent: DiseaseBehaviorBase
-  name: "Відчуття гіперактивності"
-  description: "Викликає відчуття гіперактивності."
+  name: Feeling hyper
+  description: Makes you feel hyper.
   components:
   - type: DiseaseEffect
     complexity: -30
@@ -20,8 +20,8 @@
 - type: entity
   id: DiseaseBehaviorHealing
   parent: DiseaseBehaviorBase
-  name: "Фактор регенерації"
-  description: "Прискорює природну регенерацію."
+  name: Healing factor
+  description: Accelerates natural regeneration.
   components:
   - type: DiseaseEffect
     complexity: -20

@@ -1,8 +1,8 @@
 - type: entity
-  name: "Колосус"
+  name: Colossus
   id: LavalandBossColossus
   parent: LavalandMobBase
-  description: "Чудовисько, захищене потужним щитом."
+  description: A monstrous creature protected by heavy shielding.
   components:
   - type: Physics
     bodyType: KinematicController

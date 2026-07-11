@@ -1,8 +1,8 @@
 - type: entity
   id: StationRadioServer
-  name: "сервер станційного радіо"
+  name: station radio server
   parent: [ BaseMachinePowered, ConstructibleMachine ]
-  description: "Стійка серверів, що керує тим, чи транслюється ваш голос"
+  description: A rack of servers, controls whether your voice is being broadcasted or not
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Machines/StationRadio/stationradioserver.rsi
@@ -28,8 +28,8 @@
 - type: entity
   id: StationRadioRig
   parent: [ BaseMachinePowered, ConstructibleMachine ]
-  name: "станційний радіо-ріґ"
-  description: "Набір усього, що потрібно, щоб транслювати музику по станції."
+  name: station radio rig
+  description: A collection of everything you need to play music over the station.
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Machines/StationRadio/radiostationrig.rsi

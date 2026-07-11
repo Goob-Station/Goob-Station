@@ -22,8 +22,8 @@
 - type: entity
   id: BookWitchBrewing
   parent: PirateGuidebookBase
-  name: "гримуар відьми"
-  description: "Збірка відьомських настоїв, ритуалів і способів варіння проклятих сумішей."
+  name: гримуар відьми
+  description: Збірка відьомських настоїв, ритуалів і способів варіння проклятих сумішей. 
   components:
   - type: Sprite
     layers:
@@ -47,8 +47,8 @@
 - type: entity
   id: BookAlchemistCompendium
   parent: PirateGuidebookBase
-  name: "алхімічний компендіум"
-  description: "Книга формул, перегонів і точних рецептів для алхімічного апарата."
+  name: алхімічний компендіум
+  description: Книга формул, перегонів і точних рецептів для алхімічного апарата. 
   components:
   - type: Sprite
     layers:
@@ -70,8 +70,8 @@
 - type: entity
   id: BookWitchCauldronCaller
   parent: PirateGuidebookBase
-  name: "книга виклику казана"
-  description: "Тонкий ритуальний том, що відкликає закріплений казан відьми просто до ваших ніг."
+  name: книга виклику казана
+  description: Тонкий ритуальний том, що відкликає закріплений казан відьми просто до ваших ніг.
   suffix: Відьма, JustDecor
   categories: [ HideSpawnMenu ]
   components:
@@ -97,8 +97,8 @@
 - type: entity
   id: BookAlchemistApparatusCaller
   parent: PirateGuidebookBase
-  name: "книга виклику апарата"
-  description: "Практичний довідник із печаттю дистиляції. Розгортає алхімічний апарат на місці використання."
+  name: книга виклику апарата
+  description: Практичний довідник із печаттю дистиляції. Розгортає алхімічний апарат на місці використання.
   suffix: Алхім., JustDecor
   categories: [ HideSpawnMenu ]
   components:

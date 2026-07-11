@@ -31,8 +31,8 @@
 - type: entity
   parent: [DrinkBaseMaterialStrongMetal, DrinkBase]
   id: DrinkFlaskOld
-  name: "стара фляга"
-  description: "Стара занепала фляга, здається, її кришка відсутня."
+  name: old flask
+  description: A decrepit old flask, its lid seems to be missing.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -46,8 +46,8 @@
 - type: entity
   parent: FlaskBase
   id: DrinkShinyFlask
-  name: "блискуча колба"
-  description: "Блискуча металева колба. На ній, схоже, викарбуваний грецький символ."
+  name: shiny flask
+  description: A shiny metal flask. It appears to have a Greek symbol inscribed on it.
   components:
   - type: Sprite
     sprite: Objects/Consumable/Drinks/shinyflask.rsi
@@ -56,8 +56,8 @@
   parent: FlaskBase
   id: DrinkMREFlask
   suffix: Full
-  name: "фляга MRE"
-  description: "Стара військова фляга, наповнена найкращим вмістом для солдатів."
+  name: MRE flask
+  description: An old military flask, filled with the finest contents for soldiers.
   components:
   - type: Sprite
     sprite: Objects/Consumable/Drinks/mreflask.rsi
@@ -73,8 +73,8 @@
 - type: entity
   parent: FlaskBase
   id: DrinkDetFlask
-  name: "фляга інспектора"
-  description: "Металева фляга зі шкіряним ремінцем та золотим значком, що належить інспектору."
+  name: inspector's flask
+  description: A metal flask with a leather band and golden badge belonging to the inspector.
   components:
   - type: Sprite
     sprite: Objects/Consumable/Drinks/detflask.rsi
@@ -82,8 +82,8 @@
 - type: entity
   parent: FlaskBase
   id: DrinkHosFlask
-  name: "фляга ГСБ"
-  description: "Металева колба, придатна для працьовитих хот-догів."
+  name: hos's flask
+  description: A metal flask, fit for a hard working HoS.
   components:
   - type: Sprite
     sprite: Objects/Consumable/Drinks/hosflask.rsi
@@ -91,8 +91,8 @@
 - type: entity
   parent: FlaskBase
   id: DrinkFlask
-  name: "фляга капітана"
-  description: "Металева фляга, що належить капітану."
+  name: captain's flask
+  description: A metal flask belonging to the captain.
   components:
   - type: Sprite
     sprite: Objects/Consumable/Drinks/flask.rsi
@@ -100,8 +100,8 @@
 - type: entity
   parent: FlaskBase
   id: DrinkFlaskBar
-  name: "фляга"
-  description: "Багаторазова металева фляга. Вишуканіше, ніж пити прямо з пляшки."
+  name: flask
+  description: A reusable metal flask. Classier than drinking straight from a bottle.
   components:
     - type: Sprite
       sprite: Objects/Consumable/Drinks/barflask.rsi
@@ -109,8 +109,8 @@
 - type: entity
   parent: FlaskBase
   id: DrinkLithiumFlask
-  name: "літієва колба"
-  description: "Колба з символом атома літію на ній."
+  name: lithium flask
+  description: A flask with a Lithium Atom symbol on it.
   components:
   - type: Sprite
     sprite: Objects/Consumable/Drinks/lithiumflask.rsi
@@ -118,8 +118,8 @@
 - type: entity
   parent: FlaskBase
   id: DrinkVacuumFlask
-  name: "вакуумна колба"
-  description: "Зберігаємо ваші напої ідеальної температури з 1892 року."
+  name: vacuum flask
+  description: Keeping your drinks at the perfect temperature since 1892.
   components:
   - type: Sprite
     sprite: Objects/Consumable/Drinks/vacuumflask.rsi

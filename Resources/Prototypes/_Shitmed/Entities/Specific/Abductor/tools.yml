@@ -3,8 +3,8 @@
 - type: entity
   parent: [ BaseCrowbar, BaseMajorContraband ]
   id: CrowbarAbductor
-  name: "високотехнологічний лом"
-  description: "Виготовлений з металу, міцнішого за все, про що Нанотрасен міг мріяти."
+  name: high-tech crowbar
+  description: Made out of metal more durable than anything Nanotrasen could dream of.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Abductor/crowbar.rsi
@@ -20,10 +20,10 @@
     - Abductors
 
 - type: entity
-  name: "високотехнологічний дротовий різак"
+  name: high-tech wirecutter
   parent: [ BaseItem, BaseMajorContraband]
   id: WirecutterAbductor
-  description: "Розрізає дроти, як гарячий ніж масло."
+  description: Cuts through wires like a hot knife through butter.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Abductor/wirecutters.rsi
@@ -75,10 +75,10 @@
     - Abductors
 
 - type: entity
-  name: "високотехнологічна викрутка"
+  name: high-tech screwdriver
   parent: [ BaseItem, BaseMajorContraband ]
   id: ScrewdriverAbductor
-  description: "Ефективніше, ніж будь-що, про що міг мріяти Нанотрасен. Не плутати зі звуковою викруткою."
+  description: More efficient than anything Nanotrasen could dream of. Not to be confused with a sonic screwdriver.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Abductor/screwdriver.rsi
@@ -124,10 +124,10 @@
     - Abductors
 
 - type: entity
-  name: "високотехнологічний ключ"
+  name: high-tech wrench
   parent: [ Wrench, BaseMajorContraband ]
   id: WrenchAbductor
-  description: "Може зняти болт за один оберт. Не призначений для ближнього бою."
+  description: Can take a bolt off in a single turn. Not intended for melee combat.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Abductor/wrench.rsi
@@ -150,10 +150,10 @@
     - Abductors
 
 - type: entity
-  name: "високотехнологічний зварювальний інструмент"
+  name: high-tech welding tool
   parent: [ Welder, BaseMajorContraband ]
   id: WelderAbductor
-  description: "Високотехнологічний зварювальний апарат, здатний виробляти нескінченну кількість палива."
+  description: "A highly advanced welder capable of producing infinite fuel."
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Abductor/welder.rsi
@@ -189,10 +189,10 @@
     - Abductors
 
 - type: entity
-  name: "високотехнологічний мультитул"
+  name: high-tech multitool
   parent: [BaseItem, BaseMajorContraband]
   id: MultitoolAbductor
-  description: "Високотехнологічний інструмент для злому, здатний переглядати функціональність дротів. Може використовуватися як криптографічний секвенсор в альтернативному режимі."
+  description: A highly advanced hacking tool capable of viewing wire functionality. Can be used as Cryptographic sequencer in its alternate mode.
   components:
   - type: EmitSoundOnLand
     sound:

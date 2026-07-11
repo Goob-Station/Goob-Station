@@ -1,5 +1,5 @@
 - type: entity
   save: false
-  name: "Уріст Макплазма"
+  name: Urist McPlasma
   parent: BaseMobPlasmaman
   id: MobPlasmaman
