@@ -1,0 +1,16 @@
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltTCAFWebbing
+  name: Підсумка TCAF
+  suffix: TCAF
+  description: Ідеально підходить для зберігання всього, від боєприпасів до зброї та спорядження першої необхідності.
+  components:
+  - type: Sprite
+    sprite: _Pirate/Clothing/_BieselRepublic/Belt/TCAF_webbing.rsi
+  - type: Clothing
+    sprite: _Pirate/Clothing/_BieselRepublic/Belt/TCAF_webbing.rsi
+  - type: EmitsSoundOnMove
+    soundCollection:
+      collection: PirateFootstepTacticalWebbing
+      params:
+        volume: -10

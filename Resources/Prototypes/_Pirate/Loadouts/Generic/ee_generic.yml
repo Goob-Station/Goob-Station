@@ -204,36 +204,6 @@
   equipment:
     head: ClothingHeadHatMountie
 
-- type: loadout
-  id: ClothingHeadHatTCAFBeretDress
-  equipment:
-    head: ClothingHeadHatTCAFBeretDress
-
-- type: loadout
-  id: ClothingHeadHatTCAFBeretField
-  equipment:
-    head: ClothingHeadHatTCAFBeretField
-
-- type: loadout
-  id: ClothingHeadHatTCFLBeretDress
-  equipment:
-    head: ClothingHeadHatTCFLBeretDress
-
-- type: loadout
-  id: ClothingHeadHatTCFLBeretField
-  equipment:
-    head: ClothingHeadHatTCFLBeretField
-
-- type: loadout
-  id: ClothingHeadHatTCFLBeretSentinel
-  equipment:
-    head: ClothingHeadHatTCFLBeretSentinel
-
-- type: loadout
-  id: ClothingHeadHatTCFLSoftCap
-  equipment:
-    head: ClothingHeadHatTCFLSoftCap
-
 # EE generic eyes
 - type: loadout
   id: LoadoutEyesBlindfold
@@ -407,11 +377,6 @@
   equipment:
     belt: ClothingBeltStorageWaistbagColor
 
-- type: loadout
-  id: ClothingBeltTCAFWebbing
-  equipment:
-    belt: ClothingBeltTCAFWebbing
-
 # EE generic hands
 - type: loadout
   id: LoadoutHandsGlovesFingerlessWhite
@@ -441,11 +406,6 @@
   id: ClothingHandsTacticalMaidGlovesLoadout
   equipment:
     gloves: ClothingHandsTacticalMaidGlovesCivilian
-
-- type: loadout
-  id: ClothingHandsGlovesCombatTCAF
-  equipment:
-    gloves: ClothingHandsGlovesCombatTCAF
 
 # EE generic mask
 - type: loadout
@@ -1201,11 +1161,6 @@
   customColorTint: true
   equipment:
     outerClothing: ClothingOuterVestThick
-
-- type: loadout
-  id: LoadoutOuterJacketTCAF
-  equipment:
-    outerClothing: ClothingOuterJacketTCAF
 
 - type: loadout
   id: LoadoutShoesGeta
@@ -1964,29 +1919,3 @@
   id: LoadoutUniformJumpsuitFlannelBlackKhakis
   equipment:
     jumpsuit: ClothingUniformJumpsuitFlannelBlackKhakis
-
-- type: loadout
-  id: ClothingUniformTCAFArmsman
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitTCAFArmsman
-
-- type: loadout
-  id: ClothingUniformTCFLLegate
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitTCFLLegate
-
-- type: loadout
-  id: ClothingUniformTCFLPilot
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitTCFLPilot
-
-- type: loadout
-  id: ClothingUniformTCFLSentinel
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitTCFLSentinel
-
-- type: loadout
-  id: ClothingUniformTCFLVolunteer
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitTCFLVolunteer
-

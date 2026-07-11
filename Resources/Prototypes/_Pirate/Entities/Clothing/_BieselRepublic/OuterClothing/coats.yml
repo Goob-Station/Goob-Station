@@ -1,0 +1,21 @@
+- type: entity
+  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing]
+  id: ClothingOuterJacketTCAF
+  name: куртка TCAF
+  suffix: TCAF
+  description: Якісна куртка з тканини, стійкої до розривів і займання. Її часто носять діючі та колишні військовослужбовці збройних сил Тау Кита.
+  components:
+    - type: Sprite
+      sprite: _Pirate/Clothing/_BieselRepublic/OuterClothing/Coats/TCAF_jacket.rsi
+    - type: Clothing
+      sprite: _Pirate/Clothing/_BieselRepublic/OuterClothing/Coats/TCAF_jacket.rsi
+    - type: Armor
+      modifiers:
+        coefficients:
+          Blunt: 0.95
+          Slash: 0.95
+          Piercing: 0.95
+          Heat: 0.85
+    - type: TemperatureProtection
+      heatingCoefficient: 0.15
+      coolingCoefficient: 0.15

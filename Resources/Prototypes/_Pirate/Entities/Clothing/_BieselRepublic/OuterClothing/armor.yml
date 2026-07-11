@@ -1,0 +1,61 @@
+- type: entity
+  parent: [ClothingOuterArmorBase, ClothingOuterStorageBase, AllowSuitStorageClothing]
+  id: ClothingOuterArmorTCAFHeavy
+  name: важка броня TCAF
+  suffix: TCAF
+  description: Комплект важкої броні на озброєнні збройних сил Тау-Кита. Раніше це спорядження широко використовувалося Соларіанським Альянсом, але тепер його часто виробляють місцеві компанії - зокрема Five-Points Armory, BRDI і навіть NanoTrasen.
+  components:
+    - type: Sprite
+      sprite: _Pirate/Clothing/_BieselRepublic/OuterClothing/Armor/TCAF_plate_carrier_heavy.rsi
+    - type: Clothing
+      sprite: _Pirate/Clothing/_BieselRepublic/OuterClothing/Armor/TCAF_plate_carrier_heavy.rsi
+      clothingVisuals:
+        outerClothing:
+        - state: equipped-OUTERCLOTHING
+        - state: equipped-OUTERCLOTHING-unshaded
+          shader: unshaded
+    - type: Armor
+      modifiers:
+        coefficients:
+          Blunt: 0.35
+          Slash: 0.35
+          Piercing: 0.35
+          Heat: 0.35
+          Caustic: 0.5
+    - type: ExplosionResistance
+      damageCoefficient: 0.35
+    - type: Reflect
+      reflectProb: 0.075
+      spread: 270
+      reflects:
+        - Energy
+        - NonEnergy
+    - type: ClothingSpeedModifier
+      walkModifier: 0.8
+      sprintModifier: 0.8
+
+- type: entity
+  parent: [ClothingOuterArmorBase, ClothingOuterStorageBase, AllowSuitStorageClothing]
+  id: ClothingOuterArmorTCAFLight
+  name: легкий бронежилет TCAF
+  suffix: TCAF
+  description: Бронежилет-плитоноска на озброєнні Збройних сил Тау Кита. Раніше це спорядження широко використовувалося Соларіанським Альянсом, але тепер його часто виробляють місцеві компанії - зокрема Five-Points Armory, BRDI і навіть NanoTrasen.
+  components:
+    - type: Sprite
+      sprite: _Pirate/Clothing/_BieselRepublic/OuterClothing/Armor/TCAF_plate_carrier_light.rsi
+    - type: Clothing
+      sprite: _Pirate/Clothing/_BieselRepublic/OuterClothing/Armor/TCAF_plate_carrier_light.rsi
+      clothingVisuals:
+        outerClothing:
+        - state: equipped-OUTERCLOTHING
+        - state: equipped-OUTERCLOTHING-unshaded
+          shader: unshaded
+    - type: Armor
+      modifiers:
+        coefficients:
+          Blunt: 0.80
+          Slash: 0.80
+          Piercing: 0.50
+          Heat: 0.80
+    - type: ExplosionResistance
+      damageCoefficient: 0.70

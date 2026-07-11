@@ -2,13 +2,12 @@
 - type: entity
   parent: [ClothingModsuitStandard, SolAllianceInfo, BaseSyndicateContraband]
   id: ClothingModsuitSANMarine
-  name: блок керування мод-костюмом CSA-85x "Мазу"
-  description: Головний контролер для мод-костюма "Мазу". Рідкісний та неймовірно цінний екземпляр військового обладнання, який зазвичай використовують у спецпідрозділах Соляріанської армії.
+  name: мод-костюм CSA-85x "Мазу"
+  suffix: SAN
+  description: Головний контролер для модульного костюма "Мазу". Цінний екземпляр військового обладнання, який зазвичай використовують у спецпідрозділах морської піхоти Соларіанської армії.
   components:
     - type: Sprite
       sprite: _Pirate/Clothing/_SolAlliance/Modsuits/csa_85x.rsi
-    - type: ExplosionResistance
-      damageCoefficient: 0.5
     - type: ToggleableClothing
       clothingPrototypes:
         head: ClothingModsuitHelmetSANMarine
@@ -27,43 +26,60 @@
       maxItemSize: Huge
       grid:
         - 0,0,7,4
+    - type: SealableClothingVisuals
+      spriteLayer: sealed
+      clothingVisuals:
+        back:
+        - state: equipped-BACKPACK-sealed
+          shader: unshaded
 
 - type: entity
   parent: [ClothingModsuitGauntletsStandard, SolAllianceInfo, BaseSyndicateContraband]
   id: ClothingModsuitGauntletsSANMarine
   name: рукавиці мод-костюма CSA-85x "Мазу"
-  description: Пара рукавиць, призначених для розчавлювання черепів прибульців. Є частиною модного костюма "Мазу".
+  description: Пара рукавиць, призначених для розчавлювання черепів. Є частиною модульного костюма "Мазу".
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
       sprite: _Pirate/Clothing/_SolAlliance/Modsuits/csa_85x.rsi
+    - type: SealableClothingVisuals
+      spriteLayer: sealed
+      clothingVisuals:
+        gloves:
+        - state: equipped-HAND-sealed
+          shader: unshaded
     - type: Insulated
 
 - type: entity
-  parent: [ClothingModsuitHelmetStandard, SolAllianceInfo, ShowSecurityIcons, BaseClothingRadio, BaseSyndicateContraband]
+  parent: [ClothingModsuitHelmetStandard, SolAllianceInfo, ShowSecurityIcons, BaseSyndicateContraband]
   id: ClothingModsuitHelmetSANMarine
   name: шолом мод-костюма CSA-85x "Мазу"
-  description: Сучасний шолом для мод-костюма "Мазу". Він має вбудований проекційний дисплей.
+  description: Сучасний шолом для мод-костюма "Мазу". Він має вбудований проєкційний HUD.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
       sprite: _Pirate/Clothing/_SolAlliance/Modsuits/csa_85x.rsi
-    - type: Armor
-      modifiers:
-        coefficients:
-          Blunt: 0.85
-          Slash: 0.85
-          Piercing: 0.85
-          Heat: 0.85
-          Radiation: 0.95
+    - type: PressureProtection
+      highPressureMultiplier: 0.08
+      lowPressureMultiplier: 1000
     - type: ShowHealthBars
       damageContainers:
         - Biological
+    - type: FlashImmunity
+    - type: FlashSoundSuppression
+      protectionRange: 0
+    - type: EyeProtection
     - type: PointLight
       color: "#FF4500"
+    - type: SealableClothingVisuals
+      spriteLayer: sealed
+      clothingVisuals:
+        head:
+        - state: equipped-HEAD-sealed
+          shader: unshaded
 
 - type: entity
-  parent: [ClothingModsuitChestplateStandard, SolAllianceInfo, BaseSyndicateContraband]
+  parent: [ClothingModsuitChestplateStandard, SolAllianceInfo, BaseClothingRadio, BaseSyndicateContraband]
   id: ClothingModsuitChestplateSANMarine
   name: нагрудник мод-костюма CSA-85x "Мазу"
   description: Сучасний нагрудник для мод-костюма "Мазу".
@@ -72,10 +88,8 @@
     - type: Sprite
       sprite: _Pirate/Clothing/_SolAlliance/Modsuits/csa_85x.rsi
     - type: ClothingSpeedModifier
-      walkModifier: 0.95
-      sprintModifier: 0.95
-    - type: ExplosionResistance
-      damageCoefficient: 0.35
+      walkModifier: 0.7
+      sprintModifier: 0.7
     - type: Armor
       traumaDeductions:
         Dismemberment: 0.5
@@ -91,16 +105,29 @@
           Heat: 0.40
           Radiation: 0.40
           Caustic: 0.40
+    - type: ExplosionResistance
+      damageCoefficient: 0.45
+    - type: EmitsSoundOnMove
+      soundCollection:
+        collection: FootstepHardsuitMedium
+        params:
+          volume: -10
     - type: StaminaResistance
-      damageCoefficient: 0.5
+      damageCoefficient: 0.45
     - type: FireProtection
       reduction: 0.90
+    - type: SealableClothingVisuals
+      spriteLayer: sealed
+      clothingVisuals:
+        outerClothing:
+        - state: equipped-OUTERCLOTHING-sealed
+          shader: unshaded
 
 - type: entity
   parent: [ClothingModsuitBootsStandard, SolAllianceInfo, BaseSyndicateContraband]
   id: ClothingModsuitBootsSANMarine
   name: чоботи мод-костюма CSA-85x "Мазу"
-  description: Сучасна пара чоботів для мод-костюма "Мазу".
+  description: Сучасна пара магнітних чоботів для мод-костюма "Мазу". Поки костюм увімкнений, вони не знижують швидкість пересування власника.
   categories: [HideSpawnMenu]
   components:
     - type: Appearance
@@ -109,6 +136,22 @@
     - type: Tag
       tags:
         - WhitelistChameleon
+    - type: SealableClothingVisuals
+      spriteLayer: sealed
+      clothingVisuals:
+        shoes:
+        - state: equipped-FEET-sealed
+    - type: ItemToggle
+    - type: ToggleClothing
+      action: ActionToggleMagboots
+    - type: ComponentToggler
+      components:
+      - type: NoSlip
+    - type: Magboots
+      enabledPrefix: null
+    - type: ClothingSpeedModifier
+      walkModifier: 0.95
+      sprintModifier: 0.95
 
 # Кіти
 - type: entity
