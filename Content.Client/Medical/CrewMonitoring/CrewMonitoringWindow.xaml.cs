@@ -55,7 +55,7 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
         else
             NavMap.Visible = false;
 
-        StationName.AddStyleClass("LabelBig");
+        StationName.AddStyleClass("font-large"); // Pirate: ui fixes (legacy style migration; prefer upstream on conflict)
         StationName.Text = stationName;
         NavMap.ForceNavMapUpdate();
     }

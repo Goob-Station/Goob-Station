@@ -172,7 +172,7 @@ public sealed class PollControl : BoxContainer
     {
         var panel = new PanelContainer
         {
-            StyleClasses = { "AngleRect" },
+            StyleClasses = { "BackgroundPanel" }, // Pirate: ui fixes (legacy style migration; prefer upstream on conflict)
             MinHeight = 120
         };
 
@@ -335,7 +335,7 @@ public sealed class PollControl : BoxContainer
 
         var optionPanel = new PanelContainer
         {
-            StyleClasses = { "AngleRect" },
+            StyleClasses = { "BackgroundPanel" }, // Pirate: ui fixes (legacy style migration; prefer upstream on conflict)
             MinHeight = 56,
             Modulate = hasVoted ? new Color(0.3f, 0.5f, 0.35f) : new Color(0.9f, 0.9f, 0.95f)
         };

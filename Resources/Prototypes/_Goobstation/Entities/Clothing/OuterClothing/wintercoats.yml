@@ -35,7 +35,7 @@
   - type: SolutionContainerManager
     solutions:
       stain:
-        maxVol: 5
+        maxVol: 10
       food:
         maxVol: 0
   - type: ToggleableClothing

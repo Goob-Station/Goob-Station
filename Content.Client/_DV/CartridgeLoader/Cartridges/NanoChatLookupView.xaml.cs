@@ -66,7 +66,7 @@ public sealed partial class NanoChatLookupView : PanelContainer
             panel.AddChild(numberLabel);
             panel.AddChild(startChatButton);
 
-            var styleClass = idx % 2 == 0 ? "PanelBackgroundBaseDark" : "PanelBackgroundLight";
+            var styleClass = idx % 2 == 0 ? "PanelDark" : "PanelLight"; // Pirate: ui fixes
             panel.StyleClasses.Add(styleClass);
 
             ContactsList.AddChild(panel);

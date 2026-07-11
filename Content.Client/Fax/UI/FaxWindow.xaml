@@ -6,7 +6,7 @@
         SeparationOverride="2"
         VerticalExpand="True">
 
-        <PanelContainer StyleClasses="PanelBackgroundBaseDark" HorizontalExpand="True">
+        <PanelContainer StyleClasses="PanelDark" HorizontalExpand="True"> <!-- Pirate: ui fixes (legacy style migration; prefer upstream on conflict) -->
             <BoxContainer Orientation="Vertical"
                 Margin="0 0 0 2">
 
@@ -87,7 +87,8 @@
 
         </PanelContainer>
 
-        <PanelContainer StyleClasses="PanelBackgroundBaseDark"
+        <!-- Pirate: ui fixes (legacy style migration; prefer upstream on conflict) -->
+        <PanelContainer StyleClasses="PanelDark"
             HorizontalExpand="True" Margin="0 10 0 0"
             VerticalExpand="True" VerticalAlignment="Bottom">
             <BoxContainer Orientation="Vertical"

@@ -15,7 +15,7 @@ public sealed partial class CrewManifestUi : DefaultWindow
     {
         RobustXamlLoader.Load(this);
 
-        StationName.AddStyleClass("LabelBig");
+        StationName.AddStyleClass("font-large"); // Pirate: ui fixes (legacy style migration; prefer upstream on conflict)
     }
 
     public void Populate(string name, CrewManifestEntries? entries)

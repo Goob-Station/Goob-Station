@@ -13,7 +13,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         <!-- Station name -->
         <controls:StripeBack>
             <PanelContainer>
-                <Label Name="StationName" Text="{Loc 'station-map-unknown-station'}" StyleClasses="LabelBig" Align="Center"/>
+                <Label Name="StationName" Text="{Loc 'station-map-unknown-station'}" StyleClasses="font-large" Align="Center"/> <!-- Pirate: ui fixes (legacy style migration; prefer upstream on conflict) -->
             </PanelContainer>
         </controls:StripeBack>
 

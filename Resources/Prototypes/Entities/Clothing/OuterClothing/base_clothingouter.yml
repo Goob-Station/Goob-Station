@@ -36,7 +36,7 @@
   - type: SolutionContainerManager
     solutions:
       stain:
-        maxVol: 5
+        maxVol: 10
   - type: Stainable
     clothingVisuals:
       outerClothing:

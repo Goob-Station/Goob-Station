@@ -194,7 +194,7 @@ namespace Content.Goobstation.Client.Chemistry.UI
                 var quantityLabel = new Label
                 {
                     Text = Loc.GetString("reagent-dispenser-window-quantity-label-text", ("quantity", quantity)),
-                    StyleClasses = { StyleNano.StyleClassLabelSecondaryColor },
+                    StyleClasses = { StyleClass.LabelWeak }, // Pirate: ui fixes (legacy style migration; prefer upstream on conflict)
                 };
 
                 ContainerInfo.Children.Add(new BoxContainer

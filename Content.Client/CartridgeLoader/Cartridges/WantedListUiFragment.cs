@@ -135,13 +135,13 @@ public sealed partial class WantedListUiFragment : BoxContainer
         HistoryTable.AddChild(new Label()
         {
             Text = Loc.GetString("wanted-list-history-table-time-col"),
-            StyleClasses = { "LabelSmall" },
+            StyleClasses = { "font-small" }, // Pirate: ui fixes
             HorizontalAlignment = HAlignment.Center,
         });
         HistoryTable.AddChild(new Label()
         {
             Text = Loc.GetString("wanted-list-history-table-reason-col"),
-            StyleClasses = { "LabelSmall" },
+            StyleClasses = { "font-small" }, // Pirate: ui fixes
             HorizontalAlignment = HAlignment.Center,
             HorizontalExpand = true,
         });
@@ -149,7 +149,7 @@ public sealed partial class WantedListUiFragment : BoxContainer
         HistoryTable.AddChild(new Label()
         {
             Text = Loc.GetString("wanted-list-history-table-initiator-col"),
-            StyleClasses = { "LabelSmall" },
+            StyleClasses = { "font-small" }, // Pirate: ui fixes
             HorizontalAlignment = HAlignment.Center,
         });
 
@@ -162,7 +162,7 @@ public sealed partial class WantedListUiFragment : BoxContainer
                 HistoryTable.AddChild(new Label()
                 {
                     Text = $"{history.AddTime.Hours:00}:{history.AddTime.Minutes:00}:{history.AddTime.Seconds:00}",
-                    StyleClasses = { "LabelSmall" },
+                    StyleClasses = { "font-small" }, // Pirate: ui fixes
                     VerticalAlignment = VAlignment.Top,
                 });
 

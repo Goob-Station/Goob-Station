@@ -339,7 +339,7 @@
           Quantity: 2
       #region Pirate: stains
       stain:
-        maxVol: 5
+        maxVol: 10
       #endregion Pirate: stains
   #region Pirate: stains
   - type: Appearance

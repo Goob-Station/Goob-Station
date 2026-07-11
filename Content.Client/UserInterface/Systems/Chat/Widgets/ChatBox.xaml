@@ -13,7 +13,7 @@ SPDX-License-Identifier: MIT
     VerticalExpand="True"
     MinSize="465 225">
     <PanelContainer Name="ChatWindowPanel" Access="Public" HorizontalExpand="True" VerticalExpand="True"
-                    StyleClasses="StyleNano.StyleClassChatPanel">
+                    StyleClasses="ChatPanel"> <!-- Pirate: ui fixes (legacy style migration; prefer upstream on conflict) -->
         <BoxContainer Orientation="Vertical" SeparationOverride="4" HorizontalExpand="True" VerticalExpand="True">
             <!-- Goobstation Change - Output Panel -->
             <goobcontrols:CustomOutputPanel Name="Contents" HorizontalExpand="True" VerticalExpand="True" Margin="8 8 8 4" />

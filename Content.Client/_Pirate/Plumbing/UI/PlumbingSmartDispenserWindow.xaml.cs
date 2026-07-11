@@ -87,8 +87,13 @@ public sealed partial class PlumbingSmartDispenserWindow : DefaultWindow
         }
 
         var totalVolume = FixedPoint2.Zero;
+        var sortedEntries = new List<PlumbingSmartDispenserReagentEntry>(state.Entries);
+        sortedEntries.Sort((a, b) => string.Compare(
+            GetLocalizedReagentName(a),
+            GetLocalizedReagentName(b),
+            StringComparison.CurrentCulture));
 
-        foreach (var entry in state.Entries)
+        foreach (var entry in sortedEntries)
         {
             totalVolume += entry.Quantity;
 
@@ -104,6 +109,7 @@ public sealed partial class PlumbingSmartDispenserWindow : DefaultWindow
 
     private ClickableBeakerBarChart BuildReagentRow(PlumbingSmartDispenserReagentEntry entry, float maxPerReagent, bool canDispense)
     {
+        var localizedName = GetLocalizedReagentName(entry);
         var chart = new ClickableBeakerBarChart
         {
             ReagentId = entry.ReagentId,
@@ -118,21 +124,26 @@ public sealed partial class PlumbingSmartDispenserWindow : DefaultWindow
         chart.SetEntry(
             entry.ReagentId,
             Loc.GetString("plumbing-smart-dispenser-reagent-entry",
-                ("reagent", entry.LocalizedName),
+                ("reagent", localizedName),
                 ("amount", entry.Quantity)),
             entry.Quantity.Float(),
             entry.Color,
-            tooltip: BuildReagentTooltip(entry, maxPerReagent));
+            tooltip: BuildReagentTooltip(entry, localizedName, maxPerReagent));
 
         return chart;
     }
 
-    private string BuildReagentTooltip(PlumbingSmartDispenserReagentEntry entry, float maxPerReagent)
+    private string BuildReagentTooltip(PlumbingSmartDispenserReagentEntry entry, string localizedName, float maxPerReagent)
         => Loc.GetString(
             "plumbing-smart-dispenser-row-tooltip",
-            ("reagent", entry.LocalizedName),
+            ("reagent", localizedName),
             ("stored", entry.Quantity),
             ("max", maxPerReagent));
+
+    private string GetLocalizedReagentName(PlumbingSmartDispenserReagentEntry entry)
+        => _prototypeManager.TryIndex<ReagentPrototype>(entry.ReagentId, out var reagent)
+            ? reagent.LocalizedName
+            : entry.LocalizedName;
 
     private void UpdateContainerInfo(ContainerInfo? outputContainer)
     {
@@ -168,7 +179,7 @@ public sealed partial class PlumbingSmartDispenserWindow : DefaultWindow
             row.AddChild(new Label
             {
                 Text = Loc.GetString("reagent-dispenser-window-quantity-label-text", ("quantity", quantity)),
-                StyleClasses = { StyleNano.StyleClassLabelSecondaryColor },
+                StyleClasses = { StyleClass.LabelWeak },
             });
 
             ContainerInfo.AddChild(row);

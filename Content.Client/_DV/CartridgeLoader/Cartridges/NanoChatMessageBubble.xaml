@@ -39,9 +39,10 @@ SPDX-License-Identifier: AGPL-3.0-or-later
             </PanelContainer>
 
             <!-- Delivery failed text -->
+            <!-- Pirate: ui fixes -->
             <Label Name="DeliveryFailedLabel"
                    Text="{Loc nano-chat-delivery-failed}"
-                   StyleClasses="LabelSmall"
+                   StyleClasses="font-small"
                    HorizontalExpand="True"
                    HorizontalAlignment="Right"
                    Margin="10 2 10 0"

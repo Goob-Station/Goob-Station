@@ -62,7 +62,7 @@ public sealed partial class ReadyManifestUi : DefaultWindow
 
                 category.AddChild(new Label()
                 {
-                    StyleClasses = { "LabelBig" },
+                    StyleClasses = { "font-large" },
                     Text = Loc.GetString($"department-{department.ID}")
                 });
 

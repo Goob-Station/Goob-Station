@@ -139,7 +139,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                                       SizeFlagsStretchRatio="1"
                                       SeparationOverride="6">
                             <Label Name="PersonName"
-                                   StyleClasses="LabelBig" />
+                                   StyleClasses="font-large" /> <!-- Pirate: ui fixes (legacy style migration; prefer upstream on conflict) -->
                             <BoxContainer Orientation="Horizontal"
                                           SeparationOverride="8">
                                 <Label Text="{Loc 'crew-monitoring-ui-job-label'}"

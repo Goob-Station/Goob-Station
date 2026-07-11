@@ -76,6 +76,7 @@
     - showwallmounts
     - showaccessreaders
     - showaudiomuffle # Pirate: audio muffle
+    - showwetness # Pirate: wetness
     - quickinspect
 
 - Flags: MAPPING

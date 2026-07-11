@@ -64,7 +64,7 @@ public sealed partial class ReactionChamberWindow : DefaultWindow
                     var quantityLabel = new Label
                     {
                         Text = Loc.GetString("reagent-dispenser-window-quantity-label-text", ("quantity", quantity)),
-                        StyleClasses = { StyleNano.StyleClassLabelSecondaryColor },
+                        StyleClasses = { StyleClass.LabelWeak },
                     };
                     reagentLabel.Text = reagent.Prototype + ": ";
 

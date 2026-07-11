@@ -15,6 +15,7 @@ public sealed class FramedCollapsible : PanelContainer
     private const string ChevronCollapsedIconPath = "/Textures/Interface/Nano/triangle_right.png";
     private const string ChevronExpandedIconPath = "/Textures/Interface/Nano/inverted_triangle.svg.png";
     private static readonly System.Numerics.Vector2 ChevronSize = new(12, 12);
+    private static readonly Color HeadingNormalColor = new(0.17f, 0.17f, 0.20f, 0.95f);
 
     public event Action<bool>? OnToggled;
 
@@ -46,9 +47,11 @@ public sealed class FramedCollapsible : PanelContainer
 
     private readonly Collapsible _collapsible;
     private readonly CollapsibleHeading _heading;
+    private readonly StyleBoxFlat _headingStyleBox;
     private readonly TextureRect? _chevronIcon;
     private bool _expanded;
     private bool _isEmptySection;
+    private bool _headingHovered;
 
     public FramedCollapsible(string title)
     {
@@ -62,20 +65,32 @@ public sealed class FramedCollapsible : PanelContainer
             ContentMarginBottomOverride = 5,
         };
 
+        _headingStyleBox = new StyleBoxFlat
+        {
+            BackgroundColor = HeadingNormalColor,
+            ContentMarginLeftOverride = 5,
+            ContentMarginRightOverride = 5,
+            ContentMarginTopOverride = 4,
+            ContentMarginBottomOverride = 4,
+        };
         _heading = new CollapsibleHeading(title)
         {
             HorizontalExpand = true,
-            StyleBoxOverride = new StyleBoxFlat
-            {
-                BackgroundColor = new Color(0.17f, 0.17f, 0.20f, 0.95f),
-                ContentMarginLeftOverride = 5,
-                ContentMarginRightOverride = 5,
-                ContentMarginTopOverride = 4,
-                ContentMarginBottomOverride = 4,
-            }
+            StyleBoxOverride = _headingStyleBox,
+            ModulateSelfOverride = Color.White,
         };
         _heading.Label.HorizontalExpand = true;
         _heading.Label.ClipText = true;
+        _heading.OnMouseEntered += _ =>
+        {
+            _headingHovered = true;
+            UpdateHeadingModulate();
+        };
+        _heading.OnMouseExited += _ =>
+        {
+            _headingHovered = false;
+            UpdateHeadingModulate();
+        };
         _chevronIcon = FindChevronIcon(_heading);
         if (_chevronIcon != null)
         {
@@ -119,6 +134,26 @@ public sealed class FramedCollapsible : PanelContainer
 
         // Explicit final visibility override after _collapsible state sync.
         Body.Visible = !_isEmptySection && _expanded;
+        UpdateHeadingModulate();
+    }
+
+    private void UpdateHeadingModulate()
+    {
+        // Keep the global button palette out of this custom-colored heading. Hover is expressed through the
+        // owned background directly so no stylesheet modulation can darken it again.
+        _heading.ModulateSelfOverride = Color.White;
+        _headingStyleBox.BackgroundColor = _headingHovered
+            ? LightenForHover(HeadingNormalColor)
+            : HeadingNormalColor;
+    }
+
+    private static Color LightenForHover(Color color, float factor = 1.2f)
+    {
+        return new Color(
+            Math.Min(1f, color.R * factor),
+            Math.Min(1f, color.G * factor),
+            Math.Min(1f, color.B * factor),
+            color.A);
     }
 
     private static TextureRect? FindChevronIcon(Control control)

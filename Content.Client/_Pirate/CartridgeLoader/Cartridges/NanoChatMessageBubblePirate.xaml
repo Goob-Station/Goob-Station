@@ -61,7 +61,7 @@
             <!-- Delivery failed text -->
             <Label Name="DeliveryFailedLabel"
                    Text="{Loc nano-chat-delivery-failed}"
-                   StyleClasses="LabelSmall"
+                   StyleClasses="font-small"
                    HorizontalExpand="True"
                    HorizontalAlignment="Right"
                    Margin="8 2 8 0"

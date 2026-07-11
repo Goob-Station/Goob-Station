@@ -39,7 +39,7 @@
           Quantity: 30
       #region Pirate: stains
       stain:
-        maxVol: 5
+        maxVol: 10
       #endregion Pirate: stains
   - type: Tag
     tags:
@@ -77,7 +77,7 @@
           Quantity: 30
       #region Pirate: stains
       stain:
-        maxVol: 5
+        maxVol: 10
       #endregion Pirate: stains
 
 - type: entity
@@ -640,7 +640,7 @@
           Quantity: 20
       #region Pirate: stains
       stain:
-        maxVol: 5
+        maxVol: 10
       #endregion Pirate: stains
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:

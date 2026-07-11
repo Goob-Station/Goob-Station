@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+using Content.Client._Pirate.Lobby.UI.Loadouts;
 using Content.Client._Pirate.UserInterface.Controls;
 using Content.Shared.Ghost;
 using Content.Shared.Mobs;
@@ -25,7 +26,7 @@ namespace Content.Client._Pirate.UserInterface.Systems.Ghost.Controls
         private List<(string RawName, NetEntity Entity, GhostWarpType Type, int ObserverCount, string JobIconId, MobState MobState, string ProfessionTitle, GhostWarpHealthState HealthState, string DepartmentId)> _warps = new();
         private readonly Dictionary<NetEntity, ChipState> _entityToChip = new();
 
-        private sealed record ChipState(ContainerButton Chip, StyleBoxFlat StyleBox, Label NameLabel, BoxContainer ObserverBlock, Label ObserverCountLabel, string ProfessionTitle, GhostWarpHealthState HealthState, string DepartmentId, string JobIconId);
+        private sealed record ChipState(ContainerButton Chip, StyleBoxTexture StyleBox, Label NameLabel, BoxContainer ObserverBlock, Label ObserverCountLabel, string ProfessionTitle, GhostWarpHealthState HealthState, string DepartmentId, string JobIconId);
         private string _searchText = string.Empty;
         private readonly Dictionary<GhostWarpType, bool> _sectionExpandedState = new();
 
@@ -61,6 +62,30 @@ namespace Content.Client._Pirate.UserInterface.Systems.Ghost.Controls
         public GhostTargetWindowGoob()
         {
             RobustXamlLoader.Load(this);
+
+            var roundedTeleportStyle = LoadoutStyles.RoundedBordered(Color.White, padding: 1f, patchMargin: 5f);
+            roundedTeleportStyle.SetContentMarginOverride(StyleBox.Margin.Top, 3);
+            roundedTeleportStyle.SetContentMarginOverride(StyleBox.Margin.Bottom, 5);
+            GhostnadoButton.StyleBoxOverride = roundedTeleportStyle;
+
+            var roundedRefreshStyle = LoadoutStyles.RoundedBordered(Color.White, padding: 1f, patchMargin: 5f);
+            roundedRefreshStyle.SetContentMarginOverride(StyleBox.Margin.Top, 4);
+            roundedRefreshStyle.SetContentMarginOverride(StyleBox.Margin.Bottom, 4);
+            RefreshButton.StyleBoxOverride = roundedRefreshStyle;
+            GhostnadoButton.MaxSize = new Vector2(float.PositiveInfinity, 30f);
+            RefreshButton.MaxSize = new Vector2(float.PositiveInfinity, 30f);
+            GhostnadoButton.Label.VerticalAlignment = VAlignment.Stretch;
+            GhostnadoButton.Label.VAlign = Label.VAlignMode.Center;
+
+            var roundedToggleStyle = LoadoutStyles.RoundedBordered(Color.White, padding: 1f, patchMargin: 5f);
+            roundedToggleStyle.SetContentMarginOverride(StyleBox.Margin.Top, 0);
+            roundedToggleStyle.SetContentMarginOverride(StyleBox.Margin.Bottom, 0);
+            roundedToggleStyle.SetPadding(StyleBox.Margin.Top, 0);
+            roundedToggleStyle.SetPadding(StyleBox.Margin.Bottom, 2);
+            ViewModeButton.StyleBoxOverride = roundedToggleStyle;
+            ViewModeButton.MaxSize = new Vector2(float.PositiveInfinity, 24f);
+            ViewModeButton.Label.VerticalAlignment = VAlignment.Stretch;
+            ViewModeButton.Label.VAlign = Label.VAlignMode.Center;
 
             SearchBar.OnTextChanged += OnSearchTextChanged;
             GhostnadoButton.OnPressed += _ => OnGhostnadoClicked?.Invoke();
@@ -135,7 +160,7 @@ namespace Content.Client._Pirate.UserInterface.Systems.Ghost.Controls
             foreach (var state in _entityToChip.Values)
             {
                 var color = GetDisplayColor(_viewMode, state.HealthState, state.ProfessionTitle, state.DepartmentId, state.JobIconId);
-                state.StyleBox.BackgroundColor = color;
+                state.StyleBox.Modulate = color;
             }
         }
 
@@ -213,29 +238,31 @@ namespace Content.Client._Pirate.UserInterface.Systems.Ghost.Controls
                     var bgColor = GetDisplayColor(_viewMode, healthState, professionTitle ?? string.Empty, departmentId ?? string.Empty, jobIconId);
                     var entity = warpTarget;
 
-                    var styleBox = new StyleBoxFlat
-                    {
-                        BackgroundColor = bgColor,
-                        ContentMarginLeftOverride = 4,
-                        ContentMarginRightOverride = 6,
-                        ContentMarginTopOverride = 2,
-                        ContentMarginBottomOverride = 2,
-                    };
+                    var styleBox = LoadoutStyles.RoundedFilled(bgColor, padding: 0f, patchMargin: 5f);
+                    styleBox.SetContentMarginOverride(StyleBox.Margin.Left, 4);
+                    styleBox.SetContentMarginOverride(StyleBox.Margin.Right, 6);
+                    styleBox.SetContentMarginOverride(StyleBox.Margin.Top, 2);
+                    styleBox.SetContentMarginOverride(StyleBox.Margin.Bottom, 2);
 
                     var chip = new ContainerButton
                     {
                         StyleBoxOverride = styleBox,
+                        ModulateSelfOverride = Color.White,
                         MinSize = new Vector2(0, 26),
                     };
                     chip.OnMouseEntered += _ =>
                     {
                         if (_entityToChip.TryGetValue(entity, out var s))
-                            styleBox.BackgroundColor = LightenForHover(GetDisplayColor(_viewMode, s.HealthState, s.ProfessionTitle, s.DepartmentId, s.JobIconId));
+                        {
+                            styleBox.Modulate = LightenForHover(GetDisplayColor(_viewMode, s.HealthState, s.ProfessionTitle, s.DepartmentId, s.JobIconId));
+                        }
                     };
                     chip.OnMouseExited += _ =>
                     {
                         if (_entityToChip.TryGetValue(entity, out var s))
-                            styleBox.BackgroundColor = GetDisplayColor(_viewMode, s.HealthState, s.ProfessionTitle, s.DepartmentId, s.JobIconId);
+                        {
+                            styleBox.Modulate = GetDisplayColor(_viewMode, s.HealthState, s.ProfessionTitle, s.DepartmentId, s.JobIconId);
+                        }
                     };
 
                     var content = new BoxContainer

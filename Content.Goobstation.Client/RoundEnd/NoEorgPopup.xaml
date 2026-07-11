@@ -3,8 +3,9 @@
                       MinSize="500 280"
                       MaxSize="500 280">
     <BoxContainer Orientation="Vertical" Margin="10">
+        <!-- Pirate: ui fixes (legacy style migration; prefer upstream on conflict) -->
         <Label Name="TitleLabel"
-               StyleClasses="LabelBig"
+               StyleClasses="font-large"
                HorizontalAlignment="Center"
                Margin="0 0 0 5" />
         <RichTextLabel Name="RuleLabel" HorizontalAlignment="Center"/>

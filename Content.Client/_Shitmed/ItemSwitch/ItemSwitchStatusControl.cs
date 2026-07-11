@@ -16,7 +16,7 @@ public sealed class ItemSwitchStatusControl : PollingItemStatusControl<ItemSwitc
     public ItemSwitchStatusControl(Entity<ItemSwitchComponent> parent)
     {
         _parent = parent;
-        _label = new RichTextLabel { StyleClasses = { StyleNano.StyleClassItemStatus } };
+        _label = new RichTextLabel { StyleClasses = { StyleClass.ItemStatus } }; // Pirate: ui fixes (legacy style migration; prefer upstream on conflict)
         if (parent.Comp.ShowLabel)
             AddChild(_label);
 

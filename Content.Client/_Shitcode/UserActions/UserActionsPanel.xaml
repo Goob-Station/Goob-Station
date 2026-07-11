@@ -14,11 +14,12 @@
                 <tabs:ConfigTabControl Name="ConfigTabControl"/>
             </TabContainer>
 
+            <!-- Pirate: ui fixes (legacy style migration; prefer upstream on conflict) -->
             <Label Name="NoContentLabel"
                    Text="{Loc 'user-action-control-nothing'}"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
-                   StyleClasses="LabelBig"
+                   StyleClasses="font-large"
                    Margin="0 8"
                    Visible="False"/>
 

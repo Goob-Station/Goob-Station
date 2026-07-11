@@ -145,7 +145,8 @@ public sealed partial class RoundEndSummaryWindow
 
                 var panel = new PanelContainer
                 {
-                    StyleClasses = { StyleNano.StyleClassBackgroundBaseDark },
+                    StyleClasses = { StyleClass.BackgroundPanel },
+                    ModulateSelfOverride = Color.FromHex("#1F1F23"),
                 };
 
                 imageContainer.AddChild(textureRect);
@@ -166,7 +167,8 @@ public sealed partial class RoundEndSummaryWindow
 
             var stationAlbumAuthorHeaderPanel = new PanelContainer
             {
-                StyleClasses = { StyleNano.StyleClassBackgroundBaseDark },
+                StyleClasses = { StyleClass.BackgroundPanel },
+                ModulateSelfOverride = Color.FromHex("#1F1F23"),
                 SetSize = new Vector2(556, 30),
                 HorizontalAlignment = HAlignment.Left
             };

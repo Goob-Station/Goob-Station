@@ -14,10 +14,7 @@ public sealed partial class StainableComponent : Component
     public string SolutionName = "stain";
 
     [DataField]
-    public FixedPoint2 MaxStainVolume = FixedPoint2.New(5);
-
-    [DataField]
-    public FixedPoint2 SpillTransferAmount = 0.5f;
+    public FixedPoint2 MaxStainVolume = FixedPoint2.New(10);
 
     [DataField]
     public float WringDoAfterDuration = 10f;

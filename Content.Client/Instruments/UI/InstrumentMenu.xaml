@@ -35,8 +35,9 @@ SPDX-License-Identifier: MIT
         <PanelContainer.PanelOverride>
             <gfx:StyleBoxFlat BackgroundColor="#000000E5" />
         </PanelContainer.PanelOverride>
+        <!-- Pirate: ui fixes (legacy style migration; prefer upstream on conflict) -->
         <Label VerticalAlignment="Center" HorizontalAlignment="Center" Align="Center"
-               StyleClasses="LabelBig"
+               StyleClasses="font-large"
                Text="{Loc instruments-component-menu-no-midi-support}" />
     </PanelContainer>
 </DefaultWindow>

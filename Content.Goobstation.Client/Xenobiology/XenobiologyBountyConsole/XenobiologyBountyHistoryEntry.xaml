@@ -2,7 +2,7 @@
               xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls;assembly=Content.Client"
               Margin="10 10 10 0"
               HorizontalExpand="True">
-    <PanelContainer StyleClasses="AngleRect" HorizontalExpand="True">
+    <PanelContainer StyleClasses="BackgroundPanel" HorizontalExpand="True"> <!-- Pirate: ui fixes (legacy style migration; prefer upstream on conflict) -->
         <BoxContainer Orientation="Vertical"
                       HorizontalExpand="True">
             <BoxContainer Orientation="Horizontal">

@@ -15,7 +15,7 @@ public sealed partial class CrewManifestUiFragment : BoxContainer
     {
         RobustXamlLoader.Load(this);
 
-        StationName.AddStyleClass("LabelBig");
+        StationName.AddStyleClass("font-large"); // Pirate: ui fixes
         Orientation = LayoutOrientation.Vertical;
         HorizontalExpand = true;
         VerticalExpand = true;
