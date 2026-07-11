@@ -13,6 +13,7 @@ using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
+using Content.Shared.Toggleable;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Whitelist;
 
@@ -31,10 +32,11 @@ public sealed class SharedBloodCultItemSystem : EntitySystem
 
         SubscribeLocalEvent<BloodCultItemComponent, ActivateInWorldEvent>(OnActivate);
         SubscribeLocalEvent<BloodCultItemComponent, UseInHandEvent>(OnUseInHand);
-        SubscribeLocalEvent<BloodCultItemComponent, BeforeGettingThrownEvent>(OnBeforeGettingThrown);
+        SubscribeLocalEvent<BloodCultItemComponent, BeforeThrowEvent>(OnBeforeThrow);
         SubscribeLocalEvent<BloodCultItemComponent, BeingEquippedAttemptEvent>(OnEquipAttempt);
         SubscribeLocalEvent<BloodCultItemComponent, AttemptMeleeEvent>(OnMeleeAttempt);
-        SubscribeLocalEvent<BloodCultItemComponent, BeforeBlockingEvent>(OnBeforeBlocking);
+        SubscribeLocalEvent<BloodCultItemComponent, ToggleActionEvent>(OnToggleAction,
+            before: [typeof(BlockingSystem)]);
     }
 
     private void OnActivate(Entity<BloodCultItemComponent> item, ref ActivateInWorldEvent args)
@@ -56,7 +58,7 @@ public sealed class SharedBloodCultItemSystem : EntitySystem
         Reject(item, args.User, Loc.GetString("blood-cult-item-reject"));
     }
 
-    private void OnBeforeGettingThrown(Entity<BloodCultItemComponent> item, ref BeforeGettingThrownEvent args)
+    private void OnBeforeThrow(Entity<BloodCultItemComponent> item, ref BeforeThrowEvent args)
     {
         if (_whitelist.IsWhitelistPass(item.Comp.Whitelist, args.PlayerUid))
             return;
@@ -83,13 +85,13 @@ public sealed class SharedBloodCultItemSystem : EntitySystem
         Reject(item, args.User, Loc.GetString("blood-cult-item-attack-reject"));
     }
 
-    private void OnBeforeBlocking(Entity<BloodCultItemComponent> item, ref BeforeBlockingEvent args)
+    private void OnToggleAction(Entity<BloodCultItemComponent> item, ref ToggleActionEvent args)
     {
-        if (_whitelist.IsWhitelistPass(item.Comp.Whitelist, args.User))
+        if (_whitelist.IsWhitelistPass(item.Comp.Whitelist, args.Performer))
             return;
 
-        args.Cancel();
-        Reject(item, args.User, Loc.GetString("blood-cult-item-block-reject"));
+        args.Handled = true;
+        Reject(item, args.Performer, Loc.GetString("blood-cult-item-block-reject"));
     }
 
     private void Reject(Entity<BloodCultItemComponent> item, EntityUid user, string message, bool predicted = true)
