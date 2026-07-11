@@ -21,8 +21,8 @@
       collection: BikeHorn
     Weh:
       collection: Weh
-    params:
-     variation: 0.125
+  params:
+    variation: 0.125
 
 - type: emoteSounds
   id: Kodepiia
@@ -99,5 +99,5 @@
       collection: Bubbles
     Pop:
       collection: Pops
-      params:
-        variation: 0.125
+  params:
+    variation: 0.125
