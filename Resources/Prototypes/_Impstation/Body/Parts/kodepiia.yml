@@ -13,7 +13,7 @@
         Quantity: 10
 
 - type: entity
-  id: TorsoKodepiia
+  id: ChestKodepiia
   name: "kodepiia torso"
   parent: [PartKodepiia, BaseChest]
   components:
