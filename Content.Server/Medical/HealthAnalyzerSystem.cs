@@ -290,7 +290,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             _solutionContainerSystem.ResolveSolution(target, bloodstream.BloodSolutionName,
                 ref bloodstream.BloodSolution, out var bloodSolution))
         {
-            bloodAmount = bloodSolution.FillFraction;
+            bloodAmount = _bloodstreamSystem.GetBloodLevel(target);
             bloodLow = bloodAmount < bloodstream.BloodlossThreshold; // Goobstation
         }
 
