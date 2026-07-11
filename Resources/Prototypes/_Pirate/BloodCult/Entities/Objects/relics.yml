@@ -97,12 +97,13 @@
     damage:
       types:
         Slash: 24
-    heavyDamageBaseModifier: 1.2
     heavyStaminaCost: 10
     maxTargets: 3
     angle: 90
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
+  - type: BonusMeleeDamage
+    heavyDamageMultiplier: 1.2
   - type: DamageOtherOnHit
     # Pirate: local DamageOtherOnHit does not derive thrown damage from the melee weapon.
     damage:

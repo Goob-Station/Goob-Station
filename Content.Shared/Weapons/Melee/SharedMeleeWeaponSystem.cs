@@ -787,9 +787,10 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         }
 
         // Naughty input
-        if (entities.Count > MaxTargets)
+        var maxTargets = Math.Max(0, component.MaxTargets); // Pirate: support per-weapon wide attack caps.
+        if (entities.Count > maxTargets)
         {
-            entities.RemoveRange(MaxTargets, entities.Count - MaxTargets);
+            entities.RemoveRange(maxTargets, entities.Count - maxTargets);
         }
 
         // Validate client

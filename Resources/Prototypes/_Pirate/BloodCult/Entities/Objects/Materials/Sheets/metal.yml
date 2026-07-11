@@ -40,7 +40,8 @@
   - type: ActivatableUI
     inHandsOnly: true
     key: enum.RadialSelectorUiKey.Key
-    userWhitelist:
+  - type: ActivatableUiUserWhitelist
+    whitelist:
       components:
       - BloodCultist
   - type: CultConstructionMenu

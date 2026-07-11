@@ -128,7 +128,8 @@
         type: TrackedRadialSelectorMenuBUI
   - type: ActivatableUI
     key: enum.RadialSelectorUiKey.Key
-    userWhitelist:
+  - type: ActivatableUiUserWhitelist
+    whitelist:
       components:
       - BloodCultist
       - BloodCultConstruct
