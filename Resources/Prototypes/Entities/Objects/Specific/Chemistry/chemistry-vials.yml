@@ -42,17 +42,18 @@
       color: "#FF9880"
     affectedLayers:
     - "enum.SolutionContainerLayers.Fill"
+  # Pirate: Keep all inherited DrinkBase components pointed at the same solution.
   - type: DrawableSolution #Goob
-    solution: beaker
+    solution: drink
   - type: SolutionContainerVisuals #goob
     maxFillLevels: 6
     inHandsMaxFillLevels: 4
     fillBaseName: fill-
     inHandsFillBaseName: -fill-
-    solutionName: beaker
+    solutionName: drink
   - type: SolutionContainerManager #goob
     solutions:
-      beaker:
+      drink:
         maxVol: 30
 
 ## Entities
@@ -114,7 +115,7 @@
     inHandsMaxFillLevels: 4
   - type: SolutionContainerManager
     solutions:
-      beaker: #Goob
+      drink: #Goob
         maxVol: 10
   - type: SolutionTransfer
     maxTransferAmount: 10
@@ -147,7 +148,7 @@
     currentLabel: reagent-name-vestine
   - type: SolutionContainerManager
     solutions:
-      beaker: #Goob
+      drink: #Goob
         maxVol: 30
         reagents:
         - ReagentId: Vestine
@@ -165,7 +166,7 @@
     currentLabel: reagent-name-radium
   - type: SolutionContainerManager
     solutions:
-      beaker: #Goob
+      drink: #Goob
         maxVol: 30 # Goobstation
         reagents:
           - ReagentId: Radium
@@ -182,7 +183,7 @@
     currentLabel: reagent-name-chlorine
   - type: SolutionContainerManager
     solutions:
-      beaker: #Goob
+      drink: #Goob
         maxVol: 30 # Goobstation
         reagents:
           - ReagentId: Chlorine
@@ -199,7 +200,7 @@
     currentLabel: reagent-name-plasma
   - type: SolutionContainerManager
     solutions:
-      beaker: #Goob
+      drink: #Goob
         maxVol: 30 # Goobstation
         reagents:
           - ReagentId: Plasma
