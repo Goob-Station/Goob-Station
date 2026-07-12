@@ -745,7 +745,7 @@
 
 - type: marking
   id: KodeWingsBlade
-  bodyPart: Wings # The Goobdate Sonion
+  bodyPart: RArmExtension
   markingCategory: Arms
   speciesRestriction: [Kodepiia]
   followSkinColor: true
@@ -757,7 +757,7 @@
 
 - type: marking
   id: KodeCloakArms
-  bodyPart: Wings
+  bodyPart: RArmExtension
   markingCategory: Arms
   speciesRestriction: [Kodepiia]
   followSkinColor: true
@@ -773,7 +773,7 @@
 
 - type: marking
   id: KodeArmsCrab
-  bodyPart: Wings
+  bodyPart: RArmExtension
   markingCategory: Arms
   speciesRestriction: [Kodepiia]
   followSkinColor: true
@@ -783,7 +783,7 @@
 
 - type: marking
   id: KodeCapeJelly
-  bodyPart: Wings
+  bodyPart: RArmExtension
   markingCategory: Arms
   speciesRestriction: [Kodepiia]
   followSkinColor: true
@@ -795,7 +795,7 @@
 
 - type: marking
   id: KodeWingsMoth
-  bodyPart: Wings
+  bodyPart: RArmExtension
   markingCategory: Arms
   speciesRestriction: [Kodepiia]
   followSkinColor: true
@@ -807,7 +807,7 @@
 
 - type: marking
   id: KodeMyFirstWings
-  bodyPart: Wings
+  bodyPart: RArmExtension
   markingCategory: Arms
   speciesRestriction: [Kodepiia]
   followSkinColor: true
@@ -819,7 +819,7 @@
 
 - type: marking
   id: KodeCapePuffy
-  bodyPart: Wings
+  bodyPart: RArmExtension
   markingCategory: Arms
   speciesRestriction: [Kodepiia]
   followSkinColor: true
@@ -829,7 +829,7 @@
 
 - type: marking
   id: KodeSlimeArms
-  bodyPart: Wings
+  bodyPart: RArmExtension
   markingCategory: Arms
   speciesRestriction: [Kodepiia]
   followSkinColor: true
@@ -841,7 +841,7 @@
 
 - type: marking
   id: KodeCapeSpines
-  bodyPart: Wings
+  bodyPart: RArmExtension
   markingCategory: Arms
   speciesRestriction: [Kodepiia]
   followSkinColor: true
@@ -851,7 +851,7 @@
 
 - type: marking
   id: KodeCapeSquid
-  bodyPart: Wings
+  bodyPart: RArmExtension
   markingCategory: Arms
   speciesRestriction: [Kodepiia]
   followSkinColor: true
@@ -861,7 +861,7 @@
 
 - type: marking
   id: KodeSwanWings
-  bodyPart: Wings
+  bodyPart: RArmExtension
   markingCategory: Arms
   speciesRestriction: [Kodepiia]
   followSkinColor: true
@@ -875,7 +875,7 @@
 
 - type: marking
   id: KodeTentaWings
-  bodyPart: Wings
+  bodyPart: RArmExtension
   markingCategory: Arms
   speciesRestriction: [Kodepiia]
   followSkinColor: true
@@ -885,7 +885,7 @@
 
 - type: marking
   id: KodeWingsThing
-  bodyPart: Wings
+  bodyPart: RArmExtension
   markingCategory: Arms
   speciesRestriction: [Kodepiia]
   followSkinColor: true
@@ -897,7 +897,7 @@
 
 - type: marking
   id: KodeUnevenArmsSimple
-  bodyPart: Wings
+  bodyPart: RArmExtension
   markingCategory: Arms
   speciesRestriction: [Kodepiia]
   followSkinColor: true
@@ -907,7 +907,7 @@
 
 - type: marking
   id: KodeVariableWings
-  bodyPart: Wings
+  bodyPart: RArmExtension
   markingCategory: Arms
   speciesRestriction: [Kodepiia]
   followSkinColor: true

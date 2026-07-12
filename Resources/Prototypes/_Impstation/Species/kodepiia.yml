@@ -33,6 +33,7 @@
     RLeg: MobKodepiiaRLeg
     LFoot: MobKodepiiaLFoot
     RFoot: MobKodepiiaRFoot
+    RArmExtension: MobHumanoidAnyMarking # Frontier
 
 
 - type: markingPoints
@@ -97,24 +98,6 @@
   baseSprite:
     sprite: _Impstation/Mobs/Species/Kodepiia/parts.rsi
     state: torso_f
-
-- type: humanoidBaseSprite
-  id: MobKodepiiaGroin
-  baseSprite:
-    sprite: _Impstation/Mobs/Species/Kodepiia/parts.rsi
-    state: groin_f
-
-- type: humanoidBaseSprite
-  id: MobKodepiiaGroinMale
-  baseSprite:
-    sprite: _Impstation/Mobs/Species/Kodepiia/parts.rsi
-    state: groin_f
-
-- type: humanoidBaseSprite
-  id: MobKodepiiaGroinFemale
-  baseSprite:
-    sprite: _Impstation/Mobs/Species/Kodepiia/parts.rsi
-    state: groin_f
 
 - type: humanoidBaseSprite
   id: MobKodepiiaLLeg
