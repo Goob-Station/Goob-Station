@@ -122,7 +122,7 @@
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:
-      - ReagentId: BloodKodepiia
+      - ReagentId: ShimmeringBlood
         Quantity: 300
   - type: Damageable
     damageModifierSet: Kodepiia

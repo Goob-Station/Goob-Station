@@ -49,3 +49,6 @@ reagent-desc-vomit = You can see a few chunks of someone's last meal in it.
 
 reagent-name-grey-matter = grey matter
 reagent-desc-grey-matter = Thought juice, the stuff that leaks out of your ears.
+
+reagent-name-shimmering-blood = shimmering blood
+reagent-desc-shimmering-blood = The incredibly oxygenated and diluted blood of a Kodepiia.

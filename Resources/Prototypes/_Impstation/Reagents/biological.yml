@@ -1,8 +1,12 @@
 - type: reagent
   parent: Blood
-  id: BloodKodepiia
+  id: ShimmeringBlood
+  name: reagent-name-shimmering-blood
+  group: biological
+  desc: reagent-desc-shimmering-blood
   flavor: acid
-  color: "#b5485c"
+  color: "#f26174"
+  recognizable: true
 
 - type: reaction
   id: KodepiiaBloodBreakdown
@@ -10,7 +14,7 @@
   requiredMixerCategories:
   - Centrifuge
   reactants:
-    BloodKodepiia:
+    ShimmeringBlood:
       amount: 5
   products:
     Ice: 11

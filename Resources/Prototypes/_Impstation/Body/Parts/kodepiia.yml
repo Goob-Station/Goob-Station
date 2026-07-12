@@ -11,13 +11,13 @@
       reagents:
       - ReagentId: Fat
         Quantity: 3
-      - ReagentId: BloodKodepiia
+      - ReagentId: ShimmeringBlood
         Quantity: 10
   - type: WoundableVisuals
     damageOverlayGroups:
       Brute:
         sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
-        color: "#b5485c"
+        color: "#f26174"
       Burn:
         sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
 
@@ -34,7 +34,7 @@
       reagents:
       - ReagentId: Fat
         Quantity: 3
-      - ReagentId: BloodKodepiia
+      - ReagentId: ShimmeringBlood
         Quantity: 10
 
 - type: entity
@@ -50,7 +50,7 @@
       reagents:
       - ReagentId: Fat
         Quantity: 10
-      - ReagentId: BloodKodepiia
+      - ReagentId: ShimmeringBlood
         Quantity: 20
 
 - type: entity
@@ -66,7 +66,7 @@
       reagents:
       - ReagentId: Fat
         Quantity: 10
-      - ReagentId: BloodKodepiia
+      - ReagentId: ShimmeringBlood
         Quantity: 20
 
 - type: entity
@@ -82,7 +82,7 @@
       reagents:
       - ReagentId: Fat
         Quantity: 5
-      - ReagentId: BloodKodepiia
+      - ReagentId: ShimmeringBlood
         Quantity: 10
 
 - type: entity
