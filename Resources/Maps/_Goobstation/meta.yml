@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 07/10/2026 19:44:25
-  entityCount: 28357
+  time: 07/12/2026 22:58:57
+  entityCount: 28351
 maps:
 - 1
 grids:
@@ -11154,7 +11154,7 @@ entities:
       pos: 44.5,39.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -33910.664
+      secondsUntilStateChange: -34112.848
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11462,7 +11462,7 @@ entities:
       pos: -7.5,32.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -44686.016
+      secondsUntilStateChange: -44888.2
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11679,7 +11679,7 @@ entities:
       pos: 63.5,0.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -63909.855
+      secondsUntilStateChange: -64112.04
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 1
@@ -11813,7 +11813,7 @@ entities:
       pos: 98.5,-4.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -67625.016
+      secondsUntilStateChange: -67827.2
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12147,7 +12147,7 @@ entities:
       pos: -43.5,29.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -66772.02
+      secondsUntilStateChange: -66974.21
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 2
@@ -12182,7 +12182,7 @@ entities:
       pos: -42.5,29.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -94491.47
+      secondsUntilStateChange: -94693.66
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 2
@@ -12877,7 +12877,7 @@ entities:
       pos: -2.5,-60.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -49566.887
+      secondsUntilStateChange: -49769.07
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -134156,12 +134156,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 57.5,24.5
       parent: 2
-  - uid: 20026
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 44.5,14.5
-      parent: 2
   - uid: 20027
     components:
     - type: Transform
@@ -137093,6 +137087,13 @@ entities:
     components:
     - type: Transform
       pos: 28.5,-29.5
+      parent: 2
+- proto: ReinforcedSecretDoor
+  entities:
+  - uid: 4363
+    components:
+    - type: Transform
+      pos: 49.5,-33.5
       parent: 2
 - proto: ReinforcedUraniumWindow
   entities:
@@ -147693,12 +147694,6 @@ entities:
       parent: 2
 - proto: StationAiFixerComputer
   entities:
-  - uid: 4363
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 104.5,-13.5
-      parent: 2
   - uid: 5618
     components:
     - type: Transform
@@ -156442,12 +156437,6 @@ entities:
     components:
     - type: Transform
       pos: 67.5,-11.5
-      parent: 2
-  - uid: 5318
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 49.5,-33.5
       parent: 2
   - uid: 5320
     components:
@@ -175370,12 +175359,6 @@ entities:
       parent: 2
 - proto: WindoorSecureCommandLocked
   entities:
-  - uid: 4371
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 104.5,-13.5
-      parent: 2
   - uid: 16905
     components:
     - type: Transform
@@ -175422,7 +175405,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -63584.457
+      secondsUntilStateChange: -63786.64
       state: Opening
     - type: Airlock
       autoClose: False
@@ -176063,23 +176046,6 @@ entities:
     components:
     - type: Transform
       pos: -5.5,53.5
-      parent: 2
-  - uid: 4464
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 104.5,-13.5
-      parent: 2
-  - uid: 4485
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 104.5,-13.5
-      parent: 2
-  - uid: 4774
-    components:
-    - type: Transform
-      pos: 104.5,-13.5
       parent: 2
   - uid: 8216
     components:
