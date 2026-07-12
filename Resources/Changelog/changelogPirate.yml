@@ -2245,3 +2245,9 @@ Entries:
         каменя душі.
   id: 208
   time: '2026-07-11T22:42:22.0000000+00:00'
+- author: SpaceCowboyServer
+  changes:
+    - type: Add
+      message: режим "Змова"
+  id: 209
+  time: '2026-07-12T07:50:50.0000000+00:00'
