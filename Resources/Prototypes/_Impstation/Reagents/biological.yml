@@ -1,8 +1,8 @@
 - type: reagent
   parent: Blood
   id: BloodKodepiia
-  flavor: kodepiia
-  color: "#4f0000"
+  flavor: Kodepiia
+  color: "#b5485c"
 
 - type: reaction
   id: KodepiiaBloodBreakdown
