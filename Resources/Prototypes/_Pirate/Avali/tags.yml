@@ -1,0 +1,13 @@
+# Pirate: Avali-specific tags retained from the source port.
+
+- type: Tag
+  id: Avali
+
+- type: Tag
+  id: NotLabelable
+
+- type: Tag
+  id: AvianFood
+
+- type: Tag
+  id: AmoxlaCompatible

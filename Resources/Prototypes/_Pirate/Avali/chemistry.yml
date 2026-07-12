@@ -1,0 +1,109 @@
+# Pirate - Avali chemistry.
+
+- type: metabolizerType
+  id: Avali
+  name: metabolizer-type-avali
+
+- type: reagent
+  parent: Blood
+  id: AvaliBlood
+  name: reagent-name-avali-blood
+  group: Biological
+  desc: reagent-desc-avali-blood
+  flavor: beer
+  color: "#6C3BAA"
+  recognizable: true
+  physicalDesc: reagent-physical-desc-avali
+
+- type: reagent
+  id: Amoxla
+  name: reagent-name-amoxla
+  group: Medicine
+  desc: reagent-desc-amoxla
+  physicalDesc: reagent-physical-desc-opaque
+  contrabandSeverity: Minor
+  allowedDepartments:
+  - Medical
+  flavor: medicine
+  color: "#51c38c"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:TagCondition
+          tag: AmoxlaCompatible
+        damage:
+          types:
+            Asphyxiation: -3.5
+            Bloodloss: -3
+      - !type:AdjustReagent
+        conditions:
+        - !type:ReagentCondition
+          reagent: HeartbreakerToxin
+          min: 1
+        reagent: HeartbreakerToxin
+        amount: -3
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: Amoxla
+          min: 25
+        damage:
+          types:
+            Asphyxiation: 5
+            Cold: 3
+      - !type:HealthChange
+        conditions:
+        - !type:TagCondition
+          tag: AmoxlaCompatible
+          inverted: true
+        damage:
+          types:
+            Poison: 1.5
+            Asphyxiation: 1
+            Bloodloss: 0.5
+      - !type:ModifyBloodLevel
+        conditions:
+        - !type:TagCondition
+          tag: AmoxlaCompatible
+        amount: 3
+
+- type: reaction
+  id: AvaliBloodBreakdown
+  source: true
+  requiredMixerCategories:
+  - Centrifuge
+  reactants:
+    AvaliBlood:
+      amount: 30
+  products:
+    Water: 17
+    CarbonDioxide: 4.5
+    Nitrogen: 2.5
+    Protein: 6
+
+- type: reaction
+  id: AmmoniaFromAvaliBlood
+  requiredMixerCategories:
+  - Stir
+  minTemp: 370
+  reactants:
+    AvaliBlood:
+      amount: 2
+  products:
+    Ammonia: 1
+
+- type: reaction
+  id: Amoxla
+  impact: Medium
+  minTemp: 540
+  reactants:
+    Ammonia:
+      amount: 1
+    Carbon:
+      amount: 1
+    Iron:
+      amount: 1
+  products:
+    Amoxla: 2

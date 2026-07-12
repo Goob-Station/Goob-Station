@@ -1,0 +1,8 @@
+- type: language
+  id: Scratch
+  isVisibleLanguage: true
+  speech:
+    color: "#FC7921"
+    fontId: Scratch
+  obfuscation:
+    !type:RandomObfuscation

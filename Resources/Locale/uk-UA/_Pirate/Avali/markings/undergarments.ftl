@@ -1,0 +1,15 @@
+marking-UndergarmentTopTanktopAvali-tanktop_avali = Майка
+marking-UndergarmentTopTanktopAvali = Майка
+marking-UndergarmentTopBinderAvali-binder_avali = Біндер
+marking-UndergarmentTopBinderAvali = Біндер
+marking-UndergarmentTopBraAvali-classic_avali = Класичний бюстгальтер
+marking-UndergarmentTopBraAvali = Класичний бюстгальтер
+marking-UndergarmentTopSportsbraAvali-sports_avali = Спортивний бюстгальтер
+marking-UndergarmentTopSportsbraAvali = Спортивний бюстгальтер
+
+marking-UndergarmentBottomBoxersAvali-boxers_avali = Боксери
+marking-UndergarmentBottomBoxersAvali = Боксери
+marking-UndergarmentBottomBriefsAvali-briefs_avali = Плавки
+marking-UndergarmentBottomBriefsAvali = Плавки
+marking-UndergarmentBottomSatinAvali-satin_avali = Атласна білизна
+marking-UndergarmentBottomSatinAvali = Атласна білизна

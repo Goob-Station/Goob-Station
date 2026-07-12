@@ -378,10 +378,23 @@
           min: 20
         amount: 0.04
       - !type:HealthChange
+        conditions: # Pirate - Avali use ammonia-based medicine.
+        - !type:MetabolizerTypeCondition
+          type: [ Avali ]
+          inverted: true
         damage:
           types:
             Asphyxiation: -1
             Bloodloss: -0.5
+      - !type:HealthChange # Pirate - Dexalin is harmful to Avali.
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Avali ]
+        damage:
+          types:
+            Poison: 1.5
+            Asphyxiation: 1
+            Bloodloss: 1
       - !type:HealthChange
         conditions:
           - !type:ReagentCondition
@@ -422,10 +435,23 @@
           min: 25
         amount: 0.1
       - !type:HealthChange
+        conditions: # Pirate - Avali use ammonia-based medicine.
+        - !type:MetabolizerTypeCondition
+          type: [ Avali ]
+          inverted: true
         damage:
           types:
             Asphyxiation: -3.5
             Bloodloss: -3
+      - !type:HealthChange # Pirate - DexalinPlus is harmful to Avali.
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Avali ]
+        damage:
+          types:
+            Poison: 2.5
+            Asphyxiation: 1.5
+            Bloodloss: 1
       - !type:AdjustReagent
         conditions:
         - !type:ReagentCondition
@@ -979,7 +1005,19 @@
             type: [ Feroxi ]
           factor: 2
         - !type:ModifyBloodLevel
+          conditions: # Pirate - saline does not replenish Avali blood.
+          - !type:MetabolizerTypeCondition
+            type: [ Avali ]
+            inverted: true
           amount: 12 # Goobstation - buffed by two times due to shitmed changes
+        - !type:HealthChange # Pirate - saline is harmful to Avali.
+          conditions:
+          - !type:MetabolizerTypeCondition
+            type: [ Avali ]
+          damage:
+            types:
+              Caustic: 2
+              Heat: 2
 
 - type: reagent
   id: Siderlac

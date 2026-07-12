@@ -1,0 +1,62 @@
+ent-OrganAvaliStomach = шлунок авалі
+    .suffix = Авалі
+    .desc = При уважнішому огляді видно, що він насправді складається з двох шлунків.
+
+ent-OrganAvaliHeart = серце авалі
+    .suffix = Авалі
+    .desc = Серце авалі.
+
+ent-OrganAvaliLiver = печінка авалі
+    .suffix = Авалі
+    .desc = Печінка авалі.
+
+ent-OrganAvaliKidneys = нирки авалі
+    .suffix = Авалі
+    .desc = Нирки авалі.
+
+ent-OrganAvaliLungs = легені авалі
+    .suffix = Авалі
+    .desc = Легені авалі.
+
+ent-OrganAvaliEyes = очі авалі
+    .suffix = Авалі
+    .desc = Очі авалі.
+
+ent-OrganAvaliBrain = мозок авалі
+    .suffix = Авалі
+    .desc = Тут авалі думають злі думки.
+
+ent-PartAvali = частина тіла авалі
+ent-ChestAvali = груди авалі
+ent-GroinAvali = пах авалі
+ent-HeadAvali = голова авалі
+ent-LeftArmAvali = ліва рука авалі
+ent-RightArmAvali = права рука авалі
+ent-LeftHandAvali = ліва кисть авалі
+ent-RightHandAvali = права кисть авалі
+ent-LeftLegAvali = ліва нога авалі
+ent-RightLegAvali = права нога авалі
+ent-LeftFootAvali = ліва ступня авалі
+ent-RightFootAvali = права ступня авалі
+
+ent-AvaliNexusImplant = імплант зв'язку з Нексусом
+    .desc = Дивний пристрій технології авалі, що надає доступ до Нексуса.
+
+ent-ActionStasisEnter = Увійти в стазис
+    .desc = Увійти у стан призупиненої анімації, який поступово лікує шкоду, але перешкоджає руху та більшості дій.
+
+ent-ActionStasisExit = Вийти зі стазису
+    .desc = Вийти зі стану призупиненої анімації.
+
+ent-EffectNanitesEnter = нанітна оболонка (формування)
+ent-EffectNanitesCurrent = нанітна оболонка
+ent-EffectNanitesExit = нанітна оболонка (розбирання)
+
+ent-BaseMobAvali = авалі
+
+ent-MobAvali = авалі
+    .suffix = Уріст МакАвалі
+    .desc = Розумна птахоподібна істота з аміачною біологією.
+
+ent-AppearanceAvali = авалі (шаблон персонажа)
+    .desc = Макет авалі для налаштування персонажа.

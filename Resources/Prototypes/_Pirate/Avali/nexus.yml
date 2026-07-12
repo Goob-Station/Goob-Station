@@ -1,0 +1,15 @@
+- type: collectiveMind
+  id: Nexus
+  name: collective-mind-nexus
+  keycode: 'n'
+  color: "#FF7922"
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: AvaliNexusImplant
+  name: Nexus uplink
+  description: A weird piece of Avali tech that gives access to the Nexus.
+  categories: [HideSpawnMenu]
+  components:
+  - type: ImplantGrantCollectiveMind
+    collectiveMind: Nexus

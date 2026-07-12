@@ -1,0 +1,98 @@
+# Pirate: Avali stasis visual effects ported from Starlight.
+
+- type: entity
+  id: EffectNanitesEnter
+  categories: [HideSpawnMenu]
+  name: nanite shell (building)
+  components:
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+  - type: Sprite
+    sprite: _Pirate/Effects/avali_nanites.rsi
+    state: nanite-building
+    scale: 0.9, 0.9
+  - type: TimedDespawn
+    lifetime: 5.0
+  - type: PointLight
+    color: "#FFCBB8"
+    radius: 1.7
+    energy: 2.0
+  - type: LightBehaviour
+    behaviours:
+    - !type:FadeBehaviour
+      id: turn_on
+      enabled: true
+      interpolate: Linear
+      startValue: 0
+      endValue: 2
+      maxDuration: 1.8
+      property: Energy
+
+- type: entity
+  id: EffectNanitesCurrent
+  categories: [HideSpawnMenu]
+  name: nanite shell
+  components:
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+  - type: Sprite
+    sprite: _Pirate/Effects/avali_nanites.rsi
+    state: shell
+    scale: 0.9, 0.9
+  - type: TimedDespawn
+    lifetime: 5.0
+  - type: HideLayerClothing
+    slots:
+    - HeadTop
+    - HeadSide
+    - Head
+  - type: PointLight
+    color: "#FFCBB8"
+    radius: 2.0
+    energy: 2.0
+  - type: LightBehaviour
+    behaviours:
+    - !type:PulseBehaviour
+      id: blinking
+      enabled: true
+      interpolate: Cubic
+      startValue: 1.7
+      endValue: 2.0
+      isLooped: true
+      maxDuration: 2
+      minDuration: -0.7
+
+- type: entity
+  id: EffectNanitesExit
+  categories: [HideSpawnMenu]
+  name: nanite shell (deconstructing)
+  components:
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+  - type: Sprite
+    sprite: _Pirate/Effects/avali_nanites.rsi
+    state: nanite-deconstructing
+    scale: 0.9, 0.9
+  - type: TimedDespawn
+    lifetime: 5.0
+  - type: PointLight
+    color: "#FFCBB8"
+    radius: 1.85
+    energy: 2.0
+  - type: LightBehaviour
+    behaviours:
+    - !type:FadeBehaviour
+      id: fade_out
+      enabled: true
+      interpolate: Linear
+      startValue: 2
+      endValue: 0
+      maxDuration: 1.8
+      property: Energy

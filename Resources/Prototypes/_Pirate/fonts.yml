@@ -1,3 +1,7 @@
 - type: font
   id: RubikPuddles
   path: /Fonts/RubikPuddles/RubikPuddles.ttf
+
+- type: font
+  id: Scratch
+  path: /Fonts/_Pirate/Scratch.ttf

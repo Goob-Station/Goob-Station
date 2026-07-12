@@ -15,6 +15,13 @@
   params:
     variation: 0.125
   sounds:
+    # Pirate: Resomi bird-call emote mappings.
+    Scree:
+      collection: ResomiScrees
+    Call:
+      collection: ResomiCalls
+    Squawk:
+      collection: ResomiSquawk
     Scream:
       collection: AvaliScreams
     Laugh:
@@ -39,8 +46,9 @@
       collection: BikeHorn
     Sigh:
       collection: MaleSigh
+    # Pirate: source Avali cry.
     Crying:
-      collection: MaleCry
+      path: /Audio/_Pirate/Voice/Avali/avali_cry.ogg
     Whistle:
       collection: Whistles
     Weh:
@@ -67,6 +75,13 @@
   params:
     variation: 0.125
   sounds:
+    # Pirate: Resomi bird-call emote mappings.
+    Scree:
+      collection: ResomiScrees
+    Call:
+      collection: ResomiCalls
+    Squawk:
+      collection: ResomiSquawk
     Scream:
       collection: AvaliScreams
     Laugh:
@@ -91,8 +106,9 @@
       collection: CluwneHorn
     Sigh:
       collection: FemaleSigh
+    # Pirate: source Avali cry.
     Crying:
-      collection: FemaleCry
+      path: /Audio/_Pirate/Voice/Avali/avali_cry.ogg
     Whistle:
       collection: Whistles
     Weh:

@@ -1,0 +1,207 @@
+# Pirate: Avali core mob and inventory prototypes ported from Starlight.
+
+- type: entity
+  id: BaseColdBird
+  abstract: true
+  components:
+  - type: TemperatureDamage
+    heatDamageThreshold: 310
+    coldDamageThreshold: 223
+  - type: Temperature
+    currentTemperature: 261
+    specificHeat: 48
+  - type: ThermalRegulator
+    metabolismHeat: 400
+    radiatedHeat: 100
+    implicitHeatRegulation: 1500
+    sweatHeatRegulation: 2000
+    shiveringHeatRegulation: 2000
+    normalBodyTemperature: 261
+    thermalRegulationTemperatureThreshold: 1
+  - type: TemperatureSpeed
+    thresholds:
+      250: 0.9
+      230: 0.8
+      223: 0.6
+
+- type: entity
+  id: BaseInventoryAvali
+  abstract: true
+  components:
+  - type: Inventory
+    speciesId: avali
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Pirate/Mobs/Species/Avali/displacement.rsi
+            state: jumpsuit
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Pirate/Mobs/Species/Avali/displacement.rsi
+            state: outerclothing
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Pirate/Mobs/Species/Avali/displacement.rsi
+            state: shoes
+      head:
+        sizeMaps:
+          32:
+            sprite: _Pirate/Mobs/Species/Avali/displacement.rsi
+            state: head
+      hand:
+        sizeMaps:
+          32:
+            sprite: _Pirate/Mobs/Species/Avali/displacement.rsi
+            state: hand
+      back:
+        sizeMaps:
+          32:
+            sprite: _Pirate/Mobs/Species/Avali/displacement.rsi
+            state: back
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Pirate/Mobs/Species/Avali/displacement.rsi
+            state: gloves
+
+- type: entity
+  save: false
+  name: Urist McAvali
+  parent: [BaseColdBird, BaseMobSpeciesOrganic, BaseInventoryAvali]
+  id: BaseMobAvali
+  abstract: true
+  components:
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - Scratch
+    understands:
+    - TauCetiBasic
+    - Scratch
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
+    - Avali
+    - AmoxlaCompatible
+    - NotLabelable
+  - type: Absorbable
+  - type: HumanoidAppearance
+    species: Avali
+    hideLayersOnEquip:
+    - Tail
+    - HeadTop
+  - type: Hunger
+    thresholds:
+      Overfed: 250
+      Okay: 200
+      Peckish: 150
+      Starving: 100
+      Dead: 0
+    baseDecayRate: 0.03
+  - type: Thirst
+  - type: Icon
+    sprite: _Pirate/Mobs/Species/Avali/parts.rsi
+    state: full
+  - type: Body
+    prototype: Avali
+    requiredLegs: 2
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeatChicken
+      amount: 3
+  - type: Speech
+    speechVerb: Parrot
+    speechSounds: MaleAvali
+    allowedEmotes: [Chirp, Hisses, Purr, Growl, Trill, Scree, Call, Squawk]
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      90: Critical
+      180: Dead
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 95
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Vocal
+    sounds:
+      Male: MaleAvaliEmote
+      Female: FemaleAvaliEmote
+      Unsexed: MaleAvaliEmote
+  - type: MovementSpeedModifier
+    baseWeightlessAcceleration: 1.6
+    baseWeightlessFriction: 1
+    baseWeightlessModifier: 1
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Avali
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: AvaliBlood
+        Quantity: 300
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Weapons/pierce.ogg
+    angle: 30
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 6.25
+  - type: AutoImplant
+    implants:
+    - AvaliNexusImplant
+  - type: Stasis
+    enterStasisAction: ActionStasisEnter
+    exitStasisAction: ActionStasisExit
+    updateInterval: 1s
+    healingPerUpdate:
+      types:
+        Heat: 2
+        Cold: 2
+      groups:
+        Brute: 6
+    bleedHealPerUpdate: 1.0
+    critHealingModifier: 0.5
+    stasisDamageReduction: 0.7
+  # Pirate: BaseMobSpecies already supplies CanEscapeInventory.
+  - type: PseudoItem
+    storedOffset: 20,0
+    shape:
+    - 0,3,0,2
+    - 1,3,2,3
+    - 3,3,3,2
+    - 4,4,5,0
+    - 6,3,6,0
+    - 7,1,7,0
+
+- type: entity
+  save: false
+  name: Urist McSpaceRaptor
+  suffix: Urist McAvali
+  parent: BaseMobAvali
+  id: MobAvali
+
+- type: entity
+  save: false
+  parent: [BaseSpeciesDummy, BaseInventoryAvali]
+  id: AppearanceAvali
+  categories: [HideSpawnMenu]
+  description: A dummy avali meant to be used in character setup.
+  components:
+  - type: HumanoidAppearance
+    species: Avali

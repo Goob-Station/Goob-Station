@@ -22,6 +22,7 @@
     - Yowie
     - IPC
     - Resomi
+    - Avali # Pirate
     - Oni
     - Tajaran
     - Chitinid
@@ -107,6 +108,11 @@
   id: Resomi
   name: species-name-resomi
   text: "/ServerInfo/Guidebook/Mobs/Resomi.xml"
+
+- type: guideEntry
+  id: Avali
+  name: species-name-avali
+  text: "/ServerInfo/_Pirate/Guidebook/Mobs/Avali.xml"
 
 - type: guideEntry
   id: Tajaran

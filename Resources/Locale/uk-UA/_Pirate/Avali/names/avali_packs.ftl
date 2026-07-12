@@ -1,0 +1,14 @@
+names-avali-packs-dataset-1 = Зграя авіаторів
+names-avali-packs-dataset-2 = Зграя екранних дзьобів
+names-avali-packs-dataset-3 = Зграя охоронців корпусу
+names-avali-packs-dataset-4 = Зграя залізних кігтів
+names-avali-packs-dataset-5 = Зграя охоронців гнізда
+names-avali-packs-dataset-6 = Зграя спринтерів
+names-avali-packs-dataset-7 = Зграя плазмових кігтів
+names-avali-packs-dataset-8 = Зграя залізних пазурів
+names-avali-packs-dataset-9 = Зграя сталевого гнізда
+names-avali-packs-dataset-10 = Зграя срібного пера
+names-avali-packs-dataset-11 = Зграя шахтарських кігтів
+names-avali-packs-dataset-12 = Зграя мисливців
+names-avali-packs-dataset-13 = Зграя темного пір'я
+names-avali-packs-dataset-14 = Зграя ремонтного гнізда
