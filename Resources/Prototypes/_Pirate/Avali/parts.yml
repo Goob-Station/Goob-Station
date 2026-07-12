@@ -1,4 +1,5 @@
 # Pirate: Shitmed splits Starlight's single Avali torso into chest and groin.
+# Pirate: current MovementBodyPart has no density limit; Avali legs inherit default movement.
 
 - type: entity
   id: PartAvali
@@ -120,8 +121,6 @@
     state: l_leg
   - type: Icon
     state: l_leg
-  - type: MovementBodyPart
-    maxDensity: 100
 
 - type: entity
   id: RightLegAvali
@@ -132,8 +131,6 @@
     state: r_leg
   - type: Icon
     state: r_leg
-  - type: MovementBodyPart
-    maxDensity: 100
 
 - type: entity
   id: LeftFootAvali

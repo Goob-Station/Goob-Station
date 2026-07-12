@@ -19,10 +19,8 @@
   minHeight: 0.8
   defaultHeight: 0.91
   maxHeight: 1
-  standardSize: 150
-  standardWeight: 31
-  standardDensity: 11
-  customName: true
+  # Pirate: source size maps to the current player-facing height field.
+  averageHeight: 150
 
 - type: speciesBaseSprites
   id: MobAvaliSprites
