@@ -2,7 +2,6 @@
 
 using System.Linq;
 using Content.Shared.Actions;
-using Content.Shared.Chat; // Delta-v
 using Content.Shared.Implants.Components;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
@@ -26,7 +25,6 @@ public abstract partial class SharedSubdermalImplantSystem : EntitySystem
         SubscribeLocalEvent<SubdermalImplantComponent, EntGotInsertedIntoContainerMessage>(OnInsert);
         SubscribeLocalEvent<SubdermalImplantComponent, ContainerGettingRemovedAttemptEvent>(OnRemoveAttempt);
         SubscribeLocalEvent<SubdermalImplantComponent, EntGotRemovedFromContainerMessage>(OnRemove);
-        SubscribeLocalEvent<ImplantedComponent, TransformSpeakerNameEvent>(RelayToImplantEvent); // Delta-v
     }
 
     private void OnInsert(Entity<SubdermalImplantComponent> ent, ref EntGotInsertedIntoContainerMessage args)

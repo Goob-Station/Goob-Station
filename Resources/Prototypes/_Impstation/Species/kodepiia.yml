@@ -56,6 +56,9 @@
     Chest:
       points: 4
       required: false
+    Groin:
+      points: 1
+      required: false
     Legs:
       points: 8
       required: false
