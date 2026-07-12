@@ -141,7 +141,7 @@
   components:
   - type: StorageFill
     contents:
-    - id: TennisBall
+    - id: TennisBallGoob
       amount: 2
     - id: BaseTennisRacket
       amount: 2

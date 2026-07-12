@@ -418,7 +418,7 @@
         - id: ClothingShoesClownLarge
         - id: ClothingHeadHatMagician
         - id: BeachBall
-        - id: TennisBall
+        - id: TennisBallGoob
           amount: 2
         - id: ClothingShoesSkates
         - id: RubberChicken
