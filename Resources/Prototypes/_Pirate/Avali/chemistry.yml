@@ -31,8 +31,8 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Avali ]
+        - !type:TagCondition
+          tag: AmoxlaCompatible
         damage:
           types:
             Asphyxiation: -3.5
@@ -55,8 +55,8 @@
             Cold: 3
       - !type:HealthChange
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Avali ]
+        - !type:TagCondition
+          tag: AmoxlaCompatible
           inverted: true
         damage:
           types:
@@ -65,8 +65,8 @@
             Bloodloss: 0.5
       - !type:ModifyBloodLevel
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Avali ]
+        - !type:TagCondition
+          tag: AmoxlaCompatible
         amount: 3
 
 - type: reaction

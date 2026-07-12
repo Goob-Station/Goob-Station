@@ -63,6 +63,7 @@
     - FootstepSound
     - DoorBumpOpener
     - AnomalyHost
+    - AmoxlaCompatible # Pirate - ammonia-based medicine compatibility.
   - type: Hands
     handDisplacement:
       sizeMaps:

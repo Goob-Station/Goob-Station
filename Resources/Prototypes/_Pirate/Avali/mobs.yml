@@ -88,6 +88,7 @@
     - DoorBumpOpener
     - AnomalyHost
     - Avali
+    - AmoxlaCompatible
     - NotLabelable
   - type: Absorbable
   - type: HumanoidAppearance
