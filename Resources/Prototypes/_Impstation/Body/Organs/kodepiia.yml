@@ -57,6 +57,8 @@
   - type: Sprite
     sprite: _Impstation/Mobs/Species/Kodepiia/organs.rsi
     state: slough
+  - type: Item
+    size: Small
     heldPrefix: liver
   - type: Liver # Shitmed Change
   - type: Organ # Shitmed Change
