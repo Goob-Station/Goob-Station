@@ -14,17 +14,18 @@
     event: !type:KodepiiaScramblerEvent
 
 - type: entity
+  parent: BaseAction
   id: ActionKodepiiaConsume
   name: Consume
   description: Take a bite out of an incapacitated target.
   components:
   - type: Action
-    useDelay: 120
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: absorb_dna
+    useDelay: 60
+  - type: TargetAction
   - type: EntityTargetAction
-    event: !type:KodepiiaConsumeEvent
+    event: !type:ConsumeEvent
     canTargetSelf: false
-    interactOnMiss: false
