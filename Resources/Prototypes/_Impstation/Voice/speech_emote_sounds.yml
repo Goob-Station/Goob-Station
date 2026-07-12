@@ -28,63 +28,61 @@
   id: Kodepiia
   sounds:
     Scream:
-      collection: KodepiiaScreams
+      collection: HarpyScreams
     Laugh:
-      collection: KodepiiaLaugh
+      collection: HarpyLaugh
     Sneeze:
-      collection: KodepiiaSneezes
+      collection: FemaleSneezes
     Cough:
-      collection: KodepiiaCoughs
+      collection: FemaleCoughs
     Sigh:
-      collection: KodepiiaSigh
+      collection: FemaleSigh
     Crying:
-      collection: KodepiiaCry
+      collection: HarpyCry
     Whistle:
-      collection: KodepiiaWhistles
+      collection: Whistles
     CatHisses:
-      collection: KodepiiaHisses
+      collection: HarpyHisses
     Hiss:
-      collection: KodepiiaHisses
+      collection: HarpyHisses
     CatMeow:
-      collection: KodepiiaMeows
+      collection: HarpyMeows
     Boom:
-      collection: KodepiiaBooms
+      collection: HarpyBooms
     KodeRing:
-      collection: KodepiiaRings
+      collection: HarpyRings
     KodeHonk:
-      collection: KodepiiaHonks
+      collection: HarpyHonks
       params: # Frontier
         volume: -5 # Frontier
     KodePew:
-      collection: KodepiiaPews
+      collection: HarpyPews
     KodeBang:
-      collection: KodepiiaBangs
+      collection: HarpyBangs
       params: # Frontier
         volume: -5 # Frontier
     KodeBeep:
-      collection: KodepiiaBeeps
+      collection: HarpyBeeps
     Yawn:
-      collection: KodepiiaYawn
+      collection: FemaleYawn
     Snore:
-      collection: KodepiiaSnores
+      collection: Snores
     KodeRev:
-      collection: KodepiiaRevs
+      collection: HarpyRevs
       params: # Frontier
          volume: -5 # Frontier
-    Click:
-      collection: KodepiiaClicks
     Chitter:
-      collection: KodepiiaChitter
+      collection: HarpyChitter
     Squeak:
-      collection: KodepiiaSqueak
+      collection: HarpySqueak
     Caw:
-      collection: KodepiiaCaws
+      collection: HarpyCaws
     Chirp:
-      collection: KodepiiaChirps
+      collection: HarpyChirps
     Snarl:
-      collection: KodepiiaSnarls
+      collection: VulpkaninSnarls
     Honk:
-      collection: KodepiiaHonks
+      collection: HarpyHonks
     Weh:
       collection: Weh
     Hew:
