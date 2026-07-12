@@ -145,6 +145,16 @@ public abstract class SharedLatheSystem : EntitySystem
         return recipes.Count != 0;
     }
 
+    /// <summary>
+    /// Goobstation - Check if proto has a lathe recipe
+    /// </summary>
+    /// <param name="prototype">The proto id</param>
+    /// <returns></returns>
+    public bool CanGetRecipesFromEntity(string prototype)
+    {
+        return InverseRecipes.ContainsKey(prototype);
+    }
+
     public string GetRecipeName(ProtoId<LatheRecipePrototype> proto)
     {
         return GetRecipeName(_proto.Index(proto));
