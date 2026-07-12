@@ -2251,3 +2251,9 @@ Entries:
       message: режим "Змова"
   id: 209
   time: '2026-07-12T07:50:50.0000000+00:00'
+- author: v0idRift
+  changes:
+    - type: Tweak
+      message: Оновлено upstream.
+  id: 210
+  time: '2026-07-12T09:28:10.0000000+00:00'
