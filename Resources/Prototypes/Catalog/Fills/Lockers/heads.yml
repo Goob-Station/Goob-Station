@@ -373,7 +373,6 @@
     - id: RubberStampHos
     - id: BoxHoSCircuitboards
     - id: WeaponDisabler
-    - id: WeaponTaser
     #- id: WeaponDisabler # Goobstation (Disablers in belts)
     - id: ComputerCargoRequestSecurityFlatpack # Goobstation
     - id: WantedListCartridge
