@@ -10,8 +10,8 @@
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: transform
     useDelay: 600
-  -type: InstantAction
-  event: !type:KodepiiaScramblerEvent
+  - type: InstantAction
+    event: !type:KodepiiaScramblerEvent
 
 - type: entity
   id: ActionKodepiiaConsume
