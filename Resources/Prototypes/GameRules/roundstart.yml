@@ -34,6 +34,8 @@
       prob: 0.5
     - id: Xenoborgs
       prob: 0.05
+    - id: Conspirators # Harmony
+      prob: 0.05
     #- id: SubWizard # Goob
     #  prob: 0.05
 
@@ -54,6 +56,8 @@
     - id: BloodBrothers # Pirate
       prob: 0.5
     - id: Xenoborgs
+      prob: 0.05
+    - id: Conspirators # Harmony
       prob: 0.05
 
 - type: entity

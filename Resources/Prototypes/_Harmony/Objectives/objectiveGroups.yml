@@ -1,0 +1,17 @@
+- type: weightedRandom
+  id: ConspiratorObjectiveGroup
+  weights:
+    ConspiratorUnionObjective: 1
+    ConspiratorGameshowObjective: 1
+    ConspiratorTechnologyObjective: 1
+    ConspiratorArmsObjective: 1
+    ConspiratorThiefObjective: 1
+    ConspiratorMafiaObjective: 1
+    ConspiratorArrestObjective: 1
+    ConspiratorCameraObjective: 1
+    ConspiratorDismantleObjective: 1
+    ConspiratorInfightingObjective: 1
+    ConspiratorRemoveObjective: 1
+    ConspiratorHostageObjective: 1
+    ConspiratorSwapObjective: 1
+    ConspiratorProductivityObjective: 1

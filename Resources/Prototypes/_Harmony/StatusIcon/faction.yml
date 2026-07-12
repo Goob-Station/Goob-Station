@@ -1,0 +1,11 @@
+- type: factionIcon
+  id: ConspiratorFaction
+  isShaded: true
+  priority: 11
+  showTo:
+    components:
+    - ShowAntagIcons
+    - Conspirator
+  icon:
+    sprite: /Textures/_Harmony/Interface/Misc/job_icons.rsi
+    state: Conspirator

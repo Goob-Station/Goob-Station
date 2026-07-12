@@ -1,0 +1,179 @@
+- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseConspiratorObjective
+  components:
+  - type: Objective
+    issuer: conspirator-objective-issuer
+    difficulty: 0
+  - type: RoleRequirement
+    roles:
+    - ConspiratorRole
+  - type: CodeCondition
+    completed: true
+
+- type: entity
+  parent: BaseConspiratorObjective
+  id: ConspiratorUnionObjective
+  name: Forcefully seize control of a department
+  description: Assume direct control over a department and declare independence from Nanotrasen.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Weapons/Melee/stunprod.rsi
+      state: stunprod_off
+
+- type: entity
+  parent: BaseConspiratorObjective
+  id: ConspiratorGameshowObjective
+  name: Run a life-or-death game show
+  description: Force the crew to take part in a game show with incredible stakes.
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Machines/computers.rsi
+      state: television
+
+- type: entity
+  parent: BaseConspiratorObjective
+  id: ConspiratorTechnologyObjective
+  name: Seize all station technology
+  description: Show the crew the merits of a simpler life. Because only you deserve the wonders of technology.
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Machines/autolathe.rsi
+      state: icon
+
+- type: entity
+  parent: BaseConspiratorObjective
+  id: ConspiratorArmsObjective
+  name: Disarm Security and arm yourselves instead
+  description: Take the guns from Security and give them to yourselves. They cannot be trusted with them.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
+      state: icon
+
+- type: entity
+  parent: BaseConspiratorObjective
+  id: ConspiratorThiefObjective
+  name: Pull off the greatest heist of all time
+  description: Get your names written in the history books for what you take from this station.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Tools/thief_beacon.rsi
+      state: extraction_point
+
+- type: entity
+  parent: BaseConspiratorObjective
+  id: ConspiratorMafiaObjective
+  name: Form a crime family
+  description: Become the leaders of crime on this station and cement your reputation as a group not to be messed with.
+  components:
+  - type: Objective
+    icon:
+      sprite: Clothing/Hands/Gloves/Color/black.rsi
+      state: icon
+
+- type: entity
+  parent: BaseConspiratorObjective
+  id: ConspiratorArrestObjective
+  name: Trick Security into arresting innocent people
+  description:  Demonstrate their incompetence by showing just how easy they are to fool.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Weapons/Melee/stunbaton.rsi
+      state: stunbaton_on
+
+- type: entity
+  parent: BaseConspiratorObjective
+  id: ConspiratorCameraObjective
+  name: Dismantle the surveillance state
+  description: Bring back the right to privacy for Nanotrasen employees.
+  components:
+  - type: Objective
+    icon:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_camera
+
+- type: entity
+  parent: BaseConspiratorObjective
+  id: ConspiratorDismantleObjective
+  name: Dismantle all barriers
+  description: No barriers shall stand in your way.
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Holo/security.rsi
+      state: icon
+
+- type: entity
+  parent: BaseConspiratorObjective
+  id: ConspiratorInfightingObjective
+  name: Turn Command against each other
+  description: Distrupt the command of the station by creating in-fighting, use the chaos to your advantage.
+  components:
+  - type: Objective
+    icon:
+      sprite: Clothing/Head/Hats/capcap.rsi
+      state: icon
+
+- type: entity
+  parent: BaseConspiratorObjective
+  id: ConspiratorRemoveObjective
+  name: Remove a department
+  description: This station has too many departments. Lower that number by any means necessary.
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Shuttles/thruster.rsi
+      state: base
+
+- type: entity
+  parent: BaseConspiratorObjective
+  id: ConspiratorHostageObjective
+  name: Hold Command Hostage
+  description: Take Command hostage and ransom them off for an exorbitant sum.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Misc/handcuffs.rsi
+      state: handcuff
+
+- type: entity
+  parent: BaseConspiratorObjective
+  id: ConspiratorSwapObjective
+  name: Swap two departments
+  description: Completely swap the locations of two departments, including staff and equipment.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+
+- type: entity
+  parent: BaseConspiratorObjective
+  id: ConspiratorProductivityObjective
+  name: Sabotage productivity
+  description: The money must not flow. The crew must not work. You must stop them.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Consumable/Food/snacks.rsi
+      state: chips-trash
+
+- type: entity
+  parent: [BaseConspiratorObjective, BaseLivingObjective]
+  id: ConspiratorEvacObjective
+  name: Escape to CentComm alive and unrestrained via the escape shuttle.
+  description: The whole crew must make it out alive and free.
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Furniture/chairs.rsi
+      state: shuttle
+  - type: EscapeShuttleCondition
