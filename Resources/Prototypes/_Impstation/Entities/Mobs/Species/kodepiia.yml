@@ -36,6 +36,14 @@
         type: HumanoidMarkingModifierBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+      # Goobstation - changelings
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+      enum.WizardTeleportUiKey.Key: # Goobstation - wizard
+        type: WizardTeleportBoundUserInterface
+        requireInputValidation: false
+      enum.RadarConsoleUiKey.Key: #goob - contractor
+        type: RadarConsoleBoundUserInterface
   - type: Sprite
     layers:
     - map: [ "enum.HumanoidVisualLayers.Groin" ]
@@ -83,7 +91,7 @@
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
     - map: [ "mask" ]
     - map: [ "head" ]
-    - map: [ enum.InstrumentVisuals.Layer ]
+    - map: [ "enum.InstrumentVisuals.Layer" ]
       sprite: _DV/Effects/harpysinger.rsi
       state: singing_music_notes
       visible: false
@@ -108,6 +116,7 @@
         - MobLayer
   - type: Body
     prototype: Kodepiia
+    requiredLegs: 2
   - type: FootstepModifier
     footstepSoundCollection:
       collection: KodepiiaStep
@@ -116,15 +125,14 @@
   - type: Damageable
     damageModifierSet: Kodepiia
   - type: MeleeWeapon
-    angle: 0
-    animation: WeaponArcPunch
     soundHit:
       collection: BoxingHit #maybe change this
+    animation: WeaponArcPunch
     damage:
       types:
         Blunt: 5
   - type: TypingIndicator
-    proto: kodepiia
+    proto: kode
   - type: Speech
     speechSounds: Kodepiia
     speechVerb: Kodepiia
@@ -135,6 +143,12 @@
       Female: Kodepiia
       Unsexed: Kodepiia
   - type: InstrumentVisuals
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - TauCetiBasic
+    - Universal
+    understands:
+    - TauCetiBasic
   - type: GenericVisualizer
     visuals:
       enum.InstrumentVisuals.Playing:

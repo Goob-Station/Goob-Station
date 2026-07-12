@@ -13,8 +13,9 @@
     chest:
       part: ChestKodepiia
       connections:
-      - right_arm
-      - left_arm
+      - right arm
+      - left arm
+      - head
       - groin
       organs:
         heart: OrganKodepiiaHeart
@@ -23,33 +24,33 @@
     groin:
       part: GroinKodepiia
       connections:
-      - right_leg
-      - left_leg
+      - right leg
+      - left leg
       organs:
         stomach: OrganKodepiiaStomach
         liver: OrganHumanLiver
         kidneys: OrganHumanKidneys
-    right_arm:
+    right arm:
       part: RightArmKodepiia
       connections:
-      - right_hand
-    left_arm:
+      - right hand
+    left arm:
       part: LeftArmKodepiia
       connections:
-      - left_hand
-    right_hand:
+      - left hand
+    right hand:
       part: RightHandKodepiia
-    left_hand:
+    left hand:
       part: LeftHandKodepiia
-    right_leg:
+    right leg:
       part: RightLegKodepiia
       connections:
-      - right_foot
-    left_leg:
+      - right foot
+    left leg:
       part: LeftLegKodepiia
       connections:
-      - left_foot
-    right_foot:
+      - left foot
+    right foot:
       part: RightFootKodepiia
-    left_foot:
+    left foot:
       part: LeftFootKodepiia
