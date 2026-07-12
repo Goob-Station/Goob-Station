@@ -6,6 +6,7 @@ using Content.Shared.UserInterface;
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Tag;
@@ -76,6 +77,7 @@ public sealed class PaperSystem : EntitySystem
         SubscribeLocalEvent<RandomPaperContentComponent, MapInitEvent>(OnRandomPaperContentMapInit);
 
         SubscribeLocalEvent<ActivateOnPaperOpenedComponent, PaperWriteEvent>(OnPaperWrite);
+        SubscribeLocalEvent<PaperComponent, UseInHandEvent>(OnUseInHand);
     }
 
     private void OnMapInit(Entity<PaperComponent> entity, ref MapInitEvent args)
@@ -457,6 +459,17 @@ public sealed class PaperSystem : EntitySystem
     public void UpdateUserInterface(Entity<PaperComponent> entity)
     {
         _uiSystem.SetUiState(entity.Owner, PaperUiKey.Key, new PaperBoundUserInterfaceState(entity.Comp.Content, entity.Comp.StampedBy, entity.Comp.Mode));
+    }
+
+    private void OnUseInHand(Entity<PaperComponent> entity, ref UseInHandEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        entity.Comp.Mode = PaperAction.Read;
+        UpdateUserInterface(entity);
+        _uiSystem.TryToggleUi(entity.Owner, PaperUiKey.Key, args.User);
+        args.Handled = true;
     }
 
     # region Starlight

@@ -676,6 +676,13 @@ namespace Content.Shared.Damage
                     return newDamage;
                 case SplitDamageBehavior.Split:
                     return newDamage / parts.Count;
+                case SplitDamageBehavior.SplitExplosion:
+                    var vitalParts = parts.Where(part =>
+                        TryComp<ConsciousnessRequiredComponent>(part.Id, out var consciousness)
+                        && consciousness.CausesDeath).ToList();
+
+                    // Pirate: Preserve normal splitting for bodies without vital parts.
+                    return newDamage / (vitalParts.Count > 0 ? vitalParts.Count : parts.Count);
                 case SplitDamageBehavior.SplitEnsureAllDamaged:
                     var damagedParts = parts.Where(part =>
                         part.Damageable.TotalDamage > FixedPoint2.Zero).ToList();
