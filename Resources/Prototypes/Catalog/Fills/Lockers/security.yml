@@ -29,7 +29,6 @@
   table: !type:AllSelector
     children:
     - id: FlashlightSeclite
-    - id: WeaponTaser
     #- id: WeaponDisabler # Goobstation (Disablers in belts)
     - id: ClothingBeltSecurityFilled
     - id: Flash
@@ -83,7 +82,6 @@
     children:
     - id: FlashlightSeclite
       prob: 0.8
-    - id: WeaponTaser
     #- id: WeaponDisabler # Goobstation (Disablers in belts)
     - id: ClothingUniformJumpsuitSecGrey
       prob: 0.3
@@ -129,7 +127,6 @@
   table: !type:AllSelector
     children:
     - id: ClothingEyesGlassesSecurity
-    - id: WeaponTaser
     - id: WeaponDisabler
     - id: TrackingImplanter
       amount: 2

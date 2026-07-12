@@ -21135,8 +21135,6 @@ entities:
       - Arsenal
       - Experimental
       - CivilianServices
-    - type: OreSiloClient
-      silo: 22568
 - proto: BananaPhoneInstrument
   entities:
   - uid: 1252
@@ -148382,17 +148380,6 @@ entities:
     - type: Transform
       pos: 56.5,-18.5
       parent: 2
-    - type: DeviceLinkSource
-      linkedPorts:
-        1251:
-        - - OreSilo
-          - OreSiloClient
-        23712:
-        - - OreSilo
-          - OreSiloClient
-        30340:
-        - - OreSilo
-          - OreSiloClient
 - proto: Mattress
   entities:
   - uid: 22569
@@ -155649,8 +155636,6 @@ entities:
       - Arsenal
       - Experimental
       - CivilianServices
-    - type: OreSiloClient
-      silo: 22568
 - proto: ProtolatheMachineCircuitboard
   entities:
   - uid: 23713
@@ -164925,8 +164910,6 @@ entities:
       - Arsenal
       - Experimental
       - CivilianServices
-    - type: OreSiloClient
-      silo: 22568
 - proto: ShardGlass
   entities:
   - uid: 25371
