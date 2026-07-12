@@ -38,6 +38,10 @@ public sealed class PaperSheetlet : Sheetlet<NanotrasenStylesheet>
             E<PanelContainer>()
                 .Identifier("PaperEditBackground")
                 .Prop(PanelContainer.StylePropertyPanel, borderedTransparentBackground),
+            E<TextEdit>()
+                .Class("PaperLineEdit")
+                .Prop(LineEdit.StylePropertyStyleBox, new StyleBoxEmpty())
+                .Prop("font-color", new Color(25, 25, 25)),
         ];
     }
 }

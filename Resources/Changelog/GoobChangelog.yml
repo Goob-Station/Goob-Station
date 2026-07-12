@@ -23792,3 +23792,49 @@ Entries:
       message: Burping
   id: 2729
   time: '2026-07-10T12:46:15.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed health analzyer giving false info
+  id: 2730
+  time: '2026-07-12T00:11:24.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Fix
+      message: Fixed some lathes being connected to imaginary silos.
+  id: 2731
+  time: '2026-07-12T00:12:11.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Tweak
+      message: Changed Ardent Censer fuel to be Holy Water
+  id: 2732
+  time: '2026-07-12T00:12:29.0000000+00:00'
+- author: lucapgiannotti
+  changes:
+    - type: Fix
+      message: harpy flight functional once more!
+  id: 2733
+  time: '2026-07-12T00:13:13.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Fix
+      message: Fixed the supermatter monitoring console UI erroring when used.
+  id: 2734
+  time: '2026-07-12T00:14:40.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Tweak
+      message: >-
+        Removed taser from security lockers and made them available through
+        research.
+  id: 2735
+  time: '2026-07-12T00:16:09.0000000+00:00'
+- author: lucapgiannotti
+  changes:
+    - type: Fix
+      message: paper preview while writing! yippee!
+    - type: Fix
+      message: z, e, and left click work to open paper when in hand
+  id: 2736
+  time: '2026-07-12T00:17:00.0000000+00:00'
