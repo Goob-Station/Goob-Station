@@ -47,10 +47,6 @@
       collection: HarpyHisses
     CatMeow:
       collection: HarpyMeows
-    KodeHonk:
-      collection: HarpyHonks
-      params: # Frontier
-        volume: -5 # Frontier
     Yawn:
       collection: FemaleYawn
     Snore:
