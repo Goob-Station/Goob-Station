@@ -5,20 +5,20 @@
   components:
   - type: ConfirmableAction
     popup: dna-scrambler-action-popup
-  - type: InstantAction
+  - type: Action
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: transform
-    event: !type:KodepiiaScramblerEvent
     useDelay: 600
+  -type: InstantAction
+  event: !type:KodepiiaScramblerEvent
 
 - type: entity
   id: ActionKodepiiaConsume
   name: Consume
   description: Take a bite out of an incapacitated target.
   components:
-  - type: EntityTargetAction
-    event: !type:KodepiiaConsumeEvent
+  - type: Action
     useDelay: 120
     canTargetSelf: false
     interactOnMiss: false
@@ -26,3 +26,5 @@
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: absorb_dna
+  - type: EntityTargetAction
+    event: !type:KodepiiaConsumeEvent

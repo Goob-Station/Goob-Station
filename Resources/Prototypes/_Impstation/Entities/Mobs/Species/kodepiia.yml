@@ -27,7 +27,6 @@
       "Piano": {1: 0}
       "Church Organ": {19: 0}
       "Harp": {46: 0}
-    onlySetBySelf: true
   - type: UserInterface
     interfaces:
       enum.InstrumentUiKey.Key:
@@ -121,7 +120,10 @@
     footstepSoundCollection:
       collection: KodepiiaStep
   - type: Bloodstream
-    bloodReagent: BloodKodepiia
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: BloodKodepiia
+        Quantity: 300
   - type: Damageable
     damageModifierSet: Kodepiia
   - type: MeleeWeapon

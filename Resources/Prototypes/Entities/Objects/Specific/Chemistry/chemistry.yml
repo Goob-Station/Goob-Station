@@ -789,9 +789,6 @@
     tags:
     - Pill
     - KodeEdible # imp
-  - type: FoodSequenceElement # imp
-    entries:
-      Burger: PillBurger
 
 - type: entity
   name: pill canister
