@@ -102,7 +102,7 @@
         orGroup: GiftPool
       - id: ClothingNeckCloakMoth
         orGroup: GiftPool
-      - id: TennisBallGoob # Goob
+      - id: TennisBall
         orGroup: GiftPool
       - id: ToyMouse
         orGroup: GiftPool
