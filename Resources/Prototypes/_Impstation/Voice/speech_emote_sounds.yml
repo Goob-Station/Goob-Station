@@ -47,42 +47,22 @@
       collection: HarpyHisses
     CatMeow:
       collection: HarpyMeows
-    Boom:
-      collection: HarpyBooms
-    KodeRing:
-      collection: HarpyRings
     KodeHonk:
       collection: HarpyHonks
       params: # Frontier
         volume: -5 # Frontier
-    KodePew:
-      collection: HarpyPews
-    KodeBang:
-      collection: HarpyBangs
-      params: # Frontier
-        volume: -5 # Frontier
-    KodeBeep:
-      collection: HarpyBeeps
     Yawn:
       collection: FemaleYawn
     Snore:
       collection: Snores
-    KodeRev:
-      collection: HarpyRevs
-      params: # Frontier
-         volume: -5 # Frontier
     Chitter:
       collection: HarpyChitter
     Squeak:
       collection: HarpySqueak
-    Caw:
-      collection: HarpyCaws
     Chirp:
       collection: HarpyChirps
     Snarl:
       collection: VulpkaninSnarls
-    Honk:
-      collection: HarpyHonks
     Weh:
       collection: Weh
     Hew:
