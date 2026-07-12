@@ -26,8 +26,6 @@
   abstract: true
   components:
   - type: Appearance
-  - type: StaticPrice
-    price: 100
   - type: Sprite
     sprite: _Lavaland/Objects/Misc/tickets.rsi
     state: ticket_green3
@@ -46,6 +44,8 @@
   name: common kit coupon
   suffix: Full
   components:
+  - type: StackPrice
+    price: 100
   - type: Sprite
     sprite: _Lavaland/Objects/Misc/tickets.rsi
     state: ticket_green3
@@ -89,9 +89,9 @@
   name: rare kit coupon
   suffix: Full
   components:
-  - type: Appearance
-  - type: StaticPrice
+  - type: StackPrice
     price: 250
+  - type: Appearance
   - type: Sprite
     sprite: _Lavaland/Objects/Misc/tickets.rsi
     state: ticket_green2
@@ -134,8 +134,8 @@
   name: very rare kit coupon
   suffix: Full
   components:
-  - type: StaticPrice
-    price: 250
+  - type: StackPrice
+    price: 1000
   - type: Sprite
     sprite: _Lavaland/Objects/Misc/tickets.rsi
     state: ticket_red
