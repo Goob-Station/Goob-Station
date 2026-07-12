@@ -45,7 +45,7 @@ public sealed partial class DevilContractSystem : EntitySystem
     [Dependency] private readonly BodySystem _bodySystem = null!;
     [Dependency] private readonly WoundSystem _wounds = null!;
     [Dependency] private readonly IRobustRandom _random = null!;
-    [Dependency] private readonly Content.Server.Implants.SubdermalImplantSystem _implant = null!;
+    [Dependency] private readonly SubdermalImplantSystem _implant = null!;
     [Dependency] private readonly PolymorphSystem _polymorph = null!;
     [Dependency] private readonly ExplosionSystem _explosion = null!;
     [Dependency] private readonly MindSystem _mind = null!;

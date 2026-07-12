@@ -92,7 +92,7 @@
     Gasp:
       collection: KodepiiaGasp
     DefaultDeathgasp:
-      collection: KodepiiaDeathgasp
+      collection: KodepiiaDeath
     Squish:
       collection: Squishes
     Bubble:

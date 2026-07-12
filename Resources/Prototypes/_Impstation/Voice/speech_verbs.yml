@@ -1,0 +1,7 @@
+- type: speechVerb
+  id: Kodepiia
+  name: chat-speech-verb-name-kodepiia
+  speechVerbStrings:
+  - chat-speech-verb-kodepiia-1
+  - chat-speech-verb-kodepiia-2
+  - chat-speech-verb-kodepiia-3
