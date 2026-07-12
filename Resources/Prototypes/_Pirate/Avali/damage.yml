@@ -1,0 +1,5 @@
+- type: damageModifierSet
+  id: Avali
+  coefficients:
+    Cold: 0.6
+    Heat: 1.4

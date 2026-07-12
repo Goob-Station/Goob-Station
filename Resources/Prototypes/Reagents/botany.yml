@@ -218,9 +218,22 @@
     Poison:
       effects:
       - !type:HealthChange
+        conditions: # Pirate - Avali use ammonia-based chemistry.
+        - !type:MetabolizerTypeCondition
+          type: [ Avali ]
+          inverted: true
         damage:
           types:
             Caustic: 1
+    Medicine: # Pirate - Avali ammonia treatment.
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Avali ]
+        damage:
+          types:
+            Asphyxiation: -1
     Gas:
       effects:
       - !type:HealthChange
@@ -229,6 +242,7 @@
           type:
           - Rat
           - Yowie # Goobstation - Yowie
+          - Avali # Pirate - Avali ammonia compatibility.
           inverted: true
         - !type:ReagentCondition
           reagent: Ammonia
@@ -246,7 +260,7 @@
         probability: 0.12
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Rat, Vox, Yowie ] # Goobstation Yowie
+          type: [ Rat, Vox, Yowie, Avali ] # Goobstation Yowie; Pirate Avali
           inverted: true
         - !type:ReagentCondition
           reagent: Ammonia

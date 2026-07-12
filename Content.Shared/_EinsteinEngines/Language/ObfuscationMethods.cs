@@ -35,6 +35,26 @@ public abstract partial class ObfuscationMethod
 }
 
 /// <summary>
+///     Obfuscates letters and digits deterministically while preserving whitespace and punctuation.
+/// </summary>
+// Pirate: required by the Avali Scratch language port.
+public sealed partial class RandomObfuscation : ObfuscationMethod
+{
+    internal override void Obfuscate(StringBuilder builder, string message, SharedLanguageSystem context)
+    {
+        const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789АБВГҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЬЮЯ";
+        message = message.ToUpper();
+
+        for (var i = 0; i < chars.Length; i++)
+        {
+            message = message.Replace(chars[i], chars[context.PseudoRandomNumber(message.GetHashCode() + i, 0, chars.Length - 1)]);
+        }
+
+        builder.Append(message);
+    }
+}
+
+/// <summary>
 ///     The most primitive method of obfuscation - replaces the entire message with one random replacement phrase.
 ///     Similar to ReplacementAccent. Base for all replacement-based obfuscation methods.
 /// </summary>

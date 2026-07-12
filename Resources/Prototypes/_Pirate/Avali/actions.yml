@@ -1,0 +1,25 @@
+- type: entity
+  id: ActionStasisEnter
+  name: Enter Stasis
+  description: Enter a state of suspended animation, healing damage over time but preventing movement and most actions.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Pirate/Interface/Actions/actions_avali.rsi
+      state: heal
+  - type: InstantAction
+    event: !type:PrepareStasisActionEvent
+
+- type: entity
+  id: ActionStasisExit
+  name: Exit Stasis
+  description: Exit the state of suspended animation.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Pirate/Interface/Actions/actions_avali.rsi
+      state: healoff
+  - type: InstantAction
+    event: !type:ExitStasisActionEvent

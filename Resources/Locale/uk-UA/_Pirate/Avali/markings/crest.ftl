@@ -1,0 +1,32 @@
+marking-AvaliHairBigPonytail = Великий кінський хвіст
+marking-AvaliHairBigPonytail-avali_crest_bigponytail_primary = Основний колір
+marking-AvaliHairBigPonytail-avali_crest_bigponytail_secondary = Вторинний колір
+marking-AvaliHairBigPonytail-avali_crest_bigponytail_tertiary = Третинний колір
+
+marking-AvaliHairCockatiel = Корела
+marking-AvaliHairCockatiel-avali_crest_cockatiel_primary = Основний колір
+marking-AvaliHairCockatiel-avali_crest_cockatiel_secondary = Вторинний колір
+
+marking-AvaliHairCockatoo = Какаду
+marking-AvaliHairCockatoo-avali_crest_cockatoo_primary = Основний колір
+marking-AvaliHairCockatoo-avali_crest_cockatoo_secondary = Вторинний колір
+
+marking-AvaliHairDuelFeather = Подвійне перо
+marking-AvaliHairDuelFeather-avali_crest_dualfeather_primary = Основний колір
+marking-AvaliHairDuelFeather-avali_crest_dualfeather_secondary = Вторинний колір
+
+marking-AvaliHairHooked = Гачкуватий
+marking-AvaliHairHooked-avali_crest_hooked_primary = Основний колір
+marking-AvaliHairHooked-avali_crest_hooked_secondary = Вторинний колір
+
+marking-AvaliHairJay = Сойка
+marking-AvaliHairJay-avali_crest_jay_primary = Основний колір
+marking-AvaliHairJay-avali_crest_jay_secondary = Вторинний колір
+
+marking-AvaliHairLongFeather = Довге перо
+marking-AvaliHairLongFeather-avali_crest_longfeather_primary = Основний колір
+marking-AvaliHairLongFeather-avali_crest_longfeather_secondary = Вторинний колір
+
+marking-AvaliHairPunk = Панк
+marking-AvaliHairPunk-avali_crest_punk_primary = Основний колір
+marking-AvaliHairPunk-avali_crest_punk_secondary = Вторинний колір

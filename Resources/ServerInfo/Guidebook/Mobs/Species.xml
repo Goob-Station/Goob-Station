@@ -9,6 +9,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
   <Box>
     <GuideEntityEmbed Entity="MobArachnid" Caption="Арахнід"/>
+    <!-- Pirate - Avali -->
+    <GuideEntityEmbed Entity="MobAvali" Caption="Авалі"/>
     <GuideEntityEmbed Entity="MobDiona" Caption="Діона"/>
     <GuideEntityEmbed Entity="MobDwarf" Caption="Дворф"/>
     <GuideEntityEmbed Entity="MobGingerbread" Caption="Імбирний пряник"/>

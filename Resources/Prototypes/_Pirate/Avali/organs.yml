@@ -1,0 +1,124 @@
+- type: entity
+  id: OrganAvaliStomach
+  parent: OrganAnimalStomach
+  name: avali stomach
+  suffix: Avali
+  description: On closer inspection, actually consists of two stomachs.
+  components:
+  - type: Stomach
+    specialDigestible:
+      tags:
+      - Meat
+      - Pill
+      - Crayon
+      - Paper
+      - AvianFood
+  - type: Metabolizer
+    maxPoisonsProcessable: 3
+    metabolizerTypes: [Avali]
+    groups:
+    - id: Food
+    - id: Drink
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 50
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: Sprite
+    sprite: _Pirate/Mobs/Species/Avali/organs.rsi
+    state: stomach
+
+- type: entity
+  id: OrganAvaliHeart
+  parent: OrganHumanHeart
+  name: avali heart
+  suffix: Avali
+  description: The heart of an Avali.
+  components:
+  - type: Metabolizer
+    maxPoisonsProcessable: 2
+    metabolizerTypes: [Avali]
+    groups:
+    - id: Medicine
+    - id: Poison
+    - id: Narcotic
+  - type: Sprite
+    sprite: _Pirate/Mobs/Species/Avali/organs.rsi
+    state: heart-on
+
+- type: entity
+  id: OrganAvaliLiver
+  parent: OrganHumanLiver
+  name: avali liver
+  suffix: Avali
+  description: The liver of an Avali.
+  components:
+  - type: Metabolizer
+    maxPoisonsProcessable: 1
+    metabolizerTypes: [Avali]
+    groups:
+    - id: Alcohol
+  - type: Sprite
+    sprite: _Pirate/Mobs/Species/Avali/organs.rsi
+    state: liver
+
+- type: entity
+  id: OrganAvaliKidneys
+  parent: OrganHumanKidneys
+  name: avali kidneys
+  suffix: Avali
+  description: The kidneys of an Avali.
+  components:
+  - type: Metabolizer
+    maxPoisonsProcessable: 5
+    metabolizerTypes: [Avali]
+    removeEmpty: true
+  - type: Sprite
+    sprite: _Pirate/Mobs/Species/Avali/organs.rsi
+    layers:
+    - state: kidney-l
+    - state: kidney-r
+
+- type: entity
+  id: OrganAvaliLungs
+  parent: OrganHumanLungs
+  name: avali lungs
+  suffix: Avali
+  description: The lungs of an Avali.
+  components:
+  - type: Metabolizer
+    removeEmpty: true
+    solutionOnBody: false
+    solution: Lung
+    # Pirate: Human preserves oxygen metabolism while Avali enables species reagents.
+    metabolizerTypes: [Avali, Human]
+    groups:
+    - id: Gas
+      rateModifier: 100.0
+  - type: Sprite
+    sprite: _Pirate/Mobs/Species/Avali/organs.rsi
+    layers:
+    - state: lung-l
+    - state: lung-r
+
+- type: entity
+  id: OrganAvaliEyes
+  parent: OrganHumanEyes
+  name: avali eyes
+  suffix: Avali
+  description: The eyes of an Avali.
+
+- type: entity
+  id: OrganAvaliBrain
+  parent: OrganHumanBrain
+  name: avali brain
+  suffix: Avali
+  description: Where Avali think evil thoughts.
+  components:
+  - type: Sprite
+    sprite: _Pirate/Mobs/Species/Avali/organs.rsi
+    state: brain

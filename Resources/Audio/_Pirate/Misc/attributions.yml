@@ -2,3 +2,8 @@
   license: "CC-BY-SA-3.0"
   copyright: "Taken from TG station as bloodcult_scribe.ogg"
   source: "https://github.com/tgstation/tgstation/commit/436ba869ebcd0b60b63973fb7562f447ee655205"
+
+- files: ["alien_teleport.ogg"]
+  license: "CC-BY-4.0"
+  copyright: "Darkrell, JustAdler"
+  source: "https://github.com/ss14Starlight/space-station-14"

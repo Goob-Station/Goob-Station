@@ -1,0 +1,1 @@
+species-name-avali = Авалі

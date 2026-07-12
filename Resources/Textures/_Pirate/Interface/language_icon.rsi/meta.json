@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "avali from https://avali.fandom.com",
+  "size": {
+    "x": 16,
+    "y": 16
+  },
+  "states": [
+    {
+      "license": "CC-BY-SA-3.0",
+      "copyright": "avali from https://avali.fandom.com",
+      "name": "avali"
+    }
+  ]
+}

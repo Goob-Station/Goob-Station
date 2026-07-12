@@ -1,0 +1,18 @@
+# Pirate: Avali Resomi bird-call collections ported from Starlight.
+
+- type: soundCollection
+  id: ResomiScrees
+  files:
+  - /Audio/_Pirate/Voice/Resomi/resomi_scree_1.ogg
+  - /Audio/_Pirate/Voice/Resomi/resomi_scree_2.ogg
+
+- type: soundCollection
+  id: ResomiCalls
+  files:
+  - /Audio/_Pirate/Voice/Resomi/resomi_call_1.ogg
+  - /Audio/_Pirate/Voice/Resomi/resomi_call_2.ogg
+
+- type: soundCollection
+  id: ResomiSquawk
+  files:
+  - /Audio/_Pirate/Voice/Resomi/resomi_squawk_1.ogg
