@@ -20,11 +20,11 @@
   components:
   - type: Action
     useDelay: 120
-    canTargetSelf: false
-    interactOnMiss: false
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: absorb_dna
   - type: EntityTargetAction
     event: !type:KodepiiaConsumeEvent
+    canTargetSelf: false
+    interactOnMiss: false
