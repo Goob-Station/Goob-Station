@@ -399,8 +399,6 @@
       collection: VoxHiss
     Belch: # Frontier
       collection: Belch # Frontier
-    Caw:
-      collection: HarpyCaws, KodepiiaCaws
     # Goob end
     #Gasp: # Goob
     #  path: /Audio/Effects/Gasp/vox_gasp.ogg

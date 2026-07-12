@@ -11,7 +11,7 @@
       reagents:
       - ReagentId: Fat
         Quantity: 3
-      - ReagentId: Blood
+      - ReagentId: BloodKodepiia
         Quantity: 10
   - type: WoundableVisuals
     damageOverlayGroups:
@@ -33,7 +33,7 @@
       reagents:
       - ReagentId: Fat
         Quantity: 3
-      - ReagentId: Blood
+      - ReagentId: BloodKodepiia
         Quantity: 10
 
 - type: entity
@@ -49,7 +49,7 @@
       reagents:
       - ReagentId: Fat
         Quantity: 10
-      - ReagentId: Blood
+      - ReagentId: BloodKodepiia
         Quantity: 20
 
 - type: entity
@@ -65,7 +65,7 @@
       reagents:
       - ReagentId: Fat
         Quantity: 10
-      - ReagentId: Blood
+      - ReagentId: BloodKodepiia
         Quantity: 20
 
 - type: entity
@@ -81,7 +81,7 @@
       reagents:
       - ReagentId: Fat
         Quantity: 5
-      - ReagentId: Blood
+      - ReagentId: BloodKodepiia
         Quantity: 10
 
 - type: entity
