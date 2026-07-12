@@ -20,7 +20,8 @@
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
-    Chest: MobKodepiiaTorso
+    Chest: MobKodepiiaChest
+    Groin: MobkodepiiaGroin
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
@@ -82,22 +83,40 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobKodepiiaTorso
+  id: MobKodepiiaChest
   baseSprite:
     sprite: _Impstation/Mobs/Species/Kodepiia/parts.rsi
     state: torso_f
 
 - type: humanoidBaseSprite
-  id: MobKodepiiaTorsoMale
+  id: MobKodepiiaChestMale
   baseSprite:
     sprite: _Impstation/Mobs/Species/Kodepiia/parts.rsi
     state: torso_f
 
 - type: humanoidBaseSprite
-  id: MobKodepiiaTorsoFemale
+  id: MobKodepiiaChestFemale
   baseSprite:
     sprite: _Impstation/Mobs/Species/Kodepiia/parts.rsi
     state: torso_f
+
+- type: humanoidBaseSprite
+  id: MobKodepiiaGroin
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Kodepiia/parts.rsi
+    state: groin_f
+
+- type: humanoidBaseSprite
+  id: MobKodepiiaGroinMale
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Kodepiia/parts.rsi
+    state: groin_f
+
+- type: humanoidBaseSprite
+  id: MobKodepiiaGroinFemale
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Kodepiia/parts.rsi
+    state: groin_f
 
 - type: humanoidBaseSprite
   id: MobKodepiiaLLeg
