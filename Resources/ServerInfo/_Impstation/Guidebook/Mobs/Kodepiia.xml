@@ -18,7 +18,6 @@
     <GuideEntityEmbed Entity="FoodMeatHuman" Caption=""/>
     <GuideEntityEmbed Entity="FoodMeatChicken" Caption=""/>
     <GuideEntityEmbed Entity="FoodMeatLizard" Caption=""/>
-    <GuideEntityEmbed Entity="FoodMeatKodepiia" Caption=""/>
   </Box>
 
   Because of a quirk of their biology, Kodepiiae can only digest uncooked proteins from raw meat and corpses. [color=#1e90ff]Cooked protein makes Kodepiiae sick![/color]

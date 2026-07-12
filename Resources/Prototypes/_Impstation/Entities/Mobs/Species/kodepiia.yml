@@ -174,7 +174,7 @@
   - type: Butcherable
     butcheringType: Spike
     spawned:
-    - id: FoodMeatKodepiia
+    - id: FoodMeat
       amount: 5
   - type: HarpyVisuals
 
