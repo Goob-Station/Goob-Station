@@ -1,6 +1,6 @@
 - type: entity
   id: ShipShield
-  name: "корабельний щит"
+  name: ship shield
   categories: [ HideSpawnMenu ]
   components:
   - type: ShipShield

@@ -1,6 +1,6 @@
 - type: entity
-  name: "священна граната"
-  description: "Вся граната без жодної стріли."
+  name: holy grenade
+  description: All the grenade without any of the boom.
   parent: GrenadeBase
   id: HolyGrenadeDummy
   components:

@@ -1,8 +1,8 @@
 - type: entity
-  name: "Уріст МакСлешер"
+  name: Urist McSlasher
   parent: MobHuman
   id: MobSlasher
-  description: "Налагоджувальний контроль для встановлення варіанта."
+  description: Debug control to set variant.
   suffix: Debug
   components:
   - type: SlasherKitSelect

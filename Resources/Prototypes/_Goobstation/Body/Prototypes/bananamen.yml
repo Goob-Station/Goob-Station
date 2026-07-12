@@ -2,7 +2,7 @@
 
 - type: body
   id: BananaMen
-  name: "банани"
+  name: bananamen
   root: chest
   slots:
     head:

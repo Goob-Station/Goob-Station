@@ -2,7 +2,7 @@
 
 - type: entity
   id: ShipMissileASM417
-  name: "Міні-ракета ASM-417"
+  name: ASM-417 Mini Missile
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -58,7 +58,7 @@
 
 - type: entity
   id: ShipMissileASM302
-  name: "Ракета ASM-302"
+  name: ASM-302 missile
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -114,7 +114,7 @@
 
 - type: entity
   id: ShipMissileASM501
-  name: "Ракета ASM-501"
+  name: ASM-501 missile
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -170,7 +170,7 @@
 
 - type: entity
   id: ShipMissileASM557
-  name: "Гібридна ЕМІ-ракета ASM-557"
+  name: ASM-557 Hybrid EMP Missile
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:

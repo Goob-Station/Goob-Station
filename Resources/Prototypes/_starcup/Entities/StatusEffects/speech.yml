@@ -1,7 +1,7 @@
 - type: entity
   parent: MobStatusEffectDebuff
   id: StatusEffectMuted
-  name: "ефект німоти"
+  name: muted effect
   categories: [ HideSpawnMenu ]
   components:
   - type: ComponentStatusEffect

@@ -2,7 +2,7 @@
 
 - type: body
   id: Dwarf
-  name: "карлик"
+  name: "dwarf"
   root: chest
   slots:
     head:

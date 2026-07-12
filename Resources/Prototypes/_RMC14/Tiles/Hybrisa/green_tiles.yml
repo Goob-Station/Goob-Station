@@ -2,12 +2,12 @@
   abstract: true
   parent: CMTileBase
   id: RMCFloorHybrisaGreenBase
-  name: "плитка CM стандартна зелена"
+  name: tiles-cm-default-green
 
 - type: tile
   parent: RMCFloorHybrisaGreenBase
   id: RMCFloorHybrisaGreenMetal
-  name: "зелена металева плитка"
+  name: green metal tile
   sprite: /Textures/_RMC14/Tiles/hybrisa/greenmetalfull.png
 
 - type: tile
@@ -58,7 +58,7 @@
 - type: tile
   parent: RMCFloorHybrisaGreenBase
   id: RMCFloorHybrisaGreenCarpet
-  name: "зелений килим"
+  name: green carpet
   sprite: /Textures/_RMC14/Tiles/hybrisa/carpetgreen.png
 
 - type: tile

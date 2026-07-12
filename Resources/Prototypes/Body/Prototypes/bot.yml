@@ -2,7 +2,7 @@
 
 - type: body
   id: Bot
-  name: "бот"
+  name: "bot"
   root: hand 1
   slots:
     hand 1:
@@ -11,7 +11,7 @@
 # It's like a medibot or a cleanbot except it has two arms to hug :)
 - type: body
   id: HugBot
-  name: "обіймабот"
+  name: "hugBot"
   root: box
   slots:
     box:

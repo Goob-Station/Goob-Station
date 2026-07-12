@@ -4,7 +4,7 @@
   abstract: true
   parent: BaseItem
   id: BaseHandheldInstrument
-  description: "Це інструмент."
+  description: That's an instrument.
   components:
   - type: Sprite
     state: icon
@@ -29,7 +29,7 @@
   abstract: true
   parent: BaseStructureDynamic
   id: BasePlaceableInstrument
-  name: "базовий інструмент"
+  name: baseinstrument
   components:
   - type: Instrument
   - type: ActivatableUI
@@ -79,7 +79,7 @@
   abstract: true
   parent: BasePlaceableInstrument
   id: BasePlaceableInstrumentRotatable
-  name: "основаінструментуобертається"
+  name: baseinstrumentrotatable
   components:
   - type: Rotatable
     rotateWhileAnchored: true

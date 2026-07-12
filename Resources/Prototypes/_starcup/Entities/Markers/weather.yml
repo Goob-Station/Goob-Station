@@ -1,7 +1,7 @@
 - type: entity
-  name: "Блокування погоди"
+  name: Block Weather
   id: WeatherBlockMarker
-  description: "Не дає погоді впливати на тайл."
+  description: "Prevents weather from affecting a tile."
   parent: MarkerBase
   components:
   - type: Sprite

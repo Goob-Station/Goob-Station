@@ -3,8 +3,8 @@
 - type: entity
   parent: CrateEngineering
   id: CrateEngineeringThruster
-  name: "ящик з двигуном"
-  description: "Містить флетпак двигуна"
+  name: thruster crate
+  description: Contains a thruster flatpack.
   components:
   - type: EntityTableContainerFill
     containers:
@@ -14,8 +14,8 @@
 - type: entity
   parent: CrateEngineering
   id: CrateEngineeringGyroscope
-  name: "ящик з гіроскопом"
-  description: "Містить флетпак гіроскопа"
+  name: gyroscope crate
+  description: Contains a gyroscope flatpack.
   components:
   - type: EntityTableContainerFill
     containers:

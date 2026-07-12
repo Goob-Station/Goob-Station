@@ -4,7 +4,7 @@
   abstract: true
   parent: BaseAreaStation
   id: BaseAreaService
-  name: "сервісний відділ"
+  name: service
   components:
   - type: DepartmentArea
     # Pirate: service jobs are part of Civilian in this fork.
@@ -14,7 +14,7 @@
 - type: entity
   parent: BaseAreaService
   id: AreaKitchen
-  name: "кухня"
+  name: kitchen
   components:
   - type: Sprite
     state: kitchen
@@ -23,7 +23,7 @@
 - type: entity
   parent: AreaKitchen
   id: AreaCafeteria
-  name: "кафетерій"
+  name: cafeteria
   components:
   - type: Sprite
     state: cafeteria
@@ -32,7 +32,7 @@
 - type: entity
   parent: AreaKitchen
   id: AreaColdRoom
-  name: "холодильна кімната"
+  name: cold room
   components:
   - type: Sprite
     state: kitchen_cold
@@ -40,7 +40,7 @@
 - type: entity
   parent: AreaKitchen
   id: AreaKitchenBackRoom
-  name: "задня кімната кухні"
+  name: kitchen back room
   components:
   - type: Sprite
     state: kitchen_back
@@ -48,7 +48,7 @@
 - type: entity
   parent: BaseAreaService
   id: AreaBarber
-  name: "перукарня"
+  name: barber
   components:
   - type: Sprite
     state: barber
@@ -56,7 +56,7 @@
 - type: entity
   parent: BaseAreaService
   id: AreaBar
-  name: "бар"
+  name: bar
   components:
   - type: Sprite
     state: bar
@@ -65,7 +65,7 @@
 - type: entity
   parent: BaseAreaService
   id: AreaBarBackRoom
-  name: "задня кімната бару"
+  name: bar back room
   components:
   - type: Sprite
     state: bar_back_room
@@ -73,7 +73,7 @@
 - type: entity
   parent: BaseAreaService
   id: AreaDiner
-  name: "закусочна"
+  name: diner
   components:
   - type: Sprite
     state: diner
@@ -81,7 +81,7 @@
 - type: entity
   parent: BaseAreaService
   id: AreaBotany
-  name: "гідропоніка"
+  name: hydro
   components:
   - type: Sprite
     state: hydro
@@ -89,7 +89,7 @@
 - type: entity
   parent: BaseAreaService
   id: AreaServiceHall
-  name: "сервісний хол"
+  name: service hall
   components:
   - type: Sprite
     state: service_hall

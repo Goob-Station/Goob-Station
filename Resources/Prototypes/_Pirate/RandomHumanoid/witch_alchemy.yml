@@ -14,7 +14,7 @@
 
 - type: entity
   id: RandomHumanoidEventWitchBrewerSpawner
-  name: "гостьова роль привида відьми"
+  name: гостьова роль привида відьми
   suffix: Pirate
   components:
     - type: Sprite
@@ -39,7 +39,7 @@
 
 - type: entity
   id: RandomHumanoidEventAlchemistBrewerSpawner
-  name: "гостьова роль привида алхіміка"
+  name: гостьова роль привида алхіміка
   suffix: Pirate
   components:
     - type: Sprite

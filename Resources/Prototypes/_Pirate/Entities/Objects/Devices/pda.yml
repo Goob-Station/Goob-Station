@@ -1,8 +1,8 @@
 - type: entity
   parent: BasePDA
   id: AdminAssistantPDA
-  name: "адміністративний асистент КПК"
-  description: "По краях - каракулі ручкою, і на ній приклеєно кілька липких записок."
+  name: administrative assistant PDA
+  description: Theres pen scribbles all over the edges, and a few sticky notes stuck on it.
   components:
   - type: Sprite
     sprite: _Pirate/Objects/Devices/pda.rsi
@@ -43,8 +43,8 @@
 - type: entity
   parent: [ BaseMedicalPDA, BaseInterdyneContraband ]
   id: InterdyneOfficerPDA
-  name: "ПДА офіцера Інтердайну"
-  description: "Офіцерський ПДА Інтердайну, модифікований різними медичними сенсорами та всім необхідним для роботи офіцера Інтердайну."
+  name: PDA офіцера Інтердайна
+  description: Офіцерський ПДА Інтердайну, модифікований різними медичними сенсорами та усім необхідним для праці офіцера Інтердайна.
   components:
   - type: Sprite
     sprite: _Pirate/Objects/Devices/pda.rsi
@@ -76,8 +76,8 @@
 - type: entity
   parent: [ BaseMedicalPDA, BaseInterdyneContraband ]
   id: InterdyneDeputyPDA
-  name: "ПДА заступника офіцера Інтердайну"
-  description: "Навіює авторитет."
+  name: PDA заступника офіцера Інтердайна
+  description: Навіює авторитетом.
   components:
   - type: Sprite
     sprite: _Pirate/Objects/Devices/pda.rsi
@@ -109,8 +109,8 @@
 - type: entity
   parent: [ BaseMedicalPDA, BaseInterdyneContraband ]
   id: InterdynePDA
-  name: "ПДА персоналу Інтердайну"
-  description: "Пахне медициною та... біологічною зброєю."
+  name: PDA персоналу Інтердайна
+  description: Пахне медициною та... Біологічною зброєю.
   components:
   - type: Sprite
     sprite: _Pirate/Objects/Devices/pda.rsi

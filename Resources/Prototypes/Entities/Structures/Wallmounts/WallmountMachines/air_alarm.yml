@@ -3,8 +3,8 @@
 - type: entity
   parent: BaseWallmountMachine
   id: AirAlarm
-  name: "повітряна тривога"
-  description: "Повітряна тривога. Сигналізація... повітря?"
+  name: air alarm
+  description: An air alarm. Alarms... air?
   components:
   - type: StationAiWhitelist
   - type: Electrified
@@ -115,8 +115,8 @@
 - type: entity
   parent: BaseWallmountMetallic
   id: AirAlarmAssembly
-  name: "повітряна сигналізація в зборі"
-  description: "Повітряна тривога. Не схоже, що найближчим часом буде повітряна тривога."
+  name: air alarm assembly
+  description: An air alarm. Doesn't look like it'll be alarming air any time soon.
   components:
   - type: Sprite
     sprite: Structures/Wallmounts/air_monitors.rsi
@@ -158,8 +158,8 @@
 - type: entity
   id: AirAlarmXeno
   parent: AirAlarm
-  name: "повітряна тривога"
-  description: "Інопланетна повітряна тривога. Сподіваємося, вони не дихали отрутою."
+  name: air alarm
+  description: An alien air alarm. Hopefully they didn't breathe poison.
   components:
   - type: Sprite
     sprite: Structures/Wallmounts/air_monitors_xeno.rsi
@@ -175,8 +175,8 @@
 - type: entity
   id: AirAlarmAssemblyXeno
   parent: AirAlarmAssembly
-  name: "повітряна сигналізація в зборі"
-  description: "Інопланетна повітряна тривога. Чому дроти пульсують?.."
+  name: air alarm assembly
+  description: An alien air alarm. Why are the wires pulsating?...
   components:
   - type: Sprite
     sprite: Structures/Wallmounts/air_monitors_xeno.rsi

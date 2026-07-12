@@ -1,7 +1,7 @@
 - type: entity
   id: TwoWayLever
-  name: "двосторонній важіль"
-  description: "Двосторонній важіль."
+  name: two way lever
+  description: A two way lever.
   placement:
     mode: SnapgridCenter
   components:

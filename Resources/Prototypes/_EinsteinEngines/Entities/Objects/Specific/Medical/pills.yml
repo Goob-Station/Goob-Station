@@ -1,8 +1,8 @@
 - type: entity
-  name: "токсин, що руйнує свідомість"
+  name: mindbreaker toxin
   parent: Pill
   id: PillMindbreakerToxin
-  description: "Видаляє псионіку при попаданні всередину. Легко отруйний."
+  description: Removes psionics when ingested. Mildly poisonous.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -15,10 +15,10 @@
     guides: [ Mindbreaking ]
 
 - type: entity
-  name: "криптобіолін"
+  name: cryptobiolin
   parent: Pill
   id: PillCryptobiolin
-  description: "Наркотик тривалої дії, який викликає легку сплутаність свідомості, але робить вас психічно ізольованим."
+  description: A long-lasting drug which causes mild confusion, but renders you psionically insulated.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -45,10 +45,10 @@
     guides: [ PsionicInsulation ]
 
 - type: entity
-  name: "хлоралгідрат"
+  name: chloral-hydrate
   parent: Pill
   id: PillChloralHydrate
-  description: "Потужне заспокійливе."
+  description: A powerful sedative.
   components:
   - type: SolutionContainerManager
     solutions:

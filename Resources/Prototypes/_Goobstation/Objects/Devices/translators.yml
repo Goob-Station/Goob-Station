@@ -1,8 +1,8 @@
 - type: entity
   id: YowKriolTranslator
   parent: [ TranslatorPoweredBase ]
-  name: "Перекладач йоу-кріолу"
-  description: "Перекладає мовлення між йоу-кріолом та Основною. Та ні, та, ні — як справжній землянин!"
+  name: Yow Kriol translator
+  description: Translates speech between Yow Kriol and Basic. Nah, yeah, nah, like a true Earthman!
   components:
   - type: HandheldTranslator
     spoken:

@@ -2,7 +2,7 @@
   abstract: true
   parent: CMTileBase
   id: RMCFloorHybrisaWoodBase
-  name: "плитка CM дерев’яна"
+  name: tiles-cm-wood
   footstepSounds:
     collection: FootstepWood
   barestepSounds:

@@ -4,7 +4,7 @@
   abstract: true
   parent: BaseAreaStation
   id: BaseAreaSecurity
-  name: "служба безпеки"
+  name: security
   components:
   - type: DepartmentArea
     department: Security
@@ -12,7 +12,7 @@
 - type: entity
   parent: BaseAreaSecurity
   id: AreaSecurity
-  name: "служба безпеки"
+  name: security
   components:
   - type: Sprite
     state: security
@@ -20,7 +20,7 @@
 - type: entity
   parent: BaseAreaSecurity
   id: AreaBrig
-  name: "бріг"
+  name: brig
   components:
   - type: Sprite
     state: brig
@@ -28,7 +28,7 @@
 - type: entity
   parent: BaseAreaSecurity
   id: AreaSecurityCheckpoint
-  name: "пост служби безпеки"
+  name: sec checkpoint
   components:
   - type: Sprite
     state: sec_point
@@ -36,7 +36,7 @@
 - type: entity
   parent: BaseAreaSecurity
   id: AreaDetective
-  name: "детектив"
+  name: detective
   components:
   - type: Sprite
     state: detective
@@ -44,7 +44,7 @@
 - type: entity
   parent: BaseAreaSecurity
   id: AreaArmory
-  name: "збройова"
+  name: armory
   components:
   - type: Sprite
     state: armory
@@ -52,7 +52,7 @@
 - type: entity
   parent: BaseAreaSecurity
   id: AreaBrigMed
-  name: "медпункт бригу"
+  name: brig med
   components:
   - type: Sprite
     state: sec_medical
@@ -60,7 +60,7 @@
 - type: entity
   parent: BaseAreaSecurity
   id: AreaExecution
-  name: "кімната страти"
+  name: execution room
   components:
   - type: Sprite
     state: execute_room
@@ -68,7 +68,7 @@
 - type: entity
   parent: BaseAreaSecurity
   id: AreaFiringRange
-  name: "стрільбище"
+  name: firing range
   components:
   - type: Sprite
     state: firing_range
@@ -76,7 +76,7 @@
 - type: entity
   parent: BaseAreaSecurity
   id: AreaInterrogation
-  name: "допитова"
+  name: interrogation
   components:
   - type: Sprite
     state: interrogation
@@ -84,7 +84,7 @@
 - type: entity
   parent: AreaSecurity
   id: AreaSecurityLockers
-  name: "роздягальня служби безпеки"
+  name: security locker room
   components:
   - type: Sprite
     state: sec_locker_room
@@ -92,7 +92,7 @@
 - type: entity
   parent: BaseAreaSecurity
   id: AreaLaborCamp
-  name: "трудовий табір"
+  name: labor camp
   components:
   - type: Sprite
     state: sec_labor_camp
@@ -100,7 +100,7 @@
 - type: entity
   parent: BaseAreaSecurity
   id: AreaPrison
-  name: "в'язниця"
+  name: prison
   components:
   - type: PrisonArea
   - type: Sprite
@@ -109,7 +109,7 @@
 - type: entity
   parent: AreaPrison
   id: AreaPrisonShower
-  name: "тюремна душова"
+  name: prison shower
   components:
   - type: Sprite
     state: prison_shower
@@ -117,7 +117,7 @@
 - type: entity
   parent: AreaPrison
   id: AreaPrisonVisit
-  name: "кімната тюремних відвідувань"
+  name: prison visit
   components:
   - type: Sprite
     state: prison_visit
@@ -125,7 +125,7 @@
 - type: entity
   parent: BaseAreaSecurity
   id: AreaWarden
-  name: "наглядач"
+  name: warden
   components:
   - type: Sprite
     state: warden

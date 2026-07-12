@@ -2,8 +2,8 @@
 
 - type: entity
   id: ProjectileCosmicNova
-  name: "Астральна Нова"
-  description: "Ой-ой."
+  name: Astral Nova
+  description: Uh oh.
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -48,10 +48,10 @@
 
 - type: entity
   id: ProjectileCosmic
-  name: "Згубний Болт"
+  name: Malign Bolt
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
-  description: "Ай."
+  description: Ouch.
   components:
   - type: Reflective
     reflective: Magic # Goobstation
@@ -96,10 +96,10 @@
 
 - type: entity
   id: ProjectileCosmicRazor
-  name: "Астральний Болт"
+  name: Astral Bolt
   parent: ProjectileCosmic
   categories: [ HideSpawnMenu ]
-  description: "Ай."
+  description: Ouch.
   components:
   - type: DamageMarkerOnCollide
     whitelist:

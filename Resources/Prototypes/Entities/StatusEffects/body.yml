@@ -18,7 +18,7 @@
 - type: entity
   parent: BloodstreamStatusEffectDebuff
   id: StatusEffectBloodloss
-  name: "крововтрата"
+  name: bloodloss
   components:
   - type: StutteringAccent
   - type: DrunkStatusEffect
@@ -43,7 +43,7 @@
 - type: entity
   parent: BloodstreamStatusEffectDebuff
   id: StatusEffectAnticoagulant # Decreases the amount of blood coagulation when bleeding.
-  name: "рідка кров"
+  name: thin blood
   components:
   - type: HemophiliaStatusEffect
     bleedReductionMultiplier: 0.33
@@ -52,7 +52,7 @@
 - type: entity
   parent: BloodstreamStatusEffectDebuff
   id: StatusEffectHemorrhage # Increases the amount of blood lost when bleeding.
-  name: "кровотеча"
+  name: hemorrhage
   components:
   - type: HemophiliaStatusEffect
     bleedReductionMultiplier: 1 # We don't want it to also reduce coagulation, it would stack with Anticoagulant.
@@ -61,7 +61,7 @@
 - type: entity
   parent: [ PainNumbnessTraitStatusEffect, MobStatusEffectDebuff ]
   id: StatusEffectPainNumbness
-  name: "оніміння болю"
+  name: pain numbness
 
 - type: entity
   parent: MobStatusEffectBase
@@ -75,13 +75,13 @@
 
 - type: entity
   parent: StaminaModifierStatusEffect
-  name: "2x максимальна витривалість"
+  name: 2x max stamina
   id: StatusEffectDesoxyStamina
 
 - type: entity
   parent: StaminaModifierStatusEffect
   id: StatusEffectStimulantsStamina
-  name: "1.5x максимальна витривалість"
+  name: 1.5x max stamina
   components:
   - type: StaminaModifierStatusEffect
     modifier: 1.5

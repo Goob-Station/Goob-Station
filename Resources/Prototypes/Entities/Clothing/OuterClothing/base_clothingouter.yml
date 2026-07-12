@@ -192,7 +192,7 @@
   abstract: true
   parent: [ClothingOuterBase, GeigerCounterClothing, AllowSuitStorageClothing]
   id: ClothingOuterHardsuitBase
-  name: "базовий скафандр"
+  name: base hardsuit
   components:
   #region Pirate: wetness
   # Hardsuits stay dry and keep the inner uniform, gloves and boots dry too.
@@ -308,7 +308,7 @@
   abstract: true
   parent: [ClothingOuterBase, AllowSuitStorageClothing]
   id: ClothingOuterEVASuitBase
-  name: "базовий скафандр EVA"
+  name: base EVA Suit
   components:
 # SlotBlocker blocked until UI change
 #  - type: SlotBlock
@@ -360,7 +360,7 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingOuterBaseToggleable
-  name: "худі з капюшоном"
+  name: hoodie with hood
   abstract: True
   components:
   - type: ToggleableClothing # Goobstation - Modsuits change

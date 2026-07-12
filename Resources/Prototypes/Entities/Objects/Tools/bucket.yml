@@ -3,8 +3,8 @@
 - type: entity
   parent: [ DrinkBaseMaterialStrongPlastic, DrinkBase, DrinkVisualsFill ]
   id: Bucket
-  name: "відро"
-  description: "Це нудне старе відро."
+  name: bucket
+  description: It's a boring old bucket.
   components:
   - type: Edible
     utensil: Spoon
@@ -52,8 +52,8 @@
 - type: entity
   parent: Bucket
   id: BorgBucket
-  name: "внутрішній бак"
-  description: "Внутрішній резервуар кіборга-прибиральника, здатний вмістити ціле відро води для швабри."
+  name: internal tank
+  description: The internal reservoir of a custodial cyborg, capable of holding a entire mop bucket worth of water.
   components:
   - type: SolutionContainerManager
     solutions:

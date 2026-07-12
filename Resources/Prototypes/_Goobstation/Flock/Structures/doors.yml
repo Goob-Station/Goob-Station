@@ -1,8 +1,8 @@
 - type: entity
   id: AirlockFlock
   parent: BaseStructure
-  name: "дивна велична стіна"
-  description: "Звучить так, ніби вона порожниста."
+  name: weird imposing wall
+  description: It sounds like it is hollow.
   suffix: featherzone
   placement:
     mode: SnapgridCenter

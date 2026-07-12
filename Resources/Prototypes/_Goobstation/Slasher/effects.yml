@@ -1,7 +1,7 @@
 - type: entity
   id: SlasherRegenerateEffect
-  name: "ефект регенерації слешера"
-  description: "Темна, кривава аура оточує слешера під час регенерації."
+  name: slasher regenerate effect
+  description: A dark, bloody aura surrounds the slasher as they regenerate.
   components:
   - type: TimedDespawn
     lifetime: 0.85

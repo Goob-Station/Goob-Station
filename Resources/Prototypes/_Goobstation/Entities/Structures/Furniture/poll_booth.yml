@@ -1,8 +1,8 @@
 - type: entity
   id: PollBooth
   parent: BaseStructure
-  name: "кабінка для голосування"
-  description: "Кабінка для голосування в опитуваннях спільноти. Активуйте, щоб відкрити вікно опитувань."
+  name: polling booth
+  description: A booth for casting your vote on community polls. Activate to open the polls window.
   components:
   - type: Anchorable
   - type: Transform

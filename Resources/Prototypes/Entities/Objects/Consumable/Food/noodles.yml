@@ -6,7 +6,7 @@
   abstract: true
   parent: FoodInjectableBase
   id: FoodNoodlesBase
-  description: "Ось це гарна паста!"
+  description: Now that's a nice pasta!
   components:
   - type: Item
     shape:
@@ -26,8 +26,8 @@
 - type: entity
   parent: FoodNoodlesBase
   id: FoodNoodlesBoiled
-  name: "відварені спагетті"
-  description: "Для звичайної страви з локшини потрібно більше інгредієнтів."
+  name: boiled spaghetti
+  description: A plain dish of noodles, this needs more ingredients.
   components:
   - type: Item
     storedOffset: 0,-4
@@ -41,8 +41,8 @@
 - type: entity
   parent: FoodNoodlesBase
   id: FoodNoodles
-  name: "спагеті"
-  description: "Спагеті з помідорами. Так само, як готував твій жорстокий батько!"
+  name: spaghetti
+  description: Spaghetti and crushed tomatoes. Just like your abusive father used to make!
   components:
   - type: Item
     storedOffset: 0,-4
@@ -60,8 +60,8 @@
 - type: entity
   parent: FoodNoodlesBase
   id: FoodNoodlesCopy
-  name: "копіпаста"
-  description: "Вам, мабуть, не варто пробувати, ви завжди чуєте, як люди говорять про те, як це погано..."
+  name: copypasta
+  description: You probably shouldn't try this, you always hear people talking about how bad it is...
   components:
   - type: Item
     size: Normal
@@ -90,8 +90,8 @@
 - type: entity
   parent: FoodNoodlesBase
   id: FoodNoodlesMeatball
-  name: "спагетті з фрикадельками"
-  description: "Ось це - фрикаделька!"
+  name: spaghetti and meatballs
+  description: Now that's a nice-a meatball!
   components:
   - type: Item
     storedOffset: 0,-4
@@ -118,8 +118,8 @@
 - type: entity
   parent: FoodNoodlesBase
   id: FoodNoodlesSpesslaw
-  name: "спешеллоу"
-  description: "Улюбленець юристів."
+  name: spesslaw
+  description: A lawyer's favourite.
   components:
   - type: Item
     storedOffset: 0,-4
@@ -141,10 +141,10 @@
 # Tastes like pasta, meat.
 
 - type: entity
-  name: "чау-мейн"
+  name: chow mein
   parent: FoodNoodlesBase
   id: FoodNoodlesChowmein
-  description: "Приємне поєднання локшини та смажених овочів."
+  description: A nice mix of noodles and fried vegetables.
   components:
   - type: FlavorProfile
     flavors:
@@ -168,8 +168,8 @@
 - type: entity
   parent: FoodNoodlesBase
   id: FoodNoodlesButter
-  name: "масляна локшина"
-  description: "Локшина, вкрита пікантним вершковим маслом. Просто і слизько, але дуже смачно."
+  name: butter noodles
+  description: Noodles covered in savory butter. Simple and slippery, but delicious.
   components:
   - type: Item
     storedOffset: 0,-4

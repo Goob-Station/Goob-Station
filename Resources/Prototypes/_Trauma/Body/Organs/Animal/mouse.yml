@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseAnimalOrgan
   id: OrganMouseEggSack
-  name: "яєчний мішечок миші"
-  description: "Орган, який дозволяє мишам розмножуватися без статевого партнера. Його тканини здаються... чужими, невже це справді творіння природи?"
+  name: mouse egg sack
+  description: This organ is what lets mice asexually reproduce. Its tissues seem... alien, could this really be from nature?
   components:
   - type: Sprite
     sprite: _White/Mobs/Species/Xenomorph/organs.rsi

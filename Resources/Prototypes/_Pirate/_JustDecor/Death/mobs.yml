@@ -1,6 +1,6 @@
 - type: entity
   id: MobDeathSkeleton
-  name: "Кістлява смерть"
+  name: Кістлява смерть
   parent: BaseMobSkeletonPerson
   suffix: JustDecor, Death
   components:

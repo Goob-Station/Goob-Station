@@ -16,7 +16,7 @@
 
 - type: combo
   id: CQCSlam
-  name: "Удар"
+  name: Slam
   martialArtsForm: CloseQuartersCombat
   attacks:
   - Grab
@@ -28,7 +28,7 @@
 
 - type: combo
   id: CQCKick
-  name: "Копняк"
+  name: Kick
   martialArtsForm: CloseQuartersCombat
   attacks:
   - Harm
@@ -39,7 +39,7 @@
 
 - type: combo
   id: CQCRestrain
-  name: "Сковування"
+  name: Restrain
   martialArtsForm: CloseQuartersCombat
   attacks:
   - Grab
@@ -50,7 +50,7 @@
 
 - type: combo
   id: CQCPressure
-  name: "Тиск"
+  name: Pressure
   martialArtsForm: CloseQuartersCombat
   attacks:
   - Disarm
@@ -60,7 +60,7 @@
 
 - type: combo
   id: CQCConsecutive
-  name: "Послідовний"
+  name: Consecutive
   martialArtsForm: CloseQuartersCombat
   attacks:
   - Disarm

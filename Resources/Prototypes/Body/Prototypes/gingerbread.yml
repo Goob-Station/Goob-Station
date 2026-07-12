@@ -2,7 +2,7 @@
 
 - type: body
   id: Gingerbread
-  name: "вид-назва-людина"
+  name: gingerbread
   root: chest
   slots:
     head:

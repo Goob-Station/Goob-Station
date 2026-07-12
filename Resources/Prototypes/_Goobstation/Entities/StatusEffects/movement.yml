@@ -3,37 +3,37 @@
 - type: entity
   parent: StatusEffectSlowdown
   id: SlasherSlowdownStatusEffect
-  name: "сповільнення слешера"
+  name: slasher slowdown
 
 - type: entity
   parent: StatusEffectSlowdown
   id: TentacleSlowdownStatusEffect
-  name: "сповільнення щупальця"
+  name: tentacle slowdown
 
 - type: entity
   parent: StatusEffectSlowdown
   id: MartialArtsGenericSlowdownEffect
-  name: "сповільнення бойових мистецтв"
+  name: martial arts slowdown
 
 - type: entity
   parent: StatusEffectSlowdown
   id: OrgansDamagedSlowdownEffect
-  name: "сповільнення від пошкодження органів"
+  name: organ damage slowdown
 
 - type: entity
   parent: StatusEffectSlowdown
   id: ShadowCloakSlowdownEffect
-  name: "сповільнення тіньового плаща"
+  name: shadow cloak slowdown
 
 - type: entity
   parent: StatusEffectSlowdown
   id: ShadowlingGlareSlowdownEffect
-  name: "сповільнення погляду шедоулінга"
+  name: shadow ling glare slowdown
 
 - type: entity
   parent: StatusEffectSlowdown
   id: CurseWeaknessSlowDownEffect
-  name: "сповільнення від прокляття ослаблення"
+  name: curse of enfeeblement slowdown
   components:
   - type: MovementModStatusEffect
     sprintSpeedModifier: 0.5
@@ -42,7 +42,7 @@
 - type: entity
   parent: StatusEffectSlowdown
   id: DisgustSlowDownEffect
-  name: "сповільнення від огиди"
+  name: disgust slowdown
   components:
   - type: MovementModStatusEffect
     walkSpeedModifier: 0.7
@@ -51,7 +51,7 @@
 - type: entity
   parent: StatusEffectSlowdown
   id: TriclorSlowdownEffect
-  name: "сповільнення від триклору"
+  name: triclor slowdown
   components:
   - type: MovementModStatusEffect
     walkSpeedModifier: 0.8
@@ -60,14 +60,14 @@
 - type: entity # todo move this
   parent: StatusEffectSpeed
   id: NitriumStatusEffect
-  name: "прискорення від нітріуму"
+  name: nitrium speedup
 
 - type: entity # todo move this
   parent: StatusEffectSpeed
   id: NitrousStatusEffect
-  name: "прискорення від нітроусу"
+  name: nitrous speedup
 
 - type: entity
   parent: StatusEffectSpeed
   id: SlasherStatusEffectKillSpeed
-  name: "прискорення слешера після вбивства"
+  name: slasher kill speedup
