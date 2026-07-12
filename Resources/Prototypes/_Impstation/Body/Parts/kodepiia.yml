@@ -17,6 +17,7 @@
     damageOverlayGroups:
       Brute:
         sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
+        color: "#b5485c"
       Burn:
         sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
 
