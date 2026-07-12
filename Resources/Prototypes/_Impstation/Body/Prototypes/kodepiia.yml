@@ -20,7 +20,6 @@
       organs:
         heart: OrganKodepiiaHeart
         lungs: OrganKodepiiaLungs
-        skin: OrganKodepiiaSkin
     groin:
       part: GroinKodepiia
       connections:
@@ -28,7 +27,7 @@
       - left leg
       organs:
         stomach: OrganKodepiiaStomach
-        liver: OrganHumanLiver
+        liver: OrganKodepiiaSkin
         kidneys: OrganHumanKidneys
     right arm:
       part: RightArmKodepiia
