@@ -42,6 +42,13 @@ public abstract partial class GameRuleSystem<T> : EntitySystem where T : ICompon
         var query = QueryAllRules();
         while (query.MoveNext(out var uid, out _, out var gameRule))
         {
+            // Harmony: skip ended rules (e.g. from a failed start during fallback)
+            if (HasComp<EndedGameRuleComponent>(uid))
+            {
+                Log.Debug($"Ended gamerule ignored from startup check: {ToPrettyString(uid)}");
+                continue;
+            }
+
             var minPlayers = gameRule.MinPlayers;
             var name = ToPrettyString(uid);
 
@@ -93,6 +100,13 @@ public abstract partial class GameRuleSystem<T> : EntitySystem where T : ICompon
         {
             if (!TryComp<GameRuleComponent>(uid, out var ruleData))
                 continue;
+
+            // Harmony: skip ended rules (e.g. from a failed start during fallback)
+            if (HasComp<EndedGameRuleComponent>(uid))
+            {
+                Log.Debug($"Ended gamerule ignored from round end: {ToPrettyString(uid)}");
+                continue;
+            }
 
             AppendRoundEndText(uid, comp, ruleData, ref ev);
         }

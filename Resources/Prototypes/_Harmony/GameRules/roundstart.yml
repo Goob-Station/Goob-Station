@@ -1,0 +1,25 @@
+- type: entity
+  parent: BaseGameRule
+  id: Conspirators
+  components:
+  - type: GameRule
+    minPlayers: 24
+  - type: ConspiratorRule
+  - type: AntagObjectives
+    objectives:
+    - ConspiratorEvacObjective
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
+    definitions:
+    - prefRoles: [ Conspirator ]
+      min: 3
+      max: 5
+      playerRatio: 8
+      briefing:
+        text: conspirator-role-greeting
+        color: "#724F29"
+        sound: /Audio/_Harmony/Misc/conspirator_greeting.ogg
+      components:
+      - type: Conspirator
+      mindRoles:
+      - MindRoleConspirator
