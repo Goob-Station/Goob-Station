@@ -322,6 +322,8 @@
     baseWalkSpeed: 4.8
     baseSprintSpeed: 4.8
   - type: TriggerOnProximity
+    mobState:
+      - Alive
     whitelist:
       components:
       - Actor

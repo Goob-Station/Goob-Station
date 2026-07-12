@@ -1,3 +1,4 @@
+using Content.Shared.Mobs; // Goobstation
 using Content.Shared.Physics;
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
@@ -93,4 +94,10 @@ public sealed partial class TriggerOnProximityComponent : BaseTriggerOnXComponen
     // Goobstation
     [DataField]
     public EntityWhitelist? Whitelist;
+
+    /// <summary>
+    /// Goobstation - What states can trigger this?
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public List<MobState>? MobState = new();
 }

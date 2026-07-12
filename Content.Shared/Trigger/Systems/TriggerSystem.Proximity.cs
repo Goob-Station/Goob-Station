@@ -1,3 +1,4 @@
+using Content.Shared.Mobs.Components; // Goobstation
 using Content.Shared.Trigger.Components.Triggers;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
@@ -61,6 +62,14 @@ public sealed partial class TriggerSystem
 
         if (!_whitelist.IsWhitelistPassOrNull(component.Whitelist, args.OtherEntity)) // Goobstation
             return;
+
+        // Goobstation start
+        if (component.MobState is not null)
+        {
+            if (!TryComp<MobStateComponent>(uid, out var mobState) || !component.MobState.Contains(mobState.CurrentState))
+                return;
+        }
+        // Goobstation end
 
         component.Colliding[args.OtherEntity] = args.OtherBody;
     }
