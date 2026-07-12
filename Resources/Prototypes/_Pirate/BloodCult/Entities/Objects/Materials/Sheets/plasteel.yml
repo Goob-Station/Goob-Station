@@ -5,9 +5,9 @@
 - type: entity
   parent: [ SheetMetalBase, BaseBloodCultContraband ]
   id: SheetRunedPlasteel
-  name: runed plasteel
+  name: "рунована пласталь"
   suffix: Full
-  description: A sheet of otherworldly plasteel, used by cultists to armor their robes.
+  description: "Лист потойбічної пласталі, який культисти використовують для посилення своїх роб."
   components:
   - type: Material
   - type: PhysicalComposition
@@ -34,7 +34,7 @@
 - type: entity
   parent: SheetRunedPlasteel
   id: SheetRunedPlasteel30
-  name: runed plasteel
+  name: "рунована пласталь"
   suffix: 30
   components:
   - type: Sprite
@@ -46,7 +46,7 @@
 - type: entity
   parent: SheetRunedPlasteel
   id: SheetRunedPlasteel10
-  name: runed plasteel
+  name: "рунована пласталь"
   suffix: 10
   components:
   - type: Sprite
@@ -58,7 +58,7 @@
 - type: entity
   parent: SheetRunedPlasteel
   id: SheetRunedPlasteel1
-  name: runed plasteel
+  name: "рунована пласталь"
   suffix: Single
   components:
   - type: Sprite

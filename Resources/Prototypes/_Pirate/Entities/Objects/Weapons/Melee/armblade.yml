@@ -1,5 +1,5 @@
 - type: entity
-  name: магічна лезорука
+  name: "магічна лезорука"
   parent: ArmBlade
   id: MagicArmBlade
   components:

@@ -18,7 +18,7 @@
   - BaseWall
   - CMBaseXenoStructure
   id: BaseWallXeno
-  name: resin wall
+  name: "смоляна стіна"
   abstract: true
   placement:
     mode: SnapgridCenter
@@ -38,8 +38,8 @@
 - type: entity
   parent: BaseWallXeno
   id: WallXenoResin
-  name: resin wall
-  description: Weird slime solidified into a wall.
+  name: "смоляна стіна"
+  description: "Дивний слиз, що затвердів у стіну."
   components:
   - type: Sprite
     sprite: _RMC14/Structures/Xenos/xeno_resin_wall.rsi
@@ -61,8 +61,8 @@
 - type: entity
   parent: WallXenoResin
   id: WallXenoResinThick
-  name: thick resin wall
-  description: Weird slime solidified into a thick wall.
+  name: "товста смоляна стіна"
+  description: "Дивний слиз, що затвердів у товсту стіну."
   components:
   - type: Sprite
     sprite: _RMC14/Structures/Xenos/xeno_resin_wall.rsi
@@ -84,7 +84,7 @@
 - type: entity
   parent: BaseWallXeno
   id: BaseMembraneXeno
-  name: resin membrane
+  name: "смоляна мембрана"
   abstract: true
   components:
   - type: Destructible
@@ -114,8 +114,8 @@
 - type: entity
   parent: BaseMembraneXeno
   id: WallXenoMembrane
-  name: resin membrane
-  description: Weird slime translucent enough to let light pass through.
+  name: "смоляна мембрана"
+  description: "Дивний слиз, достатньо прозорий, щоб пропускати світло."
   components:
   - type: Sprite
     sprite: _RMC14/Structures/Xenos/xeno_resin_wall.rsi
@@ -137,8 +137,8 @@
 - type: entity
   parent: BaseMembraneXeno
   id: WallXenoMembraneThick
-  name: thick resin membrane
-  description: Weird thick slime just translucent enough to let light pass through.
+  name: "товста смоляна мембрана"
+  description: "Дивний товстий слиз, ледь прозорий, щоб пропускати світло."
   components:
   - type: Sprite
     sprite: _RMC14/Structures/Xenos/xeno_resin_wall.rsi

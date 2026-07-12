@@ -3,9 +3,9 @@
 - type: entity
   id: StatueVenusRed
   parent: BaseStructure
-  name: statue of a pure maiden
+  name: "статуя пречистої діви"
   suffix: Red
-  description: An ancient marble statue. The subject is depicted with a floor-length braid and is wielding a red toolbox.
+  description: "Антична мармурова статуя. Об'єкт зображений з косою до підлоги і тримає в руках червоний ящик з інструментами."
   components:
   - type: Sprite
     noRot: true
@@ -17,9 +17,9 @@
 - type: entity
   id: StatueVenusBlue
   parent: BaseStructure
-  name: statue of a pure maiden
+  name: "статуя пречистої діви"
   suffix: Blue
-  description: An ancient marble statue. The subject is depicted with a floor-length braid and is wielding a blue toolbox.
+  description: "Антична мармурова статуя. Об'єкт зображений з косою до підлоги і тримає в руках синій ящик з інструментами."
   components:
   - type: Sprite
     noRot: true
@@ -31,8 +31,8 @@
 - type: entity
   id: StatueBananiumClown
   parent: BaseStructure
-  name: bananium savior statue
-  description: A bananium statue. It portrays the return of the savior who will rise up and lead the clowns to the great honk.
+  name: "бананіумна статуя рятівника"
+  description: "Бананіумна статуя. Вона зображує повернення спасителя, який підніметься і поведе клоунів під великий гудок."
   components:
   - type: Sprite
     noRot: true
@@ -50,7 +50,7 @@
   abstract: true
   parent: BaseStructure
   id: BaseIronsandStatue
-  description: A mysterious statue found in a desert of iron sand.
+  description: "Таємнича статуя, знайдена в пустелі залізного піску."
   components:
   - type: Sprite
     noRot: true
@@ -86,7 +86,7 @@
 - type: entity
   parent: BaseIronsandStatue
   id: StatueIronsandSmall
-  name: ironsand small statue
+  name: "мала статуя із залізного піску"
   components:
   - type: Sprite
     sprite: Structures/Decoration/ironsand_statue.rsi
@@ -106,7 +106,7 @@
 - type: entity
   parent: BaseIronsandStatue
   id: StatueIronsandSmall2
-  name: ironsand small statue
+  name: "мала статуя із залізного піску"
   components:
   - type: Sprite
     sprite: Structures/Decoration/ironsand_statue.rsi
@@ -126,7 +126,7 @@
 - type: entity
   parent: BaseIronsandStatue
   id: StatueIronsandTall
-  name: ironsand tall statue
+  name: "висока статуя із залізного піску"
   components:
   - type: Sprite
     sprite: Structures/Decoration/ironsand_statue_tall.rsi
@@ -147,7 +147,7 @@
 - type: entity
   parent: BaseIronsandStatue
   id: StatueIronsandTall2
-  name: ironsand tall statue
+  name: "висока статуя із залізного піску"
   components:
   - type: Sprite
     sprite: Structures/Decoration/ironsand_statue_tall.rsi

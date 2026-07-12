@@ -4,7 +4,7 @@
   abstract: true
   parent: BaseAreaStation
   id: BaseAreaCivilian
-  name: civilian
+  name: "цивільний відділ"
   components:
   - type: DepartmentArea
     department: Civilian
@@ -12,7 +12,7 @@
 - type: entity
   parent: BaseAreaCivilian
   id: AreaLibrary
-  name: library
+  name: "бібліотека"
   components:
   - type: Sprite
     state: library
@@ -20,7 +20,7 @@
 - type: entity
   parent: BaseAreaCivilian
   id: AreaCourtRoom
-  name: court room
+  name: "зала суду"
   components:
   - type: Sprite
     state: courtroom
@@ -28,7 +28,7 @@
 - type: entity
   parent: BaseAreaCivilian
   id: AreaLawOffice
-  name: law office
+  name: "юридичний офіс"
   components:
   - type: Sprite
     state: law_office
@@ -36,7 +36,7 @@
 - type: entity
   parent: BaseAreaCivilian
   id: AreaTheatre
-  name: theatre
+  name: "театр"
   components:
   - type: Sprite
     state: theatre
@@ -44,7 +44,7 @@
 - type: entity
   parent: BaseAreaCivilian
   id: AreaJanitor
-  name: janitor
+  name: "кімната прибиральника"
   components:
   - type: Sprite
     state: janitor
@@ -52,7 +52,7 @@
 - type: entity
   parent: BaseAreaCivilian
   id: AreaChapel
-  name: chapel
+  name: "каплиця"
   components:
   - type: Sprite
     state: chapel
@@ -61,7 +61,7 @@
 - type: entity
   parent: AreaChapel
   id: AreaChapelOffice
-  name: chapel office
+  name: "офіс каплиці"
   components:
   - type: Sprite
     state: chapel_office
@@ -70,7 +70,7 @@
 - type: entity
   parent: AreaChapel
   id: AreaChapelCremate
-  name: crematorium
+  name: "крематорій"
   components:
   - type: Sprite
     state: cremate
@@ -79,7 +79,7 @@
 - type: entity
   parent: BaseAreaCivilian
   id: AreaDojo
-  name: dojo
+  name: "додзьо"
   components:
   - type: Sprite
     state: dojo
@@ -87,8 +87,8 @@
 - type: entity
   parent: BaseAreaCivilian
   id: AreaToolStorage
-  name: tool storage
-  description: Birthplace of the assistants.
+  name: "склад інструментів"
+  description: "Батьківщина асистентів."
   components:
   - type: Sprite
     state: tool_storage
@@ -96,7 +96,7 @@
 - type: entity
   parent: BaseAreaCivilian
   id: AreaNewsroom
-  name: news room
+  name: "редакція новин"
   components:
   - type: Sprite
     state: newsroom

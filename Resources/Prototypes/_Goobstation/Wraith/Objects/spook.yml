@@ -1,8 +1,8 @@
 - type: entity
   id: SpookObject
-  name: ???
+  name: "???"
   suffix: DO NOT MAP
-  description: It can do various things by being interacted with.
+  description: "Може робити різні речі під час взаємодії з ним."
   components:
   - type: Transform
     anchored: true
@@ -70,8 +70,8 @@
 - type: entity
   parent: Ectoplasm
   id: EctoplasmGoon
-  name: ectoplasm
-  description: A glob of who knows what. Just staring at it gives you the creeps.
+  name: "ектоплазма"
+  description: "Грудка невідомо чого. Від одного погляду на неї мороз іде поза шкірою."
   components:
     - type: Sprite
       noRot: true

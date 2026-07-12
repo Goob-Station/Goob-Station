@@ -2,12 +2,12 @@
   abstract: true
   parent: CMTileBase
   id: RMCFloorHybrisaBlueBase
-  name: tiles-cm-default-blue
+  name: "плитка CM стандартна синя"
 
 - type: tile
   parent: RMCFloorHybrisaBlueBase
   id: RMCFloorHybrisaBlueFull
-  name: blue metal tile
+  name: "синя металева плитка"
   sprite: /Textures/_RMC14/Tiles/hybrisa/bluemetalfull.png
 
 - type: tile
@@ -88,7 +88,7 @@
 - type: tile
   parent: RMCFloorHybrisaBlueBase
   id: RMCFloorHybrisaBlueCarpet
-  name: blue carpet
+  name: "синій килим"
   sprite: /Textures/_RMC14/Tiles/hybrisa/carpetblue.png
 
 - type: tile

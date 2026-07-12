@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseItem
   id: DropPodspawner
-  name: drop pod
-  description: Place items you want players to recieve in the bag, activate it over where you want the pod to drop. Players cannot see the pod. To drop living beings, drag them into the pod (like strapping someone onto a chair).
+  name: "дроп-капсула"
+  description: "Покладіть у сумку предмети, які мають отримати гравці, активуйте над місцем, куди має впасти капсула. Гравці не бачать капсулу. Щоб скинути живих істот, перетягніть їх у капсулу (як пристібання когось до крісла)."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/DropPod/item.rsi

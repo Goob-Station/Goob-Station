@@ -1,7 +1,7 @@
 - type: entity
   id: CartridgePistolCryptobiolin
-  name: cartridge (.35 auto Cryptobiolin)
-  description: Arguably the most popular caliber on the market, used by all manner of pistols and submachine guns.
+  name: "патрон (.35 auto Криптобіолін)"
+  description: "Мабуть, це найпопулярніший калібр на ринку, який використовується в найрізноманітніших пістолетах і пістолетах-кулеметах."
   parent: [ BaseCartridgePistol, BaseMantisContraband ]
   components:
   - type: CartridgeAmmo

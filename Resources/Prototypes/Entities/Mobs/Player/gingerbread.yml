@@ -2,7 +2,7 @@
 
 - type: entity
   save: false
-  name: Urist McCookie
+  name: "Уріст МакКукі"
   parent: BaseMobGingerbread
   id: MobGingerbread
   components:
@@ -15,7 +15,7 @@
           Asphyxiation: -1.0
 
 - type: entity
-  name: gingerbread man
+  name: "пряничний чоловічок"
   id: MobGingerbreadAI
   parent: [ MobGingerbread, MobCombat]
   components:

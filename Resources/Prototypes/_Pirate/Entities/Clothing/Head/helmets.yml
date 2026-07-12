@@ -1,8 +1,8 @@
 - type: entity
   parent: [ClothingHeadHelmetArmoredBase, ClothingHeadHatHardhatBase, BaseSecurityContraband]
   id: ClothingHeadHelmetSecurityLight
-  name: шолом служби безпеки з фонарем
-  description: Стандартний шолом служиби безпеки з вбудованим фонариком. Захищає голову від ударів і куль.
+  name: "шолом служби безпеки з ліхтарем"
+  description: "Стандартний шолом служби безпеки з вбудованим ліхтариком. Захищає голову від ударів і куль."
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Head/Helmets/security.rsi

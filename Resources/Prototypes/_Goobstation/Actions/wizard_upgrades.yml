@@ -3,7 +3,7 @@
 - type: entity
   parent: ActionMimeMalaise
   id: ActionMimeMalaiseII
-  name: Mime Malaise II
+  name: "Мім Нездужання II"
   components:
   - type: Action
     useDelay: 25
@@ -11,7 +11,7 @@
 - type: entity
   parent: ActionMimeMalaise
   id: ActionMimeMalaiseIII
-  name: Mime Malaise III
+  name: "Мім Нездужання III"
   components:
   - type: Action
     useDelay: 20
@@ -19,7 +19,7 @@
 - type: entity
   parent: ActionMimeMalaise
   id: ActionMimeMalaiseIV
-  name: Mime Malaise IV
+  name: "Мімічна хвороба IV"
   components:
   - type: Action
     useDelay: 15
@@ -27,7 +27,7 @@
 - type: entity
   parent: ActionMimeMalaise
   id: ActionMimeMalaiseV
-  name: Mime Malaise V
+  name: "Мім Нездужання V"
   components:
   - type: Action
     useDelay: 10
@@ -36,7 +36,7 @@
 - type: entity
   parent: ActionCluwneCurse
   id: ActionCluwneCurseII
-  name: Curse of the Cluwne II
+  name: "Прокляття Клюна II"
   components:
   - type: Action
     useDelay: 40
@@ -44,7 +44,7 @@
 - type: entity
   parent: ActionCluwneCurse
   id: ActionCluwneCurseIII
-  name: Curse of the Cluwne III
+  name: "Прокляття Клюна III"
   components:
   - type: Action
     useDelay: 20
@@ -53,7 +53,7 @@
 - type: entity
   parent: ActionBananaTouch
   id: ActionBananaTouchII
-  name: Banana Touch II
+  name: "Банановий дотик II"
   components:
   - type: Action
     useDelay: 25
@@ -61,7 +61,7 @@
 - type: entity
   parent: ActionBananaTouch
   id: ActionBananaTouchIII
-  name: Banana Touch III
+  name: "Банановий дотик III"
   components:
   - type: Action
     useDelay: 20
@@ -69,7 +69,7 @@
 - type: entity
   parent: ActionBananaTouch
   id: ActionBananaTouchIV
-  name: Banana Touch IV
+  name: "Банановий дотик IV"
   components:
   - type: Action
     useDelay: 15
@@ -77,7 +77,7 @@
 - type: entity
   parent: ActionBananaTouch
   id: ActionBananaTouchV
-  name: Banana Touch V
+  name: "Банановий дотик V"
   components:
   - type: Action
     useDelay: 10
@@ -86,7 +86,7 @@
 - type: entity
   parent: ActionMagicMissile
   id: ActionMagicMissileII
-  name: Magic Missile II
+  name: "Чарівна ракета II"
   components:
   - type: Action
     useDelay: 13
@@ -94,7 +94,7 @@
 - type: entity
   parent: ActionMagicMissile
   id: ActionMagicMissileIII
-  name: Magic Missile III
+  name: "Чарівна ракета III"
   components:
   - type: Action
     useDelay: 6
@@ -103,7 +103,7 @@
 - type: entity
   parent: ActionDisableTech
   id: ActionDisableTechII
-  name: Disable Technology II
+  name: "Вимкнути технологію II"
   components:
   - type: Action
     useDelay: 16
@@ -111,7 +111,7 @@
 - type: entity
   parent: ActionDisableTech
   id: ActionDisableTechIII
-  name: Disable Technology III
+  name: "Вимкнути технологію III"
   components:
   - type: Action
     useDelay: 12
@@ -119,7 +119,7 @@
 - type: entity
   parent: ActionDisableTech
   id: ActionDisableTechIV
-  name: Disable Technology IV
+  name: "Вимкнути технологію IV"
   components:
   - type: Action
     useDelay: 8
@@ -127,7 +127,7 @@
 - type: entity
   parent: ActionDisableTech
   id: ActionDisableTechV
-  name: Disable Technology V
+  name: "Вимкнути технологію V"
   components:
   - type: Action
     useDelay: 4
@@ -136,7 +136,7 @@
 - type: entity
   parent: ActionSmoke
   id: ActionSmokeII
-  name: Smoke II
+  name: "Дим II"
   components:
   - type: Action
     useDelay: 7
@@ -144,7 +144,7 @@
 - type: entity
   parent: ActionSmoke
   id: ActionSmokeIII
-  name: Smoke III
+  name: "Дим III"
   components:
   - type: Action
     useDelay: 2
@@ -153,7 +153,7 @@
 - type: entity
   parent: ActionRepulse
   id: ActionRepulseII
-  name: Repulse II
+  name: "Відсіч II"
   components:
   - type: Action
     useDelay: 33.75
@@ -161,7 +161,7 @@
 - type: entity
   parent: ActionRepulse
   id: ActionRepulseIII
-  name: Repulse III
+  name: "Відсіч III"
   components:
   - type: Action
     useDelay: 27.5
@@ -169,7 +169,7 @@
 - type: entity
   parent: ActionRepulse
   id: ActionRepulseIV
-  name: Repulse IV
+  name: "Відштовхування IV"
   components:
   - type: Action
     useDelay: 21.25
@@ -177,7 +177,7 @@
 - type: entity
   parent: ActionRepulse
   id: ActionRepulseV
-  name: Repulse V
+  name: "Відштовхування V"
   components:
   - type: Action
     useDelay: 15
@@ -186,7 +186,7 @@
 - type: entity
   parent: ActionStopTime
   id: ActionStopTimeII
-  name: Stop Time II
+  name: "Час зупинки II"
   components:
   - type: Action
     useDelay: 35
@@ -194,7 +194,7 @@
 - type: entity
   parent: ActionStopTime
   id: ActionStopTimeIII
-  name: Stop Time III
+  name: "Час зупинки III"
   components:
   - type: Action
     useDelay: 20
@@ -203,7 +203,7 @@
 - type: entity
   parent: ActionBlindSpell
   id: ActionBlindII
-  name: Blind II
+  name: "Сліпий II"
   components:
   - type: Action
     useDelay: 12
@@ -211,7 +211,7 @@
 - type: entity
   parent: ActionBlindSpell
   id: ActionBlindIII
-  name: Blind III
+  name: "Сліпий III"
   components:
   - type: Action
     useDelay: 9
@@ -219,7 +219,7 @@
 - type: entity
   parent: ActionBlindSpell
   id: ActionBlindIV
-  name: Blind IV
+  name: "Сліпий IV"
   components:
   - type: Action
     useDelay: 6
@@ -227,7 +227,7 @@
 - type: entity
   parent: ActionBlindSpell
   id: ActionBlindV
-  name: Blind V
+  name: "Сліпий V"
   components:
   - type: Action
     useDelay: 3
@@ -236,7 +236,7 @@
 - type: entity
   parent: ActionMutateSpell
   id: ActionMutateII
-  name: Mutate II
+  name: "Мутант II"
   components:
   - type: Action
     useDelay: 30
@@ -245,7 +245,7 @@
 - type: entity
   parent: ActionTeslaBlast
   id: ActionTeslaBlastII
-  name: Tesla Blast II
+  name: "Тесла Бласт II"
   components:
   - type: Action
     useDelay: 23.25
@@ -253,7 +253,7 @@
 - type: entity
   parent: ActionTeslaBlast
   id: ActionTeslaBlastIII
-  name: Tesla Blast III
+  name: "Тесла Бласт III"
   components:
   - type: Action
     useDelay: 16.5
@@ -261,7 +261,7 @@
 - type: entity
   parent: ActionTeslaBlast
   id: ActionTeslaBlastIV
-  name: Tesla Blast IV
+  name: "Тесла Бласт IV"
   components:
   - type: Action
     useDelay: 9.75
@@ -269,7 +269,7 @@
 - type: entity
   parent: ActionTeslaBlast
   id: ActionTeslaBlastV
-  name: Tesla Blast V
+  name: "Tesla Blast V - це не просто \"вибух\""
   components:
   - type: Action
     useDelay: 3
@@ -278,7 +278,7 @@
 - type: entity
   parent: ActionLightningBolt
   id: ActionLightningBoltII
-  name: Lightning Bolt II
+  name: "Блискавка II"
   components:
   - type: Action
     useDelay: 6.75
@@ -286,7 +286,7 @@
 - type: entity
   parent: ActionLightningBolt
   id: ActionLightningBoltIII
-  name: Lightning Bolt III
+  name: "Блискавка III"
   components:
   - type: Action
     useDelay: 5.5
@@ -294,7 +294,7 @@
 - type: entity
   parent: ActionLightningBolt
   id: ActionLightningBoltIV
-  name: Lightning Bolt IV
+  name: "Блискавка IV"
   components:
   - type: Action
     useDelay: 4.25
@@ -302,7 +302,7 @@
 - type: entity
   parent: ActionLightningBolt
   id: ActionLightningBoltV
-  name: Lightning Bolt V
+  name: "Блискавка V"
   components:
   - type: Action
     useDelay: 3
@@ -311,7 +311,7 @@
 - type: entity
   parent: ActionHomingToolbox
   id: ActionHomingToolboxII
-  name: Homing Toolbox II
+  name: "Набір інструментів для самонаведення II"
   components:
   - type: Action
     useDelay: 6.75
@@ -319,7 +319,7 @@
 - type: entity
   parent: ActionHomingToolbox
   id: ActionHomingToolboxIII
-  name: Homing Toolbox III
+  name: "Інструментарій самонаведення III"
   components:
   - type: Action
     useDelay: 5.5
@@ -327,7 +327,7 @@
 - type: entity
   parent: ActionHomingToolbox
   id: ActionHomingToolboxIV
-  name: Homing Toolbox IV
+  name: "Інструментарій самонаведення IV"
   components:
   - type: Action
     useDelay: 4.25
@@ -335,7 +335,7 @@
 - type: entity
   parent: ActionHomingToolbox
   id: ActionHomingToolboxV
-  name: Homing Toolbox V
+  name: "Інструментарій самонаведення V"
   components:
   - type: Action
     useDelay: 3
@@ -344,7 +344,7 @@
 - type: entity
   parent: ActionArcaneBarrage
   id: ActionArcaneBarrageII
-  name: Arcane Barrage II
+  name: "Таємничий загороджувальний вал II"
   components:
   - type: Action
     useDelay: 40
@@ -352,7 +352,7 @@
 - type: entity
   parent: ActionArcaneBarrage
   id: ActionArcaneBarrageIII
-  name: Arcane Barrage III
+  name: "Таємничий загороджувальний бар'єр III"
   components:
   - type: Action
     useDelay: 20
@@ -361,7 +361,7 @@
 - type: entity
   parent: ActionLesserSummonGuns
   id: ActionLesserSummonGunsII
-  name: Lesser Summon Guns II
+  name: "Менша зброя для заклику II"
   components:
   - type: Action
     useDelay: 40
@@ -369,7 +369,7 @@
 - type: entity
   parent: ActionLesserSummonGuns
   id: ActionLesserSummonGunsIII
-  name: Lesser Summon Guns III
+  name: "Менша зброя для заклику III"
   components:
   - type: Action
     useDelay: 20
@@ -378,7 +378,7 @@
 - type: entity
   parent: ActionBarnyardCurse
   id: ActionBarnyardCurseII
-  name: Curse of the Barnyard II
+  name: "Прокляття скотного двору II"
   components:
   - type: Action
     useDelay: 9
@@ -386,7 +386,7 @@
 - type: entity
   parent: ActionBarnyardCurse
   id: ActionBarnyardCurseIII
-  name: Curse of the Barnyard III
+  name: "Прокляття скотного двору III"
   components:
   - type: Action
     useDelay: 3
@@ -395,7 +395,7 @@
 - type: entity
   parent: ActionScreamForMe
   id: ActionScreamForMeII
-  name: Scream For Me II
+  name: "Кричи за мною II"
   components:
   - type: Action
     useDelay: 50
@@ -403,7 +403,7 @@
 - type: entity
   parent: ActionScreamForMe
   id: ActionScreamForMeIII
-  name: Scream For Me III
+  name: "Кричи за мною III"
   components:
   - type: Action
     useDelay: 40
@@ -411,7 +411,7 @@
 - type: entity
   parent: ActionScreamForMe
   id: ActionScreamForMeIV
-  name: Scream For Me IV
+  name: "Scream for Me IV"
   components:
   - type: Action
     useDelay: 30
@@ -419,7 +419,7 @@
 - type: entity
   parent: ActionScreamForMe
   id: ActionScreamForMeV
-  name: Scream For Me V
+  name: "Scream for Me V"
   components:
   - type: Action
     useDelay: 20
@@ -428,7 +428,7 @@
 - type: entity
   parent: ActionTeleportWizard
   id: ActionTeleportII
-  name: Teleport II
+  name: "Телепорт II"
   components:
   - type: Action
     useDelay: 40
@@ -436,7 +436,7 @@
 - type: entity
   parent: ActionTeleportWizard
   id: ActionTeleportIII
-  name: Teleport III
+  name: "Телепорт III"
   components:
   - type: Action
     useDelay: 20
@@ -445,7 +445,7 @@
 - type: entity
   parent: ActionTrapsSpell
   id: ActionTrapsII
-  name: The Traps! II
+  name: "Пастки! II"
   components:
   - type: Action
     useDelay: 20
@@ -453,7 +453,7 @@
 - type: entity
   parent: ActionTrapsSpell
   id: ActionTrapsIII
-  name: The Traps! III
+  name: "Пастки! III"
   components:
   - type: Action
     useDelay: 15
@@ -461,7 +461,7 @@
 - type: entity
   parent: ActionTrapsSpell
   id: ActionTrapsIV
-  name: The Traps! IV
+  name: "Пастки! IV"
   components:
   - type: Action
     useDelay: 10
@@ -469,7 +469,7 @@
 - type: entity
   parent: ActionTrapsSpell
   id: ActionTrapsV
-  name: The Traps! V
+  name: "Пастки! V"
   components:
   - type: Action
     useDelay: 5
@@ -478,7 +478,7 @@
 - type: entity
   parent: ActionLesserSummonBees
   id: ActionLesserSummonBeesII
-  name: Lesser Summon Bees II
+  name: "Бджоли малого підсоння II"
   components:
   - type: Action
     useDelay: 30
@@ -486,7 +486,7 @@
 - type: entity
   parent: ActionLesserSummonBees
   id: ActionLesserSummonBeesIII
-  name: Lesser Summon Bees III
+  name: "Бджоли малого підсоння III"
   components:
   - type: Action
     useDelay: 10
@@ -495,7 +495,7 @@
 - type: entity
   parent: ActionSanguineStrike
   id: ActionSanguineStrikeII
-  name: Sanguine Strike II
+  name: "Сангвінічний удар II"
   components:
   - type: Action
     useDelay: 10
@@ -503,7 +503,7 @@
 - type: entity
   parent: ActionSanguineStrike
   id: ActionSanguineStrikeIII
-  name: Sanguine Strike III
+  name: "Сангвінічний удар III"
   components:
   - type: Action
     useDelay: 5
@@ -512,7 +512,7 @@
 - type: entity
   parent: ActionSwapSpell
   id: ActionSwapII
-  name: Swap II
+  name: "Своп II"
   components:
   - type: Action
     useDelay: 15
@@ -520,7 +520,7 @@
 - type: entity
   parent: ActionSwapSpell
   id: ActionSwapIII
-  name: Swap III
+  name: "Своп ІІІ"
   components:
   - type: Action
     useDelay: 5
@@ -529,7 +529,7 @@
 - type: entity
   parent: ActionBlinkSpell
   id: ActionBlinkII
-  name: Blink II
+  name: "Блимання II"
   components:
   - type: Action
     useDelay: 2
@@ -537,7 +537,7 @@
 - type: entity
   parent: ActionBlinkSpell
   id: ActionBlinkIII
-  name: Blink III
+  name: "Блимання III"
   components:
   - type: Action
     useDelay: 1
@@ -546,7 +546,7 @@
 - type: entity
   parent: ActionForceWall
   id: ActionForceWallII
-  name: Force Wall II
+  name: "Силова стіна II"
   components:
   - type: Action
     useDelay: 8.75
@@ -554,7 +554,7 @@
 - type: entity
   parent: ActionForceWall
   id: ActionForceWallIII
-  name: Force Wall III
+  name: "Силова стіна III"
   components:
   - type: Action
     useDelay: 7.5
@@ -562,7 +562,7 @@
 - type: entity
   parent: ActionForceWall
   id: ActionForceWallIV
-  name: Force Wall IV
+  name: "Силова стіна IV"
   components:
   - type: Action
     useDelay: 6.25
@@ -570,7 +570,7 @@
 - type: entity
   parent: ActionForceWall
   id: ActionForceWallV
-  name: Force Wall V
+  name: "Силова стіна V"
   components:
   - type: Action
     useDelay: 5
@@ -579,7 +579,7 @@
 - type: entity
   parent: ActionChargeSpell
   id: ActionChargeII
-  name: Charge II
+  name: "Заряд ІІ"
   components:
   - type: Action
     useDelay: 50
@@ -587,7 +587,7 @@
 - type: entity
   parent: ActionChargeSpell
   id: ActionChargeIII
-  name: Charge III
+  name: "Заряд ІІІ"
   components:
   - type: Action
     useDelay: 40
@@ -595,7 +595,7 @@
 - type: entity
   parent: ActionChargeSpell
   id: ActionChargeIV
-  name: Charge IV
+  name: "Заряд IV"
   components:
   - type: Action
     useDelay: 30
@@ -603,7 +603,7 @@
 - type: entity
   parent: ActionChargeSpell
   id: ActionChargeV
-  name: Charge V
+  name: "Заряд V"
   components:
   - type: Action
     useDelay: 20
@@ -612,7 +612,7 @@
 - type: entity
   parent: ActionMindSwap
   id: ActionMindSwapII
-  name: Mind Swap II
+  name: "Обмін думками II"
   components:
   - type: Action
     useDelay: 40
@@ -620,7 +620,7 @@
 - type: entity
   parent: ActionMindSwap
   id: ActionMindSwapIII
-  name: Mind Swap III
+  name: "Обмін розуму III"
   components:
   - type: Action
     useDelay: 20
@@ -629,7 +629,7 @@
 - type: entity
   parent: ActionSmite
   id: ActionSmiteII
-  name: Smite II
+  name: "Смайт II"
   components:
   - type: Action
     useDelay: 40
@@ -637,7 +637,7 @@
 - type: entity
   parent: ActionSmite
   id: ActionSmiteIII
-  name: Smite III
+  name: "Smite III"
   components:
   - type: Action
     useDelay: 20
@@ -646,7 +646,7 @@
 - type: entity
   parent: ActionRathenSpell
   id: ActionRathenSpellII
-  name: Rathen's Secret II
+  name: "Таємниця Ратена II"
   components:
   - type: Action
     useDelay: 35
@@ -654,7 +654,7 @@
 - type: entity
   parent: ActionRathenSpell
   id: ActionRathenSpellIII
-  name: Rathen's Secret III
+  name: "Таємниця Ратена III"
   components:
   - type: Action
     useDelay: 20
@@ -663,7 +663,7 @@
 - type: entity
   parent: ActionKnock
   id: ActionKnockII
-  name: Knock II
+  name: "Стук другий"
   components:
   - type: Action
     useDelay: 6
@@ -671,7 +671,7 @@
 - type: entity
   parent: ActionKnock
   id: ActionKnockIII
-  name: Knock III
+  name: "Стук ІІІ"
   components:
   - type: Action
     useDelay: 2
@@ -680,7 +680,7 @@
 - type: entity
   parent: ActionSpellCards
   id: ActionSpellCardsII
-  name: Spell Cards II
+  name: "Карти заклинань II"
   components:
   - type: SpellCardsAction
     useDelay: 4
@@ -688,7 +688,7 @@
 - type: entity
   parent: ActionSpellCards
   id: ActionSpellCardsIII
-  name: Spell Cards III
+  name: "Картки заклинань III"
   components:
   - type: SpellCardsAction
     useDelay: 2
@@ -697,7 +697,7 @@
 - type: entity
   parent: ActionPolymorphWizardRod
   id: ActionPolymorphWizardRodII
-  name: Rod Form II
+  name: "Стрижнева форма II"
   components:
   - type: Action
     useDelay: 21.25
@@ -709,7 +709,7 @@
 - type: entity
   parent: ActionPolymorphWizardRod
   id: ActionPolymorphWizardRodIII
-  name: Rod Form III
+  name: "Стрижнева форма III"
   components:
   - type: Action
     useDelay: 17.5
@@ -720,7 +720,7 @@
 - type: entity
   parent: ActionPolymorphWizardRod
   id: ActionPolymorphWizardRodIV
-  name: Rod Form IV
+  name: "Стрижнева форма IV"
   components:
   - type: Action
     useDelay: 13.75
@@ -731,7 +731,7 @@
 - type: entity
   parent: ActionPolymorphWizardRod
   id: ActionPolymorphWizardRodV
-  name: Rod Form V
+  name: "Форма стрижня V"
   components:
   - type: Action
     useDelay: 10
@@ -743,7 +743,7 @@
 - type: entity
   parent: ActionSummonSimians
   id: ActionSummonSimiansII
-  name: Summon Simians II
+  name: "Викликати симіанів II"
   components:
   - type: Action
     useDelay: 75
@@ -755,7 +755,7 @@
 - type: entity
   parent: ActionSummonSimians
   id: ActionSummonSimiansIII
-  name: Summon Simians III
+  name: "Викликати симіанів III"
   components:
   - type: Action
     useDelay: 60
@@ -770,7 +770,7 @@
 - type: entity
   parent: ActionSummonSimians
   id: ActionSummonSimiansIV
-  name: Summon Simians IV
+  name: "Викликати симіанів IV"
   components:
   - type: Action
     useDelay: 45
@@ -785,7 +785,7 @@
 - type: entity
   parent: ActionSummonSimians
   id: ActionSummonSimiansV
-  name: Summon Simians V
+  name: "Викликати симіанів V"
   components:
   - type: Action
     useDelay: 30

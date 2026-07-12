@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseAction
   id: ActionRunebreak
-  name: Rune Break
-  description: Destroys all runes carved by this blade.
+  name: "Руйнування Рун"
+  description: "Знищує всі руни, вирізьблені цим клинком."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

@@ -1,6 +1,6 @@
 - type: entity
   id: TentacleHook
-  name: tentacle hook
+  name: "щупальце-гак"
   categories: [ HideSpawnMenu ]
   components:
   - type: TimedDespawn

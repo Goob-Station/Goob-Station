@@ -13,8 +13,8 @@
   abstract: true
   parent: BaseItem
   id: PlumbingDuctBase
-  name: fluid duct
-  description: A duct for transporting reagents through the plumbing network.
+  name: "рідинний канал"
+  description: "Канал для транспортування реагентів через мережу трубопроводу."
   placement:
     mode: SnapgridCenter
   components:
@@ -93,7 +93,7 @@
 - type: entity
   parent: PlumbingDuctBase
   id: PlumbingDuctStraight
-  name: fluid duct
+  name: "рідинний канал"
   suffix: Straight
   placement:
     mode: AlignAtmosPipeLayers
@@ -134,7 +134,7 @@
 - type: entity
   parent: PlumbingDuctBase
   id: PlumbingDuctBend
-  name: fluid duct
+  name: "рідинний канал"
   suffix: Bend
   placement:
     mode: AlignAtmosPipeLayers
@@ -174,7 +174,7 @@
 - type: entity
   parent: PlumbingDuctBase
   id: PlumbingDuctTJunction
-  name: fluid duct
+  name: "рідинний канал"
   suffix: T-Junction
   placement:
     mode: AlignAtmosPipeLayers
@@ -213,7 +213,7 @@
 - type: entity
   parent: PlumbingDuctBase
   id: PlumbingDuctFourway
-  name: fluid duct
+  name: "рідинний канал"
   suffix: Fourway
   placement:
     mode: AlignAtmosPipeLayers
@@ -253,8 +253,8 @@
 - type: entity
   parent: PlumbingDuctBase
   id: PlumbingDuctManifold
-  name: fluid manifold
-  description: A manifold for connecting ducts on all layers.
+  name: "рідинний колектор"
+  description: "Колектор для з'єднання каналів на всіх шарах."
   placement:
     mode: AlignAtmosPipeLayers
   components:

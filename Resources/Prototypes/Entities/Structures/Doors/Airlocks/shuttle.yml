@@ -4,8 +4,8 @@
   parent: AirlockRCDResistant
   id: AirlockShuttle
   suffix: Docking
-  name: external airlock
-  description: Necessary for connecting two space craft together.
+  name: "шаттл-шлюз"
+  description: "Він відкривається, закривається і, можливо, розчавить вас. Необхідний для з'єднання двох космічних кораблів між собою."
   components:
   - type: Docking
   - type: DockingSignalControl
@@ -111,9 +111,9 @@
 - type: entity
   id: AirlockShuttleAssembly
   parent: AirlockAssembly
-  name: external airlock assembly
+  name: "зовнішній шлюз у зборі"
   suffix: Docking
-  description: An incomplete structure necessary for connecting two space craft together.
+  description: "Незавершена конструкція, необхідна для з'єднання двох космічних апаратів разом."
   components:
   - type: Transform
     anchored: true

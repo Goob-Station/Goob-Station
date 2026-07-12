@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseComputerAiAccess
   id: ComputerVirology
-  name: virology console
-  description: Used to view information about analyzed diseases and to name them.
+  name: "консоль вірусології"
+  description: "Використовується для перегляду інформації про проаналізовані хвороби та для їхнього найменування."
   components:
   - type: Sprite
     layers:

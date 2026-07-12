@@ -1,8 +1,8 @@
 - type: entity
   id: TapeDeck
-  name: tape deck
+  name: "касетна дека"
   parent: [ BaseMachinePowered, ConstructibleMachine ]
-  description: An old school tape deck, ready to play the newest podcast made by the crew.
+  description: "Стара добра касетна дека, готова відтворити найсвіжіший подкаст, зроблений екіпажем."
   components:
   - type: Transform
     noRot: false

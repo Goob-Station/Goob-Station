@@ -4,8 +4,8 @@
 - type: entity
   parent: BaseItem
   id: SnapPop
-  name: snap pop
-  description: Throw it at the floor and listen to it POP!
+  name: "хлопушка"
+  description: "Киньте його на підлогу і послухайте, як він вибухне!"
   components:
   - type: Sprite
     sprite: Objects/Fun/snap_pops.rsi
@@ -43,8 +43,8 @@
 - type: entity
   parent: BaseStorageItem
   id: SnapPopBox
-  name: snap pop box
-  description: Contains snap pops for a few minutes of popping fun!
+  name: "коробка з хлопушками"
+  description: "Містить хлопушки для кількох хвилин веселощів!"
   components:
   - type: Item
     size: Normal
@@ -66,9 +66,9 @@
 - type: entity
   parent: FoodProduceBase
   id: PlasticBanana
-  name: banana
+  name: "банан"
   suffix: Plastic
-  description: A plastic banana.
+  description: "Пластиковий банан."
   components:
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/banana.rsi
@@ -89,8 +89,8 @@
 - type: entity
   parent: DrinkBase
   id: CrazyGlue
-  name: crazy glue
-  description:  A bottle of crazy glue manufactured by Honk! Co.
+  name: "божевільний клей"
+  description: "Пляшка шаленого клею виробництва Honk! Co."
   components:
   - type: Sprite
     sprite: Objects/Fun/glue.rsi
@@ -125,8 +125,8 @@
 - type: entity
   parent: DrinkBase
   id: CrazyLube
-  name: crazy lube
-  description: A bottle of super slipery crazy lube manufactured by Honk! Co.
+  name: "скажене мастило"
+  description: "Пляшка суперслизького скаженого мастила виробництва Honk! Co."
   components:
   - type: Openable
     sound:
@@ -157,9 +157,9 @@
 - type: entity
   parent: [ BaseItem, MobCombat ]
   id: MrChips
-  name: mr chips
+  name: "містер Чіпс"
   suffix: Dummy
-  description: It's a dummy, dummy!
+  description: "Це лише лялька, лише лялька!"
   components:
   - type: Sprite
     sprite: Objects/Fun/mrchips.rsi
@@ -190,7 +190,7 @@
 - type: entity
   parent: MrChips
   id: MrDips
-  name: mr dips
+  name: "містер Діпс"
   components:
   - type: Sprite
     sprite: Objects/Fun/mrdips.rsi
@@ -198,8 +198,8 @@
 - type: entity
   parent: BaseItem
   id: Error
-  name: error
-  description: Hmmmm. Something went wrong.
+  name: "помилка"
+  description: "Щось пішло не так. Щось пішло не так."
   components:
   - type: Sprite
     sprite: error.rsi
@@ -242,9 +242,9 @@
 - type: entity
   parent: BaseItem
   id: SpectralLocatorUnpowered
-  name: spectral locator
+  name: "спектральний локатор"
   suffix: Always Powered
-  description: Appears to be a modified anomaly locator. Seems very old.
+  description: "Схоже на модифікований локатор аномалій. Виглядає дуже старим."
   components:
   - type: Sprite
     sprite: Objects/Fun/spectrallocator.rsi

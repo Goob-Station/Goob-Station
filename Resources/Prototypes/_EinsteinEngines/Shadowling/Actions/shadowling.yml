@@ -5,8 +5,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHatch
-  name: Hatch
-  description: Engages the hatching progress, there is no going back after this and you will be vulnrable for a while.
+  name: "Вилупитися"
+  description: "Розпочинає процес вилуплення."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -23,8 +23,8 @@
 - type: entity
   parent: BaseAction
   id: ActionEnthrall
-  name: Enthrall
-  description: Shatters their will, forging a thrall, not strong enough to effect mindshielded individuals or enslaved AI.
+  name: "Поневолення"
+  description: "Ламає їхню волю, створюючи трала. Недостатньо сильне, щоб подіяти на осіб із майндшилдом або поневолити ШІ."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -42,8 +42,8 @@
 - type: entity
   parent: BaseAction
   id: ActionGlare
-  name: Glare
-  description: A dark glare that stuns, silences, and slows a single target.
+  name: "Сліпучий Погляд"
+  description: "Темний погляд, що приголомшує, змушує замовкнути та сповільнює вашу ціль."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -62,8 +62,8 @@
 - type: entity
   parent: BaseAction
   id: ActionVeil
-  name: Veil
-  description: A pulse of darkness that destroys electrical lights in a large area.
+  name: "Завіса"
+  description: "Імпульс темряви, що гасить кожне світло."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -79,8 +79,8 @@
 
 - type: entity
   id: ActionRapidRehatch
-  name: Rapid Re-Hatch
-  description: Shed your broken flesh, and rise whole once more.
+  name: "Швидке Переродження"
+  description: "Скиньте свою пошкоджену плоть і повстаньте цілими знову."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -95,8 +95,8 @@
 - type: entity
   parent: BaseAction
   id: ActionShadowWalk
-  name: Shadow Walk
-  description: Step into the void, moving unseen and unhindered.
+  name: "Тіньова Хода"
+  description: "Крокуйте в порожнечу, рухаючись невидимо та безперешкодно."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -110,8 +110,8 @@
 
 - type: entity
   id: ActionIcyVeins
-  name: Icy Veins
-  description: Disarms and freezes nearby creatures in an area around you.
+  name: "Крижані Вени"
+  description: "Пропустіть мороз крізь їхні вени."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -126,8 +126,8 @@
 - type: entity
   parent: BaseAction
   id: ActionDestroyEngines
-  name: Destroy Engines
-  description: Destroy the engines of the evacuation shuttle. Delays the shuttle by 10 minutes.
+  name: "Знищити Двигуни"
+  description: "Знищити двигуни евакуаційного шатла. Затримує шатл на 10 хвилин."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -140,8 +140,8 @@
 
 - type: entity
   id: ActionCollectiveMind
-  name: Collective Mind
-  description: Harvest the minds of your Thralls, and gain various abilities.
+  name: "Колективний Розум"
+  description: "Збирайте розуми ваших Поневолених та отримуйте різноманітні здібності."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -157,8 +157,8 @@
 - type: entity
   parent: BaseAction
   id: ActionBlindnessSmoke
-  name: Blindness Smoke
-  description: Heal your kind, and blind anyone who dares enter your mist.
+  name: "Засліплюючий Дим"
+  description: "Зцілюйте своїх та засліплюйте кожного, хто наважиться увійти у ваш туман."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -172,8 +172,8 @@
 
 - type: entity
   id: ActionNullCharge
-  name: Null Charge
-  description: Stand near an APC and overload it with a surge of nullifying force.
+  name: "Нульовий Заряд"
+  description: "Станьте біля АРС та перевантажте його сплеском нуліфікуючої сили."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -188,8 +188,8 @@
 - type: entity
   parent: BaseAction
   id: ActionSonicScreech
-  name: Sonic Screech
-  description: Release a violent scream that disorients all who hear it.
+  name: "Звуковий Вереск"
+  description: "Випустіть пронизливий крик, що дезорієнтує всіх, хто його почує."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -204,8 +204,8 @@
 
 - type: entity
   id: ActionBlackRecuperation
-  name: Black Recuperation
-  description: Bring back a dead Thrall to life, or empower a living one. You'll reduce your resistance to light by using it.
+  name: "Чорне Відновлення"
+  description: "Поверніть мертвого Поневоленого до життя або посильте живого. Ви зменшите свою опірність світлу, використовуючи це."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -224,8 +224,8 @@
 - type: entity
   parent: BaseAction
   id: ActionEmpoweredEnthrall
-  name: Empowered Enthrall
-  description: Shatters their will, forging a Thrall. Faster and stronger, enough to bypass mindshields.
+  name: "Посилене поневолення"
+  description: "Ламає їхню волю, створюючи трала. Швидше й сильніше, достатньо, щоб обходити майндшилди."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -243,8 +243,8 @@
 - type: entity
   parent: BaseAction
   id: ActionNoxImperii
-  name: Nox Imperii
-  description: Become immune to that which you fear the most. Light.
+  name: "Імперія Ночі"
+  description: "Станьте невразливими до того, чого боїтеся найбільше. Світла."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -259,8 +259,8 @@
 
 - type: entity
   id: ActionAscendance
-  name: Ascendance
-  description: Forge your ascension egg and walk the path of a god, your thralls will need to defend the egg for a long time; be prepared.
+  name: "Вознесіння"
+  description: "Створіть своє яйце вознесіння та ступіть на шлях бога."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -274,8 +274,8 @@
 - type: entity
   parent: BaseAction
   id: ActionAnnihilate
-  name: Annihilate
-  description: Blow them to bits of flesh.
+  name: "Знищити"
+  description: "Розтрощити їх на шматки плоті."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -294,8 +294,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHypnosis
-  name: Hypnosis
-  description: Make anyone a Thrall, at a moment's notice.
+  name: "Гіпноз"
+  description: "Зробіть будь-кого Поневоленим миттєво."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -314,8 +314,8 @@
 - type: entity
   parent: BaseAction
   id: ActionPlaneShift
-  name: Plane Shift
-  description: Phase through anything, whenever you desire.
+  name: "Міжплановий Зсув"
+  description: "Проходьте крізь будь-що, коли забажаєте."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -331,8 +331,8 @@
 - type: entity
   parent: BaseAction
   id: ActionLightningStorm
-  name: Lightning Storm
-  description: Spawn a ball of wrath, electrocuting everyone near you.
+  name: "Грозова Буря"
+  description: "Створіть кулю гніву, що вражає електричним струмом усіх поблизу вас."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -347,8 +347,8 @@
 - type: entity
   parent: BaseAction
   id: ActionAscendantBroadcast
-  name: Ascendant Broadcast
-  description: Send a very hard to miss message to everyone.
+  name: "Трансляція Вознесеного"
+  description: "Надішліть дуже важкопомітне повідомлення кожному."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

@@ -1,8 +1,8 @@
 - type: entity
   parent: VendingMachine
   id: VendingMachineMNKDrobe
-  name: MNK Drobe
-  description: Quality garments provided by MoNoKrome.
+  name: "Гардероб МНК"
+  description: "Якісний одяг від МоНоКром."
   components:
   - type: VendingMachine
     pack: MNKDrobeInventory

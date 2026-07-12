@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseItem
   id: XenoEgg
-  name: egg
-  description: It looks like a weird egg.
+  name: "яйце"
+  description: "Схоже на дивне яйце."
   placement:
     mode: SnapgridCenter
     snap:
@@ -42,8 +42,8 @@
 - type: entity
   parent: BaseItem
   id: XenoEggDestroyed
-  name: destroyed egg
-  description: A mess of... something.
+  name: "розбите яйце"
+  description: "Безлад з... чогось."
   placement:
     mode: SnapgridCenter
     snap:

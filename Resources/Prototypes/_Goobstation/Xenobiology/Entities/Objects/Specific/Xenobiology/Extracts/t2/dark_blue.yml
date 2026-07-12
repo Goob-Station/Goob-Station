@@ -1,7 +1,7 @@
 - type: entity
   id: DarkBlueSlimeExtract
   parent: BaseSlimeExtract
-  name: dark blue slime extract
+  name: "темно-синій екстракт слайма"
   components:
   - type: Sprite
     layers:

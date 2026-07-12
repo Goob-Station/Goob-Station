@@ -17,8 +17,8 @@
 - type: entity
   parent: BaseFigurineMech
   id: ToyRipley
-  name: ripley toy
-  description: Mini-Mecha action figure! 'Mecha No. 1/12' is written on the back.
+  name: "іграшковий ріплі"
+  description: "Міні-фігурка Мехи! На спині написано \"Mecha № 1/12\"."
   components:
   - type: Sprite
     state: ripley
@@ -45,8 +45,8 @@
 - type: entity
   parent: BaseFigurineMech
   id: ToyFireRipley
-  name: fire ripley
-  description: Mini-Mecha action figure! 'Mecha No. 2/12' is written on the back.
+  name: "вогняний ріплі"
+  description: "Міні-фігурка Мехи! На спині написано \"Mecha No. 2/12\"."
   components:
   - type: Sprite
     state: fireripley
@@ -73,8 +73,8 @@
 - type: entity
   parent: BaseFigurineMech
   id: ToyDeathRipley
-  name: deathripley toy
-  description: Mini-Mecha action figure! 'Mecha No. 3/12' is written on the back.
+  name: "іграшковий смерторіплі"
+  description: "Міні-фігурка Мехи! На спині написано \"Mecha № 3/12\"."
   components:
   - type: Sprite
     state: deathripley
@@ -101,8 +101,8 @@
 - type: entity
   parent: BaseFigurineMech
   id: ToyGygax
-  name: gygax toy
-  description: Mini-Mecha action figure! 'Mecha No. 4/12' is written on the back.
+  name: "іграшковий гайгакс"
+  description: "Міні-фігурка Мехи! На спині написано \"Mecha No. 4/12\"."
   components:
   - type: Sprite
     state: gygax
@@ -129,8 +129,8 @@
 - type: entity
   parent: BaseFigurineMech
   id: ToyDurand
-  name: durand toy
-  description: Mini-Mecha action figure! 'Mecha No. 5/12' is written on the back.
+  name: "іграшковий дюранд"
+  description: "Міні-фігурка Мехи! На спині написано \"Mecha No. 5/12\"."
   components:
   - type: Sprite
     state: durand
@@ -157,8 +157,8 @@
 - type: entity
   parent: BaseFigurineMech
   id: ToyHonk
-  name: H.O.N.K. toy
-  description: Mini-Mecha action figure! 'Mecha No. 6/12' is written on the back.
+  name: "іграшковий H.O.N.K"
+  description: "Міні-фігурка Мехи! На спині написано \"Mecha No. 6/12\"."
   components:
   - type: Sprite
     state: honk
@@ -185,8 +185,8 @@
 - type: entity
   parent: BaseFigurineMech
   id: ToyMarauder
-  name: marauder toy
-  description: Mini-Mecha action figure! 'Mecha No. 7/12' is written on the back.
+  name: "іграшковий мародер"
+  description: "Міні-фігурка Мехи! На спині написано \"Mecha No. 7/12\"."
   components:
   - type: Sprite
     state: marauder
@@ -213,8 +213,8 @@
 - type: entity
   parent: BaseFigurineMech
   id: ToySeraph
-  name: seraph toy
-  description: Mini-Mecha action figure! 'Mecha No. 8/12' is written on the back.
+  name: "іграшковий серафим"
+  description: "Міні-фігурка Мехи! На спині написано \"Mecha No. 8/12\"."
   components:
   - type: Sprite
     state: seraph
@@ -241,8 +241,8 @@
 - type: entity
   parent: BaseFigurineMech
   id: ToyMauler
-  name: mauler toy
-  description: Mini-Mecha action figure! 'Mecha No. 9/12' is written on the back.
+  name: "іграшковий душогуб"
+  description: "Міні-фігурка Мехи! На спині написано \"Mecha No. 9/12\"."
   components:
   - type: Sprite
     state: mauler
@@ -269,8 +269,8 @@
 - type: entity
   parent: BaseFigurineMech
   id: ToyOdysseus
-  name: odysseus toy
-  description: Mini-Mecha action figure! 'Mecha No. 10/12' is written on the back.
+  name: "іграшковий одісеус"
+  description: "Міні-фігурка Мехи! На спині написано \"Mecha №10/12\"."
   components:
   - type: Sprite
     state: odysseus
@@ -297,8 +297,8 @@
 - type: entity
   parent: BaseFigurineMech
   id: ToyPhazon
-  name: phazon toy
-  description: Mini-Mecha action figure! 'Mecha No. 11/12' is written on the back.
+  name: "іграіграшковий фазон"
+  description: "Міні-фігурка Мехи! На спині написано \"Mecha №11/12\"."
   components:
   - type: Sprite
     state: phazon
@@ -325,8 +325,8 @@
 - type: entity
   parent: BaseFigurineMech
   id: ToyReticence
-  name: reticence toy
-  description: Mini-Mecha action figure! 'Mecha No. 12/12' is written on the back.
+  name: "іграшковий ретісенс"
+  description: "Міні-фігурка Мехи! На спині написано \"Mecha No.12/12\"."
   components:
   - type: Sprite
     state: reticence

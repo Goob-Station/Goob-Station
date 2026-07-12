@@ -14,8 +14,8 @@
 - type: entity
   parent: BaseContractorObjective
   id: ContractorRansomObjective
-  name: Ransom a crewmember.
-  description: You're running low on cash... time to make some easy money.
+  name: "Вимагайте викуп за члена екіпажу."
+  description: "У вас закінчуються гроші... час підзаробити легко."
   components:
   - type: Objective
     icon:

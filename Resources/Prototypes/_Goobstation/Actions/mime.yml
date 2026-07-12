@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseAction
   id: ActionInvisibleBlockade
-  name: Invisible Blockade
-  description: Form an invisible three tile wide blockade.
+  name: "Невидима барикада"
+  description: "Сформуйте невидиму барикаду завширшки в три тайли."
   components:
   - type: Action
     raiseOnUser: true
@@ -18,8 +18,8 @@
 - type: entity
   parent: BaseAction
   id: ActionFingerGuns
-  name: Finger Guns
-  description: Shoot up to three mimed bullets from your fingers that damage and mute their targets. Can't be used if you have something in your hands.
+  name: "Пальцеві пістолети"
+  description: "Вистріліть до трьох мімованих куль зі своїх пальців, які завдають шкоди та позбавляють цілі голосу. Не можна використовувати, якщо у вас щось у руках."
   components:
   - type: Action
     raiseOnUser: true

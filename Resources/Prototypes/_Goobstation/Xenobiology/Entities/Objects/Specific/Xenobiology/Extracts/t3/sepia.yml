@@ -1,7 +1,7 @@
 - type: entity
   id: SepiaSlimeExtract
   parent: BaseSlimeExtract
-  name: sepia slime extract
+  name: "сепієвий екстракт слайма"
   components:
   - type: Sprite
     layers:

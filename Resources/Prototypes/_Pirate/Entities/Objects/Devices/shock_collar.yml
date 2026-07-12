@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckBaseShockCollar
-  name: shock collar
-  description: Shocking. # DeltaV: sprite is fine
+  name: "шоковий нашийник"
+  description: "Шокуюче." # DeltaV: sprite is fine
   suffix: SelfUnremovable
   components:
   - type: Sprite

@@ -3,7 +3,7 @@
 - type: entity
   id: SpawnPointPirates
   parent: MarkerBase
-  name: pirates
+  name: "пірати"
   components:
   - type: SpawnPoint
   - type: Sprite
@@ -16,7 +16,7 @@
   categories: [ HideSpawnMenu, Spawner ]
   id: SpawnPointPirateCaptain
   parent: BaseAntagSpawner
-  name: Pirate spawn point
+  name: "точка появи піратів"
   components:
   - type: SpawnPoint
   - type: Sprite

@@ -1,6 +1,6 @@
 - type: entity
   parent: SeedBase
-  name: packet of mango seeds
+  name: "пакет насіння манго"
   id: MangoSeeds
   components:
     - type: Seed

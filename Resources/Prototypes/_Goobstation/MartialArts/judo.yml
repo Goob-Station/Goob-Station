@@ -18,7 +18,7 @@
 
 - type: combo
   id: JudoDiscombobulate
-  name: Discombobulate
+  name: "Дезорієнтація"
   martialArtsForm: CorporateJudo
   attacks:
   - Disarm
@@ -27,7 +27,7 @@
 
 - type: combo
   id: JudoEyePoke
-  name: Eye Poke
+  name: "Тичок в око"
   martialArtsForm: CorporateJudo
   attacks:
   - Disarm
@@ -37,7 +37,7 @@
 
 - type: combo
   id: JudoThrow
-  name: Judo Throw
+  name: "Кидок дзюдо"
   martialArtsForm: CorporateJudo
   attacks:
   - Grab
@@ -50,7 +50,7 @@
 
 - type: combo
   id: JudoArmbar
-  name: Armbar
+  name: "Залом руки"
   martialArtsForm: CorporateJudo
   attacks:
   - Disarm
@@ -63,7 +63,7 @@
 
 - type: combo
   id: JudoWheelThrow
-  name: Wheel Throw
+  name: "Кидок через стегно"
   martialArtsForm: CorporateJudo
   attacks:
   - Grab

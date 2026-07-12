@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseTree
   id: FloraAshtree
-  name: ash tree
+  name: "попелясте дерево"
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Decoration/Flora/Trees/ashtree.rsi
@@ -57,7 +57,7 @@
 - type: entity
   parent: FloraAshtree
   id: FloraAshtreePale
-  name: pale tree
+  name: "бліде дерево"
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Decoration/Flora/Trees/ashtree_pale.rsi

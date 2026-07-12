@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingHeadset
   id: ClothingHeadsetMantis
-  name: mantis headset
-  description: "A dark, compact headset with a magenta stripe, marking it as the mantis's. It has a direct line to the Epistemics Cult."
+  name: "гарнітура Мантіса"
+  description: "Темна компактна гарнітура з пурпуровою смугою, що позначає її як належну Мантісу. Має прямий зв’язок із Культом Епістеміки."
   components:
   - type: ContainerFill
     containers:
@@ -22,8 +22,8 @@
 - type: entity
   parent: ClothingHeadsetMantis
   id: ClothingHeadsetAltMantis
-  name: chained mantis headset
-  description: "An unusual, ornate headset with a chained nosering that functions as a microphone. It has a direct line to the Epistemics Cult."
+  name: "гарнітура Мантіса з ланцюжком"
+  description: "Незвичайна оздоблена гарнітура з носовим кільцем на ланцюжку, що працює як мікрофон. Має прямий зв’язок із Культом Епістеміки."
   components:
   - type: Sprite
     state: icon_alt

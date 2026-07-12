@@ -15,7 +15,7 @@
 - type: entity
   parent: BaseDepartmentBudgetCard
   id: CommandBudgetCard
-  name: картка бюджету командування
+  name: "картка бюджету командування"
   components:
     - type: Sprite
       state: budgetcard
@@ -25,7 +25,7 @@
 - type: entity
   parent: Paper
   id: CommandBudgetPinPaper
-  name: command budget pin
+  name: "пІН-код бюджету командування"
   components:
   - type: CommandBudgetPinPaper
   - type: Paper
@@ -33,7 +33,7 @@
 - type: entity
   parent: BaseDepartmentBudgetCard
   id: CargoBudgetCard
-  name: картка бюджету карго
+  name: "картка бюджету карго"
   components:
     - type: Sprite
       state: car_budget
@@ -43,7 +43,7 @@
 - type: entity
   parent: BaseDepartmentBudgetCard
   id: CivilianBudgetCard
-  name: картка бюджету сервісного відділу
+  name: "картка бюджету сервісного відділу"
   components:
     - type: Sprite
       state: srv_budget
@@ -53,7 +53,7 @@
 - type: entity
   parent: BaseDepartmentBudgetCard
   id: EngineeringBudgetCard
-  name: картка бюджету інженерного відділу
+  name: "картка бюджету інженерного відділу"
   components:
     - type: Sprite
       state: eng_budget
@@ -63,7 +63,7 @@
 - type: entity
   parent: BaseDepartmentBudgetCard
   id: MedicalBudgetCard
-  name: картка бюджету медичного відділу
+  name: "картка бюджету медичного відділу"
   components:
     - type: Sprite
       state: med_budget
@@ -73,7 +73,7 @@
 - type: entity
   parent: BaseDepartmentBudgetCard
   id: ScienceBudgetCard
-  name: картка бюджету наукого відділу
+  name: "картка бюджету наукового відділу"
   components:
     - type: Sprite
       state: sci_budget
@@ -83,7 +83,7 @@
 - type: entity
   parent: BaseDepartmentBudgetCard
   id: SecurityBudgetCard
-  name: картка бюджету служби безпеки
+  name: "картка бюджету служби безпеки"
   components:
     - type: Sprite
       state: sec_budget
@@ -93,8 +93,8 @@
 - type: entity
   parent: BaseItem
   id: Eftpos
-  name: Платіжний термінал
-  description: Проведіть ID-карткою, щоб перевести ваші гроші.
+  name: "платіжний термінал"
+  description: "Проведіть ID-карткою, щоб перевести ваші гроші."
   components:
     - type: Sprite
       sprite: _Pirate/Objects/Devices/eftpos.rsi

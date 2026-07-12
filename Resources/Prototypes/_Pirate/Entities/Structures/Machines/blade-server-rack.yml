@@ -1,8 +1,8 @@
 - type: entity
   id: BladeServerRack
   parent: [ BaseMachinePowered, ConstructibleMachine ]
-  name: Blade Server Rack
-  description: A sleek steel frame designed to hold a few blade servers. Compact functionality with a stylish aesthetic.
+  name: "стійка блейд-серверів"
+  description: "Витончена сталева рама, призначена для кількох блейд-серверів. Компактна функціональність зі стильною естетикою."
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Machines/blade_server_rack.rsi

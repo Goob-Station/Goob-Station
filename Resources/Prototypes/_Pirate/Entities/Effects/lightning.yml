@@ -1,5 +1,5 @@
 - type: entity
-  name: lightning
+  name: "блискавка"
   id: VampireLightning
   parent: BaseLightning
   categories: [ HideSpawnMenu ]

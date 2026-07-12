@@ -3,7 +3,7 @@
 - type: entity
   parent: MarkerBase
   id: RandomPosterAny
-  name: random poster spawner
+  name: "випадковий генератор плакатів"
   components:
   - type: Sprite
     layers:
@@ -23,7 +23,7 @@
 - type: entity
   parent: MarkerBase
   id: RandomPosterContraband
-  name: random contraband poster spawner
+  name: "випадковий генератор плакатів про контрабанду"
   components:
   - type: Sprite
     layers:
@@ -109,7 +109,7 @@
 - type: entity
   parent: MarkerBase
   id: RandomPosterLegit
-  name: random legit poster spawner
+  name: "випадковий легальний генератор плакатів"
   components:
   - type: Sprite
     layers:

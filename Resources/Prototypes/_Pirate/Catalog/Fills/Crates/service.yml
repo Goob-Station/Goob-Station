@@ -1,8 +1,8 @@
 - type: entity
   id: CrateServiceCoffeemakerPirate
   parent: CrateGenericSteel
-  name: coffeemaker crate
-  description: Contains a Modello 3 coffeemaker flatpack and a full coffee service kit.
+  name: "ящик з кавоваркою"
+  description: "Містить флетпак кавоварки Modello 3 та повний набір кавового сервісу."
   components:
     - type: StorageFill
       contents:
@@ -21,8 +21,8 @@
 - type: entity
   id: CrateServiceCoffeemakerImpressaPirate
   parent: CrateGenericSteel
-  name: impressa coffeemaker crate
-  description: Contains an Impressa coffeemaker flatpack and a full coffee service kit.
+  name: "ящик з кавоваркою Impressa"
+  description: "Містить флетпак кавоварки Impressa та повний набір кавового сервісу."
   components:
     - type: StorageFill
       contents:
@@ -43,8 +43,8 @@
   parent:
     - CratePlastic
     - BaseSyndicateContraband
-  name: illegal syrups box
-  description: A packaged box containing illegal coffee syrups.
+  name: "ящик нелегальних сиропів"
+  description: "Упаковка з забороненими кавовими сиропами."
   components:
     - type: StorageFill
       contents:

@@ -3,7 +3,7 @@
 - type: entity
   parent: BaseStructure
   id: BaseAutosurgeon
-  description: A single-use autosurgeon for replacing or upgrading your parts with cybernetic implants. Rip that station apart and make it a part of you.
+  description: "Одноразовий автохірург для заміни або модернізації ваших частин кібернетичними імплантами. Розберіть цю станцію і зробіть її частиною себе."
   abstract: true
   components:
   - type: Sprite
@@ -39,7 +39,7 @@
 - type: entity
   parent: BaseAutosurgeon
   id: BaseAutosurgeonSingle
-  description: A single-use autosurgeon for replacing or upgrading your parts with cybernetic implants. Rip that station apart and make it a part of you.
+  description: "Одноразовий автохірург для заміни або модернізації ваших частин кібернетичними імплантами. Розберіть цю станцію і зробіть її частиною себе."
   abstract: true
   components:
   - type: AutoSurgeon
@@ -47,7 +47,7 @@
 - type: entity
   parent: BaseAutosurgeon
   id: BaseAutosurgeonMultiple
-  description: A single-use autosurgeon for replacing or upgrading your parts with cybernetic implants. Rip that station apart and make it a part of you.
+  description: "Одноразовий автохірург для заміни або модернізації ваших частин кібернетичними імплантами. Розберіть цю станцію і зробіть її частиною себе."
   abstract: true
   components:
   - type: AutoSurgeonMultiple
@@ -73,7 +73,7 @@
 - type: entity
   parent: BaseAutosurgeonSingle
   id: AutosurgeonRightSpeedLeg
-  name: autosurgeon (right S.P.E.E.D leg)
+  name: "автохірург (права нога S.P.E.E.D)"
   components:
   - type: AutoSurgeon
     targetBodyPart: Groin
@@ -82,7 +82,7 @@
 - type: entity
   parent: BaseAutosurgeonSingle
   id: AutosurgeonLeftSpeedLeg
-  name: autosurgeon (left S.P.E.E.D leg)
+  name: "автохірург (ліва нога S.P.E.E.D)"
   components:
   - type: AutoSurgeon
     targetBodyPart: Groin
@@ -93,7 +93,7 @@
 - type: entity
   parent: BaseAutosurgeonSyndicateSingle
   id: AutosurgeonRightMantisBlade
-  name: syndicate autosurgeon (right mantis blade)
+  name: "автохірург синдикату (праве лезо-богомол)"
   components:
   - type: AutoSurgeon
     targetBodyPart: Arm
@@ -105,7 +105,7 @@
 - type: entity
   parent: BaseAutosurgeonSyndicateSingle
   id: AutosurgeonLeftMantisBlade
-  name: syndicate autosurgeon (left mantis blade)
+  name: "автохірург синдикату (ліве лезо-богомол)"
   components:
   - type: AutoSurgeon
     targetBodyPart: Arm
@@ -117,7 +117,7 @@
 - type: entity
   parent: BaseAutosurgeonSyndicateSingle
   id: AutosurgeonSandevistan
-  name: syndicate autosurgeon (sandevistan)
+  name: "автохірург синдикату (сандевістан)"
   components:
   - type: AutoSurgeon
     targetBodyPart: Chest
@@ -127,7 +127,7 @@
 - type: entity
   parent: BaseAutosurgeonSyndicateSingle
   id: AutosurgeonStatvekaSandevistan
-  name: syndicate autosurgeon (statveka sandevistan)
+  name: "автохірург синдикату (статвека сандевістан)"
   components:
   - type: AutoSurgeon
     targetBodyPart: Chest
@@ -137,7 +137,7 @@
 - type: entity
   parent: BaseAutosurgeonSyndicateMultiple
   id: AutosurgeonSmartLink
-  name: syndicate autosurgeon (smartlink arms)
+  name: "автохірург синдикату (руки зі smartlink)"
   components:
   - type: AutoSurgeonMultiple
     entries:
@@ -160,7 +160,7 @@
 - type: entity
   parent: BaseAutosurgeonSyndicateMultiple
   id: AutosurgeonRecoilAbsorber
-  name: syndicate autosurgeon (recoil absorbing arms)
+  name: "автохірург синдикату (руки з поглиначем віддачі)"
   components:
   - type: AutoSurgeonMultiple
     entries:
@@ -183,7 +183,7 @@
 - type: entity
   parent: BaseAutosurgeonSyndicateSingle
   id: AutosurgeonBerserker
-  name: syndicate autosurgeon (berserker heart)
+  name: "автохірург синдикату (серце берсерка)"
   components:
   - type: AutoSurgeon
     targetBodyPart: Chest
@@ -193,7 +193,7 @@
 - type: entity
   parent: BaseAutosurgeonSyndicateSingle
   id: AutosurgeonJumpstarter
-  name: syndicate autosurgeon (jumpstarter heart)
+  name: "автохірург синдикату (серце-дефібрилятор)"
   components:
   - type: AutoSurgeon
     targetBodyPart: Chest

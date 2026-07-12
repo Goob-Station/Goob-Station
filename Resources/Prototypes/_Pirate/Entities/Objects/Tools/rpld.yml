@@ -1,8 +1,8 @@
 - type: entity
   id: RPLD
   parent: RCD
-  name: RPLD
-  description: A device used to rapidly deploy plumbing ducts and machines.
+  name: "RPLD"
+  description: "Пристрій для швидкого розгортання рідинних каналів і машин трубопроводу."
   components:
   - type: Contraband
     allowedDepartments: [ Engineering, Medical ]
@@ -52,8 +52,8 @@
 - type: entity
   id: RPLDRecharging
   parent: RPLD
-  name: experimental RPLD
-  description: Cyborg-mounted Rapid Plumbing Device which creates compressed matter on the fly using an internal fabricator.
+  name: "експериментальний RPLD"
+  description: "Змонтований на кіборгу швидкий трубопровідний пристрій, що на льоту створює стиснену матерію за допомогою внутрішнього фабрикатора."
   suffix: AutoRecharge
   components:
   - type: LimitedCharges
@@ -65,8 +65,8 @@
   id: RPLDExperimental
   parent: RPLD
   suffix: Admeme
-  name: experimental RPLD
-  description: A bluespace-enhanced rapid plumbing device that passively generates its own compressed matter.
+  name: "експериментальний RPLD"
+  description: "Швидкий трубопровідний пристрій, посилений блюспейсом, що пасивно генерує власну стиснену матерію."
   components:
   - type: AutoRecharge
     rechargeDuration: 1

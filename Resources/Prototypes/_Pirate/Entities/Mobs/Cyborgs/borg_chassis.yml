@@ -3,7 +3,7 @@
 - type: entity
   id: QuadChassisMining
   parent: BorgChassisSelectable
-  name: salvage quad cyborg
+  name: "шахтарський квадрокіборг"
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -29,7 +29,7 @@
 - type: entity
   id: QuadChassisMedical
   parent: BorgChassisSelectable
-  name: medical quad cyborg
+  name: "медичний квадрокіборг"
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -55,7 +55,7 @@
 - type: entity
   id: QuadChassisService
   parent: BorgChassisSelectable
-  name: service quad cyborg
+  name: "сервісний квадрокіборг"
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

@@ -20,8 +20,8 @@
 - type: entity
   id: SyndicateCustomLawboard
   parent: [BaseCustomLawboard, BaseSyndicateAnchoredContraband]
-  name: experimental syndicate law board
-  description: A strange looking experimental lawboard. Judging by the Syndicate display on it, it's probaly used for nefarious purposes.
+  name: "експериментальна плата законів Синдикату"
+  description: "Дивно виглядаюча експериментальна плата законів. Судячи з дисплея Синдикату на ній, вона, ймовірно, використовується для підступних цілей."
   components:
   - type: Sprite
     sprite: _Goobstation/CustomLawboard/custom_lawboard.rsi
@@ -38,8 +38,8 @@
 - type: entity
   id: NTCustomLawboard
   parent: [BaseCustomLawboard, BaseCommandContraband]
-  name: freeform law board
-  description: A freeform lawboard, accepts any custom laws.
+  name: "вільноформатна плата законів"
+  description: "Вільноформатна плата законів, що приймає будь-які користувацькі закони."
   components:
   - type: Sprite
     sprite: _Goobstation/CustomLawboard/custom_lawboard_NT.rsi

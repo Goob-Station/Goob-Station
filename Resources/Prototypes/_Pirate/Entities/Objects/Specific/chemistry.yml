@@ -1,8 +1,8 @@
 - type: entity
   id: ChemRecipeDisk
   parent: BaseItem
-  name: recipe disk
-  description: A floppy disk for storing custom dispenser recipes.
+  name: "диск рецептів"
+  description: "Дискета для зберігання користувацьких рецептів дозатора."
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi

@@ -3,8 +3,8 @@
 - type: entity
   parent: BaseItem
   id: AugmentPowerCellSlotCasing
-  name: augment power cell slot casing
-  description: Can be implanted into a body to provide power to other implants. This one is incomplete.
+  name: "корпус аугментації слота елемента живлення"
+  description: "Може бути імплантований в тіло для живлення інших імплантатів. Цей неповний."
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Augments/power.rsi
@@ -19,8 +19,8 @@
 - type: entity
   parent: BaseItem
   id: AugmentPowerCellSlotCables
-  name: augment power cell slot casing with cables
-  description: Can be implanted into a body to provide power to other implants. This one is incomplete.
+  name: "корпус аугментації слота елемента живлення з кабелями"
+  description: "Може бути імплантований в тіло для живлення інших імплантатів. Цей неповний."
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Augments/power.rsi
@@ -32,8 +32,8 @@
 - type: entity
   parent: BaseAugment
   id: AugmentPowerCellSlot
-  name: augment power cell slot
-  description: Can be implanted into a body to provide power to other implants.
+  name: "аугментація слота елемента живлення"
+  description: "Може бути імплантований в тіло для живлення інших імплантатів."
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Augments/power.rsi
@@ -82,8 +82,8 @@
 - type: entity
   parent: BaseItem
   id: AugmentRechargerCasing
-  name: augment recharger casing
-  description: Can be implanted into a body to recharge an internal power cell. This one is incomplete.
+  name: "корпус аугментації зарядного пристрою"
+  description: "Може бути імплантований в тіло для перезарядки внутрішнього елемента живлення. Цей неповний."
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Augments/power.rsi
@@ -97,8 +97,8 @@
 - type: entity
   parent: BaseItem
   id: AugmentRechargerCables
-  name: augment recharger casing with cables
-  description: Can be implanted into a body to recharge an internal power cell. This one is incomplete.
+  name: "корпус аугментації зарядного пристрою з кабелями"
+  description: "Може бути імплантований в тіло для перезарядки внутрішнього елемента живлення. Цей неповний."
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Augments/power.rsi
@@ -110,8 +110,8 @@
 - type: entity
   parent: BaseAugmentRecharger
   id: AugmentRechargerAPC
-  name: augment apc recharger
-  description: Allows the implantee to recharge their power cell via APCs.
+  name: "аугментація зарядки від АРС"
+  description: "Дозволяє імплантованому перезаряджати свій елемент живлення через АРС."
   components:
   - type: Sprite
     state: apc
@@ -125,8 +125,8 @@
 - type: entity
   parent: BaseAugmentRecharger
   id: AugmentRechargerStation
-  name: augment station recharger
-  description: Allows the implantee to recharge their power cell via cyborg recharging stations.
+  name: "аугментація станційної зарядки"
+  description: "Дозволяє імплантованому перезаряджати свій елемент живлення через станції зарядки кіборгів."
   components:
   - type: Sprite
     state: station
