@@ -47,3 +47,5 @@ replay-loading-cancel = Скасувати
 
 # Головне меню
 cmd-replay-toggleui-desc = Перемикає інтерфейс керування повтором.
+cmd-replay-toggle-screenshot-mode-desc = Перемикає режим знімків екрана під час відтворення повтору.
+cmd-replay-toggle-screenshot-mode-help = replay_toggle_screenshot_mode

@@ -1,18 +1,14 @@
 marking-AvaliEarsBase = (Базові) вуха авалі
 marking-AvaliEarsBase-ears_avalibase_primary = Верхні вуха
 marking-AvaliEarsBase-ears_avalibase_secondary = Нижні вуха
-
 marking-AvaliTailBase = (Базовий) хвіст авалі
 marking-AvaliTailBase-tail_avalibase = Основний хвіст
-
 marking-AvaliChevronTailtip = Шевронний кінчик хвоста авалі
 marking-AvaliChevronTailtip-tail_avalibase = Основний хвіст
 marking-AvaliChevronTailtip-tail_chevrontailtip = Кінчик хвоста
-
 marking-AvaliPointedTailtip = Загострений кінчик хвоста авалі
 marking-AvaliPointedTailtip-tail_avalibase = Основний хвіст
 marking-AvaliPointedTailtip-tail_pointedtailtip = Кінчик хвоста
-
 marking-AvaliEarsStripeOne = (Тип 1) смугасті вуха авалі
 marking-AvaliEarsStripeOne-ears_avalibase_primary = Верхні вуха
 marking-AvaliEarsStripeOne-ears_top_primary = Верхня смуга (основний колір)
@@ -20,43 +16,32 @@ marking-AvaliEarsStripeOne-ears_top_secondary = Верхня смуга (вто�
 marking-AvaliEarsStripeOne-ears_avalibase_secondary = Нижні вуха
 marking-AvaliEarsStripeOne-ears_bottom_primary = Нижня смуга (основний колір)
 marking-AvaliEarsStripeOne-ears_bottom_secondary = Нижня смуга (вторинний колір)
-
 marking-AvaliHeadStripeOne = (Тип 1) смугаста голова авалі
 marking-AvaliHeadStripeOne-head_primary = Основний колір
 marking-AvaliHeadStripeOne-head_secondary = Вторинний колір
-
 marking-AvaliTorsoStripeOne = (Тип 1) смугасті груди авалі
 marking-AvaliTorsoStripeOne-torso_primary = Основний колір
 marking-AvaliTorsoStripeOne-torso_secondary = Вторинний колір
-
 marking-AvaliLArmStripeOne = (Тип 1) смугаста ліва рука авалі
 marking-AvaliLArmStripeOne-larm_primary = Основний колір
 marking-AvaliLArmStripeOne-larm_secondary = Вторинний колір
-
 marking-AvaliLHandStripeOne = (Тип 1) смугаста ліва кисть авалі
 marking-AvaliLHandStripeOne-lhand_primary = Основний колір
 marking-AvaliLHandStripeOne-lhand_secondary = Вторинний колір
-
 marking-AvaliRArmStripeOne = (Тип 1) смугаста права рука авалі
 marking-AvaliRArmStripeOne-rarm_primary = Основний колір
 marking-AvaliRArmStripeOne-rarm_secondary = Вторинний колір
-
 marking-AvaliRHandStripeOne = (Тип 1) смугаста права кисть авалі
 marking-AvaliRHandStripeOne-rhand_primary = Основний колір
 marking-AvaliRHandStripeOne-rhand_secondary = Вторинний колір
-
 marking-AvaliLLegStripeOne = (Тип 1) смугаста ліва нога авалі
 marking-AvaliLLegStripeOne-lleg = Основний колір
-
 marking-AvaliRLegStripeOne = (Тип 1) смугаста права нога авалі
 marking-AvaliRLegStripeOne-rleg = Основний колір
-
 marking-AvaliTailStripeOne = (Тип 1) смугастий хвіст авалі
 marking-AvaliTailStripeOne-tail_avalibase = Основний хвіст
 marking-AvaliTailStripeOne-tail_avali_primary = Основний колір
 marking-AvaliTailStripeOne-tail_avali_secondary = Вторинний колір
-
-
 marking-AvaliEarsTrimOne = (Тип 1) вуха авалі з облямівкою
 marking-AvaliEarsTrimOne-ears_avalibase_primary = Верхні вуха
 marking-AvaliEarsTrimOne-ears_top_primary = Верхня облямівка (основний колір)
@@ -64,45 +49,34 @@ marking-AvaliEarsTrimOne-ears_top_secondary = Верхня облямівка (�
 marking-AvaliEarsTrimOne-ears_avalibase_secondary = Нижні вуха
 marking-AvaliEarsTrimOne-ears_bottom_primary = Нижня облямівка (основний колір)
 marking-AvaliEarsTrimOne-ears_bottom_secondary = Нижня облямівка (вторинний колір)
-
 marking-AvaliHeadTrimOne = (Тип 1) голова авалі з облямівкою
 marking-AvaliHeadTrimOne-head_primary = Основний колір
 marking-AvaliHeadTrimOne-head_secondary = Вторинний колір
-
 marking-AvaliTorsoTrimOne = (Тип 1) груди авалі з облямівкою
 marking-AvaliTorsoTrimOne-torso_primary = Основний колір
 marking-AvaliTorsoTrimOne-torso_secondary = Вторинний колір
-
 marking-AvaliLArmTrimOne = (Тип 1) ліва рука авалі з облямівкою
 marking-AvaliLArmTrimOne-larm_primary = Основний колір
 marking-AvaliLArmTrimOne-larm_secondary = Вторинний колір
-
 marking-AvaliRArmTrimOne = (Тип 1) права рука авалі з облямівкою
 marking-AvaliRArmTrimOne-rarm_primary = Основний колір
 marking-AvaliRArmTrimOne-rarm_secondary = Вторинний колір
-
 marking-AvaliLHandTrimOne = (Тип 1) ліва кисть авалі з облямівкою
 marking-AvaliLHandTrimOne-lhand_primary = Основний колір
 marking-AvaliLHandTrimOne-lhand_secondary = Вторинний колір
-
 marking-AvaliRHandTrimOne = (Тип 1) права кисть авалі з облямівкою
 marking-AvaliRHandTrimOne-rhand_primary = Основний колір
 marking-AvaliRHandTrimOne-rhand_secondary = Вторинний колір
-
 marking-AvaliLLegTrimOne = (Тип 1) ліва нога авалі з облямівкою
 marking-AvaliLLegTrimOne-lleg_primary = Основний колір
 marking-AvaliLLegTrimOne-lleg_secondary = Вторинний колір
-
 marking-AvaliRLegTrimOne = (Тип 1) права нога авалі з облямівкою
 marking-AvaliRLegTrimOne-rleg_primary = Основний колір
 marking-AvaliRLegTrimOne-rleg_secondary = Вторинний колір
-
 marking-AvaliTailTrimOne = (Тип 1) хвіст авалі з облямівкою
 marking-AvaliTailTrimOne-tail_avalibase = Основний хвіст
 marking-AvaliTailTrimOne-tail_avali_primary = Основний колір
 marking-AvaliTailTrimOne-tail_avali_secondary = Вторинний колір
-
-
 marking-AvaliEarsTrimTwo = (Тип 2) вуха авалі з облямівкою
 marking-AvaliEarsTrimTwo-ears_avalibase_primary = Верхні вуха
 marking-AvaliEarsTrimTwo-ears_top_primary = Верхня облямівка (основний колір)
@@ -110,50 +84,40 @@ marking-AvaliEarsTrimTwo-ears_top_secondary = Верхня облямівка (�
 marking-AvaliEarsTrimTwo-ears_avalibase_secondary = Нижні вуха
 marking-AvaliEarsTrimTwo-ears_bottom_primary = Нижня облямівка (основний колір)
 marking-AvaliEarsTrimTwo-ears_bottom_secondary = Нижня облямівка (вторинний колір)
-
 marking-AvaliHeadTrimTwo = (Тип 2) голова авалі з облямівкою
 marking-AvaliHeadTrimTwo-head_primary = Основний колір
 marking-AvaliHeadTrimTwo-head_secondary = Вторинний колір
-
 marking-AvaliTorsoTrimTwo = (Тип 2) груди авалі з облямівкою
 marking-AvaliTorsoTrimTwo-torso_primary = Основний колір
 marking-AvaliTorsoTrimTwo-torso_secondary = Вторинний колір
-
 marking-AvaliLArmTrimTwo = (Тип 2) ліва рука авалі з облямівкою
 marking-AvaliLArmTrimTwo-larm_primary = Основний колір
 marking-AvaliLArmTrimTwo-larm_secondary = Вторинний колір
-
 marking-AvaliRArmTrimTwo = (Тип 2) права рука авалі з облямівкою
 marking-AvaliRArmTrimTwo-rarm_primary = Основний колір
 marking-AvaliRArmTrimTwo-rarm_secondary = Вторинний колір
-
 marking-AvaliLHandTrimTwo = (Тип 2) ліва кисть авалі з облямівкою
 marking-AvaliLHandTrimTwo-lhand_primary = Основний колір
 marking-AvaliLHandTrimTwo-lhand_secondary = Вторинний колір
-
 marking-AvaliRHandTrimTwo = (Тип 2) права кисть авалі з облямівкою
 marking-AvaliRHandTrimTwo-rhand_primary = Основний колір
 marking-AvaliRHandTrimTwo-rhand_secondary = Вторинний колір
-
 marking-AvaliTailTrimTwo = (Тип 2) хвіст авалі з облямівкою
 marking-AvaliTailTrimTwo-tail_avalibase = Основа хвоста
 marking-AvaliTailTrimTwo-tail_avali_primary = Основний колір
 marking-AvaliTailTrimTwo-tail_avali_secondary = Вторинний колір
-
 marking-AvaliMultiwingLeftHand = Різноколірне крило на лівій кисті
 marking-AvaliMultiwingLeftHand-l_hand_multiwing1 = Перше перо
 marking-AvaliMultiwingLeftHand-l_hand_multiwing2 = Друге перо
 marking-AvaliMultiwingLeftHand-l_hand_multiwing3 = Третє перо
 marking-AvaliMultiwingLeftHand-l_hand_multiwing4 = Четверте перо
 marking-AvaliMultiwingLeftHand-l_hand_isolated = Кисть
-
 marking-AvaliMultiwingRightHand = Різноколірне крило на правій кисті
 marking-AvaliMultiwingRightHand-r_hand_multiwing1 = Перше перо
 marking-AvaliMultiwingRightHand-r_hand_multiwing2 = Друге перо
 marking-AvaliMultiwingRightHand-r_hand_multiwing3 = Третє перо
 marking-AvaliMultiwingRightHand-r_hand_multiwing4 = Четверте перо
 marking-AvaliMultiwingRightHand-r_hand_isolated = Кисть
-
 marking-AvaliMultiwingTipsLeftHand = Різноколірне крило з кінчиками на лівій кисті
 marking-AvaliMultiwingTipsLeftHand-l_hand_multiwing1 = Перше перо
 marking-AvaliMultiwingTipsLeftHand-l_hand_multiwing2 = Друге перо
@@ -161,7 +125,6 @@ marking-AvaliMultiwingTipsLeftHand-l_hand_multiwing3 = Третє перо
 marking-AvaliMultiwingTipsLeftHand-l_hand_multiwing4 = Четверте перо
 marking-AvaliMultiwingTipsLeftHand-l_hand_wingtips = Кінчики пір'я
 marking-AvaliMultiwingTipsLeftHand-l_hand_isolated = Кисть
-
 marking-AvaliMultiwingTipsRightHand = Різноколірне крило з кінчиками на правій кисті
 marking-AvaliMultiwingTipsRightHand-r_hand_multiwing1 = Перше перо
 marking-AvaliMultiwingTipsRightHand-r_hand_multiwing2 = Друге перо
@@ -169,72 +132,58 @@ marking-AvaliMultiwingTipsRightHand-r_hand_multiwing3 = Третє перо
 marking-AvaliMultiwingTipsRightHand-r_hand_multiwing4 = Четверте перо
 marking-AvaliMultiwingTipsRightHand-r_hand_wingtips = Кінчики пір'я
 marking-AvaliMultiwingTipsRightHand-r_hand_isolated = Кисть
-
 marking-AvaliBicoloredRightHand = Двоколірне крило на правій кисті
 marking-AvaliBicoloredRightHand-r_hand_front = Передні пера
 marking-AvaliBicoloredRightHand-r_hand_back = Задні пера
 marking-AvaliBicoloredRightHand-r_hand_isolated = Кисть
-
 marking-AvaliBicoloredLeftHand = Двоколірне крило на лівій кисті
 marking-AvaliBicoloredLeftHand-l_hand_front = Передні пера
 marking-AvaliBicoloredLeftHand-l_hand_back = Задні пера
 marking-AvaliBicoloredLeftHand-l_hand_isolated = Кисть
-
 marking-AvaliBicoloredTipsLeftHand = Двоколірне крило з кінчиками на лівій кисті
 marking-AvaliBicoloredTipsLeftHand-l_hand_back = Нижня сторона
 marking-AvaliBicoloredTipsLeftHand-l_hand_front = Зовнішня сторона
 marking-AvaliBicoloredTipsLeftHand-l_hand_wingtips = Кінчики пір'я
 marking-AvaliBicoloredTipsLeftHand-l_hand_isolated = Кисть
-
 marking-AvaliBicoloredTipsRightHand = Двоколірне крило з кінчиками на правій кисті
 marking-AvaliBicoloredTipsRightHand-r_hand_back = Нижня сторона
 marking-AvaliBicoloredTipsRightHand-r_hand_front = Зовнішня сторона
 marking-AvaliBicoloredTipsRightHand-r_hand_wingtips = Кінчики пір'я
 marking-AvaliBicoloredTipsRightHand-r_hand_isolated = Кисть
-
 marking-AvaliEarringOne = Сережка авалі 1
 marking-AvaliEarringOne-avali_earring1_1 = Верх
 marking-AvaliEarringOne-avali_earring1_2 = Середина
 marking-AvaliEarringOne-avali_earring1_3 = Низ
-
 marking-AvaliEarringTwo = Сережка авалі 2
 marking-AvaliEarringTwo-avali_earring2_1 = Верх
 marking-AvaliEarringTwo-avali_earring2_2 = Середина
 marking-AvaliEarringTwo-avali_earring2_3 = Низ
-
 marking-AvaliEarringThree = Сережка авалі 3
 marking-AvaliEarringThree-avali_earring3_1 = Верх
 marking-AvaliEarringThree-avali_earring3_2 = Середина
 marking-AvaliEarringThree-avali_earring3_3 = Низ
-
 marking-AvaliEarringFour = Сережка авалі 4
 marking-AvaliEarringFour-avali_earring4_1 = Верх
 marking-AvaliEarringFour-avali_earring4_2 = Середина
 marking-AvaliEarringFour-avali_earring4_3 = Низ
-
 marking-AvaliTailbandOne = Хвостова стрічка авалі 1
 marking-AvaliTailbandOne-avali_tailband1_1 = Верх
 marking-AvaliTailbandOne-avali_tailband1_2 = Середина
 marking-AvaliTailbandOne-avali_tailband1_3 = Низ
-
 marking-AvaliTailbandTwo = Хвостова стрічка авалі 2
 marking-AvaliTailbandTwo-avali_tailband2_1 = Верх
 marking-AvaliTailbandTwo-avali_tailband2_2 = Низ
-
 marking-AvaliTailbandThree = Хвостова стрічка авалі 3
 marking-AvaliTailbandThree-avali_tailband3_1 = Верх
 marking-AvaliTailbandThree-avali_tailband3_2 = Середина
 marking-AvaliTailbandThree-avali_tailband3_3 = Низ
-
 marking-AvaliTailbandCombined = Комбіновані хвостові стрічки авалі
 marking-AvaliTailbandCombined-avali_tailband_combined_1 = Верх
 marking-AvaliTailbandCombined-avali_tailband_combined_2 = Середина
 marking-AvaliTailbandCombined-avali_tailband_combined_3 = Низ
-
 marking-AvaliEarringCombined = Комбіновані сережки авалі
 marking-AvaliEarringCombined-avali_earring_combined_1 = Верх
 marking-AvaliEarringCombined-avali_earring_combined_2 = Середина
 marking-AvaliEarringCombined-avali_earring_combined_3 = Низ
-
 marking-AvaliEarring = Сережки авалі
 marking-AvaliEarring-avali_earring_combined_1 = Колір сережки

@@ -6,7 +6,6 @@ marking-UndergarmentTopBraAvali-classic_avali = Класичний бюстга�
 marking-UndergarmentTopBraAvali = Класичний бюстгальтер
 marking-UndergarmentTopSportsbraAvali-sports_avali = Спортивний бюстгальтер
 marking-UndergarmentTopSportsbraAvali = Спортивний бюстгальтер
-
 marking-UndergarmentBottomBoxersAvali-boxers_avali = Боксери
 marking-UndergarmentBottomBoxersAvali = Боксери
 marking-UndergarmentBottomBriefsAvali-briefs_avali = Плавки

@@ -330,9 +330,6 @@ reagent-effect-condition-guidebook-is-blood-cultist = { $invert ->
     *[false] ціль є культистом крові
     }
 sanguine-perniculate-holywater-reaction = Нечестива кров люто реагує зі святою водою, очищаючи себе!
-
-## Розширення культу крові
-
 blood-cult-item-reject = Предмет обпікає вас і виривається з рук!
 blood-cult-item-throw-reject = Предмет не дозволяє вам його кинути!
 blood-cult-item-equip-reject = Предмет відкидає вас, коли ви намагаєтеся його надягнути!
@@ -345,19 +342,16 @@ cult-construction-forge-name = демонічна кузня
 cult-construction-forge-description = Кузня для створення нечестивої зброї армій Нар'Сі.
 cult-construction-archives-name = архіви
 cult-construction-archives-description = Стіл, укритий окультними рукописами та томами, написаними невідомими мовами. Від погляду на текст шкіра вкривається сиротами.
-
 cult-blood-boil-not-enough-invokers = Для кипіння крові потрібно щонайменше {$required} учасників ритуалу.
 cult-blood-boil-no-targets = Поблизу немає придатних жертв.
 cult-construct-body-ejected = Конструкт руйнується, вивільняючи тіло, що живило його душу!
 cult-construct-soulstone-returned = Конструкт руйнується, і душа повертається до свого каменя!
 cult-construct-shell-busy = Інший культист уже обирає форму для цієї оболонки.
 cult-construct-shell-failed = Оболонка не змогла прийняти цю душу.
-
 cult-teleport-name-title = Назвіть цю руну телепортації
 cult-teleport-name-accept = Підтвердити
 cult-teleport-not-found = Інших рун телепортації не знайдено.
 cult-teleport-unnamed = Безіменна руна
-
 shuttle-curse-max-charges = Ви намагаєтеся розбити кулю, але вона лишається незворушною, наче камінь.
 shuttle-curse-shuttle-arrived = Шатл уже прибув, тому затримати його неможливо.
 shuttle-curse-shuttle-not-called = Шатл ще не викликано.
@@ -375,12 +369,10 @@ shuttle-curse-message-8 = Диспетчера шатла знайшли мер�
 shuttle-curse-message-9 = Прибиральника шатла застали за миттям вікон власною кров'ю.
 shuttle-curse-message-10 = Навігаційну програму шатла замінив файл лише з двома словами: ВОНА ЙДЕ.
 shuttle-curse-message-11 = Замість ідентифікаційного сигналу транспондер шатла передає закодоване повідомлення: "БІЙТЕСЯ ДАВНЬОЇ КРОВІ".
-
 veil-shifter-description = Залишилося зарядів: {$charges}.
 veil-shifter-cant-teleport = Не вдалося знайти вільне місце для телепортації. Спробуйте ще раз.
 void-torch-no-targets = Немає іншого культиста, якому можна передати предмет.
 tiles-blood-cult-floor = підлога культу крові
-
 ent-ActionBloodCultPhaseShift = Фазовий зсув
     .desc = Прослизніть за завісу, щоб ненадовго проходити крізь стіни й атаки.
 ent-ActionBloodCultSummonFloor = Створити підлогу культу
