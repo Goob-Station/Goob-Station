@@ -3,6 +3,6 @@
   isVisibleLanguage: true
   speech:
     color: "#FC7921"
-    fontId: Scratch
+    # fontId: Scratch # Pirate no cyrillic support
   obfuscation:
     !type:RandomObfuscation
