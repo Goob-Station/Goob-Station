@@ -1,7 +1,7 @@
 ﻿- type: entity
   id: RMCOverheadRoadsign
-  name: "дорожній знак"
-  description: "Дорожній знак."
+  name: road sign
+  description: A road sign.
   placement:
     mode: SnapgridCenter
     snap:
@@ -89,8 +89,8 @@
 - type: entity
   parent: RMCOverheadRoadsign
   id: RMCOverheadBillboardBigger1
-  name: "білборд"
-  description: "Рекламний білборд."
+  name: billboard
+  description: An advertisement billboard.
   components:
   - type: Sprite
     sprite: _RMC14/Structures/billboards.rsi
@@ -528,8 +528,8 @@
 - type: entity
   parent: RMCOverheadRoadsign
   id: RMCOverheadBillboardWallmount1
-  name: "білборд"
-  description: "Рекламний білборд."
+  name: billboard
+  description: An advertisement billboard.
   components:
   - type: Sprite
     sprite: _RMC14/Structures/billboards.rsi

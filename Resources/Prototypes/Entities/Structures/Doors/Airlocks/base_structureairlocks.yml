@@ -3,8 +3,8 @@
 - type: entity
   id: Airlock
   parent: BaseStructure
-  name: "повітряний шлюз"
-  description: "Він відкривається, закривається і, можливо, розчавить вас."
+  name: airlock
+  description: It opens, it closes, and maybe crushes you.
   components:
   - type: Anchorable
     flags:
@@ -227,7 +227,7 @@
 - type: entity
   id: AirlockGlass
   parent: Airlock
-  name: "скляний шлюз"
+  name: glass airlock
   components:
   - type: MeleeSound
     soundGroups:

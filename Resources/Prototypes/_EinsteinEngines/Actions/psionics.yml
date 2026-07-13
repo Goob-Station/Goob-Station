@@ -1,7 +1,7 @@
 - type: entity
   id: ActionDispel
-  name: "Розсіювання"
-  description: "Розсіює викликаних істот, таких як фамільяри або силові стіни."
+  name: Dispel
+  description: Dispel summoned entities such as familiars or forcewalls.
   categories: [ HideSpawnMenu ]
   components:
     - type: Action
@@ -21,8 +21,8 @@
 
 - type: entity
   id: ActionMassSleep
-  name: "Масове присипляння"
-  description: "Присипляє цілі в невеликій області."
+  name: Mass Sleep
+  description: Put targets in a small area to sleep.
   categories: [ HideSpawnMenu ]
   components:
     - type: Action
@@ -37,8 +37,8 @@
 
 - type: entity
   id: ActionMindSwapPsionic
-  name: "Обмін розумом"
-  description: "Обмінятися розумом з ціллю. Будь-хто може повернутися назад через 20 секунд."
+  name: Mind Swap
+  description: Swap minds with the target. Either can change back after 20 seconds.
   categories: [ HideSpawnMenu ]
   components:
     - type: Action
@@ -57,8 +57,8 @@
 
 - type: entity
   id: ActionMindSwapReturn
-  name: "Повернути обмін розумом"
-  description: "Повернутися до свого початкового тіла."
+  name: Reverse Mind Swap
+  description: Return to your original body.
   categories: [ HideSpawnMenu ]
   components:
     - type: Action
@@ -70,8 +70,8 @@
 
 - type: entity
   id: ActionNoosphericZap
-  name: "Ноосферний розряд"
-  description: "Вражає свідомість цілі, залишаючи її приголомшеною та змушуючи заїкатися."
+  name: Noospheric Zap
+  description: Shocks the conciousness of the target and leaves them stunned and stuttering.
   categories: [ HideSpawnMenu ]
   components:
     - type: Action
@@ -89,8 +89,8 @@
 
 - type: entity
   id: ActionPyrokinesis
-  name: "Пірокінез"
-  description: "Підпалити легкозаймисту ціль."
+  name: Pyrokinesis
+  description: Light a flammable target on fire.
   categories: [ HideSpawnMenu ]
   components:
     - type: Action
@@ -105,8 +105,8 @@
 
 - type: entity
   id: ActionMetapsionic
-  name: "Метапсіонічний імпульс"
-  description: "Надіслати ментальний імпульс по області, щоб перевірити, чи є поблизу псіоніки."
+  name: Metapsionic Pulse
+  description: Send a mental pulse through the area to see if there are any psychics nearby.
   categories: [ HideSpawnMenu ]
   components:
     - type: Action
@@ -117,8 +117,8 @@
 
 - type: entity
   id: ActionPsionicRegeneration
-  name: "Псіонічна регенерація"
-  description: "Довести свій природний метаболізм до межі, щоб активувати регенеративну здатність тіла."
+  name: Psionic Regeneration
+  description: Push your natural metabolism to the limit to activate your body's regenerative ability.
   categories: [ HideSpawnMenu ]
   components:
     - type: Action
@@ -129,8 +129,8 @@
 
 - type: entity
   id: ActionTelegnosis
-  name: "Телегнозис"
-  description: "Створити телегностичну проєкцію для дистанційного спостереження за речами."
+  name: Telegnosis
+  description: Create a telegnostic projection to remotely observe things.
   categories: [ HideSpawnMenu ]
   components:
     - type: Action
@@ -162,8 +162,8 @@
 
 - type: entity
   id: ActionHealingWord
-  name: "Цілюще слово"
-  description: "Спрямувати псіонічну енергію для зцілення цілі."
+  name: Healing Word
+  description: Channel psionic energy to heal a target.
   categories: [ HideSpawnMenu ]
   components:
     - type: Action
@@ -207,8 +207,8 @@
 
 - type: entity
   id: ActionRevivify
-  name: "Оживлення"
-  description: "Повернути ціль до життя."
+  name: Revivify
+  description: Return a target to life.
   categories: [ HideSpawnMenu ]
   components:
     - type: Action
@@ -251,8 +251,8 @@
 
 - type: entity
   id: ActionShadeskip
-  name: "Тіньовий стрибок"
-  description: "Ковзнути в тінь, ставши на мить непомітним."
+  name: Shadeskip
+  description: Slip into the shadows, becoming momentarily undetectable.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -288,8 +288,8 @@
 
 - type: entity
   id: ActionTelekineticPulse
-  name: "Телекінетичний імпульс"
-  description: "Створити імпульс телекінетичної енергії, щоб штовхати або тягнути об'єкти."
+  name: Telekinetic Pulse
+  description: Create a pulse of telekinetic energy to push or pull objects.
   categories: [ HideSpawnMenu ]
   components:
     - type: Action
@@ -324,8 +324,8 @@
 
 - type: entity
   id: ActionDarkSwap
-  name: "Темний обмін"
-  description: "Помінятися місцями з найближчою тінню."
+  name: Dark Swap
+  description: Swap positions with a nearby shadow.
   categories: [ HideSpawnMenu ]
   components:
     - type: Action
@@ -337,8 +337,8 @@
 
 - type: entity
   id: ActionPyrokineticFlare
-  name: "Пірокінетичний спалах"
-  description: "Створити спалах вогню, щоб завдати шкоди ворогам."
+  name: Pyrokinetic Flare
+  description: Create a burst of fire to damage enemies.
   categories: [ HideSpawnMenu ]
   components:
     - type: Action
@@ -365,8 +365,8 @@
 
 - type: entity
   id: ActionSummonImp
-  name: "Виклик біса"
-  description: "Викликати маленького біса, щоб він вам допоміг."
+  name: Summon Imp
+  description: Summon a small imp to assist you.
   categories: [ HideSpawnMenu ]
   components:
     - type: Action
@@ -385,8 +385,8 @@
 
 - type: entity
   id: ActionSummonRemilia
-  name: "Виклик Ремілії"
-  description: "Викликати фамільяра, схожого на кажана, щоб він вам допоміг."
+  name: Summon Remilia
+  description: Summon a bat-like familiar to assist you.
   categories: [ HideSpawnMenu ]
   components:
     - type: Action
@@ -405,8 +405,8 @@
 
 - type: entity
   id: ActionAssay
-  name: "Аналіз"
-  description: "Проаналізувати псіонічний підпис цілі."
+  name: Assay
+  description: Analyze a target's psionic signature.
   categories: [ HideSpawnMenu ]
   components:
     - type: Action
@@ -426,8 +426,8 @@
 
 - type: entity
   id: ActionAnoigo
-  name: "Анойго"
-  description: "Створити локалізоване викривлення простору, щоб збити з пантелику ворогів."
+  name: Anoigo
+  description: Create a localized distortion in space to confuse enemies.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

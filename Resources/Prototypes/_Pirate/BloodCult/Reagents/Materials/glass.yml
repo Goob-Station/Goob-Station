@@ -5,6 +5,6 @@
 - type: material
   id: RunedGlass
   stackEntity: SheetRunedGlass1
-  name: "руноване скло"
+  name: runed glass
   icon: { sprite: _Pirate/BloodCult/Sheets/glass.rsi, state: runedglass }
   price: 0.0

@@ -26,8 +26,8 @@
 - type: entity
   parent: BaseItem
   id: NanoChatCartridge
-  name: "Картридж NanoChat"
-  description: "Дозволяє надсилати повідомлення іншим людям!"
+  name: NanoChat cartridge
+  description: Lets you message other people!
   components:
   - type: Sprite
     sprite: _DV/Objects/Devices/cartridge.rsi

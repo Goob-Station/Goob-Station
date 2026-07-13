@@ -19,7 +19,7 @@
 - type: entity
   parent: [PartMonkey, BaseChest]
   id: ChestMonkey
-  name: "груди мавпи"
+  name: "monkey chest"
   components:
   - type: Sprite
     state: "chest_m"
@@ -34,7 +34,7 @@
 - type: entity
   parent: [PartMonkey, BaseGroin]
   id: GroinMonkey
-  name: "пах мавпи"
+  name: "monkey groin"
   components:
   - type: Sprite
     state: "groin_m"
@@ -49,7 +49,7 @@
 - type: entity
   parent: [PartMonkey, BaseHead]
   id: HeadMonkey
-  name: "голова мавпи"
+  name: "monkey head"
   components:
   - type: Sprite
     state: "head_m"
@@ -64,7 +64,7 @@
 - type: entity
   parent: [PartMonkey, BaseLeftArm]
   id: LeftArmMonkey
-  name: "ліва рука мавпи"
+  name: "left monkey arm"
   components:
   - type: Sprite
     state: "l_arm"
@@ -72,7 +72,7 @@
 - type: entity
   parent: [PartMonkey, BaseRightArm]
   id: RightArmMonkey
-  name: "права рука мавпи"
+  name: "right monkey arm"
   components:
   - type: Sprite
     state: "r_arm"
@@ -80,7 +80,7 @@
 - type: entity
   parent: [PartMonkey, BaseLeftHand]
   id: LeftHandMonkey
-  name: "ліва мавпяча рука"
+  name: "left monkey hand"
   components:
   - type: Sprite
     state: "l_hand"
@@ -88,7 +88,7 @@
 - type: entity
   parent: [PartMonkey, BaseRightHand]
   id: RightHandMonkey
-  name: "права мавпяча рука"
+  name: "right monkey hand"
   components:
   - type: Sprite
     state: "r_hand"
@@ -96,7 +96,7 @@
 - type: entity
   parent: [PartMonkey, BaseLeftLeg]
   id: LeftLegMonkey
-  name: "ліва нога мавпи"
+  name: "left monkey leg"
   components:
   - type: Sprite
     state: "l_leg"
@@ -104,7 +104,7 @@
 - type: entity
   parent: [PartMonkey, BaseRightLeg]
   id: RightLegMonkey
-  name: "права мавпяча лапа"
+  name: "right monkey leg"
   components:
   - type: Sprite
     state: "r_leg"
@@ -112,7 +112,7 @@
 - type: entity
   parent: [PartMonkey, BaseLeftFoot]
   id: LeftFootMonkey
-  name: "ліва мавпяча лапа"
+  name: "left monkey foot"
   components:
   - type: Sprite
     state: "l_foot"
@@ -120,7 +120,7 @@
 - type: entity
   parent: [PartMonkey, BaseRightFoot]
   id: RightFootMonkey
-  name: "права мавпяча лапка"
+  name: "right monkey foot"
   components:
   - type: Sprite
     state: "r_foot"

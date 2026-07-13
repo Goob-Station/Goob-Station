@@ -14,7 +14,7 @@
 - type: entity
   parent: SpeechStatusEffectBase
   id: StatusEffectStutter
-  name: "заїкання"
+  name: stutter
   components:
   - type: StutteringAccent
 
@@ -22,7 +22,7 @@
 - type: entity
   parent: SpeechStatusEffectBase
   id: StatusEffectSlurred
-  name: "змазана мова"
+  name: slurred
   components:
   - type: SlurredAccent
 
@@ -30,7 +30,7 @@
 - type: entity
   parent: SpeechStatusEffectBase
   id: StatusEffectScrambled
-  name: "переплутана мова"
+  name: scrambled
   components:
   - type: ScrambledAccent
 
@@ -38,7 +38,7 @@
 - type: entity
   parent: SpeechStatusEffectBase
   id: StatusEffectOwO
-  name: "owo-акцент"
+  name: owoaccent
   components:
   - type: OwOAccent
 
@@ -46,6 +46,6 @@
 - type: entity
   parent: SpeechStatusEffectBase
   id: StatusEffectBark
-  name: "гав-акцент"
+  name: barkaccent
   components:
   - type: BarkAccent

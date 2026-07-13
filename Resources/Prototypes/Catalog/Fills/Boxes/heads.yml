@@ -1,7 +1,7 @@
 - type: entity
   parent: ToteBase
   id: BoxCaptainCircuitboards
-  name: "сумка плат містка"
+  name: bridge circuit tote
   components:
   - type: EntityTableContainerFill
     containers:
@@ -13,7 +13,7 @@
 - type: entity
   parent: ToteBase
   id: BoxCECircuitboards
-  name: "сумка інженерних плат"
+  name: engineering circuit tote
   components:
   - type: EntityTableContainerFill
     containers:
@@ -28,7 +28,7 @@
 - type: entity
   parent: ToteBase
   id: BoxCMOCircuitboards
-  name: "сумка медичних плат"
+  name: medical circuit tote
   components:
   - type: EntityTableContainerFill
     containers:
@@ -40,7 +40,7 @@
 - type: entity
   parent: ToteBase
   id: BoxHoPCircuitboards
-  name: "сумка плат голови персоналу"
+  name: head of personnel circuit tote
   components:
   - type: EntityTableContainerFill
     containers:
@@ -53,7 +53,7 @@
 - type: entity
   parent: BoxStamps
   id: BoxHoPStamps
-  name: "коробка штампів голови персоналу"
+  name: head of personnel's stamp box
   components:
   - type: EntityTableContainerFill
     containers:
@@ -66,7 +66,7 @@
 - type: entity
   parent: ToteBase
   id: BoxHoSCircuitboards
-  name: "сумка плат служби безпеки"
+  name: security circuit tote
   components:
   - type: EntityTableContainerFill
     containers:
@@ -78,7 +78,7 @@
 - type: entity
   parent: ToteBase
   id: BoxQMCircuitboards
-  name: "сумка плат вантажного відділу"
+  name: cargo circuit tote
   components:
   - type: EntityTableContainerFill
     containers:
@@ -95,7 +95,7 @@
 - type: entity
   parent: BoxStamps
   id: BoxQMStamps
-  name: "коробка штампів квартирмейстера"
+  name: quartermaster's stamp box
   components:
   - type: EntityTableContainerFill
     containers:
@@ -108,7 +108,7 @@
 - type: entity
   parent: ToteBase
   id: BoxRDCircuitboards
-  name: "сумка наукових плат"
+  name: science circuit tote
   components:
   - type: EntityTableContainerFill
     containers:

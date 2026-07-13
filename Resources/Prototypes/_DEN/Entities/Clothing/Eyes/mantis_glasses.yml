@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingEyesGlassesEpistemics
   id: ClothingEyesGlassesEpistemicsMantis
-  name: "псіонічне пенсне Мантіса"
-  description: "Пенсне, що забезпечує захист від зварювання та спалахів. За запитом комплектується рецептурними ейдолітовими лінзами." #Aurora
+  name: mantis psionics pince-nez
+  description: "A pince-nez that provides weld and flash protection. Comes with prescription eidolite lenses, if requested." #Aurora
   components:
   - type: Sprite
     sprite: _DEN/Clothing/Eyes/Glasses/epiglasses_mantis.rsi
@@ -18,8 +18,8 @@
 - type: entity
   parent: [ClothingEyesGlassesEpistemicsMantis]
   id: ClothingEyesGlassesEpistemicsMantisTinted
-  name: "псіонічне пенсне Мантіса (тоноване)"
-  description: "Пенсне, що забезпечує захист від зварювання та спалахів. За запитом комплектується рецептурними ейдолітовими лінзами."
+  name: mantis psionics pince-nez (tinted)
+  description: "A pince-nez that provides weld and flash protection. Comes with prescription eidolite lenses, if requested."
   components:
   - type: Sprite
     sprite: _DEN/Clothing/Eyes/Glasses/epiglasses_mantis_dark.rsi
@@ -31,8 +31,8 @@
 - type: entity
   parent: ClothingEyesGlassesEpistemicsMantis
   id: ClothingEyesGlassesEpistemicsMantisMirrored
-  name: "псіонічне пенсне Мантіса (дзеркальне)"
-  description: "Дзеркальне пенсне, що забезпечує імунітет до спалахів і псіонічний HUD. За запитом комплектується рецептурними ейдолітовими лінзами."
+  name: mantis psionics pince-nez (mirrored)
+  description: "A mirrored pince-nez that provides flash immunity and a psionics HUD. Comes with prescription eidolite lenses, if requested."
   components:
   - type: Sprite
     sprite: _DEN/Clothing/Eyes/Glasses/epiglasses_mantis_mirrored.rsi
@@ -44,8 +44,8 @@
 - type: entity
   parent: ClothingEyesGlassesEpistemicsMantis
   id: ClothingEyesGlassesEpistemicsMantisVeil
-  name: "псіонічна пов’язка Мантіса на очі"
-  description: "Прозора пов’язка на очі, прикрашена електрумовим оком, що забезпечує імунітет до спалахів і захист від зварювання."
+  name: mantis psionics blindfold
+  description: "A sheer blindfold decorated with an electrum eye that provides flash immunity and weld protection."
   components:
   - type: Sprite
     sprite: _DEN/Clothing/Eyes/Glasses/epiglasses_mantis_alt.rsi

@@ -51,8 +51,8 @@
 - type: entity
   parent: [DrinkBaseMaterialPlastic, DrinkCartonSmallBaseFull]
   id: DrinkJuiceLimeCarton
-  name: "сік лайма"
-  description: "Солодко-кисла смакота."
+  name: lime juice
+  description: Sweet-sour goodness.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -66,8 +66,8 @@
 - type: entity
   parent: DrinkCartonSmallBaseFull
   id: DrinkJuiceOrangeCarton
-  name: "апельсиновий сік"
-  description: "Повно вітамінів і смакоти!"
+  name: orange juice
+  description: Full of vitamins and deliciousness!
   components:
   - type: SolutionContainerManager
     solutions:
@@ -81,8 +81,8 @@
 - type: entity
   parent: DrinkCartonSmallBaseFull
   id: DrinkJuiceTomatoCarton
-  name: "томатний сік"
-  description: "Ну, принаймні, це виглядає як томатний сік. Не скажеш, що це почервоніння."
+  name: tomato juice
+  description: Well, at least it LOOKS like tomato juice. You can't tell with all that redness.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -96,8 +96,8 @@
 - type: entity
   parent: DrinkCartonSmallBaseFull
   id: DrinkCoconutWaterCarton
-  name: "кокосова вода"
-  description: "Цінною є саме внутрішня частина кокосового горіха."
+  name: coconut water
+  description: It's the inside of the coconut that counts.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -111,8 +111,8 @@
 - type: entity
   parent: DrinkCartonSmallBaseFull
   id: DrinkCreamCarton
-  name: "молочні вершки"
-  description: "Це вершки. Зроблені з молока. Що ще ти думав там знайти?"
+  name: milk cream
+  description: It's cream. Made from milk. What else did you think you'd find in there?
   components:
   - type: SolutionContainerManager
     solutions:
@@ -126,8 +126,8 @@
 - type: entity
   parent: [DrinkBaseMaterialPlastic, DrinkCartonSmallBaseFull]
   id: DrinkJuiceLemonCarton
-  name: "лимонний сік"
-  description: "Спочатку він кислий, а потім все одно кислий."
+  name: lemon juice
+  description: First it's sour, then it's still sour.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -141,8 +141,8 @@
 - type: entity
   parent: DrinkCartonSmallBaseFull
   id: DrinkJuicePineappleCarton
-  name: "ананасовий сік"
-  description: "На смак як тропічна відпустка далеко від космосу."
+  name: pineapple juice
+  description: Tastes like a tropical vacation far from space.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -158,8 +158,8 @@
 - type: entity
   parent: [DrinkBaseMaterialPlastic, DrinkCartonBaseFull] # Looks like a plastic jug, fight me
   id: DrinkMilkCarton
-  name: "молоко"
-  description: "Непрозора біла рідина, що виробляється молочними залозами ссавців."
+  name: milk
+  description: An opaque white liquid produced by the mammary glands of mammals.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -173,8 +173,8 @@
 - type: entity
   parent: DrinkCartonBaseFull
   id: DrinkSoyMilkCarton
-  name: "соєве молоко"
-  description: "Біла та поживна соєва смакота!"
+  name: soy milk
+  description: White and nutritious soy goodness!
   components:
   - type: SolutionContainerManager
     solutions:
@@ -188,8 +188,8 @@
 - type: entity
   parent: [DrinkBaseMaterialPlastic, DrinkCartonBaseFull]
   id: DrinkOatMilkCarton
-  name: "вівсяне молоко"
-  description: "Це вівсяне молоко. Смачна і поживна смакота!"
+  name: oat milk
+  description: It's oat milk. Tan and nutritious goodness!
   components:
   - type: SolutionContainerManager
     solutions:
@@ -205,8 +205,8 @@
 - type: entity
   parent: [DrinkBaseMaterialPlastic, DrinkCartonBaseXtraLargeFull]
   id: DrinkJuiceLimeCartonXL
-  name: "сік лайма XL"
-  description: "Солодко-кисла смакота."
+  name: lime juice XL
+  description: Sweet-sour goodness.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -223,8 +223,8 @@
 - type: entity
   parent: DrinkCartonBaseXtraLargeFull
   id: DrinkJuiceOrangeCartonXL
-  name: "апельсиновий сік XL"
-  description: "Повно вітамінів і смакоти!"
+  name: orange juice XL
+  description: Full of vitamins and deliciousness!
   components:
   - type: SolutionContainerManager
     solutions:
@@ -241,8 +241,8 @@
 - type: entity
   parent: DrinkCartonBaseXtraLargeFull
   id: DrinkCreamCartonXL
-  name: "вершки XL"
-  description: "Це вершки. Зроблені з молока. Що ще ти думав там знайти?"
+  name: milk cream XL
+  description: It's cream. Made from milk. What else did you think you'd find in there?
   components:
   - type: SolutionContainerManager
     solutions:

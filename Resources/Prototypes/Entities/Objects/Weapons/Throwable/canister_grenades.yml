@@ -1,8 +1,8 @@
 - type: entity
   parent: [ GrenadeBase, BaseSecurityContraband ]
   id: SmokeGrenade
-  name: "димова шашка"
-  description: "Тактична граната, яка при використанні випускає велику, довготривалу хмару диму."
+  name: smoke grenade
+  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/smoke.rsi
@@ -26,8 +26,8 @@
 - type: entity
   parent: [ BaseCivilianContraband, SmokeGrenade ]
   id: CleanerGrenade
-  name: "чистяча граната"
-  description: "Спеціальна граната для прибиральників, що випускає велику хмару піни космічного очищувача."
+  name: cleanade
+  description: Special grenade for janitors, releasing large cloud of space cleaner foam.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/janitor.rsi
@@ -45,8 +45,8 @@
 - type: entity
   parent: SmokeGrenade
   id: TearGasGrenade
-  name: "граната зі сльозогінним газом"
-  description: "Граната зі сльозогінним газом для боротьби з масовими заворушеннями. Викликає роздратування, біль і викликає сльози на очах."
+  name: tear gas grenade
+  description: A riot control tear gas grenade. Causes irritation, pain and makes you cry your eyes out.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/tear_gas.rsi
@@ -64,8 +64,8 @@
 - type: entity
   parent: [ BaseEngineeringContraband, SmokeGrenade ]
   id: MetalFoamGrenade
-  name: "граната з металевою піною"
-  description: "Аварійний інструмент, що використовується для латання пробоїн в корпусі за допомогою спеціальної швидкотвердіючої металевої піни. Майже так само добре, як справжня підлога!"
+  name: metal foam grenade
+  description: An emergency tool used for patching hull breaches with special quick-set metal foam. Almost as good as real floors!
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/metalfoam.rsi
@@ -83,8 +83,8 @@
 - type: entity
   parent: [ BaseEngineeringContraband, GrenadeBase ] # Prevent inheriting DeleteOnTrigger from SmokeGrenade
   id: AirGrenade
-  name: "повітряна граната"
-  description: "Спеціальна твердотільна хімічна граната, що використовується для швидкого випуску стандартного повітря в розгерметизовану зону. Заповнює до 30 клітинок!"
+  name: air grenade
+  description: A special solid state chemical grenade used for quickly releasing standard air into a spaced area. Fills up to 30 tiles!
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/airboom.rsi

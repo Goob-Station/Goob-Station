@@ -1,7 +1,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobPike
-  name: "Спавнер космічної щуки"
+  name: Space Pike Spawner
   components:
   - type: Sprite
     layers:
@@ -15,7 +15,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobDunklosteus
-  name: "Спавнер космічного данклеостея"
+  name: Space Dunklosteus Spawner
   components:
   - type: Sprite
     layers:

@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "базова повітряна кулька"
+  name: base balloon
   parent: BaseStructureDynamic
   id: BaseBalloonTD      # Base balloon
   abstract: true # Make sure it doesn't appear
@@ -38,9 +38,9 @@
 
 # Red Balloon
 - type: entity
-  name: "червона кулька"
+  name: red balloon
   parent: BaseBalloonTD
-  description: "Найслабша кулька."
+  description: The weakest balloon.
   id: RedBalloon
   components:
   - type: Sprite
@@ -67,9 +67,9 @@
 
 # Blue Balloon
 - type: entity
-  name: "синя кулька"
+  name: blue balloon
   parent: BaseBalloonTD
-  description: "Досить спокійна кулька."
+  description: A pretty chill balloon.
   id: BlueBalloon
   components:
   - type: Sprite
@@ -99,9 +99,9 @@
 
 # Green Balloon
 - type: entity
-  name: "зелена кулька"
+  name: green balloon
   parent: BaseBalloonTD
-  description: "Найбільш стратегічно мисляча з усіх. Здатна планувати складні хвилі, якби лише мала доріжку, якою рухатися."
+  description: The most strategically minded balloon of the bunch. Capable of planning advanced waves, if only it had a track to follow.
   id: GreenBalloon
   components:
   - type: Sprite
@@ -131,9 +131,9 @@
 
 # Yellow Balloon
 - type: entity
-  name: "жовта кулька"
+  name: yellow balloon
   parent: BaseBalloonTD
-  description: "Найжадібніша кулька, завжди хизується своїм багатством перед іншими."
+  description: The greediest balloon, always flaunting its wealth to the other balloons.
   id: YellowBalloon
   components:
   - type: Sprite
@@ -163,9 +163,9 @@
 
 # Pink Balloon
 - type: entity
-  name: "рожева кулька"
+  name: pink balloon
   parent: BaseBalloonTD
-  description: "Найбільш дратівлива та нестерпна кулька."
+  description: The most annoying and insufferable balloon.
   id: PinkBalloon
   components:
   - type: Sprite
@@ -195,9 +195,9 @@
 
 # Black Balloon
 - type: entity
-  name: "чорна кулька"
+  name: black balloon
   parent: BaseBalloonTD
-  description: "Найбільш похмура кулька, так і не вийшла зі своєї емо-фази. Імунна до теплової та електричної шкоди!"
+  description: The edgiest balloon, never grew out of its emo phase. Immune to heat and shock damage!
   id: BlackBalloon
   components:
   - type: Sprite
@@ -228,9 +228,9 @@
         acts: [ "Destruction" ]
 # White Balloon
 - type: entity
-  name: "біла кулька"
+  name: white balloon
   parent: BaseBalloonTD
-  description: "Найбеземоційніша кулька. Їй навіть не дають справжнього імені — лише призначення. Імунна до холодової шкоди!"
+  description: The most emotionless balloon. Isn't even given a proper name, only a purpose. Immune to cold damage!
   id: WhiteBalloon
   components:
   - type: Sprite
@@ -262,9 +262,9 @@
 
 # Zebra Balloon
 - type: entity
-  name: "кулька-зебра"
+  name: zebra balloon
   parent: BaseBalloonTD
-  description: "Їй місце в зоопарку. Імунна до всіх опікових ушкоджень!"
+  description: Belongs in a zoo. Immune to all burn damage!
   id: ZebraBalloon
   components:
   - type: Sprite
@@ -299,9 +299,9 @@
 
 # steel balloon
 - type: entity
-  name: "сталева кулька"
+  name: steel balloon
   parent: BaseBalloonTD
-  description: "Найбільш броньована кулька. Її так бояться, що навіть тварини на неї не нападають. Імунна до тупої шкоди!"
+  description: The most armored balloon. So feared that even animals don't attack it. Immune to brute damage!
   id: SteelBalloon
   components:
   - type: Sprite
@@ -336,9 +336,9 @@
 
 # rainbow balloon
 - type: entity
-  name: "райдужна кулька"
+  name: rainbow balloon
   parent: BaseBalloonTD
-  description: "Найзловісніша з усіх кульок. Не дайте гарним кольорам вас обманути."
+  description: The most evil balloon of them all. Don't let the pretty colors fool you.
   id: RainbowBalloon
   components:
   - type: Sprite
@@ -367,9 +367,9 @@
         acts: [ "Destruction" ]
         # Bloons 2
 - type: entity
-  name: "кулька-короп"
+  name: carp balloon
   parent: BaseBalloonTD
-  description: "Це поєднання кульки та ДНК коропа? Чи кулька в костюмі коропа? Ніхто не знає."
+  description: Is it a combination of balloon and carp DNA? Or a balloon in a carp suit? Nobody knows.
   id: CeramicBalloon
   components:
   - type: Sprite

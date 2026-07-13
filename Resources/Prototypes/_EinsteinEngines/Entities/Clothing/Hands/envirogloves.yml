@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesBase
   id: ClothingHandsGlovesEnvirogloves
-  name: "плазмові рукавички"
-  description: "Прикриває ці скандальні кістляві руки."
+  name: plasma envirogloves
+  description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Color/color.rsi
@@ -28,8 +28,8 @@
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesBase
   id: ClothingHandsGlovesEnviroglovesBlack
-  name: "чорні екологічні рукавички"
-  description: "Прикриває ці скандальні кістляві руки."
+  name: black envirogloves
+  description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Color/color.rsi
@@ -57,8 +57,8 @@
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesBlack
   id: ClothingHandsGlovesEnviroglovesCombat
-  name: "бойові еко-рукавиці"
-  description: "Спеціально розроблені еко-рукавиці для бою та захисту від ударів струмом."
+  name: combat envirogloves
+  description: Specially designed envirogloves for combat and shock-protection.
   components:
   - type: Insulated
   - type: Fiber
@@ -74,8 +74,8 @@
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesBase
   id: ClothingHandsGlovesEnviroglovesNitrile
-  name: "нітрилові екологічні рукавички"
-  description: "Дорогі нітрилові рукавички, виготовлені для Plasmamen."
+  name: nitrile envirogloves
+  description: Pricy nitrile gloves made for Plasmamen.
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Color/color.rsi
@@ -104,8 +104,8 @@
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesBase
   id: ClothingHandsGlovesEnviroglovesWhite
-  name: "білі екорукавички"
-  description: "Прикриває ці скандальні кістляві руки."
+  name: white envirogloves
+  description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Color/color.rsi
@@ -133,15 +133,15 @@
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesWhite
   id: ClothingHandsGlovesEnviroglovesColor
-  name: "екорукавички"
-  description: "Прикриває ці скандальні кістляві руки."
+  name: envirogloves
+  description: Covers up those scandalous boney hands.
   suffix: Loadouts, Colorable
 
 - type: entity
   parent: [ClothingHandsGlovesEnviroglovesBase, BaseSecurityContraband]
   id: ClothingHandsGlovesEnviroglovesDetective
-  name: "криміналістичні еко-рукавиці"
-  description: "Приховують ці скандальні кістляві відбитки пальців."
+  name: forensic envirogloves
+  description: Covers up those scandalous boney fingerprints.
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/forensic.rsi
@@ -155,8 +155,8 @@
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesBase
   id: ClothingHandsGlovesEnviroglovesRoboticist
-  name: "робототехнічні екологічні рукавички"
-  description: "Прикриває ці скандальні кістляві руки."
+  name: roboticist envirogloves
+  description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Color/color.rsi
@@ -184,8 +184,8 @@
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesBase
   id: ClothingHandsGlovesEnviroglovesJanitor
-  name: "екологічні рукавички для прибиральників"
-  description: "Прикриває ці скандальні кістляві руки."
+  name: janitor envirogloves
+  description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Color/color.rsi
@@ -214,8 +214,8 @@
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesBase
   id: ClothingHandsGlovesEnviroglovesCargo
-  name: "логістичне середовище"
-  description: "Прикриває ці скандальні кістляві руки."
+  name: logistics envirogloves
+  description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Color/color.rsi
@@ -243,8 +243,8 @@
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesBase
   id: ClothingHandsGlovesEnviroglovesEngineering
-  name: "інженерні екологічні рукавички"
-  description: "Прикриває ці скандальні кістляві руки."
+  name: engineering envirogloves
+  description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Color/color.rsi
@@ -273,8 +273,8 @@
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesBase
   id: ClothingHandsGlovesEnviroglovesAtmos
-  name: "аТМОС ЕНВАЙРОГЛАЗКИ"
-  description: "Прикриває ці скандальні кістляві руки."
+  name: atmos envirogloves
+  description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Color/color.rsi
@@ -303,8 +303,8 @@
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesBase
   id: ClothingHandsGlovesEnviroglovesSalvage
-  name: "рятувальні екорукавички"
-  description: "Прикриває ці скандальні кістляві руки."
+  name: salvage envirogloves
+  description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Color/color.rsi
@@ -332,8 +332,8 @@
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesBase
   id: ClothingHandsGlovesEnviroglovesLeather
-  name: "гідропоніка екологічні рукавички"
-  description: "Ці шкіряні рукавички захистять ваші кістляві руки від колючок, шипів, колючок і шпильок."
+  name: hydroponics envirogloves
+  description: These leather gloves protect your boney hands against thorns, barbs, prickles, and spikes.
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Color/color.rsi
@@ -367,8 +367,8 @@
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesBase
   id: ClothingHandsGlovesEnviroglovesPrototype
-  name: "прототип екорукавичок"
-  description: "Прикриває ці скандальні кістляві руки."
+  name: prototype envirogloves
+  description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Color/color.rsi
@@ -396,8 +396,8 @@
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesBase
   id: ClothingHandsGlovesEnviroglovesClown
-  name: "клоунські екорукавички"
-  description: "Прикриває ці скандальні кістляві руки."
+  name: clown envirogloves
+  description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Color/color.rsi
@@ -425,8 +425,8 @@
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesBase
   id: ClothingHandsGlovesEnviroglovesHoP
-  name: "керівник відділу по роботі з персоналом"
-  description: "Прикриває ці скандальні кістляві руки. Схоже, це спроба зробити репліку капітанських рукавичок."
+  name: head of personnel's envirogloves
+  description: Covers up those scandalous, bony hands. Appears to be an attempt at making a replica of the captain's gloves.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Hands/Gloves/Envirogloves/hop.rsi
@@ -450,8 +450,8 @@
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesHoP
   id: ClothingHandsGlovesEnviroglovesCaptain
-  name: "капітанські еко-рукавиці"
-  description: "Приховують ці скандальні кістляві руки у вишуканий спосіб."
+  name: captain's envirogloves
+  description: Covers up those scandalous, bony hands in a fancy way.
   components:
   - type: FingerprintMask
   - type: Insulated
@@ -462,8 +462,8 @@
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesBase
   id: ClothingHandsGlovesEnviroglovesChiefEngineer
-  name: "екологічні рукавички головного інженера"
-  description: "Прикриває ці скандальні кістляві руки."
+  name: chief engineer's envirogloves
+  description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Color/color.rsi
@@ -492,8 +492,8 @@
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesBase
   id: ClothingHandsGlovesEnviroglovesResearchDirector
-  name: "екологічні рукавички дослідницького директора"
-  description: "Прикриває ці скандальні кістляві руки."
+  name: research director's envirogloves
+  description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Color/color.rsi
@@ -521,8 +521,8 @@
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesBase
   id: ClothingHandsGlovesEnviroglovesPurple
-  name: "фіолетові екорукавички"
-  description: "Прикриває ці скандальні кістляві руки."
+  name: purple envirogloves
+  description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Color/color.rsi
@@ -550,8 +550,8 @@
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesBase
   id: ClothingHandsGlovesEnviroglovesAdminAssistant
-  name: "екологічні рукавички адміністративного асистента"
-  description: "Прикриває ці скандальні кістляві руки."
+  name: administrative assistant's envirogloves
+  description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Color/color.rsi
@@ -579,8 +579,8 @@
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesBase
   id: ClothingHandsGlovesEnviroglovesColorDarkGreen
-  name: "темно-зелені екологічні рукавички"
-  description: "Прикриває ці скандальні кістляві руки."
+  name: dark green envirogloves
+  description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Color/color.rsi
@@ -608,8 +608,8 @@
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesBase
   id: ClothingHandsGlovesEnviroglovesColorDarkGrey
-  name: "темно-сірі екологічні рукавички"
-  description: "Прикриває ці скандальні кістляві руки."
+  name: dark grey envirogloves
+  description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Color/color.rsi
@@ -637,8 +637,8 @@
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesBase
   id: ClothingHandsGlovesEnviroglovesGladiator
-  name: "рукавички-гладіатори"
-  description: "Прикриває ці скандальні кістляві руки."
+  name: gladiator envirogloves
+  description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Color/color.rsi
@@ -666,8 +666,8 @@
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesBase
   id: ClothingHandsGlovesEnviroglovesReporter
-  name: "репортер envirogloves"
-  description: "Прикриває ці скандальні кістляві руки."
+  name: reporter envirogloves
+  description: Covers up those scandalous boney hands.
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Color/color.rsi

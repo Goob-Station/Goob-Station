@@ -4,7 +4,7 @@
   abstract: true
   parent: [ BaseCartridge, BaseSecurityContraband ]
   id: BaseCartridgeLightRifle
-  name: "патрон (.30 гвинтівковий)"
+  name: cartridge (.30 rifle)
   components:
   - type: Tag
     tags:
@@ -22,8 +22,8 @@
 - type: entity
   parent: BaseCartridgeLightRifle
   id: CartridgeLightRifle
-  name: "патрон (.30 гвинтівковий)"
-  description: "Класичний проміжний патрон, що використовується в багатьох бойових гвинтівках та легких кулеметах. Стандартні кінетичні боєприпаси поширені та корисні в більшості ситуацій."
+  name: cartridge (.30 rifle)
+  description: A classic intermediate cartridge used by many combat rifles and LMGs. Standard kinetic ammunition is common and useful in most situations.
   components:
   - type: CartridgeAmmo
     proto: BulletLightRifle
@@ -31,8 +31,8 @@
 - type: entity
   parent: BaseCartridgeLightRifle
   id: CartridgeLightRiflePractice
-  name: "патрон (.30 rifle тренувальний)"
-  description: "Класичний проміжний патрон, що використовується багатьма бойовими гвинтівками та LMG. Тренувальні боєприпаси стріляють крейдяним снарядом, який трохи щипає, але не завдає тривалої шкоди."
+  name: cartridge (.30 rifle practice)
+  description: A classic intermediate cartridge used by many combat rifles and LMGs. Practice ammunition fires a chalk projectile that stings a little, but otherwise causes no lasting damage.
   components:
   - type: CartridgeAmmo
     proto: BulletLightRiflePractice
@@ -47,8 +47,8 @@
 - type: entity
   parent: BaseCartridgeLightRifle
   id: CartridgeLightRifleIncendiary
-  name: "патрон (.30 rifle запалювальний)"
-  description: "Класичний проміжний патрон, що використовується багатьма бойовими гвинтівками та LMG. Запалювальні боєприпаси містять самозаймисту суміш, яка підпалює цілі."
+  name: cartridge (.30 rifle incendiary)
+  description: A classic intermediate cartridge used by many combat rifles and LMGs. Incendiary ammunition contains a self-igniting compound that sets targets ablaze.
   components:
   - type: CartridgeAmmo
     proto: BulletLightRifleIncendiary
@@ -63,8 +63,8 @@
 - type: entity
   parent: BaseCartridgeLightRifle
   id: CartridgeLightRifleUranium
-  name: "патрон (.30 rifle урановий)"
-  description: "Класичний проміжний патрон, що використовується багатьма бойовими гвинтівками та LMG. Уранові боєприпаси замінюють свинцеве осердя кулі на подільний матеріал, опромінюючи цілі зсередини."
+  name: cartridge (.30 rifle uranium)
+  description: A classic intermediate cartridge used by many combat rifles and LMGs. Uranium ammunition replaces the lead core of the bullet with fissile material, irradiating targets from the inside.
   components:
   - type: CartridgeAmmo
     proto: BulletLightRifleUranium

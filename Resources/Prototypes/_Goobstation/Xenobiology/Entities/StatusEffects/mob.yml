@@ -1,7 +1,7 @@
 - type: entity
   parent: MobStatusEffectBase
   id: ForcedStealthStatusEffect
-  name: "камуфляж"
+  name: camouflage
   components:
   - type: ForcedStealthStatusEffect
     visibility: 0
@@ -9,14 +9,14 @@
 - type: entity
   parent: MobStatusEffectBase
   id: ChangeFactionStatusEffect
-  name: "зміна фракції"
+  name: faction change
   components:
   - type: ChangeFactionStatusEffect
 
 - type: entity
   parent: MobStatusEffectBase
   id: StatusEffectFireImmune
-  name: "імунітет до горіння"
+  name: burning immunity
   components:
   - type: GrantComponentsStatusEffect
     components:
@@ -26,7 +26,7 @@
 - type: entity
   parent: MobStatusEffectBase
   id: StatusEffectWeatherImmune
-  name: "імунітет до попеляної бурі"
+  name: ash storm immunity
   components:
   - type: GrantComponentsStatusEffect
     components:

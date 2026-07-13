@@ -4,7 +4,7 @@
   abstract: true
   parent: BaseAreaStation
   id: BaseAreaScience
-  name: "науковий відділ"
+  name: science
   components:
   - type: DepartmentArea
     department: Science
@@ -12,7 +12,7 @@
 - type: entity
   parent: BaseAreaScience
   id: AreaScience
-  name: "науковий відділ"
+  name: science
   components:
   - type: Sprite
     state: science
@@ -20,7 +20,7 @@
 - type: entity
   parent: BaseAreaScience
   id: AreaScienceBreak
-  name: "кімната відпочинку науки"
+  name: science breakroom
   components:
   - type: Sprite
     state: science_break
@@ -28,7 +28,7 @@
 - type: entity
   parent: BaseAreaScience
   id: AreaScienceLobby
-  name: "вестибюль науки"
+  name: science lobby
   components:
   - type: Sprite
     state: science_lobby
@@ -36,7 +36,7 @@
 - type: entity
   parent: BaseAreaScience
   id: AreaScienceServer
-  name: "серверна"
+  name: server room
   components:
   - type: Sprite
     state: server
@@ -44,7 +44,7 @@
 - type: entity
   parent: BaseAreaScience
   id: AreaTeleSci
-  name: "теленаука"
+  name: TeleSci
   components:
   - type: Sprite
     state: telesci
@@ -54,7 +54,7 @@
 - type: entity
   parent: BaseAreaScience
   id: AreaCytology
-  name: "цитологія"
+  name: cytology
   components:
   - type: Sprite
     state: cytology
@@ -62,7 +62,7 @@
 - type: entity
   parent: BaseAreaScience
   id: AreaGenetics
-  name: "генетика"
+  name: genetics
   components:
   - type: Sprite
     state: genetics
@@ -70,7 +70,7 @@
 - type: entity
   parent: BaseAreaScience
   id: AreaXenobio
-  name: "ксенобіологія"
+  name: xenobio
   components:
   - type: Sprite
     state: xenobio
@@ -78,7 +78,7 @@
 - type: entity
   parent: BaseAreaScience
   id: AreaRobotics
-  name: "робототехніка"
+  name: robotics
   components:
   - type: Sprite
     state: robo
@@ -86,7 +86,7 @@
 - type: entity
   parent: AreaRobotics
   id: AreaRoboticsMechBay
-  name: "ангар мехів"
+  name: mech bay
   components:
   - type: Sprite
     state: mech_bay

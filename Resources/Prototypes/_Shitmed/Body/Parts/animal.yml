@@ -3,7 +3,7 @@
 - type: entity
   parent: [PartAnimalBase, BaseHead]
   id: HeadAnimal
-  name: "голова тварини"
+  name: animal head
   components:
   - type: Sprite
     layers:
@@ -12,7 +12,7 @@
 - type: entity
   parent: [PartAnimalBase, ChestAnimal]
   id: ChestGoliath
-  name: "груди голіафа"
+  name: goliath chest
   components:
   - type: Woundable
     integrity: 350
@@ -27,7 +27,7 @@
 - type: entity
   parent: [PartAnimalBase, GroinAnimal]
   id: GroinGoliath
-  name: "пах голіафа"
+  name: goliath groin
   components:
   - type: Woundable
     integrity: 350
@@ -42,7 +42,7 @@
 - type: entity
   parent: [PartAnimalBase, LegsAnimal]
   id: LegsGoliath
-  name: "ноги голіафа"
+  name: goliath legs
   components:
   - type: Woundable
     integrity: 350
@@ -57,7 +57,7 @@
 - type: entity
   parent: [PartAnimalBase, ChestAnimal]
   id: ChestDragon
-  name: "груди дракона"
+  name: dragon chest
   components:
   - type: Woundable
     integrity: 500
@@ -72,7 +72,7 @@
 - type: entity
   parent: [PartAnimalBase, GroinAnimal]
   id: GroinDragon
-  name: "пах дракона"
+  name: dragon groin
   components:
   - type: Woundable
     integrity: 500
@@ -87,7 +87,7 @@
 - type: entity
   parent: [PartAnimalBase, LegsAnimal]
   id: LegsDragon
-  name: "ноги дракона"
+  name: dragon legs
   components:
   - type: Woundable
     integrity: 500

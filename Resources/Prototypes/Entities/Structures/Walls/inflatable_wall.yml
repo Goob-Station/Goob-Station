@@ -3,8 +3,8 @@
 - type: entity
   parent: BaseDeltaPressureGlass
   id: InflatableWall
-  name: "надувна барикада"
-  description: "Надута мембрана. Активувати, щоб здути. Не проколювати."
+  name: inflatable barricade
+  description: An inflated membrane. Activate to deflate. Do not puncture.
   components:
   - type: Clickable
   - type: InteractionOutline
@@ -45,9 +45,9 @@
 
 - type: entity
   id: InflatableDoor
-  name: "надувні двері"
+  name: inflatable door
   parent: [BaseMaterialDoor, BaseDeltaPressureGlass]
-  description: "Надута мембрана. Активувати, щоб здути. Тепер з дверима. Не проколіть."
+  description: An inflated membrane. Activate to deflate. Now with a door. Do not puncture.
   components:
   - type: Clickable
   - type: InteractionOutline

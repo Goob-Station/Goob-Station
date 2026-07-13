@@ -5,7 +5,7 @@
 # Buckshot
 - type: entity
   id: ShellShotgunHighCaliber
-  name: "гільза (8 калібр карпшот)"
+  name: shell (8 Gauge carpshot)
   parent: BaseShellShotgun
   components:
   - type: Tag
@@ -24,7 +24,7 @@
 
 - type: entity
   id: ShellShotgunHighCaliberIncendiary
-  name: "гільза (8 калібр драконівське дихання)"
+  name: shell (8 Gauge dragons breath)
   parent: ShellShotgunHighCaliber
   components:
     - type: Tag
@@ -42,7 +42,7 @@
 
 - type: entity
   id: ShellShotgunHighCaliberPractice
-  name: "гільза (8 калібр тренувальна)"
+  name: shell (8 Gauge practice)
   parent: ShellShotgunHighCaliber
   components:
     - type: Tag
@@ -60,7 +60,7 @@
 
 - type: entity
   id: ShellShotgunHighCaliberUranium
-  name: "гільза (8 калібр збіднений уран)"
+  name: shell (8 Gauge depleted uranium)
   parent: ShellShotgunHighCaliber
   components:
     - type: Tag
@@ -81,7 +81,7 @@
 # Slug
 - type: entity
   id: ShellShotgunSlugHighCaliber
-  name: "гільза (куля 8-го калібру)"
+  name: shell (8 Gauge slug)
   parent: BaseShellShotgun
   components:
     - type: Tag
@@ -101,7 +101,7 @@
 # Ensnaring
 - type: entity
   id: ShellShotgunSlugEnsnaring
-  name: "патрон (пастка-куля 8-го калібру)"
+  name: cartridge (8 Gauge caliber ensnaring slug)
   parent: ShellShotgunSlugHighCaliber
   components:
   - type: Tag
@@ -120,7 +120,7 @@
 # EMP
 - type: entity
   id: ShellShotgunSlugEMP
-  name: "патрон (ЕМІ-куля 8-го калібру)"
+  name: cartridge (8 Gauge caliber EMP slug)
   parent: ShellShotgunSlugHighCaliber
   components:
   - type: Tag
@@ -139,7 +139,7 @@
 # Flash
 - type: entity
   id: ShellShotgunSlugFlash
-  name: "патрон (світлова куля 8-го калібру)"
+  name: cartridge (8 Gauge caliber flash slug)
   parent: ShellShotgunSlugHighCaliber
   components:
   - type: Tag
@@ -158,7 +158,7 @@
 # Beanbag
 - type: entity
   id: ShellShotgunBeanbagHighCaliber
-  name: "гільза (мішечок з бобами 8-го калібру)"
+  name: shell (8 Gauge beanbag)
   parent: ShellShotgunSlugHighCaliber
   components:
   - type: Tag
@@ -176,7 +176,7 @@
 
 - type: entity
   id: ShellShotgunHighCaliberSarin
-  name: "гільза (газ зарин 8-го калібру)"
+  name: shell (8 Gauge sarin gas)
   parent: ShellShotgunSlugHighCaliber
   components:
     - type: Tag
@@ -198,7 +198,7 @@
 # Pellet
 - type: entity
   id: ShellShotgunHeavyHighExplosive
-  name: "гільза (дріб 2-го калібру)"
+  name: shell (2 Gauge pellet)
   parent: BaseShellShotgun
   components:
   - type: Tag
@@ -218,7 +218,7 @@
 # Slug
 - type: entity
   id: ShellShotgunSlugHeavyHighExplosive
-  name: "гільза (куля 2-го калібру)"
+  name: shell (2 Gauge slug)
   parent: BaseShellShotgun
   components:
   - type: Tag

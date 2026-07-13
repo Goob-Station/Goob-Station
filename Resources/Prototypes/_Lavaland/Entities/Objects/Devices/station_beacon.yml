@@ -2,8 +2,8 @@
 - type: entity
   parent: BaseItem
   id: DefaultStationBeaconNoWarpPoints
-  name: "станційний маяк"
-  description: "Невеликий пристрій, що передає інформацію на станційні карти. Можна налаштувати."
+  name: station beacon
+  description: A small device that transmits information to station maps. Can be configured.
   placement:
     mode: SnapgridCenter
   suffix: General

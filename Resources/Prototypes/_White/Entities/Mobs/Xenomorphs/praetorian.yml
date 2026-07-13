@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseMobXenomorphAdult
   id: BaseMobXenomorphPraetorian
-  name: "ксеноморф-преторіанець"
-  description: "Елітна особина, призначена для захисту Вулика та Королеви, сама його присутність вселяє страх і трепет у лави ворога."
+  name: xenomorph praetorian
+  description: An elite specimen designed to protect the Hive and the Queen, his very presence instills fear and trepidation into the enemy ranks.
   abstract: true
   components:
   - type: Sprite

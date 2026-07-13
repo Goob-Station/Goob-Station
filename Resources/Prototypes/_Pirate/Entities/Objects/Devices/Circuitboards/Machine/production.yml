@@ -1,8 +1,8 @@
 ﻿- type: entity
   id: PrinterDocMachineCircuitboard
   parent: BaseMachineCircuitboard
-  name: "друкована плата принтера документів"
-  description: "Друкована плата машини для принтера документів"
+  name: document printer machine board
+  description: A machine printed circuit board for a document printer
   components:
     - type: MachineBoard
       prototype: PrinterDoc
@@ -14,7 +14,7 @@
 - type: entity
   id: MassDriverCircuitboard
   parent: BaseMachineCircuitboard
-  name: "плата мас-драйвера"
+  name: mass driver board
   components:
   - type: MachineBoard
     prototype: MassDriver

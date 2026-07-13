@@ -1,7 +1,7 @@
 - type: entity
   id: OreBoxAshwood
-  name: "ящик для руди з ашвуду"
-  description: "Ще більший контейнер для зберігання необробленої руди."
+  name: ashwood ore box
+  description: An even larger storage container for holding unprocessed ores.
   parent: OreBox
   components:
   - type: Sprite

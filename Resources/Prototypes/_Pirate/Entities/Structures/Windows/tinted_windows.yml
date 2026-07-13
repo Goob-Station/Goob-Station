@@ -1,8 +1,8 @@
 - type: entity
   id: WindowTintedDirectional
   parent: WindowDirectional
-  name: "напрямлене тоноване вікно"
-  description: "Не заляпайте скло там унизу."
+  name: directional tinted window
+  description: Don't smudge up the glass down there.
   placement:
     mode: SnapgridCenter
     snap:

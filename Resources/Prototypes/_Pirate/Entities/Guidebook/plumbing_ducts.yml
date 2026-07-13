@@ -9,7 +9,7 @@
 - type: entity
   id: GuidebookPlumbingDuctStraight
   categories: [ HideSpawnMenu ]
-  name: "рідинний канал"
+  name: fluid duct
   suffix: Straight, Guidebook
   components:
   - type: Sprite
@@ -21,7 +21,7 @@
 - type: entity
   id: GuidebookPlumbingDuctBend
   categories: [ HideSpawnMenu ]
-  name: "рідинний канал"
+  name: fluid duct
   suffix: Bend, Guidebook
   components:
   - type: Sprite
@@ -33,7 +33,7 @@
 - type: entity
   id: GuidebookPlumbingDuctTJunction
   categories: [ HideSpawnMenu ]
-  name: "рідинний канал"
+  name: fluid duct
   suffix: T-Junction, Guidebook
   components:
   - type: Sprite
@@ -45,7 +45,7 @@
 - type: entity
   id: GuidebookPlumbingDuctFourway
   categories: [ HideSpawnMenu ]
-  name: "рідинний канал"
+  name: fluid duct
   suffix: Fourway, Guidebook
   components:
   - type: Sprite
@@ -57,7 +57,7 @@
 - type: entity
   id: GuidebookPlumbingDuctManifold
   categories: [ HideSpawnMenu ]
-  name: "рідинний колектор"
+  name: fluid manifold
   suffix: Guidebook
   components:
   - type: Sprite

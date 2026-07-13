@@ -36,7 +36,7 @@
 - type: entity
   parent: [ClothingModsuitGauntletsStandard, SolAllianceInfo, BaseSyndicateContraband]
   id: ClothingModsuitGauntletsSANMarine
-  name: "рукавиці мод-костюма CSA-85x «Мазу»"
+  name: рукавиці мод-костюма CSA-85x "Мазу"
   description: Пара рукавиць, призначених для розчавлювання черепів. Є частиною модульного костюма "Мазу".
   categories: [HideSpawnMenu]
   components:
@@ -53,7 +53,7 @@
 - type: entity
   parent: [ClothingModsuitHelmetStandard, SolAllianceInfo, ShowSecurityIcons, BaseSyndicateContraband]
   id: ClothingModsuitHelmetSANMarine
-  name: "шолом мод-костюма CSA-85x «Мазу»"
+  name: шолом мод-костюма CSA-85x "Мазу"
   description: Сучасний шолом для мод-костюма "Мазу". Він має вбудований проєкційний HUD.
   categories: [HideSpawnMenu]
   components:
@@ -81,8 +81,8 @@
 - type: entity
   parent: [ClothingModsuitChestplateStandard, SolAllianceInfo, BaseClothingRadio, BaseSyndicateContraband]
   id: ClothingModsuitChestplateSANMarine
-  name: "нагрудник мод-костюма CSA-85x «Мазу»"
-  description: "Сучасний нагрудник для мод-костюма «Мазу»."
+  name: нагрудник мод-костюма CSA-85x "Мазу"
+  description: Сучасний нагрудник для мод-костюма "Мазу".
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -126,7 +126,7 @@
 - type: entity
   parent: [ClothingModsuitBootsStandard, SolAllianceInfo, BaseSyndicateContraband]
   id: ClothingModsuitBootsSANMarine
-  name: "чоботи мод-костюма CSA-85x «Мазу»"
+  name: чоботи мод-костюма CSA-85x "Мазу"
   description: Сучасна пара магнітних чоботів для мод-костюма "Мазу". Поки костюм увімкнений, вони не знижують швидкість пересування власника.
   categories: [HideSpawnMenu]
   components:

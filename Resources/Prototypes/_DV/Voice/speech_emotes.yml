@@ -2,7 +2,7 @@
 # Harpy
 - type: emote
   id: Ring
-  name: "Дзень"
+  name: Ring
   category: Vocal
   icon: _Goobstation/Interface/Emotes/ring.png
   whitelist:
@@ -20,7 +20,7 @@
 
 - type: emote
   id: Pew
-  name: "Піу"
+  name: Pew
   category: Vocal
   icon: _Goobstation/Interface/Emotes/pew.png
   whitelist:
@@ -36,7 +36,7 @@
 
 - type: emote
   id: Bang
-  name: "Бах"
+  name: Bang
   category: Vocal
   icon: _Goobstation/Interface/Emotes/bang.png
   whitelist:
@@ -64,7 +64,7 @@
 
 - type: emote
   id: Rev
-  name: "Рев"
+  name: Rev
   category: Vocal
   icon: _Goobstation/Interface/Emotes/rev.png
   whitelist:
@@ -92,7 +92,7 @@
 
 - type: emote
   id: Caw
-  name: "Кар"
+  name: Caw
   category: Vocal
   icon: _Goobstation/Interface/Emotes/caw.png
   whitelist:
@@ -111,7 +111,7 @@
 #Vulpkanin
 - type: emote
   id: Bark
-  name: "Гав"
+  name: Bark
   category: Vocal
   icon: _Goobstation/Interface/Emotes/bark.png
   whitelist:
@@ -130,7 +130,7 @@
 
 - type: emote
   id: Snarl
-  name: "Гарчати"
+  name: Snarl
   category: Vocal
   icon: _Goobstation/Interface/Emotes/snarl.png
   whitelist:
@@ -149,7 +149,7 @@
 
 - type: emote
   id: Whine
-  name: "Скиглити"
+  name: Whine
   category: Vocal
   icon: _Goobstation/Interface/Emotes/whine.png
   whitelist:
@@ -189,7 +189,7 @@
 
 - type: emote
   id: Awoo
-  name: "Авуу"
+  name: Awoo
   category: Vocal
   icon: _Goobstation/Interface/Emotes/awoo.png
   whitelist:

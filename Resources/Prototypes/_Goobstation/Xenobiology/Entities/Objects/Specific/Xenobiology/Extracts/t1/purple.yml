@@ -1,7 +1,7 @@
 - type: entity
   id: PurpleSlimeExtract
   parent: BaseSlimeExtract
-  name: "фіолетовий екстракт слайма"
+  name: purple slime extract
   components:
   - type: Sprite
     layers:

@@ -1,10 +1,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "свічка"
+  name: candle
   parent: BaseItem
   id: Candle
-  description: "Тонкий гніт, протягнутий крізь жир."
+  description: A thin wick threaded through fat.
   components:
     - type: Tag
       tags:
@@ -64,7 +64,7 @@
           acts: [ "Destruction" ]
 
 - type: entity
-  name: "червона свічка"
+  name: red candle
   parent: Candle
   id: CandleRed
   components:
@@ -82,7 +82,7 @@
         color: "#a12349"
 
 - type: entity
-  name: "синя свічка"
+  name: blue candle
   parent: Candle
   id: CandleBlue
   components:
@@ -100,7 +100,7 @@
         color: "#425d7d"
 
 - type: entity
-  name: "чорна свічка"
+  name: black candle
   parent: Candle
   id: CandleBlack
   components:
@@ -118,7 +118,7 @@
         color: "#1b1724"
 
 - type: entity
-  name: "зелена свічка"
+  name: green candle
   parent: Candle
   id: CandleGreen
   components:
@@ -136,7 +136,7 @@
         color: "#5d997e"
 
 - type: entity
-  name: "фіолетова свічка"
+  name: purple candle
   parent: Candle
   id: CandlePurple
   components:
@@ -155,7 +155,7 @@
 
 
 - type: entity
-  name: "маленька свічка"
+  name: small candle
   parent: Candle
   id: CandleSmall
   components:
@@ -180,7 +180,7 @@
           acts: [ "Destruction" ]
 
 - type: entity
-  name: "маленька червона свічка"
+  name: small red candle
   parent: CandleSmall
   id: CandleRedSmall
   components:
@@ -198,7 +198,7 @@
         color: "#a12349"
 
 - type: entity
-  name: "маленька синя свічка"
+  name: small blue candle
   parent: CandleSmall
   id: CandleBlueSmall
   components:
@@ -216,7 +216,7 @@
         color: "#425d7d"
 
 - type: entity
-  name: "маленька чорна свічка"
+  name: small black candle
   parent: CandleSmall
   id: CandleBlackSmall
   components:
@@ -234,7 +234,7 @@
         color: "#1b1724"
 
 - type: entity
-  name: "маленька зелена свічка"
+  name: small green candle
   parent: CandleSmall
   id: CandleGreenSmall
   components:
@@ -252,7 +252,7 @@
         color: "#5d997e"
 
 - type: entity
-  name: "маленька фіолетова свічка"
+  name: small purple candle
   parent: CandleSmall
   id: CandlePurpleSmall
   components:
@@ -272,8 +272,8 @@
 #Purely decorative candles for mappers. Do not have any functionality.
 
 - type: entity
-  name: "чарівна свічка"
-  description: "Чи то магія, чи то високі технології, але ця свічка ніколи не гасне. З іншого боку, її полум'я досить холодне."
+  name: magic candle
+  description: It's either magic or high tech, but this candle never goes out. On the other hand, its flame is quite cold.
   parent: BaseItem
   suffix: Decorative
   id: CandleInfinite
@@ -292,7 +292,7 @@
     power: 10
 
 - type: entity
-  name: "чарівна червона свічка"
+  name: magic red candle
   parent: CandleInfinite
   id: CandleRedInfinite
   components:
@@ -312,7 +312,7 @@
         color: "#a12349"
 
 - type: entity
-  name: "чарівна синя свічка"
+  name: magic blue candle
   parent: CandleInfinite
   id: CandleBlueInfinite
   components:
@@ -332,7 +332,7 @@
         color: "#425d7d"
 
 - type: entity
-  name: "магічна чорна свічка"
+  name: magic black candle
   parent: CandleInfinite
   id: CandleBlackInfinite
   components:
@@ -352,7 +352,7 @@
         color: "#1b1724"
 
 - type: entity
-  name: "чарівна зелена свічка"
+  name: magic green candle
   parent: CandleInfinite
   id: CandleGreenInfinite
   components:
@@ -372,7 +372,7 @@
         color: "#5d997e"
 
 - type: entity
-  name: "чарівна фіолетова свічка"
+  name: magic purple candle
   parent: CandleInfinite
   id: CandlePurpleInfinite
   components:
@@ -392,7 +392,7 @@
         color: "#984aa1"
 
 - type: entity
-  name: "маленька магічна червона свічка"
+  name: small magic red candle
   parent: CandleInfinite
   id: CandleRedSmallInfinite
   components:
@@ -412,7 +412,7 @@
         color: "#a12349"
 
 - type: entity
-  name: "маленька чарівна синя свічка"
+  name: small magic blue candle
   parent: CandleInfinite
   id: CandleBlueSmallInfinite
   components:
@@ -432,7 +432,7 @@
         color: "#425d7d"
 
 - type: entity
-  name: "маленька магічна чорна свічка"
+  name: small magic black candle
   parent: CandleInfinite
   id: CandleBlackSmallInfinite
   components:
@@ -452,7 +452,7 @@
         color: "#1b1724"
 
 - type: entity
-  name: "маленька чарівна зелена свічка"
+  name: small magic green candle
   parent: CandleInfinite
   id: CandleGreenSmallInfinite
   components:
@@ -472,7 +472,7 @@
         color: "#5d997e"
 
 - type: entity
-  name: "маленька магічна фіолетова свічка"
+  name: small magic purple candle
   parent: CandleInfinite
   id: CandlePurpleSmallInfinite
   components:

@@ -1,6 +1,6 @@
 - type: entity
   id: NoRoofNoWeatherMarker
-  name: "Дах"
+  name: Roof
   suffix: Disabled, No Weather
   parent: NoRoofMarker
   components:

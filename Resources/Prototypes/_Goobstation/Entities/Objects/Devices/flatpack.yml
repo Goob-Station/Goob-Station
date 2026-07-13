@@ -3,8 +3,8 @@
 - type: entity
   parent: BaseFlatpack
   id: TimelineDisruptorFlatpack
-  name: "флетпак руйнівника часової лінії"
-  description: "Флетпак, що використовується для побудови сонячної батареї."
+  name: timeline disruptor flatpack
+  description: A flatpack used for constructing a solar assembly.
   components:
   - type: Flatpack
     entity: TimelineDisruptor
@@ -17,8 +17,8 @@
 - type: entity
   parent: BaseFlatpack
   id: ContrabandDetectorFlatpack
-  name: "набір для детектора контрабанди"
-  description: "Набір для конструювання детектора контрабанди."
+  name: contraband detector flatpack
+  description: A flatpack used for constructing a contraband detector.
   components:
   - type: Flatpack
     entity: ContrabandDetectorSecure
@@ -31,8 +31,8 @@
 - type: entity
   parent: BaseFlatpack
   id: MedicalScannerFlatpack
-  name: "Набір для медичного сканера"
-  description: "Набір для конструювання медичного сканера"
+  name: Medical Scanner Flatpack
+  description: A flatpack used for constructing a Medical Scanner
   components:
   - type: Flatpack
     entity: MedicalScanner
@@ -40,8 +40,8 @@
 - type: entity
   parent: BaseFlatpack
   id: CloningpodFlatpack
-  name: "Набір для капсули клонування"
-  description: "Набір для конструювання капсули клонування"
+  name: Cloning pod Flatpack
+  description: A flatpack used for constructing a Cloning pod
   components:
   - type: Flatpack
     entity: CloningPod
@@ -49,8 +49,8 @@
 - type: entity
   parent: BaseFlatpack
   id: ComputerCloningConsoleFlatpack
-  name: "Набір для комп'ютерної консолі клонування"
-  description: "Набір для конструювання комп'ютерної консолі клонування"
+  name: Computer Cloning Console Flatpack
+  description: A flatpack used for constructing a Computer Cloning Console
   components:
   - type: Flatpack
     entity: ComputerCloningConsole
@@ -58,8 +58,8 @@
 - type: entity
   parent: BaseFlatpack
   id: BiomassReclaimerFlatpack
-  name: "Набір для регенератора біомаси"
-  description: "Набір для конструювання регенератора біомаси"
+  name: Biomass Reclaimer Flatpack
+  description: A flatpack used for constructing a Biomass Reclaimer
   components:
   - type: Flatpack
     entity: BiomassReclaimer
@@ -67,8 +67,8 @@
 - type: entity
   parent: BaseFlatpack
   id: MedicalBiofabricatorFlatpack
-  name: "Набір для медичного біофабрикатора"
-  description: "Набір для конструювання медичного біофабрикатора"
+  name: Medical Biofabricator Flatpack
+  description: A flatpack used for constructing a Medical Biofabricator
   components:
   - type: Flatpack
     entity: MedicalBiofabricator
@@ -76,8 +76,8 @@
 - type: entity
   parent: BaseFlatpack
   id: ComputerNTRTasksFlatpack
-  name: "комп'ютер завдань NTR (плаский)"
-  description: "Плаский пакет для конструювання комп'ютера завдань NTR."
+  name: ntr task computer flatpack
+  description: A flatpack used for constructing a NTR task computer.
   components:
   - type: Flatpack
     entity: ComputerNTRTasks
@@ -85,8 +85,8 @@
 - type: entity
   parent: BaseFlatpack
   id: MachinePowerTransmissionLaserFlatpack
-  name: "набір для лазера передачі енергії"
-  description: "Набір для конструювання лазера передачі енергії"
+  name: power transmision laser flatpack
+  description: A flatpack used for constructing a power transmission laser
   components:
   - type: Flatpack
     entity: MachinePowerTransmissionLaser
@@ -94,8 +94,8 @@
 - type: entity
   parent: BaseFlatpack
   id: ComputerFundingAllocationFlatpack
-  name: "комп'ютер розподілу фінансування в розібраному вигляді"
-  description: "Розібраний набір для збирання комп'ютера розподілу фінансування"
+  name: funding allocation computer flatpack
+  description: A flatpack used for constructing a funding allocation computer
   components:
   - type: Flatpack
     entity: ComputerFundingAllocation
@@ -103,8 +103,8 @@
 - type: entity
   parent: BaseFlatpack
   id: ComputerCargoRequestServiceFlatpack
-  name: "комп'ютер запитів на обслуговування в розібраному вигляді"
-  description: "Розібраний набір для збирання комп'ютера запитів на обслуговування"
+  name: service request computer flatpack
+  description: A flatpack used for constructing a service request computer
   components:
   - type: Flatpack
     entity: ComputerCargoOrdersService
@@ -112,8 +112,8 @@
 - type: entity
   parent: BaseFlatpack
   id: ComputerCargoRequestMedicalFlatpack
-  name: "комп'ютер медичних запитів в розібраному вигляді"
-  description: "Розібраний набір для збирання комп'ютера медичних запитів"
+  name: medical request computer flatpack
+  description: A flatpack used for constructing a medical request computer
   components:
   - type: Flatpack
     entity: ComputerCargoOrdersMedical
@@ -121,8 +121,8 @@
 - type: entity
   parent: BaseFlatpack
   id: ComputerCargoRequestScienceFlatpack
-  name: "комп'ютер наукових запитів в розібраному вигляді"
-  description: "Розібраний набір для збирання комп'ютера наукових запитів"
+  name: science request computer flatpack
+  description: A flatpack used for constructing a science request computer
   components:
   - type: Flatpack
     entity: ComputerCargoOrdersScience
@@ -130,8 +130,8 @@
 - type: entity
   parent: BaseFlatpack
   id: ComputerCargoRequestSecurityFlatpack
-  name: "комп'ютер запитів до служби безпеки в розібраному вигляді"
-  description: "Розібраний набір для збирання комп'ютера запитів до служби безпеки"
+  name: security request computer flatpack
+  description: A flatpack used for constructing a security request computer
   components:
   - type: Flatpack
     entity: ComputerCargoOrdersSecurity
@@ -139,8 +139,8 @@
 - type: entity
   parent: BaseFlatpack
   id: TegCirculatorFlatpack
-  name: "флетпак циркулятора"
-  description: "Флетпак для збирання циркулятора для термоелектричного генератора."
+  name: circulator flatpack
+  description: A flatpack used for constructing a circulator for thermo-electric generator.
   components:
   - type: Flatpack
     entity: TegCirculator
@@ -154,8 +154,8 @@
 - type: entity
   parent: BaseFlatpack
   id: TegMiddleFlatpack
-  name: "флетпак термоелектричного генератора"
-  description: "Флетпак для збирання термоелектричного генератора."
+  name: thermo-electric generator flatpack
+  description: A flatpack used for constructing a thermo-electric generator.
   components:
   - type: Flatpack
     entity: TegCenter
@@ -169,8 +169,8 @@
 - type: entity
   parent: BaseFlatpack
   id: SlotMachineFlatpack
-  name: "флетпак ігрового автомата"
-  description: "Флетпак, що використовується для збирання ігрового автомата"
+  name: slot machine flatpack
+  description: A flatpack used for constructing a slot machine
   components:
   - type: Flatpack
     entity: SlotMachine
@@ -178,8 +178,8 @@
 - type: entity
   parent: BaseFlatpack
   id: SlotMachineHighRollerFlatPack
-  name: "флетпак ігрового автомата для хайролерів"
-  description: "Флетпак, що використовується для збирання ігрового автомата для хайролерів"
+  name: high roller slot machine flatpack
+  description: A flatpack used for constructing a high roller slot machine
   components:
   - type: Flatpack
     entity: SlotMachineHighRoller
@@ -187,8 +187,8 @@
 - type: entity
   parent: BaseFlatpack
   id: CoinFlipperFlatPack
-  name: "конструктор монетокида"
-  description: "Конструктор, що використовується для збірки монетокида"
+  name: coin flipper flatpack
+  description: A flatpack used for constructing a coin flipper
   components:
   - type: Flatpack
     entity: CoinFlipper
@@ -196,8 +196,8 @@
 - type: entity
   parent: BaseFlatpack
   id: ClawMachineFlatPack
-  name: "конструктор кран-машини"
-  description: "Конструктор, що використовується для збірки кран-машини"
+  name: claw machine flat pack
+  description: A flatpack used for constructing a claw machine
   components:
   - type: Flatpack
     entity: ClawMachine
@@ -205,8 +205,8 @@
 - type: entity
   parent: BaseFlatpack
   id: ChemistryHotplateFlatPack
-  name: "пласка упаковка нагрівальної плити"
-  description: "Пласка упаковка для збирання нагрівальної плити."
+  name: hotplate flat pack
+  description: A flatpack used for constructing a hotplate.
   components:
   - type: Flatpack
     entity: ChemistryHotplate
@@ -214,8 +214,8 @@
 - type: entity
   parent: BaseFlatpack
   id: DiseaseDiagnoserFlatPack
-  name: "флетпак діагноста хвороб"
-  description: "Флетпак для будівництва діагноста хвороб."
+  name: disease diagnoser flat pack
+  description: A flatpack used for constructing a disease diagnoser.
   components:
   - type: Flatpack
     entity: DiseaseDiagnoser
@@ -223,8 +223,8 @@
 - type: entity
   parent: BaseFlatpack
   id: VaccinatorFlatPack
-  name: "флетпак вакцинатора"
-  description: "Флетпак для будівництва вакцинатора."
+  name: vaccinator machine flat pack
+  description: A flatpack used for constructing a vaccinator.
   components:
   - type: Flatpack
     entity: Vaccinator

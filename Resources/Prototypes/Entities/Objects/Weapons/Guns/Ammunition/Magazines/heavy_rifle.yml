@@ -4,7 +4,7 @@
   abstract: true
   parent: [ BaseItem, BaseSecurityContraband ]
   id: BaseMagazineHeavyRifle
-  name: "магазин (гвинтівка калібру .20)"
+  name: "magazine (.20 rifle)"
   components:
   - type: Tag
     tags:
