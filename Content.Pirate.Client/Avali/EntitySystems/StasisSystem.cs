@@ -60,7 +60,8 @@ public sealed class StasisSystem : SharedStasisSystem
         if (stasis.ClientEnterEffectEntity is { } enter && Exists(enter))
             QueueDel(enter);
 
-        RestoreEntityVisibility(uid, stasis);
+        if (TryComp<SpriteComponent>(uid, out var sprite))
+            _sprite.SetColor(uid, sprite.Color.WithAlpha(1f));
     }
 
     private void OnStasisAnimation(StasisAnimationEvent ev)
@@ -252,23 +253,7 @@ public sealed class StasisSystem : SharedStasisSystem
         if (!Exists(uid) || !TryComp<SpriteComponent>(uid, out var sprite))
             return;
 
-        if (!stasis.IsVisible)
-        {
-            stasis.ClientOriginalAlpha ??= sprite.Color.A;
-            _sprite.SetColor(uid, sprite.Color.WithAlpha(0f));
-            return;
-        }
-
-        RestoreEntityVisibility(uid, stasis, sprite);
-    }
-
-    private void RestoreEntityVisibility(EntityUid uid, StasisComponent stasis, SpriteComponent? sprite = null)
-    {
-        if (stasis.ClientOriginalAlpha is not { } alpha ||
-            !Resolve(uid, ref sprite, false))
-            return;
-
-        _sprite.SetColor(uid, sprite.Color.WithAlpha(alpha));
-        stasis.ClientOriginalAlpha = null;
+        // Client-side alpha caches can be lost across PVS resyncs.
+        _sprite.SetColor(uid, sprite.Color.WithAlpha(stasis.IsVisible ? 1f : 0f));
     }
 }

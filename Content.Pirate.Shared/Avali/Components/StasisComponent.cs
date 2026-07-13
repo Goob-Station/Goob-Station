@@ -140,10 +140,4 @@ public sealed partial class StasisComponent : Component
     /// </summary>
     [DataField]
     public EntityUid? ClientEnterEffectEntity;
-
-    /// <summary>
-    /// Client-side alpha to restore after the stasis shell is removed.
-    /// </summary>
-    [DataField]
-    public float? ClientOriginalAlpha;
 }
