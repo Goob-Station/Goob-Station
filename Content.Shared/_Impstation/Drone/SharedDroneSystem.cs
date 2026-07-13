@@ -2,7 +2,7 @@
 
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Imp.Drone;
+namespace Content.Shared._Impstation.Drone;
 
     public abstract class SharedDroneSystem : EntitySystem
     {

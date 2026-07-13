@@ -4,16 +4,22 @@ using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Impstation.Consume.Components;
+namespace Content.Shared._Impstation.Kodepiia.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-public sealed partial class ConsumeActionComponent : Component
+public sealed partial class KodepiiaConsumeActionComponent : Component
 {
     [DataField]
     public EntityUid? ConsumeAction;
 
     [DataField]
     public string? ConsumeActionId;
+
+    /// <summary>
+    /// Gib the target when the amount of times consumed reaches this.
+    /// </summary>
+    [DataField]
+    public int GibThreshold = 5;
 
     /// <summary>
     /// Damage dealt to target entity
@@ -66,24 +72,6 @@ public sealed partial class ConsumeActionComponent : Component
     /// </summary>
     [DataField]
     public float PortionDrunk = 0.1f;
-
-    /// <summary>
-    /// Percentage of how much we want to consume.
-    /// </summary>
-    [DataField]
-    public float PercentageConsumed = 0.25f;
-
-    [DataField]
-    public string? PopupSelfStart;
-
-    [DataField]
-    public string? PopupOthersStart;
-
-    [DataField]
-    public string? PopupSelfEnd;
-
-    [DataField]
-    public string? PopupOthersEnd;
 
     [DataField]
     public bool CanGib = true;

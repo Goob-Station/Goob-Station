@@ -31,14 +31,16 @@ public sealed class KodepiiaScramblerSystem : SharedKodepiiaScramblerSystem
     }
     private void Scramble(Entity<KodepiiaScramblerComponent> ent, ref KodepiiaScramblerEvent args)
     {
-        var doargs = new DoAfterArgs(EntityManager, ent, 4, new KodepiiaScramblerDoAfterEvent(), ent)
+        DoAfterArgs doargs = new DoAfterArgs(EntityManager, ent, 4, new KodepiiaScramblerDoAfterEvent(), ent)
         {
             BreakOnDamage = true,
             BreakOnMove = true,
         };
-        var popupOthers = Loc.GetString("kodepiia-scramble-others", ("name", Identity.Entity(ent, EntityManager)), ("ent", ent));
+        string popupOthers = Loc.GetString("kodepiia-scramble-others", ("name", Identity.Entity(ent, EntityManager)), ("ent", ent));
         _popup.PopupEntity(popupOthers, ent, Filter.Pvs(ent).RemovePlayersByAttachedEntity(ent), true, PopupType.MediumCaution);
+
         _audio.PlayPvs(ent.Comp.ScramblerSound, ent);
+
         _doAfter.TryStartDoAfter(doargs);
         args.Handled = true;
     }
@@ -47,18 +49,20 @@ public sealed class KodepiiaScramblerSystem : SharedKodepiiaScramblerSystem
     {
         if (args.Cancelled)
         {
-            _actionsSystem.SetCooldown(ent.Comp.ScramblerAction,TimeSpan.FromSeconds(10));
+            _actionsSystem.SetCooldown(ent.Comp.ScramblerAction, TimeSpan.FromSeconds(10));
             return;
         }
 
         if (args.Handled)
             return;
 
-        if (!TryComp<HumanoidAppearanceComponent>(ent, out var humanoid))
+        if (!TryComp(ent, out HumanoidAppearanceComponent? appearance))
             return;
-        var popupSelf = Loc.GetString("kodepiia-scramble-self", ("name", Identity.Entity(ent, EntityManager)));
-        _humanoidAppearance.LoadProfile(ent, HumanoidCharacterProfile.RandomWithSpecies(humanoid.Species), humanoid);
+        _humanoidAppearance.LoadProfile(ent, HumanoidCharacterProfile.RandomWithSpecies(appearance.Species), appearance);
+
+        string popupSelf = Loc.GetString("kodepiia-scramble-self", ("name", Identity.Entity(ent, EntityManager)));
         _popup.PopupEntity(popupSelf, ent, ent);
+
         args.Handled = true;
     }
 }

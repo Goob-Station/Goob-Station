@@ -10,7 +10,6 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Goobstation.Maths.FixedPoint;
-using Content.Shared.Gibbing;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.EntitySystems;
@@ -20,14 +19,15 @@ using Robust.Server.Audio;
 using Robust.Shared.Audio;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
-using Content.Shared._Impstation.Consume.Components;
-using Content.Shared._Impstation.Consume;
-using Content.Shared.Damage.Systems;
 using Content.Shared.Gibbing.Systems;
+using Content.Shared._Impstation.Kodepiia;
+using Content.Shared._Impstation.Kodepiia.Components;
+using System.Diagnostics.CodeAnalysis;
+using Robust.Server.GameObjects;
 
-namespace Content.Server._Impstation.Consume;
+namespace Content.Server._Impstation.Kodepiia;
 
-public sealed class ConsumeSystem : SharedConsumeSystem
+public sealed class ConsumeSystem : SharedKodepiiaConsumeSystem
 {
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly BodySystem _body = default!;
@@ -42,49 +42,58 @@ public sealed class ConsumeSystem : SharedConsumeSystem
     [Dependency] private readonly RottingSystem _rotting = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly StomachSystem _stomach = default!;
-    [Dependency] private readonly GibbingSystem _gibbing = default!;
 
-    /// <summary>
-    /// How far consumed the consumed must be before they gib
-    /// </summary>
-    private const float GibThreshold = 3.0f;
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ConsumeActionComponent, ConsumeEvent>(Consume);
-        SubscribeLocalEvent<ConsumeActionComponent, ConsumeDoAfterEvent>(ConsumeDoafter);
+        SubscribeLocalEvent<KodepiiaConsumeActionComponent, KodepiiaConsumeEvent>(Consume);
+        SubscribeLocalEvent<KodepiiaConsumeActionComponent, KodepiiaConsumeDoAfterEvent>(ConsumeDoAfter);
     }
 
-    public void Consume(Entity<ConsumeActionComponent> ent, ref ConsumeEvent args)
+    public bool CanConsume(Entity<KodepiiaConsumeActionComponent> performer, EntityUid target, [NotNullWhen(false)] out string? failMessage)
     {
-        if (!_ingestion.HasMouthAvailable(args.Performer, args.Performer))
+        failMessage = null;
+
+        EntityUid targetIdentity = Identity.Entity(target, EntityManager);
+
+        if (!_ingestion.HasMouthAvailable(performer, performer))
+            failMessage = Loc.GetString("kodepiia-consume-fail-blocked");
+        else if (!_whitelist.CheckBoth(target, performer.Comp.Blacklist, performer.Comp.Whitelist))
+            failMessage = Loc.GetString("kodepiia-consume-fail-inedible", ("target", targetIdentity));
+        else if (!_mobState.IsIncapacitated(target))
+            failMessage = Loc.GetString("kodepiia-consume-fail-not-incapacitated", ("target", targetIdentity));
+
+        return failMessage is null;
+    }
+
+    public void Consume(Entity<KodepiiaConsumeActionComponent> ent, ref KodepiiaConsumeEvent args)
+    {
+        if (!CanConsume(ent, args.Target, out string? failMessage))
         {
-            _popup.PopupClient(Loc.GetString("consume-fail-blocked"), ent, ent);
+            _popup.PopupEntity(failMessage, ent, ent);
             return;
         }
 
-        if (!_whitelist.CheckBoth(args.Target, ent.Comp.Blacklist, ent.Comp.Whitelist))
-        {
-            _popup.PopupEntity(Loc.GetString("consume-fail-inedible", ("target", Identity.Entity(args.Target, EntityManager))), ent, ent);
-            return;
-        }
+        PlayConsumeSound(ent);
 
-        if (!_mobState.IsIncapacitated(args.Target))
-        {
-            _popup.PopupEntity(Loc.GetString("consume-fail-incapacitated", ("target", Identity.Entity(args.Target, EntityManager))), ent, ent);
-            return;
-        }
-
-        PlayMeatySound(ent);
-
-        if (!TryComp<PhysicsComponent>(args.Target, out var targetPhysics))
+        if (!TryComp(args.Performer, out PhysicsComponent? performerPhysics)
+            || !TryComp(args.Target, out PhysicsComponent? targetPhysics))
             return;
 
-        if (!TryComp<PhysicsComponent>(args.Performer, out var performerPhysics))
-            return;
+        string popupSelf = Loc.GetString("kodepiia-consume-start-self",
+            ("user", Identity.Entity(ent, EntityManager)),
+            ("target", Identity.Entity(args.Target, EntityManager)));
+        string popupOthers = Loc.GetString("kodepiia-consume-start-others",
+            ("user", Identity.Entity(ent, EntityManager)),
+            ("target", Identity.Entity(args.Target, EntityManager)));
 
-        var doargs = new DoAfterArgs(EntityManager, ent, targetPhysics.Mass / performerPhysics.Mass * ent.Comp.BaseConsumeSpeed, new ConsumeDoAfterEvent(), ent, args.Target)
+        _popup.PopupEntity(popupSelf, ent, ent);
+        _popup.PopupEntity(popupOthers, ent, Filter.Pvs(ent).RemovePlayersByAttachedEntity(ent), true, PopupType.MediumCaution);
+
+        float consumeTime = targetPhysics.Mass / performerPhysics.Mass * ent.Comp.BaseConsumeSpeed;
+
+        DoAfterArgs doAfterArgs = new DoAfterArgs(EntityManager, ent, consumeTime, new KodepiiaConsumeDoAfterEvent(), ent, args.Target)
         {
             DistanceThreshold = 1.5f,
             BreakOnDamage = true,
@@ -94,27 +103,11 @@ public sealed class ConsumeSystem : SharedConsumeSystem
             AttemptFrequency = AttemptFrequency.StartAndEnd
         };
 
-        if (ent.Comp.PopupSelfStart != null)
-        {
-            var popupSelf = Loc.GetString(ent.Comp.PopupSelfStart,
-                ("user", Identity.Entity(ent, EntityManager)),
-                ("target", Identity.Entity(args.Target, EntityManager)));
-            _popup.PopupEntity(popupSelf, ent, ent);
-        }
-
-        if (ent.Comp.PopupOthersStart != null)
-        {
-            var popupOthers = Loc.GetString(ent.Comp.PopupOthersStart,
-                ("user", Identity.Entity(ent, EntityManager)),
-                ("target", Identity.Entity(args.Target, EntityManager)));
-            _popup.PopupEntity(popupOthers, ent, Filter.Pvs(ent).RemovePlayersByAttachedEntity(ent), true, PopupType.MediumCaution);
-        }
-
-        _doAfter.TryStartDoAfter(doargs);
+        _doAfter.TryStartDoAfter(doAfterArgs);
         args.Handled = true;
     }
 
-    public void ConsumeDoafter(Entity<ConsumeActionComponent> ent, ref ConsumeDoAfterEvent args)
+    public void ConsumeDoAfter(Entity<KodepiiaConsumeActionComponent> ent, ref KodepiiaConsumeDoAfterEvent args)
     {
         if (args.Target == null || args.Cancelled || !TryComp<PhysicsComponent>(args.Target, out var targetPhysics))
             return;
@@ -175,35 +168,29 @@ public sealed class ConsumeSystem : SharedConsumeSystem
         _damage.TryChangeDamage(args.Target.Value, ent.Comp.Damage, true, false);
 
         // Play Sound
-        PlayMeatySound(ent);
+        PlayConsumeSound(ent);
 
-        if (ent.Comp.PopupSelfEnd != null)
-        {
-            var popupSelf = Loc.GetString(ent.Comp.PopupSelfEnd,
-                ("user", Identity.Entity(ent, EntityManager)),
-                ("target", Identity.Entity(args.Target.Value, EntityManager)));
-            _popup.PopupEntity(popupSelf, ent, ent);
-        }
+        var popupSelf = Loc.GetString("kodepiia-consume-end-self",
+            ("user", Identity.Entity(ent, EntityManager)),
+            ("target", Identity.Entity(args.Target.Value, EntityManager)));
+        _popup.PopupEntity(popupSelf, ent, ent);
 
-        if (ent.Comp.PopupOthersEnd != null)
-        {
-            var popupOthers = Loc.GetString(ent.Comp.PopupOthersEnd,
-                ("user", Identity.Entity(ent, EntityManager)),
-                ("target", Identity.Entity(args.Target.Value, EntityManager)));
-            _popup.PopupEntity(popupOthers, ent, Filter.Pvs(ent).RemovePlayersByAttachedEntity(ent), true, PopupType.MediumCaution);
-        }
+        var popupOthers = Loc.GetString("kodepiia-consume-end-others",
+            ("user", Identity.Entity(ent, EntityManager)),
+            ("target", Identity.Entity(args.Target.Value, EntityManager)));
+        _popup.PopupEntity(popupOthers, ent, Filter.Pvs(ent).RemovePlayersByAttachedEntity(ent), true, PopupType.MediumCaution);
 
         //Consumed Componentry Stuff lol
-        EnsureComp<ConsumedComponent>(args.Target.Value, out var consumed);
+        EnsureComp<KodepiiaConsumedComponent>(args.Target.Value, out var consumed);
 
-        consumed.ConsumedValue += ent.Comp.PercentageConsumed;
+        consumed.Count++;
         Dirty(args.Target.Value, consumed);
 
-        if (consumed.ConsumedValue >= GibThreshold && TryComp<BodyComponent>(args.Target.Value, out var targetBody) && ent.Comp.CanGib)
-            _body.GibBody(args.Target.Value,true,targetBody);
+        if (consumed.Count >= ent.Comp.GibThreshold && TryComp(args.Target.Value, out BodyComponent? targetBody))
+            _body.GibBody(args.Target.Value, true, targetBody);
     }
 
-    public void PlayMeatySound(Entity<ConsumeActionComponent> ent)
+    public void PlayConsumeSound(Entity<KodepiiaConsumeActionComponent> ent)
     {
         var soundPool = new SoundCollectionSpecifier("gib");
         _audio.PlayPvs(soundPool, ent, AudioParams.Default.WithVolume(-3f));

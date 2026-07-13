@@ -4,7 +4,7 @@ using Content.Shared.Whitelist;
 using Content.Shared.Alert;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Imp.Drone; // Goobstation - Moved into shared
+namespace Content.Shared._Impstation.Drone; // Goobstation - Moved into shared
 
 [RegisterComponent, AutoGenerateComponentPause, AutoGenerateComponentState]
 public sealed partial class DroneComponent : Component

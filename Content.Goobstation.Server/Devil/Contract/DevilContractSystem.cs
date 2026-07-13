@@ -9,7 +9,7 @@ using Content.Goobstation.Server.Possession;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Condemned;
 using Content.Goobstation.Shared.Devil.Contract;
-using Content.Shared._Imp.Drone; // Goob - Moved to shared
+using Content.Shared._Impstation.Drone; // Goob - Moved to shared
 using Content.Server.Body.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Hands.Systems;

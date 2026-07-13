@@ -8,7 +8,7 @@ using JetBrains.Annotations;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Imp.Chemistry.TileReactions
+namespace Content.Server._Impstation.Chemistry.TileReactions
 {
     [UsedImplicitly]
     [DataDefinition]

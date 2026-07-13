@@ -4,7 +4,7 @@ using Content.Server.Ghost.Roles.Components;
 using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Tools.Innate;
-using Content.Shared._Imp.Drone;
+using Content.Shared._Impstation.Drone;
 using Content.Shared.Alert;
 using Content.Shared.Body.Components;
 using Content.Shared.Emoting;
@@ -26,7 +26,7 @@ using Content.Shared.Whitelist;
 using Robust.Server.GameObjects;
 using Robust.Shared.Timing;
 
-namespace Content.Server._Imp.Drone
+namespace Content.Server._Impstation.Drone
 {
     public sealed class DroneSystem : SharedDroneSystem
     {

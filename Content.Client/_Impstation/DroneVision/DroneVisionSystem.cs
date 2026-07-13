@@ -1,10 +1,10 @@
-using Content.Shared._Imp.Drone;
+using Content.Shared._Impstation.Drone;
 using Content.Shared._DV.CCVars;
 using Robust.Client.Graphics;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 
-namespace Content.Client._Imp.DroneVision;
+namespace Content.Client._Impstation.DroneVision;
 
 public sealed partial class DroneVisionSystem : EntitySystem
 {

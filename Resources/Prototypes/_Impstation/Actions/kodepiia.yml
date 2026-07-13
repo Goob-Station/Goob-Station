@@ -27,5 +27,5 @@
     useDelay: 60
   - type: TargetAction
   - type: EntityTargetAction
-    event: !type:ConsumeEvent
+    event: !type:KodepiiaConsumeEvent
     canTargetSelf: false
