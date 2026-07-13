@@ -1,27 +1,4 @@
 - type: entity
-  parent: ClothingMaskPullableBase
-  id: ClothingMaskMantisVeil
-  name: mantis veil
-  description: "A sheer veil ornamented with electrum hoops. Pairs well with your blindfold."
-  components:
-  - type: Sprite
-    sprite: _DEN/Clothing/Mask/mantis_mask_veil.rsi
-  - type: Clothing
-    sprite: _DEN/Clothing/Mask/mantis_mask_veil.rsi
-  - type: Item
-    size: Tiny
-  - type: HideLayerClothing
-    slots:
-    - Snout
-    hideOnToggle: true
-  - type: BreathMask
-  - type: Tag
-    tags:
-    - WhitelistChameleon
-    - MantisBeltStorable
-
-
-- type: entity
   parent: ClothingMaskBase
   id: ClothingMaskMantisRitual
   name: mask of the unburdened

@@ -56,12 +56,16 @@ BoxMaintenanceLightbulb: BoxLightMixed
 BoxPDAPrisoner: BoxPDA
 ClothingBeltMartialBlack: null
 ClothingCostumeArcDress: null
+ClothingHandsGlovesMantisChains: null # Pirate
 ClothingHeadCourier: null
 ClothingHeadHatFedoraBlack: null
 ClothingHeadHatFedoraChoc: null
 #ClothingHeadHatFezMantis: null Pirate
 ClothingHeadPrisonGuard: null
+ClothingMaskMantisVeil: null # Pirate
 ClothingUniformMartialGi: null
+ClothingUniformJumpsuitMantisLoincloth: null # Pirate
+ClothingUniformJumpsuitMantisLoinclothFolded: null # Pirate
 ClothingUniformTShirtKhakiPants: null
 ComputerShipyard: null
 CourierBag: null
