@@ -35,7 +35,6 @@ public sealed partial class BodyScannerSystem : EntitySystem
 
     private void OnNewLink(Entity<BodyScannerComponent> ent, ref NewLinkEvent args)
     {
-        Log.Error("New");
         if (args.SinkPort == ent.Comp.OperatingTablePort
             && TryComp(args.Source, out OperatingTableComponent? tableComp))
         {
