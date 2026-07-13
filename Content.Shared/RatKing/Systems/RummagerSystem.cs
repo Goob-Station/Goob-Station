@@ -72,10 +72,14 @@ public sealed class RummagerSystem : EntitySystem
 
     private void OnDoAfterComplete(Entity<RummageableComponent> ent, ref RummageDoAfterEvent args)
     {
-        if (args.Cancelled || ent.Comp.Looted)
+        // Pirate: restore repeat rummaging lost during the Rat King refactor.
+        var time = _gameTiming.CurTime;
+        if (args.Cancelled ||
+            ent.Comp.Looted ||
+            time < ent.Comp.LastLooted + ent.Comp.RummageCooldown)
             return;
 
-        ent.Comp.Looted = true;
+        ent.Comp.LastLooted = time;
         Dirty(ent, ent.Comp);
         _audio.PlayPredicted(ent.Comp.Sound, ent, args.User);
 
