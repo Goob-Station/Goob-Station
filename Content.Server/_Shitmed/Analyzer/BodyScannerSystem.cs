@@ -40,6 +40,8 @@ public sealed partial class BodyScannerSystem : EntitySystem
         {
             ent.Comp.OperatingTable = args.Source;
             tableComp.LinkedScanner = ent;
+            Dirty(ent);
+            Dirty(args.Source, tableComp);
         }
     }
     private void OnPortDisconnected(Entity<BodyScannerComponent> ent, ref PortDisconnectedEvent args)
@@ -47,10 +49,14 @@ public sealed partial class BodyScannerSystem : EntitySystem
         if (args.Port != ent.Comp.OperatingTablePort)
             return;
 
-        ent.Comp.OperatingTable = null;
-
-        if (TryComp(ent, out OperatingTableComponent? table))
+        if (TryComp(ent.Comp.OperatingTable, out OperatingTableComponent? table))
+        {
             table.LinkedScanner = null;
+            Dirty(ent, table);
+        }
+
+        ent.Comp.OperatingTable = null;
+        Dirty(ent);
 
         if (TryComp(ent, out HealthAnalyzerComponent? analyzer) && analyzer.ScannedEntity != null)
             _healthAnalyzer.StopAnalyzingEntity((ent, analyzer), analyzer.ScannedEntity.Value);
