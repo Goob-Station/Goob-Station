@@ -1,0 +1,156 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Pirate: Avali survival boxes replace plant-based rations with tinned meat.
+
+- type: entity
+  parent: BoxSurvivalSlots
+  id: BoxSurvivalSlotsAvali
+  suffix: Standard, Avali
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodTinMRE
+      flare:
+      - Flare
+      tank:
+      - EmergencyOxygenTankFilled
+      mask:
+      - ClothingMaskBreath
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+
+- type: entity
+  parent: BoxSurvivalSlotsEngineering
+  id: BoxSurvivalSlotsEngineeringAvali
+  suffix: Extended, Avali
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodTinMRE
+      flare:
+      - Flare
+      tank:
+      - ExtendedEmergencyOxygenTankFilled
+      mask:
+      - ClothingMaskBreath
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+
+- type: entity
+  parent: BoxSurvivalSlotsSecurity
+  id: BoxSurvivalSlotsSecurityAvali
+  suffix: Security, Avali
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodTinMRE
+      flare:
+      - Flare
+      tank:
+      - ExtendedEmergencyOxygenTankFilled
+      mask:
+      - ClothingMaskGasSecurity
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+
+- type: entity
+  parent: BoxSurvivalSlotsMedical
+  id: BoxSurvivalSlotsMedicalAvali
+  suffix: Medical, Avali
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodTinMRE
+      flare:
+      - Flare
+      tank:
+      - EmergencyOxygenTankFilled
+      mask:
+      - ClothingMaskBreathMedical
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+
+- type: entity
+  parent: BoxHugSlots
+  id: BoxHugSlotsAvali
+  suffix: Emergency, Avali
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodTinMRE
+      flare:
+      - Flare
+      tank:
+      - EmergencyFunnyOxygenTankFilled
+      mask:
+      - ClothingMaskBreath
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+
+- type: entity
+  parent: BoxMimeSlots
+  id: BoxMimeSlotsAvali
+  suffix: Mime, Emergency, Avali
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodTinMRE
+      flare:
+      - Flare
+      tank:
+      - EmergencyOxygenTankFilled
+      mask:
+      - ClothingMaskBreath
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+
+- type: entity
+  parent: BoxSurvivalSlotsSyndicate
+  id: BoxSurvivalSlotsSyndicateAvali
+  suffix: Syndicate, Avali
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodTinMRE
+      flare:
+      - Flare
+      tank:
+      - ExtendedEmergencyOxygenTankFilled
+      mask:
+      - ClothingMaskGasSyndicate
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen

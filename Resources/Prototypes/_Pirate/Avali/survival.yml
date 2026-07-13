@@ -1,0 +1,71 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: loadoutEffectGroup
+  id: AvaliBreather
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Avali
+
+- type: loadout
+  id: EmergencyOxygenAvali
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: AvaliBreather
+  storage:
+    back:
+    - BoxSurvivalSlotsAvali
+
+- type: loadout
+  id: EmergencyOxygenAvaliClown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: AvaliBreather
+  storage:
+    back:
+    - BoxHugSlotsAvali
+
+- type: loadout
+  id: EmergencyOxygenAvaliMime
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: AvaliBreather
+  storage:
+    back:
+    - BoxMimeSlotsAvali
+
+- type: loadout
+  id: EmergencyOxygenAvaliExtended
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: AvaliBreather
+  storage:
+    back:
+    - BoxSurvivalSlotsEngineeringAvali
+
+- type: loadout
+  id: EmergencyOxygenAvaliMedical
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: AvaliBreather
+  storage:
+    back:
+    - BoxSurvivalSlotsMedicalAvali
+
+- type: loadout
+  id: EmergencyOxygenAvaliSecurity
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: AvaliBreather
+  storage:
+    back:
+    - BoxSurvivalSlotsSecurityAvali
+
+- type: loadout
+  id: EmergencyOxygenAvaliSyndicate
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: AvaliBreather
+  storage:
+    back:
+    - BoxSurvivalSlotsSyndicateAvali
