@@ -195,6 +195,12 @@
         {
             "name": "plushietwofish-inhand-right",
             "directions": 4
+        },
+        {
+            "name": "plushie_redstonewolf"
+        },
+        {
+            "name": "plushie_wehmin"
         }
     ]
 }
