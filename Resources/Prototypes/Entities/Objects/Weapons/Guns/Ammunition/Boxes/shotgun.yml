@@ -47,8 +47,8 @@
 - type: entity
   parent: AmmoProviderShotgunShell
   id: BoxBeanbag
-  name: ammunition box (12 Gauge beanbag) # Goob edit
-  description: A cardboard box of 12 Gauge shotgun shells. Intended to hold less-than-lethal beanbag ammunition.
+  name: "коробка боєприпасів (12 Gauge мішечки)" # Goob edit
+  description: "Картонна коробка дробових набоїв 12 Gauge. Призначена для менш ніж летальних боєприпасів-мішечків."
   components:
     - type: BallisticAmmoProvider
       proto: ShellShotgunBeanbag
@@ -63,8 +63,8 @@
 - type: entity
   parent: AmmoProviderShotgunShell
   id: BoxLethalshot
-  name: ammunition box (12 Gauge pellet) # Goob edit
-  description: A cardboard box of 12 Gauge shotgun shells. Intended to hold general-purpose kinetic ammunition.
+  name: "коробка боєприпасів (12 Gauge дріб)" # Goob edit
+  description: "Картонна коробка дробових набоїв 12 Gauge. Призначена для універсальних кінетичних боєприпасів."
   components:
     - type: BallisticAmmoProvider
       proto: ShellShotgun
@@ -79,8 +79,8 @@
 - type: entity
   parent: AmmoProviderShotgunShell
   id: BoxShotgunSlug
-  name: ammunition box (12 Gauge slug) # Goob edit
-  description: A cardboard box of 12 Gauge shotgun shells. Intended to hold long-ranged slug ammunition.
+  name: "коробка боєприпасів (12 Gauge куля)" # Goob edit
+  description: "Картонна коробка дробових набоїв 12 Gauge. Призначена для далекобійних кульових боєприпасів."
   components:
     - type: BallisticAmmoProvider
       proto: ShellShotgunSlug
@@ -99,8 +99,8 @@
 - type: entity
   parent: AmmoProviderShotgunShell
   id: BoxShotgunFlare
-  name: ammunition box (12 Gauge flare) # Goob edit
-  description: A cardboard box of 12 Gauge shotgun shells. Intended to hold illuminating flare ammunition.
+  name: "коробка боєприпасів (12 Gauge сигнальні)" # Goob edit
+  description: "Картонна коробка дробових набоїв 12 Gauge. Призначена для освітлювальних сигнальних боєприпасів."
   components:
     - type: BallisticAmmoProvider
       proto: ShellShotgunFlare
@@ -115,8 +115,8 @@
 - type: entity
   parent: AmmoProviderShotgunShell
   id: BoxShotgunIncendiary
-  name: ammunition box (12 Gauge incendiary) # Goob edit
-  description: A cardboard box of 12 Gauge shotgun shells. Intended to hold self-igniting incendiary ammunition.
+  name: "коробка боєприпасів (12 Gauge запалювальні)" # Goob edit
+  description: "Картонна коробка дробових набоїв 12 Gauge. Призначена для самозаймистих запалювальних боєприпасів."
   components:
     - type: BallisticAmmoProvider
       proto: ShellShotgunIncendiary
@@ -131,8 +131,8 @@
 - type: entity
   parent: AmmoProviderShotgunShell
   id: BoxShotgunUranium
-  name: ammunition box (12 Gauge uranium) # Goob edit
-  description: A cardboard box of 12 Gauge shotgun shells. Intended to hold exotic uranium-core ammunition.
+  name: "коробка набоїв (12 калібр уранові)" # Goob edit
+  description: "Картонна коробка рушничних набоїв 12 калібру. Призначена для екзотичних набоїв з урановим осердям."
   components:
     - type: BallisticAmmoProvider
       proto: ShellShotgunUranium
@@ -151,8 +151,8 @@
 - type: entity
   parent: AmmoProviderShotgunShell
   id: BoxShotgunPractice
-  name: ammunition box (12 Gauge practice) # Goob edit
-  description: A cardboard box of 12 Gauge shotgun shells. Intended to hold harmless practice ammunition.
+  name: "коробка боєприпасів (12 Gauge тренувальні)" # Goob edit
+  description: "Картонна коробка дробових набоїв 12 Gauge. Призначена для нешкідливих тренувальних боєприпасів."
   components:
     - type: BallisticAmmoProvider
       proto: ShellShotgunPractice
@@ -167,8 +167,8 @@
 - type: entity
   parent: AmmoProviderShotgunShell
   id: BoxShellTranquilizer
-  name: ammunition box (12 Gauge tranquilizer) # Goob edit
-  description: A cardboard box of 12 Gauge shotgun shells. Intended to hold nonlethal tranquilizer ammunition.
+  name: "коробка боєприпасів (12 Gauge транквілізатор)" # Goob edit
+  description: "Картонна коробка дробових набоїв 12 Gauge. Призначена для нелетальних транквілізаторних боєприпасів."
   components:
     - type: BallisticAmmoProvider
       proto: ShellTranquilizer

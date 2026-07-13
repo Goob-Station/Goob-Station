@@ -1,8 +1,8 @@
 - type: entity
-  name: bone axe
+  name: "кістяна сокира"
   parent: [ BaseItem, BaseMajorContraband ]
   id: BoneAxe
-  description: An axe made of bones. A primitive hunters favorite... probably.
+  description: "Сокира, зроблена з кісток. Улюблена зброя примітивного мисливця... мабуть."
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Weapons/Melee/bone_axe.rsi
@@ -57,10 +57,10 @@
     node: axe
 
 - type: entity
-  name: bone dagger
+  name: "кістяний кинджал"
   parent: [ BaseKnife, BaseMajorContraband ]
   id: DaggerBone
-  description: A sharpened bone. The bare minimum in survival.
+  description: "Загострена кістка. Абсолютний мінімум для виживання."
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Weapons/Melee/bone_dagger.rsi

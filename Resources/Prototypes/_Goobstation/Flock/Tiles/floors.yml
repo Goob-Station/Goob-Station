@@ -1,6 +1,6 @@
 - type: tile
   id: FloorFlockZone1
-  name: tiles-flockzone-floor-steel
+  name: "плитка-зграя-підлога-сталь"
   sprite: /Textures/_Goobstation/Flock/Tiles/FZTile1.png
   baseTurf: Plating
   isSubfloor: false
@@ -11,8 +11,8 @@
 
 - type: entity
   id: FloorFlockZone2
-  name: tiles-flockzone-floor-light
-  description: It hums with power.
+  name: "плитка-зграя-підлога-світло"
+  description: "Вона гуде від енергії."
   placement:
     mode: SnapgridCenter
     snap:
@@ -44,7 +44,7 @@
 
 - type: tile
   id: FloorFlockZone3
-  name: tiles-flockzone-floor-diagonal
+  name: "плитка-зграя-підлога-діагональ"
   sprite: /Textures/_Goobstation/Flock/Tiles/FZTile3.png
   baseTurf: Plating
   isSubfloor: false

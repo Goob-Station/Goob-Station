@@ -7,8 +7,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitRecruitNT
-  name: recruit jumpsuit
-  description: A classy grey jumpsuit with blue trims. Perfect for the dignified helper.
+  name: "комбінезон новобранця"
+  description: "Стильний комбінезон сірого кольору з синьою обробкою. Ідеальний для гідної помічниці."
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/recruit_nt.rsi
@@ -18,8 +18,8 @@
 - type: entity
   parent: [ ClothingUniformBase, BaseSyndicateContraband ]
   id: ClothingUniformJumpsuitRecruitSyndie
-  name: syndicate recruit jumpsuit
-  description: A dubious, dark-grey jumpsuit. As if passengers weren't dubious enough already.
+  name: "комбінезон новобранця синдикату"
+  description: "Сумнівний, темно-сірий комбінезон. Ніби пасажири й так не були достатньо сумнівними."
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/recruit_syndie.rsi
@@ -30,8 +30,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitRepairmanNT
-  name: repairman jumpsuit
-  description: A jumpsuit that reminds you of a certain crew-sector work position. Hopefully, you won't have to do the same job as THOSE freaks.
+  name: "комбінезон ремонтника"
+  description: "Комбінезон, який нагадує вам про певну робочу позицію в екіпажі. Сподіваємося, вам не доведеться виконувати ту саму роботу, що й цим виродкам."
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/repairman_nt.rsi
@@ -41,8 +41,8 @@
 - type: entity
   parent: [ ClothingUniformBase, BaseSyndicateContraband ]
   id: ClothingUniformJumpsuitRepairmanSyndie
-  name: syndicate repairman jumpsuit
-  description: Functional, fashionable, and badass. Nanotrasen's engineers wish they could look as good as this.
+  name: "комбінезон ремонтника синдикату"
+  description: "Функціональний, модний і крутий. Інженери Nanotrasen хотіли б виглядати так само добре."
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/repairman_syndie.rsi
@@ -53,8 +53,8 @@
 - type: entity
   parent: [ ClothingUniformBase, BaseSyndicateContraband ]
   id: ClothingUniformJumpsuitParamedicSyndie
-  name: syndicate paramedic jumpsuit
-  description: For some reason, wearing this makes you feel like you're awfully close to violating the Geneva Convention.
+  name: "комбінезон парамедика синдикату"
+  description: "Чомусь, одягаючи його, ви відчуваєте, що дуже близькі до того, щоб порушити Женевську конвенцію."
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/paramedic_syndie.rsi
@@ -66,8 +66,8 @@
 - type: entity
   parent: [ ClothingUniformBase, BaseSyndicateContraband ]
   id: ClothingUniformJumpsuitChiefEngineerSyndie
-  name: syndicate chief engineer jumpsuit
-  description: An evil-looking jumpsuit with a reflective vest & red undershirt. #TODO: Write a better description for this once Ship vs. Ship is real and actual player habits begin forming
+  name: "комбінезон головного інженера синдикату"
+  description: "Зловісний комбінезон зі світловідбиваючим жилетом і червоною майкою." #TODO: Write a better description for this once Ship vs. Ship is real and actual player habits begin forming
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/ce_syndie.rsi

@@ -1,15 +1,15 @@
 - type: entity
   id: XenoExtractChronofield
   parent: Chronofield
-  name: sepia chronofield
+  name: "сепієве хронополе"
   components:
   - type: TimedDespawn
     lifetime: 15
 
 - type: entity
   id: XenoGooWall
-  name: gelatinous growth
-  description: This could very well be the blob from space LIDL.
+  name: "драглистий наріст"
+  description: "Це цілком може бути блоб із космічного ЛІДЛу."
   placement:
     mode: SnapgridCenter
     snap:
@@ -67,7 +67,7 @@
     color: teal
 
 - type: entity
-  name: random hostile mob spawner
+  name: "випадковий спавнер ворожих мобів"
   id: RHostileMobSpawner
   parent: MarkerBase
   components:
@@ -109,7 +109,7 @@
     offset: 0.0
 
 - type: entity
-  name: random neutral mob spawner
+  name: "випадковий спавнер нейтральних мобів"
   id: RNeutralMobSpawner
   parent: MarkerBase
   components:
@@ -137,7 +137,7 @@
     offset: 0.0
 
 - type: entity
-  name: random passive mob spawner
+  name: "випадковий спавнер пасивних мобів"
   id: RPassiveMobSpawner
   parent: MarkerBase
   components:

@@ -2,8 +2,8 @@
   parent: [ BaseSimpleMob, FlyingMobBase ]
   abstract: true
   id: MobCosmicColossusBase
-  name: entropic colossus
-  description: A colossal monstrosity of malign plating and dendritic infestation.
+  name: "ентропійний колос"
+  description: "Колосальна потвора зі згубного панциру та дендритного зараження."
   components:
   - type: FTLSmashImmune
   - type: CosmicCultExamine
@@ -259,7 +259,7 @@
   categories: [ HideSpawnMenu ]
   id: MobCosmicColossusLone
   suffix: MidRoundAntag
-  description: An ancient monstrosity of malign plating and dendritic infestation.
+  description: "Стародавня потвора зі згубного панциру та дендритного зараження."
   components:
   - type: RandomMetadata
     nameSegments:

@@ -2,8 +2,8 @@
   parent: BookBase
   id: PirateLoadoutDummyRandomBook
   categories: [ HideSpawnMenu ]
-  name: random book
-  description: A notebook with a random cover. Can be used as a diary, or for writing fanfiction drafts for SpacePad.
+  name: "випадкова книга"
+  description: "Записник з випадковою обкладинкою. Можна використовувати як щоденник або для написання чернеток фанфіків для SpacePad."
   components:
   - type: Sprite
     sprite: Objects/Misc/books.rsi

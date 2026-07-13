@@ -17,10 +17,10 @@
 
 - type: entity
   abstract: true
-  name: cult dagger
+  name: "кинджал культу"
   parent: [ BaseItem, BaseBloodCultContraband ]
   id: CultDagger
-  description: A sickening, crude bone blade. Tar-like ooze drips from the edge, poisoning your foes and protecting allies from your strikes. Useful as both a melee weapon and a throwing knife. Your veins pulse in anticipation - images of runes already flashing into your mind as you hold it.
+  description: "Нудотне грубе кістяне лезо. З краю крапає дьогтеподібна жижа, отруюючи ваших ворогів і захищаючи союзників від ваших ударів. Корисний і як зброя ближнього бою, і як метальний ніж. Ваші вени пульсують в очікуванні - образи рун уже спалахують у вашій свідомості, коли ви тримаєте його."
   components:
   - type: Sharp
   - type: Sprite
@@ -96,7 +96,7 @@
     angle: 225
 
 - type: entity
-  name: cult dagger
+  name: "кинджал культу"
   suffix: Curved
   parent: CultDagger
   id: CultDaggerCurved
@@ -107,7 +107,7 @@
     sprite: _Pirate/Objects/Weapons/Melee/bloodcult_dagger_curved.rsi
 
 - type: entity
-  name: cult dagger
+  name: "кинджал культу"
   suffix: Serrated
   parent: CultDagger
   id: CultDaggerSerrated
@@ -118,7 +118,7 @@
     sprite: _Pirate/Objects/Weapons/Melee/bloodcult_dagger_serrated.rsi
 
 - type: entity
-  name: cult dagger
+  name: "кинджал культу"
   suffix: Straight
   parent: CultDagger
   id: CultDaggerStraight

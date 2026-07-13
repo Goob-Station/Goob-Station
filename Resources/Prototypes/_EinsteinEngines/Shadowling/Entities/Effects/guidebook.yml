@@ -1,7 +1,7 @@
 - type: entity
   id: GuidebookShadowling
-  name: guidebook shadowling
-  description: what
+  name: "довідник тіньовика"
+  description: "що"
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

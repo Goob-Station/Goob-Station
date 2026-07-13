@@ -2,8 +2,8 @@
   abstract: true
   parent: Paper
   id: PaperAcquisitionSlip
-  name: acquisition slip
-  description: A slip with order details on it. It can be given to Cargo to complete the order.
+  name: "квитанція про придбання"
+  description: "Квитанція з деталями замовлення. Її можна віддати у Вантажний відділ для виконання замовлення."
   components:
   - type: Sprite
     layers:

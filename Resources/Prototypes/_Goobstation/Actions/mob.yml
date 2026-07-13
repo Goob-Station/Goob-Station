@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseAction
   id: ActionMouseCall
-  name: Mousecall
-  description: Call nearby mice to your location.
+  name: "Виклик мишей"
+  description: "Покличте найближчих мишей до себе."
   components:
   - type: Action
     icon:

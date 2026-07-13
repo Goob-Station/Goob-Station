@@ -1,8 +1,8 @@
 - type: entity
   parent: OrganHumanStomach
   id: OrganOniStomach
-  name: oni stomach
-  description: Ew, this is hard to stomach. Larger than normal
+  name: "шлунок оні"
+  description: "Фу, це важко перетравити. Більший за звичайний"
   components:
   - type: Stomach
     specialDigestible:
@@ -28,7 +28,7 @@
 - type: entity
   parent: OrganHumanLiver
   id: OrganOniLiver
-  name: oni liver
+  name: "печінка оні"
   components:
   - type: Metabolizer
     metabolizerTypes: [Oni]

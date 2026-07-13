@@ -2,8 +2,8 @@
   abstract: true
   parent: [ ClothingBeltBase, ClothingSlotBase, BaseMajorContraband ]
   id: ClothingBeltKatanaSheathBase
-  name: crimson sheath
-  description: A sheath that houses the nimble katana.
+  name: "багряні піхви"
+  description: "Піхви, що вміщують спритну катану."
   components:
   - type: Item
     size: Ginormous
@@ -23,8 +23,8 @@
   abstract: true
   parent: [ ClothingBeltBase, ClothingSlotBase, BaseMajorContraband ]
   id: ClothingBeltEnergyKatanaSheathBase
-  name: energy katana sheath
-  description: A high tech katana sheath that allows for quick blade movements.
+  name: "піхви для енергетичної катани"
+  description: "Високотехнологічні піхви для катани, що дозволяють швидкі рухи клинком."
   components:
   - type: Item
     size: Ginormous
@@ -74,8 +74,8 @@
 - type: entity
   parent: ClothingBeltKatanaSheathBase
   id: ClothingBeltDarkKatanaSheath
-  name: dark sheath
-  description: A plain black sheath built for a quick, silent draw.
+  name: "темні піхви"
+  description: "Прості чорні піхви, створені для швидкого й тихого вихоплення."
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Belt/dark_sheath.rsi

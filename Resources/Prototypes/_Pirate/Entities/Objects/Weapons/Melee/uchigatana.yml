@@ -1,8 +1,8 @@
 - type: entity
   parent: Katana
   id: Uchigatana
-  name: katana
-  description: Woefully underpowered in D20.
+  name: "катана"
+  description: "Разюче недооцінена в D20."
   components:
   - type: Contraband
     severity: Restricted

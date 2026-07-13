@@ -1,8 +1,8 @@
 - type: entity
   id: StasisOperatingTable
-  name: stasis operating table
+  name: "стазисний операційний стіл"
   parent: [ StasisBed, OperatingTable ]
-  description: Used for advanced medical procedures. Massively slows down the patient's metabolism and prevents bodily decay.
+  description: "Використовується для складних медичних процедур. Значно уповільнює метаболізм пацієнта та запобігає розкладанню тіла."
   components:
   - type: Sprite
     sprite: _CorvaxGoob/Structures/Machines/stasis_operation_table.rsi

@@ -1,8 +1,8 @@
 - type: entity
   id: AltarClock
   parent: AltarBase
-  name: clockwork altar
-  description: Altar of the Ratvar.
+  name: "годинниковий вівтар"
+  description: "Вівтар Ратвара."
   components:
   - type: Sprite
     sprite: _ShitChap/Structures/clockaltar.rsi
@@ -21,8 +21,8 @@
 - type: entity
   id: AltarDragon
   parent: AltarBase
-  name: draconic altar
-  description: Altar of the dragons.
+  name: "драконівський вівтар"
+  description: "Вівтар драконів."
   components:
   - type: Sprite
     sprite: _ShitChap/Structures/dragonaltar.rsi
@@ -48,8 +48,8 @@
 - type: entity
   id: AltarEmpire
   parent: AltarBase
-  name: imperial altar
-  description: Altar of the Great Emperor
+  name: "імперський вівтар"
+  description: "Вівтар Великого Імператора"
   components:
   - type: Sprite
     sprite: _ShitChap/Structures/empirealtar.rsi

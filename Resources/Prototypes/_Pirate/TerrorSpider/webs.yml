@@ -1,8 +1,8 @@
 - type: entity
   id: SpiderWebAirtight
   parent: SpiderWebBase
-  name: airtight spider web
-  description: It's stringy, sticky and airtight.
+  name: "повітронепроникна павутина"
+  description: "Вона волокниста, липка й повітронепроникна."
   components:
   - type: Airtight
     # Pirate - airtight web should seal the room, not vacuum its own tile.
@@ -58,8 +58,8 @@
 - type: entity
   id: SpiderWebStrong
   parent: SpiderWebBase
-  name: strong spider web
-  description: It's stringy, sticky and strong.
+  name: "міцна павутина"
+  description: "Вона волокниста, липка й міцна."
   components:
   - type: Sprite
     color: "#ffffffdd"
@@ -102,8 +102,8 @@
 - type: entity
   id: SpiderWebStrongThick
   parent: SpiderWebStrong
-  name: thick spider web
-  description: It's stringy, sticky, opaque and strong.
+  name: "товста павутина"
+  description: "Вона волокниста, липка, непрозора й міцна."
   components:
   - type: Occluder
   - type: TerrorSpiderWebOccluder
@@ -130,8 +130,8 @@
 - type: entity
   id: SpiderWebSlime
   parent: SpiderWebBase
-  name: slime spider web
-  description: It's stringy and sticky.
+  name: "слизова павутина"
+  description: "Вона волокниста й липка."
   components:
   - type: Sprite
     color: "#94ffcdbe"
@@ -182,8 +182,8 @@
 - type: entity
   id: SpiderWebPoison
   parent: SpiderWebSlime
-  name: poison spider web
-  description: It's stringy and sticky.
+  name: "отруйна павутина"
+  description: "Вона волокниста й липка."
   components:
   - type: Sprite
     color: "#009926bd"
@@ -202,8 +202,8 @@
 - type: entity
   id: SpiderWebStealth
   parent: SpiderWebBase
-  name: stealth spider web
-  description: It's stringy, sticky.
+  name: "прихована павутина"
+  description: "Вона волокниста й липка."
   components:
   - type: Sprite
     color: "#ffffff5e"
@@ -246,8 +246,8 @@
 - type: entity
   id: SpiderWebSpiderlings
   parent: SpiderWeb
-  name: spiderlings spider web
-  description: It's stringy, sticky. Contains a solution that keeps spiderlings away.
+  name: "павутина для павученят"
+  description: "Вона волокниста й липка. Містить розчин, який тримає павученят подалі."
   components:
   - type: Fixtures
     fixtures:

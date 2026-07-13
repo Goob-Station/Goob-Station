@@ -1,6 +1,6 @@
 - type: body
   id: Goblin
-  name: "goblin"
+  name: "гоблін"
   root: chest
   slots:
     head:

@@ -4,7 +4,7 @@
   abstract: true
   parent: BaseCartridge
   id: BaseShellShotgun
-  name: shell (12 Gauge) # Goobstation
+  name: "патрон (12 калібр)" # Goobstation
   components:
   - type: Tag
     tags:
@@ -23,7 +23,7 @@
 - type: entity
   parent: [ BaseShellShotgun, BaseSecurityBartenderContraband ]
   id: ShellShotgunBeanbag
-  name: shell (12 Gauge beanbag) # Goobstation
+  name: "патрон (12 калібр гумова куля)" # Goobstation
   components:
   - type: Tag
     tags:
@@ -41,7 +41,7 @@
 - type: entity
   parent: [ BaseShellShotgun, BaseSecurityContraband]
   id: ShellShotgunSlug
-  name: shell (12 Gauge slug) # Goobstation
+  name: "патрон (12 калібр куля)" # Goobstation
   components:
   - type: Sprite
     layers:
@@ -55,7 +55,7 @@
 - type: entity
   parent: BaseShellShotgun
   id: ShellShotgunFlare
-  name: shell (12 Gauge flare) # Goobstation
+  name: "патрон (12 калібр сигнальний)" # Goobstation
   components:
   - type: Tag
     tags:
@@ -73,7 +73,7 @@
 - type: entity
   parent: [ BaseShellShotgun, BaseSecurityContraband ]
   id: ShellShotgun
-  name: shell (12 Gauge) # Goobstation
+  name: "патрон (12 калібр)" # Goobstation
   components:
   - type: Sprite
     layers:
@@ -85,7 +85,7 @@
 - type: entity
   parent: [ BaseShellShotgun, BaseSecurityContraband ]
   id: ShellShotgunIncendiary
-  name: shell (12 Gauge incendiary) # Goobstation
+  name: "патрон (12 калібр запалювальний)" # Goobstation
   components:
   - type: Sprite
     layers:
@@ -99,7 +99,7 @@
 - type: entity
   parent: [ BaseShellShotgun, BaseSecurityContraband ]
   id: ShellShotgunPractice
-  name: shell (12 Gauge practice) # Goobstation
+  name: "патрон (12 калібр тренувальний)" # Goobstation
   components:
   - type: Sprite
     layers:
@@ -113,7 +113,7 @@
 - type: entity
   parent: [ BaseShellShotgun, BaseSecurityContraband ]
   id: ShellTranquilizer
-  name: shell (12 Gauge tranquilizer) # Goobstation
+  name: "патрон (12 калібр транквілізатор)" # Goobstation
   components:
   - type: Tag
     tags:
@@ -140,8 +140,8 @@
 - type: entity
   parent: [ BaseShellShotgun, BaseSecurityContraband ]
   id: ShellShotgunImprovised
-  name: improvised shotgun shell
-  description: A homemade shotgun shell loaded with chunks of glass shrapnel. Surprisingly effective, but the spread is so wide that you couldn't hit the broad side of a barn.
+  name: "саморобний рушничний набій"
+  description: "Саморобний рушничний набій, заряджений уламками скла. На диво ефективний, але розліт такий широкий, що ви не влучили б навіть у стіну сараю."
   components:
   - type: Tag
     tags:
@@ -162,8 +162,8 @@
 - type: entity
   parent: [ BaseShellShotgun, BaseSecurityContraband ]
   id: ShellShotgunUranium
-  name: uranium shotgun shell
-  description: The standard cartridge used by most modern shotguns. Uranium ammunition replaces the lead core of the pellets with fissile material, irradiating targets from the inside.
+  name: "урановий дробовий набій"
+  description: "Стандартний патрон, що використовується більшістю сучасних дробовиків. Уранові боєприпаси замінюють свинцеве осердя дробин на подільний матеріал, опромінюючи цілі зсередини."
   components:
     - type: Sprite
       layers:

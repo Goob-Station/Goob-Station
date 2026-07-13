@@ -3,8 +3,8 @@
 - type: entity
   parent: [ DrinkBaseMaterialStrongPlastic, DrinkBase, DrinkVisualsAll ]
   id: Jug
-  name: jug
-  description: Used to contain a very large amount of chemicals or solutions. Chugging is extremely ill-advised.
+  name: "бутль"
+  description: "Використовується для зберігання дуже великої кількості хімічних речовин або розчинів. Вживати його вкрай нерозумно."
   components:
   - type: Sprite
     sprite: Objects/Specific/Chemistry/jug.rsi

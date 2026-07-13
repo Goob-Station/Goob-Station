@@ -46,8 +46,8 @@
 - type: entity
   id: MachineFTLDrive
   parent: FTLDriveBase
-  name: FSS-512 bluespace drive
-  description: Low-power bluespace FTL engine that increases FTL radius.
+  name: "Блюспейс-двигун FSS-512"
+  description: "Малопотужний блюспейс-двигун, що збільшує радіус НПЛ-стрибка."
   components:
   - type: Sprite
     sprite: _Mono/Structures/ShuttleComponents/drive.rsi
@@ -76,8 +76,8 @@
 - type: entity
   id: MachineFTLDriveHigh
   parent: FTLDriveBase
-  name: CTLA-2048 bluespace drive
-  description: High-power bluespace FTL engine that drastically extends FTL radius. Has high cooldown time.
+  name: "блюспейс-двигун CTLA-2048"
+  description: "Потужний блюспейс-двигун, що значно розширює радіус НПЛ-стрибка. Має тривалий час перезарядки."
   components:
   - type: Sprite
     sprite: _Mono/Structures/ShuttleComponents/drive.rsi
@@ -106,8 +106,8 @@
 - type: entity
   id: MachineFTLDriveAutomated
   parent: FTLDriveBase
-  name: CTLA-2048 bluespace drive
-  description: FTL Drive for Fixed Route Transport, has short cooldown at the cost of only working for Nanotrasen's preengineered transport routes
+  name: "блюспейс-двигун CTLA-2048"
+  description: "НПШ-двигун для транспортування за фіксованим маршрутом, має короткий час перезарядки за рахунок роботи тільки на заздалегідь розроблених транспортних маршрутах Nanotrasen"
   components:
   - type: Sprite
     sprite: _Mono/Structures/ShuttleComponents/drive.rsi
@@ -138,8 +138,8 @@
 - type: entity
   id: MachineFTLDriveDebug
   parent: FTLDriveBase
-  name: debug bluespace drive
-  description: Super-duper kool drive, only for testing!
+  name: "відлагоджувальний блюспейс-двигун"
+  description: "Супер-пупер крутий двигун, тільки для тестування!"
   suffix: DEBUG
   components:
   - type: Sprite

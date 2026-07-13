@@ -3,8 +3,8 @@
 - type: entity
   id: BoxSurvivalSlots
   parent: BaseItem
-  name: survival box
-  description: It's a box with basic internals inside.
+  name: "коробка для виживання"
+  description: "Це коробка з базовими внутрішніми компонентами."
   suffix: Standard
   components:
   - type: Sprite
@@ -193,8 +193,8 @@
 - type: entity
   parent: BoxSurvivalSlots
   id: BoxSurvivalSlotsEngineering
-  name: extended-capacity survival box
-  description: It's a box with basic internals inside. This one is labelled to contain an extended-capacity tank.
+  name: "коробка для виживання збільшеної місткості"
+  description: "Це коробка з базовими внутрішніми компонентами. На цій зазначено, що вона містить балон збільшеної місткості."
   suffix: Extended
   components:
   - type: ContainerFill
@@ -245,8 +245,8 @@
 - type: entity
   parent: BoxSurvivalSlots
   id: BoxSurvivalSlotsSecurity
-  name: survival box
-  description: It's a box with basic internals inside.
+  name: "коробка для виживання"
+  description: "Це коробка з базовими внутрішніми компонентами."
   suffix: Security
   components:
   - type: ContainerFill
@@ -297,8 +297,8 @@
 - type: entity
   parent: BoxSurvivalSlots
   id: BoxSurvivalSlotsMedical
-  name: survival box
-  description: It's a box with basic internals inside.
+  name: "коробка для виживання"
+  description: "Це коробка з базовими внутрішніми компонентами."
   suffix: Medical
   components:
   - type: ContainerFill
@@ -349,8 +349,8 @@
 - type: entity
   parent: BoxSurvivalSlots
   id: BoxHugSlots
-  name: box of hugs
-  description: A special box for sensitive people.
+  name: "коробка обіймів"
+  description: "Спеціальна коробка для чутливих людей."
   suffix: Emergency
   components:
   - type: ContainerFill
@@ -404,8 +404,8 @@
 - type: entity
   parent: BoxSurvivalSlots
   id: BoxSurvivalSlotsSyndicate
-  name: extended-capacity survival box
-  description: It's a box with basic internals inside. This one is labelled to contain an extended-capacity tank.
+  name: "коробка для виживання збільшеної місткості"
+  description: "Це коробка з базовими внутрішніми компонентами. На цій зазначено, що вона містить балон збільшеної місткості."
   suffix: Syndicate
   components:
   - type: ContainerFill
@@ -703,8 +703,8 @@
 - type: entity
   parent: BoxSurvivalSlots
   id: BoxSurvivalSlotsSilicon
-  name: silicon survival box
-  description: It's a box with basic tools for self-repair inside.
+  name: "кремнієвий набір для виживання"
+  description: "Це коробка з основними інструментами для саморемонту всередині."
   components:
   - type: ContainerContainer
     containers:

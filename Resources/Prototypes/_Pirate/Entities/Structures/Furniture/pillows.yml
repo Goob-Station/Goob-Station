@@ -3,8 +3,8 @@
 - type: entity
   parent: BaseItem
   id: PillowBaseWrapped
-  name: wrapped pillow
-  description: The Emergency Deployment Comfort Unit, to be deployed in case of comfort crisis. Use plastic sheets to wrap the pillow and keep it clean until needed.
+  name: "загорнута подушка"
+  description: "Екстрений блок розгортання комфорту, призначений для випадку кризи затишку. Обгорніть подушку пластиковими листами, щоб зберегти її чистою до потреби."
   components:
   - type: Sprite
     sprite: /Textures/_pirate/Structures/Furniture/pillows.rsi
@@ -23,8 +23,8 @@
 - type: entity
   parent: SeatBase
   id: PillowBaseUnwrapped
-  name: pillow
-  description: The Emergency Deployment Comfort Unit, optimized for maximum fluffiness in conditions of zero-gravity.
+  name: "подушка"
+  description: "Екстрений блок розгортання комфорту, оптимізований для максимальної пухнастості в умовах нульової гравітації."
   components:
   - type: Sprite
     sprite: /Textures/_pirate/Structures/Furniture/pillows.rsi
@@ -36,8 +36,8 @@
 - type: entity
   parent: PillowBaseWrapped
   id: PillowCommandWrapped
-  name: wrapped command pillow
-  description: Contains a soft velvet cushion, perfect for resting those heads weary with the weight of authority. Deploy as needed.
+  name: "загорнута командна подушка"
+  description: "Містить м’яку оксамитову подушку, ідеальну для відпочинку голів, утомлених тягарем влади. Розгортати за потреби."
   components:
   - type: Sprite
     sprite: /Textures/_pirate/Structures/Furniture/pillows.rsi
@@ -56,8 +56,8 @@
 - type: entity
   parent: PillowBaseUnwrapped
   id: PillowCommandUnwrapped
-  name: command pillow
-  description: A soft velvet cushion, perfect for resting those heads weary with the weight of authority for the rare occasions Renault isn't already sleeping on it.
+  name: "командна подушка"
+  description: "М’яка оксамитова подушка, ідеальна для відпочинку голів, утомлених тягарем влади, у рідкісні моменти, коли Рено ще не спить на ній."
   components:
   - type: Sprite
     sprite: /Textures/_pirate/Structures/Furniture/pillows.rsi
@@ -69,8 +69,8 @@
 - type: entity
   parent: PillowBaseWrapped
   id: PillowEngineeringWrapped
-  name: wrapped engineering pillow
-  description: A pillow sewn into a sturdy flame-resistant case. Not Tesla-proof. Deploy as needed.
+  name: "загорнута інженерна подушка"
+  description: "Подушка, вшита в міцний вогнестійкий чохол. Не захищена від Тесли. Розгортати за потреби."
   components:
   - type: Sprite
     sprite: /Textures/_pirate/Structures/Furniture/pillows.rsi
@@ -89,8 +89,8 @@
 - type: entity
   parent: PillowBaseUnwrapped
   id: PillowEngineeringUnwrapped
-  name: engineering pillow
-  description: A pillow sewn into a sturdy flame-resistant case. Not Tesla-proof.
+  name: "інженерна подушка"
+  description: "Подушка, вшита в міцний вогнестійкий чохол. Не захищена від Тесли."
   components:
   - type: Sprite
     sprite: /Textures/_pirate/Structures/Furniture/pillows.rsi
@@ -102,8 +102,8 @@
 - type: entity
   parent: PillowBaseWrapped
   id: PillowMedicalWrapped
-  name: wrapped medical pillow
-  description: A pillow sewn into a soft antimicrobial case, for the comfort of patients and overworked professionals alike. Deploy as needed.
+  name: "загорнута медична подушка"
+  description: "Подушка, вшита в м’який антимікробний чохол, для комфорту пацієнтів і перевтомлених професіоналів. Розгортати за потреби."
   components:
   - type: Sprite
     sprite: /Textures/_pirate/Structures/Furniture/pillows.rsi
@@ -122,8 +122,8 @@
 - type: entity
   parent: PillowBaseUnwrapped
   id: PillowMedicalUnwrapped
-  name: medical pillow
-  description: A pillow sewn into a soft antimicrobial case, for the comfort of patients and overworked professionals alike.
+  name: "медична подушка"
+  description: "Подушка, вшита в м’який антимікробний чохол, для комфорту пацієнтів і перевтомлених професіоналів."
   components:
   - type: Sprite
     sprite: /Textures/_pirate/Structures/Furniture/pillows.rsi

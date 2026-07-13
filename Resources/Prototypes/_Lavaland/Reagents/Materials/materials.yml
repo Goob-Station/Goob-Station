@@ -19,7 +19,7 @@
 - type: material
   id: Ashwood
   stackEntity: MaterialWoodPlank1
-  name: materials-ashwood
+  name: "materials-ashwood"
   unit: materials-unit-plank
   icon: { sprite: _Lavaland/Objects/Materials/ashwood.rsi, state: wood }
   color: "#6d6b68"

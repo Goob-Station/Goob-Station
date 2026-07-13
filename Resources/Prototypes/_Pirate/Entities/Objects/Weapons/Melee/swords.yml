@@ -2,9 +2,9 @@
 - type: entity
   parent: [CaptainSabre, SolAllianceInfo]
   id: SANMarineSabre
-  name: Solarian marine sabre
+  name: "шабля соляріанської морської піхоти"
   suffix: SAN
-  description: A plastitanium cavalry sabre, issued to every graduate from Solarian military academies. An officer without a sword is an officer not in uniform.
+  description: "Пластитанієва кавалерійська шабля, яку видають кожному випускнику соляріанських військових академій. Офіцер без меча — це офіцер не в однострої."
   components:
     - type: Sprite
       sprite: _Pirate/Clothing/_SolAlliance/Swords/SAN_marine_officer_sword.rsi
@@ -18,9 +18,9 @@
 - type: entity
   parent: [ClothingBeltSheath, SolAllianceInfo]
   id: ClothingBeltSheathSANMarineFilled
-  name: Solarian sabre sheath
+  name: "піхви для соляріанської шаблі"
   suffix: SAN
-  description: An ornate sheath designed to hold an officer's blade.
+  description: "Вишукані піхви, призначені для офіцерського клинка."
   components:
   - type: ContainerFill
     containers:
@@ -28,10 +28,10 @@
       - SANMarineSabre
 
 - type: entity
-  name: Solarian officer sabre
+  name: "офіцерська шабля соляріанців"
   parent: SANMarineSabre
   id: SANOfficerSabre
-  description: A plastitanium fencing sabre, issued to every graduate from Solarian military academies. An officer without a sword is an officer not in uniform.
+  description: "Пластитанієва фехтувальна шабля, яку видають кожному випускнику соляріанських військових академій. Офіцер без меча — це офіцер не в однострої."
   components:
     - type: Sprite
       sprite: _Pirate/Clothing/_SolAlliance/Swords/SAN_officer_sword.rsi
@@ -43,9 +43,9 @@
 - type: entity
   parent: [ClothingBeltSheath, SolAllianceInfo]
   id: ClothingBeltSheathSANOfficerFilled
-  name: Solarian sabre sheath
+  name: "піхви для соляріанської шаблі"
   suffix: SAN
-  description: An ornate sheath designed to hold an officer's blade.
+  description: "Вишукані піхви, призначені для офіцерського клинка."
   components:
   - type: ContainerFill
     containers:
@@ -53,10 +53,10 @@
       - SANOfficerSabre
 
 - type: entity
-  name: важка шабля
+  name: "важка шабля"
   parent: CaptainSabre
   id: CaptainSabreHeavy
-  description: Ще в давні часи на землі шабля якою користувалися кавалерійці найвеличніших армій, тепер, персональна зброя капітана з пам'яттю  про най елітніших воїнів тих часів, важка та товста що не дає їй змоги різати, але має чудову пробивну силу. Оздоблена золотом та вирізаними малюнками на ручці.
+  description: "Ще в давні часи на Землі такими шаблями користувалися кавалеристи найвеличніших армій. Тепер це персональна зброя капітана, що зберігає пам'ять про найелітніших воїнів тих часів: важка й товста, вона майже не ріже, зате має чудову пробивну силу. Оздоблена золотом і різьбленими візерунками на руків'ї."
   components:
   - type: Sprite
     sprite: _Pirate/Objects/Weapons/Melee/Captain_sabres/heavy.rsi
@@ -76,10 +76,10 @@
     - CaptainSabreHeavy
 
 - type: entity
-  name: шашка капітана
+  name: "шашка капітана"
   parent: CaptainSabre
   id: CaptainSabreShashka
-  description: Давня зброя планети земля якою користувалися її різноманітні народи ще в давні часи, від Кавказу до України, славні козаки завжди мали їх при собі, зараз, вона є і в капітана космічної станції, легка швидка та гостра, але має погане пробиття.
+  description: "Давня зброя Землі, якою в різні часи користувалися різні народи від Кавказу до України. Славні козаки завжди мали її при собі. Тепер вона є і в капітана космічної станції: легка, швидка й гостра, але з невеликим пробиттям."
   components:
   - type: Sprite
     sprite: _Pirate/Objects/Weapons/Melee/Captain_sabres/shashka.rsi

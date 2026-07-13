@@ -4,7 +4,7 @@
   parent: BaseBullet
   id: BulletHeavyRifle
   categories: [ HideSpawnMenu ]
-  name: bullet (.10 rifle)
+  name: "куля (.10 rifle)"
   components:
   - type: Projectile
     damage:
@@ -15,7 +15,7 @@
   parent: BulletHeavyRifle
   id: BulletMinigun
   categories: [ HideSpawnMenu ]
-  name: minigun bullet (.10 rifle)
+  name: "куля для мінігана (калібру .10)"
   components:
   - type: Projectile
     damage:

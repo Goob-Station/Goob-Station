@@ -4,7 +4,7 @@
   abstract: true
   parent: BaseAreaStation
   id: BaseAreaEngineering
-  name: engineering
+  name: "інженерний відділ"
   components:
   - type: DepartmentArea
     department: Engineering
@@ -14,7 +14,7 @@
 - type: entity
   parent: BaseAreaEngineering
   id: AreaEngineering
-  name: engineering
+  name: "інженерний відділ"
   components:
   - type: Sprite
     state: engie
@@ -22,7 +22,7 @@
 - type: entity
   parent: AreaEngineering
   id: AreaEngine
-  name: engine room
+  name: "машинне відділення"
   components:
   - type: Sprite
     state: engine
@@ -30,7 +30,7 @@
 - type: entity
   parent: AreaEngineering
   id: AreaEngineBreak
-  name: engi break room
+  name: "інженерна кімната відпочинку"
   components:
   - type: Sprite
     state: engine_break
@@ -38,7 +38,7 @@
 - type: entity
   parent: AreaEngineering
   id: AreaEngineControl
-  name: engine control room
+  name: "диспетчерська двигуна"
   components:
   - type: Sprite
     state: engine_control
@@ -46,7 +46,7 @@
 - type: entity
   parent: AreaEngineering
   id: AreaEngineLobby
-  name: engi lobby
+  name: "інженерний вестибюль"
   components:
   - type: Sprite
     state: engine_lobby
@@ -54,7 +54,7 @@
 - type: entity
   parent: AreaEngineering
   id: AreaEngineMonitor
-  name: engine monitor room
+  name: "кімната моніторингу двигуна"
   components:
   - type: Sprite
     state: engine_monitor
@@ -62,7 +62,7 @@
 - type: entity
   parent: AreaEngineering
   id: AreaEngineSM
-  name: supermatter engine
+  name: "двигун суперматерії"
   components:
   - type: Sprite
     state: engine_sm
@@ -70,7 +70,7 @@
 - type: entity
   parent: AreaEngineering
   id: AreaEngineSMRoom
-  name: engi supermatter room
+  name: "кімната інженерної суперматерії"
   components:
   - type: Sprite
     state: engine_sm_room
@@ -78,7 +78,7 @@
 - type: entity
   parent: AreaEngineering
   id: AreaEngineSmes
-  name: engi smes room
+  name: "інженерна кімната СМЕС"
   components:
   - type: Sprite
     state: engine_smes
@@ -86,7 +86,7 @@
 - type: entity
   parent: AreaEngineering
   id: AreaEngineStorage
-  name: engi storage room
+  name: "інженерний склад"
   components:
   - type: Sprite
     state: engine_storage
@@ -96,7 +96,7 @@
 - type: entity
   parent: BaseAreaEngineering
   id: AreaAtmos
-  name: atmos
+  name: "атмосферний відділ"
   components:
   - type: Sprite
     state: atmos
@@ -104,7 +104,7 @@
 - type: entity
   parent: BaseAreaEngineering
   id: AreaAtmosEngine
-  name: atmos engine
+  name: "атмосферний двигун"
   suffix: TEG
   components:
   - type: Sprite
@@ -113,7 +113,7 @@
 - type: entity
   parent: BaseAreaEngineering
   id: AreaAtmosOffice
-  name: atmos office
+  name: "офіс атмосферного відділу"
   components:
   - type: Sprite
     state: atmos_office
@@ -121,7 +121,7 @@
 - type: entity
   parent: BaseAreaEngineering
   id: AreaAtmosGasStorage
-  name: atmos gas storage
+  name: "сховище газів атмосферного відділу"
   components:
   - type: Sprite
     state: atmos_gas_storage
@@ -131,7 +131,7 @@
 - type: entity
   parent: BaseAreaEngineering
   id: AreaSubstation
-  name: substation locker
+  name: "шафка підстанції"
   components:
   - type: Sprite
     state: substation
@@ -139,7 +139,7 @@
 - type: entity
   parent: BaseAreaEngineering
   id: AreaGravGen
-  name: grav gen
+  name: "гравітаційний генератор"
   components:
   - type: Sprite
     state: grav_gen
@@ -147,8 +147,8 @@
 - type: entity
   parent: BaseAreaEngineering
   id: AreaSolarPanels
-  name: solar panels
-  description: For the solars airlocks, counts as inside engi.
+  name: "сонячні панелі"
+  description: "Для шлюзів сонячних панелей; зараховується до внутрішньої інженерної зони."
   components:
   - type: Sprite
     state: solar_panels
@@ -156,7 +156,7 @@
 - type: entity
   parent: BaseAreaEngineering
   id: AreaStationAnchor
-  name: station anchor
+  name: "якір станції"
   components:
   - type: Sprite
     state: anchor
@@ -164,7 +164,7 @@
 - type: entity
   parent: BaseAreaEngineering
   id: AreaTechStorage
-  name: tech storage
+  name: "технічний склад"
   components:
   - type: Sprite
     state: tech_storage
@@ -172,7 +172,7 @@
 - type: entity
   parent: BaseAreaEngineering
   id: AreaTelecomms
-  name: telecomms
+  name: "телекомунікації"
   components:
   - type: Sprite
     state: tcom_sat

@@ -1,8 +1,8 @@
 - type: entity
-  name: rogue king's tail
+  name: "хвіст короля-розбійника"
   parent: BaseSword
   id: RogueTailWeapon
-  description: The severed tail of the ancient Rogue Xeno King, a brutal trophy prized by only the boldest hunters. Grants its wielder the power to dash forward in relentless bursts.
+  description: "Відрізаний хвіст древнього короля ксеноморфів-розбійників, жорстокий трофей, який цінують лише найсміливіші мисливці. Надає своєму власнику здатність робити ривок уперед невпинними поривами."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/rogue_tail.rsi

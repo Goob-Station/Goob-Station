@@ -1,8 +1,8 @@
 - type: entity
   parent: [ BaseMagazineBoxPistol, BaseMantisContraband ]
   id: MagazineBoxPistolCryptobiolin
-  name: ammunition box (.35 Cryptobiolin)
-  description: A cardboard box of .35 auto rounds.
+  name: "коробка набоїв (.35 auto Криптобіолін)"
+  description: "Картонна коробка з набоями .35 auto."
   components:
   - type: BallisticAmmoProvider
     proto: CartridgePistolCryptobiolin

@@ -1,8 +1,8 @@
 - type: entity
   id: ProjectileRudeBuster
   parent: BaseBullet
-  name: rude buster
-  description: Strong magical projectile, that focuses all of the user's will into a single powerful blow.
+  name: "руд Бастер"
+  description: "Потужний магічний снаряд, що фокусує всю волю користувача в один нищівний удар."
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

@@ -2,7 +2,7 @@
 
 - type: entity
   id: SpawnPointGhostBingle
-  name: ghost role spawn point
+  name: "точка появи привида Бінгла"
   suffix: Bingle
   parent: MarkerBase
   components:

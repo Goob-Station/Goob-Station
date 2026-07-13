@@ -2,9 +2,9 @@
 # Tool closet
 - type: entity
   id: ClosetTool
-  name: tool closet
+  name: "шафа для інструментів"
   parent: ClosetSteelBase
-  description: It's a storage unit for tools.
+  description: "Це місце для зберігання інструментів."
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -15,9 +15,9 @@
 # Radiation suit closet
 - type: entity
   id: ClosetRadiationSuit
-  name: radiation suit closet
+  name: "шафа для протирадіаційних костюмів"
   parent: ClosetSteelBase
-  description: "More comfortable than radiation poisioning."
+  description: "Комфортніше, ніж радіаційне отруєння."
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -28,9 +28,9 @@
 # Emergency closet
 - type: entity
   id: ClosetEmergency
-  name: emergency closet
+  name: "аварійна шафа"
   parent: ClosetSteelBase
-  description: It's a storage unit for emergency breath masks and O2 tanks.
+  description: "Це приміщення для зберігання аварійних дихальних масок та балонів з киснем."
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -41,9 +41,9 @@
 # Emergency N2 closet
 - type: entity
   id: ClosetEmergencyN2
-  name: emergency nitrogen closet
+  name: "аварійна азотна шафа"
   parent: ClosetSteelBase
-  description: It's full of life-saving equipment. Assuming, that is, that you breathe nitrogen.
+  description: "Там повно обладнання для порятунку життя. Якщо припустити, що ви дихаєте азотом."
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -54,9 +54,9 @@
 # Fire safety closet
 - type: entity
   id: ClosetFire
-  name: fire-safety closet
+  name: "протипожежна шафа"
   parent: ClosetSteelBase
-  description: It's a storage unit for fire-fighting supplies.
+  description: "Це склад для зберігання протипожежного приладдя."
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -67,9 +67,9 @@
 # EOD closet
 - type: entity
   id: ClosetBomb
-  name: EOD closet
+  name: "шафа для вибухозахисного костюму"
   parent: ClosetSteelBase
-  description: It's a storage unit for explosion-protective suits.
+  description: "Це шафа для зберігання вибухозахисних костюмів."
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -80,9 +80,9 @@
 # Janitorial bomb suit closet
 - type: entity
   id: ClosetJanitorBomb
-  name: janitorial bomb suit closet
+  name: "шафа для вибухозахисного костюму прибиральника"
   parent: ClosetSteelBase
-  description: It's a storage unit for janitorial explosion-protective suits.
+  description: "Це шафа для зберігання прибиральницьких вибухозахисних костюмів."
   categories: [ DoNotMap ]
   components:
   - type: Appearance
@@ -97,8 +97,8 @@
 - type: entity
   id: ClosetL3
   parent: ClosetSteelBase
-  name: level 3 biohazard gear closet
-  description: It's a storage unit for level 3 biohazard gear.
+  name: "шафа для біологічної небезпеки 3-го рівня"
+  description: "Це сховище для зберігання спорядження 3-го рівня біологічної небезпеки."
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -153,9 +153,9 @@
 # Maintenance closet
 - type: entity
   id: ClosetMaintenance
-  name: maintenance closet
+  name: "технічна шафа"
   parent: ClosetSteelBase
-  description: It's a storage unit.
+  description: "Це склад."
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -165,9 +165,9 @@
 # Syndicate
 - type: entity
   id: LockerSyndicate
-  name: blood-red closet
+  name: "криваво-червона шафа"
   parent: ClosetSteelBase
-  description: It's a storage unit with a blood-red design.
+  description: "Це сховище з криваво-червоним дизайном."
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -178,10 +178,10 @@
 # Bluespace closet
 - type: entity
   id: ClosetBluespace
-  name: suspicious closet
+  name: "підозріла шафа"
   suffix: Bluespace
   parent: ClosetMaintenance
-  description: It's a storage unit... right?
+  description: "Це ж склад... так?"
   components:
     - type: ArrivalsBlacklist
     - type: BluespaceLocker
@@ -197,10 +197,10 @@
 # Unstable bluespace closet
 - type: entity
   id: ClosetBluespaceUnstable
-  name: suspicious closet
+  name: "підозріла шафа"
   suffix: Bluespace unstable
   parent: ClosetMaintenance
-  description: It's a storage unit... right?
+  description: "Це ж склад... так?"
   components:
     - type: ArrivalsBlacklist
     - type: BluespaceLocker

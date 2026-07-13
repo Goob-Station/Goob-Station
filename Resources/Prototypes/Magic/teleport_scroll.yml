@@ -1,6 +1,6 @@
 ﻿- type: entity
   id: WizardTeleportScroll
-  name: teleport scroll
+  name: "сувій телепортації"
   suffix: Wizard
   parent: [ BaseItem, BaseMagicalContraband ]
   components:

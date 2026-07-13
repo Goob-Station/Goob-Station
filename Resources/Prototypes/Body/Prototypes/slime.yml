@@ -2,7 +2,7 @@
 
 - type: body
   id: Slime
-  name: "slime"
+  name: "слиз"
   root: chest
   slots:
     head:

@@ -5,7 +5,7 @@
 - type: entity
   parent: BaseAreaStation
   id: AreaCryosleep
-  name: cryosleep
+  name: "кріосон"
   components:
   - type: Sprite
     state: cryo
@@ -13,7 +13,7 @@
 - type: entity
   parent: BaseAreaStation
   id: AreaDorms
-  name: dorms
+  name: "гуртожитки"
   components:
   - type: Sprite
     state: dorms
@@ -21,7 +21,7 @@
 - type: entity
   parent: BaseAreaStation
   id: AreaDisposals
-  name: disposals
+  name: "утилізація відходів"
   components:
   - type: Sprite
     state: disposals
@@ -29,7 +29,7 @@
 - type: entity
   parent: BaseAreaStation
   id: AreaEscapePods
-  name: escape pods
+  name: "рятувальні капсули"
   components:
   - type: Sprite
     state: escape_pods
@@ -37,7 +37,7 @@
 - type: entity
   parent: BaseAreaStation
   id: AreaEvacHall
-  name: evac hall
+  name: "евакуаційний хол"
   components:
   - type: Sprite
     state: evac_hall
@@ -45,7 +45,7 @@
 - type: entity
   parent: BaseAreaStation
   id: AreaEvacLounge
-  name: evac lounge
+  name: "евакуаційна вітальня"
   components:
   - type: Sprite
     state: evac_lounge
@@ -53,7 +53,7 @@
 - type: entity
   parent: BaseAreaStation
   id: AreaFitness
-  name: fitness
+  name: "фітнес-зал"
   components:
   - type: Sprite
     state: fitness
@@ -61,7 +61,7 @@
 - type: entity
   parent: BaseAreaStation
   id: AreaGarden
-  name: garden
+  name: "сад"
   components:
   - type: Sprite
     state: garden
@@ -69,7 +69,7 @@
 - type: entity
   parent: BaseAreaStation
   id: AreaHallway
-  name: hallway
+  name: "коридор"
   components:
   - type: Sprite
     state: hallway
@@ -78,7 +78,7 @@
 - type: entity
   parent: AreaHallway
   id: AreaHallwayCentral
-  name: central hallway
+  name: "центральний коридор"
   components:
   - type: Sprite
     state: central_hall
@@ -86,7 +86,7 @@
 - type: entity
   parent: BaseAreaStation
   id: AreaLaserTag
-  name: laser tag
+  name: "лазертаг"
   components:
   - type: Sprite
     state: laser_tag
@@ -94,7 +94,7 @@
 - type: entity
   parent: BaseAreaStation
   id: AreaLaundry
-  name: laundry room
+  name: "пральня"
   components:
   - type: Sprite
     state: laundry_room
@@ -102,7 +102,7 @@
 - type: entity
   parent: BaseAreaStation
   id: AreaLounge
-  name: lounge
+  name: "вітальня"
   components:
   - type: Sprite
     state: lounge
@@ -110,7 +110,7 @@
 - type: entity
   parent: BaseAreaStation
   id: AreaPool
-  name: pool
+  name: "басейн"
   components:
   - type: Sprite
     state: pool
@@ -118,7 +118,7 @@
 - type: entity
   parent: BaseAreaStation
   id: AreaRecRoom
-  name: rec room
+  name: "кімната відпочинку"
   components:
   - type: Sprite
     state: rec_room
@@ -126,7 +126,7 @@
 - type: entity
   parent: BaseAreaStation
   id: AreaRestroom
-  name: restroom
+  name: "вбиральня"
   components:
   - type: Sprite
     state: restroom
@@ -134,7 +134,7 @@
 - type: entity
   parent: BaseAreaStation
   id: AreaSauna
-  name: sauna
+  name: "сауна"
   components:
   - type: Sprite
     state: sauna
@@ -142,7 +142,7 @@
 - type: entity
   parent: BaseAreaStation
   id: AreaShower
-  name: shower
+  name: "душова"
   components:
   - type: Sprite
     state: shower
@@ -150,7 +150,7 @@
 - type: entity
   parent: BaseAreaStation
   id: AreaToilet
-  name: toilet
+  name: "туалет"
   components:
   - type: Sprite
     state: toilet
@@ -158,7 +158,7 @@
 - type: entity
   parent: BaseAreaStation
   id: AreaVacantRoom
-  name: vacant room
+  name: "вільна кімната"
   components:
   - type: Sprite
     state: vacant_room

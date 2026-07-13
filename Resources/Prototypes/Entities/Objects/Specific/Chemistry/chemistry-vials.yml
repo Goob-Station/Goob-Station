@@ -61,8 +61,8 @@
 - type: entity
   parent: BaseChemistryVial
   id: ChemistryEmptyVial
-  name: vial
-  description: A small vial.
+  name: "флакон"
+  description: "Малий флакон."
   components:
   - type: Item
     sprite: Objects/Specific/Chemistry/vial.rsi
@@ -103,8 +103,8 @@
 - type: entity
   parent: BaseChemistryVial
   id: ChemistryEmptyVialSmall
-  name: mini vial
-  description: A smaller vial.
+  name: "мініфлакон"
+  description: "Менший флакон."
   components:
   - type: Item
     sprite: Objects/Specific/Chemistry/vial_mini.rsi

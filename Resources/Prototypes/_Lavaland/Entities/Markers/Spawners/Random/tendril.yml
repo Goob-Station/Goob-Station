@@ -20,7 +20,7 @@
       - id: LavalandTendrilMagmawingWatcher
 
 - type: entity
-  name: tendril spawner
+  name: "генератор вусиків"
   id: SpawnerRandomTendrilLavaland
   parent: MarkerBase
   suffix: Lavaland
