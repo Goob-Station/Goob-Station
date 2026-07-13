@@ -26,7 +26,6 @@ public sealed class SwappableInstrumentSystem : EntitySystem
         if (!TryComp<InstrumentComponent>(uid, out var instrument))
             return;
 
-
         var priority = 0;
         foreach (var entry in component.InstrumentList)
         {

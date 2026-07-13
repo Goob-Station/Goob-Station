@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Content.Packaging\Content.Packaging.csproj" />
     <ProjectReference Include="..\Content.Server.Database\Content.Server.Database.csproj" />
+    <ProjectReference Include="..\Content.Shared.Database\Content.Shared.Database.csproj" />
     <ProjectReference Include="..\Content.Shared\Content.Shared.csproj" />
     <ProjectReference Include="..\Content.Goobstation.Shared\Content.Goobstation.Shared.csproj" /> <!-- TODO: kill this shitcode -->
   </ItemGroup>
