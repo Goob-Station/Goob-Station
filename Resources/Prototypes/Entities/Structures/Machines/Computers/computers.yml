@@ -688,7 +688,6 @@
   - type: DeviceNetwork
     deviceNetId: Wired
   - type: DeviceLinkSink
-    range: 2
     ports:
     - OperatingTableReceiver
 
