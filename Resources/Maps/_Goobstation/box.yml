@@ -16037,8 +16037,6 @@ entities:
       - Arsenal
       - Experimental
       - CivilianServices
-    - type: OreSiloClient
-      silo: 18924
 - proto: BackgammonBoard
   entities:
   - uid: 946
@@ -56732,8 +56730,6 @@ entities:
     - type: Transform
       pos: -28.5,-24.5
       parent: 2
-    - type: OreSiloClient
-      silo: 18924
 - proto: Carpet
   entities:
   - uid: 9024
@@ -124725,17 +124721,6 @@ entities:
     - type: Transform
       pos: -28.5,-22.5
       parent: 2
-    - type: DeviceLinkSource
-      linkedPorts:
-        9023:
-        - - OreSilo
-          - OreSiloClient
-        945:
-        - - OreSilo
-          - OreSiloClient
-        20058:
-        - - OreSilo
-          - OreSiloClient
 - proto: MaterialWoodPlank1
   entities:
   - uid: 18925
@@ -132665,8 +132650,6 @@ entities:
       - Arsenal
       - Experimental
       - CivilianServices
-    - type: OreSiloClient
-      silo: 18924
 - proto: PsychBed
   entities:
   - uid: 20059
