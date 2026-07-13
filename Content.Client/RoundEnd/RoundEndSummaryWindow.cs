@@ -6,17 +6,31 @@ using Content.Client.Message;
 using Content.Shared.GameTicking;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
+using Robust.Client.UserInterface.RichText;
 using Robust.Shared.Utility;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
 // Goob Station - End of Round Screen
 using Content.Client.Stylesheets;
 using Content.Shared.Mobs;
+using Content.Goobstation.UIKit.UserInterface.RichText;
 using Robust.Client.UserInterface; // Pirate: camera
 
 namespace Content.Client.RoundEnd
 {
     public sealed partial class RoundEndSummaryWindow : DefaultWindow // Pirate: camera
     {
+        // Retain RichTextLabel's standard safe tags while allowing [tex] round-end summary assets.
+        private static readonly Type[] RoundEndSummaryMarkupTags =
+        [
+            typeof(BoldItalicTag),
+            typeof(BoldTag),
+            typeof(BulletTag),
+            typeof(ColorTag),
+            typeof(HeadingTag),
+            typeof(ItalicTag),
+            typeof(TextureTag),
+        ];
+
         private readonly IFileDialogManager _fileDialogManager; // Pirate: camera
         private readonly IEntityManager _entityManager;
         private readonly TabContainer _roundEndTabs;
@@ -92,7 +106,9 @@ namespace Content.Client.RoundEnd
             if (!string.IsNullOrEmpty(roundEnd))
             {
                 var roundEndLabel = new RichTextLabel();
-                roundEndLabel.SetMarkupPermissive(roundEnd);
+                roundEndLabel.SetMessage(
+                    FormattedMessage.FromMarkupPermissive(roundEnd),
+                    tagsAllowed: RoundEndSummaryMarkupTags);
                 roundEndSummaryContainer.AddChild(roundEndLabel);
             }
 
