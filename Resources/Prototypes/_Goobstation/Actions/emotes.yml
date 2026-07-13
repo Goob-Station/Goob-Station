@@ -4,6 +4,9 @@
   id: Flip
   name: chat-emote-name-flip
   icon: _Goobstation/Interface/Emotes/flip.png
+  blacklist: # Pirate: pAIs cannot perform physical emotes
+    components:
+    - PAI
   chatMessages: ["chat-emote-msg-flip"]
   chatTriggers:
   - flip
@@ -92,6 +95,9 @@
   id: Jump
   name: chat-emote-name-jump
   icon: _Goobstation/Interface/Emotes/jump.png
+  blacklist: # Pirate: pAIs cannot perform physical emotes
+    components:
+    - PAI
   chatMessages: ["chat-emote-msg-jump"]
   chatTriggers:
   - jump
