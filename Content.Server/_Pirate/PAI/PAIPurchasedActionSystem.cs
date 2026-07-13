@@ -16,17 +16,17 @@ public sealed class PAIPurchasedActionSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<PAIComponent, MindRemovedMessage>(OnMindRemoved, after: [typeof(ActionContainerSystem)]);
+        SubscribeLocalEvent<StoreComponent, MindRemovedMessage>(OnMindRemoved, after: [typeof(ActionContainerSystem)]);
     }
 
-    private void OnMindRemoved(Entity<PAIComponent> ent, ref MindRemovedMessage args)
+    private void OnMindRemoved(Entity<StoreComponent> ent, ref MindRemovedMessage args)
     {
-        if (!TryComp<StoreComponent>(ent.Owner, out var store) ||
+        if (!HasComp<PAIComponent>(ent.Owner) ||
             !TryComp<ActionsContainerComponent>(args.Mind.Owner, out var mindActions))
             return;
 
         // Installed software belongs to the pAI device, not the departing mind.
-        foreach (var purchased in store.BoughtEntities)
+        foreach (var purchased in ent.Comp.BoughtEntities)
         {
             if (!mindActions.Container.Contains(purchased) ||
                 !TryComp<ActionComponent>(purchased, out var action))
