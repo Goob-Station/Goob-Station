@@ -97,6 +97,9 @@ public sealed partial class AccessReaderComponent : Component
     /// </remarks>
     [DataField]
     public LocId ExaminationText = "access-reader-examination";
+
+    [DataField]
+    public bool DisableExaminationText; //Goobstation disable the ExaminationText
 }
 
 [DataDefinition, Serializable, NetSerializable]

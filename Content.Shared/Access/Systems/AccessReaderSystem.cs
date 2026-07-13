@@ -96,7 +96,7 @@ public sealed class AccessReaderSystem : EntitySystem
         var localizedOriginalNames = GetLocalizedAccessNames(mainAccessReader.Value.Comp.AccessListsOriginal);
 
         // If the string list is empty either there were no access restrictions or the localized names were invalid
-        if (localizedOriginalNames.Count == 0)
+        if (localizedOriginalNames.Count == 0 || ent.Comp.DisableExaminationText) // Goobstation- prevent display accesses on Wanted menu
             return;
 
         var originalAccessesFormatted = ContentLocalizationManager.FormatListToOr(localizedOriginalNames);

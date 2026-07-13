@@ -193,6 +193,7 @@
   - type: Stripping
   - type: AccessReader # Goobstation-WantedMenu
     access: [["Security"]]
+    disableExaminationText: true
   - type: UserInterface
     interfaces:
       enum.HumanoidMarkingModifierKey.Key:
