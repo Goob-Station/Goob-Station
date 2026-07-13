@@ -137,7 +137,7 @@
       - Plunger
       - GoldenPlunger
       - WireBrush
-      - KeyRingJanitor
+      - Keyring
       components:
       - LightReplacer
       - SmokeOnTrigger
