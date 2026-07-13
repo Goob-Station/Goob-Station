@@ -15,7 +15,7 @@
       - AvianFood
   - type: Metabolizer
     maxPoisonsProcessable: 3
-    metabolizerTypes: [Avali]
+    metabolizerTypes: [Avali, Animal]
     groups:
     - id: Food
     - id: Drink
