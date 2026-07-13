@@ -207,10 +207,6 @@
     ears: ClothingHeadsetAltMantis
 # Mask
 - type: loadout
-  id: MantisMaskVeil
-  equipment:
-    mask: ClothingMaskMantisVeil
-- type: loadout
   id: MantisMaskRitual
   equipment:
     mask: ClothingMaskMantisRitual

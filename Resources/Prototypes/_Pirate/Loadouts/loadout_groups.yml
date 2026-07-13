@@ -893,7 +893,6 @@
   id: MantisMask
   name: loadout-group-mantis-Mask
   loadouts:
-  - MantisMaskVeil
   - MantisMaskRitual
   - MantisBelt
 
