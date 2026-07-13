@@ -3,7 +3,6 @@
   files:
   - /Audio/_Lavaland/Mobs/Flesh/growl1.ogg
   - /Audio/_Lavaland/Mobs/Flesh/growl2.ogg
-  - /Audio/_Lavaland/Mobs/Flesh/screech1.ogg
 
 - type: soundCollection
   id: FleshBreathe

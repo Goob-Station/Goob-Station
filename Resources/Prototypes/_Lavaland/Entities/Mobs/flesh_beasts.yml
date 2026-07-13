@@ -452,7 +452,7 @@
   parent: BaseMobFleshBeast
   id: MobFleshTankElite
   name: frenzied giant
-  description: Horrific beast that can tank many shots and deal tremendous damage at the same time.
+  description: This hulking beast gets faster and stronger the more damage it takes. Don't get caught in its claw!
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -472,18 +472,31 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      400: Dead
+      450: Dead
+  - type: SoundWhileAlive
   - type: MovementSpeedModifier
-    baseWalkSpeed: 3.2
-    baseSprintSpeed: 3.2
-  - type: AutoEmote
-    emotes:
-    - FleshBreathing
-  - type: Vocal
-    sounds:
-      Male: FleshLarge
-      Female: FleshLarge
-      Unsexed: FleshLarge
+    baseWalkSpeed: 1
+    baseSprintSpeed: 1
+    maxSpeedOverride: 10
+  - type: BerserkerStats
+    scaleDamage: true
+    scaleSpeed: true
+    damageMinMultiplier: 1.0
+    damageMaxMultiplier: 1.5
+    speedMinMultiplier: 1.0
+    speedMaxMultiplier: 7.5
+    exponentialScaling: true
+    scalingExponent: 2
+    componentThresholds:
+    - healthThreshold: 0.5
+      components:
+      - type: SpamEmitSound
+        minInterval: 1.5
+        maxInterval: 5
+        sound:
+          collection: FleshGrowl
+          params:
+            variation: 0.125
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
@@ -492,7 +505,7 @@
     damage:
       types:
         Blunt: 10
-        Slash: 20
+        Slash: 15
 
 # Boss (for now just a simplemob though)
 
