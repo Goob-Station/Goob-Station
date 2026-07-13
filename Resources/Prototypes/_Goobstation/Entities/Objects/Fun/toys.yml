@@ -1135,7 +1135,7 @@
     sprite: _Goobstation/Objects/Fun/toys.rsi
     state: plushie_redstonewolf
   - type: Item
-    sprite: _Goobstation/Objects/Fun/toys_32x64.rsi
+    sprite: _Goobstation/Objects/Fun/toys.rsi
     heldPrefix: plushieredstonewolf
   - type: EmitSoundOnUse
     sound: &PlushieLizardSound
@@ -1152,7 +1152,7 @@
     sound: *PlushieLizardSound
   - type: Clothing
     quickEquip: true
-    sprite: _Goobstation/Objects/Fun/toys_32x64.rsi
+    sprite: _Goobstation/Objects/Fun/toys.rsi
     equippedPrefix: plushieredstonewolf
     slots:
     - HEAD
@@ -1167,7 +1167,7 @@
     state: plushie_wehmin
   - type: Item
     heldPrefix: plushiewehmin
-    sprite: _Goobstation/Objects/Fun/toys_32x64.rsi
+    sprite: _Goobstation/Objects/Fun/toys.rsi
   - type: EmitSoundOnUse
     sound: *PlushieLizardSound
   - type: EmitSoundOnLand
@@ -1180,7 +1180,7 @@
     sound: *PlushieLizardSound
   - type: Clothing
     quickEquip: true
-    sprite: _Goobstation/Objects/Fun/toys_32x64.rsi
+    sprite: _Goobstation/Objects/Fun/toys.rsi
     equippedPrefix: plushiewehmin
     slots:
     - HEAD
