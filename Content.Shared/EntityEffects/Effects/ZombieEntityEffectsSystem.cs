@@ -37,18 +37,19 @@ public sealed partial class CureZombieInfectionEntityEffectsSystem : EntityEffec
             return;
 
         // Goob start cure
-        if (HasComp<ZombifyOnDeathComponent>(entity)
-            || HasComp<PendingZombieComponent>(entity))
+        if (!HasComp<ZombieComponent>(entity)
+            && (HasComp<ZombifyOnDeathComponent>(entity)
+                || HasComp<PendingZombieComponent>(entity)))
         {
-            RemComp<ZombifyOnDeathComponent>(entity);
-            RemComp<PendingZombieComponent>(entity);
-
             _popup.PopupEntity(
                 Loc.GetString("zombie-cured-popup"),
                 entity,
                 PopupType.Medium
             );
         }
+
+        RemComp<ZombifyOnDeathComponent>(entity);
+        RemComp<PendingZombieComponent>(entity);
         // Goob end cure
 
         if (args.Effect.Innoculate)
