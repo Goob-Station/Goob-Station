@@ -149,6 +149,8 @@ public sealed partial class ZombieSystem
 
         _meta.SetEntityName(zombie, _nameMod.GetBaseName(target));
 
+        RemCompDeferred<PendingZombieComponent>(target);
+
         // reassign target to polymorphed zombie !!
         target = zombie;
         mobState = Comp<MobStateComponent>(zombie);
