@@ -148,7 +148,6 @@
   - type: Speech
     speechSounds: Kodepiia
     speechVerb: Kodepiia
-    allowedEmotes: ['Hiss', 'Snarl', 'Caw', 'Squish', 'Chitter', 'Squeak', 'Click', 'Squish', 'Coo', 'Boom', 'Chirp', 'Bubble', 'Pop'] # my extremely normal beast
   - type: Vocal
     sounds:
       Male: Kodepiia
@@ -167,6 +166,13 @@
         enum.InstrumentVisuals.Layer:
           False: {visible: false}
           True: {visible: true}
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - HarpyEmotes
+    - AnomalyHost
   - type: Inventory
     speciesId: kodepiia
     displacements:
@@ -187,6 +193,13 @@
     - id: FoodMeat
       amount: 5
   - type: HarpyVisuals
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - HarpyEmotes
+    - AnomalyHost
 
 - type: entity
   save: false
