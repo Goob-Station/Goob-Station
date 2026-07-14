@@ -53,6 +53,8 @@ using Content.Goobstation.Common.Traits;
 using Content.Shared.Damage;
 using Content.Shared.Mech.Components;
 using Content.Server.Mech.Systems;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Goobstation.Maths.FixedPoint;
 
 
 namespace Content.Server.Zombies;
@@ -81,11 +83,12 @@ public sealed partial class ZombieSystem
     [Dependency] private readonly NPCSystem _npc = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
-    // Goobstation
+
+    // <Goobstation>
     [Dependency] private readonly MechSystem _mech = default!;
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
-
+    // </Goobstation>
 
     private static readonly ProtoId<TagPrototype> InvalidForGlobalSpawnSpellTag = "InvalidForGlobalSpawnSpell";
     private static readonly ProtoId<TagPrototype> CannotSuicideTag = "CannotSuicide";
@@ -128,6 +131,13 @@ public sealed partial class ZombieSystem
 
         RaiseLocalEvent(target, new RejuvenateEvent(false, false)); // Shitmed Change
 
+        // make sure we dont leave romerol and shit in the bloodstream so they dont just. instantly get infected again if cured
+        if (TryComp(target, out BloodstreamComponent? targetStream))
+            _bloodstream.FlushChemicals((target, targetStream), FixedPoint2.MaxValue);
+
+        RemComp<ZombifyOnDeathComponent>(target);
+        RemCompDeferred<PendingZombieComponent>(target);
+
         if (!TryComp(target, out MetaDataComponent? metadata) || metadata.EntityPrototype is null)
             return;
 
@@ -148,8 +158,6 @@ public sealed partial class ZombieSystem
         }
 
         _meta.SetEntityName(zombie, _nameMod.GetBaseName(target));
-
-        RemCompDeferred<PendingZombieComponent>(target);
 
         // reassign target to polymorphed zombie !!
         target = zombie;
