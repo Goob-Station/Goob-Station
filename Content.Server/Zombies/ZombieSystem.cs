@@ -61,6 +61,7 @@ using Content.Server.Speech.Components;
 using Content.Goobstation.Shared.Sprinting;
 using Content.Shared.Prying.Components;
 using Content.Shared.Temperature.Components;
+using Content.Server.Polymorph.Components;
 
 // Goob end
 
@@ -406,28 +407,9 @@ namespace Content.Server.Zombies
 
         private void OnZombieCloning(Entity<ZombieComponent> ent, ref CloningEvent args)
         {
-            UnZombify(ent.Owner, args.CloneUid, ent.Comp);
+            // Goob - trolled, just use cure
+            //UnZombify(ent.Owner, args.CloneUid, ent.Comp);
         }
-
-        // Goob start holy fuck clean this shit up sometimes todo marty
-        private void OnUnZombifyEvent(Entity<ZombieComponent> ent, ref EntityUnZombifiedEvent args)
-        {
-            if (UnZombify(ent, ent, ent.Comp))
-            {
-                _popup.PopupEntity(
-                    Loc.GetString("zombie-cured-popup"),
-                    ent,
-                    PopupType.Medium
-                );
-                return;
-            }
-            _popup.PopupEntity(
-                Loc.GetString("zombie-cure-failed-popup"),
-                ent,
-                PopupType.Medium
-            );
-        }
-        // Goob end
 
         // Make sure players that enter a zombie (for example via a ghost role or the mind swap spell) count as an antagonist.
         private void OnMindAdded(Entity<ZombieComponent> ent, ref MindAddedMessage args)
@@ -442,7 +424,29 @@ namespace Content.Server.Zombies
             _role.MindRemoveRole<ZombieRoleComponent>((args.Mind.Owner, args.Mind.Comp));
         }
 
-        #region Goob Language Changes
+        #region Goob Changes
+
+        /// <summary>
+        /// Tries to cure the entity of zombification by reverting its polymorph
+        /// </summary>
+        /// <param name="ent">Entity to cure.</param>
+        /// <param name="currentEnt">Entity to use now, differs if succeeded.</param>
+        /// <returns></returns>
+        private bool TryCureZombie(Entity<ZombieComponent> ent, out EntityUid currentEnt)
+        {
+            currentEnt = TryComp(ent, out PolymorphedEntityComponent? comp) ? _polymorph.Revert((ent, comp))!.Value : ent;
+            return currentEnt != ent.Owner;
+        }
+
+        private void OnUnZombifyEvent(Entity<ZombieComponent> ent, ref EntityUnZombifiedEvent args)
+        {
+            bool success = TryCureZombie(ent, out EntityUid currentEnt);
+            _popup.PopupEntity(
+                Loc.GetString($"zombie-cure-{(success ? "success" : "failed")}"),
+                currentEnt,
+                PopupType.Medium
+            );
+        }
 
         /// <summary>
         ///     This forces the languages to reset and apply only the current language for the entity based on Zombie Component.

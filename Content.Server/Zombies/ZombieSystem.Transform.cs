@@ -148,7 +148,7 @@ public sealed partial class ZombieSystem
             Forced = true,
             Inventory = PolymorphInventoryChange.Transfer,
             RevertOnCrit = false,
-            RevertOnDeath = true
+            RevertOnDeath = false
         };
 
         if (_polymorph.PolymorphEntity(target, polyConfig) is not { } zombie)
