@@ -137,7 +137,7 @@
       - Plunger
       - GoldenPlunger
       - WireBrush
-      - Keyring
+      - Keyring #Goobstation
       components:
       - LightReplacer
       - SmokeOnTrigger
