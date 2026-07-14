@@ -24,12 +24,12 @@ public sealed partial class BodyScannerSystem : EntitySystem
 
     private void OnStrapped(Entity<OperatingTableComponent> ent, ref StrappedEvent args)
     {
-        if (ent.Comp.LinkedScanner is { } linkedScanner && TryComp(ent.Comp.LinkedScanner, out HealthAnalyzerComponent? analyzer))
+        if (ent.Comp.LinkedScanner is { } linkedScanner && TryComp(linkedScanner, out HealthAnalyzerComponent? analyzer))
             _healthAnalyzer.BeginAnalyzingEntity((linkedScanner, analyzer), args.Buckle);
     }
     private void OnUnstrapped(Entity<OperatingTableComponent> ent, ref UnstrappedEvent args)
     {
-        if (ent.Comp.LinkedScanner is { } linkedScanner && TryComp(ent.Comp.LinkedScanner, out HealthAnalyzerComponent? analyzer))
+        if (ent.Comp.LinkedScanner is { } linkedScanner && TryComp(linkedScanner, out HealthAnalyzerComponent? analyzer))
             _healthAnalyzer.StopAnalyzingEntity((linkedScanner, analyzer), args.Buckle);
     }
 
