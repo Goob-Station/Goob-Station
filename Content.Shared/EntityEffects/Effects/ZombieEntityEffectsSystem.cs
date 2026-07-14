@@ -55,10 +55,11 @@ public sealed partial class CureZombieInfectionEntityEffectsSystem : EntityEffec
             EnsureComp<ZombieImmuneComponent>(entity);
 
         // Goob cure start, again,
-        if (HasComp<ZombieComponent>(entity)
+        if (args.Effect.CureCriticalZombies
+            && HasComp<ZombieComponent>(entity)
             && entity.Comp.CurrentState != MobState.Alive)
         {
-            var ev = new EntityZombifiedEvent(entity);
+            var ev = new EntityUnZombifiedEvent(entity);
             RaiseLocalEvent(entity, ref ev);
         }
         // Goob cure end, again.
