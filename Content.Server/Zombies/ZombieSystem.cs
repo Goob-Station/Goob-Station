@@ -374,90 +374,35 @@ namespace Content.Server.Zombies
             CopyComp<T>(source, target, toCopy);
         }
 
-        // GOOB START - completely rewrote function to actually work now
         /// <summary>
         ///     This is the function to call if you want to unzombify an entity.
         /// </summary>
         /// <param name="source">the entity having the ZombieComponent</param>
         /// <param name="target">the entity you want to unzombify (different from source in case of cloning, for example)</param>
-        /// <param name="zombieComp"></param>
+        /// <param name="zombiecomp"></param>
         /// <remarks>
-        ///     goob note: this now restores the character pretty much completely*, upstream is only skin/eye color
-        ///     *not without sacrifices to sane code
+        ///     this currently only restore the skin/eye color from before zombified
+        ///     TODO: completely rethink how zombies are done to allow reversal.
         /// </remarks>
-        public bool UnZombify(EntityUid source, EntityUid target, ZombieComponent? zombieComp) // This function is really stupid but it works
+        public bool UnZombify(EntityUid source, EntityUid target, ZombieComponent? zombiecomp)
         {
-            if (!Resolve(source, ref zombieComp))
+            if (!Resolve(source, ref zombiecomp))
                 return false;
 
-            RemComp<ZombieComponent>(target);
-            if (zombieComp.BeforeZombificationReferenceEnt is not { } reference)
+            foreach (var (layer, info) in zombiecomp.BeforeZombifiedCustomBaseLayers)
             {
-                Log.Error($"Failed to properly reverse zombification of entity \"{ToPrettyString(target)}\"!");
-                return false;
+                _humanoidAppearance.SetBaseLayerColor(target, layer, info.Color);
+                _humanoidAppearance.SetBaseLayerId(target, layer, info.Id);
             }
-
-            //OverrideComp<HumanoidAppearanceComponent>(target, referenceEnt.Value); // For some reason, this does not work properly in copying appearance
-            if (TryComp(target, out HumanoidAppearanceComponent? targetHumanoidAppearance)
-                && TryComp(reference, out HumanoidAppearanceComponent? referenceHumanoidAppearance))
+            if (TryComp<HumanoidAppearanceComponent>(target, out var appcomp))
             {
-                _humanoidAppearance.CloneAppearance(reference, target, referenceHumanoidAppearance, targetHumanoidAppearance);
+                appcomp.EyeColor = zombiecomp.BeforeZombifiedEyeColor;
             }
-
-            // Override components that zombification tampers with reference clone components.
-            // - OverrideComp() just removes them if reference clone doesn't have them, otherwise copies component.
-            // - This is kind of ass but what can we do about it, at least this actually mostly fixes it unlike upstream UnZombify().
-            OverrideComp<DamageableComponent>(target, reference);
-            OverrideComp<TemperatureComponent>(target, reference);
-            OverrideComp<SprinterComponent>(target, reference);
-
-            OverrideComp<RespiratorComponent>(target, reference);
-            OverrideComp<BarotraumaComponent>(target, reference);
-            OverrideComp<HungerComponent>(target, reference);
-            OverrideComp<ThirstComponent>(target, reference);
-            OverrideComp<ReproductiveComponent>(target, reference);
-            OverrideComp<ReproductivePartnerComponent>(target, reference);
-            OverrideComp<LegsParalyzedComponent>(target, reference);
-            OverrideComp<ComplexInteractionComponent>(target, reference);
-
-            OverrideComp<MeleeWeaponComponent>(target, reference);
-
-            OverrideComp<EmoteOnDamageComponent>(target, reference);
-            OverrideComp<AutoEmoteComponent>(target, reference);
-            OverrideComp<HandsComponent>(target, reference);
-            OverrideComp<NpcFactionMemberComponent>(target, reference);
-            OverrideComp<HTNComponent>(target, reference);
-            OverrideComp<PacifiedComponent>(target, reference);
-            OverrideComp<ReplacementAccentComponent>(target, reference);
-            OverrideComp<PryingComponent>(target, reference);
-            if (TryComp(reference, out BloodstreamComponent? referenceBloodstream))
-            {
-                EnsureComp<BloodstreamComponent>(target);
-                _humanoidAppearance.SetSkinColor(target, zombieComp.BeforeZombifiedSkinColor, false);
-                _bloodstream.ChangeBloodReagents(target, zombieComp.BeforeZombifiedBloodReagents);
-            }
-
-            // seems to fix no hand being selected
-            if (HasComp<HandsComponent>(target)
-                && _hands.TryGetEmptyHand(target, out string? emptyHand))
-            {
-                _hands.SetActiveHand(target, emptyHand);
-            }
-
-            // gotta make sure it tells them theyre no longer antag
-            var hasMind = _mind.TryGetMind(target, out var mindId, out var mind);
-            if (hasMind)
-                _role.MindRemoveRole(mindId, "MindRoleZombie");
-
-            _nameMod.RefreshNameModifiers(target);
-            _identity.QueueIdentityUpdate(target);
-
-            // free up the reference clone
-            QueueDel(reference);
+            _humanoidAppearance.SetSkinColor(target, zombiecomp.BeforeZombifiedSkinColor, false);
+            _bloodstream.ChangeBloodReagents(target, zombiecomp.BeforeZombifiedBloodReagents);
 
             return true;
         }
-        // GOOB END
 
         private void OnZombieCloning(Entity<ZombieComponent> ent, ref CloningEvent args)
         {
