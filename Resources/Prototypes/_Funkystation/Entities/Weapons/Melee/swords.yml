@@ -1,0 +1,106 @@
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  id: ImprovisedEnergySword
+  name: improvised energy sword
+  description: A energy sword cobbled together from random parts. Burns through power like no other.
+  parent: [BaseItem, BaseMajorContraband]
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Melee/improvised_esword.rsi
+    layers:
+    - state: icon
+    - state: icon-ON
+      visible: false
+      shader: unshaded
+      map: [ "blade" ]
+  - type: ToggleCellDraw
+  - type: PowerCellDraw
+    drawRate: 20
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot
+  - type: ItemToggle
+    soundActivate:
+      path: /Audio/Weapons/ebladeon.ogg
+    soundDeactivate:
+      path: /Audio/Weapons/ebladeoff.ogg
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/Weapons/ebladehum.ogg
+  - type: ComponentToggler
+    components:
+    - type: Sharp
+    - type: DisarmMalus
+      malus: 0.6
+    - type: Execution
+      doAfterDuration: 4.0
+  - type: ItemToggleHot
+  - type: ItemTogglePointLight
+  - type: ItemToggleSize
+    activatedSize: Ginormous
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+    activatedSoundOnHitNoDamage:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+        volume: -10
+    activatedSoundOnSwing:
+      path: /Audio/Weapons/eblademiss.ogg
+      params:
+        variation: 0.125
+    activatedDamage:
+      types:
+        Slash: 7
+        Heat: 10
+        Structural: 5
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 4.5
+  - type: Item
+    size: Huge
+    sprite: _Funkystation/Objects/Weapons/Melee/improvised_esword.rsi
+  - type: UseDelay
+    delay: 1.0
+  - type: PointLight
+    enabled: false
+    radius: 2
+    energy: 2
+    color: "#42BFC8"
+    netsync: false
+  - type: Appearance
+  - type: ToggleableVisuals
+    spriteLayer: blade
+    inhandVisuals:
+      left:
+      - state: inhand-left-ON
+        shader: unshaded
+      right:
+      - state: inhand-right-ON
+        shader: unshaded
+  - type: Clothing
+    sprite: _Funkystation/Objects/Weapons/Melee/improvised_esword.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - SUITSTORAGE
+  - type: IgnitionSource
+    temperature: 700
+  - type: Construction
+    graph: Tsword
+    node: tsword

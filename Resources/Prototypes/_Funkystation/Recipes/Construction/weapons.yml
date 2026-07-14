@@ -1,0 +1,14 @@
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: construction
+  name: improvised energy sword
+  id: Tsword
+  graph: Tsword
+  startNode: start
+  targetNode: tsword
+  category: construction-category-weapons
+  description: A energy sword cobbled together from random parts. Burns through power like no other.
+  icon: { sprite: _Funkystation/Objects/Weapons/Melee/improvised_esword.rsi, state: icon }
+  objectType: Item
