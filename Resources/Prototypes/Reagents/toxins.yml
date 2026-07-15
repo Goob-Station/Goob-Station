@@ -575,7 +575,7 @@
           - Yowie # Goobstation - Yowie
           - XenobioSlime # Goobstation - XenobioSlime
           - Hydrakin # Fuck you
-          - Kodepiia
+          - Kodepiia # Impstation
           inverted: true
       - !type:HealthChange
         conditions:
