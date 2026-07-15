@@ -122,6 +122,15 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 1
     baseSprintSpeed: 1
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        reagents:
+        - ReagentId: Fresium
+          Quantity: 300
+  - type: MeleeChemicalInjector
+    solution: melee
+    transferAmount: 5
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Effects/bite.ogg
@@ -282,6 +291,15 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 2
     baseSprintSpeed: 2
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        reagents:
+        - ReagentId: Fresium
+          Quantity: 300
+  - type: MeleeChemicalInjector
+    solution: melee
+    transferAmount: 8
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Effects/bite.ogg
@@ -399,7 +417,7 @@
   parent: BaseMobFleshBeast
   id: MobFleshSpitterElite
   name: toxic abomination
-  description: Spews acid that was bio-engineered specifically against living creatures.
+  description: Covered in caustic sacks, each time this creature attacks, it spawns a cloud of acid smoke.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -419,26 +437,30 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      90: Dead
+      150: Dead
   - type: MovementSpeedModifier
-    baseWalkSpeed: 1.5
-    baseSprintSpeed: 1.5
+    baseWalkSpeed: 2.5
+    baseSprintSpeed: 2.5
   - type: HTN
     rootTask:
-      task: SimpleRangedHostileCompound
-  - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 0.2
-  - type: BasicEntityAmmoProvider
-    proto: BulletAcid
-    capacity: 3
-    count: 3
-  - type: Gun
-    fireRate: 1
-    useKey: false
-    selectedMode: FullAuto
-    availableModes:
-      - FullAuto
-    soundGunshot: /Audio/Weapons/Xeno/alien_spitacid.ogg
+      task: SimpleHostileCompound
+  - type: TriggerOnMelee
+  - type: SmokeOnTrigger
+    duration: 1
+    spreadAmount: 100
+    solution:
+      reagents:
+        - ReagentId: FluorosulfuricAcid
+          Quantity: 20
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        reagents:
+        - ReagentId: FluorosulfuricAcid
+          Quantity: 300
+  - type: MeleeChemicalInjector
+    solution: melee
+    transferAmount: 2
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Effects/bite.ogg
@@ -537,14 +559,25 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 4.5
     baseSprintSpeed: 4.5
-  - type: AutoEmote
-    emotes:
-    - FleshBreathing
-  - type: Vocal
-    sounds:
-      Male: FleshLarge
-      Female: FleshLarge
-      Unsexed: FleshLarge
+  - type: BerserkerStats
+    scaleDamage: true
+    scaleSpeed: true
+    damageMinMultiplier: 1.0
+    damageMaxMultiplier: 1.5
+    speedMinMultiplier: 1.0
+    speedMaxMultiplier: 2
+    exponentialScaling: true
+    scalingExponent: 4
+    componentThresholds:
+    - healthThreshold: 0.5
+      components:
+      - type: SpamEmitSound
+        minInterval: 3
+        maxInterval: 8
+        sound:
+          collection: FleshGrowl
+          params:
+            variation: 0.4
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
