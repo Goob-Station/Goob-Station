@@ -181,6 +181,8 @@
     children:
     - id: StrangePill
       prob: 0.15
+    - id: ClothingOuterArmorRU6B2Vest
+      prob: 0.1
     # Tools
     - !type:NestedSelector
       tableId: MaintToolsTable
