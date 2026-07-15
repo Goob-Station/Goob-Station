@@ -1,5 +1,3 @@
-# Sprites made by crocodilecarousel!
-
 - type: entity
   id: PartKodepiia
   parent: [BaseItem, BasePart]
