@@ -63,7 +63,7 @@ public sealed class ClothingSpeedModifierSystem : EntitySystem
             return;
 
         // goob edit - speed modifier immunity (1 liner)
-        if (_toggle.IsActivated(uid) && !HasComp<SpeedModifierImmunityComponent>(uid))
+        if (!_toggle.IsActivated(uid) || HasComp<SpeedModifierImmunityComponent>(uid))
             return;
 
         if (component.Standing != null && !_standing.IsMatchingState(args.Owner, component.Standing.Value))
