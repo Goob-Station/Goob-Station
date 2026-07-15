@@ -168,11 +168,7 @@
           True: {visible: true}
   - type: Tag
     tags:
-    - CanPilot
-    - FootstepSound
-    - DoorBumpOpener
     - HarpyEmotes
-    - AnomalyHost
   - type: Inventory
     speciesId: kodepiia
     displacements:
