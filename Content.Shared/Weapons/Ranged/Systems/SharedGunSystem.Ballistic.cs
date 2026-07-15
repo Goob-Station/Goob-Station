@@ -271,8 +271,8 @@ public abstract partial class SharedGunSystem
             // Goobstation - put spent ammo back in the gun if it doesn't autocycle
             if (!ent.Comp.AutoCycle)
             {
-                ent.Comp.Entities.Add(ent);
-                Containers.Insert(ent.Owner, ent.Comp.Container);
+                ent.Comp.Entities.Add(ammoEnt);
+                Containers.Insert(ammoEnt, ent.Comp.Container);
                 DirtyField(ent.Owner, ent.Comp, nameof(BallisticAmmoProviderComponent.Entities));
             }
             // Goobstation - end
