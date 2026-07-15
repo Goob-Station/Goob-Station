@@ -23,10 +23,6 @@
       "directions": 4
     },
     {
-      "name": "equipped-OUTERCLOTHING-kodepiia",
-      "directions": 4
-    },
-    {
       "name": "inhand-left",
       "directions": 4
     },
@@ -44,10 +40,6 @@
     },
     {
       "name": "equipped-OUTERCLOTHING-feroxi",
-      "directions": 4
-    },
-    {
-      "name": "on-equipped-HELMET-kodepiia",
       "directions": 4
     }
   ]
