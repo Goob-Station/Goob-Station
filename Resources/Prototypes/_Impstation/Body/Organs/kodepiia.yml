@@ -1,3 +1,5 @@
+# Sprites made by crocodilecarousel!
+
 - type: entity
   id: BaseKodepiiaOrgan
   parent: [BaseItem]
