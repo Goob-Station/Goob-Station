@@ -2,7 +2,7 @@
   parent: ClothingOuterArmorBase
   id: ClothingOuterArmorRU6B2Vest
   name: 6B2 ballistic vest
-  description: A very old vest used in the Soviet-Afghan war, calling it a "ballistic" vest is a overstatement as it can only stop shrapnel.
+  description: A very old vest that was mass produced long ago , calling it a "ballistic" vest is a overstatement as it can only stop shrapnel.
   components:
   - type: Sprite
     sprite: _Battlefield14/Clothing/OuterClothing/Armor/ru6b2vest.rsi
