@@ -244,9 +244,6 @@ public abstract partial class SharedGunSystem
             EntityUid? ammoEntity = null;
             if (ent.Comp.Entities.Count > 0)
             {
-                if (!ent.Comp.AutoCycle) //  Goobstation - do not remove spent ammo from the gun it doesn't autocycle
-                    break;
-
                 var existingEnt = ent.Comp.Entities[^1];
                 ent.Comp.Entities.RemoveAt(ent.Comp.Entities.Count - 1);
                 DirtyField(ent.AsNullable(), nameof(BallisticAmmoProviderComponent.Entities));
@@ -274,6 +271,7 @@ public abstract partial class SharedGunSystem
                 ent.Comp.Entities.Add(ammoEnt);
                 Containers.Insert(ammoEnt, ent.Comp.Container);
                 DirtyField(ent.Owner, ent.Comp, nameof(BallisticAmmoProviderComponent.Entities));
+                break; // Only one round can be chambered at a time.
             }
             // Goobstation - end
 
