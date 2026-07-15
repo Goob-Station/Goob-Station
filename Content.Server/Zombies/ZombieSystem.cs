@@ -449,7 +449,7 @@ namespace Content.Server.Zombies
 
             // we want to make sure this is added to the reverted ent
             if (args.Inoculate)
-                EnsureComp<ZombieImmuneComponent>(ent);
+                EnsureComp<ZombieImmuneComponent>(currentEnt);
         }
 
         /// <summary>
