@@ -59,7 +59,7 @@ public sealed partial class CureZombieInfectionEntityEffectsSystem : EntityEffec
             && entity.Comp.CurrentState != MobState.Alive
             && args.Effect.CureZombies)
         {
-            var ev = new EntityUnZombifiedEvent(entity);
+            var ev = new EntityUnZombifiedEvent(args.Effect.Innoculate);
             RaiseLocalEvent(entity, ref ev);
         }
         // </Goob>

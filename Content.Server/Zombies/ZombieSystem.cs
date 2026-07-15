@@ -446,6 +446,10 @@ namespace Content.Server.Zombies
                 currentEnt,
                 PopupType.Medium
             );
+
+            // we want to make sure this is added to the reverted ent
+            if (args.Inoculate)
+                EnsureComp<ZombieImmuneComponent>(ent);
         }
 
         /// <summary>
