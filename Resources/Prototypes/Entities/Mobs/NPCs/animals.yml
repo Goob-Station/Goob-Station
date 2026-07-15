@@ -1969,6 +1969,8 @@
         Base: splat-0
   - type: Edible
   - type: FlavorProfile
+    flavors:
+    - meaty
   - type: Absorbable # imp edit
   - type: Thirst
     startingThirst: 25  # spawn with Okay thirst state

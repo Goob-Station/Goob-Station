@@ -23,7 +23,7 @@
   id: OrganKodepiiaBrain
   parent: [BaseKodepiiaOrgan, OrganHumanBrain]
   name: bille áu sac
-  description: "Allegedly still functioning."
+  description: "Allegedly still functioning, or has it ever really functioned."
   components:
   - type: Sprite
     sprite: _Impstation/Mobs/Species/Kodepiia/organs.rsi
@@ -151,7 +151,7 @@
   id: OrganKodepiiaHeart
   parent: [ OrganHumanHeart ]
   name: COAT
-  description: "Allegedly 'quirked up' with 'the sauce,' if rumors are to be believed."
+  description: "Allegedly 'quirked up' with 'the sauce,' if rumors are to be believed. It's probably a heart."
   components:
   - type: Sprite
     sprite: _Impstation/Mobs/Species/Kodepiia/organs.rsi

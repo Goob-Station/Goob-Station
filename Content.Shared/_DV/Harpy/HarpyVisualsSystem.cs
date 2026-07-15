@@ -1,7 +1,7 @@
 using Content.Shared.Inventory.Events;
 using Content.Shared.Tag;
 using Content.Shared.Humanoid;
-using Content.Shared._NF.Clothing.Components; // Frontier
+using Content.Shared._NF.Clothing.Components;
 
 namespace Content.Shared._DV.Harpy;
 
