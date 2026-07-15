@@ -7,7 +7,7 @@ namespace Content.Server._Lavaland.Weapons.Melee;
 
 public sealed class MeleeUpgradesSystem : SharedMeleeUpgradesSystem
 {
-    [Dependency] private readonly SharedEntityEffectSystem _entityEffect = default!;
+    [Dependency] private readonly SharedEntityEffectsSystem _entityEffects = default!;
 
     public override void Initialize()
     {
@@ -21,7 +21,7 @@ public sealed class MeleeUpgradesSystem : SharedMeleeUpgradesSystem
         {
             foreach (var effect in ent.Comp.Effects)
             {
-                _entityEffect.Effect(effect, new EntityEffectBaseArgs(hit, EntityManager));
+                _entityEffects.ApplyEffect(hit, effect);
             }
         }
     }

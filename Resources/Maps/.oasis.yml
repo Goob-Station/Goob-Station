@@ -36638,26 +36638,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -46.39702,-26.793861
       parent: 2
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 1307
-          - 1308
-        pen_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-    - type: Storage
-      storedItems:
-        1307:
-          position: 0,0
-          _rotation: South
-        1308:
-          position: 1,0
-          _rotation: South
   - uid: 1309
     components:
     - type: Transform
@@ -92724,7 +92704,7 @@ entities:
       parent: 10023
     - type: Physics
       canCollide: False
-- proto: EnergyChemDispenser
+- proto: ChemDispenser
   entities:
   - uid: 7800
     components:
@@ -140701,7 +140681,7 @@ entities:
     - type: Transform
       pos: 41.613995,-4.120341
       parent: 2
-- proto: MaterialSilo
+- proto: MachineMaterialSilo
   entities:
   - uid: 14991
     components:

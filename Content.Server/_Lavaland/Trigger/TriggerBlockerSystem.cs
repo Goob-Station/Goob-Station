@@ -24,7 +24,7 @@ public sealed class TriggerBlockerSystem : EntitySystem
 
         if (map == null
             || _whitelist.IsWhitelistPass(ent.Comp.MapWhitelist, map.Value)
-            || _whitelist.IsBlacklistFail(ent.Comp.MapBlacklist, map.Value))
+            || _whitelist.IsWhitelistFail(ent.Comp.MapBlacklist, map.Value))
             return;
 
         args.Cancelled = true;

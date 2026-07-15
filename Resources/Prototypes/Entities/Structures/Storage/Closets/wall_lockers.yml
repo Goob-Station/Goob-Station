@@ -1,10 +1,3 @@
-# SPDX-FileCopyrightText: 2022 Martin Petkovski <63034378+martin69420@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 ChilbroBaggins <107660393+ChilbroBaggins@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Jeff <velcroboy333@hotmail.com>
-# SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-#
 # SPDX-License-Identifier: MIT
 
 - type: entity
@@ -246,3 +239,18 @@
   components:
   - type: EntityStorageVisuals
     stateDoorClosed: genpop_door_8
+
+- type: entity
+  id: LockerWallSyndicate
+  parent: BaseWallLocker
+  name: blood-red wall locker
+  description: It's a wall storage unit with a blood-red design.
+  suffix: "Locked"
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: generic
+    stateDoorOpen: syndicate_open
+    stateDoorClosed: syndicate_closed
+  - type: AccessReader
+    access: [["SyndicateAgent"]]

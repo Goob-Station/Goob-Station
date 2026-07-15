@@ -1,11 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 
@@ -29,17 +21,16 @@
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.4
+    damageCoefficient: 0.5
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
+        Blunt: 0.8
+        Slash: 0.7
         Piercing: 0.5
         Heat: 0.5
-        Radiation: 0.5
-        Caustic: 0.5
-        Holy: 1.25
+        Caustic: 0.7
+        Holy: 1.25 # Goobstation
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -51,6 +42,7 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+    - HidesHarpyWings
 #Shoulder mounted flashlight
   - type: ToggleableVisuals
     spriteLayer: light
@@ -92,7 +84,6 @@
     maxCharge: 100
     startingCharge: 100
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 5
   - type: UnholyItem # Goobstation Shitchap
 
@@ -124,5 +115,13 @@
         Radiation: 0.5
         Caustic: 0.5
   - type: UnholyItem # Goobstation Shitchap
-  - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+  - type: EyeProtection
+  - type: TypingIndicatorClothing
+    proto: CosmicTyping
+  - type: SpeechOverride
+    overrideIDs:
+      Male: CosmicEmotesMale
+      Female: CosmicEmotesFemale
+      Unsexed: CosmicEmotesMale # Humans use male soudns for unsexed so here we are.
+

@@ -1,14 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
-// SPDX-FileCopyrightText: 2023 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 c4llv07e <38111072+c4llv07e@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
@@ -37,11 +26,11 @@ namespace Content.Client.Access.UI
         public void SetAccessLevels(IPrototypeManager protoManager, List<ProtoId<AccessLevelPrototype>> accessLevels)
         {
             _accessButtons.Clear();
-            AccessLevelGrid.DisposeAllChildren();
+            AccessLevelGrid.RemoveAllChildren();
 
             foreach (var access in accessLevels)
             {
-                if (!protoManager.TryIndex(access, out var accessLevel))
+                if (!protoManager.Resolve(access, out var accessLevel))
                 {
                     continue;
                 }
@@ -65,6 +54,8 @@ namespace Content.Client.Access.UI
 
         public void UpdateState(IPrototypeManager protoManager, AccessOverriderBoundUserInterfaceState state)
         {
+            PrivilegedIdGrid.Visible = state.ShowPrivilegedIdGrid;
+
             PrivilegedIdLabel.Text = state.PrivilegedIdName;
             PrivilegedIdButton.Text = state.IsPrivilegedIdPresent
                 ? Loc.GetString("access-overrider-window-eject-button")
@@ -89,7 +80,9 @@ namespace Content.Client.Access.UI
                     missingPrivileges.Add(privilege);
                 }
 
-                MissingPrivilegesLabel.Text = Loc.GetString("access-overrider-window-missing-privileges");
+                MissingPrivilegesLabel.Text = state.ShowPrivilegedIdGrid ?
+                    Loc.GetString("access-overrider-window-missing-privileges") :
+                    Loc.GetString("access-overrider-window-missing-privileges-no-id");
                 MissingPrivilegesText.Text = string.Join(", ", missingPrivileges);
             }
 
