@@ -13,6 +13,8 @@
         Quantity: 3
       - ReagentId: ShimmeringBlood
         Quantity: 10
+  - type: Damageable # Shitmed
+    damageModifierSet: Kodepiia
   - type: WoundableVisuals
     damageOverlayGroups:
       Brute:
@@ -24,7 +26,7 @@
 - type: entity
   id: PartKodepiia2
   parent: [BaseItem, BasePart]
-  name: "arachnid body part"
+  name: "kodepiia body part"
   abstract: true
   components:
   - type: BodyPart # Shitmed Change

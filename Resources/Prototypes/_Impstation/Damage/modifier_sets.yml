@@ -1,6 +1,7 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: damageModifierSet
   id: Kodepiia
   coefficients:
-    Blunt: 1.15
-    Slash: 1.15
-    Piercing: 1.15
+    Slash: 1.30
+    Bloodloss: 2.00
