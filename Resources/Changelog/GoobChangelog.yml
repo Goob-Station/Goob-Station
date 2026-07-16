@@ -23921,3 +23921,15 @@ Entries:
       message: Fixed xenobio extract giving a lot of things after injection
   id: 2748
   time: '2026-07-16T02:59:33.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Remove the access text from species examine
+  id: 2749
+  time: '2026-07-16T03:00:48.0000000+00:00'
+- author: Super7522
+  changes:
+    - type: Tweak
+      message: Delimb Chances are now actually possible with Brute and Piercing weapons
+  id: 2750
+  time: '2026-07-16T03:01:21.0000000+00:00'
