@@ -181,7 +181,7 @@
     children:
     - id: StrangePill
       prob: 0.15
-    - id: ClothingOuterArmorRU6B2Vest
+    - id: ClothingOuterArmorRU6B2Vest # Goobstation 
       prob: 0.08
     # Tools
     - !type:NestedSelector
