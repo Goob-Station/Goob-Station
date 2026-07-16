@@ -19,7 +19,6 @@ public sealed class SharedMagbootsSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedGravitySystem _gravity = default!;
     [Dependency] private readonly SharedElectrocutionSystem _electro = default!;
-
     public override void Initialize()
     {
         base.Initialize();
@@ -34,10 +33,9 @@ public sealed class SharedMagbootsSystem : EntitySystem
 
     private void OnToggleActivateAttempt(Entity<MagbootsComponent> ent, ref ItemToggleActivateAttemptEvent args)
     {
-        if (HasComp<FlipGravityComponent>(args.User))
+        if (TryComp<FlipGravityComponent>(args.User, out var flip))
         {
-            _electro.TryDoElectrocution(args.User.Value, null, 1, TimeSpan.FromSeconds(10), true, ignoreInsulation: true); // Hardcode the damage why not
-            args.Popup = Loc.GetString("You can't activate this");
+            _electro.TryDoElectrocution(args.User.Value, null, flip.Damage, flip.Duration, true, ignoreInsulation: true);
             args.Cancelled = true;
         }
     }
