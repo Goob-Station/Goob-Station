@@ -23915,3 +23915,9 @@ Entries:
       message: Ichor No longer makes you bleed.
   id: 2747
   time: '2026-07-16T02:59:00.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed xenobio extract giving a lot of things after injection
+  id: 2748
+  time: '2026-07-16T02:59:33.0000000+00:00'
