@@ -284,3 +284,27 @@
   - type: Organ
     onAdd:
     - type: RandomLanguage
+
+- type: entity
+  id: OrganDubiousFlipGravity
+  parent: OrganDubiousBase
+  components:
+  - type: Sprite
+    state: species
+  - type: Organ
+    onAdd:
+    - type: FlipGravity
+
+- type: entity
+  id: OrganDubiousVomitChem
+  parent: OrganDubiousBase
+  components:
+  - type: Sprite
+    state: viral
+  - type: Organ
+    onAdd:
+    - type: RandomStatusActivation
+      minActivationTime: 15
+      maxActivationTime: 30
+      statusEffects:
+        VomitChem: VomitChem
