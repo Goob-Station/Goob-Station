@@ -76,8 +76,7 @@ public sealed partial class LatheSystem
                         _puddle.TrySpillAt(uid, toAdd, out _);
                     }
                 }
-                // if (comp.Queue.Count == 0)
-                //     break;
+
                 var recipeProto = comp.Queue.First().Recipe;
                 var recipe = _proto.Index(batch.Recipe);
                 var time = _reagentSpeed.ApplySpeed(uid, recipe.CompleteTime) * comp.TimeMultiplier;
