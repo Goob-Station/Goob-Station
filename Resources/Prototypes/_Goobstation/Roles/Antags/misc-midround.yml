@@ -1,18 +1,4 @@
 - type: startingGear
-  id: GreyTideAntagGear
-  equipment:
-    mask: ClothingMaskGasUnremoveable
-    jumpsuit: ClothingUniformJumpsuitAncientUnremoveable
-    shoes: ClothingShoesColorBlackUnremoveable
-    id: PassengerPDA
-    ears: ClothingHeadsetGrey
-    belt: ClothingBeltUtilityFilledUnremoveable
-    gloves: ClothingHandsGlovesColorYellowUnremovable
-    back: ClothingBackpackUnremoveable
-  inhand:
-  - Toolboxrobust
-
-- type: startingGear
   id: TunnelClownAntagGear
   equipment:
     mask: ClothingMaskClownUnremoveable
@@ -70,7 +56,7 @@
     jumpsuit: ClothingUniformJumpsuitColorWhite
     outerClothing: WhiteRobes
     shoes: ClothingShoesBootsJack
-    belt: ClothingBeltAssaultFilled
+    belt: ClothingBeltMilitaryWebbingFilled
     id: CentcomPDA
   inhand:
   - PinpointerDarkLord

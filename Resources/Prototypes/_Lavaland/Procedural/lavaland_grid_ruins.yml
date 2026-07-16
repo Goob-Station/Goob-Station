@@ -1,10 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
-# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: lavalandGridRuin
@@ -53,6 +46,12 @@
   id: RougeAI
   name: lavaland-ruin-station
   path: /Maps/_Lavaland/Lavaland/ruin_rouge_ai.yml
+  priority: 5
+
+- type: lavalandGridRuin
+  id: XenoNest
+  name: lavaland-ruin-desk #"Station debris"
+  path: /Maps/_Lavaland/Lavaland/ruin_xeno_nest.yml
   priority: 5
 
 - type: lavalandGridRuin
@@ -183,3 +182,12 @@
   name: lavaland-ruin-temple
   path: /Maps/Lavaland/temple.yml
   priority: 30
+
+#Goobstation ruins? Idk.
+
+- type: lavalandGridRuin
+  id: Reclaimer
+  name: lavaland-ruin-reclaimer
+  path: /Maps/_Lavaland/Lavaland/reclaimer_shuttle_ruin.yml
+  priority: -1 # highest priority
+  patchToPlanet: false

@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Maths.FixedPoint;
@@ -27,7 +21,7 @@ public sealed partial class WoundComponent : Component
     /// <summary>
     /// The damage this wound applies to it's woundable
     /// </summary>
-    public FixedPoint2 WoundIntegrityDamage => WoundSeverityPoint; //* WoundableIntegrityMultiplier;
+    public FixedPoint2 WoundIntegrityDamage => WoundSeverityPoint;
 
     /// <summary>
     /// Actually, severity of the wound. The more the worse.
@@ -35,12 +29,6 @@ public sealed partial class WoundComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public FixedPoint2 WoundSeverityPoint;
-
-    /// <summary>
-    /// How much damage this wound does to it's parent woundable?
-    /// </summary>
-    [DataField("integrityMultiplier")]
-    public FixedPoint2 WoundableIntegrityMultiplier = 1;
 
     /// <summary>
     /// maybe some cool mechanical stuff to treat those wounds later. I genuinely have no idea
@@ -120,7 +108,6 @@ public sealed class WoundComponentState : ComponentState
     public NetEntity HoldingWoundable;
 
     public FixedPoint2 WoundSeverityPoint;
-    public FixedPoint2 WoundableIntegrityMultiplier;
 
     public WoundType WoundType;
 

@@ -1,90 +1,9 @@
-// SPDX-FileCopyrightText: 2021 E F R <602406+Efruit@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 /ʊniɹɑː/ <onoira@psiko.zone>
-// SPDX-FileCopyrightText: 2023 Echo <SammyPawsM@gmail.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 eoineoineoin <eoin.mcloughlin+gh@gmail.com>
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 CaasGit <87243814+CaasGit@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
-// SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 FluffMe <dex.stb@gmail.com>
-// SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
-// SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kukutis96513 <146854220+Kukutis96513@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Lye <128915833+Lyroth001@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MerrytheManokit <167581110+MerrytheManokit@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 OrangeMoronage9622 <whyteterry0092@gmail.com>
-// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
-// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2024 Vigers Ray <60344369+VigersRay@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
-// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-// SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
-// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
+using Content.Client.RichText;
 using Content.Shared.Paper;
+using Robust.Client.UserInterface; // Starlight-edit
 using Robust.Client.AutoGenerated;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
@@ -102,6 +21,8 @@ namespace Content.Client.Paper.UI
     [GenerateTypedNameReferences]
     public sealed partial class PaperWindow : BaseWindow
     {
+        private PaperComponent.PaperBoundUserInterfaceState _currentState = default!; // starlight-edit
+        private string _currentRawText = string.Empty; // starlight-edit
         [Dependency] private readonly IInputManager _inputManager = default!;
         [Dependency] private readonly IResourceCache _resCache = default!;
 
@@ -123,17 +44,13 @@ namespace Content.Client.Paper.UI
         // we're able to resize this UI or not. Default to everything enabled:
         private DragMode _allowedResizeModes = ~DragMode.None;
 
-        private readonly Type[] _allowedTags = new Type[] {
-            typeof(BoldItalicTag),
-            typeof(BoldTag),
-            typeof(BulletTag),
-            typeof(ColorTag),
-            typeof(HeadingTag),
-            typeof(ItalicTag),
-            typeof(MonoTag)
-        };
+        // Store original margin to restore when switching modes // Starlight-edit
+        private Thickness _originalContentMargin; // Starlight-edit
+
+        // goobstation upstreamer note if you're looking for _allowedtags its moved to UserFormattableTags.cs
 
         public event Action<string>? OnSaved;
+        public event Action<int>? OnSignatureRequested; // Starlight-edit
 
         private int _MaxInputLength = -1;
         public int MaxInputLength
@@ -263,9 +180,12 @@ namespace Content.Client.Paper.UI
                 _paperContentLineScale = visuals.ContentImageNumLines;
             }
 
-            PaperContent.Margin = new Thickness(
+            // Starlight-edit begin
+            _originalContentMargin = new Thickness(
                     visuals.ContentMargin.Left, visuals.ContentMargin.Top,
                     visuals.ContentMargin.Right, visuals.ContentMargin.Bottom);
+            PaperContent.Margin = _originalContentMargin;
+            // Starlight-edit end
 
             if (visuals.MaxWritableArea != null)
             {
@@ -310,6 +230,12 @@ namespace Content.Client.Paper.UI
             if (WrittenTextLabel.TryGetStyleProperty<Font>("font", out var font))
             {
                 float fontLineHeight = font.GetLineHeight(1.0f);
+
+                // Starlight-edit: Set the font line height in tag handlers so buttons match text height
+                FormTagHandler.FontLineHeight = fontLineHeight;
+                SignatureTagHandler.FontLineHeight = fontLineHeight;
+                CheckTagHandler.FontLineHeight = fontLineHeight;
+
                 // This positions the texture so the font baseline is on the bottom:
                 _paperContentTex.ExpandMarginTop = font.GetDescent(UIScale);
                 // And this scales the texture so that it's a single text line:
@@ -339,13 +265,17 @@ namespace Content.Client.Paper.UI
         /// </summary>
         public void Populate(PaperComponent.PaperBoundUserInterfaceState state)
         {
+            _currentState = state; // starlight
+            _currentRawText = state.Text; // starlight
             bool isEditing = state.Mode == PaperComponent.PaperAction.Write;
             bool wasEditing = InputContainer.Visible;
             InputContainer.Visible = isEditing;
             EditButtons.Visible = isEditing;
-
-            var msg = new FormattedMessage();
-            msg.AddMarkupPermissive(state.Text);
+            // Starlight
+            WrittenTextLabel.Visible = !isEditing;
+            WrittenTextContainer.Visible = false;
+            BlankPaperIndicator.Visible = !isEditing && state.Text.Length == 0;
+            // End
 
             // For premade documents, we want to be able to edit them rather than
             // replace them.
@@ -361,14 +291,28 @@ namespace Content.Client.Paper.UI
                 Input.InsertAtCursor(state.Text);
             }
 
-            for (var i = 0; i <= state.StampedBy.Count * 3 + 1; i++)
+            // Starlight start, paperwork tag shit
+            if (isEditing)
             {
-                msg.AddMarkupPermissive("\r\n");
+                // Reset margin to original when editing (no tag buttons visible)
+                PaperContent.Margin = _originalContentMargin;
             }
-            WrittenTextLabel.SetMessage(msg, _allowedTags, DefaultTextColor);
 
-            WrittenTextLabel.Visible = !isEditing && state.Text.Length > 0;
-            BlankPaperIndicator.Visible = !isEditing && state.Text.Length == 0;
+            FormTagHandler.SetFormText(state.Text);
+            FormTagHandler.ResetFormCounter();
+            SignatureTagHandler.ResetSignatureCounter();
+            CheckTagHandler.ResetCheckCounter();
+
+            var fm = new FormattedMessage();
+            fm.AddMarkupPermissive(state.Text);
+            WrittenTextLabel.SetMessage(fm, UserFormattableTags.BaseAllowedTags, DefaultTextColor);
+
+            // Add extra bottom margin based on tag count to prevent cutoff (only in read mode)
+            var tagCount = CountTags(state.Text);
+            var extraBottomMargin = tagCount * 3.0f; // 3 pixels per tag for extra height
+            PaperContent.Margin = new Thickness(_originalContentMargin.Left, _originalContentMargin.Top,
+                _originalContentMargin.Right, _originalContentMargin.Bottom + extraBottomMargin);
+            // Starlight End
 
             StampDisplay.RemoveAllChildren();
             StampDisplay.RemoveStamps();
@@ -440,5 +384,378 @@ namespace Content.Client.Paper.UI
                 SaveButton.Disabled = false;
             }
         }
+
+
+        // STARLIGHT-EDIT
+        # region starlight
+        /// <summary>
+        /// Removes any unfilled [form] and [signature] tags from the paper text.
+        /// Called when the paper is stamped to finalize the document.
+        /// </summary>
+        /// <param name="text">The paper text to clean</param>
+        /// <returns>Text with unfilled tags removed</returns>
+        public static string CleanUnfilledTags(string text)
+        {
+            return text.Replace("[form]", string.Empty).Replace("[signature]", string.Empty);
+        }
+
+        /// <summary>
+        /// Opens a modal dialog allowing the user to fill in a specific [form] tag.
+        /// Creates a popup with text input, OK/Cancel buttons, and handles form submission.
+        /// </summary>
+        /// <param name="formIndex">Zero-based index of which [form] tag to replace</param>
+        public void OpenFormDialog(int formIndex)
+        {
+            // Find and highlight the form button
+            var formButton = FindFormButton(formIndex);
+            if (formButton != null)
+                formButton.ModulateSelfOverride = Color.LightBlue;
+
+            // Create the popup dialog structure
+            var popup = new Popup();
+            var vbox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, Margin = new Thickness(10) };
+            var editContainer = new PanelContainer { StyleClasses = { "TransparentBorderedWindowPanel" } };
+            var edit = new LineEdit { MinSize = new Vector2(200, 0), Margin = new Thickness(5) };
+            var hbox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Horizontal };
+            var ok = new Button { Text = Loc.GetString("paper-form-dialog-ok") };
+            var cancel = new Button { Text = Loc.GetString("paper-form-dialog-cancel") };
+
+            editContainer.AddChild(edit);
+
+            // Handle OK button press - save the form data if text was entered
+            ok.OnPressed += _ =>
+            {
+                if (!string.IsNullOrEmpty(edit.Text))
+                {
+                    var newText = ReplaceNthFormTag(_currentRawText, formIndex, edit.Text);
+                    OnSaved?.Invoke(newText);
+                }
+                if (formButton != null)
+                    formButton.ModulateSelfOverride = null;
+                popup.Close();
+            };
+
+            // Handle Cancel button - just close without saving
+            cancel.OnPressed += _ => {
+                if (formButton != null)
+                    formButton.ModulateSelfOverride = null;
+                popup.Close();
+            };
+
+            // Handle Enter key in text field - same as OK button
+            edit.OnTextEntered += _ =>
+            {
+                if (!string.IsNullOrEmpty(edit.Text))
+                {
+                    var newText = ReplaceNthFormTag(_currentRawText, formIndex, edit.Text);
+                    OnSaved?.Invoke(newText);
+                }
+                popup.Close();
+            };
+
+            // Assemble the dialog layout and show it
+            hbox.AddChild(ok);
+            hbox.AddChild(cancel);
+            vbox.AddChild(editContainer);
+            vbox.AddChild(hbox);
+            popup.AddChild(vbox);
+            AddChild(popup);
+            popup.Open();
+            edit.GrabKeyboardFocus(); // Focus the text input for immediate typing
+        }
+
+        /// <summary>
+        /// Sends a signature request to the server to handle signature with proper identity system.
+        /// </summary>
+        /// <param name="signatureIndex">Zero-based index of which [signature] tag to replace</param>
+        public void SendSignatureRequest(int signatureIndex)
+        {
+            OnSignatureRequested?.Invoke(signatureIndex);
+        }
+
+        /// <summary>
+        /// Finds a form button by index for visual feedback.
+        /// </summary>
+        private Button? FindFormButton(int formIndex)
+        {
+            return FindButtonRecursive(WrittenTextLabel, "Fill", formIndex);
+        }
+
+        /// <summary>
+        /// Finds a check button by index for visual feedback.
+        /// </summary>
+        private Button? FindCheckButton(int checkIndex)
+        {
+            return FindCheckButtonRecursive(WrittenTextLabel, checkIndex);
+        }
+
+        /// <summary>
+        /// Finds check buttons (which can have different text: ☐, ✔, ✖).
+        /// </summary>
+        private Button? FindCheckButtonRecursive(Control control, int targetIndex)
+        {
+            var currentIndex = 0;
+            return FindCheckButtonRecursiveHelper(control, targetIndex, ref currentIndex);
+        }
+
+        private Button? FindCheckButtonRecursiveHelper(Control control, int targetIndex, ref int currentIndex)
+        {
+            if (control is Button btn && (btn.Text == "☐" || btn.Text == "✔" || btn.Text == "✖"))
+            {
+                if (currentIndex == targetIndex)
+                    return btn;
+                currentIndex++;
+            }
+
+            foreach (Control child in control.Children)
+            {
+                var result = FindCheckButtonRecursiveHelper(child, targetIndex, ref currentIndex);
+                if (result != null)
+                    return result;
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Recursively searches for a button with specific text and index.
+        /// </summary>
+        private Button? FindButtonRecursive(Control control, string buttonText, int targetIndex)
+        {
+            var currentIndex = 0;
+            return FindButtonRecursiveHelper(control, buttonText, targetIndex, ref currentIndex);
+        }
+
+        private Button? FindButtonRecursiveHelper(Control control, string buttonText, int targetIndex, ref int currentIndex)
+        {
+            if (control is Button btn && btn.Text == buttonText)
+            {
+                if (currentIndex == targetIndex)
+                    return btn;
+                currentIndex++;
+            }
+
+            foreach (Control child in control.Children)
+            {
+                var result = FindButtonRecursiveHelper(child, buttonText, targetIndex, ref currentIndex);
+                if (result != null)
+                    return result;
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Gets the current text for tag handlers to access.
+        /// </summary>
+        /// <returns>Current raw text content</returns>
+        public string GetCurrentText()
+        {
+            return _currentRawText;
+        }
+
+        /// <summary>
+        /// Saves text content for tag handlers to use.
+        /// </summary>
+        /// <param name="text">Text to save</param>
+        public void SaveText(string text)
+        {
+            OnSaved?.Invoke(text);
+        }
+
+        private Popup? _activeCheckPopup;
+        private Button? _activeCheckButton;
+
+        /// <summary>
+        /// Opens a modal dialog allowing the user to select a check state.
+        /// </summary>
+        /// <param name="checkIndex">Zero-based index of which [check] tag to replace</param>
+        public void OpenCheckDialog(int checkIndex)
+        {
+            // Close any existing check popup
+            if (_activeCheckPopup != null)
+            {
+                if (_activeCheckButton != null)
+                    _activeCheckButton.ModulateSelfOverride = null;
+                _activeCheckPopup.Close();
+            }
+
+            // Find and highlight the check button
+            var checkButton = FindCheckButton(checkIndex);
+            if (checkButton != null)
+                checkButton.ModulateSelfOverride = Color.LightBlue;
+            _activeCheckButton = checkButton;
+
+            var popup = new Popup();
+            _activeCheckPopup = popup;
+            var vbox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, Margin = new Thickness(10) };
+            var hbox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Horizontal };
+
+            var blankBtn = new Button { Text = "☐ Blank", MinWidth = 80 };
+            var checkBtn = new Button { Text = "✔ Check", MinWidth = 80 };
+            var crossBtn = new Button { Text = "✖ Cross", MinWidth = 80 };
+
+            blankBtn.OnPressed += _ => {
+                var newText = ReplaceNthCheckTag(_currentRawText, checkIndex, "☐");
+                OnSaved?.Invoke(newText);
+                CloseCheckDialog();
+            };
+
+            checkBtn.OnPressed += _ => {
+                var newText = ReplaceNthCheckTag(_currentRawText, checkIndex, "✔");
+                OnSaved?.Invoke(newText);
+                CloseCheckDialog();
+            };
+
+            crossBtn.OnPressed += _ => {
+                var newText = ReplaceNthCheckTag(_currentRawText, checkIndex, "✖");
+                OnSaved?.Invoke(newText);
+                CloseCheckDialog();
+            };
+
+            hbox.AddChild(blankBtn);
+            hbox.AddChild(checkBtn);
+            hbox.AddChild(crossBtn);
+            vbox.AddChild(hbox);
+            popup.AddChild(vbox);
+            AddChild(popup);
+            popup.Open();
+        }
+
+        private void CloseCheckDialog()
+        {
+            if (_activeCheckButton != null)
+                _activeCheckButton.ModulateSelfOverride = null;
+            if (_activeCheckPopup != null)
+                _activeCheckPopup.Close();
+            _activeCheckButton = null;
+            _activeCheckPopup = null;
+        }
+
+        /// <summary>
+        /// Replaces the nth occurrence of [check] tag with replacement symbol.
+        /// </summary>
+        private static string ReplaceNthCheckTag(string text, int index, string replacement)
+        {
+            const string checkTag = "[check]";
+            var currentIndex = 0;
+            var pos = 0;
+
+            while (pos < text.Length)
+            {
+                var foundPos = text.IndexOf(checkTag, pos);
+                if (foundPos == -1) break;
+
+                if (currentIndex == index)
+                {
+                    return text.Substring(0, foundPos) + replacement + text.Substring(foundPos + checkTag.Length);
+                }
+
+                currentIndex++;
+                pos = foundPos + checkTag.Length;
+            }
+
+            return text;
+        }
+
+        /// <summary>
+        /// Replaces the nth occurrence of [form] tag with replacement text.
+        /// Uses IndexOf for efficient searching rather than splitting the entire string.
+        /// </summary>
+        /// <param name="text">The text containing form tags</param>
+        /// <param name="index">Zero-based index of which form tag to replace</param>
+        /// <param name="replacement">Text to replace the form tag with</param>
+        /// <returns>Text with the specified form tag replaced, or original text if index not found</returns>
+        private static string ReplaceNthFormTag(string text, int index, string replacement)
+        {
+            const string formTag = "[form]";
+            var currentIndex = 0;
+            var pos = 0;
+
+            // Search through the text for form tags
+            while (pos < text.Length)
+            {
+                var foundPos = text.IndexOf(formTag, pos);
+                if (foundPos == -1) break; // No more tags found
+
+                // Check if this is the tag we want to replace
+                if (currentIndex == index)
+                {
+                    // Replace this specific occurrence: text before + replacement + text after
+                    return text.Substring(0, foundPos) + replacement + text.Substring(foundPos + formTag.Length);
+                }
+
+                // Move to the next tag
+                currentIndex++;
+                pos = foundPos + formTag.Length;
+            }
+
+            // Index not found, return original text unchanged
+            return text;
+        }
+
+        /// <summary>
+        /// Replaces the nth occurrence of [signature] tag with replacement text.
+        /// Uses IndexOf for efficient searching rather than splitting the entire string.
+        /// </summary>
+        /// <param name="text">The text containing signature tags</param>
+        /// <param name="index">Zero-based index of which signature tag to replace</param>
+        /// <param name="replacement">Text to replace the signature tag with</param>
+        /// <returns>Text with the specified signature tag replaced, or original text if index not found</returns>
+        private static string ReplaceNthSignatureTag(string text, int index, string replacement)
+        {
+            const string signatureTag = "[signature]";
+            var currentIndex = 0;
+            var pos = 0;
+
+            // Search through the text for signature tags
+            while (pos < text.Length)
+            {
+                var foundPos = text.IndexOf(signatureTag, pos);
+                if (foundPos == -1) break; // No more tags found
+
+                // Check if this is the tag we want to replace
+                if (currentIndex == index)
+                {
+                    // Replace this specific occurrence: text before + replacement + text after
+                    return text.Substring(0, foundPos) + replacement + text.Substring(foundPos + signatureTag.Length);
+                }
+
+                // Move to the next tag
+                currentIndex++;
+                pos = foundPos + signatureTag.Length;
+            }
+
+            // Index not found, return original text unchanged
+            return text;
+        }
+
+        /// <summary>
+        /// Counts the total number of interactive tags that create taller buttons.
+        /// </summary>
+        private static int CountTags(string text)
+        {
+            var formCount = CountOccurrences(text, "[form]");
+            var signatureCount = CountOccurrences(text, "[signature]");
+            var checkCount = CountOccurrences(text, "[check]");
+            return formCount + signatureCount + checkCount;
+        }
+
+        /// <summary>
+        /// Counts occurrences of a substring in text.
+        /// </summary>
+        private static int CountOccurrences(string text, string substring)
+        {
+            var count = 0;
+            var pos = 0;
+            while ((pos = text.IndexOf(substring, pos)) != -1)
+            {
+                count++;
+                pos += substring.Length;
+            }
+            return count;
+        }
+        #endregion starlight
+        // STARLIGHT-EDIT end
     }
 }

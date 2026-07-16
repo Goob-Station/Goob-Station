@@ -1,11 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
-# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: cargoProduct
@@ -15,5 +7,15 @@
     state: mod-core-standard
   product: CrateScienceModsuitCoresFilled
   cost: 3000
+  category: cargoproduct-category-name-science
+  group: market
+
+- type: cargoProduct
+  id: LivestockXenobioSlimes
+  icon:
+    sprite: _Goobstation/Xenobiology/Mobs/slimesBaby.rsi
+    state: base
+  product: CrateNPCXenobioSlime
+  cost: 12600 # You should buy it usually if you messed up something (also it somehow fulfills the bounty for brains if it's less than 12500???)
   category: cargoproduct-category-name-science
   group: market

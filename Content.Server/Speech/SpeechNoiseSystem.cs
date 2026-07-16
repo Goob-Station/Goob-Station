@@ -1,28 +1,15 @@
-// SPDX-FileCopyrightText: 2022 Kevin Zheng <kevinz5000@gmail.com>
-// SPDX-FileCopyrightText: 2022 hubismal <47284081+hubismal@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Speech;
 using Robust.Shared.Audio;
 using Content.Server.Chat.Systems;
+using Content.Shared.Chat;
 using Content.Shared.Speech;
+using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 // Goob Station
  using Content.Goobstation.Common.Barks;
@@ -34,19 +21,20 @@ namespace Content.Server.Speech
 {
     public sealed class SpeechSoundSystem : EntitySystem
     {
+        [Dependency] private readonly IConfigurationManager _cfg = default!; // Goob
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly IPrototypeManager _protoManager = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
 
-        // Goobs tation
-        [Dependency] private readonly IConfigurationManager _cfg = default!;
+        private bool _barksEnabled; // Goob
 
         public override void Initialize()
         {
             base.Initialize();
 
             SubscribeLocalEvent<SpeechComponent, EntitySpokeEvent>(OnEntitySpoke);
+            Subs.CVar(_cfg, GoobCVars.BarksEnabled, x => _barksEnabled = x, true); // Goob
         }
 
         public SoundSpecifier? GetSpeechSound(Entity<SpeechComponent> ent, string message)
@@ -54,8 +42,14 @@ namespace Content.Server.Speech
             // Goobstation start
             var getSpeechSoundEv = new GetSpeechSoundEvent();
             RaiseLocalEvent(ent, ref getSpeechSoundEv);
-            if (getSpeechSoundEv.SpeechSoundProtoId == null ||
-                !_protoManager.TryIndex<SpeechSoundsPrototype>(getSpeechSoundEv.SpeechSoundProtoId, out var prototype))
+            SpeechSoundsPrototype? prototype;
+            if (getSpeechSoundEv.Handled)
+            {
+                if (getSpeechSoundEv.SpeechSoundProtoId is not { } protoId ||
+                    !_protoManager.TryIndex(protoId, out prototype))
+                    return null;
+            }
+            else
             {
                 if (ent.Comp.SpeechSounds == null)
                     return null;
@@ -96,10 +90,16 @@ namespace Content.Server.Speech
         {
             // Goob station - Barks
             if (component.SpeechSounds == null
-                || !args.Language.SpeechOverride.RequireSpeech
-                || _cfg.GetCVar(GoobCVars.BarksEnabled) // Goob Station - Barks
-                && HasComp<SpeechSynthesisComponent>(uid))
+                || !args.Language.SpeechOverride.RequireSpeech)
                 return;
+
+            if (_barksEnabled)
+            {
+                var ev = new GetBarkSourceEntityEvent();
+                RaiseLocalEvent(uid, ref ev);
+                if (HasComp<SpeechSynthesisComponent>(ev.Ent ?? uid))
+                    return;
+            }
             // END
 
             var currentTime = _gameTiming.CurTime;
