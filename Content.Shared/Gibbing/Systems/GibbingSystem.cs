@@ -140,6 +140,7 @@ public sealed class GibbingSystem : EntitySystem
                 foreach (var container in validContainers)
                 {
                     foreach (var ent in container.ContainedEntities.ToArray()) // Goob edit
+                    {
                         DropEntity(new Entity<GibbableComponent?>(ent, null), outerEntity, randomSpreadMod,
                             ref droppedEntities, launchGibs,
                             launchDirection, launchImpulse, launchImpulseVariance, launchCone);
