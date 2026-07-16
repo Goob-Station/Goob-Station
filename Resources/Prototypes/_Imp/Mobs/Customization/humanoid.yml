@@ -598,7 +598,7 @@
   id: LegDollJointsTattooRight
   bodyPart: RLeg
   markingCategory: RightLeg
-  speciesRestriction: [Human, Dwarf, Oni, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia, Yowie] # goob edit - yowies
+  speciesRestriction: [Human, Dwarf, Oni, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia, Yowie, Reptilian] # goob edit - yowies
   coloring:
     default:
       type:
@@ -628,7 +628,7 @@
   id: LegTwistingRight
   bodyPart: RLeg
   markingCategory: RightLeg
-  speciesRestriction: [Human, Dwarf, Oni, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia, Yowie] # goob edit - yowies
+  speciesRestriction: [Human, Dwarf, Oni, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia, Yowie, Reptilian] # goob edit - yowies
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/rleg.rsi
     state: twisting
@@ -684,7 +684,7 @@
   id: LegTwistingLeft
   bodyPart: LLeg
   markingCategory: LeftLeg
-  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia, Yowie, Reptilian] # goob edit
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia, Yowie] # goob edit
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/lleg.rsi
     state: twisting
