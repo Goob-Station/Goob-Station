@@ -84,6 +84,7 @@
   id: ChristmasLightsWhite1
   name: white christmas lights
   description: Some white Christmas lights.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
@@ -100,6 +101,7 @@
   id: ChristmasLightsWhite2
   name: white christmas lights
   description: Some white Christmas lights.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
@@ -116,6 +118,7 @@
   id: ChristmasLightsWhite3
   name: white christmas lights
   description: Some white Christmas lights.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
@@ -132,6 +135,7 @@
   id: ChristmasLightsWhite4
   name: white christmas lights
   description: Some white Christmas lights.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
@@ -148,6 +152,7 @@
   id: ChristmasLightsWhite5
   name: white christmas lights
   description: Some white Christmas lights.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
@@ -164,6 +169,7 @@
   id: ChristmasLightsWhite6
   name: white christmas lights
   description: Some white Christmas lights.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
@@ -180,6 +186,7 @@
   id: ChristmasLightsRed1
   name: red christmas lights
   description: Some red Christmas lights.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
@@ -197,6 +204,7 @@
   id: ChristmasLightsRed2
   name: red christmas lights
   description: Some red Christmas lights.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
@@ -214,6 +222,7 @@
   id: ChristmasLightsRed3
   name: red christmas lights
   description: Some red Christmas lights.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
@@ -231,6 +240,7 @@
   id: ChristmasLightsRed4
   name: red christmas lights
   description: Some red Christmas lights.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
@@ -248,6 +258,7 @@
   id: ChristmasLightsRed5
   name: red christmas lights
   description: Some red Christmas lights.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
@@ -265,6 +276,7 @@
   id: ChristmasLightsRed6
   name: red christmas lights
   description: Some red Christmas lights.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
@@ -282,6 +294,7 @@
   id: ChristmasLightsBlue1
   name: blue christmas lights
   description: Some blue Christmas lights.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
@@ -299,6 +312,7 @@
   id: ChristmasLightsBlue2
   name: blue christmas lights
   description: Some blue Christmas lights.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
@@ -316,6 +330,7 @@
   id: ChristmasLightsBlue3
   name: blue christmas lights
   description: Some blue Christmas lights.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
@@ -333,6 +348,7 @@
   id: ChristmasLightsBlue4
   name: blue christmas lights
   description: Some blue Christmas lights.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
@@ -350,6 +366,7 @@
   id: ChristmasLightsBlue5
   name: blue christmas lights
   description: Some blue Christmas lights.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
@@ -367,6 +384,7 @@
   id: ChristmasLightsBlue6
   name: blue christmas lights
   description: Some blue Christmas lights.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
