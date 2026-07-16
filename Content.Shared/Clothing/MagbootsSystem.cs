@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Gravity; // Goobstation
 using Content.Shared.Alert;
 using Content.Shared.Atmos.Components;
-using Content.Shared.Clothing.EntitySystems;
+using Content.Shared.Electrocution;
 using Content.Shared.Gravity;
 using Content.Shared.Inventory;
-using Content.Shared.Item;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
 using Robust.Shared.Containers;
@@ -18,6 +18,7 @@ public sealed class SharedMagbootsSystem : EntitySystem
     [Dependency] private readonly ItemToggleSystem _toggle = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedGravitySystem _gravity = default!;
+    [Dependency] private readonly SharedElectrocutionSystem _electro = default!;
 
     public override void Initialize()
     {
@@ -28,6 +29,17 @@ public sealed class SharedMagbootsSystem : EntitySystem
         SubscribeLocalEvent<MagbootsComponent, ClothingGotUnequippedEvent>(OnGotUnequipped);
         SubscribeLocalEvent<MagbootsComponent, IsWeightlessEvent>(OnIsWeightless);
         SubscribeLocalEvent<MagbootsComponent, InventoryRelayedEvent<IsWeightlessEvent>>(OnIsWeightless);
+        SubscribeLocalEvent<MagbootsComponent, ItemToggleActivateAttemptEvent>(OnToggleActivateAttempt); // Goobstation
+    }
+
+    private void OnToggleActivateAttempt(Entity<MagbootsComponent> ent, ref ItemToggleActivateAttemptEvent args)
+    {
+        if (HasComp<FlipGravityComponent>(args.User))
+        {
+            _electro.TryDoElectrocution(args.User.Value, null, 1, TimeSpan.FromSeconds(10), true, ignoreInsulation: true); // Hardcode the damage why not
+            args.Popup = Loc.GetString("You can't activate this");
+            args.Cancelled = true;
+        }
     }
 
     private void OnToggled(Entity<MagbootsComponent> ent, ref ItemToggledEvent args)
