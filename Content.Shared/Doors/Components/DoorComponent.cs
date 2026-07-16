@@ -1,27 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2022 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Joosep Jääger <joosep.jaager@gmail.com>
-// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2022 WlarusFromDaSpace <44726328+WlarusFromDaSpace@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 fishfish458 <fishfish458>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <wrexbe@protonmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 keronshb <keronshb@live.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2023 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Damage;
@@ -213,22 +189,22 @@ public sealed partial class DoorComponent : Component
     public string EmaggingSpriteState = "sparks";
 
     /// <summary>
-    /// The sprite state used for the door when it's open.
+    /// The length of the door's opening animation.
     /// </summary>
     [DataField]
-    public float OpeningAnimationTime = 0.8f;
+    public TimeSpan OpeningAnimationTime = TimeSpan.FromSeconds(0.8);
 
     /// <summary>
-    /// The sprite state used for the door when it's open.
+    /// The length of the door's closing animation.
     /// </summary>
     [DataField]
-    public float ClosingAnimationTime = 0.8f;
+    public TimeSpan ClosingAnimationTime = TimeSpan.FromSeconds(0.8);
 
     /// <summary>
-    /// The sprite state used for the door when it's open.
+    /// The length of the door's emagging animation.
     /// </summary>
     [DataField]
-    public float EmaggingAnimationTime = 1.5f;
+    public TimeSpan EmaggingAnimationTime = TimeSpan.FromSeconds(1.5);
 
     /// <summary>
     /// The animation used when the door opens.
@@ -290,8 +266,8 @@ public sealed partial class DoorComponent : Component
     /// <summary>
     /// Default time that the door should take to pry open.
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float PryTime = 1.5f;
+    [DataField]
+    public TimeSpan PryTime = TimeSpan.FromSeconds(1.5f);
 
     [DataField]
     public bool ChangeAirtight = true;
@@ -351,4 +327,5 @@ public enum DoorVisualLayers : byte
     BaseUnlit,
     BaseBolted,
     BaseEmergencyAccess,
+    BaseEmagging,
 }

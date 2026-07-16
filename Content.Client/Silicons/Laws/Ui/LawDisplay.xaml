@@ -1,9 +1,4 @@
 <!--
-SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-SPDX-FileCopyrightText: 2023 Vasilis <vasilis@pikachu.systems>
-SPDX-FileCopyrightText: 2023 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-
 SPDX-License-Identifier: MIT
 -->
 
@@ -19,7 +14,7 @@ SPDX-License-Identifier: MIT
             <customControls:HSeparator Margin="0 5 0 5"/>
             <RichTextLabel Name="LawLabel"/>
             <BoxContainer Name="LawAnnouncementButtons" Orientation="Horizontal" HorizontalExpand="True" Margin="0 5 0 0">
-                <Label Text="{Loc laws-ui-state-law}" StyleClasses="StatusFieldTitle"/>
+                <Label Text="{Loc laws-ui-state-law}" StyleClasses="highlight"/>
                 <Control Margin="5 0 0 0" />
                 <!-- Buttons are added via C# code-->
             </BoxContainer>

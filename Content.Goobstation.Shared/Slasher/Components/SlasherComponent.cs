@@ -6,6 +6,4 @@ namespace Content.Goobstation.Shared.Slasher.Components;
 /// Marker component for the Slasher antagonist. Used to apply global slasher rules.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class SlasherComponent : Component
-{
-}
+public sealed partial class SlasherComponent : Component;

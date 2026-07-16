@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._Shitmed.Medical.Surgery.Traumas;
@@ -14,6 +8,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
@@ -73,10 +68,17 @@ public sealed partial class WoundableComponent : Component
     public FixedPoint2 WoundableIntegrity;
 
     /// <summary>
-    /// yeah
+    /// Severity thresholds mapping woundable severity levels to their integrity point values.
     /// </summary>
     [DataField(required: true)]
     public Dictionary<WoundableSeverity, FixedPoint2> Thresholds = new();
+
+    /// <summary>
+    /// Pre-sorted version of <see cref="Thresholds"/> in descending order by value.
+    /// Populated on init to avoid per-call OrderByDescending allocations.
+    /// </summary>
+    [Access(typeof(WoundSystem))]
+    public KeyValuePair<WoundableSeverity, FixedPoint2>[]? SortedThresholds;
 
     /// <summary>
     /// How much damage will be healed ACROSS all limb, for example if there are 2 wounds,

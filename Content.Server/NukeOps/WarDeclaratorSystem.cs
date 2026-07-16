@@ -1,18 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
-// SPDX-FileCopyrightText: 2023 Morb <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 AJCM <AJCM@tutanota.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kot <1192090+koteq@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Rainfall <rainfey0+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Rainfey <rainfey0+github@gmail.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
-// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.SpecialAnimation;
@@ -29,6 +14,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Server.NukeOps;
 
@@ -64,8 +50,11 @@ public sealed class WarDeclaratorSystem : EntitySystem
     {
         if (!_accessReaderSystem.IsAllowed(args.User, ent))
         {
-            var msg = Loc.GetString("war-declarator-not-working");
-            _popupSystem.PopupEntity(msg, ent);
+            if (!args.Silent)
+            {
+                var msg = Loc.GetString("war-declarator-not-working");
+                _popupSystem.PopupEntity(msg, ent);
+            }
             args.Cancel();
             return;
         }
@@ -93,7 +82,7 @@ public sealed class WarDeclaratorSystem : EntitySystem
             var title = Loc.GetString(ent.Comp.SenderTitle);
             _chat.DispatchGlobalAnnouncement(ent.Comp.Message, title, true, ent.Comp.Sound, ent.Comp.Color);
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"{ToPrettyString(args.Actor):player} has declared war with this text: {ent.Comp.Message}");
-            _specialAnimation.PlayAnimationFiltered(args.Actor, Filter.Broadcast(), "NukeOpsWarAnimation"); // Goob edit
+            _specialAnimation.PlayAnimationFiltered(new SpriteSpecifier.Rsi(new ResPath("/Textures/Objects/Tools/Decoys/commander_decoy.rsi"), "cballoon"), Filter.Broadcast(), "NukeOpsWarAnimation"); // Goob edit
         }
 
         UpdateUI(ent, ev.Status);

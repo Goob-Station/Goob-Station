@@ -1,140 +1,29 @@
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2022 Willhelm53 <97707302+Willhelm53@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2023 PixelTK <85175107+PixelTheKermit@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Arendian <137322659+Arendian@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 CaasGit <87243814+CaasGit@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
-// SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
-// SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kukutis96513 <146854220+Kukutis96513@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Lye <128915833+Lyroth001@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MerrytheManokit <167581110+MerrytheManokit@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 OrangeMoronage9622 <whyteterry0092@gmail.com>
-// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
-// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2024 Vigers Ray <60344369+VigersRay@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
-// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2024 mr-bo-jangles <mr-bo-jangles@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-// SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
-// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
-// SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
-// SPDX-FileCopyrightText: 2025 Myra <vascreeper@yahoo.com>
-// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Zachary Higgs <compgeek223@gmail.com>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
-using Content.Server.Administration.Logs;
-using Content.Server.Chemistry.TileReactions;
-using Content.Server.DoAfter;
 using Content.Server.Fluids.Components;
 using Content.Server.Spreader;
 using Content.Goobstation.Common.Footprints;
-using Content.Shared.ActionBlocker;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reaction;
-using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Database;
 using Content.Shared.Effects;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Fluids;
 using Content.Shared.Fluids.Components;
-using Content.Shared.Friction;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Maps;
-using Content.Shared.Movement.Components;
-using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Slippery;
-using Content.Shared.StepTrigger.Components;
-using Content.Shared.StepTrigger.Systems;
-using Robust.Server.Audio;
 using Robust.Shared.Collections;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Timing;
 
 namespace Content.Server.Fluids.EntitySystems;
 
@@ -143,21 +32,12 @@ namespace Content.Server.Fluids.EntitySystems;
 /// </summary>
 public sealed partial class PuddleSystem : SharedPuddleSystem
 {
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly ReactiveSystem _reactive = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
-    [Dependency] private readonly SharedPopupSystem _popups = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
-    [Dependency] private readonly StepTriggerSystem _stepTrigger = default!;
-    [Dependency] private readonly SpeedModifierContactsSystem _speedModContacts = default!;
-    [Dependency] private readonly TileFrictionController _tile = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
 
@@ -179,11 +59,6 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
 
     private static string[] _standoutReagents = [Blood, Slime, CopperBlood, BloodChangeling, BlackBlood]; // goobstation - added BloodChangeling, BlackBlood
 
-
-    // Using local deletion queue instead of the standard queue so that we can easily "undelete" if a puddle
-    // loses & then gains reagents in a single tick.
-    private HashSet<EntityUid> _deletionQueue = [];
-
     private EntityQuery<PuddleComponent> _puddleQuery;
 
     /*
@@ -198,16 +73,11 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
 
         _puddleQuery = GetEntityQuery<PuddleComponent>();
 
-        // Shouldn't need re-anchoring.
-        SubscribeLocalEvent<PuddleComponent, AnchorStateChangedEvent>(OnAnchorChanged);
         SubscribeLocalEvent<PuddleComponent, SpreadNeighborsEvent>(OnPuddleSpread);
         SubscribeLocalEvent<PuddleComponent, SlipEvent>(OnPuddleSlip);
-
-        SubscribeLocalEvent<EvaporationComponent, MapInitEvent>(OnEvaporationMapInit);
-
-        InitializeTransfers();
     }
 
+    // TODO: This can be predicted once https://github.com/space-wizards/RobustToolbox/pull/5849 is merged
     private void OnPuddleSpread(Entity<PuddleComponent> entity, ref SpreadNeighborsEvent args)
     {
         // Overflow is the source of the overflowing liquid. This contains the excess fluid above overflow limit (20u)
@@ -394,6 +264,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         }
     }
 
+    // TODO: This can be predicted once https://github.com/space-wizards/RobustToolbox/pull/5849 is merged
     private void OnPuddleSlip(Entity<PuddleComponent> entity, ref SlipEvent args)
     {
         // Reactive entities have a chance to get a touch reaction from slipping on a puddle
@@ -410,16 +281,16 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
                 out var solution))
             return;
 
-        _popups.PopupEntity(Loc.GetString("puddle-component-slipped-touch-reaction", ("puddle", entity.Owner)),
+        Popups.PopupEntity(Loc.GetString("puddle-component-slipped-touch-reaction", ("puddle", entity.Owner)),
             args.Slipped, args.Slipped, PopupType.SmallCaution);
 
         // Take 15% of the puddle solution
         var splitSol = _solutionContainerSystem.SplitSolution(entity.Comp.Solution.Value, solution.Volume * 0.15f);
-        _reactive.DoEntityReaction(args.Slipped, splitSol, ReactionMethod.Touch);
+        Reactive.DoEntityReaction(args.Slipped, splitSol, ReactionMethod.Touch);
 
         // <Goobstation>
         // after we've had the puddle interact with skin, add back reagents that aren't supposed to stick
-        var addBack = new List<string>(); // has to be string or it dies
+        var addBack = new List<ProtoId<ReagentPrototype>>();
         foreach (var (proto, amt) in splitSol.GetReagentPrototypes(_prototypeManager))
         {
             if (!proto.SticksToSkin)
@@ -427,167 +298,6 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         }
         solution.AddSolution(splitSol.SplitSolutionWithOnly(splitSol.Volume, addBack.ToArray()), _prototypeManager);
         // </Goobstation>
-    }
-
-    /// <inheritdoc/>
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-        foreach (var ent in _deletionQueue)
-        {
-            Del(ent);
-        }
-
-        _deletionQueue.Clear();
-
-        TickEvaporation();
-    }
-
-    protected override void OnSolutionUpdate(Entity<PuddleComponent> entity, ref SolutionContainerChangedEvent args)
-    {
-        if (args.SolutionId != entity.Comp.SolutionName)
-            return;
-
-        base.OnSolutionUpdate(entity, ref args);
-
-        if (args.Solution.Volume <= 0)
-        {
-            _deletionQueue.Add(entity);
-            return;
-        }
-
-        _deletionQueue.Remove(entity);
-        UpdateSlip((entity, entity.Comp), args.Solution);
-        UpdateSlow(entity, args.Solution, entity.Comp); // Corvax-Next-Footprints
-        UpdateEvaporation(entity, args.Solution);
-    }
-
-    private void UpdateSlip(Entity<PuddleComponent> entity, Solution solution)
-    {
-        if (!TryComp<StepTriggerComponent>(entity, out var comp))
-            return;
-
-        // Ensure we actually have the component
-        EnsureComp<TileFrictionModifierComponent>(entity);
-
-        EnsureComp<SlipperyComponent>(entity, out var slipComp);
-
-        // This is the base amount of reagent needed before a puddle can be considered slippery. Is defined based on
-        // the sprite threshold for a puddle larger than 5 pixels.
-        var smallPuddleThreshold = FixedPoint2.New(entity.Comp.OverflowVolume.Float() * LowThreshold);
-
-        // Stores how many units of slippery reagents a puddle has
-        var slipperyUnits = FixedPoint2.Zero;
-        // Stores how many units of super slippery reagents a puddle has
-        var superSlipperyUnits = FixedPoint2.Zero;
-
-        // These three values will be averaged later and all start at zero so the calculations work
-        // A cumulative weighted amount of minimum speed to slip values
-        var puddleFriction = FixedPoint2.Zero;
-        // A cumulative weighted amount of minimum speed to slip values
-        var slipStepTrigger = FixedPoint2.Zero;
-        // A cumulative weighted amount of launch multipliers from slippery reagents
-        var launchMult = FixedPoint2.Zero;
-        // A cumulative weighted amount of stun times from slippery reagents
-        var stunTimer = TimeSpan.Zero;
-        // A cumulative weighted amount of knockdown times from slippery reagents
-        var knockdownTimer = TimeSpan.Zero;
-
-        // Check if the puddle is big enough to slip in to avoid doing unnecessary logic
-        if (solution.Volume <= smallPuddleThreshold)
-        {
-            _stepTrigger.SetActive(entity, false, comp);
-            _tile.SetModifier(entity, 1f);
-            slipComp.SlipData.SlipFriction = 1f;
-            slipComp.AffectsSliding = false;
-            Dirty(entity, slipComp);
-            return;
-        }
-
-        slipComp.AffectsSliding = true;
-
-        foreach (var (reagent, quantity) in solution.Contents)
-        {
-            var reagentProto = _prototypeManager.Index<ReagentPrototype>(reagent.Prototype);
-
-            // Calculate the minimum speed needed to slip in the puddle. Average the overall slip thresholds for all reagents
-            var deltaSlipTrigger = reagentProto.SlipData?.RequiredSlipSpeed ?? entity.Comp.DefaultSlippery;
-            slipStepTrigger += quantity * deltaSlipTrigger;
-
-            // Aggregate Friction based on quantity
-            puddleFriction += reagentProto.Friction * quantity;
-
-            if (reagentProto.SlipData == null)
-                continue;
-
-            slipperyUnits += quantity;
-            // Aggregate launch speed based on quantity
-            launchMult += reagentProto.SlipData.LaunchForwardsMultiplier * quantity;
-            // Aggregate stun times based on quantity
-            stunTimer += reagentProto.SlipData.StunTime * (float)quantity;
-            knockdownTimer += reagentProto.SlipData.KnockdownTime * (float)quantity;
-
-            if (reagentProto.SlipData.SuperSlippery)
-                superSlipperyUnits += quantity;
-        }
-
-        // Turn on the step trigger if it's slippery
-        _stepTrigger.SetActive(entity, slipperyUnits > smallPuddleThreshold, comp);
-
-        // This is based of the total volume and not just the slippery volume because there is a default
-        // slippery for all reagents even if they aren't technically slippery.
-        slipComp.SlipData.RequiredSlipSpeed = (float)(slipStepTrigger / solution.Volume);
-        _stepTrigger.SetRequiredTriggerSpeed(entity, slipComp.SlipData.RequiredSlipSpeed);
-
-        // Divide these both by only total amount of slippery reagents.
-        // A puddle with 10 units of lube vs a puddle with 10 of lube and 20 catchup should stun and launch forward the same amount.
-        if (slipperyUnits > 0)
-        {
-            slipComp.SlipData.LaunchForwardsMultiplier = (float)(launchMult/slipperyUnits);
-            slipComp.SlipData.StunTime = (stunTimer/(float)slipperyUnits);
-            slipComp.SlipData.KnockdownTime = (knockdownTimer/(float)slipperyUnits);
-        }
-
-        // Only make it super slippery if there is enough super slippery units for its own puddle
-        slipComp.SlipData.SuperSlippery = superSlipperyUnits >= smallPuddleThreshold;
-
-        // Lower tile friction based on how slippery it is, lets items slide across a puddle of lube
-        slipComp.SlipData.SlipFriction = (float)(puddleFriction / solution.Volume);
-        _tile.SetModifier(entity, slipComp.SlipData.SlipFriction);
-
-        Dirty(entity, slipComp);
-    }
-
-    private void UpdateSlow(EntityUid uid, Solution solution, PuddleComponent component) // Corvax-Next-Footprints
-    {
-        // Corvax-Next-Footprints-Start
-        if (!component.AffectsMovement)
-            return;
-        // Corvax-Next-Footprints-End
-
-        var maxViscosity = 0f;
-        foreach (var (reagent, _) in solution.Contents)
-        {
-            var reagentProto = _prototypeManager.Index<ReagentPrototype>(reagent.Prototype);
-            maxViscosity = Math.Max(maxViscosity, reagentProto.Viscosity);
-        }
-
-        if (maxViscosity > 0)
-        {
-            var comp = EnsureComp<SpeedModifierContactsComponent>(uid);
-            var speed = 1 - maxViscosity;
-            _speedModContacts.ChangeSpeedModifiers(uid, speed, comp);
-        }
-        else
-        {
-            RemComp<SpeedModifierContactsComponent>(uid);
-        }
-    }
-
-    private void OnAnchorChanged(Entity<PuddleComponent> entity, ref AnchorStateChangedEvent args)
-    {
-        if (!args.Anchored)
-            QueueDel(entity);
     }
 
     /// <summary>
@@ -644,7 +354,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
             return true;
         }
 
-        _audio.PlayPvs(puddleComponent.SpillSound, puddleUid);
+        Audio.PlayPvs(puddleComponent.SpillSound, puddleUid);
         return true;
     }
 
@@ -690,8 +400,42 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
 
     #region Spill
 
+    // TODO: This can be predicted once https://github.com/space-wizards/RobustToolbox/pull/5849 is merged
     /// <inheritdoc/>
-    public override bool TrySplashSpillAt(EntityUid uid,
+    public override bool TrySplashSpillAt(Entity<SpillableComponent?> entity,
+        EntityCoordinates coordinates,
+        out EntityUid puddleUid,
+        out Solution spilled,
+        bool sound = true,
+        EntityUid? user = null)
+    {
+        puddleUid = EntityUid.Invalid;
+        spilled = new Solution();
+
+        if (!Resolve(entity, ref entity.Comp))
+            return false;
+
+        if (!_solutionContainerSystem.TryGetSolution(entity.Owner, entity.Comp.SolutionName, out var solution))
+            return false;
+
+        spilled = solution.Value.Comp.Solution;
+
+        return TrySplashSpillAt(entity, coordinates, solution.Value, out puddleUid, sound, user);
+    }
+
+    private bool TrySplashSpillAt(EntityUid entity,
+        EntityCoordinates coordinates,
+        Entity<SolutionComponent> solution,
+        out EntityUid puddleUid,
+        bool sound = true,
+        EntityUid? user = null)
+    {
+        var result = TrySplashSpillAt(entity, coordinates, solution.Comp.Solution, out puddleUid, sound, user);
+        _solutionContainerSystem.UpdateChemicals(solution);
+        return result;
+    }
+
+    public override bool TrySplashSpillAt(EntityUid entity,
         EntityCoordinates coordinates,
         Solution solution,
         out EntityUid puddleUid,
@@ -703,6 +447,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         if (solution.Volume == 0)
             return false;
 
+        var spilled = solution.SplitSolution(solution.Volume);
         var targets = new List<EntityUid>();
         var reactive = new HashSet<Entity<ReactiveComponent>>();
         _lookup.GetEntitiesInRange(coordinates, 1.0f, reactive);
@@ -714,26 +459,28 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
             var owner = ent.Owner;
 
             // between 5 and 30%
-            var splitAmount = solution.Volume * _random.NextFloat(0.05f, 0.30f);
-            var splitSolution = solution.SplitSolution(splitAmount);
+            var splitAmount = spilled.Volume * _random.NextFloat(0.05f, 0.30f);
+            var splitSolution = spilled.SplitSolution(splitAmount);
 
             if (user != null)
             {
-                _adminLogger.Add(LogType.Landed,
-                    $"{ToPrettyString(user.Value):user} threw {ToPrettyString(uid):entity} which splashed a solution {SharedSolutionContainerSystem.ToPrettyString(solution):solution} onto {ToPrettyString(owner):target}");
+                AdminLogger.Add(LogType.Landed,
+                    $"{ToPrettyString(user.Value):user} threw {ToPrettyString(entity):entity} which splashed a solution {SharedSolutionContainerSystem.ToPrettyString(spilled):solution} onto {ToPrettyString(owner):target}");
             }
 
             targets.Add(owner);
-            _reactive.DoEntityReaction(owner, splitSolution, ReactionMethod.Touch);
-            _popups.PopupEntity(
-                Loc.GetString("spill-land-spilled-on-other", ("spillable", uid),
-                    ("target", Identity.Entity(owner, EntityManager))), owner, PopupType.SmallCaution);
+            Reactive.DoEntityReaction(owner, splitSolution, ReactionMethod.Touch);
+            Popups.PopupEntity(Loc.GetString("spill-land-spilled-on-other",
+                    ("spillable", entity),
+                    ("target", Identity.Entity(owner, EntityManager))),
+                owner,
+                PopupType.SmallCaution);
         }
 
-        _color.RaiseEffect(solution.GetColor(_prototypeManager), targets,
-            Filter.Pvs(uid, entityManager: EntityManager));
+        _color.RaiseEffect(spilled.GetColor(_prototypeManager), targets,
+            Filter.Pvs(entity, entityManager: EntityManager));
 
-        return TrySpillAt(coordinates, solution, out puddleUid, sound);
+        return TrySpillAt(coordinates, spilled, out puddleUid, sound);
     }
 
     /// <inheritdoc/>

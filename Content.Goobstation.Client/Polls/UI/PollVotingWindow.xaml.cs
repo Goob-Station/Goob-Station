@@ -278,6 +278,14 @@ public sealed class PollControl : BoxContainer
             metaBox.AddChild(multiLabel);
         }
 
+        var seenLabel = new Label
+        {
+            Text = Loc.GetString("poll-control-seen-by", ("count", _poll.SeenCount)),
+            FontColorOverride = new Color(0.7f, 0.7f, 0.8f),
+            StyleClasses = { "LabelSubText" }
+        };
+        metaBox.AddChild(seenLabel);
+
         var separator = new BoxContainer
         {
             Orientation = LayoutOrientation.Horizontal,

@@ -1,0 +1,161 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: decal
+  id: arrowleft
+  tags: ["crayon", "crayon-3-symbols"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _Goobstation/Effects/crayondecals.rsi
+    state: arrowleft
+
+- type: decal
+  id: arrowright
+  tags: ["crayon", "crayon-3-symbols"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _Goobstation/Effects/crayondecals.rsi
+    state: arrowright
+
+- type: decal
+  id: freeaa
+  tags: ["crayon", "crayon-5-graffiti"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _Goobstation/Effects/crayondecals.rsi
+    state: freeaa
+
+- type: decal
+  id: horizontalline
+  tags: ["crayon", "crayon-1-brushes"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _Goobstation/Effects/crayondecals.rsi
+    state: horizontalline
+
+- type: decal
+  id: moon
+  tags: ["crayon"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _Goobstation/Effects/crayondecals.rsi
+    state: moon
+
+- type: decal
+  id: nanotrasen
+  tags: ["crayon", "crayon-4-info"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _Goobstation/Effects/crayondecals.rsi
+    state: nanotrasen
+
+- type: decal
+  id: patchofgrass
+  tags: ["crayon"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _Goobstation/Effects/crayondecals.rsi
+    state: patchofgrass
+
+- type: decal
+  id: scratch
+  tags: ["crayon"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _Goobstation/Effects/crayondecals.rsi
+    state: scratch
+
+- type: decal
+  id: shitsec
+  tags: ["crayon", "crayon-5-graffiti"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _Goobstation/Effects/crayondecals.rsi
+    state: shitsec
+  
+- type: decal
+  id: smallsquare
+  tags: ["crayon", "crayon-1-brushes"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _Goobstation/Effects/crayondecals.rsi
+    state: smallsquare
+
+- type: decal
+  id: square
+  tags: ["crayon", "crayon-1-brushes"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _Goobstation/Effects/crayondecals.rsi
+    state: square
+
+- type: decal
+  id: tidestore
+  tags: ["crayon", "crayon-5-graffiti"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _Goobstation/Effects/crayondecals.rsi
+    state: tidestore
+
+- type: decal
+  id: tinydot
+  tags: ["crayon", "crayon-1-brushes"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _Goobstation/Effects/crayondecals.rsi
+    state: tinydot
+
+- type: decal
+  id: triangledown
+  tags: ["crayon", "crayon-3-symbols"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _Goobstation/Effects/crayondecals.rsi
+    state: triangledown
+
+- type: decal
+  id: triangleup
+  tags: ["crayon", "crayon-3-symbols"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _Goobstation/Effects/crayondecals.rsi
+    state: triangleup
+
+- type: decal
+  id: weh
+  tags: ["crayon"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: _Goobstation/Effects/crayondecals.rsi
+    state: weh

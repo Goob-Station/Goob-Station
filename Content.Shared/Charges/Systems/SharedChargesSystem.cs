@@ -1,26 +1,9 @@
-// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2024 August Eymann <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Steve <marlumpy@gmail.com>
-// SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-// SPDX-FileCopyrightText: 2025 Skubman <ba.fallaria@gmail.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 metalgearsloth <comedian_vs_clown@hotmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Actions.Events;
 using Content.Shared.Charges.Components;
 using Content.Shared.Examine;
+using Content.Shared.Rejuvenate;
 using JetBrains.Annotations;
 using Robust.Shared.Timing;
 using Content.Goobstation.Maths.FixedPoint;
@@ -40,7 +23,7 @@ public abstract class SharedChargesSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<LimitedChargesComponent, ExaminedEvent>(OnExamine);
-
+        SubscribeLocalEvent<LimitedChargesComponent, RejuvenateEvent>(OnRejuvenate);
         SubscribeLocalEvent<LimitedChargesComponent, ActionAttemptEvent>(OnChargesAttempt);
         SubscribeLocalEvent<LimitedChargesComponent, MapInitEvent>(OnChargesMapInit);
         SubscribeLocalEvent<LimitedChargesComponent, ActionPerformedEvent>(OnChargesPerformed);
@@ -67,6 +50,11 @@ public abstract class SharedChargesSystem : EntitySystem
 
         var timeRemaining = GetNextRechargeTime(rechargeEnt);
         args.PushMarkup(Loc.GetString("limited-charges-recharging", ("seconds", timeRemaining.TotalSeconds.ToString("F1"))));
+    }
+
+    private void OnRejuvenate(Entity<LimitedChargesComponent> ent, ref RejuvenateEvent args)
+    {
+        ResetCharges(ent.AsNullable());
     }
 
     private void OnChargesAttempt(Entity<LimitedChargesComponent> ent, ref ActionAttemptEvent args)
@@ -115,6 +103,12 @@ public abstract class SharedChargesSystem : EntitySystem
     /// <summary>
     /// Adds the specified charges. Does not reset the accumulator.
     /// </summary>
+    /// <param name="action">
+    /// The action to add charges to. If it doesn't have <see cref="LimitedChargesComponent"/>, it will be added.
+    /// </param>
+    /// <param name="addCharges">
+    /// The number of charges to add. Can be negative. Resulting charge count is clamped to [0, MaxCharges].
+    /// </param>
     public void AddCharges(Entity<LimitedChargesComponent?, AutoRechargeComponent?> action, int addCharges)
     {
         if (addCharges == 0)
@@ -191,9 +185,21 @@ public abstract class SharedChargesSystem : EntitySystem
         Dirty(action);
     }
 
+    /// <summary>
+    /// Set the number of charges an action has.
+    /// </summary>
+    /// <param name="action">The action in question</param>
+    /// <param name="value">
+    /// The number of charges. Clamped to [0, MaxCharges].
+    /// </param>
+    /// <remarks>
+    /// This method doesn't implicitly add <see cref="LimitedChargesComponent"/>
+    /// unlike some other methods in this system.
+    /// </remarks>
     public void SetCharges(Entity<LimitedChargesComponent?> action, int value)
     {
-        action.Comp ??= EnsureComp<LimitedChargesComponent>(action.Owner);
+        if (!Resolve(action, ref action.Comp))
+            return;
 
         var adjusted = Math.Clamp(value, 0, action.Comp.MaxCharges);
 
@@ -204,6 +210,31 @@ public abstract class SharedChargesSystem : EntitySystem
 
         action.Comp.LastCharges = adjusted;
         action.Comp.LastUpdate = _timing.CurTime;
+        Dirty(action);
+    }
+
+    /// <summary>
+    /// Sets the maximum charges of a given action.
+    /// </summary>
+    /// <param name="action">The action being modified.</param>
+    /// <param name="value">The new maximum charges of the action. Clamped to zero.</param>
+    /// <remarks>
+    /// Does not change the current charge count, or adjust the
+    /// accumulator for auto-recharge. It also doesn't implicitly add
+    /// <see cref="LimitedChargesComponent"/> unlike some other methods
+    /// in this system.
+    /// </remarks>
+    public void SetMaxCharges(Entity<LimitedChargesComponent?> action, int value)
+    {
+        if (!Resolve(action, ref action.Comp))
+            return;
+
+        // You can't have negative max charges (even zero is a bit goofy but eh)
+        var adjusted = Math.Max(0, value);
+        if (action.Comp.MaxCharges == adjusted)
+            return;
+
+        action.Comp.MaxCharges = adjusted;
         Dirty(action);
     }
 
@@ -255,19 +286,5 @@ public abstract class SharedChargesSystem : EntitySystem
         return Math.Clamp(entity.Comp1.LastCharges + calculated,
             0,
             entity.Comp1.MaxCharges);
-    }
-
-    // Goob Change: I LOVE SET ACCESSORS.
-    public void SetMaxCharges(
-      EntityUid uid,
-      int charges,
-      LimitedChargesComponent? component = null)
-    {
-        if (!Resolve(uid, ref component))
-            return;
-
-        component.MaxCharges = charges;
-        SetCharges(uid, Math.Clamp(charges, 0, component.MaxCharges));
-        Dirty(uid, component);
     }
 }

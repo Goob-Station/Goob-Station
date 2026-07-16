@@ -1,20 +1,7 @@
 - type: entity
-  name: dusty bush
-  id: AshBush
-  description: A bush that is covered in ash. It may look like it's dead, but it's actually alive!
+  id: BaseLavalandFlora
+  abstract: true
   components:
-  - type: Sprite
-    sprite: _Lavaland/Objects/Decoration/Flora/bush.rsi
-    layers:
-    - state: bush1
-      map: ["random"]
-  - type: RandomSprite
-    available:
-    - random:
-        bush1: ""
-        bush2: ""
-        bush3: ""
-  - type: Clickable
   - type: Transform
     anchored: true
   - type: Physics
@@ -25,15 +12,8 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.2
+  - type: Clickable
   - type: InteractionOutline
-  #- type: Gatherable # TODO add proper loot
-  #  toolWhitelist:
-  #    components:
-  #    - Hands
-  #  loot:
-  #    All: !type:GroupSelector
-  #      children:
-  #      - id: FoodSpaceshroom
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Wood
@@ -45,3 +25,117 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+
+- type: entity
+  name: dusty bush
+  id: FloraAshBush
+  parent: BaseLavalandFlora
+  description: A bush that is covered in ash. It may look like it's dead, but it's actually alive!
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Decoration/Flora/Misc/bush.rsi
+    layers:
+    - state: bush1
+      map: ["random"]
+  - type: RandomSprite
+    available:
+    - random:
+        bush1: ""
+        bush2: ""
+        bush3: ""
+        bush4: ""
+        bush5: ""
+        bush6: ""
+        bush7: ""
+  #- type: Gatherable # TODO add proper loot
+  #  toolWhitelist:
+  #    components:
+  #    - Hands
+  #  loot:
+  #    All: !type:GroupSelector
+  #      children:
+  #      - id: FoodSpaceshroom
+
+- type: entity
+  name: gray sprouts
+  id: FloraAshSprouts
+  parent: BaseLavalandFlora
+  description: Sprouts that look completely clean, they seem to have a very smooth surface.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Decoration/Flora/Misc/dark_sprouts.rsi
+    layers:
+    - state: sprout1
+      map: ["random"]
+  - type: RandomSprite
+    available:
+    - random:
+        sprout1: ""
+        sprout2: ""
+        sprout3: ""
+        sprout4: ""
+        sprout5: ""
+        sprout6: ""
+  #- type: Gatherable # TODO add proper loot
+  #  toolWhitelist:
+  #    components:
+  #    - Hands
+  #  loot:
+  #    All: !type:GroupSelector
+  #      children:
+  #      - id: FoodSpaceshroom
+
+- type: entity
+  name: pale sprouts
+  id: FloraPaleSprouts
+  parent: BaseLavalandFlora
+  description: Sprouts that look completely clean, they seem to have a very smooth surface. These ones look more natural.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Decoration/Flora/Misc/light_sprouts.rsi
+    layers:
+    - state: sprout1
+      map: ["random"]
+  - type: RandomSprite
+    available:
+    - random:
+        sprout1: ""
+        sprout2: ""
+        sprout3: ""
+        sprout4: ""
+        sprout5: ""
+        sprout6: ""
+  #- type: Gatherable # TODO add proper loot
+  #  toolWhitelist:
+  #    components:
+  #    - Hands
+  #  loot:
+  #    All: !type:GroupSelector
+  #      children:
+  #      - id: FoodSpaceshroom
+
+- type: entity
+  name: pale sprouts
+  id: FloraAshYellowFlowers
+  parent: BaseLavalandFlora
+  description: A group of yellow flowers. They look weak, and yet still manage to survive in this place.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Decoration/Flora/Misc/yellow_flowers.rsi
+    layers:
+    - state: flowers1
+      map: ["random"]
+  - type: RandomSprite
+    available:
+    - random:
+        flowers1: ""
+        flowers2: ""
+        flowers3: ""
+  #- type: Gatherable # TODO add proper loot
+  #  toolWhitelist:
+  #    components:
+  #    - Hands
+  #  loot:
+  #    All: !type:GroupSelector
+  #      children:
+  #      - id: FoodSpaceshroom

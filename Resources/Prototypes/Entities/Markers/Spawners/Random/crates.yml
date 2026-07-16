@@ -1,38 +1,30 @@
-# SPDX-FileCopyrightText: 2022 Morb <14136326+Morb0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: Empty Crate Spawner
-  id: CrateEmptySpawner
   parent: MarkerBase
+  id: CrateEmptySpawner
+  name: Empty Crate Spawner
   components:
   - type: Sprite
     layers:
     - state: red
     - sprite: Structures/Storage/Crates/generic.rsi
       state: icon
-  - type: RandomSpawner
-    prototypes:
-    - CrateGenericSteel
-    - CratePlastic
-    - CrateFreezer
-    - CrateHydroponics
-    - CrateMedical
-    - CrateRadiation
-    - CrateInternals
-    - CrateElectrical
-    - CrateEngineering
-    - CrateScience
-    - CrateSurgery
-    chance: 0.7
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      prob: 0.7
+      children:
+      - id: CrateGenericSteel
+      - id: CratePlastic
+      - id: CrateFreezer
+      - id: CrateHydroponics
+      - id: CrateMedical
+      - id: CrateRadiation
+      - id: CrateInternals
+      - id: CrateElectrical
+      - id: CrateEngineering
+      - id: CrateScience
+      - id: CrateSurgery
     offset: 0.0
 
 - type: entityTable

@@ -1,10 +1,3 @@
-# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2024 AJCM <AJCM@tutanota.com>
-# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
@@ -29,7 +22,6 @@
   - type: WorldTargetAction
     event: !type:TeleportSpellEvent
 
-# Todo goobstation fix this spell?
 ## TODO: Second level upgrade sometime that allows swapping with all objects
 #- type: entity
 #  parent: BaseEntitySpellAction
@@ -39,8 +31,17 @@
 #  components:
 #  - type: Action
 #    useDelay: 15
+#    range: 16
 #    sound: !type:SoundPathSpecifier
 #      path: /Audio/Magic/Eldritch/voidblink.ogg
+#    itemIconStyle: BigAction
+#    whitelist:
+#      components:
+#      - Body
+#    canTargetSelf: false
+#    interactOnMiss: false
+#    checkCanAccess: false
+#    repeat: false
 #    icon:
 #      sprite: Objects/Magic/Eldritch/eldritch_actions.rsi
 #      state: voidblink
