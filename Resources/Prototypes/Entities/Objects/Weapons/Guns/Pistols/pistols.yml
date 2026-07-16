@@ -288,7 +288,7 @@
         whitelist:
           components:
           - GunUpgradeFlashlight
-     # mk58 upgrade end
+  # mk58 upgrade end
   - type: StealTarget
     stealGroup: OfficerHandgun
 
