@@ -23792,3 +23792,144 @@ Entries:
       message: Burping
   id: 2729
   time: '2026-07-10T12:46:15.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed health analzyer giving false info
+  id: 2730
+  time: '2026-07-12T00:11:24.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Fix
+      message: Fixed some lathes being connected to imaginary silos.
+  id: 2731
+  time: '2026-07-12T00:12:11.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Tweak
+      message: Changed Ardent Censer fuel to be Holy Water
+  id: 2732
+  time: '2026-07-12T00:12:29.0000000+00:00'
+- author: lucapgiannotti
+  changes:
+    - type: Fix
+      message: harpy flight functional once more!
+  id: 2733
+  time: '2026-07-12T00:13:13.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Fix
+      message: Fixed the supermatter monitoring console UI erroring when used.
+  id: 2734
+  time: '2026-07-12T00:14:40.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Tweak
+      message: >-
+        Removed taser from security lockers and made them available through
+        research.
+  id: 2735
+  time: '2026-07-12T00:16:09.0000000+00:00'
+- author: lucapgiannotti
+  changes:
+    - type: Fix
+      message: paper preview while writing! yippee!
+    - type: Fix
+      message: z, e, and left click work to open paper when in hand
+  id: 2736
+  time: '2026-07-12T00:17:00.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Remove
+      message: Removed Exo station from the map rotation.
+  id: 2737
+  time: '2026-07-15T03:02:45.0000000+00:00'
+- author: Baptr0b0t
+  changes:
+    - type: Fix
+      message: >-
+        Fixed gemini having bloodstream, injectable solution, surgery,
+        polymorph, destructible, temperature, respirator, internals, dna,
+        fingerprint...
+  id: 2738
+  time: '2026-07-15T03:03:30.0000000+00:00'
+- author: elioskmil
+  changes:
+    - type: Fix
+      message: Atmos devices can be stacked in different configs now
+    - type: Fix
+      message: Atmos devices can be stacked in different rotations now
+  id: 2739
+  time: '2026-07-15T03:05:06.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Tweak
+      message: >-
+        Reworked zombification and the cure to use polymorphs, should make it
+        work better but report any bugs with it!
+    - type: Fix
+      message: Fixed zombie cure cure not activating.
+    - type: Fix
+      message: Fixed zombies not being able to be cured while dead.
+  id: 2740
+  time: '2026-07-15T03:05:49.0000000+00:00'
+- author: Baptr0b0t
+  changes:
+    - type: Fix
+      message: Fixed the drunk IPC who couldn't string ten words together.
+  id: 2741
+  time: '2026-07-15T03:06:40.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed shotgun that require manual cycle!
+  id: 2742
+  time: '2026-07-15T21:02:54.0000000+00:00'
+- author: elioskmil
+  changes:
+    - type: Fix
+      message: Anomaly Generators can be filled with plasma sheets now.
+  id: 2743
+  time: '2026-07-16T02:56:09.0000000+00:00'
+- author: Naxel11
+  changes:
+    - type: Tweak
+      message: Damage distribution across the entire body is no longer randomized.
+  id: 2744
+  time: '2026-07-16T02:56:26.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Fix
+      message: Fix zombie cure not properly handling errors.
+  id: 2745
+  time: '2026-07-16T02:58:03.0000000+00:00'
+- author: SkippyMcSkips
+  changes:
+    - type: Fix
+      message: Fixed Janitor's Key Ring not fitting in Janitor's Belt
+  id: 2746
+  time: '2026-07-16T02:58:36.0000000+00:00'
+- author: acatrw
+  changes:
+    - type: Fix
+      message: Ichor No longer makes you bleed.
+  id: 2747
+  time: '2026-07-16T02:59:00.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed xenobio extract giving a lot of things after injection
+  id: 2748
+  time: '2026-07-16T02:59:33.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Remove the access text from species examine
+  id: 2749
+  time: '2026-07-16T03:00:48.0000000+00:00'
+- author: Super7522
+  changes:
+    - type: Tweak
+      message: Delimb Chances are now actually possible with Brute and Piercing weapons
+  id: 2750
+  time: '2026-07-16T03:01:21.0000000+00:00'
