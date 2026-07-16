@@ -21,6 +21,7 @@ using Content.Shared.Weapons.Melee.Events;
 using JetBrains.Annotations;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
+using Content.Shared.Chemistry.EntitySystems.Hypospray; // Goob
 
 namespace Content.Shared.Chemistry.EntitySystems;
 
@@ -645,6 +646,11 @@ public sealed partial class InjectorSystem : EntitySystem
     /// <param name="target">The entity targeted by the user.</param>
     private void AfterInject(Entity<InjectorComponent> injector, EntityUid user, EntityUid target)
     {
+        // Goob-Edit-start
+        var afterInjectEvent = new AfterHyposprayInjectsEvent{User = user,Target = target};
+        RaiseLocalEvent(injector.Owner, ref afterInjectEvent);
+        // Goob-Edit-end
+
         // Leave some DNA from the injectee on it
         _forensics.TransferDna(injector, target);
         // Reset the delay, if present.
