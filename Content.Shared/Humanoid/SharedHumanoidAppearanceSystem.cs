@@ -161,23 +161,42 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     /// <param name="target">Target entity to apply the source entity's appearance to.</param>
     /// <param name="sourceHumanoid">Source entity's humanoid component.</param>
     /// <param name="targetHumanoid">Target entity's humanoid component.</param>
+    /// <param name="keepSpecies">Target keeps its own species; skin/markings the species can't have are dropped. Goobstation</param>
     public void CloneAppearance(EntityUid source, EntityUid target, HumanoidAppearanceComponent? sourceHumanoid = null,
-        HumanoidAppearanceComponent? targetHumanoid = null)
+        HumanoidAppearanceComponent? targetHumanoid = null, bool keepSpecies = false)
     {
         if (!Resolve(source, ref sourceHumanoid, false) || !Resolve(target, ref targetHumanoid, false))
             return;
 
-        targetHumanoid.Species = sourceHumanoid.Species;
-        targetHumanoid.SkinColor = sourceHumanoid.SkinColor;
         targetHumanoid.EyeColor = sourceHumanoid.EyeColor;
         targetHumanoid.Age = sourceHumanoid.Age;
         targetHumanoid.Height = sourceHumanoid.Height; // Goobstation: port EE height/width sliders
         targetHumanoid.Width = sourceHumanoid.Width; // Goobstation: port EE height/width sliders
-        SetSex(target, sourceHumanoid.Sex, false, targetHumanoid);
-        targetHumanoid.CustomBaseLayers = new(sourceHumanoid.CustomBaseLayers);
-        targetHumanoid.MarkingSet = new(sourceHumanoid.MarkingSet);
-
         targetHumanoid.Gender = sourceHumanoid.Gender;
+        SetSex(target, sourceHumanoid.Sex, false, targetHumanoid);
+
+        if (keepSpecies) // Goobstation
+        {
+            SetSkinColor(target, sourceHumanoid.SkinColor, false, true, targetHumanoid);
+
+            targetHumanoid.MarkingSet.Clear();
+            foreach (var (_, list) in sourceHumanoid.MarkingSet.Markings)
+                foreach (var marking in list)
+                    AddMarking(target, marking.MarkingId, marking.MarkingColors, false, humanoid: targetHumanoid);
+
+            targetHumanoid.MarkingSet.EnsureSpecies(targetHumanoid.Species, targetHumanoid.SkinColor, _markingManager, _proto);
+            targetHumanoid.MarkingSet.EnsureSexes(sourceHumanoid.Sex, _markingManager);
+            targetHumanoid.MarkingSet.EnsureDefault(targetHumanoid.SkinColor, targetHumanoid.EyeColor, _markingManager);
+        }
+        else
+        {
+            targetHumanoid.Species = sourceHumanoid.Species;
+            targetHumanoid.SkinColor = sourceHumanoid.SkinColor;
+            targetHumanoid.CustomBaseLayers = new(sourceHumanoid.CustomBaseLayers);
+            targetHumanoid.MarkingSet = new(sourceHumanoid.MarkingSet);
+        }
+
+        SetBarkVoice(target, sourceHumanoid.BarkVoice, targetHumanoid); // Goobstation
 
         if (TryComp<GrammarComponent>(target, out var grammar))
             _grammarSystem.SetGender((target, grammar), sourceHumanoid.Gender);

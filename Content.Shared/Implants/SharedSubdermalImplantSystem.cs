@@ -49,7 +49,7 @@ public abstract partial class SharedSubdermalImplantSystem : EntitySystem
 
     private void OnRemoveAttempt(Entity<SubdermalImplantComponent> ent, ref ContainerGettingRemovedAttemptEvent args)
     {
-        if (ent.Comp.Permanent && ent.Comp.ImplantedEntity != null)
+        if (!_timing.ApplyingState && ent.Comp.Permanent && ent.Comp.ImplantedEntity != null) // Goob edit
             args.Cancel();
     }
 
@@ -131,8 +131,10 @@ public abstract partial class SharedSubdermalImplantSystem : EntitySystem
         //If the target doesn't have the implanted component, add it.
         var implantedComp = EnsureComp<ImplantedComponent>(target);
 
-        implant.Comp.ImplantedEntity = target;
-        _container.Insert(implant.Owner, implantedComp.ImplantContainer);
+        // Goob edit start
+        if (_container.Insert(implant.Owner, implantedComp.ImplantContainer))
+            implant.Comp.ImplantedEntity = target;
+        // Goob edit end
     }
 
     /// <summary>

@@ -8,12 +8,14 @@ using Content.Shared.Popups;
 using Content.Shared.Implants.Components;
 using Content.Shared.Polymorph;
 using Content.Shared.Store.Components;
+using Robust.Shared.Containers;
 
 namespace Content.Server.Implants;
 public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
 {
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -27,6 +29,9 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
     // goob edit - implants now transfer on polymorph
     private void OnPolymorphed(Entity<ImplantedComponent> ent, ref PolymorphedEvent args)
     {
+        if (ent.Owner == args.NewEntity)
+            return;
+
         // copy it to prevent collection modification error
         var implants = new List<EntityUid>(ent.Comp.ImplantContainer.ContainedEntities);
         foreach (var implant in implants)
@@ -35,6 +40,9 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
                 continue;
 
             var implantEnt = new Entity<SubdermalImplantComponent>(implant, sic);
+
+            if (sic.Permanent)
+                _containerSystem.Remove(implant, ent.Comp.ImplantContainer, force: true);
 
             ForceImplant(args.NewEntity, implantEnt!);
         }

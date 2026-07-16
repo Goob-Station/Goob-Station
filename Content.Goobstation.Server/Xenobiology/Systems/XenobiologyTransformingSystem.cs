@@ -2,6 +2,7 @@
 
 using Content.Goobstation.Shared.EntityEffects;
 using Content.Server._Shitmed.StatusEffects;
+using Content.Server.Humanoid;
 using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
 using Content.Shared.Humanoid;
@@ -11,8 +12,10 @@ using Robust.Shared.Prototypes;
 namespace Content.Goobstation.Server.Xenobiology.Systems;
 
 // Any Polymorphing etc needing to run serverside
-public class XenobiologyTransformingSystem : EntitySystem
+public sealed class XenobiologyTransformingSystem : EntitySystem
 {
+    [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
+
     public override void Initialize()
     {
         SubscribeLocalEvent<HumanoidAppearanceComponent, SpeciesChange>(OnSpeciesChange);
@@ -44,6 +47,9 @@ public class XenobiologyTransformingSystem : EntitySystem
         var @new = polymorphSystem.PolymorphEntity(uid, config);
         if (@new.HasValue)
         {
+            if (ev.TransferAppearance)
+                _humanoid.CloneAppearance(uid, @new.Value, keepSpecies: true);
+
             EntityManager.RemoveComponentDeferred<PolymorphedEntityComponent>(@new.Value);
         }
     }
