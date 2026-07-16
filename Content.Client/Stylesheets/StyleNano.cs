@@ -1491,7 +1491,11 @@ namespace Content.Client.Stylesheets
 
                 Element<LineEdit>().Class("PaperLineEdit")
                     .Prop(LineEdit.StylePropertyStyleBox, new StyleBoxEmpty()),
+                Element<LineEdit>().Class("PaperLineEdit")
+                    .Prop(LineEdit.StylePropertyStyleBox, new StyleBoxEmpty()),
 
+                Element<TextEdit>().Class("PaperLineEdit") // Goob Station fix
+                    .Prop(TextEdit.StylePropertyCursorColor, new Color(25, 25, 25)),
                 // Goobstation-EsColorPicker-Start
                 Element<Button>().Class("SecretButton")
                     .Prop(Control.StylePropertyModulateSelf, Color.Transparent),
