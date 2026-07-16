@@ -29,3 +29,45 @@
   parent: StatusEffectSlowdown
   id: ShadowlingGlareSlowdownEffect
   name: shadow ling glare slowdown
+
+- type: entity
+  parent: StatusEffectSlowdown
+  id: CurseWeaknessSlowDownEffect
+  name: curse of enfeeblement slowdown
+  components:
+  - type: MovementModStatusEffect
+    sprintSpeedModifier: 0.5
+    walkSpeedModifier: 0.5
+
+- type: entity
+  parent: StatusEffectSlowdown
+  id: DisgustSlowDownEffect
+  name: disgust slowdown
+  components:
+  - type: MovementModStatusEffect
+    walkSpeedModifier: 0.7
+    sprintSpeedModifier: 0.7
+
+- type: entity
+  parent: StatusEffectSlowdown
+  id: TriclorSlowdownEffect
+  name: triclor slowdown
+  components:
+  - type: MovementModStatusEffect
+    walkSpeedModifier: 0.8
+    sprintSpeedModifier: 0.8
+
+- type: entity # todo move this
+  parent: StatusEffectSpeed
+  id: NitriumStatusEffect
+  name: nitrium speedup
+
+- type: entity # todo move this
+  parent: StatusEffectSpeed
+  id: NitrousStatusEffect
+  name: nitrous speedup
+
+- type: entity
+  parent: StatusEffectSpeed
+  id: SlasherStatusEffectKillSpeed
+  name: slasher kill speedup

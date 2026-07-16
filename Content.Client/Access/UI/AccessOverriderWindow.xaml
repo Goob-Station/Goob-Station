@@ -1,7 +1,4 @@
 <!--
-SPDX-FileCopyrightText: 2023 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-
 SPDX-License-Identifier: MIT
 -->
 
@@ -9,7 +6,7 @@ SPDX-License-Identifier: MIT
             MinSize="650 290">
     <BoxContainer Orientation="Vertical">
         <GridContainer Columns="2">
-            <GridContainer Columns="3" HorizontalExpand="True">
+            <GridContainer Name="PrivilegedIdGrid" Columns="3" HorizontalExpand="True">
                 <Label Text="{Loc 'access-overrider-window-privileged-id'}" />
                 <Button Name="PrivilegedIdButton" Access="Public"/>
                 <Label Name="PrivilegedIdLabel" />

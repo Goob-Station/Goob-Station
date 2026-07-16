@@ -71,16 +71,7 @@
     rules: ghost-role-information-bsd-rules
     raffle:
       settings: default
-    requirements:
-    - !type:RoleTimeRequirement
-      role: JobMedicalDoctor
-      time: 10800 #3h
-    - !type:RoleTimeRequirement
-      role: JobSecurityOfficer
-      time: 10800 #3h
-    - !type:DepartmentTimeRequirement
-      department: Command
-      time: 10800 #3h
+    job: BlueshieldOfficer
   - type: GhostRoleMobSpawner
     prototype: BlueShieldDeputy
 

@@ -23616,3 +23616,320 @@ Entries:
       message: Fixed Artifact crusher spawning too much fragments.
   id: 2712
   time: '2026-06-26T19:27:30.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Remove
+      message: removed healing values from nutriment
+    - type: Tweak
+      message: increased vitamin and protein healing
+    - type: Tweak
+      message: reduced amount of nutriment in nutribricks
+    - type: Fix
+      message: fixed cocoa powder not being toxic to animals
+  id: 2713
+  time: '2026-07-02T12:58:43.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Add
+      message: >-
+        Sci techfab can now access some advanced medical recipes such as the
+        biomass reclaimer.
+    - type: Remove
+      message: Removed mapped energy chem dispensers.
+    - type: Tweak
+      message: Made the energy chem dispenser board more expensive.
+    - type: Tweak
+      message: >-
+        Energy food synthesizer research now requires bluespace chemistry
+        research.
+    - type: Tweak
+      message: >-
+        Moved energy chem dispenser board into bluespace chemistry research and
+        out of roundstart recipes.
+    - type: Tweak
+      message: Increased the amount of some jugs in the chemvend.
+    - type: Fix
+      message: Syndicate chemvend now has the proper amount of empty jugs (8).
+  id: 2714
+  time: '2026-07-02T13:00:02.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Add
+      message: >-
+        Upstream merge will break things. Make a github issue or check upstream
+        bugs threads in the discord and report things breaking for fixes.
+  id: 2715
+  time: '2026-07-04T02:14:46.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Fix
+      message: Fixed materials not actually being added to storages.
+  id: 2716
+  time: '2026-07-08T16:21:43.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Fix
+      message: fixed vials not showing contained solutions
+    - type: Fix
+      message: fixed vials not being able to be drawn with syringes
+    - type: Fix
+      message: fixed combat injector not working
+    - type: Fix
+      message: fixed autoinjectors not injector the entire cartridge
+    - type: Fix
+      message: fix medipens not working
+    - type: Fix
+      message: fix random sentience localization error
+  id: 2717
+  time: '2026-07-08T19:35:44.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Fix
+      message: Fixed most lathes not being able to be linked to the Silo.
+    - type: Tweak
+      message: Doubled Silo range
+  id: 2718
+  time: '2026-07-09T11:18:09.0000000+00:00'
+- author: elioskmil
+  changes:
+    - type: Fix
+      message: >-
+        fixed a bug that prevented players from using the RPD to build straight
+        and bent pipes on top of eachother even if they were rotated.
+  id: 2719
+  time: '2026-07-09T11:18:36.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed surgery
+  id: 2720
+  time: '2026-07-09T11:19:07.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fix IPC not having their charge updated
+  id: 2721
+  time: '2026-07-09T11:20:02.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Add
+      message: >-
+        Added a bunch of existing jumpsuits and clothing options to some job
+        loadouts
+    - type: Add
+      message: Added a bunch of unused envirosuits to assistant and job loadouts.
+    - type: Add
+      message: New military jumpsuits!
+    - type: Add
+      message: >-
+        Recruit jumpsuit to assistant loadout. Can only be worn with under 5
+        hours of playtime.
+    - type: Fix
+      message: >-
+        Replaced filled advanced jackboots with empty advanced jackboots in HoS
+        loadout
+    - type: Fix
+      message: Warden no longer spawns with an extra secmask
+    - type: Tweak
+      message: Medical doctors must select eyewear
+    - type: Tweak
+      message: NTR fancy jumpsuit now has a 20 hour playtime requirement
+    - type: Tweak
+      message: >-
+        Recolored various military jumpsuits to be more accurate to the jobs
+        they represent.
+    - type: Remove
+      message: Removed Eyewear section from CMO loadout
+    - type: Remove
+      message: Combat boot values from high heeled boots
+  id: 2722
+  time: '2026-07-09T21:17:49.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Fix
+      message: Ore Processor no longer vaporizes mats.
+    - type: Fix
+      message: >-
+        Fixed Ore Processor "Claim points" button overlapping with materials
+        list.
+  id: 2723
+  time: '2026-07-09T21:31:10.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Mothership core now understand every language
+  id: 2724
+  time: '2026-07-10T07:34:03.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Fix
+      message: >-
+        Fixed a bug where when one AI tried to control another's B.O.R.I.S it
+        would kick them out and ghost them.
+  id: 2725
+  time: '2026-07-10T07:35:13.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Tweak
+      message: Trit fire is powerful like before!
+  id: 2726
+  time: '2026-07-10T12:42:01.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed being unable to use modsuit
+  id: 2727
+  time: '2026-07-10T12:44:01.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix eating organs as flesh heretic not empowering/healing you.
+  id: 2728
+  time: '2026-07-10T12:45:09.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Add
+      message: Burping
+  id: 2729
+  time: '2026-07-10T12:46:15.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed health analzyer giving false info
+  id: 2730
+  time: '2026-07-12T00:11:24.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Fix
+      message: Fixed some lathes being connected to imaginary silos.
+  id: 2731
+  time: '2026-07-12T00:12:11.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Tweak
+      message: Changed Ardent Censer fuel to be Holy Water
+  id: 2732
+  time: '2026-07-12T00:12:29.0000000+00:00'
+- author: lucapgiannotti
+  changes:
+    - type: Fix
+      message: harpy flight functional once more!
+  id: 2733
+  time: '2026-07-12T00:13:13.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Fix
+      message: Fixed the supermatter monitoring console UI erroring when used.
+  id: 2734
+  time: '2026-07-12T00:14:40.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Tweak
+      message: >-
+        Removed taser from security lockers and made them available through
+        research.
+  id: 2735
+  time: '2026-07-12T00:16:09.0000000+00:00'
+- author: lucapgiannotti
+  changes:
+    - type: Fix
+      message: paper preview while writing! yippee!
+    - type: Fix
+      message: z, e, and left click work to open paper when in hand
+  id: 2736
+  time: '2026-07-12T00:17:00.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Remove
+      message: Removed Exo station from the map rotation.
+  id: 2737
+  time: '2026-07-15T03:02:45.0000000+00:00'
+- author: Baptr0b0t
+  changes:
+    - type: Fix
+      message: >-
+        Fixed gemini having bloodstream, injectable solution, surgery,
+        polymorph, destructible, temperature, respirator, internals, dna,
+        fingerprint...
+  id: 2738
+  time: '2026-07-15T03:03:30.0000000+00:00'
+- author: elioskmil
+  changes:
+    - type: Fix
+      message: Atmos devices can be stacked in different configs now
+    - type: Fix
+      message: Atmos devices can be stacked in different rotations now
+  id: 2739
+  time: '2026-07-15T03:05:06.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Tweak
+      message: >-
+        Reworked zombification and the cure to use polymorphs, should make it
+        work better but report any bugs with it!
+    - type: Fix
+      message: Fixed zombie cure cure not activating.
+    - type: Fix
+      message: Fixed zombies not being able to be cured while dead.
+  id: 2740
+  time: '2026-07-15T03:05:49.0000000+00:00'
+- author: Baptr0b0t
+  changes:
+    - type: Fix
+      message: Fixed the drunk IPC who couldn't string ten words together.
+  id: 2741
+  time: '2026-07-15T03:06:40.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed shotgun that require manual cycle!
+  id: 2742
+  time: '2026-07-15T21:02:54.0000000+00:00'
+- author: elioskmil
+  changes:
+    - type: Fix
+      message: Anomaly Generators can be filled with plasma sheets now.
+  id: 2743
+  time: '2026-07-16T02:56:09.0000000+00:00'
+- author: Naxel11
+  changes:
+    - type: Tweak
+      message: Damage distribution across the entire body is no longer randomized.
+  id: 2744
+  time: '2026-07-16T02:56:26.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Fix
+      message: Fix zombie cure not properly handling errors.
+  id: 2745
+  time: '2026-07-16T02:58:03.0000000+00:00'
+- author: SkippyMcSkips
+  changes:
+    - type: Fix
+      message: Fixed Janitor's Key Ring not fitting in Janitor's Belt
+  id: 2746
+  time: '2026-07-16T02:58:36.0000000+00:00'
+- author: acatrw
+  changes:
+    - type: Fix
+      message: Ichor No longer makes you bleed.
+  id: 2747
+  time: '2026-07-16T02:59:00.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed xenobio extract giving a lot of things after injection
+  id: 2748
+  time: '2026-07-16T02:59:33.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Remove the access text from species examine
+  id: 2749
+  time: '2026-07-16T03:00:48.0000000+00:00'
+- author: Super7522
+  changes:
+    - type: Tweak
+      message: Delimb Chances are now actually possible with Brute and Piercing weapons
+  id: 2750
+  time: '2026-07-16T03:01:21.0000000+00:00'

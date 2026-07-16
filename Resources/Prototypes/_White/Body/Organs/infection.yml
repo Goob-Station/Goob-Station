@@ -27,8 +27,8 @@
       - !type:PopupMessage
         messages: [ "xenomorph-infection-stage-2" ]
         visualType: SmallCaution
-      - !type:Paralyze
-        paralyzeTime: 1
+      - !type:ModifyParalysis
+        time: 1
       - !type:GenericStatusEffect
         key: Muted
         component: Muted
@@ -47,8 +47,8 @@
       - !type:PopupMessage
         messages: [ "xenomorph-infection-stage-3" ]
         visualType: SmallCaution
-      - !type:Paralyze
-        paralyzeTime: 2
+      - !type:ModifyParalysis
+        time: 2
       - !type:GenericStatusEffect
         key: Muted
         component: Muted
@@ -67,8 +67,8 @@
       - !type:PopupMessage
         messages: [ "xenomorph-infection-stage-4" ]
         visualType: SmallCaution
-      - !type:Paralyze
-        paralyzeTime: 4
+      - !type:ModifyParalysis
+        time: 4
       - !type:GenericStatusEffect
         key: Muted
         component: Muted
@@ -87,8 +87,8 @@
       - !type:PopupMessage
         messages: [ "xenomorph-infection-stage-6" ]
         visualType: Medium
-      - !type:Paralyze
-        paralyzeTime: 8
+      - !type:ModifyParalysis
+        time: 8
       - !type:GenericStatusEffect
         key: Muted
         component: Muted
