@@ -76,8 +76,6 @@ public sealed partial class LatheSystem
                 // Dequeue recipes on a loop
                 // We do this after the main code since the first recipe is given outside of this method
                 var recipeProto = comp.Queue.First().Recipe;
-                if (comp.Queue.Count == 0)
-                    break;
                 var batch = comp.Queue.First();
                 var recipe = _proto.Index(batch.Recipe);
                 var time = _reagentSpeed.ApplySpeed(uid, recipe.CompleteTime) * comp.TimeMultiplier;
