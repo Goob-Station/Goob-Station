@@ -274,3 +274,13 @@
           Blunt: -10
           Piercing: -10
           Slash: -10
+
+- type: entity
+  id: OrganDubiousRandomizeLanguage
+  parent: OrganDubiousBase
+  components:
+  - type: Sprite
+    state: species
+  - type: Organ
+    onAdd:
+    - type: RandomLanguage
