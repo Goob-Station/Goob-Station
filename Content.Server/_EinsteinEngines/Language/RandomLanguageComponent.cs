@@ -22,7 +22,7 @@ public sealed partial class RandomLanguageComponent : Component
     /// Amount of time this language will be randomized.
     /// </summary>
     [DataField]
-    public TimeSpan Interval = TimeSpan.FromSeconds(1);
+    public TimeSpan Interval = TimeSpan.FromSeconds(300);
 
     /// <summary>
     /// The next update
