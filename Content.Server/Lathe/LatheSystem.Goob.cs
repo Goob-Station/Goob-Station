@@ -26,11 +26,8 @@ public sealed partial class LatheSystem
         if (comp.CurrentRecipe != null)
         {
             var count = comp.Queue.Count;
-            while (0 < count + 1)
+            while (comp.CurrentRecipe != null)
             {
-                if (comp.CurrentRecipe == null)
-                    break;
-
                 var batch = comp.Queue.First();
                 batch.ItemsPrinted++;
                 if (batch.ItemsPrinted >= batch.ItemsRequested || batch.ItemsPrinted < 0)
