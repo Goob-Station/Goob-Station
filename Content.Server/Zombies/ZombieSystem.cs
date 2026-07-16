@@ -430,26 +430,30 @@ namespace Content.Server.Zombies
         /// Tries to cure the entity of zombification by reverting its polymorph
         /// </summary>
         /// <param name="ent">Entity to cure.</param>
-        /// <param name="currentEnt">Entity to use now, differs if succeeded.</param>
+        /// <param name="currentUid">Entity to use now, differs if succeeded.</param>
         /// <returns></returns>
-        private bool TryCureZombie(Entity<ZombieComponent> ent, out EntityUid currentEnt)
+        private bool TryCureZombie(Entity<ZombieComponent> ent, out EntityUid currentUid)
         {
-            currentEnt = TryComp(ent, out PolymorphedEntityComponent? comp) ? _polymorph.Revert((ent, comp))!.Value : ent;
-            return currentEnt != ent.Owner;
+            if (TryComp(ent, out PolymorphedEntityComponent? comp)
+                && _polymorph.Revert((ent, comp)) is { } uid)
+                currentUid = uid;
+            else
+                currentUid = ent.Owner;
+            return currentUid != ent.Owner;
         }
 
         private void OnUnZombifyEvent(Entity<ZombieComponent> ent, ref EntityUnZombifiedEvent args)
         {
-            bool success = TryCureZombie(ent, out EntityUid currentEnt);
+            bool success = TryCureZombie(ent, out EntityUid currentUid);
             _popup.PopupEntity(
                 Loc.GetString($"zombie-cure-{(success ? "success" : "failed")}"),
-                currentEnt,
+                currentUid,
                 PopupType.Medium
             );
 
             // we want to make sure this is added to the reverted ent
             if (args.Inoculate)
-                EnsureComp<ZombieImmuneComponent>(currentEnt);
+                EnsureComp<ZombieImmuneComponent>(currentUid);
         }
 
         /// <summary>
