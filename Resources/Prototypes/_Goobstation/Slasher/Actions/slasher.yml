@@ -28,28 +28,16 @@
 - type: entity
   id: ActionSlasherIncorporealize
   name: Incorporealize
-  description: Become incorporeal, capable of moving through walls and being completely invisible, but unable to interact with the world. Can only be used when unseen.
+  description: Toggle your incorporeal form. While incorporeal you can move through walls and are completely invisible, but unable to interact with the world. Can only be toggled while unseen.
   components:
   - type: Action
     raiseOnUser: true
     useDelay: 1
     itemIconStyle: BigAction
     icon: { sprite: _Goobstation/Slasher/Actions/slashericons.rsi, state: Incorporealize }
+    iconOn: { sprite: _Goobstation/Slasher/Actions/slashericons.rsi, state: Corporealize }
   - type: InstantAction
-    event: !type:SlasherIncorporealizeEvent
-
-- type: entity
-  id: ActionSlasherCorporealize
-  name: Corporealize
-  description: Manifest your being from your incorporeal state. Can only be used when incorporeal.
-  components:
-  - type: Action
-    raiseOnUser: true
-    useDelay: 1
-    itemIconStyle: BigAction
-    icon: { sprite: _Goobstation/Slasher/Actions/slashericons.rsi, state: Corporealize }
-  - type: InstantAction
-    event: !type:SlasherCorporealizeEvent
+    event: !type:SlasherToggleIncorporealEvent
 
 - type: entity
   id: ActionSlasherPossession

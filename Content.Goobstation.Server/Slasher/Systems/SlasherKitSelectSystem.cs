@@ -44,9 +44,7 @@ public sealed class SlasherKitSelectSystem : EntitySystem
         var incorporealComp = EnsureComp<SlasherIncorporealComponent>(ent.Owner);
         _incorporeal.EnterIncorporeal(ent.Owner, (ent.Owner, incorporealComp));
         _actions.RemoveAction(ent.Owner, incorporealComp.IncorporealizeActionEnt);
-        _actions.RemoveAction(ent.Owner, incorporealComp.CorporealizeActionEnt);
         incorporealComp.IncorporealizeActionEnt = null;
-        incorporealComp.CorporealizeActionEnt = null;
 
         var uid = ent.Owner;
         _ui.OpenUi(uid, SlasherKitSelectUiKey.Key, args.Player);
@@ -112,8 +110,6 @@ public sealed class SlasherKitSelectSystem : EntitySystem
         {
             _incorporeal.ExitIncorporeal(ent.Owner, (ent.Owner, incorporealComp));
             _actions.AddAction(ent.Owner, ref incorporealComp.IncorporealizeActionEnt, incorporealComp.IncorporealizeActionId);
-            _actions.AddAction(ent.Owner, ref incorporealComp.CorporealizeActionEnt, incorporealComp.CorporealizeActionId);
-            _actions.SetEnabled(incorporealComp.CorporealizeActionEnt, false);
         }
 
         _movement.ChangeBaseSpeed(ent.Owner,

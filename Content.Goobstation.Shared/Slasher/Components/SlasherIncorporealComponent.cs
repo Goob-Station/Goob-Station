@@ -16,14 +16,8 @@ public sealed partial class SlasherIncorporealComponent : Component
     [ViewVariables]
     public EntityUid? IncorporealizeActionEnt;
 
-    [ViewVariables]
-    public EntityUid? CorporealizeActionEnt;
-
     [DataField]
     public EntProtoId IncorporealizeActionId = "ActionSlasherIncorporealize";
-
-    [DataField]
-    public EntProtoId CorporealizeActionId = "ActionSlasherCorporealize";
 
     /// <summary>
     /// Current state of the slasher. True when incorporeal.

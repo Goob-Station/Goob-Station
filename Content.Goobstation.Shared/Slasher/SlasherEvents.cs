@@ -49,10 +49,7 @@ public sealed partial class SlasherSoulStealDoAfterEvent : SimpleDoAfterEvent;
 public sealed partial class SlasherIncorporealizeDoAfterEvent : SimpleDoAfterEvent;
 
 [ByRefEvent]
-public sealed partial class SlasherIncorporealizeEvent : InstantActionEvent;
-
-[ByRefEvent]
-public sealed partial class SlasherCorporealizeEvent : InstantActionEvent;
+public sealed partial class SlasherToggleIncorporealEvent : InstantActionEvent;
 
 [ByRefEvent]
 public sealed class SlasherIncorporealEnteredEvent : EntityEventArgs;

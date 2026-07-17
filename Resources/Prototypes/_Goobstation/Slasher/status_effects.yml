@@ -4,7 +4,7 @@
   name: feared
   components:
   - type: StatusEffectAlert
-    alert: SlasherFear
+    alert: SlasherFearVictim
     showDuration: false 
   - type: GrantComponentsStatusEffect
     components:

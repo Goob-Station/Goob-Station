@@ -48,9 +48,15 @@ public sealed class HotlineVisionOverlay : Overlay
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)
     {
-        return _entMan.HasComponent<HotlineVisionComponent>(_player.LocalEntity)
-               && _entMan.TryGetComponent(_player.LocalEntity, out EyeComponent? eye)
-               && args.Viewport.Eye == eye.Eye;
+        if (!_entMan.HasComponent<HotlineVisionComponent>(_player.LocalEntity)
+            || !_entMan.TryGetComponent(_player.LocalEntity, out EyeComponent? eye)
+            || args.Viewport.Eye != eye.Eye)
+            return false;
+
+        if (args.Space == OverlaySpace.WorldSpace && !eye.DrawFov)
+            return false;
+
+        return true;
     }
 
     protected override void Draw(in OverlayDrawArgs args)

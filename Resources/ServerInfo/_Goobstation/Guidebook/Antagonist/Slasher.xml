@@ -51,7 +51,7 @@ You can always call your signature weapon back to your active hand. If it's been
   <Box Orientation="Vertical">
     ## Soul Steal
 
-Can only be used on an incapacitated or restrained target within close range. For every soul stolen, you gain increased damage on your machete and armor. Living victims provide much greater bonuses than corpses. Victims become [italic]soulless[/italic] and receive a random negative devil clause. Releases a cloud of ammonia gas on success.
+Can only be used on an incapacitated or restrained target that is missing a limb. within close range. For every soul stolen, you gain increased damage on your machete and armor. Living victims provide much greater bonuses than corpses. Victims become [italic]soulless[/italic] and receive a random negative devil clause. Releases a cloud of ammonia gas on success.
 
 [italic]Cooldown: 2 seconds. Do-after time: 15 seconds.[/italic]
 

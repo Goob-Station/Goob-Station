@@ -10,8 +10,6 @@ namespace Content.Goobstation.Client.Slasher.Systems;
 /// </summary>
 public sealed class SlasherFearAlertSystem : EntitySystem
 {
-    private static readonly ProtoId<AlertPrototype> VictimAlert = "SlasherFear";
-
     public override void Initialize()
     {
         base.Initialize();
@@ -30,7 +28,7 @@ public sealed class SlasherFearAlertSystem : EntitySystem
 
     private void OnGetVictimCounter(Entity<FearedComponent> ent, ref GetGenericAlertCounterAmountEvent args)
     {
-        if (args.Handled || VictimAlert != args.Alert)
+        if (args.Handled || ent.Comp.Alert != args.Alert)
             return;
 
         args.Amount = (int) MathF.Round(ent.Comp.Fear * 100f);

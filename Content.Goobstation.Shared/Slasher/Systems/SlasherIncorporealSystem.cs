@@ -76,8 +76,7 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         SubscribeLocalEvent<SlasherIncorporealComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<SlasherIncorporealComponent, ComponentShutdown>(OnShutdown);
 
-        SubscribeLocalEvent<SlasherIncorporealComponent, SlasherIncorporealizeEvent>(OnIncorporealize);
-        SubscribeLocalEvent<SlasherIncorporealComponent, SlasherCorporealizeEvent>(OnCorporealize);
+        SubscribeLocalEvent<SlasherIncorporealComponent, SlasherToggleIncorporealEvent>(OnToggleIncorporeal);
         SubscribeLocalEvent<SlasherIncorporealComponent, SlasherIncorporealizeDoAfterEvent>(OnIncorporealizeDoAfter);
 
         SubscribeLocalEvent<SlasherIncorporealComponent, BeforeThrowEvent>(OnBeforeThrow);
@@ -99,28 +98,28 @@ public sealed class SlasherIncorporealSystem : EntitySystem
 
     private void OnMapInit(Entity<SlasherIncorporealComponent> ent, ref MapInitEvent args)
     {
-        if (!_net.IsServer)
-            return;
-
         _actions.AddAction(ent.Owner, ref ent.Comp.IncorporealizeActionEnt, ent.Comp.IncorporealizeActionId);
-        _actions.AddAction(ent.Owner, ref ent.Comp.CorporealizeActionEnt, ent.Comp.CorporealizeActionId);
-        _actions.SetEnabled(ent.Comp.CorporealizeActionEnt, false);
+        Dirty(ent);
     }
 
     private void OnShutdown(Entity<SlasherIncorporealComponent> ent, ref ComponentShutdown args)
     {
-        if (!_net.IsServer)
-            return;
-
         _actions.RemoveAction(ent.Owner, ent.Comp.IncorporealizeActionEnt);
-        _actions.RemoveAction(ent.Owner, ent.Comp.CorporealizeActionEnt);
     }
 
-    private void OnIncorporealize(Entity<SlasherIncorporealComponent> ent, ref SlasherIncorporealizeEvent args)
+    private void OnToggleIncorporeal(Entity<SlasherIncorporealComponent> ent, ref SlasherToggleIncorporealEvent args)
     {
-        if (args.Handled || ent.Comp.IsIncorporeal)
+        if (args.Handled)
             return;
 
+        if (ent.Comp.IsIncorporeal)
+            Corporealize(ent, ref args);
+        else
+            Incorporealize(ent, ref args);
+    }
+
+    private void Incorporealize(Entity<SlasherIncorporealComponent> ent, ref SlasherToggleIncorporealEvent args)
+    {
         // Check if anyone can see them
         if (_fear.IsObservedByPlayers(ent.Owner, ent.Comp.ObserverCheckRange))
         {
@@ -148,17 +147,8 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         args.Handled = true;
     }
 
-    private void OnCorporealize(Entity<SlasherIncorporealComponent> ent, ref SlasherCorporealizeEvent args)
+    private void Corporealize(Entity<SlasherIncorporealComponent> ent, ref SlasherToggleIncorporealEvent args)
     {
-        if (args.Handled)
-            return;
-
-        if (!ent.Comp.IsIncorporeal)
-        {
-            args.Handled = true;
-            return;
-        }
-
         if (_net.IsServer)
         {
             // Check if anyone can see them.
@@ -240,8 +230,7 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         _stealth.SetVisibility(uid, stealth.MinVisibility, stealth);
         _stealth.SetThermalsImmune(uid, true, stealth);
 
-        _actions.SetEnabled(ent.Comp.IncorporealizeActionEnt, false);
-        _actions.SetEnabled(ent.Comp.CorporealizeActionEnt, true);
+        _actions.SetToggled(ent.Comp.IncorporealizeActionEnt, true);
 
         // Prevent doors from opening.
         if (_tags.HasTag(uid, SharedDoorSystem.DoorBumpTag))
@@ -287,8 +276,7 @@ public sealed class SlasherIncorporealSystem : EntitySystem
 
         RemoveTrackedCompsDeferred(uid, ent);
 
-        _actions.SetEnabled(ent.Comp.IncorporealizeActionEnt, true);
-        _actions.SetEnabled(ent.Comp.CorporealizeActionEnt, false);
+        _actions.SetToggled(ent.Comp.IncorporealizeActionEnt, false);
 
         _tags.AddTag(uid, SharedDoorSystem.DoorBumpTag);
         _tags.AddTag(uid, FootstepSoundTag);
@@ -442,8 +430,7 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         if (!TryComp<SlasherIncorporealComponent>(user, out var comp) || !comp.IsIncorporeal)
             return;
 
-        // Allow nightvision / corporealize / wake up.
-        if (comp.CorporealizeActionEnt == action.Owner
+        if (comp.IncorporealizeActionEnt == action.Owner
             || _actions.GetEvent(action.Owner) is ToggleNightVisionEvent or WakeActionEvent)
             return;
 

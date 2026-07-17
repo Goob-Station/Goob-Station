@@ -99,6 +99,7 @@ slasher-soulsteal-fail-no-mind = Your target has no soul to steal.
 slasher-soulsteal-start-victim = You feel your soul being drained...
 slasher-soulsteal-success-victim = You feel a piece of your soul dissipate.
 slasher-soulsteal-fail-not-valid = This is not a valid target!
+slasher-soulsteal-fail-no-limb-loss = Your target needs to have a missing limb before you can steal their soul.
 slasher-soulsteal-unlock-possession = Your power grows. You can now possess the living!
 slasher-soulsteal-ascendance = CRITICAL ALERT: Massive psychic disturbance detected. An entity of unprecedented malevolent power has achieved critical mass. All personnel are advised to arm themselves and travel in groups.
 slasher-soulsteal-ascendance-clown = CRITICAL ALERT: Unprecedented HONK power detected. All personnel are advised that something deeply unhinged is on board. Brace for impact. HONK.
@@ -136,6 +137,9 @@ alerts-slasher-seen-desc = Shows whether you are currently being watched by some
 
 alerts-slasher-fear-name = Fear
 alerts-slasher-fear-desc = The dread you have spread. The higher it climbs, the stronger you become and the louder your presence grows.
+
+alerts-slasher-fear-victim-name = Fear
+alerts-slasher-fear-victim-desc = The terror clawing at your mind as the slasher hunts you. The higher it climbs, the more it slows and wounds you. Break their line of sight to let it fade.
 
 alerts-slasher-lovestruck-name = Lovestruck
 alerts-slasher-lovestruck-desc = You are charmed by the Idol and cannot bring yourself to harm them. The feeling will fade once this wears off.

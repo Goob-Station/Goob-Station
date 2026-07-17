@@ -1,4 +1,5 @@
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Alert;
 using Content.Shared.Damage;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -14,6 +15,9 @@ public sealed partial class FearedComponent : Component
 {
     [DataField, AutoNetworkedField]
     public float Fear;
+
+    [DataField]
+    public ProtoId<AlertPrototype> Alert = "SlasherFearVictim";
 
     [ViewVariables, AutoNetworkedField]
     public EntityUid? Scarer;
