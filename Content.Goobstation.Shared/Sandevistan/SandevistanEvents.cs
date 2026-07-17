@@ -11,6 +11,3 @@ public sealed partial class ToggleSandevistanEvent : InstantActionEvent;
 /// </summary>
 [ByRefEvent]
 public record struct RemoveSandevistanSlowdownEvent(EntityUid Source);
-
-[ByRefEvent]
-public record struct BeforeSandevistanToggleEvent();

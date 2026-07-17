@@ -53,7 +53,6 @@ public sealed class SandevistanSystem : EntitySystem
         SubscribeLocalEvent<SandevistanUserComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<SandevistanUserComponent, GetDoAfterDelayMultiplierEvent>(OnModifyDoAfterDelay);
         SubscribeLocalEvent<SandevistanUserComponent, BeforeStaminaDamageEvent>(OnBeforeStaminaDamage);
-        SubscribeLocalEvent<SandevistanUserComponent, BeforeSandevistanToggleEvent>(OnBeforeSandevistanToggle);
 
         SubscribeLocalEvent<SandevistanSlowedComponent, RemoveSandevistanSlowdownEvent>(OnRemoveSlowdown);
         SubscribeLocalEvent<SandevistanSlowedComponent, RefreshMovementSpeedModifiersEvent>(OnSlowedRefreshSpeed);
@@ -150,6 +149,14 @@ public sealed class SandevistanSystem : EntitySystem
 
     private void OnInit(Entity<SandevistanUserComponent> ent, ref ComponentInit args)
     {
+        if (ent.Comp.RandomThreshold)
+        {
+            if (!ent.Comp.ShowAlert)
+                _alerts.ClearAlert(ent.Owner, ent.Comp.LoadAlert);
+
+            RandomizeThresholds(ent.AsNullable(), ent.Comp.Min, ent.Comp.Max);
+        }
+
         _alerts.ShowAlert(ent.Owner, ent.Comp.LoadAlert);
         Dirty(ent);
     }
@@ -157,9 +164,6 @@ public sealed class SandevistanSystem : EntitySystem
     private void OnToggle(Entity<SandevistanUserComponent> ent, ref ToggleSandevistanEvent args)
     {
         args.Handled = true;
-
-        var beforeEv = new BeforeSandevistanToggleEvent();
-        RaiseLocalEvent(ent, ref beforeEv);
 
         if (ent.Comp.Active)
         {
@@ -219,15 +223,6 @@ public sealed class SandevistanSystem : EntitySystem
             args.Cancelled = true;
     }
 
-    private void OnBeforeSandevistanToggle(Entity<SandevistanUserComponent> ent, ref BeforeSandevistanToggleEvent args)
-    {
-        if (ent.Comp.RandomThreshold)
-        {
-            _alerts.ClearAlert(ent.Owner, ent.Comp.LoadAlert);
-            RandomizeThresholds(ent.AsNullable(), 0, 100);
-        }
-    }
-
     private void OnMobStateChanged(Entity<SandevistanUserComponent> ent, ref MobStateChangedEvent args) =>
         Disable(ent, ent.Comp);
 
@@ -282,15 +277,18 @@ public sealed class SandevistanSystem : EntitySystem
         if (ent.Comp.Thresholds.Count == 0)
             return;
 
-        var newThresholds = new Dictionary<SandevistanState, FixedPoint2>();
-
-        foreach (var state in ent.Comp.Thresholds.Keys)
+        if (_netManager.IsServer)
         {
-            newThresholds[state] = FixedPoint2.New(_random.Next(min, max));
-        }
+            var newThresholds = new Dictionary<SandevistanState, FixedPoint2>();
 
-        ent.Comp.Thresholds = newThresholds;
-        Dirty(ent);
+            foreach (var state in ent.Comp.Thresholds.Keys)
+            {
+                newThresholds[state] = FixedPoint2.New(_random.Next(min, max));
+            }
+
+            ent.Comp.Thresholds = newThresholds;
+            Dirty(ent);
+        }
     }
 
     #region Afterimage Methods
