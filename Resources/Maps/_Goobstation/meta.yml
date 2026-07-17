@@ -16527,8 +16527,6 @@ entities:
     - type: Transform
       pos: -17.5,17.5
       parent: 2
-    - type: OreSiloClient
-      silo: 1079
     - type: TechnologyDatabase
       supportedDisciplines:
       - Industrial
@@ -54409,8 +54407,6 @@ entities:
     - type: Transform
       pos: -33.5,18.5
       parent: 2
-    - type: OreSiloClient
-      silo: 1079
 - proto: Carpet
   entities:
   - uid: 8258
@@ -61228,7 +61224,6 @@ entities:
     - type: Transform
       pos: 1.5,-37.5
       parent: 2
-    - type: OreSiloClient
       silo: 1079
     - type: MaterialStorage
       materialWhiteList:
@@ -76641,8 +76636,6 @@ entities:
     - type: Transform
       pos: 52.5,14.5
       parent: 2
-    - type: OreSiloClient
-      silo: 1079
 - proto: ExosuitFabricator
   entities:
   - uid: 11912
@@ -76650,15 +76643,11 @@ entities:
     - type: Transform
       pos: 0.5,-41.5
       parent: 2
-    - type: OreSiloClient
-      silo: 1079
   - uid: 11913
     components:
     - type: Transform
       pos: 0.5,-39.5
       parent: 2
-    - type: OreSiloClient
-      silo: 1079
 - proto: ExplosivesSignMed
   entities:
   - uid: 11914
@@ -126614,47 +126603,6 @@ entities:
     - type: Transform
       pos: -7.5,17.5
       parent: 2
-    - type: DeviceLinkSource
-      linkedPorts:
-        25431:
-        - - OreSilo
-          - OreSiloClient
-        25430:
-        - - OreSilo
-          - OreSiloClient
-        8257:
-        - - OreSilo
-          - OreSiloClient
-        19036:
-        - - OreSilo
-          - OreSiloClient
-        18906:
-        - - OreSilo
-          - OreSiloClient
-        11912:
-        - - OreSilo
-          - OreSiloClient
-        11913:
-        - - OreSilo
-          - OreSiloClient
-        9588:
-        - - OreSilo
-          - OreSiloClient
-        21222:
-        - - OreSilo
-          - OreSiloClient
-        21262:
-        - - OreSilo
-          - OreSiloClient
-        11911:
-        - - OreSilo
-          - OreSiloClient
-        21255:
-        - - OreSilo
-          - OreSiloClient
-        21256:
-        - - OreSilo
-          - OreSiloClient
 - proto: MaterialWoodPlank1
   entities:
   - uid: 18900
@@ -126718,8 +126666,6 @@ entities:
     - type: Transform
       pos: -34.5,-30.5
       parent: 2
-    - type: OreSiloClient
-      silo: 1079
     - type: MaterialStorage
       materialWhiteList:
       - Glass
@@ -128041,8 +127987,6 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-    - type: OreSiloClient
-      silo: 1079
     - type: Conveyed
 - proto: OxygenCanister
   entities:
@@ -135246,8 +135190,6 @@ entities:
     - type: Transform
       pos: -17.5,16.5
       parent: 2
-    - type: OreSiloClient
-      silo: 1079
     - type: TechnologyDatabase
       supportedDisciplines:
       - Industrial
@@ -141186,8 +141128,6 @@ entities:
     - type: Transform
       pos: 14.5,-30.5
       parent: 2
-    - type: OreSiloClient
-      silo: 1079
     - type: TechnologyDatabase
       supportedDisciplines:
       - Industrial
@@ -141456,8 +141396,6 @@ entities:
     - type: Transform
       pos: -3.5,42.5
       parent: 2
-    - type: OreSiloClient
-      silo: 1079
     - type: TechnologyDatabase
       supportedDisciplines:
       - Industrial
@@ -141469,8 +141407,6 @@ entities:
     - type: Transform
       pos: -1.5,36.5
       parent: 2
-    - type: OreSiloClient
-      silo: 1079
     - type: TechnologyDatabase
       supportedDisciplines:
       - Industrial
@@ -141516,8 +141452,6 @@ entities:
     - type: Transform
       pos: 19.5,6.5
       parent: 2
-    - type: OreSiloClient
-      silo: 1079
     - type: TechnologyDatabase
       supportedDisciplines:
       - Industrial
