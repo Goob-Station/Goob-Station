@@ -91,6 +91,11 @@ public sealed partial class SandevistanUserComponent : Component
     [DataField, AutoNetworkedField]
     public ProtoId<AlertPrototype> LoadAlert = "SandevistanLoad";
 
+    /// <summary>
+    /// Should the <see cref="Thresholds"/> be randomized. Also disable alert
+    /// </summary>
+    [DataField]
+    public bool RandomThreshold = false;
     #region Slowfield
 
     /// <summary>

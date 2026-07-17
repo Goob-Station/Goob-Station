@@ -308,3 +308,23 @@
       maxActivationTime: 30
       statusEffects:
         VomitChem: VomitChem
+
+# Holy fuck i hate this
+- type: entity
+  id: OrganDubiousShittySandevistan
+  parent: OrganHeartSandevistan
+  name: mysterious gland
+  description: Suspicious alien gland, replaces the heart.
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Mobs/Species/Misc/Dubious/organs.rsi
+    state: mindshock
+  - type: Organ
+    onAdd:
+    - type: SandevistanUser
+      randomThreshold: true
+      thresholds:
+        Warning: 15
+        Shaking: 30
+        Damage: 45
+        Disable: 60

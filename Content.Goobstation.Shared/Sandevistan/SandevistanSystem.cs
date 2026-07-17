@@ -22,6 +22,8 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
+using Robust.Shared.Random;
+using Content.Goobstation.Maths.FixedPoint;
 
 namespace Content.Goobstation.Shared.Sandevistan;
 
@@ -35,6 +37,7 @@ public sealed class SandevistanSystem : EntitySystem
     [Dependency] private readonly MovementSpeedModifierSystem _speed = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     private const string SlowfieldFixtureId = "sandevistan-slowfield";
 
@@ -50,6 +53,7 @@ public sealed class SandevistanSystem : EntitySystem
         SubscribeLocalEvent<SandevistanUserComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<SandevistanUserComponent, GetDoAfterDelayMultiplierEvent>(OnModifyDoAfterDelay);
         SubscribeLocalEvent<SandevistanUserComponent, BeforeStaminaDamageEvent>(OnBeforeStaminaDamage);
+        SubscribeLocalEvent<SandevistanUserComponent, BeforeSandevistanToggleEvent>(OnBeforeSandevistanToggle);
 
         SubscribeLocalEvent<SandevistanSlowedComponent, RemoveSandevistanSlowdownEvent>(OnRemoveSlowdown);
         SubscribeLocalEvent<SandevistanSlowedComponent, RefreshMovementSpeedModifiersEvent>(OnSlowedRefreshSpeed);
@@ -154,6 +158,9 @@ public sealed class SandevistanSystem : EntitySystem
     {
         args.Handled = true;
 
+        var beforeEv = new BeforeSandevistanToggleEvent();
+        RaiseLocalEvent(ent, ref beforeEv);
+
         if (ent.Comp.Active)
         {
             _audio.PlayPredicted(ent.Comp.EndSound, ent, ent);
@@ -212,6 +219,15 @@ public sealed class SandevistanSystem : EntitySystem
             args.Cancelled = true;
     }
 
+    private void OnBeforeSandevistanToggle(Entity<SandevistanUserComponent> ent, ref BeforeSandevistanToggleEvent args)
+    {
+        if (ent.Comp.RandomThreshold)
+        {
+            _alerts.ClearAlert(ent.Owner, ent.Comp.LoadAlert);
+            RandomizeThresholds(ent.AsNullable(), 0, 100);
+        }
+    }
+
     private void OnMobStateChanged(Entity<SandevistanUserComponent> ent, ref MobStateChangedEvent args) =>
         Disable(ent, ent.Comp);
 
@@ -256,6 +272,25 @@ public sealed class SandevistanSystem : EntitySystem
 
         if (wasActive)
             Dirty(uid, comp);
+    }
+
+    private void RandomizeThresholds(Entity<SandevistanUserComponent?> ent, int min, int max)
+    {
+        if (!Resolve(ent.Owner, ref ent.Comp, false))
+            return;
+
+        if (ent.Comp.Thresholds.Count == 0)
+            return;
+
+        var newThresholds = new Dictionary<SandevistanState, FixedPoint2>();
+
+        foreach (var state in ent.Comp.Thresholds.Keys)
+        {
+            newThresholds[state] = FixedPoint2.New(_random.Next(min, max));
+        }
+
+        ent.Comp.Thresholds = newThresholds;
+        Dirty(ent);
     }
 
     #region Afterimage Methods
