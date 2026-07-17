@@ -23933,3 +23933,9 @@ Entries:
       message: Delimb Chances are now actually possible with Brute and Piercing weapons
   id: 2750
   time: '2026-07-16T03:01:21.0000000+00:00'
+- author: Baptr0b0t
+  changes:
+    - type: Add
+      message: Added Leo Malone admin plushie
+  id: 2751
+  time: '2026-07-17T01:33:37.0000000+00:00'
