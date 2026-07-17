@@ -68,7 +68,7 @@ public sealed class PlushieBiteSystem : EntitySystem
             _damageable.TryChangeDamage(holder, comp.BiteDamage, origin: uid);
 
             if (comp.BiteReagents != null)
-                _bloodstream.TryAddToChemicals(holder, comp.BiteReagents.Clone());
+                _bloodstream.TryAddToBloodstream(holder, comp.BiteReagents.Clone());
         }
     }
 }
