@@ -31,9 +31,9 @@
     event: !type:HauntEvent
 
 - type: entity
-  id: ActionWhisper
+  id: ActionWraithWhisper
   parent: DemonicWhisperAction
-  name: Whisper
+  name: Ethereal Whisper
   description: Send an ethereal message to a living being.
   components:
   - type: Action
@@ -42,7 +42,7 @@
     useDelay: 2
     icon:
       sprite: _Goobstation/Wraith/actions.rsi
-      state: whisper
+      state: whisper    
 
 - type: entity
   id: ActionBloodWriting

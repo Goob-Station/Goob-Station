@@ -1,0 +1,22 @@
+- type: entity
+  id: ActionTelepathy
+  name: Telepathy
+  description: Telepathically transmits a message to the target.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    raiseOnUser: true
+    icon:
+      sprite: _Goobstation/Actions/actions_revenant.rsi
+      state: transmit
+    itemIconStyle: NoItem
+  - type: TargetAction
+    interactOnMiss: false
+    range: 15
+  - type: EntityTargetAction
+    canTargetSelf: true
+    event: !type:TelepathyWhisperEvent
+  - type: TelepathyAction
+    popupDialogueTitle: telepathic-whisper-title
+    popupWhisperSelf: telepathic-whisper-self
+    popupWhisperFlavor: telepathic-whisper-flavor

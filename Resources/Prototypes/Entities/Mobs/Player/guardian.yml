@@ -116,6 +116,7 @@
     - type: ActionGrant
       actions:
         - ActionSelfToggleGuardian
+        - ActionTelepathyGuardian
     - type: Targeting
     # </Goobstation>
 
@@ -310,3 +311,26 @@
     checkConsciousness: false
   - type: InstantAction
     event: !type:GuardianToggleSelfActionEvent # can only recall
+# Goobstation
+- type: entity
+  parent: ActionTelepathy
+  id: ActionTelepathyGuardian
+  name: Guardian's Telepathy
+  description: 
+  components:
+  - type: Action
+    icon:
+      sprite: _Goobstation/Actions/actions_revenant.rsi
+      state: transmit
+    checkCanInteract: false
+    checkConsciousness: false
+  - type: TargetAction
+    interactOnMiss: false
+    range: 15
+  - type: EntityTargetAction
+    canTargetSelf: true
+    event: !type:TelepathyWhisperEvent
+  - type: TelepathyAction
+    popupDialogueTitle: telepathic-whisper-title
+    popupWhisperSelf: telepathic-whisper-self
+    popupWhisperFlavor: guardian-whisper-flavor
