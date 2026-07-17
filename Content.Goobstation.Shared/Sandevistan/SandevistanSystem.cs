@@ -149,15 +149,12 @@ public sealed class SandevistanSystem : EntitySystem
 
     private void OnInit(Entity<SandevistanUserComponent> ent, ref ComponentInit args)
     {
+        if (ent.Comp.ShowAlert)
+            _alerts.ShowAlert(ent.Owner, ent.Comp.LoadAlert);
+
         if (ent.Comp.RandomThreshold)
-        {
-            if (!ent.Comp.ShowAlert)
-                _alerts.ClearAlert(ent.Owner, ent.Comp.LoadAlert);
-
             RandomizeThresholds(ent.AsNullable(), ent.Comp.Min, ent.Comp.Max);
-        }
 
-        _alerts.ShowAlert(ent.Owner, ent.Comp.LoadAlert);
         Dirty(ent);
     }
 

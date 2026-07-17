@@ -92,7 +92,7 @@ public sealed partial class SandevistanUserComponent : Component
     public ProtoId<AlertPrototype> LoadAlert = "SandevistanLoad";
 
     /// <summary>
-    /// Should the <see cref="Thresholds"/> be randomized. Also disable alert
+    /// Should the <see cref="Thresholds"/> be randomized.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool RandomThreshold;
