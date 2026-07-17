@@ -23945,3 +23945,21 @@ Entries:
       message: Added ghost cosmetics for patrons.
   id: 2752
   time: '2026-07-17T01:37:41.0000000+00:00'
+- author: elioskmil
+  changes:
+    - type: Fix
+      message: vials and mini vials work now
+  id: 2753
+  time: '2026-07-17T09:07:46.0000000+00:00'
+- author: BeeRobynn
+  changes:
+    - type: Add
+      message: Added 9 new hairstyles! Quirky!
+  id: 2754
+  time: '2026-07-17T09:08:37.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: Added a couple new AI customization options.
+  id: 2755
+  time: '2026-07-17T09:10:03.0000000+00:00'
