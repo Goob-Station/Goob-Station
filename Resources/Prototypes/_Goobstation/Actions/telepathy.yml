@@ -17,6 +17,4 @@
     canTargetSelf: true
     event: !type:TelepathyWhisperEvent
   - type: TelepathyAction
-    popupDialogueTitle: telepathic-whisper-title
-    popupWhisperSelf: telepathic-whisper-self
     popupWhisperFlavor: telepathic-whisper-flavor

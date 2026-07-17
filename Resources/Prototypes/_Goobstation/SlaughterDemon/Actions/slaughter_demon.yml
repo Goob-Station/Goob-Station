@@ -34,7 +34,7 @@
     canTargetSelf: true
     event: !type:TelepathyWhisperEvent
   - type: TelepathyAction
-    popupDialogueTitle: demonic-whisper-title
+    dialogueTitle: demonic-whisper-title
     popupWhisperSelf: demonic-whisper-self
     popupWhisperFlavor: demonic-whisper-flavor
     popupType: MediumCaution

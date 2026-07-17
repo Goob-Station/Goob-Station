@@ -27,13 +27,13 @@ public sealed partial class TelepathyActionComponent : Component
     /// Locale for title of the telepathy dialogue.
     /// </summary>
     [DataField]
-    public LocId DialogueTitle;
+    public LocId DialogueTitle = "telepathic-whisper-title";
 
     /// <summary>
     /// Locale for message to self when whispering.
     /// </summary>
     [DataField]
-    public LocId PopupWhisperSelf;
+    public LocId PopupWhisperSelf = "telepathic-whisper-self";
 
     /// <summary>
     /// Extra flavor text when whispering to target, eg. Suddenly, a voice resonates in your head...
