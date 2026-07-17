@@ -23939,3 +23939,9 @@ Entries:
       message: Added Leo Malone admin plushie
   id: 2751
   time: '2026-07-17T01:33:37.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Added ghost cosmetics for patrons.
+  id: 2752
+  time: '2026-07-17T01:37:41.0000000+00:00'
