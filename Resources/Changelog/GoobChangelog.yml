@@ -23963,3 +23963,9 @@ Entries:
       message: Added a couple new AI customization options.
   id: 2755
   time: '2026-07-17T09:10:03.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: Gemini is now pacified
+  id: 2756
+  time: '2026-07-17T10:34:45.0000000+00:00'
