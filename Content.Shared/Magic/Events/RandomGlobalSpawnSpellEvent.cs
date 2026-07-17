@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 ActiveMammmoth <140334666+ActiveMammmoth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Actions;
@@ -22,4 +19,14 @@ public sealed partial class RandomGlobalSpawnSpellEvent : InstantActionEvent
     /// </summary>
     [DataField]
     public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/Magic/staff_animation.ogg");
+
+    [DataField]
+    public string? Speech { get; private set; }
+
+    /// <summary>
+    /// Should this Global spawn spell turn its targets into a Survivor Antagonist?
+    /// Ignores the caster for this.
+    /// </summary>
+    [DataField]
+    public bool MakeSurvivorAntagonist = false;
 }

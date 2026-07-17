@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Lumminal <81829924+Lumminal@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Server.LightDetection;
@@ -14,6 +10,7 @@ using Content.Server.EUI;
 using Content.Server.Ghost;
 using Content.Server.Polymorph.Systems;
 using Content.Shared.Actions;
+using Content.Shared.Administration.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
 using Content.Shared.Mind;

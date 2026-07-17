@@ -1,42 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Alice "Arimah" Heurlin <30327355+arimah@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 FoxxoTrystan <45297731+FoxxoTrystan@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 HS <81934438+HolySSSS@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pspritechologist <naaronn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SkaldetSkaeg <impotekh@gmail.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Truoizys <153248924+Truoizys@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 VMSolidus <evilexecutive@gmail.com>
-// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-// SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Coolsurf6 <coolsurf24@yahoo.com.au>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Actions;
@@ -55,6 +16,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Pointing;
 using Content.Shared.Popups;
+using Content.Shared.Rejuvenate;
 using Content.Shared.Slippery;
 using Content.Shared.Sound;
 using Content.Shared.Sound.Components;
@@ -98,7 +60,9 @@ public sealed partial class SleepingSystem : EntitySystem
         SubscribeLocalEvent<SleepingComponent, DamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<SleepingComponent, EntityZombifiedEvent>(OnZombified);
         SubscribeLocalEvent<SleepingComponent, MobStateChangedEvent>(OnMobStateChanged);
-        SubscribeLocalEvent<SleepingComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<SleepingComponent, ComponentInit>(OnCompInit);
+        SubscribeLocalEvent<SleepingComponent, ComponentRemove>(OnComponentRemoved);
+        SubscribeLocalEvent<SleepingComponent, RejuvenateEvent>(OnRejuvenate);
         SubscribeLocalEvent<SleepingComponent, SpeakAttemptEvent>(OnSpeakAttempt);
         SubscribeLocalEvent<SleepingComponent, CanSeeAttemptEvent>(OnSeeAttempt);
         SubscribeLocalEvent<SleepingComponent, PointAttemptEvent>(OnPointAttempt);
@@ -141,6 +105,12 @@ public sealed partial class SleepingSystem : EntitySystem
         TrySleeping((ent, ent.Comp));
     }
 
+    private void OnRejuvenate(Entity<SleepingComponent> ent, ref RejuvenateEvent args)
+    {
+        // WAKE UP!!!
+        RemComp<SleepingComponent>(ent);
+    }
+
     /// <summary>
     /// when sleeping component is added or removed, we do some stuff with other components.
     /// </summary>
@@ -174,12 +144,22 @@ public sealed partial class SleepingSystem : EntitySystem
         RemComp<SpamEmitSoundComponent>(ent);
     }
 
-    private void OnMapInit(Entity<SleepingComponent> ent, ref MapInitEvent args)
+    private void OnCompInit(Entity<SleepingComponent> ent, ref ComponentInit args)
     {
         var ev = new SleepStateChangedEvent(true);
         RaiseLocalEvent(ent, ref ev);
         _blindableSystem.UpdateIsBlind(ent.Owner);
         _actionsSystem.AddAction(ent, ref ent.Comp.WakeAction, WakeActionId, ent);
+    }
+
+    private void OnComponentRemoved(Entity<SleepingComponent> ent, ref ComponentRemove args)
+    {
+        _actionsSystem.RemoveAction(ent.Owner, ent.Comp.WakeAction);
+
+        var ev = new SleepStateChangedEvent(false);
+        RaiseLocalEvent(ent, ref ev);
+
+        _blindableSystem.UpdateIsBlind(ent.Owner);
     }
 
     private void OnSpeakAttempt(Entity<SleepingComponent> ent, ref SpeakAttemptEvent args)
@@ -316,17 +296,6 @@ public sealed partial class SleepingSystem : EntitySystem
             TrySleeping(args.Target);
     }
 
-    private void Wake(Entity<SleepingComponent> ent)
-    {
-        RemComp<SleepingComponent>(ent);
-        _actionsSystem.RemoveAction(ent.Owner, ent.Comp.WakeAction);
-
-        var ev = new SleepStateChangedEvent(false);
-        RaiseLocalEvent(ent, ref ev);
-
-        _blindableSystem.UpdateIsBlind(ent.Owner);
-    }
-
     /// <summary>
     /// Try sleeping. Only mobs can sleep.
     /// </summary>
@@ -386,8 +355,7 @@ public sealed partial class SleepingSystem : EntitySystem
             _popupSystem.PopupClient(Loc.GetString("wake-other-success", ("target", Identity.Entity(ent, EntityManager))), ent, user);
         }
 
-        Wake((ent, ent.Comp));
-        return true;
+        return RemComp<SleepingComponent>(ent);
     }
 
     /// <summary>

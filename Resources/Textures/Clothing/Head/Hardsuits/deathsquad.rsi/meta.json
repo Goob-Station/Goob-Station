@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Created by discord:IAmRasputin#5242. Vox state by Flareguy for SS14, vulp sprites made by YERO, feroxi by RedTerror",
+  "copyright": "Created by discord:IAmRasputin#5242. Vox state by Flareguy for SS14, vulp sprites made by YERO, feroxi by RedTerror. Hydrakin sprites by bobbble (discord)",
   "size": {
     "x": 32,
     "y": 32
@@ -59,6 +59,18 @@
     },
     {
       "name": "equipped-HELMET-feroxi",
+      "directions": 4
+    },
+    {
+      "name": "on-equipped-HELMET-hydrakin",
+      "directions": 4
+    },
+    {
+      "name": "off-equipped-HELMET-hydrakin",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HELMET-hydrakin",
       "directions": 4
     }
   ]

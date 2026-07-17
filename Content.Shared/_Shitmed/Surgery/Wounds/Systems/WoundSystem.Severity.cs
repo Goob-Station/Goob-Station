@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._Shitmed.Targeting.Events;
@@ -252,8 +253,9 @@ public sealed partial class WoundSystem
         if (!Resolve(woundable, ref component, false))
             return;
 
+        component.SortedThresholds ??= [.. component.Thresholds.OrderByDescending(kv => kv.Value)];
         var nearestSeverity = component.WoundableSeverity;
-        foreach (var (severity, value) in component.SortedThresholds!)
+        foreach (var (severity, value) in component.SortedThresholds)
         {
             if (component.WoundableIntegrity >= component.IntegrityCap)
             {

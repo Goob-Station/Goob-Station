@@ -1,81 +1,12 @@
-// SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2022 CommieFlowers <rasmus.cedergren@hotmail.com>
-// SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 moonheart08 <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 rolfero <45628623+rolfero@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <drsmugleaf@gmail.com>
-// SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 PixelTK <85175107+PixelTheKermit@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 ActiveMammmoth <140334666+ActiveMammmoth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ActiveMammmoth <kmcsmooth@gmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
-// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-// SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
 using Content.Shared.CCVar;
 using Content.Shared.Chemistry;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Explosion.EntitySystems;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Inventory;
-using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Radiation.Events;
@@ -102,7 +33,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.Damage
 {
-    public sealed class DamageableSystem : EntitySystem
+    public sealed partial class DamageableSystem : EntitySystem
     {
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
@@ -110,6 +41,7 @@ namespace Content.Shared.Damage
         [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
         [Dependency] private readonly IConfigurationManager _config = default!;
         [Dependency] private readonly SharedChemistryGuideDataSystem _chemistryGuideData = default!;
+        [Dependency] private readonly SharedExplosionSystem _explosion = default!;
 
         // Shitmed Dependencies
         [Dependency] private readonly SharedBodySystem _body = default!;
@@ -119,7 +51,6 @@ namespace Content.Shared.Damage
         [Dependency] private readonly IGameTiming _timing = default!;
         private EntityQuery<AppearanceComponent> _appearanceQuery;
         private EntityQuery<DamageableComponent> _damageableQuery;
-        private EntityQuery<MindContainerComponent> _mindContainerQuery;
 
         // Shitmed Ent Queries
         private EntityQuery<BodyComponent> _bodyQuery;
@@ -149,7 +80,6 @@ namespace Content.Shared.Damage
 
             _appearanceQuery = GetEntityQuery<AppearanceComponent>();
             _damageableQuery = GetEntityQuery<DamageableComponent>();
-            _mindContainerQuery = GetEntityQuery<MindContainerComponent>();
 
             // Shitmed Queries
             _bodyQuery = GetEntityQuery<BodyComponent>();
@@ -162,6 +92,7 @@ namespace Content.Shared.Damage
             {
                 UniversalAllDamageModifier = value;
                 _chemistryGuideData.ReloadAllReagentPrototypes();
+                _explosion.ReloadMap();
             }, true);
             Subs.CVar(_config, CCVars.PlaytestAllHealModifier, value =>
             {
@@ -182,7 +113,11 @@ namespace Content.Shared.Damage
                  UniversalReagentHealModifier = value;
                  _chemistryGuideData.ReloadAllReagentPrototypes();
             }, true);
-            Subs.CVar(_config, CCVars.PlaytestExplosionDamageModifier, value => UniversalExplosionDamageModifier = value, true);
+            Subs.CVar(_config, CCVars.PlaytestExplosionDamageModifier, value =>
+            {
+                UniversalExplosionDamageModifier = value;
+                _explosion.ReloadMap();
+            }, true);
             Subs.CVar(_config, CCVars.PlaytestThrownDamageModifier, value => UniversalThrownDamageModifier = value, true);
             Subs.CVar(_config, CCVars.PlaytestTopicalsHealModifier, value => UniversalTopicalsHealModifier = value, true);
             Subs.CVar(_config, CCVars.PlaytestMobDamageModifier, value => UniversalMobDamageModifier = value, true);
@@ -194,7 +129,8 @@ namespace Content.Shared.Damage
         private void DamageableInit(EntityUid uid, DamageableComponent component, ComponentInit _)
         {
             if (component.DamageContainerID != null &&
-                _prototypeManager.TryIndex(component.DamageContainerID, out var damageContainerPrototype)) // Shitmed Change
+                _prototypeManager.Resolve(component.DamageContainerID, // Shitmed Change
+                out var damageContainerPrototype))
             {
                 // Initialize damage dictionary, using the types and groups from the damage
                 // container prototype
@@ -263,6 +199,9 @@ namespace Content.Shared.Damage
                 var data = new DamageVisualizerGroupData(component.DamagePerGroup.Keys.ToList());
                 _appearance.SetData(uid, DamageVisualizerKeys.DamageUpdateGroups, data, appearance);
             }
+
+            // TODO DAMAGE
+            // byref struct event.
             RaiseLocalEvent(uid, new DamageChangedEvent(component, damageDelta, interruptsDoAfters, origin, ignoreBlockers, uncappedDamage)); // Goob edit
         }
 
@@ -278,7 +217,13 @@ namespace Content.Shared.Damage
         ///     Returns a <see cref="DamageSpecifier"/> with information about the actual damage changes. This will be
         ///     null if the user had no applicable components that can take damage.
         /// </returns>
-        public DamageSpecifier? TryChangeDamage(EntityUid? uid,
+        /// <param name="ignoreResistances">If true, this will ignore the entity's damage modifier (<see cref="DamageableComponent.DamageModifierSetId"/> and skip raising a <see cref="DamageModifyEvent"/>.</param>
+        /// <param name="interruptsDoAfters">Whether the damage should cancel any damage sensitive do-afters</param>
+        /// <param name="origin">The entity that is causing this damage</param>
+        /// <param name="ignoreGlobalModifiers">If true, this will skip over applying the universal damage modifiers (see <see cref="ApplyUniversalAllModifiers"/>).</param>
+        /// <returns></returns>
+        public DamageSpecifier? TryChangeDamage(
+            EntityUid? uid,
             DamageSpecifier damage,
             bool ignoreResistances = false,
             bool interruptsDoAfters = true,
@@ -292,7 +237,12 @@ namespace Content.Shared.Damage
             bool canMiss = true)
         {
             if (!uid.HasValue || !_damageableQuery.Resolve(uid.Value, ref damageable, false))
+            {
+                // TODO BODY SYSTEM pass damage onto body system
+                // BOBBY WHEN?
+
                 return null;
+            }
 
             if (damage.Empty)
                 return damage;
@@ -398,23 +348,14 @@ namespace Content.Shared.Damage
                 }
 
                 // Goob edit start
-                List<float>? multipliers = null;
                 var damagePerPart = adjustedDamage;
-                if (targetedBodyParts.Count > 0 && adjustedDamage.PartDamageVariation != 0f)
-                {
-                    multipliers =
-                        GetDamageVariationMultipliers(adjustedDamage.PartDamageVariation, targetedBodyParts.Count);
-                }
-                else
-                    damagePerPart = ApplySplitDamageBehaviors(splitDamageBehavior, adjustedDamage, targetedBodyParts);
+                damagePerPart = ApplySplitDamageBehaviors(splitDamageBehavior, adjustedDamage, targetedBodyParts);
                 var appliedDamage = new DamageSpecifier();
                 var surplusHealing = new DamageSpecifier();
                 for (var i = 0; i < targetedBodyParts.Count; i++)
                 {
                     var (partId, _, partDamageable) = targetedBodyParts[i];
                     var modifiedDamage = damagePerPart;
-                    if (multipliers != null && multipliers.Count == targetedBodyParts.Count)
-                        modifiedDamage *= multipliers[i];
                     modifiedDamage += surplusHealing;
                     // Goob edit end
 
@@ -516,7 +457,7 @@ namespace Content.Shared.Damage
             if (!ignoreResistances)
             {
                 if (damageable.DamageModifierSetId != null &&
-                    _prototypeManager.TryIndex(damageable.DamageModifierSetId, out var modifierSet))
+                    _prototypeManager.Resolve(damageable.DamageModifierSetId, out var modifierSet)) // Shitmed Change
                 {
                     damage = DamageSpecifier.ApplyModifierSet(damage,
                         DamageSpecifier.PenetrateArmor(modifierSet, damage.ArmorPenetration)); // Goob edit
@@ -550,7 +491,8 @@ namespace Content.Shared.Damage
                     return damage;
             }
 
-            damage = ApplyUniversalAllModifiers(damage);
+            if (!ignoreResistances)
+                damage = ApplyUniversalAllModifiers(damage);
 
             var delta = new DamageSpecifier(damage.ArmorPenetration,
                 damage.PartDamageVariation,
@@ -690,30 +632,6 @@ namespace Content.Shared.Damage
             return true;
         }
 
-        public List<float> GetDamageVariationMultipliers(float variation, int count)
-        {
-            DebugTools.AssertNotEqual(count, 0);
-            var list = new List<float>(count);
-            var weights = new List<float>(count);
-            var totalWeight = 0f;
-            var random = new System.Random((int) _timing.CurTick.Value);
-            for (var i = 0; i < count; i++)
-            {
-                var weight = random.NextFloat() * MathF.Abs(variation) + 1f;
-                weights.Add(weight);
-                totalWeight += weight;
-            }
-
-            DebugTools.AssertNotEqual(totalWeight, 0f);
-
-            foreach (var weight in weights)
-            {
-                list.Add(weight / totalWeight);
-            }
-
-            return list;
-        }
-
         public DamageSpecifier ApplySplitDamageBehaviors(SplitDamageBehavior splitDamageBehavior,
             DamageSpecifier damage,
             List<(EntityUid Id, BodyPartComponent Component, DamageableComponent Damageable)> parts)
@@ -725,6 +643,12 @@ namespace Content.Shared.Damage
                     return newDamage;
                 case SplitDamageBehavior.Split:
                     return newDamage / parts.Count;
+                case SplitDamageBehavior.SplitExplosion:
+                    var vitalParts = parts.Where(part =>
+                    TryComp<ConsciousnessRequiredComponent>(part.Id, out var consciousness)
+                    && consciousness.CausesDeath == true).ToList();
+
+                    return newDamage / vitalParts.Count;
                 case SplitDamageBehavior.SplitEnsureAllDamaged:
                     var damagedParts = parts.Where(part =>
                         part.Damageable.TotalDamage > FixedPoint2.Zero).ToList();

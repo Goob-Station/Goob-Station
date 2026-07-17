@@ -1,23 +1,11 @@
 <!--
-SPDX-FileCopyrightText: 2022 Eoin Mcloughlin <helloworld@eoinrul.es>
-SPDX-FileCopyrightText: 2022 eoineoineoin <eoin.mcloughlin+gh@gmail.com>
-SPDX-FileCopyrightText: 2023 Thom <119594676+ItsMeThom@users.noreply.github.com>
-SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-SPDX-FileCopyrightText: 2023 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
-SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-
 SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <DefaultWindow
     xmlns="https://spacestation14.io"
     xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    xmlns:system="clr-namespace:System;assembly=System.Runtime"
     xmlns:ui="clr-namespace:Content.Client.Materials.UI"
     Title="{Loc 'lathe-menu-title'}"
     MinSize="550 450"
@@ -139,6 +127,18 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                             HorizontalAlignment="Left"
                             Margin="130 0 0 0">
                         </Label>
+                        <Button
+                            Name="DeleteFabricating"
+                            Margin="0"
+                            Text="✖"
+                            SetSize="38 32"
+                            HorizontalAlignment="Right"
+                            ToolTip="{Loc 'lathe-menu-delete-fabricating-tooltip'}">
+                            <Button.StyleClasses>
+                                <system:String>Caution</system:String>
+                                <system:String>OpenLeft</system:String>
+                            </Button.StyleClasses>
+                        </Button>
                     </PanelContainer>
                 </BoxContainer>
                 <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
@@ -155,13 +155,6 @@ SPDX-License-Identifier: AGPL-3.0-or-later
             VerticalExpand="True"
             HorizontalExpand="True"
             Orientation="Vertical">
-            <Label Text="{Loc 'lathe-menu-materials-title'}" Margin="5 5 5 5" HorizontalAlignment="Center"/>
-            <BoxContainer
-                Orientation="Vertical"
-                VerticalExpand="True"
-                HorizontalExpand="True">
-                <ui:MaterialStorageControl Name="MaterialsList" SizeFlagsStretchRatio="8"/>
-            </BoxContainer>
             <!-- Begin DeltaV Additions: Mining points -->
             <BoxContainer Orientation="Vertical" Name="MiningPointsContainer" Visible="False">
                 <BoxContainer Orientation="Horizontal">
@@ -171,6 +164,18 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                 <RichTextLabel Name="MiningPointsNoConnectionWarning"></RichTextLabel>
             </BoxContainer>
             <!-- End DeltaV Additions: Mining points -->
+            <Label Text="{Loc 'lathe-menu-materials-title'}" Margin="5 5 5 5" HorizontalAlignment="Center"/>
+            <PanelContainer VerticalExpand="True">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                </PanelContainer.PanelOverride>
+                <BoxContainer
+                    Orientation="Vertical"
+                    VerticalExpand="True"
+                    HorizontalExpand="True">
+                    <ui:MaterialStorageControl Name="MaterialsList" SizeFlagsStretchRatio="8"/>
+                </BoxContainer>
+            </PanelContainer>
         </BoxContainer>
         </BoxContainer>
 

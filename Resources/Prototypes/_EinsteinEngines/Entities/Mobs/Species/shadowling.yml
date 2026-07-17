@@ -51,7 +51,10 @@
   - type: Targeting
   - type: SurgeryTarget
   - type: Bloodstream
-    bloodReagent: FluorosulfuricAcid
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: FluorosulfuricAcid
+        Quantity: 200
   - type: NightVision
     color: "#BF40BF"
     activateSound: null
