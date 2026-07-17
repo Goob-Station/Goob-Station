@@ -323,6 +323,9 @@
     onAdd:
     - type: SandevistanUser
       randomThreshold: true
+      showAlert: false
+      min: 0
+      max: 50
       thresholds:
         Warning: 15
         Shaking: 30
