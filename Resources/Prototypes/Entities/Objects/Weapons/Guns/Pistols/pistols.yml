@@ -247,7 +247,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
   # mk58 upgrade start
-  - type: UpgradeableWeapon
+  - type: ItemUpgradeable
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
