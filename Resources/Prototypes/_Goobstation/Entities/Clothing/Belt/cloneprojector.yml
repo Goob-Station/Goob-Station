@@ -20,7 +20,7 @@
       groups:
         Brute: 10
     addedComponents:
-    - type: Pacified
+    - type: Pacified #todo marty
     - type: GhostTakeoverAvailable
     - type: AntagImmune
     - type: MovementIgnoreGravity
