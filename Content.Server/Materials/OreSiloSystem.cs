@@ -35,6 +35,13 @@ public sealed class OreSiloSystem : SharedOreSiloSystem
 
         foreach (var client in _clientLookup)
         {
+            if (client.Owner == ent.Owner) //Goob code start, prevents the silo from showing itself in the ui, self-linking causes crashes
+                continue;
+            if (TryComp<OreSiloComponent>(client, out var clientSilo)) //There might be a better way to do this
+            {
+                if (clientSilo.Clients.Contains(ent.Owner))
+                    continue; //Hide clients that have this silo as a client. Prevents crashes, but also makes silo links to other silos permanent.
+            }                               //Goob code end
             // don't show already-linked clients.
             if (client.Comp.Silo is not null)
                 continue;
@@ -55,6 +62,13 @@ public sealed class OreSiloSystem : SharedOreSiloSystem
         // Get all clients of this silo, including those out of range.
         foreach (var client in ent.Comp.Clients)
         {
+            if (client == ent.Owner) //Goob code, prevents the silo from showing itself in the ui, self-linking causes crashes
+                continue;
+            if (TryComp<OreSiloComponent>(client, out var clientSilo))  //There might be a better way to do this
+            {
+                if (clientSilo.Clients.Contains(ent.Owner))
+                    continue; //Hide clients that have this silo as a client. Prevents crashes, but also makes silo links to other silos permanent.
+            }                               //Goob code end
             var netEnt = GetNetEntity(client);
             var name = Identity.Name(client, EntityManager);
             var beacon = _navMap.GetNearestBeaconString(client, onlyName: true);
