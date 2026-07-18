@@ -2,7 +2,6 @@
 
 using System.Linq;
 using System.Numerics;
-using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Common.Projectiles; // Goobstation
 using Content.Shared.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
@@ -20,7 +19,6 @@ using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Weapons.Hitscan.Components;
 using Content.Shared.Weapons.Hitscan.Events;
 using Robust.Shared.Audio;
-using Robust.Shared.Configuration; // Goobstation
 using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -51,16 +49,13 @@ public sealed partial class GunSystem : SharedGunSystem
     [Dependency] private readonly FlammableSystem _flammable = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
 
     private const float DamagePitchVariation = 0.05f;
-    private float _crawlHitzoneSize; // Goobstation
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<BallisticAmmoProviderComponent, PriceCalculationEvent>(OnBallisticPrice);
-        _cfg.OnValueChanged(GoobCVars.CrawlHitzoneSize, value => _crawlHitzoneSize = value, true); // Goobstation
     }
 
     private void OnBallisticPrice(Entity<BallisticAmmoProviderComponent> ent, ref PriceCalculationEvent args)
@@ -178,6 +173,7 @@ public sealed partial class GunSystem : SharedGunSystem
                         Gun = gun,
                         Shooter = user,
                         Target = gun.Comp.Target,
+                        TargetCoordinates = toMapBeforeRecoil, // Goobstation - crawl hitzone
                     };
                     RaiseLocalEvent(ent.Value, ref hitscanEv);
 
