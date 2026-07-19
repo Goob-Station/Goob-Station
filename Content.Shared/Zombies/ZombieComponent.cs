@@ -51,7 +51,7 @@ public sealed partial class ZombieComponent : Component
     {
         DamageDict = new ()
         {
-            {"Slash", 1}, // Goobstation change
+            {"Slash", 1.0}, // Goobstation change
             {"Piercing", 0.5}, // Goobstation change
             {"Blunt", 0.2}, // Goobstation change
         }
