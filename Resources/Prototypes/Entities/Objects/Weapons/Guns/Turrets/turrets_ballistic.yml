@@ -41,7 +41,7 @@
     soundGunshot: /Audio/Weapons/Guns/Gunshots/gun_sentry.ogg
   - type: BallisticAmmoProvider
     proto: CartridgePistol
-    capacity: 250 - # Goobstation - God buffs
+    capacity: 250 # Goobstation - God buffs
   - type: Construction
     deconstructionTarget: null
     graph: WeaponTurretSyndicateDisposable
