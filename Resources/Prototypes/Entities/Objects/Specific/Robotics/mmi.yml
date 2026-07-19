@@ -172,4 +172,4 @@
       understands:
       - TauCetiBasic # Added since posi brains should be able to understand TauCetiBasic (they can in a chassis)
       - RobotTalk
-    - type: BlockingExcluded //goob edit
+    - type: BlockingExcluded # goob edit
