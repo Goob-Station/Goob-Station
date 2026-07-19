@@ -41,7 +41,7 @@ public sealed class KnockdownOnHitSystem : EntitySystem
 
         List<EntityUid> knockedDown = new(); // Goobstation
         foreach (var target in
-                 args.HitEntities.Where(ent => !HasComp<BorgChassisComponent>(ent) && _mobState.IsAlive(ent))) // Goob edit
+                 args.HitEntities.Where(e => !HasComp<BorgChassisComponent>(e) && _mobState.IsAlive(e))) // Goob edit
         {
             if (_stun.TryKnockdown(target,
                 entity.Comp.Duration,

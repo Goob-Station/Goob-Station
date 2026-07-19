@@ -112,7 +112,7 @@ public abstract class SharedGasCanisterSystem : EntitySystem
     {
         if (args.Slot.ID != component.ContainerName || args.User == null)
             return;
-        
+
         // Could whitelist but we want to check if it's open so.
         if (!TryComp<GasTankComponent>(args.Item, out var gasTank) || gasTank.IsValveOpen)
         {
