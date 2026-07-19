@@ -38,7 +38,7 @@
   description: Contains 2 Glue grenades and 2 Lube Grenades
   productEntity: BoxReagentGrenades
   cost:
-    Telecrystal: 30
+    Telecrystal: 20
   categories:
     -  UplinkDisruption
 
@@ -270,7 +270,7 @@
   icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Melee/contractor_baton.rsi, state: uplink }
   productEntity: ContractorBaton
   cost:
-    Telecrystal: 35
+    Telecrystal: 25
   categories:
   - UplinkWeaponry
   conditions:
@@ -289,7 +289,7 @@
   icon: { sprite: _Goobstation/Clothing/Hands/Gloves/knuckleduster.rsi, state: syndicateknuckleduster }
   productEntity: ClothingHandsKnuckleDustersSyndicate
   cost:
-    Telecrystal: 20
+    Telecrystal: 12
   categories:
   - UplinkWeaponry
 
@@ -300,7 +300,7 @@
   icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Rifles/m90.rsi, state: icon }
   productEntity: WeaponRifleM90
   cost:
-    Telecrystal: 50
+    Telecrystal: 35
   categories:
   - UplinkWeaponry
 
@@ -311,7 +311,7 @@
   icon: { sprite: _EinsteinEngines/Objects/Weapons/Guns/Battery/syndicate-disabler.rsi, state: base }
   productEntity: WeaponDisablerSyndicate
   cost:
-    Telecrystal: 20
+    Telecrystal: 12
   categories:
   - UplinkWeaponry
 
@@ -368,7 +368,7 @@
   icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Rifles/burner.rsi, state: icon }
   productEntity: WeaponRifleBurner
   cost:
-    Telecrystal: 100 # don't kill me piras
+    Telecrystal: 130 # current best weapon with delimb and explosions fixed
   categories:
   - UplinkWeaponry
   conditions:
@@ -431,7 +431,7 @@
   description: uplink-anaconda-desc
   productEntity: WeaponPistolAnaconda
   cost:
-    Telecrystal: 38 # This + esword = 75 TC
+    Telecrystal: 30 # This + esword = 75 TC
   categories:
   - UplinkWeaponry
   conditions:
@@ -493,7 +493,7 @@
   description: uplink-combat-shotgun-desc
   productEntity: WeaponShotgunCombat
   cost:
-    Telecrystal: 50
+    Telecrystal: 35
   categories:
     -  UplinkWeaponry
   conditions:
@@ -898,7 +898,7 @@
   description: uplink-lollypop-bundle-big-desc
   productEntity: ClothingBackpackDuffelSyndicateFilledCandy
   cost:
-    Telecrystal: 100
+    Telecrystal: 50
   categories:
   - UplinkChemicals
 
@@ -1023,7 +1023,7 @@
   icon: { sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi, state: icon }
   productEntity: AutosurgeonRightMantisBlade
   cost:
-    Telecrystal: 17
+    Telecrystal: 12 # honestly worse than eblade evne with both, going to 12
   categories:
   - UplinkImplants
   conditions:
@@ -1039,7 +1039,7 @@
   icon: { sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi, state: icon-mirrored }
   productEntity: AutosurgeonLeftMantisBlade
   cost:
-    Telecrystal: 17
+    Telecrystal: 12 # going to 12, worse than eblade.
   categories:
   - UplinkImplants
   conditions:
@@ -1055,7 +1055,7 @@
   icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
   productEntity: AutosurgeonSandevistan
   cost:
-    Telecrystal: 66 # The urge to make it 65...
+    Telecrystal: 65 # YOOOOOO
   categories:
   - UplinkImplants
   conditions:
@@ -1071,7 +1071,7 @@
   icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
   productEntity: AutosurgeonStatvekaSandevistan
   cost:
-    Telecrystal: 66
+    Telecrystal: 65 #GOIDA
   categories:
   - UplinkImplants
   conditions:
@@ -1087,7 +1087,7 @@
   icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
   productEntity: AutosurgeonSandevistan
   cost:
-    Telecrystal: 124
+    Telecrystal: 120
   categories:
   - UplinkImplants
   conditions:
@@ -1103,7 +1103,7 @@
   icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
   productEntity: AutosurgeonStatvekaSandevistan
   cost:
-    Telecrystal: 124
+    Telecrystal: 120
   categories:
   - UplinkImplants
   conditions:
@@ -1169,7 +1169,7 @@
   icon: { sprite: _Goobstation/Objects/Misc/berserker_heart.rsi, state: icon }
   productEntity: AutosurgeonBerserker
   cost:
-    Telecrystal: 66
+    Telecrystal: 65
   categories:
   - UplinkImplants
   conditions:
@@ -1322,7 +1322,7 @@
   icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: red }
   productEntity: MagazineHighCaliberExplosive
   cost:
-    Telecrystal: 12
+    Telecrystal: 15 # best Ammo in the game rn, 3 shots people with no explosion resist
   categories:
   - UplinkAmmo
   conditions:
@@ -1676,7 +1676,7 @@
   description: uplink-pizza-bomb-desc
   productEntity: FoodBoxPizzaBomb
   cost:
-    Telecrystal: 10  # Goob
+    Telecrystal: 8  # Goob
   categories:
   - UplinkExplosives
   conditions:
@@ -1691,7 +1691,7 @@
   description: uplink-pizza-party-crate-desc
   productEntity: CratePizzaParty
   cost:
-    Telecrystal: 50  # Goob Bundle, get 8 pizza bombs and 7 regular pizzas. Bundle + Pizza boxes not telling the dangerous ones justifies the discount.
+    Telecrystal: 40  # Goob Bundle, get 8 pizza bombs and 7 regular pizzas. Bundle + Pizza boxes not telling the dangerous ones justifies the discount.
   categories:
   - UplinkExplosives
   conditions:
@@ -1726,7 +1726,7 @@
   productEntity: BlueprintExplosivePayload
   icon: { sprite: _Goobstation/Objects/Devices/payload.rsi, state: icon }
   cost:
-    Telecrystal: 40 #Should be alot, its an investment item
+    Telecrystal: 30 #underutilized/kinda reveals you are syndicate.
   categories:
   - UplinkExplosives
   conditions:
@@ -1782,7 +1782,7 @@
   description: uplink-undetermined-bundle-desc
   productEntity: CrateSyndicateUndetermined
   cost:
-    Telecrystal: 99 # :trollface:
+    Telecrystal: 100 # was 99, please dont do this anymoe :(
   categories:
   - UplinkDisruption
   conditions:
@@ -1890,7 +1890,7 @@
   description: uplink-cddisknumber-desc
   productEntity: JVNECdDiskNumber
   cost:
-    Telecrystal: 30
+    Telecrystal: 15 # revels you're a syndicate agent, 30 tc is WAY too much.
   categories:
   - UplinkJob
   conditions:

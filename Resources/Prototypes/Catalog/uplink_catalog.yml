@@ -10,7 +10,7 @@
   description: uplink-pistol-viper-desc
   productEntity: WeaponPistolViper
   cost:
-    Telecrystal: 13 # goob - this +1 mag = 15 TC
+    Telecrystal: 10 # goob - this +1 mag = 12 TC
   categories:
   - UplinkWeaponry
   #Goobstation
@@ -26,7 +26,7 @@
   description: uplink-revolver-python-desc
   productEntity: WeaponRevolverPythonAP
   cost:
-    Telecrystal: 20 # goob - Originally was 65 TC but was not used due to high cost. and the same happened at 40 TC. +2 mags = 30 TC.
+    Telecrystal: 15 # goob - Originally was 65 TC but was not used due to high cost. and the same happened at 40 TC. +2 mags = 25 TC.
   categories:
   - UplinkWeaponry
   #Goobstation
@@ -44,7 +44,7 @@
   description: uplink-pistol-cobra-desc
   productEntity: WeaponPistolCobra
   cost:
-    Telecrystal: 17 # goob - this +1 mag = 20 TC
+    Telecrystal: 13 # goob - this +1 mag = 16 TC
   categories:
   - UplinkWeaponry
   #Goobstation
@@ -148,7 +148,7 @@
   description: uplink-gloves-north-star-desc
   productEntity: ClothingHandsGlovesNorthStar
   cost:
-    Telecrystal: 40 # goob
+    Telecrystal: 30 # goob
   categories:
   - UplinkWeaponry
   #Goobstation
@@ -165,7 +165,7 @@
   description: uplink-disposable-turret-desc
   productEntity: ToolboxElectricalTurretFilled
   cost:
-    Telecrystal: 30 # goob
+    Telecrystal: 35 # goob - its kinda of a main weapon now
   categories:
   - UplinkWeaponry
 #Goobstation
@@ -184,7 +184,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Melee/e_shield.rsi, state: eshield-on }
   productEntity: EnergyShield
   cost:
-    Telecrystal: 15 # goob
+    Telecrystal: 30 # goob
   categories:
   - UplinkWeaponry
 
@@ -196,7 +196,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Snipers/heavy_sniper.rsi, state: base }
   productEntity: BriefcaseSyndieSniperBundleFilled
   cost:
-    Telecrystal: 75 # goob
+    Telecrystal: 50 # goob
   categories:
   - UplinkWeaponry
   #Goobstation
@@ -1344,7 +1344,7 @@
   description: uplink-cameraBug-desc
   productEntity: CameraBug
   cost:
-    Telecrystal: 12 # goob
+    Telecrystal: 6 # goob
   categories:
   - UplinkDisruption
 
@@ -1357,7 +1357,7 @@
   icon: { sprite: /Textures/Objects/Misc/guardian_info.rsi, state: icon }
   productEntity: BoxHoloparasite
   cost:
-    Telecrystal: 60 # goob
+    Telecrystal: 35 # goob
   categories:
   - UplinkAllies
   conditions:
@@ -1584,7 +1584,7 @@
   icon: { sprite: /Textures/Objects/Magic/magicactions.rsi, state: shield }
   productEntity: EmpImplanter
   cost:
-    Telecrystal: 10 # goob
+    Telecrystal: 20 # goob
   categories:
     - UplinkImplants
 
@@ -1638,7 +1638,7 @@
   icon: { sprite: /Textures/Actions/Implants/implants.rsi, state: explosive }
   productEntity: MacroBombImplanter
   cost:
-    Telecrystal: 65 # goob
+    Telecrystal: 50 # goob
   categories:
     - UplinkImplants
   restockTime: 1800
@@ -1824,7 +1824,7 @@
   description: uplink-clothing-no-slips-shoes-desc
   productEntity: ClothingShoesChameleonNoSlips
   cost:
-    Telecrystal: 10 # goob
+    Telecrystal: 20 # Massive Utility, 10 tc was WAY too cheap
   categories:
   - UplinkWearables
 
@@ -1835,7 +1835,7 @@
   description: uplink-clothing-chameleon-thieving-gloves-desc
   productEntity: ClothingHandsChameleonThief
   cost:
-    Telecrystal: 30
+    Telecrystal: 25 # goob
   categories:
   - UplinkWearables
 
@@ -1867,7 +1867,7 @@
   description: uplink-clothing-shoes-boots-mag-syndie-desc
   productEntity: ClothingShoesBootsMagSyndie
   cost:
-    Telecrystal: 20 # goob
+    Telecrystal: 24 # goob
   categories:
   - UplinkWearables
 
@@ -1879,7 +1879,7 @@
   icon: { sprite: /Textures/Clothing/OuterClothing/Suits/eva_syndicate.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateEVABundle
   cost:
-    Telecrystal: 20 # goob - Meh protection no slowdown. Can definitely take a hit or two extra however.
+    Telecrystal: 10 # goob - Meh protection no slowdown. Can definitely take a hit or two extra however.
   categories:
   - UplinkWearables
 
@@ -1891,7 +1891,7 @@
   icon: { sprite: /Textures/Clothing/OuterClothing/Suits/carpsuit.rsi, state: icon }
   productEntity: ClothingOuterHardsuitCarp
   cost:
-    Telecrystal: 20 # goob
+    Telecrystal: 15 # goob
   categories:
   - UplinkWearables
   #Goobstation
@@ -2060,7 +2060,7 @@
   description: uplink-syndicate-stamp-desc
   productEntity: RubberStampSyndicate
   cost:
-    Telecrystal: 8 # goob - Has some gimmicky use, can't be 5 TC. Not on 10 TC level so it takes 8 TC.
+    Telecrystal: 3S # goob - Has some gimmicky use, can't be 5 TC. Not on 10 TC level so it takes 8 TC.
   categories:
   - UplinkPointless
 
@@ -2071,7 +2071,7 @@
   description: uplink-cat-ears-desc
   productEntity: ClothingHeadHatCatEars
   cost:
-    Telecrystal: 130 # goob
+    Telecrystal: 100 # goob
   categories:
   - UplinkPointless
 
@@ -2123,7 +2123,7 @@
   description: uplink-carp-suit-bundle-desc
   productEntity: ClothingBackpackDuffelSyndicateCarpSuit
   cost:
-    Telecrystal: 15 # goob
+    Telecrystal: 5 # goob
   categories:
   - UplinkPointless
 
@@ -2212,7 +2212,7 @@
   description: uplink-rigged-boxing-gloves-desc
   productEntity: ClothingHandsGlovesBoxingRigged
   cost:
-    Telecrystal: 30 # goob
+    Telecrystal: 15 # goob
   categories:
     - UplinkJob
   conditions:
@@ -2245,7 +2245,7 @@
   description: uplink-holy-hand-grenade-desc
   productEntity: HolyHandGrenade
   cost:
-    Telecrystal: 100 # goob
+    Telecrystal: 75 # the His grace is right there
   categories:
   - UplinkJob
   conditions:
@@ -2260,7 +2260,7 @@
   description: uplink-revolver-cap-gun-fake-desc
   productEntity: RevolverCapGunFake
   cost:
-    Telecrystal: 20 # goob
+    Telecrystal: 15 # goob
   categories:
   - UplinkJob
   conditions:
@@ -2308,7 +2308,7 @@
   icon: { sprite: /Textures/Objects/Fun/figurines.rsi, state: holoclown }
   productEntity: BoxHoloclown
   cost:
-    Telecrystal: 60 # goob
+    Telecrystal: 35 # goob
   categories:
   - UplinkJob
   conditions:
@@ -2394,7 +2394,7 @@
   icon: { sprite:  Objects/Weapons/Melee/cane.rsi, state: cane}
   productEntity: CaneSheathFilled
   cost:
-    Telecrystal: 40 # E-sword sidegrade - goob
+    Telecrystal: 15 # 17 dmg sword, who fucking cares bruh - goob
   categories:
   - UplinkJob
   conditions:
@@ -2414,7 +2414,7 @@
   icon: { sprite:  Objects/Consumable/Food/Baked/bread.rsi, state: baguette}
   productEntity: CombatBakeryKit
   cost:
-    Telecrystal: 20 # goob
+    Telecrystal: 15 # goob
   categories:
   - UplinkJob
   conditions:

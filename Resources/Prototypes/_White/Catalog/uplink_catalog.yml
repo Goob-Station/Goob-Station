@@ -7,7 +7,7 @@
   description: uplink-experimental-syndicate-teleporter-desc
   productEntity: ExperimentalSyndicateTeleporter
   cost:
-    Telecrystal: 50 # Goob
+    Telecrystal: 20 # Goob, NEVER USED
   categories:
     - UplinkDisruption
   conditions:
@@ -40,7 +40,7 @@
   description: uplink-night-vision-desc
   productEntity: ClothingEyesNightVisionGogglesSyndie
   cost:
-    Telecrystal: 10 # goob
+    Telecrystal: 15 # goob
   categories:
   - UplinkWearables
   conditions:
@@ -55,7 +55,7 @@
   description: uplink-night-vision-desc
   productEntity: ClothingEyesNightVisionGogglesNukie
   cost:
-    Telecrystal: 15 # goob
+    Telecrystal: 25 # goob
   categories:
   - UplinkWearables
   conditions:
@@ -72,7 +72,7 @@
   description: uplink-thermal-vision-desc
   productEntity: ClothingEyesThermalVisionGogglesSyndie
   cost:
-    Telecrystal: 15 # goob
+    Telecrystal: 20 # goob
   categories:
   - UplinkWearables
   conditions:
@@ -87,7 +87,7 @@
   description: uplink-thermal-vision-desc
   productEntity: ClothingEyesThermalVisionGogglesNukie
   cost:
-    Telecrystal: 20 # goob
+    Telecrystal: 30 # goob
   categories:
   - UplinkWearables
   conditions:

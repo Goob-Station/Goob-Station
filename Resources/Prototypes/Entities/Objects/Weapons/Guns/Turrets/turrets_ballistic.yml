@@ -34,14 +34,14 @@
         acts: [ "Destruction" ]
       - !type:TriggerBehavior
   - type: Gun
-    fireRate: 2
+    fireRate: 5 # goobstation - use it now
     selectedMode: FullAuto
     availableModes:
     - FullAuto
     soundGunshot: /Audio/Weapons/Guns/Gunshots/gun_sentry.ogg
   - type: BallisticAmmoProvider
     proto: CartridgePistol
-    capacity: 50
+    capacity: 250 - # Goobstation - God buffs
   - type: Construction
     deconstructionTarget: null
     graph: WeaponTurretSyndicateDisposable
