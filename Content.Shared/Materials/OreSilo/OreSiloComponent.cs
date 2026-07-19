@@ -23,7 +23,7 @@ public sealed partial class OreSiloComponent : Component
     /// Default value should be big enough to span a single large department.
     /// </remarks>
     [DataField, AutoNetworkedField]
-    public float Range = 40f; // Goob - 20->40
+    public float Range = 200f; // Goob - 20-> 200, lower this when department ore silos are mapped
 }
 
 [Serializable, NetSerializable]
