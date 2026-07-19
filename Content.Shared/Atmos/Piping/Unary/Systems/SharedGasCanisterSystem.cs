@@ -112,12 +112,13 @@ public abstract class SharedGasCanisterSystem : EntitySystem
     {
         if (args.Slot.ID != component.ContainerName || args.User == null)
             return;
-
+        
         // Could whitelist but we want to check if it's open so.
         if (!TryComp<GasTankComponent>(args.Item, out var gasTank) || gasTank.IsValveOpen)
         {
             args.Cancelled = true;
         }
+        AdminLogger.Add(LogType.CanisterTankInserted, LogImpact.Medium, $"Player {ToPrettyString(args.User):player} inserted tank {ToPrettyString(args.Item):tank} into {ToPrettyString(uid):canister}");
     }
 
     protected abstract void DirtyUI(EntityUid uid, GasCanisterComponent? component = null, NodeContainerComponent? nodes = null);
