@@ -2060,7 +2060,7 @@
   description: uplink-syndicate-stamp-desc
   productEntity: RubberStampSyndicate
   cost:
-    Telecrystal: 3S # goob - Has some gimmicky use, can't be 5 TC. Not on 10 TC level so it takes 8 TC.
+    Telecrystal: 3 # goob - NO ONE USED THIS SO ITS CHEAP AF NOW
   categories:
   - UplinkPointless
 

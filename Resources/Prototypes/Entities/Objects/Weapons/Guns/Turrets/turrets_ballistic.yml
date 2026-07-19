@@ -34,7 +34,7 @@
         acts: [ "Destruction" ]
       - !type:TriggerBehavior
   - type: Gun
-    fireRate: 3 # goobstation - use it now
+    fireRate: 5 # goobstation - use it now
     selectedMode: FullAuto
     availableModes:
     - FullAuto

@@ -431,7 +431,7 @@
   description: uplink-anaconda-desc
   productEntity: WeaponPistolAnaconda
   cost:
-    Telecrystal: 30 # This + esword = 75 TC
+    Telecrystal: 30 # Infinite ammo for a price
   categories:
   - UplinkWeaponry
   conditions:
