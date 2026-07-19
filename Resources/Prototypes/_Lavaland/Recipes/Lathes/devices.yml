@@ -32,3 +32,16 @@
     Silver: 500
     Gold: 500
     Plasma: 400
+
+- type: latheRecipe
+  id: WeaponProtoKineticSniper
+  result: WeaponProtoKineticSniper
+  categories:
+  - Weapons
+  completetime: 14
+  materials:
+    Steel: 2000
+    Glass: 800
+    Silver: 500
+    Gold: 500
+    Plasma: 400

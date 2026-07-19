@@ -71,5 +71,6 @@
   recipes:
   - WeaponProtoKineticAccelerator
   - WeaponProtoKineticShotgun
+  - WeaponProtoKineticSniper
   - WeaponProtoKineticRepeater
   - WeaponProtoKineticPistol

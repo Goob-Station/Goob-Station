@@ -11,6 +11,12 @@ miner-weapon-selector-pistols-description =
     2 pistols that you can dualwield to look like from middle-west.
     Deals decent amount of damage in exchange for good range.
 
+miner-weapon-selector-rejuvenator-name = Proto-kinetic Rejuvenator
+miner-weapon-selector-rejuvenator-description =
+    A short-ranged healing tool in the form of kinetic pain.
+    Heals a very minor amount of health, but is completely useless in combat.
+    Comes with an advanced first-aid kit.
+
 miner-weapon-selector-crusher-name = Crusher Axe
 miner-weapon-selector-crusher-description =
     Classic melee weapon for slicing lavaland enemies.

@@ -57,7 +57,7 @@
   - type: ItemUpgrade
     name: gun-upgrade-range-name
   - type: GunUpgradeSpeed
-    coefficient: 1.30
+    coefficient: 2.3 # Post-PKA nerf change, from 1.3. Previous number was unable to fight auto-turrets and ranged mobs.
 
 - type: entity
   id: PKAUpgradeFireRate

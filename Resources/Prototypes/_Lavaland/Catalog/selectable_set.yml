@@ -30,6 +30,17 @@
   - WeaponProtoKineticPistol
   - WeaponProtoKineticPistol
 
+- type: selectableSet
+  id: MinerWeaponSelectorRejuvenator
+  name: miner-weapon-selector-rejuvenator-name
+  description: miner-weapon-selector-rejuvenator-description
+  sprite:
+    sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_healer.rsi
+    state: icon
+  content:
+  - WeaponProtoKineticHealer
+  - MedkitAdvancedFilled
+
 # Proto-kinetic weapons with space upgrades
 - type: selectableSet
   id: MinerWeaponSelectorPKASpace
