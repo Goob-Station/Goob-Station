@@ -179,7 +179,7 @@ public sealed partial class BlockingSystem : EntitySystem
             var mobQuery = GetEntityQuery<MobStateComponent>();
             foreach (var uid in intersecting)
             {
-                if (uid != user && mobQuery.HasComponent(uid))
+                if (uid != user && (mobQuery.HasComponent(uid) && !HasComp<BlockingExcludedComponent>(uid))) //goob edit
                 {
                     TooCloseError(user);
                     return false;
