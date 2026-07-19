@@ -543,7 +543,7 @@
     - Chest
     - Groin
     - Tail
-    traumaDeductions:
+    traumaDeductions: # Goobstation
       Dismemberment: 0.2
       OrganDamage: 0.2
       BoneDamage: 0.2
