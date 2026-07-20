@@ -268,4 +268,4 @@
   description: A flatpack used for constructing a material silo.
   components:
   - type: Flatpack
-    entity: MaterialSilo
+    entity: MachineMaterialSilo
