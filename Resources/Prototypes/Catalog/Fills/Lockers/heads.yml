@@ -369,6 +369,7 @@
     - id: ClothingShoesBootsJack
     - id: FlashlightSeclite
     - id: DoorRemoteSecurity
+    - id: CapoeiraManual
     #- id: HoloprojectorSecurity Goob, you have one in the belt
     - id: RubberStampHos
     - id: BoxHoSCircuitboards
