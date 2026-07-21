@@ -1,5 +1,6 @@
 - type: entity
   id: BaseDecorMachine
+  parent: BaseStructure
   abstract: true
   components:
   - type: InteractionOutline

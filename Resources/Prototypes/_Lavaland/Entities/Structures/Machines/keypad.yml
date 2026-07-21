@@ -1,0 +1,81 @@
+# Base
+- type: entity
+  parent: BaseStructure
+  id: BaseKeypad
+  name: keypad
+  description: Inputting the correct code may open something.
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: WallMount
+    arc: 360
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Anchorable
+  - type: Sprite
+    noRot: true
+    drawdepth: WallMountedItems
+    sprite: _Goobstation/Structures/Decoration/Random/decoration.rsi
+    state: keypad
+  - type: Keypad
+    maxLength: 4
+  - type: UserInterface
+    interfaces:
+      enum.KeypadUiKey.Key:
+        type: KeypadBoundUserInterface
+  - type: ActivatableUI
+    key: enum.KeypadUiKey.Key
+  - type: DeviceLinkSource
+    ports:
+      - KeypadCorrect
+      - KeypadIncorrect
+
+# Base paper entity for keypad codes
+- type: entity
+  id: BaseKeypadCodePaper
+  name: access code
+  description: A piece of paper with an access code written on it.
+  parent: Paper
+  abstract: true
+  components:
+  - type: KeypadCodePaper
+
+# Bunker entrance
+
+- type: entity
+  id: DungeonBunkerKeypad
+  name: bunker access panel
+  description: This panel is asking for a code to open the door. Maybe look around?
+  parent: BaseKeypad
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/computer.rsi
+    state: bunkercode
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: Green
+  - type: Keypad
+    keypadGroup: bunker_entrance
+    contentLocId: bunker-code-paper-content
+
+- type: entity
+  id: DungeonBunkerCodePaper
+  name: bunker access code
+  description: A scrawled note with a numeric code on it.
+  parent: BaseKeypadCodePaper
+  components:
+  - type: KeypadCodePaper
+    keypadGroup: bunker_entrance

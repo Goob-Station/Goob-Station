@@ -37,7 +37,74 @@
       types:
       - Elevator
 
+
+# Entrance
+
+- type: entity
+  parent: BaseLavalandElevator
+  id: BunkerElevatorFloorEntranceDOWN
+  suffix: Goes down to the reception
+  components:
+  - type: Sprite
+    drawdepth: Doors
+    sprite: _Lavaland/Structures/Specific/elevator.rsi
+    noRot: true
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: elevatorDOWN
+  - type: Elevator
+    destinationId: BunkerAlfaFloor0
+    mapPath: /Maps/_Lavaland/Lavaland/Dungeon/bunker_alfa_floor0.yml
+
+# Floor 0
+- type: entity
+  parent: BaseLavalandElevator
+  id: BunkerElevatorFloor0UP
+  suffix: Goes up to Lavaland
+  components:
+  - type: Sprite
+    drawdepth: Doors
+    sprite: _Lavaland/Structures/Specific/elevator.rsi
+    noRot: true
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: elevatorUP
+  - type: Elevator
+    destinationId: BunkerAlfaEntrance
+
+- type: entity
+  parent: BaseLavalandElevator
+  id: BunkerElevatorFloor0DOWN
+  suffix: Goes down to floor 1
+  components:
+  - type: Sprite
+    drawdepth: Doors
+    sprite: _Lavaland/Structures/Specific/elevator.rsi
+    noRot: true
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: elevatorDOWN
+  - type: Elevator
+    destinationId: BunkerAlfaFloor1
+    mapPath: /Maps/_Lavaland/Lavaland/Dungeon/bunker_alfa_floor1.yml
+
 # Floor 1
+- type: entity
+  parent: BaseLavalandElevator
+  id: BunkerElevatorFloor1UP
+  suffix: Goes up to the reception
+  components:
+  - type: Sprite
+    drawdepth: Doors
+    sprite: _Lavaland/Structures/Specific/elevator.rsi
+    noRot: true
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: elevatorUP
+  - type: Elevator
+    destinationId: BunkerAlfaFloor0
+    mapPath: /Maps/_Lavaland/Lavaland/Dungeon/bunker_alfa_floor0.yml
+
 - type: entity
   parent: BaseLavalandElevator
   id: BunkerElevatorFloor1DOWN
@@ -135,7 +202,7 @@
       state: elevatorUP
   - type: Elevator
     destinationId: BunkerAlfaFloor3
-    mapPath: /Maps/_Lavaland/Lavaland/Dungeon/bunker_alfa_floor4.yml
+    mapPath: /Maps/_Lavaland/Lavaland/Dungeon/bunker_alfa_floor3.yml
 
 - type: entity
   parent: BaseLavalandElevator
@@ -150,7 +217,7 @@
     noRot: true
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      state: elevatorDOWN
+      state: elevatorCLOSED
 
 # Floor 5
 
@@ -171,6 +238,28 @@
     mapPath: /Maps/_Lavaland/Lavaland/Dungeon/bunker_alfa_floor4.yml
 
 # Beacons
+
+- type: entity
+  id: ElevatorBeaconBunkerAlfaEntrance
+  components:
+  - type: Transform  
+  - type: ElevatorBeacon
+    id: BunkerAlfaEntrance
+
+- type: entity
+  id: ElevatorBeaconBunkerAlfaFloor0
+  components:
+  - type: Transform  
+  - type: ElevatorBeacon
+    id: BunkerAlfaFloor0
+
+- type: entity
+  id: ElevatorBeaconBunkerAlfaFloor0Alt
+  suffix: Entry from floor 1
+  components:
+  - type: Transform  
+  - type: ElevatorBeacon
+    id: BunkerAlfaFloor0
 
 - type: entity
   id: ElevatorBeaconBunkerAlfaFloor1

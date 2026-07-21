@@ -92,6 +92,28 @@
       ]
     },
     {
+      "name": "bunkercode",
+      "directions": 4,
+      "delays": [
+        [
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4
+        ]
+      ]
+    },
+    {
       "name": "dtermb",
       "directions": 4,
       "delays": [
