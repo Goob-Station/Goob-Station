@@ -451,6 +451,7 @@
   whitelist:
     tags:
     - ReptilianEmotes # Goob - restrict wehs to the OG lizz
+    - HarpyEmotes # Goob - harpy can also weh
   blacklist:
     tags:
     - SiliconEmotes

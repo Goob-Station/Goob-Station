@@ -85,6 +85,10 @@
       path: /Audio/_Goobstation/Voice/surprised.ogg
     Belch: # Frontier
       collection: Belch # Frontier
+    Mars: # Goob - harpy emotes fix
+      collection: Mars
+    Yawn: # Goob - harpy emotes fix
+      collection: HarpyYawn
 
 - type: emoteSounds
   id: SoundsHarpyMale
@@ -173,6 +177,8 @@
       path: /Audio/_Goobstation/Voice/surprised.ogg
     Belch: # Frontier
       collection: Belch # Frontier
+    Yawn: # Goob - harpy emotes fix
+      collection: HarpyYawn
 
 - type: emoteSounds
   id: FemaleVulpkanin
