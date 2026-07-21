@@ -40,7 +40,7 @@
     - SleepingCarp
 
 - type: entity
-  parent: [BaseItem, BaseSyndicateContraband]
+  parent: [BaseItem, BaseSecurityContraband]
   id: CapoeiraManual
   name: choreography manual
   description: Choreography manual — or so it claims. Every second page ends with someone on the floor, not dancing.
