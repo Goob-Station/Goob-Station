@@ -140,6 +140,7 @@ loadout-group-mime-envirohelm = Mime envirohelm
 loadout-group-mime-envirosuit = Mime envirosuit
 loadout-group-mime-envirogloves = Mime envirogloves
 loadout-group-mime-gloves = Mime gloves
+loadout-group-mime-shoes = Mime shoes
 
 # Assistant
 loadout-group-assistant-envirohelm = Assistant envirohelm
@@ -187,6 +188,7 @@ loadout-group-captain-envirohelm = Captain envirohelm
 loadout-group-captain-envirosuit = Captain envirosuit
 loadout-group-captain-envirogloves = Captain envirogloves
 loadout-group-captain-gloves = Captain gloves
+loadout-group-captain-shoes = Captain shoes
 
 
 # Salvage Specialist
@@ -220,9 +222,11 @@ loadout-group-zookeeper-head = Zookeeper hat
 # Boxer
 loadout-group-boxer-envirohelm = Boxer envirohelm
 loadout-group-boxer-envirosuit = Boxer envirosuit
+loadout-group-boxer-helmet = Boxer helmet
 
 # Misc
 loadout-group-plasma-tank = Plasma tank
+loadout-group-security-gloves = Security gloves
 
 # Salvage/Shaft Miner
 loadout-group-salvage-specialist-jumpsuit = Salvage Specialist Jumpsuit

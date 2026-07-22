@@ -879,11 +879,12 @@
   physicalDesc: reagent-physical-desc-crisp
   flavor: medicine
   color: "#86caf7"
+  worksOnTheDead: true # Goob
   metabolisms:
     Medicine:
       effects:
         - !type:CureZombieInfection
-          cureCriticalZombies: true # Goob
+          cureZombies: true # Goob
           conditions:
             - !type:ReagentCondition
               reagent: Ambuzol
@@ -897,12 +898,13 @@
   physicalDesc: reagent-physical-desc-crisp
   flavor: medicine
   color: "#1274b5"
+  worksOnTheDead: true # Goob
   metabolisms:
     Medicine:
       effects:
         - !type:CureZombieInfection
           innoculate: true
-          cureCriticalZombies: true # Goob
+          cureZombies: true # Goob
           conditions:
             - !type:ReagentCondition
               reagent: AmbuzolPlus

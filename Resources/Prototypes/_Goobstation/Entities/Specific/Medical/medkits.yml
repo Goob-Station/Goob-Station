@@ -24,13 +24,6 @@
           Quantity: 35
         - ReagentId: TranexamicAcid
           Quantity: 5
-  - type: Injector
-    solutionName: hypospray
-    ignoreClosed: false
-    activeModeProtoId: HyposprayDynamicMode
-    allowedModes:
-    - HyposprayDynamicMode
-    - HyposprayInjectMode
   - type: StaticPrice
     price: 500
   - type: Tag

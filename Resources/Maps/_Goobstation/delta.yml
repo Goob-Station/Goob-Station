@@ -99018,8 +99018,6 @@ entities:
     - type: Transform
       pos: 7.5,33.5
       parent: 2
-    - type: OreSiloClient
-      silo: 25536
 - proto: Carpet
   entities:
   - uid: 12897
@@ -186691,14 +186689,6 @@ entities:
     - type: Transform
       pos: 16.5,34.5
       parent: 2
-    - type: DeviceLinkSource
-      linkedPorts:
-        12896:
-        - - OreSilo
-          - OreSiloClient
-        15465:
-        - - OreSilo
-          - OreSiloClient
 - proto: MaterialSmileExtract
   entities:
   - uid: 25537
@@ -188200,8 +188190,6 @@ entities:
       - Arsenal
       - Experimental
       - CivilianServices
-    - type: OreSiloClient
-      silo: 25536
 - proto: OrganDionaStomach
   entities:
   - uid: 25726
