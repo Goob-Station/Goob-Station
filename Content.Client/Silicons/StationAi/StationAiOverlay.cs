@@ -2,9 +2,10 @@
 
 using System.Numerics;
 using Content.Client.Graphics;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.Silicons.StationAi;
+using Content.Shared.Wall;
+using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
@@ -23,7 +24,7 @@ public sealed class StationAiOverlay : Overlay
     private static readonly ProtoId<ShaderPrototype> StencilMaskShader = "StencilMask";
     private static readonly ProtoId<ShaderPrototype> StencilDrawShader = "StencilDraw";
 
-    private static readonly Color WireframeColor = new(0f, 0.85f, 1f); // goobstation - AI vision wireframe
+    private static readonly ProtoId<ShaderPrototype> AiMachineViewShader = "AiMachineView"; // goobstation - AI machine view
 
     [Dependency] private readonly IClyde _clyde = default!;
     [Dependency] private readonly IEntityManager _entManager = default!;
@@ -34,7 +35,7 @@ public sealed class StationAiOverlay : Overlay
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
 
     private readonly HashSet<Vector2i> _visibleTiles = new();
-    private readonly HashSet<Entity<StationAiWhitelistComponent>> _wireframeCandidates = new(); // goobstation - AI vision wireframe
+    private readonly HashSet<Entity<StationAiWhitelistComponent>> _aiMachineViewCandidates = new(); // goobstation - AI machine view
 
     private readonly OverlayResourceCache<CachedResources> _resources = new();
 
@@ -135,10 +136,6 @@ public sealed class StationAiOverlay : Overlay
                 var shader = _proto.Index(CameraStaticShader).Instance();
                 worldHandle.UseShader(shader);
                 worldHandle.DrawRect(worldBounds, Color.White);
-
-                // goobstation - draw neon wireframes for powered, AI-whitelisted machinery hidden by the static
-                worldHandle.UseShader(null);
-                DrawWireframes(worldHandle, worldBounds, playerXform!.MapID);
             },
             Color.Black);
         }
@@ -166,42 +163,65 @@ public sealed class StationAiOverlay : Overlay
         worldHandle.UseShader(_proto.Index(StencilDrawShader).Instance());
         worldHandle.DrawTextureRect(res.StaticTexture!.Texture, worldBounds);
 
+        // goobstation - AI machine view
+        if (grid != null && broadphase != null)
+            DrawAiMachineView(in args, worldHandle, gridUid, grid);
+
         worldHandle.SetTransform(Matrix3x2.Identity);
         worldHandle.UseShader(null);
 
     }
 
-    // goobstation - AI vision wireframe start
+    // goobstation - AI machine view
     /// <summary>
-    /// Draws a neon-blue wireframe outline for every static powered, AI-whitelisted machine in view.
+    /// Renders with shader the sprite of every anchored, powered, AI-whitelisted machine that is hidden by the static.
     /// </summary>
-    private void DrawWireframes(DrawingHandleWorld worldHandle, Box2Rotated worldBounds, MapId mapId)
+    private void DrawAiMachineView(in OverlayDrawArgs args, DrawingHandleWorld worldHandle, EntityUid gridUid, MapGridComponent grid)
     {
+        var eye = args.Viewport.Eye;
+
+        if (eye == null)
+            return;
+
         var lookup = _entManager.System<EntityLookupSystem>();
         var power = _entManager.System<SharedPowerReceiverSystem>();
+        var sprites = _entManager.System<SpriteSystem>();
+        var xforms = _entManager.System<SharedTransformSystem>();
+        var maps = _entManager.System<SharedMapSystem>();
 
-        _wireframeCandidates.Clear();
-        lookup.GetEntitiesIntersecting(mapId, worldBounds, _wireframeCandidates, LookupFlags.Static | LookupFlags.Sundries | LookupFlags.Approximate);
+        _aiMachineViewCandidates.Clear();
+        lookup.GetEntitiesIntersecting(args.MapId, args.WorldBounds, _aiMachineViewCandidates, LookupFlags.Static | LookupFlags.Sundries | LookupFlags.Approximate);
 
-        foreach (var ent in _wireframeCandidates)
+        var shader = _proto.Index(AiMachineViewShader).Instance();
+
+        foreach (var ent in _aiMachineViewCandidates)
         {
             if (!ent.Comp.Enabled)
                 continue;
 
-            if (_entManager.HasComponent<MobStateComponent>(ent.Owner))
-                continue;
-
-            if (!_entManager.TryGetComponent<TransformComponent>(ent.Owner, out var entXform) || !entXform.Anchored)
+            if (!_entManager.TryGetComponent<TransformComponent>(ent.Owner, out var entXform)
+                || (!entXform.Anchored && !_entManager.HasComponent<WallMountComponent>(ent.Owner)) // goobstation - AI machine view: WallMount fixtures (e.g. signal switches) aren't Anchored
+                || entXform.GridUid != gridUid)
                 continue;
 
             if (!power.IsPowered(ent.Owner))
                 continue;
 
-            var aabb = lookup.GetWorldAABB(ent.Owner);
-            worldHandle.DrawRect(aabb, WireframeColor, filled: false);
+
+            var tile = maps.LocalToTile(gridUid, grid, entXform.Coordinates);
+            if (_visibleTiles.Contains(tile))
+                continue; //don't draw already visible
+
+            if (!_entManager.TryGetComponent<SpriteComponent>(ent.Owner, out var sprite) || !sprite.Visible)
+                continue;
+
+            var (worldPos, worldRot) = xforms.GetWorldPositionRotation(entXform);
+
+            worldHandle.UseShader(shader);
+            sprites.RenderSprite((ent.Owner, sprite), worldHandle, eye.Rotation, worldRot, worldPos);
         }
     }
-    // goobstation - AI vision wireframe end
+    // end goobstation - AI machine view
 
     protected override void DisposeBehavior()
     {
