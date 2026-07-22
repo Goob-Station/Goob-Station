@@ -18,6 +18,7 @@
       - id: OrganDubiousSteptriggerImmune
       - id: OrganDubiousRepairable
       - id: OrganDubiousRandomizeLanguage
+      - id: OrganDubiousRandomBodySize
     # Annoying/Disruptive Organs Group - 35% chance
     - !type:GroupSelector
       weight: 35

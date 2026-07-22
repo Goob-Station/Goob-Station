@@ -309,6 +309,20 @@
       statusEffects:
         VomitChem: VomitChem
 
+- type: entity
+  id: OrganDubiousRandomBodySize
+  parent: OrganDubiousBase
+  components:
+  - type: Sprite
+    state: species
+  - type: Organ
+    onAdd:
+    - type: RandomStatusActivation
+      minActivationTime: 15
+      maxActivationTime: 30
+      statusEffects:
+        RandomBodySize: RandomBodySize
+
 # Holy fuck i hate this
 - type: entity
   id: OrganDubiousShittySandevistan
