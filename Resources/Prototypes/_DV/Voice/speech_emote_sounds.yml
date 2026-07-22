@@ -113,7 +113,7 @@
       collection: Squishes
     Bubble:
       collection: Bubbles
-    Pop: # Goob start - more harpy emotes
+    Pop: # Goob end - more harpy emotes
       collection: Pops
 
 - type: emoteSounds
@@ -229,7 +229,7 @@
       collection: Squishes
     Bubble:
       collection: Bubbles
-    Pop: # Goob start - more harpy emotes
+    Pop: # Goob end - more harpy emotes
       collection: Pops
 
 - type: emoteSounds
