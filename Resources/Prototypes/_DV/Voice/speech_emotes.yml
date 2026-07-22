@@ -108,7 +108,7 @@
     - cawing
     - cawed
 
-- type: emote
+- type: emote # Goob - more harpy emotes
   id: Hoot
   name: Hoot
   category: Vocal
