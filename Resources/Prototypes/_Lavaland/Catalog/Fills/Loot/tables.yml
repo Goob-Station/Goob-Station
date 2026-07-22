@@ -22,9 +22,15 @@
     # Junk
     - !type:NestedSelector
       tableId: LootJunkCommonMisc
+    # Misc
+    - !type:NestedSelector
+      tableId: LootMiscCommonValuables
     # Weapons
     - !type:NestedSelector
-      tableId: MetalShelfCommonWeapons
+      tableId: MetalShelfCommonGunWeapons
+    # Ammo
+    - !type:NestedSelector
+      tableId: MetalShelfCommonAmmo
 
 # Rare
 
@@ -34,7 +40,12 @@
     children:
     # Weapons
     - !type:NestedSelector
-      tableId: MetalShelfRareWeapons
+      tableId: MetalShelfRareGunWeapons
+    - !type:NestedSelector
+      tableId: MetalShelfRareMeleeWeapons
+    # Ammo
+    - !type:NestedSelector
+      tableId: MetalShelfRareAmmo
     # Utility
     - !type:NestedSelector
       tableId: LootUtilityRareTools
@@ -48,6 +59,12 @@
     # Junk
     - !type:NestedSelector
       tableId: LootJunkRareCreatures
+    # Misc
+    - !type:NestedSelector
+      tableId: LootMiscRareValuables
+    # Food
+    - !type:NestedSelector
+      tableId: LootFoodRareMisc
     # Chemistry
     - !type:NestedSelector
       tableId: RandomChemistryBottleMedicalTier1
@@ -60,7 +77,12 @@
     children:
     # Weapons
     - !type:NestedSelector
-      tableId: MetalShelfVeryRareWeapons
+      tableId: MetalShelfVeryRareGunWeapons
+    - !type:NestedSelector
+      tableId: MetalShelfVeryRareMeleeWeapons
+    # Ammo
+    - !type:NestedSelector
+      tableId: MetalShelfVeryRareAmmo
     # Utility
     - !type:NestedSelector
       tableId: LootUtilityVeryRareTools
@@ -76,6 +98,9 @@
       tableId: LootMiscVeryRareValuables
     - !type:NestedSelector
       tableId: LootMiscVeryRareAnomalies
+    # Food
+    - !type:NestedSelector
+      tableId: LootFoodVeryRareMisc
     # Chemistry
     - !type:NestedSelector
       tableId: RandomChemistryBottleMedicalTier2
@@ -88,7 +113,10 @@
     children:
     # Weapons
     - !type:NestedSelector
-      tableId: MetalShelfUltraRareWeapons
+      tableId: MetalShelfUltraRareGunWeapons
+    # Ammo
+    - !type:NestedSelector
+      tableId: MetalShelfUltraRareAmmo
     # Utility
     - !type:NestedSelector
       tableId: LootUtilityUltraRareTools

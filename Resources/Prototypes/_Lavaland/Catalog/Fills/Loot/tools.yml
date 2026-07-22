@@ -8,6 +8,8 @@
     - id: Wirecutter
     - id: Wrench
     - id: Screwdriver
+    - id: HydroponicsToolHatchet
+    - id: MeleeHammer
 
 - type: entityTable
   id: LootUtilityCommonMisc
@@ -25,8 +27,10 @@
   table: !type:GroupSelector
     children:
     - id: ClothingHandsGlovesColorYellow
-    - id: MeleeHammer
+    - id: JawsOfLife
     - id: WelderIndustrial
+    - id: WelderIndustrialAdvanced
+    - id: PowerDrill
 
 - type: entityTable
   id: LootUtilityRareMisc
@@ -36,6 +40,10 @@
     - id: ClothingHandsGlovesCombat
     - id: SheetPlasma10
     - id: SheetPlasteel10
+    - id: BluespaceBeaker
+    - id: DoubleEmergencyOxygenTankFilled
+    - id: DoubleEmergencyNitrogenTankFilled
+    - id: ChemicalPayload
 
 # Very rare
 
@@ -44,7 +52,9 @@
   table: !type:GroupSelector
     children:
     - id: WelderExperimental
-    - id: PowerDrill
+    - id: SyringeBluespace
+    - id: SyringeCryostasis
+    - id: ClothingEyesNightVisionGoggles
 
 - type: entityTable
   id: LootUtilityVeryRarePower
@@ -62,6 +72,8 @@
     - id: MiningDrillDiamond
     - id: Omnitool
     - id: OmnimedTool
+    - id: RemoteSignallerAdvanced
+    - id: ClothingEyesThermalVisionGoggles
 
 - type: entityTable
   id: LootUtilityUltraRarePower

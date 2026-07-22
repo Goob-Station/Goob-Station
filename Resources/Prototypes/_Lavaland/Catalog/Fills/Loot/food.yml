@@ -22,3 +22,21 @@
     - id: FoodSnackSus
     - id: FoodTinPeachesMaint
     - id: FoodTinBeans
+    - id: FoodSnackEnergy
+
+- type: entityTable
+  id: LootFoodRareMisc
+  table: !type:GroupSelector
+    children:
+    - id: DrinkOniGourd
+    - id: GoldenAppleSeeds
+    - id: AmbrosiaDeusSeeds
+    - id: CigPackSyndicate
+
+- type: entityTable
+  id: LootFoodVeryRareMisc
+  table: !type:GroupSelector
+    children:
+    - id: BeastBloodGourd
+    - id: DrinkNukieCan
+    - id: NutrimentImplanter

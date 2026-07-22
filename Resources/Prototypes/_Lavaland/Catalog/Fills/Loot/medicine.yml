@@ -48,12 +48,8 @@
     children:
     - id: MedkitCombatFilled
     - id: MedkitAdvancedFilled
-    - id: BrutepackAdvanced1
-      amount: !type:RangeNumberSelector
-        range: 4, 6
-    - id: OintmentAdvanced1
-      amount: !type:RangeNumberSelector
-        range: 4, 6
+    - id: MedicatedSuture
+    - id: RegenerativeMesh
 
 - type: entityTable
   id: LootMedicineVeryRareChemicals
@@ -63,6 +59,7 @@
     - id: ChemistryBottleLacerinol
     - id: ChemistryBottleBruizine
     - id: ChemistryBottleCognizine
+    - id: AdvancedCombatMedipen
 
 # Ultra rare
 
@@ -80,5 +77,10 @@
   table: !type:GroupSelector
     children:
     - id: ChemistryBottleOmnizine
+      amount: !type:RangeNumberSelector
+        range: 1, 2
     - id: ChemistryBottleCognizine
     - id: VestineChemistryVial
+    - id: AdvancedCombatMedipen
+      amount: !type:RangeNumberSelector
+        range: 1, 2

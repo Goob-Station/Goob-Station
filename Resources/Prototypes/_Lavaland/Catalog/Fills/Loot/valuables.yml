@@ -1,3 +1,25 @@
+# Common
+
+- type: entityTable
+  id: LootMiscCommonValuables
+  table: !type:GroupSelector
+    children:
+    - id: TreasureCoinGold
+    - id: TreasureCoinSilver
+    - id: TreasureCoinIron
+
+# Rare
+
+- type: entityTable
+  id: LootMiscRareValuables
+  table: !type:GroupSelector
+    children:
+    - id: TreasureCoinGold
+    - id: TreasureCoinSilver
+    - id: TreasureCoinDiamond
+    - id: ComplexXenoArtifactItem
+
+
 # Very rare
 
 - type: entityTable
@@ -8,6 +30,10 @@
     - id: SpaceCash10000
     - id: MaterialDiamond1
     - id: AmmoTechFabCircuitboard
+    - id: ComplexXenoArtifactItem
+    - id: TreasureCoinAdamantine
+      amount: !type:RangeNumberSelector
+        range: 1, 2
 
 - type: entityTable
   id: LootMiscVeryRareAnomalies
@@ -49,3 +75,4 @@
     - id: AmmoTechFabCircuitboard
     - id: SpaceCash10000
     - id: MaterialDiamond1
+    - id: ComplexXenoArtifactItem
