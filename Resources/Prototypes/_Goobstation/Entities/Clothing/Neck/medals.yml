@@ -4,7 +4,6 @@
   name: Medal of Mimery
   description: Given to crewmates who display excellent miming.
   components:
-  # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
       path: /Audio/_Goobstation/Items/handling/accessory_pickup.ogg
@@ -14,7 +13,6 @@
   - type: EmitSoundOnLand
     sound:
       path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
-  # Goobstation edit end
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Medals/mimemedal.rsi
   - type: Clothing
