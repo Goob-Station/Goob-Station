@@ -1,10 +1,10 @@
 <Document>
-<Box>
-<GuideEntityEmbed Entity="PlumbingPump"/>
-<GuideEntityEmbed Entity="ChemMaster"/>
-<GuideEntityEmbed Entity="ReagentGrinderIndustrial"/>
-<GuideEntityEmbed Entity="BaseGasCondenser"/>
-</Box>
+  <Box>
+    <GuideEntityEmbed Entity="PlumbingPump"/>
+    <GuideEntityEmbed Entity="ChemMaster"/>
+    <GuideEntityEmbed Entity="ReagentGrinderIndustrial"/>
+    <GuideEntityEmbed Entity="BaseGasCondenser"/>
+  </Box>
 
   Modern technology allows space creatures like you and I to automate the movement of liquids.
 
