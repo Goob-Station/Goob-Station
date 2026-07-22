@@ -2,7 +2,7 @@
 
 using System.Numerics;
 using Content.Client.Graphics;
-using Content.Shared.Power.EntitySystems;
+using Content.Shared.Power.EntitySystems; // goobstation - AI
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.Wall; // goobstation - AI machine view
 using Robust.Client.GameObjects; // goobstation - AI machine view
