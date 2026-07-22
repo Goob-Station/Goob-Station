@@ -1,4 +1,3 @@
-using Content.Goobstation.Shared.Factory.Slots;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceLinking.Events;
@@ -6,7 +5,7 @@ using Content.Shared.DeviceLinking.Events;
 namespace Content.Goobstation.Shared.Factory.Plumbing;
 
 /// <summary>
-/// Handles liquid links for plumbing processors.
+/// Handles liquid links for chained pumps
 /// </summary>
 public sealed class PlumbingLinkSystem : EntitySystem
 {
@@ -31,7 +30,16 @@ public sealed class PlumbingLinkSystem : EntitySystem
 
     private void OnLinkAttempt(Entity<PlumbingPortsComponent> ent, ref LinkAttemptEvent args)
     {
-        if (IsInputLink(ent, args))
+        if (args.Source == ent.Owner
+            && args.SourcePort == ent.Comp.Output.Id
+            && args.Sink == ent.Owner
+            && args.SinkPort == ent.Comp.Input.Id)
+        {
+            args.Cancel();
+            return;
+        }
+
+        if (args.Sink == ent.Owner && args.SinkPort == ent.Comp.Input.Id)
         {
             if (!TerminatingOrDeleted(ent.Comp.LinkedInputMachine)
                 || !CanProvideSolution(args.Source, args.SourcePort))
@@ -42,7 +50,7 @@ public sealed class PlumbingLinkSystem : EntitySystem
             return;
         }
 
-        if (IsOutputLink(ent, args))
+        if (args.Source == ent.Owner && args.SourcePort == ent.Comp.Output.Id)
         {
             if (!TerminatingOrDeleted(ent.Comp.LinkedOutputMachine)
                 || !CanReceiveSolution(args.Sink, args.SinkPort))
@@ -54,241 +62,104 @@ public sealed class PlumbingLinkSystem : EntitySystem
 
     private void OnNewLink(Entity<PlumbingPortsComponent> ent, ref NewLinkEvent args)
     {
-        if (IsInputLink(ent, args))
+        if (args.Sink == ent.Owner && args.SinkPort == ent.Comp.Input.Id)
         {
             ent.Comp.LinkedInputMachine = args.Source;
             ent.Comp.LinkedInputPort = args.SourcePort;
-            ent.Comp.LinkedInputSlot = _automation.GetSlot(args.Source, args.SourcePort, input: false);
             Dirty(ent);
             return;
         }
 
-        if (IsOutputLink(ent, args))
+        if (args.Source == ent.Owner && args.SourcePort == ent.Comp.Output.Id)
         {
             ent.Comp.LinkedOutputMachine = args.Sink;
             ent.Comp.LinkedOutputPort = args.SinkPort;
-            ent.Comp.LinkedOutputSlot = _automation.GetSlot(args.Sink, args.SinkPort, input: true);
             Dirty(ent);
-            InvalidatePumpChainsContaining(ent.Owner);
         }
     }
 
     private void OnPortDisconnected(Entity<PlumbingPortsComponent> ent, ref PortDisconnectedEvent args)
     {
-        if (args.Port == ent.Comp.InputId && args.RemovedPortUid == ent.Comp.LinkedInputMachine)
+        if (args.Port == ent.Comp.Input.Id && args.RemovedPortUid == ent.Comp.LinkedInputMachine)
         {
             ent.Comp.LinkedInputMachine = null;
             ent.Comp.LinkedInputPort = null;
-            ent.Comp.LinkedInputSlot = null;
             Dirty(ent);
         }
 
-        if (args.Port == ent.Comp.OutputId && args.RemovedPortUid == ent.Comp.LinkedOutputMachine)
+        if (args.Port == ent.Comp.Output.Id && args.RemovedPortUid == ent.Comp.LinkedOutputMachine)
         {
             ent.Comp.LinkedOutputMachine = null;
             ent.Comp.LinkedOutputPort = null;
-            ent.Comp.LinkedOutputSlot = null;
             Dirty(ent);
-            InvalidatePumpChainsContaining(ent.Owner);
         }
-    }
-
-    private bool IsInputLink(Entity<PlumbingPortsComponent> ent, LinkAttemptEvent args)
-    {
-        return args.Sink == ent.Owner && args.SinkPort == ent.Comp.InputId;
-    }
-
-    private bool IsInputLink(Entity<PlumbingPortsComponent> ent, NewLinkEvent args)
-    {
-        return args.Sink == ent.Owner && args.SinkPort == ent.Comp.InputId;
-    }
-
-    private bool IsOutputLink(Entity<PlumbingPortsComponent> ent, LinkAttemptEvent args)
-    {
-        return args.Source == ent.Owner && args.SourcePort == ent.Comp.OutputId;
-    }
-
-    private bool IsOutputLink(Entity<PlumbingPortsComponent> ent, NewLinkEvent args)
-    {
-        return args.Source == ent.Owner && args.SourcePort == ent.Comp.OutputId;
     }
 
     private bool CanProvideSolution(EntityUid uid, string port)
     {
         return _automation.HasSlot(uid, port, input: false)
-            || TryComp<PlumbingPortsComponent>(uid, out var plumbing) && plumbing.OutputId == port;
+            || TryComp<PlumbingPortsComponent>(uid, out var plumbing) && plumbing.Output.Id == port;
     }
 
     private bool CanReceiveSolution(EntityUid uid, string port)
     {
         return _automation.HasSlot(uid, port, input: true)
-            || TryComp<PlumbingPortsComponent>(uid, out var plumbing) && plumbing.InputId == port;
+            || TryComp<PlumbingPortsComponent>(uid, out var plumbing) && plumbing.Input.Id == port;
     }
 
-    public bool TryGetInput(EntityUid uid, out EntityUid machine, out string port)
+    /// <summary>
+    /// Resolves the source solution linked to a pump.
+    /// </summary>
+    /// <param name="uid">The pump  to resolve from.</param>
+    /// <param name="input">The upstream solution entity.</param>
+    /// <returns>True if the pump's input link resolves to a solution.</returns>
+    public bool TryGetInputSolution(EntityUid uid, out Entity<SolutionComponent> input)
     {
-        if (TryComp<PlumbingPortsComponent>(uid, out var comp)
-            && comp.LinkedInputMachine is { } linkedMachine
-            && comp.LinkedInputPort is { } linkedPort)
-        {
-            machine = linkedMachine;
-            port = linkedPort;
-            return true;
-        }
+        input = default;
 
-        machine = default;
-        port = string.Empty;
-        return false;
-    }
-
-    public bool TryGetOutput(EntityUid uid, out EntityUid machine, out string port)
-    {
-        if (TryComp<PlumbingPortsComponent>(uid, out var comp)
-            && comp.LinkedOutputMachine is { } linkedMachine
-            && comp.LinkedOutputPort is { } linkedPort)
-        {
-            machine = linkedMachine;
-            port = linkedPort;
-            return true;
-        }
-
-        machine = default;
-        port = string.Empty;
-        return false;
-    }
-
-    private static bool TryGetSolution(AutomationSlot? slot, out Entity<SolutionComponent> solution)
-    {
-        solution = default;
-
-        if (slot?.GetSolution() is not { } slotSolution)
+        if (!TryComp<PlumbingPortsComponent>(uid, out var ports)
+            || ports.LinkedInputMachine is not { } inputMachine
+            || ports.LinkedInputPort is not { } inputPort
+            || _automation.GetSlot(inputMachine, inputPort, input: false)?.GetSolution() is not { } solution)
             return false;
 
-        solution = slotSolution;
+        input = solution;
         return true;
     }
 
     /// <summary>
-    /// Resolves the real upstream solution feeding a plumbing processor.
+    /// Follows downstream pump s until a real output solution is found.
     /// </summary>
-    /// <param name="ent">The plumbing processor to resolve from.</param>
-    /// <param name="input">The upstream solution entity.</param>
-    /// <returns>True if the processor's input link resolves to a solution.</returns>
-    public bool TryGetInputSolution(Entity<PlumbingPumpComponent> ent, out Entity<SolutionComponent> input)
+    public bool TryResolveOutputChain(EntityUid uid, out List<EntityUid> pumps, out Entity<SolutionComponent> output)
     {
-        input = default;
-
-        if (!TryComp<PlumbingPortsComponent>(ent.Owner, out var ports)
-            || ports.LinkedInputMachine == null
-            || ports.LinkedInputPort == null)
-            return false;
-
-        return TryGetSolution(ports.LinkedInputSlot, out input);
-    }
-
-    /// <summary>
-    /// Follows downstream plumbing processors until a real output solution is found.
-    /// </summary>
-    public bool TryResolveOutputChain(Entity<PlumbingPumpComponent> ent, out List<EntityUid> processors, out Entity<SolutionComponent> output)
-    {
-        if (!ent.Comp.ChainDirty)
-        {
-            if (TryResolveCachedOutputChain(ent, out processors, out output))
-                return true;
-
-            if (!ent.Comp.ChainDirty)
-                return false;
-        }
-
-        return RebuildOutputChain(ent, out processors, out output);
-    }
-
-    private bool TryResolveCachedOutputChain(Entity<PlumbingPumpComponent> ent, out List<EntityUid> processors, out Entity<SolutionComponent> output)
-    {
-        processors = ent.Comp.CachedProcessors;
+        pumps = new();
         output = default;
 
-        foreach (var processor in processors)
-        {
-            if (!HasComp<PlumbingProcessorComponent>(processor))
-            {
-                ent.Comp.ChainDirty = true;
-                return false;
-            }
-        }
-
-        return ent.Comp.CachedOutputMachine is not null
-               && ent.Comp.CachedOutputPort is not null
-               && TryGetSolution(ent.Comp.CachedOutputSlot, out output);
-    }
-
-    private bool RebuildOutputChain(Entity<PlumbingPumpComponent> ent, out List<EntityUid> processors, out Entity<SolutionComponent> output)
-    {
-        processors = ent.Comp.CachedProcessors;
-        processors.Clear();
-
-        ent.Comp.CachedOutputMachine = null;
-        ent.Comp.CachedOutputPort = null;
-        ent.Comp.CachedOutputSlot = null;
-        output = default;
-
-        var current = ent.Owner;
+        var current = uid;
 
         while (true)
         {
-            if (processors.Contains(current))
+            if (pumps.Contains(current))
             {
-                ent.Comp.ChainDirty = false;
                 return false;
             }
 
-            if (!HasComp<PlumbingProcessorComponent>(current))
+            if (!TryComp<PlumbingPortsComponent>(current, out var ports)
+                || ports.LinkedOutputMachine is not { } outputMachine
+                || ports.LinkedOutputPort is not { } outputPort)
             {
-                ent.Comp.ChainDirty = false;
                 return false;
             }
 
-            processors.Add(current);
+            pumps.Add(current);
 
-            if (!TryGetOutput(current, out var outputMachine, out var outputPort))
+            if (_automation.GetSlot(outputMachine, outputPort, input: true)?.GetSolution() is { } solution)
             {
-                ent.Comp.ChainDirty = false;
-                return false;
-            }
-
-            var outputSlot = TryComp<PlumbingPortsComponent>(current, out var ports)
-                ? ports.LinkedOutputSlot
-                : null;
-
-            if (TryGetSolution(outputSlot, out output))
-            {
-                ent.Comp.CachedOutputMachine = outputMachine;
-                ent.Comp.CachedOutputPort = outputPort;
-                ent.Comp.CachedOutputSlot = outputSlot;
-                ent.Comp.ChainDirty = false;
+                output = solution;
                 return true;
             }
 
-            if (!HasComp<PlumbingProcessorComponent>(outputMachine))
-            {
-                ent.Comp.CachedOutputMachine = outputMachine;
-                ent.Comp.CachedOutputPort = outputPort;
-                ent.Comp.ChainDirty = false;
-                return false;
-            }
-
             current = outputMachine;
-        }
-    }
-
-    private void InvalidatePumpChainsContaining(EntityUid processor)
-    {
-        var query = EntityQueryEnumerator<PlumbingPumpComponent>();
-
-        while (query.MoveNext(out var uid, out var pump))
-        {
-            if (uid == processor || pump.CachedProcessors.Contains(processor))
-                pump.ChainDirty = true;
         }
     }
 }

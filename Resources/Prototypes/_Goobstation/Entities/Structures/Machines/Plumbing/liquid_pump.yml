@@ -23,7 +23,6 @@
     board: PlumbingPumpCircuitboard
   # Pump
   - type: PlumbingPump
-  - type: PlumbingProcessor
   - type: PlumbingFilter
   - type: PlumbingPorts
     input: PlumbingInput
