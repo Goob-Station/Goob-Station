@@ -108,6 +108,24 @@
     - cawing
     - cawed
 
+- type: emote
+  id: Hoot
+  name: Hoot
+  category: Vocal
+  icon: _Goobstation/Interface/Emotes/caw.png
+  whitelist:
+    tags:
+    - HarpyEmotes
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: [ hoots. ]
+  chatTriggers:
+    - hoots
+    - hoot
+    - hooting
+    - hooted
+
 #Vulpkanin
 - type: emote
   id: Bark

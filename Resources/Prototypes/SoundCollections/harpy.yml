@@ -22,16 +22,18 @@
     - /Audio/Voice/Skeleton/skeleton_scream.ogg
     - /Audio/Voice/Reptilian/reptilian_scream.ogg
     - /Audio/_Floofstation/Voice/Avali/avali_scream.ogg
-    - /Audio/Machines/robotscream_1.ogg # Goob - more harpy emotes
-    - /Audio/Voice/Plasmaman/plasmaman_scream_2.ogg # Goob - more harpy emotes
-    - /Audio/_EinsteinEngines/Voice/Vulpkanin/vulpscream1.ogg # Goob - more harpy emotes
-    - /Audio/_EinsteinEngines/Voice/Vulpkanin/vulpscream4.ogg # Goob - more harpy emotes
-    - /Audio/_EinsteinEngines/Voice/Slime/slime_scream_m1.ogg # Goob - more harpy emotes
-    - /Audio/_EinsteinEngines/Voice/Slime/slime_scream_m2.ogg # Goob - more harpy emotes
-    - /Audio/_EinsteinEngines/Voice/Slime/slime_scream_f1.ogg # Goob - more harpy emotes
-    - /Audio/Voice/Vox/shriek1.ogg # Goob - more harpy emotes
-    - /Audio/_Mono/Voice/Hydrakin/hydrakin-scream-1.ogg # Goob - more harpy emotes
-    - /Audio/_Mono/Voice/Hydrakin/hydrakin-scream-2.ogg # Goob - more harpy emotes
+    - /Audio/Machines/robotscream_1.ogg # Goob start - more harpy emotes
+    - /Audio/Voice/Plasmaman/plasmaman_scream_2.ogg
+    - /Audio/_EinsteinEngines/Voice/Vulpkanin/vulpscream1.ogg
+    - /Audio/_EinsteinEngines/Voice/Vulpkanin/vulpscream4.ogg
+    - /Audio/_EinsteinEngines/Voice/Slime/slime_scream_m1.ogg
+    - /Audio/_EinsteinEngines/Voice/Slime/slime_scream_m2.ogg
+    - /Audio/_EinsteinEngines/Voice/Slime/slime_scream_f1.ogg
+    - /Audio/Voice/Vox/shriek1.ogg
+    - /Audio/Animals/wawa_protest.ogg
+    - /Audio/_Goobstation/Animals/horse.ogg
+    - /Audio/_Mono/Voice/Hydrakin/hydrakin-scream-1.ogg
+    - /Audio/_Mono/Voice/Hydrakin/hydrakin-scream-2.ogg # Goob end - more harpy emotes
 
 
 - type: soundCollection
@@ -47,8 +49,9 @@
     - /Audio/Animals/ferret_happy.ogg
     - /Audio/Voice/Moth/moth_laugh.ogg
     - /Audio/_Floofstation/Voice/Avali/avali_laugh.ogg
-    - /Audio/Voice/Vox/vox_laugh.ogg # Goob - more harpy emotes
-    - /Audio/_Mono/Voice/Hydrakin/hydrakin-laugh-1.ogg # Goob - more harpy emotes
+    - /Audio/Voice/Vox/vox_laugh.ogg # Goob start - more harpy emotes
+    - /Audio/Animals/wawa_mock.ogg
+    - /Audio/_Mono/Voice/Hydrakin/hydrakin-laugh-1.ogg # Goob end - more harpy emotes
 
 - type: soundCollection
   id: HarpyHisses
@@ -116,6 +119,8 @@
     - /Audio/_DV/Voice/Vulpkanin/dog_growl4.ogg
     - /Audio/_DV/Voice/Vulpkanin/dog_growl5.ogg
     - /Audio/_DV/Voice/Vulpkanin/dog_growl6.ogg
+    - /Audio/Animals/space_dragon_roar.ogg # Goob - more harpy emotes
+    - /Audio/Items/Toys/rawr.ogg # Goob - more harpy emotes
 
 - type: soundCollection
   id: HarpyPurrs
@@ -170,6 +175,7 @@
     - /Audio/Magic/fireball.ogg
     - /Audio/Magic/forcewall.ogg
     - /Audio/Magic/knock.ogg
+    - /Audio/Machines/Nuke/nuke_alarm.ogg # Goob - more harpy emotes
 
 - type: soundCollection
   id: HarpyBeeps
@@ -273,4 +279,3 @@
   - /Audio/Voice/Human/female_yawn_1.ogg
   - /Audio/Animals/wawa_yawn.ogg
   - /Audio/_Goobstation/Voice/Vox/vox_yawn.ogg
-  - /Audio/_Mono/Voice/Hydrakin/hydrakin-yawn-1.ogg
