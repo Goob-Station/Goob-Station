@@ -23544,8 +23544,6 @@ entities:
     - type: Transform
       pos: 12.5,9.5
       parent: 2
-    - type: OreSiloClient
-      silo: 1977
 - proto: Carpet
   entities:
   - uid: 3634
@@ -52807,14 +52805,6 @@ entities:
     - type: Transform
       pos: 23.5,9.5
       parent: 2
-    - type: DeviceLinkSource
-      linkedPorts:
-        8182:
-        - - OreSilo
-          - OreSiloClient
-        3633:
-        - - OreSilo
-          - OreSiloClient
 - proto: MaterialWoodPlank1
   entities:
   - uid: 8126
@@ -53264,8 +53254,6 @@ entities:
     - type: Transform
       pos: 18.5,13.5
       parent: 2
-    - type: OreSiloClient
-      silo: 1977
 - proto: OxygenCanister
   entities:
   - uid: 8183
