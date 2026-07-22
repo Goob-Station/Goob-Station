@@ -102,7 +102,7 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: elevatorUP
   - type: Elevator
-    destinationId: BunkerAlfaFloor0
+    destinationId: BunkerAlfaFloor0Alt
     mapPath: /Maps/_Lavaland/Lavaland/Dungeon/bunker_alfa_floor0.yml
 
 - type: entity
@@ -259,7 +259,7 @@
   components:
   - type: Transform  
   - type: ElevatorBeacon
-    id: BunkerAlfaFloor0
+    id: BunkerAlfaFloor0Alt
 
 - type: entity
   id: ElevatorBeaconBunkerAlfaFloor1

@@ -1421,7 +1421,7 @@ entities:
     - type: Transform
       pos: -0.5,19.5
       parent: 1
-- proto: DungeonBunkerCodePaper
+- proto: BunkerCodeFolder
   entities:
   - uid: 521
     components:

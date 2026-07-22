@@ -177,7 +177,7 @@
     animation: WeaponArcBite
     damage:
       types:
-        Slash: 4
+        Slash: 8
 
 - type: entity
   parent: BaseMobFleshBeast
@@ -263,7 +263,7 @@
     animation: WeaponArcSmash
     damage:
       types:
-        Blunt: 10
+        Blunt: 15
 
 - type: entity
   parent: BaseMobFleshBeast
@@ -332,6 +332,9 @@
         Base: dead
       Dead:
         Base: dead
+  - type: HTN
+    rootTask:
+      task: GrenadePenguinCompound # Don't juke
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -351,7 +354,7 @@
     triggerSpeed: 0.3
     shape:
       !type:PhysShapeCircle
-      radius: 2
+      radius: 1
     layer:
     - MobMask
   - type: Body
@@ -372,7 +375,7 @@
     animation: WeaponArcSmash
     damage:
       types:
-        Blunt: 10
+        Blunt: 15
 
  # Elite versions
 
@@ -400,7 +403,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      90: Dead
+      120: Dead
   - type: MovementSpeedModifier
     baseWalkSpeed: 5.2
     baseSprintSpeed: 5.2
@@ -411,7 +414,7 @@
     animation: WeaponArcBite
     damage:
       types:
-        Slash: 10
+        Slash: 20
 
 - type: entity
   parent: BaseMobFleshBeast
@@ -437,10 +440,10 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      150: Dead
+      160: Dead
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2.5
-    baseSprintSpeed: 2.5
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
@@ -460,7 +463,7 @@
           Quantity: 300
   - type: MeleeChemicalInjector
     solution: melee
-    transferAmount: 2
+    transferAmount: 3
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Effects/bite.ogg
@@ -468,7 +471,7 @@
     animation: WeaponArcBite
     damage:
       types:
-        Heat: 10
+        Heat: 18
 
 - type: entity
   parent: BaseMobFleshBeast
@@ -526,7 +529,7 @@
     animation: WeaponArcSlash
     damage:
       types:
-        Blunt: 10
+        Blunt: 15
         Slash: 15
 
 # Boss (for now just a simplemob though)

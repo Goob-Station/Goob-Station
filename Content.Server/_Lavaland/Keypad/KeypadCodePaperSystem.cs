@@ -55,7 +55,7 @@ public sealed class KeypadCodePaperSystem : EntitySystem
         }
 
         var code = GetOrGenerateCode(comp.KeypadGroup, maxLength);
-        var content = Loc.GetString(comp.ContentLocId, ("code", code));
+        var content = Loc.GetString("keypad-code-paper-content", ("code", code));
         _paper.SetContent((uid, paperComp), content);
     }
 

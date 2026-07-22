@@ -1,5 +1,3 @@
-using Robust.Shared.Serialization;
-
 namespace Content.Shared._Lavaland.Keypad;
 
 /// <summary>
@@ -13,10 +11,4 @@ public sealed partial class KeypadCodePaperComponent : Component
     /// </summary>
     [DataField(required: true)]
     public string KeypadGroup = string.Empty;
-
-    /// <summary>
-    /// Used to make more dynamic keycode papers. Must contain a {$code} substitution in the locale.
-    /// </summary>
-    [DataField]
-    public LocId ContentLocId = "keypad-code-paper-content";
 }
