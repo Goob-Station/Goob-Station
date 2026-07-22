@@ -4,12 +4,12 @@ using System.Numerics;
 using Content.Client.Graphics;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.Silicons.StationAi;
-using Content.Shared.Wall;
-using Robust.Client.GameObjects;
+using Content.Shared.Wall; // goobstation - AI machine view
+using Robust.Client.GameObjects; // goobstation - AI machine view
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
-using Robust.Shared.Map;
+using Robust.Shared.Map; // goobstation - AI machine view
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
@@ -200,7 +200,7 @@ public sealed class StationAiOverlay : Overlay
                 continue;
 
             if (!_entManager.TryGetComponent<TransformComponent>(ent.Owner, out var entXform)
-                || (!entXform.Anchored && !_entManager.HasComponent<WallMountComponent>(ent.Owner)) // goobstation - AI machine view: WallMount fixtures (e.g. signal switches) aren't Anchored
+                || (!entXform.Anchored && !_entManager.HasComponent<WallMountComponent>(ent.Owner)) // WallMount fixtures (e.g. signal switches) aren't Anchored
                 || entXform.GridUid != gridUid)
                 continue;
 
