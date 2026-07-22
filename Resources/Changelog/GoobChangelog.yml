@@ -23969,3 +23969,13 @@ Entries:
       message: Gemini is now pacified
   id: 2756
   time: '2026-07-17T10:34:45.0000000+00:00'
+- author: Super7522
+  changes:
+    - type: Add
+      message: >-
+        Added all the lobby art from art contest, Check out all of them in the
+        Lobby art channel in discord
+    - type: Add
+      message: 'New Lobby and jukebox song: CHUDSHIFT by deerdestroyer'
+  id: 2757
+  time: '2026-07-21T21:52:52.0000000+00:00'
