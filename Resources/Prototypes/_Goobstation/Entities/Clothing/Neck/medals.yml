@@ -1,7 +1,7 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckMimemedal
-  name: Medal of Mimery
+  name: medal of mimery
   description: Given to crewmates who display excellent miming.
   components:
   - type: EmitSoundOnPickup
@@ -17,8 +17,6 @@
     sprite: _Goobstation/Clothing/Neck/Medals/mimemedal.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Neck/Medals/mimemedal.rsi
-  - type: StealTarget
-    stealGroup: ClothingNeckMimemedal
   - type: Tag
     tags:
       - Medal
