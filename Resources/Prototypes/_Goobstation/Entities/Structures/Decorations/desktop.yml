@@ -12,7 +12,7 @@
     noRot: true
     sprite: /Textures/_Goobstation/Structures/Decoration/desktop.rsi
     state: desktop
-    drawDepth: BelowMobs
+    drawdepth: BelowMobs
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic
