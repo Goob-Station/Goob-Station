@@ -35,11 +35,6 @@ public record struct HitscanTraceEvent
     /// Target that was being aimed at (Not necessarily hit).
     /// </summary>
     public EntityUid? Target;
-
-    /// <summary>
-    /// Goobstation - map position of the click, used for the crawl hitzone. Null on reflections.
-    /// </summary>
-    public Vector2? TargetCoordinates;
 }
 
 /// <summary>

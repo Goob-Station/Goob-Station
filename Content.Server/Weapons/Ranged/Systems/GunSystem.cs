@@ -1,9 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
 using System.Numerics;
-using Content.Goobstation.Common.Projectiles; // Goobstation
-using Content.Shared.Atmos.Components;
+using Content.Goobstation.Common.Projectiles;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Cargo.Systems;
 using Content.Server.Weapons.Ranged.Components;
@@ -24,15 +22,14 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Robust.Shared.Containers;
-using Content.Shared._Lavaland.Weapons.Ranged.Events; // Lavaland Change
-using Robust.Server.GameObjects; // Goobstation
+using Content.Shared._Lavaland.Weapons.Ranged.Events;
+using Robust.Server.GameObjects;
 using Content.Goobstation.Common.Weapons.Ranged;
 using Content.Shared._Shitmed.Targeting;
-using Content.Shared.Atmos.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Effects;
 using Content.Shared.PowerCell;
-using Robust.Shared.Random; // Lavaland Change
+using Robust.Shared.Random;
 
 namespace Content.Server.Weapons.Ranged.Systems;
 
@@ -173,7 +170,6 @@ public sealed partial class GunSystem : SharedGunSystem
                         Gun = gun,
                         Shooter = user,
                         Target = gun.Comp.Target,
-                        TargetCoordinates = toMapBeforeRecoil, // Goobstation - crawl hitzone
                     };
                     RaiseLocalEvent(ent.Value, ref hitscanEv);
 

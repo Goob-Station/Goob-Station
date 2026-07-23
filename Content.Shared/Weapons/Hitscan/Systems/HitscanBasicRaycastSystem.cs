@@ -1,5 +1,4 @@
 using System.Numerics;
-using Content.Goobstation.Common.CCVar; // Goobstation - crawl hitzone
 using Content.Shared.Administration.Logs;
 using Content.Shared.Damage.Components;
 using Content.Shared.Database;
@@ -8,7 +7,6 @@ using Content.Shared.Weapons.Hitscan.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
-using Robust.Shared.Configuration; // Goobstation - crawl hitzone
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
@@ -22,11 +20,8 @@ public sealed class HitscanBasicRaycastSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly ISharedAdminLogManager _log = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!; // Goobstation - crawl hitzone
 
     private EntityQuery<HitscanBasicVisualsComponent> _visualsQuery;
-
-    private float _crawlHitzoneSize; // Goobstation - crawl hitzone
 
     public override void Initialize()
     {
@@ -35,8 +30,6 @@ public sealed class HitscanBasicRaycastSystem : EntitySystem
         _visualsQuery = GetEntityQuery<HitscanBasicVisualsComponent>();
 
         SubscribeLocalEvent<HitscanBasicRaycastComponent, HitscanTraceEvent>(OnHitscanFired);
-
-        _cfg.OnValueChanged(GoobCVars.CrawlHitzoneSize, value => _crawlHitzoneSize = value, true); // Goobstation - crawl hitzone
     }
 
     private void OnHitscanFired(Entity<HitscanBasicRaycastComponent> ent, ref HitscanTraceEvent args)
@@ -47,18 +40,14 @@ public sealed class HitscanBasicRaycastSystem : EntitySystem
         var rayCastResults = _physics.IntersectRay(mapCords.MapId, ray, ent.Comp.MaxDistance, shooter, false);
 
         var target = args.Target;
-        var targetCoordinates = args.TargetCoordinates; // Goobstation - crawl hitzone
         // If you are in a container, use the raycast result
         // Otherwise:
         //  1.) Hit the first entity that you targeted.
         //  2.) Hit the first entity that doesn't require you to aim at it specifically to be hit.
-        //  3.) Goobstation - Hit a crawling entity if the shot was aimed close enough to it.
         var result = _container.IsEntityOrParentInContainer(shooter)
             ? rayCastResults.FirstOrNull()
             : rayCastResults.FirstOrNull(hit => hit.HitEntity == target
-                                                || CompOrNull<RequireProjectileTargetComponent>(hit.HitEntity)?.Active != true
-                                                || targetCoordinates != null // Goobstation - crawl hitzone
-                                                && (_transform.GetMapCoordinates(hit.HitEntity).Position - targetCoordinates.Value).Length() <= _crawlHitzoneSize);
+                                                || CompOrNull<RequireProjectileTargetComponent>(hit.HitEntity)?.Active != true);
 
         var distanceTried = result?.Distance ?? ent.Comp.MaxDistance;
 
