@@ -23,7 +23,7 @@
     - Foot
     - Tail
     - Other
-    traumaDeductions: # Bomb Suit is getting you Delimbed and all broken bones, this should fix it forever
+    traumaDeductions: # Goobstation - Bomb Suit is getting you Delimbed and all broken bones, this should fix it forever
       Dismemberment: 1
       OrganDamage: 1
       BoneDamage: 1
