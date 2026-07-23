@@ -2,7 +2,7 @@
   parent: ClothingNeckBase
   id: ClothingNeckMimemedal
   name: medal of mimery
-  description: Given to crewmates who display excellent miming.
+  description: Given to crewmates who display excellent mimery.
   components:
   - type: EmitSoundOnPickup
     sound:
