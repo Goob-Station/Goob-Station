@@ -25,7 +25,7 @@ using Content.Shared.Power.EntitySystems;
 using Content.Shared.Repairable;
 using Content.Shared.StationAi;
 using Content.Shared.Verbs;
-using Content.Shared.Wall; // goobstation - AI machine view
+using Content.Shared.Wall; 
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
