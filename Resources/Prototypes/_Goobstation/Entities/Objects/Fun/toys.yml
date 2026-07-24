@@ -1128,20 +1128,17 @@
 - type: entity
   parent: PlushieLizard
   id: PlushieRedstonewolf
-  name: Azeel-Haarul plushie
-  description: Most weh lizard of all time.
+  name: Irene plushie
+  description: A soft plush toy resembling a dragon. Great for hugging.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
     state: plushie_redstonewolf
   - type: Item
-    sprite: _Goobstation/Objects/Fun/toys.rsi
     heldPrefix: plushieredstonewolf
+    sprite: _Goobstation/Objects/Fun/toys.rsi
   - type: EmitSoundOnUse
-    sound: &PlushieLizardSound
-      path: /Audio/Items/Toys/weh.ogg
-      params:
-        volume: -5
+    sound: *PlushieLizardSound
   - type: EmitSoundOnLand
     sound: *PlushieLizardSound
   - type: EmitSoundOnActivate
@@ -1155,32 +1152,4 @@
     sprite: _Goobstation/Objects/Fun/toys.rsi
     equippedPrefix: plushieredstonewolf
     slots:
-    - HEAD
-- type: entity
-  parent: PlushieLizard
-  id: PlushieWehmin
-  name: Irene plushie
-  description: A soft plush toy resembling a dragon. Great for hugging.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Fun/toys.rsi
-    state: plushie_wehmin
-  - type: Item
-    heldPrefix: plushiewehmin
-    sprite: _Goobstation/Objects/Fun/toys.rsi
-  - type: EmitSoundOnUse
-    sound: *PlushieLizardSound
-  - type: EmitSoundOnLand
-    sound: *PlushieLizardSound
-  - type: EmitSoundOnActivate
-    sound: *PlushieLizardSound
-  - type: EmitSoundOnTrigger
-    sound: *PlushieLizardSound
-  - type: EmitSoundOnCollide
-    sound: *PlushieLizardSound
-  - type: Clothing
-    quickEquip: true
-    sprite: _Goobstation/Objects/Fun/toys.rsi
-    equippedPrefix: plushiewehmin
-    slots:
-    - HEAD
+    - NECK

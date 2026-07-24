@@ -200,7 +200,7 @@
             "name": "plushie_redstonewolf"
         },
         {
-            "name": "plushieredstonewolf-equipped-HELMET",
+            "name": "plushieredstonewolf-equipped-NECK",
             "directions": 4
         },
         {
@@ -209,21 +209,6 @@
         },
         {
             "name": "plushieredstonewolf-inhand-right",
-            "directions": 4
-        },
-        {
-            "name": "plushie_wehmin"
-        },
-        {
-            "name": "plushiewehmin-equipped-HELMET",
-            "directions": 4
-        },
-        {
-            "name": "plushiewehmin-inhand-left",
-            "directions": 4
-        },
-        {
-            "name": "plushiewehmin-inhand-right",
             "directions": 4
         }
     ]
