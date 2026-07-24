@@ -175,7 +175,6 @@
     - /Audio/Magic/fireball.ogg
     - /Audio/Magic/forcewall.ogg
     - /Audio/Magic/knock.ogg
-    - /Audio/Machines/Nuke/nuke_alarm.ogg # Goob - more harpy emotes
 
 - type: soundCollection
   id: HarpyBeeps
