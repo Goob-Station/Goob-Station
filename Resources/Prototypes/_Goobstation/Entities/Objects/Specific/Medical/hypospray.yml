@@ -22,10 +22,9 @@
     solution: hypospray
   - type: Injector
     solutionName: hypospray
-    ignoreClosed: false
-    activeModeProtoId: HyposprayDynamicMode
+    currentTransferAmount: null
+    activeModeProtoId: HyposprayInjectMode
     allowedModes:
-    - HyposprayDynamicMode
     - HyposprayInjectMode
   - type: HyposprayBlockNonMobInjection
   - type: UseDelay
@@ -364,13 +363,6 @@
     maxFillLevels: 1
     changeColor: false
     emptySpriteName: stasipen_empty
-  - type: Injector
-    solutionName: hypospray
-    ignoreClosed: false
-    activeModeProtoId: HyposprayDynamicMode
-    allowedModes:
-    - HyposprayDynamicMode
-    - HyposprayInjectMode
   - type: SolutionContainerManager
     solutions:
       pen:
@@ -406,13 +398,6 @@
     maxFillLevels: 1
     changeColor: false
     emptySpriteName: ntstimpen_empty
-  - type: Injector
-    solutionName: hypospray
-    ignoreClosed: false
-    activeModeProtoId: HyposprayDynamicMode
-    allowedModes:
-    - HyposprayDynamicMode
-    - HyposprayInjectMode
   - type: StaticPrice
     price: 500
 
@@ -506,3 +491,28 @@
     - HyposprayInjectMode
   - type: UseDelay
     delay: 0.2
+
+# Auto-injectors
+
+- type: entity
+  parent: ChemicalMedipen
+  id: RomerolMedipen
+  name: romerol auto-injector
+  description: A non-refillable medipen containing multiple doses of "Braaaains".
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: medipen
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: medipen_empty
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 5
+        reagents:
+        - ReagentId: Romerol
+          Quantity: 5

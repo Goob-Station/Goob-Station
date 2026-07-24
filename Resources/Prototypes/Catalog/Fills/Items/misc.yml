@@ -43,11 +43,11 @@
   - ClothingShoesBootsCowboyFancy
   - ClothingShoesBootsSecFilled
 
-- type: entity
-  id: ClothingShoesHighheelBootsFilled
-  parent:
-  - ClothingShoesHighheelBoots
-  - ClothingShoesBootsSecFilled
+#- type: entity
+#  id: ClothingShoesHighheelBootsFilled
+#  parent:
+#  - ClothingShoesHighheelBoots
+#  - ClothingShoesBootsSecFilled - Goobstation
 
 - type: entity
   parent: ClothingShoesBootsMerc
