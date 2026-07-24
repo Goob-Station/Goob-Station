@@ -85,6 +85,7 @@
             Quantity: 10
           - ReagentId: Omnizine
             Quantity: 30
+   # Grindable cigarette start
       grinded:
         maxVol: 40
         reagents:
@@ -92,9 +93,8 @@
             Quantity: 10
           - ReagentId: Omnizine
             Quantity: 5
-    # Grindable cigarette start
   - type: Extractable
-    grindableSolutionName: grinded
+    grindableSolutionName: grinded  # A different solution to prevent Syndis getting 300 Omni for only 5 TC
     # Grindable cigarette end
 
 - type: entity
