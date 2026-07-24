@@ -113,7 +113,7 @@
   storage:
     back:
     - ClothingHeadHatHairflower
-  groupBy: "hats" # Goobstation
+  groupBy: "hats"  # GoobStation
 
 # Headphones
 - type: loadout
