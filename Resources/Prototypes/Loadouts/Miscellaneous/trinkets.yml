@@ -106,7 +106,7 @@
   storage:
     back:
     - ClothingHeadHatFlowerWreath
-  groupBy: "hats" # Goob
+  groupBy: "hats" # GoobStation
 
 - type: loadout
   id: Hairflower
