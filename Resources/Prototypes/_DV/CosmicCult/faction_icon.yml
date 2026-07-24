@@ -5,9 +5,9 @@
   showTo:
     components:
       - CosmicCult
+      - CosmicColossus
       - CosmicAstralBody
       - ShowAntagIcons
-      - RogueAscended
   icon:
     sprite: /Textures/_DV/CosmicCult/Icons/antag_icons.rsi
     state: CosmicCult
@@ -19,9 +19,9 @@
   showTo:
     components:
       - CosmicCult
+      - CosmicColossus
       - CosmicAstralBody
       - ShowAntagIcons
-      - RogueAscended
   icon:
     sprite: /Textures/_DV/CosmicCult/Icons/antag_icons.rsi
     state: CosmicCultLead

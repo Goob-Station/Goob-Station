@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Alert;
@@ -18,6 +15,12 @@ namespace Content.Goobstation.Shared.SpecialPassives.Fleshmend.Components;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class FleshmendComponent : Component
 {
+    /// <summary>
+    /// Applies slowdown on the component
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float MovementSpeedDebuff = 0.75f;
+
     /// <summary>
     /// The alert id of the component (if one should exist)
     /// </summary>
@@ -79,13 +82,13 @@ public sealed partial class FleshmendComponent : Component
     public bool WorkWhileDead = false;
 
     [DataField]
-    public float BruteHeal = -9f;
+    public float BruteHeal = -6f;
 
     [DataField]
-    public float BurnHeal = -5f;
+    public float BurnHeal = -4f;
 
     [DataField]
-    public float AsphyxHeal = -4f;
+    public float AsphyxHeal = -3f;
 
     [DataField]
     public float BleedingAdjust = -2.5f;

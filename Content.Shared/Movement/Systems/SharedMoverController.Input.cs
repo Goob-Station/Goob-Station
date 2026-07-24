@@ -1,40 +1,3 @@
-// SPDX-FileCopyrightText: 2020 ComicIronic <comicironic@gmail.com>
-// SPDX-FileCopyrightText: 2020 GlassEclipse <32942106+GlassEclipse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Jackson Lewis <inquisitivepenguin@protonmail.com>
-// SPDX-FileCopyrightText: 2020 Vince <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <zddm@outlook.es>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Metal Gear Sloth <metalgearsloth@gmail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <zddm@outlook.es>
-// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 collinlunn <60152240+collinlunn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2021 metalgearsloth <metalgearsloth@gmail.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 MarkerWicker <markerWicker@proton.me>
-// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
@@ -48,6 +11,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Input;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Physics;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -98,6 +62,7 @@ namespace Content.Shared.Movement.Systems
             SubscribeLocalEvent<InputMoverComponent, ComponentGetState>(OnMoverGetState);
             SubscribeLocalEvent<InputMoverComponent, ComponentHandleState>(OnMoverHandleState);
             SubscribeLocalEvent<InputMoverComponent, EntParentChangedMessage>(OnInputParentChange);
+            SubscribeLocalEvent<InputMoverComponent, AnchorStateChangedEvent>(OnAnchorState);
 
             SubscribeLocalEvent<FollowedComponent, EntParentChangedMessage>(OnFollowedParentChange);
 
@@ -354,6 +319,12 @@ namespace Content.Shared.Movement.Systems
 
             entity.Comp.LerpTarget = TimeSpan.FromSeconds(InputMoverComponent.LerpTime) + Timing.CurTime;
             Dirty(entity.Owner, entity.Comp);
+        }
+
+        private void OnAnchorState(Entity<InputMoverComponent> entity, ref AnchorStateChangedEvent args)
+        {
+            if (!args.Anchored)
+                PhysicsSystem.SetBodyType(entity, BodyType.KinematicController);
         }
 
         private void HandleDirChange(EntityUid entity, Direction dir, ushort subTick, bool state)
@@ -685,7 +656,7 @@ namespace Content.Shared.Movement.Systems
             }
         }
     }
-
+    /* Goob moved to Content.Goobstation.Common/Movement
     [Flags]
     [Serializable, NetSerializable]
     public enum MoveButtons : byte
@@ -697,7 +668,7 @@ namespace Content.Shared.Movement.Systems
         Right = 8,
         Walk = 16,
         AnyDirection = Up | Down | Left | Right,
-    }
+    }*/
 
     [Flags]
     public enum ShuttleButtons : byte

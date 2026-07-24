@@ -1,33 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Golinth <amh2023@gmail.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 Tyzemol <85772526+Tyzemol@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
-// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
-using Content.Server.Atmos.Components;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Hands.Systems;
 using Content.Server.NPC.Queries;
@@ -35,13 +5,10 @@ using Content.Server.NPC.Queries.Considerations;
 using Content.Server.NPC.Queries.Curves;
 using Content.Server.NPC.Queries.Queries;
 using Content.Server.Nutrition.Components;
-using Content.Server.Nutrition.EntitySystems;
-using Content.Server.Temperature.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Fluids.Components;
-using Content.Shared.Hands.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components; // Goobstation
@@ -61,11 +28,24 @@ using Microsoft.Extensions.ObjectPool;
 using Robust.Server.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Shared.Atmos.Components;
 using System.Linq;
+using Content.Shared.Temperature.Components;
 using Content.Server._Goobstation.Wizard.NPC;
 using Content.Shared.Foldable;
 using Content.Shared.Wieldable;
 using Content.Shared.Wieldable.Components;
+using Content.Server.Nutrition.EntitySystems;
+using Content.Server.Body.Systems;
+using Content.Goobstation.Maths.FixedPoint; // Goobstation start
+using Content.Shared.Chemistry.Reagent;
+using Content.Shared.EntityEffects.Effects;
+using Content.Shared.Body.Systems;
+using Content.Server.Body.Components;
+using Content.Shared.Body.Components;
+using Content.Shared.Chemistry.Components;
+using Content.Shared.EntityEffects.Effects.Body;
+using Content.Shared.EntityEffects.Effects.Solution; // Goobstation end
 
 namespace Content.Server.NPC.Systems;
 
@@ -76,14 +56,12 @@ public sealed class NPCUtilitySystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
-    [Dependency] private readonly DrinkSystem _drink = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly IngestionSystem _ingestion = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
-    [Dependency] private readonly OpenableSystem _openable = default!;
     [Dependency] private readonly PuddleSystem _puddle = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutions = default!;
@@ -92,7 +70,10 @@ public sealed class NPCUtilitySystem : EntitySystem
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly MobThresholdSystem _thresholdSystem = default!;
     [Dependency] private readonly TurretTargetSettingsSystem _turretTargetSettings = default!;
-    [Dependency] private readonly SharedWieldableSystem _wieldable = default!; // Goobstation
+    [Dependency] private readonly SharedWieldableSystem _wieldable = default!; // Goobstation start
+    [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly MetabolizerSystem _metabolizer = default!;
+    // Goobstation end
 
     private EntityQuery<PuddleComponent> _puddleQuery;
     private EntityQuery<TransformComponent> _xformQuery;
@@ -196,7 +177,11 @@ public sealed class NPCUtilitySystem : EntitySystem
             case PresetCurve presetCurve:
                 return GetScore(_proto.Index<UtilityCurvePresetPrototype>(presetCurve.Preset).Curve, conScore);
             case QuadraticCurve quadraticCurve:
-                return Math.Clamp(quadraticCurve.Slope * MathF.Pow(conScore - quadraticCurve.XOffset, quadraticCurve.Exponent) + quadraticCurve.YOffset, 0f, 1f);
+                return Math.Clamp(
+                    quadraticCurve.Slope * MathF.Pow(conScore - quadraticCurve.XOffset, quadraticCurve.Exponent) +
+                    quadraticCurve.YOffset,
+                    0f,
+                    1f);
             default:
                 throw new NotImplementedException();
         }
@@ -216,15 +201,17 @@ public sealed class NPCUtilitySystem : EntitySystem
                 var avoidBadFood = !HasComp<IgnoreBadFoodComponent>(owner);
 
                 // only eat when hungry or if it will eat anything
-                if (TryComp<HungerComponent>(owner, out var hunger) && hunger.CurrentThreshold > HungerThreshold.Okay && avoidBadFood)
+                if (TryComp<HungerComponent>(owner, out var hunger) && hunger.CurrentThreshold > HungerThreshold.Okay &&
+                    avoidBadFood)
                     return 0f;
 
                 // no mouse don't eat the uranium-235
-                if (avoidBadFood && HasComp<BadFoodComponent>(targetUid))
+                if (avoidBadFood && (HasComp<BadFoodComponent>(targetUid) ||
+                                     TotalFoodUtilityConditioned(targetUid, owner).IsToxic)) // Goobstation edit
                     return 0f;
 
-                var nutrition = _ingestion.TotalNutrition(targetUid, owner);
-                if (nutrition <= 1.0f)
+                var nutrition = TotalFoodUtilityConditioned(targetUid, owner).TotalNutrition; // Goobstation edit
+                if (nutrition <= 0.0f)
                     return 0f;
 
                 return 1f;
@@ -236,17 +223,19 @@ public sealed class NPCUtilitySystem : EntitySystem
                     return 0f;
 
                 // only drink when thirsty
-                if (TryComp<ThirstComponent>(owner, out var thirst) && thirst.CurrentThirstThreshold > ThirstThreshold.Okay)
+                if (TryComp<ThirstComponent>(owner, out var thirst) &&
+                    thirst.CurrentThirstThreshold > ThirstThreshold.Okay)
                     return 0f;
 
                 // no janicow don't drink the blood puddle
-                if (HasComp<BadDrinkComponent>(targetUid))
+                if (HasComp<BadDrinkComponent>(targetUid) ||
+                    TotalFoodUtilityConditioned(targetUid, owner).IsToxic) // Goobstation edit
                     return 0f;
 
                 // needs to have something that will satiate thirst, mice wont try to drink 100% pure mutagen.
                 // We don't check if the solution is metabolizable cause all drinks should be currently.
                 // If that changes then simply use the other overflow.
-                var hydration = _ingestion.TotalHydration(targetUid);
+                var hydration = TotalFoodUtilityConditioned(targetUid, owner).TotalHydration; // Goobstation edit
                 if (hydration <= 1.0f)
                     return 0f;
 
@@ -254,7 +243,9 @@ public sealed class NPCUtilitySystem : EntitySystem
             }
             case OrderedTargetCon:
             {
-                if (!blackboard.TryGetValue<EntityUid>(NPCBlackboard.CurrentOrderedTarget, out var orderedTarget, EntityManager))
+                if (!blackboard.TryGetValue<EntityUid>(NPCBlackboard.CurrentOrderedTarget,
+                        out var orderedTarget,
+                        EntityManager))
                     return 0f;
 
                 if (targetUid != orderedTarget)
@@ -306,7 +297,8 @@ public sealed class NPCUtilitySystem : EntitySystem
             }
             case TargetDistanceCon:
             {
-                var radius = blackboard.GetValueOrDefault<float>(blackboard.GetVisionRadiusKey(EntityManager), EntityManager);
+                var radius =
+                    blackboard.GetValueOrDefault<float>(blackboard.GetVisionRadiusKey(EntityManager), EntityManager);
 
                 if (!TryComp(targetUid, out TransformComponent? targetXform) ||
                     !TryComp(owner, out TransformComponent? xform))
@@ -314,7 +306,9 @@ public sealed class NPCUtilitySystem : EntitySystem
                     return 0f;
                 }
 
-                if (!targetXform.Coordinates.TryDistance(EntityManager, _transform, xform.Coordinates,
+                if (!targetXform.Coordinates.TryDistance(EntityManager,
+                        _transform,
+                        xform.Coordinates,
                         out var distance))
                 {
                     return 0f;
@@ -360,28 +354,37 @@ public sealed class NPCUtilitySystem : EntitySystem
                 // Goobstation
                 if (!TryComp(targetUid, out MobThresholdsComponent? thresholds))
                     return 1f; // a bit of a hack but works
-                if (con.TargetState != MobState.Invalid && _thresholdSystem.TryGetPercentageForState(targetUid, con.TargetState, damage.TotalDamage, out var percentage, thresholds))
-                    return Math.Clamp((float)(1 - percentage), 0f, 1f);
+                if (con.TargetState != MobState.Invalid && _thresholdSystem.TryGetPercentageForState(targetUid,
+                        con.TargetState,
+                        damage.TotalDamage,
+                        out var percentage,
+                        thresholds))
+                    return Math.Clamp((float) (1 - percentage), 0f, 1f);
                 if (_thresholdSystem.TryGetIncapPercentage(targetUid, damage.TotalDamage, out var incapPercentage))
-                    return Math.Clamp((float)(1 - incapPercentage), 0f, 1f);
+                    return Math.Clamp((float) (1 - incapPercentage), 0f, 1f);
                 return 0f;
             }
             case TargetInLOSCon:
             {
-                var radius = blackboard.GetValueOrDefault<float>(blackboard.GetVisionRadiusKey(EntityManager), EntityManager);
+                var radius =
+                    blackboard.GetValueOrDefault<float>(blackboard.GetVisionRadiusKey(EntityManager), EntityManager);
 
                 return _examine.InRangeUnOccluded(owner, targetUid, radius + 0.5f, null) ? 1f : 0f;
             }
             case TargetInLOSOrCurrentCon:
             {
-                var radius = blackboard.GetValueOrDefault<float>(blackboard.GetVisionRadiusKey(EntityManager), EntityManager);
+                var radius =
+                    blackboard.GetValueOrDefault<float>(blackboard.GetVisionRadiusKey(EntityManager), EntityManager);
                 const float bufferRange = 0.5f;
 
                 if (blackboard.TryGetValue<EntityUid>("Target", out var currentTarget, EntityManager) &&
                     currentTarget == targetUid &&
                     TryComp(owner, out TransformComponent? xform) &&
                     TryComp(targetUid, out TransformComponent? targetXform) &&
-                    xform.Coordinates.TryDistance(EntityManager, _transform, targetXform.Coordinates, out var distance) &&
+                    xform.Coordinates.TryDistance(EntityManager,
+                        _transform,
+                        targetXform.Coordinates,
+                        out var distance) &&
                     distance <= radius + bufferRange)
                 {
                     return 1f;
@@ -412,30 +415,30 @@ public sealed class NPCUtilitySystem : EntitySystem
                 return 0f;
             }
             case TargetOnFireCon:
-                {
-                    if (TryComp(targetUid, out FlammableComponent? fire) && fire.OnFire)
-                        return 1f;
-                    return 0f;
-                }
+            {
+                if (TryComp(targetUid, out FlammableComponent? fire) && fire.OnFire)
+                    return 1f;
+                return 0f;
+            }
             case TargetIsStunnedCon:
-                {
-                    return HasComp<StunnedComponent>(targetUid) ? 1f : 0f;
-                }
+            {
+                return HasComp<StunnedComponent>(targetUid) ? 1f : 0f;
+            }
             case TurretTargetingCon:
-                {
-                    if (!TryComp<TurretTargetSettingsComponent>(owner, out var turretTargetSettings) ||
-                        _turretTargetSettings.EntityIsTargetForTurret((owner, turretTargetSettings), targetUid))
-                        return 1f;
+            {
+                if (!TryComp<TurretTargetSettingsComponent>(owner, out var turretTargetSettings) ||
+                    _turretTargetSettings.EntityIsTargetForTurret((owner, turretTargetSettings), targetUid))
+                    return 1f;
 
-                    return 0f;
-                }
+                return 0f;
+            }
             case TargetLowTempCon con:
-                {
-                    if (!TryComp<TemperatureComponent>(targetUid, out var temperature))
-                        return 0f;
+            {
+                if (!TryComp<TemperatureComponent>(targetUid, out var temperature))
+                    return 0f;
 
-                    return temperature.CurrentTemperature <= con.MinTemp ? 1f : 0f;
-                }
+                return temperature.CurrentTemperature <= con.MinTemp ? 1f : 0f;
+            }
             default:
                 throw new NotImplementedException();
         }
@@ -444,14 +447,14 @@ public sealed class NPCUtilitySystem : EntitySystem
     private float GetAdjustedScore(float score, int considerations)
     {
         /*
-        * Now using the geometric mean
-        * for n scores you take the n-th root of the scores multiplied
-        * e.g. a, b, c scores you take Math.Pow(a * b * c, 1/3)
-        * To get the ACTUAL geometric mean at any one stage you'd need to divide by the running consideration count
-        * however, the downside to this is it will fluctuate up and down over time.
-        * For our purposes if we go below the minimum threshold we want to cut it off, thus we take a
-        * "running geometric mean" which can only ever go down (and by the final value will equal the actual geometric mean).
-        */
+         * Now using the geometric mean
+         * for n scores you take the n-th root of the scores multiplied
+         * e.g. a, b, c scores you take Math.Pow(a * b * c, 1/3)
+         * To get the ACTUAL geometric mean at any one stage you'd need to divide by the running consideration count
+         * however, the downside to this is it will fluctuate up and down over time.
+         * For our purposes if we go below the minimum threshold we want to cut it off, thus we take a
+         * "running geometric mean" which can only ever go down (and by the final value will equal the actual geometric mean).
+         */
 
         var adjusted = MathF.Pow(score, 1 / (float) considerations);
         return Math.Clamp(adjusted, 0f, 1f);
@@ -537,6 +540,7 @@ public sealed class NPCUtilitySystem : EntitySystem
                 {
                     entities.Add(ent);
                 }
+
                 break;
             }
             default:
@@ -569,11 +573,13 @@ public sealed class NPCUtilitySystem : EntitySystem
                 {
                     foreach (var comp in compFilter.Components)
                     {
-                        if (HasComp(ent, comp.Value.Component.GetType()) ^ compFilter.Invert) // Goob edit
-                            continue;
-
-                        _entityList.Add(ent);
-                        break;
+                        var hasComp = HasComp(ent, comp.Value.Component.GetType())
+                                      ^ compFilter.Invert; // Goob edit
+                        if (!compFilter.RetainWithComp == hasComp)
+                        {
+                            _entityList.Add(ent);
+                            break;
+                        }
                     }
                 }
 
@@ -629,6 +635,82 @@ public sealed class NPCUtilitySystem : EntitySystem
                 throw new NotImplementedException();
         }
     }
+
+    // Goobstation start
+    /// <summary>
+    /// Gets the total metabolizable nutrition, hydration and toxicity from an ingested entity recursively, may return lesser numbers with cyclic metabolism graphs.
+    /// </summary>
+    /// <param name="consumer">The consumer entity</param>
+    /// <param name="ingestable">The consumed entity</param>
+    /// <returns>The amount of nutrition the consumable is worth</returns>
+    private FoodUtilityParams TotalFoodUtilityConditioned(Entity<EdibleComponent?> ingestable, EntityUid consumer)
+    {
+        var utilityParams = new FoodUtilityParams(0f, 0f, false);
+        if (!Resolve(ingestable, ref ingestable.Comp))
+            return utilityParams;
+
+        if (!_solutions.TryGetSolution(ingestable.Owner, ingestable.Comp.Solution, out var solutionComp, out var solution))
+            return utilityParams;
+
+        Queue<ReagentQuantity> queue = [];
+        HashSet<ReagentPrototype> alreadychecked = [];
+
+        foreach (var quantity in solution.Contents)
+            queue.Enqueue(quantity);
+
+        while (queue.Any())
+        {
+            var quantity = queue.Dequeue();
+            var reagent = _proto.Index<ReagentPrototype>(quantity.Reagent.Prototype);
+
+            if (!alreadychecked.Add(reagent))
+                continue;
+
+            if (reagent.Metabolisms == null)
+                continue;
+
+            foreach (var (metabolism, entry) in reagent.Metabolisms)
+            {
+                foreach (var effect in entry.Effects)
+                {
+                    Entity<MetabolizerComponent>? metabolizingOrgan = null;
+                    if (HasComp<BodyComponent>(consumer)
+                        && _body.TryGetBodyOrganEntityComps<MetabolizerComponent>(consumer, out var metabolizers))
+                    {
+                        metabolizingOrgan = metabolizers.First(met =>
+                            (met.Comp1.MetabolismGroups ?? []).Any(group => group.Id == metabolism));
+                    }
+
+                    if (effect.Conditions != null
+                        && metabolizingOrgan != null
+                        && solutionComp != null
+                        && !_metabolizer.CanMetabolizeEffect(consumer, metabolizingOrgan.Value, solutionComp.Value, effect.Conditions))
+                        continue;
+
+                    switch (effect)
+                    {
+                        case SatiateHunger hunger:
+                            utilityParams.TotalNutrition += hunger.Factor * quantity.Quantity.Float();
+                            break;
+                        case SatiateThirst thirst:
+                            utilityParams.TotalHydration += thirst.Factor * quantity.Quantity.Float();
+                            break;
+                        case HealthChange damage
+                            when damage.Damage.AnyPositive():
+                            utilityParams.IsToxic = true;
+                            break;
+                        case AdjustReagent newReagent
+                            when newReagent.Amount > FixedPoint2.Zero:
+                            queue.Enqueue(new ReagentQuantity(newReagent.Reagent,
+                                quantity.Quantity * (newReagent.Amount / entry.MetabolismRate)));
+                            break;
+                    }
+                }
+            }
+        }
+
+        return utilityParams;
+    } // Goobstation end
 }
 
 public readonly record struct UtilityResult(Dictionary<EntityUid, float> Entities)
@@ -659,3 +741,5 @@ public readonly record struct UtilityResult(Dictionary<EntityUid, float> Entitie
         return Entities.MinBy(x => x.Value).Key;
     }
 }
+
+public record struct FoodUtilityParams(float TotalNutrition, float TotalHydration, bool IsToxic); // Goobstation edit

@@ -1,43 +1,3 @@
-// SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Errant <35878406+dmnct@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
-// SPDX-FileCopyrightText: 2023 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2023 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2023 Doru991 <75124791+Doru991@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <drsmugleaf@gmail.com>
-// SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Tom Leys <tom@crump-leys.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 corentt <36075110+corentt@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Debug <49997488+DebugOk@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Jake Huxell <JakeHuxell@pm.me>
-// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Patrik Caes-Sayrs <heartofgoldfish@gmail.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
-// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 UpAndLeaves <92269094+Alpha-Two@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
@@ -53,6 +13,7 @@ using Content.Shared.Anomaly.Components;
 using Content.Shared.Armor;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Cloning.Events;
+using Content.Shared.Chat;
 using Content.Shared.Damage;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
@@ -62,6 +23,8 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Roles;
+using Content.Shared.Roles.Components;
 using Content.Shared.Roles;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Zombies;
@@ -79,6 +42,28 @@ using Content.Server._EinsteinEngines.Language;
 using Content.Shared._EinsteinEngines.Language;
 using Content.Shared._EinsteinEngines.Language.Components;
 using Content.Shared._EinsteinEngines.Language.Events;
+
+// Goob start - zombie cure
+using Content.Shared.Body.Components;
+using Content.Server.Temperature.Components;
+using Content.Server.Body.Components;
+using Content.Server.Atmos.Components;
+using Content.Shared.Nutrition.Components;
+using Content.Shared.Nutrition.AnimalHusbandry;
+using Content.Goobstation.Common.Traits;
+using Content.Shared.Interaction.Components;
+using Content.Shared.Weapons.Melee;
+using Content.Shared.Hands.Components;
+using Content.Shared.NPC.Components;
+using Content.Server.NPC.HTN;
+using Content.Shared.CombatMode.Pacification;
+using Content.Server.Speech.Components;
+using Content.Goobstation.Shared.Sprinting;
+using Content.Shared.Prying.Components;
+using Content.Shared.Temperature.Components;
+using Content.Server.Polymorph.Components;
+
+// Goob end
 
 namespace Content.Server.Zombies
 {
@@ -136,6 +121,8 @@ namespace Content.Server.Zombies
             // Goob Edit - Prevent Zombies Speaking/Understanding Languages
             SubscribeLocalEvent<ZombieComponent, DetermineEntityLanguagesEvent>(OnLanguageApply);
             SubscribeLocalEvent<ZombieComponent, ComponentShutdown>(OnShutdown);
+            // more goob something something unzombify this shit needs cleanup
+            SubscribeLocalEvent<ZombieComponent, EntityUnZombifiedEvent>(OnUnZombifyEvent);
         }
 
         private void OnBeforeRemoveAnomalyOnDeath(Entity<PendingZombieComponent> ent, ref BeforeRemoveAnomalyOnDeathEvent args)
@@ -268,7 +255,7 @@ namespace Content.Server.Zombies
             if (args.Handled)
                 return;
 
-            _protoManager.TryIndex(component.EmoteSoundsId, out var sounds);
+            _protoManager.Resolve(component.EmoteSoundsId, out var sounds);
 
             args.Handled = _chat.TryPlayEmoteSound(uid, sounds, args.Emote);
         }
@@ -325,48 +312,67 @@ namespace Content.Server.Zombies
             return MathF.Max(chance, zombieComponent.MinZombieInfectionChance);
         }
 
-        private void OnMeleeHit(EntityUid uid, ZombieComponent component, MeleeHitEvent args)
+        private void OnMeleeHit(Entity<ZombieComponent> entity, ref MeleeHitEvent args)
         {
-            if (!TryComp<ZombieComponent>(args.User, out _))
+            if (!args.IsHit)
                 return;
 
-            if (!args.HitEntities.Any())
-                return;
+            var cannotSpread = HasComp<NonSpreaderZombieComponent>(args.User);
 
-            foreach (var entity in args.HitEntities)
+            foreach (var uid in args.HitEntities)
             {
-                if (args.User == entity)
+                if (args.User == uid)
                     continue;
 
-                if (!TryComp<MobStateComponent>(entity, out var mobState))
+                if (!TryComp<MobStateComponent>(uid, out var mobState))
                     continue;
 
-                if (TryComp<BlockingUserComponent>(entity, out var blockingUser) && IsUserBlocking(blockingUser)) // Goobstation edit - prevents infection if user is actively blocking
-                    return;
-
-                if (HasComp<ZombieComponent>(entity) || HasComp<InitialInfectedComponent>(entity)) // Goobstation edit - prevent zombies from damaging IIs
+                if (HasComp<ZombieComponent>(uid) || HasComp<IncurableZombieComponent>(uid))
                 {
-                    args.BonusDamage = -args.BaseDamage;
+                    // Don't infect, don't deal damage, do not heal from bites, don't pass go!
+                    args.Handled = true;
+                    continue;
+                }
+
+                if (_mobState.IsAlive(uid, mobState))
+                {
+                    _damageable.TryChangeDamage(args.User, entity.Comp.HealingOnBite, true, false);
+
+                    // If we cannot infect the living target, the zed will just heal itself.
+                    if (HasComp<ZombieImmuneComponent>(uid) || cannotSpread ||
+                        _random.Prob(GetZombieInfectionChance(uid, entity.Comp)))
+                        continue;
+
+
+                    if (TryComp<BlockingUserComponent>(entity, out var blockingUser) &&
+                        IsUserBlocking(
+                            blockingUser)) // Goobstation edit - prevents infection if user is actively blocking
+                        return;
+
+                    EnsureComp<PendingZombieComponent>(uid);
+                    EnsureComp<ZombifyOnDeathComponent>(uid);
                 }
                 else
                 {
-                    if (!HasComp<ZombieImmuneComponent>(entity) && !HasComp<NonSpreaderZombieComponent>(args.User) && _random.Prob(GetZombieInfectionChance(entity, component)))
-                    {
-                        EnsureComp<PendingZombieComponent>(entity);
-                        EnsureComp<ZombifyOnDeathComponent>(entity);
-                    }
-                }
+                    if (HasComp<ZombieImmuneComponent>(uid) || cannotSpread)
+                        continue;
 
-                if (_mobState.IsIncapacitated(entity, mobState) && !HasComp<ZombieComponent>(entity) && !HasComp<ZombieImmuneComponent>(entity) && !HasComp<InitialInfectedComponent>(entity)) // Goobstation edit - prevent zombies from damaging IIs
-                {
-                    ZombifyEntity(entity);
-                    args.BonusDamage = -args.BaseDamage;
-                }
-                else if (mobState.CurrentState == MobState.Alive) //heals when zombies bite live entities
-                {
-                    _damageable.TryChangeDamage(uid, component.HealingOnBite, true, false);
+                    // If the target is dead and can be infected, infect.
+                    ZombifyEntity(uid);
+                    args.Handled = true;
                 }
             }
+        }
+
+        private void OverrideComp<T>(EntityUid target, EntityUid source) where T : IComponent // Goob, for below function
+        {
+            if (!TryComp(source, out T? toCopy))
+            {
+                RemComp<T>(target);
+                return;
+            }
+
+            CopyComp<T>(source, target, toCopy);
         }
 
         /// <summary>
@@ -394,14 +400,15 @@ namespace Content.Server.Zombies
                 appcomp.EyeColor = zombiecomp.BeforeZombifiedEyeColor;
             }
             _humanoidAppearance.SetSkinColor(target, zombiecomp.BeforeZombifiedSkinColor, false);
-            _bloodstream.ChangeBloodReagent(target, zombiecomp.BeforeZombifiedBloodReagent);
+            _bloodstream.ChangeBloodReagents(target, zombiecomp.BeforeZombifiedBloodReagents);
 
             return true;
         }
 
         private void OnZombieCloning(Entity<ZombieComponent> ent, ref CloningEvent args)
         {
-            UnZombify(ent.Owner, args.CloneUid, ent.Comp);
+            // Goob - trolled, just use cure
+            //UnZombify(ent.Owner, args.CloneUid, ent.Comp);
         }
 
         // Make sure players that enter a zombie (for example via a ghost role or the mind swap spell) count as an antagonist.
@@ -417,7 +424,37 @@ namespace Content.Server.Zombies
             _role.MindRemoveRole<ZombieRoleComponent>((args.Mind.Owner, args.Mind.Comp));
         }
 
-        #region Goob Language Changes
+        #region Goob Changes
+
+        /// <summary>
+        /// Tries to cure the entity of zombification by reverting its polymorph
+        /// </summary>
+        /// <param name="ent">Entity to cure.</param>
+        /// <param name="currentUid">Entity to use now, differs if succeeded.</param>
+        /// <returns></returns>
+        private bool TryCureZombie(Entity<ZombieComponent> ent, out EntityUid currentUid)
+        {
+            if (TryComp(ent, out PolymorphedEntityComponent? comp)
+                && _polymorph.Revert((ent, comp)) is { } uid)
+                currentUid = uid;
+            else
+                currentUid = ent.Owner;
+            return currentUid != ent.Owner;
+        }
+
+        private void OnUnZombifyEvent(Entity<ZombieComponent> ent, ref EntityUnZombifiedEvent args)
+        {
+            bool success = TryCureZombie(ent, out EntityUid currentUid);
+            _popup.PopupEntity(
+                Loc.GetString($"zombie-cure-{(success ? "success" : "failed")}"),
+                currentUid,
+                PopupType.Medium
+            );
+
+            // we want to make sure this is added to the reverted ent
+            if (args.Inoculate)
+                EnsureComp<ZombieImmuneComponent>(currentUid);
+        }
 
         /// <summary>
         ///     This forces the languages to reset and apply only the current language for the entity based on Zombie Component.

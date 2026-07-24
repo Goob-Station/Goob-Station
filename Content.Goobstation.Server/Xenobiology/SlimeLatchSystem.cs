@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.Xenobiology;
@@ -106,7 +100,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
 
         if (TryComp<BloodstreamComponent>(ent, out var bloodstream)
             && _solutionContainer.ResolveSolution(ent.Owner, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var blood)
-            && _solutionContainer.ResolveSolution(ent.Owner, bloodstream.ChemicalSolutionName, ref bloodstream.ChemicalSolution, out var chem))
+            && _solutionContainer.ResolveSolution(ent.Owner, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var chem))
         {
             FixedPoint2 bloodProportion = blood.Volume/(chem.Volume + blood.Volume);
             FixedPoint2 chemProportion = 1 - bloodProportion;

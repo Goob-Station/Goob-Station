@@ -1,0 +1,15 @@
+- type: constructionGraph
+  id: BrassOutClot
+  graph:
+    - node: start
+      edges:
+        - to: brassClot
+          steps:
+          - material: Brass
+            amount: 12
+            doAfter: 10
+          - material: Cloth
+            amount: 2
+            doAfter: 2
+    - node: brassClot
+      entity: ClothingOuterBrassArmor

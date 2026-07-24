@@ -1,13 +1,6 @@
-# SPDX-FileCopyrightText: 2024 Piras314 <92357316+Piras314@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 a_person <40855173+a-person5660@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 JoeHammad1844 <130668733+JoeHammad1844@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 JoeHammad1844 <finiansalas2@gmail.com>
-# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: latheRecipe # Goobstation - adding durathread armoured clothing
+- type: latheRecipe
   id: ClothingOuterVestWebDurathread
   result: ClothingOuterVestWebDurathread
   completetime: 30
@@ -16,7 +9,7 @@
     Durathread: 3000
     Plasteel: 1000
 
-- type: latheRecipe # Goobstation - adding durathread armoured clothing
+- type: latheRecipe
   id: ClothingOuterArmourDurathread
   result: ClothingOuterArmourDurathread
   completetime: 30
@@ -92,3 +85,8 @@
   parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpskirtReporterGoob
   result: ClothingUniformJumpskirtReporter
+
+- type: latheRecipe
+  parent: BaseHatRecipe
+  id: ClothingHeadHatUshanka
+  result: ClothingHeadHatUshanka

@@ -1,40 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Alice "Arimah" Heurlin <30327355+arimah@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 HS <81934438+HolySSSS@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 Truoizys <153248924+Truoizys@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-// SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
@@ -97,6 +60,9 @@ public abstract class SharedConveyorController : VirtualController
 
     private void OnConveyedFriction(Entity<ConveyedComponent> ent, ref TileFrictionEvent args)
     {
+        if(!ent.Comp.Conveying)
+            return;
+
         // Conveyed entities don't get friction, they just get wishdir applied so will inherently slowdown anyway.
         args.Modifier = 0f;
     }
@@ -179,7 +145,15 @@ public abstract class SharedConveyorController : VirtualController
                 continue;
 
             var physics = ent.Entity.Comp3;
+
+            if (physics.BodyStatus != BodyStatus.OnGround)
+            {
+                SetConveying(ent.Entity.Owner, ent.Entity.Comp1, false);
+                continue;
+            }
+
             var velocity = physics.LinearVelocity;
+            var angularVelocity = physics.AngularVelocity;
             var targetDir = ent.Direction;
 
             // If mob is moving with the conveyor then combine the directions.
@@ -202,6 +176,7 @@ public abstract class SharedConveyorController : VirtualController
                     // We provide a small minimum friction speed as well for those times where the friction would stop large objects
                     // snagged on corners from sliding into the centerline.
                     _mover.Friction(0.2f, frameTime: frameTime, friction: 5f, ref velocity);
+                    _mover.Friction(0f, frameTime: frameTime, friction: 5f, ref angularVelocity);
                 }
 
                 SharedMoverController.Accelerate(ref velocity, targetDir, 20f, frameTime);
@@ -211,8 +186,10 @@ public abstract class SharedConveyorController : VirtualController
                 // Need friction to outweigh the movement as it will bounce a bit against the wall.
                 // This facilitates being able to sleep entities colliding into walls.
                 _mover.Friction(0f, frameTime: frameTime, friction: 40f, ref velocity);
+                _mover.Friction(0f, frameTime: frameTime, friction: 40f, ref angularVelocity);
             }
 
+            PhysicsSystem.SetAngularVelocity(ent.Entity.Owner, angularVelocity);
             PhysicsSystem.SetLinearVelocity(ent.Entity.Owner, velocity, wakeBody: false);
 
             if (!IsConveyed((ent.Entity.Owner, ent.Entity.Comp2)))
@@ -255,7 +232,7 @@ public abstract class SharedConveyorController : VirtualController
             return true;
 
         if (physics.BodyStatus == BodyStatus.InAir ||
-            _gravity.IsWeightless(entity, physics, xform))
+            _gravity.IsWeightless(entity.Owner))
         {
             return true;
         }

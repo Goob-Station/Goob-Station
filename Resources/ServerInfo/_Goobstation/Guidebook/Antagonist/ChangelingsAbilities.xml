@@ -1,7 +1,4 @@
 <!--
-SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
-
 SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
@@ -271,6 +268,16 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   - Changeling gains invisibility.
   - Invisibility rapidly increases while motionless.
   - Invisibility instantly breaks on any motion.
+  - Can be used while cuffed.
+
+  ## Darkness Adaption
+  <Box>
+    [color=#999999][italic] 4 Evolution Points / 10 Chems [italic][/color]
+  </Box>
+  - While in the dark, you become very translucent and gain night vision.
+  - The translucency cannot be reduced even while moving, attacking or interacting.
+  - Both the translucency and night vision is lost when not shrouded in darkness, or while on fire.
+  - While active and adjusting to the dark, chem regen rate is decreased by 15%.
   - Can be used while cuffed.
 
   ## Adrenaline Reserves

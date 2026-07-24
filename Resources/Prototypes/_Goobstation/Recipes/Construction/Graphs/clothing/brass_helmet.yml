@@ -1,0 +1,12 @@
+- type: constructionGraph
+  id: BrassHelm
+  graph:
+    - node: start
+      edges:
+        - to: brassHelmet
+          steps:
+          - material: Brass
+            amount: 6
+            doAfter: 7
+    - node: brassHelmet
+      entity: ClothingHeadHatHelmetBrass

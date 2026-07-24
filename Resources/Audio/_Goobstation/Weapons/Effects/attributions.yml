@@ -1,12 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-# SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - files: ["guillotine.ogg"]
@@ -53,3 +44,8 @@
   license: "CC-BY-NC-4.0"
   copyright: "night_vision.wav by Syna-Max"
   source: "https://freesound.org/s/60345/"
+
+- files: ["whip.ogg"]
+  license: "CC0-1.0"
+  copyright: "Taken from freesound.org. Converted from m4a to ogg"
+  source: "https://freesound.org/people/SciFiSounds/sounds/529925/"

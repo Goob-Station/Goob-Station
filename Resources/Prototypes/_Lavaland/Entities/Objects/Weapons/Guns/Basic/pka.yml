@@ -1,25 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
-# SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
-# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-# SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
-# SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
@@ -44,51 +22,6 @@
     sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_shotgun.rsi
     shape:
     - 0,0,4,0
-  - type: ContainerContainer
-    containers:
-      bayonet: !type:ContainerSlot
-      flashlight: !type:ContainerSlot
-      upgrade_slot_1: !type:ContainerSlot
-      upgrade_slot_2: !type:ContainerSlot
-  - type: ItemSlots
-    slots:
-      bayonet:
-        name: weapon-upgrade-slot-name-bayonet
-        priority: 5
-        insertDelay: 2.0
-        ejectDelay: 1.2
-        ejectOnBreak: true
-        whitelist:
-          components:
-          - GunUpgradeBayonet
-      flashlight:
-        name: weapon-upgrade-slot-name-flashlight
-        priority: 4
-        insertDelay: 0.8
-        ejectDelay: 0.4
-        ejectOnBreak: true
-        occludesLight: false
-        whitelist:
-          components:
-          - GunUpgradeFlashlight
-      upgrade_slot_1:
-        name: weapon-upgrade-slot-name-first
-        swap: false # can't use the swap...
-        priority: 3
-        insertDelay: 1.2
-        ejectDelay: 0.9
-        whitelist:
-          tags:
-          - PKAUpgrade
-      upgrade_slot_2:
-        name: weapon-upgrade-slot-name-second
-        swap: false
-        priority: 2
-        insertDelay: 1.2
-        ejectDelay: 0.9
-        whitelist:
-          tags:
-          - PKAUpgrade
 
 - type: entity
   name: proto-kinetic repeater
@@ -104,12 +37,10 @@
     sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_repeater.rsi
   - type: Gun
     selectedMode: Burst
-    burstFireRate: 3
+    burstFireRate: 5
     burstCooldown: 1.5
     availableModes:
     - Burst
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
   - type: BasicEntityAmmoProvider
     proto: RapidBulletKinetic
     capacity: 3

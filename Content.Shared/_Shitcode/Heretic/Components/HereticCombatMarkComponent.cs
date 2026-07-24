@@ -1,12 +1,6 @@
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._Shitcode.Heretic.SpriteOverlay;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
@@ -14,7 +8,7 @@ using Robust.Shared.Utility;
 namespace Content.Shared.Heretic;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
-public sealed partial class HereticCombatMarkComponent : Component
+public sealed partial class HereticCombatMarkComponent : BaseSpriteOverlayComponent
 {
     [DataField, AutoNetworkedField]
     public string Path = "Blade";
@@ -34,7 +28,10 @@ public sealed partial class HereticCombatMarkComponent : Component
     public SoundSpecifier? TriggerSound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/repulse.ogg");
 
     [DataField]
-    public ResPath ResPath = new("_Goobstation/Heretic/combat_marks.rsi");
+    public override SpriteSpecifier? Sprite { get; set; } =
+        new SpriteSpecifier.Rsi(new("_Goobstation/Heretic/combat_marks.rsi"), "blade");
+
+    public override Enum Key { get; set; } = HereticCombatMarkKey.Key;
 }
 
 public enum HereticCombatMarkKey : byte

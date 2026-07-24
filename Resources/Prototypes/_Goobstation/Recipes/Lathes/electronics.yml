@@ -1,12 +1,3 @@
-# SPDX-FileCopyrightText: 2024 NULL882 <gost6865@yandex.ru>
-# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2025 holorain <scratchysenior@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: latheRecipe
@@ -104,9 +95,17 @@
 
 - type: latheRecipe
   parent: [ BaseGoldCircuitboardRecipe, BaseResearchMachineRecipeCategory ]
-  icon: { sprite: Structures/Machines/Medical/biomass_reclaimer.rsi, state: icon } # Todo - Change this sprite.
+  icon:
+    sprite: _Goobstation/Xenobiology/Specific/Xenobiology/slime_processor.rsi
+    state: processor
   id: SlimeGrinderMachineCircuitboard
   result: SlimeGrinderMachineCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseResearchComputerRecipeCategory ]
+  icon: _Goobstation/Structures/Machines/Icons/Computers/xenobiology.png
+  id: XenobiologyBountyComputerCircuitboard
+  result: XenobiologyBountyComputerCircuitboard
 
 - type: latheRecipe
   parent: BaseGoldCircuitboardRecipe

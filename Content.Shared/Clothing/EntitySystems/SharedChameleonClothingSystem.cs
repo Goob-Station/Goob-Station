@@ -1,31 +1,18 @@
-// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Rainfall <rainfey0+git@gmail.com>
-// SPDX-FileCopyrightText: 2023 Rainfey <11758391+Rainfey@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tornado Tech <54727692+Tornado-Technology@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Access.Components;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Contraband;
+using Content.Shared.Emp;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Item;
+using Content.Shared.Lock;
 using Content.Shared.Tag;
 using Content.Shared.Verbs;
+using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using System.Linq;
@@ -41,7 +28,11 @@ public abstract class SharedChameleonClothingSystem : EntitySystem
     [Dependency] private readonly SharedItemSystem _itemSystem = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] protected readonly IGameTiming _timing = default!;
+    [Dependency] protected readonly IGameTiming Timing = default!;
+    [Dependency] private readonly LockSystem _lock = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] protected readonly SharedUserInterfaceSystem UI = default!;
+    [Dependency] private readonly INetManager _net = default!;
 
     private static readonly SlotFlags[] IgnoredSlots =
     {
@@ -49,12 +40,12 @@ public abstract class SharedChameleonClothingSystem : EntitySystem
         SlotFlags.PREVENTEQUIP,
         SlotFlags.NONE
     };
+
     private static readonly SlotFlags[] Slots = Enum.GetValues<SlotFlags>().Except(IgnoredSlots).ToArray();
 
     private readonly Dictionary<SlotFlags, List<EntProtoId>> _data = new();
 
     public readonly Dictionary<SlotFlags, List<string>> ValidVariants = new();
-    [Dependency] protected readonly SharedUserInterfaceSystem UI = default!;
 
     private static readonly ProtoId<TagPrototype> WhitelistChameleonTag = "WhitelistChameleon";
 
@@ -64,6 +55,7 @@ public abstract class SharedChameleonClothingSystem : EntitySystem
         SubscribeLocalEvent<ChameleonClothingComponent, GotEquippedEvent>(OnGotEquipped);
         SubscribeLocalEvent<ChameleonClothingComponent, GotUnequippedEvent>(OnGotUnequipped);
         SubscribeLocalEvent<ChameleonClothingComponent, GetVerbsEvent<InteractionVerb>>(OnVerb);
+        SubscribeLocalEvent<ChameleonClothingComponent, EmpPulseEvent>(OnEmpPulse);
 
         SubscribeLocalEvent<ChameleonClothingComponent, PrototypesReloadedEventArgs>(OnPrototypeReload);
         PrepareAllVariants();
@@ -91,7 +83,7 @@ public abstract class SharedChameleonClothingSystem : EntitySystem
     protected void UpdateVisuals(EntityUid uid, ChameleonClothingComponent component)
     {
         if (string.IsNullOrEmpty(component.Default) ||
-            !_proto.TryIndex(component.Default, out EntityPrototype? proto))
+            !_proto.Resolve(component.Default, out EntityPrototype? proto))
             return;
 
         // world sprite icon
@@ -114,21 +106,21 @@ public abstract class SharedChameleonClothingSystem : EntitySystem
 
         // clothing sprite logic
         if (TryComp(uid, out ClothingComponent? clothing) &&
-            proto.TryGetComponent("Clothing", out ClothingComponent? otherClothing))
+            proto.TryGetComponent(out ClothingComponent? otherClothing, Factory))
         {
             _clothingSystem.CopyVisuals(uid, otherClothing, clothing);
         }
 
         // appearance data logic
         if (TryComp(uid, out AppearanceComponent? appearance) &&
-            proto.TryGetComponent("Appearance", out AppearanceComponent? appearanceOther))
+            proto.TryGetComponent(out AppearanceComponent? appearanceOther, Factory))
         {
             _appearance.AppendData(appearanceOther, uid);
             Dirty(uid, appearance);
         }
 
         // properly mark contraband
-        if (proto.TryGetComponent("Contraband", out ContrabandComponent? contra))
+        if (proto.TryGetComponent(out ContrabandComponent? contra, Factory))
         {
             EnsureComp<ContrabandComponent>(uid, out var current);
             _contraband.CopyDetails(uid, contra, current);
@@ -141,7 +133,7 @@ public abstract class SharedChameleonClothingSystem : EntitySystem
 
     private void OnVerb(Entity<ChameleonClothingComponent> ent, ref GetVerbsEvent<InteractionVerb> args)
     {
-        if (!args.CanAccess || !args.CanInteract || ent.Comp.User != args.User)
+        if (!args.CanAccess || !args.CanInteract || _lock.IsLocked(ent.Owner))
             return;
 
         // Can't pass args from a ref event inside of lambdas
@@ -153,6 +145,24 @@ public abstract class SharedChameleonClothingSystem : EntitySystem
             Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/settings.svg.192dpi.png")),
             Act = () => UI.TryToggleUi(ent.Owner, ChameleonUiKey.Key, user)
         });
+    }
+
+    private void OnEmpPulse(EntityUid uid, ChameleonClothingComponent component, ref EmpPulseEvent args)
+    {
+        if (!component.AffectedByEmp)
+            return;
+
+        if (component.EmpContinuous)
+            component.NextEmpChange = Timing.CurTime + TimeSpan.FromSeconds(1f / component.EmpChangeIntensity);
+
+        if (_net.IsServer) // needs RandomPredicted
+        {
+            var pick = GetRandomValidPrototype(component.Slot, component.RequireTag);
+            SetSelectedPrototype(uid, pick, component: component);
+        }
+
+        args.Affected = true;
+        args.Disabled = true;
     }
 
     protected virtual void UpdateSprite(EntityUid uid, EntityPrototype proto) { }
@@ -174,7 +184,7 @@ public abstract class SharedChameleonClothingSystem : EntitySystem
             return false;
 
         // check if it's valid clothing
-        if (!proto.TryGetComponent("Clothing", out ClothingComponent? clothing))
+        if (!proto.TryGetComponent(out ClothingComponent? clothing, Factory))
             return false;
         if (!clothing.Slots.HasFlag(chameleonSlot))
             return false;
@@ -202,6 +212,14 @@ public abstract class SharedChameleonClothingSystem : EntitySystem
         }
 
         return validTargets;
+    }
+
+    /// <summary>
+    ///     Get a random prototype for a given slot.
+    /// </summary>
+    public string GetRandomValidPrototype(SlotFlags slot, string? tag = null)
+    {
+        return _random.Pick(GetValidTargets(slot, tag).ToList());
     }
 
     protected void PrepareAllVariants()
@@ -232,4 +250,9 @@ public abstract class SharedChameleonClothingSystem : EntitySystem
             }
         }
     }
+
+    // TODO: Predict and use component states for the UI
+    public virtual void SetSelectedPrototype(EntityUid uid, string? protoId, bool forceUpdate = false,
+        ChameleonClothingComponent? component = null)
+    { }
 }
