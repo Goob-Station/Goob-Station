@@ -463,7 +463,7 @@
   storage:
     back:
     - FoodSnackLollypopWrappedCarp
-  groupBy: "candy" # Goobstation
+  groupBy: "candy" # GoobStation
 
 # End GoobStation
 
