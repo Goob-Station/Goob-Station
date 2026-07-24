@@ -129,7 +129,7 @@
   storage:
     back:
     - PlushieLizard
-  groupBy: "plushies" # Goobstation
+  groupBy: "plushies" # GoobStation
 
 - type: loadout
   id: PlushieSpaceLizard
