@@ -136,7 +136,7 @@
   storage:
     back:
     - PlushieSpaceLizard
-  groupBy: "plushies" # Goobstation
+  groupBy: "plushies" # GoobStation
 
 - type: loadout
   id: ThreeCandles
