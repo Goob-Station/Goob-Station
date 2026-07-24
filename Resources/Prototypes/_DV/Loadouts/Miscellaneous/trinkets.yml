@@ -17,7 +17,7 @@
   storage:
     back:
     - SilverRing
-  groupBy: "ring"
+  groupBy: "ring"  # GoobStation
 
 - type: loadout
   id: WhiteCane
