@@ -45,7 +45,7 @@
     # Goobstation - Grindable cigarette start
   - type: Extractable
     grindableSolutionName: smokable
-    # Grindable cigarette end
+    # Goobstation - Grindable cigarette end
 
 - type: entity
   parent: BaseSmokable
