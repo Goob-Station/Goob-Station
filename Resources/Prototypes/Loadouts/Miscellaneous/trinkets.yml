@@ -438,7 +438,7 @@
   storage:
     back:
     - FoodSnackLollypopWrapped
-  groupBy: "candy" # Goobstation
+  groupBy: "candy" # GoobStation
 
 - type: loadout
   id: FoodSnackLollypopWrappedRainbow
