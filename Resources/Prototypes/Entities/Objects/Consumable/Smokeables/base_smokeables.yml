@@ -42,7 +42,7 @@
         reagents:
           - ReagentId: Nicotine
             Quantity: 15
-    # Grindable cigarette start
+    # Goobstation - Grindable cigarette start
   - type: Extractable
     grindableSolutionName: smokable
     # Grindable cigarette end
