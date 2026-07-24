@@ -275,12 +275,3 @@
     guides:
     - Botany
     - Chemicals
-
-- type: entity
-  parent: BaseFlatpack
-  id: MaterialSiloFlatpack
-  name: material silo flatpack
-  description: A flatpack used for constructing a material silo.
-  components:
-  - type: Flatpack
-    entity: MachineMaterialSilo
