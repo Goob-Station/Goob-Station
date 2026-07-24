@@ -95,7 +95,7 @@
             Quantity: 5
   - type: Extractable
     grindableSolutionName: grinded  # A different solution to prevent Syndis getting 300 Omni for only 5 TC
-    # Grindable cigarette end
+    # Goobstation - Grindable cigarette end
 
 - type: entity
   id: CigaretteOmnizine
