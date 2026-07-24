@@ -1,10 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
 using System.Numerics;
-using Content.Goobstation.Common.CCVar;
-using Content.Goobstation.Common.Projectiles; // Goobstation
-using Content.Shared.Atmos.Components;
+using Content.Goobstation.Common.Projectiles;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Cargo.Systems;
 using Content.Server.Weapons.Ranged.Components;
@@ -20,21 +17,19 @@ using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Weapons.Hitscan.Components;
 using Content.Shared.Weapons.Hitscan.Events;
 using Robust.Shared.Audio;
-using Robust.Shared.Configuration; // Goobstation
 using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Robust.Shared.Containers;
-using Content.Shared._Lavaland.Weapons.Ranged.Events; // Lavaland Change
-using Robust.Server.GameObjects; // Goobstation
+using Content.Shared._Lavaland.Weapons.Ranged.Events;
+using Robust.Server.GameObjects;
 using Content.Goobstation.Common.Weapons.Ranged;
 using Content.Shared._Shitmed.Targeting;
-using Content.Shared.Atmos.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Effects;
 using Content.Shared.PowerCell;
-using Robust.Shared.Random; // Lavaland Change
+using Robust.Shared.Random;
 
 namespace Content.Server.Weapons.Ranged.Systems;
 
@@ -51,16 +46,13 @@ public sealed partial class GunSystem : SharedGunSystem
     [Dependency] private readonly FlammableSystem _flammable = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
 
     private const float DamagePitchVariation = 0.05f;
-    private float _crawlHitzoneSize; // Goobstation
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<BallisticAmmoProviderComponent, PriceCalculationEvent>(OnBallisticPrice);
-        _cfg.OnValueChanged(GoobCVars.CrawlHitzoneSize, value => _crawlHitzoneSize = value, true); // Goobstation
     }
 
     private void OnBallisticPrice(Entity<BallisticAmmoProviderComponent> ent, ref PriceCalculationEvent args)
