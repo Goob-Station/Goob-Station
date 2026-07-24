@@ -1555,7 +1555,7 @@
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
   - type: RoboticsConsole
-  # allowBorgControl: false #Goobstation - Allow AI to destroy cyborg
+  allowBorgControl: true #Goobstation - Allow AI to destroy cyborg
   - type: ActiveRadio
     channels:
     - Science
