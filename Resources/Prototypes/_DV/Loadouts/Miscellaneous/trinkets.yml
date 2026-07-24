@@ -10,7 +10,7 @@
   storage:
     back:
     - GoldRing
-  groupBy: "ring"
+  groupBy: "ring" # GoobStation
 
 - type: loadout
   id: SilverRing
