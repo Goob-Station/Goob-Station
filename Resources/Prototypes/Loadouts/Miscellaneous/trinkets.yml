@@ -121,7 +121,7 @@
   storage:
     back:
     - ClothingMultipleHeadphones
-  groupBy: "hats" # Goobstation
+  groupBy: "hats" # GoobStation
 
 # Toys
 - type: loadout
