@@ -424,7 +424,7 @@
   storage:
     back:
     - CardBoxNanotrasen
-  groupBy: "cards" # Goobstation
+  groupBy: "cards" # GoobStation
 
 # Candy!
 
