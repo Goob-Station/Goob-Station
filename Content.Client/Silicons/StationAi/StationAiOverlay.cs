@@ -2,14 +2,14 @@
 
 using System.Numerics;
 using Content.Client.Graphics;
-using Content.Shared.Power.EntitySystems; // goobstation - AI
+using Content.Shared.Power.EntitySystems;
 using Content.Shared.Silicons.StationAi;
-using Content.Shared.Wall; // goobstation - AI machine view
-using Robust.Client.GameObjects; // goobstation - AI machine view
+using Content.Shared.Wall;
+using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
-using Robust.Shared.Map; // goobstation - AI machine view
+using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
