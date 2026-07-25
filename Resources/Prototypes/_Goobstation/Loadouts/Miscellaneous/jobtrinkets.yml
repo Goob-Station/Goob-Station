@@ -45,3 +45,9 @@
   storage:
     back:
     - PlushieLizardJobBlueshieldOfficer
+
+- type: loadout
+  id: LizardPlushieCC
+  storage:
+    back:
+    - PlushieLizardJobCentCommOfficial
