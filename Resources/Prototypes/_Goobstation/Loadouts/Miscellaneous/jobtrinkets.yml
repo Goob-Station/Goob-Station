@@ -20,7 +20,7 @@
       time: 72000 # 20hr
   storage:
     back:
-    - PlushieLizardJobShaftminer
+    - PlushieLizardJobShaftMiner
 
 - type: loadout
   id: LizardPlushieNTR
