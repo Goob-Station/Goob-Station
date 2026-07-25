@@ -1203,4 +1203,5 @@
     sprite: _Goobstation/Objects/Fun/toys.rsi
     equippedPrefix: plushieredstonewolf
     slots:
+    - HEAD
     - NECK

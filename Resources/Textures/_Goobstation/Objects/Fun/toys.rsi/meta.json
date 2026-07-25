@@ -211,6 +211,10 @@
             "name": "plushie_redstonewolf"
         },
         {
+            "name": "plushieredstonewolf-equipped-HELMET",
+            "directions": 4
+        },
+        {
             "name": "plushieredstonewolf-equipped-NECK",
             "directions": 4
         },
