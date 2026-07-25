@@ -23997,3 +23997,9 @@ Entries:
       message: adds material silo flatpacks to CMO, CE, and HoS lockers.
   id: 2760
   time: '2026-07-24T10:40:56.0000000+00:00'
+- author: bobbble
+  changes:
+    - type: Add
+      message: More suit and hardsuit sprites for hydrakin!
+  id: 2761
+  time: '2026-07-24T16:03:10.0000000+00:00'
