@@ -6,7 +6,7 @@
   description: An adorable stuffed toy that resembles a lizardperson as a blueshield officer. One smack from this plushie is sure to ward off any evildoers.
   components:
   - type: Sprite
-    sprite: /_Goobstation/Objects/Fun/plushielizard_jobs.rsi
+    sprite: _Goobstation/Objects/Fun/plushielizard_jobs.rsi
     state: bso
 
 - type: entity
@@ -16,7 +16,7 @@
   description: An adorable stuffed toy that resembles a lizardperson as a nanotrasen representative. It seems to always be judgemental of you.
   components:
   - type: Sprite
-    sprite: /_Goobstation/Objects/Fun/plushielizard_jobs.rsi
+    sprite: _Goobstation/Objects/Fun/plushielizard_jobs.rsi
     state: ntr
 
 - type: entity
@@ -26,7 +26,7 @@
   description: An adorable stuffed toy that resembles a lizardperson as a botanist.
   components:
   - type: Sprite
-    sprite: /_Goobstation/Objects/Fun/plushielizard_jobs.rsi
+    sprite: _Goobstation/Objects/Fun/plushielizard_jobs.rsi
     state: shaftminer
 
 - type: entity
@@ -36,7 +36,7 @@
   description: An adorable stuffed toy that resembles a lizardperson as a brigmedic. Smells faintly of gunpowder and atropine.
   components:
   - type: Sprite
-    sprite: /_Goobstation/Objects/Fun/plushielizard_jobs.rsi
+    sprite: _Goobstation/Objects/Fun/plushielizard_jobs.rsi
     state: brigmedic
 
 - type: entity
@@ -46,5 +46,5 @@
   description: An adorable stuffed toy that resembles a lizardperson as a centcomm officer. Wears its hat with pride. I think.
   components:
   - type: Sprite
-    sprite: /_Goobstation/Objects/Fun/plushielizard_jobs.rsi
+    sprite: _Goobstation/Objects/Fun/plushielizard_jobs.rsi
     state: centcom
