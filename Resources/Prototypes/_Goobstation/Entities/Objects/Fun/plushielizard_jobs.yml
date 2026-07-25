@@ -23,7 +23,7 @@
   parent: BasePlushieLizardJob
   id: PlushieLizardJobShaftMiner
   name: shaft miner lizard plushie
-  description: An adorable stuffed toy that resembles a lizardperson as a botanist.
+  description: An adorable stuffed toy that resembles a lizardperson as a shaft miner. Smells faintly of ash. Many parts have been mended back after being set on fire.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/plushielizard_jobs.rsi
@@ -43,7 +43,7 @@
   parent: BasePlushieLizardJob
   id: PlushieLizardJobCentCommOfficial
   name: centcomm official lizard plushie
-  description: An adorable stuffed toy that resembles a lizardperson as a centcomm officer. Wears its hat with pride. I think.
+  description: An adorable stuffed toy that resembles a lizardperson as a centcomm officer. Wears its hat with pride. Or whatever emotion plushies feel.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/plushielizard_jobs.rsi
