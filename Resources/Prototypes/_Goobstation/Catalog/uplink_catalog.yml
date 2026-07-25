@@ -1890,7 +1890,7 @@
   description: uplink-cddisknumber-desc
   productEntity: JVNECdDiskNumber
   cost:
-    Telecrystal: 15 # revels you're a syndicate agent, 30 tc is WAY too much.
+    Telecrystal: 15 # reveals you're a syndicate agent, 30 tc is WAY too much.
   categories:
   - UplinkJob
   conditions:
