@@ -991,91 +991,6 @@
       path: /Audio/Effects/adminhelp.ogg
 
 - type: entity
-  name: evil Xeve plush
-  parent: PlushieXeve
-  id: EvilPlushieXeve
-  suffix: Evil
-
-- type: entity
-  name: evil Boggle plush
-  parent: PlushieBoggle
-  id: EvilPlushieBoggle
-  suffix: Evil
-
-- type: entity
-  name: evil Brizby plush
-  parent: PlushieBrizby
-  id: EvilPlushieBrizby
-  suffix: Evil
-
-- type: entity
-  name: evil Nigel plush
-  parent: PlushieNigel
-  id: EvilPlushieNigel
-  suffix: Evil
-
-- type: entity
-  name: evil Fern plush
-  parent: PlushieFern
-  id: EvilPlushieFern
-  suffix: Evil
-
-- type: entity
-  name: evil Jvne plush
-  parent: PlushieJvne
-  id: EvilPlushieJvne
-  suffix: Evil
-
-- type: entity
-  name: evil Mnwaar plush
-  parent: PlushieMnwaar
-  id: EvilPlushieMnwaar
-  suffix: Evil
-
-- type: entity
-  name: evil Durk plush
-  parent: PlushieDurk
-  id: EvilPlushieDurk
-  suffix: Evil
-
-- type: entity
-  name: evil Louie plush
-  parent: PlushieLouie
-  id: EvilPlushieLouie
-  suffix: Evil
-
-- type: entity
-  name: evil Grug plush
-  parent: PlushieWachtel
-  id: EvilPlushieWachtel
-  suffix: Evil
-
-- type: entity
-  name: evil Leguia plush
-  parent: PlushieLeguia
-  id: EvilPlushieLeguia
-  suffix: Evil
-
-- type: entity
-  name: evil Pasha plush
-  parent: PlushiePasha
-  id: EvilPlushiePasha
-  suffix: Evil
-
-- type: entity
-  name: Evil TwoFish
-  parent: PlushieTwofish
-  id: EvilPlushieTwofish
-  suffix: Evil
-
-- type: entity
-  name: evil Leo Malone plush
-  parent: PlushieLeoMalone
-  id: EvilPlushieLeoMalone
-  suffix: Evil
-
-
-- type: entity
   parent: BaseItem
   id: ToyBladeEldritch
   name: toy blade
@@ -1205,3 +1120,95 @@
     slots:
     - HEAD
     - NECK
+
+# Plushies, but EVIL!!!
+
+- type: entity
+  name: evil Xeve plush
+  parent: PlushieXeve
+  id: EvilPlushieXeve
+  suffix: Evil
+
+- type: entity
+  name: evil Boggle plush
+  parent: PlushieBoggle
+  id: EvilPlushieBoggle
+  suffix: Evil
+
+- type: entity
+  name: evil Brizby plush
+  parent: PlushieBrizby
+  id: EvilPlushieBrizby
+  suffix: Evil
+
+- type: entity
+  name: evil Nigel plush
+  parent: PlushieNigel
+  id: EvilPlushieNigel
+  suffix: Evil
+
+- type: entity
+  name: evil Fern plush
+  parent: PlushieFern
+  id: EvilPlushieFern
+  suffix: Evil
+
+- type: entity
+  name: evil Jvne plush
+  parent: PlushieJvne
+  id: EvilPlushieJvne
+  suffix: Evil
+
+- type: entity
+  name: evil Mnwaar plush
+  parent: PlushieMnwaar
+  id: EvilPlushieMnwaar
+  suffix: Evil
+
+- type: entity
+  name: evil Durk plush
+  parent: PlushieDurk
+  id: EvilPlushieDurk
+  suffix: Evil
+
+- type: entity
+  name: evil Louie plush
+  parent: PlushieLouie
+  id: EvilPlushieLouie
+  suffix: Evil
+
+- type: entity
+  name: evil Grug plush
+  parent: PlushieWachtel
+  id: EvilPlushieWachtel
+  suffix: Evil
+
+- type: entity
+  name: evil Leguia plush
+  parent: PlushieLeguia
+  id: EvilPlushieLeguia
+  suffix: Evil
+
+- type: entity
+  name: evil Pasha plush
+  parent: PlushiePasha
+  id: EvilPlushiePasha
+  suffix: Evil
+
+- type: entity
+  name: Evil TwoFish
+  parent: PlushieTwofish
+  id: EvilPlushieTwofish
+  suffix: Evil
+
+- type: entity
+  name: evil Leo Malone plush
+  parent: PlushieLeoMalone
+  id: EvilPlushieLeoMalone
+  suffix: Evil
+
+- type: entity
+  name: evil Irene plush
+  parent: PlushieRedstonewolf
+  id: EvilPlushieRedstonewolf
+  suffix: Evil
