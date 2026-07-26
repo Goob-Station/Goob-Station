@@ -393,4 +393,4 @@
     - !type:HealthChange
       damage:
         types:
-          Cold: 12.5
+          Cold: 15
