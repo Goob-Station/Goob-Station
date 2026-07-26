@@ -4,7 +4,7 @@
   name: survival medipen
   parent: ChemicalMedipen
   id: SurvivalMedipen
-  description: A cocktail of powerful healing chemicals. Contains Leporazine, and Miner's Salve. Slowly heals damage and stabilizes body temperature. You can overdose on these if you use more than one in quick succession.
+  description: A cocktail of powerful healing chemicals. Slowly heals damage and stabilizes body temperature. You can overdose on these if you use more than one in quick succession.
   components:
   - type: Sprite
     sprite: /Textures/_Lavaland/Objects/Specific/Medical/medipen.rsi
@@ -16,13 +16,6 @@
     maxFillLevels: 1
     changeColor: false
     emptySpriteName: survivalpen_empty
-  #- type: Injector
-  #  solutionName: hypospray
-  #  ignoreClosed: false
-  #  activeModeProtoId: HyposprayDynamicMode
-  #  allowedModes:
-  #  - HyposprayDynamicMode
-  #  - HyposprayInjectMode - Goob fix
   - type: SolutionContainerManager
     solutions:
       pen:
@@ -40,7 +33,7 @@
   name: luxury medipen
   parent: ChemicalMedipen
   id: LuxuryMedipen
-  description: Cutting edge bluespace technology allowed Nanotrasen to compact 180u of volume into a single medipen. Contains rare and powerful chemicals used to aid in exploration of harsh environments. Chemicals relatively harmful and not as effective when used outside of low pressure.
+  description: Contains powerful chemicals used to aid in exploration of harsh environments. Chemicals relatively harmful and not as effective when used outside of low pressure.
   components:
   - type: Sprite
     sprite: /Textures/_Lavaland/Objects/Specific/Medical/luxmedipen.rsi
@@ -52,18 +45,6 @@
     maxFillLevels: 1
     changeColor: false
     emptySpriteName: luxpen_empty
-  - type: Hypospray
-    solutionName: pen
-    transferAmount: 50
-    onlyAffectsMobs: false
-    injectOnly: true
-  #- type: Injector
-  #  solutionName: hypospray
-  #  ignoreClosed: false
-  #  activeModeProtoId: HyposprayDynamicMode
-  #  allowedModes:
-  #  - HyposprayDynamicMode
-  #  - HyposprayInjectMode - Goob fix
   - type: SolutionContainerManager
     solutions:
       pen:
