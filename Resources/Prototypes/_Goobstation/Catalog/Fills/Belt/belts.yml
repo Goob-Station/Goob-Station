@@ -262,17 +262,18 @@
       amount: 2
 
 - type: entity
-  id: ClothingBeltUtilityAtmos
+  id: ClothingBeltAtmosFilled
   parent: ClothingAtmosBelt
   suffix: Filled
   components:
   - type: StorageFill
     contents:
-        - id: CrowbarYellow
-        - id: Wrench
-        - id: Screwdriver
-        - id: Wirecutter
-        - id: Welder
-        - id: Multitool
-        - id: RPD
-        - id: HolofanProjector
+    - id: CrowbarYellow
+    - id: Wrench
+    - id: Screwdriver
+    - id: Wirecutter
+    - id: Welder
+    - id: RPD
+    - id: HolofanProjector
+    - id: GasAnalyzer
+    - id: NetworkConfigurator
