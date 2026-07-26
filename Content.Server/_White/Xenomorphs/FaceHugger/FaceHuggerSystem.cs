@@ -66,7 +66,7 @@ public sealed class FaceHuggerSystem : EntitySystem
         SubscribeLocalEvent<FaceHuggerComponent, BeingUnequippedAttemptEvent>(OnBeingUnequippedAttempt);
 
         // Goobstation - Throwing behavior
-        SubscribeLocalEvent<ThrowableFacehuggerComponent, ThrownEvent>(OnThrown);
+        SubscribeLocalEvent<ThrowableFacehuggerComponent, ThrowEvent>(OnThrown);
         SubscribeLocalEvent<ThrowableFacehuggerComponent, ThrowDoHitEvent>(OnThrowDoHit);
     }
 
@@ -94,7 +94,7 @@ public sealed class FaceHuggerSystem : EntitySystem
     {
         if (args.Slot != component.Slot
             || _mobState.IsDead(uid)
-            || _entityWhitelist.IsBlacklistPass(component.Blacklist, args.Equipee))
+            || _entityWhitelist.IsWhitelistPass(component.Blacklist, args.Equipee))
             return;
         _popup.PopupEntity(Loc.GetString("xenomorphs-face-hugger-equip", ("equipment", uid)), uid, args.Equipee);
         _popup.PopupEntity(
@@ -218,7 +218,7 @@ public sealed class FaceHuggerSystem : EntitySystem
 
     public bool TryEquipFaceHugger(EntityUid uid, EntityUid target, FaceHuggerComponent component)
     {
-        if (!component.Active || _mobState.IsDead(uid) || _entityWhitelist.IsBlacklistPass(component.Blacklist, target))
+        if (!component.Active || _mobState.IsDead(uid) || _entityWhitelist.IsWhitelistPass(component.Blacklist, target))
             return false;
 
         // Check for any blocking masks or equipment
@@ -302,7 +302,7 @@ public sealed class FaceHuggerSystem : EntitySystem
 
         // Check if target already has the sleep chemical
         if (TryComp<BloodstreamComponent>(target, out var bloodstream) &&
-            _solutions.ResolveSolution(target, bloodstream.ChemicalSolutionName, ref bloodstream.ChemicalSolution, out var chemSolution) &&
+            _solutions.ResolveSolution(target, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var chemSolution) &&
             chemSolution.TryGetReagentQuantity(new ReagentId(component.SleepChem, null), out var quantity) &&
             quantity > FixedPoint2.New(component.MinChemicalThreshold))
         {
@@ -329,7 +329,7 @@ public sealed class FaceHuggerSystem : EntitySystem
         if (!TryComp<BloodstreamComponent>(target, out var bloodstream))
             return false;
 
-        if (!_solutions.TryGetSolution(target, bloodstream.ChemicalSolutionName, out var chemSolution, out _))
+        if (!_solutions.TryGetSolution(target, bloodstream.BloodSolutionName, out var chemSolution, out _))
             return false;
 
         if (!_solutions.TryAddSolution(chemSolution.Value, solution))
@@ -397,7 +397,7 @@ public sealed class FaceHuggerSystem : EntitySystem
     /// Marks the facehugger as being in flight to track its state.
     /// Goobstation
     /// </summary>
-    private void OnThrown(EntityUid uid, ThrowableFacehuggerComponent component, ThrownEvent args)
+    private void OnThrown(EntityUid uid, ThrowableFacehuggerComponent component, ThrowEvent args)
     {
         // Mark the facehugger as flying to track its airborne state
         component.IsFlying = true;

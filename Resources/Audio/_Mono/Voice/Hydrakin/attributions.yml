@@ -1,0 +1,29 @@
+- files:
+  - hydrakin-ask-1.ogg
+  - hydrakin-cough-1.ogg
+  - hydrakin-cry-1.ogg
+  - hydrakin-deathgasp-1.ogg
+  - hydrakin-exclaim-1.ogg
+  - hydrakin-exclaim-2.ogg
+  - hydrakin-flap1.ogg
+  - hydrakin-flap2.ogg
+  - hydrakin-gasp-1.ogg
+  - hydrakin-gasp-2.ogg
+  - hydrakin-gasp-3.ogg
+  - hydrakin-say-1.ogg
+  - hydrakin-say-2.ogg
+  - hydrakin-scream-1.ogg
+  - hydrakin-scream-2.ogg
+  - hydrakin-scream-3.ogg
+  - hydrakin-scream-4.ogg
+  - hydrakin-sigh-1.ogg
+  - hydrakin-sigh-2.ogg
+  - hydrakin-sigh-3.ogg
+  - hydrakin-trill-1.ogg
+  - hydrakin-whistle-1.ogg
+  - hydrakin-wurble-1.ogg
+  - hydrakin-yawn-1.ogg
+  license: "CC0-1.0"
+  copyright: "made by bitcrushing"
+  source: "https://github.com/Monolith-Station/Monolith"
+

@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Body.Systems;
@@ -71,4 +63,16 @@ public sealed partial class ThermalRegulatorComponent : Component
     /// </summary>
     [DataField]
     public float ThermalRegulationTemperatureThreshold;
+
+    /// <summary>
+    /// Process regulation while they're dead if there is a MobStateComponent? - Mono Hydrakin
+    /// </summary>
+    [DataField]
+    public bool ProcessWhileDead = false;
+
+    /// <summary>
+    /// Process regulation in critical condition if there is a MobStateComponent? - Mono Hydrakin
+    /// </summary>
+    [DataField]
+    public bool ProcessWhileCrit = true;
 }

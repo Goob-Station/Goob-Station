@@ -1,140 +1,102 @@
-# SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 wrexbe <81056464+wrexbe@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 BubblegumBlue <63939723+BubblegumBlue@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 ElectroJr <leonsfriedrich@gmail.com>
-# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Starm4ncer <63939723+Starm4ncer@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 T-Stalker <le0nel_1van@hotmail.com>
-# SPDX-FileCopyrightText: 2022 TaralGit <76408146+TaralGit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 ZeroDayDaemon <60460608+ZeroDayDaemon@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 and_a <and_a@DESKTOP-RJENGIR>
-# SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
-# SPDX-FileCopyrightText: 2022 ninruB <38016303+asperger-sind@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 wrexbe <wrexbe@protonmail.com>
-# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Jackal298 <129199891+Jackal298@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 PixelTK <85175107+PixelTheKermit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2024 CMDR-Piboy314 <92357316+CMDR-Piboy314@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <92357316+Piras314@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
+  parent: CrateGenericSteel
   id: CrateSalvageEquipment
   name: "salvage equipment crate"
-  description: For the daring.
   suffix: Filled
-  parent: CrateGenericSteel
+  description: For the daring.
   components:
-  - type: StorageFill
-    contents:
-      - id: ClothingOuterHardsuitSalvage
-      - id: ClothingMaskBreath
-      - id: OxygenTankFilled
-      - id: FireExtinguisher
-      - id: ClothingShoesBootsMag
-      - id: HandheldGPSBasic # - Mass Scanner Removed by Lavaland
-      - id: Pickaxe
-      - id: Welder
-      - id: Wrench
-      - id: Screwdriver
-      - id: Crowbar
-      - id: Wirecutter
-      - id: ClothingBeltUtility
-      - id: OreBag
-      - id: ClothingBeltSalvageWebbing
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ClothingOuterHardsuitSalvage
+        - id: ClothingMaskBreath
+        - id: OxygenTankFilled
+        - id: FireExtinguisher
+        - id: ClothingShoesBootsMag
+        - id: HandheldGPSBasic # - Mass Scanner Removed by Lavaland
+        - id: Pickaxe
+        - id: Welder
+        - id: Wrench
+        - id: Screwdriver
+        - id: Crowbar
+        - id: Wirecutter
+        - id: ClothingBeltUtility
+        - id: OreBag
+        - id: ClothingBeltSalvageWebbing
 
 - type: entity
-  id: CrateSalvageAssortedGoodies
-  suffix: Filled, Salvage Random
-  categories: [ HideSpawnMenu ] # You should use SalvageMaterialCrateSpawner instead
   parent: CrateGenericSteel
+  id: CrateSalvageAssortedGoodies
+  categories: [ HideSpawnMenu ] # You should use SalvageMaterialCrateSpawner instead
+  suffix: Filled, Salvage Random
   components:
-  - type: StorageFill
-    contents:
-        # Normal (10%)
-      - id: OxygenTankFilled
-        prob: 0.1
-      - id: SheetPlasma
-        prob: 0.1
-      - id: IngotGold
-        prob: 0.1
-      - id: IngotSilver
-        prob: 0.1
-      - id: SheetPlasma
-        prob: 0.1
-      - id: WelderIndustrialAdvanced
-        prob: 0.1
-      - id: ResearchDisk5000 #Goob station
-        prob: 0.1
-      - id: SheetUranium
-        prob: 0.1
-        #  - Service
-      - id: CrayonBox
-        prob: 0.1
-        #  - Medical
-      - id: MedkitFilled
-        prob: 0.1
-      - id: BoxSyringe
-        prob: 0.1
-      - id: BoxBeaker
-        prob: 0.1
-        #  - Heh
-      - id: SalvageHumanCorpse
-        prob: 0.1
-        # Interesting (1%)
-      - id: MaterialBSCrystal #Goob station
-        prob: 0.01
-        #  - Ammo
-      - id: MagazineBoxMagnum
-        prob: 0.01
-      - id: ResearchDisk10000
-        prob: 0.01
-        # Just no (0.1%)
-        #  - Working guns
-      - id: WeaponRevolverDeckard
-        prob: 0.001
-      - id: WeaponRevolverInspector
-        prob: 0.001
-      - id: ClothingShoesBootsMagBlinding
-        prob: 0.001
-        #  - Skub
-      - id: Skub
-        prob: 0.001
-      - id: ClothingHeadHatCatEars
-        prob: 0.01
-      - id: ClothingHeadHatDogEars
-        prob: 0.01
-      - id: FoodMango #Goob station
-        prob: 0.01
-        # TRAITOR EQUIPMENT (0.01%)
-      - id: Telecrystal50 # Goobstation - Telecrystal rework
-        prob: 0.0001
-      - id: WeaponRevolverPython
-        prob: 0.0001
-      - id: WeaponRevolverMateba
-        prob: 0.0001
-      - id: GatfruitSeeds # Goob station
-        prob: 0.0001
-      - id: DehydratedSpaceCarp #Goob station
-        prob: 0.0001
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+          # Normal (10%)
+        - id: OxygenTankFilled
+          prob: 0.1
+        - id: SheetPlasma
+          prob: 0.1
+        - id: IngotGold
+          prob: 0.1
+        - id: IngotSilver
+          prob: 0.1
+        - id: SheetPlasma
+          prob: 0.1
+        - id: WelderIndustrialAdvanced
+          prob: 0.1
+        - id: ResearchDisk5000 #Goobstation
+          prob: 0.1
+        - id: ResearchDisk
+          prob: 0.1
+        - id: SheetUranium
+          prob: 0.1
+          #  - Service
+        - id: CrayonBox
+          prob: 0.1
+          #  - Medical
+        - id: MedkitFilled
+          prob: 0.1
+        - id: BoxSyringe
+          prob: 0.1
+        - id: BoxBeaker
+          prob: 0.1
+          #  - Heh
+        - id: SalvageHumanCorpse
+          prob: 0.1
+          # Interesting (1%)
+          #  - Ammo
+        - id: MagazineBoxMagnum
+          prob: 0.01
+        - id: ResearchDisk10000
+          prob: 0.01
+          # Just no (0.1%)
+          #  - Working guns
+        - id: WeaponRevolverDeckard
+          prob: 0.001
+        - id: WeaponRevolverInspector
+          prob: 0.001
+        - id: ClothingShoesBootsMagBlinding
+          prob: 0.001
+          #  - Skub
+        - id: Skub
+          prob: 0.001
+        - id: ClothingHeadHatCatEars
+          prob: 0.01
+        - id: ClothingHeadHatDogEars
+          prob: 0.01
+          # TRAITOR EQUIPMENT (0.01%)
+        - id: Telecrystal10
+          prob: 0.0001
+        - id: WeaponRevolverPython
+          prob: 0.0001
+        - id: WeaponRevolverMateba
+          prob: 0.0001
 
 - type: entity
   parent: CrateGenericSteel
@@ -258,10 +220,11 @@
   description: Contains 5 random tier 3 parts for upgrading machines.
   # TODO add contents.
   #components:
-  #- type: StorageFill
-  #  contents:
-  #   - id: SalvagePartsT3Spawner
-  #    amount: 5
+  #- type: EntityTableContainerFill
+  #  containers:
+  #    entity_storage: !type:AllSelector
+  #      id: SalvagePartsT3Spawner
+  #      amount: 5
 
 - type: entity
   parent: CrateGenericSteel
@@ -270,10 +233,11 @@
   description: Contains 5 random tier 3 or 4 parts for upgrading machines.
   # TODO add contents.
   #components:
-  # type: StorageFill
-  #  contents:
-  #  - id: SalvagePartsT3T4Spawner
-  #     amount: 5
+  #- type: EntityTableContainerFill
+  #  containers:
+  #    entity_storage:
+  #      id: SalvagePartsT3T4Spawner
+  #      amount: 5
 
 - type: entity
   parent: CrateGenericSteel
@@ -282,7 +246,8 @@
   description: Contains 5 random tier 4 parts for upgrading machines.
   # TODO add contents.
   #components:
-  #- type: StorageFill
-  #  contents:
-  #  - id: SalvagePartsT4Spawner
-  #    amount: 5
+  #- type: EntityTableContainerFill
+  #  containers:
+  #    entity_storage:
+  #      id: SalvagePartsT4Spawner
+  #      amount: 5
