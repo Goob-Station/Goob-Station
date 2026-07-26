@@ -253,6 +253,8 @@
   - type: GuideHelp
     guides:
     - CosmicColossus
+  - type: WeakToHoly # Holy Dmg
+    alwaysTakeHoly: true
 
 - type: entity
   parent: [ MobCosmicColossusBase ]
