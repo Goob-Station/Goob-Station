@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._Shitmed.Medical.Surgery.Traumas;
@@ -55,6 +51,7 @@ public sealed class HealthAnalyzerBodyMessage : HealthAnalyzerBaseMessage
     public readonly NetEntity? SelectedPart;
     public readonly Dictionary<NetEntity, List<WoundableTraumaData>> Traumas;
     public readonly Dictionary<NetEntity, FixedPoint2> NervePainFeels;
+    public readonly bool BloodLevelLow; // Goobstation
 
     public HealthAnalyzerBodyMessage(
         NetEntity? targetEntity,
@@ -67,6 +64,7 @@ public sealed class HealthAnalyzerBodyMessage : HealthAnalyzerBaseMessage
         FixedPoint2 vitalDamage,  // Goobstation
         Dictionary<NetEntity, List<WoundableTraumaData>> traumas,
         Dictionary<NetEntity, FixedPoint2> nervePainFeels,
+        bool bloodLevelLow, // Goobstation
         NetEntity? selectedPart = null)
         : base(targetEntity, temperature, bloodLevel, scanMode, HealthAnalyzerMode.Body, body, bleeding, vitalDamage)  // Goobstation
     {
@@ -74,6 +72,7 @@ public sealed class HealthAnalyzerBodyMessage : HealthAnalyzerBaseMessage
         SelectedPart = selectedPart;
         Traumas = traumas;
         NervePainFeels = nervePainFeels;
+        BloodLevelLow = bloodLevelLow; // Goobstation
     }
 }
 

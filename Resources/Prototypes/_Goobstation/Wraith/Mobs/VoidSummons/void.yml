@@ -116,7 +116,7 @@
   description: Standing still is probably not a good idea.
   components:
   - type: MindContainer
-    showExamineInfo: true
+  - type: MindExaminable
   - type: CollectiveMind
     defaultChannel: Wraithmind
     channels:
@@ -215,7 +215,7 @@
   description: You probably shouldn't be staring at this thing.
   components:
   - type: MindContainer
-    showExamineInfo: true
+  - type: MindExaminable
   - type: CollectiveMind
     defaultChannel: Wraithmind
     channels:

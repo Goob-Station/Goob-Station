@@ -71,17 +71,12 @@
     bloodlossThreshold: 0
     bleedReductionAmount: 0
     maxBleedAmount: 0
-    bloodlossDamage:
-      types:
-        Blunt: 0
-    bloodlossHealDamage:
-      types:
-        Blunt: 0
-    bloodRefreshAmount: 0
-    bloodMaxVolume: 0
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Plasma
+        Quantity: 300
   - type: Damageable
     damageModifierSet: Plasmaman
-
   - type: MeleeWeapon
     soundHit:
       collection: FirePunch
@@ -112,9 +107,10 @@
   - type: Inventory
     templateId: plasmaman
   - type: Temperature
-    heatDamageThreshold: 308    # 35 celsius, -17 from base heat damage threshold
-    currentTemperature: 270.15  # -3 celsius
     specificHeat: 46
+    currentTemperature: 270.15  # -3 celsius
+  - type: TemperatureDamage
+    heatDamageThreshold: 308    # 35 celsius, -17 from base heat damage threshold
     coldDamage:
       types:
         Cold: 0

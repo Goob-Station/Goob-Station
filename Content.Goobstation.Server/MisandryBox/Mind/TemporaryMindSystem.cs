@@ -19,6 +19,7 @@ namespace Content.Goobstation.Server.MisandryBox.Mind;
 public sealed class TemporaryMindSystem : EntitySystem
 {
     [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] private readonly MindExamineSystem _mindEx = default!;
     [Dependency] private readonly GhostSystem _ghost = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -59,8 +60,8 @@ public sealed class TemporaryMindSystem : EntitySystem
 
         // Suppress catatonic examine on the original body while mind is swapped
         if (origMind.OwnedEntity is { } originalBody
-            && TryComp<MindContainerComponent>(originalBody, out var mindContainer))
-            _mind.SetShowExamineInfo((originalBody, mindContainer), false);
+            && TryComp<MindExaminableComponent>(originalBody, out var mindExaminable))
+            _mindEx.SetShowExamineInfo((originalBody, mindExaminable), MindState.None);
 
         var newMind = _mind.CreateMind(userId, origMind.CharacterName);
         _mind.TransferTo(newMind, newBody);
@@ -143,8 +144,10 @@ public sealed class TemporaryMindSystem : EntitySystem
             _mind.SetUserId(temp.OriginalMind, userId);
 
             if (origMind.OwnedEntity is { } originalBody
-                && TryComp<MindContainerComponent>(originalBody, out var mindContainer))
-                _mind.SetShowExamineInfo((originalBody, mindContainer), true);
+                && TryComp<MindExaminableComponent>(originalBody, out var mindExaminable))
+            // system got redone so just dirty it, and it should set itself?
+            Dirty(originalBody, mindExaminable);
+
         }
     }
 }

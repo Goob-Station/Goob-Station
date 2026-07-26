@@ -1,43 +1,3 @@
-# SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2023 Arendian <137322659+Arendian@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Hebi <spiritbreakz@gmail.com>
-# SPDX-FileCopyrightText: 2023 Link <131011403+LinkUyx@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nim <128169402+Nimfar11@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 coolmankid12345 <55817627+coolmankid12345@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 coolmankid12345 <coolmankid12345@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
-# SPDX-FileCopyrightText: 2024 Ghagliiarghii <68826635+Ghagliiarghii@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Preston Smith <92108534+thetolbean@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
-# SPDX-FileCopyrightText: 2025 SeamLesss <kai.julian.watson@gmail.com>
-# SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 UpAndLeaves <92269094+Alpha-Two@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Zachary Higgs <compgeek223@gmail.com>
-# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Implanters
 
@@ -47,104 +7,106 @@
   parent: BaseItem
   abstract: true
   components:
-    - type: ItemSlots
-    - type: ContainerContainer
-      containers:
-        implanter_slot: !type:ContainerSlot { }
-    - type: Implanter
+  - type: ItemSlots
+  - type: ContainerContainer
+    containers:
+      implanter_slot: !type:ContainerSlot { }
+  - type: Implanter
+    whitelist:
+      components:
+      - MobState # no chair microbomb
+    blacklist:
+      components:
+      - Guardian # no holoparasite macrobomb wombo combo
+      tags:
+      - Unimplantable
+    currentMode: Draw
+    implanterSlot:
+      name: Implant
+      locked: True
+      priority: 0
       whitelist:
-        components:
-        - MobState # no chair microbomb
-      blacklist:
-        components:
-        - Guardian # no holoparasite macrobomb wombo combo
         tags:
-        - Unimplantable
-      currentMode: Draw
-      implanterSlot:
-        name: Implant
-        locked: True
-        priority: 0
-        whitelist:
-          tags:
-            - SubdermalImplant
-      allowDeimplantAll: false
-      deimplantWhitelist:
-      - SadTromboneImplant
-      - LightImplant
-      - BikeHornImplant
-      - TrackingImplant
-      - StorageImplant
-      - FreedomImplant
-      - UplinkImplant
-      - EmpImplant
-      - ScramImplant
-      - DnaScramblerImplant
-      - MicroBombImplant
-      - MacroBombImplant
-      - DeathAcidifierImplant
-      - DeathRattleImplant
-      - MindShieldImplant
-      - FakeMindShieldImplant
-      - RadioImplant
-      # Goob implants
-      - MindcontrolImplant
-      - KravMagaImplant
-      - NutrimentPumpImplant
-      - SmokeImplant
-      # - StypticStimulatorImplant # Uncomment if given to traitors, currently it's DS only implant
-      - BinaryImplant
-      - ChameleonControllerImplant
-      deimplantFailureDamage:
-        types:
-          Caustic: 5 # Goobstation - unnerf implanters (why was it 50 genetic??)
-          Heat: 5
-    - type: Sprite
-      sprite: Objects/Specific/Medical/implanter.rsi
-      state: implanter0
-      layers:
-        - state: implanter0
-          map: [ "implantOnly" ]
-          visible: true
-        - state: implanter1
-          map: [ "implantFull" ]
-          visible: false
-    - type: Item
-      sprite: Objects/Specific/Medical/implanter.rsi
-      heldPrefix: implanter
-      size: Small
-    - type: Appearance
-    - type: GenericVisualizer
-      visuals:
-        enum.ImplanterVisuals.Full:
-          implantFull:
-            True: {visible: true}
-            False: {visible: false}
-        enum.ImplanterImplantOnlyVisuals.ImplantOnly:
-          implantOnly:
-            True: {state: broken}
-            False: {state: implanter0}
-    - type: UserInterface
-      interfaces:
-        enum.DeimplantUiKey.Key:
-          type: DeimplantBoundUserInterface
-    - type: PhysicalComposition #Goobstation - Recycle update
-      materialComposition:
-        Steel: 125
-        Glass: 125
+        - SubdermalImplant
+    allowDeimplantAll: false
+    deimplantWhitelist:
+    - SadTromboneImplant
+    - LightImplant
+    - BikeHornImplant
+    - TrackingImplant
+    - StorageImplant
+    - FreedomImplant
+    - UplinkImplant
+    - EmpImplant
+    - ScramImplant
+    - DnaScramblerImplant
+    - MicroBombImplant
+    - MacroBombImplant
+    - DeathAcidifierImplant
+    - DeathRattleImplant
+    - MindShieldImplant
+    - FakeMindShieldImplant
+    - RadioImplant
+    - ChameleonControllerImplant
+    - VoiceMaskImplant
+    # Goob implants
+    - MindcontrolImplant
+    - KravMagaImplant
+    - NutrimentPumpImplant
+    - SmokeImplant
+    # - StypticStimulatorImplant # Uncomment if given to traitors, currently it's DS only implant
+    - BinaryImplant # Goobstation?
+    deimplantFailureDamage:
+      types:
+        Cellular: 50 # NotGoobstation its 50 genetic to prevent you from randomly extracting implants.
+        Heat: 10
+  - type: Sprite
+    sprite: Objects/Specific/Medical/implanter.rsi
+    state: implanter0
+    layers:
+    - state: implanter0
+      map: [ "implantOnly" ]
+      visible: true
+    - state: implanter1
+      map: [ "implantFull" ]
+      visible: false
+  - type: Item
+    sprite: Objects/Specific/Medical/implanter.rsi
+    heldPrefix: implanter
+    size: Small
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ImplanterVisuals.Full:
+        implantFull:
+          True: {visible: true}
+          False: {visible: false}
+      enum.ImplanterImplantOnlyVisuals.ImplantOnly:
+        implantOnly:
+          True: {state: broken}
+          False: {state: implanter0}
+  - type: UserInterface
+    interfaces:
+      enum.DeimplantUiKey.Key:
+        type: DeimplantBoundUserInterface
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 125
+      Glass: 125
 
 - type: entity
   id: Implanter
   parent: BaseImplanter
-  description: A disposable syringe exclusively designed for the injection and extraction of subdermal implants.
+  name: implant extractor
+  description: "A dual-purpose syringe designed for the removal of specific subdermal implants. Once an implant is extracted, it is stored within and can be re-administered.\nWARNING: Operator error, such as selecting a non-present implant type, causes severe genetic trauma to the operator."
   components:
-    - type: Tag
-      tags:
-        - Trash
+  - type: Tag
+    tags:
+    - Trash
 
 - type: entity
-  parent: Implanter
   id: ImplanterAdmeme
+  parent: Implanter
   suffix: Admeme
   components:
   - type: Implanter
@@ -160,108 +122,108 @@
   description: A disposable syringe exclusively designed for the injection of subdermal implants.
   abstract: true
   components:
-    - type: Sprite
-      sprite: Objects/Specific/Medical/implanter.rsi
-      state: implanter0
-      layers:
-        - state: implanter1
-          map: [ "implantFull" ]
-          visible: true
-        - state: implanter0
-          map: [ "implantOnly" ]
-    - type: Implanter
-      currentMode: Inject
-      implantOnly: true
+  - type: Sprite
+    sprite: Objects/Specific/Medical/implanter.rsi
+    state: implanter0
+    layers:
+    - state: implanter1
+      map: [ "implantFull" ]
+      visible: true
+    - state: implanter0
+      map: [ "implantOnly" ]
+  - type: Implanter
+    currentMode: Inject
+    implantOnly: true
 
 - type: entity
   id: BaseImplantOnlyImplanterSyndi
   parent: [BaseImplantOnlyImplanter, BaseSyndicateContraband]
   name: syndicate implanter
-  description: A compact disposable syringe exclusively designed for the injection of subdermal implants. Make sure to scrub it with soap or a rag to remove residual DNA after use!
+  description: A compact disposable syringe exclusively designed for the injection of subdermal implants. Make sure to scrub it with soap to remove residual DNA after use!
   abstract: true
   components:
-    - type: Item
-      sprite: Objects/Specific/Medical/syndi_implanter.rsi
-      heldPrefix: implanter
-    - type: Sprite
-      sprite: Objects/Specific/Medical/syndi_implanter.rsi
-      state: implanter1
-      layers:
-        - state: implanter0
-          map: [ "implantFull" ]
-          visible: true
-        - state: implanter1
-          map: [ "implantOnly" ]
-    - type: GenericVisualizer
-      visuals:
-        enum.ImplanterVisuals.Full:
-          implantFull:
-            True: {visible: true}
-            False: {visible: false}
-        enum.ImplanterImplantOnlyVisuals.ImplantOnly:
-          implantOnly:
-            True: {state: broken}
-            False: {state: implanter1}
-    - type: Tag
-      tags: []
+  - type: Item
+    sprite: Objects/Specific/Medical/syndi_implanter.rsi
+    heldPrefix: implanter
+  - type: Sprite
+    sprite: Objects/Specific/Medical/syndi_implanter.rsi
+    state: implanter1
+    layers:
+    - state: implanter0
+      map: [ "implantFull" ]
+      visible: true
+    - state: implanter1
+      map: [ "implantOnly" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.ImplanterVisuals.Full:
+        implantFull:
+          True: {visible: true}
+          False: {visible: false}
+      enum.ImplanterImplantOnlyVisuals.ImplantOnly:
+        implantOnly:
+          True: {state: broken}
+          False: {state: implanter1}
+  - type: Tag
+    tags: []
 
 #Fun implanters
 
 - type: entity
   id: SadTromboneImplanter
-  suffix: Sad Trombone
+  name: sad trombone implanter
   parent: BaseImplantOnlyImplanter
   components:
-    - type: Implanter
-      implant: SadTromboneImplant
+  - type: Implanter
+    implant: SadTromboneImplant
 
 - type: entity
   id: LightImplanter
-  suffix: Light
+  name: light implanter
   parent: BaseImplantOnlyImplanter
   components:
-    - type: Implanter
-      implant: LightImplant
+  - type: Implanter
+    implant: LightImplant
 
 - type: entity
   id: BikeHornImplanter
-  suffix: Bike Horn
+  name: bike horn implanter
   parent: BaseImplantOnlyImplanter
   components:
-    - type: Implanter
-      implant: BikeHornImplant
+  - type: Implanter
+    implant: BikeHornImplant
 
 #Security implanters
 
 - type: entity
   id: TrackingImplanter
-  suffix: Tracking
+  name: tracking implanter
   parent: BaseImplantOnlyImplanter
   components:
-    - type: Implanter
-      implant: TrackingImplant
+  - type: Implanter
+    implant: TrackingImplant
 
 #Traitor implanters
 
 - type: entity
   id: StorageImplanter
-  suffix: Storage
+  name: storage implanter
   parent: BaseImplantOnlyImplanterSyndi
   components:
-    - type: Implanter
-      implant: StorageImplant
+  - type: Implanter
+    implant: StorageImplant
 
 - type: entity
   id: FreedomImplanter
-  suffix: Freedom
+  name: freedom implanter
   parent: BaseImplantOnlyImplanterSyndi
   components:
-    - type: Implanter
-      implant: FreedomImplant
+  - type: Implanter
+    implant: FreedomImplant
 
 - type: entity
   id: RadioImplanter
-  suffix: Syndicate Radio
+  name: syndicate radio implanter
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter
@@ -269,7 +231,7 @@
 
 - type: entity
   id: UplinkImplanter
-  suffix: Uplink
+  name: uplink implanter
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter
@@ -277,65 +239,73 @@
 
 - type: entity
   id: EmpImplanter
-  suffix: EMP
+  name: EMP implanter
   parent: BaseImplantOnlyImplanterSyndi
   components:
-    - type: Implanter
-      implant: EmpImplant
+  - type: Implanter
+    implant: EmpImplant
 
 - type: entity
   id: ScramImplanter
-  suffix: Scram
+  name: scram implanter
   parent: BaseImplantOnlyImplanterSyndi
   components:
-    - type: Implanter
-      implant: ScramImplant
+  - type: Implanter
+    implant: ScramImplant
 
 - type: entity
   id: DnaScramblerImplanter
-  suffix: DNA scrambler
+  name: DNA scrambler implanter
   parent: BaseImplantOnlyImplanterSyndi
   components:
-    - type: Implanter
-      implant: DnaScramblerImplant
+  - type: Implanter
+    implant: DnaScramblerImplant
 
 - type: entity
   id: ChameleonControllerImplanter
-  suffix: Chameleon Controller
+  name: chameleon controller implanter
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter
     implant: ChameleonControllerImplant
 
+- type: entity
+  id: VoiceMaskImplanter
+  name: voice mask implanter
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+  - type: Implanter
+    implant: VoiceMaskImplant
+
 #Nuclear Operative/Special implanters
 
 - type: entity
   id: MicroBombImplanter
-  suffix: Micro-Bomb
+  name: micro-bomb implanter
   parent: BaseImplantOnlyImplanterSyndi
   components:
-    - type: Implanter
-      implant: MicroBombImplant
+  - type: Implanter
+    implant: MicroBombImplant
 
 - type: entity
   id: MacroBombImplanter
-  suffix: Macro-Bomb
+  name: macro-bomb implanter
   parent: BaseImplantOnlyImplanterSyndi
   components:
-    - type: Implanter
-      implant: MacroBombImplant
+  - type: Implanter
+    implant: MacroBombImplant
 
 - type: entity
   id: DeathRattleImplanter
-  suffix: Death Rattle
+  name: death rattle implanter
   parent: BaseImplantOnlyImplanterSyndi
   components:
-    - type: Implanter
-      implant: DeathRattleImplant
+  - type: Implanter
+    implant: DeathRattleImplant
 
 - type: entity
   id: DeathAcidifierImplanter
-  suffix: Death Acidifier
+  name: death acidifier implanter
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter
@@ -343,7 +313,7 @@
 
 - type: entity
   id: FakeMindShieldImplanter
-  suffix: Fake Mindshield
+  name: fake mindshield implanter
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter
@@ -356,14 +326,14 @@
   suffix: Mindshield
   parent: BaseImplantOnlyImplanter
   components:
-    - type: Implanter
-      implant: MindShieldImplant
+  - type: Implanter
+    implant: MindShieldImplant
 
 # Centcomm implanters
 
 - type: entity
   id: RadioImplanterCentcomm
-  suffix: Centcomm Radio
+  name: centcomm radio implanter
   parent: BaseImplantOnlyImplanterCentcomm # Goobstation
   components:
   - type: Implanter
@@ -371,7 +341,7 @@
 
 - type: entity
   id: DeathRattleImplanterCentcomm
-  suffix: Death Rattle
+  name: centcomm death rattle implanter
   parent: BaseImplantOnlyImplanterCentcomm # Goobstation
   components:
   - type: Implanter

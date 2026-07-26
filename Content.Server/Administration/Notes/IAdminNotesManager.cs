@@ -1,17 +1,10 @@
-// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Riggle <27156122+RigglePrime@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: MIT
 
 using System.Threading.Tasks;
 using Content.Server.Database;
 using Content.Shared.Administration.Notes;
 using Content.Shared.Database;
+using Robust.Shared.Network;
 using Robust.Shared.Player;
 
 namespace Content.Server.Administration.Notes;
@@ -26,7 +19,7 @@ public interface IAdminNotesManager
     bool CanDelete(ICommonSession admin);
     bool CanEdit(ICommonSession admin);
     bool CanView(ICommonSession admin);
-    Task OpenEui(ICommonSession admin, Guid notedPlayer);
+    Task OpenEui(ICommonSession admin, NetUserId notedPlayer);
     Task OpenUserNotesEui(ICommonSession player);
     Task AddAdminRemark(ICommonSession createdBy, Guid player, NoteType type, string message, NoteSeverity? severity, bool secret, DateTime? expiryTime);
     Task DeleteAdminRemark(int noteId, NoteType type, ICommonSession deletedBy);
