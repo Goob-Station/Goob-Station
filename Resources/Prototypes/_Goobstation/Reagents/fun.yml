@@ -1,13 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: reagent
@@ -30,18 +20,21 @@
         key: Muted
         component: Muted
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Tranquility
           min: 5
       - !type:GenericStatusEffect
         key: Pacified
         component: Pacified
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Tranquility
           min: 10
       - !type:Polymorph
         prototype: Gondola
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Tranquility
           min: 25
 
 - type: reagent
@@ -63,7 +56,8 @@
       - !type:Polymorph
         prototype: Bingle
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: BingleJuice
           min: 25
 
 - type: reagent
@@ -81,13 +75,15 @@
       - !type:Polymorph
         prototype: ForcedCarpSentient
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Carpolin
           min: 9
       - !type:AdjustReagent
         reagent: Carpolin
         amount: -10
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Carpolin
           min: 9 # keep it the same as above
       - !type:PopupMessage
         type: Local
@@ -95,10 +91,11 @@
         probability: 0.3
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Carpolin
           min: 1
-        - !type:OrganType
-          type: Animal
+        - !type:MetabolizerTypeCondition
+          type: [ Animal ]
         damage:
           types:
             Poison: 0.06
@@ -161,17 +158,18 @@
       - !type:Polymorph
         prototype: Cat
         conditions:
-        - !type:OrganType
-          type: Animal
-          shouldHave: false
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Animal ]
+        - !type:ReagentCondition
+          reagent: CatDrugs
           min: 50
       - !type:AdjustReagent
         reagent: CatDrugs
         amount: -20
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           min: 50
+          reagent: CatDrugs
 
 - type: reagent
   id: Nostalgia
