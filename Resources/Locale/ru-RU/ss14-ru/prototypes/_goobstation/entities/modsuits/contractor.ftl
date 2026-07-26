@@ -8,6 +8,3 @@ ent-ClothingModsuitChestplateContractor = нагрудная пластина с
     .desc = Высокотехнологичный нагрудник, разработанный Синдикатом для скафандров своих наёмников. Оснащён встроенными сервоприводами для снижения нагрузки на пользователя.
 ent-ClothingModsuitBootsContractor = ботинки скафандра наёмника Синдиката
     .desc = Высокотехнологичные магнитные сапоги для скафандра наёмника Синдиката. Не замедляют пользователя пока костюм запитан.
-ent-SuitStorageContractor = { ent-SuitStorageBase }
-    .suffix = MOD наёмника
-    .desc = { ent-SuitStorageBase.desc }

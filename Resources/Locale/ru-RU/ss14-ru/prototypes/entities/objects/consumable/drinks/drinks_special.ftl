@@ -5,8 +5,6 @@ ent-DrinkShotGlass = стопка
 
 ent-DrinkJarWhat = банка чего-то
     .desc = Вы не можете точно сказать, что это такое.
-ent-BartenderMixer = { "" }
-    .desc = { "" }
 ent-DrinkJigger = джиггер
     .desc = Как шейкер, только меньше. Используется для регулировки количества ингредиентов.
 ent-DrinkIceBucket = ведёрко для льда

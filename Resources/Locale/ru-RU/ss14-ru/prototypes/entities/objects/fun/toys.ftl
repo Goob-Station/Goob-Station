@@ -3,8 +3,6 @@ ent-BaseStash = { "" }
 ent-CardSword = картонный меч
     .desc = Картонная трубка, превращённая в меч.
 
-ent-BaseFigurineCheapo = фигурка
-    .desc = Небольшая миниатюра.
 ent-ToyAi = игрушечный ИИ
     .desc = Уменьшенное игрушечное ядро искусственного интеллекта.
 
@@ -12,12 +10,8 @@ ent-ToyNuke = игрушечная ядерка
     .desc = Пластиковая модель взрывного ядерного устройства. Без урана внутри... скорее всего.
 ent-ToyIan = игрушечный иан
     .desc = Не может кушать, но такой же пушистый, как настоящий!
-ent-FoamWeaponBase = { ent-BaseItem }
-    .desc = { ent-BaseItem.desc }
 ent-FoamCrossbow = поролоновый арбалет
     .desc = Целясь этим в офицеров, будьте готовы словить свинца.
-ent-ToyGunBase = ToyGunBase
-    .desc = Дерзай — налетай, целься и стреляй.
 ent-RevolverCapGun = игрушечный пистолет
     .desc = Выглядит почти как настоящий! От 8 лет и старше.
 ent-RevolverCapGunFake = { ent-RevolverCapGun }

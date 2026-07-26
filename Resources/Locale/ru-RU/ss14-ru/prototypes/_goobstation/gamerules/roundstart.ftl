@@ -24,5 +24,3 @@ ent-Devil = { ent-BaseGameRule }
     .desc = { ent-BaseGameRule.desc }
 ent-OopsAllThieves = { ent-Thief }
     .desc = { ent-Thief.desc }
-ent-DuoAbductorRoundstart = { ent-DuoAbductorSpawn }
-    .desc = { ent-DuoAbductorSpawn.desc }

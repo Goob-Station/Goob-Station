@@ -1,1 +1,0 @@
-department-Legal = Юридический отдел

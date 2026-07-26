@@ -1,7 +1,5 @@
 ent-BaseChemistryEmptyVial = пробирка
     .desc = Маленькая пробирка.
-ent-BorgVial = встроенная пробирка
-    .desc = Внутренний отсек, установленный в борга. Рассчитан на 30 единиц любой жидкости.
 ent-VestineChemistryVial = { ent-BaseChemistryEmptyVial }
     .suffix = Вестин
     .desc = { ent-BaseChemistryEmptyVial.desc }

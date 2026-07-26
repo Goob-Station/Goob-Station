@@ -4,6 +4,3 @@ ent-AccessBreakerUnlimited = разрушитель аутентификации
 ent-AccessBreaker = { ent-AccessBreakerUnlimited }
     .suffix = Ограниченный
     .desc = { ent-AccessBreakerUnlimited.desc }
-ent-DoorJack = door jack
-    .desc = An ancient device used for hacking doors, its far too old and damaged to last more than a few uses.
-    .suffix = Limited

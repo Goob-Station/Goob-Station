@@ -1,15 +1,6 @@
-ent-DelayedSmoke = отложенный дым
-    .suffix = (10сек)
-    .desc = { ent-BaseItem.desc }
 ent-AdminInstantEffectEMP7 = { ent-AdminInstantEffectBase }
     .suffix = ЭМИ, 7 тайлов
     .desc = { ent-AdminInstantEffectBase.desc }
-ent-DelayedEMP = отложенный ЭМИ (7 тайлов)
-    .desc = { ent-BaseItem.desc }
-ent-SyringeCognizine = шприц когнизина
-    .desc = { ent-Syringe.desc }
-ent-SyringeOpporozidone = шприц с оппорозидоном
-    .desc = { ent-Syringe.desc }
 ent-NecrosolChemistryBottle = флакон с некрозолем
     .desc = { ent-BaseChemistryBottleFilled.desc }
 ent-DrinkPremiumVodkaBottleFull = бутылка водки "Момент просветления"

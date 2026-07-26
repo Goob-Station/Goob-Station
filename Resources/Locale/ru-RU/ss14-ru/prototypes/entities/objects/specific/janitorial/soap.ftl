@@ -12,8 +12,5 @@ ent-SoapHomemade = мыло
     .desc = Самодельный брусок мыла. Пахнет... уф....
 ent-SoapOmega = омега мыло
     .desc = Самое совершенное мыло, известное человечеству. Пахнет блюспейсом.
-ent-SoapBorg = мыло
-    .desc = Брусок мыла бренда NanoTrasen. Пахнет плазмой и машинами.
-
 ent-BaseSoap = мыло
     .desc = { ent-BaseItem.desc }

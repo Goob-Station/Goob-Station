@@ -1,7 +1,5 @@
 ent-BaseBeaker = { ent-BaseItem }
     .desc = { ent-BaseItem.desc }
-ent-BorgBeaker = встроенная мензурка
-    .desc = Внутренний отсек, установленный в борга. Рассчитан на 50 единиц любой жидкости.
 ent-BaseBeakerMetallic = { ent-BaseItem }
     .desc = { ent-BaseItem.desc }
 ent-Beaker = мензурка

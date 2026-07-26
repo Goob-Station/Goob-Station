@@ -1,5 +1,3 @@
-ent-MobHumanGreyTide = Грейтайд
-    .desc = { ent-BaseMobHuman.desc }
 ent-MobHumanTunnelClown = Тех-клоун
     .desc = { ent-MobHuman.desc }
 ent-MobHumanSingulothKnight = Рыцарь Сингулота

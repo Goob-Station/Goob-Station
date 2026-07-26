@@ -19,5 +19,3 @@ ent-NetworkConfiguratorUnremoveable = { ent-NetworkConfigurator }
 ent-PinpointerStationUnremoveable = { ent-PinpointerStationGoob }
     .desc = Вы - станция. Найдите себя. Нажмите E для активации.
     .suffix = Неснимаемый
-ent-ActionDroneOpenMap = Открыть карту
-    .desc = Найдите себя.

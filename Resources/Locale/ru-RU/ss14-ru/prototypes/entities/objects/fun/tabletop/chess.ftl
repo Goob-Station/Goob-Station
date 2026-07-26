@@ -1,7 +1,5 @@
 ent-ChessBoard = шахматная доска
     .desc = Шахматная доска. Фигуры в комплекте!
-ent-ChessBoardTabletop = шахматы
-    .desc = { ent-BaseBoardTabletop.desc }
 ent-WhiteKing = белый король
     .desc = { ent-BaseTabletopPiece.desc }
 ent-WhiteQueen = белый ферзь

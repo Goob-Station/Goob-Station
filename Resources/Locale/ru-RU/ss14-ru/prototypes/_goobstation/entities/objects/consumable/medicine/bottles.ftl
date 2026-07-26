@@ -24,14 +24,6 @@ ent-ChemistryBottleSpaceDrugs = { ent-BaseChemistryBottleFilled }
     .suffix = Космические наркотики
     .desc = { ent-BaseChemistryBottleFilled.desc }
 
-ent-ChemistryBottleRazorium = { ent-BaseChemistryBottleFilled }
-    .suffix = Бритвиум
-    .desc = { ent-BaseChemistryBottleFilled.desc }
-
 ent-ChemistryBottleLipolicide = { ent-BaseChemistryBottleFilled }
     .suffix = Липолицид
     .desc = { ent-BaseChemistryBottleFilled.desc }
-ent-ChemistryBottleHappiness = { ent-BaseChemistryBottleFilled }
-    .suffix = Счастье
-    .desc = { ent-BaseChemistryBottleFilled.desc }
-

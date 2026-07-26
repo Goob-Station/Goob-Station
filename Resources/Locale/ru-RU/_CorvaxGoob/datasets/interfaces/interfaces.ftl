@@ -1,1 +1,0 @@
-interfaces-tip = Подсказка: { $tip }

@@ -1,9 +1,0 @@
-ent-SimpleXenoArtifactItem = { ent-BaseXenoArtifactItem }
-    .suffix = Простой
-    .desc = { ent-BaseXenoArtifactItem.desc }
-ent-MediumXenoArtifactItem = { ent-BaseXenoArtifactItem }
-    .suffix = Средний
-    .desc = { ent-BaseXenoArtifactItem.desc }
-ent-VariedXenoArtifactItem = { ent-BaseXenoArtifactItem }
-    .suffix = Разный
-    .desc = { ent-BaseXenoArtifactItem.desc }
