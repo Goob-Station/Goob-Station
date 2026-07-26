@@ -1,0 +1,12 @@
+ent-SlasherSlowdownStatusEffect = замедление от Мясника
+    .desc = { ent-StatusEffectSlowdown.desc }
+ent-TentacleSlowdownStatusEffect = замедление от щупалец
+    .desc = { ent-StatusEffectSlowdown.desc }
+ent-MartialArtsGenericSlowdownEffect = замедление от боевых искусств
+    .desc = { ent-StatusEffectSlowdown.desc }
+ent-OrgansDamagedSlowdownEffect = замедление от повреждённых органов
+    .desc = { ent-StatusEffectSlowdown.desc }
+ent-ShadowCloakSlowdownEffect = замедление от теневого плаща
+    .desc = { ent-StatusEffectSlowdown.desc }
+ent-ShadowlingGlareSlowdownEffect = замедление от тенелинга
+    .desc = { ent-StatusEffectSlowdown.desc }

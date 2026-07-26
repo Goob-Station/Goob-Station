@@ -1,0 +1,12 @@
+ent-WaterVaporTankFilled = { ent-WaterVaporTank }
+    .suffix = Заполненный
+    .desc = { ent-WaterVaporTank.desc }
+ent-EmergencyWaterVaporTankFilled = { ent-EmergencyWaterVaporTank }
+    .suffix = Заполненный
+    .desc = { ent-EmergencyWaterVaporTank.desc }
+ent-ExtendedEmergencyWaterVaporTankFilled = { ent-ExtendedEmergencyWaterVaporTank }
+    .suffix = Заполненный
+    .desc = { ent-ExtendedEmergencyWaterVaporTank.desc }
+ent-DoubleEmergencyWaterVaporTankFilled = { ent-DoubleEmergencyWaterVaporTank }
+    .suffix = Заполненный
+    .desc = { ent-DoubleEmergencyWaterVaporTank.desc }

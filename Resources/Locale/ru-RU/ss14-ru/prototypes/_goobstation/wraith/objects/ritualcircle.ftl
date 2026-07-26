@@ -1,0 +1,12 @@
+ent-RitualCircleInact = портал призыва
+    .desc = Он гудит и пульсирует, когда вы смотрите на него. Внутри мелькают тёмные тени, появляясь и исчезая из виду.
+ent-RitualCircle1 = { ent-RitualCircleInact }
+    .desc = { ent-RitualCircleInact.desc }
+ent-RitualCircle2 = { ent-RitualCircleInact }
+    .desc = { ent-RitualCircleInact.desc }
+ent-RitualCircle3 = { ent-RitualCircleInact }
+    .desc = { ent-RitualCircleInact.desc }
+ent-RitualCircle4 = { ent-RitualCircleInact }
+    .desc = { ent-RitualCircleInact.desc }
+ent-RitualCircle5 = { ent-RitualCircleInact }
+    .desc = { ent-RitualCircleInact.desc }

@@ -1,0 +1,9 @@
+ent-RandomHumanoidSyndicateTDM = пехотинец Синдиката
+    .suffix = РДМ КС
+    .desc = { "" }
+ent-RandomHumanoidNanoTrasenTDM = пехотинец NanoTrasen
+    .suffix = РДМ КС
+    .desc = { "" }
+ent-ClothingBackpackNanoTrasenTDM = рюкзак
+    .desc = Вы носите это на спине и кладёте в него предметы.
+    .suffix = РДМ КС

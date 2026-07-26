@@ -1,0 +1,14 @@
+ent-PokerChips = poker chips
+    .desc = Play money for adults
+ent-PokerChips10 = { ent-PokerChips }
+    .suffix = 10
+    .desc = { ent-PokerChips.desc }
+ent-PokerChips50 = { ent-PokerChips }
+    .suffix = 50
+    .desc = { ent-PokerChips.desc }
+ent-PokerChips100 = { ent-PokerChips }
+    .suffix = 100
+    .desc = { ent-PokerChips.desc }
+ent-PokerChips500 = { ent-PokerChips }
+    .suffix = 500
+    .desc = { ent-PokerChips.desc }

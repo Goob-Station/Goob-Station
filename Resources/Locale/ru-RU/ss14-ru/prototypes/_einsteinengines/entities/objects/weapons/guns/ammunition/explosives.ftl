@@ -1,0 +1,10 @@
+ent-GrenadeBeanbagShotgun = 40мм резина
+    .desc = { ent-BaseGrenade.desc }
+ent-GrenadeBirdshot = 40мм дробь для птиц
+    .desc = Для охоты на инопланетных птиц необычного размера.
+ent-GrenadeSlug = 40мм картечь
+    .desc = Для охоты на инопланетную дичь размером с гору.
+ent-Grenade00Buckshot = 40мм 00-Дробь
+    .desc = Для охоты на инопланетных животных размером с дом.
+ent-Grenade0000Buckshot = 40мм 0000-Дробь
+    .desc = Для охоты на инопланетных животных размером с десантный корабль.

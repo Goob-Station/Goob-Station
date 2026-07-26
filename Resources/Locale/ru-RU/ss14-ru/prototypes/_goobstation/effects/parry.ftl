@@ -1,0 +1,2 @@
+ent-EffectParry = { "" }
+    .desc = { "" }

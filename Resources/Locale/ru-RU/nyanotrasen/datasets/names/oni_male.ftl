@@ -1,0 +1,17 @@
+names-oni-first-male-dataset-1 = Киёши
+names-oni-first-male-dataset-2 = Сатоши
+names-oni-first-male-dataset-3 = Тэру
+names-oni-first-male-dataset-4 = Хироси
+names-oni-first-male-dataset-5 = Такаши
+names-oni-first-male-dataset-6 = Эйити
+names-oni-first-male-dataset-7 = Эйитиро
+names-oni-first-male-dataset-8 = Кёусабуро
+names-oni-first-male-dataset-9 = Цутому
+names-oni-first-male-dataset-10 = Цуёши
+names-oni-first-male-dataset-11 = Кэнши
+names-oni-first-male-dataset-12 = Кэндзи
+names-oni-first-male-dataset-13 = Кэничи
+names-oni-first-male-dataset-14 = Сусуму
+names-oni-first-male-dataset-15 = Кёносукэ
+names-oni-first-male-dataset-16 = Суйсэй
+names-oni-first-male-dataset-17 = Сютэн

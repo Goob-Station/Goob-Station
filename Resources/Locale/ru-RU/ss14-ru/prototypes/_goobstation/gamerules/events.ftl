@@ -1,0 +1,14 @@
+ent-TidemindDevelop = { ent-BaseGameRule }
+    .desc = { ent-BaseGameRule.desc }
+ent-DerelictCyborgSyndicateSpawn = { ent-BaseGameRule }
+    .desc = { ent-BaseGameRule.desc }
+ent-JobDistributionError = { ent-BaseGameRule }
+    .desc = { ent-BaseGameRule.desc }
+ent-AncientXenoVentsEasy = { ent-BaseGameRule }
+    .desc = { ent-BaseGameRule.desc }
+ent-AncientXenoVentsMedium = { ent-BaseGameRule }
+    .desc = { ent-BaseGameRule.desc }
+ent-AncientXenoVentsHard = { ent-BaseGameRule }
+    .desc = { ent-BaseGameRule.desc }
+ent-AncientXenoVentsRogue = { ent-BaseGameRule }
+    .desc = { ent-BaseGameRule.desc }

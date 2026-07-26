@@ -1,0 +1,2 @@
+ent-AlertSandevistanSpriteView = { "" }
+    .desc = { "" }

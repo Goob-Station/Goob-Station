@@ -1,0 +1,1 @@
+interfaces-tip = Подсказка: { $tip }

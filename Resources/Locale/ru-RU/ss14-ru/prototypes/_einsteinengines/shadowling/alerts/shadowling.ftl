@@ -1,0 +1,2 @@
+ent-AlertShadowlingLightSpriteView = { "" }
+    .desc = { "" }

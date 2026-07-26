@@ -1,0 +1,9 @@
+ent-BaseMobCosmicHostile = { ent-BaseSimpleMob }
+    .suffix = Hostile
+    .desc = { ent-BaseSimpleMob.desc }
+ent-MobCosmicCustodianHostile = { ent-BaseMobCosmicHostile }
+    .desc = { ent-BaseMobCosmicHostile.desc }
+ent-MobCosmicOracleHostile = { ent-BaseMobCosmicHostile }
+    .desc = { ent-BaseMobCosmicHostile.desc }
+ent-MobCosmicLodestarHostile = { ent-BaseMobCosmicHostile }
+    .desc = { ent-BaseMobCosmicHostile.desc }

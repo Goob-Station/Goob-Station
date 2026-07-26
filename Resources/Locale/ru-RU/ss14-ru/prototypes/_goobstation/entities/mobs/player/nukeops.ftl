@@ -1,0 +1,14 @@
+ent-MobHumanLoneNuclearOperativeSuit = одиночный ядерный оперативник (скафандр)
+    .desc = { ent-MobHuman.desc }
+ent-MobHumanLoneNuclearOperativeSuitElite = одиночный ядерный оперативник (элита)
+    .desc = { ent-MobHuman.desc }
+ent-MobHumanLoneNuclearOperativeSuitJugg = одиночный ядерный оперативник (джаггернаут)
+    .desc = { ent-MobHuman.desc }
+ent-MobHumanLoneNuclearOperativeSuitCommander = одиночный ядерный оперативник (командир)
+    .desc = { ent-MobHuman.desc }
+ent-MobHumanLoneNuclearOperativeSuitStealth = одиночный ядерный оперативник (пустотный)
+    .desc = { ent-MobHuman.desc }
+ent-MobHumanLoneNuclearOperativeSuitMedic = одиночный ядерный оперативник (медик)
+    .desc = { ent-MobHuman.desc }
+ent-MobHumanLoneNuclearOperativeSuitDread = одиночный ядерный оперативник (дредноут)
+    .desc = { ent-MobHuman.desc }

@@ -1,0 +1,10 @@
+names-wraith-title-dataset-1 = Колющий
+names-wraith-title-dataset-2 = Мучительный
+names-wraith-title-dataset-3 = Отверженный
+names-wraith-title-dataset-4 = Разрушительный
+names-wraith-title-dataset-5 = Пожирающий
+names-wraith-title-dataset-6 = Тиранящий
+names-wraith-title-dataset-7 = Владычущий
+names-wraith-title-dataset-8 = Проклятый
+names-wraith-title-dataset-9 = Опустошительный
+names-wraith-title-dataset-10 = Изгнанный

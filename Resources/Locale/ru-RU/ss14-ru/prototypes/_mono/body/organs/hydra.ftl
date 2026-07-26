@@ -1,0 +1,12 @@
+ent-BaseHydrakinOrgan = hydrakin organ
+    .desc = { ent-BaseItem.desc }
+ent-OrganHydrakinStomach = hydrakin stomach
+    .desc = { ent-BaseHydrakinOrgan.desc }
+ent-OrganHydrakinBrain = hydrakin brain
+    .desc = { ent-BaseHydrakinOrgan.desc }
+ent-OrganHydrakinLiver = hydrakin liver
+    .desc = { ent-BaseHydrakinOrgan.desc }
+ent-OrganHydrakinHeart = hydrakin heart
+    .desc = { ent-BaseHydrakinOrgan.desc }
+ent-OrganHydrakinLungs = hydrakin lungs
+    .desc = Hydrakin lungs, capable of processing any gas without negative effects.

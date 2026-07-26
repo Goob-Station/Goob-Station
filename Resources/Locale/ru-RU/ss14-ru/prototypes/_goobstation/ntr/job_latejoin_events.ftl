@@ -1,0 +1,12 @@
+ent-SecurityJobUnlock = { ent-BaseGameRule }
+    .desc = { ent-BaseGameRule.desc }
+ent-ScienceJobUnlock = { ent-BaseGameRule }
+    .desc = { ent-BaseGameRule.desc }
+ent-ServiceJobUnlock = { ent-BaseGameRule }
+    .desc = { ent-BaseGameRule.desc }
+ent-CargoJobUnlock = { ent-BaseGameRule }
+    .desc = { ent-BaseGameRule.desc }
+ent-EngineeringJobUnlock = { ent-BaseGameRule }
+    .desc = { ent-BaseGameRule.desc }
+ent-MedicalJobUnlock = { ent-BaseGameRule }
+    .desc = { ent-BaseGameRule.desc }

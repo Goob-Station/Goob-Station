@@ -1,0 +1,15 @@
+ent-MailPowerTool = { ent-BaseMailLarge }
+    .suffix = Электроинструмент
+    .desc = { ent-BaseMailLarge.desc }
+ent-MailCircuitboardService = { ent-BaseMailLarge }
+    .suffix = Сервисная машинная плата
+    .desc = { ent-BaseMailLarge.desc }
+ent-MailCircuitboardIndustrial = { ent-BaseMailLarge }
+    .suffix = Промышленная машинная плата
+    .desc = { ent-BaseMailLarge.desc }
+ent-MailEngineeringCables = { ent-BaseMailLarge }
+    .suffix = Кабеля
+    .desc = { ent-BaseMailLarge.desc }
+ent-MailEngineeringMaterials = { ent-BaseMailLarge }
+    .suffix = Листы стекла
+    .desc = { ent-BaseMailLarge.desc }

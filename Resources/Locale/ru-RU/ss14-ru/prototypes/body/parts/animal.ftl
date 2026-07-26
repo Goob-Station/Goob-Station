@@ -1,0 +1,16 @@
+ent-PartAnimalBase = { ent-BasePart }
+    .desc = { ent-BasePart.desc }
+ent-HandsAnimal = лапы животного
+    .desc = { ent-PartAnimal.desc }
+ent-LegsAnimal = задние лапы животного
+    .desc = { ent-PartAnimal.desc }
+ent-ChestAnimal = грудь животного
+    .desc = { ent-PartAnimalBase.desc }
+ent-GroinAnimal = пах животного
+    .desc = { ent-PartAnimalBase.desc }
+ent-FeetAnimal = стопы животного
+    .desc = { ent-PartAnimal.desc }
+ent-LeftHandSmartCorgi = левая лапа корги
+    .desc = { ent-PartAnimalBase.desc }
+ent-RightHandSmartCorgi = правая лапа корги
+    .desc = { ent-PartAnimalBase.desc }

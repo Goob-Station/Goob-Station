@@ -1,0 +1,12 @@
+ent-CarcBagMeepleBase = мешочек для миплов
+    .desc = { ent-BaseStorageItem.desc }
+ent-CarcBagMeepleRed = красный мешочек для миплов
+    .desc = { ent-CarcBagMeepleBase.desc }
+ent-CarcBagMeepleGreen = зеленый мешочек для миплов
+    .desc = { ent-CarcBagMeepleBase.desc }
+ent-CarcBagMeepleBlue = синий мешочек для миплов
+    .desc = { ent-CarcBagMeepleBase.desc }
+ent-CarcBagMeepleBlack = черный мешочек для миплов
+    .desc = { ent-CarcBagMeepleBase.desc }
+ent-CarcBagMeepleYellow = желтый мешочек для миплов
+    .desc = { ent-CarcBagMeepleBase.desc }

@@ -1,0 +1,15 @@
+ent-MobCivilian = гражданский
+    .desc = Жалкая кучка тайн.
+ent-MobSalvager = утилизатор
+    .desc = { ent-BaseMobHuman.desc }
+ent-MobSpirate = космопират
+    .desc = Яррр!
+ent-MobSyndicateFootsoldier = пехотинец Синдиката
+    .desc = { ent-BaseMobHuman.desc }
+ent-MobSyndicateFootsoldierPilot = пилот шаттла Синдиката
+    .desc = { ent-MobSyndicateFootsoldier.desc }
+ent-SalvageHumanCorpse = { ent-BaseMobHuman }
+    .desc = { ent-BaseMobHuman.desc }
+    .suffix = Мёртвый
+ent-MobCluwne = существо
+    .desc = Полиморфированное несчастье.

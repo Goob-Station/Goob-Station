@@ -1,0 +1,12 @@
+ent-BasePKAUpgrade = набор улучшения протокинетики
+    .desc = Набор улучшения для протокинетического ускорителя.
+ent-PKAUpgradeDamage = набор улучшения протокинетики (урон)
+    .desc = { ent-BasePKAUpgrade.desc }
+ent-PKAUpgradeRange = набор улучшения протокинетики (дальность)
+    .desc = { ent-BasePKAUpgrade.desc }
+ent-PKAUpgradeFireRate = набор улучшения протокинетики (скорострельность)
+    .desc = { ent-BasePKAUpgrade.desc }
+ent-PKAUpgradePressure = набор улучшения протокинетики (давление)
+    .desc = { ent-BaseSyndicateContraband.desc }
+ent-PKAUpgradeSpace = набор улучшения протокинетики (космос)
+    .desc = { ent-BasePKAUpgrade.desc }

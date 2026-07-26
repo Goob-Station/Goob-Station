@@ -1,0 +1,2 @@
+ent-BaseMobDisgust = { "" }
+    .desc = { "" }

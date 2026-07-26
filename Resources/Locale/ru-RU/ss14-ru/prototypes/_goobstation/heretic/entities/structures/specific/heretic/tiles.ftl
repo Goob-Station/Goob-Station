@@ -1,0 +1,10 @@
+ent-HereticFireAA = огонь
+    .desc = Горячая штучка!
+ent-TileHereticVoid = пустота
+    .desc = Холодная штучка!
+ent-TileHereticRustRune = руна
+    .desc = Ржавое...
+ent-HereticRustAscensionSpreader = ржавчина
+    .desc = Оно растёт...
+ent-WallFieldCosmic = космическое поле
+    .desc = Поле, не дающая пройти сквозь неё существам существам со звёздной меткой.

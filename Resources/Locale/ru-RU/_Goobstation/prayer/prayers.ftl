@@ -1,0 +1,9 @@
+chaplain-recall-verb = Призвать
+chaplain-recall-nullrod-recalled = Вы призываете свой { $nullrod } обратно в руки.
+chaplain-recall-hands-full = Ваши руки заняты.
+chaplain-recall-no-nullrod = Сначала привяжите свой нулл-жезл.
+chaplain-recall-nullrod-gone = Вы больше не чувствуете свой { $nullrod }.
+chaplain-recall-nullrod-already-in-hand = Ваш { $nullrod } уже у вас в руках.
+chaplain-recall-none = Ваш { $nullrod } невозможно призвать.
+nullrod-recall-verb-bind = Привязать
+nullrod-recall-verb-bind-done = Вы привязываете { $nullrod } к своей душе.

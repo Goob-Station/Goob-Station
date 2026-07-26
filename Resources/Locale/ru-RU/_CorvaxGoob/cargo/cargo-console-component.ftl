@@ -1,0 +1,10 @@
+cargo-console-paper-note-default = Не указано
+cargo-console-paper-delivery-destination-default = В отдел заказчика
+cargo-console-menu-order-row-product-delivery-destination = Место доставки: { $destination }
+cargo-console-menu-order-row-product-note = Примечание: { $note }
+cargo-console-order-menu-delivery-destination = Место доставки:
+cargo-console-order-menu-note = Примечание:
+cargo-console-menu-order-requester-format = { $name }, { $job }
+cargo-console-bounty-manifest-name = этикетка запроса ({ $entries })
+cargo-console-bounty-manifest-name-entry = { $detailName } x { $detailQuantity }
+cargo-console-secure-order-checkbox = Поместить заказ в защищенный ящик отдела? (+{ $cost }cr)
