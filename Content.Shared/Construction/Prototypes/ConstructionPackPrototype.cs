@@ -12,7 +12,7 @@ public sealed partial class ConstructionPackPrototype : IPrototype, IInheritingP
 {
     /// <inheritdoc/>
     [IdDataField]
-    public string ID { get; } = default!;
+    public string ID { get; private set; } = default!;
 
     [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<ConstructionPackPrototype>))]
     public string[]? Parents { get; private set; }
