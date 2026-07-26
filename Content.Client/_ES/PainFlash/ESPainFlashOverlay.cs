@@ -1,4 +1,4 @@
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;
 using Robust.Shared.Timing;

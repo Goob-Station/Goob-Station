@@ -1,6 +1,7 @@
 using Content.Shared._ES.PainFlash;
 using Content.Shared._ES.PainFlash.Components;
-using Content.Shared.Damage.Systems;
+using Content.Shared.Damage; // For present
+// using Content.Shared.Damage.Systems; // For future
 
 namespace Content.Server._ES.PainFlash;
 

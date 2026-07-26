@@ -1,8 +1,9 @@
 using Content.Shared._ES.PainFlash;
 using Content.Shared._ES.PainFlash.Components;
 using Content.Shared.CCVar;
-using Content.Shared.Damage.Systems;
-using Content.Shared.FixedPoint;
+using Content.Shared.Damage; // For present
+// using Content.Shared.Damage.Systems; // For future
+using Content.Goobstation.Maths.FixedPoint;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Configuration;

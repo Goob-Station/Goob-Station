@@ -1,7 +1,7 @@
 using Content.Shared._ES.PainFlash.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._ES.PainFlash;
