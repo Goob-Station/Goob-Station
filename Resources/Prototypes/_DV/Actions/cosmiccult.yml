@@ -236,6 +236,7 @@
       state: sunder
   - type: TargetAction
     range: 7
+    checkCanAccess: false # Fixes Teleport not working through windows, now it even goes through walls
   - type: WorldTargetAction
     event: !type:EventCosmicColossusSunder
 
