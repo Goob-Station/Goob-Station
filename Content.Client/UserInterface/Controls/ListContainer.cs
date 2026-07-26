@@ -1,17 +1,9 @@
-// SPDX-FileCopyrightText: 2022 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
 using System.Numerics;
 using JetBrains.Annotations;
+using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Input;
@@ -38,7 +30,16 @@ public class ListContainer : Control
     /// Called when creating a button on the UI.
     /// The provided <see cref="ListContainerButton"/> is the generated button that Controls should be parented to.
     /// </summary>
-    public Action<ListData, ListContainerButton>? GenerateItem;
+    public Action<ListData, ListContainerButton>? GenerateItem
+    {
+        get => _generateItem;
+        set {
+            _generateItem = value;
+            // Invalidate _itemHeight so we recalculate the size of children the next
+            // time PopulateList() is called
+            _itemHeight = 0;
+        }
+    }
 
     /// <inheritdoc cref="BaseButton.OnPressed"/>
     public Action<BaseButton.ButtonEventArgs, ListData>? ItemPressed;
@@ -69,6 +70,7 @@ public class ListContainer : Control
     private bool _updateChildren = false;
     private bool _suppressScrollValueChanged;
     private ButtonGroup? _buttonGroup;
+    public Action<ListData, ListContainerButton>? _generateItem;
 
     public int ScrollSpeedY { get; set; } = 50;
 
@@ -396,6 +398,7 @@ public sealed class ListContainerButton : ContainerButton, IEntityControl
         AddStyleClass(StyleClassButton);
         Data = data;
         Index = index;
+        StyleBoxOverride = new StyleBoxFlat(Color.White);
         // AddChild(Background = new PanelContainer
         // {
         //     HorizontalExpand = true,

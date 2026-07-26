@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 floatingfeeling <karaadastra@gmail.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: gameMap
@@ -35,7 +32,6 @@
             RadioHost: [ 1, 1 ]
             Librarian: [ 1, 1 ]
             ServiceWorker: [ 3, 3 ]
-            Zookeeper: [ 1, 1 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 3, 3 ]

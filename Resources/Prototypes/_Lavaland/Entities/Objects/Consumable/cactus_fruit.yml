@@ -4,7 +4,7 @@
   id: FoodMealCactusFruit
   description: A cactus fruit covered in a thick, reddish skin. And some ash.
   components:
-  - type: Food
+  - type: Edible
   - type: FlavorProfile
     flavors:
       - berry
