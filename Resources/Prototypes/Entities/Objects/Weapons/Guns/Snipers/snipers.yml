@@ -221,8 +221,8 @@
     sprintModifier: 0.8 # goob edit ^
   - type: CursorOffsetRequiresWield
   - type: EyeCursorOffset
-    maxOffset: 8 # Goobstation - Sniper rifles buff
-    pvsIncrease: 0.8 # Goobstation - Sniper rifles buff
+    maxOffset: 12 # Goobstation - Sniper rifles buff - the size of Most long corridors now
+    pvsIncrease: 1.2 # Goobstation - Sniper rifles buff
   - type: StaticPrice
     price: 3500
 
