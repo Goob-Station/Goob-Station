@@ -1648,7 +1648,7 @@
   description: uplink-capoeira-desc
   productEntity: CapoeiraManual
   cost:
-    Telecrystal: 35
+    Telecrystal: 25
   categories:
   - UplinkWeaponry
 
@@ -1658,7 +1658,7 @@
   description: uplink-sleeping-carp-desc
   productEntity: SleepingCarpScroll
   cost:
-    Telecrystal: 70
+    Telecrystal: 60
   categories:
   - UplinkWeaponry
   conditions:
