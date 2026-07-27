@@ -552,6 +552,11 @@
         factor: 8
         conditions:
         - !type:MetabolizerTypeCondition
+          type: [ Feroxi ]
+      - !type:Oxygenate
+        factor: 8
+        conditions:
+        - !type:MetabolizerTypeCondition
           type: [ Animal ]
       - !type:Oxygenate
         factor: 8
