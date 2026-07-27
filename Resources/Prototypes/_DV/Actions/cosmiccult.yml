@@ -236,7 +236,7 @@
       state: sunder
   - type: TargetAction
     range: 7
-    checkCanAccess: true # Goobstation - Fixes Teleport not working through windows
+    checkCanAccess: false # Goobstation - Fixes Teleport not working through windows
   - type: WorldTargetAction
     event: !type:EventCosmicColossusSunder
 
