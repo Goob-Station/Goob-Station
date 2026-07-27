@@ -46,3 +46,14 @@
   delay: 0
   rotation: User
   fx: EffectRCDConstruct0
+  
+- type: rcd
+  id: PipePressureRegulator
+  category: PumpsValves
+  sprite: /Textures/_Goobstation/Interface/Radial/RPD/pressureRegulator.png
+  mode: ConstructObject
+  prototype: GasPressureRegulator
+  cost: 2
+  delay: 0
+  rotation: User
+  fx: EffectRCDConstruct0
