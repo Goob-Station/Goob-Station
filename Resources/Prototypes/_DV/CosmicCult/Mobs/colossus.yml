@@ -395,4 +395,4 @@
     - !type:HealthChange
       damage:
         types:
-          Cold: 15
+          Cold: 15 # Goobstation - 7 hits to kill instead of 8
