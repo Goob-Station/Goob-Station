@@ -6,6 +6,7 @@ public enum SplitDamageBehavior
 {
     None,
     Split,
+    SplitExplosion,
     SplitEnsureAllOrganic,
     SplitEnsureAllDamaged,
     SplitEnsureAllDamagedAndOrganic,

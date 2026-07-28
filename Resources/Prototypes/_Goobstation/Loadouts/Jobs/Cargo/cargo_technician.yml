@@ -72,6 +72,29 @@
     - Plasmaman
 
 - type: loadout
+  id: CourierEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitCourier
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: CourierEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmCourier
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
   id: CargoTechnicianOveralls
   equipment:
     jumpsuit: ClothingUniformOverallsCargo
+
+- type: loadout
+  id: MailCarrierMJ
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryMailCarrier

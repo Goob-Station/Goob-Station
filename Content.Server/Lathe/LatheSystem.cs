@@ -17,33 +17,27 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.UserInterface;
 using Content.Shared.Database;
-using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
-using Content.Shared.Examine;
-using Content.Shared.Lathe;
 using Content.Shared.Lathe.Prototypes;
+using Content.Shared.Lathe;
 using Content.Shared.Localizations;
 using Content.Shared.Materials;
 using Content.Shared.Power;
 using Content.Shared.ReagentSpeed;
 using Content.Shared.Research.Components;
 using Content.Shared.Research.Prototypes;
-using Content.Goobstation.Shared.Lathe; // Goobstation
 using JetBrains.Annotations;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Content.Server.Chat.Systems;
 using Content.Goobstation.Common.NTR.Scan; // Goobstation
-using Content.Shared.Chat;
-using Content.Shared.Prototypes;
 
 namespace Content.Server.Lathe
 {
     [UsedImplicitly]
-    public sealed partial class LatheSystem : SharedLatheSystem // Goobstation edit - made partial
+    public sealed partial class LatheSystem : SharedLatheSystem
     {
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly IPrototypeManager _proto = default!;
@@ -248,18 +242,18 @@ namespace Content.Server.Lathe
                 var currentRecipe = _proto.Index(comp.CurrentRecipe.Value);
                 if (currentRecipe.Result is { } resultProto)
                 {
-                    // Goobstation, output to material storage instead of spawning
+                    // Goobstation, output to material storage instead of spawning, if preferred & possible
                     var prototype = _proto.Index(resultProto);
-                    if (comp.OutputToStorage && prototype.TryGetComponent<PhysicalCompositionComponent>(out var composition, _factory))
-                    {
-                        _materialStorage.TryChangeMaterialAmount(uid, composition.MaterialComposition);
-                    }
-                    else
+                    if (!comp.OutputToStorage || !prototype.TryGetComponent<PhysicalCompositionComponent>(out var composition, _factory)
+                        || _materialStorage.TryChangeMaterialAmount(uid, composition.MaterialComposition))
                     {
                         var result = Spawn(resultProto, Transform(uid).Coordinates);
                         _stack.TryMergeToContacts(result);
-                        if (TryComp<ScannableForPointsComponent>(result, out var scannable)) // Goobstation
-                            scannable.Points = 0; // Goobstation, this thing is to prevent ntr duping points via an emagged lathe
+
+                        // <Goobstation> No NTR factorio
+                        if (TryComp<ScannableForPointsComponent>(result, out var scannable))
+                            scannable.Points = 0;
+                        // </Goobstation>
                     }
                 }
 

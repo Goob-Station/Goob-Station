@@ -1,9 +1,6 @@
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Linq;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
-using Content.Shared.Materials.OreSilo;
 using Content.Shared.Stacks;
 using Content.Shared.Whitelist;
 using JetBrains.Annotations;
@@ -148,6 +145,11 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
         if (ent.Comp.MaterialWhiteList == null)
             return true;
 
+        /// <Goobstation> this is STUPID STUPID STUPID. needed for ore silo self injection...
+        if (ent.Comp.IgnoreMaterialWhiteList)
+            return true;
+        /// </Goobstation>
+
         return ent.Comp.MaterialWhiteList.Contains(material);
     }
 
@@ -235,6 +237,14 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
         var localChange = Math.Clamp(remaining, localLowerLimit, localUpperLimit);
 
         existing += localChange;
+
+        if (existing == 0)
+            component.Storage.Remove(materialId);
+        else
+            component.Storage[materialId] = existing;
+
+        var ev = new MaterialAmountChangedEvent();
+        RaiseLocalEvent(uid, ref ev);
 
         if (dirty)
             Dirty(uid, component);
