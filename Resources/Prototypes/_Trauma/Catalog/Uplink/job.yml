@@ -1,16 +1,16 @@
 - type: listing
-  id: UplinkRealBananiumSword
+  id: UplinkBananiumSword
   name: uplink-banana-esword-name
   description: uplink-banana-esword-desc
-  productEntity: RealBananiumSword
-  cost:
-    Telecrystal: 50
+  productEntity: BananiumSword
   categories:
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
     whitelist:
     - Clown
+  - !type:ListingLimitedStockCondition
+    stock: 1
 
 - type: listing
   id: UplinkMimanaStealthy
@@ -124,6 +124,20 @@
   - !type:BuyerDepartmentCondition
     whitelist:
     - Medical
+
+- type: listing
+  id: UplinkRealBananiumSword
+  name: uplink-banana-esword-name
+  description: uplink-banana-esword-desc
+  productEntity: RealBananiumSword
+  cost:
+    Telecrystal: 50
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Clown
 
 - type: listing
   id: BehonkerOperativeReinforcement
