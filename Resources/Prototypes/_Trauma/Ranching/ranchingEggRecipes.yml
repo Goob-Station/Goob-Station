@@ -46,8 +46,8 @@
   - MobVoidHen
   noSpecialFoodRequiredChickens:
   - MobVoidHen
-  componentsRequired:
-  - type: VomitedEnoughMarker
+  components:
+    - VomitedEnoughMarker
 
 - type: eggRecipe
   id: VoidEggSelf
