@@ -28,5 +28,5 @@ uplink-banana-esword-desc = A bananium-modified energy sword that slips whoever 
 uplink-behonker-name = Behonker Operative Teleporter
 uplink-behonker-desc = Calls in a specially trained behonker operative to assist you.
 
-uplink-banana-esword-name = Real Bananium Energy Sword
-uplink-banana-esword-desc = A bananium-modified energy sword that slips whoever it slices. This one does real damage.
+uplink-real-banana-esword-name = Real Bananium Energy Sword
+uplink-real-banana-esword-desc = A bananium-modified energy sword that slips whoever it slices. This one does real damage.

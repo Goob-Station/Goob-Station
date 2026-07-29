@@ -96,8 +96,8 @@
   description: Calls in a behonker to assist you in your tomfoolery.
   components:
   - type: GhostRole
-    name: ghost-role-information-behonker-name
-    description: ghost-role-information-behonker-desc
+    name: ghost-role-information-syndicate-behonker-name
+    description: ghost-role-information-syndicate-behonker-desc
     rules: ghost-role-information-rules-team-antagonist
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist

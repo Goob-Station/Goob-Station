@@ -127,8 +127,8 @@
 
 - type: listing
   id: UplinkRealBananiumSword
-  name: uplink-banana-esword-name
-  description: uplink-banana-esword-desc
+  name: uplink-real-banana-esword-name
+  description: uplink-real-banana-esword-desc
   productEntity: RealBananiumSword
   cost:
     Telecrystal: 50
