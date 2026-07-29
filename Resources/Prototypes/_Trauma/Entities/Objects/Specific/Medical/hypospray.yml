@@ -1,0 +1,11 @@
+- type: entity
+  parent: EmergencyMedipen
+  id: EmergencyMedipenMute
+  suffix: Mute Toxin
+  components:
+  - type: Solution
+    solution:
+      maxVol: 15
+      reagents:
+      - ReagentId: MuteToxin
+        Quantity: 15

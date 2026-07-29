@@ -1,0 +1,53 @@
+- type: entity
+  parent: [ BaseMajorContraband, HandheldCrewMonitor ]
+  id: SpyCrewMonitor
+  name: spy monitor
+  description: A spy device capable of connecting to crew monitoring servers.
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/spy_device.rsi
+    state: icon
+  - type: Item
+    sprite: Objects/Tools/spy_device.rsi
+  - type: PowerCellDraw
+    useCharge: 10
+  - type: StaticPrice
+    price: 750
+  - type: Tag
+    tags: []
+  - type: CrewMonitoringConsole
+
+- type: entity
+  parent: SpyCrewMonitor
+  id: SpyCrewMonitorEmpty
+  suffix: Empty
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+
+- type: entity
+  parent: [ BaseSyndicateContraband, HandheldCrewMonitor ]
+  id: SyndiCrewMonitor
+  name: syndicate crew monitor
+  description: The syndicated version of crew monitor, intercepts information from the server.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/syndihandheldcrewmonitor.rsi
+    state: syndiscanner
+  - type: Item
+    sprite: Objects/Specific/Medical/syndihandheldcrewmonitor.rsi
+  - type: PowerCellDraw
+    useCharge: 0
+  - type: CrewMonitoringConsole
+
+- type: entity
+  parent: SyndiCrewMonitor
+  id: SyndiCrewMonitorEmpty
+  suffix: Empty
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default

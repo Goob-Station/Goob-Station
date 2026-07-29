@@ -1,0 +1,17 @@
+- type: entity
+  parent: UtilityKnife
+  id: UtilityKnifeReagent
+  suffix: Reagent
+  components:
+  - type: Solution
+    id: melee
+    solution:
+      maxVol: 10
+  - type: MeleeChemicalInjector
+    transferAmount: 5
+    solution: melee
+  - type: RefillableSolution
+    solution: melee
+  - type: InjectableSolution
+    solution: melee
+  - type: SolutionTransfer

@@ -1,0 +1,37 @@
+- type: entity
+  parent: BaseBullet
+  id: BulletCaselessRifleTranquilizer
+  name: bullet (.25 caseless tranq)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 5
+  - type: Solution
+    id: ammo
+    solution:
+      maxVol: 3
+  - type: SolutionInjectOnProjectileHit
+    transferAmount: 3
+    blockSlots: NONE
+    solution: ammo
+
+- type: entity
+  parent: BaseBullet
+  id: BulletCaselessRiflePoison
+  name: bullet (.25 caseless toxin)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 5
+  - type: Solution
+    id: ammo
+    solution:
+      maxVol: 1
+  - type: SolutionInjectOnProjectileHit
+    transferAmount: 2.5
+    blockSlots: NONE
+    solution: ammo
