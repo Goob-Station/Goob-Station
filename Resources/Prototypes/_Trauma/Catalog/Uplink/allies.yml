@@ -17,7 +17,7 @@
   id: UplinkHoloCarpDehydrated
   name: uplink-holo-carp-dehydrated-name
   description: uplink-holo-carp-dehydrated-desc
-  productEntity: DehydratedHoloCarp
+  productEntity: DehydratedHolocarp
   cost:
     Telecrystal: 7
   categories:
