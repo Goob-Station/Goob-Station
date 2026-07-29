@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ ClothingNeckBase, ClothingNeckUnbutcherableBase, BaseSyndicateContraband ] # TODO: Make it ClothingNeckUnbutcherableBase once upstream happens
+  parent: [ ClothingNeckBase, BaseSyndicateContraband ] # TODO: Make it ClothingNeckUnbutcherableBase once upstream happens
   id: ClothingNeckBombCollar
   name: bomb collar
   description: A bomb collar, it explodes.
