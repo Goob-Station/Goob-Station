@@ -128,9 +128,19 @@
         Slash: 4
         Piercing: 4
         Structural: 25
-  - type: SolutionManager
+  - type: SolutionContainerManager
     solutions:
-    - SolutionVenomSpiderNukie
+      melee:
+        maxVol: 30
+        reagents:
+        - ReagentId: Lexorin
+          Quantity: 30
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+      - ReagentId: Lexorin
+        Quantity: 1
   - type: MeleeChemicalInjector
     transferAmount: 0.5
     solution: melee
@@ -153,22 +163,6 @@
     - DoorBumpOpener
   - type: Damageable
     damageModifierSet: NukieSpider
-
-- type: entity
-  parent: [ SolutionWeapon, SolutionTiny ]
-  id: SolutionVenomSpiderNukie
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: Lexorin
-        Quantity: 30
-  - type: SolutionRegeneration
-    generated:
-      reagents:
-      - ReagentId: Lexorin
-        Quantity: 1
 
 - type: entity
   parent: BaseMobCarp
@@ -208,30 +202,24 @@
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: Insulated
-  - type: SolutionManager
+  - type: SolutionContainerManager
     solutions:
-    - SolutionVenomSyndicarp
+      melee:
+        maxVol: 30
+        reagents:
+        - ReagentId: CarpoToxin
+          Quantity: 30
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+      - ReagentId: CarpoToxin
+        Quantity: 1
   - type: MeleeChemicalInjector
     solution: melee
     transferAmount: 1
   - type: Damageable
     damageModifierSet: NukieSpider
-
-- type: entity
-  parent: [ SolutionWeapon, SolutionTiny ]
-  id: SolutionVenomSyndicarp
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: CarpoToxin
-        Quantity: 30
-  - type: SolutionRegeneration
-    generated:
-      reagents:
-      - ReagentId: CarpoToxin
-        Quantity: 1
 
 - type: entity
   parent: BaseMobBehonker

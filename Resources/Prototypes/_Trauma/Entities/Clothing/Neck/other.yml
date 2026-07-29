@@ -42,7 +42,8 @@
     faction: Syndicate
   - type: Armor
     coverage:
-    - Torso
+    - Chest
+    - Groin
     - Tail
     - Arm
     - Leg

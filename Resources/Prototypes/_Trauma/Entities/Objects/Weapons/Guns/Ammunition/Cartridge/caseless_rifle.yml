@@ -4,6 +4,8 @@
   name: cartridge (.25 caseless tranq)
   description: A small caliber utilizing caseless technology, omitting conventional brass casing in favor of hardened propellant. A reservoir injects a mix of sedative and mute toxin into the target for true silent takedowns.
   components:
+  - type: CartridgeAmmo
+    proto: BulletCaselessRifleTranquilizer
   - type: Sprite
     layers:
     - state: base
@@ -11,17 +13,15 @@
     - state: tip
       map: [ "enum.AmmoVisualLayers.Tip" ]
       color: "#49cece"
-  - type: CartridgeAmmo
-    proto: BulletCaselessRifleTranquilizer
   - type: ChemicalAmmo
-  - type: Solution
-    id: ammo
-    solution:
-      reagents:
-      - ReagentId: Nocturine
-        Quantity: 2
-      - ReagentId: MuteToxin
-        Quantity: 1
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        reagents:
+        - ReagentId: Nocturine
+          Quantity: 2.5
+        - ReagentId: MuteToxin
+          Quantity: 1
   - type: SolutionTransfer
     maxTransferAmount: 3.5
 
@@ -31,6 +31,8 @@
   name: cartridge (.25 caseless toxin)
   description: A small caliber utilizing caseless technology, omitting conventional brass casing in favor of hardened propellant. A toxic payload is installed to kill the target over time.
   components:
+  - type: CartridgeAmmo
+    proto: BulletCaselessRiflePoison
   - type: Sprite
     layers:
     - state: base
@@ -38,14 +40,12 @@
     - state: tip
       map: [ "enum.AmmoVisualLayers.Tip" ]
       color: "#5f959c"
-  - type: CartridgeAmmo
-    proto: BulletCaselessRiflePoison
   - type: ChemicalAmmo
-  - type: Solution
-    id: ammo
-    solution:
-      reagents:
-      - ReagentId: Lexorin
-        Quantity: 1
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        reagents:
+        - ReagentId: Lexorin
+          Quantity: 1.5
   - type: SolutionTransfer
     maxTransferAmount: 1.5

@@ -42,14 +42,15 @@
     - NuclearOperative
     - SyndicateAgent
 
-  - type: entity
-    parent: BaseJammer
-    id: BorgRadioJammer
-    name: radio jammer
-    components:
-    - type: RadioJammer
-      frequenciesExcluded:
-      - 1213 # Syndicate Radio
+- type: entity # TODO: Clean up and parent off of BaseJammer once upstream happens
+  parent: RadioJammer
+  id: BorgRadioJammer
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMicroreactor
 
 - type: entity
   parent: BaseItem

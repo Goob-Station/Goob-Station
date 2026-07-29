@@ -8,14 +8,21 @@
     damage:
       types:
         Piercing: 5
-  - type: Solution
-    id: ammo
-    solution:
-      maxVol: 3
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        maxVol: 3.5
+  - type: RefillableSolution
+    solution: ammo
+  - type: DrainableSolution
+    solution: ammo
   - type: SolutionInjectOnProjectileHit
-    transferAmount: 3
+    transferAmount: 3.5
     blockSlots: NONE
     solution: ammo
+  - type: InjectableSolution
+    solution: ammo
+
 
 - type: entity
   parent: BaseBullet
@@ -26,12 +33,18 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 5
-  - type: Solution
-    id: ammo
-    solution:
-      maxVol: 1
+        Piercing: 10
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        maxVol: 2.5
+  - type: RefillableSolution
+    solution: ammo
+  - type: DrainableSolution
+    solution: ammo
   - type: SolutionInjectOnProjectileHit
     transferAmount: 2.5
     blockSlots: NONE
+    solution: ammo
+  - type: InjectableSolution
     solution: ammo
