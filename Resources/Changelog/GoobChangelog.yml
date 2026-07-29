@@ -24013,3 +24013,11 @@ Entries:
       message: Fixed Inverted Zed Infection Chance
   id: 2762
   time: '2026-07-29T00:04:42.0000000+00:00'
+- author: Super7522
+  changes:
+    - type: Fix
+      message: >-
+        Apc's wont overload on round start anymore new limit is 50 KW ( a
+        Generator's worth )
+  id: 2763
+  time: '2026-07-29T00:07:44.0000000+00:00'
