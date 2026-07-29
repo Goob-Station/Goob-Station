@@ -173,7 +173,7 @@ public sealed partial class RanchingEggLayerSystem : EntitySystem
             if (requiredHappiness > currentHappiness)
                 continue;
 
-            if (proto.ComponentsRequired is not null && _whitelist.IsWhitelistFail(proto.ComponentsRequired, ent.Owner))
+            if (proto.Whitelist is not null && _whitelist.IsWhitelistFail(proto.Whitelist, ent.Owner))
                 continue;
 
             var chickenAccepted = false;

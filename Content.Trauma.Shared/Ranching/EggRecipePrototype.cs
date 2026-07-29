@@ -68,5 +68,5 @@ public sealed partial class EggRecipePrototype : IPrototype
     /// Components required to lay the egg.
     /// </summary>
     [DataField]
-    public EntityWhitelist? ComponentsRequired;
+    public EntityWhitelist? Whitelist;
 }

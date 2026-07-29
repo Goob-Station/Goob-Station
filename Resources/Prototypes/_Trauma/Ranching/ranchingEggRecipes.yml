@@ -46,7 +46,8 @@
   - MobVoidHen
   noSpecialFoodRequiredChickens:
   - MobVoidHen
-  components:
+  whitelist:
+    components:
     - VomitedEnoughMarker
 
 - type: eggRecipe

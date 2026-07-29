@@ -76,6 +76,6 @@
   - type: WorldTargetAction
     event: !type:ProjectileSpellEvent
       prototype: ProjectileFireball
-      speed: 20
+      projectileSpeed: 20
   - type: SpeakOnAction
     sentence: action-speech-spell-fireball-phoenix

@@ -186,9 +186,8 @@
     visualType: LargeCaution
     messages:
     - entity-effect-popup-fear-affected
-  - !type:GenericStatusEffect
-    key: BlurryVision
-    component: BlurryVision
+  - !type:ModifyStatusEffect
+    effectProto: StatusEffectBlurryVision
     time: 3
   - !type:ModifyParalysis
     time: 2
