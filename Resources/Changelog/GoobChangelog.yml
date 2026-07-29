@@ -24003,3 +24003,21 @@ Entries:
       message: More suit and hardsuit sprites for hydrakin!
   id: 2761
   time: '2026-07-24T16:03:10.0000000+00:00'
+- author: Super7522
+  changes:
+    - type: Tweak
+      message: >-
+        Zed Infection Chance Rebalance (Lower base chance and minimal chance,
+        armor is more effective vs Zed infection)
+    - type: Fix
+      message: Fixed Inverted Zed Infection Chance
+  id: 2762
+  time: '2026-07-29T00:04:42.0000000+00:00'
+- author: Super7522
+  changes:
+    - type: Fix
+      message: >-
+        Apc's wont overload on round start anymore new limit is 50 KW ( a
+        Generator's worth )
+  id: 2763
+  time: '2026-07-29T00:07:44.0000000+00:00'
