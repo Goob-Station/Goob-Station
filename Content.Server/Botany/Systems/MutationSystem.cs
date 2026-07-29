@@ -35,7 +35,8 @@ public sealed class MutationSystem : EntitySystem
             if (Random(Math.Min(mutation.BaseOdds * severity, 1.0f)))
             {
                 if (mutation.AppliesToPlant)
-                    _entityEffects.TryApplyEffect(plantHolder, mutation.Effect);
+                    _entityEffects.TryApplyEffect(plantHolder, mutation.Effect,
+                        predicted: false); // Trauma - Added predicted
 
                 // Stat adjustments do not persist by being an attached effect, they just change the stat.
                 if (mutation.Persists && !seed.Mutations.Any(m => m.Name == mutation.Name))

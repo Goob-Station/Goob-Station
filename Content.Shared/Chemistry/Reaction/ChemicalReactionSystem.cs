@@ -213,7 +213,8 @@ namespace Content.Shared.Chemistry.Reaction
             _adminLogger.Add(LogType.ChemicalReaction, reaction.Impact,
                 $"Chemical reaction {reaction.ID:reaction} occurred with strength {unitReactions:strength} on entity {ToPrettyString(soln):metabolizer} at Pos:{(posFound ? $"{gridPos:coordinates}" : "[Grid or Map not Found]")}");
 
-            _entityEffects.ApplyEffects(soln, reaction.Effects, unitReactions);
+            _entityEffects.ApplyEffects(soln, reaction.Effects, unitReactions,
+                predicted: false); // Trauma - Added predicted
 
             // Someday, some brave soul will thread through an optional actor
             // argument in from every call of OnReaction up, all just to pass

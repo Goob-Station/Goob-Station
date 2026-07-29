@@ -122,6 +122,12 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<bool> DisablePathfinding =
         CVarDef.Create("goob.disable_pathfinding", false, CVar.SERVER | CVar.SERVERONLY);
 
+    /// <summary>
+    /// How long (in minutes) dead mobs should despawn when given with AntiMobSpamComponent
+    /// </summary>
+    public static readonly CVarDef<float> AntiMobSpamUpdateRate =
+        CVarDef.Create("game.anti_mob_spam_update", 5f, CVar.SERVER | CVar.SERVERONLY);
+
 
     #region Player Listener
 
@@ -675,7 +681,6 @@ public sealed partial class GoobCVars
     /// </summary>
     public static readonly CVarDef<float> GpsUpdateRate =
         CVarDef.Create("gps.update_rate", 1f, CVar.SERVER | CVar.REPLICATED);
-
     #region Particles
 
     /// <summary>

@@ -28,12 +28,6 @@ public abstract partial class BaseSpawnEntityEntityEffect<T> : EntityEffectBase<
     [DataField]
     public bool Predicted = true;
 
-    /// <summary>
-    /// Goobstation - Whether or not this effect should scale
-    /// </summary>
-    [DataField]
-    public bool ShouldScale = true;
-
     public override string EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => Loc.GetString("entity-effect-guidebook-spawn-entity",
             ("chance", Probability),

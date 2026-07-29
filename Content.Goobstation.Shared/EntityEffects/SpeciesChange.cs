@@ -1,38 +1,28 @@
-// SPDX-License-Identifier: AGPL-3.0-or-later
-using Content.Shared.Humanoid;
 using Content.Shared.EntityEffects;
-using Content.Shared.EntityEffects.Effects;
+using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
-using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
-using Content.Shared.Polymorph.Systems;
-using Content.Shared.Polymorph;
-using Content.Shared.Polymorph.Components;
 
 namespace Content.Goobstation.Shared.EntityEffects;
 
-public sealed partial class SpeciesChangeSystem : EntityEffectSystem<HumanoidAppearanceComponent, SpeciesChange>
-{
-    protected override void Effect(Entity<HumanoidAppearanceComponent> entity, ref EntityEffectEvent<SpeciesChange> args)
-    {
-        var ev = new SpeciesChange(args.Effect.NewSpecies);
-        EntityManager.EventBus.RaiseLocalEvent(entity.Owner, ev);
-    }
-}
-
-[UsedImplicitly]
 public sealed partial class SpeciesChange : EntityEffectBase<SpeciesChange>
 {
     [DataField(required: true)]
     public ProtoId<SpeciesPrototype> NewSpecies;
 
-    public SpeciesChange() { }
+    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+        => Loc.GetString("reagent-effect-guidebook-change-species", ("species", prototype.Index(NewSpecies).Name));
+}
 
-    public SpeciesChange(ProtoId<SpeciesPrototype> newspecies)
+public abstract partial class SharedSpeciesChangeEffectSystem : EntityEffectSystem<HumanoidAppearanceComponent, SpeciesChange>
+{
+    protected override void Effect(Entity<HumanoidAppearanceComponent> ent, ref EntityEffectEvent<SpeciesChange> args)
     {
-        NewSpecies = newspecies;
+        Polymorph(ent, args.Effect.NewSpecies);
     }
 
-    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => Loc.GetString("reagent-effect-guidebook-change-species", ("species", NewSpecies));
+    public virtual void Polymorph(EntityUid target, ProtoId<SpeciesPrototype> id)
+    {
+        // this 1 thing is in shared so both species effects can stay in shared, only 1 has to have a server version
+    }
 }

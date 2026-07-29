@@ -2,6 +2,7 @@ using Content.Server.Fluids.EntitySystems;
 using Content.Server.Spreader;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Coordinates.Helpers;
+using Content.Shared.Explosion.EntitySystems;
 using Content.Shared.Maps;
 using Content.Shared.Trigger;
 using Content.Shared.Trigger.Components.Effects;
@@ -13,7 +14,7 @@ namespace Content.Server.Trigger.Systems;
 /// <summary>
 /// Handles creating smoke when <see cref="SmokeOnTriggerComponent"/> is triggered.
 /// </summary>
-public sealed class SmokeOnTriggerSystem : EntitySystem
+public sealed class SmokeOnTriggerSystem : SharedSmokeOnTriggerSystem
 {
     [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly MapSystem _map = default!;
@@ -39,30 +40,37 @@ public sealed class SmokeOnTriggerSystem : EntitySystem
         if (target == null)
             return;
 
-        // TODO: move all of this into an API function in SmokeSystem
-        var xform = Transform(target.Value);
-        var mapCoords = _transform.GetMapCoordinates(target.Value, xform);
+        args.Handled = SpawnSmoke(target.Value, ent.Comp.SmokePrototype, ent.Comp.Solution, ent.Comp.Duration, ent.Comp.SpreadAmount); // Trauma - use helper
+    }
+
+    /// <summary>
+    /// Trauma - helper moved out of OnTrigger above
+    /// Gave it a return value.
+    /// </summary>
+    public bool SpawnSmoke(EntityUid target, string prototype, Solution solution, TimeSpan duration, int spreadAmount)
+    {
+        var xform = Transform(target);
+        var mapCoords = _transform.GetMapCoordinates(target, xform);
         if (!_mapMan.TryFindGridAt(mapCoords, out var gridUid, out var gridComp) ||
             !_map.TryGetTileRef(gridUid, gridComp, xform.Coordinates, out var tileRef) ||
             tileRef.Tile.IsEmpty)
         {
-            return;
+            return false;
         }
 
-        if (_spreader.RequiresFloorToSpread(ent.Comp.SmokePrototype.ToString()) && _turf.IsSpace(tileRef))
-            return;
+        if (_spreader.RequiresFloorToSpread(prototype) && _turf.IsSpace(tileRef))
+            return false;
 
         var coords = _map.MapToGrid(gridUid, mapCoords);
-        var smoke = Spawn(ent.Comp.SmokePrototype, coords.SnapToGrid());
+        var smoke = Spawn(prototype, coords.SnapToGrid());
         if (!TryComp<SmokeComponent>(smoke, out var smokeComp))
         {
-            Log.Error($"Smoke prototype {ent.Comp.SmokePrototype} was missing SmokeComponent");
+            Log.Error($"Smoke prototype {prototype} was missing SmokeComponent");
             Del(smoke);
-            return;
+            return false;
         }
 
-        _smoke.StartSmoke(smoke, ent.Comp.Solution, (float)ent.Comp.Duration.TotalSeconds, ent.Comp.SpreadAmount, smokeComp);
-
-        args.Handled = true;
+        _smoke.StartSmoke(smoke, solution, (float) duration.TotalSeconds, spreadAmount, smokeComp);
+        return true;
     }
 }

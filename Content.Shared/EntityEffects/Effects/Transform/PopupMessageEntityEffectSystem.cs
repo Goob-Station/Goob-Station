@@ -1,4 +1,9 @@
-﻿using Content.Shared.Popups;
+// < Trauma >
+using Content.Shared.IdentityManagement;
+using Content.Shared.Random.Helpers;
+using Robust.Shared.Timing;
+// </Trauma>
+using Content.Shared.Popups;
 using Robust.Shared.Network;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
@@ -11,17 +16,22 @@ namespace Content.Shared.EntityEffects.Effects.Transform;
 /// <inheritdoc cref="EntityEffectSystem{T,TEffect}"/>
 public sealed partial class PopupMessageEntityEffectSystem : EntityEffectSystem<TransformComponent, PopupMessage>
 {
+    // <Trauma>
+    [Dependency] private IGameTiming _timing = default!;
+    // </Trauma>
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     protected override void Effect(Entity<TransformComponent> entity, ref EntityEffectEvent<PopupMessage> args)
     {
-        // TODO: When we get proper random prediction remove this check.
-        if (_net.IsClient)
+        // <Trauma> - predict these
+        if (!_timing.IsFirstTimePredicted || _net.IsServer && args.Predicted)
             return;
 
-        var msg = Loc.GetString(_random.Pick(args.Effect.Messages), ("entity", entity));
+        var rand = SharedRandomExtensions.PredictedRandom(_timing, GetNetEntity(entity));
+        var msg = Loc.GetString(rand.Pick(args.Effect.Messages), ("entity",
+            Identity.Entity(entity, EntityManager))); // Trauma - don't doxx from popups
 
         switch ((args.Effect.Method, args.Effect.Type))
         {
@@ -49,7 +59,7 @@ public sealed partial class PopupMessage : EntityEffectBase<PopupMessage>
     /// Only one is chosen when the effect is applied.
     /// </summary>
     [DataField(required: true)]
-    public string[] Messages = default!;
+    public LocId[] Messages = default!; // Trauma - Use LocId
 
     /// <summary>
     /// Whether to just the entity we're affecting, or everyone around them.

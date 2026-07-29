@@ -25,9 +25,23 @@ public sealed class DnaScrambleOnTriggerSystem : XOnTriggerSystem<DnaScrambleOnT
 
         args.Handled = true;
 
+        Scramble(target, humanoid);
+    }
+
+    /// <summary>
+    /// Trauma - Moved out from OnTrigger
+    /// Scramble DNA entity 
+    /// </summary>
+    /// <param name="target"></param>
+    /// <param name="humanoid"></param>
+    public void Scramble(EntityUid target, HumanoidAppearanceComponent? humanoid = null)
+    {
+        if (!Resolve(target, ref humanoid, false)) // Trauma
+            return;
+
         // Randomness will mispredict
         // and LoadProfile causes a debug assert on the client at the moment.
-        if (_net.IsClient)
+        if (_net.IsClient) // Trauma - note: if this is ever predicted update MutationSystem
             return;
 
         var newProfile = HumanoidCharacterProfile.RandomWithSpecies(humanoid.Species);

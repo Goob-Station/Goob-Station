@@ -11,8 +11,8 @@ using Content.Shared.Whitelist;
 using Content.Shared.DoAfter;
 using Content.Shared.Jittering;
 using Content.Shared.Gibbing.Events;
-using Content.Shared.StatusEffect;
-using Content.Shared.Mobs.Components;// TODO: change to StatusEffectNew when jittering would be migrated
+using Content.Shared.StatusEffectNew;
+using Content.Shared.Mobs.Components; // TODO: change to StatusEffectNew when jittering would be migrated
 
 namespace Content.Goobstation.Server.Xenobiology;
 

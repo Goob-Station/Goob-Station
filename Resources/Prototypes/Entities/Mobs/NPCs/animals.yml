@@ -1580,6 +1580,7 @@
   - type: Crawler
   - type: StatusIcon
   - type: DiseaseCarrier # Goobstation
+  - type: XenovacTarget # Goobstation - Xenobiology
 
 - type: entity
   name: monkey

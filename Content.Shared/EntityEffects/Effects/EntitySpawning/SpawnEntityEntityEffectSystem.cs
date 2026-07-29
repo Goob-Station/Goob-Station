@@ -13,10 +13,10 @@ public sealed partial class SpawnEntityEntityEffectSystem : EntityEffectSystem<T
 
     protected override void Effect(Entity<TransformComponent> entity, ref EntityEffectEvent<SpawnEntity> args)
     {
-        var quantity = args.Effect.ShouldScale ? args.Effect.Number * (int) Math.Floor(args.Scale) : args.Effect.Number; // Goobstation - Added ShouldSCale
+        var quantity = args.Effect.Number * (int) Math.Floor(args.Scale);
         var proto = args.Effect.Entity;
 
-        if (args.Effect.Predicted)
+        if (args.Effect.Predicted && args.Predicted) // Trauma - check args.Predicted too
         {
             for (var i = 0; i < quantity; i++)
             {

@@ -10,7 +10,7 @@ namespace Content.Shared.Trigger;
 /// </param>
 /// <param name="Handled">Marks the event as handled if at least one trigger effect was activated.</param>
 [ByRefEvent]
-public record struct TriggerEvent(EntityUid? User = null, string? Key = null, bool Handled = false);
+public record struct TriggerEvent(EntityUid? User = null, string? Key = null, bool Predicted = true, bool Handled = false);
 
 /// <summary>
 /// Raised before a trigger is activated.

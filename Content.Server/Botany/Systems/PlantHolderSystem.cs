@@ -897,7 +897,8 @@ public sealed class PlantHolderSystem : EntitySystem
                     continue;
 
                 var reagentProto = _prototype.Index<ReagentPrototype>(entry.Reagent.Prototype);
-                _entityEffects.ApplyEffects(uid, reagentProto.PlantMetabolisms.ToArray(), entry.Quantity);
+                _entityEffects.ApplyEffects(uid, reagentProto.PlantMetabolisms.ToArray(), entry.Quantity,
+                    predicted: false); // Trauma - Added predicted
             }
 
             _solutionContainerSystem.RemoveEachReagent(component.SoilSolution.Value, PlantMetabolismRate);

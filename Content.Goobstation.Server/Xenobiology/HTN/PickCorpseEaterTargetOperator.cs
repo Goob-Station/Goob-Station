@@ -1,16 +1,12 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Goobstation.Shared.Nutrition.EntitySystems;
-using Content.Goobstation.Shared.Xenobiology;
 using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN.PrimitiveTasks;
 using Content.Server.NPC.Pathfinding;
-using Content.Shared.Humanoid;
-using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Nutrition.Components;
-using Content.Shared.Nutrition.EntitySystems;
 
 namespace Content.Goobstation.Server.Xenobiology.HTN;
 
@@ -21,6 +17,8 @@ public sealed partial class PickCorpseEaterTargetOperator : HTNOperator
     private GoobHungerSystem _hunger = default!;
     private PathfindingSystem _pathfinding = default!;
     private EatCorpseSystem _eatCorpse = default!;
+
+    private EntityQuery<CorpseEaterComponent> _corpseQuery = default!;
 
     /// <summary>
     /// Range in which we find target.
@@ -53,6 +51,8 @@ public sealed partial class PickCorpseEaterTargetOperator : HTNOperator
         _factions = sysManager.GetEntitySystem<NpcFactionSystem>();
         _hunger = sysManager.GetEntitySystem<GoobHungerSystem>();
         _eatCorpse = sysManager.GetEntitySystem<EatCorpseSystem>();
+
+        _corpseQuery = _ent.GetEntityQuery<CorpseEaterComponent>();
     }
 
     public override async Task<(bool Valid, Dictionary<string, object>? Effects)> Plan(NPCBlackboard blackboard, CancellationToken cancelToken)
@@ -61,7 +61,7 @@ public sealed partial class PickCorpseEaterTargetOperator : HTNOperator
         var targets = new List<EntityUid>();
 
         if (!blackboard.TryGetValue<float>(RangeKey, out var range, _ent)
-        || !_ent.TryGetComponent<CorpseEaterComponent>(owner, out var eaterComp)
+        || !_corpseQuery.TryComp(owner, out var eaterComp)
         || _hunger.IsHungerAboveState(owner, HungerThreshold.Peckish)) // eat corpses only if very hungry
             return (false, null);
 

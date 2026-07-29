@@ -7,6 +7,17 @@
     lifetime: 15
 
 - type: entity
+  parent: MarkerBase
+  id: XenoExtractChronofieldSpawner
+  name: sepia chronofield spawner
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 5
+  - type: SpawnOnDespawn
+    prototype: XenoExtractChronofield
+
+- type: entity
   id: XenoGooWall
   name: gelatinous growth
   description: This could very well be the blob from space LIDL.

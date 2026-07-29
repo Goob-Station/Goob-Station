@@ -10,7 +10,8 @@ namespace Content.Shared.EntityEffects;
 [ImplicitDataDefinitionForInheritors]
 public abstract partial class EntityEffect
 {
-    public abstract void RaiseEvent(EntityUid target, IEntityEffectRaiser raiser, float scale, EntityUid? user);
+    public abstract void RaiseEvent(EntityUid target, IEntityEffectRaiser raiser, float scale, EntityUid? user,
+        bool predicted = true); // Trauma - Added predicted
 
     [DataField]
     public EntityCondition[]? Conditions;
@@ -52,7 +53,8 @@ public abstract partial class EntityEffect
 /// <typeparam name="T">The Condition wer are raising.</typeparam>
 public abstract partial class EntityEffectBase<T> : EntityEffect where T : EntityEffectBase<T>
 {
-    public override void RaiseEvent(EntityUid target, IEntityEffectRaiser raiser, float scale, EntityUid? user)
+    public override void RaiseEvent(EntityUid target, IEntityEffectRaiser raiser, float scale, EntityUid? user,
+        bool predicted = true) // Trauma - Added predicted
     {
         if (this is not T type)
             return;

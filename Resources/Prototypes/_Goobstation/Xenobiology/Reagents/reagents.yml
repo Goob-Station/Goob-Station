@@ -88,10 +88,6 @@
       metabolismRate: 1
       effects:
       - !type:ModifySlimeComponent
-        conditions:
-        - !type:ReagentCondition
-          reagent: XenobioJellyPurple
-          min: 1
         extractBonus: 1
 
 - type: reagent
@@ -105,10 +101,6 @@
       metabolismRate: 1
       effects:
       - !type:ModifySlimeComponent
-        conditions:
-        - !type:ReagentCondition
-          reagent: XenobioJellyBlue
-          min: 1
         chanceModifier: -0.25
 
 - type: reagent
@@ -124,9 +116,11 @@
       - !type:ModifyStatusEffect
         effectProto: StatusEffectFireImmune
         time: 60
+        type: Add
       - !type:ModifyStatusEffect
-        effectProto: StatusEffectWeatherImmune
+        effectProto: StatusEffectAshStormImmune
         time: 60
+        type: Add
 
 - type: reagent
   parent: BaseXenobioReagent
@@ -139,10 +133,6 @@
       metabolismRate: 1
       effects:
       - !type:ModifySlimeComponent
-        conditions:
-        - !type:ReagentCondition
-          reagent: XenobioJellyCerulean
-          min: 1
         offspringBonus: 2
 
 - type: reagent
@@ -156,10 +146,6 @@
       metabolismRate: 1
       effects:
       - !type:ModifySlimeComponent
-        conditions:
-        - !type:ReagentCondition
-          reagent: XenobioJellyRed
-          min: 1
         chanceModifier: 0.25
 
 - type: reagent
@@ -173,18 +159,10 @@
       metabolismRate: 5 # hello hypospray users!
       effects:
       - !type:SpeciesChange
-        conditions:
-        - !type:ReagentCondition
-          reagent: XenobioJellyGreen
-          min: 10
         newSpecies: SlimePerson
       - !type:AdjustReagent
         reagent: XenobioJellyGreen
         amount: -50.0
-        conditions:
-        - !type:ReagentCondition
-          reagent: XenobioJellyGreen
-          min: 10
 
 - type: reagent
   parent: BaseXenobioReagent

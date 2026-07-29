@@ -1,4 +1,4 @@
-﻿using Robust.Shared.Containers;
+using Robust.Shared.Containers;
 using Robust.Shared.Network;
 
 namespace Content.Shared.EntityEffects.Effects.EntitySpawning;
@@ -21,7 +21,7 @@ public sealed partial class SpawnEntityInContainerOrDropEntityEffectSystem : Ent
 
         var xform = Transform(entity);
 
-        if (args.Effect.Predicted)
+        if (args.Effect.Predicted && args.Predicted) // Trauma - check args.Predicted too
         {
             for (var i = 0; i < quantity; i++)
             {

@@ -164,6 +164,7 @@
   - type: GuideHelp
     guides:
     - Xenobiology
+  - type: AntiMobSpam # Despawn dead slimes after 5 minutes
 
 # Begin Slimes
 
@@ -193,29 +194,36 @@
       adult:
         sprite: _Goobstation/Xenobiology/Mobs/slimesAdult.rsi
         displayName: adult
-  - type: Slime
-    breed: MobSlimeXenobioBaby
-    breedName: xenobio-breed-undetermined
-    maxOffspring: 4
-    mutationChance: 0.45
-  - type: RandomSlimeChange
 
-#- type: entity
-#  parent: MobSlimeXenobioBaby
-#  id: MobSlimeXenobioAdult
-#  categories: [ HideSpawnMenu ]
-#  name: slime
-#  suffix: Adult
-#  description: It looks so much like jelly. I wonder what it tastes like?
-#  components:
-#  - type: MobGrowth
-#    hungerRequired: 75
-#    currentStage: adult
-#    stages:
-#      baby:
-#        nextStage: adult
-#        sprite: _Goobstation/Xenobiology/Mobs/slimesBaby.rsi
-#        displayName: baby
-#      adult:
-#        sprite: _Goobstation/Xenobiology/Mobs/slimesAdult.rsi
-#        displayName: adult
+- type: entity
+  parent: MobSlimeXenobioBaby
+  id: MobSlimeXenobioAdult
+  categories: [ HideSpawnMenu ]
+  name: slime
+  suffix: Adult
+  description: It looks so much like jelly. I wonder what it tastes like?
+  components:
+  - type: MobGrowth
+    hungerRequired: 75
+    currentStage: adult
+    stages:
+      baby:
+        nextStage: adult
+        sprite: _Goobstation/Xenobiology/Mobs/slimesBaby.rsi
+        displayName: baby
+      adult:
+        sprite: _Goobstation/Xenobiology/Mobs/slimesAdult.rsi
+        displayName: adult
+
+- type: entity
+  abstract: true
+  parent: MarkerBase
+  id: MobSlimeXenobioBabyPending
+  name: undetermined slime
+  components:
+  - type: PendingSlimeSpawn
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Goobstation/Xenobiology/Mobs/slimesBaby.rsi
+        state: base

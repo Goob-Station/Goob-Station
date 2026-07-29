@@ -13,8 +13,8 @@ namespace Content.Goobstation.Server.Xenobiology;
 
 public sealed class SlimeScannerSystem : EntitySystem
 {
-    [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
-    [Dependency] private readonly IPrototypeManager _prot = default!;
+    [Dependency] private readonly ExamineSystemShared _examine = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
 
     public override void Initialize()
     {
@@ -49,31 +49,30 @@ public sealed class SlimeScannerSystem : EntitySystem
     private void TrySendTooltip(EntityUid player, EntityUid target, string message)
     {
         var markup = FormattedMessage.FromMarkupOrThrow(message);
-        _examineSystem.SendExamineTooltip(player, target, markup, false, true);
+        _examine.SendExamineTooltip(player, target, markup, false, true);
     }
 
     private string GenerateSlimeMarkup(Entity<SlimeComponent> ent)
     {
         var mutationChancePercent = MathF.Floor(ent.Comp.MutationChance * 100f);
-        var breedName = Loc.GetString(ent.Comp.BreedName);
 
         var sb = new StringBuilder();
 
-        sb.AppendLine(Loc.GetString("slime-scanner-examine-slime-description", ("color", ent.Comp.SlimeColor.ToHex()), ("name", breedName)));
+        sb.AppendLine(Loc.GetString("slime-scanner-examine-slime-description", ("color", ent.Comp.SlimeColor.ToHex()), ("name", _proto.Index(ent.Comp.Breed).BreedName)));
 
         // all this shit for a good looking examine text. imagine.
         sb.Append($"{Loc.GetString("slime-scanner-examine-slime-mutations", ("chance", mutationChancePercent))} ");
         var mutations = ent.Comp.PotentialMutations.ToList();
         for (int i = 0; i < mutations.Count; i++)
         {
-            var info = _prot.Index(mutations[i]);
+            var info = _proto.Index(mutations[i]);
 
             var color = "white";
             // todo make the colors work
             if (info.Components.TryGetComponent(nameof(SlimeComponent), out var sc))
                 color = ((SlimeComponent) sc).SlimeColor.ToHex();
 
-            sb.Append($"[color={color}]{breedName}[/color]");
+            sb.Append($"[color={color}]{info.BreedName}[/color]");
 
             if (i == mutations.Count - 1)
                 sb.AppendLine(".");
@@ -107,7 +106,7 @@ public sealed class SlimeScannerSystem : EntitySystem
             for (int j = 0; j < reagents.Count; j++)
             {
                 var reagent = reagents[j];
-                if (!_prot.TryIndex<ReagentPrototype>(reagent, out var rid))
+                if (!_proto.TryIndex<ReagentPrototype>(reagent, out var rid))
                     continue;
 
                 sb.Append($"[color={rid.SubstanceColor.ToHex()}]{rid.ID.ToLower()}[/color]");

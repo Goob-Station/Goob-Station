@@ -124,7 +124,7 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
         EnsureComp<ActiveSlimeGrinderComponent>(grinder);
         grinder.Comp.ProcessingTimer += physics.FixturesMass * grinder.Comp.ProcessingTimePerUnitMass;
 
-        var extractProto = slime.ProducedExtract;
+        var extractProto = _xenobio.GetProducedExtract((toProcess, slime));
         var extractQuantity = slime.ExtractsProduced;
 
         if (!grinder.Comp.YieldQueue.ContainsKey(extractProto))
@@ -143,7 +143,7 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
     {
         if (!Transform(grinder).Anchored
         || !HasComp<SlimeComponent>(dragged)
-        || (TryComp<MobStateComponent>(dragged, out var mobState) && mobState.CurrentState != MobState.Dead))
+        || TryComp<MobStateComponent>(dragged, out var mobState) && mobState.CurrentState != MobState.Dead)
             return false;
 
         return !TryComp<ApcPowerReceiverComponent>(grinder, out var power) || power.Powered;

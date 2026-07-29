@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.Xenobiology.XenobiologyBountyConsole;
-using Content.Shared.Cargo;
 using Content.Shared.Cargo.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -50,7 +49,7 @@ public sealed partial class StationXenobiologyBountyDatabaseComponent : Componen
     /// The group that bounties are pulled from.
     /// </summary>
     [DataField]
-    public ProtoId<XenobioBountyGroupPrototype> Group = "XenobioBounty";
+    public ProtoId<CargoBountyGroupPrototype> Group = "XenobioBounty";
 
     /// <summary>
     /// The time at which players will be able to skip the next bounty.

@@ -6,7 +6,8 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Random.Helpers;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-
+using Robust.Shared.Prototypes; // Goobstation
+ 
 namespace Content.Shared.EntityEffects;
 
 /// <summary>
@@ -19,6 +20,7 @@ public sealed partial class SharedEntityEffectsSystem : EntitySystem, IEntityEff
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
     [Dependency] private readonly SharedEntityConditionsSystem _condition = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!; // Goobstation - Delete when engine update
 
     public override void Initialize()
     {
@@ -29,7 +31,8 @@ public sealed partial class SharedEntityEffectsSystem : EntitySystem, IEntityEff
     {
         var scale = args.ReagentQuantity.Quantity.Float();
 
-        if (args.Reagent.ReactiveEffects != null && entity.Comp.ReactiveGroups != null)
+        if (args.Reagent.ReactiveEffects != null && entity.Comp.ReactiveGroups != null
+            && AllowedToReact(entity)) // Trauma - Added AllowedToReact
         {
             foreach (var (key, val) in args.Reagent.ReactiveEffects)
             {
@@ -60,9 +63,11 @@ public sealed partial class SharedEntityEffectsSystem : EntitySystem, IEntityEff
     }
 
     /// <inheritdoc cref="ApplyEffects(EntityUid,EntityEffect[],float,EntityUid?)"/>
-    public void ApplyEffects(EntityUid target, EntityEffect[] effects, FixedPoint2 scale, EntityUid? user = null)
+    public void ApplyEffects(EntityUid target, EntityEffect[] effects, FixedPoint2 scale, EntityUid? user = null,
+        bool predicted = true) // Trauma - Added predicted
     {
-        ApplyEffects(target, effects, scale.Float());
+        ApplyEffects(target, effects, scale.Float(),
+            user: user, predicted: predicted); // Trauma
     }
 
     /// <summary>
@@ -72,12 +77,14 @@ public sealed partial class SharedEntityEffectsSystem : EntitySystem, IEntityEff
     /// <param name="effects">Effects we're applying to the entity</param>
     /// <param name="scale">Optional scale multiplier for the effects</param>
     /// <param name="user">The entity causing the effect.</param>
-    public void ApplyEffects(EntityUid target, EntityEffect[] effects, float scale = 1f, EntityUid? user = null)
+    public void ApplyEffects(EntityUid target, EntityEffect[] effects, float scale = 1f, EntityUid? user = null,
+        bool predicted = true) // Trauma - Added predicted  
     {
         // do all effects, if conditions apply
         foreach (var effect in effects)
         {
-            TryApplyEffect(target, effect, scale, user);
+            TryApplyEffect(target, effect, scale, user,
+                predicted: predicted); // Trauma
         }
     }
 
@@ -89,7 +96,8 @@ public sealed partial class SharedEntityEffectsSystem : EntitySystem, IEntityEff
     /// <param name="scale">Optional scale multiplier for the effect.</param>
     /// <param name="user">The entity causing the effect.</param>
     /// <returns>True if all conditions pass!</returns>
-    public bool TryApplyEffect(EntityUid target, EntityEffect effect, float scale = 1f, EntityUid? user = null)
+    public bool TryApplyEffect(EntityUid target, EntityEffect effect, float scale = 1f, EntityUid? user = null,
+         bool predicted = true) // Trauma - Added Predicted
     {
         if (scale < effect.MinScale)
             return false;
@@ -97,7 +105,7 @@ public sealed partial class SharedEntityEffectsSystem : EntitySystem, IEntityEff
         // TODO: Replace with proper random prediciton when it exists.
         if (effect.Probability <= 1f)
         {
-            var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, GetNetEntity(target).Id, 0);
+            var seed = SharedRandomExtensions.HashCodeCombine((int) _timing.CurTick.Value, GetNetEntity(target).Id, 0);
             var rand = new System.Random(seed);
             if (!rand.Prob(effect.Probability))
                 return false;
@@ -119,7 +127,8 @@ public sealed partial class SharedEntityEffectsSystem : EntitySystem, IEntityEff
     /// <param name="effect">Effect we're applying</param>
     /// <param name="scale">Optional scale multiplier for the effect.</param>
     /// <param name="user">The entity causing the effect.</param>
-    public void ApplyEffect(EntityUid target, EntityEffect effect, float scale = 1f, EntityUid? user = null)
+    public void ApplyEffect(EntityUid target, EntityEffect effect, float scale = 1f, EntityUid? user = null,
+        bool predicted = true) // Trauma - Added predicted
     {
         // Clamp the scale if the effect doesn't allow scaling.
         if (!effect.Scaling)
@@ -137,15 +146,17 @@ public sealed partial class SharedEntityEffectsSystem : EntitySystem, IEntityEff
             );
         }
 
-        effect.RaiseEvent(target, this, scale, user);
+        effect.RaiseEvent(target, this, scale, user,
+            predicted: predicted); // Trauma
     }
 
     /// <summary>
     /// Raises an effect to an entity. You should not be calling this unless you know what you're doing.
     /// </summary>
-    public void RaiseEffectEvent<T>(EntityUid target, T effect, float scale, EntityUid? user) where T : EntityEffectBase<T>
+    public void RaiseEffectEvent<T>(EntityUid target, T effect, float scale, EntityUid? user, bool predicted = true) where T : EntityEffectBase<T> // Trauma - Added predicted
     {
-        var effectEv = new EntityEffectEvent<T>(effect, scale, user);
+        var effectEv = new EntityEffectEvent<T>(effect, scale, user,
+            predicted); // Trauma
         RaiseLocalEvent(target, ref effectEv);
     }
 }
@@ -171,5 +182,5 @@ public abstract partial class EntityEffectSystem<T, TEffect> : EntitySystem wher
 /// </summary>
 public interface IEntityEffectRaiser
 {
-    void RaiseEffectEvent<T>(EntityUid target, T effect, float scale, EntityUid? user) where T : EntityEffectBase<T>;
+    void RaiseEffectEvent<T>(EntityUid target, T effect, float scale, EntityUid? user, bool predicted = true) where T : EntityEffectBase<T>; // Trauma - Added predicted
 }

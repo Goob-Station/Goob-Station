@@ -1,3 +1,4 @@
+using Content.Shared.Cargo.Prototypes;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -10,7 +11,7 @@ namespace Content.Goobstation.Shared.Xenobiology.XenobiologyBountyConsole;
 /// from an alien creature (Currently, Just slime extracts)
 /// that can be exchanged for research points.
 /// </summary>
-[Prototype, Serializable, NetSerializable]
+[Prototype]
 public sealed partial class XenobiologyBountyPrototype : IPrototype
 {
     /// <inheritdoc/>
@@ -39,7 +40,7 @@ public sealed partial class XenobiologyBountyPrototype : IPrototype
     /// A group used for categorizing this bounty.
     /// </summary>
     [DataField]
-    public ProtoId<XenobioBountyGroupPrototype> Group = "XenobioBounty";
+    public ProtoId<CargoBountyGroupPrototype> Group = "XenobioBounty";
 }
 
 [DataDefinition, Serializable, NetSerializable]
