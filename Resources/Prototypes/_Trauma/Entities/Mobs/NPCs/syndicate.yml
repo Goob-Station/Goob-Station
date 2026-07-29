@@ -269,5 +269,5 @@
     activateSound: null
     deactivateSound: null
   - type: BatteryAmmoProvider
-    proto: XrayLaser
+    proto: XrayLaser # TODO: add real Xray projectile once shit isn't broken
     fireCost: 62.5
