@@ -63,13 +63,13 @@
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: bedheadv3
-- type: marking
-  id: HumanHairCube
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: cube
+#- type: marking        - Goobstation | Downstream superiority!
+#  id: HumanHairCube
+#  bodyPart: Hair
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: cube
 - type: marking
   id: HumanHairPulato
   bodyPart: Hair
