@@ -89,7 +89,6 @@
   parent: BaseMobChickRanch
   id: BaseMobAdultChickenRanch
   components:
-  - type: Happiness
   - type: AnimalAgeing # Not exactly needed, but probably should do for spawning in
     currentAgeState: Adult
     yearsOld: 15

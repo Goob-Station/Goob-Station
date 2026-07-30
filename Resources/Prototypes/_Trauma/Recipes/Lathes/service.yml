@@ -1,0 +1,40 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: EnergyFoodSynthesizerMachineCircuitboard
+  result: EnergyFoodSynthesizerMachineCircuitboard
+  icon:
+    sprite: _Trauma/Structures/Machines/service_dispenser.rsi
+    state: industrial-working
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: EnergyBoozeDispenserMachineCircuitboard
+  result: EnergyBoozeDispenserMachineCircuitboard
+  icon:
+    sprite: Structures/smalldispensers.rsi
+    state: booze
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: EnergySodaDispenserMachineCircuitboard
+  result: EnergySodaDispenserMachineCircuitboard
+  icon:
+    sprite: Structures/smalldispensers.rsi
+    state: soda
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: RanchIncubatorCircuitboard
+  result: RanchIncubatorCircuitboard
+  icon:
+    sprite: _Trauma/Structures/Machines/ranchobjects.rsi
+    state: incubator
+
+- type: latheRecipe
+  id: ChickenCarrier
+  result: ChickenCarrier
+  materials:
+    Steel: 600
+    Plastic: 200

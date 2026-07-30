@@ -23,10 +23,12 @@
 - type: entity
   parent: BaseRanchingEgg
   id: WhiteEgg
+  suffix: White
 
 - type: entity
   parent: BaseRanchingEgg
   id: BrownEgg
+  suffix: Brown
   components:
   - type: Sprite
     state: egg-brown
@@ -36,6 +38,7 @@
 - type: entity
   parent: BaseRanchingEgg
   id: VoidEgg
+  suffix: Void
   components:
   - type: Sprite
     state: egg-purple
@@ -55,6 +58,7 @@
 - type: entity
   parent: BaseRanchingEgg
   id: IxworthEgg
+  suffix: Ixworth
   components:
   - type: Sprite
     state: egg-pet
@@ -69,6 +73,7 @@
 - type: entity
   parent: BaseRanchingEgg
   id: SilkieEgg
+  suffix: Silkie
   components:
   - type: Sprite
     state: egg-silkie
@@ -78,6 +83,7 @@
 - type: entity
   parent: BaseRanchingEgg
   id: WhiteSilkieEgg
+  suffix: White Silkie
   components:
   - type: Sprite
     state: egg-silkie_white
@@ -87,6 +93,7 @@
 - type: entity
   parent: BaseRanchingEgg
   id: BlackSilkieEgg
+  suffix: Black Silkie
   components:
   - type: Sprite
     state: egg-silkie_black
@@ -96,6 +103,7 @@
 - type: entity
   parent: BaseRanchingEgg
   id: SelkieEgg
+  suffix: Selkie
   components:
   - type: Sprite
     state: egg-sea
@@ -105,6 +113,7 @@
 - type: entity
   parent: BaseRanchingEgg
   id: DreamEgg
+  suffix: Dream
   components:
   - type: Sprite
     state: egg-dream
@@ -127,6 +136,7 @@
 - type: entity
   parent: BaseRanchingEgg
   id: PoultrygeistEgg
+  suffix: Poultrygeist
   components:
   - type: Sprite
     state: egg-ghost
@@ -141,6 +151,7 @@
 - type: entity
   parent: BaseRanchingEgg
   id: SpicyEgg
+  suffix: Spicy
   components:
   - type: Sprite
     state: egg-spicy
@@ -150,6 +161,7 @@
 - type: entity
   parent: BaseRanchingEgg
   id: PigeonEgg
+  suffix: Pigeon
   components:
   - type: Sprite
     sprite: _Trauma/Objects/Misc/eggs.rsi
@@ -186,6 +198,7 @@
   parent: BaseItem
   id: PigeonEggInedible
   name: egg
+  suffix: Pigeon, inedible
   components:
   - type: Sprite
     sprite: _Trauma/Objects/Misc/eggs.rsi
@@ -210,6 +223,7 @@
 - type: entity
   parent: BaseRanchingEgg
   id: CandyEgg
+  suffix: Candy
   components:
   - type: Sprite
     state: egg-candy
@@ -225,6 +239,7 @@
 - type: entity
   parent: BaseRanchingEgg
   id: SeaEgg
+  suffix: Sea
   components:
   - type: Sprite
     state: egg-sea
@@ -235,6 +250,7 @@
   parent: BaseItem
   id: GoldenEgg
   name: golden chicken egg
+  description: A very shiny egg!
   components:
   - type: Sprite
     sprite: _Trauma/Objects/Misc/eggs.rsi
@@ -246,6 +262,7 @@
   parent: WaterBalloonBase
   id: ClownEgg
   name: egg?
+  suffix: Clown
   description: doesn't look very eggy to me.
   components:
   - type: Sprite
@@ -254,6 +271,7 @@
 - type: entity
   parent: BaseRanchingEgg
   id: CluwneEgg
+  suffix: Cluwne
   components:
   - type: Sprite
     state: egg-cluwne
@@ -263,6 +281,7 @@
 - type: entity
   parent: [BaseChickenCold, BaseRanchingEgg]
   id: SnowEgg
+  suffix: Snow
   components:
   - type: Sprite
     state: egg-snow
@@ -278,6 +297,7 @@
 - type: entity
   parent: BaseRanchingEgg
   id: GlassEgg
+  suffix: Glass
   components:
   - type: Sprite
     state: egg-glass
@@ -287,6 +307,7 @@
 - type: entity
   parent: BaseRanchingEgg
   id: RaptorEgg
+  suffix: Raptor
   components:
   - type: Sprite
     state: egg-raptor
@@ -297,6 +318,7 @@
 - type: entity
   parent: BaseRanchingEgg
   id: OnagadoriEgg
+  suffix: Onagadori
   components:
   - type: Sprite
     state: egg-onagadori
@@ -306,6 +328,7 @@
 - type: entity
   parent: BaseRanchingEgg
   id: WizardEgg
+  suffix: Wizard
   components:
   - type: Sprite
     state: egg-wizard
@@ -315,6 +338,7 @@
 - type: entity
   parent: BaseRanchingEgg
   id: SynthEgg
+  suffix: Synth
   components:
   - type: Sprite
     state: egg-plant
@@ -329,6 +353,7 @@
 - type: entity
   parent: BaseRanchingEgg
   id: MimeEgg
+  suffix: Mime
   components:
   - type: Sprite
     state: egg-mime
@@ -344,19 +369,19 @@
 
 - type: entity
   id: BalloonEggSpawner
+  categories: [ HideSpawnMenu ]
   components:
   - type: TriggerOnSpawn
   - type: SpawnEntityTableOnTrigger
     table: !type:GroupSelector
       children:
       - id: BalloonEggBlue
-        weight: 1
       - id: BalloonEggRed
-        weight: 1
 
 - type: entity
   parent: BaseRanchingEgg
   id: BalloonEggBlue
+  suffix: Blue, Oxygen
   components:
   - type: Sprite
     state: egg-balloon-blue
@@ -374,13 +399,14 @@
       - !type:SpawnGasBehavior
         gasMixture:
           moles:
-            Oxygen: 100 # Lower than gas on gibbing
+            Oxygen: 100
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
 
 - type: entity
   parent: BalloonEggBlue
   id: BalloonEggRed
+  suffix: Red, Plasma
   components:
   - type: Sprite
     state: egg-balloon
@@ -396,13 +422,14 @@
       - !type:SpawnGasBehavior
         gasMixture:
           moles:
-            Plasma: 100 # Lower than gas on gibbing
+            Plasma: 100
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
 
 - type: entity
   parent: BaseRanchingEgg
   id: RobotEgg
+  suffix: Robot
   components:
   - type: Sprite
     state: egg-robot
@@ -417,6 +444,7 @@
 - type: entity
   parent: BaseRanchingEgg
   id: KnightEgg
+  suffix: Knight
   components:
   - type: Sprite
     state: egg-knight
@@ -432,15 +460,18 @@
 - type: entity
   parent: BaseRanchingEgg
   id: StoneEgg
+  suffix: Stone
   components:
   - type: Sprite
     state: egg-stone
   - type: TimedReplace
     entity: MobChickStone
+  # TODO: rock eater interaction
 
 - type: entity
   parent: BaseRanchingEgg
   id: CockatriceEgg
+  suffix: Cockatrice
   components:
   - type: Sprite
     state: egg-cockatrice
@@ -456,6 +487,7 @@
 - type: entity
   parent: BaseRanchingEgg
   id: SickleEgg
+  suffix: Sickle
   components:
   - type: Sprite
     state: egg-popsicle
@@ -475,6 +507,7 @@
 - type: entity
   parent: BaseRanchingEgg
   id: ZappyEgg
+  suffix: Zappy
   components:
   - type: Sprite
     state: egg-zappy
@@ -490,6 +523,7 @@
 - type: entity
   parent: BaseRanchingEgg
   id: PhoenixEgg
+  suffix: Phoenix
   components:
   - type: Sprite
     state: egg-phoenix
@@ -509,6 +543,7 @@
 - type: entity
   parent: BaseRanchingEgg
   id: DragonEgg
+  suffix: Dragon Chicken
   components:
   - type: Sprite
     state: egg-dragon
@@ -524,6 +559,7 @@
 - type: entity
   parent: BaseRanchingEgg
   id: CoralEgg
+  suffix: Coral
   components:
   - type: Sprite
     state: egg-coral

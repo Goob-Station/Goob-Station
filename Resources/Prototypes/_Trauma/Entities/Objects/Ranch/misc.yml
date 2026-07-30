@@ -1,8 +1,8 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  id: ThunderCloud
   parent: BaseEnergyBall
+  id: ThunderCloud
   name: thunder cloud
   description: A cloud which has a localized thunder storm inside of it, probably due to chicken magic.
   components:

@@ -10,33 +10,29 @@ namespace Content.Trauma.Shared.Ranching.Systems;
 
 public sealed partial class EggIncubatorSystem : EntitySystem
 {
-    [Dependency] private IRobustRandom _random = default!;
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private EntityQuery<TimedReplaceComponent> _eggQuery = default!;
 
-    public override void Initialize()
-    {
-        SubscribeLocalEvent<EggIncubatorComponent, EntInsertedIntoContainerMessage>(OnPlaced);
-        SubscribeLocalEvent<EggIncubatorComponent, EntRemovedFromContainerMessage>(OnRemoved);
-    }
-
+    [SubscribeLocalEvent]
     private void OnPlaced(Entity<EggIncubatorComponent> ent, ref EntInsertedIntoContainerMessage args)
     {
-        if (!TryComp<TimedReplaceComponent>(args.Entity, out var timedReplace))
+        if (!_eggQuery.TryComp(args.Entity, out var egg))
             return;
 
-        timedReplace.SpawnTime = _timing.CurTime + timedReplace.Time;
-        timedReplace.Active = true;
+        egg.SpawnTime = _timing.CurTime + egg.Time;
+        egg.Active = true;
 
-        _appearance.SetData(ent, EggIncubatorVisuals.Egg, true);
+        _appearance.SetData(ent.Owner, EggIncubatorVisuals.Egg, true);
     }
 
+    [SubscribeLocalEvent]
     private void OnRemoved(Entity<EggIncubatorComponent> ent, ref EntRemovedFromContainerMessage args)
     {
-        if (!TryComp<TimedReplaceComponent>(args.Entity, out var timedReplace))
+        if (!_eggQuery.TryComp(args.Entity, out var egg))
             return;
 
-        timedReplace.Active = false;
-        _appearance.SetData(ent, EggIncubatorVisuals.Egg, false);
+        egg.Active = false;
+        _appearance.SetData(ent.Owner, EggIncubatorVisuals.Egg, false);
     }
 }

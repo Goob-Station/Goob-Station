@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: BaseMachinePowered
+  parent: [ BaseMachinePowered, ConstructibleMachine, BaseConstructibleMachineDestructible ]
   id: RanchIncubator
   name: incubator
   description: Put an egg in here to make a chicken!
@@ -17,6 +17,8 @@
       visible: false
   - type: ApcPowerReceiver
     powerLoad: 20
+  - type: Machine
+    board: RanchIncubatorCircuitboard
   - type: ItemSlots
     slots:
       egg-slot:
@@ -26,6 +28,8 @@
           - Egg
   - type: ContainerContainer
     containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
       egg-slot: !type:ContainerSlot
   - type: GenericVisualizer
     visuals:
@@ -37,10 +41,10 @@
   - type: EggIncubator
 
 - type: entity
+  parent: PetCarrier
   id: ChickenCarrier
   name: chicken carrier
   description: Allows chickens to be carried comfortably. It smells vaguely of toilet water and explosives.
-  parent: PetCarrier
   components:
   - type: Sprite
     noRot: true
@@ -72,7 +76,7 @@
   parent: BaseStructure
   id: RanchBox
   name: nesting box
-  description: Was nice place for a hen to lay her eggs. Due to advancements in bluespace chickens science they no longer have to.
+  description: Was a nice place for a hen to lay her eggs. Due to advancements in bluespace chickens science, they no longer have to.
   components:
   - type: Sprite
     sprite: _Trauma/Structures/Machines/ranchobjects.rsi
