@@ -150,6 +150,16 @@
   category: cargoproduct-category-name-medical
   group: market
 
+- type: cargoProduct # Goob addition - Bounty
+  id: CrateChemistryF
+  icon:
+    sprite: Structures/Storage/Crates/chemcrate_secure.rsi
+    state: icon
+  product: CrateChemistryF
+  cost: 850
+  category: cargoproduct-category-name-medical
+  group: market
+
 - type: cargoProduct  # GoobStation Addition - Bounty
   id: SurgicalSupplies
   icon:
