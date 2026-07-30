@@ -54,6 +54,19 @@
         - id: JugSilver
 
 - type: entity
+  parent: CrateChemistrySecure
+  id: CrateChemistryF
+  name: chemicals crate (F)
+  description: Contains chemicals from the F-Block of elements. Requires Chemistry access to open.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: JugUranium
+        - id: JugPlasma
+
+- type: entity
   parent: CrateGenericSteel
   id: CratePlantBGone
   name: bulk Plant-B-Gone crate
