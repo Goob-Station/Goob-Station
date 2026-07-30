@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Teleportation.Systems;
+using Content.Shared._Trauma.Teleportation;
 using Content.Server._Goobstation.Wizard.Components;
 using Content.Shared.Projectiles;
 using Content.Shared.Teleportation;
@@ -10,7 +10,7 @@ namespace Content.Server._Goobstation.Wizard.Systems;
 
 public sealed class RandomTeleportOnProjectileHitSystem : EntitySystem
 {
-    [Dependency] private readonly SharedRandomTeleportSystem _teleport = default!;
+    [Dependency] private readonly RandomTeleportSystem _teleport = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
 
     public override void Initialize()

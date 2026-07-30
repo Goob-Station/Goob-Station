@@ -5,8 +5,7 @@ using Content.Shared.Teleportation;
 using Content.Server.Fluids.EntitySystems;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Goobstation.Shared.Teleportation.Systems;
-using Content.Goobstation.Shared.Teleportation.Components;
+using Content.Shared._Trauma.Teleportation;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -14,7 +13,7 @@ public sealed class HereticBladeSystem : SharedHereticBladeSystem
 {
     [Dependency] private readonly FlammableSystem _flammable = default!;
     [Dependency] private readonly BloodstreamSystem _blood = default!;
-    [Dependency] private readonly SharedRandomTeleportSystem _teleport = default!;
+    [Dependency] private readonly RandomTeleportSystem _teleport = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _sol = default!;
     [Dependency] private readonly PuddleSystem _puddle = default!;
 

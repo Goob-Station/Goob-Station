@@ -76,7 +76,6 @@
         time: 2
         type: Add
 
-
 - type: reagent
   parent: BaseXenobioReagent
   id: XenobioJellyPurple
@@ -118,7 +117,7 @@
         time: 60
         type: Add
       - !type:ModifyStatusEffect
-        effectProto: StatusEffectAshStormImmune
+        effectProto: StatusEffectWeatherImmune
         time: 60
         type: Add
 
@@ -157,6 +156,10 @@
   metabolisms:
     Poison:
       metabolismRate: 5 # hello hypospray users!
+      conditions:
+      - !type:ReagentCondition
+        reagent: XenobioJellyGreen
+        min: 10
       effects:
       - !type:SpeciesChange
         newSpecies: SlimePerson
@@ -173,20 +176,16 @@
   metabolisms:
     Poison:
       metabolismRate: 5 # hello hypospray users!
+      conditions:
+      - !type:ReagentCondition
+        reagent: XenobioHumanToxin
+        min: 10
       effects:
       - !type:SpeciesChange
-        conditions:
-        - !type:ReagentCondition
-          reagent: XenobioHumanToxin
-          min: 10
         newSpecies: Human
       - !type:AdjustReagent
         reagent: XenobioHumanToxin
         amount: -50.0
-        conditions:
-        - !type:ReagentCondition
-          reagent: XenobioHumanToxin
-          min: 10
 
 - type: reagent
   parent: BaseXenobioReagent
@@ -198,7 +197,7 @@
     Poison:
       metabolismRate: 1
       effects:
-      - !type:ChangeFactionEntityEffect
+      - !type:ChangeFaction
         conditions:
         - !type:ReagentCondition
           reagent: XenobioJellyPink
@@ -214,25 +213,15 @@
   metabolisms:
     Poison:
       metabolismRate: 5 # hello hypospray users!
+      conditions:
+      - !type:ReagentCondition
+        reagent: AdvancedMutationToxin
+        min: 10
       effects:
       - !type:RandomSpeciesChange
-        speciesBlacklist:
-        - Skeleton # if he's dead it's GG
-        - IPC # do i have to explain this one
-        - Cyborg # why the fuck is this a thing?
-        - Shadowling # yeah.
-        # add more here
-        conditions:
-        - !type:ReagentCondition
-          reagent: AdvancedMutationToxin
-          min: 10
       - !type:AdjustReagent
         reagent: AdvancedMutationToxin
         amount: -50.0
-        conditions:
-        - !type:ReagentCondition
-          reagent: AdvancedMutationToxin
-          min: 10
 
 - type: reagent
   parent: BaseXenobioReagent
@@ -243,20 +232,16 @@
   metabolisms:
     Poison:
       metabolismRate: 5 # hello hypospray users!
+      conditions:
+      - !type:ReagentCondition
+        reagent: XenobioFelinidToxin
+        min: 10
       effects:
       - !type:SpeciesChange
-        conditions:
-        - !type:ReagentCondition
-          reagent: XenobioFelinidToxin
-          min: 10
         newSpecies: Felinid
       - !type:AdjustReagent
         reagent: XenobioFelinidToxin
         amount: -50.0
-        conditions:
-        - !type:ReagentCondition
-          reagent: XenobioFelinidToxin
-          min: 10
 
 - type: reagent
   parent: BaseXenobioReagent

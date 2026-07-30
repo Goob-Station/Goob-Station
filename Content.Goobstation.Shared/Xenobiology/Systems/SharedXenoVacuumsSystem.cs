@@ -48,6 +48,10 @@ public abstract partial class SharedXenoVacuumSystem : EntitySystem
         SubscribeLocalEvent<XenoVacuumComponent, GotEquippedHandEvent>(OnGotEquippedHand);
         SubscribeLocalEvent<XenoVacuumComponent, GotUnequippedHandEvent>(OnGotUnequippedHand);
         SubscribeLocalEvent<XenoVacuumComponent, AfterInteractEvent>(OnAfterInteract);
+
+        _mobQuery = GetEntityQuery<MobStateComponent>();
+        _delayQuery = GetEntityQuery<UseDelayComponent>();
+        _tankQuery = GetEntityQuery<XenoVacuumTankComponent>();
     }
 
     private void OnTankInit(Entity<XenoVacuumTankComponent> ent, ref ComponentInit args)
@@ -104,7 +108,7 @@ public abstract partial class SharedXenoVacuumSystem : EntitySystem
         {
             var identity = Identity.Entity(removedEnt, EntityManager);
             var popup = Loc.GetString("xeno-vacuum-clear-popup", ("ent", identity));
-            _popup.PopupEntity(popup, ent, args.User);
+            _popup.PopupPredicted(popup, ent, args.User);
 
             var coords = args.Target is { } targett ? Transform(targett).Coordinates : args.ClickLocation;
             _throw.TryThrow(removedEnt, coords);
@@ -160,7 +164,7 @@ public abstract partial class SharedXenoVacuumSystem : EntitySystem
         if (GetTank(user) is not { } tank)
         {
             var noTankPopup = Loc.GetString("xeno-vacuum-suction-fail-no-tank-popup");
-            _popup.PopupEntity(noTankPopup, vacuum, user);
+            _popup.PopupPredicted(noTankPopup, vacuum, user);
             return false;
         }
 
@@ -168,7 +172,7 @@ public abstract partial class SharedXenoVacuumSystem : EntitySystem
         if (_whitelist.IsWhitelistFail(vacuum.Comp.EntityWhitelist, target))
         {
             var invalidEntityPopup = Loc.GetString("xeno-vacuum-suction-fail-invalid-entity-popup", ("ent", identity));
-            _popup.PopupEntity(invalidEntityPopup, vacuum, user);
+            _popup.PopupPredicted(invalidEntityPopup, vacuum, user);
 
             return false;
         }
@@ -176,7 +180,7 @@ public abstract partial class SharedXenoVacuumSystem : EntitySystem
         if (tank.Comp.StorageTank.ContainedEntities.Count > tank.Comp.MaxEntities)
         {
             var tankFullPopup = Loc.GetString("xeno-vacuum-suction-fail-tank-full-popup");
-            _popup.PopupEntity(tankFullPopup, vacuum, user);
+            _popup.PopupPredicted(tankFullPopup, vacuum, user);
 
             return false;
         }
@@ -191,7 +195,7 @@ public abstract partial class SharedXenoVacuumSystem : EntitySystem
 
         _audio.PlayPredicted(vacuum.Comp.Sound, user, user);
         var successPopup = Loc.GetString("xeno-vacuum-suction-succeed-popup", ("ent", identity));
-        _popup.PopupEntity(successPopup, vacuum, user);
+        _popup.PopupPredicted(successPopup, vacuum, user);
 
         return true;
     }

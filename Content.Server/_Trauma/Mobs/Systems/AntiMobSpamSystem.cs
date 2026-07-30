@@ -31,16 +31,8 @@ public sealed partial class MobSpamSystem : EntitySystem
 
         Subs.CVar(_cfg, GoobCVars.AntiMobSpamUpdateRate, x => _buffer.PopDelay = TimeSpan.FromMinutes(x), true);
 
-        SubscribeLocalEvent<MobSpamComponent, MobStateChangedEvent>(OnMobStateChanged);
+        SubscribeLocalEvent<AntiMobSpamComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
-        SubscribeLocalEvent<MobSpamComponent, ComponentInit>(OnComponentInit);
-    }
-
-    // Delete this after testing in localhost
-    private void OnComponentInit(Entity<MobSpamComponent> ent, ref ComponentInit args)
-    {
-        ent.Comp.Test = _buffer.PopDelay;
-        Dirty(ent);
     }
 
     public override void Update(float frameTime)
@@ -51,7 +43,7 @@ public sealed partial class MobSpamSystem : EntitySystem
             Despawn(uid);
     }
 
-    private void OnMobStateChanged(Entity<MobSpamComponent> ent, ref MobStateChangedEvent args)
+    private void OnMobStateChanged(Entity<AntiMobSpamComponent> ent, ref MobStateChangedEvent args)
     {
         if (args.NewMobState != MobState.Dead)
             return;

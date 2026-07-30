@@ -74,15 +74,9 @@ using Robust.Shared.Random;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using Content.Shared.Actions.Components;
-using Content.Shared.Body.Components;
-using Content.Shared.Construction.Components;
-using Content.Shared.Friction;
-using Content.Shared.Item;
-using Content.Shared.Tag;
-using Content.Goobstation.Shared.Teleportation.Systems;
 using Content.Shared._Shitcode.Wizard.Components;
 using Content.Shared.Power.Components;
+using Content.Shared._Trauma.Teleportation;
 
 namespace Content.Server._Goobstation.Wizard.Systems; //todo refactor wiz
 
@@ -102,7 +96,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly IdentitySystem _identity = default!;
     [Dependency] private readonly BatterySystem _battery = default!;
-    [Dependency] private readonly SharedRandomTeleportSystem _teleport = default!;
+    [Dependency] private readonly RandomTeleportSystem _teleport = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly TurfSystem _turf = default!;

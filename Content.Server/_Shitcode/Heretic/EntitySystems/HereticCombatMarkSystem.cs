@@ -10,7 +10,6 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Linq;
 using Content.Shared.Humanoid;
-using Content.Server._Goobstation.Heretic.EntitySystems.PathSpecific;
 using Content.Server._Shitcode.Heretic.EntitySystems.PathSpecific;
 using Content.Server.Heretic.Abilities;
 using Content.Server.Medical;

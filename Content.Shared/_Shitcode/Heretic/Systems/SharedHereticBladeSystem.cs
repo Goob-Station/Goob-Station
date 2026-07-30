@@ -9,7 +9,6 @@ using Content.Goobstation.Common.Physics;
 using Content.Goobstation.Common.SecondSkin;
 using Content.Goobstation.Common.Weapons;
 using Content.Shared._Goobstation.Heretic.Components;
-using Content.Shared._Goobstation.Heretic.Systems;
 using Content.Shared._Goobstation.Wizard.SanguineStrike;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Atmos.Rotting;

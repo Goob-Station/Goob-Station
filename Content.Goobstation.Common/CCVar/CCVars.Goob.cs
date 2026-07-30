@@ -126,7 +126,7 @@ public sealed partial class GoobCVars
     /// How long (in minutes) dead mobs should despawn when given with AntiMobSpamComponent
     /// </summary>
     public static readonly CVarDef<float> AntiMobSpamUpdateRate =
-        CVarDef.Create("game.anti_mob_spam_update", 5f, CVar.SERVER | CVar.SERVERONLY);
+        CVarDef.Create("game.anti_mob_spam_update", 5f, CVar.SERVER | CVar.SERVER);
 
 
     #region Player Listener

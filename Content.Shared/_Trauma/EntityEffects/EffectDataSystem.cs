@@ -12,7 +12,14 @@ namespace Content.Shared._Trauma.EntityEffects;
 /// </remarks>
 public sealed partial class EffectDataSystem : EntitySystem
 {
-    [Dependency] private EntityQuery<EntityEffectToolComponent> _toolQuery = default!;
+    private EntityQuery<EntityEffectToolComponent> _toolQuery;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        _toolQuery = GetEntityQuery<EntityEffectToolComponent>();
+    }
 
     public EntityUid? GetTool(EntityUid target)
         => _toolQuery.CompOrNull(target)?.Tool;

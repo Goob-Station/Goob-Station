@@ -21,6 +21,7 @@ using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Movement.Events;
+using Robust.Shared.Network;
 
 namespace Content.Goobstation.Shared.Xenobiology.Systems;
 
@@ -66,7 +67,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         _bloodstreamQuery = GetEntityQuery<BloodstreamComponent>();
         _hungerQuery = GetEntityQuery<HungerComponent>();
         _slimeQuery = GetEntityQuery<SlimeComponent>();
-
+        _tankQuery = GetEntityQuery<XenoVacuumTankComponent>();
     }
 
     public override void Update(float frameTime)
@@ -117,7 +118,11 @@ public sealed partial class SlimeLatchSystem : EntitySystem
             && _solutionContainer.ResolveSolution(ent.Owner, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var blood)
             && _solutionContainer.ResolveSolution(ent.Owner, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var chem))
         {
-            var bloodProportion = blood.Volume / (chem.Volume + blood.Volume);
+            var totalVolume = chem.Volume + blood.Volume;
+            if (totalVolume <= 0)
+                return;
+
+            var bloodProportion = blood.Volume / totalVolume;
             var chemProportion = 1 - bloodProportion;
             var bloodTransfer = FixedPoint2.Min(ent.Comp.SuctionUnits * bloodProportion, availableVolume * bloodProportion);
             var chemTransfer = FixedPoint2.Min(ent.Comp.SuctionUnits * chemProportion, availableVolume * chemProportion);
@@ -131,7 +136,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
                 _stomach.TryTransferSolution(stomach.Owner, chemSolution, stomach);
             }
 
-            chem.AddReagent(ent.Comp.ToxinReagent, ent.Comp.ToxinUnits);
+            //chem.AddReagent(ent.Comp.ToxinReagent, ent.Comp.ToxinUnits);
         }
     }
 
@@ -214,7 +219,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         if (_mobState.IsDead(target))
         {
             var targetDeadPopup = Loc.GetString("slime-latch-fail-target-dead", ("ent", target));
-            _popup.PopupEntity(targetDeadPopup, ent, ent);
+            _popup.PopupPredicted(targetDeadPopup, ent, ent);
 
             return false;
         }
@@ -222,13 +227,13 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         if (ent.Comp.Stomach.Count >= ent.Comp.MaxContainedEntities)
         {
             var maxEntitiesPopup = Loc.GetString("slime-latch-fail-max-entities", ("ent", target));
-            _popup.PopupEntity(maxEntitiesPopup, ent, ent);
+            _popup.PopupPredicted(maxEntitiesPopup, ent, ent);
 
             return false;
         }
 
         var attemptPopup = Loc.GetString("slime-latch-attempt", ("slime", ent), ("ent", target));
-        _popup.PopupEntity(attemptPopup, ent, ent, PopupType.MediumCaution);
+        _popup.PopupPredicted(attemptPopup, ent, ent, PopupType.MediumCaution);
 
         var doAfterArgs = new DoAfterArgs(EntityManager, ent, ent.Comp.LatchDoAfterDuration, new SlimeLatchDoAfterEvent(), ent, target)
         {
@@ -301,7 +306,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         Dirty(target, comp);
 
         _audio.PlayPredicted(ent.Comp.EatSound, ent, ent);
-        _popup.PopupEntity(Loc.GetString("slime-action-latch-success", ("slime", ent), ("target", target)), ent, PopupType.SmallCaution);
+        _popup.PopupPredicted(Loc.GetString("slime-action-latch-success", ("slime", ent), ("target", target)), ent, ent, PopupType.Small);
 
         // We also need to set a new state for the slime when it's consuming,
         // this will be easy however it's important to take MobGrowthSystem into account... possibly we should use layers?
