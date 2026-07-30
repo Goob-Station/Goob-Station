@@ -405,16 +405,35 @@ namespace Content.Shared.Damage
                 // Target a specific body part
                 TargetBodyPart? target;
                 var totalDamage = damage.GetTotal();
+                List<(EntityUid Id, BodyPartComponent Component)>? possibleTargets = null;
 
-                if (totalDamage <= 0 || !canMiss) // Whoops i think i fucked up damage here.
-                    target = _body.GetTargetBodyPart(uid, origin, targetPart);
+                BodyComponent? body = null;
+
+                if (totalDamage < 0 && targetPart == null)
+                {
+                    foreach (var (dmgType, dmgValue) in damage.DamageDict)
+                    {
+                        if (dmgValue >= 0) continue;
+                        var healTargetParts = _body.GetBodyChildren(uid, body).Where((part) => _damageableQuery.TryComp(part.Id, out var partDamageable2) && partDamageable2.Damage.DamageDict.TryGetValue(dmgType, out var oldValue) && oldValue > 0);
+                        if (healTargetParts.Count() > 0)
+                        {
+                            possibleTargets = healTargetParts.ToList();
+                            break;
+                        }
+                    }
+                }
                 else
-                    target = _body.GetRandomBodyPart(uid, origin, targetPart);
+                {
+                    if (!canMiss) // Whoops i think i fucked up damage here.
+                        target = _body.GetTargetBodyPart(uid, origin, targetPart);
+                    else
+                        target = _body.GetRandomBodyPart(uid, origin, targetPart);
 
-                var (partType, symmetry) = _body.ConvertTargetBodyPart(target);
-                var possibleTargets = _body.GetBodyChildrenOfType(uid, partType, symmetry: symmetry).ToList();
+                    var (partType, symmetry) = _body.ConvertTargetBodyPart(target);
+                    possibleTargets = _body.GetBodyChildrenOfType(uid, partType, symmetry: symmetry).ToList();
+                }
 
-                if (possibleTargets.Count == 0)
+                if (possibleTargets == null || possibleTargets.Count == 0)
                 {
                     if (totalDamage <= 0)
                         return null;
