@@ -225,3 +225,17 @@ public sealed class BeforeFullySlicedEvent : CancellableEntityEventArgs
     /// </summary>
     public EntityUid User;
 }
+
+// <Trauma>
+/// <summary>
+/// Raised directed at the eater when a portion of food is successfully transferred to their stomach.
+/// </summary>
+[ByRefEvent]
+public readonly record struct ConsumingFoodEvent(EntityUid Food, FixedPoint2 Volume);
+
+/// <summary>
+/// Raised directed at the eater after they finish fully eating a food.
+/// </summary>
+[ByRefEvent]
+public readonly record struct FullyAteEvent(EntityUid Food, EntityUid User);
+// </Trauma>

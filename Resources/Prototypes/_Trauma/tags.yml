@@ -1,74 +1,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-## A ##
-
-- type: Tag
-  id: AdamantineScraps # Construction: AdamantineIngot
-
-- type: Tag
-  id: AdvancedMagboots # Construction: RevPlasmaFoundry
-
-- type: Tag
-  id: AirlockAssembly # Used for airlock assemblies so that heretic void conduit can damage them
-
-- type: Tag
-  id: AnvilTop # Construction: Anvil, added to AnvilTop after cooling it down
-
-# Area whitelist tags for ambient music
-- type: Tag
-  id: AreaBeach
-
-- type: Tag
-  id: AreaCold
-
-- type: Tag
-  id: AreaDojo
-
-- type: Tag
-  id: AreaDetective
-
-- type: Tag
-  id: AreaInterrogation
-
-- type: Tag
-  id: AreaMorgue
-
 - type: Tag
   id: Apple
 
-## B ##
-
-- type: Tag
-  id: BloodVial
-
-- type: Tag
-  id: BowImprovised # Construction: AltarConvertOrange, given to improvised shortbow, used to get Iradomini nullrod's altar
-
-- type: Tag
-  id: BrassScraps # Construction: BloomeryColdBrass
-
-- type: Tag
-  id: Bracing # given to WeaponBracing, used to repair durability on a lot of weapons
-
-## C ##
-
 - type: Tag
   id: BalloonMelon
-
-- type: Tag
-  id: CartridgeGaussgun # Ammo whitelist: BaseMagazineGaussgun
-
-- type: Tag
-  id: CartridgeRPG2 # Ammo whitelist: WeaponLauncherRPG2
-
-- type: Tag
-  id: CartridgeTurret # Ammo whitelist: BaseMagazineTurret, WeaponTurretRevolutionaryPistol, BaseMagazineTurretHeavy, WeaponLightMachineGunProletariat
-
-- type: Tag
-  id: CartridgeLionhunter # Used for lionhunter rifle ammo creation ritual blacklist
-
-- type: Tag
-  id: Cement # Construction: WetBrick
 
 - type: Tag
   id: Chili
@@ -77,161 +13,24 @@
   id: Chilly
 
 - type: Tag
-  id: CircularSaw # Heretic: KnowledgeRitualHard
-
-- type: Tag
-  id: CookedEgg # Construction: FoodMealFriedegg, FoodEggToast
-
-- type: Tag
-  id: DataChip # Blueprint whitelist: RevMicroelectronicsAssembler
-
-## D ##
-
-- type: Tag
   id: ClearCorn
-
-- type: Tag
-  id: DemonEssense
-
-- type: Tag
-  id: DrillHead # for drills durability repair whitelist
 
 - type: Tag
   id: DeliciousLookingApple
 
 - type: Tag
-  id: Directional # for directional walls and windows, checked by experimental syndicate teleporter and heretic arena
-
-## E ##
-
-- type: Tag
-  id: Ed209Shell # Construction: ED209
-
-- type: Tag
-  id: Ed209Hat
-
-- type: Tag
-  id: Ed209LegR
-
-- type: Tag
-  id: Ed209LegL
-
-- type: Tag
-  id: Ed209AiControl
-
-- type: Tag
-  id: Ed209IFF
-
-- type: Tag
-  id: Ed209WeaponsControl
-
-- type: Tag
   id: EggPlant
-
-- type: Tag
-  id: EnchantingScroll # Enchanting ink's EnchantAdder whitelist
-
-- type: Tag
-  id: EncryptionRevolutionary # Construction: RevTelesphere
-
-## F ##
 
 - type: Tag
   id: Fish
 
 - type: Tag
-  id: Firebomb
-
-- type: Tag
-  id: FlamethrowerBackpack # used for rev flamethrower's ammo provider
-
-- type: Tag
-  id: FlamethrowerGun # Storage whitelist: ClothingBackpackFlamethrower
-
-- type: Tag
-  id: FlamethrowerTank # Storage whitelist: ClothingBackpackFlamethrower
-
-- type: Tag
-  id: FleshWormSegment # used to prevent flesh heretic damaging/colliding with its worm tail
-
-- type: Tag
-  id: ForceHereticMinion # used by some heretic shitcode to force make spawned non-ghouls minions
-
-- type: Tag
-  id: ForgeMold # Blueprint whitelist: RevForge
-
-- type: Tag
-  id: FusionCore # Construction: T45Armor
-
-## G ##
-
-- type: Tag
-  id: Gunpowder # Storage whitelist: GunpowderBottle
-
-- type: Tag
-  id: GunpowderBottle # Storage whitelist: GunpowderCase
-
-## I ##
-
-- type: Tag
-  id: IngotWorkableSteel # Construction: AnvilBottom, AnvilTop
-
-## K ##
-
-- type: Tag
-  id: Katana # Used for sheath whitelist
-
-## M ##
-
-- type: Tag
-  id: MagazineGaussgun # Ammo whitelist: BaseWeaponGaussgun
-
-- type: Tag
-  id: MagazineTurret # Ammo whitelist: WeaponTurretRevolutionarySMG
-
-- type: Tag
   id: LizardTail
 
 - type: Tag
-  id: MetalContainer # Construction: MagazineGaussgunImprov
-
-## M ##
-
-- type: Tag
-  id: MimeMask # Heretic: RitualEnvyKnife
-
-- type: Tag
-  id: MimicToolbox # Emote: Tweak
-
-## O ##
-
-# :o nothing
-- type: Tag
   id: MagicMushroom
-
-## P ##
-
-- type: Tag
-  id: PartCapacitor # Construction: WeaponGaussgunImprov
-
 - type: Tag
   id: MethApple
-
-- type: Tag
-  id: Pipebomb
-
-- type: Tag
-  id: PlasteelScraps # Construction: BloomeryColdPlasteel
-
-- type: Tag
-  id: Placeholder
-
-## Q ##
-
-- type: Tag
-  id: QMBoard # Construction: RevTechAnalyzer
-
-## R ##
 
 - type: Tag
   id: Peas
@@ -240,74 +39,10 @@
   id: Peanut
 
 - type: Tag
-  id: RCD # Construction: RevPrinter, not given to RPD so RCDComponent cant be used
-
-- type: Tag
-  id: RechargingBoard # Construction: WeaponGaussgunImprov, WeaponGaussgunPistol
-
-- type: Tag
   id: Raptor
 
 - type: Tag
-  id: RevArmorPlate # Construction: ClothingShoesBootsRevSteel, ClothingOuterVestWebRev, Killdozer, T45Armor
-
-- type: Tag
-  id: RevID # Construction: RevTechAnalyzer
-
-- type: Tag
-  id: RevFuelTank # Construction: FuelTankFlamethrower
-
-- type: Tag
-  id: RevRocket # Construction: CartridgeRocketRPG2HE, CartridgeRocketRPG2AP
-
-- type: Tag
-  id: RevReflectivePlate # Construction: ClothingOuterVestReflectRev
-
-- type: Tag
-  id: RevTurretBoard # Construction: WeaponTurretRevolutionaryPistol, WeaponTurretRevolutionarySMG
-
-- type: Tag
-  id: RitualAscension # Heretic: rituals that get removed once you ascend or use feast of owls
-
-- type: Tag
-  id: RitualBladeBlade # Heretic: infuses blades with mansus grasp
-
-- type: Tag
   id: Rice
-
-- type: Tag
-  id: RitualFeastOfOwls # Heretic: ritual that gets removed once you ascend or use feast of owls (TODO: just rename/use RitualAscension)
-
-- type: Tag
-  id: RitualImperfect # Heretic: ritual to increase the limit of with PriestFinalHymn or FleshPassive2
-
-- type: Tag
-  id: RitualKnowledge # Heretic: used to remove knowledge ritual after you use it
-
-## S ##
-
-- type: Tag
-  id: Scimitar # Used for scabbad whitelist
-
-- type: Tag
-  id: SharpMedal # Heretic - Sharp Medal item, used for blades boomerang throw logic
-
-- type: Tag
-  id: SpaceWhaleSegment # Prevents space whale tail self collision
-
-- type: Tag
-  id: SpellIgnoreForestAdmonitions # Heretic: Action tag that prevents revealing forest admonitions cloak when used, normally it does reveal
-
-- type: Tag
-  id: Spider # Spider mobcaller
-
-- type: Tag
-  id: SteelScraps # Construction: BloomeryColdSteel
-
-## T ##
-
-- type: Tag
-  id: T45ArmR # Construction: T45Armor
 
 - type: Tag
   id: Sugar
@@ -316,45 +51,8 @@
   id: SynthMeat
 
 - type: Tag
-  id: T45ArmL
-
-- type: Tag
   id: SteelWheat
-
-- type: Tag
-  id: T45Chest
 
 - type: Tag
   id: Tomato
 
-- type: Tag
-  id: T45Helmet
-
-- type: Tag
-  id: T45Frame
-
-- type: Tag
-  id: T45LegL
-
-- type: Tag
-  id: T45LegR
-
-- type: Tag
-  id: TechfabMachineBoard # Construction: RevMicroelectronicsAssembler
-
-- type: Tag
-  id: ThrowingKnife # Storage whitelist: ClothingBeltKnifeRig
-
-- type: Tag
-  id: TraumaFire # Reagent: ChlorineTrifluoride fire reaction, prevents multiple fires on the same tile
-
-## W ##
-
-- type: Tag
-  id: WelderExperimental # Construction: MobWeldbot
-
-- type: Tag
-  id: Whetstone # Durability repair of spears and knives
-
-- type: Tag
-  id: WoodenSword

@@ -62,11 +62,13 @@
   components:
   - type: Sprite
     state: egg-pet
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: Ageium
-        Quantity: 50
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: Ageium
+          Quantity: 50
   - type: TimedReplace
     entity: MobChickIxworth
 
@@ -344,11 +346,13 @@
     state: egg-plant
   - type: TimedReplace
     entity: MobChickSynth
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: Stimulants
-        Quantity: 15
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Stimulants
+          Quantity: 15
 
 - type: entity
   parent: BaseRanchingEgg
@@ -434,7 +438,7 @@
   - type: Sprite
     state: egg-robot
   - type: TimedReplace
-    entity: MobChickVoid
+    entity: MobChickRobot
   - type: EmpOnTrigger
     range: 5
     energyConsumption: 50

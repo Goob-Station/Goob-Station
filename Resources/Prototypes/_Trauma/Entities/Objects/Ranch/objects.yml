@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: [ BaseMachinePowered, ConstructibleMachine, BaseConstructibleMachineDestructible ]
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
   id: RanchIncubator
   name: incubator
   description: Put an egg in here to make a chicken!

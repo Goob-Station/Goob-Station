@@ -1,38 +1,5 @@
-- type: entity
-  parent: [ ClothingBeltStorageBase, BaseRevMajorContraband ]
-  id: ClothingBeltRevWebbing
-  name: chest rig
-  description: Ideal for storing everything from ammo to weapons and combat essentials.
-  components:
-  - type: Sprite
-    sprite: Clothing/Belt/mercwebbing.rsi
-  - type: Clothing
-    sprite: Clothing/Belt/mercwebbing.rsi
+# SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: entity
-  parent: [ClothingBeltStorageBase, BaseSyndicateContraband]
-  id: ClothingBeltKnifeRig
-  name: throwing knife rig
-  description: A specialised bandolier meant to hold throwing knives.
-  components:
-  - type: Sprite
-    sprite: _Trauma/Clothing/Belt/throwingkniferig.rsi
-  - type: Clothing
-    sprite: _Trauma/Clothing/Belt/throwingkniferig.rsi
-  - type: StaticPrice
-    price: 500
-  - type: Storage
-    grid:
-    - 0,0,7,1
-    quickInsert: true
-    whitelist:
-      tags:
-      - ThrowingKnife
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: ThrowingKnife
-        amount: 8
 
 - type: entity
   parent: ClothingBeltStorageBase

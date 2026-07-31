@@ -896,13 +896,13 @@
         ignoreResistances: false
         damage: #1/4th of the brute healing of Styptic Powder and 1/4th the burn healing of Silver Sulfide, so 1/2 of the overall healing of either chem
           types:
-            Blunt: -0.13
-            Piercing: -0.1
-            Slash: -0.2
-            Heat: -0.12
-            Cold: -0.15
-            Shock: -0.14
-            Caustic: -0.10
+            Blunt: -0.5
+            Piercing: -0.25
+            Slash: -0.5
+            Heat: -0.38
+            Cold: -0.38
+            Shock: -0.25
+            Caustic: -0.25
         conditions:
         - !type:HasComponentOnEquipmentCondition
           components:

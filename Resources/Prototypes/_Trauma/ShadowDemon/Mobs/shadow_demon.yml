@@ -1,6 +1,6 @@
 # Note: ShadowGrapple exists on the heart of the shadow demon
 - type: entity
-  parent: [AppearanceShadowDemon, SimpleSpaceMobBase]
+  parent: [AppearanceShadowDemon, SimpleSpaceMobBase, FlyingMobBase]
   id: BaseMobShadowDemon
   name: shadow demon
   suffix: ""
@@ -67,7 +67,6 @@
         Heat: 10
         Slash: 12
         Structural: 50
-  - type: Evil
   - type: DemonicWhisper # Allows the demon to demonic whisper
   - type: Puller
     needsHands: false
@@ -99,7 +98,8 @@
   - type: NpcFactionMember
     factions:
     - DevilFaction
-  - type: AlwaysTakeHoly
+  - type: WeakToHoly
+    alwaysTakeHoly: true
   - type: PressureImmunity
   - type: TriggerOnMobstateChange
     mobState:
@@ -155,10 +155,10 @@
   # actionCooldown: 4              # | The cooldown when they exit jaunt
   # actionCooldownAfterGrapple: 10 # | The cooldown they shoot a grapple
   - type: LanguageSpeaker
-    speaks:
+    spokenLanguages:
     - TauCetiBasic
     - Eldritch
-    understands:
+    understoodLanguages:
     - TauCetiBasic
     - Eldritch
   - type: HTN

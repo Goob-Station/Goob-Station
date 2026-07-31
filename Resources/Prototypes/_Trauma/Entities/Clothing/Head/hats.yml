@@ -1,35 +1,5 @@
-- type: entity
-  parent: [ClothingHeadHatBeret, BaseSecurityContraband]
-  id: ClothingHeadHatBeretSergeant
-  name: sergeant's beret
-  description: The beret of a security member who has seen more than anyone. Make sure you salute them, they're probably the reason why you're alive today.
-  components:
-  - type: Sprite
-    sprite: _Trauma/Clothing/Head/Hats/beret_sergeant.rsi
-  - type: Clothing
-    sprite: _Trauma/Clothing/Head/Hats/beret_sergeant.rsi
-  - type: Tag
-    tags:
-    - ClothMade
-    - Recyclable
-    - PetWearable
-    - CorgiWearable
-    - HamsterWearable
-    - WhitelistChameleon
-  - type: Armor
-    coverage:
-    - Head
-    traumaDeductions:
-      Dismemberment: 0.2
-      OrganDamage: 0.2
-      BoneDamage: 0.2
-      VeinsDamage: 0
-    modifiers:
-      coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
-        Heat: 0.8
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 
 - type: entity
   parent: ClothingHeadBase

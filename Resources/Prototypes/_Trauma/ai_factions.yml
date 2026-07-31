@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: npcFaction
   id: Chicken
   friendly:
@@ -60,31 +62,3 @@
   - Xenoborg
   - Raptor # For Jurassic park
 
-- type: npcFaction
-  id: Insurgent
-  hostile:
-  - Changeling
-  - Heretic
-  - Blob
-  - Shadowling
-  - PirateFaction
-  - Wraith
-  - Lavafauna
-  - NanoTrasen
-  - Dragon
-  - Mouse
-  - Passive
-  - PetsNT
-  - SimpleHostile
-  - SimpleNeutral
-  - Syndicate
-  - Xeno
-  - Zombie
-  - Revolutionary
-  - Wizard
-  - Xenoborg
-
-- type: npcFaction
-  id: InsurgentDestroyer9000
-  hostile:
-  - Insurgent

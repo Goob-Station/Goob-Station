@@ -1,73 +1,5 @@
-# FoodBase without perishable stuff
-- type: entity
-  abstract: true
-  parent: EdibleBase
-  id: FoodUnperishableBase
-  components:
-  # FoodBase, no perishable stuff
-  - type: SpaceGarbage
-  # FoodInjectableBase
-  - type: InjectableSolution
-    solution: food
-  - type: RefillableSolution
-    solution: food
+# SPDX-License-Identifier: AGPL-3.0-or-later
 
-# FoodProduceBase without perishable stuff
-- type: entity
-  abstract: true
-  parent: FoodUnperishableBase
-  id: FoodProduceUnperishableBase
-  components:
-  # FoodProduceBase
-  - type: SolutionContainerManager
-  - type: Sprite
-    state: produce
-  - type: Produce
-  - type: PotencyVisuals
-  - type: Appearance
-  - type: Extractable
-    grindableSolutionName: food
-
-- type: entity
-  parent: FoodProduceBase
-  id: FoodLemonade
-  name: lemonade
-  description: When life gives you lemons, commit arson. With the lemons.
-  suffix: Food
-  components:
-  - type: FlavorProfile
-    flavors:
-    - sour
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 9
-        reagents:
-        - ReagentId: Napalm
-          Quantity: 5
-        - ReagentId: Vitamin
-          Quantity: 4
-  - type: Sprite
-    sprite: _Trauma/Objects/Specific/Hydroponics/lemonade.rsi
-  - type: Item
-    heldPrefix: produce
-  - type: Produce
-    seedId: Lemonade
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: JuiceLemonade # lol
-        Quantity: 10
-  - type: Tag
-    tags:
-    - Fruit
-  - type: Edible
-    trash:
-    - LemonGrenade
-  - type: Butcherable
-    butcheringType: Knife
-    spawned:
-    - id: LemonGrenade
 
 - type: entity
   parent: FoodApple
@@ -92,16 +24,17 @@
     sprite: _Trauma/Objects/Specific/Hydroponics/meth_apple.rsi
   - type: Produce
     seedId: MethApple
-  - type: Solution
-    solution:
-      maxVol: 14
-      reagents:
-      - ReagentId: Nutriment
-        Quantity: 10
-      - ReagentId: Vitamin
-        Quantity: 4
-      - ReagentId: Desoxyephedrine
-        Quantity: 5
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 14
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 4
+        - ReagentId: Desoxyephedrine
+          Quantity: 5
   - type: Tag
     tags:
     - Fruit
@@ -120,16 +53,17 @@
   - type: Tag
     tags:
     - ClearCorn
-  - type: Solution
-    solution:
-      maxVol: 100
-      reagents:
-      - ReagentId: Cornmeal
-        Quantity: 15
-      - ReagentId: Nutriment
-        Quantity: 5
-      - ReagentId: Ethanol
-        Quantity: 15
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 100
+        reagents:
+        - ReagentId: Cornmeal
+          Quantity: 15
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Ethanol
+          Quantity: 15
 
 - type: entity
   parent: FoodProduceBase
@@ -151,13 +85,15 @@
   name: magic mushrooms
   description: Mushrooms with just a little bit of magic.
   components:
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: Nutriment
-        Quantity: 5
-      - ReagentId: THC
-        Quantity: 15
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: THC
+          Quantity: 15
   - type: Sprite
     sprite: _Trauma/Objects/Specific/Hydroponics/magicmushrooms.rsi
   - type: Produce
@@ -175,11 +111,13 @@
   components:
   - type: Sprite
     sprite: _Trauma/Objects/Specific/Hydroponics/synthmeat.rsi
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: Synthflesh
-        Quantity: 10
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Synthflesh
+          Quantity: 10
   - type: Produce
     seedId: SynthMeat
   - type: Tag
@@ -213,9 +151,10 @@
         acts: [ "Destruction" ]
       - !type:SpillBehavior
         solution: food
-  - type: Solution
-    solution:
-      maxVol: 75
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 75
   - type: Tag
     tags:
     - BalloonMelon
@@ -230,15 +169,16 @@
     sprite: _Trauma/Objects/Specific/Hydroponics/steel_wheat.rsi
   - type: Produce
     seedId: SteelWheat
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: Nutriment
-        Quantity: 5
-      - ReagentId: Lead
-        Quantity: 0.1
-      - ReagentId: Iron
-        Quantity: 2
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Lead
+          Quantity: 0.1
+        - ReagentId: Iron
+          Quantity: 2
   - type: Tag
     tags:
     - Wheat

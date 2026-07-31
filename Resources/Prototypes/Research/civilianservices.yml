@@ -13,7 +13,6 @@
   recipeUnlocks:
   # <Trauma>
   - PlantBagOfHolding
-  - PlantAnalyzer
   # </Trauma>
   - SeedExtractorMachineCircuitboard
   - HydroponicsTrayMachineCircuitboard

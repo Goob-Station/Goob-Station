@@ -1,41 +1,49 @@
+# Goob port note: Trauma uses its own organ system (InitialBody/InternalOrgan/OrganComponents).
 - type: entity
   abstract: true
-  parent: BaseMobBody
   id: AppearanceShadowDemon
   name: shadow demon appearance
   components:
-  - type: InitialBody
-    organs:
-      # Parts
-      Torso: OrganSlaughterDemonTorso
-      ArmLeft: OrganSlaughterDemonArmLeft
-      ArmRight: OrganSlaughterDemonArmRight
-      HandLeft: OrganSlaughterDemonHandLeft
-      HandRight: OrganSlaughterDemonHandRight
-      # Organs
-      Heart: OrganShadowDemonHeart
-      Lungs: OrganCarpLungs
-      Stomach: OrganAnimalStomach
-      Liver: OrganAnimalLiver
-      Kidneys: OrganAnimalKidneys
+  - type: Body
+    prototype: ShadowDemon
 
-## Base
-
-- type: entity
-  abstract: true
-  parent: OrganBase
-  id: OrganShadowDemon
-  suffix: shadow demon
-
-- type: entity
-  abstract: true
-  parent: OrganShadowDemon
-  id: OrganShadowDemonInternal
+- type: body
+  id: ShadowDemon
+  name: "shadow demon"
+  root: chest
+  slots:
+    chest:
+      part: ChestSlaughter
+      connections:
+      - groin
+      - right arm
+      - left arm
+      organs:
+        lungs: OrganSpaceAnimalLungs
+        heart: OrganShadowDemonHeart
+    groin:
+      part: GroinSlaughter
+      organs:
+        stomach: OrganAnimalStomach
+        liver: OrganAnimalLiver
+        kidneys: OrganAnimalKidneys
+    right arm:
+      part: RightArmSlaughter
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmSlaughter
+      connections:
+      - left hand
+    right hand:
+      part: RightHandSlaughter
+    left hand:
+      part: LeftHandSlaughter
 
 ## Organs
 
 - type: entity
-  parent: [ OrganAnimalHeart, OrganShadowDemonInternal, BaseMagicalContraband ]
+  parent: [ OrganAnimalHeart, BaseMagicalContraband ]
   id: OrganShadowDemonHeart
   name: heart of darkness
   description: It still beats furiously, emitting an aura of fear.
@@ -43,14 +51,13 @@
   - type: Sprite
     sprite: _Goobstation/SlaughterDemon/heart.rsi
     color: "#000000"
-  - type: InternalOrgan
+  - type: Organ
     intCap: 30
     integrity: 30
     integrityThresholds:
       Normal: 30
       Damaged: 20
       Destroyed: 0
-  - type: OrganComponents
     onAdd:
     - type: ShadowGrapple # Only grants you the action, check shadow_grapple.yml for damage values instead
     # fuck you

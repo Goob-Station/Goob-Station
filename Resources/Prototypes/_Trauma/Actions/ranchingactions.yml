@@ -7,7 +7,6 @@
   description: The Cockatrice's egg has given you the power to turn people into stone statues!
   components:
   - type: Action
-    raiseOnAction: true
     useDelay: 10
     icon:
       sprite: _Trauma/Actions/ranching.rsi
@@ -18,7 +17,7 @@
   - type: EntityTargetAction
     whitelist:
       components:
-      - HumanoidProfile
+      - HumanoidAppearance
     canTargetSelf: false
     event: !type:EffectTargetActionEvent
   - type: EffectAction
@@ -41,7 +40,6 @@
       sprite: _Trauma/Mobs/Ranch/chicken-zappy.rsi
       state: rooster
     itemIconStyle: BigAction
-    raiseOnAction: true
   - type: InstantAction
     event: !type:EffectInstantActionEvent
   - type: EffectAction
@@ -76,6 +74,30 @@
   - type: WorldTargetAction
     event: !type:ProjectileSpellEvent
       prototype: ProjectileFireball
-      projectileSpeed: 20
+      speed: 20
   - type: SpeakOnAction
     sentence: action-speech-spell-fireball-phoenix
+
+# Goob port: from Trauma''s Genetics/Mutations/touch.yml. the zappy egg effect grants this.
+- type: entity
+  parent: BaseAction
+  id: ActionMutationShockTouch
+  name: Shock Touch
+  description: Channel electricity to your hand to shock people with. Mostly harmless! Mostly...
+  components:
+  - type: Action
+    useDelay: 7
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Trauma/Actions/mutations.rsi
+      state: zap
+  - type: TargetAction
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Damageable
+    event: !type:EffectTargetActionEvent
+  - type: EffectAction
+    effects:
+    - !type:Electrocute
+      bypassInsulation: false # you are kind enough to only touch them on their insuls <3

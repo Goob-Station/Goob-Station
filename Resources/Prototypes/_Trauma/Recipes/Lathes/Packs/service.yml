@@ -10,7 +10,6 @@
   id: TraumaServiceBoardsStatic
   recipes:
   - StationRadioCircuitboard
-  - DeepFryerCircuitboard
   - RanchIncubatorCircuitboard
 
 ## Dynamic
@@ -18,9 +17,6 @@
 - type: latheRecipePack
   id: TraumaServiceBoards
   recipes:
-  - EnergyFoodSynthesizerMachineCircuitboard
-  - EnergyBoozeDispenserMachineCircuitboard
-  - EnergySodaDispenserMachineCircuitboard
   - VinylPlayerCircuitboard
   - TapeDeckCircuitboard
   - StationRadioServerCircuitboard

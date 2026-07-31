@@ -1,41 +1,5 @@
-- type: damageModifierSet
-  id: Walls
-  coefficients:
-    Shock: 1.2
-    Heat: 1.2
-    Structural: 0.5
-  flatReductions:
-    Blunt: 10
-    Slash: 10
-    Piercing: 30
-    Heat: 10
-    Structural: 10
+# SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: damageModifierSet
-  id: Gunsafes
-  coefficients:
-    Shock: 0
-    Heat: 1
-    Structural: 0.5
-    Ion: 0
-    Caustic: 0
-  flatReductions:
-    Blunt: 15
-    Slash: 15
-    Piercing: 15
-    Heat: 15
-    Structural: 15
-
-- type: damageModifierSet
-  id: NormalMode
-  coefficients:
-    Structural: 1
-
-- type: damageModifierSet
-  id: Morph
-  coefficients:
-    Radiation: 0
-    Heat: 2
 
 - type: damageModifierSet
   id: SpicyChicken

@@ -8,19 +8,20 @@
   - type: Sprite
     sprite: _Trauma/Objects/Misc/eggs.rsi
     state: egg-balloon-blue
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: Water
-        Quantity: 20
+  - type: SolutionContainerManager
+    solutions:
+      balloon:
+        maxVol: 20
+        reagents:
+        - ReagentId: Water
+          Quantity: 20
   - type: DamageOnLand
     ignoreResistances: true
     damage:
       types:
         Blunt: 5
-  - type: Injurable
-    damageContainer: Inorganic
   - type: Damageable
+    damageContainer: Inorganic
     damageModifierSet: FlimsyGlass
   - type: Destructible
     thresholds:

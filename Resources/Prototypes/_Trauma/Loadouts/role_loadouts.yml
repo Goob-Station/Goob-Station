@@ -1,22 +1,5 @@
-- type: roleLoadout
-  id: JobGeneticist
-  groups:
-  - GroupTankHarness
-  - ScientistHead
-  - ScientistNeck
-  - GeneticistJumpsuit
-  - GeneticistBackpack
-  - GeneticistOuterClothing
-  - ScientistGloves
-  - ScientistShoes
-  - Glasses
-  - Survival
-  - Trinkets
-  - GroupSpeciesBreathTool
-  - ScientistEnvirohelm
-  - ScientistEnvirosuit
-  - ScientistEnvirogloves
-  - ExclusiveItems
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 
 - type: roleLoadout
   id: JobRancher
@@ -29,4 +12,3 @@
   - BotanistEnvirohelm
   - BotanistEnvirosuit
   - BotanistEnvirogloves
-  - ExclusiveItems

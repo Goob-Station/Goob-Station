@@ -43,7 +43,6 @@
           Cold: -5
           Radiation: -2
           Poison: -2
-      useTargeting: false
 
 - type: entity
   parent: MobStatusEffectBase
@@ -91,7 +90,6 @@
       damage:
         types:
           Cold: -5
-      useTargeting: false
 
 - type: entity
   parent: MobStatusEffectBase
@@ -145,7 +143,6 @@
           Heat: -5
           Radiation: -5
           Poison: -5
-      useTargeting: false
 
 - type: entity
   parent: MobStatusEffectBase
@@ -170,27 +167,33 @@
     - !type:PlaySoundEffect
       sound: /Audio/Animals/space_dragon_roar.ogg
     - !type:RelayNearby
-      compName: AwakeMob
+      compName: MobState
       range: 2
       blacklist:
         components:
         - BorgChassis # Borgs cant feel fear
-      effect: !type:NestedEffect
-        proto: StatusEffectFear
-
-- type: entityEffect
-  id: StatusEffectFear
-  effects:
-  - !type:PopupMessage
-    type: Local
-    visualType: LargeCaution
-    messages:
-    - entity-effect-popup-fear-affected
-  - !type:ModifyStatusEffect
-    effectProto: StatusEffectBlurryVision
-    time: 3
-  - !type:ModifyParalysis
-    time: 2
+      effect: !type:PopupMessage
+        type: Local
+        visualType: LargeCaution
+        messages:
+        - entity-effect-popup-fear-affected
+    - !type:RelayNearby
+      compName: MobState
+      range: 2
+      blacklist:
+        components:
+        - BorgChassis
+      effect: !type:ModifyStatusEffect
+        effectProto: StatusEffectWoozy
+        time: 3
+    - !type:RelayNearby
+      compName: MobState
+      range: 2
+      blacklist:
+        components:
+        - BorgChassis
+      effect: !type:ModifyParalysis
+        time: 2
 
 - type: entity
   parent: MobStatusEffectBase

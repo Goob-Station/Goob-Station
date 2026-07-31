@@ -1,8 +1,5 @@
-- type: playTimeTracker
-  id: JobGeneticist
+# SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: playTimeTracker
-  id: JobPhoneMerchant
 
 - type: playTimeTracker
   id: JobRancher

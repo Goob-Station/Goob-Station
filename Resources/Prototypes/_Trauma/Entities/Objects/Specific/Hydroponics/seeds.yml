@@ -1,23 +1,5 @@
-- type: entity
-  parent: SeedBase
-  id: LemonadeSeeds
-  name: packet of lemonade seeds
-  description: Not to be confused with the drink.
-  components:
-  - type: Seed
-    seedId: Lemonade
-  - type: Sprite
-    sprite: _Trauma/Objects/Specific/Hydroponics/lemonade.rsi
+# SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: entity
-  parent: SeedBase
-  id: CocaSeeds
-  name: packet of coca seeds
-  components:
-  - type: Seed
-    seedId: CocaPlant
-  - type: Sprite
-    sprite: _Trauma/Objects/Specific/Hydroponics/coca_plant.rsi
 
 - type: entity
   parent: AppleSeeds

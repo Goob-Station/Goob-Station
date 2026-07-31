@@ -281,7 +281,6 @@
   - type: PlateableChickenOre
     components:
     - type: RadiationSource
-      slope: 0.7
       intensity: 4.5
   # </Trauma>
 
