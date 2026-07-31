@@ -50,6 +50,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/SlaughterDemon/heart.rsi
+    state: demon_heart
     color: "#000000"
   - type: Organ
     intCap: 30
