@@ -57,7 +57,8 @@
     JugSugar: 3
     JugSulfur: 2 #Goob edit
     JugWeldingFuel: 2 #Goob edit
-    PlasmaChemistryVial: 2 #Goob edit
+    JugPlasma: 2 #Goob edit
+    JugUranium: 1 #Goob edit
   contrabandInventory:
     DrinkLithiumFlask: 1
     StrangePill: 3
