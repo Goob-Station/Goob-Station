@@ -75,6 +75,15 @@
     sprite: _Trauma/Objects/Specific/Hydroponics/peanut.rsi
   - type: Produce
     seedId: Peanut
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 2
   - type: Tag
     tags:
     - Peanut
