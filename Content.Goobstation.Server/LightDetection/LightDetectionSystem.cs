@@ -25,7 +25,6 @@ public sealed class LightDetectionSystem : SharedLightDetectionSystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IParallelManager _parallel = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly EntityQuery<GhostComponent> _ghostQuery = default!;
 
     protected override string SawmillName => "light_damage";
 
@@ -36,9 +35,13 @@ public sealed class LightDetectionSystem : SharedLightDetectionSystem
     private HandleLightJob _job;
     private TimeSpan _nextUpdate = TimeSpan.Zero;
 
+    private EntityQuery<GhostComponent> _ghostQuery;
+
     public override void Initialize()
     {
         base.Initialize();
+
+        _ghostQuery = GetEntityQuery<GhostComponent>();
 
         _job = new()
         {
