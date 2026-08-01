@@ -1,11 +1,12 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._Lavaland.Procedural.Prototypes;
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Lavaland.Procedural.Components;
+namespace Content.Shared._Lavaland.Procedural.Components;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class LavalandMapComponent : Component
 {
     [ViewVariables]
