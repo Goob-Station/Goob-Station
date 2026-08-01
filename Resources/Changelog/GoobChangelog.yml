@@ -24033,3 +24033,9 @@ Entries:
       message: IPC's and people with pAI's can raise shields.
   id: 2765
   time: '2026-08-01T00:08:35.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Add
+      message: Roundstart larvas are now invisible
+  id: 2766
+  time: '2026-08-01T00:09:13.0000000+00:00'
