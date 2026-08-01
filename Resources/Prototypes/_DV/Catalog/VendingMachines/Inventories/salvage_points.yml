@@ -95,7 +95,7 @@
     cost: 1050
   - id: WeaponCrusherDagger
     cost: 1050
-  - id: JetpackMini
+  - id: JetpackMini #goob
     cost: 1100
   - id: AdvancedMineralScanner
     cost: 1150
@@ -121,7 +121,7 @@
     cost: 2000
   - id: ClothingOuterHardsuitSalvage
     cost: 2000
-  - id: JetpackBlue
+  - id: JetpackBlue #goob
     cost: 2250
     #TODO: super resonator for 2500
   - id: ClothingOuterHardsuitLuxury
