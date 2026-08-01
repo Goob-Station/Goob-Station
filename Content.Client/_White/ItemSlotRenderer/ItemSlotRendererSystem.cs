@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Eris <eris@erisws.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Client.Hands;
@@ -131,6 +127,8 @@ public sealed class SpriteToLayerBullshitOverlay : Overlay
                 // if for some reason we can't render the item to a texture (or there is no item to render),
                 // assign an "empty" texture to the layer
                 if (!comp.CachedEntities.TryGetValue(slotId, out var _item) || _item is not EntityUid item ||
+                    _entMan.Deleted(item) || // Goob
+                    !_entMan.HasComponent<SpriteComponent>(item) || // Goob
                     !comp.CachedRT.TryGetValue(slotId, out var renderTarget))
                 {
                     if (layer.Texture != Texture.Transparent)
