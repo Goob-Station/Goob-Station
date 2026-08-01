@@ -1,5 +1,3 @@
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: guideEntry
   id: Species
   name: guide-entry-species
@@ -8,6 +6,7 @@
     - Arachnid
     - Diona
     - Dwarf
+    - Kodepiia #imp
     - Human
     - Moth
     - Reptilian

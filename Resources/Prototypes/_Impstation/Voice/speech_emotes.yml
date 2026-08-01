@@ -1,5 +1,3 @@
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # vocal emotes
 - type: emote
   id: Bubble
@@ -67,3 +65,25 @@
     - cracks her knuckles
     - cracks his knuckles
     - cracks its knuckles
+
+# Kodepiia
+
+- type: emote
+  id: Boom
+  name: chat-emote-name-boom
+  category: Vocal
+  icon: Interface/Emotes/squish.png
+  available: false
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-boom"]
+  chatTriggers:
+  - boom.
+  - booms.
+  - booms!
+  - booming.
+  - boomed.

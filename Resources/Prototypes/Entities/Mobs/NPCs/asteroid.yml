@@ -361,6 +361,7 @@
     - HivelordRemains
     - Meat
     - Raw
+    - KodeEdible # Impstation
 
 - type: entity
   id: FoodHivelordRemainsInert

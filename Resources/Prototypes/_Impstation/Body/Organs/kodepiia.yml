@@ -1,0 +1,160 @@
+- type: entity
+  id: BaseKodepiiaOrgan
+  parent: [BaseItem]
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Kodepiia/organs.rsi
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Fat
+          Quantity: 10
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: GreyMatter
+          Quantity: 5
+        - ReagentId: ShimmeringBlood
+          Quantity: 5
+
+- type: entity
+  id: OrganKodepiiaBrain
+  parent: [BaseKodepiiaOrgan, OrganHumanBrain]
+  name: bille áu sac
+  description: "Allegedly still functioning, or has it ever really functioned."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Kodepiia/organs.rsi
+    state: billeausac
+  - type: Item
+    size: Small
+    heldPrefix: brain
+
+- type: entity
+  id: OrganKodepiiaEyes
+  parent: [OrganHumanEyes, BaseKodepiiaOrgan]
+  name: opticullis
+  description: "The scavenger's kaleidoscope."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Kodepiia/organs.rsi
+    layers:
+      - state: opticullis
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Eyes
+
+- type: entity
+  id: OrganKodepiiaSkin
+  parent: BaseKodepiiaOrgan
+  name: slough
+  description: "Something that used to be skin."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Kodepiia/organs.rsi
+    state: slough
+  - type: Item
+    size: Small
+    heldPrefix: liver
+  - type: Liver # Shitmed Change
+  - type: Organ # Shitmed Change
+    slotId: liver # Shitmed Change
+  - type: Metabolizer # The liver metabolizes certain chemicals only, like alcohol.
+    maxPoisonsProcessable: 1
+    metabolizerTypes: [Human]
+    groups:
+    - id: Alcohol
+      rateModifier: 0.1 # removes alcohol very slowly along with the stomach removing it as a drink
+
+- type: entity
+  id: OrganKodepiiaLungs
+  parent: [ BaseKodepiiaOrgan, BaseHandheldInstrument ]
+  name: fine coil
+  description: "Like lungs, but stretchier...?"
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Kodepiia/organs.rsi
+    state: finecoil
+  - type: Item
+    size: Small
+    heldPrefix: lungs
+  - type: Organ
+    slotId: lungs
+  - type: Lung
+  - type: Metabolizer
+    updateInterval: 2.0
+    removeEmpty: true
+    solutionOnBody: false
+    solution: "Lung"
+    metabolizerTypes: [ Human ]
+    groups:
+    - id: Gas
+      rateModifier: 200.0
+  - type: SolutionContainerManager
+    solutions:
+      Lung:
+        maxVol: 100.0
+        canReact: false
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: Instrument
+    program: 109
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Lungs
+    - WoodwindInstrument
+
+- type: entity
+  id: OrganKodepiiaStomach
+  parent: [ BaseKodepiiaOrgan, OrganHumanStomach ]
+  name: primary gullet
+  description: "Leaky."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Kodepiia/organs.rsi
+    state: primarygullet
+  - type: Stomach
+  - type: Organ
+    slotId: stomach
+  - type: Metabolizer
+    metabolizerTypes: [ Kodepiia ]
+    groups:
+    - id: Food
+    - id: Drink
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 50
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: Item
+    size: Small
+    heldPrefix: stomach
+
+- type: entity
+  id: OrganKodepiiaHeart
+  parent: [ OrganHumanHeart ]
+  name: COAT
+  description: "Allegedly 'quirked up' with 'the sauce,' if rumors are to be believed. It's probably a heart."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Kodepiia/organs.rsi
+    state: compartmentofallthings
+  - type: Metabolizer
+    metabolizerTypes: [ Kodepiia ]

@@ -222,6 +222,7 @@
       path: /Audio/_Goobstation/Items/handling/backpack_drop.ogg
       params:
         volume: -4
+  - type: HarpyHideWings # Frontier, needed for Kodepiiae
   # Goobstation edit end
   - type: HideClothingLayerClothing # Goobstation
     hiddenSlots:
@@ -268,6 +269,7 @@
       flatReductions:
         Heat: 10 # the average lightbulb only does around four damage!
     slots: OUTERCLOTHING
+  - type: HarpyHideWings # Frontier, needed for Kodepiiae
   - type: HideClothingLayerClothing # Goobstation
     hiddenSlots:
     - jumpsuit

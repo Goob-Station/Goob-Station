@@ -790,6 +790,7 @@
   - type: Tag
     tags:
     - Pill
+    - KodeEdible # imp
 
 - type: entity
   name: pill canister

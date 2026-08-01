@@ -1,0 +1,8 @@
+- type: speechSounds
+  id: Kodepiia
+  saySound:
+    path: /Audio/_Impstation/Kodepiia/kodetalk.ogg
+  askSound:
+    path: /Audio/_Impstation/Kodepiia/kodeask.ogg
+  exclaimSound:
+    path: /Audio/_Impstation/Kodepiia/kodeexclaim.ogg

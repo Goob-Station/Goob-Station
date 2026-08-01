@@ -558,6 +558,7 @@
           - Yowie # Goobstation - Yowie
           - XenobioSlime # Goobstation - XenobioSlime
           - Hydrakin # Fuck you
+          - Kodepiia # Impstation
           inverted: true
         type: Local
         visualType: MediumCaution
@@ -574,6 +575,7 @@
           - Yowie # Goobstation - Yowie
           - XenobioSlime # Goobstation - XenobioSlime
           - Hydrakin # Fuck you
+          - Kodepiia # Impstation
           inverted: true
       - !type:HealthChange
         conditions:
@@ -585,6 +587,7 @@
           - Yowie # Goobstation - Yowie
           - XenobioSlime # Goobstation - XenobioSlime
           - Hydrakin # Fuck you
+          - Kodepiia # Impstation
           inverted: true
         damage:
           types:
@@ -621,6 +624,15 @@
           type: [ Vox ]
         reagent: Protein
         amount: 0.25
+# Impstation start
+      - !type:AdjustReagent 
+         conditions: 
+         - !type:MetabolizerTypeCondition 
+           type: 
+           - Kodepiia # Go fuck yourself 
+         reagent: Protein 
+         amount: 0.5
+# Impstation End
 
 - type: reagent
   id: Allicin

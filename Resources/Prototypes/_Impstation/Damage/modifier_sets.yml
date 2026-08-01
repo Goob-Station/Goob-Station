@@ -1,0 +1,7 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: damageModifierSet
+  id: Kodepiia
+  coefficients:
+    Slash: 1.30
+    Bloodloss: 2.00

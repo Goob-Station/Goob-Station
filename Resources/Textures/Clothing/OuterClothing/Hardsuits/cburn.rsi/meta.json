@@ -17,18 +17,22 @@
     {
       "name": "equipped-OUTERCLOTHING-vox",
       "directions": 4
-	},
+  	},
     {
       "name": "equipped-OUTERCLOTHING-reptilian",
       "directions": 4
     },
     {
-        "name": "equipped-OUTERCLOTHING-feroxi",
-        "directions": 4
+      "name": "equipped-OUTERCLOTHING-feroxi",
+      "directions": 4
     },
     {
-        "name": "equipped-OUTERCLOTHING-hydrakin",
-        "directions": 4
+      "name": "equipped-OUTERCLOTHING-kodepiia",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-hydrakin",
+      "directions": 4
     },
     {
       "name": "inhand-left",

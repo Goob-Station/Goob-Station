@@ -1,0 +1,6 @@
+- type: typingIndicator
+  id: kode
+  spritePath: /Textures/_Impstation/Effects/speech.rsi
+  typingState: kode0
+  idleState: kode0
+  offset: -0.45, 0.35
