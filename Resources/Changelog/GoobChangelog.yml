@@ -24027,3 +24027,9 @@ Entries:
       message: CC ike jacket and CC cowboy hat now have proper armor
   id: 2764
   time: '2026-08-01T00:08:06.0000000+00:00'
+- author: gaiads
+  changes:
+    - type: Fix
+      message: IPC's and people with pAI's can raise shields.
+  id: 2765
+  time: '2026-08-01T00:08:35.0000000+00:00'
