@@ -24095,3 +24095,11 @@ Entries:
         if you eat your nutribrick after first moodle.
   id: 2772
   time: '2026-08-01T00:28:11.0000000+00:00'
+- author: lucapgiannotti
+  changes:
+    - type: Fix
+      message: harpy flight no longer breaks cobra gland
+    - type: Fix
+      message: any flight system no longer breaks stealth mechanics
+  id: 2773
+  time: '2026-08-01T00:30:57.0000000+00:00'
