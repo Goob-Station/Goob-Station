@@ -280,14 +280,12 @@
     clothingVisuals:
       head:
       - state: equipped-HELMET
-        offset: "-0.06, 0.40"
   - type: Appearance
   - type: SpringlockClothing
     lockedClothingVisuals:
       head:
       - sprite: _Goobstation/Slasher/Objects/spring_mask.rsi
         state: locked-equipped-HELMET
-        offset: "-0.03, 0.32"
 
 - type: entity
   name: spring suit

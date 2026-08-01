@@ -1512,6 +1512,18 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("integer")
                         .HasColumnName("ghost_color");
 
+                    b.Property<string>("GhostHat")
+                        .HasColumnType("text")
+                        .HasColumnName("ghost_hat");
+
+                    b.Property<string>("GhostMask")
+                        .HasColumnType("text")
+                        .HasColumnName("ghost_mask");
+
+                    b.Property<string>("GhostParticles")
+                        .HasColumnType("text")
+                        .HasColumnName("ghost_particles");
+
                     b.Property<int>("TierId")
                         .HasColumnType("integer")
                         .HasColumnName("tier_id");
@@ -1577,6 +1589,14 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Property<bool>("GhostColor")
                         .HasColumnType("boolean")
                         .HasColumnName("ghost_color");
+
+                    b.Property<bool>("GhostCosmetics")
+                        .HasColumnType("boolean")
+                        .HasColumnName("ghost_cosmetics");
+
+                    b.Property<bool>("GhostParticles")
+                        .HasColumnType("boolean")
+                        .HasColumnName("ghost_particles");
 
                     b.Property<string>("Icon")
                         .HasColumnType("text")

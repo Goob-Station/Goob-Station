@@ -37,7 +37,7 @@
     - VeinsDamage
     - NerveDamage
     traumasChances:
-      Dismemberment: -2
+      Dismemberment: -0.4
       OrganDamage: 0.17
       BoneDamage: 0.8
       VeinsDamage: 0
@@ -61,7 +61,7 @@
     scarWound: PiercingScar
     mangleSeverity: Severe
   - type: TraumaInflicter
-    severityThreshold: 12
+    severityThreshold: 9
     allowedTraumas:
     - Dismemberment
     - OrganDamage
@@ -75,7 +75,7 @@
     - VeinsDamage
     - NerveDamage
     traumasChances:
-      Dismemberment: -2
+      Dismemberment: 0
       OrganDamage: 0.08
       BoneDamage: 0.14
       VeinsDamage: -0.4 # goes through rather easy.
@@ -100,6 +100,7 @@
   - type: TraumaInflicter
     severityThreshold: 6
     allowArmourDeduction:
+    - Dismemberment
     - OrganDamage
     - BoneDamage
     - VeinsDamage
@@ -110,7 +111,7 @@
     - VeinsDamage
     - NerveDamage
     traumasChances:
-      Dismemberment: -1.8 # Bullets go THROUGH people
+      Dismemberment: -0.4 # Bullets go THROUGH people
       OrganDamage: 0.24
       BoneDamage: 0.24
       VeinsDamage: -0.4
