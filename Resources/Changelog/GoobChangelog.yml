@@ -24021,3 +24021,9 @@ Entries:
         Generator's worth )
   id: 2763
   time: '2026-07-29T00:07:44.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Tweak
+      message: CC ike jacket and CC cowboy hat now have proper armor
+  id: 2764
+  time: '2026-08-01T00:08:06.0000000+00:00'
