@@ -24071,3 +24071,9 @@ Entries:
         dump your ore quickly again!
   id: 2769
   time: '2026-08-01T00:20:29.0000000+00:00'
+- author: RedTerror
+  changes:
+    - type: Tweak
+      message: Slasher Spring kit Resprite
+  id: 2770
+  time: '2026-08-01T00:21:01.0000000+00:00'
