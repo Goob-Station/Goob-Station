@@ -24055,3 +24055,19 @@ Entries:
         against the clothing. ponchos do not look like ass anymore!
   id: 2768
   time: '2026-08-01T00:17:33.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Tweak
+      message: >-
+        Survival and lixiry medipens now only work when between 20-50 kPa or on
+        Lavaland. Their healing was also reduced.
+    - type: Tweak
+      message: Exosuit drills now deal less damage.
+    - type: Tweak
+      message: Hierophant club now doesn't let you teleport through solids.
+    - type: Fix
+      message: >-
+        Fixed not being able to drag ore boxes onto ore processor, now you can
+        dump your ore quickly again!
+  id: 2769
+  time: '2026-08-01T00:20:29.0000000+00:00'
