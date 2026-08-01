@@ -38,7 +38,7 @@
   description: Contains 2 Glue grenades and 2 Lube Grenades
   productEntity: BoxReagentGrenades
   cost:
-    Telecrystal: 20
+    Telecrystal: 30
   categories:
     -  UplinkDisruption
 
