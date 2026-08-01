@@ -24045,3 +24045,13 @@ Entries:
       message: (hopefully) Fixed honkops not spawning.
   id: 2767
   time: '2026-08-01T00:13:33.0000000+00:00'
+- author: winkkk-k
+  changes:
+    - type: Add
+      message: layering and colorlink to markings
+    - type: Tweak
+      message: >-
+        bunch of customization for moths, and they are no longer shrink-wrapped
+        against the clothing. ponchos do not look like ass anymore!
+  id: 2768
+  time: '2026-08-01T00:17:33.0000000+00:00'
