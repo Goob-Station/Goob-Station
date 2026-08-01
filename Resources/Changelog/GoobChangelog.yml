@@ -24103,3 +24103,9 @@ Entries:
       message: any flight system no longer breaks stealth mechanics
   id: 2773
   time: '2026-08-01T00:30:57.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Remove
+      message: Removed guerrilla gloves from nukie uplink.
+  id: 2774
+  time: '2026-08-01T00:31:31.0000000+00:00'
