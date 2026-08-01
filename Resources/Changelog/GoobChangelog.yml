@@ -24077,3 +24077,11 @@ Entries:
       message: Slasher Spring kit Resprite
   id: 2770
   time: '2026-08-01T00:21:01.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Remove
+      message: Monkeys and Xenobio slimes can no longer be zombies.
+    - type: Remove
+      message: Some small critters can no longer be zombies.
+  id: 2771
+  time: '2026-08-01T00:21:39.0000000+00:00'
