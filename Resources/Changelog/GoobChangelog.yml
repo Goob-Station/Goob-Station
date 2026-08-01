@@ -24039,3 +24039,9 @@ Entries:
       message: Roundstart larvas are now invisible
   id: 2766
   time: '2026-08-01T00:09:13.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Fix
+      message: (hopefully) Fixed honkops not spawning.
+  id: 2767
+  time: '2026-08-01T00:13:33.0000000+00:00'
