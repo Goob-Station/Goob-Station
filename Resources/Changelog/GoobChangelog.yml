@@ -24085,3 +24085,13 @@ Entries:
       message: Some small critters can no longer be zombies.
   id: 2771
   time: '2026-08-01T00:21:39.0000000+00:00'
+- author: N0lim
+  changes:
+    - type: Tweak
+      message: >-
+        Base hunger decay increased from 0.01666 to 0.04166. Base thirst decay
+        increased from 0.1 to 0.125. That should lead to first moodle in 45
+        minutes on average and to first slowdown debuff in 70 minutes on average
+        if you eat your nutribrick after first moodle.
+  id: 2772
+  time: '2026-08-01T00:28:11.0000000+00:00'
