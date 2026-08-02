@@ -302,6 +302,8 @@
     sprite: Clothing/OuterClothing/Coats/labcoat_cmo.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/labcoat_cmo.rsi
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.35 # Goobstation - Same as Biosuits
   - type: Armor
     coverage:
     - Chest
