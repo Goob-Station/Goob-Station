@@ -24115,3 +24115,9 @@ Entries:
       message: Service worker civilian playtime req from 30 minutes to 7.5 hours
   id: 2775
   time: '2026-08-02T01:28:02.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Tweak
+      message: You can disable cyborg through Robotic Console now
+  id: 2776
+  time: '2026-08-02T01:40:43.0000000+00:00'
