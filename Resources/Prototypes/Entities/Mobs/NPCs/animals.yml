@@ -1581,6 +1581,7 @@
   - type: StatusIcon
   - type: DiseaseCarrier # Goobstation
   - type: XenovacTarget # Goobstation - Xenobiology
+  - type: Latchable # Goobstation - Xenobiology
 
 - type: entity
   name: monkey

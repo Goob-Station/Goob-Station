@@ -18,6 +18,7 @@ public partial class XenobiologySystem
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly StomachSystem _stomach = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private readonly SlimeLatchSystem _slimeLatch = default!;
 
     private List<EntityUid> _slimes = new();
     private EntityQuery<BloodstreamComponent> _bloodQuery;
@@ -156,10 +157,7 @@ public partial class XenobiologySystem
         }
 
         _containerSystem.EmptyContainer(ent.Comp.Stomach);
-
-        var ev = new SlimeMitosisEvent(ent.Owner);
-        RaiseLocalEvent(ent, ref ev);
-
+        _slimeLatch.Unlatch(ent);
         PredictedQueueDel(ent);
     }
 

@@ -149,4 +149,31 @@ public sealed partial class SlimeComponent : Component
     /// </summary>
     [DataField]
     public SoundPathSpecifier EatSound = new("/Audio/Voice/Talk/slime.ogg");
+
+    /// <summary>
+    /// Minimum chance of taming success
+    /// </summary>
+    [DataField]
+    public int MinChance = 0;
+
+    /// <summary>
+    /// Maximum chance of taming success
+    /// </summary>
+    [DataField]
+    public int MaxChance = 100;
+
+    /// <summary>
+    /// Determine the success rate of taming a slime
+    /// </summary>
+    [DataField]
+    public int SuccessDivider = 10;
+
+    /// <summary>
+    /// How long in between each interaction to avoid spam
+    /// </summary>
+    [DataField]
+    public TimeSpan InteractInterval = TimeSpan.FromSeconds(2);
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public TimeSpan LastInteract;
 }

@@ -17,6 +17,7 @@ public sealed partial class NpcFactionSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
+    private EntityQuery<StealthComponent> _stealthQuery; // Goobstation - filter out stealthed entities
 
     /// <summary>
     /// To avoid prototype mutability we store an intermediary data class that gets used instead.
@@ -32,6 +33,8 @@ public sealed partial class NpcFactionSystem : EntitySystem
 
         InitializeException();
         RefreshFactions();
+
+        _stealthQuery = GetEntityQuery<StealthComponent>(); // Goobstation - filter out stealthed entities
     }
 
     private void OnProtoReload(PrototypesReloadedEventArgs obj)
@@ -188,14 +191,14 @@ public sealed partial class NpcFactionSystem : EntitySystem
             // otherwise having multiple factions is strictly negative
             .Where(target => !IsEntityFriendly((ent, ent.Comp1), target));
         if (!Resolve(ent, ref ent.Comp2, false))
-            return hostiles.Where(target => !TryComp<StealthComponent>(target, out var stealth) || !stealth.Enabled); // Goobstation - Filter out stealthed entities
+            return hostiles.Where(target => !_stealthQuery.TryComp(target, out var stealth) || !stealth.Enabled); // Goobstation - Filter out stealthed entities
 
         // ignore anything from enemy faction that we are explicitly friendly towards
         var faction = (ent.Owner, ent.Comp2);
         return hostiles
             .Union(GetHostiles(faction))
             .Where(target => !IsIgnored(faction, target))
-            .Where(target => !TryComp<StealthComponent>(target, out var stealth) || !stealth.Enabled); // Goobstation - Filter out stealthed entities
+            .Where(target => !_stealthQuery.TryComp(target, out var stealth) || !stealth.Enabled); // Goobstation - Filter out stealthed entities
     }
 
     public IEnumerable<EntityUid> GetNearbyFriendlies(Entity<NpcFactionMemberComponent?> ent, float range)
@@ -313,7 +316,7 @@ public sealed partial class NpcFactionSystem : EntitySystem
     {
         _factions = _proto.EnumeratePrototypes<NpcFactionPrototype>().ToFrozenDictionary(
             faction => faction.ID,
-            faction =>  new FactionData
+            faction => new FactionData
             {
                 Friendly = faction.Friendly.ToHashSet(),
                 Hostile = faction.Hostile.ToHashSet()

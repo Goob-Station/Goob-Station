@@ -1,0 +1,66 @@
+- type: utilityQuery
+  id: NearbyRetaliationTargets
+  query:
+    - !type:ComponentQuery
+      components:
+      - type: NPCRetaliatedTarget
+  considerations:
+    # Goobstation - check is dead instead so we can target non-living stuff
+    - !type:TargetRetaliationCon
+      curve: !type:BoolCurve
+    - !type:TargetIsDeadCon
+      curve: !type:InverseBoolCurve
+    - !type:TargetDistanceCon
+      curve: !type:PresetCurve
+        preset: TargetDistance
+    - !type:TargetHealthCon
+      curve: !type:PresetCurve
+        preset: TargetHealth
+    - !type:TargetAccessibleCon
+      curve: !type:BoolCurve
+    - !type:TargetInLOSOrCurrentCon
+      curve: !type:BoolCurve
+
+- type: htnCompound
+  id: XenobioSlimeCombatCompound
+  branches:
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:UtilityOperator
+            proto: NearbyRetaliationTargets
+        - !type:HTNCompoundTask
+          task: XenobioMeleeAttackTargetCompound
+
+- type: htnCompound
+  id: XenobioMeleeAttackTargetCompound
+  branches:
+    - preconditions:
+      - !type:KeyExistsPrecondition
+        key: Target
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            shutdownState: PlanFinished
+            pathfindInPlanning: true
+            removeKeyOnFinish: false
+            brakeMaxVelocity: null # Goobstation - no braking
+            targetKey: TargetCoordinates
+            pathfindKey: TargetPathfind
+            rangeKey: MeleeRange
+        - !type:HTNPrimitiveTask
+          operator: !type:JukeOperator
+            jukeType: Away
+        - !type:HTNPrimitiveTask
+          operator: !type:MeleeOperator
+            targetKey: Target
+          preconditions:
+            - !type:KeyExistsPrecondition
+              key: Target
+            - !type:TargetInRangePrecondition
+              targetKey: Target
+              rangeKey: MeleeRange
+          services:
+            - !type:UtilityService
+              id: MeleeService
+              proto: NearbyRetaliationTargets
+              key: Target

@@ -17,6 +17,8 @@ public sealed partial class SlimeDamageOvertimeComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public EntityUid? SourceEntityUid;
 
+    [ViewVariables(VVAccess.ReadOnly)]
+    public EntityUid? VictimEntityUid;
     /// <summary>
     /// How many units from target's bloodstream would be sucked per tick
     /// </summary>

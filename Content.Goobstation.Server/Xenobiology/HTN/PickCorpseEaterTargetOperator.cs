@@ -62,7 +62,7 @@ public sealed partial class PickCorpseEaterTargetOperator : HTNOperator
 
         if (!blackboard.TryGetValue<float>(RangeKey, out var range, _ent)
         || !_corpseQuery.TryComp(owner, out var eaterComp)
-        || _hunger.IsHungerAboveState(owner, HungerThreshold.Peckish)) // eat corpses only if very hungry
+        || _hunger.IsHungerAboveState(owner, HungerThreshold.Starving)) // eat corpses only if starving
             return (false, null);
 
         foreach (var entity in _factions.GetNearbyHostiles(owner, range))

@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: MIT
 
+using Content.Goobstation.Common.NPC;
 using Content.Server.NPC.Components;
 using Content.Server.NPC.Events; // Goobstation
 using Content.Shared.CombatMode;
@@ -20,6 +21,8 @@ public sealed class NPCRetaliationSystem : EntitySystem
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
+    private ValueList<EntityUid> _entities = default; // Goobstation
+
     /// <inheritdoc />
     public override void Initialize()
     {
@@ -32,7 +35,7 @@ public sealed class NPCRetaliationSystem : EntitySystem
         if (!args.DamageIncreased)
             return;
 
-        if (args.Origin is not {} origin)
+        if (args.Origin is not { } origin)
             return;
 
         TryRetaliate(ent, origin);
@@ -55,13 +58,15 @@ public sealed class NPCRetaliationSystem : EntitySystem
             return false;
 
         _npcFaction.AggroEntity(ent.Owner, target);
-        if (ent.Comp.AttackMemoryLength is {} memoryLength)
+        if (ent.Comp.AttackMemoryLength is { } memoryLength)
             ent.Comp.AttackMemories[target] = _timing.CurTime + memoryLength;
 
         // Goobstation
+        ent.Comp.Activated = true;
         var ev = new NPCRetaliatedEvent(ent, target, secondary);
         RaiseLocalEvent(ent, ev);
 
+        EnsureComp<NPCRetaliatedTargetComponent>(target); // Goobstation
         return true;
     }
 
@@ -72,14 +77,29 @@ public sealed class NPCRetaliationSystem : EntitySystem
         var query = EntityQueryEnumerator<NPCRetaliationComponent, FactionExceptionComponent>();
         while (query.MoveNext(out var uid, out var retaliationComponent, out var factionException))
         {
-            // TODO: can probably reuse this allocation and clear it
-            foreach (var entity in new ValueList<EntityUid>(retaliationComponent.AttackMemories.Keys))
+            // Goobstation
+            if (!retaliationComponent.Activated)
+                continue;
+
+            // Goobstation - Reuse the list
+            _entities.Clear();
+            _entities.AddRange(retaliationComponent.AttackMemories.Keys);
+
+            foreach (var entity in _entities)
             {
-                if (!TerminatingOrDeleted(entity) && _timing.CurTime < retaliationComponent.AttackMemories[entity])
+                if (!TerminatingOrDeleted(entity)
+                    && _timing.CurTime < retaliationComponent.AttackMemories[entity])
                     continue;
 
                 _npcFaction.DeAggroEntity((uid, factionException), entity);
-                // TODO: should probably remove the AttackMemory, thats the whole point of the ValueList right??
+                retaliationComponent.AttackMemories.Remove(entity); // Goobstation - Probably resolve the old todo
+
+                // Goobstation
+                var ev = new NPCRetaliatedOverEvent(uid);
+                RaiseLocalEvent(entity, ref ev);
+
+                retaliationComponent.Activated = false; // Goobstation
+                RemComp<NPCRetaliatedTargetComponent>(entity); // Goobstation
             }
         }
     }

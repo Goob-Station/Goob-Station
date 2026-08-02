@@ -25,7 +25,7 @@ public sealed partial class SlimeLatchDoAfterEvent : SimpleDoAfterEvent;
 public sealed partial class EatCorpseDoAfterEvent : SimpleDoAfterEvent;
 
 /// <summary>
-/// Raised on parent slime after mitosis completed, but right before parent slime deletion.
+/// Raised on the slime when Tamer fails to tame it.
 /// </summary>
 [ByRefEvent]
-public record struct SlimeMitosisEvent(EntityUid Slime);
+public record struct SlimeFailedTameEvent(EntityUid Tamer);

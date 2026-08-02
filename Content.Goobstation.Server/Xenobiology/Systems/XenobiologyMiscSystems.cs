@@ -1,51 +1,32 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Server.EntityEffects;
-using Content.Goobstation.Shared.EntityEffects;
-using Content.Shared.Atmos.Components;
-using Content.Server.Atmos.EntitySystems;
-using Content.Server.Body.Components;
-using Content.Server.Body.Systems;
-using Content.Server.Fluids.EntitySystems;
-using Content.Server.Spreader;
-using Content.Shared.Chemistry.Components;
-using Content.Shared.Chemistry.Reaction;
-using Content.Shared.Coordinates.Helpers;
-using Robust.Shared.Map;
+using Content.Goobstation.Shared.Xenobiology;
+using Content.Server.NPC.Systems;
+using Content.Server.NPC.Components;
+using Content.Goobstation.Common.NPC;
+using Content.Shared.Popups;
 
 namespace Content.Goobstation.Server.Xenobiology.Systems;
 
 // any other bs needed serverside
 public sealed class XenobiologyMiscSystems : EntitySystem
 {
+    [Dependency] private readonly NPCRetaliationSystem _npc = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+
     public override void Initialize()
     {
-        SubscribeLocalEvent<ReactiveComponent, ExtinguishNearby>(OnExtinguish);
-        SubscribeLocalEvent<ReactiveComponent, OxygenateNearby>(OnOxygenate);
+        SubscribeLocalEvent<NPCRetaliationComponent, SlimeFailedTameEvent>(OnSlimeFailedTame);
+        SubscribeLocalEvent<NPCRetaliationComponent, NPCRetaliatedOverEvent>(OnNPCRetaliatedOver);
     }
 
-    public void OnExtinguish(EntityUid uid, ReactiveComponent component, ref ExtinguishNearby args)
+    private void OnSlimeFailedTame(Entity<NPCRetaliationComponent> ent, ref SlimeFailedTameEvent args)
     {
-
-        var lookupSys = EntityManager.System<EntityLookupSystem>();
-        var flamSys = EntityManager.System<FlammableSystem>();
-
-        foreach (var entity in lookupSys.GetEntitiesInRange(uid, args.Range))
-        {
-            if (EntityManager.TryGetComponent(entity, out FlammableComponent? flammable))
-                flamSys.Extinguish(entity, flammable);
-        }
+        _npc.TryRetaliate(ent, args.Tamer);
     }
 
-    public void OnOxygenate(EntityUid uid, ReactiveComponent component, ref OxygenateNearby args)
+    private void OnNPCRetaliatedOver(Entity<NPCRetaliationComponent> ent, ref NPCRetaliatedOverEvent args)
     {
-        var lookupSys = EntityManager.System<EntityLookupSystem>();
-        var respSys = EntityManager.System<RespiratorSystem>();
-
-        foreach (var entity in lookupSys.GetEntitiesInRange(uid, args.Range))
-        {
-            if (EntityManager.TryGetComponent(entity, out RespiratorComponent? resp))
-                respSys.UpdateSaturation(entity, args.Factor, resp);
-        }
+        _popup.PopupEntity(Loc.GetString("npc-retaliation-over", ("entity", ent.Owner), ("target", args.Target)), ent.Owner);
     }
 }

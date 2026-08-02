@@ -21,7 +21,13 @@ using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Movement.Events;
-using Robust.Shared.Network;
+using Robust.Shared.Physics.Systems;
+using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics;
+using Content.Shared.Climbing.Events;
+using Content.Shared.DragDrop;
+using Content.Shared.Hands.Components;
+using Content.Shared.Movement.Pulling.Systems;
 
 namespace Content.Goobstation.Shared.Xenobiology.Systems;
 
@@ -40,11 +46,15 @@ public sealed partial class SlimeLatchSystem : EntitySystem
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly StomachSystem _stomach = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physic = default!;
+    [Dependency] private readonly PullingSystem _pull = default!;
 
     private EntityQuery<BloodstreamComponent> _bloodstreamQuery;
     private EntityQuery<HungerComponent> _hungerQuery;
     private EntityQuery<SlimeComponent> _slimeQuery;
     private EntityQuery<XenoVacuumTankComponent> _tankQuery;
+    private EntityQuery<MobStateComponent> _mobQuery;
+    private EntityQuery<BeingLatchedComponent> _latchedQuery;
 
     private TimeSpan _updateDelay = TimeSpan.FromSeconds(1);
     private TimeSpan _nextUpdate;
@@ -56,18 +66,23 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         SubscribeLocalEvent<SlimeComponent, SlimeLatchEvent>(OnLatchAttempt);
         SubscribeLocalEvent<SlimeComponent, SlimeLatchDoAfterEvent>(OnSlimeLatchDoAfter);
 
+
         SubscribeLocalEvent<SlimeDamageOvertimeComponent, MobStateChangedEvent>(OnMobStateChangedSOD);
         SubscribeLocalEvent<SlimeComponent, MobStateChangedEvent>(OnMobStateChangedSlime);
         SubscribeLocalEvent<SlimeComponent, PullAttemptEvent>(OnPullAttempt);
         SubscribeLocalEvent<SlimeComponent, EntGotRemovedFromContainerMessage>(OnEntGotRemovedFromContainer);
         SubscribeLocalEvent<SlimeComponent, EntGotInsertedIntoContainerMessage>(OnEntGotInsertedIntoContainer);
-        SubscribeLocalEvent<SlimeComponent, SlimeMitosisEvent>(OnSlimeMitosis);
         SubscribeLocalEvent<SlimeComponent, UpdateCanMoveEvent>(OnUpdateCanMove);
+        SubscribeLocalEvent<SlimeComponent, SelfBeforeClimbEvent>(OnSelfBeforeClimb);
+        SubscribeLocalEvent<SlimeComponent, CanDropDraggedEvent>(OnCanDropDragged);
+        SubscribeLocalEvent<SlimeComponent, DragDropDraggedEvent>(OnDragDropped);
 
         _bloodstreamQuery = GetEntityQuery<BloodstreamComponent>();
         _hungerQuery = GetEntityQuery<HungerComponent>();
         _slimeQuery = GetEntityQuery<SlimeComponent>();
         _tankQuery = GetEntityQuery<XenoVacuumTankComponent>();
+        _mobQuery = GetEntityQuery<MobStateComponent>();
+        _latchedQuery = GetEntityQuery<BeingLatchedComponent>();
     }
 
     public override void Update(float frameTime)
@@ -81,8 +96,8 @@ public sealed partial class SlimeLatchSystem : EntitySystem
 
         _nextUpdate = now + _updateDelay;
 
-        var query = EntityQueryEnumerator<SlimeDamageOvertimeComponent>();
-        while (query.MoveNext(out var uid, out var dotComp))
+        var query = EntityQueryEnumerator<SlimeDamageOvertimeComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var dotComp, out var _))
         {
             if (_mobState.IsDead(uid))
                 continue;
@@ -146,6 +161,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
             return;
 
         var source = ent.Comp.SourceEntityUid;
+
         if (source.HasValue && _slimeQuery.TryComp(source, out var slime))
             Unlatch((source.Value, slime));
     }
@@ -158,12 +174,6 @@ public sealed partial class SlimeLatchSystem : EntitySystem
 
     private void OnPullAttempt(Entity<SlimeComponent> ent, ref PullAttemptEvent args)
     {
-        if (IsLatched(ent) && args.PullerUid == ent.Owner) // slimes can't pull when latched
-        {
-            args.Cancelled = true;
-            return;
-        }
-
         Unlatch(ent);
     }
 
@@ -186,11 +196,6 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         if (!_tankQuery.HasComp(args.Container.Owner))
             return;
 
-        Unlatch(ent);
-    }
-
-    private void OnSlimeMitosis(Entity<SlimeComponent> ent, ref SlimeMitosisEvent args)
-    {
         Unlatch(ent);
     }
 
@@ -241,10 +246,10 @@ public sealed partial class SlimeLatchSystem : EntitySystem
             BreakOnMove = true,
         };
 
-        EnsureComp<BeingLatchedComponent>(target);
-
         if (!_doAfter.TryStartDoAfter(doAfterArgs))
             return false;
+
+        EnsureComp<BeingLatchedComponent>(target);
 
         return true;
     }
@@ -264,6 +269,50 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         args.Handled = true;
     }
 
+    private void OnSelfBeforeClimb(Entity<SlimeComponent> ent, ref SelfBeforeClimbEvent args)
+    {
+        if (IsLatched(ent))
+            Unlatch(ent); // Unlatch first so no accident dot
+    }
+
+    private void OnCanDropDragged(Entity<SlimeComponent> ent, ref CanDropDraggedEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (!HasComp<LatchableComponent>(args.Target)) // Don't show outline if no latchable
+            return;
+
+        args.CanDrop = HasComp<HandsComponent>(args.User); // No hand no drop
+
+        args.Handled = true;
+    }
+
+    private void OnDragDropped(Entity<SlimeComponent> ent, ref DragDropDraggedEvent args)
+    {
+        if (args.Handled || IsLatched(ent))
+            return;
+
+        if (ent.Comp.Tamer != args.User)
+        {
+            _popup.PopupPredicted(Loc.GetString("slime-help-latch-fail-not-tamer"), ent.Owner, ent.Owner);
+            return;
+        }
+
+        if (!_hungerQuery.TryComp(ent.Owner, out var hunger)
+            || hunger.CurrentThreshold > HungerThreshold.Peckish)
+        {
+            _popup.PopupPredicted(Loc.GetString("slime-help-latch-fail-hungry", ("slime", ent.Owner)), ent.Owner, ent.Owner);
+            return; // Do it here so dont have to double check
+        }
+
+        StartSlimeLatchDoAfter(ent, args.Target);
+
+        _pull.StopAllPulls(args.User); // Stop pulling here so it don't mess up with the slime collision
+
+        args.Handled = true;
+    }
+
     #region Helpers
 
     public bool IsLatched(Entity<SlimeComponent> ent)
@@ -277,7 +326,8 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         return !(IsLatched(ent) // already latched
             || _mobState.IsDead(target) // target dead
             || !_actionBlocker.CanInteract(ent, target) // can't reach
-            || !HasComp<MobStateComponent>(target)); // make any mob work
+            || !_mobQuery.HasComp(target) // any mob
+            || _latchedQuery.HasComp(target)); // already claimed
     }
 
     public bool NpcTryLatch(Entity<SlimeComponent> ent, EntityUid target)
@@ -301,6 +351,10 @@ public sealed partial class SlimeLatchSystem : EntitySystem
 
         _actionBlocker.UpdateCanMove(ent.Owner);
 
+        var physic = EnsureComp<PhysicsComponent>(ent.Owner);
+        var fixture = EnsureComp<FixturesComponent>(ent.Owner);
+        _physic.SetCanCollide(ent.Owner, false, force: true, manager: fixture, body: physic); // For some reaosn the slime will collide with host and moving them
+
         EnsureComp(target, out SlimeDamageOvertimeComponent comp);
         comp.SourceEntityUid = ent;
         Dirty(target, comp);
@@ -323,6 +377,11 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         RemCompDeferred<SlimeDamageOvertimeComponent>(target);
 
         _xform.SetParent(ent, _xform.GetParentUid(target)); // deparent it. probably.
+
+        var physic = EnsureComp<PhysicsComponent>(ent.Owner);
+        var fixture = EnsureComp<FixturesComponent>(ent.Owner);
+        _physic.SetCanCollide(ent.Owner, true, force: true, manager: fixture, body: physic); // Make the slime collide back
+
         ent.Comp.LatchedTarget = null;
         _actionBlocker.UpdateCanMove(ent.Owner);
     }

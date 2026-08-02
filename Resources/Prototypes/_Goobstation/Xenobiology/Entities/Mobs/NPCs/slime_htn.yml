@@ -11,6 +11,9 @@
       task: XenoSlimeFoodCompound
   - tasks:
     - !type:HTNCompoundTask
+       task: XenobioSlimeCombatCompound
+  - tasks:
+    - !type:HTNCompoundTask
       task: LatchCompound
   - tasks:
     - !type:HTNCompoundTask

@@ -15,9 +15,9 @@ namespace Content.Server._Trauma.Mobs.Systems;
 /// </summary>
 public sealed partial class MobSpamSystem : EntitySystem
 {
-    [Dependency] private IGameTiming _timing = default!;
-    [Dependency] private MobStateSystem _mob = default!;
-    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly MobStateSystem _mob = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
 
     public static readonly TimeSpan DespawnTime = TimeSpan.FromMinutes(5);
 

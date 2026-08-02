@@ -10,7 +10,7 @@ public sealed class GoobHungerSystem : EntitySystem
     [Dependency] private readonly HungerSystem _hunger = null!;
 
     /// <summary>
-    /// A check that returns if the entity is below a hunger threshold. || Goobstation
+    /// A check that returns true if the entity has higher threshold than the provided hunger threshold.
     /// </summary>
     public bool IsHungerAboveState(EntityUid uid, HungerThreshold threshold, float? food = null, HungerComponent? comp = null)
     {
@@ -18,5 +18,16 @@ public sealed class GoobHungerSystem : EntitySystem
             return false; // It's never going to go hungry, so it's probably fine to assume that it's not... you know, hungry.
 
         return _hunger.GetHungerThreshold(comp, food) > threshold;
+    }
+
+    /// <summary>
+    /// A check that returns true if the entity has lower threshold than the provided hunger threshold.
+    /// </summary>
+    public bool IsHungerBelowState(EntityUid uid, HungerThreshold threshold, float? food = null, HungerComponent? comp = null)
+    {
+        if (!Resolve(uid, ref comp))
+            return false; // It's never going to go hungry, so it's probably fine to assume that it's not... you know, hungry.
+
+        return _hunger.GetHungerThreshold(comp, food) < threshold;
     }
 }

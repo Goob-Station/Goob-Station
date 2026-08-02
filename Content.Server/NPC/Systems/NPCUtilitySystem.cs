@@ -35,17 +35,20 @@ using Content.Server._Goobstation.Wizard.NPC;
 using Content.Shared.Foldable;
 using Content.Shared.Wieldable;
 using Content.Shared.Wieldable.Components;
-using Content.Server.Nutrition.EntitySystems;
 using Content.Server.Body.Systems;
-using Content.Goobstation.Maths.FixedPoint; // Goobstation start
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.EntityEffects.Effects;
 using Content.Shared.Body.Systems;
 using Content.Server.Body.Components;
 using Content.Shared.Body.Components;
-using Content.Shared.Chemistry.Components;
 using Content.Shared.EntityEffects.Effects.Body;
-using Content.Shared.EntityEffects.Effects.Solution; // Goobstation end
+using Content.Shared.EntityEffects.Effects.Solution;
+
+// Goobstation start
+using Content.Goobstation.Maths.FixedPoint;
+using Content.Server._Goobstation.NPC.Queries.Considerations;
+using Content.Server.NPC.Components;
+// Goobstation end
 
 namespace Content.Server.NPC.Systems;
 
@@ -78,6 +81,10 @@ public sealed class NPCUtilitySystem : EntitySystem
     private EntityQuery<PuddleComponent> _puddleQuery;
     private EntityQuery<TransformComponent> _xformQuery;
 
+    // Goobstation start
+    private EntityQuery<NPCRetaliationComponent> _retaliationQuery;
+    // Goobstation End
+
     private ObjectPool<HashSet<EntityUid>> _entPool =
         new DefaultObjectPool<HashSet<EntityUid>>(new SetPolicy<EntityUid>(), 256);
 
@@ -86,11 +93,17 @@ public sealed class NPCUtilitySystem : EntitySystem
     private HashSet<Entity<IComponent>> _entitySet = new();
     private List<EntityPrototype.ComponentRegistryEntry> _compTypes = new();
 
+
+
     public override void Initialize()
     {
         base.Initialize();
         _puddleQuery = GetEntityQuery<PuddleComponent>();
         _xformQuery = GetEntityQuery<TransformComponent>();
+
+        // Goobstation start
+        _retaliationQuery = GetEntityQuery<NPCRetaliationComponent>();
+        // Goobstation end
     }
 
     /// <summary>
@@ -316,20 +329,6 @@ public sealed class NPCUtilitySystem : EntitySystem
 
                 return Math.Clamp(distance / radius, 0f, 1f);
             }
-            case TargetRequiresWieldAndCanWieldCon: // Goobstation
-            {
-                if (!HasComp<GunRequiresWieldComponent>(targetUid) ||
-                    !TryComp(targetUid, out WieldableComponent? wieldable))
-                    return 1f;
-
-                if (!_wieldable.CanWield(targetUid, wieldable, owner, true, false))
-                    return 0f;
-
-                var beforeWieldEv = new WieldAttemptEvent(owner, targetUid);
-                RaiseLocalEvent(targetUid, ref beforeWieldEv);
-
-                return beforeWieldEv.Cancelled ? 0f : 1f;
-            }
             case TargetAmmoCon:
             {
                 if (!HasComp<GunComponent>(targetUid))
@@ -439,6 +438,32 @@ public sealed class NPCUtilitySystem : EntitySystem
 
                 return temperature.CurrentTemperature <= con.MinTemp ? 1f : 0f;
             }
+            // Goobstation - Start
+            case TargetRequiresWieldAndCanWieldCon: 
+            {
+                if (!HasComp<GunRequiresWieldComponent>(targetUid) ||
+                    !TryComp(targetUid, out WieldableComponent? wieldable))
+                    return 1f;
+
+                if (!_wieldable.CanWield(targetUid, wieldable, owner, true, false))
+                    return 0f;
+
+                var beforeWieldEv = new WieldAttemptEvent(owner, targetUid);
+                    RaiseLocalEvent(targetUid, ref beforeWieldEv);
+
+                    return beforeWieldEv.Cancelled ? 0f : 1f;
+                }
+            case TargetRetaliationCon:
+            {
+                if (!_retaliationQuery.TryComp(owner, out var retaliation))
+                    return 0f;
+
+                if (retaliation.AttackMemories.Count == 0)
+                    return 0f;
+
+                return retaliation.AttackMemories.ContainsKey(targetUid) ? 1f : 0f;
+            }
+            // Goobstation - End
             default:
                 throw new NotImplementedException();
         }
