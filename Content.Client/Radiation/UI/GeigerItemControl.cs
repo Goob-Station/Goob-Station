@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: MIT
 
 using Content.Client.Message;
@@ -21,7 +18,7 @@ public sealed class GeigerItemControl : Control
     public GeigerItemControl(GeigerComponent component)
     {
         _component = component;
-        _label = new RichTextLabel { StyleClasses = { StyleNano.StyleClassItemStatus } };
+        _label = new RichTextLabel { StyleClasses = { StyleClass.ItemStatus } };
         AddChild(_label);
 
         Update();

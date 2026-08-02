@@ -1,22 +1,3 @@
-# SPDX-FileCopyrightText: 2023 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 ElectroJr <leonsfriedrich@gmail.com>
-# SPDX-FileCopyrightText: 2023 Julian Giebel <juliangiebel@live.de>
-# SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2024 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Dakamakat <52600490+dakamakat@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-# SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
@@ -69,8 +50,7 @@
   - type: Transform
     anchored: true
   - type: ApcPowerReceiver
-    powerLoad: 12000
-    needsPower: false #only turns on when scanning
+    powerLoad: 5000
   - type: ArtifactAnalyzer
   - type: ItemPlacer
     whitelist:
@@ -87,7 +67,7 @@
     board: ArtifactAnalyzerMachineCircuitboard
   - type: PointLight
     radius: 1.5
-    energy: 1.6
+    energy: 3.0
     color: "#b53ca1"
   - type: GuideHelp
     guides:
@@ -178,3 +158,13 @@
       machine_parts: !type:Container
       entity_storage: !type:Container
       output_container: !type:Container
+
+# just a resprite
+- type: entity
+  parent: MachineArtifactCrusher
+  id: MachineArtifactCrusherXenoborg
+  name: body crusher
+  description: Best not to let your head get stuck...
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/body_crusher.rsi

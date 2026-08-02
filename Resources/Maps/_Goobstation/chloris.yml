@@ -31490,7 +31490,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 116.546524,173.3486
       parent: 2
-- proto: BaseChemistryEmptyVial
+- proto: ChemistryEmptyVial
   entities:
   - uid: 21
     components:
@@ -132890,7 +132890,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 173.5,28.5
       parent: 2
-- proto: EnergyChemDispenser
+- proto: ChemDispenser
   entities:
   - uid: 10790
     components:
@@ -234809,7 +234809,7 @@ entities:
     - type: Transform
       pos: 76.50275,149.61908
       parent: 2
-- proto: MaterialSilo
+- proto: MachineMaterialSilo
   entities:
   - uid: 113
     components:

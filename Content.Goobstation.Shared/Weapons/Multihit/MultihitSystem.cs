@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
@@ -42,7 +39,7 @@ public sealed class MultihitSystem : EntitySystem
     private void WhitelistCheck(MultihitUserWhitelistEvent ev)
     {
         ev.Handled = ev.Blacklist
-            ? _whitelist.IsBlacklistFail(ev.Whitelist, ev.User)
+            ? _whitelist.IsWhitelistFail(ev.Whitelist, ev.User)
             : _whitelist.IsWhitelistPass(ev.Whitelist, ev.User);
     }
 

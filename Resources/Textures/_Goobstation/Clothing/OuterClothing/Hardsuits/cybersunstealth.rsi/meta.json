@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "made by InfinityPandaRed for goob station - resomi sprite by Dondee",
+  "copyright": "made by InfinityPandaRed for goob station - resomi sprite by Dondee, Reptilian by Sanyati",
   "size": {
     "x": 32,
     "y": 32
@@ -27,7 +27,15 @@
       "directions": 4
     },
 	{
+      "name": "equipped-OUTERCLOTHING-reptilian",
+      "directions": 4
+    },
+	{
       "name": "equipped-OUTERCLOTHING-vox",
+      "directions": 4
+    },
+	{
+      "name": "equipped-OUTERCLOTHING-hydrakin",
       "directions": 4
     }
   ]

@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 YourUsername <you@example.com>
-// SPDX-FileCopyrightText: 2025 godisdeadLOL <169250097+godisdeadLOL@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Chemistry.EntitySystems;
@@ -146,7 +137,7 @@ public sealed class MedibotSystem : EntitySystem
         EnsureComp<NPCRecentlyInjectedComponent>(target);
         _solutionContainer.TryAddReagent(injectable.Value, treatment.Reagent, treatment.Quantity, out _);
 
-        _popup.PopupEntity(Loc.GetString("hypospray-component-feel-prick-message"), target, target);
+        _popup.PopupEntity(Loc.GetString("injector-component-feel-prick-message"), target, target);
         _popup.PopupClient(Loc.GetString("medibot-target-injected"), medibot, medibot);
 
         _audio.PlayPredicted(medibot.Comp.InjectSound, medibot, medibot);

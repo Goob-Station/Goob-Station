@@ -1,97 +1,3 @@
-// SPDX-FileCopyrightText: 2023 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Alex Pavlenko <diraven@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Alice "Arimah" Heurlin <30327355+arimah@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 CaasGit <87243814+CaasGit@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
-// SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ghagliiarghii <68826635+Ghagliiarghii@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 HS <81934438+HolySSSS@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
-// SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kukutis96513 <146854220+Kukutis96513@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Lye <128915833+Lyroth001@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MerrytheManokit <167581110+MerrytheManokit@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 OrangeMoronage9622 <whyteterry0092@gmail.com>
-// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Redfire1331 <125223432+Redfire1331@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Truoizys <153248924+Truoizys@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
-// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2024 Vigers Ray <60344369+VigersRay@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
-// SPDX-FileCopyrightText: 2024 drteaspoon420 <87363733+drteaspoon420@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2024 neutrino <67447925+neutrino-laser@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-// SPDX-FileCopyrightText: 2024 redfire1331 <Redfire1331@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
-// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-//
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Chemistry.Components;
@@ -116,6 +22,7 @@ using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Containers;
 using Content.Shared.Examine;
+using Content.Shared.Containers;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Localizations;
@@ -271,6 +178,12 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         [NotNullWhen(true)] out Entity<SolutionComponent>? entity,
         bool errorOnMissing = false)
     {
+        // use connected container instead of entity from arguments, if it exists.
+        var ev = new GetConnectedContainerEvent();
+        RaiseLocalEvent(container, ref ev);
+        if (ev.ContainerEntity.HasValue)
+            container = ev.ContainerEntity.Value;
+
         EntityUid uid;
         if (name is null)
             uid = container;
@@ -702,7 +615,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
     ///     Adds a solution to the container, if it can fully fit.
     /// </summary>
     /// <param name="targetUid">entity holding targetSolution</param>
-    ///  <param name="targetSolution">entity holding targetSolution</param>
+    /// <param name="targetSolution">entity holding targetSolution</param>
     /// <param name="toAdd">solution being added</param>
     /// <returns>If the solution could be added.</returns>
     public bool TryAddSolution(Entity<SolutionComponent> soln, Solution toAdd)
@@ -720,40 +633,44 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Adds as much of a solution to a container as can fit.
+    ///     Adds as much of a solution to a container as can fit and updates the container.
     /// </summary>
     /// <param name="targetUid">The entity containing <paramref cref="targetSolution"/></param>
     /// <param name="targetSolution">The solution being added to.</param>
-    /// <param name="toAdd">The solution being added to <paramref cref="targetSolution"/></param>
+    /// <param name="toAdd">The solution being added to <paramref cref="targetSolution"/>. This solution is not modified.</param>
     /// <returns>The quantity of the solution actually added.</returns>
     public FixedPoint2 AddSolution(Entity<SolutionComponent> soln, Solution toAdd)
     {
-        var (uid, comp) = soln;
-        var solution = comp.Solution;
+        var solution = soln.Comp.Solution;
 
         if (toAdd.Volume == FixedPoint2.Zero)
             return FixedPoint2.Zero;
 
         var quantity = FixedPoint2.Max(FixedPoint2.Zero, FixedPoint2.Min(toAdd.Volume, solution.AvailableVolume));
         if (quantity < toAdd.Volume)
-            TryTransferSolution(soln, toAdd, quantity);
+        {
+            // TODO: This should be made into a function that directly transfers reagents.
+            // Currently this is quite inefficient.
+            solution.AddSolution(toAdd.Clone().SplitSolution(quantity), PrototypeManager);
+        }
         else
-            ForceAddSolution(soln, toAdd);
+            solution.AddSolution(toAdd, PrototypeManager);
 
+        UpdateChemicals(soln);
         return quantity;
     }
 
     /// <summary>
     ///     Adds a solution to a container and updates the container.
+    ///     This can exceed the maximum volume of the solution added to.
     /// </summary>
     /// <param name="targetUid">The entity containing <paramref cref="targetSolution"/></param>
     /// <param name="targetSolution">The solution being added to.</param>
-    /// <param name="toAdd">The solution being added to <paramref cref="targetSolution"/></param>
+    /// <param name="toAdd">The solution being added to <paramref cref="targetSolution"/>. This solution is not modified.</param>
     /// <returns>Whether any reagents were added to the solution.</returns>
     public bool ForceAddSolution(Entity<SolutionComponent> soln, Solution toAdd)
     {
-        var (uid, comp) = soln;
-        var solution = comp.Solution;
+        var solution = soln.Comp.Solution;
 
         if (toAdd.Volume == FixedPoint2.Zero)
             return false;
@@ -821,6 +738,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
     }
 
     // Thermal energy and temperature management.
+    // TODO: ENERGY CONSERVATION!!! Nuke this once we have HeatContainers and use methods which properly conserve energy and model heat transfer correctly!
 
     #region Thermal Energy and Temperature
 
@@ -874,6 +792,26 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
 
         var heatCap = solution.GetHeatCapacity(PrototypeManager);
         solution.Temperature += heatCap == 0 ? 0 : thermalEnergy / heatCap;
+        UpdateChemicals(soln);
+    }
+
+    /// <summary>
+    /// Same as <see cref="AddThermalEnergy"/> but clamps the value between two temperature values.
+    /// </summary>
+    /// <param name="soln">Solution we're adjusting the energy of</param>
+    /// <param name="thermalEnergy">Thermal energy we're adding or removing</param>
+    /// <param name="min">Min desired temperature</param>
+    /// <param name="max">Max desired temperature</param>
+    public void AddThermalEnergyClamped(Entity<SolutionComponent> soln, float thermalEnergy, float min, float max)
+    {
+        var solution = soln.Comp.Solution;
+
+        if (thermalEnergy == 0.0f)
+            return;
+
+        var heatCap = solution.GetHeatCapacity(PrototypeManager);
+        var deltaT = thermalEnergy / heatCap;
+        solution.Temperature = Math.Clamp(solution.Temperature + deltaT, min, max);
         UpdateChemicals(soln);
     }
 
@@ -947,7 +885,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
             args.PushMarkup(Loc.GetString(entity.Comp.LocPhysicalQuality,
                                         ("color", colorHex),
                                         ("desc", primary.LocalizedPhysicalDescription),
-                                        ("chemCount", solution.Contents.Count) ));
+                                        ("chemCount", solution.Contents.Count)));
 
             // Push the recognizable reagents
 
@@ -1137,7 +1075,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
     public bool EnsureSolution(
         Entity<MetaDataComponent?> entity,
         string name,
-        [NotNullWhen(true)]out Solution? solution,
+        [NotNullWhen(true)] out Solution? solution,
         FixedPoint2 maxVol = default)
     {
         return EnsureSolution(entity, name, maxVol, null, out _, out solution);
@@ -1147,7 +1085,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         Entity<MetaDataComponent?> entity,
         string name,
         out bool existed,
-        [NotNullWhen(true)]out Solution? solution,
+        [NotNullWhen(true)] out Solution? solution,
         FixedPoint2 maxVol = default)
     {
         return EnsureSolution(entity, name, maxVol, null, out existed, out solution);
@@ -1321,7 +1259,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         var relation = new ContainedSolutionComponent() { Container = container.Owner, ContainerName = name };
         AddComp(uid, relation);
 
-        MetaDataSys.SetEntityName(uid, $"solution - {name}");
+        MetaDataSys.SetEntityName(uid, $"solution - {name}", raiseEvents: false);
         ContainerSystem.Insert(uid, container, force: true);
 
         return (uid, solution, relation);
@@ -1344,13 +1282,13 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         }
         else
         {
-            dissolvedSol.RemoveReagent(reagent,amtChange);
+            dissolvedSol.RemoveReagent(reagent, amtChange);
         }
         UpdateChemicals(dissolvedSolution);
     }
 
     public FixedPoint2 GetReagentQuantityFromConcentration(Entity<SolutionComponent> dissolvedSolution,
-        FixedPoint2 volume,float concentration)
+        FixedPoint2 volume, float concentration)
     {
         var dissolvedSol = dissolvedSolution.Comp.Solution;
         if (volume == 0

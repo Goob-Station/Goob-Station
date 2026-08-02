@@ -111,6 +111,13 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<float> RoundEndNoEorgPopupTime =
         CVarDef.Create("game.round_end_eorg_popup_time", 5f, CVar.SERVER | CVar.REPLICATED);
 
+    /// <summary>
+    ///     DEBUG Cvar - Should pathfinding be disabled globally. For SpawnAndDirty cause we need the mem.
+    /// </summary>
+    public static readonly CVarDef<bool> DisablePathfinding =
+        CVarDef.Create("goob.disable_pathfinding", false, CVar.SERVER | CVar.SERVERONLY);
+
+  
     #region Player Listener
 
     /// <summary>
