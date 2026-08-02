@@ -1,64 +1,8 @@
-# SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 CMDR-Piboy314 <92357316+CMDR-Piboy314@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-# SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <92357316+Piras314@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 PoorMansDreams <150595537+PoorMansDreams@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Snicket <getoutmarutak@gmail.com>
-# SPDX-FileCopyrightText: 2024 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Terraspark4941 <terraspark4941@gmail.com>
-# SPDX-FileCopyrightText: 2024 Tristan <traynor123123@gmail.com>
-# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
-# SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Jvne <39907509+H2Owe@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
-# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-# SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
-
-- files: ["amos.webp"]
-  license: "CC-BY-SA-3.0"
-  copyright: "asardonicsailor"
-  source: "https://x.com/ASardonicSailor"
 
 - files: ["clown.webp"]
   license: "CC-BY-NC-SA-3.0"
   copyright: "Unknown"
-  source: "https://forums.goobstation.com"
-
-- files: ["clownassassin.webp"]
-  license: "CC-BY-SA-3.0"
-  copyright: "ka2220"
-  source: "https://forums.goobstation.com"
-
-- files: ["clownhell.webp"]
-  license: "CC-BY-SA-3.0"
-  copyright: "kA2220"
   source: "https://forums.goobstation.com"
 
 - files: ["cqcm.webp"]
@@ -79,11 +23,6 @@
 - files: ["cqcm3.webp"]
   license: "CC-BY-SA-3.0"
   copyright: "blooodyspy, downscaled by Piras314"
-  source: "https://forums.goobstation.com"
-
-- files: ["foundinghonkers.webp"]
-  license: "CC-BY-NC-SA-3.0"
-  copyright: "Piras314"
   source: "https://forums.goobstation.com"
 
 - files: ["goob.webp"]
@@ -111,64 +50,34 @@
   copyright: "@Cheeki - on discord"
   source: "https://forums.goobstation.com"
 
-- files: ["janishootout.webp"]
-  license: "CC0-1.0"
-  copyright: "psychpsyo on Github/Twitter"
-  source: "https://github.com/space-wizards/space-station-14"
-
-- files: ["justaweekaway.webp"]
-  license: "CC-BY-SA-3.0"
-  copyright: "plantyfern on discord"
-  source: "https://github.com/space-wizards/space-station-14"
-
 - files: ["mime.webp"]
   license: "CC-BY-SA-3.0"
   copyright: "Diebeck"
   source: "https://forums.goobstation.com"
-
-- files: ["reclaimer-nuke.webp"]
-  license: "CC-BY-NC-SA-3.0"
-  copyright: "GetOutMarutak,aka.Snicket on Discord/github/Cara/Ko-fi"
-  source: "https://github.com/space-wizards/space-station-14"
 
 - files: ["tideractivities.webp"]
   license: "CC-BY-SA-3.0"
   copyright: "asardonicsailor"
   source: "https://x.com/ASardonicSailor"
 
-- files: ["lostpai.webp"]
-  license: "CC-BY-SA-3.0"
-  copyright: Cattom
-  source: "https://discord.gg/goobstation"
-
-- files: ["CAPTAINTHERE'SNUKIES.webp"]
-  license: "CC-BY-SA-3.0"
-  copyright: Zethine
-  source: "https://discord.gg/goobstation"
-
 - files: ["StarGoob.webp"]
   license: "CC-BY-NC-SA-3.0"
   copyright: "H2Owe"
   source: "https://github.com/H2Owe"
 
-- files: ["enlist.webp"]
-  license: "CC-BY-SA-3.0"
-  copyright: "thebiggestbruh on Discord"
-  source: "https://forums.goobstation.com"
-
 - files: ["syndi_kek.webp"]
   license: "CC-BY-SA-3.0"
-  copyright: "dloodyspy(1439558070773747785) on Discord, converted to webp by @LuciferEOS"
+  copyright: "dlooodyspy(1439558070773747785) on Discord, converted to webp by @LuciferEOS"
   source: "https://discord.gg/goobstation"
 
 - files: ["we_all_love_ai.webp"]
   license: "CC-BY-SA-3.0"
-  copyright: "dloodyspy(1439558070773747785) on Discord, converted to webp by @LuciferEOS"
+  copyright: "dlooodyspy(1439558070773747785) on Discord, converted to webp by @LuciferEOS"
   source: "https://discord.gg/goobstation"
 
 - files: ["sec_theres_ling_in_my_vents.webp"]
   license: "CC-BY-SA-3.0"
-  copyright: "dloodyspy(1439558070773747785) on Discord, converted to webp by @LuciferEOS"
+  copyright: "dlooodyspy(1439558070773747785) on Discord, converted to webp by @LuciferEOS"
   source: "https://discord.gg/goobstation"
 
 - files: ["fuckingkillHoPalready.webp"]
@@ -185,3 +94,226 @@
   license: "CC-BY-NC-SA-3.0"
   copyright: "IdiotVibes"
   source: "https://github.com/EtzilPretzel"
+
+#start Converted to Webp by @xeve.
+
+- files: ["mime2.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@.cheeki on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["cargopoker.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@_Chorinea_ on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["suboptimal.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@4vvv on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["uristvshiero.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@51fishstack on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["tuffthragg.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@Arraydeess on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["spacedragon.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@asardonicsailor on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["medbayexperience.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@bloomyex on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["fuckyoudeath.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@boiwab on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["thatfuckingratthatihate.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@bright1905 on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["whiskeyechowhiskeytime.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@brizby on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["theantags.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@cattom. on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["thewalkingzed.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@cattom. on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["screamemoji.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@chknnug"
+  source: "https://discord.gg/goobstation"
+
+- files: ["pathofkino.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@dlooodyspy on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["drMothroach.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@dr.cerb on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["1000_research_assistants.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@fanciest_british_frog on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["honkhonk.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@feathergothic on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["We'reGoingToHell.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@i.void.destroyer on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["GloryToNanoTrasen.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@iron_diamond on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["ClownSpider.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@mr.fisher on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["SpaceStation64.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@mr.fisher on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["JustAnotherShift.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@frfluffyfox on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["aCalmEvac.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@navi__.  on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["ChitnidsDiscoverFire.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@olivehojoe on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["Get_Off_MrHonker's_Wild_Ride.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@onetruehudson on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["AnythingButYourJob.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@orangealligator on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["TooManyCooks.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@orangealligator on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["Anyone_know_what_blew_up.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@orchard. on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["PunPunWasTheEnemyAllAlong.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@orchard. on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["CriminallyUnderpaidBabysitter.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@orchard. on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["FleshHereticMoneyGang.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@Pinkabee on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["NormalNanotrasenMoment.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@pistos2225 on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["Memories.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@redmon2225 on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["Standoff.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@rtx420 on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["ThreeBrizbyMoon.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@singularjames on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["AFriendlyGameOfCards.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@Stradfarian on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["AngrySecoff.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@sup0380 on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["Cargonia.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@suportik on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["ButNobodyCared.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@synthetic_086 on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["Sa-Tider-o_Gojo.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@theninetails_ on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["Bingle.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@yellownes on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["CEMoneyStack.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@zymshok  on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["MushroomAnnihilator.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@zymshok on discord"
+  source: "https://discord.gg/goobstation"
+
+- files: ["MyZaDiskGotStolen.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "@zymshok on discord"
+  source: "https://discord.gg/goobstation"
+#end Converted to Webp by @xeve.

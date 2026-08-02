@@ -1,9 +1,6 @@
-# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-#
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Head
+#todo <mailfix>
 - type: loadout
   id: CargoTechnicianHeadMail
   equipment:
@@ -75,6 +72,29 @@
     - Plasmaman
 
 - type: loadout
+  id: CourierEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitCourier
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: CourierEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmCourier
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
   id: CargoTechnicianOveralls
   equipment:
     jumpsuit: ClothingUniformOverallsCargo
+
+- type: loadout
+  id: MailCarrierMJ
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryMailCarrier

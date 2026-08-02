@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
 // SPDX-License-Identifier: MIT
 
 using Content.Client.Replay;
@@ -24,8 +21,8 @@ public sealed class EntryPoint : GameClient
     public override void Init()
     {
         base.Init();
-        IoCManager.BuildGraph();
-        IoCManager.InjectDependencies(this);
+        Dependencies.BuildGraph();
+        Dependencies.InjectDependencies(this);
     }
 
     public override void PostInit()
