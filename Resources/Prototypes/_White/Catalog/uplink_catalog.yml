@@ -7,7 +7,7 @@
   description: uplink-experimental-syndicate-teleporter-desc
   productEntity: ExperimentalSyndicateTeleporter
   cost:
-    Telecrystal: 20 # Goob, NEVER USED
+    Telecrystal: 35 # Goob, NEVER USED
   categories:
     - UplinkDisruption
   conditions:

@@ -270,7 +270,7 @@
   icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Melee/contractor_baton.rsi, state: uplink }
   productEntity: ContractorBaton
   cost:
-    Telecrystal: 25
+    Telecrystal: 35
   categories:
   - UplinkWeaponry
   conditions:
@@ -1648,7 +1648,7 @@
   description: uplink-capoeira-desc
   productEntity: CapoeiraManual
   cost:
-    Telecrystal: 25
+    Telecrystal: 35
   categories:
   - UplinkWeaponry
 
@@ -1658,7 +1658,7 @@
   description: uplink-sleeping-carp-desc
   productEntity: SleepingCarpScroll
   cost:
-    Telecrystal: 60
+    Telecrystal: 70
   categories:
   - UplinkWeaponry
   conditions:
@@ -1676,7 +1676,7 @@
   description: uplink-pizza-bomb-desc
   productEntity: FoodBoxPizzaBomb
   cost:
-    Telecrystal: 8  # Goob
+    Telecrystal: 10  # Goob
   categories:
   - UplinkExplosives
   conditions:
@@ -1782,7 +1782,7 @@
   description: uplink-undetermined-bundle-desc
   productEntity: CrateSyndicateUndetermined
   cost:
-    Telecrystal: 100 # was 99, please dont do this anymoe :(
+    Telecrystal: 100 # was 99, please dont do this anymore :(
   categories:
   - UplinkDisruption
   conditions:

@@ -1357,7 +1357,7 @@
   icon: { sprite: /Textures/Objects/Misc/guardian_info.rsi, state: icon }
   productEntity: BoxHoloparasite
   cost:
-    Telecrystal: 35 # goob
+    Telecrystal: 50 # goob
   categories:
   - UplinkAllies
   conditions:
@@ -2308,7 +2308,7 @@
   icon: { sprite: /Textures/Objects/Fun/figurines.rsi, state: holoclown }
   productEntity: BoxHoloclown
   cost:
-    Telecrystal: 35 # goob
+    Telecrystal: 50 # goob
   categories:
   - UplinkJob
   conditions:
