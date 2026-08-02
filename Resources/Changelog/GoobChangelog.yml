@@ -24139,3 +24139,15 @@ Entries:
       message: you can now buy a Jetpack or mini jetpack in the mining points vendor!
   id: 2779
   time: '2026-08-02T02:01:36.0000000+00:00'
+- author: Super7522
+  changes:
+    - type: Tweak
+      message: Colossus Door opening has been Sped up significantly
+    - type: Tweak
+      message: >-
+        Colossus Teleport Goes through Windows like other teleport abilities,
+        Damage Changed (12.5 > 15)
+    - type: Tweak
+      message: Holy Type Pokemon are now 4x Effective against Cosmic Colossus
+  id: 2780
+  time: '2026-08-02T13:21:06.0000000+00:00'
