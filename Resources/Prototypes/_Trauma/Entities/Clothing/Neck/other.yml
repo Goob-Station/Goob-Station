@@ -29,7 +29,7 @@
   parent: [ ClothingNeckBase, SurveillanceWirelessCameraBodyEntertainment, BaseSyndicateContraband ] # TODO: Make it ClothingNeckUnbutcherableBase once upstream happens
   id: ClothingNeckSlayerCoat
   name: S.L.A.Y.E.R coat
-  description: The Syndicate Lightly Armored Yet Explosive Resistant Overcoat, or S.L.A.Y.E.R. Overcoat for short, is Gorlex Entertainment's only overcoat capable of protecting the wearer's limbs from explosive damage, if worn over the shoulders. Its interior is lined with hooks. Comes with proprietary technology that allows it to patch into Nanotrasen systems like a camera. Not for the faint of heart.
+  description: The Syndicate Lightly Armored Yet Explosive Resistant Overcoat, or S.L.A.Y.E.R. Overcoat for short, is Gorlex Marauders's only overcoat capable of protecting the wearer's limbs from explosive damage, if worn over the shoulders. Its interior is lined with hooks. Comes with proprietary technology that allows it to patch into Nanotrasen systems like a camera. Not for the faint of heart.
   components:
   - type: Item
     size: Normal
@@ -62,3 +62,10 @@
     damageCoefficient: 0.3
   - type: SurveillanceCamera
     id: Slayer
+  - type: TelecomExempt
+  - type: RadioMicrophone
+    broadcastChannel: RadioShow
+    listenRange: 1
+    enabled: false
+    toggleOnInteract: true
+    unobstructedRequired: true
