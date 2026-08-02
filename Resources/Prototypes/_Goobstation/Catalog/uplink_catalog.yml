@@ -493,7 +493,7 @@
   description: uplink-combat-shotgun-desc
   productEntity: WeaponShotgunCombat
   cost:
-    Telecrystal: 35
+    Telecrystal: 50
   categories:
     -  UplinkWeaponry
   conditions:
