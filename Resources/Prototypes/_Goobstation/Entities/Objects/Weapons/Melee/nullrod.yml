@@ -61,6 +61,7 @@
       types:
         Slash: 20
     UntrainedUseString: nullrod-holyclaymore-untrained-usage-popup
+    recallType: Normal
   - type: Gun
     soundGunshot: /Audio/Effects/radpulse7.ogg
     fireRate: 0.5
@@ -153,6 +154,7 @@
       types:
         Blunt: 20
     UntrainedUseString: nullrod-rosary-untrained-usage-popup
+    recallType: Normal
   - type: AlternatePrayable
     repeatPrayer: true
   - type: HealNearOnPray # These numbers look high but WoundMed...
@@ -232,6 +234,7 @@
       types:
         Slash: 20
     UntrainedUseString: nullrod-arrythmicknife-untrained-usage-popup
+    recallType: Normal
   - type: Item
     size: Huge
     sprite: _ShitChap/Objects/Weapons/Nullrod/arrythmic.rsi
@@ -274,6 +277,7 @@
       types:
         Blunt: 20
     UntrainedUseString: nullrod-monkstaff-untrained-usage-popup
+    recallType: Normal
   - type: Item
     size: Huge
     sprite: _ShitChap/Objects/Weapons/Nullrod/monkstaff.rsi
@@ -357,6 +361,7 @@
       types:
         Stamina: 200
     UntrainedUseString: nullrod-bulwark-untrained-usage-popup
+    recallType: Normal
   - type: MeleeWeapon
     attackRate: 0.5
     damage:
@@ -428,6 +433,7 @@
       types:
         Radiation: 20
     UntrainedUseString: nullrod-honkmother-untrained-usage-popup
+    recallType: Normal
   - type: MeleeWeapon
     attackRate: 0.8
     damage:
@@ -814,6 +820,7 @@
       types:
         Heat: 20
     UntrainedUseString: nullrod-dragontail-untrained-usage-popup
+    recallType: Normal
   - type: Sprite
     sprite: _ShitChap/Objects/Weapons/Nullrod/dragontail.rsi
     state: icon
@@ -845,6 +852,7 @@
       types:
         Slash: 25
     UntrainedUseString: nullrod-chainsword-untrained-usage-popup
+    recallType: Normal
   - type: Sprite
     sprite: _ShitChap/Objects/Weapons/Nullrod/chainsword.rsi
     layers:
