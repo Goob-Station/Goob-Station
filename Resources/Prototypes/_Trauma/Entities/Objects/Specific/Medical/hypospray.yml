@@ -5,7 +5,7 @@
   components:
   - type: Solution
     solution:
-      maxVol: 15
+      maxVol: 7.5
       reagents:
       - ReagentId: MuteToxin
-        Quantity: 15
+        Quantity: 7.5

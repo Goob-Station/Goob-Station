@@ -1,3 +1,4 @@
+# Needed to get rid of PowerCellDraw and ToggleCellDraw
 - type: entity
   parent: [ BaseDefibrillator, BaseSyndicateContraband ]
   id: DefibrillatorSyndicateUnpowered
