@@ -257,7 +257,7 @@
     - Syndicate
   - type: Damageable
     damageModifierSet: NukieSpider
-  - type: LanguageSpeaker
+  - type: LanguageKnowledge
     speaks:
     - Universal
     understands:
