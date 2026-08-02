@@ -24109,3 +24109,9 @@ Entries:
       message: Removed guerrilla gloves from nukie uplink.
   id: 2774
   time: '2026-08-01T00:31:31.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Tweak
+      message: Service worker civilian playtime req from 30 minutes to 7.5 hours
+  id: 2775
+  time: '2026-08-02T01:28:02.0000000+00:00'
