@@ -24121,3 +24121,9 @@ Entries:
       message: You can disable cyborg through Robotic Console now
   id: 2776
   time: '2026-08-02T01:40:43.0000000+00:00'
+- author: Swino4ka
+  changes:
+    - type: Tweak
+      message: Similar trinkets are now grouped!
+  id: 2777
+  time: '2026-08-02T01:41:50.0000000+00:00'
