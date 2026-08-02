@@ -271,19 +271,19 @@ public partial class TraumaSystem
             return traumaList;
 
 
-        if (severity > 5 && woundInflicter.Comp.AllowedTraumas.Contains(TraumaType.NerveDamage) &&
+        if (severity >= 5 && woundInflicter.Comp.AllowedTraumas.Contains(TraumaType.NerveDamage) &&
             RandomNerveDamageChance((target, woundable), woundInflicter))
             traumaList.Add(TraumaType.NerveDamage);
 
-        if (severity > 10 && woundInflicter.Comp.AllowedTraumas.Contains(TraumaType.BoneDamage) &&
+        if (severity >= 10 && woundInflicter.Comp.AllowedTraumas.Contains(TraumaType.BoneDamage) &&
             RandomBoneTraumaChance((target, woundable), woundInflicter))
             traumaList.Add(TraumaType.BoneDamage);
 
-        if (severity > 10 && woundInflicter.Comp.AllowedTraumas.Contains(TraumaType.Dismemberment) &&
+        if (severity >= 10 && woundInflicter.Comp.AllowedTraumas.Contains(TraumaType.Dismemberment) &&
             RandomDismembermentTraumaChance((target, woundable), woundInflicter))
             traumaList.Add(TraumaType.Dismemberment);
 
-        if (severity > 15 && woundInflicter.Comp.AllowedTraumas.Contains(TraumaType.OrganDamage) &&
+        if (severity >= 15 && woundInflicter.Comp.AllowedTraumas.Contains(TraumaType.OrganDamage) &&
             RandomOrganTraumaChance((target, woundable), woundInflicter))
             traumaList.Add(TraumaType.OrganDamage);
 
