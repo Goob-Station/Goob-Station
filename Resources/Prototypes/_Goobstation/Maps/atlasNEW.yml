@@ -1,9 +1,9 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: gameMap
-  id: Atlas
-  mapName: Atlas
-  mapPath: /Maps/_Goobstation/atlas.yml
+  id: AtlasNEW
+  mapName: AtlasNEW
+  mapPath: /Maps/_Goobstation/atlasNEW.yml
   minPlayers: 0
   maxPlayers: 20
   stations:
@@ -11,7 +11,7 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Atlas {1}'
+          mapNameTemplate: '{0} AtlasNEW {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: 'R4' # R4407/Goon. GS isn't as cool sounding.
