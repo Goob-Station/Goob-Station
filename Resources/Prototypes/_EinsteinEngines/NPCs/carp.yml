@@ -147,7 +147,6 @@
           shader: unshaded
       slots:
       - NECK
-    - type: ZombieImmune
     - type: AltClothingLayer
       defaultLayer: neck
       altLayer: pocket1 # makes it render over helmets
