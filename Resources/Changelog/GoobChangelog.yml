@@ -24003,3 +24003,151 @@ Entries:
       message: More suit and hardsuit sprites for hydrakin!
   id: 2761
   time: '2026-07-24T16:03:10.0000000+00:00'
+- author: Super7522
+  changes:
+    - type: Tweak
+      message: >-
+        Zed Infection Chance Rebalance (Lower base chance and minimal chance,
+        armor is more effective vs Zed infection)
+    - type: Fix
+      message: Fixed Inverted Zed Infection Chance
+  id: 2762
+  time: '2026-07-29T00:04:42.0000000+00:00'
+- author: Super7522
+  changes:
+    - type: Fix
+      message: >-
+        Apc's wont overload on round start anymore new limit is 50 KW ( a
+        Generator's worth )
+  id: 2763
+  time: '2026-07-29T00:07:44.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Tweak
+      message: CC ike jacket and CC cowboy hat now have proper armor
+  id: 2764
+  time: '2026-08-01T00:08:06.0000000+00:00'
+- author: gaiads
+  changes:
+    - type: Fix
+      message: IPC's and people with pAI's can raise shields.
+  id: 2765
+  time: '2026-08-01T00:08:35.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Add
+      message: Roundstart larvas are now invisible
+  id: 2766
+  time: '2026-08-01T00:09:13.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Fix
+      message: (hopefully) Fixed honkops not spawning.
+  id: 2767
+  time: '2026-08-01T00:13:33.0000000+00:00'
+- author: winkkk-k
+  changes:
+    - type: Add
+      message: layering and colorlink to markings
+    - type: Tweak
+      message: >-
+        bunch of customization for moths, and they are no longer shrink-wrapped
+        against the clothing. ponchos do not look like ass anymore!
+  id: 2768
+  time: '2026-08-01T00:17:33.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Tweak
+      message: >-
+        Survival and lixiry medipens now only work when between 20-50 kPa or on
+        Lavaland. Their healing was also reduced.
+    - type: Tweak
+      message: Exosuit drills now deal less damage.
+    - type: Tweak
+      message: Hierophant club now doesn't let you teleport through solids.
+    - type: Fix
+      message: >-
+        Fixed not being able to drag ore boxes onto ore processor, now you can
+        dump your ore quickly again!
+  id: 2769
+  time: '2026-08-01T00:20:29.0000000+00:00'
+- author: RedTerror
+  changes:
+    - type: Tweak
+      message: Slasher Spring kit Resprite
+  id: 2770
+  time: '2026-08-01T00:21:01.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Remove
+      message: Monkeys and Xenobio slimes can no longer be zombies.
+    - type: Remove
+      message: Some small critters can no longer be zombies.
+  id: 2771
+  time: '2026-08-01T00:21:39.0000000+00:00'
+- author: N0lim
+  changes:
+    - type: Tweak
+      message: >-
+        Base hunger decay increased from 0.01666 to 0.04166. Base thirst decay
+        increased from 0.1 to 0.125. That should lead to first moodle in 45
+        minutes on average and to first slowdown debuff in 70 minutes on average
+        if you eat your nutribrick after first moodle.
+  id: 2772
+  time: '2026-08-01T00:28:11.0000000+00:00'
+- author: lucapgiannotti
+  changes:
+    - type: Fix
+      message: harpy flight no longer breaks cobra gland
+    - type: Fix
+      message: any flight system no longer breaks stealth mechanics
+  id: 2773
+  time: '2026-08-01T00:30:57.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Remove
+      message: Removed guerrilla gloves from nukie uplink.
+  id: 2774
+  time: '2026-08-01T00:31:31.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Tweak
+      message: Service worker civilian playtime req from 30 minutes to 7.5 hours
+  id: 2775
+  time: '2026-08-02T01:28:02.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Tweak
+      message: You can disable cyborg through Robotic Console now
+  id: 2776
+  time: '2026-08-02T01:40:43.0000000+00:00'
+- author: Swino4ka
+  changes:
+    - type: Tweak
+      message: Similar trinkets are now grouped!
+  id: 2777
+  time: '2026-08-02T01:41:50.0000000+00:00'
+- author: Hardbassman
+  changes:
+    - type: Remove
+      message: Duplicate tennis ball
+  id: 2778
+  time: '2026-08-02T01:43:28.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Add
+      message: you can now buy a Jetpack or mini jetpack in the mining points vendor!
+  id: 2779
+  time: '2026-08-02T02:01:36.0000000+00:00'
+- author: Super7522
+  changes:
+    - type: Tweak
+      message: Colossus Door opening has been Sped up significantly
+    - type: Tweak
+      message: >-
+        Colossus Teleport Goes through Windows like other teleport abilities,
+        Damage Changed (12.5 > 15)
+    - type: Tweak
+      message: Holy Type Pokemon are now 4x Effective against Cosmic Colossus
+  id: 2780
+  time: '2026-08-02T13:21:06.0000000+00:00'
