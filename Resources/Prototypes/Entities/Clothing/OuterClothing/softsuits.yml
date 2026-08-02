@@ -132,6 +132,8 @@
   - type: TemperatureProtection
     heatingCoefficient: 0.1
     coolingCoefficient: 0.1
+  - type: ZombificationResistance # Goobstation - Same as Biosuits
+    zombificationResistanceCoefficient: 0.35 
   - type: Armor
     coverage:
     - Chest

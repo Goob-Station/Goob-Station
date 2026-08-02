@@ -23838,3 +23838,304 @@ Entries:
       message: z, e, and left click work to open paper when in hand
   id: 2736
   time: '2026-07-12T00:17:00.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Remove
+      message: Removed Exo station from the map rotation.
+  id: 2737
+  time: '2026-07-15T03:02:45.0000000+00:00'
+- author: Baptr0b0t
+  changes:
+    - type: Fix
+      message: >-
+        Fixed gemini having bloodstream, injectable solution, surgery,
+        polymorph, destructible, temperature, respirator, internals, dna,
+        fingerprint...
+  id: 2738
+  time: '2026-07-15T03:03:30.0000000+00:00'
+- author: elioskmil
+  changes:
+    - type: Fix
+      message: Atmos devices can be stacked in different configs now
+    - type: Fix
+      message: Atmos devices can be stacked in different rotations now
+  id: 2739
+  time: '2026-07-15T03:05:06.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Tweak
+      message: >-
+        Reworked zombification and the cure to use polymorphs, should make it
+        work better but report any bugs with it!
+    - type: Fix
+      message: Fixed zombie cure cure not activating.
+    - type: Fix
+      message: Fixed zombies not being able to be cured while dead.
+  id: 2740
+  time: '2026-07-15T03:05:49.0000000+00:00'
+- author: Baptr0b0t
+  changes:
+    - type: Fix
+      message: Fixed the drunk IPC who couldn't string ten words together.
+  id: 2741
+  time: '2026-07-15T03:06:40.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed shotgun that require manual cycle!
+  id: 2742
+  time: '2026-07-15T21:02:54.0000000+00:00'
+- author: elioskmil
+  changes:
+    - type: Fix
+      message: Anomaly Generators can be filled with plasma sheets now.
+  id: 2743
+  time: '2026-07-16T02:56:09.0000000+00:00'
+- author: Naxel11
+  changes:
+    - type: Tweak
+      message: Damage distribution across the entire body is no longer randomized.
+  id: 2744
+  time: '2026-07-16T02:56:26.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Fix
+      message: Fix zombie cure not properly handling errors.
+  id: 2745
+  time: '2026-07-16T02:58:03.0000000+00:00'
+- author: SkippyMcSkips
+  changes:
+    - type: Fix
+      message: Fixed Janitor's Key Ring not fitting in Janitor's Belt
+  id: 2746
+  time: '2026-07-16T02:58:36.0000000+00:00'
+- author: acatrw
+  changes:
+    - type: Fix
+      message: Ichor No longer makes you bleed.
+  id: 2747
+  time: '2026-07-16T02:59:00.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Fixed xenobio extract giving a lot of things after injection
+  id: 2748
+  time: '2026-07-16T02:59:33.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Fix
+      message: Remove the access text from species examine
+  id: 2749
+  time: '2026-07-16T03:00:48.0000000+00:00'
+- author: Super7522
+  changes:
+    - type: Tweak
+      message: Delimb Chances are now actually possible with Brute and Piercing weapons
+  id: 2750
+  time: '2026-07-16T03:01:21.0000000+00:00'
+- author: Baptr0b0t
+  changes:
+    - type: Add
+      message: Added Leo Malone admin plushie
+  id: 2751
+  time: '2026-07-17T01:33:37.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Added ghost cosmetics for patrons.
+  id: 2752
+  time: '2026-07-17T01:37:41.0000000+00:00'
+- author: elioskmil
+  changes:
+    - type: Fix
+      message: vials and mini vials work now
+  id: 2753
+  time: '2026-07-17T09:07:46.0000000+00:00'
+- author: BeeRobynn
+  changes:
+    - type: Add
+      message: Added 9 new hairstyles! Quirky!
+  id: 2754
+  time: '2026-07-17T09:08:37.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: Added a couple new AI customization options.
+  id: 2755
+  time: '2026-07-17T09:10:03.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: Gemini is now pacified
+  id: 2756
+  time: '2026-07-17T10:34:45.0000000+00:00'
+- author: Super7522
+  changes:
+    - type: Add
+      message: >-
+        Added all the lobby art from art contest, Check out all of them in the
+        Lobby art channel in discord
+    - type: Add
+      message: 'New Lobby and jukebox song: CHUDSHIFT by deerdestroyer'
+  id: 2757
+  time: '2026-07-21T21:52:52.0000000+00:00'
+- author: Baptr0b0t
+  changes:
+    - type: Fix
+      message: Fixed mech not shooting
+  id: 2758
+  time: '2026-07-24T09:57:39.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Tweak
+      message: Shadow anomaly is harder to spawn now
+  id: 2759
+  time: '2026-07-24T10:39:52.0000000+00:00'
+- author: elioskmil
+  changes:
+    - type: Add
+      message: adds material silo flatpacks to CMO, CE, and HoS lockers.
+  id: 2760
+  time: '2026-07-24T10:40:56.0000000+00:00'
+- author: bobbble
+  changes:
+    - type: Add
+      message: More suit and hardsuit sprites for hydrakin!
+  id: 2761
+  time: '2026-07-24T16:03:10.0000000+00:00'
+- author: Super7522
+  changes:
+    - type: Tweak
+      message: >-
+        Zed Infection Chance Rebalance (Lower base chance and minimal chance,
+        armor is more effective vs Zed infection)
+    - type: Fix
+      message: Fixed Inverted Zed Infection Chance
+  id: 2762
+  time: '2026-07-29T00:04:42.0000000+00:00'
+- author: Super7522
+  changes:
+    - type: Fix
+      message: >-
+        Apc's wont overload on round start anymore new limit is 50 KW ( a
+        Generator's worth )
+  id: 2763
+  time: '2026-07-29T00:07:44.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Tweak
+      message: CC ike jacket and CC cowboy hat now have proper armor
+  id: 2764
+  time: '2026-08-01T00:08:06.0000000+00:00'
+- author: gaiads
+  changes:
+    - type: Fix
+      message: IPC's and people with pAI's can raise shields.
+  id: 2765
+  time: '2026-08-01T00:08:35.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Add
+      message: Roundstart larvas are now invisible
+  id: 2766
+  time: '2026-08-01T00:09:13.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Fix
+      message: (hopefully) Fixed honkops not spawning.
+  id: 2767
+  time: '2026-08-01T00:13:33.0000000+00:00'
+- author: winkkk-k
+  changes:
+    - type: Add
+      message: layering and colorlink to markings
+    - type: Tweak
+      message: >-
+        bunch of customization for moths, and they are no longer shrink-wrapped
+        against the clothing. ponchos do not look like ass anymore!
+  id: 2768
+  time: '2026-08-01T00:17:33.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Tweak
+      message: >-
+        Survival and lixiry medipens now only work when between 20-50 kPa or on
+        Lavaland. Their healing was also reduced.
+    - type: Tweak
+      message: Exosuit drills now deal less damage.
+    - type: Tweak
+      message: Hierophant club now doesn't let you teleport through solids.
+    - type: Fix
+      message: >-
+        Fixed not being able to drag ore boxes onto ore processor, now you can
+        dump your ore quickly again!
+  id: 2769
+  time: '2026-08-01T00:20:29.0000000+00:00'
+- author: RedTerror
+  changes:
+    - type: Tweak
+      message: Slasher Spring kit Resprite
+  id: 2770
+  time: '2026-08-01T00:21:01.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Remove
+      message: Monkeys and Xenobio slimes can no longer be zombies.
+    - type: Remove
+      message: Some small critters can no longer be zombies.
+  id: 2771
+  time: '2026-08-01T00:21:39.0000000+00:00'
+- author: N0lim
+  changes:
+    - type: Tweak
+      message: >-
+        Base hunger decay increased from 0.01666 to 0.04166. Base thirst decay
+        increased from 0.1 to 0.125. That should lead to first moodle in 45
+        minutes on average and to first slowdown debuff in 70 minutes on average
+        if you eat your nutribrick after first moodle.
+  id: 2772
+  time: '2026-08-01T00:28:11.0000000+00:00'
+- author: lucapgiannotti
+  changes:
+    - type: Fix
+      message: harpy flight no longer breaks cobra gland
+    - type: Fix
+      message: any flight system no longer breaks stealth mechanics
+  id: 2773
+  time: '2026-08-01T00:30:57.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Remove
+      message: Removed guerrilla gloves from nukie uplink.
+  id: 2774
+  time: '2026-08-01T00:31:31.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Tweak
+      message: Service worker civilian playtime req from 30 minutes to 7.5 hours
+  id: 2775
+  time: '2026-08-02T01:28:02.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Tweak
+      message: You can disable cyborg through Robotic Console now
+  id: 2776
+  time: '2026-08-02T01:40:43.0000000+00:00'
+- author: Swino4ka
+  changes:
+    - type: Tweak
+      message: Similar trinkets are now grouped!
+  id: 2777
+  time: '2026-08-02T01:41:50.0000000+00:00'
+- author: Hardbassman
+  changes:
+    - type: Remove
+      message: Duplicate tennis ball
+  id: 2778
+  time: '2026-08-02T01:43:28.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Add
+      message: you can now buy a Jetpack or mini jetpack in the mining points vendor!
+  id: 2779
+  time: '2026-08-02T02:01:36.0000000+00:00'
