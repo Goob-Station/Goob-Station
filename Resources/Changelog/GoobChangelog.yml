@@ -24133,3 +24133,9 @@ Entries:
       message: Duplicate tennis ball
   id: 2778
   time: '2026-08-02T01:43:28.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Add
+      message: you can now buy a Jetpack or mini jetpack in the mining points vendor!
+  id: 2779
+  time: '2026-08-02T02:01:36.0000000+00:00'
