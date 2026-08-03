@@ -1,11 +1,8 @@
-using Content.Goobstation.Common.Slasher.Events;
 using Content.Goobstation.Shared.Slasher.Components;
 using Content.Shared._Goobstation.Clothing;
 using Content.Shared.Chemistry;
-using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Inventory;
 using Robust.Shared.Audio.Systems;
-using System.Threading;
 
 namespace Content.Goobstation.Shared.Slasher.Systems;
 
@@ -14,7 +11,6 @@ namespace Content.Goobstation.Shared.Slasher.Systems;
 /// </summary>
 public sealed class SpringlockSystem : EntitySystem
 {
-    [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
@@ -37,5 +33,8 @@ public sealed class SpringlockSystem : EntitySystem
 
         _appearance.SetData(ent.Owner, SpringlockVisuals.Locked, true);
         _audio.PlayPredicted(ent.Comp.LockSound, ent.Owner, ent.Owner);
+
+        // Don't let the solution touch the user wearing the suit
+        args.Args.Cancelled = true;
     }
 }

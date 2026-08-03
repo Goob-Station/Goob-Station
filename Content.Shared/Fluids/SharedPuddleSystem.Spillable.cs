@@ -169,6 +169,9 @@ public abstract partial class SharedPuddleSystem
             // Goobstation - Start
             var ev = new SpillableCheckClothingEvent(splitSolution, ReactionMethod.Touch); // This is touch because it's melee
             RaiseLocalEvent(hit, ref ev);
+
+            if (ev.Cancelled)
+                continue;
             // Goobstation - End
 
             AdminLogger.Add(LogType.MeleeHit,

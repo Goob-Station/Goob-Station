@@ -20,5 +20,15 @@ public record struct SpillableCheckClothingEvent(Solution? SolutionAmount, React
     /// </summary>
     public readonly ReactionMethod ReactionMethod = ReactionMethod;
 
+    /// <summary>
+    /// Does the spillable need to react with the hit entity?
+    /// </summary>
+    public bool Cancelled;
+
+    /// <summary>
+    /// Handle thing that need to be happened once.
+    /// </summary>
+    public bool Handled;
+
     public SlotFlags TargetSlots => SlotFlags.WITHOUT_POCKET;
 }
