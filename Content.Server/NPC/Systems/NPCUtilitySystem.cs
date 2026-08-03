@@ -458,6 +458,9 @@ public sealed class NPCUtilitySystem : EntitySystem
                 if (!_retaliationQuery.TryComp(owner, out var retaliation))
                     return 0f;
 
+                if (!retaliation.Activated)
+                    return 0f;
+
                 if (retaliation.AttackMemories.Count == 0)
                     return 0f;
 

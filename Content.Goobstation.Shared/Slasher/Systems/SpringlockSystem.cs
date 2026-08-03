@@ -1,9 +1,11 @@
 using Content.Goobstation.Common.Slasher.Events;
+using Content.Goobstation.Shared.Slasher.Components;
+using Content.Shared._Goobstation.Clothing;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Inventory;
-using Content.Goobstation.Shared.Slasher.Components;
 using Robust.Shared.Audio.Systems;
+using System.Threading;
 
 namespace Content.Goobstation.Shared.Slasher.Systems;
 
@@ -20,27 +22,20 @@ public sealed class SpringlockSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ReactiveComponent, ShitRelayEventFixMeReactionEntityEvent>(OnReactionEntity);
+        SubscribeLocalEvent<SpringlockClothingComponent, InventoryRelayedEvent<SpillableCheckClothingEvent>>(OnSpillableCheckClothing);
     }
 
-    private void OnReactionEntity(Entity<ReactiveComponent> ent, ref ShitRelayEventFixMeReactionEntityEvent args)
+    private void OnSpillableCheckClothing(Entity<SpringlockClothingComponent> ent, ref InventoryRelayedEvent<SpillableCheckClothingEvent> args)
     {
-        if (
-            //args.Method != ReactionMethod.Touch ||
-            !HasComp<InventoryComponent>(ent.Owner))
+        var method = args.Args.ReactionMethod;
+
+        if (method != ReactionMethod.Touch || ent.Comp.IsLocked)
             return;
 
-        var slots = _inventory.GetSlotEnumerator(ent.Owner, SlotFlags.WITHOUT_POCKET);
-        while (slots.NextItem(out var item))
-        {
-            if (!TryComp<SpringlockClothingComponent>(item, out var springlock) || springlock.IsLocked)
-                continue;
+        ent.Comp.IsLocked = true;
+        Dirty(ent);
 
-            springlock.IsLocked = true;
-            Dirty(item, springlock);
-
-            _appearance.SetData(item, SpringlockVisuals.Locked, true);
-            _audio.PlayPredicted(springlock.LockSound, ent.Owner, ent.Owner);
-        }
+        _appearance.SetData(ent.Owner, SpringlockVisuals.Locked, true);
+        _audio.PlayPredicted(ent.Comp.LockSound, ent.Owner, ent.Owner);
     }
 }

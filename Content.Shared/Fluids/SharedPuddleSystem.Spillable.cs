@@ -19,6 +19,7 @@ using Content.Shared.Verbs;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Player;
+using Content.Shared._Goobstation.Clothing;
 
 namespace Content.Shared.Fluids;
 
@@ -164,6 +165,11 @@ public abstract partial class SharedPuddleSystem
                 continue;
 
             var splitSolution = _solutionContainerSystem.SplitSolution(soln.Value, totalSplit / hitCount);
+
+            // Goobstation - Start
+            var ev = new SpillableCheckClothingEvent(splitSolution, ReactionMethod.Touch); // This is touch because it's melee
+            RaiseLocalEvent(hit, ref ev);
+            // Goobstation - End
 
             AdminLogger.Add(LogType.MeleeHit,
                 $"{ToPrettyString(args.User):actor} "
