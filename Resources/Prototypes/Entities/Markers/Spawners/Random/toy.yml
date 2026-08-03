@@ -94,13 +94,10 @@
       children:
       - id: PlushieLizardJobAtmospherictechnician
       - id: PlushieLizardJobBartender
-      - id: PlushieLizardJobBlueshieldOfficer
       - id: PlushieLizardJobBotanist
       - id: PlushieLizardJobBoxer
-      - id: PlushieLizardJobBrigmedic
       - id: PlushieLizardJobCaptain
       - id: PlushieLizardJobCargotechnician
-      - id: PlushieLizardJobCentCommOfficial
       - id: PlushieLizardJobChaplain
       - id: PlushieLizardJobChef
       - id: PlushieLizardJobChemist
@@ -117,7 +114,6 @@
       - id: PlushieLizardJobMedicalintern
       - id: PlushieLizardJobMime #
       - id: PlushieLizardJobMusician
-      - id: PlushieLizardJobNanotrasenRepresentative
       - id: PlushieLizardJobParamedic
       - id: PlushieLizardJobPassenger
       - id: PlushieLizardJobPsychologist
@@ -130,11 +126,16 @@
       - id: PlushieLizardJobSecuritycadet
       - id: PlushieLizardJobSecurityofficer
       - id: PlushieLizardJobServiceworker
-      - id: PlushieLizardJobShaftMiner
       - id: PlushieLizardJobStationengineer
       - id: PlushieLizardJobTechnicalassistant
       - id: PlushieLizardJobZookeeper
       - id: PlushieLizardJobMultiweh
+      # GoobStation - New extra lizards
+      - id: PlushieLizardJobBlueshieldOfficer
+      - id: PlushieLizardJobBrigmedic
+      - id: PlushieLizardJobCentCommOfficial
+      - id: PlushieLizardJobNanotrasenRepresentative
+      - id: PlushieLizardJobShaftMiner
         weight: 0.5 # 1 in >800
 
 # Figurines representing all your favorite coworkers
