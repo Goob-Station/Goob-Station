@@ -136,6 +136,7 @@
       - id: PlushieLizardJobCentCommOfficial
       - id: PlushieLizardJobNanotrasenRepresentative
       - id: PlushieLizardJobShaftMiner
+      - id: PlushieLizardJobVirologist
         weight: 0.5 # 1 in >800
 
 # Figurines representing all your favorite coworkers

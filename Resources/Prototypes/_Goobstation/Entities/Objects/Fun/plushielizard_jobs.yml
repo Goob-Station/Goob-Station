@@ -48,3 +48,13 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/plushielizard_jobs.rsi
     state: centcom
+
+- type: entity
+  parent: BasePlushieLizardJob
+  id: PlushieLizardJobVirologist
+  name: virologist lizard plushie
+  description: An adorable stuffed toy that resembles a lizardperson as a virologist. It looks to be in pristine condition.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/plushielizard_jobs.rsi
+    state: virologist
