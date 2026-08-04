@@ -96,6 +96,8 @@ public sealed partial class EatCorpseSystem : EntitySystem
             DuplicateCondition = DuplicateConditions.SameTool, // multiple slimes can eat one target, but one slime can't eat multiple targets
         };
 
+        EnsureComp<BeingEatenComponent>(targetUid); // Dont let slime interupt each other
+
         if (!_doAfter.TryStartDoAfter(doAfterArgs, out eater.LastDoAfterId))
             return false;
 
@@ -111,7 +113,12 @@ public sealed partial class EatCorpseSystem : EntitySystem
         if (args.Cancelled || args.Handled || args.Target is not { } target)
         {
             if (args.Target is { } cancelledTarget)
+            {
                 _statusEffects.TryRemoveStatusEffect(cancelledTarget, "Jitter");
+                RemComp<BeingEatenComponent>(cancelledTarget);
+            }
+
+            args.Handled = true;
             return;
         }
 
@@ -130,11 +137,13 @@ public sealed partial class EatCorpseSystem : EntitySystem
         if (toRemove == rootPart.Value.Owner)
         {
             _body.GibBody(target, gib: GibType.Drop);
+            RemComp<BeingEatenComponent>(target);
             return;
         }
 
         _body.RemoveOrgan(toRemove);
         _body.TryDetachPart(toRemove);
+        RemComp<BeingEatenComponent>(target);
     }
 
     private bool IsValidOrganOrBodyPart(CorpseEaterComponent eater, EntityUid target)

@@ -19,6 +19,7 @@ public sealed partial class PickCorpseEaterTargetOperator : HTNOperator
     private EatCorpseSystem _eatCorpse = default!;
 
     private EntityQuery<CorpseEaterComponent> _corpseQuery = default!;
+    private EntityQuery<BeingEatenComponent> _eatenQuery = default!;
 
     /// <summary>
     /// Range in which we find target.
@@ -53,6 +54,7 @@ public sealed partial class PickCorpseEaterTargetOperator : HTNOperator
         _eatCorpse = sysManager.GetEntitySystem<EatCorpseSystem>();
 
         _corpseQuery = _ent.GetEntityQuery<CorpseEaterComponent>();
+        _eatenQuery = _ent.GetEntityQuery<BeingEatenComponent>();
     }
 
     public override async Task<(bool Valid, Dictionary<string, object>? Effects)> Plan(NPCBlackboard blackboard, CancellationToken cancelToken)
@@ -67,6 +69,9 @@ public sealed partial class PickCorpseEaterTargetOperator : HTNOperator
 
         foreach (var entity in _factions.GetNearbyHostiles(owner, range))
         {
+            if (_eatenQuery.HasComp(entity))
+                continue; // Don't let slime interupt each other also reduce lag
+
             if (!_eatCorpse.CanEatCorpse(owner, entity, eaterComp))
                 continue;
 
