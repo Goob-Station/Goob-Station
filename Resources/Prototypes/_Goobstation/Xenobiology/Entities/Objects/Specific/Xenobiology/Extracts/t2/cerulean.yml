@@ -33,9 +33,12 @@
       effects:
       - !type:NestedEffect
         proto: XenobioExtractReagent
-      - !type:AdjustReagent
-        reagent: XenobioJellyCerulean
-        amount: 1
+      - !type:RelaySolution
+        name: extract
+        effects:
+        - !type:AdjustReagent
+          reagent: XenobioJellyCerulean
+          amount: 1
   - type: Tag
     tags:
     - XenobiologyCeruleanExtract

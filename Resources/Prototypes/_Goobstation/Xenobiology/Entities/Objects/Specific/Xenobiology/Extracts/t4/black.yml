@@ -9,7 +9,6 @@
       state: core
       color: "#000000"
   - type: Reactive
-    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
@@ -21,9 +20,12 @@
       effects:
       - !type:NestedEffect
         proto: XenobioExtractReagent
-      - !type:AdjustReagent
-        reagent: AdvancedMutationToxin
-        amount: 10
+      - !type:RelaySolution
+        name: extract
+        effects:
+        - !type:AdjustReagent
+          reagent: AdvancedMutationToxin
+          amount: 10
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:

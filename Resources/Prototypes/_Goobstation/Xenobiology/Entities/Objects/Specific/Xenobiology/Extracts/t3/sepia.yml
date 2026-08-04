@@ -16,9 +16,12 @@
       effects:
       - !type:NestedEffect
         proto: XenobioExtractReagent
-      - !type:AdjustReagent
-        reagent: Tilenol
-        amount: 100
+      - !type:RelaySolution
+        name: extract
+        effects:
+        - !type:AdjustReagent
+          reagent: Tilenol
+          amount: 100
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
@@ -28,7 +31,7 @@
         time: 5
         frequency: 20
       - !type:SpawnEntity
-        entity: XenoExtractChronofield
+        entity: XenoExtractChronofieldSpawner
         number: 1
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]

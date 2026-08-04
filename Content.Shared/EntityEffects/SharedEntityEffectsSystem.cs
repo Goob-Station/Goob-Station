@@ -29,7 +29,7 @@ public sealed partial class SharedEntityEffectsSystem : EntitySystem, IEntityEff
 
     private void OnReactive(Entity<ReactiveComponent> entity, ref ReactionEntityEvent args)
     {
-        var scale = args.ReagentQuantity.Quantity.Float();
+        var scale = entity.Comp.ScaleOverride ?? args.ReagentQuantity.Quantity.Float(); // Trauma - added ScaleOverride
 
         if (args.Reagent.ReactiveEffects != null && entity.Comp.ReactiveGroups != null
             && AllowedToReact(entity)) // Trauma - Added AllowedToReact

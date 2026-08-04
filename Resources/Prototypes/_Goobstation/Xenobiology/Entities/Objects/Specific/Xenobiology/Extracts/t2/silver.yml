@@ -19,11 +19,12 @@
       - !type:Jitter
         time: 5
         frequency: 20
-      - !type:AreaReactionEffect
+      - !type:DoSmokeEffect
         duration: 10
-        prototypeId: AluminiumMetalFoam
-        sound:
-          path: /Audio/Effects/extinguish.ogg
+        spreadAmount: 75
+        smokePrototype: AluminiumMetalFoam
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/extinguish.ogg
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:

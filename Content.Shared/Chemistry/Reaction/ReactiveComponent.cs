@@ -24,6 +24,12 @@ public sealed partial class ReactiveComponent : Component
     /// </summary>
     [DataField("reactions", true, serverOnly: true)]
     public List<ReactiveReagentEffectEntry>? Reactions;
+
+    /// <summary>
+    /// Trauma - Use this to override the scale quantity instead of using reagent quantity in EntityEffect
+    /// </summary>
+    [DataField]
+    public float? ScaleOverride;
 }
 
 [DataDefinition]

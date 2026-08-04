@@ -15,7 +15,7 @@
       effects:
       - !type:NestedEffect
         proto: XenobioExtractReaction
-      - !type:SpawnRandomEntities
+      - !type:SpawnEntity
         entity: ArtifactFragment1
         number: 4
     - reagents: [ Plasma ]
@@ -23,17 +23,23 @@
       effects:
       - !type:NestedEffect
         proto: XenobioExtractReagent
-      - !type:AdjustReagent
-        reagent: XenobioJellyPurple
-        amount: 1
+      - !type:RelaySolution
+        name: extract
+        effects:
+        - !type:AdjustReagent
+          reagent: XenobioJellyPurple
+          amount: 1
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
       - !type:NestedEffect
         proto: XenobioExtractReagent
-      - !type:AdjustReagent
-        reagent: Omnizine
-        amount: 15
+      - !type:RelaySolution
+        name: extract
+        effects:
+        - !type:AdjustReagent
+          reagent: Omnizine
+          amount: 15
   - type: Tag
     tags:
     - XenobiologyPurpleExtract

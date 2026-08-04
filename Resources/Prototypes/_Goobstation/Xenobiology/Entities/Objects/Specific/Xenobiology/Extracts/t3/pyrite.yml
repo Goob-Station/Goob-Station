@@ -48,7 +48,6 @@
           effectProto: ForcedStealthStatusEffect
           type: Add
           time: 120
-
   - type: Tag
     tags:
     - XenobiologyPyriteExtract

@@ -15,27 +15,34 @@
       effects:
       - !type:NestedEffect
         proto: XenobioExtractReaction
-      - !type:AreaReactionEffect
+      - !type:DoSmokeEffect
         duration: 10
-        prototypeId: Foam
-        sound:
-          path: /Audio/Effects/extinguish.ogg
+        spreadAmount: 75
+        smokePrototype: Smoke
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/extinguish.ogg
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
       - !type:NestedEffect
         proto: XenobioExtractReagent
-      - !type:AdjustReagent
-        reagent: FrostOil
-        amount: 30
+      - !type:RelaySolution
+        name: extract
+        effects:
+        - !type:AdjustReagent
+          reagent: FrostOil
+          amount: 30
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
       - !type:NestedEffect
         proto: XenobioExtractReagent
-      - !type:AdjustReagent
-        reagent: XenobioJellyBlue
-        amount: 1
+      - !type:RelaySolution
+        name: extract
+        effects:
+        - !type:AdjustReagent
+          reagent: XenobioJellyBlue
+          amount: 1
   - type: Tag
     tags:
     - XenobiologyBlueExtract

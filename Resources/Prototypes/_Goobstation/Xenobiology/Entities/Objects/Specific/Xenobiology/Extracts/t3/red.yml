@@ -23,9 +23,12 @@
       effects:
       - !type:NestedEffect
         proto: XenobioExtractReagent
-      - !type:AdjustReagent
-        reagent: XenobioJellyRed
-        amount: 1
+      - !type:RelaySolution
+        name: extract
+        effects:
+        - !type:AdjustReagent
+          reagent: XenobioJellyRed
+          amount: 1
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:

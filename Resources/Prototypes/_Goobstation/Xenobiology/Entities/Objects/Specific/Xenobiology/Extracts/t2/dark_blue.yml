@@ -15,9 +15,12 @@
       effects:
       - !type:NestedEffect
         proto: XenobioExtractReagent
-      - !type:AdjustReagent
-        reagent: XenobioJellyDarkBlue
-        amount: 1
+      - !type:RelaySolution
+        name: extract
+        effects:
+        - !type:AdjustReagent
+          reagent: XenobioJellyDarkBlue
+          amount: 1
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
@@ -31,9 +34,12 @@
       effects:
       - !type:NestedEffect
         proto: XenobioExtractReagent
-      - !type:AdjustReagent
-        reagent: Leporazine
-        amount: 30
+      - !type:RelaySolution
+        name: extract
+        effects:
+        - !type:AdjustReagent
+          reagent: Leporazine
+          amount: 30
   - type: Tag
     tags:
     - XenobiologyDarkBlueExtract

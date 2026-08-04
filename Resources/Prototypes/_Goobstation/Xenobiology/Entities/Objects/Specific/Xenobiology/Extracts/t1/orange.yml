@@ -41,10 +41,13 @@
       methods: [ Touch, Injection ]
       effects:
       - !type:NestedEffect
-        proto: XenobioExtractReaction
-      - !type:AdjustReagent
-        reagent: CapsaicinOil
-        amount: 30
+        proto: XenobioExtractReagent
+      - !type:RelaySolution
+        name: extract
+        effects:
+        - !type:AdjustReagent
+          reagent: CapsaicinOil
+          amount: 30
   - type: Tag
     tags:
     - XenobiologyOrangeExtract

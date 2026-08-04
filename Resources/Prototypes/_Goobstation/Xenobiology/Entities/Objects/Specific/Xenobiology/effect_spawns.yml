@@ -82,6 +82,16 @@
   id: RHostileMobSpawner
   parent: MarkerBase
   components:
+  - type: TimedDespawn
+    lifetime: 3
+  - type: SpawnOnDespawn
+    prototype: RandomHostileMobSpawner
+
+- type: entity
+  name: random hostile mob spawner
+  id: RandomHostileMobSpawner
+  parent: MarkerBase
+  components:
   - type: RandomSpawner
     prototypes:
     - MobAngryBee
@@ -124,6 +134,16 @@
   id: RNeutralMobSpawner
   parent: MarkerBase
   components:
+  - type: TimedDespawn
+    lifetime: 3
+  - type: SpawnOnDespawn
+    prototype: RandomNeutralMobSpawner
+
+- type: entity
+  name: random neutral mob spawner
+  id: RandomNeutralMobSpawner
+  parent: MarkerBase
+  components:
   - type: RandomSpawner
     prototypes:
     - MobBee
@@ -150,6 +170,16 @@
 - type: entity
   name: random passive mob spawner
   id: RPassiveMobSpawner
+  parent: MarkerBase
+  components:
+  - type: TimedDespawn
+    lifetime: 3
+  - type: SpawnOnDespawn
+    prototype: RandomPassiveMobSpawner
+
+- type: entity
+  name: random passive mob spawner
+  id: RandomPassiveMobSpawner
   parent: MarkerBase
   components:
   - type: RandomSpawner

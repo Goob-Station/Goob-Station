@@ -15,9 +15,12 @@
       effects:
       - !type:NestedEffect
         proto: XenobioExtractReagent
-      - !type:AdjustReagent
-        reagent: Epinephrine
-        amount: 15
+      - !type:RelaySolution
+        name: extract
+        effects:
+        - !type:AdjustReagent
+          reagent: Epinephrine
+          amount: 15
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:

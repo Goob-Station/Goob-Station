@@ -19,18 +19,6 @@ public sealed partial class ModifySlimeComponent : EntityEffectBase<ModifySlimeC
     public int OffspringBonus;
 
     /// <summary>
-    /// Limit on extracts produced which cannot be exceeded.
-    /// </summary>
-    [DataField]
-    public int ExtractLimit = 8;
-
-    /// <summary>
-    /// Limit on offspring which cannot be exceeded.
-    /// </summary>
-    [DataField]
-    public int OffspringLimit = 6;
-
-    /// <summary>
     /// How much will we increase/decrease the mutation chance?
     /// </summary>
     [DataField]
@@ -47,9 +35,7 @@ public sealed partial class ModifySlimeComponentEffectSystem : EntityEffectSyste
         var slime = ent.Comp;
         var effect = args.Effect;
         slime.ExtractsProduced += effect.ExtractBonus;
-        slime.ExtractsProduced = Math.Min(slime.ExtractsProduced, effect.ExtractLimit);
         slime.MaxOffspring += effect.OffspringBonus;
-        slime.MaxOffspring = Math.Min(slime.MaxOffspring, effect.OffspringLimit);
         slime.MutationChance = Math.Clamp(slime.MutationChance + effect.ChanceModifier, 0f, 1f);
         Dirty(ent);
     }
