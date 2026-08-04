@@ -7,6 +7,7 @@
   </Configurations>
   <Folder Name="/Build Checker/">
     <Project Path="BuildChecker/BuildChecker.csproj">
+      <BuildType Solution="Tools|*" Project="Release" />
       <Build Solution="Release|*" Project="false" />
     </Project>
   </Folder>
