@@ -31,7 +31,7 @@
   <Project Path="Content.Packaging/Content.Packaging.csproj" />
   <Project Path="Content.PatreonParser/Content.PatreonParser.csproj">
     <BuildType Solution="DebugOpt|*" Project="Debug" />
-    <BuildType Solution="Tools|*" Project="Debug" />
+    <BuildType Solution="Tools|*" Project="Release" />
   </Project>
   <Project Path="Content.Replay/Content.Replay.csproj" />
   <Project Path="Content.Server.Database/Content.Server.Database.csproj" />
