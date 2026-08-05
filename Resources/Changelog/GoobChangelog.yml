@@ -24151,3 +24151,11 @@ Entries:
       message: Holy Type Pokemon are now 4x Effective against Cosmic Colossus
   id: 2780
   time: '2026-08-02T13:21:06.0000000+00:00'
+- author: Super7522
+  changes:
+    - type: Tweak
+      message: Bulletproof vest now has limb coverage
+    - type: Tweak
+      message: Added Would Resistances ( Delimbing, Bone Breaking... ) to most armors
+  id: 2781
+  time: '2026-08-05T20:15:16.0000000+00:00'
