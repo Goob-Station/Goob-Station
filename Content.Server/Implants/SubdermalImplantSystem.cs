@@ -42,7 +42,7 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
             var implantEnt = new Entity<SubdermalImplantComponent>(implant, sic);
 
             if (sic.Permanent)
-                _containerSystem.Remove(implant, ent.Comp.ImplantContainer, force: true);
+                _containerSystem.Remove(implant, ent.Comp.ImplantContainer, force: true); //Necessary for permanent implants
 
             ForceImplant(args.NewEntity, implantEnt!);
         }
