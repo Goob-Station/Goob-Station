@@ -24159,3 +24159,11 @@ Entries:
       message: Added Would Resistances ( Delimbing, Bone Breaking... ) to most armors
   id: 2781
   time: '2026-08-05T20:15:16.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Add
+      message: >-
+        Added functional body scanner computer! It can be link to an operating
+        table using a multitool.
+  id: 2782
+  time: '2026-08-05T20:20:57.0000000+00:00'
