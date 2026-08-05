@@ -175,7 +175,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         targetHumanoid.Gender = sourceHumanoid.Gender;
         SetSex(target, sourceHumanoid.Sex, false, targetHumanoid);
 
-        if (keepSpecies) // Goobstation
+        if (keepSpecies) // Goobstation start
         {
             SetSkinColor(target, sourceHumanoid.SkinColor, false, true, targetHumanoid);
 
