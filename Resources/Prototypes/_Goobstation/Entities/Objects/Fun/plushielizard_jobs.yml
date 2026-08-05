@@ -13,7 +13,7 @@
   parent: BasePlushieLizardJob
   id: PlushieLizardJobNanotrasenRepresentative
   name: nanotrasen representative lizard plushie
-  description: An adorable stuffed toy that resembles a lizardperson as a nanotrasen representative. It seems to always be judgemental of you.
+  description: An adorable stuffed toy that resembles a lizardperson as a nanotrasen representative. It seems to always be judgmental of you.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/plushielizard_jobs.rsi
