@@ -196,7 +196,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
             targetHumanoid.MarkingSet = new(sourceHumanoid.MarkingSet);
         }
 
-        SetBarkVoice(target, sourceHumanoid.BarkVoice, targetHumanoid); // Goobstation
+        SetBarkVoice(target, sourceHumanoid.BarkVoice, targetHumanoid); // Goobstation end
 
         if (TryComp<GrammarComponent>(target, out var grammar))
             _grammarSystem.SetGender((target, grammar), sourceHumanoid.Gender);
