@@ -24167,3 +24167,11 @@ Entries:
         table using a multitool.
   id: 2782
   time: '2026-08-05T20:20:57.0000000+00:00'
+- author: Super7522
+  changes:
+    - type: Tweak
+      message: >-
+        Explosion Delimbing, Bone Breaking, and Bleeding have been toned down to
+        compensate for Explosion damage being higher overall
+  id: 2783
+  time: '2026-08-05T21:40:55.0000000+00:00'
