@@ -24175,3 +24175,23 @@ Entries:
         compensate for Explosion damage being higher overall
   id: 2783
   time: '2026-08-05T21:40:55.0000000+00:00'
+- author: RedstonewolfX
+  changes:
+    - type: Add
+      message: >-
+        New job lizards by APuddleDuck, for Brigmedic, BSO, NTR, and Shaft
+        Miner, plus a Virologist lizard by me! Check your loadouts!
+    - type: Tweak
+      message: >-
+        Salvage Specialist Lizard Plushie has been resprited to match the new
+        blue jumpsuit
+    - type: Add
+      message: New job lizard for Central Command
+    - type: Add
+      message: >-
+        New admin plushie for myself of Irene - wear it on your neck, or on your
+        head atop other cloaks!
+    - type: Fix
+      message: Brigmedics can now receive the Security Star
+  id: 2784
+  time: '2026-08-05T22:47:25.0000000+00:00'
