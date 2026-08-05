@@ -15,7 +15,7 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
 {
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
+    [Dependency] private readonly SharedContainerSystem _containerSystem = default!; //GoobStation
     public override void Initialize()
     {
         base.Initialize();
