@@ -24109,3 +24109,45 @@ Entries:
       message: Removed guerrilla gloves from nukie uplink.
   id: 2774
   time: '2026-08-01T00:31:31.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Tweak
+      message: Service worker civilian playtime req from 30 minutes to 7.5 hours
+  id: 2775
+  time: '2026-08-02T01:28:02.0000000+00:00'
+- author: Kenkaitos
+  changes:
+    - type: Tweak
+      message: You can disable cyborg through Robotic Console now
+  id: 2776
+  time: '2026-08-02T01:40:43.0000000+00:00'
+- author: Swino4ka
+  changes:
+    - type: Tweak
+      message: Similar trinkets are now grouped!
+  id: 2777
+  time: '2026-08-02T01:41:50.0000000+00:00'
+- author: Hardbassman
+  changes:
+    - type: Remove
+      message: Duplicate tennis ball
+  id: 2778
+  time: '2026-08-02T01:43:28.0000000+00:00'
+- author: Beanyboi69
+  changes:
+    - type: Add
+      message: you can now buy a Jetpack or mini jetpack in the mining points vendor!
+  id: 2779
+  time: '2026-08-02T02:01:36.0000000+00:00'
+- author: Super7522
+  changes:
+    - type: Tweak
+      message: Colossus Door opening has been Sped up significantly
+    - type: Tweak
+      message: >-
+        Colossus Teleport Goes through Windows like other teleport abilities,
+        Damage Changed (12.5 > 15)
+    - type: Tweak
+      message: Holy Type Pokemon are now 4x Effective against Cosmic Colossus
+  id: 2780
+  time: '2026-08-02T13:21:06.0000000+00:00'
