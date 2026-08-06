@@ -645,6 +645,21 @@
     - Clown
 
 - type: listing
+  id: UplinkFentanylGrenade
+  name: Fentanyl grenade
+  description: You already know what you're abou to do, and you shouldn't be proud of it.
+  productEntity: FentanylGrenade
+  cost:
+    Telecrystal: 15
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Clown
+    - Chemist
+
+- type: listing
   id: UplinkSyndicateWhimsyBundle
   name: uplink-whimsy-bundle-name
   description: uplink-whimsy-bundle-desc
@@ -855,6 +870,36 @@
     Telecrystal: 24
   categories:
   - UplinkChemicals
+
+- type: listing
+  id: UplinkPaxGrenade
+  name: Pacifier Grenade
+  description: A grenade meant for pacifying large groups of people, comes with a side of mute toxin!
+  productEntity: PaxGrenade
+  cost:
+    Telecrystal: 8
+  categories:
+    - UplinkChemicals
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkNocturineGrenade
+  name: Tranquilizer Grenade
+  description: A grenade for nonlethally incapacitating large amounts of people.
+  productEntity: NocturineGrenade
+  cost:
+    Telecrystal: 12
+  categories:
+    - UplinkChemicals
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
 
 - type: listing
   id: UplinkSyndicateLollypopBundle
