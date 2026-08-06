@@ -654,7 +654,7 @@
   categories:
   - UplinkJob
   conditions:
-  - !type:BuyerJobCondition
+  - !type:BuyerWhitelistCondition
     whitelist:
        components:
        - SurplusBundle
@@ -669,7 +669,7 @@
   categories:
     - UplinkChemicals
   conditions:
-  - !type:BuyerJobCondition
+  - !type:BuyerWhitelistCondition
     whitelist:
        components:
        - SurplusBundle 
@@ -684,7 +684,7 @@
   categories:
     - UplinkChemicals
   conditions:
-  - !type: BuyerJobCondition 
+  - !type: BuyerWhitelistCondition 
     whitelist:
        Components:
        - SurplusBundle 
