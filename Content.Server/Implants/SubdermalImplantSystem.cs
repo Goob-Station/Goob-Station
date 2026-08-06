@@ -8,14 +8,12 @@ using Content.Shared.Popups;
 using Content.Shared.Implants.Components;
 using Content.Shared.Polymorph;
 using Content.Shared.Store.Components;
-using Robust.Shared.Containers;
 
 namespace Content.Server.Implants;
 public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
 {
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!; //GoobStation
     public override void Initialize()
     {
         base.Initialize();
@@ -40,9 +38,6 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
                 continue;
 
             var implantEnt = new Entity<SubdermalImplantComponent>(implant, sic);
-
-            if (sic.Permanent)
-                _containerSystem.Remove(implant, ent.Comp.ImplantContainer, force: true); //Necessary for permanent implants
 
             ForceImplant(args.NewEntity, implantEnt!);
         }

@@ -48,7 +48,7 @@ public sealed class XenobiologyTransformingSystem : EntitySystem
         if (@new.HasValue)
         {
             if (ev.TransferAppearance)
-                _humanoid.CloneAppearance(uid, @new.Value, keepSpecies: true);
+                _humanoid.CloneSpeciesAppearance(uid, @new.Value);
 
             EntityManager.RemoveComponentDeferred<PolymorphedEntityComponent>(@new.Value);
         }
