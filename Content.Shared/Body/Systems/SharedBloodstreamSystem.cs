@@ -106,23 +106,20 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
                     // bloodloss damage is based on the base value, and modified by how low your blood level is.
                     var amt = bloodstream.BloodlossDamage / (0.1f + bloodPercentage);
 
-                    _damageableSystem.TryChangeDamage(uid, amt, ignoreResistances: false, interruptsDoAfters: false);
-                // Goobstation start
-                var multiplierEv = new GetBloodlossDamageMultiplierEvent();
-                RaiseLocalEvent(uid, multiplierEv);
-                amt *= multiplierEv.Multiplier;
+                    // Goobstation start
+                    var multiplierEv = new GetBloodlossDamageMultiplierEvent();
+                    RaiseLocalEvent(uid, multiplierEv);
+                    amt *= multiplierEv.Multiplier;
 
+                    _damageableSystem.TryChangeDamage(uid, amt,
+                        ignoreResistances: false, interruptsDoAfters: false,
+                        splitDamage: SplitDamageBehavior.SplitEnsureAll, targetPart: TargetBodyPart.All);
+                    // Goobstation end
 
-                _damageableSystem.TryChangeDamage(uid, amt,
-                    ignoreResistances: false, interruptsDoAfters: false,
-                    splitDamage: SplitDamageBehavior.SplitEnsureAll, targetPart: TargetBodyPart.All);
-
-                // Goobstation end
-
-                // Apply dizziness as a symptom of bloodloss.
-                // The effect is applied in a way that it will never be cleared without being healthy.
-                // Multiplying by 2 is arbitrary but works for this case, it just prevents the time from running out
-                _status.TrySetStatusEffectDuration(uid, Bloodloss);
+                    // Apply dizziness as a symptom of bloodloss.
+                    // The effect is applied in a way that it will never be cleared without being healthy.
+                    // Multiplying by 2 is arbitrary but works for this case, it just prevents the time from running out
+                    _status.TrySetStatusEffectDuration(uid, Bloodloss);
                 }
                 else if (!_mobStateSystem.IsDead(uid))
                 {
@@ -158,9 +155,11 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
                     totalPartBleeds += bleeds.BleedingAmount; // Goobstation
                 }
 
-                if (TryComp<WoundableComponent>(bodyPart, out var woundable)) // Goobstation
+                if (TryComp<WoundableComponent>(bodyPart, out var woundable)
+                    && woundable.Bleeds != totalPartBleeds) // Goobstation
                 {
                     woundable.Bleeds = totalPartBleeds; // Goobstation
+                    Dirty(bodyPart, woundable); // Goobstation
                 }
             }
 
