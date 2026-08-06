@@ -2395,13 +2395,14 @@
   icon: { sprite:  Objects/Weapons/Melee/cane.rsi, state: cane}
   productEntity: CaneSheathFilled
   cost:
-    Telecrystal: 15 # 17 dmg sword, who fucking cares bruh - goob
+    Telecrystal: 40 # Reworked to ACTUALLY be a sidegrade to esword - Goobstation
   categories:
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
     whitelist:
     - Librarian
+    - Lawyer # Goobstation Addition, Lawyer undetermined bundle gets this, but not lawyer?
   #- !type:BuyerWhitelistCondition
   #  blacklist:
   #    components:
