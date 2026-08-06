@@ -198,6 +198,19 @@
   - type: SurgeryTraumaPresentCondition
     trauma: OrganDamage
 
+- type: entity
+  parent: BasePartSurgery
+  id: SurgeryExtractForeignBody
+  name: Extract Foreign Body
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenIncision
+    steps:
+    - SurgeryStepExtractForeignBody
+  - type: SurgeryBleedsPresentCondition
+    inverted: true
+  - type: SurgeryTraumaTreatableCondition
+
 # I fucking hate hardcoding all of this shit to accomodate for surgery BUI.
 # If anyone can give me pointers on how to make it better I'd be incredibly grateful.
 

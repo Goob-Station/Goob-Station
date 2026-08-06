@@ -30,6 +30,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
 using Content.Shared._Shitmed.Surgery;
+using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
 
 namespace Content.Shared._Shitmed.Medical.Surgery;
 
@@ -70,6 +71,7 @@ public abstract partial class SharedSurgerySystem
         SubSurgery<SurgeryRemoveMarkingStepComponent>(OnRemoveMarkingStep, OnRemoveMarkingCheck);
         SubSurgery<SurgeryAddOrganSlotStepComponent>(OnAddOrganSlotStep, OnAddOrganSlotCheck);
         SubSurgery<SurgeryTraumaTreatmentStepComponent>(OnTraumaTreatmentStep, OnTraumaTreatmentCheck);
+        SubSurgery<SurgeryTraumaExtractStepComponent>(OnExtractTraumaStep, OnExtractTraumaCheck);
         SubSurgery<SurgeryBleedsTreatmentStepComponent>(OnBleedsTreatmentStep, OnBleedsTreatmentCheck);
         SubSurgery<SurgeryStepPainInflicterComponent>(OnPainInflicterStep, OnPainInflicterCheck);
         Subs.BuiEvents<SurgeryTargetComponent>(SurgeryUIKey.Key, subs =>
@@ -513,61 +515,72 @@ public abstract partial class SharedSurgerySystem
     private void OnTraumaTreatmentStep(Entity<SurgeryTraumaTreatmentStepComponent> ent, ref SurgeryStepEvent args)
     {
         var healAmount = ent.Comp.Amount;
-        switch (ent.Comp.TraumaType)
+        var traumaType = ent.Comp.TraumaType;
+
+        if (traumaType == TraumaSystem.OrganDamage)
         {
-            case TraumaType.OrganDamage:
-                foreach (var organ in _body.GetBodyOrgans(args.Body))
+            foreach (var organ in _body.GetBodyOrgans(args.Body))
+            {
+                foreach (var modifier in organ.Component.IntegrityModifiers)
                 {
-                    foreach (var modifier in organ.Component.IntegrityModifiers)
+                    var delta = healAmount - modifier.Value;
+                    if (delta > 0)
                     {
-                        var delta = healAmount - modifier.Value;
-                        if (delta > 0)
-                        {
-                            healAmount -= modifier.Value;
-                            _trauma.TryRemoveOrganDamageModifier(
-                                organ.Id,
-                                modifier.Key.Item2,
-                                modifier.Key.Item1,
-                                organ.Component);
-                        }
-                        else
-                        {
-                            _trauma.TryChangeOrganDamageModifier(
-                                organ.Id,
-                                -healAmount,
-                                modifier.Key.Item2,
-                                modifier.Key.Item1,
-                                organ.Component);
-                            break;
-                        }
+                        healAmount -= modifier.Value;
+                        _trauma.TryRemoveOrganDamageModifier(
+                            organ.Id,
+                            modifier.Key.Item2,
+                            modifier.Key.Item1,
+                            organ.Component);
+                    }
+                    else
+                    {
+                        _trauma.TryChangeOrganDamageModifier(
+                            organ.Id,
+                            -healAmount,
+                            modifier.Key.Item2,
+                            modifier.Key.Item1,
+                            organ.Component);
+                        break;
                     }
                 }
+            }
+        }
+        else if (traumaType == TraumaSystem.BoneDamage)
+        {
+            if (!TryComp<WoundableComponent>(args.Part, out var woundable))
+                return;
 
-                break;
+            var bone = woundable.Bone.ContainedEntities.FirstOrNull();
+            if (bone == null || !TryComp<BoneComponent>(bone, out var boneComp))
+                return;
 
-            case TraumaType.BoneDamage:
-                if (!TryComp<WoundableComponent>(args.Part, out var woundable))
-                    return;
-
-                var bone = woundable.Bone.ContainedEntities.FirstOrNull();
-                if (bone == null || !TryComp<BoneComponent>(bone, out var boneComp))
-                    return;
-
-                _trauma.ApplyDamageToBone(bone.Value, -healAmount, boneComp);
-                break;
-
-            case TraumaType.Dismemberment:
-                if (_trauma.TryGetWoundableTrauma(args.Part, out var traumas, TraumaType.Dismemberment))
-                    foreach (var trauma in traumas)
-                        _trauma.RemoveTrauma(trauma);
-
-                break;
+            _trauma.ApplyDamageToBone(bone.Value, -healAmount, boneComp);
+        }
+        else if (traumaType == TraumaSystem.Dismemberment)
+        {
+            if (_trauma.TryGetWoundableTrauma(args.Part, out var traumas, TraumaSystem.Dismemberment))
+                foreach (var trauma in traumas)
+                    _trauma.RemoveTrauma(trauma);
         }
     }
 
     private void OnTraumaTreatmentCheck(Entity<SurgeryTraumaTreatmentStepComponent> ent, ref SurgeryStepCompleteCheckEvent args)
     {
         if (_trauma.HasWoundableTrauma(args.Part, ent.Comp.TraumaType))
+            args.Cancelled = true;
+    }
+
+    private void OnExtractTraumaStep(Entity<SurgeryTraumaExtractStepComponent> ent, ref SurgeryStepEvent args)
+    {
+        if (_trauma.TryGetSurgicallyTreatableTraumas(args.Part, out var traumas))
+            foreach (var trauma in traumas)
+                _trauma.RemoveTrauma(trauma);
+    }
+
+    private void OnExtractTraumaCheck(Entity<SurgeryTraumaExtractStepComponent> ent, ref SurgeryStepCompleteCheckEvent args)
+    {
+        if (_trauma.TryGetSurgicallyTreatableTraumas(args.Part, out _))
             args.Cancelled = true;
     }
 

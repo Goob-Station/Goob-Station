@@ -61,7 +61,7 @@ public partial class TraumaSystem
         if (organ.Comp.Body == null)
             return;
 
-        if (args.NewIntegrity < organ.Comp.IntegrityCap || !TryGetBodyTraumas(organ.Comp.Body.Value, out var traumas, TraumaType.OrganDamage))
+        if (args.NewIntegrity < organ.Comp.IntegrityCap || !TryGetBodyTraumas(organ.Comp.Body.Value, out var traumas, OrganDamage))
             return;
 
         foreach (var trauma in traumas.Where(trauma => trauma.Comp.TraumaTarget == organ))
@@ -108,7 +108,7 @@ public partial class TraumaSystem
                  _cfg.GetCVar(SurgeryCVars.OrganTraumaRunSpeedSlowdown));
         }
 
-        if (TryGetWoundableTrauma(bodyPart, out var traumas, TraumaType.OrganDamage, bodyPart))
+        if (TryGetWoundableTrauma(bodyPart, out var traumas, OrganDamage, bodyPart))
         {
             foreach (var trauma in traumas)
             {

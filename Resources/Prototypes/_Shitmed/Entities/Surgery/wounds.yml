@@ -418,3 +418,11 @@
   components:
   - type: Trauma
     traumaType: Dismemberment
+
+- type: entity
+  id: TraumaShrapnel
+  components:
+  - type: Trauma
+    traumaType: Shrapnel
+  - type: TraumaBloodloss
+    amount: 0.8

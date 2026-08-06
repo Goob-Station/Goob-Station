@@ -1,19 +1,33 @@
 ﻿using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared.Body.Organ;
 using Content.Goobstation.Maths.FixedPoint;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Traumas;
 
-[Serializable, NetSerializable]
-public enum TraumaType
-{
-    BoneDamage,
-    OrganDamage,
-    VeinsDamage,
-    NerveDamage, // pain
-    Dismemberment,
-}
+#region Dispatch
+
+[ByRefEvent]
+public record struct GetTraumaChanceEvent(
+    ProtoId<TraumaTypePrototype> TraumaType,
+    Entity<WoundableComponent> Woundable,
+    Entity<TraumaInflicterComponent> Inflicter,
+    FixedPoint2 Severity,
+    FixedPoint2 Chance = default,
+    bool Handled = false);
+
+[ByRefEvent]
+public record struct ApplyTraumaEvent(
+    ProtoId<TraumaTypePrototype> TraumaType,
+    Entity<WoundableComponent> Woundable,
+    Entity<TraumaInflicterComponent> Inflicter,
+    EntityUid Target,
+    FixedPoint2 Severity,
+    bool Handled = false);
+
+#endregion
 
 #region Organs
 
@@ -37,16 +51,16 @@ public record struct OrganIntegrityChangedEventOnWoundable(Entity<OrganComponent
 [ByRefEvent]
 public record struct OrganDamageSeverityChangedOnWoundable(Entity<OrganComponent> Organ, OrganSeverity OldSeverity, OrganSeverity NewSeverity);
 [ByRefEvent]
-public record struct TraumaChanceDeductionEvent(FixedPoint2 TraumaSeverity, TraumaType TraumaType, FixedPoint2 ChanceDeduction);
+public record struct TraumaChanceDeductionEvent(FixedPoint2 TraumaSeverity, ProtoId<TraumaTypePrototype> TraumaType, FixedPoint2 ChanceDeduction);
 
 [ByRefEvent]
-public record struct BeforeTraumaInducedEvent(FixedPoint2 TraumaSeverity, EntityUid TraumaTarget, TraumaType TraumaType, bool Cancelled = false);
+public record struct BeforeTraumaInducedEvent(FixedPoint2 TraumaSeverity, EntityUid TraumaTarget, ProtoId<TraumaTypePrototype> TraumaType, bool Cancelled = false);
 
 [ByRefEvent]
-public record struct TraumaInducedEvent(Entity<TraumaComponent> Trauma, EntityUid TraumaTarget, FixedPoint2 TraumaSeverity, TraumaType TraumaType);
+public record struct TraumaInducedEvent(Entity<TraumaComponent> Trauma, EntityUid TraumaTarget, FixedPoint2 TraumaSeverity, ProtoId<TraumaTypePrototype> TraumaType);
 
 [ByRefEvent]
-public record struct TraumaBeingRemovedEvent(Entity<TraumaComponent> Trauma, EntityUid TraumaTarget, FixedPoint2 TraumaSeverity, TraumaType TraumaType);
+public record struct TraumaBeingRemovedEvent(Entity<TraumaComponent> Trauma, EntityUid TraumaTarget, FixedPoint2 TraumaSeverity, ProtoId<TraumaTypePrototype> TraumaType);
 
 #endregion
 
