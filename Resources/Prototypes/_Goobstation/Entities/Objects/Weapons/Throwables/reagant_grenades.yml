@@ -33,3 +33,56 @@
       reagents:
       - ReagentId: SpaceGlue
         Quantity: 20
+
+- type: entity
+  parent: SmokeGrenade
+  id: NocturineGrenade
+  name: Tranquilizer Grenade
+  description: A grenade that releases nocturine smoke. Remember to keep your internals on!
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/smoke.rsi
+  - type: SmokeOnTrigger
+    duration: 5
+    spreadAmount: 25
+    smokePrototype: Smoke
+    solution:
+      reagents:
+      - ReagentId: Nocturine
+        Quantity: 40
+
+- type: entity
+  parent: SmokeGrenade
+  id: PaxGrenade
+  name: Silencer Grenade
+  description: A grenade that releases Pax & Mute Toxin smoke. Remember to keep your internals on!
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/smoke.rsi
+  - type: SmokeOnTrigger
+    duration: 5
+    spreadAmount: 25
+    smokePrototype: Smoke
+    solution:
+      reagents:
+      - ReagentId: MuteToxin
+        Quantity: 25
+      - ReagentId: Pax
+        Quantity: 25
+
+- type: entity
+  parent: SmokeGrenade
+  id: FentanylGrenade
+  name: Fentanyl Grenade
+  description: A grenade that releases Fentanyl smoke. Scary!
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/smoke.rsi
+  - type: SmokeOnTrigger
+    duration: 5
+    spreadAmount: 25
+    smokePrototype: Smoke
+    solution:
+      reagents:
+      - ReagentId: Fentanyl
+        Quantity: 25
