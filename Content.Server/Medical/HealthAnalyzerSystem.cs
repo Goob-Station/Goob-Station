@@ -1,10 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Body.Components;
 using Content.Server.Medical.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
@@ -24,8 +23,9 @@ using Robust.Shared.Timing;
 using Content.Server.Body.Systems;
 
 // Shitmed Change
+using System.Linq;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared._Shitmed.Medical.HealthAnalyzer;
-using Content.Shared._Shitmed.Medical.Surgery.Wounds;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
@@ -33,14 +33,14 @@ using Content.Shared._Shitmed.Medical.Surgery.Traumas;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
 using Content.Shared._Shitmed.Targeting;
-using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
-using Content.Goobstation.Maths.FixedPoint;
-using System.Linq;
-using Content.Shared.Mobs.Systems; // Goobstation
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Damage;
+using Content.Server.Chat.Systems;
+using Content.Shared.Chat;
 
 namespace Content.Server.Medical;
 
@@ -60,6 +60,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     [Dependency] private readonly WoundSystem _woundSystem = default!; // Shitmed Change
     [Dependency] private readonly TraumaSystem _trauma = default!; // Shitmed Change
     [Dependency] private readonly MobThresholdSystem _threshold = default!; // Goobstation
+    [Dependency] private readonly ChatSystem _chat = default!; // Goobstation
 
     public override void Initialize()
     {
@@ -199,7 +200,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     /// <param name="healthAnalyzer">The health analyzer that should receive the updates</param>
     /// <param name="target">The entity to start analyzing</param>
     /// <param name="part">Shitmed Change: The body part to analyze, if any</param>
-    private void BeginAnalyzingEntity(Entity<HealthAnalyzerComponent> healthAnalyzer, EntityUid target, EntityUid? part = null)
+    public void BeginAnalyzingEntity(Entity<HealthAnalyzerComponent> healthAnalyzer, EntityUid target, EntityUid? part = null) // Shitmed - public
     {
         //Link the health analyzer to the scanned entity
         healthAnalyzer.Comp.ScannedEntity = target;
@@ -215,7 +216,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     /// </summary>
     /// <param name="healthAnalyzer">The health analyzer that's receiving the updates</param>
     /// <param name="target">The entity to analyze</param>
-    private void StopAnalyzingEntity(Entity<HealthAnalyzerComponent> healthAnalyzer, EntityUid target)
+    public void StopAnalyzingEntity(Entity<HealthAnalyzerComponent> healthAnalyzer, EntityUid target) // Shitmed - public
     {
         //Unlink the analyzer
         healthAnalyzer.Comp.ScannedEntity = null;
@@ -274,7 +275,8 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     public void UpdateScannedUser(EntityUid healthAnalyzer, EntityUid target, bool scanMode, HealthAnalyzerMode mode, EntityUid? part = null)
     {
         if (!_uiSystem.HasUi(healthAnalyzer, HealthAnalyzerUiKey.Key)
-            || !TryComp<BodyComponent>(target, out var body))
+            || !TryComp<BodyComponent>(target, out var body)
+            || !TryComp(healthAnalyzer, out HealthAnalyzerComponent? analyzerComp))
             return;
 
         var bodyTemperature = float.NaN;
@@ -289,6 +291,21 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         if (TryComp<BloodstreamComponent>(target, out var bloodstream)) // Goobstation - Don't resolve twice
         {
             bloodLow = bloodAmount < bloodstream.BloodlossThreshold; // Goobstation
+        }
+
+        // Goobstation - health analyzer speaker
+        if (analyzerComp.HasSpeaker
+            && analyzerComp.SpeakerNextMessage < _timing.CurTime
+            && TryComp(target, out DamageableComponent? damageableComp))
+        {
+            analyzerComp.SpeakerNextMessage = _timing.CurTime + analyzerComp.SpeakerUpdateRate;
+
+            string msg = Loc.GetString(analyzerComp.SpeakerMessage,
+                ("damage", damageableComp.TotalDamage.ToString()),
+                ("bloodLevel", $"{bloodAmount * 100:F1}")
+            );
+
+            _chat.TrySendInGameICMessage(healthAnalyzer, msg, InGameICChatType.Speak, hideChat: true);
         }
 
         // Goobstation start

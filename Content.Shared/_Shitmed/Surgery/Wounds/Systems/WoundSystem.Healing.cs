@@ -7,6 +7,7 @@ using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Pain.Systems;
 using Content.Shared.Body.Part;
@@ -22,6 +23,7 @@ namespace Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 public sealed partial class WoundSystem
 {
     [Dependency] private readonly PainSystem _pain = default!;
+    [Dependency] private readonly ConsciousnessSystem _consciousness = default!;
 
     // Updates pain state after wounds are healed and starts pain decay
     /// <param name="woundable">The entity on which to update the pain state</param>
@@ -31,22 +33,18 @@ public sealed partial class WoundSystem
         if (!TryComp<BodyPartComponent>(woundable, out var bodyPart) || !bodyPart.Body.HasValue)
             return;
 
-        // Get the body entity.
-        var body = bodyPart.Body.Value;
-
-        // Check if the body has a NerveSystemComponent.
-        if (!TryComp<NerveSystemComponent>(body, out var nerveSystem))
+        if (!_consciousness.TryGetNerveSystem(bodyPart.Body.Value, out var nerveSys))
             return;
 
         // Start pain decay if there's still pain after healing
-        if (nerveSystem.Pain > FixedPoint2.Zero)
+        if (nerveSys.Value.Comp.Pain > FixedPoint2.Zero)
         {
             // Calculate decay duration based on current pain level - 12 seconds per pain point
             // 50 pain * 12 seconds per pain point = 600 seconds = 10 minutes
-            var decayDuration = TimeSpan.FromSeconds(nerveSystem.Pain.Float() * 12);
+            var decayDuration = TimeSpan.FromSeconds(nerveSys.Value.Comp.Pain.Float() * 12);
 
             // Start the pain decay process
-            _pain.StartPainDecay(body, nerveSystem.Pain, decayDuration, nerveSystem);
+            _pain.StartPainDecay(nerveSys.Value, nerveSys.Value.Comp.Pain, decayDuration, nerveSys.Value.Comp);
         }
     }
 
@@ -118,29 +116,22 @@ public sealed partial class WoundSystem
         // Sort woundables by bleeding amount (descending)
         bleedingWoundables.Sort((a, b) => b.BleedAmount.CompareTo(a.BleedAmount));
 
-        float remainingHealAmount = healAmount * bleedingWoundables.Count;
-        bool anyHealed = false;
+        var remaining = FixedPoint2.New(healAmount);
 
         // Apply healing to each woundable in order
         foreach (var (woundable, _) in bleedingWoundables)
         {
-            if (remainingHealAmount <= 0)
+            if (remaining <= 0)
                 break;
 
-            FixedPoint2 modifiedBleed;
-            bool didHeal = TryHealBleedingWounds(woundable, -remainingHealAmount, out modifiedBleed);
-            if (didHeal)
-            {
-                anyHealed = true;
-                healed += -modifiedBleed - remainingHealAmount;
-                remainingHealAmount -= (float) modifiedBleed;
+            if (!TryHealBleedingWounds(woundable, (float) -remaining, out var healedHere))
+                continue;
 
-                if (remainingHealAmount <= 0)
-                    break;
-            }
+            healed += healedHere;
+            remaining -= healedHere;
         }
 
-        return anyHealed;
+        return healed > 0;
     }
 
     public bool TryHealBleedingWounds(EntityUid woundable, float bleedStopAbility, out FixedPoint2 modifiedBleed, WoundableComponent? component = null)
@@ -149,28 +140,39 @@ public sealed partial class WoundSystem
         if (!Resolve(woundable, ref component))
             return false;
 
+        var remaining = FixedPoint2.New(-bleedStopAbility);
+        if (remaining <= 0)
+            return false;
+
         foreach (var wound in GetWoundableWounds(woundable, component))
         {
             if (!TryComp<BleedInflicterComponent>(wound, out var bleeds)
                 || !bleeds.IsBleeding)
                 continue;
 
-            if (-bleedStopAbility > bleeds.BleedingAmount)
+            if (remaining >= bleeds.BleedingAmount)
             {
-                modifiedBleed = bleeds.BleedingAmount;
+                modifiedBleed += bleeds.BleedingAmount;
+                remaining -= bleeds.BleedingAmount;
                 bleeds.BleedingAmountRaw = 0;
                 bleeds.IsBleeding = false;
                 bleeds.Scaling = 0;
             }
             else
             {
-                bleeds.BleedingAmountRaw += bleedStopAbility;
-                modifiedBleed = -bleedStopAbility;
+                var rawReduction = bleeds.Scaling > 0 ? remaining / bleeds.Scaling : remaining;
+                bleeds.BleedingAmountRaw = FixedPoint2.Max(FixedPoint2.Zero, bleeds.BleedingAmountRaw - rawReduction);
+                modifiedBleed += remaining;
+                remaining = FixedPoint2.Zero;
             }
 
             Dirty(wound, bleeds);
+
+            if (remaining <= 0)
+                break;
         }
-        return modifiedBleed <= -bleedStopAbility;
+
+        return modifiedBleed > 0;
     }
 
     public void ForceHealWoundsOnWoundable(EntityUid woundable,

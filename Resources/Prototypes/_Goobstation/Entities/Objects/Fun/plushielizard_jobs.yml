@@ -1,0 +1,60 @@
+﻿# This base is created so we don't have to define the different sprite path for each plushie job.
+- type: entity
+  parent: BasePlushieLizardJob
+  id: PlushieLizardJobBlueshieldOfficer
+  name: blueshield officer lizard plushie
+  description: An adorable stuffed toy that resembles a lizardperson as a blueshield officer. One smack from this plushie is sure to ward off any evildoers.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/plushielizard_jobs.rsi
+    state: bso
+
+- type: entity
+  parent: BasePlushieLizardJob
+  id: PlushieLizardJobNanotrasenRepresentative
+  name: nanotrasen representative lizard plushie
+  description: An adorable stuffed toy that resembles a lizardperson as a nanotrasen representative. It seems to always be judgmental of you.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/plushielizard_jobs.rsi
+    state: ntr
+
+- type: entity
+  parent: BasePlushieLizardJob
+  id: PlushieLizardJobShaftMiner
+  name: shaft miner lizard plushie
+  description: An adorable stuffed toy that resembles a lizardperson as a shaft miner. Smells faintly of ash. Many parts have been mended back after being set on fire.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/plushielizard_jobs.rsi
+    state: shaftminer
+
+- type: entity
+  parent: BasePlushieLizardJob
+  id: PlushieLizardJobBrigmedic
+  name: brigmedic lizard plushie
+  description: An adorable stuffed toy that resembles a lizardperson as a brigmedic. Smells faintly of gunpowder and atropine.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/plushielizard_jobs.rsi
+    state: brigmedic
+
+- type: entity
+  parent: BasePlushieLizardJob
+  id: PlushieLizardJobCentCommOfficial
+  name: centcomm official lizard plushie
+  description: An adorable stuffed toy that resembles a lizardperson as a centcomm officer. Wears its hat with pride. Or whatever emotion plushies feel.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/plushielizard_jobs.rsi
+    state: centcom
+
+- type: entity
+  parent: BasePlushieLizardJob
+  id: PlushieLizardJobVirologist
+  name: virologist lizard plushie
+  description: An adorable stuffed toy that resembles a lizardperson as a virologist. It looks to be in pristine condition.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/plushielizard_jobs.rsi
+    state: virologist
