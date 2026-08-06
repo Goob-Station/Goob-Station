@@ -73,7 +73,7 @@ public partial class TraumaSystem
         Entity<TraumaInflicterComponent> woundEnt,
         ref WoundSeverityPointChangedEvent args)
     {
-        if (!_timing.IsFirstTimePredicted
+        if (_net.IsClient
             || HasComp<GodmodeComponent>(args.Component.HoldingWoundable))
             return;
 
@@ -303,16 +303,15 @@ public partial class TraumaSystem
 
         foreach (var ent in _inventory.GetHandOrInventoryEntities(body, SlotFlags.WITHOUT_POCKET))
         {
-            if (!TryComp<ArmorComponent>(ent, out var armour))
+            if (!TryComp<ArmorComponent>(ent, out var armour)
+                || !armour.TraumaDeductions.TryGetValue(traumaType, out var traumaDeduction))
                 continue;
 
-            if (!inflicter.Comp.AllowArmourDeduction.Contains(traumaType) && armour.TraumaDeductions[traumaType] >= 0)
+            if (!inflicter.Comp.AllowArmourDeduction.Contains(traumaType) && traumaDeduction >= 0)
                 continue;
 
             if (armour.ArmorCoverage.Contains(coverage))
-            {
-                deduction += armour.TraumaDeductions[traumaType];
-            }
+                deduction += traumaDeduction;
         }
 
         return deduction;
@@ -498,8 +497,8 @@ public partial class TraumaSystem
             return false;
 
         if (bodyPart.PartType == BodyPartType.Chest
-            || bodyPart.PartType == BodyPartType.Groin
-            && Comp<WoundableComponent>(parentWoundable.Value).WoundableSeverity != WoundableSeverity.Mangled)
+            || (bodyPart.PartType == BodyPartType.Groin
+            && Comp<WoundableComponent>(parentWoundable.Value).WoundableSeverity != WoundableSeverity.Mangled))
             return false;
 
         var deduction = GetTraumaChanceDeduction(
@@ -578,6 +577,7 @@ public partial class TraumaSystem
                 continue;
 
             containedTraumaComp.TraumaSeverity = severity;
+            Dirty(trauma, containedTraumaComp);
             return trauma;
         }
 
@@ -647,6 +647,9 @@ public partial class TraumaSystem
 
     private void ApplyTraumas(Entity<WoundableComponent> target, Entity<TraumaInflicterComponent> inflicter, List<TraumaType> traumas, FixedPoint2 severity)
     {
+        if (_net.IsClient)
+            return;
+
         var bodyPart = Comp<BodyPartComponent>(target);
         if (!bodyPart.Body.HasValue)
             return;
@@ -749,7 +752,6 @@ public partial class TraumaSystem
                     break;
 
                 case TraumaType.Dismemberment:
-                    Logger.Debug("Attempting to trigger dismemberment");
                     if (!_wound.IsWoundableRoot(target)
                         && _wound.TryInduceWound(targetChosen.Value, "Blunt", 0f, out var woundInduced)) // We need this to add the trauma into.
                     {
@@ -762,7 +764,6 @@ public partial class TraumaSystem
                             (bodyPart.PartType, bodyPart.Symmetry));
 
                         _wound.AmputateWoundable(targetChosen.Value, target, target);
-                        Logger.Debug($"Amputating woundable.");
                     }
                     break;
             }
