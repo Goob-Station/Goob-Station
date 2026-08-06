@@ -131,6 +131,13 @@
       - id: PlushieLizardJobZookeeper
       - id: PlushieLizardJobMultiweh
         weight: 0.5 # 1 in >800
+      # GoobStation - New extra lizards
+      - id: PlushieLizardJobBlueshieldOfficer
+      - id: PlushieLizardJobBrigmedic
+      - id: PlushieLizardJobCentCommOfficial
+      - id: PlushieLizardJobNanotrasenRepresentative
+      - id: PlushieLizardJobShaftMiner
+      - id: PlushieLizardJobVirologist
 
 # Figurines representing all your favorite coworkers
 - type: entityTable # size 1x2  # price 75
@@ -327,8 +334,6 @@
       - id: Football
       - id: BeachBall
       - id: TennisBall
-        amount: 2
-      - id: TennisBallGoob # Goob
         amount: 2
     - !type:GroupSelector # PAIs are basically toys
       children:
