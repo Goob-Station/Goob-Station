@@ -24234,3 +24234,9 @@ Entries:
         though, pain is still disabled.
   id: 2785
   time: '2026-08-06T01:42:10.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Fix
+      message: IPC can be deconverted by chaplain censer
+  id: 2786
+  time: '2026-08-06T14:48:39.0000000+00:00'
