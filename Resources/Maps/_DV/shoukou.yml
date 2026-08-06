@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 08/06/2026 13:37:30
-  entityCount: 14981
+  time: 08/06/2026 13:53:53
+  entityCount: 14982
 maps:
 - 1
 grids:
@@ -5771,13 +5771,15 @@ entities:
       rot: 3.141592653589793 rad
       pos: 10.5,37.5
       parent: 2
-- proto: AirlockExternalGlassShuttleMining
+- proto: AirlockExternalGlassShuttleMiningFilled
   entities:
-  - uid: 14954
+  - uid: 14982
     components:
     - type: Transform
       pos: 13.5,-49.5
       parent: 2
+    - type: AccessReader
+      accessListsOriginal: []
 - proto: AirlockExternalLocked
   entities:
   - uid: 1928
@@ -74365,6 +74367,11 @@ entities:
     components:
     - type: Transform
       pos: -6.5,-47.5
+      parent: 2
+  - uid: 14954
+    components:
+    - type: Transform
+      pos: 48.5,-25.5
       parent: 2
 - proto: RandomVendingDrinks
   entities:
