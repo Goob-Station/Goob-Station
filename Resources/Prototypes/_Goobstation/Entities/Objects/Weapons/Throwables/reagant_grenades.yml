@@ -54,7 +54,7 @@
 - type: entity
   parent: SmokeGrenade
   id: PaxGrenade
-  name: Silencer Grenade
+  name: Pacifier Grenade
   description: A grenade that releases Pax & Mute Toxin smoke. Remember to keep your internals on!
   components:
   - type: Sprite
