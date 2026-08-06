@@ -14,7 +14,7 @@ using Content.Shared.Movement.Components; // Shitmed - Starlight Abductors Chang
 
 namespace Content.Client.Silicons.StationAi;
 
-public sealed partial class StationAiOverlay : Overlay
+public sealed partial class StationAiOverlay : Overlay //goob edit
 {
     private static readonly ProtoId<ShaderPrototype> CameraStaticShader = "CameraStatic";
     private static readonly ProtoId<ShaderPrototype> StencilMaskShader = "StencilMask";
