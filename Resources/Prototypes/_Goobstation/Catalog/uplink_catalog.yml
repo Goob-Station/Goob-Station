@@ -647,7 +647,7 @@
 - type: listing
   id: UplinkFentanylGrenade
   name: Fentanyl grenade
-  description: You already know what you're abou to do, and you shouldn't be proud of it.
+  description: You already know what you're about to do, and you shouldn't be proud of it.
   productEntity: FentanylGrenade
   cost:
     Telecrystal: 15
