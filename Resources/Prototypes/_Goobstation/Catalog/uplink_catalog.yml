@@ -687,7 +687,7 @@
   - !type: BuyerJobCondition 
     whitelist:
        Components:
-       - NukeOpsUplink
+       - SurplusBundle 
 
 - type: listing
   id: UplinkSyndicateWhimsyBundle
