@@ -35,7 +35,7 @@
   name: cane blade
   parent: [BaseSword, BaseSyndicateContraband]
   id: CaneBlade
-  description: A sharp blade with a cane shaped hilt. Able to dash Foward into the air Alike a certain dashing rogue. # Goobstation
+  description: A sharp blade with a cane shaped hilt. Able to dash Foward into the air. "You killed my father, prepare to die" # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/cane_blade.rsi
