@@ -656,8 +656,38 @@
   conditions:
   - !type:BuyerJobCondition
     whitelist:
-    - Clown
-    - Chemist
+       components:
+       - SurplusBundle
+
+- type: listing
+  id: UplinkPaxGrenade
+  name: Pacifier Grenade
+  description: A grenade meant for pacifying large groups of people, comes with a side of mute toxin!
+  productEntity: PaxGrenade
+  cost:
+    Telecrystal: 8
+  categories:
+    - UplinkChemicals
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+       components:
+       - SurplusBundle 
+
+- type: listing
+  id: UplinkNocturineGrenade
+  name: Tranquilizer Grenade
+  description: A grenade for nonlethally incapacitating large amounts of people.
+  productEntity: NocturineGrenade
+  cost:
+    Telecrystal: 12
+  categories:
+    - UplinkChemicals
+  conditions:
+  - !type: BuyerJobCondition 
+    whitelist:
+       Components:
+       - NukeOpsUplink
 
 - type: listing
   id: UplinkSyndicateWhimsyBundle
@@ -870,36 +900,6 @@
     Telecrystal: 24
   categories:
   - UplinkChemicals
-
-- type: listing
-  id: UplinkPaxGrenade
-  name: Pacifier Grenade
-  description: A grenade meant for pacifying large groups of people, comes with a side of mute toxin!
-  productEntity: PaxGrenade
-  cost:
-    Telecrystal: 8
-  categories:
-    - UplinkChemicals
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
-
-- type: listing
-  id: UplinkNocturineGrenade
-  name: Tranquilizer Grenade
-  description: A grenade for nonlethally incapacitating large amounts of people.
-  productEntity: NocturineGrenade
-  cost:
-    Telecrystal: 12
-  categories:
-    - UplinkChemicals
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
 
 - type: listing
   id: UplinkSyndicateLollypopBundle
