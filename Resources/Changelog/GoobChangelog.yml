@@ -24195,3 +24195,42 @@ Entries:
       message: Brigmedics can now receive the Security Star
   id: 2784
   time: '2026-08-05T22:47:25.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Fix
+      message: Doafters now slow down instead of speeding up when limbs are wounded
+    - type: Fix
+      message: >-
+        Organ damage actually works now. Organs can finally be
+        damaged/destroyed, and organ surgery heals them properly instead of them
+        being stuck at full health forever
+    - type: Fix
+      message: >-
+        Fixed blood loss effectively being applied twice, bleeding should be a
+        bit less brutal now
+    - type: Fix
+      message: >-
+        Passive healing no longer dumps a bunch of healing on you after spawning
+        or leaving crit, it now heals over time like it was supposed to
+    - type: Fix
+      message: Fixed a bunch of wound, bleeding, and trauma desyncs/mispredicts
+    - type: Fix
+      message: Destroyed and dismembered limbs now actually bleed
+    - type: Fix
+      message: >-
+        Bleeding now ramps up properly over time, and clamping/cauterizing
+        bleeds during surgery behaves correctly
+    - type: Fix
+      message: Eye damage now stacks instead of getting reset every hit
+    - type: Fix
+      message: Foot fractures now actually slow you down,
+    - type: Fix
+      message: You can't get stuck crawling after your legs are healed now
+    - type: Fix
+      message: Surgery speed bonuses from tables and tools are no longer applied twice.
+    - type: Fix
+      message: >-
+        Fixed a fuckton of internal pain bugs. No player-facing changes yet
+        though, pain is still disabled.
+  id: 2785
+  time: '2026-08-06T01:42:10.0000000+00:00'
