@@ -19,7 +19,7 @@ public sealed class LaserPointerOverlay : Overlay
 
     private readonly ShaderInstance _unshadedShader;
 
-    private static readonly ProtoId<ShaderPrototype> Shader = "Unshaded";
+    private static readonly ProtoId<ShaderPrototype> Shader = "unshaded";
 
     public LaserPointerOverlay(IEntityManager entManager, IPrototypeManager prototype)
     {

@@ -23,7 +23,7 @@ public sealed class ComplexJointVisualsOverlay : Overlay
 
     private readonly ShaderInstance _unshadedShader;
 
-    private static readonly ProtoId<ShaderPrototype> Shader = "Unshaded";
+    private static readonly ProtoId<ShaderPrototype> Shader = "unshaded";
 
     public ComplexJointVisualsOverlay(IEntityManager entManager, IPrototypeManager prototype, IGameTiming timing)
     {
