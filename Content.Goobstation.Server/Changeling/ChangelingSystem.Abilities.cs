@@ -83,6 +83,10 @@ public sealed partial class ChangelingSystem
         SubscribeLocalEvent<ChangelingIdentityComponent, AbsorbBiomatterDoAfterEvent>(OnAbsorbBiomatterDoAfter);
     }
 
+    private static readonly ProtoId<ReagentPrototype> FerrochromicAcid= "FerrochromicAcid";
+    private static readonly ProtoId<ReagentPrototype> PolytrinicAcid= "PolytrinicAcid";
+    private static readonly EntProtoId ActionLayEgg= "ActionLayEgg";
+
     #region Basic Abilities
 
     private void OnOpenEvolutionMenu(EntityUid uid, ChangelingIdentityComponent comp, ref OpenEvolutionMenuEvent args)
@@ -158,7 +162,7 @@ public sealed partial class ChangelingSystem
 
         var dmg = new DamageSpecifier(_proto.Index(AbsorbedDamageGroup), 200);
         _damage.TryChangeDamage(target, dmg, true, false, targetPart: TargetBodyPart.All); // Shitmed Change
-        _blood.ChangeBloodReagent(target, "FerrochromicAcid");
+        _blood.ChangeBloodReagents(target, new Solution(FerrochromicAcid, 1));
         _blood.SpillAllSolutions(target);
 
         EnsureComp<AbsorbedComponent>(target);
@@ -653,7 +657,7 @@ public sealed partial class ChangelingSystem
         EnsureComp<AbsorbedComponent>(target);
         var dmg = new DamageSpecifier(_proto.Index(AbsorbedDamageGroup), 200);
         _damage.TryChangeDamage(target, dmg, false, false, targetPart: TargetBodyPart.All); // Shitmed Change
-        _blood.ChangeBloodReagent(target, "FerrochromicAcid");
+        _blood.ChangeBloodReagents(target, new Solution(FerrochromicAcid, 1));
         _blood.SpillAllSolutions(target);
 
         PlayMeatySound(uid, comp);
@@ -722,7 +726,7 @@ public sealed partial class ChangelingSystem
         // Goobstation end
 
         var soln = new Solution();
-        soln.AddReagent("PolytrinicAcid", 10f);
+        soln.AddReagent(PolytrinicAcid, 10f);
 
         if (_pull.IsPulled(uid))
         {
@@ -824,7 +828,7 @@ public sealed partial class ChangelingSystem
             slope: 4,
             maxTileIntensity: 2);
 
-        _actions.AddAction((EntityUid) newUid, "ActionLayEgg");
+        _actions.AddAction((EntityUid) newUid, ActionLayEgg);
 
         PlayMeatySound((EntityUid) newUid, comp);
 

@@ -1,18 +1,17 @@
-using Content.Goobstation.Shared.Silicon;
-using Content.Goobstation.Shared.Silicon.Components;
 using Content.Server.Chat.Systems;
 using Robust.Shared.Player;
 using Content.Server.EUI;
 using Robust.Shared.Network;
 using Content.Server.Station.Components;
-using Content.Goobstation.Server.Silicons;
+using Content.Goobstation.Shared.Silicon.AiEarlyLeave;
 using Content.Server.Station.Systems;
-using Content.Server.Radio.EntitySystems;
 using Robust.Shared.Prototypes;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.Ghost;
+
+namespace Content.Goobstation.Server.Silicon.AiEarlyLeave;
 
 public sealed class StationAiEarlyLeaveSystem : SharedStationAiEarlyLeaveSystem
 {
@@ -21,7 +20,6 @@ public sealed class StationAiEarlyLeaveSystem : SharedStationAiEarlyLeaveSystem
     [Dependency] private readonly EuiManager _euiManager = default!;
     [Dependency] private readonly StationJobsSystem _jobs = default!;
     [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly RadioSystem _radio = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
     private readonly string _alertChannelName = "Command";
@@ -29,9 +27,6 @@ public sealed class StationAiEarlyLeaveSystem : SharedStationAiEarlyLeaveSystem
     protected override void RequestEarlyLeave(Entity<StationAiCoreComponent> aiCore, EntityUid insertedAi)
     {
         if (!_player.TryGetSessionByEntity(insertedAi, out var aiSession))
-            return;
-
-        if (aiSession == null)
             return;
 
         _euiManager.OpenEui(new StationAiEarlyLeaveEui(aiCore, insertedAi, aiSession.UserId, this), aiSession);

@@ -39,8 +39,8 @@ public sealed class DevilRuleSystem : GameRuleSystem<DevilRuleComponent>
         var briefing = Loc.GetString("devil-role-greeting", ("trueName", devilComp.TrueName), ("playerName", Name(target)));
         _antag.SendBriefing(target, briefing, Color.DarkRed, rule.BriefingSound);
 
-        _npcFaction.RemoveFaction(target, rule.NanotrasenFaction);
-        _npcFaction.AddFaction(target, rule.DevilFaction);
+        _npcFaction.RemoveFaction(target, DevilRuleComponent.NanotrasenFaction);
+        _npcFaction.AddFaction(target, DevilRuleComponent.DevilFaction);
 
         return true;
     }

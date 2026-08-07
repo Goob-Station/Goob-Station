@@ -11,6 +11,7 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.NPC.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
+using Content.Shared.NPC.Prototypes;
 
 namespace Content.Goobstation.Server.Pirates.GameTicking.Rules;
 
@@ -23,6 +24,7 @@ public sealed class ActivePirateRuleSystem : GameRuleSystem<ActivePirateRuleComp
 
     private static readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/Ambience/Antag/pirate_start.ogg");
     private static readonly EntProtoId MindRole = "MindRolePirate";
+    private static readonly ProtoId<NpcFactionPrototype> PirateFaction = "PirateFaction";
 
     public override void Initialize()
     {
@@ -72,7 +74,7 @@ public sealed class ActivePirateRuleSystem : GameRuleSystem<ActivePirateRuleComp
         var briefing = Loc.GetString("antag-pirate-briefing");
         _antag.SendBriefing(target, briefing, Color.OrangeRed, BriefingSound);
 
-        _npcFaction.AddFaction(target, "PirateFaction"); // yaml fucking sucks!!!
+        _npcFaction.AddFaction(target, PirateFaction); // yaml fucking sucks!!!
 
         return true;
     }

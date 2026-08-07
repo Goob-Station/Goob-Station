@@ -8,10 +8,12 @@ namespace Content.Goobstation.Server.VoiceChat;
 public sealed class VoiceChatSystem : EntitySystem
 {
     [Dependency] private readonly IVoiceChatServerManager _voiceChatManager = default!;
+    private ISawmill _sawmill = default!;
 
     public override void Initialize()
     {
         base.Initialize();
+        _sawmill = Logger.GetSawmill("voice_chat");
         SubscribeLocalEvent<PlayerAttachedEvent>(OnPlayerAttached);
     }
 
@@ -28,7 +30,7 @@ public sealed class VoiceChatSystem : EntitySystem
                 if (clientData.PlayerEntity == ev.Entity)
                     return;
 
-                Logger.Debug($"Player {ev.Player.Name} attached to new entity {ev.Entity}. Updating voice client data.");
+                _sawmill.Debug($"Player {ev.Player.Name} attached to new entity {ev.Entity}. Updating voice client data.");
                 clientData.PlayerEntity = ev.Entity;
                 break;
             }

@@ -2,7 +2,6 @@
 
 using Content.Goobstation.Shared.Xenobiology.Components.Equipment;
 using Content.Server.NPC.HTN;
-using Content.Server.Storage.EntitySystems;
 using Content.Shared.Coordinates;
 using Content.Shared.Destructible;
 using Content.Shared.Examine;
@@ -26,7 +25,7 @@ namespace Content.Goobstation.Server.Xenobiology;
 /// <summary>
 /// This handles the XenoVacuum and it's interactions.
 /// </summary>
-public sealed partial class XenoVacuumSystem : EntitySystem
+public sealed class XenoVacuumSystem : EntitySystem
 {
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly ThrowingSystem _throw = default!;
@@ -38,7 +37,6 @@ public sealed partial class XenoVacuumSystem : EntitySystem
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly HTNSystem _htn = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
-    [Dependency] private readonly EntityStorageSystem _entStorage = default!;
 
     private const string ReleaseDelayId = "release";
     private const string SuctionDelayId = "suction";
@@ -103,13 +101,16 @@ public sealed partial class XenoVacuumSystem : EntitySystem
 
     private void OnAfterInteract(Entity<XenoVacuumComponent> ent, ref AfterInteractEvent args)
     {
-        var ud = Comp<UseDelayComponent>(ent);
-        if (CheckDelays(ent)) return;
+        if (CheckDelays(ent))
+            return;
+
+        if (!TryComp<UseDelayComponent>(args.User, out var ud))
+            return;
 
         if (args is { Target: { } target, CanReach: true } && HasComp<MobStateComponent>(target))
         {
             TryDoSuction(args.User, target, ent);
-            if (ud != null) _useDelay.TryResetDelay((ent, ud), false, SuctionDelayId);
+            _useDelay.TryResetDelay((ent, ud), false, SuctionDelayId);
             return;
         }
 
@@ -133,7 +134,7 @@ public sealed partial class XenoVacuumSystem : EntitySystem
             _htn.SetHTNEnabled(removedEnt, true,2f);
         }
 
-        if (ud != null) _useDelay.TryResetDelay((ent, ud), false, ReleaseDelayId);
+        _useDelay.TryResetDelay((ent, ud), false, ReleaseDelayId);
 
         _audio.PlayEntity(ent.Comp.ClearSound, ent, args.User, AudioParams.Default.WithVolume(-2f));
     }

@@ -73,6 +73,7 @@ using System.Numerics;
 using Content.Goobstation.Common.Grab;
 using Content.Shared.Zombies;
 using Content.Server.Ensnaring;
+using Content.Shared.Chemistry.Reagent;
 
 namespace Content.Goobstation.Server.Changeling;
 
@@ -115,21 +116,22 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
     [Dependency] private readonly IComponentFactory _compFactory = default!;
     [Dependency] private readonly SelectableAmmoSystem _selectableAmmo = default!;
-    [Dependency] private readonly ChangelingRuleSystem _changelingRuleSystem = default!;
     [Dependency] private readonly SharedInternalResourcesSystem _resources = default!;
     [Dependency] private readonly EnsnareableSystem _snare = default!;
 
-    public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
-    public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
-    public EntProtoId HammerPrototype = "ArmHammerChangeling";
-    public EntProtoId ClawPrototype = "ArmClawChangeling";
-    public EntProtoId DartGunPrototype = "DartGunChangeling";
+    public static EntProtoId ArmbladePrototype = "ArmBladeChangeling";
+    public static EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
+    public static EntProtoId HammerPrototype = "ArmHammerChangeling";
+    public static EntProtoId ClawPrototype = "ArmClawChangeling";
+    public static EntProtoId DartGunPrototype = "DartGunChangeling";
 
-    public EntProtoId ShieldPrototype = "ChangelingShield";
-    public EntProtoId BoneShardPrototype = "ThrowingStarChangeling";
+    public static EntProtoId ShieldPrototype = "ChangelingShield";
+    public static EntProtoId BoneShardPrototype = "ThrowingStarChangeling";
 
-    public EntProtoId ArmorPrototype = "ChangelingClothingOuterArmor";
-    public EntProtoId ArmorHelmetPrototype = "ChangelingClothingHeadHelmet";
+    public static EntProtoId ArmorPrototype = "ChangelingClothingOuterArmor";
+    public static EntProtoId ArmorHelmetPrototype = "ChangelingClothingHeadHelmet";
+
+    private static ProtoId<ReagentPrototype> BloodChangeling = "BloodChangeling";
 
     public override void Initialize()
     {
@@ -521,7 +523,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     public bool TryStealDNA(EntityUid uid, EntityUid target, ChangelingIdentityComponent comp, bool countObjective = false)
     {
         if (!TryComp<HumanoidAppearanceComponent>(target, out var appearance)
-        || !TryComp<MetaDataComponent>(target, out var metadata)
+        || !TryComp(target, out MetaDataComponent? metadata)
         || !TryComp<DnaComponent>(target, out var dna)
         || !TryComp<FingerprintComponent>(target, out var fingerprint))
         {
@@ -716,10 +718,10 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             _actions.AddAction(ent, actionId);
 
         // make sure its set to the default
-        ent.Comp.TotalEvolutionPoints = _changelingRuleSystem.StartingCurrency;
+        ent.Comp.TotalEvolutionPoints = ChangelingRuleSystem.StartingCurrency;
 
         // make their blood unreal
-        _blood.ChangeBloodReagent(ent.Owner, "BloodChangeling");
+        _blood.ChangeBloodReagents(ent.Owner, new Solution(BloodChangeling, 1));
     }
 
     // in the future ChangelingIdentity should have its own system and be ONLY used for holding stored DNA and handling transformations.

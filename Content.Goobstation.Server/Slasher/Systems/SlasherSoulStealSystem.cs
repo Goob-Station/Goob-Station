@@ -30,7 +30,6 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using FixedPoint2 = Content.Goobstation.Maths.FixedPoint.FixedPoint2;
 using System.Linq;
-using Content.Server.Light.Components;
 using Content.Shared.Light.Components;
 using Robust.Server.GameObjects;
 using Content.Shared.Inventory;
@@ -67,6 +66,8 @@ public sealed class SlasherSoulStealSystem : EntitySystem
     [Dependency] private readonly SlasherRegenerateSystem _regenerate = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedStationSpawningSystem _spawning = default!;
+
+    private static readonly ProtoId<WeatherPrototype> Storm = "Storm";
 
     public override void Initialize()
     {
@@ -249,7 +250,7 @@ public sealed class SlasherSoulStealSystem : EntitySystem
 
                 // Make it rain in space
                 var xform = Transform(user);
-                _weather.SetWeather(xform.MapID, _protoMan.Index<WeatherPrototype>("Storm"), null);
+                _weather.SetWeather(xform.MapID, _protoMan.Index(Storm), null);
 
                 // Swap clothing if the kit defines ascension gear
                 if (comp.AscensionGear != null)

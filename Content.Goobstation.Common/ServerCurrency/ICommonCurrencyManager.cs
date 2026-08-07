@@ -9,7 +9,7 @@ namespace Content.Goobstation.Common.ServerCurrency;
 public interface ICommonCurrencyManager
 {
     public event Action? ClientBalanceChange;
-    // public event Action<PlayerBalanceChangeEvent>? BalanceChange; // Currently unused
+    public event Action<PlayerBalanceChangeEvent>? BalanceChange;
 
     public void Initialize();
 

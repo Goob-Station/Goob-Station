@@ -19,6 +19,8 @@ public sealed class EquipTo : LocalizedCommands
     public const string CommandName = "equipto";
     public override string Command => CommandName;
 
+    private static readonly ProtoId<InventoryTemplatePrototype> HumanInventoryTemplate = "human";
+
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
         var entityManager = IoCManager.Resolve<IEntityManager>();
@@ -133,7 +135,7 @@ public sealed class EquipTo : LocalizedCommands
         var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
 
         if (args.Length != 4
-            || !prototypeManager.TryIndex<InventoryTemplatePrototype>("human", out var inventoryTemplate))
+            || !prototypeManager.TryIndex(HumanInventoryTemplate, out var inventoryTemplate))
             return CompletionResult.Empty;
 
         var options = inventoryTemplate.Slots.Select(c => c.Name).OrderBy(c => c).ToArray();

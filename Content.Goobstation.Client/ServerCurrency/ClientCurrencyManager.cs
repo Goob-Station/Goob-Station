@@ -15,7 +15,7 @@ public sealed class ClientCurrencyManager : ICommonCurrencyManager, IEntityEvent
 
     private static int _cachedBalance = -1;
     public event Action? ClientBalanceChange;
-    // public event Action<PlayerBalanceChangeEvent>? BalanceChange; // Unused
+    public event Action<PlayerBalanceChangeEvent>? BalanceChange { add {} remove {} }
 
     public void PostInject()
     {

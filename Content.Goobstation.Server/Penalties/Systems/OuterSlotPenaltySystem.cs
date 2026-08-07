@@ -15,6 +15,7 @@ public sealed partial class OuterSlotPenaltySystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
+    [Dependency] private readonly ISawmill _sawmill = default!;
 
     public override void Initialize()
     {
@@ -31,7 +32,7 @@ public sealed partial class OuterSlotPenaltySystem : EntitySystem
             if (_damageableSystem.TryChangeDamage(uid, comp.Damage, true) != null)
                 _popupSystem.PopupEntity(Loc.GetString("equipped-outer-slot-with-penalty-message", ("entity", Name(args.Clothing))), uid, uid, PopupType.SmallCaution);
             else
-                Logger.Warning($"Damage application failed for entity {uid}. Ensure outer slot penalty is properly configured.");
+                _sawmill.Warning($"Damage application failed for entity {uid}. Ensure outer slot penalty is properly configured.");
         }
         _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(uid);
     }

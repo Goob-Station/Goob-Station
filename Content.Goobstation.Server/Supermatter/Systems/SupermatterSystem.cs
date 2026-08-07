@@ -1,9 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System;
 using System.Linq;
 using System.Text;
-using Content.Goobstation.Shared.Supermatter;
 using Content.Goobstation.Shared.Supermatter.Components;
 using Content.Goobstation.Shared.Supermatter.Systems;
 using Content.Server.AlertLevel;
@@ -12,9 +10,7 @@ using Content.Server.Audio;
 using Content.Server.Chat.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Explosion.EntitySystems;
-using Content.Server.Kitchen.Components;
 using Content.Server.Lightning;
-using Content.Server.Popups;
 using Content.Server.Station.Systems;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Atmos;
@@ -27,18 +23,12 @@ using Content.Shared.Kitchen.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Projectiles;
 using Content.Shared.Radiation.Components;
-using Content.Shared.Tag;
-using Content.Shared.Throwing;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
-using Robust.Shared.GameObjects;
-using Robust.Shared.IoC;
-using Robust.Shared.Maths;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
-using Robust.Shared.Player;
 
 namespace Content.Goobstation.Server.Supermatter.Systems;
 
@@ -100,12 +90,12 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         if (!_gameTiming.IsFirstTimePredicted)
             return;
 
-        foreach (var sm in EntityManager.EntityQuery<SupermatterComponent>())
+        var query = EntityQueryEnumerator<SupermatterComponent>();
+        while (query.MoveNext(out var uid, out var sm))
         {
             if (!sm.Activated)
                 continue;
 
-            var uid = sm.Owner;
             sm.UpdateAccumulator += frameTime;
 
             if (sm.UpdateAccumulator >= sm.UpdateTimer)

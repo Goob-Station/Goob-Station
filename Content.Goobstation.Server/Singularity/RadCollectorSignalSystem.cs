@@ -28,7 +28,6 @@ public sealed class RadCollectorSignalSystem : EntitySystem
             if (!_automation.IsAutomated(uid))
                 continue;
 
-            var ent = (uid, comp);
             _appearance.TryGetData<int>(uid, RadiationCollectorVisuals.PressureState, out var rawState);
             var state = rawState switch
             {
@@ -51,6 +50,7 @@ public sealed class RadCollectorSignalSystem : EntitySystem
     {
         RadCollectorState.Empty => EmptyPort,
         RadCollectorState.Low => LowPort,
-        RadCollectorState.Full => FullPort
+        RadCollectorState.Full => FullPort,
+        _ => EmptyPort
     };
 }

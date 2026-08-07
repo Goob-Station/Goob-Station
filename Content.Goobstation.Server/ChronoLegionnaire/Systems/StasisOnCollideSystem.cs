@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Server.ChronoLegionnaire.Components;
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew.Components;
 using Content.Shared.Throwing;
 using JetBrains.Annotations;
 using Robust.Shared.Physics.Events;
@@ -22,9 +22,9 @@ public sealed class StasisOnCollideSystem : EntitySystem
 
     private void TryCollideStasis(Entity<StasisOnCollideComponent> projectile, EntityUid target)
     {
-        if (EntityManager.TryGetComponent<StatusEffectsComponent>(target, out var status))
+        if (EntityManager.TryGetComponent<StatusEffectContainerComponent>(target, out var status))
         {
-            _stasisSystem.TryStasis((target, status), true, projectile.Comp.StasisTime);
+            _stasisSystem.TryStasis((target, status), projectile.Comp.StasisTime);
         }
     }
 

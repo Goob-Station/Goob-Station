@@ -16,7 +16,7 @@ namespace Content.Goobstation.Server.ServerCurrency
         [Dependency] private readonly IPlayerManager _player = default!;
         private readonly List<Task> _pendingSaveTasks = new();
 
-        public event Action? ClientBalanceChange;
+        public event Action? ClientBalanceChange { add {} remove {} }
         public event Action<PlayerBalanceChangeEvent>? BalanceChange;
         private ISawmill _sawmill = default!;
 

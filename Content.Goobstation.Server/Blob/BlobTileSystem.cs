@@ -1,13 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Shared.Blob;
 using Content.Goobstation.Shared.Blob.Components;
 using Content.Goobstation.Shared.Blob.Events;
-using Content.Server.Construction.Components;
-using Content.Server.Destructible;
 using Content.Server.Emp;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
@@ -16,12 +13,11 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
-using Robust.Server.Audio;
 using Robust.Server.GameObjects;
-using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Goobstation.Server.Blob;
@@ -31,7 +27,6 @@ public sealed class BlobTileSystem : SharedBlobTileSystem
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly BlobCoreSystem _blobCoreSystem = default!;
     [Dependency] private readonly BlobCoreActionSystem _blobCoreActionSystem = default!;
-    [Dependency] private readonly AudioSystem _audioSystem = default!;
     [Dependency] private readonly EmpSystem _empSystem = default!;
     [Dependency] private readonly MapSystem _mapSystem = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
@@ -42,8 +37,7 @@ public sealed class BlobTileSystem : SharedBlobTileSystem
     private EntityQuery<BlobTileComponent> _tileQuery;
     private EntityQuery<BlobObserverComponent> _observerQuery;
 
-    [ValidatePrototypeId<NpcFactionPrototype>]
-    private const string BlobFaction = "Blob";
+    private static readonly ProtoId<NpcFactionPrototype> BlobFaction= "Blob";
 
     public override void Initialize()
     {

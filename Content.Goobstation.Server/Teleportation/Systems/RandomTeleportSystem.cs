@@ -35,7 +35,7 @@ public sealed class RandomTeleportSystem : EntitySystem
         {
             if (TryComp<StackComponent>(uid, out var stack))
             {
-                _stack.SetCount(uid, stack.Count - 1, stack);
+                _stack.SetCount((uid, stack), stack.Count - 1);
                 return;
             }
 

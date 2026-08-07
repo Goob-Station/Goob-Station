@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Goobstation.Shared.OfficeChair;
 using Content.Server.Chemistry.Components;
 using Content.Server.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Components;
@@ -9,15 +10,13 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Vapor;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Shared.OfficeChair;
+namespace Content.Goobstation.Server.OfficeChair;
 
-public sealed partial class RocketChairSystem : SharedRocketChairSystem
+public sealed class RocketChairSystem : SharedRocketChairSystem
 {
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedTransformSystem _tx = default!;
