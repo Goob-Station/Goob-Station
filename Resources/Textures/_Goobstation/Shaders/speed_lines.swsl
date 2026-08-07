@@ -1,0 +1,59 @@
+light_mode unshaded;
+
+// Speed lines used for the dodge effect.
+uniform highp vec2 center;
+uniform highp vec2 size;
+uniform highp float seed;
+uniform highp vec2 direction;
+uniform highp float sprOffset;
+uniform highp float progress;
+uniform highp vec4 color;
+
+highp float hash(highp float p) {
+    p = fract(p * 0.1031);
+    p *= p + 33.33;
+    p *= p + p;
+    return fract(p);
+}
+
+void fragment() {
+    highp vec2 rel = (FRAGCOORD.xy - center) / (size * 0.5);
+
+    rel = (floor(rel * 28.0) + 0.5) / 28.0;
+
+    highp float u = dot(rel, direction);
+    highp float perp = dot(rel, vec2(-direction.y, direction.x));
+
+    highp float fan = 1.0 + max(0.0, sprOffset - u) * 0.22;
+    highp float pf = perp / fan;
+
+    highp float bandW = 0.055;
+    highp float idx = floor(pf / bandW);
+    highp float bc = (idx + 0.5) * bandW;
+
+    if (abs(bc) > 0.31) { discard; }
+
+    highp float off = pf - bc + (hash(idx * 4.41 + seed * 1.7) - 0.5) * 0.012;
+
+    highp float r1 = hash(idx * 7.13 + seed);
+    highp float r2 = hash(idx * 3.71 + seed);
+    highp float r3 = hash(idx * 9.53 + seed);
+    highp float fade = 1.0 - progress;
+    highp float steppedFade = floor(fade * 4.0 + 0.999) / 4.0;
+    highp float flicker = 0.85 + 0.15 * hash(floor(progress * 8.0) + seed * 3.17);
+    highp float intensity = steppedFade * flicker;
+
+    highp float isCore = 1.0 - step(0.09, abs(bc));
+    highp float vis = max(isCore, step(0.25, r1));
+    highp float head = sprOffset - (0.02 + r1 * 0.12);
+    highp float tail = -(0.16 + r2 * 0.34) * fade;
+
+    highp float tip = clamp(min(head - u, u - tail) / 0.14, 0.0, 1.0);
+    highp float halfWidth = (0.014 + step(0.5, r3) * 0.012 + isCore * 0.014) * (0.35 + 0.65 * tip);
+    highp float stroke = step(tail, u) * step(u, head) * step(abs(off), halfWidth) * vis;
+    highp float strokeAlpha = (0.35 + 0.35 * r2 + isCore * 0.15) * (0.55 + 0.45 * tip);
+    highp float alpha = stroke * strokeAlpha * color.a * intensity;
+    if (alpha < 0.01) { discard; }
+
+    COLOR = vec4(color.rgb, alpha);
+}

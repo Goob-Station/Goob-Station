@@ -5,11 +5,11 @@ using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.CustomFactionIcons;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
+using Content.Goobstation.Shared.Projectiles;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Popups;
-using Content.Shared.Weapons.Reflect;
 using Robust.Shared.Audio;
 
 namespace Content.Goobstation.Shared.MartialArts;
@@ -75,11 +75,7 @@ public partial class SharedMartialArtsSystem
                 _faction.AddFaction(args.User, ent.Comp.FactionToAdd);
                 var userFactionIcons = EnsureComp<CustomFactionIconsComponent>(args.User);
                 userFactionIcons.FactionIcons.Add(ent.Comp.IconToAdd);
-                var userReflect = EnsureComp<ReflectComponent>(args.User);
-                userReflect.Examinable = false; // no doxxing scarp users by examining lmao
-                userReflect.ReflectProb = 1;
-                userReflect.Spread = 60;
-                Dirty(args.User, userReflect);
+                EnsureComp<AutoDodgeComponent>(args.User);
                 _popupSystem.PopupEntity(
                     Loc.GetString("carp-scroll-complete"),
                     ent,
