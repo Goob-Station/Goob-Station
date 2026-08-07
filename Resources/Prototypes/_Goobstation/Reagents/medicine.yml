@@ -662,7 +662,7 @@
             groups:
               Brute: 1
               Burn: 1
-          inverse: true
+          inverted: true
 
 # Low-effect meds
 - type: reagent
@@ -788,7 +788,7 @@
         - !type:HasComponentOnEquipmentCondition
           components:
           - type: PressureProtection # can't get through this to reach the bodyparts!
-          invert: true
+          inverted: true
   metabolisms:
     Medicine:
       metabolismRate: 3
@@ -850,14 +850,14 @@
         - !type:HasComponentOnEquipmentCondition
           components:
           - type: PressureProtection # can't get through this to reach the bodyparts!
-          invert: true
+          inverted: true
       - !type:ModifyBleed
         amount: -2
         conditions:
         - !type:HasComponentOnEquipmentCondition
           components:
           - type: PressureProtection
-          invert: true
+          inverted: true
   metabolisms:
     Medicine:
       metabolismRate: 3
@@ -907,14 +907,14 @@
         - !type:HasComponentOnEquipmentCondition
           components:
           - type: PressureProtection # can't get through this to reach the bodyparts! (copy pasted comment)
-          invert: true
+          inverted: true
       - !type:ModifyBleed
         amount: -2
         conditions:
         - !type:HasComponentOnEquipmentCondition
           components:
           - type: PressureProtection
-          invert: true
+          inverted: true
 
 - type: reagent
   id: Synthcells
@@ -945,7 +945,7 @@
         - !type:HasComponentOnEquipmentCondition
           components:
           - type: PressureProtection # can't get through this to reach the bodyparts!
-          invert: true
+          inverted: true
   metabolisms:
     Medicine:
       effects:
@@ -997,7 +997,7 @@
           damage:
             groups:
               Brute: 25
-          inverse: true
+          inverted: true
         - !type:ReagentCondition
           reagent: SalicylicAcid
           max: 25
@@ -1051,7 +1051,7 @@
           damage:
             groups:
               Burn: 25
-          inverse: true
+          inverted: true
         - !type:ReagentCondition
           reagent: Oxandrolone
           max: 25
