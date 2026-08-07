@@ -24,7 +24,7 @@ public sealed class BaseSwitchableOverlay<TComp> : Overlay where TComp : Switcha
 
     public bool RestrictToPlayerViewport { get; set; } = false;
 
-    private static readonly ProtoId<ShaderPrototype> Shader = "NightVision";
+    private readonly ProtoId<ShaderPrototype> Shader = "NightVision";
 
     public BaseSwitchableOverlay()
     {
