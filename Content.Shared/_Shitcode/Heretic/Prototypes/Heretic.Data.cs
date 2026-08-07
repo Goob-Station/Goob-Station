@@ -1,8 +1,16 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
+
 
 namespace Content.Shared.Heretic.Prototypes;
+
+[DataDefinition]
+public sealed partial class EventHereticAscension : EntityEventArgs;
+
+[DataDefinition]
+public sealed partial class EventHereticRerollTargets : EntityEventArgs;
 
 [DataDefinition]
 public sealed partial class EventHereticUpdateTargets : EntityEventArgs;

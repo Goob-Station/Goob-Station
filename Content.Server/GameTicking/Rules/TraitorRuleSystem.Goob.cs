@@ -2,7 +2,7 @@ using System.Text;
 using Content.Goobstation.Common.Traitor;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Server.Popups;
-using Microsoft.Extensions.Configuration;
+using Robust.Shared.Configuration;
 
 namespace Content.Server.GameTicking.Rules;
 

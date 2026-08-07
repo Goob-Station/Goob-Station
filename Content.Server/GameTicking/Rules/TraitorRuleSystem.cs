@@ -154,7 +154,7 @@ public sealed partial class TraitorRuleSystem : GameRuleSystem<TraitorRuleCompon
 
         // goob edit - clumsy antag no more
         var shouldRemoveClumsy = _cfg.GetCVar(GoobCVars.RemoveClumsyOnAntag);
-        if (TryComp<ClumsyComponent>(traitor, out var clumsy) && shouldRemoveClumsy)
+        if (TryComp(traitor, out ClumsyComponent? clumsy) && shouldRemoveClumsy)
         {
             // if not for the clown car i would've nuked it off the planet
             clumsy.ClumsyCatching = false;
