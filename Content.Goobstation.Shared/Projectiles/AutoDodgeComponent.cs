@@ -5,12 +5,24 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 namespace Content.Goobstation.Shared.Projectiles;
 
 /// <summary>
-/// Passively dodges incoming projectiles and hitscan shots instead of being hit by them,
+/// Passively dodges incoming attacks instead of being hit by them,
 /// playing a dodge animation on the entity's sprite.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class AutoDodgeComponent : Component
 {
+    /// <summary>
+    /// Whether ranged attacks (projectiles and hitscan) are dodged.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool DodgeRanged = true;
+
+    /// <summary>
+    /// Whether melee attacks are dodged.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool DodgeMelee = true;
+
     /// <summary>
     /// Sound played every time a shot is evaded.
     /// </summary>

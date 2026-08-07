@@ -75,7 +75,9 @@ public partial class SharedMartialArtsSystem
                 _faction.AddFaction(args.User, ent.Comp.FactionToAdd);
                 var userFactionIcons = EnsureComp<CustomFactionIconsComponent>(args.User);
                 userFactionIcons.FactionIcons.Add(ent.Comp.IconToAdd);
-                EnsureComp<AutoDodgeComponent>(args.User);
+                var dodge = EnsureComp<AutoDodgeComponent>(args.User);
+                dodge.DodgeMelee = false;
+                Dirty(args.User, dodge);
                 _popupSystem.PopupEntity(
                     Loc.GetString("carp-scroll-complete"),
                     ent,

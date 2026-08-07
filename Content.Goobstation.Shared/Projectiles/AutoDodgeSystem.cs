@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Projectiles;
@@ -25,6 +26,7 @@ public sealed class AutoDodgeSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly SharedTransformSystem _xform = default!;
 
     public override void Initialize()
     {
@@ -33,6 +35,7 @@ public sealed class AutoDodgeSystem : EntitySystem
         SubscribeLocalEvent<AutoDodgeComponent, PreventCollideEvent>(OnPreventCollide);
         SubscribeLocalEvent<AutoDodgeComponent, ProjectileReflectAttemptEvent>(OnProjectileReflect);
         SubscribeLocalEvent<AutoDodgeComponent, HitScanReflectAttemptEvent>(OnHitscanReflect);
+        SubscribeLocalEvent<AutoDodgeComponent, GettingAttackedAttemptEvent>(OnGettingAttacked);
     }
 
     /// <summary>
@@ -52,6 +55,7 @@ public sealed class AutoDodgeSystem : EntitySystem
     private void OnPreventCollide(Entity<AutoDodgeComponent> ent, ref PreventCollideEvent args)
     {
         if (args.Cancelled
+            || !ent.Comp.DodgeRanged
             || !args.OtherFixture.Hard
             || !HasComp<ProjectileComponent>(args.OtherEntity)
             || !CanDodge(ent))
@@ -64,7 +68,7 @@ public sealed class AutoDodgeSystem : EntitySystem
 
     private void OnProjectileReflect(Entity<AutoDodgeComponent> ent, ref ProjectileReflectAttemptEvent args)
     {
-        if (args.Cancelled || !CanDodge(ent))
+        if (args.Cancelled || !ent.Comp.DodgeRanged || !CanDodge(ent))
             return;
 
         args.Cancelled = true;
@@ -74,7 +78,7 @@ public sealed class AutoDodgeSystem : EntitySystem
 
     private void OnHitscanReflect(Entity<AutoDodgeComponent> ent, ref HitScanReflectAttemptEvent args)
     {
-        if (args.Reflected || !CanDodge(ent))
+        if (args.Reflected || !ent.Comp.DodgeRanged || !CanDodge(ent))
             return;
 
         args.Reflected = true;
@@ -82,11 +86,23 @@ public sealed class AutoDodgeSystem : EntitySystem
         DoDodgeEffects(ent, args.Direction, _random.Prob(0.5f));
     }
 
+    private void OnGettingAttacked(Entity<AutoDodgeComponent> ent, ref GettingAttackedAttemptEvent args)
+    {
+        if (args.Cancelled || !ent.Comp.DodgeMelee || args.Attacker == ent.Owner || !CanDodge(ent))
+            return;
+
+        args.Cancelled = true;
+
+        var direction = _xform.GetWorldPosition(ent) - _xform.GetWorldPosition(args.Attacker);
+        DoDodgeEffects(ent, direction, _random.Prob(0.5f));
+    }
+
     private void HandleProjectileDodge(Entity<AutoDodgeComponent> ent, EntityUid projectile)
     {
         if (TerminatingOrDeleted(projectile))
             return;
 
+        // I <3 goida
         if (TryComp<ProjectileComponent>(projectile, out var projComp))
         {
             var dirty = false;
