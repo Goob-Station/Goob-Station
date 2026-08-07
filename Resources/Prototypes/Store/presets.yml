@@ -22,8 +22,6 @@
     - Telecrystal
     balance:
       Telecrystal: 0
-    expectedFaction:
-    - Syndicate
 
 - type: entity
   id: StorePresetSpellbook
