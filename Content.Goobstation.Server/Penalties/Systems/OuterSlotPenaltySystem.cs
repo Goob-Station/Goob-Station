@@ -15,11 +15,12 @@ public sealed partial class OuterSlotPenaltySystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
-    [Dependency] private readonly ISawmill _sawmill = default!;
+    private ISawmill _sawmill = default!;
 
     public override void Initialize()
     {
         base.Initialize();
+        _sawmill = Logger.GetSawmill("outer_slot_penalty");
         SubscribeLocalEvent<Shared.Penalties.Components.OuterSlotPenaltyComponent, ClothingDidEquippedEvent>(OnEquip);
         SubscribeLocalEvent<Shared.Penalties.Components.OuterSlotPenaltyComponent, ClothingDidUnequippedEvent>(OnUnequip);
     }
