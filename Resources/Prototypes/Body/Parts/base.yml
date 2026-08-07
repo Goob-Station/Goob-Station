@@ -204,6 +204,7 @@
         Slash: 45
     traumaDeductions:
       Dismemberment: 0.5
+      OrganDamage: 1
   - type: WoundableVisuals
     thresholds: [ 10, 20, 30, 50, 70, 100 ]
     occupiedLayer: Head
