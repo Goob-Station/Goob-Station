@@ -75,6 +75,11 @@ public sealed partial class OrganComponent : Component, ISurgeryToolComponent //
     };
 
     /// <summary>
+    ///     Pre-sorted version of <see cref="IntegrityThresholds"/> in ascending order by value.
+    /// </summary>
+    public KeyValuePair<OrganSeverity, FixedPoint2>[]? SortedIntegrityThresholds;
+
+    /// <summary>
     ///     Shitmed Change: Shitcodey solution to not being able to know what name corresponds to each organ's slot ID
     ///     without referencing the prototype or hardcoding.
     /// </summary>
