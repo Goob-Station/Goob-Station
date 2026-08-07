@@ -19,6 +19,8 @@ public sealed class LaserPointerOverlay : Overlay
 
     private readonly ShaderInstance _unshadedShader;
 
+    private static readonly ProtoId<ShaderPrototype> Shader = "Unshaded";
+
     public LaserPointerOverlay(IEntityManager entManager, IPrototypeManager prototype)
     {
         ZIndex = (int) DrawDepth.Effects;
@@ -27,7 +29,7 @@ public sealed class LaserPointerOverlay : Overlay
 
         _transform = entManager.System<TransformSystem>();
 
-        _unshadedShader = prototype.Index<ShaderPrototype>("unshaded").Instance();
+        _unshadedShader = prototype.Index<ShaderPrototype>(Shader).Instance();
     }
 
     protected override void Draw(in OverlayDrawArgs args)

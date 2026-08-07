@@ -46,7 +46,7 @@ public sealed class PenSpinBoundUserInterface : BoundUserInterface
 
         if (disposing)
         {
-            _menu?.Dispose();
+            _menu?.RemoveAllChildren();
         }
     }
 }

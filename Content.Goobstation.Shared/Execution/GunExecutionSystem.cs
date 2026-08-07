@@ -1,18 +1,11 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.ActionBlocker;
 using Content.Shared.Chat;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
-using Content.Shared.IdentityManagement;
-using Content.Shared.Mobs.Components;
-using Content.Shared.Mobs.Systems;
-using Content.Shared.Popups;
 using Content.Shared.Verbs;
-using Content.Shared.Entry;
-using Content.Shared.Interaction.Events;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Weapons.Ranged.Events;
@@ -21,14 +14,11 @@ using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Projectiles;
 using Content.Shared.Execution;
 using Content.Shared.Camera;
-using Robust.Shared.Player;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using System.Diagnostics;
 using System.Linq;
-using System.Net.Http.Headers;
 using System.Numerics;
 
 namespace Content.Goobstation.Shared.Execution;
@@ -50,8 +40,9 @@ public sealed class SharedGunExecutionSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
     [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly SharedTransformSystem _xform = default!;
 
-    private const float GunExecutionTime = 4.0f;
+    private const float GunExecutionTime = 4.0f; // vro why is this here? move to comp?
 
     public override void Initialize()
     {
@@ -161,9 +152,7 @@ public sealed class SharedGunExecutionSystem : EntitySystem
 
         // Get the direction for the recoil
         Vector2 direction = Vector2.Zero;
-        var attackerXform = Transform(attacker);
-        var victimXform = Transform(victim);
-        var diff = victimXform.WorldPosition - attackerXform.WorldPosition;
+        var diff = _xform.GetWorldPosition(victim) - _xform.GetWorldPosition(attacker);
         if (diff != Vector2.Zero)
             direction = -diff.Normalized(); // recoil opposite of shot
 

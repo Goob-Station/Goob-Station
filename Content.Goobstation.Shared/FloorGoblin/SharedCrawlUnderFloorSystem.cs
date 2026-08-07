@@ -24,9 +24,6 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Doors.Components;
 using Content.Shared.Conveyor;
 using Robust.Shared.Physics.Events;
-using Robust.Shared.Physics;
-using Robust.Shared.Physics.Components;
-using Robust.Shared.Physics.Systems;
 
 namespace Content.Goobstation.Shared.FloorGoblin;
 

@@ -29,7 +29,7 @@ public sealed class MindcontrolSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
 
-    [ValidatePrototypeId<EntityPrototype>] static EntProtoId mindRole = "MindRoleBrainwashed";
+    private static readonly EntProtoId mindRole = "MindRoleBrainwashed";
 
     public override void Initialize()
     {

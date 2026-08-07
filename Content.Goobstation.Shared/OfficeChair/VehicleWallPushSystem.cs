@@ -5,15 +5,12 @@ using Content.Goobstation.Shared.Vehicles;
 using Content.Shared._EinsteinEngines.Contests;
 using Content.Shared.Actions;
 using Content.Shared.Buckle.Components;
-using Content.Shared.Item;
 using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
-using Robust.Shared.Network;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
-using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using System.Numerics;
 
@@ -28,8 +25,6 @@ public sealed partial class VehicleWallPushSystem : EntitySystem
     [Dependency] private readonly ContestsSystem _contests = default!;
     [Dependency] private readonly INetConfigurationManager _config = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
     {

@@ -29,13 +29,13 @@ public abstract class SharedAugmentPowerCellSystem : CommonAugmentPowerCellSyste
         if (!_drawQuery.TryComp(ent, out var draw))
             return;
 
-        UpdateDrawRate((ent, draw));
+        UpdateDrawRate((ent, draw)); // fuckin, this implies ent and the ent that has draw.comp is the same ent? v
 
         _powerCell.SetDrawEnabled(ent.Owner, args.Enabled);
         if (Augment.GetBody(ent) is not {} body)
             return;
 
-        if (args.Enabled && _powerCell.HasDrawCharge(ent.Owner, draw.Owner))
+        if (args.Enabled && _powerCell.HasDrawCharge(ent.Owner, ent)) // which means i can do this shit, might be bad. oh well. ^
         {
             var ev = new AugmentGainedPowerEvent(body);
             Augment.RelayEvent(body, ref ev);

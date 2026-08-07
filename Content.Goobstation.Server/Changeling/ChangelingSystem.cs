@@ -12,14 +12,11 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Server.Changeling.GameTicking.Rules;
 using Content.Goobstation.Server.Changeling.Objectives.Components;
 using Content.Goobstation.Shared.Changeling;
-using Content.Goobstation.Shared.Changeling.Actions;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.Changeling.Systems;
 using Content.Goobstation.Shared.Flashbang;
 using Content.Goobstation.Shared.GrabIntent;
-using Content.Goobstation.Shared.InternalResources.Data;
 using Content.Goobstation.Shared.InternalResources.EntitySystems;
-using Content.Goobstation.Shared.InternalResources.Events;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Server.Actions;
 using Content.Shared.Atmos.Components;
@@ -36,7 +33,6 @@ using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
 using Content.Server.Store.Systems;
 using Content.Server.Stunnable;
-using Content.Server.Zombies;
 using Content.Shared._Goobstation.Weapons.AmmoSelector;
 using Content.Shared.Actions;
 using Content.Shared.Alert;
@@ -56,17 +52,14 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
-using Content.Shared.Medical;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Polymorph;
 using Content.Shared.Projectiles;
-using Content.Shared.Rejuvenate;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -78,7 +71,6 @@ using Robust.Shared.Timing;
 using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Grab;
-using Content.Shared.Atmos.Components;
 using Content.Shared.Zombies;
 using Content.Server.Ensnaring;
 
@@ -98,7 +90,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly BloodstreamSystem _blood = default!;
@@ -106,7 +97,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly TransformSystem _xform = default!;
     [Dependency] private readonly EmpSystem _emp = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly PoweredLightSystem _light = default!;
@@ -271,16 +262,18 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        foreach (var comp in EntityManager.EntityQuery<ChangelingIdentityComponent>())
+        foreach (var comp in EntityManager.EntityQuery<TransformComponent, ChangelingIdentityComponent>())
         {
-            var uid = comp.Owner;
+            var xform = comp.Item1;
+            var identity = comp.Item2;
+            var uid = xform.ParentUid;
 
-            if (_timing.CurTime < comp.UpdateTimer)
+            if (_timing.CurTime < identity.UpdateTimer)
                 continue;
 
-            comp.UpdateTimer = _timing.CurTime + TimeSpan.FromSeconds(comp.UpdateCooldown);
+            identity.UpdateTimer = _timing.CurTime + TimeSpan.FromSeconds(identity.UpdateCooldown);
 
-            Cycle(uid, comp);
+            Cycle(uid, identity);
         }
     }
     public void Cycle(EntityUid uid, ChangelingIdentityComponent comp)
@@ -330,7 +323,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     {
         _audio.PlayPvs(comp.ShriekSound, uid);
 
-        var center = Transform(uid).MapPosition;
+        var center = _xform.GetMapCoordinates(uid);
         var gamers = Filter.Empty();
         gamers.AddInRange(center, comp.ShriekPower, _player, EntityManager);
 
@@ -339,7 +332,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             if (gamer.AttachedEntity == null)
                 continue;
 
-            var pos = Transform(gamer.AttachedEntity!.Value).WorldPosition;
+            var pos = _xform.GetWorldPosition(gamer.AttachedEntity.Value);
             var delta = center.Position - pos;
 
             if (delta.EqualsApprox(Vector2.Zero))
@@ -621,7 +614,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         {
             Comp<FingerprintComponent>(newEnt).Fingerprint = data.Fingerprint;
             Comp<DnaComponent>(newEnt).DNA = data.DNA;
-            _humanoid.CloneAppearance(data.Appearance.Owner, newEnt);
+            _humanoid.CloneAppearance(uid, newEnt);
             _metaData.SetEntityName(newEnt, data.Name);
             var message = Loc.GetString("changeling-transform-finish", ("target", data.Name));
             _popup.PopupEntity(message, newEnt, newEnt);

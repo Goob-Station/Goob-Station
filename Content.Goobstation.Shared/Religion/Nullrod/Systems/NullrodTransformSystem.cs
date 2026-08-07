@@ -8,6 +8,8 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Content.Goobstation.Common.Religion;
+using Robust.Shared.Prototypes;
+using YamlDotNet.Core.Tokens;
 
 namespace Content.Goobstation.Shared.Religion.Nullrod.Systems;
 
@@ -17,6 +19,7 @@ public sealed class NullrodTransformSystem : EntitySystem
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;
 
+    private static readonly ProtoId<TagPrototype> NullrodTag = "Nullrod";
 
     public override void Initialize()
     {
@@ -29,7 +32,7 @@ public sealed class NullrodTransformSystem : EntitySystem
         if (args.Handled
         || _netManager.IsClient
         || HasComp<StorageComponent>(args.Target) // If it's a storage component like a bag, we ignore usage so it can be stored.
-        || !_tagSystem.HasTag(args.Used, "Nullrod")) // Checks used entity for the tag we need.
+        || !_tagSystem.HasTag(args.Used, NullrodTag)) // Checks used entity for the tag we need.
         return;
 
         // *flaaavor*

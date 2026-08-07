@@ -8,11 +8,9 @@ using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Spreader;
-using Content.Shared.Atmos.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Coordinates.Helpers;
-using Content.Shared.EntityEffects.Effects;
 using Robust.Shared.Map;
 
 namespace Content.Goobstation.Server.Xenobiology.Systems;

@@ -14,6 +14,7 @@ namespace Content.Goobstation.Client.Bingle;
 public sealed class BingleSystem : EntitySystem
 {
     [Dependency] private readonly AppearanceSystem _appearance = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -39,8 +40,8 @@ public sealed class BingleSystem : EntitySystem
             return;
         if (!TryComp<CombatModeComponent>(uid, out var combat))
             return;
-        if (!sprite.LayerMapTryGet(BingleVisual.Combat, out var layer))
+        if (!_sprite.TryGetLayer((uid, sprite), BingleVisual.Combat, out var layer, true))
             return;
-        sprite.LayerSetVisible(layer, combat.IsInCombatMode);
+        _sprite.LayerSetVisible(layer, combat.IsInCombatMode);
     }
 }

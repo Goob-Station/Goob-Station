@@ -6,7 +6,6 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Trigger;
 using Robust.Shared.Network;
-using Robust.Shared.Random;
 
 namespace Content.Goobstation.Shared.Trigger;
 
@@ -15,7 +14,6 @@ public sealed class GoobTriggerSystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedEnsnareableSystem _snare = default!;
     [Dependency] private readonly EntityTableSystem _entityTable = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly INetManager _net = default!;
 
@@ -73,7 +71,7 @@ public sealed class GoobTriggerSystem : EntitySystem
             return;
 
         var xform = Transform(target.Value);
-        var spawns = _entityTable.GetSpawns(ent.Comp.Table, _random.GetRandom()).ToList();
+        var spawns = _entityTable.GetSpawns(ent.Comp.Table).ToList(); // This is dumb but if you pass none it does random anyway which means no warning here.
 
         if (ent.Comp.UseMapCoords)
         {

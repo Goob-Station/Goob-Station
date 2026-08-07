@@ -9,6 +9,7 @@ namespace Content.Goobstation.Client.Vehicles.Clowncar;
 public sealed class ClowncarSystem : SharedClowncarSystem
 {
     [Dependency] private readonly AnimationPlayerSystem _animationPlayer = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -23,10 +24,10 @@ public sealed class ClowncarSystem : SharedClowncarSystem
         if (args.Sprite == null || !AppearanceSystem.TryGetData<bool>(uid, ClowncarVisuals.FireModeEnabled, out var fireModeEnabled, args.Component))
             return;
 
-        if (!args.Sprite.LayerMapTryGet(ClowncarLayers.Base, out var baseLayerIdx))
+        if (!_sprite.LayerMapTryGet((uid, args.Sprite), ClowncarLayers.Base, out var baseLayerIdx, true))
             return;
 
-        var state = args.Sprite.LayerGetState(baseLayerIdx);
+        var state = _sprite.LayerGetRsiState((uid, args.Sprite), baseLayerIdx); // unused....
     }
 
     private void OnAnimationCompleted(EntityUid uid, ClowncarComponent component, AnimationCompletedEvent args)
@@ -34,7 +35,7 @@ public sealed class ClowncarSystem : SharedClowncarSystem
         if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
 
-        sprite.LayerSetAutoAnimated(ClowncarLayers.Base, true);
+        _sprite.LayerSetAutoAnimated((uid, sprite),ClowncarLayers.Base, false);
     }
 
     private void PlayAnimation(EntityUid uid, ClowncarLayers layer, string state, string finalState, float animationTime)

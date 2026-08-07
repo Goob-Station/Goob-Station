@@ -3,7 +3,6 @@
 // Assmos - Extinguisher Nozzle
 
 using Content.Shared.Chemistry.Components;
-using Content.Shared.DoAfter;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
@@ -14,7 +13,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
 
-namespace Content.Goobstation.Shared.Atmos.Systems;
+namespace Content.Goobstation.Shared.Atmos.EntitySystems;
 
 public sealed class FirefighterTankRefillableSystem : EntitySystem
 {
@@ -22,7 +21,6 @@ public sealed class FirefighterTankRefillableSystem : EntitySystem
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     public override void Initialize()

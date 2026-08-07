@@ -8,6 +8,9 @@ namespace Content.Goobstation.Client.Footprints;
 
 public sealed class FootprintSystem : EntitySystem
 {
+
+    [Dependency] private readonly SpriteSystem _sprite = default!;
+
     public override void Initialize()
     {
         SubscribeLocalEvent<FootprintComponent, ComponentStartup>(OnComponentStartup);
@@ -37,13 +40,13 @@ public sealed class FootprintSystem : EntitySystem
 
         for (var i = 0; i < footprint.Footprints.Count; i++)
         {
-            if (!sprite.LayerExists(i, false))
-                sprite.AddBlankLayer(i);
+            if (!_sprite.LayerExists((entity, sprite), i))
+                _sprite.AddBlankLayer((entity,sprite), i);
 
-            sprite.LayerSetOffset(i, footprint.Footprints[i].Offset);
-            sprite.LayerSetRotation(i, footprint.Footprints[i].Rotation);
-            sprite.LayerSetColor(i, footprint.Footprints[i].Color);
-            sprite.LayerSetSprite(i, new SpriteSpecifier.Rsi(new("/Textures/_CorvaxNext/Effects/footprint.rsi"), footprint.Footprints[i].State));
+            _sprite.LayerSetOffset((entity, sprite), i, footprint.Footprints[i].Offset);
+            _sprite.LayerSetRotation((entity, sprite), i, footprint.Footprints[i].Rotation);
+            _sprite.LayerSetColor((entity, sprite), i, footprint.Footprints[i].Color);
+            _sprite.LayerSetSprite((entity, sprite), i, new SpriteSpecifier.Rsi(new("/Textures/_CorvaxNext/Effects/footprint.rsi"), footprint.Footprints[i].State));
         }
     }
 }

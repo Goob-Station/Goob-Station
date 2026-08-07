@@ -2,7 +2,6 @@
 
 using Content.Goobstation.Common.Pirates;
 using Content.Goobstation.Shared.Pirates.Roles;
-using Content.Goobstation.Shared.Pirates.Roles;
 using Content.Server.Antag;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
@@ -15,7 +14,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.Pirates.GameTicking.Rules;
 
-public sealed partial class ActivePirateRuleSystem : GameRuleSystem<ActivePirateRuleComponent>
+public sealed class ActivePirateRuleSystem : GameRuleSystem<ActivePirateRuleComponent>
 {
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly RoleSystem _role = default!;

@@ -43,7 +43,7 @@ public sealed class PatronSupportUIController : UIController, IOnStateEntered<Lo
             return;
 
         _supportWindow.OnClose -= OnWindowClosed;
-        _supportWindow.Dispose();
+        _supportWindow.RemoveAllChildren();
         _supportWindow = null;
     }
 

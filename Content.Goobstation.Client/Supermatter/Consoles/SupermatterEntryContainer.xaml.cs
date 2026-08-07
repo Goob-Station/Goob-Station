@@ -4,6 +4,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Client.Atmos.EntitySystems;
 using Content.Client.Stylesheets;
+using Content.Client.Stylesheets.Palette;
 using Content.Goobstation.Shared.Supermatter.Components;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Prototypes;
@@ -60,9 +61,9 @@ public sealed partial class SupermatterEntryContainer : BoxContainer
         WasteBarLabel.FontOverride = monoFont;
         AbsorptionBarLabel.FontOverride = monoFont;
 
-        var red = StyleNano.DangerousRedFore;
-        var orange = StyleNano.ConcerningOrangeFore;
-        var green = StyleNano.GoodGreenFore;
+        var red = Color.FromHex("#BB3232"); // I don't know what the fuck replaced these directly nor why we are doing it this way here so im just hardcoding the hexes fuck this.
+        var orange = Color.FromHex("#A5762F"); // oBsOlEtE my fucking ass. who Cares! Its UI! if you're gonna remove it, remove it.
+        var green = Color.FromHex("#31843E");
         var turqoise = Color.FromHex("#009893");
 
         _engineDictionary = new Dictionary<string, EngineBarEntry>

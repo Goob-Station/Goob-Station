@@ -9,7 +9,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Client.UserInterface;
 
-public sealed class IconTag : IMarkupTag
+public sealed class IconTag : IMarkupTagHandler
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IEntitySystemManager _entitySystem = default!;

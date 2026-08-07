@@ -25,9 +25,9 @@ public sealed class ParalyzeOnCollideSystem : EntitySystem
             _whitelistSystem.IsValid(component.CollidableEntities, args.OtherEntity))
             return;
 
-        if (component.ParalyzeOther && args.OtherEntity != null)
+        if (component.ParalyzeOther && args.OtherEntity != EntityUid.Invalid)
             _stunSystem.TryUpdateParalyzeDuration(args.OtherEntity, component.ParalyzeTime);
-        if (component.ParalyzeSelf && uid != null)
+        if (component.ParalyzeSelf && uid != EntityUid.Invalid)
             _stunSystem.TryUpdateParalyzeDuration(uid, component.ParalyzeTime);
 
         if (component.RemoveAfterCollide)

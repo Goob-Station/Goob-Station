@@ -116,7 +116,7 @@ public abstract partial class SharedMartialArtsSystem
 
         var modifier = sneakAttack.TakedownSpeedModifier;
         _movementMod.TryUpdateMovementSpeedModDuration(target, MartsGenericSlow, TimeSpan.FromSeconds(slowdownTime), modifier, modifier);
-        _status.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(muteTime), true);
+        _status.TryUpdateStatusEffectDuration(target, "Muted", TimeSpan.FromSeconds(muteTime));
 
         _audio.PlayPvs(sneakAttack.AssassinateSoundUnarmed, target);
         ComboPopup(ent, target, sneakAttack.TakedownComboName);
@@ -223,11 +223,11 @@ public abstract partial class SharedMartialArtsSystem
         var time = proto.ParalyzeTime;
         if (_status.TryGetTime(target, "KnockedDown", out var knockdownStartEnd))
         {
-            var knockdownTime = knockdownStartEnd.Value.Item2 - _timing.CurTime;
+            var knockdownTime = knockdownStartEnd.Item2 - _timing.CurTime;
             if (knockdownTime > TimeSpan.Zero)
             {
                 if (time > knockdownTime)
-                    time = knockdownTime;
+                    time = knockdownTime.Value;
 
                 // We do not want to knockdown because it will stunlock the target
                 _stun.TryUpdateStunDuration(target, time);
@@ -281,10 +281,11 @@ public abstract partial class SharedMartialArtsSystem
 
     private void ResetDebuff(EntityUid uid)
     {
-        _status.TryAddStatusEffect<NinjutsuLossOfSurpriseComponent>(uid,
+        _status.TryUpdateStatusEffectDuration(uid,
             "LossOfSurprise",
-            TimeSpan.FromSeconds(5),
-            true);
+            out _,
+            TimeSpan.FromSeconds(5)
+            );
 
         _stealth.TryRevealNinja(uid);
     }

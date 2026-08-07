@@ -53,8 +53,8 @@ public abstract class SharedPoweredSealableClothingSystem : CommonPoweredSealabl
         // Control shouldn't use charge on unsealing
         if (controlComp.IsCurrentlySealed)
             return;
-
-        if (!_powerCellSystem.HasDrawCharge(entity.Owner, cellDrawComp.Owner) || !_powerCellSystem.HasActivatableCharge(entity.Owner, cellDrawComp.Owner))
+        var cellEnt = new Entity<PowerCellDrawComponent>(entity, cellDrawComp); // otherwise just pass entity.Owner cause we have resolves but like, why.
+        if (!_powerCellSystem.HasDrawCharge(entity.Owner, cellEnt) || !_powerCellSystem.HasActivatableCharge(entity.Owner, cellEnt))
         {
             _popupSystem.PopupClient(Loc.GetString(entity.Comp.NotPoweredPopup), entity, args.User);
             args.Cancel();

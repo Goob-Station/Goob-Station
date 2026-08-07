@@ -9,7 +9,7 @@ using Content.Shared.Maps;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.StatusIcon.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee;
@@ -149,7 +149,7 @@ public partial class SharedDiseaseSystem
             return;
 
         // migrate this to new status effects once flashes are
-        _status.TryAddStatusEffect<FlashedComponent>(args.Ent, _flash.FlashedKey.Id, ent.Comp.Duration * GetScale(args, ent.Comp), true);
+        _status.TryUpdateStatusEffectDuration(args.Ent, _flash.FlashedKey.Id, out _, ent.Comp.Duration * GetScale(args, ent.Comp));
         _movemod.TryUpdateMovementSpeedModDuration(args.Ent.Owner,  MovementModStatusSystem.FlashSlowdown, ent.Comp.Duration * GetScale(args, ent.Comp), ent.Comp.SlowTo, ent.Comp.SlowTo);
 
         if (ent.Comp.StunDuration != null)

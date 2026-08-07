@@ -30,6 +30,8 @@ using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
+using Content.Shared.Tools;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.ReverseBearTrap;
 
@@ -64,6 +66,9 @@ public sealed partial class ReverseBearTrapSystem : EntitySystem
         SubscribeLocalEvent<ReverseBearTrapComponent, WeldFinishedEvent>(OnWeldFinished);
         SubscribeLocalEvent<ReverseBearTrapComponent, BearTrapUnlockDoAfterEvent>(OnBearTrapUnlock);
     }
+
+    private static readonly ProtoId<ToolQualityPrototype> WeldingQuality = "Welding";
+    private static readonly ProtoId<TagPrototype> ReverseBearTrapKey = "ReverseBearTrapKey";
 
     private void OnEquipped(EntityUid uid, ReverseBearTrapComponent trap, GotEquippedEvent args)
     {
@@ -141,7 +146,7 @@ public sealed partial class ReverseBearTrapSystem : EntitySystem
                 {
                     DoContactInteraction = true,
                     Text = "Remove trap",
-                    Disabled = !activeItem.HasValue || !_toolSystem.HasQuality(activeItem.Value, "Welding"),
+                    Disabled = !activeItem.HasValue || !_toolSystem.HasQuality(activeItem.Value, WeldingQuality),
                     Act = () =>
                     {
                         var user = args.User;
@@ -156,14 +161,14 @@ public sealed partial class ReverseBearTrapSystem : EntitySystem
                         _popup.PopupClient(Loc.GetString("reverse-bear-trap-component-start-welding-by-other",
                             ("otherName", Identity.Name(user, EntityManager, target))), target, target, PopupType.Large);
 
-                        _toolSystem.UseTool(activeItem!.Value, args.User, uid, 5f, "Welding", new WeldFinishedEvent(), 3f);
+                        _toolSystem.UseTool(activeItem!.Value, args.User, uid, 5f, WeldingQuality, new WeldFinishedEvent(), 3f);
                     }
                 });
             }
 
             if (activeItem.HasValue
                 && TryComp<TagComponent>(activeItem, out var tagComponent)
-                && _tag.HasTag(tagComponent, "ReverseBearTrapKey"))
+                && _tag.HasTag(tagComponent, ReverseBearTrapKey))
             {
                 args.Verbs.Add(new Verb()
                 {

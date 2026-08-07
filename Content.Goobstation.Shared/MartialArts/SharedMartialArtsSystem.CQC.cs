@@ -10,18 +10,17 @@ using Content.Shared._Shitmed.Medical.Surgery.Traumas;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Targeting;
-using Content.Shared.Bed.Sleep;
 using Content.Shared.Body.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Interaction.Events;
-using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Standing;
 using Content.Shared.Stunnable;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.MartialArts;
@@ -41,6 +40,8 @@ public partial class SharedMartialArtsSystem
         SubscribeLocalEvent<GrantCqcComponent, UseInHandEvent>(OnGrantCQCUse);
         SubscribeLocalEvent<GrantCqcComponent, MapInitEvent>(OnMapInitEvent);
     }
+
+    private static readonly ProtoId<DamageTypePrototype> Blunt = "Blunt";
 
     #region Generic Methods
 
@@ -126,7 +127,7 @@ public partial class SharedMartialArtsSystem
                 {
                     _pulling.TryStopPull(args.Target, pullable);
 
-                    var blunt = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Blunt"), damageToKill.Value);
+                    var blunt = new DamageSpecifier(_proto.Index(Blunt), damageToKill.Value);
                     _damageable.TryChangeDamage(args.Target, blunt, true, targetPart: TargetBodyPart.Chest);
 
                     var (partType, symmetry) = _body.ConvertTargetBodyPart(targeting.Target);
@@ -196,7 +197,7 @@ public partial class SharedMartialArtsSystem
         if (downed)
         {
             if (TryComp<StaminaComponent>(target, out var stamina) && stamina.Critical)
-                _newStatus.TryAddStatusEffectDuration(target, "StatusEffectForcedSleeping", out _, TimeSpan.FromSeconds(10));
+                _status.TryUpdateStatusEffectDuration(target, "StatusEffectForcedSleeping", out _, TimeSpan.FromSeconds(10));
             DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _, TargetBodyPart.Head);
             _stamina.TakeStaminaDamage(target, proto.StaminaDamage * 2 + 5, source: ent);
         }

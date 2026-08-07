@@ -11,12 +11,12 @@ using Content.Shared.Whitelist;
 using Content.Shared.DoAfter;
 using Content.Shared.Jittering;
 using Content.Shared.Gibbing.Events;
-using Content.Shared.StatusEffect;
-using Content.Shared.Mobs.Components;// TODO: change to StatusEffectNew when jittering would be migrated
+using Content.Shared.StatusEffectNew;
+using Content.Shared.Mobs.Components;
 
 namespace Content.Goobstation.Server.Xenobiology;
 
-public sealed partial class EatCorpseSystem : EntitySystem
+public sealed  class EatCorpseSystem : EntitySystem
 {
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;

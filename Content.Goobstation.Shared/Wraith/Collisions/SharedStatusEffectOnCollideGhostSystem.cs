@@ -1,4 +1,4 @@
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.Whitelist;
 using Robust.Shared.Physics.Events;
 
@@ -22,12 +22,12 @@ public abstract class SharedStatusEffectOnCollideGhostSystem : EntitySystem
             && !_entityWhitelist.IsValid(whitelist, args.OtherEntity))
             return;
 
-        _statusEffectsSystem.TryAddStatusEffect(
+        _statusEffectsSystem.TryUpdateStatusEffectDuration(
             args.OtherEntity,
-            ent.Comp.StatusEffect,
-            ent.Comp.Duration,
-            ent.Comp.Refresh,
-            ent.Comp.Component);
+            "Corporeal",
+            out _,
+            ent.Comp.Duration
+            );
 
         var ev = new StatusEffectOnCollideEvent(ent.Comp.Duration);
         RaiseLocalEvent(args.OtherEntity, ref ev);

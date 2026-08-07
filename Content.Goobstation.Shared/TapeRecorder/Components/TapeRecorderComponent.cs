@@ -1,11 +1,12 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.TapeRecorder.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Goobstation.Shared.TapeRecorder;
+namespace Content.Goobstation.Shared.TapeRecorder.Components;
 
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedTapeRecorderSystem))]
 [AutoGenerateComponentState, AutoGenerateComponentPause]

@@ -453,7 +453,7 @@ public enum BufferHealthState
     Overflow
 }
 
-public class PlaybackDecision
+public sealed class PlaybackDecision
 {
     public int PacketsToConsume { get; set; }
     public float TimeStretchRatio { get; set; }
@@ -461,7 +461,7 @@ public class PlaybackDecision
     public bool UseInterpolation { get; set; }
 }
 
-public class NetworkConditionMonitor
+public sealed class NetworkConditionMonitor
 {
     private readonly Queue<TimeSpan> _packetIntervals = new();
     private readonly int _maxSamples = 50;
@@ -537,7 +537,7 @@ public class NetworkConditionMonitor
     public TimeSpan Jitter => _jitter;
 }
 
-public class AdaptiveBufferThresholds
+public sealed class AdaptiveBufferThresholds
 {
     private int _targetBufferSize = 20;
     private readonly NetworkConditionMonitor _networkMonitor;
@@ -569,7 +569,7 @@ public class AdaptiveBufferThresholds
     }
 }
 
-public class AdaptivePlaybackEngine
+public sealed class AdaptivePlaybackEngine
 {
     private BufferHealthState _currentState = BufferHealthState.Optimal;
     private readonly AdaptiveBufferThresholds _thresholds;

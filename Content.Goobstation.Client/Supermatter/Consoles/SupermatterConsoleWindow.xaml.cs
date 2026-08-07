@@ -29,7 +29,6 @@ public sealed partial class SupermatterConsoleWindow : FancyWindow
     private NetEntity? _trackedEntity;
 
     private SupermatterConsoleEntry[]? _supermatters = null;
-    private IEnumerable<SupermatterConsoleEntry>? _activeAlerts = null;
 
     public event Action<NetEntity?>? SendFocusChangeMessageAction;
 
@@ -42,8 +41,8 @@ public sealed partial class SupermatterConsoleWindow : FancyWindow
     private Color _monitorBlipColor = Color.Cyan;
     private Color _untrackedEntColor = Color.DimGray;
     private Color _regionBaseColor = new Color(154, 154, 154);
-    private Color _inactiveColor = StyleNano.DisabledFore;
-    private Color _statusTextColor = StyleNano.GoodGreenFore;
+    private Color _inactiveColor = Color.FromHex("#5A5A5A"); // Fuck you and your fuckass style sheets
+    private Color _statusTextColor = Color.FromHex("#31843E");
     private Color _goodColor = Color.LimeGreen;
     private Color _warningColor = new Color(255, 182, 72);
     private Color _dangerColor = new Color(255, 67, 67);
@@ -209,7 +208,7 @@ public sealed partial class SupermatterConsoleWindow : FancyWindow
             return false;
 
         var container = scroll.Children.ElementAt(0) as BoxContainer;
-        if (container == null 
+        if (container == null
             || container.Children.Count() == 0)
             return false;
 
@@ -221,7 +220,7 @@ public sealed partial class SupermatterConsoleWindow : FancyWindow
 
         foreach (var control in container.Children)
         {
-            if (control == null 
+            if (control == null
                 || control is not SupermatterEntryContainer)
                 continue;
 

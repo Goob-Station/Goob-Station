@@ -7,7 +7,6 @@ using Content.Shared.Power.EntitySystems;
 using Content.Shared.Stacks;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Goobstation.Shared.SlotMachine.CoinFlipper;
@@ -54,9 +53,10 @@ public sealed class CoinFlipperMachineSystem : EntitySystem
              BreakOnDamage = false,
              MultiplyDelay = false,
          };
-        comp.PrizeAmount = _stackSystem.GetCount(stack.Owner);
-        _stackSystem.SetCount(stack.Owner, 0, stack);
-        Dirty(stack.Owner, stack);
+
+        comp.PrizeAmount = _stackSystem.GetCount(slot.Item.Value);
+        _stackSystem.SetCount(new Entity<StackComponent?>(slot.Item.Value, stack), 0);
+        Dirty(slot.Item.Value, stack);
         comp.IsSpinning = true;
 
         if (_net.IsServer)
@@ -95,7 +95,7 @@ public sealed class CoinFlipperMachineSystem : EntitySystem
                 if (TryComp<StackComponent>(newStack, out var newStackComp))
                 {
                     comp.PrizeAmount *= 2;
-                    _stackSystem.SetCount(newStack, comp.PrizeAmount, newStackComp);
+                    _stackSystem.SetCount(new Entity<StackComponent?>(newStack, newStackComp), comp.PrizeAmount);
                     Dirty(newStack, newStackComp);
                 }
 

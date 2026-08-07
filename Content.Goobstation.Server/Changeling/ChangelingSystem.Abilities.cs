@@ -1,10 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Common.Atmos;
-using Content.Goobstation.Common.Body.Components;
 using Content.Goobstation.Common.Changeling;
-using Content.Goobstation.Common.Temperature.Components;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Server.Changeling.Objectives.Components;
 using Content.Goobstation.Shared.Changeling.Actions;
@@ -12,42 +9,34 @@ using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.SpecialPassives.BoostedImmunity.Components;
 using Content.Goobstation.Shared.SpecialPassives.Fleshmend.Components;
 using Content.Goobstation.Shared.SpecialPassives.SuperAdrenaline.Components;
-using Content.Server.Light.Components;
-using Content.Server.Nutrition.Components;
 using Content.Shared._Goobstation.Weapons.AmmoSelector;
 using Content.Shared._Starlight.CollectiveMind;
-using Content.Shared._Shitmed.Targeting; // Shitmed Change
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.DoAfter;
-using Content.Shared.Ensnaring;
 using Content.Shared.Ensnaring.Components;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
-using Content.Shared.Mobs;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Popups;
-using Content.Shared.Rejuvenate;
-using Content.Shared.Stealth.Components;
 using Content.Shared.Store.Components;
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.Traits.Assorted;
-using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared.Actions.Components;
 using Content.Shared.Tools.Components;
 using Content.Shared.Tools.Systems;
-using Content.Goobstation.Shared.Devour.Events;
 using Content.Shared.Nutrition.Components;
 using Content.Goobstation.Shared.InternalResources.Components;
 using Content.Shared.Light.Components;
+using Content.Shared.StatusEffectNew.Components;
 
 namespace Content.Goobstation.Server.Changeling;
 
@@ -517,7 +506,7 @@ public sealed partial class ChangelingSystem
 
         DoScreech(uid, comp);
 
-        var pos = _transform.GetMapCoordinates(uid);
+        var pos = _xform.GetMapCoordinates(uid);
         var power = comp.ShriekPower;
         _emp.EmpPulse(pos, power, 5000f,  TimeSpan.FromSeconds(power * 2));
 
@@ -723,7 +712,7 @@ public sealed partial class ChangelingSystem
         // Goobstation start unwelds containers containing changelling.
         var parent = Transform(uid).ParentUid;
 
-        if (parent != null && TryComp<WeldableComponent>(parent, out var weldable))
+        if (parent != EntityUid.Invalid && TryComp<WeldableComponent>(parent, out var weldable))
         {
             if (weldable.IsWelded)
             {
@@ -743,14 +732,14 @@ public sealed partial class ChangelingSystem
                 _puddle.TrySplashSpillAt(puller.Value, Transform((EntityUid) puller).Coordinates, soln, out _);
                 _stun.KnockdownOrStun(puller.Value, TimeSpan.FromSeconds(1.5), true);
 
-                if (!TryComp(puller.Value, out StatusEffectsComponent? status))
+                if (!TryComp(puller.Value, out StatusEffectContainerComponent? status))
                     return;
 
-                _statusEffects.TryAddStatusEffect<TemporaryBlindnessComponent>(puller.Value,
+                _statusEffects.TryUpdateStatusEffectDuration(puller.Value,
                     "TemporaryBlindness",
-                    TimeSpan.FromSeconds(2f),
-                    true,
-                    status);
+                    out _ ,
+                    TimeSpan.FromSeconds(2f)
+                    );
                 return;
             }
         }

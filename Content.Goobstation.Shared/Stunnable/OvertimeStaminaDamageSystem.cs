@@ -6,7 +6,7 @@ using Robust.Shared.Network;
 
 namespace Content.Goobstation.Shared.Stunnable;
 
-public sealed partial class OvertimeStaminaDamageSystem : EntitySystem
+public sealed class OvertimeStaminaDamageSystem : EntitySystem
 {
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly INetManager _net = default!;
@@ -35,13 +35,15 @@ public sealed partial class OvertimeStaminaDamageSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        foreach (var overtime in EntityQuery<OvertimeStaminaDamageComponent>())
+        foreach (var ents in EntityQuery<TransformComponent, OvertimeStaminaDamageComponent>())
         {
+            var xform = ents.Item1;
+            var overtime = ents.Item2;
             overtime.Timer -= frameTime;
 
             if (overtime.Timer <= 0)
             {
-                Update((overtime.Owner, overtime));
+                Update((xform.ParentUid, overtime));
                 overtime.Timer = overtime.Delay;
             }
         }

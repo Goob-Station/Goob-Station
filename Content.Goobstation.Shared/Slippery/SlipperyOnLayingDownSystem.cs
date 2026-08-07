@@ -13,8 +13,6 @@ namespace Content.Goobstation.Shared.Slippery;
 
 public sealed class SlipperyOnLayingDownSystem : EntitySystem
 {
-
-    [Dependency] private readonly StandingStateSystem _standing = default!;
     public override void Initialize()
     {
         base.Initialize();

@@ -11,7 +11,6 @@ namespace Content.Goobstation.Shared.Enchanting.Systems;
 /// </summary>
 public sealed class BudgetInsulatedEnchantSystem : EntitySystem
 {
-    [Dependency] private readonly EnchantingSystem _enchanting = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
     public override void Initialize()

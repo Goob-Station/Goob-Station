@@ -8,7 +8,6 @@ using Content.Goobstation.Shared.GrabIntent;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.Sprinting;
 using Content.Goobstation.Shared.Stealth;
-using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._White.BackStab;
@@ -34,14 +33,12 @@ using Content.Shared.NPC.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Speech;
 using Content.Shared.Standing;
-using Content.Shared.StatusEffect;
 using Content.Shared.StatusEffectNew;
 using Content.Shared.StatusEffectNew.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Events;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
@@ -60,8 +57,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
-    [Dependency] private readonly Content.Shared.StatusEffect.StatusEffectsSystem _status = default!;
-    [Dependency] private readonly Content.Shared.StatusEffectNew.StatusEffectsSystem _newStatus = default!;
+    [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly GrabIntentSystem _grab = default!;
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
@@ -202,7 +198,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             return;
 
         var dragonQuery =
-            EntityQueryEnumerator<DragonKungFuTimerComponent, StatusEffectsComponent, MobStateComponent, PhysicsComponent>();
+            EntityQueryEnumerator<DragonKungFuTimerComponent, StatusEffectContainerComponent, MobStateComponent, PhysicsComponent>();
         while (dragonQuery.MoveNext(out var uid, out var timer, out var status, out var mobState, out var physics))
         {
             if (mobState.CurrentState != MobState.Alive)
@@ -218,11 +214,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
                 || _timing.CurTime < timer.LastMoveTime + timer.PauseDuration)
                 continue;
 
-            _status.TryAddStatusEffect<DragonPowerBuffComponent>(uid,
-                "DragonPower",
-                timer.BuffLength,
-                true,
-                status);
+            _status.TryUpdateStatusEffectDuration(uid, "DragonPower", out _, timer. BuffLength);
 
             // So that it doesn't update constantly
             timer.LastMoveTime = _timing.CurTime;
@@ -233,7 +225,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
 
     private void OnBeforeStatusStamina(Entity<StatusEffectContainerComponent> ent, ref BeforeStaminaDamageEvent args)
     {
-        if (!_newStatus.TryEffectsWithComp<StaminaResistanceModifierStatusEffectComponent>(ent, out var effects))
+        if (!_status.TryEffectsWithComp<StaminaResistanceModifierStatusEffectComponent>(ent, out var effects))
             return;
 
         foreach (var effect in effects)

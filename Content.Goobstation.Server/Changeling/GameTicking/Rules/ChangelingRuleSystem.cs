@@ -29,17 +29,17 @@ public sealed class ChangelingRuleSystem : GameRuleSystem<ChangelingRuleComponen
 
     public readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/_Goobstation/Ambience/Antag/changeling_start.ogg");
 
-    public readonly ProtoId<AntagPrototype> ChangelingPrototypeId = "Changeling";
+    // public static readonly ProtoId<AntagPrototype> ChangelingPrototypeId = "Changeling"; // unused
 
-    public readonly ProtoId<NpcFactionPrototype> ChangelingFactionId = "Changeling";
+    public static readonly ProtoId<NpcFactionPrototype> ChangelingFactionId = "Changeling";
 
-    public readonly ProtoId<NpcFactionPrototype> NanotrasenFactionId = "NanoTrasen";
+    public static readonly ProtoId<NpcFactionPrototype> NanotrasenFactionId = "NanoTrasen";
 
-    public readonly ProtoId<CurrencyPrototype> Currency = "EvolutionPoint";
+    public static readonly ProtoId<CurrencyPrototype> Currency = "EvolutionPoint";
 
-    public readonly int StartingCurrency = 12;
+    public const int StartingCurrency = 12;
 
-    [ValidatePrototypeId<EntityPrototype>] EntProtoId mindRole = "MindRoleChangeling";
+    private static readonly EntProtoId mindRole = "MindRoleChangeling";
 
     public override void Initialize()
     {
@@ -101,12 +101,14 @@ public sealed class ChangelingRuleSystem : GameRuleSystem<ChangelingRuleComponen
         var mostAbsorbed = 0f;
         var mostStolen = 0f;
 
-        foreach (var ling in EntityQuery<ChangelingIdentityComponent>()) // TODO make a ChangelingAbsorbComponent to store data about absorbed DNA and entities
+        foreach (var ents in EntityQuery<TransformComponent, ChangelingIdentityComponent>()) // TODO make a ChangelingAbsorbComponent to store data about absorbed DNA and entities
         {
-            if (!_mind.TryGetMind(ling.Owner, out var mindId, out var mind))
+            var xform = ents.Item1;
+            var ling = ents.Item2;
+            if (!_mind.TryGetMind(xform.ParentUid, out var mindId, out var mind))
                 continue;
 
-            if (!TryComp<MetaDataComponent>(ling.Owner, out var metaData))
+            if (!TryComp<MetaDataComponent>(xform.ParentUid, out var metaData)) // sidenote what the fuck???
                 continue;
 
             if (ling.TotalAbsorbedEntities > mostAbsorbed)

@@ -25,7 +25,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.Changeling.Systems;
 
-public abstract partial class SharedChangelingStasisSystem : EntitySystem
+public abstract class SharedChangelingStasisSystem : EntitySystem
 {
     [Dependency] private readonly DamageableSystem _dmg = default!;
     [Dependency] private readonly MobThresholdSystem _mob = default!;

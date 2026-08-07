@@ -13,10 +13,10 @@ using Content.Shared.Drunk;
 using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
-using Content.Shared.StatusEffect;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using System.Linq;
+using Content.Shared.StatusEffectNew.Components;
 
 namespace Content.Goobstation.Shared.SpecialPassives.BoostedImmunity;
 
@@ -29,11 +29,11 @@ public abstract class SharedBoostedImmunitySystem : EntitySystem
     [Dependency] private readonly DamageableSystem _dmg = default!;
     [Dependency] private readonly SharedBloodstreamSystem _bloodSys = default!;
     [Dependency] private readonly SharedDrunkSystem _drunkSys = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private readonly Content.Shared.StatusEffectNew.StatusEffectsSystem _status = default!;
 
     private EntityQuery<DamageableComponent> _damageableQuery;
     private EntityQuery<MobStateComponent> _mobStateQuery;
-    private EntityQuery<StatusEffectsComponent> _statusQuery;
+    private EntityQuery<StatusEffectContainerComponent> _statusQuery;
 
     public override void Initialize()
     {
@@ -41,7 +41,7 @@ public abstract class SharedBoostedImmunitySystem : EntitySystem
 
         _damageableQuery = GetEntityQuery<DamageableComponent>();
         _mobStateQuery = GetEntityQuery<MobStateComponent>();
-        _statusQuery = GetEntityQuery<StatusEffectsComponent>();
+        _statusQuery = GetEntityQuery<StatusEffectContainerComponent>();
 
         SubscribeLocalEvent<BoostedImmunityComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<BoostedImmunityComponent, ComponentRemove>(OnRemoved);
@@ -107,13 +107,14 @@ public abstract class SharedBoostedImmunitySystem : EntitySystem
             || !TryValidMobstateCheck(ent))
             return;
 
-        if (_statusQuery.TryComp(ent, out var status))
+        if (_statusQuery.HasComp(ent))
+
         {
             if (ent.Comp.ApplySober)
-                SoberEntity(ent, status);
+                SoberEntity(ent);
 
             if (ent.Comp.RemovePacifism)
-                RemovePacifism(ent, status);
+                RemovePacifism(ent);
         }
 
         if (ent.Comp.CleanseChemicals)
@@ -172,19 +173,19 @@ public abstract class SharedBoostedImmunitySystem : EntitySystem
         if (!_statusQuery.TryComp(ent, out var status))
             return;
 
-        _status.TryRemoveStatusEffect(ent, "TemporaryBlindness", status);
-        _status.TryRemoveStatusEffect(ent, "BlurryVision", status);
+        _status.TryRemoveStatusEffect(ent, "TemporaryBlindness");
+        _status.TryRemoveStatusEffect(ent, "BlurryVision");
     }
 
-    private void SoberEntity(Entity<BoostedImmunityComponent> ent, StatusEffectsComponent status)
+    private void SoberEntity(Entity<BoostedImmunityComponent> ent)
     {
         _drunkSys.TryRemoveDrunkenness(ent);
-        _status.TryRemoveStatusEffect(ent, "SeeingRainbows", status);
+        _status.TryRemoveStatusEffect(ent, "SeeingRainbows");
     }
 
-    private void RemovePacifism(Entity<BoostedImmunityComponent> ent, StatusEffectsComponent status)
+    private void RemovePacifism(Entity<BoostedImmunityComponent> ent)
     {
-        _status.TryRemoveStatusEffect(ent, "Pacified", status);
+        _status.TryRemoveStatusEffect(ent, "Pacified");
         RemComp<PacifiedComponent>(ent); // might not be tied to a status effect
     }
 
