@@ -1,0 +1,35 @@
+- type: listing
+  id: UplinkSlayerCoat
+  name: uplink-slayer-coat-name
+  description: uplink-slayer-coat-desc
+  productEntity: ClothingNeckSlayerCoat
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkWearables
+  conditions:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+
+- type: listing
+  id: UplinkBombCollarKit
+  name: uplink-bomb-collar-name
+  description: uplink-bomb-collar-desc
+  productEntity: BombCollarKit
+  icon: { sprite: _Trauma/Clothing/Neck/bombcollar.rsi, state: icon }
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: UplinkChameleonArmor
+  name: uplink-chameleon-armor-name
+  description: uplink-chameleon-armor-desc
+  productEntity: ClothingOuterChameleonArmor
+  cost:
+    Telecrystal: 25
+  categories:
+  - UplinkWearables

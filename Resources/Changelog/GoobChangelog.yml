@@ -24234,3 +24234,115 @@ Entries:
         though, pain is still disabled.
   id: 2785
   time: '2026-08-06T01:42:10.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Fix
+      message: IPC can be deconverted by chaplain censer
+  id: 2786
+  time: '2026-08-06T14:48:39.0000000+00:00'
+- author: TechnicFighter
+  changes:
+    - type: Add
+      message: Added the Cybersun Configurator, you can buy it for 10 TC.
+    - type: Add
+      message: Added a Free Bananium Sword to the Clown's Uplink.
+    - type: Add
+      message: Added the Real Bananium Energy Sword, you can buy it for 50 TC.
+    - type: Add
+      message: Added the Syndicate Behonker, you can buy it for 100 TC.
+    - type: Add
+      message: Added the Bomb Collar Kit, you can buy it for 20 TC.
+    - type: Add
+      message: Added the Syndicate Shuttle Crate, you can buy it for 10 TC.
+    - type: Add
+      message: Added the Syndicate Shuttle Console Board, you can buy it for 10 TC.
+    - type: Add
+      message: Added the Syndicate IFF Console Board, you can buy it for 15 TC.
+    - type: Add
+      message: Added the Syndicate Kudzu Greande, you can buy it for 15 TC.
+    - type: Add
+      message: Added the S.L.A.Y.E.R Overcoat, you can buy it for 20 TC.
+    - type: Add
+      message: Added the Syndicate Door Remote, you can buy it for 15 TC.
+    - type: Add
+      message: Added the Sticky Explosive Grenade, you can buy it for 15 TC.
+    - type: Add
+      message: Added the Chemical Utility Knife, you can buy it for 10 TC.
+    - type: Add
+      message: Added the Gorlex Surgical Omnitool, you can buy it for 30 TC.
+    - type: Add
+      message: Added the Appraisal Tool Radio Jammer, you can buy it for 20 TC.
+    - type: Add
+      message: Added the Silent Shoes, you can buy them for 10 TC.
+    - type: Add
+      message: Added the Mute Toxin Auto Injector, you can buy it for 10 TC.
+    - type: Add
+      message: Added the Stealthy Miama Peel, you can buy it for 5 TC.
+    - type: Add
+      message: >-
+        Added the Network Configurator Signaler, you can find it by emagging a
+        Vendomat.
+    - type: Add
+      message: >-
+        Added the Hidden Storage Warning Cone, you can find it by emagging an
+        Engi-Vend.
+    - type: Add
+      message: >-
+        Added Magic and Holo dehydrated carp variants, you can buy them both for
+        7 TC each.
+    - type: Add
+      message: Added the Nukie Mouse, you can buy it for 15 TC.
+    - type: Add
+      message: Added the Nukie Carp, you can buy it for 30 TC.
+    - type: Add
+      message: Added the Nukie Spider, you can buy it for 50 TC.
+    - type: Add
+      message: Added the Saboteur Borg, you can buy it for 300 TC.
+    - type: Add
+      message: Added the Medical Borg, you can buy it for 300 TC.
+    - type: Add
+      message: >-
+        Added Tranquiliser and Poison mags for the Cobra, you can buy them for
+        20 TC and 25 TC respectively.
+    - type: Add
+      message: Added the Observation Kit, you can buy it for 20 TC.
+    - type: Add
+      message: Added the Handheld Records Tablet, you can buy it for 2 TC.
+    - type: Add
+      message: Added the Shrapnel Foam Grenade, you can buy it for 12 TC.
+    - type: Add
+      message: Added the Appraisal Tool Gun, you can buy it for 20 TC.
+    - type: Add
+      message: Added the Sharp Foam Cutlass, you can buy it for 20 TC.
+    - type: Add
+      message: Added the Chameleon Armored Vest, you can buy it for 25 TC.
+    - type: Add
+      message: Added 8 new Syndicate Cyborg Modules. These also include new items.
+    - type: Tweak
+      message: Tweaked Syndicate Cyborg Chassis, 7 max modules, instead of 3.
+    - type: Tweak
+      message: Tweaked the starting modules of ALL Syndicate Cyborgs.
+    - type: Tweak
+      message: The Radio Jammer no longer jams the syndicate frequency.
+  id: 2787
+  time: '2026-08-08T13:04:07.0000000+00:00'
+- author: thefirstLtaker
+  changes:
+    - type: Fix
+      message: NZ CSG-242 explosive slug ammo now properly explodes!
+  id: 2788
+  time: '2026-08-08T13:57:25.0000000+00:00'
+- author: BeeRobynn
+  changes:
+    - type: Tweak
+      message: Buffs Cryoxadone to heal 3x the damage it did (3 -> 9)
+  id: 2789
+  time: '2026-08-08T14:06:39.0000000+00:00'
+- author: shoebill
+  changes:
+    - type: Fix
+      message: >-
+        Fixed certain reagents (eldritch essence, mugwort tea, anti-entropy)
+        turning against their own kind.
+  id: 2790
+  time: '2026-08-08T16:50:28.0000000+00:00'
