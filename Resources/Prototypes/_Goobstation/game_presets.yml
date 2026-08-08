@@ -163,6 +163,7 @@
   showInVote: true
   rules:
     - SecretPlusLow
+    - MeteorSwarmMildScheduler
 
 - type: gamePreset
   id: SecretPlusMid
@@ -175,6 +176,7 @@
   showInVote: true
   rules:
     - SecretPlusMid
+    - MeteorSwarmScheduler
 
 - type: gamePreset
   id: SecretPlusAdmeme
@@ -188,6 +190,7 @@
   showInVote: false # 1984
   rules:
     - SecretPlusAdmeme
+    - MeteorSwarmScheduler
 
 - type: gamePreset
   id: SurvivalPlusMid
@@ -200,6 +203,7 @@
   showInVote: true
   rules:
     - SecretPlusRampingMid
+    - MeteorSwarmScheduler
 
 - type: gamePreset
   id: Xenomorphs
@@ -243,3 +247,4 @@
   maxPlayers: 40
   rules:
     - SecretPlusLowpop
+    - MeteorSwarmMildScheduler
