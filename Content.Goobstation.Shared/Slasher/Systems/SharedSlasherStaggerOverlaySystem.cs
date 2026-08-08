@@ -4,9 +4,9 @@ using Robust.Shared.Timing;
 namespace Content.Goobstation.Shared.Slasher.Systems;
 
 /// <summary>
-/// Handles the lifetime of the overlay.
+/// Handles the lifetime of the stagger area component.
 /// </summary>
-public sealed class SharedSlasherRegenerateOverlaySystem : EntitySystem
+public sealed class SharedSlasherStaggerOverlaySystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
 
@@ -14,10 +14,10 @@ public sealed class SharedSlasherRegenerateOverlaySystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<SlasherRegenerateOverlayComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<SlasherStaggerOverlayComponent, ComponentStartup>(OnStartup);
     }
 
-    private void OnStartup(Entity<SlasherRegenerateOverlayComponent> ent, ref ComponentStartup args)
+    private void OnStartup(Entity<SlasherStaggerOverlayComponent> ent, ref ComponentStartup args)
     {
         ent.Comp.EndTime = _timing.CurTime + ent.Comp.Duration;
         Dirty(ent);
@@ -25,11 +25,11 @@ public sealed class SharedSlasherRegenerateOverlaySystem : EntitySystem
 
     public override void Update(float frameTime)
     {
-        var query = EntityQueryEnumerator<SlasherRegenerateOverlayComponent>();
+        var query = EntityQueryEnumerator<SlasherStaggerOverlayComponent>();
         while (query.MoveNext(out var uid, out var overlay))
         {
             if (_timing.CurTime >= overlay.EndTime)
-                RemCompDeferred<SlasherRegenerateOverlayComponent>(uid);
+                RemCompDeferred<SlasherStaggerOverlayComponent>(uid);
         }
     }
 }

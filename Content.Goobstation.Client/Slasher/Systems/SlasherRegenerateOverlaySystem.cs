@@ -22,7 +22,7 @@ public sealed class SlasherRegenerateOverlaySystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<SlasherRegenerateOverlayComponent, ComponentStartup>(OnOverlayStartup);
+        SubscribeLocalEvent<SlasherRegenerateOverlayComponent, ComponentInit>(OnOverlayInit);
         SubscribeLocalEvent<SlasherRegenerateOverlayComponent, ComponentShutdown>(OnOverlayShutdown);
 
         Subs.CVar(_cfg, DCCVars.NoVisionFilters, OnNoVisionFiltersChanged);
@@ -30,7 +30,7 @@ public sealed class SlasherRegenerateOverlaySystem : EntitySystem
         _overlay = new();
     }
 
-    private void OnOverlayStartup(EntityUid uid, SlasherRegenerateOverlayComponent component, ComponentStartup args)
+    private void OnOverlayInit(EntityUid uid, SlasherRegenerateOverlayComponent component, ComponentInit args)
     {
         if (uid != _player.LocalEntity || _cfg.GetCVar(DCCVars.NoVisionFilters))
             return;

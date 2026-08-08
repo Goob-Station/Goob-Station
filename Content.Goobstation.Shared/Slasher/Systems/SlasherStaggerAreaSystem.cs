@@ -8,7 +8,6 @@ using Content.Shared.Stunnable;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Slasher.Systems;
 
@@ -28,7 +27,6 @@ public sealed class SlasherStaggerAreaSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly MovementModStatusSystem _movemod = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -73,8 +71,11 @@ public sealed class SlasherStaggerAreaSystem : EntitySystem
 
         _audio.PlayPredicted(comp.StaggerSound, uid, uid);
 
-        comp.SpawnTime = _timing.CurTime;
-        Dirty(ent);
+        var overlay = EnsureComp<SlasherStaggerOverlayComponent>(uid);
+        overlay.Range = comp.Range;
+        overlay.ShockwaveShader = comp.ShockwaveShader;
+        overlay.RingColor = comp.RingColor;
+        Dirty(uid, overlay);
 
         _popup.PopupClient(Loc.GetString("slasher-staggerarea-popup"), uid, uid, PopupType.MediumCaution);
 

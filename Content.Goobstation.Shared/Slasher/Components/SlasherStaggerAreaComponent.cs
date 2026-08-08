@@ -1,7 +1,6 @@
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Goobstation.Shared.Slasher.Components;
 
@@ -18,8 +17,7 @@ public sealed partial class SlasherStaggerAreaComponent : Component
     public EntProtoId ActionId = "ActionSlasherStaggerArea";
 
     /// <summary>
-    /// Radius of the aura effect, and the radius the shockwave ring expands to. Networked so the
-    /// overlay can draw other slashers' rings.
+    /// Radius of the aura effect, and the radius the shockwave ring expands to.
     /// </summary>
     [DataField, AutoNetworkedField]
     public float Range = 3.5f;
@@ -27,17 +25,11 @@ public sealed partial class SlasherStaggerAreaComponent : Component
     /// <summary>
     /// Shader the shockwave ring draws with.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public string ShockwaveShader = "SlasherStagger";
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public Color RingColor = new(0.22f, 0.02f, 0.34f);
-
-    /// <summary>
-    /// When the slasher last triggered the stagger, driving the shockwave ring's expansion.
-    /// </summary>
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField]
-    public TimeSpan SpawnTime;
 
     /// <summary>
     /// Duration of the slowdown.

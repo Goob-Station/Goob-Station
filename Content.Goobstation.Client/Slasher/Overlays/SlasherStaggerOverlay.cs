@@ -23,8 +23,6 @@ public sealed class SlasherStaggerOverlay : Overlay
 
     private readonly Dictionary<string, ShaderInstance> _shaders = new();
 
-    private const float Duration = 1.1f;
-
     public SlasherStaggerOverlay()
     {
         IoCManager.InjectDependencies(this);
@@ -41,9 +39,10 @@ public sealed class SlasherStaggerOverlay : Overlay
         return shader;
     }
 
-    private float GetProgress(SlasherStaggerAreaComponent wave)
+    private float GetProgress(SlasherStaggerOverlayComponent wave)
     {
-        return (float) ((_timing.CurTime - wave.SpawnTime).TotalSeconds / Duration);
+        var start = wave.EndTime - wave.Duration;
+        return (float) ((_timing.CurTime - start).TotalSeconds / wave.Duration.TotalSeconds);
     }
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)
@@ -51,7 +50,7 @@ public sealed class SlasherStaggerOverlay : Overlay
         if (args.Viewport.Eye == null)
             return false;
 
-        var query = _entMan.AllEntityQueryEnumerator<SlasherStaggerAreaComponent>();
+        var query = _entMan.AllEntityQueryEnumerator<SlasherStaggerOverlayComponent>();
         while (query.MoveNext(out _, out var wave))
         {
             if (GetProgress(wave) < 1f)
@@ -72,7 +71,7 @@ public sealed class SlasherStaggerOverlay : Overlay
         var handle = args.WorldHandle;
         var renderScale = args.Viewport.RenderScale * args.Viewport.Eye.Scale;
 
-        var query = _entMan.AllEntityQueryEnumerator<SlasherStaggerAreaComponent, TransformComponent>();
+        var query = _entMan.AllEntityQueryEnumerator<SlasherStaggerOverlayComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var wave, out var xform))
         {
             if (xform.MapID != args.MapId)

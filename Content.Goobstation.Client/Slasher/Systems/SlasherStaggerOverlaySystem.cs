@@ -7,7 +7,7 @@ using Robust.Shared.Configuration;
 namespace Content.Goobstation.Client.Slasher.Systems;
 
 /// <summary>
-/// Registers the SlasherStaggerOverlay while any slasher has the stagger area ability.
+/// Registers the SlasherStaggerOverlay while any stagger shockwave is active.
 /// </summary>
 public sealed class SlasherStaggerOverlaySystem : EntitySystem
 {
@@ -20,23 +20,23 @@ public sealed class SlasherStaggerOverlaySystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<SlasherStaggerAreaComponent, ComponentInit>(OnStaggerInit);
-        SubscribeLocalEvent<SlasherStaggerAreaComponent, ComponentShutdown>(OnStaggerShutdown);
+        SubscribeLocalEvent<SlasherStaggerOverlayComponent, ComponentInit>(OnStaggerInit);
+        SubscribeLocalEvent<SlasherStaggerOverlayComponent, ComponentShutdown>(OnStaggerShutdown);
 
         Subs.CVar(_cfg, DCCVars.NoVisionFilters, OnNoVisionFiltersChanged);
 
         _overlay = new();
     }
 
-    private void OnStaggerInit(EntityUid uid, SlasherStaggerAreaComponent component, ComponentInit args)
+    private void OnStaggerInit(EntityUid uid, SlasherStaggerOverlayComponent component, ComponentInit args)
     {
         if (!_cfg.GetCVar(DCCVars.NoVisionFilters))
             _overlayMan.AddOverlay(_overlay);
     }
 
-    private void OnStaggerShutdown(EntityUid uid, SlasherStaggerAreaComponent component, ComponentShutdown args)
+    private void OnStaggerShutdown(EntityUid uid, SlasherStaggerOverlayComponent component, ComponentShutdown args)
     {
-        if (Count<SlasherStaggerAreaComponent>() <= 1)
+        if (Count<SlasherStaggerOverlayComponent>() <= 1)
             _overlayMan.RemoveOverlay(_overlay);
     }
 
@@ -44,7 +44,7 @@ public sealed class SlasherStaggerOverlaySystem : EntitySystem
     {
         if (enabled)
             _overlayMan.RemoveOverlay(_overlay);
-        else if (Count<SlasherStaggerAreaComponent>() > 0)
+        else if (Count<SlasherStaggerOverlayComponent>() > 0)
             _overlayMan.AddOverlay(_overlay);
     }
 }
