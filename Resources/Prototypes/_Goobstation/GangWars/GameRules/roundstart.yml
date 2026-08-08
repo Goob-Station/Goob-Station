@@ -1,0 +1,34 @@
+- type: entity
+  id: Gangwars
+  parent: BaseGameRule
+  components:
+  - type: GameRule
+    minPlayers: 0
+    chaosScore: 1000
+  - type: GangwarRule
+  - type: AntagObjectives
+    objectives:
+    - GangLeaderRecruitObjective
+    - GangFirstPlaceObjective
+    - GangEarnPointsObjective
+    - GangMemberSurviveObjective
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
+    definitions:
+    - prefRoles: [ GangLeader ]
+      max: 4
+      playerRatio: 15
+      jobBlacklist: [ Captain, HeadOfPersonnel, HeadOfSecurity, ChiefEngineer, ChiefMedicalOfficer, ResearchDirector, BlueshieldOfficer, NanotrasenRepresentative ] # QM / Det should be allowed
+      blacklist:
+        components:
+        - AntagImmune
+      briefing:
+        text: gang-leader-role-greeting
+        color: CornflowerBlue
+        sound: "/Audio/_Goobstation/Gangs/gang_start.ogg"
+      components:
+      - type: GangMember
+      - type: GangLeader
+      - type: ShowGangIcons
+      mindRoles:
+      - MindRoleGangLeader

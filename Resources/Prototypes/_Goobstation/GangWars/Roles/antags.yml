@@ -1,0 +1,19 @@
+- type: antag
+  id: GangLeader
+  name: roles-antag-gang-leader-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-gang-leader-objective
+  requirements:
+  - !type:DepartmentTimeRequirement
+      department: Command
+      time: 3600 # 1h
+  guides: [ GangWars ]
+
+- type: antag
+  id: GangMember
+  name: roles-antag-gang-name
+  antagonist: true
+  setPreference: false
+  objective: roles-antag-gang-objective
+  guides: [ GangWars ]

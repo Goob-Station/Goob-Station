@@ -1,0 +1,6 @@
+- type: soundCollection
+  id: Quickhack
+  files:
+  - /Audio/_Goobstation/Gangs/quickhack_1.ogg
+  - /Audio/_Goobstation/Gangs/quickhack_2.ogg
+  - /Audio/_Goobstation/Gangs/quickhack_3.ogg

@@ -1,0 +1,32 @@
+- type: factionIcon
+  id: GangHead
+  priority: 11
+  showTo:
+    components:
+    - ShowAntagIcons
+    - GangMember
+  icon:
+    sprite: /Textures/_Goobstation/Gangs/gang_markers.rsi
+    state: gang_head
+
+- type: factionIcon
+  id: GangMember
+  priority: 11
+  showTo:
+    components:
+    - ShowAntagIcons
+    - GangMember
+  icon:
+    sprite: /Textures/_Goobstation/Gangs/gang_markers.rsi
+    state: gang_member
+
+- type: factionIcon
+  id: GangLocker
+  priority: 11
+  showTo:
+    components:
+    - ShowAntagIcons
+    - GangMember
+  icon:
+    sprite: /Textures/_Goobstation/Gangs/gang_markers.rsi
+    state: gang_locker

@@ -191,6 +191,7 @@ public sealed partial class StoreSystem
         {
             var ev = new ListingPurchasedEvent(buyer, uid, listing);
             RaiseLocalEvent(mindId, ref ev);
+            RaiseLocalEvent(uid, ref ev);
         }
         // Goobstation end
 

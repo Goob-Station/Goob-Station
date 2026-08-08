@@ -422,6 +422,30 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
     }
 
     /// <summary>
+    /// Delivers a message from an anonymous (numberless) sender directly to a recipient's card,
+    /// Use this when there is no real sender card.
+    /// </summary>
+    public void DeliverAnonymousMessage(
+        Entity<NanoChatCardComponent> recipient,
+        uint senderNumber,
+        string senderName,
+        string content)
+    {
+        var message = new NanoChatMessage(_timing.CurTime, content, senderNumber);
+
+        _nanoChat.SetRecipient((recipient, recipient.Comp), senderNumber,
+            new NanoChatRecipient(senderNumber, senderName));
+
+        _nanoChat.AddMessage((recipient, recipient.Comp), senderNumber, message);
+
+        HandleUnreadNotification(recipient, message, senderNumber);
+
+        var msgEv = new NanoChatMessageReceivedEvent(recipient);
+        RaiseLocalEvent(ref msgEv);
+        UpdateUIForCard(recipient);
+    }
+
+    /// <summary>
     ///     Delivers a message to the recipient and handles associated notifications.
     /// </summary>
     /// <param name="sender">The sender's card entity</param>
