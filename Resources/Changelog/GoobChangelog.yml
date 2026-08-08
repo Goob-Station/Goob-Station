@@ -24346,3 +24346,58 @@ Entries:
         turning against their own kind.
   id: 2790
   time: '2026-08-08T16:50:28.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Tweak
+      message: >-
+        When completing surgery on a limb it now returns to the surgery menu for
+        said limb instead of going back to the base surgery menu.
+    - type: Fix
+      message: Clamping bleeders and tending wounds surgeries now properly complete.
+    - type: Fix
+      message: >-
+        Organs, including the brain, can no longer get obliterated by a single
+        hit. Organ damage now builds up over multiple hits.
+    - type: Add
+      message: >-
+        Brain death! The brain can no longer be destroyed inside the body,
+        instead, taking enough brain damage now kills you and leaves you
+        unrevivable until someone fixes your brain.
+    - type: Add
+      message: Added a multi-step brain repair surgery.
+    - type: Tweak
+      message: >-
+        Massively increased organ durability, but organs now take damage more
+        often. They should wear down over a bunch of hits instead of randomly
+        getting deleted in one.
+    - type: Tweak
+      message: >-
+        Hitting a limb that's already been beaten to shit now keeps damaging
+        that limb, including its bones and organs, instead of the damage
+        magically deciding to spread to the rest of your body.
+    - type: Tweak
+      message: >-
+        Broken bones and damaged organs no longer completely prevent you from
+        patching wounds. You can now heal wounds down to a residual amount based
+        on how fucked the injury is, but you'll still need surgery to finish the
+        job. Affects both topicals and reagents.
+    - type: Tweak
+      message: >-
+        Piercing and armour-piercing bullet wounds now very rarely dismember
+        limbs, and brarely break bones.
+    - type: Fix
+      message: Eye damage now scales vision blur properly.
+    - type: Fix
+      message: >-
+        Fixed a server crash that could happen when incoming damage dismembered
+        a limb.
+    - type: Fix
+      message: >-
+        Healing chemicals once again target and heal specific body parts
+        correctly.
+    - type: Fix
+      message: >-
+        PentenicAcid, Musiver, and Calomel no longer cleanse themselves out of
+        the bloodstream.
+  id: 2791
+  time: '2026-08-08T18:24:47.0000000+00:00'
