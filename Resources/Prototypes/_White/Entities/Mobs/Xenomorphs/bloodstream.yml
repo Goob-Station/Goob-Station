@@ -1,5 +1,6 @@
 - type: entity
   id: XenomorphBloodstream
+  categories: [ HideSpawnMenu ] #Goobstation - clean up spawn menu
   parent: MobBloodstream
   components:
   - type: Bloodstream
