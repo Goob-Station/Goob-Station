@@ -210,6 +210,7 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         ent.Comp.AddedIncorporealComponents.Clear();
 
         EnsureTrackedComp<FacehuggerImmuneComponent>(uid, ent);
+        EnsureTrackedComp<SlasherIncorporealOverlayComponent>(uid, ent);
 
         var phase = EnsureTrackedComp<PhaseShiftedComponent>(uid, ent, new PhaseShiftedComponent
         {

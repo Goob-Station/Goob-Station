@@ -23,35 +23,35 @@ public sealed class SlasherIncorporealOverlaySystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<SlasherIncorporealComponent, ComponentInit>(OnIncorporealInit);
-        SubscribeLocalEvent<SlasherIncorporealComponent, ComponentShutdown>(OnIncorporealShutdown);
-        SubscribeLocalEvent<SlasherIncorporealComponent, LocalPlayerAttachedEvent>(OnPlayerAttached);
-        SubscribeLocalEvent<SlasherIncorporealComponent, LocalPlayerDetachedEvent>(OnPlayerDetached);
+        SubscribeLocalEvent<SlasherIncorporealOverlayComponent, ComponentStartup>(OnOverlayStartup);
+        SubscribeLocalEvent<SlasherIncorporealOverlayComponent, ComponentShutdown>(OnOverlayShutdown);
+        SubscribeLocalEvent<SlasherIncorporealOverlayComponent, LocalPlayerAttachedEvent>(OnPlayerAttached);
+        SubscribeLocalEvent<SlasherIncorporealOverlayComponent, LocalPlayerDetachedEvent>(OnPlayerDetached);
 
         Subs.CVar(_cfg, DCCVars.NoVisionFilters, OnNoVisionFiltersChanged);
 
         _overlay = new();
     }
 
-    private void OnIncorporealInit(EntityUid uid, SlasherIncorporealComponent component, ComponentInit args)
+    private void OnOverlayStartup(EntityUid uid, SlasherIncorporealOverlayComponent component, ComponentStartup args)
     {
         if (uid == _player.LocalEntity && !_cfg.GetCVar(DCCVars.NoVisionFilters))
             _overlayMan.AddOverlay(_overlay);
     }
 
-    private void OnIncorporealShutdown(EntityUid uid, SlasherIncorporealComponent component, ComponentShutdown args)
+    private void OnOverlayShutdown(EntityUid uid, SlasherIncorporealOverlayComponent component, ComponentShutdown args)
     {
         if (uid == _player.LocalEntity)
             _overlayMan.RemoveOverlay(_overlay);
     }
 
-    private void OnPlayerAttached(EntityUid uid, SlasherIncorporealComponent component, LocalPlayerAttachedEvent args)
+    private void OnPlayerAttached(EntityUid uid, SlasherIncorporealOverlayComponent component, LocalPlayerAttachedEvent args)
     {
         if (!_cfg.GetCVar(DCCVars.NoVisionFilters))
             _overlayMan.AddOverlay(_overlay);
     }
 
-    private void OnPlayerDetached(EntityUid uid, SlasherIncorporealComponent component, LocalPlayerDetachedEvent args)
+    private void OnPlayerDetached(EntityUid uid, SlasherIncorporealOverlayComponent component, LocalPlayerDetachedEvent args)
     {
         _overlayMan.RemoveOverlay(_overlay);
     }
@@ -60,7 +60,7 @@ public sealed class SlasherIncorporealOverlaySystem : EntitySystem
     {
         if (enabled)
             _overlayMan.RemoveOverlay(_overlay);
-        else if (HasComp<SlasherIncorporealComponent>(_player.LocalEntity))
+        else if (HasComp<SlasherIncorporealOverlayComponent>(_player.LocalEntity))
             _overlayMan.AddOverlay(_overlay);
     }
 }
