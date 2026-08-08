@@ -227,6 +227,12 @@ namespace Content.Server.Communications
             var stationUid = _stationSystem.GetOwningStation(uid);
             if (stationUid != null)
             {
+                // Goobstation - allow systems (e.g. amber alert gating) to veto the selection.
+                var attempt = new AlertLevelSelectAttemptEvent(stationUid.Value, uid, mob, message.Level);
+                RaiseLocalEvent(ref attempt);
+                if (attempt.Cancelled)
+                    return;
+
                 _alertLevelSystem.SetLevel(stationUid.Value, message.Level, true, true);
                 // Goob
                 _adminLogger.Add(LogType.Chat,

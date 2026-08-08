@@ -102,7 +102,7 @@
       emergencyLightColor: Magenta
       forceEnableEmergencyLights: true
       shuttleTime: 600
-    amber:
+    amber: # Goobstation
       announcement: alert-level-amber-announcement
       sound: /Audio/_Goobstation/Announcements/amberalarm.ogg
       color: "#8A3324"
