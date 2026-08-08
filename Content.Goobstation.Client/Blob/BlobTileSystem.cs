@@ -28,7 +28,7 @@ public sealed class BlobTileVisualizerSystem : VisualizerSystem<BlobTileComponen
 
         foreach (var key in new []{ DamageStateVisualLayers.Base, DamageStateVisualLayers.BaseUnshaded })
         {
-            if (!_sprite.TryGetLayer(id, key, out var layer, true))
+            if (!_sprite.TryGetLayer(id, key, out var layer, false))
                 continue;
 
             _sprite.LayerSetColor(layer, tile.Color);

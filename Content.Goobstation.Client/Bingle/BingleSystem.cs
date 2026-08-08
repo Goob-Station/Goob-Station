@@ -40,7 +40,7 @@ public sealed class BingleSystem : EntitySystem
             return;
         if (!TryComp<CombatModeComponent>(uid, out var combat))
             return;
-        if (!_sprite.TryGetLayer((uid, sprite), BingleVisual.Combat, out var layer, true))
+        if (!_sprite.TryGetLayer((uid, sprite), BingleVisual.Combat, out var layer, false))
             return;
         _sprite.LayerSetVisible(layer, combat.IsInCombatMode);
     }

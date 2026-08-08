@@ -35,7 +35,7 @@ public sealed class BlobbernautVisualizerSystem : VisualizerSystem<BlobbernautCo
 
         foreach (var key in Layers)
         {
-            if (!_sprite.TryGetLayer(id, key, out var layer, true))
+            if (!_sprite.TryGetLayer(id, key, out var layer, false))
                 continue;
 
             _sprite.LayerSetColor(layer, blobbernaut.Color);
