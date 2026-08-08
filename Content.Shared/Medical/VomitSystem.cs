@@ -1,4 +1,5 @@
 using Content.Goobstation.Common.Medical;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;
@@ -74,8 +75,16 @@ public sealed class VomitSystem : EntitySystem
     /// <summary>
     /// Make an entity vomit, if they have a stomach.
     /// </summary>
-    public void Vomit(EntityUid uid, float thirstAdded = -40f, float hungerAdded = -40f, bool force = false)
+    public void Vomit(EntityUid uid, float thirstAdded = -40f, float hungerAdded = -40f, bool force = false, ProtoId<ReagentPrototype>? reagent = null) // Goobstation - Added reagent
     {
+        // goob start
+        var beforeEv = new BeforeVomitEvent();
+        RaiseLocalEvent(uid, ref beforeEv);
+
+        if (beforeEv.Cancelled)
+            return;
+        // goob end
+
         // Vomit only if entity is alive
         // Ignore condition if force was set to true
         if (!force && _mobState.IsDead(uid))
@@ -89,14 +98,6 @@ public sealed class VomitSystem : EntitySystem
 
         if (!ev.Handled)
             return;
-
-        // goob start - Upstreamer note: if you're reading this merge this with the above event i have no energy rn.
-        var beforeEv = new BeforeVomitEvent();
-        RaiseLocalEvent(uid, ref beforeEv);
-
-        if (beforeEv.Cancelled)
-            return;
-        // goob end
 
         // Vomiting makes you hungrier and thirstier
         if (TryComp<HungerComponent>(uid, out var hunger))
@@ -128,6 +129,14 @@ public sealed class VomitSystem : EntitySystem
                     vomitAmount -= (float)vomitChemstreamAmount.Volume;
                 }
             }
+
+            // Goobstation - start
+            if (reagent != null)
+            {
+                var reagentAmount = FixedPoint2.Min(vomitAmount, FixedPoint2.New(100));
+                solution.AddReagent(new ReagentId(reagent.Value, null), reagentAmount);
+            }
+            // Goobstation - end
 
             // Makes a vomit solution the size of 90% of the chemicals removed from the chemstream
             solution.AddReagent(new ReagentId(VomitPrototype, _bloodstream.GetEntityBloodData((uid, bloodStream))), vomitAmount);
