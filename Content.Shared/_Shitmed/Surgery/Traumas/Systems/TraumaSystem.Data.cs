@@ -9,21 +9,16 @@ public partial class TraumaSystem
 {
     #region Data
 
-    private readonly Dictionary<BoneSeverity, FixedPoint2> _boneThresholds = new()
-    {
-        { BoneSeverity.Normal, 40 },
-        { BoneSeverity.Damaged, 25 },
-        { BoneSeverity.Cracked, 10 },
-        { BoneSeverity.Broken, 0 },
-    };
-
-    private readonly Dictionary<BoneSeverity, FixedPoint2> _bonePainModifiers = new()
-    {
-        { BoneSeverity.Normal, 0.4 },
-        { BoneSeverity.Damaged, 0.6 },
-        { BoneSeverity.Cracked, 0.8 },
-        { BoneSeverity.Broken, 1 },
-    };
+    /// <summary>
+    /// Sorted in descending order by threshold value.
+    /// </summary>
+    private static readonly KeyValuePair<BoneSeverity, FixedPoint2>[] BoneThresholds =
+    [
+        new(BoneSeverity.Normal, 40),
+        new(BoneSeverity.Damaged, 25),
+        new(BoneSeverity.Cracked, 10),
+        new(BoneSeverity.Broken, 0),
+    ];
 
     private readonly Dictionary<WoundableSeverity, FixedPoint2> _boneTraumaChanceMultipliers = new()
     {
@@ -33,17 +28,6 @@ public partial class TraumaSystem
         { WoundableSeverity.Severe, 0.12 },
         { WoundableSeverity.Critical, 0.21 },
         { WoundableSeverity.Mangled, 0.21 },
-        { WoundableSeverity.Severed, 0 },
-    };
-
-    private readonly Dictionary<WoundableSeverity, FixedPoint2> _boneDamageMultipliers = new()
-    {
-        { WoundableSeverity.Healthy, 0 },
-        { WoundableSeverity.Minor, 0.4 },
-        { WoundableSeverity.Moderate, 0.6 },
-        { WoundableSeverity.Severe, 0.9 },
-        { WoundableSeverity.Critical, 1.25 },
-        { WoundableSeverity.Mangled, 1.6 }, // Fun.
         { WoundableSeverity.Severed, 0 },
     };
 
