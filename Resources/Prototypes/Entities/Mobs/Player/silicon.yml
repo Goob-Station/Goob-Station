@@ -438,7 +438,7 @@
     # Once it's in a core it's pretty much an abstract entity at that point.
     visible: false
   - type: SiliconLawProvider
-    laws: NTDefault # Goobstation - AI/borg law changes - set AI to NTDefault
+    laws: Crewsimov
   - type: IonStormTarget # Goobstation - AI/borg law changes - ion stormable AI
   - type: SiliconLawBound
   - type: ActionGrant
