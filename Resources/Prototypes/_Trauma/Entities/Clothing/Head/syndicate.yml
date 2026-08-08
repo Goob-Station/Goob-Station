@@ -1,0 +1,17 @@
+- type: entity
+  parent: ClothingHeadHatCone
+  id: ClothingHeadHatConeStorage
+  suffix: Storage
+  components:
+  - type: Storage
+    grid:
+    - 0,0,0,1
+    maxItemSize: Small
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: HideContrabandContent
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
