@@ -7,9 +7,6 @@ namespace Content.Goobstation.Shared.Slasher;
 [ByRefEvent]
 public sealed partial class SlasherRegenerateEvent : InstantActionEvent;
 
-[Serializable, NetSerializable]
-public sealed class SlasherRegenerateEffectEvent : EntityEventArgs;
-
 [ByRefEvent]
 public sealed class SlasherRevivedFromDeathEvent : EntityEventArgs;
 

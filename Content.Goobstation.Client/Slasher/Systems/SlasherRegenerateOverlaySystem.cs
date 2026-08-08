@@ -1,19 +1,20 @@
 using Content.Goobstation.Client.Slasher.Overlays;
-using Content.Goobstation.Shared.Slasher;
 using Content.Goobstation.Shared.Slasher.Components;
 using Content.Shared._DV.CCVars;
 using Robust.Client.Graphics;
+using Robust.Client.Player;
 using Robust.Shared.Configuration;
 
 namespace Content.Goobstation.Client.Slasher.Systems;
 
 /// <summary>
-/// Registers the SlasherRegenerateOverlay while any slasher has the regenerate ability.
+/// Plays the SlasherRegenerateOverlay when a nearby slasher regenerates from death.
 /// </summary>
 public sealed class SlasherRegenerateOverlaySystem : EntitySystem
 {
     [Dependency] private readonly IOverlayManager _overlayMan = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
 
     private SlasherRegenerateOverlay _overlay = default!;
 
@@ -21,41 +22,32 @@ public sealed class SlasherRegenerateOverlaySystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<SlasherRegenerateComponent, ComponentInit>(OnRegenerateInit);
-        SubscribeLocalEvent<SlasherRegenerateComponent, ComponentShutdown>(OnRegenerateShutdown);
-
-        SubscribeNetworkEvent<SlasherRegenerateEffectEvent>(OnRegenerateEffect);
+        SubscribeLocalEvent<SlasherRegenerateOverlayComponent, ComponentStartup>(OnOverlayStartup);
+        SubscribeLocalEvent<SlasherRegenerateOverlayComponent, ComponentShutdown>(OnOverlayShutdown);
 
         Subs.CVar(_cfg, DCCVars.NoVisionFilters, OnNoVisionFiltersChanged);
 
         _overlay = new();
     }
 
-    private void OnRegenerateInit(EntityUid uid, SlasherRegenerateComponent component, ComponentInit args)
+    private void OnOverlayStartup(EntityUid uid, SlasherRegenerateOverlayComponent component, ComponentStartup args)
     {
-        if (!_cfg.GetCVar(DCCVars.NoVisionFilters))
-            _overlayMan.AddOverlay(_overlay);
-    }
-
-    private void OnRegenerateShutdown(EntityUid uid, SlasherRegenerateComponent component, ComponentShutdown args)
-    {
-        if (Count<SlasherRegenerateComponent>() <= 1)
-            _overlayMan.RemoveOverlay(_overlay);
-    }
-
-    private void OnRegenerateEffect(SlasherRegenerateEffectEvent ev)
-    {
-        if (_cfg.GetCVar(DCCVars.NoVisionFilters))
+        if (uid != _player.LocalEntity || _cfg.GetCVar(DCCVars.NoVisionFilters))
             return;
 
+        _overlayMan.AddOverlay(_overlay);
         _overlay.Trigger();
+    }
+
+    private void OnOverlayShutdown(EntityUid uid, SlasherRegenerateOverlayComponent component, ComponentShutdown args)
+    {
+        if (uid == _player.LocalEntity)
+            _overlayMan.RemoveOverlay(_overlay);
     }
 
     private void OnNoVisionFiltersChanged(bool enabled)
     {
         if (enabled)
             _overlayMan.RemoveOverlay(_overlay);
-        else if (Count<SlasherRegenerateComponent>() > 0)
-            _overlayMan.AddOverlay(_overlay);
     }
 }

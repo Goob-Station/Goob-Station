@@ -74,7 +74,11 @@ public sealed class SlasherRegenerateSystem : EntitySystem
             if (wasDead)
             {
                 var filter = Filter.Empty().AddInRange(_transform.GetMapCoordinates(uid), comp.RegenerateEffectRange);
-                RaiseNetworkEvent(new SlasherRegenerateEffectEvent(), filter);
+                foreach (var session in filter.Recipients)
+                {
+                    if (session.AttachedEntity is { } viewer)
+                        EnsureComp<SlasherRegenerateOverlayComponent>(viewer);
+                }
 
                 var revived = new SlasherRevivedFromDeathEvent();
                 RaiseLocalEvent(uid, ref revived);
