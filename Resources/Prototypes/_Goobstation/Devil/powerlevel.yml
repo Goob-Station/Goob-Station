@@ -5,3 +5,10 @@
     - "ActionCreateRevivalContract"
     Moderate:
     - "ActionDevilPossess"
+    Powerful:
+    - "ActionPolymorphLesserDevil"
+  conditionalUnlocks:
+  - requiredComponent: DevilLesserForm
+    soulsRequired: 4
+    actions:
+    - ActionPolymorphArchDevil

@@ -3,3 +3,5 @@ slaughter-devour-robot = You devoured someone... You feel alright.
 slaughter-devour-other = You devoured something... It's disgusting!
 
 slaughter-blood-jaunt-fail = You must stand on blood
+
+slaughter-blood-jaunt-forced-exit = A being of higher power commands you to materialize.
