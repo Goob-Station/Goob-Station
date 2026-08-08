@@ -1,0 +1,4 @@
+- type: deviceFrequency
+  id: SurveillanceCameraLavaland
+  name: device-frequency-prototype-name-surveillance-camera-lavaland
+  frequency: 1940
