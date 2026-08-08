@@ -22,12 +22,12 @@ namespace Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
 
 public sealed partial class TraumaSystem : EntitySystem
 {
-    // TODO: NUKE THESE AND MAKE ALL DAMAGES INTO TRAUMAS
     public static readonly ProtoId<TraumaTypePrototype> BoneDamage = "BoneDamage";
     public static readonly ProtoId<TraumaTypePrototype> OrganDamage = "OrganDamage";
     public static readonly ProtoId<TraumaTypePrototype> NerveDamage = "NerveDamage";
     public static readonly ProtoId<TraumaTypePrototype> Dismemberment = "Dismemberment";
     public static readonly ProtoId<TraumaTypePrototype> VeinsDamage = "VeinsDamage";
+    public static readonly ProtoId<TraumaTypePrototype> Braindeath = "Braindeath";
 
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IRobustRandom _random = default!;

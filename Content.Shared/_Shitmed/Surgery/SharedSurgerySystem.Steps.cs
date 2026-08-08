@@ -563,6 +563,19 @@ public abstract partial class SharedSurgerySystem
                 foreach (var trauma in traumas)
                     _trauma.RemoveTrauma(trauma);
         }
+        else if (traumaType == TraumaSystem.Braindeath)
+        {
+            if (_trauma.TryGetWoundableTrauma(args.Part, out var traumas, TraumaSystem.Braindeath))
+            {
+                foreach (var trauma in traumas)
+                {
+                    if (trauma.Comp.TraumaTarget is { } organ)
+                        _trauma.RestoreOrganIntegrity(organ);
+
+                    _trauma.RemoveTrauma(trauma);
+                }
+            }
+        }
     }
 
     private void OnTraumaTreatmentCheck(Entity<SurgeryTraumaTreatmentStepComponent> ent, ref SurgeryStepCompleteCheckEvent args)

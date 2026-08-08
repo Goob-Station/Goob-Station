@@ -40,6 +40,9 @@ public sealed partial class WoundableComponent : Component
     [DataField]
     public bool AllowWounds = true;
 
+    [DataField]
+    public bool RedirectOverflowDamage;
+
     /// <summary>
     /// The same as DamageableComponent's one
     /// </summary>

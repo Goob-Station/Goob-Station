@@ -45,7 +45,7 @@ public sealed partial class TraumaTypePrototype : IPrototype
     public EntProtoId TraumaEntity;
 
     /// <summary>
-    /// Fallback chance (0-1) used when nothing answers <c>GetTraumaChanceEvent</c> for this trauma.
+    /// Fallback chance (0-1) used when a cause has no <see cref="TraumaChance"/> provider of its own.
     /// </summary>
     [DataField]
     public FixedPoint2 BaseChance;

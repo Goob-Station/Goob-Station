@@ -1,5 +1,7 @@
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Body.Part;
+using Content.Shared.Damage.Prototypes;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Traumas;
 
@@ -43,4 +45,29 @@ public sealed partial class ExplosionCause : TraumaCause
     /// </summary>
     [DataField]
     public bool ScaleWithDamage = true;
+}
+
+/// <summary>
+/// Inflicts a trauma when a wound of a matching damage type gains severity.
+public sealed partial class WoundSeverityCause : TraumaCause
+{
+    /// <summary>
+    /// Damage types of wound that can inflict this trauma. Null/empty means any damaging wound.
+    /// </summary>
+    [DataField]
+    public List<ProtoId<DamageTypePrototype>>? DamageTypes;
+
+    /// <summary>
+    /// Formula that computes the base chance for this cause. Null uses the prototype's BaseChance.
+    /// </summary>
+    [DataField]
+    public TraumaChance? Chance;
+
+    /// <summary>
+    /// Whether a wound of the given damage type can inflict this trauma.
+    /// </summary>
+    public bool DamageAllowed(ProtoId<DamageTypePrototype> damageType)
+    {
+        return DamageTypes == null || DamageTypes.Count == 0 || DamageTypes.Contains(damageType);
+    }
 }

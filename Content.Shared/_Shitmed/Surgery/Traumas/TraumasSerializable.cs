@@ -10,15 +10,6 @@ namespace Content.Shared._Shitmed.Medical.Surgery.Traumas;
 #region Dispatch
 
 [ByRefEvent]
-public record struct GetTraumaChanceEvent(
-    ProtoId<TraumaTypePrototype> TraumaType,
-    Entity<WoundableComponent> Woundable,
-    Entity<TraumaInflicterComponent> Inflicter,
-    FixedPoint2 Severity,
-    FixedPoint2 Chance = default,
-    bool Handled = false);
-
-[ByRefEvent]
 public record struct ApplyTraumaEvent(
     ProtoId<TraumaTypePrototype> TraumaType,
     Entity<WoundableComponent> Woundable,
