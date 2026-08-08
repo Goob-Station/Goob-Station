@@ -24326,3 +24326,9 @@ Entries:
       message: The Radio Jammer no longer jams the syndicate frequency.
   id: 2787
   time: '2026-08-08T13:04:07.0000000+00:00'
+- author: thefirstLtaker
+  changes:
+    - type: Fix
+      message: NZ CSG-242 explosive slug ammo now properly explodes!
+  id: 2788
+  time: '2026-08-08T13:57:25.0000000+00:00'
