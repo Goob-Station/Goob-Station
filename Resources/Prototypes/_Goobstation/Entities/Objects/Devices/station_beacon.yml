@@ -17,3 +17,13 @@
   - type: NavMapBeacon
     defaultText: station-beacon-radio-station
     color: "#30a314"
+
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconSupermatter
+  suffix: Supermatter
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-radio-station
+    color: "#FFFF00"
