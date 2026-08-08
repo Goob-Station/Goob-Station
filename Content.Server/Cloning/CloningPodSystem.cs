@@ -34,7 +34,6 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Shared.Chemistry.Reagent;
-using Content.Goobstation.Common.CCVar; // Goobstation
 
 namespace Content.Server.Cloning;
 
@@ -60,7 +59,6 @@ public sealed class CloningPodSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly CloningSystem _cloning = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
-    [Dependency] private readonly DamageableSystem _damage = default!; // Goobstation
 
     public readonly Dictionary<MindComponent, EntityUid> ClonesWaitingForMind = new();
     public readonly ProtoId<CloningSettingsPrototype> SettingsId = "CloningPod";
@@ -183,8 +181,8 @@ public sealed class CloningPodSystem : EntitySystem
 
         var cloningCost = (int)Math.Round(physics.FixturesMass);
 
-        if (_configManager.GetCVar(GoobCVars.CloneBiomassEasyMode)) // Goobstation - Changed the cvar
-            cloningCost = (int) Math.Round(cloningCost * EasyModeCloningCost);
+        if (_configManager.GetCVar(CCVars.BiomassEasyMode))
+            cloningCost = (int)Math.Round(cloningCost * EasyModeCloningCost);
 
         // biomass checks
         var biomassAmount = _material.GetMaterialAmount(uid, clonePod.RequiredMaterial);
@@ -295,8 +293,6 @@ public sealed class CloningPodSystem : EntitySystem
 
         if (clonePod.BodyContainer.ContainedEntity is not { Valid: true } entity || clonePod.CloningProgress < clonePod.CloningTime)
             return;
-
-        _damage.TryChangeDamage(entity, clonePod.CloneDamage, true); // Goobstation - Damage the clone if successful
 
         RemComp<BeingClonedComponent>(entity);
         _containerSystem.Remove(entity, clonePod.BodyContainer);
