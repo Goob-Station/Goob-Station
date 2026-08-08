@@ -37,14 +37,11 @@ public sealed class MedicalPatchSystem : EntitySystem
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        foreach (var ent in EntityManager.EntityQuery<TransformComponent, MedicalPatchComponent>())
+        var query = EntityQueryEnumerator<MedicalPatchComponent>();
+        while (query.MoveNext(out var uid, out var comp))
         {
-            var xform = ent.Item1;
-            var comp = ent.Item2;
-
             if (_timing.CurTime < comp.NextUpdate)
                 continue;
-            var uid = xform.ParentUid;
 
             if (!TryComp<StickyComponent>(uid, out var stickycomp))
                 continue;
