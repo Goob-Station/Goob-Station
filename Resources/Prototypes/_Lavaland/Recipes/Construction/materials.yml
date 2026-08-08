@@ -1,0 +1,31 @@
+- type: construction
+  id: AshFlowersCloth
+  graph: Cloth
+  startNode: start
+  targetNode: cloth
+  category: construction-category-materials
+  objectType: Item
+
+- type: construction
+  id: PaleFlowersCloth
+  graph: Cloth
+  startNode: paleflower
+  targetNode: cloth
+  category: construction-category-materials
+  objectType: Item
+
+- type: construction
+  id: AshwoodStick
+  graph: AshwoodStick
+  startNode: start
+  targetNode: stick
+  category: construction-category-materials
+  objectType: Item
+
+- type: construction
+  id: WoodStick
+  graph: WoodStick
+  startNode: start
+  targetNode: stick
+  category: construction-category-materials
+  objectType: Item

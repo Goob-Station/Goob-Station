@@ -1,0 +1,17 @@
+- type: stack
+  id: FlowersAsh
+  name: stack-flowers-ash
+  icon:
+    sprite: _Lavaland/Objects/Materials/biomaterial.rsi
+    state: dark_1
+  spawn: MaterialFlowersAsh1
+  maxCount: 30
+
+- type: stack
+  id: FlowersPale
+  name: stack-flowers-pale
+  icon:
+    sprite: _Lavaland/Objects/Materials/biomaterial.rsi
+    state: light_1
+  spawn: MaterialFlowersPale1
+  maxCount: 30

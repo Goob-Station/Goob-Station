@@ -1,0 +1,110 @@
+- type: entity
+  name: wooden pickaxe
+  parent: Pickaxe
+  id: PickaxeWood
+  description: A couple strong sticks stuck together. Decent at breaking rocks.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/Melee/wood_pickaxe.rsi
+    state: pickaxe
+  - type: MeleeWeapon
+    heavyStaminaCost: 2
+    attackRate: 0.8
+    damage:
+      groups:
+        Brute: 5
+  - type: IncreaseDamageOnWield
+    damage:
+      groups:
+        Brute: 4
+      types:
+        Structural: 16
+  - type: PhysicalComposition
+    materialComposition:
+      Wood: 500
+      Cloth: 300
+  - type: Construction
+    graph: PickaxeWood
+    node: pickaxe
+
+- type: entity
+  name: ashwooden pickaxe
+  parent: Pickaxe
+  id: PickaxeAshwood
+  description: A couple strong sticks stuck together. Decent at breaking rocks, and also people.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/Melee/ashwood_pickaxe.rsi
+    state: pickaxe
+  - type: MeleeWeapon
+    heavyStaminaCost: 1
+    attackRate: 0.8
+    damage:
+      groups:
+        Brute: 5
+  - type: IncreaseDamageOnWield
+    damage:
+      groups:
+        Brute: 6
+      types:
+        Structural: 16
+  - type: PhysicalComposition
+    materialComposition:
+      Ashwood: 500
+      Cloth: 300
+  - type: Construction
+    graph: PickaxeAshwood
+    node: pickaxe
+
+- type: entity
+  name: diamond pickaxe
+  parent: [ Pickaxe, BaseSalvageContraband ]
+  id: PickaxeDiamond
+  description: Covered with diamond to reduce weight, notched to perfection for jamming it into rocks.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/Melee/diamond_pickaxe.rsi
+    state: pickaxe
+  - type: MeleeWeapon
+    attackRate: 1.1
+    damage:
+      groups:
+        Brute: 8
+  - type: IncreaseDamageOnWield
+    damage:
+      groups:
+        Brute: 12
+      types:
+        Structural: 50
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 200
+      Diamond: 50
+      Wood: 125
+
+- type: entity
+  name: super mining drill
+  parent: [ MiningDrill, BaseSalvageContraband ]
+  id: MiningDrillSuper
+  description: An even more efficient mining drill with faster mining speed and range.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Tools/handdrill_super.rsi
+    state: handdrill
+  - type: MeleeWeapon
+    range: 2
+    attackRate: 5.5
+    damage:
+      groups:
+        Brute: 6
+      types:
+        Structural: 31
+  - type: PhysicalComposition
+    materialComposition:
+      Gold: 500
+      Steel: 250
+      Plastic: 150
+      Silver: 100
+      Plasma: 100
+      BSCrystal: 100
+      Diamond: 50
