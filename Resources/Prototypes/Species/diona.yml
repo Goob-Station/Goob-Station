@@ -48,7 +48,7 @@
       points: 4
       required: false
     HeadSide:
-      points: 1
+      points: 4 # Goob
       required: false
     UndergarmentTop:
       points: 1
