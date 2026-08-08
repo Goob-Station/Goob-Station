@@ -1,15 +1,18 @@
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._Shitmed.Targeting.Events;
 using Content.Shared.Body.Part;
+using Content.Shared.Body.Systems;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Content.Shared.Standing;
 using Content.Goobstation.Common.Medical;
 using Robust.Shared.Audio;
+using Robust.Shared.Random;
 
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
@@ -66,7 +69,7 @@ public sealed partial class WoundSystem
                     15f,
                     (bodyPart.PartType, bodyPart.Symmetry));
 
-                ApplyDismembermentBleeding(woundInduced.Value.Owner);
+                ApplyWoundBleeding(woundInduced.Value.Owner);
             }
 
             Dirty(woundableEntity, woundableComp);
@@ -92,8 +95,7 @@ public sealed partial class WoundSystem
 
             DropWoundableOrgans(woundableEntity, woundableComp);
 
-            ApplyDismembermentBleeding(parentWoundableEntity);
-            _body.DetachPart(parentWoundableEntity, bodyPartId.Remove(0, 15), woundableEntity);
+            _body.DetachPart(parentWoundableEntity, bodyPartId.Remove(0, SharedBodySystem.PartSlotContainerIdPrefix.Length), woundableEntity);
             DestroyWoundableChildren(woundableEntity, woundableComp);
 
             PredictedQueueDel(woundableEntity);
@@ -132,21 +134,7 @@ public sealed partial class WoundSystem
 
         AmputateWoundableSafely(parentWoundableEntity, woundableEntity);
 
-        if (TryComp<WoundableComponent>(parentWoundableEntity, out var parentWoundable)
-            && parentWoundable.CanBleed)
-        {
-            foreach (var wound in GetWoundableWounds(parentWoundableEntity))
-            {
-                if (!TryComp<BleedInflicterComponent>(wound, out var bleeds))
-                    continue;
-
-                bleeds.BleedingAmountRaw += 20f;
-                bleeds.Scaling = 1f;
-                bleeds.ScalingLimit = 1f;
-                bleeds.IsBleeding = true;
-            }
-        }
-
+        ApplyDismembermentBleeding(parentWoundableEntity);
 
         if (!_net.IsServer)
             return;
@@ -210,7 +198,7 @@ public sealed partial class WoundSystem
 
         // Still does the funny popping, if the children are critted. for the funny :3
         DestroyWoundableChildren(woundableEntity, woundableComp, amputateChildrenSafely);
-        _body.DetachPart(parentWoundableEntity, bodyPartId.Remove(0, 15), woundableEntity);
+        _body.DetachPart(parentWoundableEntity, bodyPartId.Remove(0, SharedBodySystem.PartSlotContainerIdPrefix.Length), woundableEntity);
     }
 
     private void DestroyWoundableChildren(EntityUid woundableEntity,
@@ -220,7 +208,7 @@ public sealed partial class WoundSystem
         if (!Resolve(woundableEntity, ref woundableComp, false))
             return;
 
-        foreach (var child in woundableComp.ChildWoundables)
+        foreach (var child in new List<EntityUid>(woundableComp.ChildWoundables))
         {
             var childWoundable = Comp<WoundableComponent>(child);
             if (childWoundable.WoundableSeverity is WoundableSeverity.Mangled)
@@ -254,7 +242,7 @@ public sealed partial class WoundSystem
                 _throwing.TryThrow(
                     organ.Id,
                     _random.NextAngle().RotateVec(direction / dropAngle + worldRotation / 50),
-                    0.5f * dropAngle * _random.NextFloat(-0.9f, 1.1f),
+                    0.5f * dropAngle * _random.NextFloat(0.2f, 1.1f),
                     doSpin: false,
                     pushbackRatio: 0
                 );
@@ -264,26 +252,37 @@ public sealed partial class WoundSystem
                 // Destroy it
                 _trauma.TrySetOrganDamageModifier(
                     organ.Id,
-                    organ.Component.OrganIntegrity * 100,
+                    organ.Component.IntegrityCap * 100,
                     woundable,
-                    "LETMETELLYOUHOWMUCHIVECOMETOHATEYOUSINCEIBEGANTOLIVE",
+                    "OrganDestroyed",
                     organ.Component);
             }
         }
     }
 
-    private void ApplyDismembermentBleeding(EntityUid target, float amount = 20f)
+    private void ApplyWoundBleeding(EntityUid wound, float amount = 20f)
     {
-        var bleedInflicter = EnsureComp<BleedInflicterComponent>(target);
+        var bleedInflicter = EnsureComp<BleedInflicterComponent>(wound);
         bleedInflicter.BleedingAmountRaw += amount;
-        bleedInflicter.Scaling = 1f;
-        bleedInflicter.ScalingLimit = 1f;
+        bleedInflicter.Scaling = FixedPoint2.Max(bleedInflicter.Scaling, 1);
+        bleedInflicter.ScalingLimit = FixedPoint2.Max(bleedInflicter.ScalingLimit, 1);
         bleedInflicter.IsBleeding = true;
+        Dirty(wound, bleedInflicter);
     }
 
-    private bool TryFumble(string message, SoundPathSpecifier sound, EntityUid body, float odds)
+    private void ApplyDismembermentBleeding(EntityUid woundable, float amount = 20f)
     {
-        if (_random.NextFloat() < odds)
+        if (TryComp<WoundableComponent>(woundable, out var woundableComp) && !woundableComp.CanBleed)
+            return;
+
+        foreach (var wound in GetWoundableWounds(woundable))
+            ApplyWoundBleeding(wound, amount);
+    }
+
+    public bool TryFumble(string message, SoundPathSpecifier sound, EntityUid body, float odds)
+    {
+        var seed = unchecked((int) _timing.CurTick.Value + GetNetEntity(body).Id * 92821);
+        if (new System.Random(seed).NextFloat() < odds)
         {
             _popup.PopupClient(Loc.GetString(message), body, PopupType.Medium);
             var ev = new DropHandItemsEvent();
