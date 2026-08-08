@@ -1,12 +1,13 @@
+using Content.Goobstation.Common.BlockTeleport;
 using Content.Shared.Maps;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Physics;
 using Content.Shared.Trigger.Components.Effects;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
 
 namespace Content.Shared.Trigger.Systems;
@@ -22,6 +23,9 @@ public sealed class ScramOnTriggerSystem : XOnTriggerSystem<ScramOnTriggerCompon
 
     protected override void OnTrigger(Entity<ScramOnTriggerComponent> ent, EntityUid target, ref TriggerEvent args)
     {
+        if (HasComp<BlockTeleportComponent>(ent)) // Goobstation - Prevent teleporting inside specific grids.
+            return;
+
         // We need stop the user from being pulled so they don't just get "attached" with whoever is pulling them.
         // This can for example happen when the user is cuffed and being pulled.
         if (TryComp<PullableComponent>(target, out var pull) && _pulling.IsPulled(target, pull))

@@ -140,6 +140,14 @@
 
 - type: entity
   parent: DefaultStationBeaconLavalandRuin
+  id: DefaultStationBeaconRuinBunkerAlfa
+  suffix: Ruin Bunker Alfa
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-ruin-bunker-alfa
+
+- type: entity
+  parent: DefaultStationBeaconLavalandRuin
   id: DefaultStationBeaconRuinHunterShelter
   suffix: Ruin Hunter's Shelter
   components:

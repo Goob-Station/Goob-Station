@@ -1,0 +1,592 @@
+- type: entity
+  parent: [ LavalandMobBase, MobCombat ]
+  id: BaseMobFleshBeast
+  name: roaming flesh
+  description: A creature created by military experiments gone awry. Not very fast.
+  abstract: true
+  components:
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+    blackboard:
+      NavClimb: !type:Bool
+        true
+      NavSmash: !type:Bool
+        true
+  - type: NpcFactionMember
+    factions:
+    - Lavafauna
+  - type: Tag
+    tags:
+    - Flesh
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Flesh/32x32.rsi
+  - type: MovementAlwaysTouching
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1.2
+    baseSprintSpeed: 1.2
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      40: Dead
+  - type: Stamina
+    baseCritThreshold: 100
+    animationThreshold: 25
+  - type: Bloodstream
+    bloodlossDamage:
+      types:
+        Bloodloss:
+          0.001
+    bloodlossHealDamage:
+      types:
+        Bloodloss:
+          -0.25
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 10 # To avoid blood floods.
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: FleshBeast
+  - type: AutoEmote
+    emotes:
+    - FleshGrowling
+  - type: Vocal
+    sounds:
+      Male: FleshSmall
+      Female: FleshSmall
+      Unsexed: FleshSmall
+  - type: CombatMode
+  - type: MeleeWeapon
+    soundHit:
+        path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 5
+  - type: ReplacementAccent
+    accent: genericAggressive
+  - type: Fauna # Lavaland Change
+
+- type: entity
+  parent: BaseMobFleshBeast
+  id: MobFleshBiter
+  categories: [ HideSpawnMenu ]
+  components: 
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: biter # If someone ever sees this and is an artist, please draw a sprite that isn't just a spitter without its green pixels.
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: biter
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      40: Dead
+
+- type: entity
+  parent: BaseMobFleshBeast
+  id: MobFleshBiterSnow
+  name: numb flesh
+  description: Somehow, even slower than the regular biter, but takes less damage from conventional weapons.
+  categories: [ HideSpawnMenu ]
+  components: 
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: biter_snow # Same here
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: biter_snow
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1
+    baseSprintSpeed: 1
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        reagents:
+        - ReagentId: Fresium
+          Quantity: 300
+  - type: MeleeChemicalInjector
+    solution: melee
+    transferAmount: 5
+  - type: MeleeWeapon
+    soundHit:
+        path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcSmash
+    damage:
+      types:
+        Piercing: 5
+        Cold: 5
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: ColdFauna
+
+- type: entity
+  parent: BaseMobFleshBeast
+  id: MobFleshRunner
+  name: running flesh
+  description: A creature created by military experiments gone awry. This one is fast.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: runner
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: runner
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      60: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4.5
+    baseSprintSpeed: 4.5
+  - type: MeleeWeapon
+    soundHit:
+        path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Slash: 8
+
+- type: entity
+  parent: BaseMobFleshBeast
+  id: MobFleshSpitter
+  name: toxic spitter
+  description: Spews acid that was bio-engineered specifically against living creatures.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: spitter
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: spitter
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 2
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 0.5
+  - type: BasicEntityAmmoProvider
+    proto: BulletAcid
+    capacity: 1
+    count: 1
+  - type: Gun
+    fireRate: 0.5
+    useKey: false
+    selectedMode: FullAuto
+    availableModes:
+      - FullAuto
+    soundGunshot: /Audio/Weapons/Xeno/alien_spitacid.ogg
+  - type: MeleeWeapon
+    soundHit:
+        path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Heat: 5
+
+- type: entity
+  parent: BaseMobFleshBeast
+  id: MobFleshTank
+  name: muscular flesh
+  description: Not particularly big, but can take more bullets than most.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: tank
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: tank
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      150: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
+  - type: MeleeWeapon
+    soundHit:
+        path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcSmash
+    damage:
+      types:
+        Blunt: 15
+
+- type: entity
+  parent: BaseMobFleshBeast
+  id: MobFleshTankSnow
+  name: frozen muscle
+  description: Slower, but takes less damage to conventional weapons and its attacks are capable of slowing you down to a crawl.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: tank_snow
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: tank_snow
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 2
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        reagents:
+        - ReagentId: Fresium
+          Quantity: 300
+  - type: MeleeChemicalInjector
+    solution: melee
+    transferAmount: 8
+  - type: MeleeWeapon
+    soundHit:
+        path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcSmash
+    damage:
+      types:
+        Blunt: 10
+        Cold: 10
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: ColdFauna
+
+- type: entity
+  parent: BaseMobFleshBeast
+  id: MobFleshBloater
+  name: bloated flesh
+  description: Explodes into caustic gas if it gets near you.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: bloated
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: bloated
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+  - type: HTN
+    rootTask:
+      task: GrenadePenguinCompound # Don't juke
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      35: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4.8
+    baseSprintSpeed: 4.8
+  - type: TriggerOnProximity
+    mobState:
+      - Alive
+    whitelist:
+      components:
+      - Actor
+    cooldown: 1
+    requiresAnchored: false
+    repeating: false
+    triggerSpeed: 0.3
+    shape:
+      !type:PhysShapeCircle
+      radius: 1
+    layer:
+    - MobMask
+  - type: Body
+    bodyType: Complex
+    prototype: Monkey # What could it mean??
+  - type: GibOnTrigger
+  - type: SmokeOnTrigger
+    duration: 2
+    spreadAmount: 50
+    solution:
+      reagents:
+        - ReagentId: Razorium
+          Quantity: 15
+  - type: MeleeWeapon
+    soundHit:
+        path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcSmash
+    damage:
+      types:
+        Blunt: 15
+
+ # Elite versions
+
+- type: entity
+  parent: BaseMobFleshBeast
+  id: MobFleshRunnerElite
+  name: horrific flesh
+  description: Tougher, faster, stronger.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: OverMobs
+    sprite: _Lavaland/Mobs/Flesh/48x48.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: runner2
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: runner2
+      Critical:
+        Base: dead2
+      Dead:
+        Base: dead2
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      120: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 5.2
+    baseSprintSpeed: 5.2
+  - type: MeleeWeapon
+    soundHit:
+        path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Slash: 20
+
+- type: entity
+  parent: BaseMobFleshBeast
+  id: MobFleshSpitterElite
+  name: toxic abomination
+  description: Covered in caustic sacks, each time this creature attacks, it spawns a cloud of acid smoke.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: OverMobs
+    sprite: _Lavaland/Mobs/Flesh/48x48.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: spitter2
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: spitter2
+      Critical:
+        Base: dead2
+      Dead:
+        Base: dead2
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      160: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: TriggerOnMelee
+  - type: SmokeOnTrigger
+    duration: 1
+    spreadAmount: 100
+    solution:
+      reagents:
+        - ReagentId: FluorosulfuricAcid
+          Quantity: 20
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        reagents:
+        - ReagentId: FluorosulfuricAcid
+          Quantity: 300
+  - type: MeleeChemicalInjector
+    solution: melee
+    transferAmount: 3
+  - type: MeleeWeapon
+    soundHit:
+        path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Heat: 18
+
+- type: entity
+  parent: BaseMobFleshBeast
+  id: MobFleshTankElite
+  name: frenzied giant
+  description: This hulking beast gets faster and stronger the more damage it takes. Don't get caught in its claw!
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: OverMobs
+    sprite: _Lavaland/Mobs/Flesh/48x48.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: tank2
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: tank2
+      Critical:
+        Base: dead2
+      Dead:
+        Base: dead2
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      450: Dead
+  - type: SoundWhileAlive
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1
+    baseSprintSpeed: 1
+    maxSpeedOverride: 10
+  - type: BerserkerStats
+    scaleDamage: true
+    scaleSpeed: true
+    damageMinMultiplier: 1.0
+    damageMaxMultiplier: 1.5
+    speedMinMultiplier: 1.0
+    speedMaxMultiplier: 7.5
+    exponentialScaling: true
+    scalingExponent: 2
+    componentThresholds:
+    - healthThreshold: 0.5
+      components:
+      - type: SpamEmitSound
+        minInterval: 1.5
+        maxInterval: 5
+        sound:
+          collection: FleshGrowl
+          params:
+            variation: 0.125
+  - type: MeleeWeapon
+    soundHit:
+        path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+    angle: 0
+    animation: WeaponArcSlash
+    damage:
+      types:
+        Blunt: 15
+        Slash: 15
+
+# Boss (for now just a simplemob though)
+
+- type: entity
+  parent: BaseMobFleshBeast
+  id: MobFleshBlindOne
+  name: The Blind One
+  description: Despite being blind, the creature itself has excelent hearing. Defeating it might be worth your time, if you're up for the challenge.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: OverMobs
+    sprite: _Lavaland/Mobs/Flesh/48x48.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: blindone
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: blindone
+      Critical:
+        Base: dead2
+      Dead:
+        Base: dead2
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      1000: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4.5
+    baseSprintSpeed: 4.5
+  - type: BerserkerStats
+    scaleDamage: true
+    scaleSpeed: true
+    damageMinMultiplier: 1.0
+    damageMaxMultiplier: 1.5
+    speedMinMultiplier: 1.0
+    speedMaxMultiplier: 2
+    exponentialScaling: true
+    scalingExponent: 4
+    componentThresholds:
+    - healthThreshold: 0.5
+      components:
+      - type: SpamEmitSound
+        minInterval: 3
+        maxInterval: 8
+        sound:
+          collection: FleshGrowl
+          params:
+            variation: 0.4
+  - type: MeleeWeapon
+    soundHit:
+        path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+    angle: 0
+    animation: WeaponArcSlash
+    damage:
+      types:
+        Blunt: 20
+        Slash: 25

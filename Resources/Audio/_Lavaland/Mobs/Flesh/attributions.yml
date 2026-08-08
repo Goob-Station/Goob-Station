@@ -1,0 +1,36 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- files: ["growl1.ogg"]
+  license: "Custom"
+  copyright: "Made by DRAGON-STUDIO"
+  source: "https://pixabay.com/sound-effects/horror-monster-growl-390285/"
+
+- files: ["growl2.ogg"]
+  license: "Custom"
+  copyright: "Made by DRAGON-STUDIO"
+  source: "https://pixabay.com/sound-effects/horror-monster-growl-382706/"
+
+- files: ["screech1.ogg"]
+  license: "Custom"
+  copyright: "Made by djani00"
+  source: "https://pixabay.com/sound-effects/horror-short-monster-scream-105026/"
+
+- files: ["breathing1.ogg"]
+  license: "Custom"
+  copyright: "Made by uagadugu"
+  source: "https://pixabay.com/sound-effects/horror-deep-monster-growl-86780/"
+
+- files: ["breathing2.ogg"]
+  license: "Custom"
+  copyright: "Made by NicknameLarry"
+  source: "https://pixabay.com/sound-effects/horror-scary-monster-roar-2-6256/"
+
+- files: ["breathing3.ogg"]
+  license: "Custom"
+  copyright: "Made by AlesiaDavina"
+  source: "https://pixabay.com/sound-effects/film-special-effects-haunting-monster-breath-sound-8-vol-004-169082/"
+
+- files: ["breathing4.ogg"]
+  license: "Custom"
+  copyright: "Made by szegvari"
+  source: "https://pixabay.com/sound-effects/horror-sleeping-monster-38084/"

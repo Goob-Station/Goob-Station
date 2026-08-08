@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "license": "CC-BY-3.0",
+  "copyright": "https://github.com/Bubberstation/Bubberstation/blob/11968ad33b0c4339169ac3df8a3e5efa6d763042/modular_skyrat/modules/mapping/icons/unique/furniture.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "empty_shelf_1"
+    },
+    {
+      "name": "empty_shelf_2"
+    },
+    {
+      "name": "empty_shelf_3"
+    },
+    {
+      "name": "shelf_1"
+    },
+    {
+      "name": "shelf_2"
+    },
+    {
+      "name": "shelf_3"
+    },
+    {
+      "name": "shelf_4"
+    },
+    {
+      "name": "shelf_5"
+    },
+    {
+      "name": "shelf_6"
+    },
+    {
+      "name": "shelf_7"
+    },
+    {
+      "name": "shelf_8"
+    },
+    {
+      "name": "shelf_9"
+    },
+    {
+      "name": "shelf_10"
+    },
+    {
+      "name": "shelf_11"
+    }
+  ]
+}

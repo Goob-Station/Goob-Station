@@ -1,0 +1,17 @@
+- type: entityTable
+  id: MetalShelfRareMeleeWeapons
+  table: !type:GroupSelector
+    children:
+    - id: CombatKnife
+    - id: ClothingHandsKnuckleDusters
+
+- type: entityTable
+  id: MetalShelfVeryRareMeleeWeapons # Somewhat shit options to balance the throwing knife roll
+  table: !type:GroupSelector
+    children:
+    - id: KukriKnife
+    - id: ThrowingKnife
+    - id: Katana
+    - id: Chainsaw
+    - id: EldritchBlade
+    - id: CombatKnife

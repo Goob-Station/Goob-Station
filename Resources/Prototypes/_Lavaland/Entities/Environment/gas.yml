@@ -1,0 +1,84 @@
+- type: entity
+  id: EnvironmentalHazardToxicGas
+  name: toxic gas
+  description: A cloud of highly toxic fumes.
+  categories: [ Spawner ]
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/Random/fluid.rsi
+    state: airborne
+    drawdepth: Effects
+    scale: 1.5,1.5
+    color: "#66FF66AA"
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.5
+        hard: false
+        mask:
+          - MobMask
+  - type: DamageOnProximity
+    interval: 1
+    range: 0.5
+    group: ToxicGas
+    whitelist:
+      components:
+      - Actor
+    blacklist:
+      components:
+      - Fauna
+    damage:
+      types:
+        Poison: 2 # Fairly fast but you can tank a few seconds
+        Caustic: 2
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/Effects/space_wind.ogg
+
+- type: entity
+  id: EnvironmentalHazardToxicGasTimed
+  parent: EnvironmentalHazardToxicGas
+  suffix: Timed, 3 seconds
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: TimedDespawn
+    lifetime: 3
+
+- type: entity
+  id: EnvironmentalHazardGasSpawnerTrap6
+  name: gas trap
+  description: Periodically spawns deadly toxic gas.
+  suffix: 6 seconds
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Piping/trap.rsi
+    state: gas_trap
+    drawdepth: HighFloorObjects
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+    - EnvironmentalHazardToxicGasTimed
+    intervalSeconds: 6
+
+- type: entity
+  id: EnvironmentalHazardGasSpawnerTrap9
+  parent: EnvironmentalHazardGasSpawnerTrap6
+  suffix: 9 seconds
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: TimedSpawner
+    prototypes:
+    - EnvironmentalHazardToxicGasTimed
+    intervalSeconds: 9

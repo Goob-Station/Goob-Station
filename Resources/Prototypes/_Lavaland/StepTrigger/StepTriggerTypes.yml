@@ -1,0 +1,5 @@
+- type: stepTriggerType
+  id: WasteWater
+
+- type: stepTriggerType
+  id: Elevator
