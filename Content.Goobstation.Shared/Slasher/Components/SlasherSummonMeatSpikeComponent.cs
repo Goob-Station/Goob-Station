@@ -28,7 +28,7 @@ public sealed partial class SlasherSummonMeatSpikeComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier SummonSound
-        = new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/SlasherSummonMeatspike.ogg")
+        = new SoundPathSpecifier("/Audio/_Goobstation/Slasher/Effects/SlasherSummonMeatspike.ogg")
         {
             Params = AudioParams.Default
                        .WithMaxDistance(4f)

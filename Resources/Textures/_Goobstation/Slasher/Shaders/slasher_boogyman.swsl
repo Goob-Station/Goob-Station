@@ -1,0 +1,18 @@
+// Boogyman shadow shader.
+// Fades the sprite out in darkness and back in under light.
+
+uniform highp float darkThreshold;
+uniform highp float lightThreshold;
+
+void fragment()
+{
+    COLOR = zTexture(UV);
+
+    highp float brightness = max(max(lightSample.r, lightSample.g), lightSample.b);
+
+    highp float visibility = smoothstep(darkThreshold, lightThreshold, brightness);
+
+    COLOR.a *= visibility;
+
+    lightSample = vec3(1.0);
+}

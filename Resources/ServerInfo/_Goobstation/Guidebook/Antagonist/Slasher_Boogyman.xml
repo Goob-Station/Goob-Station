@@ -1,0 +1,35 @@
+<Document>
+  # Slasher: Boogyman
+
+  [color=#ac3a0d]"I wonder, if perhaps.. The Boogyman is able to actually move through shadows.."[/color]
+
+  The Boogyman is a Slasher kit that trades the usual traversal tricks for pure ambush pressure. It has every core Slasher ability except the incorporeal jaunt, and layers on a stealth package built around darkness.
+
+  <Box>
+  <GuideEntityEmbed Entity="ClothingHeadHatSlasherMaskBoogyman" Caption="Boogyman Mask"/>
+  <GuideEntityEmbed Entity="SlasherKitchenKnife" Caption="Kitchen Knife"/>
+</Box>
+
+  ## What's different
+
+  - [bold]Shadow invisibility.[/bold] Your sprite fades out in darkness and back in under light. Lurk in the unlit maintenance and you are effectively invisible.
+
+  - [bold]No jaunt.[/bold] You do [italic]not[/italic] get the incorporeal form, so you cannot phase through walls or turn invisible on demand. Your stealth comes entirely from staying in the dark. Plan your routes around the lights.
+
+  - [bold]Silence aura.[/bold] You cannot sprint, and neither can anyone in your line of sight. Combined with your own speed (below) this lets you steadily reel in fleeing crew who would otherwise outrun a Slasher.
+
+  - [bold]Faster on foot.[/bold] You move slightly faster than a normal person's run. You will never sprint, but you never need to.
+
+  - [bold]Mute.[/bold] The Boogyman does not speak. You cannot talk in local chat.
+
+  You still spread [bold]fear[/bold] and gain the same meter, speed and blood-trail benefits as any Slasher, and victims in your sight still get the default fear grade closing in around their vision.
+
+  ## Crew Tips
+
+  [bold]Light is everything.[/bold]
+  - The Boogyman is invisible in darkness but fully visible in light. Carry a flashlight, keep the lights on, and repair broken ones.
+  - It cannot phase through walls, so it must use doors and corridors like anyone else - barricades and locked doors actually stop it.
+  - It cannot sprint and neither can you while it watches you, but it is faster than your normal pace - do not try to simply outrun it in the open. Break its LOS and get into the light.
+
+  [textlink="Back to the Slasher guide" link="Slasher"]
+</Document>

@@ -8,10 +8,10 @@ namespace Content.Goobstation.Shared.Slasher.Components;
 /// <summary>
 /// Grants the Slasher the Soul Steal action and tracks cumulative bonuses.
 /// </summary>
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class SlasherSoulStealComponent : Component
 {
-    [ViewVariables]
+    [DataField, AutoNetworkedField]
     public EntityUid? ActionEntity;
 
     [DataField]
@@ -50,13 +50,19 @@ public sealed partial class SlasherSoulStealComponent : Component
     /// <summary>
     /// Current total armor reduction (0-1).
     /// </summary>
-    [ViewVariables]
+    [DataField, AutoNetworkedField]
     public float ArmorReduction;
+
+    /// <summary>
+    /// Makes it so the target needs to have a missing limb.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool RequireLimbLoss = true;
 
     /// <summary>
     /// How long it takes to perform soul steal.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public int Soulstealdoafterduration = 15;
 
     /// <summary>
@@ -64,7 +70,7 @@ public sealed partial class SlasherSoulStealComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier SoulStealSound =
-               new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/SlasherSoulSteal.ogg")
+               new SoundPathSpecifier("/Audio/_Goobstation/Slasher/Effects/SlasherSoulSteal.ogg")
                {
                    Params = AudioParams.Default
                        .WithMaxDistance(10f)
@@ -75,7 +81,7 @@ public sealed partial class SlasherSoulStealComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier AscendanceSound =
-               new SoundPathSpecifier("/Audio/_Goobstation/Effects/Slasher/SlasherAscendance.ogg")
+               new SoundPathSpecifier("/Audio/_Goobstation/Slasher/Effects/SlasherAscendance.ogg")
                {
                    Params = AudioParams.Default
                        .WithVolume(-7f)
@@ -90,17 +96,24 @@ public sealed partial class SlasherSoulStealComponent : Component
     /// <summary>
     /// Whether the ascendance event has been triggered.
     /// </summary>
-    [ViewVariables]
+    [DataField]
     public bool HasAscended;
 
     /// <summary>
     /// Optional starting gear to equip when this slasher ascends (set by kit selection).
     /// </summary>
-    [ViewVariables]
+    [DataField]
     public ProtoId<StartingGearPrototype>? AscensionGear;
 
-    [ViewVariables]
+    [DataField]
     public string AscendanceAnnouncementKey = "slasher-soulsteal-ascendance";
+
+    /// <summary>
+    /// Prestige token recorded for the player when this slasher ascends (set by kit selection).
+    /// If null, ascending grants no prestige unlock.
+    /// </summary>
+    [DataField]
+    public string? AscensionId;
 
     /// <summary>
     /// Number of total souls required to unlock possession ability.
@@ -111,7 +124,7 @@ public sealed partial class SlasherSoulStealComponent : Component
     /// <summary>
     /// Whether the possession ability has been unlocked.
     /// </summary>
-    [ViewVariables]
+    [DataField]
     public bool HasUnlockedPossession;
 
     /// <summary>
@@ -123,25 +136,25 @@ public sealed partial class SlasherSoulStealComponent : Component
     /// <summary>
     /// Total alive souls stolen.
     /// </summary>
-    [ViewVariables]
+    [DataField]
     public int AliveSouls;
 
     /// <summary>
     /// Total dead souls stolen.
     /// </summary>
-    [ViewVariables]
+    [DataField]
     public int DeadSouls;
 
     /// <summary>
     /// Cached applied brute bonus so we can reapply if machete is resummoned.
     /// </summary>
-    [ViewVariables]
+    [DataField, AutoNetworkedField]
     public float TotalAppliedBruteBonus;
 
     /// <summary>
     /// Last known machete entity to which we applied damage components.
     /// </summary>
-    [ViewVariables]
+    [DataField, AutoNetworkedField]
     public EntityUid? LastMachete;
 
     /// <summary>
@@ -153,7 +166,7 @@ public sealed partial class SlasherSoulStealComponent : Component
     /// <summary>
     /// The next time lights should flicker.
     /// </summary>
-    [ViewVariables]
+    [DataField]
     public TimeSpan NextLightFlicker = TimeSpan.Zero;
 
     /// <summary>

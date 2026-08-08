@@ -1,0 +1,32 @@
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: StatusEffectFeared
+  name: feared
+  components:
+  - type: StatusEffectAlert
+    alert: SlasherFearVictim
+    showDuration: false 
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: Feared
+
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: StatusEffectSlasherLovestruck
+  name: lovestruck
+  components:
+  - type: StatusEffectAlert
+    alert: SlasherLovestruck
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: HeartEyes
+
+- type: entity
+  parent: StatusEffectSlowdown
+  id: SlasherSlowdownStatusEffect
+  name: slasher slowdown
+
+- type: entity
+  parent: StatusEffectSlowdown
+  id: SlasherLovestruckStatusEffect
+  name: charmed slowdown

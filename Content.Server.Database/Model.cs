@@ -68,6 +68,9 @@ namespace Content.Server.Database
         public DbSet<PollVote> PollVotes { get; set; } = default!;
         public DbSet<PollSeen> PollSeen { get; set; } = default!;
 
+        // Goobstation Slasher prestige
+        public DbSet<SlasherAscension> SlasherAscensions { get; set; } = default!;
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Preference>()
@@ -421,6 +424,18 @@ namespace Content.Server.Database
 
             modelBuilder.Entity<PollSeen>()
                 .HasIndex(s => new { s.PollId, s.PlayerUserId })
+                .IsUnique();
+
+            // Goobstation Slasher prestige
+            modelBuilder.Entity<SlasherAscension>()
+                .HasOne(a => a.Player)
+                .WithMany()
+                .HasForeignKey(a => a.PlayerUserId)
+                .HasPrincipalKey(p => p.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<SlasherAscension>()
+                .HasIndex(a => new { a.PlayerUserId, a.AscensionId })
                 .IsUnique();
         }
 

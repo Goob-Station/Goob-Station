@@ -1,0 +1,29 @@
+- type: guideEntry
+  id: Slasher
+  name: "Slasher"
+  text: "/ServerInfo/_Goobstation/Guidebook/Antagonist/Slasher.xml"
+  children:
+  - SlasherBoogyman
+  - SlasherIdol
+  - SlasherHotline
+  - SlasherMonsieur
+
+- type: guideEntry
+  id: SlasherBoogyman
+  name: "Slasher: Boogyman"
+  text: "/ServerInfo/_Goobstation/Guidebook/Antagonist/Slasher_Boogyman.xml"
+
+- type: guideEntry
+  id: SlasherMonsieur
+  name: "Slasher: Monsieur"
+  text: "/ServerInfo/_Goobstation/Guidebook/Antagonist/Slasher_Monsieur.xml"
+
+- type: guideEntry
+  id: SlasherIdol
+  name: "Slasher: The Idol"
+  text: "/ServerInfo/_Goobstation/Guidebook/Antagonist/Slasher_Idol.xml"
+
+- type: guideEntry
+  id: SlasherHotline
+  name: "Slasher: Chicken Mask"
+  text: "/ServerInfo/_Goobstation/Guidebook/Antagonist/Slasher_Hotline.xml"

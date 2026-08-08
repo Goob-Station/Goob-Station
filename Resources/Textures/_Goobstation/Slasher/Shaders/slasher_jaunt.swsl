@@ -1,0 +1,98 @@
+// Fullscreen overlay shown to a Slasher while incorporeal (jaunting).
+// Makes the world look like it's being watched through an old, dying CRT
+
+uniform sampler2D SCREEN_TEXTURE;
+uniform highp float intensity;
+uniform highp float curvature;
+uniform highp float scanlineIntensity;
+uniform highp float scanlineCount;
+uniform highp float maskStrength;
+uniform highp float maskSize;
+uniform highp float vignettePower;
+uniform highp float aberration;
+uniform highp float glow;
+uniform highp float brightness;
+
+highp float hash(highp vec2 p)
+{
+    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
+}
+
+highp vec2 warp(highp vec2 uv)
+{
+    uv = uv * 2.0 - 1.0;
+    uv *= vec2(1.0 + (uv.y * uv.y) * curvature, 1.0 + (uv.x * uv.x) * curvature);
+    return uv * 0.5 + 0.5;
+}
+
+highp vec3 grille(highp float x)
+{
+    highp float idx = mod(floor(x / maskSize), 3.0);
+    highp vec3 c = vec3(0.45);
+    if (idx < 0.5)
+        c.r = 1.0;
+    else if (idx < 1.5)
+        c.g = 1.0;
+    else
+        c.b = 1.0;
+    return mix(vec3(1.0), c, maskStrength);
+}
+
+void fragment()
+{
+    highp float t = TIME;
+    highp float i = clamp(intensity, 0.0, 1.0);
+
+    highp vec2 cuv = mix(UV, warp(UV), i);
+
+    highp float bx = smoothstep(0.0, 0.015, cuv.x) - smoothstep(0.985, 1.0, cuv.x);
+    highp float by = smoothstep(0.0, 0.015, cuv.y) - smoothstep(0.985, 1.0, cuv.y);
+    highp float bezel = clamp(bx, 0.0, 1.0) * clamp(by, 0.0, 1.0);
+
+    highp vec2 dir = cuv - 0.5;
+    highp float ca = aberration * (0.4 + dot(dir, dir));
+    highp vec3 color;
+    color.r = texture2D(SCREEN_TEXTURE, cuv + dir * ca).r;
+    color.g = texture2D(SCREEN_TEXTURE, cuv).g;
+    color.b = texture2D(SCREEN_TEXTURE, cuv - dir * ca).b;
+
+    highp float luma = dot(color, vec3(0.299, 0.587, 0.114));
+    color = mix(vec3(luma), color, 0.78);                 // gentle desaturation
+    color = clamp((color - 0.03) / 0.97, 0.0, 1.0);        // lift the black point
+    color = pow(color, vec3(1.12));                        // deepen the mids
+    color = mix(color * vec3(0.80, 0.92, 1.06),            // cool shadows
+                color * vec3(1.10, 0.98, 0.86),            // warm highlights
+                smoothstep(0.2, 0.8, luma));
+    color *= vec3(0.97, 1.02, 0.97);                       // faint green phosphor cast
+
+    highp vec2 sp = vec2(0.0016);
+    highp vec3 bloom = texture2D(SCREEN_TEXTURE, cuv + vec2( sp.x,  sp.y)).rgb
+                     + texture2D(SCREEN_TEXTURE, cuv + vec2(-sp.x,  sp.y)).rgb
+                     + texture2D(SCREEN_TEXTURE, cuv + vec2( sp.x, -sp.y)).rgb
+                     + texture2D(SCREEN_TEXTURE, cuv + vec2(-sp.x, -sp.y)).rgb;
+    bloom = max(bloom * 0.25 - 0.45, 0.0);
+    color += bloom * glow;
+
+    highp float sigma = mix(0.16, 0.40, luma);
+    highp float beam = fract(cuv.y * scanlineCount) - 0.5;
+    highp float scan = exp(-beam * beam / (2.0 * sigma * sigma));
+    color *= 1.0 - scanlineIntensity * (1.0 - scan);
+
+    color *= grille(FRAGCOORD.x);
+
+    color *= brightness;
+
+    highp float bar = sin((cuv.y * 2.5 - t * 0.7) * 3.14159) * 0.5 + 0.5;
+    color *= 1.0 - 0.05 * bar;
+    color *= 0.97 + 0.03 * sin(t * 110.0);
+
+    highp float vig = cuv.x * cuv.y * (1.0 - cuv.x) * (1.0 - cuv.y) * 16.0;
+    color *= pow(clamp(vig, 0.0, 1.0), vignettePower);
+
+    color += (hash(cuv * vec2(960.0, 540.0) + fract(t) * 137.0) - 0.5) * 0.04;
+
+    color *= bezel;
+
+    highp vec3 baseColor = texture2D(SCREEN_TEXTURE, UV).rgb;
+    COLOR = vec4(mix(baseColor, clamp(color, 0.0, 1.0), i), 1.0);
+}

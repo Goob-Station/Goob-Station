@@ -14,10 +14,12 @@ public sealed class SlasherKitSelectBoundUserInterface(EntityUid owner, Enum uiK
         base.Open();
 
         _window = this.CreateWindow<SlasherKitSelectMenu>();
+        _window.OnClose += () => _window = null;
         _window.OnKitSelected += index =>
         {
             SendMessage(new SlasherKitSelectedMessage(index));
-            _window.ForceClose();
+            _window?.ForceClose();
+            _window = null;
         };
     }
 
@@ -25,7 +27,7 @@ public sealed class SlasherKitSelectBoundUserInterface(EntityUid owner, Enum uiK
     {
         base.UpdateState(state);
 
-        if (state is SlasherKitSelectBoundUserInterfaceState s)
-            _window?.UpdateState(s);
+        if (state is SlasherKitSelectBoundUserInterfaceState s && _window is { Disposed: false })
+            _window.UpdateState(s);
     }
 }

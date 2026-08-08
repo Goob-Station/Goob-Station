@@ -8,16 +8,13 @@ namespace Content.Goobstation.Shared.Slasher;
 public sealed partial class SlasherRegenerateEvent : InstantActionEvent;
 
 [ByRefEvent]
+public sealed class SlasherRevivedFromDeathEvent : EntityEventArgs;
+
+[ByRefEvent]
 public sealed partial class SlasherMassacreEvent : InstantActionEvent;
 
 [ByRefEvent]
 public sealed partial class SlasherPossessionEvent : EntityTargetActionEvent;
-
-/// <summary>
-/// Toggle event for the blood trail action.
-/// </summary>
-[ByRefEvent]
-public sealed partial class ToggleBloodTrailEvent : InstantActionEvent;
 
 /// <summary>
 /// Soul steal targeted action event.
@@ -49,10 +46,7 @@ public sealed partial class SlasherSoulStealDoAfterEvent : SimpleDoAfterEvent;
 public sealed partial class SlasherIncorporealizeDoAfterEvent : SimpleDoAfterEvent;
 
 [ByRefEvent]
-public sealed partial class SlasherIncorporealizeEvent : InstantActionEvent;
-
-[ByRefEvent]
-public sealed partial class SlasherCorporealizeEvent : InstantActionEvent;
+public sealed partial class SlasherToggleIncorporealEvent : InstantActionEvent;
 
 [ByRefEvent]
 public sealed class SlasherIncorporealEnteredEvent : EntityEventArgs;

@@ -4,6 +4,7 @@ using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.Actions.Events;
 using Content.Shared.Flash;
+using Content.Shared.Flash.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
 using Content.Shared.Stealth;
@@ -64,7 +65,7 @@ public sealed class SlasherIncorporealSystem : EntitySystem
     [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly FixtureSystem _fixtures = default!;
-    [Dependency] private readonly SlasherObserverCheckSystem _observerCheck = default!;
+    [Dependency] private readonly SlasherFearSystem _fear = default!;
 
     private const string FootstepSoundTag = "FootstepSound";
 
@@ -75,8 +76,7 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         SubscribeLocalEvent<SlasherIncorporealComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<SlasherIncorporealComponent, ComponentShutdown>(OnShutdown);
 
-        SubscribeLocalEvent<SlasherIncorporealComponent, SlasherIncorporealizeEvent>(OnIncorporealize);
-        SubscribeLocalEvent<SlasherIncorporealComponent, SlasherCorporealizeEvent>(OnCorporealize);
+        SubscribeLocalEvent<SlasherIncorporealComponent, SlasherToggleIncorporealEvent>(OnToggleIncorporeal);
         SubscribeLocalEvent<SlasherIncorporealComponent, SlasherIncorporealizeDoAfterEvent>(OnIncorporealizeDoAfter);
 
         SubscribeLocalEvent<SlasherIncorporealComponent, BeforeThrowEvent>(OnBeforeThrow);
@@ -91,38 +91,37 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         SubscribeLocalEvent<SlasherIncorporealComponent, DownAttemptEvent>(OnDownAttempt);
         SubscribeLocalEvent<SlasherIncorporealComponent, KnockDownAttemptEvent>(OnKnockDownAttempt);
         SubscribeLocalEvent<SlasherIncorporealComponent, FlashAttemptEvent>(OnFlashAttempt);
+        SubscribeLocalEvent<SlasherIncorporealComponent, AfterFlashedEvent>(OnAfterFlashed);
         SubscribeLocalEvent<TriggerOnProximityComponent, AttemptTriggerEvent>(OnProximityTriggerAttempt);
         SubscribeLocalEvent<SlasherIncorporealComponent, StepTriggerAttemptEvent>(OnStepTriggerAttempt);
     }
 
     private void OnMapInit(Entity<SlasherIncorporealComponent> ent, ref MapInitEvent args)
     {
-        if (!_net.IsServer)
-            return;
-
         _actions.AddAction(ent.Owner, ref ent.Comp.IncorporealizeActionEnt, ent.Comp.IncorporealizeActionId);
-        _actions.AddAction(ent.Owner, ref ent.Comp.CorporealizeActionEnt, ent.Comp.CorporealizeActionId);
-        _actions.SetEnabled(ent.Comp.CorporealizeActionEnt, false);
-
-        EnsureComp<SlasherObserverCheckComponent>(ent);
+        Dirty(ent);
     }
 
     private void OnShutdown(Entity<SlasherIncorporealComponent> ent, ref ComponentShutdown args)
     {
-        if (!_net.IsServer)
-            return;
-
         _actions.RemoveAction(ent.Owner, ent.Comp.IncorporealizeActionEnt);
-        _actions.RemoveAction(ent.Owner, ent.Comp.CorporealizeActionEnt);
     }
 
-    private void OnIncorporealize(Entity<SlasherIncorporealComponent> ent, ref SlasherIncorporealizeEvent args)
+    private void OnToggleIncorporeal(Entity<SlasherIncorporealComponent> ent, ref SlasherToggleIncorporealEvent args)
     {
-        if (args.Handled || ent.Comp.IsIncorporeal)
+        if (args.Handled)
             return;
 
+        if (ent.Comp.IsIncorporeal)
+            Corporealize(ent, ref args);
+        else
+            Incorporealize(ent, ref args);
+    }
+
+    private void Incorporealize(Entity<SlasherIncorporealComponent> ent, ref SlasherToggleIncorporealEvent args)
+    {
         // Check if anyone can see them
-        if (_observerCheck.IsObservedByPlayers(ent.Owner, ent.Comp.ObserverCheckRange))
+        if (_fear.IsObservedByPlayers(ent.Owner, ent.Comp.ObserverCheckRange))
         {
             _popup.PopupPredicted(Loc.GetString("slasher-incorporealize-fail-seen"), ent.Owner, ent.Owner);
             args.Handled = true;
@@ -148,21 +147,12 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         args.Handled = true;
     }
 
-    private void OnCorporealize(Entity<SlasherIncorporealComponent> ent, ref SlasherCorporealizeEvent args)
+    private void Corporealize(Entity<SlasherIncorporealComponent> ent, ref SlasherToggleIncorporealEvent args)
     {
-        if (args.Handled)
-            return;
-
-        if (!ent.Comp.IsIncorporeal)
-        {
-            args.Handled = true;
-            return;
-        }
-
         if (_net.IsServer)
         {
             // Check if anyone can see them.
-            if (_observerCheck.IsObservedByPlayers(ent.Owner, ent.Comp.ObserverCheckRange))
+            if (_fear.IsObservedByPlayers(ent.Owner, ent.Comp.ObserverCheckRange))
             {
                 _popup.PopupEntity(Loc.GetString("slasher-corporealize-fail-nearby"), ent.Owner, ent.Owner);
                 args.Handled = true;
@@ -197,7 +187,7 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         if (args.Cancelled || args.Handled)
             return;
 
-        if (_observerCheck.IsObservedByPlayers(ent.Owner, ent.Comp.ObserverCheckRange))
+        if (_fear.IsObservedByPlayers(ent.Owner, ent.Comp.ObserverCheckRange))
         {
             _popup.PopupPredicted(Loc.GetString("slasher-incorporealize-fail-seen"), ent.Owner, ent.Owner);
             return;
@@ -220,6 +210,7 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         ent.Comp.AddedIncorporealComponents.Clear();
 
         EnsureTrackedComp<FacehuggerImmuneComponent>(uid, ent);
+        EnsureTrackedComp<SlasherIncorporealOverlayComponent>(uid, ent);
 
         var phase = EnsureTrackedComp<PhaseShiftedComponent>(uid, ent, new PhaseShiftedComponent
         {
@@ -240,8 +231,7 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         _stealth.SetVisibility(uid, stealth.MinVisibility, stealth);
         _stealth.SetThermalsImmune(uid, true, stealth);
 
-        _actions.SetEnabled(ent.Comp.IncorporealizeActionEnt, false);
-        _actions.SetEnabled(ent.Comp.CorporealizeActionEnt, true);
+        _actions.SetToggled(ent.Comp.IncorporealizeActionEnt, true);
 
         // Prevent doors from opening.
         if (_tags.HasTag(uid, SharedDoorSystem.DoorBumpTag))
@@ -287,8 +277,7 @@ public sealed class SlasherIncorporealSystem : EntitySystem
 
         RemoveTrackedCompsDeferred(uid, ent);
 
-        _actions.SetEnabled(ent.Comp.IncorporealizeActionEnt, true);
-        _actions.SetEnabled(ent.Comp.CorporealizeActionEnt, false);
+        _actions.SetToggled(ent.Comp.IncorporealizeActionEnt, false);
 
         _tags.AddTag(uid, SharedDoorSystem.DoorBumpTag);
         _tags.AddTag(uid, FootstepSoundTag);
@@ -442,8 +431,7 @@ public sealed class SlasherIncorporealSystem : EntitySystem
         if (!TryComp<SlasherIncorporealComponent>(user, out var comp) || !comp.IsIncorporeal)
             return;
 
-        // Allow nightvision / corporealize / wake up.
-        if (comp.CorporealizeActionEnt == action.Owner
+        if (comp.IncorporealizeActionEnt == action.Owner
             || _actions.GetEvent(action.Owner) is ToggleNightVisionEvent or WakeActionEvent)
             return;
 
@@ -484,8 +472,18 @@ public sealed class SlasherIncorporealSystem : EntitySystem
 
     private void OnFlashAttempt(EntityUid uid, SlasherIncorporealComponent comp, ref FlashAttemptEvent args)
     {
-        if (comp.IsIncorporeal)
+        if (comp.IsIncorporeal && !(args.Used is { } used && HasComp<FlashComponent>(used)))
             args.Cancelled = true;
+    }
+
+    private void OnAfterFlashed(Entity<SlasherIncorporealComponent> ent, ref AfterFlashedEvent args)
+    {
+        if (ent.Owner != args.Target || !ent.Comp.IsIncorporeal)
+            return;
+
+        ExitIncorporeal(ent.Owner, ent);
+        var regenerate = new SlasherRegenerateEvent();
+        RaiseLocalEvent(ent.Owner, ref regenerate);
     }
 
     private void OnStepTriggerAttempt(EntityUid uid, SlasherIncorporealComponent comp, ref StepTriggerAttemptEvent args)
