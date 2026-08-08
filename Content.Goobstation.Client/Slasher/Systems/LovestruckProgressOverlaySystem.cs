@@ -1,10 +1,11 @@
 using Content.Goobstation.Client.Slasher.Overlays;
+using Content.Goobstation.Shared.Slasher.Components;
 using Robust.Client.Graphics;
 
 namespace Content.Goobstation.Client.Slasher.Systems;
 
 /// <summary>
-/// Registers the LovestruckProgressOverlay.
+/// Registers the LovestruckProgressOverlay while any entity is being charmed.
 /// </summary>
 public sealed class LovestruckProgressOverlaySystem : EntitySystem
 {
@@ -16,14 +17,20 @@ public sealed class LovestruckProgressOverlaySystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<LovestruckComponent, ComponentInit>(OnLovestruckInit);
+        SubscribeLocalEvent<LovestruckComponent, ComponentShutdown>(OnLovestruckShutdown);
+
         _overlay = new();
+    }
+
+    private void OnLovestruckInit(EntityUid uid, LovestruckComponent component, ComponentInit args)
+    {
         _overlayMan.AddOverlay(_overlay);
     }
 
-    public override void Shutdown()
+    private void OnLovestruckShutdown(EntityUid uid, LovestruckComponent component, ComponentShutdown args)
     {
-        base.Shutdown();
-
-        _overlayMan.RemoveOverlay(_overlay);
+        if (Count<LovestruckComponent>() <= 1)
+            _overlayMan.RemoveOverlay(_overlay);
     }
 }
