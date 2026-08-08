@@ -1,0 +1,186 @@
+- type: entity
+  id: ORTWarningBox
+  name: warning
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Effects/warning.rsi
+    state: warning_box
+    drawdepth: BelowMobs
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35, -0.35, 0.35, 0.35"
+        density: 9999
+        hard: false
+        mask:
+        - MobMask
+        layer:
+        - GlassLayer
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+      - ORTBeamSmall
+    intervalSeconds: 1
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+  - type: Physics
+    bodyType: Static
+  - type: FadingIn
+    fadeInTime: 0.3
+  - type: FadingTimedDespawn
+    lifetime: 1.1
+    fadeOutTime: 0.3
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: red
+
+- type: entity
+  id: EmptyWarningSpawner # SpawnEntityActionEvent spawns in invisible entities, so this middle manager is needed.
+  categories: [HideSpawnMenu]
+  components:
+  - type: Timer
+  - type: TriggerOnSpawn
+  - type: SpawnOnTrigger
+    proto: ORTWarningBoxLarge
+    predicted: true
+  - type: TimedDespawn
+    lifetime: 0.1
+
+- type: entity
+  id: ORTWarningBoxLarge
+  parent: ORTWarningBox
+  components:
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.5
+    sprintSpeedModifier: 0.5
+    ignoreWhitelist:
+      components:
+      - Fauna  
+  - type: Sprite
+    sprite: _Lavaland/Effects/large_warning.rsi
+    state: Mwarning_box
+    drawdepth: BelowMobs
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5, -0.5, 0.5, 0.5"
+        density: 9999
+        hard: false
+        mask:
+        - MobMask
+        layer:
+        - GlassLayer
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+      - ORTMassiveThunderstrike
+    intervalSeconds: 3.9
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+  - type: FadingIn
+    fadeInTime: 0.3
+  - type: FadingTimedDespawn
+    lifetime: 4
+  - type: PointLight
+    radius: 4
+    energy: 3
+    color: red
+
+- type: entity
+  id: ORTAnchor
+  categories: [HideSpawnMenu]
+  components:
+  - type: Transform  
+
+- type: entity
+  id: ParadigmInflationTarget
+  categories: [HideSpawnMenu]
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Effects/target.rsi
+    state: ORT_target
+    drawdepth: Effects
+    noRot: true
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: Green
+    castShadows: true
+  - type: Timer
+  - type: FadingIn
+    fadeInTime: 0.5
+  - type: FadingTimedDespawn
+    lifetime: 5
+  - type: Rotating
+    increaseOvertime: true
+    rotationSpeed: 35
+
+- type: entity
+  id: TransportMatterTarget
+  categories: [HideSpawnMenu]
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Effects/target.rsi
+    state: ORT_target2
+    drawdepth: Effects
+    noRot: true
+  - type: PointLight
+    radius: 3
+    energy: 3
+    color: Purple
+    castShadows: true
+  - type: Timer
+  - type: FadingIn
+    fadeInTime: 0.3
+  - type: FadingTimedDespawn
+    lifetime: 5
+  - type: Rotating
+    increaseOvertime: true
+    rotationSpeed: 35
+
+- type: entity
+  id: ORTSafeZoneIndicator
+  name: safe zone
+  description: Get to da choppah!
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Effects/64x64.rsi
+    state: safe_zone
+    drawdepth: BelowMobs
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35, -0.35, 0.35, 0.35"
+        density: 9999
+        hard: false
+        mask:
+        - MobMask
+        layer:
+        - GlassLayer
+  - type: Physics
+    bodyType: Static
+  - type: FadingIn
+    fadeInTime: 0.5
+  - type: Transform
+    noRot: true
+    anchored: true
+  - type: PointLight
+    radius: 5
+    energy: 5
+    color: cyan
+  - type: SafeZone
+    blacklist:
+    - ORTWarningBoxLarge
+    - ORTEvilThunderCloud
+    - LightningCrackle
+    - ORTBeamWarning

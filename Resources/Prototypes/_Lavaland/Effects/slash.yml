@@ -1,0 +1,68 @@
+- type: entity
+  id: ORTSlashEffect
+  components:
+  - type: Transform
+    noRot: true    
+  - type: Sprite
+    sprite: _Lavaland/Effects/64x64.rsi
+    state: rushhit
+    drawdepth: Mobs
+    noRot: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        hard: false
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.6, -0.6, 0.6, 0.6"
+        density: 100
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: FadingTimedDespawn
+    lifetime: 0.5
+    fadeOutTime: 0.2
+  - type: DamageOnCollide
+    ignoreWhitelist:
+      components:
+        - Fauna
+    inverted: true
+    damage:
+      types:
+        Slash: 10
+  - type: TriggerOnSpawn
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Goobstation/Weapons/Melee/slashermachetehit.ogg
+      params:
+        volume: -10
+
+- type: entity
+  id: ORTMegaSlashEffect
+  parent: ORTSlashEffect
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Effects/64x64.rsi
+    state: dimplo
+    drawdepth: Mobs
+    noRot: true
+  - type: FadingTimedDespawn
+    lifetime: 0.8
+    fadeOutTime: 0.2
+  - type: DamageOnCollide
+    ignoreWhitelist:
+      components:
+        - Fauna
+    inverted: true
+    damage:
+      types:
+        Heat: 30
+  - type: TriggerOnSpawn
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Effects/Grenades/Supermatter/whitehole_start.ogg
+      params:
+        volume: 5
