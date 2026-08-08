@@ -314,7 +314,7 @@ public sealed partial class PolymorphSystem : EntitySystem
             {
                 if (TryComp(child, out InventoryComponent? inventory2))
                 {
-                    _inventory.TransferEntityInventories((uid, inventory1), (child, inventory2), false);
+                    _inventory.TransferEntityInventories((uid, inventory1), (child, inventory2), true); //Goob edit
                     foreach (var hand in _hands.EnumerateHeld(uid))
                     {
                         _hands.TryDrop(uid, hand, checkActionBlocker: false);
