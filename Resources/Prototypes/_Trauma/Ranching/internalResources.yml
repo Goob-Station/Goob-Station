@@ -1,0 +1,11 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: internalResources
+  id: Happiness
+  name: internal-resources-happiness-name
+  description: internal-resources-happiness-desc
+  alert: ChangelingChemicals # Fake alert
+  baseMinAmount: -1000
+  maxAmount: 1000
+  regenerationRate: -0.1
+  startingAmount: 20

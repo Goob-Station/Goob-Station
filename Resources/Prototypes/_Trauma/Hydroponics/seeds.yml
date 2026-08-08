@@ -1,0 +1,231 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+
+- type: seed
+  id: deliciousApple
+  name: seeds-appledelicious-name
+  noun: seeds-noun-seeds
+  displayName: seeds-appledelicious-display-name
+  plantRsi: Objects/Specific/Hydroponics/apple.rsi
+  packetPrototype: deliciousAppleSeeds
+  productPrototypes:
+  - FoodDeliciousApple
+  mutationPrototypes:
+  - goldenApple
+  harvestRepeat: Repeat
+  lifespan: 55
+  maturation: 6
+  production: 6
+  yield: 3
+  potency: 10
+  idealLight: 6
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 10
+    Vitamin:
+      Min: 1
+      Max: 4
+      PotencyDivisor: 25
+
+- type: seed
+  id: MethApple
+  name: seeds-applemeth-name
+  noun: seeds-noun-seeds
+  displayName: seeds-applemeth-display-name
+  plantRsi: _Trauma/Objects/Specific/Hydroponics/meth_apple.rsi
+  packetPrototype: MethAppleSeeds
+  productPrototypes:
+  - FoodMethApple
+  harvestRepeat: Repeat
+  lifespan: 55
+  maturation: 6
+  production: 6
+  yield: 2
+  potency: 10
+  idealLight: 6
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 10
+    Vitamin:
+      Min: 1
+      Max: 4
+      PotencyDivisor: 25
+    Desoxyephedrine:
+      Min: 1
+      Max: 3
+      PotencyDivisor: 10
+
+- type: seed
+  id: ClearCorn
+  name: seeds-clearcorn-name
+  noun: seeds-noun-seeds
+  displayName: seeds-clearcorn-display-name
+  plantRsi: _Trauma/Objects/Specific/Hydroponics/clear_corn.rsi
+  packetPrototype: ClearCornSeeds
+  productPrototypes:
+  - FoodClearCorn
+  lifespan: 25
+  maturation: 8
+  production: 6
+  yield: 2
+  potency: 20
+  growthStages: 3
+  idealLight: 8
+  waterConsumption: 0.60
+  idealHeat: 298
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 20
+    Cornmeal:
+      Min: 5
+      Max: 15
+      PotencyDivisor: 10
+    Ethanol:
+      Min: 15
+      Max: 60
+      PotencyDivisor: 10
+
+- type: seed
+  id: Peanut
+  name: seeds-peanut-name
+  noun: seeds-noun-seeds
+  displayName: seeds-peanut-display-name
+  plantRsi: _Trauma/Objects/Specific/Hydroponics/peanut.rsi
+  packetPrototype: PeanutSeeds
+  productPrototypes:
+  - FoodPeanut
+  harvestRepeat: Repeat
+  lifespan: 25
+  maturation: 6
+  production: 3
+  yield: 3
+  potency: 5
+  growthStages: 3
+  idealLight: 8
+  nutrientConsumption: 0.40
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 20
+      PotencyDivisor: 20
+
+- type: seed
+  id: MagicMushrooms
+  name: seeds-magicmush-name
+  noun: seeds-noun-spores
+  displayName: seeds-magicmush-display-name
+  plantRsi: _Trauma/Objects/Specific/Hydroponics/magicmushrooms.rsi
+  packetPrototype: MagicMushroomSeeds
+  productPrototypes:
+  - FoodMagicMushroom
+  lifespan: 35
+  maturation: 10
+  production: 7
+  yield: 5
+  potency: 1
+  growthStages: 3
+  lightTolerance: 6
+  waterConsumption: 0.60
+  nutrientConsumption: 0.50
+  idealHeat: 288
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 25
+      PotencyDivisor: 25
+    THC:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 10
+
+- type: seed
+  id: SynthMeat
+  name: seeds-synthmeat-name
+  noun: seeds-noun-seeds
+  displayName: seeds-synthmeat-display-name
+  plantRsi: _Trauma/Objects/Specific/Hydroponics/synthmeat.rsi
+  packetPrototype: SynthMeatSeeds
+  productPrototypes:
+  - FoodSynthMeat
+  lifespan: 25
+  maturation: 6
+  production: 3
+  yield: 3
+  growthStages: 3
+  potency: 5
+  idealLight: 8
+  nutrientConsumption: 0.40
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 20
+      PotencyDivisor: 20
+    Synthflesh:
+      Min: 5
+      Max: 20
+      PotencyDivisor: 20
+
+- type: seed
+  id: BalloonWatermelon
+  name: seeds-balloonmelon-name
+  noun: seeds-noun-seeds
+  displayName: seeds-balloonmelon-display-name
+  plantRsi: _Trauma/Objects/Specific/Hydroponics/balloon_mellon.rsi
+  packetPrototype: BalloonMelonSeeds
+  productPrototypes:
+  - MelonBalloon
+  lifespan: 55
+  maturation: 12
+  production: 3
+  yield: 1
+  potency: 1
+  growthStages: 3
+  idealLight: 8
+  chemicals:
+    Hydrogen:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 10
+    Water:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 10
+    Nitrogen:
+      Min: 1
+      Max: 5
+      PotencyDivisor: 20
+
+- type: seed
+  id: SteelWheat
+  name: seeds-steelwheat-name
+  noun: seeds-noun-seeds
+  displayName: seeds-steelwheat-display-name
+  plantRsi: _Trauma/Objects/Specific/Hydroponics/steel_wheat.rsi
+  packetPrototype: SteelWheatSeeds
+  productPrototypes:
+  - SteelWheatBushel
+  mutationPrototypes:
+  - meatwheat
+  lifespan: 25
+  maturation: 6
+  production: 3
+  growthStages: 3
+  yield: 3
+  potency: 5
+  idealLight: 8
+  nutrientConsumption: 0.40
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 20
+      PotencyDivisor: 20
+    Flour:
+      Min: 5
+      Max: 20
+      PotencyDivisor: 20

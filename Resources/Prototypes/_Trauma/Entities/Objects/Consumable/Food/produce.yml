@@ -1,3 +1,197 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+
+- type: entity
+  parent: FoodApple
+  id: FoodDeliciousApple
+  name: delicious looking apple
+  description: It's a delicious piece of Eden.
+  components:
+  - type: Produce
+    seedId: deliciousApple
+  - type: Tag
+    tags:
+    - Fruit
+    - DeliciousLookingApple
+
+- type: entity
+  parent: FoodApple
+  id: FoodMethApple
+  name: meth apple
+  description: It's a meth up'ed piece of Eden.
+  components:
+  - type: Sprite
+    sprite: _Trauma/Objects/Specific/Hydroponics/meth_apple.rsi
+  - type: Produce
+    seedId: MethApple
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 14
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 4
+        - ReagentId: Desoxyephedrine
+          Quantity: 5
+  - type: Tag
+    tags:
+    - Fruit
+    - MethApple
+
+- type: entity
+  parent: FoodCorn
+  id: FoodClearCorn
+  name: clear corn
+  description: Corn, but clear!
+  components:
+  - type: Sprite
+    sprite: _Trauma/Objects/Specific/Hydroponics/clear_corn.rsi
+  - type: Produce
+    seedId: ClearCorn
+  - type: Tag
+    tags:
+    - ClearCorn
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 100
+        reagents:
+        - ReagentId: Cornmeal
+          Quantity: 15
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Ethanol
+          Quantity: 15
+
+- type: entity
+  parent: FoodProduceBase
+  id: FoodPeanut
+  name: peanut
+  description: A pea, but with nut.
+  components:
+  - type: Sprite
+    sprite: _Trauma/Objects/Specific/Hydroponics/peanut.rsi
+  - type: Produce
+    seedId: Peanut
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 2
+  - type: Tag
+    tags:
+    - Peanut
+
+- type: entity
+  parent: FoodProduceBase
+  id: FoodMagicMushroom
+  name: magic mushrooms
+  description: Mushrooms with just a little bit of magic.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: THC
+          Quantity: 15
+  - type: Sprite
+    sprite: _Trauma/Objects/Specific/Hydroponics/magicmushrooms.rsi
+  - type: Produce
+    seedId: MagicMushrooms
+  - type: Tag
+    tags:
+    - MagicMushroom
+    - Mushroom
+
+- type: entity
+  parent: FoodProduceBase
+  id: FoodSynthMeat
+  name: synthmeat
+  description: Synthetic meat grown in hydroponics.
+  components:
+  - type: Sprite
+    sprite: _Trauma/Objects/Specific/Hydroponics/synthmeat.rsi
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Synthflesh
+          Quantity: 10
+  - type: Produce
+    seedId: SynthMeat
+  - type: Tag
+    tags:
+    - SynthMeat
+
+- type: entity
+  parent: FoodProduceBase
+  id: MelonBalloon
+  name: melon balloon
+  description: Who knew that melons could fly!
+  components:
+  - type: Sprite
+    state: icon
+    sprite: _Trauma/Objects/Fun/balloons/red_balloon.rsi
+  - type: Produce
+    seedId: BalloonWatermelon
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
+          params:
+            variation: 0.125
+            volume: -4
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpillBehavior
+        solution: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 75
+  - type: Tag
+    tags:
+    - BalloonMelon
+
+- type: entity
+  parent: ProduceBase
+  id: SteelWheatBushel
+  name: steel wheat bushel
+  description: Sigh... steel wheat... a-grain?
+  components:
+  - type: Sprite
+    sprite: _Trauma/Objects/Specific/Hydroponics/steel_wheat.rsi
+  - type: Produce
+    seedId: SteelWheat
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Lead
+          Quantity: 0.1
+        - ReagentId: Iron
+          Quantity: 2
+  - type: Tag
+    tags:
+    - Wheat
+    - SteelWheat
 - type: entity
   parent: TrashMimanaPeel
   id: MimanaPeelStealthy

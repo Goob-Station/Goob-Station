@@ -1,0 +1,10 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+
+- type: emoteSounds
+  id: ClownChicken
+  params:
+    variation: 0.125
+  sounds:
+    Honk:
+      collection: BikeHorn

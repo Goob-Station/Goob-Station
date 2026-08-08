@@ -1,0 +1,36 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: job
+  id: Rancher
+  name: job-name-rancher
+  description: job-description-rancher
+  playTimeTracker: JobRancher
+  startingGear: RancherGear
+  icon: "JobIconRancher"
+  supervisors: job-supervisors-hop
+  setPreference: true
+  access:
+  - Service
+  - Hydroponics
+
+- type: startingGear
+  id: RancherGear
+  equipment:
+    id: RancherPDA
+    ears: ClothingHeadsetService
+    jumpsuit: ClothingUniformJumpsuitRancher
+    back: ClothingBackpackHydroponics
+    shoes: ClothingShoesBootsCowboyBrown
+    belt: ClothingBeltRancher
+    head: ClothingHeadHatRancher
+
+- type: chameleonOutfit
+  id: RancherChameleonOutfit
+  job: Rancher
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitRancher
+    ears: ClothingHeadsetService
+    shoes: ClothingShoesBootsCowboyBrown
+    back: ClothingBackpackHydroponics
+    belt: ClothingBeltRancher
+    head: ClothingHeadHatRancher
