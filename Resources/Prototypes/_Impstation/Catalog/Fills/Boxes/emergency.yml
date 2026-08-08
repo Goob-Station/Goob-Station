@@ -1,0 +1,184 @@
+﻿# Ungu
+- type: entity
+  parent: BoxCardboard
+  id: BoxSurvivalUngu
+  name: survival box
+  description: It's a box with basic internals inside. Smells like grass?
+  suffix: Wheat
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskBreath
+    - id: EmergencyOxygenTankFilled
+    - id: EmergencyMedipen
+    - id: Flare
+    - id: WheatBushel
+    - id: DrinkWaterBottleFull
+  - type: Sprite
+    layers:
+    - state: internals
+    - state: emergencytank
+
+#- type: entity
+#  parent: BoxSurvivalUngu
+#  id: BoxSurvivalCommandUngu
+#  name: command survival box
+#  description: It's a box with basic internals inside. Smells like grass?
+#  suffix: Wheat
+#  components:
+#  - type: StorageFill
+#    contents:
+#    - id: ClothingMaskBreathCommand
+#    - id: EmergencyOxygenTankCommandFilled
+#    - id: EmergencyMedipen
+#    - id: Flare
+#    - id: WheatBushel
+#    - id: DrinkWaterBottleFull
+
+- type: entity
+  parent: BoxSurvivalUngu
+  id: BoxHugUngu
+  name: box of hugs
+  description: It's a box with basic internals inside. Smells like grass?
+  suffix: Wheat
+  components:
+  - type: Sprite
+    sprite: Objects/Storage/boxes.rsi
+    layers:
+    - state: box_hug
+    - state: heart
+  - type: Item
+    heldPrefix: hug
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskBreath
+    - id: EmergencyFunnyOxygenTankFilled
+    - id: EmergencyMedipen
+    - id: Flare
+    - id: WheatBushel
+    - id: DrinkWaterBottleFull
+  - type: Tag
+    tags:
+    - BoxHug
+
+- type: entity
+  parent: BoxSurvivalUngu
+  id: BoxMimeUngu
+  suffix: Mime, Wheat
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskBreath
+    - id: EmergencyOxygenTankFilled
+    - id: EmergencyMedipen
+    - id: Flare
+    - id: WheatBushel
+    - id: DrinkWaterBottleFull
+
+- type: entity
+  parent: BoxSurvivalUngu
+  id: BoxSurvivalSyndicateUngu
+  name: extended-capacity survival box
+  description: It's a box with basic internals inside. This one is labelled to contain an extended-capacity tank. Smells like grass?
+  suffix: Syndicate, Wheat
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskGasSyndicate
+    - id: ExtendedEmergencyOxygenTankFilled
+    - id: EmergencyMedipen
+    - id: Flare
+    - id: WheatBushel
+    - id: DrinkWaterBottleFull
+
+- type: entity
+  parent: BoxSurvivalUngu
+  id: BoxSurvivalEngineeringUngu
+  name: extended-capacity survival box
+  description: It's a box with basic internals inside. This one is labelled to contain an extended-capacity tank. Smells like grass?
+  suffix: Extended, Wheat
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskBreath
+    - id: ExtendedEmergencyOxygenTankFilled
+    - id: EmergencyMedipen
+    - id: Flare
+    - id: WheatBushel
+    - id: DrinkWaterBottleFull
+
+- type: entity
+  parent: BoxSurvivalUngu
+  id: BoxSurvivalSecurityUngu
+  name: survival box
+  suffix: Security, Wheat
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskGasSecurity
+    - id: EmergencyOxygenTankFilled
+    - id: EmergencyMedipen
+    - id: Flare
+    - id: WheatBushel
+    - id: DrinkWaterBottleFull
+
+- type: entity
+  parent: BoxSurvivalUngu
+  id: BoxSurvivalMedicalUngu
+  name: survival box
+  suffix: Medical, Wheat
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskBreathMedical
+    - id: EmergencyOxygenTankFilled
+    - id: EmergencyMedipen
+    - id: Flare
+    - id: WheatBushel
+    - id: DrinkWaterBottleFull
+
+- type: entity
+  parent: BoxSurvivalUngu
+  id: BoxSurvivalBrigmedicUngu
+  suffix: MedSec, Wheat
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskBreathMedicalSecurity
+    - id: EmergencyOxygenTankFilled
+    - id: EmergencyMedipen
+    - id: Flare
+    - id: WheatBushel
+    - id: DrinkWaterBottleFull
+
+#- type: entity
+#  parent: BoxSurvivalUngu
+#  id: BoxSurvivalEngineeringCommandUngu
+#  name: extended command survival box
+#  description: It's a box with ornate but otherwise basic internals inside. This one is labelled to contain an extended-capacity tank. Smells like grass?
+#  suffix: Extended, Wheat
+#  components:
+#  - type: StorageFill
+#    contents:
+#    - id: ClothingMaskBreathCommand
+#    - id: ExtendedEmergencyOxygenTankCommandFilled
+#    - id: EmergencyMedipen
+#    - id: Flare
+#    - id: WheatBushel
+#    - id: DrinkWaterBottleFull
+
+#- type: entity
+#  parent: BoxSurvivalUngu
+#  id: BoxSurvivalSecurityCommandUngu
+#  name: command survival box
+#  description: It's a box with ornate but otherwise basic internals inside. Smells like grass?
+#  suffix: Wheat
+#  components:
+#  - type: StorageFill
+#    contents:
+#    - id: ClothingMaskGasHOS
+#    - id: EmergencyOxygenTankCommandFilled
+#    - id: EmergencyMedipen
+#    - id: Flare
+#    - id: WheatBushel
+#    - id: DrinkWaterBottleFull

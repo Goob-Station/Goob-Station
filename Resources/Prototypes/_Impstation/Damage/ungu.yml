@@ -1,0 +1,14 @@
+﻿# SPDX-FileCopyrightText: 2026 Impstation contributors
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: damageModifierSet
+  id: Ungu
+  coefficients:
+    Blunt: 1
+    Slash: 1
+    Piercing: 1.3
+    Cold: .6
+    Heat: 1.5
+    Poison: 1.6
+

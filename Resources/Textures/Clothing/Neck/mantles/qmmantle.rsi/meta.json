@@ -17,6 +17,10 @@
     {
       "name": "equipped-NECK-vox",
       "directions": 4
+    },
+    {
+      "name": "equipped-NECK-ungu",
+      "directions": 4
     }
   ]
 }

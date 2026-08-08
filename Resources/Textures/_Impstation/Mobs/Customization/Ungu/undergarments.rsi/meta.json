@@ -1,0 +1,47 @@
+﻿{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Tee and TeeCropped by youtubevideo3, rest by starlighthowls with edits by youtubevideo3 for Impstation",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "Bloomers",
+            "directions": 4
+        },
+        {
+            "name": "Bra",
+            "directions": 4
+        },
+        {
+            "name": "BraStrapless",
+            "directions": 4
+        },
+        {
+            "name": "Pants",
+            "directions": 4
+        },
+        {
+            "name": "Vest",
+            "directions": 4
+        },
+        {
+            "name": "Binder",
+            "directions": 4
+        },
+        {
+            "name": "Shorts",
+            "directions": 4
+        },
+        {
+            "name": "Tee",
+            "directions": 4
+        },
+        {
+            "name": "TeeCropped",
+            "directions": 4
+        }
+    ]
+}

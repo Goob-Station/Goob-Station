@@ -1,0 +1,39 @@
+﻿- type: entity
+  parent: BasePlushie
+  id: PlushieUngu
+  name: ungu plushie
+  description: Texas Longhorn.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/toys.rsi
+    state: plushie_ungu
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: StealTarget
+    stealGroup: Plushie
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: plushie_ungu-inhand-left
+      right:
+      - state: plushie_ungu-inhand-right
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieUnguTiny
+  name: ungu plushie
+  description: Rhode Island Shorthorn. #is Rhode Island canon in SS14? woah
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/toys.rsi
+    state: plushie_ungu_tiny
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: StealTarget
+    stealGroup: Plushie
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: plushie_ungu-inhand-left
+      right:
+      - state: plushie_ungu-inhand-right

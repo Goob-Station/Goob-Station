@@ -314,12 +314,15 @@
     components:
     - Hands
   blacklist:
-    components:
-    - BorgChassis
+    tags:
+    - SiliconEmotes
   chatMessages: [ "chat-emote-msg-clap-single" ]
   chatTriggers:
-    - clap
-    - claps their hands together
+  - clap
+  - claps their hands together
+  - claps her hands together
+  - claps his hands together
+  - claps its hands together
 
 - type: emote
   id: Snap

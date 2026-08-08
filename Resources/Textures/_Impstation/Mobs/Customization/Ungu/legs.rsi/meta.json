@@ -1,0 +1,107 @@
+﻿{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Fluff by LandSharkRAWR, Skin, Prosthetics and Stitches by Thatkidconnor, Splotch by SinewaveDotZone, Hooves and Big Hooves by youtubevideo3, rest by starlighthowls for Impstation",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "LLegFluff",
+            "directions": 4
+        },
+        {
+            "name": "RLegFluff",
+            "directions": 4
+        },
+        {
+            "name": "LLegSplotch",
+            "directions": 4
+        },
+        {
+            "name": "LLegSplotches",
+            "directions": 4
+        },
+        {
+            "name": "RLegSplotch",
+            "directions": 4
+        },
+        {
+            "name": "RLegSplotches",
+            "directions": 4
+        },
+        {
+            "name": "RLegStripes",
+            "directions": 4
+        },
+        {
+            "name": "LLegStripes",
+            "directions": 4
+        },
+        {
+            "name": "HoovesBig",
+            "directions": 4
+        },
+        {
+            "name": "HoofBigL",
+            "directions": 4
+        },
+        {
+            "name": "HoofBigR",
+            "directions": 4
+        },
+        {
+            "name": "Hooves",
+            "directions": 4
+        },
+        {
+            "name": "HoofL",
+            "directions": 4
+        },
+        {
+            "name": "HoofR",
+            "directions": 4
+        },
+        {
+            "name": "PLHoof",
+            "directions": 4
+        },
+        {
+            "name": "PRHoof",
+            "directions": 4
+        },
+        {
+            "name": "PLLeg",
+            "directions": 4
+        },
+        {
+            "name": "PRLeg",
+            "directions": 4
+        },
+        {
+            "name": "StitchRLeg",
+            "directions": 4
+        },
+        {
+            "name": "StitchLLeg",
+            "directions": 4
+        },
+        {
+            "name": "SkinRLeg",
+            "directions": 4
+        },
+        {
+            "name": "SkinLLeg",
+            "directions": 4
+        },
+        {
+            "name": "LLegSpotBig",
+            "directions": 4
+        },
+        {
+            "name": "RLegSpotBig",
+            "directions": 4
+        }
+    ]
+}

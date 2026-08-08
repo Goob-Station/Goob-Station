@@ -1,0 +1,123 @@
+﻿{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Chomp, Tusks, Walrus, Uni, Leaking eyes, Hawk, Prosthetic and Eyehorns by ThatKidConnor, HorseEars by LandSharkRAWR, Splotch by SinewaveDotZone, rest by normalgirl2171 and starlighthowls for Impstation",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "EarsLong",
+            "directions": 4
+        },
+        {
+            "name": "HeadSplotchL",
+            "directions": 4
+        },
+        {
+            "name": "HeadSplotchR",
+            "directions": 4
+        },
+        {
+            "name": "EarsFloppy",
+            "directions": 4
+        },
+        {
+            "name": "EarsFloppyMiddle",
+            "directions": 4
+        },
+        {
+            "name": "String",
+            "directions": 4
+        },
+        {
+            "name": "Horn_Hawk",
+            "directions": 4
+        },
+        {
+            "name": "Leaking_Eyes",
+            "directions": 4
+        },
+        {
+            "name": "Prosthetic_Horns",
+            "directions": 4
+        },
+        {
+            "name": "Uni_Horn",
+            "directions": 4
+        },
+        {
+            "name": "HorseEars",
+            "directions": 4
+        },
+        {
+            "name": "Chompers",
+            "directions": 4
+        },
+        {
+            "name": "LEyeHorn",
+            "directions": 4
+        },
+        {
+            "name": "REyeHorn",
+            "directions": 4
+        },
+        {
+            "name": "Bell",
+            "directions": 4
+        },
+        {
+            "name": "Tusks",
+            "directions": 4
+        },
+        {
+            "name": "Walrus",
+            "directions": 4
+        },
+        {
+            "name": "Eyebrows",
+            "directions": 4
+        },
+        {
+            "name": "Antlers",
+            "directions": 4
+        },
+        {
+            "name": "EarsLongMiddle",
+            "directions": 4
+        },
+        {
+            "name": "EarsPig",
+            "directions": 4
+        },
+        {
+            "name": "EarsSmall",
+            "directions": 4
+        },
+        {
+            "name": "EarsSmallMiddle",
+            "directions": 4
+        },
+        {
+            "name": "EarsUp",
+            "directions": 4
+        },
+        {
+            "name": "EarsUpMiddle",
+            "directions": 4
+        },
+        {
+            "name": "HornsLong",
+            "directions": 4
+        },
+        {
+            "name": "HornsRino",
+            "directions": 4
+        },
+        {
+            "name": "HornsNub",
+            "directions": 4
+        }
+    ]
+}

@@ -1,0 +1,48 @@
+<Document>
+  # Ungu
+
+  <Box>
+    <GuideEntityEmbed Entity="MobUngu" Caption=""/>
+  </Box>
+
+  [color=#ffa500]Caution! This species has a severely limiting game mechanic.[/color]
+
+  Ungu are a species characterized by their astounding physical strength. Due to their large build, [color=#ffa500]they are unable to wear Nanotrasen-issue hardsuits,[/color] and instead must use two-piece "softsuits", such as the EVA suit, for work that requires it.
+
+  <Box>
+    <GuideEntityEmbed Entity="ClothingOuterHardsuitEVA" Caption=""/>
+    <GuideEntityEmbed Entity="ClothingOuterSuitEmergency" Caption=""/>
+    <GuideEntityEmbed Entity="ClothingOuterHardsuitAncientEVA" Caption=""/>
+  </Box>
+
+  They have thick layers of blubber and fur, [color=#1e90ff]insulating them from the cold[/color], but making them [color=#ffa500]more susceptible to overheating[/color].
+
+  # Diet and Metabolism
+  Ungu are vegetarian, and a standard diet consists of vegetables and fruit. Kudzu is a delicacy in their culture.
+
+  <Box>
+    <GuideEntityEmbed Entity="WheatBushel" Caption=""/>
+  </Box>
+
+  Ungu have a much larger stomach than other humanoids, and require more intake to be completely satiated. In turn, they grow hungry at a much slower pace and are vulnerable to any ingested toxins.
+
+  # Physical Strength
+  Hand-to-hand combat is a favored pastime of Ungu. While their attacks are slower than other humanoids, they are far stronger, and can even deal structural damage. Ungu are known for their predilection towards charging their combatants, despite the possibility that they may sustain damage in the process.
+
+  ## Ungu Naming Conventions
+
+  Ungu names tend to be one or two syllables long, and are customarily written using only three letters. A title of the holder's choosing is often appended, serving as a shorthand for stories traditionally exchanged as a greeting.
+  These titles can draw from the holder's qualities and skills, or from their experiences and accomplishments. They can even be based in flaws and failures — "negative" titles aren't seen to be shameful, but rather as a sign of strength.
+
+  - [color=#449944]Acceptable:[/color] Mob, Who Mixed Brutes
+  - [color=#449944]Acceptable:[/color] Bub, Who Knows
+  - [color=#449944]Acceptable:[/color] Ohe, The Fool
+  - [color=#449944]Acceptable:[/color] Kaz, Haunted
+  - [color=#449944]Acceptable:[/color] Slo, The Steady Hauler
+  - [color=#449944]Acceptable:[/color] Gaw, Solved A Tricky Puzzle
+  - [color=#994444]Bad:[/color] Bessie, The Cow
+  - [color=#994444]Bad:[/color] Thog, Dont Caare
+  - [color=#994444]Bad:[/color] Big, The Cat
+  - [color=#994444]Bad:[/color] Benry, Who Had His Passport
+
+</Document>

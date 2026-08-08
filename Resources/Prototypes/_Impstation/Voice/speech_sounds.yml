@@ -1,0 +1,8 @@
+- type: speechSounds
+  id: Ungu
+  saySound:
+    path: /Audio/_Impstation/Voice/Ungu/ungu_talk.ogg
+  askSound:
+    path: /Audio/_Impstation/Voice/Ungu/ungu_ask.ogg
+  exclaimSound:
+    path: /Audio/_Impstation/Voice/Ungu/ungu_yell.ogg

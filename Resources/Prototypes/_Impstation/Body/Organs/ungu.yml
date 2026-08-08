@@ -1,0 +1,49 @@
+﻿# SPDX-FileCopyrightText: 2026 Impstation contributors
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: OrganUnguStomach
+  parent: OrganHumanStomach
+  name: ungu stomach
+  description: A lot going on here.
+  components:
+  - type: Item
+    size: Normal
+  - type: Sprite
+    state: stomach
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 200
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 12
+  - type: Stomach
+    isSpecialDigestibleExclusive: true
+    specialDigestible:
+      tags:
+      - Fruit
+      - Pill
+      - Crayon
+      - Paper
+      - BananaPeel
+      - Ruminant
+      - Wheat
+      - Vegetable
+      - UnguFood # do I really need to add this tag to dozens of food items? fuck that, Ungu will be a vegan species until someone fix it
+      - Flower
+      - Mushroom
+  - type: Metabolizer
+    maxReagents: 3
+    metabolizerTypes: [ Human ]
+    groups:
+    - id: Food
+    - id: Drink
+  - type: Tag
+    tags:
+    - Meat
+    - Organ
+    - Stomach

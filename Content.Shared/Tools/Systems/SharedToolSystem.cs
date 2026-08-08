@@ -12,6 +12,7 @@ using Content.Shared.Maps;
 using Content.Shared.Popups;
 using Content.Shared.Timing;
 using Content.Shared.Tools.Components;
+using Content.Shared._Impstation.Tools.Components; // imp
 using JetBrains.Annotations;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
@@ -178,7 +179,14 @@ public abstract partial class SharedToolSystem : EntitySystem
             return false;
 
         var toolEvent = new ToolDoAfterEvent(fuel, doAfterEv, GetNetEntity(target));
-        var doAfterLength = delay / toolComponent.SpeedModifier; // Goob - doAfterLength var
+        // imp edit start: if a tool has CowTool and the user has CowToolProficiency, use speed modifier from CowToolComponent
+        // else, use speed modifier from ToolComponent, as normal
+        TimeSpan doAfterLength;
+        if (TryComp<CowToolComponent>(tool, out var cowToolComponent) && TryComp<CowToolProficiencyComponent>(user, out _))
+            doAfterLength = delay / cowToolComponent.ProficiencySpeedModifier;
+        else
+            doAfterLength = delay / toolComponent.SpeedModifier; // Goob - doAfterLength var
+        // imp edit end
         var doAfterArgs = new DoAfterArgs(EntityManager, user, doAfterLength, toolEvent, tool, target: target, used: tool)
         {
             BreakOnDamage = true,

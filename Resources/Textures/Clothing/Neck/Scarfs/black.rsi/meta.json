@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Sprited by MrGreen06#0618 (discord), resprited by SeamLesss (GitHub)",
+  "copyright": "Sprited by MrGreen06#0618 (discord), resprited by SeamLesss (GitHub), Ungu by Starlighthowls",
   "size": {
     "x": 32,
     "y": 32
@@ -9,6 +9,10 @@
   "states": [
     {
       "name": "equipped-NECK",
+      "directions": 4
+    },
+    {
+      "name": "equipped-NECK-ungu",
       "directions": 4
     },
     {

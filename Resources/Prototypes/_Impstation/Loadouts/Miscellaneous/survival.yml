@@ -1,0 +1,107 @@
+﻿# Species
+
+- type: loadoutEffectGroup
+  id: Cow
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Ungu
+
+- type: loadout
+  id: EmergencyWheat
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Cow
+  storage:
+    back:
+    - BoxSurvivalUngu
+
+- type: loadout
+  id: EmergencyWheatClown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Cow
+  storage:
+    back:
+    - BoxHugUngu
+
+- type: loadout
+  id: EmergencyWheatMime
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Cow
+  storage:
+    back:
+    - BoxMimeUngu
+
+- type: loadout
+  id: EmergencyWheatExtended
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Cow
+  storage:
+    back:
+    - BoxSurvivalEngineeringUngu
+
+- type: loadout
+  id: EmergencyWheatCommand
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Cow
+  storage:
+    back:
+    - BoxSurvivalCommandUngu
+
+- type: loadout
+  id: EmergencyWheatMedical
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Cow
+  storage:
+    back:
+    - BoxSurvivalMedicalUngu
+
+- type: loadout
+  id: EmergencyWheatSecurity
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Cow
+  storage:
+    back:
+    - BoxSurvivalSecurityUngu
+
+- type: loadout
+  id: EmergencyWheatBrigmedic
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Cow
+  storage:
+    back:
+    - BoxSurvivalBrigmedicUngu
+
+- type: loadout
+  id: EmergencyWheatSyndicate
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Cow
+  storage:
+    back:
+    - BoxSurvivalSyndicateUngu
+
+- type: loadout
+  id: EmergencyWheatExtendedCommand
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Cow
+  storage:
+    back:
+    - BoxSurvivalEngineeringCommandUngu
+
+- type: loadout
+  id: EmergencyWheatSecurityCommand
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Cow
+  storage:
+    back:
+    - BoxSurvivalSecurityCommandUngu

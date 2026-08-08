@@ -23,3 +23,94 @@
       collection: Weh
   params:
     variation: 0.125
+
+# SPECIES - Ungu
+
+- type: emoteSounds
+  id: UnisexUngu
+  params:
+    variation: 0.025
+  sounds:
+    Scream:
+      path: /Audio/_Impstation/Voice/Ungu/ungu_scream.ogg
+      params:
+        volume: -3 # goob - too fucking loud
+    Laugh:
+      path: /Audio/_Impstation/Voice/Ungu/ungu_laugh.ogg
+    Sneeze:
+      collection: UnisexSneezes #we don't have this shit
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      path: /Audio/_Impstation/Voice/Ungu/ungu_yawn.ogg
+    Snore:
+      collection: Snores
+    Honk:
+      collection: BikeHorn
+    Crying:
+      path: /Audio/_Impstation/Voice/Ungu/ungu_cry.ogg
+    Whistle:
+      collection: Whistles
+    #    Weh:
+    #      collection: Weh #motherfucker you are not a lizard you ain't finna weh
+    #    Hew:
+    #      collection: Hew
+    #    Ungh:
+    #      collection: Ungh
+    Gasp:
+      path: /Audio/_Impstation/Voice/Ungu/ungu_gasp.ogg
+    DefaultDeathgasp:
+      path: /Audio/_Impstation/Voice/Ungu/ungu_death_gasp.ogg
+    Sigh:
+      path: /Audio/_Impstation/Voice/Ungu/ungu_sigh.ogg
+    Cough:
+      collection: MaleCoughs
+    Moo:
+      path: /Audio/Animals/cow_moo.ogg
+      params:
+        variation: 0.2
+        pitch: .70 # no rest for the wicked
+    Jump:
+      path: /Audio/_Impstation/Effects/Emotes/jumpthud.ogg
+    Gulp: # Goob # no rest for the wicked
+      path: /Audio/_Goobstation/Voice/Human/gulp.ogg
+      params:
+        pitch: .55
+    Surprised: # Goob # no rest for the wicked
+      path: /Audio/_Goobstation/Voice/surprised.ogg
+
+- type: emoteSounds
+  id: UnguBodyEmotes
+  sounds:
+    Jump:
+      path: /Audio/_Impstation/Effects/Emotes/jumpthud.ogg
+      params:
+        volume: -1
+        variation: 0.1
+    Clap:
+      collection: Claps
+      params:
+        pitch: .55
+    ClapSingle:
+      collection: ClapSingle
+      params:
+        pitch: .55
+    Snap:
+      collection: Snaps
+      params:
+        volume: -3
+    Salute:
+      collection: Salutes
+    Crack:
+      collection: Cracks
+    Blink:
+      collection: Blinks
+      params:
+        volume: -3
+        variation: 0.1

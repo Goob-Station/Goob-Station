@@ -17,6 +17,9 @@
     {
       "name": "equipped-FEET-vox",
       "directions": 4
+    },    {
+      "name": "equipped-FEET-ungu",
+      "directions": 4
     },
     {
       "name": "inhand-left",

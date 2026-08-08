@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/f7337f1aa9efdcc1403ca4771d638e0634074537, icon-filled by PS3MOIRA",
+  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/f7337f1aa9efdcc1403ca4771d638e0634074537, icon-filled by PS3MOIRA, Ungu by Starlighthowls",
   "size": {
     "x": 32,
     "y": 32
@@ -15,6 +15,10 @@
     },
     {
       "name": "equipped-BACKPACK",
+      "directions": 4
+    },
+    {
+      "name": "equipped-BACKPACK-ungu",
       "directions": 4
     },
     {

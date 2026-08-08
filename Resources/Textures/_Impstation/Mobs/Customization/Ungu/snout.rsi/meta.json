@@ -1,0 +1,63 @@
+﻿{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "whale heads by thatkidconnor, rest by normalgirl2171 and starlighthowls for Impstation",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "NoseRing",
+            "directions": 4
+        },
+        {
+            "name": "SnoutElephant",
+            "directions": 4
+        },
+        {
+            "name": "SnoutWhale1",
+            "directions": 4
+        },
+        {
+            "name": "SnoutWhale2",
+            "directions": 4
+        },
+        {
+            "name": "Beluga",
+            "directions": 4
+        },
+        {
+            "name": "BelugaEyes",
+            "directions": 4
+        },
+        {
+            "name": "OrcaBase",
+            "directions": 4
+        },
+        {
+            "name": "OrcaMarkings",
+            "directions": 4
+        },
+        {
+            "name": "SnoutHippo",
+            "directions": 4
+        },
+        {
+            "name": "Snoot",
+            "directions": 4
+        },
+        {
+            "name": "SnoutPig",
+            "directions": 4
+        },
+        {
+            "name": "TusksPig",
+            "directions": 4
+        },
+        {
+            "name": "SnoutTapir",
+            "directions": 4
+        }
+    ]
+}

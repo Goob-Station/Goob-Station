@@ -1,0 +1,35 @@
+﻿{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "water by Starlighthowls, rest by normalgirl2171 for Impstation",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "EyesCyclops",
+            "directions": 4
+        },
+        {
+            "name": "EyesDots",
+            "directions": 4
+        },
+        {
+            "name": "EyesWater",
+            "directions": 4
+        },
+        {
+            "name": "EyesCyclopsWhite",
+            "directions": 4
+        },
+        {
+            "name": "EyesLarson",
+            "directions": 4
+        },
+        {
+            "name": "EyesLarsonSides",
+            "directions": 4
+        }
+    ]
+}

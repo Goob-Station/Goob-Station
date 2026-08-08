@@ -45,6 +45,17 @@
     - popped
     # End Frontier: emote consistency
 
+- type: emote
+  id: Moo
+  name: chat-emote-name-moo
+  category: Vocal
+  available: false
+  chatMessages: ["chat-emote-msg-moo"]
+  chatTriggers:
+  - moo
+  - moos
+  - mooed
+
 # hand emotes
 - type: emote
   id: Crack
@@ -67,3 +78,15 @@
     - cracks her knuckles
     - cracks his knuckles
     - cracks its knuckles
+
+# body emotes
+- type: emote
+  id: Blink
+  name: chat-emote-name-blink
+  category: General
+  icon: _Omu/Interface/Emotes/blink.png
+  chatMessages: ["chat-emote-msg-blink"]
+  chatTriggers:
+  - blink
+  - blinks
+  - blinked

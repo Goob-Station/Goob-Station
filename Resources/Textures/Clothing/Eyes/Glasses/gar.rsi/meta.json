@@ -41,6 +41,18 @@
       "directions": 4
     },
     {
+      "name": "equipped-EYES-ungu",
+      "directions": 4
+    },
+    {
+      "name": "alt-equipped-EYES-ungu",
+      "directions": 4
+    },
+    {
+      "name": "super-equipped-EYES-ungu",
+      "directions": 4
+    },
+    {
       "name": "inhand-left",
       "directions": 4
     },

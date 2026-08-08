@@ -1,0 +1,14 @@
+﻿- type: entity
+  id: ClothingBeltUtilityCowFilled
+  parent: ClothingBeltUtility
+  suffix: Filled, Cow Tools
+  components:
+  - type: StorageFill
+    contents:
+    - id: Haycutters
+    - id: Moodriver
+    - id: Wronch
+    - id: Cowbar
+    - id: Mooltitool
+    - id: Cowelder
+    - id: Milkalyzer

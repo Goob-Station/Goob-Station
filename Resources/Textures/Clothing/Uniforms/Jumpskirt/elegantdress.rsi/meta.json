@@ -18,7 +18,15 @@
       "directions": 4
     },
     {
+      "name": "equipped-INNERCLOTHING-ungu",
+      "directions": 4
+    },
+    {
       "name": "color-equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "color-equipped-INNERCLOTHING-ungu",
       "directions": 4
     },
     {

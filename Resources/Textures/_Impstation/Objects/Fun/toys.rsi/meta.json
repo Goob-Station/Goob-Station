@@ -1,0 +1,25 @@
+﻿{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Ungu sprites by starlighthowls.",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "plushie_ungu"
+        },
+        {
+            "name": "plushie_ungu_tiny"
+        },
+        {
+            "name": "plushie_ungu-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "plushie_ungu-inhand-right",
+            "directions": 4
+        }
+    ]
+}

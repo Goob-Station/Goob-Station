@@ -1,0 +1,83 @@
+﻿{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Fluff by by LandSharkRAWR, Stitches, Exo, Spikes, Chest faces and Heart by Thatkidconnor, Splotch by SinewaveDotZone, rest by starlighthowls for Impstation",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "BackSpotBig",
+            "directions": 4
+        },
+        {
+            "name": "Belly",
+            "directions": 4
+        },
+        {
+            "name": "TorsoSplotchesL",
+            "directions": 4
+        },
+        {
+            "name": "TorsoSplotchesR",
+            "directions": 4
+        },
+        {
+            "name": "Heart",
+            "directions": 4
+        },
+        {
+            "name": "Dormant",
+            "directions": 4
+        },
+        {
+            "name": "Elated_1",
+            "directions": 4
+        },
+        {
+            "name": "Elated_2",
+            "directions": 4
+        },
+        {
+            "name": "Tormented_1",
+            "directions": 4
+        },
+        {
+            "name": "Tormented_2",
+            "directions": 4
+        },
+        {
+            "name": "BackStripes",
+            "directions": 4
+        },
+        {
+            "name": "StitchBelly",
+            "directions": 4
+        },
+        {
+            "name": "Exo",
+            "directions": 4
+        },
+        {
+            "name": "Fin",
+            "directions": 4
+        },
+        {
+            "name": "Limpit",
+            "directions": 4
+        },
+        {
+            "name": "Spikes",
+            "directions": 4
+        },
+        {
+            "name": "Trans",
+            "directions": 4
+        },
+        {
+            "name": "ChestFluff",
+            "directions": 4
+        }
+    ]
+}

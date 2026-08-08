@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/pull/46166/commits/b4b1dde442978f9d85d534437a32e5f2fbc3e89e",
+  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/pull/46166/commits/b4b1dde442978f9d85d534437a32e5f2fbc3e89e, Ungu version by lazyriverfolk",
   "size": {
     "x": 32,
     "y": 32
@@ -12,6 +12,10 @@
     },
     {
       "name": "equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "equipped-INNERCLOTHING-ungu",
       "directions": 4
     }
   ]

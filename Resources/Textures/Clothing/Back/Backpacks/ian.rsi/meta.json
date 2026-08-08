@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Made by RobbyTheFish(github) for ss14.",
+    "copyright": "Made by RobbyTheFish(github) for ss14, Ungu by Starlighthowls.",
     "size": {
         "x": 32,
         "y": 32
@@ -12,6 +12,10 @@
         },
         {
             "name": "equipped-BACKPACK",
+            "directions": 4
+        },
+        {
+            "name": "equipped-BACKPACK-ungu",
             "directions": 4
         },
         {

@@ -1,0 +1,67 @@
+﻿{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Wooly, Tonsure and Strands by ThatKidConnor, Manes and ponytail by LandSharkRAWR, Bun by SinewaveDotZone, Fluff and Pony (edited from antennae) by starlighthowls for Impstation",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "Strands",
+            "directions": 4
+        },
+        {
+            "name": "Pony",
+            "directions": 4
+        },
+        {
+            "name": "Bun",
+            "directions": 4
+        },
+        {
+            "name": "Single_Strand",
+            "directions": 4
+        },
+        {
+            "name": "HeadFluff",
+            "directions": 4
+        },
+        {
+            "name": "Wooly_Long",
+            "directions": 4
+        },
+        {
+            "name": "Mane",
+            "directions": 4
+        },
+        {
+            "name": "BraidedMane",
+            "directions": 4
+        },
+        {
+            "name": "LooseMane",
+            "directions": 4
+        },
+        {
+            "name": "RegalMane",
+            "directions": 4
+        },
+        {
+            "name": "Ponytail",
+            "directions": 4
+        },
+        {
+            "name": "Tonsure",
+            "directions": 4
+        },
+        {
+            "name": "Wooly_Medium",
+            "directions": 4
+        },
+        {
+            "name": "Wooly_Short",
+            "directions": 4
+        }
+    ]
+}

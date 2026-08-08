@@ -1,0 +1,53 @@
+﻿# SPDX-FileCopyrightText: 2026 Impstation contributors
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: body
+  id: Ungu
+  name: "ungu"
+  root: torso
+  slots:
+    head:
+      part: HeadUngu
+      connections:
+      - torso
+      organs:
+        brain: OrganHumanBrain
+        eyes: OrganHumanEyes
+    torso:
+      part: TorsoUngu
+      connections:
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      organs:
+        heart: OrganAnimalHeart
+        lungs: OrganHumanLungs
+        stomach: OrganUnguStomach
+        liver: OrganHumanLiver
+        kidneys: OrganHumanKidneys
+    right arm:
+      part: RightArmUngu
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmUngu
+      connections:
+      - left hand
+    right hand:
+      part: RightHandUngu
+    left hand:
+      part: LeftHandUngu
+    right leg:
+      part: RightLegUngu
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegUngu
+      connections:
+      - left foot
+    right foot:
+      part: RightFootUngu
+    left foot:
+      part: LeftFootUngu

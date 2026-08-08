@@ -64,4 +64,3 @@ public sealed partial class JumpAbilityComponent : Component
 }
 
 public sealed partial class GravityJumpEvent : InstantActionEvent;
-

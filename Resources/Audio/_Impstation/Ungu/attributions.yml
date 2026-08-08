@@ -1,0 +1,47 @@
+﻿- files:
+  - ungu_ask.ogg, ungu_talk.ogg, ungu_yell.ogg # lion
+  license: "CC-BY-SA-3.0"
+  copyright: "quicksounds"
+  source: "https://quicksounds.com/sound/3854/lion-chuff-roar-calm"
+
+- files:
+  - ungu_gasp.ogg # bison
+  license: "CC-BY-SA-3.0"
+  copyright: "sounddino"
+  source: "https://sounddino.com/"
+
+- files:
+  - ungu_death_gasp.ogg # elk
+  license: "CC-BY-SA-3.0"
+  copyright: "sounddino"
+  source: "https://sounddino.com/"
+
+- files:
+  - ungu_cry.ogg # whale
+  license: "CC-BY-SA-3.0"
+  copyright: "DRAGON-STUDIO"
+  source: "https://pixabay.com/users/dragon-studio-38165424/"
+
+- files:
+  - ungu_yawn.ogg # gator
+  license: "CC-BY-SA-3.0"
+  copyright: "quicksounds"
+  source: "https://quicksounds.com/sound/2656/alligator-growls-2"
+
+- files:
+  - ungu_scream.ogg # lion
+  license: "CC-BY-SA-3.0"
+  copyright: "upbeat"
+  source: "https://uppbeat.io/"
+
+- files:
+  - ungu_laugh.ogg # elk
+  license: "CC-BY-SA-3.0"
+  copyright: "zedge"
+  source: "https://www.zedge.net"
+
+- files:
+  - ungu_sigh.ogg
+  license: "CC-BY-SA-3.0"
+  copyright: "freesound_community"
+  source: "https://pixabay.com"

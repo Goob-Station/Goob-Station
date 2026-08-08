@@ -1,0 +1,22 @@
+﻿{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "gray and ungu typing indicators by starlighthowls for impstation, snail typing indicators by widgetbeck for impstation, kodepiia typing indicators by LazyRiverfolk for impstation. anom typing indicators by doop for impstation",
+    "size": {
+      "x": 32,
+      "y": 32
+    },
+    "states": [
+        {
+            "name": "ungu",
+            "delays": [
+                [
+                    0.4,
+                    0.4,
+                    0.4,
+                    0.4
+                ]
+            ]
+        }
+      ]
+    }

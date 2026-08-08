@@ -1,0 +1,43 @@
+﻿{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Bone, bushy and prosthetic by Thatkidconnor, rest by starlighthowls for Impstation",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "TailLong",
+            "directions": 4
+        },
+        {
+            "name": "TailLong_Fluff",
+            "directions": 4
+        },
+        {
+            "name": "Bone_Tail",
+            "directions": 4
+        },
+        {
+            "name": "Bushy_Tail",
+            "directions": 4
+        },
+        {
+            "name": "Prosthetic_Tail",
+            "directions": 4
+        },
+        {
+            "name": "TailFluffy_1",
+            "directions": 4
+        },
+        {
+            "name": "TailFluffy_2",
+            "directions": 4
+        },
+        {
+            "name": "TailNub",
+            "directions": 4
+        }
+    ]
+}

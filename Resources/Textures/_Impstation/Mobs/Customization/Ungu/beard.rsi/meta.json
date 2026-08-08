@@ -1,0 +1,31 @@
+﻿{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "by LandSharkRAWR for Impstation",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "LongChops",
+            "directions": 4
+        },
+        {
+            "name": "ShortChops",
+            "directions": 4
+        },
+        {
+            "name": "Wooly",
+            "directions": 4
+        },
+        {
+            "name": "ThickBraid",
+            "directions": 4
+        },
+        {
+            "name": "TwinBraids",
+            "directions": 4
+        }
+    ]
+}
