@@ -44,17 +44,18 @@ public sealed class VentClogRule : StationEventSystem<VentClogRuleComponent>
             if (!RobustRandom.Prob(0.33f))
                 continue;
 
-            var pickAny = RobustRandom.Prob(0.05f);
+            var pickAny = RobustRandom.Prob(0.25f); /// Goobstation - Vent Clog allchems increase chance
             var reagent = RobustRandom.Pick(pickAny ? allReagents : component.SafeishVentChemicals);
-
-            var weak = component.WeakReagents.Contains(reagent);
-            var quantity = weak ? component.WeakReagentQuantity : component.ReagentQuantity;
+            /// Goobstation start - All commented out code between is for Vent Clog allchems increase chance
+            /*var weak = component.WeakReagents.Contains(reagent);*/
+            var quantity = /* weak ? component.WeakReagentQuantity : */component.ReagentQuantity;
             solution.AddReagent(reagent, quantity);
 
             var foamEnt = Spawn(ChemicalReactionSystem.FoamReaction, transform.Coordinates);
-            var spreadAmount = weak ? component.WeakSpread : component.Spread;
+            var spreadAmount = /* weak ? component.WeakSpread :*/ component.Spread;
             _smoke.StartSmoke(foamEnt, solution, component.Time, spreadAmount);
             Audio.PlayPvs(component.Sound, transform.Coordinates);
+            /// Goobstation end - All commented out code between is for Vent Clog allchems increase chance
         }
     }
 }
