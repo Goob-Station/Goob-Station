@@ -1,0 +1,115 @@
+- type: entity
+  id: MachineTelesci
+  parent: [ BaseMachinePowered, SmallConstructibleMachine ]
+  name: Telepad
+  description: A platform for harnessing the power of bluespace
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Goobstation/Structures/Machines/teleporter.rsi
+    drawdepth: HighFloorObjects
+    layers:
+    - state: icon
+    - state: teleporter
+      #shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+  - type: Physics
+    bodyType: Static
+    canCollide: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.35,0.35,0.35"
+        mask:
+        - Impassable
+        - HighImpassable
+        - MidImpassable
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.35,0.35,0.35"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - Impassable
+        - MidImpassable
+        - LowImpassable
+        - BulletImpassable
+        hard: False
+  - type: Transform
+    anchored: true
+  - type: ApcPowerReceiver
+    powerLoad: 12000
+  - type: TelesciTeleporter
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: BasicDevice
+  - type: DeviceList
+  - type: DeviceLinkSink
+    ports:
+    - Input
+  - type: Machine
+    board: TelesciTeleporterMachineCircuitboard
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#02BCFAff"
+  - type: GuideHelp
+    guides:
+    - Xenoarchaeology
+  - type: LitOnPowered
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+
+- type: entity
+  id: TelesciTeleporterMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: Telepad machine board
+  description: A machine printed circuit board for a Teleporter.
+  components:
+  - type: Sprite
+    state: science
+  - type: MachineBoard
+    prototype: MachineTelesci
+    stackRequirements:
+      Manipulator: 2
+      Glass: 5
+      Steel: 5
+      BSCrystal: 2
+      Diamond: 1
+
+- type: latheRecipe
+  id: TelesciTeleporterMachineCircuitboard
+  result: TelesciTeleporterMachineCircuitboard
+  completetime: 5
+  materials:
+    Plasma: 100
+    Steel: 200
+    Gold: 100
+    Diamond: 10
+
+- type: entity
+  id: EffectTelesciTeleportation
+  categories: [ HideSpawnMenu ]
+  name: teleportation
+  components:
+  - type: Transform
+    anchored: True
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+  - type: Sprite
+    sprite: _Shitmed/Effects/teleportation.rsi
+    state: teleportation
+    scale: 0.65, 0.65
+    color: "#02BCFAff"
+  - type: TimedDespawn
+    lifetime: 0.7

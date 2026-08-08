@@ -1,0 +1,21 @@
+- type: technology
+  id: Telesci
+  name: research-technology-telesci
+  icon:
+    sprite: _Goobstation/Structures/Machines/teleporter.rsi
+    state: icon
+  discipline: Experimental
+  tier: 3
+  cost: 20000
+  recipeUnlocks:
+  - TelesciComputerCircuitboard
+  - TelesciTeleporterMachineCircuitboard
+  position: -5,-2
+  technologyPrerequisites:
+  - BluespaceTheory
+
+- type: latheRecipePack
+  id: TeleportationTechnology
+  recipes:
+  - TelesciComputerCircuitboard
+  - TelesciTeleporterMachineCircuitboard
