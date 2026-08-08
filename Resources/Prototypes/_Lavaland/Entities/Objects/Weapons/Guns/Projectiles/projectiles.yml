@@ -125,3 +125,31 @@
   # Short lifespan
   - type: TimedDespawn
     lifetime: 0.4
+
+- type: entity
+  id: HealingWeakBulletKinetic # Practically useless on purpose
+  categories: [ HideSpawnMenu ]
+  parent: BulletKinetic
+  components:
+  - type: Projectile
+    damage:
+      groups:
+        Brute: -2
+      types:
+        Heat: -2
+
+- type: entity
+  id: BulletKineticRifle
+  name: kinetic bolt
+  parent: BulletKinetic
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    impactEffect: BulletImpactEffectKinetic
+    damage:
+      types:
+        Blunt: 15
+        Structural: 30
+  # Short lifespan
+  - type: TimedDespawn
+    lifetime: 0.20 # roughly 5 tiles

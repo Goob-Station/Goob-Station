@@ -17,6 +17,7 @@
   # Lavaland Change start
   - WeaponProtoKineticShotgun
   - WeaponProtoKineticRepeater
+  - WeaponProtoKineticSniper
   - WeaponProtoKineticPistol
   # Lavaland Change end
   # These are roundstart but not replenishable for salvage

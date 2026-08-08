@@ -78,6 +78,73 @@
     - 0,0,1,0
     - 0,1,0,1
 
+- type: entity
+  name: proto-kinetic longneck
+  id: WeaponProtoKineticSniper
+  parent: [ BaseGunWieldable, WeaponProtoKineticAcceleratorBase, BaseCargoContraband ]
+  description: Fires a single, high-damage kinetic bolt at high range.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_sniper.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_sniper.rsi
+  - type: Gun
+    fireRate: 0.2 # Extremely slow
+    selectedMode: SemiAuto
+    minAngle: 0
+    maxAngle: 0
+    angleIncrease: 0
+    projectileSpeed: 50
+    availableModes:
+    - SemiAuto
+  - type: BasicEntityAmmoProvider
+    proto: BulletKineticRifle
+    capacity: 1
+    count: 1
+  - type: GunRequiresWield
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 8
+    pvsIncrease: 0.8
+  - type: Item
+    sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_sniper.rsi
+    shape:
+    - 0,0,4,0
+
+- type: entity
+  name: proto-kinetic rejuvenator
+  id: WeaponProtoKineticHealer
+  parent: [ WeaponProtoKineticAcceleratorBase, BaseCargoContraband ]
+  description: Fires rejuvenating kinetic bolts, with short range and long recharge times.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_healer.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_healer.rsi
+  - type: BasicEntityAmmoProvider
+    proto: HealingWeakBulletKinetic
+  - type: Gun
+    fireRate: 0.5
+    selectedMode: SemiAuto
+    minAngle: 1
+    maxAngle: 5
+    projectileSpeed: 20
+    availableModes:
+    - SemiAuto
+  - type: Item
+    sprite: _Lavaland/Objects/Weapons/Guns/Basic/kinetic_healer.rsi
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+
 # Space versions of all PKAs
 - type: entity
   id: WeaponProtoKineticAcceleratorSpace
