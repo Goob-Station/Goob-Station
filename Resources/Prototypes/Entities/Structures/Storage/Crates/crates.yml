@@ -778,6 +778,7 @@
     node: cratecoffin
     containers:
     - entity_storage
+  - type: Coffin # Goobstation - bloodsuckers
 
 - type: entity
   parent: CrateGeneric

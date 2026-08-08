@@ -1,0 +1,48 @@
+- type: entity
+  name: Bloodsucker
+  id: MobVampireTest
+  parent: [ BaseMobHuman, FlyingMobBase, MobCombat ]
+  description: Eats your blood.
+  components:
+  #Actual bloodsucker test from here.
+  - type: Bloodsucker
+  - type: BloodsuckerFeed
+  - type: BloodsuckerBrawl
+  - type: BloodsuckerLunge
+  - type: BloodsuckerHaste
+  - type: BloodsuckerMesmerize
+  - type: BloodsuckerTrespass
+  - type: BloodsuckerCloak
+  - type: BloodsuckerHelpVassal
+  - type: BloodsuckerFortitude
+  - type: BloodsuckerClaim
+  - type: BloodsuckerMaterialize
+  - type: BloodsuckerVassalize
+  - type: BloodsuckerGoHome
+  - type: BloodsuckerVeil
+  - type: BloodsuckerMasquerade
+  - type: BloodsuckerOlfaction
+  - type: ActionGrant
+    actions:
+    - ActionBloodsuckerFeed
+    - ActionBloodsuckerBrawl
+    - ActionBloodsuckerLunge
+    - ActionBloodsuckerHaste
+    - ActionBloodsuckerMesmerize
+    - ActionBloodsuckerTrespass
+    - ActionBloodsuckerCloak
+    - ActionBloodsuckerHelpVassal
+    - ActionBloodsuckerFortitude
+    - ActionBloodsuckerClaim
+    - ActionBloodsuckerMaterialize
+    - ActionBloodsuckerSense
+    - ActionBloodsuckerVassalize
+    - ActionBloodsuckerGoHome
+    - ActionBloodsuckerVeil
+    - ActionBloodsuckerMasquerade
+    - ActionBloodsuckerOlfactionAcquire
+
+- type: entity
+  id: BloodsuckerDayNightManager
+  components:
+  - type: BloodsuckerDayNight

@@ -40,6 +40,7 @@ namespace Content.Shared.Body.Systems;
 // todo marty clean up this warzone.
 public abstract partial class SharedBloodstreamSystem : EntitySystem
 {
+    [Dependency] public readonly SharedSolutionContainerSystem SolutionContainer = default!; // Goobstation: made from protected to public
     public static readonly EntProtoId Bloodloss = "StatusEffectBloodloss";
 
     [Dependency] protected readonly IPrototypeManager PrototypeManager = default!;
