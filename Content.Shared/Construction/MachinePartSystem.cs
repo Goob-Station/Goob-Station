@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
 using Content.Shared.Construction.Components;
 using Content.Shared.Examine;
 using Content.Shared.Lathe;
 using Content.Shared.Materials;
 using Robust.Shared.Prototypes;
+using System.Linq;
 
 namespace Content.Shared.Construction
 {
@@ -56,6 +56,11 @@ namespace Content.Shared.Construction
                     args.PushMarkup(Loc.GetString("machine-board-component-required-element-entry-text",
                         ("amount", info.Amount),
                         ("requiredElement", examineName)));
+                }
+
+                if (!CanGetMachineBoardCost((uid, component))) // Goobstation
+                {
+                    args.PushMarkup(Loc.GetString("machine-board-cannot-be-flatpacked"));
                 }
             }
         }
@@ -133,6 +138,57 @@ namespace Content.Shared.Construction
             }
 
             // We were able to construct all elements of the recipe.
+            return true;
+        }
+
+        /// <summary>
+        /// Goobstation - Check whether if entity has recipe lathe or physical composition for all of it's material
+        /// </summary>
+        /// <param name="ent">The entity</param>
+        /// <returns></returns>
+        public bool CanGetMachineBoardCost(Entity<MachineBoardComponent> ent)
+        {
+            foreach (var (stackId, _) in ent.Comp.StackRequirements)
+            {
+                var stackProto = _prototype.Index(stackId);
+                var defaultProto = _prototype.Index(stackProto.Spawn);
+
+                if (defaultProto.TryGetComponent<PhysicalCompositionComponent>(out var physComp, EntityManager.ComponentFactory))
+                {
+                    continue;
+                }
+                else if (_lathe.CanGetRecipesFromEntity(stackProto.Spawn))
+                {
+                    continue;
+                }
+                else
+                {
+                    // The item has no material cost, so we cannot get the full cost.
+                    return false;
+                }
+            }
+
+            var genericPartInfo = ent.Comp.ComponentRequirements.Values.Concat(ent.Comp.TagRequirements.Values);
+            foreach (var info in genericPartInfo)
+            {
+                var defaultProtoId = info.DefaultPrototype;
+
+                if (_lathe.CanGetRecipesFromEntity(defaultProtoId))
+                {
+                    continue;
+                }
+                else if (_prototype.Resolve(defaultProtoId, out var defaultProto) &&
+                         defaultProto.TryGetComponent<PhysicalCompositionComponent>(out var physComp, EntityManager.ComponentFactory))
+                {
+                    continue;
+                }
+                else
+                {
+                    // The item has no material cost, so we cannot get the full cost.
+                    return false;
+                }
+            }
+
             return true;
         }
     }
