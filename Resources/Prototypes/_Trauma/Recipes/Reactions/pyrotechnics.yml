@@ -53,4 +53,5 @@
     Hexamine:
       amount: 1
   products:
-    Octogen: 4
+    Octogen: 2 # Goob
+    Water: 1 # Goob
