@@ -15,7 +15,8 @@ using Content.Shared.Movement.Events;
 using Content.Shared.Pulling.Events;
 using Content.Shared.Speech;
 using Content.Shared.Standing;
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
+using Content.Shared.StatusEffectNew.Components;
 using Content.Shared.Storage.Components;
 using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
@@ -137,14 +138,13 @@ public abstract class SharedStasisSystem : EntitySystem
 
     #endregion
 
-    public bool TryStasis(Entity<StatusEffectsComponent?> target, bool refresh, TimeSpan? time = null)
+    public bool TryStasis(Entity<StatusEffectContainerComponent?> target, TimeSpan? time = null, TimeSpan? delay = null)
     {
         var statusTime = time;
         var comp = target.Comp;
 
         // One day timespan required for stasis container
-        if (statusTime == null)
-            statusTime = new TimeSpan(1, 0, 0, 0, 0);
+        statusTime ??= TimeSpan.FromDays(1);
 
         if (!Resolve(target, ref comp))
             return false;
@@ -152,13 +152,13 @@ public abstract class SharedStasisSystem : EntitySystem
         if (HasComp<StasisImmunityComponent>(target))
             return false;
 
-        if (!_statusEffects.TryAddStatusEffect<InsideStasisComponent>(target, "Stasis", statusTime.Value, refresh))
+        if (!_statusEffects.TryUpdateStatusEffectDuration(target, "Stasis", out _, statusTime.Value, delay))
             return false;
 
         var ev = new StasisEvent();
         RaiseLocalEvent(target, ref ev);
 
-        _adminLogger.Add(LogType.Stamina, LogImpact.Medium, $"{ToPrettyString(target):entity} was send into stasis");
+        _adminLogger.Add(LogType.Stamina, LogImpact.Medium, $"{ToPrettyString(target):entity} was sent into stasis");
 
         return true;
     }
@@ -208,7 +208,7 @@ public abstract class SharedStasisSystem : EntitySystem
         if (HasComp<StasisImmunityComponent>(args.EntityUid))
             return;
 
-        TryStasis((args.EntityUid, null), true, null);
+        TryStasis((args.EntityUid, null));
     }
 
     /// <summary>

@@ -32,6 +32,8 @@ namespace Content.Goobstation.Server.Shadowling.Systems;
 /// </summary>
 public sealed class ShadowlingAscensionEggSystem : EntitySystem
 {
+    private static readonly EntProtoId NightmareAbilities = "NightmareAbilities";
+
     [Dependency] private readonly EntityStorageSystem _entityStorage = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
@@ -233,7 +235,7 @@ public sealed class ShadowlingAscensionEggSystem : EntitySystem
             _actions.RemoveAction(ascendant.ActionHatchEntity);
         }
 
-        var nightmareComps = _protoMan.Index("NightmareAbilities");
+        var nightmareComps = _protoMan.Index(NightmareAbilities);
         foreach (var thrall in thralls)
         {
             if (HasComp<LesserShadowlingComponent>(thrall))

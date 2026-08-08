@@ -1,6 +1,5 @@
 using Content.Goobstation.Common.SecondSkin;
 using Content.Goobstation.Shared.SecondSkin;
-using Content.Server.EntityEffects;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Alert;
 using Content.Shared.Damage.Components;
@@ -8,13 +7,11 @@ using Content.Shared.EntityEffects;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Rejuvenate;
-using Robust.Shared.Random;
 
 namespace Content.Goobstation.Server.SecondSkin;
 
 public sealed class DisgustSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly AlertsSystem _alets = default!;
     [Dependency] private readonly SharedEntityEffectsSystem _effect = default!;
 

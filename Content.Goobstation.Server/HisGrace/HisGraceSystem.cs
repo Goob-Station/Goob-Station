@@ -359,7 +359,7 @@ public sealed class HisGraceSystem : SharedHisGraceSystem
 
             // get co-ordinates for animation
             var coordinates = _transform.GetMapCoordinates(hisGrace);
-            var angle = _transform.GetRelativePosition(xform, entity, GetEntityQuery<TransformComponent>()).ToAngle();
+            var angle = _transform.GetRelativePosition(xform, entity).ToAngle();
 
             // do damage and animation
             _damageable.TryChangeDamage(entity, melee.Damage, targetPart: TargetBodyPart.Chest, origin: hisGrace);

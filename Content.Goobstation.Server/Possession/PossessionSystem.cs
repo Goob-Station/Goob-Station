@@ -31,6 +31,7 @@ using Robust.Server.Containers;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 using static Content.Shared.Administration.Notes.AdminMessageEuiState;
@@ -52,6 +53,8 @@ public sealed partial class PossessionSystem : EntitySystem
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly FollowerSystem _follower = default!;
+
+    private static readonly ProtoId<TagPrototype> CannotSuicideAny = "CannotSuicideAny";
 
     public override void Initialize()
     {
@@ -90,7 +93,7 @@ public sealed partial class PossessionSystem : EntitySystem
 
         _action.AddAction(possessed, ref possessed.Comp.ActionEntity, possessed.Comp.EndPossessionAction);
 
-        _tag.AddTag(possessed, "CannotSuicideAny");
+        _tag.AddTag(possessed, CannotSuicideAny);
 
         possessed.Comp.PossessedContainer = _container.EnsureContainer<Container>(possessed, "PossessedContainer");
     }
@@ -118,7 +121,7 @@ public sealed partial class PossessionSystem : EntitySystem
         if (possessed.Comp.PolymorphEntity && HasComp<PolymorphedEntityComponent>(possessed))
             _polymorph.Revert(possessed.Owner);
 
-        _tag.RemoveTag(possessed, "CannotSuicideAny");
+        _tag.RemoveTag(possessed, CannotSuicideAny);
 
         // Remove associated components.
         if (!possessed.Comp.WasPacified)

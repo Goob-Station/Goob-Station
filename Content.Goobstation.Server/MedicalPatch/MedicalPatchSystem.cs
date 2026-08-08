@@ -21,7 +21,7 @@ public sealed class MedicalPatchSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainers = default!;
     [Dependency] private readonly ReactiveSystem _reactiveSystem = default!;
-    [Dependency] protected readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
 
     public override void Initialize()
@@ -37,11 +37,11 @@ public sealed class MedicalPatchSystem : EntitySystem
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        foreach (var comp in EntityManager.EntityQuery<MedicalPatchComponent>())
+        var query = EntityQueryEnumerator<MedicalPatchComponent>();
+        while (query.MoveNext(out var uid, out var comp))
         {
             if (_timing.CurTime < comp.NextUpdate)
                 continue;
-            var uid = comp.Owner; // TODO update thsi to the
 
             if (!TryComp<StickyComponent>(uid, out var stickycomp))
                 continue;

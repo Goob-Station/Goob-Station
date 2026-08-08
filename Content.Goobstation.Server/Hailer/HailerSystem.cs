@@ -7,6 +7,7 @@ using Content.Shared.Actions.Components;
 using Content.Shared.Chat;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
+using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -42,16 +43,17 @@ public sealed class HailerSystem : EntitySystem
             _actionsSystem.RemoveAction(args.Equipee, component.HailActionEntity);
         }
     }
-    string[] _sounds = [
-        "/Audio/_Goobstation/Hailer/asshole.ogg",
-        "/Audio/_Goobstation/Hailer/bash.ogg",
-        "/Audio/_Goobstation/Hailer/bobby.ogg",
-        "/Audio/_Goobstation/Hailer/compliance.ogg",
-        "/Audio/_Goobstation/Hailer/dontmove.ogg",
-        "/Audio/_Goobstation/Hailer/dredd.ogg",
-        "/Audio/_Goobstation/Hailer/floor.ogg",
-        "/Audio/_Goobstation/Hailer/freeze.ogg",
-        "/Audio/_Goobstation/Hailer/halt.ogg",
+    SoundPathSpecifier[] _sounds =
+    [
+        new("/Audio/_Goobstation/Hailer/asshole.ogg"),
+        new("/Audio/_Goobstation/Hailer/bash.ogg"),
+        new("/Audio/_Goobstation/Hailer/bobby.ogg"),
+        new("/Audio/_Goobstation/Hailer/compliance.ogg"),
+        new("/Audio/_Goobstation/Hailer/dontmove.ogg"),
+        new("/Audio/_Goobstation/Hailer/dredd.ogg"),
+        new("/Audio/_Goobstation/Hailer/floor.ogg"),
+        new("/Audio/_Goobstation/Hailer/freeze.ogg"),
+        new("/Audio/_Goobstation/Hailer/halt.ogg"),
     ];
     Dictionary<EntityUid, TimeSpan> _delays = new Dictionary<EntityUid, TimeSpan>();
     TimeSpan _fixed_delay = TimeSpan.FromSeconds(2);

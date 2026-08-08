@@ -10,8 +10,7 @@ namespace Content.Goobstation.Shared.Wraith.Minions.Harbinger;
 
 public sealed class SpikerShuffleSystem : EntitySystem
 {
-    [Dependency] private readonly Content.Shared.StatusEffect.StatusEffectsSystem _statusOld = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusNew = default!;
+    [Dependency] private readonly StatusEffectsSystem _status= default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
@@ -30,10 +29,10 @@ public sealed class SpikerShuffleSystem : EntitySystem
     {
         // first remove all status effects
         foreach (var statusEffect in ent.Comp.StatusEffectsToRemove)
-            _statusOld.TryRemoveStatusEffect(ent.Owner, statusEffect);
+            _status.TryRemoveStatusEffect(ent.Owner, statusEffect.Id);
 
-        _statusNew.TryAddStatusEffect(ent.Owner, ent.Comp.StatusEffect, out _, ent.Comp.Duration);
-        _statusNew.TryAddStatusEffect(ent.Owner, ent.Comp.StatusAbilityDisable, out _, ent.Comp.Duration); // disable using actions
+        _status.TryUpdateStatusEffectDuration(ent.Owner, ent.Comp.StatusEffect, out _, ent.Comp.Duration);
+        _status.TryUpdateStatusEffectDuration(ent.Owner, ent.Comp.StatusAbilityDisable, out _, ent.Comp.Duration); // disable using actions
 
         args.Handled = true;
     }

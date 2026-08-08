@@ -9,8 +9,6 @@ namespace Content.Goobstation.Shared.Weapons.Multihit;
 
 public sealed class ActiveMultihitSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _net = default!;
-
     public override void Initialize()
     {
         base.Initialize();

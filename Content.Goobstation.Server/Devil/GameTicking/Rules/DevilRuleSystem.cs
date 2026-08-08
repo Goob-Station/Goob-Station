@@ -3,17 +3,12 @@
 using System.Text;
 using Content.Goobstation.Shared.Devil.Roles;
 using Content.Goobstation.Shared.Devil;
-using Content.Goobstation.Shared.Devil.Roles;
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Mind;
 using Content.Server.Objectives;
 using Content.Server.Roles;
-using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
-using Content.Shared.Roles;
-using Robust.Shared.Audio;
-using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.Devil.GameTicking.Rules;
 
@@ -44,8 +39,8 @@ public sealed class DevilRuleSystem : GameRuleSystem<DevilRuleComponent>
         var briefing = Loc.GetString("devil-role-greeting", ("trueName", devilComp.TrueName), ("playerName", Name(target)));
         _antag.SendBriefing(target, briefing, Color.DarkRed, rule.BriefingSound);
 
-        _npcFaction.RemoveFaction(target, rule.NanotrasenFaction);
-        _npcFaction.AddFaction(target, rule.DevilFaction);
+        _npcFaction.RemoveFaction(target, DevilRuleComponent.NanotrasenFaction);
+        _npcFaction.AddFaction(target, DevilRuleComponent.DevilFaction);
 
         return true;
     }

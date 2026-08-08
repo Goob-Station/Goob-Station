@@ -3,11 +3,9 @@
 using Content.Goobstation.Common.Blob;
 using Content.Goobstation.Shared.Blob;
 using Content.Goobstation.Shared.Blob.Components;
-using Content.Server.Radio.EntitySystems;
 using Content.Shared.Chat;
 using Content.Shared.Damage;
 using Content.Shared.Speech;
-using Robust.Shared.Network;
 using Content.Server._EinsteinEngines.Language;
 using Content.Shared._EinsteinEngines.Language.Components;
 using Content.Shared._EinsteinEngines.Language.Events;
@@ -19,9 +17,6 @@ public sealed class BlobMobSystem : SharedBlobMobSystem
 {
     [Dependency] private readonly LanguageSystem _language = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly INetManager _netMan = default!;
-    [Dependency] private readonly RadioSystem _radioSystem = default!;
-    private EntityQuery<BlobSpeakComponent> _activeBSpeak;
 
     public override void Initialize()
     {

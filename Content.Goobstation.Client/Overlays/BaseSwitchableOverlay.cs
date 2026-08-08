@@ -24,10 +24,12 @@ public sealed class BaseSwitchableOverlay<TComp> : Overlay where TComp : Switcha
 
     public bool RestrictToPlayerViewport { get; set; } = false;
 
+    private readonly ProtoId<ShaderPrototype> Shader = "NightVision";
+
     public BaseSwitchableOverlay()
     {
         IoCManager.InjectDependencies(this);
-        _shader = _prototype.Index<ShaderPrototype>("NightVision").InstanceUnique();
+        _shader = _prototype.Index(Shader).InstanceUnique();
     }
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)

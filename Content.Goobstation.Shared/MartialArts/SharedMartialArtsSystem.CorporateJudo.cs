@@ -8,13 +8,12 @@ using Content.Goobstation.Shared.MartialArts.Events;
 using Content.Shared.Clothing;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
-using Content.Shared.Eye.Blinding.Components;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
-using Content.Shared.Stunnable;
+using Content.Shared.StatusEffectNew.Components;
 using Content.Shared.Weapons.Melee;
 using Robust.Shared.Audio;
 
@@ -94,20 +93,12 @@ public partial class SharedMartialArtsSystem
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
             || !TryUseMartialArt(ent, proto, out var target, out _)
-            || !TryComp(target, out StatusEffectsComponent? status))
+            || !HasComp<StatusEffectContainerComponent>(target))
             return;
 
-        _status.TryAddStatusEffect<TemporaryBlindnessComponent>(target,
-            "TemporaryBlindness",
-            TimeSpan.FromSeconds(2),
-            true,
-            status);
+        _status.TryUpdateStatusEffectDuration(target,"TemporaryBlindness", out _, TimeSpan.FromSeconds(2));
 
-        _status.TryAddStatusEffect<BlurryVisionComponent>(target,
-            "BlurryVision",
-            TimeSpan.FromSeconds(5),
-            true,
-            status);
+        _status.TryUpdateStatusEffectDuration(target, "BlurryVision", out _, TimeSpan.FromSeconds(5));
 
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
 

@@ -20,15 +20,17 @@ public sealed class GunApplySolutionSystem : EntitySystem
     {
         if (!HasComp<SolutionContainerManagerComponent>(uid)
         || !_solutionContainer.TryGetSolution(uid, comp.SourceSolution, out var ent, out Solution? source)
-        || ent == null
-        || source == null)
+        )
             return;
 
         foreach (var (ammo, _) in args.Ammo) // This gives wrong uid on client
         {
-            if (!TryComp<SolutionContainerManagerComponent>(ammo, out var solution)
-            || !_solutionContainer.TryGetSolution(solution.Owner, comp.TargetSolution, out var target)
-            || target == null)
+
+            // pov doing this shit to avoid using .owner
+            if (!TryComp<SolutionContainerManagerComponent>(ammo, out var solution))
+                continue;
+            var solEnt = new Entity<SolutionContainerManagerComponent>(ammo.Value, solution);
+            if (!_solutionContainer.TryGetSolution(solEnt.AsNullable(), comp.TargetSolution, out var target))
                 continue;
 
             _solutionContainer.TryTransferSolution(target.Value, source, comp.Amount);

@@ -10,13 +10,14 @@ namespace Content.Goobstation.Client.Bloodtrak;
 public sealed class ClientBloodtrakSystem : SharedBloodtrakSystem
 {
     [Dependency] private readonly IEyeManager _eyeManager = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
         var query = EntityQueryEnumerator<BloodtrakComponent, SpriteComponent>();
-        while (query.MoveNext(out var pinpointer, out var sprite))
+        while (query.MoveNext(out var uid, out var pinpointer, out var sprite))
         {
             if (!pinpointer.HasTarget)
                 continue;
@@ -29,10 +30,10 @@ public sealed class ClientBloodtrakSystem : SharedBloodtrakSystem
                 case Shared.Bloodtrak.Distance.Close:
                 case Shared.Bloodtrak.Distance.Medium:
                 case Shared.Bloodtrak.Distance.Far:
-                    sprite.LayerSetRotation(PinpointerLayers.Screen, angle);
+                    _sprite.LayerSetRotation((uid, sprite), PinpointerLayers.Screen, angle);
                     break;
                 default:
-                    sprite.LayerSetRotation(PinpointerLayers.Screen, Angle.Zero);
+                    _sprite.LayerSetRotation((uid, sprite), PinpointerLayers.Screen, Angle.Zero);
                     break;
             }
         }

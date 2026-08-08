@@ -87,7 +87,7 @@ public sealed partial class GameDirectorComponent : Component
 ///   Gated by various settings such as the number of players
 /// </summary>
 [DataDefinition]
-[Prototype("story")]
+[Prototype]
 public sealed partial class StoryPrototype : IPrototype
 {
     [ViewVariables]
@@ -132,7 +132,7 @@ public sealed partial class StoryPrototype : IPrototype
 ///   the next round of chaos.
 /// </summary>
 [DataDefinition]
-[Prototype("storyBeat")]
+[Prototype]
 public sealed partial class StoryBeatPrototype : IPrototype
 {
     [ViewVariables]

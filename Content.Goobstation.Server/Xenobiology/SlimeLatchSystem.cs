@@ -2,7 +2,6 @@
 
 using Content.Goobstation.Shared.Xenobiology;
 using Content.Goobstation.Shared.Xenobiology.Components;
-using Content.Goobstation.Shared.Xenobiology.Components.Equipment;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Damage;
@@ -11,7 +10,6 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Components;
-using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
@@ -23,12 +21,11 @@ using Content.Shared.Body.Systems;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Goobstation.Maths.FixedPoint;
-using Content.Shared.Chemistry.Components;
 
 namespace Content.Goobstation.Server.Xenobiology;
 
 // This handles any actions that slime mobs may have.
-public sealed partial class SlimeLatchSystem : EntitySystem
+public sealed  class SlimeLatchSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly HungerSystem _hunger = default!;
@@ -302,7 +299,7 @@ public sealed partial class SlimeLatchSystem : EntitySystem
         RemCompDeferred<BeingLatchedComponent>(target);
         RemCompDeferred<SlimeDamageOvertimeComponent>(target);
 
-        if (TryComp<TransformComponent>(target, out var targetXform)
+        if (TryComp(target, out TransformComponent? targetXform)
             && _xform.IsParentOf(targetXform, ent.Owner))
             _xform.SetParent(ent.Owner, _xform.GetParentUid(target));
 

@@ -14,6 +14,7 @@ namespace Content.Goobstation.Client.Clothing.EntitySystems;
 public sealed class SealableClothingVisualizerSystem : VisualizerSystem<SealableClothingVisualsComponent>
 {
     [Dependency] private readonly SharedItemSystem _itemSystem = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -26,9 +27,9 @@ public sealed class SealableClothingVisualizerSystem : VisualizerSystem<Sealable
         if (!AppearanceSystem.TryGetData<bool>(uid, SealableClothingVisuals.Sealed, out var isSealed, args.Component))
             return;
 
-        if (args.Sprite != null && component.SpriteLayer != null && args.Sprite.LayerMapTryGet(component.SpriteLayer, out var layer))
+        if (args.Sprite != null && _sprite.TryGetLayer((uid, args.Sprite), component.SpriteLayer, out var layer, true))
         {
-            args.Sprite.LayerSetVisible(layer, isSealed);
+            _sprite.LayerSetVisible(layer, isSealed);
         }
 
         _itemSystem.VisualsChanged(uid);

@@ -11,8 +11,6 @@ namespace Content.Goobstation.Shared.Enchanting.Systems;
 /// </summary>
 public sealed class BonusDamageEnchantSystem : EntitySystem
 {
-    [Dependency] private readonly EnchantingSystem _enchanting = default!;
-
     public override void Initialize()
     {
         base.Initialize();

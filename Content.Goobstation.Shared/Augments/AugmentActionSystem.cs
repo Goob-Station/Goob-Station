@@ -10,7 +10,6 @@ namespace Content.Goobstation.Shared.Augments;
 
 public sealed class AugmentActionSystem : EntitySystem
 {
-    [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
     [Dependency] private readonly AugmentSystem _augment = default!;
     [Dependency] private readonly ItemToggleSystem _toggle = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;

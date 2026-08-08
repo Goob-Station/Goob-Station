@@ -8,8 +8,6 @@ namespace Content.Goobstation.Shared.Enchanting.Systems;
 /// </summary>
 public sealed class SlipperyEnchantSystem : EntitySystem
 {
-    [Dependency] private readonly EnchantingSystem _enchanting = default!;
-
     public override void Initialize()
     {
         base.Initialize();

@@ -8,7 +8,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.MartialArts;
 
-[Prototype("martialArt")]
+[Prototype]
 public sealed partial class MartialArtPrototype : IPrototype
 {
     [IdDataField]

@@ -1,29 +1,19 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Pinpointer;
 using Content.Goobstation.Shared.Supermatter.Components;
 using Content.Goobstation.Shared.Supermatter.Consoles;
 using Content.Goobstation.Shared.Supermatter.Monitor;
 using Content.Shared.Atmos;
-using Content.Shared.Pinpointer;
 using Content.Shared.Radiation.Components;
 using Robust.Server.GameObjects;
-using Robust.Shared.Map.Components;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
-namespace Content.Goobstation.Server.Supermatter.Console.Systems;
+namespace Content.Goobstation.Server.Supermatter.Consoles;
 
 public sealed class SupermatterConsoleSystem : SharedSupermatterConsoleSystem
 {
     [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly NavMapSystem _navMapSystem = default!;
-
-    private const float UpdateTime = 1.0f;
-
-    // Note: this data does not need to be saved
-    private float _updateTimer = 1.0f;
 
     public override void Initialize()
     {

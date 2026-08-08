@@ -1,4 +1,4 @@
-using Content.Shared._Goobstation.Security.ContrabandIcons.Prototypes;
+using Content.Goobstation.Shared.Security.ContrabandIcons.Prototypes;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -10,6 +10,6 @@ public sealed partial class VisibleContrabandComponent : Component
     /// <summary>
     ///     The icon that should be displayed based on the criminal status of the entity.
     /// </summary>
-    [DataField, AutoNetworkedField] 
+    [DataField, AutoNetworkedField]
     public ProtoId<ContrabandIconPrototype> StatusIcon = "ContrabandIconNone";
 }

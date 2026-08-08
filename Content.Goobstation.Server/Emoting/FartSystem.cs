@@ -34,23 +34,26 @@ public sealed partial class FartSystem : SharedFartSystem
     [Dependency] private readonly SharedBodySystem _bodySystem = default!;
 
 
-    private readonly string[] _fartSounds = [
-        "/Audio/Effects/Emotes/parp1.ogg",
-        "/Audio/_Goobstation/Voice/Human/fart2.ogg",
-        "/Audio/_Goobstation/Voice/Human/fart3.ogg",
-        "/Audio/_Goobstation/Voice/Human/fart4.ogg",
+    private readonly SoundPathSpecifier[] _fartSounds =
+    [
+        new("/Audio/Effects/Emotes/parp1.ogg"),
+        new("/Audio/_Goobstation/Voice/Human/fart2.ogg"),
+        new("/Audio/_Goobstation/Voice/Human/fart3.ogg"),
+        new("/Audio/_Goobstation/Voice/Human/fart4.ogg"),
     ];
-    private readonly string[] _fartInhaleSounds = [
-        "/Audio/_Goobstation/Voice/Human/fart2-reverse.ogg",
-        "/Audio/_Goobstation/Voice/Human/fart3-reverse.ogg",
-        "/Audio/_Goobstation/Voice/Human/fart4-reverse.ogg",
-        "/Audio/_Goobstation/Voice/Human/parp1-reverse.ogg",
+    private readonly SoundPathSpecifier[] _fartInhaleSounds =
+    [
+        new("/Audio/_Goobstation/Voice/Human/fart2-reverse.ogg"),
+        new("/Audio/_Goobstation/Voice/Human/fart3-reverse.ogg"),
+        new("/Audio/_Goobstation/Voice/Human/fart4-reverse.ogg"),
+        new("/Audio/_Goobstation/Voice/Human/parp1-reverse.ogg"),
     ];
-    private readonly string[] _superFartSounds = [
-        "/Audio/_Goobstation/Voice/Human/fart2-long.ogg",
-        "/Audio/_Goobstation/Voice/Human/fart3-long.ogg",
-        "/Audio/_Goobstation/Voice/Human/fart4-long.ogg",
-        "/Audio/_Goobstation/Voice/Human/parp1-long.ogg",
+    private readonly SoundPathSpecifier[] _superFartSounds =
+    [
+        new("/Audio/_Goobstation/Voice/Human/fart2-long.ogg"),
+        new("/Audio/_Goobstation/Voice/Human/fart3-long.ogg"),
+        new("/Audio/_Goobstation/Voice/Human/fart4-long.ogg"),
+        new("/Audio/_Goobstation/Voice/Human/parp1-long.ogg"),
     ];
 
     public override void Initialize()

@@ -189,7 +189,7 @@ public abstract partial class SharedMartialArtsSystem
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
 
-        if (_newStatus.TryUpdateStatusEffectDuration(target, args.StatusEffectProto, out var effect, time)
+        if (_status.TryUpdateStatusEffectDuration(target, args.StatusEffectProto, out var effect, time)
             && TryComp(effect, out MeleeVulnerabilityStatusEffectComponent? effectComp))
         {
             effectComp.ModifierSets.Add(args.ModifierSet);

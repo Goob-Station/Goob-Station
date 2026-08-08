@@ -14,6 +14,7 @@ public sealed class BlobTileSystem : SharedBlobTileSystem
 
 public sealed class BlobTileVisualizerSystem : VisualizerSystem<BlobTileComponent>
 {
+    [Dependency] private readonly SpriteSystem _sprite = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -27,10 +28,10 @@ public sealed class BlobTileVisualizerSystem : VisualizerSystem<BlobTileComponen
 
         foreach (var key in new []{ DamageStateVisualLayers.Base, DamageStateVisualLayers.BaseUnshaded })
         {
-            if (!sprite.LayerMapTryGet(key, out _))
+            if (!_sprite.TryGetLayer(id, key, out var layer, false))
                 continue;
 
-            sprite.LayerSetColor(key, tile.Color);
+            _sprite.LayerSetColor(layer, tile.Color);
         }
     }
 

@@ -26,6 +26,7 @@ public sealed class FishingSystem : SharedFishingSystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly PhysicsSystem _physics = default!;
+    [Dependency] private readonly EntityTableSystem _entityTable = default!;
 
     public override void Initialize()
     {
@@ -59,7 +60,7 @@ public sealed class FishingSystem : SharedFishingSystem
         Anchor(ent, attachedEnt);
 
         // Currently we don't support multiple loots from this
-        var fish = spotComp.FishList.GetSpawns(_random.GetRandom(), EntityManager, _proto, new EntityTableContext()).First();
+        var fish = _entityTable.GetSpawns(spotComp.FishList).First();
 
         // Get fish difficulty
         _proto.Index(fish).TryGetComponent(out FishComponent? fishComp, _compFactory);

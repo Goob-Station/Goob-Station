@@ -3,12 +3,10 @@
 using System.Linq;
 using Content.Goobstation.Server.Blob.Components;
 using Content.Goobstation.Shared.Blob.Components;
-using Content.Server.Popups;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
-using Content.Shared.Explosion.Components;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Trigger.Components.Effects;
@@ -19,7 +17,6 @@ namespace Content.Goobstation.Server.Blob;
 
 public sealed class BlobFactorySystem : EntitySystem
 {
-    [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
 
@@ -75,28 +72,14 @@ public sealed class BlobFactorySystem : EntitySystem
         }
     }
 
-    [ValidatePrototypeId<ReagentPrototype>]
-    private const string Phlogiston = "Phlogiston";
-
-    [ValidatePrototypeId<ReagentPrototype>]
-    private const string TearGas = "TearGas";
-
-    [ValidatePrototypeId<ReagentPrototype>]
-
-    private const string Lexorin = "Lexorin";
-
-    [ValidatePrototypeId<ReagentPrototype>]
-    private const string Mold = "Mold";
-
-    [ValidatePrototypeId<ReagentPrototype>]
-    private const string Bicaridine = "Bicaridine";
-
-    [ValidatePrototypeId<ReagentPrototype>]
-    private const string Aluminium = "Aluminium";
-    [ValidatePrototypeId<ReagentPrototype>]
-    private const string Iron = "Iron";
-    [ValidatePrototypeId<ReagentPrototype>]
-    private const string Uranium = "Uranium";
+    private static readonly ProtoId<ReagentPrototype> Phlogiston = "Phlogiston";
+    private static readonly ProtoId<ReagentPrototype> TearGas = "TearGas";
+    private static readonly ProtoId<ReagentPrototype> Lexorin = "Lexorin";
+    private static readonly ProtoId<ReagentPrototype> Mold = "Mold";
+    private static readonly ProtoId<ReagentPrototype> Bicaridine = "Bicaridine";
+    private static readonly ProtoId<ReagentPrototype> Aluminium = "Aluminium";
+    private static readonly ProtoId<ReagentPrototype> Iron = "Iron";
+    private static readonly ProtoId<ReagentPrototype> Uranium = "Uranium";
 
     private void FillSmokeGas(Entity<BlobPodComponent> ent, BlobChemType currentChem)
     {

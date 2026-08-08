@@ -25,7 +25,6 @@ public sealed partial class SharedSpiritCandleSystem : EntitySystem
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly SharedVisibilitySystem _visibility = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
-    [Dependency] private readonly Content.Shared.StatusEffect.StatusEffectsSystem _oldStatusEffects = default!;
     [Dependency] private readonly SharedChargesSystem _charges = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly INetManager _netManager = default!;
@@ -144,7 +143,7 @@ public sealed partial class SharedSpiritCandleSystem : EntitySystem
             if (ghost is not {} ghostUid)
                 continue;
 
-            _oldStatusEffects.TryAddStatusEffect<CorporealComponent>(ghostUid, ent.Comp.Corporeal, ent.Comp.CorporealDuration, true);
+            _statusEffects.TryUpdateStatusEffectDuration(ghostUid, ent.Comp.Corporeal.Id, ent.Comp.CorporealDuration);
             _statusEffects.TryAddStatusEffectDuration(ghostUid, ent.Comp.Weakened, out _, ent.Comp.WeakenedDuration);
         }
 

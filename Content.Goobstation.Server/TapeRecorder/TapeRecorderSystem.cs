@@ -2,7 +2,6 @@
 
 using Content.Server.Chat.Systems;
 using Content.Server.Hands.Systems;
-using Content.Server.Speech;
 using Content.Server.Speech.Components;
 using Content.Shared.Chat;
 using Content.Shared.Paper;
@@ -10,6 +9,8 @@ using Content.Shared.Speech;
 using Content.Goobstation.Shared.TapeRecorder;
 using Robust.Shared.Prototypes;
 using System.Text;
+using Content.Goobstation.Shared.TapeRecorder.Components;
+using Content.Goobstation.Shared.TapeRecorder.Systems;
 
 namespace Content.Goobstation.Server.TapeRecorder;
 

@@ -18,9 +18,7 @@ namespace Content.Goobstation.Shared.Factory;
 
 public abstract class SharedInteractorSystem : EntitySystem
 {
-    [Dependency] private readonly AutomationSystem _automation = default!;
     [Dependency] private readonly AutomationFilterSystem _filter = default!;
-    [Dependency] private readonly CollisionWakeSystem _wake = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
@@ -102,8 +100,9 @@ public abstract class SharedInteractorSystem : EntitySystem
         var alt = state switch
         {
             SignalState.Momentary => !ent.Comp.AltInteract,
+            SignalState.High => true,
             SignalState.Low => false,
-            SignalState.High => true
+            _ => false
         };
         SetAltInteract(ent, alt);
     }

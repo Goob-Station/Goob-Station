@@ -3,8 +3,8 @@
 using Content.Client.DamageState;
 using Content.Goobstation.Shared.Xenobiology;
 using Content.Goobstation.Shared.Xenobiology.Components;
-using Content.Shared.Mobs;
 using Robust.Client.GameObjects;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Client.Xenobiology;
 
@@ -13,13 +13,15 @@ namespace Content.Goobstation.Client.Xenobiology;
 /// </summary>
 public sealed class MobGrowthVisualizerSystem : VisualizerSystem<MobGrowthComponent>
 {
+
+    [Dependency] private readonly SpriteSystem _sprite = default!;
+
     //I have a feeling this may need some protective functions.
     protected override void OnAppearanceChange(EntityUid uid, MobGrowthComponent component, ref AppearanceChangeEvent args)
     {
         if (args.Sprite == null
             || !AppearanceSystem.TryGetData<string>(uid, GrowthStateVisuals.Sprite, out var rsi, args.Component))
             return;
-
-        args.Sprite.LayerSetRSI(DamageStateVisualLayers.Base, rsi);
+        _sprite.LayerSetRsi((uid, args.Sprite), DamageStateVisualLayers.Base, new ResPath(rsi));
     }
 }

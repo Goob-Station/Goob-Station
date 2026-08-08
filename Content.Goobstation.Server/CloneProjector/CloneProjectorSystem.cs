@@ -4,7 +4,6 @@ using System.Linq;
 using Content.Goobstation.Shared.CloneProjector;
 using Content.Goobstation.Shared.CloneProjector.Clone;
 using Content.Goobstation.Shared.Roles.Components;
-using Content.Server.Ghost.Roles;
 using Content.Server.Ghost.Roles.Components;
 using Content.Shared._DV.Carrying;
 using Content.Shared.Actions;
@@ -25,7 +24,6 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Radio.Components;
 using Content.Shared.Roles;
-using Content.Shared.Roles.Components;
 using Content.Shared.Storage;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
@@ -60,7 +58,6 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
     [Dependency] private readonly CarryingSystem _carrying = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
     [Dependency] private readonly MobThresholdSystem _thresholds = default!;
-    [Dependency] private readonly GhostRoleSystem _ghost = default!;
     [Dependency] private readonly SharedRoleSystem _role = default!;
 
     private ISawmill _sawmill = default!;

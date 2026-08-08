@@ -21,6 +21,8 @@ public sealed partial class RandomTeleportNearbySystem : EntityEffectSystem<Reac
     [Dependency] private readonly SharedRandomTeleportSystem _teleport = default!;
     [Dependency] private readonly TagSystem _tag = default!;
 
+    private static readonly ProtoId<TagPrototype> Brain = "Brain";
+
     protected override void Effect(Entity<ReactiveComponent> entity, ref EntityEffectEvent<RandomTeleportNearby> args)
     {
         var uid = entity.Owner;
@@ -34,7 +36,7 @@ public sealed partial class RandomTeleportNearbySystem : EntityEffectSystem<Reac
         //Prevent Positronic Brain to get teleported too
         entities.RemoveWhere(ent => //todo upstreamtest
             TryComp<TagComponent>(ent, out var tagComp) &&
-            _tag.HasTag(tagComp, "Brain"));
+            _tag.HasTag(tagComp, Brain));
 
         var range = args.Effect.Range;
 

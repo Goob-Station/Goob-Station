@@ -9,6 +9,7 @@ namespace Content.Goobstation.Client.Power.PTL;
 public sealed partial class PTLVisualsSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _time = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Update(float frameTime)
     {
@@ -25,11 +26,11 @@ public sealed partial class PTLVisualsSystem : EntitySystem
         || !TryComp<PTLComponent>(ent, out var ptl))
             return;
 
-        sprite.LayerSetVisible(PTLVisualLayers.Unpowered, ptl.Active);
+        _sprite.LayerSetVisible((ent, sprite), PTLVisualLayers.Base, true);
 
         var delta = (ptl.NextShotAt - _time.CurTime).Seconds;
         var norm = Math.Clamp(delta / ptl.ShootDelay * ent.Comp.MaxChargeStates, 1, ent.Comp.MaxChargeStates);
-        sprite.LayerSetState(PTLVisualLayers.Charge, $"{ent.Comp.ChargePrefix}{(int) norm}");
+        _sprite.LayerSetRsiState((ent, sprite), PTLVisualLayers.Charge, $"{ent.Comp.ChargePrefix}{(int) norm}");
     }
 }
 

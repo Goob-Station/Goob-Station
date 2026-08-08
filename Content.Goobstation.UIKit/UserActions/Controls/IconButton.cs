@@ -14,7 +14,7 @@ public class IconButton : Button
     private readonly BoxContainer _mainContainer;
 
     public readonly TextureRect Icon;
-    public readonly RichTextLabel Label;
+    public readonly new RichTextLabel Label;
     //public readonly PanelContainer HighlightRect;
 
     public IconButton(string name)
