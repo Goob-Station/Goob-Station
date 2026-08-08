@@ -1,0 +1,216 @@
+- type: quickPhrase
+  id: BaseVerbs
+  tab: Verbs
+  abstract: true
+
+# verbs
+
+- type: quickPhrase
+  id: HavePhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-have
+
+- type: quickPhrase
+  id: GivePhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-give
+
+- type: quickPhrase
+  id: TakePhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-take
+
+- type: quickPhrase
+  id: AttackPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-attack
+
+- type: quickPhrase
+  id: ShootPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-shoot
+
+- type: quickPhrase
+  id: ShowPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-show
+
+- type: quickPhrase
+  id: WaitPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-wait
+
+- type: quickPhrase
+  id: KnowPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-know
+
+- type: quickPhrase
+  id: ThinkPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-think
+
+- type: quickPhrase
+  id: GoPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-go
+
+- type: quickPhrase
+  id: StayPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-stay
+
+- type: quickPhrase
+  id: FindPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-find
+
+- type: quickPhrase
+  id: OpenPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-open
+
+- type: quickPhrase
+  id: ClosePhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-close
+
+- type: quickPhrase
+  id: EatPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-eat
+
+- type: quickPhrase
+  id: DrinkPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-drink
+
+- type: quickPhrase
+  id: WantPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-want
+
+- type: quickPhrase
+  id: TalkPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-talk
+
+- type: quickPhrase
+  id: WritePhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-write
+
+- type: quickPhrase
+  id: BreakPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-break
+
+- type: quickPhrase
+  id: BuildPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-build
+
+- type: quickPhrase
+  id: MakePhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-make
+
+- type: quickPhrase
+  id: FixPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-fix
+
+- type: quickPhrase
+  id: HealPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-heal
+
+- type: quickPhrase
+  id: TeachPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-teach
+
+- type: quickPhrase
+  id: LearnPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-learn
+
+- type: quickPhrase
+  id: RunPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-run
+
+- type: quickPhrase
+  id: WeldPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-weld
+
+- type: quickPhrase
+  id: BoltPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-bolt
+
+- type: quickPhrase
+  id: OrderPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-order
+
+- type: quickPhrase
+  id: PullPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-pull
+
+- type: quickPhrase
+  id: PushPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-push
+
+- type: quickPhrase
+  id: SearchPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-search
+
+- type: quickPhrase
+  id: CleanPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-clean
+
+- type: quickPhrase
+  id: HonkPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-honk
+
+- type: quickPhrase
+  id: GrowPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-grow
+
+- type: quickPhrase
+  id: CookPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-cook
+
+- type: quickPhrase
+  id: MixPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-mix
+
+- type: quickPhrase
+  id: ClearPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-clear
+
+- type: quickPhrase
+  id: InjectPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-inject
+
+- type: quickPhrase
+  id: MiningPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-mining
+
+- type: quickPhrase
+  id: ArrestPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-verb-arrest

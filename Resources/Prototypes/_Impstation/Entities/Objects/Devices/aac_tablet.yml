@@ -1,0 +1,11 @@
+- type: entity
+  parent: AACTablet
+  id: AACTabletHacked
+  name: Jailbroken AAC tablet
+  description: An "augmentative and alternative cursing" device.
+  components:
+  - type: AACTablet
+    phraseGroup: HackedPhrasesImp
+  - type: Construction
+    graph: AACUnHack
+    node: start

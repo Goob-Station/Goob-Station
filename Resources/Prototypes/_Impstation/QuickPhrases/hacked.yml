@@ -1,0 +1,106 @@
+- type: quickPhrase
+  id: BaseHackedImp
+  tab: ERROR
+  abstract: true
+
+#
+
+- type: quickPhrase
+  id: FuckPhraseImp
+  parent: BaseHackedImp
+  text: imp-phrase-hacked-fuck
+
+- type: quickPhrase
+  id: FuckOffPhraseImp
+  parent: BaseHackedImp
+  text: imp-phrase-hacked-fuckoff
+
+- type: quickPhrase
+  id: CuntPhraseImp
+  parent: BaseHackedImp
+  text: imp-phrase-hacked-cunt
+
+- type: quickPhrase
+  id: ShitPhraseImp
+  parent: BaseHackedImp
+  text: imp-phrase-hacked-shit
+
+- type: quickPhrase
+  id: BitchPhraseImp
+  parent: BaseHackedImp
+  text: imp-phrase-hacked-bitch
+
+- type: quickPhrase
+  id: DickPhraseImp
+  parent: BaseHackedImp
+  text: imp-phrase-hacked-dick
+
+- type: quickPhrase
+  id: BastardPhraseImp
+  parent: BaseHackedImp
+  text: imp-phrase-hacked-bastard
+
+- type: quickPhrase
+  id: ThreatPhraseImp
+  parent: BaseHackedImp
+  text: imp-phrase-hacked-threat
+
+- type: quickPhrase
+  id: KillPhraseImp
+  parent: BaseHackedImp
+  text: imp-phrase-hacked-kill
+
+- type: quickPhrase
+  id: TargetPhraseImp
+  parent: BaseHackedImp
+  text: imp-phrase-hacked-target
+
+- type: quickPhrase
+  id: SyndiePhraseImp
+  parent: BaseHackedImp
+  text: imp-phrase-hacked-syndie
+
+- type: quickPhrase
+  id: SacrificePhraseImp
+  parent: BaseHackedImp
+  text: imp-phrase-hacked-sacrifice
+
+- type: quickPhrase
+  id: SickPhraseImp
+  parent: BaseHackedImp
+  text: imp-phrase-hacked-sick
+
+- type: quickPhrase
+  id: RightsPhraseImp
+  parent: BaseHackedImp
+  text: imp-phrase-hacked-rights
+
+- type: quickPhrase
+  id: BenifitsPhraseImp
+  parent: BaseHackedImp
+  text: imp-phrase-hacked-benifits
+
+- type: quickPhrase
+  id: DeathSquadPhraseImp
+  parent: BaseHackedImp
+  text: imp-phrase-hacked-deathsquad
+
+- type: quickPhrase
+  id: StraightPhraseImp
+  parent: BaseHackedImp
+  text: imp-phrase-hacked-straight
+
+- type: quickPhrase
+  id: UnionPhraseImp
+  parent: BaseHackedImp
+  text: imp-phrase-hacked-union
+
+- type: quickPhrase
+  id: KillerPhraseImp
+  parent: BaseHackedImp
+  text: imp-phrase-hacked-killer
+
+- type: quickPhrase
+  id: TiltPhraseImp
+  parent: BaseHackedImp
+  text: imp-phrase-hacked-tilt
