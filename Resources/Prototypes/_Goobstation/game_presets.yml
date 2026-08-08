@@ -215,21 +215,16 @@
   - SecretPlusRampingMid
 
 - type: gamePreset
-  id: OopsAllThieves
+  id: TerrorSpiders
   alias:
-    - oopsallthieves
-    - allthieves
-    - thieves
-  name: oops-all-thieves-title
-  description: oops-all-thieves-description
+  - ssscary
+  name: terror-spider-title
+  description: terror-spider-description
   showInVote: false
+  minPlayers: 1
   rules:
-  - OopsAllThieves
-  - TraitorSubGamemodesRule
-  - BasicStationEventScheduler
-  - MeteorSwarmScheduler
-  - SpaceTrafficControlEventScheduler
-  - BasicRoundstartVariation
+  - TerrorQueenRoundstart
+  - SubGamemodesRule
 
 - type: gamePreset
   id: SecretPlusLowpop
@@ -243,3 +238,5 @@
   maxPlayers: 40
   rules:
     - SecretPlusLowpop
+    - SubGamemodesRule
+    - SecretPlusRampingMid
