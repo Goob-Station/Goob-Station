@@ -50,6 +50,14 @@
     penetrateDamage: 15 # Kill million mices
     damagePenalty: 0.05
   - type: StunVisuals
+  # Goobstation start
+  # For now, it's just all possible construction groups, but in the future
+  # we may start limiting recipes more, when we have mechanics to actually learn them.
+  - type: KnowledgeGrant
+    table: !type:AllSelector
+      children:
+      - id: ConstructionAllKnowledge
+  # Goobstation end
 
 # The progenitor. This should only container the most basic components possible.
 # Only put things on here if every mob *must* have it. This includes ghosts.

@@ -117,6 +117,10 @@
   - type: NerveSystem # Goobstation
   - type: ConsciousnessRequired # Goobstation
     identifier: "nerveSystem"
+  - type: KnowledgeContainer # Goobstation - Knowledge
+  - type: ContainerContainer
+    containers:
+      knowledge: !type:Container
 
 - type: entity
   id: OrganHumanEyes

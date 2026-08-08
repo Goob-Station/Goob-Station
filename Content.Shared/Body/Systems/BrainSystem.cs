@@ -10,6 +10,12 @@ using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Pointing;
 
+// Shitmed Change
+using Content.Shared.Body.Components;
+using Content.Goobstation.Common.Body;
+using Content.Shared._Shitmed.Body.Organ;
+using Content.Shared.Body.Systems;
+
 namespace Content.Shared.Body.Systems
 {
     public sealed class BrainSystem : EntitySystem
