@@ -424,3 +424,59 @@
               volume: -0.5
         soundStateActivate:
           path: /Audio/_Goobstation/Items/card_swipe.ogg
+
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingAtmosBelt
+  name: atmospherics belt
+  description: Holds all the tools needed for a growing (middle-aged) atmosian catgirl
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Belt/atmosbelt.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Belt/atmosbelt.rsi
+  - type: Storage
+    grid:
+    - 0,0,9,1
+    whitelist:
+      tags:
+      - Wirecutter
+      - Crowbar
+      - Screwdriver
+      - Wrench
+      - HolofanProjector
+      components:
+      - NetworkConfigurator
+      - RCD
+      - RCDAmmo
+      - Welder
+      - TrayScanner
+      - GasAnalyzer
+  - type: ItemMapper
+    sprite: &BeltOverlay Clothing/Belt/belt_overlay.rsi
+    mapLayers:
+      cutters_red:
+        whitelist:
+          tags:
+          - Wirecutter
+      crowbar:
+        whitelist:
+          tags:
+          - Crowbar
+      crowbar_red:
+        whitelist:
+          tags:
+          - CrowbarRed
+      screwdriver_nuke:
+        whitelist:
+          tags:
+          - Screwdriver
+      wrench:
+        whitelist:
+          tags:
+          - Wrench
+  - type: Appearance
+  - type: Tag
+    tags:
+    - UtilityBelt
+    - WhitelistChameleon

@@ -157,14 +157,15 @@
     - id: ClothingHeadHelmetAtmosFire
     - id: GasAnalyzer
     - id: MedkitOxygenFilled
-    - id: HolofanProjector
+#    - id: HolofanProjector # Goobstation - new belt 
     - id: RCD
     - id: RCDAmmo
     - id: AirGrenade
     - id: ClothingHandsGlovesAtmosInsulated # Goobstation - insulated atmos gloves
     - id: ClothingBackpackFirefighterTank # Assmos - Firefighter nozzle
-    - id: RPD #funkystation
+#    - id: RPD #funkystation # Goobstation - new belt 
     - id: DoorRemoteFirefight # Goobstation - re adding fire door remote
+    - id: trayScanner # Goobstation - new belt 
 
 - type: entityTable
   id: FillAtmosphericsHardsuit
