@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from https://github.com/DeltaV-Station/Delta-v/blob/d407652eb063a63f9c124f5b53dafa4b3bbd8ed8/Resources/Textures/_DV/Objects/Devices/tablets.rsi/icon.png",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        }
+    ]
+}

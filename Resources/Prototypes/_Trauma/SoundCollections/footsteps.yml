@@ -1,0 +1,4 @@
+- type: soundCollection
+  id: FootstepSilence
+  files:
+  - /Audio/_Trauma/Footsteps/silence.ogg
