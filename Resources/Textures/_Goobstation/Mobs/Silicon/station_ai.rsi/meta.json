@@ -1,0 +1,26 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from /TG/ at https://github.com/tgstation/tgstation. Some sprites modified by OnsenCapy. AI_performer by OnsenCapy.",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "ai_performer"
+        },
+        {
+            "name": "ai_bingle"
+        },
+        {
+            "name": "ai_blank"
+        },
+        {
+            "name": "ai_bingle_dead"
+        },
+        {
+            "name": "ai_performer_dead"
+        }
+    ]
+}

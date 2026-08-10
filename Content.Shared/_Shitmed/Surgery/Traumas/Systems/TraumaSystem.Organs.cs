@@ -16,6 +16,8 @@ namespace Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
 public partial class TraumaSystem
 {
     private const string OrganDamagePainIdentifier = "OrganDamage";
+
+    private static readonly FixedPoint2 OrganDamagePainBudget = 30;
     public static readonly EntProtoId OrgansDamagedSlowdown = "OrgansDamagedSlowdownEffect";
 
     private void InitOrgans()
@@ -38,19 +40,24 @@ public partial class TraumaSystem
         var organs = _body.GetPartOrgans(args.Organ.Comp.Body.Value).ToList();
         var totalIntegrity = organs.Aggregate(FixedPoint2.Zero, (current, organ) => current + organ.Component.OrganIntegrity);
         var totalIntegrityCap = organs.Aggregate(FixedPoint2.Zero, (current, organ) => current + organ.Component.IntegrityCap);
-        // Getting your organ turned into a blood mush inside you applies a LOT of internal pain, that can get you dead.
+
+        var damageFraction = totalIntegrityCap > 0
+            ? (totalIntegrityCap - totalIntegrity) / totalIntegrityCap
+            : FixedPoint2.Zero;
+        var organPain = damageFraction * OrganDamagePainBudget;
+
         if (!_pain.TryChangePainModifier(
                 nerveSys.Value,
                 bodyPart.Owner,
                 OrganDamagePainIdentifier,
-                (totalIntegrityCap - totalIntegrity) / 2,
+                organPain,
                 nerveSys.Value.Comp))
         {
             _pain.TryAddPainModifier(
                 nerveSys.Value,
                 bodyPart.Owner,
                 OrganDamagePainIdentifier,
-                (totalIntegrityCap - totalIntegrity) / 2,
+                organPain,
                 PainDamageTypes.TraumaticPain,
                 nerveSys.Value.Comp);
         }
@@ -61,7 +68,7 @@ public partial class TraumaSystem
         if (organ.Comp.Body == null)
             return;
 
-        if (args.NewIntegrity < organ.Comp.IntegrityCap || !TryGetBodyTraumas(organ.Comp.Body.Value, out var traumas, TraumaType.OrganDamage))
+        if (args.NewIntegrity < organ.Comp.IntegrityCap || !TryGetBodyTraumas(organ.Comp.Body.Value, out var traumas, OrganDamage))
             return;
 
         foreach (var trauma in traumas.Where(trauma => trauma.Comp.TraumaTarget == organ))
@@ -92,11 +99,12 @@ public partial class TraumaSystem
             if (TryComp<HumanoidAppearanceComponent>(body, out var humanoid))
                 sex = humanoid.Sex;
 
-            _pain.PlayPainSoundWithCleanup(
-                body.Value,
-                nerveSys.Value.Comp,
-                nerveSys.Value.Comp.OrganDestructionReflexSounds[sex],
-                AudioParams.Default.WithVolume(6f));
+            if (nerveSys.Value.Comp.OrganDestructionReflexSounds.TryGetValue(sex, out var reflexSound))
+                _pain.PlayPainSoundWithCleanup(
+                    body.Value,
+                    nerveSys.Value.Comp,
+                    reflexSound,
+                    AudioParams.Default.WithVolume(6f));
 
             _stun.TryUpdateParalyzeDuration(body.Value, nerveSys.Value.Comp.OrganDamageStunTime);
             _movementMod.TryUpdateMovementSpeedModDuration(
@@ -107,7 +115,7 @@ public partial class TraumaSystem
                  _cfg.GetCVar(SurgeryCVars.OrganTraumaRunSpeedSlowdown));
         }
 
-        if (TryGetWoundableTrauma(bodyPart, out var traumas, TraumaType.OrganDamage, bodyPart))
+        if (TryGetWoundableTrauma(bodyPart, out var traumas, OrganDamage, bodyPart))
         {
             foreach (var trauma in traumas)
             {
@@ -119,10 +127,41 @@ public partial class TraumaSystem
         }
 
         _audio.PlayPvs(args.Organ.Comp.OrganDestroyedSound, body.Value);
+
+        if (TryComp<OrganDeathTraumaComponent>(args.Organ, out var deathTrauma)
+            && !HasOrganTrauma(bodyPart, args.Organ, deathTrauma.Trauma))
+            TryInflictOrganTrauma(bodyPart, args.Organ, deathTrauma.Trauma, args.Organ.Comp.IntegrityCap);
+
+        if (args.Organ.Comp.Indestructible)
+            return;
+
         _body.RemoveOrgan(args.Organ, args.Organ.Comp);
 
         if (_net.IsServer)
             QueueDel(args.Organ);
+    }
+
+    private bool HasOrganTrauma(EntityUid woundable, EntityUid organ, ProtoId<TraumaTypePrototype> traumaType)
+    {
+        if (!TryGetWoundableTrauma(woundable, out var traumas, traumaType))
+            return false;
+
+        foreach (var trauma in traumas)
+        {
+            if (trauma.Comp.TraumaTarget == organ)
+                return true;
+        }
+
+        return false;
+    }
+
+    public void RestoreOrganIntegrity(EntityUid uid, OrganComponent? organ = null)
+    {
+        if (!Resolve(uid, ref organ))
+            return;
+
+        organ.IntegrityModifiers.Clear();
+        UpdateOrganIntegrity(uid, organ);
     }
 
     #endregion
@@ -207,26 +246,32 @@ public partial class TraumaSystem
     {
         var oldIntegrity = organ.OrganIntegrity;
 
-        if (organ.IntegrityModifiers.Count > 0)
-            organ.OrganIntegrity = FixedPoint2.Clamp(organ.IntegrityModifiers
-                .Aggregate(FixedPoint2.Zero, (current, modifier) => current + modifier.Value),
-                0,
-                organ.IntegrityCap);
+        var totalDamage = FixedPoint2.Zero;
+        foreach (var modifier in organ.IntegrityModifiers)
+            totalDamage += modifier.Value;
+
+        organ.OrganIntegrity = FixedPoint2.Clamp(organ.IntegrityCap - totalDamage, 0, organ.IntegrityCap);
+
+        _container.TryGetContainingContainer((uid, Transform(uid), MetaData(uid)), out var container);
 
         if (oldIntegrity != organ.OrganIntegrity)
         {
             var ev = new OrganIntegrityChangedEvent(oldIntegrity, organ.OrganIntegrity);
             RaiseLocalEvent(uid, ref ev);
 
-            if (_container.TryGetContainingContainer((uid, Transform(uid), MetaData(uid)), out var container))
+            if (container != null)
             {
                 var ev1 = new OrganIntegrityChangedEventOnWoundable((uid, organ), oldIntegrity, organ.OrganIntegrity);
                 RaiseLocalEvent(container.Owner, ref ev1);
             }
         }
 
-        var nearestSeverity = organ.OrganSeverity;
-        foreach (var (severity, value) in organ.IntegrityThresholds.OrderByDescending(kv => kv.Value))
+        organ.SortedIntegrityThresholds ??= organ.IntegrityThresholds.OrderBy(kv => kv.Value).ToArray();
+
+        var nearestSeverity = organ.SortedIntegrityThresholds.Length > 0
+            ? organ.SortedIntegrityThresholds[^1].Key
+            : organ.OrganSeverity;
+        foreach (var (severity, value) in organ.SortedIntegrityThresholds)
         {
             if (organ.OrganIntegrity > value)
                 continue;
@@ -239,7 +284,7 @@ public partial class TraumaSystem
         {
             var ev = new OrganDamageSeverityChanged(organ.OrganSeverity, nearestSeverity);
             RaiseLocalEvent(uid, ref ev);
-            if (_container.TryGetContainingContainer((uid, Transform(uid), MetaData(uid)), out var container))
+            if (container != null)
             {
                 var ev1 = new OrganDamageSeverityChangedOnWoundable((uid, organ), organ.OrganSeverity, nearestSeverity);
                 RaiseLocalEvent(container.Owner, ref ev1);
