@@ -92,12 +92,10 @@
       injector:
         maxVol: 5
   - type: Injector
-    solutionName: hypospray
-    ignoreClosed: false
-    activeModeProtoId: HyposprayDynamicMode
+    activeModeProtoId: SyringeDrawMode #Goob start
     allowedModes:
-    - HyposprayDynamicMode
-    - HyposprayInjectMode
+    - SyringeDrawMode
+    - SyringeInjectMode #Goob end
   - type: MeleeChemicalInjector
     transferAmount: 5
     solution: injector
