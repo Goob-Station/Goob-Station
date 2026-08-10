@@ -26,7 +26,7 @@ public sealed class ParadigmInflationSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly IGameTiming _timing = default!; // TO DO: switch out frametime
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -45,15 +45,12 @@ public sealed class ParadigmInflationSystem : EntitySystem
             if (!comp.IsAnalyzing || !comp.Target.HasValue)
                 continue;
 
-            comp.Accumulator += frameTime;
+            if (_timing.CurTime < comp.AnalyzeEndTime)
+                continue;
 
-            if (comp.Accumulator >= comp.AnalyzeTime)
-            {
-                comp.Accumulator = 0f;
-                comp.IsAnalyzing = false;
-                DoParadigm(uid, comp, comp.Target.Value);
-                comp.Target = null;
-            }
+            comp.IsAnalyzing = false;
+            DoParadigm(uid, comp, comp.Target.Value);
+            comp.Target = null;
         }
     }
 
@@ -70,6 +67,7 @@ public sealed class ParadigmInflationSystem : EntitySystem
 
         comp.IsAnalyzing = true;
         comp.Target = args.Target;
+        comp.AnalyzeEndTime = _timing.CurTime + TimeSpan.FromSeconds(comp.AnalyzeTime);
 
         // Spawn warning on top of target and parent it to them, literally entirely for visual flare and feedback
         comp.WarningEntity = PredictedSpawnAttachedTo(comp.WarningPrototype, Transform(args.Target).Coordinates);

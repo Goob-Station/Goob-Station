@@ -28,6 +28,6 @@ public sealed partial class ReflectiveThreadsComponent : Component
     public float ReflectDuration = 5f;
 
     public bool Reflecting; // Reflect is active
-    public float Accumulator;
+    public TimeSpan ReflectEndTime;
 
 }

@@ -23,7 +23,7 @@ public sealed class ORTSolarStormSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedPointLightSystem _lights = default!;
-    [Dependency] private readonly IGameTiming _timing = default!; // TO DO: switch out frametime
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()
@@ -42,29 +42,24 @@ public sealed class ORTSolarStormSystem : EntitySystem
         {
             if (comp.IsCharging)
             {
-                comp.Accumulator += frameTime;
-                comp.AccumulatorButCooler += frameTime;
-
                 // Particles
-                if (comp.AccumulatorButCooler >= comp.CurrentParticleSpawnRate)
+                if (_timing.CurTime >= comp.NextParticleSpawn)
                 {
-                    if (!_net.IsServer)
-                        continue;
-
-                    comp.AccumulatorButCooler = 0f;
-
-                    var angle = new Angle(_random.NextDouble() * Math.Tau);
-                    var spawnPosition = Transform(uid).Coordinates.Offset(angle.ToVec() * comp.ParticleSpawnRadius);
-                    Spawn(comp.ParticlePrototype, spawnPosition);
-
+                    if (_net.IsServer)
+                    {
+                        var angle = new Angle(_random.NextDouble() * Math.Tau);
+                        var spawnPosition = Transform(uid).Coordinates.Offset(angle.ToVec() * comp.ParticleSpawnRadius);
+                        Spawn(comp.ParticlePrototype, spawnPosition);
+                    }
                     // Spawn them more the longer it charges
                     comp.CurrentParticleSpawnRate = MathF.Max(0.05f, comp.CurrentParticleSpawnRate - comp.ParticleIncreaseBy);
+                    comp.NextParticleSpawn = _timing.CurTime + TimeSpan.FromSeconds(comp.CurrentParticleSpawnRate);
                 }
 
                 // Increase the brightness of the warning entity
-                if (_timing.CurTime >= comp.NextUpdate && comp.WarningEntity.HasValue)
+                if (_timing.CurTime >= comp.NextGlowUpdate && comp.WarningEntity.HasValue)
                 {
-                    comp.NextUpdate = _timing.CurTime + comp.Interval;
+                    comp.NextGlowUpdate = _timing.CurTime + comp.Interval;
                     var light = _lights.EnsureLight(comp.WarningEntity.Value);
                     _lights.SetColor(comp.WarningEntity.Value, comp.LightColor, light);
                     _lights.SetEnergy(comp.WarningEntity.Value, comp.CurrentGlow + comp.IncreaseBy, light);
@@ -72,10 +67,8 @@ public sealed class ORTSolarStormSystem : EntitySystem
                     comp.CurrentGlow = MathF.Min(comp.CurrentGlow + comp.IncreaseBy, comp.GlowIntensity);
                 }
 
-                if (comp.Accumulator >= comp.ChargeTime)
+                if (_timing.CurTime >= comp.ChargeEndTime)
                 {
-                    comp.Accumulator = 0f;
-                    comp.AccumulatorButCooler = 0f;
                     comp.CurrentParticleSpawnRate = comp.ParticleSpawnRate;
                     comp.IsCharging = false;
 
@@ -87,30 +80,23 @@ public sealed class ORTSolarStormSystem : EntitySystem
                     }
 
                     comp.StormSoon = true;
+                    comp.StormStartTime = _timing.CurTime + TimeSpan.FromSeconds(comp.WaitForIt);
                 }
             }
 
             // Small delay before the pain
-            if (comp.StormSoon)
+            if (comp.StormSoon && _timing.CurTime >= comp.StormStartTime)
             {
-                comp.AccumulatorBeforeStorm += frameTime;
-
-                if (comp.AccumulatorBeforeStorm >= comp.WaitForIt)
-                {
-                    comp.AccumulatorBeforeStorm = 0f;
-                    comp.StormSoon = false;
-                    DoSolarStorm(uid, comp);
-                }
+                comp.StormSoon = false;
+                DoSolarStorm(uid, comp);
             }
 
             if (comp.IsActive)
             {
-                comp.StormAccumulator += frameTime;
-                comp.AccumulatorButLame += frameTime;
-
-                if (comp.AccumulatorButLame >= 0.5f)
+                if (_timing.CurTime >= comp.NextDamageTick)
                 {
-                    comp.AccumulatorButLame = 0f;
+                    comp.NextDamageTick = _timing.CurTime + TimeSpan.FromSeconds(0.5f);
+
                     foreach (var target in _lookup.GetEntitiesInRange(Transform(uid).Coordinates, comp.StormRadius))
                     {
                         if (target == uid)
@@ -123,11 +109,9 @@ public sealed class ORTSolarStormSystem : EntitySystem
                     }
                 }
 
-                if (comp.StormAccumulator >= comp.StormDuration)
+                if (_timing.CurTime >= comp.StormEndTime)
                 {
                     // reset
-                    comp.StormAccumulator = 0f;
-                    comp.AccumulatorButLame = 0f;
                     comp.CurrentGlow = 0f;
                     comp.IsActive = false;
 
@@ -150,6 +134,8 @@ public sealed class ORTSolarStormSystem : EntitySystem
             _transform.SetParent(comp.StormEntity.Value, uid);
         }
         comp.IsActive = true;
+        comp.NextDamageTick = _timing.CurTime;
+        comp.StormEndTime = _timing.CurTime + TimeSpan.FromSeconds(comp.StormDuration);
     }
 
     private void OnActionUsed(EntityUid uid, ORTSolarStormComponent comp, ORTSolarStormActionEvent args)
@@ -162,6 +148,9 @@ public sealed class ORTSolarStormSystem : EntitySystem
             return;
 
         comp.CurrentParticleSpawnRate = comp.ParticleSpawnRate;
+        comp.ChargeEndTime = _timing.CurTime + TimeSpan.FromSeconds(comp.ChargeTime);
+        comp.NextParticleSpawn = _timing.CurTime;
+        comp.NextGlowUpdate = _timing.CurTime;
         comp.WarningEntity = PredictedSpawnAttachedTo(comp.WarningPrototype, Transform(uid).Coordinates);
         // Because SpawnAttachedTo is a filthy LIAR!!!!!!!!! Why would I want it attached to the damn coordinate instead of the entity?
         if (comp.WarningEntity.HasValue)

@@ -13,7 +13,7 @@ public sealed class ReflectiveThreadsSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly IGameTiming _timing = default!; // TO DO: switch out frametime
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -31,12 +31,9 @@ public sealed class ReflectiveThreadsSystem : EntitySystem
             if (!comp.Reflecting)
                 continue;
 
-            comp.Accumulator += frameTime;
-
-            if (comp.Accumulator < comp.ReflectDuration)
+            if (_timing.CurTime < comp.ReflectEndTime)
                 continue;
 
-            comp.Accumulator = 0f;
             comp.Reflecting = false;
 
             RemCompDeferred<ReflectComponent>(uid);
@@ -67,7 +64,8 @@ public sealed class ReflectiveThreadsSystem : EntitySystem
         reflect.Reflects = ReflectType.Energy | ReflectType.NonEnergy | ReflectType.Magic;
 
         comp.Reflecting = true;
-        comp.Accumulator = 0f;
+        comp.ReflectEndTime = _timing.CurTime + TimeSpan.FromSeconds(comp.ReflectDuration);
+
         args.Handled = true;
     }
 }

@@ -113,8 +113,6 @@ public sealed partial class ORTSolarStormComponent : Component
     [DataField, AutoNetworkedField]
     public float IncreaseBy = 0.1f;
 
-    public TimeSpan NextUpdate;
-
     /// <summary>
     /// How quickly to increase the light.
     /// </summary>
@@ -126,11 +124,13 @@ public sealed partial class ORTSolarStormComponent : Component
 
     #endregion
 
-    public float Accumulator;
-    public float AccumulatorButCooler; // Particle accumulator
-    public float AccumulatorButLame; // Damage accumulator
-    public float StormAccumulator; // I ran out of jokes.
-    public float AccumulatorBeforeStorm; // For small delay before damage starts ticking, the things we do for love.
+    public TimeSpan NextGlowUpdate;
+    public TimeSpan NextParticleSpawn;
+    public TimeSpan NextDamageTick;
+    public TimeSpan StormStartTime;
+    public TimeSpan StormEndTime;
+    public TimeSpan ChargeEndTime;
+
     public bool IsCharging;
     public bool IsActive;
     public bool StormSoon;

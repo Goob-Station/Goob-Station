@@ -46,6 +46,6 @@ public sealed partial class ParadigmInflationComponent : Component
     [DataField]
     public SoundSpecifier ParadigmSound = new SoundPathSpecifier("/Audio/_Lavaland/Mobs/Bosses/Mercury/glitch.ogg");
 
-    public float Accumulator;
+    public TimeSpan AnalyzeEndTime;
     public bool IsAnalyzing;
 }

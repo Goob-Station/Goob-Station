@@ -7,7 +7,6 @@ namespace Content.Shared._Lavaland.Megafauna.Systems;
 public sealed class OrbitingSystem : EntitySystem
 {
     [Dependency] private readonly SharedTransformSystem _xform = default!;
-    [Dependency] private readonly IGameTiming _timing = default!; // TO DO: switch out frametime
 
     public override void Update(float frameTime)
     {

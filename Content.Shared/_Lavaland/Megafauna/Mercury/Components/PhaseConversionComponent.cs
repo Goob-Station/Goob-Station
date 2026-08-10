@@ -61,7 +61,7 @@ public sealed partial class PhaseConversionComponent : Component
 
     public bool SwitchSoon;
     public bool IsRanged = true;
-    public float Accumulator;
+    public TimeSpan SwitchTime;
 }
 [NetSerializable, Serializable]
 public enum PhaseConversionVisuals : byte

@@ -37,12 +37,9 @@ public sealed class PhaseConversionSystem : EntitySystem
             if (!comp.SwitchSoon)
                 continue;
 
-            comp.Accumulator += frameTime;
-
-            if (comp.Accumulator < comp.SwitchDelay)
+            if (_timing.CurTime < comp.SwitchTime)
                 continue;
 
-            comp.Accumulator = 0f;
             comp.SwitchSoon = false;
             DoSwitch(uid, comp);
         }
@@ -63,7 +60,7 @@ public sealed class PhaseConversionSystem : EntitySystem
         }
 
         comp.SwitchSoon = true;
-        comp.Accumulator = 0f;
+        comp.SwitchTime = _timing.CurTime + TimeSpan.FromSeconds(comp.SwitchDelay);
         args.Handled = true;
     }
 
