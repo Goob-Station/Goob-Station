@@ -30,18 +30,18 @@ public sealed class ChasmTeleportSystem : EntitySystem
         if (falling.SourceChasm == null || !TryComp<ChasmTeleportComponent>(falling.SourceChasm.Value, out var comp))
             return;
 
-        if (!TryGetOrLoadMap(comp, out var beaconCoords))
+        if (!TryGetOrLoadMap(comp, out var beaconCoords) || beaconCoords is null)
             return;
 
         args.Cancelled = true;
-        _transform.SetCoordinates(args.Entity, beaconCoords);
+        _transform.SetCoordinates(args.Entity, beaconCoords.Value);
     }
 
-    private bool TryGetOrLoadMap(ChasmTeleportComponent comp, out EntityCoordinates beaconCoords)
+    private bool TryGetOrLoadMap(ChasmTeleportComponent comp, out EntityCoordinates? beaconCoords)
     {
-        beaconCoords = default;
+        beaconCoords = null;
 
-        if (!TerminatingOrDeleted(comp.LoadedMap))
+        if (comp.LoadedMap is not null && !TerminatingOrDeleted(comp.LoadedMap.Value))
             return TryGetBeaconCoords(comp.LoadedMap.Value, out beaconCoords);
 
         if (!_mapLoader.TryLoadMap(comp.MapPath, out var map, out var roots, options: new DeserializationOptions { InitializeMaps = true }))
