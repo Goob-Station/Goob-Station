@@ -39,7 +39,7 @@
     state: icon
   content:
   - WeaponProtoKineticHealer
-  - MedkitAdvancedFilled
+  - MedkitFilled
 
 # Proto-kinetic weapons with space upgrades
 - type: selectableSet
