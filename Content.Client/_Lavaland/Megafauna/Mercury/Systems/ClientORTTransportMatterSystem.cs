@@ -15,17 +15,15 @@ public sealed class ClientORTTransportMatterSystem : SharedORTTransportMatterSys
 
     protected override void FadeOut(Entity<ORTTransportMatterComponent> ent)
     {
-        var (uid, comp) = ent;
-
-        if (!TryComp(uid, out SpriteComponent? sprite))
+        if (!TryComp(ent, out SpriteComponent? sprite))
             return;
 
-        _animationPlayer.Stop(uid, ORTTransportMatterComponent.AnimationKey);
-        _sprite.SetColor((uid, sprite), sprite.Color.WithAlpha(1f));
+        _animationPlayer.Stop(ent.Owner, ORTTransportMatterComponent.AnimationKey);
+        _sprite.SetColor((ent, sprite), sprite.Color.WithAlpha(1f));
 
         var animation = new Animation
         {
-            Length = TimeSpan.FromSeconds(comp.FadeOutTime),
+            Length = TimeSpan.FromSeconds(ent.Comp.FadeOutTime),
             AnimationTracks =
             {
                 new AnimationTrackComponentProperty
@@ -35,27 +33,25 @@ public sealed class ClientORTTransportMatterSystem : SharedORTTransportMatterSys
                     KeyFrames =
                     {
                         new AnimationTrackProperty.KeyFrame(sprite.Color.WithAlpha(1f), 0f),
-                        new AnimationTrackProperty.KeyFrame(sprite.Color.WithAlpha(0f), comp.FadeOutTime),
+                        new AnimationTrackProperty.KeyFrame(sprite.Color.WithAlpha(0f), ent.Comp.FadeOutTime),
                     },
                 },
             },
         };
 
-        _animationPlayer.Play(uid, animation, ORTTransportMatterComponent.AnimationKey);
+        _animationPlayer.Play(ent, animation, ORTTransportMatterComponent.AnimationKey);
     }
     protected override void FadeIn(Entity<ORTTransportMatterComponent> ent)
     {
-        var (uid, comp) = ent;
-
-        if (!TryComp(uid, out SpriteComponent? sprite))
+        if (!TryComp(ent, out SpriteComponent? sprite))
             return;
 
-        _animationPlayer.Stop(uid, ORTTransportMatterComponent.AnimationKey);
-        _sprite.SetColor((uid, sprite), sprite.Color.WithAlpha(0f));
+        _animationPlayer.Stop(ent.Owner, ORTTransportMatterComponent.AnimationKey);
+        _sprite.SetColor((ent, sprite), sprite.Color.WithAlpha(0f));
 
         var animation = new Animation
         {
-            Length = TimeSpan.FromSeconds(comp.FadeOutTime),
+            Length = TimeSpan.FromSeconds(ent.Comp.FadeOutTime),
             AnimationTracks =
             {
                 new AnimationTrackComponentProperty
@@ -65,12 +61,12 @@ public sealed class ClientORTTransportMatterSystem : SharedORTTransportMatterSys
                     KeyFrames =
                     {
                         new AnimationTrackProperty.KeyFrame(sprite.Color.WithAlpha(0f), 0f),
-                        new AnimationTrackProperty.KeyFrame(sprite.Color.WithAlpha(1f), comp.FadeOutTime),
+                        new AnimationTrackProperty.KeyFrame(sprite.Color.WithAlpha(1f), ent.Comp.FadeOutTime),
                     },
                 },
             },
         };
 
-        _animationPlayer.Play(uid, animation, ORTTransportMatterComponent.AnimationKey);
+        _animationPlayer.Play(ent, animation, ORTTransportMatterComponent.AnimationKey);
     }
 }

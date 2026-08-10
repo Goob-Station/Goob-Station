@@ -5,7 +5,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._Lavaland.Megafauna.Mercury.Systems;
 
-public sealed class ServerEtherDrinkerSystem : EntitySystem
+public sealed class EtherDrinkerSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;

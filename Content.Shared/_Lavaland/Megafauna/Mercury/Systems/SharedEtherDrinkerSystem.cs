@@ -10,7 +10,7 @@ using System.Numerics;
 
 namespace Content.Shared._Lavaland.Megafauna.Mercury.Systems;
 
-public sealed class EtherDrinkerSystem : EntitySystem
+public sealed class SharedEtherDrinkerSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
