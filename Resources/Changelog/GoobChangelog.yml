@@ -24417,3 +24417,9 @@ Entries:
         bloodstream.
   id: 2793
   time: '2026-08-10T18:12:06.0000000+00:00'
+- author: Super7522
+  changes:
+    - type: Fix
+      message: His Grace is Unremovable Once again, and will drop on full hunger.
+  id: 2794
+  time: '2026-08-10T18:13:45.0000000+00:00'
