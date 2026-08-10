@@ -82,12 +82,18 @@
   id: ClothingOuterArmorHoS
   components:
   - type: Armor
-    coverage:
+    coverage: # Goobstation
     - Chest
     - Groin
     - Tail
     - Arm
     - Leg
+    traumaDeductions: # Goobstation - 
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.6
@@ -109,12 +115,18 @@
   id: ClothingOuterArmorWarden
   components:
   - type: Armor
-    coverage:
+    coverage: # Goobstation
     - Chest
     - Groin
     - Tail
     - Arm
     - Leg
+    traumaDeductions: # Goobstation.
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.6
@@ -311,6 +323,12 @@
     - Tail
     - Arm
     - Leg
+    traumaDeductions: # Goobstation
+      Dismemberment: 0.1
+      OrganDamage: 0.1
+      BoneDamage: 0.1
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Slash: 0.9
@@ -462,6 +480,12 @@
     - Tail
     - Arm
     - Leg
+    traumaDeductions: # Goobstation
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.65
@@ -521,6 +545,12 @@
     - Chest
     - Groin
     - Tail
+    traumaDeductions: # Goobstation
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.7
