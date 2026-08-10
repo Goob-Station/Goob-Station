@@ -7,6 +7,8 @@ namespace Content.Goobstation.Shared.Devil.Systems;
 
 public sealed class HellstepActionSystem : EntitySystem
 {
+    [Dependency] private readonly SharedEntityEffectsSystem _entityEffects = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -18,7 +20,7 @@ public sealed class HellstepActionSystem : EntitySystem
         if (args.Handled)
             return;
 
-        new HellstepEffect().Effect(new EntityEffectBaseArgs(uid, EntityManager));
+        _entityEffects.ApplyEffect(uid, new HellstepEffect());
         args.Handled = true;
     }
 }

@@ -1,12 +1,23 @@
 using Content.Goobstation.Shared.Devil.Components;
 using Content.Shared.EntityEffects;
-using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.Manager.Attributes;
 
 namespace Content.Goobstation.Shared.Devil.EntityEffects;
 
-public sealed partial class HellstepEffect : EntityEffect
+/// <summary>
+/// Spawn lava and fire along path they walk.
+/// </summary>
+public sealed partial class HellstepEntityEffectSystem : EntityEffectSystem<MetaDataComponent, HellstepEffect>
+{
+    protected override void Effect(Entity<MetaDataComponent> entity, ref EntityEffectEvent<HellstepEffect> args)
+    {
+        var hellstep = EnsureComp<HellstepComponent>(entity);
+        hellstep.FirePrototype = args.Effect.FirePrototype;
+        hellstep.LavaPrototype = args.Effect.LavaPrototype;
+    }
+}
+
+public sealed partial class HellstepEffect : EntityEffectBase<HellstepEffect>
 {
     [DataField]
     public EntProtoId FirePrototype = "HereticFireAA";
@@ -14,16 +25,5 @@ public sealed partial class HellstepEffect : EntityEffect
     [DataField]
     public EntProtoId LavaPrototype = "FloorLavaEntityTemporary";
 
-    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => null;
-
-    public override void Effect(EntityEffectBaseArgs args)
-    {
-        var uid = args.TargetEntity;
-        var entMan = args.EntityManager;
-
-        var hellstep = entMan.EnsureComponent<HellstepComponent>(uid); // EntEffect can't access EntSystem ig
-        hellstep.FirePrototype = FirePrototype;
-        hellstep.LavaPrototype = LavaPrototype;
-    }
+    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys) => null;
 }
