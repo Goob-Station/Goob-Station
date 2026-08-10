@@ -16,9 +16,6 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
-using Content.Shared.EntityEffects.Effects;
-using Content.Goobstation.Maths.FixedPoint;
-using Content.Shared.Drunk;
 using Content.Shared.EntityEffects.Effects.Solution;
 using Content.Shared.Fluids;
 using Content.Shared.Forensics.Components;
@@ -33,18 +30,15 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using System.Linq;
-using Content.Shared.EntityEffects.Effects;
 
 namespace Content.Shared.Body.Systems;
 // todo marty clean up this warzone.
 public abstract partial class SharedBloodstreamSystem : EntitySystem
 {
-    [Dependency] public readonly SharedSolutionContainerSystem SolutionContainer = default!; // Goobstation: made from protected to public
     public static readonly EntProtoId Bloodloss = "StatusEffectBloodloss";
 
     [Dependency] protected readonly IPrototypeManager PrototypeManager = default!;
-    [Dependency] protected readonly SharedSolutionContainerSystem SolutionContainer = default!;
+    [Dependency] public readonly SharedSolutionContainerSystem SolutionContainer = default!; // Goobstation: made from protected to public
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
