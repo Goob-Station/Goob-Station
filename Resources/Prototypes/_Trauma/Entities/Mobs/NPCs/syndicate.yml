@@ -1,0 +1,273 @@
+- type: entity
+  parent: [ MobMouse, MobCombat ]
+  id: MobNukieMouse
+  name: nuclear operative mouse
+  description: A Nuclear Operative... MOUSE?!
+  suffix: Syndicate
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-nukie-mouse-name
+    description: ghost-role-information-nukie-mouse-description
+  - type: RandomMetadata
+    nameSegments: [ NamesMouseDeathCommando ]
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+  - type: PointLight
+    radius: 1.5
+    energy: 2.3
+    offset: 0, -1
+    color: green
+  - type: Sprite
+    sprite: _Trauma/Mobs/Animals/Syndicate/nukiemouse.rsi
+  - type: Respirator
+    minSaturation: 5.0
+  - type: TemperatureDamage
+    heatDamageThreshold: 423
+    coldDamageThreshold: 0
+  - type: PressureImmunity
+  - type: Insulated
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Slash: 5
+        Piercing: 5
+        Structural: 15
+  - type: MobPrice
+    price: 250
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Syndicate
+  - type: ActiveRadio
+    channels:
+    - Syndicate
+  - type: Tag
+    tags:
+    - FootstepSound
+  - type: Damageable
+    damageModifierSet: NukieSpider
+
+- type: entity
+  parent: MobGiantSpiderAngry
+  id: MobNukieSpider
+  name: nuclear operative tarantula
+  description: A spider? A NUKIE SPIDER?!
+  suffix: Syndicate
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-nukie-spider-name
+    description: ghost-role-information-nukie-spider-description
+    rules: ghost-role-information-nukie-spider-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+  - type: RandomMetadata
+    nameFormat: name-format-nukie-operator
+    nameSegments: [ NamesNukieSpider ]
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+  - type: PointLight
+    radius: 3
+    energy: 2.3
+    offset: 0, -2
+    color: green
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Trauma/Mobs/Animals/Syndicate/nukiespider.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base", "movement" ]
+      state: syndicate-spider
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: syndicate-spider-moving
+    noMovementLayers:
+      movement:
+        state: syndicate-spider
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      90: Critical
+      150: Dead
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: syndicate-spider
+      Critical:
+        Base: syndicate-spider-dead
+      Dead:
+        Base: syndicate-spider-dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 4.9
+  - type: Respirator
+    minSaturation: 5.0
+  - type: TemperatureDamage
+    heatDamageThreshold: 423
+    coldDamageThreshold: 0
+  - type: PressureImmunity
+  - type: Insulated
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Slash: 4
+        Piercing: 4
+        Structural: 25
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 30
+        reagents:
+        - ReagentId: Lexorin
+          Quantity: 30
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+      - ReagentId: Lexorin
+        Quantity: 1
+  - type: MeleeChemicalInjector
+    transferAmount: 0.5
+    solution: melee
+  - type: MobPrice
+    price: 250
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Syndicate
+  - type: ActiveRadio
+    channels:
+    - Syndicate
+  - type: Access
+    tags:
+    - NuclearOperative
+    - SyndicateAgent
+  - type: Tag
+    tags:
+    - FootstepSound
+    - DoorBumpOpener
+  - type: Damageable
+    damageModifierSet: NukieSpider
+
+- type: entity
+  parent: BaseMobCarp
+  id: MobNukieCarp
+  name: nuclear operative carp
+  description: A blood-red carp trained in carp-to-carp combat.
+  suffix: Syndicate
+  components:
+  - type: RandomMetadata
+    nameFormat: name-format-nukie-operator
+    nameSegments: [ NamesNukieCarp ]
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Trauma/Mobs/Animals/Syndicate/nukiecarp.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: alive
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: mouth
+      shader: unshaded
+  - type: PointLight
+    radius: 3
+    energy: 2.3
+    offset: 0, -2
+    color: green
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+  - type: Access
+    tags:
+    - NuclearOperative
+    - SyndicateAgent
+  - type: Tag
+    tags:
+    - Carp
+    - DoorBumpOpener
+  - type: ExplosionResistance
+    damageCoefficient: 0.2
+  - type: Insulated
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 30
+        reagents:
+        - ReagentId: CarpoToxin
+          Quantity: 30
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+      - ReagentId: CarpoToxin
+        Quantity: 1
+  - type: MeleeChemicalInjector
+    solution: melee
+    transferAmount: 1
+  - type: Damageable
+    damageModifierSet: NukieSpider
+
+- type: entity
+  parent: BaseMobBehonker
+  id: MobNukieBehonker
+  name: nuclear operative behonker
+  description: Gorlex thought it would be funny to have a behonker. It was.
+  suffix: Syndicate
+  components:
+  - type: RandomMetadata
+    nameFormat: name-format-nukie-operator
+    nameSegments: [ NamesNukieBehonker ]
+  - type: Sprite
+    sprite: _Trauma/Mobs/Monsters/Demons/syndie_behonker.rsi
+  - type: PointLight
+    radius: 3
+    energy: 2.3
+    offset: 0, -2
+    color: green
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+  - type: Access
+    tags:
+    - NuclearOperative
+    - SyndicateAgent
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Syndicate
+  - type: ActiveRadio
+    channels:
+    - Syndicate
+  - type: Damageable
+    damageModifierSet: NukieSpider
+  - type: LanguageKnowledge
+    speaks:
+    - Universal
+    understands:
+    - Universal
+  - type: MovementIgnoreGravity
+  - type: ThermalVision
+    thermalShader: null
+    color: "#BF40BF"
+    activateSound: null
+    deactivateSound: null
+  - type: BatteryAmmoProvider
+    proto: XrayLaser # TODO: add real Xray projectile once shit isn't broken
+    fireCost: 62.5

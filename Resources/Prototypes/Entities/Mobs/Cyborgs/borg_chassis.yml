@@ -115,7 +115,7 @@
           map: ["light"]
           visible: false
     - type: BorgChassis
-      maxModules: 3
+      maxModules: 7 # Trauma - was 3
       moduleWhitelist:
         tags:
           - BorgModuleGeneric
@@ -147,7 +147,7 @@
           map: ["light"]
           visible: false
     - type: BorgChassis
-      maxModules: 3
+      maxModules: 7 # Trauma - was 3
       moduleWhitelist:
         tags:
           - BorgModuleGeneric
@@ -186,7 +186,7 @@
           map: ["light"]
           visible: false
     - type: BorgChassis
-      maxModules: 3
+      maxModules: 7 # Trauma - was 3
       moduleWhitelist:
         tags:
           - BorgModuleGeneric
