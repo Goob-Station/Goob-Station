@@ -17,25 +17,25 @@ public sealed partial class EnvironmentalResonanceComponent : Component
     /// Prototype that moves horizontally towards the right.
     /// </summary>
     [DataField]
-    public EntProtoId RightPrototype = "MoveRight";
+    public EntProtoId RightPrototype;
 
     /// <summary>
     /// Prototype that moves horizontally towards the left.
     /// </summary>
     [DataField]
-    public EntProtoId LeftPrototype = "MoveLeft";
+    public EntProtoId LeftPrototype;
 
     /// <summary>
     /// Prototype that moves horizontally towards the right.
     /// </summary>
     [DataField]
-    public EntProtoId UpPrototype = "MoveUp";
+    public EntProtoId UpPrototype;
 
     /// <summary>
     /// Prototype that moves horizontally towards the left.
     /// </summary>
     [DataField]
-    public EntProtoId DownPrototype = "MoveDown";
+    public EntProtoId DownPrototype;
 
     /// <summary>
     /// Self-explanatory, determines how far away from the entity the prototype will spawn.

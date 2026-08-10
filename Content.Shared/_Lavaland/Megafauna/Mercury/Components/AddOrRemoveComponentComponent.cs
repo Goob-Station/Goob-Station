@@ -19,5 +19,5 @@ public sealed partial class AddOrRemoveComponentComponent : Component
     [AutoNetworkedField]
     public TimeSpan TimeToRemoval;
 
-    public TimeSpan Accumulator;
+    public TimeSpan RemovalTime;
 }

@@ -167,6 +167,10 @@
   - type: MegafaunaAnchor
     anchored: false
   - type: EnvironmentalResonance
+    rightPrototype: MoveRight
+    leftPrototype: MoveLeft
+    upPrototype: MoveUp
+    downPrototype:  MoveDown
     horizontalOffset: 12
     verticalOffset: 12
     rowNumber: 14
@@ -312,7 +316,7 @@
   - type: EmitSoundOnTrigger
     sound: /Audio/_Lavaland/Mobs/Bosses/Mercury/alien_noise.ogg
   # Actual boss from here
-  - type: FadingAnchoredTeleport
+  - type: ORTTransportMatter
     moveInstead: true
     moveSpeed: 25
     dashTrail:

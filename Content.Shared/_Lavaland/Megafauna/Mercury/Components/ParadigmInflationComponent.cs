@@ -5,8 +5,9 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._Lavaland.Megafauna.Mercury.Components;
 
 /// <summary>
-/// Basically picks a target, checks their highest damage value, and if it isn't genetic, then heal that damage, and then add the damage healed as genetic.
-/// Can be avoided by not having any damage, or by having genetic already as your highest damage type.
+/// Analyzes a target for a duration, then finds their highest damage type.
+/// If the highest damage type is not genetic, removes that damage and applies the same amount as genetic damage.
+/// Does nothing if the target has no damage or their highest damage type is genetic.
 /// </summary>
 
 [RegisterComponent]
@@ -17,6 +18,12 @@ public sealed partial class ParadigmInflationComponent : Component
     /// </summary>
     [DataField]
     public float AnalyzeTime = 5f;
+
+    /// <summary>
+    /// How much to divide the damage before applying it. Higher values mean less damage is dealt after calculations.
+    /// </summary>
+    [DataField]
+    public float DivideDamage = 2f;
 
     public EntityUid? Target;
 

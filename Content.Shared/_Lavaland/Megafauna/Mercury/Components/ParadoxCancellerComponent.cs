@@ -14,6 +14,9 @@ namespace Content.Shared._Lavaland.Megafauna.Mercury.Components;
 [RegisterComponent]
 public sealed partial class ParadoxCancellerComponent : Component
 {
+    /// <summary>
+    /// Who is holding the item that has this component. Used in case item is dropped.
+    /// </summary>
     [DataField]
     public EntityUid? HeldBy;
 
@@ -51,7 +54,7 @@ public sealed partial class ParadoxCancellerComponent : Component
     public ComponentRegistry? Trail;
 
     /// <summary>
-    /// Spawn this on use to keep track of position to return to.
+    /// Prototype of the visual marker spawned at the saved position.
     /// </summary>
     [DataField]
     public EntProtoId? MarkerPrototype = "EffectParadox";

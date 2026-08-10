@@ -14,7 +14,7 @@ namespace Content.Shared._Lavaland.Megafauna.Mercury.Components;
 /// </summary>
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
-public sealed partial class FadingAnchoredTeleportComponent : Component
+public sealed partial class ORTTransportMatterComponent : Component
 {
     /// <summary>
     /// The anchor entity after being spawned in, used to keep track of coordinates to spawn around.

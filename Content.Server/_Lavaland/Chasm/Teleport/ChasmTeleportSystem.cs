@@ -3,6 +3,7 @@ using Content.Shared._Lavaland.Chasm.Teleport;
 using Content.Shared.Chasm;
 using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
+using System.Diagnostics.CodeAnalysis;
 using Robust.Shared.Map;
 
 namespace Content.Server._Lavaland.Chasm.Teleport;
@@ -40,14 +41,12 @@ public sealed class ChasmTeleportSystem : EntitySystem
     {
         beaconCoords = default;
 
-        if (comp.LoadedMap is not null && !TerminatingOrDeleted(comp.LoadedMap.Value))
+        if (!TerminatingOrDeleted(comp.LoadedMap))
             return TryGetBeaconCoords(comp.LoadedMap.Value, out beaconCoords);
 
         if (!_mapLoader.TryLoadMap(comp.MapPath, out var map, out var roots, options: new DeserializationOptions { InitializeMaps = true }))
         {
             Log.Error($"ChasmTeleportSystem didn't manage to load {comp.MapPath}");
-            if (map is not null)
-                QueueDel(map);
             return false;
         }
 
@@ -55,9 +54,8 @@ public sealed class ChasmTeleportSystem : EntitySystem
         return TryGetBeaconCoords(map!.Value, out beaconCoords);
     }
 
-    private bool TryGetBeaconCoords(EntityUid mapUid, out EntityCoordinates coords)
+    private bool TryGetBeaconCoords(EntityUid mapUid, [NotNullWhen(true)] out EntityCoordinates? coords)
     {
-        coords = default;
         var query = EntityQueryEnumerator<ChasmTeleportBeaconComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out _, out var xform))
         {
@@ -67,6 +65,8 @@ public sealed class ChasmTeleportSystem : EntitySystem
             coords = xform.Coordinates;
             return true;
         }
+
+        coords = null;
         return false;
     }
 }

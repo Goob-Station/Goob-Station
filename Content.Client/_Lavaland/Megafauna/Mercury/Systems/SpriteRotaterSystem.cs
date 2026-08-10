@@ -4,7 +4,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Client._Lavaland.Megafauna.Mercury.Systems;
 
-public sealed class RotatingSystem : EntitySystem
+public sealed class SpriteRotaterSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
 
@@ -12,7 +12,7 @@ public sealed class RotatingSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<RotatingComponent, SpriteComponent>();
+        var query = EntityQueryEnumerator<SpriteRotaterComponent, SpriteComponent>();
         while (query.MoveNext(out var uid, out var comp, out var sprite))
         {
             if (_timing.CurTime < comp.NextUpdate)

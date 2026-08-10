@@ -211,7 +211,7 @@
     ignoreWhitelist:
       components:
         - Fauna
-        - LightningImmune
+        - ORTLightningImmune
     inverted: true
     damage:
       types:
@@ -295,7 +295,7 @@
     inverted: true
     ignoreWhitelist:
       components:
-        - LightningImmune
+        - ORTLightningImmune
     damage:
       types:
         Shock: 35 # It's a fucking thunder strike!

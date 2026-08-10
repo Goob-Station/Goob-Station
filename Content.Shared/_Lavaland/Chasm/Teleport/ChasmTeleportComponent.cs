@@ -3,8 +3,8 @@ using Robust.Shared.Utility;
 namespace Content.Shared._Lavaland.Chasm.Teleport;
 
 /// <summary>
-/// If a player steps onto an entity holding this component, they will fall as if falling in a chasm,
-/// but will teleport to a new map once it finishes, instead of being deleted.
+/// If a player steps onto an entity holding this component and also ChasmComponent, they will fall into the chasm,
+/// but will teleport to a new map once the animation of falling finishes, instead of being deleted.
 /// TL DR if you want to use this:
 /// 1 - Make a chasm tile entity with ChasmComponent, this component and StepTrigger, plus the usual stuff that goes on chasms. (Just copy my rift portal)
 /// 2 - Create a map file so that ChasmTeleport can load it in.

@@ -158,7 +158,7 @@
     color: gold
   - type: PulsingLight
     lightColor: gold
-  - type: Rotating
+  - type: SpriteRotater
     rotationSpeed: 30
     increaseOvertime: true
   - type: FadingIn

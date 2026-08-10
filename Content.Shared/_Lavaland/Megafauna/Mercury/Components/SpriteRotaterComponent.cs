@@ -8,7 +8,7 @@ namespace Content.Shared._Lavaland.Megafauna.Mercury.Components;
 /// </summary>
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-public sealed partial class RotatingComponent : Component
+public sealed partial class SpriteRotaterComponent : Component
 {
     /// <summary>
     /// How quickly the entity shall rotate.

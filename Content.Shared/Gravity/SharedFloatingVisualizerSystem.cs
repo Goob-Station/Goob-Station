@@ -27,12 +27,6 @@ public abstract class SharedFloatingVisualizerSystem : EntitySystem
 
     protected bool CanFloat(Entity<FloatingVisualsComponent> entity)
     {
-        var transform = Transform(entity);
-        if (transform.MapID == MapId.Nullspace)
-        {
-            return false;
-        }
-
         // Goobstation - Optionally float regardless of gravity.
         entity.Comp.CanFloat = entity.Comp.FloatRegardlessOfGravity || _gravity.IsWeightless(entity.Owner);
         Dirty(entity);

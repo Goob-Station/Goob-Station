@@ -9,7 +9,7 @@
     state: sun_red
     drawdepth: BelowMobs
     noRot: true
-  - type: Rotating
+  - type: SpriteRotater
     increaseOvertime: true
     rotationSpeed: 50
   - type: PointLight

@@ -11,13 +11,10 @@ using System.Numerics;
 namespace Content.Server._Lavaland.Megafauna.Mercury.Systems;
 
 /// <summary>
-/// Fade out, fade in. Wax on, wax off.
-/// This became a bit of a Frankenstein's monster as it grew, so the generic name is meaningless
-/// Don't try to use this system.
 /// TL DR: Teleport at random location, unless boss is in melee form, then teleport towards player, spawning a target on them
 /// and dealing damage as it dashes by spawning entities with damagage on collide along the way
 /// </summary>
-public sealed class ServerFadingAnchoredTeleportSystem : SharedFadingAnchoredTeleportSystem
+public sealed class ORTTransportMatterSystem : SharedORTTransportMatterSystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -31,15 +28,15 @@ public sealed class ServerFadingAnchoredTeleportSystem : SharedFadingAnchoredTel
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<FadingAnchoredTeleportComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<FadingAnchoredTeleportComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<ORTTransportMatterComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ORTTransportMatterComponent, ComponentShutdown>(OnShutdown);
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<FadingAnchoredTeleportComponent>();
+        var query = EntityQueryEnumerator<ORTTransportMatterComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
             if (comp.FadeOutStarted)
@@ -147,7 +144,7 @@ public sealed class ServerFadingAnchoredTeleportSystem : SharedFadingAnchoredTel
         }
     }
 
-    private void DoTeleport(EntityUid uid, FadingAnchoredTeleportComponent comp)
+    private void DoTeleport(EntityUid uid, ORTTransportMatterComponent comp)
     {
         if (comp.AnchorEntity is null)
             return;
@@ -267,20 +264,20 @@ public sealed class ServerFadingAnchoredTeleportSystem : SharedFadingAnchoredTel
         return nearest;
     }
 
-    private Vector2 GetRandomOffset(EntityUid uid, FadingAnchoredTeleportComponent comp)
+    private Vector2 GetRandomOffset(EntityUid uid, ORTTransportMatterComponent comp)
     {
         var anchorPosition = _transform.GetWorldPosition(comp.AnchorEntity!.Value);
         var offset = new Vector2(_random.NextFloat(-comp.TeleportDistance, comp.TeleportDistance), _random.NextFloat(-comp.TeleportDistance, comp.TeleportDistance));
         return anchorPosition + offset;
     }
 
-    private void OnStartup(EntityUid uid, FadingAnchoredTeleportComponent comp, ComponentStartup args)
+    private void OnStartup(EntityUid uid, ORTTransportMatterComponent comp, ComponentStartup args)
     {
         var coords = Transform(uid).Coordinates;
         comp.AnchorEntity = Spawn(comp.AnchorPrototype, coords);
     }
 
-    private void OnShutdown(EntityUid uid, FadingAnchoredTeleportComponent comp, ComponentShutdown args)
+    private void OnShutdown(EntityUid uid, ORTTransportMatterComponent comp, ComponentShutdown args)
     {
         if (comp.AnchorEntity.HasValue)
         {

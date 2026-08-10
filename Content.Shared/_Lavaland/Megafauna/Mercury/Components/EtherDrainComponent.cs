@@ -4,7 +4,8 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._Lavaland.Megafauna.Mercury.Components;
 
 /// <summary>
-/// Drains stamina of target, and spawns an entity under them.
+/// If an entity holds this component and calls it through an action, it will look for ActorComponent holders within the vicinity,
+/// then drain their stamina and spawn a damaging beam spawner under them.
 /// </summary>
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]

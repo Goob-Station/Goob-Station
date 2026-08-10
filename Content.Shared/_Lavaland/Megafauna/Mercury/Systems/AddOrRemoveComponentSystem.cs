@@ -30,7 +30,7 @@ public sealed class AddOrRemoveComponentSystem : EntitySystem
             if (!comp.RemoveAfterTimer)
                 continue;
 
-            if (_timing.CurTime < comp.Accumulator)
+            if (_timing.CurTime < comp.RemovalTime)
                 continue;
 
             TryRemove(uid, comp);
@@ -63,7 +63,7 @@ public sealed class AddOrRemoveComponentSystem : EntitySystem
         EntityManager.AddComponents(uid, comp.TargetComponent);
 
         if (args.RemoveAfterTimer)
-            comp.Accumulator = _timing.CurTime + comp.TimeToRemoval;
+            comp.RemovalTime = _timing.CurTime + comp.TimeToRemoval;
     }
     private void OnRemoveAction(Entity<AddOrRemoveComponentComponent> ent, ref RemoveComponentActionEvent args)
     {
@@ -90,7 +90,7 @@ public sealed class AddOrRemoveComponentSystem : EntitySystem
 
         // So it doesn't endlessly try to remove it.
         comp.RemoveAfterTimer = false;
-        comp.Accumulator = TimeSpan.Zero;
+        comp.RemovalTime = TimeSpan.Zero;
 
         Dirty(uid, comp);
     }

@@ -118,7 +118,7 @@
     fadeInTime: 0.5
   - type: FadingTimedDespawn
     lifetime: 5
-  - type: Rotating
+  - type: SpriteRotater
     increaseOvertime: true
     rotationSpeed: 35
 
@@ -141,7 +141,7 @@
     fadeInTime: 0.3
   - type: FadingTimedDespawn
     lifetime: 5
-  - type: Rotating
+  - type: SpriteRotater
     increaseOvertime: true
     rotationSpeed: 35
 

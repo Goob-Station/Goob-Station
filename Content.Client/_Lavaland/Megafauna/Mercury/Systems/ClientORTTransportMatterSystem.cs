@@ -8,19 +8,19 @@ namespace Content.Client._Lavaland.Megafauna.Mercury.Systems;
 /// <summary>
 /// Basically just FadinngTimedDespawn innit
 /// </summary>
-public sealed class FadingAnchoredTeleportSystem : SharedFadingAnchoredTeleportSystem
+public sealed class ClientORTTransportMatterSystem : SharedORTTransportMatterSystem
 {
     [Dependency] private readonly AnimationPlayerSystem _animationPlayer = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
 
-    protected override void FadeOut(Entity<FadingAnchoredTeleportComponent> ent)
+    protected override void FadeOut(Entity<ORTTransportMatterComponent> ent)
     {
         var (uid, comp) = ent;
 
         if (!TryComp(uid, out SpriteComponent? sprite))
             return;
 
-        _animationPlayer.Stop(uid, FadingAnchoredTeleportComponent.AnimationKey);
+        _animationPlayer.Stop(uid, ORTTransportMatterComponent.AnimationKey);
         _sprite.SetColor((uid, sprite), sprite.Color.WithAlpha(1f));
 
         var animation = new Animation
@@ -41,16 +41,16 @@ public sealed class FadingAnchoredTeleportSystem : SharedFadingAnchoredTeleportS
             },
         };
 
-        _animationPlayer.Play(uid, animation, FadingAnchoredTeleportComponent.AnimationKey);
+        _animationPlayer.Play(uid, animation, ORTTransportMatterComponent.AnimationKey);
     }
-    protected override void FadeIn(Entity<FadingAnchoredTeleportComponent> ent)
+    protected override void FadeIn(Entity<ORTTransportMatterComponent> ent)
     {
         var (uid, comp) = ent;
 
         if (!TryComp(uid, out SpriteComponent? sprite))
             return;
 
-        _animationPlayer.Stop(uid, FadingAnchoredTeleportComponent.AnimationKey);
+        _animationPlayer.Stop(uid, ORTTransportMatterComponent.AnimationKey);
         _sprite.SetColor((uid, sprite), sprite.Color.WithAlpha(0f));
 
         var animation = new Animation
@@ -71,6 +71,6 @@ public sealed class FadingAnchoredTeleportSystem : SharedFadingAnchoredTeleportS
             },
         };
 
-        _animationPlayer.Play(uid, animation, FadingAnchoredTeleportComponent.AnimationKey);
+        _animationPlayer.Play(uid, animation, ORTTransportMatterComponent.AnimationKey);
     }
 }

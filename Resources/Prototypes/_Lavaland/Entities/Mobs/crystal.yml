@@ -167,7 +167,7 @@
     damage:
       types:
         Slash: 8
-  - type: Rotating
+  - type: SpriteRotater
     increaseOvertime: false
     rotationSpeed: 60
   - type: Reflect

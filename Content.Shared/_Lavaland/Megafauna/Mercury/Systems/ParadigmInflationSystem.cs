@@ -135,7 +135,7 @@ public sealed class ParadigmInflationSystem : EntitySystem
         _damageable.TryChangeDamage(target, healAmount);
 
         // the stick
-        var geneticDamage = new DamageSpecifier(_prototype.Index<DamageGroupPrototype>("Genetic"), highestDamage);
+        var geneticDamage = new DamageSpecifier(_prototype.Index<DamageGroupPrototype>("Genetic"), highestDamage / comp.DivideDamage); // Genetic damage dealt is divided since this is mostly unavoidable.
         _damageable.TryChangeDamage(target, geneticDamage);
 
         _audio.PlayPredicted(comp.ParadigmSound, uid, uid);

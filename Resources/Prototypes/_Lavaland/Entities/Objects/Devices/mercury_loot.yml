@@ -196,7 +196,7 @@
   - type: RadiationReceiver
   - type: HeldGrantComponent
     components:
-    - type: LightningImmune
+    - type: ORTLightningImmune
   - type: Construction
     graph: EtherDrinker
     node: MegafaunaEtherDrinker

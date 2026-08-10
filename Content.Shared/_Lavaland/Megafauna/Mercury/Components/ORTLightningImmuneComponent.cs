@@ -8,4 +8,4 @@ namespace Content.Shared._Lavaland.Megafauna.Mercury.Components;
 /// </summary>
 
 [RegisterComponent]
-public sealed partial class LightningImmuneComponent : Component;
+public sealed partial class ORTLightningImmuneComponent : Component;

@@ -23,7 +23,7 @@
         layer:
         - InteractImpassable
         - BulletImpassable
-  - type: Rotating
+  - type: SpriteRotater
     increaseOvertime: true
   - type: FadingIn
     fadeInTime: 3
@@ -58,7 +58,7 @@
   id: DarkMatterPlanktonExplode
   categories: [HideSpawnMenu]
   components:
-  - type: Rotating  
+  - type: SpriteRotater  
   - type: InteractionOutline
   - type: Sprite
     sprite: _Lavaland/Effects/plankton.rsi

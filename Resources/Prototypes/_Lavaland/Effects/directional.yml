@@ -8,7 +8,9 @@
     bodyType: Static
     canCollide: false
   - type: DirectionalMovement
-    moveNorth: true
+    direction:
+      x: 0
+      y: 1
     speed: 20
   - type: TimedDespawn
     lifetime: 3
@@ -36,7 +38,9 @@
     bodyType: Static
     canCollide: false
   - type: DirectionalMovement
-    moveSouth: true
+    direction:
+      x: 0
+      y: -1
     speed: 20
   - type: TimedDespawn
     lifetime: 3
@@ -64,7 +68,9 @@
     bodyType: Static
     canCollide: false
   - type: DirectionalMovement
-    moveWest: true
+    direction:
+      x: -1
+      y: 0
     speed: 20
   - type: TimedDespawn
     lifetime: 3
@@ -92,7 +98,9 @@
     bodyType: Static
     canCollide: false
   - type: DirectionalMovement
-    moveEast: true
+    direction:
+      x: 1
+      y: 0
     speed: 20
   - type: TimedDespawn
     lifetime: 3

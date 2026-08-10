@@ -6,15 +6,15 @@ using Content.Shared._Lavaland.Megafauna.Mercury.Components;
 
 namespace Content.Shared._Lavaland.Megafauna.Mercury.Systems;
 
-public abstract partial class SharedFadingAnchoredTeleportSystem : EntitySystem
+public abstract partial class SharedORTTransportMatterSystem : EntitySystem
 {
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<FadingAnchoredTeleportComponent, AfterAutoHandleStateEvent>(OnAfterAutoHandleState);
+        SubscribeLocalEvent<ORTTransportMatterComponent, AfterAutoHandleStateEvent>(OnAfterAutoHandleState);
     }
 
-    private void OnAfterAutoHandleState(Entity<FadingAnchoredTeleportComponent> ent, ref AfterAutoHandleStateEvent args)
+    private void OnAfterAutoHandleState(Entity<ORTTransportMatterComponent> ent, ref AfterAutoHandleStateEvent args)
     {
         if (ent.Comp.FadeOutStarted)
         {
@@ -26,6 +26,6 @@ public abstract partial class SharedFadingAnchoredTeleportSystem : EntitySystem
         }
     }
 
-    protected virtual void FadeOut(Entity<FadingAnchoredTeleportComponent> ent) { }
-    protected virtual void FadeIn(Entity<FadingAnchoredTeleportComponent> ent) { }
+    protected virtual void FadeOut(Entity<ORTTransportMatterComponent> ent) { }
+    protected virtual void FadeIn(Entity<ORTTransportMatterComponent> ent) { }
 }
