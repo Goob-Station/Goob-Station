@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 07/21/2026 16:26:50
-  entityCount: 718
+  time: 07/22/2026 23:16:23
+  entityCount: 724
 maps: []
 grids:
 - 1
@@ -576,6 +576,14 @@ entities:
     components:
     - type: Transform
       pos: 1.5,11.5
+      parent: 1
+- proto: BunkerCodeFolder
+  entities:
+  - uid: 521
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 46.63207,54.406147
       parent: 1
 - proto: BunkerElevatorFloorEntranceDOWN
   entities:
@@ -1420,14 +1428,6 @@ entities:
     components:
     - type: Transform
       pos: -0.5,19.5
-      parent: 1
-- proto: BunkerCodeFolder
-  entities:
-  - uid: 521
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 46.63207,54.406147
       parent: 1
 - proto: DungeonBunkerKeypad
   entities:
@@ -2342,6 +2342,30 @@ entities:
     - type: Transform
       pos: 45.69591,43.13435
       parent: 1
+- proto: Fulton
+  entities:
+  - uid: 720
+    components:
+    - type: Transform
+      pos: -6.3703485,9.566096
+      parent: 1
+  - uid: 721
+    components:
+    - type: Transform
+      pos: -7.542223,10.659846
+      parent: 1
+  - uid: 722
+    components:
+    - type: Transform
+      pos: -7.1203485,10.862971
+      parent: 1
+- proto: FultonBeacon
+  entities:
+  - uid: 719
+    components:
+    - type: Transform
+      pos: -8.964098,8.889093
+      parent: 1
 - proto: GeneratorBasic15kW
   entities:
   - uid: 236
@@ -2395,7 +2419,12 @@ entities:
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: 45.775658,54.963108
+      pos: 45.5,54.5
+      parent: 1
+  - uid: 724
+    components:
+    - type: Transform
+      pos: -9.5,5.5
       parent: 1
 - proto: Grille
   entities:
@@ -2527,21 +2556,17 @@ entities:
       canCollide: False
     - type: InsideEntityStorage
       storage: 227
-- proto: MetalShelfLargeFilled
-  entities:
-  - uid: 491
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 3.0136065,22.703386
-      parent: 1
 - proto: MetalShelfLargeFilledCommon
   entities:
   - uid: 490
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -1.9551435,22.609636
+      pos: -2.5,22.5
+      parent: 1
+  - uid: 491
+    components:
+    - type: Transform
+      pos: 3.5,22.5
       parent: 1
 - proto: Paper
   entities:
@@ -4609,6 +4634,11 @@ entities:
   - uid: 716
     components:
     - type: Transform
-      pos: 44.17563,44.04466
+      pos: 44.5,44.5
+      parent: 1
+  - uid: 723
+    components:
+    - type: Transform
+      pos: -10.5,5.5
       parent: 1
 ...
