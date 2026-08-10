@@ -18138,8 +18138,6 @@ entities:
       - Arsenal
       - Experimental
       - CivilianServices
-    - type: OreSiloClient
-      silo: 26504
 - proto: AutolatheMachineCircuitboard
   entities:
   - uid: 1225
@@ -62509,8 +62507,6 @@ entities:
       - Arsenal
       - Experimental
       - CivilianServices
-    - type: OreSiloClient
-      silo: 26504
 - proto: CircuitImprinterMachineCircuitboard
   entities:
   - uid: 9828
@@ -122715,17 +122711,6 @@ entities:
     - type: Transform
       pos: -12.5,-6.5
       parent: 2
-    - type: DeviceLinkSource
-      linkedPorts:
-        11907:
-        - - OreSilo
-          - OreSiloClient
-        9996:
-        - - OreSilo
-          - OreSiloClient
-        26963:
-        - - OreSilo
-          - OreSiloClient
 - proto: Mattress
   entities:
   - uid: 18198
@@ -129919,8 +129904,6 @@ entities:
       - Arsenal
       - Experimental
       - CivilianServices
-    - type: OreSiloClient
-      silo: 26504
 - proto: ProtolatheMachineCircuitboard
   entities:
   - uid: 19217
