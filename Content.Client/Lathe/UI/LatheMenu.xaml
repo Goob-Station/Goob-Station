@@ -155,6 +155,15 @@ SPDX-License-Identifier: AGPL-3.0-or-later
             VerticalExpand="True"
             HorizontalExpand="True"
             Orientation="Vertical">
+            <!-- Begin DeltaV Additions: Mining points -->
+            <BoxContainer Orientation="Vertical" Name="MiningPointsContainer" Visible="False">
+                <BoxContainer Orientation="Horizontal">
+                    <Label Name="MiningPointsLabel" HorizontalExpand="True"/>
+                    <Button Name="MiningPointsClaimButton" Text="{Loc 'lathe-menu-mining-points-claim-button'}"/>
+                </BoxContainer>
+                <RichTextLabel Name="MiningPointsNoConnectionWarning"></RichTextLabel>
+            </BoxContainer>
+            <!-- End DeltaV Additions: Mining points -->
             <Label Text="{Loc 'lathe-menu-materials-title'}" Margin="5 5 5 5" HorizontalAlignment="Center"/>
             <PanelContainer VerticalExpand="True">
                 <PanelContainer.PanelOverride>
@@ -166,15 +175,6 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                     HorizontalExpand="True">
                     <ui:MaterialStorageControl Name="MaterialsList" SizeFlagsStretchRatio="8"/>
                 </BoxContainer>
-                <!-- Begin DeltaV Additions: Mining points -->
-                <BoxContainer Orientation="Vertical" Name="MiningPointsContainer" Visible="False">
-                    <BoxContainer Orientation="Horizontal">
-                        <Label Name="MiningPointsLabel" HorizontalExpand="True"/>
-                        <Button Name="MiningPointsClaimButton" Text="{Loc 'lathe-menu-mining-points-claim-button'}"/>
-                    </BoxContainer>
-                    <RichTextLabel Name="MiningPointsNoConnectionWarning"></RichTextLabel>
-                </BoxContainer>
-                <!-- End DeltaV Additions: Mining points -->
             </PanelContainer>
         </BoxContainer>
         </BoxContainer>
