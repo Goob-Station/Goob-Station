@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System;
+using System.IO;
 using System.Linq;
 using System.Text;
 using Content.Goobstation.Shared.MisandryBox.JumpScare;
@@ -45,6 +46,7 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
+using Content.Goobstation.Shared.MisandryBox.Smites;
 
 namespace Content.Goobstation.Server.Supermatter.Systems;
 
@@ -69,48 +71,15 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
     [Dependency] private readonly SharedPointLightSystem _light = default!;
     [Dependency] private readonly SharedElectrocutionSystem _elect = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly ThunderstrikeSystem _thunderstrikeSystem = default!;
 
     private const string Sound = "/Audio/_Goobstation/Effects/Smites/Thunderstrike/thunderstrike.ogg";
-    private const string God = "/Textures/_Goobstation/MisandryBox/LTGSM.png";
+    private const string ltgsm = "/Textures/_Goobstation/MisandryBox/LTGSM.png";
 
     private readonly Dictionary<EntityUid, TimeSpan> _pending = new();
     private float _accumulator;
 
     private DelamType _delamType = DelamType.Explosion;
-
-    public void Smite(EntityUid mumu, bool kill = true, TransformComponent? transform = null)
-    {
-        if (!Resolve(mumu, ref transform))
-            return;
-
-        CreateLighting(transform.Coordinates);
-
-        _elect.TryDoElectrocution(mumu, null, 250, TimeSpan.FromSeconds(1), false, ignoreInsulation: true);
-
-        if (!kill || !_player.TryGetSessionByEntity(mumu, out var sesh))
-            return;
-
-        var text = new SpriteSpecifier.Texture(new ResPath(God));
-        _jumpscare.Jumpscare(text, sesh);
-
-        QueueDel(mumu);
-        Spawn("Ash", transform.Coordinates);
-        _popup.PopupEntity(Loc.GetString("admin-smite-turned-ash-other", ("name", mumu)), mumu, PopupType.LargeCaution);
-    }
-
-    public void CreateLighting(EntityCoordinates coordinates, int energy = 125, int radius = 15)
-    {
-        var ent = Spawn(null, coordinates);
-        var comp = _light.EnsureLight(ent);
-        _light.SetColor(ent, new Color(255, 255, 255), comp);
-        _light.SetEnergy(ent, energy, comp);
-        _light.SetRadius(ent, radius, comp);
-
-        var sound = new SoundPathSpecifier(Sound);
-        _audio.PlayPvs(sound, coordinates, AudioParams.Default.WithVolume(150f));
-
-        _pending[ent] = TimeSpan.FromSeconds(_accumulator + 0.125);
-    }
 
     public override void Initialize()
     {
@@ -688,7 +657,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             _adminLog.Add(LogType.Supermatter, LogImpact.Medium, $"Supermatter {ToPrettyString(uid)} has consumed {ToPrettyString(target)}");
             if (HasComp<ActorComponent>(target))
             {
-                Smite(target);
+                _thunderstrikeSystem.Smite(target,true,null,ltgsm);
             }
             else
             {
