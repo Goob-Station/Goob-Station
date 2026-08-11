@@ -24423,3 +24423,9 @@ Entries:
       message: His Grace is Unremovable Once again, and will drop on full hunger.
   id: 2794
   time: '2026-08-10T18:13:45.0000000+00:00'
+- author: RedTerror
+  changes:
+    - type: Tweak
+      message: Chaplain armor resprite
+  id: 2795
+  time: '2026-08-11T12:08:04.0000000+00:00'
