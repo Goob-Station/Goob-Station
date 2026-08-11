@@ -24401,3 +24401,25 @@ Entries:
         the bloodstream.
   id: 2791
   time: '2026-08-08T18:24:47.0000000+00:00'
+- author: thefirstLtaker
+  changes:
+    - type: Tweak
+      message: >-
+        Energy magazines and energy revolver cells can now fit in the sec
+        carrier and belt.
+  id: 2792
+  time: '2026-08-10T18:11:38.0000000+00:00'
+- author: shoebill
+  changes:
+    - type: Fix
+      message: >-
+        Fixed eldritch essence and mugwort tea cleaning themselves from the
+        bloodstream.
+  id: 2793
+  time: '2026-08-10T18:12:06.0000000+00:00'
+- author: Super7522
+  changes:
+    - type: Fix
+      message: His Grace is Unremovable Once again, and will drop on full hunger.
+  id: 2794
+  time: '2026-08-10T18:13:45.0000000+00:00'
