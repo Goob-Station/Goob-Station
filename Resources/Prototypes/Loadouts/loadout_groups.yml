@@ -1094,6 +1094,15 @@
   - SeniorEngineerJumpsuit   # Goobstation
   - AtmosMJ # goob
 
+# Goobstation edit start
+- type: loadoutGroup
+  id: AtmosphericTechnicianBelt
+  name: loadout-group-atmospheric-technician-belt
+  loadouts:
+  - AtmosphericTechnicianUtilityBelt
+  - AtmosphericTechnicianAtmosBelt
+# Goobstation edit end
+
 - type: loadoutGroup
   id: AtmosphericTechnicianOuterClothing
   name: loadout-group-atmospheric-technician-outerclothing

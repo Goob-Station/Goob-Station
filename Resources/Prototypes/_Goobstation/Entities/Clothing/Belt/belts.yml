@@ -427,9 +427,9 @@
 
 - type: entity
   parent: ClothingBeltStorageBase
-  id: ClothingAtmosBelt
+  id: ClothingBeltUtilityAtmos
   name: atmospherics belt
-  description: Holds all the tools needed for a growing (middle-aged) atmosian catgirl
+  description: Holds all the tools needed for a growing (middle-aged) atmosian catgirl.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Belt/atmosbelt.rsi

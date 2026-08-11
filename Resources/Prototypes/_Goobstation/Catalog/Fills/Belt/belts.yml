@@ -262,8 +262,8 @@
       amount: 2
 
 - type: entity
-  id: ClothingBeltAtmosFilled
-  parent: ClothingAtmosBelt
+  id: ClothingBeltUtilityAtmosFilled
+  parent: ClothingBeltUtilityAtmos
   suffix: Filled
   components:
   - type: StorageFill
