@@ -18,7 +18,6 @@ public abstract class SharedContrabandDetectorSystem : EntitySystem
 {
     [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
-    [Dependency] private readonly ContrabandSystem _contrabandSystem = default!;
     [Dependency] private readonly SharedIdCardSystem _idCardSystem = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _powerReceiverSystem = default!;
@@ -98,7 +97,7 @@ public abstract class SharedContrabandDetectorSystem : EntitySystem
                     itemsToCheck.AddRange(RecursiveFindInStorage(item.Value));
             }
         }
-        
+
         // Check items in hands
         var handEnumerator = _handsSystem.EnumerateHeld(uid);
         foreach (var handItem in handEnumerator)
@@ -185,14 +184,14 @@ public abstract class SharedContrabandDetectorSystem : EntitySystem
     }
 
     /// <summary>
-    /// Checks permission for user to have contraband. 
+    /// Checks permission for user to have contraband.
     /// </summary>
     /// <param name="contraband"></param>
     /// <param name="user"></param>
     /// <returns></returns>
     public bool CheckContrabandPermission(EntityUid contraband, EntityUid user, ContrabandComponent? component = null)
     {
-        // No contraband = have permission 
+        // No contraband = have permission
         if (!Resolve(contraband, ref component))
             return true;
 

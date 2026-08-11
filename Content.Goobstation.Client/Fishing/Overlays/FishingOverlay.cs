@@ -15,6 +15,7 @@ public sealed class FishingOverlay : Overlay
 {
     private readonly IEntityManager _entManager;
     private readonly IPlayerManager _player;
+    private readonly SpriteSystem _sprite;
     private readonly SharedTransformSystem _transform;
     private readonly ProgressColorSystem _progressColor;
 
@@ -35,6 +36,7 @@ public sealed class FishingOverlay : Overlay
     {
         _entManager = entManager;
         _player = player;
+        _sprite = _entManager.EntitySysManager.GetEntitySystem<SpriteSystem>();
         _transform = _entManager.EntitySysManager.GetEntitySystem<SharedTransformSystem>();
         _progressColor = _entManager.System<ProgressColorSystem>();
 
@@ -89,7 +91,7 @@ public sealed class FishingOverlay : Overlay
 
             // Calculate the position of the progress bar relative to the entity
             var position = new Vector2(
-                sprite.Bounds.Width / 2f,
+                _sprite.GetLocalBounds((uid, sprite)).Width / 2f,
                 -scaledTextureSize.Y / 2f // Center vertically
             );
 

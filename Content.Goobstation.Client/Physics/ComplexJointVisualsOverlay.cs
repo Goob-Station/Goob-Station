@@ -23,6 +23,8 @@ public sealed class ComplexJointVisualsOverlay : Overlay
 
     private readonly ShaderInstance _unshadedShader;
 
+    private static readonly ProtoId<ShaderPrototype> Shader = "unshaded";
+
     public ComplexJointVisualsOverlay(IEntityManager entManager, IPrototypeManager prototype, IGameTiming timing)
     {
         ZIndex = 5;
@@ -34,7 +36,7 @@ public sealed class ComplexJointVisualsOverlay : Overlay
         _sprite = entManager.System<SpriteSystem>();
         _transform = entManager.System<TransformSystem>();
 
-        _unshadedShader = prototype.Index<ShaderPrototype>("unshaded").Instance();
+        _unshadedShader = prototype.Index(Shader).Instance();
     }
 
     protected override void Draw(in OverlayDrawArgs args)

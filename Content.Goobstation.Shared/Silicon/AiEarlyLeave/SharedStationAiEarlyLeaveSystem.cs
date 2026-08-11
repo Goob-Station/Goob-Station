@@ -4,9 +4,9 @@ using Content.Shared.Silicons.StationAi;
 using Robust.Shared.Containers;
 using Robust.Shared.Utility;
 
-namespace Content.Goobstation.Shared.Silicon;
+namespace Content.Goobstation.Shared.Silicon.AiEarlyLeave;
 
-public abstract partial class SharedStationAiEarlyLeaveSystem : EntitySystem
+public abstract class SharedStationAiEarlyLeaveSystem : EntitySystem
 {
     [Dependency] private readonly SharedContainerSystem _containers = default!;
 
@@ -19,7 +19,7 @@ public abstract partial class SharedStationAiEarlyLeaveSystem : EntitySystem
 
     private EntityUid? GetInsertedAI(Entity<StationAiCoreComponent> ent)
     {
-        if (!_containers.TryGetContainer(ent.Owner, StationAiHolderComponent.Container, out var container) 
+        if (!_containers.TryGetContainer(ent.Owner, StationAiHolderComponent.Container, out var container)
         || container.ContainedEntities.Count != 1)
             return null;
 

@@ -3,15 +3,12 @@
 using Content.Shared.Weapons.Melee.EnergySword;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
-using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Client.Weapons.Melee.EnergySword
 {
     [UsedImplicitly]
     public sealed class EsColorPickerBUI(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
     {
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
 
         private EsColorPicker? _window;
         private EntityUid _prototypeView;

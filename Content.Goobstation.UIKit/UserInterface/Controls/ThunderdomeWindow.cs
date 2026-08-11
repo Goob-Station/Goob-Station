@@ -1,14 +1,11 @@
 using System.Numerics;
 using Robust.Client.Graphics;
-using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
-using Robust.Shared.Input;
-using Robust.Shared.Maths;
 
 namespace Content.Goobstation.UIKit.UserInterface.Controls;
 
-public class ThunderdomeWindow : BaseWindow
+public abstract class ThunderdomeWindow : BaseWindow
 {
     private const float TitleBarHeight = 36;
     private const float BorderWidth = 2;

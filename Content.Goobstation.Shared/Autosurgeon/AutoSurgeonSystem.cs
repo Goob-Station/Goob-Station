@@ -12,7 +12,6 @@ using Content.Shared.Item.ItemToggle.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.Manager;
 
 namespace Content.Goobstation.Shared.Autosurgeon;
 
@@ -22,10 +21,8 @@ public sealed class AutoSurgeonSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
-    [Dependency] private readonly IComponentFactory _componentFactory = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly INetManager _netManager = default!;
-    [Dependency] private readonly ISerializationManager _serializationManager = default!;
 
     public override void Initialize()
     {
@@ -399,17 +396,13 @@ public sealed class AutoSurgeonSystem : EntitySystem
 
         foreach (var (name, data) in comps)
         {
-            var newComp = (Component) _componentFactory.GetComponent(name);
-            if (HasComp(ent, newComp.GetType()))
+            // update: This is slightly less goida but still ass.
+            if (HasComp(ent, data.Component.GetType()))
                 continue;
-
-            newComp.Owner = ent;
-            object? temp = newComp;
-            _serializationManager.CopyTo(data.Component, ref temp);
-            EntityManager.AddComponent(ent, (Component) temp!, true);
 
             result.Add(name, data);
         }
+        EntityManager.AddComponents(ent, result, false);
 
         return result;
     }

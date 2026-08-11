@@ -21,10 +21,12 @@ public sealed class EnthrallOverlay : Overlay
     private double _startTime = -1;
     private double _lastsFor = 1;
 
+    private static readonly ProtoId<ShaderPrototype> Shader = "EnthrallEffect";
+
     public EnthrallOverlay()
     {
         IoCManager.InjectDependencies(this);
-        _shader = _prototypeManager.Index<ShaderPrototype>("EnthrallEffect").Instance().Duplicate();
+        _shader = _prototypeManager.Index(Shader).Instance().Duplicate();
     }
 
     public void ReceiveEnthrall(double duration)

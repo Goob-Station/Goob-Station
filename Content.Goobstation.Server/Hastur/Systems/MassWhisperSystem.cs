@@ -37,12 +37,12 @@ namespace Content.Goobstation.Server.Hastur.Systems
 
             // Apply EntropicPlumeAffectedComponent to all mobs on station
             var query = EntityQueryEnumerator<MobStateComponent>();
-            while (query.MoveNext(out var mob))
+            while (query.MoveNext(out var mob, out _))
             {
-                if (mob.Owner == uid)
+                if (mob == uid)
                     continue;
 
-                var affected = EnsureComp<EntropicPlumeAffectedComponent>(mob.Owner);
+                var affected = EnsureComp<EntropicPlumeAffectedComponent>(mob);
                 affected.Duration = comp.Duration;
             }
             _admin.Add(LogType.Action, LogImpact.High, $"{ToPrettyString(ent.Owner)} used Mass Whisper as a Hastur, affecting all entities on station.");

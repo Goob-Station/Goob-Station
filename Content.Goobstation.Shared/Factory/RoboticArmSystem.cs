@@ -4,7 +4,6 @@ using Content.Goobstation.Shared.Factory.Filters;
 using Content.Goobstation.Shared.Factory.Slots;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DeviceLinking;
-using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Examine;
 using Content.Shared.Item;
 using Content.Shared.Maps;
@@ -21,12 +20,10 @@ namespace Content.Goobstation.Shared.Factory;
 
 public sealed class RoboticArmSystem : EntitySystem
 {
-    [Dependency] private readonly AutomationSystem _automation = default!;
     [Dependency] private readonly AutomationFilterSystem _filter = default!;
     [Dependency] private readonly CollisionWakeSystem _wake = default!;
     [Dependency] private readonly ExclusiveSlotsSystem _exclusive = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IMapManager _map = default!;
     [Dependency] private readonly ItemSlotsSystem _slots = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedDeviceLinkSystem _device = default!;

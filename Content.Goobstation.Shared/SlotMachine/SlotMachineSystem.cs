@@ -96,9 +96,8 @@ namespace Content.Goobstation.Shared.SlotMachine
                  BreakOnDamage = false,
                  MultiplyDelay = false,
              };
-
-            _stackSystem.SetCount(stack.Owner, stack.Count - comp.SpinCost, stack);
-            Dirty(stack.Owner, stack);
+            _stackSystem.SetCount(new Entity<StackComponent?>(slot.Item.Value, stack), stack.Count - comp.SpinCost);
+            Dirty(slot.Item.Value, stack);
             comp.IsSpinning = true;
 
             if (_net.IsServer)
@@ -181,7 +180,7 @@ namespace Content.Goobstation.Shared.SlotMachine
                 var newStack = EntityManager.SpawnEntity("SpaceCash", coordinates);
                 if (TryComp<StackComponent>(newStack, out var newStackComp))
                 {
-                    _stackSystem.SetCount(newStack, prize, newStackComp);
+                    _stackSystem.SetCount(new Entity<StackComponent?>(newStack, newStackComp), prize);
                     Dirty(newStack, newStackComp);
                 }
 
@@ -190,8 +189,8 @@ namespace Content.Goobstation.Shared.SlotMachine
             }
 
             // Add money to the stack and play a message
-            _stackSystem.SetCount(stack.Owner, stack.Count + prize, stack);
-            Dirty(stack.Owner, stack);
+            _stackSystem.SetCount(new Entity<StackComponent>(uid, stack).AsNullable(), stack.Count + prize);
+            Dirty(uid, stack);
             _chatSystem.TrySendInGameICMessage(uid, msg, InGameICChatType.Speak, hideChat: false, hideLog: true, checkRadioPrefix: false);
         }
     }

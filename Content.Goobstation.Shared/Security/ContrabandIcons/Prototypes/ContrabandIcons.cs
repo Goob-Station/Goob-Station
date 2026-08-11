@@ -2,9 +2,9 @@ using Content.Shared.StatusIcon;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
 
-namespace Content.Shared._Goobstation.Security.ContrabandIcons.Prototypes;
+namespace Content.Goobstation.Shared.Security.ContrabandIcons.Prototypes;
 
-[Prototype("contrabandIcon")]
+[Prototype]
 public sealed partial class ContrabandIconPrototype : StatusIconPrototype, IInheritingPrototype
 {
         /// <inheritdoc />

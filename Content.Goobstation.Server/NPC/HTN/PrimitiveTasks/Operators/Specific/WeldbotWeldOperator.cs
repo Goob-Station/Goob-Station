@@ -9,10 +9,7 @@ using Content.Shared.Chat;
 using Content.Shared.Damage;
 using Content.Shared.Emag.Components;
 using Content.Shared.Interaction;
-using Content.Shared.Popups;
-using Content.Shared.Tag;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Prototypes;
 using System.Linq;
 using Content.Shared.Repairable;
 
@@ -21,15 +18,11 @@ namespace Content.Goobstation.Server.NPC.HTN.PrimitiveTasks.Operators.Specific;
 public sealed partial class WeldbotWeldOperator : HTNOperator
 {
     [Dependency] private readonly IEntityManager _entMan = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     private RepairableSystem _repairableSystem = default!;
     private ChatSystem _chat = default!;
-    private WeldbotSystem _weldbot = default!;
     private SharedAudioSystem _audio = default!;
     private SharedInteractionSystem _interaction = default!;
-    private SharedPopupSystem _popup = default!;
     private DamageableSystem _damageableSystem = default!;
-    private TagSystem _tagSystem = default!;
 
     /// <summary>
     /// Target entity to inject.
@@ -41,12 +34,9 @@ public sealed partial class WeldbotWeldOperator : HTNOperator
     {
         base.Initialize(sysManager);
         _chat = sysManager.GetEntitySystem<ChatSystem>();
-        _weldbot = sysManager.GetEntitySystem<WeldbotSystem>();
         _audio = sysManager.GetEntitySystem<SharedAudioSystem>();
         _interaction = sysManager.GetEntitySystem<SharedInteractionSystem>();
-        _popup = sysManager.GetEntitySystem<SharedPopupSystem>();
         _damageableSystem = sysManager.GetEntitySystem<DamageableSystem>();
-        _tagSystem = sysManager.GetEntitySystem<TagSystem>();
         _repairableSystem = sysManager.GetEntitySystem<RepairableSystem>();
     }
 

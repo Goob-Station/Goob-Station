@@ -8,5 +8,5 @@ namespace Content.Goobstation.Shared.MisandryBox.Thunderdome;
 public sealed partial class ThunderdomeOriginalBodyComponent : Component
 {
     [DataField]
-    public NetUserId Owner;
+    public new NetUserId Owner;
 }

@@ -1,10 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Shared.EntityEffects;
-using Content.Shared.EntityEffects.Effects;
-using Content.Shared.Eye.Blinding.Components;
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.Humanoid;
+using Content.Shared.StatusEffectNew.Components;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 
@@ -26,15 +25,15 @@ public sealed partial class BlindNonShadowlingSystem : EntityEffectSystem<Humano
             return;
         }
 
-        if (!TryComp<StatusEffectsComponent>(entity.Owner, out var statusEffects))
+        if (!HasComp<StatusEffectContainerComponent>(entity.Owner))
             return;
 
-        _status.TryAddStatusEffect<TemporaryBlindnessComponent>(
+        _status.TryUpdateStatusEffectDuration(
             entity.Owner,
             "TemporaryBlindness",
-            TimeSpan.FromSeconds(3),
-            true,
-            statusEffects);
+            out _,
+            TimeSpan.FromSeconds(3)
+            );
     }
 }
 

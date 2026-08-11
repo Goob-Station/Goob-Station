@@ -6,7 +6,6 @@ using Content.Server.Antag;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Mind;
 using Content.Server.Objectives;
-using Content.Server.Roles;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
@@ -29,17 +28,17 @@ public sealed class ChangelingRuleSystem : GameRuleSystem<ChangelingRuleComponen
 
     public readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/_Goobstation/Ambience/Antag/changeling_start.ogg");
 
-    public readonly ProtoId<AntagPrototype> ChangelingPrototypeId = "Changeling";
+    // public static readonly ProtoId<AntagPrototype> ChangelingPrototypeId = "Changeling"; // unused
 
-    public readonly ProtoId<NpcFactionPrototype> ChangelingFactionId = "Changeling";
+    public static readonly ProtoId<NpcFactionPrototype> ChangelingFactionId = "Changeling";
 
-    public readonly ProtoId<NpcFactionPrototype> NanotrasenFactionId = "NanoTrasen";
+    public static readonly ProtoId<NpcFactionPrototype> NanotrasenFactionId = "NanoTrasen";
 
-    public readonly ProtoId<CurrencyPrototype> Currency = "EvolutionPoint";
+    public static readonly ProtoId<CurrencyPrototype> Currency = "EvolutionPoint";
 
-    public readonly int StartingCurrency = 12;
+    public const int StartingCurrency = 12;
 
-    [ValidatePrototypeId<EntityPrototype>] EntProtoId mindRole = "MindRoleChangeling";
+    private static readonly EntProtoId mindRole = "MindRoleChangeling";
 
     public override void Initialize()
     {
@@ -65,7 +64,7 @@ public sealed class ChangelingRuleSystem : GameRuleSystem<ChangelingRuleComponen
 
         // briefing
         // Everypony has a metadata component, why are you trycomp'ing it?
-        if (TryComp<MetaDataComponent>(target, out var metaData))
+        if (TryComp(target, out MetaDataComponent? metaData))
         {
             var briefing = Loc.GetString("changeling-role-greeting", ("name", metaData?.EntityName ?? "Unknown"));
             var briefingShort = Loc.GetString("changeling-role-greeting-short", ("name", metaData?.EntityName ?? "Unknown"));
@@ -101,12 +100,13 @@ public sealed class ChangelingRuleSystem : GameRuleSystem<ChangelingRuleComponen
         var mostAbsorbed = 0f;
         var mostStolen = 0f;
 
-        foreach (var ling in EntityQuery<ChangelingIdentityComponent>()) // TODO make a ChangelingAbsorbComponent to store data about absorbed DNA and entities
+        var query = EntityQueryEnumerator<ChangelingIdentityComponent>();
+        while (query.MoveNext(out var lingId, out var ling))  // TODO make a ChangelingAbsorbComponent to store data about absorbed DNA and entities
         {
-            if (!_mind.TryGetMind(ling.Owner, out var mindId, out var mind))
+            if (!_mind.TryGetMind(lingId, out var mindId, out var mind))
                 continue;
 
-            if (!TryComp<MetaDataComponent>(ling.Owner, out var metaData))
+            if (!TryComp(lingId, out MetaDataComponent? metaData)) // sidenote what the fuck???
                 continue;
 
             if (ling.TotalAbsorbedEntities > mostAbsorbed)

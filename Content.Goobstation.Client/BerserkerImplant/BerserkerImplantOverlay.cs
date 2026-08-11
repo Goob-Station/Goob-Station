@@ -16,11 +16,13 @@ public sealed class BerserkerImplantOverlay : Overlay
 
     public float BlurAmount = 0f;
 
+    private static readonly ProtoId<ShaderPrototype> Shader = "BlurryVisionX";
+
     public BerserkerImplantOverlay()
     {
         IoCManager.InjectDependencies(this);
 
-        _blurShader = _prototype.Index<ShaderPrototype>("BlurryVisionX").InstanceUnique();
+        _blurShader = _prototype.Index(Shader).InstanceUnique();
     }
 
     protected override void Draw(in OverlayDrawArgs args)

@@ -45,10 +45,14 @@ public sealed class TextShaderTag : IMarkupTagHandler
         if (node.Attributes.TryGetValue("size", out var sizeParameter))
             size = (int) (sizeParameter.LongValue ?? size);
 
-        if (!_proto.TryIndex<FontPrototype>(font, out var prototype))
+        // todo this is kinda bad and hardcoded default respath but apparently PJB thinks using font prototypes is bad so.
+        // afaik this is only used for heretic text stuff currently.
+        /*
+         if (!_proto.TryIndex<FontPrototype>(font, out var prototype))
             prototype = _proto.Index<FontPrototype>(FontTag.DefaultFont);
+        */
 
-        var fontResource = _cache.GetResource<FontResource>(prototype.Path);
+        var fontResource = _cache.GetResource<FontResource>(new ResPath("Fonts/NotoSans/NotoSans-Regular.ttf"));
 
         label.FontOverride = new VectorFont(fontResource, size);
 

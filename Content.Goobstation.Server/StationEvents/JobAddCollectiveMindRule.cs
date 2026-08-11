@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Chat.Managers;
-using Content.Server.Mind;
 using Content.Server.StationEvents.Events;
 using Content.Shared.Chat;
 using Content.Shared.GameTicking.Components;
@@ -16,7 +15,6 @@ namespace Content.Goobstation.Server.StationEvents;
 public sealed class JobAddCollectiveMindRule : StationEventSystem<JobAddCollectiveMindRuleComponent>
 {
     [Dependency] private readonly IChatManager _chat = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly SharedJobSystem _job = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
 

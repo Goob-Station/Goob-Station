@@ -3,7 +3,9 @@ using Robust.Client.Audio;
 using Robust.Client.Console;
 using Robust.Client.State;
 using Robust.Client.UserInterface;
+using Robust.Shared.Audio;
 using Robust.Shared.Player;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Client.JoinQueue;
 
@@ -13,7 +15,7 @@ public sealed class QueueState : State
     [Dependency] private readonly IClientConsoleHost _console = default!;
 
 
-    private const string JoinSoundPath = "/Audio/Effects/newplayerping.ogg";
+    private static readonly SoundPathSpecifier JoinSound = new(new ResPath("/Audio/Effects/newplayerping.ogg"));
 
     private QueueGui? _gui;
 
@@ -29,7 +31,7 @@ public sealed class QueueState : State
     protected override void Shutdown()
     {
         _gui!.QuitPressed -= OnQuitPressed;
-        _gui.Dispose();
+        _gui.RemoveAllChildren();
 
         Ding();
     }
@@ -49,6 +51,6 @@ public sealed class QueueState : State
     private void Ding()
     {
         if (IoCManager.Resolve<IEntityManager>().TrySystem<AudioSystem>(out var audio))
-            audio.PlayGlobal(JoinSoundPath, Filter.Local(), false);
+            audio.PlayGlobal(JoinSound, Filter.Local(), false);
     }
 }

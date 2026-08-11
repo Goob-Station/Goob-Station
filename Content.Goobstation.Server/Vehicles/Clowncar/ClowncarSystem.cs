@@ -12,7 +12,6 @@ using Content.Shared.Examine;
 using Content.Shared.Verbs;
 using Content.Shared.Audio.Jukebox;
 using Robust.Shared.Audio;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 
 namespace Content.Goobstation.Server.Vehicles.Clowncar;
@@ -24,7 +23,6 @@ public sealed class ClowncarSystem : SharedClowncarSystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedBuckleSystem _buckle = default!;
-    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
 
     /// <inheritdoc/>

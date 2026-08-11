@@ -4,13 +4,12 @@ using Content.Shared.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Temperature.Systems;
-using Content.Shared.Atmos.Components;
 using Content.Shared.Polymorph;
 using Content.Shared.Temperature.Components;
 
 namespace Content.Goobstation.Server.Changeling;
 
-public sealed partial class ChangelingStasisSystem : SharedChangelingStasisSystem
+public sealed class ChangelingStasisSystem : SharedChangelingStasisSystem
 {
     [Dependency] private readonly FlammableSystem _flame = default!;
     [Dependency] private readonly PolymorphSystem _polymorph = default!;

@@ -15,6 +15,7 @@ namespace Content.Goobstation.Client.Bingle;
 public sealed class BingleFallingVisualsSystem : EntitySystem
 {
     [Dependency] private readonly AnimationPlayerSystem _anim = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     private readonly string _chasmFallAnimationKey = "chasm_fall";
 
@@ -53,9 +54,9 @@ public sealed class BingleFallingVisualsSystem : EntitySystem
 
         //var player = EnsureComp<AnimationPlayerComponent>(uid);
         if (_anim.HasRunningAnimation(player, _chasmFallAnimationKey))
-            _anim.Stop(player, _chasmFallAnimationKey);
+            _anim.Stop(uid, _chasmFallAnimationKey);
 
-        sprite.Scale = component.OriginalScale;
+        _sprite.SetScale((uid, sprite), component.OriginalScale);
     }
 
     private Animation GetFallingAnimation(BinglePitFallingComponent component)

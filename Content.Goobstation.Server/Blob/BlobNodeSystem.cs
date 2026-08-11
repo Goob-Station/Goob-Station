@@ -133,7 +133,6 @@ public sealed class BlobNodeSystem : EntitySystem
 
         _random.Shuffle(innerTiles);
 
-        var explain = true;
         foreach (var tileRef in innerTiles)
         {
             foreach (var tile in _map.GetAnchoredEntities(xform.GridUid.Value, grid, tileRef.GridIndices))

@@ -174,7 +174,7 @@ public sealed class ResourceSiphonSystem : EntitySystem
         DeactivateSiphon(ent, "broken");
 
         var speso = Spawn("SpaceCash", Transform(ent).Coordinates);
-        _stack.SetCount(speso, (int) ent.Comp.Credits);
+        _stack.SetCount((speso, null), (int) ent.Comp.Credits); // Fuck it, null stackcomp it resolves internally
     }
     #endregion
 

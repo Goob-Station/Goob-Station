@@ -28,7 +28,6 @@ using Content.Goobstation.Shared.Overlays;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Hands.Components;
-using Robust.Shared.Audio.Systems;
 using Content.Shared.Hands;
 using Content.Shared.Standing;
 using Content.Goobstation.Shared.Supermatter.Components;
@@ -60,7 +59,6 @@ public sealed class SlasherIncorporealSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly FixtureSystem _fixtures = default!;

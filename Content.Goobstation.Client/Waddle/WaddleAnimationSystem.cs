@@ -12,6 +12,7 @@ namespace Content.Goobstation.Client.Waddle;
 public sealed class WaddleAnimationSystem : SharedWaddleAnimationSystem
 {
     [Dependency] private readonly AnimationPlayerSystem _animation = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -58,8 +59,8 @@ public sealed class WaddleAnimationSystem : SharedWaddleAnimationSystem
             return;
 
         // FIXME: this interferes with laying down and stuff since it just bulldozes the rotation
-        sprite.Offset = new Vector2();
-        sprite.Rotation = Angle.FromDegrees(0);
+        _sprite.SetOffset((ent.Owner, sprite), new Vector2());
+        _sprite.SetRotation((ent.Owner, sprite), Angle.Zero);
     }
 
     private void PlayAnimation(Entity<WaddleAnimationComponent> ent)

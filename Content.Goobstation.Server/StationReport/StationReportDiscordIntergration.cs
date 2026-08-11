@@ -1,27 +1,25 @@
-using System;
 using System.Text.RegularExpressions;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Common.StationReport;
-using Robust.Shared.GameObjects;
 using Robust.Shared.Configuration;
-using Robust.Shared.IoC;
-
-namespace Content.Goobstation.Server.StationReportDiscordIntergrationSystem;
+namespace Content.Goobstation.Server.StationReport;
 
 public sealed class StationReportDiscordIntergration : EntitySystem
 {
     //thank you Timfa for writing this code
     private static readonly HttpClient client = new();
     [Dependency] private readonly IConfigurationManager _cfg = default!;
+    private ISawmill _sawmill = default!;
 
     private string? _webhookUrl;
 
     public override void Initialize()
     {
         base.Initialize();
+        _sawmill = Logger.GetSawmill("station_report_discord_intergration");
 
         //subscribes to the endroundevent and Stationreportevent
         SubscribeLocalEvent<StationReportEvent>(OnStationReportReceived);
@@ -59,7 +57,7 @@ public sealed class StationReportDiscordIntergration : EntitySystem
             return;
 
         foreach (var replacement in _replacements)
-            report = Regex.Replace(report, replacement.Tag, replacement.Replacement);
+            report = replacement.Tag.Replace(report, replacement.Replacement);
 
         // Run async without blocking
         _ = SendMessageAsync(report);
@@ -81,16 +79,17 @@ public sealed class StationReportDiscordIntergration : EntitySystem
         }
         catch (Exception ex)
         {
-            Logger.Error($"Error sending station report to discord: {ex}");
+            _sawmill.Error($"Error sending station report to discord: {ex}");
         }
     }
 
     public struct TagReplacement
     {
-        public string Tag, Replacement;
+        public Regex Tag;
+        public string Replacement;
         public TagReplacement(string tag, string replacement)
         {
-            Tag = tag;
+            Tag = new Regex(tag);
             Replacement = replacement;
         }
     }

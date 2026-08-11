@@ -11,19 +11,14 @@ using Content.Shared.Damage;
 using Content.Shared.Emag.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Repairable;
-using Content.Shared.Tag;
-using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.NPC.HTN.PrimitiveTasks.Operators.Specific;
 
 public sealed partial class PickNearbyWeldableOperator : HTNOperator
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     private EntityLookupSystem _lookup = default!;
-    private WeldbotSystem _weldbot = default!;
     private PathfindingSystem _pathfinding = default!;
-    private TagSystem _tagSystem = default!;
 
     [DataField]
     public string RangeKey = NPCBlackboard.WeldbotWeldRange;
@@ -44,9 +39,7 @@ public sealed partial class PickNearbyWeldableOperator : HTNOperator
     {
         base.Initialize(sysManager);
         _lookup = sysManager.GetEntitySystem<EntityLookupSystem>();
-        _weldbot = sysManager.GetEntitySystem<WeldbotSystem>();
         _pathfinding = sysManager.GetEntitySystem<PathfindingSystem>();
-        _tagSystem = sysManager.GetEntitySystem<TagSystem>();
     }
 
     public override async Task<(bool Valid, Dictionary<string, object>? Effects)> Plan(NPCBlackboard blackboard,

@@ -34,8 +34,6 @@ public sealed class NtrTaskSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly AccessReaderSystem _accessReader = default!;
     [Dependency] private readonly NameIdentifierSystem _nameIdentifier = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -43,6 +41,9 @@ public sealed class NtrTaskSystem : EntitySystem
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+
+    private static readonly ProtoId<TagPrototype> Vial = "Vial";
+    private static readonly ProtoId<TagPrototype> Bottle = "Bottle";
 
     private const string NameIdentifierGroup = "Task";
 
@@ -262,7 +263,7 @@ public sealed class NtrTaskSystem : EntitySystem
 
     private bool TryHandleVial(EntityUid item, EntityUid console, NtrTaskConsoleComponent component)
     {
-        if (!_tag.HasTag(item, "Vial") && !_tag.HasTag(item, "Bottle"))
+        if (!_tag.HasTag(item, Vial) && !_tag.HasTag(item, Bottle))
             return false;
 
         var station = _station.GetOwningStation(console);

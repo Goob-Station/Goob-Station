@@ -11,7 +11,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Goobstation.Server.Xenobiology.Systems;
 
 // Any Polymorphing etc needing to run serverside
-public class XenobiologyTransformingSystem : EntitySystem
+public sealed class XenobiologyTransformingSystem : EntitySystem
 {
     public override void Initialize()
     {

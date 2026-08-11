@@ -38,7 +38,6 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
 {
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly NPCSystem _npc = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IChatManager _chatMan = default!;
@@ -49,6 +48,8 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
     [Dependency] private readonly IPlayerManager _player = default!;
 
     private const int ClimbingCollisionGroup = (int) (CollisionGroup.BlobImpassable);
+    private static readonly ProtoId<NpcFactionPrototype> BlobFaction = "Blob";
+    private static readonly ProtoId<TagPrototype> BlobMobTag = "BlobMob";
 
     private readonly GasMixture _normalAtmos;
     public ZombieBlobSystem()
@@ -120,13 +121,13 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
             oldFactions.Add(factionId);
             _faction.RemoveFaction(uid, factionId);
         }
-        _faction.AddFaction(uid, "Blob");
+        _faction.AddFaction(uid, BlobFaction);
         component.OldFactions = oldFactions;
 
         // var accent = EnsureComp<ReplacementAccentComponent>(uid); // Languages - No need for accents.
         // accent.Accent = "genericAggressive";
 
-        _tagSystem.AddTag(uid, "BlobMob");
+        _tagSystem.AddTag(uid, BlobMobTag);
 
         EnsureComp<PressureImmunityComponent>(uid);
 
@@ -193,7 +194,7 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
             temperatureDamageComponent.ColdDamageThreshold = component.OldColdDamageThreshold.Value;
         }
 
-        _tagSystem.RemoveTag(uid, "BlobMob");
+        _tagSystem.RemoveTag(uid, BlobMobTag);
 
         /*
         var mindComp = EnsureComp<MindContainerComponent>(uid);
@@ -210,7 +211,7 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
         {
             _faction.AddFaction(uid, factionId);
         }
-        _faction.RemoveFaction(uid, "Blob");
+        _faction.RemoveFaction(uid, BlobFaction);
 
         if (TryComp<FixturesComponent>(uid, out var fixtures))
         {

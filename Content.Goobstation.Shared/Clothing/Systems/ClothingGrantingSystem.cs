@@ -4,14 +4,13 @@ using Content.Goobstation.Shared.Clothing.Components;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Tag;
-using Robust.Shared.Serialization.Manager;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Clothing.Systems;
 
 public sealed class ClothingGrantingSystem : EntitySystem
 {
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
-    [Dependency] private readonly ISerializationManager _serializationManager = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;
 
     public override void Initialize()
@@ -38,21 +37,18 @@ public sealed class ClothingGrantingSystem : EntitySystem
         //    return;
         //}
 
+        var toAdd = new ComponentRegistry();
+
         foreach (var (name, data) in component.Components)
         {
-            var newComp = (Component) _componentFactory.GetComponent(name);
-
-            if (HasComp(args.Equipee, newComp.GetType()))
+            if (HasComp(args.Equipee, data.Component.GetType()))
                 continue;
 
-            newComp.Owner = args.Equipee;
-
-            var temp = (object) newComp;
-            _serializationManager.CopyTo(data.Component, ref temp);
-            EntityManager.AddComponent(args.Equipee, (Component)temp!);
-
+            toAdd.Add(name, data);
             component.Active[name] = true; // Goobstation
         }
+
+        EntityManager.AddComponents(args.Equipee, toAdd, false);
     }
 
     private void OnCompUnequip(EntityUid uid, ClothingGrantComponentComponent component, GotUnequippedEvent args)

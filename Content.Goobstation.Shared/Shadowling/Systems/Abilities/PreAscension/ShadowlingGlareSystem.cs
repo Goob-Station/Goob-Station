@@ -4,9 +4,10 @@ using Content.Goobstation.Shared.Shadowling.Components.Abilities.PreAscension;
 using Content.Shared.Actions;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.Stunnable;
 using Content.Shared.Speech.Muting;
+using Content.Shared.StatusEffectNew.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
@@ -100,9 +101,9 @@ public sealed class ShadowlingGlareSystem : EntitySystem
         }
 
         // Glare mutes and slows down the target no matter what.
-        if (TryComp<StatusEffectsComponent>(target, out var statComp))
+        if (HasComp<StatusEffectContainerComponent>(target))
         {
-            _effects.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(comp.MuteTime), true);
+            _effects.TryUpdateStatusEffectDuration(target, "Muted", out _, TimeSpan.FromSeconds(comp.MuteTime));
             _movementMod.TryUpdateMovementSpeedModDuration(target, SlingGlareSlowEffect, TimeSpan.FromSeconds(comp.SlowTime), 0.5f, 0.5f);
         }
 

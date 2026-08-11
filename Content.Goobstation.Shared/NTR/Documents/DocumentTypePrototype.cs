@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.NTR.Documents
 {
-    [Prototype("documentType")]
+    [Prototype]
     public sealed partial class DocumentTypePrototype : IPrototype
     {
         [IdDataField]

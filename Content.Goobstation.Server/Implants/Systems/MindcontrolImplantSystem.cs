@@ -23,11 +23,11 @@ public sealed class MindcontrolImplantSystem : EntitySystem
         {
             component.HolderUid = Transform(component.ImplanterUid.Value).ParentUid;
         }
-        if (args.Implanted != null)
+        if (args.Implanted != EntityUid.Invalid)
             EnsureComp<MindcontrolledComponent>(args.Implanted);
 
         component.ImplanterUid = null;
-        if (args.Implanted == null)
+        if (args.Implanted == EntityUid.Invalid)
             return;
         if (!TryComp<MindcontrolledComponent>(args.Implanted, out var implanted))
             return;

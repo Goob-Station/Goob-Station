@@ -114,7 +114,7 @@ public sealed class ItemMinerSystem : EntitySystem
                     }
 
                     var count = stack.Count;
-                    _stack.SetCount(minedUid, count + remaining, stack);
+                    _stack.SetCount((minedUid, stack), count + remaining);
                     spawned += stack.Count - count;
                 }
                 else if (slot == null)

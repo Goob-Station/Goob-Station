@@ -9,7 +9,8 @@ using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Revenant.Components;
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
+using Content.Shared.StatusEffectNew.Components;
 
 namespace Content.Goobstation.Shared.Wraith.Systems;
 //Partially ported from Impstation
@@ -28,7 +29,7 @@ public sealed partial class HauntSystem : EntitySystem
     private EntityQuery<WraithAbsorbableComponent> _wraithAbsorbableQuery;
 
     private readonly HashSet<Entity<HumanoidAppearanceComponent>> _humanoid = new();
-    private readonly HashSet<Entity<StatusEffectsComponent>> _statusEffects = new();
+    private readonly HashSet<Entity<StatusEffectContainerComponent>> _statusEffects = new();
     public override void Initialize()
     {
         base.Initialize();
@@ -97,7 +98,7 @@ public sealed partial class HauntSystem : EntitySystem
     {
         if (ent.Comp.Active)
         {
-            _statusEffectsOld.TryRemoveStatusEffect(ent.Owner, ent.Comp.CorporealEffect);
+            _statusEffectsOld.TryRemoveStatusEffect(ent.Owner, ent.Comp.CorporealEffect.Id);
             _wraithPointsSystem.SetWpRate(ent.Comp.OriginalWpRegen, ent.Owner);
             ent.Comp.Active = false;
             ent.Comp.WpBoostActive = false;
@@ -113,13 +114,15 @@ public sealed partial class HauntSystem : EntitySystem
         _statusEffects.Clear();
         _lookup.GetEntitiesInRange(Transform(ent.Owner).Coordinates, 3f, _statusEffects);
         foreach (var entity in _statusEffects)
-            _statusEffectsOld.TryAddStatusEffect<FlashedComponent>(entity,
-                ent.Comp.FlashedId,
-                ent.Comp.HauntFlashDuration,
-                true);
+            _statusEffectsOld.TryUpdateStatusEffectDuration(entity,
+                ent.Comp.FlashedId.Id,
+                out _,
+                ent.Comp.HauntFlashDuration
+                );
 
         // we don't have corporeal so add it
-        _statusEffectsOld.TryAddStatusEffect<CorporealComponent>(ent.Owner, ent.Comp.CorporealEffect, ent.Comp.HauntCorporealDuration, true);
+        // note: im not reading this code im using update cause of refresh = true originally
+        _statusEffectsOld.TryUpdateStatusEffectDuration(ent.Owner, ent.Comp.CorporealEffect.Id, out _, ent.Comp.HauntCorporealDuration);
 
         // set original rate for resetting it after boost
         ent.Comp.OriginalWpRegen = _wraithPointsSystem.GetCurrentWpRate(ent.Owner);
