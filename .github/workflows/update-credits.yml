@@ -1,33 +1,39 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 name: Update Contrib and Patreons in credits
-
+concurrency: commit_action
 on:
-  workflow_dispatch:
-  schedule:
-    - cron: 0 0 * * 0
+  pull_request_target:
+    types: [closed]
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+env:
+  GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+  PR_NUMBER: ${{ github.event.number }}
 
 jobs:
   get_credits:
     runs-on: ubuntu-latest
     # Hey there fork dev! If you like to include your own contributors in this then you can probably just change this to your own repo
     # Do this in dump_github_contributors.ps1 too into your own repo
-    if: github.repository == 'Goob-Station/Goob-Station'
+    if: github.repository == 'Goob-Station/Goob-Station' && github.event.pull_request.merged == true
 
     steps:
-      - uses: actions/checkout@v4.2.2
+      - name: Checkout master
+        uses: actions/checkout@v4.2.2
         with:
           ref: master
 
-      - name: Get this week's Contributors
+      - name: Setup Git
+        run: |
+          git config --global user.name "${{ vars.CHANGELOG_USER }}"
+          git config --global user.email "${{ vars.CHANGELOG_EMAIL }}"
+        shell: bash
+
+      - name: Get contributors
         shell: pwsh
         env:
           GITHUB_TOKEN: ${{secrets.BOT_TOKEN }}
-        run: Tools/dump_github_contributors.ps1 > Resources/Credits/GitHub.txt
+        run: Tools/dump_github_contributors.ps1 > ${{ vars.CREDITS_FILE }}
 
       # TODO
       #- name: Get this week's Patreons
@@ -47,14 +53,10 @@ jobs:
       #    commit_author: PJBot <pieterjan.briers+bot@gmail.com>
 
       # This will make a PR
-      - name: Set current date as env variable
-        run: echo "NOW=$(date +'%Y-%m-%dT%H-%M-%S')" >> $GITHUB_ENV
 
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v5
-        with:
-          commit-message: Update Credits
-          title: Update Credits
-          body: This is an automated Pull Request. This PR updates the github contributors in the credits section.
-          author: GoobBot <uristmchands@proton.me>
-          branch: automated/credits-${{env.NOW}}
+      - name: Commit credits
+        run: |
+          git add ${{ vars.CREDITS_FILE }}
+          git commit -m "${{ vars.CREDITS_MESSAGE }} (#${{ env.PR_NUMBER }})"
+          git push
+        shell: bash
