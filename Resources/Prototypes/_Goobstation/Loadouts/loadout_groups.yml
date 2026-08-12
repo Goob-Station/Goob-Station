@@ -355,6 +355,8 @@
   id: AtmosphericTechnicianBelt
   name: loadout-group-atmospheric-technician-belt
   loadouts:
+  minLimit: 1
+  maxLimit: 1
   - AtmosphericTechnicianUtilityBelt
   - AtmosphericTechnicianAtmosBelt
 
