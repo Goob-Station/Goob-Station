@@ -67,6 +67,7 @@ loadout-group-technical-assistant-envirogloves = Technical Assistant enviroglove
 loadout-group-atmos-envirohelm = Atmospheric Technician envirohelm
 loadout-group-atmos-envirosuit = Atmospheric Technician envirosuit
 loadout-group-atmos-envirogloves = Atmospheric Technician envirogloves
+loadout-group-atmospheric-technician-belt = Atmospheric Technician belt
 
 # Chief Engineer
 loadout-group-chief-engineer-envirohelm = Chief Engineer envirohelm
