@@ -18,7 +18,6 @@
         - type: StationJobs
           availableJobs:
             #service
-            StationAi: [ 1, 1 ]
             Captain: [ 1, 1 ]
             NanotrasenRepresentative: [ 1, 1 ]
             BlueshieldOfficer: [ 1, 1 ]
@@ -28,6 +27,7 @@
             Chef: [ 1, 1 ]
             Janitor: [ 1, 1 ]
             Chaplain: [ 1, 1 ]
+            RadioHost: [ 1, 1 ]
             Librarian: [ 1, 1 ]
             ServiceWorker: [ 1, 1 ]
             #engineering
@@ -40,12 +40,12 @@
             Chemist: [ 1, 1 ]
             MedicalDoctor: [ 2, 2 ]
             MedicalIntern: [ 1, 3 ]
+            Paramedic: [ 1, 1 ]
             Virologist: [ 1, 1 ]
             #science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 2, 2 ]
             ResearchAssistant: [ 1, 3 ]
-            Borg: [ 2, 2 ]
             #security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
@@ -64,6 +64,9 @@
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
             Lawyer: [ 1, 1 ]
+            #silicon
+            StationAi: [ 1, 1 ]
+            Borg: [ 2, 2 ]
 
         # Goobstation blob-config-start SMALL+
         - type: StationBlobConfig
