@@ -24447,3 +24447,9 @@ Entries:
       message: E Food Synth no longer requires Bluespace Chemistry
   id: 2798
   time: '2026-08-13T06:59:26.0000000+00:00'
+- author: Arraydeess
+  changes:
+    - type: Tweak
+      message: You can now grind up cigarettes
+  id: 2799
+  time: '2026-08-13T07:00:46.0000000+00:00'
