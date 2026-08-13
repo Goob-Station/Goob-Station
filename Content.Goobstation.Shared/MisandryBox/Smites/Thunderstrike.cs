@@ -49,7 +49,7 @@ public sealed class ThunderstrikeSystem : EntitySystem
     }
 
     // efcc go get u alaye...
-    public void Smite(EntityUid mumu, bool kill = true, TransformComponent? transform = null)
+    public void Smite(EntityUid mumu, bool kill = true, TransformComponent? transform = null,string ltg = God)
     {
         if (!Resolve(mumu, ref transform))
             return;
@@ -61,7 +61,7 @@ public sealed class ThunderstrikeSystem : EntitySystem
         if (!kill || !_player.TryGetSessionByEntity(mumu, out var sesh))
             return;
 
-        var text = new SpriteSpecifier.Texture(new ResPath(God));
+        var text = new SpriteSpecifier.Texture(new ResPath(ltg));
         _jumpscare.Jumpscare(text, sesh);
 
         QueueDel(mumu);

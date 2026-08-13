@@ -7,11 +7,11 @@
   - type: SurgeryTool
     ignoreToggle: true # ItemToggle is used for augment logic not surgical tool usability
   - type: Organ
-    intCap: 30
-    integrity: 30
+    intCap: 150
+    integrity: 150
     integrityThresholds:
-      Normal: 30
-      Damaged: 12
+      Normal: 150
+      Damaged: 60
       Destroyed: 0
 
 - type: entity

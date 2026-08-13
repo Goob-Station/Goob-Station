@@ -97,7 +97,10 @@ public sealed class BlindableSystem : EntitySystem
 
         // for now
         foreach (var eye in eyes)
-            _trauma.TryCreateOrganDamageModifier(eye.Owner, amount, blindable.Owner, "BlindableDamage", eye.Comp2);
+        {
+            if (!_trauma.TryChangeOrganDamageModifier(eye.Owner, amount, blindable.Owner, "BlindableDamage", eye.Comp2))
+                _trauma.TryCreateOrganDamageModifier(eye.Owner, amount, blindable.Owner, "BlindableDamage", eye.Comp2);
+        }
     }
 
     // Alternative version of the method intended to be used with Eye Organs, so that you can just pass in
