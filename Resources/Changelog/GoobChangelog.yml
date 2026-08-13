@@ -24435,3 +24435,9 @@ Entries:
       message: LTGSM
   id: 2796
   time: '2026-08-11T14:45:01.0000000+00:00'
+- author: Gopararelav
+  changes:
+    - type: Fix
+      message: Fixed ore processor
+  id: 2797
+  time: '2026-08-13T00:40:07.0000000+00:00'
