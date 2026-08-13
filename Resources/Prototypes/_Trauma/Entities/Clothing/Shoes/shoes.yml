@@ -1,0 +1,8 @@
+- type: entity
+  parent: ClothingShoesColorWhite
+  id: ClothingShoesColorWhiteSilent
+  suffix: Silent
+  components:
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepSilence
