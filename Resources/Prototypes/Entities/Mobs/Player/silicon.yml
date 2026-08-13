@@ -80,6 +80,9 @@
     followEntity: false
   - type: CommunicationsConsole
     canShuttle: false
+    enableVox: true # Goobstation - yayyy
+    delay: 0 # lmao 
+    initialDelay: 0 
     title: comms-console-announcement-title-station-ai
     color: "#5ed7aa"
   - type: ShowJobIcons
