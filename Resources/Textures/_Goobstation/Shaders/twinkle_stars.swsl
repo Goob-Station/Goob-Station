@@ -1,0 +1,21 @@
+light_mode unshaded;
+
+uniform highp float twinkleSpeed;
+uniform highp float twinkleAmount;
+
+highp float twinkleHash(highp vec2 p) {
+    return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453);
+}
+
+void fragment() {
+    highp vec4 color = zTexture(UV);
+    highp vec2 cell = floor(UV * 256.0);
+    highp float h = twinkleHash(cell);
+    highp float amount = twinkleAmount * (0.4 + h);
+    highp float phase = h * 6.2831853;
+    highp float speed = twinkleSpeed * (0.6 + 1.2 * h);
+    highp float sparkle = pow(0.5 + 0.5 * sin(TIME * speed + phase), 4.0);
+    highp float tw = mix(1.0 - amount * 0.3, 1.0 + amount, sparkle);
+    color.rgb *= tw;
+    COLOR = color;
+}
