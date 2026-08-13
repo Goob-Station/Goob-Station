@@ -18,11 +18,13 @@ public sealed class PlayingVoxClip
     public List<string> Wordchain;
     public int WordIndex = 0;
     public TimeSpan NextWordPlayTime;
+    public TimeSpan StartTime;
 
-    public PlayingVoxClip(List<string> wordchain, TimeSpan startTime)
+    public PlayingVoxClip(List<string> wordchain, TimeSpan startTime, TimeSpan playDelay)
     {
         Wordchain = wordchain;
-        NextWordPlayTime = startTime;
+        NextWordPlayTime = startTime + playDelay;
+        StartTime = startTime;
     }
 }
 
@@ -30,13 +32,12 @@ public sealed class PlayingVoxClip
 public sealed class VoxAudioSystem : EntitySystem
 {
     [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly IResourceManager _resourceManager = default!;
     [Dependency] private readonly IResourceCache _resourceCache = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
-    public const int WordLimit = 30;
+    private const int WordLimit = 30;
+    private TimeSpan _maxElapsedTime = TimeSpan.FromSeconds(25);
     private readonly ResPath _voxResPath = new ResPath("/Audio/_Goobstation/Announcements/vox_fem");
-    private readonly TimeSpan _wordInterval = TimeSpan.FromSeconds(1);
 
     private readonly List<PlayingVoxClip> _voxClipQueue = [];
 
@@ -57,20 +58,25 @@ public sealed class VoxAudioSystem : EntitySystem
                 return;
 
             var word = clip.Wordchain.ElementAt(clip.WordIndex);
-            var path = new SoundPathSpecifier($"{_voxResPath}/{word}.ogg");
+            var path = new ResPath($"{_voxResPath}/{word}.ogg");
 
-            _audio.PlayGlobal(path, Filter.Broadcast(), true, AudioParams.Default.WithVolume(2f));
-            clip.NextWordPlayTime = _timing.CurTime + _wordInterval;
+            if (_resourceCache.TryGetResource(path, out AudioResource? resource))
+            {
+                _audio.PlayGlobal(resource.AudioStream, null, AudioParams.Default.WithVolume(2f));
+                clip.NextWordPlayTime = _timing.CurTime + resource.AudioStream.Length;
+            }
+
             clip.WordIndex++;
         });
 
         _voxClipQueue.RemoveAll(clip => clip.WordIndex == clip.Wordchain.Count());
+        _voxClipQueue.RemoveAll(clip => _timing.CurTime - clip.StartTime > _maxElapsedTime);
     }
 
     private IEnumerable<string> GetWords()
     {
         List<string> names = [];
-        var files = _resourceManager.ContentFindFiles(_voxResPath).Where(x => x.Extension == "ogg");
+        var files = _resourceCache.ContentFindFiles(_voxResPath).Where(x => x.Extension == "ogg");
         foreach (var file in files)
             names.Add(file.FilenameWithoutExtension);
         return names;
@@ -99,7 +105,7 @@ public sealed class VoxAudioSystem : EntitySystem
         if (wordchain.Count() == 0)
             return;
 
-        var clip = new PlayingVoxClip(wordchain, _timing.CurTime + _wordInterval + ev.Delay);
+        var clip = new PlayingVoxClip(wordchain, _timing.CurTime, ev.Delay);
 
         _voxClipQueue.Add(clip);
     }
