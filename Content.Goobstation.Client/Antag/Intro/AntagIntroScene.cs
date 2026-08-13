@@ -16,6 +16,7 @@ using Content.Shared.Preferences;
 using Content.Shared.Rotation;
 using Content.Shared.Speech.Components;
 using Content.Shared.Weapons.Melee;
+using Content.Shared.Wires;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
@@ -274,6 +275,18 @@ public abstract class AntagIntroScene : Control
     protected EntityUid Place(string proto, float x, float row)
         => Entities.SpawnEntity(proto, new MapCoordinates(Middle(x, row), MapId));
 
+    protected EntityUid Wire(string proto,
+        float x,
+        float row,
+        WireVisDirFlags joined = WireVisDirFlags.North | WireVisDirFlags.South)
+    {
+        var wire = Place(proto, x, row);
+
+        Appearance.SetData(wire, WireVisVisuals.ConnectedMask, joined);
+
+        return wire;
+    }
+
     /// <summary>Deck, wall to wall and end to end.</summary>
     protected void Deck(string tile, int fromX, int toX, int fromRow, int toRow)
     {
@@ -303,8 +316,9 @@ public abstract class AntagIntroScene : Control
         {
             Place("WallSolid", -Course, row);
             Place("WallSolid", Course, row);
-            Place("CableApcExtension", 0, row);
-            Place("CableMV", 0, row);
+            Wire("CableHV", 0, row);
+            Wire("CableMV", 0, row);
+            Wire("CableApcExtension", 0, row);
             Place("Catwalk", 0, row);
         }
 

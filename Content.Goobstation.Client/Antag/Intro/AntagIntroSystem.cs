@@ -1,7 +1,9 @@
+using System.Numerics;
 using Content.Client.Audio;
 using Content.Goobstation.Shared.Antag.Intro;
 using Content.Shared.GameTicking;
 using Robust.Client.Audio;
+using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Audio.Components;
@@ -9,6 +11,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Reflection;
 using Robust.Shared.Sandboxing;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Client.Antag.Intro;
 
@@ -24,18 +27,28 @@ public sealed class AntagIntroSystem : EntitySystem
     [Dependency] private readonly ISandboxHelper _sandbox = default!;
     [Dependency] private readonly IUserInterfaceManager _ui = default!;
 
+    /// <summary>
+    /// How long the black screen after the intro holds before fading.
+    /// </summary>
+    private const float Hold = 2f;
+
+    /// <summary>
+    /// How long the black screen takes to fade.
+    /// </summary>
+    private const float Reveal = 0.5f;
     private readonly Dictionary<string, Type> _scenes = new();
     private AntagIntroScene? _playing;
     private ProtoId<AntagIntroPrototype>? _intro;
     private (EntityUid Entity, AudioComponent Component)? _track;
     private bool _fading;
+    private Blackout? _blackout;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeNetworkEvent<AntagIntroPlayEvent>(OnPlay);
-        SubscribeNetworkEvent<RoundRestartCleanupEvent>(_ => Teardown());
+        SubscribeNetworkEvent<RoundRestartCleanupEvent>(_ => Clear());
 
         foreach (var type in _reflection.GetAllChildren<AntagIntroScene>())
         {
@@ -48,7 +61,7 @@ public sealed class AntagIntroSystem : EntitySystem
     {
         base.Shutdown();
 
-        Teardown();
+        Clear();
     }
 
     private void OnPlay(AntagIntroPlayEvent args)
@@ -119,7 +132,32 @@ public sealed class AntagIntroSystem : EntitySystem
         base.FrameUpdate(frameTime);
 
         if (_playing is { Finished: true })
-            Teardown();
+            Finish();
+
+        if (_blackout is { Done: true })
+        {
+            _blackout.Orphan();
+            _blackout = null;
+        }
+    }
+
+    private void Finish()
+    {
+        Teardown();
+
+        _blackout?.Orphan();
+        _blackout = new Blackout();
+
+        _ui.WindowRoot.AddChild(_blackout);
+        LayoutContainer.SetAnchorPreset(_blackout, LayoutContainer.LayoutPreset.Wide);
+    }
+
+    private void Clear()
+    {
+        Teardown();
+
+        _blackout?.Orphan();
+        _blackout = null;
     }
 
     private void Teardown()
@@ -143,5 +181,35 @@ public sealed class AntagIntroSystem : EntitySystem
 
         _intro = null;
         RaiseNetworkEvent(new AntagIntroFinishedEvent(intro));
+    }
+
+    /// <summary>
+    /// The black screen / fade out.
+    /// </summary>
+    private sealed class Blackout : Control
+    {
+        public bool Done => _shown >= Hold + Reveal;
+
+        private float _shown;
+
+        public Blackout()
+        {
+            MouseFilter = MouseFilterMode.Ignore;
+        }
+
+        protected override void FrameUpdate(FrameEventArgs args)
+        {
+            base.FrameUpdate(args);
+
+            _shown += args.DeltaSeconds;
+        }
+
+        protected override void Draw(DrawingHandleScreen handle)
+        {
+            base.Draw(handle);
+
+            handle.DrawRect(new UIBox2(Vector2.Zero, PixelSize),
+                Color.Black.WithAlpha(1f - Math.Clamp((_shown - Hold) / Reveal, 0f, 1f)));
+        }
     }
 }

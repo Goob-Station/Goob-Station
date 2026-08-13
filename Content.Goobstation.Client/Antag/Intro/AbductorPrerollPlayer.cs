@@ -57,6 +57,8 @@ public sealed class AbductorPrerollPlayer : AntagIntroScene
     private static readonly Color Unlit = Color.FromHex("#08080b");
     private static readonly Color Tube = Color.FromHex("#dbe6ef");
     private static readonly Color Alien = Color.FromHex("#5ffbd0");
+    private static readonly Color AlienFlash = Color.FromHex("#0d2c24");
+    private static readonly Color ShockFlash = Color.FromHex("#11141c");
     private static readonly ProtoId<SpeciesPrototype> Abductors = "Abductor";
     private EntityUid _crew;
     private EntityUid _agent;
@@ -242,19 +244,19 @@ public sealed class AbductorPrerollPlayer : AntagIntroScene
     protected override Color? Wash(float t)
     {
         if (Within(t, Arrive, 0.05f))
-            return Alien.WithAlpha(0.5f);
+            return AlienFlash.WithAlpha(0.5f);
 
         if (Within(t, Prod, 0.035f))
-            return new Color(1f, 0.98f, 0.9f, 0.85f);
+            return ShockFlash.WithAlpha(0.85f);
 
         if (Within(t, Take, 0.09f))
-            return Alien.WithAlpha(0.8f);
+            return AlienFlash.WithAlpha(0.8f);
 
         if (Within(t, Empty, 0.05f))
             return Color.Black;
 
         if (Within(t, Ship, 0.06f))
-            return Alien.WithAlpha(0.35f);
+            return AlienFlash.WithAlpha(0.35f);
 
         return null;
     }
