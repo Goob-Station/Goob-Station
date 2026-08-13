@@ -24441,3 +24441,9 @@ Entries:
       message: Fixed ore processor
   id: 2797
   time: '2026-08-13T00:40:07.0000000+00:00'
+- author: Arraydeess
+  changes:
+    - type: Tweak
+      message: E Food Synth no longer requires Bluespace Chemistry
+  id: 2798
+  time: '2026-08-13T06:59:26.0000000+00:00'
