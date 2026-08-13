@@ -17,6 +17,7 @@
         - id: SpaceMedipen # Goobstation
         - id: FoodSnackNutribrick
         - id: DrinkWaterBottleFull
+        - id: CrowbarRed # Goobstation
   - type: Sprite
     layers:
     - state: internals
@@ -61,6 +62,7 @@
         - id: Flare
         - id: FoodSnackNutribrick
         - id: DrinkWaterBottleFull
+        - id: CrowbarRed # Goobstation
   - type: Sprite
     layers:
     - state: internals
@@ -106,6 +108,7 @@
         - id: Flare
         - id: FoodSnackNutribrick
         - id: DrinkWaterBottleFull
+        - id: CrowbarRed # Goobstation
   - type: Sprite
     layers:
     - state: internals
@@ -134,7 +137,6 @@
     currentLabel: reagent-name-nitrogen
 
 - type: entity
-
   parent: BoxCardboard
   id: BoxSurvivalMedical
   name: survival box
@@ -151,6 +153,7 @@
         - id: Flare
         - id: FoodSnackNutribrick
         - id: DrinkWaterBottleFull
+        - id: CrowbarRed # Goobstation
   - type: Sprite
     layers:
     - state: internals
@@ -201,6 +204,7 @@
         - id: Flare
         - id: FoodSnackNutribrick
         - id: DrinkWaterBottleFull
+        - id: CrowbarRed # Goobstation
   - type: Tag
     tags:
     - BoxCardboard
@@ -294,6 +298,7 @@
         - id: EmergencyMedipen
         - id: Flare
         - id: FoodSnackNutribrick
+        - id: CrowbarRed # Goobstation
   - type: Sprite
     layers:
     - state: internals
