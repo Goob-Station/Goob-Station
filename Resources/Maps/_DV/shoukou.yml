@@ -34091,8 +34091,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 11.5,-27.5
       parent: 2
-    - type: BodyScanner
-      operatingTable: 9574
 - proto: ComputerCargoBounty
   entities:
   - uid: 4906
@@ -69637,13 +69635,6 @@ entities:
     - type: Transform
       pos: 11.5,-28.5
       parent: 2
-    - type: OperatingTable
-      linkedScanner: 14883
-    - type: DeviceLinkSource
-      linkedPorts:
-        14883:
-        - - OperatingTable
-          - OperatingTableReceiver
   - uid: 9577
     components:
     - type: Transform
