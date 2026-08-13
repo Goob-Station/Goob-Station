@@ -24453,3 +24453,11 @@ Entries:
       message: You can now grind up cigarettes
   id: 2799
   time: '2026-08-13T07:00:46.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: >-
+        Hitscan weapons (lasers) will now hit crit targets if you are aiming at
+        them.
+  id: 2800
+  time: '2026-08-13T07:01:44.0000000+00:00'
