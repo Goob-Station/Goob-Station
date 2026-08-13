@@ -271,6 +271,10 @@ __pycache__/
 !.vscode/launch.json
 !.vscode/tasks.json
 
+# Claude Code
+.claude/
+CLAUDE.local.md
+
 # Release package files go here:
 release/
 
