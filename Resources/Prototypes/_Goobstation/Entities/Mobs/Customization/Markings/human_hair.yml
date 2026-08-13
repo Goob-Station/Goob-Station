@@ -400,14 +400,6 @@
       state: twintail
 
 - type: marking
-  id: HumanHairCubism
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
-      state: cubism
-
-- type: marking
   id: HumanHairDeathKid
   bodyPart: Hair
   markingCategory: Hair
