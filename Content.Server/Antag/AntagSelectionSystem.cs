@@ -2,6 +2,7 @@
 
 using System.Linq;
 using Content.Server._Goobstation.Antag;
+using Content.Server._Goobstation.Antag.Intro;
 using Content.Server.Administration.Managers;
 using Content.Server.Antag.Components;
 using Content.Server.Chat.Managers;
@@ -49,6 +50,7 @@ namespace Content.Server.Antag;
 public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelectionComponent>
 {
     [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly AntagIntroSystem _antagIntro = default!; // Goobstation - antag intros
     [Dependency] private readonly IBanManager _ban = default!;
     [Dependency] private readonly IChatManager _chat = default!;
     [Dependency] private readonly GhostRoleSystem _ghostRole = default!;
@@ -426,8 +428,11 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     /// <summary>
     /// Makes a given player into the specified antagonist.
     /// </summary>
-    public void MakeAntag(Entity<AntagSelectionComponent> ent, ICommonSession? session, AntagSelectionDefinition def, bool ignoreSpawner = false)
+    public void MakeAntag(Entity<AntagSelectionComponent> ent, ICommonSession? session, AntagSelectionDefinition def, bool ignoreSpawner = false, bool skipIntro = false) // Goobstation - antag intros
     {
+        if (!skipIntro && _antagIntro.TryHold(ent, session, def, ignoreSpawner)) // Goobstation - antag intros
+            return;
+
         EntityUid? antagEnt = null;
         var isSpawner = false;
 

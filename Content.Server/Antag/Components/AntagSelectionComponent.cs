@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Antag.Intro;
 using Content.Shared.Antag;
 using Content.Shared.Destructible.Thresholds;
 using Content.Shared.Preferences.Loadouts;
@@ -243,6 +244,14 @@ public partial struct AntagSelectionDefinition()
     /// </summary>
     [DataField]
     public float? ChaosScore = null;
+
+    /// <summary>
+    /// Goobstation
+    /// An optional cinematic that plays when the role is taken.
+    /// Prevents spawning until after the cinematic is finished.
+    /// </summary>
+    [DataField]
+    public ProtoId<AntagIntroPrototype>? AntagIntro;
 }
 
 /// <summary>

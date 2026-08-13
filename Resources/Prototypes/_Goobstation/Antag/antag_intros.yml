@@ -1,0 +1,18 @@
+- type: antagIntro
+  id: SlasherIntro
+  scene: SlasherPrerollPlayer
+  track:
+    path: /Audio/_Goobstation/Effects/Slasher/SlasherIntro.ogg
+
+- type: antagIntro
+  id: AbductorIntro
+  scene: AbductorPrerollPlayer
+  track:
+    path: /Audio/_Goobstation/Music/Abductor.ogg
+
+- type: startingGear
+  id: AntagIntroCrewGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorGrey
+    shoes: ClothingShoesColorBlack
+    ears: ClothingHeadsetGrey
