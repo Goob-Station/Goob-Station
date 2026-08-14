@@ -2,7 +2,7 @@
 
 - type: gameMap
   id: Atlas
-  mapName: Atlas
+  mapName: 'Atlas'
   mapPath: /Maps/_Goobstation/atlas.yml
   minPlayers: 0
   maxPlayers: 20
