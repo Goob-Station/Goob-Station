@@ -21,19 +21,13 @@ public sealed class EmaggedFultonSystem : EntitySystem
         if (TryComp<EmaggedComponent>(ent, out var emaggedComp))
             return;
         args.Handled = true;
-        ChangeWhitelistToEvac(comp, "MindContainer"); // All mobs can be extracted by fulton after emagging
+        if (comp.Whitelist == null || comp.Whitelist.Components == null)
+            return;
+        comp.Whitelist.Components=comp.Whitelist.Components
+        .Union(new[] { "MindContainer" })
+        .ToArray();
         _popup.PopupEntity(Loc.GetString("fulton-emagged"), ent);
         _audio.PlayPredicted(comp.FultonSoundEmag, ent, ent);
     }
 
-
-    // Adding new Comp to whitelist for evac
-    public void ChangeWhitelistToEvac(FultonComponent comp,string nameComp)
-    {
-        if (comp.Whitelist == null || comp.Whitelist.Components == null)
-            return;
-        comp.Whitelist.Components=comp.Whitelist.Components
-        .Union(new[] { nameComp })
-        .ToArray();
-    }
 }
