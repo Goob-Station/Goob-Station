@@ -57,11 +57,7 @@ public sealed class VoxAudioSystem : SharedVoxAudioSystem
             if (clip.NextWordPlayTime > _timing.CurTime)
                 return;
 
-            Log.Error("Should play");
-
             var word = clip.Wordchain.ElementAt(clip.WordIndex);
-
-            Log.Error($"{word.Path}");
 
             if (_resourceCache.TryGetResource(word.Path, out AudioResource? resource))
             {
@@ -88,7 +84,6 @@ public sealed class VoxAudioSystem : SharedVoxAudioSystem
     {
         var voiceset = voiceProtoSet.Select(id => _proto.Index(id)).ToList();
         var wordchain = GetPlaybackWordChain(voiceset, message);
-        Log.Error($"CHAIN LENGTH: {wordchain.Count()}");
         if (wordchain.Count == 0)
             return;
         if (filter != null && !filter.Recipients.Contains(_playerManager.LocalSession))
@@ -106,7 +101,6 @@ public sealed class VoxAudioSystem : SharedVoxAudioSystem
 
     private void OnVoxPlayMessage(VoxPlayMessage ev)
     {
-        Log.Error("receive play");
         Play(ev.Message, ev.VoiceSet, ev.Delay, ev.MaxRuntime, GetEntity(ev.TargetNuid));
     }
 }
