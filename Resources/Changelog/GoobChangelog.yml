@@ -4054,7 +4054,7 @@ Entries:
         Ashen passage now deals heat damage to the user on activation. Ashen
         path heretics receive less damage from this, the higher their path stage
         is, the lower the damage will be. Flesh stalkers and raw prophets will
-        not take damage when jaunting 
+        not take damage when jaunting
   id: 455
   time: '2025-01-11T14:09:57.0000000+00:00'
 - author: Piras314
@@ -4080,7 +4080,7 @@ Entries:
     - type: Tweak
       message: >-
         Lethargic sting doesn't inject mute toxin but slowly drains victim's
-        stamina. 
+        stamina.
     - type: Tweak
       message: Toggling of ling equipment doesn't cost any chemicals anymore.
   id: 457
@@ -6841,7 +6841,7 @@ Entries:
     - type: Tweak
       message: >-
         Alert icons for separate (OG) layout now start from the top right of
-        your screen instead of the middle right, just like in MRP. 
+        your screen instead of the middle right, just like in MRP.
     - type: Tweak
       message: >-
         Ore redemption/processing machines now display if you will obtain points
@@ -7216,7 +7216,7 @@ Entries:
     - type: Add
       message: >-
         The firefighter backpack and attached nozzle can now be found in atmos
-        lockers or ordered through cargo. 
+        lockers or ordered through cargo.
     - type: Tweak
       message: 'RPD crates can now be ordered through cargo. '
   id: 841
@@ -7564,7 +7564,7 @@ Entries:
     - type: Add
       message: >-
         Added the Holo-Cigar, a new syndicate uplink item, that turns you into
-        Big Boss. It allows you to dual wield any firearms effectively 
+        Big Boss. It allows you to dual wield any firearms effectively
   id: 881
   time: '2025-04-16T08:44:31.0000000+00:00'
 - author: Aviu
@@ -7950,7 +7950,7 @@ Entries:
       message: >-
         Radiation now uses 2D propagation system, standing on top of or holding
         radiation sources in your hand is extremely ill advised. doubly more so
-        than before. 
+        than before.
     - type: Tweak
       message: >-
         Radiation propagation now takes into account distance traveled through
@@ -8166,7 +8166,7 @@ Entries:
     - type: Add
       message: >-
         Moths move slightly slower but can dash with their wings with 65%
-        chance. 
+        chance.
     - type: Tweak
       message: Voxes now do not rot, but you can't clone them.
     - type: Tweak
@@ -9299,7 +9299,7 @@ Entries:
         Changed the colors of the body doll! Now the main color when your part
         is about to get lopped off is pure red. It will be gray when you have no
         parts, and will have the old crit/disabled reddish color when its
-        bleeding. 
+        bleeding.
     - type: Tweak
       message: >-
         The health analyzer now displays what parts are bleeding, and shows it
@@ -9690,7 +9690,7 @@ Entries:
       message: >-
         Added experimental law boards. When inserted in ai upload console, gives
         ionstormed laws to the station AI, and after 2 minutes turns laws back
-        to normal giving research points to RnD. 
+        to normal giving research points to RnD.
   id: 1084
   time: '2025-05-19T07:58:24.0000000+00:00'
 - author: Armok
@@ -10616,7 +10616,7 @@ Entries:
     - type: Fix
       message: >-
         Regular security winter boots no longer have jackboots bonuses, it also
-        was an oversight. 
+        was an oversight.
     - type: Fix
       message: >-
         CMO webbing comes with a bone manipulator instead of bone gel, it was
@@ -11004,7 +11004,7 @@ Entries:
     - type: Tweak
       message: >-
         Reflective vest can no longer be abused to completely circumvent AI
-        turrets. 
+        turrets.
   id: 1213
   time: '2025-06-15T05:40:36.0000000+00:00'
 - author: OnsenCapy
@@ -11244,7 +11244,7 @@ Entries:
     - type: Add
       message: >-
         Chitinous armour plays an animation and unique sound when being
-        equipped. 
+        equipped.
     - type: Tweak
       message: >-
         Chitinous armour has had its physical protection reduced (65% -> 45%)
@@ -11635,7 +11635,7 @@ Entries:
         Fixed a bunch of bugs with wound logic, including but not limited to
         traumas adding wounds with damage that would be unhealable, wounds going
         over the cap and resulting in permanent pain as you would be unable to
-        reset it, 
+        reset it,
     - type: Fix
       message: >-
         Bone break alerts should go away now when removing the parts (you'll
@@ -11796,7 +11796,7 @@ Entries:
     - type: Add
       message: >-
         2 new signallers: voice signaller and proximity signaller that do
-        exactly what its name implies. 
+        exactly what its name implies.
   id: 1293
   time: '2025-07-01T19:04:38.0000000+00:00'
 - author: wachte1
@@ -13634,7 +13634,7 @@ Entries:
     - type: Add
       message: >-
         You can now create freedom cheese blocks and cheese slices (based on
-        American processed cheese). 
+        American processed cheese).
   id: 1515
   time: '2025-08-18T04:04:07.0000000+00:00'
 - author: CometVoid
@@ -13790,7 +13790,7 @@ Entries:
     - type: Fix
       message: >-
         Vehicles now move at 1.4 of their original values. This is due to
-        spritning being added making them semi obsolete. Beware of clown cars. 
+        spritning being added making them semi obsolete. Beware of clown cars.
   id: 1534
   time: '2025-08-30T03:23:43.0000000+00:00'
 - author: RatherUncreativeName
@@ -13874,12 +13874,12 @@ Entries:
     - type: Tweak
       message: >-
         Replaced tirimol from epipens with dexalin, NO MORE COMBAT EPIPEN
-        INJECTIONS, REJOICE! 
+        INJECTIONS, REJOICE!
     - type: Tweak
       message: >-
         Nerfed autoinjector brute cartridge heal from 98 dmg healed max to
         ~60-70 and from ~28 healing/dmg type to ~21 healing/dmg type and nerfed
-        burn cartridge by a similar amount 
+        burn cartridge by a similar amount
   id: 1545
   time: '2025-08-30T03:51:52.0000000+00:00'
 - author: ImWeax
@@ -14173,7 +14173,7 @@ Entries:
       message: >-
         Siphon entropy now only takes 1 second instead of 5. If you still can't
         reach tier 2 after this change, I don't know what to tell you. Like
-        honestly. 
+        honestly.
     - type: Tweak
       message: >-
         Vacuous spire now takes gas canisters instead of portable air scrubbers,
@@ -14279,7 +14279,7 @@ Entries:
     - type: Add
       message: >-
         You can now buy a whole lot of more stuff from salvage vend, including
-        WAY more lategame gear, like a clarke. :) 
+        WAY more lategame gear, like a clarke. :)
     - type: Add
       message: 'Made Combat gloves renewable. '
   id: 1588
@@ -14289,7 +14289,7 @@ Entries:
     - type: Tweak
       message: >-
         Stunbaton wideswing damage buffed to not be entirely useless,
-        spriteclicking is still superior. 
+        spriteclicking is still superior.
     - type: Tweak
       message: 'GreatShield Mace given minor staminadamage buff. '
   id: 1589
@@ -14699,9 +14699,7 @@ Entries:
     - type: Add
       message: Added a Seclite to BSO's Locker.
     - type: Add
-      message: >-
-        Added a knife into BSO's backpack on spawn and removed it from the
-        boots 
+      message: Added a knife into BSO's backpack on spawn and removed it from the boots
   id: 1638
   time: '2025-09-11T18:51:33.0000000+00:00'
 - author: deltanedas
@@ -15677,7 +15675,7 @@ Entries:
     - type: Tweak
       message: >-
         Shadowkin blood now renders like other blood types (blood, spider blood,
-        slime) when in puddles 
+        slime) when in puddles
     - type: Fix
       message: Shadowkin blood now can activate Blood nodes on artifacts
   id: 1754
@@ -16541,7 +16539,7 @@ Entries:
     - type: Add
       message: >-
         Interaction Verbs from Einstein Engines. GoobMRP folk: This brings back
-        the 'Interact' dropdown in the context menu. 
+        the 'Interact' dropdown in the context menu.
     - type: Tweak
       message: Interaction Verb 'Look At' changed to 'Stare' for impact
   id: 1852
@@ -16840,7 +16838,7 @@ Entries:
     - type: Add
       message: >-
         Loneops can now buy the sandevistan at an increased price. “Bout Time I
-        Chrome The F Up.” 
+        Chrome The F Up.”
   id: 1884
   time: '2025-10-25T16:07:41.0000000+00:00'
 - author: loltart
@@ -16854,7 +16852,7 @@ Entries:
     - type: Add
       message: >-
         Added dart monkeys which throw darts at balloons. They are purchasable
-        from cargo. 
+        from cargo.
   id: 1886
   time: '2025-10-25T16:09:23.0000000+00:00'
 - author: Armok
@@ -17033,7 +17031,7 @@ Entries:
     - type: Tweak
       message: >-
         Changed icons of everything in the station category to be more
-        appealing. 
+        appealing.
   id: 1908
   time: '2025-10-27T12:23:51.0000000+00:00'
 - author: Fishbait
@@ -17845,7 +17843,7 @@ Entries:
     - type: Tweak
       message: >-
         Barozine will now last twice as long! This means space medipens will
-        protect you from pressure damage for twice as long. 
+        protect you from pressure damage for twice as long.
     - type: Tweak
       message: >-
         Space Medipens now have more leproazine in them, this means they'll give
@@ -18298,7 +18296,7 @@ Entries:
         Combat mechs are quite complicated, so you should be quite knowledgeable
         in arsenal technology to build those. Made Gygax technology have
         Advanced Riot Control, Portable Microfusion Weaponry, Smart Weaponry,
-        and Thermal Vision Tech as prerequisites. 
+        and Thermal Vision Tech as prerequisites.
   id: 2061
   time: '2025-11-24T13:48:38.0000000+00:00'
 - author: Androidonator
@@ -18508,7 +18506,7 @@ Entries:
     - type: Add
       message: >-
         R&D is now able to extend station comms coverage with extended
-        communication research. 
+        communication research.
   id: 2083
   time: '2025-11-27T11:02:16.0000000+00:00'
 - author: RatherUncreativeName
@@ -19195,7 +19193,7 @@ Entries:
     - type: Add
       message: >-
         Chaplain can now select one of 8 armor set variants using armaments
-        beacon. 
+        beacon.
   id: 2165
   time: '2025-12-13T03:00:08.0000000+00:00'
 - author: squishy97
@@ -19203,7 +19201,7 @@ Entries:
     - type: Tweak
       message: >-
         buffed onis attack and defense to be in line with more of their tanky
-        mele build styles, and nerfed their shoving capabilities to compensate 
+        mele build styles, and nerfed their shoving capabilities to compensate
   id: 2166
   time: '2025-12-13T03:06:34.0000000+00:00'
 - author: wachte1
@@ -19255,7 +19253,7 @@ Entries:
     - type: Add
       message: >-
         Mid round lings and heretics are back as well as mid round heretics
-        being buffed slightly 
+        being buffed slightly
   id: 2173
   time: '2025-12-13T08:19:40.0000000+00:00'
 - author: Gab
@@ -19494,7 +19492,7 @@ Entries:
       message: >-
         Oni can again damage peoples stam so you don't just get to escape.
         Removed accuracy nonsense again - Oni's should not be able to use most,
-        if not all guns. 
+        if not all guns.
   id: 2202
   time: '2025-12-18T23:26:35.0000000+00:00'
 - author: Ilya246
@@ -19555,7 +19553,7 @@ Entries:
       message: >-
         Added new job "Radio host" they host a the stations local radiostation
         and play music and report of stuff around the station, this isn't mapped
-        yet but should be soon! 
+        yet but should be soon!
     - type: Add
       message: Added "vinyl player" it plays vinyls!
   id: 2211
@@ -20326,7 +20324,7 @@ Entries:
     - type: Add
       message: >-
         Warning, entering biological dead zone at 2000m from the station.
-        Unknown large life signatures detected. 
+        Unknown large life signatures detected.
   id: 2304
   time: '2026-01-27T02:29:05.0000000+00:00'
 - author: OnsenCapy
@@ -21195,7 +21193,7 @@ Entries:
     - type: Tweak
       message: >-
         Meta mapping! Added roundstart cloning and moved xenobio. Alot of other
-        misc improvements. 
+        misc improvements.
   id: 2404
   time: '2026-02-12T15:33:47.0000000+00:00'
 - author: NotActuallyMarty
@@ -21998,7 +21996,7 @@ Entries:
     - type: Add
       message: >-
         Bodybags to secfab, modular machine parts, toolboxes and pens to all
-        departmental lathes (with the exception of med) 
+        departmental lathes (with the exception of med)
   id: 2507
   time: '2026-03-30T02:04:19.0000000+00:00'
 - author: Androidonator
@@ -23297,7 +23295,7 @@ Entries:
       message: >-
         Changed the utility of food and drinks for AI, this allows slimes, mice
         and another animals to eat uncooked eggs, drink blood if they can digest
-        them and avoid toxic reagents. 
+        them and avoid toxic reagents.
   id: 2676
   time: '2026-06-08T03:46:25.0000000+00:00'
 - author: shoebill
@@ -24151,3 +24149,327 @@ Entries:
       message: Holy Type Pokemon are now 4x Effective against Cosmic Colossus
   id: 2780
   time: '2026-08-02T13:21:06.0000000+00:00'
+- author: Super7522
+  changes:
+    - type: Tweak
+      message: Bulletproof vest now has limb coverage
+    - type: Tweak
+      message: Added Would Resistances ( Delimbing, Bone Breaking... ) to most armors
+  id: 2781
+  time: '2026-08-05T20:15:16.0000000+00:00'
+- author: rivermyth
+  changes:
+    - type: Add
+      message: >-
+        Added functional body scanner computer! It can be link to an operating
+        table using a multitool.
+  id: 2782
+  time: '2026-08-05T20:20:57.0000000+00:00'
+- author: Super7522
+  changes:
+    - type: Tweak
+      message: >-
+        Explosion Delimbing, Bone Breaking, and Bleeding have been toned down to
+        compensate for Explosion damage being higher overall
+  id: 2783
+  time: '2026-08-05T21:40:55.0000000+00:00'
+- author: RedstonewolfX
+  changes:
+    - type: Add
+      message: >-
+        New job lizards by APuddleDuck, for Brigmedic, BSO, NTR, and Shaft
+        Miner, plus a Virologist lizard by me! Check your loadouts!
+    - type: Tweak
+      message: >-
+        Salvage Specialist Lizard Plushie has been resprited to match the new
+        blue jumpsuit
+    - type: Add
+      message: New job lizard for Central Command
+    - type: Add
+      message: >-
+        New admin plushie for myself of Irene - wear it on your neck, or on your
+        head atop other cloaks!
+    - type: Fix
+      message: Brigmedics can now receive the Security Star
+  id: 2784
+  time: '2026-08-05T22:47:25.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Fix
+      message: Doafters now slow down instead of speeding up when limbs are wounded
+    - type: Fix
+      message: >-
+        Organ damage actually works now. Organs can finally be
+        damaged/destroyed, and organ surgery heals them properly instead of them
+        being stuck at full health forever
+    - type: Fix
+      message: >-
+        Fixed blood loss effectively being applied twice, bleeding should be a
+        bit less brutal now
+    - type: Fix
+      message: >-
+        Passive healing no longer dumps a bunch of healing on you after spawning
+        or leaving crit, it now heals over time like it was supposed to
+    - type: Fix
+      message: Fixed a bunch of wound, bleeding, and trauma desyncs/mispredicts
+    - type: Fix
+      message: Destroyed and dismembered limbs now actually bleed
+    - type: Fix
+      message: >-
+        Bleeding now ramps up properly over time, and clamping/cauterizing
+        bleeds during surgery behaves correctly
+    - type: Fix
+      message: Eye damage now stacks instead of getting reset every hit
+    - type: Fix
+      message: Foot fractures now actually slow you down,
+    - type: Fix
+      message: You can't get stuck crawling after your legs are healed now
+    - type: Fix
+      message: Surgery speed bonuses from tables and tools are no longer applied twice.
+    - type: Fix
+      message: >-
+        Fixed a fuckton of internal pain bugs. No player-facing changes yet
+        though, pain is still disabled.
+  id: 2785
+  time: '2026-08-06T01:42:10.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Fix
+      message: IPC can be deconverted by chaplain censer
+  id: 2786
+  time: '2026-08-06T14:48:39.0000000+00:00'
+- author: TechnicFighter
+  changes:
+    - type: Add
+      message: Added the Cybersun Configurator, you can buy it for 10 TC.
+    - type: Add
+      message: Added a Free Bananium Sword to the Clown's Uplink.
+    - type: Add
+      message: Added the Real Bananium Energy Sword, you can buy it for 50 TC.
+    - type: Add
+      message: Added the Syndicate Behonker, you can buy it for 100 TC.
+    - type: Add
+      message: Added the Bomb Collar Kit, you can buy it for 20 TC.
+    - type: Add
+      message: Added the Syndicate Shuttle Crate, you can buy it for 10 TC.
+    - type: Add
+      message: Added the Syndicate Shuttle Console Board, you can buy it for 10 TC.
+    - type: Add
+      message: Added the Syndicate IFF Console Board, you can buy it for 15 TC.
+    - type: Add
+      message: Added the Syndicate Kudzu Greande, you can buy it for 15 TC.
+    - type: Add
+      message: Added the S.L.A.Y.E.R Overcoat, you can buy it for 20 TC.
+    - type: Add
+      message: Added the Syndicate Door Remote, you can buy it for 15 TC.
+    - type: Add
+      message: Added the Sticky Explosive Grenade, you can buy it for 15 TC.
+    - type: Add
+      message: Added the Chemical Utility Knife, you can buy it for 10 TC.
+    - type: Add
+      message: Added the Gorlex Surgical Omnitool, you can buy it for 30 TC.
+    - type: Add
+      message: Added the Appraisal Tool Radio Jammer, you can buy it for 20 TC.
+    - type: Add
+      message: Added the Silent Shoes, you can buy them for 10 TC.
+    - type: Add
+      message: Added the Mute Toxin Auto Injector, you can buy it for 10 TC.
+    - type: Add
+      message: Added the Stealthy Miama Peel, you can buy it for 5 TC.
+    - type: Add
+      message: >-
+        Added the Network Configurator Signaler, you can find it by emagging a
+        Vendomat.
+    - type: Add
+      message: >-
+        Added the Hidden Storage Warning Cone, you can find it by emagging an
+        Engi-Vend.
+    - type: Add
+      message: >-
+        Added Magic and Holo dehydrated carp variants, you can buy them both for
+        7 TC each.
+    - type: Add
+      message: Added the Nukie Mouse, you can buy it for 15 TC.
+    - type: Add
+      message: Added the Nukie Carp, you can buy it for 30 TC.
+    - type: Add
+      message: Added the Nukie Spider, you can buy it for 50 TC.
+    - type: Add
+      message: Added the Saboteur Borg, you can buy it for 300 TC.
+    - type: Add
+      message: Added the Medical Borg, you can buy it for 300 TC.
+    - type: Add
+      message: >-
+        Added Tranquiliser and Poison mags for the Cobra, you can buy them for
+        20 TC and 25 TC respectively.
+    - type: Add
+      message: Added the Observation Kit, you can buy it for 20 TC.
+    - type: Add
+      message: Added the Handheld Records Tablet, you can buy it for 2 TC.
+    - type: Add
+      message: Added the Shrapnel Foam Grenade, you can buy it for 12 TC.
+    - type: Add
+      message: Added the Appraisal Tool Gun, you can buy it for 20 TC.
+    - type: Add
+      message: Added the Sharp Foam Cutlass, you can buy it for 20 TC.
+    - type: Add
+      message: Added the Chameleon Armored Vest, you can buy it for 25 TC.
+    - type: Add
+      message: Added 8 new Syndicate Cyborg Modules. These also include new items.
+    - type: Tweak
+      message: Tweaked Syndicate Cyborg Chassis, 7 max modules, instead of 3.
+    - type: Tweak
+      message: Tweaked the starting modules of ALL Syndicate Cyborgs.
+    - type: Tweak
+      message: The Radio Jammer no longer jams the syndicate frequency.
+  id: 2787
+  time: '2026-08-08T13:04:07.0000000+00:00'
+- author: thefirstLtaker
+  changes:
+    - type: Fix
+      message: NZ CSG-242 explosive slug ammo now properly explodes!
+  id: 2788
+  time: '2026-08-08T13:57:25.0000000+00:00'
+- author: BeeRobynn
+  changes:
+    - type: Tweak
+      message: Buffs Cryoxadone to heal 3x the damage it did (3 -> 9)
+  id: 2789
+  time: '2026-08-08T14:06:39.0000000+00:00'
+- author: shoebill
+  changes:
+    - type: Fix
+      message: >-
+        Fixed certain reagents (eldritch essence, mugwort tea, anti-entropy)
+        turning against their own kind.
+  id: 2790
+  time: '2026-08-08T16:50:28.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Tweak
+      message: >-
+        When completing surgery on a limb it now returns to the surgery menu for
+        said limb instead of going back to the base surgery menu.
+    - type: Fix
+      message: Clamping bleeders and tending wounds surgeries now properly complete.
+    - type: Fix
+      message: >-
+        Organs, including the brain, can no longer get obliterated by a single
+        hit. Organ damage now builds up over multiple hits.
+    - type: Add
+      message: >-
+        Brain death! The brain can no longer be destroyed inside the body,
+        instead, taking enough brain damage now kills you and leaves you
+        unrevivable until someone fixes your brain.
+    - type: Add
+      message: Added a multi-step brain repair surgery.
+    - type: Tweak
+      message: >-
+        Massively increased organ durability, but organs now take damage more
+        often. They should wear down over a bunch of hits instead of randomly
+        getting deleted in one.
+    - type: Tweak
+      message: >-
+        Hitting a limb that's already been beaten to shit now keeps damaging
+        that limb, including its bones and organs, instead of the damage
+        magically deciding to spread to the rest of your body.
+    - type: Tweak
+      message: >-
+        Broken bones and damaged organs no longer completely prevent you from
+        patching wounds. You can now heal wounds down to a residual amount based
+        on how fucked the injury is, but you'll still need surgery to finish the
+        job. Affects both topicals and reagents.
+    - type: Tweak
+      message: >-
+        Piercing and armour-piercing bullet wounds now very rarely dismember
+        limbs, and brarely break bones.
+    - type: Fix
+      message: Eye damage now scales vision blur properly.
+    - type: Fix
+      message: >-
+        Fixed a server crash that could happen when incoming damage dismembered
+        a limb.
+    - type: Fix
+      message: >-
+        Healing chemicals once again target and heal specific body parts
+        correctly.
+    - type: Fix
+      message: >-
+        PentenicAcid, Musiver, and Calomel no longer cleanse themselves out of
+        the bloodstream.
+  id: 2791
+  time: '2026-08-08T18:24:47.0000000+00:00'
+- author: thefirstLtaker
+  changes:
+    - type: Tweak
+      message: >-
+        Energy magazines and energy revolver cells can now fit in the sec
+        carrier and belt.
+  id: 2792
+  time: '2026-08-10T18:11:38.0000000+00:00'
+- author: shoebill
+  changes:
+    - type: Fix
+      message: >-
+        Fixed eldritch essence and mugwort tea cleaning themselves from the
+        bloodstream.
+  id: 2793
+  time: '2026-08-10T18:12:06.0000000+00:00'
+- author: Super7522
+  changes:
+    - type: Fix
+      message: His Grace is Unremovable Once again, and will drop on full hunger.
+  id: 2794
+  time: '2026-08-10T18:13:45.0000000+00:00'
+- author: RedTerror
+  changes:
+    - type: Tweak
+      message: Chaplain armor resprite
+  id: 2795
+  time: '2026-08-11T12:08:04.0000000+00:00'
+- author: HarelNo
+  changes:
+    - type: Add
+      message: LTGSM
+  id: 2796
+  time: '2026-08-11T14:45:01.0000000+00:00'
+- author: Gopararelav
+  changes:
+    - type: Fix
+      message: Fixed ore processor
+  id: 2797
+  time: '2026-08-13T00:40:07.0000000+00:00'
+- author: Arraydeess
+  changes:
+    - type: Tweak
+      message: E Food Synth no longer requires Bluespace Chemistry
+  id: 2798
+  time: '2026-08-13T06:59:26.0000000+00:00'
+- author: Arraydeess
+  changes:
+    - type: Tweak
+      message: You can now grind up cigarettes
+  id: 2799
+  time: '2026-08-13T07:00:46.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: >-
+        Hitscan weapons (lasers) will now hit crit targets if you are aiming at
+        them.
+  id: 2800
+  time: '2026-08-13T07:01:44.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Improved background parallax
+    - type: Add
+      message: Added crafting recipe for campfires
+  id: 2801
+  time: '2026-08-13T08:45:07.0000000+00:00'
+- author: BeeRobynn
+  changes:
+    - type: Tweak
+      message: Recolours Queen Xeno to be consistent with other Xenos
+  id: 2802
+  time: '2026-08-14T11:47:35.0000000+00:00'
