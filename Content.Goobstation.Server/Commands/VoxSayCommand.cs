@@ -12,7 +12,7 @@ namespace Content.Goobstation.Server.Commands;
 public sealed class VoxSayCommand : ToolshedCommand
 {
     [CommandImplementation("global")]
-    public void VoxSayGlobal([PipedArgument] string toSay, string voiceProtoIds)
+    public void VoxSayGlobal(string toSay, string voiceProtoIds)
         => EntityManager.System<VoxAudioSystem>()
             .Play(toSay, [.. voiceProtoIds
                 .Split(",", StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
