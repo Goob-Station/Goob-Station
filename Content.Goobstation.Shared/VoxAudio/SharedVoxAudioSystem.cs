@@ -1,10 +1,7 @@
 using System.Linq;
 using Content.Goobstation.Common.VoxAudio;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.ContentPack;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.VoxAudio;
@@ -37,8 +34,8 @@ public abstract partial class SharedVoxAudioSystem : EntitySystem
             .ToList();
 
     /// <summary>
-    /// whether equals, or equals with puncutation removed
-    /// todo support removing plurality
+    /// whether equals, or equals with puncutation removed.
+    /// todo support removing plurality, -ing
     /// </summary>
     /// <param name="sWord"></param>
     /// <param name="vWord"></param>
@@ -70,7 +67,7 @@ public abstract partial class SharedVoxAudioSystem : EntitySystem
                         return new VoxPlaybackWord()
                         {
                             Word = word.Word,
-                            Path = new ResPath($"{word.Path ?? $"{voice.BasePath}/{word.Word}.ogg"}")
+                            Path = word.Path ?? new ResPath($"{voice.BasePath}/{word.Word}.ogg")
                         };
                 }
                 return null;

@@ -13,7 +13,7 @@ public sealed partial class VoxWord
     /// Override path. Used instead of appending BasePath and .ogg from a VoxVoicePrototype
     /// </summary>
     [DataField]
-    public string? Path { get; set; } = default!;
+    public ResPath? Path { get; set; } = default!;
 }
 
 [Prototype]
@@ -24,7 +24,7 @@ public sealed partial class VoxVoicePrototype : IPrototype
     public string ID { get; private set; } = default!;
 
     [DataField]
-    public ResPath BasePath = default!;
+    public string? BasePath = default!;
 
     [DataField]
     public List<VoxWord> Words = [];
