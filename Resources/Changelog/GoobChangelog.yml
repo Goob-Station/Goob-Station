@@ -14699,9 +14699,7 @@ Entries:
     - type: Add
       message: Added a Seclite to BSO's Locker.
     - type: Add
-      message: >-
-        Added a knife into BSO's backpack on spawn and removed it from the
-        boots
+      message: Added a knife into BSO's backpack on spawn and removed it from the boots
   id: 1638
   time: '2025-09-11T18:51:33.0000000+00:00'
 - author: deltanedas
@@ -24469,3 +24467,9 @@ Entries:
       message: Added crafting recipe for campfires
   id: 2801
   time: '2026-08-13T08:45:07.0000000+00:00'
+- author: BeeRobynn
+  changes:
+    - type: Tweak
+      message: Recolours Queen Xeno to be consistent with other Xenos
+  id: 2802
+  time: '2026-08-14T11:47:35.0000000+00:00'
