@@ -11,25 +11,6 @@ namespace Content.Server.Chat.Systems;
 
 public sealed partial class ChatSystem
 {
-    public void DispatchGlobalVoxAnnouncement(string message)
-    {
-        var ev = new PlayVoxAudioEvent(message, TimeSpan.FromSeconds(2));
-        RaiseNetworkEvent(ev);
-    }
-
-    public void DispatchStationVoxAnnouncement(
-        EntityUid source,
-        string message)
-    {
-        var station = _stationSystem.GetOwningStation(source);
-        if (!TryComp<StationDataComponent>(station, out var stationDataComp)) return;
-
-        var filter = _stationSystem.GetInStation(stationDataComp);
-        var ev = new PlayVoxAudioEvent(message, TimeSpan.FromSeconds(2));
-        foreach (var recipient in filter.Recipients)
-            RaiseNetworkEvent(ev, recipient);
-    }
-
     // Goobstation - Starlight collective mind port
     private void SendCollectiveMindChat(EntityUid source, string message, CollectiveMindPrototype? collectiveMind)
     {

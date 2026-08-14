@@ -1,43 +1,47 @@
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using System.Resources;
 using Content.Goobstation.Common.VoxAudio;
+using Content.Goobstation.Shared.VoxAudio;
 using Robust.Client.Audio;
+using Robust.Client.Player;
 using Robust.Client.ResourceManagement;
 using Robust.Shared.Audio;
-using Robust.Shared.ContentPack;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Client.VoxAudio;
 
-[Access(typeof(VoxAudioSystem))]
 public sealed class PlayingVoxClip
 {
-    public List<string> Wordchain;
     public int WordIndex = 0;
+    public List<VoxPlaybackWord> Wordchain;
     public TimeSpan NextWordPlayTime;
     public TimeSpan StartTime;
+    public TimeSpan MaxRuntime;
 
-    public PlayingVoxClip(List<string> wordchain, TimeSpan startTime, TimeSpan playDelay)
+    /// <summary>
+    /// if VoxClipPlaybackType.OnEntity, this entity it plays from.
+    /// </summary>
+    public EntityUid? TargetEnt;
+
+    public PlayingVoxClip(List<VoxPlaybackWord> wordchain, TimeSpan startTime, TimeSpan playDelay,
+        TimeSpan maxRuntime, EntityUid? targetUid)
     {
         Wordchain = wordchain;
         NextWordPlayTime = startTime + playDelay;
         StartTime = startTime;
+        MaxRuntime = maxRuntime;
+        TargetEnt = targetUid;
     }
 }
 
-[Access(typeof(VoxAudioSystem))]
-public sealed class VoxAudioSystem : EntitySystem
+public sealed class VoxAudioSystem : SharedVoxAudioSystem
 {
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly IResourceCache _resourceCache = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-
-    private const int WordLimit = 30;
-    private TimeSpan _maxElapsedTime = TimeSpan.FromSeconds(25);
-    private readonly ResPath _voxResPath = new ResPath("/Audio/_Goobstation/Announcements/vox_fem");
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
 
     private readonly List<PlayingVoxClip> _voxClipQueue = [];
 
@@ -45,7 +49,7 @@ public sealed class VoxAudioSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeNetworkEvent<PlayVoxAudioEvent>(HandlePlayVox);
+        SubscribeNetworkEvent<VoxPlayMessage>(OnVoxPlayMessage);
     }
 
     public override void Update(float frameTime)
@@ -57,56 +61,56 @@ public sealed class VoxAudioSystem : EntitySystem
             if (clip.NextWordPlayTime > _timing.CurTime)
                 return;
 
-            var word = clip.Wordchain.ElementAt(clip.WordIndex);
-            var path = new ResPath($"{_voxResPath}/{word}.ogg");
+            Log.Error("Should play");
 
-            if (_resourceCache.TryGetResource(path, out AudioResource? resource))
+            var word = clip.Wordchain.ElementAt(clip.WordIndex);
+
+            Log.Error($"{word.Path}");
+
+            if (_resourceCache.TryGetResource(word.Path, out AudioResource? resource))
             {
-                _audio.PlayGlobal(resource.AudioStream, null, AudioParams.Default.WithVolume(2f));
+                var @params = AudioParams.Default.WithVolume(2f);
+                var stream = resource.AudioStream;
+
+                if (clip.TargetEnt is not null)
+                    _audio.PlayEntity(stream, clip.TargetEnt.Value, null, @params);
+                else
+                    _audio.PlayGlobal(stream, null, @params);
+
                 clip.NextWordPlayTime = _timing.CurTime + resource.AudioStream.Length;
             }
 
             clip.WordIndex++;
         });
 
-        _voxClipQueue.RemoveAll(clip => clip.WordIndex == clip.Wordchain.Count());
-        _voxClipQueue.RemoveAll(clip => _timing.CurTime - clip.StartTime > _maxElapsedTime);
+        _voxClipQueue.RemoveAll(clip => clip.WordIndex == clip.Wordchain.Count);
+        _voxClipQueue.RemoveAll(clip => _timing.CurTime - clip.StartTime > clip.MaxRuntime);
     }
 
-    private IEnumerable<string> GetWords()
+    public override void Play(string message, List<ProtoId<VoxVoicePrototype>> voiceProtoSet, float? delay = 0f,
+        float? maxRuntime = null, EntityUid? uid = null, Filter? filter = null)
     {
-        List<string> names = [];
-        var files = _resourceCache.ContentFindFiles(_voxResPath).Where(x => x.Extension == "ogg");
-        foreach (var file in files)
-            names.Add(file.FilenameWithoutExtension);
-        return names;
-    }
-
-    private void HandlePlayVox(PlayVoxAudioEvent ev)
-    {
-        if (ev.Cancelled)
+        var voiceset = voiceProtoSet.Select(id => _proto.Index(id)).ToList();
+        var wordchain = GetPlaybackWordChain(voiceset, message);
+        Log.Error($"CHAIN LENGTH: {wordchain.Count()}");
+        if (wordchain.Count == 0)
+            return;
+        if (filter != null && !filter.Recipients.Contains(_playerManager.LocalSession))
             return;
 
-        var wordbank = GetWords();
-        var wordchain = ev.Message.Trim()
-            .ToLower()
-            .Split(" ", StringSplitOptions.RemoveEmptyEntries)
-            .Select(x =>
-            {
-                // let "don't," resolve to "dont", let "," resolve to ","
-                if (wordbank.Contains(x))
-                    return x;
-                var clean = new string(x.Where(c => !char.IsPunctuation(c)).ToArray());
-                return wordbank.Contains(clean) ? clean : "";
-            })
-            .Take(WordLimit)
-            .ToList();
-
-        if (wordchain.Count() == 0)
-            return;
-
-        var clip = new PlayingVoxClip(wordchain, _timing.CurTime, ev.Delay);
-
+        var clip = new PlayingVoxClip(
+            wordchain: wordchain,
+            startTime: _timing.CurTime,
+            playDelay: delay != null ? TimeSpan.FromSeconds(delay.Value) : TimeSpan.Zero,
+            maxRuntime: maxRuntime != null ? TimeSpan.FromSeconds(maxRuntime.Value) : TimeSpan.MaxValue,
+            targetUid: uid
+        );
         _voxClipQueue.Add(clip);
+    }
+
+    private void OnVoxPlayMessage(VoxPlayMessage ev)
+    {
+        Log.Error("receive play");
+        Play(ev.Message, ev.VoiceSet, ev.Delay, ev.MaxRuntime, GetEntity(ev.TargetNuid));
     }
 }

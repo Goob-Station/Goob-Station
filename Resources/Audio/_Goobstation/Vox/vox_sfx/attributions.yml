@@ -1,0 +1,6 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- files: ["sfx_airhorn.ogg", "sfx_censor.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "taken from tgstation, renamed from sairhorn.ogg and scensor.ogg"
+  source: "https://github.com/tgstation/tgstation/tree/master/sound/announcer/vox_fem"
