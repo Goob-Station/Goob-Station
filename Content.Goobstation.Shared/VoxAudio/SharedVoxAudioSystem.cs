@@ -19,6 +19,13 @@ public sealed partial class VoxPlaybackWord
     public ResPath Path { get; set; } = default!;
 }
 
+public enum VoxWordMatch
+{
+    None,
+    Partial,
+    Exact
+}
+
 public abstract partial class SharedVoxAudioSystem : EntitySystem
 {
     /// <summary>
@@ -34,16 +41,34 @@ public abstract partial class SharedVoxAudioSystem : EntitySystem
             .ToList();
 
     /// <summary>
-    /// whether equals, or equals with puncutation removed.
-    /// todo support removing plurality, -ing
+    /// Goida tolerant word match, remove punctuation, 's', 'es', 'ing' if it matches to another word
+    /// there is probably a better way to do this but if i
+    /// had to learn regex i would kill myself
     /// </summary>
     /// <param name="sWord"></param>
     /// <param name="vWord"></param>
     /// <returns></returns>
-    public bool VoxWordCheck(string sWord, VoxWord vWord)
-        => vWord.Word.Equals(sWord, StringComparison.CurrentCultureIgnoreCase)
-            || vWord.Word.Equals(new string(sWord.Where(c => !char.IsPunctuation(c)).ToArray()));
+    public VoxWordMatch VoxWordCheck(string sWord, VoxWord vWord)
+    {
+        var a = sWord;
+        var b = vWord.Word;
+        var @mode = StringComparison.OrdinalIgnoreCase;
 
+        if (b.Equals(a, @mode))
+            return VoxWordMatch.Exact;
+
+        var noPunctuation = string.Concat(a.Where(c => !char.IsPunctuation(c)));
+        if (b.Equals(noPunctuation, @mode))
+            return VoxWordMatch.Exact;
+
+        if (noPunctuation.Length > 2 &&
+            (noPunctuation[^1..].Equals("s", @mode) && b.Equals(noPunctuation[..^1], @mode)
+            || noPunctuation[^2..].Equals("es", @mode) && b.Equals(noPunctuation[..^2], @mode)
+            || noPunctuation[^3..].Equals("ing", @mode) && b.Equals(noPunctuation[..^3], @mode)))
+            return VoxWordMatch.Partial;
+
+        return VoxWordMatch.None;
+    }
     /// <summary>
     /// returns a sequential list of all valid words for playback, using the provided voice set.
     /// not case sensitive
@@ -61,7 +86,7 @@ public abstract partial class SharedVoxAudioSystem : EntitySystem
             {
                 foreach (var voice in voiceSet)
                 {
-                    var word = voice.Words.FirstOrDefault(w => VoxWordCheck(wordStr, w));
+                    var word = voice.Words.FirstOrDefault(w => VoxWordCheck(wordStr, w) != VoxWordMatch.None);
                     if (word != null)
                         // we're doing this to allow explicitly defined paths
                         return new VoxPlaybackWord()
@@ -83,6 +108,7 @@ public abstract partial class SharedVoxAudioSystem : EntitySystem
     /// <param name="message"></param>
     /// <param name="voiceProtoSet"></param>
     /// <param name="delay"></param>
+    /// <param name="maxRuntime"></param>
     /// <param name="uid"></param>
     /// <param name="filter"></param>
     public abstract void Play(string message, List<ProtoId<VoxVoicePrototype>> voiceProtoSet, float? delay = 0f,
