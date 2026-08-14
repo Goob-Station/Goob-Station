@@ -18,10 +18,6 @@ public sealed class PlayingVoxClip
     public TimeSpan NextWordPlayTime;
     public TimeSpan StartTime;
     public TimeSpan MaxRuntime;
-
-    /// <summary>
-    /// if VoxClipPlaybackType.OnEntity, this entity it plays from.
-    /// </summary>
     public EntityUid? TargetEnt;
 
     public PlayingVoxClip(List<VoxPlaybackWord> wordchain, TimeSpan startTime, TimeSpan playDelay,
