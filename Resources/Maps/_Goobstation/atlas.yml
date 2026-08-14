@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 08/14/2026 05:56:01
-  entityCount: 9094
+  time: 08/14/2026 06:51:57
+  entityCount: 9092
 maps:
 - 1
 grids:
@@ -3511,8 +3511,6 @@ entities:
       - 7436
       - 2459
       - 6024
-      - 6682
-      - 5976
     - type: Fixtures
       fixtures: {}
   - uid: 7724
@@ -3700,7 +3698,7 @@ entities:
       pos: -40.5,-0.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -5644.2534
+      secondsUntilStateChange: -5962.27
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -3726,7 +3724,7 @@ entities:
       pos: -57.5,0.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -160276.39
+      secondsUntilStateChange: -160594.4
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -3744,7 +3742,7 @@ entities:
       pos: -57.5,-0.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -160276.19
+      secondsUntilStateChange: -160594.2
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -3873,7 +3871,7 @@ entities:
       pos: -32.5,-2.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -104226.19
+      secondsUntilStateChange: -104544.2
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -3908,7 +3906,7 @@ entities:
       pos: 27.5,18.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -31936.803
+      secondsUntilStateChange: -32254.82
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -4293,7 +4291,7 @@ entities:
       pos: 20.5,2.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -101144.555
+      secondsUntilStateChange: -101462.57
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -4705,7 +4703,7 @@ entities:
       pos: 9.5,-4.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -111412.64
+      secondsUntilStateChange: -111730.66
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -4747,7 +4745,7 @@ entities:
       pos: -32.5,18.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -150450.42
+      secondsUntilStateChange: -150768.44
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -4770,7 +4768,7 @@ entities:
       pos: -22.5,-15.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -132104.47
+      secondsUntilStateChange: -132422.48
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -4885,7 +4883,7 @@ entities:
       pos: 11.5,11.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -16037.415
+      secondsUntilStateChange: -16355.432
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -25397,7 +25395,7 @@ entities:
       pos: -27.5,-3.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -60158.883
+      secondsUntilStateChange: -60476.9
       state: Closing
   - uid: 3518
     components:
@@ -30595,6 +30593,13 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#990000FF'
+  - uid: 6682
+    components:
+    - type: Transform
+      pos: 9.5,5.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#990000FF'
   - uid: 6718
     components:
     - type: Transform
@@ -33667,6 +33672,13 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#0055CCFF'
+  - uid: 5976
+    components:
+    - type: Transform
+      pos: 9.5,5.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
   - uid: 6112
     components:
     - type: Transform
@@ -33817,7 +33829,7 @@ entities:
   - uid: 6744
     components:
     - type: Transform
-      pos: 9.5,5.5
+      pos: 9.5,6.5
       parent: 2
     - type: AtmosPipeColor
       color: '#0055CCFF'
@@ -35243,14 +35255,6 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#990000FF'
-  - uid: 9009
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 9.5,5.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#990000FF'
 - proto: GasPipeTJunctionAlt2
   entities:
   - uid: 154
@@ -35834,14 +35838,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -47.5,8.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#0055CCFF'
-  - uid: 9008
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 9.5,6.5
       parent: 2
     - type: AtmosPipeColor
       color: '#0055CCFF'
@@ -36572,21 +36568,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 29
-    - type: AtmosPipeLayers
-      pipeLayer: Tertiary
-  - uid: 5976
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 8.5,6.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#0055CCFF'
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 7440
     - type: AtmosPipeLayers
       pipeLayer: Tertiary
   - uid: 6024
@@ -37606,21 +37587,6 @@ entities:
       pipeLayer: Secondary
     - type: AtmosPipeColor
       color: '#990000FF'
-  - uid: 6682
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 8.5,5.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#990000FF'
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 7440
-    - type: AtmosPipeLayers
-      pipeLayer: Secondary
   - uid: 6687
     components:
     - type: Transform
