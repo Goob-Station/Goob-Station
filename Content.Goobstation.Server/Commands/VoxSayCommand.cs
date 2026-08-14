@@ -18,4 +18,11 @@ public sealed class VoxSayCommand : ToolshedCommand
                 .Split(",", StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
                 .Select(id => new ProtoId<VoxVoicePrototype>(id))]);
     // Good. Keep smiling
+
+    [CommandImplementation("entity")]
+    public void VoxSayEntity([PipedArgument] EntityUid uid, string toSay, string voiceProtoIds)
+        => EntityManager.System<VoxAudioSystem>()
+            .Play(toSay, [.. voiceProtoIds
+                .Split(",", StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+                .Select(id => new ProtoId<VoxVoicePrototype>(id))], 0, 0, uid);
 }
