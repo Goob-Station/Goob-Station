@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 08/15/2026 05:51:54
-  entityCount: 9109
+  time: 08/15/2026 06:12:10
+  entityCount: 9108
 maps:
 - 1
 grids:
@@ -4351,7 +4351,7 @@ entities:
       pos: -32.5,-2.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -114995.99
+      secondsUntilStateChange: -115174.37
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -4386,7 +4386,7 @@ entities:
       pos: 27.5,18.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -42706.61
+      secondsUntilStateChange: -42884.99
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -5203,7 +5203,7 @@ entities:
       pos: -32.5,18.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -161220.23
+      secondsUntilStateChange: -161398.61
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -45019,6 +45019,12 @@ entities:
       rot: 3.141592653589793 rad
       pos: 21.5,30.5
       parent: 2
+  - uid: 9048
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -66.5,0.5
+      parent: 2
   - uid: 9049
     components:
     - type: Transform
@@ -50397,12 +50403,6 @@ entities:
       parent: 2
     - type: SurveillanceCamera
       id: Engineering - Solars N
-  - uid: 9052
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -35.5,5.5
-      parent: 2
   - uid: 9053
     components:
     - type: Transform
@@ -50727,20 +50727,16 @@ entities:
     - type: Transform
       pos: 2.5,23.5
       parent: 2
-  - uid: 9048
+    - type: SurveillanceCamera
+      id: Security - Armory
+  - uid: 9052
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 0.5,20.5
+      rot: 1.5707963267948966 rad
+      pos: 8.5,24.5
       parent: 2
     - type: SurveillanceCamera
-      id: Security - Security North
-  - uid: 9054
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 5.5,24.5
-      parent: 2
+      id: Security - Detective
 - proto: SurveillanceCameraService
   entities:
   - uid: 2534
