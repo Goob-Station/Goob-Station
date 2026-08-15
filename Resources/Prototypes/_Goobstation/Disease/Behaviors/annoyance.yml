@@ -139,9 +139,12 @@
   components:
   - type: DiseaseEffect
     complexity: 12
-  - type: DiseaseGrantComponentEffect
-    components:
-    - type: PainNumbness
+  - type: DiseaseReagentEffect
+    timeScale: false
+    effects:
+    - !type:ModifyStatusEffect
+      effectProto: PainNumbnessTraitStatusEffect
+      time: 20
 
 - type: entity
   id: DiseaseBehaviorDeaf
@@ -205,8 +208,6 @@
     - !type:ModifyStatusEffect
       effectProto: StatusEffectSeeingRainbow
       time: 20
-      type: Add
-      refresh: true
   - type: DiseasePeriodicCondition
     delayMin: 10
     delayMax: 50
