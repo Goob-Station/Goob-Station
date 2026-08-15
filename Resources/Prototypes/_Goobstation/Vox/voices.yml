@@ -1,19 +1,28 @@
+# This look like its a fucking PAIN to add new shitty voices to? see Tools/_Goobstation/gen_vox_proto.py !
+
 - type: voxVoice
   id: voxSfx
   basePath: /Audio/_Goobstation/Vox/vox_sfx
   words:
-    - word: sfx_airhorn
-    - word: sfx_censor
-    - word: sfx_terror
-      path: /Audio/_White/Voice/Xenomorph/cough1.ogg
-    - word: sfx_meteorimpact
-      path: /Audio/_Lavaland/Effects/meteorimpact.ogg
-    - word: sfx_beep1
-      path: /Audio/_EinsteinEngines/Voice/IPC/beep_500.ogg
-    - word: sfx_beep2
-      path: /Audio/_EinsteinEngines/Voice/IPC/beep_2000.ogg
-    - word: sfx_traitor
-      path: /Audio/_EinsteinEngines/Voice/IPC/wilhelm.ogg
+  - word: sfx_airhorn
+  - word: sfx_airhorn2
+  - word: sfx_censor
+  - word: sfx_doorstuck
+  - word: sfx_excellent
+  - word: sfx_fart
+  - word: sfx_honk
+  - word: sfx_woop
+  - word: sfx_woopwoop
+  - word: sfx_terror
+    path: /Audio/_White/Voice/Xenomorph/cough1.ogg
+  - word: sfx_meteorimpact
+    path: /Audio/_Lavaland/Effects/meteorimpact.ogg
+  - word: sfx_beep1
+    path: /Audio/_EinsteinEngines/Voice/IPC/beep_500.ogg
+  - word: sfx_beep2
+    path: /Audio/_EinsteinEngines/Voice/IPC/beep_2000.ogg
+  - word: sfx_traitor
+    path: /Audio/_EinsteinEngines/Voice/IPC/wilhelm.ogg
 
 - type: voxVoice
   id: voxFem
@@ -1306,3 +1315,4 @@
   - word: zombie
   - word: zone
   - word: zulu
+
